@@ -1,4 +1,4 @@
-2003-06-23    <buchal@domaciskola.robinson>
+2003-06-23  Jan Buchal   <buchal@domaciskola.robinson>
 
 	* src/modules/festival.c (festival_set_voice): Set cur_rate
 	and cur_pitch to 0 on voice change.
