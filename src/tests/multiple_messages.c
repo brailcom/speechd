@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: multiple_messages.c,v 1.2 2003-03-23 21:33:49 hanke Exp $
+ * $Id: multiple_messages.c,v 1.3 2003-04-14 02:10:41 hanke Exp $
  */
 
 #include <stdio.h>
@@ -63,7 +63,7 @@ int main() {
 		printf("wait ");
 		fflush(NULL);
 		sleep(10);
-		spd_stop(sockfd);
+		spd_cancel(sockfd);
 		printf("stop!\n");
 		printf("\n");
 	} 
