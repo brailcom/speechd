@@ -1,3 +1,50 @@
+2003-05-18  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* intl/fdset.h (Module): NO_VOICE: New type of voice
+
+	* config/speechd.conf: New mechanism for loading output modules.
+
+	* src/modules/flite.c (module_load): Initialize the settings tables.
+
+	* src/modules/festival.c (module_getvoice): New function. Get voice name from passed settings.
+	(festival_write): Set the appropriate voice.
+
+	* src/modules/festival_client.c (festivalSetVoice): New function.
+
+	* src/modules/flite.c (modinfo_flite): Settings initialization.
+	(module_init): New function.
+	(module_load): Renamed from module_init().
+
+	* src/modules/cstsnd.c (modinfo_cstsnd): Settings initialization.
+	(module_init): New function.
+	(module_load): Renamed from module_init().
+
+	* src/modules/festival.c (modinfo_festival): Settings initialization.
+	(module_init): New function.
+	(module_load): Renamed from module_init().
+
+	* src/modules/apollo.c (modinfo_apollo): Settings initialization.
+	(module_init): New function.
+	(module_load): Renamed from module_init().
+	
+	* intl/module.h (SPDVoiceDef): New structure type: Mapping of the symbolic voice names.
+	(SPDModuleSettings): New structure type: Settings for the output modules.
+	(OutputModule): New item: SPDModuleSettings settings.
+	Initialization in other modules changed.
+
+	* src/server/dc_decl.h (cb_AddModule): Now also act as a switcher between contexts.
+	Don't initialize the output module, only load it into memmory.
+	(cb_EndAddModule): Terminate current context.
+	Initialize the output module.
+	(cb_AddParam): Add new parameter to the given output module.
+	(cb_AddVoice): Add new voice to the given output module.
+
+	* src/server/module.c (init_output_module): New function: initialize output module.
+	(load_output_module): Renamed from init_output_module: only load it into memmory.
+
+	* src/modules/festival.c (module_init): Set server_host and server_port according
+	to user settings.
+
 2003-05-17  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* src/audio/spd_audio.h: Include flite/flite.h.
