@@ -1,3 +1,6 @@
+2003-05-12  Milan Zamazal  <pdm@zamazal.org>
+
+	* configure.in: Missing AC_CHECK_LIB arguments added.
 
 2003-05-11  Hynek Hanke  <hanke@volny.cz>
 
