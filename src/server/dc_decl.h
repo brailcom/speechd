@@ -19,12 +19,15 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.24 2003-06-08 22:19:29 hanke Exp $
+ * $Id: dc_decl.h,v 1.25 2003-06-20 00:41:46 hanke Exp $
  */
 
 #include "speechd.h"
 
 int table_add(char *name, char *group);
+
+/* So that gcc doesn't comply about casts to char* */
+extern char* spd_strdup(char* string);
 
 char cur_mod_options[255];      /* Which section with parameters of output modules
                                    we are in? */
@@ -54,66 +57,96 @@ DOTCONF_CB(cb_DefaultCharacterTable);
 DOTCONF_CB(cb_DefaultKeyTable);
 DOTCONF_CB(cb_DefaultSoundTable);
 DOTCONF_CB(cb_AddModule);
+DOTCONF_CB(cb_fr_AddModule);
 DOTCONF_CB(cb_EndAddModule);
 DOTCONF_CB(cb_AddParam);
 DOTCONF_CB(cb_AddVoice);
 DOTCONF_CB(cb_MinDelayProgress);
 DOTCONF_CB(cb_ApolloLanguage);
-
+DOTCONF_CB(cb_unknown);
 
 /* define dotconf configuration options */
-static const configoption_t options[] =
+
+static configoption_t first_run_options[] =
 {
-    {"LogFile", ARG_STR, cb_LogFile, 0, 0},
-    {"LogLevel", ARG_INT, cb_LogLevel, 0, 0},
-    {"SndModule", ARG_STR, cb_SndModule, 0, 0},
-    {"AddTable", ARG_STR, cb_AddTable, 0, 0},
-    {"DefaultModule", ARG_STR, cb_DefaultModule, 0, 0},
-    {"DefaultRate", ARG_INT, cb_DefaultRate, 0, 0},
-    {"DefaultPitch", ARG_INT, cb_DefaultPitch, 0, 0},
-    {"DefaultLanguage", ARG_STR, cb_DefaultLanguage, 0, 0},
-    {"DefaultPriority", ARG_INT, cb_DefaultPriority, 0, 0},
-    {"DefaultPunctuationMode", ARG_STR, cb_DefaultPunctuationMode, 0, 0},
-    {"DefaultPunctuationTable", ARG_STR, cb_DefaultPunctuationTable, 0, 0},
-    {"PunctuationSome", ARG_STR, cb_PunctuationSome, 0, 0},
-    {"DefaultClientName", ARG_STR, cb_DefaultClientName, 0, 0},
-    {"DefaultVoiceType", ARG_INT, cb_DefaultVoiceType, 0, 0},
-    {"DefaultSpelling", ARG_TOGGLE, cb_DefaultSpelling, 0, 0},
-    {"DefaultSpellingTable", ARG_STR, cb_DefaultSpellingTable, 0, 0},
-    {"DefaultCharacterTable", ARG_STR, cb_DefaultCharacterTable, 0, 0},
-    {"DefaultKeyTable", ARG_STR, cb_DefaultKeyTable, 0, 0},
-    {"DefaultSoundTable", ARG_STR, cb_DefaultSoundTable, 0, 0},
-    {"DefaultCapLetRecognition", ARG_TOGGLE, cb_DefaultCapLetRecognition, 0, 0},
-    {"AddModule", ARG_STR, cb_AddModule, 0, 0},
-    {"EndAddModule", ARG_NONE, cb_EndAddModule, 0,0},
-    {"AddParam", ARG_LIST, cb_AddParam, 0, 0},
-    {"AddVoice", ARG_LIST, cb_AddVoice, 0, 0},
-    {"MinDelayProgress", ARG_INT, cb_MinDelayProgress, 0, 0},
-    {"ApolloLanguage", ARG_LIST, cb_ApolloLanguage, 0, 0},
-    /*{"ExampleOption", ARG_STR, cb_example, 0, 0},
-     *      {"MultiLineRaw", ARG_STR, cb_multiline, 0, 0},
-     *           {"", ARG_NAME, cb_unknown, 0, 0},
-     *                {"MoreArgs", ARG_LIST, cb_moreargs, 0, 0},*/
+    {"AddModule", ARG_STR, cb_fr_AddModule, 0, 0},
+    {"", ARG_NAME, cb_unknown, 0, 0},
     LAST_OPTION
 };
+
+configoption_t *
+add_config_option(configoption_t *options, char *name, int type,
+                  dotconf_callback_t callback, info_t *info,
+                  unsigned long context)
+{
+    configoption_t *opts;
+
+    num_config_options++;
+    opts = (configoption_t*) realloc(options, num_config_options * sizeof(configoption_t));
+    opts[num_config_options-1].name = strdup(name);
+    opts[num_config_options-1].type = type;
+    opts[num_config_options-1].callback = callback;
+    opts[num_config_options-1].info = info;
+    opts[num_config_options-1].context = context;
+    return opts;
+}
+
+#define ADD_CONFIG_OPTION(name, arg_type) \
+    options = add_config_option(options, #name, arg_type, cb_ ## name, 0, 0);
+
+#define ADD_LAST_OPTION() \
+    options = add_config_option(options, "", 0, NULL, NULL, 0);
+
+int
+load_config_options()
+{
+    ADD_CONFIG_OPTION(LogFile, ARG_STR);
+    ADD_CONFIG_OPTION(LogLevel, ARG_INT);
+    ADD_CONFIG_OPTION(SndModule, ARG_STR);
+    ADD_CONFIG_OPTION(AddTable, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultModule, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultRate, ARG_INT);
+  
+    ADD_CONFIG_OPTION(DefaultPitch, ARG_INT);
+    ADD_CONFIG_OPTION(DefaultLanguage, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultPriority, ARG_INT);
+    ADD_CONFIG_OPTION(DefaultPunctuationMode, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultPunctuationTable, ARG_STR);
+    ADD_CONFIG_OPTION(PunctuationSome, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultClientName, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultVoiceType, ARG_INT);
+    ADD_CONFIG_OPTION(DefaultSpelling, ARG_TOGGLE);
+    ADD_CONFIG_OPTION(DefaultSpellingTable, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultCharacterTable, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultKeyTable, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultSoundTable, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultCapLetRecognition, ARG_TOGGLE);
+    ADD_CONFIG_OPTION(AddModule, ARG_STR);
+    ADD_CONFIG_OPTION(EndAddModule, ARG_NONE);
+    ADD_CONFIG_OPTION(AddParam, ARG_LIST);
+    ADD_CONFIG_OPTION(AddVoice, ARG_LIST);
+    ADD_CONFIG_OPTION(MinDelayProgress, ARG_INT);
+    ADD_CONFIG_OPTION(ApolloLanguage, ARG_LIST);
+    /*{"ExampleOption", ARG_STR, cb_example, 0, 0},
+     *      {"MultiLineRaw", ARG_STR, cb_multiline, 0, 0},
+     *           {"", ARG_NAME, cb_unknown, 0, 0}, */
+        //    LAST_OPTION
+}
 
 DOTCONF_CB(cb_LogFile)
 {
     assert(cmd->data.str != NULL);
     if (!strncmp(cmd->data.str,"stdout",6)){
-        logfile = (FILE*) malloc(sizeof(FILE*));
         logfile = stdout;
         return NULL;
     }
     if (!strncmp(cmd->data.str,"stderr",6)){
-        logfile = (FILE*) malloc(sizeof(FILE*));
         logfile = stderr;
         return NULL;
     }
     logfile = fopen(cmd->data.str, "w");
     if (logfile == NULL){
         printf("Error: can't open logging file! Using stdout.\n");
-        logfile = (FILE*) malloc(sizeof(FILE*));
         logfile = stdout;
     }
     MSG(2,"Speech Dispatcher Logging to file %s", cmd->data.str);
@@ -164,7 +197,6 @@ DOTCONF_CB(cb_AddTable)
 	
     language = NULL;
     tablename = NULL;
-    line = (char*) spd_malloc(256);
     bline = (char*) spd_malloc(256);
     filename = (char*) spd_malloc(256);
 	
@@ -179,6 +211,7 @@ DOTCONF_CB(cb_AddTable)
         line = (char*) spd_malloc(256 * sizeof(char));
         if(fgets(line, 254, icons_file) == NULL){
             MSG(2, "Specified table %s empty or missing language, table or group identification.", filename);
+            spd_free(line);
             return NULL;
         }
 
@@ -243,7 +276,7 @@ DOTCONF_CB(cb_AddTable)
         character = strtok(helper, "\"");
 
 	    if (character == NULL){
-            /* probably a black line or commentary */
+            /* probably a blank line or commentary */
             continue;
         }
 
@@ -326,8 +359,7 @@ DOTCONF_CB(cb_PunctuationSome)
 
 DOTCONF_CB(cb_DefaultPunctuationTable)
 {
-    GlobalFDSet.punctuation_table = (char*) spd_malloc((strlen(cmd->data.str) + 1) * sizeof(char));
-    strcpy(GlobalFDSet.punctuation_table, cmd->data.str);
+    GlobalFDSet.punctuation_table = spd_strdup(cmd->data.str);
     return NULL;
 }
 
@@ -353,29 +385,25 @@ DOTCONF_CB(cb_DefaultSpelling)
 
 DOTCONF_CB(cb_DefaultSpellingTable)
 {
-    GlobalFDSet.spelling_table = (char*) spd_malloc((strlen(cmd->data.str) + 1) * sizeof(char));
-    strcpy(GlobalFDSet.spelling_table,cmd->data.str);
+    GlobalFDSet.spelling_table = spd_strdup(cmd->data.str);
     return NULL;
 }
 
 DOTCONF_CB(cb_DefaultCharacterTable)
 {
-    GlobalFDSet.char_table = (char*) spd_malloc((strlen(cmd->data.str) + 1) * sizeof(char));
-    strcpy(GlobalFDSet.char_table, cmd->data.str);
+    GlobalFDSet.char_table = spd_strdup(cmd->data.str);
     return NULL;
 }
 
 DOTCONF_CB(cb_DefaultKeyTable)
 {
-    GlobalFDSet.key_table = (char*) spd_malloc((strlen(cmd->data.str) + 1) * sizeof(char));
-    strcpy(GlobalFDSet.key_table,cmd->data.str);
+    GlobalFDSet.key_table = spd_strdup(cmd->data.str);
     return NULL;
 }
 
 DOTCONF_CB(cb_DefaultSoundTable)
 {
-    GlobalFDSet.snd_icon_table = (char*) spd_malloc((strlen(cmd->data.str) + 1) * sizeof(char));
-    strcpy(GlobalFDSet.snd_icon_table,cmd->data.str);
+    GlobalFDSet.snd_icon_table = spd_strdup(cmd->data.str);
     return NULL;
 }
 
@@ -396,10 +424,24 @@ DOTCONF_CB(cb_MinDelayProgress)
 DOTCONF_CB(cb_AddModule)
 {
     if (cmd->data.str == NULL) FATAL("No output module name specified");
+    cur_mod = g_hash_table_lookup(output_modules, cmd->data.str);
+    if (cur_mod == NULL) FATAL("Internal error in finding output modules");
+
+    return NULL;
+}
+
+DOTCONF_CB(cb_fr_AddModule)
+{
+    char *name;
+
+    if (cmd->data.str == NULL) FATAL("No output module name specified");
     cur_mod = load_output_module(cmd->data.str);
+
     if (cur_mod == NULL) FATAL("Couldn't load specified output module");
     assert(cur_mod->name != NULL);
-    g_hash_table_insert(output_modules, cur_mod->name, cur_mod);
+
+    name = strdup(cmd->data.str);
+    g_hash_table_insert(output_modules, name, cur_mod);
 
     return NULL;
 }
@@ -413,6 +455,12 @@ DOTCONF_CB(cb_EndAddModule)
     if (init_output_module(cur_mod) == -1) FATAL("Couldn't initialize specified output module");
 
     cur_mod = NULL;
+    return NULL;
+}
+
+DOTCONF_CB(cb_unknown)
+{
+    //    MSG(4,"Unknown option, doesn't matter");
     return NULL;
 }
 
@@ -436,13 +484,15 @@ DOTCONF_CB(cb_AddParam)
         return NULL;
     }
 
+    if (cur_mod->settings.voices == NULL){
+        return NULL;
+    }
+
     MSG(3,"Adding parameter: %s=%s", cmd->data.list[0],
         cmd->data.list[1]);
     
-    key = (char*) spd_malloc(strlen(cmd->data.list[0]) * sizeof(char));
-    value = (char*) spd_malloc(strlen(cmd->data.list[1]) * sizeof(char));
-    strcpy(key, cmd->data.list[0]);
-    strcpy(value, cmd->data.list[1]);
+    key = spd_strdup(cmd->data.list[0]);
+    value = spd_strdup(cmd->data.list[1]);
 
     g_hash_table_insert(cur_mod->settings.params, key, value);
 
@@ -487,13 +537,16 @@ DOTCONF_CB(cb_AddVoice)
         return NULL;
     }
 
+    if (cur_mod->settings.voices == NULL){
+        return NULL;
+    }
+
     MSG(3,"Adding voice: [%s] %s=%s", language,
         symbolic, voicename);
 
     voices = g_hash_table_lookup(cur_mod->settings.voices, language);
     if (voices == NULL){
-        key = (char*) spd_malloc((strlen(language) + 1) * sizeof(char));
-        strcpy(key, language);
+        key = spd_strdup(language);
         value = (SPDVoiceDef*) spd_malloc(sizeof(SPDVoiceDef));
         g_hash_table_insert(cur_mod->settings.voices, key, value);
         voices = value;
@@ -575,8 +628,7 @@ table_add(char *name, char *group)
         return 0;
     }
 
-    p = (char*) spd_malloc((strlen(name)+1) * sizeof(char));
-    strcpy(p, name);
+    p = spd_strdup(name);
 
     if (!strcmp(group,"sound_icons"))
         tables.sound_icons = g_list_append(tables.sound_icons, p);
