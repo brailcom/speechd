@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.4 2003-03-25 22:44:37 hanke Exp $
+ * $Id: dc_decl.h,v 1.5 2003-03-30 22:33:27 hanke Exp $
  */
 
 #include "speechd.h"
@@ -53,7 +53,7 @@ static const configoption_t options[] =
 		   {"DefaultPitch", ARG_INT, cb_DefaultPitch, 0, 0},
 		   {"DefaultLanguage", ARG_STR, cb_DefaultLanguage, 0, 0},
 		   {"DefaultPriority", ARG_INT, cb_DefaultPriority, 0, 0},
-		   {"DefaultPunctutationMode", ARG_STR, cb_DefaultPunctuationMode, 0, 0},
+		   {"DefaultPunctuationMode", ARG_STR, cb_DefaultPunctuationMode, 0, 0},
 		   {"DefaultClientName", ARG_STR, cb_DefaultClientName, 0, 0},
 		   {"DefaultVoiceType", ARG_INT, cb_DefaultVoiceType, 0, 0},
 		   {"DefaultSpelling", ARG_TOGGLE, cb_DefaultSpelling, 0, 0},
@@ -105,12 +105,16 @@ DOTCONF_CB(cb_AddSndIcons)
 	char *helper;
 	char *key;
 	char *value;
+	char *filename;
 	
 	MSG(4,"Reading sound icons file...");
 	
-	language = malloc(256);
+	language = (char*) spd_malloc(256);
+	filename = (char*) spd_malloc(256);
 	
-    if((icons_file = fopen(cmd->data.str, "r"))==NULL){
+	sprintf(filename,SYS_CONF"/%s", cmd->data.str);
+	MSG(4, "Reading sound icons from file %s", filename);
+	if((icons_file = fopen(filename, "r"))==NULL){
 		MSG(2,"Sound icons file specified in speechd.conf doesn't exist!");
 		return NULL;	  
 	}
@@ -124,13 +128,13 @@ DOTCONF_CB(cb_AddSndIcons)
 
 	language[strlen(language)-1]=0;
 	
-	icons_hash = g_hash_table_new(g_str_hash,g_str_equal);
+	icons_hash = g_hash_table_new(g_str_hash, g_str_equal);
 	g_hash_table_insert(snd_icon_langs, language, icons_hash);
     
 	while(1){
 		helper = malloc(512);
 		if(fgets(helper, 511, icons_file) == NULL) break;
-	    key = strtok(helper,":\r\n");
+		key = strtok(helper,":\r\n");
 		value = strtok(NULL,":\r\n");	
 		g_hash_table_insert(icons_hash, key, value);	
 	}
