@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.h,v 1.3 2003-05-26 16:04:50 hanke Exp $
+  * $Id: speaking.h,v 1.4 2003-06-01 21:26:38 hanke Exp $
   */
 
 #ifndef SPEAKING_H
@@ -64,5 +64,31 @@ int stop_p3();
 int stop_p23();
 
 void stop_from_uid(int uid);
+
+static char*
+process_message(char *buf, int bytes, TFDSetElement* settings);
+
+static char*
+process_message_punctuation(char *buf, int bytes, TFDSetElement *settings,
+                            GHashTable *icons);
+
+static char*
+process_message_spell(char *buf, int bytes, TFDSetElement *settings,
+                      GHashTable *icons);
+
+static GList*
+msglist_insert(GList *list, char *str, EMessageType type);
+
+/* Decides if the message should (not) be spoken now */
+static gint message_nto_speak (gconstpointer, gconstpointer);
+
+
+static void set_speak_thread_attributes();
+static void resolve_priorities();
+static TSpeechDMessage* get_message_from_queues();
+static OutputModule* get_output_module();
+static GList* speaking_get_queue(int priority);
+static void speaking_set_queue(int priority, GList *queue);
+
 
 #endif /* SPEAKING_H */
