@@ -1,16 +1,22 @@
 
-Hynek Hanke <hanke@volny.cz>
-	* API
-	* internal functioning
-	* implementation
-	* flite output module
-	* Speech Deamon Center
+
+Jan Buchal
+	* ideas
+	* design
 
 Tomas Cerha <cerha@brailcom.org>
     * core design
     * API
     * implementation
 
-Jan Buchal
+Hynek Hanke <hanke@volny.cz>
+	* API
+	* internal functioning
+	* implementation
+	* Flite output module
+	* Speech Deamon Center
+
+Milan Zamazal <pdm@brailcom.org>
+	* emacspeak support
 	* ideas
-	* design
+	* documentation/design
