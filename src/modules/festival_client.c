@@ -69,6 +69,7 @@
 int fapi_endian_loc = 1;
 
 static char *socket_receive_file_to_buff(int fd,int *size);
+static char *socket_receive_file_to_buff2(int fd,int *size, int *stop_flag, int stop_by_close);
 
 void delete_FT_Wave(FT_Wave *wave)
 {
@@ -86,7 +87,7 @@ int save_FT_Wave_snd(FT_Wave *wave, const char *filename)
     struct {
 	unsigned int    magic;	/* magic number */
 	unsigned int    hdr_size;	/* size of this header */
-	int    data_size;	        /* length of data (optional) */
+	int             data_size;        /* length of data (optional) */
 	unsigned int    encoding;	/* data encoding format */
 	unsigned int    sample_rate; /* samples per second */
 	unsigned int    channels;	 /* number of interleaved channels */
@@ -183,7 +184,8 @@ static int festival_socket_open(const char *host, int port)
     return fd;
 }
 
-static int nist_get_param_int(char *hdr, char *field, int def_val)
+static int
+nist_get_param_int(char *hdr, char *field, int def_val)
 {
     char *p;
     int val;
@@ -198,7 +200,8 @@ static int nist_get_param_int(char *hdr, char *field, int def_val)
 	return def_val;
 }
 
-static int nist_require_swap(char *hdr)
+static int
+nist_require_swap(char *hdr)
 {
     char *p;
     char *field = "sample_byte_format";
@@ -213,18 +216,21 @@ static int nist_require_swap(char *hdr)
     return 0; /* if unknown assume native byte order */
 }
 
-static char *client_accept_s_expr(int fd)
+static char *
+client_accept_s_expr(int fd)
 {
     /* Read s-expression from server, as a char * */
     char *expr;
     int filesize;
+
+    if (fd < 0) return NULL;
 
     expr = socket_receive_file_to_buff(fd,&filesize);
     expr[filesize] = '\0';
     return expr;
 }
 
-static FT_Wave *client_accept_waveform(int fd)
+static FT_Wave *client_accept_waveform(int fd, int *stop_flag, int stop_by_close)
 {
     /* Read waveform from server */
     char *wavefile;
@@ -232,7 +238,11 @@ static FT_Wave *client_accept_waveform(int fd)
     int num_samples, sample_rate, i;
     FT_Wave *wave;
 
-    wavefile = socket_receive_file_to_buff(fd,&filesize);
+    if (fd < 0) return NULL;
+
+    wavefile = socket_receive_file_to_buff(fd, &filesize);
+    if (wavefile == NULL) return NULL;
+
     wave = NULL;
     
     /* I know this is NIST file and its an error if it isn't */
@@ -244,7 +254,7 @@ static FT_Wave *client_accept_waveform(int fd)
             sample_rate = nist_get_param_int(wavefile,"sample_rate",16000);
             
             if ((num_samples*sizeof(short))+1024 == filesize)
-                {		
+                {
                     wave = (FT_Wave *)malloc(sizeof(FT_Wave));
                     wave->num_samples = num_samples;
                     wave->sample_rate = sample_rate;
@@ -274,6 +284,8 @@ static char *socket_receive_file_to_buff(int fd,int *size)
     int n,k,i;
     char c;
 
+    if (fd < 0) return NULL;
+
     bufflen = 1024;
     buff = (char *)malloc(bufflen);
     *size=0;
@@ -281,7 +293,78 @@ static char *socket_receive_file_to_buff(int fd,int *size)
     for (k=0; file_stuff_key[k] != '\0';)
     {
 	n = read(fd,&c,1);
-	if (n==0) break;  /* hit stream eof before end of file */
+	if (n<=0){
+	    xfree(buff);
+	    return NULL;  /* hit stream eof before end of file */
+	}
+
+	if ((*size)+k+1 >= bufflen)
+	{   /* +1 so you can add a NULL if you want */
+	    bufflen += bufflen/4;
+	    buff = (char *)realloc(buff,bufflen);
+	}
+	if (file_stuff_key[k] == c)
+	    k++;
+	else if ((c == 'X') && (file_stuff_key[k+1] == '\0'))
+	{   /* It looked like the key but wasn't */
+	    for (i=0; i < k; i++,(*size)++) 
+		buff[*size] = file_stuff_key[i];
+	    k=0;
+	    /* omit the stuffed 'X' */
+	}
+	else
+	{
+	    for (i=0; i < k; i++,(*size)++)
+		buff[*size] = file_stuff_key[i];
+	    k=0;
+	    buff[*size] = c;
+	    (*size)++;
+	}
+
+    }
+
+    return buff;
+}
+
+/* TODO: Maybe this could make use of festival_info */
+static char *socket_receive_file_to_buff2(int fd, int *size, int *stop_flag, int stop_by_close)
+{
+    /* Receive file (probably a waveform file) from socket using   */
+    /* Festival key stuff technique, but long winded I know, sorry */
+    /* but will receive any file without closing the stream or     */
+    /* using OOB data                                              */
+    static char *file_stuff_key = "ft_StUfF_key"; /* must == Festival's key */
+    char *buff;
+    int bufflen;
+    int n,k,i;
+    char c;
+
+    if (fd < 0) return NULL;
+
+    bufflen = 1024;
+    buff = (char *)malloc(bufflen);
+    *size=0;
+
+    for (k=0; file_stuff_key[k] != '\0';)
+    {
+	/* If in the stop_by_close mode and stop_flag gets set to 1,
+	 return */
+	if (stop_by_close){
+	    if (*stop_flag == 1){
+		/* Set stop_flag to "needed to reopen the socket" */
+		*stop_flag = -1;
+		DBG("Closing socket to stop synthesizing.");
+		close(fd);
+		return NULL; 
+	    }
+	}
+
+	/* Otherwise read more data */
+	n = read(fd,&c,1);
+	if (n<=0){   /* hit stream eof before end of file */
+	    xfree(buff);
+	    return NULL;
+	}
 	if ((*size)+k+1 >= bufflen)
 	{   /* +1 so you can add a NULL if you want */
 	    bufflen += bufflen/4;
@@ -315,16 +398,20 @@ festival_get_ack(FT_Info **info, char* ack)
 {
     int read_bytes;
     int n;
+
+    if (*info == NULL) return -1;
+    if ((*info)->server_fd < 0) return -1;
+
     for (n=0; n < 3; ){
         read_bytes = read((*info)->server_fd, ack+n, 3-n);
-        if (read_bytes == 0){
+        if (read_bytes <= 0){
             /* WARNING: This is a very strange situation
                but it happens often, I don't really know
                why???*/
-            fprintf(stderr, "FESTIVAL CLOSED CONNECTION, REOPENING");
-            *info = festivalOpen(*info);
+            DBG("FESTIVAL CLOSED CONNECTION");
+	    //	    *info = festivalOpen(*info);
             festival_connection_crashed = 1;
-            return 1; 
+            return -1; 
         }
         n += read_bytes;                
     }
@@ -336,6 +423,9 @@ int
 festival_read_response(FT_Info *info, char **expr)
 {
     char buf[4];    
+
+    if (info == NULL) return 1;
+    if (info->server_fd < 0) return 1;
 
     if (festival_get_ack(&info, buf)) return 1;
     buf[3] = 0;
@@ -375,9 +465,10 @@ festival_accept_any_response(FT_Info *info)
     do {
         if(festival_get_ack(&info, ack)) return;
 
+	if (ack == 0) DBG("ack is NULL");
         DBG("<- Festival: |%s|",ack);
 	if (strcmp(ack,"WV\n") == 0){         /* receive a waveform */
-	    client_accept_waveform(info->server_fd);
+	    client_accept_waveform(info->server_fd, NULL, 0);
 	}else if (strcmp(ack,"LP\n") == 0)    /* receive an s-expr */
 	    client_accept_s_expr(info->server_fd);
 	else if (strcmp(ack,"ER\n") == 0)    /* server got an error */
@@ -390,17 +481,40 @@ festival_accept_any_response(FT_Info *info)
     }while (strcmp(ack,"OK\n") != 0);
 }
 
-#define FEST_SEND_CMD(format, args...) \
+#define FEST_SEND_CMD(format) \
     { \
         FILE *fd; \
         char *str; \
         fd = fdopen(dup(info->server_fd),"wb"); \
-        str = g_strdup_printf(format"\n", args); \
-        fprintf(fd, str); \
-        DBG("-> Festival: |%s|", str); \
-        free(str); \
-        fclose(fd); \
+        if (fd > 0){ \
+          str = g_strdup_printf(format"\n"); \
+          fprintf(fd, str); \
+          DBG("-> Festival: |%s|", str); \
+          free(str); \
+          fclose(fd); \
+        }else{ \
+          DBG("Can't open connection"); \
+        } \
     }
+
+#define FEST_SEND_CMDA(format, args...) \
+    { \
+        FILE *fd; \
+        char *str; \
+        fd = fdopen(dup(info->server_fd),"wb"); \
+        if (fd > 0){ \
+          str = g_strdup_printf(format"\n", args); \
+          fprintf(fd, str); \
+          DBG("-> Festival: |%s|", str); \
+          free(str); \
+          fclose(fd); \
+        }else{ \
+          DBG("Can't open connection"); \
+        } \
+    }
+
+
+
 
 /***********************************************************************/
 /* Public Functions to this API                                        */
@@ -412,6 +526,8 @@ FT_Info *
 festivalOpen(FT_Info *info)
 {
     /* Open socket to server */
+
+    DBG("Opening socket fo Festival server");
 
     festival_connection_crashed = 0;
 
@@ -427,20 +543,20 @@ festivalOpen(FT_Info *info)
     }
 
     /* TODO: Not "any" response */
-    FEST_SEND_CMD("(require 'speech-dispatcher)","");
+    FEST_SEND_CMD("(require 'speech-dispatcher)");
     festival_accept_any_response(info);
 
-    FEST_SEND_CMD("(Parameter.set 'Wavefiletype 'nist)\n","");
+    FEST_SEND_CMD("(Parameter.set 'Wavefiletype 'nist)\n");
     festival_accept_any_response(info);
 
     return info;
 }
 
 int
-festival_speak_command(FT_Info *info, char *command, char *text, int symbol)
+festival_speak_command(FT_Info *info, char *command, const char *text, int symbol, int resp)
 {
     FILE *fd;
-    char *p;
+    const char *p;
     char *str;
 
     if (festival_check_info(info, "festival_speak_command") == -1) return -1;
@@ -467,19 +583,23 @@ festival_speak_command(FT_Info *info, char *command, char *text, int symbol)
     if (symbol == 0) fprintf(fd,"\")\n");
     else fprintf(fd, ")\n");
 
-    DBG("-> Festival: |%sthe text isn't displayed\")|", str);
+    DBG("-> Festival: |%sthe text is displayed above\")|", str);
 
     free(str);
     /* Close the stream (but not the socket) */
     fclose(fd);
+    DBG("Resources freed");
+
+    if (resp) festival_accept_any_response(info);
+
     return 0;
 }
 
-#define FEST_SPEAK_CMD(name, cmd, symbol) \
+#define FEST_SPEAK_CMD(name, cmd, symbol, resp) \
     int \
-    name(FT_Info *info, char *text) \
+    name(FT_Info *info, const char *text) \
     { \
-        return festival_speak_command(info, cmd, text, symbol); \
+        return festival_speak_command(info, cmd, text, symbol, resp); \
     }
 
 /* Sends a TEXT to Festival server for synthesis. Doesn't
@@ -489,11 +609,11 @@ festival_speak_command(FT_Info *info, char *command, char *text, int symbol)
  * in response.
  * Returns 0 if everything is ok, -1 otherwise.
 */
-FEST_SPEAK_CMD(festivalStringToWaveRequest, "speechd-speak", 0);
-FEST_SPEAK_CMD(festivalSpell, "speechd-spell", 0);
-FEST_SPEAK_CMD(festivalSoundIcon, "speechd-sound-icon", 1);
-FEST_SPEAK_CMD(festivalCharacter, "speechd-character", 0);
-FEST_SPEAK_CMD(festivalKey, "speechd-key", 0);
+FEST_SPEAK_CMD(festivalStringToWaveRequest, "speechd-speak-ssml", 0, 1);
+FEST_SPEAK_CMD(festivalSpell, "speechd-spell", 0, 1);
+FEST_SPEAK_CMD(festivalSoundIcon, "speechd-sound-icon", 1, 1);
+FEST_SPEAK_CMD(festivalCharacter, "speechd-character", 0, 1);
+FEST_SPEAK_CMD(festivalKey, "speechd-key", 0, 1);
 
 /* Reads the wavefile sent back after festivalStringToWaveRequest()
  * has been called. This function blocks until all the data is
@@ -503,70 +623,82 @@ FEST_SPEAK_CMD(festivalKey, "speechd-key", 0);
  * never tested as there is currently no support in Festival! 
  * It might not work correctly. */
 FT_Wave*
-festivalStringToWaveGetData(FT_Info *info, int* continues, int multiple)
+festivalStringToWaveGetData(FT_Info *info)
 {
     FT_Wave *wave = NULL;
     char ack[5];
-    static int remaining_waves = 0;
-
-    if (continues == NULL) return NULL;
-
-    if ((remaining_waves < 0) && (multiple)){
-        DBG("festivalStringToWaveGetData called when there are no more waves to read!");
-        *continues = -1;
-        return NULL;
-    }
-
-    if (multiple && (*continues == 2)){
-        if (festival_get_ack(&info, ack)){
-            *continues = -1;
-            return NULL;
-        }
-        DBG("<- Festival reading number of waves: %s", ack);
-	if (strcmp(ack,"LP\n") == 0){
-            char *reply, *tail_ptr;
-	    reply = client_accept_s_expr(info->server_fd);
-            remaining_waves = strtol(reply, &tail_ptr, 10);
-            if(tail_ptr == reply){
-                DBG("child: Invalid header of send data! (FATAL ERROR)");
-                *continues = -1;
-                return NULL;
-            }
-            DBG("%d waves left to read", remaining_waves);
-	}else{
-            fprintf(stderr,"festival_client: server returned incorrect answer\n");
-        }
-    }
-
-    if (multiple)
-        DBG("festivalStringToWaveGetData: remaining_waves %d", remaining_waves);
 
     /* Read back info from server */
     /* This assumes only one waveform will come back, also LP is unlikely */
-    wave = NULL;
-    *continues = 0;
     do{
         if (festival_get_ack(&info, ack)) return NULL;
         DBG("<- Festival: %s", ack);
 	if (strcmp(ack,"WV\n") == 0){
-	    wave = client_accept_waveform(info->server_fd);
-            if (multiple){
-                remaining_waves--;
-                if (remaining_waves > 0){
-                    *continues = 1;
-                    break;
-                }
-            }
+	    wave = client_accept_waveform(info->server_fd, NULL, 0);
 	}else if (strcmp(ack,"LP\n") == 0){
 	    client_accept_s_expr(info->server_fd);
 	}else if (strcmp(ack,"ER\n") == 0){
             //  fprintf(stderr,"festival_client: server returned error\n");
-            remaining_waves = 0;
-            *continues = 0;
             break;
         }
     }while (strcmp(ack,"OK\n") != 0);
     
+    return wave;
+}
+
+FT_Wave*
+festivalGetDataMulti(FT_Info *info, char **callback, int *stop_flag, int stop_by_close)
+{
+    FT_Wave *wave = NULL;
+    char ack[5];
+    char *resp = NULL;
+    FILE *fd;
+
+    if (festival_check_info(info, "festival_speak_command") == -1) return NULL;
+
+    /* Read back info from server */
+    /* This assumes only one waveform will come back */
+    wave = NULL;
+
+    *callback = NULL;
+
+    DBG("Stop by close mode : %d", stop_by_close);
+
+    DBG("-> Festival: (speechd-next)");
+    fd = fdopen(dup(info->server_fd),"wb");
+    fprintf(fd, "(speechd-next)\n");
+    fflush(fd);
+    fclose(fd);
+
+    do{
+        if (festival_get_ack(&info, ack)){
+	    DBG("Get ack failed");
+	    return NULL;
+	}
+        DBG("<- Festival: %s", ack);
+
+	if (strcmp(ack,"WV\n") == 0){
+	    wave = client_accept_waveform(info->server_fd, stop_flag, stop_by_close);
+	    if (wave == NULL) return NULL;
+	}else if (strcmp(ack,"LP\n") == 0){
+	    resp = client_accept_s_expr(info->server_fd);	    
+	    if (resp == NULL) return NULL;
+	    if (strlen(resp) != 0) resp[strlen(resp)-1] = 0;
+	    DBG("<- Festival: |%s|", resp);
+	    if (!strcmp(resp, "nil")){
+		DBG("festival_client: end of samples\n");
+		return NULL;
+	    }
+	}else if (strcmp(ack,"ER\n") == 0){
+            DBG("festival_client: server returned error\n");
+            return NULL;
+        }
+    }while (strcmp(ack,"OK\n") != 0);
+
+    if (resp)
+	if (strlen(resp) > 1)
+	    if (resp[0] != '#') *callback = resp;    
+
     return wave;
 }
 
@@ -599,9 +731,9 @@ int festivalClose(FT_Info *info)
         int ret; \
         if (festival_check_info(info, #name)) return -1; \
         if (param == NULL){ \
-	  FEST_SEND_CMD("("fest_param" nil)", 1); \
+	  FEST_SEND_CMD("("fest_param" nil)"); \
         }else{ \
-	  FEST_SEND_CMD("("fest_param" \"%s\")", g_ascii_strdown(param, -1)); \
+	  FEST_SEND_CMDA("("fest_param" \"%s\")", g_ascii_strdown(param, -1)); \
 	} \
         ret = festival_read_response(info, &r); \
         if ((resp != NULL) && (r != NULL)) *resp = r; \
@@ -614,7 +746,7 @@ int festivalClose(FT_Info *info)
     { \
         if (festival_check_info(info, #name)) return -1; \
         if (param == NULL) return -1; \
-        FEST_SEND_CMD("("fest_param" '%s)", g_ascii_strdown(param, -1)); \
+        FEST_SEND_CMDA("("fest_param" '%s)", g_ascii_strdown(param, -1)); \
         return festival_read_response(info, NULL); \
     } 
 
@@ -623,9 +755,11 @@ int festivalClose(FT_Info *info)
     name(FT_Info *info, int param) \
     { \
         if (festival_check_info(info, #name)) return -1; \
-        FEST_SEND_CMD("("fest_param" %d)", param); \
+        FEST_SEND_CMDA("("fest_param" %d)", param); \
         return festival_read_response(info, NULL); \
     }
+
+FEST_SET_SYMB(FestivalEnableMultiMode, "speechd-enable-multi-mode");
 
 FEST_SET_INT(FestivalSetRate, "speechd-set-rate");
 FEST_SET_INT(FestivalSetPitch, "speechd-set-pitch");
