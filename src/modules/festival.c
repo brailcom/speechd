@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.10 2003-05-21 00:33:45 hanke Exp $
+ * $Id: festival.c,v 1.11 2003-05-23 08:54:50 pdm Exp $
  */
 
 #define VERSION "0.1"
@@ -40,21 +40,21 @@
 
 #include "festival_client.c"
 
-const int DEBUG_FESTIVAL = 0;
+static const int DEBUG_FESTIVAL = 0;
 
 /* TODO: Cleaning, comments! */
 
 /* Thread and process control */
-int festival_speaking = 0;
-int festival_running = 0;
-int waiting_data = 0;
+static int festival_speaking = 0;
+static int festival_running = 0;
+static int waiting_data = 0;
 
-EVoiceType festival_cur_voice = NO_VOICE;
-signed int festival_cur_rate = 0;
-char *festival_cur_language;
+static EVoiceType festival_cur_voice = NO_VOICE;
+static signed int festival_cur_rate = 0;
+static char *festival_cur_language;
 
-pthread_t festival_speak_thread;
-pid_t festival_pid;
+static pthread_t festival_speak_thread;
+static pid_t festival_pid;
 
 /* Public function prototypes */
 gint	festival_write			(gchar *data, gint len, void*);
@@ -66,14 +66,14 @@ gint	festival_close			(void);
 FT_Info *festival_info;
 
 /* Internal functions prototypes */
-void* _festival_speak(void*);
-void _festival_synth(void);
-void _festival_sigpause();
-char* _festival_recode(char *data, char *language);
-cst_wave* festival_conv(FT_Wave *fwave);
-int festival_pause_requested = 0;
+static void* _festival_speak(void*);
+static void _festival_synth(void);
+static void _festival_sigpause();
+static char* _festival_recode(char *data, char *language);
+static cst_wave* festival_conv(FT_Wave *fwave);
+static int festival_pause_requested = 0;
 
-cst_wave *festival_test_wave;
+static cst_wave *festival_test_wave;
 
 /* Fill the module_info structure with pointers to this modules functions */
 OutputModule modinfo_festival = {
@@ -88,7 +88,7 @@ OutputModule modinfo_festival = {
    {0,0}
 };
 
-char*
+static char*
 module_getparam_str(GHashTable *table, char* param_name)
 {
     char *param;
@@ -96,7 +96,7 @@ module_getparam_str(GHashTable *table, char* param_name)
     return param;
 }
 
-int
+static int
 module_getparam_int(GHashTable *table, char* param_name)
 {
     char *param_str;
@@ -104,13 +104,17 @@ module_getparam_int(GHashTable *table, char* param_name)
     
     param_str = module_getparam_str(table, param_name);
     if (param_str == NULL) return -1;
-
-    param = atoi(param_str);
-
+    
+    {
+      char *tailptr;
+      param = strtol(param_str, &tailptr, 0);
+      if (tailptr == param_str) return -1;
+    }
+    
     return param;
 }
 
-char*
+static char*
 module_getvoice(GHashTable *table, char* language, EVoiceType voice)
 {
     SPDVoiceDef *voices;
@@ -137,7 +141,7 @@ module_getvoice(GHashTable *table, char* language, EVoiceType voice)
     case CHILD_FEMALE: 
         ret = voices->child_female; break;
     default:
-        FATAL("Internal error");
+        FATAL("Unknown voice");
     }
 
     if (ret == NULL) ret = voices->male1;
@@ -380,7 +384,7 @@ festival_close(void)
 }
 
 /* Internal functions */
-void*
+static void*
 _festival_speak(void* nothing)
 {	
     int ret;
@@ -427,7 +431,7 @@ _festival_speak(void* nothing)
     pthread_exit(NULL);
 }	
 
-void
+static void
 _festival_sigunblockusr(sigset_t *some_signals)
 {
     int ret;
@@ -438,7 +442,7 @@ _festival_sigunblockusr(sigset_t *some_signals)
         printf("festival: Can't block signal set, expect problems with terminating!\n");
 }
 
-void
+static void
 _festival_sigblockusr(sigset_t *some_signals)
 {
     int ret;
@@ -449,7 +453,7 @@ _festival_sigblockusr(sigset_t *some_signals)
         printf("festival: Can't block signal set, expect problems with terminating!\n");
 }
 
-cst_wave*
+static cst_wave*
 festival_conv(FT_Wave *fwave)
 {
     cst_wave *ret;
@@ -467,7 +471,7 @@ festival_conv(FT_Wave *fwave)
     return ret;   
 }
 
-void
+static void
 _festival_synth()
 {
     char *text;
@@ -583,14 +587,14 @@ _festival_synth()
     }
 }
 
-void
+static void
 _festival_sigpause()
 {
     festival_pause_requested = 1;
     if(DEBUG_FESTIVAL) printf("festival: received signal for pause\n");
 }
 
-char *
+static char *
 _festival_recode(char *data, char *language)
 {
     char *recoded;
