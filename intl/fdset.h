@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.22 2003-09-07 11:23:23 hanke Exp $
+ * $Id: fdset.h,v 1.23 2003-09-28 22:27:19 hanke Exp $
  */
 
 #ifndef FDSET_H
@@ -100,6 +100,7 @@ typedef struct{
     ESort hist_sorted;
     int reparted;
     unsigned int min_delay_progress;
+    int pause_context;          /* Number of words that should be repeated after a pause */
 }TFDSetElement;
 
 typedef struct{
