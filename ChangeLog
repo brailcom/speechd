@@ -1,5 +1,7 @@
 2003-04-29  Milan Zamazal  <pdm@brailcom.org>
 
+	* src/modules/apollo.c (apollo_pause): Call apollo_stop.
+
 	* INSTALL: libfestival-dev and libestools-dev added.
 	* configure.in: Call AC_PROG_CXX.
 	* src/modules/est_string_config.h: New file.
