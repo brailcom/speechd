@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.2 2003-09-07 23:26:27 hanke Exp $
+ * $Id: output.c,v 1.3 2003-09-11 16:32:30 hanke Exp $
  */
 
 #include "output.h"
@@ -295,9 +295,9 @@ output_close(OutputModule *module)
     if (output->working){
         SEND_CMD("STOP");
         SEND_CMD("QUIT");
-        sleep(10);
+        usleep(100);            /* So that the module has some time to exit() correctly */
     }
-    kill(module->pid, SIGKILL);
+    kill(module->pid, SIGKILL); /* If the module didn't manage to exit */
 
     waitpid(module->pid, NULL, WNOHANG);
     MSG(3, "Ok, closed succesfully.");
