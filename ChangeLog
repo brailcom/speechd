@@ -24,6 +24,8 @@
 	* src/python/speechd/client.py (_SSIP_Connection.send_data): Correct escaping of the end-of-data sequence.
 
 	* src/python/speechd/_test.py (tests): Added test for escaping dot.
+
+	* configure.in, all Makefiles.am: Don't link unnecessary libraries.
 	
 2004-08-12  Milan Zamazal  <pdm@brailcom.org>
 

@@ -10,11 +10,11 @@ modulebin_PROGRAMS = sd_flite sd_generic sd_festival
 
 sd_flite_SOURCES = flite.c module_utils.c module_utils.h
 sd_flite_LDFLAGS = -rpath '$(spdlibdir)'
-sd_flite_LDADD = -lsdaudio -lm $(flite_basic) $(flite_kal)
+sd_flite_LDADD = -lsdaudio -lm $(flite_basic) $(flite_kal) -lpthread -ldotconf @glib_libs@
 
 sd_generic_SOURCES = generic.c module_utils.c module_utils.h
-sd_generic_LDADD = -lm
+sd_generic_LDADD = -lm -lpthread -ldotconf @glib_libs@
 
 sd_festival_SOURCES = festival.c module_utils.c
 sd_festival_LDFLAGS = -rpath '$(spdlibdir)'
-sd_festival_LDADD = -lm -lsdaudio
+sd_festival_LDADD = -lm -lsdaudio -lpthread -ldotconf @glib_libs@
