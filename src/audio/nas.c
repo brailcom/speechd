@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: nas.c,v 1.4 2004-12-10 12:32:51 hanke Exp $
+ * $Id: nas.c,v 1.5 2004-12-10 12:49:26 hanke Exp $
  */
 
 /* Internal event handler */
@@ -42,7 +42,7 @@ _nas_handle_server_error(AuServer *server, AuErrorEvent *event)
     fprintf(stderr,"ERROR: Non-fatal server error in NAS\n");
 
     if (event->type != 0){
-	DBG("Event of a different type received in NAS error handler.");
+	fprintf(stderr, "Event of a different type received in NAS error handler.");
 	return -1;
     }
 
