@@ -2,7 +2,7 @@
 /*
  * libspeechd.h - Shared library for easy acces to Speech Dispatcher functions (header)
  *
- * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2004 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,8 +19,11 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.16 2004-05-23 12:34:06 hanke Exp $
+ * $Id: libspeechd.h,v 1.17 2004-06-09 18:25:13 pdm Exp $
  */
+
+
+#include <stdio.h>
 
 
 #ifdef __cplusplus
