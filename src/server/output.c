@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.12 2004-05-23 22:39:49 hanke Exp $
+ * $Id: output.c,v 1.13 2004-05-23 23:36:25 hanke Exp $
  */
 
 #include "output.h"
@@ -224,16 +224,6 @@ output_send_settings(TSpeechDMessage *msg, OutputModule *output)
 #undef ADD_SET_INT
 #undef ADD_SET_STR
 
-
-int
-output_send_cmd(TSpeechDMessage *msg, char *type_str, OutputModule *output)
-{
-    int err;
-
-    SEND_CMD();
-
-    return 0;
-}
 
 int
 output_speak(TSpeechDMessage *msg)
