@@ -1,3 +1,8 @@
+2003-09-15  Milan Zamazal  <pdm@brailcom.org>
+
+	* config/Makefile.am (all-local): Use `:' instead of `-' as the
+	sed separator.
+
 2003-09-11  Hynek Hanke  <hanke@volny.cz>
 
 	* src/modules/festival_client.c: Formating.
