@@ -87,6 +87,7 @@ FT_Info *festivalOpen(FT_Info *info);
 int festivalStringToWaveRequest(FT_Info *info, char *text);
 FT_Wave *festivalStringToWaveGetData(FT_Info *info);
 int festivalClose(FT_Info *info);
+static FT_Info *festivalDefaultInfo();
 void festivalEmptySocket(FT_Info *info);
 
 #endif
