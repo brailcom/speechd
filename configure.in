@@ -43,5 +43,5 @@ AC_PROG_MAKE_SET
 
 AM_PROG_LIBTOOL
 
-AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/clients/Makefile src/tests/Makefile config/Makefile config/en/Makefile])
+AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/c/Makefile src/c/api/Makefile src/c/clients/Makefile src/c/clients/say/Makefile src/c/clients/spd-center/Makefile src/tests/Makefile config/Makefile config/en/Makefile])
 
