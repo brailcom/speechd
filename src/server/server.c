@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.65 2003-10-24 17:32:21 hanke Exp $
+  * $Id: server.c,v 1.66 2003-10-29 11:09:30 hanke Exp $
   */
 
 #include "speechd.h"
@@ -88,6 +88,8 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
      * depending on the particular client, but unique) */
     last_message_id++;				
     new->id = last_message_id;
+
+    new->time = time(NULL);
 
     /* If desired, put the message also into history */
     /* NOTE: This should be before we put it into queues() to
