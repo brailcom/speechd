@@ -1,3 +1,10 @@
+2003-10-24  Hynek Hanke  <hanke@volny.cz>
+
+	* speechd-cs.texi: Cleaning, language and coding specification. Top node
+	name such that it coexists with speechd.texi. Corrected grammar mistakes.
+
+	* Makefile.am (info_TEXINFOS): Also build speechd-cs.texi
+
 2003-10-20  Hynek Hanke  <hanke@volny.cz>
 
 	* speechd.texi: Cleaning, empty sections fillwed with information,
