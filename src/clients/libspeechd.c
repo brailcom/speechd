@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.10 2003-03-16 19:48:17 hanke Exp $
+ * $Id: libspeechd.c,v 1.11 2003-03-23 21:30:22 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -93,23 +93,32 @@ spd_say(int fd, int priority, char* text)
   static char *pos;
 
   sprintf(helper, "@set priority %d\n\r", priority);
-  if(!ret_ok(send_data(fd, helper, 1))) return -1;
-
+  if(!ret_ok(send_data(fd, helper, 1))){
+		  if(LIBSPEECHD_DEBUG) printf("Can't set priority");
+		  return -1;
+	}
+		  
   while(pos = strstr(text,"@data off")){
 	text[pos-text] = 'a';
   }
   
   sprintf(helper, "@data on\n\r");
-  if(!ret_ok(send_data(fd, helper, 1))) return -1;
-
+  if(!ret_ok(send_data(fd, helper, 1))){
+		  if(LIBSPEECHD_DEBUG) printf("Can't start data flow");
+		  return -1;
+	}
+  
   buf = malloc((strlen(text) + 4)*sizeof(char));
   if (buf == NULL) FATAL ("Not enough memory.\n");
   sprintf(buf, "%s\n\r", text); 
   send_data(fd, buf, 0);
 
   sprintf(helper, "@data off\n\r");
-  if(!ret_ok(send_data(fd, helper, 1))) return -1; 
-  
+  if(!ret_ok(send_data(fd, helper, 1))){
+		  if(LIBSPEECHD_DEBUG) printf("Can't terminate data flow");
+		  return -1; 
+  }
+
   return 0;
 }
 
@@ -575,24 +584,24 @@ send_data(int fd, char *message, int wfr)
    write(fd, message, strlen(message));
 
    message[strlen(message)] = 0;
-   fprintf(debugg,"command sent:	%s", message);
+   if(LIBSPEECHD_DEBUG) fprintf(debugg,"command sent:	%s", message);
 
    /* read reply to the buffer */
    if (wfr == 1){
       bytes = read(fd, reply, 1000);
       /* print server reply to as a string */
       reply[bytes] = 0; 
-      fprintf(debugg, "reply from server:	%s\n", reply);
+      if(LIBSPEECHD_DEBUG) fprintf(debugg, "reply from server:	%s\n", reply);
       return reply;
    }else{
-      fprintf(debugg, "reply from server: no reply\n\n");
+      if(LIBSPEECHD_DEBUG) fprintf(debugg, "reply from server: no reply\n\n");
 	  strcpy(reply, "NO REPLY\n\r");
       return reply;
    } 
 }
 
 /* isanum() tests if the given string is a number,
- *  *  * returns 1 if yes, 0 otherwise. */
+ *  returns 1 if yes, 0 otherwise. */
 int
 isanum(char *str){
     int i;

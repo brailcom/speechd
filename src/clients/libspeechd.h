@@ -21,8 +21,10 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.6 2003-03-12 18:39:21 pdm Exp $
+ * $Id: libspeechd.h,v 1.7 2003-03-23 21:30:22 hanke Exp $
  */
+
+#define LIBSPEECHD_DEBUG 0
 
 	/* This is the header file for the libspeechd library.
 	 * If you are reading this, you are either a developer
