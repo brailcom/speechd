@@ -3,7 +3,7 @@
   <title>Preface</title>
 
   <para>
-    Robod project comes to provide a device independent layer for
+    Speech Daemon project comes to provide a device independent layer for
     speech synthesis. It should provide a simple interface for client
     applications (applications, that want to speak) as well as for device
     driver modules (for particular speech synthesis).
@@ -17,7 +17,7 @@
    There is a wide field of possible uses from educational
    software, through specialized systems (hospitals, laboratories)
    and friendlier user interfaces to software for our visually impaired
-   fellows. This is exactly where Robod came from.
+   fellows. This is exactly where Speech Daemon came from.
   </para>
   <para>
    Ordinary users don't meet speech synthesis too often
@@ -59,7 +59,7 @@
    applications that want to speak, allowing user to configure speech
    parameters and providing simple interface (as speech_printf())
    through some shared library for programmers. It will be a long
-   way until we get archieve this state of things, but with Robod,
+   way until we get archieve this state of things, but with Speech Daemon,
    we are taking the first steps...
   </para>
   

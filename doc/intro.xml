@@ -139,9 +139,10 @@
       
       <para>
         This does not mean, that these servers are compleetly a bad idea and we
-	can not use them. Thanks to the author  <ulink url="mailto:jrv@vanzandt.mv.com">Jim Van Zandt</ulink>), we can learn from
-	the sources and write the output driver modules for Robod (emacspeek-ss is
-	GPL).
+	can not use them. Thanks to the author <ulink
+	url="mailto:jrv@vanzandt.mv.com">Jim Van Zandt</ulink>), we can learn
+	from the sources and write the output driver modules for Speech Daemon
+	(emacspeek-ss is GPL).
       </para>
       
       <para>
@@ -214,7 +215,7 @@
 	    </listitem>
 	  </itemizedlist>
 
-	  We hope to be able to integrate Robod into these projects
+	  We hope to be able to integrate Speech Daemon into these projects
 	  in the future.
 	  
 	</para>
