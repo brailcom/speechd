@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.24 2003-04-18 21:23:15 hanke Exp $
+ * $Id: speechd.c,v 1.25 2003-04-24 19:32:55 hanke Exp $
  */
 
 #include "speechd.h"
@@ -56,7 +56,7 @@ MSG(int level, char *format, ...)
         vfprintf(logfile, format_with_spaces, args);
         if(SPEECHD_DEBUG) vfprintf(stdout, format_with_spaces, args);
         va_end(args);
-        free(format_with_spaces);
+
     }				
 }
 
@@ -140,6 +140,8 @@ speechd_init()
 	char *configfilename = SYS_CONF"/speechd.conf" ;
 	int ret;
         char *p;
+        int i;
+        int v;
 
 	msgs_to_say = 0;
 	max_uid = 0;
@@ -170,11 +172,15 @@ speechd_init()
 	assert(output_modules != NULL);
 
 	/* Initialize arrays */
-	awaiting_data = (GArray*) g_array_sized_new(1, 1, sizeof(int), 16);
-	assert(awaiting_data != NULL);
+        //	awaiting_data = (GArray*) g_array_sized_new(1, 1, sizeof(int), 16);
+        //	assert(awaiting_data != NULL);
 
-	o_bytes = (GArray*) g_array_sized_new(1, 1, sizeof(long int), 16);
-	assert(o_bytes != NULL);
+        o_bytes = (int*) spd_malloc(16*sizeof(int));
+        o_buf = (GString**) spd_malloc(16*sizeof(GString*));
+        awaiting_data = (int*) spd_malloc(16*sizeof(int));
+        fds_allocated = 16;
+
+        for(i=0;i<=15;i++) awaiting_data[i] = 0;              
 
         /* Initialize lists of available tables */
         tables.sound_icons = NULL;
@@ -236,11 +242,15 @@ speechd_connection_new(int server_socket)
 	if (client_socket > fdmax) fdmax = client_socket;
 	MSG(3,"Adding client on fd %d", client_socket);
 
-	g_array_set_size(awaiting_data, fdmax+2);
-	/* Mark this client as ,,receiving commands'' */
-	v = 0;
-	g_array_insert_val(awaiting_data, client_socket, v);
-											   		   
+        /* Check if there is space for server status data; allocate it */
+        if(client_socket >= fds_allocated){
+            o_bytes = (int*) realloc(o_bytes, client_socket * 2 * sizeof(int));
+            awaiting_data = (int*) realloc(awaiting_data, client_socket * 2 * sizeof(int));
+            o_buf = (GString**) realloc(o_buf, client_socket * 2 * sizeof(GString*));
+        }
+
+        awaiting_data[client_socket] = 0;
+
 	/* Create a record in fd_settings */
 	new_fd_set = (TFDSetElement *) default_fd_set();
 	if (new_fd_set == NULL){
@@ -285,8 +295,7 @@ speechd_connection_destroy(int fd)
 	MSG(4,"Removing client from the fd->uid table.");
 	g_hash_table_remove(fd_uid, &fd);
 		
-	v = 0;
-	g_array_insert_val(awaiting_data, fd, v);
+        awaiting_data[fd] = 0;
 	MSG(3,"Closing clients file descriptor %d", fd);
 	if(close(fd) != 0)
 		if(SPEECHD_DEBUG) DIE("Can't close file descriptor associated to this client");
