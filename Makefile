@@ -1,5 +1,6 @@
 # Makefile for speechd server, clients and output modules.
-# by Tomas Cerha <cerha@brailcom.cz>
+# CVS revision: $Id: Makefile,v 1.2 2001-04-10 10:42:05 cerha Exp $
+# Author: Tomas Cerha <cerha@brailcom.cz>
 
 include Makefile.config
 

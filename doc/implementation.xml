@@ -1,30 +1,33 @@
 <chapter>
-<title>Imlpementation</title>
+  <title>Implementation</title>
+  
+  <sect1><title>Server Side</title>
 
-<!-- ========================================================= -->
-<sect1>
-<title>Server Side</title>
+    <para>
+    </para>
 
-<para>
-</para>
+    <sect2><title>Configuration</title>
 
-<!-- ********************************************************* -->
-<sect2>
-<title>Output Modules</title>
+      <para>
+	We use DotConf libray for loading the configuration files.
+      </para>
 
-<para>
-</para>
-</sect2>
+    </sect2>
+    
+    <sect2><title>Output Modules</title>
+      
+      <para>
+      </para>
 
-</sect1>
-
-<!-- ========================================================= -->
-<sect1>
-<title>Client Side</title>
-
-<para>
-</para>
-
-</sect1>
-
+    </sect2>
+    
+  </sect1>
+  
+  <sect1><title>Client Side</title>
+    
+    <para>
+    </para>
+    
+  </sect1>
+  
 </chapter>

@@ -1,22 +1,23 @@
 <HTML
 ><HEAD
 ><TITLE
->Output</TITLE
+>Input Side</TITLE
 ><META
 NAME="GENERATOR"
-CONTENT="Modular DocBook HTML Stylesheet Version 1.60"><LINK
+CONTENT="Modular DocBook HTML Stylesheet Version 1.64
+"><LINK
 REL="HOME"
 TITLE="Speechd Project"
 HREF="book1.html"><LINK
 REL="UP"
-TITLE="Design"
-HREF="c58.html"><LINK
+TITLE="Analysis"
+HREF="c67.html"><LINK
 REL="PREVIOUS"
-TITLE="Input"
-HREF="x66.html"><LINK
+TITLE="Analysis"
+HREF="c67.html"><LINK
 REL="NEXT"
-TITLE="Imlpementation"
-HREF="c94.html"></HEAD
+TITLE="Output Side"
+HREF="x199.html"></HEAD
 ><BODY
 CLASS="sect1"
 BGCOLOR="#FFFFFF"
@@ -43,20 +44,20 @@ WIDTH="10%"
 ALIGN="left"
 VALIGN="bottom"
 ><A
-HREF="x66.html"
+HREF="c67.html"
 >Prev</A
 ></TD
 ><TD
 WIDTH="80%"
 ALIGN="center"
 VALIGN="bottom"
->Chapter 2. Design</TD
+>Chapter 2. Analysis</TD
 ><TD
 WIDTH="10%"
 ALIGN="right"
 VALIGN="bottom"
 ><A
-HREF="c94.html"
+HREF="x199.html"
 >Next</A
 ></TD
 ></TR
@@ -70,57 +71,412 @@ CLASS="sect1"
 CLASS="sect1"
 ><A
 NAME="AEN81"
->Output</A
+>Input Side</A
 ></H1
-><P
->Speechd provides a simple and transparent interface for output drivers.
-Each output driver allows to use one speech synthesizer with speechd. Output
-driver is implemented as a shared library, which uses the common API, to
-communicate with speechd. Output driver is called "output module" or simply
-just the <I
-CLASS="emphasis"
->module</I
->.</P
 ><DIV
 CLASS="sect2"
 ><H2
 CLASS="sect2"
 ><A
-NAME="AEN85"
->API for Output Modules</A
+NAME="s-ssip"
+>Speech Synthesis Independent Protocol</A
 ></H2
 ><P
->&#13;
-
-</P
+>&#13;	Speech Synthesis Independent Protocol (SSIP) is intended to provide a
+	device independent layer between application and speech synthesizer
+      </P
+><P
+>&#13;	SSIP will be an application protocol over TCP/IP. However there is no
+	reason to constraint SSIP only for this architecture. SSIP should be
+	designed, to allow its transmission within any higher level protocol
+	such as HTTP.
+      </P
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="AEN87"
+>SSIP syntax</A
+></H3
+><P
+>&#13;	  We see XML to be a good alternative for this purpose.
+	</P
+></DIV
 ></DIV
 ><DIV
 CLASS="sect2"
 ><H2
 CLASS="sect2"
 ><A
-NAME="AEN88"
->Multiple Output Modules</A
+NAME="s-control"
+>Message Control Commands</A
 ></H2
 ><P
->Speechd is enabled to use multiple output mudules, each one for
-particular speech synthesizer.
-
-
-</P
+>&#13;      </P
+><P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>message</DT
+><DD
+><P
+>&#13;	      Add a message to the queue.
+	    </P
+></DD
+><DT
+>stop</DT
+><DD
+><P
+>&#13;	      Stop speaking and empty all message queues.
+	    </P
+></DD
+><DT
+>pause</DT
+><DD
+><P
+>&#13;	      Stop speaking until continue is received.
+	    </P
+></DD
+><DT
+>continue</DT
+><DD
+><P
+>&#13;	      Continue paused speech.
+	    </P
+></DD
+><DT
+>cancel</DT
+><DD
+><P
+>&#13;	      Throw away currently spoken message.
+	    </P
+></DD
+></DL
+></DIV
 ></DIV
 ><DIV
 CLASS="sect2"
 ><H2
 CLASS="sect2"
 ><A
-NAME="AEN91"
->Configuration</A
+NAME="s-priority"
+>Message Priority System</A
 ></H2
 ><P
->&#13;Speechd allows to be configured for multiple output speech synthesizers.
-
-</P
+>&#13;	The possibility to distinguish between several message priority levels
+	seems to be essential. Each message sent by client to speech server
+	should have a priority level assigned.
+      </P
+><P
+>&#13;	We suppose the system of three priority levels. Every message will
+	either contain explicit level information, or the default value will be
+	considered. The behavior should be as follows:
+	
+	<P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>level 1</DT
+><DD
+><P
+>&#13;		These messages will be said immediately as they come to server.
+		They are never interrupted. These messages should be as short
+		as possible, because they block the output of all other
+		messages. When several concurrent messages are received by
+		server, they are queued and said in the order, they came.
+		When a new message of level 1 comes during lower level
+		message is spoken, lower level message is canceled and removed
+		from the queue (removed messages are stored in the history, as
+		described in <A
+HREF="x81.html#s-history"
+><I
+><I
+>Message History</I
+><I
+>All messages will be copied to the history in order, they are
+	received, without respect to priority.</I
+><I
+>Messages should be sorted to groups with respect, to their originating
+	client, but any client will be able to browse the history of all
+	clients (in addition to browsing it's own messages).</I
+></I
+></A
+>).
+	      </P
+></DD
+><DT
+>level 2</DT
+><DD
+><P
+>&#13;		Second level messages are said in the moment, when there is no
+		message of level 1 queued. Several messages of level 2 are said
+		in the order, they are received (queued, but in their own
+		queue). This is the default level for messages without explicit
+		level information.
+	      </P
+></DD
+><DT
+>level 3</DT
+><DD
+><P
+>&#13;		Third level messages are only said, when there are no messages
+		of any higher level queued, when.
+	      </P
+></DD
+></DL
+></DIV
+>
+      </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="s-synthesis"
+>Synthesis control</A
+></H2
+><P
+>&#13;	SSIP should provide the following basic primitives, to control the way,
+	in which the synthesizer handles the input text:
+	
+	<P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>Language selection</DT
+><DD
+><P
+>&#13;		Various synthesizers provide different sets of possible
+		languages, they are allowed to speak. We must be able to
+		receive a request for setting particular language (using
+		ISO language code) and reply, if the language is supported.
+	      </P
+></DD
+><DT
+>Punctuation mode</DT
+><DD
+><P
+>&#13;		Punctuation mode describes the way, in which the synthesizer
+		works with non-alphanumeric characters. Most synthesizers
+		support several punctuation modes. We will support a reasonable
+		superset of those modes, which may be implemented in device
+		driver, when not supported by hardware.
+	      </P
+></DD
+><DT
+>Prosody</DT
+><DD
+><P
+>&#13;		Prosody setting allows us, to distinguish interpunction
+		characters in spoken text, as we are familiar in normal speech.
+		This means the way, we pronounce the text with interrogation mark,
+		coma, dot etc.
+	      </P
+></DD
+><DT
+>Speed</DT
+><DD
+><P
+>&#13;		Speed of the speech is supported by all synthesizers, but the
+		values and their ranges differ. Each output module is
+		responsible to set the speed to the value, best responding to
+		current setting. This may be a little bit difficult, because
+		there is no exact scale.
+	      </P
+></DD
+><DT
+>Pitch</DT
+><DD
+><P
+>&#13;		Pitch is the voice frequency. We face the similar problems here, as
+		with Speed setting.
+	      </P
+></DD
+><DT
+>Voice type</DT
+><DD
+><P
+>&#13;		Most synthesizers provide several voice types, such as male,
+		female, child etc. The set is again different for each of the devices.
+	      </P
+></DD
+><DT
+>Spelling</DT
+><DD
+><P
+>&#13;		Spelling mode is provided by nearly all devices and is also
+		easy to emulate in output module.
+	      </P
+></DD
+><DT
+>Capital letters recognition</DT
+><DD
+><P
+>&#13;		That is again a widely supported feature. However it would be
+		desirable to support this internally, using the
+		sound icons feature (<A
+HREF="x81.html#s-icons"
+>the section called <I
+>Sound Icons</I
+></A
+>), but this
+		requires a good possibility of synchronization, which is not
+		possible with all devices (as discussed in
+		<A
+HREF="x81.html#s-synchro"
+>the section called <I
+>Synchronization</I
+></A
+>).
+	      </P
+></DD
+></DL
+></DIV
+>
+      </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="s-session"
+>Session Management</A
+></H2
+><P
+>&#13;	Before any other commands, client shoud open a session. This
+	request will result in assigning a unique session id to the
+	client. This will enable the server to keep state information
+	between several TCP connections. Session information should
+	persist for a limited time (timeout). The number of opened
+	sessions must be also limited for security reasons (DOS attack).
+      </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="s-synchro"
+>Synchronization</A
+></H2
+><P
+>&#13;	Speaking application may need to synchronize it's bahavior with speech
+	output. For this purpose we want to enable to insert synchonization
+	marks into spoken text. The idea is as follows:
+      </P
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: opencircle"
+><P
+>&#13;	    Client application inserts a callback mark with arbitrary parameter
+  	    into a message sent to server.
+	  </P
+></LI
+><LI
+STYLE="list-style-type: opencircle"
+><P
+>&#13;	    Server passes this mark to output driver, which is responsible to
+	    call server's callback routine with parameter, which belongs to the
+	    mark just in the time, when mark is reached in the spoken text.
+	  </P
+></LI
+><LI
+STYLE="list-style-type: opencircle"
+><P
+>&#13;  	    Server sends a synchronization message to the client, with the
+  	    parameter.
+	  </P
+></LI
+></UL
+><P
+>&#13;	What we called a parameter in the above text, may be a simple text string.
+      </P
+><P
+>&#13;	This method has several problematic issues.
+      </P
+><P
+>&#13;	At first, there are some
+	devices, which do not support backwards communication, so they will not
+	inform the output driver at the right time. There is some possibility
+	to predict the time of speech in software, but it does not seem to be a
+	reliable solution.
+      </P
+><P
+>&#13;	The another drawback is the necessity for client to keep connection for
+	whole time of speech and listen for server messages. However this
+	problem is determined by the rules of socket communication, which still
+	seems to be the best choice for other reasons.
+      </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="s-history"
+>Message History</A
+></H2
+><P
+>&#13;	All messages will be copied to the history in order, they are
+	received, without respect to priority. 
+      </P
+><P
+>&#13;	Messages should be sorted to groups with respect, to their originating
+	client, but any client will be able to browse the history of all
+	clients (in addition to browsing it's own messages).
+      </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="s-icons"
+>Sound Icons</A
+></H2
+><P
+>&#13;      </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="s-oselect"
+>Output Device Selection</A
+></H2
+><P
+>&#13;	We discuss the usage of multiple output devices in
+	<A
+HREF="x199.html#s-multiple-output"
+>the section called <I
+>Multiple Output Modules</I
+></A
+>. Client should be enabled to
+	explicitly specify the name of output device. When the device is not
+	specified, or server is not configured for a device of specified name,
+	default device will be used. Default device is determined by server
+	according to configuration file, which may assign the name of output
+	device to each name of client (client identifies itself to the server
+	by name).
+      </P
+><P
+>&#13;	We believe, that, as far as this model might seem to be confusing, it
+	is straight enough and it allows user to finetune the configuration. It
+	is also intended to be robust, by always present default values.
+      </P
 ></DIV
 ></DIV
 ><DIV
@@ -138,7 +494,7 @@ WIDTH="33%"
 ALIGN="left"
 VALIGN="top"
 ><A
-HREF="x66.html"
+HREF="c67.html"
 >Prev</A
 ></TD
 ><TD
@@ -154,7 +510,7 @@ WIDTH="33%"
 ALIGN="right"
 VALIGN="top"
 ><A
-HREF="c94.html"
+HREF="x199.html"
 >Next</A
 ></TD
 ></TR
@@ -163,20 +519,20 @@ HREF="c94.html"
 WIDTH="33%"
 ALIGN="left"
 VALIGN="top"
->Input</TD
+>Analysis</TD
 ><TD
 WIDTH="34%"
 ALIGN="center"
 VALIGN="top"
 ><A
-HREF="c58.html"
+HREF="c67.html"
 >Up</A
 ></TD
 ><TD
 WIDTH="33%"
 ALIGN="right"
 VALIGN="top"
->Imlpementation</TD
+>Output Side</TD
 ></TR
 ></TABLE
 ></DIV

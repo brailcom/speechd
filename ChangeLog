@@ -1,10 +1,15 @@
 
-2001-01-01 	Tomas Cerha	<cerha@brailcom.cz>
+2001-01-01 (version 0.0.1) 	Tomas Cerha	<cerha@brailcom.cz>
     
 	* Project started ...
 	* Design documentation written (using DocBook XML)
 	* pre API designed
 	* simple server core and client example written
-	* CVS repository set up
+	* CVS repository and other project stuff set up
 
+2001-03-10 (version 0.0.2)  Tomas Cerha <cerha@brailcom.cz>
 
+	* API for output modules designed
+	* sample output module implementation written
+	* server configuration based on DotConf implemented
+	* analysis of input protocol requirements documented

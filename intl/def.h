@@ -1,9 +1,10 @@
 /* Common header file for speechd server, clients and output drivers
-   by Tomas Cerha <cerha@brailcom.cz> */
+ * CVS revision: $Id: def.h,v 1.2 2001-04-10 10:42:05 cerha Exp $
+ * Author: Tomas Cerha <cerha@brailcom.cz> */
 
-
-/* we define some constants common for speech server and client part */
+/* some constants common for speech server and client part */
 #define SPEECH_PORT 9876
 
-/* here come some common macro definitions */
-#define die(msg) { perror(msg); exit(1); }
+#define LOG_LEVEL = 3
+
+#define MSG(level,message,args...) if (level >= LOG_LEVEL) printf(message,args...)

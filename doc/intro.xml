@@ -1,107 +1,132 @@
 <chapter id="ch-intro">
-<title>Introduction</title>
+  <title>Introduction</title>
+  
+  <!-- ========================================================= -->
+  <sect1>
+    <title>Speech Synthesizers</title>
+    
+    
+    <!-- ********************************************************* -->
+    <sect2>
+      <title>Hardware devices</title>
+      
+      <para>
+	Hardware synthesizers are the devices, which may be connected mostly to
+	serial port of a PC. Application may send textual data to the port and the device
+	converts it to spoken letters and words. Data may contain also several
+	control sequences in the form of escaped characters as commands. The problem,
+	we are facing, is that each of these devices uses its own communication protocol.
 
-<!-- ========================================================= -->
-<sect1>
-<title>Speech Synthesizers</title>
+	<itemizedlist>
+	  <listitem>
+	    <para>Apollo</para>
+	  </listitem>
+	  <listitem>
+	    <para>...</para>
+	  </listitem>
+	</itemizedlist>
+	
+      </para>
+      
+    </sect2>
+    
+    <!-- ********************************************************* -->
+    <sect2>
+      <title>MBROLA</title>
+      
+      <para>
+	MBROLA is a software speech synhesis ...
+      </para>
+    </sect2>
+    
+    <!-- ********************************************************* -->
+    <sect2>
+      <title>Mluvitko</title>
+      
+      <para>
+	Mluvitko is a simple (and very light) czech software speech synhesis ...
+      </para>
+    </sect2>
+    
+  </sect1>
+  
+  <!-- ========================================================= -->
+  
+  <sect1>
+    <title>Speaking Applications</title>
+    
+    <para>
+    </para>
+    
+    <!-- ********************************************************* -->
+    <sect2>
+      <title>EmacSpeak</title>
+      
+      <para>The Emacspeak by T. V. Raman &lt;raman@cs.cornell.edu> software package
+	provides speech output for Emacs, and includes "speech servers" for
+	the DECtalk speech synthesizers.</para>
+      
+      <para>The package emacspeak-ss provides servers for several additional synthesizers:</para>
+      
+      <itemizedlist mark="opencircle">
+	<listitem><para>DoubleTalk PC and AT from <ulink url="http://www.rcsys.com/">R. C. Systems</ulink></para></listitem>
+	<listitem><para>Braille 'n Speak, Type 'n Speak, and Braille Lite from <ulink url="http://www.blazie.com">Blazie Engineering</ulink></para></listitem>
+	<listitem><para>Accent SA</para></listitem>
+	<listitem><para>Apollo 2, JUNO, and JUNO-sp from Dolphin.</para></listitem>
+	<listitem><para>Spanish ciber 232</para></listitem>
+	<listitem><para>Spanish ciber 232 Plus</para></listitem>
+	<listitem><para>Spanish PC Hablado notebook</para></listitem>
+      </itemizedlist>
+      
+      <para>None of these programs are normally run by the user directly.  Instead,
+	they are run by Emacs. That is: Emacs runs the emacspeak code, which executes
+	Tcl, which interprets the server code. This approach is too closely "wired"
+	to usage with Emacspeak, so it may not be used for our general purposes.</para>
+      
+      <para>This does not mean, that these servers are compleetly a bad idea and we
+	can not use them. Thanks to the author  <ulink url="mailto:jrv@vanzandt.mv.com">Jim Van Zandt</ulink>), we can learn from
+	the sources and write the output driver modules for speechd (emacspeek-ss is
+	GPL).</para>
+      
+      <para>Bart Bunting is working on a speech server using the MBROLA software
+	speech synthesizer.</para>
+      
+    </sect2>
+    
+    <!-- ********************************************************* -->
+    <!--sect2>
+      <title>Bash</title>
+      
+      <para>
+      </para>
+      
+    </sect2-->
+    
+    <!-- ********************************************************* -->
+    <sect2>
+      <title>X Window System</title>
+      <para>
+	There is currently (as far as we know...) no speach support for
+	speaking X Window programs. However several windowing toolkit libraries take
+	speech support into a focus last few years. These are:
 
+	<itemizedlist>
+	  <listitem>
+	    <para>wxWindows</para>
+	  </listitem>
+	  <listitem>
+	    <para>Java AWT</para>
+	  </listitem>
+	  <listitem>
+	    <para>FOX toolkit</para>
+	  </listitem>
+	</itemizedlist>
 
-<!-- ********************************************************* -->
-<sect2>
-<title>Hardware devices</title>
+	We hope to be able to integrate speechd into these projects in the future.
 
-<para>Hardware synthesizers are the devices, which may be connected mostly to
-a serial port. Application may send textual data to the port and the device
-converts it to spoken letters and words. Data may contain also several
-control sequences in the form of escaped characters as commands. 
-
-...
-
-</para>
-
-</sect2>
-
-<!-- ********************************************************* -->
-<sect2>
-<title>MBROLA</title>
-
-<para>
-MBROLA is a software speech synhesis ...
-</para>
-</sect2>
-
-<!-- ********************************************************* -->
-<sect2>
-<title>Mluvitko</title>
-
-<para>
-Mluvitko is a simple (and very light) czech software speech synhesis ...
-</para>
-</sect2>
-
-</sect1>
-
-<!-- ========================================================= -->
-
-<sect1>
-<title>Speaking Applications</title>
-
-<para>
-</para>
-
-<!-- ********************************************************* -->
-<sect2>
-<title>EmacSpeak</title>
-
-<para>The Emacspeak by T. V. Raman &lt;raman@cs.cornell.edu> software package
-provides speech output for Emacs, and includes "speech servers" for
-the DECtalk speech synthesizers.</para>
-
-<para>The package emacspeak-ss provides servers for several additional synthesizers:</para>
-
-<itemizedlist mark="opencircle">
-<listitem><para>DoubleTalk PC and AT from <ulink url="http://www.rcsys.com/">R. C. Systems</ulink></para></listitem>
-<listitem><para>Braille 'n Speak, Type 'n Speak, and Braille Lite from <ulink url="http://www.blazie.com">Blazie Engineering</ulink></para></listitem>
-<listitem><para>Accent SA</para></listitem>
-<listitem><para>Apollo 2, JUNO, and JUNO-sp from Dolphin.</para></listitem>
-<listitem><para>Spanish ciber 232</para></listitem>
-<listitem><para>Spanish ciber 232 Plus</para></listitem>
-<listitem><para>Spanish PC Hablado notebook</para></listitem>
-</itemizedlist>
-
-<para>None of these programs are normally run by the user directly.  Instead,
-they are run by Emacs. That is: Emacs runs the emacspeak code, which executes
-Tcl, which interprets the server code. This approach is too closely "wired"
-to usage with Emacspeak, so it may not be used for our general purposes.</para>
-
-<para>This does not mean, that these servers are compleetly a bad idea and we
-can not use them. Thanks to the author  <ulink
-url="mailto:jrv@vanzandt.mv.com">Jim Van Zandt</ulink>), we can learn from
-the sources and write the output driver modules for speechd (emacspeek-ss is
-GPL).</para>
-
-<para>Bart Bunting is working on a speech server using the MBROLA software
-speech synthesizer.</para>
-
-</sect2>
-
-<!-- ********************************************************* -->
-<sect2>
-<title>Bash</title>
-
-<para>
-</para>
-
-</sect2>
-
-<!-- ********************************************************* -->
-<sect2>
-<title>X Window System</title>
-<para>
-There is currently (as far as we know...) no speach support for speaking X Window programs.
-</para>
-</sect2>
-
-</sect1>
-
+      </para>
+    </sect2>
+    
+  </sect1>
+  
 </chapter>
