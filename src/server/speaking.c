@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.37 2003-10-25 10:52:17 hanke Exp $
+  * $Id: speaking.c,v 1.38 2003-10-27 21:43:53 hanke Exp $
   */
 
 #include <glib.h>
@@ -94,8 +94,7 @@ speak(void* data)
 
        pthread_mutex_lock(&element_free_mutex);
         /* Handle postponed priority progress message */
-        if ((last_p5_message != NULL) && (g_list_length(MessageQueue->p5) == 0)
-            && (highest_priority != 1)){
+        if ((last_p5_message != NULL) && (g_list_length(MessageQueue->p5) == 0)){
             message = last_p5_message;
             last_p5_message = NULL;
             MessageQueue->p3 = g_list_prepend(MessageQueue->p3, message);
