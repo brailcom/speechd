@@ -712,6 +712,7 @@ The allowed commands inside a block are:
         @item @code{KEY}
         @item @code{SET SELF RATE}
         @item @code{SET SELF PITCH}
+        @item @code{SET SELF VOLUME}
         @item @code{SET SELF VOICE}
         @item @code{SET SELF LANGUAGE}
         @item @code{QUIT}
@@ -859,6 +860,12 @@ Set the pitch of speech.  @var{n} is an integer value within the range
 from -100 to 100, with 0 corresponding to the default pitch of the
 current speech synthesis output module, lower values meaning lower
 pitch and higher values meaning higher pitch.
+
+@item SET @{ all | self | @var{id} @} VOLUME @var{n}
+Set the volume of speech.  @var{n} is an integer value within the range
+from -100 to 100, with 0 corresponding to the default volume of the
+current speech synthesis output module, lower values meaning lower
+volume and higher values meaning higher volume.
 
 @item SET @{ all | self | @var{id} @} PAUSE_CONTEXT @var{n}
 Set the number of (more or less) sentences that should be repeated
