@@ -713,8 +713,8 @@ The allowed commands inside a block are:
         @item @code{SET SELF PITCH}
         @item @code{SET SELF VOICE}
         @item @code{SET SELF LANGUAGE}
-
         @item @code{QUIT}
+        @item @code{BLOCK END}
 @end itemize
 
 @item BLOCK END
