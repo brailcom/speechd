@@ -1,3 +1,39 @@
+2004-11-13  Hynek Hanke  <hanke@chopin>
+
+	* src/tests/Makefile.am (bin_PROGRAMS): Exclude audio target.
+
+	* src/server/output.c (output_check_module): Added more debug info to "protocol" log.
+
+	* src/modules/module_utils.h (MOD_OPTION_1_STR_REG): If arguments is NULL, handle correctly.
+
+	* src/modules/flite.c:  Reworked to support the new audio interface.
+
+	* src/modules/festival.c: Reworked to support the new audio interface.
+
+	* src/modules/Makefile.am (EXTRA_DIST): Removed modle_utils_audio.c
+
+	* src/audio/spd_audio.h: New library header file.
+
+	* src/audio/Makefile.am (am_cflags): New variable.
+	Compile the library with or without NAS according to ($nas_support)
+
+	* src/modules/festival.conf: New audio output options.
+
+	* src/modules/flite.conf: New audio output options.
+
+	* configure.in: Check for NAS libraries.
+
+	* configure.in (LIB_SDAUDIO): Version incremented (backwards incompatible).
+
+	* src/audio/spd_audio.c (oss_play): New audio output library with support of stopable 
+	(and possibly non-blocking) OSS output.
+	(oss_play): Some more timing magic.
+
+	* src/modules/flite.c (_flite_child): Use flite_text_to_wave again and play the sound
+	through the new sound output system.
+
+	* src/modules/module_utils_audio.c: Removed, no longer necessary.
+
 2004-10-18  Hynek Hanke  <hanke@chopin>
 
 	* config/speechd.conf.in: Modified comment for AddModule (new default relative path).
