@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.27 2003-05-05 22:40:24 hanke Exp $
+ * $Id: parse.c,v 1.28 2003-05-07 20:58:37 hanke Exp $
  */
 
 #include "speechd.h"
@@ -700,7 +700,10 @@ parse_list(char* buf, int bytes, int fd)
     else if(!strcmp(param, "character_tables")){
         return (char*) sndicon_list_char_tables();
     }
-    else if(!strcmp(param, "key_tables")){
+    else if(!strcmp(param, "punctuation_tables")){
+        return (char*) sndicon_list_punctuation_tables();
+    }
+	else if(!strcmp(param, "key_tables")){
         return (char*) sndicon_list_key_tables();
     }
     else if(!strcmp(param, "text_tables")){
