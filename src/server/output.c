@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.16 2004-10-12 20:27:29 hanke Exp $
+ * $Id: output.c,v 1.17 2004-11-13 14:51:54 hanke Exp $
  */
 
 #include "output.h"
@@ -99,7 +99,7 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
         output_check_module(output);
         return -1;   /* Broken pipe */
     }
-    MSG2(5, "protocol", "Command sent to output module: |%s|", cmd);
+    MSG2(5, "protocol", "Command sent to output module: |%s| (%d)", cmd, wfr);
 
     if (wfr){                   /* wait for reply? */
         ret = TEMP_FAILURE_RETRY(read(output->pipe_out[0], response, 255));
