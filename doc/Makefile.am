@@ -1,6 +1,7 @@
 
-info_TEXINFOS = speechd.texi
+info_TEXINFOS = speechd.texi speechd-cs.texi
 speechd_TEXINFOS = fdl.texi gpl.texi
+
 
 SUFFIXES = .html
 html_docs = speechd.html
