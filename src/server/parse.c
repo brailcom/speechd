@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.32 2003-06-01 21:24:36 hanke Exp $
+ * $Id: parse.c,v 1.33 2003-06-05 16:13:53 hanke Exp $
  */
 
 #include "speechd.h"
@@ -322,11 +322,15 @@ parse_set(char *buf, int bytes, int fd)
 
     if (!strcmp(param, "priority")){
         if (who != 0) return ERR_COULDNT_SET_PRIORITY; /* Setting priority only allowed for "self" */
-        priority = get_param(buf,3,bytes, 0);
+        priority = get_param(buf,3,bytes, 1);
         if (priority == NULL) return ERR_MISSING_PARAMETER;
-        if (!isanum(priority)) return ERR_NOT_A_NUMBER;
-        helper = atoi(priority);
-        MSG(4, "Setting priority to %d \n", helper);
+        if (!strcmp(priority, "important")) helper = 1;
+        else if (!strcmp(priority, "text")) helper = 2;
+        else if (!strcmp(priority, "message")) helper = 3;
+        else if (!strcmp(priority, "notification")) helper = 4;
+        else if (!strcmp(priority, "progress")) helper = 5;
+        else return ERR_UNKNOWN_PRIORITY;
+        MSG(4, "Setting priority to %s = %d \n", priority, helper);
         ret = set_priority_self(fd, helper);
         if (ret) return ERR_COULDNT_SET_PRIORITY;	
         return OK_PRIORITY_SET;
