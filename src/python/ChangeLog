@@ -1,3 +1,19 @@
+2003-03-29  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd/client.py (SPEECH_PORT, RECV_BUFFER_SIZE): Moved to
+	class `Client'.
+	(Client): Documentation added.
+	(Client.SPEECH_PORT, Client.RECV_BUFFER_SIZE): New constants.
+	(Client.__init__): `SPEECH_PORT' -> `self.SPEECH_PORT'
+	(Client._send_command): Cosmetic changes.
+	(Client._send_data): Cosmetic changes.
+	(Client._recv_response): Commant added. `RECV_BUFFER_SIZE' ->
+	`self.RECV_BUFFER_SIZE'.
+	(Client.close): Documentation added.
+	(Client.stop): New keyword argument `all'.
+	(Client.say): Documentation added.  Return the value of respose
+	code and message.
+
 2003-03-27  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd/client.py: Import `string' module.
