@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.c,v 1.18 2003-03-25 18:08:02 hanke Exp $
+ * $Id: server.c,v 1.19 2003-03-25 22:46:43 hanke Exp $
  */
 
 #include "speechd.h"
@@ -171,7 +171,19 @@ speak(void* data)
 	OutputModule *output;
 	GList *gl = NULL;
 	int ret;
+	sigset_t all_signals;
 
+	ret = sigfillset(&all_signals);
+	if (ret == 0){
+		ret = pthread_sigmask(SIG_BLOCK,&all_signals,NULL);
+		if (ret != 0) MSG(1, "Can't set signal set, expect problems when terminating!");
+	}else{
+		MSG(1, "Can't fill signal set, expect problems when terminating!");
+	}
+
+	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
+	pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
+	
 	while(1){
 		usleep(10);
 	    if (msgs_to_say>0){
@@ -223,19 +235,19 @@ speak(void* data)
 			 * messages first. */
 			gl = g_list_first(MessageQueue->p1); 
 			if (gl != NULL){
-				MSG(4,"           Msg in queue p1\n");
+				MSG(4,"Message in queue p1");
 				MessageQueue->p1 = g_list_remove_link(MessageQueue->p1, gl);
 				highest_priority = 1;
 			}else{
 				gl = g_list_first(MessageQueue->p2); 
 				if (gl != NULL){
-					MSG(4,"           Msg in queue p2\n");
+					MSG(4,"Message in queue p2");
 					MessageQueue->p2 = g_list_remove_link(MessageQueue->p2, gl);
 					highest_priority = 2;
 				}else{
 					gl = g_list_first(MessageQueue->p3);
 					if (gl != NULL){
-						MSG(4,"           Msg in queue p3\n");
+						MSG(4,"Message in queue p3");
 						MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
 						highest_priority = 3;
 					}else{
@@ -262,7 +274,7 @@ speak(void* data)
 			assert(element != NULL);
 			if (message_nto_speak(element, NULL, NULL)){
 				if(element->settings.priority != 3){
-					MSG(4, "Inserting message to paused list...\n");
+					MSG(4, "Inserting message to paused list...");
 					MessagePausedList = g_list_append(MessagePausedList, element);
 				}else{
 					mem_free_message(element);
@@ -275,7 +287,7 @@ speak(void* data)
 			/* Determine which output module should be used */
 			output = g_hash_table_lookup(output_modules, element->settings.output_module);
 			if(output == NULL){
-				MSG(4,"Didn't find prefered output module, using default\n");
+				MSG(4,"Didn't find prefered output module, using default");
 				output = g_hash_table_lookup(output_modules, GlobalFDSet.output_module); 
 				if (output == NULL){
 					MSG(2, "Can't find default output module.");
@@ -464,7 +476,7 @@ parse(char *buf, int bytes, int fd)
 		/* Read the command */
 		command = get_param(buf, 0, bytes);
 
-		MSG(5, "Command caught: \"%s\" \n", command);
+		MSG(5, "Command caught: \"%s\"", command);
 
 		/* Here we will check which command we got and process
 		 * it with it's parameters. */
@@ -494,8 +506,8 @@ parse(char *buf, int bytes, int fd)
 		}
 
 		/* Check if the client didn't end the session */
-		if (!strcmp(command,"bye") || !strcmp(command,"quit")){
-			MSG(4, "Bye received.\n");
+		if (!strcmp(command,"BYE") || !strcmp(command,"QUIT")){
+			MSG(4, "Bye received.");
 			/* Send a reply to the socket */
 			write(fd, OK_BYE, 15);
 			speechd_connection_destroy(fd);
@@ -519,12 +531,12 @@ parse(char *buf, int bytes, int fd)
 		}else{
 			enddata:
 			/* In the end of the data flow we got a "@data off" command. */
-			MSG(5,"buffer: |%s| ", buf);
+			MSG(5,"Buffer: |%s| ", buf);
 			if((!strncmp(buf,".\r\n", bytes))||(!strncmp(buf,"\r\n.\r\n", bytes))||(end_data==1)){
-				MSG(4,"finishing data\n");
+				MSG(4,"Finishing data");
 				end_data=0;
 				/* Set the flag to command mode */
-				MSG(4, "switching back to command mode...\n");
+				MSG(4, "Switching back to command mode...");
 				v = 0;
 				g_array_insert_val(awaiting_data, fd, v);
 
@@ -545,8 +557,8 @@ parse(char *buf, int bytes, int fd)
 					return ERR_INTERNAL;
 				}
 				
-				MSG(4, "%d bytes put in queue and history\n", g_array_index(o_bytes,int,fd));
-				MSG(4, "messages_to_say set to: %d\n",msgs_to_say);
+				MSG(4, "%d bytes put in queue and history", g_array_index(o_bytes,int,fd));
+				MSG(4, "messages_to_say set to: %d",msgs_to_say);
 
 				/* Clear the counter of bytes in the output buffer. */
 				server_data_off(fd);
@@ -556,7 +568,7 @@ parse(char *buf, int bytes, int fd)
 			if(pos = strstr(buf,"\r\n.\r\n")){	
 				bytes=pos-buf;
 				end_data=1;		
-				MSG(4,"command in data caught\n");
+				MSG(4,"Command in data caught");
 			}
 
 			/* Get the number of bytes read before, sum it with the number of bytes read
@@ -587,7 +599,7 @@ server_data_on(int fd)
 	/* Create new output buffer */
 	o_buf[fd] = g_string_new("\0");
 	assert(o_buf[fd] != NULL);
-	MSG(4, "switching to data mode...\n");
+	MSG(4, "Switching to data mode...");
 	return 0;
 }
 
@@ -611,11 +623,11 @@ serve(int fd)
 	int ret;					/* Return value of write() */
  
 	/* Read data from socket */
-	MSG(4, "reading data\n");
+	MSG(4, "Reading data");
 	bytes = read(fd, buf, BUF_SIZE);
 	if(bytes == -1) return -1;
 	buf[bytes]=0;
-	MSG(4,"    read %d bytes from client on fd %d\n", bytes, fd);
+	MSG(4,"Read %d bytes from client on fd %d", bytes, fd);
 
 	/* Parse the data and read the reply*/
 	strcpy(reply, parse(buf, bytes, fd));
