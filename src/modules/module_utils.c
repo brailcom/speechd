@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.14 2003-09-10 16:54:50 buchal Exp $
+ * $Id: module_utils.c,v 1.15 2003-09-20 17:29:32 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -42,6 +42,8 @@
 
 SPDMsgSettings msg_settings;
 SPDMsgSettings msg_settings_old;
+
+int current_index_mark;
 
 int SPDSemaphore;
 
@@ -112,19 +114,6 @@ int     module_stop         (void);
 size_t  module_pause        (void);
 int     module_is_speaking  (void);
 void    module_close        (int status);
-
-#define DECLARE_MODINFO(name, descr) \
-static OutputModule module_info = { \
-       name,                                 /* name */ \
-       descr ", module v." MODULE_VERSION,   /* description */ \
-       NULL,                                 /* GModule (should be set to NULL)*/ \
-       module_write,                         /* module functions */ \
-       module_stop, \
-       module_pause, \
-       module_is_speaking, \
-       module_close, \
-       {0, 0} \
-    };
 
 #define UPDATE_PARAMETER(value, setter) \
   if (msg_settings_old.value != msg_settings.value) \
@@ -271,8 +260,8 @@ do_pause(void)
 #define SET_PARAM_NUM(name, cond) \
  if(!strcmp(cur_item, #name)){ \
      number = strtol(cur_value, &tptr, 10); \
-     if(!(cond)){ err = 2; break; } \
-     if (tptr == cur_value){ err = 2; break; } \
+     if(!(cond)){ err = 2; continue; } \
+     if (tptr == cur_value){ err = 2; continue; } \
      msg_settings.name = number; \
  }
 
@@ -292,7 +281,7 @@ do_set(void)
     int ret;
     int n;
     int number; char *tptr;
-    int err = 0;                /* Count errors */
+    int err = 0;                /* Error status */
 
     printf("203 OK RECEIVING SETTINGS\n");
     fflush(stdout);
@@ -303,30 +292,32 @@ do_set(void)
         if (ret == -1){ err=1; break; }
         if (!strcmp(line, ".\n")){
             xfree(line);
-            return "204 OK SETTINGS RECEIVED";
+            break;
         }
-        cur_item = strtok(line, "=");
-        if (cur_item == NULL){ err=1; break; }
-        cur_value = strtok(NULL, "\n");
-        if (cur_value == NULL){ err=1; break; }
-        
-        SET_PARAM_NUM(rate, ((number>=-100) && (number<=100)))
-        else SET_PARAM_NUM(pitch, ((number>=-100) && (number<=100)))
-        else SET_PARAM_NUM(punctuation_mode, 1)
-        else SET_PARAM_STR(punctuation_some)
-        else SET_PARAM_STR(punctuation_table)
-        else SET_PARAM_NUM(spelling_mode, 1)
-        else SET_PARAM_STR(spelling_table)
-        else SET_PARAM_NUM(cap_let_recogn, 1)
-        else SET_PARAM_STR(cap_let_recogn_table)
-        else SET_PARAM_STR(cap_let_recogn_sound)
-        else SET_PARAM_STR(language)
-        else SET_PARAM_NUM(voice, 1)
-        else err++;             /* Unknown parameter */
-
+        if (!err){
+            cur_item = strtok(line, "=");
+            if (cur_item == NULL){ err=1; continue; }
+            cur_value = strtok(NULL, "\n");
+            if (cur_value == NULL){ err=1; continue; }
+            
+            SET_PARAM_NUM(rate, ((number>=-100) && (number<=100)))
+            else SET_PARAM_NUM(pitch, ((number>=-100) && (number<=100)))
+            else SET_PARAM_NUM(punctuation_mode, 1)
+            else SET_PARAM_STR(punctuation_some)
+            else SET_PARAM_STR(punctuation_table)
+            else SET_PARAM_NUM(spelling_mode, 1)
+            else SET_PARAM_STR(spelling_table)
+            else SET_PARAM_NUM(cap_let_recogn, 1)
+            else SET_PARAM_STR(cap_let_recogn_table)
+            else SET_PARAM_STR(cap_let_recogn_sound)
+            else SET_PARAM_STR(language)
+            else SET_PARAM_NUM(voice, 1)
+            else err=2;             /* Unknown parameter */
+        }
         xfree(line);
     }
 
+    if (err == 0) return "203 OK SETTINGS RECEIVED";
     if (err == 1) return "302 ERROR BAD SYNTAX";
     if (err == 2) return "303 ERROR INVALID PARAMETER OR VALUE";
     
@@ -342,7 +333,7 @@ do_speaking(void)
     else return "205-0\n205 OK SPEAKING STATUS SENT";
 }
 
-char*
+
 do_quit(void)
 {
     printf("210 OK QUIT\n");    
@@ -356,11 +347,15 @@ module_get_message_part(const char* message, char* part, unsigned int *pos, size
 {    
     int i, n;
     int num_dividers;
+    int im;
+    int len;
 
     assert(part != NULL);
     assert(message != NULL);
 
-    if (message[*pos] == 0) return 0;
+    len = strlen(message);
+
+    if (message[*pos] == 0) return -1;
     
     if (dividers != NULL){
         num_dividers = strlen(dividers);
@@ -371,30 +366,87 @@ module_get_message_part(const char* message, char* part, unsigned int *pos, size
     for(i=0; i <= maxlen-1; i++){
         part[i] = message[*pos];
 
-        if (part[i] == 0){            
+        if (part[i] == 0){                        
             return i;
         }
-        (*pos)++;
 
         // DBG("pos: %d", *pos);
-        for(n = 0; n <= num_dividers; n++){
-            if (part[i] == dividers[n]){    
-                part[i+1] = 0;                
-                return i+1;            
-            }           
+
+        if ((message[*pos] != '@') && ((len-1-i) > 2)){
+            if ((message[*pos+1] == ' ') || (message[*pos+1] == '\n')
+                || (message[*pos+1] == '\r') || (message[*pos+1] == '@')){
+                for(n = 0; n <= num_dividers; n++){
+                    if ((part[i] == dividers[n])){                        
+                        part[i+1] = 0;                
+                        current_index_mark = -1;
+                        (*pos)++;
+                        return i+1;            
+                    }           
+                }
+            }
         }
+
+        if ((message[*pos] == '@') && ((len-1-i) > 2)){
+            if (message[*pos+1] == '@'){
+                (*pos) += 2;      /* Skip both '@' */
+                continue;
+            }else{            
+                char mark_number[8] = "";
+                int t = 0;
+
+                DBG("Found index mark\n");
+
+                 if (i>0){
+                     part[i] = 0;
+                     current_index_mark = -1;
+                     return i+1;            
+                 }
+
+                (*pos)++;
+                for(; i <= maxlen-1;){
+                    if (message[*pos] == 0){
+                        DBG("ERROR: Index mark opened but not terminated!");
+                        current_index_mark = -1;
+                        return i;
+                    }
+                    if (message[*pos] != '@'){
+                        mark_number[t++] = message[*pos];
+                    }else{
+                        (*pos)++;
+                        mark_number[t] = 0;
+                        break;
+                    }
+                    (*pos)++;
+                }
+                
+                DBG("Retrieved mark number string: |%s|\n", mark_number);
+                {
+                    char *tailptr;
+                    current_index_mark = strtol(mark_number, &tailptr, 0);
+                    if (tailptr == mark_number){
+                        DBG("Invalid index mark -- Not a number!\n");
+                    }
+                }
+
+                return i;
+            }
+        }        
+
+        (*pos)++;
     }
     part[i] = 0;
 
     return i;
 }
 
+typedef void (*TChildFunction)(TModuleDoublePipe dpipe, const size_t maxlen);
+typedef size_t (*TParentFunction)(TModuleDoublePipe dpipe, const char* message,
+                             const size_t maxlen, const char* dividers,
+                             int *pause_requested);
 int
 module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid, 
-                          void (*child_function) (TModuleDoublePipe, const size_t maxlen),
-                          size_t (*parent_function) (TModuleDoublePipe, const char* message,
-                                                     const size_t maxlen, const char* dividers,
-                                                     int *pause_requested),
+                          TChildFunction child_function,
+                          TParentFunction parent_function,
                           int *speaking_flag, char **message, const size_t maxlen,
                           const char *dividers, size_t *module_position, int *pause_requested)
 {
@@ -468,7 +520,7 @@ module_parent_wfork(TModuleDoublePipe dpipe, const char* message,
     char msg[16];
     int i;
     char *buf;
-    size_t bytes;
+    int bytes;
     size_t read_bytes;
 
 
@@ -483,9 +535,18 @@ module_parent_wfork(TModuleDoublePipe dpipe, const char* message,
         DBG("  Looping...\n");
 
         bytes = module_get_message_part(message, buf, &pos, maxlen, dividers);
-                
-        if (bytes != 0){
-            DBG("Sending buf to child:|%s|\n", buf);
+
+        DBG("Returned %d bytes from get_part\n", bytes);
+
+        if (*pause_requested && (current_index_mark!=-1)){               
+            DBG("Pause requested in parent, position %d\n", current_index_mark);                
+            module_parent_dp_close(dpipe);
+            *pause_requested = 0;
+            return current_index_mark;
+        }             
+   
+        if (bytes > 0){
+            DBG("Sending buf to child:|%s| %d\n", buf, bytes);
             module_parent_dp_write(dpipe, buf, bytes);
         
             DBG("Waiting for response from child...\n");
@@ -500,15 +561,9 @@ module_parent_wfork(TModuleDoublePipe dpipe, const char* message,
                     break;
                 }
             }
-            if (*pause_requested){               
-                DBG("Pause requested in parent, position %d\n", pos);                
-                module_parent_dp_close(dpipe);
-                *pause_requested = 0;
-                return pos;
-            }
         }
 
-        if ((bytes == 0) || (read_bytes == 0)){
+        if ((bytes == -1) || (read_bytes == 0)){
             DBG("End of data in parent, closing pipes");
             module_parent_dp_close(dpipe);
             break;
@@ -524,7 +579,7 @@ module_strip_punctuation_some(char *message, char *punct_chars)
     char *p = message;
     guint32 u_char;
     int pchar_bytes;
-    int i, n;
+    int i;
     assert(message != NULL);
 
     if (punct_chars == NULL) return;
@@ -532,11 +587,18 @@ module_strip_punctuation_some(char *message, char *punct_chars)
     pchar_bytes = strlen(punct_chars);
     len = strlen(message);
     for (i = 0; i <= len-1; i++){
-      if (strchr(punct_chars, *p)){
-	  DBG("Substituation %d char %d -%c-\n", i, n, *p);
-	  *p = ' ';
-      }
-      p++;
+        if (strchr(punct_chars, *p)){
+            if (*p == '@'){
+                if (((len-1-i)>0) && (*(p+1) == '@')){
+                    *p = ' ';
+                    *(p+1) = ' ';
+                }
+            }else{
+                DBG("Substitution %d: char -%c- for whitespace\n", i, *p);
+                *p = ' ';
+            }
+        }
+        p++;
     }
 }
 
@@ -544,7 +606,7 @@ static void
 module_strip_punctuation_default(char *buf)
 {
     assert(buf != NULL);
-    module_strip_punctuation_some(buf, "~@#$%^&*+=|<>[]_");
+    module_strip_punctuation_some(buf, "~#$%^&*+=|<>[]_");
 }
 
 static short *
