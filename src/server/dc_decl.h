@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.22 2003-06-03 12:06:27 hanke Exp $
+ * $Id: dc_decl.h,v 1.23 2003-06-08 21:54:17 hanke Exp $
  */
 
 #include "speechd.h"
@@ -57,6 +57,7 @@ DOTCONF_CB(cb_AddModule);
 DOTCONF_CB(cb_EndAddModule);
 DOTCONF_CB(cb_AddParam);
 DOTCONF_CB(cb_AddVoice);
+DOTCONF_CB(cb_MinDelayProgress);
 DOTCONF_CB(cb_ApolloLanguage);
 
 
@@ -87,6 +88,7 @@ static const configoption_t options[] =
     {"EndAddModule", ARG_NONE, cb_EndAddModule, 0,0},
     {"AddParam", ARG_LIST, cb_AddParam, 0, 0},
     {"AddVoice", ARG_LIST, cb_AddVoice, 0, 0},
+    {"MinDelayProgress", ARG_INT, cb_MinDelayProgress, 0, 0},
     {"ApolloLanguage", ARG_LIST, cb_ApolloLanguage, 0, 0},
     /*{"ExampleOption", ARG_STR, cb_example, 0, 0},
      *      {"MultiLineRaw", ARG_STR, cb_multiline, 0, 0},
@@ -384,6 +386,13 @@ DOTCONF_CB(cb_DefaultCapLetRecognition)
     return NULL;
 }
 
+DOTCONF_CB(cb_MaxDelayProgrees)
+{
+    if (cmd->data.value < 0) MSG(2, "Time specified in MinDelayProgress not valid");
+    GlobalFDSet.max_delay_progress = cmd->data.value;
+    return NULL;
+}
+
 DOTCONF_CB(cb_AddModule)
 {
     if (cmd->data.str == NULL) FATAL("No output module name specified");
@@ -551,8 +560,6 @@ DOTCONF_CB(cb_ApolloLanguage)
 
     return NULL;
 }
-
-
 
 int
 table_add(char *name, char *group)
