@@ -1,5 +1,73 @@
+2003-07-06  Hynek Hanke  <hanke@volny.cz>
+
+	* intl/def.h (SPEECHD_DEFAULT_PORT): Renamed from SPEECH_PORT.
+
+	* src/c/clients/say/say.c (main): Removed junk code.
+	Priority changed to new type (SPDPriority).
+
+	* src/tests/run_test.c (main): Check for SPEECHD_PORT in environment variables.
+
+	* src/tests/Makefile.am (clibrary): New test for the C API.
+
+	* src/server/set.c: Use spd_strdup.
+	(_spd_set_param_str): First argument changed to char** as we use realloc().
+
+	* src/server/alloc.c (spd_strdup): Now also passes NULL without complaining.
+
+	* src/modules/festival.c (module_close): Wait 5us before subsequent tries
+	to stop the module.
+
+	* config/speechd.conf: Most of the options commented out, default values
+	are used now instead.
+
+	* src/server/dc_decl.h (cb_Port): New dotconf callback.
+	(load_default_global_set_options): Set default SPEECHD_PORT to 9876.
+
+	* src/server/speechd.c (main): Use SPEECHD_PORT.
+
+	* src/server/speechd.h (language_default_modules): New hash table.
+
+	* config/speechd.conf (LanguageDefaultModule): New options.
+
+	* src/server/dc_decl.h (cb_LanguageDefaultModules): New dotconf callback.
+
+	* src/server/speechd.c (speechd_init): Initialize language_default_modules table.
+
+	* src/server/dc_decl.h (cb_DefaultVoiceType): Convert to upper case before comparing.
+	(cb_DefaultPriority): Convert to lower case before comparing.
+
+	* src/server/speechd.c (speechd_load_configuration): Load default configuration.
+
+	* src/server/dc_decl.h (load_default_global_set_options): New function.
+
+	* src/c/api/libspeechd.h (SPDVoiceType): New type.
+	(SPDPriority): New type.
+	New declarations.
+
+	* src/c/api/libspeechd.c (SPD_SET_COMMAND_INT, STR, SPECIAL): spd_set functions are now
+	declared by this macro.
+	(spd_set_*_table_*): New commands for setting tables.
+	(spd_set_voice_*): New commands.
+	Priorities are now passed as type SPDPriority.
+	
+
+	* src/tests/clibrary.c: A general test of some of the capabilities of the
+	C API for Speech Dispatcher.
+
+	* src/server/speaking.c (speak): Check if last_p5_message hasn't been spoken yet.
+
 2003-07-05  Hynek Hanke  <hanke@volny.cz>
 
+	* src/server/dc_decl.h (cb_DefaultVoiceType): Use MALE1, if the specified parameter
+	is invalid.
+
+2003-07-05  Hynek Hanke  <hanke@volny.cz>
+	
+	* src/c/clients/Makefile.am: spd-center removed.
+
+	* src/server/parse.c (parse_char): Check if character != NULL or empty.
+
+2003-07-05  Hynek Hanke  <hanke@volny.cz>
 	* src/server/speechd.c (main): Use SIGHUP again instead of SIGUSR2 to reload configuration.
 
 	* src/server/server.c: Don't use alarms for priority 5 handling.
