@@ -1,3 +1,14 @@
+2003-10-10  Jan Buchal  <buchal@brailcom.org>
+
+	* src/modules/festival_client.c (FEST_SET_STR): Pass nil if param is NULL.
+
+	* src/modules/festival.c (festival_set_cap_let_recogn): New function.
+
+	* src/modules/festival_client.c (FEST_SPEAK_CMD): New parameter
+	symbol.
+	(festival_speak_command): New parameter symbol.
+	(FEST_SET_SYMB): Added capital character mode setting.
+
 2003-10-09  Hynek Hanke  <hanke@volny.cz>
 
 	* src/modules/Makefile.am (EXTRA_DIST): Include festival-interface in distribution.
