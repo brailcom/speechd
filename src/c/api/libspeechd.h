@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.13 2003-11-06 23:21:57 hanke Exp $
+ * $Id: libspeechd.h,v 1.14 2004-04-17 14:53:12 hanke Exp $
  */
 
 
@@ -125,6 +125,10 @@ int spd_set_voice_pitch(int connection, signed int pitch);
 int spd_set_voice_pitch_all(int connection, signed int pitch);
 int spd_set_voice_pitch_uid(int connection, signed int pitch, unsigned int uid);
 
+int spd_set_volume(int connection, signed int volume);
+int spd_set_volume_all(int connection, signed int volume);
+int spd_set_volume_uid(int connection, signed int volume, unsigned int uid);
+
 int spd_set_punctuation(int connection, SPDPunctuation type);
 int spd_set_punctuation_all(int connection, SPDPunctuation type);
 int spd_set_punctuation_uid(int connection, SPDPunctuation type, unsigned int uid);
@@ -140,6 +144,10 @@ int spd_set_spelling_uid(int connection, SPDSpelling type, unsigned int uid);
 int spd_set_language(int connection, const char* language);
 int spd_set_language_all(int connection, const char* language);
 int spd_set_language_uid(int connection, const char* language, unsigned int uid);
+
+int spd_set_output_module(int connection, const char* output_module);
+int spd_set_output_module_all(int connection, const char* output_module);
+int spd_set_output_module_uid(int connection, const char* output_module, unsigned int uid);
 
 /* --------------  Private functions  ------------------------*/
 
