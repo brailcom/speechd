@@ -2,9 +2,7 @@
 /*
  * history.h - History functions for Speech Deamon header
  *
- * Copyright (C) 2001,2002,2003 Ceska organizace pro podporu free software
- * (Czech Free Software Organization), Prague 2, Vysehradska 3/255, 128 00,
- * <freesoft@freesoft.cz>
+ * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -21,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.h,v 1.6 2003-04-14 02:07:14 hanke Exp $
+ * $Id: history.h,v 1.7 2003-04-15 10:08:59 pdm Exp $
  */
 
 #ifndef ALLOC_H
