@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.25 2003-11-11 14:12:15 pdm Exp $
+ * $Id: module_utils.c,v 1.26 2003-12-18 23:41:05 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -33,6 +33,7 @@
 #include <signal.h>
 #include <semaphore.h>
 #include <sys/wait.h>
+#include <sys/time.h>
 #include <errno.h>
 #include <dotconf.h>
 
@@ -83,11 +84,13 @@ int module_num_dc_options = 0;
 #define DBG(arg...) \
   if (debug_on){ \
     time_t t; \
+    struct timeval tv; \
     char *tstr; \
     t = time(NULL); \
     tstr = strdup(ctime(&t)); \
     tstr[strlen(tstr)-1] = 0; \
-    fprintf(debug_file, tstr); \
+    gettimeofday(&tv,NULL); \
+    fprintf(debug_file, "%s [%d]",tstr, (int) tv.tv_usec); \
     fprintf(debug_file, ": "); \
     fprintf(debug_file, arg); \
     fprintf(debug_file, "\n"); \
@@ -237,7 +240,7 @@ do_message(EMessageType msgtype)
         return "305 DATA MORE THAN ONE LINE";
     }
   
-    module_speak(msg->str, strlen(msg->str), msgtype);
+    ret = module_speak(msg->str, strlen(msg->str), msgtype);
 
     g_string_free(msg,1);
     if (ret <= 0) return "301 ERROR CANT SPEAK";
