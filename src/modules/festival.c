@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.52 2004-07-21 08:14:16 hanke Exp $
+ * $Id: festival.c,v 1.53 2004-07-21 21:35:48 hanke Exp $
  */
 
 #include "fdset.h"
@@ -249,16 +249,12 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
 
     DBG("module_speak()\n");
 
-    DBG("a");
-
     if (data == NULL) return -1;
 
     if (festival_speaking){
         DBG("Speaking when requested to write\n");
         return -1;
     }
-
-    DBG("b");
 
     festival_stop = 0;
 
@@ -268,8 +264,6 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
     festival_message_type = msgtype;
     if ((msgtype == MSGTYPE_TEXT) && (msg_settings.spelling_mode == SPELLING_ON))
         festival_message_type = MSGTYPE_SPELL;
-
-    DBG("c");
 
     /* If the connection crashed or language or voice
        change, we will need to set all the parameters again */
@@ -286,10 +280,10 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
     /* If the voice was changed, re-set all the parameters */
     if ((msg_settings.voice != msg_settings_old.voice) 
         || strcmp(msg_settings.language, msg_settings_old.language)){
+	DBG("Cleaning old settings table");
         CLEAN_OLD_SETTINGS_TABLE();
     }
 
-    DBG("d");
 
     /* Setting voice parameters */
     DBG("Updating parameters");
@@ -522,6 +516,7 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 
 	/* (speechd-next) */
 	if (is_text(msgtype)){
+	    DBG("Getting data in multi mode");
 	    fwave = festivalGetDataMulti(festival_info, &callback, &festival_stop, FestivalReopenSocket);
 
 	    if (callback != NULL){
@@ -539,14 +534,12 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 		    continue;
 		}
 	    }
-
 	}else{			/* is event */
+	    DBG("Getting data in single mode");
 	    fwave = festivalStringToWaveGetData(festival_info);
 	    terminate = 1;
 	    callback = NULL;
 	}
-	
-      
 
 	if (fwave == NULL){
 	    DBG("End of sound samples for this message, returning");
@@ -840,6 +833,7 @@ cache_insert(char* key, EMessageType msgtype, FT_Wave *fwave)
     if (FestivalCacheOn == 0) return 0;
 
     if (key == NULL) return -1;
+    if (fwave == NULL) return -1;
 
     /* Check if the entry isn't present already */
     if (cache_lookup(key, msgtype, 0) != NULL)
@@ -854,6 +848,7 @@ cache_insert(char* key, EMessageType msgtype, FT_Wave *fwave)
         > (FestivalCacheMaxKBytes*1024))
         if (cache_clean(fwave->num_samples * sizeof(short)) != 0) return -1;
     
+
     /* Select the right table according to language, voice, etc. or create a new one*/
     cache = g_hash_table_lookup(FestivalCache.caches, key_table);
     if (cache == NULL){
@@ -875,8 +870,7 @@ cache_insert(char* key, EMessageType msgtype, FT_Wave *fwave)
 
     entry = (TCacheEntry*) xmalloc(sizeof(TCacheEntry));
     entry->p_counter_entry = centry;
-    entry->fwave = (void*) xmalloc(centry->size);
-    memcpy(entry->fwave, fwave, centry->size);
+    entry->fwave = fwave;
 
     FestivalCache.size += centry->size;
     g_hash_table_insert(cache, strdup(key), entry);
