@@ -18,12 +18,14 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils_audio.c,v 1.4 2003-10-13 16:20:24 hanke Exp $
+ * $Id: module_utils_audio.c,v 1.5 2003-10-18 13:02:05 hanke Exp $
  */
 
 #include "spd_audio.h"
 
 static void module_cstwave_free(cst_wave* wave);
+static short* module_add_samples(short* samples, short* data, size_t bytes, 
+                                 size_t *num_samples, int *end_of_data);
 
 void
 module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
@@ -37,6 +39,8 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
     int data_mode = -1;
     int bitrate;
     char *tail_ptr;
+    int back;
+    int eod;
 
     module_sigblockall();
 
@@ -48,6 +52,7 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
     while(1){
 
         if (data_mode == -1){
+            DBG("child: Checking for header.");
             bytes = module_child_dp_read(dpipe, data, 10);
             if (bytes != 0){
                 if (bytes != 10){
@@ -73,18 +78,12 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
             exit(0);
         }
 
-        /* Are we at the end? */
-        if (bytes>=24){
-            if (!strncmp(data+bytes-24,"\r\nOK_SPEECHD_DATA_SENT\r\n", 24)) data_mode = 2;
-            if (!strncmp(data,"\r\nOK_SPEECHD_DATA_SENT\r\n", 24)) data_mode = 1;
-        }
+        /* TODO: Test this!!! */
+        samples = module_add_samples(samples, (short*) data,
+                                     bytes, &num_samples, &eod); 
+        if (eod) data_mode = 1;
 
-        if ((data_mode == 1) || (data_mode == 2)){
-            if (data_mode == 2){
-                samples = module_add_samples(samples, (short*) data,
-                                             bytes-24, &num_samples); 
-            }
-
+        if ((data_mode == 1)){
             DBG("child: End of data caught\n");
             wave = (cst_wave*) xmalloc(sizeof(cst_wave));
             wave->type = strdup("riff");
@@ -112,19 +111,19 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
             num_samples = 0;        
             samples = NULL;
             data_mode = -1;
-        }else{
-            samples = module_add_samples(samples, (short*) data,
-                                         bytes, &num_samples);
-        } 
+        }
     }        
 }
 
 static short *
-module_add_samples(short* samples, short* data, size_t bytes, size_t *num_samples)
+module_add_samples(short* samples, short* data, size_t bytes,
+                   size_t* num_samples, int *end_of_data)
 {
     int i;
     short *new_samples;
     static size_t allocated;
+
+    *end_of_data = 0;
 
     if (samples == NULL) *num_samples = 0;
     if (*num_samples == 0){
@@ -142,6 +141,16 @@ module_add_samples(short* samples, short* data, size_t bytes, size_t *num_sample
     for(i=0; i <= (bytes/sizeof(short)) - 1; i++){
         new_samples[*num_samples] = data[i];
         (*num_samples)++;
+    }
+
+    if((*num_samples)*sizeof(short) >= (24*sizeof(char))){
+        char *p;
+        p = ((char*) new_samples) + ((*num_samples) * sizeof(short)) - 24*sizeof(char);
+        if (!memcmp(p, "\r\nOK_SPEECHD_DATA_SENT\r\n", 24 * sizeof(char))){
+            DBG("End of data stream caught");
+            *num_samples -= 24;
+            *end_of_data = 1;
+        }
     }
 
     return new_samples;
