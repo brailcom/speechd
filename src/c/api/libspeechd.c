@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.8 2003-06-08 21:51:30 hanke Exp $
+ * $Id: libspeechd.c,v 1.9 2003-07-06 15:07:24 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -30,6 +30,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <string.h>
 #include <glib.h>
 #include <assert.h>
 
@@ -46,7 +47,7 @@ char* _spd_send_data(int fd, char *message, int wfr);
  * Returns socket file descriptor of the created connection
  * or 0 if no connection was opened. */
 int 
-spd_open(char* client_name, char* connection_name, char *user_name)
+spd_open(const char* client_name, const char* connection_name, const char* user_name)
 {
   struct sockaddr_in address;
   int connection;
@@ -54,6 +55,8 @@ spd_open(char* client_name, char* connection_name, char *user_name)
   char *reply;
   char* conn_name;
   char* usr_name;
+  char *env_port;
+  int port;
   int ret;
 
   if (client_name == NULL) return 0;
@@ -61,19 +64,25 @@ spd_open(char* client_name, char* connection_name, char *user_name)
   if (user_name == NULL){
       usr_name = g_get_user_name();
   }else{
-      usr_name = user_name;
+      usr_name = strdup(user_name);
   }
 
   if(connection_name == NULL){
       conn_name = (char*) xmalloc(6);
       strcpy(conn_name, "main");
   }else{
-      conn_name = connection_name;
+      conn_name = strdup(connection_name);
   }
-   
+
+  env_port = getenv("SPEECHD_PORT");
+  if (env_port != NULL)
+      port = strtol(env_port, NULL, 10);
+  else
+      port = SPEECHD_DEFAULT_PORT;
+  
   /* Prepare a new socket */
   address.sin_addr.s_addr = inet_addr("127.0.0.1");
-  address.sin_port = htons(SPEECH_PORT);
+  address.sin_port = htons(port);
   address.sin_family = AF_INET;
   connection = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -94,10 +103,13 @@ spd_open(char* client_name, char* connection_name, char *user_name)
 
   ret = _spd_execute_command(connection, set_client_name);
 
+  xfree(usr_name);
+  xfree(conn_name);
   xfree(set_client_name);
 
   return connection;
 }
+
 
 /* Close a Speech Dispatcher connection */
 void
@@ -115,7 +127,7 @@ spd_close(int connection)
 /* Say TEXT with priority PRIORITY.
  * Returns 0 on success, -1 otherwise. */                            
 int
-spd_say(int connection, char* priority, char* text)
+spd_say(int connection, SPDPriority priority, const char* text)
 {
     static char command[64];
     static int i;
@@ -126,13 +138,10 @@ spd_say(int connection, char* priority, char* text)
     if (text == NULL) return -1;
 
     /* Set priority */
-    sprintf(command, "SET SELF PRIORITY %s", priority);
-    ret = _spd_execute_command(connection, command);
-    if(ret){
-        _SPD_DBG("Can't set priority");
-        return -1;
-    }
-		 
+
+    ret = _spd_set_priority(connection, priority);
+    if(ret) return -1;
+    
     /* Check if there is no escape sequence in the text */
     /* TODO: This needs to be fixed! */
     //  while(pos = (char*) strstr(text,"\r\n.\r\n")){
@@ -166,7 +175,7 @@ spd_say(int connection, char* priority, char* text)
 
 /* The same as spd_say, accepts also formated strings */
 int
-spd_sayf(int fd, char* priority, char *format, ...)
+spd_sayf(int fd, SPDPriority priority, const char *format, ...)
 {
     static int ret;    
     va_list args;
@@ -269,14 +278,13 @@ spd_resume_uid(int connection, int target_uid)
 }
 
 int
-spd_key(int connection, char* priority, char *key_name)
+spd_key(int connection, SPDPriority priority, const char *key_name)
 {
     static char command[32];
     char *command_key;
     int ret;
 
-    sprintf(command, "SET SELF PRIORITY %s", priority);
-    ret = _spd_execute_command(connection, command);
+    ret = _spd_set_priority(connection, priority);
     if(ret) return -1;
 
     command_key = g_strdup_printf("KEY \"%s\"", key_name);
@@ -287,7 +295,7 @@ spd_key(int connection, char* priority, char *key_name)
 }
 
 int
-spd_char(int connection, char* priority, char *character)
+spd_char(int connection, SPDPriority priority, const char *character)
 {
     static char command[32];
     char *command_char;
@@ -295,8 +303,7 @@ spd_char(int connection, char* priority, char *character)
 
     if (character == NULL) return -1;
 
-    sprintf(command, "SET SELF PRIORITY %s", priority);
-    ret = _spd_execute_command(connection, command);
+    ret = _spd_set_priority(connection, priority);
     if(ret) return -1;
 
     command_char = g_strdup_printf("CHAR \"%s\"", character);
@@ -308,7 +315,7 @@ spd_char(int connection, char* priority, char *character)
 }
 
 int
-spd_wchar(int connection, char* priority, wchar_t wcharacter)
+spd_wchar(int connection, SPDPriority priority, wchar_t wcharacter)
 {
     static char command[32];
     char *command_char;
@@ -318,24 +325,22 @@ spd_wchar(int connection, char* priority, wchar_t wcharacter)
     ret = wcrtomb(character, wcharacter, NULL);
     if( ret <= 0 ) return -1;
 
-    sprintf(command, "SET SELF PRIORITY %s", priority);
-    ret = _spd_execute_command(connection, command);
+    ret = _spd_set_priority(connection, priority);
     if(ret) return -1;
 
     command_char = g_strdup_printf("CHAR \"%s\"", character);
     ret = _spd_execute_command(connection, command_char);
-
+ 
     return ret;
 }
 
 int
-spd_sound_icon(int connection, char* priority, char *icon_name)
+spd_sound_icon(int connection, SPDPriority priority, const char *icon_name)
 {
     char *command;
     int ret;
 
-    sprintf(command, "SET SELF PRIORITY %s", priority);
-    ret = _spd_execute_command(connection, command);
+    ret = _spd_set_priority(connection, priority);
     if(ret) return -1;
 
     if (icon_name == NULL) return -1;
@@ -346,150 +351,105 @@ spd_sound_icon(int connection, char* priority, char *icon_name)
     return ret;
 }
 
-int
-spd_set_voice_rate(int connection, int rate)
-{
-    char who[] = "SELF\0";
-    return _spd_set_voice_rate(connection, rate, who);
-}
+#define SPD_SET_COMMAND_INT(param, ssip_name, condition) \
+    int \
+    _spd_set_ ## param (int connection, signed int val, const char* who) \
+    { \
+        static char command[64]; \
+        int ret; \
+        if ((!condition)) return -1; \
+        sprintf(command, "SET %s " #ssip_name " %d", who, val); \
+        return _spd_execute_command(connection, command); \
+    } \
+    int \
+    spd_set_ ## param (int connection, signed int val) \
+    { \
+        char who[] = "SELF"; \
+        return _spd_set_ ## param (connection, val, who); \
+    } \
+    int \
+    spd_set_ ## param ## _all(int connection, signed int val) \
+    { \
+        char who[] = "ALL"; \
+        return _spd_set_ ## param (connection, val, who); \
+    } \
+    int \
+    spd_set_ ## param ## _uid(int connection, signed int val, unsigned int uid) \
+    { \
+        char who[16]; \
+        sprintf(who, "%d", uid); \
+        return _spd_set_ ## param (connection, val, who); \
+    }
+
+#define SPD_SET_COMMAND_STR(param, ssip_name) \
+    int \
+    _spd_set_ ## param (int connection, const char *str, const char* who) \
+    { \
+        char *command; \
+        if (str == NULL) return -1; \
+        command = g_strdup_printf("SET %s " #param " \"%s\"", \
+                              who, str); \
+        return _spd_execute_command(connection, command); \
+    } \
+    int \
+    spd_set_ ## param (int connection, const char *str) \
+    { \
+        char who[] = "SELF"; \
+        return _spd_set_ ## param (connection, str, who); \
+    } \
+    int \
+    spd_set_ ## param ## _all(int connection, const char *str) \
+    { \
+        char who[] = "ALL"; \
+        return _spd_set_ ## param (connection, str, who); \
+    } \
+    int \
+    spd_set_ ## param ## _uid(int connection, const char *str, unsigned int uid) \
+    { \
+        char who[16]; \
+        sprintf(who, "%d", uid); \
+        return _spd_set_ ## param (connection, str, who); \
+    }
+
+#define SPD_SET_COMMAND_SPECIAL(param, type) \
+    int \
+    spd_set_ ## param (int connection, type val) \
+    { \
+        char who[] = "SELF"; \
+        return _spd_set_ ## param (connection, val, who); \
+    } \
+    int \
+    spd_set_ ## param ## _all(int connection, type val) \
+    { \
+        char who[] = "ALL"; \
+        return _spd_set_ ## param (connection, val, who); \
+    } \
+    int \
+    spd_set_ ## param ## _uid(int connection, type val, unsigned int uid) \
+    { \
+        char who[16]; \
+        sprintf(who, "%d", uid); \
+        return _spd_set_ ## param (connection, val, who); \
+    }
+
+SPD_SET_COMMAND_INT(voice_rate, RATE, ((val >= -100) && (val <= +100)) );
+SPD_SET_COMMAND_INT(voice_pitch, PITCH, ((val >= -100) && (val <= +100)) );
+
+SPD_SET_COMMAND_STR(language, LANGUAGE);
+SPD_SET_COMMAND_STR(punctuation_important, PUNCTUATION_IMPORTANT);
+SPD_SET_COMMAND_STR(punctuation_table, PUNCTUATION_TABLE);
+SPD_SET_COMMAND_STR(spelling_table, SPELLING_TABLE);
+SPD_SET_COMMAND_STR(text_table, TEXT_TABLE);
+SPD_SET_COMMAND_STR(sound_table, SOUND_TABLE);
+SPD_SET_COMMAND_STR(char_table, CHARACTER_TABLE);
+SPD_SET_COMMAND_STR(key_table, KEY_TABLE);
+
+SPD_SET_COMMAND_SPECIAL(punctuation, SPDPunctuation);
+SPD_SET_COMMAND_SPECIAL(spelling, SPDSpelling);
+SPD_SET_COMMAND_SPECIAL(voice_type, SPDVoiceType);
 
 int
-spd_set_voice_rate_all(int connection, int rate)
-{
-    char who[] = "ALL\0";
-    return _spd_set_voice_rate(connection, rate, who);
-}
-
-int
-spd_set_voice_rate_uid(int connection, int rate, int uid)
-{
-    char who[16];
-    sprintf(who, "%d", uid);
-    return _spd_set_voice_rate(connection, rate, who);
-}
-
-int
-spd_set_voice_pitch(int connection, int pitch)
-{
-    char who[] = "SELF\0";
-    return _spd_set_voice_pitch(connection, pitch, who);
-}
-
-int
-spd_set_voice_pitch_all(int connection, int pitch)
-{
-   char who[] = "ALL\0";
-   return _spd_set_voice_pitch(connection, pitch, who);
-}
-
-int
-spd_set_voice_pitch_uid(int connection, int pitch, int uid)
-{
-   char who[16];
-   sprintf(who, "%d", uid);
-   return _spd_set_voice_pitch(connection, pitch, who);
-}
-
-int
-spd_set_punctuation(int connection, SPDPunctuation type)
-{
-   char who[] = "SELF\0";
-   return _spd_set_punctuation(connection, type, who);
-}
-
-int
-spd_set_punctuation_all(int connection, SPDPunctuation type)
-{
-   char who[] = "ALL\0";
-   return _spd_set_punctuation(connection, type, who);
-}
-
-int
-spd_set_punctuation_uid(int connection, SPDPunctuation type, int uid)
-{
-  char who[16];
-  sprintf(who, "%d", uid);
-  return _spd_set_punctuation(connection, type, who);
-}
-
-int
-spd_set_punctuation_important(int connection, char* punctuation_important)
-{
-   char who[] = "SELF\0";
-   return _spd_set_punctuation_important(connection, punctuation_important,
-                                         who);
-}
-
-int
-spd_set_punctuation_important_all(int connection, char* punctuation_important)
-{
-   char who[] = "ALL\0";
-   return _spd_set_punctuation_important(connection, punctuation_important,
-                                         who);
-}
-
-int
-spd_set_punctuation_important_uid(int connection, char* punctuation_important, int uid)
-{
-    char who[16];
-    sprintf(who, "%d", uid);
-    return _spd_set_punctuation_important(connection, punctuation_important, who);
-}
-
-int
-spd_set_spelling(int connection, SPDSpelling type)
-{
-   char who[] = "SELF\0";
-   return _spd_set_spelling(connection, type, who);
-}
-
-int
-spd_set_spelling_all(int connection, SPDSpelling type)
-{
-   char who[] = "ALL\0";
-   return _spd_set_spelling(connection, type, who);
-}
-
-int
-spd_set_spelling_uid(int connection, SPDSpelling type, int uid)
-{
-  char who[16];
-  sprintf(who, "%d", uid);
-  return _spd_set_spelling(connection, type, who);
-}
-
-int
-_spd_set_voice_rate(int connection, int rate, char* who)
-{
-    static char command[32];
-    int ret;
-
-    if(rate < -100) return -1;
-    if(rate > +100) return -1;
-
-    sprintf(command, "SET %s RATE %d", who, rate);
-    ret = _spd_execute_command(connection, command);    
-
-    return ret;
-}
-
-int
-_spd_set_voice_pitch(int connection, int pitch, char *who)
-{
-    static char command[32];
-    int ret;
-
-    if(pitch < -100) return -1;
-    if(pitch > +100) return -1;
-
-    sprintf(command, "SET %s PITCH %d", who, pitch);
-    ret = _spd_execute_command(connection, command);    
-
-    return ret;
-}
-
-int
-_spd_set_punctuation(int connection, SPDPunctuation type, char* who)
+_spd_set_punctuation(int connection, SPDPunctuation type, const char* who)
 {
     static char command[32];
     int ret;
@@ -498,7 +458,7 @@ _spd_set_punctuation(int connection, SPDPunctuation type, char* who)
         sprintf(command, "SET %s PUNCTUATION ALL", who);
     if (type == SPD_PUNCT_NONE)
         sprintf(command, "SET %s PUNCTUATION NONE", who);
-    if (type = SPD_PUNCT_SOME)
+    if (type == SPD_PUNCT_SOME)
         sprintf(command, "SET %s PUNCTUATION SOME", who);
 
     ret = _spd_execute_command(connection, command);    
@@ -507,23 +467,7 @@ _spd_set_punctuation(int connection, SPDPunctuation type, char* who)
 }
 
 int
-_spd_set_punctuation_important(int connection, char* punctuation_important, char* who)
-{
-    char *command;
-    int ret;
-
-    if (punctuation_important == NULL) return -1;
-    command = g_strdup_printf("SET %s IMPORTANT_PUNCTUATION \"%s\"", 
-                              who, punctuation_important);
-
-    ret = _spd_execute_command(connection, command);    
-    xfree(command);    
-
-    return ret;
-}
-
-int
-_spd_set_spelling(int connection, SPDSpelling type, char* who)
+_spd_set_spelling(int connection, SPDSpelling type, const char* who)
 {
     static char command[32];
     int ret;
@@ -537,6 +481,30 @@ _spd_set_spelling(int connection, SPDSpelling type, char* who)
 
     return ret;
 }
+
+int
+_spd_set_voice_type(int connection, SPDVoiceType type, const char *who)
+{
+    static char command[64];
+
+    switch(type){
+    case SPD_MALE1: sprintf(command, "SET %s VOICE MALE1", who); break;
+    case SPD_MALE2: sprintf(command, "SET %s VOICE MALE2", who); break;
+    case SPD_MALE3: sprintf(command, "SET %s VOICE MALE3", who); break;
+    case SPD_FEMALE1: sprintf(command, "SET %s VOICE FEMALE1", who); break;
+    case SPD_FEMALE2: sprintf(command, "SET %s VOICE FEMALE2", who); break;
+    case SPD_FEMALE3: sprintf(command, "SET %s VOICE FEMALE3", who); break;
+    case SPD_CHILD_MALE: sprintf(command, "SET %s VOICE CHILD_MALE", who); break;
+    case SPD_CHILD_FEMALE: sprintf(command, "SET %s VOICE CHILD_FEMALE", who); break;
+    default: return -1;
+    }
+    
+    return _spd_execute_command(connection, command);      
+}
+
+#undef SPD_SET_COMMAND_INT
+#undef SPD_SET_COMMAND_STR
+#undef SPD_SET_COMMAND_SPECIAL
 
 /* Takes the buffer, position of cursor in the buffer
  * and key that have been hit and tries to handle all
@@ -570,17 +538,13 @@ spd_get_client_list(int fd, char **client_names, int *client_ids, int* active){
 	for(count=0;  ;count++){
 		record = (char*) parse_response_data(reply, count+1);
 		if (record == NULL) break;
-//		MSG(3,"record:(%s)\n", record);
 		record_int = get_rec_int(record, 0);
 		client_ids[count] = record_int;
-//		MSG(3,"record_int:(%d)\n", client_ids[count]);
 		record_str = (char*) get_rec_str(record, 1);
 		assert(record_str!=NULL);
 		client_names[count] = record_str;
-//		MSG(3,"record_str:(%s)\n", client_names[count]);		
 		record_int = get_rec_int(record, 2);
 		active[count] = record_int;
-//		MSG(3,"record_int:(%d)\n", active[count]);		
 	}	
 	return count;
 }
@@ -608,14 +572,11 @@ spd_get_message_list_fd(int fd, int target, int *msg_ids, char **client_names)
 	for(count=0;  ;count++){
 		record = (char*) parse_response_data(reply, count+1);
 		if (record == NULL) break;
-//		MSG(3,"record:(%s)\n", record);
 		record_int = get_rec_int(record, 0);
 		msg_ids[count] = record_int;
-//		MSG(3,"record_int:(%d)\n", msg_ids[count]);
 		record_str = (char*) get_rec_str(record, 1);
 		assert(record_str!=NULL);
 		client_names[count] = record_str;
-//		MSG(3,"record_str:(%s)\n", client_names[count]);		
 	}
 	return count;
 }
@@ -635,7 +596,7 @@ spd_command_line(int fd, char *buffer, int pos, char* c){
 	new_s[0] = 0;
 		
 	/* Speech output for the symbol. */
-	spd_key(fd, "notification", c);	
+	spd_key(fd, SPD_NOTIFICATION, c);	
 	
 	/* TODO: */
 	/* What kind of symbol do we have. */
@@ -662,6 +623,27 @@ spd_command_line(int fd, char *buffer, int pos, char* c){
 }
 
 /* --------------------- Internal functions ------------------------- */
+
+int
+_spd_set_priority(int connection, SPDPriority priority)
+{
+    static char p_name[16];
+    static char command[64];
+
+    switch(priority){
+    case SPD_IMPORTANT: strcpy(p_name, "IMPORTANT"); break;
+    case SPD_MESSAGE: strcpy(p_name, "MESSAGE"); break;
+    case SPD_TEXT: strcpy(p_name, "TEXT"); break;
+    case SPD_NOTIFICATION: strcpy(p_name, "NOTIFICATION"); break;
+    case SPD_PROGRESS: strcpy(p_name, "PROGRESS"); break;
+    default: 
+        _SPD_DBG("Can't set priority");
+        return -1;
+    }
+		 
+    sprintf(command, "SET SELF PRIORITY %s", p_name);
+    return _spd_execute_command(connection, command);
+}
 
 int
 ret_ok(char *reply)
