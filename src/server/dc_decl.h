@@ -21,12 +21,13 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.3 2003-03-09 20:50:43 hanke Exp $
+ * $Id: dc_decl.h,v 1.4 2003-03-25 22:44:37 hanke Exp $
  */
 
-#include <glib.h>
+#include "speechd.h"
 
 /* define dotconf callbacks */
+DOTCONF_CB(cb_LogFile);
 DOTCONF_CB(cb_AddModule);
 DOTCONF_CB(cb_AddSndIcons);
 DOTCONF_CB(cb_DefaultModule);
@@ -44,6 +45,7 @@ DOTCONF_CB(cb_DefaultCapLetRecognition);
 /* define dotconf configuration options */
 static const configoption_t options[] =
 {
+		   {"LogFile", ARG_STR, cb_LogFile, 0, 0},
 		   {"AddModule", ARG_STR, cb_AddModule, 0, 0},
 		   {"AddSndIcons", ARG_STR, cb_AddSndIcons, 0, 0},
 		   {"DefaultModule", ARG_STR, cb_DefaultModule, 0, 0},
@@ -63,6 +65,30 @@ static const configoption_t options[] =
 		      LAST_OPTION
 };
 
+
+DOTCONF_CB(cb_LogFile)
+{
+	assert(cmd->data.str != NULL);
+	if (!strncmp(cmd->data.str,"stdout",6)){
+		logfile = (FILE*) malloc(sizeof(FILE*));
+		logfile = stdout;
+		return NULL;
+	}
+	if (!strncmp(cmd->data.str,"stderr",6)){
+		logfile = (FILE*) malloc(sizeof(FILE*));
+		logfile = stderr;
+		return NULL;
+	}
+	logfile = fopen(cmd->data.str, "w");
+	if (logfile == NULL){
+		printf("Error: can't open logging file! Using stdout.\n");
+		logfile = (FILE*) malloc(sizeof(FILE*));
+		logfile = stdout;
+	}
+	MSG(2,"Speech Deamon Logging to file %s", cmd->data.str);
+	return NULL;
+}
+
 DOTCONF_CB(cb_AddModule)
 {
 	OutputModule *om;
@@ -80,19 +106,19 @@ DOTCONF_CB(cb_AddSndIcons)
 	char *key;
 	char *value;
 	
-	MSG(3,"Reading sound icons file...\n");
+	MSG(4,"Reading sound icons file...");
 	
 	language = malloc(256);
 	
     if((icons_file = fopen(cmd->data.str, "r"))==NULL){
-		MSG(2,"Sound icons file specified in speechd.conf doesn't exist!\n");
+		MSG(2,"Sound icons file specified in speechd.conf doesn't exist!");
 		return NULL;	  
 	}
 
 	fgets(language, 254, icons_file);
 
 	if(strlen(language)<3){
-			MSG(2,"Corrupted sound icons file\n");
+			MSG(2,"Corrupted sound icons file");
 			return NULL;
 	}
 
@@ -104,8 +130,8 @@ DOTCONF_CB(cb_AddSndIcons)
 	while(1){
 		helper = malloc(512);
 		if(fgets(helper, 511, icons_file) == NULL) break;
-	    key = strtok(helper,":\n");
-		value = strtok(NULL,":\n");	
+	    key = strtok(helper,":\r\n");
+		value = strtok(NULL,":\r\n");	
 		g_hash_table_insert(icons_hash, key, value);	
 	}
 
