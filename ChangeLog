@@ -1,3 +1,7 @@
+2004-01-20  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/server/server.c (serve): Reading data from socket fixed.
+
 2003-12-21  Hynek Hanke  <hanke@volny.cz>
 
 	* config/modules/festival.conf: Updated.
