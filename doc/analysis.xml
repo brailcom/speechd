@@ -8,7 +8,7 @@
 	<imagedata fileref="figures/architecture.eps" format="EPS"/>
       </imageobject>
       <imageobject>
-	<imagedata fileref="figures/architecture.jpg" format="JPEG"/>
+	<imagedata fileref="img/architecture.png" format="PNG"/>
       </imageobject>
       <textobject>
 	<phrase>Speech Daemon Architecture</phrase>
