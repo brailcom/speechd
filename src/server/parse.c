@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.34 2003-06-20 00:43:11 hanke Exp $
+ * $Id: parse.c,v 1.35 2003-07-05 12:28:01 hanke Exp $
  */
 
 #include "speechd.h"
@@ -37,7 +37,6 @@
     spd_free(command); \
     return (char*) (parse_function) (buf, bytes, fd); \
  }
-
 
 char* 
 parse(const char *buf, const int bytes, const int fd)
@@ -183,320 +182,355 @@ parse(const char *buf, const int bytes, const int fd)
     return "";
 
 }
+#undef CHECK_SSIP_COMMAND
+
+#define CHECK_PARAM(param) \
+    if (param == NULL){ \
+       MSG(3, "Missing parameter from client"); \
+       return ERR_MISSING_PARAMETER; \
+    } 
+
+#define GET_PARAM_INT(name, pos) \
+   { \
+       char *helper; \
+       helper = get_param(buf, pos, bytes, 0); \
+       CHECK_PARAM(helper); \
+       if (!isanum(helper)) return ERR_NOT_A_NUMBER; \
+       name = atoi(helper); \
+   }
+
+#define CONV_DOWN 1
+#define NO_CONV 0
+
+#define GET_PARAM_STR(name, pos, up_lo_case) \
+       name = get_param(buf, pos, bytes, up_lo_case); \
+       CHECK_PARAM(name);
+
+/* Tests if cmd is the same as str AND deallocates cmd if
+   the test is succesful */
+#define TEST_CMD(cmd, str) \
+    (!strcmp(cmd, str) ? spd_free(cmd), 1 : 0 )
 
 /* Parses @history commands and calls the appropriate history_ functions. */
 char*
 parse_history(const char *buf, const int bytes, const int fd)
 {
-    char *param;
-    char *helper1, *helper2, *helper3;				
-		
-    param = get_param(buf,1,bytes, 1);
-    MSG(4, "param 1 caught: %s\n", param);
-    if (!strcmp(param,"get")){
-        param = get_param(buf,2,bytes, 1);
-        if (!strcmp(param,"last")){
-            return (char*) history_get_last(fd);
-        }     
-        if (!strcmp(param,"client_id")){
-            return (char*) history_get_client_id(fd);
-        }  
-        if (!strcmp(param,"message")){
-            helper1 = get_param(buf,3,bytes, 0);
-            if (!isanum(helper1)) return ERR_NOT_A_NUMBER;         
-            return (char*) history_get_message(atoi(helper1));
-        }  
-        if (!strcmp(param,"client_list")){
+    char *cmd_main;
+    GET_PARAM_STR(cmd_main, 1, CONV_DOWN);
+
+    if (TEST_CMD(cmd_main, "get")){
+        char *hist_get_sub;
+        GET_PARAM_STR(hist_get_sub, 2, CONV_DOWN);
+
+        if (TEST_CMD(hist_get_sub, "client_list")){
             return (char*) history_get_client_list();
         }  
-        if (!strcmp(param,"message_list")){
-            helper1 = get_param(buf,3,bytes, 0);
-            if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
-            helper2 = get_param(buf,4,bytes, 0);
-            if (!isanum(helper2)) return ERR_NOT_A_NUMBER;
-            helper3 = get_param(buf,5,bytes, 0);
-            if (!isanum(helper2)) return ERR_NOT_A_NUMBER;
-            return (char*) history_get_message_list( atoi(helper1), atoi(helper2), atoi (helper3));
+        else if (TEST_CMD(hist_get_sub, "client_id")){
+            return (char*) history_get_client_id(fd);
         }  
+        else if (TEST_CMD(hist_get_sub, "client_messages")){
+            int start, num;
+            char *who;
+
+            /* TODO: This needs to be (sim || am)-plified */
+            who = get_param(buf,3,bytes, 1);
+            CHECK_PARAM(who);
+            if (!strcmp(who, "self")) return ERR_NOT_IMPLEMENTED;
+            if (!strcmp(who, "all")) return ERR_NOT_IMPLEMENTED;                          
+            if (!isanum(who)) return ERR_NOT_A_NUMBER;
+            
+            GET_PARAM_INT(start, 4);
+            GET_PARAM_INT(num, 5);
+
+            return (char*) history_get_message_list(atoi(who), start, num);
+        }  
+        else if (TEST_CMD(hist_get_sub, "last")){
+            return (char*) history_get_last(fd);
+        }
+        else if (TEST_CMD(hist_get_sub, "message")){
+            int msg_id;
+            GET_PARAM_INT(msg_id, 3);
+            return (char*) history_get_message(msg_id);
+        }else{
+            return ERR_MISSING_PARAMETER;
+        }
     }
-    if (!strcmp(param,"sort")){
-        return ERR_NOT_IMPLEMENTED;
-        // TODO: everything :)
-    }
-    if (!strcmp(param,"cursor")){
-        param = get_param(buf,2,bytes, 1);
-        MSG(4, "param 2 caught: %s\n", param);
-        if (!strcmp(param,"set")){
-            param = get_param(buf,4,bytes, 1);
-            MSG(4, "param 4 caught: %s\n", param);
-            if (!strcmp(param,"last")){
-                helper1 = get_param(buf,3,bytes, 0);
-                if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
-                return (char*) history_cursor_set_last(fd,atoi(helper1));
+    else if (TEST_CMD(cmd_main, "cursor")){       
+        char *hist_cur_sub;
+        GET_PARAM_STR(hist_cur_sub, 2, CONV_DOWN);
+
+        if (TEST_CMD(hist_cur_sub, "set")){
+            int who;
+            char *location;
+
+            GET_PARAM_INT(who, 3);
+            GET_PARAM_STR(location, 4, CONV_DOWN);            
+
+            if (TEST_CMD(location,"last")){
+                return (char*) history_cursor_set_last(fd, who);
             }
-            if (!strcmp(param,"first")){
-                helper1 = get_param(buf,3,bytes, 0);
-                if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
-                return (char*) history_cursor_set_first(fd, atoi(helper1));
+            else if (TEST_CMD(location,"first")){
+                return (char*) history_cursor_set_first(fd, who);
             }
-            if (!strcmp(param,"pos")){
-                helper1 = get_param(buf,3,bytes, 0);
-                if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
-                helper2 = get_param(buf,5,bytes, 0);
-                if (!isanum(helper2)) return ERR_NOT_A_NUMBER;
-                return (char*) history_cursor_set_pos( fd, atoi(helper1), atoi(helper2) );
+            else if (TEST_CMD(location,"pos")){
+                int pos;
+                GET_PARAM_INT(pos, 5);
+                return (char*) history_cursor_set_pos(fd, who, pos);
+            }
+            else{
+                spd_free(location);
+                return ERR_MISSING_PARAMETER;
             }
         }
-        if (!strcmp(param,"forward")){
+        else if (TEST_CMD(hist_cur_sub, "forward")){
             return (char*) history_cursor_forward(fd);
         }
-        if (!strcmp(param,"backward")){
+        else if (TEST_CMD(hist_cur_sub,"backward")){
             return (char*) history_cursor_backward(fd);
         }
-        if (!strcmp(param,"get")){
+        else if (TEST_CMD(hist_cur_sub,"get")){
             return (char*) history_cursor_get(fd);
+        }else{
+            spd_free(hist_cur_sub);
+            return ERR_MISSING_PARAMETER;
         }
+            
     }
-    if (!strcmp(param,"say")){
-        param = get_param(buf,2,bytes, 1);
-        if (!strcmp(param,"id")){
-            helper1 = get_param(buf,3,bytes, 0);
-            if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
-            return (char*) history_say_id(fd, atoi(helper1));
-        }
-        if (!strcmp(param,"text")){
-            return ERR_NOT_IMPLEMENTED;
-        }
+    else if (TEST_CMD(cmd_main,"say")){
+        int msg_id;
+        GET_PARAM_INT(msg_id, 2);
+        return (char*) history_say_id(fd, msg_id);
     }
+    else if (TEST_CMD(cmd_main,"sort")){
+        // TODO: everything :)
+        return ERR_NOT_IMPLEMENTED;
+    }
+    else{
+        spd_free(cmd_main);
+        return ERR_MISSING_PARAMETER;
+    }
+
  
     return ERR_INVALID_COMMAND;
 }
 
+#define SSIP_SET_COMMAND(param) \
+        if (who == 0) ret = set_ ## param ## _self(fd, param); \
+        else if (who == 1) ret = set_ ## param ## _uid(uid, param); \
+        else if (who == 2) ret = set_ ## param ## _all(param); \
+
 char*
 parse_set(const char *buf, const int bytes, const int fd)
 {
-    char *param;
     int who;                    /* 0 - self, 1 - uid specified, 2 - all */
     int uid;                    /* uid of the client (only if who == 1) */
-    char *language;
-    char *client_name;
-    char *priority;
-    char *rate;
-    char *pitch;
-    char *punct;
-    EPunctMode punct_mode;
-    char *punctuation_table;
-    char *spelling;
-    char *spelling_table;
-    char *recog;
-    char *voice;
-    char *char_table;
-    char *key_table;
-    char *sound_table;
-    char *output_module;
-    int onoff;
-    int helper;
-    int ret;
+    int ret;  
+    char *set_sub;
 
-    param = get_param(buf,1,bytes, 1);
-    if (param == NULL) return ERR_MISSING_PARAMETER;
+    char *who_s;
 
-    if (!strcmp(param,"self")) who = 0;
-    else if (!strcmp(param,"all")) who = 2;
-    else if (isanum(param)){
+    GET_PARAM_STR(who_s, 1, CONV_DOWN);
+
+    if (TEST_CMD(who_s, "self")) who = 0;
+    else if (TEST_CMD(who_s, "all")) who = 2;
+    else if (isanum(who_s)){
         who = 1;
-        uid = atoi(param);
-    }else return ERR_PARAMETER_INVALID;
+        uid = atoi(who_s);
+        spd_free(who_s);
+    }else{
+        spd_free(who_s);
+        return ERR_PARAMETER_INVALID;
+    }
 
+    GET_PARAM_STR(set_sub, 2, CONV_DOWN);
 
-    param = get_param(buf, 2, bytes, 1);
-    if (param == NULL) return ERR_MISSING_PARAMETER;
+    if (TEST_CMD(set_sub, "priority")){
+        char *priority_s;
+        int priority;
 
-    if (!strcmp(param, "priority")){
-        if (who != 0) return ERR_COULDNT_SET_PRIORITY; /* Setting priority only allowed for "self" */
-        priority = get_param(buf,3,bytes, 1);
-        if (priority == NULL) return ERR_MISSING_PARAMETER;
-        if (!strcmp(priority, "important")) helper = 1;
-        else if (!strcmp(priority, "text")) helper = 2;
-        else if (!strcmp(priority, "message")) helper = 3;
-        else if (!strcmp(priority, "notification")) helper = 4;
-        else if (!strcmp(priority, "progress")) helper = 5;
-        else return ERR_UNKNOWN_PRIORITY;
-        MSG(4, "Setting priority to %s = %d \n", priority, helper);
-        ret = set_priority_self(fd, helper);
+        /* Setting priority only allowed for "self" */
+        if (who != 0) return ERR_COULDNT_SET_PRIORITY; 
+        GET_PARAM_STR(priority_s, 3, CONV_DOWN);
+
+        if (TEST_CMD(priority_s, "important")) priority = 1;
+        else if (TEST_CMD(priority_s, "text")) priority = 2;
+        else if (TEST_CMD(priority_s, "message")) priority = 3;
+        else if (TEST_CMD(priority_s, "notification")) priority = 4;
+        else if (TEST_CMD(priority_s, "progress")) priority = 5;
+        else{
+            spd_free(priority_s);
+            return ERR_UNKNOWN_PRIORITY;
+        }
+
+        ret = set_priority_self(fd, priority);
         if (ret) return ERR_COULDNT_SET_PRIORITY;	
         return OK_PRIORITY_SET;
     }
-    else if (!strcmp(param,"language")){
-        language = get_param(buf, 3, bytes, 0);
-        if (language == NULL) return ERR_MISSING_PARAMETER;
-        MSG(4, "Setting language to %s \n", language);
-        if (who == 0) ret = set_language_self(fd, language);
-        else if (who == 1) ret = set_language_uid(uid, language);
-        else if (who == 2) ret = set_language_all(language);
+    else if (TEST_CMD(set_sub, "language")){
+        char *language;
+        GET_PARAM_STR(language, 3, CONV_DOWN);
+
+        SSIP_SET_COMMAND(language);
         if (ret) return ERR_COULDNT_SET_LANGUAGE;
         return OK_LANGUAGE_SET;
     }
-    else if (!strcmp(param,"spelling_table")){
-        spelling_table = get_param(buf, 3, bytes, 0);
-        if (spelling_table == NULL) return ERR_MISSING_PARAMETER;
-        MSG(4, "Setting spelling table to %s \n", spelling_table);
-        if (who == 0) ret = set_spelling_table_self(fd, spelling_table);
-        else if (who == 1) ret = set_spelling_table_uid(uid, spelling_table);
-        else if (who == 2) ret = set_spelling_table_all(spelling_table);
+    else if (TEST_CMD(set_sub, "spelling_table")){
+        char *spelling_table;
+        GET_PARAM_STR(spelling_table, 3, CONV_DOWN);
+
+        SSIP_SET_COMMAND(spelling_table);
         if (ret) return ERR_COULDNT_SET_TABLE;
         return OK_TABLE_SET;
     }
-    else if (!strcmp(param,"client_name")){
-        client_name = get_param(buf, 3, bytes, 0);
-        if (client_name == NULL) return ERR_MISSING_PARAMETER;
-        MSG(4, "Setting client name to %s. \n", client_name);
-        if (who != 0) return ERR_COULDNT_SET_CLIENT_NAME; /* only "self" allowed */
+    else if (TEST_CMD(set_sub, "client_name")){
+        char *client_name;
+
+        /* Setting client name only allowed for "self" */
+        if (who != 0) return ERR_COULDNT_SET_CLIENT_NAME;
+      
+        GET_PARAM_STR(client_name, 3, CONV_DOWN);
+
         ret = set_client_name_self(fd, client_name);       
+        spd_free(client_name);
+
         if (ret) return ERR_COULDNT_SET_CLIENT_NAME;
         return OK_CLIENT_NAME_SET;
     }
-    else if (!strcmp(param,"rate")){
-        rate = get_param(buf, 3, bytes, 0);
-        if (rate == NULL) return ERR_MISSING_PARAMETER;
-        if (!isanum(rate)) return ERR_NOT_A_NUMBER;
-        helper = atoi(rate);
-        if(helper < -100) return ERR_COULDNT_SET_RATE;
-        if(helper > +100) return ERR_COULDNT_SET_RATE;
-        MSG(4, "Setting rate to %d \n", helper);
-        if (who == 0) ret = set_rate_self(fd, helper);        
-        else if (who == 1) ret = set_rate_uid(uid, helper);
-        else if (who == 2) ret = set_rate_all(helper);
+    else if (!strcmp(set_sub, "rate")){
+        signed int rate;
+        GET_PARAM_INT(rate, 3);
+
+        if(rate < -100) return ERR_RATE_TOO_LOW;
+        if(rate > +100) return ERR_RATE_TOO_HIGH;
+
+        SSIP_SET_COMMAND(rate);
         if (ret) return ERR_COULDNT_SET_RATE;
         return OK_RATE_SET;
     }
-    else if (!strcmp(param,"pitch")){
-        pitch = get_param(buf, 3, bytes, 0);
-        if (pitch == NULL) return ERR_MISSING_PARAMETER;
-        if (!isanum(pitch)) return ERR_NOT_A_NUMBER;
-        helper = atoi(pitch);
-        if(helper < -100) return ERR_COULDNT_SET_PITCH;
-        if(helper > +100) return ERR_COULDNT_SET_PITCH;
-        MSG(4, "Setting pitch to %d \n", pitch);
-        if (who == 0) ret = set_pitch_self(fd, helper);        
-        else if (who == 1) ret = set_pitch_uid(uid, helper);
-        else if (who == 2) ret = set_pitch_all(helper);
+    else if (TEST_CMD(set_sub, "pitch")){
+        signed int pitch;
+        GET_PARAM_INT(pitch, 3);
+
+        if(pitch < -100) return ERR_PITCH_TOO_LOW;
+        if(pitch > +100) return ERR_PITCH_TOO_HIGH;
+
+        SSIP_SET_COMMAND(pitch);
+
         if (ret) return ERR_COULDNT_SET_PITCH;
         return OK_PITCH_SET;
     }
-    else if (!strcmp(param,"voice")){
-        voice = get_param(buf, 3, bytes, 1);
-        if (voice == NULL) return ERR_MISSING_PARAMETER;
-        MSG(4, "Setting voice to %s", voice);
-        if (who == 0) ret = set_voice_self(fd, voice);        
-        else if (who == 1) ret = set_voice_uid(uid, voice);
-        else if (who == 2) ret = set_voice_all(voice);
+    else if (TEST_CMD(set_sub, "voice")){
+        char *voice;
+        GET_PARAM_STR(voice, 3, CONV_DOWN);
+
+        SSIP_SET_COMMAND(voice);
+        spd_free(voice);
+
         if (ret) return ERR_COULDNT_SET_VOICE;
         return OK_VOICE_SET;
     }
-    else if (!strcmp(param,"punctuation")){
-        punct = get_param(buf, 3, bytes, 1);
-        if (punct == NULL) return ERR_MISSING_PARAMETER;
-        if(!strcmp(punct,"all")) punct_mode = PUNCT_ALL;
-        else if(!strcmp(punct,"some")) punct_mode = PUNCT_SOME;        
-        else if(!strcmp(punct,"none")) punct_mode = PUNCT_NONE;        
-        else return ERR_PARAMETER_INVALID;
+    else if (TEST_CMD(set_sub, "punctuation")){
+        char *punct_s;
+        EPunctMode punctuation_mode;
+        GET_PARAM_STR(punct_s, 3, CONV_DOWN);
 
-        if (who == 0) ret = set_punctuation_mode_self(fd, punct_mode);        
-        else if (who == 1) ret = set_punctuation_mode_uid(uid, punct_mode);
-        else if (who == 2) ret = set_punctuation_mode_all(punct_mode);
+        if(TEST_CMD(punct_s,"all")) punctuation_mode = PUNCT_ALL;
+        else if(TEST_CMD(punct_s,"some")) punctuation_mode = PUNCT_SOME;        
+        else if(TEST_CMD(punct_s,"none")) punctuation_mode = PUNCT_NONE;        
+        else{
+            spd_free(punct_s);
+            return ERR_PARAMETER_INVALID;
+        }
 
-        MSG(4, "Setting punctuation mode to %s \n", punct);
+        SSIP_SET_COMMAND(punctuation_mode);
+
         if (ret) return ERR_COULDNT_SET_PUNCT_MODE;
         return OK_PUNCT_MODE_SET;
     }
-    else if (!strcmp(param,"punctuation_table")){
-        punctuation_table = get_param(buf, 3, bytes, 0);
-        if (punctuation_table == NULL) return ERR_MISSING_PARAMETER;
-        MSG(4, "Setting punctuation table to %s \n", punctuation_table);
+    else if (TEST_CMD(set_sub, "punctuation_table")){
+        char *punctuation_table;
+        GET_PARAM_STR(punctuation_table, 3, CONV_DOWN);
 
-        if (who == 0) ret = set_punctuation_table_self(fd, punctuation_table);        
-        else if (who == 1) ret = set_punctuation_table_uid(uid, punctuation_table);
-        else if (who == 2) ret = set_punctuation_table_all(punctuation_table);
+        SSIP_SET_COMMAND(punctuation_table);
+        spd_free(punctuation_table);
 
         if (ret) return ERR_COULDNT_SET_TABLE;
         return OK_TABLE_SET;
     }
-    else if (!strcmp(param,"character_table")){
-        char_table = get_param(buf, 3, bytes, 0);
-        if (char_table == NULL) return ERR_MISSING_PARAMETER;
-        MSG(4, "Setting punctuation table to %s \n", char_table);
-        if (who == 0) ret = set_character_table_self(fd, char_table);
-        else if (who == 1) ret = set_character_table_uid(uid, char_table);
-        else if (who == 2) ret = set_character_table_all(char_table);
+    else if (TEST_CMD(set_sub, "character_table")){
+        char *character_table;
+        GET_PARAM_STR(character_table, 3, CONV_DOWN);
+
+        SSIP_SET_COMMAND(character_table);
+        spd_free(character_table);
+
         if (ret) return ERR_COULDNT_SET_TABLE;
         return OK_TABLE_SET;
     }
-    else if (!strcmp(param,"output_module")){
-        output_module = get_param(buf, 3, bytes, 0);
-        if (output_module == NULL) return ERR_MISSING_PARAMETER;
-        MSG(4, "Setting output module to %s \n", output_module);
-        if (who == 0) ret = set_output_module_self(fd, output_module);
-        else if (who == 1) ret = set_output_module_uid(uid, output_module);
-        else if (who == 2) ret = set_output_module_all(output_module);
+    else if (TEST_CMD(set_sub, "output_module")){
+        char *output_module;
+        GET_PARAM_STR(output_module, 3, CONV_DOWN);
+
+        SSIP_SET_COMMAND(output_module);
+        spd_free(output_module);
+
         if (ret) return ERR_COULDNT_SET_OUTPUT_MODULE;
         return OK_OUTPUT_MODULE_SET;
     }
-    else if (!strcmp(param,"key_table")){
-        key_table = get_param(buf, 3, bytes, 0);
-        if (key_table == NULL) return ERR_MISSING_PARAMETER;
-        MSG(4, "Setting punctuation table to %s \n", key_table);
-
-        if (who == 0) ret = set_key_table_self(fd, key_table);        
-        else if (who == 1) ret = set_key_table_uid(uid, key_table);
-        else if (who == 2) ret = set_key_table_all(key_table);
+    else if (TEST_CMD(set_sub, "key_table")){
+        char *key_table;
+        GET_PARAM_STR(key_table, 3, CONV_DOWN);
+        
+        SSIP_SET_COMMAND(key_table);
+        spd_free(key_table);
 
         if (ret) return ERR_COULDNT_SET_TABLE;
         return OK_TABLE_SET;
     }
-    else if (!strcmp(param,"text_table")){
+    else if (TEST_CMD(set_sub, "text_table")){
         return OK_NOT_IMPLEMENTED;
     }
-    else if (!strcmp(param,"sound_table")){
-        sound_table = get_param(buf, 3, bytes, 0);
-        if (sound_table == NULL) return ERR_MISSING_PARAMETER;
-        MSG(4, "Setting punctuation table to %s \n", sound_table);
+    else if (TEST_CMD(set_sub,"sound_table")){
+        char *sound_table;
+        GET_PARAM_STR(sound_table, 3, CONV_DOWN);
 
-        if (who == 0) ret = set_sound_table_self(fd, sound_table);        
-        else if (who == 1) ret = set_sound_table_uid(uid, sound_table);
-        else if (who == 2) ret = set_sound_table_all(sound_table);
+        SSIP_SET_COMMAND(sound_table);
+        spd_free(sound_table);
 
         if (ret) return ERR_COULDNT_SET_TABLE;
         return OK_TABLE_SET;
     }
-    else if (!strcmp(param,"cap_let_recogn")){
-        recog = get_param(buf, 3, bytes, 1);
-        if (recog == NULL) return ERR_MISSING_PARAMETER;
+    else if (TEST_CMD(set_sub, "cap_let_recogn")){
+        int capital_letter_recognition;
+        char *recognition;
 
-        if(!strcmp(recog,"on")) onoff = 1;
-        else if(!strcmp(recog,"off")) onoff = 0;        
-        else return ERR_PARAMETER_NOT_ON_OFF;
+        GET_PARAM_STR(recognition, 3, CONV_DOWN);
 
-        if (who == 0) ret = set_capital_letter_recognition_self(fd, onoff);        
-        else if (who == 1) ret = set_capital_letter_recognition_uid(uid, onoff);
-        else if (who == 2) ret = set_capital_letter_recognition_all(onoff);
+        if(TEST_CMD(recognition, "on")) capital_letter_recognition = 1;
+        else if(TEST_CMD(recognition, "off")) capital_letter_recognition = 0;        
+        else{
+            spd_free(recognition);
+            return ERR_PARAMETER_NOT_ON_OFF;
+        }
 
-        MSG(4, "Setting capital letter recognition to %s \n", punct);
+        SSIP_SET_COMMAND(capital_letter_recognition);
+
         if (ret) return ERR_COULDNT_SET_CAP_LET_RECOG;
         return OK_CAP_LET_RECOGN_SET;
     }
-    else if (!strcmp(param,"spelling")){
-        spelling = get_param(buf, 3, bytes, 1);
-        if (spelling == NULL) return ERR_MISSING_PARAMETER;
-        if(!strcmp(spelling,"on")) onoff = 1;
-        else if(!strcmp(spelling,"off")) onoff = 0;        
-        else return ERR_PARAMETER_NOT_ON_OFF;
+    else if (TEST_CMD(set_sub,"spelling")){
+        char *spelling_s;
+        int spelling;
+        GET_PARAM_STR(spelling_s, 3, CONV_DOWN);
 
-        if (who == 0) ret = set_spelling_self(fd, onoff);        
-        else if (who == 1) ret = set_spelling_uid(uid, onoff);
-        else if (who == 2) ret = set_spelling_all(onoff);
+        if(TEST_CMD(spelling_s, "on")) spelling = 1;
+        else if(TEST_CMD(spelling_s, "off")) spelling = 0;        
+        else{
+            spd_free(spelling_s);
+            return ERR_PARAMETER_NOT_ON_OFF;
+        }
 
-        MSG(4, "Setting spelling to %s", spelling);
+        SSIP_SET_COMMAND(spelling);
 
         if (ret) return ERR_COULDNT_SET_SPELLING;
         return OK_SPELLING_SET;
@@ -507,33 +541,37 @@ parse_set(const char *buf, const int bytes, const int fd)
 
     return ERR_INVALID_COMMAND;
 }
+#undef SSIP_SET_COMMAND
 
 char*
 parse_stop(const char *buf, const int bytes, const int fd)
 {
     int uid = 0;
-    char *param;
+    char *who_s;
 
-    param = get_param(buf,1,bytes, 1);
-    if (param == NULL) return ERR_MISSING_PARAMETER;
+    MSG(4, "Stop received from fd %d.", fd);
 
-    if (!strcmp(param,"all")){
+    GET_PARAM_STR(who_s, 1, CONV_DOWN);
+
+    if (TEST_CMD(who_s, "all")){
         speaking_stop_all();
     }
-    else if (!strcmp(param, "self")){
+    else if (TEST_CMD(who_s, "self")){
         uid = get_client_uid_by_fd(fd);
         if(uid == 0) return ERR_INTERNAL;
         speaking_stop(uid);
     }
-    else if (isanum(param)){
-        uid = atoi(param);
+    else if (isanum(who_s)){
+        uid = atoi(who_s);
+        spd_free(who_s);
+
         if (uid <= 0) return ERR_ID_NOT_EXIST;
         speaking_stop(uid);
     }else{
+        spd_free(who_s);
         return ERR_PARAMETER_INVALID;
     }
 
-    MSG(4, "Stop received.");
     return OK_STOPPED;
 }
 
@@ -541,28 +579,30 @@ char*
 parse_cancel(const char *buf, const int bytes, const int fd)
 {
     int uid = 0;
-    char *param;
+    char *who_s;
 
-    param = get_param(buf,1,bytes, 1);
-    if (param == NULL) return ERR_MISSING_PARAMETER;
+    MSG(4, "Cancel received from fd %d.", fd);
 
-    if (!strcmp(param,"all")){
+    GET_PARAM_STR(who_s, 1, CONV_DOWN);
+
+    if (TEST_CMD(who_s,"all")){
         speaking_cancel_all();
     }
-    else if (!strcmp(param, "self")){
+    else if (TEST_CMD(who_s, "self")){
         uid = get_client_uid_by_fd(fd);
         if(uid == 0) return ERR_INTERNAL;
         speaking_cancel(uid);
     }
-    else if (isanum(param)){
-        uid = atoi(param);
+    else if (isanum(who_s)){
+        uid = atoi(who_s);
+        spd_free(who_s);
+
         if (uid <= 0) return ERR_ID_NOT_EXIST;
         speaking_cancel(uid);
     }else{
+        spd_free(who_s);
         return ERR_PARAMETER_INVALID;
     }
-
-    MSG(4, "Cancel received.");
 
     return OK_CANCELED;
 }
@@ -572,17 +612,21 @@ parse_pause(const char *buf, const int bytes, const int fd)
 {
     int ret;
     int uid = 0;
-    char *param;
+    char *who_s;
 
-    param = get_param(buf, 1, bytes, 1);
-    if (param == NULL) return ERR_MISSING_PARAMETER;
+    MSG(4, "Pause received from fd %d.", fd);
 
-    if (!strcmp(param,"all")){
+    GET_PARAM_STR(who_s, 1, CONV_DOWN);
+
+    /* Note: In this case, the semaphore has a special meaning
+       to allow the speaking loop detect the request for pause */
+
+    if (TEST_CMD(who_s, "all")){
         pause_requested = 1;
         pause_requested_fd = fd;
         sem_post(sem_messages_waiting);
     }
-    else if (!strcmp(param, "self")){
+    else if (TEST_CMD(who_s, "self")){
         uid = get_client_uid_by_fd(fd);
         if(uid == 0) return ERR_INTERNAL;
         pause_requested = 2;
@@ -590,18 +634,18 @@ parse_pause(const char *buf, const int bytes, const int fd)
         pause_requested_uid = uid;
         sem_post(sem_messages_waiting);
     }
-    else if (isanum(param)){
-        uid = atoi(param);
+    else if (isanum(who_s)){
+        uid = atoi(who_s);
+        spd_free(who_s);
         if (uid <= 0) return ERR_ID_NOT_EXIST;
         pause_requested = 2;
         pause_requested_fd = fd;
         pause_requested_uid = uid;
         sem_post(sem_messages_waiting);
     }else{
+        spd_free(who_s);
         return ERR_PARAMETER_INVALID;
     }
-
-    MSG(4, "Pause received.");
 
     return OK_PAUSED;
 }
@@ -611,28 +655,29 @@ parse_resume(const char *buf, const int bytes, const int fd)
 {
     int ret;
     int uid = 0;
-    char *param;
+    char *who_s;
 
-    param = get_param(buf,1,bytes, 1);
-    if (param == NULL) return ERR_MISSING_PARAMETER;
+    MSG(4, "Resume received from fd %d.", fd);
 
-    if (!strcmp(param,"all")){
+    GET_PARAM_STR(who_s, 1, CONV_DOWN);
+
+    if (TEST_CMD(who_s, "all")){
         speaking_resume_all();
     }
-    else if (!strcmp(param, "self")){
+    else if (TEST_CMD(who_s, "self")){
         uid = get_client_uid_by_fd(fd);
         if(uid == 0) return ERR_INTERNAL;
         speaking_resume(uid);
     }
-    else if (isanum(param)){
-        uid = atoi(param);
+    else if (isanum(who_s)){
+        uid = atoi(who_s);
+        spd_free(who_s);
         if (uid <= 0) return ERR_ID_NOT_EXIST;
         speaking_resume(uid);
     }else{
+        spd_free(who_s);
         return ERR_PARAMETER_INVALID;
     }
-
-    MSG(4, "Resume received.");
     
     return OK_RESUMED;
 }
@@ -661,71 +706,82 @@ parse_snd_icon(const char *buf, const int bytes, const int fd)
 char*
 parse_char(const char *buf, const int bytes, const int fd)
 {
-    char *param;
-    TFDSetElement *settings;
+    char *character;
     int ret;
 
-    param = get_param(buf,1,bytes, 0);
-    if (param == NULL) return ERR_MISSING_PARAMETER;
-    MSG(4,"Parameter cught: %s", param);
+    GET_PARAM_STR(character, 1, NO_CONV);
 
-    ret = sndicon_char(fd, param);
-    if (ret!=0){
-        if(ret == 1) return ERR_NO_SND_ICONS;
-        if(ret == 2) return ERR_UNKNOWN_ICON;
+    ret = sndicon_char(fd, character);
+    if (ret != 0){
+        TSpeechDMessage *verbat;
+        /* Use the character verbatim */
+        verbat = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
+        verbat->bytes = bytes;
+        verbat->buf = strdup(character);
+        if(queue_message(verbat, fd, 1, MSGTYPE_TEXTP, 0))  FATAL("Couldn't queue message\n");
     }
-	
+
+    spd_free(character);
+
     return OK_SND_ICON_QUEUED;
 }
 
 char*
 parse_key(const char* buf, const int bytes, const int fd)
 {
-    char *param;
-    TFDSetElement *settings;
+    char *key;
     int ret;
 
-    param = get_param(buf, 1, bytes, 0);
-    if (param == NULL) return ERR_MISSING_PARAMETER;
-    MSG(4,"Parameter caught: %s", param);
+    GET_PARAM_STR(key, 1, NO_CONV);
 
-    ret = sndicon_key(fd, param);
+    ret = sndicon_key(fd, key);
+
     if (ret != 0){
-        if(ret == 1) return ERR_NO_SND_ICONS;
-        if(ret == 2) return ERR_UNKNOWN_ICON;
+        if(g_unichar_isalpha(g_utf8_get_char(key))){
+            TSpeechDMessage *verbat;
+            /* Use the key verbatim */
+            verbat = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
+            verbat->bytes = bytes;
+            verbat->buf = strdup(key);
+            if(queue_message(verbat, fd, 1, MSGTYPE_TEXTP, 0))  FATAL("Couldn't queue message\n");
+        }else{
+            spd_free(key);
+            return ERR_UNKNOWN_ICON;
+        }
     }
+
+    spd_free(key);
     return OK_SND_ICON_QUEUED;
 }
 
 char*
 parse_list(const char* buf, const int bytes, const int fd)
 {
-    char *param;
+    char *list_type;
     char *voice_list;
 
-    param = get_param(buf, 1, bytes, 1);    
-    if (param == NULL) return ERR_MISSING_PARAMETER;
+    GET_PARAM_STR(list_type, 1, CONV_DOWN);
 
-    if(!strcmp(param,"spelling_tables")){
+    if(TEST_CMD(list_type,"spelling_tables")){
         return (char*) sndicon_list_spelling_tables();
     }
-    else if(!strcmp(param,"sound_tables")){
+    else if(TEST_CMD(list_type,"sound_tables")){
         return (char*) sndicon_list_sound_tables();
     }
-    else if(!strcmp(param, "character_tables")){
+    else if(TEST_CMD(list_type, "character_tables")){
         return (char*) sndicon_list_char_tables();
     }
-    else if(!strcmp(param, "punctuation_tables")){
+    else if(TEST_CMD(list_type, "punctuation_tables")){
         return (char*) sndicon_list_punctuation_tables();
     }
-	else if(!strcmp(param, "key_tables")){
+    else if(TEST_CMD(list_type, "key_tables")){
         return (char*) sndicon_list_key_tables();
     }
-    else if(!strcmp(param, "text_tables")){
+    else if(TEST_CMD(list_type, "text_tables")){
         //        return (char*) sndicon_list_text_tables();
         return OK_NOT_IMPLEMENTED;
     }
-    else if(!strcmp(param, "voices")){
+    else if(TEST_CMD(list_type, "voices")){
         voice_list = (char*) spd_malloc(1024);
         sprintf(voice_list,
                 C_OK_VOICES"-MALE1\r\n"
@@ -739,7 +795,10 @@ parse_list(const char* buf, const int bytes, const int fd)
                 OK_VOICE_LIST_SENT);
         return voice_list;
     }
-    else return ERR_PARAMETER_INVALID;
+    else{
+        spd_free(list_type);
+        return ERR_PARAMETER_INVALID;
+    }
 }
 
 char*
@@ -755,9 +814,9 @@ parse_help(const char* buf, const int bytes, const int fd)
             C_OK_HELP"-  CHAR            -- say a char \r\n"
             C_OK_HELP"-  SOUND_ICON      -- execute a sound icon \r\n"
             C_OK_HELP"-  SET             -- set a parameter \r\n"
-            C_OK_HELP"-  QUIT            -- close the connection \r\n"
             C_OK_HELP"-  LIST            -- list available tables \r\n"
             C_OK_HELP"-  HISTORY         -- commands related to history \r\n"
+            C_OK_HELP"-  QUIT            -- close the connection \r\n"
             OK_HELP_SENT);
 
     return help;
