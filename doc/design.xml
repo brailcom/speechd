@@ -1,0 +1,104 @@
+<chapter id="ch-design">
+<title>Design</title>
+
+<!-- ========================================================= -->
+<sect1>
+<title>Architecture Overview</title>
+
+<para>
+
+<mediaobject>
+	<imageobject>
+		<imagedata fileref="../figures/architecture.eps" format="EPS"></imagedata>
+	</imageobject>
+	<imageobject>
+		<imagedata fileref="../figures/architecture.jpg" format="JPEG"></imagedata>
+	</imageobject>
+	<textobject>
+		<phrase>Speechd Architecture</phrase>
+	</textobject>
+	<caption>
+		<para>
+			This figure shows the tho speechd interfaces: SSIP and modAPI			
+		</para>
+	</caption>
+</mediaobject>
+
+</para>
+
+</sect1>
+
+<!-- ========================================================= -->
+<sect1>
+<title>Input</title>
+
+<!-- ********************************************************* -->
+<sect2>
+<title>Speech Syntesis Independent Protocol</title>
+
+<para>Speech Syntesis Independent Protocol (SSIP) is intended to provide a
+device independent layer between application and speech synthesizer. </para>
+
+<table>
+	<title>Control Sequences</title>
+	<tgroup cols="2">
+		<tbody>
+			<!--row><entry colspan="2">Control Sequences</entry></row-->
+			<row><entry>00</entry><entry>...</entry></row>
+			<row><entry>01</entry><entry>....</entry></row>
+		</tbody>
+	</tgroup>
+</table>
+
+
+</sect2>
+
+</sect1>
+
+<!-- ========================================================= -->
+<sect1>
+<title>Output</title>
+
+<para>Speechd provides a simple and transparent interface for output drivers.
+Each output driver allows to use one speech synthesizer with speechd. Output
+driver is implemented as a shared library, which uses the common API, to
+communicate with speechd. Output driver is called "output module" or simply
+just the <emphasis>module</emphasis>.</para>
+
+<!-- ********************************************************* -->
+<sect2>
+<title>API for Output Modules</title>
+
+<para>
+
+
+</para>
+
+</sect2>
+
+<!-- ********************************************************* -->
+<sect2>
+<title>Multiple Output Modules</title>
+
+<para>Speechd is enabled to use multiple output mudules, each one for
+particular speech synthesizer.
+
+
+</para>
+
+</sect2>
+
+<!-- ********************************************************* -->
+<sect2>
+<title>Configuration</title>
+
+<para>
+Speechd allows to be configured for multiple output speech synthesizers.
+
+</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>

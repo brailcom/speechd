@@ -1,0 +1,33 @@
+<?xml version='1.0'?>
+<!DOCTYPE book PUBLIC "-//Norman Walsh//DTD DocBk XML V3.1.7//EN" "/usr/lib/sgml/dtd/docbook-xml/3.1.7/docbookx.dtd" [
+<!ENTITY chapter.preface        SYSTEM "preface.xml">
+<!ENTITY chapter.intro          SYSTEM "intro.xml">
+<!ENTITY chapter.design         SYSTEM "design.xml">
+<!ENTITY chapter.implementation SYSTEM "implementation.xml">
+]>
+
+<book>
+
+<title>Speechd Project</title>
+<titleabbrev>Speechd</titleabbrev>
+<bookinfo>
+	<legalnotice>
+		<para>
+			This project and all of it's components are liable to the terms of
+			<ulink url="http://www.gnu.org/copyleft/gpl.html">GNU General Public License v2</ulink>
+		</para>
+	</legalnotice>
+
+	<!--copyright>
+		<year>2001</year>
+		<holder>Brailcom o.p.s.</holder>
+	</copyright-->
+
+</bookinfo>
+
+&chapter.preface;
+&chapter.intro;
+&chapter.design;
+&chapter.implementation;
+
+</book>
