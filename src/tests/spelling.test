@@ -3,7 +3,7 @@
 
 @ Set parameters and test if Speech Dispatcher works
 !SET SELF CLIENT_NAME unknown_user:test-spelling:main
-!SET SELF PRIORITY 2
+!SET SELF PRIORITY MESSAGE
 
 !SPEAK
 I'm ok.
