@@ -3,10 +3,10 @@ Section: sound
 Priority: extra
 Maintainer: Milan Zamazal <pdm@brailcom.org>
 Build-Depends: debhelper (>> 3.0.0), libglib2.0-dev, libdotconf-dev, libasound2-dev, flite-dev, automake1.7, librecode-dev, libestools-dev, festival-dev
-Standards-Version: 3.5.2
+Standards-Version: 3.5.9
 
 Package: speechd
 Architecture: any
 Depends: ${shlibs:Depends}, flite
-Description: Speech Daemon interface to speech synthesizers.
+Description: Speech Daemon interface to speech synthesizers
  Speech Daemon provides a device independent layer for speech synthesis.

@@ -1,3 +1,13 @@
+speechd (0.0-7) unstable; urgency=low
+
+  * Standards 3.5.9.
+  * DEB_BUILD_OPTIONS policy change considered in `rules'.
+  * `shlibs' created.
+  * `conffiles' removed.
+  * Call ldconfig in `postinst'.
+
+ -- Milan Zamazal <pdm@brailcom.org>  Mon, 12 May 2003 21:50:50 +0200
+
 speechd (0.0-6) unstable; urgency=low
 
   * Build depend on libestools-dev and festival-dev.
