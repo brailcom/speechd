@@ -64,6 +64,13 @@ the .scm files located in the directory
 to a place where it can find them. Please follow the instructions given in
 speechd-@VERSION/src/modules/festival-interface/README.festival-interface
 
+Please make sure that Festival server_access_list configuration
+variable and your /etc/hosts.conf are set properly. server_access_list
+must contain the symbolic name of your machine and this name must be
+defined in /etc/hosts.conf and point to your IP address. You can test
+if this is set correctly by trying to connect to the port Festival
+server is running on via an ordinary telnet. If you are not rejected,
+it probably works.
 
 Testing
 =======
