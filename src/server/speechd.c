@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.22 2003-04-15 10:08:59 pdm Exp $
+ * $Id: speechd.c,v 1.23 2003-04-17 10:21:16 hanke Exp $
  */
 
 #include "speechd.h"
@@ -56,6 +56,7 @@ MSG(int level, char *format, ...)
         vfprintf(logfile, format_with_spaces, args);
         if(SPEECHD_DEBUG) vfprintf(stdout, format_with_spaces, args);
         va_end(args);
+        free(format_with_spaces);
     }				
 }
 
@@ -161,7 +162,7 @@ speechd_init()
 	fd_uid = g_hash_table_new(g_str_hash, g_str_equal);
 	assert(fd_uid != NULL);
 	
-	snd_icon_langs = g_hash_table_new(g_str_hash,g_str_equal);
+	snd_icon_langs = g_hash_table_new(g_str_hash, g_str_equal);
 	assert(snd_icon_langs != NULL);
 
 	output_modules = g_hash_table_new(g_str_hash, g_str_equal);
