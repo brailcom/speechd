@@ -1,3 +1,8 @@
+2003-11-11  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/modules/module_utils.c (module_recode_to_iso): Convert
+	non-Czech messages to ISO 8859-1.
+
 2003-11-06  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/sem_functions.h (semaphore_clear): New function.
