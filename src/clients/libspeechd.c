@@ -7,12 +7,15 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <glib.h>
+#include <assert.h>
 
 #include "def.h"
 
 #define FATAL(msg) { perror("client: "msg); exit(1); }
 
 char* send_data(int fd, char *message, int wfr);
+
+static FILE* debugg;
 
 
 /* --------------------- Public functions ------------------------- */
@@ -30,6 +33,8 @@ spd_init(char* client_name, char* conn_name)
   address.sin_family = AF_INET;
   sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
+  debugg = fopen("/tmp/debugg", "w");
+  if (debugg == NULL) FATAL("COULDN'T ACCES FILE");
   /* connect to server */
   if (connect(sockfd, (struct sockaddr *)&address, sizeof(address)) == -1)
       return 0;
@@ -37,7 +42,7 @@ spd_init(char* client_name, char* conn_name)
   buf = malloc((strlen(client_name) + strlen(conn_name) + 64) * sizeof(char));
   if (buf == NULL) FATAL ("Not enough memory.\n");
 
-  sprintf(buf, "@client_name %s:%s\n\r", client_name, conn_name);
+  sprintf(buf, "@set client_name %s:%s\n\r", client_name, conn_name);
   if(! ret_ok( send_data(sockfd, buf, 1) )) return 0; 
 
   free(buf);
@@ -45,16 +50,20 @@ spd_init(char* client_name, char* conn_name)
   return sockfd;
 }
 
-void spd_close(int fd){
+void
+spd_close(int fd)
+{
    /* close the socket */
    close(fd);
 }
 
-int spd_say(int fd, int priority, char* text){
+int
+spd_say(int fd, int priority, char* text)
+{
   char helper[256];
   char *buf;
 
-  sprintf(helper, "@priority %d\n\r", priority);
+  sprintf(helper, "@set priority %d\n\r", priority);
   if(!ret_ok(send_data(fd, helper, 1))) return 0;
 
   sprintf(helper, "@data on\n\r");
@@ -71,20 +80,24 @@ int spd_say(int fd, int priority, char* text){
   return 1;
 }
 
-int spd_sayf (int fd, int priority, char *format, ...){
+int
+spd_sayf (int fd, int priority, char *format, ...)
+{
 	va_list args;
 	char buf[512];
 	int ret;
 	
 	va_start(args, format);
-		vsprintf(buf, format, args);
+	vsprintf(buf, format, args);
 	va_end(args);
 
 	ret = spd_say(fd, priority, buf);	
 	return ret;
 }
 
-int spd_stop(int fd){
+int
+spd_stop(int fd)
+{
   char helper[16];
 
   sprintf(helper, "@stop\n\r");
@@ -93,7 +106,9 @@ int spd_stop(int fd){
   return 1;
 }
 
-int spd_pause(int fd){
+int
+spd_pause(int fd)
+{
   char helper[16];
 
   sprintf(helper, "@pause\n\r");
@@ -102,13 +117,100 @@ int spd_pause(int fd){
   return 1;
 }
 
-int spd_resume(int fd){
+int
+spd_resume(int fd)
+{
   char helper[16];
 
   sprintf(helper, "@resume\n\r");
   if(!ret_ok(send_data(fd, helper, 1))) return 0;
 
   return 1;
+}
+
+/* Takes the buffer, position of cursor in the buffer
+ * and key that have been hit and tries to handle all
+ * the speech output, tabulator completion and other
+ * things and returns the new string. The cursor should
+ * be moved then by the client program to the end of
+ * this returned string.
+ * The client should call this function and display it's
+ * output every time there is some input to this command line.
+ */
+
+int
+spd_get_client_list(int fd, char **client_names, int *client_ids){
+	char command[128];
+	char *reply;
+	int header_ok;
+	int count;
+	char *record;
+	int record_int;
+	char *record_str;
+	
+	sprintf(command, "@history get client_list\n\r");
+	reply = send_data(fd, command, 1);
+
+	header_ok = parse_response_header(reply);
+	if(header_ok != 1){
+		free(reply);
+		return -1;
+	}
+	
+	for(count=0;  ;count++){
+		record = parse_response_data(reply, count+1);
+		if (record == NULL) break;
+//		MSG(3,"record:(%s)\n", record);
+		record_int = get_rec_int(record, 0);
+		client_ids[count] = record_int;
+//		MSG(3,"record_int:(%d)\n", client_ids[count]);
+		record_str = get_rec_str(record, 1);
+		client_names[count] = record_str;
+//		MSG(3,"record_str:(%s)\n", client_names[count]);		
+	}	
+	return count;
+}
+
+char*
+spd_command_line(int fd, char *buffer, int pos, int c){
+	char* new_s;
+
+	if (buffer == NULL){
+		new_s = malloc(sizeof(char) * 32);		
+		buffer = malloc(sizeof(char));
+		buffer[0] = 0;
+	}else{
+	   	if ((pos > strlen(buffer)) || (pos < 0)) return NULL;
+		new_s = malloc(sizeof(char) * strlen(buffer) * 2);
+	}
+	new_s[0] = 0;
+	
+	
+	/* Speech output for the symbol. */
+	spd_sayf(fd, 2, "%c\n\0", c);
+	
+	/* TODO: */
+	/* What kind of symbol do we have. */
+		switch(c){
+			/* Completion. */
+			case '\t':	
+					break;
+			/* Other tasks. */	
+			/* Deleting symbol */
+			case '-':	/* TODO: Should be backspace. */
+				strcpy(new_s, buffer);
+				new_s[pos-1]=0;
+				pos--;
+				break;
+			/* Adding symbol */
+			default:	
+				sprintf(new_s, "%s%c", buffer, c);
+				pos++;
+		}
+	/* Speech output */
+
+	/* Return the new string. */
+	return new_s;
 }
 
 /* --------------------- Internal functions ------------------------- */
@@ -122,33 +224,153 @@ int ret_ok(char *ret){
 	* different manner. It doesn't stop in either one of the strstr
 	* functions and executes internall error. But if you uncomment
 	* the sprintf and try to determine what's going on, everything
-	* works correctly. */
+	* works correctly. Any help appreciated. */
    sprintf(quantum_trashbin, "returned: %s", ret);
    if (strstr(ret, "OK") != NULL) return 1;
    if (strstr(ret, "ERROR") != NULL) return 0;
    FATAL("Internal error during communication.");
 }
 
-char* send_data(int fd, char *message, int wfr) {
-   char reply[256];
+char*
+get_rec_part(char *record, int pos)
+{
+	int i, n;
+	char *part;
+	int p = 0;
+
+	part = malloc(sizeof(char)*strlen(record));
+	for(i=0;i<=strlen(record)-1;i++){
+		if (record[i]==' '){
+			   	p++;
+				continue;
+		}
+		if(p == pos){
+			n = 0;
+			for(  ;i<=strlen(record)-1;i++){
+				if(record[i] != ' '){
+						part[n] = record[i];
+						n++;
+				}else{
+						part[n] = 0;
+						return part;
+				}
+			}
+			part[n] = 0;
+			return part;
+		}
+	}
+	return NULL;
+}
+
+char*
+get_rec_str(char *record, int pos)
+{
+	return(get_rec_part(record, pos));
+}
+
+int
+get_rec_int(char *record, int pos)
+{
+	char *num_str;
+	int num;
+
+	num_str = get_rec_part(record, pos);
+//	printf("pos:%d, rec:%s num_str:_%s_", pos, record, num_str);
+	if (!isanum(num_str)) return -9999;
+	num = atoi(num_str);
+	free(num_str);
+	return num;
+}
+
+int parse_response_header(char *resp)
+{
+	int ret;
+	char *header;
+	int i;
+	
+	header = malloc(sizeof(char) * strlen(resp));
+	
+	for(i=0;i<=strlen(resp)-1;i++){
+		if ((resp[i]!='\\') || (resp[i]!='\n'))	header[i] = resp[i];
+		else break;
+	}
+	header[i] = 0;
+	ret = ret_ok(header);
+
+	return ret;
+}
+
+char*
+parse_response_data(char *resp, int pos)
+{
+	int p = 0;
+	char *data;
+	int i;
+	int n = 0;
+		
+	data = malloc(sizeof(char) * strlen(resp));
+	assert(data!=NULL);
+	
+	for(i=0;i<=strlen(resp)-1;i++){
+		if (resp[i]=='\\'){
+			   	p++;
+				i+=2;
+				continue;
+		}
+		if (p==pos){
+			for(;i<=strlen(resp)-1;i++){
+				if ((resp[i]!='\\') && (resp[i]!='\n')){
+						data[n] = resp[i];
+						n++;
+				}else{
+					data[n]=0;
+					return data;	
+				}
+			}	
+			data[n]=0;
+			break;
+		}
+	}
+	free(data);
+	return NULL;
+}
+
+char*
+send_data(int fd, char *message, int wfr)
+{
+   char *reply;
    int bytes;
 
+   reply = malloc(sizeof(char) * 1024);
+   
    /* write message to the socket */
    write(fd, message, strlen(message));
 
    message[strlen(message)] = 0;
-   printf("command sent:	%s", message);
+   fprintf(debugg,"command sent:	%s", message);
 
    /* read reply to the buffer */
    if (wfr == 1){
       bytes = read(fd, reply, 255);
       /* print server reply to as a string */
       reply[bytes] = 0; 
-      printf("reply from server:	%s\n", reply);
+      fprintf(debugg, "reply from server:	%s\n", reply);
       return reply;
    }else{
-      printf("reply from server: no reply\n\n");
-      return "NO REPLY";
+      fprintf(debugg, "reply from server: no reply\n\n");
+	  strcpy(reply, "NO REPLY\n\r");
+      return reply;
    } 
+}
+
+/* isanum() tests if the given string is a number,
+ *  *  * returns 1 if yes, 0 otherwise. */
+int
+isanum(char *str){
+    int i;
+    for(i=0;i<=strlen(str)-1;i++){
+        if (!isdigit(str[i]))   return 0;
+    }
+    return 1;
 }
 

@@ -10,4 +10,4 @@ int spd_resume(int fd);
 
 /* internal functions */
 char* send_data(int fd, char *message, int wfr);
-		
+int isanum(char* str);		
