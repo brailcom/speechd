@@ -8,7 +8,7 @@
   * This is free software; you can redistribute it and/or modify it
   * under the terms of the GNU General Public License as published by
   * the Free Software Foundation; either version 2, or (at your option)
-  * any later version.
+  * any later version.  
   *
   * This software is distributed in the hope that it will be useful,
   * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: index_marking.c,v 1.6 2003-10-24 09:02:40 hanke Exp $
+  * $Id: index_marking.c,v 1.8 2004-06-28 08:10:41 hanke Exp $
   */
 
 #include "index_marking.h"
@@ -28,8 +28,12 @@
 /* Insert index marks to the given message _msg_. Index marks have
 the form @number@, the numbers begin with 0. It also escape `@' with
 `@@'.*/
+
+#define SD_MARK_HEAD "<mark name=\"sdm_"
+#define SD_MARK_TAIL "\"/>"
+
 void
-insert_index_marks(TSpeechDMessage *msg)
+insert_index_marks(TSpeechDMessage *msg, int ssml_mode)
 {
     GString *marked_text;
     int i;
@@ -41,21 +45,35 @@ insert_index_marks(TSpeechDMessage *msg)
     int n = 0;
     int ret;
     int insert = 0;
+    int inside_tag = 0;
 
     marked_text = g_string_new("");
 
-    MSG2(5, "index_marking", "MSG before index marking: |%s|", msg->buf);
-       
+    MSG2(5, "index_marking", "MSG before index marking: |%s|, ssml_mode=%d", msg->buf, ssml_mode);
+
+    if (!ssml_mode) g_string_printf(marked_text, "<speak>");
+ 
     pos = msg->buf;
     while(pos){
         ret = spd_utf8_read_char(pos, character);
         if (ret == 0 || (strlen(character) == 0)) break;
         u_char = g_utf8_get_char(character);
 
-        if (u_char == '@'){
-            g_string_append_printf(marked_text, "@@");
+        if (u_char == '<'){
+            if (ssml_mode){
+		inside_tag = 1;
+		g_string_append_printf(marked_text, "%s", character);
+	    }
+	    else g_string_append_printf(marked_text, "&lt;");
+	}
+        else if (u_char == '>'){
+            if (ssml_mode){
+		inside_tag = 0;
+		g_string_append_printf(marked_text, "%s", character);
+	    }
+	    else g_string_append_printf(marked_text, "&gt;");
         }
-        else if (u_char == '.' || u_char == '?' || u_char == '!'){
+        else if (((u_char == '.') || (u_char == '?') || (u_char == '!')) && !inside_tag){
             pos = g_utf8_find_next_char(pos, NULL);   
             ret = spd_utf8_read_char(pos, character2);
             if ((ret == 0) || (strlen(character2) == 0)){
@@ -65,7 +83,7 @@ insert_index_marks(TSpeechDMessage *msg)
             }
             u_char = g_utf8_get_char(character2);
             if (g_unichar_isspace(u_char)){
-                g_string_append_printf(marked_text, "%s@%d@%s", character, n, character2);
+                g_string_append_printf(marked_text, "%s"SD_MARK_HEAD"%d"SD_MARK_TAIL"%s", character, n, character2);
                 n++;
                 MSG2(5, "index_marking", "MSG altering 2: |%s|", marked_text->str);
             }else{
@@ -80,6 +98,8 @@ insert_index_marks(TSpeechDMessage *msg)
         pos = g_utf8_find_next_char(pos, NULL);   
     }
 
+    if (!ssml_mode) g_string_append_printf(marked_text, "</speak>");
+
     spd_free(msg->buf);
     msg->buf = marked_text->str;
     
@@ -88,135 +108,73 @@ insert_index_marks(TSpeechDMessage *msg)
     MSG2(5, "index_marking", "MSG after index marking: |%s|", msg->buf);
 }
 
-/* Finds the next index mark, starting from the pointer
-_buf_. If the index mark is encountered, it's number is 
-returned in _mark_, the position after it's end is returned
-as the return value of this function and the position
-of it's beginning is returned in _*begin_*, if _begin_
-is not NULL. It returns NULL if it encounters the end
-of the string _buf_. */
-char*
-find_next_index_mark(char *buf, int *mark, char **begin)
-{
-    char *pos;
-    char character[6];
-    gunichar u_char;
-    int index_mark = 0;
-    GString *num;
-    int ret;
-
-    if (buf == NULL || mark == NULL) return NULL;
-
-    pos = buf;    
-    num = g_string_new("");
-    while(pos){
-        ret = spd_utf8_read_char(pos, character);
-        if (ret == 0 || strlen(character) == 0) return NULL;
-
-        u_char = g_utf8_get_char(character);
-        if (index_mark == 2){
-            if (u_char != '@') index_mark = 1;
-            else if (u_char == '@'){
-                index_mark = 0;
-                pos = g_utf8_find_next_char(pos, NULL);
-                continue;
-            }
-        }
-        if (index_mark == 1) g_string_append(num, character);
-        if (u_char == '@'){
-            if (index_mark == 0){
-                if (begin != NULL) *begin = pos;
-                index_mark = 2;
-            }
-            else if (index_mark == 1){
-                char *tailptr;
-                *mark = strtol(num->str, &tailptr, 0);
-                if (tailptr == num->str){
-                    MSG(4, "index_marking",
-                        "Error: Invalid index mark -- Not a number! (%s)\n", num->str);
-                    return NULL;
-                }
-                g_string_free(num, 1);
-                pos = g_utf8_find_next_char(pos, NULL);
-                if (pos == NULL) return NULL;
-                MSG(5, "index_marking", "returning position of index %d", *mark);
-                return pos;
-            }
-        }
-        pos = g_utf8_find_next_char(pos, NULL);
-    }        
-}
-
-/* Finds the index mark specified in _mark_ by iterating
-with find_next_index_mark() through _msg->buf_. Returns
-the position after it's end. */
+/* Finds the index mark specified in _mark_ . */
 char*
 find_index_mark(TSpeechDMessage *msg, int mark)
 {
-    int i;
+    char str_mark[64];
     char *pos;
-    int im;
+    char *p;
 
-    pos = msg->buf; 
-    MSG(5, "index_marking", "Trying to find index mark %d in |%s|", mark, msg->buf);
-    while(pos = find_next_index_mark(pos, &im, NULL)){
-        if (im == mark) return pos;
-    }
+    MSG(2, "Trying to find index mark %d", mark);
+    
+    /* Fix this for variable space number */
+    sprintf(str_mark, SD_MARK_HEAD"%d"SD_MARK_TAIL, mark);
 
-    MSG(5, "Index mark not found.");
-    return NULL;
+    p = strstr(msg->buf, str_mark);
+    if (p == 0) return NULL;
+
+    pos = p + strlen(str_mark);
+
+    MSG(2, "Search for index mark sucessfull");
+ 
+    return pos;
 }
 
-/* Deletes all index marks from the given text and substitutes
-`@@' for `@'*/
+/* Deletes all index marks from the given text */
 char*
-strip_index_marks(char *buf)
+strip_index_marks(char *buf, int ssml_mode)
 {
-    char *pos;
     GString *str;
     char *strret;
-    char character[6];
-    char character2[6];
-    int inside_mark = 0;
-    int ret;
-    gunichar u_char;
 
-    str = g_string_new("");
-    pos = buf;
+    char str_mark[] = SD_MARK_HEAD;
 
-    MSG(5, "index_marking", "Message before stripping index marks: |%s|", buf);
+    char *p;
+    char *p_old;
 
-    while(pos){
-        ret = spd_utf8_read_char(pos, character);
-        if (ret == 0 || (strlen(character) == 0)) break;
-        u_char = g_utf8_get_char(character);
+    str = g_string_new("<speak>");
+    
+    MSG2(5, "index_marking", "Message before stripping index marks: |%s|", buf);
+    
+    p = buf;
 
-        if (u_char == '@'){          
-            if (inside_mark){
-                inside_mark = 0;
-            }else{                
-                pos = g_utf8_find_next_char(pos, NULL);   
-                ret = spd_utf8_read_char(pos, character2);
-                if ((ret == 0) || (strlen(character2) == 0)) break;            
-                
-                u_char = g_utf8_get_char(character2);
-                if (u_char == '@'){
-                    g_string_append_printf(str, "@");
-                }else{
-                    inside_mark = 1;
-                }
-            }
-        }else{
-          if (!inside_mark) g_string_append_printf(str, "%s", character);
-        }
-        
-        pos = g_utf8_find_next_char(pos, NULL);   
+    while(1){
+	if (*p == '\0') break;
+	p_old = p;
+	p = strstr(p, str_mark);
+	if (p != NULL){
+	    g_string_append_len(str, p_old, (int) (p - p_old));
+	}else{
+	    g_string_append(str, p_old);
+	    break;
+	}
+	do{
+	    MSG(5, "p++");
+	    p++;
+	}while(*p != '>' && *p != '\0');
+	if (*p == '>') p++;
+    }
+
+    if (!ssml_mode){
+	p = strstr(str->str, "</speak>");
+	if (p != NULL) *p = 0;
     }
 
     strret = str->str;
     g_string_free(str, 0);
 
-    MSG(5, "index_marking", "Message after stripping index marks: |%s|", strret);
+    MSG2(5, "index_marking", "Message after stripping index marks: |%s|", strret);
  
    return strret;
 }
