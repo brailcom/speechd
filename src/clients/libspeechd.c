@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.6 2003-03-09 20:47:55 hanke Exp $
+ * $Id: libspeechd.c,v 1.7 2003-03-09 21:44:13 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -201,6 +201,7 @@ spd_icon(int fd, int priority, char *name)
 	return 0;
 }
 
+int
 spd_say_letter(int fd, int priority, int c)
 {
 	static char helper[] = "letter_x\0";
