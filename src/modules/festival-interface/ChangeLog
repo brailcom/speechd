@@ -1,3 +1,16 @@
+2003-10-24  Milan Zamazal  <pdm@brailcom.org>
+
+	* punctuation.scm (punctuation-split-token) 
+	(punctuation-process-words): Ensure a character from
+	punctuation-pronunciation remains unexpanded if it is in
+	word-mapping as well.
+
+	* events.scm (event-synth): Call set_backtrace.
+	(character-event-mapping): Definitions for basic control
+	characters added.
+	(event-print): New function.
+	(event-synth): Use it.
+
 2003-10-23  Milan Zamazal  <pdm@brailcom.org>
 
 	* events.scm (event-synth-words): Don't append to token if there
