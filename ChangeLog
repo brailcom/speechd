@@ -1,3 +1,7 @@
+2003-04-11  Milan Zamazal  <pdm@brailcom.org>
+
+	* INSTALL: Order of auto* tools invocations improved.
+
 2003-04-09  Tomas Cerha  <cerha@freebsoft.org>
 
 	* INSTALL (Module): Added `autoheader' to suggested compilation
