@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.21 2003-05-26 16:04:50 hanke Exp $
+ * $Id: set.c,v 1.22 2003-06-05 16:18:00 hanke Exp $
  */
 
 #include "set.h"
@@ -47,7 +47,7 @@ int
 set_priority_uid(int uid, int priority)
 {
     TFDSetElement *settings;
-    if ((priority < 0) || (priority > 3)) return 1;
+    if ((priority < 0) || (priority > 5)) return 1;
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
