@@ -34,16 +34,35 @@
       </para>
       
       <para>
-	SSIP will be an application protocol over TCP/IP. However there is no
-	reason to constraint SSIP only for this architecture. SSIP should be
+	SSIP will be an application protocol over TCP/IP.  However there is no
+	reason to constraint SSIP only for this architecture.  SSIP should be
 	designed, to allow its transmission within any higher level protocol
 	such as HTTP.
       </para>
 
-      <sect3><title>SSIP syntax</title>
+      <para>
+	SSIP should be composed of two TCP connections -- one control
+	connection for transmitting commands and one data connection.
+      </para>
+
+      <sect3><title>SSIP control connection</title>
 	
 	<para>
-	  We see XML to be a good alternative for this purpose.
+	  Control connection will be based on a classical line based command
+	  protocol, similar to FTP, HTTP or whatever...  Control connection
+	  will set the session global speech properties, which can be, however,
+	  changed locally for a message insdide it's data.
+	</para>
+
+      </sect3>
+
+      <sect3><title>SSIP data connection</title>
+	
+	<para>
+	  Data connection will tranfer raw text, to be spoken, as well as
+	  inline commands for local speech prerties.  XML seems to be a good
+	  solution for the syntax of these commands (ideally some standard,
+	  such as SABLE).  We can consider also other formats.
 	</para>
 
       </sect3>
@@ -124,7 +143,7 @@
 		When a new message of level 1 comes during lower level
 		message is spoken, lower level message is canceled and removed
 		from the queue (removed messages are stored in the history, as
-		described in <xref linkend="s-history" endterm="s-history"/>).
+		described in <xref linkend="s-history"/>).
 	      </para>
 	    </listitem>
 	  </varlistentry>
@@ -151,11 +170,6 @@
 	    </listitem>
 	  </varlistentry>
 	</variablelist>
-      </para>
-
-      <para>
-	To make the things more complicated, thes thr
-	<xref linkend="s-oselect"/>.
       </para>
 
     </sect2>
@@ -241,7 +255,7 @@
 		sound icons feature (<xref linkend="s-icons"/>), but this
 		requires a good possibility of synchronization, which is not
 		possible with all devices (as discussed in
-		<xref linkend="s-synchro"/>).
+		<xref linkend="s-synchronization"/>).
 	      </para>
 	    </listitem>
 	  </varlistentry>
@@ -250,20 +264,23 @@
       
     </sect2>
 
-    <sect2 id="s-session">   <title>Session Management</title>
+    <sect2 id="s-session-mgmt"><title>Session Management</title>
 
       <para>
-	Before any other commands, client shoud open a session. This
-	request will result in assigning a unique session id to the
-	client. This will enable the server to keep state information
-	between several TCP connections. Session information should
-	persist for a limited time (timeout). The number of opened
-	sessions must be also limited for security reasons (DOS attack).
+	One Speech Daemon session is based on two TCP connections as described
+	in <xref linkend="s-ssip"/>.  These connections persist during the
+	whole session.  Session is closed, by closing the control connection.
       </para>
-      
+
+      <para>
+	Speech Daemon is responsible for tracking global properties for each
+	session and switching the context properly, while switching between
+	particular sessions.
+      </para>
+
     </sect2>
     
-    <sect2 id="s-synchro">   <title>Synchronization</title>
+    <sect2 id="s-synchronization"><title>Synchronization</title>
       <para>
 	Speaking application may need to synchronize it's bahavior with speech
 	output. For this purpose we want to enable to insert synchonization
@@ -345,13 +362,51 @@
     <sect2 id="s-oselect">   <title>Output Device Selection</title>
       
       <para>
-	We discuss the usage of multiple output devices in <xref
-	linkend="s-multiple-output"/>. It must be possible, to configure the
+	Client must identify itself by a name, which alows Speech Daemon to
+	select appropriate output device for this client as discussed in <xref
+	linkend="s-multiple-output"/>. Client should not deal with the explicit
+	selection of output device, but may use different identification names
+	(on several connections) for several kinds of messages, to enable
+	server side redirection.
+      </para>
+
+    </sect2>
+
+  </sect1>
+  
+  <sect1><title>Output Side</title>
+
+    
+    <para>
+      Speechd provides a simple and transparent interface for output drivers.
+      Each output driver allows to use one speech synthesizer with
+      speechd. Output driver is implemented as a shared library, which uses the
+      common API, to communicate with speechd. Output driver is called "output
+      module" or simply just the <emphasis>module</emphasis>.
+    </para>
+    
+    <sect2 id="s-out-modules-api"> <title>API for Output Modules</title>
+      
+      <para>
+	
+	
+      </para>
+      
+    </sect2>
+    
+    <sect2 id="s-multiple-output"> <title>Multiple Output Modules</title>
+      
+      <para>
+	Speechd is enabled to use multiple output mudules, each one for
+	particular speech synthesizer.  It must be possible, to configure the
 	server, to use different output devices for different clients (client
-	identifies itself to the server by name). Client should not deal with
-	the explicit selection of output device, but may use different
-	identification names for several kinds of messages, to enable server
-	side redirection.
+	identifies itself to the server by name).
+      </para>
+      
+      <para>
+	Output device selection should be also configurable with respect to
+	device capabilities (such as supported languages), however we have
+	currently no idea how to solve this...
       </para>
 
       <para>
@@ -360,36 +415,16 @@
 	output device.
       </para>
 	  
+    </sect2>
+    
+    <sect2 id="s-configuration">   <title>Configuration</title>
+      
       <para>
-	We believe, that, as far as this model might seem to be confusing, it
-	is straight enough and it allows user to finetune the configuration. It
-	is also intended to be robust, by always present default values.
+	Speechd allows to be configured for multiple output speech
+	synthesizers.
       </para>
       
     </sect2>
-
-  </sect1>
-  
-  <sect1><title>Output Side</title>
-    
-    <para>      Speechd provides a simple and transparent interface for output drivers.      Each output driver allows to use one speech synthesizer with speechd. Output      driver is implemented as a shared library, which uses the common API, to      communicate with speechd. Output driver is called "output module" or simply      just the <emphasis>module</emphasis>.    </para>
-    
-    <sect2 id="s-out-modules-api"> <title>API for Output Modules</title>            <para>		      </para>          </sect2>
-    
-    <sect2 id="s-multiple-output"> <title>Multiple Output Modules</title>
-      
-      <para>
-	Speechd is enabled to use multiple output mudules, each one for
-	particular speech synthesizer.
-      </para>
-      
-      <para>
-	Messages are dirrected to one of current output devices as described in
-	<xref linkend="s-oselect"/>.
-      </para>
-    </sect2>
-    
-    <sect2 id="s-configuration">   <title>Configuration</title>            <para>	Speechd allows to be configured for multiple output speech synthesizers.      </para>          </sect2>
     
   </sect1>
   
