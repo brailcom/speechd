@@ -24,6 +24,11 @@ spd_audio_play_wave(cst_wave *w)
         return -1;
     }
 
+    if (spd_audio_device == NULL){
+        fprintf(stderr, "Audio device not initialized.");
+        return -1;
+    }
+
     for (i=0; i < w->num_samples; i += r/2){
         if (w->num_samples > i+CST_AUDIOBUFFSIZE){
             n = CST_AUDIOBUFFSIZE;
@@ -53,7 +58,10 @@ spd_audio_read_wave(char *filename)
 int
 spd_audio_open(cst_wave *w)
 {
-    if (w == NULL) return -1;
+    if (w == NULL){
+        spd_audio_device = NULL;
+        return -1;
+    }
     if ((spd_audio_device = audio_open(w->sample_rate, w->num_channels,
                          CST_AUDIO_LINEAR16)) == NULL){
         return CST_ERROR_FORMAT;
@@ -66,6 +74,7 @@ spd_audio_close()
 {
     if (spd_audio_device != NULL)
         audio_close(spd_audio_device);
+
     spd_audio_device = NULL;
 }
 
