@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.47 2003-09-24 08:42:01 pdm Exp $
+ * $Id: speechd.c,v 1.48 2003-09-28 22:31:59 hanke Exp $
  */
 
 #include "speechd.h"
@@ -221,6 +221,7 @@ speechd_quit(int sig)
 	/*  Call the close() function of each registered output module. */
 	g_hash_table_foreach_remove(output_modules, speechd_modules_terminate, NULL);
 	g_hash_table_destroy(output_modules);
+        speechd_modules_terminate(NULL, sound_module, NULL);
 	
 	MSG(2,"Closing server connection...");
 	if(close(server_socket) == -1) MSG(2, "close() failed: %s", strerror(errno));
@@ -232,7 +233,10 @@ speechd_quit(int sig)
 	
 	ret = pthread_join(speak_thread, NULL);
 	if(ret != 0) FATAL("Speak thread failed to join!\n");
-	
+
+        MSG(2, "Removing semaphore");
+	speaking_semaphore_destroy();
+
 	fflush(NULL);
 
         MSG(2,"Speech Dispatcher terminated correctly");
@@ -249,6 +253,7 @@ speechd_load_configuration(int sig)
     /* Clean previous configuration */
     assert(output_modules != NULL);
     g_hash_table_foreach_remove(output_modules, speechd_modules_terminate, NULL);
+    speechd_modules_terminate(NULL, sound_module, NULL);
     /* Make sure there aren't any more child processes left */
     while(waitpid(-1, NULL, WNOHANG) > 0);    
 
@@ -330,6 +335,7 @@ speechd_init(void)
 
     snd_icon_langs = g_hash_table_new(g_str_hash, g_str_equal);
     assert(snd_icon_langs != NULL);
+    generic_lang_icons = NULL;
 
     language_default_modules = g_hash_table_new(g_str_hash, g_str_equal);
     assert(language_default_modules != NULL);
@@ -377,16 +383,13 @@ speechd_init(void)
     ret = pthread_mutex_init(&output_layer_mutex, NULL);
     if(ret != 0) DIE("Mutex initialization failed");
 
+    /* Create a SYS V semaphore */
     MSG(4, "Creating semaphore");
     speaking_sem_key = (key_t) 1228;
     speaking_sem_id = speaking_semaphore_create(speaking_sem_key);
     MSG(4, "Testing semaphore");
     speaking_semaphore_post();
     speaking_semaphore_wait();
-
-    //    sem_messages_waiting = (sem_t *) spd_malloc(sizeof(sem_t));
-    //    ret = sem_init(sem_messages_waiting, 0, 0);
-    //    if (ret != 0) DIE("Semaphore initialization failed");
 
     /* Load configuration from the config file*/
     speechd_load_configuration(0);
