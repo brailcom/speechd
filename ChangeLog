@@ -1,5 +1,15 @@
 
 2003-03-13  Hynek Hanke <hanke@volny.cz>
+	* src/server/server.c: Changes in SSIP.
+	* src/server/set.c: Changes in SSIP.
+	* src/server/history.c: Changes in SSIP.
+	* src/server/parse.c: Changes in SSIP.
+	* src/server/msg.h: Numerical codes of return values added.
+	* src/clients/libspeechd.c: Changes in SSIP.
+	* src/clients/spd_center.c: Priority 2 in menu -> priority 3.
+	* src/clients/speechd.c: Some messages switched to another levels of verbosity.
+
+2003-03-13  Hynek Hanke <hanke@volny.cz>
 	* src/modules/flite.c (DEBUG_FLITE): A new switch.
 	* src/modules/flite.c (flite_stop()): Send SIGKILL instead of SIGINT.
 	* src/server/server.c: All stops are now called in the separate speak() thread (faster).
