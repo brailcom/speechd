@@ -19,14 +19,14 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.13 2004-05-29 19:28:36 hanke Exp $
+ * $Id: generic.c,v 1.14 2004-06-28 08:06:46 hanke Exp $
  */
 
 #include <glib.h>
 
 #include "fdset.h"
 
-#include "module_utils.c"
+#include "module_utils.h"
 #include "module_utils_addvoice.c"
 
 #define MODULE_NAME     "generic"
@@ -94,9 +94,9 @@ int
 module_load(void)
 {
 
-    MOD_OPTION_1_STR_REG(GenericExecuteSynth, "");
-
     INIT_SETTINGS_TABLES();
+
+    MOD_OPTION_1_STR_REG(GenericExecuteSynth, "");
 
     REGISTER_DEBUG();
 
@@ -154,9 +154,7 @@ module_init(void)
 int
 module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 {
-    TGenericLanguage *language;
-
-    DBG("write()\n");
+    DBG("speak()\n");
 
     if (generic_speaking){
         DBG("Speaking when requested to write");
@@ -178,7 +176,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
     assert(generic_msg_language != NULL);
     if (generic_msg_language->charset != NULL){
 	*generic_message = 
-	    (char*) g_convert_with_fallback(data, bytes, language->charset,
+	    (char*) g_convert_with_fallback(data, bytes, generic_msg_language->charset,
 					    "UTF-8", GenericRecodeFallback, NULL, NULL,
 					    NULL);
     }else{
@@ -326,9 +324,7 @@ _generic_speak(void* nothing)
         case 0:
             {
 		char *e_string;
-		char *p;
-		
-		TGenericLanguage *language;
+		char *p;	       
 		
 		/* Set this process as a process group leader (so that SIGKILL
 		   is also delivered to the child processes created by system()) */

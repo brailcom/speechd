@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.40 2004-04-04 21:10:39 hanke Exp $
+ * $Id: flite.c,v 1.41 2004-06-28 08:06:10 hanke Exp $
  */
 
 
@@ -27,7 +27,7 @@
 
 #include "fdset.h"
 
-#include "module_utils.c"
+#include "module_utils.h"
 #include "module_utils_audio.c"
 
 #define MODULE_NAME     "flite"
@@ -131,17 +131,10 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
     
     if(module_write_data_ok(data) != 0) return -1;
 
-    *flite_message = strdup(data);
+    *flite_message = module_strip_ssml(data);
     flite_message_type = MSGTYPE_TEXT;
 
     DBG("Requested data: |%s|\n", data);
-
-    temp = module_strip_ssml(*flite_message);
-    xfree(*flite_message);
-    *flite_message = temp;
-    DBG("After stripping ssml: |%s|", *flite_message);
-
-    module_strip_punctuation_default(*flite_message);    
 	
     /* Setting voice */
     UPDATE_PARAMETER(voice, flite_set_voice);
