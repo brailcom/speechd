@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.34 2003-10-12 23:34:25 hanke Exp $
+  * $Id: speaking.c,v 1.35 2003-10-16 20:55:18 hanke Exp $
   */
 
 #include <glib.h>
@@ -84,12 +84,7 @@ speak(void* data)
             }
             pthread_mutex_unlock(&element_free_mutex);
             resume_requested = 0;
-        }
-        
-        /* Look what is the highest priority of waiting
-         * messages and take the desired actions on other
-         * messages */
-        resolve_priorities();
+        }       
 
         /* Check if sb is speaking or they are all silent. 
          * If some synthesizer is speaking, we must wait. */
@@ -413,24 +408,6 @@ get_speaking_client_uid()
     return speaking;
 }
 
-int
-stop_p23()
-{
-    int ret1, ret2;
-    ret1 = stop_priority(2);
-    ret2 = stop_priority(3);
-    if((ret1 == -1) || (ret2 == -1)) return -1;
-    else return 0;
-}
-
-int
-stop_p3()
-{
-    int ret;
-    ret = stop_priority(3);
-    return ret;
-}
-
 GList*
 empty_queue(GList *queue)
 {
@@ -468,8 +445,6 @@ stop_priority(int priority)
 
     return 0;
 }
-
-
 
 GList*
 stop_priority_from_uid(GList *queue, const int uid){
@@ -589,31 +564,31 @@ stop_priority_except_first(int priority)
     return;
 }
 
-static void
-resolve_priorities()
+void
+resolve_priorities(int priority)
 {
     GList *gl;
     TSpeechDMessage *msg;
 
-    if(g_list_length(MessageQueue->p1) != 0){
+    if(priority == 1){
         if (highest_priority != 1) output_stop();
         stop_priority(4);
         stop_priority(5);
     }
 		    
-    if(g_list_length(MessageQueue->p2) != 0){
+    if(priority == 2){
         stop_priority_except_first(2);
         stop_priority(4);
         stop_priority(5);
     }
 
-    if(g_list_length(MessageQueue->p3) != 0){
+    if(priority == 3){
         stop_priority(2);
         stop_priority(4);
         stop_priority(5);
     }
 
-    if(g_list_length(MessageQueue->p4) != 0){
+    if(priority == 4){
         stop_priority_except_first(4);
         if (is_sb_speaking()){
             if (highest_priority != 4)
@@ -621,7 +596,7 @@ resolve_priorities()
         }
     }
 
-    if(g_list_length(MessageQueue->p5) != 0){
+    if(priority == 5){
         stop_priority(4);
         if (is_sb_speaking()){
             GList *gl;
@@ -651,17 +626,17 @@ get_message_from_queues()
         MessageQueue->p1 = g_list_remove_link(MessageQueue->p1, gl);
         highest_priority = 1;
     }else{
-        gl = g_list_first(MessageQueue->p2); 
+        gl = g_list_first(MessageQueue->p3); 
         if (gl != NULL){
             MSG(4,"Message in queue p2");
-            MessageQueue->p2 = g_list_remove_link(MessageQueue->p2, gl);
-            highest_priority = 2;
+            MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
+            highest_priority = 3;
         }else{
-            gl = g_list_first(MessageQueue->p3); 
+            gl = g_list_first(MessageQueue->p2); 
             if (gl != NULL){
                 MSG(4,"Message in queue p3");
-                MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
-                highest_priority = 3;
+                MessageQueue->p2 = g_list_remove_link(MessageQueue->p2, gl);
+                highest_priority = 2;
             }else{
                 gl = g_list_first(MessageQueue->p4); 
                 if (gl != NULL){
