@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.38 2003-07-07 08:40:54 hanke Exp $
+ * $Id: parse.c,v 1.39 2003-07-07 22:27:50 hanke Exp $
  */
 
 #include "speechd.h"
@@ -108,7 +108,7 @@ parse(const char *buf, const int bytes, const int fd)
             if (r!=0){
                 if(SPEECHD_DEBUG) FATAL("Can't switch to data on mode\n");
                 spd_free(command);
-                return "ERR INTERNAL";								 
+                return ERR_INTERNAL;								 
             }
             spd_free(command);
             return OK_RECEIVE_DATA;
