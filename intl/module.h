@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.h,v 1.6 2003-03-12 22:24:06 hanke Exp $
+ * $Id: module.h,v 1.7 2003-03-13 16:38:02 hanke Exp $
  */
 typedef struct {
    gchar    *name;
@@ -29,8 +29,8 @@ typedef struct {
    gchar    *filename;
    gint     (*write)    (const gchar *, gint, void*);
    gint     (*stop)     (void);
-   gint     (*close)    (void);
    gint     (*is_speaking) (void);
+   gint     (*close)    (void);
 } OutputModule;
 
 typedef OutputModule entrypoint (void);
