@@ -2,7 +2,7 @@
 #include "alloc.h"
 
 void*
-spd_malloc(long int bytes)
+spd_malloc(size_t bytes)
 {
 	void *mem;
 
