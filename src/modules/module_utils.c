@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.2 2003-06-20 00:28:09 hanke Exp $
+ * $Id: module_utils.c,v 1.3 2003-06-23 05:06:38 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -33,6 +33,8 @@
 #include <semaphore.h>
 #include <sys/wait.h>
 #include <errno.h>
+
+#include "spd_audio.h"
 
 static FILE *debug_file;
 
@@ -73,7 +75,7 @@ static FILE *debug_file;
 #define DECLARE_MODINFO(name, descr) \
 static OutputModule module_info = { \
        name,                                 /* name */ \
-2       descr ", module v." MODULE_VERSION,   /* description */ \
+       descr ", module v." MODULE_VERSION,   /* description */ \
        NULL,                                 /* GModule (should be set to NULL)*/ \
        module_write,                         /* module functions */ \
        module_stop, \
@@ -82,6 +84,29 @@ static OutputModule module_info = { \
        module_close, \
        {0, 0} \
     };
+
+#define UPDATE_PARAMETER(old_value, new_value, setter) \
+  if (old_value != (new_value)) \
+    { \
+      old_value = (new_value); \
+      setter ((new_value)); \
+    }
+
+#define UPDATE_STRING_PARAMETER(old_value, new_value, setter) \
+  if (old_value == NULL || strcmp (old_value, new_value)) \
+    { \
+      if (old_value != NULL) \
+      { \
+        g_free (old_value); \
+	old_value = NULL; \
+      } \
+      if (new_value != NULL) \
+      { \
+        old_value = g_strdup (new_value); \
+        setter ((new_value)); \
+      } \
+    }
+
 
 #define CHILD_SAMPLE_BUF_SIZE 16384
 
@@ -215,13 +240,17 @@ module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid,
         ret = pipe(module_pipe.pc);
         if (ret != 0){
             DBG("Can't create pipe pc\n");
-            return -1;
+            *speaking_flag = 0;
+            continue;
         }
 
         ret = pipe(module_pipe.cp);
         if (ret != 0){
             DBG("Can't create pipe cp\n");
-            return -1;
+            //            pclose(module_pipe.pc);
+
+            *speaking_flag = 0;
+            continue;
         }
 
         /* Create a new process so that we could send it signals */
@@ -230,7 +259,10 @@ module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid,
         switch(*process_pid){
         case -1:	
             DBG("Can't say the message. fork() failed!\n");
-            return -1;
+            //            pclose(module_pipe.pc);
+            //            pclose(module_pipe.cp)
+            *speaking_flag = 0;
+            continue;
 
         case 0:
             /* This is the child. Make flite speak, but exit on SIGINT. */
@@ -742,6 +774,8 @@ module_add_config_option(configoption_t *options, int *num_options, char *name, 
     configoption_t *opts;
     int num_config_options = *num_options;
 
+    assert(name != NULL);
+
     num_config_options++;
     opts = (configoption_t*) realloc(options, num_config_options * sizeof(configoption_t));
     opts[num_config_options-1].name = (char*) strdup(name);
@@ -750,10 +784,22 @@ module_add_config_option(configoption_t *options, int *num_options, char *name, 
     opts[num_config_options-1].info = info;
     opts[num_config_options-1].context = context;
 
-    DBG("Added option: number:%d name: %s!!!\n\n", *num_options, name);
+    //    DBG("Added option: number:%d name: %s!!!\n\n", *num_options, name);
 
     *num_options = num_config_options;
     return opts;
+}
+
+static void*
+module_get_ht_option(GHashTable *hash_table, const char *key)
+{
+    void *option;
+    assert(key != NULL);
+
+    option = g_hash_table_lookup(hash_table, key);
+    if (option == NULL) DBG("Requested option by key %s not found.\n", key);
+
+    return option;
 }
 
 static void
@@ -766,9 +812,10 @@ module_cstwave_free(cst_wave* wave)
 }
 
 #define MOD_OPTION_1_STR(name) \
-    static char *name; \
+    static char *name = NULL; \
     DOTCONF_CB(name ## _cb) \
     { \
+        xfree(name); \
         if (cmd->data.str != NULL) \
             name = strdup(cmd->data.str); \
         return NULL; \
@@ -809,7 +856,7 @@ module_cstwave_free(cst_wave* wave)
     { \
         T ## name *new_item; \
         char* new_key; \
-        new_item = malloc(sizeof(new_item)); \
+        new_item = (new_item*) malloc(sizeof(new_item)); \
         if (cmd->data.list[0] == NULL) return NULL; \
         new_item->arg1 = strdup(cmd->data.list[0]); \
         new_key = strdup(cmd->data.list[0]); \
@@ -817,6 +864,34 @@ module_cstwave_free(cst_wave* wave)
            new_item->arg2 = strdup(cmd->data.list[1]); \
         else \
             new_item->arg2 = NULL; \
+        g_hash_table_insert(name, new_key, new_item); \
+        return NULL; \
+    }
+
+#define MOD_OPTION_3_HT(name, arg1, arg2, arg3) \
+    typedef struct{ \
+        char* arg1; \
+        char* arg2; \
+        char *arg3; \
+    }T ## name; \
+    GHashTable *name; \
+    \
+    DOTCONF_CB(name ## _cb) \
+    { \
+        T ## name *new_item; \
+        char* new_key; \
+        new_item = (T ## name *) malloc(sizeof(T ## name)); \
+        if (cmd->data.list[0] == NULL) return NULL; \
+        new_item->arg1 = strdup(cmd->data.list[0]); \
+        new_key = strdup(cmd->data.list[0]); \
+        if (cmd->data.list[1] != NULL) \
+           new_item->arg2 = strdup(cmd->data.list[1]); \
+        else \
+            new_item->arg2 = NULL; \
+        if (cmd->data.list[2] != NULL) \
+           new_item->arg3 = strdup(cmd->data.list[2]); \
+        else \
+            new_item->arg3 = NULL; \
         g_hash_table_insert(name, new_key, new_item); \
         return NULL; \
     }
@@ -831,11 +906,11 @@ module_cstwave_free(cst_wave* wave)
     *options = module_add_config_option(*options, num_options, #name, \
                                         ARG_INT, name ## _cb, NULL, 0);
 
-#define MOD_OPTION_2_REG(name) \
+#define MOD_OPTION_MORE_REG(name) \
     *options = module_add_config_option(*options, num_options, #name, \
                                         ARG_LIST, name ## _cb, NULL, 0);
 
-#define MOD_OPTION_2_HT_REG(name) \
+#define MOD_OPTION_HT_REG(name) \
     name = g_hash_table_new(g_str_hash, g_str_equal); \
     *options = module_add_config_option(*options, num_options, #name, \
                                         ARG_LIST, name ## _cb, NULL, 0);
