@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.35 2003-05-07 19:06:30 hanke Exp $
+  * $Id: server.c,v 1.36 2003-05-07 20:59:53 hanke Exp $
   */
 
 #include "speechd.h"
@@ -194,8 +194,9 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
     for(i=0; i<=g_utf8_strlen(buf, -1) - 1; i++){
 
         spd_utf8_read_char(pos, character);
-
-        if(g_unichar_ispunct(g_utf8_get_char(character))){
+		u_char = g_utf8_get_char(character);
+		
+        if(g_unichar_ispunct(u_char)){
 
             if(settings->punctuation_mode == 2){
                 inside = g_utf8_strchr(settings->punctuation_some,-1,u_char);
@@ -244,7 +245,6 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
                     g_string_append(str, character);
                 }
             }
-            pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */
         }
 
         g_string_append(str, character);
