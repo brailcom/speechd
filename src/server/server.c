@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.37 2003-05-07 22:10:02 hanke Exp $
+  * $Id: server.c,v 1.38 2003-05-11 21:42:42 hanke Exp $
   */
 
 #include "speechd.h"
@@ -109,7 +109,7 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
         spd_utf8_read_char(pos, character);
         spelled_letter = (char*) snd_icon_spelling_get(settings->spelling_table,
                                                        icons, character, sound);
-
+  		
         if(*sound == 1){
             /* If this is the first part of the message, save it
              * as return value. */
@@ -134,7 +134,10 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
                 plist = msglist_insert(plist, spelled_letter, MSGTYPE_SOUND);
             }else{
                 assert(character != NULL);
-                plist = msglist_insert(plist, character, MSGTYPE_SOUND);
+                if (character[0] != '\r' && character[0] != '\n'){
+                   MSG(4,"Using character verbatim...");
+                   g_string_append(str, character);			
+				}
             }
 
         }else{                  /* this icon is represented by a string */
@@ -142,8 +145,10 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
                 g_string_append(str, spelled_letter);
             }else{
                 assert(character!= NULL);
-                MSG(4,"Using character verbatim...");
-                g_string_append(str, character);
+                if (character[0] != '\r' && character[0] != '\n'){
+                   MSG(4,"Using character verbatim...");
+                   g_string_append(str, character);
+                }
             }
             g_string_append(str," ");
         }
@@ -151,7 +156,7 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
     }
 
     /* Handle dle last part of the parsed message */
-    if(first_part){
+    if(first_part){	
         new_message = str->str;
     }else{   
         plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);
@@ -241,8 +246,10 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
                     g_string_append_printf(str," %s ", spelled_punct);
                 }else{
                     assert(character != NULL);
-                    MSG(4,"Using character verbatim...");
-                    g_string_append(str, character);
+				    if (g_unichar_isprint(g_utf8_get_char(character))){
+                       MSG(4,"Using character verbatim...");
+                       g_string_append(str, character);
+					}
                 }
             }
         }
@@ -301,7 +308,9 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type)
     TSpeechDMessage *newgl;
 		
     if (new == NULL) return -1;
-
+	if (new->buf == NULL) return -1;
+	if (strlen(new->buf) <= 0) return -1;
+	
     /* Find settings for this particular client */
     if (fd>0){
         settings = get_client_settings_by_fd(fd);
