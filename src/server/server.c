@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.c,v 1.21 2003-03-27 22:01:17 hanke Exp $
+ * $Id: server.c,v 1.22 2003-03-29 20:13:45 hanke Exp $
  */
 
 #include "speechd.h"
@@ -151,7 +151,7 @@ message_nto_speak(TSpeechDMessage *elem, gpointer a, gpointer b)
 	if(elem == NULL) return 0;
 
 	/* Find global settings for this connection. */	
-	global_settings = (TFDSetElement *) g_hash_table_lookup(fd_settings, &(elem->settings.fd));
+	global_settings = get_client_settings_by_fd(elem->settings.fd);
 	if (global_settings == NULL) return 0;	
  
 	if (!global_settings->paused) return 0;
@@ -320,36 +320,37 @@ speak(void* data)
 int
 stop_c(EStopCommands command, int fd, int target)
 {
-   TFDSetElement *settings;
-   GList *gl;
+	TFDSetElement *settings;
+	GList *gl;
 
-   if (command == STOP){
-      /* first stop speaking on the output module */
-      stop_speaking_active_module();
-	  if(target) stop_from_client(target);
-	  else stop_from_client(fd);
-      return 0;
-   }
+	if (command == STOP){
+		/* first stop speaking on the output module */
+		stop_speaking_active_module();
+		if(target) stop_from_client(target);
+		else stop_from_client(fd);
+		return 0;
+	}
    
-   if (command == PAUSE){
-      /* first stop speaking on the output module */
-      stop_speaking_active_module();
-      /* Find settings for this particular client */
-	  if(target) settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &target);
-	  else settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);
+	if (command == PAUSE){
+		/* first stop speaking on the output module */
+		stop_speaking_active_module();
+		/* Find settings for this particular client */
+		if(target) settings = get_client_settings_by_uid(target);
+		else settings = get_client_settings_by_fd(fd);
       
-      if (settings == NULL) return 1;
+		if (settings == NULL) return 1;
 	  
-      /* Set _paused_ flag. */
-      settings->paused = 1;     
-      return 0;  
-   }
+		/* Set _paused_ flag. */
+		settings->paused = 1;     
+		return 0;  
+	}
 
-   if (command == RESUME){
-      /* Find settings for this particular client */
-	  if(target) settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &target);
-	  else settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);
-      if (settings == NULL) return 1;
+	if (command == RESUME){
+		/* Find settings for this particular client */
+
+		if(target) settings = get_client_settings_by_uid(target);
+		else settings = get_client_settings_by_fd(fd);
+		if (settings == NULL) return 1;
 
 	  /* Set it to speak again. */
       settings->paused = 0;
@@ -358,39 +359,38 @@ stop_c(EStopCommands command, int fd, int target)
 	 * and not only have p2 hardcoded here. */
 	/* Is there any message after resume? */
 
-  {
-	TSpeechDMessage *element;
+	  {
+		TSpeechDMessage *element;
 
-    if(g_list_length(MessagePausedList) != 0){
-		while(1){
-	         gl = g_list_find_custom(MessagePausedList, (void*) NULL, p_msg_nto_speak);
-	         if (gl != NULL){
-				element = (TSpeechDMessage*) gl->data;
-				MessageQueue->p2 = g_list_append(MessageQueue->p2, element);
-				MessagePausedList = g_list_remove_link(MessagePausedList, gl);
-				msgs_to_say++;
-    	     }else{
-            	break;
+	    if(g_list_length(MessagePausedList) != 0){
+			while(1){
+		         gl = g_list_find_custom(MessagePausedList, (void*) NULL, p_msg_nto_speak);
+		         if (gl != NULL){
+					element = (TSpeechDMessage*) gl->data;
+					MessageQueue->p2 = g_list_append(MessageQueue->p2, element);
+					MessagePausedList = g_list_remove_link(MessagePausedList, gl);
+					msgs_to_say++;
+	    	     }else{
+	            	break;
+				}
 			}
 		}
-	}
-  }	  
+	  }	  
    }
    return 1; 
 }
 
 int
-queue_message(TSpeechDMessage *new, int fd)
+queue_message(TSpeechDMessage *new, int fd, int history_flag)
 {
 	GList *gl;
     TFDSetElement *settings;
-    THistoryClient *history_client;
     TSpeechDMessage *newgl;
 		
 	if (new == NULL) return -1;
 
 	/* Find settings for this particular client */
-	settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);
+	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL)
 		FATAL("Couldn't find settings for active client, internal error.");
 
@@ -421,21 +421,16 @@ queue_message(TSpeechDMessage *new, int fd)
 
 	msgs_to_say++;
 	
-	/* Put the element _new_ to history also, acording to it's fd. */
-	gl = g_list_find_custom(history, (int*) fd, p_hc_lc);
-	if((gl != NULL) && (gl->data != NULL)){
-		history_client = (THistoryClient*) gl->data;
-
-		/* We will make an exact copy for inclusion into history. */
+	if (history_flag){
+	/* Put the element _new_ to history also. */
+		/* We will make an exact copy of the message for inclusion into history. */
 		newgl = (TSpeechDMessage*) history_list_new_message(new); 
 		if(newgl != NULL){
-			history_client->messages = g_list_append(history_client->messages, newgl);
+			message_history = g_list_append(message_history, newgl);
 		}else{
 			if(SPEECHD_DEBUG) FATAL("Can't include message into history\n");
 		}
-	}else{	   
-		if(SPEECHD_DEBUG) FATAL("No such history client, internal error\n");
-	} 
+	}
 
 	return 0;
 }
@@ -486,34 +481,34 @@ parse(char *buf, int bytes, int fd)
 			return ERR_INTERNAL; 
 		}		
 		
-		if (!strcmp(command,"SET")){				
+		if (!strcmp(command,"set")){				
 			return (char *) parse_set(buf, bytes, fd);
 		}
-		if (!strcmp(command,"HISTORY")){				
+		if (!strcmp(command,"history")){				
 			return (char *) parse_history(buf, bytes, fd);
 		}
-		if (!strcmp(command,"STOP")){
+		if (!strcmp(command,"stop")){
 			return (char *) parse_stop(buf, bytes, fd);
 		}
-		if (!strcmp(command,"PAUSE")){
+		if (!strcmp(command,"pause")){
 			return (char *) parse_pause(buf, bytes, fd);
 		}
-		if (!strcmp(command,"RESUME")){
+		if (!strcmp(command,"resume")){
 			return (char *) parse_resume(buf, bytes, fd);
 		}
-		if (!strcmp(command,"SND_ICON")){				
+		if (!strcmp(command,"snd_icon")){				
 			return (char *) parse_snd_icon(buf, bytes, fd);
 		}
 
 		/* Check if the client didn't end the session */
-		if (!strcmp(command,"BYE") || !strcmp(command,"QUIT")){
+		if (!strcmp(command,"bye") || !strcmp(command,"quit")){
 			MSG(4, "Bye received.");
 			/* Send a reply to the socket */
 			write(fd, OK_BYE, strlen(OK_BYE)+1);
 			speechd_connection_destroy(fd);
 		}
 	
-		if (!strcmp(command,"SPEAK")){
+		if (!strcmp(command,"speak")){
 				/* Ckeck if we have enough space in awaiting_data table for
 				 * this client, that can have higher file descriptor that
 				 * everything we got before */
@@ -551,7 +546,7 @@ parse(char *buf, int bytes, int fd)
 
 				if (new->bytes==0) return OK_MSG_CANCELED;
 				
-				if(queue_message(new,fd) != 0){
+				if(queue_message(new,fd, 1) != 0){
 					if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
 					free(new->buf);
 					free(new);
@@ -648,7 +643,7 @@ gint
 hc_list_compare (gconstpointer element, gconstpointer value, gpointer n)
 {
 	int ret;
-	ret = ((THistoryClient*) element)->fd - (int) value;
+//	ret = ((THistoryClient*) element)->fd - (int) value;
 	return ret;
 }
 
