@@ -19,11 +19,12 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.61 2003-10-12 23:33:43 hanke Exp $
+  * $Id: server.c,v 1.62 2003-10-16 20:55:06 hanke Exp $
   */
 
 #include "speechd.h"
 #include "set.h"
+#include "speaking.h"
 
 int last_message_id = -1;
 
@@ -129,6 +130,15 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
         break;
     default: FATAL("Nonexistent priority given");
     }
+
+    /* Look what is the highest priority of waiting
+     * messages and take the desired actions on other
+     * messages */
+    /* TODO: Do the entire resolve_priorities() here is certainly
+    not the best approach possible. Especially the part that
+    calls output_stop() should be moved to speaking.c speak()
+    function in future */
+    resolve_priorities(settings->priority);
 
     speaking_semaphore_post();
 
