@@ -1,5 +1,7 @@
 2003-10-13  Hynek Hanke  <hanke@volny.cz>
 
+	* configure.in: Don't require librecode.
+
 	* src/tests/long_message.c: Don't use FATAL.
 
 	* src/tests/clibrary.c: Don't use FATAL.
