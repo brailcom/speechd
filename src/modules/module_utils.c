@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.32 2004-07-21 08:14:50 hanke Exp $
+ * $Id: module_utils.c,v 1.33 2004-10-18 19:09:15 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -268,9 +268,9 @@ module_get_message_part(const char* message, char* part, unsigned int *pos, size
 
         // DBG("pos: %d", *pos);
 
-        if ((message[*pos] != '@') && ((len-1-i) > 2)){
+        if ((len-1-i) > 2){
             if ((message[*pos+1] == ' ') || (message[*pos+1] == '\n')
-                || (message[*pos+1] == '\r') || (message[*pos+1] == '@')){
+                || (message[*pos+1] == '\r')){
                 for(n = 0; n <= num_dividers; n++){
                     if ((part[i] == dividers[n])){                        
                         part[i+1] = 0;                
@@ -296,52 +296,6 @@ module_get_message_part(const char* message, char* part, unsigned int *pos, size
                 }
             }
         }
-
-        if ((message[*pos] == '@') && ((len-1-i) > 2)){
-            if (message[*pos+1] == '@'){
-                (*pos) += 2;      /* Skip both '@' */
-                continue;
-            }else{            
-                char mark_number[8] = "";
-                int t = 0;
-
-                DBG("Found index mark\n");
-
-                 if (i>0){
-                     part[i] = 0;
-                     current_index_mark = -1;
-                     return i+1;            
-                 }
-
-                (*pos)++;
-                for(; i <= maxlen-1;){
-                    if (message[*pos] == 0){
-                        DBG("ERROR: Index mark opened but not terminated!");
-                        current_index_mark = -1;
-                        return i;
-                    }
-                    if (message[*pos] != '@'){
-                        mark_number[t++] = message[*pos];
-                    }else{
-                        (*pos)++;
-                        mark_number[t] = 0;
-                        break;
-                    }
-                    (*pos)++;
-                }
-                
-                DBG("Retrieved mark number string: |%s|\n", mark_number);
-                {
-                    char *tailptr;
-                    current_index_mark = strtol(mark_number, &tailptr, 0);
-                    if (tailptr == mark_number){
-                        DBG("Invalid index mark -- Not a number!\n");
-                    }
-                }
-
-                return i;
-            }
-        }        
 
         (*pos)++;
     }
