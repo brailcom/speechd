@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: oss.c,v 1.3 2004-11-19 13:53:12 hanke Exp $
+ * $Id: oss.c,v 1.4 2004-11-29 14:26:18 hanke Exp $
  */
 
 int
@@ -27,7 +27,7 @@ _oss_open(AudioID *id)
 {
     pthread_mutex_lock(&id->fd_mutex);
 
-    id->fd = open(id->device_name, O_WRONLY | O_NONBLOCK, 0);
+    id->fd = open(id->device_name, O_WRONLY, 0);
     if (id->fd == -1){
 	perror(id->device_name);
 	id = NULL;
@@ -66,7 +66,7 @@ oss_open(AudioID *id, void **pars)
     if (id == NULL) return 0;
     if (pars[0] == NULL) return -1;
 
-    if (pars[0] != NULL) id->device_name=strdup((char*) pars[0]);
+    if (pars[0] != NULL) id->device_name = (char*) strdup((char*) pars[0]);
 
     pthread_mutex_init(&id->fd_mutex, NULL);
 
@@ -100,27 +100,30 @@ _oss_sync(AudioID *id)
 int
 oss_play(AudioID *id, AudioTrack track)
 {
-    int ret;
+    int ret, ret2;
     struct timeval now;
     struct timespec timeout;
     float lenght;
-    int MAX_BUF=32768;
     int r;
-
     int format, oformat, channels, speed;
-
+    int bytes_per_sample;
     int num_bytes;
     signed short* output_samples;
-    int delay = 0;
-    int DELAY = 10000000;	/* nanoseconds */
-
+    float delay = 0;
+    float DELAY = 0.1;	/* in seconds */
+    audio_buf_info info;
+    int bytes;
     float real_volume;
     int i;
+    int re;  
 
     AudioTrack track_volume;
 
     if (id == NULL) return -1;
 
+    /* Open the sound device. This is necessary for OSS so that the
+     application doesn't prevent others from accessing /dev/dsp when
+     it doesn't play anything. */
     ret = _oss_open(id);
     if (ret) return -2;
 
@@ -132,11 +135,13 @@ oss_play(AudioID *id, AudioTrack track)
 	track_volume.samples[i] = track.samples[i] * real_volume;
 
     /* Choose the correct format */
-    if (track.bits == 16)
+    if (track.bits == 16){
 	format = AFMT_S16_NE;
-    else if (track.bits == 8)
+	bytes_per_sample = 2;
+    }else if (track.bits == 8){
+	bytes_per_sample = 1;
 	format = AFMT_S8;
-    else{
+    }else{
 	fprintf(stderr, "Audio: Unrecognized sound data format.\n");
 	_oss_close(id);
 	return -10;
@@ -193,19 +198,52 @@ oss_play(AudioID *id, AudioTrack track)
        In the meantime, wait in pthread_cond_timedwait for more data
        or for interruption. */
     output_samples = track_volume.samples;
-    num_bytes = track.num_samples*2;
+    num_bytes = track.num_samples*bytes_per_sample;
     while(num_bytes > 0) {
-	/* A non-blocking write */
-        ret = write(id->fd, output_samples, num_bytes > MAX_BUF ? MAX_BUF : num_bytes);
 
-	/* Send SYNC before the last write() */
-	if (MAX_BUF > num_bytes) _oss_sync(id);
+	/* OSS doesn't support non-blocking write, so lets check how much date
+	 can we write so that write() returns immediatelly */	
+	re = ioctl(id->fd, SNDCTL_DSP_GETOSPACE, &info);
+	if (re == -1){
+	    perror("OSS GETOSPACE");
+	    _oss_close(id);
+	    return -5;
+	}
+	
+	/* If there is not enough space for a single fragment, try later.
+	   (This shouldn't happen, it has very bad effect on synchronization!) */
+	if (info.fragments == 0){
+	    usleep (100);
+	    continue;
+	}
 	    
+	bytes = info.fragments * info.fragsize;
+	ret = write(id->fd, output_samples, num_bytes > bytes ? bytes : num_bytes);
+
 	/* Handle write() errors */
 	if (ret <= 0){
-	    if (errno == EAGAIN){
-		continue;
-	    }
+	    perror("audio");
+	    _oss_close(id);
+	    return -6;
+	}
+
+	num_bytes -= ret;
+	output_samples += ret/2;
+
+	/* If there is some more data that is less than a
+	   full fragment, we need to write it immediatelly so
+	   that it doesn't cause buffer underruns later. */
+	if ((num_bytes > 0)
+	    && (num_bytes < info.fragsize) 
+	    && (bytes+num_bytes < info.bytes)){
+	    ret2 = write(id->fd, output_samples, num_bytes);       
+	    num_bytes -= ret2;
+	    output_samples += ret2/2;
+	    ret += ret2;
+	}
+
+	/* Handle write() errors */
+	if (ret <= 0){
 	    perror("audio");
 	    _oss_close(id);
 	    return -6;
@@ -221,20 +259,24 @@ oss_play(AudioID *id, AudioTrack track)
 	*/
 	pthread_mutex_lock(&id->pt_mutex);
         lenght = (((float) (ret)/2) / (float) track.sample_rate);
+	if (!delay){
+	    delay = lenght>DELAY ? DELAY : lenght;
+	    lenght -= delay;
+	}
         gettimeofday(&now);
         timeout.tv_sec = now.tv_sec + (int) lenght;
         timeout.tv_nsec = now.tv_usec * 1000 + (lenght - (int) lenght) * 1000000000;
-	if ((timeout.tv_nsec>DELAY) & !delay) timeout.tv_nsec -= (delay=DELAY);
+
         r = pthread_cond_timedwait(&id->pt_cond, &id->pt_mutex, &timeout);
 	pthread_mutex_unlock(&id->pt_mutex);
 
 	/* The pthread_cond_timedwait was interrupted by change in the
 	 condition variable? if so, terminate.*/
         if (r != ETIMEDOUT) break;               
-
-	num_bytes -= ret;
-	output_samples += ret/2;
     }
+
+    /* Flush all the buffers */
+    _oss_sync(id);
 
     /* ...one more excersise in timing magic. 
        Wait for the resting DELAY nsecs. */
@@ -242,11 +284,13 @@ oss_play(AudioID *id, AudioTrack track)
 	pthread_mutex_lock(&id->pt_mutex);
 	gettimeofday(&now);
 	timeout.tv_sec = 0;
-	timeout.tv_nsec = delay;
+	timeout.tv_nsec = delay * 1000000000;
 	r = pthread_cond_timedwait(&id->pt_cond, &id->pt_mutex, &timeout);
 	pthread_mutex_unlock(&id->pt_mutex);
     }
 
+    /* Close the device so that we don't block other apps trying to
+       acces the device. */
     _oss_close(id);
 
     return 0;
