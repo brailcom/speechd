@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils_audio.c,v 1.5 2003-10-18 13:02:05 hanke Exp $
+ * $Id: module_utils_audio.c,v 1.6 2004-02-10 21:20:22 hanke Exp $
  */
 
 #include "spd_audio.h"
@@ -37,7 +37,7 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
     int num_samples = 0;
     int ret;
     int data_mode = -1;
-    int bitrate;
+    int bitrate, volume;
     char *tail_ptr;
     int back;
     int eod;
@@ -61,11 +61,24 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
                 }
                 bitrate = strtol(data, &tail_ptr, 10);
                 if(tail_ptr == data){
-                    DBG("child: Invalid header of send data! (FATAL ERROR)");
+                    DBG("child: Invalid header of send data! (FATAL ERROR) [%s]", data);
                     exit(1);
-                }           
-                data_mode = 0;
-            }
+                }          
+            }else exit(1);
+
+            bytes = module_child_dp_read(dpipe, data, 5);
+            if (bytes != 0){
+                if (bytes != 5){
+                    DBG("child: Missing header of send data! (FATAL ERROR)");
+                    exit(1); /* Missing header */
+                }
+                volume = strtol(data, &tail_ptr, 10);
+                if(tail_ptr == data){
+                    DBG("child: Invalid header of send data 2! (FATAL ERROR) [%s]", data);
+                    exit(1);
+                }          
+            }else exit(1);
+	    data_mode = 0;
         }
 
         /* Read the waiting data */
@@ -78,7 +91,6 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
             exit(0);
         }
 
-        /* TODO: Test this!!! */
         samples = module_add_samples(samples, (short*) data,
                                      bytes, &num_samples, &eod); 
         if (eod) data_mode = 1;
@@ -98,6 +110,8 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
                 DBG("child: Can't open audio device!");
                 exit(1);
             }
+
+	    spd_audio_set_volume(volume);
 
             DBG("child: Sending data to audio output...\n");            
             spd_audio_play_wave(wave);
@@ -157,14 +171,15 @@ module_add_samples(short* samples, short* data, size_t bytes,
 }
 
 static int
-module_parent_send_samples(TModuleDoublePipe dpipe, short* samples, size_t num_samples, int bitrate)
+module_parent_send_samples(TModuleDoublePipe dpipe, short* samples, size_t num_samples,
+			   int bitrate, int volume)
 {
     size_t ret;
     size_t acc_ret = 0;
-    char bitrate_str[10];
+    char param_str[10];
 
-    snprintf(bitrate_str, 10, "%-9d\n", bitrate);
-    ret = module_parent_dp_write(dpipe, bitrate_str, 10);   
+    snprintf(param_str, 15, "%-10d%-9d\n", bitrate, volume);
+    ret = module_parent_dp_write(dpipe, param_str, 15);   
     if (ret == -1){
         DBG("parent: Error in sending bitrate information to child:\n   %s\n",
             strerror(errno));
