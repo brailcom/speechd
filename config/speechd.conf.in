@@ -60,6 +60,12 @@ LogFile  "/var/log/speechd.log"
 
 # DefaultPitch  0
 
+# DefaultVolume constrols the default volume of the voice.
+# It is a value between -100 (softly) and +100 (loudly).
+# Currently, +100 maps to the default volume of the synthesizer.
+
+DefaultVolume 100
+
 # DefaultVoiceType controls which voice type should be used.
 # Becaus voices are synthesizers specific, you only set here
 # a symbolic name, which, if possible, is mapped to some of
