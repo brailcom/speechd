@@ -417,7 +417,7 @@
 	it into queues (so that we don't free it's content in the second thread before
 	we can copy it into history).
 
-	* src/server/alloc.c (spd_message_copy): alloc lenght __ * sizeof(char) __ for new_buf.
+	* src/server/alloc.c (spd_message_copy): alloc length __ * sizeof(char) __ for new_buf.
 
 	* src/modules/module_utils.c: Small changes in some debugging messages.
 

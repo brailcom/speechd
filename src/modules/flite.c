@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.31 2003-09-20 17:27:22 hanke Exp $
+ * $Id: flite.c,v 1.32 2003-09-22 06:35:37 pdm Exp $
  */
 
 
@@ -65,7 +65,7 @@ cst_voice *flite_voice;
 /* Fill the module_info structure with pointers to this modules functions */
 //DECLARE_MODINFO("flite", "Flite software synthesizer v. 1.2");
 
-MOD_OPTION_1_INT(FliteMaxChunkLenght);
+MOD_OPTION_1_INT(FliteMaxChunkLength);
 MOD_OPTION_1_STR(FliteDelimiters);
 
 /* Public functions */
@@ -78,7 +78,7 @@ module_load(void)
    
    INIT_SETTINGS_TABLES();
    
-   MOD_OPTION_1_INT_REG(FliteMaxChunkLenght, 300);
+   MOD_OPTION_1_INT_REG(FliteMaxChunkLength, 300);
    MOD_OPTION_1_STR_REG(FliteDelimiters, ".");
 
    return 0;
@@ -98,7 +98,7 @@ module_init(void)
         return -1;
     }
 
-    DBG("FliteMaxChunkLenght = %d\n", FliteMaxChunkLenght);
+    DBG("FliteMaxChunkLength = %d\n", FliteMaxChunkLength);
     DBG("FliteDelimiters = %s\n", FliteDelimiters);
     
     flite_message = malloc (sizeof (char*));    
@@ -219,7 +219,7 @@ _flite_speak(void* nothing)
     module_speak_thread_wfork(flite_semaphore, &flite_pid,
                               _flite_child, module_parent_wfork, 
                               &flite_speaking, flite_message,
-                              FliteMaxChunkLenght, FliteDelimiters,
+                              FliteMaxChunkLength, FliteDelimiters,
                               &flite_position, &flite_pause_requested);
     flite_speaking = 0;
 

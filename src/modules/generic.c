@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.3 2003-09-07 23:01:19 hanke Exp $
+ * $Id: generic.c,v 1.4 2003-09-22 06:35:37 pdm Exp $
  */
 
 #include <glib.h>
@@ -65,7 +65,7 @@ static void generic_child_close(TModuleDoublePipe dpipe);
 /* Fill the module_info structure with pointers to this modules functions */
 
 MOD_OPTION_1_STR(GenericExecuteSynth);
-MOD_OPTION_1_INT(GenericMaxChunkLenght);
+MOD_OPTION_1_INT(GenericMaxChunkLength);
 MOD_OPTION_1_STR(GenericDelimiters);
 MOD_OPTION_1_STR(GenericStripPunctChars);
 
@@ -87,7 +87,7 @@ module_load(void)
 
     INIT_SETTINGS_TABLES();
 
-    MOD_OPTION_1_INT_REG(GenericMaxChunkLenght, 300);
+    MOD_OPTION_1_INT_REG(GenericMaxChunkLength, 300);
     MOD_OPTION_1_STR_REG(GenericDelimiters, ".");
     MOD_OPTION_1_STR_REG(GenericStripPunctChars, "~@#$%^&*+=|\\/<>[]_");
 
@@ -110,7 +110,7 @@ module_init(void)
 {
     int ret;
 
-    DBG("GenericMaxChunkLenght = %d\n", GenericMaxChunkLenght);
+    DBG("GenericMaxChunkLength = %d\n", GenericMaxChunkLength);
     DBG("GenericDelimiters = %s\n", GenericDelimiters);
     DBG("GenericExecuteSynth = %s\n", GenericExecuteSynth);
     
@@ -346,7 +346,7 @@ _generic_speak(void* nothing)
 
             /* execute_synth_str1 se sem musi nejak dostat */
             DBG("Starting child...\n");
-            _generic_child(module_pipe, GenericMaxChunkLenght);
+            _generic_child(module_pipe, GenericMaxChunkLength);
             }
             break;
 
@@ -354,7 +354,7 @@ _generic_speak(void* nothing)
             /* This is the parent. Send data to the child. */
 
             generic_position = module_parent_wfork(module_pipe, *generic_message,
-                                                   GenericMaxChunkLenght, GenericDelimiters,
+                                                   GenericMaxChunkLength, GenericDelimiters,
                                                    &generic_pause_requested);
 
             DBG("Waiting for child...");

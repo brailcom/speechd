@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.26 2003-09-20 17:26:38 hanke Exp $
+ * $Id: festival.c,v 1.27 2003-09-22 06:35:37 pdm Exp $
  */
 
 
@@ -66,7 +66,7 @@ static void festival_set_rate(signed int rate);
 static void festival_set_pitch(signed int pitch);
 static void festival_set_voice(void);
 
-MOD_OPTION_1_INT(FestivalMaxChunkLenght);
+MOD_OPTION_1_INT(FestivalMaxChunkLength);
 MOD_OPTION_1_STR(FestivalDelimiters);
 MOD_OPTION_1_STR(FestivalServerHost);
 MOD_OPTION_1_STR(FestivalStripPunctChars);
@@ -85,7 +85,7 @@ module_load(void)
 
     INIT_SETTINGS_TABLES();
 
-    MOD_OPTION_1_INT_REG(FestivalMaxChunkLenght, 150);
+    MOD_OPTION_1_INT_REG(FestivalMaxChunkLength, 150);
     MOD_OPTION_1_STR_REG(FestivalDelimiters, ".");
 
     MOD_OPTION_1_STR_REG(FestivalServerHost, "localhost");
@@ -122,7 +122,7 @@ module_init(void)
 
     DBG("FestivalServerHost = %s\n", FestivalServerHost);
     DBG("FestivalServerPort = %d\n", FestivalServerPort);
-    DBG("FestivalMaxChunkLenght = %d\n", FestivalMaxChunkLenght);
+    DBG("FestivalMaxChunkLength = %d\n", FestivalMaxChunkLength);
     DBG("FestivalDelimiters = %s\n", FestivalDelimiters);
     
     festival_message = (char**) xmalloc (sizeof (char*));    
@@ -255,7 +255,7 @@ _festival_speak(void* nothing)
     module_speak_thread_wfork(festival_semaphore, &festival_pid,
                               module_audio_output_child, _festival_parent, 
                               &festival_speaking, festival_message,
-                              (size_t) FestivalMaxChunkLenght, FestivalDelimiters,
+                              (size_t) FestivalMaxChunkLength, FestivalDelimiters,
                               &festival_position, &festival_pause_requested);
     festival_speaking = 0;
 

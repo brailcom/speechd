@@ -746,7 +746,7 @@ looks like this:
         AddVoice        "es"    "male1"      "voice_el_diphone"
 @end example
 
-@item ModuleDelimiters "@var{delimiters}", ModuleMaxChunkLenght @var{lenght}
+@item ModuleDelimiters "@var{delimiters}", ModuleMaxChunkLength @var{length}
 
 Normally, the output module doesn't try to synthesize all 
 incoming text at once, but instead it cuts it into smaller
@@ -757,7 +757,7 @@ the output module to provide good intonation.
 
 For this reason, you can configure at which characters
 (@var{delimiters}) the text should be cut in smaller blocks
-or after how much characters (@var{lenght}) it should be cut,
+or after how much characters (@var{length}) it should be cut,
 if there is no @var{delimiter} found.
 
 Making the two rules more strict, you will get better speed
@@ -768,13 +768,13 @@ of sentences, while for faster computers, it's preferable
 not to include coma and synthesize the whole composed
 sentences.
 
-The same applies to @code{MaxChunkLenght}, it's better
+The same applies to @code{MaxChunkLength}, it's better
 to set higher value for faster computers.
 
 For example, curently the default for Festival is
 
 @example
-    FestivalMaxChunkLenght  300
+    FestivalMaxChunkLength  300
     FestivalDelimiters  ".?!;,"
 @end example
 
@@ -2799,7 +2799,7 @@ There are currently 4 types of possible configuration options:
 
 For example Flite uses 2 options:
 @example
-MOD_OPTION_1_INT(FliteMaxChunkLenght);
+MOD_OPTION_1_INT(FliteMaxChunkLength);
 MOD_OPTION_1_STR(FliteDelimiters);
 @end example
 
@@ -2844,7 +2844,7 @@ parsing. Just use these macros:
 
 Again, an example from Flite:
 @example
-    MOD_OPTION_1_INT_REG(FliteMaxChunkLenght, 300);
+    MOD_OPTION_1_INT_REG(FliteMaxChunkLength, 300);
     MOD_OPTION_1_STR_REG(FliteDelimiters, ".");
 @end example
 
