@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.16 2004-07-18 20:44:48 hanke Exp $
+ * $Id: generic.c,v 1.17 2004-07-21 08:14:35 hanke Exp $
  */
 
 #include <glib.h>
@@ -126,9 +126,11 @@ module_load(void)
 }
 
 int
-module_init(void)
+module_init(char **status_info)
 {
     int ret;
+
+    *status_info = NULL;
 
     INIT_DEBUG();
 
@@ -149,9 +151,14 @@ module_init(void)
     ret = pthread_create(&generic_speak_thread, NULL, _generic_speak, NULL);
     if(ret != 0){
         DBG("Generic: thread failed\n");
+	*status_info = strdup("The module couldn't initialize threads"
+			      "This can be either an internal problem or an"
+			      "architecture problem. If you are sure your architecture"
+			      "supports threads, please report a bug.");
         return -1;
     }
 								
+    *status_info = strdup("Everything ok so far.");
     return 0;
 }
 
@@ -198,8 +205,6 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
     xfree(tmp);
 
     module_strip_punctuation_some(*generic_message, GenericStripPunctChars);
-
-
 
     generic_message_type = MSGTYPE_TEXT;
 

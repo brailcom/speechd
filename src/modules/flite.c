@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.41 2004-06-28 08:06:10 hanke Exp $
+ * $Id: flite.c,v 1.42 2004-07-21 08:14:31 hanke Exp $
  */
 
 
@@ -84,21 +84,26 @@ module_load(void)
 }
 
 int
-module_init(void)
+module_init(char **status_info)
 {
     int ret;
 
-   INIT_DEBUG();
+    *status_info = NULL;    
+
+    INIT_DEBUG();
 
     /* Init flite and register a new voice */
     flite_init();
     flite_voice = register_cmu_us_kal();
-
+    
     if (flite_voice == NULL){
         DBG("Couldn't register the basic kal voice.\n");
+	*status_info = strdup("Can't register the basic kal voice. "
+			      "Currently only kal is supported. Seems your FLite "
+			      "instalation is incomplete.");
         return -1;
     }
-
+    
     DBG("FliteMaxChunkLength = %d\n", FliteMaxChunkLength);
     DBG("FliteDelimiters = %s\n", FliteDelimiters);
     
@@ -110,8 +115,14 @@ module_init(void)
     ret = pthread_create(&flite_speak_thread, NULL, _flite_speak, NULL);
     if(ret != 0){
         DBG("Flite: thread failed\n");
+	*status_info = strdup("The module couldn't initialize threads "
+			      "This can be either an internal problem or an "
+			      "architecture problem. If you are sure your architecture "
+			      "supports threads, please report a bug.");
         return -1;
     }
+
+    *status_info = strdup("Flite initialized succesfully.");
 								
     return 0;
 }
