@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.c,v 1.17 2003-06-23 05:10:43 hanke Exp $
+ * $Id: history.c,v 1.18 2003-08-11 15:00:31 hanke Exp $
  */
 
 #include "speechd.h"
@@ -129,7 +129,7 @@ history_get_message_list(guint client_id, int from, int num)
 	mlist = g_string_new("");
 
 	client_settings = get_client_settings_by_uid(client_id);
-	assert(client_settings!=NULL);
+        if (client_settings == NULL) return ERR_NO_SUCH_CLIENT;
 	
 	client_msgs = get_messages_by_client(client_id);
 	
