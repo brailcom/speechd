@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.42 2003-12-18 23:39:56 hanke Exp $
+ * $Id: festival.c,v 1.43 2003-12-19 15:47:03 hanke Exp $
  */
 
 #include "fdset.h"
@@ -80,8 +80,8 @@ MOD_OPTION_1_STR(FestivalRecodeFallback);
 
 
 typedef struct{
-    size_t size;
-    GHashTable *data;
+  size_t size;
+  GHashTable *caches;
 }TCache;
 
 TCache FestivalCache;
@@ -553,36 +553,49 @@ int
 cache_init()
 {
     FestivalCache.size = 0;
-    FestivalCache.data = g_hash_table_new(g_str_hash, g_str_equal);
+    FestivalCache.caches = g_hash_table_new(g_str_hash, g_str_equal);
 }
 
 int
 cache_reset()
 {
-    g_hash_table_foreach(FestivalCache.data, cache_free_item, NULL);
-    g_hash_table_destroy(FestivalCache.data);
-    cache_init();
+  //    g_hash_table_foreach(FestivalCache.data, cache_free_item, NULL);
+  //    g_hash_table_destroy(FestivalCache.data);
+  //    cache_init();
     return 0;
 }
 
 int
 cache_insert(char* key, FT_Wave *value)
 {
+  GHashTable *cache;
 
-    if (cache_lookup(key) == NULL){        
-        FestivalCache.size += value->num_samples * sizeof(short);
-        g_hash_table_insert(FestivalCache.data, key, value);
-    }else{
-        delete_FT_Wave(value);
-    }
+  if (cache_lookup(key) != NULL){
+    delete_FT_Wave(value);
     return 0;
+  }
+
+  cache = g_hash_table_lookup(FestivalCache.caches, msg_settings.language);
+  if (cache = NULL){
+    cache = g_hash_table_new(g_str_hash, g_str_equal);
+    g_hash_table_insert(FestivalCache.caches, msg_settings.language, cache);
+  }
+
+  FestivalCache.size += value->num_samples * sizeof(short);
+  g_hash_table_insert(cache, key, value);
+
+  return 0;
 }
 
 FT_Wave*
 cache_lookup(char *key)
 {
     FT_Wave *fwave;
-    fwave = g_hash_table_lookup(FestivalCache.data, key);
+    GHashTable *cache;
+
+    cache = g_hash_table_lookup(FestivalCache.caches, msg_settings.language);
+    if (cache == NULL) return NULL;
+    fwave = g_hash_table_lookup(cache, key);
     return fwave;
 }
 
