@@ -11,9 +11,10 @@
 	<imagedata fileref="figures/architecture.jpg" format="JPEG"/>
       </imageobject>
       <textobject>
-	<phrase>Speechd Architecture</phrase>
+	<phrase>Speech Daemon Architecture</phrase>
       </textobject>
       <caption>
+	<para>Speech Daemon block diagram.</para>
       </caption>
     </mediaobject>
     
