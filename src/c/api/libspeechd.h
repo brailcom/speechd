@@ -19,8 +19,14 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.8 2003-07-07 22:26:22 hanke Exp $
+ * $Id: libspeechd.h,v 1.9 2003-07-22 22:49:41 hanke Exp $
  */
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 /* Debugging */
 #define LIBSPEECHD_DEBUG
@@ -174,3 +180,7 @@ int get_rec_int(char *record, int pos);
 char* parse_response_data(char *resp, int pos);
 void *xmalloc(unsigned int bytes);
 void xfree(void *ptr);
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
