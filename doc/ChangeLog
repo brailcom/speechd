@@ -3,7 +3,9 @@
 	* version.texi: Changed to 0.0.
 
 	* speechd.texi: Authors fixed.
-	(History handling commands): New command HISTORY SORT.
+	(History handling commands): New commands HISTORY SORT and HISTORY
+	SET MESSAGE_TYPE_ORDERING.
+	(Sample SSIP relation): Updated.
 
 2003-04-15  Milan Zamazal  <pdm@brailcom.org>
 
