@@ -657,8 +657,8 @@ structure composed of some parameters and pointers to it's functions.
        gchar    *filename;
        gint     (*write)    (const gchar *, gint, void*);
        gint     (*stop)     (void);
-       gint     (*close)    (void);
        gint     (*is_speaking) (void);
+       gint     (*close)    (void);
      @} OutputModule;
 @end example
 
@@ -710,6 +710,32 @@ Each output module should take care of setting the output device to these parame
 	@item (int) set->voice_type
 @end itemize
 
+Speed and pitch are values between -100 and 100 included. 0 is the default
+value that represents normal speech flow. So -100 is the slowest (or lowest)
+and +100 is the fastest (or highest) speech.
+
+(We should estabilish a constant scale refered to some text, standard speeds
+and different associated times. This will probably be the work of the person
+who will program the first real output module. We need to chose some longer
+text, decide what speed of reading we consider 0 and what we consider, say,
++-50, measure the times needed to read it at these speeds and put it there
+in documentation as our standard scale.)
+
+The language parameter is given as a null-terminated string containnig 
+the name of the language in english in lowercase (e.g. "english", "czech", "spanish").
+
+voice_type is used only when the output module supports more types of voices
+for this particular language. The values represent (from @file{intl/fdset.h})
+@example
+typedef enum @{
+    MALE = 0,
+    FEMALE = 1,
+    CHILD_MALE = 2,
+    CHILD_FEMALE = 3
+@}EVoiceType;
+@end example
+We can consider also other voice types. 
+
 This function should return 0 if it fails and some non-0 value
 if the delivery to the synthesis is succesful. Formerly we thought
 that it should return the number of bytes written, but it's still
@@ -734,7 +760,7 @@ regulate the speech flow between different queues, programs and even
 other synthesizers. On calling it, the output module must decide
 whether there is currently any output beeing produced in the speakers.
 
-That can be a very hard problem and it's not clear how to do it
+This can be a very hard problem and it's not clear how to do it
 with diferent synthesizers. If it's not possible to return an exact
 value, at least some estimate should be calculated. But such an inacurate
 value can highly reduce the usefulness of an even otherwise very good
@@ -811,10 +837,10 @@ level information.
 
 @section Level 3
 Third level messages are only said, when there are no messages
-of any higher level queued. So they will be never said, if the
-output device is busy in the moment,
-they arrive. But if the message is not said, it is still
-copied to the history.
+of any higher level queued. If there are level 3 messages beeing
+said or waiting in queues, they are interrupted by the last
+incomming level 3 message and this one is said, in other words,
+level 3 is interrupting itself.
 
 @section How to use them wisely
 
@@ -845,9 +871,31 @@ Example uses for level @strong{three} are:
 @cindex output module
 @cindex different synthesizers
 
-some general infor should go here...
+Speech Deamon supports concurrent use of multiple output modules.
+In the case these output modules provide good synchronization,
+you can combine them in reading messages. For example if module1 can
+speak English and Czech while module2 speaks only German, the idea
+is that if there is something message in German, module2 is used,
+while module1 is used for the other languages. These rules for
+selection of output modules can be influenced through the configuration
+file @file{speechd.conf}.
 
-also look at internal structure/output modules
+If you want to compile and use a new output module, you should place
+it in @file{src/modules} in your source directory of Speech Deamon and
+add it to @file{src/modules/Makefile.am}. You can compile and install
+it by typing: @code{make; su root; make install}. The last step you
+have to do is to let Speech Deamon know you want to use this new
+module by adding a line to @file{speechd.conf} in your configuration directory
+@example
+AddModule module_name
+@end example
+and possibly also changing the line
+@example
+DefaultModule new_module
+@end example
+to make it default.
+
+@xref{Output modules}.
 
 @node History, Speech parameters, Multiple output modules, Top
 @chapter History
@@ -907,7 +955,7 @@ Spelling mode is provided by nearly all devices and is also
 easy to emulate in output module.
 
 @section Capital letters recognition
-That is again a widely supported feature. However it would be
+That is again a widely supported feature. However it is
 desirable to support this internally, using the
 sound icons feature, but this  requires a good possibility of
 synchronization, which is not  possible with all devices.
