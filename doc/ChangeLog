@@ -1,3 +1,8 @@
+2003-04-10  Milan Zamazal  <pdm@brailcom.org>
+
+	* speechd.texi (Speech synthesis and sound output commands):
+	SND_ICON -> SOUND_ICON.
+
 2003-04-08  Milan Zamazal  <pdm@brailcom.org>
 
 	* Makefile (clean): Remove $(HTMLDIR).  Remove auxiliary TeX
