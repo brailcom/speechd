@@ -1,3 +1,13 @@
+2003-04-08  Milan Zamazal  <pdm@brailcom.org>
+
+	* Makefile (clean): Remove $(HTMLDIR).  Remove auxiliary TeX
+	files.
+
+	* speechd.texi: A few typo fixes.  @setchapternewpage commented
+	out.
+	(Standard sound icons): New appendix
+	(Speech Synthesis Internet Protocol): Completely rewritten.
+
 2003-04-08  Tomas Cerha  <cerha@freebsoft.org>
 
 	* Makefile (html): Copy figures.
