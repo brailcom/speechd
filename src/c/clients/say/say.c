@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: say.c,v 1.6 2004-05-23 21:24:04 hanke Exp $
+ * $Id: say.c,v 1.7 2005-02-27 20:55:21 hanke Exp $
  */
 
 #include <stdio.h>
@@ -35,7 +35,7 @@ int main(int argc, char **argv) {
 
    /* Check if the text to say is specified in the argument */
    if (argc < 2) {
-       options_print_help();
+       options_print_help(argv);
        return 1;
    }
 
