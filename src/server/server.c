@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.55 2003-08-07 14:44:07 hanke Exp $
+  * $Id: server.c,v 1.56 2003-08-11 15:00:54 hanke Exp $
   */
 
 #include "speechd.h"
@@ -43,6 +43,10 @@ void server_data_off(int fd);
  *             in more pieces
  * It returns 0 on success, -1 otherwise.
  */
+
+#define COPY_SET_STR(name) \
+    new->settings.name = (char*) spd_strdup(settings->name);
+
 int
 queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type, int reparted)
 {
@@ -70,9 +74,17 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type,
     /* Copy the settings to the new to-be-queued element */
     new->settings = *settings;
     new->settings.type = type;
-    new->settings.output_module = spd_strdup(settings->output_module);
-    new->settings.language = spd_strdup(settings->language);
-    new->settings.client_name = spd_strdup(settings->client_name);
+    COPY_SET_STR(language);
+    COPY_SET_STR(client_name);
+    COPY_SET_STR(output_module);
+    COPY_SET_STR(punctuation_some);
+    COPY_SET_STR(punctuation_table);
+    COPY_SET_STR(spelling_table);
+    COPY_SET_STR(char_table);
+    COPY_SET_STR(key_table);
+    COPY_SET_STR(snd_icon_table);
+    COPY_SET_STR(cap_let_recogn_table);
+    COPY_SET_STR(cap_let_recogn_sound);
 
     new->settings.reparted = reparted;
 
@@ -86,12 +98,24 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type,
     /* If desired, put the message also into history */
     /* NOTE: This should be before we put it into queues() to
      avoid conflicts with the other thread (it could delete
-    the message before we woud copy it) */
+     the message before we woud copy it) */
     if (history_flag){
         /* We will make an exact copy of the message for inclusion into history. */
         hist_msg = (TSpeechDMessage*) spd_message_copy(new); 
         if(hist_msg != NULL){
-            message_history = g_list_append(message_history, hist_msg);
+            /* Do the necessary expiration of old messages*/
+            if (g_list_length(message_history) >= MaxHistoryMessages){
+                GList *gl;
+                MSG(5, "Discarding older history message, limit reached");
+                gl = g_list_first(message_history);
+                if (gl != NULL){
+                    message_history = g_list_remove_link(message_history, gl);
+                    if (gl->data != NULL)
+                        mem_free_message(gl->data);
+                }
+            }
+            /* Save the message into history */
+            message_history = g_list_append(message_history, hist_msg);            
         }else{
             if(SPEECHD_DEBUG) FATAL("Can't include message into history\n");
         }
@@ -122,6 +146,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type,
 
     return 0;
 }
+#undef COPY_SET_STR
 
 /* Queue more messages in a list.
  *
