@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.15 2003-04-15 10:08:59 pdm Exp $
+ * $Id: set.c,v 1.16 2003-04-17 10:18:01 hanke Exp $
  */
 
 
@@ -89,6 +89,19 @@ set_punct_mode(int fd, int punct)
 }
 
 int
+set_punctuation_table(int fd, char* punctuation_table)
+{
+    TFDSetElement *settings;
+
+    settings = get_client_settings_by_fd(fd);
+    if (settings == NULL) FATAL("Couldnt find settings for active client, internal error.");
+    if(punctuation_table == NULL) return 0;
+    realloc(settings->punctuation_table, (strlen(punctuation_table) + 1)*sizeof(char));
+    strcpy(settings->punctuation_table, punctuation_table);
+    return 1;
+}
+
+int
 set_cap_let_recog(int fd, int recog)
 {
     TFDSetElement *settings;
@@ -116,8 +129,8 @@ set_spelling_table(int fd, char* spelling_table)
     TFDSetElement *settings;
 
     settings = get_client_settings_by_fd(fd);
-    if (settings == NULL) FATAL("Couldnt find settings for active client, internal error.");
-    if(spelling_table == NULL) return 0;
+    if (settings == NULL) FATAL("Couldn't find settings for active client, internal error.");
+    if (spelling_table == NULL) return 0;
     realloc(settings->spelling_table, (strlen(spelling_table) + 1)*sizeof(char));
     strcpy(settings->spelling_table, spelling_table);
     return 1;
@@ -162,6 +175,8 @@ default_fd_set(void)
 	new->client_name = (char*) spd_malloc(128);		/* max 127 characters */
 	new->spelling_table = (char*) spd_malloc(128);		/* max 127 characters */
         new->punctuation_some = (char*) spd_malloc(128);
+	new->punctuation_table = (char*) spd_malloc(128);       /* max 127 characters */
+
    
 	new->paused = 0;
 
@@ -175,6 +190,7 @@ default_fd_set(void)
 	strcpy(new->client_name, GlobalFDSet.client_name); 
 	strcpy(new->spelling_table, GlobalFDSet.spelling_table); 
         strcpy(new->punctuation_some, GlobalFDSet.punctuation_some);
+        strcpy(new->punctuation_table, GlobalFDSet.punctuation_table);
 	new->voice_type = GlobalFDSet.voice_type;
 	new->spelling = GlobalFDSet.spelling;         
 	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;
