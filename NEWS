@@ -1,6 +1,8 @@
 
 Version 0.0.5
   * Renamed back to Speech Deamon
+  * Speech Deamon Center -- history and configuration client (first version)
+  * Lower CPU usage
 
 Version 0.0.4
   * Automake and autoconf support

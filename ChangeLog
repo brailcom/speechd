@@ -1,3 +1,16 @@
+16.12.2002	Hynek Hanke	<hanke@volny.cz>
+	* /src/server/speechd.c (main): Test for msgs_to_say, select has timeout of 10us, but added a sleep() after each cycle (highly reduces CPU usage).
+	* /src/server/speechd.h (msgs_to_say): New global variable: number of messages to be said (for lower CPU usage)
+	* /src/client/spd_center.c: New file. Speech Deamon Center -- combined history and configuration client.
+	* /src/server/Makefile.am: Sysconfdir passed to gcc as -D from @sysconfdir@ (needed for loading speechd.conf).
+	* /src/server/Makefile.am: Libdir passed to gcc as -D from @libdir@.
+	* /src/server/history.c (history_say_id()): msgs_to_say incremented.
+	* /src/server/history.c (history_get_message_list()): Find proper client, added third parametr client_id.
+	* /src/server/history.c: Multiline commands now terminate with '\'.
+	* /src/server/history.c (send_data()): char *reply returned is now dynamic.
+	* /src/server/parse.c (history_get_message_list()): Added third parametr client_id for @history get message_list.
+	* /src/server/set.c (set_client_name()): Now affects also history client settings.
+	* /src/client/libspeechd.c: Multiline return values. History get clients/messages function.
 8.12.2002	Hynek Hanke	<hanke@volny.cz>
 	* Renamed back to Speech Deamon
 
