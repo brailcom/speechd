@@ -19,11 +19,12 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.30 2003-10-09 21:21:46 hanke Exp $
+ * $Id: set.c,v 1.31 2003-10-12 23:33:55 hanke Exp $
  */
 
 #include "set.h"
 #include "alloc.h"
+#include "msg.h"
 
 extern char *spd_strdup(char*);
 

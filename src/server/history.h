@@ -19,11 +19,11 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.h,v 1.8 2003-05-26 16:04:50 hanke Exp $
+ * $Id: history.h,v 1.9 2003-10-12 23:31:56 hanke Exp $
  */
 
-#ifndef ALLOC_H
- #define ALLOC_H
+#ifndef HISTORY_H
+ #define HISTORY_H
 
 #include "speechd.h"
 
@@ -39,8 +39,7 @@ char* history_cursor_get(int fd);
 char* history_say_id(int fd, int id);
 
 /* Internal functions */
-
 GList* get_messages_by_client(int uid);
 
-#endif
+#endif /* HISTORY_H */
 

@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: index_marking.c,v 1.3 2003-10-10 20:22:00 hanke Exp $
+  * $Id: index_marking.c,v 1.4 2003-10-12 23:32:20 hanke Exp $
   */
 
 #include "index_marking.h"
@@ -44,7 +44,7 @@ insert_index_marks(TSpeechDMessage *msg)
 
     marked_text = g_string_new("");
 
-    MSG(5, "MSG before index marking: |%s|", msg->buf);
+    MSG2(5, "index_marking", "MSG before index marking: |%s|", msg->buf);
        
     pos = msg->buf;
     while(pos){
@@ -82,7 +82,7 @@ insert_index_marks(TSpeechDMessage *msg)
     
     g_string_free(marked_text, 0);
 
-    MSG(5, "MSG after index marking: |%s|", msg->buf);
+    MSG(5, "index_marking", "MSG after index marking: |%s|", msg->buf);
 }
 
 /* Finds the next index mark, starting from the pointer
@@ -129,13 +129,14 @@ find_next_index_mark(char *buf, int *mark, char **begin)
                 char *tailptr;
                 *mark = strtol(num->str, &tailptr, 0);
                 if (tailptr == num->str){
-                    MSG(4, "Invalid index mark -- Not a number! (%s)\n", num->str);
+                    MSG(4, "index_marking",
+                        "Error: Invalid index mark -- Not a number! (%s)\n", num->str);
                     return NULL;
                 }
                 g_string_free(num, 1);
                 pos = g_utf8_find_next_char(pos, NULL);
                 if (pos == NULL) return NULL;
-                MSG(5, "returning position of index %d", *mark);
+                MSG(5, "index_marking", "returning position of index %d", *mark);
                 return pos;
             }
         }
@@ -154,7 +155,7 @@ find_index_mark(TSpeechDMessage *msg, int mark)
     int im;
 
     pos = msg->buf; 
-    MSG(5, "Trying to find index mark %d in |%s|", mark, msg->buf);
+    MSG(5, "index_marking", "Trying to find index mark %d in |%s|", mark, msg->buf);
     while(pos = find_next_index_mark(pos, &im, NULL)){
         if (im == mark) return pos;
     }
@@ -180,7 +181,7 @@ strip_index_marks(char *buf)
     str = g_string_new("");
     pos = buf;
 
-    MSG(5, "Message before stripping index marks: |%s|", buf);
+    MSG(5, "index_marking", "Message before stripping index marks: |%s|", buf);
 
     while(pos){
         ret = spd_utf8_read_char(pos, character);
@@ -212,7 +213,7 @@ strip_index_marks(char *buf)
     strret = str->str;
     g_string_free(str, 0);
 
-    MSG(5, "Message after stripping index marks: |%s|", strret);
+    MSG(5, "index_marking", "Message after stripping index marks: |%s|", strret);
  
    return strret;
 }

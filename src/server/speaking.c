@@ -19,58 +19,18 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.33 2003-10-09 21:23:41 hanke Exp $
+  * $Id: speaking.c,v 1.34 2003-10-12 23:34:25 hanke Exp $
   */
 
 #include <glib.h>
-#include <speechd.h>
-#include "speaking.h"
+#include "speechd.h"
 #include "index_marking.h"
+#include "module.h"
+#include "set.h"
+
+#include "speaking.h"
 
 TSpeechDMessage *current_message = NULL;
-
-int
-reload_message(TSpeechDMessage *msg)
-{
-    TFDSetElement *client_settings;
-    int im;
-    char *pos;
-    char *newtext;
-
-    if (msg == NULL) return -1;
-    if (msg->settings.index_mark >= 0){
-        client_settings = get_client_settings_by_uid(msg->settings.uid);
-        /* Scroll back to provide context, if required */
-        /* WARNING: This relies on ordered index marks! */
-        im = msg->settings.index_mark + client_settings->pause_context;
-        MSG(5, "Requested index mark is %d (%d+%d)", im, msg->settings.index_mark,
-            client_settings->pause_context);
-        if (im < 0){
-            im = 0;
-            pos = msg->buf;
-        }else{
-            pos = find_index_mark(msg, im);
-            if (pos == NULL) return -1;
-        }
-
-        newtext = strip_index_marks(pos);
-        spd_free(msg->buf);
-        
-        if (newtext == NULL) return -1;
-        
-        msg->buf = newtext;
-        msg->bytes = strlen(msg->buf);
-
-        if(queue_message(msg, -msg->settings.uid, 0, MSGTYPE_TEXT, 0) != 0){
-            if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
-            spd_free(msg->buf);
-            spd_free(msg);
-            return -1;
-        }
-
-        return 0;
-    }
-}
 
 /*
   Speak() is responsible for getting right text from right
@@ -93,6 +53,7 @@ speak(void* data)
     while(1){
         speaking_semaphore_wait();
 
+        /* Handle pause requests */
         if (pause_requested){
             MSG(4, "Trying to pause...");
             if(pause_requested == 1)
@@ -105,6 +66,7 @@ speak(void* data)
             continue;
         }
         
+        /* Handle resume requests */
         if (resume_requested){
             GList *gl;
             TSpeechDMessage *element;
@@ -137,6 +99,7 @@ speak(void* data)
 
         pthread_mutex_lock(&element_free_mutex);
                
+        /* Handle postponed priority progress message */
         if (highest_priority == 5 && (last_p5_message != NULL) 
             && (g_list_length(MessageQueue->p5) == 0)){
             message = last_p5_message;
@@ -161,20 +124,21 @@ speak(void* data)
             continue;
         }
 
+        /* Insert index marks into textual messages */
         if(message->settings.type == MSGTYPE_TEXT){
             insert_index_marks(message);
         }
 
         /* Write the message to the output layer. */
         ret = output_speak(message);
-
         MSG(4,"Message sent to output module");
-        if (ret == -1) MSG(2, "Output module failed");
+        if (ret == -1) MSG(2, "Error: Output module failed");
 
         /* Set the id of the client who is speaking. */
         speaking_uid = message->settings.uid;
 
-        /* Save the currently spoken message to be able to resume() it after pause */
+        /* Save the currently spoken message to be able to resume()
+           it after pause */
         if (current_message != NULL) mem_free_message(current_message);
         current_message = message;
 
@@ -186,6 +150,49 @@ speak(void* data)
 
         pthread_mutex_unlock(&element_free_mutex);        
     }	 
+}
+
+int
+reload_message(TSpeechDMessage *msg)
+{
+    TFDSetElement *client_settings;
+    int im;
+    char *pos;
+    char *newtext;
+
+    if (msg == NULL) return -1;
+    if (msg->settings.index_mark >= 0){
+        client_settings = get_client_settings_by_uid(msg->settings.uid);
+        /* Scroll back to provide context, if required */
+        /* WARNING: This relies on ordered index marks! */
+        im = msg->settings.index_mark + client_settings->pause_context;
+        MSG(5, "index_marking", "Requested index mark is %d (%d+%d)",im,
+            msg->settings.index_mark, client_settings->pause_context);
+        if (im < 0){
+            im = 0;
+            pos = msg->buf;
+        }else{
+            pos = find_index_mark(msg, im);
+            if (pos == NULL) return -1;
+        }
+
+        newtext = strip_index_marks(pos);
+        spd_free(msg->buf);
+        
+        if (newtext == NULL) return -1;
+        
+        msg->buf = newtext;
+        msg->bytes = strlen(msg->buf);
+
+        if(queue_message(msg, -msg->settings.uid, 0, MSGTYPE_TEXT, 0) != 0){
+            if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
+            spd_free(msg->buf);
+            spd_free(msg);
+            return -1;
+        }
+
+        return 0;
+    }
 }
 
 void

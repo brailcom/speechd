@@ -19,10 +19,14 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.c,v 1.18 2003-08-11 15:00:31 hanke Exp $
+ * $Id: history.c,v 1.19 2003-10-12 23:31:02 hanke Exp $
  */
 
 #include "speechd.h"
+#include "msg.h"
+#include "set.h"
+
+#include "history.h"
 
 /* Compares TSpeechDMessage data structure elements
    with given ID */
@@ -88,6 +92,8 @@ history_get_message(int uid)
     char c;
     char helper[1024];
 
+    /* TODO: Rework. */
+#if 0
     mtext = g_string_new("");
 
     gl = g_list_find_custom(message_history, &uid, compare_message_uid);
@@ -110,7 +116,9 @@ history_get_message(int uid)
     g_string_append_printf(mtext, C_OK_MSG_TEXT"-%s\r\n", helper);
     g_string_append_printf(mtext, OK_MSG_TEXT_SENT);
 
-    return mtext->str;                
+#endif
+
+    return ERR_NOT_IMPLEMENTED;                
 }
 
 
@@ -307,7 +315,7 @@ get_messages_by_client(int uid){
 		assert(gl!=NULL);
 		msg = gl->data;
 		if (msg->settings.uid == uid){
-			   	list = g_list_append(list, msg);
+                    list = g_list_append(list, msg);
 		}
 	}
 	

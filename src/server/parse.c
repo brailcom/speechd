@@ -19,10 +19,14 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.51 2003-10-09 21:18:57 hanke Exp $
+ * $Id: parse.c,v 1.52 2003-10-12 23:33:13 hanke Exp $
  */
 
 #include "speechd.h"
+
+#include "set.h"
+#include "history.h"
+#include "msg.h"
 
 /*
   Parse() receives input data and parses them. It can
@@ -738,10 +742,10 @@ parse_help(const char* buf, const int bytes, const int fd)
     sprintf(help, 
             C_OK_HELP"-  SPEAK           -- say text \r\n"
             C_OK_HELP"-  KEY             -- say a combination of keys \r\n"
-            C_OK_HELP"-  CHAR            -- say a char \r\n"
+            C_OK_HELP"-  CHAR            -- say a character \r\n"
             C_OK_HELP"-  SOUND_ICON      -- execute a sound icon \r\n"
             C_OK_HELP"-  SET             -- set a parameter \r\n"
-            C_OK_HELP"-  LIST            -- list available tables \r\n"
+            C_OK_HELP"-  LIST            -- list available arguments \r\n"
             C_OK_HELP"-  HISTORY         -- commands related to history \r\n"
             C_OK_HELP"-  QUIT            -- close the connection \r\n"
             OK_HELP_SENT);
@@ -810,17 +814,7 @@ get_param(const char *buf, const int n, const int bytes, const int lower_case)
     for(y=0; y<=n; y++){
         z=0;
         for(; i<bytes; i++){
-            /*            if((buf[i] == '\"')&&(!quote_open)){
-                quote_open = 1;
-                continue;
-            }
-            if((buf[i] == '\"')&&(quote_open)){
-                quote_open = 0;
-                continue;
-                }
-                if(quote_open!=1){ */
             if (buf[i] == ' ') break;
-                //            }
             param[z] = buf[i];
             z++;
         }
