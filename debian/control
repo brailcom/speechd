@@ -7,6 +7,26 @@ Standards-Version: 3.5.9
 
 Package: speechd
 Architecture: any
-Depends: ${shlibs:Depends}, flite
-Description: Speech Daemon interface to speech synthesizers
- Speech Daemon provides a device independent layer for speech synthesis.
+Depends: ${shlibs:Depends}
+Recommends: flite
+Suggests: festival
+Description: Speech Dispatcher interface to speech synthesizers
+ Speech Dispatcher provides a device independent layer for speech synthesis.
+ This package contains Speech Dispatcher itself.
+
+Package: libspeechd0
+Architecture: any
+Depends: ${shlibs:Depends}
+Conflicts: speechd (<< 0.0-11)
+Description: Speech Dispatcher: Shared libraries
+ Speech Dispatcher provides a device independent layer for speech synthesis.
+ This package contains a shared library needed for C programs linked with it.
+
+Package: libspeechd-dev
+Architecture: any
+Depends: libspeechd0 (= ${Source-Version})
+Suggests: speechd
+Conflicts: speechd (<< 0.0-11)
+Description: Speech Dispatcher: Development libraries and header files
+ Speech Dispatcher provides a device independent layer for speech synthesis.
+ This package contains a shared library needed for C programs linked with it.

@@ -1,4 +1,6 @@
 etc/speechd/en
 usr/bin
 usr/lib
-
+usr/share/lintian/overrides
+usr/share/man/man7
+var/log/speechd
