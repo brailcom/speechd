@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.18 2003-03-30 22:31:58 hanke Exp $
+ * $Id: speechd.c,v 1.19 2003-04-06 20:03:45 hanke Exp $
  */
 
 #include "speechd.h"
@@ -37,29 +37,30 @@ int server_socket;
 
 gint (*p_msg_nto_speak)() = message_nto_speak;
 gint (*p_msg_lc)() = message_list_compare_fd;
+gint (*p_msg_uid_lc)() = message_list_compare_uid;
 
 /* Logging messages, level of verbosity is defined between 1 and 5, 
  * see documentation */
 void
 MSG(int level, char *format, ...)
 {
-	if(level <= LOG_LEVEL){
-		va_list args;
-		int i;
-		char *format_with_spaces;
+    if(level <= LOG_LEVEL){
+        va_list args;
+        int i;
+        char *format_with_spaces;
 		
-		format_with_spaces = (char*) spd_malloc(sizeof(char)*(strlen(format) + 3*level + 1));
-		format_with_spaces[0] = '\0';
-		for(i=1;i<level;i++){
-			strcat(format_with_spaces, "  ");
-		}
-		strcat(format_with_spaces, format);
-		strcat(format_with_spaces, "\n");
-		va_start(args, format_with_spaces);
-		vfprintf(logfile, format_with_spaces, args);
-		if(SPEECHD_DEBUG) vfprintf(stdout, format_with_spaces, args);
-		va_end(args);
-	}				
+        format_with_spaces = (char*) spd_malloc(sizeof(char)*(strlen(format) + 3*level + 1));
+        format_with_spaces[0] = '\0';
+        for(i=1;i<level;i++){
+            strcat(format_with_spaces, "  ");
+        }
+        strcat(format_with_spaces, format);
+        strcat(format_with_spaces, "\n");
+        va_start(args, format_with_spaces);
+        vfprintf(logfile, format_with_spaces, args);
+        if(SPEECHD_DEBUG) vfprintf(stdout, format_with_spaces, args);
+        va_end(args);
+    }				
 }
 
 gboolean
