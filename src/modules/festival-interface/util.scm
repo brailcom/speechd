@@ -53,6 +53,9 @@
 (define (second list)
   (cadr list))
 
+(define (third list)
+  (nth 2 list))
+
 (define (identity x)
   x)
 
