@@ -1,3 +1,36 @@
+2003-04-24  Hynek Hanke  <hanke@volny.cz>
+
+	* config/speechd.conf: english -> en
+	
+	* src/server/dc_decl.h: speed -> rate
+	
+	* src/server/speechd.h (fds_allocated): New variable.
+
+	* src/server/sndicon.c (sndicon_key): Reworked, new key format introduced.
+
+	* src/server/parse.c (parse_help): New function, SSIP HELP command.
+
+	* src/server/msg.h (OK_HELP_SENT): New SSIP message.
+
+	* src/server/set.c (set_client_name_self): Control if SET CLIENT argument has the
+	proper format.
+
+	* src/server/speechd.h (awaiting_data): Now ordinary dynamic array instead of GArray.
+	(o_bytes): Now ordinary dynamic array instead of GArray.
+	
+	* src/server/parse.c (parse_set): Call the new settings functions.
+	(parse_set): Added {id, self, all} to every SSIP settings command.
+
+	* src/server/set.c: New function names set_*_uid, set_*_self, set_*_all.
+
+	* src/server/parse.c (parse): Function moved from server.c.
+
+	* src/server/parse.h: Prototypes for parse.c.
+
+	* config/en/keys.conf: New keys format.
+
+	* intl/fdset.h: speed->rate.
+
 2003-04-24  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/modules/apollo.c: Include math.h.

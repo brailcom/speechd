@@ -1,6 +1,16 @@
 
-* Some decent output module (festival)
-* Old messages in history must expire
-* History should be saved to disk when Speech Deamon terminates
-* many other things...
+Short-term goals:
+    * output modules API (pause, resume)
+	* documentation about tables
+
+Longer-term goals:
+	* rework C API documentation
+	* Sorting in history.
+	* HISTORY commands and their return values (more...)
+	* Implement text tables.	
+    * Audio output.
+	* pause/resume
+	* Some decent output module (festival)
+	* Old messages in history must expire
+	* History should be saved to disk when Speech Deamon terminates
 
