@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.38 2003-09-28 22:29:39 hanke Exp $
+ * $Id: dc_decl.h,v 1.39 2003-10-01 06:44:25 hanke Exp $
  */
 
 #include "speechd.h"
@@ -197,7 +197,6 @@ load_default_global_set_options()
     GlobalFDSet.cap_let_recogn_sound = NULL;
     GlobalFDSet.min_delay_progress = 2000;
     GlobalFDSet.pause_context = 0;
-
 
     MaxHistoryMessages = 10000;
 
