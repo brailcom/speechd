@@ -1,9 +1,9 @@
 2003-04-23  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/modules/apollo.c: New file.
-	* src/modules/Makefile.am (libapollo_la_SOURCES)
-	(libapollo_la_LDFLAGS): New variables.
-	(lib_LTLIBRARIES): libapollo.la added.
+	* src/modules/Makefile.am (libsdapollo_la_SOURCES)
+	(libsdapollo_la_LDFLAGS): New variables.
+	(lib_LTLIBRARIES): libsdapollo.la added.
 
 2003-04-18	Hynek Hanke	<hanke@volny.cz>
 
