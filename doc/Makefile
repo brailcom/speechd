@@ -1,6 +1,6 @@
 # Makefile to convert speechd documentation into various output formats
 # Original xml documentation uses DocBook XML format (see README)
-# CVS revision: $Id: Makefile,v 1.4 2002-06-20 12:17:44 cerha Exp $
+# CVS revision: $Id: Makefile,v 1.5 2002-07-02 20:34:45 cerha Exp $
 # Author: Tomas Cerha <cerha@brailcom.cz>
 
 # Destination directory for HTML documentation. This variable must be here, to
@@ -24,6 +24,7 @@ html_doc: $(DST)/book1.html
 $(DST)/book1.html: $(XML_SRC)
 	@mkdir -p $(DST)
 	(cd $(DST); jade -d $(DSL) -t sgml $(DECL) $(PWD)/$(MAIN))
+	ln -s $(DST)/book1.html $(DST)/index.html
 
 html_img:
 	@mkdir -p $(DST)/img
