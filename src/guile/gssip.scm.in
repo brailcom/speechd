@@ -39,8 +39,8 @@
 (define (ssip-say-key connection key priority)
   (%ssip-say-key connection key priority))
 
-(define (ssip-say-sound connection sound priority)
-  (%ssip-say-sound connection sound priority))
+(define (ssip-say-icon connection sound priority)
+  (%ssip-say-icon connection sound priority))
 
 (define (ssip-stop connection id)
   (%ssip-stop connection id))
@@ -78,10 +78,11 @@
 (define (ssip-set-spelling-mode connection mode)
   (%ssip-set-spelling-mode connection mode))
 
-(define (ssip-block connection function)
-  (%ssip-raw-command "BLOCK BEGIN")
+(define (ssip-block connection priority function)
+  (%ssip-say-text connection "" priority)
+  (%ssip-raw-command connection "BLOCK BEGIN")
   (catch #t (function) (lambda (key . args)))
-  (%ssip-raw-command "BLOCK END"))
+  (%ssip-raw-command connection "BLOCK END"))
 
 
 (provide 'gssip)
