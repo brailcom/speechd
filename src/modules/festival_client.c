@@ -317,6 +317,30 @@ static char *socket_receive_file_to_buff(int fd,int *size)
     return buff;
 }
 
+int
+festival_get_ack(FT_Info **info, char* ack)
+{
+    int read_bytes;
+    int n;
+    for (n=0; n < 3; ){
+        //        fprintf(stderr,"point 1 %d %d", n, info->server_fd);
+        //        fprintf(stderr,"11:Going to read\n");
+        read_bytes = read((*info)->server_fd, ack+n, 3-n);
+        //        fprintf(stderr,"11:Read\n");
+        if (read_bytes == 0){
+            fprintf(stderr, "FESTIVAL CLOSED CONNECTION, REOPENING");
+            *info = festivalOpen(*info);
+            return 1; 
+        }
+        /* WARNING: This is a very strange situation
+           but it happens often, I don't really know
+           why???*/
+        n += read_bytes;                
+    }
+    ack[3] = '\0';
+    return 0;
+}
+
 /***********************************************************************/
 /* Public Functions to this API                                        */
 /***********************************************************************/
@@ -363,10 +387,7 @@ festivalOpen(FT_Info *info)
     fclose(fd);
 
     do {
-	for (n=0; n < 3; )
-	    n += read(info->server_fd,ack+n,3-n);
-
-	ack[3] = '\0';
+        if(festival_get_ack(&info, ack)) return NULL;
 
 	if (strcmp(ack,"WV\n") == 0){         /* receive a waveform */
 	    client_accept_waveform(info->server_fd);
@@ -374,7 +395,9 @@ festivalOpen(FT_Info *info)
 	    client_accept_s_expr(info->server_fd);
 	else if (strcmp(ack,"ER\n") == 0)    /* server got an error */
             {
-                fprintf(stderr,"festival_client: server returned error\n");
+                /* This message ER is returned even if it was because there was
+                   no sound produced, for this reason, the warning is disabled */
+                /* fprintf(stderr,"festival_client: server returned error\n"); */
                 break;
             }
     }while (strcmp(ack,"OK\n") != 0);
@@ -437,22 +460,23 @@ festivalStringToWaveGetData(FT_Info *info)
     FT_Wave *wave = NULL;
     int n;
     char ack[5];
+    int read_bytes;
 
     /* Read back info from server */
     /* This assumes only one waveform will come back, also LP is unlikely */
     wave = NULL;
     do {
-	for (n=0; n < 3; )
-	    n += read(info->server_fd,ack+n,3-n);
-
-	ack[3] = '\0';
+        if (festival_get_ack(&info, ack)) return NULL;
 	if (strcmp(ack,"WV\n") == 0){         /* receive a waveform */
+            //            fprintf(stderr,"point 2");
 	    wave = client_accept_waveform(info->server_fd);
-	}else if (strcmp(ack,"LP\n") == 0)    /* receive an s-expr */
+	}else if (strcmp(ack,"LP\n") == 0){    /* receive an s-expr */
+            //            fprintf(stderr,"point 3");
 	    client_accept_s_expr(info->server_fd);
-	else if (strcmp(ack,"ER\n") == 0)    /* server got an error */
+	}else if (strcmp(ack,"ER\n") == 0)    /* server got an error */
             {
-                fprintf(stderr,"festival_client: server returned error\n");
+                //                fprintf(stderr,"point 4");
+                //                fprintf(stderr,"festival_client: server returned error\n");
                 break;
             }
     } while (strcmp(ack,"OK\n") != 0);
@@ -485,16 +509,15 @@ festivalSetVoice(FT_Info *info, char *voice)
     FILE* fd;
     char buf[4];
     int n;
+    int read_bytes = 0;
 
     fd = fdopen(dup(info->server_fd),"wb");
     /* Send the command and set new voice */
     fprintf(fd,"(%s)\n", voice);
     fclose(fd);
 
-    for (n=0; n < 3; )
-        n += read(info->server_fd,buf+n,3-n);
-    
-    buf[3] = 0;
+    if (festival_get_ack(&info, buf)) return 1;
+
     if (!strcmp(buf,"ER\n")){
         printf("Couldn't set voice!\n");
         return 1;
@@ -502,8 +525,7 @@ festivalSetVoice(FT_Info *info, char *voice)
         client_accept_s_expr(info->server_fd);
     }
 
-    for (n=0; n < 3; )
-        n += read(info->server_fd,buf+n,3-n);
+    if (festival_get_ack(&info, buf)) return 1;
 
     return 0;
 }
@@ -515,6 +537,7 @@ festivalSetRate(FT_Info *info, signed int rate)
     char buf[4];
     int n;
     float stretch;
+    int read_bytes = 0;
 
     if (info == NULL) DBG("festivalSetRate called with info = NULL\n");
     if (info->server_fd == -1) DBG("festivalSetRate: server_fd invalid\n");
@@ -528,8 +551,7 @@ festivalSetRate(FT_Info *info, signed int rate)
     fprintf(fd,"(Parameter.set \"Duration_Stretch\" %f)\n", stretch);
     fclose(fd);
 
-    for (n=0; n < 3; )
-        n += read(info->server_fd,buf+n,3-n);
+    if (festival_get_ack(&info, buf)) return 1;
 
     buf[3] = 0;
     if (!strcmp(buf,"ER\n")){
@@ -539,8 +561,7 @@ festivalSetRate(FT_Info *info, signed int rate)
         client_accept_s_expr(info->server_fd);
     }
 
-    for (n=0; n < 3; )
-        n += read(info->server_fd,buf+n,3-n);
+    if (festival_get_ack(&info, buf)) return 1;
 
     return 0;
 }
@@ -552,6 +573,7 @@ festivalSetPitch(FT_Info *info, signed int pitch, unsigned int mean)
     char buf[4];
     int n;
     int f0;
+    int read_bytes = 0;
 
     if (info == NULL) DBG("festivalSetPitch calld with info = NULL\n");
     if (info->server_fd == -1) DBG("festivalSetPitch: server_fd invalid\n");
@@ -565,8 +587,7 @@ festivalSetPitch(FT_Info *info, signed int pitch, unsigned int mean)
     fprintf(fd,"(set! int_lr_params '((target_f0_mean %d) (target_f0_std %d) (model_f0_mean 170) (model_f0_std 34)))\n", f0, mean);
     fclose(fd);
 
-    for (n=0; n < 3; )
-        n += read(info->server_fd,buf+n,3-n);
+    if (festival_get_ack(&info, buf)) return 1;
 
     buf[3] = 0;
     if (!strcmp(buf,"ER\n")){
@@ -576,8 +597,7 @@ festivalSetPitch(FT_Info *info, signed int pitch, unsigned int mean)
         client_accept_s_expr(info->server_fd);
     }
 
-    for (n=0; n < 3; )
-        n += read(info->server_fd,buf+n,3-n);
+    if (festival_get_ack(&info, buf)) return 1;
 
     return 0;
 }
