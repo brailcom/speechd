@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.37 2003-12-18 23:42:09 hanke Exp $
+ * $Id: flite.c,v 1.38 2004-02-16 15:33:19 hanke Exp $
  */
 
 
@@ -261,10 +261,11 @@ _flite_child(TModuleDoublePipe dpipe, const size_t maxlen)
         DBG("Speaking in child...");
         module_sigblockusr(&some_signals);        
         {
-            wave = flite_text_to_wave(text, flite_voice);
-            spd_audio_open(wave);
-            spd_audio_play_wave(wave);
-            spd_audio_close();
+	    const char outtype[] = "play";
+	    flite_text_to_speech(text, flite_voice, outtype);
+	    /*            spd_audio_open(wave);
+			  spd_audio_play_wave(wave);
+			  spd_audio_close(); */
         }
         module_sigunblockusr(&some_signals);        
 
