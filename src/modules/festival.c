@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.24 2003-09-10 16:54:13 buchal Exp $
+ * $Id: festival.c,v 1.25 2003-09-11 16:29:02 hanke Exp $
  */
 
 
@@ -310,16 +310,16 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
                output, e.g. this text: "." */
             if (fwave != NULL){
                 DBG("Sending buf to child in wav: %d samples\n", (fwave->num_samples) * sizeof(short));
-            
-                ret = module_parent_send_samples(dpipe, fwave->samples, fwave->num_samples);
-                if (ret == -1) terminate = 1;
+                if (fwave->num_samples != 0){
+                    ret = module_parent_send_samples(dpipe, fwave->samples, fwave->num_samples);
+                    if (ret == -1) terminate = 1;
 
-                if(FestivalDebugSaveOutput){
-                    char filename_debug[256];
-                    sprintf(filename_debug, "/tmp/debug-festival-%d.snd", debug_count++);
-                    save_FT_Wave_snd(fwave,filename_debug);
+                    if(FestivalDebugSaveOutput){
+                        char filename_debug[256];
+                        sprintf(filename_debug, "/tmp/debug-festival-%d.snd", debug_count++);
+                        save_FT_Wave_snd(fwave, filename_debug);
+                    }
                 }
-
                 delete_FT_Wave(fwave);
 
                 DBG("parent: Sent %d bytes\n", ret);            
