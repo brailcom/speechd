@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.19 2003-07-05 12:10:29 hanke Exp $
+ * $Id: festival.c,v 1.20 2003-07-06 14:57:11 hanke Exp $
  */
 
 #include "festival_client.c"
@@ -229,6 +229,7 @@ module_close(void)
 
     while(festival_speaking){
         module_stop();
+        usleep(5);
     }
 
     festivalClose(festival_info);
