@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.30 2003-06-01 21:28:48 hanke Exp $
+ * $Id: speechd.c,v 1.31 2003-06-03 12:08:07 hanke Exp $
  */
 
 #include "speechd.h"
@@ -38,7 +38,7 @@ int server_socket;
 void
 MSG(int level, char *format, ...)
 {
-    if(level <= LOG_LEVEL){
+    if(level <= spd_log_level){
         va_list args;
         int i;
         char *format_with_spaces;
@@ -132,6 +132,21 @@ speechd_quit(int sig)
 }
 
 void
+speechd_reload_configuration(int sig)
+{
+    char *configfilename = SYS_CONF"/speechd.conf";
+    configfile_t *configfile = NULL;
+
+    /* WARNING: there is no blocking of other threads */
+    /* Load configuration from the config file*/
+    configfile = dotconf_create(configfilename, options, 0, CASE_INSENSITIVE);
+    if (!configfile) DIE ("Error opening config file\n");
+    if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
+    dotconf_cleanup(configfile);
+    MSG(1,"Configuration has been read from \"%s\"", configfilename);
+}
+
+void
 speechd_init()
 {
     configfile_t *configfile = NULL;
@@ -220,55 +235,55 @@ speechd_init()
 int
 speechd_connection_new(int server_socket)
 {
-	TFDSetElement *new_fd_set;
-	struct sockaddr_in client_address;
-	unsigned int client_len = sizeof(client_address);
-	int client_socket;
-	int v;
-	int *p_client_socket, *p_client_uid;
+    TFDSetElement *new_fd_set;
+    struct sockaddr_in client_address;
+    unsigned int client_len = sizeof(client_address);
+    int client_socket;
+    int v;
+    int *p_client_socket, *p_client_uid;
 	   
-	client_socket = accept(server_socket, (struct sockaddr *)&client_address,
-	  	&client_len);
+    client_socket = accept(server_socket, (struct sockaddr *)&client_address,
+                           &client_len);
 
-	if(client_socket == -1){
-		MSG(2,"Can't handle connection request of a new client");
-		return -1;
-	}
+    if(client_socket == -1){
+        MSG(2,"Can't handle connection request of a new client");
+        return -1;
+    }
 	
-	/* We add the associated client_socket to the descriptor set. */
-	FD_SET(client_socket, &readfds);
-	if (client_socket > fdmax) fdmax = client_socket;
-	MSG(3,"Adding client on fd %d", client_socket);
+    /* We add the associated client_socket to the descriptor set. */
+    FD_SET(client_socket, &readfds);
+    if (client_socket > fdmax) fdmax = client_socket;
+    MSG(3,"Adding client on fd %d", client_socket);
 
-        /* Check if there is space for server status data; allocate it */
-        if(client_socket >= fds_allocated){
-            o_bytes = (int*) realloc(o_bytes, client_socket * 2 * sizeof(int));
-            awaiting_data = (int*) realloc(awaiting_data, client_socket * 2 * sizeof(int));
-            o_buf = (GString**) realloc(o_buf, client_socket * 2 * sizeof(GString*));
-        }
+    /* Check if there is space for server status data; allocate it */
+    if(client_socket >= fds_allocated){
+        o_bytes = (int*) realloc(o_bytes, client_socket * 2 * sizeof(int));
+        awaiting_data = (int*) realloc(awaiting_data, client_socket * 2 * sizeof(int));
+        o_buf = (GString**) realloc(o_buf, client_socket * 2 * sizeof(GString*));
+    }
 
-        awaiting_data[client_socket] = 0;
+    awaiting_data[client_socket] = 0;
 
-	/* Create a record in fd_settings */
-	new_fd_set = (TFDSetElement *) default_fd_set();
-	if (new_fd_set == NULL){
-		MSG(2,"Failed to create a record in fd_settings for the new client");
-		if(fdmax == client_socket) fdmax--;
-		FD_CLR(client_socket, &readfds);
-		return -1;
-	}
-	new_fd_set->fd = client_socket;
-	new_fd_set->uid = ++max_uid;
-	p_client_socket = (int*) spd_malloc(sizeof(int));
-	p_client_uid = (int*) spd_malloc(sizeof(int));
-	*p_client_socket = client_socket;
-	*p_client_uid = max_uid;
-	g_hash_table_insert(fd_settings, p_client_uid, new_fd_set);
-	g_hash_table_insert(fd_uid, p_client_socket, p_client_uid);
+    /* Create a record in fd_settings */
+    new_fd_set = (TFDSetElement *) default_fd_set();
+    if (new_fd_set == NULL){
+        MSG(2,"Failed to create a record in fd_settings for the new client");
+        if(fdmax == client_socket) fdmax--;
+        FD_CLR(client_socket, &readfds);
+        return -1;
+    }
+    new_fd_set->fd = client_socket;
+    new_fd_set->uid = ++max_uid;
+    p_client_socket = (int*) spd_malloc(sizeof(int));
+    p_client_uid = (int*) spd_malloc(sizeof(int));
+    *p_client_socket = client_socket;
+    *p_client_uid = max_uid;
+    g_hash_table_insert(fd_settings, p_client_uid, new_fd_set);
+    g_hash_table_insert(fd_uid, p_client_socket, p_client_uid);
 		
 
-	MSG(3,"Data structures for client on fd %d created", client_socket);
-	return 0;
+    MSG(3,"Data structures for client on fd %d created", client_socket);
+    return 0;
 }
 
 int
@@ -310,79 +325,81 @@ speechd_connection_destroy(int fd)
 int
 main()
 {
-	struct sockaddr_in server_address;
-	fd_set testfds;
-	int i, v;
-	int fd;
-	int ret;
+    struct sockaddr_in server_address;
+    fd_set testfds;
+    int i, v;
+    int fd;
+    int ret;
 
+    spd_log_level = 2;
 	
-	/* Register signals */
-	(void) signal(SIGINT, speechd_quit);	
+    /* Register signals */
+    (void) signal(SIGINT, speechd_quit);	
+    (void) signal(SIGHUP, speechd_reload_configuration);
+
+    speechd_init();
+
+    MSG(1,"Creating new thread for speak()");
+    ret = pthread_create(&speak_thread, NULL, speak, NULL);
+    if(ret != 0) FATAL("Speak thread failed!\n");
+
+    /* Initialize socket functionality */
+    server_socket = socket(AF_INET, SOCK_STREAM, 0);
+
+    server_address.sin_family = AF_INET;
+    server_address.sin_addr.s_addr = htonl(INADDR_ANY);
+    server_address.sin_port = htons(SPEECH_PORT);
+
+    MSG(1,"Openning a socket connection");
+    if (bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address)) == -1){
+        MSG(1, "bind() failed: %s", strerror(errno));
+        FATAL("Couldn't open socket, try a few minutes later.");
+    }
 	
-	speechd_init();
+    /* Create a connection queue and initialize readfds to handle input from server_socket. */
+    if (listen(server_socket, 5) == -1) FATAL("listen() failed");
+    FD_ZERO(&readfds);
+    FD_SET(server_socket, &readfds);
+    fdmax = server_socket;
 
-	MSG(1,"Creating new thread for speak()");
-	ret = pthread_create(&speak_thread, NULL, speak, NULL);
-	if(ret != 0) FATAL("Speak thread failed!\n");
+    /* Now wait for clients and requests. */   
+    MSG(1, "Speech server waiting for clients ...");
+    while (1) {
+        testfds = readfds;
 
-	/* Initialize socket functionality */
-	server_socket = socket(AF_INET, SOCK_STREAM, 0);
+        if (select(FD_SETSIZE, &testfds, (fd_set *)0, (fd_set *)0, NULL) >= 1){
+            /* Once we know we've got activity,
+             * we find which descriptor it's on by checking each in turn using FD_ISSET. */
 
-	server_address.sin_family = AF_INET;
-	server_address.sin_addr.s_addr = htonl(INADDR_ANY);
-	server_address.sin_port = htons(SPEECH_PORT);
-
-	MSG(1,"Openning a socket connection");
-	if (bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address)) == -1){
-		MSG(1, "bind() failed: %s", strerror(errno));
-		FATAL("Couldn't open socket, try a few minutes later.");
-	}
-	
-	/* Create a connection queue and initialize readfds to handle input from server_socket. */
-	if (listen(server_socket, 5) == -1) FATAL("listen() failed");
-	FD_ZERO(&readfds);
-	FD_SET(server_socket, &readfds);
-	fdmax = server_socket;
-
-   /* Now wait for clients and requests. */   
-	MSG(1, "Speech server waiting for clients ...");
-	while (1) {
-		testfds = readfds;
-
-		if (select(FD_SETSIZE, &testfds, (fd_set *)0, (fd_set *)0, NULL) >= 1){
-			/* Once we know we've got activity,
-			* we find which descriptor it's on by checking each in turn using FD_ISSET. */
-
-			for (fd = 0; fd <= fdmax && fd < FD_SETSIZE; fd++) {
-		 		if (FD_ISSET(fd,&testfds)){
-					MSG(4,"Activity on fd %d ...",fd);
+            for (fd = 0; fd <= fdmax && fd < FD_SETSIZE; fd++) {
+                if (FD_ISSET(fd,&testfds)){
+                    MSG(4,"Activity on fd %d ...",fd);
 				
-					if (fd == server_socket){ 
-						/* server activity (new client) */
-						ret = speechd_connection_new(server_socket);
-						if (ret!=0){
-						  	MSG(2,"Failed to add new client");
-							if (SPEECHD_DEBUG) FATAL("Failed to add new client");
-						}						
-				    }else{	
-						/* client activity */
-						int nread;
-						ioctl(fd, FIONREAD, &nread);
+                    if (fd == server_socket){ 
+                        /* server activity (new client) */
+                        ret = speechd_connection_new(server_socket);
+                        if (ret!=0){
+                            MSG(2,"Failed to add new client");
+                            if (SPEECHD_DEBUG) FATAL("Failed to add new client");
+                        }						
+                    }else{	
+                        /* client activity */
+                        int nread;
+                        ioctl(fd, FIONREAD, &nread);
 	
-						if (nread == 0) {
-							/* client has gone */
-							speechd_connection_destroy(fd);
-							if (ret!=0) MSG(2,"Failed to close the client");
-						}else{
-							/* client sends some commands or data */
-							if (serve(fd) == -1) MSG(2,"Failed to serve client on fd %d!",fd);
-						}
-					}
-				}
-			}
-		}
-	}
+                        if (nread == 0) {
+                            /* client has gone */
+                            speechd_connection_destroy(fd);
+                            if (ret!=0) MSG(2,"Failed to close the client");
+                        }else{
+                            /* client sends some commands or data */
+                            if (serve(fd) == -1) MSG(2,"Failed to serve client on fd %d!",fd);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 
