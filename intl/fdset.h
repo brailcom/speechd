@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.26 2003-10-09 21:13:18 hanke Exp $
+ * $Id: fdset.h,v 1.27 2004-02-10 21:06:29 hanke Exp $
  */
 
 #ifndef FDSET_H
@@ -80,8 +80,9 @@ typedef struct{
     int paused;                 /* Internal flag, 1 for paused client or 0 for normal. */
     EMessageType type;          /* Type of the message (1=text, 2=icon, 3=char, 4=key) */
     int priority;               /* Priority between 1 and 3 (1 - highest, 3 - lowest) */
-    signed int rate; 		/* Speed of voice from <-100;+100>, 0 is the default medium */
-    signed int pitch;		/* Pitch of voice from <-100;+100>, 0 is the default medium */
+    signed int rate; 		/* Speed of voice from <-100;+100>, 0 is the default */
+    signed int pitch;		/* Pitch of voice from <-100;+100>, 0 is the default */
+    signed int volume;		/* Volume of voice from <-100;+100), 0 is the default */
     EPunctMode punctuation_mode;	/* Punctuation mode: 0, 1 or 2
                                    0	-	no punctuation
                                    1 	-	all punctuation
@@ -109,7 +110,8 @@ typedef struct{
 typedef struct{
     signed int rate;
     signed int pitch;
-
+    signed int volume;
+    
     EPunctMode punctuation_mode;
     ESpellMode spelling_mode;
     ECapLetRecogn cap_let_recogn;
