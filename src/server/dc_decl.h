@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.10 2003-04-15 10:08:59 pdm Exp $
+ * $Id: dc_decl.h,v 1.11 2003-04-17 10:16:31 hanke Exp $
  */
 
 #include "speechd.h"
@@ -34,7 +34,9 @@ DOTCONF_CB(cb_DefaultPitch);
 DOTCONF_CB(cb_DefaultLanguage);
 DOTCONF_CB(cb_DefaultPriority);
 DOTCONF_CB(cb_DefaultPunctuationMode);
+DOTCONF_CB(cb_DefaultPunctuationTable);
 DOTCONF_CB(cb_PunctuationSome);
+DOTCONF_CB(cb_DefaultSpellingTable);
 DOTCONF_CB(cb_DefaultClientName);
 DOTCONF_CB(cb_DefaultVoiceType);
 DOTCONF_CB(cb_DefaultSpelling);
@@ -54,6 +56,7 @@ static const configoption_t options[] =
     {"DefaultLanguage", ARG_STR, cb_DefaultLanguage, 0, 0},
     {"DefaultPriority", ARG_INT, cb_DefaultPriority, 0, 0},
     {"DefaultPunctuationMode", ARG_STR, cb_DefaultPunctuationMode, 0, 0},
+    {"DefaultPunctuationTable", ARG_STR, cb_DefaultPunctuationTable, 0, 0},
     {"PunctuationSome", ARG_STR, cb_PunctuationSome, 0, 0},
     {"DefaultClientName", ARG_STR, cb_DefaultClientName, 0, 0},
     {"DefaultVoiceType", ARG_INT, cb_DefaultVoiceType, 0, 0},
@@ -224,6 +227,14 @@ DOTCONF_CB(cb_PunctuationSome)
     strcpy(GlobalFDSet.punctuation_some, cmd->data.str);
     return NULL;
 }
+
+DOTCONF_CB(cb_DefaultPunctuationTable)
+{
+    GlobalFDSet.punctuation_table = (char*) spd_malloc((strlen(cmd->data.str) + 1) * sizeof(char));
+    strcpy(GlobalFDSet.punctuation_table, cmd->data.str);
+    return NULL;
+}
+
 
 DOTCONF_CB(cb_DefaultClientName)
 {
