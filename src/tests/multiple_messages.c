@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: multiple_messages.c,v 1.1 2003-03-16 19:53:36 hanke Exp $
+ * $Id: multiple_messages.c,v 1.2 2003-03-23 21:33:49 hanke Exp $
  */
 
 #include <stdio.h>
@@ -51,23 +51,23 @@ int main() {
 		sleep(1);
 		printf("Start");
 		fflush(NULL);
-		for (j=0;j<100;j++){
+		for (j=0;j<80;j++){
 			err = spd_sayf(sockfd, i, "These are many many many many many many many many many many many
 						   many many many many many many many many many many many many  many many many
-						   many many many many many many many many many bytes of text in level 3.
-				   ");
+						   many many many many many many many many many bytes of text in level %d.
+				   ", i);
 			if (err == -1) printf("ERROR");
 			else printf(".");
 			fflush(NULL);
 		}
-		printf("(wait) ");
-		sleep(2);
+		printf("wait ");
+		fflush(NULL);
+		sleep(10);
 		spd_stop(sockfd);
 		printf("stop!\n");
 		printf("\n");
-	}
+	} 
 
-   
 	printf("Trying to close Speech Deamon connection...");
 	spd_close(sockfd);
 	printf("OK\n");
