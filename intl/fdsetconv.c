@@ -19,11 +19,10 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdsetconv.c,v 1.2 2004-02-23 22:30:17 hanke Exp $
+ * $Id: fdsetconv.c,v 1.3 2004-06-28 08:00:46 hanke Exp $
  */
 
-#include <stdio.h>
-#include <string.h>
+#include "fdsetconv.h"
 
 char*
 EVoice2str(EVoiceType voice)
