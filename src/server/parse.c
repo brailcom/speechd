@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.31 2003-05-26 16:04:50 hanke Exp $
+ * $Id: parse.c,v 1.32 2003-06-01 21:24:36 hanke Exp $
  */
 
 #include "speechd.h"
@@ -162,7 +162,6 @@ parse(char *buf, int bytes, int fd)
             }
 				
             //            MSG(4, "%d bytes put in queue and history", o_bytes[fd]);
-            MSG(4, "messages_to_say set to: %d", msgs_to_say);
 
             /* Clear the counter of bytes in the output buffer. */
             server_data_off(fd);
@@ -825,4 +824,22 @@ get_param(char *buf, int n, int bytes, int lower_case)
     }
 
     return param;
+}
+
+/* Read one char  (which _pointer_ is pointing to) from an UTF-8 string
+ * and store it into _character_. _character_ must have space for
+ * at least  7 bytes (6 bytes character + 1 byte trailing 0). This
+ * function doesn't validate if the string is valid UTF-8.
+ */
+int
+spd_utf8_read_char(char* pointer, char* character)
+{
+    int bytes;
+    gunichar u_char;
+
+    u_char = g_utf8_get_char(pointer);
+    bytes = g_unichar_to_utf8(u_char, character);
+    character[bytes]=0;
+
+    return bytes;
 }
