@@ -1797,22 +1797,23 @@ With parameter @code{icon}, each capital letter will be preceeded
 by a sound icon (either sound or textual) specified by the user
 in his configuration.
 
-@item SET @{ all | self | @var{id} @} @var{table}  @var{name}
+@item SET @{ all | self | @var{id} @} @var{table} @var{name}
 There are various tables, to allow customization of spelling,
 punctuation and other text transformation features.  There are
 standard tables defined internally (such as @ref{Standard spelling
 tables} or @ref{Standard sound tables}) or you can define your own
 tables and add them to Speech Dispatcher through configuration.
 
-@var{table} must be one of the tables listed below.
+@var{table} must be one of the table identifiers listed below:
+
 @itemize @bullet
-@item PUNCTUATION_TABLE
-@item SPELLING_TABLE
-@item TEXT_TABLE
-@item SOUND_TABLE
-@item CHARACTER_TABLE
-@item KEY_TABLE
-@item CAP_LET_RECOGN_TABLE
+@item @code{PUNCTUATION_TABLE}
+@item @code{SPELLING_TABLE}
+@item @code{TEXT_TABLE}
+@item @code{SOUND_TABLE}
+@item @code{CHARACTER_TABLE}
+@item @code{KEY_TABLE}
+@item @code{CAP_LET_RECOGN_TABLE}
 @end itemize
 
 @var{name} must be one of table names returned to the corresponding
