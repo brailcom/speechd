@@ -1,3 +1,8 @@
+2003-10-25  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/speaking.c (speak): Mutex handling reworked a little bit to prevent
+	deadlocks.
+
 2003-10-24  Hynek Hanke  <hanke@volny.cz>
 
 	* NEWS: 0.1 + some info on recent improvements.
