@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.c,v 1.19 2003-03-25 22:46:43 hanke Exp $
+ * $Id: server.c,v 1.20 2003-03-25 23:07:45 hanke Exp $
  */
 
 #include "speechd.h"
@@ -509,7 +509,7 @@ parse(char *buf, int bytes, int fd)
 		if (!strcmp(command,"BYE") || !strcmp(command,"QUIT")){
 			MSG(4, "Bye received.");
 			/* Send a reply to the socket */
-			write(fd, OK_BYE, 15);
+			write(fd, OK_BYE, strlen(OK_BYE)+1);
 			speechd_connection_destroy(fd);
 		}
 	
