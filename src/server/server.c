@@ -1,19 +1,21 @@
 /* Speechd server functions
- * CVS revision: $Id: server.c,v 1.8 2002-12-16 01:38:24 hanke Exp $
+ * CVS revision: $Id: server.c,v 1.9 2003-01-04 22:12:33 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
 #include "speechd.h"
 
 #define BUF_SIZE 4096
-#define MAX_CLIENTS 10
+#define MAX_CLIENTS 20
 
 char speaking_module[256] = "\0";
+int highest_priority = 0;
 
 gint hc_list_compare (gconstpointer, gconstpointer, gpointer);
 
 gint (*p_fdset_lc)() = fdset_list_compare;
 gint (*p_msg_nto_speak)() = message_nto_speak;
 gint (*p_hc_lc)() = hc_list_compare;
+gint (*p_msg_lc)() = message_list_compare_fd;
 
 /* Stops speaking and cancels currently spoken message.*/
 int
@@ -41,7 +43,86 @@ stop_speaking_active_module(){
 		(*output->stop) ();
 	}	
 }
-      
+
+void
+stop_p23()
+{
+	int i, num;
+	GList *gl;
+	/* Stop speaking. */
+	stop_speaking_active_module();
+	/* Remove all messages to be spoken. */
+	num = g_list_length(MessageQueue->p2);
+	for(i=0;i<=num-1;i++){
+		gl = g_list_first(MessageQueue->p2);
+		assert(gl!=NULL);
+		assert(gl->data!=NULL);
+		/* TODO: Free the memory! */
+		mem_free_message(gl->data);
+		MessageQueue->p2 = g_list_delete_link(MessageQueue->p2, gl);
+		msgs_to_say--;
+	}
+	num = g_list_length(MessageQueue->p3);
+	for(i=0;i<=num-1;i++){
+		gl = g_list_first(MessageQueue->p3);
+		assert(gl!=NULL);
+		assert(gl->data!=NULL);
+		MessageQueue->p3 = g_list_delete_link(MessageQueue->p3, gl);
+		msgs_to_say--;
+	}
+}
+
+void
+mem_free_message(TSpeechDMessage *msg)
+{
+	free(msg->buf);
+	free(msg->settings.client_name);
+	free(msg->settings.language);
+	free(msg->settings.output_module);
+	free(msg);
+}
+
+void
+mem_free_fdset(TFDSetElement *fdset){
+	free(fdset->client_name);
+	free(fdset->language);
+	free(fdset->output_module);
+	free(fdset);
+}
+
+void
+stop_from_client(int fd){
+	GList *gl;
+	int queue = 1;
+	while(1){
+        gl = g_list_find_custom(MessageQueue->p1, (int*) fd, p_msg_lc);
+		if(gl==NULL) break;
+		assert(gl!=NULL);
+		assert(gl->data!=NULL);
+		mem_free_message(gl->data);
+		MessageQueue->p1 = g_list_delete_link(MessageQueue->p1, gl);
+		msgs_to_say--;
+	}
+	while(1){
+        gl = g_list_find_custom(MessageQueue->p2, (int*) fd, p_msg_lc);
+		if(gl==NULL) break;
+		assert(gl!=NULL);
+		assert(gl->data!=NULL);
+		mem_free_message(gl->data);
+		MessageQueue->p2 = g_list_delete_link(MessageQueue->p2, gl);
+		msgs_to_say--;
+	}	
+	while(1){
+        gl = g_list_find_custom(MessageQueue->p3, (int*) fd, p_msg_lc);
+		if(gl==NULL) break;
+		assert(gl!=NULL);
+		assert(gl->data!=NULL);
+		mem_free_message(gl->data);
+		MessageQueue->p3 = g_list_delete_link(MessageQueue->p3, gl);
+		msgs_to_say--;
+	}	
+}
+
 /* Determines if this messages is to be spoken
  * (returns 1) or it's parent client is paused (returns 0).
  * Note: If you are wondering why it's reversed (not to speak instead
@@ -54,10 +135,13 @@ message_nto_speak(TSpeechDMessage *elem, gpointer a, gpointer b)
 	GList *gl;
 
 	/* Is there something in the body of the message? */
-	if(elem == NULL) return 1;
+	if(elem == NULL) return 0;
 
 	/* Find global settings for this connection. */
 	gl = g_list_find_custom(fd_settings, (int*) elem->settings.fd, p_fdset_lc);
+
+	/* TODO: only temporal fix! */
+	if (gl==NULL) return 1;
 	if (gl == NULL) FATAL("Couldn't find settings for active client, internal error.");
 	global_settings = gl->data;
  
@@ -67,7 +151,7 @@ message_nto_speak(TSpeechDMessage *elem, gpointer a, gpointer b)
 	}
 
 	/* The client must be paused. */
-	MSG(4, "Found paused client.");
+//	MSG(4, "Found paused client.");
 	return 1;
 }
 
@@ -97,7 +181,7 @@ speak()
 	/* Check if sb is speaking or they are all silent. 
 	 * If some synthetizer is speaking, we must wait. */
 	if (is_sb_speaking()){
-//			MSG(3, "Somebody is speaking, waiting...");
+//			MSG(3, "Somebody is speaking, waiting...");			/* Do not uncomment this */
 		   	return 0;
 	}
       
@@ -109,6 +193,8 @@ speak()
          if (gl != NULL){
 			element = (TSpeechDMessage*) gl->data;
 			MessagePausedList = g_list_remove_link(MessagePausedList, gl);
+			highest_priority = 0;
+			MSG(9,"           Msg in queue history\n");
          }else{
             element = NULL;
 		}
@@ -120,13 +206,23 @@ speak()
 		/* We will descend through priorities to say more important
 		 * messages first. */
 		gl = g_list_first(MessageQueue->p1); 
-		if (gl != NULL) MessageQueue->p1 = g_list_remove_link(MessageQueue->p1, gl);
-		else{
+		if (gl != NULL){
+				MSG(9,"           Msg in queue p1\n");
+			   	MessageQueue->p1 = g_list_remove_link(MessageQueue->p1, gl);
+				highest_priority = 1;
+		}else{
 				gl = g_list_first(MessageQueue->p2); 
-				if (gl != NULL) MessageQueue->p2 = g_list_remove_link(MessageQueue->p2, gl);
-				else{
+				if (gl != NULL){
+						MSG(9,"           Msg in queue p2\n");
+					   	MessageQueue->p2 = g_list_remove_link(MessageQueue->p2, gl);
+						highest_priority = 0;
+				}else{
 					gl = g_list_first(MessageQueue->p3);
-					if (gl != NULL) MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
+					if (gl != NULL){
+							MSG(9,"           Msg in queue p3\n");
+						   	MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
+							highest_priority = 0;
+					}
 					if (gl == NULL) return 0;
 			}
  		} 
@@ -134,6 +230,14 @@ speak()
 
 	/* If we got here, we have some message to say. */
 	element = (TSpeechDMessage *) gl->data;
+	if (element == NULL){
+			MSG(1, "Non-NULL element containing NULL data found, this shouldn't be!!!\n");
+			MessageQueue->p1 = g_list_remove(MessageQueue->p1, gl->data);
+			MessageQueue->p2 = g_list_remove(MessageQueue->p2, gl->data);
+			MessageQueue->p3 = g_list_remove(MessageQueue->p3, gl->data);
+			return 0;
+	}
+	assert(element!=NULL);
       
 	/* Isn't the parent client of this message paused? 
 	 * If it is, insert the message to the MessagePausedList. */
@@ -152,10 +256,10 @@ speak()
 	  
 	/* Write the data to the output module. (say them aloud) */
 	(*output->write) (element->buf, element->bytes, &element->settings); 
+	/* CAUTION: The message structure must be freed inside the output module! */
 
 	msgs_to_say--;
-
-	/* TODO: free(element); */
+	
    return 0;
 }
 
@@ -180,23 +284,34 @@ fdset_list_compare (gconstpointer element, gconstpointer value, gpointer x)
    return ret;
 }
 
+gint
+message_list_compare_fd (gconstpointer element, gconstpointer value, gpointer x)
+{
+   int ret;
+   TSpeechDMessage *message;
+   message = ((TSpeechDMessage*) element);
+   assert(message!=NULL);
+   assert(message->settings.fd!=0);
+   ret = message->settings.fd - (int) value;
+   return ret;
+}
+
 /* This implements the various stop commands. 
  *
  * TODO: For some reason, I decided that it should be all together in one
  * function, but I don't see the reason any more so it would
  * be nice to split it in various functions. */
-int stop_c(EStopCommands command, int fd){
+int
+stop_c(EStopCommands command, int fd, int target)
+{
    TFDSetElement *settings;
    GList *gl;
 
    if (command == STOP){
       /* first stop speaking on the output module */
       stop_speaking_active_module();
-      /* then remove all queued messages for this client */ 
-      /* OLD_TODO: remove all queued messages
-       * PROBLEM: queue can't remove_by_value
-	   * Now it's solved by removing them in speak() later, uf uf...
-	   */
+	  if(target) stop_from_client(target);
+	  else stop_from_client(fd);
       return 0;
    }
    
@@ -204,10 +319,11 @@ int stop_c(EStopCommands command, int fd){
       /* first stop speaking on the output module */
       stop_speaking_active_module();
       /* Find settings for this particular client */
-      gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc);
+	  if(target) gl = g_list_find_custom(fd_settings, (int*) target, p_fdset_lc);
+	  else gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc);
       
-      if (gl == NULL)
-         FATAL("Couldn't find settings for active client, internal error.");
+      if (gl == NULL) return 1;
+	  
       settings = gl->data;
       /* Set _paused_ flag. */
       settings->paused = 1;     
@@ -216,8 +332,9 @@ int stop_c(EStopCommands command, int fd){
 
    if (command == RESUME){
       /* Find settings for this particular client */
-      gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc);
-	  if (gl == NULL) FATAL("Couldn't find settings for active client, internal error.");
+	  if(target) gl = g_list_find_custom(fd_settings, (int*) target, p_fdset_lc);
+	  else gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc);
+	  if (gl == NULL) return 1;
       settings = gl->data;
       /* Set it to speak again. */
       settings->paused = 0;
@@ -257,6 +374,8 @@ parse(char *buf, int bytes, int fd)
 	int end_data = 0;
 	int i;
 
+	end_data = 0;
+	
 	if ((buf == NULL) || (bytes == 0)) FATAL("invalid buffer for parse()");
    
 	/* First the condition that we are not in data mode and we
@@ -294,11 +413,19 @@ parse(char *buf, int bytes, int fd)
 		stop_speaking_active_module();
 		/* Send a reply to the socket */
 		write(fd, BYE_MSG, 15);
+		MSG(2,"   removing client on fd %d\n", fd);      
+        MSG(5,"     stopping client's messages \n");
+		stop_from_client(fd);
+        MSG(5,"     removing client from settings \n");
+        gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc);
+        assert(gl!=NULL);
+        assert(gl->data!=NULL);
+		mem_free_fdset((TFDSetElement*) gl->data);
+        fd_settings = g_list_delete_link(fd_settings, gl);
+        MSG(5,"     closing client's file descriptor %d\n", fd);
 		close(fd);
 		FD_CLR(fd, &readfds);
-		if (fd == fdmax) fdmax--; /* this may not apply in all cases, but this is sufficient ... */
-		MSG(2,"   removing client on fd %d\n", fd);      
-		/* TODO: We should free() all the allocated data structures associated to this client. */
+		if (fd == fdmax) fdmax--; /* this may not apply in all cases, but this is sufficient ... */	
 	}
 	
 	/* Check if the command isn't "@data on" */
@@ -310,12 +437,17 @@ parse(char *buf, int bytes, int fd)
 			 * everything we got before */
 			v = 1;
 			/* Mark this client as ,,sending data'' */
+//			g_array_set_size(awaiting_data, fdmax*2);
 			g_array_insert_val(awaiting_data, fd, v);
 			MSG(2, "switching to data mode...\n");
 			return OK_RECEIVE_DATA;
 		}
+		printf("here!\n");
+		printf("here!\n");
 		return ERR_INVALID_COMMAND;
 	}
+		printf("i'm here2!\n");
+		printf("i'm here2!\n");
 	return ERR_INVALID_COMMAND;
 
 	/* The other case is that we are in awaiting_data mode and
@@ -329,7 +461,6 @@ parse(char *buf, int bytes, int fd)
 			end_data=0;
 			/* Set the flag to command mode */
 			v = 0;
-			g_array_set_size(awaiting_data, fd+1);
 			g_array_insert_val(awaiting_data, fd, v);
 			MSG(2, "switching back to command mode...\n");
 
@@ -351,6 +482,8 @@ parse(char *buf, int bytes, int fd)
 			strcpy(new->settings.output_module, settings->output_module);
 			new->settings.language = malloc( strlen(settings->language) );
 			strcpy(new->settings.language, settings->language);
+			new->settings.client_name = malloc( strlen(settings->client_name) );
+			strcpy(new->settings.client_name, settings->client_name);
 
 			/* And we set the global id (note that this is really global, not
 			 * depending on the particular client, but unique) */
@@ -358,8 +491,11 @@ parse(char *buf, int bytes, int fd)
 			new->id = last_message_id;
 
 		/* Put the element new to queue according to it's priority. */
+			assert(new!=NULL);
 			switch(settings->priority){
-				case 1:	MessageQueue->p1 = g_list_append(MessageQueue->p1, new); break;
+				case 1:	if((is_sb_speaking())&&(highest_priority!=1)) stop_p23();
+						MessageQueue->p1 = g_list_append(MessageQueue->p1, new); 
+						break;
 				case 2: MessageQueue->p2 = g_list_append(MessageQueue->p2, new); break;
 				case 3: MessageQueue->p3 = g_list_append(MessageQueue->p3, new); break;
 				default: FATAL("Non existing priority requiered");
@@ -372,6 +508,7 @@ parse(char *buf, int bytes, int fd)
  
 		/* We will make an exact copy for inclusion into history. */
 		newgl = (TSpeechDMessage*) history_list_alloc_message(new); 
+		assert(newgl!=NULL);
 		history_client->messages = g_list_append(history_client->messages, newgl);
 
 		MSG(3, "%d bytes put in queue and history\n", g_array_index(o_bytes,int,fd));
@@ -390,7 +527,7 @@ parse(char *buf, int bytes, int fd)
 		if(buf[i]=='@'){
 			   	bytes=i;
 				end_data=1;		
-				MSG(3,"command in data catched\n");
+				MSG(5,"command in data catched\n");
 				break;
 		}
 	}	
