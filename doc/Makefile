@@ -1,35 +1,30 @@
-# Makefile to convert Robod documentation into various output formats
+# Makefile to convert Speech Daemon documentation into various output formats
 # Original xml documentation uses DocBook XML format (see README)
-# CVS revision: $Id: Makefile,v 1.6 2002-07-18 17:39:52 hanke Exp $
+# CVS revision: $Id: Makefile,v 1.7 2002-11-18 15:47:36 cerha Exp $
 # Author: Tomas Cerha <cerha@brailcom.cz>
 
-# Destination directory for HTML documentation. This variable must be here, to
-# be able to auto generate HTML documentation after CVS commits.
-DST = html
-
-DSL  = /usr/lib/sgml/stylesheet/dsssl/docbook/nwalsh/html/docbook.dsl
 DECL = /usr/lib/sgml/declaration/xml.decl
 
 # DocBook root document
-MAIN    = robod.xml
+MAIN    = speechd.xml
 
-PWD     = $(shell pwd)
+HTMLDIR = html
+
 XML_SRC = $(shell ls *.xml 2>/dev/null)
 
 all: html_doc html_img
 
 ####################################################
-html_doc: $(DST)/book1.html
+html_doc: $(HTMLDIR)/index.html
 
-$(DST)/book1.html: $(XML_SRC)
-	@mkdir -p $(DST)
-	(cd $(DST); jade -d $(DSL) -t sgml $(DECL) $(PWD)/$(MAIN))
-	ln -s $(DST)/book1.html $(DST)/index.html
+$(HTMLDIR)/index.html: $(XML_SRC)
+	@mkdir -p $(HTMLDIR)
+	jade -d html.dsl -t sgml $(DECL) $(MAIN)
 
 html_img:
-	@mkdir -p $(DST)/img
-	@cp -uv figures/*.png $(DST)/img
+	@mkdir -p $(HTMLDIR)/img
+	@cp -uv figures/*.png $(HTMLDIR)/img
 
 ###################################################
 clean:
-	rm -rf $(DST)/*
+	rm -rf $(HTMLDIR)/*
