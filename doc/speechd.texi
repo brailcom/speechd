@@ -789,9 +789,6 @@ be enforced by available system resources.  If the limit is exceeded,
 the whole text is accepted, but its exceeding part is ignored and an
 error response code is returned after processing the final dot line.
 
-This command, unlike all other commands, stores the received text into
-the message history.
-
 @item CHAR @var{char}
 Speak letter @var{char}.  @var{char} can be any character
 representable by the UTF-8 encoding.
