@@ -3,7 +3,7 @@ char*
 history_get_client_list();
 
 char* 
-history_get_message_list(int from, int num);
+history_get_message_list(guint client_id, int from, int num);
 
 char* 
 history_get_last(int fd);
@@ -27,3 +27,6 @@ char*
 history_cursor_get(int fd);
 
 char* history_say_id(int fd, int id);
+
+gint (*p_cli_comp_id)();
+

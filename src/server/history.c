@@ -42,8 +42,7 @@ history_get_client_list()
    GString *clist;
    GList *cursor;
 
-   clist = g_string_new("OK CLIENTS:\n\r");
-
+   clist = g_string_new("OK CLIENTS:\\\n\r");
    cursor = history;
    if (cursor == NULL) return ERR_NO_CLIENT;
 
@@ -51,14 +50,16 @@ history_get_client_list()
      client = cursor->data;
      g_string_append_printf(clist, "%d ", client->id);
      g_string_append(clist, client->client_name);
-     g_string_append(clist, "\n\r");
      cursor = g_list_next(cursor);
+     if (cursor != NULL) g_string_append(clist, "\\\n\r");
+	 else g_string_append(clist,"\n\r");
    }while(cursor != NULL);
+
    return clist->str;                
 }
 
 char*
-history_get_message_list(int from, int num)
+history_get_message_list(guint client_id, int from, int num)
 {
    THistoryClient *client;
    TSpeechDMessage *message;
@@ -66,19 +67,27 @@ history_get_message_list(int from, int num)
    GList *gl;
    int i;
 
-   gl = g_list_first(history);
+   MSG(3, "from %d num %d, client %d\n", from, num, client_id);
+   
+   gl = g_list_find_custom(history, (int*) client_id, p_cli_comp_id);
    if (gl == NULL) return ERR_NO_SUCH_CLIENT;
    client = gl->data;
 
-   mlist = g_string_new("OK MESSAGES:\n\r");
+   mlist = g_string_new("OK MESSAGES:\\\n\r");
 
    for (i=from; i<=from+num-1; i++){
      gl = g_list_nth(client->messages, i);
-     if (gl == NULL) return mlist->str;
+     if (gl == NULL){
+			 MSG(3,"no more data\n");
+			 return mlist->str;
+	 }
      message = gl->data;
      if (message == NULL) FATAL("Internal error.\n");
-     g_string_append_printf(mlist, "%d %s\n\r", message->id,
-		     client->client_name);
+	 if(i<from+num-1)
+	     g_string_append_printf(mlist, "%d %s\\\n\r", message->id, client->client_name);
+	 else
+	     g_string_append_printf(mlist, "%d %s\n\r", message->id, client->client_name);
+			
    }
    return mlist->str;
 }
@@ -92,7 +101,8 @@ history_get_last(int fd)
    GList *gl;
 
    lastm = g_string_new("");
-   
+
+	//TODO: Proper client setting
    gl = g_list_first(history);
    if (gl == NULL) return ERR_NO_SUCH_CLIENT;
    client = gl->data;
@@ -255,6 +265,7 @@ char* history_say_id(int fd, int id){
 
    /* TODO: Solve this "p2" problem... */
    MessageQueue->p2 = g_list_append(MessageQueue->p2, new);
+   msgs_to_say++;
 
    return OK_MESSAGE_QUEUED;
 }
