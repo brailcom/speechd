@@ -1,3 +1,50 @@
+2003-06-01  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/server/speechd.c (MSG): Bug fixed: free allocated memmory.
+
+	* src/server/parse.c (spd_utf8_read_char): Moved from speaking.c
+
+	* src/modules/Makefile.am: module_utils.c added to festival sources.
+
+	* src/server/speaking.c (process_message_spell): The interpunction
+	problem solved (inserts punctuation before sound icons text).
+
+	* src/server/speechd.h (sem_messages_waiting): New semaphore.
+
+	* src/server/speaking.c (msglist_insert): Moved from server.c
+	(process_message): Moved from server.c
+	(process_message_punctuation): Moved from server.c
+	(set_speak_thread_attributes): New function: splitted from speak().
+	(speak): Use semaphores instead of `busy-wait'.
+	(resolve_priorities): New function: splitted from speak().
+	(speak): Insert into paused list even messages with priority 3.
+	(get_message_from_queue): New function: splitted from speak().
+	(get_output_module): New function: splitted from speak().
+
+	* src/server/server.c: Cleaning.
+
+	* src/modules/module_utils.c: New file: Common functions for
+	output modules.
+
+	* src/modules/festival.c: Include module_utils.c
+
+2003-05-29  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/speechd.c (speechd_init): Init max_gid to 0.
+
+	* src/server/sndicon.c: queue_message() calling fixed.
+
+	* src/server/speaking.c (speak): process_message() again under mutex.
+
+	* src/server/dc_decl.h (cb_EndAddModule): Exit on error (bug fixed).
+
+	* src/server/speechd.h (max_gid): New global variable: group id unique identifier.
+
+	* src/server/speaking.c (speaking_stop): Stop the whole message even if it has
+	more parts.
+	(speaking_stop_all): Stop the whole message even if it has
+        more parts.
+
 2003-05-31  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/modules/apollo.c (module_load): Initialize apollo_languages.
