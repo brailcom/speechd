@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.42 2003-07-21 17:25:15 pdm Exp $
+ * $Id: speechd.c,v 1.43 2003-08-07 14:43:49 hanke Exp $
  */
 
 #include "speechd.h"
@@ -44,13 +44,23 @@ MSG(int level, char *format, ...)
 		
         va_start(args, format);
         {
+            {
+                /* Print timestamp */
+                time_t t;
+                char *tstr;
+                t = time(NULL);
+                tstr = strdup(ctime(&t));
+                /* Remove the trailing \n */
+                assert(strlen(tstr)>1);
+                tstr[strlen(tstr)-1] = 0;
+                fprintf(logfile, "[%s] speechd: ", tstr);
+            }
             for(i=1;i<level;i++){
-                fprintf(logfile, "  ");
+                fprintf(logfile, " ");
             }
             vfprintf(logfile, format, args);
             fprintf(logfile, "\n");
-            
-            if(SPEECHD_DEBUG) vfprintf(stdout, format, args);
+            fflush(logfile);
         }
         va_end(args);
 
@@ -397,14 +407,20 @@ main(int argc, char *argv[])
 
     options_parse(argc, argv);
 
-    /* Fork, set uid, chdir, etc. */
-    if (spd_mode == SPD_MODE_DAEMON) daemon(0,0);	   
+    /* Don't print anything on console... */
+    if (spd_mode == SPD_MODE_DAEMON){
+        fclose(stdout);
+        fclose(stderr);
+    }	   
 
     /* Register signals */
     (void) signal(SIGINT, speechd_quit);	
     (void) signal(SIGUSR1, speechd_alarm_handle);	
     (void) signal(SIGHUP, speechd_load_configuration);
     (void) signal(SIGPIPE, SIG_IGN);
+
+    /* Fork, set uid, chdir, etc. */
+    if (spd_mode == SPD_MODE_DAEMON) daemon(0,0);	   
 
     speechd_init();
 
@@ -432,7 +448,8 @@ main(int argc, char *argv[])
     }
 
     /* Create a connection queue and initialize readfds to handle input from server_socket. */
-    if (listen(server_socket, 5) == -1) FATAL("listen() failed");
+    if (listen(server_socket, 5) == -1) FATAL("listen() failed, another Speech Dispatcher running?");
+
     FD_ZERO(&readfds);
     FD_SET(server_socket, &readfds);
     fdmax = server_socket;
