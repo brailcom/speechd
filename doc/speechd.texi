@@ -1648,7 +1648,7 @@ retrieval commands}.
 @item SET @{ all | self | @var{id} @} SPELLING_TABLE @var{table}
 Set spelling table to @var{table}.  @var{table} must be one of the
 spelling table names returned to the command @code{LIST
-SPELLING_TABLES} command, see @ref{Information retrieval commands}.
+SPELLING_TABLES}, see @ref{Information retrieval commands}.
 
 There is a standard set of spelling tables defined in @ref{Standard
 spelling tables}.
@@ -1660,7 +1660,7 @@ command, see @ref{Information retrieval commands}.
 
 @item SET @{ all | self | @var{id} @} SOUND_TABLE @var{table}
 Set sound table to @var{table}.  @var{table} must be one of the text
-table names returned to the command @code{LIST SOUND_TABLES} command,
+table names returned by the command @code{LIST SOUND_TABLES},
 see @ref{Information retrieval commands}.
 
 There is a standard set of sound tables defined in @ref{Standard sound
@@ -1668,17 +1668,22 @@ tables}.
 
 @item SET @{ all | self | @var{id} @} CHARACTER_TABLE @var{table}
 Set character table to @var{table}.  @var{table} must be one of the
-character table names returned to the command @code{LIST
-CHARACTER_TABLES} command, see @ref{Information retrieval commands}.
+character table names returned by the command @code{LIST
+CHARACTER_TABLES}, see @ref{Information retrieval commands}.
 
 @item SET @{ all | self | @var{id} @} KEY_TABLE @var{table}
 Set key table to @var{table}.  @var{table} must be one of the key
-table names returned to the command @code{LIST KEY_TABLES} command,
+table names returned by the command @code{LIST KEY_TABLES} command,
+see @ref{Information retrieval commands}.
+
+@item SET @{ all | self | @var{id} @} CAP_LET_RECOGN_TABLE @var{table}
+Set capital letters recognition table to @var{table}.  @var{table} must be
+one of the table names returned by the command @code{LIST CAP_LET_RECOGN_TABLES},
 see @ref{Information retrieval commands}.
 
 @item SET @{ all | self | @var{id} @} VOICE @var{name}
 Set the voice identified by @var{name}.  @var{name} must be one of the
-voice identifiers returned to the command @code{LIST VOICES}, see
+voice identifiers returned by the command @code{LIST VOICES}, see
 @ref{Information retrieval commands}.
 
 There is a standard set of voice identifiers defined in @ref{Standard
@@ -1695,6 +1700,14 @@ Set the pitch of speech.  @var{n} is an integer value within the range
 from -100 to 100, with 0 corresponding to the default pitch of the
 current speech synthesis output module, lower values meaning lower
 pitch and higher values meaning higher pitch.
+
+@item SET @{ all | self | @var{id} @} CAP_LET_RECOGN @{ none | spell | icon @}
+Set capital letters recognition mode. @code{none} switches this
+feature off. @code{spell} causes that capital letters are spelled
+in the output using the table set as @code{CAP_LET_RECOGN_TABLE}.
+With parameter @code{icon}, each capital letter will be preceeded
+by a sound icon (either sound or textual) specified by the user
+in his configuration.
 
 @item SET @{ all | self | @var{id} @} HISTORY @{ on | off @}
 Enable (@code{on}) or disable (@code{off}) storing of received
@@ -1753,6 +1766,11 @@ available character spelling tables.
 @item LIST KEY_TABLES
 Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
 available key description tables.
+
+@item LIST CAP_LET_RECOGN_TABLES
+Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
+tables available for use with capital recognition.
+
 
 @item LIST VOICES
 Similar to @code{LIST SPELLING_TABLES}, but lists the available voice
