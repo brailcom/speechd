@@ -650,35 +650,69 @@ are provided.  Most of the options are set to their default value and
 commented out.  If you want to change them, just change the value and
 remove the comment symbol @code{#}.
 
-
 @node Output Modules Configuration, Tables Configuration, Configuration options, Configuration
 @subsection Output Modules Configuration
 
 Each user should turn on at least one output module in his
-configuration, otherwise Speech Dispatcher won't be able to produce
-any speech output.
+configuration, if he wants Speech Dispatcher to produce
+any sound output. If no output module is loaded, Speech Dispatcher
+will start, log messages into history and communicate with clients,
+but no sound is produced.
 
-Generally, the definition of output modules has this form:
+Each output module has to be loaded to Speech Dispatcher by an
+``AddModule'' line in @file{speechd.conf}. Additionally, each
+output module can have associated it's own configuration file.
+
+@menu
+* Loading modules in speechd.conf::  
+* Configuration files of output modules::  
+@end menu
+
+@node Loading modules in speechd.conf, Configuration files of output modules, Output Modules Configuration, Output Modules Configuration
+@subsubsection Loading modules in speechd.conf
 
 @example
-AddModule "module_name" 
-          ...definition of voices...
-          ...some parameters...
-EndAddModule
+AddModule "@var{module_name}" @var{filter_type} "@var{module_binary}" "@var{module_config}"
 @end example
 
-The parameter @var{module_name} of @code{AddModule} is the name
-of the output module. You should check if the plugin
-@file{libsdmodule_name.so} is really installed in your
-@file{lib/speechd/} directory. If the name is invalid,
-no output module will be loaded and the parameters inside
-this section will be ignored.
+@var{module_name} is the name of the output module.
 
-The parameters inside this block vary from one output module
-to other. Each output module is different in some ways and has
-different capabilities, so the options are also different.
+@var{fliter_type} is the type of filtering (spelling,
+punctuation, capital letters recognition) used for
+this output module.
 
-However, there are several options which are common for some
+@itemize
+@item
+@code{filter_generic} means that the filtering is left
+on the generic filter of Speech Dispatcher. This is used
+when the particular output module doesn't provide these
+functions itself.
+
+@item
+@code{filter_self} means that the filtering will be done
+by the output module itself.
+
+@item
+@code{filter_none} means that this type of output module doesn't
+need any kind of filtering (e.g. sound output module which
+plays .wav and other sound files doesn't need punctuation filtering).
+@end itemize
+
+@var{module_binary} is the name of the binary executable
+of this output module. It can be either absolute or relative
+to @file{bin/speechd-modules/}.
+
+@var{module_config} is the file where the configuration for
+this output module is stored. It can be either absolute or relative
+to @file{etc/speechd/modules/}. This parameter is optional.
+
+@node Configuration files of output modules,  , Loading modules in speechd.conf, Output Modules Configuration
+@subsubsection Configuration files of output modules
+
+Each output module is different and therefore has a different
+configuration options. Please look at the comments in it's
+configuration file for detailed description. However, there
+are several options which are common for some
 output modules. Here is a short overview of them.
 
 @table @code
@@ -761,7 +795,6 @@ and types of TTT.
 * Adding and choosing tables::  Selecting an existing table.
 * Writing tables and modifying::  Creating new or modified tables. 
 @end menu
-
 
 @node Adding and choosing tables, Writing tables and modifying, Tables Configuration, Tables Configuration
 @subsubsection Adding and Choosing Tables
@@ -1125,10 +1158,9 @@ error response code is returned after processing the final dot line.
 
 @item CHAR @var{char}
 Speak letter @var{char}.  @var{char} can be any character
-representable by the UTF-8 encoding. The only exception
-is the character space (@code{ }) that can't be sent
-directly. In this case, a string @code{space} must be
-sent instead.
+representable by the UTF-8 encoding. The only exception is the
+character space (@code{ }) that can't be sent directly. In this case,
+a string @code{space} must be sent instead.
 
 @example
 CHAR e
@@ -2461,95 +2493,270 @@ see sources, I'll try to write this section soon
 @node Output Modules,  , Server Core, Server Programming
 @section Output Modules
 
-Output modules for Speech Dispatcher have the form of glib plug-ins
-(dynamically loaded libraries) located in src/modules/. They
-should have a firm structure, contain all the required functions
-and data structures.
-
 @menu
 * Basic Structure::             The definition of an output module.
+* Communication Protocol for Output Modules::  
 * How to Write New Output Module::  How to include support for new synthesizer.
-* Output Module Functions::     stop(), pause(), ...   
+* The Skeleton of an Output Module::  
+* Output Module Functions::     
+* Module Utils Functions and Macros::  
+* Index Marks in Output Modules::  
 @end menu
 
-@node Basic Structure, How to Write New Output Module, Output Modules, Output Modules
+@node Basic Structure, Communication Protocol for Output Modules, Output Modules, Output Modules
 @subsection Basic Structure
 
-The heart of each output module is this structure:
+Speech Dispatcher output modules are independent applications that,
+using a simple common communication protocol, read commands from
+standard input and then output replies on standard output,
+communicating the requests to the particular software or hardware
+synthesizer. Everything the output module writes on standard output
+or reads from standard input should conform to the specifications
+of the communication protocol.
+
+Output modules binaries are usually located in
+@file{bin/speechd-modules/} and are loaded automatically when Speech
+Dispatcher starts, according to configuration.  Their standard
+input/output is redirected to a pipe to Speech Dispatcher and this way
+both sides can communicate.
+
+When the modules start, they are passed an id number of semaphore used
+by Speech Dispatcher and, optionally, a name of a configuration file
+that should be used for this particular output module. The semaphore
+is used to let Speech Dispatcher know when the requested message had
+been finished and the module is free to accept a new message.
+
+Each output module is started by Speech Dispatcher as:
 
 @example
-typedef struct@{
-    gchar    *name;
-    gchar    *description;
-    GModule  *gmodule;
-    gint     (*write)       (gchar *, size_t, TFDSetElement*);
-    gint     (*stop)        (void);
-    size_t   (*pause)       (void);
-    gint     (*is_speaking) (void);
-    gint     (*close)       (void);
-    SPDModuleSettings settings;
-@}OutputModule;
+my_module sem_id "configfile"
 @end example
 
-Each output module fills in some of the items (e.g. name and description, function
-calls pointers) on module_load() and then Speech Dispatcher provides the rest
-(gmodule, settings). After module_init(), this structure is fully working and
-Speech Dispatcher will communicate with the output module only through
-this simple interface. So you can see what are the functions each new
-output module must implement, nothing else is necessary.
+where @code{sem_id} is the id number of the semaphore used by
+Speech Dispatcher and @code{configfile} is the full path to the
+desired configuration file the output module should parse.
 
-To be able to load the output module, two additional functions must
-be present in it's code:
+
+@node Communication Protocol for Output Modules, How to Write New Output Module, Basic Structure, Output Modules
+@subsection Communication Protocol for Output Modules
+
+The protocol in which the output modules communicate on standard
+input/output is very similar to @ref{SSIP}, although it is highly
+simplified and a little bit modified for the different purpose here.
+
+Since it's very similar to SSIP, @ref{General Rules}, for a general
+description how the protocol looks like. One of the exceptions is, that
+since the output modules communicate on standard input/output, we use
+only @code{LF} as the line separator.
+
+The return values are:
+@itemize
+@item 2xx         OK
+@item 3xx         CLIENT ERROR or BAD SYNTAX or INVALID VALUE
+@item 4xx         OUTPUT MODULE ERROR or INTERNAL ERROR
+@end itemize
+
+@table @code
+@item SPEAK
+Start receiving a text message and synthesize it.  After sending a
+reply to the command, output module waits for the text of the message.
+The text can spread over any number of lines and is finished by an end
+of line marker followed by the line containing the single character
+@code{.} (dot).  Thus the complete character sequence closing the
+input text is @code{LF . LF}.  If any line within the sent text
+contains only a dot, an extra dot is prepended before it.
+
+During reception of the text message, output module doesn't send
+response to the particular lines sent.  The response line is sent only
+immediately after the @code{SPEAK} command and after receiving the
+closing dot line. This doesn't provide any means of synchronization,
+instead, we use the @code{SPEAKING} command and a semaphore for
+synchronization.
+
+There is no explicit upper limit on the size of the text.
+
+If the @code{SPEAK} command is received while the output module
+is already speaking, this is considered an error.
+
+Example:
+@example
+SPEAK
+202 OK SEND DATA
+Hello, GNU!
+.
+200 OK SPEAKING
+@end example
+
+@item STOP
+Immediately stop speaking on the output device and cancel synthesizing
+the current message so that the output module is prepared to receive a
+new message. If there is currently no message being synthesized, it is
+not considered an error to call @code{STOP} anyway.
 
 @example
-OutputModule* module_load(configoption_t **options, int *num_options);
-int module_init(void);
+STOP
+201 OK STOPPED
 @end example
 
-They are discussed in more detail in the section @ref{How to Write New Output
-Module}.
+@item PAUSE
+Stop speaking the current message at a place where we can exactly
+determine the position (measured in bytes from the beginning).  This
+doesn't have to be immediately and can be delayed even for a few
+seconds. (Knowing the position exactly is important so that we can
+later continue the message without gaps or overlapping.) It doesn't
+do anything else (like storing the message etc.).
 
-@node How to Write New Output Module, Output Module Functions, Basic Structure, Output Modules
+The position is reported as an unsigned number on a single line before
+the final reply. If currently no message is being said, the reported
+position should be 0.
+
+For example:
+@example
+PAUSE
+202-453
+202 OK PAUSED
+@end example
+means that 453 bytes from the beginning of the message have been said and
+the rest was discarded.
+
+@item SET
+Set one or several speech parameters for the next message.
+
+Each of the parameters is written on a single line in the form
+@example
+name=value
+@end example
+where @code{value} can be either a number or a string, depending on
+the name of the parameter.
+
+The @code{SET} environment is terminated by a dot on a single line.
+Thus the complete character sequence closing the input text is
+@code{LF . LF}
+
+During reception of the settings, output module doesn't send any
+response to the particular lines sent.  The response line is sent only
+immediately after the @code{SET} command and after receiving the
+closing dot line.
+
+The available parameters that accept numerical values are @code{rate},
+@code{pitch}, @code{punctuation_mode}, @code{spelling_mode},
+@code{cap_let_recogn}, @code{voice}. Please see @file{intl/fdset.h}
+in the source tree of Speech Dispatcher to see what these numerical
+values mean.
+
+The available parameters that accept string values are @code{punctuation_some},
+@code{punctuation_table}, @code{spelling_table}, @code{cap_let_recogn_table},
+@code{cap_let_recogn_sound}, @code{language}.
+
+Not all of these parameters must be set and the value of the string
+arguments can also be @code{NULL}. If some of the parameters aren't
+set, the output module should use it's default.
+
+It's not necessary to set these parameters on the synthesizer right
+away, instead, it can be postponed until some message to say arrives.
+
+Here is an example:
+@example
+SET
+203 OK RECEIVING SETTINGS
+rate=20
+pitch=-10
+punctuation_mode=0
+spelling_mode=1
+punctuation_some=NULL
+.
+203 OK SETTINGS RECEIVED
+@end example
+
+@item SPEAKING
+Reports whether the output module is speaking right now or
+not. Additionally, there is a value for the output modules which can't
+decide correctly this question (e.g. some hardware devices etc.).
+
+The status is reported as an unsigned number on a single line before
+the final reply. The value of 0 means the module isn't speaking
+while the value of 1 means that it is currently speaking. If the
+output module can't decide, the value of 2 should be returned.
+
+Here is an example:
+@example
+SPEAKING
+205-0
+205 OK SPEAKING STATUS SENT
+@end example
+
+@item QUIT
+Terminates the output module. It should send the response, deallocate
+all the resources, close all descriptors, terminate all child
+processes etc. Then the output module should exit itself.
+
+@example
+QUIT
+210 OK QUIT
+@end example
+
+@end table
+
+@node How to Write New Output Module, The Skeleton of an Output Module, Communication Protocol for Output Modules, Output Modules
 @subsection How to Write New Output Module
-We will recommend here a basic structure of the code for an output module
-you should follow, although it's perfectly ok to establish your own if
-you have reasons to do so, if all the necessary functions and data are
-defined somewhere in the file. For this purpose, we will use examples
-from the output module for Flite (Festival Lite), so it's recommended
-to keep looking at @code{flite.c} for reference.
+
+If you want to write your own output module, there are basically two
+ways how to do it. Either you can program it all itself, which is fine
+as long as you stick to the definition of an output module and it's
+communication protocol, or you can use our @file{module_*.c} tools.
+If you use these tools, you will only have to write the core functions
+like module_speak() and module_stop etc. and you will not have to
+worry about the communication protocol and other formal things that
+are common for all modules. Here is how you can do it using the
+provided tools.
+
+We will recommend here a basic structure of the code for an output
+module you should follow, although it's perfectly ok to establish your
+own if you have reasons to do so, if all the necessary functions and
+data are defined somewhere in the file. For this purpose, we will use
+examples from the output module for Flite (Festival Lite), so it's
+recommended to keep looking at @code{flite.c} for reference.
 
 A few rules you should respect:
 @itemize
-        @item Everything is declared as @code{static} except where explicitly desired to be otherwise.
-        @item If one or more new threads are used in the output module, they must block all signals.
-        @item On module_close(), all lateral threads and processes should be terminated,
+@item
+The @file{module_*.c} files should be included at the specified place and
+in the specified order, because they include directly some pieces of the
+code and wouldn't work on other places.
+@item
+If one or more new threads are used in the output module, they must block all signals.
+@item
+On module_close(), all lateral threads and processes should be terminated,
 all memmory freed. Don't suppose module_close() is allways called before exit()
 and the sources will be freed automatically.
-        @item All of the functions and macros you define should have prefix module_
-        @item We will be happy if all the copyrights are assigned to Brailcom, o.p.s.
+@item
+We will be happy if all the copyrights are assigned to Brailcom, o.p.s.
 in order for us to be in a better legal position against possible intruders.
 @end itemize
 
-The basic structure OutputModule is defined in @file{intl/modules.h}
-and therefore this header must be included in every plug-in source code.
+@node The Skeleton of an Output Module, Output Module Functions, How to Write New Output Module, Output Modules
+@subsection The Skeleton of an Output Module 
 
-@example
-#include "modules.h"
-@end example
-
-Also one other file called @file{intl/fdset.h} where the TFDSetElement
-structure is defined must be included to be able to handle the
-different speech synthesis settings.
+Each output module should include @file{intl/fdset.h} where the
+SPDMsgSettings structure is defined to be able to handle the different
+speech synthesis settings.
 
 @example
 #include "fdset.h"
 @end example
 
-Additionally, it's also reccomended to include @code{module_utils.c}
-which provides many tools to help writing output modules
-and make the code simpler.
+Additionally, it's also reccomended to include @file{module_utils.c}
+which provides many tools to help writing output modules and make the
+code simpler. If your plugin needs the audio tools also (if you take
+care of the output to the soundcard instead of the synthesizer),
+you have to also include @file{module_utils_audio.c}
 
-Definition of macros @code{MODULE_NAME} and @code{MODULE_VERSION}
+@example
+#include "module_utils.c"
+#include "module_utils_audio.c"
+@end example
+
+The definition of macros @code{MODULE_NAME} and @code{MODULE_VERSION}
 should follow:
 
 @example
@@ -2557,9 +2764,9 @@ should follow:
 #define MODULE_VERSION  "0.1"
 @end example
 
-If you want to use the @code{DBG(message)} macro from @code{module_utils.c}
+If you want to use the @code{DBG(message)} macro from @file{module_utils.c}
 to print out debugging messages, you should insert these two lines. (Please
-don't use printf for debugging, this doesn't work with threads!)
+don't use printf for debugging, this doesn't work with multiple processes!)
 (You will later have to actually start debugging in @code{module_load()})
 
 @example
@@ -2567,33 +2774,9 @@ don't use printf for debugging, this doesn't work with threads!)
 DECLARE_DEBUG_FILE("/tmp/debug-flite");
 @end example
 
-You also have to define the function prototypes, first for your
-own functions you use in your module internals, and then also
-the public functions which are passed to the OutputModule
-structure. You can do this easily by using the macro
-@code{DECLARE_MODULE_PROTOTYPES()} (See module_utils.c
-for the expansion.)
-
-@example
-/* Public function prototypes */
-DECLARE_MODULE_PROTOTYPES();
-@end example
-
-When these prototypes are defined, you can finally define
-the OutputModule structure for your plugin, again, it can
-be easily done using a macro (recommended: see module_utils.c
-for the expansion).
-
-@example
-DECLARE_MODINFO("flite", "Flite software synthesizer v. 1.2");
-@end example
-
-You should specify the name of your output module, which should
-coincide with the filename of that plugin, in the first
-parameter and a short description in the second one, together
-with the version of the @emph{synthesizer} this plugin is
-intended for. The version of your @emph{plugin} will be appended
-automatically from MODULE_VERSION.
+You don't have to define the prototypes of the core functions
+like module_speak() and module_stop(), these all already
+defined in @file{module_utils.c}
 
 Optionally, if your output module requires some special configuration,
 apart from defining voices (they are handled differently, see bellow),
@@ -2620,37 +2803,38 @@ MOD_OPTION_1_INT(FliteMaxChunkLenght);
 MOD_OPTION_1_STR(FliteDelimiters);
 @end example
 
-This is the end of the declarations section, take a deep breath, function
-definitions follow.
-
 Every output module is being started in 2 phases: @emph{loading} and @emph{initialization}.
-The goal of loading is to pass Speech Dispatcher a pointer to OutputModule,
-init debugging and register the configuration options. In the later phase,
-initialization, all the configuration has been read yet and the output module
-can accomplish the rest (check if the synthesizer works, set up threads etc.).
 
-You should start by the definition of @code{module_load()}. Note that
-this function @emph{can't} be static in order to be able to load the
-module!
+The goal of loading is to switch on debugging, initialize empty
+structures for storing settings and declare the DotConf callbacks for
+parsing configuration files. In the later phase, initialization, all
+the configuration has been read yet and the output module can
+accomplish the rest (check if the synthesizer works, set up threads
+etc.).
+
+You should start by the definition of @code{module_load()}. 
 
 @example
-OutputModule* module_load(configoption_t **options, int *num_options)@{
+int module_load(void)
+@{
 @end example
 
 First of all, you should start debugging, if you decided to use 
 the DBG() macro. @code{module_utils.c} offers this macro:
 
 @example
-    INIT_DEBUG_FILE();
+INIT_DEBUG_FILE();
 @end example
 
-So, lets finally register the configuration options. If you
-use the @code{module_utils.c} macros, you don't have to
-touch the parameters @code{options} and @code{num_options}
-directly. If you don't, please see @code{module_utils.c}
-and DotConf documentation for more details.
+Then you should initialize the settings tables. These are defined in
+@file{module_utils.c} and will be used to store the settings received
+by the @code{SET} command.
+@example
+INIT_SETTINGS_TABLES();
+@end example 
 
-Just use these macros:
+Now you can finally register the options for the configuration file
+parsing. Just use these macros:
 @itemize
         @item MOD_OPTION_1_INT_REG(name, default);  /* for integer parameters */
         @item MOD_OPTION_1_STR_REG(name, default);  /* for string parameters */
@@ -2658,7 +2842,7 @@ Just use these macros:
         @item MOD_OPTION_HT_REG(name);     /* for hash tables */
 @end itemize
 
-Again, example from Flite:
+Again, an example from Flite:
 @example
     MOD_OPTION_1_INT_REG(FliteMaxChunkLenght, 300);
     MOD_OPTION_1_STR_REG(FliteDelimiters, ".");
@@ -2668,8 +2852,9 @@ If you want to enable the mechanism for setting
 voices through AddVoice, use this function (for
 an example see @code{festival.c}):
 
+Example from Festival:
 @example
-    module_register_settings_voices(&module_info);
+    module_register_settings_voices();
 @end example
 
 @xref{Output Modules Configuration}.
@@ -2680,16 +2865,14 @@ At this place, before terminating, Flite prints it's first debugging message:
     DBG("module_load()\n");
 @end example
 
-The last thing you have to do here is return the module's OutputModule
-structure.
+If everything went correctly, the function should return 0, otherwise -1.
 
 @example
-    return &module_info;
+    return 0;
 @}
 @end example
 
-The second phase of starting an output module is handled by
-(also @emph{non-static}):
+The second phase of starting an output module is handled by:
 
 @example
 int module_init(void)@{
@@ -2697,19 +2880,17 @@ int module_init(void)@{
 @}
 @end example
 
-The body of this function is entirely up to you. You should do all
-the necessary initialization of the particular synthesizer.
-All declared configuration variables and configuration hash
-tables, together with the definition of voices, are filled
-with their values (either default or read from configuration),
-so you can use them yet.
+The body of this function is entirely up to you. You should do all the
+necessary initialization of the particular synthesizer.  All declared
+configuration variables and configuration hash tables, together with
+the definition of voices, are filled with their values (either default
+or read from configuration), so you can use them already.
 
 This function should return 0 if the module was initialized
-successfully, or -1 if some failure was encountered. In
-this case, you should clean up everything, cancel threads,
-deallocate memory etc, no more functions of this output
-module will be touched (except for other tries to load
-and initialize the module).
+successfully, or -1 if some failure was encountered. In this case, you
+should clean up everything, cancel threads, deallocate memory etc.; no
+more functions of this output module will be touched (except for other
+tries to load and initialize the module).
 
 Example from Flite:
 
@@ -2725,38 +2906,44 @@ Example from Flite:
     [...]
 @end example
 
-Now you have to define the synthesis control functions
-@code{module_write}, @code{module_stop} etc.  See @ref{Output Module
-Functions} and try to implement it somehow.  If it doesn't work (and
-it will probably not), it's most likely not your fault, complain!
-This manual is not complete and the instructions in this sections
-aren't either. Get in touch with us and together we can figure out
-what's wrong, fix it and then warn others in this manual.
+Now you have to define all the synthesis control functions
+@code{module_speak}, @code{module_stop} etc.  See @ref{Output Module
+Functions}. 
 
-@node Output Module Functions,  , How to Write New Output Module, Output Modules
+At the end, this simple include provides the main() function and all
+the functionality related to being an output module of Speech
+Dispatcher (parsing argv[] parameters, communicating on stdin/stdout,
+...). It's recommended to study this file carefully and try to
+understand what exactly it does, as it will be part of the source code
+of your output module.
+
+@example
+#include "module_main.c"
+@end example
+
+If it doesn't work, it's most likely not your fault, complain!  This
+manual is not complete and the instructions in this sections aren't
+either. Get in touch with us and together we can figure out what's
+wrong, fix it and then warn others in this manual.
+
+@node Output Module Functions, Module Utils Functions and Macros, The Skeleton of an Output Module, Output Modules
 @subsection Output Module Functions
 
-Note that all these functuions have to be declared as static,
-so that they don't mix with other output modules.
+@deffn {Output Module Functions} int module_write (char *data, size_t bytes)
+@findex module_speak()
 
-@deffn {Output Module Functions} static gint module_write (const gchar *data, size_t bytes, TFDSetElement* set)
-@findex module_write()
+This is the function where the actual speech output is produced. It is
+called every time Speech Dispatcher decides to send a message to
+synthesis. The data of length @var{bytes} are passed in
+@var{data}. 
 
-This is the function where actual speech output is produced. It is called
-every time Speech Dispatcher decides to send a message to synthesis. The data
-of length @var{len} are passed in @var{data}. Additionally, the structure
-containing settings associated to this particular message is passed,
-although only few options are important for output modules.
-
-Each output module should take care of setting the output device to these parameters
-(the other ones are handled independently in other parts of Speech Dispatcher):
-
-@itemize @bullet
-@item (signed int) set->speed
-@item (signed int) set->pitch
-@item (char*) set->language
-@item (int) set->voice_type
-@end itemize
+Each output module should take care of setting the output device to
+the parameters from msg_settings (defined in module_utils.c) (See
+SPDMsgSettings in @file{intl/fdset.h}). However, it is not an error if
+some of these values are ignored. At least rate, pitch and language
+should be set correctly, but if the synthesizer doesn't support
+punctuation and spelling modes, the user can always use the generic
+filtering of Speech Dispatcher to emulate these features.
 
 Speed and pitch are values between -100 and 100 included. 0 is the default
 value that represents normal speech flow. So -100 is the slowest (or lowest)
@@ -2767,41 +2954,30 @@ the name of the language according to RFC 1776 (en, cs, fr, ...). If the
 requested language is not supported by this synthesizer, it's ok to abort
 and return 0, because that's an error in user settings.
 
-voice_type is used only when the output module supports more types of voices
-for this particular language. The values represent (from @file{intl/fdset.h})
+An easy way to set the parameters is using the UPDATE_PARAMETER()
+macro. @xref{Module Utils Functions and Macros}.
 
+Example from festival:
 @example
-typedef enum @{
-    NO_VOICE = 0,
-    MALE1 = 1,
-    MALE2 = 2,
-    MALE3 = 3,
-    FEMALE1 = 4,
-    FEMALE2 = 5,
-    FEMALE3 = 6,
-    CHILD_MALE = 7,
-    CHILD_FEMALE = 8
-@}EVoiceType;
+    UPDATE_PARAMETER(rate, festival_set_rate);
+    UPDATE_PARAMETER(pitch, festival_set_pitch);
 @end example
-
-We can consider also other voice types. 
 
 This function should return 0 if it fails and 1 if the delivery
 to the synthesis is successful. It should return immediately,
 because otherwise, it would block stopping, priority handling
 and other important things in Speech Dispatcher.
 
-If there is a need to stay longer, you
-should create a separate thread or process. This is for example
-the case of some software synthesizers who use a blocking
-function (eg. spd_audio_play) or hardware devices that have
-to send data to output modules at some particular speed. Note
-that if you use threads for that purpose, you have to set them
-to ignore all signals. See @code{flite.c} for reference.
+If there is a need to stay longer, you should create a separate thread
+or process. This is for example the case of some software synthesizers
+which use a blocking function (eg. spd_audio_play) or hardware devices
+that have to send data to output modules at some particular
+speed. Note that if you use threads for that purpose, you have to set
+them to ignore all signals. See @code{flite.c} for reference.
 @end deffn
 
-@deffn {Output module function}  {static gint module_stop} (void)
-@findex synthesizer_stop()
+@deffn {Output module function}  {int module_stop} (void)
+@findex module_stop()
 
 This function should stop the synthesis of the currently spoken message
 immediately and throw away the rest of the message.
@@ -2809,7 +2985,7 @@ immediately and throw away the rest of the message.
 It should return 0 on success, -1 otherwise.
 @end deffn
 
-@deffn {Output module function}  {static size_t synthesizer_pause} (void)
+@deffn {Output module function}  {size_t module_pause} (void)
 @findex module_pause()
 
 This function should stop speaking on the synthesizer (or sending
@@ -2847,7 +3023,7 @@ a little bit with what was actually said than if there is
 a gap.
 
 If the given output device doesn't support synchronization
-(@pxref{synthesizer_is_speaking}), it should execute STOP on the output
+(@pxref{module_is_speaking}), it should execute STOP on the output
 device and return 0.
 
 It's not an error if this function is called when the device
@@ -2856,7 +3032,7 @@ is not speaking. In this case, it should return 0.
 
 @deffn {Output module function}  {static gint module_is_speaking} (void)
 @findex module_is_speaking()
-@anchor{synthesizer_is_speaking}
+@anchor{module_is_speaking}
 
 This function is very important to let Speech Dispatcher know how to
 regulate the speech flow between different queues, programs and even
@@ -2886,7 +3062,7 @@ it very often for different purposes.
 
 @end deffn
 
-@deffn {Output module function}  {static gint module_close} (void)
+@deffn {Output module function}  {int module_close(int status)} (void)
 @findex module_close()
 
 This function is called when Speech Dispatcher terminates.  The output
@@ -2896,10 +3072,416 @@ Speech Dispatcher terminates and exit(0) will do the work for you.  It's
 perfectly ok for Speech Dispatcher to load, unload or reload output modules
 in the middle of it's run.
 
-It should return 0 on success, -1 otherwise.
+If the parameter @code{status} is non-zero, the process should
+terminate with this error value.
+
+This function never returns, instead, it should call exit() to terminate
+the whole process.
 
 @end deffn
 
+@node Module Utils Functions and Macros, Index Marks in Output Modules, Output Module Functions, Output Modules
+@subsection Module Utils Functions and Macros
+
+This section describes the various variables, functions and macros
+that are available in the @file{module_utils.c} file. They are
+intended to make writing new output modules easier and allow the
+programmer to reuse existing pieces of code instead of writing
+everything from scratch.
+
+@menu
+* Initialization Macros and Functions::  
+* Generic Macros and Functions::  
+* Functions used by module_main.c::  
+* Functions for use when talking to synthesizer::  
+* Multi-process output modules::  
+* Memory Handling Functions::   
+@end menu
+
+@node Initialization Macros and Functions, Generic Macros and Functions, Module Utils Functions and Macros, Module Utils Functions and Macros
+@subsubsection Initialization Macros and Functions
+
+@deffn {Module Utils macro} INIT_SETTINGS_TABLES ()
+@findex INIT_SETTINGS_TABLES
+This macro initializes the settings tables where the parameters
+received with the @code{SET} command are stored. You must call
+this macro if you want to use the @code{UPDATE_PARAMETER()}
+and @code{UPDATE_STRING_PARAMETER()} macros.
+
+It is intended to be called from inside a function just
+after the output module starts.
+@end deffn
+
+@subsubsection Debugging Macros
+@deffn {Module Utils macro} DBG (format, ...)
+@findex DBG
+DBG() outputs a debugging message to the file specified in configuration.
+The parameter syntax is the same as for the printf() function. In fact,
+it calls printf() internally.
+@end deffn
+
+@deffn {Module Utils macro} FATAL (text)
+@findex FATAL
+Outputs a message specified as @code{text} and calls exit() with
+the value EXIT_FAILURE. This terminates the whole output module
+without trying to kill the children processes or freeing other
+resources other than those that will be freed by the system.
+
+It is intended to be used after some severe error has happened.
+@end deffn
+
+@node Generic Macros and Functions, Functions used by module_main.c, Initialization Macros and Functions, Module Utils Functions and Macros
+@subsubsection Generic Macros and Functions
+
+@deffn {Module Utils macro} UPDATE_PARAMETER (param, setter)
+@findex UPDATE_PARAMETER
+Looks if the integer or enum parameter specified in @code{param}
+(e.g. rate, pitch, cap_let_recogn, ...) changed since the
+last time when the @code{setter} function was called.
+
+If it changed, it calls the function @code{setter} with the
+new value. (The new value is stored in the msg_settings
+structure that is created by module_utils.c and that
+you normally don't have to care about.)
+
+The function @code{setter} should be defined as:
+@example
+void setter_name(type value);
+@end example
+
+Please look at the @code{SET} command in the communication protocol
+for the list of all available parameters. 
+@pxref{Communication Protocol for Output Modules}.
+
+An example from Festival output module:
+@verbatim
+static void
+festival_set_rate(signed int rate)
+{
+    assert(rate >= -100 && rate <= +100);
+    festivalSetRate(festival_info, rate);
+}
+[...]
+int
+module_write(char *data, size_t bytes)
+{
+    [...]
+    UPDATE_PARAMETER(rate, festival_set_rate);
+    UPDATE_PARAMETER(pitch, festival_set_pitch);
+    [...]
+}
+@end verbatim
+@end deffn
+
+@deffn {Module Utils macro} UPDATE_STRING_PARAMETER (param, setter)
+@findex  UPDATE_STRING_PARAMETER
+The same as @code{UPDATE_PARAMETER} except that it works for the
+parameters with a string value.
+@end deffn
+
+@node Functions used by module_main.c, Functions for use when talking to synthesizer, Generic Macros and Functions, Module Utils Functions and Macros
+@subsubsection Functions used by @file{module_main.c}
+
+@deffn {Module Utils function} char* do_speak(void)
+@findex do_speak
+Takes care about the communication after the @code{SPEAK} command was
+received. Calls @code{module_write()} when the full text is received.
+
+It returns a response according to the communication protocol.
+@end deffn
+
+@deffn {Module Utils function} char* do_stop(void)
+@findex do_stop
+Calls the @code{module_stop()} function of the particular
+output module.
+
+It returns a response according to the communication protocol.
+@end deffn
+
+@deffn {Module Utils function} char* do_pause(void)
+@findex do_pause
+Calls the @code{module_pause()} function of the particular
+output module.
+
+It returns a response according to the communication protocol
+and the value returned by @code{module_pause()}.
+@end deffn
+
+@deffn {Module Utils function} char* do_set()
+@findex do_set
+Takes care about the communication after the @code{SET} command was
+received. Doesn't call any particular function of the output module,
+only sets the values in the settings tables. (You should then call the
+@code{UPDATE_PARAMETER()} macro in module_write() to actually set the
+synthesizer to these values.)
+
+It returns a response according to the communication protocol.
+@end deffn
+
+@deffn {Module Utils function} char* do_speaking()
+@findex do_speaking
+Calls the @code{module_speaking()} function.
+
+It returns a response according to the communication protocol
+and the value returned by @code{module_speaking()}.
+@end deffn
+
+@deffn {Module Utils function} void do_quit()
+@findex do_quit
+Prints the farewell message to the standard output, according
+to the protocol. Then it calls @code{module_close(0)}.
+@end deffn
+
+@node Functions for use when talking to synthesizer, Multi-process output modules, Functions used by module_main.c, Module Utils Functions and Macros
+@subsubsection Functions for use when talking to synthesizer
+
+@deffn {Module Utils function} static int module_get_message_part (
+const char* message, char* part, unsigned int *pos, size_t maxlen, const char* dividers)
+@findex  module_get_message_part
+
+Gets a part of the @code{message} according to the specified @code{dividers}
+and encountered index marks, @xref{Index Marks in Output Modules}.
+
+It scans the text in @code{message} from the byte specified by
+@code{*pos} and looks for one of the characters specified in
+@code{dividers} followed by a whitespace character, index marks or the
+terminating NULL byte. If one of them is encountered, the read text is
+stored in @code{part} and the number of bytes read is
+returned. However, if the current position @code{message[*pos]} when
+calling this function is on the beginning of an index mark, nothing is
+stored in @code{part}, 0 is returned and the global variable
+@code{current_index_mark} is set to the number of the encountered
+index mark. If end of @code{message} is reached, the return value is
+-1.
+
+@code{message} is the text to process. It must be a NULL-terminated
+uni-byte string.
+
+@code{part} is a pointer to the place where the output text should
+be stored. It must contain at least @code{maxlen} bytes of space.
+
+@code{maxlen} is the maximum number of bytes that should be written
+to @code{part}.
+
+@code{dividers} is a NULL-terminated uni-byte string containing
+the punctuation characters where the message should be divided
+in smaller parts (if they are followed by a whitespace).
+
+After returning, @code{current_index_mark} is either -1 or the number
+of the encountered index mark and in @code{pos} is stored the position
+where the function terminated in processing @code{message}.
+@end deffn
+
+@node Multi-process output modules, Memory Handling Functions, Functions for use when talking to synthesizer, Module Utils Functions and Macros
+@subsubsection Multi-process output modules
+
+@deffn {Module Utils function} void module_speak_thread_wfork (sem_t *semaphore,
+pid_t *process_pid, TChildFunction child_function, TParentFunction parent_function,
+int *speaking_flag, char **message, const size_t maxlen, const char *dividers,
+size_t *module_position, int *pause_requested)
+@findex module_speak_thread_wfork
+
+This function waits on the specified @code{semaphore} for activity.
+When the semaphore is on, it forks and creates pipes between the two
+processes in both directions.
+
+In the child, it starts the @code{child_function}. This function
+is supposed to never return. If it returns, exit(0) is called
+immediatelly.
+
+In the parent, it starts the @code{parent_function} and passes the
+parameters. It waits until the function returns and writes it's return
+value to the @code{*module_position}. It then cleans the process, logs
+the return values of @code{waitpid()} using DBG, sets *speaking_flag
+to 0 and calls module_signal_end().
+
+It is intended to be run from a separate thread, because it doesn't
+return and it would block the communication on stdin/stdout.
+
+@code{semaphore} is the pthread-type semaphore on which requests
+for @code{child_function()} to run will be posted.
+
+@code{process_pid} is a pointer to an integer where the pid of the
+newly started child process should be stored.
+
+@code{child_function} is the function that should be called in the child.
+
+@code{parent_function} is the function that should be called in the parent.
+
+@code{speaking_flag} is a pointer to an integer where this function
+will write a 0 after the parent function terminates. This should mean
+that the synthesizer stopped speaking.
+
+@code{message} is a pointer to a NULL-terminated string containing the message
+that should be passed to the parent function for synthesis.
+
+@code{maxlen} is the maximum number of bytes that should be transfered from
+parent to child over the pipe.
+
+@code{dividers} is a NULL-terminated string containing the punctuation characters
+at which the parent function should divide the message in smaller pieces.
+
+@code{module_position} is a pointer to an integer where the actual position
+(according to index marks) where the speaking terminated, as returned by
+the parent function, will be stored.
+
+@code{pause_requested} is a pointer to an integer flag, which is either 0 if
+no pause request is pending, or 1 if the parent function should terminate
+at a convenient place at the message because a pause is requested.
+
+The two types of functions @code{child_function} and @code{parent_function}
+are:
+
+@example
+typedef void (*TChildFunction)(TModuleDoublePipe dpipe, const size_t maxlen);
+typedef size_t (*TParentFunction)(TModuleDoublePipe dpipe, const char* message,
+                             const size_t maxlen, const char* dividers,
+                             int *pause_requested);
+@end example
+
+The parameters have the same meaning as stated above. Additionally
+there is the @code{dpipe} parameter which contains the information
+necessary for communicating through pipes between the parent and the
+child and vice-versa. Each of these functions should initialize
+the pipes at the beginning and then communicate through them. The
+prefered functions to do that are listed bellow.
+
+@example
+typedef struct@{
+    int pc[2];            /* Parent to child pipe */
+    int cp[2];            /* Child to parent pipe */
+@}TModuleDoublePipe;
+@end example
+@end deffn
+
+@deffn {Module Utils function} size_t module_parent_wfork (
+TModuleDoublePipe dpipe, const char* message, const size_t maxlen,
+const char* dividers, int *pause_requested)
+@findex module_parent_wfork
+
+This is a generic function that can be used as the @code{parent_function()}
+for @code{module_speak_thread_wfork}. It simply sends the data to the
+child in smaller pieces and waits for confirmation with a single
+@code{C} character on the pipe from child to parent.
+
+In the beginning, it initializes the pipes and then it enters a simple cycle:
+@enumerate
+@item
+Reads a part of the message or an index mark using
+@code{module_get_message_part()}.
+@item
+Looks if there isn't a pending request for pause and handles
+it.
+@item
+Sends the current part of the message to the child
+using @code{module_parent_dp_write()}.
+@item
+Waits until a single character @code{C} comes from the other pipe
+using @code{module_parent_dp_read()}.
+@item
+Repeats the cycle or terminates, if there is no more data.
+@end enumerate
+@end deffn
+
+@deffn {Module Utils function} int module_parent_wait_continue(TModuleDoublePipe dpipe)
+@findex module_parent_wait_continue
+Waits until the character @code{C} (continue) is read from the pipe from child.
+This function is intended to be run from the parent.
+
+@code{dpipe} is the double pipe used for communication between the child and parent.
+
+Returns 0 if the character was read or 1 if the pipe was broken before the
+character could have been read.
+@end deffn
+
+@deffn {Module Utils function} void module_parent_dp_init (TModuleDoublePipe dpipe)
+@findex module_parent_dp_init
+Initializes pipes (dpipe) in the parent. Currently it only closes the unnecessary ends.
+@end deffn
+
+@deffn {Module Utils function} void module_child_dp_close (TModuleDoublePipe dpipe)
+@findex module_child_dp_init
+Initializes pipes (dpipe) in the child. Currently it only closes the unnecessary ends.
+@end deffn
+
+@deffn {Module Utils function} void module_child_dp_write(TModuleDoublePipe dpipe,
+ const char *msg, size_t bytes)
+@findex module_child_dp_write
+Writes the specified number of @code{bytes} from @code{msg} to the pipe to the
+parent. This function is intended, as the prefix says, to be run from the child.
+Uses the pipes defined in @code{dpipe}.
+@end deffn
+
+@deffn {Module Utils function} void module_parent_dp_write(TModuleDoublePipe dpipe,
+ const char *msg, size_t bytes)
+@findex module_parent_dp_write
+Writes the specified number of @code{bytes} from @code{msg} to the pipe to the
+child. This function is intended, as the prefix says, to be run from the parent.
+Uses the pipes defined in @code{dpipe}.
+@end deffn
+
+@deffn {Module Utils function} int module_child_dp_read(TModuleDoublePipe dpipe,
+ char *msg, size_t maxlen)
+@findex module_child_dp_read
+Reads up to @code{maxlen} bytes from the pipe from parent into the buffer @code{msg}.
+This function is intended, as the prefix says, to be run from the child.
+Uses the pipes defined in @code{dpipe}.
+@end deffn
+
+@deffn {Module Utils function} int module_parent_dp_read(TModuleDoublePipe dpipe,
+ char *msg, size_t maxlen)
+@findex module_parent_dp_read
+Reads up to @code{maxlen} bytes from the pipe from child into the buffer @code{msg}.
+This function is intended, as the prefix says, to be run from the parent.
+Uses the pipes defined in @code{dpipe}.
+@end deffn
+
+@deffn {Module Utils function} void module_sigblockall(void)
+@findex module_sigblockall
+Blocks all signals. This is intended to be run from the child processes
+and threads so that their signal handling wouldn't interfere with the
+parent.
+@end deffn
+
+@deffn {Module Utils function} void module_sigunblockusr(sigset_t *some_signals)
+@findex module_sigunblockusr
+Use the set @code{some_signals} to unblock SIGUSR1.
+@end deffn
+
+@deffn {Module Utils function} void module_sigblockusr(sigset_t *some_signals)
+@findex module_sigblockusr
+Use the set @code{some_signals} to block SIGUSR1.
+@end deffn
+
+@node Memory Handling Functions,  , Multi-process output modules, Module Utils Functions and Macros
+@subsubsection Memory Handling Functions
+
+@deffn {Module Utils function} static void* xmalloc (size_t size)
+@findex xmalloc
+The same as the classical @code{malloc()} except that it executes
+@code{FATAL(``Not enough memmory'')} on error.
+@end deffn
+
+@deffn {Module Utils function} static void* xrealloc (void *data, size_t size)
+@findex xrealloc
+The same as the classical @code{realloc()} except that it also accepts
+@code{NULL} as @code{data}. In this case, it behaves as @code{xmalloc}.
+@end deffn
+
+@deffn {Module Utils function} void xfree(void *data)
+@findex xfree
+The same as the classical @code{free()} except that it checks
+if data isn't NULL before calling @code{free()} and makes sure
+the pointer @code{data} is set to @code{NULL} before returning.
+@end deffn
+
+@deffn {Module Utils type}
+@findex 
+@end deffn
+
+
+@node Index Marks in Output Modules,  , Module Utils Functions and Macros, Output Modules
+@subsection Index Marks in Output Modules
 
 @node Appendices, GNU General Public License, Server Programming, Top
 @appendix Appendices
