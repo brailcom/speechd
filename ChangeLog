@@ -1,5 +1,10 @@
 2004-05-24  Hynek Hanke  <hanke@volny.cz>
 
+	* configure.in: modulebindir now points to speech-distcher-modules instead of
+	speechd-modules.
+
+2004-05-24  Hynek Hanke  <hanke@volny.cz>
+
 	* src/modules/festival_client.c (festival_socket_open): Use TCP_NO_DELAY.
 
 	* src/server/output.c (SEND_DATA): Back to using OL_RET(), but SEND_DATA_N is newly defined for
