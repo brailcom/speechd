@@ -42,10 +42,6 @@ AC_CHECK_LIB(flite_cmu_us_kal,
         register_cmu_us_kal,, 
         echo "*** Required Flite libraries missing or instalation incomplete! See INSTALL .";exit 1) 
 
-AC_CHECK_LIB(recode,
-        recode_string,,
-        echo "*** Required Recode library missing! See INSTALL .";exit 1)
-
 glib_include=`pkg-config --cflags glib-2.0`
 AC_SUBST(glib_include)
 glib_libs=`pkg-config --libs glib-2.0`

@@ -8,7 +8,6 @@ You will need these components to compile Speech Dispatcher:
  - libasound1 (0.5.8) 
  - gcc and GNU make (http://www.gnu.org)
  - flite [we also use it for sound track output] (http://cmuflite.org/)
- - librecode (http://www.gnu.org/software/recode/)
 
 Only if you are building from CVS, you also need these:
  - automake 1.7+, autoconf, pkg-config and libtool (if you are building from CVS)
