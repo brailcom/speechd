@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.48 2003-10-12 23:34:51 hanke Exp $
+ * $Id: speechd.h,v 1.49 2004-02-23 22:33:11 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -103,22 +103,19 @@ typedef struct{
 #include "alloc.h"
 #include "speaking.h"
 
-int spd_port;
-int spd_port_set;
+typedef struct{
+    int port, port_set;
+    int log_level, log_level_set;
+    int max_history_messages;	/* Maximum of messages in history before they expire */
 
-/* Message logging */
-int spd_log_level;
-int spd_log_level_set;
+}TSpeechdOptions;
 
-/* The largest assigned uid + 1 */
-int max_uid;
+TSpeechdOptions SpeechdOptions;
 
-/* Unique identifier for group id (common for messages of the same group) */
-int max_gid;
-
-/* The maximum number of messages stored in history before
-   they begin to expire */
-int MaxHistoryMessages;
+struct{
+    int max_uid;		/* The largest assigned uid + 1 */
+    int max_gid;		/* The largest assigned gid + 1 */
+}SpeechdStatus;
 
 /* speak() thread defined in speaking.c */
 pthread_t speak_thread;
