@@ -1,14 +1,20 @@
 
 Short-term goals
-================       
-
-Short-term goals
 =================
 
-        * Identd authentication.
+        * Index marking support in SSIP.
+
+        * Index marking and improved commmunication in Festival output
+   module.
+
+        * Sound output that supports OSS, Alsa and some sound server
+   instead of the hardcoded OSS output (Any help with this highly
+   appreciated!)
 
 Longer-term goals
 =================
+
+        * Identd authentication.
 
 	* HISTORY commands and their return values (more...)
 
