@@ -335,7 +335,7 @@ static char *socket_receive_file_to_buff(int fd,int *size)
 /* Public Functions to this API                                        */
 /***********************************************************************/
 
-/* Opens a connection to Festival server (which musr be running)
+/* Opens a connection to Festival server (which must be running)
  * and returns it's identification in new FT_Info */
 FT_Info *
 festivalOpen(FT_Info *info)
@@ -404,7 +404,7 @@ festivalStringToWaveRequest(FT_Info *info, char *text)
 FT_Wave*
 festivalStringToWaveGetData(FT_Info *info)
 {
-    FT_Wave *wave;
+    FT_Wave *wave = NULL;
     int n;
     char ack[5];
 
@@ -414,16 +414,17 @@ festivalStringToWaveGetData(FT_Info *info)
     do {
 	for (n=0; n < 3; )
 	    n += read(info->server_fd,ack+n,3-n);
+
 	ack[3] = '\0';
 	if (strcmp(ack,"WV\n") == 0){         /* receive a waveform */
 	    wave = client_accept_waveform(info->server_fd);
 	}else if (strcmp(ack,"LP\n") == 0)    /* receive an s-expr */
 	    client_accept_s_expr(info->server_fd);
 	else if (strcmp(ack,"ER\n") == 0)    /* server got an error */
-	{
-	    fprintf(stderr,"festival_client: server returned error\n");
-	    break;
-	}
+            {
+                fprintf(stderr,"festival_client: server returned error\n");
+                break;
+            }
     } while (strcmp(ack,"OK\n") != 0);
     
     return wave;
@@ -434,17 +435,19 @@ festivalEmptySocket(FT_Info *info)
 {
     char *comm;
     int ret;
+    int n = 0;
 
     comm = (char*) spd_malloc(4096);
-
-    ret = fcntl(info->server_fd, F_SETFL, O_NONBLOCK);
 
     while(1){   
         ret = read(info->server_fd, comm, 4096);    
         if (ret <= 0) break;
+        if (comm[ret-1] == '\n' && comm[ret-2] == 'K' && comm[ret-3] == 'O')
+            break;
+        if (comm[ret-1] == '\n' && comm[ret-2] == 'R' && comm[ret-3] == 'E')
+            break;
     }
 
-    ret = fcntl(info->server_fd, F_SETFL, O_SYNC);
 }
 
 /* Closes the Festival server socket connection */
@@ -503,6 +506,40 @@ festivalSetRate(FT_Info *info, signed int rate)
     fd = fdopen(dup(info->server_fd),"wb");
     /* Send the command and set new voice */
     fprintf(fd,"(Parameter.set \"Duration_Stretch\" %f)\n", stretch);
+    fclose(fd);
+
+    for (n=0; n < 3; )
+        n += read(info->server_fd,buf+n,3-n);
+
+    buf[3] = 0;
+    if (!strcmp(buf,"ER\n")){
+        printf("Couldn't set voice!\n");
+        return 1;
+    }else{
+        client_accept_s_expr(info->server_fd);
+    }
+
+    for (n=0; n < 3; )
+        n += read(info->server_fd,buf+n,3-n);
+
+    return 0;
+}
+
+int
+festivalSetPitch(FT_Info *info, signed int pitch, unsigned int mean)
+{
+    FILE* fd;
+    char buf[4];
+    int n;
+    int f0;
+
+    f0 = 100;
+    if (pitch < 0) f0 += pitch / 2;
+    if (pitch > 0) f0 += pitch;
+
+    fd = fdopen(dup(info->server_fd),"wb");
+    /* Send the command and set new voice */
+    fprintf(fd,"(set! int_lr_params '((target_f0_mean %d) (target_f0_std %d) (model_f0_mean 170) (model_f0_std 34)))\n", f0, mean);
     fclose(fd);
 
     for (n=0; n < 3; )
