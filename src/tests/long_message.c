@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: long_message.c,v 1.1 2003-03-23 21:26:11 hanke Exp $
+ * $Id: long_message.c,v 1.2 2003-04-14 02:11:00 hanke Exp $
  */
 
 /* Warning: VIM currently has some problems with highliting syntax
@@ -43,12 +43,12 @@ int main() {
 	printf("Start of the test.\n");
    
 	printf("Trying to initialize Speech Deamon...");
-	sockfd = spd_init("say","main");
+	sockfd = spd_init("test","main");
 	if (sockfd == 0) FATAL("Speech Deamon failed");
 	printf("OK\n");
 
 		printf("Sending message number 1, text \n");
-		spd_say(sockfd, 3, "
+		spd_say(sockfd, 2, "
 						
        ALICE'S ADVENTURES IN WONDERLAND by Lewis Carroll.
 
@@ -271,7 +271,7 @@ common way.
 
 
 	printf("Sending message number 2, code (ugly characters) \n");
-	spd_say(sockfd, 3, "
+	spd_say(sockfd, 2, "
 
 int
 stop_p3(){
