@@ -1,3 +1,14 @@
+2003-04-12  Milan Zamazal  <pdm@brailcom.org>
+
+	* speechd.texi: Spellchecked.
+	(Speech synthesis and sound output commands): LETTER -> CHAR.
+	(Access rights): New section.
+	(Parameter setting commands): SET VOICE documented.
+	(Standard voices): New appendix.
+	(Information retrieval commands): New command LIST VOICES.
+	(History handling commands): Many changes.
+	(Parameter setting commands): New command SET HISTORY.
+
 2003-04-10  Milan Zamazal  <pdm@brailcom.org>
 
 	* speechd.texi (Speech synthesis and sound output commands):
