@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.71 2004-03-08 21:25:57 hanke Exp $
+  * $Id: server.c,v 1.72 2004-10-10 15:07:05 hanke Exp $
   */
 
 #include "speechd.h"
@@ -205,6 +205,7 @@ serve(int fd)
                 buf[++bytes] = '\0';
                 break;
               }
+	    if (buf[bytes] == '\0') buf[bytes] = '?';
             if ((++bytes) == buflen)
               {
                 buflen *= 2;
@@ -214,7 +215,7 @@ serve(int fd)
       }
       
       /* Parse the data and read the reply*/
-      MSG2(5, "protocol", "%d:DATA:|%s|", fd, buf);
+      MSG2(2, "protocol", "%d:DATA:|%s| (%d)", fd, buf, bytes);
       reply = parse(buf, bytes, fd);
       spd_free(buf);
     }
