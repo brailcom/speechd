@@ -1,4 +1,17 @@
 
+Version 0.2
+ * Improved documentation (definition of the SSIP
+   protocol is now a separated document)
+ * Caching of characters, keys and sound icons in the
+   Festival output modules brings much quicker responses
+   for these types of events.
+ * If some output module fails to load completely (e.g. because
+   it's unable to connect to the synthesizer), error is reported
+   to Speech Dispatcher and written into the log file. (Sadly,
+   this doesn't work with kernels that don't support real threading).
+ * Necessary recoding in Festival output module is now retrieved
+   from Festival itself.
+
 Version 0.1
  * First official release
  * Improved documentation
