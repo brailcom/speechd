@@ -1,3 +1,18 @@
+2003-05-26  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/server/parse.c (parse_set): Handle new SSIP command: SET {SELF|ALL|id} OUTPUT_MODULE module
+
+	* src/server/set.h: Declarations of new functions set_output_module_*
+
+	* src/server/set.c (set_output_module_uid): New function: set other default output module for this client.
+	(set_output_module_all): New function.
+	(set_output_module_self): New function.
+
+	* src/server/msg.h (ERR_COULDNT_SET_OUTPUT_MODULE): New SSIP message.
+	(OK_OUTPUT_MODULE_SET): New SSIP message.
+
+	
+
 2003-05-25  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* src/server/sndicon.c (queue_message): New parameter passed.
