@@ -1,3 +1,11 @@
+speechd (0.0-13) unstable; urgency=low
+
+  * Don't build-depend on libasound2-dev.
+  * Standards 3.6.0 (no change).
+  * Specify info files on dh_installinfo command line.
+
+ -- Milan Zamazal <pdm@brailcom.org>  Wed, 30 Jul 2003 14:42:28 +0200
+
 speechd (0.0-12) unstable; urgency=low
 
   * Restart pause increased to 3 seconds.

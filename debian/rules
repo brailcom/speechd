@@ -80,7 +80,7 @@ binary-arch: build install
 	dh_installdocs
 	dh_installinit
 	dh_installman debian/speechd.7
-	dh_installinfo
+	dh_installinfo doc/*.info*
 	dh_installchangelogs ChangeLog
 	dh_installchangelogs -p$(libpackage) -p$(libpackagedev)
 	dh_installlogrotate
