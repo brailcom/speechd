@@ -35,6 +35,15 @@ spd_audio_play_wave(cst_wave *w)
     return 0;
 }
 
+cst_wave *
+spd_audio_read_wave(char *filename)
+{
+    cst_wave *new;
+    new = malloc(1000000);
+    cst_wave_load_riff(new, filename);
+    return new;
+}
+
 int
 spd_audio_open(cst_wave *w)
 {
