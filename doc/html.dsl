@@ -6,31 +6,31 @@
 
 <style-specification id="my-docbook-html" use="docbook">
 
- ;; Generate HTML 4.0
+;; Generate HTML 4.0
 (define %html40% #t)
 
-;; adresáø, kam se mají ukládat vygenerované HTML soubory
-(define %output-dir% "html")
+;; Output directory for generated HTML files
+;(define %output-dir% "html")
 
-;; má se pou¾ívat vý¹e uvedený adresáø
-(define use-output-dir #t)
+;; Really use output directory defined above?
+;(define use-output-dir #t)
 
-;; jméno hlavní stránky
+;; Name of the documentation root file.
 (define %root-filename% "index")
 
-;; mají se jména odvozovat z hodnoty atributu ID
+;; Should filenemes be derived from "id" attributte of chapters?
 (define %use-id-as-filename% #t)
 
-;; pøípona pro HTML soubory
+;; Extension of HTML files
 (define %html-ext% ".html")
 
-;; do hlavièky stránky pøidáme informaci o pou¾itém kódování
+;; Add meta tags to HTML header.
 (define %html-header-tags%
   '(("META"
      ("HTTP-EQUIV" "Content-Type")
      ("CONTENT" "text/html; charset=ISO-8859-1"))))
 
-;; kde se mají geenrovat navigaèní odkazy
+;; Where to generate the navigation links.
 (define %header-navigation% #t)
 (define %footer-navigation% #t)
 
