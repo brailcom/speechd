@@ -1,0 +1,61 @@
+@ Hi, this is a basic Speech Deamon test.
+
+@ I've succesfully connected to the server
+@ and now I'm going to try to set my client name
+@ and priority for the messages.
+$4
+!SET SELF CLIENT_NAME unknown_user:test-basic:main
+$4
+!SET SELF PRIORITY 2
+$4
+
+@ Hope it was ok. Now I can try to say something:
+$8
+!SPEAK
+Hello world, this is Speech Deamon speaking.
+. 
+$2
+@ If you heard the full message, Speech Deamon
+@ works correctly.
+$8
+
+
+@ Now we will try some settings.
+$2
+@ This message should be said very quickly...
+$4
+!SET SELF RATE +80
+!SPEAK
+You have to run as fast as you can just to stay where you are.
+If you want to get anywhere, you'll have to run much faster.
+        -- Lewis Carroll
+.
+$8
+
+
+@ ...and this very slowly.
+$4
+!SET SELF RATE -80
+!SPEAK
+There is more to life than increasing its speed.
+        -- Mahatma Gandhi
+.
+$8
+
+
+@ We will keep the rate at this level and try to make the voice
+@ whisper by increasing its pitch.
+$4
+!SET SELF PITCH 90
+!SPEAK
+Do not believe in miracles -- rely on them.
+.
+$8
+
+
+@ If the tests did what expected, your instalation of Speech Deamon
+@ probably works fine. If not, there can be different causes, see
+@ the documentation -- Troubleshooting. (Note that some synthesizers
+@ don't have to support setting of the voice parameters. If everything
+@ other worked correctly, this is not a fatal problem.).
+
