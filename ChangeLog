@@ -1,3 +1,17 @@
+2003-04-25  Milan Zamazal  <pdm@brailcom.org>
+
+	* INSTALL: Dependency on librecode added.
+	* src/modules/Makefile.am (libsdapollo_la_LDFLAGS): -lrecode
+	added.
+	* src/modules/apollo.c: Include recode.h and stdbool.h.
+	(recode_outer, recode_request): New variables.
+	(module_init): Initialize them.
+	(set_language): Set recoding.
+	(apollo_write): Recode data.
+	(set_speed): Renamed to set_rate.
+	(apollo_write): Change above considered.
+	(UPDATE_STRING_PARAMETER): Typo in the new_value NULL test fixed.
+
 2003-04-24  Hynek Hanke  <hanke@volny.cz>
 
 	* config/speechd.conf: english -> en
