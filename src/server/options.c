@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.c,v 1.1 2003-07-17 11:57:02 hanke Exp $
+ * $Id: options.c,v 1.2 2003-10-15 20:09:10 hanke Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would
@@ -58,6 +58,18 @@ options_print_help(char *argv[])
 }
 
 void
+options_print_version(void)
+{
+    printf("%s %s\n", PACKAGE, VERSION);
+    printf("Copyright (C) 2002-2003 Brailcom, o.p.s.\n"
+           "GNU Emacs comes with ABSOLUTELY NO WARRANTY.\n"
+           "You may redistribute copies of Emacs\n"
+           "under the terms of the GNU General Public License.\n"
+           "For more information about these matters, see the file named COPYING.\n"
+           );
+}
+
+void
 options_parse(int argc, char *argv[])
 {
     char* tail_ptr;
@@ -86,6 +98,10 @@ options_parse(int argc, char *argv[])
             break;
         case 'p':
             SPD_OPTION_SET_INT(spd_port);
+            break;
+        case 'v':
+            options_print_version();
+            exit(0);
             break;
         case 'h':
             options_print_help(argv);
