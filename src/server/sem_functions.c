@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sem_functions.c,v 1.5 2003-10-15 20:07:31 hanke Exp $
+ * $Id: sem_functions.c,v 1.6 2003-11-06 18:16:12 hanke Exp $
  */
 
 #include "speechd.h"
@@ -30,7 +30,6 @@ semaphore_create(key_t key, int flags)
 {
     union semun sem_union;
     int sem_id;
-    int err;
 
     sem_id = semget(key, 1, flags);
     if (sem_id == -1) return -1;
@@ -40,6 +39,16 @@ semaphore_create(key_t key, int flags)
 
     return sem_id;    
 }
+
+void
+semaphore_clear(int sem_id)
+{
+    union semun sem_union;
+
+    sem_union.val = 0;
+    if(semctl(sem_id, 0, SETVAL, sem_union) == -1) FATAL("Can't clear semaphore!");
+}
+
 
 void
 semaphore_destroy(int sem_id)
@@ -64,12 +73,22 @@ semaphore_wait(int sem_id)
     while(semop(sem_id, &sem_b, 1) == -1){       
         err = errno;
         if ((err != EINTR) || (err != EAGAIN)){
-            MSG2(1,"semaphores_bug",
+            MSG2(3,"semaphores_bug",
                 "semaphore_wait on semaphore id %d failed: errno=%d %s",
                 sem_id, err, strerror(err));
-            MSG2(1,"semaphores_bug",
-                "You may want to run `ipcs -s' to see if the semaphore still exists.");
-            FATAL("Can't continue");       
+
+            /* WARNING: This is an ugly hack and this is probably fixed properly
+             in CVS. I noticed a problem with semaphores just a day before the
+             final release, so I decided to hack over it in this place so that
+             I don't break anything. */
+            MSG2(1, "semaphores_bug", "Trying to reset semaphore.");
+            semaphore_clear(sem_id);
+
+            /* Ok, now make sure it works properly */
+            semaphore_post(sem_id);
+            if (semop(sem_id, &sem_b, 1) == -1)
+                FATAL("Reseting semaphore unsuccesful! Can't continue!");       
+            /* End of the ugly hack */
         } 
     }
 
