@@ -1,5 +1,9 @@
 2003-07-21  Hynek Hanke  <hanke@volny.cz>
 
+	* configure.in: Create config/cs/Makefile.in
+
+2003-07-21  Hynek Hanke  <hanke@volny.cz>
+	
 	* config/Makefile.am (subdirs) + cs/
 
 	* src/audio/spd_audio.c (spd_audio_play_file): New function.
