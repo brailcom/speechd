@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.51 2004-07-18 20:42:09 hanke Exp $
+ * $Id: festival.c,v 1.52 2004-07-21 08:14:16 hanke Exp $
  */
 
 #include "fdset.h"
@@ -168,9 +168,13 @@ module_load(void)
 }
 
 int
-module_init(void)
+module_init(char **status_info)
 {
     int ret;
+
+    GString *info;
+
+    info = g_string_new("");
 
     INIT_DEBUG();
 
@@ -178,10 +182,39 @@ module_init(void)
 
     /* Initialize appropriate communication mechanism */
     FestivalComType = FestivalComunicationType;
-    if (COM_SOCKET)
-	if (init_festival_socket()) return -1;    
-    if (COM_LOCAL)
-	if(init_festival_standalone()) return -1;
+    if (COM_SOCKET){
+	g_string_append(info, "Communicating with Festival through a socket. ");
+	ret = init_festival_socket();
+	if (ret == -1){
+	    g_string_append(info, "Can't connect to Festival server. Check your configuration "
+			    "in etc/speechd-modules/festival.conf for the specified host and port "
+			    "and check if Festival is really running there, e.g. with telnet. "
+			    "Please see documentation for more info.");
+	    *status_info = info->str;
+	    g_string_free(info, 0);
+	    return -1;
+	}else if (ret == -2){
+	    g_string_append(info, "Connect to the Festival server was successful, "
+			    "but I got disconnected immediately. This is most likely "
+			    "because of authorization problems. Check the variable "
+                            "server_access_list in etc/festival.scm and consult documentation "
+			    "for more information");
+	    *status_info = info->str;
+	    g_string_free(info, 0);
+	    return -1;
+	}
+
+    }
+    if (COM_LOCAL){
+	g_string_append(info, "Communicating with Festival through a local child process.");
+	if(init_festival_standalone()){
+	    g_string_append(info, "Local connect to Festival failed for unknown reasons.");
+	    *status_info = info->str;
+	    g_string_free(info, 0);
+	    return -1;
+	    
+	}
+    }
 
     /* Initialize global variables */
     festival_message = (char**) xmalloc (sizeof (char*));    
@@ -196,9 +229,17 @@ module_init(void)
     ret = pthread_create(&festival_speak_thread, NULL, _festival_speak, NULL);
     if(ret != 0){
         DBG("Festival: thread failed\n");
-        return -1;
+	g_string_append(info, "The module couldn't initialize threads"
+			"This can be either an internal problem or an"
+                        "architecture problem. If you are sure your architecture"
+			"supports threads, please report a bug.");
+	*status_info = info->str;
+	g_string_free(info, 0);
+	return -1;
     }
 
+    *status_info = info->str;
+    g_string_free(info, 0);
     return 0;
 }
 
@@ -208,12 +249,16 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
 
     DBG("module_speak()\n");
 
+    DBG("a");
+
     if (data == NULL) return -1;
 
     if (festival_speaking){
         DBG("Speaking when requested to write\n");
         return -1;
     }
+
+    DBG("b");
 
     festival_stop = 0;
 
@@ -224,6 +269,8 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
     if ((msgtype == MSGTYPE_TEXT) && (msg_settings.spelling_mode == SPELLING_ON))
         festival_message_type = MSGTYPE_SPELL;
 
+    DBG("c");
+
     /* If the connection crashed or language or voice
        change, we will need to set all the parameters again */
     if (COM_SOCKET){
@@ -231,7 +278,7 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
 	    DBG("Recovering after a connection loss");
 	    CLEAN_OLD_SETTINGS_TABLE();
 	    festival_info = festivalOpen(festival_info);
-	    FestivalEnableMultiMode(festival_info, "t");
+	    FestivalSetMultiMode(festival_info, "t");
 	    festival_connection_crashed = 0;
 	}
     }
@@ -241,6 +288,8 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
         || strcmp(msg_settings.language, msg_settings_old.language)){
         CLEAN_OLD_SETTINGS_TABLE();
     }
+
+    DBG("d");
 
     /* Setting voice parameters */
     DBG("Updating parameters");
@@ -384,6 +433,13 @@ _festival_speak(void* nothing)
           return(code); \
         }
 
+int
+is_text(EMessageType msg_type)
+{
+    if (msg_type == MSGTYPE_TEXT || msg_type == MSGTYPE_SPELL) return 1;
+    else return 0;
+}
+
 
 size_t
 _festival_parent(TModuleDoublePipe dpipe, const char* message,
@@ -408,45 +464,42 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
     bytes = strlen(message);
 
     module_parent_dp_init(dpipe);
-
+    
     DBG("Synthesizing: |%s|", message);
     if (bytes > 0){
-	switch(msgtype)
-	    {
-	    case MSGTYPE_CHAR:
-	    case MSGTYPE_KEY:
-	    case MSGTYPE_SOUND_ICON:
-		DBG("Cache mechanisms...");
-		fwave = cache_lookup(message, msgtype, 1);
-		if (fwave != NULL){
-		    wave_cached = 1;
-		    if (fwave->num_samples != 0){
-			if(FestivalDebugSaveOutput){
-			    char filename_debug[256];
-			    sprintf(filename_debug, "/tmp/debug-festival-%d.snd", debug_count++);
-			    save_FT_Wave_snd(fwave, filename_debug);
-			}
-			ret = module_parent_send_samples(dpipe, fwave->samples,
-							 fwave->num_samples, fwave->sample_rate,
+	if (is_text(msgtype)){	/* is it a raw text */
+	    FestivalSetMultiMode(festival_info, "t");
+	}else{			/* it is some kind of event */
+	    FestivalSetMultiMode(festival_info, "nil");
+	    DBG("Cache mechanisms...");
+	    fwave = cache_lookup(message, msgtype, 1);
+	    if (fwave != NULL){
+		wave_cached = 1;
+		if (fwave->num_samples != 0){
+		    if(FestivalDebugSaveOutput){
+			char filename_debug[256];
+			sprintf(filename_debug, "/tmp/debug-festival-%d.snd", debug_count++);
+			save_FT_Wave_snd(fwave, filename_debug);
+		    }
+		    ret = module_parent_send_samples(dpipe, fwave->samples,
+						     fwave->num_samples, fwave->sample_rate,
 							 festival_volume);
-			if (ret == -1) CLEAN_UP(-1);
-			
-			DBG("parent (1): Sent %d bytes\n", ret);            
-			ret = module_parent_dp_write(dpipe, "\r\nOK_SPEECHD_DATA_SENT\r\n", 24);
-			if (ret == -1) CLEAN_UP(-1);
-			
-			ret = module_parent_wait_continue(dpipe);
-			if (ret != 0) CLEAN_UP(-1);
-			
-			DBG("End of data in parent (1), closing pipes [%d:%d]", terminate, bytes);
-
-			CLEAN_UP(0);
-		    }else
-			CLEAN_UP(0);
-		}
-	    case MSGTYPE_TEXT: break;
-	    case MSGTYPE_SPELL: break;				    
+		    if (ret == -1) CLEAN_UP(-1);
+		    
+		    DBG("parent (1): Sent %d bytes\n", ret);            
+		    ret = module_parent_dp_write(dpipe, "\r\nOK_SPEECHD_DATA_SENT\r\n", 24);
+		    if (ret == -1) CLEAN_UP(-1);
+		    
+		    ret = module_parent_wait_continue(dpipe);
+		    if (ret != 0) CLEAN_UP(-1);
+		    
+		    DBG("End of data in parent (1), closing pipes");
+		    
+		    CLEAN_UP(0);
+		}else
+		    CLEAN_UP(0);
 	    }
+	}
 	
 	switch(msgtype)
 	    {
@@ -468,23 +521,32 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 	DBG("Retrieving data\n");
 
 	/* (speechd-next) */
-	fwave = festivalGetDataMulti(festival_info, &callback, &festival_stop, FestivalReopenSocket);	
+	if (is_text(msgtype)){
+	    fwave = festivalGetDataMulti(festival_info, &callback, &festival_stop, FestivalReopenSocket);
 
-	if (callback != NULL){
-	    DBG("Callback detected: %s", callback);
-	    l = strlen(callback);
-	    if (l<4) continue;	/* some other index mark */
-	    if (strncmp(callback, "sdm_", 3)) continue;	/* some other index mark */
-	    h = strtol(callback+3, &tptr, 10);
-	    if (tptr != callback+3) current_index_mark = h;
-	    DBG("Current index mark is set to %d", current_index_mark);
-	    if(*pause_requested){
-		DBG("Pause requested, not sending more data to child");
-		CLEAN_UP(0);
-	    }else{
-		continue;
+	    if (callback != NULL){
+		DBG("Callback detected: %s", callback);
+		l = strlen(callback);
+		if (l<4) continue;	/* some other index mark */
+		if (strncmp(callback, "sdm_", 3)) continue;	/* some other index mark */
+		h = strtol(callback+3, &tptr, 10);
+		if (tptr != callback+3) current_index_mark = h;
+		DBG("Current index mark is set to %d", current_index_mark);
+		if(*pause_requested){
+		    DBG("Pause requested, not sending more data to child");
+		    CLEAN_UP(0);
+		}else{
+		    continue;
+		}
 	    }
+
+	}else{			/* is event */
+	    fwave = festivalStringToWaveGetData(festival_info);
+	    terminate = 1;
+	    callback = NULL;
 	}
+	
+      
 
 	if (fwave == NULL){
 	    DBG("End of sound samples for this message, returning");
@@ -521,6 +583,10 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 	    if (ret != 0) CLEAN_UP(-1);
 	}            
 
+	if (terminate){
+	    DBG("Ok, end of samples, returning");
+	    CLEAN_UP(0);
+	}
     }
 }
 
@@ -900,6 +966,7 @@ init_festival_standalone()
 int
 init_festival_socket()
 {
+    int r;
 
     /* Init festival and register a new voice */
     festival_info = festivalDefaultInfo();
@@ -908,7 +975,8 @@ init_festival_socket()
     
     festival_info = festivalOpen(festival_info);
     if (festival_info == NULL) return -1;
-    FestivalEnableMultiMode(festival_info, "t");
+    r = FestivalSetMultiMode(festival_info, "t");
+    if (r != 0) return -2;
     
     DBG("FestivalServerHost = %s\n", FestivalServerHost);
     DBG("FestivalServerPort = %d\n", FestivalServerPort);
