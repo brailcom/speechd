@@ -19,12 +19,14 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.16 2003-06-05 16:19:20 hanke Exp $
+  * $Id: speaking.c,v 1.17 2003-06-20 00:49:48 hanke Exp $
   */
 
 #include <glib.h>
 #include <speechd.h>
 #include "speaking.h"
+
+TSpeechDMessage *current_message = NULL;
 
 /*
   Speak() is responsible for getting right text from right
@@ -46,6 +48,17 @@ speak(void* data)
 	
     while(1){
         sem_wait(sem_messages_waiting);
+
+        if (pause_requested){
+            MSG(4, "Trying to execute pause...");
+            if(pause_requested == 1)
+                speaking_pause_all(pause_requested_fd);
+            if(pause_requested == 2)
+                speaking_pause(pause_requested_fd, pause_requested_uid);
+            MSG(4, "Pause execution terminated...");
+            pause_requested = 0;
+            continue;
+        }
 
         /* Look what is the highest priority of waiting
          * messages and take the desired actions on other
@@ -132,7 +145,8 @@ speak(void* data)
         if (ret <= 0) MSG(2, "Output module failed");
 
         /* Tidy up... */
-        mem_free_message(message);
+        if (current_message != NULL) mem_free_message(current_message);
+        current_message = message;
         pthread_mutex_unlock(&element_free_mutex);        
     }	 
 }
@@ -271,6 +285,8 @@ speaking_pause(int fd, int uid)
     TFDSetElement *settings;
     TSpeechDMessage *new;
     char *msg_rest;
+    size_t msg_pos;
+    int i;
 
     /* Find settings for this particular client */
     settings = get_client_settings_by_uid(uid);
@@ -280,17 +296,24 @@ speaking_pause(int fd, int uid)
     if (is_sb_speaking() == 0) return 0;
     if (speaking_uid != uid) return 0;    
 
-    msg_rest = (*speaking_module->pause) ();
-    if (msg_rest == NULL) return 0;
+    msg_pos = (*speaking_module->pause) ();
+    if (msg_pos == 0) return 0;
+    if (current_message == NULL) return 0;
 
+    assert(msg_pos <= current_message->bytes);
+    
     new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
-    new->bytes = strlen(msg_rest);
-    new->buf = msg_rest;
+    new->bytes = current_message->bytes - msg_pos;
+    new->buf = (char*) spd_malloc((new->bytes + 2) * sizeof(char)); 
+    MSG(1,"DBG TEMP MESSAGE: (%s) [%d]", current_message->buf, msg_pos);
+    for (i=0; i<=new->bytes-1; i++){
+        new->buf[i] = current_message->buf[i+msg_pos];
+    }
     assert(new->bytes >= 0);
     assert(new->buf != NULL);
     new->buf[new->bytes] = 0;
 
-    if(queue_message(new, fd, 0, MSGTYPE_TEXT, 0) != 0){
+    if(queue_message(new, fd, 0, MSGTYPE_TEXTP, 0) != 0){
         if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
         free(new->buf);
         free(new);
@@ -494,9 +517,9 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
 
     assert(settings->spelling_table != NULL);
 
-    MSG(4,"Processing %d bytes", size);
     pos = buf;                  /* Set the position cursor for UTF8 to the beginning. */
     size = g_utf8_strlen(buf, -1) - 1;
+    MSG(4,"Processing %d bytes", size);
     for(i=0; i <= size; i++){
         spd_utf8_read_char(pos, character);
         spelled_letter = (char*) snd_icon_spelling_get(settings->spelling_table,
