@@ -1,8 +1,10 @@
 2003-04-24  Milan Zamazal  <pdm@brailcom.org>
 
-	* src/modules/apollo.c (set_speed, set_pitch): Allocate `command'
-	as an empty array.  Use `snprintf', not `sprintf'.
+	* src/modules/apollo.c: Include math.h.
+	(set_speed, set_pitch): Allocate `command' as an empty array.  Use
+	`snprintf', not `sprintf'.
 	(apollo_write): Negate the return value.
+	(send_apollo_command): Send carriage return additionally.
 
 2003-04-23  Milan Zamazal  <pdm@brailcom.org>
 
