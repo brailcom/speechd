@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.48 2003-06-08 21:54:34 hanke Exp $
+  * $Id: server.c,v 1.49 2003-06-20 00:48:47 hanke Exp $
   */
 
 #include "speechd.h"
@@ -182,7 +182,7 @@ server_data_off(int fd)
 int
 serve(int fd)
 {
-    int bytes;              /* Number of bytes we got */
+    size_t bytes;              /* Number of bytes we got */
     char buf[BUF_SIZE];     /* The content (commands or data) we got */
     char *reply;            /* Reply to the client */
     int ret;
