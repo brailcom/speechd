@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.15 2003-05-07 20:58:19 hanke Exp $
+ * $Id: dc_decl.h,v 1.16 2003-05-07 22:09:46 hanke Exp $
  */
 
 #include "speechd.h"
@@ -217,14 +217,14 @@ DOTCONF_CB(cb_AddTable)
         strcpy(bline, helper);
         character = strtok(helper, "\"");
 
-	if (character == NULL){
+	    if (character == NULL){
             /* probably a black line or commentary */
             continue;
         }
 
         if(!strcmp(character,"\\")){
             strcpy(character,"\"");
-            strtok(NULL, "\""); /* skip the next quotes */
+            strtok(NULL, "="); /* skip the next quotes */
         }
         if(!strcmp(character,"\\\\")){
             strcpy(character,"\\");
@@ -244,6 +244,7 @@ DOTCONF_CB(cb_AddTable)
 
         g_strstrip(value);
         g_hash_table_insert(icons_hash, key, value);
+		MSG(5,"Pair |%s+%s| inserted", key, value);
     }
 
     return NULL;
