@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: msg.h,v 1.11 2003-04-15 10:08:59 pdm Exp $
+ * $Id: msg.h,v 1.12 2003-04-15 11:24:20 pdm Exp $
  */
 
 
@@ -31,7 +31,7 @@
 #define OK_SPELLING_SET				"207 OK SPELLING SET\r\n"
 #define OK_CLIENT_NAME_SET			"208 OK CLIENT NAME SET\r\n"
 #define OK_VOICE_SET				"209 OK VOICE SET\r\n"
-#define OK_STOPED                               "210 OK STOPED\r\n"
+#define OK_STOPPED                              "210 OK STOPPED\r\n"
 #define OK_PAUSED				"211 OK PAUSED\r\n"
 #define OK_RESUMED				"212 OK RESUMED\r\n"
 #define OK_CANCELED				"213 OK CANCELED\r\n"

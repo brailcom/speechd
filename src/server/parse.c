@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.20 2003-04-15 10:08:59 pdm Exp $
+ * $Id: parse.c,v 1.21 2003-04-15 11:24:20 pdm Exp $
  */
 
 #include "speechd.h"
@@ -326,7 +326,7 @@ parse_stop(char *buf, int bytes, int fd)
 
     MSG(4, "Stop received.");
 
-    return OK_STOPED;
+    return OK_STOPPED;
 }
 
 char*
