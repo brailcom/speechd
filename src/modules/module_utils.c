@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.7 2003-07-10 16:11:55 pdm Exp $
+ * $Id: module_utils.c,v 1.8 2003-07-16 19:16:19 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -279,11 +279,11 @@ module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid,
 
             DBG("Waiting for child...");
             waitpid(*process_pid, &status, 0);            
+            
+            *speaking_flag = 0;
 
             DBG("child terminated -: status:%d signal?:%d signal number:%d.\n",
                 WIFEXITED(status), WIFSIGNALED(status), WTERMSIG(status));
-
-            *speaking_flag = 0;
         }        
     }
 }
@@ -316,7 +316,7 @@ module_parent_wfork(TModuleDoublePipe dpipe, const char* message,
             DBG("Sending buf to child:|%s|\n", buf);
             module_parent_dp_write(dpipe, buf, bytes);
         
-            DBG("Waiting for response from flite child...\n");
+            DBG("Waiting for response from child...\n");
             while(1){
                 read_bytes = module_parent_dp_read(dpipe, msg, 8);
                 if (read_bytes == 0){
@@ -736,7 +736,7 @@ module_parent_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes)
 {
     int ret;
     assert(msg != NULL);
-    DBG("GOING TO WRITE");
+    DBG("going to write %d bytes", bytes);
     ret = write(dpipe.pc[1], msg, bytes);      
     DBG("written %d bytes", ret);
     return ret;
