@@ -458,6 +458,9 @@ Here is a description of it's commands and what they do.
 
 @subsection Data flow and speech control
 
+Note that SSIP is still going to change and shouldn't be used
+directly!
+
 @deffn {SSIP Command} {@@data on}
 As Speech Deamon receives this command, it becomes listening for
 incomming data. It adds incomming data to it's buffer until 
@@ -638,7 +641,117 @@ see sources, I'll try to write this section soon
 @node Output modules, ,	Server core, Internal structure
 @section Output modules
 
-... need some serious rework
+@findex synthesizer_write()
+@findex synthesizer_stop()
+@findex synthesizer_is_speaking()
+@findex synthesizer_close()
+
+Output modules for Speech Deamon have the form of a glib plug-ins
+located in src/modules/. Each output module is a data
+structure composed of some parameters and pointers to it's functions.
+
+@example
+	typedef struct @{
+       gchar    *name;
+       gchar    *description;
+       gchar    *filename;
+       gint     (*write)    (const gchar *, gint, void*);
+       gint     (*stop)     (void);
+       gint     (*close)    (void);
+       gint     (*is_speaking) (void);
+     @} OutputModule;
+@end example
+
+This structure is defined in @file{intl/modules.h} and therefore 
+this header must be included in every plugin source code.
+
+@example
+    #include "modules.h"
+@end example
+
+Also one other file called @file{intl/fdset.h} where the FDSetElement
+structure is defined must be included to be able to handle the
+different speech synthesis settings.
+
+@example
+    #include "fdset.h"
+@end example
+
+Each output module has associated a module_init function
+that is called at the starting of Speech Deamon. After doing
+the necessary initialization, it must return a filled structure
+of the type OutputModule (defined above).
+
+@example
+	OutputModule *module_init(void)@{
+		...
+		return &module_flite;
+	@}
+@end example
+
+Now what are the 4 functions: flite_write, flite_stop, flite_is_speaking
+and flite_close? This is the core of every output module and you
+have to define their bodies in the source code of your plug-in.
+
+@deffn {Output module functions}  gint synthesizer_write const gchar *data, gint len, TFDSetElement* set
+
+This is the function where actual speech output is produced. It is called
+every time Speech Deamon decides to send a message to synthesis. The data
+of lenght @var{len} are passed in @var{data}. Additionally, the structure
+containing settings associated to this particular message is passed,
+however only few options are important for output modules.
+
+Each output module should take care of setting the output device to these parameters
+(the other ones are handled independently in other parts of Speech Deamon):
+@itemize @bullet
+	@item (signed int) set->speed
+	@item (signed int) set->pitch
+	@item (char*) set->language
+	@item (int) set->voice_type
+@end itemize
+
+This function should return 0 if it fails and some non-0 value
+if the delivery to the synthesis is succesful. Formerly we thought
+that it should return the number of bytes written, but it's still
+not clear how to handle messages that have to be divided in more
+parts (for example if the output device has a finite size buffer).
+
+@end deffn
+
+@deffn {Output module functions}  {gint synthesizer_stop} void
+
+This function should stop the synthesis of the currently spoken message
+immediately and throw away the rest of the message.
+
+It should return 0 on succes, -1 otherwise.
+
+@end deffn
+
+@deffn {Output module functions}  {gint synthesizer_is_speaking} void
+
+This function is very important to let Speech Deamon know how to
+regulate the speech flow between different queues, programs and even
+other synthesizers. On calling it, the output module must decide
+whether there is currently any output beeing produced in the speakers.
+
+That can be a very hard problem and it's not clear how to do it
+with diferent synthesizers. If it's not possible to return an exact
+value, at least some estimate should be calculated. But such an inacurate
+value can highly reduce the usefulness of an even otherwise very good
+plug-in. To some degree, this is still an open question.
+
+It should return 0 if the synthesis is silent, 1 if it's speaking.
+
+@end deffn
+
+@deffn {Output module functions}  {gint synthesizer_close} void
+
+This function is called when Speech Deamon terminates. There are no
+special requierements on what the output plug-in should do.
+
+It should return 0 on succes, -1 otherwise.
+
+@end deffn
 
 @node Public API,	Priorities,	Internal structure,	Top
 @chapter Public API
@@ -731,6 +844,10 @@ Example uses for level @strong{three} are:
 @node Multiple output modules, History, Priorities, Top
 @cindex output module
 @cindex different synthesizers
+
+some general infor should go here...
+
+also look at internal structure/output modules
 
 @node History, Speech parameters, Multiple output modules, Top
 @chapter History
