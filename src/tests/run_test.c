@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: run_test.c,v 1.3 2003-07-06 15:06:07 hanke Exp $
+ * $Id: run_test.c,v 1.4 2003-07-07 22:28:28 hanke Exp $
  */
 
 #include <stdio.h>
@@ -30,7 +30,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <assert.h>
-
 
 #include "def.h"
 
@@ -99,9 +98,10 @@ main(int argc, char* argv[])
     char *ret;
     FILE* test_file;
     int delays = 1;
+	int indent = 0;
 
     if(argc < 2){
-        printf("No test script specified!");
+        printf("No test script specified!\n");
         exit(1);
     }
 
@@ -133,8 +133,10 @@ main(int argc, char* argv[])
 
         if (line[0] == '@'){
             command = (char*) strtok(line, "@\r\n");
-            if (command == NULL) continue;
-            printf("  %s\n", command);
+            if (command == NULL)
+				printf("\n");
+			else
+	            printf("  %s\n", command);
             continue;
         }
 
@@ -145,7 +147,7 @@ main(int argc, char* argv[])
 
             printf("     >> %s", command);
             reply = send_data(sockk, command, 1);
-            printf("       < %s", reply);
+            printf("     < %s", reply);
             continue;
         }
         
@@ -162,7 +164,28 @@ main(int argc, char* argv[])
             }
             continue;
         }
+
+        if(line[0] == '~'){
+			  int i;
+              command = (char*) strtok(line, "~\r\n");
+			  	indent = atoi(command);
+            continue;
+        }
+				
+		
+        if(line[0] == '?'){
+            getc(stdin);
+			continue;
+        }
         
+		if(line[0] == '*'){
+			system("clear");
+			for (i=0; i<=indent - 1; i++){
+	  		  printf("\n");
+			}				
+			continue;
+		}
+		
         send_data(sockk, line, 0);            
         printf("     >> %s", line);
     }
