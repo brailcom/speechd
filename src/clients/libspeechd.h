@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.4 2003-02-01 22:16:55 hanke Exp $
+ * $Id: libspeechd.h,v 1.5 2003-03-09 20:48:17 hanke Exp $
  */
 
 	/* This is the header file for the libspeechd library.
@@ -169,10 +169,71 @@ int spd_pause(int fd);
 int spd_resume(int fd);
 	/* Both return 0 on succes, -1 if there is no such connection. */
 
+	/* Speech Deamon supports a facility called sound icons.
+	 * Sound icons are a language independent objects that
+	 * you can use with communication with user. For example
+	 * there are sound icons: "letter_K", "digit_0", "warning"
+	 * or "bell". The exact sound each of them will produce
+	 * depends on the current language and can be also set by
+	 * user. */
+
+int spd_icon(int fd, int priority, char *name);
+	/* spd_icon() gets client's fd, the desired priority
+	 * of generated message	and name of the sound icon.
+	 * Speech Deamon than converts this sound icon into
+	 * regular message and puts it into it's queues. 
+	 *
+	 * spd_icon() returns 0 on succes, -1 if it fails there
+	 * is no such connection or there is no such icon). */
+
+	/* Letters, digits and other signs ('+','-','_','/' ...)
+	 * are often used types of sound icons. The following 3 functions
+	 * are here to simplify dealing with these symbols. */
+int spd_say_letter(int fd, int priority, int c);
+int spd_say_digit(int fd, int priority, int c);
+int spd_say_sgn(int fd, int priority, int c);
+	/* In each of these three functions, c means the symbol (letter,
+	 * digit or sign) you want to represent.
+	 * Each of these functions returns 0 on succes, -1 otherwise.
+	 */ 
+
+int spd_say_key(int fd, int priority, int c);
+	/* spd_say_key() is a synthesis of the above 3 functions.
+	 * You can pass letters, digits or other printable signs
+	 * as _c_ and Speech Deamon will find the appropiate sound
+	 * icon.
+	 * It returns 0 on succes, -1 otherwise. */
+
+	/* The spd_voice_ family of commands can be used to set the
+	 * parameters of the voice. But note that these are only prefered values
+	 * and the user is free to set different parameters. */
+int spd_voice_speed(int fd, int speed);
+int spd_voice_pitch(int fd, int pitch);
+	/* spd_voice_speed() and spd_voice_pitch() set the speed and the pitch
+	 * of the voice respectively to the value passed in the second parameter.
+	 * It must be between -100 and +100. 0 is the default value representing
+	 * normal speech. Speech Deamon will then try to find the most appropiate
+	 * values for each synthesizers. 
+	 * Both functions return 0 on succes, -1 otherwise. */
+
+	/* If punctuation mode is on, Speech Deamon will make the synthesizer
+	 * pronounce even marks that are normally silent, like coma, dash, or dot. */
+int spd_voice_punctuation(int fd, int flag);
+	/* If flag is set to 1, the punctuation mode is on, 0 means off. 
+	 * It returns 0 on succes, -1 otherwise. */		
+	
+	/* Sometimes it's necessary to make distinction between small
+	 * and capital letters in the pronounced text. */
+int spd_voice_cap_let_recognition(int fd, int flag);
+	/* If flag is set to 1, capital letters are pronounced differently.
+	 * 0 means normal speech.	
+	 * It returns 0 on succes, -1 otherwise. */		
+
+
 	/* If you are going to use Speech Deamon to make your application
 	 * accessible to visually impaired people (which is The Good
 	 * Thing (tm) !), you can use this function for all
-	 * command line oriented text input:*/
+	 * command line oriented text input: */
 char* spd_command_line(int fd, char *buffer, int pos, int c);
 	/* Now how it works: you have to use it in a loop, each time
 	 * you catch a newly typed key, you call this function and pass
