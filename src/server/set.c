@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.13 2003-04-11 20:39:37 hanke Exp $
+ * $Id: set.c,v 1.14 2003-04-14 22:48:31 hanke Exp $
  */
 
 
@@ -163,6 +163,7 @@ default_fd_set(void)
 	new->output_module = (char*) spd_malloc(64);
 	new->client_name = (char*) spd_malloc(128);		/* max 127 characters */
 	new->spelling_table = (char*) spd_malloc(128);		/* max 127 characters */
+        new->punctuation_some = (char*) spd_malloc(128);
    
 	new->paused = 0;
 
@@ -175,6 +176,7 @@ default_fd_set(void)
 	strcpy(new->output_module, GlobalFDSet.output_module);
 	strcpy(new->client_name, GlobalFDSet.client_name); 
 	strcpy(new->spelling_table, GlobalFDSet.spelling_table); 
+        strcpy(new->punctuation_some, GlobalFDSet.punctuation_some);
 	new->voice_type = GlobalFDSet.voice_type;
 	new->spelling = GlobalFDSet.spelling;         
 	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;
