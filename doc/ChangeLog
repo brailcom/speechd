@@ -1,3 +1,10 @@
+2003-12-07  Hynek Hanke  <hanke@volny.cz>
+
+	* ssip.texi: New file. SSIP Description splitted from speechd.texi.
+	New sections in Introduction written.
+
+	* figures/priorities.*: Corrected swapped priorities, regenerated.
+	
 2003-11-17  Hynek Hanke  <hanke@volny.cz>
 
 	* speechd.texi (Parameter Setting Commands): Added SET * SPELLING
