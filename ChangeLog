@@ -1,3 +1,8 @@
+2003-06-25  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/modules/module_utils.c (module_strip_punctuation_default):
+	Brackets added to the characters to strip.
+
 2003-06-23  Jan Buchal   <buchal@domaciskola.robinson>
 
 	* src/modules/festival.c (festival_set_voice): Set cur_rate
