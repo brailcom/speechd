@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.37 2003-07-07 09:59:11 hanke Exp $
+ * $Id: speechd.h,v 1.38 2003-07-16 19:22:32 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -57,6 +57,7 @@
 #include "parse.h"
 #include "sndicon.h"
 #include "compare.h"
+#include "alloc.h"
 
 #define BUF_SIZE 4096
 
