@@ -1,5 +1,5 @@
 /* Speechd module for flite (software synthetizer)
- * CVS revision: $Id: flite.c,v 1.1 2002-06-30 00:23:32 hanke Exp $
+ * CVS revision: $Id: flite.c,v 1.2 2002-07-02 08:00:39 hanke Exp $
  * Author: Hynek Hanke <hanke@volny.cz> */
 
 #define VERSION "0.0.1"
@@ -8,27 +8,7 @@
 #include <glib.h>
 
 #include "module.h"
-
-typedef enum {                  // type of voice
-        MALE = 0,               // (numbers divisible by 2 should mean male)
-        FEMALE = 1,
-        CHILD_MALE = 2,
-        CHILD_FEMALE = 3
-}EVoiceType;
-
-typedef struct{
-        int fd;
-        int priority;           // priority between 1 and 3
-        int punctuation_mode;   // this will of course not be integer
-        int speed;              // speed: 100 = normal, ???
-        float pitch;            // pitch: ???
-        char *language;         // language: default = english
-        char *output_module;    // output module: flite, odmluva, epos,...
-        EVoiceType voice_type;  // see EVoiceType definition
-        int spelling;           // spelling mode: 0 -- off, 1 -- on
-        int cap_let_recogn;     // cap. letters recogn.: 0 -- off, 1 -- on
-}TFDSetElement;
-
+#include "fdset.h"
 
 gint       flite_write      (const gchar *data, gint len, TFDSetElement *);
 gint       flite_stop       (void);
@@ -70,14 +50,15 @@ gint flite_write(const gchar *data, gint len, TFDSetElement* set) {
    printf("  fd: %d\n", set->fd);
 //   printf("  language: %s\n", set->language);
 
-//   for (i=0; i<len; i++) {
-//      printf("%c",data[i]);
-//   }
-//   printf("\n");
-	
+   for (i=0; i<len; i++) {
+      printf("%c",data[i]);
+   }
+   printf("\n");
+//	exit(0);
    data[len] = 0;
 
-   temp = fopen("/tmp/flite_message", "w");
+   if((temp = fopen("/tmp/flite_message", "w")) == NULL)
+      FATAL("Output module flite couldn't open temporary file");
    fprintf(temp,"%s",data);
    fclose(temp);
    system("flite /tmp/flite_message &");
