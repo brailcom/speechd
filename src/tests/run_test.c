@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: run_test.c,v 1.2 2003-05-26 16:04:50 hanke Exp $
+ * $Id: run_test.c,v 1.3 2003-07-06 15:06:07 hanke Exp $
  */
 
 #include <stdio.h>
@@ -67,9 +67,17 @@ init(char* client_name, char* conn_name)
 {
   int sockfd;
   struct sockaddr_in address;
+  char *env_port;
+  int port;
+
+  env_port = getenv("SPEECHD_PORT");
+  if (env_port != NULL)
+      port = strtol(env_port, NULL, 10);
+  else
+      port = SPEECHD_DEFAULT_PORT;
 
   address.sin_addr.s_addr = inet_addr("127.0.0.1");
-  address.sin_port = htons(SPEECH_PORT);
+  address.sin_port = htons(port);
   address.sin_family = AF_INET;
   sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
