@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.33 2003-06-20 00:50:35 hanke Exp $
+ * $Id: speechd.h,v 1.34 2003-06-23 05:13:27 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -79,6 +79,8 @@ typedef struct{
     TFDSetElement settings;	/* settings of the client when queueing this message */
 }TSpeechDMessage;
 
+#include "alloc.h"
+
 /* EStopCommands describes the stop family of commands */
 typedef enum
 {
@@ -96,8 +98,6 @@ typedef struct
     GList *punctuation;
 }TSpeechDTables;
 
-configoption_t *options;
-int num_config_options;
 
 /* Message logging */
 int spd_log_level;
@@ -122,6 +122,11 @@ pthread_mutex_t element_free_mutex;
 
 /* How many messages in total are waiting in the queues */
 sem_t *sem_messages_waiting;
+
+/* Loading options from DotConf */
+configoption_t *spd_options;
+int spd_num_options;
+
 
 /* Table of all configured (and succesfully loaded) output modules */
 GHashTable *output_modules;	
