@@ -8,6 +8,7 @@ You will need these components to compile Speech Daemon:
  - libasound1 (0.5.8)
  - gcc and GNU make
  - flite [the only synthetiser that has working output module now]
+ - libfestival-dev and libestools-dev
  - librecode
  - ncurses [for Speech Deamon Center]
  - automake 1.7+, autoconf, pkg-config and libtool (if you are building from CVS)

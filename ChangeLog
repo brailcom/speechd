@@ -1,5 +1,6 @@
 2003-04-29  Milan Zamazal  <pdm@brailcom.org>
 
+	* INSTALL: libfestival-dev and libestools-dev added.
 	* configure.in: Call AC_PROG_CXX.
 	* src/modules/est_string_config.h: New file.
 	* src/modules/Makefile.am: Build the Festival module.
