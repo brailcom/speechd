@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: config.c,v 1.5 2004-06-28 08:10:31 hanke Exp $
+ * $Id: config.c,v 1.6 2004-08-04 08:11:59 hanke Exp $
  */
 
 #include <dotconf.h>
@@ -286,6 +286,8 @@ DOTCONF_CB(cb_BeginClient)
     cl_spec = (TFDSetClientSpecific*) spd_malloc(sizeof(TFDSetClientSpecific));
     cl_spec->pattern = spd_strdup(cmd->data.str);
     cl_spec_section = cl_spec;
+
+    MSG(3, "Reading configuration for pattern %s", cl_spec->pattern);
 
     SET_PAR(rate, -101)
     SET_PAR(pitch, -101)
