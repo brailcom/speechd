@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.16 2003-05-31 18:40:00 pdm Exp $
+ * $Id: apollo.c,v 1.17 2003-06-23 05:04:03 hanke Exp $
  */
 
 
@@ -34,25 +34,20 @@
 #include "module.h"
 #include "fdset.h"
 
-gint apollo_write (gchar*, gint, void*);
-gint apollo_stop (void);
-char* apollo_pause (void);
-gint apollo_is_speaking (void);
-gint apollo_close (void);
+#include "module_utils.c"
 
-OutputModule module_apollo = {
-  "apollo",			/* name */
-  "Apollo2 hardware synthesizer", /* description */
-  NULL,				/* GModule* -- should be left NULL */
-  apollo_write,
-  apollo_stop,
-  apollo_pause,
-  apollo_is_speaking,
-  apollo_close,
-  {0, 0}
-};
+#define MODULE_NAME     "apollo"
+#define MODULE_VERSION  "0.1"
 
-static const char * const DEVICE = "/dev/apollo";
+DECLARE_MODULE_PROTOTYPES();
+
+/* Fill the module_info structure with pointers to this modules functions */
+DECLARE_MODINFO("apollo", "Apollo2 hardware synthesizer");
+
+MOD_OPTION_1_STR(ApolloDevice);
+
+MOD_OPTION_3_HT(ApolloLanguage, lang, rom, char_coding);
+
 static const gchar AT_REPLACEMENT_CHAR = ' ';
 
 static int fd = -1;
@@ -62,29 +57,6 @@ static RECODE_REQUEST recode_request;
 
 
 /* *** Internal functions *** */
-
-
-#define UPDATE_PARAMETER(old_value, new_value, setter) \
-  if (old_value != (new_value)) \
-    { \
-      old_value = (new_value); \
-      setter ((new_value)); \
-    }
-
-#define UPDATE_STRING_PARAMETER(old_value, new_value, setter) \
-  if (old_value == NULL || strcmp (old_value, new_value)) \
-    { \
-      if (old_value != NULL) \
-      { \
-        g_free (old_value); \
-	old_value = NULL; \
-      } \
-      if (new_value != NULL) \
-      { \
-        old_value = g_strdup (new_value); \
-        setter ((new_value)); \
-      } \
-    }
 
 static gint write_it (const void *data, size_t size)
 {
@@ -136,13 +108,12 @@ static gint set_pitch (signed int value)
 
 static gint set_language (const char *value)
 {
-  SPDApolloLanguageDef *language_def;
+  TApolloLanguage *language_def;
   const int MAX_REQUEST_LENGTH = 100;
   char command[5], request[MAX_REQUEST_LENGTH];
   char rom, *char_coding;
   
-  language_def = g_hash_table_lookup (module_apollo.settings.apollo_languages,
-				      value);
+  language_def = (TApolloLanguage*) module_get_ht_option(ApolloLanguage, value);
   if (language_def == NULL)
     {
       rom = '1';
@@ -197,7 +168,8 @@ module_init()
 
   system ("stty -F /dev/apollo sane 9600 raw crtscts");
   system ("stty -F /dev/apollo -echo");
-  fd = open (DEVICE, O_WRONLY);
+  fd = open (ApolloDevice, O_WRONLY);
+  if (fd == -1) return -1;
   {
     const char *command = "@P0\r";
     write_it (command, strlen (command) * sizeof (char));
@@ -210,18 +182,16 @@ module_init()
   return 0;
 }
 
-OutputModule *module_load (void)
+OutputModule* module_load (configoption_t **options, int *num_options)
 {
-  module_apollo.settings.params = g_hash_table_new(g_str_hash, g_str_equal);
-  module_apollo.settings.voices = g_hash_table_new(g_str_hash, g_str_equal);
-  module_apollo.settings.apollo_languages = g_hash_table_new(g_str_hash, g_str_equal);
+  MOD_OPTION_1_STR_REG(ApolloDevice, "/dev/apollo");
+  MOD_OPTION_HT_REG(ApolloLanguage);
   
-  return &module_apollo;
+  return &module_info;
 }
 
-gint apollo_write (gchar *data, gint len, void* set_)
+static gint module_write (gchar *data, size_t bytes, TFDSetElement* set)
 {
-  TFDSetElement *set = set_;
   
   UPDATE_PARAMETER (current_parameters.rate, set->rate, set_rate);
   UPDATE_PARAMETER (current_parameters.pitch, set->pitch, set_pitch);
@@ -233,8 +203,7 @@ gint apollo_write (gchar *data, gint len, void* set_)
   /* TODO: Apollo has a buffer of a certain size (~2 KB?).  If the buffer size
      is exceeded, the extra data is thrown away. */
   {
-    int byte_len = len * sizeof (gchar) + 1;
-    gchar *escaped_data = g_malloc (byte_len + 1);
+    gchar *escaped_data = g_malloc ((bytes + 1) + 1);
     int result;
     
     if (escaped_data == NULL)
@@ -246,12 +215,12 @@ gint apollo_write (gchar *data, gint len, void* set_)
 	char *final_data;
 	int i;
 	
-	for (i = 0; i < len; i++)
+	for (i = 0; i < bytes; i++)
 	  escaped_data[i] = (data[i] == '@'  ? AT_REPLACEMENT_CHAR :
 			     data[i] == '\n' ? '\r' :
 			                       data[i]);
-	escaped_data[len] = '\r';
-	escaped_data[len+1] = '\0';
+	escaped_data[bytes] = '\r';
+	escaped_data[bytes+1] = '\0';
 	final_data = recode_string (recode_request, escaped_data);
 	g_free (escaped_data);
 	result = write_it (final_data, strlen (final_data));
@@ -262,23 +231,23 @@ gint apollo_write (gchar *data, gint len, void* set_)
   }
 }
 
-gint apollo_stop (void)
+static gint module_stop (void)
 {
   return send_apollo_command ("\030");
 }
 
-char* apollo_pause (void)
+static size_t module_pause (void)
 {
-  apollo_stop ();
-  return NULL;
+  module_stop ();
+  return 0;
 }
 
-gint apollo_is_speaking (void)
+static gint module_is_speaking (void)
 {
     return 2;			/* Apollo doesn't provide any information */
 }
 
-gint apollo_close (void)
+static gint module_close (void)
 {
   gint result = (fd == -1 ? -1 : close (fd));
   fd = -1;
