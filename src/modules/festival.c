@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.21 2003-07-16 19:14:17 hanke Exp $
+ * $Id: festival.c,v 1.22 2003-07-18 14:32:14 hanke Exp $
  */
 
 #include "festival_client.c"
@@ -80,6 +80,7 @@ MOD_OPTION_1_STR(FestivalDelimiters);
 MOD_OPTION_1_STR(FestivalServerHost);
 MOD_OPTION_1_INT(FestivalServerPort);
 MOD_OPTION_1_INT(FestivalPitchDeviation);
+MOD_OPTION_1_INT(FestivalDebugSaveOutput);
 
 /* Public functions */
 
@@ -97,6 +98,8 @@ module_load(configoption_t **options, int *num_options)
     MOD_OPTION_1_INT_REG(FestivalServerPort, 1314);
 
     MOD_OPTION_1_INT_REG(FestivalPitchDeviation, 14);
+
+    MOD_OPTION_1_INT_REG(FestivalDebugSaveOutput, 0);
 
     module_register_settings_voices(&module_info);
 
@@ -289,6 +292,7 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
     int terminate = 0;
     int first_run = 1;
     int r = -999;
+    static int debug_count = 0;
 
     DBG("Entering parent process, closing pipes");
 
@@ -322,11 +326,18 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
                 DBG("Sending buf to child in wav: %d samples\n", (fwave->num_samples) * sizeof(short));
             
                 ret = module_parent_send_samples(dpipe, fwave->samples, fwave->num_samples);
-                delete_FT_Wave(fwave);
                 if (ret == -1) terminate = 1;
 
+                if(FestivalDebugSaveOutput){
+                    char filename_debug[256];
+                    sprintf(filename_debug, "/tmp/debug-festival-%d.snd", debug_count++);
+                    save_FT_Wave_snd(fwave,filename_debug);
+                }
+
+                delete_FT_Wave(fwave);
+
                 DBG("parent: Sent %d bytes\n", ret);            
-                ret = module_parent_dp_write(dpipe, "\r\n.\r\n", 5);
+                ret = module_parent_dp_write(dpipe, "\r\nOK_SPEECHD_DATA_SENT\r\n", 24);
                 if (ret == -1) terminate = 1;
                 
                 if (terminate != 1) terminate = module_parent_wait_continue(dpipe);
