@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.29 2003-09-20 17:31:45 hanke Exp $
+  * $Id: speaking.c,v 1.30 2003-09-28 22:31:40 hanke Exp $
   */
 
 #include <glib.h>
@@ -44,7 +44,7 @@ speak(void* data)
     int ret;
     TSpeechDMessage *msg;
 
-    /* Block all signals and sets thread states */
+    /* Block all signals and set thread states */
     set_speak_thread_attributes();
 
     while(1){
@@ -298,8 +298,18 @@ speaking_pause(int fd, int uid)
     if (im == -1) return 0;
     if (current_message == NULL) return 0;
 
-    pos = find_index_mark(current_message, im);
-    if (pos == NULL) return 1;
+    /* Scroll back to provide context, if required */
+    /* WARNING: This relies on ordered index marks! */
+    im -= settings->pause_context;
+    if (im < 0){
+        im = 0;
+        pos = current_message->buf;
+    }else{
+        /* Construct the new message */
+        pos = find_index_mark(current_message, im);
+        if (pos == NULL) return 1;
+    }
+
     new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
     new->bytes = strlen(pos);
     new->buf = strip_index_marks(pos); 
@@ -355,8 +365,8 @@ speaking_resume(int uid)
                 element = (TSpeechDMessage*) gl->data;
                 MessageQueue->p2 = g_list_append(MessageQueue->p2, element);
                 MessagePausedList = g_list_remove_link(MessagePausedList, gl);
-                speaking_semaphore_post();
             }else{
+                speaking_semaphore_post();
                 break;
             }
         }
