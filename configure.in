@@ -60,11 +60,12 @@ glib_include=`pkg-config --cflags glib-2.0`
 AC_SUBST(glib_include)
 glib_libs=`pkg-config --libs glib-2.0`
 AC_SUBST(glib_libs)
+
 spdconfdir="$sysconfdir/speech-dispatcher/" 
 AC_SUBST(spdconfdir)
 snddatadir="$datadir/sounds/speech-dispatcher/" 
 AC_SUBST(snddatadir)
-modulebindir="$bindir/speech-dispatcher-modules/" 
+modulebindir="$libdir/speech-dispatcher-modules/"
 AC_SUBST(modulebindir)
 moduleconfdir="$sysconfdir/speech-dispatcher/modules/" 
 AC_SUBST(moduleconfdir)
