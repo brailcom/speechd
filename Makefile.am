@@ -2,11 +2,5 @@
 
 SUBDIRS= src config doc
 
-EXTRA_DIST= ChangeLog NEWS TODO AUTHORS COPYING INSTALL README intl doc
-
-## man_MANS = 
-
-# GEN_MAN is a shell command that generates the man page
-## GEN_MAN=@GEN_MAN@
-
+EXTRA_DIST= ChangeLog NEWS TODO AUTHORS COPYING INSTALL README intl doc build.sh
 
