@@ -789,6 +789,7 @@ about current external client libraries.
 @menu
 * C API::                       Shared library for C/C++
 * Python API::                  Pythom module.
+* Guile API::                   
 @end menu
 
 @node C API, Python API, Client Programming, Client Programming
@@ -1360,19 +1361,19 @@ For example (simplified by not checking and freeing the returned strings):
 
 
 
-@node Python API,  , C API, Client Programming
+@node Python API, Guile API, C API, Client Programming
 @section Python API
-@c You should name all subnodes with a ``in Python'' at the
-@c end or there will be conflicts with other APIs
-@c Please don't use ``(Python)'' because that
-@c confuses pinfo in references.
-@c There is no point in doing the same for @chapters
-@c and sections.
-@c See the C API...
 
-Currently, the Python interface is still in early experimental version
-and it probably doesn't work. If you are still interested, please
-look at @file{src/python/api/} in the source tree.
+There is a full Python API available in @file{src/python/speechd/} in
+the source tree. Please see the included docstrings for reference
+documentation about the available objects and methods.
+
+@node Guile API,  , Python API, Client Programming
+@section Guile API
+
+The Guile API can be found @file{src/guile/} in
+the source tree, however it's still considered to be
+at the experimental stage. Please read @file{src/guile/README}.
 
 @node Server Programming, Download and Contact, Client Programming, Top
 @chapter Server Programming
