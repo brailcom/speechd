@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: say.c,v 1.10 2003-03-12 22:21:57 hanke Exp $
+ * $Id: say.c,v 1.11 2003-04-05 21:18:40 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -42,10 +42,6 @@ int main(int argc, const char **argv) {
    int sockfd;
    struct sockaddr_in address;
    int err;
-   int c;
-   int *cl_ids, *cl_active;
-   char **cl_names;
-   int i = 0;
 
    if (argc != 2) {
       fprintf (stderr, "usage: %s ARGUMENT\n", argv[0]);
