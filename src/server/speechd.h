@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.43 2003-09-24 08:42:01 pdm Exp $
+ * $Id: speechd.h,v 1.44 2003-09-28 22:32:17 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -178,6 +178,8 @@ GHashTable *output_modules;
 GHashTable *fd_settings;	
 /* Table of sound icons for different languages */
 GHashTable *snd_icon_langs;
+/* Pointer into snd_icon_langs to all the entries under the `generic' language */
+GHashTable *generic_lang_icons;
 /* Table of default output modules for different languages */
 GHashTable *language_default_modules;
 /* Table of relations between client file descriptors and their uids*/
