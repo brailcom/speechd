@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.9 2003-07-17 11:56:19 hanke Exp $
+ * $Id: module_utils.c,v 1.10 2003-07-18 14:32:34 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -358,6 +358,7 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
     int bytes;
     int num_samples = 0;
     int ret;
+    int data_mode = 0;
 
     module_sigblockall();
 
@@ -386,13 +387,22 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
         }
 
         /* Are we at the end? */
-        if (!strncmp(data,"\r\n.\r\n", 5) 
-            || !strncmp(data+bytes-5,"\r\n.\r\n", 5)){
+        if (bytes>=24){
+            if (!strncmp(data+bytes-24,"\r\nOK_SPEECHD_DATA_SENT\r\n", 24)) data_mode = 2;
+            if (!strncmp(data,"\r\nOK_SPEECHD_DATA_SENT\r\n", 24)) data_mode = 1;        
+        }
+
+        if ((data_mode == 1) || (data_mode == 2)){
+            if (data_mode == 2){
+                samples = module_add_samples(samples, (short*) data,
+                                             bytes-24, &num_samples); 
+            }
 
             DBG("child: End of data caught\n");
             wave = (cst_wave*) xmalloc(sizeof(cst_wave));
             wave->type = strdup("riff");
-            wave->sample_rate = 16000;
+            wave->sample_rate = 0; /* We don't use sample rate here, it was significant
+                                    when opening the device */
             wave->num_samples = num_samples;
             wave->num_channels = 1;
             wave->samples = samples;
@@ -407,6 +417,7 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
 
             num_samples = 0;        
             samples = NULL;
+            data_mode = 0;
         }else{
             samples = module_add_samples(samples, (short*) data,
                                          bytes, &num_samples);
