@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.24 2003-06-02 15:47:39 hanke Exp $
+ * $Id: flite.c,v 1.25 2003-06-08 21:53:19 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -80,15 +80,17 @@ OutputModule modinfo_flite = {
 
 
 int
-module_init(OutputModule *module)
+module_init(void)
 {
     /* Init flite and register a new voice */
     flite_init();
     flite_voice = register_cmu_us_kal();
 
-    if (DEBUG_FLITE && (flite_voice == NULL))
-        printf("Couldn't register the basic kal voice.\n"); 
-
+	if (flite_voice == NULL){
+       if (DEBUG_FLITE) printf("Couldn't register the basic kal voice.\n");
+       return -1;
+    }
+									
     return 0;
 }
 
