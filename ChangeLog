@@ -1,4 +1,17 @@
-2003-05-13    <buchal@robinson>
+2003-05-17  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/audio/spd_audio.h: Include flite/flite.h.
+
+	* src/modules/Makefile.am: Don't use C++.
+	Link festival.c into a new plugin for Speech Deamon.
+
+	* src/modules/festival_client.c: Festival client/server functions library.
+
+	* src/modules/festival_client.h: Festival client/server functions library.
+
+	* src/modules/festival.c: New Festival output plugin.
+
+2003-05-13  Jan Buchal  <buchal@robinson>
 
 	* src/server/server.c (process_message_punctuation): Only fill new_message if str not NULL.
 
@@ -8,16 +21,16 @@
 
 2003-05-11  Hynek Hanke  <hanke@volny.cz>
 
-	* src/server/server.c (process_message_spelling): Don't queue \r and \n strings when
+    	* src/server/server.c (process_message_spelling): Don't queue \r and \n strings when
 	not found in sound icons.
 
-    * src/sounds: New directory.
+	* src/sounds: New directory.
 
-    * src/sounds/Makefile.am: Install sounds.
+	* src/sounds/Makefile.am: Install sounds.
 
 	* Makefile.am: New directory sounds.
 
-    * src/configure.in: Set datadir to the appropriate path.
+	* src/configure.in: Set datadir to the appropriate path.
 
 	* src/server/sndicon.c: Read sound icons from DATA_DIR
 
