@@ -1,7 +1,11 @@
-2003-07-07  Hynek Hanke  <hanke@volny.cz>
+2003-07-08  Hynek Hanke  <hanke@volny.cz>
+
+	* speechd.texi (C API): New functions added.
 
 	* speechd.texi (Parameter setting commands): New SSIP commands for capital letters
 	recognition.
+	Spellchecked.
+	(Output module functions): Some more info about how to write output modules.
 
 2003-06-08  Hynek Hanke  <hanke@localhost.localdomain>
 
