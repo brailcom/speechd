@@ -1,3 +1,27 @@
+2003-07-22  Tomas Cerha  <cerha@freebsoft.org>
+
+	* speechd/_test.py (Client.check_it): Added tests for `set_rate()'
+	and `set_pitch()' methods.
+
+	* speechd/client.py: `Speech Daemon' changed to `Speech
+	Dispatcher'.
+	(_SSIP_Connection): New Class.
+	(Client.RECV_BUFFER_SIZE, Client.SSIP_NEWLINE)
+	(Client._SSIP_END_OF_DATA, Client._SSIP_END_OF_DATA_ESCAPED):
+	Constants removed.
+	(_Socket): Class removed.
+	(Client.__init__): Use `_SSIP_Conection' instead of plain socket.
+	(Client._send_command, Client._send_data, Client._recv_response):
+	Methods removed.
+	(Client.close): Close `self._conn' instead of `self._socket'.
+	(Client.say, Client.stop): Use `self._conn.send_command()' instead
+	of `self._send_command()'.
+	(Client.set_language): New method.
+	(Client.set_pitch): New method.
+	(Client.set_pitch): New method.
+	(Client.get_client_list): Use `self._conn.send_command()' instead
+	of `self._send_command()'.
+
 2003-07-17  Tomas Cerha  <cerha@freebsoft.org>
 
 	* speechd/_test.py (Client.check_it): Pass a new `user' argument
