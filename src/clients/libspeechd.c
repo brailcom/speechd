@@ -142,8 +142,8 @@ spd_resume(int fd)
 	char helper[16];
 
 	sprintf(helper, "@resume\n\r");
-	if(!ret_ok(send_data(fd, helper, 1))) return 0;
 
+	if(!ret_ok(send_data(fd, helper, 1))) return 0;
 	return 1;
 }
 
@@ -153,10 +153,31 @@ spd_resume_fd(int fd, int target)
 	char helper[16];
 
 	sprintf(helper, "@resume %d\n\r", target);
-	if(!ret_ok(send_data(fd, helper, 1))) return 0;
 
+	if(!ret_ok(send_data(fd, helper, 1))) return 0;
 	return 1;
 }
+
+int
+spd_history_say_msg(int fd, int id)
+{
+	char helper[32];
+	sprintf(helper,"@history say ID %d\n\r",id);
+
+	if(!ret_ok(send_data(fd, helper, 1))) return 0;
+	return 1;
+}
+
+int
+spd_history_select_client(int fd, int id)
+{
+	char helper[64];
+	sprintf(helper,"@history cursor set %d first\n\r",id);
+
+	if(!ret_ok(send_data(fd, helper, 1))) return 0;
+	return 1;
+}
+
 /* Takes the buffer, position of cursor in the buffer
  * and key that have been hit and tries to handle all
  * the speech output, tabulator completion and other
@@ -175,8 +196,7 @@ spd_get_client_list(int fd, char **client_names, int *client_ids, int* active){
 	int count;
 	char *record;
 	int record_int;
-	char *record_str;
-	
+	char *record_str;	
 
 	sprintf(command, "@history get client_list\n\r");
 	reply = send_data(fd, command, 1);
@@ -205,6 +225,41 @@ spd_get_client_list(int fd, char **client_names, int *client_ids, int* active){
 	return count;
 }
 
+int
+spd_get_message_list_fd(int fd, int target, int *msg_ids, char **client_names)
+{
+	char command[128];
+	char *reply;
+	int header_ok;
+	int count;
+	char *record;
+	int record_int;
+	char *record_str;	
+
+	sprintf(command, "@history get message_list %d 0 20\n\r", target);
+	reply = send_data(fd, command, 1);
+
+	header_ok = parse_response_header(reply);
+	if(header_ok != 1){
+		free(reply);
+		return -1;
+	}
+
+	for(count=0;  ;count++){
+		record = (char*) parse_response_data(reply, count+1);
+		if (record == NULL) break;
+//		MSG(3,"record:(%s)\n", record);
+		record_int = get_rec_int(record, 0);
+		msg_ids[count] = record_int;
+//		MSG(3,"record_int:(%d)\n", msg_ids[count]);
+		record_str = (char*) get_rec_str(record, 1);
+		assert(record_str!=NULL);
+		client_names[count] = record_str;
+//		MSG(3,"record_str:(%s)\n", client_names[count]);		
+	}
+	return count;
+}
+
 char*
 spd_command_line(int fd, char *buffer, int pos, int c){
 	char* new_s;
@@ -218,10 +273,9 @@ spd_command_line(int fd, char *buffer, int pos, int c){
 		new_s = malloc(sizeof(char) * strlen(buffer) * 2);
 	}
 	new_s[0] = 0;
-	
-	
+		
 	/* Speech output for the symbol. */
-	spd_sayf(fd, 2, "%c\n\0", c);
+	spd_sayf(fd, 3, "%c\n\0", c);
 	
 	/* TODO: */
 	/* What kind of symbol do we have. */
@@ -263,7 +317,7 @@ int ret_ok(char *ret){
    fprintf(debugg,"ret_ok::	%s\n", ret);
    sprintf(quantum_trashbin, "returned: %s", ret);
    if ((char*)strstr(ret, "OK") != NULL) return 1;
-   if ((char*)strstr(ret, "ERROR") != NULL) return 0;
+   if ((char*)strstr(ret, "ERR") != NULL) return 0;
    printf("returned: |%s|\n", ret);
    FATAL("Internal error during communication.");
 }
@@ -330,7 +384,7 @@ int parse_response_header(char *resp)
 	
    fprintf(debugg,"command sent:	%s\n", resp);
 	for(i=0;i<=strlen(resp)-1;i++){
-		if ((resp[i]!='\\') || (resp[i]!='\n'))	header[i] = resp[i];
+		if ((resp[i]!='\\') && (resp[i]!='\n'))	header[i] = resp[i];
 		else break;
 	}
 	header[i] = 0;
