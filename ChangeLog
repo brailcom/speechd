@@ -1,3 +1,10 @@
+2003-05-11  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/c/api/libspeechd.c: Completely reworked.
+	All callers changed.
+
+	* src/c/api/libspeechd.h: Completely reworked.
+	All callers changed.
 
 2003-05-07  Hynek Hanke  <hanke@localhost.localdomain>
 

@@ -1,3 +1,9 @@
+2003-05-11  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* speechd.texi (Public API): New division.
+	
+	* speechd.texi (C API): New section, functions documented.
+
 2003-05-01  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* speechd.texi (Output Modules): Section amplified, splitted into nodes
