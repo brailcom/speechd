@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_main.c,v 1.4 2004-06-28 08:07:51 hanke Exp $
+ * $Id: module_main.c,v 1.5 2004-07-21 08:14:41 hanke Exp $
  */
 
 /* So that gcc doesn't comply */
@@ -37,8 +37,10 @@ main(int argc, char *argv[])
 {
     char *cmd_buf;
     int ret;
+    int ret_init;
     int n;
     char *configfilename;
+    char *status_info;
 
     module_num_dc_options = 0;
     
@@ -81,8 +83,35 @@ main(int argc, char *argv[])
         DBG("No config file specified, using defaults...\n");        
     }
     
-    ret = module_init();
-    if (ret == -1) module_close(1);
+    ret_init = module_init(&status_info);
+
+    cmd_buf = NULL;  n=0;
+    ret = getline(&cmd_buf, &n, stdin);
+    if (ret == -1){
+	DBG("Broken pipe when reading INIT, exiting... \n");
+	module_close(2); 
+    }
+
+    if (!strcmp(cmd_buf, "INIT\n")){
+	if (ret_init == 0){
+	    printf("299-%s\n", status_info);
+	    ret = printf("%s\n", "299 OK LOADED SUCCESSFULLY\n");
+	}else{
+	    printf("399-%s\n", status_info);
+	    ret = printf("%s\n", "399 ERR CANT INIT MODULE\n");
+	    return -1;
+	}
+      	xfree(status_info);
+
+	if (ret < 0){ 
+	    DBG("Broken pipe, exiting...\n");
+            module_close(2); 
+	}
+	fflush(stdout);
+    }else{
+	DBG("ERROR: Wrong communication from module client: didn't call INIT\n");
+	module_close(3);
+    }
 
     while(1){
         cmd_buf = NULL;  n=0;
@@ -90,9 +119,9 @@ main(int argc, char *argv[])
         if (ret == -1){
             DBG("Broken pipe, exiting... \n");
             module_close(2); 
-        } 
+        }
 
-        PROCESS_CMD(SPEAK, do_speak) 
+	PROCESS_CMD(SPEAK, do_speak) 
         else PROCESS_CMD(SOUND_ICON, do_sound_icon)
         else PROCESS_CMD(CHAR, do_char)
         else PROCESS_CMD(KEY, do_key)
