@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.34 2003-04-24 19:30:20 hanke Exp $
+  * $Id: server.c,v 1.35 2003-05-07 19:06:30 hanke Exp $
   */
 
 #include "speechd.h"
@@ -69,6 +69,21 @@ spd_utf8_read_char(char* pointer, char* character)
     return bytes;
 }
 
+GList*
+msglist_insert(GList *list, char *str, EMessageType type)
+{
+    TSpeechDMessage *msg;
+    GList *gl;
+
+    msg = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
+    msg->bytes = strlen(str);
+    msg->buf = str;
+    msg->settings.type = type;
+    gl = g_list_append(list, msg);                   
+
+    return gl;
+}
+
 char*
 process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable *icons)
 {
@@ -78,6 +93,11 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
     char *pos;
     GString *str;
     char *new_message;
+    int first_part = 1;
+    GList *plist = NULL;
+    int *sound;
+
+    sound = (int*) spd_malloc(sizeof(int));
 
     str = g_string_sized_new(bytes);
     character = (char*) spd_malloc(8); /* 6 bytes should be enough, plus the trailing 0 */
@@ -88,18 +108,61 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
     for(i=0; i<=g_utf8_strlen(buf, -1) - 1; i++){
         spd_utf8_read_char(pos, character);
         spelled_letter = (char*) snd_icon_spelling_get(settings->spelling_table,
-                                                       icons, character);
-        if (spelled_letter != NULL){
-            g_string_append(str, spelled_letter);
-        }else{
-            g_string_append(str, character);
+                                                       icons, character, sound);
+
+        if(*sound == 1){
+            /* If this is the first part of the message, save it
+             * as return value. */
+            if (first_part){
+                first_part = 0;
+                if (str->str != NULL)
+                    if (strlen(str->str) > 0)
+                        new_message = str->str;
+            }else{              /* It's not the first part... */
+                if (str->str != NULL){
+                    if (strlen(str->str) > 0){
+                        plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);
+                    }
+                }
+            }
+            /* Set up a new buffer */
+            g_string_free(str, 0);
+            str = g_string_new("");
+
+            /* Add the icon to plist */
+            if (spelled_letter != NULL){
+                plist = msglist_insert(plist, spelled_letter, MSGTYPE_SOUND);
+            }else{
+                assert(character != NULL);
+                plist = msglist_insert(plist, character, MSGTYPE_SOUND);
+            }
+
+        }else{                  /* this icon is represented by a string */
+            if (spelled_letter != NULL){
+                g_string_append(str, spelled_letter);
+            }else{
+                assert(character!= NULL);
+                MSG(4,"Using character verbatim...");
+                g_string_append(str, character);
+            }
+            g_string_append(str," ");
         }
-        g_string_append(str," ");
         pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */
     }
 
-    new_message = str->str;
+    /* Handle dle last part of the parsed message */
+    if(first_part){
+        new_message = str->str;
+    }else{   
+        plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);
+    }
     g_string_free(str, 0);
+
+    /* Queue the parts not returned. */
+    if(plist != NULL){
+        queue_messages(plist, -settings->uid, 0);
+    }
+
     free(character);
     return new_message;
 }
@@ -116,6 +179,11 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
     int length;
     GString *str;
     char *new_message;
+    int *sound;
+    int first_part = 1;
+    GList *plist = NULL;
+
+    sound = (int*) spd_malloc(sizeof(int));
 
     str = g_string_sized_new(bytes);
     character = (char*) spd_malloc(8); /* 6 bytes should be enough, plus the trailing 0 */
@@ -124,35 +192,78 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
 
     pos = buf;                  /* Set the position cursor for UTF8 to the beginning. */
     for(i=0; i<=g_utf8_strlen(buf, -1) - 1; i++){
-        u_char = g_utf8_get_char(pos);
-        length = g_unichar_to_utf8(u_char, character);
-        character[length]=0;
 
-        if(g_unichar_ispunct(u_char)){
+        spd_utf8_read_char(pos, character);
+
+        if(g_unichar_ispunct(g_utf8_get_char(character))){
+
             if(settings->punctuation_mode == 2){
                 inside = g_utf8_strchr(settings->punctuation_some,-1,u_char);
                 if (inside == NULL){
-                    pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */		                       continue;
+                    pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */
+                    g_string_append(str, character);
+                    continue;
                 }
             }
 
             spelled_punct = (char*) snd_icon_spelling_get(settings->punctuation_table,
-                                                          icons, character);
-            g_string_append(str," ");
-            if(spelled_punct != NULL) g_string_append(str, spelled_punct);
-            g_string_append(str," ");
-        }else{
-            g_string_append(str, character);
+                                                          icons, character, sound);
+
+            if(*sound == 1){
+                /* If this is the first part of the message, save it
+                 * as return value. */
+                if (first_part){
+                    first_part = 0;
+                    if (str->str != NULL)
+                        if (strlen(str->str) > 0)
+                            new_message = str->str;
+                }else{              /* It's not the first part... */
+                    if (str->str != NULL){
+                        if (strlen(str->str) > 0){
+                            plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);
+                        }
+                    }
+                }
+                /* Set up a new buffer */
+                g_string_free(str, 0);
+                str = g_string_new("");
+
+                /* Add the icon to plist */
+                if (spelled_punct != NULL){
+                    plist = msglist_insert(plist, spelled_punct, MSGTYPE_SOUND);
+                }else{
+                    assert(character != NULL);
+                    plist = msglist_insert(plist, character, MSGTYPE_SOUND);
+                }
+            }else{                  /* this icon is represented by a string */
+                if (spelled_punct != NULL){
+                    g_string_append_printf(str," %s ", spelled_punct);
+                }else{
+                    assert(character != NULL);
+                    MSG(4,"Using character verbatim...");
+                    g_string_append(str, character);
+                }
+            }
+            pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */
         }
 
-        pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */
+        g_string_append(str, character);
+        pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */		
     }
 
-    new_message = str->str;
-	
+    if(first_part){
+        new_message = str->str;
+    }else{
+        plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);
+    }
     g_string_free(str, 0);
+    
+    /* Queue the parts not returned. */
+    if(plist != NULL){
+        queue_messages(plist, -settings->uid, 0);
+    }
+    
     free(character);
-	
     return new_message;
 }
 
@@ -192,10 +303,16 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type)
     if (new == NULL) return -1;
 
     /* Find settings for this particular client */
-    settings = get_client_settings_by_fd(fd);
-    if (settings == NULL)
-        FATAL("Couldn't find settings for active client, internal error.");
-
+    if (fd>0){
+        settings = get_client_settings_by_fd(fd);
+        if (settings == NULL)
+            FATAL("Couldn't find settings for active client, internal error.");
+    }else if (fd<0){
+        settings = get_client_settings_by_uid(-fd);
+    }else{
+        if (SPEECHD_DEBUG) FATAL("fd == 0, this shouldn't happen...");
+        return -1;
+    }
     /* Copy the settings to the new to-be-queued element */
     new->settings = *settings;
     new->settings.type = type;
@@ -205,6 +322,8 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type)
     strcpy(new->settings.output_module, settings->output_module);
     strcpy(new->settings.language, settings->language);
     strcpy(new->settings.client_name, settings->client_name);
+
+    MSG(2, "queueing message |%s| with priority %d", new->buf, settings->priority);
 
     /* And we set the global id (note that this is really global, not
      * depending on the particular client, but unique) */
@@ -236,6 +355,38 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type)
     }
 
     return 0;
+}
+
+int
+queue_messages(GList* msg_list, int fd, int history_flag)
+{
+    int i;
+    GList *gl;
+    TSpeechDMessage *msg;
+
+    printf("messages %d", g_list_length(msg_list));
+
+    gl = g_list_first(msg_list);
+    for (i=0; i <= g_list_length(msg_list)-1; i++){
+    //   while(1){
+        printf("msg %d\n",i);
+        printf("b");
+        if (gl == NULL) break;
+        if (gl->data == NULL){
+            MSG(2,"skipping blank text");
+            continue;
+        }
+        assert(gl!=NULL); assert(gl->data!=NULL);
+        msg = gl->data;
+        printf("c");
+        printf("buf=%s=buf", msg->buf);
+        queue_message(msg, fd, history_flag, msg->settings.type);
+        printf("d");
+        //        g_list_delete_link(msg_list, gl);
+        printf("e");
+        fflush(NULL);
+        gl = g_list_next(gl);
+    }
 }
 
 int
@@ -284,7 +435,7 @@ serve(int fd)
 
     /* Parse the data and read the reply*/
     reply = parse(buf, bytes, fd);
-	
+
     /* Send the reply to the socket */
     if (strlen(reply) == 0) return 0;
 
