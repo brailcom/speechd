@@ -151,7 +151,12 @@ static Success do_send_data (Connection_Id id, Stream from, Stream to,
     from = sock;
   else if (to == NONE)
     to = sock;
-  return ((*forwarder) (from, to, FALSE));
+  {
+    Success result = ((*forwarder) (from, to, FALSE));
+    if (result != OK)
+      do_close_connection (id);
+    return result;
+  }
 }
 
 
