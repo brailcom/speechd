@@ -18,7 +18,7 @@ char* send_data(int fd, char *message, int wfr);
 /* --------------------- Public functions ------------------------- */
 
 int 
-rbd_init(char* client_name, char* conn_name)
+spd_init(char* client_name, char* conn_name)
 {
   int sockfd;
   struct sockaddr_in address;
@@ -45,12 +45,12 @@ rbd_init(char* client_name, char* conn_name)
   return sockfd;
 }
 
-void rbd_close(int fd){
+void spd_close(int fd){
    /* close the socket */
    close(fd);
 }
 
-int rbd_say(int fd, int priority, char* text){
+int spd_say(int fd, int priority, char* text){
   char helper[256];
   char *buf;
 
@@ -71,7 +71,7 @@ int rbd_say(int fd, int priority, char* text){
   return 1;
 }
 
-int rbd_sayf (int fd, int priority, char *format, ...){
+int spd_sayf (int fd, int priority, char *format, ...){
 	va_list args;
 	char buf[512];
 	int ret;
@@ -80,11 +80,11 @@ int rbd_sayf (int fd, int priority, char *format, ...){
 		vsprintf(buf, format, args);
 	va_end(args);
 
-	ret = rbd_say(fd, priority, buf);	
+	ret = spd_say(fd, priority, buf);	
 	return ret;
 }
 
-int rbd_stop(int fd){
+int spd_stop(int fd){
   char helper[16];
 
   sprintf(helper, "@stop\n\r");
@@ -93,7 +93,7 @@ int rbd_stop(int fd){
   return 1;
 }
 
-int rbd_pause(int fd){
+int spd_pause(int fd){
   char helper[16];
 
   sprintf(helper, "@pause\n\r");
@@ -102,7 +102,7 @@ int rbd_pause(int fd){
   return 1;
 }
 
-int rbd_resume(int fd){
+int spd_resume(int fd){
   char helper[16];
 
   sprintf(helper, "@resume\n\r");

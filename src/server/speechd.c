@@ -1,44 +1,18 @@
 /* Speechd server program
- * CVS revision: $Id: robod.c,v 1.2 2002-11-02 22:03:32 hanke Exp $
+ * CVS revision: $Id: speechd.c,v 1.7 2002-12-08 20:21:52 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
-#include "robod.h"
+#include "speechd.h"
 /* declare dotconf functions and data structures*/
 #include "dc_decl.h"
 
-/*
-static gdsl_element_t
-message_alloc(void *element)
-{
-   TSpeechDMessage* new;
-   
-   if (new == NULL) FATAL("Not enough memory!");
-   *new = *((TSpeechDMessage*) element);
-   return (gdsl_element_t) new; 
-}
-
-void
-message_free(void *element)
-{
-free (element);
-   return;
-}
-*/
-
 TSpeechDQueue* 
-robod_queue_alloc()
+speechd_queue_alloc()
 {
    TSpeechDQueue *new;
 	
    new = malloc (sizeof(TSpeechDQueue));
    if (new == NULL) FATAL("Not enough memory!");
-/*   new->p1 = gdsl_queue_create("priority_one", message_alloc, message_free);
-   new->p2 = gdsl_queue_create("priority_two", message_alloc, message_free);
-   new->p3 = gdsl_queue_create("priority_three", message_alloc, message_free);
-   if (new->p1 == NULL) FATAL("Couldn't create priority 1 queue.");
-   if (new->p2 == NULL) FATAL("Couldn't create priority 2 queue.");
-   if (new->p3 == NULL) FATAL("Couldn't create priority 3 queue.");
-   */
    new->p1 = NULL;
    new->p2 = NULL;
    new->p3 = NULL;
@@ -156,7 +130,7 @@ default_fd_set()
 
 int main() {
    configfile_t *configfile = NULL;
-   char *configfilename = "/usr/local/etc/robod.conf";
+   char *configfilename = "/usr/local/etc/speechd.conf";
    int server_socket;
    struct sockaddr_in server_address;
    fd_set testfds;
@@ -166,7 +140,7 @@ int main() {
    THistoryClient *hnew_element;
    int v, i;
 
-   MessageQueue = robod_queue_alloc();
+   MessageQueue = speechd_queue_alloc();
 
    if (MessageQueue == NULL)
 	FATAL("Couldn't alocate memmory for MessageQueue.");
