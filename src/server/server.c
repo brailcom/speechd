@@ -1,8 +1,8 @@
 /* Speechd server functions
- * CVS revision: $Id: server.c,v 1.6 2002-11-02 22:04:43 hanke Exp $
+ * CVS revision: $Id: server.c,v 1.7 2002-12-08 20:16:22 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
-#include "robod.h"
+#include "speechd.h"
 
 #define BUF_SIZE 4096
 #define MAX_CLIENTS 10
@@ -19,7 +19,7 @@ gint (*p_hc_lc)() = hc_list_compare;
 int
 is_sb_speaking()
 {
-	int speaking;
+	int speaking = 0;
 	OutputModule *output;
 
 	/* If some module is speaking, fill _output_ with it
@@ -92,9 +92,14 @@ speak()
 		return 0;
 	}
 
+	MSG(3, "   Some message for speaking");
+	
 	/* Check if sb is speaking or they are all silent. 
 	 * If some synthetizer is speaking, we must wait. */
-	if (is_sb_speaking()) return 0;
+	if (is_sb_speaking()){
+			MSG(3, "Somebody is speaking, waiting...");
+		   	return 0;
+	}
       
 	/* TODO: We have to somehow solve them according to priorities
 	 * and not only have p1 hardcoded here. */
@@ -111,7 +116,6 @@ speak()
 
 	/* If we haven't found anything, we will browse through queues. */
 
-	/* TODO: Polish it! */      
 	if(element == NULL){
 		/* We will descend through priorities to say more important
 		 * messages first. */
@@ -404,7 +408,7 @@ serve(int fd)
  
 	/* Read data from socket */
 	bytes = read(fd, buf, BUF_SIZE);
-	if(bytes = -1) return -1;
+	if(bytes == -1) return -1;
 	MSG(3,"    read %d bytes from client on fd %d\n", bytes, fd);
 
 	/* Parse the data and read the reply*/

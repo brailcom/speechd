@@ -8,12 +8,12 @@ You will need these components to compile Robod:
     - gcc and GNU make
     - (flite [the only synthetiser that has working output module now])
 
-Building Robod:
+Building Speech Deamon:
 =================
 
-To compile the whole project, including Robod server, all modules
+To compile the whole project, including Speech Deamon server, all modules
 and clients, simply extract the distribution archive and change to 
-Robod-<version> directory and run "make all" command as follows:
+speechd-<version> directory and run "make all" command as follows:
 
  $ tar -xzvf robod-@VERSION.tar.gz
  $ cd robod-@VERSION

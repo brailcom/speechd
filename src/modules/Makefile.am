@@ -4,11 +4,11 @@ inc_local = "-I$(top_srcdir)/intl/"
 
 CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@
 
-lib_LTLIBRARIES = librflite.la librmluvitko.la librfestival.la
+lib_LTLIBRARIES = libsdflite.la libsdmluvitko.la libsdfestival.la
 
-librflite_la_SOURCES = flite.c
+libsdflite_la_SOURCES = flite.c
 
-librmluvitko_la_SOURCES = mluvitko.c
+libsdmluvitko_la_SOURCES = mluvitko.c
 
-librfestival_la_SOURCES = festival.c
+libsdfestival_la_SOURCES = festival.c
 

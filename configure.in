@@ -3,7 +3,7 @@ AC_INIT(configure.in)
 
 
 dnl info
-AM_INIT_AUTOMAKE(robod, "`cat version.sh|grep '^VERSION'|awk -F= '{print $2}'`")
+AM_INIT_AUTOMAKE(speechd, "`cat version.sh|grep '^VERSION'|awk -F= '{print $2}'`")
 dnl Checks for programs.
 AC_PROG_CC
 

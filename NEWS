@@ -1,4 +1,7 @@
 
+Version 0.0.5
+  * Renamed back to Speech Deamon
+
 Version 0.0.4
   * Automake and autoconf support
   * Robod now uses GLib2 instead of GDSL

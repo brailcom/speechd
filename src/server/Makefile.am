@@ -1,8 +1,8 @@
 
-bin_PROGRAMS = robod
-robod_SOURCES = robod.c robod.h server.c history.c history.h module.c dc_decl.h parse.c set.c msg.h
-robod_LDADD = -ldotconf -L/usr/lib/ -lglib-2.0 -lgmodule-2.0 -ldl  -L/usr/local/lib @glib_libs@
-robod_LDFLAGS = -rdynamic
+bin_PROGRAMS = speechd
+speechd_SOURCES = speechd.c speechd.h server.c history.c history.h module.c dc_decl.h parse.c set.c msg.h
+speechd_LDADD = -ldotconf -L/usr/lib/ -lglib-2.0 -lgmodule-2.0 -ldl  -L/usr/local/lib @glib_libs@
+speechd_LDFLAGS = -rdynamic
 
 inc_local = "-I$(top_srcdir)/intl/"
 localedir = $(datadir)/locale

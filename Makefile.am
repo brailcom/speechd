@@ -1,9 +1,9 @@
 ## Process this file with automake to produce Makefile.in
 
 SUBDIRS= src
-sysconf_DATA = robod.conf
+sysconf_DATA = speechd.conf
 
-EXTRA_DIST= ChangeLog NEWS TODO AUTHORS COPYING INSTALL README robod.conf intl/ doc/
+EXTRA_DIST= ChangeLog NEWS TODO AUTHORS COPYING INSTALL README speechd.conf intl/ doc/
 
 ## man_MANS = 
 
