@@ -21,38 +21,10 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.c,v 1.10 2003-03-25 22:48:53 hanke Exp $
+ * $Id: history.c,v 1.11 2003-03-29 20:12:41 hanke Exp $
  */
 
 #include "speechd.h"
-
-/* Compares THistoryClient data structure elements
-   with given ID */
-gint
-client_compare_id (gconstpointer element, gconstpointer value, gpointer n)
-{
-   int ret;
-   ret = ((THistoryClient*) element)->uid - (int) value;
-   return ret;
-}
-
-gint
-client_compare_fd (gconstpointer element, gconstpointer value, gpointer n)
-{
-   int ret;
-   ret = ((THistoryClient*) element)->fd - (int) value;
-   return ret;
-}
-
-/* Compares THistSetElement data structure elements
-   with given fd. */
-int
-histset_compare_fd (gconstpointer element, gconstpointer value, gpointer n)
-{
-   int ret;
-   ret = ((THistSetElement*) element)->fd - (int) value;
-   return ret;
-}
 
 /* Compares TSpeechDMessage data structure elements
    with given ID */
@@ -64,70 +36,68 @@ message_compare_id (gconstpointer element, gconstpointer value, gpointer n)
    return ret;
 }
 
-gint (*p_cli_comp_id)() = client_compare_id;
-gint (*p_cli_comp_fd)() = client_compare_fd;
-gint (*p_hs_comp_fd)() = histset_compare_fd;
 gint (*p_msg_comp_id)() = message_compare_id;
 
+/* TODO: new hash table with client's names */
 char*
 history_get_client_list()
 {
-   THistoryClient *client;
-   GString *clist;
-   GList *cursor;
+	TFDSetElement *client;
+	GString *clist;
+	GList *cursor;
+	int i;
 
-   clist = g_string_new("");
-   cursor = history;
-   if (cursor == NULL) return ERR_NO_CLIENT;
+	clist = g_string_new("");
 
-   do{
-     client = cursor->data;
-	 assert(client!=NULL);
-     g_string_append_printf(clist, C_OK_CLIENTS"-", client->uid);
-     g_string_append_printf(clist, "%d ", client->uid);
-     g_string_append(clist, client->client_name);
-     g_string_append_printf(clist, " %d", client->active);
-     cursor = g_list_next(cursor);
-     if (cursor != NULL) g_string_append(clist, "\r\n");
-	 else g_string_append(clist,"\r\n");
-   }while(cursor != NULL);
+	for(i=1;i<=max_uid;i++){
+		MSG(3,"Getting settings for client %d of %d", i, max_uid-1);
+		client = get_client_settings_by_uid(i);
+		assert(client!=NULL);
+		g_string_append_printf(clist, C_OK_CLIENTS"-");
+		g_string_append_printf(clist, "%d ", client->uid);
+		g_string_append(clist, client->client_name);
+		g_string_append_printf(clist, " %d", client->active);
+		g_string_append(clist,"\r\n");
+	}
 	g_string_append_printf(clist, OK_CLIENT_LIST_SENT);
 
-   return clist->str;                
+	return clist->str;                
 }
 
 char*
 history_get_message_list(guint client_id, int from, int num)
 {
-   THistoryClient *client;
-   TSpeechDMessage *message;
-   GString *mlist;
-   GList *gl;
-   int i;
+	TSpeechDMessage *message;
+	GString *mlist;
+	GList *gl;
+	TFDSetElement *client_settings;
+	GList *client_msgs;
+	int i;
 
-   MSG(4, "message_list: from %d num %d, client %d\n", from, num, client_id);
+	MSG(4, "message_list: from %d num %d, client %d\n", from, num, client_id);
    
-   gl = g_list_find_custom(history, (int*) client_id, p_cli_comp_id);
-   if (gl == NULL) return ERR_NO_SUCH_CLIENT;
-   client = gl->data;
+	mlist = g_string_new("");
 
-   mlist = g_string_new("");
+	client_settings = get_client_settings_by_uid(client_id);
+	assert(client_settings!=NULL);
+	
+	client_msgs = get_messages_by_client(client_id);
+	
+	for (i=from; i<=from+num-1; i++){
+		gl = g_list_nth(client_msgs, i);
+		if (gl == NULL){
+			g_string_append_printf(mlist, OK_MSGS_LIST_SENT);
+			return mlist->str;
+		}
+		message = gl->data;
 
-   for (i=from; i<=from+num-1; i++){
-     gl = g_list_nth(client->messages, i);
-     if (gl == NULL){
-			 MSG(4,"no more data\n");
-			 return mlist->str;
-	 }
-     message = gl->data;
-
- 	 if (message == NULL){
-		if(SPEECHD_DEBUG) FATAL("Internal error.\n");
-		return ERR_INTERNAL;
-	}
+		if (message == NULL){
+			if(SPEECHD_DEBUG) FATAL("Internal error.\n");
+			return ERR_INTERNAL;
+		}
 
 		g_string_append_printf(mlist, C_OK_MSGS"-");
-		g_string_append_printf(mlist, "%d %s\r\n", message->id, client->client_name);
+		g_string_append_printf(mlist, "%d %s\r\n", message->id, client_settings->client_name);
    }
  	
 	g_string_append_printf(mlist, OK_MSGS_LIST_SENT);
@@ -137,24 +107,18 @@ history_get_message_list(guint client_id, int from, int num)
 char*
 history_get_last(int fd)
 {
-   THistoryClient *client;
-   TSpeechDMessage *message;
-   GString *lastm;
-   GList *gl;
+	TSpeechDMessage *message;
+	GString *lastm;
+	GList *gl;
 
-   lastm = g_string_new("");
+	lastm = g_string_new("");
 
-	//TODO: Proper client setting
-   gl = g_list_first(history);
-   if (gl == NULL) return ERR_NO_SUCH_CLIENT;
-   client = gl->data;
-  
-   gl = g_list_last(client->messages);
-   if (gl == NULL) return ERR_NO_MESSAGE;
-   message = gl->data;
+	gl = g_list_last(message_history);
+	if (gl == NULL) return ERR_NO_MESSAGE;
+	message = gl->data;
       
 	g_string_append_printf(lastm, C_OK_LAST_MSG"-%d %s\r\n", 
-		message->id, client->client_name);
+		message->id, message->settings.client_name);
 	g_string_append_printf(lastm, OK_LAST_MSG);
 	return lastm->str;
 }
@@ -162,164 +126,137 @@ history_get_last(int fd)
 char*
 history_cursor_set_last(int fd, guint client_id)
 {
-   THistoryClient *client;
-   THistSetElement *set;
-   GList *gl;
+	GList *client_msgs;
+	TFDSetElement *settings;
 
-   gl = g_list_find_custom(history, (int*) client_id, p_cli_comp_id);
-   if (gl == NULL) return ERR_NO_SUCH_CLIENT;
-   client = gl->data;
-	    
-   gl = g_list_find_custom(history_settings, (int*) fd, p_hs_comp_fd);
-   if (gl == NULL) FATAL("Couldn't find history settings for active client");
-   set = gl->data;
+	settings = get_client_settings_by_fd(fd);
+	if (settings == NULL) FATAL("Couldn't find settings for active client");
 
-   set->cur_pos = g_list_length(client->messages) - 1;
-   set->cur_client_id = client_id;
+	client_msgs = get_messages_by_client(client_id);
+	settings->hist_cur_pos = g_list_length(client_msgs) - 1;
+	settings->hist_cur_uid = client_id;
 
-   return OK_CUR_SET_LAST;
+	return OK_CUR_SET_LAST;
 }
 
 char*
 history_cursor_set_first(int fd, guint client_id)
 {
-   THistoryClient *client;
-   THistSetElement *set;
-   GList *gl;
+	TFDSetElement *settings;
 
-   gl = g_list_find_custom(history, (int*) client_id, p_cli_comp_id);
-   if (gl == NULL) return ERR_NO_SUCH_CLIENT;
-   client = gl->data;
-	       
-   gl = g_list_find_custom(history_settings, (int*) fd, p_hs_comp_fd);
-   if (gl == NULL) FATAL("Couldn't find history settings for active client");
-   set = gl->data;
+	settings = get_client_settings_by_fd(fd);
+	if (settings == NULL) FATAL("Couldn't find settings for active client");
 
-   set->cur_pos = 0;
-   set->cur_client_id = client_id;
-   return OK_CUR_SET_FIRST;
+	settings->hist_cur_pos = 0;
+	settings->hist_cur_uid = client_id;
+	return OK_CUR_SET_FIRST;
 }
 
 char*
 history_cursor_set_pos(int fd, guint client_id, int pos)
 {
-   THistoryClient *client;
-   THistSetElement *set;
-   GList *gl;
+	TFDSetElement *settings;
+	GList *client_msgs;
 
-   gl = g_list_find_custom(history, (int*) client_id, p_cli_comp_id);
-   if (gl == NULL) return ERR_NO_SUCH_CLIENT;
-   client = gl->data;
-	       
-   if (pos < 0) return ERR_POS_LOW;
-   if (pos > g_list_length(client->messages)-1) return ERR_POS_HIGH;
+	if (pos < 0) return ERR_POS_LOW;
 
-   gl = g_list_find_custom(history_settings, (int*) fd, p_hs_comp_fd);
-   if (gl == NULL) FATAL("Couldn't find history settings for active client");
-   set = gl->data;
+	client_msgs = get_messages_by_client(client_id);
+	if (pos > g_list_length(client_msgs)-1) return ERR_POS_HIGH;
+
+	settings = get_client_settings_by_fd(fd);
+	if (settings == NULL) FATAL("Couldn't find settings for active client");
    
-   set->cur_pos = pos;
-   set->cur_client_id = client_id;
-   MSG(4,"cursor pos:%d\n", set->cur_pos);
-   return OK_CUR_SET_POS;
+	settings->hist_cur_pos = pos;
+	settings->hist_cur_uid = client_id;
+	MSG(4,"cursor pos:%d\n", settings->hist_cur_pos);
+	return OK_CUR_SET_POS;
 }
 
 char*
 history_cursor_next(int fd)
 {
-   THistoryClient *client;
-   THistSetElement *set;
-   GList *gl;
-
-   gl = g_list_find_custom(history_settings, (int*) fd, p_hs_comp_fd);
-   if (gl == NULL) FATAL("Couldn't find history settings for active client");
-   set = gl->data;
+	GList *client;
+	TFDSetElement *settings;
+	GList *client_msgs;
+	
+	settings = get_client_settings_by_fd(fd);
+	if (settings == NULL) FATAL("Couldn't find settings for active client");
    
-   gl = g_list_find_custom(history, (int*) set->cur_client_id, p_cli_comp_id);
-   if (gl == NULL) return ERR_NO_SUCH_CLIENT;
-   client = gl->data;
-	       
-   if ((set->cur_pos + 1) > g_list_length(client->messages)) 
-         return ERR_POS_HIGH;
-   set->cur_pos++; 
+	client_msgs = get_messages_by_client(settings->hist_cur_uid);
+	if ((settings->hist_cur_pos + 1) > g_list_length(client_msgs)-1) return ERR_POS_HIGH;
+	settings->hist_cur_pos++; 
 
-   return OK_CUR_MOV_FOR;
+	return OK_CUR_MOV_FOR;
 }
 
 char*
 history_cursor_prev(int fd){
-   THistSetElement *set;
-   GList *gl;
+	TFDSetElement *settings;
+	GList *client_msgs;
 
-   gl = g_list_find_custom(history_settings, (int*) fd, p_hs_comp_fd);
-   if (gl == NULL) FATAL("Couldn't find history settings for active client");
-   set = gl->data;
+	settings = get_client_settings_by_fd(fd);
+	if (settings == NULL) FATAL("Couldn't find settings for active client");
    
-   if ((set->cur_pos - 1) < 0) return ERR_POS_LOW;
-   set->cur_pos--; 
+	if ((settings->hist_cur_pos - 1) < 0) return ERR_POS_LOW;
+	settings->hist_cur_pos--; 
    
-   return OK_CUR_MOV_BACK;
+	return OK_CUR_MOV_BACK;
 }
 
 char*
 history_cursor_get(int fd){
-   THistoryClient *client;
-   THistSetElement *set;
-   TSpeechDMessage *new;
-   GString *reply;
-   GList *gl;
+	TFDSetElement *settings;
+	TSpeechDMessage *new;
+	GString *reply;
+	GList *gl, *client_msgs;
 
-   reply = g_string_new("");
-   
-   gl = g_list_find_custom(history_settings, (int*) fd, p_hs_comp_fd);
-   if (gl == NULL) FATAL("Couldn't find history settings for active client");
-   set = gl->data;
-  
-   gl = g_list_find_custom(history, (int*) set->cur_client_id, p_cli_comp_id);
-   if (gl == NULL) return ERR_NO_SUCH_CLIENT;
-   client = gl->data;
-	       
-   gl = g_list_nth(client->messages, (int) set->cur_pos);
-   if (gl == NULL)  return ERR_NO_MESSAGE;
-   new = gl->data;
+	reply = g_string_new("");
 
-   g_string_printf(reply, C_OK_CUR_POS"-%d\r\n"OK_CUR_POS_RET, new->id);
-   return reply->str;
+	settings = get_client_settings_by_fd(fd);
+	if (settings == NULL) FATAL("Couldn't find settings for active client");
+ 	 
+	client_msgs = get_messages_by_client(settings->hist_cur_uid);
+	gl = g_list_nth(client_msgs, (int) settings->hist_cur_pos);
+	if (gl == NULL) return ERR_NO_MESSAGE;
+	new = gl->data;
+
+	g_string_printf(reply, C_OK_CUR_POS"-%d\r\n"OK_CUR_POS_RET, new->id);
+	return reply->str;
 }
 
 char* history_say_id(int fd, int id){
-   THistoryClient *client;
-   THistSetElement *set;
-   TSpeechDMessage *new;
-   GList *gl; 
+	GList *client;
+	TSpeechDMessage *msg, *new;
+	GList *gl; 
 
-   /* TODO: proper selecting of client! */
-   
-   gl = g_list_find_custom(history_settings, (int*) fd, p_hs_comp_fd);
-   if (gl == NULL) FATAL("Couldn't find history settings for active client");
-   set = gl->data;
-   
-   gl = g_list_find_custom(history, (int*) set->cur_client_id, p_cli_comp_id);
-   if (gl == NULL) return ERR_NO_SUCH_CLIENT;
-   client = gl->data;
-   
-   gl = g_list_find_custom(client->messages, (int*) id, p_msg_comp_id);
-   if (gl == NULL) return ERR_ID_NOT_EXIST;
-   new = gl->data;
+	gl = g_list_find_custom(message_history, (int*) id, p_msg_comp_id);
+	if (gl == NULL) return ERR_ID_NOT_EXIST;
+	msg = gl->data;
+	if (msg == NULL) return ERR_INTERNAL;
 
-   /* TODO: Solve this "p2" problem... */
-   MSG(4,"putting history message into queue 1\n");
-   MessageQueue->p1 = g_list_append(MessageQueue->p1, new);
-   msgs_to_say++;
+	MSG(4,"putting history message into queue\n");
+	new = (TSpeechDMessage*) history_list_new_message(msg);
+	queue_message(new, fd, 0);
 
-   return OK_MESSAGE_QUEUED;
+	return OK_MESSAGE_QUEUED;
 }
 
-THistSetElement*
-default_history_settings(){
-	THistSetElement* new;
-	new = malloc(sizeof(THistSetElement));
-	new->cur_pos = 1;
-	new->sorted = BY_TIME;  
-	return new;
+GList*
+get_messages_by_client(int uid){
+	GList *list = NULL;
+	GList *gl, *temp;
+	TSpeechDMessage* msg;
+	int i;
+
+	for (i=0;i<=g_list_length(message_history)-1;i++){
+		gl = g_list_nth(message_history, i);
+		assert(gl!=NULL);
+		msg = gl->data;
+		if (msg->settings.uid == uid){
+			   	list = g_list_append(list, msg);
+		}
+	}
+	
+	return list;
 }
+
