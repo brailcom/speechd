@@ -1,3 +1,19 @@
+2004-04-04  Hynek Hanke  <hanke@volny.cz>
+
+	*  (Module): 
+
+	* src/modules/module_main.c: Unused variable removed.
+
+	* src/modules/generic.c: Unused variables cleaned. 
+
+	* src/modules/flite.c: Unused variables cleaned. 
+
+	* src/modules/festival.c (cache_gen_key): bug: == instead of =
+
+	* src/modules/module_utils.c (do_speak): Proper return value.
+	(module_get_message_part): Unused variable 'im' removed.
+	(module_parent_wfork): Make sure read_bytes is always initialized.
+
 2004-03-31  Hynek Hanke  <hanke@volny.cz>
 
 	* doc/Makefila.am: speechd.texi and speechd-cs.texi renamed to speech-dispatcher[-cs].texi. 

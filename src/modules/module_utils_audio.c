@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils_audio.c,v 1.7 2004-02-13 14:48:19 hanke Exp $
+ * $Id: module_utils_audio.c,v 1.8 2004-04-04 21:11:57 hanke Exp $
  */
 
 #include "spd_audio.h"
@@ -39,7 +39,6 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
     int data_mode = -1;
     int bitrate, volume;
     char *tail_ptr;
-    int back;
     int eod;
 
     module_sigblockall();
@@ -197,6 +196,7 @@ module_parent_send_samples(TModuleDoublePipe dpipe, short* samples, size_t num_s
         }
         acc_ret += ret;
     }
+    return 0;
 }
 
 static void
