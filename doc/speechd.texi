@@ -261,7 +261,7 @@ so that a user can specify different spelling rules for English
 than for Czech or Italian.
 
 @menu
-* TTT Types::                   List of all supported types of Text Transformation Tables.
+* TTT Types::                   List of supported Text Transformation Tables.
 @end menu
 
 @node TTT Types,  , Text Transformation Tables, Text Transformation Tables
@@ -270,35 +270,27 @@ than for Czech or Italian.
 There are currently 6 types of tables in Speech Dispatcher:
 
 @itemize
-
 @item Spelling (group @code{spelling})
-
 This is used in spelling modes.
 
 @item Punctuation (group @code{punctuation})
-
 This is used in punctuation modes.
 
 @item Capital Letter Recognition (group @code{cap_let_recogn})
-
 This is used when capital letters recognition is set to spell the capital
 letters.
 
 @item Character (group @code{characters})
-
 This is used when the client application wants to read a single
 character, eg. when the user moves with cursor over text.
 
 @item Key (group @code{keys})
-
 This one is used when the user presses in keys, eg. when typing in some
 text.
 
 @item Sound icons (group @code{sound_icons})
-
 These sound icons used to signal some events, e.g. end-of-line
 or new-mail.
-
 @end itemize
 
 The user can set different tables for all of these situations, although
@@ -545,14 +537,19 @@ this new module by adding at least these two lines to
 AddModule "module_name"
 EndAddModule
 @end example
+
 and possibly also changing the lines
+
 @example
 DefaultModule new_module
 @end example
+
 tom make it default or
+
 @example
 LanguageDefaultModule "en"  "new_module"
 @end example
+
 to make it default for some language.
 
 
@@ -571,29 +568,23 @@ Speech Dispatcher can be invoked with these options:
 
 @table @code
 @item -d or --run-daemon
-
 Run as a deamon (it runs in background, detaches of the current
 terminal, etc.)
 
 @item -s or --run-single
-
 Run in single mode (continues as a regular application).
 
 @item -l level or --log-level=level
-
 Specifies the desired log level. Log level is a number between 0 and 5
 (0 means don't write log, 5 means write almost everything including
 the text being processed). Default is 3. @xref{Log Levels}.
 
 @item -p or --port
-
 Wait for clients on this port. Default is ???.
 
 @item -h or --help
-
 Print out help about command line options, copyright message and email
 address for sending bug reports.
-
 @end table
 
 
@@ -634,6 +625,7 @@ Please note, that strings are enclosed in doublequotes ("like this"),
 but numbers (123) and special DotConf values (On, Off) aren't.
 
 The configuration file looks like this:
+
 @example
 # Port on which Speech Dispatcher should be available
 # to clients.
@@ -663,6 +655,7 @@ configuration, otherwise Speech Dispatcher won't be able to produce
 any speech output.
 
 Generally, the definition of output modules has this form:
+
 @example
 AddModule "module_name" 
           ...definition of voices...
@@ -706,6 +699,7 @@ section for more info.
 
 For example our current definition of voices for Festival
 looks like this:
+
 @example
         AddVoice        "en"    "male1"      "voice_kal_diphone"
         AddVoice        "en"    "male2"      "voice_ked_diphone"
@@ -740,6 +734,7 @@ The same applies to @code{MaxChunkLenght}, it's better
 to set higher value for faster computers.
 
 For example, curently the default for Festival is
+
 @example
     FestivalMaxChunkLenght  300
     FestivalDelimiters  ".?!;,"
@@ -750,7 +745,6 @@ only if they are followed by a space. This way for example
 ``file123.tmp'' would not be cut in two parts, but ``The horse
 raced around the fence, that was lately painted green, fell.''
 would be. (This is an interesting sentence, by the way.)
-
 @end table
 
 @node Tables Configuration, Log Levels, Output Modules Configuration, Configuration
@@ -774,10 +768,11 @@ done using this option in @file{speechd.conf}
 
 @code{AddTable "@var{table_filename}"}
 
-@var{table_filename} is the path to the desired table. It can be either absolute
-or relative (to your etc/speechd/ directory).
+@var{table_filename} is the path to the desired table. It can be
+either absolute or relative (to your @file{etc/speechd/} directory).
 
 For example, the default English tables are loaded like this:
+
 @example
 AddTable        "en/spelling_short.conf"
 AddTable        "en/spelling_long.conf"
@@ -809,6 +804,7 @@ selected language will be chosen from available tables with
 this name).
 
 This is a valid definition of default tables:
+
 @example
 DefaultSpellingTable      "spelling_short"
 DefaultPunctuationTable   "spelling_short"
@@ -824,20 +820,20 @@ Note that it's possible to use the same table for various modes.
 @subsubsection Writing and Modifying Tables
 
 In the header of each table, three things must be specified:
+
 @table @code
 @item language:@var{language_code}
-
 @var{language_code} is the ISO code of the language this table is written for.
 
 @item table:@var{table_name}
-
-@var{table_name} is the name of the table. This allows you to have one table split into
-more files or redefine some entries in an existing table. If you are going to create
-a new table, chose some unique name. If the table is specific for some application,
-prefix it's name with the name of the application and an underscore (eg. @code{emacs_sound_icons}).
+@var{table_name} is the name of the table. This allows you to have one
+table split into more files or redefine some entries in an existing
+table. If you are going to create a new table, chose some unique
+name. If the table is specific for some application, prefix it's name
+with the name of the application and an underscore
+(eg. @code{emacs_sound_icons}).
 
 @item group:@var{group_name}
-
 Some tables, such as the spelling tables, are often also useful for other
 things like punctuation or characters reading, however there is no use
 for it in sound icons or keys reading, because the entries here have
@@ -848,13 +844,13 @@ should be at least one entry.
 
 @var{group_name} is the name of the group this table can be used
 in.  See @ref{TTT Types}, for possible arguments.
-
 @end table
 
 Each header must be terminated with the string @code{definition:} on 
 a separate line.
 
-In en/spelling_short.conf we use this header
+In @file{en/spelling_short.conf} we use this header
+
 @example
 language:en
 
@@ -883,6 +879,7 @@ or absolute. Currently supported sound files include .wav and
 .ogg.
 
 Examples are:
+
 @example
 "A"="capital ai"
 "B"="capital b"
@@ -934,13 +931,11 @@ facilities.
 @end itemize
 
 @item Level 5
-
 (This is only for debugging purposes and can output really *much*
 data. Use with caution.)
 @itemize @bullet
 @item Also received data (messages etc.) is output.
 @end itemize
-
 @end itemize
 
 
@@ -968,7 +963,6 @@ about current external client libraries.
 
 @node SSIP, C API, Client Programming, Client Programming
 @section Speech Synthesis Internet Protocol (SSIP)
-
 
 @menu
 * General Rules::               Overall conventions applying to SSIP.
@@ -1242,10 +1236,11 @@ block that behaves as one message in the priority system and history. After
 opening the block, client can send a specified subset of the commands and
 the messages introduced by @code{SPEAK} will be processed immediately, however
 there will be no priority interaction before closing the block.
-The @ref{Speech Output Control Commands      } also handle the whole block as one
+The @ref{Speech Output Control Commands} also handle the whole block as one
 message.
 
 Take for example this message taken from an email client:
+
 @example
 > Hi, how are you?
 I'm fine. Thank you.
@@ -1258,7 +1253,6 @@ because in fact, it logically @emph{is} one message.
 
 @table @code
 @item BLOCK BEGIN
-
 Opens a block of messages. There will be no priority interaction between
 the messages inside the block, the whole block will be treated as one message
 of the priority that was specified by previous @code{SET} command.
@@ -1278,12 +1272,10 @@ The allowed commands inside a block are:
 @end itemize
 
 @item BLOCK END
-
 Closes a block of messages, see @code{BLOCK BEGIN}.
 
 It can be only called inside a block opened by @code{BLOCK BEGIN},
 nesting is not allowed.
-
 @end table
 
 A more complete example of SSIP communication using BLOCKs.
@@ -1730,7 +1722,6 @@ is the same as of the @code{HISTORY GET CLIENT_MESSAGES} command.
 The meaning of the first argument after @code{SEARCH} is the same as
 in the @code{HISTORY GET CLIENT_MESSAGES} command.
 
-
 @var{condition} is constructed according to the following grammar
 rules:
 
@@ -2019,7 +2010,6 @@ how many messages are still waiting in queues on the server).
 @code{connection} is the file descriptor obtained by spd_open().
 
 It returns 0 on succes, -1 otherwise.
-
 @end deffn
 
 @deffn {C API function}  int spd_stop_all(int connection);
@@ -2029,7 +2019,6 @@ The same as spd_stop(), but it stops every message being said,
 without distinguishing where it came from.
 
 It returns 0 on succes, -1 if some of the stops failed.
-
 @end deffn
 
 @deffn {C API function}  int spd_stop_uid(int connection, int target_uid);
@@ -2055,7 +2044,6 @@ Stops the currently spoken message from this connection
 from this connection. This is probably what you want
 to do, when you call spd_cancel() automatically in
 your program.
-
 @end deffn
 
 @deffn {C API function}  int spd_cancel_all(int connection);
@@ -2065,7 +2053,6 @@ The same as spd_cancel(), but it cancels every message
 without distinguishing where it came from.
 
 It returns 0 on succes, -1 if some of the stops failed.
-
 @end deffn
 
 @deffn {C API function}  int spd_cancel_uid(int connection, int target_uid);
@@ -2079,7 +2066,6 @@ execute cancel() on.  It can be obtained from
 spd_history_get_client_list().  @xref{History Commands in C}.
 
 It returns 0 on succes, -1 otherwise.
-
 @end deffn
 
 @subsubheading Pause Commands
@@ -2112,7 +2098,6 @@ When pause is on for the given client, all newly received
 messages are also queued and waiting for resume().
 
 It returns 0 on succes, -1 if something failed.
-
 @end deffn
 
 @deffn {C API function}  int spd_pause_all(int connection);
@@ -2122,7 +2107,6 @@ The same as spd_pause(), but it pauses every message,
 without distinguishing where it came from.
 
 It returns 0 on succes, -1 if some of the pauses failed.
-
 @end deffn
 
 @deffn {C API function}  int spd_pause_uid(int connection, int target_uid);
@@ -2136,7 +2120,6 @@ to pause. It can be obtained from spd_history_get_client_list().
 @xref{History Commands in C}.
 
 It returns 0 on succes, -1 otherwise.
-
 @end deffn
 
 @subsubheading Resume Commands  
@@ -2152,7 +2135,6 @@ for synthesis again.
 @code{connection} is the file descriptor obtained by spd_open().
 
 It returns 0 on succes, -1 otherwise.
-
 @end deffn
 
 @deffn {C API function}  int spd_resume_all(int connection);
@@ -2162,7 +2144,6 @@ The same as spd_resume(), but it resumes every paused message,
 without distinguishing where it came from.
 
 It returns 0 on succes, -1 if some of the pauses failed.
-
 @end deffn
 
 @deffn {C API function}  int spd_resume_uid(int connection, int target_uid);
@@ -2196,7 +2177,6 @@ of the priority. @xref{Message Priority Model}.
 character. If it contains more characters, only the first one is processed.
 
 It returns 0 on succes, -1 otherwise.
-
 @end deffn
 
 @deffn {C API function}  int spd_wchar(int connection, int priority, wchar_t wcharacter);
@@ -2242,7 +2222,6 @@ of the priority. @xref{Message Priority Model}.
 
 @code{icon_name} is the name of the icon. It can't contain spaces,
 please use underscores (`_').
-
 @end deffn
 
 @node Parameter Setting Commands in C, Other Functions in C, Sound Icons in C, C API
@@ -2280,7 +2259,6 @@ configuration or defined by the client's last spd_set_punctuation_important().
 @code{SPD_PUNCT_NONE}, @code{SPD_PUNCT_SOME}.
 
 It returns 0 on succes, -1 otherwise.
-
 @end deffn
 
 @deffn {C API function}  int spd_set_punctuation_important(int connection, char* punctuation_important);
@@ -2296,7 +2274,6 @@ the chosen characters. Space is also an allowed character so don't put them
 in if this is not what you want.
 
 It returns 0 on succes, -1 otherwise.
-
 @end deffn
 
 @deffn {C API function}  int spd_set_spelling(int connection, SPDSpelling type);
@@ -2309,7 +2286,6 @@ spelling tables (see spd_set_spelling_table()).
 @code{connection} is the file descriptor obtained by spd_open().
 
 @code{type} is one of the following values: @code{SPD_SPELL_ON}, @code{SPD_SPELL_OFF}.
-
 @end deffn
 
 @deffn {C API function}  int spd_set_spelling_table(int connection, char* spelling_table);
@@ -2481,7 +2457,6 @@ see sources, I'll try to write this section soon
 @node Output Modules,  , Server Core, Server Programming
 @section Output Modules
 
-
 Output modules for Speech Dispatcher have the form of glib plug-ins
 (dynamically loaded libraries) located in src/modules/. They
 should have a firm structure, contain all the required functions
@@ -2552,7 +2527,7 @@ in order for us to be in a better legal position against possible intruders.
 @end itemize
 
 The basic structure OutputModule is defined in @file{intl/modules.h}
-and therefore  this header must be included in every plug-in source code.
+and therefore this header must be included in every plug-in source code.
 
 @example
 #include "modules.h"
@@ -2625,6 +2600,7 @@ callback and declaration of the variable.
 Speech Dispatcher in @code{module_load()})
 
 There are currently 4 types of possible configuration options:
+
 @itemize
 @item @code{MOD_OPTION_1_INT(name);   /* Set up `int name' */}
 @item @code{MOD_OPTION_1_STR(name);   /* Set up `char* name' */}
@@ -2732,6 +2708,7 @@ module will be touched (except for other tries to load
 and initialize the module).
 
 Example from Flite:
+
 @example
     /* Init flite and register a new voice */
     flite_init();
@@ -2769,6 +2746,7 @@ although only few options are important for output modules.
 
 Each output module should take care of setting the output device to these parameters
 (the other ones are handled independently in other parts of Speech Dispatcher):
+
 @itemize @bullet
 @item (signed int) set->speed
 @item (signed int) set->pitch
@@ -2787,6 +2765,7 @@ and return 0, because that's an error in user settings.
 
 voice_type is used only when the output module supports more types of voices
 for this particular language. The values represent (from @file{intl/fdset.h})
+
 @example
 typedef enum @{
     NO_VOICE = 0,
@@ -2800,6 +2779,7 @@ typedef enum @{
     CHILD_FEMALE = 8
 @}EVoiceType;
 @end example
+
 We can consider also other voice types. 
 
 This function should return 0 if it fails and 1 if the delivery
@@ -2814,7 +2794,6 @@ function (eg. spd_audio_play) or hardware devices that have
 to send data to output modules at some particular speed. Note
 that if you use threads for that purpose, you have to set them
 to ignore all signals. See @code{flite.c} for reference.
-
 @end deffn
 
 @deffn {Output module function}  {static gint module_stop} (void)
@@ -2824,7 +2803,6 @@ This function should stop the synthesis of the currently spoken message
 immediately and throw away the rest of the message.
 
 It should return 0 on success, -1 otherwise.
-
 @end deffn
 
 @deffn {Output module function}  {static size_t synthesizer_pause} (void)
@@ -2870,7 +2848,6 @@ device and return 0.
 
 It's not an error if this function is called when the device
 is not speaking. In this case, it should return 0.
-
 @end deffn
 
 @deffn {Output module function}  {static gint module_is_speaking} (void)
