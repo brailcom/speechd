@@ -1,4 +1,14 @@
+2004-02-14  Hynek Hanke  <hanke@eda>
+
+	* configure.in: Variables for versions of libraries added.
+
+	* src/c/api/Makefile.am (libspeechd_la_LDFLAGS): Append version to the speechd library.
+
+	* src/audio/Makefile.am (libsdaudio_la_LDFLAGS): Append version to the audio library.
+
 2004-02-13  Hynek Hanke  <hanke@eda>
+
+	* src/server/set.c (default_fd_set): Setting volume fixed.
 
 	* src/modules/module_utils_audio.c (module_audio_output_child): Temporarily set volume only as
 	(ssip_volume-100)/2 for not damaging the sound with overflows.

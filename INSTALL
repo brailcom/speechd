@@ -1,7 +1,7 @@
 The requirements:
 =================
 
-You will need these components to compile Speech Dispatcher: 
+You will need these components to compile Speech Dispatcher:  
  - glib 2.0  (http://www.gtk.org)
  - libdotconf 1.0 (http://www.azzit.de/dotconf/)
  - pthreads
