@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.47 2003-06-05 16:29:40 hanke Exp $
+  * $Id: server.c,v 1.48 2003-06-08 21:54:34 hanke Exp $
   */
 
 #include "speechd.h"
@@ -101,7 +101,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type,
         break;
     case 5: MessageQueue->p5 = g_list_append(MessageQueue->p5, new);        
         last_p5_message = (TSpeechDMessage*) history_list_new_message(new);
-        speechd_alarm(2000);
+        speechd_alarm(GlobalFDSet.min_delay_progress);
         break;
 
     default: FATAL("Nonexistent priority given");
