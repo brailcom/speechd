@@ -3,7 +3,7 @@
 # Copyright (C) 2003 Brailcom, o.p.s.
 #
 # This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
+# it under the terms of the GNU General Public Licensex1 as published by
 # the Free Software Foundation; either version 2 of the License, or
 # (at your option) any later version.
 #
@@ -29,7 +29,18 @@ tests = TestSuite()
 class Client(unittest.TestCase):
     def check_it(self):
         c = client.Client('bill', 'xxx', 'yyy')
+        c.set_rate(0)
+        c.set_language('en')
         c.say("Hello, this is a Python client test.")
+        c.set_pitch(-100)
+        c.say("I am fat Billy")
+        c.set_pitch(100)
+        c.say("I am slim Willy")
+        c.set_pitch(0)
+        c.set_rate(100)
+        c.say("I am quick Dick.")
+        c.set_rate(-100)
+        c.say("I am slow Joe.")
         c.close()
 tests.add(Client)
 
