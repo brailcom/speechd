@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.15 2003-06-02 15:48:43 hanke Exp $
+  * $Id: speaking.c,v 1.16 2003-06-05 16:19:20 hanke Exp $
   */
 
 #include <glib.h>
@@ -65,8 +65,20 @@ speak(void* data)
         /* Extract the right message from priority queue */
         message = get_message_from_queues();
         if (message == NULL){
-            pthread_mutex_unlock(&element_free_mutex);
-            continue;               
+            if (highest_priority == 5){
+                if (last_p5_message != NULL){
+                    message = last_p5_message;
+                    last_p5_message = NULL;
+                    sem_trywait(sem_messages_waiting);
+                }else{
+                    pthread_mutex_unlock(&element_free_mutex);
+                    continue;
+                }
+            }else{
+                MSG(4, "Message got from queue is NULL");
+                pthread_mutex_unlock(&element_free_mutex);
+                continue;     
+            }          
         }
      
         /* Isn't the parent client of this message paused? 
@@ -81,6 +93,7 @@ speak(void* data)
         /* Determine which output module should be used */
         output = get_output_module(message);
         if (output == NULL){
+            MSG(4, "Output module NULL...");
             mem_free_message(message);             
             pthread_mutex_unlock(&element_free_mutex);
             continue;				
@@ -143,7 +156,7 @@ speaking_stop(int uid)
         /* Get group ID of the current message */
         gl = g_list_last(queue);
         if (gl == NULL) return;
-        assert(gl->data != NULL);
+        if (gl->data == NULL) return;
 
         msg = (TSpeechDMessage*) gl->data;
         if ((msg->settings.reparted != 0) && (msg->settings.uid == uid)){
@@ -158,7 +171,7 @@ speaking_stop(int uid)
                 speaking_set_queue(highest_priority, queue);
                 return;
             }
-            assert(gl->data != NULL);
+            if (gl->data == NULL) return;
 
             msg = (TSpeechDMessage*) gl->data;
 
@@ -390,23 +403,11 @@ stop_p3()
     return ret;
 }
 
-int
-stop_priority(int priority)
+GList*
+empty_queue(GList *queue)
 {
     int num, i;
     GList *gl;
-    GList *queue;
-
-    switch(priority){
-    case 1:	queue = MessageQueue->p1; break;
-    case 2:	queue = MessageQueue->p2; break;
-    case 3:	queue = MessageQueue->p3; break;
-    default: return -1;
-    }
-
-    if (highest_priority == priority){
-        stop_speaking_active_module();
-    }
 
     num = g_list_length(queue);
     for(i=0;i<=num-1;i++){
@@ -418,37 +419,56 @@ stop_priority(int priority)
         sem_trywait(sem_messages_waiting);
     }
 
-    switch(priority){
-    case 1:	MessageQueue->p1 = queue; break;
-    case 2:	MessageQueue->p2 = queue; break;
-    case 3:	MessageQueue->p3 = queue; break;
-    default: return -1;
+    return queue;
+}
+
+int
+stop_priority(int priority)
+{
+    int num, i;
+    GList *gl;
+    GList *queue;
+
+    queue = speaking_get_queue(priority);
+
+    if (highest_priority == priority){
+        stop_speaking_active_module();
     }
+
+    queue = empty_queue(queue);
+
+    speaking_set_queue(priority, queue);
 
     return 0;
 }
 
+
+
+GList*
+stop_priority_from_uid(GList *queue, const int uid){
+    GList *ret = queue;
+    GList *gl;
+
+    while(gl = g_list_find_custom(ret, &uid, p_msg_uid_lc)){
+        if(gl->data != NULL) mem_free_message(gl->data);
+        ret = g_list_delete_link(ret, gl);
+        sem_trywait(sem_messages_waiting);
+    }
+
+    return ret;
+}
+
 void
-stop_from_uid(int uid)
+stop_from_uid(const int uid)
 {
     GList *gl;
 
     pthread_mutex_lock(&element_free_mutex);
-    while(gl = g_list_find_custom(MessageQueue->p1, &uid, p_msg_uid_lc)){
-        if(gl->data != NULL) mem_free_message(gl->data);
-        MessageQueue->p1 = g_list_delete_link(MessageQueue->p1, gl);
-        sem_trywait(sem_messages_waiting);
-    }
-    while(gl = g_list_find_custom(MessageQueue->p2, &uid, p_msg_uid_lc)){
-        if(gl->data != NULL) mem_free_message(gl->data);
-        MessageQueue->p2 = g_list_delete_link(MessageQueue->p2, gl);
-        sem_trywait(sem_messages_waiting);
-    }	
-    while(gl = g_list_find_custom(MessageQueue->p3, &uid, p_msg_uid_lc)){
-        if(gl->data != NULL) mem_free_message(gl->data);
-        MessageQueue->p3 = g_list_delete_link(MessageQueue->p3, gl);
-        sem_trywait(sem_messages_waiting);
-    }	
+    MessageQueue->p1 = stop_priority_from_uid(MessageQueue->p1, uid);
+    MessageQueue->p2 = stop_priority_from_uid(MessageQueue->p2, uid);
+    MessageQueue->p3 = stop_priority_from_uid(MessageQueue->p3, uid);
+    MessageQueue->p4 = stop_priority_from_uid(MessageQueue->p4, uid);
+    MessageQueue->p5 = stop_priority_from_uid(MessageQueue->p5, uid);
     pthread_mutex_unlock(&element_free_mutex);
 }
 
@@ -767,37 +787,72 @@ set_speak_thread_attributes()
     pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
 }
 
+void 
+stop_priority_except_first(int priority)
+{    
+    GList *queue;
+    GList *gl;
+    TSpeechDMessage *msg;
+
+    queue = speaking_get_queue(priority);
+
+    /* Stop all other priority 3 messages but leave the first */
+    gl = g_list_last(queue); 
+                
+    if (gl == NULL) return;  
+    if (gl->data == NULL) return;
+
+    msg = (TSpeechDMessage*) gl->data;
+    if (msg->settings.reparted <= 0){                
+        queue = g_list_remove_link(queue, gl);
+        speaking_set_queue(priority, queue);        
+
+        stop_priority(priority);
+    }
+
+    /* Fill the queue with the list containing only the first message */
+    speaking_set_queue(priority, gl);
+
+    return;
+}
+
 static void
 resolve_priorities()
 {
     GList *gl;
     TSpeechDMessage *msg;
 
-    if(g_list_length(MessageQueue->p1) != 0){
-        stop_p3();	
-        if (is_sb_speaking() && (highest_priority != 1))
-            stop_speaking_active_module();
+    if(g_list_length(MessageQueue->p1) != 0){        
+        stop_priority(2);
+        stop_priority(3);
+        stop_priority(4);
+        stop_priority(5);
     }
 		    
     if(g_list_length(MessageQueue->p2) != 0){
-        stop_p3();
+        stop_priority_except_first(2);
+        stop_priority(3);
+        stop_priority(4);
+        stop_priority(5);
     }
 
     if(g_list_length(MessageQueue->p3) != 0){
-        /* Stop all other priority 3 messages but leave the first */
-        gl = g_list_last(MessageQueue->p3); 
-                
-        assert(gl!=NULL);
-        assert(gl->data != NULL);
+        stop_priority(4);
+        stop_priority(5);
+    }
 
-        msg = (TSpeechDMessage*) gl->data;
-        if (msg->settings.reparted <= 0){                
-            MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
-            stop_p3();
-            /* Fill the queue with the list containing only the first message */
-            MessageQueue->p3 = gl;
+    if(g_list_length(MessageQueue->p4) != 0){
+        stop_priority_except_first(4);
+    }
+
+    if(g_list_length(MessageQueue->p5) != 0){
+        stop_priority(4);
+        if (is_sb_speaking()){
+            MessageQueue->p5 = empty_queue(MessageQueue->p5);
         }
     }
+
+
 }
 
 static TSpeechDMessage*
@@ -819,13 +874,27 @@ get_message_from_queues()
             MessageQueue->p2 = g_list_remove_link(MessageQueue->p2, gl);
             highest_priority = 2;
         }else{
-            gl = g_list_first(MessageQueue->p3);
+            gl = g_list_first(MessageQueue->p3); 
             if (gl != NULL){
                 MSG(4,"Message in queue p3");
                 MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
                 highest_priority = 3;
             }else{
-                return NULL;
+                gl = g_list_first(MessageQueue->p4); 
+                if (gl != NULL){
+                    MSG(4,"Message in queue p4");
+                    MessageQueue->p4 = g_list_remove_link(MessageQueue->p4, gl);
+                    highest_priority = 4;
+                }else{
+                    gl = g_list_first(MessageQueue->p5);
+                    if (gl != NULL){
+                        MSG(4,"Message in queue p5");
+                        MessageQueue->p5 = g_list_remove_link(MessageQueue->p5, gl);
+                        highest_priority = 5;
+                    }else{
+                        return NULL;
+                    }
+                }
             }
         }
     } 
@@ -858,12 +927,14 @@ speaking_get_queue(int priority)
 {
     GList *queue = NULL;
 
-    assert(priority > 0  &&  priority <= 3);
+    assert(priority > 0  &&  priority <= 5);
 
     switch(priority){           
     case 1: queue = MessageQueue->p1; break;
     case 2: queue = MessageQueue->p2; break;
     case 3: queue = MessageQueue->p3; break;
+    case 4: queue = MessageQueue->p4; break;
+    case 5: queue = MessageQueue->p5; break;
     }
 
     return queue;
@@ -872,11 +943,13 @@ speaking_get_queue(int priority)
 static void
 speaking_set_queue(int priority, GList *queue)
 {
-    assert(priority > 0  &&  priority <= 3);
+    assert(priority > 0  &&  priority <= 5);
 
     switch(priority){           
     case 1: MessageQueue->p1 = queue; break;
     case 2: MessageQueue->p2 = queue; break;
     case 3: MessageQueue->p3 = queue; break;
+    case 4: MessageQueue->p4 = queue; break;
+    case 5: MessageQueue->p5 = queue; break;
     }
 }
