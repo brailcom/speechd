@@ -2,6 +2,7 @@
 
 	* speechd/_test.py (Client.check_it): Added tests for `set_rate()'
 	and `set_pitch()' methods.
+	(Client.check_it): Added test for Czech language.
 
 	* speechd/client.py: `Speech Daemon' changed to `Speech
 	Dispatcher'.
