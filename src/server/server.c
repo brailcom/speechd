@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.51 2003-06-23 18:38:22 hanke Exp $
+  * $Id: server.c,v 1.52 2003-07-05 12:29:18 hanke Exp $
   */
 
 #include "speechd.h"
@@ -87,20 +87,20 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type,
     /* Put the element new to queue according to it's priority. */
     switch(settings->priority){
     case 1: MessageQueue->p1 = g_list_append(MessageQueue->p1, new); 
-        speechd_alarm(0);
+        //        speechd_alarm(0);
         break;
     case 2: MessageQueue->p2 = g_list_append(MessageQueue->p2, new);
-        speechd_alarm(0);
+        //        speechd_alarm(0);
         break;
     case 3: MessageQueue->p3 = g_list_append(MessageQueue->p3, new);        
-        speechd_alarm(0);
+        //        speechd_alarm(0);
         break;
     case 4: MessageQueue->p4 = g_list_append(MessageQueue->p4, new);        
-        speechd_alarm(0);
+        //        speechd_alarm(0);
         break;
     case 5: MessageQueue->p5 = g_list_append(MessageQueue->p5, new);        
         last_p5_message = (TSpeechDMessage*) spd_message_copy(new);
-        speechd_alarm(GlobalFDSet.min_delay_progress);
+        //        speechd_alarm(GlobalFDSet.min_delay_progress);
         break;
 
     default: FATAL("Nonexistent priority given");
