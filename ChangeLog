@@ -1,3 +1,52 @@
+2003-06-23  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/server/module.c: Renaming to spd_options and spd_num_options.
+
+	* src/server/history.c: Use spd_message_copy for duplicating messages.
+
+	* src/modules/flite.c: Don't include spd_audio.h
+
+	* src/modules/festival_client.c (festival_default_module): Renamed to festivalDefaultModule,
+	made public.
+
+	* config/speechd.conf: ApolloDevice option added.
+
+	* src/server/dc_decl.h: Removed ApolloLanguage.
+
+	* intl/module.h: Removed structure ApolloLanguage.
+
+	* src/server/alloc.c (spd_module_free): g_module_close moved to the end.
+
+	* src/modules/module_utils.c (UPDATE_PARAMETER): Stolen from apollo.c
+	(UPDATE_STRING_PARAMETER): Burgled from apollo.c
+
+	* src/modules/apollo.c (module_write): Changed arguments.
+
+	* src/modules/module_utils.c (module_get_ht_option): New function.
+
+	* src/modules/apollo.c (module_load): DEVICE defaults to /dev/apollo.
+	ApolloDevice is now a dotconf option.
+
+
+	* src/modules/apollo.c: Include module_utils.c
+	Prototypes and modinfo handled by macros.
+
+	* src/server/server.c (queue_message): Use spd_strdup().
+
+	* src/server/speaking.c (process_message_punctuation): Insert coma after spelled punctuation
+	characters for better intonation.
+
+	* src/modules/festival.c (_festival_parent): Don't wait for response from child if fwave==NULL.
+
+	* src/server/alloc.c (spd_module_free): New function.
+
+	* src/modules/festival.c (module_close): Delete festival_info when closing.
+
+	* src/server/speechd.h: num_config_options and options aren't global now.
+
+	* src/server/dc_decl.h (dc_cbEndAddModule): Don't abbort if initialization of output module failed.
+	(add_config_option): num_config_options now passed as argument.
+
 2003-06-20  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* src/tests/sayfortune.sh: Very simple script using Speech Dispatcher to read a fortune.
