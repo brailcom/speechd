@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.31 2003-10-07 16:52:00 hanke Exp $
+ * $Id: festival.c,v 1.32 2003-10-08 21:29:22 hanke Exp $
  */
 
 #include "module.h"
@@ -60,7 +60,6 @@ size_t _festival_parent(TModuleDoublePipe dpipe, const char* message,
 void festival_parent_clean();
 
 cst_wave* festival_conv(FT_Wave *fwave);
-void festival_fill_sample_wave();
 
 void festival_set_rate(signed int rate);
 void festival_set_pitch(signed int pitch);
@@ -119,8 +118,6 @@ module_init(void)
 
     festival_info = festivalOpen(festival_info);
     if (festival_info == NULL) return -1;
-
-    festival_fill_sample_wave();
 
     DBG("FestivalServerHost = %s\n", FestivalServerHost);
     DBG("FestivalServerPort = %d\n", FestivalServerPort);
@@ -306,6 +303,7 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
     static int debug_count = 0;
     int o_bytes = 0;
     int pause = -1;
+    cst_wave wave_parameters;
 
     DBG("Entering parent process, closing pipes");
 
@@ -361,11 +359,13 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
             /* fwave can be NULL if the given text didn't produce any sound
                output, e.g. this text: "." */
             if (fwave != NULL){
-                DBG("Sending buf to child in wav: %d samples\n", (fwave->num_samples) * sizeof(short));
+                if (ret != 0) DBG("Can't open audio output!\n");
+                DBG("Sending buf to child in wav: %d samples\n",
+                    (fwave->num_samples) * sizeof(short));
                 if (fwave->num_samples != 0){
-                    ret = module_parent_send_samples(dpipe, fwave->samples, fwave->num_samples);
+                    ret = module_parent_send_samples(dpipe, fwave->samples,
+                                                     fwave->num_samples, fwave->sample_rate);
                     if (ret == -1) terminate = 1;
-
                     if(FestivalDebugSaveOutput){
                         char filename_debug[256];
                         sprintf(filename_debug, "/tmp/debug-festival-%d.snd", debug_count++);
@@ -373,7 +373,6 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
                     }
                 }
                 delete_FT_Wave(fwave);
-
                 DBG("parent: Sent %d bytes\n", ret);            
                 ret = module_parent_dp_write(dpipe, "\r\nOK_SPEECHD_DATA_SENT\r\n", 24);
                 if (ret == -1) terminate = 1;
@@ -407,6 +406,8 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
         }
             
     }    
+
+
 }
 
 void
@@ -426,7 +427,6 @@ festival_set_voice(EVoiceType voice)
 
     /* Because the new voice can use diferent bitrate */
     DBG("Filling new sample wave\n");
-    festival_fill_sample_wave(); 
 }
 
 void
@@ -448,39 +448,6 @@ festival_set_punctuation_mode(EPunctMode punct)
     punct_mode = EPunctMode2str(punct);
     FestivalSetPunctuationMode(festival_info, punct_mode);
     xfree(punct_mode);
-}
-
-void
-festival_fill_sample_wave()
-{
-    FT_Wave *fwave;
-    int ret;
-
-    module_cstwave_free(module_sample_wave);
-
-    /* Synthesize a sample string*/
-    ret = festivalStringToWaveRequest(festival_info, "test");    
-    if (ret != 0){
-        DBG("Festival module request to synthesis failed.\n");
-        module_sample_wave = NULL;
-        return;
-    }
-
-    /* Get it back from server */
-    fwave = (FT_Wave*) festivalStringToWaveGetData(festival_info);
-    if (fwave == NULL){
-        DBG("Sample wave is NULL, this voice doesn't work properly in Festival!\n");
-        module_sample_wave = NULL;
-        return;
-    }
-
-    DBG("Synthesized wave num samples = %d\n", fwave->num_samples);
-
-    /* Save it as cst_wave */
-    module_sample_wave = (cst_wave*) festival_conv(fwave);
-    /* Free fwave structure, but not the samples, because we
-       point to them from module_sample_wave! */
-    xfree(fwave);
 }
 
 /* Warning: In order to be faster, this function doesn't copy
