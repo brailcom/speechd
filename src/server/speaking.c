@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.8 2003-05-05 22:42:47 hanke Exp $
+  * $Id: speaking.c,v 1.9 2003-05-07 19:07:14 hanke Exp $
   */
 
 #include <glib.h>
@@ -152,18 +152,26 @@ speak(void* data)
             }
 
             /* Determine which output module should be used */
-            output = g_hash_table_lookup(output_modules, element->settings.output_module);
-            if(output == NULL){
-                MSG(4,"Didn't find prefered output module, using default");
-                output = g_hash_table_lookup(output_modules, GlobalFDSet.output_module); 
-                if (output == NULL){
-                    MSG(2, "Can't find default output module.");
-                    mem_free_message(element);
-                    msgs_to_say--;
-                    pthread_mutex_unlock(&element_free_mutex);
-                    continue;				
+            if (element->settings.type != MSGTYPE_SOUND){
+                output = g_hash_table_lookup(output_modules, element->settings.output_module);
+                if(output == NULL){
+                    MSG(4,"Didn't find prefered output module, using default");
+                    output = g_hash_table_lookup(output_modules, GlobalFDSet.output_module); 
+                    if (output == NULL) MSG(2,"Can't find default output module!");
                 }
+            }else{
+                output = sound_module;
+                if (output == NULL) MSG(2,"Can't find sound module!");
             }
+
+            if (output == NULL){
+                mem_free_message(element);
+                msgs_to_say--;
+                pthread_mutex_unlock(&element_free_mutex);
+                continue;				
+            }
+            
+        
 
             /* TODO: There is a problem. This can take time, but we are
              * working under a locked mutex and blocking the second thread! */
@@ -175,13 +183,15 @@ speak(void* data)
                     MSG(3,"Processing message unsuccesful, using raw text!");
                     buffer = element->buf;
                 }
+                if (buffer == NULL) continue;
+                if (strlen(buffer) <= 0) continue;
             }else{
                 MSG(4, "Passing message as it is...");
                 buffer = element->buf;
             }
 
-			assert(buffer != NULL);
-			
+            assert(buffer!=NULL);
+	
             /* Set the speking_module monitor so that we knew who is speaking */
             speaking_module = output;
             speaking_uid = element->settings.uid;
