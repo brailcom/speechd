@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.30 2003-06-01 21:28:16 hanke Exp $
+ * $Id: speechd.h,v 1.31 2003-06-03 12:08:19 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -95,6 +95,7 @@ typedef struct
 }TSpeechDTables;
 
 /* Message logging */
+int spd_log_level;
 void MSG(int level, char *format, ...);
 #define FATAL(msg) { MSG(0,"Fatal error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
 #define DIE(msg) { MSG(0,"Error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
