@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.38 2003-10-27 21:43:53 hanke Exp $
+  * $Id: speaking.c,v 1.39 2003-10-29 11:09:42 hanke Exp $
   */
 
 #include <glib.h>
@@ -27,6 +27,7 @@
 #include "index_marking.h"
 #include "module.h"
 #include "set.h"
+#include "alloc.h"
 
 #include "speaking.h"
 
@@ -97,9 +98,9 @@ speak(void* data)
         if ((last_p5_message != NULL) && (g_list_length(MessageQueue->p5) == 0)){
             message = last_p5_message;
             last_p5_message = NULL;
-            MessageQueue->p3 = g_list_prepend(MessageQueue->p3, message);
+            MessageQueue->p3 = g_list_insert_sorted(MessageQueue->p3, message, sortbyuid);
             highest_priority = 3;
-            stop_priority(2);
+            stop_priority_older_than(2, message->id);
             stop_priority(4);
             stop_priority(5);
             speaking_semaphore_post();
@@ -430,10 +431,33 @@ empty_queue(GList *queue)
     return queue;
 }
 
+GList*
+empty_queue_by_time(GList *queue, unsigned int uid)
+{
+    int num, i;
+    GList *gl, *gln;
+    TSpeechDMessage *msg;
+
+    num = g_list_length(queue);
+    gl = g_list_first(queue);
+    for(i=0;i<=num-1;i++){
+        gln = g_list_next(gl);
+        if (gl == NULL) break;
+        assert(gl->data != NULL);
+        msg = gl->data;
+        if (msg->id < uid){
+            queue = g_list_delete_link(queue, gl);
+            mem_free_message(msg);
+        }
+        gl = gln;
+    }
+
+    return queue;
+}
+
 int
 stop_priority(int priority)
 {
-    int num, i;
     GList *gl;
     GList *queue;
 
@@ -444,6 +468,26 @@ stop_priority(int priority)
     }
 
     queue = empty_queue(queue);
+
+    speaking_set_queue(priority, queue);
+
+    return 0;
+}
+
+int
+stop_priority_older_than(int priority, unsigned int uid)
+{
+    GList *gl;
+    GList *queue;
+
+    queue = speaking_get_queue(priority);
+
+    if (highest_priority == priority){
+        output_stop();
+    }
+
+    queue = empty_queue_by_time(queue, uid);
+
 
     speaking_set_queue(priority, queue);
 
@@ -694,4 +738,17 @@ speaking_set_queue(int priority, GList *queue)
     case 4: MessageQueue->p4 = queue; break;
     case 5: MessageQueue->p5 = queue; break;
     }
+}
+
+gint
+sortbyuid (gconstpointer a,  gconstpointer b)
+{
+    const TSpeechDMessage *msg1 = a;
+    const TSpeechDMessage *msg2 = b;
+
+    if ((msg1 == NULL) && (msg2 != NULL)) return -1;
+    if ((msg1 != NULL) && (msg2 == NULL)) return +1;
+    if ((msg1 == NULL) && (msg2 == NULL)) return 0;
+
+    return msg1->id - msg2->id;
 }
