@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.7 2003-07-06 15:07:43 hanke Exp $
+ * $Id: libspeechd.h,v 1.8 2003-07-07 22:26:22 hanke Exp $
  */
 
 /* Debugging */
@@ -103,6 +103,10 @@ int spd_wchar(int connection, SPDPriority priority, wchar_t wcharacter);
 int spd_sound_icon(int connection, SPDPriority priority, const char *icon_name);
 
 /* Setting parameters */
+int spd_set_voice_type(int connection, SPDVoiceType type);
+int spd_set_voice_type_all(int connection, SPDVoiceType type);
+int spd_set_voice_type_uid(int connection, SPDVoiceType type, unsigned int uid);
+
 int spd_set_voice_rate(int connection, signed int rate);
 int spd_set_voice_rate_all(int connection, signed int rate);
 int spd_set_voice_rate_uid(int connection, signed int rate, unsigned int uid);
@@ -124,6 +128,33 @@ int spd_set_spelling(int connection, SPDSpelling type);
 int spd_set_spelling_all(int connection, SPDSpelling type);
 int spd_set_spelling_uid(int connection, SPDSpelling type, unsigned int uid);
 
+int spd_set_language(int connection, const char* language);
+int spd_set_language_all(int connection, const char* language);
+int spd_set_language_uid(int connection, const char* language, unsigned int uid);
+
+int spd_set_punctuation_table(int connection, const char* ptable);
+int spd_set_punctuation_table_all(int connection, const char* ptable);
+int spd_set_punctuation_table_uid(int connection, const char* ptable, unsigned int uid);
+
+int spd_set_spelling_table(int connection, const char* stable);
+int spd_set_spelling_table_all(int connection, const char* stable);
+int spd_set_spelling_table_uid(int connection, const char* stable, unsigned int uid);
+
+int spd_set_text_table(int connection, const char* ttable);
+int spd_set_text_table_all(int connection, const char* ttable);
+int spd_set_text_table_uid(int connection, const char* ttable, unsigned int uid);
+
+int spd_set_sound_table(int connection, const char* stable);
+int spd_set_sound_table_all(int connection, const char* stable);
+int spd_set_sound_table_uid(int connection, const char* stable, unsigned int uid);
+
+int spd_set_char_table(int connection, const char* ctable);
+int spd_set_char_table_all(int connection, const char* ctable);
+int spd_set_char_table_uid(int connection, const char* ctable, unsigned int uid);
+
+int spd_set_key_table(int connection, const char* ktable);
+int spd_set_key_table_all(int connection, const char* ktable);
+int spd_set_key_table_uid(int connection, const char* ktable, unsigned int uid);
 
 
 /* --------------  Private functions  ------------------------*/
