@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.30 2003-09-07 11:25:29 hanke Exp $
+ * $Id: flite.c,v 1.31 2003-09-20 17:27:22 hanke Exp $
  */
 
 
@@ -256,8 +256,8 @@ _flite_child(TModuleDoublePipe dpipe, const size_t maxlen)
             flite_child_close(dpipe);
         }
 
-        text[bytes] = '.';
-        text[bytes+1] = 0;
+        //        text[bytes] = '.';
+        text[bytes] = 0;
 
         DBG("child: got data |%s|, bytes:%d", text, bytes);
 
