@@ -1,7 +1,7 @@
 \input texinfo   @c -*-texinfo-*-
 @c %**start of header
 @setfilename speechd.info
-@settitle Speech Daemon --- Easy speech synthesis
+@settitle Speech Dispatcher --- Easy speech synthesis
 @finalout
 @c @setchapternewpage odd
 @c %**end of header
@@ -1763,9 +1763,26 @@ The @code{SET} command sets various control parameters of Speech
 Dispatcher.  The parameter is always denoted by the first command
 argument.
 
-All the settings take effect to the client connection (only) and until
-the parameter setting is changed by another invocation of the
-appropriate @code{SET} command or until the connection is closed.
+All the settings take effect to the client connections defined by the
+first command argument and until the parameter setting is changed by
+another invocation of the appropriate @code{SET} command or until the
+connection is closed.
+
+The first argument specifying the connection to apply the setting to
+may get one of the following values:
+
+@table @code
+@item self
+The setting applies to the current connection only.
+@item all
+The setting applies to all open connections.
+@item @var{id}
+The setting applies to the connection identified by the number @var{id}.
+@end table
+
+Not all parameter setting commands may receive all kinds of the first
+parameter defined above, for instance, some of them may receive only
+@code{self}.
 
 @table @code
 @item SET self CLIENT_NAME @var{user}:@var{client}:@var{component}
@@ -1779,7 +1796,7 @@ Dispatcher connection for its command processing, the name could be set in
 the following way:
 
 @example
-SET CLIENT_NAME joe:lynx:cmd_processing
+SET self CLIENT_NAME joe:lynx:cmd_processing
 @end example
 
 The client name is used in the server configuration settings, client
@@ -1801,7 +1818,7 @@ For example, to set the preferred language to Czech, you send the
 following command:
 
 @example
-SET LANGUAGE cs
+SET self LANGUAGE cs
 @end example
 
 @item SET self PRIORITY @var{n}
