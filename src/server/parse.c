@@ -2,14 +2,14 @@
 #include "speechd.h"
 
 /* isanum() tests if the given string is a number,
- * returns 1 if yes, 0 otherwise. */
+ *  *  * returns 1 if yes, 0 otherwise. */
 int
 isanum(char *str){
-	int i;
-	for(i=0;i<=strlen(str)-1;i++){
-		if (!isdigit(str[i]))   return 0;
-	}
-	return 1;
+   int i;
+   for(i=0;i<=strlen(str)-1;i++){
+       if (!isdigit(str[i]))   return 0;
+    }
+    return 1;
 }
 
 
@@ -57,7 +57,7 @@ char*
 parse_history(char *buf, int bytes, int fd)
 {
 	char *param;
-	char *helper1, *helper2;				
+	char *helper1, *helper2, *helper3;				
 		
          param = get_param(buf,1,bytes);
          MSG(3, "  param 1 catched: %s\n", param);
@@ -74,7 +74,9 @@ parse_history(char *buf, int bytes, int fd)
 				if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
 				helper2 = get_param(buf,4,bytes);
 				if (!isanum(helper2)) return ERR_NOT_A_NUMBER;
-               return (char*) history_get_message_list( atoi(helper1), atoi(helper2) );
+				helper3 = get_param(buf,5,bytes);
+				if (!isanum(helper2)) return ERR_NOT_A_NUMBER;
+               return (char*) history_get_message_list( atoi(helper1), atoi(helper2), atoi (helper3));
             }  
          }
          if (!strcmp(param,"sort")){
