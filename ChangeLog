@@ -1,5 +1,9 @@
 2004-03-14  Hynek Hanke  <hanke@volny.cz>
 
+	* config/modules/epos-generic.conf (GenericExecuteSynth): sed command to strip
+	the "unknown voice" message from resulting .wav now done correctly (it doesn't
+	leave a '\n' as the first byte)
+
 	* AUTHORS: Added Jacob Schmude to Thanks.
 
 	* config/speechd.conf (dtk-generic): New generic output module
