@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.34 2003-07-22 22:50:06 hanke Exp $
+ * $Id: dc_decl.h,v 1.35 2003-08-11 15:00:12 hanke Exp $
  */
 
 #include "speechd.h"
@@ -67,13 +67,14 @@ DOTCONF_CB(cb_EndAddModule);
 DOTCONF_CB(cb_AddParam);
 DOTCONF_CB(cb_AddVoice);
 DOTCONF_CB(cb_MinDelayProgress);
+DOTCONF_CB(cb_MaxHistoryMessages);
 DOTCONF_CB(cb_unknown);
 
 /* define dotconf configuration options */
 
 static configoption_t first_run_options[] =
 {
-    {"AddModule", ARG_STR, cb_fr_AddModule, 0, 0},
+    {"AddModule", ARG_LIST, cb_fr_AddModule, 0, 0},
     {"", ARG_NAME, cb_unknown, 0, 0},
     LAST_OPTION
 };
@@ -139,7 +140,7 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(Port, ARG_INT);
     ADD_CONFIG_OPTION(LogFile, ARG_STR);
     ADD_CONFIG_OPTION(LogLevel, ARG_INT);
-    ADD_CONFIG_OPTION(SoundModule, ARG_STR);
+    ADD_CONFIG_OPTION(SoundModule, ARG_LIST);
     ADD_CONFIG_OPTION(SoundDataDir, ARG_STR);
     ADD_CONFIG_OPTION(AddTable, ARG_STR);
     ADD_CONFIG_OPTION(DefaultModule, ARG_STR);
@@ -148,6 +149,7 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(DefaultPitch, ARG_INT);
     ADD_CONFIG_OPTION(DefaultLanguage, ARG_STR);
     ADD_CONFIG_OPTION(DefaultPriority, ARG_STR);
+    ADD_CONFIG_OPTION(MaxHistoryMessages, ARG_INT);   
     ADD_CONFIG_OPTION(DefaultPunctuationMode, ARG_STR);
     ADD_CONFIG_OPTION(DefaultPunctuationTable, ARG_STR);
     ADD_CONFIG_OPTION(PunctuationSome, ARG_STR);
@@ -161,7 +163,7 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(DefaultKeyTable, ARG_STR);
     ADD_CONFIG_OPTION(DefaultSoundTable, ARG_STR);
     ADD_CONFIG_OPTION(DefaultCapLetRecognition, ARG_STR)
-    ADD_CONFIG_OPTION(AddModule, ARG_STR);
+    ADD_CONFIG_OPTION(AddModule, ARG_LIST);
     ADD_CONFIG_OPTION(EndAddModule, ARG_NONE);
     ADD_CONFIG_OPTION(AddParam, ARG_LIST);
     ADD_CONFIG_OPTION(AddVoice, ARG_LIST);
@@ -196,11 +198,14 @@ load_default_global_set_options()
     GlobalFDSet.cap_let_recogn_sound = NULL;
     GlobalFDSet.min_delay_progress = 2000;
 
+    MaxHistoryMessages = 10000;
+
     if (!spd_log_level_set) spd_log_level = 3;    
     if (!spd_port_set) spd_port = SPEECHD_DEFAULT_PORT;
 
     sound_module = NULL;
     logfile = stderr;
+    
 
     SOUND_DATA_DIR = strdup(SND_DATA);
 }
@@ -260,7 +265,7 @@ DOTCONF_CB(cb_LogLevel)
 
 DOTCONF_CB(cb_SoundModule)
 {
-    sound_module = load_output_module(cmd->data.str);
+    sound_module = load_output_module(cmd->data.list[0], cmd->data.list[1]);
     return NULL;
 }
 
@@ -484,6 +489,14 @@ DOTCONF_CB(cb_DefaultVoiceType)
     return NULL;
 }
 
+DOTCONF_CB(cb_MaxHistoryMessages)
+{
+    int msgs = cmd->data.value;
+    if (msgs > 0) MSG(3, "configuration: MaxHistoryMessages must be a positive number.");
+    MaxHistoryMessages = msgs;
+    return NULL;
+}
+
 DOTCONF_CB(cb_DefaultPunctuationMode)
 {
     char *pmode = cmd->data.str;
@@ -530,8 +543,12 @@ DOTCONF_CB(cb_MinDelayProgress)
 
 DOTCONF_CB(cb_AddModule)
 {
-    if (cmd->data.str == NULL) FATAL("No output module name specified");
-    cur_mod = g_hash_table_lookup(output_modules, cmd->data.str);
+    char *module_name;
+
+    if (cmd->data.list[0] == NULL) FATAL("No output module name specified")
+    else module_name = cmd->data.list[0];
+    
+    cur_mod = g_hash_table_lookup(output_modules, module_name);
     if (cur_mod == NULL) FATAL("Internal error in finding output modules");
 
     return NULL;
@@ -555,16 +572,21 @@ DOTCONF_CB(cb_LanguageDefaultModule)
 
 DOTCONF_CB(cb_fr_AddModule)
 {
-    char *name;
+    char *module_name;
+    char *module_libname;
 
-    if (cmd->data.str == NULL) FATAL("No output module name specified");
-    cur_mod = load_output_module(cmd->data.str);
+    if (cmd->data.list[0] != NULL) module_name = strdup(cmd->data.list[0]);
+    else FATAL("No output module name specified");
 
+    if (cmd->data.list[1] != NULL) module_libname = cmd->data.list[1];
+    else module_libname = NULL;
+
+    cur_mod = load_output_module(module_name, module_libname);
     if (cur_mod == NULL) FATAL("Couldn't load specified output module");
+
     assert(cur_mod->name != NULL);
 
-    name = strdup(cmd->data.str);
-    g_hash_table_insert(output_modules, name, cur_mod);
+    g_hash_table_insert(output_modules, module_name, cur_mod);
 
     return NULL;
 }
