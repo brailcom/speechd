@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.26 2003-12-18 23:41:05 hanke Exp $
+ * $Id: module_utils.c,v 1.27 2004-02-10 21:18:45 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -343,6 +343,7 @@ do_set(void)
             
             SET_PARAM_NUM(rate, ((number>=-100) && (number<=100)))
             else SET_PARAM_NUM(pitch, ((number>=-100) && (number<=100)))
+	    else SET_PARAM_NUM(volume, ((number>=-100) && (number<=100)))
             else SET_PARAM_STR_C(punctuation_mode, str2EPunctMode)
             else SET_PARAM_STR_C(spelling_mode, str2ESpellMode)
             else SET_PARAM_STR_C(cap_let_recogn, str2ECapLetRecogn)
