@@ -1,3 +1,30 @@
+
+2003-03-13  Hynek Hanke <hanke@volny.cz>
+	* src/modules/flite.c (DEBUG_FLITE): A new switch.
+	* src/modules/flite.c (flite_stop()): Send SIGKILL instead of SIGINT.
+	* src/server/server.c: All stops are now called in the separate speak() thread (faster).
+	* src/server/server.c (fd_settings): now hash_table instead of a list
+	* src/server/server.c (speak()): Uses mutexes to be thread safe.
+	* src/server/set.c (fd_settings): now hash_table instead of a list
+	* src/server/history.c (fd_settings): now hash_table instead of a list
+	* src/server/alloc.c: Functions for allocating and freeing data structures;
+	* src/tests/long_message.c: New test trying to say two long texts.
+	* src/server/speechd.c: select() now doesn't return unless there is some communication.
+	* src/server/speechd.c: Speech Deamon now doesn't interrupt client's messages on @quit.
+	* src/server/speechd.c: fd_settings now hash_table instead of a list
+	* src/server/speechd.c (terminate_client): New function for unloading clients.
+	* src/server/speechd.c (terminate_module): New function for unloading modules.
+	* src/server/speechd.c (stop_c()): Uses mutexes to be thread safe.
+	* src/server/module.c (load_output_module()): Write gmodule* into module_info.
+	* src/server/Makefile.am: Added new sources.
+	* src/clients/spd_center.c: Now uses priority 3 instead of sending @stops.
+	* src/clients/libspeechd.c: (LIBSPEECHD_DEBUG): New define macro for debugging.
+	* src/clients/libspeechd.h: (LIBSPEECHD_DEBUG): New define macro for debugging.
+	* intl/def.h: (SPEECHD_DEBUG): New preprocesor variable for debugging.
+	* intl/module.h (OutputModule): New entry gmodule*
+	* Polished.
+
+
 2003-03-13  Hynek Hanke <hanke@volny.cz>
     * src/modules/flite.c: Now uses threads and processes to get better performance.
     * src/modules/Makefile.am: Links also flite shared libraries.

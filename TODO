@@ -1,4 +1,6 @@
 
+-> fdset must be hash table for faster searching
+
 * Some decent output module (festival)
 * Old messages in history must expire
 * History should be saved to disk when Speech Deamon terminates

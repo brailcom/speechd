@@ -1,7 +1,8 @@
 
 Version 0.0.6
   * Speech Deamon now works in 2 threads for better performance
-  * New output module for flite
+  * New output module for Flite (using Flite C API)
+  * Added debug mode
 
 Version 0.0.5
   * Renamed back to Speech Deamon
