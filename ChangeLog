@@ -1,7 +1,32 @@
+2003-08-07  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/server.c (serve): Check for reply not NULL.
+
+	* src/server/parse.c (parse_block): Check if the command is valid.
+
+	* src/server/speechd.c (MSG): Flush output after writing message.
+
+	* src/server/speaking.c (resolve_priorities): Priority notification message is
+	canceled if someone is speaking, not postponed.
+
+	* src/server/speechd.c (MSG): Timestamps added.
+	(main): daemon() moved a little bit.
+
+	* src/server/speaking.c (stop_priority_except_first): Don't stop the currently spoken
+	message if it has the same ID as the last one in the queue.
+
+	* src/server/speaking.h (speaking_gid): New variable.
+
+	* src/server/speaking.c (speak): Set speaking_gid.
+
+	* src/server/parse.c (parse): inside_block now contains id of the group
+	of the messages or zero, if not inside a block.
+
+	* src/server/module.c (module_load): Don't print any debug messages on stdout.
 2003-07-31  Jan Buchal  <buchal@brailcom.org>
 
-	* config/en/spelling_short.conf: 
-Colon added.
+	* config/en/spelling_short.conf: Colon added.
+	
 2003-07-23  Hynek Hanke  <hanke@volny.cz>
 
 	* config/cs/sound_icons.conf: Junk definitions with beep.wav removed, changed
