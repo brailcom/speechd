@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.43 2003-05-26 20:15:43 hanke Exp $
+  * $Id: server.c,v 1.44 2003-05-28 23:17:48 hanke Exp $
   */
 
 #include "speechd.h"
@@ -108,7 +108,7 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
 
     MSG(4,"Processing %d bytes", size);
     pos = buf;                  /* Set the position cursor for UTF8 to the beginning. */
-    size = g_utf8_strlen(buf, -1);
+    size = g_utf8_strlen(buf, -1) - 1;
     for(i=0; i <= size; i++){
         spd_utf8_read_char(pos, character);
         spelled_letter = (char*) snd_icon_spelling_get(settings->spelling_table,
@@ -137,6 +137,7 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
             if (spelled_letter != NULL){
                 spelled = (char*) spd_malloc((strlen(spelled_letter) +1)  * sizeof(char)); 
                 strcpy(spelled, spelled_letter);
+                MSG(1,"here...............");
                 plist = msglist_insert(plist, spelled, MSGTYPE_SOUND);
             }else{
                 assert(character != NULL);
@@ -173,7 +174,8 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
 
     /* Queue the parts not returned. */
     if(plist != NULL){
-        queue_messages(plist, -settings->uid, 0, 1);
+        queue_messages(plist, -settings->uid, 0, ++max_gid);
+        MSG(4, "Max gid set to %d", max_gid);
     }
 
     free(character);
@@ -257,7 +259,8 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
                     plist = msglist_insert(plist, punct, MSGTYPE_SOUND); 
                 }else{ 
                     assert(character != NULL); 
-                    plist = msglist_insert(plist, character, MSGTYPE_SOUND); 
+                    MSG(4,"Using character verbatim...");
+                    g_string_append(str, character);
                 } 
             }else{                  /* this icon is represented by a string */
                 if (spelled_punct != NULL){ 
@@ -291,11 +294,9 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
     
     /* Queue the parts not returned. */
     if(plist != NULL){
-        queue_messages(plist, -settings->uid, 0, 1);
+        queue_messages(plist, -settings->uid, 0, ++max_gid);
     }
 
-
-    
     free(character);
     return new_message;
 }
@@ -404,7 +405,7 @@ queue_messages(GList* msg_list, int fd, int history_flag, int reparted)
     for (i=0; i <= g_list_length(msg_list)-1; i++){
         if (gl == NULL) break;
         if (gl->data == NULL){
-            MSG(2,"skipping blank text");
+            MSG(4,"skipping blank text");
             continue;
         }
         assert(gl!=NULL); assert(gl->data!=NULL);
