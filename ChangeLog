@@ -1,3 +1,8 @@
+2003-03-04  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/clients/say.c (main): Dummy `cl_active' argument added to
+	the `spd_get_client_list' call.
+
 01.02.2003	Hynek Hanke <hanke@volny.cz>
 	* Added copyright notices to each file, better comments.
 	* doc/: Switched to Texinfo.
