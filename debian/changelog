@@ -1,3 +1,9 @@
+speechd (0.0-12) unstable; urgency=low
+
+  * Restart pause increased to 3 seconds.
+
+ -- Milan Zamazal <pdm@brailcom.org>  Mon, 21 Jul 2003 19:24:49 +0200
+
 speechd (0.0-11) unstable; urgency=low
 
   * Install init.d script.

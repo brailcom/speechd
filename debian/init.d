@@ -51,7 +51,7 @@ case "$1" in
 	#
 	echo -n "Restarting $DESC: "
 	start-stop-daemon --oknodo --stop --quiet --user $USER --exec $DAEMON
-	sleep 1
+	sleep 3
 	start-stop-daemon --start --quiet --chuid $USER --exec $DAEMON
 	echo "$NAME."
 	;;
