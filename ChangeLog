@@ -1,5 +1,15 @@
 2003-10-08  Hynek Hanke  <hanke@volny.cz>
 
+	* src/server/server.c: Removed tables.
+
+	* src/server/output.c: Debugging messages.
+
+	* src/server/alloc.c: Removed tables.
+
+	* src/audio/spd_audio.c (spd_audio_open): Check if spd_audio_device is not NULL before returning.
+
+	* intl/module.h: Removed EFilteringType.
+
 	* config/speechd.conf.in: Removed tables configuration, removed sound module.
 
 	* src/server/parse.c (parse_set): Table commands removed from SSIP.

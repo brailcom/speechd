@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.17 2003-09-07 11:28:37 hanke Exp $
+ * $Id: module.c,v 1.18 2003-10-08 21:30:43 hanke Exp $
  */
 
 #include <sys/wait.h>
@@ -38,8 +38,7 @@ destroy_module(OutputModule *module)
 }
 
 OutputModule*
-load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile,
-                   EFilteringType mod_filt)
+load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile)
 {
     OutputModule *module;
     int fr;
@@ -56,7 +55,6 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile,
     module->name = (char*) spd_strdup(mod_name);
     module->filename = (char*) spd_get_path(mod_prog, MODULEBINDIR);    
     module->configfilename = (char*) spd_get_path(mod_cfgfile, MODULECONFDIR);
-    module->filtering = mod_filt;
 
     if (!strcmp(mod_name, "testing")){
         module->pipe_in[1] = 1; /* redirect to stdin */
@@ -157,7 +155,7 @@ reload_output_module(OutputModule *old_module)
     close(old_module->pipe_out[0]);
 
     new_module = load_output_module(old_module->name, old_module->filename,
-                                    old_module->configfilename, old_module->filtering);
+                                    old_module->configfilename);
     if (new_module == NULL){
         MSG(3, "Can't load module %s while reloading modules.", old_module->name);
         return -1;

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.h,v 1.10 2003-08-11 15:01:40 hanke Exp $
+ * $Id: set.h,v 1.11 2003-10-08 21:33:02 hanke Exp $
  */
 
 #ifndef ALLOC_H
@@ -34,7 +34,7 @@ int set_rate_uid(int uid, int rate);
 int set_pitch_uid(int uid, int pitch);
 int set_punct_mode_uid(int uid, int punct);
 int set_cap_let_recog_uid(int uid, int recog);
-int set_spelling_uid(int uid, int spelling);
+int set_spelling_uid(int uid, ESpellMode spelling);
 int set_output_module_self(int uid, char *output_module);
 
 int set_priority_self(int fd, int priority);
@@ -43,7 +43,7 @@ int set_rate_self(int fd, int rate);
 int set_pitch_self(int fd, int pitch);
 int set_punct_mode_self(int fd, int punct);
 int set_cap_let_recog_self(int fd, int recog);
-int set_spelling_self(int fd, int spelling);
+int set_spelling_self(int fd, ESpellMode spelling);
 int set_output_module_self(int fd, char *output_module);
 
 int set_priority_all(int priority);
@@ -52,7 +52,7 @@ int set_rate_all(int rate);
 int set_pitch_all(int pitch);
 int set_punct_mode_all(int punct);
 int set_cap_let_recog_all(int recog);
-int set_spelling_all(int spelling);
+int set_spelling_all(ESpellMode spelling);
 int set_output_module_all(char* output_module);
 
 TFDSetElement* default_fd_set(void);
