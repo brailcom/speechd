@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: config.c,v 1.3 2004-02-23 22:30:32 hanke Exp $
+ * $Id: config.c,v 1.4 2004-03-08 21:25:27 hanke Exp $
  */
 
 #include <dotconf.h>
@@ -28,12 +28,13 @@
 
 static TFDSetClientSpecific *cl_spec_section;
 
-int table_add(char *name, char *group);
-
 /* So that gcc doesn't comply about casts to char* */
 extern char* spd_strdup(char* string);
 
-/* add dotconf configuration option */
+
+/* == CONFIGURATION MANAGEMENT FUNCTIONS */
+
+/* Add dotconf configuration option */
 configoption_t *
 add_config_option(configoption_t *options, int *num_config_options, char *name, int type,
                   dotconf_callback_t callback, info_t *info,
@@ -51,6 +52,7 @@ add_config_option(configoption_t *options, int *num_config_options, char *name, 
     return opts;
 }
 
+/* Free all configuration options. */
 void
 free_config_options(configoption_t *opts, int *num)
 {
@@ -65,6 +67,9 @@ free_config_options(configoption_t *opts, int *num)
     *num = 0;
     opts = NULL;
 }
+
+
+/* == CALLBACK DEFINITION MACROS == */
 
 #define GLOBAL_FDSET_OPTION_CB_STR(name, arg) \
    DOTCONF_CB(cb_ ## name) \
@@ -147,6 +152,7 @@ free_config_options(configoption_t *opts, int *num)
    }    
 
 
+/* == CALLBACK DEFINITIONS == */
 GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module);
 GLOBAL_FDSET_OPTION_CB_STR(DefaultLanguage, language);
 GLOBAL_FDSET_OPTION_CB_STR(DefaultClientName, client_name);
@@ -262,6 +268,9 @@ DOTCONF_CB(cb_AddModule)
     return NULL;
 }
 
+
+/* == CLIENT SPECIFIC CONFIGURATION == */
+
 #define SET_PAR(name, value) cl_spec->val.name = value;
 #define SET_PAR_STR(name) cl_spec->val.name = NULL;
 DOTCONF_CB(cb_BeginClient)
@@ -303,11 +312,17 @@ DOTCONF_CB(cb_EndClient)
     return NULL;
 }
 
+
+/* == CALLBACK FOR UNKNOWN OPTIONS == */
+
 DOTCONF_CB(cb_unknown)
 {
-    MSG(4,"Unknown option in configuration!");
+    MSG(2,"Unknown option in configuration!");
     return NULL;
 }
+
+
+/* == LOAD CALLBACKS == */
 
 #define ADD_CONFIG_OPTION(name, arg_type) \
    options = add_config_option(options, num_options, #name, arg_type, cb_ ## name, 0, 0);
@@ -345,7 +360,11 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(BeginClient, ARG_STR);
     ADD_CONFIG_OPTION(EndClient, ARG_NONE);
     return options;
-}
+
+} 
+
+
+/* == DEFAULT OPTIONS == */
 
 void
 load_default_global_set_options()
