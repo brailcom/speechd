@@ -1,5 +1,7 @@
 2004-12-10    <hanke@robinson>
 
+	* src/audio/nas.c: One more DBG removed.
+
 	* src/audio/nas.c (_nas_handle_server_error): Use fprintf instead of DBG since
 	we don't have access to DBG in the library anyway.
 
