@@ -1,3 +1,27 @@
+
+last		Hynek Hanke	<hanke@volny.cz>
+	* /src/server/speechd.c (main): Added handling for SIGINT and the function quit() 
+	* /src/server/speechd.c (history_list_alloc_message): Bug with not copying the actual data of settings.language,output_module and client_name, but only pointers to them fixed.
+	* /src/server/server.c (serve): Bug with the missing FD_CLR() fixed.
+	* /src/server/server.c (awaiting_data): the size of awaiting_data array is now handled in speechd.c
+	* /src/server/server.c (stop_c): the section handling @stop completely reworked.
+	* /src/client/spd_center.c: Implemented command input/menu logic.
+	* /src/client/spd_center.c (selected): New data structure for maintaining record of what has the user selected (which client has he chosen, which subclient, which mode of sorting, etc.)
+	* /src/clients/spd_center.c (spdc_initialize()): Fills _selected_ with default values.
+	* /src/clients/spd_center.c: Strings prepared for gettext().
+	* /src/clients/spd_center.h: New header file for spd_center.c
+	* /src/clients/spd_center.c (run_cmdl()): Pause and resume functions implemented (pause(), pause(fd), pause_cur_client(), resume(), resume(fd), resume_cur_client()).
+	* /src/clients/spd_center.c (run_cmdl()): Stop functions implemented (stop(), stop(fd), stop_cur_client()).
+	* /src/server/speechd.c (stop_c): New parameter _target_ for stopping other clients (needed for spd_center).
+	* /src/clients/libspeechd.c (spd_stop_fd(fd): Stop messages from other client fd.
+	* /src/clients/libspeechd.c (spd_pause_fd(fd): Pause messages from other client fd.
+	* /src/clients/libspeechd.c (spd_resume_fd(fd): Resume messages from other client fd.
+	* /src/server/parse.c: Added support for @stop, @pause, @resume with parameter.
+	* /src/server/set.c: Added support for @stop, @pause, @resume with parameter.
+	* /intl/def.h (FATAL()): Now prints the exact line and fil when the error ocured.
+	* /intl/fdset.h (TFDSetElement): Added new record int uid for unique id of the client.
+
+
 16.12.2002	Hynek Hanke	<hanke@volny.cz>
 	* /src/server/speechd.c (main): Test for msgs_to_say, select has timeout of 10us, but added a sleep() after each cycle (highly reduces CPU usage).
 	* /src/server/speechd.h (msgs_to_say): New global variable: number of messages to be said (for lower CPU usage)
