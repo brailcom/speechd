@@ -3,6 +3,11 @@ Version 0.0.6
   * Speech Deamon now works in 2 threads for better performance
   * New output module for Flite (using Flite C API)
   * Added debug mode
+  * Spelling, punctuation, CHAR and KEY commands
+  * Heavily improved documentation of SSIP (thx Milan Zamazal)
+  * Chages in SSIP
+  * Emacspeak server
+  * Python API
 
 Version 0.0.5
   * Renamed back to Speech Deamon
