@@ -1,3 +1,30 @@
+2004-10-10  Hynek Hanke  <hanke@volny.cz>
+
+	* src/python/speechd/_test.py (Client.check_it): Some more tests.
+
+	* src/python/speechd/client.py (Client.char): New method.
+	(Client.key): New method.
+	(Client.sound_icon): New method.
+	(Client.pause): New method.
+	(Client.resume): New method.
+	(Client.set_punctuation): New method.
+	(Client.set_spelling): New method.
+	(Client.set_cap_let_recogn): New method.
+	(Client.set_voice): New method.
+	(Client.set_volume): New method.
+	(Client.block_end): New method.
+	(Client.block_begin): New method.
+
+	* src/python/speechd/client.py (Client.say_char): New function.
+	(Client.cancel): New function.
+	(Client.__set_priority): New function.
+	(Client.say): Use __set_priority.
+	(Client.get_client_list): Commented out since not active in current SSIP.
+
+	* src/python/speechd/client.py (_SSIP_Connection.send_data): Correct escaping of the end-of-data sequence.
+
+	* src/python/speechd/_test.py (tests): Added test for escaping dot.
+	
 2004-08-12  Milan Zamazal  <pdm@brailcom.org>
 
 	* configure.in (AC_OUTPUT): spdsend added.
