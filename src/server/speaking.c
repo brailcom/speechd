@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.9 2003-05-07 19:07:14 hanke Exp $
+  * $Id: speaking.c,v 1.10 2003-05-21 16:39:09 hanke Exp $
   */
 
 #include <glib.h>
@@ -178,11 +178,14 @@ speak(void* data)
 
             if(element->settings.type == MSGTYPE_TEXT){
                 MSG(4, "Processing message...");
+
+                pthread_mutex_unlock(&element_free_mutex);
                 buffer = (char*) process_message(element->buf, element->bytes, &(element->settings));
                 if (buffer == NULL){
                     MSG(3,"Processing message unsuccesful, using raw text!");
                     buffer = element->buf;
                 }
+            	pthread_mutex_lock(&element_free_mutex);
                 if (buffer == NULL) continue;
                 if (strlen(buffer) <= 0) continue;
             }else{
