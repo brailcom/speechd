@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.h,v 1.1 2004-06-28 08:08:58 hanke Exp $
+ * $Id: module_utils.h,v 1.2 2004-07-21 08:15:42 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -106,7 +106,7 @@ int module_num_dc_options;
    }
 
 int     module_load         (void);
-int     module_init         (void);
+int     module_init         (char **status_info);
 int     module_speak        (char *data, size_t bytes, EMessageType msgtype);
 int     module_stop         (void);
 size_t  module_pause        (void);
