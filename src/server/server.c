@@ -19,11 +19,10 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.52 2003-07-05 12:29:18 hanke Exp $
+  * $Id: server.c,v 1.53 2003-07-06 15:00:20 hanke Exp $
   */
 
 #include "speechd.h"
-
 
 int last_message_id = -1;
 
