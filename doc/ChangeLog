@@ -1,11 +1,21 @@
+2002-06-20  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd.xml: Title changed: Speechd -> Speech Daemon.
+
+	* intro.xml: Software synthesizers are under separate subsection.
+	Some indentation and syntax corrections.
+
+	* analysis.xml: More about SSIP.  Redesigned Session managenemt.
+	More about Multiple output devices (some corrections).
+	
 2002-05-10  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd.xml: Formatting changes.
 
 	* preface.xml: Formatting changes.
 
-	* intro.xml: IBM Viavoice section addad.
-	Section on GUI applications added. Several minor changes.
+	* intro.xml: IBM Viavoice section addad.  Section on GUI
+	applications added. Several minor changes.
 
 	* analysis.xml: Minor changes and fixes.
 
