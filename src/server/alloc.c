@@ -71,7 +71,7 @@ spd_message_copy(TSpeechDMessage *old)
 
 	*new = *old;
 
-	new->buf = spd_malloc(old->bytes+1);
+	new->buf = spd_malloc((old->bytes+1) * sizeof(char));
 	memcpy(new->buf, old->buf, old->bytes);
 	new->buf[new->bytes] = 0;
 
