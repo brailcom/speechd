@@ -38,7 +38,8 @@ AC_CHECK_LIB(flite_cmulex,
 AC_CHECK_LIB(flite_usenglish,
         usenglish_init,,
         echo "*** Required Flite libraries missing or instalation incomplete! See INSTALL .";exit 1)
-AC_CHECK_LIB(flite_cmu_us_kal,
+
+AC_CHECK_LIB(flite_cmu_us_kal16,
         register_cmu_us_kal,, 
         echo "*** Required Flite libraries missing or instalation incomplete! See INSTALL .";exit 1) 
 
@@ -65,7 +66,7 @@ AC_SUBST(LIB_SDAUDIO_REVISION)
 AC_SUBST(LIB_SDAUDIO_AGE)
 
 LIB_SPD_CURRENT=2
-LIB_SPD_REVISION=0
+LIB_SPD_REVISION=1
 LIB_SPD_AGE=1
 AC_SUBST(LIB_SPD_CURRENT)
 AC_SUBST(LIB_SPD_REVISION)

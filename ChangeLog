@@ -1,3 +1,24 @@
+
+2004-05-23  Hynek Hanke  <hanke@volny.cz>
+
+	* src/modules/generic.c (generic_set_*): Rewrite string values of
+	parameters in generic_msg_*_str variables only when they change.
+
+	* src/modules/generic.c (_generic_speak): Only do substitution of the string
+	parameters using string_replace.
+
+	* src/c/api/libspeechd.c (spd_execute_command): Define as non-static.
+
+	* src/c/api/libspeechd.h: Prototype.
+
+	* src/c/api/libspeechd.c (spd_open): Set TCP_NODELAY to eliminate the annoying 40ms delay.
+
+	* config/modules/epos-generic.conf: Volume controlling variables added.
+
+	* src/modules/generic.c (_generic_speak): Added the $VOLUME variable.
+	(generic_msg_volume): New variable.
+
+
 2004-05-22  Hynek Hanke <hanke@volny.cz>
 
 	* ltmain.sh: Removed.
@@ -9,6 +30,7 @@
 	(output_speak): Use output_send_msg instead of the macros.
 	(SEND_DATA): Don't unlock the lock, just return.
 	(SEND_CMD): Don't unlock the lock, just return.
+
 
 2004-04-17  Hynek Hanke  <hanke@volny.cz>
 
