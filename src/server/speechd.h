@@ -63,14 +63,15 @@ typedef struct{
 typedef struct{
    guint id;
    time_t time;
-   char *buf;		// the actual text with formating tags
+   char *buf;		// the actual text
    int bytes;		// number of bytes in buf
    TFDSetElement settings;
 }TSpeechDMessage;
 
 
 TSpeechDQueue *MessageQueue;
-gdsl_list_t *MessagePausedList;
+
+gdsl_list_t MessagePausedList;
 
 gdsl_list_t fd_settings;	// list of current settings for each
 				// client (= each active socket)
@@ -78,9 +79,24 @@ gdsl_list_t fd_settings;	// list of current settings for each
 
 gdsl_list_t history;
 
+typedef enum{
+   BY_TIME = 0,
+   BY_ALPHABET = 1
+}ESort;
+
 typedef struct{
-   char *client_name;
    int fd;
+   guint cur_client_id;
+   int cur_pos;
+   ESort sorted;
+}THistSetElement;
+
+gdsl_list_t history_settings;
+
+typedef struct{
+   int fd;
+   char *client_name;
+   guint id;
    int active;
    gdsl_list_t messages;
 }THistoryClient;
