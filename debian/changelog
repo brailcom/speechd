@@ -1,3 +1,9 @@
+speechd (0.0-5) unstable; urgency=low
+
+  * Call configure etc. before cleaning.
+
+ -- Milan Zamazal <pdm@brailcom.org>  Mon, 28 Apr 2003 12:31:49 +0200
+
 speechd (0.0-4) unstable; urgency=low
 
   * Build-depend on librecode-dev.
