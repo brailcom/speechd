@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils_audio.c,v 1.3 2003-10-08 21:29:47 hanke Exp $
+ * $Id: module_utils_audio.c,v 1.4 2003-10-13 16:20:24 hanke Exp $
  */
 
 #include "spd_audio.h"
@@ -49,16 +49,18 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
 
         if (data_mode == -1){
             bytes = module_child_dp_read(dpipe, data, 10);
-            if (bytes != 10){
-                DBG("child: Missing header of send data! (FATAL ERROR)");
-                exit(1); /* Missing header */
+            if (bytes != 0){
+                if (bytes != 10){
+                    DBG("child: Missing header of send data! (FATAL ERROR)");
+                    exit(1); /* Missing header */
+                }
+                bitrate = strtol(data, &tail_ptr, 10);
+                if(tail_ptr == data){
+                    DBG("child: Invalid header of send data! (FATAL ERROR)");
+                    exit(1);
+                }           
+                data_mode = 0;
             }
-            bitrate = strtol(data, &tail_ptr, 10);
-            if(tail_ptr == data){
-                DBG("child: Invalid header of send data! (FATAL ERROR)");
-                exit(1);
-            }
-            data_mode = 0;
         }
 
         /* Read the waiting data */
