@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: multiple_messages.c,v 1.6 2003-05-26 16:04:50 hanke Exp $
+ * $Id: multiple_messages.c,v 1.7 2003-05-29 09:00:54 pdm Exp $
  */
 
 #include <stdio.h>
@@ -50,10 +50,10 @@ int main() {
 		printf("Start");
 		fflush(NULL);
 		for (j=0;j<80;j++){
-			err = spd_sayf(sockfd, i, "These are many many many many many many many many many many many
-						   many many many many many many many many many many many many  many many many
-						   many many many many many many many many many bytes of text in level %d.
-				   ", i);
+			err = spd_sayf(sockfd, i, "These are many many many many many many many many many many many"
+"						   many many many many many many many many many many many many  many many many"
+"						   many many many many many many many many many bytes of text in level %d."
+"				   ", i);
 			if (err == -1) printf("ERROR");
 			else printf(".");
 			fflush(NULL);
