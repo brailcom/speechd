@@ -1,3 +1,23 @@
+
+2003-03-09	Hynek Hanke	<hanke@volny.cz>
+	* src/clients/libspeechd.c (spd_icon()): New function.
+	* src/clients/libspeechd.c (spd_say_letter()): New function.
+	* src/clients/libspeechd.c (spd_say_digit()): New function.
+	* src/clients/libspeechd.c (spd_say_sgn()): New function.
+	* src/clients/libspeechd.c (spd_say_key()): New function.
+	* src/clients/libspeechd.c (spd_voice_speed()): New function.
+	* src/clients/libspeechd.c (spd_voice_pitch()): New function.
+	* src/clients/libspeechd.c (spd_voice_punctuation()): New function.
+	* src/clients/libspeechd.c (spd_voice_cap_let_recognition()): New function.
+	* src/clients/libspeechd.h: Declarations of new functions.
+	* src/server/server.c (queue_message()): Splitted from parse().
+	* src/server/server.c (parse()): Added handling for new SSIP command @snd_icon.
+	* src/parse.c (parse_snd_icon()): New function.
+	* src/server/snd_icons_en.conf: New file. Rules for sound icons in English.
+	* src/server/dc_decl.c (cb_AddSndIcons): New DotConf callback.
+	* src/server/speechd.h (snd_icon_langs): New hash table for maintaining information about defined sound icons.
+
+
 2003-03-05  Milan Zamazal  <pdm@brailcom.org>
 
 	* INSTALL: libdotconf added to the required software.  Current way
@@ -18,6 +38,7 @@
 	* /src/client/spd_center.h (TComplete): Data type for string completion.
 	* /src/server/server.c: Handling of pause messages moved to stop_c(), because the problem of queues (we can't browse through them) is solved by using list and treating them as semi-queues instead.
 	* /src/client/libspeechd.c (spd_history_say_msg()) (spd_history_select_client()) (spd_get_message_list_fd()): New functions.
+
 4.1.2003	Hynek Hanke	<hanke@volny.cz>
 	* /src/server/speechd.c (main): Added handling for SIGINT and the function quit() 
 	* /src/server/speechd.c (history_list_alloc_message): Bug with not copying the actual data of settings.language,output_module and client_name, but only pointers to them fixed.
