@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: nas.c,v 1.1 2004-11-14 11:52:18 hanke Exp $
+ * $Id: nas.c,v 1.2 2004-11-21 22:13:24 hanke Exp $
  */
 
 /* Internal event handler */
@@ -30,6 +30,7 @@ _nas_handle_events(void *par)
 
     while(1)
 	AuHandleEvents(id->aud);   
+    
 }
 
 int
@@ -66,6 +67,7 @@ nas_play(AudioID *id, AudioTrack track)
 {
     char *buf;
     Sound s;
+    AuEventHandlerRec *event_handler;
     int ret;
     float lenght;
     struct timeval now;
@@ -83,7 +85,8 @@ nas_play(AudioID *id, AudioTrack track)
     buf = (char*) track.samples;
 
     pthread_mutex_lock(&id->flow_mutex);
-    ret = AuSoundPlayFromData(id->aud, 
+
+    event_handler = AuSoundPlayFromData(id->aud, 
 			      s,
 			      buf,
 			      AuNone,
@@ -91,7 +94,7 @@ nas_play(AudioID *id, AudioTrack track)
 			      NULL, NULL, &id->flow,
 			      NULL, NULL, NULL);
 
-    if (ret == 0){
+    if (event_handler == NULL){
 	fprintf (stderr, "AuSoundPlayFromData failed for unknown resons.\n");
 	return -1;
     }
@@ -125,8 +128,6 @@ nas_stop(AudioID *id)
     if (id == NULL) return -2;
 
     pthread_mutex_lock(&id->flow_mutex);
-    //    fprintf(stderr, "FLOW-a: %d, ", id->flow);
-    //    fflush(NULL);
     if (id->flow != 0)
 	AuStopFlow(id->aud, id->flow, NULL);
     id->flow = 0;
