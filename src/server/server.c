@@ -21,12 +21,13 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.c,v 1.24 2003-04-05 21:06:41 hanke Exp $
+ * $Id: server.c,v 1.25 2003-04-06 19:58:05 hanke Exp $
  */
 
 #include "speechd.h"
 
 OutputModule *speaking_module;
+int speaking_uid;
 
 int highest_priority = 0;
 int last_message_id = -1;
@@ -45,6 +46,20 @@ is_sb_speaking()
         speaking = (*speaking_module->is_speaking) ();
     } 
     if (speaking == 0) speaking_module = NULL;
+    return speaking;
+}
+
+int
+get_speaking_client_uid()
+{
+    int speaking;
+    if(is_sb_speaking() == 0){
+        speaking_uid = 0;
+        return 0;
+    }
+    if(speaking_uid != 0){
+        speaking = speaking_uid;
+    } 
     return speaking;
 }
 
@@ -114,21 +129,21 @@ stop_priority(int priority)
 }
 
 void
-stop_from_client(int fd)
+stop_from_uid(int uid)
 {
     GList *gl;
     pthread_mutex_lock(&element_free_mutex);
-    while(gl = g_list_find_custom(MessageQueue->p1, (int*) fd, p_msg_lc)){
+    while(gl = g_list_find_custom(MessageQueue->p1, (int*) uid, p_msg_uid_lc)){
         if(gl->data != NULL) mem_free_message(gl->data);
         MessageQueue->p1 = g_list_delete_link(MessageQueue->p1, gl);
         msgs_to_say--;
     }
-    while(gl = g_list_find_custom(MessageQueue->p2, (int*) fd, p_msg_lc)){
+    while(gl = g_list_find_custom(MessageQueue->p2, (int*) uid, p_msg_uid_lc)){
         if(gl->data != NULL) mem_free_message(gl->data);
         MessageQueue->p2 = g_list_delete_link(MessageQueue->p2, gl);
         msgs_to_say--;
     }	
-    while(gl = g_list_find_custom(MessageQueue->p3, (int*) fd, p_msg_lc)){
+    while(gl = g_list_find_custom(MessageQueue->p3, (int*) uid, p_msg_uid_lc)){
         if(gl->data != NULL) mem_free_message(gl->data);
         MessageQueue->p3 = g_list_delete_link(MessageQueue->p3, gl);
         msgs_to_say--;
@@ -300,7 +315,7 @@ speak(void* data)
 
             /* Set the speking_module monitor so that we knew who is speaking */
             speaking_module = output;
-	  
+            speaking_uid = element->settings.uid;
             /* Write the data to the output module. (say them aloud) */
             ret = (*output->write) (element->buf, element->bytes, &element->settings); 
             if (ret <= 0) MSG(2, "Output module failed");
@@ -311,69 +326,65 @@ speak(void* data)
     }	 
 }
 
+void
+speaking_stop(int uid)
+{
+    if(get_speaking_client_uid() == uid) stop_speaking_active_module();
+}
 
-/* This implements the various stop commands. 
- *
- * TODO: For some reason, I decided that it should be all together in one
- * function, but I don't see the reason any more so it would
- * be nice to split it in various functions. */
-int
-stop_c(EStopCommands command, int fd, int target)
+void
+speaking_cancel(int uid)
+{
+    speaking_stop(uid);
+    stop_from_uid(uid);
+}
+
+int 
+speaking_pause(int uid)
 {
     TFDSetElement *settings;
-    GList *gl;
-
-    if (command == STOP){
-        /* first stop speaking on the output module */
-        stop_speaking_active_module();
-        if(target) stop_from_client(target);
-        else stop_from_client(fd);
-        return 0;
-    }
-   
-    if (command == PAUSE){
-        /* first stop speaking on the output module */
-        stop_speaking_active_module();
-        /* Find settings for this particular client */
-        if(target) settings = get_client_settings_by_uid(target);
-        else settings = get_client_settings_by_fd(fd);
-      
-        if (settings == NULL) return 1;
+    /* first stop speaking on the output module */
+    /* TODO: rework pause()...
+    //pause_active_module(); ???
+    /* Find settings for this particular client */
+    settings = get_client_settings_by_uid(uid);
+          
+    if (settings == NULL) return 1;
 	  
-        /* Set _paused_ flag. */
-        settings->paused = 1;     
-        return 0;  
-    }
+    /* Set _paused_ flag. */
+    settings->paused = 1;     
+    return 0;  
+}
 
-    if (command == RESUME){
-        TSpeechDMessage *element;
-        /* Find settings for this particular client */
+int
+speaking_resume(int uid)
+{
+    TFDSetElement *settings;
+    TSpeechDMessage *element;
+    GList *gl;
+    /* Find settings for this particular client */
+    settings = get_client_settings_by_uid(uid);
+    if (settings == NULL) return 1;
 
-        if(target) settings = get_client_settings_by_uid(target);
-        else settings = get_client_settings_by_fd(fd);
-        if (settings == NULL) return 1;
+    /* Set it to speak again. */
+    settings->paused = 0;
 
-        /* Set it to speak again. */
-        settings->paused = 0;
-
-        /* Is there any message after resume? */
-
-        if(g_list_length(MessagePausedList) != 0){
-            while(1){
-                gl = g_list_find_custom(MessagePausedList, (void*) NULL, p_msg_nto_speak);
-                if (gl != NULL){
-                    element = (TSpeechDMessage*) gl->data;
-                    MessageQueue->p2 = g_list_append(MessageQueue->p2, element);
-                    MessagePausedList = g_list_remove_link(MessagePausedList, gl);
-                    msgs_to_say++;
-                }else{
-                    break;
-                }
+    /* Is there any message after resume? */
+    if(g_list_length(MessagePausedList) != 0){
+        while(1){
+            gl = g_list_find_custom(MessagePausedList, (void*) NULL, p_msg_nto_speak);
+            if (gl != NULL){
+                element = (TSpeechDMessage*) gl->data;
+                MessageQueue->p2 = g_list_append(MessageQueue->p2, element);
+                MessagePausedList = g_list_remove_link(MessagePausedList, gl);
+                msgs_to_say++;
+            }else{
+                break;
             }
         }
-        return 0;
     }
-    return 1; 
+
+    return 0;
 }
 
 int
@@ -491,6 +502,9 @@ parse(char *buf, int bytes, int fd)
         }
         if (!strcmp(command,"resume")){
             return (char *) parse_resume(buf, bytes, fd);
+        }
+        if (!strcmp(command,"cancel")){
+            return (char *) parse_cancel(buf, bytes, fd);
         }
         if (!strcmp(command,"snd_icon")){				
             return (char *) parse_snd_icon(buf, bytes, fd);
@@ -650,5 +664,19 @@ message_list_compare_fd (gconstpointer element, gconstpointer value, gpointer x)
     assert(message->settings.fd!=0);
 
     ret = message->settings.fd - (int) value;
+    return ret;
+}
+
+gint
+message_list_compare_uid (gconstpointer element, gconstpointer value, gpointer x)
+{
+    int ret;
+    TSpeechDMessage *message;
+
+    message = ((TSpeechDMessage*) element);
+    assert(message!=NULL);
+    assert(message->settings.fd!=0);
+
+    ret = message->settings.uid - (int) value;
     return ret;
 }
