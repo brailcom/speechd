@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.5 2003-02-01 22:16:55 hanke Exp $
+ * $Id: libspeechd.c,v 1.6 2003-03-09 20:47:55 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -102,9 +102,9 @@ spd_say(int fd, int priority, char* text)
   send_data(fd, buf, 0);
 
   sprintf(helper, "@data off\n\r");
-  if(!ret_ok(send_data(fd, helper, 1))) return 0; 
+  if(!ret_ok(send_data(fd, helper, 1))) return -1; 
   
-  return 1;
+  return 0;
 }
 
 int
@@ -128,9 +128,9 @@ spd_stop(int fd)
   char helper[32];
 
   sprintf(helper, "@stop\n\r");
-  if(!ret_ok(send_data(fd, helper, 1))) return 0;
+  if(!ret_ok(send_data(fd, helper, 1))) return -1;
 
-  return 1;
+  return 0;
 }
 
 int
@@ -139,7 +139,8 @@ spd_stop_fd(int fd, int target)
   char helper[32];
 
   sprintf(helper, "@stop %d\n\r", target);
-  if(!ret_ok(send_data(fd, helper, 1))) return 0;
+  if(!ret_ok(send_data(fd, helper, 1))) return -1;
+  return 0;
 }
 
 int
@@ -148,9 +149,9 @@ spd_pause(int fd)
   char helper[16];
 
   sprintf(helper, "@pause\n\r");
-  if(!ret_ok(send_data(fd, helper, 1))) return 0;
+  if(!ret_ok(send_data(fd, helper, 1))) return -1;
 
-  return 1;
+  return 0;
 }
 
 int
@@ -159,7 +160,8 @@ spd_pause_fd(int fd, int target)
   char helper[16];
 
   sprintf(helper, "@pause %d\n\r", target);
-  if(!ret_ok(send_data(fd, helper, 1))) return 0;
+  if(!ret_ok(send_data(fd, helper, 1))) return -1;
+  return 0;
 }
 
 int
@@ -169,8 +171,8 @@ spd_resume(int fd)
 
 	sprintf(helper, "@resume\n\r");
 
-	if(!ret_ok(send_data(fd, helper, 1))) return 0;
-	return 1;
+	if(!ret_ok(send_data(fd, helper, 1))) return -1;
+	return 0;
 }
 
 int
@@ -180,8 +182,104 @@ spd_resume_fd(int fd, int target)
 
 	sprintf(helper, "@resume %d\n\r", target);
 
+	if(!ret_ok(send_data(fd, helper, 1))) return -1;
+	return 0;
+}
+
+int
+spd_icon(int fd, int priority, char *name)
+{
+	static char helper[256];
+	char *buf;
+
+	sprintf(helper, "@set priority %d\n\r", priority);
 	if(!ret_ok(send_data(fd, helper, 1))) return 0;
-	return 1;
+	
+	sprintf(helper, "@snd_icon %s\n\r", name);
+	if(!ret_ok(send_data(fd, helper, 1))) return -1;
+
+	return 0;
+}
+
+spd_say_letter(int fd, int priority, int c)
+{
+	static char helper[] = "letter_x\0";
+	static int r;
+
+	helper[7]=c;
+	r = spd_icon(fd, priority, helper);
+	return r;
+}
+
+int
+spd_say_sgn(int fd, int priority, int c)
+{
+    static char helper[] = "sgn_x\0";
+    static int r;
+
+	helper[4]=c;
+ 	r = spd_icon(fd, priority, helper);
+    return r;
+}
+int
+spd_say_digit(int fd, int priority, int c)
+{
+	static char helper[] = "digit_x\0";
+	static int r;
+
+	helper[6]=c;
+	r = spd_icon(fd, priority, helper);
+	return r;
+}
+
+int
+spd_say_key(int fd, int priority, int c)
+{
+	static int r;
+
+	if (isalpha(c)) r = spd_say_letter(fd, priority, c);
+	else if (isdigit(c)) r = spd_say_digit(fd, priority, c);
+	else if (isgraph(c)) r = spd_say_sgn(fd, priority, c);
+	else return -1;
+
+	return r;	
+}
+
+int
+spd_voice_speed(int fd, int speed)
+{
+	assert(speed>=-100);
+	assert(speed<=100);
+	return 0;
+}
+
+int
+spd_voice_pitch(int fd, int pitch)
+{
+	assert(pitch>=-100);
+	assert(pitch<=100);
+	return 0;
+}
+
+int
+spd_voice_punctuation(int fd, int flag)
+{
+	assert((flag != 0)||(flag != 1));
+	return 0;
+}
+
+int
+spd_voice_cap_let_recognition(int fd, int flag)
+{
+	assert((flag != 0)||(flag != 1));
+	return 0;
+}
+
+int
+spd_voice_spelling(int fd, int flag)
+{
+	assert((flag == 0)||(flag==1));
+	return 0;
 }
 
 int
@@ -190,8 +288,8 @@ spd_history_say_msg(int fd, int id)
 	char helper[32];
 	sprintf(helper,"@history say ID %d\n\r",id);
 
-	if(!ret_ok(send_data(fd, helper, 1))) return 0;
-	return 1;
+	if(!ret_ok(send_data(fd, helper, 1))) return -1;
+	return 0;
 }
 
 int
@@ -200,8 +298,8 @@ spd_history_select_client(int fd, int id)
 	char helper[64];
 	sprintf(helper,"@history cursor set %d first\n\r",id);
 
-	if(!ret_ok(send_data(fd, helper, 1))) return 0;
-	return 1;
+	if(!ret_ok(send_data(fd, helper, 1))) return -1;
+	return 0;
 }
 
 /* Takes the buffer, position of cursor in the buffer
@@ -301,7 +399,7 @@ spd_command_line(int fd, char *buffer, int pos, int c){
 	new_s[0] = 0;
 		
 	/* Speech output for the symbol. */
-	spd_sayf(fd, 3, "%c\n\0", c);
+	spd_say_key(fd, 3, c);	
 	
 	/* TODO: */
 	/* What kind of symbol do we have. */
