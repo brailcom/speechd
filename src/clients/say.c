@@ -1,5 +1,5 @@
 /* speechd simple client program
- * CVS revision: $Id: say.c,v 1.3 2002-07-07 21:45:11 hanke Exp $
+ * CVS revision: $Id: say.c,v 1.4 2002-07-18 17:51:31 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
 #include <sys/types.h>
@@ -12,7 +12,7 @@
 #include <glib.h>
 
 #include "def.h"
-#include "speechdlib.h"
+#include "robodlib.h"
 
 #define FATAL(msg) { perror("client: "msg); exit(1); }
 
@@ -26,15 +26,15 @@ int main(int argc, const char **argv) {
       exit (EXIT_FAILURE);
    }
    
-   sockfd = speechd_init("say","main");
-   if (sockfd == 0) FATAL("Speechd failed");
+   sockfd = rbd_init("say","main");
+   if (sockfd == 0) FATAL("Robod failed");
 
-   err = speechd_say(sockfd, 2, argv[1]);
+   err = rbd_say(sockfd, 2, argv[1]);
 
-   if (err != 1) FATAL("Speechd failed");
+   if (err != 1) FATAL("Robod failed");
 
   
    /* close the socket */
-   speechd_close(sockfd);
+   rbd_close(sockfd);
    exit(0);
 }

@@ -1,5 +1,5 @@
-/* Header file for speechd output modules
- * CVS revision: $Id: module.h,v 1.2 2002-06-30 00:15:58 hanke Exp $
+/* Header file for robod output modules
+ * CVS revision: $Id: module.h,v 1.3 2002-07-18 17:52:37 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
 typedef struct {

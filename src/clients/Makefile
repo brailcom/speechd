@@ -1,5 +1,5 @@
 # Makefile to build speechd clients
-# CVS revision: $Id: Makefile,v 1.6 2002-07-07 21:43:42 hanke Exp $
+# CVS revision: $Id: Makefile,v 1.7 2002-07-18 17:51:31 hanke Exp $
 # Author: Tomas Cerha <cerha@brailcom.cz>
 
 include ../../Makefile.config
@@ -10,21 +10,21 @@ INCLUDE = ../../include
 
 # all executable files to make
 CLIENTS = say
-SPEECHDLIB = speechdlib.so
+ROBODLIB = robodlib.so
 
-all: $(SPEECHDLIB) $(CLIENTS)
+all: $(ROBODLIB) $(CLIENTS)
 
 # === client ===
-say: say.o speechdlib.so
-say.o: say.c speechdlib.h $(INCLUDE)/def.h
-	$(CC) -I$(INCLUDE) $(CFLAGS) speechdlib.so -c say.c
+say: say.o robodlib.so
+say.o: say.c robodlib.h $(INCLUDE)/def.h
+	$(CC) -I$(INCLUDE) $(CFLAGS) robodlib.so -c say.c
 
-# === speechdlib.so ===
-speechdlib.so: speechdlib.o
-	$(CC) $(CFLAGS) $(LIBS) -shared -export-dynamic -avoid-version speechdlib.o -o speechdlib.so
+# === robodlib.so ===
+robodlib.so: robodlib.o
+	$(CC) $(CFLAGS) $(LIBS) -shared -export-dynamic -avoid-version robodlib.o -o robodlib.so
 
-speechdlib.o: speechdlib.c speechdlib.h $(INCLUDE)/def.h
-	$(CC) -I$(INCLUDE) $(CFLAGS) -c speechdlib.c
+robodlib.o: robodlib.c robodlib.h $(INCLUDE)/def.h
+	$(CC) -I$(INCLUDE) $(CFLAGS) -c robodlib.c
 
 #######################
 clean:

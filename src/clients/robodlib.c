@@ -12,7 +12,7 @@
 #define FATAL(msg) { perror("client: "msg); exit(1); }
 
 int 
-speechd_init(char* client_name, char* conn_name)
+rbd_init(char* client_name, char* conn_name)
 {
   int sockfd;
   struct sockaddr_in address;
@@ -37,12 +37,12 @@ speechd_init(char* client_name, char* conn_name)
   return sockfd;
 }
 
-void speechd_close(int fd){
+void rbd_close(int fd){
    /* close the socket */
    close(fd);
 }
 
-int speechd_say(int fd, int priority, char* text){
+int rbd_say(int fd, int priority, char* text){
   char helper[256];
   char *buf;
 

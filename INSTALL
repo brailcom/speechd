@@ -1,7 +1,7 @@
 The requirements:
 ==================
 
-You will need these components to compile speechd: 
+You will need these components to compile Robod: 
     - glib 1.2
     - pthreads
     - libasound1 (0.5.8)
@@ -9,15 +9,15 @@ You will need these components to compile speechd:
     - gcc and GNU make
     - (flite [the only synthetiser that has working output module now])
 
-Building speechd:
+Building Robod:
 =================
 
-To compile the whole project, including speechd server, all modules
+To compile the whole project, including Robod server, all modules
 and clients, simply extract the distribution archive and change to 
-speechd-<version> directory and run "make all" command as follows:
+Robod-<version> directory and run "make all" command as follows:
 
- $ tar -xzvf speechd-<version>.tar.gz
- $ cd speechd-<version>
+ $ tar -xzvf Robod-<version>.tar.gz
+ $ cd Robod-<version>
  $ make all
  
 When everything worked ok, you can install all the parts to the default

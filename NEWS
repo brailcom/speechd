@@ -1,12 +1,12 @@
 
 Version 0.0.3
-  * API for communication with Speech Deamon. 
+  * API for communication with Robod. 
 
   * New output module for flite.
 
   * History commands implemented.
  
-  * Shared library API in speechdlib.so.
+  * Shared library API in Robodlib.so.
 
 Version 0.0.2
 

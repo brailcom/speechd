@@ -1,5 +1,5 @@
-/* Common header file for speechd server, clients and output drivers
- * CVS revision: $Id: def.h,v 1.2 2001-04-10 10:42:05 cerha Exp $
+/* Common header file for robod server, clients and output drivers
+ * CVS revision: $Id: def.h,v 1.3 2002-07-18 17:52:37 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
 /* some constants common for speech server and client part */
