@@ -1,3 +1,9 @@
+speechd (0.0-4) unstable; urgency=low
+
+  * Build-depend on librecode-dev.
+
+ -- Milan Zamazal <pdm@brailcom.org>  Fri, 25 Apr 2003 16:52:59 +0200
+
 speechd (0.0-3) unstable; urgency=low
 
   * Call ./build.sh in config.status:.
