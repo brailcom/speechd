@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.11 2003-03-24 22:22:47 hanke Exp $
+ * $Id: parse.c,v 1.12 2003-03-29 20:15:51 hanke Exp $
  */
 
 #include "speechd.h"
@@ -47,6 +47,7 @@ get_param(char *buf, int n, int bytes)
 {
 	char* param;
 	int i, y, z;
+	int quote_open = 0;
 
 	param = (char*) malloc(bytes);
 	assert(param != NULL);
@@ -60,7 +61,17 @@ get_param(char *buf, int n, int bytes)
 	for(y=0; y<=n; y++){
 		z=0;
 		for(; i<bytes; i++){
-			if (buf[i] == ' ') break;
+			if((buf[i] == '\"')&&(!quote_open)){
+				quote_open = 1;
+				continue;
+			}
+			if((buf[i] == '\"')&&(quote_open)){
+				quote_open = 0;
+				continue;
+			}
+			if(quote_open!=1){
+				if (buf[i] == ' ') break;
+			}
 			param[z] = buf[i];
 			z++;
       }
@@ -74,7 +85,10 @@ get_param(char *buf, int n, int bytes)
 		param[z] = 0;
 	}
 
-   return param;
+	param = g_ascii_strdown(param, strlen(param));
+
+	
+	return param;
 }
 
 /* CONTINUE: Cleaning the rest of the file from here. */
@@ -88,15 +102,15 @@ parse_history(char *buf, int bytes, int fd)
 		
          param = get_param(buf,1,bytes);
          MSG(3, "  param 1 caught: %s\n", param);
-         if (!strcmp(param,"GET")){
+         if (!strcmp(param,"get")){
             param = get_param(buf,2,bytes);
-            if (!strcmp(param,"LAST")){
+            if (!strcmp(param,"last")){
                return (char*) history_get_last(fd);
             }
-            if (!strcmp(param,"CLIENT_LIST")){
+            if (!strcmp(param,"client_list")){
                return (char*) history_get_client_list();
             }  
-            if (!strcmp(param,"MESSAGE_LIST")){
+            if (!strcmp(param,"message_list")){
 				helper1 = get_param(buf,3,bytes);
 				if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
 				helper2 = get_param(buf,4,bytes);
@@ -106,27 +120,27 @@ parse_history(char *buf, int bytes, int fd)
                return (char*) history_get_message_list( atoi(helper1), atoi(helper2), atoi (helper3));
             }  
          }
-         if (!strcmp(param,"SORT")){
+         if (!strcmp(param,"sort")){
 			return ERR_NOT_IMPLEMENTED;
          	// TODO: everything :)
          }
-         if (!strcmp(param,"CURSOR")){
+         if (!strcmp(param,"cursor")){
             param = get_param(buf,2,bytes);
             MSG(3, "    param 2 caught: %s\n", param);
-            if (!strcmp(param,"SET")){
+            if (!strcmp(param,"set")){
                param = get_param(buf,4,bytes);
                MSG(3, "    param 4 caught: %s\n", param);
-               if (!strcmp(param,"LAST")){
+               if (!strcmp(param,"last")){
 				  helper1 = get_param(buf,3,bytes);
 				  if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
                   return (char*) history_cursor_set_last(fd,atoi(helper1));
                }
-               if (!strcmp(param,"FIRST")){
+               if (!strcmp(param,"first")){
 				  helper1 = get_param(buf,3,bytes);
 				  if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
                   return (char*) history_cursor_set_first(fd, atoi(helper1));
                }
-               if (!strcmp(param,"POS")){
+               if (!strcmp(param,"pos")){
 				  helper1 = get_param(buf,3,bytes);
 				  if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
 				  helper2 = get_param(buf,5,bytes);
@@ -134,24 +148,24 @@ parse_history(char *buf, int bytes, int fd)
                   return (char*) history_cursor_set_pos( fd, atoi(helper1), atoi(helper2) );
                }
             }
-            if (!strcmp(param,"NEXT")){
+            if (!strcmp(param,"next")){
                return (char*) history_cursor_next(fd);
             }
-            if (!strcmp(param,"PREV")){
+            if (!strcmp(param,"prev")){
                return (char*) history_cursor_prev(fd);
             }
-            if (!strcmp(param,"GET")){
+            if (!strcmp(param,"get")){
                return (char*) history_cursor_get(fd);
             }
          }
-         if (!strcmp(param,"SAY")){
+         if (!strcmp(param,"say")){
             param = get_param(buf,2,bytes);
-            if (!strcmp(param,"ID")){
+            if (!strcmp(param,"id")){
 				helper1 = get_param(buf,3,bytes);
 				if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
               return (char*) history_say_id(fd, atoi(helper1));
             }
-            if (!strcmp(param,"TEXT")){
+            if (!strcmp(param,"text")){
 			return ERR_NOT_IMPLEMENTED;
             }
          }
@@ -175,7 +189,7 @@ parse_set(char *buf, int bytes, int fd)
 	int ret;
 
 	param = get_param(buf,1,bytes);
-	if (!strcmp(param, "PRIORITY")){
+	if (!strcmp(param, "priority")){
 		priority = get_param(buf,2,bytes);
 		if (!isanum(priority)) return ERR_NOT_A_NUMBER;
 		helper = atoi(priority);
@@ -185,7 +199,7 @@ parse_set(char *buf, int bytes, int fd)
 		return OK_PRIORITY_SET;
 	}
 
-      if (!strcmp(param,"LANGUAGE")){
+      if (!strcmp(param,"language")){
         language = get_param(buf,2,bytes);
         MSG(3, "Setting language to %s \n", language);
 		ret = set_language(fd, language);
@@ -193,7 +207,7 @@ parse_set(char *buf, int bytes, int fd)
         return OK_LANGUAGE_SET;
       }
 
-	if (!strcmp(param,"CLIENT_NAME")){
+	if (!strcmp(param,"client_name")){
 		MSG(3, "Setting client name. \n");
 
 		client_name = get_param(buf,2,bytes);
@@ -202,7 +216,7 @@ parse_set(char *buf, int bytes, int fd)
 		return OK_CLIENT_NAME_SET;
 	}		 
 
-	if (!strcmp(param,"RATE")){
+	if (!strcmp(param,"rate")){
 		rate = get_param(buf,2,bytes);
 		if (!isanum(rate)) return ERR_NOT_A_NUMBER;
 		helper = atoi(rate);
@@ -214,7 +228,7 @@ parse_set(char *buf, int bytes, int fd)
 		return OK_RATE_SET;
 	}
 
-	if (!strcmp(param,"PITCH")){
+	if (!strcmp(param,"pitch")){
 		pitch = get_param(buf,2,bytes);
 		if (!isanum(pitch)) return ERR_NOT_A_NUMBER;
 		helper = atoi(pitch);
@@ -229,7 +243,7 @@ parse_set(char *buf, int bytes, int fd)
 		return OK_RATE_SET;
 	}
 
-	if (!strcmp(param,"PUNCTUATION")){
+	if (!strcmp(param,"punctuation")){
 		punct = get_param(buf,2,bytes);
 		if (!isanum(punct)) return ERR_NOT_A_NUMBER;
 		helper = atoi(punct);
@@ -240,7 +254,7 @@ parse_set(char *buf, int bytes, int fd)
 		return OK_PUNCT_MODE_SET;
 	}
 
-	if (!strcmp(param,"CAP_LET_RECOGN")){
+	if (!strcmp(param,"cap_let_recogn")){
 		recog = get_param(buf,2,bytes);
 		if (!isanum(recog)) return ERR_NOT_A_NUMBER;
 		helper = atoi(recog);
@@ -251,7 +265,7 @@ parse_set(char *buf, int bytes, int fd)
 		return OK_CAP_LET_RECOGN_SET;
 	}
 
-	if (!strcmp(param,"SPELLING")){
+	if (!strcmp(param,"spelling")){
 		spelling = get_param(buf,2,bytes);
 		if (!isanum(spelling)) return ERR_NOT_A_NUMBER;
 		helper = atoi(spelling);
@@ -323,7 +337,7 @@ parse_snd_icon(char *buf, int bytes, int fd)
     param = get_param(buf,1,bytes);
 	if (param == NULL) return ERR_MISSING_PARAMETER;
 	
-	settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);
+	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL)
 	        FATAL("Couldn't find settings for active client, internal error.");
 	
