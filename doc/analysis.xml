@@ -433,19 +433,19 @@
         to German synthetiser to follow language=German).
       </para>
 
-<!--      <para>
+<!--
 	This implyes the solution with independent message queues for each of
 	the output devices. The advantage is in non blocking operation of each
 	output device.
 
- note: Nonsense, IMHO. The messages are queued by their priority and
+       Nonsense, IMHO. The messages are queued by their priority and
        by the time when they were received. In fact, it's our goal
        to block operation of the other devices because only one output
        device must be speaking at each one moment. Note that this brings
-       enormous problems with precise synchronisation -- possibly unsolvable
-       problems! -- hynek hanke
+       enormous problems with precise synchronisation - possibly unsolvable
+       problems! - hynek hanke
 
-      </para> -->
+      -->
 	  
     </sect2>
     

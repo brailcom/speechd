@@ -6,6 +6,23 @@
     <para>
     </para>
 
+    <sect2><title>Public API for shared library</title>
+       <variablelist>
+           <varlistentry>
+	      <term>
+                int speechd_init(char* client_name, char* conn_name);
+	      </term>
+              <listitem>
+                <para>
+           Initiates new Speech Deamon session.
+           Returns connection socket number or 0 if some error occured.
+                </para>
+               </listitem>
+             </varlistentry>
+       </variablelist>
+   </sect2>
+																	  
+
     <sect2 id="ssip_commands"><title>SSIP Commands</title>
       <para>
       </para>
@@ -152,10 +169,10 @@
 
           <varlistentry>
             <term>
-             int speechd_history_cursor_set_pos(int fd, int pos); <br/>
-             int speechd_history_cursor_set_first(int fd); <br/>
-             int speechd_history_cursor_set_last(int fd); <br/>
-             int speechd_history_cursor_next(int fd); <br/>
+             int speechd_history_cursor_set_pos(int fd, int pos); 
+             int speechd_history_cursor_set_first(int fd); 
+             int speechd_history_cursor_set_last(int fd); 
+             int speechd_history_cursor_next(int fd); 
              int speechd_history_cursor_prev(int fd);
             </term>
             <listitem>
