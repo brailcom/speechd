@@ -1,3 +1,8 @@
+2004-01-27  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/server/server.c (serve): Handle the case when `read' returns
+	0.
+
 2004-01-20  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/server/server.c (serve): Reading data from socket fixed.
