@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.7 2003-02-01 22:16:55 hanke Exp $
+ * $Id: module.c,v 1.8 2003-03-23 21:16:41 hanke Exp $
  */
 
 #include "speechd.h"
@@ -53,8 +53,8 @@ OutputModule* load_output_module(gchar* modname) {
       return NULL;
    }
 
-//   gdsl_list_insert_head(output_queues, (void *) modname); 
-
+   module_info->gmodule = gmodule;
+   
    MSG(2,"loaded module: %s (%s)\n", module_info->name, module_info->description);
 
    return module_info;
