@@ -1,3 +1,7 @@
+2003-05-05  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/modules/festival.cc (modinfo_festival): `filename' removed.
+
 2003-05-01  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* src/modules/flite.c (module_flite): filename entry deleted.
