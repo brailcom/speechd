@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sem_functions.c,v 1.4 2003-10-12 23:33:32 hanke Exp $
+ * $Id: sem_functions.c,v 1.5 2003-10-15 20:07:31 hanke Exp $
  */
 
 #include "speechd.h"
@@ -60,13 +60,19 @@ semaphore_wait(int sem_id)
     sem_b.sem_num = 0;
     sem_b.sem_op = -1;          /* P() */
     sem_b.sem_flg = SEM_UNDO;
-    if (semop(sem_id, &sem_b, 1) == -1){
+    
+    while(semop(sem_id, &sem_b, 1) == -1){       
         err = errno;
-        MSG(1,"semaphore_wait on semaphore id %d failed: errno=%d %s",
-            sem_id, err, strerror(err));
-        MSG(1,"You may want to run `ipcs -s' to see if the semaphore still exits.");
-        FATAL("Can't continue");
+        if ((err != EINTR) || (err != EAGAIN)){
+            MSG2(1,"semaphores_bug",
+                "semaphore_wait on semaphore id %d failed: errno=%d %s",
+                sem_id, err, strerror(err));
+            MSG2(1,"semaphores_bug",
+                "You may want to run `ipcs -s' to see if the semaphore still exists.");
+            FATAL("Can't continue");       
+        } 
     }
+
     MSG2(5,"semaphores_bug","Semaphore returned");
 }
 
@@ -85,7 +91,7 @@ semaphore_post(int sem_id)
         err = errno;
         MSG(1,"semaphore_post on semaphore id %d failed: errno=%d %s",
             sem_id, err, strerror(err));
-        MSG(1,"You may want to run `ipcs -s' to see if the semaphore still exits.");
+        MSG(1,"You may want to run `ipcs -s' to see if the semaphore still exists.");
         FATAL("Can't continue");
     }
 }
