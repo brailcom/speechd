@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.13 2003-04-18 21:20:57 hanke Exp $
+ * $Id: fdset.h,v 1.14 2003-04-24 19:25:15 hanke Exp $
  */
 
 typedef enum 
@@ -36,18 +36,24 @@ typedef enum
 
 typedef enum
 {
-    BY_TIME = 0,
-    BY_ALPHABET = 1
+    SORT_BY_TIME = 0,
+    SORT_BY_ALPHABET = 1
 }ESort;
 
 typedef enum
 {
-    TEXT = 0,
-    SOUND_ICON = 1,
-    CHAR = 2,
-    KEY = 3
+    MSGTYPE_TEXT = 0,
+    MSGTYPE_SOUND_ICON = 1,
+    MSGTYPE_CHAR = 2,
+    MSGTYPE_KEY = 3
 }EMessageType;
-    
+
+typedef enum
+{
+    PUNCT_NONE = 0,
+    PUNCT_ALL = 1,
+    PUNCT_SOME = 2
+}EPunctMode;
 
 typedef struct{
     unsigned int uid;		/* Unique ID of the client */
@@ -56,7 +62,7 @@ typedef struct{
     int paused;                 /* Internal flag, 1 for paused client or 0 for normal. */
     EMessageType type;          /* Type of the message (1=text, 2=icon, 3=char, 4=key) */
     int priority;               /* Priority between 1 and 3 (1 - highest, 3 - lowest) */
-    int punctuation_mode;	/* Punctuation mode: 0, 1 or 2
+    EPunctMode punctuation_mode;	/* Punctuation mode: 0, 1 or 2
                                    0	-	no punctuation
                                    1 	-	all punctuation
                                    2	-	only user-selected punctuation */
@@ -67,7 +73,7 @@ typedef struct{
     char* char_table;           /* Selected character table */
     char* key_table;            /* Selected key table */
     char* snd_icon_table;        /* Selected sound icons table */
-    signed int speed; 		/* Speed of voice from <-100;+100>, 0 is the default medium */
+    signed int rate; 		/* Speed of voice from <-100;+100>, 0 is the default medium */
     signed int pitch;		/* Pitch of voice from <-100;+100>, 0 is the default medium */
     char *client_name;		/* Name of the client. */
     char *language;             /* Selected language name. (e.g. "english", "czech", "french", ...) */
