@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.30 2003-04-14 22:46:58 hanke Exp $
+  * $Id: server.c,v 1.31 2003-04-17 10:12:44 hanke Exp $
   */
 
 #include "speechd.h"
@@ -78,9 +78,12 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
     char *character;
     char *pos;
     GString *str;
+    char *new_message;
 
     str = g_string_sized_new(bytes);
     character = (char*) spd_malloc(8); /* 6 bytes should be enough, plus the trailing 0 */
+
+    assert(settings->spelling_table != NULL);
 
     pos = buf;                  /* Set the position cursor for UTF8 to the beginning. */
     for(i=0; i<=g_utf8_strlen(buf, -1) - 3; i++){
@@ -96,7 +99,10 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
         pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */
     }
 
-    return str->str;
+    new_message = str->str;
+    g_string_free(str, 0);
+    free(character);
+    return new_message;
 }
 
 char*
@@ -110,9 +116,12 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
     gunichar u_char;
     int length;
     GString *str;
+    char *new_message;
 
     str = g_string_sized_new(bytes);
     character = (char*) spd_malloc(8); /* 6 bytes should be enough, plus the trailing 0 */
+
+    assert(settings->punctuation_table!=NULL);
 
     pos = buf;                  /* Set the position cursor for UTF8 to the beginning. */
     for(i=0; i<=g_utf8_strlen(buf, -1) - 3; i++){
@@ -129,9 +138,9 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
                     continue;
                 }
             }
-			
-            spelled_punct = (char*) snd_icon_spelling_get(settings->spelling_table,
-                                                           icons, character);
+
+            spelled_punct = (char*) snd_icon_spelling_get(settings->punctuation_table,
+                                                          icons, character);
             g_string_append(str," ");
             if(spelled_punct != NULL) g_string_append(str, spelled_punct);
             g_string_append(str," ");
@@ -142,9 +151,13 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
         pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */
     }
 
-    return str->str;
+    new_message = str->str;
+	
+    g_string_free(str, 0);
+    free(character);
+	
+    return new_message;
 }
-
 
 char*
 process_message(char *buf, int bytes, TFDSetElement* settings)
@@ -173,7 +186,7 @@ process_message(char *buf, int bytes, TFDSetElement* settings)
 }
 
 int
-queue_message(TSpeechDMessage *new, int fd, int history_flag)
+queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type)
 {
     GList *gl;
     TFDSetElement *settings;
@@ -188,6 +201,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag)
 
     /* Copy the settings to the new to-be-queued element */
     new->settings = *settings;
+    new->settings.type = type;
     new->settings.output_module = (char*) spd_malloc(strlen(settings->output_module) + 1);
     new->settings.language = (char*) spd_malloc( strlen(settings->language) + 1);
     new->settings.client_name = (char*) spd_malloc( strlen(settings->client_name) + 1);
@@ -349,7 +363,7 @@ parse(char *buf, int bytes, int fd)
 
             if (new->bytes==0) return OK_MSG_CANCELED;
 				
-            if(queue_message(new,fd, 1) != 0){
+            if(queue_message(new, fd, 1, TEXT) != 0){
                 if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
                 free(new->buf);
                 free(new);
