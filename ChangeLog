@@ -1,3 +1,7 @@
+2003-10-22  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/server/server.c (serve): Log connection descriptors as well.
+
 2003-10-22  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/parse.c (parse): Bug with sometimes incorrect canceled message handling corrected.
