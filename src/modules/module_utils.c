@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.23 2003-10-15 20:06:34 hanke Exp $
+ * $Id: module_utils.c,v 1.24 2003-10-18 13:02:13 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -148,8 +148,6 @@ static int module_get_message_part(const char* message, char* part,
                                    const char* dividers);
 
 static void set_speaking_thread_parameters();
-static short* module_add_samples(short* samples, short* data, size_t bytes, 
-                                 size_t *num_samples);
 
 static void module_parent_dp_init(TModuleDoublePipe dpipe);
 static void module_child_dp_init(TModuleDoublePipe dpipe);
