@@ -1,3 +1,16 @@
+2003-10-09  Hynek Hanke  <hanke@volny.cz>
+
+	* src/modules/festival_client.h (festivalStringToWaveGetData): Parameters added.
+
+	* src/modules/festival.c (_festival_parent): Call festivalStringToWaveGetData
+	with the new parameters. Don't turn multiple wave files receiving on.
+
+	* src/modules/festival_client.c (festivalStringToWaveGetData): If multiple is 1 or two,
+	first read the number of waves that should come.
+	(festivalStringToWaveGetData): Don't wait for OK if this is not tha last wave.
+	(festivalStringToWaveGetData): Decrement the remaining_waves counter if ER is
+	returned.
+
 2003-10-08  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/server.c: Removed tables.
