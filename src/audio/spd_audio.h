@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: spd_audio.h,v 1.6 2004-11-19 13:54:02 hanke Exp $
+ * $Id: spd_audio.h,v 1.7 2004-11-21 22:12:12 hanke Exp $
  */
 
 #include <pthread.h>
@@ -43,7 +43,7 @@ typedef struct{
 }AudioTrack;
 
 typedef struct{
-    void*   (* open)  (void *id, void** pars);
+    int   (* open)  (void *id, void** pars);
     int   (* play)  (void *id, AudioTrack track);
     int   (* stop)  (void *id);
     int   (* close) (void *id);
