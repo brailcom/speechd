@@ -19,8 +19,11 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.19 2003-06-08 21:50:57 hanke Exp $
+ * $Id: fdset.h,v 1.20 2003-06-20 00:20:33 hanke Exp $
  */
+
+#ifndef FDSET_H
+#define FDSET_H
 
 typedef enum 
 {                  /* Type of voice */
@@ -90,3 +93,4 @@ typedef struct{
     unsigned int min_delay_progress;
 }TFDSetElement;
 
+#endif /* not ifndef FDSET */
