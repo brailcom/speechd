@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.18 2003-04-06 20:01:27 hanke Exp $
+ * $Id: speechd.h,v 1.19 2003-04-11 20:44:55 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -145,7 +145,7 @@ gint message_nto_speak (TSpeechDMessage*, gpointer, gpointer);
 
 /* Functions for parsing the input from clients */
 /* also parse() */
-char* get_param(char *buf, int n, int bytes);
+char* get_param(char *buf, int n, int bytes, int lower_case);
 
 void speaking_stop(int uid);
 void speaking_cancel(int uid);
