@@ -19,22 +19,23 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.h,v 1.9 2003-04-15 10:09:00 pdm Exp $
+ * $Id: module.h,v 1.10 2003-04-28 01:56:57 hanke Exp $
  */
 
 #include <glib.h>
 #include <gmodule.h>
 
-typedef struct {
-   gchar    *name;
-   gchar    *description;
-   gchar    *filename;
-   GModule	*gmodule;
-   gint     (*write)    (gchar *, gint, void*);
-   gint     (*stop)     (void);
-   gint     (*is_speaking) (void);
-   gint     (*close)    (void);
-} OutputModule;
+typedef struct{
+    gchar    *name;
+    gchar    *description;
+    gchar    *filename;
+    GModule  *gmodule;
+    gint     (*write)     (gchar *, gint, void*);
+    gint     (*stop)      (void);
+    gchar*     (*pause)     (void);
+    gint     (*is_speaking) (void);
+    gint     (*close)     (void);
+}OutputModule;
 
 typedef OutputModule entrypoint (void);
 
