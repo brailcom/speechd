@@ -1,0 +1,74 @@
+
+Speech Dispatcher 0.3 released
+==============================
+
+The Brailcom organization is happy to announce the release
+of Speech Dispatcher 0.3 developed as a part of the Free(b)Soft
+project.
+
+* What is Speech Dispatcher?
+
+  Speech Dispatcher is a device independent layer for speech
+  synthesis, developed with the goal of making the usage of speech
+  synthesis easier for application programmers. It takes care of most
+  of the tasks necessary to solve in speech enabled applications. What
+  is a very high level GUI library to graphics, Speech Dispatcher is
+  to speech synthesis.
+
+  The architecture of Speech Dispatcher is based on a proven
+  client/server model. The basic means of client communication
+  with Speech Dispatcher is through a TCP connection using the Speech
+  Synthesis Interface Protocol (SSIP).
+
+  Key Speech Dispatcher features are:
+
+  - Message priority model that allows multiple simultaneous
+    connections to Speech Dispatcher from one or more clients
+    and tries to provide the user with the most important messages.
+
+  - Different output modules that talk to different synthesizers
+    so that the programmer doesn't need to care which particular
+    synthesizer is being used. Currently Festival, Flite and Epos are
+    supported.
+
+  - Client-based configuration allows users to configure different
+    settings for different clients that connect to Speech Dispatcher.
+
+  - Simple interface for programs written in C and C++ provided
+    through a shared library. There is also an Elisp library
+    being developed as a separate project speechd-el, Python
+    library. Also a Perl interface is being developed right now.
+    Possibly an interface to any other language can be developed.
+
+* What is new in 0.3?
+
+ - Volume settings in SSIP.
+
+ - New interface library for Common Lisp.
+
+ - The document describing SSIP (Speech Synthesis Interface Protocol)
+   is now a separate file.
+
+ - Debugging, cleaning, testing.
+
+* Where to get it?
+
+  You can get the distribution tarball of the released version from
+  http://www.freebsoft.org/pub/projects/speechd/speechd-0.3.tar.gz .
+
+  We recommend you to fetch the sound icons Speech Dispatcher can use as
+  well. They are available at
+  http://www.freebsoft.org/pub/projects/sound-icons/sound-icons-0.1.tar.gz
+
+  Corresponding Debian packages are available at a Debian distribution mirror.
+  (We would highly appreciate any help with RPM distribution!)
+
+  The home page of the project is http://www.freebsoft.org/speechd .
+
+* How to report bugs?
+
+  Please report bugs at <speechd@bugs.freebsoft.org>. For other
+  contact please use <speechd@freebsoft.org>
+  
+
+Happy synthesizing!

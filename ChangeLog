@@ -1,5 +1,9 @@
 2004-04-04  Hynek Hanke  <hanke@volny.cz>
 
+	* src/modules/festival.c: Mistyped '-' removed.
+
+	* src/Makefile.am (EXTRA_DIST): Include the Common Lisp library in the distribution.
+
 	*  (Module): 
 
 	* src/modules/module_main.c: Unused variable removed.

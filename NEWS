@@ -1,4 +1,12 @@
 
+Version 0.3
+ * Volume setting commands in SSIP.
+ * Package and binary renamed to speech-dispatcher.
+ * Generic output module configuration file for DTK Software Synthesis.
+   Thanks to Jacob Schmude.
+ * Document with definition of SSIP is now separated.
+ * Debugging.
+
 Version 0.2
  * Improved documentation (definition of the SSIP
    protocol is now a separated document)
