@@ -21,11 +21,12 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.17 2003-03-30 22:35:57 hanke Exp $
+ * $Id: speechd.h,v 1.18 2003-04-06 20:01:27 hanke Exp $
  */
 
 #ifndef SPEECHDH
  #define SPEECHDH
+
 #include <netinet/in.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -146,9 +147,11 @@ gint message_nto_speak (TSpeechDMessage*, gpointer, gpointer);
 /* also parse() */
 char* get_param(char *buf, int n, int bytes);
 
-/* stop_c() implements the stop family of commands */
-int stop_c(EStopCommands command, int fd, int target);
-		
+void speaking_stop(int uid);
+void speaking_cancel(int uid);
+int speaking_pause(int uid);
+int speaking_resume(int uid);	
+	
 /* Stops all messages from client on fd */
 void stop_from_client(int fd);
 
@@ -158,13 +161,16 @@ int isanum(char *str);
 
 /* Functions for searching through lists */
 gint message_list_compare_fd (gconstpointer, gconstpointer, gpointer);
+gint message_list_compare_uid (gconstpointer, gconstpointer, gpointer);
 
 TFDSetElement* get_client_settings_by_uid(int uid);
 TFDSetElement* get_client_settings_by_fd(int fd);
+int get_client_uid_by_fd(int fd);
 
 /* Some pointers to functions for searching through lists */
 gint (*p_msg_nto_speak)();
 gint (*p_msg_lc)();
+gint (*p_msg_uid_lc)();
 gint (*p_cli_comp_id)();
 gint (*p_cli_comp_fd)();
 
