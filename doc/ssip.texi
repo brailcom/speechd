@@ -21,14 +21,15 @@
 
 @titlepage
 @title Speech Synthesis Interface Protocol
-@author Brailcom, o.p.s. <@email{kontakt@@brailcom.cz}>
-
+@author Tom@'a@v{s} Cerha <@email{cerha@@freebsoft.org}>
+@author Hynek Hanke <@email{hanke@@freebsoft.org}>
+@author Milan Zamazal <@email{zamazal@@freebsoft.org}>
 @page
 @vskip 0pt plus 1filll
 
-This manual documents Speech Synthesis Interface Protocol, version @value{VERSION}.
+This manual documents Speech Synthesis Interface Protocol, version 0.1.
 
-Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
+Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s., http://www.brailcom.cz .
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
@@ -44,9 +45,9 @@ Free Documentation License".
 @ifnottex
 @node Top, Introduction, (dir), (dir)
 
-This manual documents Speech Synthesis Internet Protocol, version @value{VERSION}.
+This manual documents Speech Synthesis Internet Protocol, version 0.1.
 
-Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
+Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s., http://www.brailcom.cz .
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document under the
