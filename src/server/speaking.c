@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.4 2003-04-24 19:32:38 hanke Exp $
+  * $Id: speaking.c,v 1.5 2003-04-25 00:19:30 hanke Exp $
   */
 
 #include <glib.h>
@@ -170,11 +170,19 @@ speak(void* data)
              * working under a locked mutex and blocking the second thread! */
 
             if(element->settings.type == MSGTYPE_TEXT){
+				MSG(4, "Processing message...");
                 buffer = (char*) process_message(element->buf, element->bytes, &(element->settings));
+				if (buffer == NULL){
+						MSG(3,"Processing message unsuccesful, using raw text!");
+					   	buffer = element->buf;
+				}
             }else{
+				MSG(4, "Passing message as it is...");
                 buffer = element->buf;
             }
 
+			assert(buffer != NULL);
+			
             /* Set the speking_module monitor so that we knew who is speaking */
             speaking_module = output;
             speaking_uid = element->settings.uid;
