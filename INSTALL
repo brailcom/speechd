@@ -18,8 +18,8 @@ To compile the whole project, including Speech Deamon server, all modules
 and clients, simply extract the distribution archive and change to 
 speechd-<version> directory and run "make all" command as follows:
 
- $ tar -xzvf robod-@VERSION.tar.gz
- $ cd robod-@VERSION
+	 $ tar -xzvf speechd-@VERSION.tar.gz
+ $ cd speechd-@VERSION
  $ make all
 
 But before typing make all, make sure that you have correctly installed flite!
@@ -30,7 +30,7 @@ check for example for libflite_cmu_us_kal.so in your library directory.
 
 If it doesn't work, try the following:
 
- $ cd robod-@VERSION
+ $ cd speechd-@VERSION
  $ automake && aclocal && autoconf
  $ ./configure
  $ cd src

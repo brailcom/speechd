@@ -15,8 +15,8 @@ To compile the whole project, including Speech Deamon server, all modules
 and clients, simply extract the distribution archive and change to 
 speechd-<version> directory and run "make all" command as follows:
 
- $ tar -xzvf robod-@VERSION.tar.gz
- $ cd robod-@VERSION
+ $ tar -xzvf speechd-@VERSION.tar.gz
+ $ cd speech-@VERSION
  $ make all
  
 When everything worked ok, you can install all the parts to the default
