@@ -11,7 +11,7 @@ typedef struct{
         int priority;           // priority between 1 and 3
         int punctuation_mode;   // this will of course not be integer
         int speed;              // speed: 100 = normal, ???
-        float pitch;            // pitch: ???
+        int pitch;              // pitch: ???
         char *client_name;
         char *language;         // language: default = english
         char *output_module;    // output module: festival, odmluva, epos,...
