@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.50 2003-10-08 21:32:09 hanke Exp $
+ * $Id: parse.c,v 1.51 2003-10-09 21:18:57 hanke Exp $
  */
 
 #include "speechd.h"
@@ -507,8 +507,6 @@ parse_set(const char *buf, const int bytes, const int fd)
     else if (!strcmp(set_sub, "pause_context")){
         int pause_context;
         GET_PARAM_INT(pause_context, 3);
-
-        if(pause_context < 0) return ERR_PARAMETER_INVALID;
 
         SSIP_SET_COMMAND(pause_context);
         if (ret) return ERR_COULDNT_SET_PAUSE_CONTEXT;
