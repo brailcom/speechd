@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.32 2003-10-08 21:29:22 hanke Exp $
+ * $Id: festival.c,v 1.33 2003-10-09 17:16:10 hanke Exp $
  */
 
 #include "module.h"
@@ -304,6 +304,7 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
     int o_bytes = 0;
     int pause = -1;
     cst_wave wave_parameters;
+    int cont = 0;
 
     DBG("Entering parent process, closing pipes");
 
@@ -345,17 +346,20 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
             }
             DBG("s-returned %d\n", r);
             first_run = 0;
-        }else{
+        }else{                                       
             DBG("Retrieving data\n");
-            if (o_bytes > 0) fwave = festivalStringToWaveGetData(festival_info);
+            if (o_bytes > 0) fwave = festivalStringToWaveGetData(festival_info, &cont, 0);
             else fwave = NULL;
+
+            DBG("ss-returned %d\n", r);
+            DBG("Ok, next step...\n");
+
+            /* This is not synchronous here, but there is no other way to do it */
             DBG("Sending request for synthesis");
             if (bytes > 0){
                 r = festivalStringToWaveRequest(festival_info, buf);
-            }
-            DBG("ss-returned %d\n", r);
-            DBG("Ok, next step...\n");
-            
+            }                
+
             /* fwave can be NULL if the given text didn't produce any sound
                output, e.g. this text: "." */
             if (fwave != NULL){
@@ -382,7 +386,7 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
         }
         if ((pause >= 0) && (*pause_requested)){
             if (bytes > 0){
-                fwave = festivalStringToWaveGetData(festival_info);    
+                fwave = festivalStringToWaveGetData(festival_info, &cont, 0);    
                 delete_FT_Wave(fwave);
             }
             module_parent_dp_close(dpipe);
@@ -394,7 +398,7 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 
         if (terminate && (bytes > 0)){
             if (o_bytes > 0){
-                fwave = festivalStringToWaveGetData(festival_info);    
+                fwave = festivalStringToWaveGetData(festival_info, &cont, 0);    
                 delete_FT_Wave(fwave);
             }
         }
