@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.25 2003-07-16 19:19:55 hanke Exp $
+ * $Id: set.c,v 1.26 2003-08-11 15:01:07 hanke Exp $
  */
 
 #include "set.h"
@@ -150,6 +150,10 @@ set_punctuation_mode_uid(int uid, EPunctMode punctuation)
     return 0;
 }
 
+#define SET_PARAM_STR(name) \
+     settings->name = set_param_str(settings->name, name);
+
+
 SET_SELF_ALL(char*, punctuation_table)
 
 int
@@ -162,7 +166,7 @@ set_punctuation_table_uid(int uid, char* punctuation_table)
     if(punctuation_table == NULL) return 1;
 
     if(g_list_find_custom(tables.spelling, punctuation_table, spd_str_compare)){
-        set_param_str(&(settings->punctuation_table), punctuation_table);
+        SET_PARAM_STR(punctuation_table);
     }else{
         if(!strcmp(punctuation_table, "punctuation_basic")){
             MSG(3,"Couldn't find requested table, using the previous");
@@ -218,7 +222,7 @@ set_spelling_table_uid(int uid, char* spelling_table)
     if (spelling_table == NULL) return 1;
 
     if(g_list_find_custom(tables.spelling, spelling_table, spd_str_compare)){
-        set_param_str(&(settings->spelling_table), spelling_table);
+        SET_PARAM_STR(spelling_table);
     }else{
         if(!strcmp(spelling_table, "spelling_short")
            || !strcmp(spelling_table, "spelling_long")){
@@ -235,18 +239,18 @@ set_spelling_table_uid(int uid, char* spelling_table)
 SET_SELF_ALL(char*, sound_table)
 
 int
-set_sound_table_uid(int uid, char* sound_table)
+set_sound_table_uid(int uid, char* snd_icon_table)
 {
     TFDSetElement *settings;
 
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
-    if (sound_table == NULL) return 1;
+    if (snd_icon_table == NULL) return 1;
 
-    if(g_list_find_custom(tables.sound_icons, sound_table, spd_str_compare)){
-        set_param_str(&(settings->snd_icon_table), sound_table);
+    if(g_list_find_custom(tables.sound_icons, snd_icon_table, spd_str_compare)){
+        SET_PARAM_STR(snd_icon_table);
     }else{
-        if(!strcmp(sound_table, "sound_icons")){
+        if(!strcmp(snd_icon_table, "sound_icons")){
             MSG(4,"Couldn't find requested table, using the previous");
             return 0;
         }else{
@@ -269,7 +273,7 @@ set_cap_let_recogn_table_uid(int uid, char* cap_let_recogn_table)
     if (cap_let_recogn_table == NULL) return 1;
 
     if(g_list_find_custom(tables.cap_let_recogn, cap_let_recogn_table, spd_str_compare)){
-        set_param_str(&(settings->cap_let_recogn_table), cap_let_recogn_table);
+        SET_PARAM_STR(cap_let_recogn_table);
     }else{
         MSG(4,"Couldn't find requested table, using the previous");
         return 0;
@@ -289,7 +293,7 @@ set_language_uid(int uid, char *language)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 	
-    set_param_str(&(settings->language), language);        
+    SET_PARAM_STR(language);        
 
     /* Check if it is not desired to change output module */
     output_module = g_hash_table_lookup(language_default_modules, language);
@@ -316,7 +320,7 @@ set_client_name_self(int fd, char *client_name)
         if(client_name[i]==':') dividers++;
     if (dividers != 2) return 1;
     
-    set_param_str(&(settings->client_name), client_name);
+    SET_PARAM_STR(client_name);
 
     return 0;
 }
@@ -334,7 +338,7 @@ set_key_table_uid(int uid, char* key_table)
     if (key_table == NULL) return 1;
 
     if(g_list_find_custom(tables.keys, key_table, spd_str_compare)){
-        set_param_str(&(settings->key_table), key_table);
+        SET_PARAM_STR(key_table);
     }else{
         if(!strcmp(key_table, "keys")){
             MSG(4,"Couldn't find requested table, using the previous");
@@ -358,7 +362,7 @@ set_character_table_uid(int uid, char* char_table)
     if (char_table == NULL) return 1;
 
     if(g_list_find_custom(tables.characters, char_table, spd_str_compare)){
-        set_param_str(&(settings->char_table), char_table);
+        SET_PARAM_STR(char_table);
     }else{
         if(!strcmp(char_table, "characters")){
             MSG(4,"Couldn't find requested table, using the previous");
@@ -385,7 +389,7 @@ set_output_module_uid(int uid, char* output_module)
 
     MSG(5, "Setting output module to %s", output_module);
 
-    set_param_str(&(settings->output_module), output_module);
+    SET_PARAM_STR(output_module);
 
     return 0;
 }
@@ -465,13 +469,18 @@ set_param_int(int* parameter, int value)
     *parameter = value;
 }
 
-void
-set_param_str(char** parameter, char* value)
+char*
+set_param_str(char* parameter, char* value)
 {   
+    char *new;
+
     if(value == NULL){
-        *parameter = NULL;
+        new = NULL;
+        return new;
     }
 
-    *parameter = realloc(*parameter, (strlen(value) + 1) * sizeof(char));
-    strcpy(*parameter, value);
+    new = realloc(parameter, (strlen(value) + 1) * sizeof(char));
+    strcpy(new, value);
+
+    return new;
 }
