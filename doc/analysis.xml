@@ -19,7 +19,7 @@
     </mediaobject>
     
     <para>
-      The figure above shows the two speechd interfaces: SSIP and modules
+      The figure above shows the two speechd interfaces: <xref linkend="ssip_commands"/>       and modules
       API.  Both of them are described in the following subsections.  SSIP
       is subject of <xref linkend="s-input-side"/> and output modules and
       the API for them are subject of <xref linkend="s-output-side"/>.
@@ -105,7 +105,7 @@
 	    </para>
 	  </listitem>
 	</varlistentry>
-	<varlistentry><term>continue</term>
+	<varlistentry><term>resume</term>
 	  <listitem>
 	    <para>
 	      Continue paused speech.
@@ -150,8 +150,7 @@
 		server, they are queued and said in the order, they came.
 		When a new message of level 1 comes during lower level
 		message is spoken, lower level message is canceled and removed
-		from the queue (removed messages are stored in the history, as
-		described in <xref linkend="s-history"/>).
+		from the queue (this message is allready stored in the history, as		described in <xref linkend="s-history"/>).
 	      </para>
 	    </listitem>
 	  </varlistentry>
@@ -170,9 +169,9 @@
 	    <listitem>
 	      <para>
 		Third level messages are only said, when there are no messages
-		of any higher level queued. So they will be never saied, if the
-		output device, they are dirrected to, is busy in the moment,
-		they arrive. But if the message is not saied, it is still
+		of any higher level queued. So they will be never said, if the
+		output device is busy in the moment,
+		they arrive. But if the message is not said, it is still
 		copied to the history as described in <xref linkend="s-history"/>.
 	      </para>
 	    </listitem>
@@ -227,15 +226,21 @@
 		values and their ranges differ. Each output module is
 		responsible to set the speed to the value, best responding to
 		current setting. This may be a little bit difficult, because
-		there is no exact scale.
+		there is no exact scale. We could take some longer english
+                paragraph and take it as a base for our new scale. If this
+                paragraph is said
+                in eg. ten secconds, this means speed = 100, if it is said
+                in twenty seconds, speed = 200. This way, we can coordinate
+                diferent scales quite preciselly (the paragraph should be
+                long enough).
 	      </para>
 	    </listitem>
 	  </varlistentry>
 	  <varlistentry><term>Pitch</term>
 	    <listitem>
 	      <para>
-		Pitch is the voice frequency. We face the similar problems here, as
-		with Speed setting.
+		Pitch is the voice frequency. We face the similar problems
+                here, as with Speed setting.
 	      </para>
 	    </listitem>
 	  </varlistentry>
@@ -243,7 +248,10 @@
 	    <listitem>
 	      <para>
 		Most synthesizers provide several voice types, such as male,
-		female, child etc. The set is again different for each of the devices.
+		female, child etc. The set is again different for each
+                of the devices. Speech Deamon should try to find the nearest
+                possible (if the request is child female and it's not available,
+                we will try to use adult female rather then adult male).
 	      </para>
 	    </listitem>
 	  </varlistentry>
@@ -400,7 +408,6 @@
       
       <para>
 	
-	
       </para>
       
     </sect2>
@@ -416,15 +423,29 @@
       
       <para>
 	Output device selection should be also configurable with respect to
-	device capabilities (such as supported languages), however we have
-	currently no idea how to solve this...
+	device capabilities. There should be a command which sends to client
+        a list of all output devices and the languages they provide. Client
+        can select one of the combination and set prefered output module
+        and prefered language. However, if client sets such combination that
+        doesn't have sense (eg. Czech synthetiser to speak German), Speech
+        Deamon must force other parameters. In this case of conflict,
+        language has major priority than output module. (eg. we will switch
+        to German synthetiser to follow language=German).
       </para>
 
-      <para>
+<!--      <para>
 	This implyes the solution with independent message queues for each of
 	the output devices. The advantage is in non blocking operation of each
 	output device.
-      </para>
+
+ note: Nonsense, IMHO. The messages are queued by their priority and
+       by the time when they were received. In fact, it's our goal
+       to block operation of the other devices because only one output
+       device must be speaking at each one moment. Note that this brings
+       enormous problems with precise synchronisation -- possibly unsolvable
+       problems! -- hynek hanke
+
+      </para> -->
 	  
     </sect2>
     
