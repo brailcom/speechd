@@ -2932,12 +2932,12 @@ It should return 0 on success, -1 otherwise.
 @end menu
 
 @node Key Names, Standard Sound Icons, Appendices, Appendices
-@appendixsubsec Key Names
+@appendixsec Key Names
 
 This appendix defines all the recognized symbolic key names.  The
 names are case sensitive.
 
-@subsubheading Special Key Names
+@subheading Special Key Names
 
 @table @code
 @item space
@@ -2945,7 +2945,7 @@ names are case sensitive.
 @item double-quote
 @end table
 
-@subsubheading Auxiliary Keys
+@subheading Auxiliary Keys
 
 @table @code
 @item control
@@ -2955,7 +2955,7 @@ names are case sensitive.
 @item super
 @end table
 
-@subsubheading Control Character Keys
+@subheading Control Character Keys
 
 @table @code
 @item backspace
@@ -3024,13 +3024,13 @@ names are case sensitive.
 @end table
 
 @node Standard Sound Icons, Standard Spelling Tables, Key Names, Appendices
-@appendixsubsec Standard Sound Icons
+@appendixsec Standard Sound Icons
 
 There are none currently.
 
 
 @node Standard Spelling Tables, Standard Sound Tables, Standard Sound Icons, Appendices
-@appendixsubsec Standard Spelling Tables
+@appendixsec Standard Spelling Tables
 
 The following spelling table names are always present in the output of
 the @code{LIST SPELLING tables} command (@pxref{Information Retrieval
@@ -3043,13 +3043,13 @@ Commands}):
 
 
 @node Standard Sound Tables, Standard Voices, Standard Spelling Tables, Appendices
-@appendixsubsec Standard Sound Tables
+@appendixsec Standard Sound Tables
 
 There are none currently.
 
 
 @node Standard Voices,  , Standard Sound Tables, Appendices
-@appendixsubsec Standard Voices
+@appendixsec Standard Voices
 
 The following voice names are always present in the output of the
 @code{LIST VOICES} command (@pxref{Information Retrieval Commands}):
