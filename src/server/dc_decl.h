@@ -21,11 +21,14 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.2 2003-02-01 22:16:55 hanke Exp $
+ * $Id: dc_decl.h,v 1.3 2003-03-09 20:50:43 hanke Exp $
  */
+
+#include <glib.h>
 
 /* define dotconf callbacks */
 DOTCONF_CB(cb_AddModule);
+DOTCONF_CB(cb_AddSndIcons);
 DOTCONF_CB(cb_DefaultModule);
 DOTCONF_CB(cb_DefaultSpeed);
 DOTCONF_CB(cb_DefaultPitch);
@@ -42,6 +45,7 @@ DOTCONF_CB(cb_DefaultCapLetRecognition);
 static const configoption_t options[] =
 {
 		   {"AddModule", ARG_STR, cb_AddModule, 0, 0},
+		   {"AddSndIcons", ARG_STR, cb_AddSndIcons, 0, 0},
 		   {"DefaultModule", ARG_STR, cb_DefaultModule, 0, 0},
 		   {"DefaultSpeed", ARG_INT, cb_DefaultSpeed, 0, 0},
 		   {"DefaultPitch", ARG_INT, cb_DefaultPitch, 0, 0},
@@ -64,6 +68,47 @@ DOTCONF_CB(cb_AddModule)
 	OutputModule *om;
 	om = load_output_module(cmd->data.str);
 	g_hash_table_insert(output_modules, om->name, om);
+	return NULL;
+}
+
+DOTCONF_CB(cb_AddSndIcons)
+{
+	FILE *icons_file;
+	char *language;
+	GHashTable *icons_hash;
+	char *helper;
+	char *key;
+	char *value;
+	
+	MSG(3,"Reading sound icons file...\n");
+	
+	language = malloc(256);
+	
+    if((icons_file = fopen(cmd->data.str, "r"))==NULL){
+		MSG(2,"Sound icons file specified in speechd.conf doesn't exist!\n");
+		return NULL;	  
+	}
+
+	fgets(language, 254, icons_file);
+
+	if(strlen(language)<3){
+			MSG(2,"Corrupted sound icons file\n");
+			return NULL;
+	}
+
+	language[strlen(language)-1]=0;
+	
+	icons_hash = g_hash_table_new(g_str_hash,g_str_equal);
+	g_hash_table_insert(snd_icon_langs, language, icons_hash);
+    
+	while(1){
+		helper = malloc(512);
+		if(fgets(helper, 511, icons_file) == NULL) break;
+	    key = strtok(helper,":\n");
+		value = strtok(NULL,":\n");	
+		g_hash_table_insert(icons_hash, key, value);	
+	}
+
 	return NULL;
 }
 
@@ -129,3 +174,4 @@ DOTCONF_CB(cb_DefaultCapLetRecognition)
 	GlobalFDSet.cap_let_recogn = cmd->data.value;
 	return NULL;
 }
+
