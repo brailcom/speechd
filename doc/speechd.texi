@@ -205,15 +205,10 @@ big and not-so-easy to install.
 
 Flite stands for Festival Lite and it is a light fully free English
 speech software synthesizer with good quality of sound, developed
-by the authors of festival as an end-user product. It seems that
+by the authors of Festival as an end-user product. It seems that
 the developers have some problems with importing the voices from
 Festival. Speech Daemon currently uses Flite as it's primary
 output module for English.
-
-@item Odmluva
-
-Odmluva is a simple (and very light) Czech speech synthesizer available
-under the terms of GNU GPL. We are working on it's support in Speech Daemon.
 
 @item Epos
 
@@ -458,8 +453,7 @@ use to send commands to the server.
 
 @dfn{SSIP} is the layer (communication protocol) between server side
 (server core) and client side (shared library). It stands for Speech
-Synthesis Internet Protocol.  Client programs should never use it
-directly.
+Synthesis Internet Protocol.
 
 @dfn{Socket} or @dfn{File descriptor} represents the particular connection
 between a client and server. In C, it's and integer variable.
@@ -472,24 +466,28 @@ see sources, I'll try to write this section soon
 @node Output modules,  , Server core, Internal structure
 @section Output modules
 
-@findex synthesizer_write()
-@findex synthesizer_stop()
-@findex synthesizer_is_speaking()
-@findex synthesizer_close()
-
-Output modules for Speech Daemon have the form of a glib plug-ins
+Output modules for Speech Daemon have the form of glib plug-ins
 located in src/modules/. Each output module is a data
 structure composed of some parameters and pointers to it's functions.
+
+@menu
+* Basic structure::  The definition of an output module
+* Output module functions::  stop(), pause(), ...   
+@end menu
+
+@node Basic structure, Output module functions, Output modules, Output modules
+@subsection Basic structure
 
 @example
 typedef struct @{
   gchar    *name;
   gchar    *description;
-  gchar    *filename;
-  gint     (*write)    (const gchar *, gint, void*);
-  gint     (*stop)     (void);
+  GModule  *gmodule;
+  gint     (*write)       (const gchar *, gint, void*);
+  gint     (*stop)        (void);
+  gchar*   (*pause)       (void);
   gint     (*is_speaking) (void);
-  gint     (*close)    (void);
+  gint     (*close)       (void);
 @} OutputModule;
 @end example
 
@@ -500,7 +498,7 @@ this header must be included in every plug-in source code.
 #include "modules.h"
 @end example
 
-Also one other file called @file{intl/fdset.h} where the FDSetElement
+Also one other file called @file{intl/fdset.h} where the TFDSetElement
 structure is defined must be included to be able to handle the
 different speech synthesis settings.
 
@@ -520,17 +518,47 @@ OutputModule *module_init(void)@{
 @}
 @end example
 
-Now what are the 4 functions: flite_write, flite_stop, flite_is_speaking
-and flite_close? This is the core of every output module and you
+Now what are the 5 functions: write(), stop(), pause(),
+is_speaking() and close()? This is the core of every output module and you
 have to define their bodies in the source code of your plug-in.
+You also have to define the output plugin name (usually the name
+of the device or program) and a short description (full name, version, etc.)
+not longer than one or two lines. The third entry `gmodule' should
+be set to NULL, it will be filled later by Speech Deamon. So the definition
+can look like this:
 
-@deffn {Output module functions}  gint synthesizer_write const gchar *data, gint len, TFDSetElement* set
+@example
+OutputModule modinfo_flite = @{
+   "flite",                      /* name */
+   "Software synthetizer Flite", /* description */
+   NULL,                         /* GModule (should be set to NULL)*/
+   flite_write,                  /* receives data for synthesis*/
+   flite_stop,                   /* stops speaking */
+   flite_pause,                  /* pauses speaking
+   flite_is_speaking,            /* returns information whether the device 
+                                  * is speaking*/
+   flite_close                   /* called on exit *
+@};
+@end example
+
+@node Output module functions,  , Basic structure, Output modules
+@subsection Output module functions
+
+We use a ``synthesizer_'' prefix in the names of these functions
+to be able to speak in general terms, but note that in real 
+output modules, there should be some other prefix (the name of the
+output module, in most cases) because it would produce a mess
+in the linker. So the functions are called for example @code{flite_write()},
+@code{festival_is_speaking()}, @code{apollo_stop()} etc.
+
+@deffn {Output module functions}  gint synthesizer_write (const gchar *data, gint len, TFDSetElement* set)
+@findex synthesizer_write()
 
 This is the function where actual speech output is produced. It is called
 every time Speech Daemon decides to send a message to synthesis. The data
 of length @var{len} are passed in @var{data}. Additionally, the structure
 containing settings associated to this particular message is passed,
-however only few options are important for output modules.
+although only few options are important for output modules.
 
 Each output module should take care of setting the output device to these parameters
 (the other ones are handled independently in other parts of Speech Daemon):
@@ -545,15 +573,10 @@ Speed and pitch are values between -100 and 100 included. 0 is the default
 value that represents normal speech flow. So -100 is the slowest (or lowest)
 and +100 is the fastest (or highest) speech.
 
-(We should establish a constant scale referred to some text, standard speeds
-and different associated times. This will probably be the work of the person
-who will program the first real output module. We need to chose some longer
-text, decide what speed of reading we consider 0 and what we consider, say,
-+-50, measure the times needed to read it at these speeds and put it there
-in documentation as our standard scale.)
-
 The language parameter is given as a null-terminated string containing 
-the name of the language in English in lowercase (e.g. "english", "czech", "spanish").
+the name of the language according to RFC 1776 (en, cs, fr, ...). If the
+requested language is not supported by this synthesizer, it's ok to abort
+and return 0, because that's an error in user settings.
 
 voice_type is used only when the output module supports more types of voices
 for this particular language. The values represent (from @file{intl/fdset.h})
@@ -571,15 +594,23 @@ typedef enum @{
 @end example
 We can consider also other voice types. 
 
-This function should return 0 if it fails and some non-0 value
-if the delivery to the synthesis is successful. Formerly we thought
-that it should return the number of bytes written, but it's still
-not clear how to handle messages that have to be divided in more
-parts (for example if the output device has a finite size buffer).
+This function should return 0 if it fails and 1 if the delivery
+to the synthesis is successful. It should return immediately,
+because otherwise, it would block stopping, priority handling
+and other important things in Speech Deamon.
+
+If there is a need to stay longer, you
+should create a separate thread or process. This is for example
+the case of some software synthesizers who use a blocking
+function (eg. spd_audio_play) or hardware devices that have
+to send data to output modules at some particular speed. Note
+that if you use threads for that purpose, you have to set them
+to ignore all signals.
 
 @end deffn
 
-@deffn {Output module functions}  {gint synthesizer_stop} void
+@deffn {Output module function}  {gint synthesizer_stop} (void)
+@findex synthesizer_stop()
 
 This function should stop the synthesis of the currently spoken message
 immediately and throw away the rest of the message.
@@ -588,27 +619,88 @@ It should return 0 on success, -1 otherwise.
 
 @end deffn
 
-@deffn {Output module functions}  {gint synthesizer_is_speaking} void
+@deffn {Output module function}  {gchar* synthesizer_pause} (void)
+@findex synthesizer_pause()
+
+This function should stop speaking on the synthesizer (or sending
+data to soundcard) and return the rest of the message that wasn't
+synthesized yet.
+
+This may be a different approach of what you would
+expect on the first sight, but it's important to understand that
+simply sending some @@pause to the output device won't work.
+In Speech Deamon, these requests for pause are handled on a
+client-per-client basis, so the output device can't be blocked
+for other clients. For example, a user can pause the text in
+Emacs buffer in order to, say, check new mail. If the output
+device would be blocked by the Emacs pause, he couldn't check
+his email, because there would be no output.
+
+It's ok not to return the exact text in precission of letters,
+you can for example take sentences as units. Also, this function
+can be blocking for a short time, so you can wait till the last
+sentence is said and then return the text from the end of this
+sentence. 
+
+For some software synthesizer the desired effect can be archieved in this way:
+When synthesizer_write() is called, you execute a separate
+process and pass it the requested message. This process
+cuts the message into sentences and then runs in a loop
+and sends these pieces to synthesis. If a signal arrives
+from synthesizer_pause, you set a flag and stop that loop
+at the point where next piece of text would be synthesized.
+Instead, you return the rest of the unprocessed text to
+synthesizer_pause.
+
+It's generally better if the returned text overlays
+a little bit with what was actually said than if there is
+a gap.
+
+If the given output device doesn't support synchronization
+(@pxref{synthesizer_is_speaking}), it should execute STOP on the output
+device and return a NULL pointer.
+
+It's not an error if this function is called when the device
+is not speaking. In this case, it should return NULL.
+
+@end deffn
+
+@deffn {Output module function}  {gint synthesizer_is_speaking} (void)
+@findex synthesizer_is_speaking()
+@anchor{synthesizer_is_speaking}
 
 This function is very important to let Speech Daemon know how to
 regulate the speech flow between different queues, programs and even
 other synthesizers. On calling it, the output module must decide
 whether there is currently any output being produced in the speakers.
 
-This can be a very hard problem and it's not clear how to do it
-with different synthesizers. If it's not possible to return an exact
-value, at least some estimate should be calculated. But such an inaccurate
-value can highly reduce the usefulness of an even otherwise very good
-plug-in. To some degree, this is still an open question.
+It should return 0 if the synthesis is silent, 1 if it is speaking.
 
-It should return 0 if the synthesis is silent, 1 if it's speaking.
+This can be a very hard problem and it's not clear how to do it
+with different synthesizers that don't support backward communication.
+Sometimes maybe there is a possibility to calculate a good estimate
+(one seccond or so), but if there is really no way how to tell,
+it can also return 2 for ``don't know''. The usefullness of such
+output module would be highly reduced: there will be problems in
+cooperating with other output devices, no real possibility to
+use sound-mapped sound icons, priorities wouldn't sometimes work,
+it will sometimes cut-off text etc.
+
+You should do your best to get it working (sometimes there are
+not-obvious ways around), but if this effort fails, it's better
+to return 2 than a bad estimate (which can cause yet a greater damage).
+Not that such a module is still usefull, because the user can map all
+his sound-icons to text, use only this ouput device etc.
+
+This function should return very fast, because Speech Deamon calls
+it very often for different purposes.
 
 @end deffn
 
-@deffn {Output module functions}  {gint synthesizer_close} void
+@deffn {Output module function}  {gint synthesizer_close} (void)
 
 This function is called when Speech Daemon terminates. There are no
-special requirements on what the output plug-in should do.
+special requirements on what the output module should do.
 
 It should return 0 on success, -1 otherwise.
 
@@ -632,7 +724,8 @@ It should return 0 on success, -1 otherwise.
 @findex spd_get_client_list()
 @findex spd_get_message_list_fd()
 
-@c This needs to be reworked.
+This needs to be reworked!
+
 @ifinfo
 @verbatiminclude ../src/c/api/libspeechd.h
 @end ifinfo
