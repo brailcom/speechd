@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: msg.h,v 1.9 2003-04-11 20:43:02 hanke Exp $
+ * $Id: msg.h,v 1.10 2003-04-14 02:06:26 hanke Exp $
  */
 
 
@@ -84,7 +84,9 @@
 
 #define ERR_INVALID_COMMAND                     "500 ERR INVALID COMMAND\r\n"
 #define ERR_MISSING_PARAMETER	                "510 ERR MISSING PARAMETER\r\n"
-#define ERR_NOT_A_NUMBER                        "511 ERR GIVEN PARAMETER NOT A NUMBER\r\n"
-#define ERR_NOT_A_STRING                        "512 ERR GIVEN PARAMETER NOT A STRING\r\n"
+#define ERR_NOT_A_NUMBER                        "511 ERR PARAMETER NOT A NUMBER\r\n"
+#define ERR_NOT_A_STRING                        "512 ERR PARAMETER NOT A STRING\r\n"
+#define ERR_PARAMETER_NOT_ON_OFF                "513 ERR PARAMETER NOT ON OR OFF\r\n"
+#define ERR_PARAMETER_INVALID                   "512 ERR PARAMETER INVALID\r\n"
 
 
