@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.22 2003-04-17 10:15:57 hanke Exp $
+ * $Id: parse.c,v 1.23 2003-04-18 20:41:23 hanke Exp $
  */
 
 #include "speechd.h"
@@ -186,6 +186,9 @@ parse_set(char *buf, int bytes, int fd)
     char *spelling_table;
     char *recog;
     char *voice;
+    char *char_table;
+    char *key_table;
+    char *sound_table;
     int helper;
     int ret;
 
@@ -210,8 +213,8 @@ parse_set(char *buf, int bytes, int fd)
         spelling_table = get_param(buf,2,bytes, 0);
         MSG(4, "Setting spelling table to %s \n", spelling_table);
         ret = set_spelling_table(fd, spelling_table);
-        if (!ret) return ERR_COULDNT_SET_SPELLING_TABLE;
-        return OK_SPELLING_TABLE_SET;
+        if (ret) return ERR_COULDNT_SET_TABLE;
+        return OK_TABLE_SET;
     }
     else if (!strcmp(param,"client_name")){
         client_name = get_param(buf,2,bytes, 0);
@@ -271,8 +274,32 @@ parse_set(char *buf, int bytes, int fd)
         if (punctuation_table == NULL) return ERR_MISSING_PARAMETER;
         MSG(4, "Setting punctuation table to %s \n", punctuation_table);
         ret = set_punctuation_table(fd, punctuation_table);
-        if (!ret) return ERR_COULDNT_SET_PUNCTUATION_TABLE;
-        return OK_PUNCTUATION_TABLE_SET;
+        if (ret) return ERR_COULDNT_SET_TABLE;
+        return OK_TABLE_SET;
+    }
+    else if (!strcmp(param,"character_table")){
+        char_table = get_param(buf,2,bytes, 0);
+        if (char_table == NULL) return ERR_MISSING_PARAMETER;
+        MSG(4, "Setting punctuation table to %s \n", char_table);
+        ret = set_character_table(fd, char_table);
+        if (ret) return ERR_COULDNT_SET_TABLE;
+        return OK_TABLE_SET;
+    }
+    else if (!strcmp(param,"key_table")){
+        key_table = get_param(buf,2,bytes, 0);
+        if (key_table == NULL) return ERR_MISSING_PARAMETER;
+        MSG(4, "Setting punctuation table to %s \n", key_table);
+        ret = set_key_table(fd, key_table);
+        if (ret) return ERR_COULDNT_SET_TABLE;
+        return OK_TABLE_SET;
+    }
+    else if (!strcmp(param,"sound_table")){
+        sound_table = get_param(buf,2,bytes, 0);
+        if (sound_table == NULL) return ERR_MISSING_PARAMETER;
+        MSG(4, "Setting punctuation table to %s \n", sound_table);
+        ret = set_sound_table(fd, sound_table);
+        if (ret) return ERR_COULDNT_SET_TABLE;
+        return OK_TABLE_SET;
     }
     else if (!strcmp(param,"cap_let_recogn")){
         recog = get_param(buf,2,bytes, 1);
@@ -469,3 +496,27 @@ parse_key(char* buf, int bytes, int fd)
     }
     return OK_SND_ICON_QUEUED;
 }
+
+char*
+parse_list(char* buf, int bytes, int fd)
+{
+    char* param;
+
+    param = get_param(buf, 1, bytes, 1);    
+    if (param == NULL) return ERR_MISSING_PARAMETER;
+
+    if(!strcmp(param,"spelling_tables")){
+        return (char*) sndicon_list_spelling_tables();
+    }
+    else if(!strcmp(param,"sound_tables")){
+        return (char*) sndicon_list_sound_tables();
+    }
+    else if(!strcmp(param, "character_tables")){
+        return (char*) sndicon_list_char_tables();
+    }
+    else if(!strcmp(param, "key_tables")){
+        return (char*) sndicon_list_key_tables();
+    }
+    else return ERR_PARAMETER_INVALID;
+}
+        
