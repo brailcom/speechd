@@ -1,3 +1,9 @@
+speechd (0.0-10) unstable; urgency=low
+
+  * Don't build depend on gcc-2.95 anymore.
+
+ -- Milan Zamazal <pdm@brailcom.org>  Mon, 19 May 2003 11:35:13 +0200
+
 speechd (0.0-9) unstable; urgency=low
 
   * Work around invalid installation libtool paths.
