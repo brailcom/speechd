@@ -1,38 +1,38 @@
-# CVS revision: $Id: Makefile,v 1.4 2001-06-29 07:39:38 cerha Exp $
+# Makefile to build speechd output modules
+# CVS revision: $Id: Makefile,v 1.5 2002-06-30 00:15:59 hanke Exp $
 # Author: Tomas Cerha <cerha@brailcom.cz>
 
-BASEDIR = ../..
-include $(BASEDIR)/Makefile.config
+include ../../Makefile.config
 
-MODULES = mluvitko.so
-SRCS = mluvitko.c
+MODULES = flite.so
+CFLAGS = `glib-config --cflags`
+LIBS = `glib-config --libs`
+INCLUDE = ../../include
 
 all: $(MODULES)
 
+# === mluvitko ===
 mluvitko.so: mluvitko.o
 	$(CC) $(CFLAGS) $(LIBS) -shared -export-dynamic -avoid-version mluvitko.o -o mluvitko.so 
 
-dep:
-	makedepend -- $(CFLAGS) -- $(SRCS)
-	rm -f Makefile.bak
+mluvitko.o: mluvitko.c $(INCLUDE)/module.h
+	$(CC) -I$(INCLUDE) $(CFLAGS) -fPIC -c mluvitko.c
 
+# === flite ===
+flite.so: flite.o
+	$(CC) $(CFLAGS) $(LIBS) -shared -export-dynamic -avoid-version flite.o -o flite.so 
+
+flite.o: flite.c $(INCLUDE)/module.h
+	$(CC) -I$(INCLUDE) $(CFLAGS) -fPIC -c flite.c
+
+# === festival ===
+festival.so: festival.o
+	$(CC) $(CFLAGS) $(LIBS) -shared -export-dynamic -avoid-version festival.o -o festival.so 
+
+festival.o: festival.c $(INCLUDE)/module.h
+	$(CC) -I$(INCLUDE) $(CFLAGS) -fPIC -c festival.c
+
+
+#######################
 clean:
 	rm -f *.o $(MODULES)
-
-# DO NOT DELETE THIS LINE -- make  depend  depends  on  it.
-
-mluvitko.o: /usr/include/stdio.h /usr/include/features.h
-mluvitko.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
-mluvitko.o: /usr/lib/gcc-lib/i386-linux/2.95.4/include/stddef.h
-mluvitko.o: /usr/include/bits/types.h /usr/include/bits/pthreadtypes.h
-mluvitko.o: /usr/include/bits/sched.h /usr/include/libio.h
-mluvitko.o: /usr/include/_G_config.h /usr/include/wchar.h
-mluvitko.o: /usr/include/bits/wchar.h /usr/include/gconv.h
-mluvitko.o: /usr/lib/gcc-lib/i386-linux/2.95.4/include/stdarg.h
-mluvitko.o: /usr/include/bits/stdio_lim.h /usr/include/glib-1.2/glib.h
-mluvitko.o: /usr/lib/glib/include/glibconfig.h /usr/include/limits.h
-mluvitko.o: /usr/include/bits/wordsize.h /usr/include/bits/posix1_lim.h
-mluvitko.o: /usr/include/bits/local_lim.h /usr/include/linux/limits.h
-mluvitko.o: /usr/include/bits/posix2_lim.h
-mluvitko.o: /usr/lib/gcc-lib/i386-linux/2.95.4/include/float.h
-mluvitko.o: ../../include/module.h

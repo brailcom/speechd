@@ -5,7 +5,9 @@ You will need these components to compile speechd:
     - glib 1.2
     - pthreads
     - libasound1 (0.5.8)
-    - gcc and GNU make.
+    - GDSL (Generic Data Structure Library)
+    - gcc and GNU make
+    - (flite [the only synthetiser that has working output module now])
 
 Building speechd:
 =================

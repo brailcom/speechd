@@ -1,15 +1,18 @@
 /* Header file for speechd output modules
- * CVS revision: $Id: module.h,v 1.1 2001-04-10 10:42:05 cerha Exp $
+ * CVS revision: $Id: module.h,v 1.2 2002-06-30 00:15:58 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
 typedef struct {
    gchar    *name;
    gchar    *description;
    gchar    *filename;
-   gint     (*write)    (const gchar *, gint);
+   gint     (*write)    (const gchar *, gint, void*);
    gint     (*stop)     (void);
    gint     (*pause)    (void);
    gint     (*close)    (void);
+   gint     (*is_speaking) (void);
 } OutputModule;
 
 typedef OutputModule entrypoint (void);
+
+#define BUF_SIZE 4096

@@ -27,6 +27,8 @@ OutputModule* load_output_module(gchar* modname) {
       return NULL;
    }
 
+//   gdsl_list_insert_head(output_queues, (void *) modname); 
+
    MSG(2,"loaded module: %s (%s)\n", module_info->name, module_info->description);
 
    return module_info;
