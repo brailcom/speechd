@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.55 2004-03-08 21:27:30 hanke Exp $
+ * $Id: speechd.c,v 1.56 2004-03-31 00:33:52 hanke Exp $
  */
 
 #include "speechd.h"
@@ -606,9 +606,9 @@ main(int argc, char *argv[])
     options_parse(argc, argv);
 
     if (!strcmp(PIDPATH, ""))
-        speechd_pid_file = strdup("/var/run/speechd.pid");
+        speechd_pid_file = strdup("/var/run/speech-dispatcher.pid");
     else
-        speechd_pid_file = strdup(PIDPATH"speechd.pid");
+        speechd_pid_file = strdup(PIDPATH"speech-dispatcher.pid");
 
     if (create_pid_file() == -1) exit(1);
 
