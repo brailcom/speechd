@@ -1,6 +1,7 @@
+
 /*
- * sem_functions.h - Functions for manipulating System V / IPC semaphores
- * 
+ * server.h - The server body
+ *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
@@ -18,15 +19,18 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sem_functions.h,v 1.3 2003-10-12 23:33:36 hanke Exp $
+ * $Id: server.h,v 1.1 2003-10-12 23:34:15 hanke Exp $
  */
 
-int semaphore_create(key_t key, int flags);
-void semaphore_destroy(int sem_id);
-void semaphore_wait(int sem_id);
-void semaphore_post(int sem_id);
+#ifndef SERVER_H
+#define SERVER_H
 
-int speaking_semaphore_create(key_t key);
-void speaking_semaphore_destroy(void);
-void speaking_semaphore_post(void);
-void speaking_semaphore_wait(void);
+/* serve() reads data from clients and sends it to parse() */
+int serve(int fd);
+
+/* Switches `receiving data' mode on and off for specified client */
+int server_data_on(int fd);
+void server_data_off(int fd);
+
+#endif
+

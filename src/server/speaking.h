@@ -20,24 +20,34 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.h,v 1.6 2003-09-07 11:32:11 hanke Exp $
+  * $Id: speaking.h,v 1.7 2003-10-12 23:34:31 hanke Exp $
   */
 
-#include "fdset.h"
-
 #ifndef SPEAKING_H
-  #define SPEAKING_H
+#define SPEAKING_H
+
+#include "fdset.h"
 
 OutputModule *speaking_module;
 int speaking_uid;
 int speaking_gid;
 int highest_priority;
 
+/* Pause and resume handling */
+int pause_requested;
+int pause_requested_fd;
+int pause_requested_uid;
+int resume_requested;
+
 /* Speak() is responsible for getting right text from right
  * queue in right time and saying it loud through corresponding
  * synthetiser. (Note that there can be a big problem with synchronization).
  * This runs in a separate thread. */
 void* speak(void* data);
+
+/* Put this message into queue again, stripping index marks etc. */
+int reload_message(TSpeechDMessage *msg);
+
 
 void speaking_stop(int uid);
 void speaking_stop_all();
@@ -68,28 +78,18 @@ int stop_p23();
 
 void stop_from_uid(int uid);
 
-static char*
-process_message(char *buf, int bytes, TFDSetElement* settings);
-
-static char*
-process_message_punctuation(char *buf, int bytes, TFDSetElement *settings,
-                            GHashTable *icons);
-
-static char*
-process_message_spell(char *buf, int bytes, TFDSetElement *settings,
-                      GHashTable *icons);
-
-static GList*
-msglist_insert(GList *list, char *str, EMessageType type);
-
 /* Decides if the message should (not) be spoken now */
 static gint message_nto_speak (gconstpointer, gconstpointer);
 
-
 static void set_speak_thread_attributes();
+
 static void resolve_priorities();
+
 static TSpeechDMessage* get_message_from_queues();
+
+
 static GList* speaking_get_queue(int priority);
+
 static void speaking_set_queue(int priority, GList *queue);
 
 

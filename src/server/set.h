@@ -19,14 +19,18 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.h,v 1.11 2003-10-08 21:33:02 hanke Exp $
+ * $Id: set.h,v 1.12 2003-10-12 23:34:01 hanke Exp $
  */
 
-#ifndef ALLOC_H
- #define ALLOC_H
+#ifndef SET_H
+ #define SET_H
 
 #include "speechd.h"
 #include "history.h"
+
+TFDSetElement* get_client_settings_by_uid(int uid);
+TFDSetElement* get_client_settings_by_fd(int fd);
+int get_client_uid_by_fd(int fd);
 
 int set_priority_uid(int uid, int priority);
 int set_language_uid(int uid, char *language);

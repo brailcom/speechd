@@ -1,3 +1,65 @@
+2003-10-13  Hynek Hanke  <hanke@volny.cz>
+
+	* src/tests/long_message.c: Don't use FATAL.
+
+	* src/tests/clibrary.c: Don't use FATAL.
+
+	* src/server/parse.h: Cleaning.
+
+	* src/server/parse.c: Cleaning.
+
+	* src/server/history.h: Cleaning.
+
+	* src/server/history.c: Cleaning.
+
+	* src/server/config.h: New file.
+
+	* src/server/config.c: New file.
+
+	* src/server/alloc.h: Cleaning.
+
+	* src/server/Makefile.am: Changes in file structure in src/server/
+
+	* src/modules/module_utils_addvoice.c (SPDVoiceDef): Moved here from
+	intl/module.h
+
+	* src/modules/cstsnd.c: Removed.
+
+	* src/modules/apollo.c: Removed.
+
+	* src/modules/Makefile.am: Don't build cstsnd and apollo.
+
+	* src/c/api/libspeechd.c: Don't use underscores for private functions
+	as these are reserved for compiler symbols.
+
+	* src/c/api/libspeechd.h: Don't use underscores for private functions as these are
+	reserved for compiler symbols.
+
+	* src/server/config.c (free_config_options): Bug with array of opts[] fixed.
+
+	* src/modules/cstsnd.c: Removed.
+	
+	* src/modules/generic.c: Don't include module.h
+
+	* src/modules/festival.c: Don't include module.h
+
+	* src/modules/flite.c: Don't include module.h
+
+	* intl/module.h: Moved to src/server/module.h
+
+	* src/server/sem_functions.c (speaking_semaphore_create): Permissions to semaphore
+	changed to 0600.
+
+	* src/server/speechd.c (create_pid_file): New function.
+	(destroy_pid_file): New function.
+	(speechd_quit): Call destroy_pid_file.
+	(main): Call create_pid_file().
+	(main): Create new pid file after entering the daemon() mode.
+	(speechd_init): Generate key for SYSV semaphore from pid file path.
+
+	* src/server/speechd.h: Include fcntl.h.
+	(speechd_pid_file): New variable;
+
 2003-10-10  Hynek Hanke  <hanke@volny.cz>
 
 	* src/modules/festival.c (_festival_parent): Bug with sending part of response even

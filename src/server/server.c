@@ -19,16 +19,13 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.60 2003-10-09 21:19:14 hanke Exp $
+  * $Id: server.c,v 1.61 2003-10-12 23:33:43 hanke Exp $
   */
 
 #include "speechd.h"
+#include "set.h"
 
 int last_message_id = -1;
-
-/* Switches `receiving data' mode on and off for specified client */
-int server_data_on(int fd);
-void server_data_off(int fd);
 
 /* Put a message into its queue.
  *
@@ -48,7 +45,8 @@ void server_data_off(int fd);
     new->settings.name = (char*) spd_strdup(settings->name);
 
 int
-queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type, int reparted)
+queue_message(TSpeechDMessage *new, int fd, int history_flag,
+              EMessageType type, int reparted)
 {
     GList *gl;
     TFDSetElement *settings;
@@ -138,37 +136,6 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type,
 }
 #undef COPY_SET_STR
 
-/* Queue more messages in a list.
- *
- * Parameters:
- *     msg_list -- list of texts of the messages that contain
- *     it's text in msg->buf and it's type in msg->settings.type          
- *     (for the other parameters please see queue_message()
- * It returns 0 on success, -1 otherwise 
- */
-int
-queue_messages(GList* msg_list, int fd, int history_flag, int reparted)
-{
-    GList *gl;
-    TSpeechDMessage *msg;
-    int i, len;
-
-    len = g_list_length(msg_list)-1;
-    gl = g_list_first(msg_list);
-
-    for (i=0; i <= len; i++){
-        if (gl == NULL) break;
-        if (gl->data == NULL){
-            MSG(4,"WARNING: skipping blank text in queue_messages");
-            continue;
-        }
-        
-        msg = gl->data;
-        queue_message(msg, fd, history_flag, msg->settings.type, reparted);
-        gl = g_list_next(gl);
-    }
-}
-
 /* Switch data mode on for the particular client. */
 int
 server_data_on(int fd)
@@ -198,8 +165,8 @@ server_data_off(int fd)
 int
 serve(int fd)
 {
-    size_t bytes;              /* Number of bytes we got */
-    char buf[BUF_SIZE+1];     /* The content (commands or data) we got */
+    size_t bytes;           /* Number of bytes we got */
+    char buf[BUF_SIZE+1];   /* The content (commands or data) we got */
     char *reply;            /* Reply to the client */
     int ret;
  
@@ -213,7 +180,7 @@ serve(int fd)
     MSG2(5, "protocol", "DATA:|%s|", buf);
     reply = parse(buf, bytes, fd);
 
-    if (reply == NULL) FATAL("Internal error, reply is NULL");
+    if (reply == NULL) FATAL("Internal error, reply from parse() is NULL!");
 
     /* Send the reply to the socket */
     if (strlen(reply) == 0) return 0;
