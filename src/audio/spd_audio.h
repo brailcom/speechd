@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: spd_audio.h,v 1.5 2004-11-13 14:48:23 hanke Exp $
+ * $Id: spd_audio.h,v 1.6 2004-11-19 13:54:02 hanke Exp $
  */
 
 #include <pthread.h>
@@ -58,6 +58,7 @@ typedef struct{
 #ifdef WITH_OSS
     /* OSS specific */
     int fd;
+    char* device_name;
     pthread_mutex_t fd_mutex;
     pthread_cond_t pt_cond;
     pthread_mutex_t pt_mutex;
