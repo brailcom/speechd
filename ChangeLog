@@ -1,3 +1,29 @@
+
+2003-05-06  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/server/history.c (history_get_message): New function.
+
+	* src/server/parse.c (parse_history): HISTORY CURSOR NEXT/PREV changed to FORWARD/BACKWARD.
+	(parse_history): HISTORY GET MESSAGE: New SSIP command.
+
+	* src/server/msg.h (OK_CLIENT_ID_SENT): New SSIP message.
+
+	* src/server/history.c (history_get_client_id): New function.
+
+	* src/server/parse.c (parse_history): Added HISTORY GET CLIENT_ID.
+
+	* config/speechd.conf (DefaultClientName): Added "user" entry.
+
+	* src/modules/Makefile.am (AM_CFLAGS): Link libsdaudio dynamically.
+
+	* src/modules/flite.c (_flite_sigblockusr): New function. Block SIGUSR1 signal.
+	(_flite_synth): Block SIGUSR1 while sending data to soundcard.
+	(_flite_synth): Divide message according to sentences, not lines.
+
+	* src/server/speaking.c (speaking_pause_all): Queue according to the paused clients,
+	not the calling one.
+
+
 2003-05-05  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/modules/festival.cc (modinfo_festival): `filename' removed.
