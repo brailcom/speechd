@@ -1,0 +1,831 @@
+\input texinfo @c -*-texinfo-*-
+@c %**start of header
+@setfilename speechd.info
+@settitle Speech Deamon -- Easy acces to speech synthesis
+@finalout
+@setchapternewpage odd
+@c %**end of header
+
+@syncodeindex pg cp
+@syncodeindex fn cp
+@syncodeindex vr cp
+
+@include version.texi
+
+@ifinfo
+@copying
+This file documents the GNU @code{hello} command for printing a
+greeting message.
+
+Copyright (C) 1992, 1993, 1996, 2002 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+@ignore
+Permission is granted to process this file through TeX and print the
+results, provided the printed document carries copying permission
+notice identical to this one except for the removal of this paragraph
+(this paragraph not being relevant to the printed manual).
+@end ignore
+
+Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the entire
+resulting derived work is distributed under the terms of a permission
+notice identical to this one.
+
+Permission is granted to copy and distribute translations of this manual
+into another language, under the above conditions for modified versions,
+except that this permission notice may be stated in a translation approved
+by the Foundation.
+
+@end copying
+
+@dircategory Speech Interface
+@dircategory Speech Synthesis
+@dircategory Programming
+
+@direntry
+* Speech Deamon: (speechd).       Speech Deamon.
+@end direntry
+
+@end ifinfo
+
+@titlepage
+@title Speech Deamon -- Easy acces to speech synthesis
+@subtitle Mastering the Babylon of TTS'
+@subtitle Edition @value{EDITION}, for Speech Deamon @value{VERSION}
+@subtitle @value{UPDATED}
+@author by Tomas Cerha <@email{cerha@@brailcom.cz}>, Hynek Hanke <@email{hanke@@volny.cz}>
+@author and Czech Free Software organization <@email{freesoft@@freesoft.cz}>
+
+@page
+@vskip 0pt plus 1filll
+
+@ifinfo
+@insertcopying
+@end ifinfo
+
+@end titlepage
+
+@node Top, , , (dir)
+
+@ifinfo
+This file documents the @code{speechd} client/server application 
+that attempts to provide a common interface to different synthesizers.
+@end ifinfo
+
+@menu
+* Instructions::    How to read this manual.
+* Copying::         How you can copy and share @code{Speech Deamon}.
+* Introduction::    What is Speech Deamon.
+* Internal structure::  How does Speech Deamon work.
+* Public API::  	How to use Speech Deamon in your programs.
+* Priorities::      Description, guidelines how to use them.
+* Multiple output modules:: How Speech Deamon produces speech output.
+* History::         Message history.
+* Speech parameters:: Settings that affect the way Speech Deamon speaks.
+* Configuration::   How to configure Speech Deamon.
+* Concept index::   Index of concepts.
+@end menu
+
+@node Instructions, 	Copying, 	,	Top
+@chapter How to read this manual
+@cindex How to read
+
+-> there should be a simple map of the manual and where to search for different concepts
+
+@node Copying,	Introduction,	Instructions,	Top
+@include gpl.texi
+
+@node Introduction,	Internal structure,	Copying,	Top
+@chapter Introduction
+
+@menu 
+* Why and how::		Why Speech Deamon? Philosophy, motivation...
+* Current state::	Speaking software today.
+* Basic design::	How does it work?
+* User::			Speech Deamon from user's point of view.
+* Programmer::		Speech Deam from programmer's poing of view.
+
+@end menu
+
+@node Why and how,	Current state,	Introduction,	Introduction
+@section Why and how
+@cindex Basic ideas, Motivation
+@cindex Philosophy
+
+Speech Daemon project comes to provide a device independent layer for
+speech synthesis. It should provide a simple interface for client
+applications (applications, that want to speak) as well as for device
+driver modules (for particular speech synthesis).
+
+High quality speech synthesis has been available for a long time and now
+it's usable even by ordinary users on their home PC's. It comes sometimes
+as a necesity, sometimes as a good feature for programs to provide speech
+output.  There is a wide field of possible uses from educational software,
+through specialized systems (hospitals, laboratories, telephony servers).
+For visually impaired users it is one of the two essential ways of getting
+the output from computer (the second one is Braille display). That's also
+where Speech Deamon comes from.
+
+There are different speech synthesisers with different capabilities.  Some
+of them are hardware, some of them are software.  Some of them are Free
+Software and are are available on the Internet.  However, none of them is
+preinstalled in one of the widely used GNU/Linux distributions.
+Programmers have really hard times when they want to make their program
+speak because they need to find some suitable synthesiser (long hours of
+experiments and so on...) and then make it work with their program.  They
+often need to write output device drivers for these programs or hardware
+devices and are doing it again and again.  You can imagine it all fails
+when an innocent user executes two programs with speech output at once --
+if they even start both (what I doubt), they will be shouting one over the
+other.  This makes it very hard for programmers to implement speech support
+to their programs (for blind users or simply to make a better user
+interface) and it's one of the reasons we still don't fully exploit what
+speech synthesis technology offers.
+
+In an ideal world, programmers could use similar commands for speech
+synthesis as they do for normal text output (printf, puts, ...).  In an
+ideal world, there would be some speech_printf() that would take care of
+saying your message in the right time without interumping others, without
+you beeing obligated to take care of how exactly the communication with
+speech synthesiser is implemented and without you having to worry about
+what synthesiser to use and if it's available.  In an ideal world, there
+would be some speech synthesiser in each GNU/Linux distribution and some
+speech deamon taking care of all applications that want to speak,
+allowing user to configure speech parameters and providing simple interface
+(as speech_printf()) through some shared library for programmers.  It will
+be a long way until we get archieve this state of things, but with Speech
+Daemon, we are taking the first steps...
+
+@node Current state, Basic design, Why and how, Introduction
+@section Current state
+@cindex Synthesizers
+@cindex Other programs
+
+Today, the development of programs and new technologies connected
+with speech synthesis under GNU/Linux is centered around two main
+points: visually impaired people and pure development. Although some
+fields are beginning to use synthesis for different purposes, like
+telephony servers, these are still like drops of water in the ocean.
+Here is a short (definitely not exhaustive list) software synthesizers,
+hardware synthesizers and applications known to work under GNU/Linux.
+
+@enumerate
+@item Speech Synthesizers
+
+@itemize @bullet
+
+@item Hardware synthesizers
+
+Hardware synthesizers are the devices, which may be connected to PC.
+Mostly they are external, connected via serial or parallel port.  There
+are also some internal devices for ISA bus or USB.  Application may
+send textual data to the port and the device converts it to spoken
+letters and words.  Data may contain also several control sequences in
+the form of escaped characters as commands.  The problem, we are
+facing, is that each of these devices uses its own communication
+protocol.
+
+@item Software synthesizers
+@pindex Festival
+@pindex Flite
+@pindex Odmluva
+@pindex Epos
+@pindex FreeTTS
+
+@itemize @minus
+
+@item Festival
+
+Festival is a multilingual Free Software text to speech synthesiser
+with high quality speech databases available. One of it's problems
+is that some of the most important databases are not free.
+(eg. the database for British English is non-free). Other problem
+is that Festival is intended rather as a platform for research
+and developement than as an end-user product and therefore is
+big and not-so-easy to install. The problem we face as Speech Deamon
+Developers is that it's too slow to be really useful for most
+aplications.
+
+@item Flite
+
+Flite stands for Festival Lite and it is a light fully free english
+speech software synthesiser with good quality of sound, developed
+by the authors of festival as an end-user product. It's very fast,
+however, we currently don't know how to configure it (it seems it
+is not possible yet) and it seems that the developers have some
+problems with importing the voices from Festival. Speech Deamon
+currently uses Flite as it's primary output module for English.
+
+@item Odmluva
+
+Odmluva is a simple (and very light) czech speech synthesizer available
+under the terms of GNU GPL. We are working on it's support in Speech Deamon.
+
+@item Epos
+
+Epos is czech synthesis. It is an academical project and it
+already gives quite good results, but some parts are covered
+by a proprietary license.
+@c TODO: We need to add more information.
+
+@item Free TTS
+
+Free TTS is some JAVA-based text-to-speech system. We didn't
+checked it yet.
+@c TODO: check it...
+
+@item IBM ViaVoice
+
+ViaVoice is a multi-lingual software synthesizer available for GNU/Linux.
+The main problem is that ViaVoice is not free (as in freedom). Until IBM
+changes it's licence, we can't use it in Free World / Free Operating System
+and therefore it's not and will not be supported in Speech Deamon.
+
+@item MBROLA
+
+MBROLA is a multi-lingual software synthesis available for GNU/Linux.
+MBROLA is not free as in freedom, although it's gratis. The same problems
+as with IBM ViaVoice prevents us to include it in Speech Deamon.
+
+@end itemize
+@end itemize
+
+@item Speaking applications
+
+@itemize @minus
+
+@item EmacSpeak
+
+The EmacSpeak (by T. V. Raman <@email{raman@@cs.cornell.edu}>) software package
+provides speech output for Emacs, and includes ,,speech servers'' for
+the DECtalk speech synthesizers.
+
+The package emacspeak-ss provides servers for several additional synthesizers.
+None of these programs are normally run by the user directly.  Instead,
+they are run by Emacs. That is: Emacs runs the emacspeak code, which executes
+Tcl, which interprets the server code. This approach is too closely ,,wired''
+to usage with Emacspeak, so it can't be used for our general purposes.
+
+This does not mean, that these servers are compleetly a bad idea and we
+can not use them. Thanks to the author Jim Van Zandt <@email{jrv@@vanzandt.mv.com}>,
+we can learn from the sources and write the output driver modules for Speech Daemon
+(emacspeek-ss is GPL).
+
+@item GTK+ (Gnome Accessibility project)
+
+GNOME windowing toolkit library.
+
+@item wxWindows
+
+Windowing toolkit library.
+
+@item Java AWT
+
+Windowing toolkit library.
+
+@item FOX toolkit
+
+Windowing toolkit library.
+
+@item Speakup
+
+Speakup is a kernel patch that provides low level speech output for visually
+impaired, so it works even if there is some problem in configuration and
+you can't run EmacSpeak.
+
+@item Brltty
+
+Brltty is mainly a driver for different Braille displays, but also supports
+some kind of software synthesis.
+
+@end itemize
+@end enumerate
+
+We hope to be able to integrate Speech Daemon into these projects
+in the future.
+
+@node	Basic design,	User,	Current state,	Introduction
+@section Design
+@cindex Design
+
+The communication between all
+these applications and synthesizers is a great mess. For this purpose,
+we wanted Speech Deamon to be a layer separating applications and
+synthesizers so that apps wouldn't have to care about synthesizers
+and synthesizers wouldn't have to care about interaction with apps.
+
+We decided we would implement Speech Deamon as a server receiving
+commands from applications over a protocol called @code{SSIP},
+parsing them and if it's necessary and calling appropiate functions
+of output modules communicating with the different synthesizers.
+These output modules are implemented as plug-ins, so that the user
+can just load a new module if he wants to use new synthesizer.
+
+Each client (application that wants to speaks) opens a socket
+connection to Speech Deamon and calls functions like spd_say(),
+spd_stop(), spd_pause() provided by the shared library. This
+shared library is still on the client side and sends Speech
+Deamon SSIP commands over the socket. When these arrive
+at Speech Deamon, it parses them, reads the text that should
+be said and put it in a queues according to the priority
+of this message and other criterions. It then decides when,
+with which parameters (set up by the client and the user)
+and on which synthesizer it will say the message. These requests
+are handled by the output plug-ins (output modules) for different
+hardware and software synthesizers and then said aloud.
+
+@ifinfo
+See this figure:
+
+@verbatim
+
+ applications      protocol                    output modules 
+            interface        Speech Deamon core          synthesizers
+                          .-----------------------.
+|EmacSpeak|    :s l:  < > |  Speech Deamon        | :m  :  |Apollo|                  
+               :h i:  <S> |    - configuration    | :o  :  |Odmluva|
+|Bash Client|  :a b:  <S> | - synchronization     | :d A:  |Flite|
+               :r r:  <I> |        - sound icons  | :u P:     .
+|User Center|  :a a:  <P> |  - history            | :l I:     .
+      .        :d r:  < > |                       | :e  :     .
+      .        :  y:  < > |  [priority queues]    | :   :     .
+      .        :   :  < > |                       | :   :     .
+                          `-----------------------'
+@end verbatim
+@end ifinfo
+
+@iftex
+@c TODO: We should somehow include figures/architecture.png, but I've no idea how to do it:(
+@end iftex
+
+@ifhtml
+<p>
+See this figure:
+</p>
+<img src="figures/architecture.png" alt="Speech Deamon architecture (you can see a text version of this figure
+in the .info file)">
+@end ifhtml
+
+See also the detailed description of SSIP, public API and module API.
+
+@node User, Programmer, Basic design, Introduction
+@section User's point of view
+
+In this section we will try to describe what can Speech Deamon offer
+to common users. But every programmer interested in this program should
+also read this because it's very important to understand.
+
+@itemize @bullet
+Sketch:
+@item easy configuration of different speaking apps, central maintaince
+@item the ability to freely choose which synthetizer with which app
+@item less time devoted to configuration and tuning different apps and synthesis
+@item history of said messages for visually impaired
+@end itemize
+
+@c TODO: needs a lot of more work
+
+@node Programmer,	,	User,	Introduction
+@section Programmer's point of view
+
+@itemize @bullet
+Sketch:
+@item easy way to make your apps speak
+@item no time spent on configuration/debugging interface with different synthesizers
+@item no need to take care about configuration of voice
+@item easy way to make the app accessible to visually impaired people
+@item different facilities like the one providing a command line functionality
+@end itemize
+
+@node Internal structure,	Public API,	Introduction,		Top
+@chapter Internal structure
+
+@menu
+* Definitions::		What is output module, who is client...
+* SSIP::			Speech Synthesis Independent Protocol
+* Server core::		Message handling, configuration, history
+* Output modules::	How they work and what we need from them
+@end menu
+
+@node Definitions,	SSIP,	,	Internal structure
+@section Definitions
+
+@dfn{Server side} is the side where Speech Deamon operates. It
+means server core, output modules and partly SSIP which is the layer
+for communication between server side and client side.
+
+@dfn{Client side} is where particular applications wanting to speak
+are, where the shared library implementing public API is
+located and partly SSIP which is the layer
+for communication between server side and client side.
+
+@dfn{Client} means an application that wants to speak or an application
+that is used to control Speech Deamon. (Of course different combinations
+are possible.)
+
+@dfn{Server core} is the central part of Speech Deamon composed of
+two threads. One is listening on the user socket, parsing and proceeding
+incommimg commands, and saving incomming text to queues. The other thread
+takes messages from queues and sends them to appropiate synthesizers.
+
+@dfn{Output module} is a backend of Speech Deamon in the form of plug-in.
+It takes care of communication with the particular synthesizer and provides
+only abstract functions to the server core.
+
+@dfn{Shared library} or @dfn{Public API} is a front-end of Speech Deamon
+that provides polished functions programmers should
+use to send commands to the server.
+
+@dfn{SSIP} is the layer (communication protocol) between server side (server core)
+and client side (shared library). It stands for Speech Synthesis Internet Protocol.
+Client programs should never use it directly.
+
+@dfn{Socket} or @dfn{File descriptor} represents the particular connection
+between a client and server. In C, it's and integer variable.
+
+@node	SSIP,	Server core,	Definitions,	Internal structure
+@section SSIP
+Shared library implementimg public API like
+@code{spd_sayf(int, int, char*, ...)} communicates
+with Speech Deamon through SSIP, Speech Synthesis Internet
+Protocol.
+
+Here is a description of it's commands and what they do.
+
+@subsection Data flow and speech control
+
+@deffn {SSIP Command} {@@data on}
+As Speech Deamon receives this command, it becomes listening for
+incomming data. It adds incomming data to it's buffer until 
+@w{@code{@@data off}} comes. If client sends more data than
+Speech Deamon can handle, the session is interrupted, because
+there is no reasonable way how to handle this error. The client
+is responsible for sending only reasonable amount of data at once.
+Note that there is a very good reason to put an upper limit on
+the number of bytes in one message, it forces developers to
+structure their output more and therefore history and other
+Speech Deamon functions become a lot simpler for users.
+@end deffn
+
+@deffn {SSIP Command} {@@data off}
+The only command that puts end to a data flow. It is allways
+interpreted as command, so you should be sure to never send
+this command inside the data to Speech Deamon and expecting
+it will say it.
+
+@c TODO: well, but we should handle somehow the case when it's
+@c TODO: neccessary, it's a common word in Speech Deamon documentation
+@end deffn
+
+@deffn {SSIP Command} {@@stop} [uid|"all"]
+Immediately stop speaking from this client and throw away all messages.
+
+If it has no parameter, it's related only to that client.
+
+If there is a positive integer number @code{uid} as parameter,
+it's related to some other client with unique id @code{uid}.
+
+If the parameter is the string all, it stops all clients
+whatsoever and throws away all messages whatsoever.
+ 
+@end deffn
+
+@deffn {SSIP Command} {@@pause} [uid]
+Immediately stop speaking and pause all messages.
+
+If it has no parameter, it's related only to that client.
+
+If there is a positive integer number @code{uid} as parameter,
+it's related to some other client with unique id @code{uid}.
+@end deffn
+
+@deffn {SSIP Command} {@@resume} [uid]
+Start speaking again and say all unpaused messages.
+(Note that messages level 3 are never said after pause).
+
+If it has no parameter, it's related only to that client.
+
+If there is a positive integer number @code{uid} as parameter,
+it's related to some other client with unique id @code{uid}.
+@end deffn
+
+@subsection Settings
+
+@deffn {SSIP Command} {@@set client_name} str
+Set the name of this client to @code{str}. String parameter @code{str}
+must be in the format @w{@code{client_name:subclient_name}}.
+
+For example if the client is lynx and it creates connection for it's
+command line, the command would be something like this:
+@example
+@@set client_name lynx:cmd_line
+@end example
+@end deffn
+
+@deffn {SSIP Command} {@@set language} str
+Set recommended language for this client to @code{str}. @code{str}
+@code{str} must be a valid LANG language code.
+
+For example, if we want to set the prefered language to Czech,
+we can send:
+@example
+@@set language cs_CZ
+@end example
+@end deffn
+
+@deffn {SSIP Command} {@@set priority} num
+Set the priority for this client to @code{num}.
+It must be either 1, 2 or 3. 1 is the highest, 3 the lowest.
+@end deffn
+
+@subsection History
+
+@deffn {SSIP Command} @w{@@history get client_list}
+Retrieves a list of know client names, its unique ids and
+if they are gone or alive in the form:
+
+@code{OK CLIENTS:\}
+@code{uid client_name:subclient_name active}
+
+The reply can look for example like this:
+@example
+OK CLIENTS:
+1 spd_center:main 1\
+2 spd_center:status 1\
+3 lynx:main 0\
+4 lynx:text_buffer 0\
+5 lynx:cmd_line 0\
+@end example
+@end deffn
+
+@deffn {SSIP Command} {@@history get client_messges} client_uid from num
+Retrieves @code{num} messages from the buffer of specified client (@code{client_uid}),
+starting from the number in parameter @code{from}, in the follwing form:
+
+@code{OK MESSAGES:\}
+@code{uid client_name:subclient_name}
+
+Warning: This will be subject to future changes!
+@end deffn
+
+@deffn {SSIP Command} @w{@@history get last}
+Get the uid of last received message. Useful if the user
+wants to repeat something he didn't hear.
+
+The reply is in the form:
+@code{OK LAST MESSAGE:\}
+@code{uid client_name:subclient_name}
+@end deffn
+
+@deffn {SSIP Command} @w{@@history sort} ...
+Sorts the history buffer of messages.
+
+Well, this is not implemented yet. I'm sorry...
+@end deffn
+
+@deffn {SSIP Command} {@@history cursor set} uid ["first","last","pos" position]
+
+Sets the position of cursor in the history to some particular place.
+Note that the buffer can be sorted, see @code{@@history sort}.
+
+If the parameter is @code{first} or @code{last}, Speech Deamon sets
+the position to the first or to the last message of client @code{uid}
+respectively.
+
+It the parameter is @code{pos}, then an aditional integer parameter
+@code{position} must be specified. Speech Deamon then sets the postion
+of cursor to the message number @code{pos} of client @code{uid}.
+@end deffn
+
+@deffn {SSIP Command} {@@history cursor} ["next"|"prev"]
+Move the cursor one position forward or backward between the messages
+of currently specified client.
+@end deffn
+
+@deffn {SSIP Command} @w{@@history cursor get}
+Get the unique id number of the message the cursor is pointing on.
+
+The reply is in the form:
+@code{OK MESSAGE:\}
+@code{uid}
+@end deffn
+
+@deffn {SSIP Command} {@@history say ID} str
+Send message ID to Speech Deamon core to say it aloud.
+@end deffn
+
+@deffn {SSIP Command} @w{@@history say TEXT} str
+Say text @code{str} without including it in history. Useful for
+history clients. Not implemented yet...
+@end deffn
+
+@subsection Return error values
+
+... are going to change soon.
+
+@c TODO: add return error values when we stabilize them
+@c in SSIP
+
+@node Server core, Output modules, SSIP, Internal structure
+@section Server core
+
+see sources, I'll try to write this section soon
+
+@node Output modules, ,	Server core, Internal structure
+@section Output modules
+
+... need some serious rework
+
+@node Public API,	Priorities,	Internal structure,	Top
+@chapter Public API
+@findex spd_init()
+@findex spd_close()
+@findex spd_say()
+@findex spd_sayf()
+@findex spd_stop()
+@findex int spd_pause()
+@findex int spd_resume()
+@findex spd_command_line()
+@findex spd_stop_fd()
+@findex spd_pause_fd()
+@findex spd_resume_fd()
+@findex spd_history_select_client()
+@findex spd_get_client_list()
+@findex spd_get_message_list_fd()
+
+@ifinfo
+@verbatiminclude ../src/clients/libspeechd.h
+@end ifinfo
+
+@c don't know if it's really The Right Thing, but I often miss *any*
+@c description in the header files, and there is literate programming
+@c on the other side. if you have a reason why it's not ok, I'm open
+@c to the idea to move it all here
+
+@node Priorities, Multiple output modules, Public API, Top
+@chapter Priorities
+@cindex priorities
+
+The possibility to distinguish between several message priority levels
+seems to be essential. Each message sent by client to speech server
+should have a priority level assigned.
+
+Speech Deamon provides the system of three priority levels. Every message will
+either contain explicit level information, or the default value will be
+considered. There is a separate message queue for each of the levels.
+The behavior is as follows:
+
+@section Level 1
+These messages will be said immediately as they come to server.
+They are never interrupted. These messages should be as short
+as possible, because they block the output of all other
+messages. When several concurrent messages are received by
+server, they are queued and said in the order, they came.
+When a new message of level 1 comes during lower level
+message is spoken, lower level message is canceled and removed
+from the queue (this message is allready stored in the history)
+
+@section Level 2
+Second level messages are said in the moment, when there is no
+message of level 1 queued. Several messages of level 2 are said
+in the order, they are received (queued, but in their own
+queue). This is the default level for messages without explicit
+level information.
+
+@section Level 3
+Third level messages are only said, when there are no messages
+of any higher level queued. So they will be never said, if the
+output device is busy in the moment,
+they arrive. But if the message is not said, it is still
+copied to the history.
+
+@section How to use them wisely
+
+@itemize
+ Example uses for level @strong{one} are:
+	@item error messages
+	@item very important messages
+	@item ...
+@end itemize
+
+
+@itemize
+Example uses for level @strong{two} are:
+	@item regular program messages
+	@item menus
+	@item text the user is working on
+	@item ...
+@end itemize
+
+@itemize
+Example uses for level @strong{three} are:
+	@item less important status information
+	@item letters when typing input
+	@item ...
+@end itemize
+
+@node Multiple output modules, History, Priorities, Top
+@cindex output module
+@cindex different synthesizers
+
+@node History, Speech parameters, Multiple output modules, Top
+@chapter History
+
+@node Speech parameters, Configuration, History, Top
+@chapter Speech parameters
+@cindex Speech parameters
+@cindex Settings
+
+@section Language selection
+
+Various synthesizers provide different sets of possible
+languages, they are allowed to speak. We must be able to
+receive a request for setting particular language (using
+ISO language code) and reply, if the language is supported.
+
+@section Speed
+
+Sped of the speech is supported by all synthesizers, but the
+values and their ranges differ. Each output module is
+responsible to set the speed to the value, best responding to
+current setting. This may be a little bit difficult, because
+there is no exact scale. We could take some longer english
+paragraph and take it as a base for our new scale. If this
+paragraph is said in eg. ten secconds, this means speed = 100,
+if it is said in twenty seconds, speed = 200. This way, we
+can coordinate  diferent scales quite preciselly (the paragraph
+should be long enough).
+
+@section Punctuation mode
+
+Punctuation mode describes the way, in which the synthesizer
+works with non-alphanumeric characters. Most synthesizers
+support several punctuation modes. We will support a reasonable
+superset of those modes, which may be implemented in device
+driver, when not supported by hardware.
+
+@section Prosody
+Prosody setting allows us, to distinguish interpunction
+characters in spoken text, as we are familiar in normal speech.
+This means the way, we pronounce the text with interrogation mark,
+coma, dot etc.
+
+@section Pitch
+Pitch is the voice frequency. We face the similar problems
+here, as with Speed setting.
+
+@section Voice type
+Most synthesizers provide several voice types, such as male,
+female, child etc. The set is again different for each
+of the devices. Speech Daemon should try to find the nearest
+possible (if the request is child female and it's not available,
+we will try to use adult female rather then adult male).
+
+@section Spelling
+Spelling mode is provided by nearly all devices and is also
+easy to emulate in output module.
+
+@section Capital letters recognition
+That is again a widely supported feature. However it would be
+desirable to support this internally, using the
+sound icons feature, but this  requires a good possibility of
+synchronization, which is not  possible with all devices.
+
+
+@node Configuration, Concept index, Speech parameters, Top
+@chapter Configuration
+@cindex configuration
+@cindex default values
+
+Speech Deamon can be configured on several levels.
+There is a configuration file where permanent settings
+are stored, but user and applications can also change
+the majority of parameters on-fly by calling Speech Deamon
+functions. The third level of configuration can't be
+changed and it's given by the capabilities of each output
+device (each output module for each output device reports
+it's capabilities when it's loaded into Speech Deamon).
+
+We use DotConf for the permanent textfile-based configuration.
+See @file{speechd.conf}.
+
+Other parts of this manual deal with the runtime configuration.
+
+@node Concept index, , Configuration, Top
+@unnumbered Concept index
+
+@cindex tail recursion
+@printindex cp
+
+
+@contents
+@bye
+
+@c speechd.texi ends here
+
+
+
