@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: cstsnd.c,v 1.4 2003-07-07 08:39:25 hanke Exp $
+ * $Id: cstsnd.c,v 1.5 2003-07-17 11:55:37 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -135,6 +135,7 @@ module_stop(void)
         DBG("cstsnd: stopping process pid %d\n", cstsnd_pid);
         kill(cstsnd_pid, SIGKILL);
     }
+    
 }
 
 static size_t
@@ -153,6 +154,7 @@ module_is_speaking(void)
         ret = pthread_join(cstsnd_speak_thread, NULL);
         if (ret != 0){
             DBG("join failed!\n");
+            module_signal_end();
             return 1;
         }
         DBG("cstsnd: join ok\n\r");
@@ -210,12 +212,12 @@ _cstsnd_speak(void* nothing)
 
         DBG("child terminated -: status:%d signal?:%d signal number:%d.\n",
             WIFEXITED(status), WIFSIGNALED(status), WTERMSIG(status));
-
     }
 
     DBG("cstsnd terminated.......\n");
 	
     cstsnd_running = 0;
+    module_signal_end();
     pthread_exit(NULL);
 }	
 
