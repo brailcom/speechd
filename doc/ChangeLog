@@ -1,3 +1,8 @@
+2003-10-27  Milan Zamazal  <pdm@brailcom.org>
+
+	* speechd-cs.texi: @direntry label changed to differ from the
+	English version.
+
 2003-10-24  Milan Zamazal  <pdm@brailcom.org>
 
 	* speechd-cs.texi: @direntry fixed.
