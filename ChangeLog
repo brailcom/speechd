@@ -1,5 +1,10 @@
-
-last		Hynek Hanke	<hanke@volny.cz>
+11.1.2003	Hynek Hanke <hanke@volny.cz>
+	* /src/client/spd_center.c (spdc_complete): String completion from given template.
+	* /src/client/spd_center.h (quit()): endwin() added to fix the weird behavior after quitting.
+	* /src/client/spd_center.h (TComplete): Data type for string completion.
+	* /src/server/server.c: Handling of pause messages moved to stop_c(), because the problem of queues (we can't browse through them) is solved by using list and treating them as semi-queues instead.
+	* /src/client/libspeechd.c (spd_history_say_msg()) (spd_history_select_client()) (spd_get_message_list_fd()): New functions.
+4.1.2003	Hynek Hanke	<hanke@volny.cz>
 	* /src/server/speechd.c (main): Added handling for SIGINT and the function quit() 
 	* /src/server/speechd.c (history_list_alloc_message): Bug with not copying the actual data of settings.language,output_module and client_name, but only pointers to them fixed.
 	* /src/server/server.c (serve): Bug with the missing FD_CLR() fixed.
