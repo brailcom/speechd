@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.16 2003-05-18 20:53:58 hanke Exp $
+ * $Id: fdset.h,v 1.17 2003-05-25 21:13:06 hanke Exp $
  */
 
 typedef enum 
@@ -86,6 +86,6 @@ typedef struct{
     unsigned int hist_cur_uid;
     int hist_cur_pos;
     ESort hist_sorted;
-    int intact;
+    int reparted;
 }TFDSetElement;
 
