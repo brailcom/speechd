@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.18 2003-04-28 01:59:14 hanke Exp $
+ * $Id: flite.c,v 1.19 2003-05-01 10:41:54 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -51,7 +51,7 @@ pid_t flite_pid;
 /* Public function prototypes */
 gint	flite_write			(gchar *data, gint len, void*);
 gint	flite_stop			(void);
-gchar*   flite_pause                     (void);
+gchar*  flite_pause                     (void);
 gint	flite_is_speaking	        (void);
 gint	flite_close			(void);
 
@@ -67,11 +67,10 @@ cst_voice *flite_voice;
 
 /* Fill the module_info structure with pointers to this modules functions */
 OutputModule modinfo_flite = {
-   "flite",							/* name */
-   "Software synthetizer Flite",	/* description */
-   NULL,							/* filename */
-   NULL,							/* GModule */
-   flite_write,						/* module functions */
+   "flite",                     /* name */
+   "Software synthetizer Flite", /* description */
+   NULL,                        /* GModule (should be set to NULL)*/
+   flite_write,                 /* module functions */
    flite_stop,
    flite_pause,
    flite_is_speaking,
