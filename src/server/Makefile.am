@@ -6,4 +6,4 @@ speechd_LDFLAGS = -rdynamic
 
 inc_local = "-I$(top_srcdir)/intl/"
 localedir = $(datadir)/locale
-CFLAGS = $(inc_local) -I$(localedir) @glib_include@
+CFLAGS = $(inc_local) -I$(localedir) @glib_include@  -DSYS_CONF=\"@sysconfdir@\" -DLIB_DIR=\"@libdir@\"
