@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.h,v 1.4 2003-06-01 21:26:38 hanke Exp $
+  * $Id: speaking.h,v 1.5 2003-08-07 14:43:02 hanke Exp $
   */
 
 #ifndef SPEAKING_H
@@ -28,6 +28,7 @@
 
 OutputModule *speaking_module;
 int speaking_uid;
+int speaking_gid;
 int highest_priority = 0;
 
 /* Speak() is responsible for getting right text from right
