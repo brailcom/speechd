@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.25 2003-09-11 16:29:02 hanke Exp $
+ * $Id: festival.c,v 1.26 2003-09-20 17:26:38 hanke Exp $
  */
 
 
@@ -69,6 +69,7 @@ static void festival_set_voice(void);
 MOD_OPTION_1_INT(FestivalMaxChunkLenght);
 MOD_OPTION_1_STR(FestivalDelimiters);
 MOD_OPTION_1_STR(FestivalServerHost);
+MOD_OPTION_1_STR(FestivalStripPunctChars);
 MOD_OPTION_1_INT(FestivalServerPort);
 MOD_OPTION_1_INT(FestivalPitchDeviation);
 MOD_OPTION_1_INT(FestivalDebugSaveOutput);
@@ -93,6 +94,8 @@ module_load(void)
     MOD_OPTION_1_INT_REG(FestivalPitchDeviation, 14);
 
     MOD_OPTION_1_INT_REG(FestivalDebugSaveOutput, 0);
+
+    MOD_OPTION_1_STR_REG(FestivalStripPunctChars, "");
 
     module_register_settings_voices();
 
@@ -160,7 +163,7 @@ module_write(char *data, size_t bytes)
         return -1;
     }
     DBG("Requested data after processing: |%s|\n", *festival_message);
-    module_strip_punctuation_default(*festival_message);
+    module_strip_punctuation_some(*festival_message, FestivalStripPunctChars);
     DBG("Requested after stripping punct: |%s|\n", *festival_message);
 
     /* Setting voice parameters */
@@ -198,11 +201,10 @@ module_pause(void)
         DBG("Waiting in pause for child to terminate\n");
         while(festival_speaking) usleep(10);
 
-        DBG("paused at byte: %d", festival_position);
-        return festival_position;
-        
+        DBG("paused at byte: %d", current_index_mark);
+        return current_index_mark;        
     }else{
-        return 0;
+        return -1;
     }
 }
 
@@ -270,7 +272,7 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
     int pos = 0;
     int i;
     int ret;
-    size_t bytes;
+    int bytes;
     size_t read_bytes;
     int child_terminated = 0;
     FT_Wave *fwave;
@@ -279,6 +281,8 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
     int first_run = 1;
     int r = -999;
     static int debug_count = 0;
+    int o_bytes = 0;
+    int pause = -1;
 
     DBG("Entering parent process, closing pipes");
 
@@ -287,22 +291,26 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
     pos = 0;
     while(1){
         DBG("  Looping...\n");
-
-        bytes = module_get_message_part(message, buf, &pos, maxlen, dividers);
+        o_bytes = bytes;
+        bytes = module_get_message_part(message, buf, &pos, 4095, dividers);
+        if (current_index_mark != -1) pause = current_index_mark;
+        if (bytes == 0) bytes = module_get_message_part(message, buf, &pos, maxlen, dividers);
+        
         DBG("returned %d bytes\n", bytes); 
 
         assert( ! ((bytes > 0) && (buf == NULL)) );
 
         if (first_run){
             DBG("Synthesizing: |%s|", buf);
-            if (bytes != 0) r = festivalStringToWaveRequest(festival_info, buf);
+            if (bytes > 0) r = festivalStringToWaveRequest(festival_info, buf);
             DBG("s-returned %d\n", r);
             first_run = 0;
         }else{
             DBG("Retrieving data\n");
-            fwave = festivalStringToWaveGetData(festival_info);        
+            if (o_bytes > 0) fwave = festivalStringToWaveGetData(festival_info);
+            else fwave = NULL;
             DBG("Sending request for synthesis");
-            if (bytes != 0) r = festivalStringToWaveRequest(festival_info, buf);
+            if (bytes > 0) r = festivalStringToWaveRequest(festival_info, buf);
             DBG("ss-returned %d\n", r);
             DBG("Ok, next step...\n");
             
@@ -327,26 +335,29 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
                 if (ret == -1) terminate = 1;
                 
                 if (terminate != 1) terminate = module_parent_wait_continue(dpipe);
-            }else{
-                DBG("fwave was NULL\n");
-            }
+            }            
         }
-        if (*pause_requested && bytes != 0){
-            fwave = festivalStringToWaveGetData(festival_info);    
-            delete_FT_Wave(fwave);
-            DBG("Pause requested in parent, position %d\n", pos);
+        if ((pause >= 0) && (*pause_requested)){
+            if (bytes > 0){
+                fwave = festivalStringToWaveGetData(festival_info);    
+                delete_FT_Wave(fwave);
+            }
             module_parent_dp_close(dpipe);
             *pause_requested = 0;
-            return pos-bytes;
+            current_index_mark = pause;        
+            DBG("Pause requested in parent, index mark %d\n", current_index_mark);
+            return current_index_mark;
         }
 
-        if (terminate && (bytes != 0)){
-            fwave = festivalStringToWaveGetData(festival_info);    
-            delete_FT_Wave(fwave);
+        if (terminate && (bytes > 0)){
+            if (o_bytes > 0){
+                fwave = festivalStringToWaveGetData(festival_info);    
+                delete_FT_Wave(fwave);
+            }
         }
 
-        if (terminate || (bytes == 0)){
-            DBG("End of data in parent, closing pipes");
+        if (terminate || (bytes == -1)){
+            DBG("End of data in parent, closing pipes [%d:%d]", terminate, bytes);
             module_parent_dp_close(dpipe);
             break;
         }
