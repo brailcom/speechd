@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.18 2003-05-26 16:04:50 hanke Exp $
+ * $Id: dc_decl.h,v 1.19 2003-05-28 23:17:25 hanke Exp $
  */
 
 #include "speechd.h"
@@ -378,7 +378,7 @@ DOTCONF_CB(cb_AddModule)
 DOTCONF_CB(cb_EndAddModule)
 {
     if(cur_mod == NULL){
-        MSG(2, "Trying to end a BeginModuleOptions section that was never opened");
+        FATAL("Configuration: Trying to end a BeginModuleOptions section that was never opened");       
     }
 
     if (init_output_module(cur_mod) == -1) FATAL("Couldn't initialize specified output module");
