@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.44 2003-12-19 16:08:51 hanke Exp $
+ * $Id: festival.c,v 1.45 2003-12-21 21:56:19 hanke Exp $
  */
 
 #include "fdset.h"
@@ -78,19 +78,37 @@ MOD_OPTION_1_INT(FestivalPitchDeviation);
 MOD_OPTION_1_INT(FestivalDebugSaveOutput);
 MOD_OPTION_1_STR(FestivalRecodeFallback);
 
+MOD_OPTION_1_INT(FestivalCacheOn);
+MOD_OPTION_1_INT(FestivalCacheMaxKBytes);
+MOD_OPTION_1_INT(FestivalCacheDistinguishVoices);
+MOD_OPTION_1_INT(FestivalCacheDistinguishRate);
+MOD_OPTION_1_INT(FestivalCacheDistinguishPitch);
 
 typedef struct{
-  size_t size;
-  GHashTable *caches;
+    size_t size;
+    GHashTable *caches;
+    GList *cache_counter;
 }TCache;
+
+typedef struct{
+    time_t start;
+    int count;
+    size_t size;
+    GHashTable *p_caches;
+    char *key;
+}TCounterEntry;
+
+typedef struct{
+    TCounterEntry *p_counter_entry;
+    FT_Wave *fwave;
+}TCacheEntry;
 
 TCache FestivalCache;
 
 int cache_init();
 int cache_reset();
-int cache_insert(char* key, FT_Wave *value);
-FT_Wave* cache_lookup(char *key);
-void cache_free_item(gpointer key, gpointer value, gpointer user_data);
+int cache_insert(char* key, EMessageType msgtype, FT_Wave *value);
+FT_Wave* cache_lookup(char *key, EMessageType msgtype, int add_counter);
 
 /* Public functions */
 
@@ -114,6 +132,12 @@ module_load(void)
 
     MOD_OPTION_1_STR_REG(FestivalRecodeFallback, "?");
 
+    MOD_OPTION_1_INT_REG(FestivalCacheOn, 1);
+    MOD_OPTION_1_INT_REG(FestivalCacheMaxKBytes, 5120);
+    MOD_OPTION_1_INT_REG(FestivalCacheDistinguishVoices, 0);
+    MOD_OPTION_1_INT_REG(FestivalCacheDistinguishRate, 0);
+    MOD_OPTION_1_INT_REG(FestivalCacheDistinguishPitch, 0);
+
     return 0;
 }
 
@@ -136,8 +160,6 @@ module_init(void)
 
     DBG("FestivalServerHost = %s\n", FestivalServerHost);
     DBG("FestivalServerPort = %d\n", FestivalServerPort);
-    DBG("FestivalMaxChunkLength = %d\n", FestivalMaxChunkLength);
-    DBG("FestivalDelimiters = %s\n", FestivalDelimiters);
     
     festival_message = (char**) xmalloc (sizeof (char*));    
     festival_semaphore = module_semaphore_init();
@@ -362,7 +384,7 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
                     case MSGTYPE_CHAR:
                     case MSGTYPE_KEY:
                     case MSGTYPE_SOUND_ICON:
-                        fwave = cache_lookup(buf);
+                        fwave = cache_lookup(buf, msgtype, 1);
                         if (fwave != NULL){
                             if (fwave->num_samples != 0){
                                 ret = module_parent_send_samples(dpipe, fwave->samples,
@@ -436,7 +458,7 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
                 if (msgtype == MSGTYPE_CHAR || msgtype == MSGTYPE_KEY ||
                     msgtype == MSGTYPE_SOUND_ICON){
                     DBG("Storing record for %s in cache\n", buf);
-                    cache_insert(strdup(buf), fwave);
+                    cache_insert(strdup(buf), msgtype, fwave);
                 }else{
                     delete_FT_Wave(fwave);
                 }
@@ -542,61 +564,240 @@ festival_conv(FT_Wave *fwave)
     return ret;
 }
 
+/* --- Cache related functions --- */
+
 void
-cache_free_item(gpointer key, gpointer value, gpointer user_data)
+cache_destroy_entry(gpointer data)
 {
-    xfree(key);
-    delete_FT_Wave(value);
+    TCacheEntry *entry = data;
+    xfree(entry->fwave);
+    xfree(entry);
+}
+
+void
+cache_destroy_table_entry(gpointer data)
+{
+    g_hash_table_destroy(data);
+}
+
+void
+cache_free_counter_entry(gpointer data, gpointer user_data)
+{
+    xfree(((TCounterEntry*)data)->key);
+    xfree(data);
 }
 
 int
 cache_init()
 {
+
+    if (FestivalCacheOn == 0) return 0;
+
     FestivalCache.size = 0;
-    FestivalCache.caches = g_hash_table_new(g_str_hash, g_str_equal);
+    FestivalCache.caches = g_hash_table_new_full(g_str_hash, g_str_equal, free,
+                                                 cache_destroy_table_entry);
+    FestivalCache.cache_counter = NULL;
+    DBG("Cache: initialized");
+}
+
+int
+cache_destroy()
+{
+    g_hash_table_destroy(FestivalCache.caches);
+    g_list_foreach(FestivalCache.cache_counter, cache_free_counter_entry, NULL);
+    g_list_free(FestivalCache.cache_counter);
 }
 
 int
 cache_reset()
 {
-  //    g_hash_table_foreach(FestivalCache.data, cache_free_item, NULL);
-  //    g_hash_table_destroy(FestivalCache.data);
-  //    cache_init();
+    /* TODO: it could free everything in the cache and go from start,
+       but currently it isn't called by anybody */
     return 0;
 }
 
-int
-cache_insert(char* key, FT_Wave *value)
+/* Compare two cache entries according to their score (how many
+   times the entry was requested divided by the time it exists
+   in the database) */
+gint
+cache_counter_comp(gconstpointer a, gconstpointer b)
 {
-  GHashTable *cache;
+    const TCounterEntry *A = a;
+    const TCounterEntry *B = b;
+    time_t t;
+    float ret;
 
-  if (cache_lookup(key) != NULL){
-    delete_FT_Wave(value);
-    return 0;
-  }
+    t = time(NULL);
+    ret =  (((float) A->count  / (float)(t - A->start)) 
+             - ((float) B->count / (float)(t - B->start)));
 
-  cache = g_hash_table_lookup(FestivalCache.caches, msg_settings.language);
-  if (cache == NULL){
-    cache = g_hash_table_new(g_str_hash, g_str_equal);
-    g_hash_table_insert(FestivalCache.caches, msg_settings.language, cache);
-  }
-
-  FestivalCache.size += value->num_samples * sizeof(short);
-  g_hash_table_insert(cache, key, value);
-
-  return 0;
+    if (ret > 0) return -1;
+    if (ret == 0) return 0;
+    if (ret < 0) return 1;
 }
 
+/* List scores of all entries in the cache*/
+void
+cache_debug_foreach_list_score(gpointer a, gpointer user)
+{
+    const TCounterEntry *A = a;
+    time_t t;
+
+    t = time(NULL);
+    DBG("key: %s      -> score %f (count: %d, dtime: %d)", A->key, ((float) A->count  / (float)(t - A->start)),
+        A->count, (t - A->start));
+}
+
+/* Remove 1/3 of the least used (according to cache_counter_comp) entries 
+   (measured by size) */
+int
+cache_clean(size_t new_element_size)
+{
+    size_t req_size;
+    GList *gl;
+    TCounterEntry *centry;
+
+    DBG("Cache: cleaning, cache size %d kbytes (>max %d).", FestivalCache.size/1024,
+        FestivalCacheMaxKBytes);
+
+    req_size = 2*FestivalCache.size/3;
+
+    FestivalCache.cache_counter = g_list_sort(FestivalCache.cache_counter, cache_counter_comp);
+    g_list_foreach(FestivalCache.cache_counter, cache_debug_foreach_list_score, NULL);
+
+    while((FestivalCache.size + new_element_size) > req_size){
+        gl = g_list_last(FestivalCache.cache_counter);
+        if (gl == NULL) break;
+        if (gl->data == NULL){
+            DBG("Error: Cache: gl->data in cache_clean is NULL, but shouldn't be.");
+            return -1;
+        }
+        centry = gl->data;
+        FestivalCache.size -= centry->size;       
+        DBG("Cache: Removing element with key '%s'", centry->key);
+        if (FestivalCache.size < 0){
+            DBG("Error: Cache: FestivalCache.size < 0, this shouldn't be.");
+            return -1;
+        }
+        /* Remove the data itself from the hash table */
+        g_hash_table_remove(centry->p_caches, centry->key);
+        /* Remove the associated entry in the counter list */
+        cache_free_counter_entry(centry, NULL);
+        FestivalCache.cache_counter = g_list_delete_link(FestivalCache.cache_counter, gl);
+    }
+
+    return 0;
+}
+
+/* Generate a key for searching between the different hash tables */
+char*
+cache_gen_key(EMessageType type)
+{
+    char *key;
+    char ktype;    
+    int kpitch = 0, krate = 0, kvoice = 0;
+
+    if (msg_settings.language == NULL) return NULL;
+
+    if (FestivalCacheDistinguishVoices) kvoice = msg_settings.voice;
+    if (FestivalCacheDistinguishPitch) kpitch = msg_settings.pitch;
+    if (FestivalCacheDistinguishRate) krate = msg_settings.rate;
+
+    if (type = MSGTYPE_CHAR) ktype = 'c';
+    if (type == MSGTYPE_KEY) ktype = 'k';
+    if (type == MSGTYPE_SOUND_ICON) ktype = 's';
+
+    key = g_strdup_printf("%c_%s_%d_%d_%d", ktype, msg_settings.language, kvoice,
+                                krate, kpitch);
+
+    return key;
+}
+
+/* Insert one entry into the cache */
+int
+cache_insert(char* key, EMessageType msgtype, FT_Wave *fwave)
+{
+    GHashTable *cache;
+    TCacheEntry *entry;
+    TCounterEntry *centry;
+    char *key_table;
+
+    if (FestivalCacheOn == 0) return 0;
+
+    if (key == NULL) return -1;
+
+    /* Check if the entry isn't present already */
+    if (cache_lookup(key, msgtype, 0) != NULL){
+        delete_FT_Wave(fwave);
+        return 0;
+    }
+
+    key_table = cache_gen_key(msgtype);
+
+    DBG("Cache: Inserting wave with key:'%s' into table '%s'", key, key_table);
+
+    /* Clean less used cache entries if the size would exceed max. size */
+    if ((FestivalCache.size + fwave->num_samples * sizeof(short))
+        > (FestivalCacheMaxKBytes*1024))
+        if (cache_clean(fwave->num_samples * sizeof(short)) != 0) return -1;
+
+    /* Select the right table according to language, voice, etc. or create a new one*/
+    cache = g_hash_table_lookup(FestivalCache.caches, key_table);
+    if (cache == NULL){
+        cache = g_hash_table_new(g_str_hash, g_str_equal);
+        g_hash_table_insert(FestivalCache.caches, key_table, cache);
+    }else{
+        xfree(key_table);
+    }
+
+    /* Fill the Counter Entry structure that will later allow us to remove
+       the less used entries from cache */
+    centry = (TCounterEntry*) xmalloc(sizeof(TCounterEntry));
+    centry->start = time(NULL);
+    centry->count = 1;
+    centry->size = fwave->num_samples * sizeof(short);
+    centry->p_caches = cache;
+    centry->key = strdup(key);
+    FestivalCache.cache_counter = g_list_append(FestivalCache.cache_counter, centry);
+
+    entry = (TCacheEntry*) xmalloc(sizeof(TCacheEntry));
+    entry->p_counter_entry = centry;
+    entry->fwave = fwave;
+
+    FestivalCache.size += centry->size;
+    g_hash_table_insert(cache, strdup(key), entry);
+
+    return 0;
+}
+
+/* Retrieve wave from the cache */
 FT_Wave*
-cache_lookup(char *key)
+cache_lookup(char *key, EMessageType msgtype, int add_counter)
 {
     FT_Wave *fwave;
     GHashTable *cache;
+    TCacheEntry *entry;
+    char *key_table;
 
-    cache = g_hash_table_lookup(FestivalCache.caches, msg_settings.language);
-    if (cache == NULL) return NULL;
-    fwave = g_hash_table_lookup(cache, key);
-    return fwave;
+    if (FestivalCacheOn == 0) return NULL;
+    if (key == NULL) return NULL;
+
+    key_table = cache_gen_key(msgtype);
+
+    if (add_counter) DBG("Cache: looking up a wave with key '%s' in '%s'", key, key_table);
+
+    if (key_table == NULL) return NULL;
+    cache = g_hash_table_lookup(FestivalCache.caches, key_table);
+    xfree(key_table);
+    if (cache == NULL) return NULL;   
+
+    entry = g_hash_table_lookup(cache, key);
+    if (entry == NULL) return NULL;
+    entry->p_counter_entry->count++;
+
+    DBG("Cache: corresponding wave found", key);    
+
+    return entry->fwave;
 }
 
 #include "module_main.c"
