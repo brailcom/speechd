@@ -7,16 +7,19 @@
 #include "libspeechd.h"
 #include "def.h"
 
+#define MAX_POSSIBILITIES_FOR_COMPLETION 8
+#define KEY_TAB '\t'
+
 static int
 menu_virtualize(int c)
 {
 	if (c == '\n') return (_MENU_CHOSE);
-	if (c == '\t' || c==KEY_EXIT) return (_SWITCH_CMDLINE);
-	if (c == KEY_NPAGE) return (REQ_SCR_UPAGE);
-	if (c == KEY_PPAGE) return (REQ_SCR_DPAGE);
+	if (c == KEY_TAB || c==KEY_EXIT) return (_SWITCH_CMDLINE);
+	if (c == KEY_NPAGE) return (REQ_FIRST_ITEM);
+	if (c == KEY_PPAGE) return (REQ_LAST_ITEM);
 	if (c == KEY_DOWN) return (REQ_NEXT_ITEM);
 	if (c == KEY_UP) return (REQ_PREV_ITEM);
-	if (c==' ') return (REQ_TOGGLE_ITEM);
+	if (c == ' ') return (REQ_TOGGLE_ITEM);
 	return (c);
 }
 
@@ -49,9 +52,61 @@ char *menu_items_settings_s[] =
 	(char *) 0
 };
 
+typedef struct
+{
+	char *str[8];
+	int count;
+}TComplete;
+
+TComplete cmd_completions = {
+	{
+		"quit()",
+		"stop(",
+		"stop_cur_client(",
+		"pause(",
+		"pause_cur_client(",
+		"resume(",
+		"resume_cur_client(",
+		"msgs_cur_client("
+	},
+	8
+};
+
 ITEM *menu_items_main[sizeof(menu_items_main_s)];
 ITEM *menu_items_global[sizeof(menu_items_global_s)];
 ITEM **menu_items_clients;
+ITEM **menu_items_messages;
+
+char*
+spdc_complete(char *buffer, int n, TComplete complete){
+	char *ret;
+	char *possibilities[MAX_POSSIBILITIES_FOR_COMPLETION];
+	int i;
+	int pos = 0;
+
+	if((n<=0)||(buffer==NULL)) return buffer;
+	
+	for (i=0;i<=complete.count-1;i++){
+		if(!strncmp(buffer, complete.str[i], n)){
+			possibilities[pos] = (char*) malloc((strlen(complete.str[i]) + 1) * sizeof(char));
+			assert(possibilities[pos] != NULL);
+			strcpy(possibilities[pos], complete.str[i]);
+			pos++;
+		}
+	}
+
+	/* TODO: We need to separate the cases where pos==1 and pos>1 
+	 * and display the possibilities somewhere */
+	if (pos >= 1){		
+			ret = (char*) malloc((strlen(possibilities[0]) + 1) * sizeof(char));
+			assert(ret != NULL);
+			strcpy(ret,possibilities[0]);
+			spd_sayf(s_main_fd, 2,ret);
+			return ret;
+	}else{
+		return buffer;
+	}
+}
 
 char*
 i_get_string(){
@@ -67,7 +122,11 @@ i_get_string(){
 	refresh();
 	do{
 		c = getch();
-		buffer = (char*) spd_command_line(s_main_fd, buffer, (buffer!=NULL)?strlen(buffer):0, c);
+		if (c==KEY_TAB){
+		   	buffer = spdc_complete(buffer, (buffer!=NULL)?strlen(buffer):0, cmd_completions);
+		}else{
+			buffer = (char*) spd_command_line(s_main_fd, buffer, (buffer!=NULL)?strlen(buffer):0, c);
+		}
 		mvhline(BAR_DIV_Y,BAR_DIV_X+strlen(PROMPT)+1,' ',strlen(buffer)+3);
 	    mvprintw(CMD_L_Y, CMD_L_X+strlen(PROMPT),buffer);	
 	}while(c!='\n');
@@ -119,6 +178,7 @@ spdc_initialize()
 	selected.pos = POS_DEFAULT;
 	selected.pos_d = POSD_DEFAULT;
 	selected.mode = MODE_DEFAULT;
+	selected.select_message_mode = -1;
 }
 
 void 
@@ -155,7 +215,7 @@ i_menu_create_d(char **menu_items_s, char **menu_descr_s, ITEM **menu_items)
 	*menu_ip = (ITEM *) 0;
 				
 	menu = new_menu(menu_items);
-	if (menu == NULL) quit(2);
+	if (menu == NULL) quit(1);
 	keypad(_menu_win, TRUE);
 	set_menu_win(menu, _menu_win);
 	if(post_menu(menu) != E_OK) return NULL;
@@ -203,20 +263,24 @@ i_menu_select_d(MENU *menu, int *command_line, char *it_name_r, char *it_descr_r
 	ITEM *cur_item;
 	char *it_name;
 	char *it_descr;
+	static int last_posd;
+	static int last_cur;
 	
 	*command_line = 0;
-//	it_name = (char*) malloc(255*sizeof(char));		// unnecessary?
 	noecho();
-
-	cur_item = current_item(menu);
-    it_name = (char*) item_name(cur_item);		
-	spd_sayf(s_main_fd, 2, it_name);
-	it_descr = (char*) item_description(cur_item);
-	if(it_descr!=NULL) spd_sayf(s_main_fd, 3, it_descr);
 	
+	if(last_posd != selected.pos_d){
+		cur_item = current_item(menu);
+	    it_name = (char*) item_name(cur_item);		
+		spd_sayf(s_main_fd, 2, it_name);
+		it_descr = (char*) item_description(cur_item);
+		if(it_descr!=NULL) spd_sayf(s_main_fd, 3, it_descr);
+		last_posd = selected.pos_d;
+	}
+		
 	while(1){
 		c = wgetch(_menu_win);
-		if (c == 27) quit(0);
+		if (c == 27) quit(0);	
 		c = menu_virtualize(c);
 		if(c == _MENU_CHOSE) break;
 		if(c == _SWITCH_CMDLINE){
@@ -256,14 +320,15 @@ void
 s_initialize()
 {
 	s_main_fd = spd_init("speechd_client","main");
-	if (s_main_fd == 0){ printf(_("Speech Deamon failed. speechd not running?\n")); quit(3); }
+	if (s_main_fd == 0){ printf(_("Speech Deamon failed. speechd not running?\n")); quit(1); }
 	s_status_fd = spd_init("speechd_client","status");
-	if (s_main_fd == 0){ printf(_("Speech Deamon failed. speechd not running?\n")); quit(4); }
+	if (s_main_fd == 0){ printf(_("Speech Deamon failed. speechd not running?\n")); quit(1); }
 }
 
 void
 quit(int err_code)
 {
+	endwin();
 
 	//TODO: everything
 		
@@ -292,11 +357,12 @@ process_global(char *item_n)
 	}
 }
 
-void
+int
 process_select_clients(char *item_n, char* item_d)
 {	
 	if (!strcmp(item_n,_("Back"))){
 		selected.pos_d = POSD_ROOT;
+		return 0;
 	}
 	if(strcmp(item_d,"")){
 		char *client_name, *subclient_name;
@@ -307,7 +373,32 @@ process_select_clients(char *item_n, char* item_d)
 		assert(subclient_name!=NULL);
 		selected.client = client_name;
 		selected.subclient = subclient_name;
+
+		/* I don't really know if it should be here */
+		spd_history_select_client(s_main_fd, selected.client_id);
+		
+		return 1;
 	}
+}
+
+int
+process_select_message(char *item_n)
+{
+	if (!strcmp(item_n,_("Back"))){
+		selected.pos_d = POSD_ROOT;
+		return 0;
+	}
+
+	{
+		char *c_id;
+		int id;
+		c_id = (char*) malloc(8);
+		c_id = (char*) strtok(item_n," ");
+		id = atoi(c_id);
+		spd_stop(s_main_fd);
+		spd_history_say_msg(s_main_fd, id);
+	}
+	return 1;
 }
 
 MENU*
@@ -350,13 +441,62 @@ menu_select_clients()
 	return menu_m;	
 }
 
+/* Creates menu for selecting messages.
+ * _flag_ determines what kind of selecting we want:
+ * 			0	all messages from all clients	(TODO: figure out how to do this)
+ * 			1	only messages from curent subclient	
+ * 			2	messages from all subclients of current client (TODO: figure out how to do that)
+ * 	_fd_ is the client from who we want the messages (TODO: ugly, ugly, ugly...)
+ */
+MENU*
+menu_select_messages(int flag){
+    char **client_names;
+    int *msg_ids;
+    int num_messages;
+    char **names, **descr;
+    int i;
+
+	i_help_bar_msg(HELPBAR_B_SELECT_MESSAGES);
+	
+	client_names = (char**) malloc(sizeof(char*)*256);
+    msg_ids = (int*) malloc(sizeof(int)*256);
+
+	switch(flag){
+    	case 1: assert(selected.client_id!=-1);
+				num_messages = spd_get_message_list_fd(s_main_fd, selected.client_id, msg_ids, client_names);
+				break;
+		default: assert(0);
+	}
+    names = (char**) malloc(sizeof(char*)*(num_messages+2));
+    descr = (char**) malloc(sizeof(char*)*(num_messages+2));
+
+    for(i=0;i<=num_messages-1;i++){
+        names[i] = (char*) malloc((strlen(client_names[i])+4) * sizeof(char));
+        sprintf(names[i], "%d %s", msg_ids[i], client_names[i]);
+    }
+	
+    names[num_messages] = (char*) malloc(sizeof(_("Back")));
+    strcpy(names[num_messages],_("Back"));
+    names[num_messages+1] = (char*) malloc(sizeof(char));
+    names[num_messages+1] = (char*) 0;
+    descr[num_messages] = NULL;
+    descr[num_messages+1] = NULL;
+
+    menu_items_messages = (ITEM**) malloc((num_messages+2)*sizeof(ITEM*));
+
+    menu_m = i_menu_create_d(names, NULL, menu_items_messages);
+    assert(menu_m!=NULL);
+    return menu_m;	
+}
+
 void
 run_menu()
 {
 	char *item_n, *item_d;
+	int ret;
 	int cl = 0;
 
-	i_help_bar_msg(_("Speech Deamon:   UP/DOWN: move in the menu   ENTER: select   TAB: enter command"));
+	i_help_bar_msg(HELPBAR_B_MENU);
 	i_menu_destroy(menu_m);
 	switch(selected.pos_d){
 		case POSD_ROOT:
@@ -374,10 +514,25 @@ run_menu()
 			item_n = (char*) malloc(1024);
 			item_d = (char*) malloc(256);
 			i_menu_select_d(menu_m, &cl, item_n, item_d);
-			process_select_clients(item_n, item_d);
+			ret = process_select_clients(item_n, item_d);
+	        if(ret){ 
+				selected.pos_d = POSD_SELECT_MESSAGE;
+	        	selected.select_message_mode = SMM_CLIENT;
+			}
+			break;
+		case POSD_SELECT_MESSAGE:
+			/*TODO: these messages should be added to the menu as they are spoken
+			 * by the client, but how to do this?
+			 */
+			menu_m = menu_select_messages(selected.select_message_mode);
+			do{
+				item_n = i_menu_select(menu_m, &cl);
+			}while(process_select_message(item_n) == 1);
+				
 			break;
 			
 		/* TODO: other menus */
+
 		default: assert(0);
 	}
 
@@ -524,6 +679,21 @@ com_resume_cur_client()
 }
 
 int
+com_msgs_cur_client()
+{
+	int client;
+	int ret;
+	client = selected.client_id;
+	if (client == -1){
+		client = menu_select_client_onfly();
+	}
+	selected.pos = POS_MENU;
+	selected.pos_d = POSD_SELECT_MESSAGE;
+	selected.select_message_mode = SMM_CLIENT;
+	return ret;
+}
+
+int
 com_resume()
 {
 	int ret;
@@ -535,25 +705,25 @@ void
 run_cmdl()
 {
 	char *cmd;
+	int ret;
 
-	i_help_bar_msg(_("Speach Deamon:   '': Menu   'help()': Help   'quit()':Quit"));
-
+	i_help_bar_msg(HELPBAR_B_CMD);
 	cmd = i_get_cmd();
 
 	if(!strcmp(cmd,"")) selected.pos = POS_MENU;
 	if(!strcmp(cmd,"quit()")) quit(0);
-	if(!fnmatch("stop()",cmd,0)) com_stop();
-	if(!fnmatch("stop(?*)",cmd,0)) com_stop_fd(cmd);
-	if(!fnmatch("stop_cur_client()",cmd,0)) com_stop_cur_client();
-	if(!fnmatch("pause()",cmd,0)) com_pause();
-	if(!fnmatch("pause(?*)",cmd,0)) com_pause_fd(cmd);
-	if(!fnmatch("pause_cur_client()",cmd,0)) com_pause_cur_client();
-	if(!fnmatch("resume()",cmd,0)) com_resume();
-	if(!fnmatch("resume(?*)",cmd,0)) com_resume_fd(cmd);
-	if(!fnmatch("resume_cur_client()",cmd,0)) com_resume_cur_client();
+	if(!fnmatch("stop()",cmd,0)) 				ret = com_stop();
+	if(!fnmatch("stop(?*)",cmd,0)) 				ret = com_stop_fd(cmd);
+	if(!fnmatch("stop_cur_client()",cmd,0)) 	ret = com_stop_cur_client();
+	if(!fnmatch("pause()",cmd,0)) 				ret = com_pause();
+	if(!fnmatch("pause(?*)",cmd,0)) 			ret = com_pause_fd(cmd);
+	if(!fnmatch("pause_cur_client()",cmd,0)) 	ret = com_pause_cur_client();
+	if(!fnmatch("resume()",cmd,0)) 				ret = com_resume();
+	if(!fnmatch("resume(?*)",cmd,0)) 			ret = com_resume_fd(cmd);
+	if(!fnmatch("resume_cur_client()",cmd,0)) 	ret = com_resume_cur_client();
+	if(!fnmatch("msgs_cur_client()",cmd,0)) 	ret = com_msgs_cur_client();
 
-	/* TODO: other commands */
-
+	/* TODO: other commands, handle the return value */
 }
 
 int
@@ -565,12 +735,12 @@ main()
 	
 	i_basic_screen();
 	i_status_bar_msg(_("Hello, this is Speech Deamon User Center"));	
-	i_help_bar_msg(_("Speech Deamon:   UP/DOWN: move in the menu   ENTER: select   TAB: enter command"));
+	i_help_bar_msg(HELPBAR_B_MENU);
 
 	while(1){
 		if(selected.pos == POS_MENU) run_menu();
 		if(selected.pos == POS_CMDL) run_cmdl();
 	}
 		
-	quit(10);
+	quit(1);
 }
