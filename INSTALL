@@ -18,7 +18,7 @@ To compile the whole project, including Speech Deamon server, all modules
 and clients, simply extract the distribution archive and change to 
 speechd-<version> directory and run "make all" command as follows:
 
-	 $ tar -xzvf speechd-@VERSION.tar.gz
+ $ tar -xzvf speechd-@VERSION.tar.gz
  $ cd speechd-@VERSION
  $ make all
 
@@ -42,7 +42,8 @@ path by running:
 
 If you think something is missing, try additionally:
 
- $ cp ../speechd.conf PREFIX/etc/
+ $ mkdir PREFIX/etc/speechd
+ $ cp -r config PREFIX/etc/speechd
  $ mkdir PREFIX/include
  $ cp clients/libspeechd.h PREFIX/include/
 
