@@ -21,8 +21,9 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.8 2003-03-23 21:22:14 hanke Exp $
+ * $Id: set.c,v 1.9 2003-03-24 22:50:03 hanke Exp $
  */
+
 
 #include "set.h"
 
