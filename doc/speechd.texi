@@ -217,19 +217,26 @@ overview.
 @node Features, Invoking, User's Documentation, User's Documentation
 @section Features
 
+TODO: Introduction of this chapter - what to expect and why are the
+features described in user's documentation in this depth.
+
+
 @menu
 * User Authentication::         Determining user privileges.
-* Text Transformation Tables::  Pre-processing of spoken texts.
+* Text Transformation Tables (TTT)::  
 * Message Priority Model::      Solving concurrent requests for speech.
 * Message History::             Keeping track of spoken messages.
 * Multiple Output Modules::     Using various speech synthesizers on one system.
 @end menu
 
-@node User Authentication, Text Transformation Tables, Features, Features
+@node User Authentication, Text Transformation Tables (TTT), Features, Features
 @subsection User Authentication
 @cindex Identification Protocol
 @cindex identd
 @cindex RFC 1413
+
+NOTE: This feature is being implemented, however the current version
+does not support it.
 
 Speech Dispatcher does not provide any explicit authentication mechanism.  To
 check the identity of users, Speech Dispatcher uses the Identification Protocol
@@ -240,8 +247,9 @@ It is possible to specify user mapping in the configuration.  This allows
 certain users to be considered the same and have the same rights (eg. to browse
 their @ref{Message History}).
 
-@node Text Transformation Tables, Message Priority Model, User Authentication, Features
+@node Text Transformation Tables (TTT), Message Priority Model, User Authentication, Features
 @subsection Text Transformation Tables
+@cindex TTT
 
 The mechanism that Speech Dispatcher provides for processing
 punctuation, capital letters, spelling or keys and characters,
@@ -262,7 +270,7 @@ than for Czech or Italian.
 * TTT Types::                   List of supported Text Transformation Tables.
 @end menu
 
-@node TTT Types,  , Text Transformation Tables, Text Transformation Tables
+@node TTT Types,  , Text Transformation Tables (TTT), Text Transformation Tables (TTT)
 @subsubsection TTT Types
 
 There are currently 6 types of tables in Speech Dispatcher:
@@ -300,7 +308,7 @@ See @ref{Tables Configuration} to find out how to configure text
 transformation tables.
 
 
-@node Message Priority Model, Message History, Text Transformation Tables, Features
+@node Message Priority Model, Message History, Text Transformation Tables (TTT), Features
 @subsection Message Priority Model
 @cindex priorities
 
@@ -603,49 +611,47 @@ The following chapters only discuss the server configuration using a
 configuration file.
 
 @menu
-* General Configuration::       Configuration file syntax.
+* Configuration file syntax::   Basic rules.
+* Configuration options::       What to configure.
 * Output Modules Configuration::  Adding and customizing output modules.
 * Tables Configuration::        Customizing Text Transformation Tables.
 * Log Levels::                  Description of log levels.
 @end menu
 
-@node General Configuration, Output Modules Configuration, Configuration, Configuration
-@subsection General Configuration
+@node Configuration file syntax, Configuration options, Configuration, Configuration
+@subsection Configuration file syntax
 
-We use DotConf for the permanent text-file based configuration.
-See @file{etc/speechd/speechd.conf}. The usage of all available
-options is commented in the file and examples are provided. Most
-of the options are set to their default value and commented out.
-If you want to change them, just change the value and remove
-the comment symbol @code{#}.
+We use the DotConf library to read a permanent text-file based
+configuration, so the syntax might be familiar to many users.
 
-Please note, that strings are enclosed in doublequotes ("like this"),
-but numbers (123) and special DotConf values (On, Off) aren't.
+TODO: Write more.
 
-The configuration file looks like this:
-
+Strings are enclosed in doublequotes.
 @example
-# Port on which Speech Dispatcher should be available
-# to clients.
-
-# Port 9876
-
-# LogLevel is a number between 0 and 5 that specifies
-# how much of the logging information should be printed
-# out on the screen or in the logfile (see LogFile)
-# 0 means nothing, 5 means everything (not recommended).
-
-# LogLevel  3
-
-# LogFile specifies where should Speech Dispatcher write it's logging
-# messages (status information, error messages, etc.)
-# Specify "stdout" for standard console output
-# or a full path to some file which the log should be written to.
-
-# LogFile  "/var/log/speechd/speechd.log"
+LogFile  "/var/log/speechd/speechd.log"
 @end example
 
-@node Output Modules Configuration, Tables Configuration, General Configuration, Configuration
+Numbers are written without any quotes.
+@example
+Port 9876
+@end example
+
+Boolean values use On (for true) and Off (for false).
+@example
+Debug Off
+@end example
+
+
+@node Configuration options, Output Modules Configuration, Configuration file syntax, Configuration
+@subsection Configuration options
+
+All available options are documented directly in the file and examples
+are provided.  Most of the options are set to their default value and
+commented out.  If you want to change them, just change the value and
+remove the comment symbol @code{#}.
+
+
+@node Output Modules Configuration, Tables Configuration, Configuration options, Configuration
 @subsection Output Modules Configuration
 
 Each user should turn on at least one output module in his
