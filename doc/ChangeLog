@@ -1,3 +1,8 @@
+2003-04-23  Milan Zamazal  <pdm@brailcom.org>
+
+	* speechd.texi (Parameter setting commands): CLIENT_NAME can be
+	set at most once.
+
 2003-04-22  Milan Zamazal  <pdm@brailcom.org>
 
 	* speechd.texi (Parameter setting commands): Client specification
