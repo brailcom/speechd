@@ -1,5 +1,7 @@
 2004-07-21  Hynek Hanke  <hanke@chopin>
 
+	* src/modules/Makefile.am (AM_CFLAGS): $(spdlibdir) not ($spdlibdir)
+
 	* src/modules/module_utils.h: module_init now has a new parametere char **status_info.
 
 	* src/audio/Makefile.am (spdlib_LTLIBRARIES): Install into spdlibdir.
