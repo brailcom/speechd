@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.12 2004-05-29 16:41:11 hanke Exp $
+ * $Id: generic.c,v 1.13 2004-05-29 19:28:36 hanke Exp $
  */
 
 #include <glib.h>
@@ -108,9 +108,15 @@ module_load(void)
     MOD_OPTION_1_INT_REG(GenericRateAdd, 0);
     MOD_OPTION_1_FLOAT_REG(GenericRateMultiply, 1);
     MOD_OPTION_1_INT_REG(GenericRateForceInteger, 0);
+
     MOD_OPTION_1_INT_REG(GenericPitchAdd, 0);
     MOD_OPTION_1_FLOAT_REG(GenericPitchMultiply, 1);
     MOD_OPTION_1_INT_REG(GenericPitchForceInteger, 0);
+
+    MOD_OPTION_1_INT_REG(GenericVolumeAdd, 0);
+    MOD_OPTION_1_FLOAT_REG(GenericVolumeMultiply, 1);
+    MOD_OPTION_1_INT_REG(GenericVolumeForceInteger, 0);
+
 
     MOD_OPTION_HT_REG(GenericLanguage);
 
@@ -488,7 +494,10 @@ generic_set_volume(int volume)
 {
     float hvolume;
 
+    DBG("Volume: %d", volume);
+
     hvolume = ((float) volume) * GenericVolumeMultiply + GenericVolumeAdd;
+    DBG("HVolume: %f", hvolume);
     if (!GenericVolumeForceInteger){
 	snprintf(generic_msg_volume_str, 15, "%.2f", hvolume);
     }else{
