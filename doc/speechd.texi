@@ -66,10 +66,14 @@ in the section entitled "GNU Free Documentation License".
 @end ifhtml
 
 @menu
-* Introduction::                What is Speech Dispatcher.
-* User's Documentation::        Usage, Configuration...
-* Client Programming::          Documentation for application developers.
-* Server Programming::          Documentation for project contributors.
+* Introduction::            What is Speech Dispatcher.
+* User's Documentation::    Usage, Configuration...
+* Client Programming::      Documentation for application developers.
+* Server Programming::      Documentation for project contributors.
+
+* Download and Contact::    How to get Speech Dispatcher and how to contact us
+* Reporting Bugs::          How to report a bug
+* How You Can Help::        What is needed
 
 * Appendices::                  
 * GNU General Public License::  Copying conditions for Speechd Dispatcher
@@ -197,7 +201,58 @@ Speech Dispatcher from application programmers's point of view:
 @cindex Synthesizers
 @cindex Other programs
 
+In this version, most of the features of Speech Dispatcher are
+implemented and we believe it's now useful for applications as a
+device independent Text-to-Speech layer.
 
+Currently, the main application that works with Speech Dispatcher is
+speechd-el. This is a client for Emacs, targeted primarily on blind
+people. It's similar to Emacspeak, however the two take a bit
+different approach and serve different user needs. You can find
+speechd-el on @uref{http://www.freebsoft.org/speechd-el/}. This way
+Speech Dispatcher can be used to do nearly everything one can do in
+GNU/Linux text interface, like editing text, reading email, browsing
+web, etc.
+
+We also provide a shared C library, that implements the SSIP functions
+of Speech Dispatcher in a higher level interface, so writing client
+applications in C should be quite easy. There is currently none,
+however, we are looking to implement support into GNU Typist,
+a typing tutorial, and maybe others applications.
+
+On the synthesis side, there is a good support for Festival. Festival
+is a Free Software multi-language Text-to-Speech and synthesis system, that
+is very flexible and extensible using the Scheme scripting
+language. Currently, it supports high quality synthesis for several
+languages, and on today's computers runs reasonably fast.
+See @uref{http://www.cstr.ed.ac.uk/projects/festival/}
+
+For simpler purposes and slower computers, there is also support for
+Flite. Flite (Festival Light) is a lighter Free Software TTS with
+synthesis intended to run on systems with limited resources. In this
+time, it only has one English voice, but we hope that also the other
+voices from Festival will be ported to Flite over time.
+See @uref{http://www.speech.cs.cmu.edu/flite/}
+
+Then Speech Dispatcher offers support for generic output devices,
+which means that basically every Text-to-Speech program that provides
+a simple command line interface can be run with Speech Dispatcher
+after a little bit of tuning in the configuration file. This kind
+of output module provides only limited functionality, but it can
+be useful if there are no other choices for your language.
+
+We decided not to support the simple hardware devices ourselves,
+because they don't support synchronization and therefore have serious
+problems when handling multiple messages. On the other hand, we
+will be happy if someone other writes output modules for these
+devices, because for some users, there is still no other choice.
+
+Currently, there is no application that would serve as a managing
+center for Speech Dispatcher. We think of this application as a client
+of Speech Dispatcher, where a user can modify all the parameters of
+the other connections, browse history, modify settings in permanent
+text file configuration and so on. We welcome anyone who would like to
+help us with such a client.
 
 @node User's Documentation, Client Programming, Introduction, Top
 @chapter User's Documentation
@@ -1385,8 +1440,7 @@ argument of the @code{LIST} command.
 
 @table @code
 @item LIST VOICES
-Similar to @code{LIST SPELLING_TABLES}, but lists the available voice
-names.
+Lists the available voice names.
 @end table
 
 The standard voices are always listed.  @xref{Standard Voices}.
@@ -2214,7 +2268,7 @@ Currently, the Python interface is still in early experimental version
 and it probably doesn't work. If you are still interested, please
 look at @file{src/python/api/} in the source tree.
 
-@node Server Programming, Appendices, Client Programming, Top
+@node Server Programming, Download and Contact, Client Programming, Top
 @chapter Server Programming
 
 @menu
@@ -3352,15 +3406,167 @@ and should be converted back before sending the text to a text-to-speech
 system. In a similar way, the index marks should be stripped after their
 information is stored.
 
-@node Appendices, GNU General Public License, Server Programming, Top
+@node Download and Contact, Reporting Bugs, Server Programming, Top
+@chapter Download
+
+You can download Speech Dispatcher's latest release source codes from
+@uref{http://www.freebsoft.org/speechd}. There are also informations
+how to set up anonymous access to our CVS.
+
+However, you may prefer to download Speech Dispatcher in a binary
+package for your system. We don't distribute such packages ourselves.
+If you run Debian GNU/Linux, it should be in the central repository
+under the name @code{speechd}. If you run an rpm-based distribution
+like RedHat, Mandrake or SuSE Linux, please try to look at
+@uref{http://www.rpmfind.net/}.
+
+If you want to contact us, please look at
+@uref{http://www.freebsoft.org/contact} for possible ways how to do
+it or use the email @email{users@@freebsoft.org}.
+
+@node Reporting Bugs, How You Can Help, Download and Contact, Top
+@chapter Reporting Bugs
+
+If you believe you found a bug in Speech Dispatcher, we will be very
+grateful if you let us know about it. Please do it by email on the
+address @email{speechd@@bugs.freebsoft.org}, but please don't send use
+messages larger than half a megabyte unless we ask you.
+
+To report a bug in a way that is useful for the developers is not
+as easy as it may seem. Here are some hints that you should follow in
+order to give us the best information and so that we can find and fix
+the bug easily.
+
+First of all, please try to describe the problem as exactly as you
+can. We prefer raw data over speculations about where the problem may
+lie. Please try to explain in what situation does the bug happen. Even
+if it's a general bug that happens in many situations, please try to
+describe at least one case in as many details, as possible.
+
+Also, please specify the versions of programs that you use when
+the bug happens. This is not only Speech Dispatcher, but also
+the client application you use (speechd-el, say, etc.) and
+the synthesizer name and version.
+
+If you can reproduce the bug, please send us the log file also.  This
+is very useful, because otherwise, we may not be able to reproduce the
+bug with our configuration and program versions that differ from
+yours. Configuration must be set to logging priority at least 4, but
+best 5, so that it's useful for debugging purposes. You can do so in
+@file{etc/speechd/speechd.conf} by modifying the variable
+@code{LogLevel}. Also, you may want to modify the log destination with
+variable @code{LogFile}. After modifying these options, please restart
+Speech Dispatcher and repeat the situation in which the bug
+happens. After it happened, please take the log and attach it to the
+bug report, preferably compressed using @code{gzip}. But note, that
+when logging with level 5, all the data that come to Speech Dispatcher
+are also recorded, so make sure there are no sensitive information
+when you are reproducing the bug. Please make sure you switch back
+to priority 3 or lower logging, because priority 4 or 5 produces
+really huge logs.
+
+If you are a programmer and you find a bug, that is reproducible in
+SSIP, you can send us the sequence of SSIP commands, that leads to the
+bug (preferably from starting the connection). You can also try to
+reproduce the bug in a simple test-script under
+@file{speechd/src/tests} in the source tree. Please check
+@file{speechd/src/tests/README} and see the other tests scripts here
+for an example.
+
+When the bug is a SEGMENTATION FAULT, a backtrace from gdb is also
+valuable, but if you are not familiar with gdb, don't bother with
+that, we may ask you to do it later.
+
+On the last place, you may also send us a guess of what do you think
+that happens in Speech Dispatcher that causes the bug, but this is
+usually not very helpful. If you are able to provide additional technical
+information instead, please do so.
+
+@node How You Can Help, Appendices, Reporting Bugs, Top
+@chapter How You Can Help
+
+If you want to contribute to the development of Speech Dispatcher,
+we will be very happy if you do so. Please contact us on 
+@email{manage@@freebsoft.org}.
+
+There is a short, definitively not exhaustive, list of how you can
+help us and other users.
+
+@itemize
+@item
+@emph{Donate money:} We are a non-profit organization and we can't work without
+funding. Brailcom, o.p.s. created Speech Dispatcher, speechd-el and also works
+on other projects to help blind and visually impaired users of computers. We build
+on Free Software and GNU/Linux, because we believe this is the right way. But it
+won't be possible when we have no money. @uref{http://www.freebsoft.org/}
+
+@item
+@emph{Report bugs:} Every user, even if he can't give us money and he is not
+a programmer, can help us very much by just using our software and telling
+us about the bugs and inconveniences he encounters. A good user community that
+reports bugs is a crucial part of development of a good Free Software package.
+We can't test our software under all circumstances and on all platforms, so each
+constructive bug report is highly appreciated. You can report bugs in Speech
+Dispatcher on @email{speechd@@bugs.freebsoft.org}.
+
+@item
+@emph{Write or modify an application to support synthesis:} With
+Speech Dispatcher, we have provided an interface that allows
+applications easy access to speech synthesis. However powerful, it's
+no more than an interface, and it's useless on it's own. Now it's time
+to write the particular client applications, or modify existing
+applications so that they can support speech synthesis.  It is useful
+if the application needs a specific interface for blind people or if
+it wants to use speech synthesis for educational or other purposes.
+
+@item
+@emph{Develop new voices and language definitions for Festival:} In
+the world of Free Software, currently Festival is the most promising
+interface for Text-to-Speech processing and speech synthesis. It's
+extensible and highly configurable platform for developing synthetic
+voices. If there is a lack of synthetic voices or no voices at all for
+some language, we believe the wisest solution is to try to develop
+a voice in Festival. It's certainly not advisable to develop your
+own synthesizer, if the goal is producing a quality voice system
+in reasonable time. Festival developers provide a nice documentation
+about how to develop a voice and a lot of tools that help doing
+this. We found that some language definitions can be constructed
+by canibalizing the already existing definitions and can be tuned
+later. As for the voice samples, one can temporarily use the
+MBROLA project voices. But please note that, although they are
+downloadable for free (as price), they are not Free Software
+and it would be wonderful if we could replace them by Free Software
+alternatives as soon as possible.
+See @uref{http://www.cstr.ed.ac.uk/projects/festival/}.
+
+@item
+@emph{Help us with this or other Free-b-Soft projects:} Please look at
+@uref{http://www.freebsoft.org} to find information about our
+projects. There is a plenty of work to be done for the blind and
+visually impaired people to make their work with computers easier.
+
+@item
+@emph{Spread a word about Speech Dispatcher and Free Software:} You can
+help us, and the whole community around Free Software, just by telling
+your friends about the amazing world of Free Software. It doesn't
+have to be just about Speech Dispatcher, you can tell them about
+other project or about Free Software in general. Remember that
+Speech Dispatcher could only arise out of understanding of some people
+of the principles and ideas behind Free Software. And this is mostly
+the same for the rest of the Free Software world.
+See @uref{http://www.gnu.org/} for more information about GNU/Linux
+and Free Software.
+
+@end itemize
+
+@node Appendices, GNU General Public License, How You Can Help, Top
 @appendix Appendices
 
 @menu
 * Key Names::                   List of the symbolic key names.
 * Standard Sound Icons::        List of the standard sound icon names.
-* Standard Spelling Tables::    List of the standard spelling table names.
-* Standard Sound Tables::       List of the standard sound table names.
-* Standard Voices::             List of the standard voice names.
+* Standard Sound Tables::       
+* Standard Voices::             
 @end menu
 
 @node Key Names, Standard Sound Icons, Appendices, Appendices
@@ -3455,26 +3661,13 @@ names are case sensitive.
 @item window
 @end table
 
-@node Standard Sound Icons, Standard Spelling Tables, Key Names, Appendices
+@node Standard Sound Icons, Standard Sound Tables, Key Names, Appendices
 @appendixsec Standard Sound Icons
 
 There are none currently.
 
 
-@node Standard Spelling Tables, Standard Sound Tables, Standard Sound Icons, Appendices
-@appendixsec Standard Spelling Tables
-
-The following spelling table names are always present in the output of
-the @code{LIST SPELLING tables} command (@pxref{Information Retrieval
-Commands}):
-
-@table @code
-@item spelling-short
-@item spelling-long
-@end table
-
-
-@node Standard Sound Tables, Standard Voices, Standard Spelling Tables, Appendices
+@node Standard Sound Tables, Standard Voices, Standard Sound Icons, Appendices
 @appendixsec Standard Sound Tables
 
 There are none currently.
