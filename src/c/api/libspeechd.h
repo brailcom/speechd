@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.5 2003-05-26 20:59:56 hanke Exp $
+ * $Id: libspeechd.h,v 1.6 2003-06-08 21:51:54 hanke Exp $
  */
 
 /* Debugging */
@@ -55,8 +55,8 @@ int spd_open(char* client_name, char* connection_name, char *user_name);
 void spd_close(int connection);
 
 /* Speaking */
-int spd_say(int connection, int priority, char* text);
-int spd_sayf(int fd, int priority, char *format, ...);
+int spd_say(int connection, char* priority, char* text);
+int spd_sayf(int fd, char* priority, char *format, ...);
 
 /* Speech flow */
 int spd_stop(int connection);
@@ -76,12 +76,12 @@ int spd_resume_all(int connection);
 int spd_resume_uid(int connection, int target_uid);
 
 /* Characters and keys */
-int spd_key(int connection, int priority, char *key_name);
-int spd_char(int connection, int priority, char *character);
-int spd_wchar(int connection, int priority, wchar_t wcharacter);
+int spd_key(int connection, char* priority, char *key_name);
+int spd_char(int connection, char* priority, char *character);
+int spd_wchar(int connection, char* priority, wchar_t wcharacter);
 
 /* Sound icons */
-int spd_sound_icon(int connection, int priority, char *icon_name);
+int spd_sound_icon(int connection, char* priority, char *icon_name);
 
 /* Setting parameters */
 int spd_set_voice_rate(int connection, int rate);
@@ -120,3 +120,4 @@ char* get_rec_str(char *record, int pos);
 int get_rec_int(char *record, int pos);
 char* parse_response_data(char *resp, int pos);
 void *xmalloc(unsigned int bytes);
+void xfree(void *ptr);
