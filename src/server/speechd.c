@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.23 2003-04-17 10:21:16 hanke Exp $
+ * $Id: speechd.c,v 1.24 2003-04-18 21:23:15 hanke Exp $
  */
 
 #include "speechd.h"
@@ -139,6 +139,7 @@ speechd_init()
 	configfile_t *configfile = NULL;
 	char *configfilename = SYS_CONF"/speechd.conf" ;
 	int ret;
+        char *p;
 
 	msgs_to_say = 0;
 	max_uid = 0;
@@ -174,6 +175,13 @@ speechd_init()
 
 	o_bytes = (GArray*) g_array_sized_new(1, 1, sizeof(long int), 16);
 	assert(o_bytes != NULL);
+
+        /* Initialize lists of available tables */
+        tables.sound_icons = NULL;
+        tables.spelling = NULL;
+        tables.characters = NULL;
+        tables.keys = NULL;
+        tables.punctuation = NULL;
 
 	/* Perform some functionality tests */
 	if (g_module_supported() == FALSE)
