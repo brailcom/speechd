@@ -1,3 +1,11 @@
+2003-04-15  Milan Zamazal  <pdm@brailcom.org>
+
+	* fdl.texi: New file.
+	* speechd.texi: Copyright and copying information added.
+	(GNU Free Documentation License): New section.
+	(GNU General Public License): Index entry added.
+	(Public API): libspeechd.h location fixed.
+
 2003-04-14  Milan Zamazal  <pdm@brailcom.org>
 
 	* version.texi: Everything except for VERSION removed.
