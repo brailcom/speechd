@@ -21,13 +21,13 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.18 2003-04-14 02:05:47 hanke Exp $
+ * $Id: parse.c,v 1.19 2003-04-14 22:51:18 hanke Exp $
  */
 
 #include "speechd.h"
 
 /* isanum() tests if the given string is a number,
- *  *  * returns 1 if yes, 0 otherwise. */
+ * returns 1 if yes, 0 otherwise. */
 int
 isanum(char *str){
    int i;
@@ -265,9 +265,9 @@ parse_set(char *buf, int bytes, int fd)
         punct = get_param(buf,2,bytes, 1);
         if (punct == NULL) return ERR_MISSING_PARAMETER;
 
-        if(!strcmp(spelling,"all")) ret = set_punct_mode(fd, 1);
-        else if(!strcmp(spelling,"some")) ret = set_punct_mode(fd, 2);        
-        else if(!strcmp(spelling,"none")) ret = set_punct_mode(fd, 0);        
+        if(!strcmp(punct,"all")) ret = set_punct_mode(fd, 1);
+        else if(!strcmp(punct,"some")) ret = set_punct_mode(fd, 2);        
+        else if(!strcmp(punct,"none")) ret = set_punct_mode(fd, 0);        
         else return ERR_PARAMETER_INVALID;
 
         MSG(4, "Setting punctuation mode to %s \n", punct);
@@ -279,8 +279,8 @@ parse_set(char *buf, int bytes, int fd)
         recog = get_param(buf,2,bytes, 1);
         if (recog == NULL) return ERR_MISSING_PARAMETER;
 
-        if(!strcmp(spelling,"on")) ret = set_cap_let_recog(fd, 1);
-        else if(!strcmp(spelling,"off")) ret = set_cap_let_recog(fd, 0);        
+        if(!strcmp(recog,"on")) ret = set_cap_let_recog(fd, 1);
+        else if(!strcmp(recog,"off")) ret = set_cap_let_recog(fd, 0);        
         else return ERR_PARAMETER_NOT_ON_OFF;
 
         MSG(4, "Setting capital letter recognition to %s \n", punct);
@@ -307,37 +307,54 @@ parse_set(char *buf, int bytes, int fd)
 char*
 parse_stop(char *buf, int bytes, int fd)
 {
-    int ret;
     int uid = 0;
     char *param;
 
-    param = get_param(buf,1,bytes, 0);
-    if (isanum(param)) uid = atoi(param);
+    param = get_param(buf,1,bytes, 1);
 
-    /* If the parameter target_uid wasn't specified,
-       act on the calling client. */
-    if(uid == 0) uid = get_client_uid_by_fd(fd);
-    if(uid == 0) return ERR_NO_SUCH_CLIENT;
+    if (!strcmp(param,"all")){
+        speaking_stop_all();
+    }
+    else if (!strcmp(param, "self")){
+        uid = get_client_uid_by_fd(fd);
+        if(uid == 0) return ERR_INTERNAL;
+        speaking_stop(uid);
+    }
+    else if (isanum(param)){
+        uid = atoi(param);
+        if (uid <= 0) return ERR_ID_NOT_EXIST;
+        speaking_stop(uid);
+    }
+
     MSG(4, "Stop received.");
-    speaking_stop(uid);
+
     return OK_STOPED;
 }
+
 char*
 parse_cancel(char *buf, int bytes, int fd)
 {
-    int ret;
     int uid = 0;
     char *param;
 
-    param = get_param(buf,1,bytes, 0);
-    if (isanum(param)) uid = atoi(param);
+    param = get_param(buf,1,bytes, 1);
 
-    /* If the parameter target_uid wasn't specified,
-       act on the calling client. */
-    if(uid == 0) uid = get_client_uid_by_fd(fd);
-    if(uid == 0) return ERR_NO_SUCH_CLIENT;
+    if (!strcmp(param,"all")){
+        speaking_cancel_all();
+    }
+    else if (!strcmp(param, "self")){
+        uid = get_client_uid_by_fd(fd);
+        if(uid == 0) return ERR_INTERNAL;
+        speaking_cancel(uid);
+    }
+    else if (isanum(param)){
+        uid = atoi(param);
+        if (uid <= 0) return ERR_ID_NOT_EXIST;
+        speaking_cancel(uid);
+    }
+
     MSG(4, "Cancel received.");
-    speaking_cancel(uid);
+
     return OK_CANCELED;
 }
 
