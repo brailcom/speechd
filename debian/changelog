@@ -1,3 +1,10 @@
+speechd (0.0-2) unstable; urgency=low
+
+  * Don't require to be root on clean.
+  * Build Info docs.
+
+ -- Milan Zamazal <pdm@brailcom.org>  Thu, 17 Apr 2003 17:19:41 +0200
+
 speechd (0.0-1) unstable; urgency=low
 
   * Initial packaging.

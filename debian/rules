@@ -31,11 +31,11 @@ build: build-stamp
 build-stamp:  config.status
 	dh_testdir
 	$(MAKE)
+	(cd doc; $(MAKE) info)
 	touch build-stamp
 
 clean:
 	dh_testdir
-	dh_testroot
 	rm -f build-stamp 
 	-$(MAKE) distclean
 	dh_clean
