@@ -1,3 +1,42 @@
+2003-09-20  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/Makefile.am: Include insert_marking.c and index_marking.h.
+
+	* src/modules/module_utils.c (module_parent_wfork): Use index marks.
+
+	* INSTALL: Mention the SED=sed step.
+
+	* config/modules/festival.conf (FestivalStripPunctChars): New option added.
+
+	* src/modules/module_utils.c (module_get_message_part): Use index marks.
+	Look for "ordinary" divisors before looking for index marks.
+
+	* src/server/speaking.c: Include index_marking.h
+	(speaking_pause): Use index marking.
+	(speaking_pause): Strip index marks before queueing the message again.
+
+	* src/server/index_marking.c: New file.
+	(insert_index_marks): New function.
+	(find_next_index_mark): New function.
+	(find_index_mark): New function.
+	(strip_index_marks): New function.
+
+	* src/server/index_marking.h: New file.
+
+	* src/modules/festival.c (FestivalStripPunctChars): New option.
+	Don't delete anything by default.
+
+	* src/modules/flite.c (_flite_child): Don't insert '.' after sentences.
+
+	* src/server/speaking.c (speak): Insert index marks before sending to output.
+
+	* src/modules/module_utils.c (DECLARE_MODINFO): Macro deleted.
+
+	* src/modules/module_utils.c (do_set): Don't set other parameters after an error.
+
+	* src/modules/module_utils.c (do_set): Report status only after the trailing dot.
+
+
 2003-09-19  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/tests/Makefile.am (audio_LDADD): -lglib changed to
@@ -12,6 +51,7 @@
 
 	* config/Makefile.am (all-local): Use `:' instead of `-' as the
 	sed separator.
+
 
 2003-09-11  Hynek Hanke  <hanke@volny.cz>
 
