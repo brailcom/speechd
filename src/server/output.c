@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.3 2003-09-11 16:32:30 hanke Exp $
+ * $Id: output.c,v 1.4 2003-09-24 08:42:11 pdm Exp $
  */
 
 #include "output.h"
@@ -89,7 +89,7 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
         speaking_module = NULL;
         return -1;   /* Broken pipe */
     }
-    MSG(5,"Command sent to output module: |%s|", cmd);
+    MSG2(5, "protocol", "Command sent to output module: |%s|", cmd);
 
     if (wfr){                   /* wait for reply? */
         ret = TEMP_FAILURE_RETRY(read(output->pipe_out[0], response, 255));
@@ -99,7 +99,7 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
             speaking_module = NULL;
             return -1; /* Broken pipe */       
         }
-        MSG(5,"Reply from output module: |%s|", response);
+        MSG2(5, "protocol", "Reply from output module: |%s|", response);
         fflush(NULL);
         if (response[0] == '3'){
             MSG(3, "Module reported error in request from speechd (code 3xx).");
