@@ -355,7 +355,10 @@
 	follows: You work with one client (e.g. Emacs) and messages come from
 	other clients (e.g. some cron script notifies you about new mail). So
 	if the Emacs client supports browsing the message history, you can
-	check all prewious new mail notifications from Emacs.
+	check all prewious new mail notifications from Emacs.  It is also
+	possible to create a specialized "History client", which implements all
+	history related commands, so that other clients don't have to care
+	about the history at all.
       </para>
       
     </sect2>
