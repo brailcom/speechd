@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.16 2003-04-12 11:24:58 hanke Exp $
+ * $Id: parse.c,v 1.17 2003-04-12 19:01:23 pdm Exp $
  */
 
 #include "speechd.h"
@@ -308,7 +308,7 @@ parse_stop(char *buf, int bytes, int fd)
        act on the calling client. */
     if(uid == 0) uid = get_client_uid_by_fd(fd);
     if(uid == 0) return ERR_NO_SUCH_CLIENT;
-    MSG(4, "Stop recieved.");
+    MSG(4, "Stop received.");
     speaking_stop(uid);
     return OK_STOPED;
 }
@@ -326,7 +326,7 @@ parse_cancel(char *buf, int bytes, int fd)
        act on the calling client. */
     if(uid == 0) uid = get_client_uid_by_fd(fd);
     if(uid == 0) return ERR_NO_SUCH_CLIENT;
-    MSG(4, "Cancel recieved.");
+    MSG(4, "Cancel received.");
     speaking_cancel(uid);
     return OK_CANCELED;
 }
@@ -346,7 +346,7 @@ parse_pause(char *buf, int bytes, int fd)
     if(uid == 0) uid = get_client_uid_by_fd(fd);
     if(uid == 0) return ERR_NO_SUCH_CLIENT;
 
-    MSG(4, "Pause recieved.");
+    MSG(4, "Pause received.");
     ret = speaking_pause(uid);
     return OK_PAUSED;
 }
@@ -366,7 +366,7 @@ parse_resume(char *buf, int bytes, int fd)
     if(uid == 0) uid = get_client_uid_by_fd(fd);
     if(uid == 0) return ERR_NO_SUCH_CLIENT;
 
-    MSG(4, "Resume recieved.");
+    MSG(4, "Resume received.");
     ret = speaking_resume(uid);
     return OK_RESUMED;
 }
