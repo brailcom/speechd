@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.c,v 1.11 2003-02-01 22:16:55 hanke Exp $
+ * $Id: server.c,v 1.12 2003-03-09 20:49:17 hanke Exp $
  */
 
 #include "speechd.h"
@@ -31,6 +31,8 @@
 
 char speaking_module[256] = "\0";
 int highest_priority = 0;
+
+int last_message_id = -1;
 
 gint hc_list_compare (gconstpointer, gconstpointer, gpointer);
 
@@ -402,6 +404,61 @@ stop_c(EStopCommands command, int fd, int target)
    return 1; 
 }
 
+int
+queue_message(TSpeechDMessage *new, int fd)
+{
+	GList *gl;
+    TFDSetElement *settings;
+    THistoryClient *history_client;
+    TSpeechDMessage *newgl;
+		
+	/* Find settings for this particular client */
+	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
+	if (gl == NULL)
+		FATAL("Couldnt find settings for active client, internal error.");
+	settings = gl->data;
+
+	/* Copy the settings to the new to-be-queued element */
+	new->settings = *settings;
+	new->settings.output_module = malloc(strlen(settings->output_module));
+	strcpy(new->settings.output_module, settings->output_module);
+	new->settings.language = malloc( strlen(settings->language) );
+	strcpy(new->settings.language, settings->language);
+	new->settings.client_name = malloc( strlen(settings->client_name) );
+	strcpy(new->settings.client_name, settings->client_name);
+
+	/* And we set the global id (note that this is really global, not
+	 * depending on the particular client, but unique) */
+	last_message_id++;				
+	new->id = last_message_id;
+
+	/* Put the element new to queue according to it's priority. */
+	assert(new!=NULL);
+	switch(settings->priority){
+		case 1:	if(is_sb_speaking()) stop_p23();
+				MessageQueue->p1 = g_list_append(MessageQueue->p1, new); 
+				break;
+		case 2: if(is_sb_speaking()) stop_p3();
+			   	MessageQueue->p2 = g_list_append(MessageQueue->p2, new);
+			   	break;
+		case 3: MessageQueue->p3 = g_list_append(MessageQueue->p3, new); break;
+		default: FATAL("Non existing priority requiered");
+	}
+
+	msgs_to_say++;
+	
+	/* Put the element _new_ to history also, acording to it's fd. */
+	gl = g_list_find_custom(history, (int*) fd, p_hc_lc);
+	if(gl == NULL) FATAL("no such history client, internal error\n");
+	history_client = (THistoryClient*) gl->data;
+ 
+	/* We will make an exact copy for inclusion into history. */
+	newgl = (TSpeechDMessage*) history_list_alloc_message(new); 
+	assert(newgl!=NULL);
+	history_client->messages = g_list_append(history_client->messages, newgl);
+	return 0;
+}
+
 /*
   Parse() receives input data and parses them. It can
   be either command or data to speak. If it's command, it
@@ -415,7 +472,7 @@ parse(char *buf, int bytes, int fd)
 {
 	TSpeechDMessage *new;
 	TFDSetElement *settings;
-	THistoryClient *history_client;
+//	THistoryClient *history_client;
 	char *command;
 	char *param;
 	int helper;
@@ -423,10 +480,9 @@ parse(char *buf, int bytes, int fd)
 	char *ret;
 		/* TODO: What about buffer sizes? Should these be fixed? */
 	static char o_buf[MAX_CLIENTS][BUF_SIZE];
-	static int last_message_id = -1;
 	int r;
 	GList *gl;
-	TSpeechDMessage *newgl;
+//	TSpeechDMessage *newgl;
 	int v;
 	char *helper1;
 	int end_data = 0;
@@ -463,6 +519,9 @@ parse(char *buf, int bytes, int fd)
 	if (!strcmp(command,"resume")){
 		return (char *) parse_resume(buf, bytes, fd);
 	}
+	if (!strcmp(command,"snd_icon")){				
+		return (char *) parse_snd_icon(buf, bytes, fd);
+	}
 
 	/* Check if the client didn't end the session */
 	if (!strcmp(command,"bye") || !strcmp(command,"quit")){
@@ -495,17 +554,12 @@ parse(char *buf, int bytes, int fd)
 			 * everything we got before */
 			v = 1;
 			/* Mark this client as ,,sending data'' */
-//			g_array_set_size(awaiting_data, fdmax*2);
 			g_array_insert_val(awaiting_data, fd, v);
 			MSG(2, "switching to data mode...\n");
 			return OK_RECEIVE_DATA;
 		}
-		printf("here!\n");
-		printf("here!\n");
 		return ERR_INVALID_COMMAND;
 	}
-		printf("i'm here2!\n");
-		printf("i'm here2!\n");
 	return ERR_INVALID_COMMAND;
 
 	/* The other case is that we are in awaiting_data mode and
@@ -513,7 +567,7 @@ parse(char *buf, int bytes, int fd)
 	}else{
 		enddata:
 		/* In the end of the data flow we got a "@data off" command. */
-		MSG(3,"testing +%d+ ", end_data);
+		MSG(5,"testing +%d+ ", end_data);
 		if((!strncmp(buf,"@data off", bytes-2))||(end_data==1)){
 			MSG(3,"ending data\n");
 			end_data=0;
@@ -528,88 +582,45 @@ parse(char *buf, int bytes, int fd)
 			new->buf = malloc(new->bytes);
 			memcpy(new->buf, o_buf[fd], new->bytes);
 
-			/* Find settings for this particular client */
-			gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
-			if (gl == NULL)
-            FATAL("Couldnt find settings for active client, internal error.");
-			settings = gl->data;
+			if(queue_message(new,fd))  FATAL("Couldn't queue message\n");
+		
+			MSG(3, "%d bytes put in queue and history\n", g_array_index(o_bytes,int,fd));
 
-			/* Copy the settings to the new to-be-queued element */
-			new->settings = *settings;
-			new->settings.output_module = malloc(strlen(settings->output_module));
-			strcpy(new->settings.output_module, settings->output_module);
-			new->settings.language = malloc( strlen(settings->language) );
-			strcpy(new->settings.language, settings->language);
-			new->settings.client_name = malloc( strlen(settings->client_name) );
-			strcpy(new->settings.client_name, settings->client_name);
-
-			/* And we set the global id (note that this is really global, not
-			 * depending on the particular client, but unique) */
-			last_message_id++;				
-			new->id = last_message_id;
-
-		/* Put the element new to queue according to it's priority. */
-			assert(new!=NULL);
-			switch(settings->priority){
-				case 1:	if(is_sb_speaking()) stop_p23();
-						MessageQueue->p1 = g_list_append(MessageQueue->p1, new); 
-						break;
-				case 2: if(is_sb_speaking()) stop_p3();
-					   	MessageQueue->p2 = g_list_append(MessageQueue->p2, new);
-					   	break;
-				case 3: MessageQueue->p3 = g_list_append(MessageQueue->p3, new); break;
-				default: FATAL("Non existing priority requiered");
-			}
-
-         /* Put the element _new_ to history also, acording to it's fd. */
-		gl = g_list_find_custom(history, (int*) fd, p_hc_lc);
-		if(gl == NULL) FATAL("no such history client, internal error\n");
-		history_client = (THistoryClient*) gl->data;
- 
-		/* We will make an exact copy for inclusion into history. */
-		newgl = (TSpeechDMessage*) history_list_alloc_message(new); 
-		assert(newgl!=NULL);
-		history_client->messages = g_list_append(history_client->messages, newgl);
-
-		MSG(3, "%d bytes put in queue and history\n", g_array_index(o_bytes,int,fd));
-
-		/* Clear the counter of bytes in the output buffer. */
-		v = 0;
-		g_array_insert_val(o_bytes, fd, v);
-		/* Clear the output buffer (well, kind of...)*/
-		o_buf[fd][0]=0;
-		msgs_to_say++;
-		MSG(3, "msgs_to_say %d\n", msgs_to_say);
-		return OK_MESSAGE_QUEUED;
-	}
-	
-	for(i=0;i<=bytes-1;i++){	
-		if(buf[i]=='@'){
-			   	bytes=i;
-				end_data=1;		
-				MSG(5,"command in data catched\n");
-				break;
+			/* Clear the counter of bytes in the output buffer. */
+			v = 0;
+			g_array_insert_val(o_bytes, fd, v);
+			/* Clear the output buffer (well, kind of...)*/
+			o_buf[fd][0]=0;
+			return OK_MESSAGE_QUEUED;
 		}
-	}	
+	
+		for(i=0;i<=bytes-1;i++){	
+			if(buf[i]=='@'){
+				   	bytes=i;
+					end_data=1;		
+					MSG(5,"command in data catched\n");
+					break;
+			}
+		}	
 
-	/* Get the number of bytes read before, sum it with the number of bytes read
-	 * now and store again in the counter */
-	v = g_array_index(o_bytes,int,fd);
-	v += bytes;
-	g_array_set_size(o_bytes,fd);	 
-	g_array_insert_val(o_bytes, fd, v);
+		/* Get the number of bytes read before, sum it with the number of bytes read
+		 * now and store again in the counter */
+		v = g_array_index(o_bytes,int,fd);
+		v += bytes;
+		g_array_set_size(o_bytes,fd);	 
+		g_array_insert_val(o_bytes, fd, v);
     
-  	/* Check if we didn't exceed the maximum size of the buffer. */
-	if (g_array_index(o_bytes,int,fd) >= BUF_SIZE) return(ERR_TOO_MUCH_DATA);
+	  	/* Check if we didn't exceed the maximum size of the buffer. */
+		if (g_array_index(o_bytes,int,fd) >= BUF_SIZE) return(ERR_TOO_MUCH_DATA);
 
-	/* Add the new data to the buffer. */
-	o_buf[fd][g_array_index(o_bytes,int,fd)] = 0;
-    buf[bytes] = 0;
-    strcat(o_buf[fd],buf);
+		/* Add the new data to the buffer. */
+		o_buf[fd][g_array_index(o_bytes,int,fd)] = 0;
+	    buf[bytes] = 0;
+	    strcat(o_buf[fd],buf);
 	}
 
 	if (end_data == 1) goto enddata;
-	
+
 	// TODO: eh??
 	return "";
 }
