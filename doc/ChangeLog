@@ -1,3 +1,8 @@
+2003-05-26  Milan Zamazal  <pdm@brailcom.org>
+
+	* speechd.texi (Information retrieval commands): Use underscore
+	instead of dash in the LIST SPELLING_TABLES example.
+
 2003-05-25  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* speechd.texi (SSIP): Description of how to pass space to CHAR.
