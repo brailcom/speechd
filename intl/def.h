@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: def.h,v 1.6 2003-02-01 22:16:55 hanke Exp $
+ * $Id: def.h,v 1.7 2003-03-23 21:34:30 hanke Exp $
  */
 
 /* some constants common for speech server and client part */
@@ -31,7 +31,9 @@
 
 #define SPEECH_PORT 9876
 
-#define LOG_LEVEL 10
+#define LOG_LEVEL 2
+
+#define SPEECHD_DEBUG 0
 
 #define MSG(level,args...) { if (level <= LOG_LEVEL) printf(args); }
 
