@@ -31,7 +31,7 @@ check for example for libflite_cmu_us_kal.so in your library directory.
 If it doesn't work, try the following:
 
  $ cd speechd-@VERSION
- $ autoheader && automake && aclocal && autoconf
+ $ aclocal && autoconf && autoheader && automake
  $ ./configure
  $ make
  
