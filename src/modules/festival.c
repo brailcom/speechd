@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.8 2003-05-18 20:55:02 hanke Exp $
+ * $Id: festival.c,v 1.9 2003-05-20 19:06:26 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -31,6 +31,7 @@
 #include <glib.h>
 #include <pthread.h>
 #include <signal.h>
+#include <sys/wait.h>
 
 #include "spd_audio.h"
 
@@ -39,11 +40,12 @@
 
 #include "festival_client.c"
 
-const int DEBUG_FESTIVAL = 1;
+const int DEBUG_FESTIVAL = 0;
 
 /* Thread and process control */
 int festival_speaking = 0;
 int festival_running = 0;
+int waiting_data = 0;
 
 EVoiceType festival_cur_voice = NO_VOICE;
 
@@ -53,7 +55,7 @@ pid_t festival_pid;
 /* Public function prototypes */
 gint	festival_write			(gchar *data, gint len, void*);
 gint	festival_stop			(void);
-gchar*  festival_pause                     (void);
+gchar*  festival_pause                  (void);
 gint	festival_is_speaking	        (void);
 gint	festival_close			(void);
 
@@ -224,11 +226,13 @@ festival_write(gchar *data, gint len, void* v_set)
         printf("Festival: couldn't open temporary file\n");
         return 0;
     }
-    fprintf(temp,"%s\n\r",data);
+    /* This space is important here! */
+    fprintf(temp,"%s \n\r",data);
     fclose(temp);
     fflush(NULL);
 
     /* Setting voice */
+    festivalEmptySocket(festival_info);
     if (set->voice_type != festival_cur_voice){
         voice = module_getvoice(modinfo_festival.settings.voices, set->language,
                                 set->voice_type);
@@ -237,6 +241,7 @@ festival_write(gchar *data, gint len, void* v_set)
             return 0;
         }
         festivalSetVoice(festival_info, voice);
+        festival_cur_voice = set->voice_type;
     }
 	
     stretch = 1;
@@ -268,7 +273,7 @@ festival_stop(void)
         if(DEBUG_FESTIVAL) printf("festival: stopping process pid %d\n", festival_pid);
         kill(festival_pid, SIGKILL);
         /* Make sure there is no pending message left */
-        festivalStringToWaveGetData(festival_info);
+        festivalEmptySocket(festival_info);
     }
 }
 
@@ -363,6 +368,7 @@ _festival_speak(void* nothing)
 {	
     int ret;
     sigset_t all_signals;	
+    int status;
 
     if(DEBUG_FESTIVAL)	printf("festival: speaking.......\n");
 
@@ -383,6 +389,7 @@ _festival_speak(void* nothing)
     switch(festival_pid){
     case -1:	
         printf("Can't say the message. fork() failed!\n");
+        fflush(NULL);
         exit(0);
 
     case 0:
@@ -393,10 +400,11 @@ _festival_speak(void* nothing)
 
     default:
         /* This is the parent. Wait for the child to terminate. */
-        waitpid(festival_pid,NULL,0);
+        waitpid(festival_pid,&status, 0);
     }
 
-    if(DEBUG_FESTIVAL) printf("festival ended.......\n");
+    if(DEBUG_FESTIVAL) printf("festival ended....%d.%d..\n", WIFEXITED(status),
+                              WIFSIGNALED(status));
 	
     festival_running = 0;
     pthread_exit(NULL);
@@ -429,9 +437,11 @@ festival_conv(FT_Wave *fwave)
 {
     cst_wave *ret;
 
-    ret = spd_malloc(sizeof(cst_wave));
-    ret->type = spd_malloc(16);
-    sprintf((ret->type), "riff");
+    if (fwave == NULL) return NULL;
+
+    ret = (cst_wave*) spd_malloc(sizeof(cst_wave));
+    ret->type = (char*) spd_malloc(8);
+    sprintf((char*) ret->type, "riff");
     ret->num_samples = fwave->num_samples;
     ret->sample_rate = fwave->sample_rate;
     ret->num_channels = 1;
@@ -455,8 +465,13 @@ _festival_synth()
     int terminate = 0;
     int first_chunk = 1;
 
+    if (DEBUG_FESTIVAL) printf("festival: In synth");
+
     sigfillset(&some_signals);
+
     _festival_sigunblockusr(&some_signals);
+
+    festivalEmptySocket(festival_info);
 
     text = malloc(1024 * sizeof(char));
     sp_file = fopen("/tmp/festival_message","r");
@@ -527,23 +542,25 @@ _festival_synth()
             }else{
                 fwave = festivalStringToWaveGetData(festival_info);
                 festivalStringToWaveRequest(festival_info, text);
-
                 wave = festival_conv(fwave);
-                spd_audio_play_wave(wave);
+                if (wave != NULL) spd_audio_play_wave(wave);
             }
             _festival_sigunblockusr(&some_signals);
         }
 
         if (terminate == 1){
-            if (text[0] != 0){
+
+            if (text[0] != 0){                
                 fwave = festivalStringToWaveGetData(festival_info);
                 wave = festival_conv(fwave);
-                spd_audio_play_wave(wave);
+                if (wave!=NULL) spd_audio_play_wave(wave);
             }
 
             fclose(sp_file);
             free(text);
             spd_audio_close();
+            if(DEBUG_FESTIVAL) printf("festival: exiting from festival");
+
             exit(0);
         }
     }
