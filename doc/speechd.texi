@@ -983,6 +983,16 @@ see @ref{Information retrieval commands}.
 There is a standard set of sound tables defined in @ref{Standard sound
 tables}.
 
+@item SET CHARACTER_TABLE @var{table}
+Set character table to @var{table}.  @var{table} must be one of the
+character table names returned to the command @code{LIST
+CHARACTER_TABLES} command, see @ref{Information retrieval commands}.
+
+@item SET KEY_TABLE @var{table}
+Set key table to @var{table}.  @var{table} must be one of the key
+table names returned to the command @code{LIST KEY_TABLES} command,
+see @ref{Information retrieval commands}.
+
 @item SET VOICE @var{name}
 Set the voice identified by @var{name}.  @var{name} must be one of the
 voice identifiers returned to the command @code{LIST VOICES}, see
@@ -1021,9 +1031,9 @@ argument of the @code{LIST} command.
 
 @table @code
 @item LIST SPELLING_TABLES
-List the names of all the spelling tables available on the server.
-Each table name is listed on a separate line.  Each name may contain
-only alphanumeric characters and underscores.
+List the names of all the text spelling tables available on the
+server.  Each table name is listed on a separate line.  Each name may
+contain only alphanumeric characters and underscores.
 
 Example Speech Daemon response:
 
@@ -1052,6 +1062,14 @@ available sound mapping tables.
 
 The standard sound tables are always listed, see @ref{Standard
 sound tables}.
+
+@item LIST CHARACTER_TABLES
+Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
+available character spelling tables.
+
+@item LIST KEY_TABLES
+Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
+available key description tables.
 
 @item LIST VOICES
 Similar to @code{LIST SPELLING_TABLES}, but lists the available voice
