@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.14 2003-03-23 21:22:14 hanke Exp $
+ * $Id: speechd.h,v 1.15 2003-03-25 22:46:13 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -42,6 +42,7 @@
 #include <dotconf.h>
 #include <pthread.h>
 #include <limits.h>
+#include <signal.h>
 
 #ifndef PATH_MAX
 #  define PATH_MAX 255
@@ -91,6 +92,12 @@ typedef enum{
 	PAUSE = 2,
 	RESUME = 3
 }EStopCommands;
+
+/* Message logging */
+void MSG(int level, char *format, ...);
+#define FATAL(msg) { MSG(0,"Fatal error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
+#define DIE(msg) { MSG(0,"Error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
+FILE *logfile;
 
 /* Variables for socket communication */
 int fdmax;
