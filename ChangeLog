@@ -1,3 +1,8 @@
+
+2003-03-27  Hynek Hanke <hanke@volny.cz>
+    * src/server/server.c: Compare against \r\n.\r\n only if there are enough bytes.
+
+
 2003-03-27  Tomas Cerha  <cerha@brailcom.org>
 
 	* INSTALL (Module): `robod' -> `speechd'.
