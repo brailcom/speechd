@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.8 2003-07-16 19:16:19 hanke Exp $
+ * $Id: module_utils.c,v 1.9 2003-07-17 11:56:19 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -138,6 +138,8 @@ static void module_child_dp_write(TModuleDoublePipe dpipe, const char *msg, size
 static int module_parent_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes);
 static int module_parent_dp_read(TModuleDoublePipe dpipe, char *msg, size_t maxlen);
 static int module_child_dp_read(TModuleDoublePipe dpipe, char *msg, size_t maxlen);
+
+static void module_signal_end(void);
 
 static void module_strip_punctuation_default(char *buf);
 static void module_strip_punctuation_some(char *buf, char* punct_some);
@@ -281,6 +283,8 @@ module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid,
             waitpid(*process_pid, &status, 0);            
             
             *speaking_flag = 0;
+
+            module_signal_end();
 
             DBG("child terminated -: status:%d signal?:%d signal number:%d.\n",
                 WIFEXITED(status), WIFSIGNALED(status), WTERMSIG(status));
@@ -773,6 +777,16 @@ module_recode_to_iso(char *data, int bytes, char *language)
     if(recoded == NULL) DBG("festival: Conversion to ISO conding failed\n");
 
     return recoded;
+}
+
+static void
+module_signal_end(void)
+{
+    /* This is not very correct, there can be multiple Speech Dispatcher
+       instances running on the same computer, but since linux thread implementation
+       really sucks (surprise, kill(getpid(), USR1) doesn't work...) and
+       the effect isn't fatal, it should be enough...*/
+    system("killall -s USR1 speechd");            
 }
 
 static configoption_t *
