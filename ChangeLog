@@ -1,3 +1,13 @@
+2004-08-12  Milan Zamazal  <pdm@brailcom.org>
+
+	* configure.in (AC_OUTPUT): spdsend added.
+
+	* src/c/clients/spdsend/Makefile: Removed.
+
+	* src/c/clients/spdsend/Makefile.am: New file.
+
+	* src/c/clients/Makefile.am (SUBDIRS): `spdsend' added.
+
 2004-08-04  Hynek Hanke  <hanke@chopin>
 
 	* src/server/set.c (CHECK_SET_PAR): Report name of the parameter.

@@ -119,5 +119,5 @@ case ${host} in
   ;;
 esac
 
-AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/c/Makefile src/c/api/Makefile src/c/clients/Makefile src/c/clients/say/Makefile src/tests/Makefile src/audio/Makefile config/Makefile config/modules/Makefile config/clients/Makefile doc/Makefile])
+AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/c/Makefile src/c/api/Makefile src/c/clients/Makefile src/c/clients/say/Makefile src/c/clients/spdsend/Makefile src/tests/Makefile src/audio/Makefile config/Makefile config/modules/Makefile config/clients/Makefile doc/Makefile])
 
