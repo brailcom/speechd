@@ -16,6 +16,9 @@ extern cst_voice *register_cmu_us_kal();
 cst_voice *spd_audio_flite_voice;
 cst_audiodev *spd_audio_device = NULL;
 
+/* Volume */
+signed int spd_audio_volume;
+
 int
 spd_audio_play_wave(const cst_wave *w)
 {
@@ -31,8 +34,15 @@ spd_audio_play_wave(const cst_wave *w)
         return -1;
     }
 
+    /* Multiple sample bytes to get desired volume. */
+    if(spd_audio_volume != 0){
+      for (i=0; i < w->num_samples; i++){
+	w->samples[i] *= ((float) (spd_audio_volume+100))/ (float)100;
+      } 
+    }
+
     for (i=0; i < w->num_samples; i += r/2){
-        if (w->num_samples > i+CST_AUDIOBUFFSIZE){
+      if (w->num_samples > i+CST_AUDIOBUFFSIZE){
             n = CST_AUDIOBUFFSIZE;
         }else{
             n = w->num_samples-i;
@@ -63,9 +73,15 @@ spd_audio_read_wave(const char *filename)
 }
 
 int
+spd_audio_set_volume(const signed int volume)
+{
+  spd_audio_volume = volume;
+}
+
+int
 spd_audio_play_file_wav(const char* filename)
 {
-    cst_wave *wave;
+  cst_wave *wave;
     wave = (cst_wave*) spd_audio_read_wave(filename);
     if (wave == NULL) return -1;
 
