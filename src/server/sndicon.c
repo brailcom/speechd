@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.c,v 1.7 2003-05-07 19:06:49 hanke Exp $
+ * $Id: sndicon.c,v 1.8 2003-05-11 21:42:59 hanke Exp $
 */
 
 #include "sndicon.h"
@@ -48,7 +48,7 @@ sndicon_queue(int fd, char* language, char* prefix, char* name)
     if(text == NULL) return 2;
 
     new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
-    ret = (char*) spd_malloc ((strlen(text) + 1) * sizeof(char));
+    ret = (char*) spd_malloc ((strlen(text) + 1 + strlen(DATA_DIR)) * sizeof(char));
 
     if(text[0] == '\"'){
         /* Strip the leading and the trailing quotes */
@@ -58,7 +58,8 @@ sndicon_queue(int fd, char* language, char* prefix, char* name)
         new->buf = ret;
         if(queue_message(new, fd, 1, MSGTYPE_TEXTP))  FATAL("Couldn't queue message\n");
     }else{     
-        strcpy(ret, text);
+        if(text[0] != '/') sprintf(ret, DATA_DIR"/%s", text);
+        else strcpy(ret, text);
         new->bytes = strlen(ret)+1;
         new->buf = ret;
         if(queue_message(new, fd, 1, MSGTYPE_SOUND))  FATAL("Couldn't queue message\n");
@@ -81,7 +82,7 @@ snd_icon_spelling_get(char *table, GHashTable *icons, char *name, int *sound)
     if(text == NULL) return NULL;
     if(strlen(text) == 0) return NULL;
 
-    ret = (char*) spd_malloc((strlen(text)+1) *  sizeof(char));
+    ret = (char*) spd_malloc((strlen(text)+1+strlen(DATA_DIR)) *  sizeof(char));
 
     if(text[0] == '\"'){
         *sound = 0;
@@ -89,7 +90,8 @@ snd_icon_spelling_get(char *table, GHashTable *icons, char *name, int *sound)
         strcpy(ret, &(text[1]));
         ret[strlen(ret)-1] = 0;
     }else{       
-        strcpy(ret, text);
+        if(text[0] != '/') sprintf(ret, DATA_DIR"/%s", text);
+        else strcpy(ret, text);
         *sound = 1;
     }
     
