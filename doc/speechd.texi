@@ -220,7 +220,6 @@ overview.
 TODO: Introduction of this chapter - what to expect and why are the
 features described in user's documentation in this depth.
 
-
 @menu
 * User Authentication::         Determining user privileges.
 * Text Transformation Tables (TTT)::  
@@ -273,19 +272,9 @@ than for Czech or Italian.
 @node TTT Types,  , Text Transformation Tables (TTT), Text Transformation Tables (TTT)
 @subsubsection TTT Types
 
-There are currently 6 types of tables in Speech Dispatcher:
+There are currently 3 main types of tables in Speech Dispatcher:
 
 @itemize
-@item Spelling (group @code{spelling})
-This is used in spelling modes.
-
-@item Punctuation (group @code{punctuation})
-This is used in punctuation modes.
-
-@item Capital Letter Recognition (group @code{cap_let_recogn})
-This is used when capital letters recognition is set to spell the capital
-letters.
-
 @item Character (group @code{characters})
 This is used when the client application wants to read a single
 character, eg. when the user moves with cursor over text.
@@ -297,6 +286,24 @@ text.
 @item Sound icons (group @code{sound_icons})
 These sound icons used to signal some events, e.g. end-of-line
 or new-mail.
+@end itemize
+
+Also, there are 3 types of suplementary tables which are used
+if the particular output module is set to @code{filtering_generic}.
+Normally, this type of processing of the input text should be
+done in the text-to-speechd system itself. In that case, you have
+to set the tables in your TTS.
+
+@itemize
+@item Spelling (group @code{spelling})
+This is used in spelling modes.
+
+@item Punctuation (group @code{punctuation})
+This is used in punctuation modes.
+
+@item Capital Letter Recognition (group @code{cap_let_recogn})
+This is used when capital letters recognition is set to spell the capital
+letters.
 @end itemize
 
 The user can set different tables for all of these situations, although
@@ -537,11 +544,10 @@ and add it to @file{src/modules/Makefile.am}. You can compile and
 install it by typing: @code{make; su root; make install}. The last
 step you have to do is to let Speech Dispatcher know that you want to use
 this new module by adding at least these two lines to
-@file{speechd.conf} in your configuration directory.
+@file{speechd.conf} in your configuration directory. @xref{AddModule}.
 
 @example
-AddModule "module_name"
-EndAddModule
+AddModule "module_name" filter_type "binary" "configuration"
 @end example
 
 and possibly also changing the lines
@@ -550,14 +556,13 @@ and possibly also changing the lines
 DefaultModule new_module
 @end example
 
-tom make it default or
+to make it default or
 
 @example
 LanguageDefaultModule "en"  "new_module"
 @end example
 
 to make it default for some language.
-
 
 @node Invoking, Configuration, Features, User's Documentation
 @section Invoking
@@ -601,7 +606,7 @@ address for sending bug reports.
 
 Speech Dispatcher can be configured on several different levels.  You can
 configure the global settings through server configuration file.  There is also
-a support for per-client configuration (TODO: more about this).
+a support for per-client configuration.
 
 Further more applications often come with their own means of configuration of
 speech related settings.  Please see the documentation of your application for
@@ -624,7 +629,18 @@ configuration file.
 We use the DotConf library to read a permanent text-file based
 configuration, so the syntax might be familiar to many users.
 
-TODO: Write more.
+Each of the string constants, if not specified differently,
+should be encoded in UTF-8. The option names can't use use
+other than the standard ASCII charset restricted to characters
+(@code{a}, @code{b}), dashes (@code{-}) and underscores @code{_}.
+
+Commentaries and temporarily inactive options begin with @code{#}.
+If such an option should be turned on, just remove the comment
+character and set it to the desired value.
+@example
+# this is a comment
+# InactiveOption "this option is turned off by the commentary"
+@end example
 
 Strings are enclosed in doublequotes.
 @example
@@ -633,14 +649,13 @@ LogFile  "/var/log/speechd/speechd.log"
 
 Numbers are written without any quotes.
 @example
-Port 9876
+Port 6560
 @end example
 
 Boolean values use On (for true) and Off (for false).
 @example
 Debug Off
 @end example
-
 
 @node Configuration options, Output Modules Configuration, Configuration file syntax, Configuration
 @subsection Configuration options
@@ -664,12 +679,20 @@ Each output module has to be loaded to Speech Dispatcher by an
 output module can have associated it's own configuration file.
 
 @menu
-* Loading modules in speechd.conf::  
+* Loading Modules in speechd.conf::  
 * Configuration files of output modules::  
+* Configuration of the Generic Output Module::  
 @end menu
 
-@node Loading modules in speechd.conf, Configuration files of output modules, Output Modules Configuration, Output Modules Configuration
-@subsubsection Loading modules in speechd.conf
+@node Loading Modules in speechd.conf, Configuration files of output modules, Output Modules Configuration, Output Modules Configuration
+@subsubsection Loading Modules in speechd.conf
+
+@anchor{AddModule}
+Each module that should be run when Speech Dispatcher starts must be loaded
+by the @code{AddModule} command in the configuration. Note that you can load
+one binary module multiple times under different names with different
+configurations. This is especially useful for loading the generic output
+module. @xref{Configuration of the Generic Output Module}.
 
 @example
 AddModule "@var{module_name}" @var{filter_type} "@var{module_binary}" "@var{module_config}"
@@ -706,8 +729,8 @@ to @file{bin/speechd-modules/}.
 this output module is stored. It can be either absolute or relative
 to @file{etc/speechd/modules/}. This parameter is optional.
 
-@node Configuration files of output modules,  , Loading modules in speechd.conf, Output Modules Configuration
-@subsubsection Configuration files of output modules
+@node Configuration files of output modules, Configuration of the Generic Output Module, Loading Modules in speechd.conf, Output Modules Configuration
+@subsubsection Configuration Files of Output Modules
 
 Each output module is different and therefore has a different
 configuration options. Please look at the comments in it's
@@ -717,6 +740,7 @@ output modules. Here is a short overview of them.
 
 @table @code
 @item AddVoice "@var{language}" "@var{symbolicname}" "@var{name}"
+@anchor{AddVoice}
 
 Each output module provides some voices and sometimes it even supports
 different languages. For this reason, there is a common mechanism
@@ -784,6 +808,96 @@ only if they are followed by a space. This way for example
 raced around the fence, that was lately painted green, fell.''
 would be. (This is an interesting sentence, by the way.)
 @end table
+
+@node Configuration of the Generic Output Module,  , Configuration files of output modules, Output Modules Configuration
+@subsubsection Configuration files of the Generic Output Module
+
+The generic output module allows you to easily write your
+own simple output module for synthesizers that have a simple
+command line interface only by modifying the configuration
+file. This way, no specific code is needed to write in C
+and users can add support for their device even if they don't
+know how to program. @xref{AddModule}.
+
+The core part of a generic output module is the command
+execution line.
+
+@defvr {Generic Module Configuration} GenericExecuteSynth "@var{execution_string}"
+
+@code{execution_string} is the command that should be executed
+in shell when it's desired to say something. In fact, it can
+be more commands concatenated by the @code{&&} operator. To stop
+saying the message, the output module will send a KILL signal to
+this process group, so it's important that it immediately
+stoped speaking after the processes are killed. (On most GNU/Linux
+system, the @code{play} utility has this property).
+
+In the execution string, you can use the following variables,
+that will be substituted by the desired values before executing
+the command.
+
+@itemize
+@item @code{$DATA}
+The text data that should be said. The string's characters that would interfere
+with bash processing are already escaped. However, it may be needed to put
+double quotes around it (like this: @code{\"$DATA\"}).
+@item @code{$LANG}
+The language identification string (it's defined by GenericLanguage).
+@item @code{$VOICE}
+The voice identification string (it's defined by AddVoice).
+@item @code{$PITCH}
+The desired pitch (a float number defined in GenericPitchAdd and GenericPitchMultiply).
+@item @code{$RATE}
+The desired rate or speed (a float number defined in GenericRateAdd and GenericRateMultiply)
+@end itemize
+
+Here is an example from @file{etc/speechd/modules/epos-generic.conf}
+@example
+GenericExecuteSynth \
+"epos-say -o --language $LANG --voice $VOICE --init_f $PITCH --init_t $RATE \
+\"$DATA\" | sed -e s+unknown.*$++ >/tmp/epos-said.wav && play /tmp/epos-said.wav >/dev/null"
+@end example
+@end defvr
+
+@defvr {GenericModuleConfiguration} AddVoice "@var{language}" "@var{symbolicname}" "@var{name}"
+@xref{AddVoice}.
+@end defvr
+
+@defvr {GenericModuleConfiguration} GenericLanguage "iso-code" "string-subst"
+
+Defines which string @code{string-subst} should be substituted for @code{$LANG}
+for a given @code{iso-code} language code.
+
+Another example from Epos generic:
+@example
+GenericLanguage "en" "english"
+GenericLanguage "cs" "czech"
+GenericLanguage "sk" "slovak"
+@end example
+@end defvr
+
+@defvr {GenericModuleConfiguration} GenericRateAdd @var{num}
+@end defvr
+@defvr {GenericModuleConfiguration} GenericRateMultiply @var{num}
+@end defvr
+@defvr {GenericModuleConfiguration} GenericPitchAdd @var{num}
+@end defvr
+@defvr {GenericModuleConfiguration} GenericPitchMultiply @var{num}
+These parameters set rate and pitch conversion to compute
+the value of @code{$RATE} and @code{$PITCH}. 
+
+The resulting rate (or pitch) is calculated using the following formula:
+@example
+   (speechd_rate * GenericRateMultiply) + GenericRateAdd
+@end example
+while speechd_rate is a value between -100 (lowest) and +100 (highest)
+Some meaningful conversion for the specific text-to-speech system
+used must by defined.
+
+(The values in GenericSthMultiply are multiplied by 100, because
+DotConf currently doesn't support floats. So you can write 0.85 as 85 and
+so on.)
+@end defvr
 
 @node Tables Configuration, Log Levels, Output Modules Configuration, Configuration
 @subsection Tables Configuration
@@ -861,6 +975,8 @@ In the header of each table, three things must be specified:
 @table @code
 @item language:@var{language_code}
 @var{language_code} is the ISO code of the language this table is written for.
+Also, the @code{generic} language can be used to specify that this table isn't
+language specific (e.g. if it defines only abstract sounds, etc.)
 
 @item table:@var{table_name}
 @var{table_name} is the name of the table. This allows you to have one
@@ -2996,8 +3112,8 @@ It should return 0 on success, -1 otherwise.
 @findex module_pause()
 
 This function should stop speaking on the synthesizer (or sending
-data to soundcard) and return the position where the text was
-interrupted.
+data to soundcard) and return the identification number of the
+last index mark or the index mark where the text was paused.
 
 This may be a different approach of what you would
 expect on the first sight, but it's important to understand that
@@ -3009,11 +3125,8 @@ Emacs buffer in order to, say, check new mail. If the output
 device would be blocked by the Emacs pause, he couldn't check
 his email, because there would be no output.
 
-It's ok not to return the exact text position in precission of letters,
-you can for example take sentences as units. Also, this function
-can be blocking for a short time, so you can wait till the last
-sentence is said and then return the text from the end of this
-sentence. 
+This function can be blocking for a short time, so you can wait till
+an index mark is reached.
 
 For some software synthesizer the desired effect can be archieved in this way:
 When @code{module_write()} is called, you execute a separate
@@ -3482,13 +3595,39 @@ if data isn't NULL before calling @code{free()} and makes sure
 the pointer @code{data} is set to @code{NULL} before returning.
 @end deffn
 
-@deffn {Module Utils type}
-@findex 
-@end deffn
-
-
 @node Index Marks in Output Modules,  , Module Utils Functions and Macros, Output Modules
 @subsection Index Marks in Output Modules
+
+Output modules need to provide some kind of synchronization and they have to
+give Speech Dispatcher back some information about what part of the message
+is currently being said. On the other side, output modules are not able to tell
+the exact position in the text as the number of bytes from the beginning of
+the message because various conversions and message processing take place
+(sometimes punctuation and spelling substitution, the message needs to be
+recoded from multibyte to unibyte coding etc.) before the text reaches
+the synthesizer.
+
+For this reason, Speech Dispatcher places so-called index marks in
+the text it sends to it's output modules. They have the form:
+
+@begin example
+@@id_number@@
+@end
+
+@code{id_number} is the identification number associated to each index
+mark. It's unique with respect to each message.
+
+When an index mark is reached, it's identification number should be stored
+so that the output module is able to tell Speech Dispatcher the number
+of the last index mark. Also, index marks are the best place to stop
+when the module is requested to pause (although it's ok to stop at
+some nearer place and report the last index mark).
+
+Because index mark use the @code{@@} character, all the regular
+@code{@@} characters are replaced by an escape sequence @code{@@@@}
+and should be converted back before sending the text to a text-to-speech
+system. In a similar way, the index marks should be stripped after their
+information is stored.
 
 @node Appendices, GNU General Public License, Server Programming, Top
 @appendix Appendices
