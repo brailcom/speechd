@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.12 2003-05-26 16:04:50 hanke Exp $
+ * $Id: festival.c,v 1.13 2003-06-01 21:21:56 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -38,9 +38,11 @@
 #include "module.h"
 #include "fdset.h"
 
+#include "module_utils.c"
+
 #include "festival_client.c"
 
-static const int DEBUG_FESTIVAL = 0;
+static const int DEBUG_FESTIVAL = 1;
 
 /* TODO: Cleaning, comments! */
 
@@ -87,68 +89,6 @@ OutputModule modinfo_festival = {
    festival_close,
    {0,0}
 };
-
-static char*
-module_getparam_str(GHashTable *table, char* param_name)
-{
-    char *param;
-    param = g_hash_table_lookup(table, param_name);
-    return param;
-}
-
-static int
-module_getparam_int(GHashTable *table, char* param_name)
-{
-    char *param_str;
-    int param;
-    
-    param_str = module_getparam_str(table, param_name);
-    if (param_str == NULL) return -1;
-    
-    {
-      char *tailptr;
-      param = strtol(param_str, &tailptr, 0);
-      if (tailptr == param_str) return -1;
-    }
-    
-    return param;
-}
-
-static char*
-module_getvoice(GHashTable *table, char* language, EVoiceType voice)
-{
-    SPDVoiceDef *voices;
-    char *ret;
-
-    voices = g_hash_table_lookup(table, language);
-    if (voices == NULL) return NULL;
-
-    switch(voice){
-    case MALE1: 
-        ret = voices->male1; break;
-    case MALE2: 
-        ret = voices->male2; break;
-    case MALE3: 
-        ret = voices->male3; break;
-    case FEMALE1: 
-        ret = voices->female1; break;
-    case FEMALE2: 
-        ret = voices->female2; break;
-    case FEMALE3: 
-        ret = voices->female3; break;
-    case CHILD_MALE: 
-        ret = voices->child_male; break;
-    case CHILD_FEMALE: 
-        ret = voices->child_female; break;
-    default:
-        FATAL("Unknown voice");
-    }
-
-    if (ret == NULL) ret = voices->male1;
-    if (ret == NULL) printf("No voice available for this output module!");
-
-    return ret;
-}
 
 /* Entry point of this module */
 OutputModule*
@@ -246,7 +186,6 @@ festival_write(gchar *data, gint len, void* v_set)
     /* This space is important here! */
     fprintf(temp,"%s \n\r",text);
     fclose(temp);
-    fflush(NULL);
 
     /* Setting voice */
     festivalEmptySocket(festival_info);
@@ -294,7 +233,7 @@ festival_stop(void)
         if(DEBUG_FESTIVAL) printf("festival: stopping process pid %d\n", festival_pid);
         kill(festival_pid, SIGKILL);
         /* Make sure there is no pending message left */
-        festivalEmptySocket(festival_info);
+        //        festivalEmptySocket(festival_info);
     }
 }
 
