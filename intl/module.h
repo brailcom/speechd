@@ -21,13 +21,18 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.h,v 1.7 2003-03-13 16:38:02 hanke Exp $
+ * $Id: module.h,v 1.8 2003-03-23 21:17:29 hanke Exp $
  */
+
+#include <glib.h>
+#include <gmodule.h>
+
 typedef struct {
    gchar    *name;
    gchar    *description;
    gchar    *filename;
-   gint     (*write)    (const gchar *, gint, void*);
+   GModule	*gmodule;
+   gint     (*write)    (gchar *, gint, void*);
    gint     (*stop)     (void);
    gint     (*is_speaking) (void);
    gint     (*close)    (void);
