@@ -9,6 +9,7 @@ set_priority(int fd, int priority){
 	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc);
 	if (gl == NULL) FATAL("Couldnt find settings for active client, internal error.");
 	settings = gl->data;
+	assert(gl->data != NULL);
 	settings->priority = priority;
 	return 1;
 }
@@ -41,9 +42,10 @@ set_client_name(int fd, char *client_name){
 	settings->client_name = (char*) malloc(strlen(client_name) * sizeof(char) + 1);
 	strcpy(settings->client_name, client_name);
 
-    gl = g_list_find_custom(history, (int*) fd, p_cli_comp_id);
+    gl = g_list_find_custom(history, (int*) fd, p_cli_comp_fd);
     if (gl == NULL) return 0;
     hclient = gl->data;
+	hclient->client_name = (char*) malloc(strlen(client_name) * sizeof(char) + 1);
 	strcpy(hclient->client_name, client_name);
 	
 	return 1;

@@ -23,7 +23,8 @@ get_param(char *buf, int n, int bytes)
 	int i, y, z;
 
 	param = (char*) malloc(bytes);
-
+	assert(param != NULL);
+	
 	strcpy(param,"");
 	i = 1;				/* it's 1 because we can skip the leading '@' */
 
@@ -175,25 +176,45 @@ parse_set(char *buf, int bytes, int fd)
 char*
 parse_stop(char *buf, int bytes, int fd)
 {
+	int ret;
+	int target = 0;
+	char *param;
+
+    param = get_param(buf,1,bytes);
+	if (isanum(param)) target = atoi(param);
+			
 	MSG(2, "Stop recieved.");
-	stop_c(STOP, fd);
-	return "OK STOPPED\n\r";
+	ret = stop_c(STOP, fd, target);
+	if(ret) return "ERR CLIENT NOT FOUND";
+	else return "OK STOPPED\n\r";
 }
 
 char*
 parse_pause(char *buf, int bytes, int fd)
 {
-   MSG(2, "Pause recieved.\n");
-   stop_c(PAUSE, fd);
-   return "OK PAUSED\n\r";
+	int target = 0;
+	char *param;
+	int ret;
+	param = get_param(buf,1,bytes);
+	if (isanum(param)) target = atoi(param);
+	MSG(2, "Pause recieved.\n");
+	ret = stop_c(PAUSE, fd, target);
+	if(ret)	return "ERR CLIENT NOT FOUND";
+	else return "OK PAUSED\n\r";
 }
 
 char*
 parse_resume(char *buf, int bytes, int fd)
 {
+	int target = 0;
+	char *param;
+	int ret;
+	param = get_param(buf,1,bytes);
+	if (isanum(param)) target = atoi(param);
 	MSG(2, "Resume recieved.");
-	stop_c(RESUME, fd);
-	return "OK RESUMED\n\r";
+	ret = stop_c(RESUME, fd, target);
+	if(ret)	return ("ERR CLIENT NOT FOUND");
+	else return "OK RESUMED\n\r";
 }
 							  
 					 
