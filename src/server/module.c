@@ -19,14 +19,11 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.18 2003-10-08 21:30:43 hanke Exp $
+ * $Id: module.c,v 1.19 2004-03-08 21:25:31 hanke Exp $
  */
 
 #include <sys/wait.h>
 #include "speechd.h"
-
-#define INIT_SYMBOL "module_init"
-#define LOAD_SYMBOL "module_load"
 
 void
 destroy_module(OutputModule *module)
