@@ -3,9 +3,11 @@ Version 0.0.5
   * Renamed back to Speech Deamon
   * Speech Deamon Center -- history and configuration client (first version)
 	* command line / menu logic
-	* spdc: browsing through clients
-  	* spdc: stop/pause/resume functions
+	* browsing through clients
+	* browsing through client's history
+  	* stop/pause/resume functions
 	* speech support
+	* command line completion
   * Lower CPU usage
 
 Version 0.0.4
