@@ -67,7 +67,9 @@
                 (let ((char (substring name 0 1)))
                   (if (and (member current-voice '(kal_diphone ked_diphone))
                            (assoc char punctuation-pronunciation))
-                      (cdr (assoc char punctuation-pronunciation))
+                      (if (assoc char word-mapping)
+                          (list char)
+                          (cdr (assoc char punctuation-pronunciation)))
                       (ttw token char))))
             (punctuation-split-token token
                                      (substring name 1 (- (length name) 1))
@@ -94,7 +96,8 @@
     (mapcar
      (lambda (w)
        (let ((trans (assoc (item.name w) punctuation-pronunciation)))
-         (if trans
+         (if (and trans
+                  (not (assoc (item.name w) word-mapping)))
              (begin
                (item.set_name w (car (cdr trans)))
                (set! trans (cdr (cdr trans)))
