@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.50 2004-03-08 21:27:35 hanke Exp $
+ * $Id: speechd.h,v 1.51 2004-07-21 08:17:06 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -70,7 +70,7 @@ union semun {
 #include "compare.h"
 
 /* Size of the buffer for socket communication */
-#define BUF_SIZE 4096
+#define BUF_SIZE 128
 
 /* Mode of speechd execution */
 typedef enum{
