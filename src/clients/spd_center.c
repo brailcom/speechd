@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: spd_center.c,v 1.6 2003-03-23 21:28:31 hanke Exp $
+ * $Id: spd_center.c,v 1.7 2003-03-24 22:25:43 hanke Exp $
  */
 
 #include<stdio.h>
@@ -297,7 +297,7 @@ i_menu_select_d(MENU *menu, int *command_line, char *it_name_r, char *it_descr_r
 	if(last_posd != selected.pos_d){
 		cur_item = current_item(menu);
 	    it_name = (char*) item_name(cur_item);		
-		spd_sayf(s_main_fd, 2, it_name);
+		spd_sayf(s_main_fd, 3, it_name);
 		it_descr = (char*) item_description(cur_item);
 		if(it_descr!=NULL) spd_sayf(s_main_fd, 3, it_descr);
 		last_posd = selected.pos_d;
@@ -318,7 +318,7 @@ i_menu_select_d(MENU *menu, int *command_line, char *it_name_r, char *it_descr_r
 		
 		cur_item = current_item(menu);
 	    it_name = (char*) item_name(cur_item);
-		spd_sayf(s_main_fd, 2, it_name);
+		spd_sayf(s_main_fd, 3, it_name);
 		    it_descr = (char*) item_description(cur_item);
 			if(it_descr!=NULL) spd_sayf(s_main_fd, 3, it_descr);
 	}
