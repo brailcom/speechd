@@ -924,7 +924,9 @@ application supporting Speech Daemon, so that a Speech Daemon user can
 configure all the aspects of the speech output easily.
 
 Usually, this command should be sent as the very first command when a
-new connection to Speech Daemon is established.
+new connection to Speech Daemon is established.  The command may be
+sent only once within a single connection, attempts to change the
+client's name once it's already set are answered with an error code.
 
 @item SET @{ all | self | @var{id} @} LANGUAGE @var{language}
 Set recommended language for this client to @var{language}.
