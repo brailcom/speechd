@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.32 2003-04-17 11:12:49 hanke Exp $
+  * $Id: server.c,v 1.33 2003-04-18 20:40:48 hanke Exp $
   */
 
 #include "speechd.h"
@@ -311,6 +311,9 @@ parse(char *buf, int bytes, int fd)
         }
         if (!strcmp(command,"key")){				
             return (char *) parse_key(buf, bytes, fd);
+        }
+        if (!strcmp(command,"list")){				
+            return (char *) parse_list(buf, bytes, fd);
         }
 
         /* Check if the client didn't end the session */
