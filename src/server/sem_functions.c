@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sem_functions.c,v 1.1 2003-09-07 11:30:54 hanke Exp $
+ * $Id: sem_functions.c,v 1.2 2003-09-28 22:30:44 hanke Exp $
  */
 
 #include "speechd.h"
@@ -42,6 +42,14 @@ semaphore_create(key_t key, int flags)
 }
 
 void
+semaphore_destroy(int sem_id)
+{
+    union semun sem_union;
+    if (semctl(sem_id, 0, IPC_RMID, sem_union) == -1)
+        MSG(2, "Failed to delete System V/IPC semaphore!");
+}
+
+void
 semaphore_wait(int sem_id)
 {
     static struct sembuf sem_b;
@@ -60,15 +68,18 @@ semaphore_wait(int sem_id)
 void
 semaphore_post(int sem_id)
 {
-    static struct sembuf sem_b;
+    struct sembuf sem_b;
     int err;
 
     sem_b.sem_num = 0;
     sem_b.sem_op = 1;          /* V() */
     sem_b.sem_flg = SEM_UNDO;
+    MSG(4, "Posting on semaphore.");
     if (semop(sem_id, &sem_b, 1) == -1){
         err = errno;
-        MSG(1,"semaphore_post failed: %d %s", err, strerror(err));
+        MSG(1,"Semaphore_post on semaphore id %d failed: errno=%d %s",
+            sem_id, err, strerror(err));
+        MSG(1,"You may want to run `ipcs -s' to see if the semaphore still exits.");
         FATAL("Can't continue");
     }
 }
@@ -82,6 +93,12 @@ speaking_semaphore_create(key_t key)
         FATAL("Can't initialize semaphore. Does your system support SYS V/IPC?");   
     MSG(4, "Created semaphore with key %d and id %d", key, ret);
     return ret;
+}
+
+void
+speaking_semaphore_destroy()
+{
+    semaphore_destroy(speaking_sem_id);
 }
 
 void
