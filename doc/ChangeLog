@@ -4,6 +4,13 @@
 
 2003-10-24  Hynek Hanke  <hanke@volny.cz>
 
+	* speechd.texi (Reporting Bugs): New section added.
+	(How You Can Help): New section.
+	(Current State): Section filed with some information.
+	(Download and Contact): New section.
+
+2003-10-20  Hynek Hanke  <hanke@volny.cz>
+	
 	* speechd-cs.texi: Cleaning, language and coding specification. Top node
 	name such that it coexists with speechd.texi. Corrected grammar mistakes.
 

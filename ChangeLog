@@ -1,3 +1,16 @@
+2003-10-24  Hynek Hanke  <hanke@volny.cz>
+
+	* NEWS: 0.1 + some info on recent improvements.
+
+	* version.sh: Updated to 0.1 so that we don't forget about it later :)
+
+	* AUTHORS: speechd-speak -> speechd-el
+	THANKS section.
+
+	* src/server/server.c (queue_message): Don't put messages into history.
+	(As we don't have implemented client authentification yet, this would
+	be a possible security hole.)
+
 2003-10-23  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/speaking.c (speak): Insert last priority 5 message as MESSAGE,
