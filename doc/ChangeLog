@@ -1,3 +1,16 @@
+2003-07-22  Tomas Cerha  <cerha@freebsoft.org>
+
+	* speechd.texi: Don't include non-existing file `version.texi'.
+	(Instructions): Section removed.
+	(Invoking): Section removed.  Verbosity levels description moved
+	to `Configuration' section.
+	(Speech synthesis and sound output commands): Misleading initial
+	paragraph refined.
+	(Parameter setting commands): `SET *_TABLE' commands grouped
+	together.  Other minor modifications.
+	(Configuration): Added the verbosity descriptions from chapter
+	Invoking.
+
 2003-07-22  Milan Zamazal  <pdm@brailcom.org>
 
 	* speechd.texi: Title changed to "Speech Dispatcher".
