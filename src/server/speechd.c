@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.54 2004-02-23 22:33:02 hanke Exp $
+ * $Id: speechd.c,v 1.55 2004-03-08 21:27:30 hanke Exp $
  */
 
 #include "speechd.h"
@@ -194,27 +194,27 @@ speechd_connection_new(int server_socket)
 
     /* We add the associated client_socket to the descriptor set. */
     FD_SET(client_socket, &readfds);
-    if (client_socket > fdmax) fdmax = client_socket;
+    if (client_socket > SpeechdStatus.max_fd) SpeechdStatus.max_fd = client_socket;
     MSG(3,"Adding client on fd %d", client_socket);
 
     /* Check if there is space for server status data; allocate it */
-    if(client_socket >= fds_allocated-1){
-        o_bytes = (size_t*) realloc(o_bytes, client_socket * 2 * sizeof(size_t));
-        awaiting_data = (int*) realloc(awaiting_data, client_socket * 2 * sizeof(int));
-        inside_block = (int*) realloc(inside_block, client_socket * 2 * sizeof(int));
-        o_buf = (GString**) realloc(o_buf, client_socket * 2 * sizeof(GString*));
-        fds_allocated *= 2;
+    if(client_socket >= SpeechdStatus.num_fds-1){
+	SpeechdSocket = (TSpeechdSock*) realloc(SpeechdSocket,
+						SpeechdStatus.num_fds*2*
+						sizeof(TSpeechdSock)); 
+        SpeechdStatus.num_fds *= 2;
     }
-    o_buf[client_socket] = g_string_new("");
-    o_bytes[client_socket] = 0;
-    awaiting_data[client_socket] = 0;
-    inside_block[client_socket] = 0;
+
+    SpeechdSocket[client_socket].o_buf = g_string_new("");
+    SpeechdSocket[client_socket].o_bytes = 0;
+    SpeechdSocket[client_socket].awaiting_data = 0;
+    SpeechdSocket[client_socket].inside_block = 0;
 
     /* Create a record in fd_settings */
     new_fd_set = (TFDSetElement *) default_fd_set();
     if (new_fd_set == NULL){
         MSG(2,"Failed to create a record in fd_settings for the new client");
-        if(fdmax == client_socket) fdmax--;
+        if(SpeechdStatus.max_fd == client_socket) SpeechdStatus.max_fd--;
         FD_CLR(client_socket, &readfds);
         return -1;
     }
@@ -230,7 +230,7 @@ speechd_connection_new(int server_socket)
     g_hash_table_insert(fd_uid, p_client_socket, p_client_uid);
 		
 
-    MSG(3,"Data structures for client on fd %d created", client_socket);
+    MSG(4,"Data structures for client on fd %d created", client_socket);
     return 0;
 }
 
@@ -256,16 +256,19 @@ speechd_connection_destroy(int fd)
 	MSG(4,"Removing client from the fd->uid table.");
 	g_hash_table_remove(fd_uid, &fd);
 		
-        awaiting_data[fd] = 0;
-        inside_block[fd] = 0;
-	MSG(3,"Closing clients file descriptor %d", fd);
+        SpeechdSocket[fd].awaiting_data = 0;
+        SpeechdSocket[fd].inside_block = 0;
+	if (SpeechdSocket[fd].o_buf != NULL)
+	    g_string_free(SpeechdSocket[fd].o_buf, 1);
+
+	MSG(4,"Closing clients file descriptor %d", fd);
 
 	if(close(fd) != 0)
 		if(SPEECHD_DEBUG)
                     DIE("Can't close file descriptor associated to this client");
 	   	
 	FD_CLR(fd, &readfds);
-	if (fd == fdmax) fdmax--;
+	if (fd == SpeechdStatus.max_fd) SpeechdStatus.max_fd--;
 
         MSG(3,"Connection closed");
 
@@ -347,15 +350,18 @@ speechd_options_init(void)
     spd_mode = SPD_MODE_DAEMON;
 }
 
+
 void
 speechd_init(void)
 {
+    int START_NUM_FD = 16;
     configfile_t *configfile = NULL;
     char *configfilename = SYS_CONF"/speechd.conf" ;
     int ret;
     char *p;
     int i;
     int v;
+
 
     SpeechdStatus.max_uid = 0;
     SpeechdStatus.max_gid = 0;
@@ -386,16 +392,12 @@ speechd_init(void)
     output_modules = g_hash_table_new(g_str_hash, g_str_equal);
     assert(output_modules != NULL);
 
-    o_bytes = (size_t*) spd_malloc(16*sizeof(size_t));
-    o_buf = (GString**) spd_malloc(16*sizeof(GString*));
-    awaiting_data = (int*) spd_malloc(16*sizeof(int));
-    inside_block = (int*) spd_malloc(16*sizeof(int));
-    fds_allocated = 16;
-
-    for(i=0;i<=15;i++){
-        awaiting_data[i] = 0;              
-        inside_block[i] = 0;              
-        o_buf[i] = 0;              
+    SpeechdSocket = (TSpeechdSock*) spd_malloc(START_NUM_FD * sizeof(TSpeechdSock));
+    SpeechdStatus.num_fds = START_NUM_FD;
+    for(i=0; i<=START_NUM_FD-1; i++){
+        SpeechdSocket[i].awaiting_data = 0;              
+        SpeechdSocket[i].inside_block = 0;              
+        SpeechdSocket[i].o_buf = 0;              
     }
 
     pause_requested = 0;
@@ -663,7 +665,7 @@ main(int argc, char *argv[])
 
     FD_ZERO(&readfds);
     FD_SET(server_socket, &readfds);
-    fdmax = server_socket;
+    SpeechdStatus.max_fd = server_socket;
 
     /* Now wait for clients and requests. */   
     MSG(1, "Speech Dispatcher waiting for clients ...");
@@ -674,7 +676,7 @@ main(int argc, char *argv[])
             /* Once we know we've got activity,
              * we find which descriptor it's on by checking each in turn using FD_ISSET. */
 
-            for (fd = 0; fd <= fdmax && fd < FD_SETSIZE; fd++) {
+            for (fd = 0; fd <= SpeechdStatus.max_fd && fd < FD_SETSIZE; fd++) {
                 if (FD_ISSET(fd,&testfds)){
                     MSG(4,"Activity on fd %d ...",fd);
 				
