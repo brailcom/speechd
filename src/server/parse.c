@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.29 2003-05-25 21:06:19 hanke Exp $
+ * $Id: parse.c,v 1.30 2003-05-26 14:06:30 hanke Exp $
  */
 
 #include "speechd.h"
@@ -302,6 +302,7 @@ parse_set(char *buf, int bytes, int fd)
     char *char_table;
     char *key_table;
     char *sound_table;
+    char *output_module;
     int onoff;
     int helper;
     int ret;
@@ -435,6 +436,16 @@ parse_set(char *buf, int bytes, int fd)
         else if (who == 2) ret = set_character_table_all(char_table);
         if (ret) return ERR_COULDNT_SET_TABLE;
         return OK_TABLE_SET;
+    }
+    else if (!strcmp(param,"output_module")){
+        output_module = get_param(buf, 3, bytes, 0);
+        if (output_module == NULL) return ERR_MISSING_PARAMETER;
+        MSG(4, "Setting output module to %s \n", output_module);
+        if (who == 0) ret = set_output_module_self(fd, output_module);
+        else if (who == 1) ret = set_output_module_uid(uid, output_module);
+        else if (who == 2) ret = set_output_module_all(output_module);
+        if (ret) return ERR_COULDNT_SET_OUTPUT_MODULE;
+        return OK_OUTPUT_MODULE_SET;
     }
     else if (!strcmp(param,"key_table")){
         key_table = get_param(buf, 3, bytes, 0);
