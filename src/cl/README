@@ -1,0 +1,13 @@
+This is a simple Common Lisp interface to Speech Dispatcher through the Speech
+Synthesis Interface Protocol (SSIP).
+
+Currently, there is no documentation, read the sources.
+The simplest use can be as follows:
+
+  (asdf:operate-on-system 'asdf:load-op :ssip)
+  (ssip:say-text "Hello, world!")
+
+Feel free to contact us with any questions regarding the Common Lisp interface
+at the Speech Dispatcher mailing list <speechd@freebsoft.org>.
+
+-- Milan Zamazal <pdm@freebsoft.org>
