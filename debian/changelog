@@ -1,3 +1,10 @@
+speechd (0.0-8) unstable; urgency=low
+
+  * Build-Depends: g++-2.95 added.
+  * Build with CXX set to g++-2.95.
+
+ -- Milan Zamazal <pdm@brailcom.org>  Tue, 13 May 2003 10:41:20 +0200
+
 speechd (0.0-7) unstable; urgency=low
 
   * Standards 3.5.9.
