@@ -1,3 +1,7 @@
+2003-10-07  Hynek Hanke  <hanke@volny.cz>
+
+	* intl/fdsetconv.c: New file.
+
 2003-10-07  Milan Zamazal  <pdm@brailcom.org>
 
 	* configure.in (AC_OUTPUT): config/{en,cs}/Makefile removed.
