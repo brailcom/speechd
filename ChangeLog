@@ -1,3 +1,51 @@
+2003-07-16  Hynek Hanke  <hanke@volny.cz>
+
+	* src/tests/run_test.c (main): Accept stdin as valid argument.
+	(main): fflush(NULL) when necessary.
+
+	* src/server/speechd.h: Include alloc.h
+
+	* src/server/speechd.c (main): Call daemon(0,0).
+
+	* src/server/server.c (queue_message): Put the message to history before putting
+	it into queues (so that we don't free it's content in the second thread before
+	we can copy it into history).
+
+	* src/server/alloc.c (spd_message_copy): alloc lenght __ * sizeof(char) __ for new_buf.
+
+	* src/modules/module_utils.c: Small changes in some debugging messages.
+
+	* src/modules/festival_client.c (festival_get_ack): New function, reopen socket connection
+	to festival_server if read() returns 0 (invalid file descriptor).
+
+	* src/server/speaking.c (process_message_punct_cap): Test for spelled_punct == NULL moved
+	out of the if(chu){...} block
+
+	* src/server/dc_decl.h (cb_AddVoice): Fill voices structure with NULLs on the beginning.
+
+	* src/server/parse.c (parse_key): Copy strlen(key), not _bytes_ (of the command) to verbat.
+	(parse_char): Copy strlen(character), not _bytes_ (of the command) to verbat.
+	
+	* src/modules/festival_client.c (festivalStringToWaveGetData): Check if read() doesn't return
+	0, if yes, return NULL. I don't really understand how read() can return 0 in this situation
+	=> possible problems. Or maybe there is some problem in festival itself...
+
+	* src/modules/festival_client.c (festivalOpen): Disable the "festival returned error" message.
+
+	* src/server/speechd.c (main): Catch SIGPIPE and do nothing (broken pipes are ok
+	in output modules comunication).
+	(speechd_sigpipe_handle): New function.
+
+	* src/server/speaking.c (process_message_punct_cap): Set *sound to 0, if
+	snd_icon_spelling_get() doesn't succeed.
+
+	* src/server/sndicon.c (sndicon_queue): Allocate space in "ret" for the trailing 0.
+	(snd_icon_spelling_get): Sound initialization moved to the first place in block.
+
+	* src/modules/festival.c (module_close): Force remove of temporary file (if any).
+
+	* src/server/set.c (set_client_name_self): Loop until strlen(client_name)-1.
+
 2003-07-10  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/modules/module_utils.c (module_sigblockall): Don't take any
