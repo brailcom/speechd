@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.40 2003-10-03 15:19:43 hanke Exp $
+ * $Id: dc_decl.h,v 1.41 2003-10-08 21:30:37 hanke Exp $
  */
 
 #include "speechd.h"
@@ -36,9 +36,6 @@ DOTCONF_CB(cb_Port);
 DOTCONF_CB(cb_LogFile);
 DOTCONF_CB(cb_CustomLogFile);
 DOTCONF_CB(cb_LogLevel);
-DOTCONF_CB(cb_SoundModule);
-DOTCONF_CB(cb_SoundDataDir);
-DOTCONF_CB(cb_AddTable);
 DOTCONF_CB(cb_DefaultModule);
 DOTCONF_CB(cb_LanguageDefaultModule);
 DOTCONF_CB(cb_DefaultRate);
@@ -46,18 +43,10 @@ DOTCONF_CB(cb_DefaultPitch);
 DOTCONF_CB(cb_DefaultLanguage);
 DOTCONF_CB(cb_DefaultPriority);
 DOTCONF_CB(cb_DefaultPunctuationMode);
-DOTCONF_CB(cb_DefaultPunctuationTable);
-DOTCONF_CB(cb_PunctuationSome);
-DOTCONF_CB(cb_DefaultSpellingTable);
-DOTCONF_CB(cb_DefaultCapLetRecognTable);
 DOTCONF_CB(cb_DefaultClientName);
 DOTCONF_CB(cb_DefaultVoiceType);
 DOTCONF_CB(cb_DefaultSpelling);
 DOTCONF_CB(cb_DefaultCapLetRecognition);
-DOTCONF_CB(cb_CapLetRecognIcon);
-DOTCONF_CB(cb_DefaultCharacterTable);
-DOTCONF_CB(cb_DefaultKeyTable);
-DOTCONF_CB(cb_DefaultSoundTable);
 DOTCONF_CB(cb_DefaultPauseContext);
 DOTCONF_CB(cb_AddModule);
 DOTCONF_CB(cb_MinDelayProgress);
@@ -138,9 +127,6 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(LogFile, ARG_STR);
     ADD_CONFIG_OPTION(CustomLogFile, ARG_LIST);
     ADD_CONFIG_OPTION(LogLevel, ARG_INT);
-    ADD_CONFIG_OPTION(SoundModule, ARG_LIST);
-    ADD_CONFIG_OPTION(SoundDataDir, ARG_STR);
-    ADD_CONFIG_OPTION(AddTable, ARG_STR);
     ADD_CONFIG_OPTION(DefaultModule, ARG_STR);
     ADD_CONFIG_OPTION(LanguageDefaultModule, ARG_LIST);
     ADD_CONFIG_OPTION(DefaultRate, ARG_INT);  
@@ -149,17 +135,9 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(DefaultPriority, ARG_STR);
     ADD_CONFIG_OPTION(MaxHistoryMessages, ARG_INT);   
     ADD_CONFIG_OPTION(DefaultPunctuationMode, ARG_STR);
-    ADD_CONFIG_OPTION(DefaultPunctuationTable, ARG_STR);
-    ADD_CONFIG_OPTION(PunctuationSome, ARG_STR);
     ADD_CONFIG_OPTION(DefaultClientName, ARG_STR);
     ADD_CONFIG_OPTION(DefaultVoiceType, ARG_STR);
     ADD_CONFIG_OPTION(DefaultSpelling, ARG_TOGGLE);
-    ADD_CONFIG_OPTION(DefaultSpellingTable, ARG_STR);
-    ADD_CONFIG_OPTION(DefaultCapLetRecognTable, ARG_STR);
-    ADD_CONFIG_OPTION(CapLetRecognIcon, ARG_STR);
-    ADD_CONFIG_OPTION(DefaultCharacterTable, ARG_STR);
-    ADD_CONFIG_OPTION(DefaultKeyTable, ARG_STR);
-    ADD_CONFIG_OPTION(DefaultSoundTable, ARG_STR);
     ADD_CONFIG_OPTION(DefaultCapLetRecognition, ARG_STR);
     ADD_CONFIG_OPTION(DefaultPauseContext, ARG_INT);  
     ADD_CONFIG_OPTION(AddModule, ARG_LIST);
@@ -178,14 +156,7 @@ load_default_global_set_options()
 {
     GlobalFDSet.priority = 3;
     GlobalFDSet.punctuation_mode = PUNCT_NONE;
-    GlobalFDSet.punctuation_some = strdup("(){}[]<>@#$%^&*");
-    GlobalFDSet.punctuation_table = strdup("spelling_short");
     GlobalFDSet.spelling_mode = 0;
-    GlobalFDSet.spelling_table = strdup("spelling_short");
-    GlobalFDSet.cap_let_recogn_table = strdup("spelling_short");
-    GlobalFDSet.char_table = strdup("spelling_short");
-    GlobalFDSet.key_table = strdup("keys");
-    GlobalFDSet.snd_icon_table = strdup("sound_icons");
     GlobalFDSet.rate = 0;
     GlobalFDSet.pitch = 0;
     GlobalFDSet.client_name = strdup("unknown:unknown:unknown");
@@ -193,7 +164,6 @@ load_default_global_set_options()
     GlobalFDSet.output_module = NULL;
     GlobalFDSet.voice = MALE1;
     GlobalFDSet.cap_let_recogn = 0;
-    GlobalFDSet.cap_let_recogn_sound = NULL;
     GlobalFDSet.min_delay_progress = 2000;
     GlobalFDSet.pause_context = 0;
 
@@ -202,11 +172,8 @@ load_default_global_set_options()
     if (!spd_log_level_set) spd_log_level = 3;    
     if (!spd_port_set) spd_port = SPEECHD_DEFAULT_PORT;
 
-    sound_module = NULL;
     logfile = stderr;
-    custom_logfile = NULL;
-    
-    SOUND_DATA_DIR = strdup(SND_DATA);
+    custom_logfile = NULL;    
 }
 
 DOTCONF_CB(cb_Port)
@@ -292,162 +259,8 @@ DOTCONF_CB(cb_LogLevel)
     return NULL;
 }
 
-DOTCONF_CB(cb_SoundModule)
-{    
-    sound_module = load_output_module(cmd->data.list[0], cmd->data.list[1], cmd->data.list[2], FILTERING_NONE);
-    return NULL;
-}
-
-DOTCONF_CB(cb_SoundDataDir)
-{
-    assert(cmd->data.str != NULL);
-    SOUND_DATA_DIR = strdup(cmd->data.str);
-    return NULL;
-}
-
-
-DOTCONF_CB(cb_AddTable)
-{
-    FILE *icons_file;
-    char *language;
-    char *tablename;
-    GHashTable *icons_hash;
-    char *helper;
-    char *key;
-    char *character;
-    char *value;
-    char *filename;
-    char *line;
-    char *group;
-    int group_set = 0;
-    char *bline;
-	
-    MSG(4,"Reading sound icons file...");
-	
-    language = NULL;
-    tablename = NULL;
-    bline = (char*) spd_malloc(256);
-    filename = (char*) spd_malloc(256);
-	
-    sprintf(filename, SYS_CONF"/%s", cmd->data.str);
-    MSG(4, "Reading table from file %s", filename);
-    if((icons_file = fopen(filename, "r"))==NULL){
-        MSG(2,"Table %s file specified in speechd.conf doesn't exist!", filename);
-        return NULL;	  
-    }
-
-    while(1){
-        line = (char*) spd_malloc(256 * sizeof(char));
-        if(fgets(line, 254, icons_file) == NULL){
-            MSG(2, "Specified table %s empty or missing language, table or group identification.", filename);
-            spd_free(line);
-            return NULL;
-        }
-
-        if(strlen(line) <= 2) continue;
-        if ((line[0] == '#') && (line[1] == ' ')) continue;
-
-        key = strtok(line,":\r\n");
-        if(key == NULL) continue;
-        g_strstrip(key);
-
-        value = strtok(NULL,"\r\n");
-        if(value == NULL){
-            if(!strcmp(key,"definition")){
-                if(tablename == NULL){
-                    MSG(2, "Table name must preceed definition of symbols in [%s]!", filename);
-                    return NULL;
-                }
-                if(language == NULL){
-                    MSG(2, "Table language must preceed definition of symbols in [%s]!", filename);
-                    return NULL;
-                }
-                if(group_set == 0){             
-                    MSG(2, "Table group(s) must preceed definition of symbols in [%s]!", filename);
-                    return NULL;
-                }
-                break;
-            }            
-            continue;
-        }
-
-        g_strstrip(value);
-
-        if(!strcmp(key,"language"))  language = value;
-        if(!strcmp(key,"table")) tablename = value;
-        if(!strcmp(key,"group")){
-            if(tablename == NULL){
-                MSG(2, "Table name must preceed group definitions in [%s]!", filename);
-                return NULL;
-            }
-            if(table_add(tablename, value) == 0) group_set = 1;
-        }
-
-    }
-
-    MSG(4, "Parsing icons data: lang:%s name:%s", language, tablename);
-    if(strlen(language)<2){
-        MSG(2,"Invalid language code in table.");
-        return NULL;
-    }
-
-    icons_hash = g_hash_table_lookup(snd_icon_langs, language);
-    if(!icons_hash){
-        icons_hash = g_hash_table_new(g_str_hash, g_str_equal);
-        if (!strcmp(language, "generic")) generic_lang_icons = icons_hash;
-        g_hash_table_insert(snd_icon_langs, language, icons_hash);
-    }
-    
-    while(1){
-        helper = (char*) spd_malloc(256*sizeof(char));
-        if(fgets(helper, 255, icons_file) == NULL) break;
-        g_strstrip(helper);
-        strcpy(bline, helper);
-        character = strtok(helper, "\"");
-
-        if (character == NULL){
-            /* probably a blank line or commentary */
-            continue;
-        }
-
-        if(!strcmp(character,"\\")){
-            strcpy(character,"\"");
-            strtok(NULL, "="); /* skip the next quotes */
-        }
-        if(!strcmp(character,"\\\\")){
-            strcpy(character,"\\");
-        }
-
-        key = malloc((strlen(character) + strlen(tablename) + 2) * sizeof(char));
-        sprintf(key, "%s_%s", tablename, character);
-
-        helper = strtok(NULL, "\r\n");
-        g_strstrip(helper);
-        value = strtok(helper, "=\r\n");
-
-        if(value == NULL){
-            MSG(2, "Bad syntax (no value for a given key) [%s] in %s", bline, filename);
-            return NULL;
-        }
-
-        g_strstrip(value);
-        g_hash_table_insert(icons_hash, key, value);
-		MSG(5,"Pair |%s+%s| inserted", key, value);
-    }
-
-    return NULL;
-}
-
 GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module);
 GLOBAL_FDSET_OPTION_CB_STR(DefaultLanguage, language);
-GLOBAL_FDSET_OPTION_CB_STR(PunctuationSome, punctuation_some);
-GLOBAL_FDSET_OPTION_CB_STR(DefaultPunctuationTable, punctuation_table);
-GLOBAL_FDSET_OPTION_CB_STR(DefaultSpellingTable, spelling_table);
-GLOBAL_FDSET_OPTION_CB_STR(DefaultCharacterTable, char_table);
-GLOBAL_FDSET_OPTION_CB_STR(DefaultKeyTable, key_table);
-GLOBAL_FDSET_OPTION_CB_STR(DefaultSoundTable, snd_icon_table);
-GLOBAL_FDSET_OPTION_CB_STR(DefaultCapLetRecognTable, cap_let_recogn_table);
-GLOBAL_FDSET_OPTION_CB_STR(CapLetRecognIcon, cap_let_recogn_sound);
 
 GLOBAL_FDSET_OPTION_CB_STR(DefaultClientName, client_name);
 
@@ -612,21 +425,16 @@ DOTCONF_CB(cb_AddModule)
     char *module_name;
     char *module_prgname;
     char *module_cfgfile;
-    char *mod_fil_s;
-    EFilteringType module_filtering;
 
     OutputModule *cur_mod;
 
     if (cmd->data.list[0] != NULL) module_name = strdup(cmd->data.list[0]);
     else FATAL("No output module name specified in configuration under AddModule");
 
-    /* We have decided not to support filtering in Dispatcher itself. */
-    module_filtering = FILTERING_SELF;
-            
     module_prgname = cmd->data.list[1];
     module_cfgfile = cmd->data.list[2];
 
-    cur_mod = load_output_module(module_name, module_prgname, module_cfgfile, module_filtering);
+    cur_mod = load_output_module(module_name, module_prgname, module_cfgfile);
     if (cur_mod == NULL){
         MSG(3, "Couldn't load specified output module");
         return NULL;
@@ -662,16 +470,8 @@ DOTCONF_CB(cb_BeginClient)
     SET_PAR(voice, -1)
     SET_PAR(cap_let_recogn, -1)
     SET_PAR(pause_context, -1);
-    SET_PAR_STR(punctuation_some)
-    SET_PAR_STR(punctuation_table)
-    SET_PAR_STR(spelling_table)
-    SET_PAR_STR(char_table)
-    SET_PAR_STR(key_table)
-    SET_PAR_STR(snd_icon_table)
     SET_PAR_STR(language)
     SET_PAR_STR(output_module)
-    SET_PAR_STR(cap_let_recogn_table)
-    SET_PAR_STR(cap_let_recogn_sound)
     
     return NULL;
 }
@@ -689,41 +489,7 @@ DOTCONF_CB(cb_EndClient)
 
 DOTCONF_CB(cb_unknown)
 {
-    //    MSG(4,"Unknown option, doesn't matter");
+    MSG(4,"Unknown option in configuration!");
     return NULL;
 }
 
-int
-table_add(char *name, char *group)
-{
-    char *p;
-
-    if((name == NULL)||(strlen(name)<=1)){
-        MSG(2,"Invalid table name!");
-        return 0;
-    }
-    if((group == NULL)||(strlen(group)<=1)){
-        MSG(2,"Invalid table group for %s!", name);
-        return 0;
-    }
-
-    p = spd_strdup(name);
-
-    if (!strcmp(group,"sound_icons"))
-        tables.sound_icons = g_list_append(tables.sound_icons, p);
-    else if(!strcmp(group,"spelling"))
-        tables.spelling = g_list_append(tables.spelling, p);
-    else if(!strcmp(group, "characters"))
-        tables.characters = g_list_append(tables.characters, p);
-    else if(!strcmp(group, "keys"))
-        tables.keys = g_list_append(tables.keys, p);
-    else if(!strcmp(group, "punctuation"))
-        tables.punctuation = g_list_append(tables.punctuation, p);
-    else if(!strcmp(group, "cap_let_recogn"))
-        tables.cap_let_recogn = g_list_append(tables.cap_let_recogn, p);
-    else{
-        MSG(2,"Invalid table group for %s!", name);
-        return 1;
-    }
-    return 0;
-} 
