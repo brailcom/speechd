@@ -1,3 +1,8 @@
+2003-10-23  Milan Zamazal  <pdm@brailcom.org>
+
+	* events.scm (event-synth-words): Don't append to token if there
+	is none.
+
 2003-10-17  Milan Zamazal  <pdm@brailcom.org>
 
 	* util.scm (unwind-protect*): New macro.
