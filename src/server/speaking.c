@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.19 2003-07-05 12:29:34 hanke Exp $
+  * $Id: speaking.c,v 1.20 2003-07-05 13:34:21 hanke Exp $
   */
 
 #include <glib.h>
@@ -303,7 +303,6 @@ speaking_pause(int fd, int uid)
     new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
     new->bytes = current_message->bytes - msg_pos;
     new->buf = (char*) spd_malloc((new->bytes + 2) * sizeof(char)); 
-    MSG(1,"DBG TEMP MESSAGE: (%s) [%d]", current_message->buf, msg_pos);
     for (i=0; i<=new->bytes-1; i++){
         new->buf[i] = current_message->buf[i+msg_pos];
     }
