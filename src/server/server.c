@@ -1,149 +1,149 @@
 
-/*
- * server.c - Speech Deamon server core
- * 
- * Copyright (C) 2001,2002,2003 Ceska organizace pro podporu free software
- * (Czech Free Software Organization), Prague 2, Vysehradska 3/255, 128 00,
- * <freesoft@freesoft.cz>
- *
- * This is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2, or (at your option)
- * any later version.
- *
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this package; see the file COPYING.  If not, write to
- * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
- *
- * $Id: server.c,v 1.28 2003-04-12 11:19:03 hanke Exp $
- */
+ /*
+  * server.c - Speech Deamon server core
+  * 
+  * Copyright (C) 2001,2002,2003 Ceska organizace pro podporu free software
+  * (Czech Free Software Organization), Prague 2, Vysehradska 3/255, 128 00,
+  * <freesoft@freesoft.cz>
+  *
+  * This is free software; you can redistribute it and/or modify it
+  * under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2, or (at your option)
+  * any later version.
+  *
+  * This software is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  * General Public License for more details.
+  *
+  * You should have received a copy of the GNU General Public License
+  * along with this package; see the file COPYING.  If not, write to
+  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+  * Boston, MA 02111-1307, USA.
+  *
+  * $Id: server.c,v 1.29 2003-04-14 02:04:06 hanke Exp $
+  */
 
-#include "speechd.h"
+ #include "speechd.h"
 
-OutputModule *speaking_module;
-int speaking_uid;
+ OutputModule *speaking_module;
+ int speaking_uid;
 
-int highest_priority = 0;
-int last_message_id = -1;
+ int highest_priority = 0;
+ int last_message_id = -1;
 
-int server_data_on(int fd);
-void server_data_off(int fd);
+ int server_data_on(int fd);
+ void server_data_off(int fd);
 
-/* Stops speaking and cancels currently spoken message.*/
-int
-is_sb_speaking()
-{
-    int speaking = 0;
+ /* Stops speaking and cancels currently spoken message.*/
+ int
+ is_sb_speaking()
+ {
+     int speaking = 0;
 
-    /* Determine is the current module is still speaking */
-    if(speaking_module != NULL){
-        speaking = (*speaking_module->is_speaking) ();
-    } 
-    if (speaking == 0) speaking_module = NULL;
-    return speaking;
-}
+     /* Determine is the current module is still speaking */
+     if(speaking_module != NULL){
+         speaking = (*speaking_module->is_speaking) ();
+     } 
+     if (speaking == 0) speaking_module = NULL;
+     return speaking;
+ }
 
-int
-get_speaking_client_uid()
-{
-    int speaking;
-    if(is_sb_speaking() == 0){
-        speaking_uid = 0;
-        return 0;
-    }
-    if(speaking_uid != 0){
-        speaking = speaking_uid;
-    } 
-    return speaking;
-}
+ int
+ get_speaking_client_uid()
+ {
+     int speaking;
+     if(is_sb_speaking() == 0){
+         speaking_uid = 0;
+         return 0;
+     }
+     if(speaking_uid != 0){
+         speaking = speaking_uid;
+     } 
+     return speaking;
+ }
 
-void
-stop_speaking_active_module(){
-    if (speaking_module == NULL) return;
-    if (is_sb_speaking()){
-        (*speaking_module->stop) ();
-    }
-}
+ void
+ stop_speaking_active_module(){
+     if (speaking_module == NULL) return;
+     if (is_sb_speaking()){
+         (*speaking_module->stop) ();
+     }
+ }
 
-int
-stop_p23()
-{
-    int ret1, ret2;
-    ret1 = stop_priority(2);
-    ret2 = stop_priority(3);
-    if((ret1 == -1) || (ret2 == -1)) return -1;
-    else return 0;
-}
+ int
+ stop_p23()
+ {
+     int ret1, ret2;
+     ret1 = stop_priority(2);
+     ret2 = stop_priority(3);
+     if((ret1 == -1) || (ret2 == -1)) return -1;
+     else return 0;
+ }
 
-int
-stop_p3(){
-    int ret;
-    ret = stop_priority(3);
-    return ret;
-}
+ int
+ stop_p3(){
+     int ret;
+     ret = stop_priority(3);
+     return ret;
+ }
 
-int
-stop_priority(int priority)
-{
-    int num, i;
-    GList *gl;
-    GList *queue;
-	
-    switch(priority){
-    case 1:	queue = MessageQueue->p1; break;
-    case 2:	queue = MessageQueue->p2; break;
-    case 3:	queue = MessageQueue->p3; break;
-    default: return -1;
-    }
+ int
+ stop_priority(int priority)
+ {
+     int num, i;
+     GList *gl;
+     GList *queue;
 
-    if (queue == NULL) return 0;
-	
-    if (highest_priority == priority){
-        stop_speaking_active_module();
-    }
+     switch(priority){
+     case 1:	queue = MessageQueue->p1; break;
+     case 2:	queue = MessageQueue->p2; break;
+     case 3:	queue = MessageQueue->p3; break;
+     default: return -1;
+     }
 
-    num = g_list_length(queue);
-    for(i=0;i<=num-1;i++){
-        gl = g_list_first(queue);
-        assert(gl != NULL);
-        assert(gl->data != NULL);
-        mem_free_message(gl->data);
-        queue = g_list_delete_link(queue, gl);
-        msgs_to_say--;
-    }
+     //     if (queue == NULL) return 0;
 
-    switch(priority){
-    case 1:	MessageQueue->p1 = queue; break;
-    case 2:	MessageQueue->p2 = queue; break;
-    case 3:	MessageQueue->p3 = queue; break;
-    default: return -1;
-    }
-	
-    return 0;
-}
+     if (highest_priority == priority){
+         stop_speaking_active_module();
+     }
 
-void
-stop_from_uid(int uid)
-{
-    GList *gl;
-    pthread_mutex_lock(&element_free_mutex);
-    while(gl = g_list_find_custom(MessageQueue->p1, (int*) uid, p_msg_uid_lc)){
+     num = g_list_length(queue);
+     for(i=0;i<=num-1;i++){
+         gl = g_list_first(queue);
+         assert(gl != NULL);
+         assert(gl->data != NULL);
+         mem_free_message(gl->data);
+         queue = g_list_delete_link(queue, gl);
+         msgs_to_say--;
+     }
+
+     switch(priority){
+     case 1:	MessageQueue->p1 = queue; break;
+     case 2:	MessageQueue->p2 = queue; break;
+     case 3:	MessageQueue->p3 = queue; break;
+     default: return -1;
+     }
+
+     return 0;
+ }
+
+ void
+ stop_from_uid(int uid)
+ {
+     GList *gl;
+     pthread_mutex_lock(&element_free_mutex);
+    while(gl = g_list_find_custom(MessageQueue->p1, &uid, p_msg_uid_lc)){
         if(gl->data != NULL) mem_free_message(gl->data);
         MessageQueue->p1 = g_list_delete_link(MessageQueue->p1, gl);
         msgs_to_say--;
     }
-    while(gl = g_list_find_custom(MessageQueue->p2, (int*) uid, p_msg_uid_lc)){
+    while(gl = g_list_find_custom(MessageQueue->p2, &uid, p_msg_uid_lc)){
         if(gl->data != NULL) mem_free_message(gl->data);
         MessageQueue->p2 = g_list_delete_link(MessageQueue->p2, gl);
         msgs_to_say--;
     }	
-    while(gl = g_list_find_custom(MessageQueue->p3, (int*) uid, p_msg_uid_lc)){
+    while(gl = g_list_find_custom(MessageQueue->p3, &uid, p_msg_uid_lc)){
         if(gl->data != NULL) mem_free_message(gl->data);
         MessageQueue->p3 = g_list_delete_link(MessageQueue->p3, gl);
         msgs_to_say--;
@@ -173,37 +173,73 @@ message_nto_speak(TSpeechDMessage *elem, gpointer a, gpointer b)
     else return 1;
 }
 
+/* Read one char  (which _pointer_ is pointing to) from an UTF-8 string
+ * and store it into _character_. _character_ must have space for
+ * at least  7 bytes (6 bytes character + 1 byte trailing 0). This
+ * function doesn't validate if the string is valid UTF-8.
+ */
+int
+spd_utf8_read_char(char* pointer, char* character)
+{
+    int bytes;
+    gunichar u_char;
+
+    u_char = g_utf8_get_char(pointer);
+    bytes = g_unichar_to_utf8(u_char, character);
+    character[bytes]=0;
+
+    return bytes;
+}
+
 char*
-process_message(char *buf, int bytes, TFDSetElement* settings) 
+process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable *icons)
 {
     int i;
-    char *c;
-    char *name;
+    char *spelled_letter;
+    char *character;
+    char *pos;
     GString *str;
-    GHashTable *icons;
 
-    if(settings->spelling){
+    str = g_string_sized_new(bytes);
+    character = (char*) spd_malloc(8); /* 6 bytes should be enough, plus the trailing 0 */
+
+    pos = buf;                  /* Set the position cursor for UTF8 to the beginning. */
+    for(i=0; i<=g_utf8_strlen(buf, -1) - 3; i++){
+        spd_utf8_read_char(pos, character);
+        spelled_letter = (char*) snd_icon_spelling_get(settings->spelling_table,
+                                                       icons, character);
+        if (spelled_letter != NULL){
+            g_string_append(str, spelled_letter);
+        }else{
+            g_string_append(str, character);
+        }
+        g_string_append(str," ");
+        pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */
+    }
+
+    return str->str;
+}
+
+char*
+process_message(char *buf, int bytes, TFDSetElement* settings)
+{
+    GHashTable *icons;
+    char *new_message;
+
+    if(settings->spelling || settings->punctuation_mode){
         icons = g_hash_table_lookup(snd_icon_langs, settings->language);
         if (icons == NULL){
             icons = g_hash_table_lookup(snd_icon_langs, GlobalFDSet.language);
             if (icons == NULL) return NULL;
         }
-
-        str = g_string_sized_new(bytes);
-        name = (char*) spd_malloc(3);
-
-        for(i=0; i<=bytes-1;i++){
-            /* TODO: this doesn't work with multibytes */
-            name[0] = buf[i];
-            name[1] = 0;
-            c = snd_icon_spelling_get(settings->spelling_table, icons, name);
-            if (c != NULL){
-                g_string_append(str, c);
-                g_string_append(str," ");
-            }
+    
+        if(settings->spelling){
+            new_message = process_message_spell(buf, bytes, settings, icons);
         }
-        return str->str;
+     
+        return new_message;
     }
+
     return buf;
 }
 
@@ -251,14 +287,13 @@ speak(void* data)
                 stop_p3();
             }
 
-            if(g_list_length(MessageQueue->p3) > 1){
+            if(g_list_length(MessageQueue->p3) != 0){
                 /* Stop all other priority 3 messages but leave the first */
-                gl = g_list_first(MessageQueue->p3); 
+                gl = g_list_last(MessageQueue->p3); 
                 MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
                 stop_p3();
                 /* Fill the queue with the list containing only the first message */
                 MessageQueue->p3 = gl;
-                continue;
             }
 
             /* Check if sb is speaking or they are all silent. 
@@ -348,6 +383,9 @@ speak(void* data)
                 }
             }
 
+            /* TODO: There is a problem. This can take time, but we are
+             * working under a locked mutex and blocking the second thread! */
+
             buffer = process_message(element->buf, element->bytes, &(element->settings));
 
             /* Set the speking_module monitor so that we knew who is speaking */
@@ -376,7 +414,7 @@ speaking_cancel(int uid)
     stop_from_uid(uid);
 }
 
-int 
+int
 speaking_pause(int uid)
 {
     TFDSetElement *settings;
@@ -694,32 +732,4 @@ serve(int fd)
     }
 
     return 0;
-}
-
-gint
-message_list_compare_fd (gconstpointer element, gconstpointer value, gpointer x)
-{
-    int ret;
-    TSpeechDMessage *message;
-
-    message = ((TSpeechDMessage*) element);
-    assert(message!=NULL);
-    assert(message->settings.fd!=0);
-
-    ret = message->settings.fd - (int) value;
-    return ret;
-}
-
-gint
-message_list_compare_uid (gconstpointer element, gconstpointer value, gpointer x)
-{
-    int ret;
-    TSpeechDMessage *message;
-
-    message = ((TSpeechDMessage*) element);
-    assert(message!=NULL);
-    assert(message->settings.fd!=0);
-
-    ret = message->settings.uid - (int) value;
-    return ret;
 }
