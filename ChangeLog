@@ -1,7 +1,19 @@
 
+2003-03-29  Hynek Hanke <hanke@volny.cz>
+    * src/server/speechd.h (fdset): Now hash table -> faster searching. 
+	* src/server/speechd.h (fd_uid): New hash table for fast searching of unique ids.
+	* src/server/speechd.c (speechd_quit): Call FD_CLR for server socket.
+	* src/server/server.c (fdset): Also includes non-active connections.
+	* src/server/server.c (parse): Accept lower-case commands.
+	* src/server/history.c (message_history): New global list for history.
+	* src/server/history.c: Switching to global history.
+	* src/server/history.h (THistoryClient): Deleted, we will use global list of history.
+	* src/server/history.h (THistClientSet): Deleted, configuration moved to TFDSetElement.
+	* src/server/parse.c (get_param): Accept longer parameters in quotation marks.
+	* intl/fdset.h (TFDSetElement): History settings moved here.
+
 2003-03-27  Hynek Hanke <hanke@volny.cz>
     * src/server/server.c: Compare against \r\n.\r\n only if there are enough bytes.
-
 
 2003-03-27  Tomas Cerha  <cerha@brailcom.org>
 

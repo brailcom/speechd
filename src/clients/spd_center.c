@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: spd_center.c,v 1.7 2003-03-24 22:25:43 hanke Exp $
+ * $Id: spd_center.c,v 1.8 2003-03-29 20:24:32 hanke Exp $
  */
 
 #include<stdio.h>
@@ -126,7 +126,7 @@ spdc_complete(char *buffer, int n, TComplete complete){
 			ret = (char*) malloc((strlen(possibilities[0]) + 1) * sizeof(char));
 			assert(ret != NULL);
 			strcpy(ret,possibilities[0]);
-			spd_sayf(s_main_fd, 2,ret);
+			spd_sayf(s_main_fd, 3,ret);
 			return ret;
 	}else{
 		return buffer;
