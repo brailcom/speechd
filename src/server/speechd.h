@@ -26,7 +26,6 @@
 
 /* ==================================================================== */
 
-
 #define LOG_LEVEL 3
 #define SPEECH_PORT 9876
 
@@ -35,6 +34,7 @@
 #define MSG(level,args...) if (level <= LOG_LEVEL) printf(args)
 
 #include "module.h"
+#include "fdset.h"
 /* ==================================================================== */
 
 fd_set readfds;
@@ -60,27 +60,6 @@ typedef struct{
   that is, some text with ''formating'' tags inside.
 */
 
-typedef enum {			// type of voice
-	MALE = 0,		// (numbers divisible by 2 should mean male)
-	FEMALE = 1,
-	CHILD_MALE = 2,
-	CHILD_FEMALE = 3
-}EVoiceType;
-
-typedef struct{
-	int fd;
-        int paused;
-	int priority;		// priority between 1 and 3 
-	int punctuation_mode;	// this will of course not be integer 
-	int speed;		// speed: 100 = normal, ??? 
-	float pitch;		// pitch: ???
-	char *language;		// language: default = english
-	char *output_module;	// output module: festival, odmluva, epos,...
-	EVoiceType voice_type;  // see EVoiceType definition
-	int spelling;		// spelling mode: 0 -- off, 1 -- on
-	int cap_let_recogn;	// cap. letters recogn.: 0 -- off, 1 -- on
-}TFDSetElement;
-
 typedef struct{
    guint id;
    time_t time;
@@ -91,6 +70,7 @@ typedef struct{
 
 
 TSpeechDQueue *MessageQueue;
+gdsl_list_t *MessagePausedList;
 
 gdsl_list_t fd_settings;	// list of current settings for each
 				// client (= each active socket)
@@ -99,9 +79,10 @@ gdsl_list_t fd_settings;	// list of current settings for each
 gdsl_list_t history;
 
 typedef struct{
-//	char *client_name;
-	int fd;
-	gdsl_list_t messages;
+   char *client_name;
+   int fd;
+   int active;
+   gdsl_list_t messages;
 }THistoryClient;
 
 OutputModule* load_output_module(gchar* modname);
