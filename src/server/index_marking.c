@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: index_marking.c,v 1.8 2004-06-28 08:10:41 hanke Exp $
+  * $Id: index_marking.c,v 1.9 2004-07-18 20:45:27 hanke Exp $
   */
 
 #include "index_marking.h"
@@ -73,6 +73,14 @@ insert_index_marks(TSpeechDMessage *msg, int ssml_mode)
 	    }
 	    else g_string_append_printf(marked_text, "&gt;");
         }
+        else if (u_char == '&'){
+            if (ssml_mode){
+		g_string_append_printf(marked_text, "%s", character);
+	    }
+	    else{
+		if (!inside_tag) g_string_append_printf(marked_text, "&amp;");
+	    }
+	}
         else if (((u_char == '.') || (u_char == '?') || (u_char == '!')) && !inside_tag){
             pos = g_utf8_find_next_char(pos, NULL);   
             ret = spd_utf8_read_char(pos, character2);
