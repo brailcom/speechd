@@ -19,11 +19,12 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.15 2004-04-17 14:53:09 hanke Exp $
+ * $Id: libspeechd.c,v 1.16 2004-05-23 12:34:03 hanke Exp $
  */
 
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <netinet/tcp.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
@@ -58,6 +59,7 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
   char *env_port;
   int port;
   int ret;
+  char tcp_no_delay = 1;
 
   if (client_name == NULL) return -1;
 
@@ -94,6 +96,8 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
       SPD_DBG("Error: Can't connect to server: %s", strerror(errno));
       return 0;
   }
+
+  setsockopt(connection, IPPROTO_TCP, TCP_NODELAY, &tcp_no_delay, sizeof(int));
  
   set_client_name = g_strdup_printf("SET SELF CLIENT_NAME \"%s:%s:%s\"", usr_name,
           client_name, conn_name);
@@ -631,7 +635,7 @@ spd_command_line(int fd, char *buffer, int pos, char* c){
 	return new_s;
 }
 
-static int
+int
 spd_execute_command(int connection, char* command)
 {
     char *buf;
