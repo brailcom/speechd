@@ -1,3 +1,8 @@
+2003-10-10  Milan Zamazal  <pdm@brailcom.org>
+
+	* configure.in (moduleconfdir): sounds/ excluded.
+	* sounds/Makefile.am: Removed.
+
 2003-10-10  Jan Buchal  <buchal@brailcom.org>
 
 	* src/modules/festival_client.c (FEST_SET_STR): Pass nil if param is NULL.
