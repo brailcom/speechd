@@ -1,10 +1,14 @@
 /* Speechd server program
- * CVS revision: $Id: speechd.c,v 1.8 2002-12-16 01:39:21 hanke Exp $
+ * CVS revision: $Id: speechd.c,v 1.9 2003-01-04 22:15:35 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
+#include <signal.h>
 #include "speechd.h"
 /* declare dotconf functions and data structures*/
 #include "dc_decl.h"
+
+
+int server_socket;
 
 TSpeechDQueue* 
 speechd_queue_alloc()
@@ -46,17 +50,24 @@ fdset_list_alloc_element(void* element)
 TSpeechDMessage*
 history_list_alloc_message(TSpeechDMessage *old)
 {
-   TSpeechDMessage* new = NULL;
+	TSpeechDMessage* new = NULL;
 
-   new = (TSpeechDMessage *) malloc(sizeof(TSpeechDMessage));
-   if (new == NULL) FATAL("Not enough memory!");
-   new->buf = malloc(old->bytes);
-   if (new->buf == NULL) FATAL("Not enough memory!");
-   memcpy(new->buf, old->buf,
-          old->bytes);
-   *new = *old;
-   (TFDSetElement) new->settings =
-      (TFDSetElement) old->settings; 
+	new = (TSpeechDMessage *) malloc(sizeof(TSpeechDMessage));
+	assert(new != NULL);
+	new->buf = malloc(old->bytes);
+	assert(new->buf!=NULL);
+	*new = *old;
+	memcpy(new->buf, old->buf, old->bytes);
+	(TFDSetElement) new->settings = (TFDSetElement) old->settings; 
+	new->settings.language = (char*) malloc(strlen(old->settings.language)+1);
+	new->settings.client_name = (char*) malloc(strlen(old->settings.client_name)+1);
+	new->settings.output_module = (char*) malloc(strlen(old->settings.output_module)+1);
+	assert(new->settings.language != NULL);
+	assert(new->settings.client_name != NULL);
+	assert(new->settings.output_module != NULL);
+	memcpy(new->settings.language, old->settings.language, strlen(old->settings.language));	
+	memcpy(new->settings.client_name, old->settings.client_name, strlen(old->settings.client_name));	
+	memcpy(new->settings.output_module, old->settings.output_module, strlen(old->settings.output_module));	
    return new;
 }
 
@@ -74,7 +85,7 @@ history_list_create_client(int fd)
    new->client_name = malloc(strlen(settings->client_name)+1);
    strcpy(new->client_name, settings->client_name);
    new->fd = fd;
-   new->id = fd;		// TODO: Unique ID
+   new->uid = fd;		// TODO: Unique ID
    new->active = 1;
    new->messages = NULL;
 
@@ -119,10 +130,43 @@ default_fd_set()
    return(new);
 }
 
-int main() {
+void
+quit(int sig)
+{
+	int i;
+	int ret;
+	int clients_num;
+	GList *gl = NULL;
+	TFDSetElement *fdset;
+	
+	printf("Terminating...\n");
+	MSG(2,"  Closing open connections...\n");
+	clients_num = g_list_length(fd_settings);
+	MSG(4,"   Connections: %d\n", clients_num);
+	/* We will browse through all the connections and close them. */
+	for(i=0;i<=clients_num-1;i++){
+		gl = g_list_last(fd_settings);
+		assert(gl!=NULL);
+		fdset = (TFDSetElement*) gl->data;
+		assert(fdset!=NULL);
+		MSG(4,"    Closing connection on fd %d\n", fdset->fd);
+		if(close(fdset->fd) == -1) MSG(1, "close() failed: %s\n", strerror(errno));
+ 		FD_CLR(fdset->fd, &readfds);	
+		fd_settings = g_list_remove(fd_settings, gl);
+	}
+	if(close(server_socket) == -1) MSG(1, "close() failed: %s\n", strerror(errno));
+	MSG(2,"  Freeing allocated memory...\n");
+	/* TODO: obvious */
+	fflush(NULL);
+	exit(0);	
+}
+
+
+int
+main()
+{
    configfile_t *configfile = NULL;
    char *configfilename = SYS_CONF"/speechd.conf" ;
-   int server_socket;
    struct sockaddr_in server_address;
    fd_set testfds;
    struct timeval tv;
@@ -130,8 +174,13 @@ int main() {
    THistSetElement *new_hist_set;
    THistoryClient *hnew_element;
    int v, i;
-	int fd;
+   int fd;
+   GList *gl;
+   TFDSetElement *fd_set_element;
+   THistoryClient *hclient;
 
+	(void) signal(SIGINT,quit);	
+	
    msgs_to_say = 0;
    
    MessageQueue = speechd_queue_alloc();
@@ -147,10 +196,10 @@ int main() {
    
    history_settings = NULL;
 
-   awaiting_data = (GArray*) g_array_sized_new(1, 1, sizeof(int),10);
-   g_array_set_size(awaiting_data,10);
-   o_bytes = (GArray*) g_array_sized_new(1, 1, sizeof(int),10);
-   g_array_set_size(o_bytes,10);
+   awaiting_data = (GArray*) g_array_sized_new(1, 1, sizeof(int),20);
+   g_array_set_size(awaiting_data,20);
+   o_bytes = (GArray*) g_array_sized_new(1, 1, sizeof(int),20);
+   g_array_set_size(o_bytes,20);
    
    if (g_module_supported() == FALSE)
       DIE("Loadable modules not supported by current platform.\n");
@@ -179,8 +228,10 @@ int main() {
    server_address.sin_addr.s_addr = htonl(INADDR_ANY);
    server_address.sin_port = htons(SPEECH_PORT);
 
-   if (bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address)) == -1)
-      FATAL("bind() failed");
+   if (bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address)) == -1){
+		MSG(1, "bind() failed: %s\n", strerror(errno));
+		FATAL("Couldn't open socket");
+	}
 
    /* Create a connection queue and initialize readfds to handle input from server_socket. */
    if (listen(server_socket, 5) == -1)
@@ -208,7 +259,7 @@ int main() {
 
       for (fd = 0; fd <= fdmax && fd < FD_SETSIZE; fd++) {
 
-	 MSG(5," testing fd %d (fdmax = %d)...\n", fd, fdmax);
+//	 MSG(5," testing fd %d (fdmax = %d)...\n", fd, fdmax);
 
 	 if (FD_ISSET(fd,&testfds)) {
 
@@ -225,21 +276,20 @@ int main() {
 	       if (client_socket > fdmax) fdmax = client_socket;
 	       MSG(3,"   adding client on fd %d\n", client_socket);
 
-           g_array_set_size(awaiting_data, fd+1);
+           g_array_set_size(awaiting_data, fdmax+2);
            v = 0;
            /* Mark this client as ,,receiving commands'' */
-           g_array_insert_val(awaiting_data, fd, v);
-											   
-		   
-               new_fd_set = default_fd_set();
-               new_fd_set->fd = client_socket;
-               fd_settings = g_list_append(fd_settings, new_fd_set);
+           g_array_insert_val(awaiting_data, client_socket, v);
+											   		   
+           new_fd_set = default_fd_set();
+           new_fd_set->fd = client_socket;
+           fd_settings = g_list_append(fd_settings, new_fd_set);
 
 	       hnew_element = history_list_create_client(client_socket);
 	       history = g_list_append(history, hnew_element);
 
-               new_hist_set = default_hist_set();
-               new_hist_set->fd = client_socket;
+           new_hist_set = default_hist_set();
+           new_hist_set->fd = client_socket;
 	       history_settings = g_list_append(history_settings, new_hist_set);
  /*              new_hist_set = gdsl_list_get_tail(history_settings);
                MSG(3, "fd: fd: fd: %d", new_hist_set->fd); */
@@ -253,11 +303,27 @@ int main() {
 
 	       if (nread == 0) {
 		  /* Client has gone away and we remove it from the descriptor set. */
-		  close(fd);
+		  MSG(3,"   removing client on fd %d\n", fd);
+		  MSG(5,"      stopping client on fd %d\n", fd);
+		  stop_from_client(fd);						
+          gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc);
+		  assert(gl->data!=NULL);
+		  fd_set_element = (TFDSetElement*) gl->data;
+		  MSG(5,"       removing client from settings \n");
+		  fd_settings = g_list_remove(fd_settings, gl->data);
+		  MSG(5,"       tagging client as inactive in history \n");
+    gl = g_list_find_custom(history, (int*) fd, p_cli_comp_fd);
+    if (gl == NULL) return 0;
+    hclient = gl->data;
+    hclient->fd = -1;
+    hclient->active = 0;
+	v = 0;
+  	g_array_insert_val(awaiting_data, fd, v);
+		  MSG(5,"       closing clients file descriptor %d\n", fd);
+		  close(fd); 
 		  FD_CLR(fd, &readfds);
 		  if (fd == fdmax) fdmax--; /* this may not apply in all cases, but this is sufficient ... */
-		  MSG(3,"   removing client on fd %d\n", fd);
-	       } else {
+	     } else {
 		  /* Here we 'serve' the client. */
 		  MSG(2,"   serving client on fd %d\n", fd);
 		  if (serve(fd) == -1) MSG(1,"   failed to serve client on fd %d!\n",fd);
@@ -270,7 +336,7 @@ int main() {
 	if(msgs_to_say > 0){
 		 	speak();
 	}else{
-		usleep(10);
+		usleep(1);
 	}
    }
 
