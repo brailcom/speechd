@@ -1,3 +1,53 @@
+2003-07-18  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/speechd.h (inside_block): New variable, keeps track of whether
+	each of the connections is inside an SSIP BLOCK or not.
+
+	* src/server/parse.h (parse_block): New prototype.
+
+	* src/server/msg.h: New SSIP messages related with BLOCK BEGIN/END.
+
+	* src/modules/module_utils.c (module_speak_thread_wfork): Close pipes correctly
+	on error (fork fails etc.)
+
+	* src/server/parse.c (parse_set): Inserted NOT_ALLOWED_INSIDE_BLOCK() macro calls
+	where necessary.
+	(BLOCK_NO): New macro -- SSIP command allowed inside block.
+	(CHECK_SSIP_COMMAND): New argument: allowed_in_block
+	(NOT_ALLOWED_INSIDE_BLOCK): New macro.
+
+	* src/server/sndicon.c (sndicon_queue): If inside_block[fd], queue the 
+	icon with `reparted' flag.	
+
+	* src/server/parse.c (parse_block): New function.
+	(parse): If inside_block[fd], queue the message with `reparted' flag.
+
+	* src/server/speechd.c (speechd_init): Allocate and initialize inside_block.
+
+	* src/server/server.c (server_data_on): Set inside_block[fd] to 0.
+
+	* src/server/dc_decl.h (LogFile): Open the file in `append' mode instead of `write' mode.
+
+	* src/server/sndicon.c (sndicon_queue): If the icon wasn't found for that language table,
+	look also to the same table for default language.
+
+	* config/en/sound_icons.conf: New sound icons.
+
+	* src/server/Makefile.am (AM_CFLAGS): Pass pluginsdir, not libdir.
+
+	* src/modules/Makefile.am (plugins_LTLIBRARIES): Changed from lib_LTLIBRARIES.
+
+	* configure.in (pluginsdir): New AC_SUBST variable for automake.
+
+	* src/modules/festival.c (_festival_parent): Debuging with writing received sound to disk enabled.
+	(FestivalDebugSaveOutput): New dotconf option for Festival.
+
+	* src/modules/module_utils.c (module_audio_output_child): Data termination string changed fro LFCR.LFCR.
+	(module_audio_output_child): If there are some data before the termination string, add them
+	to samples.
+
+	* src/modules/festival.c (_festival_parent): Data termination string changed fro LFCR.LFCR.
+
 2003-07-17  Hynek Hanke  <hanke@volny.cz>
 
 	* src/modules/module_utils.c (module_signal_end): New function. Send SIGUSR1 to speechd.
