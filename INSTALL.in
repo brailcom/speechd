@@ -2,10 +2,9 @@ The requirements:
 ==================
 
 You will need these components to compile Robod: 
-    - glib 1.2
+    - glib 2.0
     - pthreads
     - libasound1 (0.5.8)
-    - GDSL (Generic Data Structure Library)
     - gcc and GNU make
     - (flite [the only synthetiser that has working output module now])
 
