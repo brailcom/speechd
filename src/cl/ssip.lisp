@@ -53,7 +53,7 @@ language.")
 ;;; Internal constants and configuration variables
 
 
-(defparameter +version+ "$Id: ssip.lisp,v 1.1 2004-01-20 11:16:27 pdm Exp $"
+(defparameter +version+ "$Id: ssip.lisp,v 1.2 2004-01-20 15:37:48 pdm Exp $"
   "Version stamp of the source file.
 Useful only for diagnosing problems.")
 
@@ -88,20 +88,20 @@ Useful only for diagnosing problems.")
 
 (defparameter +parameter-value-mappings+
   '((message-priority
-     (important .    "IMPORTANT")
-     (message .      "MESSAGE")
-     (text .         "TEXT")
-     (notification . "NOTIFICATION")
-     (progress .     "PROGRESS")
+     (:important .    "IMPORTANT")
+     (:message .      "MESSAGE")
+     (:text .         "TEXT")
+     (:notification . "NOTIFICATION")
+     (:progress .     "PROGRESS")
      )
     (punctuation-mode
-     (none . "none")
-     (some . "some")
-     (all .  "all"))
+     (:none . "none")
+     (:some . "some")
+     (:all .  "all"))
     (capital-character-mode
-     (none . "none")
-     (spell . "spell")
-     (icon . "icon"))
+     (:none . "none")
+     (:spell . "spell")
+     (:icon . "icon"))
     (spelling-mode
      (t . "on")
      (nil . "off"))))

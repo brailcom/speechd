@@ -33,13 +33,13 @@
   "Default port of speechd.")
 
 
-(defvar *default-text-priority* 'text
+(defvar *default-text-priority* :text
   "Default Speech Dispatcher priority of sent texts.")
 
-(defvar *default-sound-priority* 'message
+(defvar *default-sound-priority* :message
   "Default Speech Dispatcher priority of sent sound icons.")
 
-(defvar *default-char-priority* 'notification
+(defvar *default-char-priority* :notification
   "Default Speech Dispatcher priority of sent single letters.")
 
 
