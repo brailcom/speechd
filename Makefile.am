@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS= src config
+SUBDIRS= src config sounds
 
 EXTRA_DIST= ChangeLog NEWS TODO AUTHORS COPYING INSTALL README intl/ doc/
 
