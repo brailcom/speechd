@@ -1,5 +1,7 @@
 2002-06-20  Tomas Cerha  <cerha@brailcom.org>
 
+	* README: Information about DocBook DTD version changed to 4.1.2.
+
 	* speechd.xml: DocBook DTD changed to version 4.1.2.
 
 	* Makefile: Variable DST for specifying html destination
