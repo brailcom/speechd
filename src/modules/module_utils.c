@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.31 2004-06-28 08:08:27 hanke Exp $
+ * $Id: module_utils.c,v 1.32 2004-07-21 08:14:50 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -361,19 +361,11 @@ module_strip_punctuation_some(char *message, char *punct_chars)
 
     if (punct_chars == NULL) return;
 
-    pchar_bytes = strlen(punct_chars);
     len = strlen(message);
     for (i = 0; i <= len-1; i++){
         if (strchr(punct_chars, *p)){
-            if (*p == '@'){
-                if (((len-1-i)>0) && (*(p+1) == '@')){
-                    *p = ' ';
-                    *(p+1) = ' ';
-                }
-            }else{
                 DBG("Substitution %d: char -%c- for whitespace\n", i, *p);
                 *p = ' ';
-            }
         }
         p++;
     }
