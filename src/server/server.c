@@ -1,20 +1,25 @@
 /* Speechd server functions
- * CVS revision: $Id: server.c,v 1.3 2002-07-02 07:57:12 hanke Exp $
+ * CVS revision: $Id: server.c,v 1.4 2002-07-07 11:00:15 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
 #include "speechd.h"
+#include "history.h"
+#include "history.c"
 
 #define BUF_SIZE 4096
 #define MAX_CLIENTS 10
 
-char speaking_module[256] = "";
+char speaking_module[256] = "\0";
 
+/* Stops speaking. And cancels currently spoken message.*/
 void 
 stop_speaking_active_module()
 {
    int speaking;
    OutputModule *output;
 
+   /* If some module is speaking, fill _output_ with it
+      and determine if it's still speaking. If so, stop it.*/
    if(strlen(speaking_module)>1){
       output = g_hash_table_lookup(output_modules, speaking_module);
       if (output == NULL) FATAL("Speaking module not in hash table.");
@@ -23,42 +28,26 @@ stop_speaking_active_module()
    } 
 }
 
-char*
-history_get_client_list()
-{
-   THistoryClient *client;
-   char clist[1000] = "CLIENTS:\n\r\0";
-
-   gdsl_list_cursor_move_to_head(history);
-   while(1){
-     client = gdsl_list_cursor_get(history);
-     if (client == NULL) return "ERROR NO CLIENT";
-     strcat(clist, client->client_name);
-     strcat(clist,"\n\r\0");
-     if (gdsl_list_cursor_is_on_tail(history)) return clist;               
-     gdsl_list_cursor_move_forward(history);
-   }
-}
-
-/* This is only an experiment how to solve the pause() function. */
-
+/* Determines if this messages is to be spoken
+   (returns 1) or it's parent client is paused (returns 0). */
 int
 message_nto_speak(TSpeechDMessage *elem, void* value)
 {
    TFDSetElement *global_settings;
 
-   if(elem == NULL) return 1;
+   if(elem == NULL) return 1; /* We will not speak if there is nothing to say.*/
 
-   global_settings = gdsl_list_search_by_value(fd_settings, fdset_list_compare,  elem->settings.fd);
+   global_settings = gdsl_list_search_by_value(fd_settings, fdset_list_compare,  (int*) elem->settings.fd);  /* Find global settings for this connection */
 
-   if (global_settings == NULL)
+   if (global_settings == NULL) 
       FATAL("Couldn't find settings for active client, internal error.");
  
    if (global_settings->paused == 0){
-	 return 0;
+	 return 0;   /* The client is not paused, we can say the message. */
    }
-   printf("found paused client ");
-   return 1;
+
+   MSG(4, "Found paused client.");
+   return 1; 	     /* Client is paused. */
 }
 
 
@@ -97,14 +86,17 @@ speak()
          return 0;
       }
 
+       /* Is there any message after @resume? */
       if(!gdsl_list_is_empty(MessagePausedList)){
          element = gdsl_list_search_by_value(MessagePausedList,
-                      message_nto_speak, NULL); 
+                      message_nto_speak, (void*) NULL); 
          if (element != NULL){
             gdsl_list_remove_by_value(MessagePausedList,
-                         message_nto_speak, NULL);
+                         message_nto_speak, (void*) NULL);
             }
       }
+
+      /* If we haven't found anything, we will browse through queues. */
       if(element == NULL){
          /* We will descend through priorities to say more important
             messages first. */
@@ -120,17 +112,22 @@ speak()
          } 
       }
 
+      /* Isn't the parent client of this message paused? 
+         If it is, insert the message to the MessagePausedList. */
       if (message_nto_speak(element, NULL)){
          MSG(3, "Inserting message to paused list...\n");
          gdsl_list_insert_tail(MessagePausedList, element);
          return 0;
       }
 
-      /* Write the data to the output module. */
+      /* Write the data to the output module. (say them)*/
       (*output->write) (element->buf, element->bytes, &element->settings); 
 
    return 0;
 }
+
+/* Gets command parameter _n_ from the text buffer _buf_
+   which has _bytes_ bytes; */
 
 char* 
 get_param(char *buf, int n, int bytes)
@@ -141,20 +138,20 @@ get_param(char *buf, int n, int bytes)
    param = (char*) malloc(bytes);
 
    strcpy(param,"");
-   i = 1;	// 1 because we can skip the leading '@'
+   i = 1;	/* 1 because we can skip the leading '@' */
 
-   for(y=0;y<=n;y++){
+   for(y=0; y<=n; y++){
       z=0;
       for(; i<bytes; i++){
-         if (buf[i]==' ') break;
+         if (buf[i] == ' ') break;
             param[z] = buf[i];
             z++;
       }
       i++;
    }
    
-   if (i>=bytes){
-	   param[z>1?z-2:0] = 0;	// write the trailing zero
+   if (i >= bytes){
+	   param[z>1?z-2:0] = 0;	/* write the trailing zero */
    }else{
 	param[z] = 0;
    }
@@ -179,7 +176,7 @@ int
 hc_list_compare (gdsl_element_t element, void* value)
 {
    int ret;
-   ret = ((TFDSetElement*) element)->fd - (int) value;
+   ret = ((THistoryClient*) element)->fd - (int) value;
    return ret;
 }
 
@@ -196,28 +193,33 @@ int stop_c(EStopCommands command, int fd){
       /* first stop speaking on the output module */
       stop_speaking_active_module();
       /* then remove all queued messages for this client */ 
-      // ...
+      // TODO: remove all queued messages
+      // PROBLEM: gdsl_queue_t can't remove_by_value
+      return 0;
    }
    
    if (command == PAUSE){
       /* first stop speaking on the output module */
       stop_speaking_active_module();
       /* Find settings for this particular client */
-      settings = gdsl_list_search_by_value(fd_settings, fdset_list_compare, fd);
+      settings = gdsl_list_search_by_value(fd_settings, fdset_list_compare, (int*) fd);
       if (settings == NULL)
          FATAL("Couldn't find settings for active client, internal error.");
-      settings->paused = 1;      
+      /* Set _paused_ flag. */
+      settings->paused = 1;     
+      return 0;  
    }
 
    if (command == RESUME){
       /* Find settings for this particular client */
-      settings = gdsl_list_search_by_value(fd_settings, fdset_list_compare, fd);      if (settings == NULL)
+      settings = gdsl_list_search_by_value(fd_settings, fdset_list_compare, (int*) fd);      if (settings == NULL)
          FATAL("Couldn't find settings for active client, internal error.");
-      /* Set it to speak. */
+      /* Set it to speak again. */
       settings->paused = 0;
+      return 0;
    }
 
-   return "INVALID COMMAND\n\r";
+   return 1; 
 }
 
 /*
@@ -233,6 +235,7 @@ parse(char *buf, int bytes, int fd)
 {
    TSpeechDMessage *new;
    TFDSetElement *settings;
+   THistoryClient *history_client;
    char *command;
    char param[100];
    int helper;
@@ -241,6 +244,7 @@ parse(char *buf, int bytes, int fd)
    static int awaiting_data[MAX_CLIENTS] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
    static char o_buf[MAX_CLIENTS][BUF_SIZE];
    static int o_bytes[MAX_CLIENTS] = {0,0,0,0,0,0,0,0,0,0};
+   static int last_message_id = 0;
 
    if ((buf == NULL) || (bytes == 0))
       FATAL("invalid buffer for parse()");	// this must be internal error
@@ -279,16 +283,18 @@ parse(char *buf, int bytes, int fd)
 
       if (!strcmp(command,"history")){
          strcpy(param, get_param(buf,1,bytes));
+         MSG(3, "  param 1 catched: %s\n", param);
          if (!strcmp(param,"get")){
             strcpy(param, get_param(buf,2,bytes));
             if (!strcmp(param,"last")){
-              
+               return history_get_last(fd);
             }
             if (!strcmp(param,"client_list")){
                return history_get_client_list();
             }  
             if (!strcmp(param,"message_list")){
-
+               return history_get_message_list( atoi(get_param(buf,3,bytes)),
+			atoi(get_param(buf,4,bytes)) );
             }  
          }
          if (!strcmp(param,"sort")){
@@ -296,29 +302,43 @@ parse(char *buf, int bytes, int fd)
          }
          if (!strcmp(param,"cursor")){
             strcpy(param, get_param(buf,2,bytes));
+            MSG(3, "    param 2 catched: %s\n", param);
             if (!strcmp(param,"set")){
-
+               strcpy(param, get_param(buf,4,bytes));
+               MSG(3, "    param 4 catched: %s\n", param);
+               if (!strcmp(param,"last")){
+                  return history_cursor_set_last(fd,atoi(get_param(buf,3,bytes)));
+               }
+               if (!strcmp(param,"first")){
+                  return history_cursor_set_first(fd, atoi(get_param(buf,3,bytes)));
+               }
+               if (!strcmp(param,"position")){
+                  return history_cursor_set_pos( fd, atoi(get_param(buf,3,bytes)),
+                                           atoi(get_param(buf,5,bytes)) );
+               }
             }
             if (!strcmp(param,"next")){
-
+               return history_cursor_next(fd);
+ 
             }
             if (!strcmp(param,"prev")){
-
+               return history_cursor_prev(fd);
             }
             if (!strcmp(param,"get")){
-
+               return history_cursor_get(fd);
             }
          }
          if (!strcmp(param,"say")){
+            strcpy(param, get_param(buf,2,bytes));
             if (!strcmp(param,"ID")){
-
+              return history_say_id(fd, atoi(get_param(buf, 3, bytes)));
             }
             if (!strcmp(param,"TEXT")){
 
             }
          }
  
-         return "ERROR INVALID COMMAND";
+         return "ERROR INVALID COMMAND\n\r";
       }
 
       if (!strcmp(command,"stop")){
@@ -367,7 +387,7 @@ parse(char *buf, int bytes, int fd)
          new->bytes = o_bytes[fd];
 
          /* Find settings for this particular client */
-         settings = gdsl_list_search_by_value(fd_settings, fdset_list_compare, fd);
+         settings = gdsl_list_search_by_value(fd_settings, fdset_list_compare, (int*) fd);
          if (settings == NULL)
             FATAL("Couldnt find settings for active client, internal error.");
 
@@ -376,6 +396,8 @@ parse(char *buf, int bytes, int fd)
          strcpy(new->settings.output_module, settings->output_module);
          new->settings.language = malloc( strlen(settings->language) );
          strcpy(new->settings.language, settings->language);
+         last_message_id++;
+         new->id = last_message_id;
 
          /* Put the element new to queue. */
 
@@ -387,12 +409,12 @@ parse(char *buf, int bytes, int fd)
             gdsl_queue_put((gdsl_queue_t) MessageQueue->p3, new);
 
          /* Put the element new to history acording to it's fd. */
-/*         history_client = (THistoryClient*) gdsl_list_search_by_value(history,
-                           hc_list_compare,  fd);*/
-/*         if(history_client == NULL)
-            FATAL("no such history client, internal error\n");*/
+         history_client = (THistoryClient*) gdsl_list_search_by_value(history,
+                           hc_list_compare, (int*) fd);
+         if(history_client == NULL)
+            FATAL("no such history client, internal error\n");
  
-//         gdsl_list_insert_head(history_client->messages, new); 
+         gdsl_list_insert_tail(history_client->messages, new); 
 
          MSG(3, "%d bytes put in queue and history\n", o_bytes[fd]);
          o_bytes[fd] = 0;
