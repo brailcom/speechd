@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.8 2003-10-12 23:27:27 hanke Exp $
+ * $Id: generic.c,v 1.9 2004-03-14 16:01:14 hanke Exp $
  */
 
 #include <glib.h>
@@ -71,8 +71,10 @@ MOD_OPTION_1_STR(GenericRecodeFallback);
 
 MOD_OPTION_1_INT(GenericRateAdd);
 MOD_OPTION_1_FLOAT(GenericRateMultiply);
+MOD_OPTION_1_INT(GenericRateForceInteger);
 MOD_OPTION_1_INT(GenericPitchAdd);
 MOD_OPTION_1_FLOAT(GenericPitchMultiply);
+MOD_OPTION_1_INT(GenericPitchForceInteger);
 
 MOD_OPTION_3_HT(GenericLanguage, code, name, charset);
 
@@ -95,8 +97,10 @@ module_load(void)
 
     MOD_OPTION_1_INT_REG(GenericRateAdd, 0);
     MOD_OPTION_1_FLOAT_REG(GenericRateMultiply, 1);
+    MOD_OPTION_1_INT_REG(GenericRateForceInteger, 0);
     MOD_OPTION_1_INT_REG(GenericPitchAdd, 0);
     MOD_OPTION_1_FLOAT_REG(GenericPitchMultiply, 1);
+    MOD_OPTION_1_INT_REG(GenericPitchForceInteger, 0);
 
     MOD_OPTION_HT_REG(GenericLanguage);
 
@@ -307,6 +311,7 @@ _generic_speak(void* nothing)
         case 0:
             {
             char *e_string;
+	    float hrate, hpitch; 
             char str_pitch[16];
             char str_rate[16];
             char *p;
@@ -317,10 +322,20 @@ _generic_speak(void* nothing)
                is also delivered to the child processes created by system()) */
             if (setpgid(0,0) == -1) DBG("Can't set myself as project group leader!");
 
-            snprintf(str_pitch,15,"%.2f",
-                     ((float) generic_msg_pitch) * GenericPitchMultiply + GenericPitchAdd);
-            snprintf(str_rate,15,"%.2f",
-                     ((float) generic_msg_rate) * GenericRateMultiply + GenericRateAdd);
+	    hpitch = ((float) generic_msg_pitch) * GenericPitchMultiply + GenericPitchAdd;
+	    if (!GenericPitchForceInteger){
+		snprintf(str_pitch, 15, "%.2f", hpitch);
+	    }else{
+		snprintf(str_pitch, 15, "%d", (int) hpitch);
+	    }
+
+	    hrate = ((float) generic_msg_rate) * GenericRateMultiply + GenericRateAdd;
+	    if (!GenericRateForceInteger){
+		snprintf(str_rate, 15, "%.2f", hrate);
+	    }else{
+		snprintf(str_rate, 15, "%d", (int) hrate);
+	    }
+
             language = (TGenericLanguage*) module_get_ht_option(GenericLanguage, generic_msg_language);
             voice_name = module_getvoice(generic_msg_language, generic_msg_voice);
 
