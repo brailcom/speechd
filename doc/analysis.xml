@@ -2,27 +2,24 @@
   <title>Analysis</title>
   
   <sect1><title>Architecture Overview</title>
+
     <para>
-      
       <mediaobject>
 	<imageobject>
 	  <imagedata fileref="../figures/architecture.eps" format="EPS"/>
 	</imageobject>
-	
 	<imageobject>
 	  <imagedata fileref="../figures/architecture.jpg" format="JPEG"/>
 	</imageobject>
 	<textobject>
 	  <phrase>Speechd Architecture</phrase>
 	</textobject>
-	
 	<caption>
 	  <para>
 	    This figure shows the two speechd interfaces: SSIP and modAPI
 	  </para>
 	</caption>
       </mediaobject>
-	
     </para>
     
   </sect1>
@@ -33,7 +30,7 @@
       
       <para>
 	Speech Synthesis Independent Protocol (SSIP) is intended to provide a
-	device independent layer between application and speech synthesizer
+	device independent layer between application and speech synthesizer. 
       </para>
       
       <para>
@@ -91,7 +88,10 @@
 	<varlistentry><term>cancel</term>
 	  <listitem>
 	    <para>
-	      Throw away currently spoken message.
+	      Throw away currently spoken message. Continue with the next
+	      message in the queue.  This is a way to skip some long boring
+	      messages, that you do not want to hear until the end from some
+	      reason.
 	    </para>
 	  </listitem>
 	</varlistentry>
@@ -109,7 +109,8 @@
       <para>
 	We suppose the system of three priority levels. Every message will
 	either contain explicit level information, or the default value will be
-	considered. The behavior should be as follows:
+	considered. There is a separate message queue for each of the levels.
+	The behavior is as follows:
 	
 	<variablelist>
 	  <varlistentry><term>level 1</term>
@@ -142,12 +143,21 @@
 	    <listitem>
 	      <para>
 		Third level messages are only said, when there are no messages
-		of any higher level queued, when.
+		of any higher level queued. So they will be never saied, if the
+		output device, they are dirrected to, is busy in the moment,
+		they arrive. But if the message is not saied, it is still
+		copied to the history as described in <xref linkend="s-history"/>.
 	      </para>
 	    </listitem>
 	  </varlistentry>
 	</variablelist>
       </para>
+
+      <para>
+	To make the things more complicated, thes thr
+	<xref linkend="s-oselect"/>.
+      </para>
+
     </sect2>
 
     <sect2 id="s-synthesis"> <title>Synthesis control</title>
@@ -315,6 +325,13 @@
 	client, but any client will be able to browse the history of all
 	clients (in addition to browsing it's own messages).
       </para>
+      <para>
+	The rationale behind allowing to browse messages of all clients is as
+	follows: You work with one client (e.g. Emacs) and messages come from
+	other clients (e.g. some cron script notifies you about new mail). So
+	if the Emacs client supports browsing the message history, you can
+	check all prewious new mail notifications from Emacs.
+      </para>
       
     </sect2>
 
@@ -328,14 +345,19 @@
     <sect2 id="s-oselect">   <title>Output Device Selection</title>
       
       <para>
-	We discuss the usage of multiple output devices in
-	<xref linkend="s-multiple-output"/>. Client should be enabled to
-	explicitly specify the name of output device. When the device is not
-	specified, or server is not configured for a device of specified name,
-	default device will be used. Default device is determined by server
-	according to configuration file, which may assign the name of output
-	device to each name of client (client identifies itself to the server
-	by name).
+	We discuss the usage of multiple output devices in <xref
+	linkend="s-multiple-output"/>. It must be possible, to configure the
+	server, to use different output devices for different clients (client
+	identifies itself to the server by name). Client should not deal with
+	the explicit selection of output device, but may use different
+	identification names for several kinds of messages, to enable server
+	side redirection.
+      </para>
+
+      <para>
+	This implyes the solution with independent message queues for each of
+	the output devices. The advantage is in non blocking operation of each
+	output device.
       </para>
 	  
       <para>
@@ -350,39 +372,24 @@
   
   <sect1><title>Output Side</title>
     
-    <para>
-      Speechd provides a simple and transparent interface for output drivers.
-      Each output driver allows to use one speech synthesizer with speechd. Output
-      driver is implemented as a shared library, which uses the common API, to
-      communicate with speechd. Output driver is called "output module" or simply
-      just the <emphasis>module</emphasis>.
-    </para>
+    <para>      Speechd provides a simple and transparent interface for output drivers.      Each output driver allows to use one speech synthesizer with speechd. Output      driver is implemented as a shared library, which uses the common API, to      communicate with speechd. Output driver is called "output module" or simply      just the <emphasis>module</emphasis>.    </para>
     
-    <sect2><title>API for Output Modules</title>
-      
-      <para>
-	
-	
-      </para>
-      
-    </sect2>
+    <sect2 id="s-out-modules-api"> <title>API for Output Modules</title>            <para>		      </para>          </sect2>
     
-    <sect2 id="s-multiple-output"><title>Multiple Output Modules</title>
+    <sect2 id="s-multiple-output"> <title>Multiple Output Modules</title>
       
       <para>
 	Speechd is enabled to use multiple output mudules, each one for
 	particular speech synthesizer.
       </para>
       
+      <para>
+	Messages are dirrected to one of current output devices as described in
+	<xref linkend="s-oselect"/>.
+      </para>
     </sect2>
     
-    <sect2><title>Configuration</title>
-      
-      <para>
-	Speechd allows to be configured for multiple output speech synthesizers.
-      </para>
-      
-    </sect2>
+    <sect2 id="s-configuration">   <title>Configuration</title>            <para>	Speechd allows to be configured for multiple output speech synthesizers.      </para>          </sect2>
     
   </sect1>
   
