@@ -1,9 +1,9 @@
 
-Speech Dispatcher 0.3 released
+Speech Dispatcher 0.4 released
 ==============================
 
 The Brailcom organization is happy to announce the release
-of Speech Dispatcher 0.3 developed as a part of the Free(b)Soft
+of Speech Dispatcher 0.4 developed as a part of the Free(b)Soft
 project.
 
 * What is Speech Dispatcher?
@@ -28,40 +28,45 @@ project.
 
   - Different output modules that talk to different synthesizers
     so that the programmer doesn't need to care which particular
-    synthesizer is being used. Currently Festival, Flite and Epos are
-    supported.
+    synthesizer is being used. Currently Festival, Flite, Epos and
+    (non-free) Dectalk software are supported.
 
   - Client-based configuration allows users to configure different
     settings for different clients that connect to Speech Dispatcher.
 
-  - Simple interface for programs written in C and C++ provided
-    through a shared library. There is also an Elisp library
-    being developed as a separate project speechd-el, Python
-    library. Also a Perl interface is being developed right now.
-    Possibly an interface to any other language can be developed.
+  - Simple interface for programs written in C, C++ provided through a
+    shared library and a Common Lisp interface. The
+    Python interface is being worked on. An Elisp library is
+    developed as a sperate project speechd-el. Possibly an interface
+    to any other language can be developed.
 
-* What is new in 0.3?
+* What is new in 0.4?
 
- - Volume settings in SSIP.
+  - Flite output is now installed with the 16-bit voice, if available.
 
- - New interface library for Common Lisp.
+  - The generic output module can now also set volume.
 
- - The document describing SSIP (Speech Synthesis Interface Protocol)
-   is now a separate file.
+  - spd-say is now rewritten to accepts the most important speech
+    parameters and thus provide a simple but useful Speech Dispatcher
+    client. Documentation is provided in info.
 
- - Debugging, cleaning, testing.
+  - The C/C++ shared library interface now uses TCP_NODELAY to prevent
+    timeouts and make the communication faster.
+
+  - Bugfixes.
 
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speechd-0.3.tar.gz .
+  http://www.freebsoft.org/pub/projects/speechd/speechd-0.4.tar.gz .
 
   We recommend you to fetch the sound icons Speech Dispatcher can use as
   well. They are available at
   http://www.freebsoft.org/pub/projects/sound-icons/sound-icons-0.1.tar.gz
 
-  Corresponding Debian packages are available at a Debian distribution mirror.
-  (We would highly appreciate any help with RPM distribution!)
+  Corresponding Debian packages are or soon will be available at your
+  Debian distribution mirror. (We would highly appreciate any help
+  with RPM distribution!)
 
   The home page of the project is http://www.freebsoft.org/speechd .
 
