@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.c,v 1.11 2003-05-28 23:18:56 hanke Exp $
+ * $Id: sndicon.c,v 1.12 2003-06-01 22:45:55 hanke Exp $
 */
 
 #include "sndicon.h"
@@ -86,6 +86,7 @@ snd_icon_spelling_get(char *table, GHashTable *icons, char *name, int *sound)
         *sound = 0;
         /* Strip the leading and the trailing quotes */
         ret = &(textt[1]);
+        ret[strlen(textt)-1]=0;
     }else{       
         if(textt[0] != '/'){
             ret = (char*) spd_malloc((strlen(DATA_DIR) + strlen(textt) + 4) * sizeof(char));
