@@ -34,7 +34,12 @@ check for example for libflite_cmu_us_kal.so in your library directory.
 (It's also possible to use Speech Dispatcher with Flite static libraries,
 but it is generally not a good way unless you know what you are doing.)
 
- $ make all
+Before running make, you have to set the environment variable SED
+to your binary of the sed application. This is usually done as:
+
+$ export SED=sed
+
+$ make all
 
 If it doesn't work, try the following:
 
