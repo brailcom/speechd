@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.26 2003-04-28 02:00:23 hanke Exp $
+ * $Id: parse.c,v 1.27 2003-05-05 22:40:24 hanke Exp $
  */
 
 #include "speechd.h"
@@ -206,7 +206,15 @@ parse_history(char *buf, int bytes, int fd)
         param = get_param(buf,2,bytes, 1);
         if (!strcmp(param,"last")){
             return (char*) history_get_last(fd);
-        }
+        }     
+        if (!strcmp(param,"client_id")){
+            return (char*) history_get_client_id(fd);
+        }  
+        if (!strcmp(param,"message")){
+            helper1 = get_param(buf,3,bytes, 0);
+            if (!isanum(helper1)) return ERR_NOT_A_NUMBER;         
+            return (char*) history_get_message(atoi(helper1));
+        }  
         if (!strcmp(param,"client_list")){
             return (char*) history_get_client_list();
         }  
@@ -248,11 +256,11 @@ parse_history(char *buf, int bytes, int fd)
                 return (char*) history_cursor_set_pos( fd, atoi(helper1), atoi(helper2) );
             }
         }
-        if (!strcmp(param,"next")){
-            return (char*) history_cursor_next(fd);
+        if (!strcmp(param,"forward")){
+            return (char*) history_cursor_forward(fd);
         }
-        if (!strcmp(param,"prev")){
-            return (char*) history_cursor_prev(fd);
+        if (!strcmp(param,"backward")){
+            return (char*) history_cursor_backward(fd);
         }
         if (!strcmp(param,"get")){
             return (char*) history_cursor_get(fd);
