@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.6 2003-03-09 20:51:10 hanke Exp $
+ * $Id: parse.c,v 1.7 2003-03-12 22:15:03 hanke Exp $
  */
 
 #include "speechd.h"
@@ -31,7 +31,8 @@
 int
 isanum(char *str){
    int i;
-   for(i=0;i<=strlen(str)-1;i++){
+   if (!isdigit(str[0]) && !( (str[0]=='+') || (str[0]=='-'))) return 0;
+   for(i=1;i<=strlen(str)-1;i++){
        if (!isdigit(str[i]))   return 0;
     }
     return 1;
@@ -164,6 +165,11 @@ parse_set(char *buf, int bytes, int fd)
 	char *language;
 	char *client_name;
 	char *priority;
+	char *rate;
+	char *pitch;
+	char *punct;
+	char *spelling;
+	char *recog;
 	int helper;
 	int ret;
 
@@ -179,11 +185,11 @@ parse_set(char *buf, int bytes, int fd)
 	}
 
       if (!strcmp(param,"language")){
-         language = get_param(buf,2,bytes);
-         MSG(3, "Setting language to %s \n", language);
-		 ret = set_language(fd, language);
-		 if (!ret) return ERR_COULDNT_SET_LANGUAGE;
-         return OK_LANGUAGE_SET;
+        language = get_param(buf,2,bytes);
+        MSG(3, "Setting language to %s \n", language);
+		ret = set_language(fd, language);
+		if (!ret) return ERR_COULDNT_SET_LANGUAGE;
+        return OK_LANGUAGE_SET;
       }
 
 	if (!strcmp(param,"client_name")){
@@ -194,6 +200,66 @@ parse_set(char *buf, int bytes, int fd)
 		if (!ret) return ERR_COULDNT_SET_LANGUAGE;
 		return OK_CLIENT_NAME_SET;
 	}		 
+
+	if (!strcmp(param,"rate")){
+		rate = get_param(buf,2,bytes);
+		if (!isanum(rate)) return ERR_NOT_A_NUMBER;
+		helper = atoi(rate);
+		if(helper < -100) return ERR_COULDNT_SET_RATE;
+		if(helper > +100) return ERR_COULDNT_SET_RATE;
+		MSG(3, "Setting rate to %d \n", helper);
+		ret = set_rate(fd, helper);
+		if (!ret) return ERR_COULDNT_SET_RATE;
+		return OK_RATE_SET;
+	}
+
+	if (!strcmp(param,"pitch")){
+		pitch = get_param(buf,2,bytes);
+		if (!isanum(pitch)) return ERR_NOT_A_NUMBER;
+		helper = atoi(pitch);
+		if(helper < -100) return ERR_COULDNT_SET_PITCH;
+		if(helper > +100) return ERR_COULDNT_SET_PITCH;
+		pitch = get_param(buf,2,bytes);
+		if (!isanum(pitch)) return ERR_NOT_A_NUMBER;
+		helper = atoi(pitch);
+		MSG(3, "Setting pitch to %s \n", language);
+		ret = set_pitch(fd, helper);
+		if (!ret) return ERR_COULDNT_SET_LANGUAGE;
+		return OK_RATE_SET;
+	}
+
+	if (!strcmp(param,"punctuation")){
+		punct = get_param(buf,2,bytes);
+		if (!isanum(punct)) return ERR_NOT_A_NUMBER;
+		helper = atoi(punct);
+		if((helper != 0)&&(helper != 1)&&(helper != 2)) return ERR_COULDNT_SET_PUNCT_MODE;
+		MSG(3, "Setting punctuation mode to %d \n", helper);
+		ret = set_punct_mode(fd, helper);
+		if (!ret) return ERR_COULDNT_SET_PUNCT_MODE;
+		return OK_PUNCT_MODE_SET;
+	}
+
+	if (!strcmp(param,"cap_let_recogn")){
+		recog = get_param(buf,2,bytes);
+		if (!isanum(recog)) return ERR_NOT_A_NUMBER;
+		helper = atoi(recog);
+		if((helper != 0)&&(helper != 1)) return ERR_COULDNT_SET_CAP_LET_RECOG;
+		MSG(3, "Setting capital letter recognition to %d \n", helper);
+		ret = set_cap_let_recog(fd, helper);
+		if (!ret) return ERR_COULDNT_SET_CAP_LET_RECOG;
+		return OK_CAP_LET_RECOGN_SET;
+	}
+
+	if (!strcmp(param,"spelling")){
+		spelling = get_param(buf,2,bytes);
+		if (!isanum(spelling)) return ERR_NOT_A_NUMBER;
+		helper = atoi(spelling);
+		if((helper != 0)&&(helper != 1)) return ERR_COULDNT_SET_SPELLING;
+		MSG(3, "Setting spelling to %d \n", helper);
+		ret = set_spelling(fd, helper);
+		if (!ret) return ERR_COULDNT_SET_SPELLING;
+		return OK_SPELLING_SET;
+	}
 	   
 	return ERR_INVALID_COMMAND;
 }
