@@ -27,7 +27,7 @@ spd_audio_play_wave(cst_wave *w)
 
         r = audio_write(spd_audio_device, &w->samples[i], n*2);
         if (r <= 0){
-            cst_errmsg("Audio output: failed to write %d samples\n",n);
+		/* couldn't make it to the end */
             break;
         }
     }
