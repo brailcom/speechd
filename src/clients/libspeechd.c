@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.12 2003-03-24 22:24:18 hanke Exp $
+ * $Id: libspeechd.c,v 1.13 2003-04-14 02:12:20 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -159,6 +159,28 @@ spd_stop_fd(int fd, int target)
 }
 
 int
+spd_cancel(int fd)
+{
+  char helper[32];
+
+  sprintf(helper, "CANCEL\r\n");
+  if(!ret_ok(send_data(fd, helper, 1))) return -1;
+
+  return 0;
+}
+
+int
+spd_cancel_fd(int fd, int target)
+{
+  char helper[32];
+
+  sprintf(helper, "CANCEL %d\r\n", target);
+  if(!ret_ok(send_data(fd, helper, 1))) return -1;
+  return 0;
+}
+
+
+int
 spd_pause(int fd)
 {
   char helper[16];
@@ -202,50 +224,15 @@ spd_resume_fd(int fd, int target)
 }
 
 int
-spd_icon(int fd, int priority, char *name)
+spd_icon(int fd, char *name)
 {
 	static char helper[256];
 	char *buf;
 
-	sprintf(helper, "SET PRIORITY %d\r\n", priority);
-	if(!ret_ok(send_data(fd, helper, 1))) return 0;
-	
-	sprintf(helper, "SND_ICON %s\r\n", name);
+	sprintf(helper, "SOUND_ICON %s\r\n", name);
 	if(!ret_ok(send_data(fd, helper, 1))) return -1;
 
 	return 0;
-}
-
-int
-spd_say_letter(int fd, int priority, int c)
-{
-	static char helper[] = "letter_x\0";
-	static int r;
-
-	helper[7]=c;
-	r = spd_icon(fd, priority, helper);
-	return r;
-}
-
-int
-spd_say_sgn(int fd, int priority, int c)
-{
-    static char helper[] = "sgn_x\0";
-    static int r;
-
-	helper[4]=c;
- 	r = spd_icon(fd, priority, helper);
-    return r;
-}
-int
-spd_say_digit(int fd, int priority, int c)
-{
-	static char helper[] = "digit_x\0";
-	static int r;
-
-	helper[6]=c;
-	r = spd_icon(fd, priority, helper);
-	return r;
 }
 
 int
@@ -253,12 +240,7 @@ spd_say_key(int fd, int priority, int c)
 {
 	static int r;
 
-	if (isalpha(c)) r = spd_say_letter(fd, priority, c);
-	else if (isdigit(c)) r = spd_say_digit(fd, priority, c);
-	else if (isgraph(c)) r = spd_say_sgn(fd, priority, c);
-	else return -1;
-
-	return r;	
+	return 0;	
 }
 
 int

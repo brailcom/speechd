@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.7 2003-03-23 21:30:22 hanke Exp $
+ * $Id: libspeechd.h,v 1.8 2003-04-14 02:15:02 hanke Exp $
  */
 
 #define LIBSPEECHD_DEBUG 0
@@ -157,11 +157,17 @@ int spd_sayf (int fd, int priority, char *format, ...);
 	 * want to use to regulate the speech flow. */
 
 	/* spd_stop() immediatelly stops the currently spoken
-	 * message (from this client) and discards all others
-	 * that are waiting. However, it isn't pause() so any
+	 * message (from this client) but doesn't touch the others
+	 * that are waiting in queues. However, it isn't pause() so any
 	 * other received messages will be said normally. 
 	 * _fd_ is the file descriptor of your connection. */
 int spd_stop(int fd);
+	/* It returns 0 on succes, -1 if there is no such connection. */
+
+        /* If you want to stop the currently spoken message
+         * and in adition to stop all the messages waiting
+         * in queues, please use spd_cancel() */
+int spd_cancel(int fd);
 	/* It returns 0 on succes, -1 if there is no such connection. */
 
 	/* spd_pause() and spd_resume() are the regular pause
@@ -179,7 +185,7 @@ int spd_resume(int fd);
 	 * depends on the current language and can be also set by
 	 * user. */
 
-int spd_icon(int fd, int priority, char *name);
+int spd_icon(int fd,  char *name);
 	/* spd_icon() gets client's fd, the desired priority
 	 * of generated message	and name of the sound icon.
 	 * Speech Deamon than converts this sound icon into
@@ -187,17 +193,6 @@ int spd_icon(int fd, int priority, char *name);
 	 *
 	 * spd_icon() returns 0 on succes, -1 if it fails there
 	 * is no such connection or there is no such icon). */
-
-	/* Letters, digits and other signs ('+','-','_','/' ...)
-	 * are often used types of sound icons. The following 3 functions
-	 * are here to simplify dealing with these symbols. */
-int spd_say_letter(int fd, int priority, int c);
-int spd_say_digit(int fd, int priority, int c);
-int spd_say_sgn(int fd, int priority, int c);
-	/* In each of these three functions, c means the symbol (letter,
-	 * digit or sign) you want to represent.
-	 * Each of these functions returns 0 on succes, -1 otherwise.
-	 */ 
 
 int spd_say_key(int fd, int priority, int c);
 	/* spd_say_key() is a synthesis of the above 3 functions.
@@ -282,6 +277,7 @@ char* spd_command_line(int fd, char *buffer, int pos, int c);
 	 * You can obtain the unique id for example by
 	 * spd_get_client_list() */
 int spd_stop_fd(int fd, int target);
+int spd_cancel_fd(int fd, int target);
 int spd_pause_fd(int fd, int target);
 int spd_resume_fd(int fd, int target);
 
