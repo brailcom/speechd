@@ -553,6 +553,15 @@ response to the particular lines sent.  The response line is sent only
 immediately after the @code{SPEAK} command and after receiving the
 closing dot line.
 
+The content of the message can be either a plain text or a SSML
+(Speech Synthesis Markup Language) text, see @code{SET SELF
+SSML_MODE}.  There is no guarantee that the SSML marks will be
+respected, so the application shouldn't rely on them. The external
+parameters can still be set by the parameter setting commands. SSML is
+intended only for additional markup inside the message. In SSML mode,
+each message must begin with @code{<speak>} and end with
+@code{</speak>}.
+
 Speech Server can start speech synthesis as soon as a sufficient
 amount of the text arrives, it generally needn't (but may) wait until
 the end of data marker is received.
@@ -813,6 +822,28 @@ following command:
 
 @example
 SET SELF LANGUAGE cs
+@end example
+
+@item SET @{self@} SSML_MODE  @var{mode}
+Set the mode of the text received in the message body sent by the
+@code{SPEAK} command. This can be either a plain text, if @code{mode}
+is set to @code{off} or a SSML marked text, if @code{mode} is set to @code{on}.
+
+There is no guarantee that the SSML marks will be respected, so
+the application shouldn't rely on them. The external parameters
+can still be set by the parameter setting commands. SSML is intended
+only for additional markup inside the message. In SSML mode, each
+message must begin with @code{<speak>} and end with @code{</speak>}.
+
+For example a simple `hello world' looks like this:
+
+@example
+SET SELF SSML_MODE on
+SPEAK
+<speak>
+Hello world!
+</speak>
+.
 @end example
 
 @item SET self PRIORITY @var{p}
