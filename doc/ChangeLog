@@ -1,3 +1,6 @@
+2002-02-01	Hynek Hanke	<hanke@volny.cz>
+	* speechd.texi: DocBook -> Texinfo (because editing DocBook was a hell)
+
 2002-11-21  Tomas Cerha  <cerha@brailcom.org>
 
 	* Makefile (HTMLDIR): New variable for automatic update script run

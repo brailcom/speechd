@@ -1,40 +1,21 @@
 
-All project documentation is written using DocBook XML.
-See http://www.docbook.org for more information about DocBook.
+All project documentation is written using Texinfo.
+(You can get the latest texinfo.tex from
+ftp://ftp.gnu.org/gnu/texinfo.tex (and all GNU mirrors))
 
 The Makefile in this directory allows you to build the documentation from
-XML sources in one of these formats: HTML, RTF and PDF.
+Texinfo sources in one of these formats: info, HTML, DVI and PDF.
 
 To build one of supported formats, run "make <format>", Where <format> is
 supplyed by name of the format in lowercase.
 
+For example:
+	make info
+or
+	make all
+
 The make process REQUIRES:
+	* Texinfo
+	* Tex (for generating PDF and DVI)
 
- * Jade .... a free tool that applies DSSSL stylesheets to SGML and XML
-   documents. Jade homesite is at http://www.jclark.com/jade/
 
- * DocBook DTD V4.1.2. XML .... a DTD maintained by the DocBook Technical 
-   Committee of OASIS (http://www.oasis-open.org/docbook/)
-
- * ModularDocBook Stylesheets .... Norman Walsh maintains two DSSSL
-   stylesheets for DocBook, one for print and one for online (HTML)
-   output. You can obtain both of these stylesheets from
-   http://nwalsh.com/docbook/dsssl/
-
-You can also install these packages to your Linux Distribution as follows:
-
-Debian:
-    * docbook-xml
-    * jade (and jade-tex if you want TeX output)
-    * docbook-stylesheets
-    * sgml-base sgml-data and sgml-tools is also required
-    
-RedHat:
-    * docbook-xml
-    * jade
-    * stylesheets
-    * sgml-common and sgml-tools is also required
-
-You may need to edit the path to DSSSL stylesheet in the file `html.dsl' to
-suit your local installation, to be able to build the html version of
-documentation.
