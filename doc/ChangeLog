@@ -1,3 +1,21 @@
+2003-04-07  Milan Zamazal  <pdm@brailcom.org>
+
+	* Makefile (clean): Use `rm' with `-f'.
+
+	* figures/architecture.txt: New file.
+	* figures/architecture.pdf: New file.
+	* gpl.texi: Label commented out.
+	* speechd.texi: Many cleanups.  Content changes are described
+	below explicitly.
+	(@copying): Sample text from the `hello' package removed.
+	(@dircategory): Changed to "Sound" and "Development".
+	(@author): Contact address of Czech Free Software Organization
+	changed to info@freesoft.cz.
+	(SSIP): Moved to the top level.
+	(GPL): Moved to appendix.  @node's added.
+	(Multiple output modules): Chapter title added.
+	(History): Renamed to `Message history'.
+	(Basic design): Use @image for producing the image.
 
 2003-03-23  Hynek Hanke <hanke@volny.cz>
 	
