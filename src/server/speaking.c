@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.41 2004-03-08 21:26:22 hanke Exp $
+  * $Id: speaking.c,v 1.42 2004-06-28 08:12:25 hanke Exp $
   */
 
 #include <glib.h>
@@ -126,7 +126,7 @@ speak(void* data)
 
         /* Insert index marks into textual messages */
         if(message->settings.type == MSGTYPE_TEXT){
-            insert_index_marks(message);
+            insert_index_marks(message, message->settings.ssml_mode);
         }
 
         /* Write the message to the output layer. */
@@ -179,11 +179,10 @@ reload_message(TSpeechDMessage *msg)
             if (pos == NULL) return -1;
         }
 
-        newtext = strip_index_marks(pos);
+        newtext = strip_index_marks(pos, client_settings->ssml_mode);
         spd_free(msg->buf);
         
         if (newtext == NULL) return -1;
-        
         msg->buf = newtext;
         msg->bytes = strlen(msg->buf);
 

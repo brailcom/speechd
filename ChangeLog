@@ -1,3 +1,66 @@
+2004-06-28  Hynek Hanke  <hanke@chopin>
+
+	* src/server/parse.c (parse_set): New SSIP command SET SELF SSML_MODE.
+
+	* src/server/index_marking.h: Removed find_next_index_mark(), not necessary.
+
+	* src/server/config.c (load_default_global_set_options): Initialize ssml_mode to 0.
+
+	* src/modules/module_utils_audio.c (module_audio_output_child): Initialize bitrate and volume to 0 (default).
+
+	* src/modules/module_utils.h: New file.
+
+	* src/modules/module_utils.c: Some stuff moved to module_utils.h
+
+	* src/modules/module_main.c (main): Cleaning.
+
+	* src/modules/generic.c (module_speak): Strip SSML marks.
+
+	* src/modules/flite.c (module_speak): Strip SSML marks.
+
+	* src/modules/festival.c (module_pause): Now handled through SSML index marks.
+
+	* src/modules/Makefile.am: module_utils.c now linked, not included.
+
+	* src/audio/spd_audio.h: Added headers for some functions.
+
+	* intl/fdsetconv.c: With header fdsetconv.h
+
+	* intl/fdsetconv.h: New file.
+
+	* config/modules/festival.conf: Removed "text transformation" section, no longer necessary.
+
+	* src/modules/module_utils_audio.c (module_audio_output_child): Parameter ``nothing'' removed.
+
+	* src/modules/festival.c (module_load): Festival MaxChunkLength and Delimiters removed.
+	(module_load): FestivalStripPunctChars removed.
+
+	* src/server/set.c (set_ssml_mode_uid): New function.
+
+	* src/server/msg.h (ERR_COULDNT_SET_PRIORITY): SSML MODE messages added.
+
+	* src/server/index_marking.c (strip_index_marks): Rewritten.
+
+	* src/modules/festival_client.c: Use speechd-speak-ssml instead of speechd-speak.
+
+	* src/server/index_marking.c (insert_index_marks): Switch to SSML-type callbacks.
+
+	* src/modules/festival_client.c (festivalStringToWaveGetData): Removed the multiple-waveform
+	behavior.
+
+
+	* Makefile.am (EXTRA_DIST): Include version.sh to the distribution.
+
+
+	* src/modules/festival.c (module_speak): If socket is closed, open a new one.
+
+	* src/modules/festival_client.c (festivalGetDataMulti): New
+	parameters stop_flag and stop_by_close.
+	(socket_receive_file_to_buf2): Variant on
+	socket_receive_file_to_buff capable of stopping in the middle.
+
+	* src/modules/festival.c: festival_pid -> festival_child_pid
+
 2004-05-31  Hynek Hanke  <hanke@volny.cz>
 
 	* configure.in: LIBTOOL_IS_A_FOOL workaround for -rpath by Marcelo Magallon
