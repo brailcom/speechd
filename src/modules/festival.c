@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.9 2003-05-20 19:06:26 hanke Exp $
+ * $Id: festival.c,v 1.10 2003-05-21 00:33:45 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -42,12 +42,16 @@
 
 const int DEBUG_FESTIVAL = 0;
 
+/* TODO: Cleaning, comments! */
+
 /* Thread and process control */
 int festival_speaking = 0;
 int festival_running = 0;
 int waiting_data = 0;
 
 EVoiceType festival_cur_voice = NO_VOICE;
+signed int festival_cur_rate = 0;
+char *festival_cur_language;
 
 pthread_t festival_speak_thread;
 pid_t festival_pid;
@@ -65,6 +69,7 @@ FT_Info *festival_info;
 void* _festival_speak(void*);
 void _festival_synth(void);
 void _festival_sigpause();
+char* _festival_recode(char *data, char *language);
 cst_wave* festival_conv(FT_Wave *fwave);
 int festival_pause_requested = 0;
 
@@ -187,6 +192,9 @@ module_init(void)
     if (DEBUG_FESTIVAL) printf("(init) wave num samples = %d\n", fwave->num_samples);
     festival_test_wave = (cst_wave*) festival_conv(fwave);
 
+    festival_cur_language = malloc(16);
+    strcpy(festival_cur_language, "en");
+
     return 0;
 }
 
@@ -200,6 +208,7 @@ festival_write(gchar *data, gint len, void* v_set)
     float stretch;
     TFDSetElement *set = v_set;
     char *voice;
+    char *text;
 
     /* Tests */
     if(DEBUG_FESTIVAL) printf("festival: write()\n");
@@ -215,11 +224,15 @@ festival_write(gchar *data, gint len, void* v_set)
     }
 
     if(DEBUG_FESTIVAL) printf("requested data: |%s|\n", data);
-	
+
     if (festival_speaking){
         if(DEBUG_FESTIVAL) printf("festival: speaking when requested to festival-write\n");
         return 0;
     }
+
+    /* Convert to the appropriate character set */
+    text = _festival_recode(data, set->language);	
+    if (text == NULL) return -1;
 
     /* Preparing data */
     if((temp = fopen("/tmp/festival_message", "w")) == NULL){
@@ -227,13 +240,13 @@ festival_write(gchar *data, gint len, void* v_set)
         return 0;
     }
     /* This space is important here! */
-    fprintf(temp,"%s \n\r",data);
+    fprintf(temp,"%s \n\r",text);
     fclose(temp);
     fflush(NULL);
 
     /* Setting voice */
     festivalEmptySocket(festival_info);
-    if (set->voice_type != festival_cur_voice){
+    if (set->voice_type != festival_cur_voice || strcmp(set->language, festival_cur_language)){
         voice = module_getvoice(modinfo_festival.settings.voices, set->language,
                                 set->voice_type);
         if (voice == NULL){
@@ -241,12 +254,16 @@ festival_write(gchar *data, gint len, void* v_set)
             return 0;
         }
         festivalSetVoice(festival_info, voice);
+
         festival_cur_voice = set->voice_type;
+        strcpy(festival_cur_language, set->language);
     }
-	
-    stretch = 1;
-    if (set->rate < 0) stretch -= ((float) set->rate) / 50;
-    if (set->rate > 0) stretch -= ((float) set->rate) / 200;
+    
+    /* Setting rate */
+    if (festival_cur_rate != set->rate){
+        festivalSetRate(festival_info, set->rate);
+        festival_cur_rate = set->rate;
+    }
 
     /* Running Festival */
     if(DEBUG_FESTIVAL) printf("Festival: creating new thread for festival_speak\n");
@@ -571,4 +588,19 @@ _festival_sigpause()
 {
     festival_pause_requested = 1;
     if(DEBUG_FESTIVAL) printf("festival: received signal for pause\n");
+}
+
+char *
+_festival_recode(char *data, char *language)
+{
+    char *recoded;
+    
+    if (!strcmp(language, "cs"))
+        recoded = g_convert(data, strlen(data), "ISO8859-2", "UTF-8", NULL, NULL, NULL);
+    else
+        recoded = data;
+
+    if (DEBUG_FESTIVAL && (recoded == NULL)) printf("festival: Conversion to ISO8859-2 failed\n");
+
+    return recoded;
 }
