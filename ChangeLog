@@ -1,3 +1,15 @@
+2003-11-23  Hynek Hanke  <hanke@volny.cz>
+
+	* src/modules/festival.c (festival_set_voice): Set festival_coding.
+	(festival_set_language): Set festival_coding.
+	(module_speak): First update all parameters, then do the recoding and copying
+	of the message (to be able to retrieve the name of the necessary coding first).
+
+	* src/modules/festival_client.c (festival_read_response): Set the expr parameter to the
+	char* value of the expression or NULL if ER was received.
+
+	* src/modules/festival.c (module_init): Fill festival_coding with default iso-8859-1
+
 2003-11-11  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/modules/module_utils.c (module_recode_to_iso): Convert
