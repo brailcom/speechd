@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.7 2003-05-01 10:42:10 hanke Exp $
+  * $Id: speaking.c,v 1.8 2003-05-05 22:42:47 hanke Exp $
   */
 
 #include <glib.h>
@@ -232,7 +232,7 @@ speaking_pause_all(int fd)
     for(i=1;i<=fdmax;i++){
         uid = get_client_uid_by_fd(i);
         if (uid == 0) continue;
-        err += speaking_pause(fd, uid);
+        err += speaking_pause(i, uid);
     }
 
     if (err>0) return 1;
