@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.32 2003-10-07 16:52:01 hanke Exp $
+  * $Id: speaking.c,v 1.33 2003-10-09 21:23:41 hanke Exp $
   */
 
 #include <glib.h>
@@ -28,6 +28,49 @@
 #include "index_marking.h"
 
 TSpeechDMessage *current_message = NULL;
+
+int
+reload_message(TSpeechDMessage *msg)
+{
+    TFDSetElement *client_settings;
+    int im;
+    char *pos;
+    char *newtext;
+
+    if (msg == NULL) return -1;
+    if (msg->settings.index_mark >= 0){
+        client_settings = get_client_settings_by_uid(msg->settings.uid);
+        /* Scroll back to provide context, if required */
+        /* WARNING: This relies on ordered index marks! */
+        im = msg->settings.index_mark + client_settings->pause_context;
+        MSG(5, "Requested index mark is %d (%d+%d)", im, msg->settings.index_mark,
+            client_settings->pause_context);
+        if (im < 0){
+            im = 0;
+            pos = msg->buf;
+        }else{
+            pos = find_index_mark(msg, im);
+            if (pos == NULL) return -1;
+        }
+
+        newtext = strip_index_marks(pos);
+        spd_free(msg->buf);
+        
+        if (newtext == NULL) return -1;
+        
+        msg->buf = newtext;
+        msg->bytes = strlen(msg->buf);
+
+        if(queue_message(msg, -msg->settings.uid, 0, MSGTYPE_TEXT, 0) != 0){
+            if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
+            spd_free(msg->buf);
+            spd_free(msg);
+            return -1;
+        }
+
+        return 0;
+    }
+}
 
 /*
   Speak() is responsible for getting right text from right
@@ -58,9 +101,29 @@ speak(void* data)
                 speaking_pause(pause_requested_fd, pause_requested_uid);
             MSG(4, "Paused...");
             pause_requested = 0;
+            resume_requested = 1;
             continue;
         }
+        
+        if (resume_requested){
+            GList *gl;
+            TSpeechDMessage *element;
+            pthread_mutex_lock(&element_free_mutex);
 
+            /* Is there any message after resume? */
+            if(g_list_length(MessagePausedList) != 0){
+                while(1){
+                    gl = g_list_find_custom(MessagePausedList, (void*) NULL, message_nto_speak);
+                    if ((gl != NULL) && (gl->data != NULL)){
+                        reload_message((TSpeechDMessage*) gl->data);
+                        MessagePausedList = g_list_remove_link(MessagePausedList, gl);
+                    }else break;                    
+                }
+            }
+            pthread_mutex_unlock(&element_free_mutex);
+            resume_requested = 0;
+        }
+        
         /* Look what is the highest priority of waiting
          * messages and take the desired actions on other
          * messages */
@@ -272,33 +335,10 @@ speaking_pause(int fd, int uid)
     im = output_pause();
     if (im == -1) return 0;
     if (current_message == NULL) return 0;
-
-    /* Scroll back to provide context, if required */
-    /* WARNING: This relies on ordered index marks! */
-    im -= settings->pause_context;
-    if (im < 0){
-        im = 0;
-        pos = current_message->buf;
-    }else{
-        /* Construct the new message */
-        pos = find_index_mark(current_message, im);
-        if (pos == NULL) return 1;
-    }
-
-    new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
-    new->bytes = strlen(pos);
-    new->buf = strip_index_marks(pos); 
-
-    assert(new->bytes >= 0);
-    assert(new->buf != NULL);
-    new->buf[new->bytes] = 0;
-
-    if(queue_message(new, fd, 0, MSGTYPE_TEXT, 0) != 0){
-        if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
-        spd_free(new->buf);
-        spd_free(new);
-        return 1;
-    }
+    
+    current_message->settings.index_mark = im;
+    MessagePausedList = g_list_append(MessagePausedList, current_message);
+    current_message = NULL;
 
     return 0;  
 }
@@ -331,22 +371,10 @@ speaking_resume(int uid)
     if (settings == NULL) return 1;
     /* Set it to speak again. */
     settings->paused = 0;
-
-    /* Is there any message after resume? */
-    if(g_list_length(MessagePausedList) != 0){
-        while(1){
-            gl = g_list_find_custom(MessagePausedList, (void*) NULL, message_nto_speak);
-            if (gl != NULL){
-                element = (TSpeechDMessage*) gl->data;
-                MessageQueue->p2 = g_list_append(MessageQueue->p2, element);
-                MessagePausedList = g_list_remove_link(MessagePausedList, gl);
-            }else{
-                speaking_semaphore_post();
-                break;
-            }
-        }
-    }
-
+    
+    resume_requested = 1;
+    speaking_semaphore_post();
+    
     return 0;
 }
 
