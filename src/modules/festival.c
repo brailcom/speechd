@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.45 2003-12-21 21:56:19 hanke Exp $
+ * $Id: festival.c,v 1.46 2004-02-10 21:17:26 hanke Exp $
  */
 
 #include "fdset.h"
@@ -45,6 +45,7 @@ static int festival_pause_requested = 0;
 static char **festival_message;
 static EMessageType festival_message_type;
 static int festival_position = 0;
+signed int festival_volume = 0;
 
 char *festival_coding;
 
@@ -68,6 +69,7 @@ void festival_set_voice(EVoiceType voice);
 void festival_set_language(char* language);
 void festival_set_punctuation_mode(EPunctMode punct);
 void festival_set_cap_let_recogn(ECapLetRecogn recogn);
+void festival_set_volume(signed int volume);
 
 MOD_OPTION_1_INT(FestivalMaxChunkLength);
 MOD_OPTION_1_STR(FestivalDelimiters);
@@ -215,6 +217,7 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
     UPDATE_PARAMETER(voice, festival_set_voice);
     UPDATE_PARAMETER(rate, festival_set_rate);
     UPDATE_PARAMETER(pitch, festival_set_pitch);
+    UPDATE_PARAMETER(volume, festival_set_volume);
     UPDATE_PARAMETER(punctuation_mode, festival_set_punctuation_mode);
     UPDATE_PARAMETER(cap_let_recogn, festival_set_cap_let_recogn);
 
@@ -388,7 +391,8 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
                         if (fwave != NULL){
                             if (fwave->num_samples != 0){
                                 ret = module_parent_send_samples(dpipe, fwave->samples,
-                                                                 fwave->num_samples, fwave->sample_rate);
+                                                                 fwave->num_samples, fwave->sample_rate,
+								 festival_volume);
                                 if (ret == -1) terminate = 1;
                                 if(FestivalDebugSaveOutput){
                                     char filename_debug[256];
@@ -440,7 +444,8 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
                     (fwave->num_samples) * sizeof(short));
                 if (fwave->num_samples != 0){
                     ret = module_parent_send_samples(dpipe, fwave->samples,
-                                                     fwave->num_samples, fwave->sample_rate);
+                                                     fwave->num_samples, fwave->sample_rate,
+						     festival_volume);
                     if (ret == -1) terminate = 1;
                     if(FestivalDebugSaveOutput){
                         char filename_debug[256];
@@ -520,6 +525,12 @@ void
 festival_set_pitch(signed int pitch)
 {
     FestivalSetPitch(festival_info, pitch);
+}
+
+void
+festival_set_volume(signed int volume)
+{
+  festival_volume = volume;
 }
 
 void
