@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.14 2004-07-13 20:05:40 hanke Exp $
+ * $Id: output.c,v 1.15 2004-07-21 08:16:12 hanke Exp $
  */
 
 #include "output.h"
@@ -68,6 +68,7 @@ output_lock(void)
 {
     pthread_mutex_lock(&output_layer_mutex);
 }
+
 static void
 output_unlock(void)
 {
