@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.12 2003-04-17 10:22:54 hanke Exp $
+ * $Id: fdset.h,v 1.13 2003-04-18 21:20:57 hanke Exp $
  */
 
 typedef enum 
@@ -62,14 +62,17 @@ typedef struct{
                                    2	-	only user-selected punctuation */
     char *punctuation_some;
     char *punctuation_table;    /*  Selected punctuation table */
+    int spelling;               /* Spelling mode: 0 or 1 (0 - off, 1 - on) */
+    char* spelling_table;	/* Selected spelling table */
+    char* char_table;           /* Selected character table */
+    char* key_table;            /* Selected key table */
+    char* snd_icon_table;        /* Selected sound icons table */
     signed int speed; 		/* Speed of voice from <-100;+100>, 0 is the default medium */
     signed int pitch;		/* Pitch of voice from <-100;+100>, 0 is the default medium */
     char *client_name;		/* Name of the client. */
     char *language;             /* Selected language name. (e.g. "english", "czech", "french", ...) */
     char *output_module;        /* Output module name. (e.g. "festival", "flite", "apollo", ...) */
     EVoiceType voice_type;      /* see EVoiceType definition above */
-    int spelling;               /* Spelling mode: 0 or 1 (0 - off, 1 - on) */
-    char* spelling_table;	/* Selected spelling table */
     int cap_let_recogn;         /* Capital letters recognition: (0 - off, 1 - on) */
     unsigned int hist_cur_uid;
     int hist_cur_pos;
