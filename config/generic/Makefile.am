@@ -2,5 +2,5 @@
 
 genconfdir = $(spdconfdir)/generic
 
-dist_enconf_DATA = *.conf
+dist_genconf_DATA = *.conf
 
