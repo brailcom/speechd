@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.32 2003-06-05 16:30:40 hanke Exp $
+ * $Id: speechd.h,v 1.33 2003-06-20 00:50:35 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -96,6 +96,9 @@ typedef struct
     GList *punctuation;
 }TSpeechDTables;
 
+configoption_t *options;
+int num_config_options;
+
 /* Message logging */
 int spd_log_level;
 void MSG(int level, char *format, ...);
@@ -149,9 +152,13 @@ OutputModule *sound_module;
 
 /* Arrays needed for receiving data over socket */
 int *awaiting_data;
-int *o_bytes;
+size_t *o_bytes;
 GString **o_buf;
 int fds_allocated;
+
+int pause_requested;
+int pause_requested_fd;
+int pause_requested_uid;
 
 /* Loads output module */
 OutputModule* load_output_module(gchar* modname);
@@ -165,14 +172,14 @@ int serve(int fd);
 
 /* Functions for parsing the input from clients */
 /* also parse() */
-char* get_param(char *buf, int n, int bytes, int lower_case);
+char* get_param(const char *buf, const int n, const int bytes, const int lower_case);
 
 /* Stops all messages from client on fd */
 void stop_from_client(int fd);
 
 /* isanum() tests if the given string is a number,
  * returns 1 if yes, 0 otherwise. */
-int isanum(char *str);
+int isanum(const char *str);
 
 TFDSetElement* get_client_settings_by_uid(int uid);
 TFDSetElement* get_client_settings_by_fd(int fd);
