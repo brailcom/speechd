@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.c,v 1.2 2003-10-15 20:09:10 hanke Exp $
+ * $Id: options.c,v 1.3 2003-10-19 23:37:22 hanke Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would
@@ -41,19 +41,20 @@ options_print_help(char *argv[])
     assert(argv);
     assert(argv[0]);
 
-    printf("Usage: %s [-{d|s}] [-l {1|2|3|4|5}] [-p=port] | [-h]\n", argv[0]);
+    printf("Usage: %s [-{d|s}] [-l {1|2|3|4|5}] [-p=port] | [-v] | [-h]\n", argv[0]);
     printf("Speech Dispatcher -- Common interface for Speech Synthesis (GNU GPL)\n\n");
     printf("-d, --run-daemon     -      Run as a daemon\n"
     "-s, --run-single     -      Run as single application\n"
     "-l, --log-level      -      Set log level (1..5)\n"
     "-p, --port           -      Specify a port number\n"
+    "-v, --version        -      Report version of this program\v"
     "-h, --help           -      Print this info\n\n"
     "Copyright (C) 2003 Brailcom, o.p.s.\n"
     "This is free software; you can redistribute it and/or modify it\n"
     "under the terms of the GNU General Public License as published by\n"
     "the Free Software Foundation; either version 2, or (at your option)\n"
     "any later version. Please see COPYING for more details.\n\n"
-    "Please report bugs to <speechd@freebsoft.org>\n\n");
+    "Please report bugs to <speechd-bugs@freebsoft.org>\n\n");
 
 }
 
