@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.33 2003-07-18 21:38:11 hanke Exp $
+ * $Id: dc_decl.h,v 1.34 2003-07-22 22:50:06 hanke Exp $
  */
 
 #include "speechd.h"
@@ -214,7 +214,6 @@ DOTCONF_CB(cb_Port)
 
     if (!spd_port_set){
         spd_port = cmd->data.value;        
-        spd_port_set = 1;
     }
 
     return NULL;
@@ -236,6 +235,7 @@ DOTCONF_CB(cb_LogFile)
         printf("Error: can't open logging file! Using stdout.\n");
         logfile = stdout;
     }
+    
     MSG(2,"Speech Dispatcher Logging to file %s", cmd->data.str);
     return NULL;
 }
@@ -251,7 +251,6 @@ DOTCONF_CB(cb_LogLevel)
 
     if (!spd_log_level_set){
         spd_log_level = level;
-        spd_log_level_set = 1;
     }
 
     MSG(4,"Speech Dispatcher Logging with priority %d", spd_log_level);
@@ -640,7 +639,7 @@ DOTCONF_CB(cb_AddVoice)
 {
     SPDVoiceDef *voices;
     char *language = cmd->data.list[0];
-    char *symbolic = cmd->data.list[1];
+    char *symbolic;
     char *voicename = cmd->data.list[2];
     char *key;
     SPDVoiceDef *value;
@@ -655,10 +654,10 @@ DOTCONF_CB(cb_AddVoice)
         return NULL;
     }
 
-    if (symbolic == NULL){
+    if (cmd->data.list[1] == NULL){
         MSG(2,"Missing symbolic name.");
         return NULL;
-    }
+    }   
 
     if (voicename == NULL){
         MSG(2,"Missing voice name for %s", cmd->data.list[0]);
@@ -668,6 +667,8 @@ DOTCONF_CB(cb_AddVoice)
     if (cur_mod->settings.voices == NULL){
         return NULL;
     }
+
+    symbolic = g_ascii_strup(cmd->data.list[1], strlen(cmd->data.list[1]));
 
     MSG(3,"Adding voice: [%s] %s=%s", language,
         symbolic, voicename);
@@ -685,14 +686,14 @@ DOTCONF_CB(cb_AddVoice)
         voices = value;
     }
     
-    if (!strcmp(symbolic, "male1")) voices->male1 = set_voice(voicename);
-    else if (!strcmp(symbolic, "male2")) voices->male2 = set_voice(voicename);
-    else if (!strcmp(symbolic, "male3")) voices->male3 = set_voice(voicename);
-    else if (!strcmp(symbolic, "female1")) voices->female1 = set_voice(voicename);
-    else if (!strcmp(symbolic, "female2")) voices->female2 = set_voice(voicename);
-    else if (!strcmp(symbolic, "female3")) voices->female3 = set_voice(voicename);
-    else if (!strcmp(symbolic, "child_male")) voices->child_male = set_voice(voicename);
-    else if (!strcmp(symbolic, "child_female")) voices->child_female = set_voice(voicename);
+    if (!strcmp(symbolic, "MALE1")) voices->male1 = set_voice(voicename);
+    else if (!strcmp(symbolic, "MALE2")) voices->male2 = set_voice(voicename);
+    else if (!strcmp(symbolic, "MALE3")) voices->male3 = set_voice(voicename);
+    else if (!strcmp(symbolic, "FEMALE1")) voices->female1 = set_voice(voicename);
+    else if (!strcmp(symbolic, "FEMALE2")) voices->female2 = set_voice(voicename);
+    else if (!strcmp(symbolic, "FEMALE3")) voices->female3 = set_voice(voicename);
+    else if (!strcmp(symbolic, "CHILD_MALE")) voices->child_male = set_voice(voicename);
+    else if (!strcmp(symbolic, "CHILD_FEMALE")) voices->child_female = set_voice(voicename);
     else{
         MSG(2, "Unrecognized symbolic voice name.");
         return NULL;
