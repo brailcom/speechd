@@ -1,3 +1,14 @@
+2003-06-23    <buchal@domaciskola.robinson>
+
+	* src/modules/festival.c (festival_set_voice): Set cur_rate
+	and cur_pitch to 0 on voice change.
+
+	* src/modules/festival_client.c (festivalSetPitch): Control
+	if festival_info is ok.
+
+	* src/server/server.c (serve): Read only BUF_SIZE-1 bytes,
+	as BUF_SIZE is with the trailing 0.
+
 2003-06-23  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* src/server/module.c: Renaming to spd_options and spd_num_options.
