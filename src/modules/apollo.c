@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.9 2003-04-29 14:56:47 pdm Exp $
+ * $Id: apollo.c,v 1.10 2003-05-01 10:41:37 hanke Exp $
  */
 
 
@@ -43,8 +43,7 @@ gint apollo_close (void);
 OutputModule module_apollo = {
   "apollo",			/* name */
   "Apollo2 hardware synthesizer", /* description */
-  NULL,				/* filename -- what's it? */
-  NULL,				/* GModule* -- what's it? */
+  NULL,				/* GModule* -- should be left NULL */
   apollo_write,
   apollo_stop,
   apollo_pause,
@@ -261,7 +260,7 @@ char* apollo_pause (void)
 
 gint apollo_is_speaking (void)
 {
-  return 0;			/* How to do anything better? */
+    return 2;			/* Apollo doesn't provide any information */
 }
 
 gint apollo_close (void)
