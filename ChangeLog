@@ -1,4 +1,17 @@
+
 2003-05-07  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/tests/spelling.test: New test.
+	
+	* src/server/dc_decl.h: Exit if the specified output module doesn't exist.
+	
+	* src/tests/punctuation.test: New test.
+
+	* src/server/parse.c: Added "LIST PUNCTUATION_TABLES"
+	
+	* src/server/server.c (process_message_punctuation): Bug corrected.
+
+2003-05-07  Hynek Hanke  <hanke@volny.cz>
 	
 	* config/speechd.conf (SndModule): New option: sound module to load.
 	Fixed sound->rate in commentaries.
