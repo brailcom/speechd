@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.24 2003-07-07 08:42:14 hanke Exp $
+ * $Id: set.c,v 1.25 2003-07-16 19:19:55 hanke Exp $
  */
 
 #include "set.h"
@@ -312,7 +312,7 @@ set_client_name_self(int fd, char *client_name)
     if (settings == NULL) return 1;
 
     /* Is the parameter a valid client name? */
-    for(i=0; i <= strlen(client_name)+1; i++)
+    for(i=0; i <= strlen(client_name)-1; i++)
         if(client_name[i]==':') dividers++;
     if (dividers != 2) return 1;
     
