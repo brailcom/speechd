@@ -1,3 +1,8 @@
+2003-11-17  Hynek Hanke  <hanke@volny.cz>
+
+	* speechd.texi (Parameter Setting Commands): Added SET * SPELLING
+	(Parameter Setting Commands): Modified SET * PUNCTUATION.
+
 2003-11-07  Hynek Hanke  <hanke@volny.cz>
 
 	* speechd.texi (Speech Synthesis Commands in C): SPDPriority substitued
