@@ -1,3 +1,8 @@
+2004-11-14  Milan Zamazal  <pdm@zamazal.org>
+
+	* src/audio/Makefile.am (libsdaudio_la_LDFLAGS): -L/usr/X11R6/lib
+	added.
+
 2004-11-14  Milan Zamazal  <pdm@brailcom.org>
 
 	* configure.in (audio): -L/usr/X11R6/lib added to the test.
