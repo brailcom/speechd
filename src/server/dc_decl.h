@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.37 2003-09-24 08:42:01 pdm Exp $
+ * $Id: dc_decl.h,v 1.38 2003-09-28 22:29:39 hanke Exp $
  */
 
 #include "speechd.h"
@@ -59,6 +59,7 @@ DOTCONF_CB(cb_DefaultSpellingTable);
 DOTCONF_CB(cb_DefaultCharacterTable);
 DOTCONF_CB(cb_DefaultKeyTable);
 DOTCONF_CB(cb_DefaultSoundTable);
+DOTCONF_CB(cb_DefaultPauseContext);
 DOTCONF_CB(cb_AddModule);
 DOTCONF_CB(cb_MinDelayProgress);
 DOTCONF_CB(cb_MaxHistoryMessages);
@@ -160,7 +161,8 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(DefaultCharacterTable, ARG_STR);
     ADD_CONFIG_OPTION(DefaultKeyTable, ARG_STR);
     ADD_CONFIG_OPTION(DefaultSoundTable, ARG_STR);
-    ADD_CONFIG_OPTION(DefaultCapLetRecognition, ARG_STR)
+    ADD_CONFIG_OPTION(DefaultCapLetRecognition, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultPauseContext, ARG_INT);  
     ADD_CONFIG_OPTION(AddModule, ARG_LIST);
     ADD_CONFIG_OPTION(MinDelayProgress, ARG_INT);
     ADD_CONFIG_OPTION(BeginClient, ARG_STR);
@@ -194,6 +196,8 @@ load_default_global_set_options()
     GlobalFDSet.cap_let_recogn = 0;
     GlobalFDSet.cap_let_recogn_sound = NULL;
     GlobalFDSet.min_delay_progress = 2000;
+    GlobalFDSet.pause_context = 0;
+
 
     MaxHistoryMessages = 10000;
 
@@ -392,6 +396,7 @@ DOTCONF_CB(cb_AddTable)
     icons_hash = g_hash_table_lookup(snd_icon_langs, language);
     if(!icons_hash){
         icons_hash = g_hash_table_new(g_str_hash, g_str_equal);
+        if (!strcmp(language, "generic")) generic_lang_icons = icons_hash;
         g_hash_table_insert(snd_icon_langs, language, icons_hash);
     }
     
@@ -402,7 +407,7 @@ DOTCONF_CB(cb_AddTable)
         strcpy(bline, helper);
         character = strtok(helper, "\"");
 
-	    if (character == NULL){
+        if (character == NULL){
             /* probably a blank line or commentary */
             continue;
         }
@@ -602,6 +607,8 @@ DOTCONF_CB(cb_LanguageDefaultModule)
     return NULL;
 }
 
+GLOBAL_FDSET_OPTION_CB_INT(DefaultPauseContext, pause_context);
+
 DOTCONF_CB(cb_AddModule)
 {
     char *module_name;
@@ -659,6 +666,7 @@ DOTCONF_CB(cb_BeginClient)
     SET_PAR(spelling_mode, -1)
     SET_PAR(voice, -1)
     SET_PAR(cap_let_recogn, -1)
+    SET_PAR(pause_context, -1);
     SET_PAR_STR(punctuation_some)
     SET_PAR_STR(punctuation_table)
     SET_PAR_STR(spelling_table)
