@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.27 2003-09-07 11:31:28 hanke Exp $
+ * $Id: set.c,v 1.28 2003-09-28 22:31:05 hanke Exp $
  */
 
 #include "set.h"
@@ -324,6 +324,7 @@ update_cl_settings(gpointer data, gpointer user_data)
     CHECK_SET_PAR(spelling_mode, -1)
     CHECK_SET_PAR(voice, -1)
     CHECK_SET_PAR(cap_let_recogn, -1)
+    CHECK_SET_PAR(pause_context, -1)
     CHECK_SET_PAR_STR(punctuation_some)
     CHECK_SET_PAR_STR(punctuation_table)
     CHECK_SET_PAR_STR(spelling_table)
@@ -334,6 +335,7 @@ update_cl_settings(gpointer data, gpointer user_data)
     CHECK_SET_PAR_STR(output_module)
     CHECK_SET_PAR_STR(cap_let_recogn_table)
     CHECK_SET_PAR_STR(cap_let_recogn_sound)
+
 
     return;
 }
@@ -434,6 +436,21 @@ set_output_module_uid(int uid, char* output_module)
     return 0;
 }
 
+SET_SELF_ALL(int, pause_context);
+
+set_pause_context_uid(int uid, int pause_context)
+{
+    TFDSetElement *settings;
+
+    if ((pause_context < 0)) return 1;
+
+    settings = get_client_settings_by_uid(uid);
+    if (settings == NULL) return 1;
+
+    set_param_int(&settings->pause_context, pause_context);
+    return 0;
+}
+
 TFDSetElement*
 default_fd_set(void)
 {
@@ -462,6 +479,7 @@ default_fd_set(void)
 	new->voice = GlobalFDSet.voice;
 	new->spelling_mode = GlobalFDSet.spelling_mode;         
 	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;       
+        new->pause_context = GlobalFDSet.pause_context;
 	new->active = 1;
 	new->hist_cur_uid = -1;
 	new->hist_cur_pos = -1;
