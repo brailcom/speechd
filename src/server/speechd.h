@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.10 2003-02-01 22:16:55 hanke Exp $
+ * $Id: speechd.h,v 1.11 2003-03-09 20:52:11 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -102,6 +102,8 @@ GList *MessagePausedList;
 
 GList *fd_settings;	// list of current settings for each
 				// client (= each active socket)
+
+GHashTable *snd_icon_langs;
 
 TFDSetElement GlobalFDSet;
 
