@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.15 2003-04-11 20:40:13 hanke Exp $
+ * $Id: parse.c,v 1.16 2003-04-12 11:24:58 hanke Exp $
  */
 
 #include "speechd.h"
@@ -371,42 +371,6 @@ parse_resume(char *buf, int bytes, int fd)
     return OK_RESUMED;
 }
 
-/*
-  Returns 0 on succes, 
-  1 if the table for the specified language wasn't found
-  2 if there is no such sound icon
-*/
-
-int
-queue_icon(int fd, char* language, char* prefix, char* name)
-{
-    GHashTable *icons;
-    TSpeechDMessage *new;
-    char *key;
-    char *text;
-
-    icons = g_hash_table_lookup(snd_icon_langs, language);
-    if (icons == NULL){
-        icons = g_hash_table_lookup(snd_icon_langs, GlobalFDSet.language);
-        if (icons == NULL) return 1;
-    }
-
-    key = (char*) spd_malloc((strlen(name) + strlen(prefix) + 3) * sizeof(char));
-    sprintf(key, "%s_%s", prefix, name);
-	
-    text = g_hash_table_lookup(icons, key); 
-
-    if(text == NULL) return 2;
-
-    new = malloc(sizeof(TSpeechDMessage));
-    new->bytes = strlen(text)+1;
-    new->buf = malloc(new->bytes);
-    strcpy(new->buf, text);
-    if(queue_message(new,fd))  FATAL("Couldn't queue message\n");
-
-    return 0;
-}
-
 char*
 parse_snd_icon(char *buf, int bytes, int fd)
 {
@@ -416,12 +380,10 @@ parse_snd_icon(char *buf, int bytes, int fd)
     	
     param = get_param(buf,1,bytes, 0);
     if (param == NULL) return ERR_MISSING_PARAMETER;
-	
-    settings = get_client_settings_by_fd(fd);
-    if (settings == NULL)
-        FATAL("Couldn't find settings for active client, internal error."); 
+    MSG(4,"Parameter caught: %s", param);
 
-    ret = queue_icon(fd, settings->language, "icons", param);
+    ret = sndicon_icon(fd, param);
+	
     if (ret!=0){
         if(ret == 1) return ERR_NO_SND_ICONS;
         if(ret == 2) return ERR_UNKNOWN_ICON;
@@ -439,17 +401,14 @@ parse_char(char *buf, int bytes, int fd)
 
     param = get_param(buf,1,bytes, 0);
     if (param == NULL) return ERR_MISSING_PARAMETER;
-    MSG(4,"Parameter catched: %s", param);
+    MSG(4,"Parameter caught: %s", param);
 
-    settings = get_client_settings_by_fd(fd);
-    if (settings == NULL)
-        FATAL("Couldn't find settings for active client, internal error."); 
-
-    ret = queue_icon(fd, settings->language, settings->spelling_table, param);
-    if (ret!=0){
+    ret = sndicon_char(fd, param);
+   	if (ret!=0){
         if(ret == 1) return ERR_NO_SND_ICONS;
         if(ret == 2) return ERR_UNKNOWN_ICON;
     }
+	
     return OK_SND_ICON_QUEUED;
 }
 
@@ -462,13 +421,9 @@ parse_key(char* buf, int bytes, int fd)
 
     param = get_param(buf, 1, bytes, 0);
     if (param == NULL) return ERR_MISSING_PARAMETER;
-    MSG(4,"Parameter catched: %s", param);
+    MSG(4,"Parameter caught: %s", param);
 
-    settings = get_client_settings_by_fd(fd);
-    if (settings == NULL)
-        FATAL("Couldn't find settings for active client, internal error."); 
-
-    ret = queue_icon(fd, settings->language, "keys", param);
+    ret = sndicon_key(fd, param);
     if (ret != 0){
         if(ret == 1) return ERR_NO_SND_ICONS;
         if(ret == 2) return ERR_UNKNOWN_ICON;
