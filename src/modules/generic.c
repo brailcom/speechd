@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.14 2004-06-28 08:06:46 hanke Exp $
+ * $Id: generic.c,v 1.15 2004-07-13 20:04:52 hanke Exp $
  */
 
 #include <glib.h>
@@ -135,7 +135,12 @@ module_init(void)
     DBG("GenericMaxChunkLength = %d\n", GenericMaxChunkLength);
     DBG("GenericDelimiters = %s\n", GenericDelimiters);
     DBG("GenericExecuteSynth = %s\n", GenericExecuteSynth);
-    
+
+    generic_msg_language = (TGenericLanguage*) xmalloc(sizeof(TGenericLanguage));
+    generic_msg_language->code = strdup("en");
+    generic_msg_language->charset = strdup("iso-8859-1");
+    generic_msg_language->name = strdup("english");    
+
     generic_message = malloc (sizeof (char*));    
     generic_semaphore = module_semaphore_init();
 
@@ -154,6 +159,8 @@ module_init(void)
 int
 module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 {
+    char *tmp;
+
     DBG("speak()\n");
 
     if (generic_speaking){
@@ -164,27 +171,33 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 
     if(module_write_data_ok(data) != 0) return -1;
 
+    UPDATE_STRING_PARAMETER(language, generic_set_language);
+    UPDATE_PARAMETER(voice, generic_set_voice);
 
     UPDATE_PARAMETER(pitch, generic_set_pitch);
     UPDATE_PARAMETER(rate, generic_set_rate);
     UPDATE_PARAMETER(volume, generic_set_volume);
-    UPDATE_STRING_PARAMETER(language, generic_set_language);
-    UPDATE_PARAMETER(voice, generic_set_voice);
-
 
     /* Set the appropriate charset */
     assert(generic_msg_language != NULL);
     if (generic_msg_language->charset != NULL){
-	*generic_message = 
+	DBG("Recoding from UTF-8 to %s...", generic_msg_language->charset);
+	tmp = 
 	    (char*) g_convert_with_fallback(data, bytes, generic_msg_language->charset,
 					    "UTF-8", GenericRecodeFallback, NULL, NULL,
 					    NULL);
     }else{
-	*generic_message = module_recode_to_iso(data, bytes, generic_msg_language->name,
+	DBG("Warning: Recoding to language default iso, might not be ok...");
+	tmp = module_recode_to_iso(data, bytes, generic_msg_language->name,
 						GenericRecodeFallback);
     }
 
+    *generic_message = module_strip_ssml(tmp);
+    xfree(tmp);
+
     module_strip_punctuation_some(*generic_message, GenericStripPunctChars);
+
+
 
     generic_message_type = MSGTYPE_TEXT;
 
@@ -505,18 +518,21 @@ void
 generic_set_language(char *lang)
 {
 
-    generic_msg_language = (TGenericLanguage*) module_get_ht_option(GenericLanguage, 
+    generic_msg_language = (TGenericLanguage*) module_get_ht_option(GenericLanguage,
 							lang);
     if (generic_msg_language == NULL){
-	DBG("Language %s not found in the configuration file.", lang);
+	DBG("Language %s not found in the configuration file, using defaults.", lang);
 	generic_msg_language = (TGenericLanguage*) xmalloc(sizeof(TGenericLanguage));
 	generic_msg_language->code = strdup("en");
-	generic_msg_language->charset = NULL;
+	generic_msg_language->charset = strdup("iso-8859-1");
 	generic_msg_language->name = strdup("english");
     }
 
     if (generic_msg_language->name == NULL){
 	DBG("Language name for %s not found in the configuration file.", lang);
+	generic_msg_language = (TGenericLanguage*) xmalloc(sizeof(TGenericLanguage));
+	generic_msg_language->code = strdup("en");
+	generic_msg_language->charset = strdup("iso-8859-1");
 	generic_msg_language->name = strdup("english");
     }
 
