@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: run_test.c,v 1.5 2003-07-16 19:23:53 hanke Exp $
+ * $Id: run_test.c,v 1.6 2003-12-18 23:43:08 hanke Exp $
  */
 
 #include <stdio.h>
@@ -169,16 +169,24 @@ main(int argc, char* argv[])
 
         if(line[0] == '$'){
             if (delays){
-                command = (char*) strtok(line, "$\r\n");
+                command = (char*) strtok(&(line[1]), "$\r\n");
                 sleep(atoi(command));
             }
             continue;
         }
 
+        if(line[0] == '^'){
+            if (delays){
+                command = (char*) strtok(&(line[1]), "$\r\n");
+                usleep(atol(command));
+            }
+            continue;
+        }
+
         if(line[0] == '~'){
-			  int i;
-              command = (char*) strtok(line, "~\r\n");
-			  	indent = atoi(command);
+            int i;
+            command = (char*) strtok(line, "~\r\n");
+            indent = atoi(command);
             continue;
         }
 				
