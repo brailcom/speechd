@@ -1471,6 +1471,13 @@ With parameter @code{icon}, each capital letter will be preceeded
 by a sound icon (either sound or textual) specified by the user
 in his configuration.
 
+@item SET @{ all | self | @var{id} @} PAUSE_CONTEXT @var{n}
+Set the number of index marks (more or less the number of sentences)
+that should be repeated after a previously paused text is resumed.
+If there isn't enough text before the place of the pause, the entire
+message is repeated. @var{n} is a positive integer value specifying
+the number of index marks to repeat.
+
 @item SET @{ all | self | @var{id} @} HISTORY @{ on | off @}
 Enable (@code{on}) or disable (@code{off}) storing of received
 messages into history.
