@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.39 2003-10-29 11:09:42 hanke Exp $
+  * $Id: speaking.c,v 1.40 2003-12-21 22:03:19 hanke Exp $
   */
 
 #include <glib.h>
@@ -132,7 +132,10 @@ speak(void* data)
         /* Write the message to the output layer. */
         ret = output_speak(message);
         MSG(4,"Message sent to output module");
-        if (ret == -1) MSG(2, "Error: Output module failed");
+        if (ret == -1){
+            MSG(2, "Error: Output module failed");
+            output_check_module(message);
+        }
 
         /* Set the id of the client who is speaking. */
         speaking_uid = message->settings.uid;

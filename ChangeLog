@@ -1,4 +1,32 @@
-2003-12-19    <hanke@robinson>
+2003-12-21  Hynek Hanke  <hanke@volny.cz>
+
+	* config/modules/festival.conf: Updated.
+	New parameters (caching) added.
+
+	* TODO: Updated.
+
+	* version.sh (VERSION): Updated to version 0.2
+
+	* src/tests/README: Updated to reflect the new '^' command, missing
+	commands added also.
+
+	* src/modules/festival.c (cache_destroy_entry): New function.
+	(cache_destroy_table_entry): New function.
+	(cache_free_counter_entry): New function.
+	(cache_init): Init cache_counter.
+	(cache_destroy): Destroy cache_counter.
+	(cache_reset): Do nothing.
+	(cache_counter_comp): New function.
+	(cache_debug_foreach_list_score): New function.
+	(cache_clean): New function.
+	(cache_gen_key): New function.
+	(cache_insert): Take into account the festival.conf parameters for cache.
+	Remove less requested samples from cache when the maximum allowed amount
+	of memmory is consumed.
+	(cache_lookup): Take into account the festival.conf parameters for cache.
+	(cache_lookup): Update counter of requests for the item in cache.
+
+2003-12-19 Hynek Hanke <hanke@robinson>
 
 	* src/modules/festival.c: Use multiple caches for different
 	languages.

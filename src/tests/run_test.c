@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: run_test.c,v 1.6 2003-12-18 23:43:08 hanke Exp $
+ * $Id: run_test.c,v 1.7 2003-12-21 22:07:31 hanke Exp $
  */
 
 #include <stdio.h>
@@ -98,26 +98,26 @@ main(int argc, char* argv[])
     char *ret;
     FILE* test_file = NULL;
     int delays = 1;
-	int indent = 0;
+    int indent = 0;
 	
     if(argc < 2){
         printf("No test script specified!\n");
         exit(1);
     }
 	
-	if (!strcmp(argv[1],"stdin")){
-	 	test_file = stdin;
-	}else{
-	    test_file = fopen(argv[1], "r");
-	    if(test_file == NULL) FATAL("Test file doesn't exist");
-	}	
+    if (!strcmp(argv[1],"stdin")){
+        test_file = stdin;
+    }else{
+        test_file = fopen(argv[1], "r");
+        if(test_file == NULL) FATAL("Test file doesn't exist");
+    }	
 
     if(argc == 3){
         if(!strcmp(argv[2],"fast")) delays = 0;
-		else{
-	    	printf("Unrecognized parameter\n");
-			exit(1);
-		}
+        else{
+            printf("Unrecognized parameter\n");
+            exit(1);
+        }
     }
 	
     printf("Start of the test.\n");
@@ -142,9 +142,9 @@ main(int argc, char* argv[])
         if (line[0] == '@'){
             command = (char*) strtok(line, "@\r\n");
             if (command == NULL)
-				printf("\n");
-			else
-	            printf("  %s\n", command);
+                printf("\n");
+            else
+                printf("  %s\n", command);
             continue;
         }
 
@@ -193,16 +193,16 @@ main(int argc, char* argv[])
 		
         if(line[0] == '?'){
             getc(stdin);
-			continue;
+            continue;
         }
         
-		if(line[0] == '*'){
-			system("clear");
-			for (i=0; i<=indent - 1; i++){
-	  		  printf("\n");
-			}				
-			continue;
-		}
+        if(line[0] == '*'){
+            system("clear");
+            for (i=0; i<=indent - 1; i++){
+                printf("\n");
+            }				
+            continue;
+        }
 		
         send_data(sockk, line, 0);            
         printf("     >> %s", line);
