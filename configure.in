@@ -11,6 +11,37 @@ AM_INIT_AUTOMAKE("speech-dispatcher", "`cat version.sh|grep '^VERSION'|awk -F= '
 
 AM_CONFIG_HEADER(config.h)
 
+
+dnl Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS(limits.h sys/ioctl.h sys/time.h unistd.h)
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_HEADER_TIME
+
+dnl Checks for library functions.
+AC_PROG_GCC_TRADITIONAL
+AC_CHECK_FUNCS(select socket)
+
+AC_PROG_INSTALL
+AC_PROG_MAKE_SET
+
+AC_PROG_LIBTOOL
+
+# by Marcelo Magallon <mmagallo@efis.ucr.ac.cr>
+# Turn around -rpath problem with libtool
+# This define should be improbable enough to not conflict with anything
+case ${host} in
+  *-pc-linux-gnu)
+    AC_MSG_RESULT([Fixing libtool for -rpath problems.])
+    sed < libtool > libtool-2 \
+    's/^hardcode_libdir_flag_spec.*$/hardcode_libdir_flag_spec=" -D__LIBTOOL_IS_A_FOOL__ "/'
+    mv libtool-2 libtool
+    chmod 755 libtool
+  ;;
+esac
+
 dnl Checks for libraries.
 AC_CHECK_LIB(m,
         sqrt, echo "",
@@ -57,6 +88,18 @@ AC_CHECK_LIB(flite_cmu_us_kal16,
 
 AC_SUBST(flite_basic)
 AC_SUBST(flite_kal)
+
+AC_ARG_WITH(flite, AS_HELP_STRING(--with-flite, Compile with Festival Lite (Flite) support),
+		 if test $withval = "no"; then 
+		    echo "Forced compilation without Flite support."; 
+		    flite_ok="false";
+		 else 
+		    if test $flite_ok = "false"; then
+		       echo "Flite support is not available. Sorry."; exit 1;
+		    fi
+                 fi
+ 		 echo "")
+
 AM_CONDITIONAL(flite_support, test $flite_ok = "true")
 
 AC_CHECK_LIB(audio,
@@ -64,6 +107,17 @@ AC_CHECK_LIB(audio,
 	nas_aud="true";echo "Compiling with NAS support.";,
         nas_aud="false";echo "*** NAS Audio library missing. Compiling without NAS support! See INSTALL.";,
 	-L/usr/X11R6/lib -lXau)
+
+AC_ARG_WITH(nas, AS_HELP_STRING(--with-nas, Compile with Network Audio System (NAS) support),
+		 if test $withval = "no"; then 
+		    echo "Forced compilation without NAS support.";
+		    nas_aud="false";
+		 else 
+		    if test $nas_aud = "false"; then
+		       echo "NAS support is not available. Sorry."; exit 1;
+		    fi
+                 fi
+ 		 echo "")
 
 AM_CONDITIONAL(nas_support, test $nas_aud = "true")
 
@@ -95,43 +149,12 @@ AC_SUBST(LIB_SDAUDIO_CURRENT)
 AC_SUBST(LIB_SDAUDIO_REVISION)
 AC_SUBST(LIB_SDAUDIO_AGE)
 
-
 LIB_SPD_CURRENT=2
 LIB_SPD_REVISION=1
 LIB_SPD_AGE=1
 AC_SUBST(LIB_SPD_CURRENT)
 AC_SUBST(LIB_SPD_REVISION)
 AC_SUBST(LIB_SPD_AGE)
-
-dnl Checks for header files.
-AC_HEADER_STDC
-AC_CHECK_HEADERS(limits.h sys/ioctl.h sys/time.h unistd.h)
-
-dnl Checks for typedefs, structures, and compiler characteristics.
-AC_C_CONST
-AC_HEADER_TIME
-
-dnl Checks for library functions.
-AC_PROG_GCC_TRADITIONAL
-AC_CHECK_FUNCS(select socket)
-
-AC_PROG_INSTALL
-AC_PROG_MAKE_SET
-
-AC_PROG_LIBTOOL
-
-# by Marcelo Magallon <mmagallo@efis.ucr.ac.cr>
-# Turn around -rpath problem with libtool
-# This define should be improbable enough to not conflict with anything
-case ${host} in
-  *-pc-linux-gnu)
-    AC_MSG_RESULT([Fixing libtool for -rpath problems.])
-    sed < libtool > libtool-2 \
-    's/^hardcode_libdir_flag_spec.*$/hardcode_libdir_flag_spec=" -D__LIBTOOL_IS_A_FOOL__ "/'
-    mv libtool-2 libtool
-    chmod 755 libtool
-  ;;
-esac
 
 AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/c/Makefile src/c/api/Makefile src/c/clients/Makefile src/c/clients/say/Makefile src/c/clients/spdsend/Makefile src/tests/Makefile src/audio/Makefile config/Makefile config/modules/Makefile config/clients/Makefile doc/Makefile])
 
