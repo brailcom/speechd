@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.14 2003-03-23 21:14:16 hanke Exp $
+ * $Id: speechd.c,v 1.15 2003-03-24 22:27:25 hanke Exp $
  */
 
 #include <signal.h>
@@ -236,7 +236,7 @@ speechd_connection_destroy(int fd)
 	/* Client has gone away and we remove it from the descriptor set. */
 	MSG(3,"   removing client on fd %d\n", fd);
 
-	MSG(5,"       removing client from settings \n");
+	MSG(4,"       removing client from settings \n");
 	fdset_element = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);
 	if(fdset_element != NULL){
 		g_hash_table_remove(fd_settings, &fd);
