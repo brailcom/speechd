@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.c,v 1.18 2003-07-16 19:20:05 hanke Exp $
+ * $Id: sndicon.c,v 1.19 2003-07-18 21:39:28 hanke Exp $
 */
 
 #include "sndicon.h"
@@ -34,6 +34,7 @@ sndicon_queue(int fd, char* language, char* prefix, char* name)
     char *key;
     char *text;
     char *ret;
+    int reparted;
 
     icons = g_hash_table_lookup(snd_icon_langs, language);
     if (icons == NULL){
@@ -45,10 +46,17 @@ sndicon_queue(int fd, char* language, char* prefix, char* name)
     sprintf(key, "%s_%s", prefix, name);
 	
     text = g_hash_table_lookup(icons, key); 
-    if(text == NULL) return 2;
+    if(text == NULL){
+        icons = g_hash_table_lookup(snd_icon_langs, GlobalFDSet.language);
+        if (icons == NULL) return 2;
+        text = g_hash_table_lookup(icons, key); 
+        if (text == NULL) return 2;
+    } 
 
     new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
     ret = (char*) spd_malloc ((strlen(text) + 1 + strlen(SOUND_DATA_DIR) + 1) * sizeof(char));
+
+    reparted = inside_block[fd];
 
     if(text[0] == '\"'){
         /* Strip the leading and the trailing quotes */
@@ -56,13 +64,13 @@ sndicon_queue(int fd, char* language, char* prefix, char* name)
         ret[strlen(ret)-1] = 0;
         new->bytes = strlen(ret)+1;
         new->buf = ret;
-        if(queue_message(new, fd, 1, MSGTYPE_TEXTP, 0))  FATAL("Couldn't queue message\n");
+        if(queue_message(new, fd, 1, MSGTYPE_TEXTP, reparted))  FATAL("Couldn't queue message\n");
     }else{     
         if(text[0] != '/') sprintf(ret, "%s/%s", SOUND_DATA_DIR, text);
         else strcpy(ret, text);
         new->bytes = strlen(ret)+1;
         new->buf = ret;
-        if(queue_message(new, fd, 1, MSGTYPE_SOUND, 0))  FATAL("Couldn't queue message\n");
+        if(queue_message(new, fd, 1, MSGTYPE_SOUND, reparted))  FATAL("Couldn't queue message\n");
     }
 
     return 0;
