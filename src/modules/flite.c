@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.10 2003-03-23 21:10:20 hanke Exp $
+ * $Id: flite.c,v 1.11 2003-03-25 22:49:27 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -147,7 +147,7 @@ gint flite_stop(void) {
 	if(DEBUG_FLITE) printf("flite: stop()\n");
 
 	if(flite_running){
-		if(DEBUG_FLITE) printf("flite: stopping %d\n", flite_pid);
+		if(DEBUG_FLITE) printf("flite: stopping process pid %d\n", flite_pid);
 		kill(flite_pid, SIGKILL);
 	}
 }
@@ -155,7 +155,7 @@ gint flite_stop(void) {
 gint flite_is_speaking(void) {
 	int ret;
 
-	if(DEBUG_FLITE) printf("flite: is_speaking: %d %d", flite_speaking, flite_running);
+	if(0) printf("flite: is_speaking: %d %d", flite_speaking, flite_running);
 	
 	/* If flite just stopped speaking, join the thread */
 	if ((flite_speaking == 1) && (flite_running == 0)){
@@ -172,7 +172,19 @@ gint flite_is_speaking(void) {
 }
 
 gint flite_close(void){
-   if(DEBUG_FLITE) printf("flite: close()\n");
+	int ret;
+
+	if(DEBUG_FLITE) printf("flite: close()\n");
+
+	if(flite_speaking){
+		flite_stop();
+		ret = pthread_join(flite_speak_thread, NULL);
+		if (ret != 0){
+			if (DEBUG_FLITE) printf("join failed!\n");
+			return 1;
+		}
+	}
+   
    free(flite_voice);
    return 0;
 }
@@ -181,8 +193,22 @@ gint flite_close(void){
 void
 flite_speak(void)
 {	
+	int ret;
+	sigset_t all_signals;	
 	if(DEBUG_FLITE)	printf("flite: speaking.......\n");
 
+	ret = sigfillset(&all_signals);
+    if (ret == 0){
+        ret = pthread_sigmask(SIG_BLOCK,&all_signals,NULL);
+        if ((ret != 0)&&(DEBUG_FLITE))
+			printf("flite: Can't set signal set, expect problems when terminating!\n");
+    }else if(DEBUG_FLITE){
+        printf("flite: Can't fill signal set, expect problems when terminating!\n");
+    }
+
+    pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
+    pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);				
+	
 	/* Create a new process so that we could send it signals */
 	flite_pid = fork();
 	switch(flite_pid){
