@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.21 2003-07-06 15:02:47 hanke Exp $
+  * $Id: speaking.c,v 1.22 2003-07-07 08:42:51 hanke Exp $
   */
 
 #include <glib.h>
@@ -599,8 +599,9 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
     return new_message;
 }
 
+/* TODO: This piece of code is oficially declared as a timebomb :/ */
 static char*
-process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHashTable *icons)
+process_message_punct_cap(char *buf, int bytes, TFDSetElement *settings, GHashTable *icons)
 {
     int i;
     char *spelled_punct;
@@ -616,6 +617,7 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
     char *punct;
     long int size;
     GList *plist = NULL;
+    int chu, chp;
 
     sound = (int*) spd_malloc(sizeof(int));
 
@@ -623,6 +625,8 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
     character = (char*) spd_malloc(8); /* 6 bytes should be enough, plus the trailing 0 */
 
     assert(settings->punctuation_table != NULL);
+    assert(settings->cap_let_recogn_table != NULL);
+    assert(settings->snd_icon_table != NULL);
 
     pos = buf;                  /* Set the position cursor for UTF8 to the beginning. */
 
@@ -634,28 +638,43 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
         spd_utf8_read_char(pos, character);
         u_char = g_utf8_get_char(character);
 
-        if (character != NULL){ 
-            if (g_unichar_isprint(u_char)) g_string_append(str, character);
-        }else{
-            break;
-        }
+        if (character == NULL) break;
 
-        if(g_unichar_ispunct(u_char)){ 
+        if (g_unichar_isupper(u_char) && settings->cap_let_recogn) chu = 1;
+        else chu = 0;
+
+        if (g_unichar_ispunct(u_char) && settings->punctuation_mode) chp = 1;
+        else chp = 0;
+
+        if (g_unichar_isprint(u_char) && !chu)
+                g_string_append(str, character);
+
+        if(chp || chu){ 
             if(settings->punctuation_mode == 2){ 
                 inside = g_utf8_strchr(settings->punctuation_some,-1,u_char); 
-                if (inside == NULL){
+                if ((inside == NULL) && !chu){
                     pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */
                     continue; 
                 }
             } 
-
-            spelled_punct = (char*) snd_icon_spelling_get(settings->punctuation_table, 
-                                                          icons, character, sound); 
+            
+            if (chp){
+                spelled_punct = (char*) snd_icon_spelling_get(settings->punctuation_table, 
+                                                              icons, character, sound); 
+            }else if (chu){
+                if (settings->cap_let_recogn == RECOGN_SPELL){
+                    spelled_punct = (char*) snd_icon_spelling_get(settings->cap_let_recogn_table,
+                                                                  icons, character, sound);
+                }else if (settings->cap_let_recogn == RECOGN_ICON){
+                    spelled_punct = (char*) snd_icon_spelling_get(settings->snd_icon_table,
+                                                                  icons, settings->cap_let_recogn_sound,
+                                                                  sound);
+                }
+            }
 
             if(*sound == 1){
                 /* If this is the first part of the message, save it */
                 /* as return value. */
-
                 if (first_part){
                     first_part = 0; 
                     if (str != NULL) 
@@ -664,25 +683,36 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
                                 new_message = str->str; 
                 }else{              /* It's not the first part... */ 
                     if (str->str != NULL){ 
-                        if (strlen(str->str) > 0) 
+                        if (strlen(str->str) > 0){ 
                             plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);                         
+                        }
                     } 
                 } 
                 /* Set up a new buffer */
                 g_string_free(str, 0); 
-                str = g_string_new(""); 
+
+                if (chu && settings->cap_let_recogn == RECOGN_ICON)
+                    str = g_string_new(character); 
+                else
+                    str = g_string_new("");
 
                 /* Add the icon to plist */
                 if (spelled_punct != NULL){
                     if (strlen(spelled_punct) > 0){
-                        punct = (char*) spd_malloc((strlen(spelled_punct) +1)  * sizeof(char)); 
-                        strcpy(punct, spelled_punct);
+                        punct = strdup(spelled_punct);
                         plist = msglist_insert(plist, punct, MSGTYPE_SOUND);           
                     }
                 }
             }else{                  /* this icon is represented by a string */
                 if (spelled_punct != NULL){ 
-                    g_string_append_printf(str," %s, ", spelled_punct); 
+                    if (chp) g_string_append_printf(str," %s, ", spelled_punct); 
+                    else if (chu && settings->cap_let_recogn == RECOGN_ICON)
+                        g_string_append_printf(str," %s %s", spelled_punct, character);
+                    else if (chu) g_string_append_printf(str," %s ", spelled_punct);
+                }else{
+                    if (chu && settings->cap_let_recogn == RECOGN_ICON)
+                        g_string_append_printf(str,"%s", character);
+                    else if (chu) g_string_append_printf(str,"%s", character);
                 }
             } 
         }
@@ -720,7 +750,7 @@ process_message(char *buf, int bytes, TFDSetElement* settings)
     GHashTable *icons;
     char *new_message;
 
-    if(settings->spelling || settings->punctuation_mode){
+    if(settings->spelling || settings->punctuation_mode || settings->cap_let_recogn){
         icons = g_hash_table_lookup(snd_icon_langs, settings->language);
         if (icons == NULL){
             icons = g_hash_table_lookup(snd_icon_langs, GlobalFDSet.language);
@@ -729,11 +759,11 @@ process_message(char *buf, int bytes, TFDSetElement* settings)
     
         if(settings->spelling){
             new_message = process_message_spell(buf, bytes, settings, icons);
+        } 
+        else if(settings->punctuation_mode || settings->cap_let_recogn){
+            new_message = process_message_punct_cap(buf, bytes, settings, icons);
         }
-        else if(settings->punctuation_mode){
-            new_message = process_message_punctuation(buf, bytes, settings, icons);
-        }
-
+        
         return new_message;
     }
 
