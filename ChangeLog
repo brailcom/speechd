@@ -1,5 +1,7 @@
 2003-09-29  Hynek Hanke  <hanke@volny.cz>
 
+	* config/Makefile.am: Switched back to normally calling `sed'.
+
 	* intl/fdset.h (TFDSetElement): pause_context added.
 
 	* configure.in: Added config/generic/Makefile.am
