@@ -1,3 +1,19 @@
+2003-10-17  Milan Zamazal  <pdm@brailcom.org>
+
+	* util.scm (unwind-protect*): New macro.
+
+	* events.scm (event-debug): New variable.
+	(event-synth): Print debugging information.
+	(event-synth-plain): Don't synth unknown logical events starting
+	with underscore.
+	(event-synth): Support for special logical events added.
+	(event-synth-text): Don't fail on an empty text.
+	(event-with-mode): New macro.
+	(event-synth-plain): Set capital character signalization for key
+	and character events.
+	(event-synth-key, event-synth-character): New functions.
+	(event-synth-plain): Use them.
+
 2003-10-15  Milan Zamazal  <pdm@brailcom.org>
 
 	* events.scm (event-synth-sound): New function.
