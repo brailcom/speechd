@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.h,v 1.1 2003-09-07 11:29:27 hanke Exp $
+ * $Id: output.h,v 1.2 2003-10-15 20:08:51 hanke Exp $
  */
 
 #include "speechd.h"
@@ -30,3 +30,5 @@ int output_speak(TSpeechDMessage *msg);
 int output_stop();
 size_t output_pause();
 int output_is_speaking();
+
+char* escape_dot(char *otext);
