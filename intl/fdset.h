@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.9 2003-04-11 20:22:21 hanke Exp $
+ * $Id: fdset.h,v 1.10 2003-04-14 23:05:37 hanke Exp $
  */
 
 typedef enum {                  /* Prefered type of voice */
@@ -50,6 +50,7 @@ typedef struct{
                                    0	-	no punctuation
                                    1 	-	all punctuation
                                    2	-	only user-selected punctuation */
+    char *punctuation_some;
     signed int speed; 		/* Speed of voice from <-100;+100>, 0 is the default medium */
     signed int pitch;		/* Pitch of voice from <-100;+100>, 0 is the default medium */
     char *client_name;		/* Name of the client. */
