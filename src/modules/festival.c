@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.50 2004-07-13 20:04:42 hanke Exp $
+ * $Id: festival.c,v 1.51 2004-07-18 20:42:09 hanke Exp $
  */
 
 #include "fdset.h"
@@ -408,9 +408,6 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
     bytes = strlen(message);
 
     module_parent_dp_init(dpipe);
-
-    FestivalEnableMultiMode(festival_info, "t");
-    //    FestivalSetRate(festival_info, 0);
 
     DBG("Synthesizing: |%s|", message);
     if (bytes > 0){
