@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.c,v 1.19 2003-07-18 21:39:28 hanke Exp $
+ * $Id: sndicon.c,v 1.20 2003-09-28 22:31:15 hanke Exp $
 */
 
 #include "sndicon.h"
@@ -30,11 +30,10 @@ int
 sndicon_queue(int fd, char* language, char* prefix, char* name)
 {
     GHashTable *icons;
-    TSpeechDMessage *new;
-    char *key;
+    TSpeechDMessage *msg;  
     char *text;
-    char *ret;
-    int reparted;
+    int ret;
+    int sound;
 
     icons = g_hash_table_lookup(snd_icon_langs, language);
     if (icons == NULL){
@@ -42,35 +41,26 @@ sndicon_queue(int fd, char* language, char* prefix, char* name)
         if (icons == NULL) return 1;
     }
 
-    key = (char*) spd_malloc((strlen(name) + strlen(prefix) + 3) * sizeof(char));
-    sprintf(key, "%s_%s", prefix, name);
-	
-    text = g_hash_table_lookup(icons, key); 
-    if(text == NULL){
-        icons = g_hash_table_lookup(snd_icon_langs, GlobalFDSet.language);
-        if (icons == NULL) return 2;
-        text = g_hash_table_lookup(icons, key); 
-        if (text == NULL) return 2;
-    } 
+    text = snd_icon_spelling_get(prefix, icons, name, &sound);      
+    if (text == NULL) return 1;
+    
+    msg = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
+    msg->bytes = strlen(text);
+    msg->buf = text;
 
-    new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
-    ret = (char*) spd_malloc ((strlen(text) + 1 + strlen(SOUND_DATA_DIR) + 1) * sizeof(char));
+    if (sound){
+        ret = queue_message(msg, fd, 1, MSGTYPE_SOUND, inside_block[fd]);
+    }else{
+        ret = queue_message(msg, fd, 1, MSGTYPE_TEXTP, inside_block[fd]);
+    }
 
-    reparted = inside_block[fd];
-
-    if(text[0] == '\"'){
-        /* Strip the leading and the trailing quotes */
-        strcpy(ret, &(text[1]));
-        ret[strlen(ret)-1] = 0;
-        new->bytes = strlen(ret)+1;
-        new->buf = ret;
-        if(queue_message(new, fd, 1, MSGTYPE_TEXTP, reparted))  FATAL("Couldn't queue message\n");
-    }else{     
-        if(text[0] != '/') sprintf(ret, "%s/%s", SOUND_DATA_DIR, text);
-        else strcpy(ret, text);
-        new->bytes = strlen(ret)+1;
-        new->buf = ret;
-        if(queue_message(new, fd, 1, MSGTYPE_SOUND, reparted))  FATAL("Couldn't queue message\n");
+    if (ret != 0){
+        if (SPEECHD_DEBUG){
+            FATAL("Can't queue message!");
+        }else{
+            MSG(3, "Can't queue message!");
+            return 1;
+        }
     }
 
     return 0;
@@ -89,8 +79,11 @@ snd_icon_spelling_get(char *table, GHashTable *icons, char *name, int *sound)
     sprintf(key, "%s_%s", table, name);
 
     textt = g_hash_table_lookup(icons, key); 
-
-    if(textt == NULL) return NULL;
+    if(textt == NULL){
+        /* Look if the entry isn't listed under the `generic' language */
+        textt = g_hash_table_lookup(generic_lang_icons, key);
+        if (textt == NULL) return NULL;
+    }
     if(strlen(textt) == 0) return NULL;
 
     if(textt[0] == '\"'){
@@ -196,7 +189,6 @@ sndicon_key(int fd, char *name)
     message = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
     message->bytes = strlen(sequence->str);
     assert(message->bytes > 0);
-
 
     message->buf = sequence->str;
 
