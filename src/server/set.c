@@ -19,10 +19,13 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.22 2003-06-05 16:18:00 hanke Exp $
+ * $Id: set.c,v 1.23 2003-07-06 15:01:54 hanke Exp $
  */
 
 #include "set.h"
+#include "alloc.h"
+
+extern char *spd_strdup(char*);
 
 gint
 spd_str_compare(gconstpointer a, gconstpointer b)
@@ -246,7 +249,7 @@ set_punctuation_table_uid(int uid, char* punctuation_table)
     if(punctuation_table == NULL) return 1;
 
     if(g_list_find_custom(tables.spelling, punctuation_table, spd_str_compare)){
-        set_param_str(settings->punctuation_table, punctuation_table);
+        set_param_str(&(settings->punctuation_table), punctuation_table);
     }else{
         if(!strcmp(punctuation_table, "punctuation_basic")){
             MSG(3,"Couldn't find requested table, using the previous");
@@ -387,7 +390,7 @@ set_spelling_table_uid(int uid, char* spelling_table)
     if (spelling_table == NULL) return 1;
 
     if(g_list_find_custom(tables.spelling, spelling_table, spd_str_compare)){
-        set_param_str(settings->spelling_table, spelling_table);
+        set_param_str(&(settings->spelling_table), spelling_table);
     }else{
         if(!strcmp(spelling_table, "spelling_short")
            || !strcmp(spelling_table, "spelling_long")){
@@ -441,7 +444,7 @@ set_sound_table_uid(int uid, char* sound_table)
     if (sound_table == NULL) return 1;
 
     if(g_list_find_custom(tables.sound_icons, sound_table, spd_str_compare)){
-        set_param_str(settings->snd_icon_table, sound_table);
+        set_param_str(&(settings->snd_icon_table), sound_table);
     }else{
         if(!strcmp(sound_table, "sound_icons_default")){
             MSG(4,"Couldn't find requested table, using the previous");
@@ -489,11 +492,17 @@ int
 set_language_uid(int uid, char *language)
 {
     TFDSetElement *settings;
+    char *output_module;
 
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 	
-    set_param_str(settings->language, language);        
+    set_param_str(&(settings->language), language);        
+
+    /* Check if it is not desired to change output module */
+    output_module = g_hash_table_lookup(language_default_modules, language);
+    if (output_module != NULL)
+        set_output_module_uid(uid, output_module);
 
     return 0;
 }
@@ -545,7 +554,7 @@ set_client_name_self(int fd, char *client_name)
         if(client_name[i]==':') dividers++;
     if (dividers != 2) return 1;
     
-    set_param_str(settings->client_name, client_name);
+    set_param_str(&(settings->client_name), client_name);
 
     return 0;
 }
@@ -561,7 +570,7 @@ set_key_table_uid(int uid, char* key_table)
     if (key_table == NULL) return 1;
 
     if(g_list_find_custom(tables.keys, key_table, spd_str_compare)){
-        set_param_str(settings->key_table, key_table);
+        set_param_str(&(settings->key_table), key_table);
     }else{
         if(!strcmp(key_table, "keys_basic")){
             MSG(4,"Couldn't find requested table, using the previous");
@@ -613,7 +622,7 @@ set_character_table_uid(int uid, char* char_table)
     if (char_table == NULL) return 1;
 
     if(g_list_find_custom(tables.characters, char_table, spd_str_compare)){
-        set_param_str(settings->char_table, char_table);
+        set_param_str(&(settings->char_table), char_table);
     }else{
         if(!strcmp(char_table, "characters_basic")){
             MSG(4,"Couldn't find requested table, using the previous");
@@ -665,7 +674,9 @@ set_output_module_uid(int uid, char* output_module)
     if (settings == NULL) return 1;
     if (output_module == NULL) return 1;
 
-    set_param_str(settings->output_module, output_module);
+    MSG(5, "Setting output module to %s", output_module);
+
+    set_param_str(&(settings->output_module), output_module);
 
     return 0;
 }
@@ -706,15 +717,6 @@ default_fd_set(void)
 	TFDSetElement *new;
 
 	new = (TFDSetElement*) spd_malloc(sizeof(TFDSetElement));
-	new->language = (char*) spd_malloc(64);			/* max 63 characters */
-	new->output_module = (char*) spd_malloc(128);
-	new->client_name = (char*) spd_malloc(128);		/* max 127 characters */
-	new->spelling_table = (char*) spd_malloc(128);		/* max 127 characters */
-    new->punctuation_some = (char*) spd_malloc(128);
-	new->punctuation_table = (char*) spd_malloc(128);       /* max 127 characters */
-	new->key_table = (char*) spd_malloc(128);       /* max 127 characters */
-	new->char_table = (char*) spd_malloc(128);       /* max 127 characters */
-	new->snd_icon_table = (char*) spd_malloc(128);       /* max 127 characters */
    
 	new->paused = 0;
 
@@ -723,20 +725,19 @@ default_fd_set(void)
 	new->punctuation_mode = GlobalFDSet.punctuation_mode;
 	new->rate = GlobalFDSet.rate;
 	new->pitch = GlobalFDSet.pitch;
-	strcpy(new->language, GlobalFDSet.language);
-	strcpy(new->output_module, GlobalFDSet.output_module);
-	strcpy(new->client_name, GlobalFDSet.client_name); 
-	strcpy(new->spelling_table, GlobalFDSet.spelling_table); 
-        strcpy(new->punctuation_some, GlobalFDSet.punctuation_some);
-        strcpy(new->punctuation_table, GlobalFDSet.punctuation_table);
-        strcpy(new->key_table, GlobalFDSet.key_table);
-        strcpy(new->char_table, GlobalFDSet.char_table);
-        strcpy(new->snd_icon_table, GlobalFDSet.snd_icon_table);
+	new->language = spd_strdup(GlobalFDSet.language);
+	new->output_module = spd_strdup(GlobalFDSet.output_module);
+	new->client_name = spd_strdup(GlobalFDSet.client_name); 
+	new->spelling_table = spd_strdup(GlobalFDSet.spelling_table); 
+        new->punctuation_some = spd_strdup(GlobalFDSet.punctuation_some);
+        new->punctuation_table = spd_strdup(GlobalFDSet.punctuation_table);
+        new->key_table = spd_strdup(GlobalFDSet.key_table);
+        new->char_table = spd_strdup(GlobalFDSet.char_table);
+        new->snd_icon_table = spd_strdup(GlobalFDSet.snd_icon_table);
 	new->voice_type = GlobalFDSet.voice_type;
 	new->spelling = GlobalFDSet.spelling;         
 	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;
 	new->active = 1;
-
 	new->hist_cur_uid = -1;
 	new->hist_cur_pos = -1;
 	new->hist_sorted = 0;
@@ -784,13 +785,12 @@ set_param_int(int* parameter, int value)
 }
 
 void
-set_param_str(char* parameter, char* value)
-{
-    assert(parameter != NULL);
-
+set_param_str(char** parameter, char* value)
+{   
     if(value == NULL){
-        parameter = NULL;
+        *parameter = NULL;
     }
-    realloc(parameter, (strlen(value) + 1) * sizeof(char));
-    strcpy(parameter, value);
+
+    *parameter = realloc(*parameter, (strlen(value) + 1) * sizeof(char));
+    strcpy(*parameter, value);
 }
