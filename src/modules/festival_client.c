@@ -436,7 +436,7 @@ festivalOpen(FT_Info *info)
 }
 
 int
-festival_speak_command(FT_Info *info, char *command, char *text)
+festival_speak_command(FT_Info *info, char *command, char *text, int symbol)
 {
     FILE *fd;
     char *p;
@@ -454,7 +454,10 @@ festival_speak_command(FT_Info *info, char *command, char *text)
     fd = fdopen(dup(info->server_fd),"wb");
 
     /* Send the command and data */
-    str = g_strdup_printf("(%s \"", command);
+    if (symbol == 0)
+      str = g_strdup_printf("(%s \"", command);
+    else
+      str = g_strdup_printf("(%s '", command);
     fprintf(fd, str);
     /* Copy text over to server, escaping any quotes */
     for (p=text; p && (*p != '\0'); p++)
@@ -462,7 +465,9 @@ festival_speak_command(FT_Info *info, char *command, char *text)
 	if ((*p == '"') || (*p == '\\')) putc('\\',fd);
 	putc(*p, fd);
     }
-    fprintf(fd,"\")\n");
+    if (symbol == 0) fprintf(fd,"\")\n");
+    else fprintf(fd, ")\n");
+
     DBG("-> Festival: |%sthe text isn't displayed\")|", str);
 
     free(str);
@@ -471,11 +476,11 @@ festival_speak_command(FT_Info *info, char *command, char *text)
     return 0;
 }
 
-#define FEST_SPEAK_CMD(name, cmd) \
+#define FEST_SPEAK_CMD(name, cmd, symbol) \
     int \
     name(FT_Info *info, char *text) \
     { \
-        festival_speak_command(info, cmd, text); \
+        festival_speak_command(info, cmd, text, symbol); \
     }
 
 /* Sends a TEXT to Festival server for synthesis. Doesn't
@@ -485,11 +490,11 @@ festival_speak_command(FT_Info *info, char *command, char *text)
  * in response.
  * Returns 0 if everything is ok, -1 otherwise.
 */
-FEST_SPEAK_CMD(festivalStringToWaveRequest, "speechd-speak");
-FEST_SPEAK_CMD(festivalSpell, "speechd-spell");
-FEST_SPEAK_CMD(festivalSoundIcon, "speechd-sound-icon");
-FEST_SPEAK_CMD(festivalCharacter, "speechd-character");
-FEST_SPEAK_CMD(festivalKey, "speechd-key");
+FEST_SPEAK_CMD(festivalStringToWaveRequest, "speechd-speak", 0);
+FEST_SPEAK_CMD(festivalSpell, "speechd-spell", 0);
+FEST_SPEAK_CMD(festivalSoundIcon, "speechd-sound-icon", 1);
+FEST_SPEAK_CMD(festivalCharacter, "speechd-character", 0);
+FEST_SPEAK_CMD(festivalKey, "speechd-key", 0);
 
 /* Reads the wavefile sent back after festivalStringToWaveRequest()
  * has been called. This function blocks until all the data is
@@ -594,8 +599,8 @@ int festivalClose(FT_Info *info)
     name(FT_Info *info, char *param) \
     { \
         if (festival_check_info(info, #name)) return -1; \
-        if (param == NULL) return -1; \
-        FEST_SEND_CMD("("fest_param" \"%s\")", g_ascii_strdown(param, -1)); \
+        if (param == NULL) FEST_SEND_CMD("("fest_param" nil)"); \
+        else FEST_SEND_CMD("("fest_param" \"%s\")", g_ascii_strdown(param, -1)); \
         return festival_read_response(info); \
     }
 
@@ -621,6 +626,7 @@ int festivalClose(FT_Info *info)
 FEST_SET_INT(FestivalSetRate, "speechd-set-rate");
 FEST_SET_INT(FestivalSetPitch, "speechd-set-pitch");
 FEST_SET_SYMB(FestivalSetPunctuationMode, "speechd-set-punctuation-mode");
+FEST_SET_STR(FestivalSetCapLetRecogn, "speechd-capital-character-recognition-mode");
 FEST_SET_STR(FestivalSetLanguage, "speechd-set-language");
 FEST_SET_STR(FestivalSetVoice, "speechd-set-voice");
 
