@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.28 2003-05-26 16:04:50 hanke Exp $
+ * $Id: speechd.c,v 1.29 2003-05-28 23:20:03 hanke Exp $
  */
 
 #include "speechd.h"
@@ -136,82 +136,84 @@ speechd_quit(int sig)
 void
 speechd_init()
 {
-	configfile_t *configfile = NULL;
-	char *configfilename = SYS_CONF"/speechd.conf" ;
-	int ret;
-        char *p;
-        int i;
-        int v;
+    configfile_t *configfile = NULL;
+    char *configfilename = SYS_CONF"/speechd.conf" ;
+    int ret;
+    char *p;
+    int i;
+    int v;
 
-	msgs_to_say = 0;
-	max_uid = 0;
+    msgs_to_say = 0;
+    max_uid = 0;
 
-	/* Initialize logging */
-	logfile = malloc(sizeof(FILE));
-	logfile = stdout;
+    /* Initialize logging */
+    logfile = malloc(sizeof(FILE));
+    logfile = stdout;
 	
-	/* Initialize Speech Dispatcher priority queue */
-	MessageQueue = (TSpeechDQueue*) speechd_queue_alloc();
-	if (MessageQueue == NULL) FATAL("Couldn't alocate memmory for MessageQueue.");
+    /* Initialize Speech Dispatcher priority queue */
+    MessageQueue = (TSpeechDQueue*) speechd_queue_alloc();
+    if (MessageQueue == NULL) FATAL("Couldn't alocate memmory for MessageQueue.");
 
-	/* Initialize lists */
-	MessagePausedList = NULL;
-	message_history = NULL;
+    /* Initialize lists */
+    MessagePausedList = NULL;
+    message_history = NULL;
 
-	/* Initialize hash tables */
-	fd_settings = g_hash_table_new(g_int_hash,g_int_equal);
-	assert(fd_settings != NULL);
+    /* Initialize hash tables */
+    fd_settings = g_hash_table_new(g_int_hash,g_int_equal);
+    assert(fd_settings != NULL);
 
-	fd_uid = g_hash_table_new(g_str_hash, g_str_equal);
-	assert(fd_uid != NULL);
+    fd_uid = g_hash_table_new(g_str_hash, g_str_equal);
+    assert(fd_uid != NULL);
 	
-	snd_icon_langs = g_hash_table_new(g_str_hash, g_str_equal);
-	assert(snd_icon_langs != NULL);
+    snd_icon_langs = g_hash_table_new(g_str_hash, g_str_equal);
+    assert(snd_icon_langs != NULL);
 
-	output_modules = g_hash_table_new(g_str_hash, g_str_equal);
-	assert(output_modules != NULL);
+    output_modules = g_hash_table_new(g_str_hash, g_str_equal);
+    assert(output_modules != NULL);
 
-        o_bytes = (int*) spd_malloc(16*sizeof(int));
-        o_buf = (GString**) spd_malloc(16*sizeof(GString*));
-        awaiting_data = (int*) spd_malloc(16*sizeof(int));
-        fds_allocated = 16;
+    o_bytes = (int*) spd_malloc(16*sizeof(int));
+    o_buf = (GString**) spd_malloc(16*sizeof(GString*));
+    awaiting_data = (int*) spd_malloc(16*sizeof(int));
+    fds_allocated = 16;
 
-        for(i=0;i<=15;i++) awaiting_data[i] = 0;              
+    for(i=0;i<=15;i++) awaiting_data[i] = 0;              
 
-        /* Initialize lists of available tables */
-        tables.sound_icons = NULL;
-        tables.spelling = NULL;
-        tables.characters = NULL;
-        tables.keys = NULL;
-        tables.punctuation = NULL;
+    /* Initialize lists of available tables */
+    tables.sound_icons = NULL;
+    tables.spelling = NULL;
+    tables.characters = NULL;
+    tables.keys = NULL;
+    tables.punctuation = NULL;
 
-	/* Perform some functionality tests */
-	if (g_module_supported() == FALSE)
-		DIE("Loadable modules not supported by current platform.\n");
+    /* Perform some functionality tests */
+    if (g_module_supported() == FALSE)
+        DIE("Loadable modules not supported by current platform.\n");
 
-	if(_POSIX_VERSION < 199506L)
-		DIE("This system doesn't support POSIX.1c threads\n");
+    if(_POSIX_VERSION < 199506L)
+        DIE("This system doesn't support POSIX.1c threads\n");
 
-	/* Initialize mutexes */
-	ret = pthread_mutex_init(&element_free_mutex, NULL);
-	if(ret != 0)
-		DIE("Mutex initialization failed");
+    /* Initialize mutexes */
+    ret = pthread_mutex_init(&element_free_mutex, NULL);
+    if(ret != 0)
+        DIE("Mutex initialization failed");
 	
-	/* Load configuration from the config file*/
-	configfile = dotconf_create(configfilename, options, 0, CASE_INSENSITIVE);
-	if (!configfile) DIE ("Error opening config file\n");
-	if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
-	dotconf_cleanup(configfile);
-	MSG(1,"Configuration has been read from \"%s\"", configfilename);
+    /* Load configuration from the config file*/
+    configfile = dotconf_create(configfilename, options, 0, CASE_INSENSITIVE);
+    if (!configfile) DIE ("Error opening config file\n");
+    if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
+    dotconf_cleanup(configfile);
+    MSG(1,"Configuration has been read from \"%s\"", configfilename);
 	
-	/* Check for output modules */
-	if (g_hash_table_size(output_modules) == 0){
-		DIE("No output modules were loaded - aborting...");
-	}else{
-		MSG(1,"Speech Dispatcher started with %d output module%s",
-			g_hash_table_size(output_modules),
-			g_hash_table_size(output_modules) > 1 ? "s" : "" );
-	}
+    /* Check for output modules */
+    if (g_hash_table_size(output_modules) == 0){
+        DIE("No output modules were loaded - aborting...");
+    }else{
+        MSG(1,"Speech Dispatcher started with %d output module%s",
+            g_hash_table_size(output_modules),
+            g_hash_table_size(output_modules) > 1 ? "s" : "" );
+    }
+
+    max_gid = 0;
 }
 
 /* activity is on server_socket (request for a new connection) */
