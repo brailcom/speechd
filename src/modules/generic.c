@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.1 2003-08-11 14:59:24 hanke Exp $
+ * $Id: generic.c,v 1.2 2003-09-07 11:25:40 hanke Exp $
  */
 
 #include <glib.h>
@@ -28,6 +28,7 @@
 #include "fdset.h"
 
 #include "module_utils.c"
+#include "module_utils_addvoice.c"
 
 #define MODULE_NAME     "generic"
 #define MODULE_VERSION  "0.1"
@@ -56,16 +57,12 @@ static int generic_msg_rate;
 static EVoiceType generic_msg_voice;
 static char* generic_msg_language;
 
-/* Public function prototypes */
-DECLARE_MODULE_PROTOTYPES();
-
 /* Internal functions prototypes */
 static void* _generic_speak(void*);
 static void _generic_child(TModuleDoublePipe dpipe, const size_t maxlen);
 static void generic_child_close(TModuleDoublePipe dpipe);
 
 /* Fill the module_info structure with pointers to this modules functions */
-DECLARE_MODINFO("Epos", "Generic software synthesizer");
 
 MOD_OPTION_1_STR(GenericExecuteSynth);
 MOD_OPTION_1_INT(GenericMaxChunkLenght);
@@ -80,12 +77,14 @@ MOD_OPTION_3_HT(GenericLanguage, code, name, charset);
 
 /* Public functions */
 
-OutputModule*
-module_load(configoption_t **options, int *num_options)
+int
+module_load(void)
 {
     INIT_DEBUG_FILE();
 
     MOD_OPTION_1_STR_REG(GenericExecuteSynth, "");
+
+    INIT_SETTINGS_TABLES();
 
     MOD_OPTION_1_INT_REG(GenericMaxChunkLenght, 300);
     MOD_OPTION_1_STR_REG(GenericDelimiters, ".");
@@ -97,11 +96,11 @@ module_load(configoption_t **options, int *num_options)
 
     MOD_OPTION_HT_REG(GenericLanguage);
 
-    module_register_settings_voices(&module_info);
+    module_register_settings_voices();
 
     DBG("module_load()\n");
 
-    return &module_info;
+    return 0;
 }
 
 int
@@ -128,8 +127,8 @@ module_init(void)
 }
 
 
-static gint
-module_write(gchar *data, size_t bytes, TFDSetElement* set)
+int
+module_write(gchar *data, size_t bytes)
 {
     int ret;
     TGenericLanguage *language;
@@ -142,25 +141,22 @@ module_write(gchar *data, size_t bytes, TFDSetElement* set)
     }
     
     if(module_write_data_ok(data) != 0) return -1;
-    assert(set!=NULL);
 
-    generic_msg_pitch = set->pitch;
-    generic_msg_rate = set->rate;
-    generic_msg_voice = set->voice_type;
-
-    assert(set->language);
-    generic_msg_language = strdup(set->language);
+    generic_msg_pitch = msg_settings.pitch;
+    generic_msg_rate = msg_settings.rate;
+    generic_msg_voice = msg_settings.voice;
+    generic_msg_language = g_strdup(msg_settings.language);
 
     /* Set the appropriate charset */
-    language = (TGenericLanguage*) module_get_ht_option(GenericLanguage, set->language);
+    language = (TGenericLanguage*) module_get_ht_option(GenericLanguage, generic_msg_language);
     if (language != NULL){
         if (language->charset != NULL){
             *generic_message = (char*) g_convert(data, bytes, language->charset, "UTF-8", NULL, NULL, NULL);
         }else{
-            *generic_message = module_recode_to_iso(data, bytes, set->language);
+            *generic_message = module_recode_to_iso(data, bytes, generic_msg_language);
         }
     }else{
-        *generic_message = module_recode_to_iso(data, bytes, set->language);
+        *generic_message = module_recode_to_iso(data, bytes, generic_msg_language);
     }
     module_strip_punctuation_default(*generic_message);
 
@@ -174,7 +170,7 @@ module_write(gchar *data, size_t bytes, TFDSetElement* set)
     return bytes;
 }
 
-static gint
+int
 module_stop(void) 
 {
     DBG("generic: stop()\n");
@@ -185,7 +181,7 @@ module_stop(void)
     }
 }
 
-static size_t
+size_t
 module_pause(void)
 {
     DBG("pause requested\n");
@@ -204,14 +200,14 @@ module_pause(void)
     }
 }
 
-static gint
+int
 module_is_speaking(void)
 {
     return generic_speaking; 
 }
 
-static gint
-module_close(void)
+void
+module_close(int status)
 {
     
     DBG("generic: close()\n");
@@ -221,11 +217,11 @@ module_close(void)
     }
 
     if (module_terminate_thread(generic_speak_thread) != 0)
-        return -1;
+        exit(1);
     
     CLOSE_DEBUG_FILE();
 
-    return 0;
+    exit(status);
 }
 
 
@@ -311,7 +307,7 @@ _generic_speak(void* nothing)
             snprintf(str_rate,15,"%.2f",
                      ((float) generic_msg_rate) * GenericRateMultiply + GenericRateAdd);
             language = (TGenericLanguage*) module_get_ht_option(GenericLanguage, generic_msg_language);
-            voice_name = module_getvoice(&module_info, generic_msg_language, generic_msg_voice);
+            voice_name = module_getvoice(generic_msg_language, generic_msg_voice);
 
             e_string = strdup(GenericExecuteSynth);
 
@@ -450,3 +446,5 @@ generic_child_close(TModuleDoublePipe dpipe)
     DBG("Child ended...\n");
     exit(0);
 }
+
+#include "module_main.c"

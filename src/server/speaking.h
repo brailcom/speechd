@@ -20,8 +20,10 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.h,v 1.5 2003-08-07 14:43:02 hanke Exp $
+  * $Id: speaking.h,v 1.6 2003-09-07 11:32:11 hanke Exp $
   */
+
+#include "fdset.h"
 
 #ifndef SPEAKING_H
   #define SPEAKING_H
@@ -29,7 +31,7 @@
 OutputModule *speaking_module;
 int speaking_uid;
 int speaking_gid;
-int highest_priority = 0;
+int highest_priority;
 
 /* Speak() is responsible for getting right text from right
  * queue in right time and saying it loud through corresponding
@@ -87,7 +89,6 @@ static gint message_nto_speak (gconstpointer, gconstpointer);
 static void set_speak_thread_attributes();
 static void resolve_priorities();
 static TSpeechDMessage* get_message_from_queues();
-static OutputModule* get_output_module();
 static GList* speaking_get_queue(int priority);
 static void speaking_set_queue(int priority, GList *queue);
 

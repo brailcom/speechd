@@ -19,20 +19,17 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.35 2003-08-11 15:00:12 hanke Exp $
+ * $Id: dc_decl.h,v 1.36 2003-09-07 11:28:21 hanke Exp $
  */
 
 #include "speechd.h"
+
+static TFDSetClientSpecific *cl_spec_section;
 
 int table_add(char *name, char *group);
 
 /* So that gcc doesn't comply about casts to char* */
 extern char* spd_strdup(char* string);
-
-char cur_mod_options[255];      /* Which section with parameters of output modules
-                                   we are in? */
-
-OutputModule* cur_mod;
 
 /* define dotconf callbacks */
 DOTCONF_CB(cb_Port);
@@ -62,22 +59,13 @@ DOTCONF_CB(cb_DefaultCharacterTable);
 DOTCONF_CB(cb_DefaultKeyTable);
 DOTCONF_CB(cb_DefaultSoundTable);
 DOTCONF_CB(cb_AddModule);
-DOTCONF_CB(cb_fr_AddModule);
-DOTCONF_CB(cb_EndAddModule);
-DOTCONF_CB(cb_AddParam);
-DOTCONF_CB(cb_AddVoice);
 DOTCONF_CB(cb_MinDelayProgress);
 DOTCONF_CB(cb_MaxHistoryMessages);
+DOTCONF_CB(cb_BeginClient);
+DOTCONF_CB(cb_EndClient);
 DOTCONF_CB(cb_unknown);
 
 /* define dotconf configuration options */
-
-static configoption_t first_run_options[] =
-{
-    {"AddModule", ARG_LIST, cb_fr_AddModule, 0, 0},
-    {"", ARG_NAME, cb_unknown, 0, 0},
-    LAST_OPTION
-};
 
 configoption_t *
 add_config_option(configoption_t *options, int *num_config_options, char *name, int type,
@@ -118,14 +106,20 @@ free_config_options(configoption_t *opts, int *num)
    DOTCONF_CB(cb_ ## name) \
    { \
        assert(cmd->data.str != NULL); \
-       GlobalFDSet.arg = strdup(cmd->data.str); \
+       if (!cl_spec_section) \
+           GlobalFDSet.arg = strdup(cmd->data.str); \
+       else \
+           cl_spec_section->val.arg = strdup(cmd->data.str); \
        return NULL; \
    }    
 
 #define GLOBAL_FDSET_OPTION_CB_INT(name, arg) \
-   DOTCONF_CB(cb_name) \
+   DOTCONF_CB(cb_ ## name) \
    { \
-       GlobalFDSet. ## arg = cmd->data.value; \
+       if (!cl_spec_section) \
+           GlobalFDSet.arg = cmd->data.value; \
+       else \
+           cl_spec_section->val.arg = cmd->data.value; \
        return NULL; \
    }    
 
@@ -136,6 +130,8 @@ configoption_t*
 load_config_options(int *num_options)
 {
     configoption_t *options = NULL;
+
+    cl_spec_section = NULL;
    
     ADD_CONFIG_OPTION(Port, ARG_INT);
     ADD_CONFIG_OPTION(LogFile, ARG_STR);
@@ -164,10 +160,9 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(DefaultSoundTable, ARG_STR);
     ADD_CONFIG_OPTION(DefaultCapLetRecognition, ARG_STR)
     ADD_CONFIG_OPTION(AddModule, ARG_LIST);
-    ADD_CONFIG_OPTION(EndAddModule, ARG_NONE);
-    ADD_CONFIG_OPTION(AddParam, ARG_LIST);
-    ADD_CONFIG_OPTION(AddVoice, ARG_LIST);
     ADD_CONFIG_OPTION(MinDelayProgress, ARG_INT);
+    ADD_CONFIG_OPTION(BeginClient, ARG_STR);
+    ADD_CONFIG_OPTION(EndClient, ARG_NONE);
     /*{"ExampleOption", ARG_STR, cb_example, 0, 0},
      *      {"MultiLineRaw", ARG_STR, cb_multiline, 0, 0},
      *           {"", ARG_NAME, cb_unknown, 0, 0}, */
@@ -182,7 +177,7 @@ load_default_global_set_options()
     GlobalFDSet.punctuation_mode = PUNCT_NONE;
     GlobalFDSet.punctuation_some = strdup("(){}[]<>@#$%^&*");
     GlobalFDSet.punctuation_table = strdup("spelling_short");
-    GlobalFDSet.spelling = 0;
+    GlobalFDSet.spelling_mode = 0;
     GlobalFDSet.spelling_table = strdup("spelling_short");
     GlobalFDSet.cap_let_recogn_table = strdup("spelling_short");
     GlobalFDSet.char_table = strdup("spelling_short");
@@ -193,7 +188,7 @@ load_default_global_set_options()
     GlobalFDSet.client_name = strdup("unknown:unknown:unknown");
     GlobalFDSet.language = strdup("en");
     GlobalFDSet.output_module = NULL;
-    GlobalFDSet.voice_type = MALE1;
+    GlobalFDSet.voice = MALE1;
     GlobalFDSet.cap_let_recogn = 0;
     GlobalFDSet.cap_let_recogn_sound = NULL;
     GlobalFDSet.min_delay_progress = 2000;
@@ -206,7 +201,6 @@ load_default_global_set_options()
     sound_module = NULL;
     logfile = stderr;
     
-
     SOUND_DATA_DIR = strdup(SND_DATA);
 }
 
@@ -262,10 +256,9 @@ DOTCONF_CB(cb_LogLevel)
     return NULL;
 }
 
-
 DOTCONF_CB(cb_SoundModule)
-{
-    sound_module = load_output_module(cmd->data.list[0], cmd->data.list[1]);
+{    
+    sound_module = load_output_module(cmd->data.list[0], cmd->data.list[1], cmd->data.list[2], FILTERING_NONE);
     return NULL;
 }
 
@@ -426,7 +419,10 @@ DOTCONF_CB(cb_DefaultRate)
     int rate = cmd->data.value;
 
     if (rate < -100 || rate > +100) MSG(3, "Default rate out of range.");
-    GlobalFDSet.rate = cmd->data.value;
+    if (!cl_spec_section)
+        GlobalFDSet.rate = cmd->data.value;
+    else
+        cl_spec_section->val.rate = rate;
     return NULL;
 }
 
@@ -434,7 +430,10 @@ DOTCONF_CB(cb_DefaultPitch)
 {
     int pitch = cmd->data.value;
     if (pitch < -100 || pitch > +100) MSG(3, "Default pitch out of range.");
-    GlobalFDSet.pitch = pitch;
+    if (!cl_spec_section)
+        GlobalFDSet.pitch = pitch;
+    else
+        cl_spec_section->val.pitch = pitch;
     return NULL;
 }
 
@@ -463,27 +462,31 @@ DOTCONF_CB(cb_DefaultPriority)
 DOTCONF_CB(cb_DefaultVoiceType)
 {
     char *voice_s;
+    EVoiceType voice;
 
     assert(cmd->data.str != NULL);
 
     voice_s = g_ascii_strup(cmd->data.str, strlen(cmd->data.str));
 
-    if (!strcmp(voice_s, "MALE1")) GlobalFDSet.voice_type = MALE1;
-    else if (!strcmp(voice_s, "MALE2")) GlobalFDSet.voice_type = MALE2;
-    else if (!strcmp(voice_s, "MALE3")) GlobalFDSet.voice_type = MALE3;
-    else if (!strcmp(voice_s, "FEMALE1")) GlobalFDSet.voice_type = FEMALE1;
-    else if (!strcmp(voice_s, "FEMALE2")) GlobalFDSet.voice_type = FEMALE2;
-    else if (!strcmp(voice_s, "FEMALE3")) GlobalFDSet.voice_type = FEMALE3;
-    else if (!strcmp(voice_s, "CHILD_MALE")) GlobalFDSet.voice_type = CHILD_MALE;
-    else if (!strcmp(voice_s, "CHILD_FEMALE")) GlobalFDSet.voice_type = CHILD_FEMALE;
+    if (!strcmp(voice_s, "MALE1")) voice = MALE1;
+    else if (!strcmp(voice_s, "MALE2")) voice = MALE2;
+    else if (!strcmp(voice_s, "MALE3")) voice = MALE3;
+    else if (!strcmp(voice_s, "FEMALE1")) voice = FEMALE1;
+    else if (!strcmp(voice_s, "FEMALE2")) voice = FEMALE2;
+    else if (!strcmp(voice_s, "FEMALE3")) voice = FEMALE3;
+    else if (!strcmp(voice_s, "CHILD_MALE")) voice = CHILD_MALE;
+    else if (!strcmp(voice_s, "CHILD_FEMALE")) voice = CHILD_FEMALE;
     else{
         MSG(2, "Unknown default voice specified in configuration, using default.");
-        GlobalFDSet.voice_type = MALE1;
-        return NULL;
+        voice = MALE1;
     }
 
-    MSG(4, "Default voice type set to %d", GlobalFDSet.voice_type);
-
+    if (!cl_spec_section){
+        MSG(4, "Default voice type set to %d", GlobalFDSet.voice);
+        GlobalFDSet.voice = voice;
+    }else{
+        cl_spec_section->val.voice = voice;
+    }
     spd_free(voice_s);
 
     return NULL;
@@ -500,36 +503,44 @@ DOTCONF_CB(cb_MaxHistoryMessages)
 DOTCONF_CB(cb_DefaultPunctuationMode)
 {
     char *pmode = cmd->data.str;
+    int mode;
 
     assert(pmode != NULL);
-    if(!strcmp(pmode, "all")) GlobalFDSet.punctuation_mode = 1;
-    else if(!strcmp(pmode, "none")) GlobalFDSet.punctuation_mode = 0;
-    else if(!strcmp(pmode, "some")) GlobalFDSet.punctuation_mode = 2;
+    if(!strcmp(pmode, "all")) mode = 1;
+    else if(!strcmp(pmode, "none")) mode = 0;
+    else if(!strcmp(pmode, "some")) mode = 2;
     else MSG(2,"Unknown punctuation mode specified in configuration.");
 
+    if (!cl_spec_section)
+        GlobalFDSet.punctuation_mode = mode;
+    else
+        cl_spec_section->val.punctuation_mode = mode;
+
     return NULL;
 }
 
-DOTCONF_CB(cb_DefaultSpelling)
-{
-    GlobalFDSet.spelling = cmd->data.value;
-    return NULL;
-}
-
+GLOBAL_FDSET_OPTION_CB_INT(DefaultSpelling, spelling_mode);
 
 DOTCONF_CB(cb_DefaultCapLetRecognition)
 {
     char *mode;
+    ECapLetRecogn clr;
+
     assert(cmd->data.str != NULL);
     mode = g_ascii_strdown(cmd->data.str, strlen(cmd->data.str));
 
-    if (!strcmp(mode, "none")) GlobalFDSet.cap_let_recogn = RECOGN_NONE;
-    else if(!strcmp(mode, "spell")) GlobalFDSet.cap_let_recogn = RECOGN_SPELL;
-    else if(!strcmp(mode, "icon")) GlobalFDSet.cap_let_recogn = RECOGN_ICON;
+    if (!strcmp(mode, "none")) clr = RECOGN_NONE;
+    else if(!strcmp(mode, "spell")) clr = RECOGN_SPELL;
+    else if(!strcmp(mode, "icon")) clr = RECOGN_ICON;
     else{
         MSG(3, "Invalid capital letters recognition mode specified in configuration");
         return NULL;
     }
+
+    if (!cl_spec_section)
+        GlobalFDSet.cap_let_recogn = clr;
+    else
+        cl_spec_section->val.cap_let_recogn = clr;
 
     return NULL;
 }
@@ -538,19 +549,6 @@ DOTCONF_CB(cb_MinDelayProgress)
 {
     if (cmd->data.value < 0) MSG(2, "Time specified in MinDelayProgress not valid");
     GlobalFDSet.min_delay_progress = cmd->data.value;
-    return NULL;
-}
-
-DOTCONF_CB(cb_AddModule)
-{
-    char *module_name;
-
-    if (cmd->data.list[0] == NULL) FATAL("No output module name specified")
-    else module_name = cmd->data.list[0];
-    
-    cur_mod = g_hash_table_lookup(output_modules, module_name);
-    if (cur_mod == NULL) FATAL("Internal error in finding output modules");
-
     return NULL;
 }
 
@@ -570,157 +568,91 @@ DOTCONF_CB(cb_LanguageDefaultModule)
     return NULL;
 }
 
-DOTCONF_CB(cb_fr_AddModule)
+DOTCONF_CB(cb_AddModule)
 {
     char *module_name;
-    char *module_libname;
+    char *module_prgname;
+    char *module_cfgfile;
+    char *mod_fil_s;
+    EFilteringType module_filtering;
+
+    OutputModule *cur_mod;
 
     if (cmd->data.list[0] != NULL) module_name = strdup(cmd->data.list[0]);
-    else FATAL("No output module name specified");
+    else FATAL("No output module name specified in configuration under AddModule");
 
-    if (cmd->data.list[1] != NULL) module_libname = cmd->data.list[1];
-    else module_libname = NULL;
+    mod_fil_s = cmd->data.list[1];
+    if (mod_fil_s == NULL) module_filtering = FILTERING_NONE;
+    else if (!strcmp(mod_fil_s, "filter_none")) module_filtering = FILTERING_NONE;
+    else if (!strcmp(mod_fil_s, "filter_self")) module_filtering = FILTERING_SELF;
+    else if (!strcmp(mod_fil_s, "filter_generic")) module_filtering = FILTERING_GENERIC;
+            
+    module_prgname = cmd->data.list[2];
+    module_cfgfile = cmd->data.list[3];
 
-    cur_mod = load_output_module(module_name, module_libname);
-    if (cur_mod == NULL) FATAL("Couldn't load specified output module");
+    cur_mod = load_output_module(module_name, module_prgname, module_cfgfile, module_filtering);
+    if (cur_mod == NULL){
+        MSG(3, "Couldn't load specified output module");
+        return NULL;
+    }
 
+    MSG(5,"Module name=%s being inserted into hash table", cur_mod->name);
     assert(cur_mod->name != NULL);
-
     g_hash_table_insert(output_modules, module_name, cur_mod);
 
     return NULL;
 }
 
-DOTCONF_CB(cb_EndAddModule)
+#define SET_PAR(name, value) cl_spec->val.name = value;
+#define SET_PAR_STR(name) cl_spec->val.name = NULL;
+DOTCONF_CB(cb_BeginClient)
 {
-    if(cur_mod == NULL){
-        FATAL("Configuration: Trying to end a BeginModuleOptions section that was never opened");       
-    }
+    TFDSetClientSpecific *cl_spec;
 
-    if (init_output_module(cur_mod) == -1){
-        MSG(2,"Couldn't initialize output module %s", cur_mod->name);
-        g_hash_table_remove(output_modules, cur_mod->name);
-        spd_module_free(cur_mod);
-    }
+    if (cl_spec_section != NULL)
+        FATAL("Configuration: Already in client specific section, can't open a new one!");
 
-    cur_mod = NULL;
+    if (cmd->data.str == NULL)
+        FATAL("Configuration: You must specify some client's name for BeginClient");
+
+    cl_spec = (TFDSetClientSpecific*) spd_malloc(sizeof(TFDSetClientSpecific));
+    cl_spec->pattern = spd_strdup(cmd->data.str);
+    cl_spec_section = cl_spec;
+
+    SET_PAR(rate, -101)
+    SET_PAR(pitch, -101)
+    SET_PAR(punctuation_mode, -1)
+    SET_PAR(spelling_mode, -1)
+    SET_PAR(voice, -1)
+    SET_PAR(cap_let_recogn, -1)
+    SET_PAR_STR(punctuation_some)
+    SET_PAR_STR(punctuation_table)
+    SET_PAR_STR(spelling_table)
+    SET_PAR_STR(char_table)
+    SET_PAR_STR(key_table)
+    SET_PAR_STR(snd_icon_table)
+    SET_PAR_STR(language)
+    SET_PAR_STR(output_module)
+    SET_PAR_STR(cap_let_recogn_table)
+    SET_PAR_STR(cap_let_recogn_sound)
+    
+    return NULL;
+}
+#undef SET_PAR
+#undef SET_PAR_STR
+
+DOTCONF_CB(cb_EndClient)
+{
+    if (cl_spec_section == NULL)
+        FATAL("Configuration: Already outside the client specific section!");
+    
+    client_specific_settings = g_list_append(client_specific_settings, cl_spec_section);
     return NULL;
 }
 
 DOTCONF_CB(cb_unknown)
 {
     //    MSG(4,"Unknown option, doesn't matter");
-    return NULL;
-}
-
-DOTCONF_CB(cb_AddParam)
-{
-    char *key;
-    char *value;
-
-    if (cur_mod == NULL){
-        MSG(2,"Output module parameter not inside an output modules section");
-        return NULL;
-    }
-
-    if (cmd->data.list[0] == NULL){
-        MSG(2,"Missing parameter name.");
-        return NULL;
-    }
-
-    if (cmd->data.list[1] == NULL){
-        MSG(2,"Missing option name for parameter %s.", cmd->data.list[0]);
-        return NULL;
-    }
-
-    if (cur_mod->settings.voices == NULL){
-        return NULL;
-    }
-
-    MSG(3,"Adding parameter: %s=%s", cmd->data.list[0],
-        cmd->data.list[1]);
-    
-    key = spd_strdup(cmd->data.list[0]);
-    value = spd_strdup(cmd->data.list[1]);
-
-    g_hash_table_insert(cur_mod->settings.params, key, value);
-
-    return NULL;
-}
-
-char*
-set_voice(char *value){
-    char *ret;
-    if (value == NULL) return NULL;
-    ret = (char*) spd_malloc((strlen(value) + 1) * sizeof(char));
-    strcpy(ret, value);
-    return ret;
-}
-
-DOTCONF_CB(cb_AddVoice)
-{
-    SPDVoiceDef *voices;
-    char *language = cmd->data.list[0];
-    char *symbolic;
-    char *voicename = cmd->data.list[2];
-    char *key;
-    SPDVoiceDef *value;
-
-   if (cur_mod == NULL){
-        MSG(2,"Output module parameter not inside an output modules section");
-        return NULL;
-    }
-
-    if (language == NULL){
-        MSG(2,"Missing language.");
-        return NULL;
-    }
-
-    if (cmd->data.list[1] == NULL){
-        MSG(2,"Missing symbolic name.");
-        return NULL;
-    }   
-
-    if (voicename == NULL){
-        MSG(2,"Missing voice name for %s", cmd->data.list[0]);
-        return NULL;
-    }
-
-    if (cur_mod->settings.voices == NULL){
-        return NULL;
-    }
-
-    symbolic = g_ascii_strup(cmd->data.list[1], strlen(cmd->data.list[1]));
-
-    MSG(3,"Adding voice: [%s] %s=%s", language,
-        symbolic, voicename);
-
-    voices = g_hash_table_lookup(cur_mod->settings.voices, language);
-    if (voices == NULL){
-        key = spd_strdup(language);
-        value = (SPDVoiceDef*) spd_malloc(sizeof(SPDVoiceDef));
-
-        value->male1=NULL; value->male2=NULL; value->male3=NULL;
-        value->female1=NULL; value->female2=NULL; value->female3=NULL;
-        value->child_male=NULL; value->child_female=NULL;
-
-        g_hash_table_insert(cur_mod->settings.voices, key, value);
-        voices = value;
-    }
-    
-    if (!strcmp(symbolic, "MALE1")) voices->male1 = set_voice(voicename);
-    else if (!strcmp(symbolic, "MALE2")) voices->male2 = set_voice(voicename);
-    else if (!strcmp(symbolic, "MALE3")) voices->male3 = set_voice(voicename);
-    else if (!strcmp(symbolic, "FEMALE1")) voices->female1 = set_voice(voicename);
-    else if (!strcmp(symbolic, "FEMALE2")) voices->female2 = set_voice(voicename);
-    else if (!strcmp(symbolic, "FEMALE3")) voices->female3 = set_voice(voicename);
-    else if (!strcmp(symbolic, "CHILD_MALE")) voices->child_male = set_voice(voicename);
-    else if (!strcmp(symbolic, "CHILD_FEMALE")) voices->child_female = set_voice(voicename);
-    else{
-        MSG(2, "Unrecognized symbolic voice name.");
-        return NULL;
-    }
-
     return NULL;
 }
 

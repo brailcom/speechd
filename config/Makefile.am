@@ -1,6 +1,9 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS= en cs
+SUBDIRS= en cs modules clients
 
-dist_sysconf_DATA= speechd.conf 
+all-local:
+	sed -e s-INCLUDE_PATH-\"$(spdconfdir)\"-g speechd.conf.in > speechd.conf
+
+dist_spdconf_DATA= speechd.conf.in
 

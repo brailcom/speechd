@@ -1,4 +1,13 @@
 
+Version 0.0.10
+	* Output modules are now external programs communicating through stdin/stdout
+	* Output modules can be reloaded at run time sending SIGUSR1 to speechd
+	* Multiple generic modules loaded at once supported
+	* Filtering in output layer of Speech Dispatcher is now optional
+	and can be handled later in output_modules or in the TTSs they use
+	* Client specific configuration
+	* Bug-fixes
+
 Version 0.0.9
   * Generic output module (+definition for the Epos synthesiser)
   * Better autoconf configuration

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.26 2003-08-11 15:01:07 hanke Exp $
+ * $Id: set.c,v 1.27 2003-09-07 11:31:28 hanke Exp $
  */
 
 #include "set.h"
@@ -123,14 +123,14 @@ set_voice_uid(int uid, char *voice)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    if (!strcmp(voice, "male1")) settings->voice_type = MALE1;
-    else if (!strcmp(voice, "male2")) settings->voice_type = MALE2;
-    else if (!strcmp(voice, "male3")) settings->voice_type = MALE3;
-    else if (!strcmp(voice, "female1")) settings->voice_type = FEMALE1;
-    else if (!strcmp(voice, "female2")) settings->voice_type = FEMALE2;
-    else if (!strcmp(voice, "female3")) settings->voice_type = FEMALE3;
-    else if (!strcmp(voice, "child_male")) settings->voice_type = CHILD_MALE;
-    else if (!strcmp(voice, "child_female")) settings->voice_type = CHILD_FEMALE;
+    if (!strcmp(voice, "male1")) settings->voice = MALE1;
+    else if (!strcmp(voice, "male2")) settings->voice = MALE2;
+    else if (!strcmp(voice, "male3")) settings->voice = MALE3;
+    else if (!strcmp(voice, "female1")) settings->voice = FEMALE1;
+    else if (!strcmp(voice, "female2")) settings->voice = FEMALE2;
+    else if (!strcmp(voice, "female3")) settings->voice = FEMALE3;
+    else if (!strcmp(voice, "child_male")) settings->voice = CHILD_MALE;
+    else if (!strcmp(voice, "child_female")) settings->voice = CHILD_FEMALE;
     else return 1;
 
     return 0;
@@ -206,7 +206,7 @@ set_spelling_uid(int uid, int spelling)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int(&settings->spelling, spelling);
+    set_param_int(&settings->spelling_mode, spelling);
     return 0;
 }
 
@@ -303,6 +303,43 @@ set_language_uid(int uid, char *language)
     return 0;
 }
 
+#define CHECK_SET_PAR(name, ival) \
+   if (cl_set->val.name != ival) set->name = cl_set->val.name;
+#define CHECK_SET_PAR_STR(name) \
+   if (cl_set->val.name != NULL){ \
+     spd_free(set->name); \
+     set->name = strdup(cl_set->val.name); \
+   }
+void
+update_cl_settings(gpointer data, gpointer user_data)
+{
+    TFDSetClientSpecific *cl_set = data;
+    TFDSetElement *set = user_data;
+
+    if (fnmatch(cl_set->pattern, set->client_name, 0)) return;
+
+    CHECK_SET_PAR(rate, -101)
+    CHECK_SET_PAR(pitch, -101)
+    CHECK_SET_PAR(punctuation_mode, -1)
+    CHECK_SET_PAR(spelling_mode, -1)
+    CHECK_SET_PAR(voice, -1)
+    CHECK_SET_PAR(cap_let_recogn, -1)
+    CHECK_SET_PAR_STR(punctuation_some)
+    CHECK_SET_PAR_STR(punctuation_table)
+    CHECK_SET_PAR_STR(spelling_table)
+    CHECK_SET_PAR_STR(char_table)
+    CHECK_SET_PAR_STR(key_table)
+    CHECK_SET_PAR_STR(snd_icon_table)
+    CHECK_SET_PAR_STR(language)
+    CHECK_SET_PAR_STR(output_module)
+    CHECK_SET_PAR_STR(cap_let_recogn_table)
+    CHECK_SET_PAR_STR(cap_let_recogn_sound)
+
+    return;
+}
+#undef CHECK_SET_PAR
+#undef CHECK_SET_PAR_STR
+
 int
 set_client_name_self(int fd, char *client_name)
 {
@@ -321,6 +358,9 @@ set_client_name_self(int fd, char *client_name)
     if (dividers != 2) return 1;
     
     SET_PARAM_STR(client_name);
+
+    /* Update fd_set for this cilent with client-specific options */
+    g_list_foreach(client_specific_settings, update_cl_settings, settings);
 
     return 0;
 }
@@ -419,8 +459,8 @@ default_fd_set(void)
         new->key_table = spd_strdup(GlobalFDSet.key_table);
         new->char_table = spd_strdup(GlobalFDSet.char_table);
         new->snd_icon_table = spd_strdup(GlobalFDSet.snd_icon_table);
-	new->voice_type = GlobalFDSet.voice_type;
-	new->spelling = GlobalFDSet.spelling;         
+	new->voice = GlobalFDSet.voice;
+	new->spelling_mode = GlobalFDSet.spelling_mode;         
 	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;       
 	new->active = 1;
 	new->hist_cur_uid = -1;
@@ -443,14 +483,14 @@ get_client_uid_by_fd(int fd)
 TFDSetElement*
 get_client_settings_by_fd(int fd)
 {
-    TFDSetElement* element;
+    TFDSetElement* settings;
     int uid;
 
     uid = get_client_uid_by_fd(fd);
     if (uid == 0) return NULL;
 
-    element = g_hash_table_lookup(fd_settings, &uid);
-    return element;	
+    settings = g_hash_table_lookup(fd_settings, &uid);
+    return settings;	
 }
 
 TFDSetElement*

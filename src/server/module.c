@@ -19,82 +19,153 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.16 2003-08-11 15:00:40 hanke Exp $
+ * $Id: module.c,v 1.17 2003-09-07 11:28:37 hanke Exp $
  */
 
+#include <sys/wait.h>
 #include "speechd.h"
 
 #define INIT_SYMBOL "module_init"
 #define LOAD_SYMBOL "module_load"
 
-OutputModule*
-load_output_module(gchar* modname, gchar* modlib)
+void
+destroy_module(OutputModule *module)
 {
-   GModule* gmodule;
-   OutputModule *(*module_load) (configoption_t **options, int *num_options);
-   OutputModule *module_info;
-   char filename[PATH_MAX];
-   configoption_t **p_options;
+    spd_free(module->name);
+    spd_free(module->filename);
+    spd_free(module->configfilename);
+    spd_free(module);
+}
 
-   if (modname == NULL) return NULL;
+OutputModule*
+load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile,
+                   EFilteringType mod_filt)
+{
+    OutputModule *module;
+    int fr;
+    char *arg1;
+    char *arg2;
+    int cfg = 0;
+    int ret;
+    char buf[256];
 
-   p_options = (configoption_t**) spd_malloc(sizeof (configoption_t*));
-   *p_options = spd_options;
+    if (mod_name == NULL) return NULL;
+    
+    module = (OutputModule*) spd_malloc(sizeof(OutputModule));
 
-   if (modlib == NULL)
-       snprintf(filename, PATH_MAX, LIB_DIR"/libsd%s.so", modname);
-   else if (strchr(modlib, '/') || strchr(modlib,'\\'))
-       snprintf(filename, PATH_MAX, "%s", modlib);
-   else if (strchr(modlib,'.'))
-       snprintf(filename, PATH_MAX, LIB_DIR"/%s", modlib);
-   else
-       snprintf(filename, PATH_MAX, LIB_DIR"/libsd%s.so", modlib);
+    module->name = (char*) spd_strdup(mod_name);
+    module->filename = (char*) spd_get_path(mod_prog, MODULEBINDIR);    
+    module->configfilename = (char*) spd_get_path(mod_cfgfile, MODULECONFDIR);
+    module->filtering = mod_filt;
 
-   gmodule = g_module_open(filename, G_MODULE_BIND_LAZY);
-   if (gmodule == NULL) {
-      MSG(2,"failed to load module %s\n%s\n", filename, g_module_error());
-      return NULL;
-   }
+    if (!strcmp(mod_name, "testing")){
+        module->pipe_in[1] = 1; /* redirect to stdin */
+        module->pipe_out[0] = 0; /* redirect to stdout */
+        return module;
+    }
 
-   if (g_module_symbol(gmodule, LOAD_SYMBOL, (gpointer) &module_load) == FALSE) {
-      MSG(2,"could not find symbol \"%s\" in module %s\n%s\n", LOAD_SYMBOL, g_module_name(gmodule), g_module_error());
-      return NULL;
-   }
-   
-   module_info = module_load(p_options, &spd_num_options);
-   if (module_info == NULL) {
-      MSG(2, "module entry point execution failed\n");
-      return NULL;
-   }
+    if (  (pipe(module->pipe_in) != 0) 
+          || ( pipe(module->pipe_out) != 0)  ){
+        MSG(3, "Can't open pipe! Module not loaded.");
+        return NULL;
+    }     
 
-   spd_options = *p_options;
-   spd_free(p_options);
+    arg1 = g_strdup_printf("%d", speaking_sem_id);
+    if (mod_cfgfile){
+        arg2 = g_strdup_printf("%s", module->configfilename);
+        cfg=1;
+    }
 
-   module_info->gmodule = gmodule;
-   
-   MSG(3,"loaded module: %s (%s)", module_info->name, module_info->description);
+    MSG(5,"Initializing output module %s with binary %s and configuration %s",
+        module->name, module->filename, module->configfilename);
+    
+    fr = fork();
+    switch(fr){
+    case -1: printf("Can't fork, error! Module not loaded."); return NULL;
+    case 0:
+        ret = dup2(module->pipe_in[0], 0);
+        close(module->pipe_in[0]);
+        close(module->pipe_in[1]);
+ 
+        ret = dup2(module->pipe_out[1], 1);
+        close(module->pipe_out[1]);
+        close(module->pipe_out[0]);        
+        
+        if (cfg == 0){
+            if (execlp(module->filename, "", arg1, (char *) 0) == -1){                                
+                exit(1);
+            }
+        }else{
+            if (execlp(module->filename, "", arg1, arg2, (char *) 0) == -1){
+                exit(1);
+            }            
+        }
+        assert(0);
+    default:
+        module->pid = fr;
+        close(module->pipe_in[0]);
+        close(module->pipe_out[1]);
 
-   return module_info;
+        usleep(100);            /* So that the other child has at least time to fail
+                                   with the execlp */
+        ret = waitpid(module->pid, NULL, WNOHANG);
+        if (ret != 0){
+            MSG(2, "Can't load output module %s. Bad filename in configuration?", module->name);
+            destroy_module(module);
+            return NULL;
+        }
+        module->working = 1;
+        MSG(2, "Module %s loaded.", module->name);        
+
+        return module;
+    }
+
+    assert(0);
 }
 
 int
-init_output_module(OutputModule *module)
+unload_output_module(OutputModule *module)
 {
-    int ret;
-    int (*module_init) (void);
+    assert(module != NULL);
 
-    if (g_module_symbol(module->gmodule, INIT_SYMBOL, (gpointer) &module_init) == FALSE) {
-        MSG(2,"could not find symbol \"%s\" in module %s\n%s\n", INIT_SYMBOL,
-            g_module_name(module->gmodule), g_module_error());
+    MSG(1,"module name=%s", module->name);
+
+    output_close(module);
+
+    close(module->pipe_in[1]);
+    close(module->pipe_out[0]);
+
+    destroy_module(module);    
+
+    return 0;
+}
+
+int
+reload_output_module(OutputModule *old_module)
+{
+    OutputModule *new_module;
+
+    assert(old_module != NULL); assert(old_module->name != NULL);
+
+    if (old_module->working) output_module_is_speaking(old_module);
+    if (old_module->working) return 0;
+
+    MSG(3, "Reloading output module %s", old_module->name);    
+
+    output_close(old_module);
+    close(old_module->pipe_in[1]);
+    close(old_module->pipe_out[0]);
+
+    new_module = load_output_module(old_module->name, old_module->filename,
+                                    old_module->configfilename, old_module->filtering);
+    if (new_module == NULL){
+        MSG(3, "Can't load module %s while reloading modules.", old_module->name);
         return -1;
     }
 
-    ret = module_init();
+    g_hash_table_replace(output_modules, new_module->name, new_module);
+    
+    destroy_module(old_module);
 
-    if (ret == 0) MSG(4, "Module init ok.");
-    else MSG(4, "Module init failed!");
-
-    return ret;
+    return 0;
 }
-
-

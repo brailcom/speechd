@@ -32,17 +32,6 @@ spd_strdup(char* string)
     return newstr;
 }
 
-void
-spd_module_free(OutputModule *module)
-{
-    if (module->settings.voices != NULL)
-        g_hash_table_destroy(module->settings.voices);
-
-    /* This must be the last action here as it
-       destroys the whole module pointer */
-    g_module_close(module->gmodule);
-}
-
 TSpeechDQueue* 
 speechd_queue_alloc()
 {

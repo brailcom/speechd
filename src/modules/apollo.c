@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.17 2003-06-23 05:04:03 hanke Exp $
+ * $Id: apollo.c,v 1.18 2003-09-07 11:24:54 hanke Exp $
  */
 
 
@@ -39,22 +39,14 @@
 #define MODULE_NAME     "apollo"
 #define MODULE_VERSION  "0.1"
 
-DECLARE_MODULE_PROTOTYPES();
-
-/* Fill the module_info structure with pointers to this modules functions */
-DECLARE_MODINFO("apollo", "Apollo2 hardware synthesizer");
-
 MOD_OPTION_1_STR(ApolloDevice);
-
 MOD_OPTION_3_HT(ApolloLanguage, lang, rom, char_coding);
 
 static const gchar AT_REPLACEMENT_CHAR = ' ';
 
 static int fd = -1;
-static TFDSetElement current_parameters;
 static RECODE_OUTER recode_outer;
 static RECODE_REQUEST recode_request;
-
 
 /* *** Internal functions *** */
 
@@ -158,13 +150,18 @@ static gint set_voice_type (int value)
 
 /* *** Interface functions *** */
 
-int
-module_init()
+int module_load (void)
 {
-  current_parameters.rate = -101;
-  current_parameters.pitch = -101;
-  current_parameters.language = NULL;
-  current_parameters.voice_type = -1;
+  INIT_SETTINGS_TABLES();
+
+  MOD_OPTION_1_STR_REG(ApolloDevice, "/dev/apollo");
+  MOD_OPTION_HT_REG(ApolloLanguage);
+  
+  return 0;
+}
+
+int module_init (void)
+{
 
   system ("stty -F /dev/apollo sane 9600 raw crtscts");
   system ("stty -F /dev/apollo -echo");
@@ -182,23 +179,13 @@ module_init()
   return 0;
 }
 
-OutputModule* module_load (configoption_t **options, int *num_options)
-{
-  MOD_OPTION_1_STR_REG(ApolloDevice, "/dev/apollo");
-  MOD_OPTION_HT_REG(ApolloLanguage);
-  
-  return &module_info;
-}
-
-static gint module_write (gchar *data, size_t bytes, TFDSetElement* set)
+int module_write (char *data, size_t bytes)
 {
   
-  UPDATE_PARAMETER (current_parameters.rate, set->rate, set_rate);
-  UPDATE_PARAMETER (current_parameters.pitch, set->pitch, set_pitch);
-  UPDATE_PARAMETER (current_parameters.voice_type, set->voice_type,
-		    set_voice_type);
-  UPDATE_STRING_PARAMETER (current_parameters.language, set->language,
-			   set_language);
+  UPDATE_PARAMETER (rate, set_rate);
+  UPDATE_PARAMETER (pitch, set_pitch);
+  UPDATE_PARAMETER (voice, set_voice_type);
+  UPDATE_STRING_PARAMETER (language, set_language);
 
   /* TODO: Apollo has a buffer of a certain size (~2 KB?).  If the buffer size
      is exceeded, the extra data is thrown away. */
@@ -231,25 +218,26 @@ static gint module_write (gchar *data, size_t bytes, TFDSetElement* set)
   }
 }
 
-static gint module_stop (void)
+int module_stop (void)
 {
   return send_apollo_command ("\030");
 }
 
-static size_t module_pause (void)
+size_t module_pause (void)
 {
   module_stop ();
   return 0;
 }
 
-static gint module_is_speaking (void)
+int module_is_speaking (void)
 {
-    return 2;			/* Apollo doesn't provide any information */
+    return 2;             /* Apollo doesn't provide any information */
 }
 
-static gint module_close (void)
+void module_close (int status)
 {
-  gint result = (fd == -1 ? -1 : close (fd));
-  fd = -1;
-  return result;
+  if (fd != -1) close (fd);
+  exit(status);
 }
+
+#include "module_main.c"

@@ -1,15 +1,4 @@
 
 A list of known bugs:
 
-* There is some problem with (probably) closing connection
-to festival server which causes that Speech Dispatcher can't
-be executed immediatelly after it was suspended if the
-Festival output plugin was in use in the last Speech Dispatcher
-run. We send "(quit)" to festival server and close() the
-socket, but it doesn't seem to be enough :(
-
-* You can define only *one* generic plugin. If you try to define
-more, the results are undefined. This is a problem with loading
-libraries into memmory (shared or separeted when they are loaded
-more than once) and it will fix itself when we switch to the new
-design of output modules quite soon.
+-Currently none-

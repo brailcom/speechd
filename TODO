@@ -4,25 +4,20 @@
 Short-term goals
 ================
 
+	/ reset parameters when reconnecting to Festival server
+
 	* default port ... find a suitable port number without any conflict.
-
-	* modularize TTS functionality ... Speech Dispatcher now contains some TTS-like
-       functionality, but it is desirable not to include it in server core.  It
-       should be available as an external module.
-
-	* client configuration ... enable to override certain configuration options
-	   based on client/connection name.
 
 	* default (language independent tables) + add to NEWS
 
 	* finish/rework documentation of output modules
 
-	* reset parameters when reconnecting to Festival server
+	* clear CVS
+
 
 Longer-term goals
 =================
 
-	* clear CVS
 	* translate documentation to Czech
 	* debugging ... focus on segfaults
 	* documentation ... finish.

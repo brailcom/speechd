@@ -50,12 +50,14 @@ glib_include=`pkg-config --cflags glib-2.0`
 AC_SUBST(glib_include)
 glib_libs=`pkg-config --libs glib-2.0`
 AC_SUBST(glib_libs)
-sysconfdir="$sysconfdir/speechd" 
-AC_SUBST(sysconfdir)
+spdconfdir="$sysconfdir/speechd" 
+AC_SUBST(spdconfdir)
 snddatadir="$datadir/sounds/speechd" 
 AC_SUBST(snddatadir)
-pluginsdir="$libdir/speechd" 
-AC_SUBST(pluginsdir)
+modulebindir="$bindir/speechd-modules/" 
+AC_SUBST(modulebindir)
+moduleconfdir="$sysconfdir/speechd/modules/" 
+AC_SUBST(moduleconfdir)
 
 dnl Checks for header files.
 AC_HEADER_STDC
@@ -74,5 +76,5 @@ AC_PROG_MAKE_SET
 
 AM_PROG_LIBTOOL
 
-AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/c/Makefile src/c/api/Makefile src/c/clients/Makefile src/c/clients/say/Makefile src/tests/Makefile src/audio/Makefile config/Makefile config/en/Makefile config/cs/Makefile sounds/Makefile doc/Makefile])
+AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/c/Makefile src/c/api/Makefile src/c/clients/Makefile src/c/clients/say/Makefile src/tests/Makefile src/audio/Makefile config/Makefile config/en/Makefile config/cs/Makefile config/modules/Makefile config/clients/Makefile sounds/Makefile doc/Makefile])
 

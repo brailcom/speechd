@@ -7,16 +7,15 @@ Jan Buchal
 Tomas Cerha <cerha@brailcom.org>
     * core design
     * API
-    * implementation
+	* implementation
 
 Hynek Hanke <hanke@volny.cz>
 	* API
 	* internal functioning
 	* implementation
-	* Flite output module
-	* Speech Dispatcher Center
+	* output modules
 
 Milan Zamazal <pdm@brailcom.org>
-	* emacspeak support
+	* speechd-speak
 	* ideas
 	* documentation/design

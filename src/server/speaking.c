@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.26 2003-08-07 14:42:36 hanke Exp $
+  * $Id: speaking.c,v 1.27 2003-09-07 11:31:51 hanke Exp $
   */
 
 #include <glib.h>
@@ -45,17 +45,17 @@ speak(void* data)
 
     /* Block all signals and sets thread states */
     set_speak_thread_attributes();
-	
+
     while(1){
-        sem_wait(sem_messages_waiting);
+        speaking_semaphore_wait();
 
         if (pause_requested){
-            MSG(4, "Trying to execute pause...");
+            MSG(4, "Trying to pause...");
             if(pause_requested == 1)
                 speaking_pause_all(pause_requested_fd);
             if(pause_requested == 2)
                 speaking_pause(pause_requested_fd, pause_requested_uid);
-            MSG(4, "Pause execution terminated...");
+            MSG(4, "Paused...");
             pause_requested = 0;
             continue;
         }
@@ -72,13 +72,13 @@ speak(void* data)
         }
 
         pthread_mutex_lock(&element_free_mutex);
-
+               
         if (highest_priority == 5 && (last_p5_message != NULL) 
             && (g_list_length(MessageQueue->p5) == 0)){
             message = last_p5_message;
             last_p5_message = NULL;
             highest_priority = 2;
-            sem_post(sem_messages_waiting);
+            speaking_semaphore_post();
         }else{
             /* Extract the right message from priority queue */
             message = get_message_from_queues();
@@ -97,50 +97,39 @@ speak(void* data)
             continue;
         }
 
-        /* Determine which output module should be used */
-        output = get_output_module(message);
-        if (output == NULL){
-            MSG(4, "Output module NULL...");
-            mem_free_message(message);             
-            pthread_mutex_unlock(&element_free_mutex);
-            continue;				
-        }                    
-        
-        /* Process message: spelling, punctuation, etc. */
-        if(message->settings.type == MSGTYPE_TEXT){
-            MSG(4, "Processing message...");
-
-            buffer = (char*) process_message(message->buf, message->bytes, &(message->settings));
-            if (buffer == NULL){
-                mem_free_message(message);
-                pthread_mutex_unlock(&element_free_mutex);
-                continue;
+        /* Check if it's necessary to use the generic filters here */
+        if(output_filtering_generic(message)){            
+            /* Process message: spelling, punctuation, etc. */
+            if(message->settings.type == MSGTYPE_TEXT){
+                MSG(4, "Processing message...");
+                
+                buffer = (char*) process_message(message->buf, message->bytes, &(message->settings));
+                if (buffer == NULL){
+                    mem_free_message(message);
+                    pthread_mutex_unlock(&element_free_mutex);
+                    continue;
+                }
+                
+                if (strlen(buffer) <= 0){
+                    mem_free_message(message);
+                    pthread_mutex_unlock(&element_free_mutex);
+                    continue;
+                }
+                message->buf = buffer;
+            }else{
+                MSG(4, "Passing message as it is...");
+                MSG(5, "Message text: |%s|", message->buf);
             }
-
-            if (strlen(buffer) <= 0){
-                mem_free_message(message);
-                pthread_mutex_unlock(&element_free_mutex);
-                continue;
-            }
-        }else{
-            MSG(4, "Passing message as it is...");
-            MSG(5, "Message text: |%s|", message->buf);
-            buffer = message->buf;
         }
-        
-        assert(buffer!=NULL);
-	
-        /* Set the speking-monitor so that we know who is speaking */
-        speaking_module = output;
-        speaking_uid = message->settings.uid;
-        speaking_gid = message->settings.reparted;
-        
-        /* Write the data to the output module. (say them aloud) */
-        ret = (*output->write) (buffer, strlen(buffer), &message->settings); 
-        MSG(4,"Message sent to output module");
-        if (ret <= 0) MSG(2, "Output module failed");
+        assert(message->buf != NULL);       
 
-        /* Save the currently spoken message to be able to pause() it */
+        /* Write the message to the output layer. */
+        ret = output_speak(message);
+
+        MSG(4,"Message sent to output module");
+        if (ret == -1) MSG(2, "Output module failed");
+
+        /* Save the currently spoken message to be able to resume() it after pause */
         if (current_message != NULL) mem_free_message(current_message);
         current_message = message;
 
@@ -164,7 +153,7 @@ speaking_stop(int uid)
 
     /* Only act if the currently speaking client is the specified one */
     if(get_speaking_client_uid() == uid){
-        stop_speaking_active_module();
+        output_stop();
 
         /* Get the queue where the message being spoken came from */
         queue = speaking_get_queue(highest_priority);
@@ -196,7 +185,6 @@ speaking_stop(int uid)
                 queue = g_list_remove_link(queue, gl);
                 assert(gl->data != NULL);
                 mem_free_message(gl->data);
-                sem_trywait(sem_messages_waiting);
             }else{
                 speaking_set_queue(highest_priority, queue);
                 return;
@@ -213,7 +201,7 @@ speaking_stop_all()
     GList *queue;
     int gid = -1;
 
-    stop_speaking_active_module();
+    output_stop();
 
     queue = speaking_get_queue(highest_priority);
     if (queue == NULL) return;
@@ -241,8 +229,8 @@ speaking_stop_all()
         if (msg->settings.reparted == 1){
             queue = g_list_remove_link(queue, gl);
             assert(gl->data != NULL);
-            mem_free_message(gl->data);
-            sem_trywait(sem_messages_waiting);
+            mem_free_message(gl->data);            
+            //            sem_trywait(sem_messages_waiting);
         }else{
             speaking_set_queue(highest_priority, queue);
             return;
@@ -260,7 +248,7 @@ speaking_cancel(int uid)
 void
 speaking_cancel_all()
 {
-    stop_speaking_active_module();
+    output_stop();
     stop_priority(1);
     stop_priority(2);
     stop_priority(3);
@@ -299,8 +287,8 @@ speaking_pause(int fd, int uid)
     if (is_sb_speaking() == 0) return 0;
     if (speaking_uid != uid) return 0;    
 
-    msg_pos = (*speaking_module->pause) ();
-    if (msg_pos == 0) return 0;
+    msg_pos = output_pause();
+    if (msg_pos == 0 || msg_pos == -1) return 0;
     if (current_message == NULL) return 0;
 
     assert(msg_pos <= current_message->bytes);
@@ -362,7 +350,7 @@ speaking_resume(int uid)
                 element = (TSpeechDMessage*) gl->data;
                 MessageQueue->p2 = g_list_append(MessageQueue->p2, element);
                 MessagePausedList = g_list_remove_link(MessagePausedList, gl);
-                sem_post(sem_messages_waiting);
+                speaking_semaphore_post();
             }else{
                 break;
             }
@@ -380,7 +368,7 @@ is_sb_speaking()
 
     /* Determine is the current module is still speaking */
     if(speaking_module != NULL){
-        speaking = (*speaking_module->is_speaking) ();
+        speaking = output_is_speaking();
     } 
     if (speaking == 0) speaking_module = NULL;
     return speaking;
@@ -399,16 +387,6 @@ get_speaking_client_uid()
     } 
     return speaking;
 }
-
-void
-stop_speaking_active_module()
-{
-    if (speaking_module == NULL) return;
-    if (is_sb_speaking()){
-        (*speaking_module->stop) ();
-    }
-}
-
 
 int
 stop_p23()
@@ -441,7 +419,7 @@ empty_queue(GList *queue)
         assert(gl->data != NULL);
         mem_free_message(gl->data);
         queue = g_list_delete_link(queue, gl);
-        sem_trywait(sem_messages_waiting);
+        //        sem_trywait(sem_messages_waiting);
     }
 
     return queue;
@@ -457,7 +435,7 @@ stop_priority(int priority)
     queue = speaking_get_queue(priority);
 
     if (highest_priority == priority){
-        stop_speaking_active_module();
+        output_stop();
     }
 
     queue = empty_queue(queue);
@@ -477,7 +455,7 @@ stop_priority_from_uid(GList *queue, const int uid){
     while(gl = g_list_find_custom(ret, &uid, p_msg_uid_lc)){
         if(gl->data != NULL) mem_free_message(gl->data);
         ret = g_list_delete_link(ret, gl);
-        sem_trywait(sem_messages_waiting);
+        //        sem_trywait(sem_messages_waiting);
     }
 
     return ret;
@@ -598,7 +576,6 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
     return new_message;
 }
 
-/* TODO: This piece of code is oficially declared as a timebomb :/ */
 static char*
 process_message_punct_cap(char *buf, int bytes, TFDSetElement *settings, GHashTable *icons)
 {
@@ -710,10 +687,10 @@ process_message_punct_cap(char *buf, int bytes, TFDSetElement *settings, GHashTa
                 }
             }else{                  /* this icon is represented by a string */
                 if (spelled_punct != NULL){ 
-                    if (chp) g_string_append_printf(str," %s, ", spelled_punct); 
+                    if (chp) g_string_append_printf(str," (%s) ", spelled_punct); 
                     else if (chu && settings->cap_let_recogn == RECOGN_ICON)
-                        g_string_append_printf(str," %s %s", spelled_punct, character);
-                    else if (chu) g_string_append_printf(str," %s ", spelled_punct);
+                        g_string_append_printf(str," (%s) %s", spelled_punct, character);
+                    else if (chu) g_string_append_printf(str," (%s) ", spelled_punct);
                 }else{
                     if (chu && settings->cap_let_recogn == RECOGN_ICON)
                         g_string_append_printf(str,"%s", character);
@@ -756,20 +733,20 @@ process_message(char *buf, int bytes, TFDSetElement* settings)
     GHashTable *icons;
     char *new_message;
 
-    if(settings->spelling || settings->punctuation_mode || settings->cap_let_recogn){
+    if(settings->spelling_mode || settings->punctuation_mode || settings->cap_let_recogn){
         icons = g_hash_table_lookup(snd_icon_langs, settings->language);
         if (icons == NULL){
             icons = g_hash_table_lookup(snd_icon_langs, GlobalFDSet.language);
             if (icons == NULL) return NULL;
         }
     
-        if(settings->spelling){
+        if(settings->spelling_mode){
             new_message = process_message_spell(buf, bytes, settings, icons);
         } 
         else if(settings->punctuation_mode || settings->cap_let_recogn){
             new_message = process_message_punct_cap(buf, bytes, settings, icons);
         }
-        
+
         return new_message;
     }
 
@@ -877,7 +854,7 @@ stop_priority_except_first(int priority)
         gid = msg->settings.reparted;
 
         if (highest_priority == priority && speaking_gid != gid){
-            stop_speaking_active_module();
+            output_stop();
         }
 
         gl = g_list_first(queue);        
@@ -907,7 +884,7 @@ resolve_priorities()
     TSpeechDMessage *msg;
 
     if(g_list_length(MessageQueue->p1) != 0){
-        if (highest_priority != 1) stop_speaking_active_module();
+        if (highest_priority != 1) output_stop();
         stop_priority(4);
         stop_priority(5);
     }
@@ -994,34 +971,6 @@ get_message_from_queues()
     } 
     assert(gl != NULL);
     return (TSpeechDMessage *) gl->data;
-}
-
-static OutputModule*
-get_output_module(const TSpeechDMessage *message)
-{
-    OutputModule *output = NULL;
-
-    if (message->settings.type != MSGTYPE_SOUND){
-        if (message->settings.output_module != NULL){
-            output = g_hash_table_lookup(output_modules, message->settings.output_module);
-            if(output == NULL){
-                if (GlobalFDSet.output_module != NULL){
-                    MSG(4,"Didn't find prefered output module, using default");                
-                    output = g_hash_table_lookup(output_modules, GlobalFDSet.output_module); 
-                    if (output == NULL) MSG(2, "Can't find default output module!");
-                }
-            }
-        }
-        if (output == NULL){
-            MSG(3, "Unspecified output module!\n");
-            return NULL;
-        }
-    }else{   /* if MSGTYPE_SOUND */
-        output = sound_module;
-        if (output == NULL) MSG(2,"Can't find sound module!");
-    }
-
-    return output;
 }
 
 static GList*

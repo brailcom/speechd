@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.44 2003-08-08 09:48:28 pdm Exp $
+ * $Id: parse.c,v 1.45 2003-09-07 11:29:46 hanke Exp $
  */
 
 #include "speechd.h"
@@ -661,7 +661,7 @@ parse_pause(const char *buf, const int bytes, const int fd)
     if (TEST_CMD(who_s, "all")){
         pause_requested = 1;
         pause_requested_fd = fd;
-        sem_post(sem_messages_waiting);
+        speaking_semaphore_post();
     }
     else if (TEST_CMD(who_s, "self")){
         uid = get_client_uid_by_fd(fd);
@@ -669,7 +669,7 @@ parse_pause(const char *buf, const int bytes, const int fd)
         pause_requested = 2;
         pause_requested_fd = fd;
         pause_requested_uid = uid;
-        sem_post(sem_messages_waiting);
+        speaking_semaphore_post();
     }
     else if (isanum(who_s)){
         uid = atoi(who_s);
@@ -678,7 +678,7 @@ parse_pause(const char *buf, const int bytes, const int fd)
         pause_requested = 2;
         pause_requested_fd = fd;
         pause_requested_uid = uid;
-        sem_post(sem_messages_waiting);
+        speaking_semaphore_post();
     }else{
         spd_free(who_s);
         return ERR_PARAMETER_INVALID;

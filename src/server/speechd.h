@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.41 2003-08-11 15:02:01 hanke Exp $
+ * $Id: speechd.h,v 1.42 2003-09-07 11:32:42 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -40,12 +40,29 @@
 #include <gmodule.h>
 #include <dotconf.h>
 #include <pthread.h>
-#include <semaphore.h>
 #include <limits.h>
 #include <signal.h>
+#include <sys/wait.h>
+
+#include <semaphore.h>
+#include <sys/ipc.h>
+#include <sys/sem.h>
+
+#if defined(__GNU_LIBRARY__) && !defined(_SEM_SEMUN_UNDEFINED)
+/* union semun is defined by including <sys/sem.h> */
+#else
+/* according to X/OPEN we have to define it ourselves */
+union semun {
+    int val;                    /* value for SETVAL */
+    struct semid_ds *buf;       /* buffer for IPC_STAT, IPC_SET */
+    unsigned short int *array;  /* array for GETALL, SETALL */
+    struct seminfo *__buf;      /* buffer for IPC_INFO */
+};
+#endif
+
 
 #ifndef PATH_MAX
-#  define PATH_MAX 255
+#define PATH_MAX 255
 #endif
 
 #include "def.h"
@@ -86,6 +103,7 @@ typedef struct{
 }TSpeechDMessage;
 
 #include "alloc.h"
+#include "speaking.h"
 
 /* EStopCommands describes the stop family of commands */
 typedef enum
@@ -112,12 +130,17 @@ int spd_port_set;
 
 char *SOUND_DATA_DIR;
 
+OutputModule* load_output_module(char* mod_name, char* mod_prog,
+                                 char* mod_cfgfile, EFilteringType mod_filt);
+
 /* Message logging */
 int spd_log_level;
 int spd_log_level_set;
 
+void fatal_error(void);
+
 void MSG(int level, char *format, ...);
-#define FATAL(msg) { MSG(0,"Fatal error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
+#define FATAL(msg) { fatal_error(); MSG(0,"Fatal error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
 #define DIE(msg) { MSG(0,"Error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
 FILE *logfile;
 
@@ -136,9 +159,11 @@ int MaxHistoryMessages;
 /* speak() thread */
 pthread_t speak_thread;
 pthread_mutex_t element_free_mutex;
+pthread_mutex_t output_layer_mutex;
 
-/* How many messages in total are waiting in the queues */
-sem_t *sem_messages_waiting;
+/* Activity request for the speaking thread */
+key_t speaking_sem_key;
+int speaking_sem_id;
 
 /* Loading options from DotConf */
 configoption_t *spd_options;
@@ -167,6 +192,9 @@ GList *history_settings;
 /* List of messages in history */
 GList *message_history;
 
+/* List of different entries of client-specific configuration */
+GList *client_specific_settings;
+
 TSpeechDMessage *last_p5_message;
 
 /* Global default settings */
@@ -184,9 +212,6 @@ int fds_allocated;
 int pause_requested;
 int pause_requested_fd;
 int pause_requested_uid;
-
-/* Loads output module */
-OutputModule* load_output_module(gchar* modname, gchar* modlib);
 
 /* speak() runs in a separate thread, pulls messages from
  * the priority queue and sends them to synthesizers */
@@ -209,6 +234,12 @@ int isanum(const char *str);
 TFDSetElement* get_client_settings_by_uid(int uid);
 TFDSetElement* get_client_settings_by_fd(int fd);
 int get_client_uid_by_fd(int fd);
+
+int speaking_semaphore_create(key_t key);
+void speaking_semaphore_wait();
+void speaking_semaphore_post();
+
+char* spd_get_path(char *filename, char* startdir);
 
 
 #endif

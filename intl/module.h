@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.h,v 1.17 2003-08-11 14:57:51 hanke Exp $
+ * $Id: module.h,v 1.18 2003-09-07 11:23:35 hanke Exp $
  */
 
 #include <glib.h>
@@ -39,22 +39,19 @@ typedef struct
     char *child_female;
 }SPDVoiceDef;
 
-typedef struct{
-    GHashTable *voices;
-    GHashTable *params;
-    GHashTable *apollo_languages;
-}SPDModuleSettings;
+typedef enum{
+    FILTERING_NONE,
+    FILTERING_SELF,
+    FILTERING_GENERIC
+}EFilteringType;
 
 typedef struct{
-    gchar    *name;
-    gchar    *description;
-    GModule  *gmodule;
-    gint     (*write)       (gchar *, size_t, TFDSetElement*);
-    gint     (*stop)        (void);
-    size_t   (*pause)       (void);
-    gint     (*is_speaking) (void);
-    gint     (*close)       (void);
-    SPDModuleSettings settings;
+    char* name;
+    char* filename;
+    char* configfilename;
+    int pipe_in[2];
+    int pipe_out[2];    
+    pid_t pid;
+    int working;
+    EFilteringType filtering;
 }OutputModule;
-
-typedef OutputModule entrypoint (void);

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.29 2003-07-07 08:39:34 hanke Exp $
+ * $Id: flite.c,v 1.30 2003-09-07 11:25:29 hanke Exp $
  */
 
 
@@ -29,6 +29,7 @@
 #include "fdset.h"
 
 #include "module_utils.c"
+#include "module_utils_audio.c"
 
 #define MODULE_NAME     "flite"
 #define MODULE_VERSION  "0.1"
@@ -38,7 +39,6 @@ DECLARE_DEBUG_FILE("/tmp/debug-flite");
 
 /* Thread and process control */
 static int flite_speaking = 0;
-static EVoiceType flite_cur_voice = MALE1;
 
 static pthread_t flite_speak_thread;
 static pid_t flite_pid;
@@ -49,42 +49,39 @@ static char **flite_message;
 static int flite_position = 0;
 static int flite_pause_requested = 0;
 
-/* Public function prototypes */
-DECLARE_MODULE_PROTOTYPES();
-
 /* Internal functions prototypes */
-static void* _flite_speak(void*);
-static void _flite_child(TModuleDoublePipe dpipe, const size_t maxlen);
-static void flite_child_close(TModuleDoublePipe dpipe);
-
-
 static void flite_set_rate(signed int rate);
 static void flite_set_pitch(signed int pitch);
 static void flite_set_voice(EVoiceType voice);
+
+static void* _flite_speak(void*);
+static void _flite_child(TModuleDoublePipe dpipe, const size_t maxlen);
+static void flite_child_close(TModuleDoublePipe dpipe);
 
 /* Voice */
 cst_voice *register_cmu_us_kal();
 cst_voice *flite_voice;
 
 /* Fill the module_info structure with pointers to this modules functions */
-DECLARE_MODINFO("flite", "Flite software synthesizer v. 1.2");
+//DECLARE_MODINFO("flite", "Flite software synthesizer v. 1.2");
 
 MOD_OPTION_1_INT(FliteMaxChunkLenght);
 MOD_OPTION_1_STR(FliteDelimiters);
 
 /* Public functions */
 
-OutputModule*
-module_load(configoption_t **options, int *num_options)
+int
+module_load(void)
 {
-    INIT_DEBUG_FILE();
+   INIT_DEBUG_FILE();
+   DBG("module_init()\n");
+   
+   INIT_SETTINGS_TABLES();
+   
+   MOD_OPTION_1_INT_REG(FliteMaxChunkLenght, 300);
+   MOD_OPTION_1_STR_REG(FliteDelimiters, ".");
 
-    MOD_OPTION_1_INT_REG(FliteMaxChunkLenght, 300);
-    MOD_OPTION_1_STR_REG(FliteDelimiters, ".");
-
-    DBG("module_load()\n");
-
-    return &module_info;
+   return 0;
 }
 
 int
@@ -121,8 +118,8 @@ module_init(void)
 }
 
 
-static gint
-module_write(gchar *data, size_t bytes, TFDSetElement* set)
+int
+module_write(gchar *data, size_t bytes)
 {
     int ret;
 
@@ -134,7 +131,6 @@ module_write(gchar *data, size_t bytes, TFDSetElement* set)
     }
     
     if(module_write_data_ok(data) != 0) return -1;
-    assert(set!=NULL);
 
     *flite_message = strdup(data);
     module_strip_punctuation_default(*flite_message);
@@ -142,9 +138,9 @@ module_write(gchar *data, size_t bytes, TFDSetElement* set)
     DBG("Requested data: |%s|\n", data);
 	
     /* Setting voice */
-    flite_set_voice(set->voice_type);
-    flite_set_rate(set->rate);
-    flite_set_pitch(set->pitch);
+    UPDATE_PARAMETER(voice, flite_set_voice);
+    UPDATE_PARAMETER(rate, flite_set_rate);
+    UPDATE_PARAMETER(pitch, flite_set_pitch);
 
     /* Send semaphore signal to the speaking thread */
     flite_speaking = 1;    
@@ -154,18 +150,19 @@ module_write(gchar *data, size_t bytes, TFDSetElement* set)
     return bytes;
 }
 
-static gint
+int
 module_stop(void) 
 {
     DBG("flite: stop()\n");
 
     if(flite_speaking && flite_pid != 0){
-        DBG("flite: stopping process pid %d\n", flite_pid);
+        DBG("flite: killing process pid %d\n", flite_pid);
         kill(flite_pid, SIGKILL);
     }
+    return 0;
 }
 
-static size_t
+size_t
 module_pause(void)
 {
     DBG("pause requested\n");
@@ -184,14 +181,14 @@ module_pause(void)
     }
 }
 
-static gint
+int
 module_is_speaking(void)
 {
     return flite_speaking; 
 }
 
-static gint
-module_close(void)
+void
+module_close(int status)
 {
     
     DBG("flite: close()\n");
@@ -201,16 +198,14 @@ module_close(void)
     }
 
     if (module_terminate_thread(flite_speak_thread) != 0)
-        return -1;
+        exit(1);
    
-    free(flite_voice);
+    xfree(flite_voice);
     
     CLOSE_DEBUG_FILE();
 
-    return 0;
+    exit(status);
 }
-
-
 
 /* Internal functions */
 
@@ -305,26 +300,22 @@ flite_set_pitch(signed int pitch)
 static void
 flite_set_voice(EVoiceType voice)
 {
-    if (voice != flite_cur_voice){
-        switch(voice){
-        case MALE1:
-            free(flite_voice);
-            flite_voice = (cst_voice*) register_cmu_us_kal();
-            flite_cur_voice = MALE1;
-            break;
-            //        case MALE3:
+    switch(voice){
+    case MALE1:
+        free(flite_voice);
+        flite_voice = (cst_voice*) register_cmu_us_kal();
+        break;
+        //        case MALE3:
             //            free(flite_voice);
             /* This is only an experimental voice. But if you want
              to know what's the time... :)*/
             //            flite_voice = (cst_voice*) register_cmu_time_awb();	
             //            flite_cur_voice = MALE2;
             //            break;
-        default:
-            free(flite_voice);
-            flite_voice = (cst_voice*) register_cmu_us_kal();
-            flite_cur_voice = MALE1;
-        }
-    }       
+    default:
+        free(flite_voice);
+        flite_voice = (cst_voice*) register_cmu_us_kal();
+    }
 }
 
 static void
@@ -336,3 +327,5 @@ flite_child_close(TModuleDoublePipe dpipe)
     DBG("Child ended...\n");
     exit(0);
 }
+
+#include "module_main.c"

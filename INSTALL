@@ -8,10 +8,13 @@ You will need these components to compile Speech Dispatcher:
  - libasound1 (0.5.8) 
  - gcc and GNU make (http://www.gnu.org)
  - flite [we also use it for sound track output] (http://cmuflite.org/)
- - festival (http://www.cstr.ed.ac.uk/projects/festival/)
  - librecode (http://www.gnu.org/software/recode/)
- - ncurses [for Speech Dispatcher Center]
+
+Only if you are building from CVS, you also need these:
  - automake 1.7+, autoconf, pkg-config and libtool (if you are building from CVS)
+
+We recommend to also install these packages:
+ - festival (http://www.cstr.ed.ac.uk/projects/festival/)
 
 Building Speech Dispatcher:
 ===========================
@@ -43,7 +46,7 @@ If it doesn't work, try the following:
 (You can use ./build.sh instead of the auto-toolchain) 
 
 When everything worked ok, you can install all the parts to the default
-path by running:
+path by running (as root):
 
  $ make install
 
@@ -58,6 +61,11 @@ If Speech Dispatcher is running, you can test if it's working by:
  $ cd speechd-@VERSION/src/tests
  $ ./run_test basic.test
 (You can also try other tests, if you like.)
+
+Also try
+ $ speechd --help
+to see how you can run it as a standalone program and possibly see
+what's wrong.
 
 Troubleshooting
 ===============

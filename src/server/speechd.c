@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.44 2003-08-11 15:01:52 hanke Exp $
+ * $Id: speechd.c,v 1.45 2003-09-07 11:32:27 hanke Exp $
  */
 
 #include "speechd.h"
@@ -30,8 +30,31 @@
 /* Declare functions to allocate and create important data
  * structures */
 #include "alloc.h"
+#include "sem_functions.h"
 
 int server_socket;
+
+char*
+spd_get_path(char *filename, char* startdir)
+{
+    char *ret;
+    if (filename == NULL) return NULL;
+    if(filename[0] != '/'){
+        if (startdir == NULL) ret = g_strdup(filename);
+        else ret = g_strdup_printf("%s/%s", startdir, filename);
+    }else{
+        ret = g_strdup(filename);
+    }
+    return ret;
+}
+
+/* Just to be able to set breakpoints */
+void
+fatal_error(void)
+{
+    int i;
+    i++;
+}
 
 /* Logging messages, level of verbosity is defined between 1 and 5, 
  * see documentation */
@@ -95,16 +118,27 @@ speechd_modules_terminate(gpointer key, gpointer value, gpointer user)
     module = (OutputModule *) value;
     if (module == NULL){
         MSG(2,"Empty module, internal error");
-        if(SPEECHD_DEBUG) FATAL("Internal error");
         return TRUE;
     }
-    assert(module->name!=NULL);
-    MSG(4,"Terminating a module %s", module->name);
-    (*module->close) ();
-			
-    g_module_close((GModule*) (module->gmodule));
-	
+    unload_output_module(module);		       
+
     return TRUE;
+}
+
+void
+speechd_modules_reload(gpointer key, gpointer value, gpointer user)
+{
+    OutputModule *module;
+
+    module = (OutputModule *) value;
+    if (module == NULL){
+        MSG(2,"Empty module, internal error");
+        return;
+    }
+ 
+    reload_output_module(module);		       
+
+    return;
 }
 	
 void
@@ -153,38 +187,26 @@ speechd_load_configuration(int sig)
     spd_num_options = 0;
     spd_options = load_config_options(&spd_num_options);
 
-    configfile = dotconf_create(configfilename, first_run_options, 0, CASE_INSENSITIVE);
-    if (configfile){
-        if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
-        dotconf_cleanup(configfile);
-        MSG(4,"Configuration (pre) has been read from \"%s\"", configfilename);    
-
-        /* Add the LAST option */
-        spd_options = add_config_option(spd_options, &spd_num_options, "", 0, NULL, NULL, 0);
-
-        configfile = dotconf_create(configfilename, spd_options, 0, CASE_INSENSITIVE);
-        if (!configfile) DIE ("Error opening config file\n");
-        if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
-        dotconf_cleanup(configfile);
-    }else{
-        MSG(2, "Error opening config file\n");
-        
-    }
-    if (sound_module == NULL){
-        sound_module = load_output_module("cstsnd", NULL);
-        if (sound_module == NULL) FATAL("Couldn't load specified sound module,"
-                                        "check configuration.");
-    }
+    /* Add the LAST option */
+    spd_options = add_config_option(spd_options, &spd_num_options, "", 0, NULL, NULL, 0);
+    
+    configfile = dotconf_create(configfilename, spd_options, 0, CASE_INSENSITIVE);
+    if (!configfile) DIE ("Error opening config file\n");
+    if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
+    dotconf_cleanup(configfile);
 
     free_config_options(spd_options, &spd_num_options);
     MSG(2,"Configuration has been read from \"%s\"", configfilename);
 }
 
 void
-speechd_alarm_handle(int sig)
+speechd_reload_dead_modules(int sig)
 {
-    MSG(4,"Received signal from output modules, posting on semaphore");
-    sem_post(sem_messages_waiting);
+    /* Reload dead modules */
+    g_hash_table_foreach(output_modules, speechd_modules_reload, NULL);
+
+    /* Make sure there aren't any more child processes left */
+    while(waitpid(-1, NULL, WNOHANG) > 0);    
 }
 
 /* Set alarm to the requested time in microseconds. */
@@ -204,7 +226,7 @@ speechd_alarm (unsigned int useconds)
 
 
 void
-speechd_init()
+speechd_init(void)
 {
     configfile_t *configfile = NULL;
     char *configfilename = SYS_CONF"/speechd.conf" ;
@@ -217,7 +239,7 @@ speechd_init()
 
     /* Initialize logging */
     logfile = stdout;
-	
+
     /* Initialize Speech Dispatcher priority queue */
     MessageQueue = (TSpeechDQueue*) speechd_queue_alloc();
     if (MessageQueue == NULL) FATAL("Couldn't alocate memmory for MessageQueue.");
@@ -232,7 +254,7 @@ speechd_init()
 
     fd_uid = g_hash_table_new(g_str_hash, g_str_equal);
     assert(fd_uid != NULL);
-	
+
     snd_icon_langs = g_hash_table_new(g_str_hash, g_str_equal);
     assert(snd_icon_langs != NULL);
 
@@ -269,16 +291,29 @@ speechd_init()
     if(_POSIX_VERSION < 199506L)
         DIE("This system doesn't support POSIX.1c threads\n");
 
-	/* Fill GlobalFDSet with default values */
-	GlobalFDSet.min_delay_progress = 2000;
-	
+    /* Fill GlobalFDSet with default values */
+    GlobalFDSet.min_delay_progress = 2000;
+
+    /* Initialize list of different client specific settings entries */
+    client_specific_settings = NULL;
+
     /* Initialize mutexes, semaphores and synchronization */
     ret = pthread_mutex_init(&element_free_mutex, NULL);
     if(ret != 0) DIE("Mutex initialization failed");
 
-    sem_messages_waiting = (sem_t *) spd_malloc(sizeof(sem_t));
-    ret = sem_init(sem_messages_waiting, 0, 0);
-    if (ret != 0) DIE("Semaphore initialization failed");
+    ret = pthread_mutex_init(&output_layer_mutex, NULL);
+    if(ret != 0) DIE("Mutex initialization failed");
+
+    MSG(4, "Creating semaphore");
+    speaking_sem_key = (key_t) 1228;
+    speaking_sem_id = speaking_semaphore_create(speaking_sem_key);
+    MSG(4, "Testing semaphore");
+    speaking_semaphore_post();
+    speaking_semaphore_wait();
+
+    //    sem_messages_waiting = (sem_t *) spd_malloc(sizeof(sem_t));
+    //    ret = sem_init(sem_messages_waiting, 0, 0);
+    //    if (ret != 0) DIE("Semaphore initialization failed");
 
     /* Load configuration from the config file*/
     speechd_load_configuration(0);
@@ -293,7 +328,9 @@ speechd_init()
     }
 
     max_gid = 0;
+    highest_priority = 0;
 }
+
 
 /* activity is on server_socket (request for a new connection) */
 int
@@ -305,7 +342,8 @@ speechd_connection_new(int server_socket)
     int client_socket;
     int v;
     int *p_client_socket, *p_client_uid;
-	   
+    GList *gl;
+
     client_socket = accept(server_socket, (struct sockaddr *)&client_address,
                            &client_len);
 
@@ -313,7 +351,7 @@ speechd_connection_new(int server_socket)
         MSG(2,"Can't handle connection request of a new client");
         return -1;
     }
-	
+
     /* We add the associated client_socket to the descriptor set. */
     FD_SET(client_socket, &readfds);
     if (client_socket > fdmax) fdmax = client_socket;
@@ -331,7 +369,6 @@ speechd_connection_new(int server_socket)
     o_bytes[client_socket] = 0;
     awaiting_data[client_socket] = 0;
     inside_block[client_socket] = 0;
-    
 
     /* Create a record in fd_settings */
     new_fd_set = (TFDSetElement *) default_fd_set();
@@ -347,7 +384,9 @@ speechd_connection_new(int server_socket)
     p_client_uid = (int*) spd_malloc(sizeof(int));
     *p_client_socket = client_socket;
     *p_client_uid = max_uid;
+
     g_hash_table_insert(fd_settings, p_client_uid, new_fd_set);
+
     g_hash_table_insert(fd_uid, p_client_socket, p_client_uid);
 		
 
@@ -392,6 +431,7 @@ speechd_connection_destroy(int fd)
 	return 0;
 }
 
+
 int
 main(int argc, char *argv[])
 {
@@ -415,9 +455,9 @@ main(int argc, char *argv[])
 
     /* Register signals */
     (void) signal(SIGINT, speechd_quit);	
-    (void) signal(SIGUSR1, speechd_alarm_handle);	
     (void) signal(SIGHUP, speechd_load_configuration);
     (void) signal(SIGPIPE, SIG_IGN);
+    (void) signal(SIGUSR1, speechd_reload_dead_modules);
 
     /* Fork, set uid, chdir, etc. */
     if (spd_mode == SPD_MODE_DAEMON) daemon(0,0);	   
