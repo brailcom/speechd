@@ -1,3 +1,8 @@
+2004-02-13  Hynek Hanke  <hanke@eda>
+
+	* src/modules/module_utils_audio.c (module_audio_output_child): Temporarily set volume only as
+	(ssip_volume-100)/2 for not damaging the sound with overflows.
+
 2004-02-10  Hynek Hanke  <hanke@eda>
 
 	* src/server/parse.c (parse_set): SET * VOLUME added to SSIP.

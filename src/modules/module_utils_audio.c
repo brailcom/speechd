@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils_audio.c,v 1.6 2004-02-10 21:20:22 hanke Exp $
+ * $Id: module_utils_audio.c,v 1.7 2004-02-13 14:48:19 hanke Exp $
  */
 
 #include "spd_audio.h"
@@ -111,7 +111,7 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
                 exit(1);
             }
 
-	    spd_audio_set_volume(volume);
+	    spd_audio_set_volume((volume-100)/2);
 
             DBG("child: Sending data to audio output...\n");            
             spd_audio_play_wave(wave);
