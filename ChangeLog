@@ -1,3 +1,9 @@
+2004-05-23  Hynek Hanke  <hanke@volny.cz>
+
+	* src/modules/Makefile.am (sd_flite_LDFLAGS): Use $(flite_basic) and $(flite_kal) from configure.in.
+
+	* configure.in: If flite_cmu_us_kal16 is available, compile against this better voice,
+	otherwise compile against flite_cmu_us_kal.
 
 2004-05-23  Hynek Hanke  <hanke@volny.cz>
 

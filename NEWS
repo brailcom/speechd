@@ -1,7 +1,8 @@
 
 Version 0.4
  * Volume settings in the Generic output module.
- 
+ * The 16-bit voice for Flite is installed if available.
+ * Bugfixes. 
 
 Version 0.3
  * Volume setting commands in SSIP.
