@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.39 2003-07-16 19:21:34 hanke Exp $
+ * $Id: speechd.c,v 1.40 2003-07-17 12:00:04 hanke Exp $
  */
 
 #include "speechd.h"
@@ -104,21 +104,21 @@ speechd_quit(int sig)
 	
 	MSG(1, "Terminating...");
 
-	MSG(1, "Closing open connections...");
+	MSG(2, "Closing open connections...");
 	/* We will browse through all the connections and close them. */
 	g_hash_table_foreach_remove(fd_settings, speechd_client_terminate, NULL);
 	g_hash_table_destroy(fd_settings);
 	
-	MSG(1,"Closing open output modules...");
+	MSG(2,"Closing open output modules...");
 	/*  Call the close() function of each registered output module. */
 	g_hash_table_foreach_remove(output_modules, speechd_modules_terminate, NULL);
 	g_hash_table_destroy(output_modules);
 	
-	MSG(1,"Closing server connection...");
+	MSG(2,"Closing server connection...");
 	if(close(server_socket) == -1) MSG(2, "close() failed: %s", strerror(errno));
 	FD_CLR(server_socket, &readfds);
 	
-	MSG(1,"Closing speak() thread...");
+	MSG(2,"Closing speak() thread...");
 	ret = pthread_cancel(speak_thread);
 	if(ret != 0) FATAL("Speak thread failed to cancel!\n");
 	
@@ -126,6 +126,8 @@ speechd_quit(int sig)
 	if(ret != 0) FATAL("Speak thread failed to join!\n");
 	
 	fflush(NULL);
+
+        MSG(2,"Speech Dispatcher terminated correctly");
 
 	exit(0);	
 }
@@ -165,24 +167,17 @@ speechd_load_configuration(int sig)
     }
 
     free_config_options(spd_options, &spd_num_options);
-    MSG(1,"Configuration has been read from \"%s\"", configfilename);
+    MSG(2,"Configuration has been read from \"%s\"", configfilename);
 }
 
 void
 speechd_alarm_handle(int sig)
 {
+    MSG(4,"Received signal from output modules, posting on semaphore");
     sem_post(sem_messages_waiting);
 }
 
-void
-speechd_sigpipe_handle(int sig)
-{
-    return;
-}
-
-
 /* Set alarm to the requested time in microseconds. */
-
 unsigned int
 speechd_alarm (unsigned int useconds)
 {
@@ -278,7 +273,7 @@ speechd_init()
     if (g_hash_table_size(output_modules) == 0){
         DIE("No speech output modules were loaded - aborting...");
     }else{
-        MSG(1,"Speech Dispatcher started with %d output module%s",
+        MSG(3,"Speech Dispatcher started with %d output module%s",
             g_hash_table_size(output_modules),
             g_hash_table_size(output_modules) > 1 ? "s" : "" );
     }
@@ -381,7 +376,7 @@ speechd_connection_destroy(int fd)
 }
 
 int
-main()
+main(int argc, char *argv[])
 {
     struct sockaddr_in server_address;
     fd_set testfds;
@@ -389,21 +384,24 @@ main()
     int fd;
     int ret;
 
+    spd_log_level_set = 0;
+    spd_port_set = 0;
+    spd_mode = SPD_MODE_DAEMON;
+
+    options_parse(argc, argv);
+
     /* Fork, set uid, chdir, etc. */
-    daemon(0,0);	
+    if (spd_mode == SPD_MODE_DAEMON) daemon(0,0);	   
 
-
-    spd_log_level = 2;
-	
     /* Register signals */
     (void) signal(SIGINT, speechd_quit);	
-    (void) signal(SIGALRM, speechd_alarm_handle);	
+    (void) signal(SIGUSR1, speechd_alarm_handle);	
     (void) signal(SIGHUP, speechd_load_configuration);
-    (void) signal(SIGPIPE, speechd_sigpipe_handle);
+    (void) signal(SIGPIPE, SIG_IGN);
 
     speechd_init();
 
-    MSG(1,"Creating new thread for speak()");
+    MSG(3,"Creating new thread for speak()");
     ret = pthread_create(&speak_thread, NULL, speak, NULL);
     if(ret != 0) FATAL("Speak thread failed!\n");
 
@@ -412,9 +410,9 @@ main()
 
     server_address.sin_family = AF_INET;
     server_address.sin_addr.s_addr = htonl(INADDR_ANY);
-    server_address.sin_port = htons(SPEECHD_PORT);
+    server_address.sin_port = htons(spd_port);
 
-    MSG(1,"Openning a socket connection");
+    MSG(2,"Openning a socket connection");
     if (bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address)) == -1){
         MSG(1, "bind() failed: %s", strerror(errno));
         FATAL("Couldn't open socket, try a few minutes later.");
@@ -427,7 +425,7 @@ main()
     fdmax = server_socket;
 
     /* Now wait for clients and requests. */   
-    MSG(1, "Speech server waiting for clients ...");
+    MSG(1, "Speech Dispatcher waiting for clients ...");
     while (1) {
         testfds = readfds;
 
