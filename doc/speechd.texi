@@ -66,14 +66,14 @@ in the section entitled "GNU Free Documentation License".
 @end ifhtml
 
 @menu
-* Introduction::            What is Speech Dispatcher.
-* User's Documentation::    Usage, Configuration...
-* Client Programming::      Documentation for application developers.
-* Server Programming::      Documentation for project contributors.
+* Introduction::                What is Speech Dispatcher.
+* User's Documentation::        Usage, Configuration...
+* Client Programming::          Documentation for application developers.
+* Server Programming::          Documentation for project contributors.
 
-* Download and Contact::    How to get Speech Dispatcher and how to contact us
-* Reporting Bugs::          How to report a bug
-* How You Can Help::        What is needed
+* Download and Contact::        How to get Speech Dispatcher and how to contact us
+* Reporting Bugs::              How to report a bug
+* How You Can Help::            What is needed
 
 * Appendices::                  
 * GNU General Public License::  Copying conditions for Speech Dispatcher
@@ -158,7 +158,7 @@ of output modules communicating with the different synthesizers.
 These output modules are implemented as plug-ins, so that the user
 can just load a new module if he wants to use new synthesizer.
 
-Each client (application that wants to speaks) opens a socket
+Each client (application that wants to speak) opens a socket
 connection to Speech Dispatcher and calls functions like say(),
 stop(), pause() provided by a library implementing the protocol.
 This shared library is still on the client side and sends Speech
@@ -267,235 +267,18 @@ help us with such a client.
 @section Features
 
 In this section, there is a more detailed description of the main
-features of Speech Dispatcher.
+features of Speech Dispatcher. These features are only the ones
+specific to this implementation of SSIP. For the general overview
+of the features included in SSIP, and therefore supported by Speech
+Dispatcher, please @xref{Top,,,ssip, SSIP Documentation}.
 
 @menu
-* Message Priority Model::      Solving concurrent requests for speech.
-* Message History::             Keeping track of spoken messages.
 * Multiple Output Modules::     Using various speech synthesizers on one system.
-* User Authentication::         
+* Security::                    How Speech Dispatcher protects the privacy of users.
 @end menu
 
-@node Message Priority Model, Message History, Features, Features
-@subsection Message Priority Model
-@cindex priorities
 
-Speech Dispatcher can't synthesize everything that comes to it,
-for the simple reason, that messages are often coming faster
-than a synthetic voice can say them. On the screen of a
-monitor, there is relatively a lot of space compared to
-one-channel speech synthesis output. For this reason, we
-use a system of several priorities targeted at different
-types of messages.
-
-The idea is that the task of the programmers of client
-applications is only to assign to each message a meaningful
-priority and all the synchronization and switching between
-these messages (that can be comming from different clients)
-can be handled by applying certain rules over the priorities.
-
-@menu
-* Priority Categories::         What are the available priorities.
-* Priority Diagram::            Schematic diagram of used priority model.
-* Examples of Using Priorities::  A few examples of using the priorities.
-@end menu
-
-@node Priority Categories, Priority Diagram, Message Priority Model, Message Priority Model
-@subsubsection Priority Categories
-                     
-Speech Dispatcher provides the system of five priorities.  Every
-message will either contain explicit priority information, or the
-default value will be considered.
-
-Please see also the diagram bellow.
-
-@subsubheading Priority @code{important}
-@cindex Priority important
-
-This message will be said immediately as it comes to server.
-It is never interrupted. When several concurrent messages of
-this priority are received by server, they are queued and said
-in the order, they came.
-
-When a new message of level @code{important} comes when a message of
-another priority is spoken, this message is canceled. Other messages
-of lower priorities are either postponed (priority @code{message} and
-@code{text}) until there will be no messages of priority important
-waiting or canceled (priority @code{notification} and @code{progress}.
-
-These messages should be as short as possible and should rarely be
-used, because they block the output of all other messages.
-
-@subsubheading Priority @code{message}
-@cindex Priority message
-
-This message will be said when there is no message of priority
-@code{important} or @code{message} waiting in the queue. If there are,
-this message is postponed until the previous messages are spoken. This
-means that the priority @code{message} doesn't interrupt itself. If
-there are messages of priority @code{notification}, @code{progress} or
-@code{text} waiting in the queue or being spoken when a message of
-priority @code{message} comes, these are canceled.
-
-@subsubheading Priority @code{text}
-@cindex Priority text
-
-This message will be said when there is no message of priority
-@code{important} or @code{message} waiting in the queue. If there are,
-this message is postponed until the previous messages are spoken.
-
-The priority text interrupts itself. It means that if several messages
-of this priority are received, they are not said in the order they
-were received, but only the latest of them is said, others are
-canceled.
-
-If there are messages of priority @code{notification} and
-@code{progress} waiting in the queue or being spoken when a message
-of priority @code{text} comes, these are canceled.
-
-@subsubheading Priority @code{notification}
-
-This is a low priority message. If there are messages with priorities
-@code{important}, @code{messages}, @code{text} or @code{progress}
-waiting in the queues or being spoken, this @code{notification}
-message is canceled.
-
-This priority interrupts itself, so if more messages with priority
-@code{notification} come at the same time, only the last of them is
-spoken.
-
-@subsubheading Priority @code{progress}
-
-This is a special priority for messages that are coming
-shortly one after each other and they carry the information
-about some work in progress (e.g.@ @code{Completed 45%}).
-
-If new messages interrupted each other (see priority
-Notification), the user might not receive any complete
-message.
-
-This priority behaves the same as ``notification'' except
-for 2 things:
-
-@itemize
-@item
-The messages of this priority don't interrupt each other,
-instead, a newly arriving message is canceled if another message is
-being spoken.
-@item
-It tries to detect the last message of a series of messages (It's
-important for the user to hear the @code{Completed 100%} message to
-know that the process has terminated). It waits until there are no
-more messages of this priority waiting in queues and if the last of
-them wasn't spoken yet, it speaks it with priority @code{message}.
-@end itemize
-
-This way, even if Speech Dispatcher is busy speaking messages of other
-priorities, we are still sure that the important messages at the
-end of the @code{progress} sequences will be said.
-
-@node Priority Diagram, Examples of Using Priorities, Priority Categories, Message Priority Model
-@subsubsection Priority Diagram
-
-@image{figures/priorities,,,Speech Dispatcher architecture}
-@c TODO: Generate a pdf version.
-
-@node Examples of Using Priorities,  , Priority Diagram, Message Priority Model
-@subsubsection Examples of Using Priorities
-
-Example uses for priority @code{important} are:
- 
-@itemize
-@item error messages
-@item very important messages
-@item ...
-@end itemize
-
-Example uses for priority @code{message} are:
-
-@itemize
-@item regular program messages
-@item warnings
-@item ...
-@end itemize
-
-Example uses for priority @code{text} are:
-
-@itemize
-@item text the user is working on
-@item menu items
-@item ...
-@end itemize
-
-Example uses for priority @code{notification} are:
-
-@itemize
-@item less important status information
-@item letters when typing input
-@item run-time help
-@item ...
-@end itemize
-
-Example uses for level @code{progress} are:
-
-@itemize
-@item ``completed 15%'', ``completed 16%'', ``completed 17%''
-@item ``Loading sounds'', ``Loading graphics'', ``Loading ai'', ...
-@end itemize
-
-@node Message History, Multiple Output Modules, Message Priority Model, Features
-@subsection Message History
-@cindex history
-
-It seems as a good feature for the blind and visually impaired
-to provide a possibility to, through some simple client, browse
-the history of received messages.
-
-Some less important messages are received with Speech Dispatcher
-without being said, because they are suppressed by more important
-messages. This is an inherent property of each speech output
-interface, since it's not possible to output in speech as much
-information as is presented on a screen. This is another reason why
-it's advantageous to have a history of received messages, so that the
-user can look if there isn't something important he didn't hear.
-
-@menu
-* Access Rights::               Access rights to the history messages.
-@end menu
-
-@node Access Rights,  , Message History, Message History
-@subsubsection Access Rights
-@cindex access rights
-
-To protect privacy of users, Speech Dispatcher restricts history access to a
-certain subset of all the received messages.  The following rules apply:
-
-@itemize @bullet
-@item
-All the messages issued by a client connection are accessible to that
-client connection.
-
-@item
-All the messages sent by a given user are accessible to that user.
-
-@item
-@cindex @code{speechd} user
-@cindex @code{speechd} group
-All the messages sent by the user @code{speechd} are accessible to all
-users on the system running the Speech Dispatcher instance present in the
-group @code{speechd}.
-
-@item
-No other messages are accessible.
-@end itemize
-
-Two users are considered the same, if and only if their connections originate
-on the same host, their user names are the same, and their identity can be
-checked, as described in @ref{User Authentication}.  If user's identity cannot
-be checked, the user is considered different of all other connected or
-previously connected users.
-
-@node Multiple Output Modules, User Authentication, Message History, Features
+@node Multiple Output Modules, Security, Features, Features
 @subsection Multiple Output Modules
 @cindex output module
 @cindex different synthesizers
@@ -542,8 +325,16 @@ LanguageDefaultModule "en"  "new_module"
 
 to make it default for some language.
 
-@node User Authentication,  , Multiple Output Modules, Features
-@subsection User Authentication
+@node Security,  , Multiple Output Modules, Features
+@subsection Security
+
+@menu
+* User Authentication::         
+* Access Rights to Message History::  
+@end menu
+
+@node User Authentication, Access Rights to Message History, Security, Security
+@subsubsection User Authentication
 @cindex Identification Protocol
 @cindex identd
 @cindex RFC 1413
@@ -558,7 +349,40 @@ mechanism defined by RFC 1413 to get the user's identity.
 @cindex user mapping
 It is possible to specify user mapping in the configuration.  This allows
 certain users to be considered the same and have the same rights (eg. to browse
-their @ref{Message History}).
+their @ref{Top,,Message History,ssip, SSIP Documentation}).
+
+@node Access Rights to Message History,  , User Authentication, Security
+@subsubsection Access Rights to Message History
+@cindex access rights
+
+To protect privacy of users, Speech Dispatcher restricts history access to a
+certain subset of all the received messages.  The following rules apply:
+
+@itemize @bullet
+@item
+All the messages issued by a client connection are accessible to that
+client connection.
+
+@item
+All the messages sent by a given user are accessible to that user.
+
+@item
+@cindex @code{speechd} user
+@cindex @code{speechd} group
+All the messages sent by the user @code{speechd} are accessible to all
+users on the system running the Speech Dispatcher instance present in the
+group @code{speechd}.
+
+@item
+No other messages are accessible.
+@end itemize
+
+Two users are considered the same, if and only if their connections originate
+on the same host, their user names are the same, and their identity can be
+checked, as described in @ref{User Authentication}.  If user's identity cannot
+be checked, the user is considered different of all other connected or
+previously connected users.
+
 
 @node Invoking, Configuration, Features, User's Documentation
 @section Invoking
@@ -751,8 +575,8 @@ For each voice, there is exactly one @code{AddVoice} line.
 @var{language} is the ISO language code of the language of this voice.
 
 @var{symbolicname} is a symbolic name under which you wish this voice
-to be available. See @ref{Standard Voices} for the list of names you can
-use.
+to be available. See @ref{Top,,Standard Voices, ssip, SSIP
+Documentation} for the list of names you can use.
 
 @var{name} is a name specific for the given output module. Please see
 the comments in the configuration file under the appropriate AddModule
@@ -949,8 +773,9 @@ data. Use with caution.)
 @chapter Client Programming
 
 Clients communicate with Speech Dispatcher via the Speech Synthesis
-Internet Protocol (SSIP).  The protocol is the actual interface to
-Speech Dispatcher.
+Internet Protocol (SSIP) @xref{Top, , , ssip, Speech Synthesis
+Internet Protocol documentation}.  The protocol is the actual
+interface to Speech Dispatcher.
 
 Usually you don't need to use SSIP directly.  You can use one of the
 programming interfaces wrapping SSIP with programming library calls.  This is a
@@ -961,861 +786,11 @@ interfaces developed as external projects.  Please contact us for information
 about current external client libraries.
 
 @menu
-* SSIP::                        Socket based communication.
 * C API::                       Shared library for C/C++
 * Python API::                  Pythom module.
 @end menu
 
-
-@node SSIP, C API, Client Programming, Client Programming
-@section Speech Synthesis Internet Protocol (SSIP)
-
-@menu
-* General Rules::               Overall conventions applying to SSIP.
-* SSIP Commands::               Complete reference of SSIP commands.
-* Return Codes::                List of SSIP result codes.
-* Sample SSIP Relation::        An example session.
-@end menu
-
-@node General Rules, SSIP Commands, SSIP, SSIP
-@subsection General Rules
-
-SSIP communicates with the clients through a defined set of text
-commands, in the way usual in common Internet protocols.  The
-characters sent to and from Speech Dispatcher are encoded using the UTF-8
-encoding.
-
-Each SSIP command, unless specified otherwise, consists of exactly one
-line.  The line is sent in the following format:
-
-@example
-@var{command} @var{arg} ...
-@end example
-
-where @var{command} is a case insensitive command name and @var{arg}s
-are its arguments separated by spaces.  The command arguments which
-come from a defined set of values are case insensitive as well.  The
-number of arguments is dependent on the particular command and there
-can be commands having no arguments.
-
-All lines of SSIP input and output must be ended with the pair of
-carriage return and line feed characters, in this order.
-
-When you connect to Speech Dispatcher, you should at least set your client
-name, through the @code{SET SELF CLIENT_NAME} command (@pxref{Parameter Setting
-Commands}).  This is important to get a proper identification of your client
---- to allow managing it from the control center application and to identify it
-in a message history browser.  You might want to set other connection
-parameters as well, look for more details in @ref{Parameter Setting Commands}.
-
-Connection to Speech Dispatcher is preferably closed by issuing the
-@code{QUIT} command, see @ref{Other Commands}.
-
-SSIP is a synchronous protocol --- you send commands and only after a
-complete response from SSIP arrives back you are allowed to send the
-next command.  Usually, the connection to Speech Dispatcher remains open
-during the whole run of the particular client application.  If you
-close the connection and open it again, you must set all the
-previously set parameters again, Speech Dispatcher doesn't store session
-parameters between connections.
-
-The protocol allows you to perform commands regarding other currently
-connected or previously connected clients.  This allows you to write a
-control application managing or browsing all the messages received by
-the current Speech Dispatcher process.  The mechanism is completely
-relaxed, there are no restrictions on managing some aspects of 
-sound output of other users, however, there is a mechanism
-to prevent one user from seeing history messages of another
-user. @xref{Access Rights}.
-
-Some of the commands (@ref{Speech Output Control Commands}
-and @ref{Parameter Setting Commands})
-take an argument in the form:
-@example
-        @{ @var{id} | all | self @}
-@end example 
-
-where the value can be the @code{id} of the connection the command should
-be performed on (a positive number), the string @code{all} to
-act on all clients of this server or @code{self} to act on the connection
-itself. Unless you are writing a special client for managing
-Speech Dispatcher or unless you have specific needs, you
-should only use the @code{self} value of this argument.
-
-Not all parameter setting commands may receive all kinds of the first
-parameter defined above, for instance, some of them may receive only
-@code{self}.
-
-SSIP replies of Speech Dispatcher are of the following format:
-
-@example
-@var{ccc}-line 1
-@var{ccc}-line 2
-...
-@var{ccc}-line @var{n}-1
-@var{ddd} line @var{n}
-@end example
-
-where @var{n} is a positive integer, and @var{ccc} and @var{ddd} are
-three-digit long numeric codes identifying the result of the command.
-The last line determines the overall result of the command, the result
-code is followed by an English message describing the result of the
-action in a human readable form.
-
-@node SSIP Commands, Return Codes, General Rules, SSIP
-@subsection SSIP Commands
-
-Commands recognized by SSIP can be divided into several groups: Speech
-synthesis and sound output commands, speech control commands,
-parameter setting commands, commands retrieving information about
-current client and server settings, command handling the message
-history, and other commands.  Each of these command groups is
-described in one of the following sections.
-
-In the command descriptions, the command is written together with its
-arguments.  Optional arguments are enclosed by square brackets
-(@code{[} and @code{]}), alternatives are separated by the vertical
-rule (@code{|}) and are grouped within braces (@code{@{} and
-@code{@}}) or square brackets for mandatory or optional arguments
-respectively, literal arguments values are typeset in lower letters
-(they are case insensitive), and variable arguments are typeset
-@var{like this}.  Ellipsis denoted by three dots (@code{...}) means
-repetition (zero or more times) of all the arguments within the
-current brackets.
-
-@menu
-* Speech Synthesis and Sound Output Commands::  
-* Speech Output Control Commands::  
-* Blocks of Messages Commands::  
-* Parameter Setting Commands::  
-* Information Retrieval Commands::  
-* History Handling Commands::   
-* Other Commands::              
-@end menu
-
-@node Speech Synthesis and Sound Output Commands, Speech Output Control Commands, SSIP Commands, SSIP Commands
-@subsubsection Speech Synthesis and Sound Output
-
-These commands invoke actual output to particular output device.  The
-particular way how the message is handled depands on current speech
-parameter settings and Speech Dispatcher configuration (@pxref{Configuration}).
-
-@table @code
-@item SPEAK
-Start receiving a text message and synthesize it.  After sending a
-reply to the command, Speech Dispatcher waits for the text of the
-message.  The text can spread over any number of lines and is
-finished by an end of line marker followed by the line containing the
-single character @code{.} (dot).  Thus the complete character sequence
-closing the input text is @code{CR LF . CR LF}.  If any line within
-the sent text starts with a dot, an extra dot is prepended before it.
-
-During reception of the text message, Speech Dispatcher doesn't send
-response to the particular lines sent.  The response line is sent only
-immediately after the @code{SPEAK} command and after receiving the
-closing dot line.
-
-Speech Dispatcher can start speech synthesis as soon as a sufficient
-amount of the text arrives, it generally needn't (but may) wait until
-the end of data marker is received.
-
-There is no explicit upper limit on the size of the text, but the
-server administrator may set one in the configuration or the limit can
-be enforced by available system resources.  If the limit is exceeded,
-the whole text is accepted, but its exceeding part is ignored and an
-error response code is returned after processing the final dot line.
-
-@item CHAR @var{char}
-Speak letter @var{char}.  @var{char} can be any character
-representable by the UTF-8 encoding. The only exception is the
-character space (@code{ }) that can't be sent directly. In this case,
-a string @code{space} must be sent instead.
-
-@example
-CHAR e
-CHAR \
-CHAR space
-CHAR &
-@end example
-
-This command is intended to be used for speaking single letters,
-e.g.@ when reading a character under cursor or when spelling words.
-
-@item KEY @var{key-name}
-@anchor{SSIP KEY}
-Speak key identified by @var{key-name}.  The command is intended to be
-used for speaking keys pressed by the user.
-
-@var{key-name} is a case sensitive symbolic key name.  It is composed
-of a key name, optionally prepended with one or more prefixes, each
-containing an auxiliary key name and the underscore character.
-
-Key name may contain any character excluding control characters (the
-characters in the range 0 to 31 in the ASCII table, characters in the
-range 128 to 159 in the Latin-* tables and other ``invisible''
-characters), spaces, underscores, and double quotes.
-
-The recognized key names are:
-
-@itemize
-@item
-Any single UTF-8 character, excluding the exceptions defined above.
-
-@item
-Any of the symbolic key names defined in @ref{Key Names}.
-@end itemize
-
-Examples of valid key names:
-
-@example
-a
-A
-shift_a
-shift_A
-@'{u}
-$
-enter
-shift_kp-enter
-control_alt_delete
-control
-@end example
-
-@item SOUND_ICON @var{icon-name}
-@anchor{SSIP SOUND_ICON}
-Send a sound identified by @var{icon-name} to the audio output.
-@var{icon-name} is a symbolic name of the given sound from the
-standard set listed in @ref{Standard Sound Icons}, or another name
-from the particular Speech Dispatcher sound icon configuration.
-@end table
-
-@node Speech Output Control Commands, Blocks of Messages Commands, Speech Synthesis and Sound Output Commands, SSIP Commands
-@subsubsection Controlling Speech Output
-
-These commands can stop or resume speech or audio output.  They all
-affect only the synthesis process and output to a sound device, they
-do not affect the message history.
-
-@table @code
-@item STOP @{ @var{id} | all | self @}
-Immediately stop outputting the current message (whatever it is ---
-text, letter, key, or sound icon) from the identified client, if any
-is being output.  If the command argument is @code{self}, last message
-from the current client connection is stopped.  If it is @code{all},
-stop currently output message or messages from all the clients.
-Otherwise, argument @var{id} must be given as an positive integer and
-the currently processed message from the client connection identified
-by @var{id} is stopped; if there is none such, do nothing.
-
-@item CANCEL @{ @var{id} | all | self @}
-This command is the same as @code{SPEAK}, with the exception that it
-stops not yet output messages as well.  All currently queued messages
-are stored into the message history without being sent to the audio
-output device.
-
-@item PAUSE @{ @var{id} | all | self @}
-Stop audio output immediately, but do not discard anything.  All the
-currently output and currently or later queued messages are postponed
-and saved for later processing, until the corresponding @code{RESUME}
-command is received.
-
-The meaning of the command arguments is the same as in the @code{STOP}
-command.
-
-@item RESUME @{ @var{id} | all | self @}
-Cancel the effect of the previously issued @code{PAUSE} command.
-Note that messages of the priority ``progress'' and ``notification'' received during
-the pause are not output (but they remain stored in the message history).
-
-It is an error to send the @code{RESUME} command when the output
-corresponding to the given argument is not paused by a previous
-invocation of the @code{PAUSE} command.  Such an error is signaled by
-a @code{4XX} return code.
-
-The meaning of the command arguments is the same as in the @code{STOP}
-command.
-@end table
-
-@node Blocks of Messages Commands, Parameter Setting Commands, Speech Output Control Commands, SSIP Commands
-@subsubsection Blocks of Messages Commands
-
-Block commands allow the client to concatenate several messages to form one
-block that behaves as one message in the priority system and history. After
-opening the block, client can send a specified subset of the commands and
-the messages introduced by @code{SPEAK} will be processed immediately, however
-there will be no priority interaction before closing the block.
-The @ref{Speech Output Control Commands} also handle the whole block as one
-message.
-
-Take for example this message taken from an email client:
-
-@example
-> Hi, how are you?
-I'm fine. Thank you.
-@end example
-
-The character `>' clearly marks who said which part. So it'd be nice to say
-the two lines with different voices, however, it'd be desirable to treat it all
-as one message with priority TEXT and have it put together in history,
-because in fact, it logically @emph{is} one message.
-
-@table @code
-@item BLOCK BEGIN
-Opens a block of messages. There will be no priority interaction between
-the messages inside the block, the whole block will be treated as one message
-of the priority that was specified by previous @code{SET} command.
-
-It can be only called outside of a block, nesting is not allowed.
-
-@itemize
-The allowed commands inside a block are:
-        @item @code{SPEAK}
-        @item @code{SOUND_ICON}
-        @item @code{CHAR}
-        @item @code{SET SELF RATE}
-        @item @code{SET SELF PITCH}
-        @item @code{SET SELF VOICE}
-        @item @code{SET SELF LANGUAGE}
-
-        @item @code{QUIT}
-@end itemize
-
-@item BLOCK END
-Closes a block of messages, see @code{BLOCK BEGIN}.
-
-It can be only called inside a block opened by @code{BLOCK BEGIN},
-nesting is not allowed.
-@end table
-
-A more complete example of SSIP communication using BLOCKs.
-
-@example
-[...]
-SET SELF PRIORITY TEXT
-202 OK PRIORITY SET
-
-BLOCK BEGIN
-260 OK INSIDE BLOCK
-
-SET SELF VOICE MALE1
-209 OK VOICE SET
-
-SPEAK
-230 OK RECEIVING DATA
-The word
-225 OK MESSAGE QUEUED
-
-SET SELF VOICE MALE2
-209 OK VOICE SET
-SPEAK
-230 OK RECEIVING DATA
-`Free'
-225 OK MESSAGE QUEUED
-
-SET SELF VOICE MALE1
-209 OK VOICE SET
-SPEAK
-230 OK RECEIVING DATA
-in Free Software refers to freedom, not price.
-225 OK MESSAGE QUEUED
-
-BLOCK END
-261 OK OUTSIDE BLOCK
-@end example
-
-@node Parameter Setting Commands, Information Retrieval Commands, Blocks of Messages Commands, SSIP Commands
-@subsubsection Parameter Setting
-
-The @code{SET} command sets various control parameters of Speech
-Dispatcher.  The parameter is always denoted by the second command
-argument.
-
-All the settings take effect on the connections specified in the first
-argument (@pxref{General Rules}) and until the parameter setting is
-changed by another invocation of the appropriate @code{SET} command or
-until the connection is closed.
-
-@table @code
-@item SET self CLIENT_NAME @var{user}:@var{client}:@var{component}
-Set client's name.  Client name consists of the user name, client
-(application) identification, and the identification of the component
-of the client (application).  Each of the parts of the client name may
-contain only alphanumeric characters.
-
-For example, for a client called @code{lynx} that creates Speech
-Dispatcher connection for its command processing, the name could be set in
-the following way:
-
-@example
-SET CLIENT_NAME joe:lynx:cmd_processing
-@end example
-
-The client name is used in the server configuration settings, client
-listings and message history handling.  All its three parts can be
-arbitrary, but it's important to define and follow rules for each
-application supporting Speech Dispatcher, so that a Speech Dispatcher user can
-configure all the aspects of the speech output easily.
-
-Usually, this command should be sent as the very first command when a
-new connection to Speech Dispatcher is established.  The command may be
-sent only once within a single connection, attempts to change the
-client's name once it's already set are answered with an error code.
-
-Only @code{self} is allowed as the `target' argument.
-
-@item SET @{ all | self | @var{id} @} LANGUAGE @var{language}
-Set recommended language for this client to @var{language}.
-@var{language} is the name of the language according to RFC 1766.
-
-For example, to set the preferred language to Czech, you send the
-following command:
-
-@example
-SET SELF LANGUAGE cs
-@end example
-
-@item SET self PRIORITY @var{n}
-Set message priority to @var{n}.  @var{n} must be one of the values
-@code{important}, @code{text}, @code{message}, @code{notification},
-@code{progress}.  @xref{Message Priority Model}.
-
-Only @code{self} is allowed as the `target' argument.
-
-@item SET @{ all | self | @var{id} @} PUNCTUATION @{ all | some | none @}
-Set punctuation mode to the given value.  @code{all} means read all
-punctuation characters, @code{none} read no punctuation characters,
-@code{some} means read only punctuation characters set in the synthesizer's
-configuration.
-
-@item SET @{ all | self | @var{id} @} SPELLING @{ on | off @}
-Switch spelling on or off.  If spelling is set to on, all the
-incomming messages will be said letter-by-letter, instead than
-reading them as whole words.
-
-@item SET @{ all | self | @var{id} @} CAP_LET_RECOGN @{ none | spell | icon @}
-Set capital letters recognition mode. @code{none} switches this
-feature off. @code{spell} causes that capital letters are spelled
-in the output using the table set as @code{CAP_LET_RECOGN_TABLE}.
-With parameter @code{icon}, each capital letter will be preceeded
-by a sound icon (either sound or textual) specified by the user
-in his configuration.
-
-@item SET @{ all | self | @var{id} @} VOICE @var{name}
-Set the voice identified by @var{name}.  @var{name} must be one of the voice
-identifiers returned by the command @code{LIST VOICES} (@pxref{Information
-Retrieval Commands}).
-
-There is a standard set of voice identifiers defined in @ref{Standard
-Voices}.
-
-@item SET @{ all | self | @var{id} @} RATE @var{n}
-Set the rate of speech.  @var{n} is an integer value within the range
-from -100 to 100, with 0 corresponding to the default rate of the
-current speech synthesis output module, lower values meaning slower
-speech and higher values meaning faster speech.
-
-@item SET @{ all | self | @var{id} @} PITCH @var{n}
-Set the pitch of speech.  @var{n} is an integer value within the range
-from -100 to 100, with 0 corresponding to the default pitch of the
-current speech synthesis output module, lower values meaning lower
-pitch and higher values meaning higher pitch.
-
-@item SET @{ all | self | @var{id} @} PAUSE_CONTEXT @var{n}
-Set the number of index marks (more or less the number of sentences)
-that should be repeated after a previously paused text is resumed.
-If there isn't enough text before the place of the pause, the entire
-message is repeated. @var{n} is a positive integer value specifying
-the number of index marks to repeat.
-
-@item SET @{ all | self | @var{id} @} HISTORY @{ on | off @}
-Enable (@code{on}) or disable (@code{off}) storing of received
-messages into history.
-
-This command is intended for use by message history browsers and
-usually should not be used by other kinds of clients.
-@end table
-
-@node Information Retrieval Commands, History Handling Commands, Parameter Setting Commands, SSIP Commands
-@subsubsection Retrieving Information
-
-The @code{LIST} command serves for retrieving information that can be
-presented to the user for selection of the values to the @code{SET}
-command.  The information listed is selected according to the first
-argument of the @code{LIST} command.
-
-@table @code
-@item LIST VOICES
-Lists the available voice names.
-@end table
-
-The standard voices are always listed.  @xref{Standard Voices}.
-
-@node History Handling Commands, Other Commands, Information Retrieval Commands, SSIP Commands
-@subsubsection History Handling
-
-History is handled by the @code{HISTORY} command.  It can take many
-forms, described below, that allow browsing, retrieving and repeating
-stored messages.  In each invocation of the @code{HISTORY} command
-there is no difference between processing spoken or not spoken
-messages, all the received messages are processed.
-
-The implementation of these history commands is still under
-way. If you want to use them, please contact us to see the
-current status.
-
-There can be @dfn{history cursor} pointing on some message in the
-history.  You can move it across history messages and retrieve the
-message the cursor is pointing to, using the @code{HISTORY CURSOR} set
-of command arguments described below.
-
-@table @code
-@item HISTORY GET CLIENT_LIST
-List known client names, their identifiers and status.  Each connection is
-listed on a separate line in the following format:
-
-@example
-@var{id} @var{name} @var{status}
-@end example
-
-where @var{id} is a client id that can be used in other history
-handling requests or in the speech output control commands
-(@pxref{Speech Output Control Commands}), @var{name} is the client
-name as set through the @code{SET SELF CLIENT_NAME} command, and
-@var{status} is @code{1} for connected clients and @code{0} for
-disconnected clients.  @var{id}s are unique within a single run of
-Speech Dispatcher.
-
-Sample reply of Speech Dispatcher:
-
-@example
-240-0 joe:speechd_client:main 0
-240-1 joe:speechd_client:status 0
-240-2 unknown:unknown:unknown 1
-240 OK CLIENTS LIST SENT
-@end example
-
-@item HISTORY GET CLIENT_ID
-Return id of the client itself.
-
-The id is listed on a separate line in the following format:
-
-@example
-@var{id}
-@end example
-
-Example:
-@example
-200-123
-200 OK CLIENT ID SENT
-@end example
-
-@item HISTORY GET CLIENT_MESSAGES @{ @var{id} | all | self @} @var{start} @var{number}
-List identifiers of messages sent by the client identified by
-@var{id}.  If the special identifier @code{all} is used, identifiers
-of messages sent by all clients are listed; if the special identifier
-@code{self} is used, identifiers of messages sent by this client are
-listed.
-
-@var{number} of messages is listed, starting from the message numbered
-@var{start}.  Both @var{number} and @var{start} must be positive
-integers.  The first message is numbered 1, the second 2, etc.  If the
-given range exceeds the range of available messages, no error is
-signaled and the given range is restricted to the available range of
-messages.
-
-Messages are sorted by the criterion used in the last client's
-invocation of the @code{HISTORY SORT} command.  If no @code{HISTORY
-SET} has been invoked yet, the messages are sorted from the oldest to
-the newest, according to their time of arrival to Speech Dispatcher.
-
-Each message id is listed, together with other information, on a
-separate line, in the following format:
-
-@example
-@var{id} @var{client-id} @var{client-name} "@var{time}" @var{priority} "@var{intro}"
-@end example
-
-@var{client-id} is a numeric identifier of the client which sent the
-message, @var{client-name} is its name as set by the @code{SET SELF
-CLIENT_NAME} command (@pxref{Parameter Setting Commands}).
-@var{time} is the time of arrival of the message, in the fixed length
-@code{YYYY-MM-DD HH:MM:SS} format.  @var{priority} is the priority of
-the message, one of the values accepted by the @code{SET SELF PRIORITY}
-command (@pxref{Parameter Setting Commands}).
-
-@var{intro} is the introductory part of the message of a certain
-maximum length, see the @code{HISTORY SET SHORT_MESSAGE_LENGTH}
-command.  @var{intro} does not contain any double quotes nor the line
-feed character.
-
-All the message identifiers in the history, regardless of clients that
-issued them, are unique within a single run of Speech Dispatcher and
-remain unchanged.
-
-@item HISTORY GET LAST
-List the id of the last message sent by the client.
-
-The id is listed on a separate line of the following format:
-
-@example
-@var{id}
-@end example
-
-If the client haven't sent any message yet, return an error code.
-
-@item HISTORY GET MESSAGE @var{id}
-Return the text of the history message identified by @var{id}.  If
-@var{id} doesn't refer any message, return an error code instead.
-The text is sent as a multi-line message, with no escaping or special
-transformation.
-
-An example SSIP response to the command:
-
-@example
-200-Hello, world!
-200-How are you?
-200 OK MESSAGE SENT
-@end example
-
-@item HISTORY CURSOR GET
-Get the id of the message the history cursor is pointing on.
-
-The id is listed on a separate line.  Sample Speech Dispatcher reply to
-this command:
-
-@example
-243-42
-243 OK CURSOR POSITION RETURNED
-@end example
-
-@item HISTORY CURSOR SET @{ @var{id} | all | self @} @{ first | last | pos @var{n} @}
-Set the history cursor to the given position.  The meaning of the
-first argument after @code{SET} is the same as in the @code{HISTORY
-GET CLIENT_MESSAGES} command.  The argument @code{first} asks to set
-the cursor on the first position and the argument @code{last} asks to
-set the cursor on the last position of the history of the given
-client.  If the argument @code{pos} is used, the position is set to
-@var{n}, where @var{n} is a positive integer.  It is an error if
-@var{id} doesn't identify any client or if @var{n} doesn't point to
-any existing position in the history.
-
-As for the order and numbering of the messages in the history, the
-same rules apply as in @code{HISTORY GET CLIENT_MESSAGES}, see above.
-
-@item HISTORY CURSOR @{ forward | backward @}
-Move the cursor one position @code{forward}, resp. @code{backward},
-within the messages of the client specified in the last @code{HISTORY
-CURSOR SET} command.  If there is no next, resp. previous, message,
-don't move the cursor and return an error code.
-
-@item HISTORY SAY @var{id}
-Speak the message from history identified by @var{id}.  If @var{id}
-doesn't refer any message, return an error code instead.
-
-The message is spoken as it would be sent by its originating command
-(@code{SPEAK} or @code{SOUND_ICON}), but the @emph{current} settings
-(priority, etc.) apply.
-
-@item HISTORY SORT @{ asc | desc @} @{ time | user | client_name | priority | message_type @}
-Sort the messages in history according to the given criteria.  If the
-second command argument is @code{asc}, sort in the ascending order, if
-it is @code{desc}, sort in the descending order.  The third command
-argument specifies the message property to order by:
-
-@table @code
-@item time
-Time of arrival of the message.
-
-@item user
-User name.
-
-@item client_name
-Client name, excluding user name.
-
-@item priority
-Priority.
-
-@item message_type
-Type of the message (text, sound icon, character, key), in the order
-specified in the Speech Dispatcher configuration or by the @code{HISTORY
-SET MESSAGE_TYPE_ORDERING} command.
-@end table
-
-The sorting is stable --- order of all the messages that are equal in
-the given ordering remains the same.
-
-The sorting is specific to the given client connection, other
-connections are unaffected by invocation of this command.
-
-@item HISTORY SET SHORT_MESSAGE_LENGTH @var{length}
-Set the maximum length of short versions of history messages to
-@var{length} characters.  @var{length} must be a non-negative integer.
-
-Short (truncated) versions of history messages are used e.g. in the
-answer to the @code{HISTORY GET CLIENT_MESSAGES} format.
-
-@item HISTORY SET MESSAGE_TYPE_ORDERING "@var{ordering}"
-Set the ordering of the message types, from the minimum to the
-maximum.  @var{ordering} is a sequence of the following symbols,
-separated by spaces: @code{text}, @code{sound_icon}, @code{char},
-@code{key}.  The symbols are case insensitive and each of them must be
-present in @var{ordering} exactly once.
-
-The specified ordering can be used by the @code{HISTORY SORT} command.
-
-@item HISTORY SEARCH @{ @var{id} | all | self @} "@var{condition}"
-Return the list of history messages satisfying @var{condition}.  The
-command allows searching messages by given words.  The output format
-is the same as of the @code{HISTORY GET CLIENT_MESSAGES} command.
-
-The meaning of the first argument after @code{SEARCH} is the same as
-in the @code{HISTORY GET CLIENT_MESSAGES} command.
-
-@var{condition} is constructed according to the following grammar
-rules:
-
-@table @code
-@item @var{condition} :: @var{word}
-Matches messages containing @var{word}.
-
-@item @var{condition} :: ( ! @var{condition} )
-Negation of the given condition.
-
-@item @var{condition} :: ( @var{condition} [ & @var{condition} ... ] )
-Logical AND --- all the conditions must be satisfied.
-
-@item @var{condition} :: ( @var{condition} [ | @var{condition} ... ] )
-Logical OR --- at least one of the conditions must be satisfied.
-@end table
-
-Spaces within the condition are insignificant and ignored.
-
-The following rules apply to @var{word}s:
-
-@itemize @minus
-@item
-@var{word} is a sequence of adjacent alphanumeric characters.
-
-@item
-If @var{word} contains any upper-case letter, the search for the word
-is case sensitive, otherwise it's case insensitive.
-
-@item
-@var{word} must match whole word, not only its substring.
-
-@item
-@var{word} can contain the wild card characters @code{?}, substituting
-any single alphanumeric character, and @code{*}, substituting any
-number (incl. zero) of alphanumeric characters.
-@end itemize
-
-Returned messages are sorted by the following rules:
-
-@enumerate
-@item
-The primary sorting is defined by the number of the satisfied
-subconditions on the top level of the given condition, from the
-highest (best matching messages first) to the lowest.  This takes any
-effect only if the given condition is the OR rule.
-
-@item
-The criterion used in the last client's invocation of the
-@code{HISTORY SORT} command.  If no @code{HISTORY SORT} has been
-invoked yet, the messages are sorted from the oldest to the newest,
-according to their time of arrival to Speech Dispatcher.
-@end enumerate
-@end table
-
-@node Other Commands,  , History Handling Commands, SSIP Commands
-@subsubsection Other Commands
-
-@table @code
-@item QUIT
-Close the connection.
-
-@item HELP
-Print a short list of all SSIP commands, as a multi-line message.
-@end table
-
-@node Return Codes, Sample SSIP Relation, SSIP Commands, SSIP
-@subsection Return Codes
-
-Each line of the SSIP output starts with a three-digit numeric code of
-the form @var{NXX} where @var{N} determines the result group and
-@var{xx} denotes the finer classification of the result.
-
-SSIP defines the following result groups:
-
-@table @var
-@item 1xx
-Informative response --- general information about the protocol, help
-messages.
-
-@item 2xx
-Operation was completely successful.
-
-@item 3xx
-Server error, problem on the server side.
-
-@item 4xx
-Client error, invalid arguments or parameters received.
-
-@item 5xx
-Client error, invalid command syntax, unparseable input.
-@end table
-
-Result groups @var{1xx} and @var{2xx} correspond to successful
-actions, other groups to unsuccessful actions.  Only the groups
-defined here may be returned from the Speech Dispatcher.
-
-Currently, only the meaning of the first digit of the result code is
-defined, the last two digits are insignificant and can be of any
-value.  Clients shouldn't rely on the unspecified digits in any way.
-If you are going to write your own SSIP implementation, please consult
-the authors of Speech Dispatcher to define more precise set of return
-codes.
-
-@node Sample SSIP Relation,  , Return Codes, SSIP
-@subsection Example of an SSIP Relation
-
-The following example illustrates a sample relation with SSIP.  The
-client connects to the Speech Dispatcher, sets all the common parameters,
-sends two text messages, displays the list of clients, instructs
-Speech Dispatcher to repeat the second message, and closes the connection.
-Lines starting with a numeric code are response lines of the server,
-other lines are the lines sent by the client.
-
-@example
-SET SELF CLIENT_NAME joe:vi:default
-208 OK CLIENT NAME SET
-SET SELF PRIORITY MESSAGE
-202 OK PRIORITY SET
-SPEAK
-230 OK RECEIVING DATA
-Hello, I'm a Speech Dispatcher communication example!
-How are you?
-.
-225 OK MESSAGE QUEUED
-SPEAK
-230 OK RECEIVING DATA
-Still there?
-.
-225 OK MESSAGE QUEUED
-HISTORY GET CLIENT_LIST
-240-1 jim:Emacs:default 0
-240-2 jim:Emacs:default 0
-240-3 unknown:unknown:unknown 0
-240-4 jim:Emacs:default 1
-240-5 joe:vi:default 1
-240 OK CLIENTS LIST SENT
-HISTORY GET LAST
-242-39 joe:vi:default
-242 OK LAST MSG SENT
-QUIT
-231 HAPPY HACKING
-@end example
-
-
-@node C API, Python API, SSIP, Client Programming
+@node C API, Python API, Client Programming, Client Programming
 @section C API
 
 @menu
@@ -1896,7 +871,7 @@ typedef enum@{
 @}SPDPriority;
 @end example
 
-@xref{Message Priority Model}.
+@xref{Top,,Message Priority Model,ssip, SSIP Documentation}.
 
 @end defvar
 
@@ -1910,7 +885,7 @@ or delayed according to it's priority.
 
 @code{connection} is the file descriptor obtained by spd_open().
 
-@code{priority} is the desired priority for this message. @xref{Message Priority Model}.
+@code{priority} is the desired priority for this message. @xref{Top,,Message Priority Model,ssip, SSIP Documentation}.
 
 @code{text} is a null terminated string containing text you want to sent to
 synthesis. It must be encoded in UTF-8. Note that this doesn't have to be what
@@ -2126,7 +1101,7 @@ used for example for reading letters under the cursor.
 @code{connection} is the file descriptor obtained by spd_open().
 
 @code{priority} is the desired priority for this
-message. @xref{Message Priority Model}.
+message. @xref{Top,,Message Priority Model,ssip, SSIP Documentation}.
 
 @code{character} is a NULL terminated string of chars containing one UTF-8
 character. If it contains more characters, only the first one is processed.
@@ -2150,11 +1125,12 @@ Says a key according to user settings for keys.
 @code{connection} is the file descriptor obtained by spd_open().
 
 @code{priority} is the desired priority for this
-message. @xref{Message Priority Model}.
+message. @xref{Top,,Message Priority Model,ssip, SSIP Documentation}.
 
 @code{key_name} is the name of the key in a special format.
-@xref{Speech Synthesis and Sound Output Commands}, (KEY, the corresponding
-SSIP command) for description of the format of @code{key_name}
+@xref{Top,,Speech Synthesis and Sound Output Commands, ssip, SSIP
+Documentation}, (KEY, the corresponding SSIP command) for description
+of the format of @code{key_name}
 
 It returns 0 on succes, -1 otherwise.
 @end deffn
@@ -2173,7 +1149,7 @@ define it's own icons.
 @code{connection} is the file descriptor obtained by spd_open().
 
 @code{priority} is the desired priority for this
-message. @xref{Message Priority Model}.
+message. @xref{Top,,Message Priority Model,ssip, SSIP Documentation}.
 
 @code{icon_name} is the name of the icon. It can't contain spaces,
 please use underscores (`_'). Icon names starting with an underscore
@@ -2187,7 +1163,8 @@ The following parameter setting commands are available. For configuration
 and history clients there are also functions for setting the value for
 some other connection and for all connections. They are listed bellow separately.
 
-Please see @ref{Parameter Setting Commands} for a general description of what they mean.
+Please see @ref{Top,,Parameter Setting Commands,ssip, SSIP
+Documentation} for a general description of what they mean.
 
 @deffn {C API function}  int spd_set_language(int connection, char* language);
 @findex spd_set_language()
@@ -2417,13 +1394,15 @@ desired configuration file that the output module should parse.
 @subsection Communication Protocol for Output Modules
 
 The protocol in which the output modules communicate on standard
-input/output is very similar to @ref{SSIP}, although it is highly
-simplified and a little bit modified for the different purpose here.
+input/output is very similar to @ref{Top,,SSIP,ssip, SSIP
+Documentation}, although it is highly simplified and a little bit
+modified for the different purpose here.
 
-Since it's very similar to SSIP, @ref{General Rules}, for a general
-description how the protocol looks like. One of the exceptions is, that
-since the output modules communicate on standard input/output, we use
-only @code{LF} as the line separator.
+Since it's very similar to SSIP, @ref{Top,,General Rules,ssip, SSIP
+Documentation}, for a general description how the protocol looks
+like. One of the exceptions is, that since the output modules
+communicate on standard input/output, we use only @code{LF} as the
+line separator.
 
 The return values are:
 @itemize
@@ -2476,8 +1455,8 @@ Synthesize a key name. If the synthesizer supports a different behavior
 for the event of ``key name'', this should be used.
 
 It works like the command @code{SPEAK} above, except that the argument
-has to be exactly one line long. @xref{SSIP KEY}, for the description
-of the allowed arguments.
+has to be exactly one line long. @xref{Top, ,SSIP KEY,ssip, SSIP
+Documentation}, for the description of the allowed arguments.
 
 @item SOUND_ICON
 Produce a sound icon. According to the configuration of the particular
@@ -2485,9 +1464,10 @@ synthesizer, this can produce either a sound (e.g. .wav) or synthesize
 some text.
 
 It works like the command @code{SPEAK} above, except that the argument
-has to be exactly one line long. It contains the symbolic name of
-the icon that should be said. @xref{SSIP SOUND_ICON}, for more detailed
-description of the sound icons mechanism.
+has to be exactly one line long. It contains the symbolic name of the
+icon that should be said. @xref{Top,,SSIP SOUND_ICON, ssip, SSIP
+Documentation}, for more detailed description of the sound icons
+mechanism.
 
 @item STOP
 Immediately stop speaking on the output device and cancel synthesizing
@@ -2548,12 +1528,14 @@ closing dot line.
 The available parameters that accept numerical values are @code{rate},
 @code{pitch}.
 
-The available parameters that accept string values are  @code{punctuation_mode},
-@code{spelling_mode}, @code{cap_let_recogn}, @code{voice}. @code{language}.
-The arguments are the same as for the corresponding SSIP commands, except
-that they are written with small letters. @xref{Parameter Setting Commands}.
-The conversion between these string values and the corresponding enum
-variables can be easily done using @file{intl/fdsetconv.c}.
+The available parameters that accept string values are
+@code{punctuation_mode}, @code{spelling_mode}, @code{cap_let_recogn},
+@code{voice}. @code{language}.  The arguments are the same as for the
+corresponding SSIP commands, except that they are written with small
+letters. @xref{Top,,Parameter Setting Commands,ssip, SSIP
+Documentation}.  The conversion between these string values and the
+corresponding enum variables can be easily done using
+@file{intl/fdsetconv.c}.
 
 Not all of these parameters must be set and the value of the string
 arguments can also be @code{NULL}. If some of the parameters aren't
@@ -3579,139 +2561,6 @@ and Free Software.
 
 @node Appendices, GNU General Public License, How You Can Help, Top
 @appendix Appendices
-
-@menu
-* Key Names::                   List of the symbolic key names.
-* Standard Sound Icons::        List of the standard sound icon names.
-* Standard Sound Tables::       
-* Standard Voices::             
-@end menu
-
-@node Key Names, Standard Sound Icons, Appendices, Appendices
-@appendixsec Key Names
-
-This appendix defines all the recognized symbolic key names.  The
-names are case sensitive.
-
-@subheading Special Key Names
-
-@table @code
-@item space
-@item underscore
-@item double-quote
-@end table
-
-@subheading Auxiliary Keys
-
-@table @code
-@item control
-@item hyper
-@item meta
-@item shift
-@item super
-@end table
-
-@subheading Control Character Keys
-
-@table @code
-@item backspace
-@item break
-@item delete
-@item down
-@item end
-@item enter
-@item escape
-@item f1
-@item f2
-@item f3
-@item f4
-@item f5
-@item f6
-@item f7
-@item f8
-@item f9
-@item f10
-@item f11
-@item f12
-@item f13
-@item f14
-@item f15
-@item f16
-@item f17
-@item f18
-@item f19
-@item f20
-@item f21
-@item f22
-@item f23
-@item f24
-@item home
-@item insert
-@item kp-*
-@item kp-+
-@item kp--
-@item kp-.
-@item kp-/
-@item kp-0
-@item kp-1
-@item kp-2
-@item kp-3
-@item kp-4
-@item kp-5
-@item kp-6
-@item kp-7
-@item kp-8
-@item kp-9
-@item kp-enter
-@item left
-@item menu
-@item next
-@item num-lock
-@item pause
-@item print
-@item prior
-@item return
-@item right
-@item scroll-lock
-@item space
-@item tab
-@item up
-@item window
-@end table
-
-@node Standard Sound Icons, Standard Sound Tables, Key Names, Appendices
-@appendixsec Standard Sound Icons
-
-There are none currently.
-
-
-@node Standard Sound Tables, Standard Voices, Standard Sound Icons, Appendices
-@appendixsec Standard Sound Tables
-
-There are none currently.
-
-
-@node Standard Voices,  , Standard Sound Tables, Appendices
-@appendixsec Standard Voices
-
-The following voice names are always present in the output of the
-@code{LIST VOICES} command (@pxref{Information Retrieval Commands}):
-
-@table @code
-@item MALE1
-@item MALE2
-@item MALE3
-@item FEMALE1
-@item FEMALE2
-@item FEMALE3
-@item CHILD_MALE
-@item CHILD_FEMALE
-@end table
-
-The actual presence of any of these voices is not guaranteed.  But the
-command @code{SET SELF VOICE} (@pxref{Parameter Setting Commands}) must
-accept any of them.  If the given voice is not available, it is mapped
-to another voice by the output module.
 
 @node GNU General Public License, GNU Free Documentation License, Appendices, Top
 @appendix GNU General Public License
