@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: say.c,v 1.8 2003-02-01 22:16:55 hanke Exp $
+ * $Id: say.c,v 1.9 2003-03-04 08:58:58 pdm Exp $
  */
 
 #include <sys/types.h>
@@ -43,7 +43,7 @@ int main(int argc, const char **argv) {
    struct sockaddr_in address;
    int err;
    int c;
-   int *cl_ids;
+   int *cl_ids, *cl_active;
    char **cl_names;
    int i = 0;
 
@@ -60,9 +60,10 @@ int main(int argc, const char **argv) {
    if (err != 1) FATAL("Speech Deamon failed");
 
    cl_names = malloc(sizeof(char*) * 64);      //TODO: must scale
-   cl_ids = malloc(sizeof(int) * 64);      //TODO: must scale	   
+   cl_ids = malloc(sizeof(int) * 64);      //TODO: must scale
+   cl_active = malloc (sizeof (int) * 64); /* TODO: must scale */
    
-   c = spd_get_client_list(sockfd, cl_names, cl_ids);
+   c = spd_get_client_list(sockfd, cl_names, cl_ids, cl_active);
 
    printf("Count: %d\n", c);
 
