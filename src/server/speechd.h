@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.40 2003-07-18 21:40:52 hanke Exp $
+ * $Id: speechd.h,v 1.41 2003-08-11 15:02:01 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -131,6 +131,8 @@ int max_uid;
 /* Unique identifier for group id (common for messages of the same group) */
 int max_gid;
 
+int MaxHistoryMessages;
+
 /* speak() thread */
 pthread_t speak_thread;
 pthread_mutex_t element_free_mutex;
@@ -184,7 +186,7 @@ int pause_requested_fd;
 int pause_requested_uid;
 
 /* Loads output module */
-OutputModule* load_output_module(gchar* modname);
+OutputModule* load_output_module(gchar* modname, gchar* modlib);
 
 /* speak() runs in a separate thread, pulls messages from
  * the priority queue and sends them to synthesizers */
