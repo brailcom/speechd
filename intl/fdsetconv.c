@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdsetconv.c,v 1.1 2003-10-07 20:25:57 hanke Exp $
+ * $Id: fdsetconv.c,v 1.2 2004-02-23 22:30:17 hanke Exp $
  */
 
 #include <stdio.h>
@@ -147,4 +147,20 @@ str2ECapLetRecogn(char* str)
     else recogn = -1;
 
     return recogn;
+}
+
+
+EVoiceType
+str2intpriority(char* str)
+{
+    int priority;
+
+    if (!strcmp(str, "important"))  priority = 1;
+    else if (!strcmp(str, "text")) priority = 2;
+    else if (!strcmp(str, "message")) priority = 3;
+    else if (!strcmp(str, "notification")) priority = 4;
+    else if (!strcmp(str, "progress")) priority = 5;
+    else priority = -1;
+
+    return priority;
 }
