@@ -1,7 +1,43 @@
+2003-05-07  Hynek Hanke  <hanke@localhost.localdomain>
+	
+	* config/speechd.conf (SndModule): New option: sound module to load.
+	Fixed sound->rate in commentaries.
+
+	* src/modules/Makefile.am (cstsnd): New output module for sound.
+
+	* src/modules/cstsnd.c: New output module.
+	
+	* src/server/sndicon.c (sndicon_queue): Handle icons represented by sounds.
+
+	* src/server/server.c (process_message_punctuation): Handle icons represented by sounds.
+	(process_message_punctuation): Don't throw away signs not found in "important" table.
+
+	* src/server/speaking.c (speak): Call sound_module for sounds.
+
+	* src/audio/spd_audio.c (spd_audio_read_wave): New function.
+
+	* src/server/speaking.c (speak): Use sound output module when necessary.
+
+	* src/server/speechd.h (sound_module): New variable.
+
+	* src/server/server.c (process_message_spell): Handle icons represented by sounds.
+	(queue_messages): New function. Queue a list of messages.
+
+	* src/server/sndicon.h (snd_icon_spelling_get): New parameter int *sound
+	
+	* src/server/dc_decl.h (cb_SndModule): Define sound module.
+
+	* src/server/sndicon.c (snd_icon_spelling_get): Handle icons representing sound (wav).
+
+	* intl/fdset.h (EMessageType): New type MSGTYPE_SOUND.
+
+	* src/server/dc_decl.h (cb_AddTable): Accept entries in "".
+
+	* src/modules/flite.c (_flite_synth): Bug with messages not terminated by a dot fixed.
+
 2003-05-06  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/modules/apollo.c (module_init): Set punctuation off.
-
 
 2003-05-06  Hynek Hanke  <hanke@localhost.localdomain>
 
