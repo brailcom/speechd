@@ -69,9 +69,16 @@ class Client:
     SPEECH_PORT = 9876
     """Default port number for server connections."""
     
-    RECV_BUFFER_SIZE = 255
-    """Size of buffer for receiving server responses (just one line)."""
+    RECV_BUFFER_SIZE = 1024
+    """Size of buffer for receiving server responses."""
 
+    SSIP_NEWLINE = "\r\n"
+    """SSIP newline character sequence as a string."""
+    
+    _SSIP_END_OF_DATA = SSIP_NEWLINE + '.'  + SSIP_NEWLINE
+    
+    _SSIP_END_OF_DATA_ESCAPED = SSIP_NEWLINE + '..'  + SSIP_NEWLINE
+    
     def __init__(self, client_name='python', conn_name='001',
                  host='127.0.0.1', port=SPEECH_PORT):
         """Initialize the instance and connect to the server.
@@ -95,41 +102,72 @@ class Client:
         
     def _send_command(self, command, *args):
         # Send command with given arguments and check server responsse.
-        cmd = ' '.join((command,) + tuple(map(str, args))) + "\r\n"
+        cmd = ' '.join((command,) + tuple(map(str, args))) + self.SSIP_NEWLINE
         self._socket.send(cmd)
-        code, msg = self._recv_response()
+        code, msg, data = self._recv_response()
         if code/100 != 2:
             raise CommandError(code, msg, cmd)
-        return code, msg
+        return code, msg, data
 
     def _send_data(self, data):
         # Send data and check server responsse.
-        escaped = string.replace(data, "\r\n.\r\n", "\r\n..\r\n")
-        self._socket.send(escaped + "\r\n.\r\n")
-        code, msg = self._recv_response()
+        edata = string.replace(data,
+                               self._SSIP_END_OF_DATA,
+                               self._SSIP_END_OF_DATA_ESCAPED)
+        self._socket.send(edata + self._SSIP_END_OF_DATA)
+        code, msg, data = self._recv_response()
         if code/100 != 2:
-            raise SendDataError(code, msg, escaped)
+            raise SendDataError(code, msg, edata)
         return code, msg
         
     def _recv_response(self):
         # Read response from server; responses can be multiline as defined in
-        # SSIP.  Return the code as integer and all lines of data as string.
-        msg = ''
-        code = None
-        while (1):
-            response = self._socket.recv(self.RECV_BUFFER_SIZE)
-            msg = msg + response[4:]
-            c = int(response[:3])
-            assert code is None or code == c
-            code = c
-            if response[3] == ' ':
-                break
-        return code, msg
+        # SSIP.  Return the tuple (code, msg, data), code as integer, msg as
+        # string and data as tuple of strings (all lines).
+        eol = self.SSIP_NEWLINE
+        response = self._socket.recv(self.RECV_BUFFER_SIZE)
+        while (len(response) < len(eol) or \
+               not response.endswith(eol) or \
+               response.split(eol)[-2][3] != ' '):
+            response += self._socket.recv(self.RECV_BUFFER_SIZE)
+        data = []
+        c = None
+        for line in response.split(eol):
+            code, sep, text = line[:3], line[3], line[4:]
+            assert code.isalnum(), "Malformed data received from server!"
+            assert c is None or code == c, "Code changed through one response!"
+            assert sep in ('-', ' '), "Malformed data received from server!"
+            if sep == ' ':
+                msg = text
+                return int(code), msg, tuple(data)
+            data.append(text)
         
     def close(self):
         """Close the connection to Speech Daemon server."""
-        self._send_command('BYE')
+        #self._send_command('BYE')
         self._socket.close()
+        
+    def say(self, text, priority=2):
+        """Say given message with given priority.
+
+        Arguments:
+
+          text -- message text to be spoken as string.
+          
+          priority -- integer number 1 2 or 3.  1 stands for highest priority.
+            For detailed description see Speech Daemon documentation.
+        
+        This method is non-blocking;  it just sends the command, given
+        message is queued on the server and the method returns immediately.
+
+        Server response code is checked and exception ('CommandError' or
+        'SendDataError') is risen in case of non 2xx return code.  For more
+        information about server responses and codes, see SSIP documentation.
+        
+        """
+        self._send_command('SET', 'PRIORITY', str(priority))
+        self._send_command('SPEAK')
+        self._send_data(text)
         
     def stop(self, all=FALSE):
         """Immediately stop speaking and discard messages in queues.
@@ -146,32 +184,9 @@ class Client:
         else:
             self._send_command('STOP')
 
-    def say(self, text, priority=2):
-        """Say given message with given priority.
-
-        Arguments:
-
-          text -- message text to be spoken as string.
-          
-          priority -- integer number 1 2 or 3.  1 stands for highest priority.
-            For detailed description see Speech Daemon documentation.
-        
-        This method is non-blocking;  it just sends the command, given
-        message is queued on the server and the method returns immediately.
-
-        Server response code is checked and exception ('CommandError' or
-        'SendDataError') is risen in case of non 2xx return code.  The code (as
-        integer) and message (as string) are returned in a tuple for further
-        checking.  For more information about server responses and codes, see
-        SSIP documentation.
-        
-        """
-        self._send_command('SET', 'PRIORITY', str(priority))
-        self._send_command('SPEAK')
-        return self._send_data(text)
-        
-#    def get_client_list(self):
-#        code, list = self.send_command('HISTORY', 'GET', 'CLIENT_LIST')
+    def get_client_list(self):
+        code, msg, data = self._send_command('HISTORY', 'GET', 'CLIENT_LIST')
+        return data
         
         
 # int
