@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.20 2003-05-05 22:39:39 hanke Exp $
+ * $Id: flite.c,v 1.21 2003-05-07 19:05:54 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -350,6 +350,7 @@ _flite_synth()
     sigset_t some_signals;	
     int i;
     char c;
+    int terminate = 0;
 
     sigfillset(&some_signals);
     _flite_sigunblockusr(&some_signals);
@@ -396,25 +397,28 @@ _flite_synth()
         for (i=0; i<=510; i++){
             c = fgetc(sp_file);
             if (c == EOF){
-                text[i] = 0;
-                fclose(sp_file);
-                free(text);
-                spd_audio_close();
-                exit(0);
+                terminate = 1;
             }
             if (c == '.' || c == '!' || c == '?'|| c == ';'){
                 text[i] = c;
-                text[i+1] = 0;
                 break;
             }
             text[i] = c;
         }
+
+        text[i+1] = 0;
 
         _flite_sigblockusr(&some_signals);        
         wave = flite_text_to_wave(text, flite_voice);
         spd_audio_play_wave(wave);
         _flite_sigunblockusr(&some_signals);
 
+        if (terminate == 1){
+            fclose(sp_file);
+            free(text);
+            spd_audio_close();
+            exit(0);
+        }
     }
 }
 
