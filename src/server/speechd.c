@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.40 2003-07-17 12:00:04 hanke Exp $
+ * $Id: speechd.c,v 1.41 2003-07-18 21:39:39 hanke Exp $
  */
 
 #include "speechd.h"
@@ -235,10 +235,14 @@ speechd_init()
     o_bytes = (size_t*) spd_malloc(16*sizeof(size_t));
     o_buf = (GString**) spd_malloc(16*sizeof(GString*));
     awaiting_data = (int*) spd_malloc(16*sizeof(int));
+    inside_block = (int*) spd_malloc(16*sizeof(int));
     fds_allocated = 16;
 
-    for(i=0;i<=15;i++) awaiting_data[i] = 0;              
-    for(i=0;i<=15;i++) o_buf[i] = 0;              
+    for(i=0;i<=15;i++){
+        awaiting_data[i] = 0;              
+        inside_block[i] = 0;              
+        o_buf[i] = 0;              
+    }
 
     /* Initialize lists of available tables */
     tables.sound_icons = NULL;
@@ -309,12 +313,14 @@ speechd_connection_new(int server_socket)
     if(client_socket >= fds_allocated-1){
         o_bytes = (size_t*) realloc(o_bytes, client_socket * 2 * sizeof(size_t));
         awaiting_data = (int*) realloc(awaiting_data, client_socket * 2 * sizeof(int));
+        inside_block = (int*) realloc(inside_block, client_socket * 2 * sizeof(int));
         o_buf = (GString**) realloc(o_buf, client_socket * 2 * sizeof(GString*));
         fds_allocated *= 2;
     }
     o_buf[client_socket] = g_string_new("");
     o_bytes[client_socket] = 0;
     awaiting_data[client_socket] = 0;
+    inside_block[client_socket] = 0;
     
 
     /* Create a record in fd_settings */
@@ -362,6 +368,7 @@ speechd_connection_destroy(int fd)
 	g_hash_table_remove(fd_uid, &fd);
 		
         awaiting_data[fd] = 0;
+        inside_block[fd] = 0;
 	MSG(3,"Closing clients file descriptor %d", fd);
 
 	if(close(fd) != 0)
