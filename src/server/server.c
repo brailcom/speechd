@@ -2,8 +2,7 @@
  /*
   * server.c - Speech Deamon server core
   * 
-  * Copyright (C) 2001,2002,2003 Brailcom, o.p.s, Prague 2,
-  * Vysehradska 3/255, 128 00, <freesoft@freesoft.cz>
+  * Copyright (C) 2001,2002,2003 Brailcom, o.p.s
   *
   * This is free software; you can redistribute it and/or modify it
   * under the terms of the GNU General Public License as published by
@@ -20,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.33 2003-04-18 20:40:48 hanke Exp $
+  * $Id: server.c,v 1.34 2003-04-24 19:30:20 hanke Exp $
   */
 
 #include "speechd.h"
@@ -239,171 +238,6 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type)
     return 0;
 }
 
-/*
-  Parse() receives input data and parses them. It can
-  be either command or data to speak. If it's command, it
-  is immadetaily executed (eg. parameters are set). If it's
-  data to speak, they are queued in corresponding queues
-  with corresponding parameters for synthesis.
-*/
-
-char* 
-parse(char *buf, int bytes, int fd)
-{
-    TSpeechDMessage *new;
-    TFDSetElement *settings;
-    GList *gl;
-    char *command;
-    char *param;
-    int helper;
-    char *ret;
-    int r, v, i;
-    int end_data;
-    char *pos;
-
-    end_data = 0;
-	
-    assert(fd > 0);
-    if ((buf == NULL) || (bytes == 0)){
-        if(SPEECHD_DEBUG) FATAL("invalid buffer for parse()\n");
-        return "ERR INTERNAL";
-    }	
-   	
-    /* First the condition that we are not in data mode and we
-     * are awaiting commands */
-    if (g_array_index(awaiting_data,int,fd) == 0){
-        /* Read the command */
-        command = get_param(buf, 0, bytes, 1);
-
-        MSG(5, "Command caught: \"%s\"", command);
-
-        /* Here we will check which command we got and process
-         * it with it's parameters. */
-
-        if (command == NULL){
-            if(SPEECHD_DEBUG) FATAL("Invalid buffer for parse()\n");
-            return ERR_INTERNAL; 
-        }		
-		
-        if (!strcmp(command,"set")){				
-            return (char *) parse_set(buf, bytes, fd);
-        }
-        if (!strcmp(command,"history")){				
-            return (char *) parse_history(buf, bytes, fd);
-        }
-        if (!strcmp(command,"stop")){
-            return (char *) parse_stop(buf, bytes, fd);
-        }
-        if (!strcmp(command,"pause")){
-            return (char *) parse_pause(buf, bytes, fd);
-        }
-        if (!strcmp(command,"resume")){
-            return (char *) parse_resume(buf, bytes, fd);
-        }
-        if (!strcmp(command,"cancel")){
-            return (char *) parse_cancel(buf, bytes, fd);
-        }
-        if (!strcmp(command,"sound_icon")){				
-            return (char *) parse_snd_icon(buf, bytes, fd);
-        }
-        if (!strcmp(command,"char")){				
-            return (char *) parse_char(buf, bytes, fd);
-        }
-        if (!strcmp(command,"key")){				
-            return (char *) parse_key(buf, bytes, fd);
-        }
-        if (!strcmp(command,"list")){				
-            return (char *) parse_list(buf, bytes, fd);
-        }
-
-        /* Check if the client didn't end the session */
-        if (!strcmp(command,"bye") || !strcmp(command,"quit")){
-            MSG(4, "Bye received.");
-            /* Send a reply to the socket */
-            write(fd, OK_BYE, strlen(OK_BYE)+1);
-            speechd_connection_destroy(fd);
-            /* This is internal Speech Deamon message, see serve() */
-            return "999 CLIENT GONE";
-        }
-	
-        if (!strcmp(command,"speak")){
-            /* Ckeck if we have enough space in awaiting_data table for
-             * this client, that can have higher file descriptor that
-             * everything we got before */
-            r = server_data_on(fd);
-            if (r!=0){
-                if(SPEECHD_DEBUG) FATAL("Can't switch to data on mode\n");
-                return "ERR INTERNAL";								 
-            }
-            return OK_RECEIVE_DATA;
-        }
-        return ERR_INVALID_COMMAND;
-
-        /* The other case is that we are in awaiting_data mode and
-         * we are waiting for text that is comming through the chanel */
-    }else{
-    enddata:
-        /* In the end of the data flow we got a "@data off" command. */
-        MSG(5,"Buffer: |%s| bytes:", buf, bytes);
-        if(((bytes>=5)&&((!strncmp(buf,"\r\n.\r\n", bytes))))||(end_data==1)
-           ||((bytes==3)&&(!strncmp(buf,".\r\n", bytes)))){
-            MSG(4,"Finishing data");
-            end_data=0;
-            /* Set the flag to command mode */
-            MSG(4, "Switching back to command mode...");
-            v = 0;
-            g_array_insert_val(awaiting_data, fd, v);
-
-            /* Prepare element (text+settings commands) to be queued. */
-            new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
-            new->bytes = g_array_index(o_bytes,int,fd);
-            new->buf = (char*) spd_malloc(new->bytes + 1);
-            memcpy(new->buf, o_buf[fd]->str, new->bytes);
-            assert(new->bytes>=0);
-            new->buf[new->bytes] = 0;
-
-            if (new->bytes==0) return OK_MSG_CANCELED;
-				
-            if(queue_message(new, fd, 1, TEXT) != 0){
-                if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
-                free(new->buf);
-                free(new);
-                return ERR_INTERNAL;
-            }
-				
-            MSG(4, "%d bytes put in queue and history", g_array_index(o_bytes,int,fd));
-            MSG(4, "messages_to_say set to: %d",msgs_to_say);
-
-            /* Clear the counter of bytes in the output buffer. */
-            server_data_off(fd);
-            return OK_MESSAGE_QUEUED;
-        }
-	
-        if(bytes>=5){
-            if(pos = strstr(buf,"\r\n.\r\n")){	
-                bytes=pos-buf;
-                end_data=1;		
-                MSG(4,"Command in data caught");
-            }
-        }
-
-        /* Get the number of bytes read before, sum it with the number of bytes read
-         * now and store again in the counter */
-        v = g_array_index(o_bytes,int,fd);
-        v += bytes;
-        g_array_set_size(o_bytes,fd);	 
-        g_array_insert_val(o_bytes, fd, v);
-    
-        buf[bytes] = 0;
-        g_string_append(o_buf[fd],buf);
-    }
-
-    if (end_data == 1) goto enddata;
-
-    /* Don't reply on data */
-    return "";
-}
-
 int
 server_data_on(int fd)
 {
@@ -411,10 +245,11 @@ server_data_on(int fd)
 
     /* Mark this client as ,,sending data'' */
     v = 1;
-    g_array_insert_val(awaiting_data, fd, v);
+    awaiting_data[fd]=1;
     /* Create new output buffer */
     o_buf[fd] = g_string_new("\0");
     assert(o_buf[fd] != NULL);
+    assert(o_buf[fd]->str != NULL);
     MSG(4, "Switching to data mode...");
     return 0;
 }
@@ -423,9 +258,11 @@ void
 server_data_off(int fd)
 {
     int v;
-    v = 0;
-    g_array_insert_val(o_bytes, fd, v);
-    if(o_buf[fd]!=NULL)	g_string_free(o_buf[fd],1);
+    o_bytes[fd]=0;
+    if(o_buf[fd]!=NULL){
+	g_string_free(o_buf[fd],1);
+        o_buf[fd] = NULL;
+    }
     else if(SPEECHD_DEBUG) FATAL("o_buf[fd] == NULL while data on\n");
 }
 
