@@ -1,20 +1,20 @@
 The requirements:
 =================
 
-You will need these components to compile Speech Daemon: 
- - glib 2.0
- - libdotconf 1.0
+You will need these components to compile Speech Dispatcher: 
+ - glib 2.0  (http://www.gtk.org)
+ - libdotconf 1.0 (http://www.azzit.de/dotconf/)
  - pthreads
- - libasound1 (0.5.8)
- - gcc and GNU make
- - flite [we use it for sound track output also]
- - libfestival-dev and libestools-dev
- - librecode
+ - libasound1 (0.5.8) 
+ - gcc and GNU make (http://www.gnu.org)
+ - flite [we also use it for sound track output] (http://cmuflite.org/)
+ - festival (http://www.cstr.ed.ac.uk/projects/festival/)
+ - librecode (http://www.gnu.org/software/recode/)
  - ncurses [for Speech Dispatcher Center]
  - automake 1.7+, autoconf, pkg-config and libtool (if you are building from CVS)
 
 Building Speech Dispatcher:
-=======================
+===========================
 
 To compile the whole project, including Speech Dispatcher server, all modules
 and clients, simply extract the distribution archive and change to 
@@ -22,7 +22,6 @@ speechd-<version> directory and run "make all" command as follows:
 
  $ tar -xzvf speechd-@VERSION.tar.gz
  $ cd speechd-@VERSION
- $ make all
 
 But before typing make all, make sure that you have correctly installed flite!
 You should have configured flite with
@@ -31,6 +30,8 @@ to be able to use the flite plug-in. If you aren't sure if you have done this,
 check for example for libflite_cmu_us_kal.so in your library directory.
 (It's also possible to use Speech Dispatcher with Flite static libraries,
 but it is generally not a good way unless you know what you are doing.)
+
+ $ make all
 
 If it doesn't work, try the following:
 
