@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.31 2003-06-03 12:08:19 hanke Exp $
+ * $Id: speechd.h,v 1.32 2003-06-05 16:30:40 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -62,9 +62,11 @@
 
 /*  TSpeechDQueue is a queue for messages. */
 typedef struct{
-    GList *p1;			/* priority 1 queue */
-    GList *p2;			/* priority 2 queue */
-    GList *p3;			/* priority 3 queue */
+    GList *p1;			/* important */
+    GList *p2;			/* text */
+    GList *p3;			/* message */
+    GList *p4;                  /* notification */
+    GList *p5;                  /* progress */
 }TSpeechDQueue;
 
 /*  TSpeechDMessage is an element of TSpeechDQueue,
@@ -137,6 +139,8 @@ GList *MessagePausedList;
 GList *history_settings;
 /* List of messages in history */
 GList *message_history;
+
+TSpeechDMessage *last_p5_message;
 
 /* Global default settings */
 TFDSetElement GlobalFDSet;
