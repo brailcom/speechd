@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.20 2003-04-12 11:22:59 hanke Exp $
+ * $Id: speechd.h,v 1.21 2003-04-14 02:08:58 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -57,6 +57,7 @@
 #include "msg.h"
 #include "parse.h"
 #include "sndicon.h"
+#include "compare.h"
 
 /* We should get rid of this very soon */
 #define MAX_CLIENTS 20
@@ -160,19 +161,11 @@ void stop_from_client(int fd);
  * returns 1 if yes, 0 otherwise. */
 int isanum(char *str);
 
-/* Functions for searching through lists */
-gint message_list_compare_fd (gconstpointer, gconstpointer, gpointer);
-gint message_list_compare_uid (gconstpointer, gconstpointer, gpointer);
-
 TFDSetElement* get_client_settings_by_uid(int uid);
 TFDSetElement* get_client_settings_by_fd(int fd);
 int get_client_uid_by_fd(int fd);
 
 /* Some pointers to functions for searching through lists */
 gint (*p_msg_nto_speak)();
-gint (*p_msg_lc)();
-gint (*p_msg_uid_lc)();
-gint (*p_cli_comp_id)();
-gint (*p_cli_comp_fd)();
 
 #endif
