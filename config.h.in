@@ -43,6 +43,9 @@
 /* Define if you have the ibs library (-libs).  */
 /* #undef HAVE_LIBIBS */
 
+/* Define if you have the ncurses library (-lncurses).  */
+#define HAVE_LIBNCURSES 1
+
 /* Name of package */
 #define PACKAGE "speechd"
 

@@ -1,5 +1,5 @@
 /* Speechd module for flite (software synthetizer)
- * CVS revision: $Id: flite.c,v 1.3 2002-12-02 17:09:31 hanke Exp $
+ * CVS revision: $Id: flite.c,v 1.4 2002-12-16 01:46:29 hanke Exp $
  * Author: Hynek Hanke <hanke@volny.cz> */
 
 #define VERSION "0.0.1"
@@ -9,6 +9,8 @@
 
 #include "module.h"
 #include "fdset.h"
+
+#define FATAL(dd);
 
 gint       flite_write      (const gchar *data, gint len, TFDSetElement *);
 gint       flite_stop       (void);
@@ -41,7 +43,7 @@ OutputModule *module_init(void) {
 /* module operations */
 gint flite_write(const gchar *data, gint len, TFDSetElement* set) {
    int i;
-//   char comm[BUF_SIZE+256];
+   char comm[BUF_SIZE+256];
    FILE *temp;
 
    printf("flite: write()\n");
@@ -57,11 +59,15 @@ gint flite_write(const gchar *data, gint len, TFDSetElement* set) {
 //	exit(0);
    data[len] = 0;
 
-   if((temp = fopen("/tmp/flite_message", "w")) == NULL)
-      FATAL("Output module flite couldn't open temporary file");
-   fprintf(temp,"%s\n\r",data);
-   fclose(temp);
-   system("flite /tmp/flite_message &");
+   sprintf(comm,"flite -t \"%s\" &", data);
+   system(comm);
+   
+//   if((temp = fopen("/tmp/flite_message", "w")) == NULL)
+//      FATAL("Output module flite couldn't open temporary file");
+//   fprintf(temp,"%s\n\r",data);
+//   fclose(temp);
+//   system("flite /tmp/flite_message &");
+   printf("leaving\n\r");
    return len;
 }
 
