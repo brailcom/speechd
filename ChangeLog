@@ -1,5 +1,9 @@
 2003-10-09  Hynek Hanke  <hanke@volny.cz>
 
+	* src/modules/Makefile.am (EXTRA_DIST): Include festival-interface in distribution.
+
+2003-10-09  Hynek Hanke  <hanke@volny.cz>
+	
 	* src/modules/festival.c (_festival_parent): Wrong debugging message removed.
 
 	* src/modules/module_utils.c (module_get_message_part): Divide message
