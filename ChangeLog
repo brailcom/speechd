@@ -1,3 +1,36 @@
+2003-12-19  Hynek Hanke  <hanke@volny.cz>
+
+	* src/modules/flite.c (module_stop): Operator priorities fix in condition.
+
+	* src/modules/module_utils.c (DBG): Timestamps also include microseconds.
+
+	* src/modules/festival.c (_festival_parent): Try to read from cache first.
+
+	* src/modules/module_utils.c (DBG): Log timestamps in microsecond resolution.
+
+	* src/modules/festival.c (_festival_parent): Insert into cache if necessary.
+
+	* src/tests/run_test.c (main): Added command '~' for microsleep.
+
+	* INSTALL: Note about settings in server_acces_list and /etc/hosts.conf
+	added.
+
+2003-11-30  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/output.h (output_check_module): New prototype.
+
+	* src/modules/festival.c (module_close): Don't change exit status by replacing it with
+	other errors that ocured when terminating.
+
+	* src/server/output.c (output_check_module): New function.
+
+	* src/server/speaking.c (speak): Call output_check_module after it fails to determine
+	the cause.
+
+	* src/modules/module_utils.c (do_message): Fill ret with the return value of module_speak.
+
+	* src/server/output.c (output_send_data): Removed unecessary fflush().
+
 2003-11-23  Hynek Hanke  <hanke@volny.cz>
 
 	* src/modules/festival.c (festival_set_voice): Set festival_coding.
