@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.c,v 1.9 2003-03-24 22:22:47 hanke Exp $
+ * $Id: history.c,v 1.10 2003-03-25 22:48:53 hanke Exp $
  */
 
 #include "speechd.h"
@@ -105,7 +105,7 @@ history_get_message_list(guint client_id, int from, int num)
    GList *gl;
    int i;
 
-   MSG(4, "from %d num %d, client %d\n", from, num, client_id);
+   MSG(4, "message_list: from %d num %d, client %d\n", from, num, client_id);
    
    gl = g_list_find_custom(history, (int*) client_id, p_cli_comp_id);
    if (gl == NULL) return ERR_NO_SUCH_CLIENT;
@@ -220,7 +220,7 @@ history_cursor_set_pos(int fd, guint client_id, int pos)
    
    set->cur_pos = pos;
    set->cur_client_id = client_id;
-   MSG(3,"cursor pos:%d\n", set->cur_pos);
+   MSG(4,"cursor pos:%d\n", set->cur_pos);
    return OK_CUR_SET_POS;
 }
 
@@ -308,7 +308,7 @@ char* history_say_id(int fd, int id){
    new = gl->data;
 
    /* TODO: Solve this "p2" problem... */
-   MSG(3,"putting history message into queue 1\n");
+   MSG(4,"putting history message into queue 1\n");
    MessageQueue->p1 = g_list_append(MessageQueue->p1, new);
    msgs_to_say++;
 

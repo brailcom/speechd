@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.8 2003-03-23 21:16:41 hanke Exp $
+ * $Id: module.c,v 1.9 2003-03-25 22:48:53 hanke Exp $
  */
 
 #include "speechd.h"
@@ -38,24 +38,24 @@ OutputModule* load_output_module(gchar* modname) {
 
    gmodule = g_module_open(filename, G_MODULE_BIND_LAZY);
    if (gmodule == NULL) {
-      MSG(0,"failed to load module %s\n%s\n", filename, g_module_error());
+      MSG(2,"failed to load module %s\n%s\n", filename, g_module_error());
       return NULL;
    }
 
    if (g_module_symbol(gmodule, INIT_SYMBOL, (gpointer) &module_init) == FALSE) {
-      MSG(0,"could not find symbol \"%s\" in module %s\n%s\n", INIT_SYMBOL, g_module_name(gmodule), g_module_error());
+      MSG(2,"could not find symbol \"%s\" in module %s\n%s\n", INIT_SYMBOL, g_module_name(gmodule), g_module_error());
       return NULL;
    }
    
    module_info = module_init();
    if (module_info == NULL) {
-      MSG(0, "module entry point execution failed\n");
+      MSG(2, "module entry point execution failed\n");
       return NULL;
    }
 
    module_info->gmodule = gmodule;
    
-   MSG(2,"loaded module: %s (%s)\n", module_info->name, module_info->description);
+   MSG(2,"loaded module: %s (%s)", module_info->name, module_info->description);
 
    return module_info;
 }
