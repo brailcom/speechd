@@ -80,6 +80,16 @@ spd_message_copy(TSpeechDMessage *old)
 	new->settings.language = spd_strdup(old->settings.language);
 	new->settings.client_name = spd_strdup(old->settings.client_name);
 	new->settings.output_module = spd_strdup(old->settings.output_module);
+        new->settings.punctuation_some = NULL;
+        new->settings.punctuation_table = NULL;
+        new->settings.spelling_table = NULL;
+        new->settings.char_table = NULL;
+        new->settings.key_table = NULL;
+        new->settings.snd_icon_table = NULL;
+        new->settings.cap_let_recogn_table = NULL;
+        new->settings.cap_let_recogn_sound = NULL;
+
+
 
 	return new;
 }
