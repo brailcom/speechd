@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.62 2003-10-16 20:55:06 hanke Exp $
+  * $Id: server.c,v 1.63 2003-10-21 22:58:09 hanke Exp $
   */
 
 #include "speechd.h"
@@ -96,6 +96,8 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
     if (history_flag){
         /* We will make an exact copy of the message for inclusion into history. */
         hist_msg = (TSpeechDMessage*) spd_message_copy(new); 
+
+        pthread_mutex_lock(&element_free_mutex);
         if(hist_msg != NULL){
             /* Do the necessary expiration of old messages*/
             if (g_list_length(message_history) >= MaxHistoryMessages){
@@ -109,12 +111,14 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
                 }
             }
             /* Save the message into history */
-            message_history = g_list_append(message_history, hist_msg);            
+            message_history = g_list_append(message_history, hist_msg);
         }else{
             if(SPEECHD_DEBUG) FATAL("Can't include message into history\n");
         }
+        pthread_mutex_unlock(&element_free_mutex);
     }
 
+    pthread_mutex_lock(&element_free_mutex);
     /* Put the element new to queue according to it's priority. */
     switch(settings->priority){
     case 1: MessageQueue->p1 = g_list_append(MessageQueue->p1, new); 
@@ -139,6 +143,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
     calls output_stop() should be moved to speaking.c speak()
     function in future */
     resolve_priorities(settings->priority);
+    pthread_mutex_unlock(&element_free_mutex);
 
     speaking_semaphore_post();
 
