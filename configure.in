@@ -64,7 +64,7 @@ spdconfdir="$sysconfdir/speech-dispatcher/"
 AC_SUBST(spdconfdir)
 snddatadir="$datadir/sounds/speech-dispatcher/" 
 AC_SUBST(snddatadir)
-modulebindir="$bindir/speechd-modules/" 
+modulebindir="$bindir/speech-dispatcher-modules/" 
 AC_SUBST(modulebindir)
 moduleconfdir="$sysconfdir/speech-dispatcher/modules/" 
 AC_SUBST(moduleconfdir)
