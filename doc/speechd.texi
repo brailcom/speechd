@@ -1,7 +1,7 @@
 \input texinfo   @c -*-texinfo-*-
 @c %**start of header
 @setfilename speechd.info
-@settitle Speech Daemon --- Easy acces to speech synthesis
+@settitle Speech Daemon --- Easy access to speech synthesis
 @finalout
 @c @setchapternewpage odd
 @c %**end of header
@@ -31,12 +31,12 @@ Permission is granted to ...
 
 
 @titlepage
-@title Speech Daemon --- Easy acces to speech synthesis
+@title Speech Daemon --- Easy access to speech synthesis
 @subtitle Mastering the Babylon of TTS'
 @subtitle Edition @value{EDITION}, for Speech Daemon @value{VERSION}
 @subtitle @value{UPDATED}
-@author by Tomas Cerha <@email{cerha@@brailcom.cz}>, Hynek Hanke <@email{hanke@@volny.cz}>
-@author and Czech Free Software organization <@email{info@@freesoft.cz}>
+@author by Tom@'a@v{s} Cerha <@email{cerha@@brailcom.cz}>, Hynek Hanke <@email{hanke@@volny.cz}>
+@author and Czech Free Software Organization <@email{info@@freesoft.cz}>
 
 @page
 @vskip 0pt plus 1filll
@@ -66,11 +66,12 @@ that attempts to provide a common interface to different synthesizers.
 * SSIP::                     Speech Synthesis Internet Protocol.
 * Priorities::               Description, guidelines how to use them.
 * Multiple output modules::  Using different synthesizers.
-* Messsage history::         Handling history of arrived messages.
+* Message history::          Handling history of arrived messages.
 * Speech parameters::        Settings that affect the way Speech Daemon speaks.
 * Configuration::            How to configure Speech Daemon.
 
 * Standard sound icons::     List of the standard sound icon names.
+* Standard voices::          List of the standard voice identifiers.
 * Copying::                  GNU General Public License.
 
 * Concept index::            Index of concepts.
@@ -86,11 +87,11 @@ that attempts to provide a common interface to different synthesizers.
 @chapter Introduction
 
 @menu
-* Why and how::                 Why Speech Daemon?  Philosophy, motivation...
-* Current state::               Speaking software today.
-* Basic design::                How does it work?
-* User::                        Speech Daemon from user's point of view.
-* Programmer::                  Speech Deam from programmer's poing of view.
+* Why and how::              Why Speech Daemon?  Philosophy, motivation...
+* Current state::            Speaking software today.
+* Basic design::             How does it work?
+* User::                     Speech Daemon from the user's point of view.
+* Programmer::               Speech Daemon from the programmer's point of view.
 @end menu
 
 @node Why and how, Current state, Introduction, Introduction
@@ -105,19 +106,19 @@ driver modules (for particular speech synthesis).
 
 High quality speech synthesis has been available for a long time and now
 it's usable even by ordinary users on their home PC's. It comes sometimes
-as a necesity, sometimes as a good feature for programs to provide speech
+as a necessity, sometimes as a good feature for programs to provide speech
 output.  There is a wide field of possible uses from educational software,
 through specialized systems (hospitals, laboratories, telephony servers).
 For visually impaired users it is one of the two essential ways of getting
 the output from computer (the second one is Braille display). That's also
 where Speech Daemon comes from.
 
-There are different speech synthesisers with different capabilities.  Some
+There are different speech synthesizers with different capabilities.  Some
 of them are hardware, some of them are software.  Some of them are Free
 Software and are are available on the Internet.  However, none of them is
-preinstalled in one of the widely used GNU/Linux distributions.
+pre-installed in one of the widely used GNU/Linux distributions.
 Programmers have really hard times when they want to make their program
-speak because they need to find some suitable synthesiser (long hours of
+speak because they need to find some suitable synthesizer (long hours of
 experiments and so on...) and then make it work with their program.  They
 often need to write output device drivers for these programs or hardware
 devices and are doing it again and again.  You can imagine it all fails
@@ -131,15 +132,15 @@ speech synthesis technology offers.
 In an ideal world, programmers could use similar commands for speech
 synthesis as they do for normal text output (printf, puts, ...).  In an
 ideal world, there would be some speech_printf() that would take care of
-saying your message in the right time without interumping others, without
-you beeing obligated to take care of how exactly the communication with
-speech synthesiser is implemented and without you having to worry about
-what synthesiser to use and if it's available.  In an ideal world, there
-would be some speech synthesiser in each GNU/Linux distribution and some
+saying your message in the right time without interrupting others, without
+you being obligated to take care of how exactly the communication with
+speech synthesizer is implemented and without you having to worry about
+what synthesizer to use and if it's available.  In an ideal world, there
+would be some speech synthesizer in each GNU/Linux distribution and some
 speech daemon taking care of all applications that want to speak,
 allowing user to configure speech parameters and providing simple interface
 (as speech_printf()) through some shared library for programmers.  It will
-be a long way until we get archieve this state of things, but with Speech
+be a long way until we achieve this state of things, but with Speech
 Daemon, we are taking the first steps...
 
 @node Current state, Basic design, Why and how, Introduction
@@ -182,20 +183,20 @@ protocol.
 
 @item Festival
 
-Festival is a multilingual Free Software text to speech synthesiser
+Festival is a multi-lingual Free Software text to speech synthesizer
 with high quality speech databases available. One of it's problems
 is that some of the most important databases are not free.
-(eg. the database for British English is non-free). Other problem
+(e.g. the database for British English is non-free). Other problem
 is that Festival is intended rather as a platform for research
-and developement than as an end-user product and therefore is
+and development than as an end-user product and therefore is
 big and not-so-easy to install. The problem we face as Speech Daemon
 Developers is that it's too slow to be really useful for most
-aplications.
+applications.
 
 @item Flite
 
-Flite stands for Festival Lite and it is a light fully free english
-speech software synthesiser with good quality of sound, developed
+Flite stands for Festival Lite and it is a light fully free English
+speech software synthesizer with good quality of sound, developed
 by the authors of festival as an end-user product. It's very fast,
 however, we currently don't know how to configure it (it seems it
 is not possible yet) and it seems that the developers have some
@@ -204,12 +205,12 @@ currently uses Flite as it's primary output module for English.
 
 @item Odmluva
 
-Odmluva is a simple (and very light) czech speech synthesizer available
+Odmluva is a simple (and very light) Czech speech synthesizer available
 under the terms of GNU GPL. We are working on it's support in Speech Daemon.
 
 @item Epos
 
-Epos is Czech synthesis. It is an academical project and it
+Epos is Czech synthesis. It is an academic project and it
 already gives quite good results, but some parts are covered
 by a proprietary license.
 @c TODO: We need to add more information.
@@ -224,7 +225,7 @@ checked it yet.
 
 ViaVoice is a multi-lingual software synthesizer available for GNU/Linux.
 The main problem is that ViaVoice is not free (as in freedom). Until IBM
-changes its licence, we can't use it in Free World / Free Operating System
+changes its license, we can't use it in Free World / Free Operating System
 and therefore it's not and will not be supported in Speech Daemon.
 
 @item MBROLA
@@ -244,18 +245,20 @@ as with IBM ViaVoice prevents us to include it in Speech Daemon.
 
 The Emacspeak (by T. V. Raman <@email{raman@@cs.cornell.edu}>) software package
 provides speech output for Emacs, and includes ,,speech servers'' for
-the DECtalk speech synthesizers.
+the Dectalk speech synthesizers.
 
-The package emacspeak-ss provides servers for several additional synthesizers.
-None of these programs are normally run by the user directly.  Instead,
-they are run by Emacs. That is: Emacs runs the emacspeak code, which executes
-Tcl, which interprets the server code. This approach is too closely ,,wired''
-to usage with Emacspeak, so it can't be used for our general purposes.
+The Emacspeak speech servers package provides servers for several
+additional synthesizers.  None of these programs are normally run by
+the user directly.  Instead, they are run by Emacs. That is: Emacs
+runs the Emacspeak code, which executes Tcl, which interprets the
+server code. This approach is too closely ,,wired'' to usage with
+Emacspeak, so it can't be used for our general purposes.
 
-This does not mean, that these servers are compleetly a bad idea and we
-can not use them. Thanks to the author Jim Van Zandt <@email{jrv@@vanzandt.mv.com}>,
-we can learn from the sources and write the output driver modules for Speech Daemon
-(emacspeek-ss is GPL).
+This does not mean, that these servers are completely a bad idea and
+we can not use them. Thanks to the author Jim Van Zandt
+<@email{jrv@@vanzandt.mv.com}>, we can learn from the sources and
+write the output driver modules for Speech Daemon (emacspeak-ss is
+GPL).
 
 @item GTK+ (Gnome Accessibility project)
 
@@ -297,12 +300,12 @@ in the future.
 The communication between all
 these applications and synthesizers is a great mess. For this purpose,
 we wanted Speech Daemon to be a layer separating applications and
-synthesizers so that apps wouldn't have to care about synthesizers
-and synthesizers wouldn't have to care about interaction with apps.
+synthesizers so that applications wouldn't have to care about synthesizers
+and synthesizers wouldn't have to care about interaction with applications.
 
 We decided we would implement Speech Daemon as a server receiving
 commands from applications over a protocol called @code{SSIP},
-parsing them and if it's necessary and calling appropiate functions
+parsing them and if it's necessary and calling appropriate functions
 of output modules communicating with the different synthesizers.
 These output modules are implemented as plug-ins, so that the user
 can just load a new module if he wants to use new synthesizer.
@@ -314,7 +317,7 @@ shared library is still on the client side and sends Speech
 Daemon SSIP commands over the socket. When these arrive
 at Speech Daemon, it parses them, reads the text that should
 be said and put it in a queues according to the priority
-of this message and other criterions. It then decides when,
+of this message and other criteria. It then decides when,
 with which parameters (set up by the client and the user)
 and on which synthesizer it will say the message. These requests
 are handled by the output plug-ins (output modules) for different
@@ -336,9 +339,9 @@ also read this because it's very important to understand.
 
 @itemize @bullet
 Sketch:
-@item easy configuration of different speaking apps, central maintaince
-@item the ability to freely choose which synthetizer with which app
-@item less time devoted to configuration and tuning different apps and synthesis
+@item easy configuration of different speaking applications, central maintenance
+@item the ability to freely choose which synthesizer with which application
+@item less time devoted to configuration and tuning different applications and synthesis
 @item history of said messages for visually impaired
 @end itemize
 
@@ -349,10 +352,10 @@ Sketch:
 
 @itemize @bullet
 Sketch:
-@item easy way to make your apps speak
+@item easy way to make your applications speak
 @item no time spent on configuration/debugging interface with different synthesizers
 @item no need to take care about configuration of voice
-@item easy way to make the app accessible to visually impaired people
+@item easy way to make the application accessible to visually impaired people
 @item different facilities like the one providing a command line functionality
 @end itemize
 
@@ -369,7 +372,7 @@ Sketch:
 
 There are 6 different verbosity levels of Speech Daemon logging.
 0 means there is no output, while 5 means that nearly all the information
-about Speech Daemon working is written to stdout.
+about Speech Daemon working is written to standard output.
 
 @subsection Level 0
 No information.
@@ -381,7 +384,7 @@ No information.
 
 @subsection Level 2
 @itemize @bullet
-@item Information about errors that ocured.
+@item Information about errors that occurred.
 @item Allocating and freeing resources on start and exit.
 @end itemize
 
@@ -435,8 +438,8 @@ are possible.)
 
 @dfn{Server core} is the central part of Speech Daemon composed of
 two threads. One is listening on the user socket, parsing and proceeding
-incommimg commands, and saving incomming text to queues. The other thread
-takes messages from queues and sends them to appropiate synthesizers.
+incoming commands, and saving incoming text to queues. The other thread
+takes messages from queues and sends them to appropriate synthesizers.
 
 @dfn{Output module} is a backend of Speech Daemon in the form of plug-in.
 It takes care of communication with the particular synthesizer and provides
@@ -484,7 +487,7 @@ typedef struct @{
 @end example
 
 This structure is defined in @file{intl/modules.h} and therefore 
-this header must be included in every plugin source code.
+this header must be included in every plug-in source code.
 
 @example
 #include "modules.h"
@@ -518,7 +521,7 @@ have to define their bodies in the source code of your plug-in.
 
 This is the function where actual speech output is produced. It is called
 every time Speech Daemon decides to send a message to synthesis. The data
-of lenght @var{len} are passed in @var{data}. Additionally, the structure
+of length @var{len} are passed in @var{data}. Additionally, the structure
 containing settings associated to this particular message is passed,
 however only few options are important for output modules.
 
@@ -535,15 +538,15 @@ Speed and pitch are values between -100 and 100 included. 0 is the default
 value that represents normal speech flow. So -100 is the slowest (or lowest)
 and +100 is the fastest (or highest) speech.
 
-(We should estabilish a constant scale refered to some text, standard speeds
+(We should establish a constant scale referred to some text, standard speeds
 and different associated times. This will probably be the work of the person
 who will program the first real output module. We need to chose some longer
 text, decide what speed of reading we consider 0 and what we consider, say,
 +-50, measure the times needed to read it at these speeds and put it there
 in documentation as our standard scale.)
 
-The language parameter is given as a null-terminated string containnig 
-the name of the language in english in lowercase (e.g. "english", "czech", "spanish").
+The language parameter is given as a null-terminated string containing 
+the name of the language in English in lowercase (e.g. "english", "czech", "spanish").
 
 voice_type is used only when the output module supports more types of voices
 for this particular language. The values represent (from @file{intl/fdset.h})
@@ -558,7 +561,7 @@ typedef enum @{
 We can consider also other voice types. 
 
 This function should return 0 if it fails and some non-0 value
-if the delivery to the synthesis is succesful. Formerly we thought
+if the delivery to the synthesis is successful. Formerly we thought
 that it should return the number of bytes written, but it's still
 not clear how to handle messages that have to be divided in more
 parts (for example if the output device has a finite size buffer).
@@ -570,7 +573,7 @@ parts (for example if the output device has a finite size buffer).
 This function should stop the synthesis of the currently spoken message
 immediately and throw away the rest of the message.
 
-It should return 0 on succes, -1 otherwise.
+It should return 0 on success, -1 otherwise.
 
 @end deffn
 
@@ -579,11 +582,11 @@ It should return 0 on succes, -1 otherwise.
 This function is very important to let Speech Daemon know how to
 regulate the speech flow between different queues, programs and even
 other synthesizers. On calling it, the output module must decide
-whether there is currently any output beeing produced in the speakers.
+whether there is currently any output being produced in the speakers.
 
 This can be a very hard problem and it's not clear how to do it
-with diferent synthesizers. If it's not possible to return an exact
-value, at least some estimate should be calculated. But such an inacurate
+with different synthesizers. If it's not possible to return an exact
+value, at least some estimate should be calculated. But such an inaccurate
 value can highly reduce the usefulness of an even otherwise very good
 plug-in. To some degree, this is still an open question.
 
@@ -594,9 +597,9 @@ It should return 0 if the synthesis is silent, 1 if it's speaking.
 @deffn {Output module functions}  {gint synthesizer_close} void
 
 This function is called when Speech Daemon terminates. There are no
-special requierements on what the output plug-in should do.
+special requirements on what the output plug-in should do.
 
-It should return 0 on succes, -1 otherwise.
+It should return 0 on success, -1 otherwise.
 
 @end deffn
 
@@ -624,7 +627,7 @@ It should return 0 on succes, -1 otherwise.
 
 @c don't know if it's really The Right Thing, but I often miss *any*
 @c description in the header files, and there is literate programming
-@c on the other side. if you have a reason why it's not ok, I'm open
+@c on the other side. if you have a reason why it's not OK, I'm open
 @c to the idea to move it all here
 
 @node SSIP, Priorities, Public API, Top
@@ -661,7 +664,7 @@ Each SSIP command, unless specified otherwise, consists of exactly one
 line.  The line is sent in the following format:
 
 @example
-@var{command} @var{ARG} ...
+@var{command} @var{arg} ...
 @end example
 
 where @var{command} is a case insensitive command name and @var{arg}s
@@ -732,7 +735,9 @@ rule (@code{|}) and are grouped within braces (@code{@{} and
 @code{@}}) or square brackets for mandatory or optional arguments
 respectively, literal arguments values are typeset in lower letters
 (they are case insensitive), and variable arguments are typeset
-@var{like this}.
+@var{like this}.  Ellipsis denoted by three dots (@code{...}) means
+repetition (zero or more times) of all the arguments within the
+current brackets.
 
 @menu
 * Speech synthesis and sound output commands::  
@@ -780,7 +785,7 @@ error response code is returned after processing the final dot line.
 This command, unlike all other commands, stores the received text into
 the message history.
 
-@item LETTER @var{char}
+@item CHAR @var{char}
 Speak letter @var{char}.  @var{char} can be any character
 representable by the UTF-8 encoding.
 
@@ -809,7 +814,7 @@ do not affect the message history.
 
 @table @code
 @item STOP [ @var{id} | all ]
-Immediately stop outputing the current message (whatever it is ---
+Immediately stop outputting the current message (whatever it is ---
 text, letter, key, or sound icon) from the identified client, if any
 is being output.  If there is no command argument given, last message
 from the current client connection is stopped.  If @var{id} is given,
@@ -915,8 +920,14 @@ instead.
 Similar to @code{SET SPELLING_TABLE}, but sets the sound mapping table
 instead.
 
-@item SET VOICE ???
-???
+@item SET VOICE @var{id}
+Set the voice identified by @var{id}.  @var{id} must be one of the
+voice identifiers returned by the command @code{LIST VOICES}, see
+@ref{Information retrieval commands}.
+
+There is a standard set of voice identifiers defined in @ref{Standard
+voices}.  The command accepts any of those identifiers as its
+argument.
 
 @item SET RATE @var{n}
 Set the rate of speech.  @var{n} is an integer value within the range
@@ -929,6 +940,13 @@ Set the pitch of speech.  @var{n} is an integer value within the range
 from -100 to 100, with 0 corresponding to the default pitch of the
 current speech synthesis output module, lower values meaning lower
 pitch and higher values meaning higher pitch.
+
+@item SET HISTORY @{ on | off @}
+Enable (@code{on}) or disable (@code{off}) storing of received
+messages into history.
+
+This command is intended for use by message history browsers and
+usually should not be used by other kinds of clients.
 @end table
 
 @node Information retrieval commands, History handling commands, Parameter setting commands, SSIP commands
@@ -961,6 +979,12 @@ available text mapping tables.
 @item LIST SOUND_TABLES
 Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
 available sound mapping tables.
+
+@item LIST VOICES
+Similar to @code{LIST SPELLING_TABLES}, but lists the available voice
+identifiers.
+
+The standard voices are always listed, see @ref{Standard voices}.
 @end table
 
 @node History handling commands, Other commands, Information retrieval commands, SSIP commands
@@ -968,16 +992,18 @@ available sound mapping tables.
 
 History is handled by the @code{HISTORY} command.  It can take many
 forms, described below, that allow browsing, retrieving and repeating
-stored messages.
+stored messages.  In each invocation of the @code{HISTORY} command
+there is no difference between processing spoken or not spoken
+messages, all the received messages are processed.
 
-There is always a so called @dfn{history cursor} pointing on some
-message in the history.  You can move it across history messages and
-retrieve the message the cursor is pointing to, using the
-@code{HISTORY CURSOR} set of command arguments described below.
+There can be @dfn{history cursor} pointing on some message in the
+history.  You can move it across history messages and retrieve the
+message the cursor is pointing to, using the @code{HISTORY CURSOR} set
+of command arguments described below.
 
 @table @code
 @item HISTORY GET CLIENT_LIST
-List known client names, their ids and status.  Each connection is
+List known client names, their identifiers and status.  Each connection is
 listed on a separate line in the following format:
 
 @example
@@ -995,41 +1021,77 @@ Speech Daemon.
 Sample reply of Speech Daemon:
 
 @example
-240-0 speechd_client:main 0
-240-1 speechd_client:status 0
-240-2 unknown:unknown 1
+240-0 joe:speechd_client:main 0
+240-1 joe:speechd_client:status 0
+240-2 unknown:unknown:unknown 1
 240 OK CLIENTS LIST SENT
 @end example
 
-@item HISTORY GET CLIENT_MESSAGES @var{id} @var{from} @var{num}
-List ids of messages sent by the client identified by @var{id}.
-@var{num} messages is listed, starting from the message @var{from}.
-The first message is ???.  Messages are sorted ???.  If the given
-range exceeds the range of available messages, no error is signalled,
-that exceeding part is ignored.
+@item HISTORY GET CLIENT_ID
+Return id of the client itself.
 
-Each message id is listed, together with its client name, on a
+The id is listed on a separate line in the following format:
+
+@example
+@var{id}
+@end example
+
+Example:
+
+@example
+200-123
+200 OK CLIENT ID SENT
+@end example
+
+@item HISTORY GET CLIENT_MESSAGES @{ @var{id} | all | self @} @var{start} @var{number}
+List identifiers of messages sent by the client identified by
+@var{id}.  If the special identifier @code{all} is used, identifiers
+of messages sent by all clients are listed; if the special identifier
+@code{self} is used, identifiers of messages sent by this client are
+listed.
+
+@var{number} of messages is listed, starting from the message numbered
+@var{start}.  Both @var{number} and @var{start} must be positive
+integers.  The first message is numbered 1, the second 2, etc.  If the
+given range exceeds the range of available messages, no error is
+signalled and the given range is restricted to the available range of
+messages.
+
+Messages are sorted by the criterion used in the last client's
+invocation of the @code{HISTORY SORT} command.  If no @code{HISTORY
+SET} has been invoked yet, the messages are sorted from the oldest to
+the newest, according to their time of arrival to Speech Daemon.
+
+Each message id is listed, together with other information, on a
 separate line, in the following format:
 
 @example
-@var{id} @var{client-name}
+@var{id} @var{client-name} "@var{time}" @var{priority} "@var{intro}"
 @end example
 
-All the message ids in the history, regardless of clients that issued
-them, are unique within a single run of Speech Daemon.
+@var{client-name} is the name of the client which sent the message, as
+set by the @code{SET CLIENT_NAME} command, see @ref{Parameter setting
+commands}.  @var{time} is the time of arrival of the message, in the
+fixed length @code{YYYY-MM-DD HH:MM:SS} format.  @var{priority} is the
+priority of the message, one of the values accepted by the @code{SET
+PRIORITY} command, see @ref{Parameter setting commands}.
+
+@var{intro} is the introductory part of the message of a certain
+maximum length, see the @code{???} command.  @var{intro} does not
+contain any double quotes nor the line feed character.
+
+All the message identifiers in the history, regardless of clients that
+issued them, are unique within a single run of Speech Daemon and
+remain unchanged.
 
 @item HISTORY GET LAST
-List the id of the last processed (?) message.
+List the id of the last message sent by the client.
 
-The id is listed, together with its client name, on a separate line of
-the following format:
+The id is listed on a separate line of the following format:
 
 @example
-@var{id} @var{client-name}
+@var{id}
 @end example
-
-@item HISTORY SORT
-Sorts the history buffer of messages. ???
 
 @item HISTORY CURSOR GET
 Get the id of the message the history cursor is pointing on.
@@ -1042,31 +1104,94 @@ this command:
 243 OK CURSOR POSITION RETURNED
 @end example
 
-@item HISTORY CURSOR SET @var{id} @{ first | last | pos @var{n} @}
-Set the history cursor to the given position.  @var{id} is the id of
-the client whose history should be used.  The argument @code{first}
-asks to set the cursor on the first position and the argument
-@code{last} asks to set the cursor on the last positition of the
-history of the given client.  If the argument @code{pos} is used, the
-position is set to @var{n}, where @var{n} is a positive (???) integer.
-It is an error if @var{id} doesn't identify any client or if @var{n}
-doesn't point to any existing position in the history.
+@item HISTORY CURSOR SET @{ @var{id} | all | self @} @{ first | last | pos @var{n} @}
+Set the history cursor to the given position.  The meaning of the
+first argument after @code{SET} is the same as in the @code{HISTORY
+GET CLIENT_MESSAGES} command.  The argument @code{first} asks to set
+the cursor on the first position and the argument @code{last} asks to
+set the cursor on the last position of the history of the given
+client.  If the argument @code{pos} is used, the position is set to
+@var{n}, where @var{n} is a positive integer.  It is an error if
+@var{id} doesn't identify any client or if @var{n} doesn't point to
+any existing position in the history.
 
 As for the order and numbering of the messages in the history, the
 same rules apply as in @code{HISTORY GET CLIENT_MESSAGES}, see above.
 
-@item HISTORY CURSOR @{ next | prev @}
-Move the cursor one position forward or backward between the messages
-of the currently specified client (??? which one ???).
+@item HISTORY CURSOR @{ forward | backward @}
+Move the cursor one position @code{forward}, resp. @code{backward},
+within the messages of the client specified in the last @code{HISTORY
+CURSOR SET} command.  If there is no next, resp. previous, message,
+don't move the cursor and return an error code.
 
-@item HISTORY SAY ID @var{id}
-Speak the message identified by @var{id}.
+@item HISTORY SAY @var{id}
+Speak the message from history identified by @var{id}.
 
-@item HISTORY SAY TEXT "@var{text}"
-Speak @var{text} as a normal synthesized text, but without storing it
-into history.  @var{text} may / may not ???
+@item HISTORY SORT ???
+Sorts the history of messages.
+???
 
-This command is useful for history processing clients.
+@item HISTORY SEARCH @{ @var{id} | all | self @} "@var{condition}"
+Return the list of history messages satisfying @var{condition}.  The
+command allows searching messages by given words.  The output format
+is the same as of the @code{HISTORY GET CLIENT_MESSAGES} command.
+
+The meaning of the first argument after @code{SEARCH} is the same as
+in the @code{HISTORY GET CLIENT_MESSAGES} command.
+
+@var{condition} is constructed according to the following grammar
+rules:
+
+@table @code
+@item @var{condition} :: @var{word}
+Matches messages containing @var{word}.
+
+@item @var{condition} :: ( ! @var{condition} )
+Negation of the given condition.
+
+@item @var{condition} :: ( @var{condition} [ & @var{condition} ... ] )
+Logical AND --- all the conditions must be satisfied.
+
+@item @var{condition} :: ( @var{condition} [ | @var{condition} ... ] )
+Logical OR --- at least one of the conditions must be satisfied.
+@end table
+
+Spaces within the condition are insignifficant and ignored.
+
+The following rules apply to @var{word}s:
+
+@itemize @minus
+@item
+@var{word} is a sequence of adjacent alphanumeric characters.
+
+@item
+If @var{word} contains any upper-case letter, the search for the word
+is case sensitive, otherwise it's case insensitive.
+
+@item
+@var{word} must match whole word, not only its substring.
+
+@item
+@var{word} can contain the wildcard characters @code{?}, substituting
+any single alphanumeric character, and @code{*}, substituting any
+number (incl. zero) of alphanumeric characters.
+@end itemize
+
+Returned messages are sorted by the following rules:
+
+@enumerate
+@item
+The primary sorting is defined by the number of the satisfied
+subconditions on the top level of the given condition, from the
+highest (best matching messages first) to the lowest.  This takes any
+effect only if the given condition is the OR rule.
+
+@item
+The criterion used in the last client's invocation of the
+@code{HISTORY SORT} command.  If no @code{HISTORY SET} has been
+invoked yet, the messages are sorted from the oldest to the newest,
+according to their time of arrival to Speech Daemon.
+@end enumerate
 @end table
 
 @node Other commands,  , History handling commands, SSIP commands
@@ -1077,7 +1202,7 @@ This command is useful for history processing clients.
 Close the connection.
 
 @item HELP
-Print a short list of all SSIP commands, as a multiline message.
+Print a short list of all SSIP commands, as a multi-line message.
 @end table
 
 @node Return codes, Sample SSIP relation, SSIP commands, SSIP
@@ -1104,14 +1229,14 @@ Server error, problem on the server side.
 Client error, invalid arguments or parameters received.
 
 @item 5xx
-Client error, invalid command syntax, unparsable input.
+Client error, invalid command syntax, unparseable input.
 @end table
 
 Result groups @var{1xx} and @var{2xx} correspond to successful
 actions, other groups to unsuccessful actions.  Only the groups
 defined here may be returned from the Speech Daemon.
 
-Currenty, only the meaning of the first digit of the result code is
+Currently, only the meaning of the first digit of the result code is
 defined, the last two digits are insignificant and can be of any
 value.  Clients shouldn't rely on the unspecified digits in any way.
 If you are going to write your own SSIP implementation, please consult
@@ -1176,7 +1301,7 @@ messages. When several concurrent messages are received by
 server, they are queued and said in the order, they came.
 When a new message of level 1 comes during lower level
 message is spoken, lower level message is canceled and removed
-from the queue (this message is allready stored in the history)
+from the queue (this message is already stored in the history)
 
 @section Level 2
 Second level messages are said in the moment, when there is no
@@ -1187,9 +1312,9 @@ level information.
 
 @section Level 3
 Third level messages are only said, when there are no messages
-of any higher level queued. If there are level 3 messages beeing
+of any higher level queued. If there are level 3 messages being
 said or waiting in queues, they are interrupted by the last
-incomming level 3 message and this one is said, in other words,
+incoming level 3 message and this one is said, in other words,
 level 3 is interrupting itself.
 
 @section How to use them wisely
@@ -1220,7 +1345,7 @@ Example uses for level @strong{three} are:
 @end itemize
 
 
-@node Multiple output modules, Messsage history, Priorities, Top
+@node Multiple output modules, Message history, Priorities, Top
 @chapter Multiple output modules
 @cindex output module
 @cindex different synthesizers
@@ -1251,10 +1376,60 @@ to make it default.
 
 @xref{Output modules}.
 
-@node Messsage history, Speech parameters, Multiple output modules, Top
+@node Message history, Speech parameters, Multiple output modules, Top
 @chapter Message history
+@cindex history
 
-@node Speech parameters, Configuration, Messsage history, Top
+@menu
+* Access rights::               Access rights to the history messages.
+@end menu
+
+@node Access rights,  , Message history, Message history
+@section Access rights
+@cindex access rights
+
+To protect privacy of users, Speech Daemon restricts history access to
+a certain subset of all the received messages.  The following rules
+apply:
+
+@itemize @bullet
+@item
+All the messages issued by a client connection are accessible to that
+client connection.
+
+@item
+All the messages sent by a given user are accessible to that user.
+
+@item
+@cindex @code{speechd} user
+@cindex @code{speechd} group
+All the messages sent by the user @code{speechd} are accessible to all
+users on the system running the Speech Daemon instance present in the
+group @code{speechd}.
+
+@item
+No other messages are accessible.
+@end itemize
+
+@cindex Identification Protocol
+@cindex identd
+@cindex RFC 1413
+Two users are considered the same, if and only if their connections
+originate on the same host, their user names are the same, and their
+identity can be checked, as described bellow.  Speech daemon does not
+provide any explicit authentication mechanism.  To check the identity
+of users, Speech Daemon uses the Identification Protocol mechanism
+defined by RFC 1413 to get the user's identity.  If user's identity
+cannot be checked, the user is considered different of all other
+connected or previously connected users.
+
+@cindex user mapping
+Speech Daemon allows to specify user mapping in its configuration,
+allowing to change certain users to different users, see
+@ref{Configuration}.
+
+
+@node Speech parameters, Configuration, Message history, Top
 @chapter Speech parameters
 @cindex Speech parameters
 @cindex Settings
@@ -1272,11 +1447,11 @@ Sped of the speech is supported by all synthesizers, but the
 values and their ranges differ. Each output module is
 responsible to set the speed to the value, best responding to
 current setting. This may be a little bit difficult, because
-there is no exact scale. We could take some longer english
+there is no exact scale. We could take some longer English
 paragraph and take it as a base for our new scale. If this
-paragraph is said in eg. ten secconds, this means speed = 100,
+paragraph is said in e.g. ten seconds, this means speed = 100,
 if it is said in twenty seconds, speed = 200. This way, we
-can coordinate  diferent scales quite preciselly (the paragraph
+can coordinate  different scales quite precisely (the paragraph
 should be long enough).
 
 @section Punctuation mode
@@ -1288,7 +1463,7 @@ superset of those modes, which may be implemented in device
 driver, when not supported by hardware.
 
 @section Prosody
-Prosody setting allows us, to distinguish interpunction
+Prosody setting allows us, to distinguish punctuation
 characters in spoken text, as we are familiar in normal speech.
 This means the way, we pronounce the text with interrogation mark,
 coma, dot etc.
@@ -1329,19 +1504,42 @@ changed and it's given by the capabilities of each output
 device (each output module for each output device reports
 it's capabilities when it's loaded into Speech Daemon).
 
-We use DotConf for the permanent textfile-based configuration.
+We use DotConf for the permanent text file based configuration.
 See @file{speechd.conf}.
 
 Other parts of this manual deal with the runtime configuration.
 
 
-@node Standard sound icons, Copying, Configuration, Top
+@node Standard sound icons, Standard voices, Configuration, Top
 @appendix Standard sound icons
 
 There are none currently.
 
 
-@node Copying, Concept index, Standard sound icons, Top
+@node Standard voices, Copying, Standard sound icons, Top
+@appendix Standard voices
+
+The following voice identifiers are always present in the output of
+the @code{LIST VOICES} command (@pxref{Information retrieval commands}):
+
+@table @code
+@item MALE1
+@item MALE2
+@item MALE3
+@item FEMALE1
+@item FEMALE2
+@item FEMALE3
+@item CHILD_MALE
+@item CHILD_FEMALE
+@end table
+
+The actual presence of any of these voices is not guaranteed.  But the
+command @code{SET VOICE} (@pxref{Parameter setting commands}) must
+accept any of them.  If the given voice is not available, it is mapped
+to another voice by the output module.
+
+
+@node Copying, Concept index, Standard voices, Top
 @appendix GNU GENERAL PUBLIC LICENSE
 @center Version 2, June 1991
 
@@ -1359,3 +1557,13 @@ There are none currently.
 
 @c speechd.texi ends here
 
+
+@c  LocalWords:  texinfo setfilename speechd settitle finalout syncodeindex pg
+@c  LocalWords:  setchapternewpage cp fn vr texi dircategory direntry titlepage
+@c  LocalWords:  Cerha Hynek Hanke vskip pt filll insertcopying ifnottex dir fd
+@c  LocalWords:  API SSIP cindex printf ISA pindex Flite Odmluva FreeTTS TTS CR
+@c  LocalWords:  ViaVoice Lite Tcl Zandt wxWindows AWT spd dfn backend findex
+@c  LocalWords:  src struct gchar gint const OutputModule intl FDSetElement len
+@c  LocalWords:  fdset init flite deffn TFDSetElement var int enum EVoiceType
+@c  LocalWords:  sayf ifinfo verbatiminclude ref UTF ccc ddd pxref LF cs conf
+@c  LocalWords:  su AddModule DefaultModule xref identd printindex Dectalk GTK
