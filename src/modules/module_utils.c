@@ -18,13 +18,14 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.12 2003-08-11 14:59:39 hanke Exp $
+ * $Id: module_utils.c,v 1.13 2003-09-07 11:26:22 hanke Exp $
  */
 
 #include <semaphore.h>
 #include <dotconf.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include <assert.h>
 #include <glib.h>
@@ -33,8 +34,20 @@
 #include <semaphore.h>
 #include <sys/wait.h>
 #include <errno.h>
+#include <dotconf.h>
 
-#include "spd_audio.h"
+#include <semaphore.h>
+#include <sys/ipc.h>
+#include <sys/sem.h>
+
+SPDMsgSettings msg_settings;
+SPDMsgSettings msg_settings_old;
+
+int SPDSemaphore;
+
+configfile_t *configfile = NULL;
+configoption_t *module_dc_options;
+int module_num_dc_options = 0;
 
 static FILE *debug_file;
 
@@ -51,6 +64,33 @@ static FILE *debug_file;
        debug_file = stdout; \
     }
 
+#define INIT_SETTINGS_TABLES()\
+ msg_settings.rate = 0;\
+ msg_settings.pitch = 0;\
+ msg_settings.punctuation_mode = PUNCT_NONE;\
+ msg_settings.punctuation_some = NULL;\
+ msg_settings.punctuation_table = NULL;\
+ msg_settings.spelling_mode = 0;\
+ msg_settings.spelling_table = NULL;\
+ msg_settings.cap_let_recogn = RECOGN_NONE;\
+ msg_settings_old.cap_let_recogn_table = NULL;\
+ msg_settings.cap_let_recogn_sound = NULL;\
+ msg_settings.language = strdup("en");\
+ msg_settings.voice = MALE1;\
+\
+ msg_settings_old.rate = -101;\
+ msg_settings_old.pitch = -101;\
+ msg_settings_old.punctuation_mode = -1;\
+ msg_settings_old.punctuation_some = NULL;\
+ msg_settings_old.punctuation_table = NULL;\
+ msg_settings_old.spelling_mode = -1;\
+ msg_settings_old.spelling_table = NULL;\
+ msg_settings_old.cap_let_recogn = -1;\
+ msg_settings_old.cap_let_recogn_table = NULL;\
+ msg_settings_old.cap_let_recogn_sound = NULL;\
+ msg_settings_old.language = strdup("en");\
+ msg_settings_old.voice = NO_VOICE;
+
 #define CLOSE_DEBUG_FILE() \
     if (debug_file != NULL) fclose(debug_file);
 
@@ -65,12 +105,13 @@ static FILE *debug_file;
      exit(EXIT_FAILURE); \
    }
 
-#define DECLARE_MODULE_PROTOTYPES() \
-  static gint    module_write        (gchar *data, size_t bytes, TFDSetElement* settings); \
-  static gint    module_stop         (void); \
-  static size_t  module_pause        (void); \
-  static gint    module_is_speaking  (void); \
-  static gint    module_close        (void);
+int     module_load         (void);
+int     module_init         (void);
+int     module_write        (char *data, size_t bytes);
+int     module_stop         (void);
+size_t  module_pause        (void);
+int     module_is_speaking  (void);
+void    module_close        (int status);
 
 #define DECLARE_MODINFO(name, descr) \
 static OutputModule module_info = { \
@@ -85,28 +126,28 @@ static OutputModule module_info = { \
        {0, 0} \
     };
 
-#define UPDATE_PARAMETER(old_value, new_value, setter) \
-  if (old_value != (new_value)) \
+#define UPDATE_PARAMETER(value, setter) \
+  if (msg_settings_old.value != msg_settings.value) \
     { \
-      old_value = (new_value); \
-      setter ((new_value)); \
+      msg_settings_old.value = msg_settings.value; \
+      setter (msg_settings.value); \
     }
 
-#define UPDATE_STRING_PARAMETER(old_value, new_value, setter) \
-  if (old_value == NULL || strcmp (old_value, new_value)) \
+#define UPDATE_STRING_PARAMETER(value, setter) \
+  if (msg_settings_old.value == NULL \
+         || strcmp (msg_settings_old.value, msg_settings.value)) \
     { \
-      if (old_value != NULL) \
+      if (msg_settings_old.value != NULL) \
       { \
-        g_free (old_value); \
-	old_value = NULL; \
+        xfree (msg_settings_old.value); \
+	msg_settings_old.value = NULL; \
       } \
-      if (new_value != NULL) \
+      if (msg_settings.value != NULL) \
       { \
-        old_value = g_strdup (new_value); \
-        setter ((new_value)); \
+        msg_settings_old.value = g_strdup (msg_settings.value); \
+        setter (msg_settings.value); \
       } \
     }
-
 
 #define CHILD_SAMPLE_BUF_SIZE 16384
 
@@ -114,8 +155,6 @@ typedef struct{
     int pc[2];
     int cp[2];
 }TModuleDoublePipe;
-
-static cst_wave *module_sample_wave = NULL;
 
 static void* xmalloc(size_t size);
 static void* xrealloc(void* data, size_t size);
@@ -143,8 +182,6 @@ static void module_signal_end(void);
 
 static void module_strip_punctuation_default(char *buf);
 static void module_strip_punctuation_some(char *buf, char* punct_some);
-
-static void module_cstwave_free(cst_wave* wave);
 
 static void module_sigblockall(void);
 static void module_sigblockusr(sigset_t *signal_set);
@@ -179,6 +216,138 @@ static void
 xfree(void *data)
 {
     if (data != NULL) free(data);
+    data = NULL;
+}
+
+char*
+do_speak(void)
+{
+    int ret;
+    char *cur_line;
+    GString *msg;
+    int n;
+
+    msg = g_string_new("");
+
+    printf("202 OK SPEAKING\n");
+    fflush(stdout);
+
+    while(1){
+        cur_line = NULL;
+        n = 0;
+        ret = getline(&cur_line, &n, stdin);
+        if (ret == -1) return "401 ERROR INTERNAL";
+
+        if (!strcmp(cur_line, ".\n")) break;
+        g_string_append(msg, cur_line);
+    }
+
+    ret = module_write(msg->str, strlen(msg->str));
+    g_string_free(msg,1);
+    if (ret <= 0) return "301 ERROR CANT SPEAK";
+    
+    return "200 OK SPEAKING";
+}
+
+char*
+do_stop(void)
+{
+    module_stop();
+    return "201 OK STOPPED";
+}
+
+char*
+do_pause(void)
+{
+    size_t pos;
+    static char resp[128];
+    pos = module_pause();
+    
+    snprintf(resp, 127, "202-%d\n202 OK PAUSED", pos);
+
+    return resp;
+}
+
+#define SET_PARAM_NUM(name, cond) \
+ if(!strcmp(cur_item, #name)){ \
+     number = strtol(cur_value, &tptr, 10); \
+     if(!(cond)){ err = 2; break; } \
+     if (tptr == cur_value){ err = 2; break; } \
+     msg_settings.name = number; \
+ }
+
+#define SET_PARAM_STR(name) \
+ if(!strcmp(cur_item, #name)){ \
+     xfree(msg_settings.name); \
+     if(!strcmp(cur_value, "NULL")) msg_settings.name = NULL; \
+     else msg_settings.name = strdup(cur_value); \
+ }
+
+char*
+do_set(void)
+{
+    char *cur_item = NULL;
+    char *cur_value = NULL;
+    char *line = NULL;
+    int ret;
+    int n;
+    int number; char *tptr;
+    int err = 0;                /* Count errors */
+
+    printf("203 OK RECEIVING SETTINGS\n");
+    fflush(stdout);
+
+    while(1){
+        line = NULL; n = 0;
+        ret = getline(&line, &n, stdin);
+        if (ret == -1){ err=1; break; }
+        if (!strcmp(line, ".\n")){
+            xfree(line);
+            return "204 OK SETTINGS RECEIVED";
+        }
+        cur_item = strtok(line, "=");
+        if (cur_item == NULL){ err=1; break; }
+        cur_value = strtok(NULL, "\n");
+        if (cur_value == NULL){ err=1; break; }
+        
+        SET_PARAM_NUM(rate, ((number>=-100) && (number<=100)))
+        else SET_PARAM_NUM(pitch, ((number>=-100) && (number<=100)))
+        else SET_PARAM_NUM(punctuation_mode, 1)
+        else SET_PARAM_STR(punctuation_some)
+        else SET_PARAM_STR(punctuation_table)
+        else SET_PARAM_NUM(spelling_mode, 1)
+        else SET_PARAM_STR(spelling_table)
+        else SET_PARAM_NUM(cap_let_recogn, 1)
+        else SET_PARAM_STR(cap_let_recogn_table)
+        else SET_PARAM_STR(cap_let_recogn_sound)
+        else SET_PARAM_STR(language)
+        else SET_PARAM_NUM(voice, 1)
+        else err++;             /* Unknown parameter */
+
+        xfree(line);
+    }
+
+    if (err == 1) return "302 ERROR BAD SYNTAX";
+    if (err == 2) return "303 ERROR INVALID PARAMETER OR VALUE";
+    
+    return "401 ERROR INTERNAL"; /* Can't be reached */
+}
+#undef SET_PARAM_NUM
+#undef SET_PARAM_STR
+
+char*
+do_speaking(void)
+{
+    if (module_is_speaking()) return "205-1\n205 OK SPEAKING STATUS SENT";
+    else return "205-0\n205 OK SPEAKING STATUS SENT";
+}
+
+char*
+do_quit(void)
+{
+    printf("210 OK QUIT\n");    
+    fflush(stdout);
+    module_close(0);
 }
 
 static int
@@ -348,82 +517,6 @@ module_parent_wfork(TModuleDoublePipe dpipe, const char* message,
     }    
 }
 
-void
-module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
-{
-    char *data;  
-    cst_wave *wave;
-    short *samples = NULL;
-    int bytes;
-    int num_samples = 0;
-    int ret;
-    int data_mode = 0;
-
-    module_sigblockall();
-
-    module_child_dp_init(dpipe);
-    
-    data = xmalloc(CHILD_SAMPLE_BUF_SIZE);
-
-    ret = spd_audio_open(module_sample_wave);
-    if (ret != 0){
-        DBG("Can't open audio output!\n");
-        module_child_dp_close(dpipe);
-        exit(0);
-    }
-
-    DBG("Entering child loop\n");
-    while(1){
-        /* Read the waiting data */
-        bytes = module_child_dp_read(dpipe, data, CHILD_SAMPLE_BUF_SIZE);
-        DBG("child: Got %d bytes\n", bytes);
-        if (bytes == 0){
-            DBG("child: exiting, closing audio, pipes");
-            spd_audio_close();
-            module_child_dp_close(dpipe);
-            DBG("child: good bye");
-            exit(0);
-        }
-
-        /* Are we at the end? */
-        if (bytes>=24){
-            if (!strncmp(data+bytes-24,"\r\nOK_SPEECHD_DATA_SENT\r\n", 24)) data_mode = 2;
-            if (!strncmp(data,"\r\nOK_SPEECHD_DATA_SENT\r\n", 24)) data_mode = 1;        
-        }
-
-        if ((data_mode == 1) || (data_mode == 2)){
-            if (data_mode == 2){
-                samples = module_add_samples(samples, (short*) data,
-                                             bytes-24, &num_samples); 
-            }
-
-            DBG("child: End of data caught\n");
-            wave = (cst_wave*) xmalloc(sizeof(cst_wave));
-            wave->type = strdup("riff");
-            wave->sample_rate = 0; /* We don't use sample rate here, it was significant
-                                    when opening the device */
-            wave->num_samples = num_samples;
-            wave->num_channels = 1;
-            wave->samples = samples;
-
-            DBG("child: Sending data to audio output...\n");
-
-            spd_audio_play_wave(wave);
-            module_cstwave_free(wave);            
-
-            DBG("child->parent: Ok, send next samples.");
-            module_child_dp_write(dpipe, "C", 1);
-
-            num_samples = 0;        
-            samples = NULL;
-            data_mode = 0;
-        }else{
-            samples = module_add_samples(samples, (short*) data,
-                                         bytes, &num_samples);
-        } 
-    }        
-}
-
 static void
 module_strip_punctuation_some(char *message, char *punct_chars)
 {
@@ -587,58 +680,6 @@ module_getparam_int(GHashTable *table, char* param_name)
     return param;
 }
 
-static void
-module_register_settings_voices(OutputModule *module)
-{
-    module->settings.voices = g_hash_table_new(g_str_hash, g_str_equal);
-}
-
-static char*
-module_getvoice(OutputModule *module, char* language, EVoiceType voice)
-{
-    SPDVoiceDef *voices;
-    char *ret;
-    GHashTable *voice_table = module->settings.voices;
-
-    if (voice_table == NULL){
-        DBG("Can't get voice because voicetable is NULL\n");
-        return NULL;
-    }
-
-    voices = g_hash_table_lookup(voice_table, language);
-    if (voices == NULL){
-        DBG("There are no voices in the table for language=%s\n", language);
-        return NULL;
-    }
-
-    switch(voice){
-    case MALE1: 
-        ret = voices->male1; break;
-    case MALE2: 
-        ret = voices->male2; break;
-    case MALE3: 
-        ret = voices->male3; break;
-    case FEMALE1: 
-        ret = voices->female1; break;
-    case FEMALE2: 
-        ret = voices->female2; break;
-    case FEMALE3: 
-        ret = voices->female3; break;
-    case CHILD_MALE: 
-        ret = voices->child_male; break;
-    case CHILD_FEMALE: 
-        ret = voices->child_female; break;
-    default:
-        printf("Unknown voice");
-        exit(1);
-    }
-
-    if (ret == NULL) ret = voices->male1;
-    if (ret == NULL) printf("No voice available for this output module!");
-
-    return ret;
-}
-
 void
 set_speaking_thread_parameters()
 {
@@ -700,7 +741,8 @@ module_semaphore_init()
     sem_t *semaphore;
     int ret;
 
-    semaphore = (sem_t *) spd_malloc(sizeof(sem_t));
+    semaphore = (sem_t *) malloc(sizeof(sem_t));
+    if (semaphore == NULL) return NULL;
     ret = sem_init(semaphore, 0, 0);
     if (ret != 0){
         DBG("Semaphore initialization failed");
@@ -789,14 +831,23 @@ module_recode_to_iso(char *data, int bytes, char *language)
     return recoded;
 }
 
-static void
+static int
+semaphore_post(int sem_id)
+{
+    static struct sembuf sem_b;
+    int err;
+
+    sem_b.sem_num = 0;
+    sem_b.sem_op = 1;          /* V() */
+    sem_b.sem_flg = SEM_UNDO;
+    return semop(sem_id, &sem_b, 1);
+}
+
+void
 module_signal_end(void)
 {
-    /* This is not very correct, there can be multiple Speech Dispatcher
-       instances running on the same computer, but since linux thread implementation
-       really sucks (surprise, kill(getpid(), USR1) doesn't work...) and
-       the effect isn't fatal, it should be enough...*/
-    system("killall -s USR1 speechd");            
+    /* TODO: We should post on the new semaphore here! */
+    semaphore_post(SPDSemaphore);
 }
 
 static configoption_t *
@@ -810,7 +861,7 @@ module_add_config_option(configoption_t *options, int *num_options, char *name, 
     assert(name != NULL);
 
     num_config_options++;
-    opts = (configoption_t*) realloc(options, num_config_options * sizeof(configoption_t));
+    opts = (configoption_t*) realloc(options, (num_config_options+1) * sizeof(configoption_t));
     opts[num_config_options-1].name = (char*) strdup(name);
     opts[num_config_options-1].type = type;
     opts[num_config_options-1].callback = callback;
@@ -835,13 +886,22 @@ module_get_ht_option(GHashTable *hash_table, const char *key)
     return option;
 }
 
-static void
-module_cstwave_free(cst_wave* wave)
+
+configoption_t *
+add_config_option(configoption_t *options, int *num_config_options, char *name, int type,
+                  dotconf_callback_t callback, info_t *info,
+                  unsigned long context)
 {
-    if (wave != NULL){
-        if (wave->samples != NULL) free(wave->samples);
-        free(wave);
-    }
+    configoption_t *opts;
+
+    (*num_config_options)++;
+    opts = (configoption_t*) realloc(options, (*num_config_options) * sizeof(configoption_t));
+    opts[*num_config_options-1].name = strdup(name);
+    opts[*num_config_options-1].type = type;
+    opts[*num_config_options-1].callback = callback;
+    opts[*num_config_options-1].info = info;
+    opts[*num_config_options-1].context = context;
+    return opts;
 }
 
 #define MOD_OPTION_1_STR(name) \
@@ -941,26 +1001,31 @@ module_cstwave_free(cst_wave* wave)
 
 #define MOD_OPTION_1_STR_REG(name, default) \
     name = strdup(default); \
-    *options = module_add_config_option(*options, num_options, #name, \
-                                        ARG_STR, name ## _cb, NULL, 0);
+    module_dc_options = module_add_config_option(module_dc_options, \
+                                     &module_num_dc_options, #name, \
+                                     ARG_STR, name ## _cb, NULL, 0);
 
 #define MOD_OPTION_1_INT_REG(name, default) \
     name = default; \
-    *options = module_add_config_option(*options, num_options, #name, \
-                                        ARG_INT, name ## _cb, NULL, 0);
+    module_dc_options = module_add_config_option(module_dc_options, \
+                                     &module_num_dc_options, #name, \
+                                     ARG_INT, name ## _cb, NULL, 0);
 
 /* TODO: Switch this to real float, not /100 integer,
    as soon as DotConf supports floats */
 #define MOD_OPTION_1_FLOAT_REG(name, default) \
     name = default; \
-    *options = module_add_config_option(*options, num_options, #name, \
-                                        ARG_INT, name ## _cb, NULL, 0);
+    module_dc_options = module_add_config_option(module_dc_options, \
+                                     &module_num_dc_options, #name, \
+                                     ARG_INT, name ## _cb, NULL, 0);
 
 #define MOD_OPTION_MORE_REG(name) \
-    *options = module_add_config_option(*options, num_options, #name, \
-                                        ARG_LIST, name ## _cb, NULL, 0);
+    module_dc_options = module_add_config_option(module_dc_options, \
+                                     &module_num_dc_options, #name, \
+                                     ARG_LIST, name ## _cb, NULL, 0);
 
 #define MOD_OPTION_HT_REG(name) \
     name = g_hash_table_new(g_str_hash, g_str_equal); \
-    *options = module_add_config_option(*options, num_options, #name, \
-                                        ARG_LIST, name ## _cb, NULL, 0);
+    module_dc_options = module_add_config_option(module_dc_options, \
+                                     &module_num_dc_options, #name, \
+                                     ARG_LIST, name ## _cb, NULL, 0);
