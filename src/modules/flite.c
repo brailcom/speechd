@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.21 2003-05-07 19:05:54 hanke Exp $
+ * $Id: flite.c,v 1.22 2003-05-18 20:55:42 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -74,27 +74,38 @@ OutputModule modinfo_flite = {
    flite_stop,
    flite_pause,
    flite_is_speaking,
-   flite_close
+   flite_close,
+   {0, 0}
 };
 
-/* Entry point of this module */
-OutputModule*
-module_init(void)
-{
-    if(DEBUG_FLITE) printf("flite: init_module()\n");
 
+int
+module_init(OutputModule *module)
+{
     /* Init flite and register a new voice */
     flite_init();
     flite_voice = register_cmu_us_kal();
 
     if (DEBUG_FLITE && (flite_voice == NULL))
         printf("Couldn't register the basic kal voice.\n"); 
+
+    return 0;
+}
+
+/* Entry point of this module */
+OutputModule*
+module_load(void)
+{
+    if(DEBUG_FLITE) printf("flite: init_module()\n");
 	
     modinfo_flite.description =
         g_strdup_printf("Flite software synthesizer, version %s",VERSION);
 
     assert(modinfo_flite.name != NULL);
     assert(modinfo_flite.description != NULL);
+
+    modinfo_flite.settings.params = g_hash_table_new(g_str_hash, g_str_equal);
+    modinfo_flite.settings.voices = g_hash_table_new(g_str_hash, g_str_equal);
 
     return &modinfo_flite;
 }
@@ -336,7 +347,7 @@ _flite_sigblockusr(sigset_t *some_signals)
     sigaddset(some_signals, SIGUSR1);
     ret = sigprocmask(SIG_SETMASK, some_signals, NULL);
     if ((ret != 0)&&(DEBUG_FLITE))
-        printf("flite: Can't block signal set, expect problems with terminating!\n");
+        printf("flite: Can't block signal set, expect problems when terminating!\n");
 }
 
 void
