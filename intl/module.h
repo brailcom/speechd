@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.h,v 1.18 2003-09-07 11:23:35 hanke Exp $
+ * $Id: module.h,v 1.19 2003-10-08 21:27:56 hanke Exp $
  */
 
 #include <glib.h>
@@ -39,12 +39,6 @@ typedef struct
     char *child_female;
 }SPDVoiceDef;
 
-typedef enum{
-    FILTERING_NONE,
-    FILTERING_SELF,
-    FILTERING_GENERIC
-}EFilteringType;
-
 typedef struct{
     char* name;
     char* filename;
@@ -53,5 +47,4 @@ typedef struct{
     int pipe_out[2];    
     pid_t pid;
     int working;
-    EFilteringType filtering;
 }OutputModule;
