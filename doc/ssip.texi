@@ -24,6 +24,7 @@
 @author Tom@'a@v{s} Cerha <@email{cerha@@freebsoft.org}>
 @author Hynek Hanke <@email{hanke@@freebsoft.org}>
 @author Milan Zamazal <@email{zamazal@@freebsoft.org}>
+@author @url{http://www.freebsoft.org}
 @page
 @vskip 0pt plus 1filll
 
@@ -56,6 +57,9 @@ published by the Free Software Foundation; with no Invariant Sections, no
 Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included
 in the section entitled "GNU Free Documentation License".
 @end quotation
+
+Please contact us on @url{http://www.freebsoft.org}
+
 @end ifnottex
 
 @ifhtml
@@ -72,7 +76,6 @@ in the section entitled "GNU Free Documentation License".
 * Protocol Description::        
 * Appendices::                  
 * GNU Free Documentation License::  
-* Index of Concepts::           
 @end menu
 
 @node Introduction, Basic Terminology, Top, Top
@@ -1385,14 +1388,11 @@ command @code{SET VOICE} (@pxref{Parameter Setting Commands}) must
 accept any of them.  If the given voice is not available, it is mapped
 to another voice by the output module.
 
-@node GNU Free Documentation License, Index of Concepts, Appendices, Top
+@node GNU Free Documentation License,  , Appendices, Top
 @appendix GNU Free Documentation License
 @center Version 1.2, November 2002
 @cindex FDL, GNU Free Documentation License
 
 @include fdl.texi
-
-@node Index of Concepts,  , GNU Free Documentation License, Top
-@unnumbered Index of Concepts
 
 @bye
