@@ -15,5 +15,6 @@ char* parse_char(const char* buf, const int bytes, const int fd);
 char* parse_key(const char* buf, const int bytes, const int fd);
 char* parse_list(const char* buf, const int bytes, const int fd);
 char* parse_help(const char* buf, const int bytes, const int fd);
+char* parse_block(const char* buf, const int bytes, const int fd);
 
 #endif
