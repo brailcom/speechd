@@ -1,3 +1,21 @@
+2003-06-05  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/server/speechd.h (last_p5_message): Archive last priority ``notification'' message here.
+
+	* src/server/speechd.c (speechd_alarm_handle): Handle alarm for delayed priority 5 messages.
+	(speechd_alarm): New function: set alarm to the requested time in microseconds.
+
+	* src/server/msg.h (ERR_UNKNOWN_PRIORITY): New SSIP return message.
+
+	* src/server/parse.c (parse_set): Accept priorities (SET ... PRIORITY name) by their names.
+
+	* src/server/speaking.c (resolve_priorities): Rules for priorities changed.
+	(stop_priority_except_first): New function.
+
+	* src/server/alloc.c (speechd_queue_alloc): 2 new priorities.
+
+	* src/server/server.c (queue_message): Priorities changed.
+
 2003-06-03  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* config/speechd.conf: New option ``LogLevel''.
