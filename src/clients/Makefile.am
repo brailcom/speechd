@@ -2,7 +2,7 @@
 localedir = $(datadir)/locale
 inc_local = "-I$(top_srcdir)/intl/"
 
-CFLAGS = -I../intl -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@ -lncurses -lmenu
+AM_CFLAGS = -I../intl -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@ -lncurses -lmenu
 
 bin_PROGRAMS = say spd_center
 say_SOURCES = say.c libspeechd.h

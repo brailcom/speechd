@@ -2,7 +2,7 @@
 localedir = $(datadir)/locale
 inc_local = "-I$(top_srcdir)/intl/"
 
-CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@
+AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@
 
 lib_LTLIBRARIES = libsdflite.la libsdmluvitko.la # libsdfestival.la
 

@@ -2,7 +2,7 @@
 localedir = $(datadir)/locale
 inc_local = "-I$(top_srcdir)/intl/"
 
-CFLAGS = -I../clients -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@
+AM_CFLAGS = -I../clients -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@
 
 bin_PROGRAMS = multiple_messages long_message
 multiple_messages_SOURCES = multiple_messages.c libspeechd.h
