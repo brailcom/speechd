@@ -45,8 +45,8 @@
     ("'" "right" "quote")
     ("`" "left" "quote")
     ("\"" "double" "quote")
-    ("(" "left" "parentheses")
-    (")" "right" "parentheses")
+    ("(" "left" "parenthesis")
+    (")" "right" "parenthesis")
     ("{" "left" "brace")
     ("(" "right" "brace")))
 
