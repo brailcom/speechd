@@ -793,7 +793,7 @@ Speak key identified by @var{key-name}.  @var{key-name} is ???
 This command is intended to be used for speaking keys pressed by the
 user.
 
-@item SND_ICON @var{icon-name}
+@item SOUND_ICON @var{icon-name}
 Send a sound identified by @var{icon-name} to the audio output.
 @var{icon-name} is a symbolic name of the given sound from the
 standard set listed in @ref{Standard sound icons}, or another name
