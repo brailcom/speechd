@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.13 2003-04-12 11:11:52 hanke Exp $
+ * $Id: flite.c,v 1.14 2003-04-14 02:11:41 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -148,7 +148,7 @@ flite_write(gchar *data, gint len, TFDSetElement* set)
     }
 	
     stretch = 1;
-    if (set->speed < 0) stretch -= ((float) set->speed) / 80;
+    if (set->speed < 0) stretch -= ((float) set->speed) / 50;
     if (set->speed > 0) stretch -= ((float) set->speed) / 200;
 
     feat_set_float(flite_voice->features,"duration_stretch", stretch);
