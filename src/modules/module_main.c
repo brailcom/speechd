@@ -18,11 +18,14 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_main.c,v 1.3 2004-04-04 21:11:49 hanke Exp $
+ * $Id: module_main.c,v 1.4 2004-06-28 08:07:51 hanke Exp $
  */
 
+/* So that gcc doesn't comply */
+int getline(char**, int*, FILE*);
+
 #define PROCESS_CMD(command, function) if (!strcmp(cmd_buf, #command"\n")){ \
- if (printf("%s\n", function()) < 0){ \
+ if (printf("%s\n", (char*) function()) < 0){ \
      DBG("Broken pipe, exiting...\n"); \
      module_close(2); \
  } \
@@ -35,9 +38,10 @@ main(int argc, char *argv[])
     char *cmd_buf;
     int ret;
     int n;
-    configfile_t *configfile = NULL;
     char *configfilename;
 
+    module_num_dc_options = 0;
+    
     if (argc >= 2){
         char *tailptr;
         SPDSemaphore = strtol(argv[1], &tailptr, 0);
@@ -55,7 +59,6 @@ main(int argc, char *argv[])
     ret = module_load();
     if (ret == -1) module_close(1);
 
-
     if (configfilename != NULL){
         /* Add the LAST option */
         module_dc_options = add_config_option(module_dc_options,
@@ -67,10 +70,10 @@ main(int argc, char *argv[])
                 DBG("Error reading config file\n");
                 module_close(1);
             }
-        dotconf_cleanup(configfile);
-        DBG("Configuration (pre) has been read from \"%s\"\n", configfilename);    
-        
-        xfree(configfilename);
+	    dotconf_cleanup(configfile);
+	    DBG("Configuration (pre) has been read from \"%s\"\n", configfilename);    
+	    
+	    xfree(configfilename);
         }else{
             DBG("Can't read specified config file!\n");        
         }
