@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.14 2003-06-01 21:25:18 hanke Exp $
+  * $Id: speaking.c,v 1.15 2003-06-02 15:48:43 hanke Exp $
   */
 
 #include <glib.h>
@@ -64,9 +64,10 @@ speak(void* data)
 
         /* Extract the right message from priority queue */
         message = get_message_from_queues();
-        if (message == NULL) FATAL("Non-NULL element containing NULL\n"
-                                   "data found or semaphore failed!\n");
-        
+        if (message == NULL){
+            pthread_mutex_unlock(&element_free_mutex);
+            continue;               
+        }
      
         /* Isn't the parent client of this message paused? 
          * If it is, insert the message to the MessagePausedList. */
@@ -824,7 +825,6 @@ get_message_from_queues()
                 MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
                 highest_priority = 3;
             }else{
-                if (SPEECHD_DEBUG) FATAL("Descending through queues but all of them are empty");
                 return NULL;
             }
         }
