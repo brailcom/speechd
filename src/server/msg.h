@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: msg.h,v 1.15 2003-04-24 19:26:35 hanke Exp $
+ * $Id: msg.h,v 1.16 2003-05-05 22:40:06 hanke Exp $
  */
 
 
@@ -59,6 +59,10 @@
 #define C_OK_CUR_POS				"243"
 #define OK_TABLE_LIST_SENT                      "244 OK TABLE LIST SEND\r\n"
 #define C_OK_TABLES                             "244"
+#define OK_CLIENT_ID_SENT                       "245 OK CLIENT ID SENT\r\n"
+#define C_OK_CLIENT_ID                          "245"
+#define OK_MSG_TEXT_SENT                        "246 OK MESSAGE TEXT SENT\r\n"
+#define C_OK_MSG_TEXT                           "246"
 #define OK_HELP_SENT                            "248 OK HELP SENT\r\n"
 #define C_OK_HELP                               "248"
 
