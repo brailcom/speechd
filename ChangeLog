@@ -1,4 +1,45 @@
 
+2003-04-18	Hynek Hanke	<hanke@volny.cz>
+
+	* src/server/set.c (set_character_table): New function.
+	(set_key_table): New function.
+	(set_sound_table): New function.
+	
+	* src/server/parse.c (parse_set): New settings SSIP commands.
+	
+	* src/server/server.c (parse): New LIST SSIP command.
+
+	* src/server/sndicon.c (sndicon_list_sound_tables): New function.
+	(sndicon_list_char_tables): New function.
+	(sndicon_list_key_tables): New function.
+	(sndicon_list_punctuation_tables): New function.
+	(sndicon_list_spelling_tables): New function.
+	(sndicon_list_tables): New function.
+
+	* src/server/dc_decl.h: New configuration options.
+
+	* intl/fdset.h (TFDSetElement): Added tables for characters, keys, sound icons.
+
+	* src/server/speechd.h (TSpeechDTables): New structure. 
+
+	* src/server/speechd.c (speechd_init): Initialize lists of (speechd_init): Initialize lists of tables.tables.
+
+	* config/speechd.conf: New options.
+
+	* tables in config/en/: Added groups, the definition: tag.
+
+	* src/server/msg.h: New SSIP return messages.
+
+2003-04-17  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/speechd.c (speechd_init): Initialize tables.
+
+	* src/server/speechd.h (TSpeechDTables): New structure (lists of available tables).
+
+2003-04-17	Hynek Hanke	<hanke@volny.cz>
+
+	* src/server/server.c: Bug with cutting of messages when spelling and "punctuating" fixed.
+
 2003-04-17	Hynek Hanke	<hanke@volny.cz>
 
 	* src/server/server.c (queue_message): Additional parameter: type of the message.

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.c,v 1.12 2003-04-15 10:08:59 pdm Exp $
+ * $Id: history.c,v 1.13 2003-04-18 21:23:47 hanke Exp $
  */
 
 #include "speechd.h"
@@ -40,26 +40,26 @@ gint (*p_msg_comp_id)() = message_compare_id;
 char*
 history_get_client_list()
 {
-	TFDSetElement *client;
-	GString *clist;
-	GList *cursor;
-	int i;
+    TFDSetElement *client;
+    GString *clist;
+    GList *cursor;
+    int i;
 
-	clist = g_string_new("");
+    clist = g_string_new("");
 
-	for(i=1;i<=max_uid;i++){
-		MSG(3,"Getting settings for client %d of %d", i, max_uid-1);
-		client = get_client_settings_by_uid(i);
-		assert(client!=NULL);
-		g_string_append_printf(clist, C_OK_CLIENTS"-");
-		g_string_append_printf(clist, "%d ", client->uid);
-		g_string_append(clist, client->client_name);
-		g_string_append_printf(clist, " %d", client->active);
-		g_string_append(clist,"\r\n");
-	}
-	g_string_append_printf(clist, OK_CLIENT_LIST_SENT);
+    for(i=1;i<=max_uid;i++){
+        MSG(3,"Getting settings for client %d of %d", i, max_uid-1);
+        client = get_client_settings_by_uid(i);
+        assert(client!=NULL);
+        g_string_append_printf(clist, C_OK_CLIENTS"-");
+        g_string_append_printf(clist, "%d ", client->uid);
+        g_string_append(clist, client->client_name);
+        g_string_append_printf(clist, " %d", client->active);
+        g_string_append(clist,"\r\n");
+    }
+    g_string_append_printf(clist, OK_CLIENT_LIST_SENT);
 
-	return clist->str;                
+    return clist->str;                
 }
 
 char*
