@@ -2,7 +2,9 @@
 
 SUBDIRS= en cs modules clients
 
-all-local:
+all-local: speechd.conf
+
+speechd.conf: speechd.conf.in
 	sed -e s:INCLUDE_PATH:\"$(spdconfdir)\":g speechd.conf.in > speechd.conf
 
 
