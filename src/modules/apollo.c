@@ -18,13 +18,15 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.2 2003-04-23 16:04:14 pdm Exp $
+ * $Id: apollo.c,v 1.3 2003-04-24 07:55:55 pdm Exp $
  */
 
 
 #include <fcntl.h>
 #include <glib.h>
 #include <unistd.h>
+
+#include <stdio.h>
 
 #include "module.h"
 #include "fdset.h"
@@ -102,26 +104,26 @@ static gint send_apollo_command (const char *command)
 static gint set_speed (signed int value)
 {
   int speed = (int) (pow (3, (value+100)/100.0));
-  char *command = "@W_";
+  char command[4];
   if (speed < 0)
     speed = 0;
   else if (speed > 9)
     speed = 9;
-
-  sprintf (command+2, "%d", speed);
+  
+  snprintf (command, 4, "@W%d", speed);
   return send_apollo_command (command);
 }
 
 static gint set_pitch (signed int value)
 {
   int pitch = (int) ((value+100)/13.0 + 0.5);
-  char *command = "@F_";
+  char command[4];
   if (pitch < 0x0)
     pitch = 0x0;
   else if (pitch > 0xF)
     pitch = 0xF;
   
-  sprintf (command+2, "%x", pitch);
+  snprintf (command, 4, "@F%x", pitch);
   return send_apollo_command (command);
 }
 
@@ -205,7 +207,7 @@ gint apollo_write (gchar *data, gint len, void* set_)
 	g_free (edata);
       }
 
-    return result;
+    return ! result;
   }
 }
 
