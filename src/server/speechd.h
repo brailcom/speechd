@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.19 2003-04-11 20:44:55 hanke Exp $
+ * $Id: speechd.h,v 1.20 2003-04-12 11:22:59 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -56,6 +56,7 @@
 #include "set.h"
 #include "msg.h"
 #include "parse.h"
+#include "sndicon.h"
 
 /* We should get rid of this very soon */
 #define MAX_CLIENTS 20
