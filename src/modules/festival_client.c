@@ -462,13 +462,14 @@ festival_check_info(FT_Info *info, char *fnname){
     return 0;
 }
 
-void
+int
 festival_accept_any_response(FT_Info *info)
 {
     char ack[4];
+    int r;
     DBG("Com: Accepting any response");
     do {
-        if(festival_get_ack(&info, ack)) return;
+        if(r = festival_get_ack(&info, ack)) return r;
 
 	if (ack == 0) DBG("ack is NULL");
         DBG("<- Festival: |%s|",ack);
@@ -484,6 +485,8 @@ festival_accept_any_response(FT_Info *info)
                 break;
             }
     }while (strcmp(ack,"OK\n") != 0);
+
+    return 0;
 }
 
 #define FEST_SEND_CMD(format) \
@@ -571,7 +574,7 @@ festival_speak_command(FT_Info *info, char *command, const char *text, int symbo
     DBG("(festival_speak_command): %s", text);
 
     /* Opens a stream associated to the socket */
-    fd = fdopen(dup(info->server_fd),"wb");
+    fd = fdopen(dup(info->server_fd), "wb");
 
     /* Send the command and data */
     if (symbol == 0)
@@ -616,17 +619,15 @@ festival_speak_command(FT_Info *info, char *command, const char *text, int symbo
 */
 FEST_SPEAK_CMD(festivalStringToWaveRequest, "speechd-speak-ssml", 0, 1);
 FEST_SPEAK_CMD(festivalSpell, "speechd-spell", 0, 1);
-FEST_SPEAK_CMD(festivalSoundIcon, "speechd-sound-icon", 1, 1);
-FEST_SPEAK_CMD(festivalCharacter, "speechd-character", 0, 1);
-FEST_SPEAK_CMD(festivalKey, "speechd-key", 0, 1);
+FEST_SPEAK_CMD(festivalSoundIcon, "speechd-sound-icon", 1, 0);
+FEST_SPEAK_CMD(festivalCharacter, "speechd-character", 0, 0);
+FEST_SPEAK_CMD(festivalKey, "speechd-key", 0, 0);
 
 /* Reads the wavefile sent back after festivalStringToWaveRequest()
  * has been called. This function blocks until all the data is
  * available. Note that for longer messages this can be quite long
  * on some slower machines. */
-/* WARNING: The code that runs when multiple is set to 1 was
- * never tested as there is currently no support in Festival! 
- * It might not work correctly. */
+
 FT_Wave*
 festivalStringToWaveGetData(FT_Info *info)
 {
@@ -767,7 +768,7 @@ int festivalClose(FT_Info *info)
         return festival_read_response(info, NULL); \
     }
 
-FEST_SET_SYMB(FestivalEnableMultiMode, "speechd-enable-multi-mode");
+FEST_SET_SYMB(FestivalSetMultiMode, "speechd-enable-multi-mode");
 
 FEST_SET_INT(FestivalSetRate, "speechd-set-rate");
 FEST_SET_INT(FestivalSetPitch, "speechd-set-pitch");
