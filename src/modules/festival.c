@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.18 2003-06-27 13:43:10 hanke Exp $
+ * $Id: festival.c,v 1.19 2003-07-05 12:10:29 hanke Exp $
  */
 
 #include "festival_client.c"
@@ -57,7 +57,6 @@ DECLARE_MODULE_PROTOTYPES();
 
 /* Internal functions prototypes */
 static void* _festival_speak(void*);
-static void festival_child_close(TModuleDoublePipe dpipe);
 
 static size_t _festival_parent(TModuleDoublePipe dpipe, const char* message,
                                const size_t maxlen, const char* dividers,
@@ -171,6 +170,7 @@ module_write(gchar *data, size_t bytes, TFDSetElement* set)
         return -1;
     }
     module_strip_punctuation_default(*festival_message);
+    DBG("Requested data after processing: |%s|\n", *festival_message);
 
     /* Setting voice */
     festival_set_voice(set->voice_type, set->language);
@@ -215,13 +215,13 @@ module_pause(void)
     }
 }
 
-gint
+static gint
 module_is_speaking(void)
 {
     return festival_speaking; 
 }
 
-gint
+static gint
 module_close(void)
 {
     
@@ -231,6 +231,8 @@ module_close(void)
         module_stop();
     }
 
+    festivalClose(festival_info);
+ 
     if (module_terminate_thread(festival_speak_thread) != 0)
         return -1;
 
@@ -249,7 +251,7 @@ module_close(void)
 /* Internal functions */
 
 
-void*
+static void*
 _festival_speak(void* nothing)
 {	
 
@@ -419,18 +421,6 @@ festival_fill_sample_wave()
     /* Free fwave structure, but not the samples, because we
        point to them from module_sample_wave! */
     xfree(fwave);
-}
-
-static void
-festival_child_close(TModuleDoublePipe dpipe)
-{   
-    spd_audio_close();
-
-    DBG("child: Parent pipe closed, exiting, closing pipes..\n");
-    module_child_dp_close(dpipe);          
-
-    DBG("Child ended...\n");
-    exit(0);
 }
 
 /* Warning: In order to be faster, this function doesn't copy
