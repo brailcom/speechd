@@ -2,13 +2,9 @@
 Short-term goals
 ================
 
-	/ reset parameters when reconnecting to Festival server
+        * debugging in output modules configurable
 
-	* default port ... find a suitable port number without any conflict.
-
-	* default (language independent tables) + add to NEWS
-
-	* clear CVS
+        * configurable replacement char in recoding in output modules
 
 Longer-term goals
 =================
@@ -25,8 +21,8 @@ Longer-term goals
 
 We don't know how to do it (external help needed)
 =================================================
-	* noises/cracking ... Festival + MBROLA + Czech language makes some strange
-	   noises while speakig.
+
 	* RPM packaging
+
 	* documentation how to install MBROLA with Festival and Speech Dispatcher
 
