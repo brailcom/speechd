@@ -1,3 +1,7 @@
+2003-05-27  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/c/api/libspeechd.c (xmalloc): Prototype declaration fixed.
+
 2003-05-26  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* src/c/api/libspeechd.c (xmalloc): Use unsigned int as it's parameter.
