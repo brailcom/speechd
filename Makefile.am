@@ -2,5 +2,5 @@
 
 SUBDIRS= src config doc
 
-EXTRA_DIST= ChangeLog NEWS TODO AUTHORS COPYING INSTALL README intl doc build.sh
+EXTRA_DIST= ChangeLog NEWS TODO AUTHORS COPYING INSTALL README intl build.sh
 

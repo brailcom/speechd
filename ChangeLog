@@ -1,3 +1,12 @@
+2004-05-26  Hynek Hanke  <hanke@volny.cz>
+
+	* configure.in: Install output modules into libdir instead of bindir.
+
+2004-05-25  Hynek Hanke  <hanke@volny.cz>
+
+	* Makefile.am (EXTRA_DIST): Don't include everything in doc/ into distribution,
+	leave it to be handled in Makefiles instead.
+
 2004-05-24  Hynek Hanke  <hanke@volny.cz>
 
 	* configure.in: modulebindir now points to speech-distcher-modules instead of
