@@ -1,6 +1,8 @@
 \input texinfo   @c -*-texinfo-*-
 @c %**start of header
-@setfilename speechd.info
+@documentencoding ISO-8859-2
+@documentlanguage cs
+@setfilename speechd-cs.info
 @settitle Speech Dispatcher
 @finalout
 @c @setchapternewpage odd
@@ -16,12 +18,12 @@
 @dircategory Development
 
 @direntry
-* Speech Dispatcher: (speechd).       Speech Dispatcher.
+* Speech Dispatcher: (speechd) (cs).       Speech Dispatcher.
 @end direntry
 
 @titlepage
 @title Speech Dispatcher
-@subtitle Mastering the Babylon of TTS'
+@subtitle Zvládnutí Babylonu TTS'
 @subtitle pro Speech Dispatcher @value{VERSION}
 @author Tom@'a@v{s} Cerha <@email{cerha@@brailcom.org}>
 @author Hynek Hanke <@email{hanke@@volny.cz}>
@@ -31,13 +33,14 @@
 @vskip 0pt plus 1filll
 
 Tento manuál se vzathuje ke Speech Dispatcher, verze @value{VERSION}.
+Jedná se v¹ak pouze o u¾ivatelskou èást dokumentace.
 
 Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
 
 @quotation
 Dáváme povolení kopírovat, distribuovat a/nebo modifikovate tento
-dokument pod podmínkami GNU Free Documentation License, Version 1.2
-nebo jakékoliv novìj¹í verze vydané Free Software Foundation;
+dokument pod podmínkami GNU Free Documentation License, Verze 1.2
+nebo jakékoliv novìj¹í verze vydané Free Software Foundation,
 bez jakýchkoliv Invariant Sections (nemìnných sekcí),
 bez Front-Cover Texts (texty na pøední stranì obálky) a bez
 Back-Cover Texts (texty na zadní stranì obálky). Kopie této licence
@@ -49,13 +52,14 @@ je pøilo¾ena v sekci nazvané ,,GNU Free Documentation License''.
 @ifnottex
 @node Top, Úvod, (dir), (dir)
 
-Tento manuál dokumentuje ke Speech Dispatcher, verze @value{VERSION}.
+Tento manuál dokumentuje Speech Dispatcher, verze @value{VERSION}.
+Jedná se v¹ak pouze o u¾ivatelskou èást dokumentace.
 
 Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
 
 @quotation
 Dáváme povolení kopírovat, distribuovat a/nebo modifikovate tento
-dokument pod podmínkami GNU Free Documentation License, Version 1.2
+dokument pod podmínkami GNU Free Documentation License, Verze 1.2
 nebo jakékoliv novìj¹í verze vydané Free Software Foundation;
 bez jakýchkoliv Invariant Sections (nemìnných sekcí),
 bez Front-Cover Texts (texty na pøední stranì obálky) a bez
@@ -84,8 +88,8 @@ je pøilo¾ena v sekci nazvané ,,GNU Free Documentation License''.
 @menu
 * Motivace::                    Proè Speech Dispatcher?
 * Základní design::             Jak to pracuje?
-* Pøehled základních rysù::     
-* Souèasný stav::               
+* Pøehled základních rysù::     Co v¹echno umí?
+* Souèasný stav::               Jaký je souèasný stav?
 @end menu
 
 @node Motivace, Základní design, Úvod, Úvod
@@ -105,18 +109,18 @@ poskytovaly øeèový výstup. Pro syntézu hlasu je tu ¹iroké pole vyu¾ití
 od výukového software a¾ po specializované systémy, jako jsou
 napøíklad nemocnice èi laboratoøe. Pro zrakovì posti¾ené u¾ivatele je
 to jedna ze dvou základních cest, jak získat výstup z poèítaèe (tou
-druhou je Braillský øádek). Odtud také Speech Dispatcher pochází.
+druhou je Braillský øádek). 
 
 Existují rùzné øeèové syntetizéry s rùznými schopnostmi.
 Nìkteré z nich jsou hardwarové, nìkteré softwarové. Nìkteré
-jsou svobodným softeare a jsou volnì dostupné na internetu.
+jsou svobodným software a jsou volnì dostupné na internetu.
 Programátoøi to mají opravdu tì¾ké, kdy¾ chtìjí své programy
 rozmluvit, proto¾e potøebují nejprve najít nìjaký vhodný syntetizér
 (dlouhé hodiny experimentování a tak dále) a potom jej potøebují
 nìjak zprovoznit s jejich programem. Èasto musí psát pro tyto
 programy èi hardwarová zaøízení vlastní ovladaèe a dìlají to znovu
 a znovu. Snadno si lze pøedstavit, ¾e se to celé zhroutí kdy¾ nevinný
-u¾ivatel spustí dva programy najednou. Kdy¾ by nastartovaly oba (o èem¾
+u¾ivatel spustí dva programy najednou. Kdyby vùbec nastartovaly oba (o èem¾
 pochybuji), budou køièet jeden pøes druhého.
 
 Tím je pro programátory velmi obtí¾né implementovat do svých programù
@@ -135,7 +139,7 @@ se o aplikace, které chtìjí mluvit, dovolující u¾ivatelùm nastavit si parametry
 øeèi a poskytující nìjaké jednoduché rozhraní (jako speech_printf())
 pomocí nìjaké sdílené knihovny pro programátory. Bude to jì¹tì dlouhá cesta
 ne¾ se nám podaøí dosáhnout tohoto stavu vìcí, ale se Speech Dispatcherem
-dìláme první kroky...
+dìláme první krùèky...
 
 @node Základní design, Pøehled základních rysù, Motivace, Úvod
 @section Základní design
@@ -161,7 +165,7 @@ Speech Dispatcheru SSIP pøíkazy pøes otevøený socket. Kdy¾
 pøíkazy dorazí do Dispatchera, ten je zpracuje, pøeète text,
 který by mìl být pøeøíkán a vlo¾í jej do fronty podle jeho
 priority. Potom se rozhodne kdy, s jakými parametry (nastavovanými
-klientským programem i u¾ivatelen) a na jakém syntetizéru zprávu
+klientským programem i u¾ivatelem) a na jakém syntetizéru zprávu
 nechá pøemluvit. Tyto po¾adavky na mluvení jsou pak zpracovávány
 výstupními pluginy (moduly) pro rùzné hardwarové a softwarové
 syntetizéry a pøeøíkány nahlas.
@@ -178,12 +182,12 @@ Speech Dispatcher z pohledu u¾ivatele:
 
 @itemize @bullet
 @item snadná konfigurace rùzných mluvících aplikací, centrální správa
-@item mo¾nost volnì rozhodovat jaká aplikace bude mluvit s jakým syntetizérem
+@item mo¾nost volnì rozhodovat, jaká aplikace bude mluvit s jakým syntetizérem
 @item ménì èasu vìnovaného konfiguraci a ladìní rùzných aplikací vyu¾ívajících syntézu
 @item historie zpráv pro zrakovì posti¾ené u¾ivatele
 @end itemize
 
-Speech Dispatcher from application programmers's point of view:
+Speech Dispatcher z pohledu programátora aplikace:
 
 @itemize @bullet
 @item snadná cesta, jak aplikaci rozmluvit
@@ -197,7 +201,7 @@ Speech Dispatcher from application programmers's point of view:
 @cindex Syntetizéry
 @cindex Ostatní programy
 
-
+TODO:
 
 @node U¾ivatelská dokumentace, GNU General Public License, Úvod, Top
 @chapter U¾ivatelská dokumentace
@@ -214,10 +218,10 @@ Speech Dispatcher from application programmers's point of view:
 V této sekci je detailnìj¹í popis základních funkcí Speech Dispatcheru.
 
 @menu
-* Model priorit zpráv::         
-* Historie zpráv::              
-* Více výstupních modulù::      
-* Autentifikace u¾ivatelù::     
+* Model priorit zpráv::       Zpracování souèasnì pøíchozích zpráv  
+* Historie zpráv::            Ukládání zpráv pro pozdìj¹í nahlédnutí
+* Více výstupních modulù::    Interakce s rùznými syntetizéry  
+* Autentifikace u¾ivatelù::   Autentifikace pro pøístup k historii  
 @end menu
 
 @node Model priorit zpráv, Historie zpráv, Základní funkce, Základní funkce
@@ -248,15 +252,15 @@ aplikováním urèitých pravidel ve Speech Dispatcheru.
 @subsubsection Priority Categories
                   
 Speech Dispatcher poskytuje systém pìti priorit. Ka¾dá zpráva
-obsahuje buïexplicitní informaci o prioritì, nebo jí je pøiøazena
-defaultní priorita.   
+obsahuje buï explicitní informaci o prioritì, nebo jí je pøiøazena
+výchozí priorita.   
 
 Prosím podívejte se také na pøilo¾ený diagram (dole).
 
 @subsubheading Priorita @code{important}
 @cindex Priorita important
 
-Tato zpráva bude pøeøíkána okam¾itì jak dorazí do serveru.
+Tato zpráva bude pøeøíkána okam¾itì, jak dorazí do serveru.
 Není nikdy pøeru¹ena. Kdy¾ server obdr¾í souèasnì nìkolik
 rùzných zpráv této priority, ty jsou ulo¾eny a pøeøíkány
 v poøadí, ve kterém pøi¹ly.
@@ -264,12 +268,11 @@ v poøadí, ve kterém pøi¹ly.
 Kdy¾ pøijde nová zpráva priority @code{important} a zrovna se øíká
 nìjaká jiná zpráva, tato jiná zpráva je zahozena. Dal¹í zprávy ni¾¹ích
 priorit jsou buï pozdr¾eny (priorita @code{message} a @code{text}) ne¾
-ji¾ neèekají na pøeøíkání ¾ádné zprávy priority @code{important} nebo
+ji¾ neèekají na pøeøíkání ¾ádné zprávy priority @code{important}, nebo
 jsou zahozeny (priority @code{notification} a @code{progress}).
 
-Tyto zprávy by mìly být tak krátké, jak je to jen mo¾né a mìly
-by být pou¾ívány pouze zøídka, proto¾e blokují výstup v¹ech ostatních
-zpráv.
+Tyto zprávy by mìly být tak krátké, jak je to jen mo¾né, a mìly by být
+pou¾ívány pouze zøídka, proto¾e blokují výstup v¹ech ostatních zpráv.
 
 @subsubheading Priorita @code{message}
 @cindex Priorita message
@@ -279,7 +282,7 @@ zpráva priority @code{important} nebo @code{message}. Pokud tomu
 tak není, tato zpráva je pozdr¾ena dokud nebudou v¹echny pøeøíkány.
 To znamená, ¾e priorita @code{message} nezastavuje sama sebe. Kdy¾
 ve frontì èekají zprávy priorit @code{notification} nebo @code{progress}
-nebo @code{text} kdy¾ pøijde zpráva priority @code{message}, ty jsou
+nebo @code{text} kdy¾ pøijde zpráva priority @code{message}, jsou
 zahozeny.
 
 @subsubheading Priorita @code{text}
@@ -293,7 +296,7 @@ pøeøíkány.
 Priorita text pøeru¹uje sama sebe. To znamená, ¾e kdy¾ pøijde nìkolik
 zpráv priority text, ty nejsou pøeøíkány v poøadí, ve kterém
 pøi¹ly, ale bude vyøèena pouze poslední z nich a ostatní jsou
-pøeru¹eny nebo zahozeny.
+pøeru¹eny a zahozeny.
 
 Pokud jsou ve frontì zprávy priorit @code{notification} nebo
 @code{progress} nebo se právì pøeøíkávají, jsou zahozeny.
@@ -302,7 +305,7 @@ Pokud jsou ve frontì zprávy priorit @code{notification} nebo
 @cindex Priorita notification
 
 Toto je zpráva nízké priority. Pokud ve frontì èekají zprávy priorit
-@code{important}, @code{messages}, @code{text} or @code{progress}
+@code{important}, @code{messages}, @code{text} nebo @code{progress}
 nebo jsou právì pøeøíkávány, tato nová zpráva priority @code{notification}
 je zru¹ena.
 
@@ -340,7 +343,7 @@ je její pøeøíkání vynuceno s prioritou @code{message}.
 @subsubsection Diagram priorit
 
 @image{figures/priorities,,,Speech Dispatcher architecture}
-@c TODO: Generate a pdf version.
+@c TODO: Generate a pdf version. (Why? -- Hynek Hanke)
 
 @node Pøíklady vyu¾ití priorit,  , Diagram priorit, Model priorit zpráv
 @subsubsection Pøíklady vyu¾ití priorit
@@ -450,7 +453,7 @@ Pokud tyto moduly poskytují dobrou synchronizaci, lze je pøi ètení zpráv
 kombinovat. Pokud napø. modul1 mluví anglicky a èesky, zatímco modul2 mluví
 pouze nìmecky, tak pokud pøijde nìjaká zpráva v nìmèinì, pou¾ije se modul2,
 zatímco pro ostatní jazyky se pou¾ije modul1. Na druhé stranì jazyk není
-jediným kriteriem pro takové rozhodnutí. Pøesná pravidla pro výbìr výstupího
+jediným kritériem pro takové rozhodnutí. Pøesná pravidla pro výbìr výstupího
 modulu mohou být ovlivnìna v konfiguraèním souboru
 @file{speechd.conf}.
 
@@ -487,7 +490,7 @@ Jediná omezení jsou tyto:
 
 @itemize
 @item
-Speech Dispatcher vytváøí PID file standardnì v @file{/var/run/speechd.pid},
+Speech Dispatcher vytváøí PID file standardnì ve @file{/var/run/speechd.pid},
 tak¾e @file{/var/run/} musí být danému u¾ivateli pøístupné k zápisu.
 To mù¾e být zmìnìno nastavením volby @code{pidpath} pøi volání
 skriptu @code{./configure} pøi kompilaci.
@@ -561,7 +564,7 @@ pøes konfiguraèní soubor.
 @subsection Syntaxe konfiguraèního souboru
 
 Pro naèítání configurace zalo¾ené na textových souborech pou¾íváme
-knihovnu DotConf, tak¾e bude syntaxe zøejmì mnoha u¾ivatelùm povìdomá.
+knihovnu DotConf, tak¾e bude syntaxe nejspí¹ mnoha u¾ivatelùm povìdomá.
 
 Ka¾dá z øetìzcových konstant, pokud není uvedeno jinak,
 by mìla být zakódována v UTF-8. Jména voleb nepou¾ívají
@@ -912,7 +915,6 @@ modulem.
 @c  LocalWords:  setchapternewpage cp fn vr texi dircategory direntry titlepage
 @c  LocalWords:  Cerha Hynek Hanke vskip pt filll insertcopying ifnottex dir fd
 @c  LocalWords:  API SSIP cindex printf ISA pindex Flite Odmluva FreeTTS TTS CR
-@c  LocalWords:  ViaVoice Lite Tcl Zandt wxWindows AWT spd dfn backend findex
 @c  LocalWords:  src struct gchar gint const OutputModule intl FDSetElement len
 @c  LocalWords:  fdset init flite deffn TFDSetElement var int enum EVoiceType
 @c  LocalWords:  sayf ifinfo verbatiminclude ref UTF ccc ddd pxref LF cs conf
