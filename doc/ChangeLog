@@ -1,3 +1,7 @@
+2003-09-19  Milan Zamazal  <pdm@brailcom.org>
+
+	* Makefile.am (MAINTAINERCLEANFILES): New variable.
+
 2003-08-07  Tomas Cerha  <cerha@freebsoft.org>
 
 	* speechd.texi (Features): Added TODO.
