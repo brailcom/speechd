@@ -1,3 +1,9 @@
+2003-11-20  Tomas Cerha  <cerha@freebsoft.org>
+
+	* speechd/client.py (Client): Changed the port number.
+
+	* speechd/_test.py (get_tests): Don't set the language.
+
 2003-07-22  Tomas Cerha  <cerha@freebsoft.org>
 
 	* speechd/_test.py (Client.check_it): Added tests for `set_rate()'
