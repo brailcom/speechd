@@ -21,14 +21,15 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.6 2003-02-01 22:16:55 hanke Exp $
+ * $Id: set.c,v 1.7 2003-03-12 22:15:23 hanke Exp $
  */
 
 #include "speechd.h"
 #include "history.h"
 
 int
-set_priority(int fd, int priority){
+set_priority(int fd, int priority)
+{
 	GList *gl;
     TFDSetElement *settings;
 	
@@ -41,6 +42,76 @@ set_priority(int fd, int priority){
 }
 
 int
+set_rate(int fd, int rate)
+{
+	GList *gl;
+    TFDSetElement *settings;
+	
+	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
+	if (gl == NULL) FATAL("Couldnt find settings for active client, internal error.");
+	settings = gl->data;
+	assert(gl->data != NULL);
+	settings->speed = rate;
+	return 1;
+}
+
+int
+set_pitch(int fd, int pitch)
+{
+	GList *gl;
+    TFDSetElement *settings;
+	
+	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
+	if (gl == NULL) FATAL("Couldnt find settings for active client, internal error.");
+	settings = gl->data;
+	assert(gl->data != NULL);
+	settings->pitch = pitch;
+	return 1;
+}
+
+int
+set_punct_mode(int fd, int punct)
+{
+	GList *gl;
+    TFDSetElement *settings;
+	
+	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
+	if (gl == NULL) FATAL("Couldnt find settings for active client, internal error.");
+	settings = gl->data;
+	assert(gl->data != NULL);
+	settings->punctuation_mode = punct;
+	return 1;
+}
+
+int
+set_cap_let_recog(int fd, int recog)
+{
+	GList *gl;
+    TFDSetElement *settings;
+	
+	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
+	if (gl == NULL) FATAL("Couldnt find settings for active client, internal error.");
+	settings = gl->data;
+	assert(gl->data != NULL);
+	settings->cap_let_recogn = recog;
+	return 1;
+}
+
+int
+set_spelling(int fd, int spelling)
+{
+	GList *gl;
+    TFDSetElement *settings;
+	
+	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
+	if (gl == NULL) FATAL("Couldnt find settings for active client, internal error.");
+	settings = gl->data;
+	assert(gl->data != NULL);
+	settings->spelling = spelling;
+	return 1;
+}
+
+int
 set_language(int fd, char *language){
 	GList *gl;
     TFDSetElement *settings;
@@ -49,14 +120,15 @@ set_language(int fd, char *language){
 	if (gl == NULL) FATAL("Couldnt find settings for active client, internal error.");
 	settings = gl->data;
 	free(settings->language);
-	settings->language = (char*) malloc( strlen(language) * sizeof(char) + 1);
+	settings->language = (char*) malloc(strlen(language) * sizeof(char) + 1);
 	if (settings->language == NULL) FATAL ("Not enough memmory.");
 	strcpy(settings->language, language);
 	return 1;
 }
 
 int
-set_client_name(int fd, char *client_name){
+set_client_name(int fd, char *client_name)
+{
 	GList *gl;
     TFDSetElement *settings;
 	THistoryClient *hclient;
