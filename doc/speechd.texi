@@ -3610,9 +3610,9 @@ the synthesizer.
 For this reason, Speech Dispatcher places so-called index marks in
 the text it sends to it's output modules. They have the form:
 
-@begin example
+@example
 @@id_number@@
-@end
+@end example
 
 @code{id_number} is the identification number associated to each index
 mark. It's unique with respect to each message.
