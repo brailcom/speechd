@@ -1,3 +1,80 @@
+2003-09-29  Hynek Hanke  <hanke@volny.cz>
+
+	* intl/fdset.h (TFDSetElement): pause_context added.
+
+	* configure.in: Added config/generic/Makefile.am
+
+	* config/speechd.conf.in: Festival now doesn't use the generic filter.
+	It supports spelling and punctuation itself.
+
+	* src/server/speaking.c (speaking_pause): Repeat the whole message if index mark
+	number gets bellow zero.
+
+	* config/speechd.conf.in: Added DefaultPauseContext.
+
+	* src/server/dc_decl.h (cb_BeginClient): Added pause_context.
+
+	* src/server/set.c (update_cl_settings): Added pause_context.
+	(set_pause_context_uid): New function.
+
+	* src/server/parse.c (parse_set): Added new SSIP command `SET who PAUSE_CONTEXT value'.
+
+	* src/server/speaking.c (speaking_pause): Use settings->pause_context
+
+	* src/server/set.c (default_fd_set): Set pause_context to 0.
+
+	* src/modules/module_utils.c (CLEAN_OLD_SETTINGS_TABLE): New macro, splitted from
+	INIT_SETTINGS_TABLES.
+	(INIT_SETTINGS_TABLES): Call CLEAN_OLD_SETTINGS_TABLE
+
+	* src/modules/festival.c (festival_set_voice): Call CLEAN_OLD_SETTINGS_TABLE, so that
+	we set all parameters to new values after setting new voice.
+
+	* src/modules/festival_client.h (festival_connection_crashed): New public global variable.
+
+	* src/modules/festival_client.c (festival_get_ack): Set festival_connection_crashed
+	to 1 on failure.
+	(festivalOpen): Set festival_connection_crashed to 0.
+
+	* config/Makefile.am: +generic directory
+	SUBDIRS now listed in different order.
+	(speechd.conf): Use the environment variable SED instead of trying the `sed' binary.
+
+	* src/server/sndicon.c (snd_icon_spelling_get): Look also under the generic table
+	if not found specificaly for the given language.
+	(sndicon_queue): Rewritten to use se sndicon_spelling_get().
+
+	* src/server/speechd.h (generic_lang_icons): New global variable.
+
+	* src/modules/festival_client.c (festivalSetVoice): Use festival_read_response().
+	(festivalSetRate): Use festival_read_response().
+	(festivalSetPitch): Use festival_read_response().
+	(festivalSetPunctuationMode): Use festival_read_response().	
+
+	* src/modules/festival.c (module_write): Set punctuation_mode in festival.
+	(festival_set_punctuation_mode): New function.
+
+	* src/modules/festival_client.c (festival_read_response): New function.
+
+	* src/modules/festival_client.h (festivalStringToWaveRequest): New parameter spelling.
+
+	* src/server/speechd.c (speechd_load_configuration): Also terminate the sound module
+	before loading a new one.
+
+	* src/server/parse.c (parse): Write only strlen(OK_BYE) options to output.
+
+	* src/server/sem_functions.h: +semaphore_destroy.
+	+speaking_semaphore_destroy
+	
+	* src/server/sem_functions.c (semaphore_destroy): New function.
+	(speaking_semaphore_destroy): New function.
+	
+	* src/modules/module_utils.c (module_signal_end): Removed unnecessary comment.
+
+	* src/server/sem_functions.c (semaphore_post): Debugging message amplified.
+
+	* src/server/speaking.c (speaking_resume): Post on semaphore only once at the end.
+
 2003-09-24  Milan Zamazal  <pdm@brailcom.org>
 
 	* config/Makefile.am (speechd.conf): New target.
