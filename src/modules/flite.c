@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.23 2003-05-26 16:04:50 hanke Exp $
+ * $Id: flite.c,v 1.24 2003-06-02 15:47:39 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -309,7 +309,7 @@ _flite_speak(void* nothing)
     switch(flite_pid){
     case -1:	
         printf("Can't say the message. fork() failed!\n");
-        exit(0);
+        return NULL;
 
     case 0:
         /* This is the child. Make flite speak, but exit on SIGINT. */
