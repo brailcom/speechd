@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.h,v 1.6 2003-04-24 19:31:08 hanke Exp $
+ * $Id: set.h,v 1.7 2003-05-26 14:07:13 hanke Exp $
  */
 
 #ifndef ALLOC_H
@@ -35,6 +35,7 @@ int set_pitch_uid(int uid, int pitch);
 int set_punct_mode_uid(int uid, int punct);
 int set_cap_let_recog_uid(int uid, int recog);
 int set_spelling_uid(int uid, int spelling);
+int set_output_module_self(int uid, char *output_module);
 
 int set_priority_self(int fd, int priority);
 int set_language_self(int fd, char *language);
@@ -43,6 +44,7 @@ int set_pitch_self(int fd, int pitch);
 int set_punct_mode_self(int fd, int punct);
 int set_cap_let_recog_self(int fd, int recog);
 int set_spelling_self(int fd, int spelling);
+int set_output_module_self(int fd, char *output_module);
 
 int set_priority_all(int priority);
 int set_language_all(char *language);
@@ -51,6 +53,7 @@ int set_pitch_all(int pitch);
 int set_punct_mode_all(int punct);
 int set_cap_let_recog_all(int recog);
 int set_spelling_all(int spelling);
+int set_output_module_all(char* output_module);
 
 TFDSetElement* default_fd_set(void);
 		
