@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.26 2003-05-01 10:42:22 hanke Exp $
+ * $Id: speechd.c,v 1.27 2003-05-07 19:09:06 hanke Exp $
  */
 
 #include "speechd.h"
@@ -293,11 +293,14 @@ speechd_connection_destroy(int fd)
 		
         awaiting_data[fd] = 0;
 	MSG(3,"Closing clients file descriptor %d", fd);
+
 	if(close(fd) != 0)
 		if(SPEECHD_DEBUG) DIE("Can't close file descriptor associated to this client");
 	   	
 	FD_CLR(fd, &readfds);
 	if (fd == fdmax) fdmax--; /* this may not apply in all cases, but this is sufficient ... */
+
+        MSG(3,"Connection closed");
 
 	return 0;
 }
