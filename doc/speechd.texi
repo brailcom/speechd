@@ -1,7 +1,7 @@
 \input texinfo   @c -*-texinfo-*-
 @c %**start of header
 @setfilename speechd.info
-@settitle Speech Daemon --- Easy access to speech synthesis
+@settitle Speech Daemon --- Easy speech synthesis
 @finalout
 @c @setchapternewpage odd
 @c %**end of header
@@ -12,7 +12,24 @@
 
 @include version.texi
      
-@copying
+@dircategory Sound
+@dircategory Development
+
+@direntry
+* Speech Daemon: (speechd).       Speech Daemon.
+@end direntry
+
+@titlepage
+@title Speech Daemon --- Easy speech synthesis
+@subtitle Mastering the Babylon of TTS'
+@subtitle for Speech Daemon @value{VERSION}
+@author Tom@'a@v{s} Cerha <@email{cerha@@brailcom.org}>
+@author Hynek Hanke <@email{hanke@@volny.cz}>
+@author Milan Zamazal <@email{pdm@@brailcom.org}>
+
+@page
+@vskip 0pt plus 1filll
+
 This manual documents Speech Daemon, version @value{VERSION}.
 
 Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
@@ -25,28 +42,6 @@ with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 A copy of the license is included in the section entitled "GNU
 Free Documentation License".
 @end quotation
-@end copying
-
-@dircategory Sound
-@dircategory Development
-
-@direntry
-* Speech Daemon: (speechd).       Speech Daemon.
-@end direntry
-
-
-@titlepage
-@title Speech Daemon --- Easy access to speech synthesis
-@subtitle Mastering the Babylon of TTS'
-@subtitle for Speech Daemon @value{VERSION}
-@author Tom@'a@v{s} Cerha @email{cerha@@brailcom.org}
-@author Hynek Hanke @email{hanke@@volny.cz}
-@author Milan Zamazal @email{pdm@@brailcom.org}
-
-@page
-@vskip 0pt plus 1filll
-
-@insertcopying
 
 @end titlepage
 
@@ -59,32 +54,43 @@ Free Documentation License".
 This file documents the @code{speechd} client/server application 
 that attempts to provide a common interface to different synthesizers.
 
-@insertcopying
+This manual documents Speech Daemon, version @value{VERSION}.
+
+Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+@end quotation
 @end ifnottex
 
 @menu
-* Instructions::             How to read this manual.
-* Introduction::             What is Speech Daemon.
-* Invoking::                 How to start Speech Daemon.
-* Internal structure::       How does Speech Daemon work.
-* Public API::               How to use Speech Daemon in your programs.
-* SSIP::                     Speech Synthesis Internet Protocol.
-* Priorities::               Description, guidelines how to use them.
-* Multiple output modules::  Using different synthesizers.
-* Message history::          Handling history of arrived messages.
-* Speech parameters::        Settings that affect the way Speech Daemon speaks.
-* Configuration::            How to configure Speech Daemon.
+* Instructions::                How to read this manual.
+* Introduction::                What is Speech Daemon.
+* Invoking::                    How to start Speech Daemon.
+* Internal structure::          How does Speech Daemon work.
+* Public API::                  How to use Speech Daemon in your programs.
+* SSIP::                        Speech Synthesis Internet Protocol.
+* Priorities::                  Description, guidelines how to use them.
+* Multiple output modules::     Using different synthesizers.
+* Message history::             Handling history of arrived messages.
+* Speech parameters::           Settings that affect the way Speech Daemon speaks.
+* Configuration::               How to configure Speech Daemon.
 
-* Key names::                List of the symbolic key names.
-* Standard sound icons::     List of the standard sound icon names.
-* Standard spelling tables:: List of the standard spelling table names.
-* Standard sound tables::    List of the standard sound table names.
-* Standard voices::          List of the standard voice names.
+* Key names::                   List of the symbolic key names.
+* Standard sound icons::        List of the standard sound icon names.
+* Standard spelling tables::    List of the standard spelling table names.
+* Standard sound tables::       List of the standard sound table names.
+* Standard voices::             List of the standard voice names.
 
-* GNU General Public License::      Copying conditions of Speech Daemon.
+* GNU General Public License::  Copying conditions of Speech Daemon.
 * GNU Free Documentation License::  Copying conditions of this manual.
 
-* Concept index::            Index of concepts.
+* Concept index::               Index of concepts.
 @end menu
 
 @node Instructions, Introduction, Top, Top
@@ -97,11 +103,11 @@ that attempts to provide a common interface to different synthesizers.
 @chapter Introduction
 
 @menu
-* Why and how::              Why Speech Daemon?  Philosophy, motivation...
-* Current state::            Speaking software today.
-* Basic design::             How does it work?
-* User::                     Speech Daemon from the user's point of view.
-* Programmer::               Speech Daemon from the programmer's point of view.
+* Why and how::                 Why Speech Daemon?  Philosophy, motivation...
+* Current state::               Speaking software today.
+* Basic design::                How does it work?
+* User::                        Speech Daemon from the user's point of view.
+* Programmer::                  Speech Daemon from the programmer's point of view.
 @end menu
 
 @node Why and how, Current state, Introduction, Introduction
@@ -376,27 +382,31 @@ There are 6 different verbosity levels of Speech Daemon logging.
 0 means there is no output, while 5 means that nearly all the information
 about Speech Daemon working is written to standard output.
 
-@subsection Level 0
-No information.
+@enumerate
 
-@subsection Level 1
+@item Level 0
+@itemize @bullet
+@item No information.
+@end itemize
+
+@item Level 1
 @itemize @bullet
 @item Information about loading and exiting.
 @end itemize
 
-@subsection Level 2
+@item Level 2
 @itemize @bullet
 @item Information about errors that occurred.
 @item Allocating and freeing resources on start and exit.
 @end itemize
 
-@subsection Level 3
+@item Level 3
 @itemize @bullet
 @item Information about accepting/rejecting/closing clients' connections.
 @item Information about invalid client commands.
 @end itemize
 
-@subsection Level 4
+@item Level 4
 @itemize @bullet
 @item Every received command is output.
 @item Information about proceeding the command output
@@ -406,12 +416,15 @@ facilities.
 @item Information about the work of the speak() thread.
 @end itemize
 
-@subsection Level 5
-This is only for debugging purposes and can output really *much*
-data. Use with caution.
+@item Level 5
+
+(This is only for debugging purposes and can output really *much*
+data. Use with caution.)
 @itemize @bullet
 @item Also received data (messages etc.) is output.
 @end itemize
+
+@end enumerate
 
 @node Internal structure, Public API, Invoking, Top
 @chapter Internal structure
@@ -471,8 +484,8 @@ located in src/modules/. Each output module is a data
 structure composed of some parameters and pointers to it's functions.
 
 @menu
-* Basic structure::  The definition of an output module
-* Output module functions::  stop(), pause(), ...   
+* Basic structure::             The definition of an output module
+* Output module functions::     stop(), pause(), ...   
 @end menu
 
 @node Basic structure, Output module functions, Output modules, Output modules
@@ -709,26 +722,514 @@ It should return 0 on success, -1 otherwise.
 @node Public API, SSIP, Internal structure, Top
 @chapter Public API
 
-@findex spd_init()
+
+@menu
+* SSIP (socket communication)::  Direct connection
+* C API::                       Shared library for C/C++
+* Python API::                  
+@end menu
+
+@node SSIP (socket communication), C API, Public API, Public API
+@section SSIP
+
+In general, it's much better to use one of the shared
+libraries for specific languages. However, there can
+be reasons to communicate with Speech Deamon directly.
+
+In this case, please see @ref{SSIP}.
+
+@node C API, Python API, SSIP (socket communication), Public API
+@section C API
+
+TODO: introduction
+
+All functions, except where explicitly stated, aren't blocking.
+
+@menu
+* Initializing and terminating (C)::  Starting and terminating a session
+* Speech synthesis commands (C)::  Sending text to synthesis
+* Speech output control commands (C)::  Stopping, pausing, resuming
+* Characters and keys (C)::     
+* Sound icons (C)::             Icons mapped to synthesis or sound files         
+* Parameter setting commands (C)::  Voice configuration, different modes...
+* Other functions (C)::         
+* Information retrieval commands (C)::  Getting information from server
+* History commands (C)::        History of previously queued messages
+@end menu
+
+@node Initializing and terminating (C), Speech synthesis commands (C), C API, C API
+@subsection Initializing and terminating (C)
+
+@deffn {C API function}  int spd_open(char* client_name, char* connection_name, char* user_name)
+@findex spd_open()
+
+Opens a new connection to Speech Deamon and returns a socket file descriptor you will
+use to communicate with Speech Deamon. It's one of the parameter of all the others
+functions.
+
+The three parameters @code{client_name}, @code{connection_name} and @code{username}
+are there only for informational and navigational purpose, they don't affect
+any settings or behavior of any functions. The authentification mechanism
+has nothing to do with @code{username}. These parameters are important for
+the user when he wants to set some parameters for a given session, when he
+want's to browse through history, etc.
+
+@code{client_name} is the name of the client that opens the connection. Normally,
+it should be the name of the executable, for example ``lynx'', ``emacs'', ``bash'',
+or ``gcc''. It can't be left to NULL.
+
+@code{connection_name} determines the particular use of that connection. If you
+use only one connection in your program, this should be set to ``main'' (passing
+a NULL pointer has the same effect). If you use two or more connections in
+your program, their @code{client_name}s should be the same, but @code{connection_name}s
+should differ. For example: ``buffer'', ``command_line'', ``text'', ``menu''.
+
+@code{username} should be set to the name of the user. Normally, you should
+get this string from the system. If set to NULL, libspeechd will try to
+determine it automatically by g_get_user_name().
+
+It returns the file descriptor of the created connection on success, 0 on error.
+
+Each connection you open should be closed by spd_close() before the end of the program.
+
+@end deffn
+
+@deffn {C API function}  void spd_close(int connection)
 @findex spd_close()
+
+Closes a Speech Deamon socket connection. You should close every connection
+before the end of your program.
+
+@code{connection} is the file descriptor obtained by spd_open().
+@end deffn
+
+@node Speech synthesis commands (C), Speech output control commands (C), Initializing and terminating (C), C API
+@subsection Speech synthesis commands (C)
+
+@deffn {C API function}  int spd_say(int connection, int priority, char* text);
 @findex spd_say()
+
+Sends a message to Speech Deamon. If this message isn't blocked by some message
+of higher priority and this CONNECTION isn't paused, it will be synthesized
+directly on some of the output devices. Otherwise, the message will be discarded
+(priority 3) or wait in the queue for some time (priority 1, 2).
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{priority} is a number from @{1,2,3@}. @xref{Priorities}.
+
+@code{text} is a null terminated string containing text you want to sent to
+synthesis. It must be encoded in UTF-8. Note that this doesn't have to be what
+you will finally hear. It can be affected by different settings as spelling,
+punctuation, text substitution etc.
+
+It returns 0 on succes, -1 otherwise.
+
+@end deffn
+
+@deffn {C API function}  int spd_sayf(int connection, int priority, char* format, ...);
 @findex spd_sayf()
+
+Similar to @code{spd_say()}, simulates the behaviour of printf().
+
+@code{format} is a string containing text and format of the parameters, like ``%d'',
+``%s'' etc. It must be encoded in UTF-8.
+
+@code{...} is an arbitrary number of arguments.
+
+All other parameters are the same as for spd_say().
+
+For example:
+@example
+       spd_sayf(conn, 2, ``Hello %s, how are you?'', username);
+       spd_sayf(conn, 1, ``Fatal error on [%s:%d]'', filename, line);
+@end example
+
+But be carefull! For example this doesn't work:
+
+@example
+       spd_sayf(conn, 3, ``Pressed key is %c.'', key);
+@end example
+
+Why? Because you are supposing that key is a char, but that will
+fail with languages using amplified charsets. The proper solution
+is:
+
+@example
+       spd_sayf(conn, 3, ``Pressed key is %s'', key);
+@end example
+where key is a unicode string.
+
+It returns 0 on succes, -1 otherwise.
+@end deffn
+
+@node Speech output control commands (C), Characters and keys (C), Speech synthesis commands (C), C API
+@subsection Speech output control commands (C)
+
+@subsubsection Stop commands
+
+@deffn {C API function}  int spd_stop(int connection);
 @findex spd_stop()
+
+Stops the message currently being spoken on a given connection. If there
+is no message being spoken, does nothing. (It doesn't touch the messages
+waiting in queues). This is intended for stops executed by the user,
+not for automatical stops (becouse automatically, you can't control
+how many messages are still waiting in queues on the server).
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+It returns 0 on succes, -1 otherwise.
+
+@end deffn
+
+@deffn {C API function}  int spd_stop_all(int connection);
+@findex spd_stop_all()
+
+The same as spd_stop(), but it stops every message being said,
+without distinguishing where it came from.
+
+It returns 0 on succes, -1 if some of the stops failed.
+
+@end deffn
+
+@deffn {C API function}  int spd_stop_uid(int connection, int target_uid);
+@findex spd_stop_uid()
+
+The same as spd_stop() except that it stops some other client than
+the calling one. You must specify this client in @code{target_uid}.
+
+@code{target_uid} is the unique ID of the connection you want
+to execute stop() on. It can be obtained from spd_history_get_clien_list(),
+@xref{History commands (C)}.
+
+It returns 0 on succes, -1 otherwise.
+
+@end deffn
+
+@subsubsection Cancel commands
+
+@deffn {C API function}  int spd_cancel(int connection);
+
+Stops the currently spoken message from this connection
+(if there is any) and discard all the queued messages
+from this connection. This is probably what you want
+to do, when you call spd_cancel() automatically in
+your program.
+
+@end deffn
+
+@deffn {C API function}  int spd_cancel_all(int connection);
+@findex spd_cancel_all()
+
+The same as spd_cancel(), but it cancels every message
+without distinguishing where it came from.
+
+It returns 0 on succes, -1 if some of the stops failed.
+
+@end deffn
+
+@deffn {C API function}  int spd_cancel_uid(int connection, int target_uid);
+@findex spd_cancel_uid()
+
+The same as spd_cancel() except that it executes cancel for some other client
+than the calling one. You must specify this client in @code{target_uid}.
+
+@code{target_uid} is the unique ID of the connection you want
+to execute cancel() on. It can be obtained from spd_history_get_clien_list(),
+@xref{History commands (C)}.
+
+It returns 0 on succes, -1 otherwise.
+
+@end deffn
+
+@subsubsection Pause commands
+
+@deffn {C API function}  int spd_pause(int connection);
 @findex int spd_pause()
+
+Pauses all messages received from the given connection. No messages
+except for priority 3 all throwed away, they are all waiting in
+a separate queue for resume(). The message that was beeing said
+in the moment pause() was received will be continued from the place
+where it was paused.
+
+To be able to guarantee this, we had to define this function
+as blocking. On some devices, it can return immediatelly
+while on some others, it can return after a short period
+of time, for example after some sentence is synthesized till
+the end.
+
+This shouldn't be any problem. User executes a pause, he waits
+a short time till the end of the sentence, than he can do what
+he wants and when he return, resume() is sent and Speech Deamon
+will continue saying the message without any loss of information.
+
+Never suppose this function doesn't block, even if on your
+output device it doesn't.
+
+When pause is on for the given client, all newly received
+messages are also queued and waiting for resume().
+
+It returns 0 on succes, -1 if something failed.
+
+@end deffn
+
+@deffn {C API function}  int spd_pause_all(int connection);
+@findex spd_pause_all()
+
+The same as spd_pause(), but it pauses every message,
+without distinguishing where it came from.
+
+It returns 0 on succes, -1 if some of the pauses failed.
+
+@end deffn
+
+@deffn {C API function}  int spd_pause_uid(int connection, int target_uid);
+@findex spd_pause_uid()
+
+The same as spd_pause() except that it executes pause for some other client
+than the calling one. You must specify this client in @code{target_uid}.
+
+@code{target_uid} is the unique ID of the connection you want
+to pause. It can be obtained from spd_history_get_clien_list(),
+@xref{History commands (C)}.
+
+It returns 0 on succes, -1 otherwise.
+
+@end deffn
+
+@subsubsection Resume commands
+
+@deffn {C API function}  int spd_resume(int connection);
 @findex int spd_resume()
+
+Resumes all paused messages from the given connection. The rest
+of the message that was being said in the moment pause() was
+received will be said and all the other messages are queued
+for synthesis again.
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+It returns 0 on succes, -1 otherwise.
+
+@end deffn
+
+@deffn {C API function}  int spd_resume_all(int connection);
+@findex spd_resume_all()
+
+The same as spd_resume(), but it resumes every paused message,
+without distinguishing where it came from.
+
+It returns 0 on succes, -1 if some of the pauses failed.
+
+@end deffn
+
+@deffn {C API function}  int spd_resume_uid(int connection, int target_uid);
+@findex spd_resume_uid()
+
+The same as spd_resume() except that it executes resume for some other client
+than the calling one. You must specify this client in @code{target_uid}.
+
+@code{target_uid} is the unique ID of the connection you want
+to resume. It can be obtained from spd_history_get_clien_list(),
+@xref{History commands (C)}.
+
+It returns 0 on succes, -1 otherwise.
+@end deffn
+
+@node Characters and keys (C), Sound icons (C), Speech output control commands (C), C API
+@subsection Characters and keys
+
+@deffn {C API function}  int spd_char(int connection, int priority, char* character);
+@findex spd_char()
+
+Says a character according to user settings for characters. This can be
+used for example for reading letters under the cursor.
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{priority} is the priority of the message containing this character.
+
+@code{character} is a NULL terminated string of chars containing one UTF-8
+character. If it contains more characters, only the first one is processed.
+
+It returns 0 on succes, -1 otherwise.
+
+@end deffn
+
+@deffn {C API function}  int spd_wchar(int connection, int priority, wchar_t wcharacter);
+@findex spd_say_wchar()
+
+The same as spd_char(), but it takes a wchar_t variable as it's argument. 
+
+It returns 0 on succes, -1 otherwise.
+@end deffn
+
+@deffn {C API function}  int spd_key(int connection, char* key_name);
+@findex spd_key()
+
+Says a key according to user settings for keys.
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{priority} is the priority of the message containing this key.
+
+@code{key_name} is the name of the key in a special format.
+@xref{Speech synthesis and sound output commands}, (KEY, the associated
+SSIP command) for description of the format of @code{key_name}
+
+It returns 0 on succes, -1 otherwise.
+@end deffn
+
+@node Sound icons (C), Parameter setting commands (C), Characters and keys (C), C API
+@subsection Soun icons
+
+@deffn {C API function}  int spd_sound_icon(int connection, int priority, char* icon_name);
+@findex spd_sound_icon()
+
+Sends a sound icon ICON_NAME. These are symbolic names that are mapped
+to a sound or to a text (in the particular language) according to
+Speech Deamon tables and user settings. Each program can also
+define it's own icons.
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{priority} is the priority of the message containing this icon.
+
+@code{icon_name} is the name of the icon. It can't contain spaces,
+please use underscores (`_').
+
+@end deffn
+
+@node Parameter setting commands (C), Other functions (C), Sound icons (C), C API
+@subsection Parameter settings commands
+
+The following parameter setting commands are available. For configuration
+and history clients there are also functions for setting the value for
+some other connection and for all connections. They are listed bellow separatelly.
+
+Please @xref{Speech parameters}, for a general description of what they mean.
+
+@deffn {C API function}  int spd_set_language(int connection, char* language);
+@findex spd_set_language()
+@end deffn
+
+Sets the language that should be used for synthesis, selecting tables
+and other related things.
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{language} is the language code as defined in RFC 1776 (``cs'',
+``en'', ...).
+
+@deffn {C API function}  int spd_set_punctuation(int connection, SPDPunctuation type);
+@findex spd_set_punctuation()
+
+Set punctuation mode to the given value.  `all' means read all
+punctuation characters, `none' read no punctuation characters,
+`some' means read only punctuation characters given in the server
+configuration or defined by the client's last spd_set_punctuation_important().
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{type} is one of the following values: @code{SPD_PUNCT_ALL},
+@code{SPD_PUNCT_NONE}, @code{SPD_PUNCT_SOME}.
+
+It returns 0 on succes, -1 otherwise.
+
+@end deffn
+
+@deffn {C API function}  int spd_set_punctuation_important(int connection, char* punctuation_important);
+@findex spd_set_punctuation_important()
+@end deffn
+
+@deffn {C API function}  int spd_set_punctuation_table(int connection, char* punctuation_table);
+@findex spd_set_punctuation_table()
+@end deffn
+
+@deffn {C API function}  int spd_set_spelling(int connection, SPDSpelling type);
+@findex spd_set_spelling()
+
+Switches spelling mode on and off. If set to on, all incomming messages
+from this particular connection will be processed according to appropiate
+spelling tables (see spd_set_spelling_table()).
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{type} is one of the following values: @code{SPD_SPELL_ON}, @code{SPD_SPELL_OFF}.
+
+@end deffn
+
+
+@deffn {C API function}  int spd_set_spelling_table(int connection, char* spelling_table);
+@findex spd_set_spelling_table()
+@end deffn
+
+@deffn {C API function}  int spd_set_text_table(int connection, char* text_table);
+@findex spd_set_text_table()
+
+Not implemented yet!
+
+@end deffn
+
+@deffn {C API function}  int spd_set_sound_table(int connection, char* sound_table);
+@findex spd_set_sound_table()
+@end deffn
+
+@deffn {C API function}  int spd_set_character_table(int connection, char* character_table);
+@findex spd_set_character_table()
+@end deffn
+
+@deffn {C API function}  int spd_set_key_table(int connection, char* key_table);
+@findex spd_set_key_table()
+@end deffn
+
+@deffn {C API function}  int spd_set_voice(int connection, SPDVoice voice);
+@findex spd_set_voice()
+@end deffn
+
+@deffn {C API function}  int spd_set_voice_rate(int connection, int rate);
+@findex spd_set_rate()
+@end deffn
+
+@deffn {C API function}  int spd_set_voice_pitch(int connection, int pitch);
+@findex spd_set_pitch()
+@end deffn
+
+@deffn {C API function}  int spd_set_history(int connection, int history_flag);
+@findex spd_set_history()
+
+This function should never be used except by history clients when they are saying
+message that allready is in history!
+
+@end deffn
+
+
+
+@node Other functions (C), Information retrieval commands (C), Parameter setting commands (C), C API
+@subsection Other functions
 @findex spd_command_line()
-@findex spd_stop_fd()
-@findex spd_pause_fd()
-@findex spd_resume_fd()
+
+@node Information retrieval commands (C), History commands (C), Other functions (C), C API
+@subsection Information retrieval commands
+
+@node History commands (C),  , Information retrieval commands (C), C API
+@subsection History commands
 @findex spd_history_select_client()
 @findex spd_get_client_list()
 @findex spd_get_message_list_fd()
 
-This needs to be reworked!
+libspeechd.c currently doesn't support history commands as defined in SSIP
 
-@ifinfo
-@verbatiminclude ../src/c/api/libspeechd.h
-@end ifinfo
+@node Python API,  , C API, Public API
+@section Python API
+
+@c You should name all subnodes with a (Python) at the
+@c end or there will be conflicts with other APIs
+@c There is no point in doing the same for @chapters
+@c and sections.
+@c See the C API...
 
 @node SSIP, Priorities, Public API, Top
 @chapter Speech Synthesis Internet Protocol (SSIP)
@@ -1713,12 +2214,6 @@ support several punctuation modes. We will support a reasonable
 superset of those modes, which may be implemented in device
 driver, when not supported by hardware.
 
-@section Prosody
-Prosody setting allows us, to distinguish punctuation
-characters in spoken text, as we are familiar in normal speech.
-This means the way, we pronounce the text with interrogation mark,
-coma, dot etc.
-
 @section Pitch
 Pitch is the voice frequency. We face the similar problems
 here, as with Speed setting.
@@ -1768,9 +2263,9 @@ This appendix defines all the recognized symbolic key names.  The
 names are case sensitive.
 
 @menu
-* Auxiliary key names::          Shift, Meta, etc.
+* Auxiliary key names::         Shift, Meta, etc.
 * Control character key names::  Return, LineFeed, etc.
-* Special key names::            Space, underscore, etc.
+* Special key names::           Space, underscore, etc.
 @end menu
 
 @node Auxiliary key names, Control character key names, Key names, Key names
