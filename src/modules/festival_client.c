@@ -151,7 +151,6 @@ static int festival_socket_open(const char *host, int port)
     struct sockaddr_in serv_addr;
     struct hostent *serverhost;
     int fd;
-    int ret;
 
     fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (fd < 0)  
@@ -412,8 +411,6 @@ festival_accept_any_response(FT_Info *info)
 FT_Info *
 festivalOpen(FT_Info *info)
 {
-    FILE *fd;
-
     /* Open socket to server */
 
     festival_connection_crashed = 0;
@@ -444,8 +441,6 @@ festival_speak_command(FT_Info *info, char *command, char *text, int symbol)
 {
     FILE *fd;
     char *p;
-    char ack[4];
-    int n;
     char *str;
 
     if (festival_check_info(info, "festival_speak_command") == -1) return -1;
@@ -484,7 +479,7 @@ festival_speak_command(FT_Info *info, char *command, char *text, int symbol)
     int \
     name(FT_Info *info, char *text) \
     { \
-        festival_speak_command(info, cmd, text, symbol); \
+        return festival_speak_command(info, cmd, text, symbol); \
     }
 
 /* Sends a TEXT to Festival server for synthesis. Doesn't
@@ -511,9 +506,7 @@ FT_Wave*
 festivalStringToWaveGetData(FT_Info *info, int* continues, int multiple)
 {
     FT_Wave *wave = NULL;
-    int n;
     char ack[5];
-    int read_bytes;
     static int remaining_waves = 0;
 
     if (continues == NULL) return NULL;
