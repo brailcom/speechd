@@ -36,7 +36,7 @@
 /*-----------------------------------------------------------------------*/
 /*                                                                       */
 /* Client end of Festival server API in C designed specifically formerly */
-/* for Galaxy Communicator use, but rewritten to suit Speech Dispatcher      */
+/* for Galaxy Communicator use, but rewritten to suit Speech Dispatcher  */
 /* needs. Please look also at the original festival_client.c library     */
 /* that can be found in festival/examples/festival_client.c -- it will   */
 /* be probably more up-to-date.                                          */
@@ -317,18 +317,16 @@ festival_get_ack(FT_Info **info, char* ack)
     int read_bytes;
     int n;
     for (n=0; n < 3; ){
-        //        fprintf(stderr,"point 1 %d %d", n, info->server_fd);
-        //        fprintf(stderr,"11:Going to read\n");
         read_bytes = read((*info)->server_fd, ack+n, 3-n);
-        //        fprintf(stderr,"11:Read\n");
         if (read_bytes == 0){
+            /* WARNING: This is a very strange situation
+               but it happens often, I don't really know
+               why???*/
             fprintf(stderr, "FESTIVAL CLOSED CONNECTION, REOPENING");
             *info = festivalOpen(*info);
+            festival_connection_crashed = 1;
             return 1; 
         }
-        /* WARNING: This is a very strange situation
-           but it happens often, I don't really know
-           why???*/
         n += read_bytes;                
     }
     ack[3] = '\0';
@@ -369,6 +367,8 @@ festivalOpen(FT_Info *info)
 
     /* Open socket to server */
 
+    festival_connection_crashed = 0;
+
     if (info == 0)
 	info = festivalDefaultInfo();
 
@@ -383,7 +383,8 @@ festivalOpen(FT_Info *info)
     /* Opens a stream associated to the socket */
     fd = fdopen(dup(info->server_fd),"wb");
     /* Send the command and data */
-    fprintf(fd,"(define (speechd_tts_textall string)\n"
+    fprintf(fd,
+            "(define (speechd_tts_textall string mode)\n"
             "  (let ((tmpfile (make_tmp_filename))\n"
             "        (fd))\n"
             "    (set! fd (fopen tmpfile \"wb\"))\n"
@@ -391,7 +392,7 @@ festivalOpen(FT_Info *info)
             "    (fclose fd)\n"
             "    (set! tts_hooks (list utt.synth save_record_wave))\n"
             "    (set! wavefiles nil)\n"
-            "    (tts_file tmpfile \"fundamental\")\n"
+            "    (tts_file tmpfile mode)\n"
             "    (delete-file tmpfile)\n"
             "    (let ((utt (combine_waves)))\n"
             "      (if (member 'Wave (utt.relationnames utt))\n"
@@ -419,7 +420,7 @@ festivalOpen(FT_Info *info)
  * Returns 0 if everything is ok, -1 otherwise.
 */
 int
-festivalStringToWaveRequest(FT_Info *info, char *text)
+festivalStringToWaveRequest(FT_Info *info, char *text, int spelling)
 {
     FT_Wave *wave;
     FILE *fd;
@@ -447,8 +448,10 @@ festivalStringToWaveRequest(FT_Info *info, char *text)
 	    putc('\\',fd);
 	putc(*p, fd);
     }
+
     /* Specify mode */
-    fprintf(fd,"\")\n");
+    if (!spelling) fprintf(fd,"\" nil)\n");
+    else fprintf(fd,"\" 'spell)\n");
 
     /* Close the stream (but not the socket) */
     fclose(fd);
@@ -480,7 +483,6 @@ festivalStringToWaveGetData(FT_Info *info)
 	    client_accept_s_expr(info->server_fd);
 	}else if (strcmp(ack,"ER\n") == 0)    /* server got an error */
             {
-                //                fprintf(stderr,"point 4");
                 //                fprintf(stderr,"festival_client: server returned error\n");
                 break;
             }
@@ -509,6 +511,25 @@ int festivalClose(FT_Info *info)
 }
 
 int
+festival_read_response(FT_Info *info)
+{
+    char buf[4];
+
+    if (festival_get_ack(&info, buf)) return 1;
+    buf[3] = 0;
+
+    if (!strcmp(buf,"ER\n")){
+        return 1;
+    }else{
+        client_accept_s_expr(info->server_fd);
+    }
+
+    if (festival_get_ack(&info, buf)) return 1;
+
+    return 0;
+}
+
+int
 festivalSetVoice(FT_Info *info, char *voice)
 {
     FILE* fd;
@@ -521,18 +542,7 @@ festivalSetVoice(FT_Info *info, char *voice)
     fprintf(fd,"(%s)\n", voice);
     fclose(fd);
 
-    if (festival_get_ack(&info, buf)) return 1;
-
-    if (!strcmp(buf,"ER\n")){
-        printf("Couldn't set voice!\n");
-        return 1;
-    }else{
-        client_accept_s_expr(info->server_fd);
-    }
-
-    if (festival_get_ack(&info, buf)) return 1;
-
-    return 0;
+    return festival_read_response(info);
 }
 
 int
@@ -556,19 +566,7 @@ festivalSetRate(FT_Info *info, signed int rate)
     fprintf(fd,"(Parameter.set \"Duration_Stretch\" %f)\n", stretch);
     fclose(fd);
 
-    if (festival_get_ack(&info, buf)) return 1;
-
-    buf[3] = 0;
-    if (!strcmp(buf,"ER\n")){
-        printf("Couldn't set voice!\n");
-        return 1;
-    }else{
-        client_accept_s_expr(info->server_fd);
-    }
-
-    if (festival_get_ack(&info, buf)) return 1;
-
-    return 0;
+    return festival_read_response(info);
 }
 
 int
@@ -580,7 +578,7 @@ festivalSetPitch(FT_Info *info, signed int pitch, unsigned int mean)
     int f0;
     int read_bytes = 0;
 
-    if (info == NULL) DBG("festivalSetPitch calld with info = NULL\n");
+    if (info == NULL) DBG("festivalSetPitch called with info = NULL\n");
     if (info->server_fd == -1) DBG("festivalSetPitch: server_fd invalid\n");
 
     f0 = 100;
@@ -592,19 +590,30 @@ festivalSetPitch(FT_Info *info, signed int pitch, unsigned int mean)
     fprintf(fd,"(set! int_lr_params '((target_f0_mean %d) (target_f0_std %d) (model_f0_mean 170) (model_f0_std 34)))\n", f0, mean);
     fclose(fd);
 
-    if (festival_get_ack(&info, buf)) return 1;
+    return festival_read_response(info);
+}
 
-    buf[3] = 0;
-    if (!strcmp(buf,"ER\n")){
-        printf("Couldn't set voice!\n");
-        return 1;
-    }else{
-        client_accept_s_expr(info->server_fd);
-    }
+int
+festivalSetPunctuationMode(FT_Info *info, int mode)
+{
+    FILE* fd;
+    char buf[4];
+    int n;
+    int read_bytes = 0;
 
-    if (festival_get_ack(&info, buf)) return 1;
+    if (info == NULL) DBG("festivalSetPitch called with info = NULL\n");
+    if (info->server_fd == -1) DBG("festivalSetPitch: server_fd invalid\n");
 
-    return 0;
+    assert((mode == 0) || (mode == 1) || (mode == 2));
+
+    fd = fdopen(dup(info->server_fd),"wb");
+    /* Send the command and set new voice */
+    if (mode == 0) fprintf(fd,"(set-punctuation-mode 'none)\n");
+    else if (mode == 1) fprintf(fd,"(set-punctuation-mode 'all)\n");
+    else if (mode == 2) fprintf(fd,"(set-punctuation-mode 'default)\n");
+    fclose(fd);
+
+    return festival_read_response(info);
 }
 
 static FT_Info *festivalDefaultInfo()
