@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.46 2003-09-11 16:34:45 hanke Exp $
+ * $Id: speechd.c,v 1.47 2003-09-24 08:42:01 pdm Exp $
  */
 
 #include "speechd.h"
@@ -59,9 +59,73 @@ fatal_error(void)
 /* Logging messages, level of verbosity is defined between 1 and 5, 
  * see documentation */
 void
+MSG2(int level, char *kind, char *format, ...)
+{
+    int std_log = level <= spd_log_level;
+    int custom_log = (kind != NULL && custom_log_kind != NULL &&
+                      !strcmp(kind, custom_log_kind) &&
+                      custom_logfile != NULL);
+    
+    if(std_log || custom_log) {
+        va_list args;
+        va_list args2;
+        int i;
+
+        if(std_log) {
+            va_start(args, format);
+        }
+        if(custom_log) {
+            va_start(args2, format);
+        }
+        {
+            {
+                /* Print timestamp */
+                time_t t;
+                char *tstr;
+                t = time(NULL);
+                tstr = strdup(ctime(&t));
+                /* Remove the trailing \n */
+                assert(strlen(tstr)>1);
+                tstr[strlen(tstr)-1] = 0;
+                if(std_log) {
+                    fprintf(logfile, "[%s] speechd: ", tstr);
+                }
+                if(custom_log) {
+                    fprintf(custom_logfile, "[%s] speechd: ", tstr);
+                }
+            }
+            for(i=1;i<level;i++){
+                if(std_log) {
+                    fprintf(logfile, " ");
+                }
+                if(custom_log) {
+                    fprintf(custom_logfile, " ");
+                }
+            }
+            if(std_log) {
+                vfprintf(logfile, format, args);
+                fprintf(logfile, "\n");
+                fflush(logfile);
+            }
+            if(custom_log) {
+                vfprintf(custom_logfile, format, args2);
+                fprintf(custom_logfile, "\n");
+                fflush(custom_logfile);
+            }
+        }
+        if(std_log) {
+            va_end(args);
+        }
+        if(custom_log) {
+            va_end(args2);
+        }
+    }				
+}
+
+void
 MSG(int level, char *format, ...)
 {
-    if(level <= spd_log_level){
+    if(level <= spd_log_level) {
         va_list args;
         int i;
 		
@@ -246,6 +310,8 @@ speechd_init(void)
 
     /* Initialize logging */
     logfile = stdout;
+    custom_logfile = NULL;
+    custom_log_kind = NULL;
 
     /* Initialize Speech Dispatcher priority queue */
     MessageQueue = (TSpeechDQueue*) speechd_queue_alloc();

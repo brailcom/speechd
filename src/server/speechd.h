@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.42 2003-09-07 11:32:42 hanke Exp $
+ * $Id: speechd.h,v 1.43 2003-09-24 08:42:01 pdm Exp $
  */
 
 #ifndef SPEECHDH
@@ -143,6 +143,8 @@ void MSG(int level, char *format, ...);
 #define FATAL(msg) { fatal_error(); MSG(0,"Fatal error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
 #define DIE(msg) { MSG(0,"Error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
 FILE *logfile;
+FILE *custom_logfile;
+char *custom_log_kind;
 
 /* Variables for socket communication */
 int fdmax;

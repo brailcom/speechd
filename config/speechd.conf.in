@@ -31,6 +31,11 @@ LogLevel  3
 #LogFile  "speechd.log"
 LogFile  "stdout"
 
+# CustomLogFile allows logging all messages of the given kind, regardless their
+# priority, to the given destination.
+
+#CustomLogFile "protocol" "/tmp/speechd-protocol.log"
+
 
 # -----MISC OPTIONS-----
 

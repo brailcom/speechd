@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.36 2003-09-07 11:28:21 hanke Exp $
+ * $Id: dc_decl.h,v 1.37 2003-09-24 08:42:01 pdm Exp $
  */
 
 #include "speechd.h"
@@ -34,6 +34,7 @@ extern char* spd_strdup(char* string);
 /* define dotconf callbacks */
 DOTCONF_CB(cb_Port);
 DOTCONF_CB(cb_LogFile);
+DOTCONF_CB(cb_CustomLogFile);
 DOTCONF_CB(cb_LogLevel);
 DOTCONF_CB(cb_SoundModule);
 DOTCONF_CB(cb_SoundDataDir);
@@ -135,6 +136,7 @@ load_config_options(int *num_options)
    
     ADD_CONFIG_OPTION(Port, ARG_INT);
     ADD_CONFIG_OPTION(LogFile, ARG_STR);
+    ADD_CONFIG_OPTION(CustomLogFile, ARG_LIST);
     ADD_CONFIG_OPTION(LogLevel, ARG_INT);
     ADD_CONFIG_OPTION(SoundModule, ARG_LIST);
     ADD_CONFIG_OPTION(SoundDataDir, ARG_STR);
@@ -200,6 +202,7 @@ load_default_global_set_options()
 
     sound_module = NULL;
     logfile = stderr;
+    custom_logfile = NULL;
     
     SOUND_DATA_DIR = strdup(SND_DATA);
 }
@@ -231,11 +234,42 @@ DOTCONF_CB(cb_LogFile)
     }
     logfile = fopen(cmd->data.str, "a");
     if (logfile == NULL){
-        printf("Error: can't open logging file! Using stdout.\n");
+        fprintf(stderr, "Error: can't open logging file! Using stdout.\n");
         logfile = stdout;
     }
     
     MSG(2,"Speech Dispatcher Logging to file %s", cmd->data.str);
+    return NULL;
+}
+
+DOTCONF_CB(cb_CustomLogFile)
+{
+    char *kind;
+    char *file;
+
+    if(cmd->data.list[0] == NULL) FATAL("No log kind specified in CustomLogFile");
+    if(cmd->data.list[1] == NULL) FATAL("No log file specified in CustomLogFile");
+    kind = strdup(cmd->data.list[0]);
+    assert(kind != NULL);
+    file = strdup(cmd->data.list[1]);
+    assert(file != NULL);
+
+    custom_log_kind = kind;
+    if (!strncmp(file,"stdout",6)){
+        custom_logfile = stdout;
+        return NULL;
+    }
+    if (!strncmp(file,"stderr",6)){
+        custom_logfile = stderr;
+        return NULL;
+    }
+    custom_logfile = fopen(file, "a");
+    if (custom_logfile == NULL){
+        fprintf(stderr, "Error: can't open custom log file, using stdout\n");
+        custom_logfile = stdout;
+    }
+    
+    MSG(2,"Speech Dispatcher custom logging to file %s", file);
     return NULL;
 }
 
