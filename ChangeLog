@@ -1,3 +1,9 @@
+2005-02-27  Hynek Hanke  <hanke@chopin>
+
+	* src/modules/festival.c (_festival_speak): Removed some redudant debug messages.
+
+	* src/c/clients/say/say.c (main): Print help correctly.
+
 2004-12-10    <hanke@robinson>
 
 	* src/audio/nas.c: One more DBG removed.
