@@ -12,8 +12,6 @@ void* fdset_list_alloc_element(void* element);
 
 TSpeechDMessage* history_list_new_message(TSpeechDMessage *old);
 
-THistoryClient* history_list_create_client(int fd);
-
 void mem_free_message(TSpeechDMessage *msg);
 
 void mem_free_fdset(TFDSetElement *set);

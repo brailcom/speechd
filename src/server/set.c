@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.9 2003-03-24 22:50:03 hanke Exp $
+ * $Id: set.c,v 1.10 2003-03-29 20:21:49 hanke Exp $
  */
 
 
@@ -32,7 +32,7 @@ set_priority(int fd, int priority)
 {
     TFDSetElement *settings;
 	
-	settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);
+	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL) FATAL("Couldnt find settings for active client, internal error.");
 	settings->priority = priority;
 	return 1;
@@ -43,7 +43,7 @@ set_rate(int fd, int rate)
 {
     TFDSetElement *settings;
 	
-	settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);
+	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL) FATAL("Couldnt find settings for active client, internal error.");
 	settings->speed = rate;
 	return 1;
@@ -54,7 +54,7 @@ set_pitch(int fd, int pitch)
 {
     TFDSetElement *settings;
 
-	settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);	
+	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL) FATAL("Couldnt find settings for active client, internal error.");
 	settings->pitch = pitch;
 	return 1;
@@ -65,7 +65,7 @@ set_punct_mode(int fd, int punct)
 {
     TFDSetElement *settings;
 	
-	settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);
+	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL) FATAL("Couldnt find settings for active client, internal error.");
 	settings->punctuation_mode = punct;
 	return 1;
@@ -76,7 +76,7 @@ set_cap_let_recog(int fd, int recog)
 {
     TFDSetElement *settings;
 
-	settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);	
+	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL) FATAL("Couldnt find settings for active client, internal error.");
 	settings->cap_let_recogn = recog;
 	return 1;
@@ -87,7 +87,7 @@ set_spelling(int fd, int spelling)
 {
     TFDSetElement *settings;
 
-	settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);	
+	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL) FATAL("Couldnt find settings for active client, internal error.");
 	settings->spelling = spelling;
 	return 1;
@@ -97,7 +97,7 @@ int
 set_language(int fd, char *language){
     TFDSetElement *settings;
 
-	settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);	
+	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL) FATAL("Couldnt find settings for active client, internal error.");
 	free(settings->language);
 	settings->language = (char*) malloc(strlen(language) * sizeof(char) + 1);
@@ -110,21 +110,14 @@ int
 set_client_name(int fd, char *client_name)
 {
     TFDSetElement *settings;
-	THistoryClient *hclient;
 	GList *gl;
 	
-	settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);		
+	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL) FATAL("Couldnt find settings for active client, internal error.");
 	free(settings->client_name);
 	settings->client_name = (char*) malloc(strlen(client_name) * sizeof(char) + 1);
 	strcpy(settings->client_name, client_name);
 
-    gl = g_list_find_custom(history, (int*) fd, p_cli_comp_fd);
-    if (gl == NULL) return 0;
-    hclient = gl->data;
-	hclient->client_name = (char*) malloc(strlen(client_name) * sizeof(char) + 1);
-	strcpy(hclient->client_name, client_name);
-	
 	return 1;
 }
 		 
@@ -151,6 +144,35 @@ default_fd_set(void)
 	new->voice_type = GlobalFDSet.voice_type;
 	new->spelling = GlobalFDSet.spelling;         
 	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;
+	new->active = 1;
+
+	new->hist_cur_uid = -1;
+	new->hist_cur_pos = -1;
+	new->hist_sorted = 0;
 
 	return(new);
+}
+
+TFDSetElement*
+get_client_settings_by_fd(int fd){
+	TFDSetElement* element;
+	int *uid;
+	
+	if (fd <= 0) return NULL;
+
+	uid = g_hash_table_lookup(fd_uid, &fd);
+	if(uid == NULL) return NULL;
+	
+	element = g_hash_table_lookup(fd_settings, uid);
+	return element;	
+}
+
+TFDSetElement*
+get_client_settings_by_uid(int uid){
+	TFDSetElement* element;
+	
+	if (uid < 0) return NULL;
+	
+	element = g_hash_table_lookup(fd_settings, &uid);
+	return element;	
 }
