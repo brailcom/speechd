@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.29 2003-05-28 23:20:03 hanke Exp $
+ * $Id: speechd.c,v 1.30 2003-06-01 21:28:48 hanke Exp $
  */
 
 #include "speechd.h"
@@ -32,8 +32,6 @@
 #include "alloc.h"
 
 int server_socket;
-
-gint (*p_msg_nto_speak)() = message_nto_speak;
 
 /* Logging messages, level of verbosity is defined between 1 and 5, 
  * see documentation */
@@ -56,7 +54,7 @@ MSG(int level, char *format, ...)
         vfprintf(logfile, format_with_spaces, args);
         if(SPEECHD_DEBUG) vfprintf(stdout, format_with_spaces, args);
         va_end(args);
-
+        free(format_with_spaces);
     }				
 }
 
@@ -143,7 +141,6 @@ speechd_init()
     int i;
     int v;
 
-    msgs_to_say = 0;
     max_uid = 0;
 
     /* Initialize logging */
@@ -192,11 +189,14 @@ speechd_init()
     if(_POSIX_VERSION < 199506L)
         DIE("This system doesn't support POSIX.1c threads\n");
 
-    /* Initialize mutexes */
+    /* Initialize mutexes, semaphores and synchronization */
     ret = pthread_mutex_init(&element_free_mutex, NULL);
-    if(ret != 0)
-        DIE("Mutex initialization failed");
-	
+    if(ret != 0) DIE("Mutex initialization failed");
+
+    sem_messages_waiting = (sem_t *) spd_malloc(sizeof(sem_t));
+    ret = sem_init(sem_messages_waiting, 0, 0);
+    if (ret != 0) DIE("Semaphore initialization failed");
+
     /* Load configuration from the config file*/
     configfile = dotconf_create(configfilename, options, 0, CASE_INSENSITIVE);
     if (!configfile) DIE ("Error opening config file\n");
