@@ -1,5 +1,8 @@
 2003-10-10  Milan Zamazal  <pdm@brailcom.org>
 
+	* src/modules/festival_client.c (FestivalSetCapLetRecogn):
+	Festival function name fixed.
+
 	* Makefile.am (SUBDIRS): `sounds' removed.
 	* configure.in (moduleconfdir): sounds/ excluded.
 	* sounds/Makefile.am: Removed.
