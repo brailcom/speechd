@@ -4,9 +4,11 @@
 
 #include <flite/flite.h>
 
-int spd_audio_play_wave(const cst_wave *w);
 int spd_audio_open(const cst_wave *w);
 void spd_audio_close();
+
+int spd_audio_play_wave(const cst_wave *w);
+int spd_audio_set_volume(const signed int volume);
 
 int spd_audio_play_file(const char* filename);
 int spd_audio_play_file_ogg(const char* filename);
