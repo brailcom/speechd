@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.c,v 1.4 2003-04-17 10:14:26 hanke Exp $
+ * $Id: sndicon.c,v 1.5 2003-04-18 21:03:45 hanke Exp $
 */
 
 #include "sndicon.h"
@@ -85,7 +85,7 @@ sndicon_icon(int fd, char *name)
     if (settings == NULL)
         FATAL("Couldn't find settings for active client, internal error."); 
 
-    ret = sndicon_queue(fd, settings->language, "icons", name);
+    ret = sndicon_queue(fd, settings->language, settings->snd_icon_table, name);
     return ret;
 }
 
@@ -99,7 +99,7 @@ sndicon_char(int fd, char *name)
     if (settings == NULL)
         FATAL("Couldn't find settings for active client, internal error."); 
 
-    ret = sndicon_queue(fd, settings->language, settings->spelling_table, name);
+    ret = sndicon_queue(fd, settings->language, settings->char_table, name);
     return ret;
 }
 
@@ -113,7 +113,61 @@ sndicon_key(int fd, char *name)
     if (settings == NULL)
         FATAL("Couldn't find settings for active client, internal error."); 
 
-    ret = sndicon_queue(fd, settings->language, "keys", name);
+    ret = sndicon_queue(fd, settings->language, settings->key_table, name);
     return ret;
 }
 
+char*
+sndicon_list_spelling_tables()
+{
+    return (char*) sndicon_list_tables(tables.spelling);
+}
+
+char*
+sndicon_list_sound_tables()
+{
+    return (char*) sndicon_list_tables(tables.sound_icons);
+}
+
+char*
+sndicon_list_char_tables()
+{
+    return (char*) sndicon_list_tables(tables.characters);
+}
+
+char*
+sndicon_list_key_tables()
+{
+    return (char*) sndicon_list_tables(tables.keys);
+}
+
+char*
+sndicon_list_punctuation_tables()
+{
+    return (char*) sndicon_list_tables(tables.punctuation);
+}
+
+char*
+sndicon_list_tables(GList *table_list)
+{
+    GString *response;             
+    GList *cursor;
+    char *ret;
+
+    response = g_string_new("");
+    cursor = g_list_first(table_list);
+    if (cursor != NULL){
+        do{
+            g_string_append_printf(response, C_OK_TABLES"-");
+            g_string_append_printf(response, "%s", (char*) cursor->data);
+            g_string_append(response,"\r\n");
+            cursor = g_list_next(cursor);
+        }while(cursor != NULL);        
+    }
+    g_string_append_printf(response, OK_TABLE_LIST_SENT);
+
+    ret = response->str;
+    g_string_free(response, 0);
+
+    return ret;
+}
