@@ -39,35 +39,38 @@ See also `speechd-language-voices'.")
 
 (defvar speechd-language-voices
   '(("english"
-     ("male1" voice_kal_diphone)
-     ("male2" voice_ked_diphone))
+     ("male1" voice_kal_diphone ISO-8859-1)
+     ("male2" voice_ked_diphone ISO-8859-1))
     ("americanenglish"
-     ("male1" voice_kal_diphone)
-     ("male2" voice_ked_diphone))
+     ("male1" voice_kal_diphone ISO-8859-1)
+     ("male2" voice_ked_diphone ISO-8859-1))
     ("britishenglish"
-     ("male1" voice_kal_diphone)
-     ("male2" voice_ked_diphone))
+     ("male1" voice_kal_diphone ISO-8859-1)
+     ("male2" voice_ked_diphone ISO-8859-1))
     ("german"
-     ("male1" voice_german))
+     ("male1" voice_german ISO-8859-1))
     ("czech"
-     ("male1" voice_czech)))
+     ("male1" voice_czech ISO-8859-2)))
   "Alist mapping Festival language names and voice names to voice functions.
 Each element of the alist is of the form (LANGUAGE VOICE-LIST), where elements
-of VOICE-LIST are of the form (VOICE-NAME VOICE-FUNCTION).  VOICE-NAME is a
-voice name string and VOICE-FUNCTION is the name of the function setting the
-given voice.")
+of VOICE-LIST are of the form (VOICE-NAME VOICE-FUNCTION CODING).  VOICE-NAME
+is a voice name string, VOICE-FUNCTION is the name of the function setting the
+given voice, and CODING is the text encoding required by the voice
+definition.  CODING may be one of the symbols ISO-8859-<N>, where <N> is a
+number within the range 1-16.")
 
 
 (Parameter.set 'Wavefiletype 'nist)
 
 
 (define (speechd-set-lang-voice lang voice)
-  (let ((voice-func (cadr
-                     (assoc_string
-                      voice
-                      (cdr (assoc_string lang speechd-language-voices))))))
-    (if voice-func
-        (apply voice-func nil)
+  (let ((spec (assoc_string
+               voice
+               (cdr (assoc_string lang speechd-language-voices)))))
+    (if spec
+        (begin
+          (apply (second spec) nil)
+          (third spec))
         (error "Undefined voice"))))
 
 (define (speechd-send-to-client result)
