@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.28 2003-07-05 12:21:09 hanke Exp $
+ * $Id: flite.c,v 1.29 2003-07-07 08:39:34 hanke Exp $
  */
 
 
@@ -312,13 +312,13 @@ flite_set_voice(EVoiceType voice)
             flite_voice = (cst_voice*) register_cmu_us_kal();
             flite_cur_voice = MALE1;
             break;
-        case MALE3:
-            free(flite_voice);
+            //        case MALE3:
+            //            free(flite_voice);
             /* This is only an experimental voice. But if you want
              to know what's the time... :)*/
-            flite_voice = (cst_voice*) register_cmu_time_awb();	
-            flite_cur_voice = MALE2;
-            break;
+            //            flite_voice = (cst_voice*) register_cmu_time_awb();	
+            //            flite_cur_voice = MALE2;
+            //            break;
         default:
             free(flite_voice);
             flite_voice = (cst_voice*) register_cmu_us_kal();
