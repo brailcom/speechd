@@ -146,7 +146,8 @@ and EVENT-VALUE are the same as in `logical-event-mapping'.")
                       (set! token (utt.relation.last utt 'Token))
                       (utt.relation.append u 'Token token))
                   (utt.relation.append u 'Word w)
-                  (item.append_daughter token tw))))
+                  (if token
+                      (item.append_daughter token tw)))))
             word-items)
           (let ((result (event-rest-of-synth u)))
             (if event-synth-result-format
