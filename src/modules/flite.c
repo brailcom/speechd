@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.39 2004-03-08 21:25:12 hanke Exp $
+ * $Id: flite.c,v 1.40 2004-04-04 21:10:39 hanke Exp $
  */
 
 
@@ -120,7 +120,6 @@ module_init(void)
 int
 module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 {
-    int ret;
     char *temp;
 
     DBG("write()\n");
@@ -239,7 +238,6 @@ void
 _flite_child(TModuleDoublePipe dpipe, const size_t maxlen)
 {
     char *text;  
-    cst_wave* wave;
     sigset_t some_signals;
     int bytes;
 
@@ -276,7 +274,7 @@ _flite_child(TModuleDoublePipe dpipe, const size_t maxlen)
         }
         module_sigunblockusr(&some_signals);        
 
-        DBG("child->parent: ok, send more data", text);      
+        DBG("child->parent: ok, send more data");      
         module_child_dp_write(dpipe, "C", 1);
     }
 }

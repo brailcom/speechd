@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.9 2004-03-14 16:01:14 hanke Exp $
+ * $Id: generic.c,v 1.10 2004-04-04 21:11:06 hanke Exp $
  */
 
 #include <glib.h>
@@ -138,7 +138,6 @@ module_init(void)
 int
 module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 {
-    int ret;
     TGenericLanguage *language;
 
     DBG("write()\n");
@@ -194,6 +193,7 @@ module_stop(void)
         DBG("generic: stopping process group pid %d\n", generic_pid);
         kill(-generic_pid, SIGKILL);
     }
+    return 0;
 }
 
 size_t
@@ -249,7 +249,6 @@ string_replace(char *string, char* token, char* data)
     char *p;
     char *str1;
     char *str2;
-    int len;
     char *new;
 
     /* Split the string in two parts, ommit the token */
@@ -410,7 +409,6 @@ _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
     char *command;
     GString *message;
     int i;
-    char *mq;
 
     sigfillset(&some_signals);
     module_sigunblockusr(&some_signals);
@@ -465,7 +463,7 @@ _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
         xfree(text);
         g_string_free(message, 1);
 
-        DBG("child->parent: ok, send more data", text);      
+        DBG("child->parent: ok, send more data");      
         module_child_dp_write(dpipe, "C", 1);
     }
 }
