@@ -1,3 +1,14 @@
+2003-10-15  Milan Zamazal  <pdm@brailcom.org>
+
+	* events.scm (event-synth-sound): New function.
+	(synth-event-plain): Use it.  Say logical event name if its
+	translation is not defined.
+	(synth-event-result-format): Renamed to event-synth-result-format.
+	(synth-event-plain): Renamed to event-synth-plain.
+	(synth-event): Renamed to event-synth.
+	(play-event): Renamed to event-play.
+	* speech-dispatcher.scm: Consider the previous changes.
+
 2003-10-11  Milan Zamazal  <pdm@brailcom.org>
 
 	* events.scm (sound-icons-directory): New variable.
