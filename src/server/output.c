@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.10 2004-02-10 21:23:10 hanke Exp $
+ * $Id: output.c,v 1.11 2004-05-20 14:34:39 hanke Exp $
  */
 
 #include "output.h"
@@ -66,11 +66,13 @@ get_output_module(const TSpeechDMessage *message)
 static void
 output_lock(void)
 {
+    MSG(1, "Output locked...");
     pthread_mutex_lock(&output_layer_mutex);
 }
 static void
 output_unlock(void)
 {
+    MSG(1, "Output unlocked.");
     pthread_mutex_unlock(&output_layer_mutex);
 }
 
@@ -158,11 +160,11 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
 
 #define SEND_CMD(cmd) \
   {  err = output_send_data(cmd"\n", output, 1); \
-    if (err < 0) OL_RET(err); }
+    if (err < 0) return (err); }
 
 #define SEND_DATA(data) \
   {  err = output_send_data(data, output, 0); \
-    if (err < 0) OL_RET(err); }
+    if (err < 0) return (err); }
 
 #define SEND_CMD_GET_VALUE(data) \
   {  err = output_send_data(data"\n", output, 1); \
@@ -208,25 +210,40 @@ output_send_settings(TSpeechDMessage *msg, OutputModule *output)
     SEND_CMD(".");
 
     g_string_free(set_str, 1);
+
+    return 0;
 }
 #undef ADD_SET_INT
 #undef ADD_SET_STR
 
-#define SEND_CMD_MSGBUF(command) \
-    MSG(4, "Module speak!"); \
-    SEND_CMD(command); \
-    SEND_DATA(msg->buf); \
+
+int
+output_send_msg(TSpeechDMessage *msg, char *type_str, OutputModule *output)
+{
+    int err;
+
+    MSG(4, "Module speak!");
+
+    {  err = output_send_data(type_str, output, 1); \
+    if (err < 0) return (err); }
+
+    SEND_DATA(msg->buf);
     SEND_CMD("\n.");
+
+    return 0;
+}
 
 int
 output_speak(TSpeechDMessage *msg)
 {
     OutputModule *output;
     int err;
+    int ret;
 
     if(msg == NULL) return -1;
 
     output_lock();
+
 
     /* Determine which output module should be used */
     output = get_output_module(msg);
@@ -239,17 +256,19 @@ output_speak(TSpeechDMessage *msg)
     msg->bytes = -1;
 
     output_set_speaking_monitor(msg, output);
-    output_send_settings(msg, output);
+
+    ret = output_send_settings(msg, output);
+    if (ret != 0) OL_RET(ret);
 
     switch(msg->settings.type)
         {
-        case MSGTYPE_TEXT: SEND_CMD_MSGBUF("SPEAK"); break;
-        case MSGTYPE_SOUND_ICON: SEND_CMD_MSGBUF("SOUND_ICON"); break;
-        case MSGTYPE_CHAR: SEND_CMD_MSGBUF("CHAR"); break;
-        case MSGTYPE_KEY: SEND_CMD_MSGBUF("KEY"); break;
+        case MSGTYPE_TEXT: ret = output_send_msg(msg, "SPEAK\n", output); break;
+        case MSGTYPE_SOUND_ICON: ret = output_send_msg(msg, "SOUND_ICON\n", output); break;
+        case MSGTYPE_CHAR: ret = output_send_msg(msg, "CHAR\n", output); break;
+        case MSGTYPE_KEY: ret = output_send_msg(msg, "KEY\n", output); break;
         default: MSG(2,"Invalid message type in output_speak()!");
         }
-    OL_RET(0)
+    OL_RET(ret)
 }
 
 int
@@ -358,7 +377,10 @@ output_check_module(OutputModule* output)
             return 0;
         }
         ret = WIFEXITED(status);
-        if (ret == 0){
+
+	/* TODO: What the hell happens here?  */
+	//        if (ret == 0){
+	if (1){
             /* Module terminated abnormally */
             MSG(2, "Output module terminated abnormally, probably crashed.");
         }else{
