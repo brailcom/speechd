@@ -22,8 +22,8 @@ char*
 spd_strdup(char* string)
 {
     char *newstr;
-
-    assert(string != NULL);
+    
+    if (string == NULL) return NULL;
 
     newstr = strdup(string);
     if (newstr == NULL) 
