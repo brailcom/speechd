@@ -1,5 +1,5 @@
 /* Speechd server program
- * CVS revision: $Id: speechd.c,v 1.9 2003-01-04 22:15:35 hanke Exp $
+ * CVS revision: $Id: speechd.c,v 1.10 2003-01-11 11:57:27 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
 #include <signal.h>
@@ -9,6 +9,7 @@
 
 
 int server_socket;
+int max_uid = 0;
 
 TSpeechDQueue* 
 speechd_queue_alloc()
@@ -79,13 +80,13 @@ history_list_create_client(int fd)
    GList *gl;
    new = malloc(sizeof(THistoryClient));
    if (new == NULL) FATAL("Not enough memory!");
-   gl = g_list_find_custom(fd_settings, (int*) fd, fdset_list_compare);
+   gl = g_list_find_custom(fd_settings, (int*) fd, fdset_list_compare_fd);
    if (gl == NULL) FATAL("Couldn't find appropiate settings for active client."); 
    settings = gl->data;
    new->client_name = malloc(strlen(settings->client_name)+1);
    strcpy(new->client_name, settings->client_name);
    new->fd = fd;
-   new->uid = fd;		// TODO: Unique ID
+   new->uid = settings->uid;
    new->active = 1;
    new->messages = NULL;
 
@@ -241,9 +242,7 @@ main()
    FD_SET(server_socket, &readfds);
    fdmax = server_socket;
 
-   /* Now wait for clients and requests.
-    * Since we have passed a null pointer as the timeout parameter, no timeout will occur.
-    * The program will exit and report an error if select returns a value of less than 1.  */
+   /* Now wait for clients and requests. */
    
       MSG(1, "speech server waiting for clients ...\n");
 
@@ -283,6 +282,8 @@ main()
 											   		   
            new_fd_set = default_fd_set();
            new_fd_set->fd = client_socket;
+		   new_fd_set->uid = max_uid;
+		   max_uid++;
            fd_settings = g_list_append(fd_settings, new_fd_set);
 
 	       hnew_element = history_list_create_client(client_socket);
@@ -306,7 +307,7 @@ main()
 		  MSG(3,"   removing client on fd %d\n", fd);
 		  MSG(5,"      stopping client on fd %d\n", fd);
 		  stop_from_client(fd);						
-          gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc);
+          gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
 		  assert(gl->data!=NULL);
 		  fd_set_element = (TFDSetElement*) gl->data;
 		  MSG(5,"       removing client from settings \n");

@@ -264,8 +264,7 @@ char* history_say_id(int fd, int id){
    if (gl == NULL) FATAL("Couldn't find history settings for active client");
    set = gl->data;
    
-   gl = g_list_find_custom(history, (int*) set->cur_client_id, 
-		   p_cli_comp_id);
+   gl = g_list_find_custom(history, (int*) set->cur_client_id, p_cli_comp_id);
    if (gl == NULL) return ERR_NO_SUCH_CLIENT;
    client = gl->data;
    
@@ -274,7 +273,8 @@ char* history_say_id(int fd, int id){
    new = gl->data;
 
    /* TODO: Solve this "p2" problem... */
-   MessageQueue->p2 = g_list_append(MessageQueue->p2, new);
+   MSG(3,"putting history message into queue 1\n");
+   MessageQueue->p1 = g_list_append(MessageQueue->p1, new);
    msgs_to_say++;
 
    return OK_MESSAGE_QUEUED;

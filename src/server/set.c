@@ -6,7 +6,7 @@ set_priority(int fd, int priority){
 	GList *gl;
     TFDSetElement *settings;
 	
-	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc);
+	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
 	if (gl == NULL) FATAL("Couldnt find settings for active client, internal error.");
 	settings = gl->data;
 	assert(gl->data != NULL);
@@ -19,7 +19,7 @@ set_language(int fd, char *language){
 	GList *gl;
     TFDSetElement *settings;
 	
-	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc);
+	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
 	if (gl == NULL) FATAL("Couldnt find settings for active client, internal error.");
 	settings = gl->data;
 	free(settings->language);
@@ -35,7 +35,7 @@ set_client_name(int fd, char *client_name){
     TFDSetElement *settings;
 	THistoryClient *hclient;
 										  
-	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc);
+	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
 	if (gl == NULL) FATAL("Couldnt find settings for active client, internal error.");
 	settings = gl->data;
 	free(settings->client_name);

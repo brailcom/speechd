@@ -110,11 +110,13 @@ typedef struct{
 OutputModule* load_output_module(gchar* modname);
 int serve(int fd); 	// serve the client on this file descriptor (socket)
 
-gint fdset_list_compare (gconstpointer, gconstpointer, gpointer);
+gint fdset_list_compare_fd (gconstpointer, gconstpointer, gpointer);
+gint fdset_list_compare_uid (gconstpointer, gconstpointer, gpointer);
 gint message_nto_speak (TSpeechDMessage*, gpointer, gpointer);
 gint message_list_compare_fd (gconstpointer, gconstpointer, gpointer);
 
-gint (*p_fdset_lc)();
+gint (*p_fdset_lc_fd)();
+gint (*p_fdset_lc_uid)();
 gint (*p_msg_nto_speak)();
 gint (*p_hc_lc)();
 gint (*p_msg_lc)();
