@@ -1,5 +1,17 @@
 2003-07-07  Hynek Hanke  <hanke@volny.cz>
 
+	* src/server/sndicon.c: Use SOUND_DATA_DIR.
+
+	* src/server/speechd.h (SOUND_DATA_DIR): New variable.
+
+	* src/server/dc_decl.h (cb_SoundDataDir): New dotconf callback (+default).
+
+	* config/speechd.conf: DefaultCapLetRecognition set to "none"
+	(SoundModule): Renamed from SndModule.
+	(SoundDataDir): New option.
+
+2003-07-07  Hynek Hanke  <hanke@volny.cz>
+	
 	* src/server/sndicon.c: Use SOUND_DIR instead of DATA_DIR.
 
 	* src/server/set.c (SET_SELF_ALL): New macro.
