@@ -1,8 +1,8 @@
 /* Speechd server functions
- * CVS revision: $Id: server.c,v 1.4 2002-07-07 11:00:15 hanke Exp $
+ * CVS revision: $Id: server.c,v 1.5 2002-07-18 17:46:29 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
-#include "speechd.h"
+#include "robod.h"
 #include "history.h"
 #include "history.c"
 

@@ -29,8 +29,8 @@
 #define LOG_LEVEL 3
 #define SPEECH_PORT 9876
 
-#define FATAL(msg) { printf("speechd: "msg"\n"); exit(EXIT_FAILURE); }
-#define DIE(msg)   { perror("speechd: "msg); exit(EXIT_FAILURE); }
+#define FATAL(msg) { printf("robod: "msg"\n"); exit(EXIT_FAILURE); }
+#define DIE(msg)   { perror("robod: "msg); exit(EXIT_FAILURE); }
 #define MSG(level,args...) if (level <= LOG_LEVEL) printf(args)
 
 #include "module.h"

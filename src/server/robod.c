@@ -1,8 +1,8 @@
 /* Speechd server program
- * CVS revision: $Id: speechd.c,v 1.5 2002-07-07 11:07:11 hanke Exp $
+ * CVS revision: $Id: robod.c,v 1.1 2002-07-18 17:46:29 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
-#include "speechd.h"
+#include "robod.h"
 
 /* define dotconf configuration options */
 static const configoption_t options[] = 
@@ -33,7 +33,7 @@ free (element);
 }
 
 TSpeechDQueue* 
-speechd_queue_alloc()
+robod_queue_alloc()
 {
    TSpeechDQueue *new;
 	
@@ -159,7 +159,7 @@ default_fd_set()
 
 int main() {
    configfile_t *configfile = NULL;
-   char *configfilename = "speechd.conf";
+   char *configfilename = "robod.conf";
    int server_socket;
    struct sockaddr_in server_address;
    fd_set testfds;
@@ -167,7 +167,7 @@ int main() {
    TFDSetElement *new_fd_set;
    THistSetElement *new_hist_set;
 
-   MessageQueue = speechd_queue_alloc();
+   MessageQueue = robod_queue_alloc();
 
    if (MessageQueue == NULL)
 	FATAL("Couldn't alocate memmory for MessageQueue.");
