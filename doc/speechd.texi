@@ -13,7 +13,7 @@
 @include version.texi
      
 @copying
-This manual is for Speech Daemon, version @value{VERSION}.
+This manual documents Speech Daemon, version @value{VERSION}.
 
 Copyright @copyright{} 2001, 2002, 2003 ???
 
@@ -33,8 +33,7 @@ Permission is granted to ...
 @titlepage
 @title Speech Daemon --- Easy access to speech synthesis
 @subtitle Mastering the Babylon of TTS'
-@subtitle Edition @value{EDITION}, for Speech Daemon @value{VERSION}
-@subtitle @value{UPDATED}
+@subtitle for Speech Daemon @value{VERSION}
 @author by Tom@'a@v{s} Cerha <@email{cerha@@brailcom.cz}>, Hynek Hanke <@email{hanke@@volny.cz}>
 @author and Czech Free Software Organization <@email{info@@freesoft.cz}>
 
@@ -71,7 +70,10 @@ that attempts to provide a common interface to different synthesizers.
 * Configuration::            How to configure Speech Daemon.
 
 * Standard sound icons::     List of the standard sound icon names.
-* Standard voices::          List of the standard voice identifiers.
+* Standard spelling tables:: List of the standard spelling table names.
+* Standard sound tables::    List of the standard sound table names.
+* Standard voices::          List of the standard voice names.
+
 * Copying::                  GNU General Public License.
 
 * Concept index::            Index of concepts.
@@ -813,23 +815,23 @@ affect only the synthesis process and output to a sound device, they
 do not affect the message history.
 
 @table @code
-@item STOP [ @var{id} | all ]
+@item STOP @{ @var{id} | all | self @}
 Immediately stop outputting the current message (whatever it is ---
 text, letter, key, or sound icon) from the identified client, if any
-is being output.  If there is no command argument given, last message
-from the current client connection is stopped.  If @var{id} is given,
-it must be a positive integer, stop the currently processed message
-from the client connection identified by @var{id}; if there is none
-such, do nothing.  If @code{all} is given as the command argument,
+is being output.  If the command argument is @code{self}, last message
+from the current client connection is stopped.  If it is @code{all},
 stop currently output message or messages from all the clients.
+Otherwise, argument @var{id} must be given as an positive integer and
+the currently processed message from the client connection identified
+by @var{id} is stopped; if there is none such, do nothing.
 
-@item CANCEL [ @var{id} | all ]
+@item CANCEL @{ @var{id} | all | self @}
 This command is the same as @code{SPEAK}, with the exception that it
 stops not yet output messages as well.  All currently queued messages
 are stored into the message history without being sent to the audio
 output device.
 
-@item PAUSE [ @var{id} | all ]
+@item PAUSE @{ @var{id} | all | self @}
 Stop audio output immediately, but do not discard anything.  All the
 currently output and currently or later queued messages are postponed
 and saved for later processing, until the corresponding @code{RESUME}
@@ -838,7 +840,7 @@ command is received.
 The meaning of the command arguments is the same as in the @code{STOP}
 command.
 
-@item RESUME [ @var{id} | all ]
+@item RESUME @{ @var{id} | all | self @}
 Cancel the effect of the previously issued @code{PAUSE} command.
 Note that messages of the priority 3 received during the pause are not
 output (but they remain stored in the message history).
@@ -908,26 +910,33 @@ punctuation characters, @code{none} read no punctuation characters,
 server configuration.
 
 @item SET SPELLING_TABLE @var{table}
-Set spelling table to @var{table}.  The list of the available spelling
-tables on the server can be obtained via the @code{LIST
+Set spelling table to @var{table}.  @var{table} must be one of the
+spelling table names returned to the command @code{LIST
 SPELLING_TABLES} command, see @ref{Information retrieval commands}.
 
+There is a standard set of spelling tables defined in @ref{Standard
+spelling tables}.
+
 @item SET TEXT_TABLE @var{table}
-Similar to @code{SET SPELLING_TABLE}, but sets the text mapping table
-instead.
+Set text table to @var{table}.  @var{table} must be one of the text
+table names returned to the command @code{LIST TEXT_TABLES}
+command, see @ref{Information retrieval commands}.
 
 @item SET SOUND_TABLE @var{table}
-Similar to @code{SET SPELLING_TABLE}, but sets the sound mapping table
-instead.
+Set sound table to @var{table}.  @var{table} must be one of the text
+table names returned to the command @code{LIST SOUND_TABLES} command,
+see @ref{Information retrieval commands}.
 
-@item SET VOICE @var{id}
-Set the voice identified by @var{id}.  @var{id} must be one of the
-voice identifiers returned by the command @code{LIST VOICES}, see
+There is a standard set of sound tables defined in @ref{Standard sound
+tables}.
+
+@item SET VOICE @var{name}
+Set the voice identified by @var{name}.  @var{name} must be one of the
+voice identifiers returned to the command @code{LIST VOICES}, see
 @ref{Information retrieval commands}.
 
 There is a standard set of voice identifiers defined in @ref{Standard
-voices}.  The command accepts any of those identifiers as its
-argument.
+voices}.
 
 @item SET RATE @var{n}
 Set the rate of speech.  @var{n} is an integer value within the range
@@ -960,7 +969,8 @@ argument of the @code{LIST} command.
 @table @code
 @item LIST SPELLING_TABLES
 List the names of all the spelling tables available on the server.
-Each table name is listed on a separate line.
+Each table name is listed on a separate line.  Each name may contain
+only alphanumeric characters and underscores.
 
 Example Speech Daemon response:
 
@@ -972,6 +982,9 @@ Example Speech Daemon response:
 200 OK Tables listed.
 @end example
 
+The standard spelling tables are always listed, see @ref{Standard
+spelling tables}.
+
 @item LIST TEXT_TABLES
 Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
 available text mapping tables.
@@ -980,9 +993,12 @@ available text mapping tables.
 Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
 available sound mapping tables.
 
+The standard sound tables are always listed, see @ref{Standard
+sound tables}.
+
 @item LIST VOICES
 Similar to @code{LIST SPELLING_TABLES}, but lists the available voice
-identifiers.
+names.
 
 The standard voices are always listed, see @ref{Standard voices}.
 @end table
@@ -1066,19 +1082,21 @@ Each message id is listed, together with other information, on a
 separate line, in the following format:
 
 @example
-@var{id} @var{client-name} "@var{time}" @var{priority} "@var{intro}"
+@var{id} @var{client-id} @var{client-name} "@var{time}" @var{priority} "@var{intro}"
 @end example
 
-@var{client-name} is the name of the client which sent the message, as
-set by the @code{SET CLIENT_NAME} command, see @ref{Parameter setting
-commands}.  @var{time} is the time of arrival of the message, in the
-fixed length @code{YYYY-MM-DD HH:MM:SS} format.  @var{priority} is the
-priority of the message, one of the values accepted by the @code{SET
-PRIORITY} command, see @ref{Parameter setting commands}.
+@var{client-id} is a numeric identifier of the client which sent the
+message, @var{client-name} is its name as set by the @code{SET
+CLIENT_NAME} command, see @ref{Parameter setting commands}.
+@var{time} is the time of arrival of the message, in the fixed length
+@code{YYYY-MM-DD HH:MM:SS} format.  @var{priority} is the priority of
+the message, one of the values accepted by the @code{SET PRIORITY}
+command, see @ref{Parameter setting commands}.
 
 @var{intro} is the introductory part of the message of a certain
-maximum length, see the @code{???} command.  @var{intro} does not
-contain any double quotes nor the line feed character.
+maximum length, see the @code{HISTORY SET SHORT_MESSAGE_LENGTH}
+command.  @var{intro} does not contain any double quotes nor the line
+feed character.
 
 All the message identifiers in the history, regardless of clients that
 issued them, are unique within a single run of Speech Daemon and
@@ -1091,6 +1109,22 @@ The id is listed on a separate line of the following format:
 
 @example
 @var{id}
+@end example
+
+If the client haven't sent any message yet, return an error code.
+
+@item HISTORY GET MESSAGE @var{id}
+Return the text of the history message identified by @var{id}.  If
+@var{id} doesn't refer any message, return an error code instead.
+The text is sent as a multi-line message, with no escaping or special
+transformation.
+
+An example SSIP response to the command:
+
+@example
+200-Hello, world!
+200-How are you?
+200 OK MESSAGE SENT
 @end example
 
 @item HISTORY CURSOR GET
@@ -1125,7 +1159,19 @@ CURSOR SET} command.  If there is no next, resp. previous, message,
 don't move the cursor and return an error code.
 
 @item HISTORY SAY @var{id}
-Speak the message from history identified by @var{id}.
+Speak the message from history identified by @var{id}.  If @var{id}
+doesn't refer any message, return an error code instead.
+
+The message is spoken as it would be sent by its originating command
+(@code{SPEAK} or @code{SOUND_ICON}), but the @emph{current} settings
+(priority, etc.) apply.
+
+@item HISTORY SET SHORT_MESSAGE_LENGTH @var{length}
+Set the maximum length of short versions of history messages to
+@var{length} characters.  @var{length} must be a non-negative integer.
+
+Short (truncated) versions of history messages are used e.g. in the
+answer to the @code{HISTORY GET CLIENT_MESSAGES} format.
 
 @item HISTORY SORT ???
 Sorts the history of messages.
@@ -1156,7 +1202,7 @@ Logical AND --- all the conditions must be satisfied.
 Logical OR --- at least one of the conditions must be satisfied.
 @end table
 
-Spaces within the condition are insignifficant and ignored.
+Spaces within the condition are insignificant and ignored.
 
 The following rules apply to @var{word}s:
 
@@ -1172,7 +1218,7 @@ is case sensitive, otherwise it's case insensitive.
 @var{word} must match whole word, not only its substring.
 
 @item
-@var{word} can contain the wildcard characters @code{?}, substituting
+@var{word} can contain the wild card characters @code{?}, substituting
 any single alphanumeric character, and @code{*}, substituting any
 number (incl. zero) of alphanumeric characters.
 @end itemize
@@ -1188,7 +1234,7 @@ effect only if the given condition is the OR rule.
 
 @item
 The criterion used in the last client's invocation of the
-@code{HISTORY SORT} command.  If no @code{HISTORY SET} has been
+@code{HISTORY SORT} command.  If no @code{HISTORY SORT} has been
 invoked yet, the messages are sorted from the oldest to the newest,
 according to their time of arrival to Speech Daemon.
 @end enumerate
@@ -1510,17 +1556,36 @@ See @file{speechd.conf}.
 Other parts of this manual deal with the runtime configuration.
 
 
-@node Standard sound icons, Standard voices, Configuration, Top
+@node Standard sound icons, Standard spelling tables, Configuration, Top
 @appendix Standard sound icons
 
 There are none currently.
 
 
-@node Standard voices, Copying, Standard sound icons, Top
+@node Standard spelling tables, Standard sound tables, Standard sound icons, Top
+@appendix Standard spelling tables
+
+The following spelling table names are always present in the output of
+the @code{LIST SPELLING tables} command (@pxref{Information retrieval
+commands}):
+
+@table @code
+@item spelling-short
+@item spelling-long
+@end table
+
+
+@node Standard sound tables, Standard voices, Standard spelling tables, Top
+@appendix Standard sound tables
+
+There are none currently.
+
+
+@node Standard voices, Copying, Standard sound tables, Top
 @appendix Standard voices
 
-The following voice identifiers are always present in the output of
-the @code{LIST VOICES} command (@pxref{Information retrieval commands}):
+The following voice names are always present in the output of the
+@code{LIST VOICES} command (@pxref{Information retrieval commands}):
 
 @table @code
 @item MALE1
@@ -1555,9 +1620,6 @@ to another voice by the output module.
 @contents
 @bye
 
-@c speechd.texi ends here
-
-
 @c  LocalWords:  texinfo setfilename speechd settitle finalout syncodeindex pg
 @c  LocalWords:  setchapternewpage cp fn vr texi dircategory direntry titlepage
 @c  LocalWords:  Cerha Hynek Hanke vskip pt filll insertcopying ifnottex dir fd
@@ -1567,3 +1629,6 @@ to another voice by the output module.
 @c  LocalWords:  fdset init flite deffn TFDSetElement var int enum EVoiceType
 @c  LocalWords:  sayf ifinfo verbatiminclude ref UTF ccc ddd pxref LF cs conf
 @c  LocalWords:  su AddModule DefaultModule xref identd printindex Dectalk GTK
+
+@c speechd.texi ends here
+@c  LocalWords:  emph
