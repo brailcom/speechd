@@ -1,3 +1,24 @@
+
+2003-04-12  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/modules/flite.c (flite_write): Rate scale tweaked.
+
+	* src/server/server.c (speak): If spelling on, convert the message.
+	(process_message): New function.
+
+	* src/server/sndicon.c: New file for sound icons related functions.
+
+	* src/server/sndicon.c: New header file for sndicon.c.
+
+	* src/server/speechd.h: +sndicon.h
+
+	* src/server/Makefile.am: Added snd_icon.c, snd_icon.h
+
+	* src/server/parse.c: Use snd_icon.c functions.
+
+	* config/speechd.conf: The various options have some comments now.
+	Cleaned.
+
 2003-04-11  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* config/speechd.conf: Moved from speechd.conf.
