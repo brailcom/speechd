@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.c,v 1.16 2003-05-26 16:04:50 hanke Exp $
+ * $Id: history.c,v 1.17 2003-06-23 05:10:43 hanke Exp $
  */
 
 #include "speechd.h"
@@ -289,7 +289,7 @@ history_say_id(int fd, int id)
 	if (msg == NULL) return ERR_INTERNAL;
 
 	MSG(4,"putting history message into queue\n");
-	new = (TSpeechDMessage*) history_list_new_message(msg);
+	new = (TSpeechDMessage*) spd_message_copy(msg);
 	queue_message(new, fd, 0, 0);
 
 	return OK_MESSAGE_QUEUED;
