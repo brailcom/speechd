@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.28 2003-07-06 14:59:15 hanke Exp $
+ * $Id: dc_decl.h,v 1.29 2003-07-07 08:40:37 hanke Exp $
  */
 
 #include "speechd.h"
@@ -50,10 +50,12 @@ DOTCONF_CB(cb_DefaultPunctuationMode);
 DOTCONF_CB(cb_DefaultPunctuationTable);
 DOTCONF_CB(cb_PunctuationSome);
 DOTCONF_CB(cb_DefaultSpellingTable);
+DOTCONF_CB(cb_DefaultCapLetRecognTable);
 DOTCONF_CB(cb_DefaultClientName);
 DOTCONF_CB(cb_DefaultVoiceType);
 DOTCONF_CB(cb_DefaultSpelling);
 DOTCONF_CB(cb_DefaultCapLetRecognition);
+DOTCONF_CB(cb_CapLetRecognIcon);
 DOTCONF_CB(cb_DefaultSpellingTable);
 DOTCONF_CB(cb_DefaultCharacterTable);
 DOTCONF_CB(cb_DefaultKeyTable);
@@ -140,8 +142,7 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(AddTable, ARG_STR);
     ADD_CONFIG_OPTION(DefaultModule, ARG_STR);
     ADD_CONFIG_OPTION(LanguageDefaultModule, ARG_LIST);
-    ADD_CONFIG_OPTION(DefaultRate, ARG_INT);
-  
+    ADD_CONFIG_OPTION(DefaultRate, ARG_INT);  
     ADD_CONFIG_OPTION(DefaultPitch, ARG_INT);
     ADD_CONFIG_OPTION(DefaultLanguage, ARG_STR);
     ADD_CONFIG_OPTION(DefaultPriority, ARG_STR);
@@ -152,10 +153,12 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(DefaultVoiceType, ARG_STR);
     ADD_CONFIG_OPTION(DefaultSpelling, ARG_TOGGLE);
     ADD_CONFIG_OPTION(DefaultSpellingTable, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultCapLetRecognTable, ARG_STR);
+    ADD_CONFIG_OPTION(CapLetRecognIcon, ARG_STR);
     ADD_CONFIG_OPTION(DefaultCharacterTable, ARG_STR);
     ADD_CONFIG_OPTION(DefaultKeyTable, ARG_STR);
     ADD_CONFIG_OPTION(DefaultSoundTable, ARG_STR);
-    ADD_CONFIG_OPTION(DefaultCapLetRecognition, ARG_TOGGLE);
+    ADD_CONFIG_OPTION(DefaultCapLetRecognition, ARG_STR)
     ADD_CONFIG_OPTION(AddModule, ARG_STR);
     ADD_CONFIG_OPTION(EndAddModule, ARG_NONE);
     ADD_CONFIG_OPTION(AddParam, ARG_LIST);
@@ -177,6 +180,7 @@ load_default_global_set_options()
     GlobalFDSet.punctuation_table = strdup("spelling_short");
     GlobalFDSet.spelling = 0;
     GlobalFDSet.spelling_table = strdup("spelling_short");
+    GlobalFDSet.cap_let_recogn_table = strdup("spelling_short");
     GlobalFDSet.char_table = strdup("spelling_short");
     GlobalFDSet.key_table = strdup("keys");
     GlobalFDSet.snd_icon_table = strdup("sound_icons");
@@ -187,6 +191,7 @@ load_default_global_set_options()
     GlobalFDSet.output_module = NULL;
     GlobalFDSet.voice_type = MALE1;
     GlobalFDSet.cap_let_recogn = 0;
+    GlobalFDSet.cap_let_recogn_sound = NULL;
     GlobalFDSet.min_delay_progress = 2000;
 
     spd_log_level = 3;
@@ -391,6 +396,8 @@ GLOBAL_FDSET_OPTION_CB_STR(DefaultSpellingTable, spelling_table);
 GLOBAL_FDSET_OPTION_CB_STR(DefaultCharacterTable, char_table);
 GLOBAL_FDSET_OPTION_CB_STR(DefaultKeyTable, key_table);
 GLOBAL_FDSET_OPTION_CB_STR(DefaultSoundTable, snd_icon_table);
+GLOBAL_FDSET_OPTION_CB_STR(DefaultCapLetRecognTable, cap_let_recogn_table);
+GLOBAL_FDSET_OPTION_CB_STR(CapLetRecognIcon, cap_let_recogn_sound);
 
 GLOBAL_FDSET_OPTION_CB_STR(DefaultClientName, client_name);
 
@@ -484,7 +491,18 @@ DOTCONF_CB(cb_DefaultSpelling)
 
 DOTCONF_CB(cb_DefaultCapLetRecognition)
 {
-    GlobalFDSet.cap_let_recogn = cmd->data.value;
+    char *mode;
+    assert(cmd->data.str != NULL);
+    mode = g_ascii_strdown(cmd->data.str, strlen(cmd->data.str));
+
+    if (!strcmp(mode, "none")) GlobalFDSet.cap_let_recogn = RECOGN_NONE;
+    else if(!strcmp(mode, "spell")) GlobalFDSet.cap_let_recogn = RECOGN_SPELL;
+    else if(!strcmp(mode, "icon")) GlobalFDSet.cap_let_recogn = RECOGN_ICON;
+    else{
+        MSG(3, "Invalid capital letters recognition mode specified in configuration");
+        return NULL;
+    }
+
     return NULL;
 }
 
@@ -688,7 +706,11 @@ table_add(char *name, char *group)
         tables.keys = g_list_append(tables.keys, p);
     else if(!strcmp(group, "punctuation"))
         tables.punctuation = g_list_append(tables.punctuation, p);
-    else return 1;
-
+    else if(!strcmp(group, "cap_let_recogn"))
+        tables.cap_let_recogn = g_list_append(tables.cap_let_recogn, p);
+    else{
+        MSG(2,"Invalid table group for %s!", name);
+        return 1;
+    }
     return 0;
 } 
