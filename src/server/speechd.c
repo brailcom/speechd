@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.45 2003-09-07 11:32:27 hanke Exp $
+ * $Id: speechd.c,v 1.46 2003-09-11 16:34:45 hanke Exp $
  */
 
 #include "speechd.h"
@@ -182,6 +182,13 @@ speechd_load_configuration(int sig)
     char *configfilename = SYS_CONF"/speechd.conf";
     configfile_t *configfile = NULL;
 
+    /* Clean previous configuration */
+    assert(output_modules != NULL);
+    g_hash_table_foreach_remove(output_modules, speechd_modules_terminate, NULL);
+    /* Make sure there aren't any more child processes left */
+    while(waitpid(-1, NULL, WNOHANG) > 0);    
+
+    /* Load new configuration */
     load_default_global_set_options();
 
     spd_num_options = 0;
