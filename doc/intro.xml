@@ -1,6 +1,11 @@
 <chapter id="ch-intro">
   <title>Introduction</title>
   
+  <para>
+    This chapter is intended to describe the current state and find out
+    the problems which are needed to solve. 
+  </para>
+  
   <!-- ========================================================= -->
   <sect1>
     <title>Speech Synthesizers</title>
@@ -11,11 +16,14 @@
       <title>Hardware devices</title>
       
       <para>
-	Hardware synthesizers are the devices, which may be connected mostly to
-	serial port of a PC. Application may send textual data to the port and the device
-	converts it to spoken letters and words. Data may contain also several
-	control sequences in the form of escaped characters as commands. The problem,
-	we are facing, is that each of these devices uses its own communication protocol.
+	Hardware synthesizers are the devices, which may be connected to PC.
+	Mostly they are external, connected via serial or parallel port.
+	There are also some internal devices for ISA bus. Application may
+	send textual data to the port and the device converts it to spoken
+	letters and words. Data may contain also several
+	control sequences in the form of escaped characters as commands. 
+	The problem, we are facing, is that each of these devices uses its
+	own communication protocol.
 
 	<itemizedlist>
 	  <listitem>
@@ -29,13 +37,23 @@
       </para>
       
     </sect2>
+   
+    <!-- ********************************************************* -->
+    <sect2>
+      <title>IBM ViaVoice</title>
+      
+      <para>
+	IBM ViaVoice is a commercial product, but we see it to be very good.
+	It is available for Linux, ....
+      </para>
+    </sect2>
     
     <!-- ********************************************************* -->
     <sect2>
-      <title>MBROLA</title>
+      <title>MBrola project</title>
       
       <para>
-	MBROLA is a software speech synhesis ...
+	MBrola is a software speech synhesis ...
       </para>
     </sect2>
     
@@ -62,11 +80,15 @@
     <sect2>
       <title>EmacSpeak</title>
       
-      <para>The Emacspeak by T. V. Raman &lt;raman@cs.cornell.edu> software package
+      <para>
+        The EmacSpeak by T. V. Raman &lt;raman@cs.cornell.edu> software package
 	provides speech output for Emacs, and includes "speech servers" for
-	the DECtalk speech synthesizers.</para>
+	the DECtalk speech synthesizers.
+      </para>
       
-      <para>The package emacspeak-ss provides servers for several additional synthesizers:</para>
+      <para>
+        The package emacspeak-ss provides servers for several additional synthesizers:
+      </para>
       
       <itemizedlist mark="opencircle">
 	<listitem><para>DoubleTalk PC and AT from <ulink url="http://www.rcsys.com/">R. C. Systems</ulink></para></listitem>
@@ -78,18 +100,23 @@
 	<listitem><para>Spanish PC Hablado notebook</para></listitem>
       </itemizedlist>
       
-      <para>None of these programs are normally run by the user directly.  Instead,
+      <para>
+        None of these programs are normally run by the user directly.  Instead,
 	they are run by Emacs. That is: Emacs runs the emacspeak code, which executes
 	Tcl, which interprets the server code. This approach is too closely "wired"
-	to usage with Emacspeak, so it may not be used for our general purposes.</para>
+	to usage with Emacspeak, so it may not be used for our general purposes.
+      </para>
       
-      <para>This does not mean, that these servers are compleetly a bad idea and we
+      <para>
+        This does not mean, that these servers are compleetly a bad idea and we
 	can not use them. Thanks to the author  <ulink url="mailto:jrv@vanzandt.mv.com">Jim Van Zandt</ulink>), we can learn from
-	the sources and write the output driver modules for speechd (emacspeek-ss is
-	GPL).</para>
+	the sources and write the output driver modules for Speech Daemon (emacspeek-ss is
+	GPL).
+      </para>
       
-      <para>Bart Bunting is working on a speech server using the MBROLA software
-	speech synthesizer.</para>
+      <para>
+        Bart Bunting is working on a speech server using the MBrola speech synthesis.
+      </para>
       
     </sect2>
     
@@ -104,28 +131,72 @@
     
     <!-- ********************************************************* -->
     <sect2>
-      <title>X Window System</title>
-      <para>
-	There is currently (as far as we know...) no speach support for
-	speaking X Window programs. However several windowing toolkit libraries take
-	speech support into a focus last few years. These are:
+      <title>Graphical X11 applications</title>
 
+      <para>
+        The problem of speaking X Window applications can be devided
+	into several subproblems. 
+	
 	<itemizedlist>
 	  <listitem>
-	    <para>wxWindows</para>
+	    <para>Window managers</para>
 	  </listitem>
 	  <listitem>
-	    <para>Java AWT</para>
+	    <para>Desktop managers</para>
 	  </listitem>
 	  <listitem>
-	    <para>FOX toolkit</para>
+	    <para>Widget toolkit libraries</para>
+	  </listitem>
+	  <listitem>
+	    <para>Applications themselves</para>
 	  </listitem>
 	</itemizedlist>
-
-	We hope to be able to integrate speechd into these projects in the future.
-
       </para>
+
+	<sect3>
+	  <title>Window managers</title>
+	  <para> 
+	  </para>
+	</sect3>
+	<sect3>
+	  <title>Desktop managers</title>
+	</sect3>
+	<sect3>
+	  <title>Widget toolkit libraries</title>
+	  <para>
+	    Several windowing toolkit libraries take speech support 
+	    into a focus the last few years. These are:
+
+	    <itemizedlist>
+	      <listitem>
+		<para>GTK+ (Gnome Accessibility project)</para>
+	      </listitem>
+	      <listitem>
+		<para>wxWindows</para>
+	      </listitem>
+	      <listitem>
+		<para>Java AWT</para>
+	      </listitem>
+	      <listitem>
+		<para>FOX toolkit</para>
+	      </listitem>
+	    </itemizedlist>
+
+	    We hope to be able to integrate Speech Daemon into these projects
+	    in the future.
+
+          </para>
+	</sect3>
+	<sect3>
+	  <title>Applications themselves</title>
+	</sect3>
+
     </sect2>
+    
+  </sect1>
+
+  <sect1>
+    <title>What we lack</title>
     
   </sect1>
   
