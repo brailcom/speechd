@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.14 2004-04-17 14:53:12 hanke Exp $
+ * $Id: libspeechd.h,v 1.15 2004-04-17 15:30:04 hanke Exp $
  */
 
 
@@ -149,11 +149,13 @@ int spd_set_output_module(int connection, const char* output_module);
 int spd_set_output_module_all(int connection, const char* output_module);
 int spd_set_output_module_uid(int connection, const char* output_module, unsigned int uid);
 
+/* Direct SSIP communication */
+int spd_execute_command(int connection, char* command);
+char* spd_send_data(int fd, const char *message, int wfr);
+
 /* --------------  Private functions  ------------------------*/
 
-static char* spd_send_data(int fd, const char *message, int wfr);
 static int spd_set_priority(int connection, SPDPriority priority);
-static int spd_execute_command(int connection, char* command);
 
 static char* escape_dot(const char *otext);
 
