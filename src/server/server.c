@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.50 2003-06-23 05:12:11 hanke Exp $
+  * $Id: server.c,v 1.51 2003-06-23 18:38:22 hanke Exp $
   */
 
 #include "speechd.h"
@@ -182,12 +182,12 @@ int
 serve(int fd)
 {
     size_t bytes;              /* Number of bytes we got */
-    char buf[BUF_SIZE];     /* The content (commands or data) we got */
+    char buf[BUF_SIZE+1];     /* The content (commands or data) we got */
     char *reply;            /* Reply to the client */
     int ret;
  
     /* Read data from socket */
-    bytes = read(fd, buf, BUF_SIZE);
+    bytes = read(fd, buf, BUF_SIZE-1);
     if(bytes == -1) return -1;
     buf[bytes] = 0;
     MSG(4,"Read %d bytes from client on fd %d", bytes, fd);
