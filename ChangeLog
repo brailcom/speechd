@@ -1,3 +1,15 @@
+2004-11-21  Hynek Hanke  <hanke@chopin>
+
+	* src/audio/nas.c (nas_play): Correct type for event_handler.
+
+	* src/audio/spd_audio.c (spd_audio_open): Don't generare incompatible types warnings.
+
+	* configure.in (flite_kal): Provide --with-nas and --with-flite options.
+
+	* src/audio/spd_audio.h (Funct): (*open) now returns int.
+
+	* src/modules/festival.c (_festival_speak): Set FestivalMultiMode only if text not found in cache.
+
 2004-11-19  Hynek Hanke  <hanke@chopin>
 
 	* src/audio/spd_audio.h (device_name): New parameter of AudioID.
