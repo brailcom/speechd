@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.6 2003-03-12 22:24:24 hanke Exp $
+ * $Id: fdset.h,v 1.7 2003-03-29 20:25:17 hanke Exp $
  */
 
 typedef enum {                  /* Prefered type of voice */
@@ -31,9 +31,15 @@ typedef enum {                  /* Prefered type of voice */
         CHILD_FEMALE = 3
 }EVoiceType;
 
+typedef enum{
+	BY_TIME = 0,
+	BY_ALPHABET = 1
+}ESort;
+
 typedef struct{
 		unsigned int uid;		/* Unique ID of the client */
         int fd;					/* File descriptor the client is on. */
+		int active;				/* Is this client still active on socket or gone?*/
         int paused;				/* Internal flag, 1 for paused client or 0 for normal. */
         int priority;			/* Priority between 1 and 3 (1 - highest, 3 - lowest) */
         int punctuation_mode;	/* Punctuation mode: 0, 1 or 2
@@ -48,5 +54,8 @@ typedef struct{
         EVoiceType voice_type;  /* see EVoiceType definition above */
         int spelling;           /* Spelling mode: 0 or 1 (0 - off, 1 - on) */
         int cap_let_recogn;     /* Capital letters recognition: (0 - off, 1 - on) */
+		unsigned int hist_cur_uid;
+		int hist_cur_pos;
+		ESort hist_sorted;
 }TFDSetElement;
 
