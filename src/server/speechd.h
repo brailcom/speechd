@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.45 2003-10-07 16:52:01 hanke Exp $
+ * $Id: speechd.h,v 1.46 2003-10-08 21:33:20 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -112,25 +112,13 @@ typedef enum
     RESUME = 3
 }EStopCommands;
 
-typedef struct
-{
-    GList *sound_icons;
-    GList *spelling;
-    GList *characters;
-    GList *keys;
-    GList *punctuation;
-    GList *cap_let_recogn;
-}TSpeechDTables;
-
 TSpeechDMode spd_mode;
 
 int spd_port;
 int spd_port_set;
 
-char *SOUND_DATA_DIR;
-
 OutputModule* load_output_module(char* mod_name, char* mod_prog,
-                                 char* mod_cfgfile, EFilteringType mod_filt);
+                                 char* mod_cfgfile);
 
 /* Message logging */
 int spd_log_level;
@@ -175,16 +163,10 @@ int spd_num_options;
 GHashTable *output_modules;	
 /* Table of settings for each active client (=each active socket)*/
 GHashTable *fd_settings;	
-/* Table of sound icons for different languages */
-GHashTable *snd_icon_langs;
-/* Pointer into snd_icon_langs to all the entries under the `generic' language */
-GHashTable *generic_lang_icons;
 /* Table of default output modules for different languages */
 GHashTable *language_default_modules;
 /* Table of relations between client file descriptors and their uids*/
 GHashTable *fd_uid;
-/* A list of all defined tables grouped by their categories */
-TSpeechDTables tables;
 
 /* Speech Dispatcher main priority queue for messages */
 TSpeechDQueue *MessageQueue;
@@ -202,8 +184,6 @@ TSpeechDMessage *last_p5_message;
 
 /* Global default settings */
 TFDSetElement GlobalFDSet;
-
-OutputModule *sound_module;
 
 /* Arrays needed for receiving data over socket */
 int *awaiting_data;
