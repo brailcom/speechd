@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.41 2003-07-18 21:39:02 hanke Exp $
+ * $Id: parse.c,v 1.42 2003-07-20 08:48:00 hanke Exp $
  */
 
 #include "speechd.h"
@@ -340,7 +340,6 @@ parse_set(const char *buf, const int bytes, const int fd)
     int uid;                    /* uid of the client (only if who == 1) */
     int ret;  
     char *set_sub;
-
     char *who_s;
 
     GET_PARAM_STR(who_s, 1, CONV_DOWN);
@@ -383,7 +382,7 @@ parse_set(const char *buf, const int bytes, const int fd)
     }
     else if (TEST_CMD(set_sub, "language")){
         char *language;
-        NOT_ALLOWED_INSIDE_BLOCK();
+
         GET_PARAM_STR(language, 3, CONV_DOWN);
 
         SSIP_SET_COMMAND(language);
