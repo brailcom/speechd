@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.10 2003-10-12 23:25:59 hanke Exp $
+ * $Id: libspeechd.h,v 1.11 2003-10-16 20:54:58 hanke Exp $
  */
 
 
@@ -27,9 +27,7 @@
 extern "C" {
 #endif
 
-
 /* Debugging */
-#define LIBSPEECHD_DEBUG
 static FILE* spd_debug;
 void SPD_DBG(char *format, ...);
 
@@ -48,6 +46,12 @@ typedef enum{
     SPD_PUNCT_NONE = 1,
     SPD_PUNCT_SOME = 2
 }SPDPunctuation;
+
+typedef enum{
+    SPD_CAP_NONE = 0,
+    SPD_CAP_SPELL = 1,
+    SPD_CAP_ICON = 2
+}SPDCapitalLetters;
 
 typedef enum{
     SPD_SPELL_OFF = 0,
@@ -125,6 +129,10 @@ int spd_set_punctuation(int connection, SPDPunctuation type);
 int spd_set_punctuation_all(int connection, SPDPunctuation type);
 int spd_set_punctuation_uid(int connection, SPDPunctuation type, unsigned int uid);
 
+int spd_set_capital_letters(int connection, SPDCapitalLetters type);
+int spd_set_capital_letters_all(int connection, SPDCapitalLetters type);
+int spd_set_capital_letters_uid(int connection, SPDCapitalLetters type, unsigned int uid);
+
 int spd_set_punctuation_important(int connection, const char* punctuation_important);
 int spd_set_punctuation_important_all(int connection, const char* punctuation_important);
 int spd_set_punctuation_important_uid(int connection, const char* punctuation_important,
@@ -165,15 +173,16 @@ int spd_set_key_table_uid(int connection, const char* ktable, unsigned int uid);
 
 /* --------------  Private functions  ------------------------*/
 
-char* spd_send_data(int fd, char *message, int wfr);
+char* spd_send_data(int fd, const char *message, int wfr);
 int spd_set_priority(int connection, SPDPriority priority);
 
-char* send_data(int fd, char *message, int wfr);
+char* escape_dot(const char *otext);
+
 int isanum(char* str);		
 char* get_rec_str(char *record, int pos);
 int get_rec_int(char *record, int pos);
 char* parse_response_data(char *resp, int pos);
-void *xmalloc(unsigned int bytes);
+void *xmalloc(size_t bytes);
 void xfree(void *ptr);
 
 #ifdef __cplusplus
