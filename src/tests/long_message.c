@@ -19,12 +19,8 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: long_message.c,v 1.7 2003-05-31 10:15:05 pdm Exp $
+ * $Id: long_message.c,v 1.8 2003-06-08 21:55:21 hanke Exp $
  */
-
-/* Warning: VIM currently has some problems with highliting syntax
- * in this test, don't confuse the actual code with the string
- * containing code in the seccond message! */
 
 #include <stdio.h>
 
@@ -46,7 +42,7 @@ int main() {
 	printf("OK\n");
 
 		printf("Sending message number 1, text \n");
-		spd_say(sockfd, 2, ""
+		spd_say(sockfd, "message", ""
 "						\n"
 "       ALICE'S ADVENTURES IN WONDERLAND by Lewis Carroll.\n"
 "\n"
@@ -269,7 +265,7 @@ int main() {
 
 
 	printf("Sending message number 2, code (ugly characters) \n");
-	spd_say(sockfd, 2, "\n"
+	spd_say(sockfd, "message", "\n"
 "\n"
 "int\n"
 "stop_p3(){\n"
