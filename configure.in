@@ -3,6 +3,7 @@ AC_INIT(configure.in)
 
 dnl progs
 AC_PROG_CC
+AC_PROG_CXX
 dnl info
 AM_INIT_AUTOMAKE(speechd, "`cat version.sh|grep '^VERSION'|awk -F= '{print $2}'`")
 
