@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.30 2003-07-07 09:59:45 hanke Exp $
+ * $Id: dc_decl.h,v 1.31 2003-07-16 19:18:06 hanke Exp $
  */
 
 #include "speechd.h"
@@ -670,6 +670,11 @@ DOTCONF_CB(cb_AddVoice)
     if (voices == NULL){
         key = spd_strdup(language);
         value = (SPDVoiceDef*) spd_malloc(sizeof(SPDVoiceDef));
+
+        value->male1=NULL; value->male2=NULL; value->male3=NULL;
+        value->female1=NULL; value->female2=NULL; value->female3=NULL;
+        value->child_male=NULL; value->child_female=NULL;
+
         g_hash_table_insert(cur_mod->settings.voices, key, value);
         voices = value;
     }
