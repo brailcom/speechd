@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.7 2003-03-16 19:43:21 hanke Exp $
+ * $Id: flite.c,v 1.8 2003-03-16 21:18:00 hanke Exp $
  */
 
 #define VERSION "0.0.2"
@@ -82,7 +82,7 @@ OutputModule *module_init(void) {
 void
 flite_speak()
 {	
-	printf("flite speaking.......\n");
+//	printf("flite speaking.......\n");
 	flite_pid = fork();
 	switch(flite_pid){
 		case -1:	FATAL("fork failed!\n");
@@ -95,7 +95,7 @@ flite_speak()
 			/* This is the parent. Wait for the child to terminate. */
 			waitpid(flite_pid,NULL,0);
 	}
-	printf("flite ended.......\n");
+//	printf("flite ended.......\n");
 	f_running = 0;
 	pthread_exit(NULL);
 }	
