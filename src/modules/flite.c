@@ -1,5 +1,5 @@
 /* Speechd module for flite (software synthetizer)
- * CVS revision: $Id: flite.c,v 1.2 2002-07-02 08:00:39 hanke Exp $
+ * CVS revision: $Id: flite.c,v 1.3 2002-12-02 17:09:31 hanke Exp $
  * Author: Hynek Hanke <hanke@volny.cz> */
 
 #define VERSION "0.0.1"
@@ -59,7 +59,7 @@ gint flite_write(const gchar *data, gint len, TFDSetElement* set) {
 
    if((temp = fopen("/tmp/flite_message", "w")) == NULL)
       FATAL("Output module flite couldn't open temporary file");
-   fprintf(temp,"%s",data);
+   fprintf(temp,"%s\n\r",data);
    fclose(temp);
    system("flite /tmp/flite_message &");
    return len;
