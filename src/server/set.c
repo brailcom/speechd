@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.18 2003-04-24 19:30:45 hanke Exp $
+ * $Id: set.c,v 1.19 2003-04-25 00:18:14 hanke Exp $
  */
 
 #include "set.h"
@@ -518,13 +518,10 @@ set_language_all(char* language)
     int uid;
     int err = 0;
 
-    printf("here");
     for(i=1;i<=fdmax;i++){
         uid = get_client_uid_by_fd(i);
-        printf("uid:%d", uid);
         if (uid == 0) continue;
         err += set_language_uid(uid, language);
-        printf("err:%d", err);
     }
 
     if (err > 0) return 1;
@@ -669,7 +666,7 @@ default_fd_set(void)
 	new->output_module = (char*) spd_malloc(128);
 	new->client_name = (char*) spd_malloc(128);		/* max 127 characters */
 	new->spelling_table = (char*) spd_malloc(128);		/* max 127 characters */
-        new->punctuation_some = (char*) spd_malloc(128);
+    new->punctuation_some = (char*) spd_malloc(128);
 	new->punctuation_table = (char*) spd_malloc(128);       /* max 127 characters */
 	new->key_table = (char*) spd_malloc(128);       /* max 127 characters */
 	new->char_table = (char*) spd_malloc(128);       /* max 127 characters */
