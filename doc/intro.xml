@@ -58,7 +58,8 @@
 
       <sect3><title>Epos</title>
 	<para>
-	  Epos is czech GPL synthesis ...
+	  Epos is czech GPL synthesis.  It is an academical project and it
+	  already gives quite good results.
 	</para>
       </sect3>
 
@@ -233,9 +234,9 @@
   <sect1>
     <title>What we lack</title>
     <para>
-    Most software synthetisers don't provide *any* king of synchronisation.
-    It seems neraly impossible to integrate such programs into Speech Deamon
-    because synchronisation is one of the most important things there.
+      Most software synthetisers don't provide *any* king of synchronisation.
+      It seems neraly impossible to integrate such programs into Speech Deamon
+      because synchronisation is one of the most important things there.
     </para>
   </sect1>
   
