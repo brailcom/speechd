@@ -1,5 +1,0 @@
-# These libraries are plug-in libraries with hard-wired paths in the speechd
-# binaries.
-speechd: binary-or-shlib-defines-rpath ./usr/lib/speechd/libsdcstsnd.so.0.0.0 /home/pdm/brailcom/cvs/speechd/debian/speechd/usr/lib
-speechd: binary-or-shlib-defines-rpath ./usr/lib/speechd/libsdfestival.so.0.0.0 /home/pdm/brailcom/cvs/speechd/debian/speechd/usr/lib
-speechd: binary-or-shlib-defines-rpath ./usr/lib/speechd/libsdflite.so.0.0.0 /home/pdm/brailcom/cvs/speechd/debian/speechd/usr/lib
