@@ -72,11 +72,9 @@ in the section entitled "GNU Free Documentation License".
 * Server Programming::          Documentation for project contributors.
 
 * Appendices::                  
-
 * GNU General Public License::  Copying conditions for Speechd Dispatcher
 * GNU Free Documentation License::  Copying conditions for this manual
 
-* Structured Table of Contents::  
 * Index of Concepts::           
 @end menu
 
@@ -3055,18 +3053,14 @@ to another voice by the output module.
 @include gpl.texi
 
 
-@node GNU Free Documentation License, Structured Table of Contents, GNU General Public License, Top
+@node GNU Free Documentation License, Index of Concepts, GNU General Public License, Top
 @appendix GNU Free Documentation License
 @center Version 1.2, November 2002
 @cindex FDL, GNU Free Documentation License
 
 @include fdl.texi
 
-@node Structured Table of Contents, Index of Concepts, GNU Free Documentation License, Top
-@unnumbered Structured Table of Contents
-@contents
-
-@node Index of Concepts,  , Structured Table of Contents, Top
+@node Index of Concepts,  , GNU Free Documentation License, Top
 @unnumbered Index of Concepts
 
 @cindex tail recursion
