@@ -1,3 +1,27 @@
+07.07.2002	Hynek Hanke <hanke@volny.cz>
+	* /src/server/server.c (history_()) New functions called.
+	* /src/server/server.c Cosmetic changes.
+        * /src/server/server.c History functions moved to history.c.
+        * /src/server/server.c Messages are now inserted on tail of lists and got from it's head.
+	* /src/server/history.h New header file for history commands.
+	* /src/server/history.c	New file for history commands.
+	* /src/server/history.c (history_get_message_list()) New function.
+	* /src/server/history.c (history_cursor_set_last()) New function.
+	* /src/server/history.c (history_cursor_set_first()) New function.
+	* /src/server/history.c (history_cursor_set_pos()) New function.
+	* /src/server/history.c (history_cursor_next()) New function.
+	* /src/server/history.c (history_cursor_prev()) New function.
+	* /src/server/history.c (history_cursor_next()) New function.
+	* /src/server/history.c (history_cursor_get()) New function.
+	* /src/server/history.c (history_say_id()) New function.
+	* /src/server/history.c (client_compare_id()) Moved from server.c; renamed.
+	* /src/server/history.c (histset_compare_fd()) Moved from server.c; renamed.
+	* /src/server/history.c (message_compare_id()) Moved from server.c; renamed.
+        * /src/server/speechd.c History clients are now inserted on tail of list. (more logical)
+        * /src/server/speechd.c (default_fd_set) Bug with client_name fixed.
+        * /src/server/speechd.h (THistSetElement) New type of structure for settings for each active client.
+        * /src/server/speechd.h (ESort) New enum type for sorting modes.
+        
 
 07.02.2002	Hynek Hanke <hanke@volny.cz>
 	* /src/server/server.c (stop_speaking_active_module): New function divided from stop_c().
