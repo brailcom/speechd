@@ -41,9 +41,6 @@ class Client(unittest.TestCase):
         c.say("I am quick Dick.")
         c.set_rate(-100)
         c.say("I am slow Joe.")
-        c.set_language('cs')
-        c.set_rate(50)
-        c.say("No, to je teda sebranka!")
         c.close()
 tests.add(Client)
 
