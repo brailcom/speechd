@@ -71,6 +71,10 @@
                              (append ,hook-var (list ,hook))
                              (cons ,hook ,hook-var))))))
 
+(define (assoc-set lst key value)
+  (cons (list key value)
+        (remove (assoc key lst) lst)))
+
 ;;; Festival specific utilities
 
 (define (item.has_feat item feat)
