@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.37 2003-10-12 23:27:12 hanke Exp $
+ * $Id: festival.c,v 1.38 2003-10-13 16:20:44 hanke Exp $
  */
 
 #include "fdset.h"
@@ -379,10 +379,11 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
                     DBG("parent: Sent %d bytes\n", ret);            
                     ret = module_parent_dp_write(dpipe, "\r\nOK_SPEECHD_DATA_SENT\r\n", 24);
                     if (ret == -1) terminate = 1;
+
+                    if (terminate != 1) terminate = module_parent_wait_continue(dpipe);
                 }
                 delete_FT_Wave(fwave);
                 
-                if (terminate != 1) terminate = module_parent_wait_continue(dpipe);
             }            
         }
         if ((pause >= 0) && (*pause_requested)){
