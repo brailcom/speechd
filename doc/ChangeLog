@@ -1,3 +1,11 @@
+2003-05-01  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* speechd.texi (Output Modules): Section amplified, splitted into nodes
+	and updated.
+
+	* speechd.texi (Current state): Removed Odmluva from speech synthesizers.
+	(Output modules): OutputModule modified.
+
 2003-04-23  Milan Zamazal  <pdm@brailcom.org>
 
 	* speechd.texi (Parameter setting commands): CLIENT_NAME can be

@@ -1,3 +1,12 @@
+2003-05-01  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/modules/flite.c (module_flite): filename entry deleted.
+
+	* src/modules/apollo.c (apollo_is_speaking): Return 2 for ``don't know''
+	(module_apollo): filename entry deleted.
+
+	* src/server/speaking.c: is_sb_speaking() can also return 2 for ``don't know'' 
+
 2003-04-29  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/modules/apollo.c (apollo_pause): Call apollo_stop.

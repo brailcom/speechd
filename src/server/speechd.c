@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.25 2003-04-24 19:32:55 hanke Exp $
+ * $Id: speechd.c,v 1.26 2003-05-01 10:42:22 hanke Exp $
  */
 
 #include "speechd.h"
@@ -170,10 +170,6 @@ speechd_init()
 
 	output_modules = g_hash_table_new(g_str_hash, g_str_equal);
 	assert(output_modules != NULL);
-
-	/* Initialize arrays */
-        //	awaiting_data = (GArray*) g_array_sized_new(1, 1, sizeof(int), 16);
-        //	assert(awaiting_data != NULL);
 
         o_bytes = (int*) spd_malloc(16*sizeof(int));
         o_buf = (GString**) spd_malloc(16*sizeof(GString*));

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.25 2003-04-28 02:02:43 hanke Exp $
+ * $Id: speechd.h,v 1.26 2003-05-01 10:42:33 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -56,6 +56,8 @@
 #include "parse.h"
 #include "sndicon.h"
 #include "compare.h"
+
+#define BUF_SIZE 4096
 
 /*  TSpeechDQueue is a queue for messages. */
 typedef struct{
