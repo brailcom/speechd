@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.46 2003-09-11 16:33:39 hanke Exp $
+ * $Id: parse.c,v 1.47 2003-09-28 22:30:24 hanke Exp $
  */
 
 #include "speechd.h"
@@ -103,11 +103,11 @@ parse(const char *buf, const int bytes, const int fd)
         if (!strcmp(command,"bye") || !strcmp(command,"quit")){
             MSG(4, "Bye received.");
             /* Send a reply to the socket */
-            write(fd, OK_BYE, strlen(OK_BYE)+1);
+            write(fd, OK_BYE, strlen(OK_BYE));
             speechd_connection_destroy(fd);
             /* This is internal Speech Dispatcher message, see serve() */
             spd_free(command);
-            return "999 CLIENT GONE";
+            return "999 CLIENT GONE"; /* This is an internal message, not part of SSIP */
         }
 	
         if (!strcmp(command,"speak")){
@@ -570,6 +570,16 @@ parse_set(const char *buf, const int bytes, const int fd)
 
         if (ret) return ERR_COULDNT_SET_SPELLING;
         return OK_SPELLING_SET;
+    }
+    else if (!strcmp(set_sub, "pause_context")){
+        int pause_context;
+        GET_PARAM_INT(pause_context, 3);
+
+        if(pause_context < 0) return ERR_PARAMETER_INVALID;
+
+        SSIP_SET_COMMAND(pause_context);
+        if (ret) return ERR_COULDNT_SET_PAUSE_CONTEXT;
+        return OK_PAUSE_CONTEXT_SET;
     }
     else{
         return ERR_PARAMETER_INVALID;
