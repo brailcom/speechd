@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: msg.h,v 1.23 2003-09-28 22:30:08 hanke Exp $
+ * $Id: msg.h,v 1.24 2004-02-10 21:21:24 hanke Exp $
  */
 
 
@@ -38,6 +38,7 @@
 #define OK_TABLE_SET                            "215 OK TABLE SET\r\n"
 #define OK_OUTPUT_MODULE_SET                    "216 OK OUTPUT MODULE SET\r\n"
 #define OK_PAUSE_CONTEXT_SET                    "217 OK PAUSE CONTEXT SET\r\n"
+#define OK_VOLUME_SET                           "218 OK VOLUME SET\r\n"
 
 #define OK_CUR_SET_FIRST			"220 OK CURSOR SET FIRST\r\n"
 #define OK_CUR_SET_LAST				"221 OK CURSOR SET LAST\r\n"
@@ -85,8 +86,10 @@
 #define ERR_UNKNOWN_PRIORITY                    "408 ERR UNKNOWN PRIORITY\r\n"
 #define ERR_RATE_TOO_HIGH                       "409 ERR RATE TOO HIGH\r\n"
 #define ERR_RATE_TOO_LOW                        "410 ERR RATE TOO LOW\r\n"
-#define ERR_PITCH_TOO_HIGH                      "410 ERR PITCH TOO HIGH\r\n"
-#define ERR_PITCH_TOO_LOW                       "411 ERR PITCH TOO LOW\r\n"
+#define ERR_PITCH_TOO_HIGH                      "411 ERR PITCH TOO HIGH\r\n"
+#define ERR_PITCH_TOO_LOW                       "412 ERR PITCH TOO LOW\r\n"
+#define ERR_VOLUME_TOO_HIGH                      "413 ERR PITCH TOO HIGH\r\n"
+#define ERR_VOLUME_TOO_LOW                       "414 ERR PITCH TOO LOW\r\n"
 
 #define ERR_INTERNAL				"300 ERR INTERNAL\r\n"
 #define ERR_COULDNT_SET_PRIORITY                "301 ERR COULDNT SET PRIORITY\r\n"
@@ -101,6 +104,7 @@
 #define ERR_COULDNT_SET_CLIENT_NAME             "311 ERR COULDNT SET CLIENT_NAME\r\n"
 #define ERR_COULDNT_SET_OUTPUT_MODULE           "312 ERR COULDNT SET OUTPUT MODULE\r\n"
 #define ERR_COULDNT_SET_PAUSE_CONTEXT           "313 ERR COULDNT SET PAUSE CONTEXT\r\n"
+#define ERR_COULDNT_SET_VOLUME                  "313 ERR COULDNT SET VOLUME\r\n"
 
 #define ERR_NO_SND_ICONS                        "320 ERR NO SOUND ICONS\r\n"
 
