@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.c,v 1.4 2004-02-10 21:21:31 hanke Exp $
+ * $Id: options.c,v 1.5 2004-02-23 22:32:18 hanke Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would
@@ -27,13 +27,6 @@
 #include "speechd.h"
 
 #include "options.h"
-
-#define SPD_OPTION_SET_INT(param) \
-    val = strtol(optarg, &tail_ptr, 10); \
-    if(tail_ptr != optarg){ \
-        param ## _set = 1; \
-        param = val; \
-    }
 
 void
 options_print_help(char *argv[])
@@ -47,7 +40,7 @@ options_print_help(char *argv[])
     "-s, --run-single     -      Run as single application\n"
     "-l, --log-level      -      Set log level (1..5)\n"
     "-p, --port           -      Specify a port number\n"
-    "-v, --version        -      Report version of this program\v"
+    "-v, --version        -      Report version of this program\n"
     "-h, --help           -      Print this info\n\n"
     "Copyright (C) 2003 Brailcom, o.p.s.\n"
     "This is free software; you can redistribute it and/or modify it\n"
@@ -69,6 +62,13 @@ options_print_version(void)
            "For more information about these matters, see the file named COPYING.\n"
            );
 }
+
+#define SPD_OPTION_SET_INT(param) \
+    val = strtol(optarg, &tail_ptr, 10); \
+    if(tail_ptr != optarg){ \
+        SpeechdOptions.param ## _set = 1; \
+        SpeechdOptions.param = val; \
+    }
 
 void
 options_parse(int argc, char *argv[])
@@ -95,10 +95,10 @@ options_parse(int argc, char *argv[])
             spd_mode = SPD_MODE_SINGLE;
             break;
         case 'l':
-            SPD_OPTION_SET_INT(spd_log_level);
+            SPD_OPTION_SET_INT(log_level);
             break;
         case 'p':
-            SPD_OPTION_SET_INT(spd_port);
+            SPD_OPTION_SET_INT(port);
             break;
         case 'v':
             options_print_version();
@@ -115,3 +115,4 @@ options_parse(int argc, char *argv[])
         }
     }
 }
+#undef SPD_OPTION_SET_INT
