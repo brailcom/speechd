@@ -434,7 +434,7 @@
         to German synthetiser to follow language=German).
       </para>
 
-<!--
+      <!--
 	This implyes the solution with independent message queues for each of
 	the output devices. The advantage is in non blocking operation of each
 	output device.
