@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.1 2003-09-07 11:29:16 hanke Exp $
+ * $Id: output.c,v 1.2 2003-09-07 23:26:27 hanke Exp $
  */
 
 #include "output.h"
@@ -276,9 +276,7 @@ output_is_speaking()
     if (speaking_module == NULL) OL_RET(0)
     else output = speaking_module;
 
-    output_module_is_speaking(output);
-
-    OL_RET(-1)
+    return output_module_is_speaking(output);   
 }
 
 int
