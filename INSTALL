@@ -20,10 +20,10 @@ Building Speech Dispatcher:
 
 To compile the whole project, including Speech Dispatcher server, all modules
 and clients, simply extract the distribution archive and change to 
-speechd-<version> directory and run "make all" command as follows:
+speech-dispatcher-<version> directory and run "make all" command as follows:
 
- $ tar -xzvf speechd-@VERSION.tar.gz
- $ cd speechd-@VERSION
+ $ tar -xzvf speech-dispatcher-@VERSION.tar.gz
+ $ cd speech-dispatcher-@VERSION
 
 But before typing make all, make sure that you have correctly installed flite!
 You should have configured flite with
@@ -42,7 +42,7 @@ $ make all
 
 If it doesn't work, try the following:
 
- $ cd speechd-@VERSION
+ $ cd speech-dispatcher-@VERSION
  $ aclocal && autoconf && autoheader && automake -a && automake
  $ ./configure
  $ make
@@ -55,14 +55,14 @@ path by running (as root):
  $ make install
 
 
-Installing Festival speechd interface:
-======================================
+Installing Festival Speech Dispatcher interface:
+================================================
 
 If you have installed Festival and you want to use it, you must place
 the .scm files located in the directory
-        speechd-@VERSION/src/modules/festival-interface
+        speech-dispatcher-@VERSION/src/modules/festival-interface
 to a place where it can find them. Please follow the instructions given in
-speechd-@VERSION/src/modules/festival-interface/README.festival-interface
+speech-dispatcher-@VERSION/src/modules/festival-interface/README.festival-interface
 
 Please make sure that Festival server_access_list configuration
 variable and your /etc/hosts.conf are set properly. server_access_list
@@ -76,16 +76,16 @@ Testing
 =======
 
 You can try to execute Speech Dispatcher by
- $ speechd
+ $ speech-dispatcher
 
 If Speech Dispatcher is running, you can test if it's working by:
  (on some other console)
- $ cd speechd-@VERSION/src/tests
+ $ cd speech-dispatcher-@VERSION/src/tests
  $ ./run_test basic.test
 (You can also try other tests, if you like.)
 
 Also try
- $ speechd --help
+ $ speech-dispatcher --help
 to see how you can run it as a standalone program and possibly see
 what's wrong.
 
@@ -94,8 +94,8 @@ Troubleshooting
 
 If you think something is missing, try additionally:
 
- $ mkdir PREFIX/etc/speechd
- $ cp -r config PREFIX/etc/speechd
+ $ mkdir PREFIX/etc/speech-dispatcher
+ $ cp -r config PREFIX/etc/speech-dispatcher
  $ mkdir PREFIX/include
  $ cp clients/libspeechd.h PREFIX/include/
 
