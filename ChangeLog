@@ -1,3 +1,8 @@
+2004-05-22  Hynek Hanke <hanke@volny.cz>
+
+	* ltmain.sh: Removed.
+	* build.sh: Copy the correct version of ltmain.sh to the source tree.
+	
 2004-05-20  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/output.c (output_send_msg): New function.

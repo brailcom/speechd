@@ -20,8 +20,14 @@
 # the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 # Boston, MA 02111-1307, USA.
 #
-# $Id: build.sh,v 1.3 2003-05-26 16:04:48 hanke Exp $
+# $Id: build.sh,v 1.4 2004-05-22 21:15:42 hanke Exp $
 
+
+echo "Copying libtool macros (libtoolize)"
+if ! libtoolize --force; then
+	echo "libtoolize failed!"
+	exit 1
+fi
 
 echo "Building user-defined autoconf macros (aclocal)"
 if ! aclocal; then
