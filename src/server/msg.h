@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: msg.h,v 1.19 2003-05-26 16:04:50 hanke Exp $
+ * $Id: msg.h,v 1.20 2003-06-05 16:13:24 hanke Exp $
  */
 
 
@@ -79,6 +79,7 @@
 #define ERR_POS_HIGH				"405 ERR POSITION TOO HIGH\r\n"
 #define ERR_ID_NOT_EXIST			"406 ERR ID DOESNT EXIST\r\n"
 #define ERR_UNKNOWN_ICON			"407 ERR UNKNOWN ICON\r\n"
+#define ERR_UNKNOWN_PRIORITY                    "408 ERR UNKNOWN PRIORITY\r\n"
 
 #define ERR_INTERNAL				"300 ERR INTERNAL\r\n"
 #define ERR_COULDNT_SET_PRIORITY                "301 ERR COULDNT SET PRIORITY\r\n"
