@@ -1,3 +1,7 @@
+2004-05-30  Hynek Hanke  <hanke@volny.cz>
+
+	* ANNOUNCE: 0.4.1 release.
+
 2004-05-29  Hynek Hanke  <hanke@volny.cz>
 
 	* src/modules/generic.c (module_load): Register the volume variables.
