@@ -1,6 +1,76 @@
+2003-06-20  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* config/speechd.conf: New options for output modules.
+
+	* src/server/server.c (serve): Use size_t instead of int for _bytes_.
+
+	* src/server/module.c: Changed calls for module_load and module_init,
+	reads dotconf callbacks.
+
+	* src/server/dc_decl.h: Now reads configuration in two passes, it includes
+	callbacks from output modules.
+	(cb_AddModule): Only get the module structure from hash table.
+	(cb_fr_AddModule): First-pass AddModule callback, does what cb_AddModule before,
+	registers new callbacks.
+
+	* src/server/alloc.c (spd_free): New function (checks if argument isn't NULL).
+
+	* src/modules/festival_client.c (festivalEmpty): Removed.
+	(festivalSetPitch): New function for setting pitch mean and stddev.
+
+	* src/audio/spd_audio.c (spd_audio_close): Close audio only if it wasn't closed before.
+
+	* intl/module.h (OutputModule): Changed types of parameters, pause() now returns
+	only the position (int) instead of text (char*).
+
+	* intl/fdset.h: Include only once.
+
+	* src/modules/module_utils.c: Many new function and macro utilities 
+	aiming to make writing output modules easier.
+
+	* src/module/module_utils.c Proper closing of audio device.
+
+	* src/modules/flite.c: Uses macros for repetitive code, declares it's own
+	DotConf options, new pause mechanism, cleaning, ...
+
+	* src/modules/festival.c: Uses macros for repetitive code, declares it's own
+	DotConf options, supports pitch setting, allways synchronized with Festival
+	server output, new pause mechanism, cleaning, ...
+
+	* src/server/parse.c (parse_pause): Only set flags and add to semaphore.
+
+	* src/server/speaking.c (speaking_pause): Queue message as preprocessed yet.
+	(speak): Pause mechanism changed: pause function now called from here depending
+	on flags and semaphores (to not block SSIP communication).
+	(current_message): Mantain a copy of the last message sent to output module (for
+	pause/resume).
+
+	* src/modules/module_utils.c: New functions and macros to help developing output modules.
+	(module_getvoice): Accept OutputModule* as parameter.
+
+	* src/modules/flite.c: Cleaned, use module_utils.c functions.
+	(module_load): Parameters changed, new options.
+
+	* src/modules/festival.c (_festival_synth): Free thw wave and fwave data.
+	(module_init): Free fwave.
+
+	* src/server/parse.c (get_param): Free memmory if there is no parameter to pass.
+
+	* src/server/speechd.c (speechd_init): Don't allocate memmory for logfile.
+
+	* src/server/parse.c (CHECK_SSIP_COMMAND): New macro.
+
+	* src/server/speechd.c (MSG): format_with_spaces deleted.
+
+2003-06-11  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/server/speechd.c (speechd_connection_new): Initialize o_buf, o_bytes to 0.
+
+
 2003-06-09  Jan Buchal  <buchal@brailcom.org>
 
 	* src/tests/Makefile.am: references to multiple_messages removed.
+
 
 2003-06-08  Hynek Hanke  <hanke@localhost.localdomain>
 
