@@ -1,4 +1,11 @@
 
+Version 0.0.4
+  * Automake and autoconf support
+  * Robod now uses GLib2 instead of GDSL
+  * More polished source
+  * Improved configuration of server
+  * More functions in the API.
+
 Version 0.0.3
   * API for communication with Robod. 
 
