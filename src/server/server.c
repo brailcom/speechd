@@ -2,7 +2,7 @@
  /*
   * server.c - Speech Dispatcher server core
   * 
-  * Copyright (C) 2001,2002,2003 Brailcom, o.p.s
+  * Copyright (C) 2001,2002,2003, 2004 Brailcom, o.p.s
   *
   * This is free software; you can redistribute it and/or modify it
   * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.66 2003-10-29 11:09:30 hanke Exp $
+  * $Id: server.c,v 1.67 2004-01-20 11:15:34 pdm Exp $
   */
 
 #include "speechd.h"
@@ -183,16 +183,21 @@ server_data_off(int fd)
 int
 serve(int fd)
 {
-    size_t bytes;           /* Number of bytes we got */
+    size_t bytes = 0;       /* Number of bytes we got */
     char buf[BUF_SIZE+1];   /* The content (commands or data) we got */
     char *reply;            /* Reply to the client */
     int ret;
  
     /* Read data from socket */
-    bytes = read(fd, buf, BUF_SIZE-1);
-    if(bytes == -1) return -1;
-    buf[bytes] = 0;
-    MSG(4,"Read %d bytes from client on fd %d", bytes, fd);
+    while(1){
+        int n = read(fd, buf+bytes, BUF_SIZE-bytes-1);
+        if(n == -1) return -1;
+        bytes += n;
+        buf[bytes] = 0;
+        MSG(4,"Read %d bytes from client on fd %d", n, fd);
+        if(buf[bytes-1] == '\n')
+          break;
+    }
 
     /* Parse the data and read the reply*/
     MSG2(5, "protocol", "%d:DATA:|%s|", fd, buf);
