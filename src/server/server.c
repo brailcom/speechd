@@ -1,7 +1,7 @@
 
 /*
  * server.c - Speech Deamon server core
- *
+ * 
  * Copyright (C) 2001,2002,2003 Ceska organizace pro podporu free software
  * (Czech Free Software Organization), Prague 2, Vysehradska 3/255, 128 00,
  * <freesoft@freesoft.cz>
@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.c,v 1.25 2003-04-06 19:58:05 hanke Exp $
+ * $Id: server.c,v 1.26 2003-04-06 19:59:46 hanke Exp $
  */
 
 #include "speechd.h"
