@@ -1,3 +1,14 @@
+2003-11-11  Milan Zamazal  <pdm@brailcom.org>
+
+	* speech-dispatcher.scm (speechd-languages) 
+	(speechd-language-voices): German added.
+
+2003-11-07  Milan Zamazal  <pdm@brailcom.org>
+
+	* spell-mode.scm (spell-orig-pos-method): New variable.
+	(spell-pos): New function.
+	(spell_init_func, spell_exit_func): Set the POS_Method parameter.
+
 2003-11-03  Milan Zamazal  <pdm@brailcom.org>
 
 	* events.scm (logical-event-mapping): New default value.
