@@ -44,7 +44,7 @@ Free Documentation License".
 @ifnottex
 @node Top, Introduction, (dir), (dir)
 
-This manual documents Speech Synthesis Internet Protocol, version 0.1.
+This manual documents Speech Synthesis Interface Protocol, version 0.1.
 
 Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s., http://www.brailcom.cz .
 
@@ -93,7 +93,7 @@ speech synthesis, developed with the goal of making the usage of
 speech synthesis easier for application programmers. It takes care of
 most of the output-related tasks necessary to solve in speech enabled
 applications. What is a very high level GUI library to graphics,
-Speech Synthesis Internet Protocol is to speech synthesis.
+Speech Synthesis Interface Protocol is to speech synthesis.
 
 Up to now, the applications that wanted to implement speech output had
 to handle all the device dependent aspects of communication with
@@ -149,7 +149,7 @@ postponed or suppressed.
 
 It is important to understand the difference between SSIP and some
 even higher level protocols like SABLE, VoiceXML or SSML. Speech
-Synthesis Internet Protocol is not a markup language in which one
+Synthesis Interface Protocol is not a markup language in which one
 would write a document. SSIP is rather the underlaying tool that the
 application would use to let you read and browse the documents encoded
 in either ordinary formats (like plain text, HTML, PDF) or the
@@ -182,8 +182,8 @@ a lot easier and allow programmers to make more of them.
 @itemize
 
 @cindex SSIP
-@cindex Speech Synthesis Internet Protocol
-@item @emph{Speech Synthesis Internet Protocol} or @emph{SSIP} is the
+@cindex Speech Synthesis Interface Protocol
+@item @emph{Speech Synthesis Interface Protocol} or @emph{SSIP} is the
 device-independent protocol described in this document through which
 client application can send their requests for speech synthesis to the
 Speech Server.
@@ -709,6 +709,7 @@ The allowed commands inside a block are:
         @item @code{SPEAK}
         @item @code{SOUND_ICON}
         @item @code{CHAR}
+        @item @code{KEY}
         @item @code{SET SELF RATE}
         @item @code{SET SELF PITCH}
         @item @code{SET SELF VOICE}
