@@ -17,6 +17,14 @@
 	* README: Added note on `html.dsl'.  Updated.
 
 	* html.dsl: Initial version.
+	
+	* html.dsl: Comments translated to English.  Output directory
+	setting commented out.
+
+	* Makefile: When making html files, cd to DST directory (as before).
+
+	* Makefile: Prefix customized stylesheet filename (`html.dsl')
+	with $(PWD).
 
 2002-06-20  Tomas Cerha  <cerha@brailcom.org>
 
