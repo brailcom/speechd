@@ -49,26 +49,26 @@
       </para>
 
       <para>
-	SSIP should be composed of two TCP connections -- one control
-	connection for transmitting commands and one data connection.
+	SSIP should use one TCP connection to transfer data as well as
+	commands.
       </para>
 
-      <sect3><title>SSIP control connection</title>
+      <sect3><title>SSIP control commands</title>
 	
 	<para>
-	  Control connection will be based on a classical line based command
-	  protocol, similar to FTP, HTTP or whatever...  Control connection
-	  will set the session global speech properties, which can be, however,
+	  SSIP connection will be based on a classical line based command
+	  protocol, similar to FTP, HTTP or whatever...  Control commands will
+	  set the session global speech properties, which can be, however,
 	  changed locally for a message insdide it's data.
 	</para>
 
       </sect3>
 
-      <sect3><title>SSIP data connection</title>
+      <sect3><title>SSIP data</title>
 	
 	<para>
-	  Data connection will tranfer raw text, to be spoken, as well as
-	  inline commands for local speech prerties.  XML seems to be a good
+	  Transferred data should contain a raw text, to be spoken, as well as
+	  inline commands for local speech properties.  XML seems to be a good
 	  solution for the syntax of these commands (ideally some standard,
 	  such as SABLE).  We can consider also other formats.
 	</para>
@@ -275,9 +275,9 @@
     <sect2 id="s-session-mgmt"><title>Session Management</title>
 
       <para>
-	One Speech Daemon session is based on two TCP connections as described
-	in <xref linkend="s-ssip"/>.  These connections persist during the
-	whole session.  Session is closed, by closing the control connection.
+	One Speech Daemon session is based on one TCP/IP connection as
+	described in <xref linkend="s-ssip"/>.  This connection persist during
+	the whole session.  Session is closed, by closing the connection.
       </para>
 
       <para>
