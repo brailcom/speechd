@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.10 2003-05-01 10:41:37 hanke Exp $
+ * $Id: apollo.c,v 1.11 2003-05-06 11:09:10 pdm Exp $
  */
 
 
@@ -196,6 +196,10 @@ OutputModule *module_init (void)
   system ("stty -F /dev/apollo sane 9600 raw crtscts");
   system ("stty -F /dev/apollo -echo");
   fd = open (DEVICE, O_WRONLY);
+  {
+    const char *command = "@P0\r";
+    fd = write_it (command, strlen (command) * sizeof (char));
+  }
 
   recode_outer = recode_new_outer (true);
   recode_request = recode_new_request (recode_outer);
