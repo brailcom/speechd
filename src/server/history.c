@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.c,v 1.13 2003-04-18 21:23:47 hanke Exp $
+ * $Id: history.c,v 1.14 2003-05-05 22:39:53 hanke Exp $
  */
 
 #include "speechd.h"
@@ -36,7 +36,6 @@ message_compare_id (gconstpointer element, gconstpointer value, gpointer n)
 
 gint (*p_msg_comp_id)() = message_compare_id;
 
-/* TODO: new hash table with client's names */
 char*
 history_get_client_list()
 {
@@ -61,6 +60,59 @@ history_get_client_list()
 
     return clist->str;                
 }
+
+char*
+history_get_client_id(int fd)
+{
+    GString *cid;
+    int uid;
+
+    cid = g_string_new("");
+
+    uid = get_client_uid_by_fd(fd);
+    if (uid == 0) return ERR_INTERNAL;
+
+    g_string_append_printf(cid, C_OK_CLIENT_ID"-%d\r\n", uid);
+    g_string_append_printf(cid, OK_CLIENT_ID_SENT);
+
+    return cid->str;                
+}
+
+char*
+history_get_message(int uid)
+{
+    GString *mtext;
+    GList *gl;
+    TSpeechDMessage *msg;
+    int i, pos;
+    char c;
+    char helper[1024];
+
+    mtext = g_string_new("");
+
+    gl = g_list_find_custom(message_history, &uid, compare_message_uid);
+    if (gl == NULL) return ERR_ID_NOT_EXIST;
+    if (gl->data == NULL) return ERR_INTERNAL;
+    msg = (TSpeechDMessage*) gl->data;
+
+    i = 0;
+    pos = 0;
+    while(c = msg->buf[i]){
+        helper[pos] = msg->buf[i];
+        pos++; i++;
+        if (c == '\n'){
+            helper[pos-2] = 0;
+            g_string_append_printf(mtext, C_OK_MSG_TEXT"-%s\r\n", helper);
+            pos = 0;
+        }
+    }
+    helper[pos] = 0;
+    g_string_append_printf(mtext, C_OK_MSG_TEXT"-%s\r\n", helper);
+    g_string_append_printf(mtext, OK_MSG_TEXT_SENT);
+
+    return mtext->str;                
+}
+
 
 char*
 history_get_message_list(guint client_id, int from, int num)
@@ -115,8 +167,8 @@ history_get_last(int fd)
 	if (gl == NULL) return ERR_NO_MESSAGE;
 	message = gl->data;
       
-	g_string_append_printf(lastm, C_OK_LAST_MSG"-%d %s\r\n", 
-		message->id, message->settings.client_name);
+	g_string_append_printf(lastm, C_OK_LAST_MSG"-%d\r\n", 
+		message->id);
 	g_string_append_printf(lastm, OK_LAST_MSG);
 	return lastm->str;
 }
@@ -171,7 +223,7 @@ history_cursor_set_pos(int fd, guint client_id, int pos)
 }
 
 char*
-history_cursor_next(int fd)
+history_cursor_forward(int fd)
 {
 	GList *client;
 	TFDSetElement *settings;
@@ -188,7 +240,8 @@ history_cursor_next(int fd)
 }
 
 char*
-history_cursor_prev(int fd){
+history_cursor_backward(int fd)
+{
 	TFDSetElement *settings;
 	GList *client_msgs;
 
@@ -202,7 +255,8 @@ history_cursor_prev(int fd){
 }
 
 char*
-history_cursor_get(int fd){
+history_cursor_get(int fd)
+{
 	TFDSetElement *settings;
 	TSpeechDMessage *new;
 	GString *reply;
@@ -222,7 +276,9 @@ history_cursor_get(int fd){
 	return reply->str;
 }
 
-char* history_say_id(int fd, int id){
+char*
+history_say_id(int fd, int id)
+{
 	GList *client;
 	TSpeechDMessage *msg, *new;
 	GList *gl; 
