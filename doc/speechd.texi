@@ -39,8 +39,9 @@ Free Documentation License".
 @title Speech Daemon --- Easy access to speech synthesis
 @subtitle Mastering the Babylon of TTS'
 @subtitle for Speech Daemon @value{VERSION}
-@author by Tom@'a@v{s} Cerha <@email{cerha@@brailcom.cz}>, Hynek Hanke <@email{hanke@@volny.cz}>
-@author and Czech Free Software Organization <@email{info@@freesoft.cz}>
+@author Tom@'a@v{s} Cerha @email{cerha@@brailcom.org}
+@author Hynek Hanke @email{hanke@@volny.cz}
+@author Milan Zamazal @email{pdm@@brailcom.org}
 
 @page
 @vskip 0pt plus 1filll
@@ -1179,9 +1180,35 @@ Set the maximum length of short versions of history messages to
 Short (truncated) versions of history messages are used e.g. in the
 answer to the @code{HISTORY GET CLIENT_MESSAGES} format.
 
-@item HISTORY SORT ???
-Sorts the history of messages.
-???
+@item HISTORY SORT @{ asc | desc @} @{ time | user | client_name | priority | message_type @}
+Sort the messages in history according to the given criteria.  If the
+second command argument is @code{asc}, sort in the ascending order, if
+it is @code{desc}, sort in the descending order.  The third command
+argument specifies the message property to order by:
+
+@table @code
+@item time
+Time of arrival of the message.
+
+@item user
+User name.
+
+@item client_name
+Client name, excluding user name.
+
+@item priority
+Priority.
+
+@item message_type
+Type of the message (text, sound icon, character, key), in the order
+specified in the Speech Daemon configuration.
+@end table
+
+The sorting is stable --- order of all the messages that are equal in
+the given ordering remains the same.
+
+The sorting is specific to the given client connection, other
+connections are unaffected by invocation of this command.
 
 @item HISTORY SEARCH @{ @var{id} | all | self @} "@var{condition}"
 Return the list of history messages satisfying @var{condition}.  The
