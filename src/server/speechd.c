@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.43 2003-08-07 14:43:49 hanke Exp $
+ * $Id: speechd.c,v 1.44 2003-08-11 15:01:52 hanke Exp $
  */
 
 #include "speechd.h"
@@ -171,7 +171,7 @@ speechd_load_configuration(int sig)
         
     }
     if (sound_module == NULL){
-        sound_module = load_output_module("cstsnd");
+        sound_module = load_output_module("cstsnd", NULL);
         if (sound_module == NULL) FATAL("Couldn't load specified sound module,"
                                         "check configuration.");
     }
