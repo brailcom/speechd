@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.22 2003-04-15 10:08:59 pdm Exp $
+ * $Id: speechd.h,v 1.23 2003-04-18 21:20:20 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -62,27 +62,37 @@
 
 /*  TSpeechDQueue is a queue for messages. */
 typedef struct{
-	GList *p1;			/* priority 1 queue */
-	GList *p2;			/* priority 2 queue */
-	GList *p3;			/* priority 3 queue */
+    GList *p1;			/* priority 1 queue */
+    GList *p2;			/* priority 2 queue */
+    GList *p3;			/* priority 3 queue */
 }TSpeechDQueue;
 
 /*  TSpeechDMessage is an element of TSpeechDQueue,
     that is, some text with ''formating'' tags inside. */
 typedef struct{
-   guint id;			/* unique id */
-   time_t time;			/* when was this message received */
-   char *buf;			/* the actual text */
-   int bytes;			/* number of bytes in buf */
-   TFDSetElement settings;	/* settings of the client when queueing this message */
+    guint id;			/* unique id */
+    time_t time;			/* when was this message received */
+    char *buf;			/* the actual text */
+    int bytes;			/* number of bytes in buf */
+    TFDSetElement settings;	/* settings of the client when queueing this message */
 }TSpeechDMessage;
 
 /* EStopCommands describes the stop family of commands */
-typedef enum{
-	STOP = 1,
-	PAUSE = 2,
-	RESUME = 3
+typedef enum
+{
+    STOP = 1,
+    PAUSE = 2,
+    RESUME = 3
 }EStopCommands;
+
+typedef struct
+{
+    GList *sound_icons;
+    GList *spelling;
+    GList *characters;
+    GList *keys;
+    GList *punctuation;
+}TSpeechDTables;
 
 /* Message logging */
 void MSG(int level, char *format, ...);
@@ -112,6 +122,8 @@ GHashTable *fd_settings;
 GHashTable *snd_icon_langs;
 /* Table of relations between client file descriptors and their uids*/
 GHashTable *fd_uid;
+/* A list of all defined tables grouped by their categories */
+TSpeechDTables tables;
 
 /* Speech Deamon main priority queue for messages */
 TSpeechDQueue *MessageQueue;
