@@ -1,8 +1,61 @@
+2003-08-11  Hynek Hanke  <hanke@volny.cz>
+
+	* src/modules/Makefile.am: Include festival_client.{c,h} and module_utils.c in
+	distribution.
+
+	* int/module.h: Include stdlib.h
+
+	* src/server/server.c (queue_message): Copy all the elements of settings.
+
+	* src/server/alloc.c (spd_message_copy): Set the unnecessary elements of the message
+	to NULL so that we can later mem_message_free() it without destroying data in the
+	original one.
+
+	* src/server/set.c (set_param_str): Changed parameters, return value.
+
+	* src/server/history.c (history_get_message_list): Don't abort, if invalid
+	client id is specified, just report ERR_NO_SUCH_CLIENT.
+
+	* config/speechd.conf: Generic output module for Epos added.
+	(MaxHistoryMessages): New option.
+
+	* src/server/server.c (queue_message): Ensure message expiration in history when
+	MaxHistoryMessage number of messages archieved in history.
+
+	* src/server/speechd.h (MaxHistoryMessages): New variable.
+
+	* src/server/dc_decl.h (MaxHistoryMessages): New DotConf option (message expiration).
+	+ default value, + callback
+
+	* src/modules/module_utils.c (MOD_OPTION_1_FLOAT_REG): New macro.
+	(MOD_OPTION_1_FLOAT): New macro.
+
+	* config/speechd.conf (FestivalDebugSaveOutput): Option added.
+
+	* config/en/spelling_long.conf (definition): Correct names of characters.
+
+	* config/en/spelling_short.conf (definition): Correct names of characters.
+
+	* src/modules/generic.c (module_load): New file.
+
+	* src/server/speechd.c (speechd_load_configuration): load_output_module call
+	changed to two parameters.
+
+	* src/server/module.c (load_output_module): Take two arguments. Name of the module
+	and it's filename.
+
+	* src/server/dc_decl.h (cb_AddModule): Take a LIST argument, not STRING.
+	(cb_fr_AddModule): Take a LIST argument, not STRING.
+	(cb_SoundModule): Take a LIST argument, not STRING.
+	
+
+
 2003-08-08  Milan Zamazal  <pdm@brailcom.org>
 
 	* ltmain.sh: Updated for libtool 1.5.
 
 	* src/server/parse.c (parse): Allow CHAR in blocks.
+
 
 2003-08-07  Hynek Hanke  <hanke@volny.cz>
 
@@ -29,7 +82,8 @@
 	of the messages or zero, if not inside a block.
 
 	* src/server/module.c (module_load): Don't print any debug messages on stdout.
-2003-07-31  Jan Buchal  <buchal@brailcom.org>
+
+2003-07-31	Jan Buchal  <buchal@brailcom.org>
 
 	* config/en/spelling_short.conf: Colon added.
 	
