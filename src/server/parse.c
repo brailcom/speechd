@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.37 2003-07-05 13:53:57 hanke Exp $
+ * $Id: parse.c,v 1.38 2003-07-07 08:40:54 hanke Exp $
  */
 
 #include "speechd.h"
@@ -500,17 +500,28 @@ parse_set(const char *buf, const int bytes, const int fd)
         if (ret) return ERR_COULDNT_SET_TABLE;
         return OK_TABLE_SET;
     }
+    else if (TEST_CMD(set_sub,"cap_let_recogn_table")){
+        char *cap_let_recogn_table;
+        GET_PARAM_STR(cap_let_recogn_table, 3, CONV_DOWN);
+
+        SSIP_SET_COMMAND(cap_let_recogn_table);
+        spd_free(cap_let_recogn_table);
+
+        if (ret) return ERR_COULDNT_SET_TABLE;
+        return OK_TABLE_SET;
+    }
     else if (TEST_CMD(set_sub, "cap_let_recogn")){
         int capital_letter_recognition;
         char *recognition;
 
         GET_PARAM_STR(recognition, 3, CONV_DOWN);
 
-        if(TEST_CMD(recognition, "on")) capital_letter_recognition = 1;
-        else if(TEST_CMD(recognition, "off")) capital_letter_recognition = 0;        
+        if(TEST_CMD(recognition, "none")) capital_letter_recognition = RECOGN_NONE;
+        else if(TEST_CMD(recognition, "spell")) capital_letter_recognition = RECOGN_SPELL;        
+        else if(TEST_CMD(recognition, "icon")) capital_letter_recognition = RECOGN_ICON;        
         else{
             spd_free(recognition);
-            return ERR_PARAMETER_NOT_ON_OFF;
+            return ERR_PARAMETER_INVALID;
         }
 
         SSIP_SET_COMMAND(capital_letter_recognition);
@@ -782,6 +793,9 @@ parse_list(const char* buf, const int bytes, const int fd)
     }
     else if(TEST_CMD(list_type, "key_tables")){
         return (char*) sndicon_list_key_tables();
+    }
+    else if(TEST_CMD(list_type, "cap_let_recogn_tables")){
+        return (char*) sndicon_list_cap_let_recogn_tables();
     }
     else if(TEST_CMD(list_type, "text_tables")){
         //        return (char*) sndicon_list_text_tables();
