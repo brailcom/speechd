@@ -1,3 +1,7 @@
+2003-10-07  Milan Zamazal  <pdm@brailcom.org>
+
+	* configure.in (AC_OUTPUT): config/{en,cs}/Makefile removed.
+
 2003-10-03  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/output.c (ADD_SET_STR): Added missing line terminator after "NULL".
