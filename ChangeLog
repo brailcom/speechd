@@ -1,3 +1,58 @@
+2003-07-17  Hynek Hanke  <hanke@volny.cz>
+
+	* src/modules/module_utils.c (module_signal_end): New function. Send SIGUSR1 to speechd.
+
+	* src/modules/cstsnd.c (_cstsnd_speak): Call module_signal_end().
+
+	* src/modules/festival_client.c (client_accept_waveform): Determine the sample_count
+	and sample_rate correctly from NIST header.
+	(festival_accept_any_response): New function.
+	(festivalOpen): Set Wavefiletype to nist in festival.
+
+	* src/server/speaking.c (speak): Don't loop / don't post sem_messages_waiting again
+	if is_sb_speaking() == 1. Instead rely on the semaphore, which is set by signals
+	from output modules.
+
+	* src/modules/module_utils.c (module_speak_thread_wfork): Send SIGUSR1 to parent
+	when terminated.
+
+	* src/server/speaking.c (resolve_priorities): Bug in priorities fixed: priority
+	``message'' now surpresses priority text, while priority ``text'' doesn't interrupt
+	``message''.
+
+	* src/server/Makefile.am (speechd_SOURCES): +options.c
+
+	* src/server/options.h (spd_long_options): -h | --help, new option.
+
+	* src/server/speechd.c (main): Run as a daemon or in single mode.
+
+	* src/server/options.c (options_print_help): New function.
+
+	* src/server/speechd.c (main): Priorities of some debugging messages changed.
+
+	* src/server/dc_decl.h (load_default_global_set_options): SPEECHD_PORT -> spd_port.
+	(cb_Port): SPEECHD_PORT -> spd_port.	
+
+	* src/server/speechd.h (spd_port): Renamed from SPEECHD_PORT.
+
+	* src/server/options.c: New file.
+	(SPD_OPTION_SET_INT): New macro.
+	(options_parse): New function.
+
+	* src/server/Makefile.am (speechd_SOURCES): +options.h
+
+	* src/server/options.h: New file.
+	(spd_long_options): New variable.
+	(spd_short_options): New variable.
+
+	* src/server/dc_decl.h (load_default_global_set_options): Only set log level and
+	port if not set before.
+
+	* src/server/speechd.h (spd_log_level_set): New variable.
+	(spd_port_set): New variable.
+
+	* src/server/speechd.c (main): Set SIGPIPE handler to SIG_IGN.
+
 2003-07-16  Hynek Hanke  <hanke@volny.cz>
 
 	* src/tests/run_test.c (main): Accept stdin as valid argument.
