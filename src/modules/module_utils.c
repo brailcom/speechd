@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.16 2003-09-22 00:31:46 hanke Exp $
+ * $Id: module_utils.c,v 1.17 2003-09-28 22:28:17 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -64,6 +64,20 @@ static FILE *debug_file;
        debug_file = stdout; \
     }
 
+#define CLEAN_OLD_SETTINGS_TABLE()\
+ msg_settings_old.rate = -101;\
+ msg_settings_old.pitch = -101;\
+ msg_settings_old.punctuation_mode = -1;\
+ msg_settings_old.punctuation_some = NULL;\
+ msg_settings_old.punctuation_table = NULL;\
+ msg_settings_old.spelling_mode = -1;\
+ msg_settings_old.spelling_table = NULL;\
+ msg_settings_old.cap_let_recogn = -1;\
+ msg_settings_old.cap_let_recogn_table = NULL;\
+ msg_settings_old.cap_let_recogn_sound = NULL;\
+ msg_settings_old.language = strdup("en");\
+ msg_settings_old.voice = NO_VOICE;
+
 #define INIT_SETTINGS_TABLES()\
  msg_settings.rate = 0;\
  msg_settings.pitch = 0;\
@@ -77,19 +91,7 @@ static FILE *debug_file;
  msg_settings.cap_let_recogn_sound = NULL;\
  msg_settings.language = strdup("en");\
  msg_settings.voice = MALE1;\
-\
- msg_settings_old.rate = -101;\
- msg_settings_old.pitch = -101;\
- msg_settings_old.punctuation_mode = -1;\
- msg_settings_old.punctuation_some = NULL;\
- msg_settings_old.punctuation_table = NULL;\
- msg_settings_old.spelling_mode = -1;\
- msg_settings_old.spelling_table = NULL;\
- msg_settings_old.cap_let_recogn = -1;\
- msg_settings_old.cap_let_recogn_table = NULL;\
- msg_settings_old.cap_let_recogn_sound = NULL;\
- msg_settings_old.language = strdup("en");\
- msg_settings_old.voice = NO_VOICE;
+ CLEAN_OLD_SETTINGS_TABLE()
 
 #define CLOSE_DEBUG_FILE() \
     if (debug_file != NULL) fclose(debug_file);
@@ -833,7 +835,6 @@ semaphore_post(int sem_id)
 void
 module_signal_end(void)
 {
-    /* TODO: We should post on the new semaphore here! */
     semaphore_post(SPDSemaphore);
 }
 
