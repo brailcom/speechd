@@ -1,4 +1,14 @@
-2004-07-21  root  <hanke@chopin>
+2004-08-04  Hynek Hanke  <hanke@chopin>
+
+	* src/server/set.c (CHECK_SET_PAR): Report name of the parameter.
+	(update_cl_settings): Update also volume.
+
+2004-07-22  root  <hanke@chopin>
+
+	* src/modules/festival_client.c (client_accept_waveform): Only fill in wave->samples if wave->num_samples
+	is more than 0.
+
+2004-07-21  Hynek Hanke  <hanke@chopin>
 
 	* src/modules/festival.c (cache_insert): Don't copy the fwave structure, just save the pointer.
 	(module_speak): Removed redudant debugging messages.
