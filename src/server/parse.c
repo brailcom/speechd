@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.17 2003-04-12 19:01:23 pdm Exp $
+ * $Id: parse.c,v 1.18 2003-04-14 02:05:47 hanke Exp $
  */
 
 #include "speechd.h"
@@ -218,9 +218,9 @@ parse_set(char *buf, int bytes, int fd)
     }
 
     if (!strcmp(param,"client_name")){
-        MSG(4, "Setting client name. \n");
-
         client_name = get_param(buf,2,bytes, 0);
+        if (client_name == NULL) return ERR_MISSING_PARAMETER;
+        MSG(4, "Setting client name to %s. \n", client_name);
         ret = set_client_name(fd, client_name);
         if (!ret) return ERR_COULDNT_SET_LANGUAGE;
         return OK_CLIENT_NAME_SET;
@@ -228,6 +228,7 @@ parse_set(char *buf, int bytes, int fd)
 
     if (!strcmp(param,"rate")){
         rate = get_param(buf,2,bytes, 0);
+        if (rate == NULL) return ERR_MISSING_PARAMETER;
         if (!isanum(rate)) return ERR_NOT_A_NUMBER;
         helper = atoi(rate);
         if(helper < -100) return ERR_COULDNT_SET_RATE;
@@ -240,6 +241,7 @@ parse_set(char *buf, int bytes, int fd)
 
     if (!strcmp(param,"pitch")){
         pitch = get_param(buf,2,bytes, 0);
+        if (pitch == NULL) return ERR_MISSING_PARAMETER;
         if (!isanum(pitch)) return ERR_NOT_A_NUMBER;
         helper = atoi(pitch);
         if(helper < -100) return ERR_COULDNT_SET_PITCH;
@@ -252,6 +254,7 @@ parse_set(char *buf, int bytes, int fd)
 
     if (!strcmp(param,"voice")){
         voice = get_param(buf,2,bytes, 0);
+        if (voice == NULL) return ERR_MISSING_PARAMETER;
         MSG(4, "Setting voice to %s", voice);
         ret = set_voice(fd, voice);
         if (!ret) return ERR_COULDNT_SET_VOICE;
@@ -260,33 +263,40 @@ parse_set(char *buf, int bytes, int fd)
 
     if (!strcmp(param,"punctuation")){
         punct = get_param(buf,2,bytes, 1);
-        if (!isanum(punct)) return ERR_NOT_A_NUMBER;
-        helper = atoi(punct);
-        if((helper != 0)&&(helper != 1)&&(helper != 2)) return ERR_COULDNT_SET_PUNCT_MODE;
-        MSG(4, "Setting punctuation mode to %d \n", helper);
-        ret = set_punct_mode(fd, helper);
+        if (punct == NULL) return ERR_MISSING_PARAMETER;
+
+        if(!strcmp(spelling,"all")) ret = set_punct_mode(fd, 1);
+        else if(!strcmp(spelling,"some")) ret = set_punct_mode(fd, 2);        
+        else if(!strcmp(spelling,"none")) ret = set_punct_mode(fd, 0);        
+        else return ERR_PARAMETER_INVALID;
+
+        MSG(4, "Setting punctuation mode to %s \n", punct);
         if (!ret) return ERR_COULDNT_SET_PUNCT_MODE;
         return OK_PUNCT_MODE_SET;
     }
 
     if (!strcmp(param,"cap_let_recogn")){
         recog = get_param(buf,2,bytes, 1);
-        if (!isanum(recog)) return ERR_NOT_A_NUMBER;
-        helper = atoi(recog);
-        if((helper != 0)&&(helper != 1)) return ERR_COULDNT_SET_CAP_LET_RECOG;
-        MSG(4, "Setting capital letter recognition to %d \n", helper);
-        ret = set_cap_let_recog(fd, helper);
+        if (recog == NULL) return ERR_MISSING_PARAMETER;
+
+        if(!strcmp(spelling,"on")) ret = set_cap_let_recog(fd, 1);
+        else if(!strcmp(spelling,"off")) ret = set_cap_let_recog(fd, 0);        
+        else return ERR_PARAMETER_NOT_ON_OFF;
+
+        MSG(4, "Setting capital letter recognition to %s \n", punct);
         if (!ret) return ERR_COULDNT_SET_CAP_LET_RECOG;
         return OK_CAP_LET_RECOGN_SET;
     }
 
     if (!strcmp(param,"spelling")){
         spelling = get_param(buf,2,bytes, 1);
-        if (!isanum(spelling)) return ERR_NOT_A_NUMBER;
-        helper = atoi(spelling);
-        if((helper != 0)&&(helper != 1)) return ERR_COULDNT_SET_SPELLING;
-        MSG(4, "Setting spelling to %d \n", helper);
-        ret = set_spelling(fd, helper);
+        if (spelling == NULL) return ERR_MISSING_PARAMETER;
+        if(!strcmp(spelling,"on")) ret = set_spelling(fd, 1);
+        else if(!strcmp(spelling,"off")) ret = set_spelling(fd, 0);        
+        else return ERR_PARAMETER_NOT_ON_OFF;
+
+        MSG(4, "Setting spelling to %s", spelling);
+
         if (!ret) return ERR_COULDNT_SET_SPELLING;
         return OK_SPELLING_SET;
     }
