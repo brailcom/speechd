@@ -31,7 +31,11 @@ Available tests:
                 * @ introduces a comentary on the given line
                 * ! denotes an SSIP command that follows without any spaces
                 * $ run_test will wait for the specified time (in seconds)
-                        (no extra spaces allowed) before moving further
+                * ^ run_test will wait for the specified time (in microseconds)
+                * ~ sets the indentation (in spaces from left border), it can
+                        be used multiple times in different places
+                * ? waits until the user presses a key
+                * * clear screen
                 * Blank lines in the script produce blank lines in the output.
 
         In the output, SSIP communication is shifted to the right with
@@ -39,4 +43,4 @@ Available tests:
         to Speech Dispatcher begin with ">> ", the responses from Speech Dispatcher
         are introduced by "< ".
 
-        See basic.test for an example.
+        See basic.test or general.test for an example.
