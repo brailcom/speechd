@@ -1,3 +1,15 @@
+
+2003-04-06  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/modules/flite.c (flite_write): Set rate and pitch.
+	(flite_write): Support more voices (experimental AWB voice).
+	* src/modules/Makefile.am: Include libflite_cmu_time_awb voice.
+	* src/server/parse.c (parse_set): New SSIP command SET VOICE added.
+	* src/server/set.c (set_voice): New function.
+	* src/server/msg.h (OK_VOICE_SET): New SSIP message.
+	(ERR_COULDNT_SET_VOICE): New SSIP message.
+	* intl/fdset.h: EVoiceType now includes more than one male and female voices. 
+
 2003-04-06  Hynek Hanke  <hanke@localhost.localdomain>
 	
 	* src/server/msg.h OK_CANCELED: New SSIP message. 

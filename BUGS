@@ -4,6 +4,3 @@ A list of known bugs:
  - SSIP isn't stabilized yet, it's going to change. The current
 protocol isn't described in documentation yet.
 
- - speechd must be run from src/server/speechd in order to be able
-to read sound icons file
-
