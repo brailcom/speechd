@@ -1,3 +1,19 @@
+2003-04-14  Milan Zamazal  <pdm@brailcom.org>
+
+	* version.texi: Everything except for VERSION removed.
+	* speechd.texi: Don't use EDITION and UPDATED.
+	(Speech output control commands): `self' command
+	argument added to STOP, CANCEL, PAUSE, RESUME.
+	(History handling commands): Typo HISTORY SET -> HISTORY SORT
+	fixed.
+	(History handling commands): New command HISTORY SET
+	SHORT_MESSAGE_LENGTH.
+	(Parameter setting commands): Improved description of command
+	arguments.  Lists of spelling and sound table names referred.
+	(Information retrieval commands): Listed names may contain only
+	alphanumeric characters and underscores.  Lists of spelling and
+	sound table names referred.
+
 2003-04-12  Milan Zamazal  <pdm@brailcom.org>
 
 	* speechd.texi: Spellchecked.
