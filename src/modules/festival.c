@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.33 2003-10-09 17:16:10 hanke Exp $
+ * $Id: festival.c,v 1.34 2003-10-09 21:16:58 hanke Exp $
  */
 
 #include "module.h"
@@ -363,7 +363,6 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
             /* fwave can be NULL if the given text didn't produce any sound
                output, e.g. this text: "." */
             if (fwave != NULL){
-                if (ret != 0) DBG("Can't open audio output!\n");
                 DBG("Sending buf to child in wav: %d samples\n",
                     (fwave->num_samples) * sizeof(short));
                 if (fwave->num_samples != 0){
