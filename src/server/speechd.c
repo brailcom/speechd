@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.56 2004-03-31 00:33:52 hanke Exp $
+ * $Id: speechd.c,v 1.57 2004-07-13 20:06:31 hanke Exp $
  */
 
 #include "speechd.h"
@@ -151,12 +151,14 @@ MSG(int level, char *format, ...)
                 /* Print timestamp */
                 time_t t;
                 char *tstr;
+		struct timeval tv;
                 t = time(NULL);
                 tstr = strdup(ctime(&t));
+		gettimeofday(&tv,NULL);
                 /* Remove the trailing \n */
                 assert(strlen(tstr)>1);
                 tstr[strlen(tstr)-1] = 0;
-                fprintf(logfile, "[%s] speechd: ", tstr);
+                fprintf(logfile, "[%s : %d] speechd: ", tstr, tv.tv_usec);
             }
             for(i=1;i<level;i++){
                 fprintf(logfile, " ");
@@ -610,7 +612,7 @@ main(int argc, char *argv[])
     else
         speechd_pid_file = strdup(PIDPATH"speech-dispatcher.pid");
 
-    if (create_pid_file() == -1) exit(1);
+    if (create_pid_file() != 0) exit(1);
 
     /* Don't print anything on console... */
     if (spd_mode == SPD_MODE_DAEMON){
