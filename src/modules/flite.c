@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.14 2003-04-14 02:11:41 hanke Exp $
+ * $Id: flite.c,v 1.15 2003-04-14 22:54:06 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -118,6 +118,8 @@ flite_write(gchar *data, gint len, TFDSetElement* set)
         return -1;
     }
 
+	if(DEBUG_FLITE) printf("requested data: |%s|\n", data);
+	
     if (flite_speaking){
         if(DEBUG_FLITE) printf("flite: speaking when requested to flite-write");
         return 0;
