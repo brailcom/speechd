@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.11 2004-05-20 14:34:39 hanke Exp $
+ * $Id: output.c,v 1.12 2004-05-23 22:39:49 hanke Exp $
  */
 
 #include "output.h"
@@ -158,13 +158,21 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
     return 0;
 }
 
+#define SEND_CMD_N(cmd) \
+  {  err = output_send_data(cmd"\n", output, 1); \
+    if (err < 0) return (err); }
+
 #define SEND_CMD(cmd) \
   {  err = output_send_data(cmd"\n", output, 1); \
+    if (err < 0) OL_RET(err)}
+
+#define SEND_DATA_N(data) \
+  {  err = output_send_data(data, output, 0); \
     if (err < 0) return (err); }
 
 #define SEND_DATA(data) \
   {  err = output_send_data(data, output, 0); \
-    if (err < 0) return (err); }
+    if (err < 0) OL_RET(err); }
 
 #define SEND_CMD_GET_VALUE(data) \
   {  err = output_send_data(data"\n", output, 1); \
@@ -205,9 +213,9 @@ output_send_settings(TSpeechDMessage *msg, OutputModule *output)
     ADD_SET_STR(language);
     ADD_SET_STR_C(voice, EVoice2str);
 
-    SEND_CMD("SET");
-    SEND_DATA(set_str->str);
-    SEND_CMD(".");
+    SEND_CMD_N("SET");
+    SEND_DATA_N(set_str->str);
+    SEND_CMD_N(".");
 
     g_string_free(set_str, 1);
 
@@ -218,17 +226,11 @@ output_send_settings(TSpeechDMessage *msg, OutputModule *output)
 
 
 int
-output_send_msg(TSpeechDMessage *msg, char *type_str, OutputModule *output)
+output_send_cmd(TSpeechDMessage *msg, char *type_str, OutputModule *output)
 {
     int err;
 
-    MSG(4, "Module speak!");
-
-    {  err = output_send_data(type_str, output, 1); \
-    if (err < 0) return (err); }
-
-    SEND_DATA(msg->buf);
-    SEND_CMD("\n.");
+    SEND_CMD();
 
     return 0;
 }
@@ -260,15 +262,22 @@ output_speak(TSpeechDMessage *msg)
     ret = output_send_settings(msg, output);
     if (ret != 0) OL_RET(ret);
 
+    MSG(4, "Module speak!");
+
+
     switch(msg->settings.type)
         {
-        case MSGTYPE_TEXT: ret = output_send_msg(msg, "SPEAK\n", output); break;
-        case MSGTYPE_SOUND_ICON: ret = output_send_msg(msg, "SOUND_ICON\n", output); break;
-        case MSGTYPE_CHAR: ret = output_send_msg(msg, "CHAR\n", output); break;
-        case MSGTYPE_KEY: ret = output_send_msg(msg, "KEY\n", output); break;
+        case MSGTYPE_TEXT: SEND_CMD("SPEAK") break;
+        case MSGTYPE_SOUND_ICON: SEND_CMD("SOUND_ICON"); break;
+        case MSGTYPE_CHAR: SEND_CMD("CHAR"); break;
+        case MSGTYPE_KEY: SEND_CMD("KEY"); break;
         default: MSG(2,"Invalid message type in output_speak()!");
         }
-    OL_RET(ret)
+
+    SEND_DATA(msg->buf)
+    SEND_CMD("\n.")
+ 
+    OL_RET(0)
 }
 
 int
