@@ -1,9 +1,9 @@
 
-Speech Dispatcher 0.4 released
-==============================
+Speech Dispatcher 0.4.1 released
+================================
 
 The Brailcom organization is happy to announce the release
-of Speech Dispatcher 0.4 developed as a part of the Free(b)Soft
+of Speech Dispatcher 0.4.1 developed as a part of the Free(b)Soft
 project.
 
 * What is Speech Dispatcher?
@@ -40,7 +40,11 @@ project.
     developed as a sperate project speechd-el. Possibly an interface
     to any other language can be developed.
 
-* What is new in 0.4?
+* What is new in 0.4.1?
+
+  - This is a bugfix release because there was a severe bug in the
+    0.4 release in the Generic output module. Below follows the list
+    of new things in 0.4:
 
   - Flite output is now installed with the 16-bit voice, if available.
 
@@ -58,7 +62,7 @@ project.
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.4.tar.gz .
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.4.1.tar.gz .
 
   We recommend you to fetch the sound icons Speech Dispatcher can use as
   well. They are available at
