@@ -38,6 +38,15 @@
      ,@(cddr form)
      result))
 
+(defmac (unwind-protect* form)
+  (let ((protected-form (nth 1 form))
+        (cleanup-forms (nth_cdr 2 form)))
+    `(unwind-protect
+       (prog1 ,protected-form
+         ,@cleanup-forms)
+       (begin
+         ,@cleanup-forms))))
+
 (define (first list)
   (car list))
 
