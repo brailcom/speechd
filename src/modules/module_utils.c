@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.13 2003-09-07 11:26:22 hanke Exp $
+ * $Id: module_utils.c,v 1.14 2003-09-10 16:54:50 buchal Exp $
  */
 
 #include <semaphore.h>
@@ -530,18 +530,13 @@ module_strip_punctuation_some(char *message, char *punct_chars)
     if (punct_chars == NULL) return;
 
     pchar_bytes = strlen(punct_chars);
-    len = g_utf8_strlen(message, -1);
-
+    len = strlen(message);
     for (i = 0; i <= len-1; i++){
-        u_char = g_utf8_get_char(p);
-        if (g_utf8_strchr(punct_chars, pchar_bytes, u_char)){
-            for (n=0; n<=g_unichar_to_utf8(u_char, NULL)-1; n++){
-                *p = ' ';
-                p++;
-            }
-        }else{
-            p = (char*) g_utf8_find_next_char(p, NULL);
-        }
+      if (strchr(punct_chars, *p)){
+	  DBG("Substituation %d char %d -%c-\n", i, n, *p);
+	  *p = ' ';
+      }
+      p++;
     }
 }
 
@@ -549,7 +544,7 @@ static void
 module_strip_punctuation_default(char *buf)
 {
     assert(buf != NULL);
-    module_strip_punctuation_some(buf, "~@#$%^&*+=|\\/<>[]_");
+    module_strip_punctuation_some(buf, "~@#$%^&*+=|<>[]_");
 }
 
 static short *
