@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.12 2003-10-16 20:54:50 hanke Exp $
+ * $Id: libspeechd.c,v 1.13 2003-10-18 13:03:10 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -85,7 +85,7 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
 
 #ifdef LIBSPEECHD_DEBUG
   spd_debug = fopen("/tmp/libspeechd_debug", "w");
-  if (spd_debug == NULL) FATAL("COULDN'T ACCES FILE INTENDED FOR DEBUG");
+  if (spd_debug == NULL) SPD_FATAL("COULDN'T ACCES FILE INTENDED FOR DEBUG");
 #endif /* LIBSPEECHD_DEBUG */
 
   /* Connect to server */
@@ -630,7 +630,7 @@ spd_command_line(int fd, char *buffer, int pos, char* c){
 
 /* --------------------- Internal functions ------------------------- */
 
-int
+static int
 spd_set_priority(int connection, SPDPriority priority)
 {
     static char p_name[16];
@@ -651,7 +651,7 @@ spd_set_priority(int connection, SPDPriority priority)
     return spd_execute_command(connection, command);
 }
 
-int
+static int
 ret_ok(char *reply)
 {
 	int err;
@@ -661,10 +661,10 @@ ret_ok(char *reply)
 	if ((err>=100) && (err<300)) return 1;
 	if (err>=300) return 0;
 
-	FATAL("Internal error during communication.");
+	SPD_FATAL("Internal error during communication.");
 }
 
-char*
+static char*
 get_rec_part(char *record, int pos)
 {
     int i, n;
@@ -695,13 +695,13 @@ get_rec_part(char *record, int pos)
     return NULL;
 }
 
-char*
+static char*
 get_rec_str(char *record, int pos)
 {
 	return(get_rec_part(record, pos));
 }
 
-int
+static int
 get_rec_int(char *record, int pos)
 {
 	char *num_str;
@@ -716,7 +716,7 @@ get_rec_int(char *record, int pos)
 	return num;
 }
 
-int
+static int
 parse_response_footer(char *resp)
 {
     int ret;
@@ -745,7 +745,7 @@ parse_response_footer(char *resp)
     return ret;
 }
 
-char*
+static char*
 parse_response_data(char *resp, int pos)
 {
     int p = 1;
@@ -790,7 +790,7 @@ parse_response_data(char *resp, int pos)
     return NULL;
 }
 
-int
+static int
 get_err_code(char *reply)
 {
     char err_code[4];
@@ -818,7 +818,7 @@ get_err_code(char *reply)
    length of reply it accepts, but for now, it's enough,
    as there are no longer replies in Speech Dispatcher */
 #define MAX_REPLY_LENGTH 1024
-char*
+static char*
 spd_send_data(int fd, const char *message, int wfr)
 {
 	char *reply;
@@ -851,7 +851,7 @@ spd_send_data(int fd, const char *message, int wfr)
 
 /* isanum() tests if the given string is a number,
  *  returns 1 if yes, 0 otherwise. */
-int
+static int
 isanum(char *str){
     int i;
 	if (str == NULL) return 0;
@@ -861,7 +861,7 @@ isanum(char *str){
     return 1;
 }
 
-int
+static int
 spd_execute_command(int connection, char* command)
 {
     char *buf;
@@ -879,21 +879,21 @@ spd_execute_command(int connection, char* command)
     else return 0;
 }
 
-void*
+static void*
 xmalloc(size_t bytes)
 {
     void *mem;
 
     mem = malloc(bytes);
     if (mem == NULL){
-        FATAL("Not enough memmory!");
+        SPD_FATAL("Not enough memmory!");
         exit(1);
     }
     
     return mem;
 }
 
-void
+static void
 xfree(void *ptr)
 {
     if (ptr != NULL){
@@ -902,7 +902,7 @@ xfree(void *ptr)
     }
 }
 
-char*
+static char*
 escape_dot(const char *text)
 {
     char *seq;
@@ -974,7 +974,7 @@ escape_dot(const char *text)
 }
 
 #ifdef LIBSPEECHD_DEBUG
-void
+static void
 SPD_DBG(char *format, ...)
 {
         va_list args;
@@ -986,7 +986,7 @@ SPD_DBG(char *format, ...)
         fflush(spd_debug);
 }
 #else  /* LIBSPEECHD_DEBUG */
-void
+static void
 SPD_DBG(char *format, ...)
 {
 }
