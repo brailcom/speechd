@@ -159,14 +159,11 @@ Set speech RATE, which must be a number in the range -100..100."
 (define (speechd-set-pitch pitch)
   "(speechd-set-pitch PITCH)
 Set speech PITCH, which must be a number in the range -100..100."
-  ;; TODO: Provide proper value for other intonation modules
-  (set! int_lr_params
-        `((target_f0_mean ,(if (< pitch 0)
-                               (+ 100 (/ pitch 2))
-                               (+ 100 pitch)))
-          (target_f0_std 14)
-          (model_f0_mean 170)
-          (model_f0_std 34))))
+  (let ((mean (if (< pitch 0) (+ 100 (/ pitch 2)) (+ 100 pitch))))
+    (if (boundp 'int_lr_params)
+        (set! int_lr_params (assoc-set int_lr_params 'target_f0_mean mean)))
+    (if (boundp 'int_simple_params)
+        (set! int_simple_params (assoc-set int_simple_params 'f0_mean mean)))))
 
 (define (speechd-set-capital-character-recognition-mode mode)
   "(speechd-set-capital-character-recognition-mode MODE)
