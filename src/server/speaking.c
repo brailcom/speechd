@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.27 2003-09-07 11:31:51 hanke Exp $
+  * $Id: speaking.c,v 1.28 2003-09-11 16:34:27 hanke Exp $
   */
 
 #include <glib.h>
@@ -863,7 +863,6 @@ stop_priority_except_first(int priority)
             if (gl->data != NULL){
                 TSpeechDMessage *msgg = gl->data;
                 if (msgg->settings.reparted != gid){
-                    MSG(3,"ok, msg :%s: removed", msg->buf);
                     queue = g_list_remove_link(queue, gl);
                     mem_free_message(msgg);
                 }
