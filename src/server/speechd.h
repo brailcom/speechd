@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.28 2003-05-26 16:04:50 hanke Exp $
+ * $Id: speechd.h,v 1.29 2003-05-28 23:20:18 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -105,6 +105,9 @@ fd_set readfds;
 
 /* The largest assigned uid + 1 */
 int max_uid;
+
+/* Unique identifier for group id (common for messages of the same group) */
+int max_gid;
 
 /* speak() thread */
 pthread_t speak_thread;
