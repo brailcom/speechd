@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.13 2004-05-23 23:36:25 hanke Exp $
+ * $Id: output.c,v 1.14 2004-07-13 20:05:40 hanke Exp $
  */
 
 #include "output.h"
@@ -66,13 +66,11 @@ get_output_module(const TSpeechDMessage *message)
 static void
 output_lock(void)
 {
-    MSG(1, "Output locked...");
     pthread_mutex_lock(&output_layer_mutex);
 }
 static void
 output_unlock(void)
 {
-    MSG(1, "Output unlocked.");
     pthread_mutex_unlock(&output_layer_mutex);
 }
 
