@@ -1,5 +1,7 @@
 2004-10-18  Hynek Hanke  <hanke@chopin>
 
+	* config/speechd.conf.in: Modified comment for AddModule (new default relative path).
+
 	* ANNOUNCE: 0.5 release.
 
 	* src/modules/module_utils.c (module_get_message_part): Old-style index marking with '@' removed.
