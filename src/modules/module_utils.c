@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.29 2004-04-04 21:11:54 hanke Exp $
+ * $Id: module_utils.c,v 1.30 2004-05-29 19:28:32 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -62,6 +62,7 @@ int module_num_dc_options = 0;
 #define CLEAN_OLD_SETTINGS_TABLE()\
  msg_settings_old.rate = -101;\
  msg_settings_old.pitch = -101;\
+ msg_settings_old.volume = -101;\
  msg_settings_old.punctuation_mode = -1;\
  msg_settings_old.spelling_mode = -1;\
  msg_settings_old.cap_let_recogn = -1;\
@@ -71,6 +72,7 @@ int module_num_dc_options = 0;
 #define INIT_SETTINGS_TABLES()\
  msg_settings.rate = 0;\
  msg_settings.pitch = 0;\
+ msg_settings.volume = 0;\
  msg_settings.punctuation_mode = PUNCT_NONE;\
  msg_settings.spelling_mode = SPELLING_OFF;\
  msg_settings.cap_let_recogn = RECOGN_NONE;\

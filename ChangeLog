@@ -1,5 +1,7 @@
 2004-05-29  Hynek Hanke  <hanke@volny.cz>
 
+	* src/modules/generic.c (module_load): Register the volume variables.
+
 	* config/modules/dtk-generic.conf: Jacob's new version.
 
 	* config/modules/epos-generic.conf: Use LANGUAGE instead of LANG.
