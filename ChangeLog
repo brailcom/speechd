@@ -1,8 +1,16 @@
+2003-07-09  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/sndicon.h: #ifdef -> #ifndef.
+	Include glib.h.
+	(snd_icon_spelling_get): Prototype updated.
+
 2003-07-08  Hynek Hanke  <hanke@volny.cz>
 
-	* src/tests/run_test.c: Some new functionality added (clear screen, indentation)
+	* src/tests/run_test.c: Some new functionality added (clear
+	screen, indentation)
 
-	* src/tests/general.test: A general tour around SSIP commands for LSM 2003.
+	* src/tests/general.test: A general tour around SSIP commands for
+	LSM 2003.
 
 	* src/c/api/libspeechd.h: Missing prototypes added.
 
