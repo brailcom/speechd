@@ -19,11 +19,17 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.16 2003-04-17 10:18:01 hanke Exp $
+ * $Id: set.c,v 1.17 2003-04-18 20:38:28 hanke Exp $
  */
 
 
 #include "set.h"
+
+gint
+spd_str_compare(gconstpointer a, gconstpointer b)
+{
+  return strcmp((char*) a, (char*) b);
+}
 
 int
 set_priority(int fd, int priority)
@@ -94,11 +100,21 @@ set_punctuation_table(int fd, char* punctuation_table)
     TFDSetElement *settings;
 
     settings = get_client_settings_by_fd(fd);
-    if (settings == NULL) FATAL("Couldnt find settings for active client, internal error.");
-    if(punctuation_table == NULL) return 0;
-    realloc(settings->punctuation_table, (strlen(punctuation_table) + 1)*sizeof(char));
-    strcpy(settings->punctuation_table, punctuation_table);
-    return 1;
+    if (settings == NULL) FATAL("Couldn't find settings for active client, internal error.");
+    if(punctuation_table == NULL) return 1;
+
+    if(g_list_find_custom(tables.spelling, punctuation_table, spd_str_compare)){
+        realloc(settings->punctuation_table, (strlen(punctuation_table) + 1)*sizeof(char));
+        strcpy(settings->punctuation_table, punctuation_table);
+    }else{
+        if(!strcmp(punctuation_table, "punctuation_basic")){
+            MSG(3,"Couldn't find requested table, using the previous");
+            return 0;
+        }else{
+            return 1;
+        }        
+    }
+    return 0;
 }
 
 int
@@ -130,10 +146,46 @@ set_spelling_table(int fd, char* spelling_table)
 
     settings = get_client_settings_by_fd(fd);
     if (settings == NULL) FATAL("Couldn't find settings for active client, internal error.");
-    if (spelling_table == NULL) return 0;
-    realloc(settings->spelling_table, (strlen(spelling_table) + 1)*sizeof(char));
-    strcpy(settings->spelling_table, spelling_table);
-    return 1;
+    if (spelling_table == NULL) return 1;
+
+    if(g_list_find_custom(tables.spelling, spelling_table, spd_str_compare)){
+        realloc(settings->spelling_table, (strlen(spelling_table) + 1)*sizeof(char));
+        strcpy(settings->spelling_table, spelling_table);
+    }else{
+        if(!strcmp(spelling_table, "spelling_short")
+           || !strcmp(spelling_table, "spelling_long")){
+            MSG(4,"Couldn't find requested table, using the previous");
+            return 0;
+        }else{
+            return 1;
+        }        
+    }
+
+    return 0;
+}
+
+int
+set_sound_table(int fd, char* sound_table)
+{
+    TFDSetElement *settings;
+
+    settings = get_client_settings_by_fd(fd);
+    if (settings == NULL) FATAL("Couldn't find settings for active client, internal error.");
+    if (sound_table == NULL) return 1;
+
+    if(g_list_find_custom(tables.sound_icons, sound_table, spd_str_compare)){
+        realloc(settings->snd_icon_table, (strlen(sound_table) + 1)*sizeof(char));
+        strcpy(settings->snd_icon_table, sound_table);
+    }else{
+        if(!strcmp(sound_table, "sound_icons_default")){
+            MSG(4,"Couldn't find requested table, using the previous");
+            return 0;
+        }else{
+            return 1;
+        }        
+    }
+
+    return 0;
 }
 
 int
@@ -163,6 +215,53 @@ set_client_name(int fd, char *client_name)
 
 	return 1;
 }
+
+int
+set_key_table(int fd, char* key_table)
+{
+    TFDSetElement *settings;
+
+    settings = get_client_settings_by_fd(fd);
+    if (settings == NULL) FATAL("Couldn't find settings for active client, internal error.");
+    if (key_table == NULL) return 1;
+
+    if(g_list_find_custom(tables.keys, key_table, spd_str_compare)){
+        realloc(settings->key_table, (strlen(key_table) + 1)*sizeof(char));
+        strcpy(settings->key_table, key_table);
+    }else{
+        if(!strcmp(key_table, "keys_basic")){
+            MSG(4,"Couldn't find requested table, using the previous");
+            return 0;
+        }else{
+            return 1;
+        }        
+    }
+    return 0;
+}
+
+int
+set_character_table(int fd, char* char_table)
+{
+    TFDSetElement *settings;
+
+    settings = get_client_settings_by_fd(fd);
+    if (settings == NULL) FATAL("Couldn't find settings for active client, internal error.");
+    if (char_table == NULL) return 1;
+
+    if(g_list_find_custom(tables.characters, char_table, spd_str_compare)){
+        realloc(settings->char_table, (strlen(char_table) + 1)*sizeof(char));
+        strcpy(settings->char_table, char_table);
+    }else{
+        if(!strcmp(char_table, "characters_basic")){
+            MSG(4,"Couldn't find requested table, using the previous");
+            return 0;
+        }else{
+            return 1;
+        }        
+    }
+
+    return 0;
+}
 		 
 TFDSetElement*
 default_fd_set(void)
@@ -176,6 +275,9 @@ default_fd_set(void)
 	new->spelling_table = (char*) spd_malloc(128);		/* max 127 characters */
         new->punctuation_some = (char*) spd_malloc(128);
 	new->punctuation_table = (char*) spd_malloc(128);       /* max 127 characters */
+	new->key_table = (char*) spd_malloc(128);       /* max 127 characters */
+	new->char_table = (char*) spd_malloc(128);       /* max 127 characters */
+	new->snd_icon_table = (char*) spd_malloc(128);       /* max 127 characters */
 
    
 	new->paused = 0;
@@ -191,6 +293,9 @@ default_fd_set(void)
 	strcpy(new->spelling_table, GlobalFDSet.spelling_table); 
         strcpy(new->punctuation_some, GlobalFDSet.punctuation_some);
         strcpy(new->punctuation_table, GlobalFDSet.punctuation_table);
+        strcpy(new->key_table, GlobalFDSet.key_table);
+        strcpy(new->char_table, GlobalFDSet.char_table);
+        strcpy(new->snd_icon_table, GlobalFDSet.snd_icon_table);
 	new->voice_type = GlobalFDSet.voice_type;
 	new->spelling = GlobalFDSet.spelling;         
 	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;
