@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_main.c,v 1.2 2003-10-07 16:52:00 hanke Exp $
+ * $Id: module_main.c,v 1.3 2004-04-04 21:11:49 hanke Exp $
  */
 
 #define PROCESS_CMD(command, function) if (!strcmp(cmd_buf, #command"\n")){ \
@@ -34,7 +34,6 @@ main(int argc, char *argv[])
 {
     char *cmd_buf;
     int ret;
-    FILE *file;
     int n;
     configfile_t *configfile = NULL;
     char *configfilename;
