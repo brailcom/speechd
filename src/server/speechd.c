@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.35 2003-06-23 05:13:11 hanke Exp $
+ * $Id: speechd.c,v 1.36 2003-07-05 12:31:33 hanke Exp $
  */
 
 #include "speechd.h"
@@ -153,7 +153,6 @@ speechd_load_configuration(int sig)
     if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
     dotconf_cleanup(configfile);
 
-
     free_config_options(spd_options, &spd_num_options);
     MSG(1,"Configuration has been read from \"%s\"", configfilename);
 }
@@ -161,7 +160,7 @@ speechd_load_configuration(int sig)
 void
 speechd_alarm_handle(int sig)
 {
-        sem_post(sem_messages_waiting);
+    sem_post(sem_messages_waiting);
 }
 
 /* Set alarm to the requested time in microseconds. */
@@ -373,7 +372,7 @@ main()
     /* Register signals */
     (void) signal(SIGINT, speechd_quit);	
     (void) signal(SIGALRM, speechd_alarm_handle);	
-    (void) signal(SIGUSR2, speechd_load_configuration);
+    (void) signal(SIGHUP, speechd_load_configuration);
 
     speechd_init();
 
