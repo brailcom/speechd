@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.14 2003-11-06 23:22:09 hanke Exp $
+ * $Id: libspeechd.c,v 1.15 2004-04-17 14:53:09 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -418,8 +418,10 @@ spd_sound_icon(int connection, SPDPriority priority, const char *icon_name)
 
 SPD_SET_COMMAND_INT(voice_rate, RATE, ((val >= -100) && (val <= +100)) );
 SPD_SET_COMMAND_INT(voice_pitch, PITCH, ((val >= -100) && (val <= +100)) );
+SPD_SET_COMMAND_INT(volume, VOLUME, ((val >= -100) && (val <= +100)) );
 
 SPD_SET_COMMAND_STR(language, LANGUAGE);
+SPD_SET_COMMAND_STR(output_module, OUTPUT_MODULE);
 
 SPD_SET_COMMAND_SPECIAL(punctuation, SPDPunctuation);
 SPD_SET_COMMAND_SPECIAL(capital_letters, SPDCapitalLetters);
@@ -629,6 +631,59 @@ spd_command_line(int fd, char *buffer, int pos, char* c){
 	return new_s;
 }
 
+static int
+spd_execute_command(int connection, char* command)
+{
+    char *buf;
+    char *ret;
+    int r;
+    
+    buf = g_strdup_printf("%s\r\n", command);
+    ret = spd_send_data(connection, buf, SPD_WAIT_REPLY);
+    xfree(buf);
+    
+    r = ret_ok(ret);
+    xfree(ret);
+
+    if (!r) return -1;
+    else return 0;
+}
+
+/* TODO: This should be somehow flexible in the
+   length of reply it accepts, but for now, it's enough,
+   as there are no longer replies in Speech Dispatcher */
+#define SPD_MAX_REPLY_LENGTH 1024
+char*
+spd_send_data(int fd, const char *message, int wfr)
+{
+    char *reply;
+    int bytes;
+
+    reply = malloc(sizeof(char) * SPD_MAX_REPLY_LENGTH);
+   
+    /* write message to the socket */
+    write(fd, message, strlen(message));
+    SPD_DBG(">> : |%s|", message);
+
+    /* read reply to the buffer */
+    if (wfr){
+        bytes = read(fd, reply, SPD_MAX_REPLY_LENGTH);
+        if (bytes == -1){
+            SPD_DBG("Error: Can't read reply, broken socket.");
+            return NULL;
+        }
+        /* print server reply to as a string */
+        reply[bytes] = 0; 
+        SPD_DBG("<< : |%s|\n", reply);
+    }else{
+        SPD_DBG("<< : no reply expected");
+        return "NO REPLY";
+    } 
+
+    return reply;
+}
+
+
 /* --------------------- Internal functions ------------------------- */
 
 static int
@@ -816,40 +871,6 @@ get_err_code(char *reply)
     return err;
 }
 
-/* TODO: This should be somehow flexible in the
-   length of reply it accepts, but for now, it's enough,
-   as there are no longer replies in Speech Dispatcher */
-#define MAX_REPLY_LENGTH 1024
-static char*
-spd_send_data(int fd, const char *message, int wfr)
-{
-    char *reply;
-    int bytes;
-
-    reply = malloc(sizeof(char) * MAX_REPLY_LENGTH);
-   
-    /* write message to the socket */
-    write(fd, message, strlen(message));
-    SPD_DBG(">> : |%s|", message);
-
-    /* read reply to the buffer */
-    if (wfr){
-        bytes = read(fd, reply, MAX_REPLY_LENGTH);
-        if (bytes == -1){
-            SPD_DBG("Error: Can't read reply, broken socket.");
-            return NULL;
-        }
-        /* print server reply to as a string */
-        reply[bytes] = 0; 
-        SPD_DBG("<< : |%s|\n", reply);
-    }else{
-        SPD_DBG("<< : no reply expected");
-        return "NO REPLY";
-    } 
-
-    return reply;
-}
-
 /* isanum() tests if the given string is a number,
  *  returns 1 if yes, 0 otherwise. */
 static int
@@ -861,24 +882,6 @@ isanum(char *str)
         if (!isdigit(str[i]))   return 0;
     }
     return 1;
-}
-
-static int
-spd_execute_command(int connection, char* command)
-{
-    char *buf;
-    char *ret;
-    int r;
-    
-    buf = g_strdup_printf("%s\r\n", command);
-    ret = spd_send_data(connection, buf, SPD_WAIT_REPLY);
-    xfree(buf);
-    
-    r = ret_ok(ret);
-    xfree(ret);
-
-    if (!r) return -1;
-    else return 0;
 }
 
 static void*
