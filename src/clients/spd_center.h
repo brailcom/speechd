@@ -12,6 +12,7 @@ typedef struct {
 	int pos;
 	int mode;
 	int pos_d;
+	int select_message_mode;
 }TSPDCEnv;
 
 /* Position between the two windows (int pos) */
@@ -25,9 +26,15 @@ typedef struct {
 #define POSD_SELECT_CLIENT 2
 #define POSD_SELECT_SUBCLIENT 3
 #define POSD_SELECT_MODE 4
+#define POSD_SELECT_MESSAGE 5
 
 #define MODE_HISTORY 0
 #define MODE_SETTINGS 1
+
+/* Select message mode */
+#define SMM_CLIENT 1
+#define SMM_SUBCLIENT 2
+#define SMM_ALL 3
 
 /* Sorted by... */
 #define SORT_ALPHABET 0
@@ -67,4 +74,8 @@ int s_status_fd;
 
 /* Function prototypes */
 void quit(int err_code);
+
+#define HELPBAR_B_CMD _("Speech Deamon:  UP/DOWN: move in the menu  ENTER: select  TAB: enter command")
+#define HELPBAR_B_MENU _("Speach Deamon:   '': Menu   'help()': Help   'quit()':Quit")
+#define HELPBAR_B_SELECT_MESSAGES _("Speach Deamon: ENTER: hear the message")
 
