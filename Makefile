@@ -1,30 +1,28 @@
 # Makefile for speechd server, clients and output modules.
-# CVS revision: $Id: Makefile,v 1.2 2001-04-10 10:42:05 cerha Exp $
+# CVS revision: $Id: Makefile,v 1.3 2001-06-29 09:26:43 cerha Exp $
 # Author: Tomas Cerha <cerha@brailcom.cz>
 
-include Makefile.config
-
-all: server clients
+all: server clients modules
 
 # ===  server  ===
 server:
-	(cd src/server; $(MAKE))
+	$(MAKE) --directory src/server
 
 # ===  output modules  ===
 modules:
-	(cd src/modules; $(MAKE))
+	$(MAKE) --directory src/modules
 
 # ===  clients  ===
 clients:
-	(cd src/clients; $(MAKE))
+	$(MAKE) --directory src/clients
 
 # ===  documentation  ===
 doc:
-	(cd doc; $(MAKE))
+	$(MAKE) --directory doc
 
 # ===  clean  ===
 # doc is not cleaned by default ...
-clean: 
-	(cd src/server;  $(MAKE) clean)
-	(cd src/modules; $(MAKE) clean)
-	(cd src/clients; $(MAKE) clean)
+clean:
+	$(MAKE) --directory src/server clean 
+	$(MAKE) --directory src/modules clean
+	$(MAKE) --directory src/clients clean
