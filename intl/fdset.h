@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.4 2003-02-01 22:16:55 hanke Exp $
+ * $Id: fdset.h,v 1.5 2003-03-09 20:53:48 hanke Exp $
  */
 
 typedef enum {                  // type of voice
@@ -36,7 +36,7 @@ typedef struct{
 		int uid;
         int paused;
         int priority;           // priority between 1 and 3
-        int punctuation_mode;   // this will of course not be integer
+        int punctuation_mode; 
         int speed;              // speed: 100 = normal, ???
         int pitch;              // pitch: ???
         char *client_name;
