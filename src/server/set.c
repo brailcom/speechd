@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.28 2003-09-28 22:31:05 hanke Exp $
+ * $Id: set.c,v 1.29 2003-10-08 21:32:57 hanke Exp $
  */
 
 #include "set.h"
@@ -154,31 +154,6 @@ set_punctuation_mode_uid(int uid, EPunctMode punctuation)
      settings->name = set_param_str(settings->name, name);
 
 
-SET_SELF_ALL(char*, punctuation_table)
-
-int
-set_punctuation_table_uid(int uid, char* punctuation_table)
-{
-    TFDSetElement *settings;
-
-    settings = get_client_settings_by_uid(uid);
-    if(settings == NULL) return 1;
-    if(punctuation_table == NULL) return 1;
-
-    if(g_list_find_custom(tables.spelling, punctuation_table, spd_str_compare)){
-        SET_PARAM_STR(punctuation_table);
-    }else{
-        if(!strcmp(punctuation_table, "punctuation_basic")){
-            MSG(3,"Couldn't find requested table, using the previous");
-            return 0;
-        }else{
-            /* We don't have the table between known or standard tables */
-            return 1;
-        }        
-    }
-    return 0;
-}
-
 SET_SELF_ALL(ECapLetRecogn, capital_letter_recognition)
 
 int
@@ -194,10 +169,10 @@ set_capital_letter_recognition_uid(int uid, ECapLetRecogn recogn)
 }
 
 
-SET_SELF_ALL(int, spelling)
+SET_SELF_ALL(ESpellMode, spelling)
 
 int
-set_spelling_uid(int uid, int spelling)
+set_spelling_uid(int uid, ESpellMode spelling)
 {
     TFDSetElement *settings;
 
@@ -206,79 +181,7 @@ set_spelling_uid(int uid, int spelling)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int(&settings->spelling_mode, spelling);
-    return 0;
-}
-
-SET_SELF_ALL(char*, spelling_table)
-
-int
-set_spelling_table_uid(int uid, char* spelling_table)
-{
-    TFDSetElement *settings;
-
-    settings = get_client_settings_by_uid(uid);
-    if (settings == NULL) return 1;
-    if (spelling_table == NULL) return 1;
-
-    if(g_list_find_custom(tables.spelling, spelling_table, spd_str_compare)){
-        SET_PARAM_STR(spelling_table);
-    }else{
-        if(!strcmp(spelling_table, "spelling_short")
-           || !strcmp(spelling_table, "spelling_long")){
-            MSG(4,"Couldn't find requested table, using the previous");
-            return 0;
-        }else{
-            return 1;
-        }        
-    }
-
-    return 0;
-}
-
-SET_SELF_ALL(char*, sound_table)
-
-int
-set_sound_table_uid(int uid, char* snd_icon_table)
-{
-    TFDSetElement *settings;
-
-    settings = get_client_settings_by_uid(uid);
-    if (settings == NULL) return 1;
-    if (snd_icon_table == NULL) return 1;
-
-    if(g_list_find_custom(tables.sound_icons, snd_icon_table, spd_str_compare)){
-        SET_PARAM_STR(snd_icon_table);
-    }else{
-        if(!strcmp(snd_icon_table, "sound_icons")){
-            MSG(4,"Couldn't find requested table, using the previous");
-            return 0;
-        }else{
-            return 1;
-        }        
-    }
-
-    return 0;
-}
-
-SET_SELF_ALL(char*, cap_let_recogn_table)
-
-int
-set_cap_let_recogn_table_uid(int uid, char* cap_let_recogn_table)
-{
-    TFDSetElement *settings;
-
-    settings = get_client_settings_by_uid(uid);
-    if (settings == NULL) return 1;
-    if (cap_let_recogn_table == NULL) return 1;
-
-    if(g_list_find_custom(tables.cap_let_recogn, cap_let_recogn_table, spd_str_compare)){
-        SET_PARAM_STR(cap_let_recogn_table);
-    }else{
-        MSG(4,"Couldn't find requested table, using the previous");
-        return 0;
-    }
-
+    set_param_int((int*) &settings->spelling_mode, (int) spelling);
     return 0;
 }
 
@@ -325,16 +228,8 @@ update_cl_settings(gpointer data, gpointer user_data)
     CHECK_SET_PAR(voice, -1)
     CHECK_SET_PAR(cap_let_recogn, -1)
     CHECK_SET_PAR(pause_context, -1)
-    CHECK_SET_PAR_STR(punctuation_some)
-    CHECK_SET_PAR_STR(punctuation_table)
-    CHECK_SET_PAR_STR(spelling_table)
-    CHECK_SET_PAR_STR(char_table)
-    CHECK_SET_PAR_STR(key_table)
-    CHECK_SET_PAR_STR(snd_icon_table)
     CHECK_SET_PAR_STR(language)
     CHECK_SET_PAR_STR(output_module)
-    CHECK_SET_PAR_STR(cap_let_recogn_table)
-    CHECK_SET_PAR_STR(cap_let_recogn_sound)
 
 
     return;
@@ -367,57 +262,6 @@ set_client_name_self(int fd, char *client_name)
     return 0;
 }
 
-SET_SELF_ALL(char*, key_table);
-
-int
-set_key_table_uid(int uid, char* key_table)
-{
-    TFDSetElement *settings;
-
-    settings = get_client_settings_by_uid(uid);
-    if (settings == NULL)
-        FATAL("Couldn't find settings for active client, internal error.");
-    if (key_table == NULL) return 1;
-
-    if(g_list_find_custom(tables.keys, key_table, spd_str_compare)){
-        SET_PARAM_STR(key_table);
-    }else{
-        if(!strcmp(key_table, "keys")){
-            MSG(4,"Couldn't find requested table, using the previous");
-            return 0;
-        }else{
-            return 1;
-        }        
-    }
-    return 0;
-}
-
-SET_SELF_ALL(char*, character_table);
-
-int
-set_character_table_uid(int uid, char* char_table)
-{
-    TFDSetElement *settings;
-
-    settings = get_client_settings_by_uid(uid);
-    if (settings == NULL) return 1;
-    if (char_table == NULL) return 1;
-
-    if(g_list_find_custom(tables.characters, char_table, spd_str_compare)){
-        SET_PARAM_STR(char_table);
-    }else{
-        if(!strcmp(char_table, "characters")){
-            MSG(4,"Couldn't find requested table, using the previous");
-            return 0;
-        }else{
-            return 1;
-        }        
-    }
-
-    return 0;
-}
-
-
 SET_SELF_ALL(char*, output_module);
 
 int
@@ -430,6 +274,8 @@ set_output_module_uid(int uid, char* output_module)
     if (output_module == NULL) return 1;
 
     MSG(5, "Setting output module to %s", output_module);
+
+    MSG(5, "In set_output_module the desired output module is x%s", output_module);
 
     SET_PARAM_STR(output_module);
 
@@ -468,14 +314,6 @@ default_fd_set(void)
 	new->language = spd_strdup(GlobalFDSet.language);
 	new->output_module = spd_strdup(GlobalFDSet.output_module);
 	new->client_name = spd_strdup(GlobalFDSet.client_name); 
-	new->spelling_table = spd_strdup(GlobalFDSet.spelling_table); 
-        new->cap_let_recogn_table = spd_strdup(GlobalFDSet.cap_let_recogn_table);
-        new->cap_let_recogn_sound = spd_strdup(GlobalFDSet.cap_let_recogn_sound);
-        new->punctuation_some = spd_strdup(GlobalFDSet.punctuation_some);
-        new->punctuation_table = spd_strdup(GlobalFDSet.punctuation_table);
-        new->key_table = spd_strdup(GlobalFDSet.key_table);
-        new->char_table = spd_strdup(GlobalFDSet.char_table);
-        new->snd_icon_table = spd_strdup(GlobalFDSet.snd_icon_table);
 	new->voice = GlobalFDSet.voice;
 	new->spelling_mode = GlobalFDSet.spelling_mode;         
 	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;       
