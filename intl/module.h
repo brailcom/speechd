@@ -19,11 +19,28 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.h,v 1.11 2003-05-01 10:41:18 hanke Exp $
+ * $Id: module.h,v 1.12 2003-05-18 20:54:10 hanke Exp $
  */
 
 #include <glib.h>
 #include <gmodule.h>
+
+typedef struct
+{
+    char *male1;
+    char *male2;
+    char *male3;
+    char *female1;
+    char *female2;
+    char *female3;
+    char *child_male;
+    char *child_female;
+}SPDVoiceDef;
+
+typedef struct{
+    GHashTable *voices;
+    GHashTable *params;
+}SPDModuleSettings;
 
 typedef struct{
     gchar    *name;
@@ -34,6 +51,7 @@ typedef struct{
     gchar*   (*pause)       (void);
     gint     (*is_speaking) (void);
     gint     (*close)       (void);
+    SPDModuleSettings settings;
 }OutputModule;
 
 typedef OutputModule entrypoint (void);
