@@ -1,3 +1,7 @@
+2004-06-08  Hynek Hanke  <hanke@volny.cz>
+
+	* Makefile.am: Include also gpl.texi fdl.texi.
+
 2004-05-23  Hynek Hanke  <hanke@volny.cz>
 
 	* Makefile.am (info_TEXINFOS): Include spd-say.texi.
