@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.9 2003-03-12 22:21:26 hanke Exp $
+ * $Id: libspeechd.c,v 1.10 2003-03-16 19:48:17 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -120,7 +120,7 @@ spd_sayf(int fd, int priority, char *format, ...)
 	char *buf;
 	int ret;
 	
-	buf = malloc(strlen(format)*3+4096);	// TODO: solve this problem!!
+	buf = malloc(strlen(format)*3+4096);	// TODO: solve this problem!!!
 	
 	va_start(args, format);
 	vsprintf(buf, format, args);
