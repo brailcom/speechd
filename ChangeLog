@@ -1,5 +1,7 @@
 2004-11-15  Hynek Hanke  <hanke@chopin>
 
+	* INSTALL: More information about Flite and NAS support when building.
+
 	* src/tests/Makefile.am (bin_PROGRAMS): The 'audio' target removed. This test was
 	removed with the new audio subsystem.
 
