@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: spd_center.c,v 1.5 2003-03-12 18:39:21 pdm Exp $
+ * $Id: spd_center.c,v 1.6 2003-03-23 21:28:31 hanke Exp $
  */
 
 #include<stdio.h>
@@ -142,7 +142,7 @@ i_get_string(){
 	attrset(COLOR_PAIR(1));
 	mvhline(BAR_DIV_Y,BAR_DIV_X,' ',COLS);
 	mvprintw(CMD_L_Y, CMD_L_X,PROMPT);
-	spd_stop(s_main_fd);
+//	spd_stop(s_main_fd);
 	spd_sayf(s_main_fd, 2, "Type in.");
 	refresh();
 	do{
@@ -314,7 +314,7 @@ i_menu_select_d(MENU *menu, int *command_line, char *it_name_r, char *it_descr_r
 		}
 		ret_men = menu_driver(menu, c);
 
-		spd_stop(s_main_fd);
+//		spd_stop(s_main_fd);
 		
 		cur_item = current_item(menu);
 	    it_name = (char*) item_name(cur_item);
