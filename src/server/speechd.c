@@ -21,10 +21,9 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.15 2003-03-24 22:27:25 hanke Exp $
+ * $Id: speechd.c,v 1.16 2003-03-25 22:45:46 hanke Exp $
  */
 
-#include <signal.h>
 #include "speechd.h"
 
 /* Declare dotconf functions and data structures*/
@@ -41,6 +40,29 @@ gint (*p_msg_nto_speak)() = message_nto_speak;
 gint (*p_hc_lc)() = hc_list_compare;
 gint (*p_msg_lc)() = message_list_compare_fd;
 
+/* Logging messages, level of verbosity is defined between 1 and 5, 
+ * see documentation */
+void
+MSG(int level, char *format, ...)
+{
+	if(level <= LOG_LEVEL){
+		va_list args;
+		int i;
+		char *format_with_spaces;
+		
+		format_with_spaces = spd_malloc(sizeof(char)*(strlen(format) + 3*level + 1));
+		format_with_spaces[0] = '\0';
+		for(i=1;i<level;i++){
+			strcat(format_with_spaces, "  ");
+		}
+		strcat(format_with_spaces, format);
+		strcat(format_with_spaces, "\n");
+		va_start(args, format_with_spaces);
+		vfprintf(logfile, format_with_spaces, args);
+		va_end(args);
+	}				
+}
+
 gboolean
 speechd_client_terminate(gpointer key, gpointer value, gpointer user)
 {
@@ -48,13 +70,13 @@ speechd_client_terminate(gpointer key, gpointer value, gpointer user)
 
 	set = (TFDSetElement *) value;
 	if (set == NULL){
-		MSG(2, "Empty connection, internal error\n");
+		MSG(2, "Empty connection, internal error");
 		if(SPEECHD_DEBUG) FATAL("Internal error");
 		return TRUE;
 	}	
 
-	MSG(2,"    Closing connection on fd %d\n", set->fd);
-	if(close(set->fd) == -1) MSG(1, "close() failed: %s\n", strerror(errno));
+	MSG(3,"Closing connection on fd %d\n", set->fd);
+	if(close(set->fd) == -1) MSG(2, "close() failed: %s", strerror(errno));
     FD_CLR(set->fd, &readfds);
 
 	mem_free_fdset(set);
@@ -72,6 +94,10 @@ speechd_modules_terminate(gpointer key, gpointer value, gpointer user)
 		if(SPEECHD_DEBUG) FATAL("Internal error");
 		return TRUE;
 	}
+	assert(module->name!=NULL);
+	MSG(4,"Terminating a module %s", module->name);
+    (*module->close) ();
+			
 	g_module_close((GModule*) (module->gmodule));
 	
 	return TRUE;
@@ -80,22 +106,32 @@ speechd_modules_terminate(gpointer key, gpointer value, gpointer user)
 void
 speechd_quit(int sig)
 {
-	printf("Terminating...\n");
-	MSG(3,"  Closing open connections...\n");
+	int ret;
+	
+	MSG(1, "Terminating...");
+	MSG(1, "Closing open connections...");
 
 	/* We will browse through all the connections and close them. */
 	g_hash_table_foreach_remove(fd_settings, speechd_client_terminate, NULL);
 	g_hash_table_destroy(fd_settings);
 	
-	MSG(3,"  Closing open output modules...\n");
+	MSG(1,"Closing open output modules...");
 	/*  Call the close() function of each registered output module. */
 	g_hash_table_foreach_remove(output_modules, speechd_modules_terminate, NULL);
 	g_hash_table_destroy(output_modules);
 	
-	MSG(3,"  Closing server connection...\n");
-	if(close(server_socket) == -1) MSG(1, "close() failed: %s\n", strerror(errno));
-
+	MSG(1,"Closing server connection...");
+	if(close(server_socket) == -1) MSG(2, "close() failed: %s", strerror(errno));
+	
+	MSG(1,"Closing speak() thread...");
+	ret = pthread_cancel(speak_thread);
+	if(ret != 0) FATAL("Speak thread failed to cancel!\n");
+	
+	ret = pthread_join(speak_thread, NULL);
+	if(ret != 0) FATAL("Speak thread failed to join!\n");
+	
 	fflush(NULL);
+
 	exit(0);	
 }
 
@@ -108,6 +144,10 @@ speechd_init()
 
 	msgs_to_say = 0;
 
+	/* Initialize logging */
+	logfile = malloc(sizeof(FILE));
+	logfile = stdout;
+	
 	/* Initialize Speech Deamon priority queue */
 	MessageQueue = (TSpeechDQueue*) speechd_queue_alloc();
 	if (MessageQueue == NULL) FATAL("Couldn't alocate memmory for MessageQueue.");
@@ -147,17 +187,17 @@ speechd_init()
 		DIE("Mutex initialization failed");
 	
 	/* Load configuration from the config file*/
-	MSG(5,"parsing configuration file \"%s\"\n", configfilename);
 	configfile = dotconf_create(configfilename, options, 0, CASE_INSENSITIVE);
 	if (!configfile) DIE ("Error opening config file\n");
 	if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
 	dotconf_cleanup(configfile);
+	MSG(1,"Configuration has been read from \"%s\"", configfilename);
 	
 	/* Check for output modules */
 	if (g_hash_table_size(output_modules) == 0){
 		DIE("No output modules were loaded - aborting...");
 	}else{
-		MSG(3,"speech server started with %d output module%s\n",
+		MSG(1,"Speech Deamon started with %d output module%s",
 			g_hash_table_size(output_modules),
 			g_hash_table_size(output_modules) > 1 ? "s" : "" );
 	}
@@ -187,7 +227,7 @@ speechd_connection_new(int server_socket)
 	/* We add the associated client_socket to the descriptor set. */
 	FD_SET(client_socket, &readfds);
 	if (client_socket > fdmax) fdmax = client_socket;
-	MSG(3,"   adding client on fd %d\n", client_socket);
+	MSG(3,"Adding client on fd %d", client_socket);
 
 	g_array_set_size(awaiting_data, fdmax+2);
 	/* Mark this client as ,,receiving commands'' */
@@ -221,7 +261,7 @@ speechd_connection_new(int server_socket)
 	new_hist_set->fd = client_socket;			
 	history_settings = g_list_append(history_settings, new_hist_set);
 
-	MSG(3,"   data structures for client on fd %d created\n", client_socket);
+	MSG(3,"Data structures for client on fd %d created", client_socket);
 	return 0;
 }
 
@@ -234,9 +274,9 @@ speechd_connection_destroy(int fd)
 	int v;
 	
 	/* Client has gone away and we remove it from the descriptor set. */
-	MSG(3,"   removing client on fd %d\n", fd);
+	MSG(3,"Removing client on fd %d", fd);
 
-	MSG(4,"       removing client from settings \n");
+	MSG(4,"Removing client from settings");
 	fdset_element = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);
 	if(fdset_element != NULL){
 		g_hash_table_remove(fd_settings, &fd);
@@ -245,7 +285,7 @@ speechd_connection_destroy(int fd)
 	 	DIE("Can't find settings for this client\n");
 	}
 
-	MSG(5,"       tagging client as inactive in history \n");
+	MSG(4,"Tagging client as inactive in history");
 	gl = g_list_find_custom(history, (int*) fd, p_cli_comp_fd);
 	if ((gl != NULL) && (gl->data!=NULL)){
 		hclient = gl->data;
@@ -257,7 +297,7 @@ speechd_connection_destroy(int fd)
 		
 	v = 0;
 	g_array_insert_val(awaiting_data, fd, v);
-	MSG(5,"       closing clients file descriptor %d\n", fd);
+	MSG(3,"Closing clients file descriptor %d", fd);
 	if(close(fd) != 0)
 		if(SPEECHD_DEBUG) DIE("Can't close file descriptor associated to this client");
 	   	
@@ -276,12 +316,13 @@ main()
 	int fd;
 	int ret;
 
+	
 	/* Register signals */
 	(void) signal(SIGINT, speechd_quit);	
 	
 	speechd_init();
 
-	MSG(2,"creating new thread for speak()\n");
+	MSG(1,"Creating new thread for speak()");
 	ret = pthread_create(&speak_thread, NULL, speak, NULL);
 	if(ret != 0) FATAL("Speak thread failed!\n");
 
@@ -292,8 +333,9 @@ main()
 	server_address.sin_addr.s_addr = htonl(INADDR_ANY);
 	server_address.sin_port = htons(SPEECH_PORT);
 
+	MSG(1,"Openning a socket connection");
 	if (bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address)) == -1){
-		MSG(1, "bind() failed: %s\n", strerror(errno));
+		MSG(1, "bind() failed: %s", strerror(errno));
 		FATAL("Couldn't open socket");
 	}
 	
@@ -304,7 +346,7 @@ main()
 	fdmax = server_socket;
 
    /* Now wait for clients and requests. */   
-	MSG(1, "speech server waiting for clients ...\n");
+	MSG(1, "Speech server waiting for clients ...");
 	while (1) {
 		testfds = readfds;
 
@@ -314,13 +356,13 @@ main()
 
 			for (fd = 0; fd <= fdmax && fd < FD_SETSIZE; fd++) {
 		 		if (FD_ISSET(fd,&testfds)){
-					MSG(3,"  activity on fd %d ...\n",fd);
+					MSG(4,"Activity on fd %d ...",fd);
 				
 					if (fd == server_socket){ 
 						/* server activity (new client) */
 						ret = speechd_connection_new(server_socket);
 						if (ret!=0){
-						  	MSG(3,"   failed to add new client\n");
+						  	MSG(2,"Failed to add new client");
 							if (SPEECHD_DEBUG) FATAL("failed to add new client");
 						}						
 				    }else{	
@@ -331,10 +373,10 @@ main()
 						if (nread == 0) {
 							/* client has gone */
 							speechd_connection_destroy(fd);
-							if (ret!=0) MSG(3,"   failed to close the client\n");
+							if (ret!=0) MSG(2,"Failed to close the client");
 						}else{
 							/* client sends some commands or data */
-							if (serve(fd) == -1) MSG(1,"   failed to serve client on fd %d!\n",fd);
+							if (serve(fd) == -1) MSG(2,"Failed to serve client on fd %d!",fd);
 						}
 					}
 				}
