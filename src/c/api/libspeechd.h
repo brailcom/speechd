@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.15 2004-04-17 15:30:04 hanke Exp $
+ * $Id: libspeechd.h,v 1.16 2004-05-23 12:34:06 hanke Exp $
  */
 
 
@@ -166,6 +166,8 @@ static int get_err_code(char *reply);
 static char* parse_response_data(char *resp, int pos);
 static void *xmalloc(size_t bytes);
 static void xfree(void *ptr);
+    
+static int ret_ok(char *reply);
 
 #ifdef __cplusplus
 }
