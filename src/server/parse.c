@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.62 2004-06-28 08:12:09 hanke Exp $
+ * $Id: parse.c,v 1.63 2004-10-12 20:27:36 hanke Exp $
  */
 
 #include "speechd.h"
@@ -138,10 +138,10 @@ parse(const char *buf, const int bytes, const int fd)
         if(((bytes >= 5)&&((!strncmp(buf, "\r\n.\r\n", bytes))))||(end_data == 1)
            ||((bytes == 3)&&(!strncmp(buf, ".\r\n", bytes)))){
 
-            MSG(4,"Finishing data");
+            MSG(5,"Finishing data");
             end_data = 0;
             /* Set the flag to command mode */
-            MSG(4, "Switching back to command mode...");
+            MSG(5, "Switching back to command mode...");
             SpeechdSocket[fd].awaiting_data = 0;
 
             /* Prepare element (text+settings commands) to be queued. */
@@ -164,7 +164,7 @@ parse(const char *buf, const int bytes, const int fd)
 	    /* TODO: Unify this with the above copying */
 	    new->buf = deescape_dot(new->buf);
 
-            MSG(4, "New buf is now: |%s|", new->buf);		
+            MSG(5, "New buf is now: |%s|", new->buf);		
             if(queue_message(new, fd, 1, MSGTYPE_TEXT, reparted) != 0){
                 if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
                 free(new->buf);
@@ -183,7 +183,7 @@ parse(const char *buf, const int bytes, const int fd)
                 if(pos = strstr(buf,"\r\n.\r\n")){	
                     real_bytes=pos-buf;
                     end_data=1;		
-                    MSG(4,"Command in data caught");
+                    MSG(5,"Command in data caught");
                 }else{
                     real_bytes = bytes;
                 }
@@ -564,7 +564,7 @@ parse_stop(const char *buf, const int bytes, const int fd)
     int uid = 0;
     char *who_s;
 
-    MSG(4, "Stop received from fd %d.", fd);
+    MSG(5, "Stop received from fd %d.", fd);
 
     GET_PARAM_STR(who_s, 1, CONV_DOWN);
 
@@ -715,7 +715,7 @@ parse_general_event(const char *buf, const int bytes, const int fd, EMessageType
 
     if(queue_message(msg, fd, 1, type, SpeechdSocket[fd].inside_block)){
         if (SPEECHD_DEBUG) FATAL("Couldn't queue message\n");
-        MSG(2, "Couldn't queue message!\n");            
+        MSG(2, "Error: Couldn't queue message!\n");            
     }   
 
     return OK_MESSAGE_QUEUED;
@@ -828,7 +828,7 @@ deescape_dot(char *otext)
 
     if (otext == NULL) return NULL;
 
-    MSG2(5, "escaping", "Incomming text: |%s|", otext);
+    MSG2(6, "escaping", "Incomming text: |%s|", otext);
 
     ootext = otext;
 
@@ -848,26 +848,26 @@ deescape_dot(char *otext)
         }
     }
 
-    MSG2(5, "escaping", "Altering text (I): |%s|", ntext->str);
+    MSG2(6, "escaping", "Altering text (I): |%s|", ntext->str);
 
     while (seq = strstr(otext, "\r\n..\r\n")){
         *seq = 0;
         g_string_append(ntext, otext);
         g_string_append(ntext, "\r\n.\r\n");
 
-        MSG2(5, "escaping", "Altering text (II) / 1: |%s|", otext);    
+        MSG2(6, "escaping", "Altering text (II) / 1: |%s|", otext);    
         otext = seq + 6;
-        MSG2(5, "escaping", "Altering text (II) / 2: |%s|", otext);    
+        MSG2(6, "escaping", "Altering text (II) / 2: |%s|", otext);    
     }
 
-    MSG2(5, "escaping", "Altering text (II): |%s|", ntext->str);    
+    MSG2(6, "escaping", "Altering text (II): |%s|", ntext->str);    
 
     len = strlen(otext);
     if (len >= 4){
         if ((otext[len-4] == '\r') && (otext[len-3] == '\n')
             && (otext[len-2] == '.') && (otext[len-1] == '.')){
             otext[len-1] = 0;
-            MSG2(5, "escaping", "Altering text (II-b) otext: |%s|", otext);    
+            MSG2(6, "escaping", "Altering text (II-b) otext: |%s|", otext);    
         }
     }
 
@@ -880,7 +880,7 @@ deescape_dot(char *otext)
     }
     g_string_free(ntext, 0);
 
-    MSG2(5, "escaping", "Altered text: |%s|", ret);
+    MSG2(6, "escaping", "Altered text: |%s|", ret);
 
     return ret;
 }

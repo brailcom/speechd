@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.58 2004-07-21 08:17:01 hanke Exp $
+ * $Id: speechd.c,v 1.59 2004-10-12 20:27:49 hanke Exp $
  */
 
 #include "speechd.h"
@@ -192,14 +192,14 @@ speechd_connection_new(int server_socket)
                            &client_len);
 
     if(client_socket == -1){
-        MSG(2,"Can't handle connection request of a new client");
+        MSG(2,"Error: Can't handle connection request of a new client");
         return -1;
     }
 
     /* We add the associated client_socket to the descriptor set. */
     FD_SET(client_socket, &readfds);
     if (client_socket > SpeechdStatus.max_fd) SpeechdStatus.max_fd = client_socket;
-    MSG(3,"Adding client on fd %d", client_socket);
+    MSG(4,"Adding client on fd %d", client_socket);
 
     /* Check if there is space for server status data; allocate it */
     if(client_socket >= SpeechdStatus.num_fds-1){
@@ -217,7 +217,7 @@ speechd_connection_new(int server_socket)
     /* Create a record in fd_settings */
     new_fd_set = (TFDSetElement *) default_fd_set();
     if (new_fd_set == NULL){
-        MSG(2,"Failed to create a record in fd_settings for the new client");
+        MSG(2,"Error: Failed to create a record in fd_settings for the new client");
         if(SpeechdStatus.max_fd == client_socket) SpeechdStatus.max_fd--;
         FD_CLR(client_socket, &readfds);
         return -1;
@@ -246,7 +246,7 @@ speechd_connection_destroy(int fd)
 	int v;
 	
 	/* Client has gone away and we remove it from the descriptor set. */
-	MSG(3,"Removing client on fd %d", fd);
+	MSG(4,"Removing client on fd %d", fd);
 
 	MSG(4,"Tagging client as inactive in settings");
 	fdset_element = get_client_settings_by_fd(fd);
@@ -286,13 +286,13 @@ speechd_client_terminate(gpointer key, gpointer value, gpointer user)
 
 	set = (TFDSetElement *) value;
 	if (set == NULL){
-		MSG(2, "Empty connection, internal error");
+		MSG(2, "Error: Empty connection, internal error");
 		if(SPEECHD_DEBUG) FATAL("Internal error");
 		return TRUE;
 	}	
 
 	if(set->fd>0){
-		MSG(3,"Closing connection on fd %d\n", set->fd);
+		MSG(4,"Closing connection on fd %d\n", set->fd);
 		speechd_connection_destroy(set->fd);
 	}
 	mem_free_fdset(set);
@@ -309,7 +309,7 @@ speechd_modules_terminate(gpointer key, gpointer value, gpointer user)
 
     module = (OutputModule *) value;
     if (module == NULL){
-        MSG(2,"Empty module, internal error");
+        MSG(2,"Error: Empty module, internal error");
         return TRUE;
     }
     unload_output_module(module);		       
@@ -505,17 +505,17 @@ speechd_quit(int sig)
             MSG(2, "close() failed: %s", strerror(errno));
 	FD_CLR(server_socket, &readfds);
 	
-	MSG(2,"Closing speak() thread...");
+	MSG(4,"Closing speak() thread...");
 	ret = pthread_cancel(speak_thread);
 	if(ret != 0) FATAL("Speak thread failed to cancel!\n");
 	
 	ret = pthread_join(speak_thread, NULL);
 	if(ret != 0) FATAL("Speak thread failed to join!\n");
 
-        MSG(2, "Removing semaphore");
+        MSG(4, "Removing semaphore");
 	speaking_semaphore_destroy();
 
-        MSG(2, "Removing pid file");
+        MSG(3, "Removing pid file");
 	destroy_pid_file();
 
 	fflush(NULL);
@@ -648,14 +648,14 @@ main(int argc, char *argv[])
       const int flag = 1;
       if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &flag,
                      sizeof (int)))
-        MSG(2,"Setting socket option failed!");
+        MSG(2,"Error: Setting socket option failed!");
     }
 
     server_address.sin_family = AF_INET;
     server_address.sin_addr.s_addr = htonl(INADDR_ANY);
     server_address.sin_port = htons(SpeechdOptions.port);
 
-    MSG(2,"Openning a socket connection");
+    MSG(3,"Openning socket connection");
     if (bind(server_socket, (struct sockaddr *)&server_address,
              sizeof(server_address)) == -1){
         MSG(1, "bind() failed: %s", strerror(errno));

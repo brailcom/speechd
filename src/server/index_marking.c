@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: index_marking.c,v 1.9 2004-07-18 20:45:27 hanke Exp $
+  * $Id: index_marking.c,v 1.10 2004-10-12 20:27:22 hanke Exp $
   */
 
 #include "index_marking.h"
@@ -86,17 +86,17 @@ insert_index_marks(TSpeechDMessage *msg, int ssml_mode)
             ret = spd_utf8_read_char(pos, character2);
             if ((ret == 0) || (strlen(character2) == 0)){
                 g_string_append_printf(marked_text, "%s", character);
-                MSG2(5, "index_marking", "MSG altering 1: |%s|", marked_text->str);
+                MSG2(6, "index_marking", "MSG altering 1: |%s|", marked_text->str);
                 break;            
             }
             u_char = g_utf8_get_char(character2);
             if (g_unichar_isspace(u_char)){
                 g_string_append_printf(marked_text, "%s"SD_MARK_HEAD"%d"SD_MARK_TAIL"%s", character, n, character2);
                 n++;
-                MSG2(5, "index_marking", "MSG altering 2: |%s|", marked_text->str);
+                MSG2(6, "index_marking", "MSG altering 2: |%s|", marked_text->str);
             }else{
                 g_string_append_printf(marked_text, "%s%s", character, character2);
-                MSG2(5, "index_marking", "MSG altering 3: |%s|", marked_text->str);
+                MSG2(6, "index_marking", "MSG altering 3: |%s|", marked_text->str);
             }
         }
         else{
@@ -124,7 +124,7 @@ find_index_mark(TSpeechDMessage *msg, int mark)
     char *pos;
     char *p;
 
-    MSG(2, "Trying to find index mark %d", mark);
+    MSG(5, "Trying to find index mark %d", mark);
     
     /* Fix this for variable space number */
     sprintf(str_mark, SD_MARK_HEAD"%d"SD_MARK_TAIL, mark);
@@ -134,7 +134,7 @@ find_index_mark(TSpeechDMessage *msg, int mark)
 
     pos = p + strlen(str_mark);
 
-    MSG(2, "Search for index mark sucessfull");
+    MSG(5, "Search for index mark sucessfull");
  
     return pos;
 }
