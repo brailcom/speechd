@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: config.c,v 1.1 2003-10-12 23:29:48 hanke Exp $
+ * $Id: config.c,v 1.2 2004-02-10 21:20:46 hanke Exp $
  */
 
 #include <dotconf.h>
@@ -42,6 +42,7 @@ DOTCONF_CB(cb_DefaultModule);
 DOTCONF_CB(cb_LanguageDefaultModule);
 DOTCONF_CB(cb_DefaultRate);
 DOTCONF_CB(cb_DefaultPitch);
+DOTCONF_CB(cb_DefaultVolume);
 DOTCONF_CB(cb_DefaultLanguage);
 DOTCONF_CB(cb_DefaultPriority);
 DOTCONF_CB(cb_DefaultPunctuationMode);
@@ -133,6 +134,7 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(LanguageDefaultModule, ARG_LIST);
     ADD_CONFIG_OPTION(DefaultRate, ARG_INT);  
     ADD_CONFIG_OPTION(DefaultPitch, ARG_INT);
+    ADD_CONFIG_OPTION(DefaultVolume, ARG_INT);
     ADD_CONFIG_OPTION(DefaultLanguage, ARG_STR);
     ADD_CONFIG_OPTION(DefaultPriority, ARG_STR);
     ADD_CONFIG_OPTION(MaxHistoryMessages, ARG_INT);   
@@ -161,6 +163,7 @@ load_default_global_set_options()
     GlobalFDSet.spelling_mode = 0;
     GlobalFDSet.rate = 0;
     GlobalFDSet.pitch = 0;
+    GlobalFDSet.volume = 0;
     GlobalFDSet.client_name = strdup("unknown:unknown:unknown");
     GlobalFDSet.language = strdup("en");
     GlobalFDSet.output_module = NULL;
@@ -286,6 +289,17 @@ DOTCONF_CB(cb_DefaultPitch)
         GlobalFDSet.pitch = pitch;
     else
         cl_spec_section->val.pitch = pitch;
+    return NULL;
+}
+
+DOTCONF_CB(cb_DefaultVolume)
+{
+    int volume = cmd->data.value;
+    if (volume < -100 || volume > +100) MSG(3, "Default volume out of range.");
+    if (!cl_spec_section)
+        GlobalFDSet.volume = volume;
+    else
+        cl_spec_section->val.volume = volume;
     return NULL;
 }
 
@@ -467,6 +481,7 @@ DOTCONF_CB(cb_BeginClient)
 
     SET_PAR(rate, -101)
     SET_PAR(pitch, -101)
+    SET_PAR(volume, -101)
     SET_PAR(punctuation_mode, -1)
     SET_PAR(spelling_mode, -1)
     SET_PAR(voice, -1)

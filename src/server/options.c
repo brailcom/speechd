@@ -1,4 +1,4 @@
-/*
+ /*
  * options.c - Parse and process possible command line options
  *
  * Copyright (C) 2003 Brailcom, o.p.s.
@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.c,v 1.3 2003-10-19 23:37:22 hanke Exp $
+ * $Id: options.c,v 1.4 2004-02-10 21:21:31 hanke Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would

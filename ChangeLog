@@ -1,3 +1,28 @@
+2004-02-10  Hynek Hanke  <hanke@eda>
+
+	* src/server/parse.c (parse_set): SET * VOLUME added to SSIP.
+
+	* src/server/output.c (output_send_settings): Send the volume parameter to output module.
+
+	* src/server/msg.h: Volume setting messages addded.
+
+	* src/modules/module_utils.c (do_set): Read the volume settings
+
+	* src/server/set.c (set_volume_uid): New function.
+
+	* src/server/set.h: Volume setting functions.
+
+	* intl/fdset.h (TFDSetElement): Volume added.
+	(SPDMsgSettings): Volume added.
+
+	* src/audio/spd_audio.c (spd_audio_play_wave): Multiply the samples array by the
+	desired relative volume.
+
+	* src/modules/festival.c (festival_set_volume): New function.
+
+	* src/modules/module_utils_audio.c (module_audio_output_child): Handle new parameter: volume.
+	(module_audio_output_child): Call spd_audio_set_volume().
+
 2004-01-27  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/server/alloc.c (spd_realloc): New function.
