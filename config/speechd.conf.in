@@ -129,14 +129,14 @@ DefaultVolume 100
 #  Syntax: AddModule "name" "binary" "configuration"
 #  - name is the name under which you can acces this module
 #  - binary is the path to the binary executable of this module,
-#    either relative (to bin/speechd-modules/) or absolute
+#    either relative (to lib/speech-dispatcher-modules/) or absolute
 #  - configuration is the path to the config file of this module,
 #    either relative (to etc/speechd/modules/) or absolute
 
 AddModule "flite"        "sd_flite"     "flite.conf"
 AddModule "festival"     "sd_festival"  "festival.conf"
-AddModule "epos-generic" "sd_generic"   "epos-generic.conf"
-# AddModule "apollo"     "sd_apollo"    "apollo.conf"
+#AddModule "epos-generic" "sd_generic"   "epos-generic.conf"
+#AddModule "dtk-generic"  "sd_generic"   "dtk-generic.conf"
 
 # The output module testing doesn't actually connect to
 # anything. It outputs the requested commands to standard output
