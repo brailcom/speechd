@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.56 2004-11-19 13:54:23 hanke Exp $
+ * $Id: festival.c,v 1.57 2004-11-21 22:11:36 hanke Exp $
  */
 
 #include "fdset.h"
@@ -500,8 +500,6 @@ _festival_speak(void* nothing)
 
 	spd_audio_set_volume(festival_audio_id, festival_volume);
 
-	DBG("test");
-
 	festival_stop = 0;	
 	festival_speaking = 1;
 	wave_cached = 0;
@@ -513,10 +511,7 @@ _festival_speak(void* nothing)
     
 	DBG("Going to synthesize: |%s|", *festival_message);
 	if (bytes > 0){
-	    if (is_text(festival_message_type)){	/* it is a raw text */
-		FestivalSetMultiMode(festival_info, "t");
-	    }else{			/* it is some kind of event */
-		FestivalSetMultiMode(festival_info, "nil");
+	    if (!is_text(festival_message_type)){	/* it is a raw text */	     
 		DBG("Cache mechanisms...");
 		fwave = cache_lookup(*festival_message, festival_message_type, 1);
 		if (fwave != NULL){
@@ -537,7 +532,14 @@ _festival_speak(void* nothing)
 		    }
 		}
 	    }
-	
+	    
+	    /*  Set multi-mode for appropriate kind of events */
+	    if (is_text(festival_message_type)){	/* it is a raw text */
+		FestivalSetMultiMode(festival_info, "t");
+	    }else{			/* it is some kind of event */
+		FestivalSetMultiMode(festival_info, "nil");	
+	    }
+
 	    switch(festival_message_type)
 		{
 		case MSGTYPE_TEXT: r = festivalStringToWaveRequest(festival_info, *festival_message); break;
@@ -631,6 +633,7 @@ _festival_speak(void* nothing)
 	    
 		DBG("Playing sound samples");
 		festival_send_to_audio(fwave);
+		DBG("End of playing sound samples");
 	    }            
 
 	    if (terminate){
