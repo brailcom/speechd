@@ -5,6 +5,8 @@
 	`snprintf', not `sprintf'.
 	(apollo_write): Negate the return value.
 	(send_apollo_command): Send carriage return additionally.
+	(apollo_write): Convert line feeds to carriage returns.  Add a
+	closing carriage return.
 
 2003-04-23  Milan Zamazal  <pdm@brailcom.org>
 
