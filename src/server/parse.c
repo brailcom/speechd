@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.36 2003-07-05 13:33:39 hanke Exp $
+ * $Id: parse.c,v 1.37 2003-07-05 13:53:57 hanke Exp $
  */
 
 #include "speechd.h"
@@ -712,6 +712,7 @@ parse_char(const char *buf, const int bytes, const int fd)
     GET_PARAM_STR(character, 1, NO_CONV);
 
     if (character == NULL) return ERR_MISSING_PARAMETER;
+    if (character[0] == 0) return ERR_MISSING_PARAMETER;
 
     ret = sndicon_char(fd, character);
     if (ret != 0){
