@@ -2,7 +2,7 @@
 localedir = $(datadir)/locale
 inc_local = "-I$(top_srcdir)/intl/"
 
-INCLUDES = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local)
+CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@
 
 lib_LTLIBRARIES = librflite.la librmluvitko.la librfestival.la
 
