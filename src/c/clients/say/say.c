@@ -1,6 +1,6 @@
 
 /*
- * say.c - Supersimple Speech Dispatcher client
+ * say.c - Super-simple Speech Dispatcher client
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,41 +19,34 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: say.c,v 1.4 2003-05-26 16:04:49 hanke Exp $
+ * $Id: say.c,v 1.5 2003-07-06 15:09:18 hanke Exp $
  */
 
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <unistd.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <glib.h>
-
 #include "libspeechd.h"
-#include "def.h"
 
 #define FATAL(msg) { perror("client: "msg); exit(1); }
 
 int main(int argc, const char **argv) {
    int sockfd;
-   struct sockaddr_in address;
    int err;
 
+   /* Check if the text to say is specified as argument */
    if (argc != 2) {
       fprintf (stderr, "usage: %s ARGUMENT\n", argv[0]);
-      exit (EXIT_FAILURE);
+      return 1;
    }
    
+   /* Open a connection to Speech Deamon */
    sockfd = spd_open("say","main", NULL);
-   if (sockfd == 0) FATAL("Speech Dispatcher failed");
+   if (sockfd == 0) FATAL("Speech Dispatcher failed to open");
 
-   err = spd_sayf(sockfd, 2, (char*) argv[1]);
-
-   if (err == -1) FATAL("Speech Dispatcher failed");
+   /* Say the message with priority "text" */
+   err = spd_sayf(sockfd, SPD_TEXT, (char*) argv[1]);
+   if (err == -1) FATAL("Speech Dispatcher failed to say message");
    
-   /* close the socket */
+   /* Close the connection */
    spd_close(sockfd);
-   exit(0);
+  
+   return 0;
 }
