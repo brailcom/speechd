@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.11 2003-05-06 11:09:10 pdm Exp $
+ * $Id: apollo.c,v 1.12 2003-05-06 11:43:56 pdm Exp $
  */
 
 
@@ -198,7 +198,7 @@ OutputModule *module_init (void)
   fd = open (DEVICE, O_WRONLY);
   {
     const char *command = "@P0\r";
-    fd = write_it (command, strlen (command) * sizeof (char));
+    write_it (command, strlen (command) * sizeof (char));
   }
 
   recode_outer = recode_new_outer (true);
