@@ -2,7 +2,7 @@
 localedir = $(datadir)/locale
 inc_local = "-I$(top_srcdir)/intl/"
 
-AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@ -L$(top_srcdir)/src/audio -I$(top_srcdir)/src/audio -I../../intl/ -Wl,--rpath -Wl,($spdlibdir)
+AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@ -L$(top_srcdir)/src/audio -I$(top_srcdir)/src/audio -I../../intl/ -Wl,--rpath -Wl,$(spdlibdir)
 
 EXTRA_DIST = module_main.c module_utils_addvoice.c module_utils_audio.c festival_client.c festival_client.h
 
