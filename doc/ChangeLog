@@ -1,4 +1,18 @@
-2002-02-01	Hynek Hanke	<hanke@volny.cz>
+2003-03-16  Tomas Cerha  <cerha@brailcom.org>
+
+	* Makefile (HTMLDIR): Default value changed to `htmldoc' to avoid
+	conflict with target name `html'.
+	(NAME): New variable.
+	(all): Target removed. 
+	(info, html, pdf, dvi): Use variable `NAME' and some makefile
+	default variables.  Define dependencies.
+	(clean): Added also non-html files.
+	(html): Specify output directory.
+
+	* README: Don't refer no-longer-existing target `all'.
+
+2002-02-01  Hynek Hanke  <hanke@volny.cz>
+
 	* speechd.texi: DocBook -> Texinfo (because editing DocBook was a hell)
 
 2002-11-21  Tomas Cerha  <cerha@brailcom.org>
@@ -6,7 +20,6 @@
 	* Makefile (HTMLDIR): New variable for automatic update script run
 	after CVS commits (replaced original `DST' variable).
 	Aded the target `html'.
-	
 
 2002-11-18  Tomas Cerha  <cerha@brailcom.org>
 

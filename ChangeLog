@@ -1,9 +1,15 @@
+2003-03-16  Tomas Cerha  <cerha@brailcom.org>
 
-2003-03-13	Hynek Hanke	<hanke@volny.cz
+	* README: Robod -> Speech Daemon.
+
+	* INSTALL: pkg-config and libtool added to requirements.  
+	Robod -> Speech Daemon.  Cosmetical changes.
+
+2003-03-13  Hynek Hanke	 <hanke@volny.cz>
 	* src/modules/flite.c: Bug with swapped flite_is_speaking() and flite_close() fixed.
 	* src/intl/module.h: Bug with swapped flite_is_speaking() and flite_close() fixed.
 
-2003-03-12	Hynek Hanke	<hanke@volny.cz>
+2003-03-12  Hynek Hanke  <hanke@volny.cz>
 
 	* src/clients/libspeechd.c (spd_say()): Bug with @data off corrected.
 	* src/clients/libspeechd.c (spd_voice_rate()): Renamed from spd_voice_speed().
@@ -28,7 +34,7 @@
     * src/clients/spd_center.c: Likewise.
 
 
-2003-03-09	Hynek Hanke	<hanke@volny.cz>
+2003-03-09  Hynek Hanke  <hanke@volny.cz>
 
 	* src/clients/libspeechd.c (spd_icon()): New function.
 	* src/clients/libspeechd.c (spd_say_letter()): New function.
