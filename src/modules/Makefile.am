@@ -8,7 +8,7 @@ EXTRA_DIST = module_utils.c module_main.c module_utils_addvoice.c module_utils_a
 
 modulebin_PROGRAMS = sd_flite sd_generic sd_festival
 sd_flite_SOURCES = flite.c
-sd_flite_LDFLAGS = -lsdaudio -lflite_cmu_us_kal -lflite_cmu_time_awb -lflite_usenglish -lflite_cmulex -lflite -lm
+sd_flite_LDFLAGS = -lsdaudio -lm $(flite_basic) $(flite_kal)
 
 sd_generic_SOURCES = generic.c
 sd_generic_LDFLAGS = -lm
