@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.28 2003-09-28 22:27:34 hanke Exp $
+ * $Id: festival.c,v 1.29 2003-10-01 06:43:12 hanke Exp $
  */
 
 #include "module.h"
@@ -74,6 +74,7 @@ MOD_OPTION_1_STR(FestivalStripPunctChars);
 MOD_OPTION_1_INT(FestivalServerPort);
 MOD_OPTION_1_INT(FestivalPitchDeviation);
 MOD_OPTION_1_INT(FestivalDebugSaveOutput);
+MOD_OPTION_1_STR(FestivalRecodeFallback);
 
 /* Public functions */
 
@@ -97,6 +98,8 @@ module_load(void)
     MOD_OPTION_1_INT_REG(FestivalDebugSaveOutput, 0);
 
     MOD_OPTION_1_STR_REG(FestivalStripPunctChars, "");
+
+    MOD_OPTION_1_STR_REG(FestivalRecodeFallback, "?");
 
     module_register_settings_voices();
 
@@ -159,7 +162,7 @@ module_write(char *data, size_t bytes)
     if(module_write_data_ok(data) != 0) return -1;
 
     DBG("Requested data: |%s| (before recoding)\n", data);
-    *festival_message = module_recode_to_iso(data, bytes, msg_settings.language);
+    *festival_message = module_recode_to_iso(data, bytes, msg_settings.language, FestivalRecodeFallback);
     if (*festival_message == NULL){
         return -1;
     }
