@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.40 2003-05-20 19:13:40 hanke Exp $
+  * $Id: server.c,v 1.41 2003-05-25 21:06:38 hanke Exp $
   */
 
 #include "speechd.h"
@@ -165,7 +165,7 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
 
     /* Queue the parts not returned. */
     if(plist != NULL){
-        queue_messages(plist, -settings->uid, 0);
+        queue_messages(plist, -settings->uid, 0, 1);
     }
 
     free(character);
@@ -199,7 +199,7 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
     for(i=0; i<=g_utf8_strlen(buf, -1) - 1; i++){
 
         spd_utf8_read_char(pos, character);
-		u_char = g_utf8_get_char(character);
+        u_char = g_utf8_get_char(character);
 		
         if(g_unichar_ispunct(u_char)){
 
@@ -253,9 +253,10 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
 					}
                 }
             }
+        }else{
+            if (g_unichar_isprint(u_char))
+                g_string_append(str, character);
         }
-
-        g_string_append(str, character);
         pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */		
     }
 
@@ -271,7 +272,7 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
     
     /* Queue the parts not returned. */
     if(plist != NULL){
-        queue_messages(plist, -settings->uid, 0);
+        queue_messages(plist, -settings->uid, 0, 1);
     }
     
     free(character);
@@ -305,7 +306,7 @@ process_message(char *buf, int bytes, TFDSetElement* settings)
 }
 
 int
-queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type)
+queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type, int reparted)
 {
     GList *gl;
     TFDSetElement *settings;
@@ -335,6 +336,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type)
     strcpy(new->settings.output_module, settings->output_module);
     strcpy(new->settings.language, settings->language);
     strcpy(new->settings.client_name, settings->client_name);
+    new->settings.reparted = reparted;
 
     MSG(2, "queueing message |%s| with priority %d", new->buf, settings->priority);
 
@@ -371,7 +373,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type)
 }
 
 int
-queue_messages(GList* msg_list, int fd, int history_flag)
+queue_messages(GList* msg_list, int fd, int history_flag, int reparted)
 {
     int i;
     GList *gl;
@@ -386,8 +388,7 @@ queue_messages(GList* msg_list, int fd, int history_flag)
         }
         assert(gl!=NULL); assert(gl->data!=NULL);
         msg = gl->data;
-        queue_message(msg, fd, history_flag, msg->settings.type);
-        fflush(NULL);
+        queue_message(msg, fd, history_flag, msg->settings.type, reparted);
         gl = g_list_next(gl);
     }
 }
@@ -438,6 +439,7 @@ serve(int fd)
 
     /* Parse the data and read the reply*/
     MSG(5, "DATA:%s", buf);
+	fflush(NULL);
     reply = parse(buf, bytes, fd);
 
     /* Send the reply to the socket */
