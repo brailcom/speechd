@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.57 2004-11-21 22:11:36 hanke Exp $
+ * $Id: festival.c,v 1.58 2005-02-27 20:55:29 hanke Exp $
  */
 
 #include "fdset.h"
@@ -579,11 +579,8 @@ _festival_speak(void* nothing)
 		    l = strlen(callback);
 		    if (l<4) CLEAN_UP(0);	/* some other index mark */
 		    if (strncmp(callback, "sdm_", 3)) continue;	/* some other index mark */
-		    DBG("b");
 		    h = strtol(callback+4, &tptr, 10);
-		    DBG("c");
 		    if (tptr != callback+3){ /* is the argument really a number? */
-			DBG("a");
 			    current_index_mark = h;
 			    DBG("Current index mark is set to %d", current_index_mark);
 			    if(festival_pause_requested){
