@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.18 2003-06-23 05:12:49 hanke Exp $
+  * $Id: speaking.c,v 1.19 2003-07-05 12:29:34 hanke Exp $
   */
 
 #include <glib.h>
@@ -48,7 +48,7 @@ speak(void* data)
 	
     while(1){
         sem_wait(sem_messages_waiting);
-
+        
         if (pause_requested){
             MSG(4, "Trying to execute pause...");
             if(pause_requested == 1)
@@ -69,31 +69,27 @@ speak(void* data)
          * If some synthesizer is speaking, we must wait. */
         if (is_sb_speaking() == 1){
             sem_post(sem_messages_waiting);
-            usleep(5);
+            usleep(10);
             continue;
         }
 
         pthread_mutex_lock(&element_free_mutex);
 
-        /* Extract the right message from priority queue */
-        message = get_message_from_queues();
-        if (message == NULL){
-            if (highest_priority == 5){
-                if (last_p5_message != NULL){
-                    message = last_p5_message;
-                    last_p5_message = NULL;
-                    sem_trywait(sem_messages_waiting);
-                }else{
-                    pthread_mutex_unlock(&element_free_mutex);
-                    continue;
-                }
-            }else{
-                MSG(4, "Message got from queue is NULL");
+        if (highest_priority == 5 && (last_p5_message != NULL) 
+            && (g_list_length(MessageQueue->p5) == 0)){
+            message = last_p5_message;
+            last_p5_message = NULL;
+            highest_priority = 2;
+            sem_post(sem_messages_waiting);
+        }else{
+            /* Extract the right message from priority queue */
+            message = get_message_from_queues();
+            if (message == NULL){
                 pthread_mutex_unlock(&element_free_mutex);
                 continue;     
-            }          
-        }
-     
+            }
+        }    
+
         /* Isn't the parent client of this message paused? 
          * If it is, insert the message to the MessagePausedList. */
         if (message_nto_speak(message, NULL)){
@@ -111,7 +107,7 @@ speak(void* data)
             pthread_mutex_unlock(&element_free_mutex);
             continue;				
         }                    
-
+        
         /* Process message: spelling, punctuation, etc. */
         if(message->settings.type == MSGTYPE_TEXT){
             MSG(4, "Processing message...");
@@ -133,12 +129,13 @@ speak(void* data)
             MSG(5, "Message text: |%s|", message->buf);
             buffer = message->buf;
         }
+        
         assert(buffer!=NULL);
 	
         /* Set the speking-monitor so that we know who is speaking */
         speaking_module = output;
         speaking_uid = message->settings.uid;
-
+        
         /* Write the data to the output module. (say them aloud) */
         ret = (*output->write) (buffer, strlen(buffer), &message->settings); 
         MSG(4,"Message sent to output module");
@@ -872,7 +869,15 @@ resolve_priorities()
     if(g_list_length(MessageQueue->p5) != 0){
         stop_priority(4);
         if (is_sb_speaking()){
-            MessageQueue->p5 = empty_queue(MessageQueue->p5);
+            GList *gl;
+            gl = g_list_last(MessageQueue->p5); 
+            MessageQueue->p5 = g_list_remove_link(MessageQueue->p5, gl);
+            if (gl != NULL){
+                MessageQueue->p5 = empty_queue(MessageQueue->p5);
+                if (gl->data != NULL){
+                    MessageQueue->p5 = gl;
+                }
+            }
         }
     }
 
