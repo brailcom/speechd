@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.6 2003-04-24 20:17:58 hanke Exp $
+ * $Id: apollo.c,v 1.7 2003-04-25 14:54:19 pdm Exp $
  */
 
 
@@ -26,6 +26,10 @@
 #include <glib.h>
 #include <math.h>
 #include <unistd.h>
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <recode.h>
 
 #include "module.h"
 #include "fdset.h"
@@ -52,6 +56,8 @@ static const gchar AT_REPLACEMENT_CHAR = ' ';
 
 static int fd = -1;
 static TFDSetElement current_parameters;
+static RECODE_OUTER recode_outer;
+static RECODE_REQUEST recode_request;
 
 
 /* *** Internal functions *** */
@@ -72,7 +78,7 @@ static TFDSetElement current_parameters;
         g_free (old_value); \
 	old_value = NULL; \
       } \
-      if (new_value == NULL) \
+      if (new_value != NULL) \
       { \
         old_value = g_strdup (new_value); \
         setter ((new_value)); \
@@ -101,16 +107,16 @@ static gint send_apollo_command (const char *command)
          || write_it ((const void *)"\r", sizeof (char));
 }
 
-static gint set_speed (signed int value)
+static gint set_rate (signed int value)
 {
-  int speed = (int) (pow (3, (value+100)/100.0));
+  int rate = (int) (pow (3, (value+100)/100.0));
   char command[4];
-  if (speed < 0)
-    speed = 0;
-  else if (speed > 9)
-    speed = 9;
+  if (rate < 0)
+    rate = 0;
+  else if (rate > 9)
+    rate = 9;
   
-  snprintf (command, 4, "@W%d", speed);
+  snprintf (command, 4, "@W%d", rate);
   return send_apollo_command (command);
 }
 
@@ -132,7 +138,25 @@ static gint set_language (const char *value)
   /* TODO: Just hard-wired switching between English and another language.
      Any masochist willing to use @L and DTR in C is welcome to do so here.
   */
-  return send_apollo_command (strcmp (value, "en") ? "@=2," : "@=1,");
+  char *command, *request;
+
+  if (! strcmp (value, "cs"))
+    {
+      command = "@=2,";
+      request = "UTF-8..Kamenicky";
+    }
+  else if (! strcmp (value, "en"))
+    {
+      command = "@=1,";
+      request = "UTF-8..ASCII";
+    }
+  else
+    {
+      command = "@=2,";
+      request = "UTF-8..ASCII";
+    }
+  recode_scan_request (recode_request, request);
+  return send_apollo_command (command);
 }
 
 static gint set_voice_type (int value)
@@ -172,6 +196,10 @@ OutputModule *module_init (void)
   system ("stty -F /dev/apollo sane 9600 raw crtscts");
   system ("stty -F /dev/apollo -echo");
   fd = open (DEVICE, O_WRONLY);
+
+  recode_outer = recode_new_outer (true);
+  recode_request = recode_new_request (recode_outer);
+  recode_scan_request (recode_request, "UTF-8..ASCII");
   
   return &module_apollo;
 }
@@ -180,7 +208,7 @@ gint apollo_write (gchar *data, gint len, void* set_)
 {
   TFDSetElement *set = set_;
   
-  UPDATE_PARAMETER (current_parameters.rate, set->rate, set_speed);
+  UPDATE_PARAMETER (current_parameters.rate, set->rate, set_rate);
   UPDATE_PARAMETER (current_parameters.pitch, set->pitch, set_pitch);
   UPDATE_PARAMETER (current_parameters.voice_type, set->voice_type,
 		    set_voice_type);
@@ -190,24 +218,29 @@ gint apollo_write (gchar *data, gint len, void* set_)
   /* TODO: Apollo has a buffer of a certain size (~2 KB?).  If the buffer size
      is exceeded, the extra data is thrown away. */
   {
-    int blen = len * sizeof (gchar) + 1;
-    gchar *edata = g_malloc (blen);
+    int byte_len = len * sizeof (gchar) + 1;
+    gchar *escaped_data = g_malloc (byte_len + 1);
     int result;
     
-    if (edata == NULL)
+    if (escaped_data == NULL)
       {
 	result = 1;
       }
     else 
       {
+	char *final_data;
 	int i;
+	
 	for (i = 0; i < len; i++)
-	  edata[i] = (data[i] == '@'  ? AT_REPLACEMENT_CHAR :
-		      data[i] == '\n' ? '\r' :
-		                        data[i]);
-	edata[len] = '\r';
-	result = write_it (edata, blen);
-	g_free (edata);
+	  escaped_data[i] = (data[i] == '@'  ? AT_REPLACEMENT_CHAR :
+			     data[i] == '\n' ? '\r' :
+			                       data[i]);
+	escaped_data[len] = '\r';
+	escaped_data[len+1] = '\0';
+	final_data = recode_string (recode_request, escaped_data);
+	g_free (escaped_data);
+	result = write_it (final_data, strlen (final_data));
+	free (final_data);
       }
 
     return ! result;

@@ -15,4 +15,4 @@ libsdflite_la_LDFLAGS = -lflite_cmu_us_kal -lflite_cmu_time_awb -lflite_usenglis
 libsdmluvitko_la_SOURCES = mluvitko.c
 
 libsdapollo_la_SOURCES = apollo.c
-libsdapollo_la_LDFLAGS = -lm
+libsdapollo_la_LDFLAGS = -lrecode -lm
