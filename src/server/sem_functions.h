@@ -18,11 +18,12 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sem_functions.h,v 1.3 2003-10-12 23:33:36 hanke Exp $
+ * $Id: sem_functions.h,v 1.4 2003-11-06 18:16:41 hanke Exp $
  */
 
 int semaphore_create(key_t key, int flags);
 void semaphore_destroy(int sem_id);
+void semaphore_clear(int sem_id);
 void semaphore_wait(int sem_id);
 void semaphore_post(int sem_id);
 
