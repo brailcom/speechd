@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.13 2003-10-18 13:03:10 hanke Exp $
+ * $Id: libspeechd.c,v 1.14 2003-11-06 23:22:09 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -39,7 +39,7 @@
 #include "libspeechd.h"
 
 /* Comment/uncomment to switch debugging on/off */
-#define LIBSPEECHD_DEBUG
+// #define LIBSPEECHD_DEBUG
 
 /* --------------------- Public functions ------------------------- */
 
@@ -286,6 +286,7 @@ spd_char(int connection, SPDPriority priority, const char *character)
     int ret;
 
     if (character == NULL) return -1;
+    if (strlen(character)>6) return -1;
 
     ret = spd_set_priority(connection, priority);
     if (ret) return -1;
@@ -723,6 +724,7 @@ parse_response_footer(char *resp)
     int i;
     int n = 0;
     char footer[256];
+
     for(i=0;i<=strlen(resp)-1;i++){
         if (resp[i]=='\r'){
             i+=2;
@@ -758,7 +760,7 @@ parse_response_data(char *resp, int pos)
 
     if (resp == NULL) return NULL;
     if (pos<1) return NULL;
-	
+
     for(i=0;i<=strlen(resp)-1;i++){
         if (resp[i]=='\r'){
             p++;
@@ -821,40 +823,40 @@ get_err_code(char *reply)
 static char*
 spd_send_data(int fd, const char *message, int wfr)
 {
-	char *reply;
-	int bytes;
+    char *reply;
+    int bytes;
 
-	reply = malloc(sizeof(char) * MAX_REPLY_LENGTH);
+    reply = malloc(sizeof(char) * MAX_REPLY_LENGTH);
    
-	/* write message to the socket */
-	write(fd, message, strlen(message));
+    /* write message to the socket */
+    write(fd, message, strlen(message));
+    SPD_DBG(">> : |%s|", message);
 
-	SPD_DBG(">> : |%s|", message);
+    /* read reply to the buffer */
+    if (wfr){
+        bytes = read(fd, reply, MAX_REPLY_LENGTH);
+        if (bytes == -1){
+            SPD_DBG("Error: Can't read reply, broken socket.");
+            return NULL;
+        }
+        /* print server reply to as a string */
+        reply[bytes] = 0; 
+        SPD_DBG("<< : |%s|\n", reply);
+    }else{
+        SPD_DBG("<< : no reply expected");
+        return "NO REPLY";
+    } 
 
-	/* read reply to the buffer */
-	if (wfr){
-		bytes = read(fd, reply, MAX_REPLY_LENGTH);
-                if (bytes == -1){
-                    SPD_DBG("Error: Can't read reply, broken socket.");
-                    return NULL;
-                }
-		/* print server reply to as a string */
-		reply[bytes] = 0; 
-		SPD_DBG("<< : |%s|\n", reply);
-	}else{
-		SPD_DBG("<< : no reply expected");
-		return "NO REPLY";
-	} 
-
-	return reply;
+    return reply;
 }
 
 /* isanum() tests if the given string is a number,
  *  returns 1 if yes, 0 otherwise. */
 static int
-isanum(char *str){
+isanum(char *str)
+{
     int i;
-	if (str == NULL) return 0;
+    if (str == NULL) return 0;
     for(i=0;i<=strlen(str)-1;i++){
         if (!isdigit(str[i]))   return 0;
     }
