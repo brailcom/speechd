@@ -1,4 +1,16 @@
+2003-08-07  Tomas Cerha  <cerha@freebsoft.org>
+
+	* speechd.texi (Features): Added TODO.
+	(Text Transformation Tables (TTT)): Added the abrev. to the
+	title.  Added @cindex TTT.
+	(Configuration file syntax): New section.
+	(Configuration options): New section.
+	(General Configuration): Section removed.
+	(Tables Configuration): Reference corrected.
+
 2003-07-31  Tomas Cerha  <cerha@freebsoft.org>
+
+	* speechd.texi (Structured Table of Contents): Section removed.
 
 	* figures/architecture.png: Regenerated.
 
