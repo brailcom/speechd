@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.2 2003-04-17 10:20:09 hanke Exp $
+  * $Id: speaking.c,v 1.3 2003-04-17 11:14:39 hanke Exp $
   */
 
 #include <glib.h>
@@ -171,10 +171,8 @@ speak(void* data)
              * working under a locked mutex and blocking the second thread! */
 
             if( element->settings.type == TEXT ){
-                printf("first case");
                 buffer = (char*) process_message(element->buf, element->bytes, &(element->settings));
             }else{
-                printf("second case");
                 buffer = element->buf;
             }
 
