@@ -1,3 +1,10 @@
+speechd (0.0-6) unstable; urgency=low
+
+  * Build depend on libestools-dev and festival-dev.
+  * Don't call dh_undocumented.
+
+ -- Milan Zamazal <pdm@brailcom.org>  Tue, 29 Apr 2003 15:58:01 +0200
+
 speechd (0.0-5) unstable; urgency=low
 
   * Call configure etc. before cleaning.
