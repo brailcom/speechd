@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.38 2003-05-11 21:42:42 hanke Exp $
+  * $Id: server.c,v 1.39 2003-05-13 14:13:40 buchal Exp $
   */
 
 #include "speechd.h"
@@ -92,7 +92,7 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
     char *character;
     char *pos;
     GString *str;
-    char *new_message;
+    char *new_message = NULL;
     int first_part = 1;
     GList *plist = NULL;
     int *sound;
@@ -183,7 +183,7 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
     gunichar u_char;
     int length;
     GString *str;
-    char *new_message;
+    char *new_message = NULL;
     int *sound;
     int first_part = 1;
     GList *plist = NULL;
@@ -216,31 +216,32 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
                                                           icons, character, sound);
 
             if(*sound == 1){
-                /* If this is the first part of the message, save it
-                 * as return value. */
-                if (first_part){
-                    first_part = 0;
-                    if (str->str != NULL)
-                        if (strlen(str->str) > 0)
-                            new_message = str->str;
-                }else{              /* It's not the first part... */
-                    if (str->str != NULL){
-                        if (strlen(str->str) > 0){
-                            plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);
-                        }
-                    }
-                }
-                /* Set up a new buffer */
-                g_string_free(str, 0);
-                str = g_string_new("");
+	      /* If this is the first part of the message, save it
+	       * as return value. */
+	      if (first_part){
+		first_part = 0;
+		if (str != NULL)
+		  if (str->str != NULL)
+		    if (strlen(str->str) > 0)
+		      new_message = str->str;
+	      }else{              /* It's not the first part... */
+		if (str->str != NULL){
+		  if (strlen(str->str) > 0){
+		    plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);
+		  }
+		}
+	      }
+	      /* Set up a new buffer */
+	      g_string_free(str, 0);
+	      str = g_string_new("");
 
-                /* Add the icon to plist */
-                if (spelled_punct != NULL){
-                    plist = msglist_insert(plist, spelled_punct, MSGTYPE_SOUND);
-                }else{
-                    assert(character != NULL);
-                    plist = msglist_insert(plist, character, MSGTYPE_SOUND);
-                }
+	      /* Add the icon to plist */
+	      if (spelled_punct != NULL){
+		plist = msglist_insert(plist, spelled_punct, MSGTYPE_SOUND);
+	      }else{
+		assert(character != NULL);
+		plist = msglist_insert(plist, character, MSGTYPE_SOUND);
+	      }
             }else{                  /* this icon is represented by a string */
                 if (spelled_punct != NULL){
                     g_string_append_printf(str," %s ", spelled_punct);
@@ -259,7 +260,10 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
     }
 
     if(first_part){
+      if (str != NULL)
         new_message = str->str;
+      else
+	new_message = NULL;
     }else{
         plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);
     }
