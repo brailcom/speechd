@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: index_marking.c,v 1.7 2003-10-24 09:03:22 hanke Exp $
+  * $Id: index_marking.c,v 1.6 2003-10-24 09:02:40 hanke Exp $
   */
 
 #include "index_marking.h"
@@ -55,7 +55,7 @@ insert_index_marks(TSpeechDMessage *msg)
         if (u_char == '@'){
             g_string_append_printf(marked_text, "@@");
         }
-        else if ((u_char == '.') || (u_char == '?') || (u_char == '!')){
+        else if (u_char == '.' || u_char == '?' || u_char == '!'){
             pos = g_utf8_find_next_char(pos, NULL);   
             ret = spd_utf8_read_char(pos, character2);
             if ((ret == 0) || (strlen(character2) == 0)){
