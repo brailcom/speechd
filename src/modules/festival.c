@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.55 2004-11-13 14:50:23 hanke Exp $
+ * $Id: festival.c,v 1.56 2004-11-19 13:54:23 hanke Exp $
  */
 
 #include "fdset.h"
@@ -220,13 +220,16 @@ module_init(char **status_info)
 	}
     }
 
+    DBG("Openning audio output system");
     if (!strcmp(FestivalAudioOutputMethod, "oss")){
+	DBG("Using OSS audio output method");
 	festival_pars[0] = FestivalOSSDevice;
 	festival_pars[1] = NULL;
 	festival_audio_id = spd_audio_open(AUDIO_OSS, festival_pars, &error);
 	festival_audio_output_method = AUDIO_OSS;
     }
     else if (!strcmp(FestivalAudioOutputMethod, "nas")){
+	DBG("Using NAS audio output method");
 	festival_pars[0] = FestivalNASServer;
 	festival_pars[1] = NULL;
 	festival_audio_id = spd_audio_open(AUDIO_NAS, festival_pars, &error);
@@ -240,7 +243,6 @@ module_init(char **status_info)
 	g_string_append_printf(info, "Opening sound device failed. Reason: %s. ", error);
 	ABORT("Can't open sound device.");
     }
-    spd_audio_close(festival_audio_id);
 
     pthread_mutex_init(&sound_output_mutex, NULL);
 
@@ -405,6 +407,7 @@ module_close(int status)
     
     DBG("festival: close()\n");
 
+    DBG("Stopping the module");
     while(festival_speaking){
         module_stop();
         usleep(50);
@@ -413,6 +416,7 @@ module_close(int status)
     // DBG("festivalClose()");
     // festivalClose(festival_info);
     
+    DBG("Terminating threads");
     module_terminate_thread(festival_speak_thread);
    
     delete_FT_Info(festival_info);
@@ -420,6 +424,9 @@ module_close(int status)
     /* TODO: Solve this */
     DBG("Removing junk files in tmp/");
     system("rm -f /tmp/est* 2> /dev/null");
+
+    DBG("Closing audio output");
+    spd_audio_close(festival_audio_id);
 
     DBG("Closing debug file");
     CLOSE_DEBUG_FILE();
@@ -436,9 +443,6 @@ module_close(int status)
           pthread_mutex_lock(&sound_output_mutex); \
           festival_stop = 0; \
           festival_speaking = 0; \
-          id = festival_audio_id; \
-          festival_audio_id = NULL; \
-          spd_audio_close(id); \
           pthread_mutex_unlock(&sound_output_mutex); \
           module_signal_end(); \
           goto sem_wait; \
@@ -474,8 +478,6 @@ _festival_speak(void* nothing)
     FT_Wave *fwave;
     int debug_count = 0;
 
-    void *oss_pars[2];
-
     int terminate = 0;
     int r;
 
@@ -489,9 +491,6 @@ _festival_speak(void* nothing)
 
     cache_init();
 
-    oss_pars[0] = (char*) strdup("/dev/dsp");
-    oss_pars[1] = NULL;
-
     set_speaking_thread_parameters();
 
     while(1){        
@@ -499,14 +498,9 @@ _festival_speak(void* nothing)
         sem_wait(festival_semaphore);
         DBG("Semaphore on, speaking\n");
 
-	festival_audio_id = spd_audio_open(festival_audio_output_method,
-					   festival_pars, &error);
-	if (festival_audio_id == NULL){
-	    DBG("ERROR (child): Couldn't open audio output!\nReason:%s", error);
-	    CLEAN_UP(-6);
-	}
-
 	spd_audio_set_volume(festival_audio_id, festival_volume);
+
+	DBG("test");
 
 	festival_stop = 0;	
 	festival_speaking = 1;
@@ -635,6 +629,7 @@ _festival_speak(void* nothing)
 		    save_FT_Wave_snd(fwave, filename_debug);
 		}
 	    
+		DBG("Playing sound samples");
 		festival_send_to_audio(fwave);
 	    }            
 
