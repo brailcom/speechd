@@ -19,16 +19,20 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.16 2003-05-07 22:09:46 hanke Exp $
+ * $Id: dc_decl.h,v 1.17 2003-05-18 20:56:03 hanke Exp $
  */
 
 #include "speechd.h"
 
 int table_add(char *name, char *group);
 
+char cur_mod_options[255];      /* Which section with parameters of output modules
+                                   we are in? */
+
+OutputModule* cur_mod;
+
 /* define dotconf callbacks */
 DOTCONF_CB(cb_LogFile);
-DOTCONF_CB(cb_AddModule);
 DOTCONF_CB(cb_SndModule);
 DOTCONF_CB(cb_AddTable);
 DOTCONF_CB(cb_DefaultModule);
@@ -43,18 +47,21 @@ DOTCONF_CB(cb_DefaultSpellingTable);
 DOTCONF_CB(cb_DefaultClientName);
 DOTCONF_CB(cb_DefaultVoiceType);
 DOTCONF_CB(cb_DefaultSpelling);
+DOTCONF_CB(cb_DefaultCapLetRecognition);
 DOTCONF_CB(cb_DefaultSpellingTable);
 DOTCONF_CB(cb_DefaultCharacterTable);
 DOTCONF_CB(cb_DefaultKeyTable);
 DOTCONF_CB(cb_DefaultSoundTable);
-DOTCONF_CB(cb_DefaultCapLetRecognition);
+DOTCONF_CB(cb_AddModule);
+DOTCONF_CB(cb_EndAddModule);
+DOTCONF_CB(cb_AddParam);
+DOTCONF_CB(cb_AddVoice);
 
 
 /* define dotconf configuration options */
 static const configoption_t options[] =
 {
     {"LogFile", ARG_STR, cb_LogFile, 0, 0},
-    {"AddModule", ARG_STR, cb_AddModule, 0, 0},
     {"SndModule", ARG_STR, cb_SndModule, 0, 0},
     {"AddTable", ARG_STR, cb_AddTable, 0, 0},
     {"DefaultModule", ARG_STR, cb_DefaultModule, 0, 0},
@@ -73,6 +80,10 @@ static const configoption_t options[] =
     {"DefaultKeyTable", ARG_STR, cb_DefaultKeyTable, 0, 0},
     {"DefaultSoundTable", ARG_STR, cb_DefaultSoundTable, 0, 0},
     {"DefaultCapLetRecognition", ARG_TOGGLE, cb_DefaultCapLetRecognition, 0, 0},
+    {"AddModule", ARG_STR, cb_AddModule, 0, 0},
+    {"EndAddModule", ARG_NONE, cb_EndAddModule, 0,0},
+    {"AddParam", ARG_LIST, cb_AddParam, 0, 0},
+    {"AddVoice", ARG_LIST, cb_AddVoice, 0, 0},
     /*{"ExampleOption", ARG_STR, cb_example, 0, 0},
      *      {"MultiLineRaw", ARG_STR, cb_multiline, 0, 0},
      *           {"", ARG_NAME, cb_unknown, 0, 0},
@@ -103,18 +114,10 @@ DOTCONF_CB(cb_LogFile)
     return NULL;
 }
 
-DOTCONF_CB(cb_AddModule)
-{
-    OutputModule *om;
-    om = load_output_module(cmd->data.str);
-    if (om == NULL) FATAL("Couldn't load specified output module");
-    g_hash_table_insert(output_modules, om->name, om);
-    return NULL;
-}
-
 DOTCONF_CB(cb_SndModule)
 {
     sound_module = load_output_module(cmd->data.str);
+    if (sound_module == NULL) FATAL("Couldn't load specified sound module");
     return NULL;
 }
 
@@ -143,7 +146,7 @@ DOTCONF_CB(cb_AddTable)
     bline = (char*) spd_malloc(256);
     filename = (char*) spd_malloc(256);
 	
-    sprintf(filename,SYS_CONF"/%s", cmd->data.str);
+    sprintf(filename, SYS_CONF"/%s", cmd->data.str);
     MSG(4, "Reading table from file %s", filename);
     if((icons_file = fopen(filename, "r"))==NULL){
         MSG(2,"Table %s file specified in speechd.conf doesn't exist!", filename);
@@ -360,6 +363,130 @@ DOTCONF_CB(cb_DefaultCapLetRecognition)
     GlobalFDSet.cap_let_recogn = cmd->data.value;
     return NULL;
 }
+
+DOTCONF_CB(cb_AddModule)
+{
+    if (cmd->data.str == NULL) FATAL("No output module name specified");
+    cur_mod = load_output_module(cmd->data.str);
+    if (cur_mod == NULL) FATAL("Couldn't load specified output module");
+    assert(cur_mod->name != NULL);
+    g_hash_table_insert(output_modules, cur_mod->name, cur_mod);
+
+    return NULL;
+}
+
+DOTCONF_CB(cb_EndAddModule)
+{
+    if(cur_mod == NULL){
+        MSG(2, "Trying to end a BeginModuleOptions section that was never opened");
+    }
+
+    if (init_output_module(cur_mod) == -1) FATAL("Couldn't initialize specified output module");
+
+    cur_mod = NULL;
+    return NULL;
+}
+
+DOTCONF_CB(cb_AddParam)
+{
+    char *key;
+    char *value;
+
+    if (cur_mod == NULL){
+        MSG(2,"Output module parameter not inside an output modules section");
+        return NULL;
+    }
+
+    if (cmd->data.list[0] == NULL){
+        MSG(2,"Missing parameter name.");
+        return NULL;
+    }
+
+    if (cmd->data.list[1] == NULL){
+        MSG(2,"Missing option name for parameter %s.", cmd->data.list[0]);
+        return NULL;
+    }
+
+    MSG(3,"Adding parameter: %s=%s", cmd->data.list[0],
+        cmd->data.list[1]);
+    
+    key = (char*) spd_malloc(strlen(cmd->data.list[0]) * sizeof(char));
+    value = (char*) spd_malloc(strlen(cmd->data.list[1]) * sizeof(char));
+    strcpy(key, cmd->data.list[0]);
+    strcpy(value, cmd->data.list[1]);
+
+    g_hash_table_insert(cur_mod->settings.params, key, value);
+
+    return NULL;
+}
+
+char*
+set_voice(char *value){
+    char *ret;
+    if (value == NULL) return NULL;
+    ret = (char*) spd_malloc((strlen(value) + 1) * sizeof(char));
+    strcpy(ret, value);
+    return ret;
+}
+
+DOTCONF_CB(cb_AddVoice)
+{
+    SPDVoiceDef *voices;
+    char *language = cmd->data.list[0];
+    char *symbolic = cmd->data.list[1];
+    char *voicename = cmd->data.list[2];
+    char *key;
+    SPDVoiceDef *value;
+
+   if (cur_mod == NULL){
+        MSG(2,"Output module parameter not inside an output modules section");
+        return NULL;
+    }
+
+    if (language == NULL){
+        MSG(2,"Missing language.");
+        return NULL;
+    }
+
+    if (symbolic == NULL){
+        MSG(2,"Missing symbolic name.");
+        return NULL;
+    }
+
+    if (voicename == NULL){
+        MSG(2,"Missing voice name for %s", cmd->data.list[0]);
+        return NULL;
+    }
+
+    MSG(3,"Adding voice: [%s] %s=%s", language,
+        symbolic, voicename);
+
+    voices = g_hash_table_lookup(cur_mod->settings.voices, language);
+    if (voices == NULL){
+        key = (char*) spd_malloc((strlen(language) + 1) * sizeof(char));
+        strcpy(key, language);
+        value = (SPDVoiceDef*) spd_malloc(sizeof(SPDVoiceDef));
+        g_hash_table_insert(cur_mod->settings.voices, key, value);
+        voices = value;
+    }
+    
+    if (!strcmp(symbolic, "male1")) voices->male1 = set_voice(voicename);
+    else if (!strcmp(symbolic, "male2")) voices->male2 = set_voice(voicename);
+    else if (!strcmp(symbolic, "male3")) voices->male3 = set_voice(voicename);
+    else if (!strcmp(symbolic, "female1")) voices->female1 = set_voice(voicename);
+    else if (!strcmp(symbolic, "female2")) voices->female2 = set_voice(voicename);
+    else if (!strcmp(symbolic, "female3")) voices->female3 = set_voice(voicename);
+    else if (!strcmp(symbolic, "child_male")) voices->child_male = set_voice(voicename);
+    else if (!strcmp(symbolic, "child_female")) voices->child_female = set_voice(voicename);
+    else{
+        MSG(2, "Unrecognized symbolic voice name.");
+        return NULL;
+    }
+
+    return NULL;
+}
+
+
 
 int
 table_add(char *name, char *group)
