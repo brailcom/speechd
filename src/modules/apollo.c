@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.7 2003-04-25 14:54:19 pdm Exp $
+ * $Id: apollo.c,v 1.8 2003-04-28 01:58:57 hanke Exp $
  */
 
 
@@ -34,9 +34,9 @@
 #include "module.h"
 #include "fdset.h"
 
-
 gint apollo_write (gchar*, gint, void*);
 gint apollo_stop (void);
+char* apollo_pause(void);
 gint apollo_is_speaking (void);
 gint apollo_close (void);
 
@@ -47,6 +47,7 @@ OutputModule module_apollo = {
   NULL,				/* GModule* -- what's it? */
   apollo_write,
   apollo_stop,
+  apollo_pause,
   apollo_is_speaking,
   apollo_close
 };
@@ -250,6 +251,15 @@ gint apollo_write (gchar *data, gint len, void* set_)
 gint apollo_stop (void)
 {
   return send_apollo_command ("\030");
+}
+
+char* apollo_pause (void)
+{
+    /* TODO: The Apollo output module should stop speaking (a short
+       dellay in returning is tolerable) and return a string containing
+       \pm the rest of the message.
+    */
+    return NULL;
 }
 
 gint apollo_is_speaking (void)
