@@ -346,7 +346,6 @@ to common users. But every programmer interested in this program should
 also read this because it's very important to understand.
 
 @itemize @bullet
-Sketch:
 @item easy configuration of different speaking applications, central maintenance
 @item the ability to freely choose which synthesizer with which application
 @item less time devoted to configuration and tuning different applications and synthesis
@@ -1385,7 +1384,17 @@ error response code is returned after processing the final dot line.
 
 @item CHAR @var{char}
 Speak letter @var{char}.  @var{char} can be any character
-representable by the UTF-8 encoding.
+representable by the UTF-8 encoding. The only exception
+is the character space (@code{ }) that can't be sent
+directly. In this case, a string @code{space} must be
+sent instead.
+
+@example
+CHAR e
+CHAR \
+CHAR space
+CHAR &
+@end example
 
 This command is intended to be used for speaking single letters,
 e.g.@ when reading a character under cursor or when spelling words.
@@ -1651,8 +1660,8 @@ available text mapping tables.
 Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
 available sound mapping tables.
 
-The standard sound tables are always listed, see @ref{Standard
-sound tables}.
+The standard sound tables are listed only if they are mapped
+to some real table, see @ref{Standard sound tables}.
 
 @item LIST CHARACTER_TABLES
 Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
