@@ -1,3 +1,17 @@
+2003-07-17  Tomas Cerha  <cerha@freebsoft.org>
+
+	* speechd/_test.py (Client.check_it): Pass a new `user' argument
+	to `Client' constructor.
+
+	* speechd/client.py (Client.__init__._Socket): New class.
+	(Client.__init__): Use `_Socket' instead of `socket.socket'.
+	(Client._recv_response): Use `_Socket.readline()'.
+	(module): The commented out C library code removed.
+	(Client.say): Use new priority names.
+	(Client.__init__): Arguments `client_name' and `connection_name'
+	replaced by `user', `client' and `component'.  Send `self' in the
+	'SET self CLIENT_NAME' command.
+
 2003-03-30  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd/client.py (Client.SPEECH_PORT): Updated docstring.
