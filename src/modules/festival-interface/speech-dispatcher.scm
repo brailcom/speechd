@@ -80,7 +80,7 @@ given voice.")
 
 
 (define (speechd-speak* text)
-  (synth-event 'text text))
+  (event-synth 'text text))
 (define (speechd-speak text)
   "(speechd-speak TEXT)
 Speak TEXT."
@@ -89,7 +89,7 @@ Speak TEXT."
 (define (speechd-spell* text)
   (spell_init_func)
   (unwind-protect
-      (prog1 (synth-event 'text text)
+      (prog1 (event-synth 'text text)
         (spell_exit_func))
     (spell_exit_func)))
 (define (speechd-spell text)
@@ -98,21 +98,21 @@ Spell TEXT."
   (speechd-send-to-client (speechd-spell* text)))
 
 (define (speechd-sound-icon* name)
-  (synth-event 'logical name))
+  (event-synth 'logical name))
 (define (speechd-sound-icon name)
   "(speechd-sound-icon NAME)
 Play the sound or text bound to the sound icon named by the symbol NAME."
   (speechd-send-to-client (speechd-sound-icon* name)))
 
 (define (speechd-character* character)
-  (synth-event 'character character))
+  (event-synth 'character character))
 (define (speechd-character character)
   "(speechd-character CHARACTER)
 Speak CHARACTER, represented by a string."
   (speechd-send-to-client (speechd-character* character)))
 
 (define (speechd-key* key)
-  (synth-event 'key key))
+  (event-synth 'key key))
 (define (speechd-key key)
   "(speechd-key KEY)
 Speak KEY, represented by a string."

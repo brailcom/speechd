@@ -77,7 +77,7 @@ WORD is a string representing a word or a punctuation character and EVENT-TYPE
 and EVENT-VALUE are the same as in `logical-event-mapping'.")
 
 
-(defvar synth-event-result-format nil)
+(defvar event-synth-result-format nil)
 
 
 (define (event-mark-items utt)
@@ -120,7 +120,7 @@ and EVENT-VALUE are the same as in `logical-event-mapping'.")
   (let ((event (and (item.has_feat (car word-items) 'event)
                     (item.feat (car word-items) 'event))))
     (if event
-        (synth-event (car event) (cadr event))
+        (event-synth (car event) (cadr event))
         (let ((u (Utterance Text "")))
           (utt.relation.create u 'Token)
           (utt.relation.create u 'Word)
@@ -136,7 +136,7 @@ and EVENT-VALUE are the same as in `logical-event-mapping'.")
                   (item.append_daughter token tw))))
             word-items)
           (let ((result (event-rest-of-synth u)))
-            (if synth-event-result-format
+            (if event-synth-result-format
                 (list result)
                 result))))))
 
@@ -149,7 +149,7 @@ and EVENT-VALUE are the same as in `logical-event-mapping'.")
     (let ((items (event-split-items utt)))
       (if (or (> (length items) 1)
               (item.has_feat (caar items) 'event))
-          (if synth-event-result-format
+          (if event-synth-result-format
               (apply append (mapcar (lambda (i) (event-synth-words utt i))
                                     items))
               (let ((u (Utterance Wave nil)))
@@ -165,24 +165,27 @@ and EVENT-VALUE are the same as in `logical-event-mapping'.")
                              items))))))
                 u))
           (let ((result (utt.synth utt)))
-            (if synth-event-result-format
+            (if event-synth-result-format
                 (list result)
                 result))))))
 
-(define (synth-event-plain type value)
+(define (event-synth-sound value)
+  (utt.import.wave (Utterance Wave nil)
+                   (if (string-matches value "^/.*")
+                       value
+                       (string-append sound-icon-directory "/" value))))
+
+(define (event-synth-plain type value)
   (cond
    ((eq? type 'text)
     (event-synth-text value))
    ((eq? type 'sound)
-    (utt.import.wave (Utterance Wave nil)
-                     (if (string-matches value "^/.*")
-                         value
-                         (string-append sound-icon-directory "/" value))))
+    (event-synth-sound value))
    (t
     (let ((transformed (cdr (assoc value (cadr (assq type event-mappings))))))
       (cond
        (transformed
-        (apply synth-event transformed))
+        (apply event-synth transformed))
        ((or (eq? type 'key) (eq? type 'character))
         (let ((pmode punctuation-mode))
           (set-punctuation-mode 'all)
@@ -190,18 +193,20 @@ and EVENT-VALUE are the same as in `logical-event-mapping'.")
               (prog1 (SynthText value)
                 (set-punctuation-mode pmode))
             (set-punctuation-mode pmode))))
+       ((eq? type 'logical)
+        (event-synth-text value))
        (t
         (error "Event description not found" (cons type value))))))))
 
-(define (synth-event type value)
-  (let ((result (synth-event-plain type value)))
-    (if (or (not synth-event-result-format) (consp result))
+(define (event-synth type value)
+  (let ((result (event-synth-plain type value)))
+    (if (or (not event-synth-result-format) (consp result))
         result
         (list result))))
 
-(define (play-event type value)
-  (let ((utt (synth-event type value)))
-    (if synth-event-result-format
+(define (event-play type value)
+  (let ((utt (event-synth type value)))
+    (if event-synth-result-format
         (mapcar utt.play utt)
         (utt.play utt))))
 
