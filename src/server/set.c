@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.35 2004-06-28 08:12:18 hanke Exp $
+ * $Id: set.c,v 1.36 2004-08-04 08:12:07 hanke Exp $
  */
 
 #include "set.h"
@@ -226,12 +226,12 @@ set_language_uid(int uid, char *language)
 
 #define CHECK_SET_PAR(name, ival) \
    if (cl_set->val.name != ival){ set->name = cl_set->val.name; \
-            MSG(4,"par set to %d", cl_set->val.name); }
+            MSG(4,"parameter " #name " set to %d", cl_set->val.name); }
 #define CHECK_SET_PAR_STR(name) \
    if (cl_set->val.name != NULL){ \
      spd_free(set->name); \
      set->name = strdup(cl_set->val.name); \
-            MSG(4,"par set to %s", cl_set->val.name); \
+            MSG(4,"parameter " #name " set to %s", cl_set->val.name); \
    }
 void
 update_cl_settings(gpointer data, gpointer user_data)
@@ -246,6 +246,7 @@ update_cl_settings(gpointer data, gpointer user_data)
 
     CHECK_SET_PAR(rate, -101)
     CHECK_SET_PAR(pitch, -101)
+    CHECK_SET_PAR(volume, -101)
     CHECK_SET_PAR(punctuation_mode, -1)
     CHECK_SET_PAR(spelling_mode, -1)
     CHECK_SET_PAR(voice, -1)
