@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.9 2003-07-22 22:49:41 hanke Exp $
+ * $Id: libspeechd.h,v 1.10 2003-10-12 23:25:59 hanke Exp $
  */
 
 
@@ -30,15 +30,15 @@ extern "C" {
 
 /* Debugging */
 #define LIBSPEECHD_DEBUG
-static FILE* _spd_debug;
-void _SPD_DBG(char *format, ...);
+static FILE* spd_debug;
+void SPD_DBG(char *format, ...);
 
 /* Unless there is an fatal error, it doesn't print anything */
 #define FATAL(msg) { printf("Fatal error (libspeechd) [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
 
-/* Arguments for _spd_send_data() */
-#define _SPD_WAIT_REPLY 1              /* Wait for reply */
-#define _SPD_NO_REPLY 0               /* No reply requested */
+/* Arguments for spd_send_data() */
+#define SPD_WAIT_REPLY 1              /* Wait for reply */
+#define SPD_NO_REPLY 0               /* No reply requested */
 
 
 /* --------------------- Public data types ------------------------ */
@@ -165,13 +165,8 @@ int spd_set_key_table_uid(int connection, const char* ktable, unsigned int uid);
 
 /* --------------  Private functions  ------------------------*/
 
-int _spd_set_priority(int connection, SPDPriority priority);
-
-int _spd_set_voice_rate(int connection, signed int rate, const char* who);
-int _spd_set_voice_pitch(int connection, int pitch, const char *who);
-int _spd_set_punctuation(int connection, SPDPunctuation type, const char* who);
-int _spd_set_punctuation_important(int connection, const char* punctuation_important, const char* who);
-int _spd_set_spelling(int connection, SPDSpelling type, const char* who);
+char* spd_send_data(int fd, char *message, int wfr);
+int spd_set_priority(int connection, SPDPriority priority);
 
 char* send_data(int fd, char *message, int wfr);
 int isanum(char* str);		
