@@ -6,6 +6,8 @@ SUFFIXES = .html
 html_docs = speechd.html
 HTMLDIR = htmldoc
 
+MAINTAINERCLEANFILES = speechd/*
+
 .texi.html:
 	$(MAKEINFO) --html -o $(HTMLDIR) $<
 	cp -duv --parents figures/*.png $(HTMLDIR)
