@@ -1,5 +1,11 @@
 2003-11-06  Hynek Hanke  <hanke@volny.cz>
 
+	* src/server/sem_functions.h (semaphore_clear): New function.
+	* src/server/sem_functions.c (semaphore_clear): New function.
+	(semaphore_wait): A workaround for the semaphores bug.
+
+2003-11-06  Hynek Hanke  <hanke@volny.cz>
+
 	* INSTALL: Mention festival-interface instalation.
 
 	* BUGS: Flite doesn't speak sound icons as it doesn't support it.
