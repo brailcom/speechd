@@ -33,7 +33,6 @@ If it doesn't work, try the following:
  $ cd speechd-@VERSION
  $ automake && aclocal && autoconf
  $ ./configure
- $ cd src
  $ make
  
 When everything worked ok, you can install all the parts to the default
