@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.20 2003-07-06 14:57:11 hanke Exp $
+ * $Id: festival.c,v 1.21 2003-07-16 19:14:17 hanke Exp $
  */
 
 #include "festival_client.c"
@@ -228,10 +228,11 @@ module_close(void)
     DBG("festival: close()\n");
 
     while(festival_speaking){
-        module_stop();
-        usleep(5);
+     module_stop();
+     usleep(5);
     }
 
+     DBG("festivalClose");
     festivalClose(festival_info);
  
     if (module_terminate_thread(festival_speak_thread) != 0)
@@ -241,8 +242,10 @@ module_close(void)
 
     delete_FT_Info(festival_info);
 
-    system("rm /tmp/est* 2> /dev/null");
+    DBG("Removing junk files in tmp/");
+    system("rm -f /tmp/est* 2> /dev/null");
 
+    DBG("Closing debug file");
     CLOSE_DEBUG_FILE();
 
     return 0;
@@ -285,6 +288,7 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
     char buf[4096];
     int terminate = 0;
     int first_run = 1;
+    int r = -999;
 
     DBG("Entering parent process, closing pipes");
 
@@ -301,12 +305,17 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 
         if (first_run){
             DBG("Synthesizing: |%s|", buf);
-            if (bytes != 0) festivalStringToWaveRequest(festival_info, buf);
+            if (bytes != 0) r = festivalStringToWaveRequest(festival_info, buf);
+            DBG("s-returned %d\n", r);
             first_run = 0;
         }else{
+            DBG("Retrieving data\n");
             fwave = festivalStringToWaveGetData(festival_info);        
-            if (bytes != 0) festivalStringToWaveRequest(festival_info, buf);
-
+            DBG("Sending request for synthesis");
+            if (bytes != 0) r = festivalStringToWaveRequest(festival_info, buf);
+            DBG("ss-returned %d\n", r);
+            DBG("Ok, next step...\n");
+            
             /* fwave can be NULL if the given text didn't produce any sound
                output, e.g. this text: "." */
             if (fwave != NULL){
@@ -321,6 +330,8 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
                 if (ret == -1) terminate = 1;
                 
                 if (terminate != 1) terminate = module_parent_wait_continue(dpipe);
+            }else{
+                DBG("fwave was NULL\n");
             }
         }
         if (*pause_requested && bytes != 0){
