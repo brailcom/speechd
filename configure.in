@@ -7,7 +7,7 @@ dnl progs
 AC_PROG_CC
 
 dnl info
-AM_INIT_AUTOMAKE(Speech Dispatcher, "`cat version.sh|grep '^VERSION'|awk -F= '{print $2}'`")
+AM_INIT_AUTOMAKE("SpeechDispatcher", "`cat version.sh|grep '^VERSION'|awk -F= '{print $2}'`")
 
 AM_CONFIG_HEADER(config.h)
 
@@ -55,6 +55,7 @@ AC_SUBST(modulebindir)
 moduleconfdir="$sysconfdir/speechd/modules/" 
 AC_SUBST(moduleconfdir)
 
+AC_ARG_VAR(pidpath, Absolute path to a pid file)
 
 dnl Checks for header files.
 AC_HEADER_STDC
