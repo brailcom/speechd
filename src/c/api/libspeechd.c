@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.9 2003-07-06 15:07:24 hanke Exp $
+ * $Id: libspeechd.c,v 1.10 2003-10-01 06:42:59 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -878,7 +878,10 @@ xmalloc(unsigned int bytes)
 void
 xfree(void *ptr)
 {
-    if (ptr != NULL) free(ptr);
+    if (ptr != NULL){
+        free(ptr);
+        ptr = NULL;
+    }
 }
 
 #ifdef LIBSPEECHD_DEBUG
