@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.15 2003-08-07 14:40:52 hanke Exp $
+ * $Id: module.c,v 1.16 2003-08-11 15:00:40 hanke Exp $
  */
 
 #include "speechd.h"
@@ -28,7 +28,7 @@
 #define LOAD_SYMBOL "module_load"
 
 OutputModule*
-load_output_module(gchar* modname)
+load_output_module(gchar* modname, gchar* modlib)
 {
    GModule* gmodule;
    OutputModule *(*module_load) (configoption_t **options, int *num_options);
@@ -36,10 +36,19 @@ load_output_module(gchar* modname)
    char filename[PATH_MAX];
    configoption_t **p_options;
 
+   if (modname == NULL) return NULL;
+
    p_options = (configoption_t**) spd_malloc(sizeof (configoption_t*));
    *p_options = spd_options;
 
-   snprintf(filename, PATH_MAX, LIB_DIR"/libsd%s.so", modname);
+   if (modlib == NULL)
+       snprintf(filename, PATH_MAX, LIB_DIR"/libsd%s.so", modname);
+   else if (strchr(modlib, '/') || strchr(modlib,'\\'))
+       snprintf(filename, PATH_MAX, "%s", modlib);
+   else if (strchr(modlib,'.'))
+       snprintf(filename, PATH_MAX, LIB_DIR"/%s", modlib);
+   else
+       snprintf(filename, PATH_MAX, LIB_DIR"/libsd%s.so", modlib);
 
    gmodule = g_module_open(filename, G_MODULE_BIND_LAZY);
    if (gmodule == NULL) {
