@@ -1,3 +1,35 @@
+2003-10-03  Hynek Hanke  <hanke@volny.cz>
+
+	* src/modules/cstsnd.c (module_load):  Call REGISTER_DEBUG().	
+
+	* src/modules/generic.c (module_load):  Call REGISTER_DEBUG().	
+
+	* src/modules/flite.c (module_load):  Call REGISTER_DEBUG().	
+
+	* src/modules/festival.c (module_load): Call REGISTER_DEBUG().
+
+	* src/modules/module_utils.c (REGISTER_DEBUG): New macro.
+
+	* src/server/sem_functions.c (semaphore_wait): Debugging message.
+
+	* src/server/speaking.c (speak): Set speaking_uid to the uid of the client who
+	sent this message.
+
+	* src/server/parse.c (parse_list): The SSIP LIST command has only one
+	possible parameter "VOICES". This doesn't longer work for tables
+	because we want to eliminate the whole "table" idea.
+
+	* src/server/dc_decl.h (cb_AddModule): No filtering type parameter.
+
+	* src/server/speaking.c (speak): Removed all that has something to do with
+	punctuation and spelling processing.
+
+	* config/speechd.conf.in: Log default to /var/log/speechd.log
+	All punctuation and spelling tables removed. Filtering removed.
+	Sound icon, character and key tables temporarily left, there is
+	currently no way how to fix this.
+	Comments about symbolic voices.
+
 2003-10-01  Hynek Hanke  <hanke@volny.cz>
 
 	* src/c/api/libspeechd.c (xfree): Write NULL after freeing it.
