@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.c,v 1.20 2003-03-25 23:07:45 hanke Exp $
+ * $Id: server.c,v 1.21 2003-03-27 22:01:17 hanke Exp $
  */
 
 #include "speechd.h"
@@ -531,8 +531,9 @@ parse(char *buf, int bytes, int fd)
 		}else{
 			enddata:
 			/* In the end of the data flow we got a "@data off" command. */
-			MSG(5,"Buffer: |%s| ", buf);
-			if((!strncmp(buf,".\r\n", bytes))||(!strncmp(buf,"\r\n.\r\n", bytes))||(end_data==1)){
+			MSG(5,"Buffer: |%s| bytes:", buf, bytes);
+			if(((bytes>=5)&&((!strncmp(buf,"\r\n.\r\n", bytes))))||(end_data==1)
+					||((bytes==3)&&(!strncmp(buf,".\r\n", bytes)))){
 				MSG(4,"Finishing data");
 				end_data=0;
 				/* Set the flag to command mode */
@@ -565,10 +566,12 @@ parse(char *buf, int bytes, int fd)
 				return OK_MESSAGE_QUEUED;
 			}
 	
-			if(pos = strstr(buf,"\r\n.\r\n")){	
-				bytes=pos-buf;
-				end_data=1;		
-				MSG(4,"Command in data caught");
+			if(bytes>=5){
+				if(pos = strstr(buf,"\r\n.\r\n")){	
+					bytes=pos-buf;
+					end_data=1;		
+					MSG(4,"Command in data caught");
+				}
 			}
 
 			/* Get the number of bytes read before, sum it with the number of bytes read
