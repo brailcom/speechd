@@ -92,6 +92,12 @@ LogFile  "stdout"
 # Use with caution
 # DefaultPriority  "text"
 
+# DefaultPauseContext specifies how by how many index marks a speech cursor
+# should return when resuming after a pause. This is roughly equivalent to
+# the number of sentences before the place of the execution of pause that
+# will be repeated.
+
+# DefaultPauseContext 0
 
 # -----GENERIC FILTERING TABLES-----
 # AddTable adds sound icons files for different languages in
@@ -151,7 +157,7 @@ CapLetRecognIcon "capital_letter"
 #    either relative (to etc/speechd/modules/) or absolute
 
 AddModule "flite"        filter_generic  "sd_flite"     "flite.conf"
-AddModule "festival"     filter_generic  "sd_festival"  "festival.conf"
+AddModule "festival"     filter_self     "sd_festival"  "festival.conf"
 AddModule "epos-generic" filter_generic  "sd_generic"   "epos-generic.conf"
 # AddModule "apollo"     filter_generic  "sd_apollo"    "apollo.conf"
 
@@ -160,7 +166,7 @@ AddModule "epos-generic" filter_generic  "sd_generic"   "epos-generic.conf"
 # and reads responses from stdandard input. This way, Speech Dispatcher's
 # communication with output modules can be tested easily.
 
-# AddModule "testing"    filter_generic
+# AddModule "testing" filter_generic
 
 # Sound module loads the sound output module. 
 #  Syntax: SoundModule "name" "binary" "configuration"
