@@ -1,23 +1,33 @@
 
+Version 0.1
+ * First official release
+ * Improved documentation
+ * We have abandoned the idea to do some text processing in Speech Dispatcher,
+   it's all handled in the output modules
+ * New scheme scripts so that Festival supports some of the SSIP commands.
+ * Improvements in the C-library
+ * Documentation in Czech.
+ * Debugging, testing.
+
 Version 0.0.10
-	* Output modules are now external programs communicating through stdin/stdout
-	* Output modules can be reloaded at run time sending SIGUSR1 to speechd
-	* Multiple generic modules loaded at once supported
-	* Filtering in output layer of Speech Dispatcher is now optional
-	and can be handled later in output_modules or in the TTSs they use
-	* Client specific configuration
-	* Bug-fixes
+ * Output modules are now external programs communicating through stdin/stdout
+ * Output modules can be reloaded at run time sending SIGUSR1 to speechd
+ * Multiple generic modules loaded at once supported
+ * Filtering in output layer of Speech Dispatcher is now optional
+   and can be handled later in output_modules or in the TTSs they use
+ * Client specific configuration
+ * Bug-fixes
 
 Version 0.0.9
   * Generic output module (+definition for the Epos synthesiser)
   * Better autoconf configuration
   * Restructured documentation
   * Block support in SSIP
-  * Bug-fixes
   * Daemon implementation
   * Better configuration
   * Capital letters recognition
   * Experimental support for ogg sound icons.
+  * Bug-fixes
 
 Version 0.0.8
   * Output modules reworked (now using a common mechanism)
