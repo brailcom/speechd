@@ -1,5 +1,50 @@
-2003-07-06  Hynek Hanke  <hanke@volny.cz>
+2003-07-07  Hynek Hanke  <hanke@volny.cz>
 
+	* src/server/sndicon.c: Use SOUND_DIR instead of DATA_DIR.
+
+	* src/server/set.c (SET_SELF_ALL): New macro.
+
+	* src/server/Makefile.am: Use sndatadir instead of datadir.
+
+	* intl/fdset.h (ECapLetRecogn): New type.
+
+	* config/en/spelling_short.conf: Also in capital letters recognition group.	
+
+	* config/en/spelling_long.conf: Also in capital letters recognition group.
+
+	* config/en/sound_icons.conf (capital_letter): New sound icon.
+
+	* config/speechd.conf: cs tables added.
+
+	* sounds/Makefile.am (dist_snddata_DATA): Only install *.wav
+
+	* configure.in (sysconfdir): Default path for sounds is now $datadir/sounds/speechd.
+
+	* src/modules/cstsnd.c: Now uses module_utils.c, converted to the new style of
+	output modules.
+
+	* src/server/parse.c (parse_list): LIST CAP_LET_RECOGN_TABLES: New SSIP command.
+	(parse_set): SET * CAP_LET_RECOGN_TABLE: New SSIP command.
+	(parse_set): SET * CAP_LET_RECOGN: New SSIP command.
+
+	* src/server/dc_decl.h (table_add): New tables group: tables.cap_let_recogn.
+
+	* src/server/speechd.c (speechd_init): New tables group: tables.cap_let_recogn.
+
+	* src/server/dc_decl.h (DefaultCapLetRecognition): New option (+callback, +default).
+	(CapLetRecognIcon): New option (+callback, +default).
+	(DefaultCapLetRecognTable): New option (+callback, +default).
+
+	* src/server/speaking.c (process_message_punct_cap): Renamed from process_message_punctuation.
+	(process_message): Also handle capital letters recognition.
+
+	* src/modules/flite.c (flite_set_voice): Don't use MALE3 for awb.
+
+	* config/speechd.conf: SupportedLanguage deleted. 
+	"en" is now first item in LanguageDefaultModule.
+
+2003-07-06  Hynek Hanke  <hanke@volny.cz>
+	
 	* intl/def.h (SPEECHD_DEFAULT_PORT): Renamed from SPEECH_PORT.
 
 	* src/c/clients/say/say.c (main): Removed junk code.
