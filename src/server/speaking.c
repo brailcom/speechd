@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.23 2003-07-16 19:20:24 hanke Exp $
+  * $Id: speaking.c,v 1.24 2003-07-17 11:58:51 hanke Exp $
   */
 
 #include <glib.h>
@@ -48,7 +48,7 @@ speak(void* data)
 	
     while(1){
         sem_wait(sem_messages_waiting);
-        
+
         if (pause_requested){
             MSG(4, "Trying to execute pause...");
             if(pause_requested == 1)
@@ -68,8 +68,8 @@ speak(void* data)
         /* Check if sb is speaking or they are all silent. 
          * If some synthesizer is speaking, we must wait. */
         if (is_sb_speaking() == 1){
-            sem_post(sem_messages_waiting);
-            usleep(10);
+            //            sem_post(sem_messages_waiting);
+            //            usleep(10);
             continue;
         }
 
@@ -893,12 +893,12 @@ resolve_priorities()
 		    
     if(g_list_length(MessageQueue->p2) != 0){
         stop_priority_except_first(2);
-        stop_priority(3);
         stop_priority(4);
         stop_priority(5);
     }
 
     if(g_list_length(MessageQueue->p3) != 0){
+        stop_priority(2);
         stop_priority(4);
         stop_priority(5);
     }
