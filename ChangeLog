@@ -1,3 +1,9 @@
+2003-03-27  Tomas Cerha  <cerha@brailcom.org>
+
+	* INSTALL (Module): `robod' -> `speechd'.
+
+	* INSTALL.in (Module): `robod' -> `speechd'.
+	
 
 2003-03-25  Hynek Hanke <hanke@volny.cz>
 	* src/server/speechd.c: Logging messages switched to their levels of verbosity.

@@ -1,0 +1,20 @@
+2003-03-27  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd/client.py: Import `string' module.
+	(SPEECH_PORT): Added docstring.
+	(RECV_BUFFER_SIZE): New constant.
+	(_CommunicationError): New class.
+	(CommandError): New class.
+	(SendDataError.data): New class.
+	(Client.__init__): Make `client_name' and `conn_name' keyword
+	args.
+	(Client._send_command): Convert `args' to strings.  Handle server
+	response.  Return resonse code and message.
+	(Client._send_data): New method.
+	(Client._recv_response): New method.
+	(Client.close): Before closing socket send a `BYE' command.
+	(Client.stop): New method.
+	(Client.say): New method.
+
+	* speechd/_test.py (Client.check_it): Test the `say()' method.
+
