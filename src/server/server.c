@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.39 2003-05-13 14:13:40 buchal Exp $
+  * $Id: server.c,v 1.40 2003-05-20 19:13:40 hanke Exp $
   */
 
 #include "speechd.h"
@@ -437,6 +437,7 @@ serve(int fd)
     MSG(4,"Read %d bytes from client on fd %d", bytes, fd);
 
     /* Parse the data and read the reply*/
+    MSG(5, "DATA:%s", buf);
     reply = parse(buf, bytes, fd);
 
     /* Send the reply to the socket */
