@@ -17,6 +17,6 @@ run_test_SOURCES = run_test.c $(c_api)/libspeechd.h
 run_test_LDADD = $(c_api)/libspeechd.la
 
 audio_SOURCES = audio.c
-audio_LDADD = -lglib ../audio/libsdaudio.la
+audio_LDADD = -lglib-2.0 ../audio/libsdaudio.la
 
 EXTRA_DIST= *.test
