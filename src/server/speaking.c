@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.25 2003-07-22 22:50:26 hanke Exp $
+  * $Id: speaking.c,v 1.26 2003-08-07 14:42:36 hanke Exp $
   */
 
 #include <glib.h>
@@ -133,6 +133,7 @@ speak(void* data)
         /* Set the speking-monitor so that we know who is speaking */
         speaking_module = output;
         speaking_uid = message->settings.uid;
+        speaking_gid = message->settings.reparted;
         
         /* Write the data to the output module. (say them aloud) */
         ret = (*output->write) (buffer, strlen(buffer), &message->settings); 
@@ -589,8 +590,8 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
 
     /* Queue the parts not returned. */
     if(plist != NULL){
-        queue_messages(plist, -settings->uid, 0, ++max_gid);
-        MSG(4, "Max gid set to %d", max_gid);
+        if (settings->reparted) queue_messages(plist, -settings->uid, 0, settings->reparted);
+        else queue_messages(plist, -settings->uid, 0, ++max_gid);
     }
 
     free(character);
@@ -741,7 +742,8 @@ process_message_punct_cap(char *buf, int bytes, TFDSetElement *settings, GHashTa
     
     /* Queue the parts not returned. */
     if(plist != NULL){
-        queue_messages(plist, -settings->uid, 0, ++max_gid);
+        if (settings->reparted) queue_messages(plist, -settings->uid, 0, settings->reparted);
+        else queue_messages(plist, -settings->uid, 0, ++max_gid);
     }
 
     free(character);
@@ -853,10 +855,11 @@ stop_priority_except_first(int priority)
     GList *queue;
     GList *gl;
     TSpeechDMessage *msg;
+    GList *gl_next;
+    int gid;
 
     queue = speaking_get_queue(priority);
 
-    /* Stop all other priority 3 messages but leave the first */
     gl = g_list_last(queue); 
                 
     if (gl == NULL) return;  
@@ -868,10 +871,31 @@ stop_priority_except_first(int priority)
         speaking_set_queue(priority, queue);        
 
         stop_priority(priority);
+        /* Fill the queue with the list containing only the first message */
+        speaking_set_queue(priority, gl);
+    }else{
+        gid = msg->settings.reparted;
+
+        if (highest_priority == priority && speaking_gid != gid){
+            stop_speaking_active_module();
+        }
+
+        gl = g_list_first(queue);        
+        while(gl){
+            gl_next = g_list_next(gl);
+            if (gl->data != NULL){
+                TSpeechDMessage *msgg = gl->data;
+                if (msgg->settings.reparted != gid){
+                    MSG(3,"ok, msg :%s: removed", msg->buf);
+                    queue = g_list_remove_link(queue, gl);
+                    mem_free_message(msgg);
+                }
+            }
+            gl = gl_next;
+        }
+        speaking_set_queue(priority, queue);
     }
 
-    /* Fill the queue with the list containing only the first message */
-    speaking_set_queue(priority, gl);
 
     return;
 }
@@ -901,9 +925,11 @@ resolve_priorities()
     }
 
     if(g_list_length(MessageQueue->p4) != 0){
-        if ((highest_priority<4) && (highest_priority==5)) 
-            stop_priority(4);
         stop_priority_except_first(4);
+        if (is_sb_speaking()){
+            if (highest_priority != 4)
+                stop_priority(4);
+        }
     }
 
     if(g_list_length(MessageQueue->p5) != 0){
