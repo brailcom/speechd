@@ -1,17 +1,100 @@
 
-#ifndef SPD_AUDIO
-#define SPD_AUDIO
+/*
+ * spd_audio.h -- The SPD Audio Library Header
+ *
+ * Copyright (C) 2004 Brailcom, o.p.s.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2, or (at your option)
+ * any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this package; see the file COPYING.  If not, write to
+ * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ * Boston, MA 02111-1307, USA.
+ *
+ * $Id: spd_audio.h,v 1.5 2004-11-13 14:48:23 hanke Exp $
+ */
 
-#include <flite/flite.h>
+#include <pthread.h>
 
-int spd_audio_open(const cst_wave *w);
-void spd_audio_close();
+#ifdef WITH_NAS
+#include <audio/audiolib.h>
+#include <audio/soundlib.h>
+#endif
 
-int spd_audio_play_wave(const cst_wave *w);
-int spd_audio_set_volume(const signed int volume);
+#define AUDIO_BUF_SIZE 4096
 
-int spd_audio_play_file(const char* filename);
-int spd_audio_play_file_ogg(const char* filename);
-int spd_audio_play_file_wav(const char* filename);
+typedef enum{AUDIO_OSS = 0, AUDIO_NAS = 1} AudioOutputType;
 
-#endif /* SPD_AUDIO */
+typedef struct{
+    int bits;
+    int num_channels;
+    int sample_rate;
+
+    int num_samples;
+    signed short *samples;
+}AudioTrack;
+
+typedef struct{
+    void*   (* open)  (void *id, void** pars);
+    int   (* play)  (void *id, AudioTrack track);
+    int   (* stop)  (void *id);
+    int   (* close) (void *id);
+    int   (* set_volume) (void *id, int);
+}Funct;
+
+typedef struct{
+    AudioOutputType type;
+
+    int volume;
+
+#ifdef WITH_OSS
+    /* OSS specific */
+    int fd;
+    pthread_mutex_t fd_mutex;
+    pthread_cond_t pt_cond;
+    pthread_mutex_t pt_mutex;
+#endif
+
+#ifdef WITH_NAS
+    AuServer *aud;
+    AuFlowID flow;
+    pthread_mutex_t flow_mutex;
+    pthread_t nas_event_handler;
+#endif
+
+    Funct *function;
+
+    int working;
+}AudioID;
+
+typedef int (* t_audio_open)(AudioID *id, void** pars);
+typedef int (* t_audio_play)(AudioID *id, AudioTrack track);
+typedef int (* t_audio_stop)(AudioID *id);
+typedef int (* t_audio_close)(AudioID *id);
+typedef int (* t_audio_set_volume)(AudioID *id, int volume);
+
+typedef struct{
+    t_audio_open open;
+    t_audio_play play;
+    t_audio_stop stop;
+    t_audio_close close;
+    t_audio_set_volume set_volume;
+}AudioFunctions;    
+
+AudioID* spd_audio_open(AudioOutputType type, void **pars, char **error);
+
+int spd_audio_play(AudioID *id, AudioTrack track);
+
+int spd_audio_stop(AudioID *id);
+
+int spd_audio_close(AudioID *id);
+
+int spd_audio_set_volume(AudioID *id, int volume);
