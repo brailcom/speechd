@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.34 2003-10-07 16:52:00 hanke Exp $
+ * $Id: flite.c,v 1.35 2003-10-08 21:29:27 hanke Exp $
  */
 
 
@@ -105,8 +105,6 @@ module_init(void)
     
     flite_message = malloc (sizeof (char*));    
     flite_semaphore = module_semaphore_init();
-
-    module_sample_wave = flite_text_to_wave("Testing wave type.", flite_voice);
 
     DBG("Flite: creating new thread for flite_speak\n");
     flite_speaking = 0;
@@ -244,9 +242,6 @@ _flite_child(TModuleDoublePipe dpipe, const size_t maxlen)
 
     module_child_dp_init(dpipe);
 
-    DBG("Opening audio device\n");    
-    spd_audio_open(module_sample_wave);
-
     text = malloc((maxlen + 1) * sizeof(char));
 
     DBG("Entering child loop\n");
@@ -268,7 +263,9 @@ _flite_child(TModuleDoublePipe dpipe, const size_t maxlen)
         module_sigblockusr(&some_signals);        
         {
             wave = flite_text_to_wave(text, flite_voice);
+            spd_audio_open(wave);
             spd_audio_play_wave(wave);
+            spd_audio_close();
         }
         module_sigunblockusr(&some_signals);        
 
