@@ -495,32 +495,75 @@ FEST_SPEAK_CMD(festivalKey, "speechd-key");
  * has been called. This function blocks until all the data is
  * available. Note that for longer messages this can be quite long
  * on some slower machines. */
+/* WARNING: The code that runs when multiple is set to 1 was
+ * never tested as there is currently no support in Festival! 
+ * It might not work correctly. */
 FT_Wave*
-festivalStringToWaveGetData(FT_Info *info)
+festivalStringToWaveGetData(FT_Info *info, int* continues, int multiple)
 {
     FT_Wave *wave = NULL;
     int n;
     char ack[5];
     int read_bytes;
+    static int remaining_waves = 0;
+
+    if (continues == NULL) return NULL;
+
+    if ((remaining_waves < 0) && (multiple)){
+        DBG("festivalStringToWaveGetData called when there are no more waves to read!");
+        *continues = -1;
+        return NULL;
+    }
+
+    if (multiple && (*continues == 2)){
+        if (festival_get_ack(&info, ack)){
+            *continues = -1;
+            return NULL;
+        }
+        DBG("<- Festival reading number of waves: %s", ack);
+	if (strcmp(ack,"LP\n") == 0){
+            char *reply, *tail_ptr;
+	    reply = client_accept_s_expr(info->server_fd);
+            remaining_waves = strtol(reply, &tail_ptr, 10);
+            if(tail_ptr == reply){
+                DBG("child: Invalid header of send data! (FATAL ERROR)");
+                *continues = -1;
+                return NULL;
+            }
+            DBG("%d waves left to read", remaining_waves);
+	}else{
+            fprintf(stderr,"festival_client: server returned incorrect answer\n");
+        }
+    }
+
+    if (multiple)
+        DBG("festivalStringToWaveGetData: remaining_waves %d", remaining_waves);
 
     /* Read back info from server */
     /* This assumes only one waveform will come back, also LP is unlikely */
     wave = NULL;
-    do {
+    *continues = 0;
+    do{
         if (festival_get_ack(&info, ack)) return NULL;
         DBG("<- Festival: %s", ack);
-	if (strcmp(ack,"WV\n") == 0){         /* receive a waveform */
-            //            fprintf(stderr,"point 2");
+	if (strcmp(ack,"WV\n") == 0){
 	    wave = client_accept_waveform(info->server_fd);
-	}else if (strcmp(ack,"LP\n") == 0){    /* receive an s-expr */
-            //            fprintf(stderr,"point 3");
-	    client_accept_s_expr(info->server_fd);
-	}else if (strcmp(ack,"ER\n") == 0)    /* server got an error */
-            {
-                //                fprintf(stderr,"festival_client: server returned error\n");
-                break;
+            if (multiple){
+                remaining_waves--;
+                if (remaining_waves > 0){
+                    *continues = 1;
+                    break;
+                }
             }
-    } while (strcmp(ack,"OK\n") != 0);
+	}else if (strcmp(ack,"LP\n") == 0){
+	    client_accept_s_expr(info->server_fd);
+	}else if (strcmp(ack,"ER\n") == 0){
+            //  fprintf(stderr,"festival_client: server returned error\n");
+            remaining_waves = 0;
+            *continues = 0;
+            break;
+        }
+    }while (strcmp(ack,"OK\n") != 0);
     
     return wave;
 }
