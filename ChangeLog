@@ -1,4 +1,29 @@
-2004-11-15  Hynek Hanke  <hanke@chopin>
+2004-11-19  Hynek Hanke  <hanke@chopin>
+
+	* src/audio/spd_audio.h (device_name): New parameter of AudioID.
+
+	* src/audio/oss.c (_oss_open): New function.
+	(_oss_close): New function.
+	(oss_open): Don't open OSS device.
+	(oss_play): Open OSS device and close it again.
+	(oss_close): Don't close OSS device.
+
+	* config/modules/flite.conf (FliteNASServer) "tcp/" added.
+
+	* config/modules/festival.conf (FestivalNASServer) "tcp/" added.
+
+	* src/modules/flite.c (_flite_speak): oss_pars removed. Open and close
+	audio device only at the beginning and end.
+
+	* config/speechd.conf (DefaultVolume): Now 0 (makes sense for NAS).
+
+	* src/modules/festival.c (_festival_speak): oss_pars removed. festival_pars is used now.
+	(_festival_speak): Open and close the audio device only at the beginning and end, not
+	before and after playing each track.
+
+2004-11-15  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/modules/Makefile.am (modulebin_PROGRAMS): sd_festival and sd_generic added into modulebin_PROGRAMS.
 
 	* INSTALL: More information about Flite and NAS support when building.
 
