@@ -1,4 +1,14 @@
 
+Version 0.0.8
+  * Output modules reworked (now using a common mechanism)
+  * New priority system (now using 5 priorities)
+  * Improved documentation
+  * Improved C API
+  * Tables for czech language
+  * run_test and new tests, sayfortune.sh (src/tests/)
+  * Many bugs fixed
+  * Renamed to Speech Dispatcher
+
 Version 0.0.7
   * Support for sound-mapped icons (cstsnd output module)
   * Debian package support
