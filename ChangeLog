@@ -1,5 +1,10 @@
 2003-10-29  Hynek Hanke  <hanke@volny.cz>
 
+	* configure.in: AM_INIT_AUTOMAKE name changed back to speechd in order to produce correct
+	distribution name in .tar.gz.
+
+2003-10-29  Hynek Hanke  <hanke@volny.cz>
+
 	* src/server/speaking.h (empty_queue_by_time): New prototype.
 	(stop_priority_older_than): New prototype.
 	Restructured.
