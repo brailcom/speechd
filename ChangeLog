@@ -1,5 +1,7 @@
 2003-06-20  Hynek Hanke  <hanke@localhost.localdomain>
 
+	* src/tests/sayfortune.sh: Very simple script using Speech Dispatcher to read a fortune.
+
 	* config/speechd.conf: New options for output modules.
 
 	* src/server/server.c (serve): Use size_t instead of int for _bytes_.
