@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.h,v 1.1 2003-04-14 22:48:04 hanke Exp $
+  * $Id: speaking.h,v 1.2 2003-04-28 02:02:27 hanke Exp $
   */
 
 #ifndef SPEAKING_H
@@ -42,8 +42,11 @@ void speaking_stop_all();
 void speaking_cancel(int uid);
 void speaking_cancel_all();
 
-int speaking_pause(int uid);
+int speaking_pause(int fd, int uid);
+int speaking_pause_all(int fd);
+
 int speaking_resume(int uid);
+int speaking_resume_all();
 
 /* If there is someone speaking on some output
  * module, return 1, otherwise 0. */
