@@ -1,3 +1,6 @@
+2003-04-12  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/server/parse.c: English grammar and spelling fixes.
 
 2003-04-12  Hynek Hanke  <hanke@localhost.localdomain>
 
@@ -40,7 +43,8 @@
 
 	* src/server/parse.c (parse_key): New function.
 	(parse_char): New function.
-	(get_param): New parameter lower_case: 1 -> convert output to lower case.
+	(get_param): New parameter lower_case: 1 -> convert output to
+	lower case.
 
 	* src/server/server.c (parse): SND_ICON -> SOUND_ICON
 	(parse): CHAR: new SSIP command, KEY: new SSIP command.
