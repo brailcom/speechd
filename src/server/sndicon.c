@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.c,v 1.8 2003-05-11 21:42:59 hanke Exp $
+ * $Id: sndicon.c,v 1.9 2003-05-25 21:08:31 hanke Exp $
 */
 
 #include "sndicon.h"
@@ -62,7 +62,7 @@ sndicon_queue(int fd, char* language, char* prefix, char* name)
         else strcpy(ret, text);
         new->bytes = strlen(ret)+1;
         new->buf = ret;
-        if(queue_message(new, fd, 1, MSGTYPE_SOUND))  FATAL("Couldn't queue message\n");
+        if(queue_message(new, fd, 1, MSGTYPE_SOUND, 0))  FATAL("Couldn't queue message\n");
     }
 
     return 0;
@@ -117,12 +117,24 @@ sndicon_char(int fd, char *name)
 {
     int ret;
     TFDSetElement *settings;		
+    char *icon_name;
 
     settings = get_client_settings_by_fd(fd);
     if (settings == NULL)
         FATAL("Couldn't find settings for active client, internal error."); 
 
-    ret = sndicon_queue(fd, settings->language, settings->char_table, name);
+    if (!strcmp(name,"space")){
+        MSG(1, "space cought\n!\n");
+        icon_name = (char*) spd_malloc(4);
+        strcpy(icon_name, " ");
+    }else{
+        icon_name = name;
+    }
+
+    ret = sndicon_queue(fd, settings->language, settings->char_table, icon_name);
+
+    if(!strcmp(name,"space")) free(icon_name);
+
     return ret;
 }
 
@@ -174,7 +186,7 @@ sndicon_key(int fd, char *name)
 
     message->buf = sequence->str;
 
-    if(queue_message(message, fd, 1, MSGTYPE_KEY) != 0){
+    if(queue_message(message, fd, 1, MSGTYPE_KEY, 0) != 0){
         if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
         free(message->buf);
         free(message);
