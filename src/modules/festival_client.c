@@ -239,16 +239,10 @@ static FT_Wave *client_accept_waveform(int fd)
     /* I know this is NIST file and its an error if it isn't */
     if (filesize >= 1024)
         {
-            /* This doesn't work with Festival 1.4.2 */
-            //	num_samples = nist_get_param_int(wavefile,"sample_count",1);
-            //	printf("samples:%d", num_samples);
+            /* If this doesn't work, probably you forgot to set
+             the output file type to NIST ! by Parameter.set */
+            num_samples = nist_get_param_int(wavefile,"sample_count",1);
 
-            /* So I had to replace it with this, which I don't know
-             * if it is correct! */
-            num_samples = (filesize - 1024) / sizeof(short);
-
-            /* This also isn't correct for Festival 1.4.2. However,
-             * the default value 16 000 works fine so far */
             sample_rate = nist_get_param_int(wavefile,"sample_rate",16000);
 
             if ((num_samples*sizeof(short))+1024 == filesize)
@@ -273,7 +267,7 @@ static char *socket_receive_file_to_buff(int fd,int *size)
 {
     /* Receive file (probably a waveform file) from socket using   */
     /* Festival key stuff technique, but long winded I know, sorry */
-    /* but will receive any file without closeing the stream or    */
+    /* but will receive any file without closing the stream or     */
     /* using OOB data                                              */
     static char *file_stuff_key = "ft_StUfF_key"; /* must == Festival's key */
     char *buff;
@@ -341,6 +335,27 @@ festival_get_ack(FT_Info **info, char* ack)
     return 0;
 }
 
+void
+festival_accept_any_response(FT_Info *info)
+{
+    char ack[4];
+    do {
+        if(festival_get_ack(&info, ack)) return;
+
+	if (strcmp(ack,"WV\n") == 0){         /* receive a waveform */
+	    client_accept_waveform(info->server_fd);
+	}else if (strcmp(ack,"LP\n") == 0)    /* receive an s-expr */
+	    client_accept_s_expr(info->server_fd);
+	else if (strcmp(ack,"ER\n") == 0)    /* server got an error */
+            {
+                /* This message ER is returned even if it was because there was
+                   no sound produced, for this reason, the warning is disabled */
+                /* fprintf(stderr,"festival_client: server returned error\n"); */
+                break;
+            }
+    }while (strcmp(ack,"OK\n") != 0);
+}
+
 /***********************************************************************/
 /* Public Functions to this API                                        */
 /***********************************************************************/
@@ -350,8 +365,6 @@ festival_get_ack(FT_Info **info, char* ack)
 FT_Info *
 festivalOpen(FT_Info *info)
 {
-    int n;
-    char ack[4];
     FILE *fd;
 
     /* Open socket to server */
@@ -386,22 +399,14 @@ festivalOpen(FT_Info *info)
             );
     fclose(fd);
 
-    do {
-        if(festival_get_ack(&info, ack)) return NULL;
+    festival_accept_any_response(info);
 
-	if (strcmp(ack,"WV\n") == 0){         /* receive a waveform */
-	    client_accept_waveform(info->server_fd);
-	}else if (strcmp(ack,"LP\n") == 0)    /* receive an s-expr */
-	    client_accept_s_expr(info->server_fd);
-	else if (strcmp(ack,"ER\n") == 0)    /* server got an error */
-            {
-                /* This message ER is returned even if it was because there was
-                   no sound produced, for this reason, the warning is disabled */
-                /* fprintf(stderr,"festival_client: server returned error\n"); */
-                break;
-            }
-    }while (strcmp(ack,"OK\n") != 0);
+    fd = fdopen(dup(info->server_fd),"wb");
+    /* Send the command and data */
+    fprintf(fd,"(Parameter.set 'Wavefiletype 'nist)\n");
+    fclose(fd);
 
+    festival_accept_any_response(info);
 
     return info;
 }
