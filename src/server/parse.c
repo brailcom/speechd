@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.25 2003-04-25 00:14:03 hanke Exp $
+ * $Id: parse.c,v 1.26 2003-04-28 02:00:23 hanke Exp $
  */
 
 #include "speechd.h"
@@ -560,20 +560,26 @@ parse_pause(char *buf, int bytes, int fd)
     int uid = 0;
     char *param;
 
-    param = get_param(buf,1,bytes, 0);
+    param = get_param(buf, 1, bytes, 1);
     if (param == NULL) return ERR_MISSING_PARAMETER;
 
-    /*    if (isanum(param)) uid = atoi(param);
-
-    */
-    /* If the parameter target_uid wasn't specified,
-       act on the calling client. */
-    /*    if(uid == 0) uid = get_client_uid_by_fd(fd);
-    if(uid == 0) return ERR_NO_SUCH_CLIENT;
+    if (!strcmp(param,"all")){
+        speaking_pause_all(fd);
+    }
+    else if (!strcmp(param, "self")){
+        uid = get_client_uid_by_fd(fd);
+        if(uid == 0) return ERR_INTERNAL;
+        speaking_pause(fd, uid);
+    }
+    else if (isanum(param)){
+        uid = atoi(param);
+        if (uid <= 0) return ERR_ID_NOT_EXIST;
+        speaking_pause(fd, uid);
+    }else{
+        return ERR_PARAMETER_INVALID;
+    }
 
     MSG(4, "Pause received.");
-    ret = speaking_pause(uid);
-    */
 
     return OK_PAUSED;
 }
@@ -585,19 +591,27 @@ parse_resume(char *buf, int bytes, int fd)
     int uid = 0;
     char *param;
 
-    param = get_param(buf,1,bytes, 0);
-    if (isanum(param)) uid = atoi(param);
-    /*
+    param = get_param(buf,1,bytes, 1);
     if (param == NULL) return ERR_MISSING_PARAMETER;
-    */
-    /* If the parameter target_uid wasn't specified,
-       act on the calling client. */
-    /*    if(uid == 0) uid = get_client_uid_by_fd(fd);
-    if(uid == 0) return ERR_NO_SUCH_CLIENT;
+
+    if (!strcmp(param,"all")){
+        speaking_resume_all();
+    }
+    else if (!strcmp(param, "self")){
+        uid = get_client_uid_by_fd(fd);
+        if(uid == 0) return ERR_INTERNAL;
+        speaking_resume(uid);
+    }
+    else if (isanum(param)){
+        uid = atoi(param);
+        if (uid <= 0) return ERR_ID_NOT_EXIST;
+        speaking_resume(uid);
+    }else{
+        return ERR_PARAMETER_INVALID;
+    }
 
     MSG(4, "Resume received.");
-    ret = speaking_resume(uid);
-    */
+    
     return OK_RESUMED;
 }
 
@@ -736,7 +750,7 @@ get_param(char *buf, int n, int bytes, int lower_case)
 	
     strcpy(param,"");
     i = 0;
-
+        
     /* Read all the parameters one by one,
      * but stop after the one with index n,
      * while maintaining it's value in _param_ */
