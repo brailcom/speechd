@@ -1,7 +1,9 @@
 2004-01-27  Milan Zamazal  <pdm@brailcom.org>
 
-	* src/server/server.c (serve): Handle the case when `read' returns
-	0.
+	* src/server/alloc.c (spd_realloc): New function.
+	* src/server/alloc.h: Declare it.
+	* src/server/server.c (serve): Socket reading code rewritten and
+	hopefully finally fixed.
 
 2004-01-20  Milan Zamazal  <pdm@brailcom.org>
 
