@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.57 2004-07-13 20:06:31 hanke Exp $
+ * $Id: speechd.c,v 1.58 2004-07-21 08:17:01 hanke Exp $
  */
 
 #include "speechd.h"
@@ -94,16 +94,18 @@ MSG2(int level, char *kind, char *format, ...)
                 /* Print timestamp */
                 time_t t;
                 char *tstr;
+		struct timeval tv;
                 t = time(NULL);
                 tstr = strdup(ctime(&t));
+		gettimeofday(&tv,NULL);
                 /* Remove the trailing \n */
                 assert(strlen(tstr)>1);
                 tstr[strlen(tstr)-1] = 0;
                 if(std_log) {
-                    fprintf(logfile, "[%s] speechd: ", tstr);
+                    fprintf(logfile, "[%s : %d] speechd: ", tstr, tv.tv_usec);
                 }
                 if(custom_log) {
-                    fprintf(custom_logfile, "[%s] speechd: ", tstr);
+                    fprintf(custom_logfile, "[%s : %d] speechd: ", tstr, tv.tv_usec);
                 }
             }
             for(i=1;i<level;i++){
