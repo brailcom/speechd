@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.57 2003-10-27 21:43:29 hanke Exp $
+ * $Id: parse.c,v 1.58 2004-02-10 21:23:47 hanke Exp $
  */
 
 #include "speechd.h"
@@ -436,6 +436,17 @@ parse_set(const char *buf, const int bytes, const int fd)
 
         if (ret) return ERR_COULDNT_SET_PITCH;
         return OK_PITCH_SET;
+    }
+    else if (!strcmp(set_sub, "volume")){
+        signed int volume;
+        GET_PARAM_INT(volume, 3);
+
+        if(volume < -100) return ERR_VOLUME_TOO_LOW;
+        if(volume > +100) return ERR_VOLUME_TOO_HIGH;
+
+        SSIP_SET_COMMAND(volume);
+        if (ret) return ERR_COULDNT_SET_VOLUME;
+        return OK_VOLUME_SET;
     }
     else if (TEST_CMD(set_sub, "voice")){
         char *voice;
