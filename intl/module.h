@@ -1,6 +1,6 @@
 
 /*
- * module.h - Definition of a module for Speech Deamon
+ * module.h - Definition of a module for Speech Dispatcher
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.h,v 1.12 2003-05-18 20:54:10 hanke Exp $
+ * $Id: module.h,v 1.13 2003-05-26 16:04:49 hanke Exp $
  */
 
 #include <glib.h>

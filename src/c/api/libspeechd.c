@@ -1,6 +1,6 @@
 
 /*
- * libspeechd.c - Shared library for easy acces to Speech Deamon functions
+ * libspeechd.c - Shared library for easy acces to Speech Dispatcher functions
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.3 2003-05-11 11:27:20 hanke Exp $
+ * $Id: libspeechd.c,v 1.4 2003-05-26 16:04:49 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -45,7 +45,7 @@ void xfree(void* ptr);
 
 /* --------------------- Public functions ------------------------- */
 
-/* Opens a new Speech Deamon connection.
+/* Opens a new Speech Dispatcher connection.
  * Returns socket file descriptor of the created connection
  * or 0 if no connection was opened. */
 int 
@@ -102,7 +102,7 @@ spd_open(char* client_name, char* connection_name, char *user_name)
   return connection;
 }
 
-/* Close a Speech Deamon connection */
+/* Close a Speech Dispatcher connection */
 void
 spd_close(int connection)
 {
@@ -181,7 +181,7 @@ spd_sayf(int fd, int priority, char *format, ...)
     buf = g_strdup_vprintf(format, args);
     va_end(args);
     
-    /* Send the buffer to Speech Deamon */
+    /* Send the buffer to Speech Dispatcher */
     ret = spd_say(fd, priority, buf);	
 
     xfree(buf);

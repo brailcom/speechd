@@ -1,6 +1,6 @@
 
 /*
- * set.h - Settings related functions for Speech Deamon header
+ * set.h - Settings related functions for Speech Dispatcher header
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.h,v 1.7 2003-05-26 14:07:13 hanke Exp $
+ * $Id: set.h,v 1.8 2003-05-26 16:04:50 hanke Exp $
  */
 
 #ifndef ALLOC_H

@@ -1,6 +1,6 @@
 
 /*
- * say.c - Supersimple Speech Deamon client
+ * say.c - Supersimple Speech Dispatcher client
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: say.c,v 1.3 2003-05-11 21:41:17 hanke Exp $
+ * $Id: say.c,v 1.4 2003-05-26 16:04:49 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -47,11 +47,11 @@ int main(int argc, const char **argv) {
    }
    
    sockfd = spd_open("say","main", NULL);
-   if (sockfd == 0) FATAL("Speech Deamon failed");
+   if (sockfd == 0) FATAL("Speech Dispatcher failed");
 
    err = spd_sayf(sockfd, 2, (char*) argv[1]);
 
-   if (err == -1) FATAL("Speech Deamon failed");
+   if (err == -1) FATAL("Speech Dispatcher failed");
    
    /* close the socket */
    spd_close(sockfd);

@@ -1,6 +1,6 @@
 
 /*
- * parse.c - Parses commands Speech Deamon got from client
+ * parse.c - Parses commands Speech Dispatcher got from client
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.30 2003-05-26 14:06:30 hanke Exp $
+ * $Id: parse.c,v 1.31 2003-05-26 16:04:50 hanke Exp $
  */
 
 #include "speechd.h"
@@ -111,7 +111,7 @@ parse(char *buf, int bytes, int fd)
             /* Send a reply to the socket */
             write(fd, OK_BYE, strlen(OK_BYE)+1);
             speechd_connection_destroy(fd);
-            /* This is internal Speech Deamon message, see serve() */
+            /* This is internal Speech Dispatcher message, see serve() */
             return "999 CLIENT GONE";
         }
 	

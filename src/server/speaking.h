@@ -1,6 +1,6 @@
 
  /*
-  * speaking.h - Speech Deamon speech output functions header
+  * speaking.h - Speech Dispatcher speech output functions header
   * 
   * Copyright (C) 2001,2002,2003 Brailcom, o.p.s, Prague 2,
   * Vysehradska 3/255, 128 00, <freesoft@freesoft.cz>
@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.h,v 1.2 2003-04-28 02:02:27 hanke Exp $
+  * $Id: speaking.h,v 1.3 2003-05-26 16:04:50 hanke Exp $
   */
 
 #ifndef SPEAKING_H

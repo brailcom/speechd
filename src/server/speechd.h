@@ -1,6 +1,6 @@
 
 /*
- * speechd.h - Speech Deamon header
+ * speechd.h - Speech Dispatcher header
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.27 2003-05-07 19:09:18 hanke Exp $
+ * $Id: speechd.h,v 1.28 2003-05-26 16:04:50 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -124,7 +124,7 @@ GHashTable *fd_uid;
 /* A list of all defined tables grouped by their categories */
 TSpeechDTables tables;
 
-/* Speech Deamon main priority queue for messages */
+/* Speech Dispatcher main priority queue for messages */
 TSpeechDQueue *MessageQueue;
 /* List of messages from paused clients waiting for resume */
 GList *MessagePausedList;

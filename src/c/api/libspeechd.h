@@ -1,6 +1,6 @@
 
 /*
- * libspeechd.h - Shared library for easy acces to Speech Deamon functions (header)
+ * libspeechd.h - Shared library for easy acces to Speech Dispatcher functions (header)
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.3 2003-05-11 11:27:34 hanke Exp $
+ * $Id: libspeechd.h,v 1.4 2003-05-26 16:04:49 hanke Exp $
  */
 
 /* Debugging */
@@ -50,7 +50,7 @@ typedef enum{
 
 /* -------------- Public functions --------------------------*/
 
-/* Openning and closing Speech Deamon connection */
+/* Openning and closing Speech Dispatcher connection */
 int spd_open(char* client_name, char* connection_name, char *user_name);
 void spd_close(int connection);
 

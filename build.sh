@@ -20,7 +20,7 @@
 # the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 # Boston, MA 02111-1307, USA.
 #
-# $Id: build.sh,v 1.2 2003-04-14 23:29:05 hanke Exp $
+# $Id: build.sh,v 1.3 2003-05-26 16:04:48 hanke Exp $
 
 
 echo "Building user-defined autoconf macros (aclocal)"
@@ -54,5 +54,5 @@ if ! automake; then
 fi
 
 echo 
-echo "You can continue configuring and compiling Speech Deamon with"
+echo "You can continue configuring and compiling Speech Dispatcher with"
 echo "       ./configure && make all && make install"

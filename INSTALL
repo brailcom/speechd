@@ -10,13 +10,13 @@ You will need these components to compile Speech Daemon:
  - flite [we use it for sound track output also]
  - libfestival-dev and libestools-dev
  - librecode
- - ncurses [for Speech Deamon Center]
+ - ncurses [for Speech Dispatcher Center]
  - automake 1.7+, autoconf, pkg-config and libtool (if you are building from CVS)
 
-Building Speech Deamon:
+Building Speech Dispatcher:
 =======================
 
-To compile the whole project, including Speech Deamon server, all modules
+To compile the whole project, including Speech Dispatcher server, all modules
 and clients, simply extract the distribution archive and change to 
 speechd-<version> directory and run "make all" command as follows:
 
@@ -29,7 +29,7 @@ You should have configured flite with
     ./configure --enable-shared
 to be able to use the flite plug-in. If you aren't sure if you have done this,
 check for example for libflite_cmu_us_kal.so in your library directory.
-(It's also possible to use Speech Deamon with Flite static libraries,
+(It's also possible to use Speech Dispatcher with Flite static libraries,
 but it is generally not a good way unless you know what you are doing.)
 
 If it doesn't work, try the following:
@@ -49,10 +49,10 @@ path by running:
 Testing
 =======
 
-You can try to execute Speech Deamon by
+You can try to execute Speech Dispatcher by
  $ speechd
 
-If Speech Deamon is running, you can test if it's working by:
+If Speech Dispatcher is running, you can test if it's working by:
  (on some other console)
  $ cd speechd-@VERSION/src/tests
  $ ./run_test basic.test

@@ -1,6 +1,6 @@
 
 /*
- * festival.c - Speech Deamon backend for Festival
+ * festival.c - Speech Dispatcher backend for Festival
  *
  * Copyright (C) 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.11 2003-05-23 08:54:50 pdm Exp $
+ * $Id: festival.c,v 1.12 2003-05-26 16:04:50 hanke Exp $
  */
 
 #define VERSION "0.1"

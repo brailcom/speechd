@@ -1,6 +1,6 @@
 
 /*
- * history.c - History functions for Speech Deamon
+ * history.c - History functions for Speech Dispatcher
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.c,v 1.15 2003-05-25 21:04:44 hanke Exp $
+ * $Id: history.c,v 1.16 2003-05-26 16:04:50 hanke Exp $
  */
 
 #include "speechd.h"

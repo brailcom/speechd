@@ -8,7 +8,7 @@ Version 0.0.7
   * Improved PAUSE mechanism
 
 Version 0.0.6
-  * Speech Deamon now works in 2 threads for better performance
+  * Speech Dispatcher now works in 2 threads for better performance
   * New output module for Flite (using Flite C API)
   * Added debug mode
   * Spelling, punctuation, CHAR and KEY commands
@@ -18,8 +18,8 @@ Version 0.0.6
   * Python API
 
 Version 0.0.5
-  * Renamed back to Speech Deamon
-  * Speech Deamon Center -- history and configuration client (first version)
+  * Renamed back to Speech Dispatcher
+  * Speech Dispatcher Center -- history and configuration client (first version)
 	* command line / menu logic
 	* browsing through clients
 	* browsing through client's history

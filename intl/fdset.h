@@ -1,6 +1,6 @@
 
 /*
- * fdset.h - Settings for Speech Deamon
+ * fdset.h - Settings for Speech Dispatcher
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.17 2003-05-25 21:13:06 hanke Exp $
+ * $Id: fdset.h,v 1.18 2003-05-26 16:04:49 hanke Exp $
  */
 
 typedef enum 

@@ -1,5 +1,5 @@
 /*
- * apollo.c --- Speech Deamon backend for the Apollo2 hardware synthesizer
+ * apollo.c --- Speech Dispatcher backend for the Apollo2 hardware synthesizer
  *
  * Copyright (C) 2003 Brailcom, o.p.s.
  *
@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.13 2003-05-18 20:54:25 hanke Exp $
+ * $Id: apollo.c,v 1.14 2003-05-26 16:04:50 hanke Exp $
  */
 
 

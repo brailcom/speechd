@@ -1,7 +1,7 @@
 
 @ Hello, this is a punctuation test
 
-@ Set parameters and test if Speech Deamon works
+@ Set parameters and test if Speech Dispatcher works
 !SET SELF CLIENT_NAME unknown_user:test-basic:main
 !SET SELF PRIORITY 2
 

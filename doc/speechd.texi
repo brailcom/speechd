@@ -536,7 +536,7 @@ have to define their bodies in the source code of your plug-in.
 You also have to define the output plugin name (usually the name
 of the device or program) and a short description (full name, version, etc.)
 not longer than one or two lines. The third entry `gmodule' should
-be set to NULL, it will be filled later by Speech Deamon. So the definition
+be set to NULL, it will be filled later by Speech Dispatcher. So the definition
 can look like this:
 
 @example
@@ -609,7 +609,7 @@ We can consider also other voice types.
 This function should return 0 if it fails and 1 if the delivery
 to the synthesis is successful. It should return immediately,
 because otherwise, it would block stopping, priority handling
-and other important things in Speech Deamon.
+and other important things in Speech Dispatcher.
 
 If there is a need to stay longer, you
 should create a separate thread or process. This is for example
@@ -641,7 +641,7 @@ synthesized yet.
 This may be a different approach of what you would
 expect on the first sight, but it's important to understand that
 simply sending some @@pause to the output device won't work.
-In Speech Deamon, these requests for pause are handled on a
+In Speech Dispatcher, these requests for pause are handled on a
 client-per-client basis, so the output device can't be blocked
 for other clients. For example, a user can pause the text in
 Emacs buffer in order to, say, check new mail. If the output
@@ -704,7 +704,7 @@ to return 2 than a bad estimate (which can cause yet a greater damage).
 Not that such a module is still usefull, because the user can map all
 his sound-icons to text, use only this ouput device etc.
 
-This function should return very fast, because Speech Deamon calls
+This function should return very fast, because Speech Dispatcher calls
 it very often for different purposes.
 
 @end deffn
@@ -733,7 +733,7 @@ It should return 0 on success, -1 otherwise.
 
 In general, it's much better to use one of the shared
 libraries for specific languages. However, there can
-be reasons to communicate with Speech Deamon directly.
+be reasons to communicate with Speech Dispatcher directly.
 
 In this case, please see @ref{SSIP}.
 
@@ -762,8 +762,8 @@ All functions, except where explicitly stated, aren't blocking.
 @deffn {C API function}  int spd_open(char* client_name, char* connection_name, char* user_name)
 @findex spd_open()
 
-Opens a new connection to Speech Deamon and returns a socket file descriptor you will
-use to communicate with Speech Deamon. It's one of the parameter of all the others
+Opens a new connection to Speech Dispatcher and returns a socket file descriptor you will
+use to communicate with Speech Dispatcher. It's one of the parameter of all the others
 functions.
 
 The three parameters @code{client_name}, @code{connection_name} and @code{username}
@@ -796,7 +796,7 @@ Each connection you open should be closed by spd_close() before the end of the p
 @deffn {C API function}  void spd_close(int connection)
 @findex spd_close()
 
-Closes a Speech Deamon socket connection. You should close every connection
+Closes a Speech Dispatcher socket connection. You should close every connection
 before the end of your program.
 
 @code{connection} is the file descriptor obtained by spd_open().
@@ -808,7 +808,7 @@ before the end of your program.
 @deffn {C API function}  int spd_say(int connection, int priority, char* text);
 @findex spd_say()
 
-Sends a message to Speech Deamon. If this message isn't blocked by some message
+Sends a message to Speech Dispatcher. If this message isn't blocked by some message
 of higher priority and this CONNECTION isn't paused, it will be synthesized
 directly on some of the output devices. Otherwise, the message will be discarded
 (priority 3) or wait in the queue for some time (priority 1, 2).
@@ -961,7 +961,7 @@ the end.
 
 This shouldn't be any problem. User executes a pause, he waits
 a short time till the end of the sentence, than he can do what
-he wants and when he return, resume() is sent and Speech Deamon
+he wants and when he return, resume() is sent and Speech Dispatcher
 will continue saying the message without any loss of information.
 
 Never suppose this function doesn't block, even if on your
@@ -1089,7 +1089,7 @@ It returns 0 on succes, -1 otherwise.
 
 Sends a sound icon ICON_NAME. These are symbolic names that are mapped
 to a sound or to a text (in the particular language) according to
-Speech Deamon tables and user settings. Each program can also
+Speech Dispatcher tables and user settings. Each program can also
 define it's own icons.
 
 @code{connection} is the file descriptor obtained by spd_open().

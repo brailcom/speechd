@@ -1,6 +1,6 @@
 
 /*
- * dc_decl.h - Dotconf functions and types for Speech Deamon
+ * dc_decl.h - Dotconf functions and types for Speech Dispatcher
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.17 2003-05-18 20:56:03 hanke Exp $
+ * $Id: dc_decl.h,v 1.18 2003-05-26 16:04:50 hanke Exp $
  */
 
 #include "speechd.h"
@@ -110,7 +110,7 @@ DOTCONF_CB(cb_LogFile)
         logfile = (FILE*) malloc(sizeof(FILE*));
         logfile = stdout;
     }
-    MSG(2,"Speech Deamon Logging to file %s", cmd->data.str);
+    MSG(2,"Speech Dispatcher Logging to file %s", cmd->data.str);
     return NULL;
 }
 

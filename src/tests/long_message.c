@@ -1,6 +1,6 @@
 
 /*
- * long_message.c - Two testing messages for Speech Deamon test
+ * long_message.c - Two testing messages for Speech Dispatcher test
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: long_message.c,v 1.4 2003-05-11 11:28:30 hanke Exp $
+ * $Id: long_message.c,v 1.5 2003-05-26 16:04:50 hanke Exp $
  */
 
 /* Warning: VIM currently has some problems with highliting syntax
@@ -40,9 +40,9 @@ int main() {
    
 	printf("Start of the test.\n");
    
-	printf("Trying to initialize Speech Deamon...");
+	printf("Trying to initialize Speech Dispatcher...");
 	sockfd = spd_open("test", NULL, NULL);
-	if (sockfd == 0) FATAL("Speech Deamon failed");
+	if (sockfd == 0) FATAL("Speech Dispatcher failed");
 	printf("OK\n");
 
 		printf("Sending message number 1, text \n");
@@ -383,11 +383,11 @@ message_nto_speak(TSpeechDMessage *elem, gpointer a, gpointer b)
 }
 					");
   
-	printf("Trying to close Speech Deamon connection...");
+	printf("Trying to close Speech Dispatcher connection...");
 	spd_close(sockfd);
 	printf("OK\n");
 
-	printf("Speech Deamon should continue saying both messages...\n");
+	printf("Speech Dispatcher should continue saying both messages...\n");
 	
 	printf("End of the test.\n");
 	exit(0);

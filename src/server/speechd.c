@@ -1,6 +1,6 @@
 
 /*
- * speechd.c - Speech Deamon server program
+ * speechd.c - Speech Dispatcher server program
  *  
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.27 2003-05-07 19:09:06 hanke Exp $
+ * $Id: speechd.c,v 1.28 2003-05-26 16:04:50 hanke Exp $
  */
 
 #include "speechd.h"
@@ -150,7 +150,7 @@ speechd_init()
 	logfile = malloc(sizeof(FILE));
 	logfile = stdout;
 	
-	/* Initialize Speech Deamon priority queue */
+	/* Initialize Speech Dispatcher priority queue */
 	MessageQueue = (TSpeechDQueue*) speechd_queue_alloc();
 	if (MessageQueue == NULL) FATAL("Couldn't alocate memmory for MessageQueue.");
 
@@ -208,7 +208,7 @@ speechd_init()
 	if (g_hash_table_size(output_modules) == 0){
 		DIE("No output modules were loaded - aborting...");
 	}else{
-		MSG(1,"Speech Deamon started with %d output module%s",
+		MSG(1,"Speech Dispatcher started with %d output module%s",
 			g_hash_table_size(output_modules),
 			g_hash_table_size(output_modules) > 1 ? "s" : "" );
 	}

@@ -1,6 +1,6 @@
 
 /*
- * cstsnd.c - Speech Deamon backend for sound output
+ * cstsnd.c - Speech Dispatcher backend for sound output
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: cstsnd.c,v 1.2 2003-05-18 20:54:40 hanke Exp $
+ * $Id: cstsnd.c,v 1.3 2003-05-26 16:04:50 hanke Exp $
  */
 
 #define VERSION "0.1"

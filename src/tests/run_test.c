@@ -1,6 +1,6 @@
 
 /*
- * run_test.c - Read a set of Speech Deamon commands and try them
+ * run_test.c - Read a set of Speech Dispatcher commands and try them
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: run_test.c,v 1.1 2003-04-25 00:27:08 hanke Exp $
+ * $Id: run_test.c,v 1.2 2003-05-26 16:04:50 hanke Exp $
  */
 
 #include <stdio.h>
@@ -111,7 +111,7 @@ main(int argc, char* argv[])
     reply = malloc(4096 * sizeof(char));
 
     sockk = init("run_test","user_test");
-    if(sockk == 0) FATAL("Can't connect to Speech Deamon");
+    if(sockk == 0) FATAL("Can't connect to Speech Dispatcher");
 
     assert(line != 0);
 

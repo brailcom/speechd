@@ -1,4 +1,10 @@
-2003-05-26  Hynek Hanke  <hanke@localhost.localdomain>
+
+
+2003-05-26  Hynek Hanke  <hanke@volny.cz>
+
+	* Speech Deamon renamed to Speech Dispatcher.
+
+2003-05-26  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/parse.c (parse_set): Handle new SSIP command: SET {SELF|ALL|id} OUTPUT_MODULE module
 
@@ -10,7 +16,6 @@
 
 	* src/server/msg.h (ERR_COULDNT_SET_OUTPUT_MODULE): New SSIP message.
 	(OK_OUTPUT_MODULE_SET): New SSIP message.
-
 	
 
 2003-05-25  Hynek Hanke  <hanke@localhost.localdomain>

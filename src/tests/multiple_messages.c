@@ -1,6 +1,6 @@
 
 /*
- * multiple_messages.c - Multiple messages Speech Deamon test
+ * multiple_messages.c - Multiple messages Speech Dispatcher test
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: multiple_messages.c,v 1.5 2003-05-11 11:28:44 hanke Exp $
+ * $Id: multiple_messages.c,v 1.6 2003-05-26 16:04:50 hanke Exp $
  */
 
 #include <stdio.h>
@@ -36,9 +36,9 @@ int main() {
    
 	printf("Start of the test of the test.\n");
    
-	printf("Trying to initialize Speech Deamon...");
+	printf("Trying to initialize Speech Dispatcher...");
 	sockfd = spd_open("say", NULL, NULL);
-	if (sockfd == 0) FATAL("Speech Deamon failed");
+	if (sockfd == 0) FATAL("Speech Dispatcher failed");
 	printf("OK\n");
 
 	for(i=1;i<=3;i++){
@@ -66,7 +66,7 @@ int main() {
 		printf("\n");
 	} 
 
-	printf("Trying to close Speech Deamon connection...");
+	printf("Trying to close Speech Dispatcher connection...");
 	spd_close(sockfd);
 	printf("OK\n");
 

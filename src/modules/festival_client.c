@@ -36,7 +36,7 @@
 /*-----------------------------------------------------------------------*/
 /*                                                                       */
 /* Client end of Festival server API in C designed specifically formerly */
-/* for Galaxy Communicator use, but rewritten to suit Speech Deamon      */
+/* for Galaxy Communicator use, but rewritten to suit Speech Dispatcher      */
 /* needs. Please look also at the original festival_client.c library     */
 /* that can be found in festival/examples/festival_client.c -- it will   */
 /* be probably more up-to-date.                                          */
@@ -540,7 +540,7 @@ int main(int argc, char **argv)
     FT_Info *info;
     FT_Wave *wave;
 
-    printf("Welcome to Festival client library for Speech Deamon\n");
+    printf("Welcome to Festival client library for Speech Dispatcher\n");
 
     info = festival_default_info();
     if (server != 0)

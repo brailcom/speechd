@@ -1,4 +1,4 @@
-@ Hi, this is a basic Speech Deamon test.
+@ Hi, this is a basic Speech Dispatcher test.
 
 @ I've succesfully connected to the server
 @ and now I'm going to try to set my client name
@@ -12,10 +12,10 @@ $4
 @ Hope it was ok. Now I can try to say something:
 $8
 !SPEAK
-Hello world, this is Speech Deamon speaking.
+Hello world, this is Speech Dispatcher speaking.
 . 
 $2
-@ If you heard the full message, Speech Deamon
+@ If you heard the full message, Speech Dispatcher
 @ works correctly.
 $8
 
@@ -54,7 +54,7 @@ $8
 
 !QUIT
 
-@ If the tests did what expected, your instalation of Speech Deamon
+@ If the tests did what expected, your instalation of Speech Dispatcher
 @ probably works fine. If not, there can be different causes, see
 @ the documentation -- Troubleshooting. (Note that some synthesizers
 @ don't have to support setting of the voice parameters. If everything

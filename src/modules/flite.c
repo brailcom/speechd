@@ -1,6 +1,6 @@
 
 /*
- * flite.c - Speech Deamon backend for Flite (Festival Lite)
+ * flite.c - Speech Dispatcher backend for Flite (Festival Lite)
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.22 2003-05-18 20:55:42 hanke Exp $
+ * $Id: flite.c,v 1.23 2003-05-26 16:04:50 hanke Exp $
  */
 
 #define VERSION "0.1"

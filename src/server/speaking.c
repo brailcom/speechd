@@ -1,6 +1,6 @@
 
  /*
-  * speaking.c - Speech Deamon speech output functions
+  * speaking.c - Speech Dispatcher speech output functions
   * 
   * Copyright (C) 2001,2002,2003 Brailcom, o.p.s
   *
@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.11 2003-05-25 21:08:44 hanke Exp $
+  * $Id: speaking.c,v 1.12 2003-05-26 16:04:50 hanke Exp $
   */
 
 #include <glib.h>
