@@ -7,10 +7,6 @@ EXTRA_DIST= ChangeLog NEWS TODO AUTHORS COPYING INSTALL README robod.conf intl/ 
 
 ## man_MANS = 
 
-## AM_CPPFLAGS = -I./intl
-##  -DDATADIR=\"$(pkgdatadir)\" \
-##  -DLOCALEDIR=\"$(datadir)/locale\"
-
 # GEN_MAN is a shell command that generates the man page
 ## GEN_MAN=@GEN_MAN@
 
