@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: long_message.c,v 1.8 2003-06-08 21:55:21 hanke Exp $
+ * $Id: long_message.c,v 1.9 2003-07-06 15:05:32 hanke Exp $
  */
 
 #include <stdio.h>
@@ -42,7 +42,7 @@ int main() {
 	printf("OK\n");
 
 		printf("Sending message number 1, text \n");
-		spd_say(sockfd, "message", ""
+		spd_say(sockfd, SPD_MESSAGE, ""
 "						\n"
 "       ALICE'S ADVENTURES IN WONDERLAND by Lewis Carroll.\n"
 "\n"
@@ -265,7 +265,7 @@ int main() {
 
 
 	printf("Sending message number 2, code (ugly characters) \n");
-	spd_say(sockfd, "message", "\n"
+	spd_say(sockfd, SPD_MESSAGE, "\n"
 "\n"
 "int\n"
 "stop_p3(){\n"
