@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.29 2003-07-07 08:40:37 hanke Exp $
+ * $Id: dc_decl.h,v 1.30 2003-07-07 09:59:45 hanke Exp $
  */
 
 #include "speechd.h"
@@ -38,7 +38,8 @@ OutputModule* cur_mod;
 DOTCONF_CB(cb_Port);
 DOTCONF_CB(cb_LogFile);
 DOTCONF_CB(cb_LogLevel);
-DOTCONF_CB(cb_SndModule);
+DOTCONF_CB(cb_SoundModule);
+DOTCONF_CB(cb_SoundDataDir);
 DOTCONF_CB(cb_AddTable);
 DOTCONF_CB(cb_DefaultModule);
 DOTCONF_CB(cb_LanguageDefaultModule);
@@ -138,7 +139,8 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(Port, ARG_INT);
     ADD_CONFIG_OPTION(LogFile, ARG_STR);
     ADD_CONFIG_OPTION(LogLevel, ARG_INT);
-    ADD_CONFIG_OPTION(SndModule, ARG_STR);
+    ADD_CONFIG_OPTION(SoundModule, ARG_STR);
+    ADD_CONFIG_OPTION(SoundDataDir, ARG_STR);
     ADD_CONFIG_OPTION(AddTable, ARG_STR);
     ADD_CONFIG_OPTION(DefaultModule, ARG_STR);
     ADD_CONFIG_OPTION(LanguageDefaultModule, ARG_LIST);
@@ -199,6 +201,7 @@ load_default_global_set_options()
     sound_module = NULL;
 
     SPEECHD_PORT = SPEECHD_DEFAULT_PORT;
+    SOUND_DATA_DIR = strdup(SND_DATA);
 }
 
 DOTCONF_CB(cb_Port)
@@ -250,9 +253,16 @@ DOTCONF_CB(cb_LogLevel)
 }
 
 
-DOTCONF_CB(cb_SndModule)
+DOTCONF_CB(cb_SoundModule)
 {
     sound_module = load_output_module(cmd->data.str);
+    return NULL;
+}
+
+DOTCONF_CB(cb_SoundDataDir)
+{
+    assert(cmd->data.str != NULL);
+    SOUND_DATA_DIR = strdup(cmd->data.str);
     return NULL;
 }
 
