@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.28 2004-03-08 21:25:19 hanke Exp $
+ * $Id: module_utils.c,v 1.29 2004-04-04 21:11:54 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -253,25 +253,25 @@ do_message(EMessageType msgtype)
 char*
 do_speak(void)
 {
-    do_message(MSGTYPE_TEXT);
+    return do_message(MSGTYPE_TEXT);
 }
 
 char*
 do_sound_icon(void)
 {
-    do_message(MSGTYPE_SOUND_ICON);
+    return do_message(MSGTYPE_SOUND_ICON);
 }
 
 char*
 do_char(void)
 {
-    do_message(MSGTYPE_CHAR);
+    return do_message(MSGTYPE_CHAR);
 }
 
 char*
 do_key(void)
 {
-    do_message(MSGTYPE_KEY);
+    return do_message(MSGTYPE_KEY);
 }
 
 char*
@@ -381,6 +381,7 @@ do_quit(void)
     printf("210 OK QUIT\n");    
     fflush(stdout);
     module_close(0);
+    return 0;
 }
 
 static int
@@ -389,7 +390,6 @@ module_get_message_part(const char* message, char* part, unsigned int *pos, size
 {    
     int i, n;
     int num_dividers;
-    int im;
     int len;
 
     assert(part != NULL);
@@ -501,7 +501,6 @@ module_strip_punctuation_some(char *message, char *punct_chars)
 {
     int len;
     char *p = message;
-    guint32 u_char;
     int pchar_bytes;
     int i;
     assert(message != NULL);
@@ -653,10 +652,9 @@ module_parent_wfork(TModuleDoublePipe dpipe, const char* message, EMessageType m
 {
     int pos = 0;
     char msg[16];
-    int i;
     char *buf;
     int bytes;
-    size_t read_bytes;
+    size_t read_bytes = 0;
 
 
     DBG("Entering parent process, closing pipes");
@@ -863,6 +861,7 @@ module_write_data_ok(char *data)
     return 0;
 }
 
+int
 module_terminate_thread(pthread_t thread)
 {
     int ret;
@@ -921,7 +920,6 @@ static int
 semaphore_post(int sem_id)
 {
     static struct sembuf sem_b;
-    int err;
 
     sem_b.sem_num = 0;
     sem_b.sem_op = 1;          /* V() */
