@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.22 2003-07-07 08:42:51 hanke Exp $
+  * $Id: speaking.c,v 1.23 2003-07-16 19:20:24 hanke Exp $
   */
 
 #include <glib.h>
@@ -669,8 +669,14 @@ process_message_punct_cap(char *buf, int bytes, TFDSetElement *settings, GHashTa
                     spelled_punct = (char*) snd_icon_spelling_get(settings->snd_icon_table,
                                                                   icons, settings->cap_let_recogn_sound,
                                                                   sound);
+                }else{
+                    FATAL("Invalid place in code reached!");
                 }
+            }else{
+                FATAL("Invalid place in code reached!");
             }
+
+            if (spelled_punct == NULL) *sound = 0;
 
             if(*sound == 1){
                 /* If this is the first part of the message, save it */
