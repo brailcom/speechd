@@ -32,10 +32,23 @@ class _SSIP_Connection:
     NEWLINE = "\r\n"
     """New line delimeter as a string."""
 
-    END_OF_DATA = NEWLINE + '.' + NEWLINE
+    END_OF_DATA_SINGLE = '.'
+    """Data end marker single in a message"""
+
+    END_OF_DATA_BEGIN = END_OF_DATA_SINGLE + NEWLINE
+    """Data end marker on the begginning of a message"""
+
+    END_OF_DATA = NEWLINE + END_OF_DATA_BEGIN
     """Data end marker as a string."""
+
+
+    END_OF_DATA_ESCAPED_SINGLE = '..'
+    """Data may contain a marker string, so we need to escape it..."""
+
+    END_OF_DATA_ESCAPED_BEGIN = END_OF_DATA_ESCAPED_SINGLE + NEWLINE
+    """Data may contain a marker string, so we need to escape it..."""
     
-    END_OF_DATA_ESCAPED = NEWLINE + '..' + NEWLINE
+    END_OF_DATA_ESCAPED = NEWLINE + END_OF_DATA_ESCAPED_BEGIN
     """Data may contain a marker string, so we need to escape it..."""
 
     def __init__(self, host, port):
@@ -104,6 +117,14 @@ class _SSIP_Connection:
         Returned value is the same as for 'send_command()' method.
 
         """
+
+        # Escape the end-of-data sequence even if presented on the beginning
+        if data[0:3] == self.END_OF_DATA_BEGIN:
+            data = self.END_OF_DATA_ESCAPED_BEGIN + data[3:]
+
+        if (len(data) == 1) and (data[0] == '.'):
+            data = self.END_OF_DATA_ESCAPED_SINGLE
+        
         data = string.replace(data, self.END_OF_DATA, self.END_OF_DATA_ESCAPED)
         self._socket.send(data + self.END_OF_DATA)
         code, msg, data = self._recv_response()
@@ -179,8 +200,24 @@ class Client:
         self._conn = _SSIP_Connection(host, port)
         name = '%s:%s:%s' % (user, client, component)
         self._conn.send_command('SET', 'self', 'CLIENT_NAME', name)
+
+    def __set_priority(self, priority):
+        """Set the given priority
+
+        Arguments:
+          priority -- one of 'important', 'text', 'message', 'notification',
+            'progress'.  For detailed description see Speech Dispatcher
+            documentation.
+
+        This function is considered internal only. See say() or say_character()
+        for information how to specify priorities of messages.
+        """
         
-            
+        self._conn.send_command('SET', 'self', 'PRIORITY', priority)
+
+    def __check_scope(self, scope):
+        assert scope in ('self', 'all') or type(scope) == type(0)
+
     def say(self, text, priority='message'):
         """Say given message with given priority.
 
@@ -200,25 +237,133 @@ class Client:
         information about server responses and codes, see SSIP documentation.
         
         """
-        self._conn.send_command('SET', 'self', 'PRIORITY', priority)
+        self.__set_priority(priority)
         self._conn.send_command('SPEAK')
         self._conn.send_data(text)
-        
-    def stop(self, all=FALSE):
+
+    def char(self, char, priority='text'):
+        """Say given character with given priority
+
+        Arguments:
+
+          char -- character to be spoken in long UTF-8
+
+          priority -- one of 'important', 'text', 'message', 'notification',
+            'progress'.  For detailed description see Speech Dispatcher
+            documentation.
+
+        This method is non-blocking;  it just sends the command, given
+        message is queued on the server and the method returns immediately.
+
+        Server response code is checked and exception ('CommandError' or
+        'SendDataError') is risen in case of non 2xx return code.  For more
+        information about server responses and codes, see SSIP documentation.
+        """
+
+        self.__set_priority(priority)
+
+        if char != " ":
+            self._conn.send_command('CHAR', char)
+        else:
+            self._conn.send_command('CHAR', 'space')
+
+    def key(self, key, priority='text'):
+        """Say given character with given priority
+
+        Arguments:
+
+          key -- the key-name (as defined in SSIP) of the key to be spoken.
+             For example: 'a', 'A', 'shift_a', 'shift_kp-enter', 'ctrl-alt-del'.
+
+          priority -- one of 'important', 'text', 'message', 'notification',
+            'progress'.  For detailed description see SSIP documentation.
+
+        This method is non-blocking;  it just sends the command, given
+        message is queued on the server and the method returns immediately.
+
+        Server response code is checked and exception ('CommandError' or
+        'SendDataError') is risen in case of non 2xx return code.  For more
+        information about server responses and codes, see SSIP documentation.
+        """
+        self.__set_priority(priority)
+        self._conn.send_command('KEY', key)
+
+    def sound_icon(self, sound_icon, priority='text'):
+        """Say or play given sound_icon with given priority
+
+        Arguments:
+
+          sound_icon -- the name of the sound icon.
+             For example: 'empty', 'bell', 'new-line'.
+
+          priority -- one of 'important', 'text', 'message', 'notification',
+            'progress'.  For detailed description see SSIP documentation.
+
+        This method is non-blocking;  it just sends the command, given
+        message is queued on the server and the method returns immediately.
+
+        Server response code is checked and exception ('CommandError' or
+        'SendDataError') is risen in case of non 2xx return code.  For more
+        information about server responses and codes, see SSIP documentation.
+        """        
+        self.__set_priority(priority)
+        self._conn.send_command('SOUND_ICON', sound_icon)
+                    
+    def cancel(self, scope='self'):
         """Immediately stop speaking and discard messages in queues.
 
         Arguments:
 
-          all -- if true, all messages from all clients will be stopped and
-            discarded.  If false (the default), only messages from this client
-            will be affected.
+          scope -- either a string constant 'self' or 'all' or a number of
+            connection.  'self' means, that this setting applies to this
+            connection only.  'all' changes the setting for all current Speech
+            Dispatcher connections.  You can also set the value for any
+            particular connection by supplying its identification number (this
+            feature is only meant to be used by Speech Dispatcher control
+            application).
+        """
+        self.__check_scope(scope)
+        self._conn.send_command('CANCEL', scope)
+
+
+    def stop(self, scope='self'):
+        """Immediately stop speaking the currently spoken message.
+
+        Arguments:
+
+          scope -- as described in cancel.
         
         """
-        if all:
-            self._conn.send_command('STOP', 'ALL')
-        else:
-            self._conn.send_command('STOP')
+        self.__check_scope(scope)
+        self._conn.send_command('STOP', scope)
 
+    def pause(self, scope='self'):
+        """Pause speaking the currently spoken message and postpone other messages
+        until the resume method is called. This method is non-blocking. However,
+        speaking can continue for a short while even after it's called (typically
+        to the end of the sentence).
+
+        Arguments:
+
+          scope -- as described in cancel.
+        
+        """
+        self.__check_scope(scope)
+        self._conn.send_command('STOP', scope)
+
+    def resume(self, scope='self'):
+        """Resume speaking of the currently paused messages until the
+        resume method is called. This method is non-blocking. However,
+        speaking can continue for a short while even after it's called
+        (typically to the end of the sentence).
+
+        Arguments:
+
+          scope -- as described in cancel.
+        
+        """
+        self.__check_scope(scope)
+        self._conn.send_command('STOP', scope)
 
     def set_language(self, language, scope='self'):
         """Switch to a particular language for further speech commands.
@@ -237,7 +382,7 @@ class Client:
             
         """
         assert type(language) == type('') and len(language) == 2
-        assert scope in ('self', 'all') or type(scope) == type(0)
+        self.__check_scope(scope)
         self._conn.send_command('SET', scope, 'LANGUAGE', language)
 
     def set_pitch(self, value, scope='self'):
@@ -253,7 +398,7 @@ class Client:
             
         """
         assert type(value) == type(0) and value >= -100 and value <= 100
-        assert scope in ('self', 'all') or type(scope) == type(0)
+        self.__check_scope(scope)
         self._conn.send_command('SET', scope, 'PITCH', value)
 
     def set_rate(self, value, scope='self'):
@@ -265,19 +410,134 @@ class Client:
             corresponding to the default speech rate of the current speech
             synthesis output module, lower values meaning slower speech and
             higher values meaning faster speech.
+
           scope -- as described in 'set_language()'.
             
         """
         assert type(value) == type(0) and value >= -100 and value <= 100
-        assert scope in ('self', 'all') or type(scope) == type(0)
+        self.__check_scope(scope)
         self._conn.send_command('SET', scope, 'RATE', value)
 
+    def set_volume(self, value, scope='self'):
+        """Set the speech volume for further speech commands.
 
-    # VOICE, CAP_LET_RECOGN, PUNCTUATION
+        Arguments:
+
+          value -- integer value within the range from -100 to 100, with 100
+            corresponding to the default speech volume of the current speech
+            synthesis output module, lower values meaning softer speech.
+
+          scope -- as described in 'set_language()'.
+            
+        """
+        assert type(value) == type(0) and value >= -100 and value <= 100
+        self.__check_scope(scope)
+        self._conn.send_command('SET', scope, 'VOLUME', value)
+
+    def set_punctuation(self, value, scope='self'):
+        """Set the punctuation pronounciation level.
+
+        Arguments:
+
+          value -- choses how much punctuation characters should be read.
+            Possible values are: 'all', 'some', 'none'. 'all' means read
+            all punctuation characters, while 'none' means that no punctuation
+            character will be read. For 'some', only the user-defined punctuation
+            characters are pronounced.
+
+          scope -- as described in 'set_language()'.
+            
+        """
+        assert value in ['all', 'some', 'none']
+        self.__check_scope(scope)
+        self._conn.send_command('SET', scope, 'PUNCTUATION', value)
+
+    def set_spelling(self, value, scope='self'):
+        """Toogle the spelling mode or on off.
+
+        Arguments:
+
+          value -- if 'True', all incomming messages will be spelled
+            instead of being read as normal words. 'False' switches
+            this behavior off.
+          scope -- as described in 'set_language()'.
+            
+        """
+        assert value in [True, False]
+        self.__check_scope(scope)
+        if value == True:
+            self._conn.send_command('SET', scope, 'SPELLING', "on")
+        else:
+            self._conn.send_command('SET', scope, 'SPELLING', "off")
+
+    def set_cap_let_recogn(self, value, scope='self'):
+        """Set capital letter recognition mode
+
+        Arguments:
+
+          value -- one of 'none', 'spell', 'icon'. None means no signalization
+            of capital letters, 'spell' means capital letters will be spelled with
+            a syntetic voice and 'icon' means that the capital-letter icon will be
+            prepended before each capital letter.
+
+          scope -- as described in 'set_language()'.
+            
+        """
+        assert value in ["none", "spell", "icon"]
+        self.__check_scope(scope)
+        self._conn.send_command('SET', scope, 'CAP_LET_RECOGN', value)
+
+    def set_voice(self, value, scope='self'):
+        """Set voice to given value. Note that this doesn't guarantee that
+        such a voice is actually available by the used synthesizer. If not,
+        the suggested voice will be mapped to one of the available voices.
+
+        Arguments:
+
+          value -- one of the SSIP symbolic voice names: 'MALE1' .. 'MALE3',
+            'FEMALE1' ... 'FEMALE3', 'CHILD_MALE', 'CHILD_FEMALE'
+
+          scope -- as described in 'set_language()'.
+            
+        """
+        assert type(value) == type("t")
+        assert value.lower() in ["male1", "male2", "male3", "female1", "female2",
+                                 "female3", "child_male", "child_female"]
+        self.__check_scope(scope)
+        self._conn.send_command('SET', scope, 'VOICE', value)
+
+    def set_pause_context(self, value, scope='self'):
+        """Set the amount of context that is provided to the user after resuming
+        a paused message to the given value.
+
+        Arguments:
+
+          value -- a positive or negative value meaning how many chunks of data
+          after or before the pause should be read when resume() is executed.
+
+          scope -- as described in 'set_language()'.
+            
+        """
+        assert type(value) == type(-1)
+        self.__check_scope(scope)
+        self._conn.send_command('SET', scope, 'PAUSE_CONTEXT', value)
+
+    def block_begin(self):
+        """Begin an SSIP block of messages. See SSIP documentation for more
+        details about what are blocks and how to use them."""
+
+        self._conn.send_command('BLOCK', 'BEGIN')
+
+    def block_end(self):
+        """Close an SSIP block of messages. See SSIP documentation for more
+        details about what are blocks and how to use them."""
+
+        self._conn.send_command('BLOCK', 'END')
+        
     
-    def get_client_list(self):
-        c, m, data = self._conn.send_command('HISTORY', 'GET', 'CLIENT_LIST')
-        return data
+#    def get_client_list(self):
+#        c, m, data = self._conn.send_command('HISTORY', 'GET', 'CLIENT_LIST')
+#        return data
         
         
     def close(self):
