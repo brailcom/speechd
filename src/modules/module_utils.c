@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.3 2003-06-23 05:06:38 hanke Exp $
+ * $Id: module_utils.c,v 1.4 2003-06-25 13:44:07 pdm Exp $
  */
 
 #include <semaphore.h>
@@ -435,7 +435,7 @@ static void
 module_strip_punctuation_default(char *buf)
 {
     assert(buf != NULL);
-    module_strip_punctuation_some(buf, "~@#$%^&*+=|\\/<>_");
+    module_strip_punctuation_some(buf, "~@#$%^&*+=|\\/<>[]_");
 }
 
 static short *
