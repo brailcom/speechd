@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.19 2003-04-06 20:03:45 hanke Exp $
+ * $Id: speechd.c,v 1.20 2003-04-11 20:45:12 hanke Exp $
  */
 
 #include "speechd.h"
@@ -86,21 +86,21 @@ speechd_client_terminate(gpointer key, gpointer value, gpointer user)
 gboolean
 speechd_modules_terminate(gpointer key, gpointer value, gpointer user)
 {
-	OutputModule *module;
+    OutputModule *module;
 
-	module = (OutputModule *) value;
-	if (module == NULL){
-		MSG(2,"Empty module, internal error");
-		if(SPEECHD_DEBUG) FATAL("Internal error");
-		return TRUE;
-	}
-	assert(module->name!=NULL);
-	MSG(4,"Terminating a module %s", module->name);
+    module = (OutputModule *) value;
+    if (module == NULL){
+        MSG(2,"Empty module, internal error");
+        if(SPEECHD_DEBUG) FATAL("Internal error");
+        return TRUE;
+    }
+    assert(module->name!=NULL);
+    MSG(4,"Terminating a module %s", module->name);
     (*module->close) ();
 			
-	g_module_close((GModule*) (module->gmodule));
+    g_module_close((GModule*) (module->gmodule));
 	
-	return TRUE;
+    return TRUE;
 }
 	
 void
