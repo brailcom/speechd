@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.12 2003-04-06 23:21:43 hanke Exp $
+ * $Id: set.c,v 1.13 2003-04-11 20:39:37 hanke Exp $
  */
 
 
@@ -106,10 +106,23 @@ set_spelling(int fd, int spelling)
 {
     TFDSetElement *settings;
 
-	settings = get_client_settings_by_fd(fd);
-	if (settings == NULL) FATAL("Couldnt find settings for active client, internal error.");
-	settings->spelling = spelling;
-	return 1;
+    settings = get_client_settings_by_fd(fd);
+    if (settings == NULL) FATAL("Couldnt find settings for active client, internal error.");
+    settings->spelling = spelling;
+    return 1;
+}
+
+int
+set_spelling_table(int fd, char* spelling_table)
+{
+    TFDSetElement *settings;
+
+    settings = get_client_settings_by_fd(fd);
+    if (settings == NULL) FATAL("Couldnt find settings for active client, internal error.");
+    if(spelling_table == NULL) return 0;
+    realloc(settings->spelling_table, (strlen(spelling_table) + 1)*sizeof(char));
+    strcpy(settings->spelling_table, spelling_table);
+    return 1;
 }
 
 int
@@ -149,6 +162,7 @@ default_fd_set(void)
 	new->language = (char*) spd_malloc(64);			/* max 63 characters */
 	new->output_module = (char*) spd_malloc(64);
 	new->client_name = (char*) spd_malloc(128);		/* max 127 characters */
+	new->spelling_table = (char*) spd_malloc(128);		/* max 127 characters */
    
 	new->paused = 0;
 
@@ -160,6 +174,7 @@ default_fd_set(void)
 	strcpy(new->language, GlobalFDSet.language);
 	strcpy(new->output_module, GlobalFDSet.output_module);
 	strcpy(new->client_name, GlobalFDSet.client_name); 
+	strcpy(new->spelling_table, GlobalFDSet.spelling_table); 
 	new->voice_type = GlobalFDSet.voice_type;
 	new->spelling = GlobalFDSet.spelling;         
 	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;
