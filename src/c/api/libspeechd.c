@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.11 2003-10-12 23:25:21 hanke Exp $
+ * $Id: libspeechd.c,v 1.12 2003-10-16 20:54:50 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -32,16 +32,20 @@
 #include <stdarg.h>
 #include <string.h>
 #include <glib.h>
+#include <errno.h>
 #include <assert.h>
 
 #include "def.h"
 #include "libspeechd.h"
 
+/* Comment/uncomment to switch debugging on/off */
+#define LIBSPEECHD_DEBUG
+
 /* --------------------- Public functions ------------------------- */
 
 /* Opens a new Speech Dispatcher connection.
  * Returns socket file descriptor of the created connection
- * or 0 if no connection was opened. */
+ * or -1 if no connection was opened. */
 int 
 spd_open(const char* client_name, const char* connection_name, const char* user_name)
 {
@@ -55,20 +59,17 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
   int port;
   int ret;
 
-  if (client_name == NULL) return 0;
+  if (client_name == NULL) return -1;
 
-  if (user_name == NULL){
+  if (user_name == NULL)
       usr_name = (char*) g_get_user_name();
-  }else{
+  else
       usr_name = strdup(user_name);
-  }
-
-  if(connection_name == NULL){
-      conn_name = (char*) xmalloc(6);
-      strcpy(conn_name, "main");
-  }else{
+  
+  if(connection_name == NULL)
+      conn_name = strdup("main");
+  else
       conn_name = strdup(connection_name);
-  }
 
   env_port = getenv("SPEECHD_PORT");
   if (env_port != NULL)
@@ -89,19 +90,17 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
 
   /* Connect to server */
   ret = connect(connection, (struct sockaddr *)&address, sizeof(address));
-  if (ret == -1) return 0;
+  if (ret == -1){
+      SPD_DBG("Error: Can't connect to server: %s", strerror(errno));
+      return 0;
+  }
  
-  set_client_name = xmalloc((strlen(client_name) + strlen(conn_name)
-                            + strlen(usr_name) + 32) * sizeof(char));
-
-  sprintf(set_client_name, "SET SELF CLIENT_NAME \"%s:%s:%s\"", usr_name,
+  set_client_name = g_strdup_printf("SET SELF CLIENT_NAME \"%s:%s:%s\"", usr_name,
           client_name, conn_name);
 
   ret = spd_execute_command(connection, set_client_name);
 
-  xfree(usr_name);
-  xfree(conn_name);
-  xfree(set_client_name);
+  xfree(usr_name);  xfree(conn_name);  xfree(set_client_name);
 
   return connection;
 }
@@ -111,10 +110,7 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
 void
 spd_close(int connection)
 {
-  char command[16];
-
-  sprintf(command, "QUIT");
-  spd_execute_command(connection, command);
+  spd_execute_command(connection, "QUIT");
     
    /* close the socket */
    close(connection);
@@ -125,42 +121,33 @@ spd_close(int connection)
 int
 spd_say(int connection, SPDPriority priority, const char* text)
 {
-    static char command[64];
-    static int i;
-    char *buf;
-    char *pos;
+    static char command[16];
+    char *etext;
     int ret;
 
     if (text == NULL) return -1;
 
     /* Set priority */
-
     ret = spd_set_priority(connection, priority);
     if(ret) return -1;
     
     /* Check if there is no escape sequence in the text */
-    /* TODO: This needs to be fixed! */
-    //  while(pos = (char*) strstr(text,"\r\n.\r\n")){
-    //	text[pos-text+3] = ' ';
-    // }
+    etext = escape_dot(text);
+    if (etext == NULL) etext = (char*) text;
   
     /* Start the data flow */
     sprintf(command, "SPEAK");
     ret = spd_execute_command(connection, command);
     if(ret){     
-        SPD_DBG("Can't start data flow");
+        SPD_DBG("Error: Can't start data flow!");
         return -1;
     }
   
     /* Send data */
-    buf = xmalloc((strlen(text) + 4) * sizeof(char));
-    sprintf(buf, "%s\r\n", text); 
-    spd_send_data(connection, buf, SPD_NO_REPLY);
-    xfree(buf);
+    spd_send_data(connection, etext, SPD_NO_REPLY);
 
     /* Terminate data flow */
-    sprintf(command, "\r\n.");
-    ret = spd_execute_command(connection, command);
+    ret = spd_execute_command(connection, "\r\n.");
     if(ret){
         SPD_DBG("Can't terminate data flow");
         return -1; 
@@ -176,6 +163,8 @@ spd_sayf(int fd, SPDPriority priority, const char *format, ...)
     static int ret;    
     va_list args;
     char *buf;
+
+    if (format == NULL) return -1;
     
     /* Print the text to buffer */
     va_start(args, format);
@@ -204,7 +193,7 @@ spd_stop_all(int connection)
 int
 spd_stop_uid(int connection, int target_uid)
 {
-  char command[32];
+  static char command[16];
 
   sprintf(command, "STOP %d", target_uid);
   return spd_execute_command(connection, command);
@@ -225,7 +214,7 @@ spd_cancel_all(int connection)
 int
 spd_cancel_uid(int connection, int target_uid)
 {
-  char command[16];
+  static char command[16];
 
   sprintf(command, "CANCEL %d", target_uid);
   return spd_execute_command(connection, command);
@@ -276,16 +265,16 @@ spd_resume_uid(int connection, int target_uid)
 int
 spd_key(int connection, SPDPriority priority, const char *key_name)
 {
-    static char command[32];
     char *command_key;
     int ret;
 
     ret = spd_set_priority(connection, priority);
-    if(ret) return -1;
+    if (ret) return -1;
 
-    command_key = g_strdup_printf("KEY \"%s\"", key_name);
+    command_key = g_strdup_printf("KEY %s", key_name);
     ret = spd_execute_command(connection, command_key);
-    if(ret) return -1;
+    xfree(command_key);
+    if (ret) return -1;
 
     return 0;
 }
@@ -293,19 +282,17 @@ spd_key(int connection, SPDPriority priority, const char *key_name)
 int
 spd_char(int connection, SPDPriority priority, const char *character)
 {
-    static char command[32];
-    char *command_char;
+    static char command[16];
     int ret;
 
     if (character == NULL) return -1;
 
     ret = spd_set_priority(connection, priority);
-    if(ret) return -1;
+    if (ret) return -1;
 
-    command_char = g_strdup_printf("CHAR \"%s\"", character);
-    ret = spd_execute_command(connection, command_char);
-    xfree(command_char);
-    if(ret) return -1;
+    sprintf(command, "CHAR %s", character);
+    ret = spd_execute_command(connection, command);
+    if (ret) return -1;
 
     return 0;
 }
@@ -313,21 +300,22 @@ spd_char(int connection, SPDPriority priority, const char *character)
 int
 spd_wchar(int connection, SPDPriority priority, wchar_t wcharacter)
 {
-    static char command[32];
-    char *command_char;
+    static char command[16];
     char character[8];
     int ret;
 
     ret = wcrtomb(character, wcharacter, NULL);
-    if( ret <= 0 ) return -1;
+    if (ret <= 0) return -1;
 
     ret = spd_set_priority(connection, priority);
-    if(ret) return -1;
+    if (ret) return -1;
 
-    command_char = g_strdup_printf("CHAR \"%s\"", character);
-    ret = spd_execute_command(connection, command_char);
+    assert(character != NULL);
+    sprintf(command, "CHAR %s", character);
+    ret = spd_execute_command(connection, command);
+    if (ret) return -1;
  
-    return ret;
+    return 0;
 }
 
 int
@@ -336,15 +324,17 @@ spd_sound_icon(int connection, SPDPriority priority, const char *icon_name)
     char *command;
     int ret;
 
-    ret = spd_set_priority(connection, priority);
-    if(ret) return -1;
-
     if (icon_name == NULL) return -1;
-    command = g_strdup_printf("SOUND_ICON \"%s\"", icon_name);
+
+    ret = spd_set_priority(connection, priority);
+    if (ret) return -1;
+
+    command = g_strdup_printf("SOUND_ICON %s", icon_name);
     ret = spd_execute_command(connection, command);
     xfree (command);
+    if (ret) return -1;
     
-    return ret;
+    return 0;
 }
 
 #define SPD_SET_COMMAND_INT(param, ssip_name, condition) \
@@ -360,19 +350,17 @@ spd_sound_icon(int connection, SPDPriority priority, const char *icon_name)
     int \
     spd_set_ ## param (int connection, signed int val) \
     { \
-        char who[] = "SELF"; \
-        return spd_w_set_ ## param (connection, val, who); \
+        return spd_w_set_ ## param (connection, val, "SELF"); \
     } \
     int \
     spd_set_ ## param ## _all(int connection, signed int val) \
     { \
-        char who[] = "ALL"; \
-        return spd_w_set_ ## param (connection, val, who); \
+        return spd_w_set_ ## param (connection, val, "ALL"); \
     } \
     int \
     spd_set_ ## param ## _uid(int connection, signed int val, unsigned int uid) \
     { \
-        char who[16]; \
+        char who[8]; \
         sprintf(who, "%d", uid); \
         return spd_w_set_ ## param (connection, val, who); \
     }
@@ -382,27 +370,28 @@ spd_sound_icon(int connection, SPDPriority priority, const char *icon_name)
     spd_w_set_ ## param (int connection, const char *str, const char* who) \
     { \
         char *command; \
+        int ret; \
         if (str == NULL) return -1; \
-        command = g_strdup_printf("SET %s " #param " \"%s\"", \
+        command = g_strdup_printf("SET %s " #param " %s", \
                               who, str); \
-        return spd_execute_command(connection, command); \
+        ret = spd_execute_command(connection, command); \
+        xfree(command); \
+        return ret; \
     } \
     int \
     spd_set_ ## param (int connection, const char *str) \
     { \
-        char who[] = "SELF"; \
-        return spd_w_set_ ## param (connection, str, who); \
+        return spd_w_set_ ## param (connection, str, "SELF"); \
     } \
     int \
     spd_set_ ## param ## _all(int connection, const char *str) \
     { \
-        char who[] = "ALL"; \
-        return spd_w_set_ ## param (connection, str, who); \
+        return spd_w_set_ ## param (connection, str, "ALL"); \
     } \
     int \
     spd_set_ ## param ## _uid(int connection, const char *str, unsigned int uid) \
     { \
-        char who[16]; \
+        char who[8]; \
         sprintf(who, "%d", uid); \
         return spd_w_set_ ## param (connection, str, who); \
     }
@@ -411,19 +400,17 @@ spd_sound_icon(int connection, SPDPriority priority, const char *icon_name)
     int \
     spd_set_ ## param (int connection, type val) \
     { \
-        char who[] = "SELF"; \
-        return spd_w_set_ ## param (connection, val, who); \
+        return spd_w_set_ ## param (connection, val, "SELF"); \
     } \
     int \
     spd_set_ ## param ## _all(int connection, type val) \
     { \
-        char who[] = "ALL"; \
-        return spd_w_set_ ## param (connection, val, who); \
+        return spd_w_set_ ## param (connection, val, "ALL"); \
     } \
     int \
     spd_set_ ## param ## _uid(int connection, type val, unsigned int uid) \
     { \
-        char who[16]; \
+        char who[8]; \
         sprintf(who, "%d", uid); \
         return spd_w_set_ ## param (connection, val, who); \
     }
@@ -432,15 +419,9 @@ SPD_SET_COMMAND_INT(voice_rate, RATE, ((val >= -100) && (val <= +100)) );
 SPD_SET_COMMAND_INT(voice_pitch, PITCH, ((val >= -100) && (val <= +100)) );
 
 SPD_SET_COMMAND_STR(language, LANGUAGE);
-SPD_SET_COMMAND_STR(punctuation_important, PUNCTUATION_IMPORTANT);
-SPD_SET_COMMAND_STR(punctuation_table, PUNCTUATION_TABLE);
-SPD_SET_COMMAND_STR(spelling_table, SPELLING_TABLE);
-SPD_SET_COMMAND_STR(text_table, TEXT_TABLE);
-SPD_SET_COMMAND_STR(sound_table, SOUND_TABLE);
-SPD_SET_COMMAND_STR(char_table, CHARACTER_TABLE);
-SPD_SET_COMMAND_STR(key_table, KEY_TABLE);
 
 SPD_SET_COMMAND_SPECIAL(punctuation, SPDPunctuation);
+SPD_SET_COMMAND_SPECIAL(capital_letters, SPDCapitalLetters);
 SPD_SET_COMMAND_SPECIAL(spelling, SPDSpelling);
 SPD_SET_COMMAND_SPECIAL(voice_type, SPDVoiceType);
 
@@ -451,11 +432,29 @@ spd_w_set_punctuation(int connection, SPDPunctuation type, const char* who)
     int ret;
 
     if (type == SPD_PUNCT_ALL)
-        sprintf(command, "SET %s PUNCTUATION ALL", who);
+        sprintf(command, "SET %s PUNCTUATION all", who);
     if (type == SPD_PUNCT_NONE)
-        sprintf(command, "SET %s PUNCTUATION NONE", who);
+        sprintf(command, "SET %s PUNCTUATION none", who);
     if (type == SPD_PUNCT_SOME)
-        sprintf(command, "SET %s PUNCTUATION SOME", who);
+        sprintf(command, "SET %s PUNCTUATION some", who);
+
+    ret = spd_execute_command(connection, command);    
+    
+    return ret;
+}
+
+int
+spd_w_set_capital_letters(int connection, SPDCapitalLetters type, const char* who)
+{
+    static char command[64];
+    int ret;
+
+    if (type == SPD_CAP_NONE)
+        sprintf(command, "SET %s CAP_LET_RECOGN none", who);
+    if (type == SPD_CAP_SPELL)
+        sprintf(command, "SET %s CAP_LET_RECOGN spell", who);
+    if (type == SPD_CAP_ICON)
+        sprintf(command, "SET %s CAP_LET_RECOGN icon", who);
 
     ret = spd_execute_command(connection, command);    
     
@@ -469,9 +468,9 @@ spd_w_set_spelling(int connection, SPDSpelling type, const char* who)
     int ret;
 
     if (type == SPD_SPELL_ON)
-        sprintf(command, "SET %s SPELLING ON", who);
+        sprintf(command, "SET %s SPELLING on", who);
     if (type == SPD_SPELL_OFF)
-        sprintf(command, "SET %s SPELLING OFF", who);
+        sprintf(command, "SET %s SPELLING off", who);
 
     ret = spd_execute_command(connection, command);
 
@@ -502,16 +501,6 @@ spd_w_set_voice_type(int connection, SPDVoiceType type, const char *who)
 #undef SPD_SET_COMMAND_STR
 #undef SPD_SET_COMMAND_SPECIAL
 
-/* Takes the buffer, position of cursor in the buffer
- * and key that have been hit and tries to handle all
- * the speech output, tabulator completion and other
- * things and returns the new string. The cursor should
- * be moved then by the client program to the end of
- * this returned string.
- * The client should call this function and display it's
- * output every time there is some input to this command line.
- */
-
 int
 spd_get_client_list(int fd, char **client_names, int *client_ids, int* active){
 	char command[128];
@@ -522,6 +511,9 @@ spd_get_client_list(int fd, char **client_names, int *client_ids, int* active){
 	int record_int;
 	char *record_str;	
 
+        SPD_DBG("spd_get_client_list: History is not yet implemented.");
+        return -1;
+#if 0
 	sprintf(command, "HISTORY GET CLIENT_LIST\r\n");
 	reply = (char*) spd_send_data(fd, command, 1);
 
@@ -543,6 +535,8 @@ spd_get_client_list(int fd, char **client_names, int *client_ids, int* active){
 		active[count] = record_int;
 	}	
 	return count;
+
+#endif
 }
 
 int
@@ -556,6 +550,9 @@ spd_get_message_list_fd(int fd, int target, int *msg_ids, char **client_names)
 	int record_int;
 	char *record_str;	
 
+        SPD_DBG("spd_get_client_list: History is not yet implemented.");
+        return -1;
+#if 0
 	sprintf(command, "HISTORY GET MESSAGE_LIST %d 0 20\r\n", target);
 	reply = spd_send_data(fd, command, 1);
 
@@ -575,7 +572,20 @@ spd_get_message_list_fd(int fd, int target, int *msg_ids, char **client_names)
 		client_names[count] = record_str;
 	}
 	return count;
+#endif
 }
+
+/* Takes the buffer, position of cursor in the buffer
+ * and key that have been hit and tries to handle all
+ * the speech output, tabulator completion and other
+ * things and returns the new string. The cursor should
+ * be moved then by the client program to the end of
+ * this returned string.
+ * The client should call this function and display it's
+ * output every time there is some input to this command line.
+ */
+/* WARNING: This is still not very well implemented
+   and so probably useless at this time. */
 
 char*
 spd_command_line(int fd, char *buffer, int pos, char* c){
@@ -633,7 +643,7 @@ spd_set_priority(int connection, SPDPriority priority)
     case SPD_NOTIFICATION: strcpy(p_name, "NOTIFICATION"); break;
     case SPD_PROGRESS: strcpy(p_name, "PROGRESS"); break;
     default: 
-        SPD_DBG("Can't set priority");
+        SPD_DBG("Error: Can't set priority! Incorrect value.");
         return -1;
     }
 		 
@@ -647,7 +657,6 @@ ret_ok(char *reply)
 	int err;
 
 	err = get_err_code(reply);
-	xfree(reply);
 		
 	if ((err>=100) && (err<300)) return 1;
 	if (err>=300) return 0;
@@ -658,32 +667,32 @@ ret_ok(char *reply)
 char*
 get_rec_part(char *record, int pos)
 {
-	int i, n;
-	char *part;
-	int p = 0;
+    int i, n;
+    char *part;
+    int p = 0;
 
-	part = malloc(sizeof(char)*strlen(record));
-	for(i=0;i<=strlen(record)-1;i++){
-		if (record[i]==' '){
-			   	p++;
-				continue;
-		}
-		if(p == pos){
-			n = 0;
-			for(  ;i<=strlen(record)-1;i++){
-				if(record[i] != ' '){
-						part[n] = record[i];
-						n++;
-				}else{
-						part[n] = 0;
-						return part;
-				}
-			}
-			part[n] = 0;
-			return part;
-		}
-	}
-	return NULL;
+    part = malloc(sizeof(char)*strlen(record));
+    for(i=0;i<=strlen(record)-1;i++){
+        if (record[i]==' '){
+            p++;
+            continue;
+        }
+        if(p == pos){
+            n = 0;
+            for(  ;i<=strlen(record)-1;i++){
+                if(record[i] != ' '){
+                    part[n] = record[i];
+                    n++;
+                }else{
+                    part[n] = 0;
+                    return part;
+                }
+            }
+            part[n] = 0;
+            return part;
+        }
+    }
+    return NULL;
 }
 
 char*
@@ -698,7 +707,8 @@ get_rec_int(char *record, int pos)
 	char *num_str;
 	int num;
 
-	assert(record!=0);
+	assert(record);
+
 	num_str = get_rec_part(record, pos);
 	if (!isanum(num_str)) return -9999;
 	num = atoi(num_str);
@@ -706,126 +716,133 @@ get_rec_int(char *record, int pos)
 	return num;
 }
 
-int parse_response_footer(char *resp)
+int
+parse_response_footer(char *resp)
 {
-	int ret;
-	int i;
-	int n = 0;
-	char footer[256];
-	for(i=0;i<=strlen(resp)-1;i++){
-		if (resp[i]=='\r'){
-			i+=2;
-			if(resp[i+3] == ' '){
-				for(; i<=strlen(resp)-1; i++){
-					if (resp[i] != '\r'){
-							footer[n] = resp[i];
-							n++;
-					}else{
-						footer[n]=0;
-						ret = ret_ok(footer);
-						return ret;
-					}
-				}					
-			}
-		}
-	}
-	ret = ret_ok(footer);
+    int ret;
+    int i;
+    int n = 0;
+    char footer[256];
+    for(i=0;i<=strlen(resp)-1;i++){
+        if (resp[i]=='\r'){
+            i+=2;
+            if(resp[i+3] == ' '){
+                for(; i<=strlen(resp)-1; i++){
+                    if (resp[i] != '\r'){
+                        footer[n] = resp[i];
+                        n++;
+                    }else{
+                        footer[n]=0;
+                        ret = ret_ok(footer);
+                        return ret;
+                    }
+                }					
+            }
+        }
+    }
+    ret = ret_ok(footer);
 
-	return ret;
+    return ret;
 }
 
 char*
 parse_response_data(char *resp, int pos)
 {
-	int p = 1;
-	char *data;
-	int i;
-	int n = 0;
+    int p = 1;
+    char *data;
+    int i;
+    int n = 0;
 		
-	data = malloc(sizeof(char) * strlen(resp));
-	assert(data!=NULL);
+    data = malloc(sizeof(char) * strlen(resp));
+    assert(data!=NULL);
 
-	if (resp == NULL) return NULL;
-	if (pos<1) return NULL;
+    if (resp == NULL) return NULL;
+    if (pos<1) return NULL;
 	
-	for(i=0;i<=strlen(resp)-1;i++){
-		if (resp[i]=='\r'){
-			   	p++;
-				/* Skip the LFCR sequence */
-				i++;
-				if(i+3 < strlen(resp)-1){
-					if(resp[i+4] == ' ') return NULL;
-				}
-				continue;
-		}
-		if (p==pos){
-			/* Skip the ERR code */
-			i+=4;	
-			/* Read the data */
-			for(; i<=strlen(resp)-1; i++){
-				if (resp[i] != '\r'){
-						data[n] = resp[i];
-						n++;
-				}else{
-					data[n]=0;
-					return data;	
-				}
-			}	
-			data[n]=0;
-			break;
-		}
-	}
-	free(data);
-	return NULL;
+    for(i=0;i<=strlen(resp)-1;i++){
+        if (resp[i]=='\r'){
+            p++;
+            /* Skip the LFCR sequence */
+            i++;
+            if(i+3 < strlen(resp)-1){
+                if(resp[i+4] == ' ') return NULL;
+            }
+            continue;
+        }
+        if (p==pos){
+            /* Skip the ERR code */
+            i+=4;	
+            /* Read the data */
+            for(; i<=strlen(resp)-1; i++){
+                if (resp[i] != '\r'){
+                    data[n] = resp[i];
+                    n++;
+                }else{
+                    data[n]=0;
+                    return data;	
+                }
+            }	
+            data[n]=0;
+            break;
+        }
+    }
+    free(data);
+    return NULL;
 }
 
 int
 get_err_code(char *reply)
 {
-	char err_code[4];
-	int err;
+    char err_code[4];
+    int err;
 	
-	if (reply == NULL) return -1;
-	SPD_DBG("spd_send_data:	reply: %s\n", reply);
+    if (reply == NULL) return -1;
+    SPD_DBG("spd_send_data:	reply: %s\n", reply);
 
-	err_code[0] = reply[0];	err_code[1] = reply[1];
-	err_code[2] = reply[2];	err_code[3] = '\0';
+    err_code[0] = reply[0];	err_code[1] = reply[1];
+    err_code[2] = reply[2];	err_code[3] = '\0';
 
-	SPD_DBG("ret_ok: err_code:	|%s|\n", err_code);
+    SPD_DBG("ret_ok: err_code:	|%s|\n", err_code);
    
-	if(isanum(err_code)){
-		err = atoi(err_code);
-	}else{
-		SPD_DBG("ret_ok: not a number\n");
-		return -1;	
-	}
+    if(isanum(err_code)){
+        err = atoi(err_code);
+    }else{
+        SPD_DBG("ret_ok: not a number\n");
+        return -1;	
+    }
 
-	return err;
+    return err;
 }
 
+/* TODO: This should be somehow flexible in the
+   length of reply it accepts, but for now, it's enough,
+   as there are no longer replies in Speech Dispatcher */
+#define MAX_REPLY_LENGTH 1024
 char*
-spd_send_data(int fd, char *message, int wfr)
+spd_send_data(int fd, const char *message, int wfr)
 {
 	char *reply;
 	int bytes;
 
-	/* TODO: 1000?! */
-	reply = malloc(sizeof(char) * 1000);
+	reply = malloc(sizeof(char) * MAX_REPLY_LENGTH);
    
 	/* write message to the socket */
 	write(fd, message, strlen(message));
 
-	message[strlen(message)] = 0;
-	SPD_DBG("command sent:	|%s|", message);
+	SPD_DBG(">> : |%s|", message);
 
 	/* read reply to the buffer */
-	if (wfr == 1){
-		bytes = read(fd, reply, 1000);
+	if (wfr){
+		bytes = read(fd, reply, MAX_REPLY_LENGTH);
+                if (bytes == -1){
+                    SPD_DBG("Error: Can't read reply, broken socket.");
+                    return NULL;
+                }
 		/* print server reply to as a string */
 		reply[bytes] = 0; 
-		SPD_DBG("reply from server:	%s\n", reply);
+		SPD_DBG("<< : |%s|\n", reply);
 	}else{
-		SPD_DBG("reply from server: no reply\n\n");
+		SPD_DBG("<< : no reply expected");
 		return "NO REPLY";
 	} 
 
@@ -849,16 +866,21 @@ spd_execute_command(int connection, char* command)
 {
     char *buf;
     char *ret;
+    int r;
     
     buf = g_strdup_printf("%s\r\n", command);
     ret = spd_send_data(connection, buf, SPD_WAIT_REPLY);
+    xfree(buf);
     
-    if(!ret_ok(ret))  return -1;
-    else              return 0;
+    r = ret_ok(ret);
+    xfree(ret);
+
+    if (!r) return -1;
+    else return 0;
 }
 
 void*
-xmalloc(unsigned int bytes)
+xmalloc(size_t bytes)
 {
     void *mem;
 
@@ -880,6 +902,77 @@ xfree(void *ptr)
     }
 }
 
+char*
+escape_dot(const char *text)
+{
+    char *seq;
+    GString *ntext;
+    char *p;
+    char *otext;
+    char *line;
+    char *ret = NULL;
+    int len;
+
+    if (otext == NULL) return NULL;
+
+    SPD_DBG("Incomming text to escaping: |%s|", otext);
+
+    p = (char*) text;
+    otext = p;
+
+    ntext = g_string_new("");
+
+    len = strlen(text);
+    if (len == 1){
+        if (!strcmp(text, ".")){
+            g_string_append(ntext, "..");
+            p += 1;
+        }
+    }
+    else if (len >= 3){
+        if ((p[0] == '.') && (p[1] == '\r') && (p[2] == '\n')){
+            g_string_append(ntext, "..\r\n");
+            p += 3;
+        }
+    }
+
+    //    SPD_DBG("Altering text (I): |%s|", ntext->str);
+
+    while (seq = strstr(p, "\r\n.\r\n")){
+        assert(seq>p);
+        g_string_append_len(ntext, p, seq-p);
+        g_string_append(ntext, "\r\n..\r\n");
+        p = seq+5;
+    }
+
+    //   SPD_DBG("Altering text (II): |%s|", ntext->str);    
+
+    len = strlen(p);
+    if (len >= 3){
+        if ((p[len-3] == '\r') && (p[len-2] == '\n')
+            && (p[len-1] == '.')){
+            g_string_append(ntext, p);
+            g_string_append(ntext, ".");
+            p += len;
+            //  SPD_DBG("Altering text (II-b): |%s|", ntext->str);    
+        }
+    }
+
+    if (p == otext){
+        SPD_DBG("No escaping needed.");
+        g_string_free(ntext, 1);
+        return NULL;
+    }else{
+        g_string_append(ntext, p);
+        ret = ntext->str;
+        g_string_free(ntext, 0);
+    }
+
+    SPD_DBG("Altered text after escaping: |%s|", ret);
+
+    return ret;
+}
+
 #ifdef LIBSPEECHD_DEBUG
 void
 SPD_DBG(char *format, ...)
@@ -889,6 +982,8 @@ SPD_DBG(char *format, ...)
         va_start(args, format);
         vfprintf(spd_debug, format, args);
         va_end(args);
+        fprintf(spd_debug, "\n");
+        fflush(spd_debug);
 }
 #else  /* LIBSPEECHD_DEBUG */
 void
