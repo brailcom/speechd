@@ -1,2 +1,11 @@
 
 A list of known bugs:
+
+* There is some problem with (probably) closing connection
+to festival server which causes that Speech Dispatcher can't
+be executed immediatelly after it was suspended if the
+Festival output plugin was in use in the last Speech Dispatcher
+run. We send "(quit)" to festival server and close() the
+socket, but it doesn't seem to be enough :(
+
+
