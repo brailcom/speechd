@@ -1,4 +1,20 @@
-2003-05-11  Hynek Hanke  <hanke@localhost.localdomain>
+
+2003-05-11  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/server.c (process_message_spelling): Don't queue \r and \n strings when
+	not found in sound icons.
+
+    * src/sounds: New directory.
+
+    * src/sounds/Makefile.am: Install sounds.
+
+	* Makefile.am: New directory sounds.
+
+    * src/configure.in: Set datadir to the appropriate path.
+
+	* src/server/sndicon.c: Read sound icons from DATA_DIR
+
+2003-05-11  Hynek Hanke  <hanke@volny.cz>
 
 	* src/c/api/libspeechd.c: Completely reworked.
 	All callers changed.
@@ -6,7 +22,7 @@
 	* src/c/api/libspeechd.h: Completely reworked.
 	All callers changed.
 
-2003-05-07  Hynek Hanke  <hanke@localhost.localdomain>
+2003-05-07  Hynek Hanke  <hanke@volny.cz>
 
 	* src/tests/spelling.test: New test.
 	
