@@ -1,3 +1,5 @@
 A list of known bugs:
 
-Currently we don't know of any bug.
+* The Flite output module doesn't support sound icons as there is
+not any support in Flite.
+
