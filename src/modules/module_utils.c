@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.22 2003-10-13 16:20:34 hanke Exp $
+ * $Id: module_utils.c,v 1.23 2003-10-15 20:06:34 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -223,7 +223,10 @@ do_message(EMessageType msgtype)
         nlines++;
         if (ret == -1) return "401 ERROR INTERNAL";
 
-        if (!strcmp(cur_line, ".\n")){
+        if (!strcmp(cur_line, "..\n")){
+            xfree(cur_line);
+            cur_line = strdup(".\n");
+        }else if (!strcmp(cur_line, ".\n")){
             /* Strip the trailing \n */
             msg->str[strlen(msg->str)-1] = 0;
             break;
