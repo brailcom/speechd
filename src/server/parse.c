@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.28 2003-05-07 20:58:37 hanke Exp $
+ * $Id: parse.c,v 1.29 2003-05-25 21:06:19 hanke Exp $
  */
 
 #include "speechd.h"
@@ -154,7 +154,7 @@ parse(char *buf, int bytes, int fd)
             memcpy(new->buf, o_buf[fd]->str, new->bytes);
             new->buf[new->bytes] = 0;
 				
-            if(queue_message(new, fd, 1, MSGTYPE_TEXT) != 0){
+            if(queue_message(new, fd, 1, MSGTYPE_TEXT, 0) != 0){
                 if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
                 free(new->buf);
                 free(new);
@@ -653,7 +653,7 @@ parse_char(char *buf, int bytes, int fd)
 
     param = get_param(buf,1,bytes, 0);
     if (param == NULL) return ERR_MISSING_PARAMETER;
-    MSG(4,"Parameter caught: %s", param);
+    MSG(4,"Parameter cught: %s", param);
 
     ret = sndicon_char(fd, param);
     if (ret!=0){
@@ -686,7 +686,8 @@ parse_key(char* buf, int bytes, int fd)
 char*
 parse_list(char* buf, int bytes, int fd)
 {
-    char* param;
+    char *param;
+    char *voice_list;
 
     param = get_param(buf, 1, bytes, 1);    
     if (param == NULL) return ERR_MISSING_PARAMETER;
@@ -709,6 +710,20 @@ parse_list(char* buf, int bytes, int fd)
     else if(!strcmp(param, "text_tables")){
         //        return (char*) sndicon_list_text_tables();
         return OK_NOT_IMPLEMENTED;
+    }
+    else if(!strcmp(param, "voices")){
+        voice_list = (char*) spd_malloc(1024);
+        sprintf(voice_list,
+                C_OK_VOICES"-MALE1\r\n"
+                C_OK_VOICES"-MALE2\r\n"
+                C_OK_VOICES"-MALE3\r\n"
+                C_OK_VOICES"-FEMALE1\r\n"
+                C_OK_VOICES"-FEMALE2\r\n"
+                C_OK_VOICES"-FEMALE3\r\n"
+                C_OK_VOICES"-CHILD_MALE\r\n"
+                C_OK_VOICES"-CHILD_FEMALE\r\n"
+                OK_VOICE_LIST_SENT);
+        return voice_list;
     }
     else return ERR_PARAMETER_INVALID;
 }
@@ -768,24 +783,24 @@ get_param(char *buf, int n, int bytes, int lower_case)
     for(y=0; y<=n; y++){
         z=0;
         for(; i<bytes; i++){
-            if((buf[i] == '\"')&&(!quote_open)){
+            /*            if((buf[i] == '\"')&&(!quote_open)){
                 quote_open = 1;
                 continue;
             }
             if((buf[i] == '\"')&&(quote_open)){
                 quote_open = 0;
                 continue;
-            }
-            if(quote_open!=1){
-                if (buf[i] == ' ') break;
-            }
+                }
+                if(quote_open!=1){ */
+            if (buf[i] == ' ') break;
+                //            }
             param[z] = buf[i];
             z++;
         }
         i++;
     }
 
-    if(z<=0) return NULL;   
+    if(z <= 0) return NULL;   
 
     /* Write the trailing zero */
     if (i >= bytes){
