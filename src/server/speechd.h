@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.47 2003-10-09 21:26:18 hanke Exp $
+ * $Id: speechd.h,v 1.48 2003-10-12 23:34:51 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -30,24 +30,27 @@
 #include <sys/socket.h>
 #include <sys/time.h>
 #include <sys/ioctl.h>
+#include <sys/wait.h>
+
 #include <stdio.h>
-#include <errno.h>
-#include <unistd.h>
 #include <stdlib.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include <string.h>
-#include <assert.h>
-#include <glib.h>
-#include <gmodule.h>
-#include <dotconf.h>
-#include <pthread.h>
 #include <limits.h>
 #include <signal.h>
-#include <sys/wait.h>
+#include <assert.h>
+
+#include <pthread.h>
+
+#include <glib.h>
 
 #include <semaphore.h>
 #include <sys/ipc.h>
 #include <sys/sem.h>
 
+/* Definition of semun needed for semaphore manipulation */
 #if defined(__GNU_LIBRARY__) && !defined(_SEM_SEMUN_UNDEFINED)
 /* union semun is defined by including <sys/sem.h> */
 #else
@@ -60,27 +63,22 @@ union semun {
 };
 #endif
 
-
-#ifndef PATH_MAX
-#define PATH_MAX 255
-#endif
-
 #include "def.h"
-#include "module.h"
-#include "history.h"
 #include "fdset.h"
-#include "set.h"
-#include "msg.h"
+#include "module.h"
 #include "parse.h"
 #include "compare.h"
-#include "alloc.h"
 
+/* Size of the buffer for socket communication */
 #define BUF_SIZE 4096
 
+/* Mode of speechd execution */
 typedef enum{
-    SPD_MODE_DAEMON,
-    SPD_MODE_SINGLE
+    SPD_MODE_DAEMON,            /* Run as daemon (background, ...) */
+    SPD_MODE_SINGLE             /*  */
 }TSpeechDMode;
+
+TSpeechDMode spd_mode;
 
 /*  TSpeechDQueue is a queue for messages. */
 typedef struct{
@@ -92,7 +90,8 @@ typedef struct{
 }TSpeechDQueue;
 
 /*  TSpeechDMessage is an element of TSpeechDQueue,
-    that is, some text with ''formating'' tags inside. */
+    that is, some text with or without index marks
+    inside  and it's configuration. */
 typedef struct{
     guint id;			/* unique id */
     time_t time;                /* when was this message received */
@@ -104,38 +103,12 @@ typedef struct{
 #include "alloc.h"
 #include "speaking.h"
 
-/* EStopCommands describes the stop family of commands */
-typedef enum
-{
-    STOP = 1,
-    PAUSE = 2,
-    RESUME = 3
-}EStopCommands;
-
-TSpeechDMode spd_mode;
-
 int spd_port;
 int spd_port_set;
-
-OutputModule* load_output_module(char* mod_name, char* mod_prog,
-                                 char* mod_cfgfile);
 
 /* Message logging */
 int spd_log_level;
 int spd_log_level_set;
-
-void fatal_error(void);
-
-void MSG(int level, char *format, ...);
-#define FATAL(msg) { fatal_error(); MSG(0,"Fatal error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
-#define DIE(msg) { MSG(0,"Error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
-FILE *logfile;
-FILE *custom_logfile;
-char *custom_log_kind;
-
-/* Variables for socket communication */
-int fdmax;
-fd_set readfds;
 
 /* The largest assigned uid + 1 */
 int max_uid;
@@ -143,21 +116,22 @@ int max_uid;
 /* Unique identifier for group id (common for messages of the same group) */
 int max_gid;
 
+/* The maximum number of messages stored in history before
+   they begin to expire */
 int MaxHistoryMessages;
 
-/* speak() thread */
+/* speak() thread defined in speaking.c */
 pthread_t speak_thread;
 pthread_mutex_t element_free_mutex;
 pthread_mutex_t output_layer_mutex;
 
-/* Activity request for the speaking thread */
+/* Activity requests for the speaking thread are
+ handled with SYSV/IPC semaphore */
 key_t speaking_sem_key;
 int speaking_sem_id;
 
-/* Loading options from DotConf */
-configoption_t *spd_options;
-int spd_num_options;
-
+/* PID file name */
+char *speechd_pid_file;
 
 /* Table of all configured (and succesfully loaded) output modules */
 GHashTable *output_modules;	
@@ -165,7 +139,7 @@ GHashTable *output_modules;
 GHashTable *fd_settings;	
 /* Table of default output modules for different languages */
 GHashTable *language_default_modules;
-/* Table of relations between client file descriptors and their uids*/
+/* Table of relations between client file descriptors and their uids */
 GHashTable *fd_uid;
 
 /* Speech Dispatcher main priority queue for messages */
@@ -180,10 +154,15 @@ GList *message_history;
 /* List of different entries of client-specific configuration */
 GList *client_specific_settings;
 
+/* Saves the last received priority progress message */
 TSpeechDMessage *last_p5_message;
 
 /* Global default settings */
 TFDSetElement GlobalFDSet;
+
+/* Variables for socket communication */
+int fdmax;
+fd_set readfds;
 
 /* Arrays needed for receiving data over socket */
 int *awaiting_data;
@@ -192,38 +171,25 @@ size_t *o_bytes;
 GString **o_buf;
 int fds_allocated;
 
-int pause_requested;
-int pause_requested_fd;
-int pause_requested_uid;
-int resume_requested;
+/* Debugging */
+void MSG(int level, char *format, ...);
+void MSG2(int level, char* kind, char *format, ...);
+#define FATAL(msg) { fatal_error(); MSG(0,"Fatal error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
+#define DIE(msg) { MSG(0,"Error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
+FILE *logfile;
+FILE *custom_logfile;
+char *custom_log_kind;
 
-/* speak() runs in a separate thread, pulls messages from
- * the priority queue and sends them to synthesizers */
-void* speak(void*);						
-
-/* serve() reads data from clients and sends it to parse() */
-int serve(int fd);
-
-/* Functions for parsing the input from clients */
-/* also parse() */
-char* get_param(const char *buf, const int n, const int bytes, const int lower_case);
-
-/* Stops all messages from client on fd */
-void stop_from_client(int fd);
+/* For debugging purposes, does nothing */
+void fatal_error(void);
 
 /* isanum() tests if the given string is a number,
  * returns 1 if yes, 0 otherwise. */
 int isanum(const char *str);
 
-TFDSetElement* get_client_settings_by_uid(int uid);
-TFDSetElement* get_client_settings_by_fd(int fd);
-int get_client_uid_by_fd(int fd);
-
-int speaking_semaphore_create(key_t key);
-void speaking_semaphore_wait();
-void speaking_semaphore_post();
-
+/* Construct a path given a filename and the directory
+ where to refer relative paths. filename can be either
+ absolute (starting with slash) or relative. */
 char* spd_get_path(char *filename, char* startdir);
-
 
 #endif
