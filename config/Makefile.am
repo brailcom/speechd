@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS= modules clients en cs generic
+SUBDIRS= modules clients
 
 all-local: speechd.conf
 

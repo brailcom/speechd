@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.30 2003-10-03 15:19:42 hanke Exp $
+ * $Id: festival.c,v 1.31 2003-10-07 16:52:00 hanke Exp $
  */
 
 #include "module.h"
@@ -27,7 +27,6 @@
 
 #include "module_utils.c"
 #include "module_utils_audio.c"
-#include "module_utils_addvoice.c"
 
 #include "festival_client.c"
 
@@ -45,6 +44,7 @@ static int festival_speaking = 0;
 static int festival_pause_requested = 0;
 
 static char **festival_message;
+static EMessageType festival_message_type;
 static int festival_position = 0;
 
 FT_Info *festival_info;
@@ -53,8 +53,9 @@ FT_Info *festival_info;
 void* _festival_speak(void*);
 
 size_t _festival_parent(TModuleDoublePipe dpipe, const char* message,
-                               const size_t maxlen, const char* dividers,
-                               int *pause_requested);
+                        EMessageType msgtype,
+                        const size_t maxlen, const char* dividers,
+                        int *pause_requested);
 
 void festival_parent_clean();
 
@@ -63,7 +64,8 @@ void festival_fill_sample_wave();
 
 void festival_set_rate(signed int rate);
 void festival_set_pitch(signed int pitch);
-void festival_set_voice(void);
+void festival_set_voice(EVoiceType voice);
+void festival_set_language(char* language);
 void festival_set_punctuation_mode(EPunctMode punct);
 
 
@@ -92,15 +94,11 @@ module_load(void)
     MOD_OPTION_1_STR_REG(FestivalServerHost, "localhost");
     MOD_OPTION_1_INT_REG(FestivalServerPort, 1314);
 
-    MOD_OPTION_1_INT_REG(FestivalPitchDeviation, 14);
-
     MOD_OPTION_1_INT_REG(FestivalDebugSaveOutput, 0);
 
     MOD_OPTION_1_STR_REG(FestivalStripPunctChars, "");
 
     MOD_OPTION_1_STR_REG(FestivalRecodeFallback, "?");
-
-    module_register_settings_voices();
 
     return 0;
 }
@@ -145,7 +143,7 @@ module_init(void)
 }
 
 int
-module_write(char *data, size_t bytes)
+module_speak(char *data, size_t bytes, EMessageType msgtype)
 {
     int ret;
 
@@ -166,17 +164,32 @@ module_write(char *data, size_t bytes)
     if (*festival_message == NULL){
         return -1;
     }
-    DBG("Requested data after processing: |%s|\n", *festival_message);
-    module_strip_punctuation_some(*festival_message, FestivalStripPunctChars);
-    DBG("Requested after stripping punct: |%s|\n", *festival_message);
+    DBG("Requested data after recoding: |%s|\n", *festival_message);
+    if(msgtype == MSGTYPE_TEXT){
+        module_strip_punctuation_some(*festival_message, FestivalStripPunctChars);
+        DBG("Requested after stripping punct: |%s|\n", *festival_message);
+    }else{
+        DBG("Non-textual event: |%s|\n", *festival_message);
+    }
 
+    festival_message_type = msgtype;
+    if ((msgtype == MSGTYPE_TEXT) && (msg_settings.spelling_mode == SPELLING_ON))
+        festival_message_type = MSGTYPE_SPELL;
+
+    /* If the connection crashed or language or voice
+     change, we will need to set all the parameters again */
     if (festival_connection_crashed){
         CLEAN_OLD_SETTINGS_TABLE();
         festival_connection_crashed = 0;
     }
+    if ((msg_settings.voice != msg_settings_old.voice) 
+        || strcmp(msg_settings.language, msg_settings_old.language)){
+        CLEAN_OLD_SETTINGS_TABLE();
+    }
 
     /* Setting voice parameters */
-    festival_set_voice();
+    UPDATE_STRING_PARAMETER(language, festival_set_language);
+    UPDATE_PARAMETER(voice, festival_set_voice);
     UPDATE_PARAMETER(rate, festival_set_rate);
     UPDATE_PARAMETER(pitch, festival_set_pitch);
     UPDATE_PARAMETER(punctuation_mode, festival_set_punctuation_mode);
@@ -264,7 +277,7 @@ _festival_speak(void* nothing)
 
     module_speak_thread_wfork(festival_semaphore, &festival_pid,
                               module_audio_output_child, _festival_parent, 
-                              &festival_speaking, festival_message,
+                              &festival_speaking, festival_message, &festival_message_type,
                               (size_t) FestivalMaxChunkLength, FestivalDelimiters,
                               &festival_position, &festival_pause_requested);
     festival_speaking = 0;
@@ -276,7 +289,7 @@ _festival_speak(void* nothing)
 
 size_t
 _festival_parent(TModuleDoublePipe dpipe, const char* message,
-              const size_t maxlen, const char* dividers,
+              EMessageType msgtype, const size_t maxlen, const char* dividers,
               int *pause_requested)
 {
     int pos = 0;
@@ -302,9 +315,19 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
     while(1){
         DBG("  Looping...\n");
         o_bytes = bytes;
-        bytes = module_get_message_part(message, buf, &pos, 4095, dividers);
+
+        if (msgtype == MSGTYPE_TEXT)
+            bytes = module_get_message_part(message, buf, &pos, 4095, dividers);
+        else{
+            bytes = module_get_message_part(message, buf, &pos, 4095, "");
+        }
         if (current_index_mark != -1) pause = current_index_mark;
-        if (bytes == 0) bytes = module_get_message_part(message, buf, &pos, maxlen, dividers);
+        if (bytes == 0){
+            if (msgtype == MSGTYPE_TEXT)
+                bytes = module_get_message_part(message, buf, &pos, 4095, dividers);
+            else
+                return -1;
+        }
         
         DBG("returned %d bytes\n", bytes); 
 
@@ -312,8 +335,16 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 
         if (first_run){
             DBG("Synthesizing: |%s|", buf);
-            if (bytes > 0) r = festivalStringToWaveRequest(festival_info, buf,
-                                                           msg_settings.spelling_mode);
+            if (bytes > 0){
+                switch(msgtype)
+                    {
+                    case MSGTYPE_TEXT: r = festivalStringToWaveRequest(festival_info, buf); break;
+                    case MSGTYPE_SOUND_ICON: r = festivalSoundIcon(festival_info, buf); break;
+                    case MSGTYPE_CHAR: r = festivalCharacter(festival_info, buf); break;
+                    case MSGTYPE_KEY: r = festivalKey(festival_info, buf); break;
+                    case MSGTYPE_SPELL: r = festivalSpell(festival_info, buf); break;
+                    }
+            }
             DBG("s-returned %d\n", r);
             first_run = 0;
         }else{
@@ -321,8 +352,9 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
             if (o_bytes > 0) fwave = festivalStringToWaveGetData(festival_info);
             else fwave = NULL;
             DBG("Sending request for synthesis");
-            if (bytes > 0) r = festivalStringToWaveRequest(festival_info, buf,
-                                                           msg_settings.spelling_mode);
+            if (bytes > 0){
+                r = festivalStringToWaveRequest(festival_info, buf);
+            }
             DBG("ss-returned %d\n", r);
             DBG("Ok, next step...\n");
             
@@ -378,52 +410,44 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 }
 
 void
-festival_set_voice()
+festival_set_language(char* language)
+{
+    FestivalSetLanguage(festival_info, language);
+}
+
+void
+festival_set_voice(EVoiceType voice)
 {
     char* voice_name;
 
-    if ((msg_settings.voice != msg_settings_old.voice) 
-        || strcmp(msg_settings.language, msg_settings_old.language)){
-        voice_name = module_getvoice(msg_settings.language, msg_settings.voice);
-        if (voice_name == NULL){
-            DBG("No voice available\n");
-            return;
-        }
-        festivalSetVoice(festival_info, voice_name);
+    voice_name = EVoice2str(voice);
+    FestivalSetVoice(festival_info, voice_name);
+    xfree(voice_name);
 
-        CLEAN_OLD_SETTINGS_TABLE();
-
-        msg_settings_old.voice = msg_settings.voice;
-
-        xfree(msg_settings_old.language);
-        msg_settings_old.language = g_strdup(msg_settings.language);
-
-        /* Because the new voice can use diferent bitrate */
-        DBG("Filling new sample wave\n");
-        festival_fill_sample_wave();
-    }
+    /* Because the new voice can use diferent bitrate */
+    DBG("Filling new sample wave\n");
+    festival_fill_sample_wave(); 
 }
 
 void
 festival_set_rate(signed int rate)
 {
-    assert(rate >= -100 && rate <= +100);
-    festivalSetRate(festival_info, rate);
-}
-
-void
-festival_set_punctuation_mode(EPunctMode punct)
-{
-    DBG("Punctuation mode %d.", punct);
-    assert((punct == 0) || (punct == 1) || (punct == 2));
-    festivalSetPunctuationMode(festival_info, punct);
+    FestivalSetRate(festival_info, rate);
 }
 
 void
 festival_set_pitch(signed int pitch)
 {
-    assert(pitch >= -100 && pitch <= +100);
-    festivalSetPitch(festival_info, pitch, FestivalPitchDeviation);
+    FestivalSetPitch(festival_info, pitch);
+}
+
+void
+festival_set_punctuation_mode(EPunctMode punct)
+{
+    char *punct_mode;
+    punct_mode = EPunctMode2str(punct);
+    FestivalSetPunctuationMode(festival_info, punct_mode);
+    xfree(punct_mode);
 }
 
 void
@@ -435,7 +459,7 @@ festival_fill_sample_wave()
     module_cstwave_free(module_sample_wave);
 
     /* Synthesize a sample string*/
-    ret = festivalStringToWaveRequest(festival_info, "test", 0);    
+    ret = festivalStringToWaveRequest(festival_info, "test");    
     if (ret != 0){
         DBG("Festival module request to synthesis failed.\n");
         module_sample_wave = NULL;

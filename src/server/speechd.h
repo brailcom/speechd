@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.44 2003-09-28 22:32:17 hanke Exp $
+ * $Id: speechd.h,v 1.45 2003-10-07 16:52:01 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -72,7 +72,6 @@ union semun {
 #include "set.h"
 #include "msg.h"
 #include "parse.h"
-#include "sndicon.h"
 #include "compare.h"
 #include "alloc.h"
 

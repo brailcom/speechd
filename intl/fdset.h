@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.23 2003-09-28 22:27:19 hanke Exp $
+ * $Id: fdset.h,v 1.24 2003-10-07 16:52:00 hanke Exp $
  */
 
 #ifndef FDSET_H
@@ -50,8 +50,7 @@ typedef enum
     MSGTYPE_SOUND_ICON = 1,
     MSGTYPE_CHAR = 2,
     MSGTYPE_KEY = 3,
-    MSGTYPE_SOUND = 4,
-    MSGTYPE_TEXTP = 5
+    MSGTYPE_SPELL = 99
 }EMessageType;
 
 typedef enum
@@ -68,6 +67,12 @@ typedef enum
     PUNCT_SOME = 2
 }EPunctMode;
 
+typedef enum
+{
+    SPELLING_OFF = 0,
+    SPELLING_ON = 1
+}ESpellMode;
+
 typedef struct{
     unsigned int uid;		/* Unique ID of the client */
     int fd;                     /* File descriptor the client is on. */
@@ -81,7 +86,7 @@ typedef struct{
                                    2	-	only user-selected punctuation */
     char *punctuation_some;
     char *punctuation_table;    /*  Selected punctuation table */
-    int spelling_mode;               /* Spelling mode: 0 or 1 (0 - off, 1 - on) */
+    ESpellMode spelling_mode;   /* Spelling mode: 0 or 1 (0 - off, 1 - on) */
     char* spelling_table;	/* Selected spelling table */
     char* char_table;           /* Selected character table */
     char* key_table;            /* Selected key table */
@@ -111,15 +116,13 @@ typedef struct{
 typedef struct{
     signed int rate;
     signed int pitch;
+
     EPunctMode punctuation_mode;
-    char* punctuation_some;
-    char* punctuation_table;
-    int spelling_mode;
-    char* spelling_table;
+    ESpellMode spelling_mode;
     ECapLetRecogn cap_let_recogn;
-    char* cap_let_recogn_table;
-    char* cap_let_recogn_sound;
+
     char* language;
+
     EVoiceType voice;
 }SPDMsgSettings;
 

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: cstsnd.c,v 1.8 2003-10-03 15:19:42 hanke Exp $
+ * $Id: cstsnd.c,v 1.9 2003-10-07 16:52:00 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -79,7 +79,7 @@ module_init(void)
 /* Public functions */
 
 int
-module_write(char *data, size_t bytes)
+module_speak(char *data, size_t bytes, EMessageType msgtype)
 {
     int ret;
 

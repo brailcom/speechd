@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.31 2003-10-03 15:19:43 hanke Exp $
+  * $Id: speaking.c,v 1.32 2003-10-07 16:52:01 hanke Exp $
   */
 
 #include <glib.h>
@@ -98,8 +98,7 @@ speak(void* data)
             continue;
         }
 
-        if((message->settings.type == MSGTYPE_TEXT) 
-           || (message->settings. type == MSGTYPE_TEXTP)){
+        if(message->settings.type == MSGTYPE_TEXT){
             insert_index_marks(message);
         }
 
@@ -294,7 +293,7 @@ speaking_pause(int fd, int uid)
     assert(new->buf != NULL);
     new->buf[new->bytes] = 0;
 
-    if(queue_message(new, fd, 0, MSGTYPE_TEXTP, 0) != 0){
+    if(queue_message(new, fd, 0, MSGTYPE_TEXT, 0) != 0){
         if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
         spd_free(new->buf);
         spd_free(new);

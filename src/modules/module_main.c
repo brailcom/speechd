@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_main.c,v 1.1 2003-09-07 11:26:04 hanke Exp $
+ * $Id: module_main.c,v 1.2 2003-10-07 16:52:00 hanke Exp $
  */
 
 #define PROCESS_CMD(command, function) if (!strcmp(cmd_buf, #command"\n")){ \
@@ -91,6 +91,9 @@ main(int argc, char *argv[])
         } 
 
         PROCESS_CMD(SPEAK, do_speak) 
+        else PROCESS_CMD(SOUND_ICON, do_sound_icon)
+        else PROCESS_CMD(CHAR, do_char)
+        else PROCESS_CMD(KEY, do_key)
         else PROCESS_CMD(STOP, do_stop) 
         else PROCESS_CMD(PAUSE, do_pause) 
         else PROCESS_CMD(SET, do_set) 

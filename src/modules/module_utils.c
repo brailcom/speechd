@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.19 2003-10-03 15:19:42 hanke Exp $
+ * $Id: module_utils.c,v 1.20 2003-10-07 16:52:00 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -40,6 +40,8 @@
 #include <sys/ipc.h>
 #include <sys/sem.h>
 
+#include "fdsetconv.c"
+
 SPDMsgSettings msg_settings;
 SPDMsgSettings msg_settings_old;
 
@@ -60,27 +62,17 @@ int module_num_dc_options = 0;
  msg_settings_old.rate = -101;\
  msg_settings_old.pitch = -101;\
  msg_settings_old.punctuation_mode = -1;\
- msg_settings_old.punctuation_some = NULL;\
- msg_settings_old.punctuation_table = NULL;\
  msg_settings_old.spelling_mode = -1;\
- msg_settings_old.spelling_table = NULL;\
  msg_settings_old.cap_let_recogn = -1;\
- msg_settings_old.cap_let_recogn_table = NULL;\
- msg_settings_old.cap_let_recogn_sound = NULL;\
- msg_settings_old.language = strdup("en");\
+ msg_settings_old.language = NULL;\
  msg_settings_old.voice = NO_VOICE;
 
 #define INIT_SETTINGS_TABLES()\
  msg_settings.rate = 0;\
  msg_settings.pitch = 0;\
  msg_settings.punctuation_mode = PUNCT_NONE;\
- msg_settings.punctuation_some = NULL;\
- msg_settings.punctuation_table = NULL;\
- msg_settings.spelling_mode = 0;\
- msg_settings.spelling_table = NULL;\
+ msg_settings.spelling_mode = SPELLING_OFF;\
  msg_settings.cap_let_recogn = RECOGN_NONE;\
- msg_settings_old.cap_let_recogn_table = NULL;\
- msg_settings.cap_let_recogn_sound = NULL;\
  msg_settings.language = strdup("en");\
  msg_settings.voice = MALE1;\
  CLEAN_OLD_SETTINGS_TABLE()
@@ -94,6 +86,7 @@ int module_num_dc_options = 0;
     char *tstr; \
     t = time(NULL); \
     tstr = strdup(ctime(&t)); \
+    tstr[strlen(tstr)-1] = 0; \
     fprintf(debug_file, tstr); \
     fprintf(debug_file, ": "); \
     fprintf(debug_file, arg); \
@@ -110,7 +103,7 @@ int module_num_dc_options = 0;
 
 int     module_load         (void);
 int     module_init         (void);
-int     module_write        (char *data, size_t bytes);
+int     module_speak        (char *data, size_t bytes, EMessageType msgtype);
 int     module_stop         (void);
 size_t  module_pause        (void);
 int     module_is_speaking  (void);
@@ -210,33 +203,64 @@ xfree(void *data)
 }
 
 char*
-do_speak(void)
+do_message(EMessageType msgtype)
 {
     int ret;
     char *cur_line;
     GString *msg;
     int n;
+    int nlines = 0;
 
     msg = g_string_new("");
 
-    printf("202 OK SPEAKING\n");
+    printf("202 OK RECEIVING MESSAGE\n");
     fflush(stdout);
 
     while(1){
         cur_line = NULL;
         n = 0;
         ret = getline(&cur_line, &n, stdin);
+        nlines++;
         if (ret == -1) return "401 ERROR INTERNAL";
 
         if (!strcmp(cur_line, ".\n")) break;
         g_string_append(msg, cur_line);
     }
 
-    ret = module_write(msg->str, strlen(msg->str));
+    if ((msgtype != MSGTYPE_TEXT) && (nlines > 2)){
+        return "305 DATA MORE THAN ONE LINE";
+    }
+  
+    module_speak(msg->str, strlen(msg->str), msgtype);
+
     g_string_free(msg,1);
     if (ret <= 0) return "301 ERROR CANT SPEAK";
     
     return "200 OK SPEAKING";
+}
+
+char*
+do_speak(void)
+{
+    do_message(MSGTYPE_TEXT);
+}
+
+char*
+do_sound_icon(void)
+{
+    do_message(MSGTYPE_SOUND_ICON);
+}
+
+char*
+do_char(void)
+{
+    do_message(MSGTYPE_CHAR);
+}
+
+char*
+do_key(void)
+{
+    do_message(MSGTYPE_KEY);
 }
 
 char*
@@ -273,6 +297,13 @@ do_pause(void)
      else msg_settings.name = strdup(cur_value); \
  }
 
+#define SET_PARAM_STR_C(name, fconv) \
+ if(!strcmp(cur_item, #name)){ \
+     ret = fconv(cur_value); \
+     if (ret != -1) msg_settings.name = ret; \
+     else err = 2; \
+ }
+
 char*
 do_set(void)
 {
@@ -303,16 +334,11 @@ do_set(void)
             
             SET_PARAM_NUM(rate, ((number>=-100) && (number<=100)))
             else SET_PARAM_NUM(pitch, ((number>=-100) && (number<=100)))
-            else SET_PARAM_NUM(punctuation_mode, 1)
-            else SET_PARAM_STR(punctuation_some)
-            else SET_PARAM_STR(punctuation_table)
-            else SET_PARAM_NUM(spelling_mode, 1)
-            else SET_PARAM_STR(spelling_table)
-            else SET_PARAM_NUM(cap_let_recogn, 1)
-            else SET_PARAM_STR(cap_let_recogn_table)
-            else SET_PARAM_STR(cap_let_recogn_sound)
+            else SET_PARAM_STR_C(punctuation_mode, str2EPunctMode)
+            else SET_PARAM_STR_C(spelling_mode, str2ESpellMode)
+            else SET_PARAM_STR_C(cap_let_recogn, str2ECapLetRecogn)
+            else SET_PARAM_STR_C(voice, str2EVoice)
             else SET_PARAM_STR(language)
-            else SET_PARAM_NUM(voice, 1)
             else err=2;             /* Unknown parameter */
         }
         xfree(line);
@@ -482,14 +508,15 @@ module_strip_punctuation_default(char *buf)
 
 typedef void (*TChildFunction)(TModuleDoublePipe dpipe, const size_t maxlen);
 typedef size_t (*TParentFunction)(TModuleDoublePipe dpipe, const char* message,
-                             const size_t maxlen, const char* dividers,
-                             int *pause_requested);
+                                  const EMessageType msgtype, const size_t maxlen,
+                                  const char* dividers, int *pause_requested);
 void
 module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid, 
                           TChildFunction child_function,
                           TParentFunction parent_function,
-                          int *speaking_flag, char **message, const size_t maxlen,
-                          const char *dividers, size_t *module_position, int *pause_requested)
+                          int *speaking_flag, char **message, const EMessageType *msgtype,
+                          const size_t maxlen, const char *dividers, size_t *module_position,
+                          int *pause_requested)
 {
     TModuleDoublePipe module_pipe;
     int ret;
@@ -537,8 +564,8 @@ module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid,
         default:
             /* This is the parent. Send data to the child. */
 
-            *module_position = (* parent_function)(module_pipe, *message, maxlen, dividers,
-                                                   pause_requested);
+            *module_position = (* parent_function)(module_pipe, *message, *msgtype,
+                                                   maxlen, dividers, pause_requested);
 
             DBG("Waiting for child...");
             waitpid(*process_pid, &status, 0);            
@@ -554,7 +581,7 @@ module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid,
 }
 
 size_t
-module_parent_wfork(TModuleDoublePipe dpipe, const char* message,
+module_parent_wfork(TModuleDoublePipe dpipe, const char* message, EMessageType msgtype,
                     const size_t maxlen, const char* dividers, int *pause_requested)
 {
     int pos = 0;

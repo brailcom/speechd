@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.33 2003-10-03 15:19:42 hanke Exp $
+ * $Id: flite.c,v 1.34 2003-10-07 16:52:00 hanke Exp $
  */
 
 
@@ -45,6 +45,7 @@ static pid_t flite_pid;
 static sem_t *flite_semaphore;
 
 static char **flite_message;
+static EMessageType flite_message_type;
 
 static int flite_position = 0;
 static int flite_pause_requested = 0;
@@ -120,7 +121,7 @@ module_init(void)
 
 
 int
-module_write(gchar *data, size_t bytes)
+module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 {
     int ret;
 
@@ -134,6 +135,7 @@ module_write(gchar *data, size_t bytes)
     if(module_write_data_ok(data) != 0) return -1;
 
     *flite_message = strdup(data);
+    flite_message_type = MSGTYPE_TEXT;
     module_strip_punctuation_default(*flite_message);
 
     DBG("Requested data: |%s|\n", data);
@@ -219,7 +221,7 @@ _flite_speak(void* nothing)
 
     module_speak_thread_wfork(flite_semaphore, &flite_pid,
                               _flite_child, module_parent_wfork, 
-                              &flite_speaking, flite_message,
+                              &flite_speaking, flite_message, &flite_message_type,
                               FliteMaxChunkLength, FliteDelimiters,
                               &flite_position, &flite_pause_requested);
     flite_speaking = 0;
@@ -301,19 +303,7 @@ flite_set_pitch(signed int pitch)
 static void
 flite_set_voice(EVoiceType voice)
 {
-    switch(voice){
-    case MALE1:
-        free(flite_voice);
-        flite_voice = (cst_voice*) register_cmu_us_kal();
-        break;
-        //        case MALE3:
-            //            free(flite_voice);
-            /* This is only an experimental voice. But if you want
-             to know what's the time... :)*/
-            //            flite_voice = (cst_voice*) register_cmu_time_awb();	
-            //            flite_cur_voice = MALE2;
-            //            break;
-    default:
+    if (voice == MALE1){
         free(flite_voice);
         flite_voice = (cst_voice*) register_cmu_us_kal();
     }

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.6 2003-10-03 15:19:42 hanke Exp $
+ * $Id: generic.c,v 1.7 2003-10-07 16:52:00 hanke Exp $
  */
 
 #include <glib.h>
@@ -44,6 +44,7 @@ static pid_t generic_pid;
 static sem_t *generic_semaphore;
 
 static char **generic_message;
+static EMessageType generic_message_type;
 
 static int generic_position = 0;
 static int generic_pause_requested = 0;
@@ -132,7 +133,7 @@ module_init(void)
 
 
 int
-module_write(gchar *data, size_t bytes)
+module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 {
     int ret;
     TGenericLanguage *language;
@@ -168,6 +169,8 @@ module_write(gchar *data, size_t bytes)
                                                 GenericRecodeFallback);
     }
     module_strip_punctuation_some(*generic_message, GenericStripPunctChars);
+
+    generic_message_type = MSGTYPE_TEXT;
 
     DBG("Requested data: |%s|\n", data);
 	
@@ -361,6 +364,7 @@ _generic_speak(void* nothing)
             /* This is the parent. Send data to the child. */
 
             generic_position = module_parent_wfork(module_pipe, *generic_message,
+                                                   generic_message_type,
                                                    GenericMaxChunkLength, GenericDelimiters,
                                                    &generic_pause_requested);
 

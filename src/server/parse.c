@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.48 2003-10-03 15:19:43 hanke Exp $
+ * $Id: parse.c,v 1.49 2003-10-07 16:52:01 hanke Exp $
  */
 
 #include "speechd.h"
@@ -729,81 +729,45 @@ parse_resume(const char *buf, const int bytes, const int fd)
 }
 
 char*
-parse_snd_icon(const char *buf, const int bytes, const int fd)
+parse_general_event(const char *buf, const int bytes, const int fd, EMessageType type)
 {
     char *param;
     int ret;
-    TFDSetElement *settings;		
-    	
-    param = get_param(buf,1,bytes, 0);
+    TSpeechDMessage *msg;
+
+    GET_PARAM_STR(param, 1, NO_CONV);
+
     if (param == NULL) return ERR_MISSING_PARAMETER;
-    MSG(4,"Parameter caught: %s", param);
+    if (param[0] == 0) return ERR_MISSING_PARAMETER;
 
-    ret = sndicon_icon(fd, param);
-	
-    if (ret!=0){
-        if(ret == 1) return ERR_NO_SND_ICONS;
-        if(ret == 2) return ERR_UNKNOWN_ICON;
-    }
+    msg = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
+    msg->bytes = strlen(param);
+    msg->buf = strdup(param);
 
-    return OK_SND_ICON_QUEUED;
+    if(queue_message(msg, fd, 1, type, inside_block[fd])){
+        if (SPEECHD_DEBUG) FATAL("Couldn't queue message\n");
+        MSG(2, "Couldn't queue message!\n");            
+    }   
+
+    return OK_MESSAGE_QUEUED;
+}
+
+char*
+parse_snd_icon(const char *buf, const int bytes, const int fd)
+{
+    return parse_general_event(buf, bytes, fd, MSGTYPE_SOUND_ICON);
 }				 
 
 char*
 parse_char(const char *buf, const int bytes, const int fd)
 {
-    char *character;
-    int ret;
-
-    GET_PARAM_STR(character, 1, NO_CONV);
-
-    if (character == NULL) return ERR_MISSING_PARAMETER;
-    if (character[0] == 0) return ERR_MISSING_PARAMETER;
-
-    ret = sndicon_char(fd, character);
-    if (ret != 0){
-        TSpeechDMessage *verbat;
-        /* Use the character verbatim */
-        verbat = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
-        verbat->bytes = strlen(character);
-        verbat->buf = strdup(character);
-        if(queue_message(verbat, fd, 1, MSGTYPE_TEXTP, inside_block[fd])){
-            if (SPEECHD_DEBUG) FATAL("Couldn't queue message\n");
-            MSG(1, "Couldn't queue message\n");            
-        }
-    }
-
-    spd_free(character);
-
-    return OK_SND_ICON_QUEUED;
+    return parse_general_event(buf, bytes, fd, MSGTYPE_CHAR);
 }
 
 char*
 parse_key(const char* buf, const int bytes, const int fd)
 {
-    char *key;
-    int ret;
-
-    GET_PARAM_STR(key, 1, NO_CONV);
-
-    ret = sndicon_key(fd, key);
-
-    if (ret != 0){
-        if(g_unichar_isalpha(g_utf8_get_char(key))){
-            TSpeechDMessage *verbat;
-            /* Use the key verbatim */
-            verbat = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
-            verbat->bytes = strlen(key);
-            verbat->buf = strdup(key);
-            if(queue_message(verbat, fd, 1, MSGTYPE_TEXTP, 0))  FATAL("Couldn't queue message\n");
-        }else{
-            spd_free(key);
-            return ERR_UNKNOWN_ICON;
-        }
-    }
-
-    spd_free(key);
-    return OK_SND_ICON_QUEUED;
+    return parse_general_event(buf, bytes, fd, MSGTYPE_KEY);
 }
 
 char*
@@ -813,32 +777,6 @@ parse_list(const char* buf, const int bytes, const int fd)
     char *voice_list;
 
     GET_PARAM_STR(list_type, 1, CONV_DOWN);
-
-    /* We have decided not to support this in Speech Dispatcher */
-#if 0
-    if(TEST_CMD(list_type,"spelling_tables")){
-        return (char*) sndicon_list_spelling_tables();
-    }
-    else if(TEST_CMD(list_type,"sound_tables")){
-        return (char*) sndicon_list_sound_tables();
-    }
-    else if(TEST_CMD(list_type, "character_tables")){
-        return (char*) sndicon_list_char_tables();
-    }
-    else if(TEST_CMD(list_type, "punctuation_tables")){
-        return (char*) sndicon_list_punctuation_tables();
-    }
-    else if(TEST_CMD(list_type, "key_tables")){
-        return (char*) sndicon_list_key_tables();
-    }
-    else if(TEST_CMD(list_type, "cap_let_recogn_tables")){
-        return (char*) sndicon_list_cap_let_recogn_tables();
-    }
-    else if(TEST_CMD(list_type, "text_tables")){
-        //        return (char*) sndicon_list_text_tables();
-        return OK_NOT_IMPLEMENTED;
-    }
-#endif
 
     if(TEST_CMD(list_type, "voices")){
         voice_list = (char*) spd_malloc(1024);

@@ -18,38 +18,44 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.5 2003-10-03 17:49:16 hanke Exp $
+ * $Id: output.c,v 1.6 2003-10-07 16:52:01 hanke Exp $
  */
 
 #include "output.h"
 
+#include "fdsetconv.c"
+
 /* TODO: Correct macro */
 #define TEMP_FAILURE_RETRY(expr) (expr)
+
+void
+output_set_speaking_monitor(TSpeechDMessage *msg, OutputModule *output)
+{
+    /* Set the speaking-monitor so that we know who is speaking */
+    speaking_module = output;
+    speaking_uid = msg->settings.uid;
+    speaking_gid = msg->settings.reparted;
+}
 
 static OutputModule*
 get_output_module(const TSpeechDMessage *message)
 {
     OutputModule *output = NULL;
 
-    if (message->settings.type != MSGTYPE_SOUND){
-        if (message->settings.output_module != NULL){
-            output = g_hash_table_lookup(output_modules, message->settings.output_module);
-            if(output == NULL || !output->working){
-                if (GlobalFDSet.output_module != NULL){
-                    MSG(4,"Didn't find prefered output module, using default");                
-                    output = g_hash_table_lookup(output_modules, GlobalFDSet.output_module); 
-                    if (output == NULL || !output->working) 
-                        MSG(2, "Can't find default output module or it's not working!");
-                }
+    if (message->settings.output_module != NULL){
+        output = g_hash_table_lookup(output_modules, message->settings.output_module);
+        if(output == NULL || !output->working){
+            if (GlobalFDSet.output_module != NULL){
+                MSG(4,"Didn't find prefered output module, using default");                
+                output = g_hash_table_lookup(output_modules, GlobalFDSet.output_module); 
+                if (output == NULL || !output->working) 
+                    MSG(2, "Can't find default output module or it's not working!");
             }
         }
-        if (output == NULL){
-            MSG(3, "Unspecified output module!\n");
-            return NULL;
-        }
-    }else{   /* if MSGTYPE_SOUND */
-        output = sound_module;
-        if (output == NULL) MSG(2,"Can't find sound module!");
+    }
+    if (output == NULL){
+        MSG(3, "Unspecified output module!\n");
+        return NULL;
     }
 
     return output;
@@ -166,12 +172,50 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
     }else{ \
        g_string_append_printf(set_str, #name"=NULL\n"); \
     }
+#define ADD_SET_STR_C(name, fconv) \
+    val = fconv(msg->settings.name); \
+    if (val != NULL){ \
+       g_string_append_printf(set_str, #name"=%s\n", val); \
+    }else{ \
+       g_string_append_printf(set_str, #name"=NULL\n"); \
+    } \
+    spd_free(val);
 
 int
+output_send_settings(TSpeechDMessage *msg, OutputModule *output)
+{
+    GString *set_str;
+    char *val;
+    int err;
+
+    MSG(4, "Module set.");
+    set_str = g_string_new("");
+    ADD_SET_INT(pitch);
+    ADD_SET_INT(rate);
+    ADD_SET_STR_C(punctuation_mode, EPunctMode2str);
+    ADD_SET_STR_C(spelling_mode, ESpellMode2str);
+    ADD_SET_STR_C(cap_let_recogn, ECapLetRecogn2str);
+    ADD_SET_STR(language);
+    ADD_SET_STR_C(voice, EVoice2str);
+
+    SEND_CMD("SET");
+    SEND_DATA(set_str->str);
+    SEND_CMD(".");
+
+    g_string_free(set_str, 1);
+}
+#undef ADD_SET_INT
+#undef ADD_SET_STR
+
+#define SEND_CMD_MSGBUF(command) \
+    MSG(4, "Module speak!"); \
+    SEND_CMD(command); \
+    SEND_DATA(msg->buf); \
+    SEND_CMD("\n.");
+
 output_speak(TSpeechDMessage *msg)
 {
     OutputModule *output;
-    GString *set_str;
     int err;
 
     if(msg == NULL) return -1;
@@ -181,45 +225,23 @@ output_speak(TSpeechDMessage *msg)
     /* Determine which output module should be used */
     output = get_output_module(msg);
     if (output == NULL){
-        MSG(4, "Output module NULL...");
+        MSG(3, "Output module doesn't work...");
         OL_RET(-1)
     }                    
 
-    /* Set the speaking-monitor so that we know who is speaking */
-    speaking_module = output;
-    speaking_uid = msg->settings.uid;
-    speaking_gid = msg->settings.reparted;
+    output_set_speaking_monitor(msg, output);
+    output_send_settings(msg, output);
 
-    MSG(4, "Module set.");
-    set_str = g_string_new("");
-    ADD_SET_INT(pitch);
-    ADD_SET_INT(rate);
-    ADD_SET_INT(punctuation_mode);
-    ADD_SET_STR(punctuation_some);
-    ADD_SET_STR(punctuation_table);
-    ADD_SET_INT(spelling_mode);
-    ADD_SET_STR(spelling_table);
-    ADD_SET_INT(cap_let_recogn);
-    ADD_SET_STR(cap_let_recogn_table);
-    ADD_SET_STR(cap_let_recogn_sound);
-    ADD_SET_STR(language);
-    ADD_SET_INT(voice);
-
-    SEND_CMD("SET");
-    SEND_DATA(set_str->str);
-    SEND_CMD(".");
-
-    g_string_free(set_str, 1);
-
-    MSG(4, "Module speak!");
-    SEND_CMD("SPEAK");
-    SEND_DATA(msg->buf);
-    SEND_CMD("\n.");
-
+    switch(msg->settings.type)
+        {
+        case MSGTYPE_TEXT: SEND_CMD_MSGBUF("SPEAK"); break;
+        case MSGTYPE_SOUND_ICON: SEND_CMD_MSGBUF("SOUND_ICON"); break;
+        case MSGTYPE_CHAR: SEND_CMD_MSGBUF("CHAR"); break;
+        case MSGTYPE_KEY: SEND_CMD_MSGBUF("KEY"); break;
+        default: MSG(2,"Invalid message type in output_speak()!");
+        }
     OL_RET(0)
 }
-#undef ADD_SET_INT
-#undef ADD_SET_STR
 
 int
 output_stop()
@@ -303,28 +325,6 @@ output_close(OutputModule *module)
     MSG(3, "Ok, closed succesfully.");
    
     OL_RET(0)
-}
-
-int
-output_filtering_generic(const TSpeechDMessage *msg)
-{
-    OutputModule *output;
-
-    if (msg == NULL) return 0;
-
-    output = get_output_module(msg);
-    if (output == NULL){
-        MSG(4, "Output module NULL in output_filtering_generic().");
-        return 0;
-    }                        
-
-    if (output->filtering == FILTERING_GENERIC){
-        MSG(4,"Using generic filtering for this message.");
-        return 1;
-    }else{
-        MSG(4,"Filtering is left on the output module or not done.");
-        return 0;
-    }
 }
 
 #undef SEND_CMD

@@ -333,6 +333,38 @@ festival_get_ack(FT_Info **info, char* ack)
     return 0;
 }
 
+int
+festival_read_response(FT_Info *info)
+{
+    char buf[4];
+
+    if (festival_get_ack(&info, buf)) return 1;
+    buf[3] = 0;
+
+    DBG("<- Festival: |%s|", buf);
+
+    if (!strcmp(buf,"ER\n")){
+        return 1;
+    }else{
+        client_accept_s_expr(info->server_fd);
+    }
+
+    if (festival_get_ack(&info, buf)) return 1;
+    DBG("<- Festival: |%s|", buf);
+
+    return 0;
+}
+
+int
+festival_check_info(FT_Info *info, char *fnname){
+    assert(fnname != NULL);
+    if ((info == NULL) || (info->server_fd == -1)){
+        DBG("%s called with info = NULL or server_fd == -1\n", fnname);
+        return -1;
+    }
+    return 0;
+}
+
 void
 festival_accept_any_response(FT_Info *info)
 {
@@ -340,6 +372,7 @@ festival_accept_any_response(FT_Info *info)
     do {
         if(festival_get_ack(&info, ack)) return;
 
+        DBG("<- Festival: |%s|",ack);
 	if (strcmp(ack,"WV\n") == 0){         /* receive a waveform */
 	    client_accept_waveform(info->server_fd);
 	}else if (strcmp(ack,"LP\n") == 0)    /* receive an s-expr */
@@ -353,6 +386,18 @@ festival_accept_any_response(FT_Info *info)
             }
     }while (strcmp(ack,"OK\n") != 0);
 }
+
+#define FEST_SEND_CMD(format, args...) \
+    { \
+        FILE *fd; \
+        char *str; \
+        fd = fdopen(dup(info->server_fd),"wb"); \
+        str = g_strdup_printf(format"\n", args); \
+        fprintf(fd, str); \
+        DBG("-> Festival: |%s|", str); \
+        free(str); \
+        fclose(fd); \
+    }
 
 /***********************************************************************/
 /* Public Functions to this API                                        */
@@ -380,37 +425,58 @@ festivalOpen(FT_Info *info)
 	return NULL;
     }
 
-    /* Opens a stream associated to the socket */
-    fd = fdopen(dup(info->server_fd),"wb");
-    /* Send the command and data */
-    fprintf(fd,
-            "(define (speechd_tts_textall string mode)\n"
-            "  (let ((tmpfile (make_tmp_filename))\n"
-            "        (fd))\n"
-            "    (set! fd (fopen tmpfile \"wb\"))\n"
-            "    (format fd \"%%s\" string)\n"
-            "    (fclose fd)\n"
-            "    (set! tts_hooks (list utt.synth save_record_wave))\n"
-            "    (set! wavefiles nil)\n"
-            "    (tts_file tmpfile mode)\n"
-            "    (delete-file tmpfile)\n"
-            "    (let ((utt (combine_waves)))\n"
-            "      (if (member 'Wave (utt.relationnames utt))\n"
-            "          (utt.send.wave.client utt)))))\n"
-            );
-    fclose(fd);
-
+    /* TODO: Not "any" response */
+    FEST_SEND_CMD("(require 'speech-dispatcher)","");
     festival_accept_any_response(info);
 
-    fd = fdopen(dup(info->server_fd),"wb");
-    /* Send the command and data */
-    fprintf(fd,"(Parameter.set 'Wavefiletype 'nist)\n");
-    fclose(fd);
-
+    FEST_SEND_CMD("(Parameter.set 'Wavefiletype 'nist)\n","");
     festival_accept_any_response(info);
 
     return info;
 }
+
+int
+festival_speak_command(FT_Info *info, char *command, char *text)
+{
+    FILE *fd;
+    char *p;
+    char ack[4];
+    int n;
+    char *str;
+
+    if (festival_check_info(info, "festival_speak_command") == -1) return -1;
+    if (command == NULL) return -1;
+    if (text == NULL) return -1;
+
+    DBG("(festival_speak_command): %s", text);
+
+    /* Opens a stream associated to the socket */
+    fd = fdopen(dup(info->server_fd),"wb");
+
+    /* Send the command and data */
+    str = g_strdup_printf("(%s \"", command);
+    fprintf(fd, str);
+    /* Copy text over to server, escaping any quotes */
+    for (p=text; p && (*p != '\0'); p++)
+    {
+	if ((*p == '"') || (*p == '\\')) putc('\\',fd);
+	putc(*p, fd);
+    }
+    fprintf(fd,"\")\n");
+    DBG("-> Festival: |%sthe text isn't displayed\")|", str);
+
+    free(str);
+    /* Close the stream (but not the socket) */
+    fclose(fd);
+    return 0;
+}
+
+#define FEST_SPEAK_CMD(name, cmd) \
+    int \
+    name(FT_Info *info, char *text) \
+    { \
+        festival_speak_command(info, cmd, text); \
+    }
 
 /* Sends a TEXT to Festival server for synthesis. Doesn't
  * wait for reply (see festivalStringToWaveGetData()). 
@@ -419,44 +485,11 @@ festivalOpen(FT_Info *info)
  * in response.
  * Returns 0 if everything is ok, -1 otherwise.
 */
-int
-festivalStringToWaveRequest(FT_Info *info, char *text, int spelling)
-{
-    FT_Wave *wave;
-    FILE *fd;
-    char *p;
-    char ack[4];
-    int n;
-
-    if (info == 0)
-	return -1;
-    if (info->server_fd == -1)
-    {
-	fprintf(stderr,"festival_client: server connection unopened\n");
-	return -1;
-    }
-
-    /* Opens a stream associated to the socket */
-    fd = fdopen(dup(info->server_fd),"wb");
-
-    /* Send the command and data */
-    fprintf(fd,"(speechd_tts_textall \"");
-    /* Copy text over to server, escaping any quotes */
-    for (p=text; p && (*p != '\0'); p++)
-    {
-	if ((*p == '"') || (*p == '\\'))
-	    putc('\\',fd);
-	putc(*p, fd);
-    }
-
-    /* Specify mode */
-    if (!spelling) fprintf(fd,"\" nil)\n");
-    else fprintf(fd,"\" 'spell)\n");
-
-    /* Close the stream (but not the socket) */
-    fclose(fd);
-    return 0;
-}
+FEST_SPEAK_CMD(festivalStringToWaveRequest, "speechd-speak");
+FEST_SPEAK_CMD(festivalSpell, "speechd-spell");
+FEST_SPEAK_CMD(festivalSoundIcon, "speechd-sound-icon");
+FEST_SPEAK_CMD(festivalCharacter, "speechd-character");
+FEST_SPEAK_CMD(festivalKey, "speechd-key");
 
 /* Reads the wavefile sent back after festivalStringToWaveRequest()
  * has been called. This function blocks until all the data is
@@ -475,6 +508,7 @@ festivalStringToWaveGetData(FT_Info *info)
     wave = NULL;
     do {
         if (festival_get_ack(&info, ack)) return NULL;
+        DBG("<- Festival: %s", ack);
 	if (strcmp(ack,"WV\n") == 0){         /* receive a waveform */
             //            fprintf(stderr,"point 2");
 	    wave = client_accept_waveform(info->server_fd);
@@ -510,111 +544,42 @@ int festivalClose(FT_Info *info)
     return 0;
 }
 
-int
-festival_read_response(FT_Info *info)
-{
-    char buf[4];
+/* --- SETTINGS COMMANDS */
 
-    if (festival_get_ack(&info, buf)) return 1;
-    buf[3] = 0;
-
-    if (!strcmp(buf,"ER\n")){
-        return 1;
-    }else{
-        client_accept_s_expr(info->server_fd);
+#define FEST_SET_STR(name, fest_param) \
+    int \
+    name(FT_Info *info, char *param) \
+    { \
+        if (festival_check_info(info, #name)) return -1; \
+        if (param == NULL) return -1; \
+        FEST_SEND_CMD("("fest_param" \"%s\")", g_ascii_strdown(param, -1)); \
+        return festival_read_response(info); \
     }
 
-    if (festival_get_ack(&info, buf)) return 1;
+#define FEST_SET_SYMB(name, fest_param) \
+    int \
+    name(FT_Info *info, char *param) \
+    { \
+        if (festival_check_info(info, #name)) return -1; \
+        if (param == NULL) return -1; \
+        FEST_SEND_CMD("("fest_param" '%s)", g_ascii_strdown(param, -1)); \
+        return festival_read_response(info); \
+    } 
 
-    return 0;
-}
+#define FEST_SET_INT(name, fest_param) \
+    int \
+    name(FT_Info *info, int param) \
+    { \
+        if (festival_check_info(info, #name)) return -1; \
+        FEST_SEND_CMD("("fest_param" %d)", param); \
+        return festival_read_response(info); \
+    }
 
-int
-festivalSetVoice(FT_Info *info, char *voice)
-{
-    FILE* fd;
-    char buf[4];
-    int n;
-    int read_bytes = 0;
-
-    fd = fdopen(dup(info->server_fd),"wb");
-    /* Send the command and set new voice */
-    fprintf(fd,"(%s)\n", voice);
-    fclose(fd);
-
-    return festival_read_response(info);
-}
-
-int
-festivalSetRate(FT_Info *info, signed int rate)
-{
-    FILE* fd;
-    char buf[4];
-    int n;
-    float stretch;
-    int read_bytes = 0;
-
-    if (info == NULL) DBG("festivalSetRate called with info = NULL\n");
-    if (info->server_fd == -1) DBG("festivalSetRate: server_fd invalid\n");
-
-    stretch = 1;
-    if (rate < 0) stretch -= ((float) rate) / 50;
-    if (rate > 0) stretch -= ((float) rate) / 200;
-
-    fd = fdopen(dup(info->server_fd),"wb");
-    /* Send the command and set new voice */
-    fprintf(fd,"(Parameter.set \"Duration_Stretch\" %f)\n", stretch);
-    fclose(fd);
-
-    return festival_read_response(info);
-}
-
-int
-festivalSetPitch(FT_Info *info, signed int pitch, unsigned int mean)
-{
-    FILE* fd;
-    char buf[4];
-    int n;
-    int f0;
-    int read_bytes = 0;
-
-    if (info == NULL) DBG("festivalSetPitch called with info = NULL\n");
-    if (info->server_fd == -1) DBG("festivalSetPitch: server_fd invalid\n");
-
-    f0 = 100;
-    if (pitch < 0) f0 += pitch / 2;
-    if (pitch > 0) f0 += pitch;
-
-    fd = fdopen(dup(info->server_fd),"wb");
-    /* Send the command and set new voice */
-    fprintf(fd,"(set! int_lr_params '((target_f0_mean %d) (target_f0_std %d) (model_f0_mean 170) (model_f0_std 34)))\n", f0, mean);
-    fclose(fd);
-
-    return festival_read_response(info);
-}
-
-int
-festivalSetPunctuationMode(FT_Info *info, int mode)
-{
-    FILE* fd;
-    char buf[4];
-    int n;
-    int read_bytes = 0;
-
-    if (info == NULL) DBG("festivalSetPitch called with info = NULL\n");
-    if (info->server_fd == -1) DBG("festivalSetPitch: server_fd invalid\n");
-
-    assert((mode == 0) || (mode == 1) || (mode == 2));
-
-    fd = fdopen(dup(info->server_fd),"wb");
-    /* Send the command and set new voice */
-    if (mode == 0) fprintf(fd,"(set-punctuation-mode 'none)\n");
-    else if (mode == 1) fprintf(fd,"(set-punctuation-mode 'all)\n");
-    else if (mode == 2) fprintf(fd,"(set-punctuation-mode 'default)\n");
-    fclose(fd);
-
-    return festival_read_response(info);
-}
+FEST_SET_INT(FestivalSetRate, "speechd-set-rate");
+FEST_SET_INT(FestivalSetPitch, "speechd-set-pitch");
+FEST_SET_SYMB(FestivalSetPunctuationMode, "speechd-set-punctuation-mode");
+FEST_SET_STR(FestivalSetLanguage, "speechd-set-language");
+FEST_SET_STR(FestivalSetVoice, "speechd-set-voice");
 
 static FT_Info *festivalDefaultInfo()
 {

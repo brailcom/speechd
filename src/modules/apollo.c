@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.18 2003-09-07 11:24:54 hanke Exp $
+ * $Id: apollo.c,v 1.19 2003-10-07 16:52:00 hanke Exp $
  */
 
 
@@ -179,7 +179,7 @@ int module_init (void)
   return 0;
 }
 
-int module_write (char *data, size_t bytes)
+int module_speak (char *data, size_t bytes, EMessageType msgtype)
 {
   
   UPDATE_PARAMETER (rate, set_rate);
