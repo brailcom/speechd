@@ -804,6 +804,7 @@ about current external client libraries.
 * Other Functions in C::        
 * Information Retrieval Commands in C::  
 * History Commands in C::       
+* Direct SSIP Communication in C::  
 @end menu
 
 @node Initializing and Terminating in C, Speech Synthesis Commands in C, C API, C API
@@ -1182,7 +1183,7 @@ Sets the language that should be used for synthesis.
 @deffn {C API function}  int spd_set_output_module(int connection, char* output_module);
 @findex spd_set_output_module()
 
-Sets the output module that should be used for synthesis. Ther parameter
+Sets the output module that should be used for synthesis. The parameter
 of this command should always be entered by the user in some way
 and not hardcoded anywhere in the code as the available synthesizers
 and their registration names may vary from machine to machine.
@@ -1283,13 +1284,81 @@ the lowest and the loudest voice respectively.
 
 Currently there is none.
 
-@node History Commands in C,  , Information Retrieval Commands in C, C API
+@node History Commands in C, Direct SSIP Communication in C, Information Retrieval Commands in C, C API
 @subsection History Commands
 @findex spd_history_select_client()
 @findex spd_get_client_list()
 @findex spd_get_message_list_fd()
 
-libspeechd.c currently doesn't support history commands as defined in SSIP.
+@node Direct SSIP Communication in C,  , History Commands in C, C API
+@subsection Direct SSIP Communication in C
+
+It might happen that you want to use some SSIP function that is not
+available through this library or you may want to use an available
+function in a different manner. (If you think there is something
+missing in this library or you have some useful comment on the
+available functions, please let us know.) For this purpose, there are
+a few functions that will allow you to send arbitrary SSIP commands on
+your connection and read the replies.
+
+@deffn {C API function} int spd_execute_command(int connection, char *command);
+@findex spd_execute_command()
+
+You can send an arbitrary SSIP command specified in the parameter @code{commnad}.
+
+If the command is succesful, the function returns a 0. If there is no such
+command or the command failed for some reason, it returns -1.
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{command} is a null terminated string containing a full SSIP command
+without the terminating sequence @code{\r\n}.
+
+For example:
+@example
+        spd_execute_command(fd, "SET SELF RATE 60");
+        spd_execute_command(fd, "SOUND_ICON bell");
+@end example 
+
+It's not possible to use this function for composed commands like @code{SPEAK}
+where you are receiving more than one reply. If this is your case, please
+see `spd_send_data()'.
+@end deffn
+
+@deffn {C API function} char* spd_send_data(int connection, const char *message, int wfr);
+@findex spd_send_data()
+
+You can send an arbitrary SSIP string specified in the parameter @code{message}
+and, if specified, wait for the reply. The string can be an SSIP command, but
+it can also be textual data or a command parameter.
+
+If @code{wfr} (wait for reply) is set to SPD_WAIT_REPLY, you will receive the reply string
+as the return value. If wfr is set to SPD_NO_REPLY, the return value is a NULL pointer.
+In case wfr is set to SPD_WAIT_REPLY, you should always free the returned string.
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{message} is a null terminated string containing a full SSIP
+string.  If this is a complete SSIP command, it must include the full
+terminating sequence @code{\r\n}.
+
+@code{wfr} is either SPD_WAIT_REPLY (integer value of 1) or SPD_NO_REPLY (0).
+This specifies if you expect to get a reply on the send data according to SSIP.
+For example if you are sending an ordinary text inside a @code{SPEAK} command,
+you don't expect to get a reply. But you expect a reply after sending the final
+sequence @code{\r\n.\r\n}.
+
+For example (simplified by not checking and freeing the returned strings):
+@example
+        spd_send_data(fd, "SPEAK", SPD_WAIT_REPLY);
+        spd_send_data(fd, "Hello world!\n", SPD_NO_REPLY);
+        spd_send_data(fd, "How are you today?!", SPD_NO_REPLY);
+        spd_send_data(fd, "\r\n.\r\n.", SPD_WAIT_REPLY);
+@end example 
+
+@end deffn
+
+
 
 @node Python API,  , C API, Client Programming
 @section Python API
