@@ -1,5 +1,5 @@
 /* Speechd server functions
- * CVS revision: $Id: server.c,v 1.2 2002-06-30 00:15:59 hanke Exp $
+ * CVS revision: $Id: server.c,v 1.3 2002-07-02 07:57:12 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
 #include "speechd.h"
@@ -9,9 +9,41 @@
 
 char speaking_module[256] = "";
 
+void 
+stop_speaking_active_module()
+{
+   int speaking;
+   OutputModule *output;
+
+   if(strlen(speaking_module)>1){
+      output = g_hash_table_lookup(output_modules, speaking_module);
+      if (output == NULL) FATAL("Speaking module not in hash table.");
+      speaking = (*output->is_speaking) ();
+      if (speaking == 1) (*output->stop) ();
+   } 
+}
+
+char*
+history_get_client_list()
+{
+   THistoryClient *client;
+   char clist[1000] = "CLIENTS:\n\r\0";
+
+   gdsl_list_cursor_move_to_head(history);
+   while(1){
+     client = gdsl_list_cursor_get(history);
+     if (client == NULL) return "ERROR NO CLIENT";
+     strcat(clist, client->client_name);
+     strcat(clist,"\n\r\0");
+     if (gdsl_list_cursor_is_on_tail(history)) return clist;               
+     gdsl_list_cursor_move_forward(history);
+   }
+}
+
 /* This is only an experiment how to solve the pause() function. */
+
 int
-message_to_speak(TSpeechDMessage *elem)
+message_nto_speak(TSpeechDMessage *elem, void* value)
 {
    TFDSetElement *global_settings;
 
@@ -21,14 +53,14 @@ message_to_speak(TSpeechDMessage *elem)
 
    if (global_settings == NULL)
       FATAL("Couldn't find settings for active client, internal error.");
-
-    
+ 
    if (global_settings->paused == 0){
-	 return 1;
+	 return 0;
    }
    printf("found paused client ");
-   return 0;
+   return 1;
 }
+
 
 /*
   Speak() is responsible for getting right text from right
@@ -39,19 +71,19 @@ message_to_speak(TSpeechDMessage *elem)
 int 
 speak()
 {
-   TSpeechDMessage *element;
+   TSpeechDMessage *element = NULL;
    OutputModule *output;
-   int helper;
  
    /* We will browse through queues to see if we can say something. */
      if( gdsl_queue_is_empty(MessageQueue->p1) &&
          gdsl_queue_is_empty(MessageQueue->p2) &&
-         gdsl_queue_is_empty(MessageQueue->p3) ){
+         gdsl_queue_is_empty(MessageQueue->p3) &&
+         gdsl_list_is_empty(MessagePausedList)){
+         
          return 0;
       }
 
-      output = g_hash_table_lookup(output_modules, "flite"
-/*(char*) element->settings.output_module*/);
+      output = g_hash_table_lookup(output_modules, "flite");
 
       if (output == NULL)
          FATAL("Couldn't find appropiate output module.");
@@ -65,31 +97,34 @@ speak()
          return 0;
       }
 
-
-      /* We will descend through priorities to say more important
-         messages first. */
-      element = (TSpeechDMessage *) gdsl_queue_get(MessageQueue->p1); 
-      if (!message_to_speak(element)){
-         gdsl_queue_put((gdsl_queue_t) element, MessageQueue->p1);
-         return 0; 
-      }
-      if (element == NULL){
-         element = (TSpeechDMessage *) gdsl_queue_get(MessageQueue->p2); 
-         if (!message_to_speak(element)){
-            gdsl_queue_put((gdsl_queue_t) element, MessageQueue->p2);
-            return 0;
-         }
-         if (element == NULL){
-            element = (TSpeechDMessage *) gdsl_queue_get(MessageQueue->p3);
-            if (!message_to_speak(element)){
-               gdsl_queue_put((gdsl_queue_t) element, MessageQueue->p3);
-               return 0;
+      if(!gdsl_list_is_empty(MessagePausedList)){
+         element = gdsl_list_search_by_value(MessagePausedList,
+                      message_nto_speak, NULL); 
+         if (element != NULL){
+            gdsl_list_remove_by_value(MessagePausedList,
+                         message_nto_speak, NULL);
             }
+      }
+      if(element == NULL){
+         /* We will descend through priorities to say more important
+            messages first. */
+         element = (TSpeechDMessage *) gdsl_queue_get(MessageQueue->p1); 
+         if (element == NULL){
+            element = (TSpeechDMessage *) gdsl_queue_get(MessageQueue->p2); 
             if (element == NULL){
-               return 0;
-	    }
-         }
-      } 
+               element = (TSpeechDMessage *) gdsl_queue_get(MessageQueue->p3);
+               if (element == NULL){
+                  return 0;
+               }
+            }
+         } 
+      }
+
+      if (message_nto_speak(element, NULL)){
+         MSG(3, "Inserting message to paused list...\n");
+         gdsl_list_insert_tail(MessagePausedList, element);
+         return 0;
+      }
 
       /* Write the data to the output module. */
       (*output->write) (element->buf, element->bytes, &element->settings); 
@@ -155,33 +190,23 @@ typedef enum{
 }EStopCommands;
 
 int stop_c(EStopCommands command, int fd){
-   int speaking;
-   OutputModule *output;
    TFDSetElement *settings;
 
    if (command == STOP){
       /* first stop speaking on the output module */
-      if(strlen(speaking_module)>1){
-         output = g_hash_table_lookup(output_modules, speaking_module);
-         speaking = (*output->is_speaking) ();
-         if (speaking == 1) (*output->stop) ();
-      }
+      stop_speaking_active_module();
       /* then remove all queued messages for this client */ 
       // ...
    }
    
    if (command == PAUSE){
       /* first stop speaking on the output module */
-      if(strlen(speaking_module)>1){
-         output = g_hash_table_lookup(output_modules, speaking_module);
-         speaking = (*output->is_speaking) ();
-         if (speaking == 1) (*output->stop) ();
-      }
+      stop_speaking_active_module();
       /* Find settings for this particular client */
       settings = gdsl_list_search_by_value(fd_settings, fdset_list_compare, fd);
       if (settings == NULL)
          FATAL("Couldn't find settings for active client, internal error.");
-      // settings->paused = 1;      //doesn't work properly
+      settings->paused = 1;      
    }
 
    if (command == RESUME){
@@ -206,7 +231,6 @@ int stop_c(EStopCommands command, int fd){
 char* 
 parse(char *buf, int bytes, int fd)
 {
-   THistoryClient *history_client = NULL;
    TSpeechDMessage *new;
    TFDSetElement *settings;
    char *command;
@@ -221,7 +245,9 @@ parse(char *buf, int bytes, int fd)
    if ((buf == NULL) || (bytes == 0))
       FATAL("invalid buffer for parse()");	// this must be internal error
    
-   if (!awaiting_data[fd]){		// commands beggin with @
+   if (!awaiting_data[fd]){
+      if(buf[0] != '@') return "ERROR INVALID COMMAND\n\r";
+
       command = malloc(bytes+1);
       command = get_param(buf, 0, bytes);
 
@@ -248,7 +274,7 @@ parse(char *buf, int bytes, int fd)
             MSG(2, "switching to data mode...\n");
             return "OK RECEIVING DATA\n\r";
          }
-         return "ERROR INVALID COMMAND";
+         return "ERROR INVALID COMMAND\n\r";
       }
 
       if (!strcmp(command,"history")){
@@ -259,7 +285,7 @@ parse(char *buf, int bytes, int fd)
               
             }
             if (!strcmp(param,"client_list")){
-
+               return history_get_client_list();
             }  
             if (!strcmp(param,"message_list")){
 
@@ -302,7 +328,7 @@ parse(char *buf, int bytes, int fd)
       }
 
       if (!strcmp(command,"pause")){
-         MSG(2, "Pause recieved.");
+         MSG(2, "Pause recieved.\n");
          stop_c(PAUSE, fd);
          return "OK PAUSED\n\r";
        }
@@ -315,6 +341,8 @@ parse(char *buf, int bytes, int fd)
 
        if (!strcmp(command,"bye") || !strcmp(command,"quit")){
           MSG(2, "Bye received.\n");
+          /* Stop speaking. */
+          stop_speaking_active_module();
           /* send a reply to the socket */
           write(fd, "HAPPY HACKING\n\r", 15);
 
@@ -359,22 +387,23 @@ parse(char *buf, int bytes, int fd)
             gdsl_queue_put((gdsl_queue_t) MessageQueue->p3, new);
 
          /* Put the element new to history acording to it's fd. */
-         history_client = (THistoryClient*) gdsl_list_search_by_value(history,
-                           hc_list_compare,  fd);
-         if(history_client == NULL)
-            FATAL("no such history client, internal error\n");
+/*         history_client = (THistoryClient*) gdsl_list_search_by_value(history,
+                           hc_list_compare,  fd);*/
+/*         if(history_client == NULL)
+            FATAL("no such history client, internal error\n");*/
  
-         gdsl_list_insert_head(history_client->messages, new); 
-
-         o_bytes[fd] = 0;
+//         gdsl_list_insert_head(history_client->messages, new); 
 
          MSG(3, "%d bytes put in queue and history\n", o_bytes[fd]);
+         o_bytes[fd] = 0;
+         o_buf[fd][0]=0;
          return "OK MESSAGE QUEUED\n\r";
       }
 
       o_bytes[fd] += bytes;
       if (o_bytes[fd] >= BUF_SIZE) return("ERROR TOO MANY DATA");
       o_buf[fd][o_bytes[fd]]=0;
+      buf[bytes]=0;
       strcat(o_buf[fd],buf);
    }
 
@@ -386,19 +415,16 @@ serve(int fd)
 {
    int bytes;
    char buf[BUF_SIZE];
-   char *reply;
+   char reply[256] = "\0";
  
-   reply = malloc(4096);
-   strcpy(reply,"");
-  
    /* read data from socket */
    bytes = read(fd, buf, BUF_SIZE);
    MSG(3,"    read %d bytes from client on fd %d\n", bytes, fd);
 
    /* parse the data */
-   reply = parse(buf, bytes, fd);
+   strcpy(reply, parse(buf, bytes, fd));
    /* send a reply to the socket */
    write(fd, reply, strlen(reply));
-   
+
    return 0;
 }
