@@ -1,10 +1,35 @@
+
+2003-03-13	Hynek Hanke	<hanke@volny.cz
+	* src/modules/flite.c: Bug with swapped flite_is_speaking() and flite_close() fixed.
+	* src/intl/module.h: Bug with swapped flite_is_speaking() and flite_close() fixed.
+
+2003-03-12	Hynek Hanke	<hanke@volny.cz>
+
+	* src/clients/libspeechd.c (spd_say()): Bug with @data off corrected.
+	* src/clients/libspeechd.c (spd_voice_rate()): Renamed from spd_voice_speed().
+	* src/clients/libspeechd.c (spd_voice_punctuation()): Now accepts 3 values (0=no,1=full,2=some).
+	* src/server/server.c (parse()): o_buf now doesn't have fixed size.
+	* src/clients/say.c (main()): Things that shouldn't be there removed.
+	* src/server/parse.c (parse_set): New SSIP commands for settings.
+	* src/server/set.c: New SSIP commands for settings.
+	* src/modules/flite.c (flite_pause()): Function removed, unnecessary.
+	* src/modules/flite.c (flite_resume()): Function removed, unnecessary.
+	* src/modules/flite.c (flite_close()): New function.
+	* src/modules/festival.c (festival_pause()): Function removed, unnecessary.
+	* src/modules/festival.c (festival_resume()): Function removed, unnecessary.
+	* src/modules/module.h (OutputModule): Reworked.
+	* src/server/msg.h: New SSIP messages for the settings commands.
+	* src/server/set.h: Headers for new settings functions.
+
 2003-03-12  Milan Zamazal  <pdm@brailcom.org>
 
-	* src/clients/libspeechd.c: `speed' -> `rate'.
-	* src/clients/libspeechd.h: Likewise.
-	* src/clients/spd_center.c: Likewise.
+    * src/clients/libspeechd.c: `speed' -> `rate'.
+    * src/clients/libspeechd.h: Likewise.
+    * src/clients/spd_center.c: Likewise.
+
 
 2003-03-09	Hynek Hanke	<hanke@volny.cz>
+
 	* src/clients/libspeechd.c (spd_icon()): New function.
 	* src/clients/libspeechd.c (spd_say_letter()): New function.
 	* src/clients/libspeechd.c (spd_say_digit()): New function.
@@ -38,6 +63,7 @@
 	* doc/: Switched to Texinfo.
 
 11.1.2003	Hynek Hanke <hanke@volny.cz>
+
 	* /src/client/spd_center.c (spdc_complete): String completion from given template.
 	* /src/client/spd_center.h (quit()): endwin() added to fix the weird behavior after quitting.
 	* /src/client/spd_center.h (TComplete): Data type for string completion.
@@ -45,6 +71,7 @@
 	* /src/client/libspeechd.c (spd_history_say_msg()) (spd_history_select_client()) (spd_get_message_list_fd()): New functions.
 
 4.1.2003	Hynek Hanke	<hanke@volny.cz>
+
 	* /src/server/speechd.c (main): Added handling for SIGINT and the function quit() 
 	* /src/server/speechd.c (history_list_alloc_message): Bug with not copying the actual data of settings.language,output_module and client_name, but only pointers to them fixed.
 	* /src/server/server.c (serve): Bug with the missing FD_CLR() fixed.
@@ -68,6 +95,7 @@
 
 
 16.12.2002	Hynek Hanke	<hanke@volny.cz>
+
 	* /src/server/speechd.c (main): Test for msgs_to_say, select has timeout of 10us, but added a sleep() after each cycle (highly reduces CPU usage).
 	* /src/server/speechd.h (msgs_to_say): New global variable: number of messages to be said (for lower CPU usage)
 	* /src/client/spd_center.c: New file. Speech Deamon Center -- combined history and configuration client.
@@ -81,9 +109,11 @@
 	* /src/server/set.c (set_client_name()): Now affects also history client settings.
 	* /src/client/libspeechd.c: Multiline return values. History get clients/messages function.
 8.12.2002	Hynek Hanke	<hanke@volny.cz>
+
 	* Renamed back to Speech Deamon
 
 2.11.2002	Hynek Hanke	<hanke@volny.cz>
+
 	* gdsl --> glib2 transaction
 	* polished
 	* Autoconf and all it's standard files and various Makefile.am
