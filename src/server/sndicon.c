@@ -3,7 +3,7 @@
  * sndicon.c - Manipulates sound icons in their different forms
  *                  (icons, spelling tables, key tables, ...)
  *
- * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
+ * Copyright (C) 2002, 2003 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.c,v 1.6 2003-04-24 19:31:26 hanke Exp $
+ * $Id: sndicon.c,v 1.7 2003-05-07 19:06:49 hanke Exp $
 */
 
 #include "sndicon.h"
@@ -33,6 +33,7 @@ sndicon_queue(int fd, char* language, char* prefix, char* name)
     TSpeechDMessage *new;
     char *key;
     char *text;
+    char *ret;
 
     icons = g_hash_table_lookup(snd_icon_langs, language);
     if (icons == NULL){
@@ -44,20 +45,30 @@ sndicon_queue(int fd, char* language, char* prefix, char* name)
     sprintf(key, "%s_%s", prefix, name);
 	
     text = g_hash_table_lookup(icons, key); 
-
     if(text == NULL) return 2;
 
-    new = malloc(sizeof(TSpeechDMessage));
-    new->bytes = strlen(text)+1;
-    new->buf = malloc(new->bytes);
-    strcpy(new->buf, text);
-    if(queue_message(new, fd, 1, MSGTYPE_SOUND_ICON))  FATAL("Couldn't queue message\n");
+    new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
+    ret = (char*) spd_malloc ((strlen(text) + 1) * sizeof(char));
+
+    if(text[0] == '\"'){
+        /* Strip the leading and the trailing quotes */
+        strcpy(ret, &(text[1]));
+        ret[strlen(ret)-1] = 0;
+        new->bytes = strlen(ret)+1;
+        new->buf = ret;
+        if(queue_message(new, fd, 1, MSGTYPE_TEXTP))  FATAL("Couldn't queue message\n");
+    }else{     
+        strcpy(ret, text);
+        new->bytes = strlen(ret)+1;
+        new->buf = ret;
+        if(queue_message(new, fd, 1, MSGTYPE_SOUND))  FATAL("Couldn't queue message\n");
+    }
 
     return 0;
 }
 
 char*
-snd_icon_spelling_get(char *table, GHashTable *icons, char *name)
+snd_icon_spelling_get(char *table, GHashTable *icons, char *name, int *sound)
 {
     char *key;
     char *text;
@@ -68,9 +79,19 @@ snd_icon_spelling_get(char *table, GHashTable *icons, char *name)
 
     text = g_hash_table_lookup(icons, key); 
     if(text == NULL) return NULL;
+    if(strlen(text) == 0) return NULL;
 
     ret = (char*) spd_malloc((strlen(text)+1) *  sizeof(char));
-    strcpy(ret, text);
+
+    if(text[0] == '\"'){
+        *sound = 0;
+        /* Strip the leading and the trailing quotes */
+        strcpy(ret, &(text[1]));
+        ret[strlen(ret)-1] = 0;
+    }else{       
+        strcpy(ret, text);
+        *sound = 1;
+    }
     
     return ret;
 }
@@ -113,6 +134,7 @@ sndicon_key(int fd, char *name)
     GString *sequence;
     TSpeechDMessage *message;
     GHashTable *icons;
+    int sound;
 
     sequence = g_string_new("\0");
 
@@ -129,7 +151,7 @@ sndicon_key(int fd, char *name)
     if (key_name == NULL) return 1;
 
     do{
-        key_text = (char*) snd_icon_spelling_get(settings->key_table, icons, key_name);
+        key_text = (char*) snd_icon_spelling_get(settings->key_table, icons, key_name, &sound);
         if (key_text != NULL){            
             sequence = g_string_append(sequence," ");
             sequence = g_string_append(sequence, key_text);
