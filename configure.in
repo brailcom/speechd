@@ -7,7 +7,7 @@ AM_INIT_AUTOMAKE(speechd, "`cat version.sh|grep '^VERSION'|awk -F= '{print $2}'`
 dnl Checks for programs.
 AC_PROG_CC
 
-AM_CONFIG_HEADER(config.h.in)
+AM_CONFIG_HEADER(config.h)
 
 dnl Checks for libraries.
 AC_CHECK_LIB(dl, main)
