@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.6 2003-04-28 02:01:51 hanke Exp $
+  * $Id: speaking.c,v 1.7 2003-05-01 10:42:10 hanke Exp $
   */
 
 #include <glib.h>
@@ -29,8 +29,7 @@
 /*
   Speak() is responsible for getting right text from right
   queue in right time and saying it loud through corresponding
-  synthetiser. (Note that there can be a big problem with synchronization).
-  This runs in a separate thread.
+  synthetiser.  This runs in a separate thread.
 */
 void* 
 speak(void* data)
@@ -44,7 +43,7 @@ speak(void* data)
 
     ret = sigfillset(&all_signals);
     if (ret == 0){
-        ret = pthread_sigmask(SIG_BLOCK,&all_signals,NULL);
+        ret = pthread_sigmask(SIG_BLOCK, &all_signals, NULL);
         if (ret != 0) MSG(1, "Can't set signal set, expect problems when terminating!");
     }else{
         MSG(1, "Can't fill signal set, expect problems when terminating!");
@@ -81,7 +80,7 @@ speak(void* data)
 
             /* Check if sb is speaking or they are all silent. 
              * If some synthesizer is speaking, we must wait. */
-            if (is_sb_speaking()){
+            if (is_sb_speaking() == 1){
                 usleep(10);
                 continue;
             }
@@ -170,14 +169,14 @@ speak(void* data)
              * working under a locked mutex and blocking the second thread! */
 
             if(element->settings.type == MSGTYPE_TEXT){
-				MSG(4, "Processing message...");
+                MSG(4, "Processing message...");
                 buffer = (char*) process_message(element->buf, element->bytes, &(element->settings));
-				if (buffer == NULL){
-						MSG(3,"Processing message unsuccesful, using raw text!");
-					   	buffer = element->buf;
-				}
+                if (buffer == NULL){
+                    MSG(3,"Processing message unsuccesful, using raw text!");
+                    buffer = element->buf;
+                }
             }else{
-				MSG(4, "Passing message as it is...");
+                MSG(4, "Passing message as it is...");
                 buffer = element->buf;
             }
 
@@ -252,7 +251,7 @@ speaking_pause(int fd, int uid)
     if (settings == NULL) return 1;
     settings->paused = 1;     
 
-    if (!is_sb_speaking()) return 0;
+    if (is_sb_speaking() == 0) return 0;
     if (speaking_uid != uid) return 0;    
 
     msg_rest = (*speaking_module->pause) ();
@@ -420,6 +419,7 @@ void
 stop_from_uid(int uid)
 {
     GList *gl;
+
     pthread_mutex_lock(&element_free_mutex);
     while(gl = g_list_find_custom(MessageQueue->p1, &uid, p_msg_uid_lc)){
         if(gl->data != NULL) mem_free_message(gl->data);
