@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.13 2003-03-16 19:59:46 hanke Exp $
+ * $Id: speechd.h,v 1.14 2003-03-23 21:22:14 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -41,145 +41,129 @@
 #include <gmodule.h>
 #include <dotconf.h>
 #include <pthread.h>
-
-/*#ifndef EXIT_FAILURE
-#  define EXIT_FAILURE        1
-#endif*/
-
 #include <limits.h>
+
 #ifndef PATH_MAX
 #  define PATH_MAX 255
 #endif
 
-/* ==================================================================== */
-
 #include "def.h"
-
 #include "module.h"
+#include "history.h"
 #include "fdset.h"
 #include "set.h"
-
 #include "msg.h"
-/* ==================================================================== */
+#include "parse.h"
 
-
-#define BUF_SIZE 4096
+/* We should get rid of this very soon */
 #define MAX_CLIENTS 20
 
-fd_set readfds;
-
-pthread_t speak_thread;
-
-int fdmax;
-
-int msgs_to_say;
-/* associative array of all configured (and succesfully loaded) output modules */
-
-GHashTable *output_modules;	
-
-/* 
-  TSpeechDQueue is a queue for messages. 
-*/
-
+/*  TSpeechDQueue is a queue for messages. */
 typedef struct{
-	char *name[100];	// name of the output module
-	GList *p1;	// priority 1 queue
-	GList *p2;	// priority 2 queue
-	GList *p3;	// priority 3 queue
+	GList *p1;			/* priority 1 queue */
+	GList *p2;			/* priority 2 queue */
+	GList *p3;			/* priority 3 queue */
 }TSpeechDQueue;
 
-/*
-  TSpeechDMessage is an element of TSpeechDQueue,
-  that is, some text with ''formating'' tags inside.
-*/
-
+/*  TSpeechDMessage is an element of TSpeechDQueue,
+    that is, some text with ''formating'' tags inside. */
 typedef struct{
-   guint id;
-   time_t time;
-   char *buf;		// the actual text
-   int bytes;		// number of bytes in buf
-   TFDSetElement settings;
+   guint id;			/* unique id */
+   time_t time;			/* when was this message received */
+   char *buf;			/* the actual text */
+   int bytes;			/* number of bytes in buf */
+   TFDSetElement settings;	/* settings of the client when queueing this message */
 }TSpeechDMessage;
 
-
-TSpeechDQueue *MessageQueue;
-GList *MessageList;
-
-GList *MessagePausedList;
-
-GList *fd_settings;	// list of current settings for each
-				// client (= each active socket)
-
-GHashTable *snd_icon_langs;
-
-TFDSetElement GlobalFDSet;
-
-/* History */
-
-GList *history;
-
-typedef enum{
-   BY_TIME = 0,
-   BY_ALPHABET = 1
-}ESort;
-
+/* THistoryClient is a structure associated to each
+ * client either active or inactive, maintaining it's history */
 typedef struct{
-   int fd;
-   int uid;
-   guint cur_client_id;
-   int cur_pos;
-   ESort sorted;
-}THistSetElement;
-
-GList *history_settings;
-
-typedef struct{
-   int fd;
-   guint uid;
-   char *client_name;
-   int active;
-   GList *messages;
+   guint uid;			/* unique id */
+   int fd;				/* file descriptor if active, or 0 if gone */
+   char *client_name;	/* client's name */
+   int active;			/* 1 for active, 0 if gone */
+   GList *messages;		/* list of messages in it's history */
 }THistoryClient;
 
-OutputModule* load_output_module(gchar* modname);
-int serve(int fd); 	// serve the client on this file descriptor (socket)
-
-gint fdset_list_compare_fd (gconstpointer, gconstpointer, gpointer);
-gint fdset_list_compare_uid (gconstpointer, gconstpointer, gpointer);
-gint message_nto_speak (TSpeechDMessage*, gpointer, gpointer);
-gint message_list_compare_fd (gconstpointer, gconstpointer, gpointer);
-
-gint (*p_fdset_lc_fd)();
-gint (*p_fdset_lc_uid)();
-gint (*p_msg_nto_speak)();
-gint (*p_hc_lc)();
-gint (*p_msg_lc)();
-gint (*p_cli_comp_id)();
-gint (*p_cli_comp_fd)();
-
-GArray *awaiting_data;
-GArray *o_bytes;
-
-GString *o_buf[MAX_CLIENTS];
-
-char* parse_history(char *buf, int bytes, int fd);
-char* parse_set(char *buf, int bytes, int fd);
-char* get_param(char *buf, int n, int bytes);
-
+/* EStopCommands describes the stop family of commands */
 typedef enum{
 	STOP = 1,
 	PAUSE = 2,
 	RESUME = 3
 }EStopCommands;
 
+/* Variables for socket communication */
+int fdmax;
+fd_set readfds;
+
+/* speak() thread */
+pthread_t speak_thread;
+pthread_mutex_t element_free_mutex;
+
+/* How many messages in total are waiting in the queues */
+int msgs_to_say;
+
+/* Table of all configured (and succesfully loaded) output modules */
+GHashTable *output_modules;	
+/* Table of settings for each active client (=each active socket)*/
+GHashTable *fd_settings;	
+/* Table of sound icons for different languages */
+GHashTable *snd_icon_langs;
+
+/* Speech Deamon main priority queue for messages */
+TSpeechDQueue *MessageQueue;
+/* List of messages from paused clients waiting for resume */
+GList *MessagePausedList;
+
+/* Global default settings */
+TFDSetElement GlobalFDSet;
+/* Settings related to history */
+GList *history_settings;
+
+/* List of all clients' histories */
+GList *history;
+
+/* Loads output module */
+OutputModule* load_output_module(gchar* modname);
+
+/* Arrays needed for receiving data over socket */
+GArray *awaiting_data;
+GArray *o_bytes;
+GString *o_buf[MAX_CLIENTS];
+
+/* speak() runs in a separate thread, pulls messages from
+ * the priority queue and sends them to synthesizers */
+void* speak(void*);						
+
+/* serve() reads data from clients and sends it to parse() */
+int serve(int fd);
+
+/* Decides if the message should (not) be spoken now */
+gint message_nto_speak (TSpeechDMessage*, gpointer, gpointer);
+
+/* Functions for parsing the input from clients */
+/* also parse() */
+char* get_param(char *buf, int n, int bytes);
+
+/* stop_c() implements the stop family of commands */
 int stop_c(EStopCommands command, int fd, int target);
 		
+/* Stops all messages from client on fd */
+void stop_from_client(int fd);
+
 /* isanum() tests if the given string is a number,
  * returns 1 if yes, 0 otherwise. */
 int isanum(char *str);
 
-void stop_from_client(int fd);
-int speak();
-						
+/* Functions for searching through lists */
+gint message_list_compare_fd (gconstpointer, gconstpointer, gpointer);
+gint hc_list_compare (gconstpointer, gconstpointer, gpointer);		
+
+/* Some pointers to functions for searching through lists */
+gint (*p_msg_nto_speak)();
+gint (*p_hc_lc)();
+gint (*p_msg_lc)();
+gint (*p_cli_comp_id)();
+gint (*p_cli_comp_fd)();
 
 #endif

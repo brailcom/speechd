@@ -21,8 +21,14 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.h,v 1.3 2003-03-12 22:28:37 hanke Exp $
+ * $Id: set.h,v 1.4 2003-03-23 21:22:14 hanke Exp $
  */
+
+#ifndef ALLOC_H
+ #define ALLOC_H
+
+#include "speechd.h"
+#include "history.h"
 
 int set_priority(int fd, int priority);
 int set_language(int fd, char *language);
@@ -32,7 +38,10 @@ int set_punct_mode(int fd, int punct);
 int set_cap_let_recog(int fd, int recog);
 int set_spelling(int fd, int spelling);
 
+TFDSetElement* default_fd_set(void);
 		
+
+#endif		
 		
 		
 		

@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.c,v 1.7 2003-02-01 22:16:55 hanke Exp $
+ * $Id: history.c,v 1.8 2003-03-23 21:22:14 hanke Exp $
  */
 
 #include "speechd.h"
@@ -305,4 +305,13 @@ char* history_say_id(int fd, int id){
    msgs_to_say++;
 
    return OK_MESSAGE_QUEUED;
+}
+
+THistSetElement*
+default_history_settings(){
+	THistSetElement* new;
+	new = malloc(sizeof(THistSetElement));
+	new->cur_pos = 1;
+	new->sorted = BY_TIME;  
+	return new;
 }

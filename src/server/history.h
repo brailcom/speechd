@@ -21,37 +21,42 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.h,v 1.3 2003-02-01 22:16:55 hanke Exp $
+ * $Id: history.h,v 1.4 2003-03-23 21:22:14 hanke Exp $
  */
 
-char* 
-history_get_client_list();
+#ifndef ALLOC_H
+ #define ALLOC_H
 
-char* 
-history_get_message_list(guint client_id, int from, int num);
+#include "speechd.h"
 
-char* 
-history_get_last(int fd);
+typedef enum{
+	BY_TIME = 0,
+	BY_ALPHABET = 1
+}ESort;
 
-char*
-history_cursor_set_last(int fd, guint client_id);
 
-char*
-history_cursor_set_first(int fd, guint client_id);
+typedef struct{
+	int fd;
+	int uid;
+	guint cur_client_id;
+	int cur_pos;
+	ESort sorted;
+}THistSetElement;
 
-char*
-history_cursor_set_pos(int fd, guint client_id, int pos);
+THistSetElement* default_history_settings();
 
-char*
-history_cursor_next(int fd);
-
-char*
-history_cursor_prev(int fd);
-
-char*
-history_cursor_get(int fd);
-
+char* history_get_client_list();
+char* history_get_message_list(guint client_id, int from, int num);
+char* history_get_last(int fd);
+char* history_cursor_set_last(int fd, guint client_id);
+char* history_cursor_set_first(int fd, guint client_id);
+char* history_cursor_set_pos(int fd, guint client_id, int pos);
+char* history_cursor_next(int fd);
+char* history_cursor_prev(int fd);
+char* history_cursor_get(int fd);
 char* history_say_id(int fd, int id);
-
+		
 gint (*p_cli_comp_id)();
+
+#endif
 
