@@ -466,8 +466,15 @@ int festivalClose(FT_Info *info)
     if (info == 0)
 	return 0;
 
-    if (info->server_fd != -1)
+    if (info->server_fd != -1){
+        FILE *fd;
+        fd = fdopen(dup(info->server_fd),"wb");
+        if (fd != NULL){
+            fprintf(fd,"(quit)\n");
+            fclose(fd);
+        }
 	close(info->server_fd);
+    }
 
     return 0;
 }
