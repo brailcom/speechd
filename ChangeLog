@@ -1,3 +1,24 @@
+2003-05-25  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/server/sndicon.c (queue_message): New parameter passed.
+	Handle `space' as CHAR parameter.
+
+	* src/server/msg.h (OK_VOICE_LIST_SENT): New SSIP message.
+
+	* src/server/history.c (queue_message): New parameter passed.
+
+	* src/server/server.c (queue_message): New parameter: is it a whole message or only a piece?
+	(queue_messages):  New parameter: is it a whole message or only a piece?
+
+	* intl/fdset.h (TFDSetElement): New flag for messages after spelling and punctuation.
+
+	* src/server/speaking.c (speak): Handle priority 3 messages sent in more pieces (after processing).
+
+	* src/server/parse.c (get_param): Parameters aren't enclosed in doublequotes.
+	(parse_char): Handle "space" parameter.
+	(parse_list): LIST VOICES implemented.
+
+
 2003-05-22  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/modules/festival.c: All internal objects declared static.
@@ -6,7 +27,8 @@
 	(module_getvoice): Report "Unknown voice" instead of "Internal
 	error".
 
-2003-05-21  Hynek Hanke  <hanke@localhost.localdomain>
+
+2003-05-21  Hynek Hanke  <hanke@volny.cz>
 	
 	* src/server/speaking.c (speak): Don't include process message into mutex.
 

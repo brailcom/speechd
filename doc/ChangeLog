@@ -1,10 +1,15 @@
-2003-05-11  Hynek Hanke  <hanke@localhost.localdomain>
+2003-05-25  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* speechd.texi (SSIP): Description of how to pass space to CHAR.
+	LIST SPELLING_TABLES only lists available tables.
+
+2003-05-11  Hynek Hanke  <hanke@volny.cz>
 
 	* speechd.texi (Public API): New division.
 	
 	* speechd.texi (C API): New section, functions documented.
 
-2003-05-01  Hynek Hanke  <hanke@localhost.localdomain>
+2003-05-01  Hynek Hanke  <hanke@volny.cz>
 
 	* speechd.texi (Output Modules): Section amplified, splitted into nodes
 	and updated.

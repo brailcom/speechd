@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.h,v 1.4 2003-05-07 19:08:56 hanke Exp $
+ * $Id: sndicon.h,v 1.5 2003-05-25 21:08:54 hanke Exp $
  */
 
 #ifdef SNDICON_H
@@ -39,5 +39,5 @@ char* sndicon_list_sound_tables();
 char* sndicon_list_char_tables();
 char* sndicon_list_key_tables();
 char* sndicon_list_punctuation_tables();		
-		
+
 #endif /* SNDICON_H */		
