@@ -1,3 +1,7 @@
+2003-04-28  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/Makefile.am (SUBDIRS): Process `audio' before `modules'.
+
 2003-04-28  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* src/server/speaking.h: New headers for speaking_pause_all(), speaking_resume_all().
