@@ -34,7 +34,25 @@
 
       <sect3><title>Festival</title>
 	<para>
-	  ...
+	  Festival is a multilingual Free Software texto to speech synthetiser
+          with available high quality speech databases. One of it's problems
+          is that some of the most important databases are not free.
+          (eg. the database for British English is non-free). Other problem
+          is that Festival is intended rather as a platform for research
+          and developement than as an end-user product and therefore is
+          big and not-so-easy to install. The problem we face as Speech
+          Developers is that we don't know how to communicate with it
+          effectivelly. (We will discuss this issue with Alan Black,
+          the main developer.)
+	</para>
+      </sect3>
+
+      <sect3><title>Flite</title>
+	<para>
+         Flite is a light fully free english speech software synthetiser
+         with good quality of sound developed by the authors of festival
+         as an end-user product. It's very fast, however, we currently
+         don't know how to configure it (it seems it is not possible yet).
 	</para>
       </sect3>
 
@@ -44,23 +62,28 @@
 	</para>
       </sect3>
 
-      <sect3><title>IBM ViaVoice</title>
+      <sect3 id="synth_viavoice"><title>IBM ViaVoice</title>
 	<para>
-	  IBM ViaVoice is a commercial product, but we see it to be very good.
-	  It is available for Linux, ....
+	  IBM ViaVoice is a commercial proprietary product, but we see
+          it to be very good technically. It is available for GNU/Linux, ....
+          The main problem is that ViaVoice is not free (as in freedom,
+          it doesn't have to be free as gratis). Until it changes it's
+          licence, we can't use it in Free World / Free Operating System.
 	</para>
       </sect3>
       
-      <sect3><title>MBrola project</title>
+      <sect3><title>MBROLA project</title>
 	<para>
-	  MBrola is a software speech synhesis ...
+	  MBROLA is a software speech synhesis ... which is only partially
+          free. See <xref linkend="synth_viavoice"/> for description of
+          problems we face.
 	</para>
       </sect3>
       
       <sect3><title>Odmluva</title>
 	<para>
-	  Odmluva is a simple (and very light) czech software speech synhesis
-	  ...
+	  Odmluva is a simple (and very light) free czech software speech
+          synhesis ...
 	</para>
       </sect3>
 
@@ -111,7 +134,7 @@
         None of these programs are normally run by the user directly.  Instead,
 	they are run by Emacs. That is: Emacs runs the emacspeak code, which executes
 	Tcl, which interprets the server code. This approach is too closely "wired"
-	to usage with Emacspeak, so it may not be used for our general purposes.
+	to usage with Emacspeak, so it can't be used for our general purposes.
       </para>
       
       <para>
@@ -122,7 +145,7 @@
       </para>
       
       <para>
-        Bart Bunting is working on a speech server using the MBrola speech synthesis.
+        Bart Bunting is working on a speech server using the MBROLA speech synthesis.
       </para>
       
     </sect2>
@@ -208,7 +231,10 @@
 
   <sect1>
     <title>What we lack</title>
-    <para> 
+    <para>
+    Most software synthetisers don't provide *any* king of synchronisation.
+    It seems neraly impossible to integrate such programs into Speech Deamon
+    because synchronisation is one of the most important things there.
     </para>
   </sect1>
   
