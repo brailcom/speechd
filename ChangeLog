@@ -1,3 +1,9 @@
+2003-05-29  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/tests/long_message.c (main): Split multi-line strings to
+	single-line strings.
+	* src/tests/multiple_messages.c (main): Likewise.
+
 2003-05-27  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/c/api/libspeechd.c (xmalloc): Prototype declaration fixed.
