@@ -19,30 +19,125 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: say.c,v 1.5 2003-07-06 15:09:18 hanke Exp $
+ * $Id: say.c,v 1.6 2004-05-23 21:24:04 hanke Exp $
  */
 
 #include <stdio.h>
+#include <assert.h>
 #include "libspeechd.h"
+#include "options.h"
 
 #define FATAL(msg) { perror("client: "msg); exit(1); }
 
-int main(int argc, const char **argv) {
+int main(int argc, char **argv) {
    int sockfd;
    int err;
 
-   /* Check if the text to say is specified as argument */
-   if (argc != 2) {
-      fprintf (stderr, "usage: %s ARGUMENT\n", argv[0]);
-      return 1;
+   /* Check if the text to say is specified in the argument */
+   if (argc < 2) {
+       options_print_help();
+       return 1;
    }
+
+   rate = -101;
+   pitch = -101;
+   volume = -101;
+   language = NULL;
+   voice_type = NULL;
+   punctuation_mode = NULL;
+   spelling = -2;
+
+   options_parse(argc, argv);
    
-   /* Open a connection to Speech Deamon */
+   /* Open a connection to Speech Dispatcher */
    sockfd = spd_open("say","main", NULL);
    if (sockfd == 0) FATAL("Speech Dispatcher failed to open");
 
+   /* Set the desired parameters */
+
+   if (output_module != NULL)
+       if(spd_set_output_module(sockfd, output_module))
+	   printf("Invalid language!\n");
+
+
+   if (language != NULL)
+       if(spd_set_language(sockfd, language))
+	   printf("Invalid language!\n");
+
+   if (voice_type != NULL){
+       int ret;
+       if (!strcmp(voice_type, "male1")){
+	   if(spd_set_voice_type(sockfd, SPD_MALE1))
+	       printf("Can't set this voice!\n");
+       }
+       else if(!strcmp(voice_type, "male2")){
+	   if(spd_set_voice_type(sockfd, SPD_MALE2))
+	       printf("Can't set this voice!\n");
+       }
+       else if(!strcmp(voice_type, "male3")){
+	   if(spd_set_voice_type(sockfd, SPD_MALE3))
+	       printf("Can't set this voice!\n");
+       }
+       else if(!strcmp(voice_type, "female1")){
+	   if(spd_set_voice_type(sockfd, SPD_FEMALE1))
+	       printf("Can't set this voice!\n");
+       }
+       else if(!strcmp(voice_type, "female2")){
+	   if(spd_set_voice_type(sockfd, SPD_FEMALE2))
+	       printf("Can't set this voice!\n");
+       }
+       else if(!strcmp(voice_type, "female3")){
+	   if(spd_set_voice_type(sockfd, SPD_FEMALE3))
+	       printf("Can't set this voice!\n");
+       }
+       else if(!strcmp(voice_type, "child_male")){
+	   if(spd_set_voice_type(sockfd, SPD_CHILD_MALE))
+	       printf("Can't set this voice!\n");
+       }
+       else if(!strcmp(voice_type, "child_female")){
+	   if(spd_set_voice_type(sockfd, SPD_CHILD_FEMALE))
+	       printf("Can't set this voice!\n");
+       }else{
+	   printf("Invalid voice\n");
+       }
+   }
+
+   if (rate != -101) 
+       if(spd_set_voice_rate(sockfd, rate))
+	   printf("Invalid rate!\n");
+
+   if (pitch != -101) 
+       if(spd_set_voice_pitch(sockfd, pitch))
+	   printf("Invalid pitch!\n");
+   
+   if (volume != -101) 
+       if(spd_set_volume(sockfd, volume))
+	   printf("Invalid volume!\n");
+
+   if(spelling == 1)
+       if(spd_set_spelling(sockfd, SPD_SPELL_ON))
+	   printf("Can't set spelling to on!\n");
+
+   if (punctuation_mode != NULL){
+       if (!strcmp(punctuation_mode, "none")){
+	   if(spd_set_punctuation(sockfd, SPD_PUNCT_NONE))
+	       printf("Can't set this punctuation mode!\n");
+       }
+       else if(!strcmp(punctuation_mode, "some")){
+	   if(spd_set_punctuation(sockfd, SPD_PUNCT_SOME))
+	       printf("Can't set this punctuation mode!\n");
+       }
+       else if(!strcmp(punctuation_mode, "all")){
+	   if(spd_set_punctuation(sockfd, SPD_PUNCT_ALL))
+	       printf("Can't set this punctuation mode!\n");
+       }else{
+	   printf("Invalid punctuation mode\n");
+       }
+   }
+
    /* Say the message with priority "text" */
-   err = spd_sayf(sockfd, SPD_TEXT, (char*) argv[1]);
+   assert(argv[argc-1]);
+   err = spd_sayf(sockfd, SPD_TEXT, (char*) argv[argc-1]);
    if (err == -1) FATAL("Speech Dispatcher failed to say message");
    
    /* Close the connection */
