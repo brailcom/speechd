@@ -199,19 +199,16 @@ is that some of the most important databases are not free.
 (e.g. the database for British English is non-free). Other problem
 is that Festival is intended rather as a platform for research
 and development than as an end-user product and therefore is
-big and not-so-easy to install. The problem we face as Speech Daemon
-Developers is that it's too slow to be really useful for most
-applications.
+big and not-so-easy to install. 
 
 @item Flite
 
 Flite stands for Festival Lite and it is a light fully free English
 speech software synthesizer with good quality of sound, developed
-by the authors of festival as an end-user product. It's very fast,
-however, we currently don't know how to configure it (it seems it
-is not possible yet) and it seems that the developers have some
-problems with importing the voices from Festival. Speech Daemon
-currently uses Flite as it's primary output module for English.
+by the authors of festival as an end-user product. It seems that
+the developers have some problems with importing the voices from
+Festival. Speech Daemon currently uses Flite as it's primary
+output module for English.
 
 @item Odmluva
 
@@ -562,10 +559,14 @@ voice_type is used only when the output module supports more types of voices
 for this particular language. The values represent (from @file{intl/fdset.h})
 @example
 typedef enum @{
-    MALE = 0,
-    FEMALE = 1,
-    CHILD_MALE = 2,
-    CHILD_FEMALE = 3
+    MALE1 = 0,
+    MALE2 = 1,
+    MALE3 = 2,
+    FEMALE1 = 3,
+    FEMALE2 = 4,
+    FEMALE3 = 5,
+    CHILD_MALE = 6,
+    CHILD_FEMALE = 7
 @}EVoiceType;
 @end example
 We can consider also other voice types. 
@@ -631,14 +632,10 @@ It should return 0 on success, -1 otherwise.
 @findex spd_get_client_list()
 @findex spd_get_message_list_fd()
 
+@c This needs to be reworked.
 @ifinfo
 @verbatiminclude ../src/c/api/libspeechd.h
 @end ifinfo
-
-@c don't know if it's really The Right Thing, but I often miss *any*
-@c description in the header files, and there is literate programming
-@c on the other side. if you have a reason why it's not OK, I'm open
-@c to the idea to move it all here
 
 @node SSIP, Priorities, Public API, Top
 @chapter Speech Synthesis Internet Protocol (SSIP)
