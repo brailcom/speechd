@@ -1,4 +1,15 @@
 
+Version 0.0.9
+  * Generic output module (+definition for the Epos synthesiser)
+  * Better autoconf configuration
+  * Restructured documentation
+  * Block support in SSIP
+  * Bug-fixes
+  * Daemon implementation
+  * Better configuration
+  * Capital letters recognition
+  * Experimental support for ogg sound icons.
+
 Version 0.0.8
   * Output modules reworked (now using a common mechanism)
   * New priority system (now using 5 priorities)

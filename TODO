@@ -1,13 +1,43 @@
 
-Short-term goals:
-	* documentation about tables
-	* Old messages in history must expire 
 
-Longer-term goals:
+
+Short-term goals
+================
+
+	* default port ... find a suitable port number without any conflict.
+
+	* modularize TTS functionality ... Speech Dispatcher now contains some TTS-like
+       functionality, but it is desirable not to include it in server core.  It
+       should be available as an external module.
+
+	* client configuration ... enable to override certain configuration options
+	   based on client/connection name.
+
+	* default (language independent tables) + add to NEWS
+
+	* finish/rework documentation of output modules
+
+	* reset parameters when reconnecting to Festival server
+
+Longer-term goals
+=================
+
+	* clear CVS
+	* translate documentation to Czech
+	* debugging ... focus on segfaults
+	* documentation ... finish.
 	* volume setting for synthetizers
+
 	* Sorting in history.
 	* HISTORY commands and their return values (more...)
-	? Implement text tables.	
 
 	* (History should be saved to disk when Speech Dispatcher terminates)
+
+We don't know how to do it (external help needed)
+=================================================
+	* noises/cracking ... Festival + MBROLA + Czech language makes some strange
+	   noises while speakig.
+	* install output modules with debugging symbols (not stripped)
+	* RPM packaging
+	* documentation how to install MBROLA with Festival and Speech Dispatcher
 
