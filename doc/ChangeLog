@@ -2,6 +2,8 @@
 
 	* speechd.texi (Parameter setting commands): CLIENT_NAME can be
 	set at most once.
+	(Speech synthesis and sound output commands): Removed the remark
+	about SPEAK being the only message type stored into history.
 
 2003-04-22  Milan Zamazal  <pdm@brailcom.org>
 
