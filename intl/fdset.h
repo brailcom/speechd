@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.27 2004-02-10 21:06:29 hanke Exp $
+ * $Id: fdset.h,v 1.28 2004-02-23 22:26:30 hanke Exp $
  */
 
 #ifndef FDSET_H
@@ -93,13 +93,17 @@ typedef struct{
     char *output_module;        /* Output module name. (e.g. "festival", "flite", "apollo", ...) */
     EVoiceType voice;           /* see EVoiceType definition above */
     ECapLetRecogn cap_let_recogn;         /* Capital letters recognition: (0 - off, 1 - on) */
-    unsigned int hist_cur_uid;
-    int hist_cur_pos;
-    ESort hist_sorted;
+
     int reparted;
     unsigned int min_delay_progress;
     int pause_context;          /* Number of words that should be repeated after a pause */
     int index_mark;             /* Current index mark for the message (only if paused) */
+
+    /* TODO: Should be moved out */
+    unsigned int hist_cur_uid;
+    int hist_cur_pos;
+    ESort hist_sorted;
+
 }TFDSetElement;
 
 typedef struct{
