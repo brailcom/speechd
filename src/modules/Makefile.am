@@ -12,7 +12,7 @@ libsdflite_la_LDFLAGS = -lsdaudio -lflite_cmu_us_kal -lflite_cmu_time_awb -lflit
 libsdcstsnd_la_SOURCES = cstsnd.c
 libsdcstsnd_la_LDFLAGS = -lsdaudio -lm
 
-libsdfestival_la_SOURCES = festival.c module_utils.c
+libsdfestival_la_SOURCES = festival.c
 libsdfestival_la_LDFLAGS = -lm -lsdaudio
 
 
