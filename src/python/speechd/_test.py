@@ -29,7 +29,7 @@ tests = TestSuite()
 class Client(unittest.TestCase):
     def check_it(self):
         c = client.Client('bill', 'xxx', 'yyy')
-        c.set_rate(0)
+        c.set_rate(30)
         c.set_language('en')
         c.say("Hello, this is a Python client test.")
         c.set_pitch(-100)
@@ -41,6 +41,9 @@ class Client(unittest.TestCase):
         c.say("I am quick Dick.")
         c.set_rate(-100)
         c.say("I am slow Joe.")
+        c.set_language('cs')
+        c.set_rate(50)
+        c.say("No, to je teda sebranka!")
         c.close()
 tests.add(Client)
 
