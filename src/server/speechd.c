@@ -1,4 +1,3 @@
-
 /*
  * speechd.c - Speech Dispatcher server program
  *  
@@ -19,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.51 2003-10-12 23:34:38 hanke Exp $
+ * $Id: speechd.c,v 1.52 2003-10-15 20:56:43 hanke Exp $
  */
 
 #include "speechd.h"
@@ -552,7 +551,8 @@ create_pid_file()
     /* Create a new pid file and lock it */
     pid_file = fopen(speechd_pid_file, "w");
     if (pid_file == NULL){
-        fprintf(stderr, "Can't create pid file in /var/run/, wrong permissions?\n");
+        fprintf(stderr, "Can't create pid file in %s, wrong permissions?\n",
+                speechd_pid_file);
         return -1;
     }
     fprintf(pid_file, "%d\n", getpid());
@@ -597,7 +597,11 @@ main(int argc, char *argv[])
 
     options_parse(argc, argv);
 
-    speechd_pid_file = strdup("/var/run/speechd.pid");
+    if (!strcmp(PIDPATH, ""))
+        speechd_pid_file = strdup("/var/run/speechd.pid");
+    else
+        speechd_pid_file = strdup(PIDPATH);
+
     if (create_pid_file() == -1) exit(1);
 
     /* Don't print anything on console... */
