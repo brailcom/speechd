@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.10 2004-04-04 21:11:06 hanke Exp $
+ * $Id: generic.c,v 1.11 2004-05-23 13:43:20 hanke Exp $
  */
 
 #include <glib.h>
@@ -36,7 +36,6 @@ DECLARE_DEBUG();
 
 /* Thread and process control */
 static int generic_speaking = 0;
-static EVoiceType generic_cur_voice = MALE1;
 
 static pthread_t generic_speak_thread;
 static pid_t generic_pid;
@@ -51,15 +50,16 @@ static int generic_pause_requested = 0;
 static char *execute_synth_str1;
 static char *execute_synth_str2;
 
-static int generic_msg_pitch;
-static int generic_msg_rate;
-static EVoiceType generic_msg_voice;
-static char* generic_msg_language;
-
 /* Internal functions prototypes */
 static void* _generic_speak(void*);
 static void _generic_child(TModuleDoublePipe dpipe, const size_t maxlen);
 static void generic_child_close(TModuleDoublePipe dpipe);
+
+void generic_set_rate(signed int rate);
+void generic_set_pitch(signed int pitch);
+void generic_set_voice(EVoiceType voice);
+void generic_set_language(char* language);
+void generic_set_volume(signed int volume);
 
 /* Fill the module_info structure with pointers to this modules functions */
 
@@ -75,8 +75,18 @@ MOD_OPTION_1_INT(GenericRateForceInteger);
 MOD_OPTION_1_INT(GenericPitchAdd);
 MOD_OPTION_1_FLOAT(GenericPitchMultiply);
 MOD_OPTION_1_INT(GenericPitchForceInteger);
-
+MOD_OPTION_1_INT(GenericVolumeAdd);
+MOD_OPTION_1_FLOAT(GenericVolumeMultiply);
+MOD_OPTION_1_INT(GenericVolumeForceInteger);
 MOD_OPTION_3_HT(GenericLanguage, code, name, charset);
+
+
+static char* generic_msg_pitch_str = NULL;
+static char* generic_msg_rate_str = NULL;
+static char* generic_msg_volume_str = NULL;
+static char *generic_msg_voice_str = NULL;
+static TGenericLanguage* generic_msg_language = NULL;
+
 
 /* Public functions */
 
@@ -149,27 +159,24 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
     
     if(module_write_data_ok(data) != 0) return -1;
 
-    generic_msg_pitch = msg_settings.pitch;
-    generic_msg_rate = msg_settings.rate;
-    generic_msg_voice = msg_settings.voice;
-    generic_msg_language = g_strdup(msg_settings.language);
+    UPDATE_PARAMETER(pitch, generic_set_pitch);
+    UPDATE_PARAMETER(rate, generic_set_rate);
+    UPDATE_PARAMETER(volume, generic_set_volume);
+    UPDATE_PARAMETER(language, generic_set_language);
+    UPDATE_PARAMETER(voice, generic_set_voice);
 
     /* Set the appropriate charset */
-    language = (TGenericLanguage*) module_get_ht_option(GenericLanguage, generic_msg_language);
-    if (language != NULL){
-        if (language->charset != NULL){
-            *generic_message = 
-                (char*) g_convert_with_fallback(data, bytes, language->charset,
-                                                "UTF-8", GenericRecodeFallback, NULL, NULL,
-                                                NULL);
-        }else{
-            *generic_message = module_recode_to_iso(data, bytes, generic_msg_language,
-                                                    GenericRecodeFallback);
-        }
+    assert(generic_msg_language != NULL);
+    if (generic_msg_language->charset != NULL){
+	*generic_message = 
+	    (char*) g_convert_with_fallback(data, bytes, language->charset,
+					    "UTF-8", GenericRecodeFallback, NULL, NULL,
+					    NULL);
     }else{
-        *generic_message = module_recode_to_iso(data, bytes, generic_msg_language,
-                                                GenericRecodeFallback);
+	*generic_message = module_recode_to_iso(data, bytes, generic_msg_language->name,
+						GenericRecodeFallback);
     }
+
     module_strip_punctuation_some(*generic_message, GenericStripPunctChars);
 
     generic_message_type = MSGTYPE_TEXT;
@@ -309,67 +316,35 @@ _generic_speak(void* nothing)
 
         case 0:
             {
-            char *e_string;
-	    float hrate, hpitch; 
-            char str_pitch[16];
-            char str_rate[16];
-            char *p;
-            char *voice_name;
-            TGenericLanguage *language;
-
-            /* Set this process as a process group leader (so that SIGKILL
-               is also delivered to the child processes created by system()) */
-            if (setpgid(0,0) == -1) DBG("Can't set myself as project group leader!");
-
-	    hpitch = ((float) generic_msg_pitch) * GenericPitchMultiply + GenericPitchAdd;
-	    if (!GenericPitchForceInteger){
-		snprintf(str_pitch, 15, "%.2f", hpitch);
-	    }else{
-		snprintf(str_pitch, 15, "%d", (int) hpitch);
-	    }
-
-	    hrate = ((float) generic_msg_rate) * GenericRateMultiply + GenericRateAdd;
-	    if (!GenericRateForceInteger){
-		snprintf(str_rate, 15, "%.2f", hrate);
-	    }else{
-		snprintf(str_rate, 15, "%d", (int) hrate);
-	    }
-
-            language = (TGenericLanguage*) module_get_ht_option(GenericLanguage, generic_msg_language);
-            voice_name = module_getvoice(generic_msg_language, generic_msg_voice);
-
-            e_string = strdup(GenericExecuteSynth);
-
-            e_string = string_replace(e_string, "$PITCH", str_pitch);
-            e_string = string_replace(e_string, "$RATE", str_rate);                       
-            if (language != NULL){
-                if (language->name != NULL){
-                    e_string = string_replace(e_string, "$LANG", language->name);                       
-                }else
-                    e_string = string_replace(e_string, "$LANG", generic_msg_language);
-            }else{
-                e_string = string_replace(e_string, "$LANG", generic_msg_language);
-            }
-
-            if (voice_name != NULL){
-                e_string = string_replace(e_string, "$VOICE", voice_name);                       
-            }else{
-                DBG("No voice available");
-                exit (1);
-            }
-
-            /* Cut it into two strings */           
-            p = strstr(e_string, "$DATA");
-            if (p == NULL) exit(1);
-            *p = 0;
-            execute_synth_str1 = strdup(e_string);
-            execute_synth_str2 = strdup(p + (strlen("$DATA")));
-
-            free(e_string);
-
-            /* execute_synth_str1 se sem musi nejak dostat */
-            DBG("Starting child...\n");
-            _generic_child(module_pipe, GenericMaxChunkLength);
+		char *e_string;
+		char *p;
+		
+		TGenericLanguage *language;
+		
+		/* Set this process as a process group leader (so that SIGKILL
+		   is also delivered to the child processes created by system()) */
+		if (setpgid(0,0) == -1) DBG("Can't set myself as project group leader!");
+		
+		e_string = strdup(GenericExecuteSynth);
+		
+		e_string = string_replace(e_string, "$PITCH", generic_msg_pitch_str);
+		e_string = string_replace(e_string, "$RATE", generic_msg_rate_str);                       
+		e_string = string_replace(e_string, "$VOLUME", generic_msg_volume_str);                       
+		e_string = string_replace(e_string, "$LANGUAGE", generic_msg_language->name);
+		e_string = string_replace(e_string, "$VOICE", generic_msg_voice_str);
+				
+		/* Cut it into two strings */           
+		p = strstr(e_string, "$DATA");
+		if (p == NULL) exit(1);
+		*p = 0;
+		execute_synth_str1 = strdup(e_string);
+		execute_synth_str2 = strdup(p + (strlen("$DATA")));
+		
+		free(e_string);
+		
+		/* execute_synth_str1 se sem musi nejak dostat */
+		DBG("Starting child...\n");
+		_generic_child(module_pipe, GenericMaxChunkLength);
             }
             break;
 
@@ -409,6 +384,7 @@ _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
     char *command;
     GString *message;
     int i;
+    int ret;
 
     sigfillset(&some_signals);
     module_sigunblockusr(&some_signals);
@@ -454,7 +430,8 @@ _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
             DBG("Speaking in child...");
             module_sigblockusr(&some_signals);        
             {
-                system(command);
+               ret = system(command);
+	       DBG("Executed shell command returned with %d", ret);
             }
         }
         module_sigunblockusr(&some_signals);        
@@ -475,6 +452,77 @@ generic_child_close(TModuleDoublePipe dpipe)
     module_child_dp_close(dpipe);          
     DBG("Child ended...\n");
     exit(0);
+}
+
+void
+generic_set_pitch(int pitch)
+{
+    float hpitch;
+
+    hpitch = ((float) pitch) * GenericPitchMultiply + GenericPitchAdd;
+    if (!GenericPitchForceInteger){
+	snprintf(generic_msg_pitch_str, 15, "%.2f", hpitch);
+    }else{
+	snprintf(generic_msg_pitch_str, 15, "%d", (int) hpitch);
+    }
+}
+
+void
+generic_set_rate(int rate)
+{
+    float hrate;
+
+    hrate = ((float) rate) * GenericRateMultiply + GenericRateAdd;
+    if (!GenericRateForceInteger){
+	snprintf(generic_msg_rate_str, 15, "%.2f", hrate);
+    }else{
+	snprintf(generic_msg_rate_str, 15, "%d", (int) hrate);
+    }
+}
+
+void
+generic_set_volume(int volume)
+{
+    float hvolume;
+
+    hvolume = ((float) volume) * GenericVolumeMultiply + GenericVolumeAdd;
+    if (!GenericVolumeForceInteger){
+	snprintf(generic_msg_volume_str, 15, "%.2f", hvolume);
+    }else{
+	snprintf(generic_msg_volume_str, 15, "%d", (int) hvolume);
+    }
+}
+
+void
+generic_set_language(char *lang)
+{
+    xfree(generic_msg_language);
+
+    generic_msg_language = (TGenericLanguage*) module_get_ht_option(GenericLanguage, 
+							lang);
+    if (generic_msg_language == NULL){
+	DBG("Language %s not found in the configuration file.", lang);
+	generic_msg_language = (TGenericLanguage*) xmalloc(sizeof(TGenericLanguage));
+	generic_msg_language->charset = NULL;
+	generic_msg_language->name = strdup("english");
+    }
+
+    if (generic_msg_language->name == NULL){
+	DBG("Language name for %s not found in the configuration file.", lang);
+	generic_msg_language->name = strdup("english");
+    }
+
+}
+
+void
+generic_set_voice(EVoiceType voice){
+    xfree(generic_msg_voice_str);
+    assert(generic_msg_language);
+    generic_msg_voice_str = module_getvoice(generic_msg_language->name, voice);
+    if (generic_msg_voice_str == NULL){
+	DBG("Invalid voice type specified or no voice available!");
+    }
+	
 }
 
 #include "module_main.c"
