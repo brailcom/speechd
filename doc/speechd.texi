@@ -15,10 +15,15 @@
 @copying
 This manual documents Speech Daemon, version @value{VERSION}.
 
-Copyright @copyright{} 2001, 2002, 2003 ???
+Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
 
 @quotation
-Permission is granted to ...
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
 @end quotation
 @end copying
 
@@ -74,7 +79,8 @@ that attempts to provide a common interface to different synthesizers.
 * Standard sound tables::    List of the standard sound table names.
 * Standard voices::          List of the standard voice names.
 
-* Copying::                  GNU General Public License.
+* GNU General Public License::      Copying conditions of Speech Daemon.
+* GNU Free Documentation License::  Copying conditions of this manual.
 
 * Concept index::            Index of concepts.
 @end menu
@@ -624,7 +630,7 @@ It should return 0 on success, -1 otherwise.
 @findex spd_get_message_list_fd()
 
 @ifinfo
-@verbatiminclude ../src/clients/libspeechd.h
+@verbatiminclude ../src/c/api/libspeechd.h
 @end ifinfo
 
 @c don't know if it's really The Right Thing, but I often miss *any*
@@ -1581,7 +1587,7 @@ commands}):
 There are none currently.
 
 
-@node Standard voices, Copying, Standard sound tables, Top
+@node Standard voices, GNU General Public License, Standard sound tables, Top
 @appendix Standard voices
 
 The following voice names are always present in the output of the
@@ -1604,14 +1610,23 @@ accept any of them.  If the given voice is not available, it is mapped
 to another voice by the output module.
 
 
-@node Copying, Concept index, Standard voices, Top
-@appendix GNU GENERAL PUBLIC LICENSE
+@node GNU General Public License, GNU Free Documentation License, Standard voices, Top
+@appendix GNU General Public License
 @center Version 2, June 1991
+@cindex GPL, GNU General Public License
 
 @include gpl.texi
 
 
-@node Concept index,  , Copying, Top
+@node GNU Free Documentation License, Concept index, GNU General Public License, Top
+@appendix GNU Free Documentation License
+@center Version 1.2, November 2002
+@cindex FDL, GNU Free Documentation License
+
+@include fdl.texi
+
+
+@node Concept index,  , GNU Free Documentation License, Top
 @unnumbered Concept index
 
 @cindex tail recursion
