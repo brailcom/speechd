@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.38 2003-07-16 19:22:32 hanke Exp $
+ * $Id: speechd.h,v 1.39 2003-07-17 12:00:38 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -61,6 +61,11 @@
 
 #define BUF_SIZE 4096
 
+typedef enum{
+    SPD_MODE_DAEMON,
+    SPD_MODE_SINGLE
+}TSpeechDMode;
+
 /*  TSpeechDQueue is a queue for messages. */
 typedef struct{
     GList *p1;			/* important */
@@ -100,12 +105,17 @@ typedef struct
     GList *cap_let_recogn;
 }TSpeechDTables;
 
-int SPEECHD_PORT;
+TSpeechDMode spd_mode;
+
+int spd_port;
+int spd_port_set;
 
 char *SOUND_DATA_DIR;
 
 /* Message logging */
 int spd_log_level;
+int spd_log_level_set;
+
 void MSG(int level, char *format, ...);
 #define FATAL(msg) { MSG(0,"Fatal error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
 #define DIE(msg) { MSG(0,"Error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
