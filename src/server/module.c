@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.13 2003-06-20 00:42:42 hanke Exp $
+ * $Id: module.c,v 1.14 2003-06-23 05:12:01 hanke Exp $
  */
 
 #include "speechd.h"
@@ -37,7 +37,7 @@ load_output_module(gchar* modname)
    configoption_t **p_options;
 
    p_options = (configoption_t**) spd_malloc(sizeof (configoption_t*));
-   *p_options = options;
+   *p_options = spd_options;
 
    snprintf(filename, PATH_MAX, LIB_DIR"/libsd%s.so", modname);
 
@@ -52,13 +52,14 @@ load_output_module(gchar* modname)
       return NULL;
    }
    
-   module_info = module_load(p_options, &num_config_options);
+   module_info = module_load(p_options, &spd_num_options);
    if (module_info == NULL) {
       MSG(2, "module entry point execution failed\n");
       return NULL;
    }
 
-   options = *p_options;
+   spd_options = *p_options;
+   spd_free(p_options);
 
    module_info->gmodule = gmodule;
    
@@ -74,7 +75,8 @@ init_output_module(OutputModule *module)
     int (*module_init) (void);
 
     if (g_module_symbol(module->gmodule, INIT_SYMBOL, (gpointer) &module_init) == FALSE) {
-        MSG(2,"could not find symbol \"%s\" in module %s\n%s\n", INIT_SYMBOL, g_module_name(module->gmodule), g_module_error());
+        MSG(2,"could not find symbol \"%s\" in module %s\n%s\n", INIT_SYMBOL,
+            g_module_name(module->gmodule), g_module_error());
         return -1;
     }
 
