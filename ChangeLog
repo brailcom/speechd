@@ -1,4 +1,7 @@
-2004-10-10  Hynek Hanke  <hanke@volny.cz>
+2004-10-10  Hynek Hanke  <hanke@chopin>
+
+	* src/server/server.c (serve): Substitute binary zeros with a '?'
+	in incomming data.
 
 	* src/python/speechd/_test.py (Client.check_it): Some more tests.
 
