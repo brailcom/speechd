@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.12 2003-03-09 20:50:14 hanke Exp $
+ * $Id: speechd.c,v 1.13 2003-03-16 19:58:51 hanke Exp $
  */
 
 #include <signal.h>
@@ -205,6 +205,13 @@ main()
 	(void) signal(SIGINT,quit);	
 	
    msgs_to_say = 0;
+
+	{
+		int r;
+		MSG(2,"creating new thread for speak\n");
+		r = pthread_create(&speak_thread, NULL, speak, NULL);
+		if(r != 0) FATAL("Speak thread failed!\n");
+	} 
    
    MessageQueue = speechd_queue_alloc();
 
@@ -358,11 +365,11 @@ main()
       }
 
     }
-	if(msgs_to_say > 0){
-		 	speak();
-	}else{
+//	if(msgs_to_say > 0){
+//		 	speak();
+//	}else{
 		usleep(1);
-	}
+//	}
    }
 
    /* on exit ...
