@@ -1,3 +1,8 @@
+2003-07-07  Hynek Hanke  <hanke@volny.cz>
+
+	* speechd.texi (Parameter setting commands): New SSIP commands for capital letters
+	recognition.
+
 2003-06-08  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* speechd.texi (Output module functions): module_load and module_init distinguished.
