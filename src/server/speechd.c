@@ -1,5 +1,5 @@
 /* Speechd server program
- * CVS revision: $Id: speechd.c,v 1.4 2002-07-02 07:57:56 hanke Exp $
+ * CVS revision: $Id: speechd.c,v 1.5 2002-07-07 11:07:11 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
 #include "speechd.h"
@@ -28,7 +28,7 @@ message_alloc(void *element)
 void
 message_free(void *element)
 {
-   free(element);
+free (element);
    return;
 }
 
@@ -97,15 +97,35 @@ history_list_alloc_client(void* element)
    new = malloc(sizeof(THistoryClient));
    if (new == NULL) FATAL("Not enough memory!");
    settings = gdsl_list_search_by_value(fd_settings, fdset_list_compare,
-                 *((int*)element));
+               (int) element);
    if (settings == NULL) FATAL("Couldn't find appropiate settings for active client."); 
     new->client_name = malloc(strlen(settings->client_name)+1);
    strcpy(new->client_name, settings->client_name);
-   new->fd = *((int*)element);
+   new->fd = (int) element;
+   new->id = (int) element;
+   new->active = 1;
    new->messages = gdsl_list_create("message_queue", 
                     history_list_alloc_message, NULL);
 
    return (gdsl_element_t) new;
+}
+
+THistSetElement*
+default_hist_set(){
+   THistSetElement* new;
+   new = malloc(sizeof(THistSetElement));
+   new->cur_pos = 1;
+   new->sorted = BY_TIME;  
+   return new;
+}
+
+static gdsl_element_t
+hset_alloc_element(void* element)
+{
+ THistSetElement *new;
+ new = malloc(sizeof(THistSetElement));
+ *new = *((THistSetElement*) element);
+ return (gdsl_element_t) new;
 }
 
 TFDSetElement*
@@ -129,7 +149,7 @@ default_fd_set()
    new->pitch = 1.0;
    strcpy(new->language,"english");
    strcpy(new->output_module,"flite");
-   strcpy(new->client_name,"direct connection"); 
+   strcpy(new->client_name,"direct_connection:main"); 
    new->voice_type = MALE;
    new->spelling = 0;         
    new->cap_let_recogn = 0;
@@ -145,6 +165,7 @@ int main() {
    fd_set testfds;
    struct timeval tv;
    TFDSetElement *new_fd_set;
+   THistSetElement *new_hist_set;
 
    MessageQueue = speechd_queue_alloc();
 
@@ -153,6 +174,9 @@ int main() {
 
    MessagePausedList = gdsl_list_create("paused_messages",
 	message_alloc, message_free);
+
+   if (MessagePausedList == NULL)
+	FATAL("Couldn't create list of paused messages.");
 
    fd_settings = gdsl_list_create("fd_settings", fdset_list_alloc_element, 
 		NULL);
@@ -164,6 +188,12 @@ int main() {
 
    if (history == NULL)
 	FATAL("Couldn't create list for history.");
+
+   history_settings = gdsl_list_create("history_settings", hset_alloc_element, 		NULL);
+
+   if (history_settings == NULL)
+	FATAL("Couldn't create list for history settings.");
+
 
    if (g_module_supported() == FALSE)
       DIE("Loadable modules not supported by current platform\n");
@@ -240,10 +270,18 @@ int main() {
 
                new_fd_set = default_fd_set();
                new_fd_set->fd = client_socket;
-               gdsl_list_insert_head(fd_settings, new_fd_set);
-               if(gdsl_list_insert_head(history, &client_socket) == NULL) 
+               if(gdsl_list_insert_tail(fd_settings, new_fd_set) == NULL)
+                  FATAL("couldn't insert new settings for client, internal error\n");
+
+               if(gdsl_list_insert_tail(history, client_socket) == NULL) 
                   FATAL("couldn't insert new client to history, internal error\n");
-		
+               new_hist_set = default_hist_set();
+               new_hist_set->fd = client_socket;
+               if(gdsl_list_insert_tail(history_settings, new_hist_set) == NULL)
+                  FATAL("couldn't insert new settings for history of client, internal error\n");
+              new_hist_set = gdsl_list_get_tail(history_settings);
+              MSG(3, "fd: fd: fd: %d", new_hist_set->fd);
+
                MSG(3,"   configuration for %d added to the list\n", client_socket);
 	
 	    } else {	/* client activity */
