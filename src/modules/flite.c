@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.32 2003-09-22 06:35:37 pdm Exp $
+ * $Id: flite.c,v 1.33 2003-10-03 15:19:42 hanke Exp $
  */
 
 
@@ -35,7 +35,7 @@
 #define MODULE_VERSION  "0.1"
 
 #define DEBUG_MODULE 1
-DECLARE_DEBUG_FILE("/tmp/debug-flite");
+DECLARE_DEBUG();
 
 /* Thread and process control */
 static int flite_speaking = 0;
@@ -72,11 +72,10 @@ MOD_OPTION_1_STR(FliteDelimiters);
 
 int
 module_load(void)
-{
-   INIT_DEBUG_FILE();
-   DBG("module_init()\n");
-   
+{  
    INIT_SETTINGS_TABLES();
+
+   REGISTER_DEBUG();
    
    MOD_OPTION_1_INT_REG(FliteMaxChunkLength, 300);
    MOD_OPTION_1_STR_REG(FliteDelimiters, ".");
@@ -88,6 +87,8 @@ int
 module_init(void)
 {
     int ret;
+
+   INIT_DEBUG();
 
     /* Init flite and register a new voice */
     flite_init();

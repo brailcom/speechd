@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.30 2003-09-28 22:31:40 hanke Exp $
+  * $Id: speaking.c,v 1.31 2003-10-03 15:19:43 hanke Exp $
   */
 
 #include <glib.h>
@@ -98,32 +98,6 @@ speak(void* data)
             continue;
         }
 
-        /* Check if it's necessary to use the generic filters here */
-        if(output_filtering_generic(message)){            
-            /* Process message: spelling, punctuation, etc. */
-            if(message->settings.type == MSGTYPE_TEXT){
-                MSG(4, "Processing message...");
-                
-                buffer = (char*) process_message(message->buf, message->bytes, &(message->settings));
-                if (buffer == NULL){
-                    mem_free_message(message);
-                    pthread_mutex_unlock(&element_free_mutex);
-                    continue;
-                }
-                
-                if (strlen(buffer) <= 0){
-                    mem_free_message(message);
-                    pthread_mutex_unlock(&element_free_mutex);
-                    continue;
-                }
-                message->buf = buffer;
-            }else{
-                MSG(4, "Passing message as it is...");
-                MSG(5, "Message text: |%s|", message->buf);
-            }
-        }
-        assert(message->buf != NULL);       
-
         if((message->settings.type == MSGTYPE_TEXT) 
            || (message->settings. type == MSGTYPE_TEXTP)){
             insert_index_marks(message);
@@ -134,6 +108,9 @@ speak(void* data)
 
         MSG(4,"Message sent to output module");
         if (ret == -1) MSG(2, "Output module failed");
+
+        /* Set the id of the client who is speaking. */
+        speaking_uid = message->settings.uid;
 
         /* Save the currently spoken message to be able to resume() it after pause */
         if (current_message != NULL) mem_free_message(current_message);
@@ -236,7 +213,6 @@ speaking_stop_all()
             queue = g_list_remove_link(queue, gl);
             assert(gl->data != NULL);
             mem_free_message(gl->data);            
-            //            sem_trywait(sem_messages_waiting);
         }else{
             speaking_set_queue(highest_priority, queue);
             return;
@@ -392,7 +368,7 @@ is_sb_speaking()
 int
 get_speaking_client_uid()
 {
-    int speaking;
+    int speaking = 0;
     if(is_sb_speaking() == 0){
         speaking_uid = 0;
         return 0;
@@ -434,7 +410,6 @@ empty_queue(GList *queue)
         assert(gl->data != NULL);
         mem_free_message(gl->data);
         queue = g_list_delete_link(queue, gl);
-        //        sem_trywait(sem_messages_waiting);
     }
 
     return queue;
@@ -470,7 +445,6 @@ stop_priority_from_uid(GList *queue, const int uid){
     while(gl = g_list_find_custom(ret, &uid, p_msg_uid_lc)){
         if(gl->data != NULL) mem_free_message(gl->data);
         ret = g_list_delete_link(ret, gl);
-        //        sem_trywait(sem_messages_waiting);
     }
 
     return ret;
@@ -488,315 +462,6 @@ stop_from_uid(const int uid)
     MessageQueue->p4 = stop_priority_from_uid(MessageQueue->p4, uid);
     MessageQueue->p5 = stop_priority_from_uid(MessageQueue->p5, uid);
     pthread_mutex_unlock(&element_free_mutex);
-}
-
-static char*
-process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable *icons)
-{
-    int i;
-    char *spelled_letter;
-    char *character;
-    char *pos;
-    GString *str;
-    char *new_message = NULL;
-    int first_part = 1;
-    GList *plist = NULL;
-    int *sound;
-    long int size;
-    char *spelled;
-
-    sound = (int*) spd_malloc(sizeof(int));
-
-    str = g_string_sized_new(bytes);
-    character = (char*) spd_malloc(8); /* 6 bytes should be enough, plus the trailing 0 */
-
-    assert(settings->spelling_table != NULL);
-
-    pos = buf;                  /* Set the position cursor for UTF8 to the beginning. */
-    size = g_utf8_strlen(buf, -1) - 1;
-    MSG(4,"Processing %d bytes", size);
-    for(i=0; i <= size; i++){
-        spd_utf8_read_char(pos, character);
-        spelled_letter = (char*) snd_icon_spelling_get(settings->spelling_table,
-                                                       icons, character, sound);
-  		
-        if(*sound == 1){
-            /* If this is the first part of the message, save it
-             * as return value. */
-            if (first_part){
-                first_part = 0;
-                if (str->str != NULL)
-                    if (strlen(str->str) > 0)
-                        new_message = str->str;
-            }else{              /* It's not the first part... */
-                if (str->str != NULL){
-                    if (strlen(str->str) > 0){
-                        plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);
-                    }
-                }
-            }
-            /* Set up a new buffer */
-            g_string_free(str, 0);
-            str = g_string_new("");
-
-            /* Add the icon to plist */
-            if (spelled_letter != NULL){
-                spelled = (char*) spd_malloc((strlen(spelled_letter) +1)  * sizeof(char)); 
-                strcpy(spelled, spelled_letter);
-                if (strlen(spelled_letter) > 0)
-                    plist = msglist_insert(plist, spelled, MSGTYPE_SOUND);
-            }else{
-                assert(character != NULL);
-                if (character[0] != '\r' && character[0] != '\n'){
-                   MSG(4,"Using character verbatim...");
-                   g_string_append(str, character);			
-                }
-            }
-
-        }else{                  /* this icon is represented by a string */
-            if (spelled_letter != NULL){
-                g_string_append(str, spelled_letter);
-            }else{
-                assert(character!= NULL);
-                if (character[0] != '\r' && character[0] != '\n'){
-                   MSG(4,"Using character verbatim...");
-                   g_string_append(str, character);
-                }
-            }
-            g_string_append(str," ");
-        }
-        pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */
-    }
-
-    MSG(4,"Processing done...");
-
-    /* Handle dle last part of the parsed message */
-    if(first_part){	
-        new_message = str->str;
-    }else{   
-        if (str != NULL)
-            if (str->str != NULL)
-                if (strlen(str->str) > 0)
-                    plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);
-    }
-    g_string_free(str, 0);
-
-    /* Queue the parts not returned. */
-    if(plist != NULL){
-        if (settings->reparted) queue_messages(plist, -settings->uid, 0, settings->reparted);
-        else queue_messages(plist, -settings->uid, 0, ++max_gid);
-    }
-
-    free(character);
-    return new_message;
-}
-
-static char*
-process_message_punct_cap(char *buf, int bytes, TFDSetElement *settings, GHashTable *icons)
-{
-    int i;
-    char *spelled_punct;
-    char *character;
-    char *pos;
-    char *inside;
-    gunichar u_char;
-    int length;
-    GString *str;
-    char *new_message = NULL;
-    int *sound;
-    int first_part = 1;
-    char *punct;
-    long int size;
-    GList *plist = NULL;
-    int chu, chp;
-
-    sound = (int*) spd_malloc(sizeof(int));
-
-    str = g_string_sized_new(bytes);
-    character = (char*) spd_malloc(8); /* 6 bytes should be enough, plus the trailing 0 */
-
-    assert(settings->punctuation_table != NULL);
-    assert(settings->cap_let_recogn_table != NULL);
-    assert(settings->snd_icon_table != NULL);
-
-    pos = buf;                  /* Set the position cursor for UTF8 to the beginning. */
-
-    size = g_utf8_strlen(buf, -1);
-    MSG(4,"Processing %d bytes", size);
-
-    for(i=0; i <= size; i++){
-
-        spd_utf8_read_char(pos, character);
-        if (character == NULL) break;
-        u_char = g_utf8_get_char(character);
-
-        if (g_unichar_isupper(u_char) && settings->cap_let_recogn) chu = 1;
-        else chu = 0;
-
-        if (g_unichar_ispunct(u_char) && settings->punctuation_mode) chp = 1;
-        else chp = 0;
-
-        if (g_unichar_isprint(u_char) && !chu)
-                g_string_append(str, character);
-
-        if(chp || chu){ 
-            if(settings->punctuation_mode == 2){ 
-                inside = g_utf8_strchr(settings->punctuation_some,-1,u_char); 
-                if ((inside == NULL) && !chu){
-                    pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */
-                    continue; 
-                }
-            } 
-            
-            if (chp){
-                spelled_punct = (char*) snd_icon_spelling_get(settings->punctuation_table, 
-                                                              icons, character, sound); 
-            }else if (chu){
-                if (settings->cap_let_recogn == RECOGN_SPELL){
-                    spelled_punct = (char*) snd_icon_spelling_get(settings->cap_let_recogn_table,
-                                                                  icons, character, sound);
-                }else if (settings->cap_let_recogn == RECOGN_ICON){
-                    spelled_punct = (char*) snd_icon_spelling_get(settings->snd_icon_table,
-                                                                  icons, settings->cap_let_recogn_sound,
-                                                                  sound);
-                }else{
-                    FATAL("Invalid place in code reached!");
-                }
-            }else{
-                FATAL("Invalid place in code reached!");
-            }
-
-            if (spelled_punct == NULL) *sound = 0;
-
-            if(*sound == 1){
-                /* If this is the first part of the message, save it */
-                /* as return value. */
-                if (first_part){
-                    first_part = 0; 
-                    if (str != NULL) 
-                        if (str->str != NULL) 
-                            if (strlen(str->str) > 0) 
-                                new_message = str->str; 
-                }else{              /* It's not the first part... */ 
-                    if (str->str != NULL){ 
-                        if (strlen(str->str) > 0){ 
-                            plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);                         
-                        }
-                    } 
-                } 
-                /* Set up a new buffer */
-                g_string_free(str, 0); 
-
-                if (chu && settings->cap_let_recogn == RECOGN_ICON)
-                    str = g_string_new(character); 
-                else
-                    str = g_string_new("");
-
-                /* Add the icon to plist */
-                if (spelled_punct != NULL){
-                    if (strlen(spelled_punct) > 0){
-                        punct = strdup(spelled_punct);
-                        plist = msglist_insert(plist, punct, MSGTYPE_SOUND);           
-                    }
-                }
-            }else{                  /* this icon is represented by a string */
-                if (spelled_punct != NULL){ 
-                    if (chp) g_string_append_printf(str," (%s) ", spelled_punct); 
-                    else if (chu && settings->cap_let_recogn == RECOGN_ICON)
-                        g_string_append_printf(str," (%s) %s", spelled_punct, character);
-                    else if (chu) g_string_append_printf(str," (%s) ", spelled_punct);
-                }else{
-                    if (chu && settings->cap_let_recogn == RECOGN_ICON)
-                        g_string_append_printf(str,"%s", character);
-                    else if (chu) g_string_append_printf(str,"%s", character);
-                }
-            } 
-        }
-
-        pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */		
-    }
-
-    MSG(4,"Processing done...");
-
-    if(first_part){
-        if (str != NULL)
-            new_message = str->str;
-        else
-            new_message = NULL;
-    }else{
-        if (str != NULL)
-            if (str->str != NULL)
-                if (strlen(str->str) > 0)
-                    plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);
-    }
-    g_string_free(str, 0);
-    
-    /* Queue the parts not returned. */
-    if(plist != NULL){
-        if (settings->reparted) queue_messages(plist, -settings->uid, 0, settings->reparted);
-        else queue_messages(plist, -settings->uid, 0, ++max_gid);
-    }
-
-    free(character);
-    return new_message;
-}
-
-static char*
-process_message(char *buf, int bytes, TFDSetElement* settings)
-{
-    GHashTable *icons;
-    char *new_message;
-
-    if(settings->spelling_mode || settings->punctuation_mode || settings->cap_let_recogn){
-        icons = g_hash_table_lookup(snd_icon_langs, settings->language);
-        if (icons == NULL){
-            icons = g_hash_table_lookup(snd_icon_langs, GlobalFDSet.language);
-            if (icons == NULL) return NULL;
-        }
-    
-        if(settings->spelling_mode){
-            new_message = process_message_spell(buf, bytes, settings, icons);
-        } 
-        else if(settings->punctuation_mode || settings->cap_let_recogn){
-            new_message = process_message_punct_cap(buf, bytes, settings, icons);
-        }
-
-        return new_message;
-    }
-
-    return buf;
-}
-
-/* Creates a new message from string STR and stores it
- * in a LIST of messages. This LIST is returned. This
- * is particularly useful for dividing messages
- * when processing punctuation in messages
- * (see process_message_punctuation())
- *
- * If LIST is NULL, new list is created 
- */
-static GList*
-msglist_insert(GList *list, char *str, EMessageType type)
-{
-    TSpeechDMessage *msg;
-    GList *nlist;
-
-    if (str == NULL){
-        if (SPEECHD_DEBUG) FATAL("msglist_insert passed NULL in str");
-        return list;
-    }
-    if (strlen (str) == 0){
-        if (SPEECHD_DEBUG) FATAL("msglist_insert passed nothing in str");
-        return list;
-    }
-
-    msg = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
-    msg->bytes = strlen(str);
-    msg->buf = str;
-    msg->settings.type = type;
-    nlist = g_list_append(list, msg);                   
-
-    return nlist;
 }
 
 /* Determines if this messages is to be spoken

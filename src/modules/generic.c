@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.5 2003-10-01 06:43:32 hanke Exp $
+ * $Id: generic.c,v 1.6 2003-10-03 15:19:42 hanke Exp $
  */
 
 #include <glib.h>
@@ -33,8 +33,7 @@
 #define MODULE_NAME     "generic"
 #define MODULE_VERSION  "0.1"
 
-#define DEBUG_MODULE 1
-DECLARE_DEBUG_FILE("/tmp/debug-generic");
+DECLARE_DEBUG();
 
 /* Thread and process control */
 static int generic_speaking = 0;
@@ -82,11 +81,12 @@ MOD_OPTION_3_HT(GenericLanguage, code, name, charset);
 int
 module_load(void)
 {
-    INIT_DEBUG_FILE();
 
     MOD_OPTION_1_STR_REG(GenericExecuteSynth, "");
 
     INIT_SETTINGS_TABLES();
+
+    REGISTER_DEBUG();
 
     MOD_OPTION_1_INT_REG(GenericMaxChunkLength, 300);
     MOD_OPTION_1_STR_REG(GenericDelimiters, ".");
@@ -102,8 +102,6 @@ module_load(void)
 
     module_register_settings_voices();
 
-    DBG("module_load()\n");
-
     return 0;
 }
 
@@ -111,6 +109,8 @@ int
 module_init(void)
 {
     int ret;
+
+    INIT_DEBUG();
 
     DBG("GenericMaxChunkLength = %d\n", GenericMaxChunkLength);
     DBG("GenericDelimiters = %s\n", GenericDelimiters);

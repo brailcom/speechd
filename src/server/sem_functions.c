@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sem_functions.c,v 1.2 2003-09-28 22:30:44 hanke Exp $
+ * $Id: sem_functions.c,v 1.3 2003-10-03 15:19:43 hanke Exp $
  */
 
 #include "speechd.h"
@@ -54,15 +54,20 @@ semaphore_wait(int sem_id)
 {
     static struct sembuf sem_b;
     int err;
-    
+
+    MSG2(5,"semaphores_bug","Semaphore waiting");
+
     sem_b.sem_num = 0;
     sem_b.sem_op = -1;          /* P() */
     sem_b.sem_flg = SEM_UNDO;
     if (semop(sem_id, &sem_b, 1) == -1){
         err = errno;
-        MSG(1, "semaphore_wait failed: %s", strerror(err));    
+        MSG(1,"semaphore_wait on semaphore id %d failed: errno=%d %s",
+            sem_id, err, strerror(err));
+        MSG(1,"You may want to run `ipcs -s' to see if the semaphore still exits.");
         FATAL("Can't continue");
     }
+    MSG2(5,"semaphores_bug","Semaphore returned");
 }
 
 void
@@ -71,13 +76,14 @@ semaphore_post(int sem_id)
     struct sembuf sem_b;
     int err;
 
+    MSG2(5,"semaphores_bug","Semaphore post");
     sem_b.sem_num = 0;
     sem_b.sem_op = 1;          /* V() */
     sem_b.sem_flg = SEM_UNDO;
     MSG(4, "Posting on semaphore.");
     if (semop(sem_id, &sem_b, 1) == -1){
         err = errno;
-        MSG(1,"Semaphore_post on semaphore id %d failed: errno=%d %s",
+        MSG(1,"semaphore_post on semaphore id %d failed: errno=%d %s",
             sem_id, err, strerror(err));
         MSG(1,"You may want to run `ipcs -s' to see if the semaphore still exits.");
         FATAL("Can't continue");

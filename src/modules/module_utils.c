@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.18 2003-10-01 06:43:46 hanke Exp $
+ * $Id: module_utils.c,v 1.19 2003-10-03 15:19:42 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -45,24 +45,16 @@ SPDMsgSettings msg_settings_old;
 
 int current_index_mark;
 
+/* This variable is defined later in this
+   file using MOD_OPTION* macro */
+int debug_on;
+FILE* debug_file;
+
 int SPDSemaphore;
 
 configfile_t *configfile = NULL;
 configoption_t *module_dc_options;
 int module_num_dc_options = 0;
-
-static FILE *debug_file;
-
-#define DEBUG_MODULE 1
-
-#define DECLARE_DEBUG_FILE(name) static char debug_filename[]=name;
-
-#define INIT_DEBUG_FILE() \
-    debug_file = fopen(debug_filename, "w"); \
-    if (debug_file == NULL){ \
-       printf("Can't open debug file!"); \
-       debug_file = stdout; \
-    }
 
 #define CLEAN_OLD_SETTINGS_TABLE()\
  msg_settings_old.rate = -101;\
@@ -94,11 +86,20 @@ static FILE *debug_file;
  CLEAN_OLD_SETTINGS_TABLE()
 
 #define CLOSE_DEBUG_FILE() \
-    if (debug_file != NULL) fclose(debug_file);
+  if (debug_file != NULL) fclose(debug_file);
 
-#define DBG(arg...) if (DEBUG_MODULE){ \
+#define DBG(arg...) \
+  if (debug_on){ \
+    time_t t; \
+    char *tstr; \
+    t = time(NULL); \
+    tstr = strdup(ctime(&t)); \
+    fprintf(debug_file, tstr); \
+    fprintf(debug_file, ": "); \
     fprintf(debug_file, arg); \
+    fprintf(debug_file, "\n"); \
     fflush(debug_file); \
+    xfree(tstr); \
   }
 
 #define FATAL(msg) { \
@@ -857,8 +858,6 @@ module_add_config_option(configoption_t *options, int *num_options, char *name, 
     opts[num_config_options-1].info = info;
     opts[num_config_options-1].context = context;
 
-    //    DBG("Added option: number:%d name: %s!!!\n\n", *num_options, name);
-
     *num_options = num_config_options;
     return opts;
 }
@@ -892,6 +891,9 @@ add_config_option(configoption_t *options, int *num_config_options, char *name, 
     opts[*num_config_options-1].context = context;
     return opts;
 }
+
+
+/* --- MODULE DOTCONF OPTIONS DEFINITION AND REGISTRATION --- */
 
 #define MOD_OPTION_1_STR(name) \
     static char *name = NULL; \
@@ -1018,3 +1020,29 @@ add_config_option(configoption_t *options, int *num_config_options, char *name, 
     module_dc_options = module_add_config_option(module_dc_options, \
                                      &module_num_dc_options, #name, \
                                      ARG_LIST, name ## _cb, NULL, 0);
+
+
+/* --- DEBUGGING SUPPORT  ---*/
+
+#define DECLARE_DEBUG() \
+    static char debug_filename[]; \
+    MOD_OPTION_1_INT(Debug); \
+    MOD_OPTION_1_STR(DebugFile);
+
+#define REGISTER_DEBUG() \
+    MOD_OPTION_1_INT_REG(Debug, 0); \
+    MOD_OPTION_1_STR_REG(DebugFile, "/tmp/debug-module");
+
+#define INIT_DEBUG() \
+{ \
+    debug_on = Debug; \
+    if (debug_on){ \
+        debug_file = fopen(DebugFile, "w"); \
+        if (debug_file == NULL){ \
+           printf("Can't open debug file!"); \
+           debug_file = stdout; \
+        } \
+    }else{ \
+        debug_file = NULL; \
+    } \
+}

@@ -222,13 +222,13 @@ features described in user's documentation in this depth.
 
 @menu
 * User Authentication::         Determining user privileges.
-* Text Transformation Tables (TTT)::  
+* Event Tables (ET)::           
 * Message Priority Model::      Solving concurrent requests for speech.
 * Message History::             Keeping track of spoken messages.
 * Multiple Output Modules::     Using various speech synthesizers on one system.
 @end menu
 
-@node User Authentication, Text Transformation Tables (TTT), Features, Features
+@node User Authentication, Event Tables (ET), Features, Features
 @subsection User Authentication
 @cindex Identification Protocol
 @cindex identd
@@ -246,33 +246,43 @@ It is possible to specify user mapping in the configuration.  This allows
 certain users to be considered the same and have the same rights (eg. to browse
 their @ref{Message History}).
 
-@node Text Transformation Tables (TTT), Message Priority Model, User Authentication, Features
-@subsection Text Transformation Tables
-@cindex TTT
+@node Event Tables (ET), Message Priority Model, User Authentication, Features
+@subsection Event Tables
+@cindex ET
 
-The mechanism that Speech Dispatcher provides for processing
-punctuation, capital letters, spelling or keys and characters,
-is based on text tables mapping the required characters to some
-text or a sound.
+Currently Speech Dispatcher provides a mechanism for handling requests
+to say a character, a key or a general event by mapping these events
+to either a string that is than synthesized or to a sound.
+
+WARNING: This mechanism is only temporary, because there is currently
+no intermediate layer to do this ``processing'' for Speech Dispatcher.
+(We would like to add support to Festival soon.) For this reason,
+it's very likely that these tables won't be in Speech Dispatcher
+version 0.2 and further. Please keep in mind that the placement
+and format of these tables will change in near future.
+
+Also note, that these tables are related only to ``events''.
+We don't care about spelling or punctuation in Speech Dispatcher,
+instead, this is left on each particular synthesizer.
 
 When Speech Dispatcher receives a command like @code{CHAR "a"},
 it finds which table to use and according to it's content
-produces either a some sound (.wav or .ogg) or some text
+produces either some sound (.wav or .ogg) or some text
 ("ai", "alice", "acko", ...). All of this can be configured
 through tables.
 
 These tables, unless specified otherwise, are language-specific,
-so that a user can specify different spelling rules for English
-than for Czech or Italian.
+so that a user can specify different character spelling rules
+for English than for Czech or Italian.
 
 @menu
-* TTT Types::                   List of supported Text Transformation Tables.
+* ET Types::                    List of supported Event Tables.
 @end menu
 
-@node TTT Types,  , Text Transformation Tables (TTT), Text Transformation Tables (TTT)
-@subsubsection TTT Types
+@node ET Types,  , Event Tables (ET), Event Tables (ET)
+@subsubsection ET Types
 
-There are currently 3 main types of tables in Speech Dispatcher:
+There are currently 3 types of tables in Speech Dispatcher:
 
 @itemize
 @item Character (group @code{characters})
@@ -288,34 +298,9 @@ These sound icons used to signal some events, e.g. end-of-line
 or new-mail.
 @end itemize
 
-Also, there are 3 types of suplementary tables which are used
-if the particular output module is set to @code{filtering_generic}.
-Normally, this type of processing of the input text should be
-done in the text-to-speechd system itself. In that case, you have
-to set the tables in your TTS.
+See @ref{Tables Configuration} to find out how to configure event tables.
 
-@itemize
-@item Spelling (group @code{spelling})
-This is used in spelling modes.
-
-@item Punctuation (group @code{punctuation})
-This is used in punctuation modes.
-
-@item Capital Letter Recognition (group @code{cap_let_recogn})
-This is used when capital letters recognition is set to spell the capital
-letters.
-@end itemize
-
-The user can set different tables for all of these situations, although
-there is no need to and two or three tables for each language is enough.
-For example the events Spelling, Punctuation and Character can be mapped
-to the same table.
-
-See @ref{Tables Configuration} to find out how to configure text
-transformation tables.
-
-
-@node Message Priority Model, Message History, Text Transformation Tables (TTT), Features
+@node Message Priority Model, Message History, Event Tables (ET), Features
 @subsection Message Priority Model
 @cindex priorities
 
@@ -547,7 +532,7 @@ this new module by adding at least these two lines to
 @file{speechd.conf} in your configuration directory. @xref{AddModule}.
 
 @example
-AddModule "module_name" filter_type "binary" "configuration"
+AddModule "module_name" "binary" "configuration"
 @end example
 
 and possibly also changing the lines
@@ -695,31 +680,10 @@ configurations. This is especially useful for loading the generic output
 module. @xref{Configuration of the Generic Output Module}.
 
 @example
-AddModule "@var{module_name}" @var{filter_type} "@var{module_binary}" "@var{module_config}"
+AddModule "@var{module_name}" "@var{module_binary}" "@var{module_config}"
 @end example
 
 @var{module_name} is the name of the output module.
-
-@var{fliter_type} is the type of filtering (spelling,
-punctuation, capital letters recognition) used for
-this output module.
-
-@itemize
-@item
-@code{filter_generic} means that the filtering is left
-on the generic filter of Speech Dispatcher. This is used
-when the particular output module doesn't provide these
-functions itself.
-
-@item
-@code{filter_self} means that the filtering will be done
-by the output module itself.
-
-@item
-@code{filter_none} means that this type of output module doesn't
-need any kind of filtering (e.g. sound output module which
-plays .wav and other sound files doesn't need punctuation filtering).
-@end itemize
 
 @var{module_binary} is the name of the binary executable
 of this output module. It can be either absolute or relative
@@ -902,8 +866,12 @@ so on.)
 @node Tables Configuration, Log Levels, Output Modules Configuration, Configuration
 @subsection Tables Configuration
 
-See @ref{Text Transformation Tables (TTT)} for general description of purpose
-and types of TTT.
+See @ref{Event Tables (ET)} for general description of purpose
+and types of ET.
+
+WARNING: Please note that event tables are only a temporary solution.
+They will be eliminated in future releases, as soon as we manage to
+translate this functions to some independent layer. @xref{Event Tables (ET)}.
 
 @menu
 * Adding and choosing tables::  Selecting an existing table.
@@ -922,11 +890,10 @@ done using this option in @file{speechd.conf}
 @var{table_filename} is the path to the desired table. It can be
 either absolute or relative (to your @file{etc/speechd/} directory).
 
-For example, the default English tables are loaded like this:
+For example:
 
 @example
-AddTable        "en/spelling_short.conf"
-AddTable        "en/spelling_long.conf"
+AddTable        "en/characters.conf"
 AddTable        "en/sound_icons.conf"
 AddTable        "en/keys.conf"
 @end example
@@ -936,14 +903,11 @@ able to use them.
 
 Once the tables are loaded, you can specify which table should be
 used in which mode by default. (They can be then changed by clients
-at run-time). There are six configuration options
+at run-time). There are three configuration options
 to do this.
 
 @itemize
-@item DefaultSpellingTable "@var{table}"
-@item DefaultPunctuationTable "@var{table}"
 @item DefaultCharacterTable "@var{table}"
-@item DefaultCapLetRecognTable "@var{table}"
 @item DefaultKeyTable "@var{table}"
 @item DefaultSoundTable "@var{table}"
 @end itemize
@@ -957,15 +921,10 @@ this name).
 This is a valid definition of default tables:
 
 @example
-DefaultSpellingTable      "spelling_short"
-DefaultPunctuationTable   "spelling_short"
-DefaultCharacterTable     "spelling_short"
-DefaultCapLetRecognTable  "spelling_short"
+DefaultCharacterTable     "characters"
 DefaultKeyTable           "keys"
 DefaultSoundTable         "sound_icons"
 @end example
-
-Note that it's possible to use the same table for various modes.
 
 @node Writing tables and modifying,  , Adding and choosing tables, Tables Configuration
 @subsubsection Writing and Modifying Tables
@@ -993,26 +952,21 @@ for it in sound icons or keys reading, because the entries here have
 different names and mean different things. You should specify here
 in which groups this table can be used (if your table is specificly
 designed for one thing, keep the group: list minimal). There
-should be at least one entry.
+must be at least one entry.
 
 @var{group_name} is the name of the group this table can be used
-in.  See @ref{TTT Types}, for possible arguments.
+in.  See @ref{ET Types}, for possible arguments.
 @end table
 
 Each header must be terminated with the string @code{definition:} on 
 a separate line.
 
-In @file{en/spelling_short.conf} we use this header
+In @file{en/characters.conf} we use this header
 
 @example
 language:en
-
-table:spelling_short
-
-group:spelling
+table:characters
 group:characters
-group:punctuation
-group:cap_let_recogn
 
 definition:
 @end example
@@ -1034,7 +988,7 @@ or absolute. Currently supported sound files include .wav and
 Examples are:
 
 @example
-"A"="capital ai"
+"A"="capital a"
 "B"="capital b"
 
 "warning" = "warning!"
@@ -1538,26 +1492,8 @@ required characters, without any spaces.  @var{char} may not contain
 control characters and may not begin with double quotes.
 
 @item SET @{ all | self | @var{id} @} @var{table} @var{name}
-There are various tables, to allow customization of spelling,
-punctuation and other text transformation features.  There are
-standard tables defined internally (such as @ref{Standard Spelling
-Tables} or @ref{Standard Sound Tables}) or you can define your own
-tables and add them to Speech Dispatcher through configuration.
 
-@var{table} must be one of the table identifiers listed below:
-
-@itemize @bullet
-@item @code{PUNCTUATION_TABLE}
-@item @code{SPELLING_TABLE}
-@item @code{TEXT_TABLE}
-@item @code{SOUND_TABLE}
-@item @code{CHARACTER_TABLE}
-@item @code{KEY_TABLE}
-@item @code{CAP_LET_RECOGN_TABLE}
-@end itemize
-
-@var{name} must be one of table names returned to the corresponding
-@code{LIST} command (@pxref{Information Retrieval Commands}).
+This command is deprecated and shouldn't be used any longer.
 
 @item SET @{ all | self | @var{id} @} VOICE @var{name}
 Set the voice identified by @var{name}.  @var{name} must be one of the voice
@@ -1603,7 +1539,7 @@ usually should not be used by other kinds of clients.
 @end table
 
 @node Information Retrieval Commands, History Handling Commands, Parameter Setting Commands, SSIP Commands
-@subsubsection ReTrieving Information
+@subsubsection Retrieving Information
 
 The @code{LIST} command serves for retrieving information that can be
 presented to the user for selection of the values to the @code{SET}
@@ -1611,58 +1547,12 @@ command.  The information listed is selected according to the first
 argument of the @code{LIST} command.
 
 @table @code
-@item LIST SPELLING_TABLES
-List the names of all the text spelling tables available on the
-server.  Each table name is listed on a separate line.  Each name may
-contain only alphanumeric characters and underscores.
-
-Example Speech Dispatcher response:
-
-@example
-200-sptable2
-200-sptable1
-200-sptable4
-200-special_table
-200 OK Tables listed.
-@end example
-
-The standard sound tables are listed only if they are mapped
-to some real table.  @xref{Standard Sound Tables}.
-
-@item LIST PUNCTUATION_TABLES
-Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
-available punctuation spelling tables.
-
-@item LIST TEXT_TABLES
-Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
-available text mapping tables.
-
-@item LIST SOUND_TABLES
-Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
-available sound mapping tables.
-
-The standard sound tables are listed only if they are mapped
-to some real table.  @xref{Standard Sound Tables}.
-
-@item LIST CHARACTER_TABLES
-Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
-available character spelling tables.
-
-@item LIST KEY_TABLES
-Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
-available key description tables.
-
-@item LIST CAP_LET_RECOGN_TABLES
-Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
-tables available for use with capital recognition.
-
-
 @item LIST VOICES
 Similar to @code{LIST SPELLING_TABLES}, but lists the available voice
 names.
+@end table
 
 The standard voices are always listed.  @xref{Standard Voices}.
-@end table
 
 @node History Handling Commands, Other Commands, Information Retrieval Commands, SSIP Commands
 @subsubsection History Handling
@@ -1672,6 +1562,10 @@ forms, described below, that allow browsing, retrieving and repeating
 stored messages.  In each invocation of the @code{HISTORY} command
 there is no difference between processing spoken or not spoken
 messages, all the received messages are processed.
+
+The implementation of these history commands is still under
+way. If you want to use them, please contact us to see the
+current status.
 
 There can be @dfn{history cursor} pointing on some message in the
 history.  You can move it across history messages and retrieve the
@@ -2890,11 +2784,11 @@ should follow:
 If you want to use the @code{DBG(message)} macro from @file{module_utils.c}
 to print out debugging messages, you should insert these two lines. (Please
 don't use printf for debugging, this doesn't work with multiple processes!)
-(You will later have to actually start debugging in @code{module_load()})
+(You will later have to actually start debugging in @code{module_init()})
 
 @example
 #define DEBUG_MODULE 0  /* Switch to 1 for debugging */
-DECLARE_DEBUG_FILE("/tmp/debug-flite");
+DECLARE_DEBUG();
 @end example
 
 You don't have to define the prototypes of the core functions
@@ -2942,13 +2836,6 @@ int module_load(void)
 @{
 @end example
 
-First of all, you should start debugging, if you decided to use 
-the DBG() macro. @code{module_utils.c} offers this macro:
-
-@example
-INIT_DEBUG_FILE();
-@end example
-
 Then you should initialize the settings tables. These are defined in
 @file{module_utils.c} and will be used to store the settings received
 by the @code{SET} command.
@@ -2982,12 +2869,6 @@ Example from Festival:
 
 @xref{Output Modules Configuration}.
 
-At this place, before terminating, Flite prints it's first debugging message:
-
-@example
-    DBG("module_load()\n");
-@end example
-
 If everything went correctly, the function should return 0, otherwise -1.
 
 @example
@@ -2999,11 +2880,13 @@ The second phase of starting an output module is handled by:
 
 @example
 int module_init(void)@{
-[...]
+   INIT_DEBUG();
 @}
 @end example
 
-The body of this function is entirely up to you. You should do all the
+If you use the DBG() macro, you should init debugging on the start
+of this function. From that moment, you can use DBG(). Apart from that,
+the body of this function is entirely up to you. You should do all the
 necessary initialization of the particular synthesizer.  All declared
 configuration variables and configuration hash tables, together with
 the definition of voices, are filled with their values (either default
@@ -3064,9 +2947,7 @@ Each output module should take care of setting the output device to
 the parameters from msg_settings (defined in module_utils.c) (See
 SPDMsgSettings in @file{intl/fdset.h}). However, it is not an error if
 some of these values are ignored. At least rate, pitch and language
-should be set correctly, but if the synthesizer doesn't support
-punctuation and spelling modes, the user can always use the generic
-filtering of Speech Dispatcher to emulate these features.
+should be set correctly.
 
 Speed and pitch are values between -100 and 100 included. 0 is the default
 value that represents normal speech flow. So -100 is the slowest (or lowest)
@@ -3235,9 +3116,10 @@ after the output module starts.
 @subsubsection Debugging Macros
 @deffn {Module Utils macro} DBG (format, ...)
 @findex DBG
-DBG() outputs a debugging message to the file specified in configuration.
-The parameter syntax is the same as for the printf() function. In fact,
-it calls printf() internally.
+DBG() outputs a debugging message, if the @code{Debug} option in module's
+configuration is set, to the file specified in configuration ad
+@code{DebugFile}. The parameter syntax is the same as for the printf()
+function. In fact, it calls printf() internally.
 @end deffn
 
 @deffn {Module Utils macro} FATAL (text)

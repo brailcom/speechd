@@ -27,6 +27,7 @@ $30
 
 @ Now only selected symbols (as defined in speechd.conf):
 !SET SELF PUNCTUATION SOME
+!SET SELF PUNCTUATION_IMPORTANT ".,;"
 
 !SPEAK
 A famous Lisp Hacker noticed an Undergraduate sitting in front of a Xerox
@@ -59,8 +60,6 @@ $30
 $20
 
 @ List all tables available for punctuation
-
-!LIST PUNCTUATION_TABLES
 
 @  Ok, bye...
 !QUIT

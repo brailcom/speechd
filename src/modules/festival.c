@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.29 2003-10-01 06:43:12 hanke Exp $
+ * $Id: festival.c,v 1.30 2003-10-03 15:19:42 hanke Exp $
  */
 
 #include "module.h"
@@ -35,7 +35,7 @@
 #define MODULE_VERSION  "0.1"
 
 #define DEBUG_MODULE 1
-DECLARE_DEBUG_FILE("/tmp/debug-festival");
+DECLARE_DEBUG();
 
 /* Thread and process control */
 static pthread_t festival_speak_thread;
@@ -81,11 +81,10 @@ MOD_OPTION_1_STR(FestivalRecodeFallback);
 int
 module_load(void)
 {
-    INIT_DEBUG_FILE();
-
-    DBG("module_load()\n");
 
     INIT_SETTINGS_TABLES();
+
+    REGISTER_DEBUG();
 
     MOD_OPTION_1_INT_REG(FestivalMaxChunkLength, 150);
     MOD_OPTION_1_STR_REG(FestivalDelimiters, ".");
@@ -103,7 +102,6 @@ module_load(void)
 
     module_register_settings_voices();
 
-    DBG("ok, loaded...\n");
     return 0;
 }
 
@@ -111,6 +109,8 @@ int
 module_init(void)
 {
     int ret;
+
+    INIT_DEBUG();
 
     DBG("module_init()");
 

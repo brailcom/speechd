@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.47 2003-09-28 22:30:24 hanke Exp $
+ * $Id: parse.c,v 1.48 2003-10-03 15:19:43 hanke Exp $
  */
 
 #include "speechd.h"
@@ -814,6 +814,8 @@ parse_list(const char* buf, const int bytes, const int fd)
 
     GET_PARAM_STR(list_type, 1, CONV_DOWN);
 
+    /* We have decided not to support this in Speech Dispatcher */
+#if 0
     if(TEST_CMD(list_type,"spelling_tables")){
         return (char*) sndicon_list_spelling_tables();
     }
@@ -836,7 +838,9 @@ parse_list(const char* buf, const int bytes, const int fd)
         //        return (char*) sndicon_list_text_tables();
         return OK_NOT_IMPLEMENTED;
     }
-    else if(TEST_CMD(list_type, "voices")){
+#endif
+
+    if(TEST_CMD(list_type, "voices")){
         voice_list = (char*) spd_malloc(1024);
         sprintf(voice_list,
                 C_OK_VOICES"-MALE1\r\n"
@@ -849,8 +853,7 @@ parse_list(const char* buf, const int bytes, const int fd)
                 C_OK_VOICES"-CHILD_FEMALE\r\n"
                 OK_VOICE_LIST_SENT);
         return voice_list;
-    }
-    else{
+    }else{
         spd_free(list_type);
         return ERR_PARAMETER_INVALID;
     }

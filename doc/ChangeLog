@@ -1,3 +1,19 @@
+2003-10-02  Hynek Hanke  <hanke@volny.cz>
+
+	* speechd.texi (Tables Configuration): Text transformation tables removed.
+	Updated.
+	(Tables Configuration): Added warning about "temporarility" of our solution
+	with the remaining tables and our wish to remove them from speechd.
+	(Evemt Tables (ET)): Renamed.
+	(Evemt Tables (ET)): Added warning about "temporarility" of this solution.
+	(Evemt Tables (ET)): Removed some tables.
+	(Parameter Setting Commands): SET * TABLE marked as deprecated.
+	(Information Retrieval Commands): LIST table commands removed.
+	(History Handling Commands): Note that the implementation of history
+	is still incomplete.
+	(The Skeleton of an Output Module): Updated info about the DBG() mechanism.
+	(Initialization Macros and Functions): DBG() is now configurable.
+
 2003-10-01  Hynek Hanke  <hanke@volny.cz>
 
 	* speechd.texi (TTT Types): Spelling, punctuation and capital letters recognition

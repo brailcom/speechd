@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: cstsnd.c,v 1.7 2003-09-07 11:25:03 hanke Exp $
+ * $Id: cstsnd.c,v 1.8 2003-10-03 15:19:42 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -42,8 +42,7 @@
 #define MODULE_NAME     "cstsnd"
 #define MODULE_VERSION  "0.1"
 
-#define DEBUG_MODULE  1
-DECLARE_DEBUG_FILE("/tmp/debug-cstsnd");
+DECLARE_DEBUG();
 
 /* Thread and process control */
 static int cstsnd_speaking = 0;
@@ -61,10 +60,9 @@ static void _cstsnd_synth(void);
 /* Entry point of this module */
 int
 module_load(void)
-{
-    INIT_DEBUG_FILE();
-    
+{   
     INIT_SETTINGS_TABLES();
+    REGISTER_DEBUG();
 
     DBG("module_load()\n");
 
@@ -74,7 +72,8 @@ module_load(void)
 int
 module_init(void)
 {
-    return 0;
+   INIT_DEBUG(); 
+   return 0;
 }
 
 /* Public functions */

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.39 2003-10-01 06:44:25 hanke Exp $
+ * $Id: dc_decl.h,v 1.40 2003-10-03 15:19:43 hanke Exp $
  */
 
 #include "speechd.h"
@@ -55,7 +55,6 @@ DOTCONF_CB(cb_DefaultVoiceType);
 DOTCONF_CB(cb_DefaultSpelling);
 DOTCONF_CB(cb_DefaultCapLetRecognition);
 DOTCONF_CB(cb_CapLetRecognIcon);
-DOTCONF_CB(cb_DefaultSpellingTable);
 DOTCONF_CB(cb_DefaultCharacterTable);
 DOTCONF_CB(cb_DefaultKeyTable);
 DOTCONF_CB(cb_DefaultSoundTable);
@@ -621,14 +620,11 @@ DOTCONF_CB(cb_AddModule)
     if (cmd->data.list[0] != NULL) module_name = strdup(cmd->data.list[0]);
     else FATAL("No output module name specified in configuration under AddModule");
 
-    mod_fil_s = cmd->data.list[1];
-    if (mod_fil_s == NULL) module_filtering = FILTERING_NONE;
-    else if (!strcmp(mod_fil_s, "filter_none")) module_filtering = FILTERING_NONE;
-    else if (!strcmp(mod_fil_s, "filter_self")) module_filtering = FILTERING_SELF;
-    else if (!strcmp(mod_fil_s, "filter_generic")) module_filtering = FILTERING_GENERIC;
+    /* We have decided not to support filtering in Dispatcher itself. */
+    module_filtering = FILTERING_SELF;
             
-    module_prgname = cmd->data.list[2];
-    module_cfgfile = cmd->data.list[3];
+    module_prgname = cmd->data.list[1];
+    module_cfgfile = cmd->data.list[2];
 
     cur_mod = load_output_module(module_name, module_prgname, module_cfgfile, module_filtering);
     if (cur_mod == NULL){
