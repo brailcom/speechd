@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.cc,v 1.1 2003-04-29 14:05:11 pdm Exp $
+ * $Id: festival.cc,v 1.2 2003-05-05 10:53:30 pdm Exp $
  */
 
 #define VERSION "0.0.1"
@@ -46,11 +46,14 @@ pthread_t festival_speak_thread;
 pid_t festival_pid;
 
 /* Public function prototypes */
+extern "C" 
+{
 gint	festival_write			(gchar *data, gint len, void*);
 char*	festival_pause			(void);
 gint	festival_stop			(void);
 gint	festival_is_speaking	(void);
-gint	festival_close			(void);
+  gint	festival_close			(void);
+}
 
 /* Internal functions prototypes */
 void* festival_speak(void*);
@@ -59,7 +62,6 @@ void* festival_speak(void*);
 OutputModule modinfo_festival = {
    "festival",							/* name */
    "Software synthetizer Festival",	/* description */
-   NULL,							/* filename */
    NULL,							/* GModule */
    festival_write,						/* module functions */
    festival_stop,
