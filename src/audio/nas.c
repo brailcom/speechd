@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: nas.c,v 1.2 2004-11-21 22:13:24 hanke Exp $
+ * $Id: nas.c,v 1.3 2004-12-09 23:47:34 hanke Exp $
  */
 
 /* Internal event handler */
@@ -33,19 +33,53 @@ _nas_handle_events(void *par)
     
 }
 
+/* NAS Server error handler */
+/* Unfortunatelly we can't return these errors to the caller
+   since this handler gets called in the event handler thread. */
+#define DBG(par...) fprintf(stderr, par);
+AuBool
+_nas_handle_server_error(AuServer *server, AuErrorEvent *event)
+{
+    DBG("ERROR: Non-fatal server error in NAS\n");
+
+    if (event->type != 0){
+	DBG("Event of a different type received in NAS error handler.");
+	return -1;
+    }
+
+    /* It's a pain but we can't ask for string return code
+     since it's not allowed to talk to the server inside error handlers
+     because of possible deadlocks. */
+    DBG("NAS: Serial number of failed request: %d\n", event->serial);
+    DBG("NAS: Error code: %d\n", event->error_code);
+    DBG("NAS: Resource id: %d\n", event->resourceid);
+    DBG("NAS: Request code: %d\n", event->request_code);
+    DBG("NAS: Minor code: %d\n\n", event->minor_code);
+
+    return 0;
+}
+#undef DBG
+
 int
 nas_open(AudioID *id, void **pars)
 {
     int ret;
+    AuBool r;
 
     if (id == NULL) return -2;
 
     id->aud = AuOpenServer(pars[0], 0, NULL, 0, NULL, NULL);
-    if (!id->aud)
-        {
-	    fprintf(stderr, "Can't connect to audio server\n");
-	    return -1;
-        }
+    if (!id->aud){
+	fprintf(stderr, "Can't connect to NAS audio server\n");
+	return -1;
+    }
+
+    AuSetErrorHandler(id->aud, _nas_handle_server_error);
+    /* return value incompatible with documentation here */
+    /*    if (!r){
+	fprintf(stderr, "Can't set default NAS event handler\n");
+	return -1;
+	}*/
 
     id->flow = 0;
 
@@ -55,7 +89,7 @@ nas_open(AudioID *id, void **pars)
 
     ret = pthread_create(&id->nas_event_handler, NULL, _nas_handle_events, (void*) id);
     if(ret != 0){
-        fprintf(stderr, "ERROR: NAS Audio module: thread creatinon failed\n");
+        fprintf(stderr, "ERROR: NAS Audio module: thread creation failed\n");
         return -2;
     }
 
