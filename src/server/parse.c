@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.40 2003-07-16 19:18:24 hanke Exp $
+ * $Id: parse.c,v 1.41 2003-07-18 21:39:02 hanke Exp $
  */
 
 #include "speechd.h"
@@ -31,12 +31,21 @@
   data to speak, they are queued in corresponding queues
   with corresponding parameters for synthesis.
 */
+/* SSIP command allowed inside block? */
+#define BLOCK_NO 0
+#define BLOCK_OK 1
 
-#define CHECK_SSIP_COMMAND(cmd_name, parse_function)\
- if(!strcmp(command, cmd_name)){ \
-    spd_free(command); \
-    return (char*) (parse_function) (buf, bytes, fd); \
- }
+#define CHECK_SSIP_COMMAND(cmd_name, parse_function, allowed_in_block)\
+    if(!strcmp(command, cmd_name)){ \
+        spd_free(command); \
+        if ((allowed_in_block == BLOCK_NO) && inside_block[fd]) \
+            return ERR_NOT_ALLOWED_INSIDE_BLOCK; \
+        return (char*) (parse_function) (buf, bytes, fd); \
+    }
+
+#define NOT_ALLOWED_INSIDE_BLOCK() \
+    if(inside_block[fd] == 1) \
+        return ERR_NOT_ALLOWED_INSIDE_BLOCK;
 
 char* 
 parse(const char *buf, const int bytes, const int fd)
@@ -52,6 +61,7 @@ parse(const char *buf, const int bytes, const int fd)
     int v;
     int end_data;
     char *pos;
+    int reparted;
 
     end_data = 0;
 	
@@ -77,18 +87,19 @@ parse(const char *buf, const int bytes, const int fd)
             return ERR_INTERNAL; 
         }		
 
-        CHECK_SSIP_COMMAND("set", parse_set);
-        CHECK_SSIP_COMMAND("history", parse_history);
-        CHECK_SSIP_COMMAND("stop", parse_stop);
-        CHECK_SSIP_COMMAND("cancel", parse_cancel);
-        CHECK_SSIP_COMMAND("pause", parse_pause);
-        CHECK_SSIP_COMMAND("resume", parse_resume);
-        CHECK_SSIP_COMMAND("sound_icon", parse_snd_icon);
-        CHECK_SSIP_COMMAND("char", parse_char);
-        CHECK_SSIP_COMMAND("key", parse_key)
-        CHECK_SSIP_COMMAND("list", parse_list);
-        CHECK_SSIP_COMMAND("char", parse_char);
-        CHECK_SSIP_COMMAND("help", parse_help);		
+        CHECK_SSIP_COMMAND("set", parse_set, BLOCK_OK);
+        CHECK_SSIP_COMMAND("history", parse_history, BLOCK_NO);
+        CHECK_SSIP_COMMAND("stop", parse_stop, BLOCK_NO);
+        CHECK_SSIP_COMMAND("cancel", parse_cancel, BLOCK_NO);
+        CHECK_SSIP_COMMAND("pause", parse_pause, BLOCK_NO);
+        CHECK_SSIP_COMMAND("resume", parse_resume, BLOCK_NO);
+        CHECK_SSIP_COMMAND("sound_icon", parse_snd_icon, BLOCK_OK);
+        CHECK_SSIP_COMMAND("char", parse_char, BLOCK_NO);
+        CHECK_SSIP_COMMAND("key", parse_key, BLOCK_NO)
+        CHECK_SSIP_COMMAND("list", parse_list, BLOCK_NO);
+        CHECK_SSIP_COMMAND("char", parse_char, BLOCK_NO);
+        CHECK_SSIP_COMMAND("help", parse_help, BLOCK_NO);		
+        CHECK_SSIP_COMMAND("block", parse_block, BLOCK_OK);
 
         if (!strcmp(command,"bye") || !strcmp(command,"quit")){
             MSG(4, "Bye received.");
@@ -142,8 +153,11 @@ parse(const char *buf, const int bytes, const int fd)
 
             memcpy(new->buf, o_buf[fd]->str, new->bytes);
             new->buf[new->bytes] = 0;
+
+            reparted = inside_block[fd];
+
             MSG(4, "New buf is now: |%s|", new->buf);		
-            if(queue_message(new, fd, 1, MSGTYPE_TEXT, 0) != 0){
+            if(queue_message(new, fd, 1, MSGTYPE_TEXT, reparted) != 0){
                 if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
                 free(new->buf);
                 free(new);
@@ -347,7 +361,8 @@ parse_set(const char *buf, const int bytes, const int fd)
     if (TEST_CMD(set_sub, "priority")){
         char *priority_s;
         int priority;
-
+        NOT_ALLOWED_INSIDE_BLOCK();
+        
         /* Setting priority only allowed for "self" */
         if (who != 0) return ERR_COULDNT_SET_PRIORITY; 
         GET_PARAM_STR(priority_s, 3, CONV_DOWN);
@@ -368,6 +383,7 @@ parse_set(const char *buf, const int bytes, const int fd)
     }
     else if (TEST_CMD(set_sub, "language")){
         char *language;
+        NOT_ALLOWED_INSIDE_BLOCK();
         GET_PARAM_STR(language, 3, CONV_DOWN);
 
         SSIP_SET_COMMAND(language);
@@ -376,6 +392,7 @@ parse_set(const char *buf, const int bytes, const int fd)
     }
     else if (TEST_CMD(set_sub, "spelling_table")){
         char *spelling_table;
+        NOT_ALLOWED_INSIDE_BLOCK();
         GET_PARAM_STR(spelling_table, 3, CONV_DOWN);
 
         SSIP_SET_COMMAND(spelling_table);
@@ -384,6 +401,7 @@ parse_set(const char *buf, const int bytes, const int fd)
     }
     else if (TEST_CMD(set_sub, "client_name")){
         char *client_name;
+        NOT_ALLOWED_INSIDE_BLOCK();
 
         /* Setting client name only allowed for "self" */
         if (who != 0) return ERR_COULDNT_SET_CLIENT_NAME;
@@ -432,6 +450,8 @@ parse_set(const char *buf, const int bytes, const int fd)
     else if (TEST_CMD(set_sub, "punctuation")){
         char *punct_s;
         EPunctMode punctuation_mode;
+
+        NOT_ALLOWED_INSIDE_BLOCK();
         GET_PARAM_STR(punct_s, 3, CONV_DOWN);
 
         if(TEST_CMD(punct_s,"all")) punctuation_mode = PUNCT_ALL;
@@ -449,6 +469,7 @@ parse_set(const char *buf, const int bytes, const int fd)
     }
     else if (TEST_CMD(set_sub, "punctuation_table")){
         char *punctuation_table;
+        NOT_ALLOWED_INSIDE_BLOCK();
         GET_PARAM_STR(punctuation_table, 3, CONV_DOWN);
 
         SSIP_SET_COMMAND(punctuation_table);
@@ -469,6 +490,7 @@ parse_set(const char *buf, const int bytes, const int fd)
     }
     else if (TEST_CMD(set_sub, "output_module")){
         char *output_module;
+        NOT_ALLOWED_INSIDE_BLOCK();
         GET_PARAM_STR(output_module, 3, CONV_DOWN);
 
         SSIP_SET_COMMAND(output_module);
@@ -479,6 +501,7 @@ parse_set(const char *buf, const int bytes, const int fd)
     }
     else if (TEST_CMD(set_sub, "key_table")){
         char *key_table;
+        NOT_ALLOWED_INSIDE_BLOCK();
         GET_PARAM_STR(key_table, 3, CONV_DOWN);
         
         SSIP_SET_COMMAND(key_table);
@@ -488,10 +511,12 @@ parse_set(const char *buf, const int bytes, const int fd)
         return OK_TABLE_SET;
     }
     else if (TEST_CMD(set_sub, "text_table")){
+        NOT_ALLOWED_INSIDE_BLOCK();
         return OK_NOT_IMPLEMENTED;
     }
     else if (TEST_CMD(set_sub,"sound_table")){
         char *sound_table;
+        NOT_ALLOWED_INSIDE_BLOCK();
         GET_PARAM_STR(sound_table, 3, CONV_DOWN);
 
         SSIP_SET_COMMAND(sound_table);
@@ -502,6 +527,7 @@ parse_set(const char *buf, const int bytes, const int fd)
     }
     else if (TEST_CMD(set_sub,"cap_let_recogn_table")){
         char *cap_let_recogn_table;
+        NOT_ALLOWED_INSIDE_BLOCK();
         GET_PARAM_STR(cap_let_recogn_table, 3, CONV_DOWN);
 
         SSIP_SET_COMMAND(cap_let_recogn_table);
@@ -513,7 +539,7 @@ parse_set(const char *buf, const int bytes, const int fd)
     else if (TEST_CMD(set_sub, "cap_let_recogn")){
         int capital_letter_recognition;
         char *recognition;
-
+        NOT_ALLOWED_INSIDE_BLOCK();
         GET_PARAM_STR(recognition, 3, CONV_DOWN);
 
         if(TEST_CMD(recognition, "none")) capital_letter_recognition = RECOGN_NONE;
@@ -532,6 +558,7 @@ parse_set(const char *buf, const int bytes, const int fd)
     else if (TEST_CMD(set_sub,"spelling")){
         char *spelling_s;
         int spelling;
+        NOT_ALLOWED_INSIDE_BLOCK();
         GET_PARAM_STR(spelling_s, 3, CONV_DOWN);
 
         if(TEST_CMD(spelling_s, "on")) spelling = 1;
@@ -841,7 +868,33 @@ parse_help(const char* buf, const int bytes, const int fd)
 
     return help;
 }
-        
+
+char*
+parse_block(const char *buf, const int bytes, const int fd)
+{
+    char *cmd_main;
+    GET_PARAM_STR(cmd_main, 1, CONV_DOWN);
+
+    if (TEST_CMD(cmd_main, "begin")){
+        assert((inside_block[fd] == 1) || (inside_block[fd] == 0));
+        if (inside_block[fd] == 0){
+            inside_block[fd] = 1;
+            return OK_INSIDE_BLOCK;
+        }else{
+            return ERR_ALREADY_INSIDE_BLOCK;
+        }        
+    }
+    else if (TEST_CMD(cmd_main, "end")){
+        assert((inside_block[fd] == 1) || (inside_block[fd] == 0));
+        if (inside_block[fd] == 1){
+            inside_block[fd] = 0;
+            return OK_OUTSIDE_BLOCK;
+        }else{
+            return ERR_ALREADY_OUTSIDE_BLOCK;
+        }        
+    }
+}
+   
 /* isanum() tests if the given string is a number,
  * returns 1 if yes, 0 otherwise. */
 int
