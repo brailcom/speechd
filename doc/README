@@ -3,9 +3,7 @@ All project documentation is written using DocBook XML.
 See http://www.docbook.org for more information about DocBook.
 
 The Makefile in this directory allows you to build the documentation from
-XML sources in one of these formats: HTML, RTF, TeX and  MIF.
-
-HTML is the only format which is included in distribution files by default.
+XML sources in one of these formats: HTML, RTF and PDF.
 
 To build one of supported formats, run "make <format>", Where <format> is
 supplyed by name of the format in lowercase.
@@ -36,3 +34,7 @@ RedHat:
     * jade
     * stylesheets
     * sgml-common and sgml-tools is also required
+
+You may need to edit the path to DSSSL stylesheet in the file `html.dsl' to
+suit your local installation, to be able to build the html version of
+documentation.
