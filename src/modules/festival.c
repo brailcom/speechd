@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.16 2003-06-23 05:04:15 hanke Exp $
+ * $Id: festival.c,v 1.17 2003-06-27 12:41:40 hanke Exp $
  */
 
 #include "festival_client.c"
@@ -132,8 +132,9 @@ module_init(void)
     DBG("FestivalMaxChunkLenght = %d\n", FestivalMaxChunkLenght);
     DBG("FestivalDelimiters = %s\n", FestivalDelimiters);
     
-    festival_message = malloc (sizeof (char*));    
+    festival_message = (char**) xmalloc (sizeof (char*));    
     festival_semaphore = module_semaphore_init();
+    if (festival_semaphore == NULL) return -1;
 
     DBG("Festival: creating new thread for festival_speak\n");
     festival_speaking = 0;
@@ -153,16 +154,18 @@ module_write(gchar *data, size_t bytes, TFDSetElement* set)
 
     DBG("module_write()\n");
 
+    assert(set != NULL);
+    assert(data != NULL);
+
     if (festival_speaking){
-        DBG("Speaking when requested to write");
+        DBG("Speaking when requested to write\n");
         return 0;
     }
 
     /* Check the parameters */
     if(module_write_data_ok(data) != 0) return -1;
-    assert(set!=NULL);
 
-    DBG("Requested data: |%s| (before recodeding)\n", data);
+    DBG("Requested data: |%s| (before recoding)\n", data);
     *festival_message = module_recode_to_iso(data, bytes, set->language);
     if (*festival_message == NULL){
         return -1;
@@ -187,7 +190,7 @@ module_stop(void)
 {
     DBG("stop()\n");
 
-    if(festival_speaking && festival_pid != 0){
+    if(festival_speaking && (festival_pid != 0)){
         DBG("stopping process pid %d\n", festival_pid);
         kill(festival_pid, SIGKILL);
     }
@@ -224,16 +227,18 @@ module_close(void)
     
     DBG("festival: close()\n");
 
-    if(festival_speaking){
+    while(festival_speaking){
         module_stop();
     }
 
     if (module_terminate_thread(festival_speak_thread) != 0)
         return -1;
 
-    if (festival_cur_language != NULL) free(festival_cur_language);
+    xfree(festival_cur_language);
 
     delete_FT_Info(festival_info);
+
+    system("rm /tmp/est* 2> /dev/null");
 
     CLOSE_DEBUG_FILE();
 
@@ -288,18 +293,21 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 
         bytes = module_get_message_part(message, buf, &pos, maxlen, dividers);
         DBG("returned %d bytes\n", bytes); 
+
+        assert( ! ((bytes > 0) && (buf == NULL)) );
+
         if (first_run){
             DBG("Synthesizing: |%s|", buf);
-            festivalStringToWaveRequest(festival_info, buf);
+            if (bytes != 0) festivalStringToWaveRequest(festival_info, buf);
             first_run = 0;
         }else{
             fwave = festivalStringToWaveGetData(festival_info);        
             if (bytes != 0) festivalStringToWaveRequest(festival_info, buf);
 
             /* fwave can be NULL if the given text didn't produce any sound
-               output, e.g. "." */
+               output, e.g. this text: "." */
             if (fwave != NULL){
-                DBG("Sending buf to child in wav:|%s| %d\n", buf, (fwave->num_samples) * sizeof(short));
+                DBG("Sending buf to child in wav: %d samples\n", buf, (fwave->num_samples) * sizeof(short));
             
                 ret = module_parent_send_samples(dpipe, fwave->samples, fwave->num_samples);
                 delete_FT_Wave(fwave);
@@ -321,12 +329,12 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
             return pos-bytes;
         }
 
-        if (terminate && bytes != 0){
+        if (terminate && (bytes != 0)){
             fwave = festivalStringToWaveGetData(festival_info);    
             delete_FT_Wave(fwave);
         }
 
-        if ((bytes == 0) || terminate){
+        if (terminate || (bytes == 0)){
             DBG("End of data in parent, closing pipes");
             module_parent_dp_close(dpipe);
             break;
@@ -339,6 +347,7 @@ static void
 festival_set_voice(EVoiceType voice, char *language)
 {
     char* voice_name;
+
     if (voice != festival_cur_voice || strcmp(language, festival_cur_language)){
         voice_name = module_getvoice(&module_info, language, voice);
         if (voice_name == NULL){
@@ -348,14 +357,15 @@ festival_set_voice(EVoiceType voice, char *language)
         festivalSetVoice(festival_info, voice_name);
 
         festival_cur_voice = voice;
-        if(festival_cur_language != NULL) free(festival_cur_language);
-        festival_cur_language = strdup(language);
-        festival_cur_rate = -999;
-        festival_cur_pitch = -999;
 
-        /* Because the new voice can use different bitrate */
+        xfree(festival_cur_language);
+        festival_cur_language = strdup(language);
+
+        festival_cur_rate = 0;
+        festival_cur_pitch = 0;
+
+        /* Because the new voice can use diferent bitrate */
         DBG("Filling new sample wave\n");
-        module_cstwave_free(module_sample_wave);
         festival_fill_sample_wave();
     }
 }
@@ -382,18 +392,33 @@ static void
 festival_fill_sample_wave()
 {
     FT_Wave *fwave;
+    int ret;
+
+    module_cstwave_free(module_sample_wave);
 
     /* Synthesize a sample string*/
-    festivalStringToWaveRequest(festival_info, "test");    
-    fwave = (FT_Wave*) festivalStringToWaveGetData(festival_info);
+    ret = festivalStringToWaveRequest(festival_info, "test");    
+    if (ret != 0){
+        DBG("Festival module request to synthesis failed.\n");
+        module_sample_wave = NULL;
+        return;
+    }
 
-    DBG("(init) wave num samples = %d\n", fwave->num_samples);
+    /* Get it back from server */
+    fwave = (FT_Wave*) festivalStringToWaveGetData(festival_info);
+    if (fwave == NULL){
+        DBG("Sample wave is NULL, this voice doesn't work properly in Festival!\n");
+        module_sample_wave = NULL;
+        return;
+    }
+
+    DBG("Synthesized wave num samples = %d\n", fwave->num_samples);
 
     /* Save it as cst_wave */
     module_sample_wave = (cst_wave*) festival_conv(fwave);
     /* Free fwave structure, but not the samples, because we
        point to them from module_sample_wave! */
-    free(fwave);
+    xfree(fwave);
 }
 
 static void
@@ -408,6 +433,9 @@ festival_child_close(TModuleDoublePipe dpipe)
     exit(0);
 }
 
+/* Warning: In order to be faster, this function doesn't copy
+ the samples from cst_wave to fwave, so be sure to free the
+ fwave only, not fwave->samples after conversion! */
 static cst_wave*
 festival_conv(FT_Wave *fwave)
 {
@@ -416,11 +444,12 @@ festival_conv(FT_Wave *fwave)
     if (fwave == NULL) return NULL;
 
     ret = (cst_wave*) spd_malloc(sizeof(cst_wave));
-    ret->type = (char*) spd_malloc(8);
-    sprintf((char*) ret->type, "riff");
+    ret->type = strdup("riff");
     ret->num_samples = fwave->num_samples;
     ret->sample_rate = fwave->sample_rate;
     ret->num_channels = 1;
+
+    /* The data isn't copied, only the pointer! */
     ret->samples = fwave->samples;
 
     return ret;
