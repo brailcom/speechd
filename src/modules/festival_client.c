@@ -629,7 +629,7 @@ int festivalClose(FT_Info *info)
 FEST_SET_INT(FestivalSetRate, "speechd-set-rate");
 FEST_SET_INT(FestivalSetPitch, "speechd-set-pitch");
 FEST_SET_SYMB(FestivalSetPunctuationMode, "speechd-set-punctuation-mode");
-FEST_SET_STR(FestivalSetCapLetRecogn, "speechd-capital-character-recognition-mode");
+FEST_SET_STR(FestivalSetCapLetRecogn, "speechd-set-capital-character-recognition-mode");
 FEST_SET_STR(FestivalSetLanguage, "speechd-set-language");
 FEST_SET_STR(FestivalSetVoice, "speechd-set-voice");
 
