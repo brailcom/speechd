@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.4 2003-09-22 06:35:37 pdm Exp $
+ * $Id: generic.c,v 1.5 2003-10-01 06:43:32 hanke Exp $
  */
 
 #include <glib.h>
@@ -68,6 +68,7 @@ MOD_OPTION_1_STR(GenericExecuteSynth);
 MOD_OPTION_1_INT(GenericMaxChunkLength);
 MOD_OPTION_1_STR(GenericDelimiters);
 MOD_OPTION_1_STR(GenericStripPunctChars);
+MOD_OPTION_1_STR(GenericRecodeFallback);
 
 MOD_OPTION_1_INT(GenericRateAdd);
 MOD_OPTION_1_FLOAT(GenericRateMultiply);
@@ -90,6 +91,7 @@ module_load(void)
     MOD_OPTION_1_INT_REG(GenericMaxChunkLength, 300);
     MOD_OPTION_1_STR_REG(GenericDelimiters, ".");
     MOD_OPTION_1_STR_REG(GenericStripPunctChars, "~@#$%^&*+=|\\/<>[]_");
+    MOD_OPTION_1_STR_REG(GenericRecodeFallback, "?");
 
     MOD_OPTION_1_INT_REG(GenericRateAdd, 0);
     MOD_OPTION_1_FLOAT_REG(GenericRateMultiply, 1);
@@ -153,12 +155,17 @@ module_write(gchar *data, size_t bytes)
     language = (TGenericLanguage*) module_get_ht_option(GenericLanguage, generic_msg_language);
     if (language != NULL){
         if (language->charset != NULL){
-            *generic_message = (char*) g_convert(data, bytes, language->charset, "UTF-8", NULL, NULL, NULL);
+            *generic_message = 
+                (char*) g_convert_with_fallback(data, bytes, language->charset,
+                                                "UTF-8", GenericRecodeFallback, NULL, NULL,
+                                                NULL);
         }else{
-            *generic_message = module_recode_to_iso(data, bytes, generic_msg_language);
+            *generic_message = module_recode_to_iso(data, bytes, generic_msg_language,
+                                                    GenericRecodeFallback);
         }
     }else{
-        *generic_message = module_recode_to_iso(data, bytes, generic_msg_language);
+        *generic_message = module_recode_to_iso(data, bytes, generic_msg_language,
+                                                GenericRecodeFallback);
     }
     module_strip_punctuation_some(*generic_message, GenericStripPunctChars);
 
