@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: config.c,v 1.2 2004-02-10 21:20:46 hanke Exp $
+ * $Id: config.c,v 1.3 2004-02-23 22:30:32 hanke Exp $
  */
 
 #include <dotconf.h>
@@ -33,33 +33,7 @@ int table_add(char *name, char *group);
 /* So that gcc doesn't comply about casts to char* */
 extern char* spd_strdup(char* string);
 
-/* define dotconf callbacks */
-DOTCONF_CB(cb_Port);
-DOTCONF_CB(cb_LogFile);
-DOTCONF_CB(cb_CustomLogFile);
-DOTCONF_CB(cb_LogLevel);
-DOTCONF_CB(cb_DefaultModule);
-DOTCONF_CB(cb_LanguageDefaultModule);
-DOTCONF_CB(cb_DefaultRate);
-DOTCONF_CB(cb_DefaultPitch);
-DOTCONF_CB(cb_DefaultVolume);
-DOTCONF_CB(cb_DefaultLanguage);
-DOTCONF_CB(cb_DefaultPriority);
-DOTCONF_CB(cb_DefaultPunctuationMode);
-DOTCONF_CB(cb_DefaultClientName);
-DOTCONF_CB(cb_DefaultVoiceType);
-DOTCONF_CB(cb_DefaultSpelling);
-DOTCONF_CB(cb_DefaultCapLetRecognition);
-DOTCONF_CB(cb_DefaultPauseContext);
-DOTCONF_CB(cb_AddModule);
-DOTCONF_CB(cb_MinDelayProgress);
-DOTCONF_CB(cb_MaxHistoryMessages);
-DOTCONF_CB(cb_BeginClient);
-DOTCONF_CB(cb_EndClient);
-DOTCONF_CB(cb_unknown);
-
-/* define dotconf configuration options */
-
+/* add dotconf configuration option */
 configoption_t *
 add_config_option(configoption_t *options, int *num_config_options, char *name, int type,
                   dotconf_callback_t callback, info_t *info,
@@ -92,9 +66,6 @@ free_config_options(configoption_t *opts, int *num)
     opts = NULL;
 }
 
-#define ADD_CONFIG_OPTION(name, arg_type) \
-   options = add_config_option(options, num_options, #name, arg_type, cb_ ## name, 0, 0);
-
 #define GLOBAL_FDSET_OPTION_CB_STR(name, arg) \
    DOTCONF_CB(cb_ ## name) \
    { \
@@ -106,94 +77,111 @@ free_config_options(configoption_t *opts, int *num)
        return NULL; \
    }    
 
-#define GLOBAL_FDSET_OPTION_CB_INT(name, arg) \
+#define GLOBAL_FDSET_OPTION_CB_INT(name, arg, cond, str) \
    DOTCONF_CB(cb_ ## name) \
    { \
+       int val = cmd->data.value; \
+       if (!(cond)) FATAL(str); \
        if (!cl_spec_section) \
-           GlobalFDSet.arg = cmd->data.value; \
+           GlobalFDSet.arg = val; \
        else \
-           cl_spec_section->val.arg = cmd->data.value; \
+           cl_spec_section->val.arg = val; \
        return NULL; \
    }    
 
-#define ADD_LAST_OPTION() \
-   options = add_config_option(options, num_options, "", 0, NULL, NULL, 0);
+#define GLOBAL_FDSET_OPTION_CB_SPECIAL(name, arg, type, fconv) \
+   DOTCONF_CB(cb_ ## name) \
+   { \
+       char *val_str; \
+       type val; \
+       val_str = g_ascii_strdown(cmd->data.str, strlen(cmd->data.str)); \
+       if (val_str == NULL) FATAL("Invalid parameter in configuration"); \
+       val = fconv(val_str); \
+       spd_free(val_str); \
+       if (val == -1) FATAL("Invalid parameter in configuration."); \
+       if (!cl_spec_section) \
+           GlobalFDSet.arg = val; \
+       else \
+           cl_spec_section->val.arg = val; \
+       return NULL; \
+   }    
 
-configoption_t*
-load_config_options(int *num_options)
+#define SPEECHD_OPTION_CB_STR_M(name, arg) \
+   DOTCONF_CB(cb_ ## name) \
+   { \
+       if (cl_spec_section) \
+         FATAL("This command isn't allowed in a client specific section!"); \
+       if (!SpeechdOptions.arg ## _set) SpeechdOptions.arg = cmd->data.str; \
+       return NULL; \
+   }    
+
+#define SPEECHD_OPTION_CB_INT_M(name, arg, cond, str) \
+   DOTCONF_CB(cb_ ## name) \
+   { \
+       int val = cmd->data.value; \
+       if (cl_spec_section) \
+         FATAL("This command isn't allowed in a client specific section!"); \
+       if (!(cond)) FATAL(str); \
+       if (!SpeechdOptions.arg ## _set) SpeechdOptions.arg = val; \
+       return NULL; \
+   }    
+
+#define SPEECHD_OPTION_CB_STR(name, arg) \
+   DOTCONF_CB(cb_ ## name) \
+   { \
+       if (cl_spec_section) \
+         FATAL("This command isn't allowed in a client specific section!"); \
+       SpeechdOptions.arg = cmd->data.str; \
+       return NULL; \
+   }    
+
+#define SPEECHD_OPTION_CB_INT(name, arg, cond, str) \
+   DOTCONF_CB(cb_ ## name) \
+   { \
+       int val = cmd->data.value; \
+       if (cl_spec_section) \
+         FATAL("This command isn't allowed in a client specific section!"); \
+       if (!(cond)) FATAL(str); \
+       SpeechdOptions.arg = val; \
+       return NULL; \
+   }    
+
+
+GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module);
+GLOBAL_FDSET_OPTION_CB_STR(DefaultLanguage, language);
+GLOBAL_FDSET_OPTION_CB_STR(DefaultClientName, client_name);
+
+GLOBAL_FDSET_OPTION_CB_INT(DefaultRate, rate, (val>=-100)&&(val<=+100), "Rate out of range.");
+GLOBAL_FDSET_OPTION_CB_INT(DefaultPitch, pitch, (val>=-100)&&(val<=+100), "Pitch out of range.");
+GLOBAL_FDSET_OPTION_CB_INT(DefaultVolume, volume, (val>=-100)&&(val<=+100), "Volume out of range.");
+GLOBAL_FDSET_OPTION_CB_INT(DefaultSpelling, spelling_mode, 1, "Invalid spelling mode");
+GLOBAL_FDSET_OPTION_CB_INT(DefaultPauseContext, pause_context, 1, "");
+
+GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPriority, priority, int, str2intpriority);
+GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultVoiceType, voice, EVoiceType, str2EVoice);
+GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPunctuationMode, punctuation_mode, EPunctMode, str2EPunctMode);
+GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultCapLetRecognition, cap_let_recogn, ECapLetRecogn, str2ECapLetRecogn);
+
+SPEECHD_OPTION_CB_INT_M(Port, port, val>=0, "Invalid port number!");
+SPEECHD_OPTION_CB_INT_M(LogLevel, log_level, (val>=0)&&(val<=5), "Invalid log (verbosity) level!");
+SPEECHD_OPTION_CB_INT(MaxHistoryMessages, max_history_messages, val>=0, "Invalid parameter!");
+
+DOTCONF_CB(cb_LanguageDefaultModule)
 {
-    configoption_t *options = NULL;
+    char *key;
+    char *value;
 
-    cl_spec_section = NULL;
-   
-    ADD_CONFIG_OPTION(Port, ARG_INT);
-    ADD_CONFIG_OPTION(LogFile, ARG_STR);
-    ADD_CONFIG_OPTION(CustomLogFile, ARG_LIST);
-    ADD_CONFIG_OPTION(LogLevel, ARG_INT);
-    ADD_CONFIG_OPTION(DefaultModule, ARG_STR);
-    ADD_CONFIG_OPTION(LanguageDefaultModule, ARG_LIST);
-    ADD_CONFIG_OPTION(DefaultRate, ARG_INT);  
-    ADD_CONFIG_OPTION(DefaultPitch, ARG_INT);
-    ADD_CONFIG_OPTION(DefaultVolume, ARG_INT);
-    ADD_CONFIG_OPTION(DefaultLanguage, ARG_STR);
-    ADD_CONFIG_OPTION(DefaultPriority, ARG_STR);
-    ADD_CONFIG_OPTION(MaxHistoryMessages, ARG_INT);   
-    ADD_CONFIG_OPTION(DefaultPunctuationMode, ARG_STR);
-    ADD_CONFIG_OPTION(DefaultClientName, ARG_STR);
-    ADD_CONFIG_OPTION(DefaultVoiceType, ARG_STR);
-    ADD_CONFIG_OPTION(DefaultSpelling, ARG_TOGGLE);
-    ADD_CONFIG_OPTION(DefaultCapLetRecognition, ARG_STR);
-    ADD_CONFIG_OPTION(DefaultPauseContext, ARG_INT);  
-    ADD_CONFIG_OPTION(AddModule, ARG_LIST);
-    ADD_CONFIG_OPTION(MinDelayProgress, ARG_INT);
-    ADD_CONFIG_OPTION(BeginClient, ARG_STR);
-    ADD_CONFIG_OPTION(EndClient, ARG_NONE);
-    /*{"ExampleOption", ARG_STR, cb_example, 0, 0},
-     *      {"MultiLineRaw", ARG_STR, cb_multiline, 0, 0},
-     *           {"", ARG_NAME, cb_unknown, 0, 0}, */
-        //    LAST_OPTION
-    return options;
-}
+    if(cmd->data.list[0] == NULL) FATAL("No language specified for LanguageDefaultModule");
+    if(cmd->data.list[0] == NULL) FATAL("No module specified for LanguageDefaultModule");
+    
+    key = strdup(cmd->data.list[0]);
+    value = strdup(cmd->data.list[1]);
 
-void
-load_default_global_set_options()
-{
-    GlobalFDSet.priority = 3;
-    GlobalFDSet.punctuation_mode = PUNCT_NONE;
-    GlobalFDSet.spelling_mode = 0;
-    GlobalFDSet.rate = 0;
-    GlobalFDSet.pitch = 0;
-    GlobalFDSet.volume = 0;
-    GlobalFDSet.client_name = strdup("unknown:unknown:unknown");
-    GlobalFDSet.language = strdup("en");
-    GlobalFDSet.output_module = NULL;
-    GlobalFDSet.voice = MALE1;
-    GlobalFDSet.cap_let_recogn = 0;
-    GlobalFDSet.min_delay_progress = 2000;
-    GlobalFDSet.pause_context = 0;
-
-    MaxHistoryMessages = 10000;
-
-    if (!spd_log_level_set) spd_log_level = 3;    
-    if (!spd_port_set) spd_port = SPEECHD_DEFAULT_PORT;
-
-    logfile = stderr;
-    custom_logfile = NULL;    
-}
-
-DOTCONF_CB(cb_Port)
-{
-    if (cmd->data.value <= 0){
-        MSG(3, "Unvalid port specified in configuration");
-        return NULL;
-    }
-
-    if (!spd_port_set){
-        spd_port = cmd->data.value;        
-    }
+    g_hash_table_insert(language_default_modules, key, value);
 
     return NULL;
 }
+
 
 DOTCONF_CB(cb_LogFile)
 {
@@ -246,195 +234,6 @@ DOTCONF_CB(cb_CustomLogFile)
     MSG(2,"Speech Dispatcher custom logging to file %s", file);
     return NULL;
 }
-
-DOTCONF_CB(cb_LogLevel)
-{
-    int level = cmd->data.value;
-
-    if(level < 0 || level > 5){
-        MSG(1,"Log level must be betwen 1 and 5.");
-        return NULL;
-    }
-
-    if (!spd_log_level_set){
-        spd_log_level = level;
-    }
-
-    MSG(4,"Speech Dispatcher Logging with priority %d", spd_log_level);
-    return NULL;
-}
-
-GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module);
-GLOBAL_FDSET_OPTION_CB_STR(DefaultLanguage, language);
-
-GLOBAL_FDSET_OPTION_CB_STR(DefaultClientName, client_name);
-
-DOTCONF_CB(cb_DefaultRate)
-{
-    int rate = cmd->data.value;
-
-    if (rate < -100 || rate > +100) MSG(3, "Default rate out of range.");
-    if (!cl_spec_section)
-        GlobalFDSet.rate = cmd->data.value;
-    else
-        cl_spec_section->val.rate = rate;
-    return NULL;
-}
-
-DOTCONF_CB(cb_DefaultPitch)
-{
-    int pitch = cmd->data.value;
-    if (pitch < -100 || pitch > +100) MSG(3, "Default pitch out of range.");
-    if (!cl_spec_section)
-        GlobalFDSet.pitch = pitch;
-    else
-        cl_spec_section->val.pitch = pitch;
-    return NULL;
-}
-
-DOTCONF_CB(cb_DefaultVolume)
-{
-    int volume = cmd->data.value;
-    if (volume < -100 || volume > +100) MSG(3, "Default volume out of range.");
-    if (!cl_spec_section)
-        GlobalFDSet.volume = volume;
-    else
-        cl_spec_section->val.volume = volume;
-    return NULL;
-}
-
-DOTCONF_CB(cb_DefaultPriority)
-{
-    char *priority_s;
-    assert(cmd->data.str != NULL);
-
-    priority_s = g_ascii_strdown(cmd->data.str, strlen(cmd->data.str));
-
-    if (!strcmp(priority_s, "important")) GlobalFDSet.priority = 1;
-    else if (!strcmp(priority_s, "text")) GlobalFDSet.priority = 2;
-    else if (!strcmp(priority_s, "message")) GlobalFDSet.priority = 3;
-    else if (!strcmp(priority_s, "notification")) GlobalFDSet.priority = 4;
-    else if (!strcmp(priority_s, "progress")) GlobalFDSet.priority = 5;
-    else{
-        MSG(2, "Unknown default priority specified in configuration.");
-        return NULL;
-    }
-
-    spd_free(priority_s);
-
-    return NULL;
-}
-
-DOTCONF_CB(cb_DefaultVoiceType)
-{
-    char *voice_s;
-    EVoiceType voice;
-
-    assert(cmd->data.str != NULL);
-
-    voice_s = g_ascii_strup(cmd->data.str, strlen(cmd->data.str));
-
-    if (!strcmp(voice_s, "MALE1")) voice = MALE1;
-    else if (!strcmp(voice_s, "MALE2")) voice = MALE2;
-    else if (!strcmp(voice_s, "MALE3")) voice = MALE3;
-    else if (!strcmp(voice_s, "FEMALE1")) voice = FEMALE1;
-    else if (!strcmp(voice_s, "FEMALE2")) voice = FEMALE2;
-    else if (!strcmp(voice_s, "FEMALE3")) voice = FEMALE3;
-    else if (!strcmp(voice_s, "CHILD_MALE")) voice = CHILD_MALE;
-    else if (!strcmp(voice_s, "CHILD_FEMALE")) voice = CHILD_FEMALE;
-    else{
-        MSG(2, "Unknown default voice specified in configuration, using default.");
-        voice = MALE1;
-    }
-
-    if (!cl_spec_section){
-        MSG(4, "Default voice type set to %d", GlobalFDSet.voice);
-        GlobalFDSet.voice = voice;
-    }else{
-        cl_spec_section->val.voice = voice;
-    }
-    spd_free(voice_s);
-
-    return NULL;
-}
-
-DOTCONF_CB(cb_MaxHistoryMessages)
-{
-    int msgs = cmd->data.value;
-    if (msgs > 0) MSG(3, "configuration: MaxHistoryMessages must be a positive number.");
-    MaxHistoryMessages = msgs;
-    return NULL;
-}
-
-DOTCONF_CB(cb_DefaultPunctuationMode)
-{
-    char *pmode = cmd->data.str;
-    int mode;
-
-    assert(pmode != NULL);
-    if(!strcmp(pmode, "all")) mode = 1;
-    else if(!strcmp(pmode, "none")) mode = 0;
-    else if(!strcmp(pmode, "some")) mode = 2;
-    else MSG(2,"Unknown punctuation mode specified in configuration.");
-
-    if (!cl_spec_section)
-        GlobalFDSet.punctuation_mode = mode;
-    else
-        cl_spec_section->val.punctuation_mode = mode;
-
-    return NULL;
-}
-
-GLOBAL_FDSET_OPTION_CB_INT(DefaultSpelling, spelling_mode);
-
-DOTCONF_CB(cb_DefaultCapLetRecognition)
-{
-    char *mode;
-    ECapLetRecogn clr;
-
-    assert(cmd->data.str != NULL);
-    mode = g_ascii_strdown(cmd->data.str, strlen(cmd->data.str));
-
-    if (!strcmp(mode, "none")) clr = RECOGN_NONE;
-    else if(!strcmp(mode, "spell")) clr = RECOGN_SPELL;
-    else if(!strcmp(mode, "icon")) clr = RECOGN_ICON;
-    else{
-        MSG(3, "Invalid capital letters recognition mode specified in configuration");
-        return NULL;
-    }
-
-    if (!cl_spec_section)
-        GlobalFDSet.cap_let_recogn = clr;
-    else
-        cl_spec_section->val.cap_let_recogn = clr;
-
-    return NULL;
-}
-
-DOTCONF_CB(cb_MinDelayProgress)
-{
-    if (cmd->data.value < 0) MSG(2, "Time specified in MinDelayProgress not valid");
-    GlobalFDSet.min_delay_progress = cmd->data.value;
-    return NULL;
-}
-
-DOTCONF_CB(cb_LanguageDefaultModule)
-{
-    char *key;
-    char *value;
-
-    if(cmd->data.list[0] == NULL) FATAL("No language specified for LanguageDefaultModule");
-    if(cmd->data.list[0] == NULL) FATAL("No module specified for LanguageDefaultModule");
-    
-    key = strdup(cmd->data.list[0]);
-    value = strdup(cmd->data.list[1]);
-
-    g_hash_table_insert(language_default_modules, key, value);
-
-    return NULL;
-}
-
-GLOBAL_FDSET_OPTION_CB_INT(DefaultPauseContext, pause_context);
 
 DOTCONF_CB(cb_AddModule)
 {
@@ -510,3 +309,66 @@ DOTCONF_CB(cb_unknown)
     return NULL;
 }
 
+#define ADD_CONFIG_OPTION(name, arg_type) \
+   options = add_config_option(options, num_options, #name, arg_type, cb_ ## name, 0, 0);
+
+#define ADD_LAST_OPTION() \
+   options = add_config_option(options, num_options, "", 0, NULL, NULL, 0);
+
+
+configoption_t*
+load_config_options(int *num_options)
+{
+    configoption_t *options = NULL;
+
+    cl_spec_section = NULL;
+   
+    ADD_CONFIG_OPTION(Port, ARG_INT);
+    ADD_CONFIG_OPTION(LogFile, ARG_STR);
+    ADD_CONFIG_OPTION(CustomLogFile, ARG_LIST);
+    ADD_CONFIG_OPTION(LogLevel, ARG_INT);
+    ADD_CONFIG_OPTION(DefaultModule, ARG_STR);
+    ADD_CONFIG_OPTION(LanguageDefaultModule, ARG_LIST);
+    ADD_CONFIG_OPTION(DefaultRate, ARG_INT);  
+    ADD_CONFIG_OPTION(DefaultPitch, ARG_INT);
+    ADD_CONFIG_OPTION(DefaultVolume, ARG_INT);
+    ADD_CONFIG_OPTION(DefaultLanguage, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultPriority, ARG_STR);
+    ADD_CONFIG_OPTION(MaxHistoryMessages, ARG_INT);   
+    ADD_CONFIG_OPTION(DefaultPunctuationMode, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultClientName, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultVoiceType, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultSpelling, ARG_TOGGLE);
+    ADD_CONFIG_OPTION(DefaultCapLetRecognition, ARG_STR);
+    ADD_CONFIG_OPTION(DefaultPauseContext, ARG_INT);  
+    ADD_CONFIG_OPTION(AddModule, ARG_LIST);
+    ADD_CONFIG_OPTION(BeginClient, ARG_STR);
+    ADD_CONFIG_OPTION(EndClient, ARG_NONE);
+    return options;
+}
+
+void
+load_default_global_set_options()
+{
+    GlobalFDSet.priority = 3;
+    GlobalFDSet.punctuation_mode = PUNCT_NONE;
+    GlobalFDSet.spelling_mode = 0;
+    GlobalFDSet.rate = 0;
+    GlobalFDSet.pitch = 0;
+    GlobalFDSet.volume = 0;
+    GlobalFDSet.client_name = strdup("unknown:unknown:unknown");
+    GlobalFDSet.language = strdup("en");
+    GlobalFDSet.output_module = NULL;
+    GlobalFDSet.voice = MALE1;
+    GlobalFDSet.cap_let_recogn = 0;
+    GlobalFDSet.min_delay_progress = 2000;
+    GlobalFDSet.pause_context = 0;
+
+    SpeechdOptions.max_history_messages = 10000;
+
+    if (!SpeechdOptions.log_level_set) SpeechdOptions.log_level = 3;    
+    if (!SpeechdOptions.port_set) SpeechdOptions.port = SPEECHD_DEFAULT_PORT;
+
+    logfile = stderr;
+    custom_logfile = NULL;    
+}
