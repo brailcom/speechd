@@ -6,4 +6,4 @@ speechd_LDFLAGS = -rdynamic
 
 inc_local = -I$(top_srcdir)/intl/
 localedir = $(datadir)/locale
-AM_CFLAGS = $(inc_local) -I$(localedir) @glib_include@ -DSYS_CONF=\"@spdconfdir@\" -DSND_DATA=\"@snddatadir@\" -DMODULEBINDIR=\"@modulebindir@\" -DMODULECONFDIR=\"@moduleconfdir@\"
+AM_CFLAGS = $(inc_local) -I$(localedir) @glib_include@ -DSYS_CONF=\"@spdconfdir@\" -DSND_DATA=\"@snddatadir@\" -DMODULEBINDIR=\"@modulebindir@\" -DMODULECONFDIR=\"@moduleconfdir@\" -DVERSION=\"@VERSION@\" -DPACKAGE=\"@PACKAGE@\"
