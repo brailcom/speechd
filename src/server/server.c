@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.c,v 1.27 2003-04-11 20:41:01 hanke Exp $
+ * $Id: server.c,v 1.28 2003-04-12 11:19:03 hanke Exp $
  */
 
 #include "speechd.h"
@@ -173,6 +173,40 @@ message_nto_speak(TSpeechDMessage *elem, gpointer a, gpointer b)
     else return 1;
 }
 
+char*
+process_message(char *buf, int bytes, TFDSetElement* settings) 
+{
+    int i;
+    char *c;
+    char *name;
+    GString *str;
+    GHashTable *icons;
+
+    if(settings->spelling){
+        icons = g_hash_table_lookup(snd_icon_langs, settings->language);
+        if (icons == NULL){
+            icons = g_hash_table_lookup(snd_icon_langs, GlobalFDSet.language);
+            if (icons == NULL) return NULL;
+        }
+
+        str = g_string_sized_new(bytes);
+        name = (char*) spd_malloc(3);
+
+        for(i=0; i<=bytes-1;i++){
+            /* TODO: this doesn't work with multibytes */
+            name[0] = buf[i];
+            name[1] = 0;
+            c = snd_icon_spelling_get(settings->spelling_table, icons, name);
+            if (c != NULL){
+                g_string_append(str, c);
+                g_string_append(str," ");
+            }
+        }
+        return str->str;
+    }
+    return buf;
+}
+
 /*
   Speak() is responsible for getting right text from right
   queue in right time and saying it loud through corresponding
@@ -185,6 +219,7 @@ speak(void* data)
     TSpeechDMessage *element = NULL;
     OutputModule *output;
     GList *gl = NULL;
+    char *buffer;
     int ret;
     sigset_t all_signals;
 
@@ -313,11 +348,13 @@ speak(void* data)
                 }
             }
 
+            buffer = process_message(element->buf, element->bytes, &(element->settings));
+
             /* Set the speking_module monitor so that we knew who is speaking */
             speaking_module = output;
             speaking_uid = element->settings.uid;
             /* Write the data to the output module. (say them aloud) */
-            ret = (*output->write) (element->buf, element->bytes, &element->settings); 
+            ret = (*output->write) (buffer, strlen(buffer), &element->settings); 
             if (ret <= 0) MSG(2, "Output module failed");
             mem_free_message(element);
             msgs_to_say--;
