@@ -1,3 +1,11 @@
+2003-07-10  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/modules/module_utils.c (module_sigblockall): Don't take any
+	arguments.  Let all_signals be an allocated variable, not only a
+	pointer.
+	(module_audio_output_child): Don't call module_sigblockall with an
+	argument.
+
 2003-07-09  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/sndicon.h: #ifdef -> #ifndef.
