@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.c,v 1.5 2004-02-23 22:32:18 hanke Exp $
+ * $Id: options.c,v 1.6 2004-05-23 21:25:10 hanke Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would
@@ -56,8 +56,8 @@ options_print_version(void)
 {
     printf("%s %s\n", PACKAGE, VERSION);
     printf("Copyright (C) 2002-2003 Brailcom, o.p.s.\n"
-           "GNU Emacs comes with ABSOLUTELY NO WARRANTY.\n"
-           "You may redistribute copies of Emacs\n"
+           "Speech Dispatcher comes with ABSOLUTELY NO WARRANTY.\n"
+           "You may redistribute copies of Speech Dispatcher\n"
            "under the terms of the GNU General Public License.\n"
            "For more information about these matters, see the file named COPYING.\n"
            );
