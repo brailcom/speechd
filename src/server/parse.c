@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.21 2003-04-15 11:24:20 pdm Exp $
+ * $Id: parse.c,v 1.22 2003-04-17 10:15:57 hanke Exp $
  */
 
 #include "speechd.h"
@@ -177,12 +177,13 @@ parse_set(char *buf, int bytes, int fd)
     char *param;
     char *language;
     char *client_name;
-    char *spelling_table;
     char *priority;
     char *rate;
     char *pitch;
     char *punct;
+    char *punctuation_table;
     char *spelling;
+    char *spelling_table;
     char *recog;
     char *voice;
     int helper;
@@ -198,33 +199,29 @@ parse_set(char *buf, int bytes, int fd)
         if(!ret) return ERR_COULDNT_SET_PRIORITY;	
         return OK_PRIORITY_SET;
     }
-
-    if (!strcmp(param,"language")){
+    else if (!strcmp(param,"language")){
         language = get_param(buf,2,bytes, 0);
         MSG(4, "Setting language to %s \n", language);
         ret = set_language(fd, language);
         if (!ret) return ERR_COULDNT_SET_LANGUAGE;
         return OK_LANGUAGE_SET;
     }
-
-    if (!strcmp(param,"spelling_table")){
+    else if (!strcmp(param,"spelling_table")){
         spelling_table = get_param(buf,2,bytes, 0);
         MSG(4, "Setting spelling table to %s \n", spelling_table);
         ret = set_spelling_table(fd, spelling_table);
         if (!ret) return ERR_COULDNT_SET_SPELLING_TABLE;
         return OK_SPELLING_TABLE_SET;
     }
-
-    if (!strcmp(param,"client_name")){
+    else if (!strcmp(param,"client_name")){
         client_name = get_param(buf,2,bytes, 0);
         if (client_name == NULL) return ERR_MISSING_PARAMETER;
         MSG(4, "Setting client name to %s. \n", client_name);
         ret = set_client_name(fd, client_name);
         if (!ret) return ERR_COULDNT_SET_LANGUAGE;
         return OK_CLIENT_NAME_SET;
-    }		 
-
-    if (!strcmp(param,"rate")){
+    }
+    else if (!strcmp(param,"rate")){
         rate = get_param(buf,2,bytes, 0);
         if (rate == NULL) return ERR_MISSING_PARAMETER;
         if (!isanum(rate)) return ERR_NOT_A_NUMBER;
@@ -236,8 +233,7 @@ parse_set(char *buf, int bytes, int fd)
         if (!ret) return ERR_COULDNT_SET_RATE;
         return OK_RATE_SET;
     }
-
-    if (!strcmp(param,"pitch")){
+    else if (!strcmp(param,"pitch")){
         pitch = get_param(buf,2,bytes, 0);
         if (pitch == NULL) return ERR_MISSING_PARAMETER;
         if (!isanum(pitch)) return ERR_NOT_A_NUMBER;
@@ -249,8 +245,7 @@ parse_set(char *buf, int bytes, int fd)
         if (!ret) return ERR_COULDNT_SET_PITCH;
         return OK_PITCH_SET;
     }
-
-    if (!strcmp(param,"voice")){
+    else if (!strcmp(param,"voice")){
         voice = get_param(buf,2,bytes, 0);
         if (voice == NULL) return ERR_MISSING_PARAMETER;
         MSG(4, "Setting voice to %s", voice);
@@ -258,8 +253,7 @@ parse_set(char *buf, int bytes, int fd)
         if (!ret) return ERR_COULDNT_SET_VOICE;
         return OK_VOICE_SET;
     }
-
-    if (!strcmp(param,"punctuation")){
+    else if (!strcmp(param,"punctuation")){
         punct = get_param(buf,2,bytes, 1);
         if (punct == NULL) return ERR_MISSING_PARAMETER;
 
@@ -272,8 +266,15 @@ parse_set(char *buf, int bytes, int fd)
         if (!ret) return ERR_COULDNT_SET_PUNCT_MODE;
         return OK_PUNCT_MODE_SET;
     }
-
-    if (!strcmp(param,"cap_let_recogn")){
+    else if (!strcmp(param,"punctuation_table")){
+        punctuation_table = get_param(buf,2,bytes, 0);
+        if (punctuation_table == NULL) return ERR_MISSING_PARAMETER;
+        MSG(4, "Setting punctuation table to %s \n", punctuation_table);
+        ret = set_punctuation_table(fd, punctuation_table);
+        if (!ret) return ERR_COULDNT_SET_PUNCTUATION_TABLE;
+        return OK_PUNCTUATION_TABLE_SET;
+    }
+    else if (!strcmp(param,"cap_let_recogn")){
         recog = get_param(buf,2,bytes, 1);
         if (recog == NULL) return ERR_MISSING_PARAMETER;
 
@@ -284,9 +285,7 @@ parse_set(char *buf, int bytes, int fd)
         MSG(4, "Setting capital letter recognition to %s \n", punct);
         if (!ret) return ERR_COULDNT_SET_CAP_LET_RECOG;
         return OK_CAP_LET_RECOGN_SET;
-    }
-
-    if (!strcmp(param,"spelling")){
+    }else if (!strcmp(param,"spelling")){
         spelling = get_param(buf,2,bytes, 1);
         if (spelling == NULL) return ERR_MISSING_PARAMETER;
         if(!strcmp(spelling,"on")) ret = set_spelling(fd, 1);
@@ -297,8 +296,10 @@ parse_set(char *buf, int bytes, int fd)
 
         if (!ret) return ERR_COULDNT_SET_SPELLING;
         return OK_SPELLING_SET;
+    }else{
+        return ERR_PARAMETER_INVALID;
     }
-	   
+
     return ERR_INVALID_COMMAND;
 }
 
@@ -309,6 +310,7 @@ parse_stop(char *buf, int bytes, int fd)
     char *param;
 
     param = get_param(buf,1,bytes, 1);
+    if (param == NULL) return ERR_MISSING_PARAMETER;
 
     if (!strcmp(param,"all")){
         speaking_stop_all();
@@ -322,10 +324,11 @@ parse_stop(char *buf, int bytes, int fd)
         uid = atoi(param);
         if (uid <= 0) return ERR_ID_NOT_EXIST;
         speaking_stop(uid);
+    }else{
+        return ERR_PARAMETER_INVALID;
     }
 
     MSG(4, "Stop received.");
-
     return OK_STOPPED;
 }
 
@@ -336,6 +339,7 @@ parse_cancel(char *buf, int bytes, int fd)
     char *param;
 
     param = get_param(buf,1,bytes, 1);
+    if (param == NULL) return ERR_MISSING_PARAMETER;
 
     if (!strcmp(param,"all")){
         speaking_cancel_all();
@@ -349,6 +353,8 @@ parse_cancel(char *buf, int bytes, int fd)
         uid = atoi(param);
         if (uid <= 0) return ERR_ID_NOT_EXIST;
         speaking_cancel(uid);
+    }else{
+        return ERR_PARAMETER_INVALID;
     }
 
     MSG(4, "Cancel received.");
@@ -364,15 +370,20 @@ parse_pause(char *buf, int bytes, int fd)
     char *param;
 
     param = get_param(buf,1,bytes, 0);
-    if (isanum(param)) uid = atoi(param);
+    if (param == NULL) return ERR_MISSING_PARAMETER;
 
+    /*    if (isanum(param)) uid = atoi(param);
+
+    */
     /* If the parameter target_uid wasn't specified,
        act on the calling client. */
-    if(uid == 0) uid = get_client_uid_by_fd(fd);
+    /*    if(uid == 0) uid = get_client_uid_by_fd(fd);
     if(uid == 0) return ERR_NO_SUCH_CLIENT;
 
     MSG(4, "Pause received.");
     ret = speaking_pause(uid);
+    */
+
     return OK_PAUSED;
 }
 
@@ -385,14 +396,17 @@ parse_resume(char *buf, int bytes, int fd)
 
     param = get_param(buf,1,bytes, 0);
     if (isanum(param)) uid = atoi(param);
-
+    /*
+    if (param == NULL) return ERR_MISSING_PARAMETER;
+    */
     /* If the parameter target_uid wasn't specified,
        act on the calling client. */
-    if(uid == 0) uid = get_client_uid_by_fd(fd);
+    /*    if(uid == 0) uid = get_client_uid_by_fd(fd);
     if(uid == 0) return ERR_NO_SUCH_CLIENT;
 
     MSG(4, "Resume received.");
     ret = speaking_resume(uid);
+    */
     return OK_RESUMED;
 }
 
@@ -429,7 +443,7 @@ parse_char(char *buf, int bytes, int fd)
     MSG(4,"Parameter caught: %s", param);
 
     ret = sndicon_char(fd, param);
-   	if (ret!=0){
+    if (ret!=0){
         if(ret == 1) return ERR_NO_SND_ICONS;
         if(ret == 2) return ERR_UNKNOWN_ICON;
     }
