@@ -132,7 +132,7 @@ Speech Server that implements SSIP.
 SSIP was designed to allow multiple simultaneous connections to
 the server. A connection is identified by an identification string
 provided by the client application and an id number. Each connection
-with all it's parameters is considered a closed space independent of
+with all its parameters is considered a closed space independent of
 the others, so that different clients can maintain different settings
 in their connections and then the Speech Server should take care of setting
 the right parameters on the synthesizer according to the origin of each
@@ -201,8 +201,8 @@ this is the application that ``wants to speak''.
 
 @cindex message
 @item @emph{Message}
-is a chunk of text that a client sends to Speech Server with the
-intention of being said.
+is a chunk of text that a client sends to Speech Server to request
+saying something or playing some sound.
 
 @end itemize
 
@@ -286,7 +286,7 @@ of priority @code{text} comes, these are canceled.
 @heading Priority @code{notification}
 
 This is a low priority message. If there are messages with priorities
-@code{important}, @code{messages}, @code{text} or @code{progress}
+@code{important}, @code{message}, @code{text} or @code{progress}
 waiting in the queues or being spoken, this @code{notification}
 message is canceled.
 
@@ -305,7 +305,7 @@ Notification), the user might not receive any complete
 message.
 
 This priority behaves the same as ``notification'' except
-for 2 things:
+for two things:
 
 @itemize
 @item
@@ -313,11 +313,12 @@ The messages of this priority don't interrupt each other,
 instead, a newly arriving message is canceled if another message is
 being spoken.
 @item
-It tries to detect the last message of a series of messages (It's
-important for the user to hear the @code{Completed 100%} message to
-know that the process has terminated). It waits until there are no
-more messages of this priority waiting in queues and if the last of
-them wasn't spoken yet, it speaks it with priority @code{message}.
+Speech Server tries to detect the last message of a series of messages
+(for instance, it's important for the user to hear the final
+@code{Completed 100%} message to know the work has completed).  Speech
+Server waits until there are no more messages of this priority waiting
+in queues and if the last of them wasn't spoken yet, it speaks it with
+the priority @code{message}.
 @end itemize
 
 This way, even if Speech Server is busy speaking messages of other
@@ -376,7 +377,7 @@ Example uses for level @code{progress} are:
 @chapter Message History
 
 It seems as a good feature for the blind and visually impaired to
-provide a possibility to, through some simple client, browse the
+provide a possibility to browse, through some simple client, the
 history of received messages.
 
 Some less important messages are received by Speech Server over SSIP
@@ -517,7 +518,7 @@ current brackets.
 @subsubsection Speech Synthesis and Sound Output
 
 These commands invoke actual output to particular output device.  The
-particular way how the message is handled depands on current speech
+particular way how the message is handled depends on current speech
 parameter settings and user configuration.
 
 @table @code
@@ -627,7 +628,7 @@ the currently processed message from the client connection identified
 by @var{id} is stopped; if there is none such, do nothing.
 
 @item CANCEL @{ @var{id} | all | self @}
-This command is the same as @code{SPEAK}, with the exception that it
+This command is the same as @code{STOP}, with the exception that it
 stops not yet output messages as well.  All currently queued messages
 are stored into the message history without being sent to the audio
 output device.
@@ -783,9 +784,9 @@ client's name once it's already set are answered with an error code.
 
 Only @code{self} is allowed as the `target' argument.
 
-@item SET @{ all | self | @var{id} @} LANGUAGE @var{language}
-Set recommended language for this client to @var{language}.
-@var{language} is the name of the language according to RFC 1766.
+@item SET @{ all | self | @var{id} @} LANGUAGE @var{language-code}
+Set recommended language for this client according to @var{language-code}.
+@var{language-code} is the code of the language according to RFC 1766.
 
 For example, to set the preferred language to Czech, you send the
 following command:
@@ -794,8 +795,8 @@ following command:
 SET SELF LANGUAGE cs
 @end example
 
-@item SET self PRIORITY @var{n}
-Set message priority to @var{n}.  @var{n} must be one of the values
+@item SET self PRIORITY @var{p}
+Set message priority to @var{p}.  @var{p} must be one of the values
 @code{important}, @code{text}, @code{message}, @code{notification},
 @code{progress}.  @xref{Message Priority Model}.
 
@@ -1360,7 +1361,7 @@ The following voice names are always present in the output of the
 @end table
 
 The actual presence of any of these voices is not guaranteed.  But the
-command @code{SET SELF VOICE} (@pxref{Parameter Setting Commands}) must
+command @code{SET VOICE} (@pxref{Parameter Setting Commands}) must
 accept any of them.  If the given voice is not available, it is mapped
 to another voice by the output module.
 
@@ -1374,7 +1375,6 @@ to another voice by the output module.
 @node Index of Concepts,  , GNU Free Documentation License, Top
 @unnumbered Index of Concepts
 
-@cindex tail recursion
 @printindex cp
 
 @bye
