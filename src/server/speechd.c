@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.49 2003-10-08 21:33:14 hanke Exp $
+ * $Id: speechd.c,v 1.50 2003-10-09 21:24:09 hanke Exp $
  */
 
 #include "speechd.h"
@@ -349,6 +349,9 @@ speechd_init(void)
         inside_block[i] = 0;              
         o_buf[i] = 0;              
     }
+
+    pause_requested = 0;
+    resume_requested = 0;
 
     /* Perform some functionality tests */
     if (g_module_supported() == FALSE)
