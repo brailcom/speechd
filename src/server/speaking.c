@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.36 2003-10-23 14:40:04 hanke Exp $
+  * $Id: speaking.c,v 1.37 2003-10-25 10:52:17 hanke Exp $
   */
 
 #include <glib.h>
@@ -70,19 +70,19 @@ speak(void* data)
         if (resume_requested){
             GList *gl;
             TSpeechDMessage *element;
-            pthread_mutex_lock(&element_free_mutex);
 
             /* Is there any message after resume? */
             if(g_list_length(MessagePausedList) != 0){
                 while(1){
+                    pthread_mutex_lock(&element_free_mutex);
                     gl = g_list_find_custom(MessagePausedList, (void*) NULL, message_nto_speak);
+                    MessagePausedList = g_list_remove_link(MessagePausedList, gl);
+                    pthread_mutex_unlock(&element_free_mutex);           
                     if ((gl != NULL) && (gl->data != NULL)){
                         reload_message((TSpeechDMessage*) gl->data);
-                        MessagePausedList = g_list_remove_link(MessagePausedList, gl);
                     }else break;                    
                 }
             }
-            pthread_mutex_unlock(&element_free_mutex);
             resume_requested = 0;
         }       
 
