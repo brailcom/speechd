@@ -227,12 +227,13 @@ language. Currently, it supports high quality synthesis for several
 languages, and on today's computers runs reasonably fast.
 See @uref{http://www.cstr.ed.ac.uk/projects/festival/}
 
-For simpler purposes and slower computers, there is also support for
-Flite. Flite (Festival Light) is a lighter Free Software TTS with
-synthesis intended to run on systems with limited resources. In this
-time, it only has one English voice, but we hope that also the other
-voices from Festival will be ported to Flite over time.
-See @uref{http://www.speech.cs.cmu.edu/flite/}
+For simpler purposes, there is also support for Flite. Flite (Festival
+Light) is a lighter Free Software TTS with synthesis intended to run
+on systems with limited resources. In this time, it only has one
+English voice and porting voices from Festival looks rather difficult.
+With the caching mechanism provided by Speech Dispatcher, Festival is
+even Faster than Flite in many situations.  See
+@uref{http://www.speech.cs.cmu.edu/flite/}
 
 Then Speech Dispatcher offers support for generic output devices,
 which means that basically every Text-to-Speech program that provides
@@ -293,10 +294,57 @@ selection of an output module can be influenced through the configuration file
 @file{speech-dispatcher/speechd.conf}.
 
 @menu
-* Compiling a New Module ::     
+* Provided Functionality::      Some synthesizers don't support the full set of SSIP features
+* Supported Modules::           Festival, Flite, Epos, Generic
+* Compiling a New Module ::     How to compile a new output module
 @end menu
 
-@node Compiling a New Module ,  , Multiple Output Modules, Multiple Output Modules
+@node Provided Functionality, Supported Modules, Multiple Output Modules, Multiple Output Modules
+@subsubsection Provided functionality
+
+Please note that some output modules don't support the full Speech
+Dispatcher functionality (e.g. spelling mode, sound icons). If there
+is no easy way around the missing functionality, we don't try to
+emulate it in some complicated way and rather try to encourage the
+developers of that particular synthesizer to add that
+functionality. We are actively working on adding the missing parts to
+Festival, so Festival supports nearly all of the features of Speech
+Dispatcher and we encourage you to use it.
+
+@node Supported Modules, Compiling a New Module , Provided Functionality, Multiple Output Modules
+@subsubsection Supported Modules
+
+Currently, these output modules are supported: Festival, Flite, Epos
+and Generic. 
+
+@itemize
+
+@item Festival
+Festival is a Free Software multi-language Text-to-Speech and
+synthesis system, that is very flexible and extensible using the
+Scheme scripting language. Currently, it supports high quality
+synthesis for several languages, and on today's computers it runs
+reasonably fast.  If you are not sure which one to use and your
+language is supported by Festival, we avise you to use it. See
+@uref{http://www.cstr.ed.ac.uk/projects/festival/}
+
+@item Flite 
+Flite (Festival Light) is a lighter Free Software TTS with synthesis
+intended to run on systems with limited resources. In this time, it
+only has one English voice and porting voices from Festival looks
+rather difficult.  With the caching mechanism provided by Speech
+Dispatcher, Festival is faster than Flite in most situations.  See
+@uref{http://www.speech.cs.cmu.edu/flite/}
+
+@item Generic
+The Generic module can be used with any synthesizer that can be
+managed by a simple command line application. @xref{Configuration of
+the Generic Output Module}, for more details about how to use it.
+However, it only provides a very rudimentary support of speaking.
+
+@end itemize
+
+@node Compiling a New Module ,  , Supported Modules, Multiple Output Modules
 @subsubsection Compiling a New Module 
 
 If you want to compile and use a new output module, you should place
@@ -388,7 +436,7 @@ previously connected users.
 @node Invoking, Configuration, Features, User's Documentation
 @section Invoking
 
-@subsection Necessary Privilegs
+@subsection Necessary Privileges
 
 Speech Dispatcher can generally run under an ordinary user.
 We tried to make it as secure as possible, however, we aren't
