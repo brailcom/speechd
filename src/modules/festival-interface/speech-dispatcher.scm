@@ -30,6 +30,7 @@
 
 (defvar speechd-languages
   '(("en" "english")
+    ("de" "german")
     ("cs" "czech"))
   "Alist mapping ISO language codes to Festival language names.
 Each element of the alist is of the form (LANGUAGE-CODE LANGUAGE-NAME), where
@@ -46,6 +47,8 @@ See also `speechd-language-voices'.")
     ("britishenglish"
      ("male1" voice_kal_diphone)
      ("male2" voice_ked_diphone))
+    ("german"
+     ("male1" voice_german))
     ("czech"
      ("male1" voice_czech)))
   "Alist mapping Festival language names and voice names to voice functions.
