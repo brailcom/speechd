@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.6 2003-07-05 12:21:49 hanke Exp $
+ * $Id: module_utils.c,v 1.7 2003-07-10 16:11:55 pdm Exp $
  */
 
 #include <semaphore.h>
@@ -144,7 +144,7 @@ static void module_strip_punctuation_some(char *buf, char* punct_some);
 
 static void module_cstwave_free(cst_wave* wave);
 
-static void module_sigblockall();
+static void module_sigblockall(void);
 static void module_sigblockusr(sigset_t *signal_set);
 static void module_sigunblockusr(sigset_t *signal_set);
 
@@ -349,17 +349,16 @@ void
 module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
 {
     char *data;  
-    sigset_t some_signals;
     cst_wave *wave;
     short *samples = NULL;
     int bytes;
     int num_samples = 0;
     int ret;
 
-    module_sigblockall(&some_signals);
+    module_sigblockall();
 
     module_child_dp_init(dpipe);
-
+    
     data = xmalloc(CHILD_SAMPLE_BUF_SIZE);
 
     ret = spd_audio_open(module_sample_wave);
@@ -514,14 +513,14 @@ module_parent_send_samples(TModuleDoublePipe dpipe, short* samples, size_t num_s
 }
 
 static void
-module_sigblockall()
+module_sigblockall(void)
 {
     int ret;
-    sigset_t *all_signals;
+    sigset_t all_signals;
 
-    sigfillset(all_signals);
+    sigfillset(&all_signals);
 
-    ret = sigprocmask(SIG_BLOCK, all_signals, NULL);
+    ret = sigprocmask(SIG_BLOCK, &all_signals, NULL);
     if (ret != 0)
         DBG("flite: Can't block signals, expect problems with terminating!\n");
 }
