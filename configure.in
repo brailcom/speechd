@@ -14,7 +14,11 @@ AC_CHECK_LIB(dl, main)
 AC_CHECK_LIB(dotconf, main)
 AC_CHECK_LIB(glib-2.0, main)
 AC_CHECK_LIB(ncurses, main)
-AC_CHECK_LIB(ibs, main)
+AC_CHECK_LIB(pthread, pthread_create)
+AC_CHECK_LIB(flite, )
+AC_CHECK_LIB(flite_cmu_us_kal, )
+AC_CHECK_LIB(flite_usenglish, )
+AC_CHECK_LIB(flite_cmulex, )
 
 glib_include=`pkg-config --cflags glib-2.0`
 AC_SUBST(glib_include)
@@ -39,5 +43,5 @@ AC_PROG_MAKE_SET
 
 AM_PROG_LIBTOOL
 
-AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/clients/Makefile])
+AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/clients/Makefile src/tests/Makefile])
 
