@@ -9,13 +9,15 @@
 #include <flite/flite.h>
 #include <signal.h>
 
+#include "spd_audio.h"
+
 /* Voice */
 extern cst_voice *register_cmu_us_kal();
 cst_voice *spd_audio_flite_voice;
 cst_audiodev *spd_audio_device = NULL;
 
 int
-spd_audio_play_wave(cst_wave *w)
+spd_audio_play_wave(const cst_wave *w)
 {
     int i, r, n;
 
@@ -47,16 +49,58 @@ spd_audio_play_wave(cst_wave *w)
 }
 
 cst_wave *
-spd_audio_read_wave(char *filename)
+spd_audio_read_wave(const char *filename)
 {
     cst_wave *new;
-    new = malloc(1000000);
-    cst_wave_load_riff(new, filename);
+    new = (cst_wave*) malloc(sizeof(cst_wave));
+    if (new == NULL){
+        printf("Not enough memory");
+        exit(1);
+    }
+    cst_wave_load_riff(new, filename);   
+
     return new;
 }
 
 int
-spd_audio_open(cst_wave *w)
+spd_audio_play_file_wav(const char* filename)
+{
+    cst_wave *wave;
+    wave = (cst_wave*) spd_audio_read_wave(filename);
+ 
+    spd_audio_open(wave);
+    spd_audio_play_wave(wave);
+    spd_audio_close(wave);
+}
+
+int
+spd_audio_play_file_ogg(const char* filename)
+{
+    char *cmd;
+
+    cmd = g_strdup_printf("ogg123 -d oss %s 2> /dev/null", filename);
+    return system(cmd);
+}
+
+int
+spd_audio_play_file(const char* filename)
+{
+    /* NOTE: I've no idea why the g_str_has_suffix(),
+       as defined in documentation, is actually missing
+       in libglib-2.0.so ?! */
+
+    if(g_pattern_match_simple("*.wav*", filename))
+        return spd_audio_play_file_wav(filename);
+    else if (g_pattern_match_simple("*.ogg*", filename))
+        return spd_audio_play_file_ogg(filename);
+    else{
+        fprintf(stderr,"Not matched!\n");
+        return -1;
+    }
+}
+
+int
+spd_audio_open(const cst_wave *w)
 {
     if (w == NULL){
         spd_audio_device = NULL;
