@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.20 2003-07-05 13:34:21 hanke Exp $
+  * $Id: speaking.c,v 1.21 2003-07-06 15:02:47 hanke Exp $
   */
 
 #include <glib.h>
@@ -141,9 +141,15 @@ speak(void* data)
         MSG(4,"Message sent to output module");
         if (ret <= 0) MSG(2, "Output module failed");
 
-        /* Tidy up... */
+        /* Save the currently spoken message to be able to pause() it */
         if (current_message != NULL) mem_free_message(current_message);
         current_message = message;
+
+        /* Check if the last priority 5 message wasn't said yet */
+        if (last_p5_message != NULL){
+            if (last_p5_message->settings.uid == message->settings.uid)
+                last_p5_message = NULL;
+        }
 
         pthread_mutex_unlock(&element_free_mutex);        
     }	 
@@ -932,14 +938,22 @@ get_message_from_queues()
 static OutputModule*
 get_output_module(const TSpeechDMessage *message)
 {
-    OutputModule *output;
+    OutputModule *output = NULL;
 
     if (message->settings.type != MSGTYPE_SOUND){
-        output = g_hash_table_lookup(output_modules, message->settings.output_module);
-        if(output == NULL){
-            MSG(4,"Didn't find prefered output module, using default");
-            output = g_hash_table_lookup(output_modules, GlobalFDSet.output_module); 
-            if (output == NULL) MSG(2, "Can't find default output module!");                
+        if (message->settings.output_module != NULL){
+            output = g_hash_table_lookup(output_modules, message->settings.output_module);
+            if(output == NULL){
+                if (GlobalFDSet.output_module != NULL){
+                    MSG(4,"Didn't find prefered output module, using default");                
+                    output = g_hash_table_lookup(output_modules, GlobalFDSet.output_module); 
+                    if (output == NULL) MSG(2, "Can't find default output module!");
+                }
+            }
+        }
+        if (output == NULL){
+            MSG(3, "Unspecified output module!\n");
+            return NULL;
         }
     }else{   /* if MSGTYPE_SOUND */
         output = sound_module;
