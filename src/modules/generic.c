@@ -19,12 +19,11 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.7 2003-10-07 16:52:00 hanke Exp $
+ * $Id: generic.c,v 1.8 2003-10-12 23:27:27 hanke Exp $
  */
 
 #include <glib.h>
 
-#include "module.h"
 #include "fdset.h"
 
 #include "module_utils.c"

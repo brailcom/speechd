@@ -19,13 +19,12 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.35 2003-10-08 21:29:27 hanke Exp $
+ * $Id: flite.c,v 1.36 2003-10-12 23:27:20 hanke Exp $
  */
 
 
 #include <flite/flite.h>
 
-#include "module.h"
 #include "fdset.h"
 
 #include "module_utils.c"

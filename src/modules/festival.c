@@ -19,10 +19,9 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.36 2003-10-10 20:21:49 hanke Exp $
+ * $Id: festival.c,v 1.37 2003-10-12 23:27:12 hanke Exp $
  */
 
-#include "module.h"
 #include "fdset.h"
 
 #include "module_utils.c"
