@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.c,v 1.3 2003-04-15 10:08:59 pdm Exp $
+ * $Id: sndicon.c,v 1.4 2003-04-17 10:14:26 hanke Exp $
 */
 
 #include "sndicon.h"
@@ -51,7 +51,7 @@ sndicon_queue(int fd, char* language, char* prefix, char* name)
     new->bytes = strlen(text)+1;
     new->buf = malloc(new->bytes);
     strcpy(new->buf, text);
-    if(queue_message(new,fd))  FATAL("Couldn't queue message\n");
+    if(queue_message(new, fd, 1, SOUND_ICON))  FATAL("Couldn't queue message\n");
 
     return 0;
 }
