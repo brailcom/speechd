@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.11 2003-10-16 20:54:58 hanke Exp $
+ * $Id: libspeechd.h,v 1.12 2003-10-18 13:03:00 hanke Exp $
  */
 
 
@@ -29,10 +29,10 @@ extern "C" {
 
 /* Debugging */
 static FILE* spd_debug;
-void SPD_DBG(char *format, ...);
+static void SPD_DBG(char *format, ...);
 
 /* Unless there is an fatal error, it doesn't print anything */
-#define FATAL(msg) { printf("Fatal error (libspeechd) [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
+#define SPD_FATAL(msg) { printf("Fatal error (libspeechd) [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
 
 /* Arguments for spd_send_data() */
 #define SPD_WAIT_REPLY 1              /* Wait for reply */
@@ -71,10 +71,10 @@ typedef enum{
 
 typedef enum{
     SPD_IMPORTANT = 1,
-        SPD_MESSAGE = 2,
-        SPD_TEXT = 3,
-        SPD_NOTIFICATION = 4,
-        SPD_PROGRESS = 5
+    SPD_MESSAGE = 2,
+    SPD_TEXT = 3,
+    SPD_NOTIFICATION = 4,
+    SPD_PROGRESS = 5
 }SPDPriority;
 
 /* -------------- Public functions --------------------------*/
@@ -173,17 +173,19 @@ int spd_set_key_table_uid(int connection, const char* ktable, unsigned int uid);
 
 /* --------------  Private functions  ------------------------*/
 
-char* spd_send_data(int fd, const char *message, int wfr);
-int spd_set_priority(int connection, SPDPriority priority);
+static char* spd_send_data(int fd, const char *message, int wfr);
+static int spd_set_priority(int connection, SPDPriority priority);
+static int spd_execute_command(int connection, char* command);
 
-char* escape_dot(const char *otext);
+static char* escape_dot(const char *otext);
 
-int isanum(char* str);		
-char* get_rec_str(char *record, int pos);
-int get_rec_int(char *record, int pos);
-char* parse_response_data(char *resp, int pos);
-void *xmalloc(size_t bytes);
-void xfree(void *ptr);
+static int isanum(char* str);		
+static char* get_rec_str(char *record, int pos);
+static int get_rec_int(char *record, int pos);
+static int get_err_code(char *reply);
+static char* parse_response_data(char *resp, int pos);
+static void *xmalloc(size_t bytes);
+static void xfree(void *ptr);
 
 #ifdef __cplusplus
 }
