@@ -1,3 +1,19 @@
+2004-11-15  Hynek Hanke  <hanke@chopin>
+
+	* src/tests/Makefile.am (bin_PROGRAMS): The 'audio' target removed. This test was
+	removed with the new audio subsystem.
+
+	* src/modules/Makefile.am (modulebin_PROGRAMS): Compile the flite module according
+	to the flite_support variable.
+
+	* src/audio/oss.c (oss_play): Adjust the volume in a copy of the track,
+	not in the track itself, since this leads in degenerating the tracks
+	maintained in cache.
+
+	* configure.in: Don't require flite libraries to be present.
+	Report on whether flite libraries are available.
+	(flite_support): New conditional variable.
+
 2004-11-14  Milan Zamazal  <pdm@zamazal.org>
 
 	* src/audio/Makefile.am (libsdaudio_la_LDFLAGS): -L/usr/X11R6/lib
@@ -7,7 +23,7 @@
 
 	* configure.in (audio): -L/usr/X11R6/lib added to the test.
 
-2004-11-13  Hynek Hanke  <hanke@chopin>
+2004-11-13  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/tests/Makefile.am (bin_PROGRAMS): Exclude audio target.
 
@@ -43,7 +59,7 @@
 
 	* src/modules/module_utils_audio.c: Removed, no longer necessary.
 
-2004-10-18  Hynek Hanke  <hanke@chopin>
+2004-10-18  Hynek Hanke  <hanke@brailcom.org>
 
 	* config/speechd.conf.in: Modified comment for AddModule (new default relative path).
 
@@ -56,7 +72,7 @@
 	* src/server: Log levels for various status messages going into the logfile
 	changed.
 
-2004-10-10  Hynek Hanke  <hanke@chopin>
+2004-10-10  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/server.c (serve): Substitute binary zeros with a '?'
 	in incomming data.
@@ -98,22 +114,22 @@
 
 	* src/c/clients/Makefile.am (SUBDIRS): `spdsend' added.
 
-2004-08-04  Hynek Hanke  <hanke@chopin>
+2004-08-04  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/set.c (CHECK_SET_PAR): Report name of the parameter.
 	(update_cl_settings): Update also volume.
 
-2004-07-22  root  <hanke@chopin>
+2004-07-22  root  <hanke@brailcom.org>
 
 	* src/modules/festival_client.c (client_accept_waveform): Only fill in wave->samples if wave->num_samples
 	is more than 0.
 
-2004-07-21  Hynek Hanke  <hanke@chopin>
+2004-07-21  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/modules/festival.c (cache_insert): Don't copy the fwave structure, just save the pointer.
 	(module_speak): Removed redudant debugging messages.
 
-2004-07-21  Hynek Hanke  <hanke@chopin>
+2004-07-21  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/modules/Makefile.am (AM_CFLAGS): $(spdlibdir) not ($spdlibdir)
 
@@ -142,7 +158,7 @@
 
 	* src/modules/festival_client.c: Don't wait for response with character, sound-icon, key.
 
-2004-07-18  Hynek Hanke  <hanke@chopin>
+2004-07-18  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/modules/generic.c (module_speak): Handle if recoding fails.
 
@@ -153,7 +169,7 @@
 	* src/modules/festival_client.c (festivalGetDataMulti): Wait for terminating OK even in case
 	speechd-next returns 'nil'.
 
-2004-07-13  Hynek Hanke  <hanke@chopin>
+2004-07-13  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/speechd.c (MSG): Include timestamps in microseconds.
 
@@ -167,17 +183,17 @@
 	* src/modules/generic.c (module_init): Set default values for generic_msg_language.
 	(module_speak): Strip ssml marks before speaking.
 
-2004-07-04  Hynek Hanke  <hanke@chopin>
+2004-07-04  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/speechd.c (main): Exit if create_pid_file != 0.
 
-2004-07-02  Hynek Hanke  <hanke@chopin>
+2004-07-02  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/modules/Makefila.am: Include module_utils.h into sources.
 
 	* Release 0.5-rc1
 
-2004-06-28  Hynek Hanke  <hanke@chopin>
+2004-06-28  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/parse.c (parse_set): New SSIP command SET SELF SSML_MODE.
 
