@@ -9,7 +9,7 @@ You will need these components to compile Speech Daemon:
  - gcc and GNU make
  - flite [the only synthetiser that has working output module now]
  - ncurses [for Speech Deamon Center]
- - automake, autoconf, pkg-config and libtool (if you are building from CVS)
+ - automake, autoconf, autoheader, pkg-config and libtool (if you are building from CVS)
 
 Building Speech Deamon:
 =======================
@@ -23,18 +23,22 @@ speechd-<version> directory and run "make all" command as follows:
  $ make all
 
 But before typing make all, make sure that you have correctly installed flite!
-You must configure flite with
+You should have configured flite with
     ./configure --enable-shared
 to be able to use the flite plug-in. If you aren't sure if you have done this,
 check for example for libflite_cmu_us_kal.so in your library directory.
+(It's also possible to use Speech Deamon with Flite static libraries,
+but it is generally not a good way unless you know what you are doing.)
 
 If it doesn't work, try the following:
 
  $ cd speechd-@VERSION
- $ aclocal && autoconf && autoheader && automake
+ $ automake -k && aclocal && autoconf && autoheader && automake
  $ ./configure
  $ make
- 
+
+(You can use ./build.sh instead of the auto-toolchain) 
+
 When everything worked ok, you can install all the parts to the default
 path by running:
 
