@@ -21,6 +21,8 @@ speechd_queue_alloc()
 	new->p1 = NULL;
 	new->p2 = NULL;
 	new->p3 = NULL;
+        new->p4 = NULL;
+        new->p5 = NULL;
 
 	return(new);
 }
