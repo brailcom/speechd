@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: msg.h,v 1.21 2003-07-05 12:27:46 hanke Exp $
+ * $Id: msg.h,v 1.22 2003-07-18 21:38:42 hanke Exp $
  */
 
 
@@ -69,8 +69,10 @@
 #define OK_VOICE_LIST_SENT                      "249 OK VOICE LIST SENT\r\n"
 #define C_OK_VOICES                             "249"
 
+#define OK_INSIDE_BLOCK                         "260 OK INSIDE BLOCK\r\n"
+#define OK_OUTSIDE_BLOCK                        "261 OK OUTSIDE BLOCK\r\n"
 
-#define OK_NOT_IMPLEMENTED                      "299 OK BUT NOT IMPLEMENTED -- DOES NOTHING"
+#define OK_NOT_IMPLEMENTED                      "299 OK BUT NOT IMPLEMENTED -- DOES NOTHING\r\n"
 
 #define ERR_NO_CLIENT				"401 ERR NO CLIENT\r\n"
 #define ERR_NO_SUCH_CLIENT			"402 ERR NO SUCH CLIENT\r\n"
@@ -99,6 +101,11 @@
 #define ERR_COULDNT_SET_OUTPUT_MODULE           "312 ERR COULDNT SET OUTPUT MODULE\r\n"
 
 #define ERR_NO_SND_ICONS                        "320 ERR NO SOUND ICONS\r\n"
+
+#define ERR_ALREADY_INSIDE_BLOCK                "330 ERR ALREADY INSIDE BLOCK\r\n"
+#define ERR_ALREADY_OUTSIDE_BLOCK               "331 ERR ALREADY OUTSIDE BLOCK\r\n"
+#define ERR_NOT_ALLOWED_INSIDE_BLOCK            "332 ERR NOT ALLOWED INSIDE BLOCK\r\n"
+
 #define ERR_NOT_IMPLEMENTED                     "380 ERR NOT YET IMPLEMENTED\r\n"
 
 #define ERR_INVALID_COMMAND                     "500 ERR INVALID COMMAND\r\n"
