@@ -69,6 +69,9 @@ modulebindir="$libdir/speech-dispatcher-modules/"
 AC_SUBST(modulebindir)
 moduleconfdir="$sysconfdir/speech-dispatcher/modules/" 
 AC_SUBST(moduleconfdir)
+spdlibdir="$libdir/speech-dispatcher/" 
+AC_SUBST(spdlibdir)
+
 
 AC_ARG_VAR(pidpath, Absolute path to a pid file)
 
