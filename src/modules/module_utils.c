@@ -18,164 +18,16 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.30 2004-05-29 19:28:32 hanke Exp $
+ * $Id: module_utils.c,v 1.31 2004-06-28 08:08:27 hanke Exp $
  */
 
-#include <semaphore.h>
-#include <dotconf.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <assert.h>
-#include <glib.h>
-#include <pthread.h>
-#include <signal.h>
-#include <semaphore.h>
-#include <sys/wait.h>
-#include <sys/time.h>
-#include <errno.h>
-#include <dotconf.h>
-
-#include <semaphore.h>
-#include <sys/ipc.h>
-#include <sys/sem.h>
-
+#include "fdsetconv.h"
 #include "fdsetconv.c"
 
-SPDMsgSettings msg_settings;
-SPDMsgSettings msg_settings_old;
-
-int current_index_mark;
-
-/* This variable is defined later in this
-   file using MOD_OPTION* macro */
-int debug_on;
-FILE* debug_file;
-
-int SPDSemaphore;
-
-configfile_t *configfile = NULL;
-configoption_t *module_dc_options;
-int module_num_dc_options = 0;
-
-#define CLEAN_OLD_SETTINGS_TABLE()\
- msg_settings_old.rate = -101;\
- msg_settings_old.pitch = -101;\
- msg_settings_old.volume = -101;\
- msg_settings_old.punctuation_mode = -1;\
- msg_settings_old.spelling_mode = -1;\
- msg_settings_old.cap_let_recogn = -1;\
- msg_settings_old.language = NULL;\
- msg_settings_old.voice = NO_VOICE;
-
-#define INIT_SETTINGS_TABLES()\
- msg_settings.rate = 0;\
- msg_settings.pitch = 0;\
- msg_settings.volume = 0;\
- msg_settings.punctuation_mode = PUNCT_NONE;\
- msg_settings.spelling_mode = SPELLING_OFF;\
- msg_settings.cap_let_recogn = RECOGN_NONE;\
- msg_settings.language = strdup("en");\
- msg_settings.voice = MALE1;\
- CLEAN_OLD_SETTINGS_TABLE()
-
-#define CLOSE_DEBUG_FILE() \
-  if (debug_file != NULL) fclose(debug_file);
-
-#define DBG(arg...) \
-  if (debug_on){ \
-    time_t t; \
-    struct timeval tv; \
-    char *tstr; \
-    t = time(NULL); \
-    tstr = strdup(ctime(&t)); \
-    tstr[strlen(tstr)-1] = 0; \
-    gettimeofday(&tv,NULL); \
-    fprintf(debug_file, "%s [%d]",tstr, (int) tv.tv_usec); \
-    fprintf(debug_file, ": "); \
-    fprintf(debug_file, arg); \
-    fprintf(debug_file, "\n"); \
-    fflush(debug_file); \
-    xfree(tstr); \
-  }
-
-#define FATAL(msg) { \
-     fprintf(stderr, "Fatal error in output module [%s:%d]:\n   "msg, \
-             __FILE__, __LINE__); \
-     exit(EXIT_FAILURE); \
-   }
-
-int     module_load         (void);
-int     module_init         (void);
-int     module_speak        (char *data, size_t bytes, EMessageType msgtype);
-int     module_stop         (void);
-size_t  module_pause        (void);
-int     module_is_speaking  (void);
-void    module_close        (int status);
-
-#define UPDATE_PARAMETER(value, setter) \
-  if (msg_settings_old.value != msg_settings.value) \
-    { \
-      msg_settings_old.value = msg_settings.value; \
-      setter (msg_settings.value); \
-    }
-
-#define UPDATE_STRING_PARAMETER(value, setter) \
-  if (msg_settings_old.value == NULL \
-         || strcmp (msg_settings_old.value, msg_settings.value)) \
-    { \
-      if (msg_settings_old.value != NULL) \
-      { \
-        xfree (msg_settings_old.value); \
-	msg_settings_old.value = NULL; \
-      } \
-      if (msg_settings.value != NULL) \
-      { \
-        msg_settings_old.value = g_strdup (msg_settings.value); \
-        setter (msg_settings.value); \
-      } \
-    }
-
-#define CHILD_SAMPLE_BUF_SIZE 16384
-
-typedef struct{
-    int pc[2];
-    int cp[2];
-}TModuleDoublePipe;
-
-static void* xmalloc(size_t size);
-static void* xrealloc(void* data, size_t size);
-static void xfree(void* data);
-
-static int module_get_message_part(const char* message, char* part,
-                                   unsigned int *pos, size_t maxlen,
-                                   const char* dividers);
-
-static void set_speaking_thread_parameters();
-
-static void module_parent_dp_init(TModuleDoublePipe dpipe);
-static void module_child_dp_init(TModuleDoublePipe dpipe);
-static void module_parent_dp_close(TModuleDoublePipe dpipe);
-static void module_child_dp_close(TModuleDoublePipe dpipe);
-
-static void module_child_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes);
-static int module_parent_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes);
-static int module_parent_dp_read(TModuleDoublePipe dpipe, char *msg, size_t maxlen);
-static int module_child_dp_read(TModuleDoublePipe dpipe, char *msg, size_t maxlen);
-
-static void module_signal_end(void);
-
-static void module_strip_punctuation_default(char *buf);
-static void module_strip_punctuation_some(char *buf, char* punct_some);
-static char* module_strip_ssml(char *buf);
+#include "module_utils.h"
 
 
-static void module_sigblockall(void);
-static void module_sigblockusr(sigset_t *signal_set);
-static void module_sigunblockusr(sigset_t *signal_set);
-
-static void*
+void*
 xmalloc(size_t size)
 {
     void *p;
@@ -185,7 +37,7 @@ xmalloc(size_t size)
     return p;
 }          
 
-static void*
+void*
 xrealloc(void *data, size_t size)
 {
     void *p;
@@ -200,7 +52,7 @@ xrealloc(void *data, size_t size)
     return p;
 }          
 
-static void
+void
 xfree(void *data)
 {
     if (data != NULL) free(data);
@@ -386,7 +238,7 @@ do_quit(void)
     return 0;
 }
 
-static int
+int
 module_get_message_part(const char* message, char* part, unsigned int *pos, size_t maxlen,
                         const char* dividers)
 {    
@@ -498,7 +350,7 @@ module_get_message_part(const char* message, char* part, unsigned int *pos, size
     return i;
 }
 
-static void
+void
 module_strip_punctuation_some(char *message, char *punct_chars)
 {
     int len;
@@ -527,7 +379,7 @@ module_strip_punctuation_some(char *message, char *punct_chars)
     }
 }
 
-static char*
+char*
 module_strip_ssml(char *message)
 {
 
@@ -567,17 +419,13 @@ module_strip_ssml(char *message)
     return out;
 }
 
-static void
+void
 module_strip_punctuation_default(char *buf)
 {
     assert(buf != NULL);
     module_strip_punctuation_some(buf, "~#$%^&*+=|<>[]_");
 }
 
-typedef void (*TChildFunction)(TModuleDoublePipe dpipe, const size_t maxlen);
-typedef size_t (*TParentFunction)(TModuleDoublePipe dpipe, const char* message,
-                                  const EMessageType msgtype, const size_t maxlen,
-                                  const char* dividers, int *pause_requested);
 void
 module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid, 
                           TChildFunction child_function,
@@ -611,6 +459,8 @@ module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid,
             continue;
         }
 
+	DBG("Pipes initialized");
+
         /* Create a new process so that we could send it signals */
         *process_pid = fork();
 
@@ -623,7 +473,7 @@ module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid,
             continue;
 
         case 0:
-            /* This is the child. Make flite speak, but exit on SIGINT. */
+            /* This is the child. Make it speak, but exit on SIGINT. */
 
             DBG("Starting child...\n");
             (* child_function)(module_pipe, maxlen);           
@@ -708,7 +558,7 @@ module_parent_wfork(TModuleDoublePipe dpipe, const char* message, EMessageType m
     return 0;
 }
 
-static int
+int
 module_parent_wait_continue(TModuleDoublePipe dpipe)
 {
     char msg[16];
@@ -728,42 +578,42 @@ module_parent_wait_continue(TModuleDoublePipe dpipe)
     }
 }
 
-static void
+void
 module_parent_dp_init(TModuleDoublePipe dpipe)
 {
     close(dpipe.pc[0]);
     close(dpipe.cp[1]);
 }
 
-static void
+void
 module_parent_dp_close(TModuleDoublePipe dpipe)
 {
     close(dpipe.pc[1]);
     close(dpipe.cp[0]);
 }
 
-static void
+void
 module_child_dp_init(TModuleDoublePipe dpipe)
 {
     close(dpipe.pc[1]);
     close(dpipe.cp[0]);
 }
 
-static void
+void
 module_child_dp_close(TModuleDoublePipe dpipe)
 {
     close(dpipe.pc[0]);
     close(dpipe.cp[1]);
 }
 
-static void
+void
 module_child_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes)
 {
     assert(msg != NULL);
     write(dpipe.cp[1], msg, bytes);       
 }
 
-static int
+int
 module_parent_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes)
 {
     int ret;
@@ -774,7 +624,7 @@ module_parent_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes)
     return ret;
 }
 
-static int
+int
 module_child_dp_read(TModuleDoublePipe dpipe, char *msg, size_t maxlen)
 {
     int bytes;
@@ -782,7 +632,7 @@ module_child_dp_read(TModuleDoublePipe dpipe, char *msg, size_t maxlen)
     return bytes;
 }
 
-static int
+int
 module_parent_dp_read(TModuleDoublePipe dpipe, char *msg, size_t maxlen)
 {
     int bytes;
@@ -791,39 +641,46 @@ module_parent_dp_read(TModuleDoublePipe dpipe, char *msg, size_t maxlen)
 }
 
 
-static void
+void
 module_sigblockall(void)
 {
     int ret;
     sigset_t all_signals;
+    
+    DBG("Blocking all signals");
 
     sigfillset(&all_signals);
 
     ret = sigprocmask(SIG_BLOCK, &all_signals, NULL);
     if (ret != 0)
-        DBG("flite: Can't block signals, expect problems with terminating!\n");
+    DBG("Can't block signals, expect problems with terminating!\n");
 }
 
-static void
+void
 module_sigunblockusr(sigset_t *some_signals)
 {
     int ret;
+    
+    DBG("UnBlocking user signal");
 
     sigdelset(some_signals, SIGUSR1);
     ret = sigprocmask(SIG_SETMASK, some_signals, NULL);
     if (ret != 0)
-        DBG("flite: Can't block signal set, expect problems with terminating!\n");
+    DBG("Can't block signal set, expect problems with terminating!\n"); 
 }
 
-static void
+void
 module_sigblockusr(sigset_t *some_signals)
 {
     int ret;
-
+    
+    DBG("Blocking user signal");
+    
     sigaddset(some_signals, SIGUSR1);
     ret = sigprocmask(SIG_SETMASK, some_signals, NULL);
     if (ret != 0)
-        DBG("flite: Can't block signal set, expect problems when terminating!\n");
+	DBG("flite: Can't block signal set, expect problems when terminating!\n");
+    
 }
 
 void
@@ -834,7 +691,7 @@ set_speaking_thread_parameters()
 
     ret = sigfillset(&all_signals);
     if (ret == 0){
-        ret = pthread_sigmask(SIG_BLOCK,&all_signals,NULL);
+	ret = pthread_sigmask(SIG_BLOCK,&all_signals,NULL);
         if (ret != 0)
             DBG("flite: Can't set signal set, expect problems when terminating!\n");
     }else{
@@ -899,7 +756,7 @@ module_semaphore_init()
     return semaphore;
 }
 
-static char *
+char *
 module_recode_to_iso(char *data, int bytes, char *language, char *fallback)
 {
     char *recoded;
@@ -918,7 +775,7 @@ module_recode_to_iso(char *data, int bytes, char *language, char *fallback)
     return recoded;
 }
 
-static int
+int
 semaphore_post(int sem_id)
 {
     static struct sembuf sem_b;
@@ -935,7 +792,7 @@ module_signal_end(void)
     semaphore_post(SPDSemaphore);
 }
 
-static configoption_t *
+configoption_t *
 module_add_config_option(configoption_t *options, int *num_options, char *name, int type,
                   dotconf_callback_t callback, info_t *info,
                   unsigned long context)
@@ -957,7 +814,7 @@ module_add_config_option(configoption_t *options, int *num_options, char *name, 
     return opts;
 }
 
-static void*
+void*
 module_get_ht_option(GHashTable *hash_table, const char *key)
 {
     void *option;
@@ -987,157 +844,3 @@ add_config_option(configoption_t *options, int *num_config_options, char *name, 
     return opts;
 }
 
-
-/* --- MODULE DOTCONF OPTIONS DEFINITION AND REGISTRATION --- */
-
-#define MOD_OPTION_1_STR(name) \
-    static char *name = NULL; \
-    DOTCONF_CB(name ## _cb) \
-    { \
-        xfree(name); \
-        if (cmd->data.str != NULL) \
-            name = strdup(cmd->data.str); \
-        return NULL; \
-    }
-
-#define MOD_OPTION_1_INT(name) \
-    static int name; \
-    DOTCONF_CB(name ## _cb) \
-    { \
-        name = cmd->data.value; \
-        return NULL; \
-    }
-
-/* TODO: Switch this to real float, not /100 integer,
-   as soon as DotConf supports floats */
-#define MOD_OPTION_1_FLOAT(name) \
-    static float name; \
-    DOTCONF_CB(name ## _cb) \
-    { \
-        name = ((float) cmd->data.value) / ((float) 100); \
-        return NULL; \
-    }
-
-#define MOD_OPTION_2(name, arg1, arg2) \
-    typedef struct{ \
-        char* arg1; \
-        char* arg2; \
-    }T ## name; \
-    T ## name name; \
-    \
-    DOTCONF_CB(name ## _cb) \
-    { \
-        if (cmd->data.list[0] != NULL) \
-            name.arg1 = strdup(cmd->data.list[0]); \
-        if (cmd->data.list[1] != NULL) \
-            name.arg2 = strdup(cmd->data.list[1]); \
-        return NULL; \
-    }
-
-#define MOD_OPTION_2_HT(name, arg1, arg2) \
-    typedef struct{ \
-        char* arg1; \
-        char* arg2; \
-    }T ## name; \
-    GHashTable *name; \
-    \
-    DOTCONF_CB(name ## _cb) \
-    { \
-        T ## name *new_item; \
-        char* new_key; \
-        new_item = (new_item*) malloc(sizeof(new_item)); \
-        if (cmd->data.list[0] == NULL) return NULL; \
-        new_item->arg1 = strdup(cmd->data.list[0]); \
-        new_key = strdup(cmd->data.list[0]); \
-        if (cmd->data.list[1] != NULL) \
-           new_item->arg2 = strdup(cmd->data.list[1]); \
-        else \
-            new_item->arg2 = NULL; \
-        g_hash_table_insert(name, new_key, new_item); \
-        return NULL; \
-    }
-
-#define MOD_OPTION_3_HT(name, arg1, arg2, arg3) \
-    typedef struct{ \
-        char* arg1; \
-        char* arg2; \
-        char *arg3; \
-    }T ## name; \
-    GHashTable *name; \
-    \
-    DOTCONF_CB(name ## _cb) \
-    { \
-        T ## name *new_item; \
-        char* new_key; \
-        new_item = (T ## name *) malloc(sizeof(T ## name)); \
-        if (cmd->data.list[0] == NULL) return NULL; \
-        new_item->arg1 = strdup(cmd->data.list[0]); \
-        new_key = strdup(cmd->data.list[0]); \
-        if (cmd->data.list[1] != NULL) \
-           new_item->arg2 = strdup(cmd->data.list[1]); \
-        else \
-            new_item->arg2 = NULL; \
-        if (cmd->data.list[2] != NULL) \
-           new_item->arg3 = strdup(cmd->data.list[2]); \
-        else \
-            new_item->arg3 = NULL; \
-        g_hash_table_insert(name, new_key, new_item); \
-        return NULL; \
-    }
-
-#define MOD_OPTION_1_STR_REG(name, default) \
-    name = strdup(default); \
-    module_dc_options = module_add_config_option(module_dc_options, \
-                                     &module_num_dc_options, #name, \
-                                     ARG_STR, name ## _cb, NULL, 0);
-
-#define MOD_OPTION_1_INT_REG(name, default) \
-    name = default; \
-    module_dc_options = module_add_config_option(module_dc_options, \
-                                     &module_num_dc_options, #name, \
-                                     ARG_INT, name ## _cb, NULL, 0);
-
-/* TODO: Switch this to real float, not /100 integer,
-   as soon as DotConf supports floats */
-#define MOD_OPTION_1_FLOAT_REG(name, default) \
-    name = default; \
-    module_dc_options = module_add_config_option(module_dc_options, \
-                                     &module_num_dc_options, #name, \
-                                     ARG_INT, name ## _cb, NULL, 0);
-
-#define MOD_OPTION_MORE_REG(name) \
-    module_dc_options = module_add_config_option(module_dc_options, \
-                                     &module_num_dc_options, #name, \
-                                     ARG_LIST, name ## _cb, NULL, 0);
-
-#define MOD_OPTION_HT_REG(name) \
-    name = g_hash_table_new(g_str_hash, g_str_equal); \
-    module_dc_options = module_add_config_option(module_dc_options, \
-                                     &module_num_dc_options, #name, \
-                                     ARG_LIST, name ## _cb, NULL, 0);
-
-
-/* --- DEBUGGING SUPPORT  ---*/
-
-#define DECLARE_DEBUG() \
-    static char debug_filename[]; \
-    MOD_OPTION_1_INT(Debug); \
-    MOD_OPTION_1_STR(DebugFile);
-
-#define REGISTER_DEBUG() \
-    MOD_OPTION_1_INT_REG(Debug, 0); \
-    MOD_OPTION_1_STR_REG(DebugFile, "/tmp/debug-module");
-
-#define INIT_DEBUG() \
-{ \
-    debug_on = Debug; \
-    if (debug_on){ \
-        debug_file = fopen(DebugFile, "w"); \
-        if (debug_file == NULL){ \
-           printf("Can't open debug file!"); \
-           debug_file = stdout; \
-        } \
-    }else{ \
-        debug_file = NULL; \
-    } \
-}
