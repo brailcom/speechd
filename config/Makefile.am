@@ -1,11 +1,11 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS= en cs modules clients
+SUBDIRS= modules clients en cs generic
 
 all-local: speechd.conf
 
 speechd.conf: speechd.conf.in
-	sed -e s:INCLUDE_PATH:\"$(spdconfdir)\":g speechd.conf.in > speechd.conf
+	$(SED) -e s:INCLUDE_PATH:\"$(spdconfdir)\":g speechd.conf.in > speechd.conf
 
 
 spdconf_DATA= speechd.conf
