@@ -1,3 +1,12 @@
+2003-11-27  Milan Zamazal  <pdm@brailcom.org>
+
+	* speech-dispatcher.scm (speechd-language-voices): Don't define
+	encodings.
+	(speechd-languages, speechd-language-voices): Use symbols rather
+	than strings.
+	(speechd-set-lang-voice): Get the coding from the voice
+	description.
+
 2003-11-26  Milan Zamazal  <pdm@brailcom.org>
 
 	* speech-dispatcher.scm (speechd-set-pitch): Be more clean;
