@@ -1,3 +1,14 @@
+2004-07-18  Hynek Hanke  <hanke@chopin>
+
+	* src/modules/generic.c (module_speak): Handle if recoding fails.
+
+	* src/modules/festival.c (module_parent_dp_init): Don't set MultiMode before each synthesis.
+
+	* src/server/index_marking.c (insert_index_marks): Escape ampersound.
+
+	* src/modules/festival_client.c (festivalGetDataMulti): Wait for terminating OK even in case
+	speechd-next returns 'nil'.
+
 2004-07-13  Hynek Hanke  <hanke@chopin>
 
 	* src/server/speechd.c (MSG): Include timestamps in microseconds.
