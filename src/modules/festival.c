@@ -1,4 +1,4 @@
-
+_
 /*
  * festival.c - Speech Dispatcher backend for Festival
  *
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.46 2004-02-10 21:17:26 hanke Exp $
+ * $Id: festival.c,v 1.47 2004-04-04 21:09:54 hanke Exp $
  */
 
 #include "fdset.h"
@@ -183,7 +183,6 @@ module_init(void)
 int
 module_speak(char *data, size_t bytes, EMessageType msgtype)
 {
-    int ret;
 
     DBG("module_write()\n");
 
@@ -337,11 +336,8 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
               int *pause_requested)
 {
     int pos = 0;
-    int i;
     int ret;
     int bytes;
-    size_t read_bytes;
-    int child_terminated = 0;
     FT_Wave *fwave;
     char buf[4096];
     int terminate = 0;
@@ -350,7 +346,6 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
     static int debug_count = 0;
     int o_bytes = 0;
     int pause = -1;
-    cst_wave wave_parameters;
     int cont = 0;
 
     DBG("Entering parent process, closing pipes");
@@ -609,6 +604,7 @@ cache_init()
                                                  cache_destroy_table_entry);
     FestivalCache.cache_counter = NULL;
     DBG("Cache: initialized");
+    return 0;
 }
 
 int
@@ -617,6 +613,7 @@ cache_destroy()
     g_hash_table_destroy(FestivalCache.caches);
     g_list_foreach(FestivalCache.cache_counter, cache_free_counter_entry, NULL);
     g_list_free(FestivalCache.cache_counter);
+    return 0;
 }
 
 int
@@ -645,6 +642,8 @@ cache_counter_comp(gconstpointer a, gconstpointer b)
     if (ret > 0) return -1;
     if (ret == 0) return 0;
     if (ret < 0) return 1;
+
+    return 0;
 }
 
 /* List scores of all entries in the cache*/
@@ -714,7 +713,7 @@ cache_gen_key(EMessageType type)
     if (FestivalCacheDistinguishPitch) kpitch = msg_settings.pitch;
     if (FestivalCacheDistinguishRate) krate = msg_settings.rate;
 
-    if (type = MSGTYPE_CHAR) ktype = 'c';
+    if (type == MSGTYPE_CHAR) ktype = 'c';
     if (type == MSGTYPE_KEY) ktype = 'k';
     if (type == MSGTYPE_SOUND_ICON) ktype = 's';
 
@@ -785,7 +784,6 @@ cache_insert(char* key, EMessageType msgtype, FT_Wave *fwave)
 FT_Wave*
 cache_lookup(char *key, EMessageType msgtype, int add_counter)
 {
-    FT_Wave *fwave;
     GHashTable *cache;
     TCacheEntry *entry;
     char *key_table;
@@ -806,7 +804,7 @@ cache_lookup(char *key, EMessageType msgtype, int add_counter)
     if (entry == NULL) return NULL;
     entry->p_counter_entry->count++;
 
-    DBG("Cache: corresponding wave found", key);    
+    DBG("Cache: corresponding wave found: %s", key);    
 
     return entry->fwave;
 }
