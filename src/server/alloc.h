@@ -5,6 +5,9 @@
 #include "speechd.h"
 
 void* spd_malloc(size_t bytes);
+void spd_free(void *data);
+
+char* spd_strdup(char* string);
 
 TSpeechDQueue* speechd_queue_alloc();					
 
