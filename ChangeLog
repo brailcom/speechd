@@ -1,5 +1,14 @@
 2003-05-26  Hynek Hanke  <hanke@localhost.localdomain>
 
+	* src/c/api/libspeechd.c (xmalloc): Use unsigned int as it's parameter.
+
+	* INSTALL: Internet links for some of the requiered packages.
+	``make all'' moved after the notice about flite with shared
+	libraries.
+
+	* configure.in: AC_PROG_CXX deleted, not longer needed.
+	AC_CHECK_LIB(recode, main): New check for requiered library.
+
 	* src/server/server.c (process_message_spell): Fixed bug with strlen in for-cycle condition.
 	Take into account the changes in snd_icon_spelling_get()
 	(process_message_punctuation): Fixed bug with strlen in for-cycle condition.

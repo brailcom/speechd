@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.4 2003-05-26 16:04:49 hanke Exp $
+ * $Id: libspeechd.h,v 1.5 2003-05-26 20:59:56 hanke Exp $
  */
 
 /* Debugging */
@@ -107,30 +107,6 @@ int spd_set_spelling_uid(int connection, SPDSpelling type, int uid);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* --------------  Private functions  ------------------------*/
 int _spd_set_voice_rate(int connection, int rate, char* who);
 int _spd_set_voice_pitch(int connection, int pitch, char *who);
@@ -143,4 +119,4 @@ int isanum(char* str);
 char* get_rec_str(char *record, int pos);
 int get_rec_int(char *record, int pos);
 char* parse_response_data(char *resp, int pos);
-void *xmalloc(int bytes);
+void *xmalloc(unsigned int bytes);
