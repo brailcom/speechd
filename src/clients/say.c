@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: say.c,v 1.9 2003-03-04 08:58:58 pdm Exp $
+ * $Id: say.c,v 1.10 2003-03-12 22:21:57 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -57,19 +57,7 @@ int main(int argc, const char **argv) {
 
    err = spd_sayf(sockfd, 2, (char*) argv[1]);
 
-   if (err != 1) FATAL("Speech Deamon failed");
-
-   cl_names = malloc(sizeof(char*) * 64);      //TODO: must scale
-   cl_ids = malloc(sizeof(int) * 64);      //TODO: must scale
-   cl_active = malloc (sizeof (int) * 64); /* TODO: must scale */
-   
-   c = spd_get_client_list(sockfd, cl_names, cl_ids, cl_active);
-
-   printf("Count: %d\n", c);
-
-   for(i=0;i<=c-1;i++){
-   	printf("id: %d name: %s \n", cl_ids[i], cl_names[i]);
-   }
+   if (err == -1) FATAL("Speech Deamon failed");
    
    /* close the socket */
    spd_close(sockfd);
