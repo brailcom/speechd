@@ -1,6 +1,7 @@
 2003-10-10  Jan Buchal  <buchal@brailcom.org>
 
 	* src/modules/festival_client.c (FEST_SET_STR): Pass nil if param is NULL.
+	(FEST_SET_STR): Macros enclosed in { }.
 
 	* src/modules/festival.c (festival_set_cap_let_recogn): New function.
 
