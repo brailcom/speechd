@@ -22,6 +22,12 @@ speechd-<version> directory and run "make all" command as follows:
  $ cd robod-@VERSION
  $ make all
 
+But before typing make all, make sure that you have correctly installed flite!
+You must configure flite with
+    ./configure --enable-shared
+to be able to use the flite plug-in. If you aren't sure if you have done this,
+check for example for libflite_cmu_us_kal.so in your library directory.
+
 If it doesn't work, try the following:
 
  $ cd robod-@VERSION
