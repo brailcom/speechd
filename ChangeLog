@@ -1,6 +1,18 @@
+2003-10-23  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/speaking.c (speak): Insert last priority 5 message as MESSAGE,
+	not TEXT. 
+	Insert it as the first message in the MESSAGE queue.
+
+2003-10-22  Hynek Hanke  <hanke@volny.cz>
+	
+	* src/server/parse.c (deescape_dot): Handle doubledot on every beginning of line,
+	not just the ones followed by \r\n.
+	
 2003-10-22  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/server/server.c (serve): Log connection descriptors as well.
+
 
 2003-10-22  Hynek Hanke  <hanke@volny.cz>
 
