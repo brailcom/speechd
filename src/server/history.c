@@ -7,7 +7,15 @@ gint
 client_compare_id (gconstpointer element, gconstpointer value, gpointer n)
 {
    int ret;
-   ret = ((THistoryClient*) element)->id - (int) value;
+   ret = ((THistoryClient*) element)->uid - (int) value;
+   return ret;
+}
+
+gint
+client_compare_fd (gconstpointer element, gconstpointer value, gpointer n)
+{
+   int ret;
+   ret = ((THistoryClient*) element)->fd - (int) value;
    return ret;
 }
 
@@ -32,6 +40,7 @@ message_compare_id (gconstpointer element, gconstpointer value, gpointer n)
 }
 
 gint (*p_cli_comp_id)() = client_compare_id;
+gint (*p_cli_comp_fd)() = client_compare_fd;
 gint (*p_hs_comp_fd)() = histset_compare_fd;
 gint (*p_msg_comp_id)() = message_compare_id;
 
@@ -48,8 +57,9 @@ history_get_client_list()
 
    do{
      client = cursor->data;
-     g_string_append_printf(clist, "%d ", client->id);
+     g_string_append_printf(clist, "%d ", client->uid);
      g_string_append(clist, client->client_name);
+     g_string_append_printf(clist, " %d", client->active);
      cursor = g_list_next(cursor);
      if (cursor != NULL) g_string_append(clist, "\\\n\r");
 	 else g_string_append(clist,"\n\r");
