@@ -79,5 +79,10 @@
         first-wave
         (wave.append first-wave (concat-waves (cdr waves))))))
 
+(define (langvar symbol)
+  (let ((lsymbol (intern (string-append symbol "." (Param.get 'Language)))))
+    (print lsymbol)
+    (symbol-value (if (symbol-bound? lsymbol) lsymbol symbol))))
+
 
 (provide 'util)
