@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.36 2003-05-07 20:59:53 hanke Exp $
+  * $Id: server.c,v 1.37 2003-05-07 22:10:02 hanke Exp $
   */
 
 #include "speechd.h"
@@ -364,13 +364,8 @@ queue_messages(GList* msg_list, int fd, int history_flag)
     GList *gl;
     TSpeechDMessage *msg;
 
-    printf("messages %d", g_list_length(msg_list));
-
     gl = g_list_first(msg_list);
     for (i=0; i <= g_list_length(msg_list)-1; i++){
-    //   while(1){
-        printf("msg %d\n",i);
-        printf("b");
         if (gl == NULL) break;
         if (gl->data == NULL){
             MSG(2,"skipping blank text");
@@ -378,12 +373,7 @@ queue_messages(GList* msg_list, int fd, int history_flag)
         }
         assert(gl!=NULL); assert(gl->data!=NULL);
         msg = gl->data;
-        printf("c");
-        printf("buf=%s=buf", msg->buf);
         queue_message(msg, fd, history_flag, msg->settings.type);
-        printf("d");
-        //        g_list_delete_link(msg_list, gl);
-        printf("e");
         fflush(NULL);
         gl = g_list_next(gl);
     }
