@@ -1,6 +1,6 @@
 # Makefile to convert speechd documentation into various output formats
 # Original xml documentation uses DocBook XML format (see README)
-# CVS revision: $Id: Makefile,v 1.3 2002-06-20 11:26:45 cerha Exp $
+# CVS revision: $Id: Makefile,v 1.4 2002-06-20 12:17:44 cerha Exp $
 # Author: Tomas Cerha <cerha@brailcom.cz>
 
 # Destination directory for HTML documentation. This variable must be here, to
@@ -10,6 +10,7 @@ DST = html
 DSL  = /usr/lib/sgml/stylesheet/dsssl/docbook/nwalsh/html/docbook.dsl
 DECL = /usr/lib/sgml/declaration/xml.decl
 
+# DocBook root document
 MAIN    = speechd.xml
 
 PWD     = $(shell pwd)
