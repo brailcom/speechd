@@ -2,7 +2,7 @@
 localedir = $(datadir)/locale
 inc_local = "-I$(top_srcdir)/intl/"
 
-INCLUDES = -I../intl -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local)
+CFLAGS = -I../intl -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@
 
 bin_PROGRAMS = say
 say_SOURCES = say.c robodlib.h
