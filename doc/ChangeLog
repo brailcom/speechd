@@ -1,3 +1,8 @@
+2003-04-22  Milan Zamazal  <pdm@brailcom.org>
+
+	* speechd.texi (Parameter setting commands): Client specification
+	argument added to all the commands.
+
 2003-04-18  Milan Zamazal  <pdm@brailcom.org>
 
 	* speechd.texi (Parameter setting commands): New commands SET
