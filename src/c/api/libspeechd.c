@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.6 2003-05-27 07:53:42 pdm Exp $
+ * $Id: libspeechd.c,v 1.7 2003-06-01 21:16:04 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -39,9 +39,6 @@
 
 /* Private function prototypes */
 char* _spd_send_data(int fd, char *message, int wfr);
-void* xmalloc(unsigned int bytes);
-void xfree(void* ptr);
-
 
 /* --------------------- Public functions ------------------------- */
 
