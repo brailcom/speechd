@@ -41,7 +41,10 @@
   #+SBCL
   (let ((s (make-instance 'sb-bsd-sockets:inet-socket :type :stream
                           :protocol :tcp)))
-    (sb-bsd-sockets:socket-connect (sb-bsd-sockets:get-host-by-name host) port)
+    (sb-bsd-sockets:socket-connect
+     s
+     (sb-bsd-sockets:host-ent-address (sb-bsd-sockets:get-host-by-name host))
+     port)
     (sb-bsd-sockets:socket-make-stream s :input t :output t :buffering :none))
   )
 
