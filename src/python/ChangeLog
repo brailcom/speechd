@@ -1,4 +1,19 @@
-2003-03-29  Tomas Cerha  <cerha@brailcom.org>
+2003-03-30  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd/client.py (Client.SPEECH_PORT): Updated docstring.
+	(Client.RECV_BUFFER_SIZE, Client.SSIP_NEWLINE)
+	(Client._SSIP_END_OF_DATA, Client._SSIP_END_OF_DATA_ESCAPED): New
+	constants.
+	(Client._send_command, Client._send_data, Client._recv_response):
+	Use them.
+	(Client._send_data, Client._recv_response): Rewritten, to handle
+	multiline responses.  Return response data as third item of
+	returned tuple.
+	(Client.close): Don't send `BYE' command.
+	(Client.say): Don't return server response (isolate client from
+	those details). 
+
+2003-03-29  Tomas Cerha  <cerha@freebsoft.org>
 
 	* speechd/client.py (SPEECH_PORT, RECV_BUFFER_SIZE): Moved to
 	class `Client'.
@@ -14,7 +29,7 @@
 	(Client.say): Documentation added.  Return the value of respose
 	code and message.
 
-2003-03-27  Tomas Cerha  <cerha@brailcom.org>
+2003-03-27  Tomas Cerha  <cerha@freebsoft.org>
 
 	* speechd/client.py: Import `string' module.
 	(SPEECH_PORT): Added docstring.
