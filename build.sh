@@ -20,13 +20,8 @@
 # the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 # Boston, MA 02111-1307, USA.
 #
-# $Id: build.sh,v 1.1 2003-04-14 22:55:16 hanke Exp $
+# $Id: build.sh,v 1.2 2003-04-14 23:29:05 hanke Exp $
 
-echo "Checking for missing scripts (automake -a)"
-if ! automake -a; then
-	echo "automake -a failed!"
-	exit 1
-fi
 
 echo "Building user-defined autoconf macros (aclocal)"
 if ! aclocal; then
@@ -43,6 +38,12 @@ fi
 echo "Creating config.h.in (autoheader)"
 if ! autoheader; then
 	echo "autoheader failed!"
+	exit 1
+fi
+
+echo "Checking for missing scripts (automake -a)"
+if ! automake -a; then
+	echo "automake -a failed!"
 	exit 1
 fi
 

@@ -33,7 +33,7 @@ but it is generally not a good way unless you know what you are doing.)
 If it doesn't work, try the following:
 
  $ cd speechd-@VERSION
- $ automake -k && aclocal && autoconf && autoheader && automake
+ $ aclocal && autoconf && autoheader && automake -a && automake
  $ ./configure
  $ make
 
