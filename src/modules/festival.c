@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.23 2003-09-07 11:25:16 hanke Exp $
+ * $Id: festival.c,v 1.24 2003-09-10 16:54:13 buchal Exp $
  */
 
 
@@ -159,8 +159,9 @@ module_write(char *data, size_t bytes)
     if (*festival_message == NULL){
         return -1;
     }
-    module_strip_punctuation_default(*festival_message);
     DBG("Requested data after processing: |%s|\n", *festival_message);
+    module_strip_punctuation_default(*festival_message);
+    DBG("Requested after stripping punct: |%s|\n", *festival_message);
 
     /* Setting voice parameters */
     festival_set_voice();
