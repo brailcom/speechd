@@ -1,3 +1,14 @@
+2003-10-01  Hynek Hanke  <hanke@volny.cz>
+
+	* speechd.texi (TTT Types): Spelling, punctuation and capital letters recognition
+	marked as only suplementary for the "general" filtering.
+	(Configuration file syntax): About comments.
+	(Writing tables and modifying): The "generic" language mentioned.
+	(Configuration of the Generic Output Module): New section.
+	(Functions for use when talking to synthesizer): Index marks.
+	(Output Module Functions): Index marks.
+	Other less important changes.
+
 2003-09-29  Hynek Hanke  <hanke@volny.cz>
 
 	* speechd.texi (Parameter Setting Commands): Added SET * PAUSE_CONTEXT.

@@ -1,3 +1,22 @@
+2003-10-01  Hynek Hanke  <hanke@volny.cz>
+
+	* src/c/api/libspeechd.c (xfree): Write NULL after freeing it.
+
+	* intl/def.h (SPEECHD_DEFAULT_PORT): Changed to 6560.
+
+	* config/speechd.conf.in: Default port now 6560.
+
+	* src/modules/generic.c (module_write): Use fallback when recoding.
+	(module_load): Added configurable option GenericRecodeFallback.
+
+	* config/modules/festival.conf (FestivalRecodeFallback): New option.
+
+	* src/modules/festival.c (module_load): Added configurable option FestivalRecodeFallback.
+	(module_write): Call module_recode_to_iso with FestivalRecodeFallback.
+
+	* src/modules/module_utils.c (module_recode_to_iso): The fallback character is
+	now passed as parameter.
+
 2003-09-29  Hynek Hanke  <hanke@volny.cz>
 
 	* config/Makefile.am: Switched back to normally calling `sed'.
