@@ -60,6 +60,7 @@
 #include <netdb.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <fcntl.h>
 
 /* I'm including my local .h, not the Alan's one! */
 #include "festival_client.h"
@@ -164,9 +165,9 @@ static int festival_socket_open(const char *host, int port)
     struct sockaddr_in serv_addr;
     struct hostent *serverhost;
     int fd;
+    int ret;
 
     fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-
     if (fd < 0)  
         {
             fprintf(stderr,"festival_client: can't get socket\n");
@@ -192,6 +193,7 @@ static int festival_socket_open(const char *host, int port)
             fprintf(stderr,"festival_client: connect to server failed\n");
             return -1;
         }
+
 
     return fd;
 }
@@ -375,12 +377,6 @@ festivalStringToWaveRequest(FT_Info *info, char *text)
 	return 0;
     }
 
-    /* This should go in another place */
-    //    fd = fdopen(dup(info->server_fd),"wb");
-    // fprintf(fd, "(voice_rab_diphone)\n");
-    //fclose(fd);
-    //sleep(1);
-
     /* Opens a stream associated to the socket */
     fd = fdopen(dup(info->server_fd),"wb");
 
@@ -410,7 +406,7 @@ festivalStringToWaveGetData(FT_Info *info)
 {
     FT_Wave *wave;
     int n;
-    char ack[4];
+    char ack[5];
 
     /* Read back info from server */
     /* This assumes only one waveform will come back, also LP is unlikely */
@@ -433,17 +429,22 @@ festivalStringToWaveGetData(FT_Info *info)
     return wave;
 }
 
-
-/* This would be a useful function, but I don't
- * know how to do it :(
- */
 void
 festivalEmptySocket(FT_Info *info)
 {
-    int r;
-    char comm[10000];
-    /* Make sure there is no pending data */
-    lseek(info->server_fd, 0, SEEK_END);
+    char *comm;
+    int ret;
+
+    comm = (char*) spd_malloc(4096);
+
+    ret = fcntl(info->server_fd, F_SETFL, O_NONBLOCK);
+
+    while(1){   
+        ret = read(info->server_fd, comm, 4096);    
+        if (ret <= 0) break;
+    }
+
+    ret = fcntl(info->server_fd, F_SETFL, O_SYNC);
 }
 
 /* Closes the Festival server socket connection */
