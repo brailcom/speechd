@@ -80,6 +80,7 @@ that attempts to provide a common interface to different synthesizers.
 * Instructions::    How to read this manual.
 * Copying::         How you can copy and share @code{Speech Deamon}.
 * Introduction::    What is Speech Deamon.
+* Invoking::		How to start Speech Deamon
 * Internal structure::  How does Speech Deamon work.
 * Public API::  	How to use Speech Deamon in your programs.
 * Priorities::      Description, guidelines how to use them.
@@ -99,7 +100,7 @@ that attempts to provide a common interface to different synthesizers.
 @node Copying,	Introduction,	Instructions,	Top
 @include gpl.texi
 
-@node Introduction,	Internal structure,	Copying,	Top
+@node Introduction,	Invoking,	Copying,	Top
 @chapter Introduction
 
 @menu 
@@ -401,7 +402,58 @@ Sketch:
 @item different facilities like the one providing a command line functionality
 @end itemize
 
-@node Internal structure,	Public API,	Introduction,		Top
+@node Invoking, Internal structure, Introduction, Top
+@chapter Invoking
+
+
+@menu
+* Verbosity::    Definition of the different verbosity levels.
+@end menu
+
+@node Verbosity, , , Invoking
+@section Verbosity
+
+There are 6 different verbosity levels of Speech Deamon logging.
+0 means there is no output, while 5 means that nearly all the information
+about Speech Deamon working is written to stdout.
+
+@subsection Level 0
+No information.
+
+@subsection Level 1
+@itemize @bullet
+	@item Information about loading and exiting.
+@end itemize
+
+@subsection Level 2
+@itemize @bullet
+	@item Information about errors that ocured.
+	@item Allocating and freeing resources on start and exit.
+@end itemize
+
+@subsection Level 3
+@itemize @bullet
+	@item Information about accepting/rejecting/closing clients' connections.
+	@item Information about invalid client commands.
+@end itemize
+
+@subsection Level 4
+@itemize @bullet
+	@item Every received command is output.
+	@item Information about proceeding the command output
+	@item Information about queueing/allocating messages.
+	@item Information about the function of history, sound icons and other facilities.
+	@item Information about the work of the speak() thread.
+@end itemize
+
+@subsection Level 5
+This is only for debugging purposes and can output really *much*
+data. Use with caution.
+@itemize @bullet
+	@item Also received data (messages etc.) is output.
+@end itemize
+
+@node Internal structure,	Public API,	Invoking,		Top
 @chapter Internal structure
 
 @menu
