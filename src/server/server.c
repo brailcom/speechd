@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.c,v 1.14 2003-03-16 19:57:35 hanke Exp $
+ * $Id: server.c,v 1.15 2003-03-18 19:36:07 pdm Exp $
  */
 
 #include "speechd.h"
@@ -254,7 +254,7 @@ speak()
 	/* If we got here, we have some message to say. */
 	element = (TSpeechDMessage *) gl->data;
 	if (element == NULL){
-			MSG(1, "Non-NULL element containing NULL data found, this shouldn't be!!!\n");
+			MSG(1, "Non-NULL element containing NULL data found, this shouldn't happen!!!\n");
 			MessageQueue->p1 = g_list_remove(MessageQueue->p1, gl->data);
 			MessageQueue->p2 = g_list_remove(MessageQueue->p2, gl->data);
 			MessageQueue->p3 = g_list_remove(MessageQueue->p3, gl->data);
@@ -279,7 +279,7 @@ speak()
   	/* Determine which output module should be used */
 	output = g_hash_table_lookup(output_modules, element->settings.output_module);
 	  
-	if (output == NULL) FATAL("Couldn't find appropiate output module.");
+	if (output == NULL) FATAL("Couldn't find appropriate output module.");
 	/* Set the speking_module monitor so that we know who is speaking */
 	speaking_module = output;
 	  
@@ -414,7 +414,7 @@ queue_message(TSpeechDMessage *new, int fd)
 	/* Find settings for this particular client */
 	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
 	if (gl == NULL)
-		FATAL("Couldnt find settings for active client, internal error.");
+		FATAL("Couldn't find settings for active client, internal error.");
 	settings = gl->data;
 
 	/* Copy the settings to the new to-be-queued element */
@@ -442,7 +442,7 @@ queue_message(TSpeechDMessage *new, int fd)
 			   	break;
 		case 3: stop_p3();
 				MessageQueue->p3 = g_list_append(MessageQueue->p3, new); break;
-		default: FATAL("Non existing priority requiered");
+		default: FATAL("Nonexistent priority given");
 	}
 
 	msgs_to_say++;
@@ -496,7 +496,7 @@ parse(char *buf, int bytes, int fd)
 		if(buf[0] != '@') return "ERROR INVALID COMMAND\n\r";
 		/* Read the command */
 		command = get_param(buf, 0, bytes);
-		MSG(2, "Command catched: \"%s\" \n", command);
+		MSG(2, "Command caught: \"%s\" \n", command);
 
 	/* Here we will check which command we got and process
 	 * it with it's parameters. */
@@ -567,7 +567,7 @@ parse(char *buf, int bytes, int fd)
 		/* In the end of the data flow we got a "@data off" command. */
 		MSG(5,"testing +%d+ ", end_data);
 		if((!strncmp(buf,"@data off", bytes-2))||(end_data==1)){
-			MSG(3,"ending data\n");
+			MSG(3,"finishing data\n");
 			end_data=0;
 			/* Set the flag to command mode */
 			v = 0;
@@ -594,7 +594,7 @@ parse(char *buf, int bytes, int fd)
 		if(pos = strstr(buf,"@data off")){	
 			   	bytes=pos-buf;
 				end_data=1;		
-				MSG(5,"command in data catched\n");
+				MSG(5,"command in data caught\n");
 		}
 
 		/* Get the number of bytes read before, sum it with the number of bytes read

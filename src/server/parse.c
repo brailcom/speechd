@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.7 2003-03-12 22:15:03 hanke Exp $
+ * $Id: parse.c,v 1.8 2003-03-18 19:36:07 pdm Exp $
  */
 
 #include "speechd.h"
@@ -87,7 +87,7 @@ parse_history(char *buf, int bytes, int fd)
 	char *helper1, *helper2, *helper3;				
 		
          param = get_param(buf,1,bytes);
-         MSG(3, "  param 1 catched: %s\n", param);
+         MSG(3, "  param 1 caught: %s\n", param);
          if (!strcmp(param,"get")){
             param = get_param(buf,2,bytes);
             if (!strcmp(param,"last")){
@@ -111,10 +111,10 @@ parse_history(char *buf, int bytes, int fd)
          }
          if (!strcmp(param,"cursor")){
             param = get_param(buf,2,bytes);
-            MSG(3, "    param 2 catched: %s\n", param);
+            MSG(3, "    param 2 caught: %s\n", param);
             if (!strcmp(param,"set")){
                param = get_param(buf,4,bytes);
-               MSG(3, "    param 4 catched: %s\n", param);
+               MSG(3, "    param 4 caught: %s\n", param);
                if (!strcmp(param,"last")){
 				  helper1 = get_param(buf,3,bytes);
 				  if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
@@ -302,7 +302,7 @@ parse_resume(char *buf, int bytes, int fd)
 	int ret;
 	param = get_param(buf,1,bytes);
 	if (isanum(param)) target = atoi(param);
-	MSG(2, "Resume recieved.");
+	MSG(2, "Resume received.");
 	ret = stop_c(RESUME, fd, target);
 	if(ret)	return ("ERR CLIENT NOT FOUND");
 	else return "OK RESUMED\n\r";
