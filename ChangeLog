@@ -1,3 +1,22 @@
+2003-09-23  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/server/output.c (output_send_data): Log module communication
+	with the logging kind `protocol'.
+	* src/server/server.c (serve): Likewise.  Log server reply too.
+	
+	* config/speechd.conf.in: CustomLogFile, commented out, added.
+	* src/server/speechd.h (custom_logfile, custom_log_kind): New
+	variables.
+	* src/server/dc_decl.h (load_config_options): New option
+	CustomLogFile.
+	(load_default_global_set_options): Initialize custom logging
+	options.	
+	(cb_CustomLogFile): New callback.
+	(cb_LogFile): Print error to stderr, not stdout.
+	* src/server/speechd.c (MSG2): New function.
+	(MSG): Use it.
+	(speechd_init): Initialize custom logging variables.
+
 2003-09-22  Hynek Hanke  <hanke@volny.cz>
 
 	* src/modules/module_utils.c (MODULE_VERSION): Definition removed.
