@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.12 2003-05-26 16:04:50 hanke Exp $
+  * $Id: speaking.c,v 1.13 2003-05-28 23:19:18 hanke Exp $
   */
 
 #include <glib.h>
@@ -56,7 +56,7 @@ speak(void* data)
     while(1){
         usleep(10);
         if (msgs_to_say>0){
-
+            MSG(1,"Looking for messages");
             /* Look what is the highest priority of waiting
              * messages and take the desired actions on other
              * messages */
@@ -78,7 +78,7 @@ speak(void* data)
                 assert(gl->data != NULL);
 
                 msg = (TSpeechDMessage*) gl->data;
-                if (msg->settings.reparted != 1){                
+                if (msg->settings.reparted <= 0){                
                     MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
                     stop_p3();
                     /* Fill the queue with the list containing only the first message */
@@ -86,15 +86,17 @@ speak(void* data)
                 }
 
             }
-
+            MSG(1,"Looking for messages 2");
             /* Check if sb is speaking or they are all silent. 
              * If some synthesizer is speaking, we must wait. */
             if (is_sb_speaking() == 1){
-                usleep(10);
+                MSG(1, "sb speaking");
+                usleep(5);
                 continue;
             }
-
+            MSG(1,"before mutex");
             pthread_mutex_lock(&element_free_mutex);
+            MSG(1,"after mutex");
             element = NULL;
             gl = NULL;
 
@@ -107,6 +109,7 @@ speak(void* data)
                     }
             }
 
+            MSG(1,"Looking for messages 3");
             /* We will descend through priorities to say more important
              * messages first. */
             gl = g_list_first(MessageQueue->p1); 
@@ -133,7 +136,7 @@ speak(void* data)
                     }
                 }
             } 
-	
+	            MSG(1,"Looking for messages 4");
             /* If we got here, we have some message to say. */
             element = (TSpeechDMessage *) gl->data;
             if (element == NULL){
@@ -180,22 +183,25 @@ speak(void* data)
                 continue;				
             }                    
 
-            /* TODO: There is a problem. This can take time, but we are
-             * working under a locked mutex and blocking the second thread! */
-
             if(element->settings.type == MSGTYPE_TEXT){
                 MSG(4, "Processing message...");
 
-                pthread_mutex_unlock(&element_free_mutex);
                 buffer = (char*) process_message(element->buf, element->bytes, &(element->settings));
                 if (buffer == NULL){
                     mem_free_message(element);
                     msgs_to_say--;
+                    pthread_mutex_unlock(&element_free_mutex);
                     continue;
                 }
-            	pthread_mutex_lock(&element_free_mutex);
-                if (buffer == NULL) continue;
-                if (strlen(buffer) <= 0) continue;
+
+                if (buffer == NULL){
+                    pthread_mutex_unlock(&element_free_mutex);
+                    continue;
+                }
+                if (strlen(buffer) <= 0){
+                    pthread_mutex_unlock(&element_free_mutex);
+                    continue;
+                }
             }else{
                 MSG(4, "Passing message as it is...");
                 MSG(5, "Message text: |%s|", element->buf);
@@ -217,16 +223,102 @@ speak(void* data)
     }	 
 }
 
+/* TODO: Needs some refactoring */
 void
 speaking_stop(int uid)
 {
-    if(get_speaking_client_uid() == uid) stop_speaking_active_module();
-}
+    TSpeechDMessage* msg;
+    GList *gl;
+    GList *queue;
+    signed int gid = -1;
+
+    if(get_speaking_client_uid() == uid){
+        stop_speaking_active_module();
+
+        if (highest_priority == 1) queue = MessageQueue->p1;
+        if (highest_priority == 2) queue = MessageQueue->p2;
+        if (highest_priority == 3) queue = MessageQueue->p3;
+        if (queue == NULL) return;
+
+        gl = g_list_last(queue);
+        if (gl == NULL) return;
+        if (SPEECHD_DEBUG) assert(gl->data != NULL);
+
+        msg = (TSpeechDMessage*) gl->data;
+        if ((msg->settings.reparted != 0) && (msg->settings.uid == uid)){
+            gid = msg->settings.reparted;           
+        }
+
+        while(1){
+            gl = g_list_last(queue);
+            if (gl == NULL){
+                if (highest_priority == 1) MessageQueue->p1 = queue;
+                if (highest_priority == 2) MessageQueue->p2 = queue;
+                if (highest_priority == 3) MessageQueue->p3 = queue;
+                return;
+            }
+            if (SPEECHD_DEBUG) assert(gl->data != NULL);
+
+            msg = (TSpeechDMessage*) gl->data;
+
+            if ((msg->settings.reparted == gid) && (msg->settings.uid == uid)){
+                queue = g_list_remove_link(queue, gl);
+                msgs_to_say--;
+            }else{
+                if (highest_priority == 1) MessageQueue->p1 = queue;
+                if (highest_priority == 2) MessageQueue->p2 = queue;
+                if (highest_priority == 3) MessageQueue->p3 = queue;
+                return;
+            }
+        }
+    }
+}        
 
 void
 speaking_stop_all()
 {
+    TSpeechDMessage *msg;
+    GList *gl;
+    GList *queue;
+    int gid = -1;
+
     stop_speaking_active_module();
+
+    if (highest_priority == 1) queue = MessageQueue->p1;
+    if (highest_priority == 2) queue = MessageQueue->p2;
+    if (highest_priority == 3) queue = MessageQueue->p3;
+    if (queue == NULL) return;
+
+    gl = g_list_last(queue);
+    if (gl == NULL) return;
+    if (SPEECHD_DEBUG) assert(gl->data != NULL);
+    msg = (TSpeechDMessage*) gl->data;
+
+    if (msg->settings.reparted != 0){
+        gid = msg->settings.reparted;
+    }
+
+    while(1){
+        gl = g_list_last(queue);
+        if (gl == NULL){
+            if (highest_priority == 1) MessageQueue->p1 = queue;
+            if (highest_priority == 2) MessageQueue->p2 = queue;
+            if (highest_priority == 3) MessageQueue->p3 = queue;
+            return;
+        }
+        if (SPEECHD_DEBUG) assert(gl->data != NULL);
+
+        msg = (TSpeechDMessage*) gl->data;
+        if (msg->settings.reparted == 1){
+            queue = g_list_remove_link(queue, gl);
+            msgs_to_say--;
+        }else{
+            if (highest_priority == 1) MessageQueue->p1 = queue;
+            if (highest_priority == 2) MessageQueue->p2 = queue;
+            if (highest_priority == 3) MessageQueue->p3 = queue;
+            return;
+        }
+    }
 }
 
 void
