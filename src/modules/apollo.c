@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.8 2003-04-28 01:58:57 hanke Exp $
+ * $Id: apollo.c,v 1.9 2003-04-29 14:56:47 pdm Exp $
  */
 
 
@@ -36,7 +36,7 @@
 
 gint apollo_write (gchar*, gint, void*);
 gint apollo_stop (void);
-char* apollo_pause(void);
+char* apollo_pause (void);
 gint apollo_is_speaking (void);
 gint apollo_close (void);
 
@@ -255,11 +255,8 @@ gint apollo_stop (void)
 
 char* apollo_pause (void)
 {
-    /* TODO: The Apollo output module should stop speaking (a short
-       dellay in returning is tolerable) and return a string containing
-       \pm the rest of the message.
-    */
-    return NULL;
+  apollo_stop ();
+  return NULL;
 }
 
 gint apollo_is_speaking (void)
