@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: index_marking.c,v 1.4 2003-10-12 23:32:20 hanke Exp $
+  * $Id: index_marking.c,v 1.5 2003-10-21 22:56:25 hanke Exp $
   */
 
 #include "index_marking.h"
@@ -60,14 +60,17 @@ insert_index_marks(TSpeechDMessage *msg)
             ret = spd_utf8_read_char(pos, character2);
             if ((ret == 0) || (strlen(character2) == 0)){
                 g_string_append_printf(marked_text, "%s", character);
+                MSG2(5, "index_marking", "MSG altering 1: |%s|", marked_text->str);
                 break;            
             }
             u_char = g_utf8_get_char(character2);
             if (g_unichar_isspace(u_char)){
                 g_string_append_printf(marked_text, "%s@%d@%s", character, n, character2);
                 n++;
+                MSG2(5, "index_marking", "MSG altering 2: |%s|", marked_text->str);
             }else{
                 g_string_append_printf(marked_text, "%s%s", character, character2);
+                MSG2(5, "index_marking", "MSG altering 3: |%s|", marked_text->str);
             }
         }
         else{
@@ -82,7 +85,7 @@ insert_index_marks(TSpeechDMessage *msg)
     
     g_string_free(marked_text, 0);
 
-    MSG(5, "index_marking", "MSG after index marking: |%s|", msg->buf);
+    MSG2(5, "index_marking", "MSG after index marking: |%s|", msg->buf);
 }
 
 /* Finds the next index mark, starting from the pointer
