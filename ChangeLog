@@ -1,3 +1,18 @@
+2003-06-08  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/server/dc_decl.h (cb_MinDelayProgress): New callback.
+
+	* src/modules/flite.c (module_init): Return -1 if can't set default voice.
+
+	* src/c/api/libspeechd.c: Switched to string-described priorities.
+
+	* config/speechd.conf (MinDelayProgress): New option: how should Speech Dispatcher
+	wait before considering tha last message of priority Progress ``the last''.
+
+	* src/server/server.c (queue_message): Use min_delay_progress.
+
+	* intl/fdset.h: min_delay_progress added to TFDSet.
+
 2003-06-05  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* src/server/speechd.h (last_p5_message): Archive last priority ``notification'' message here.

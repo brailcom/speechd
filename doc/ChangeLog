@@ -1,15 +1,20 @@
+2003-06-08  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* speechd.texi (Output module functions): module_load and module_init distinguished.
+	(Priorities): Reworked, diagram added.
+	(Parameter setting commands (C)): Documented missing commands.
+
 2003-05-26	Hynek Hanke  <hanke@volny.cz>
 
 	* speechd.texi (SSIP): LIST SPELLING_TABLES only lists available tables (fixed).
 
-2003-05-25  Hynek Hanke  <hanke@volny.cz>
 
 2003-05-26  Milan Zamazal  <pdm@brailcom.org>
 
 	* speechd.texi (Information retrieval commands): Use underscore
 	instead of dash in the LIST SPELLING_TABLES example.
 
-2003-05-25  Hynek Hanke  <hanke@localhost.localdomain>
+2003-05-25  Hynek Hanke  <hanke@volny.cz>
 
 	* speechd.texi (SSIP): Description of how to pass space to CHAR.
 	LIST SPELLING_TABLES only lists available tables.
