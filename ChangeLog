@@ -1,3 +1,24 @@
+2003-04-06  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/server/server.c (message_list_compare_uid): New function.
+	
+	* src/server/dc_decl.h (cb_AddSndIcons): Typo. 
+
+	* src/server/server.c (parse): cancel: new SSIP command.
+
+	* src/server/parse.c: Call the new stop-family functions.
+
+	* src/server/speechd.h: +get_client_uid_by_fd().
+
+	* src/server/set.c (get_client_uid_by_fd): New function.
+	(get_client_settings_by_fd): Use get_client_uid_by_fd().
+
+	* src/server/server.c (speaking_uid): New variable.
+	(get_speaking_uid ()): New function.
+	(speaking_stop ()): Moved from stop_c().
+	(speaking_cancel ()): Moved from stop_c().
+	(speaking_pause ()): Moved from stop_c().
+	(speaking_resume ()): Moved from stop_c().
 
 2003-04-04	Hynek Hanke	<hanke@volny.cz>
 	* src/server/server.c (stop_c): Return 0 after resume.
