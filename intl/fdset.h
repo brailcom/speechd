@@ -21,29 +21,32 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.5 2003-03-09 20:53:48 hanke Exp $
+ * $Id: fdset.h,v 1.6 2003-03-12 22:24:24 hanke Exp $
  */
 
-typedef enum {                  // type of voice
-        MALE = 0,               // (numbers divisible by 2 should mean male)
+typedef enum {                  /* Prefered type of voice */
+        MALE = 0,               
         FEMALE = 1,
         CHILD_MALE = 2,
         CHILD_FEMALE = 3
 }EVoiceType;
 
 typedef struct{
-        int fd;
-		int uid;
-        int paused;
-        int priority;           // priority between 1 and 3
-        int punctuation_mode; 
-        int speed;              // speed: 100 = normal, ???
-        int pitch;              // pitch: ???
-        char *client_name;
-        char *language;         // language: default = english
-        char *output_module;    // output module: festival, odmluva, epos,...
-        EVoiceType voice_type;  // see EVoiceType definition
-        int spelling;           // spelling mode: 0 -- off, 1 -- on
-        int cap_let_recogn;     // cap. letters recogn.: 0 -- off, 1 -- on
+		unsigned int uid;		/* Unique ID of the client */
+        int fd;					/* File descriptor the client is on. */
+        int paused;				/* Internal flag, 1 for paused client or 0 for normal. */
+        int priority;			/* Priority between 1 and 3 (1 - highest, 3 - lowest) */
+        int punctuation_mode;	/* Punctuation mode: 0, 1 or 2
+								   		0	-	no punctuation
+										1 	-	all punctuation
+										2	-	only user-selected punctuation */
+        signed int speed; 		/* Speed of voice from <-100;+100>, 0 is the default medium */
+        signed int pitch;		/* Pitch of voice from <-100;+100>, 0 is the default medium */
+        char *client_name;		/* Name of the client. */
+        char *language;         /* Selected language name. (e.g. "english", "czech", "french", ...) */
+        char *output_module;    /* Output module name. (e.g. "festival", "flite", "apollo", ...) */
+        EVoiceType voice_type;  /* see EVoiceType definition above */
+        int spelling;           /* Spelling mode: 0 or 1 (0 - off, 1 - on) */
+        int cap_let_recogn;     /* Capital letters recognition: (0 - off, 1 - on) */
 }TFDSetElement;
 
