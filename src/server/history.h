@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.h,v 1.5 2003-03-29 20:12:08 hanke Exp $
+ * $Id: history.h,v 1.6 2003-04-14 02:07:14 hanke Exp $
  */
 
 #ifndef ALLOC_H
@@ -43,8 +43,6 @@ char* history_say_id(int fd, int id);
 /* Internal functions */
 
 GList* get_messages_by_client(int uid);
-
-gint (*p_cli_comp_id)();
 
 #endif
 

@@ -22,7 +22,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.c,v 1.1 2003-04-12 11:21:18 hanke Exp $
+ * $Id: sndicon.c,v 1.2 2003-04-14 02:10:13 hanke Exp $
 */
 
 #include "sndicon.h"
@@ -67,9 +67,8 @@ snd_icon_spelling_get(char *table, GHashTable *icons, char *name)
 
     key = (char*) spd_malloc((strlen(name) + strlen(table) + 3) * sizeof(char));
     sprintf(key, "%s_%s", table, name);
-	
-    text = g_hash_table_lookup(icons, key); 
 
+    text = g_hash_table_lookup(icons, key); 
     if(text == NULL) return NULL;
 
     ret = (char*) spd_malloc((strlen(text)+1) *  sizeof(char));
