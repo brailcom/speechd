@@ -1,5 +1,5 @@
 /* Speechd server program
- * CVS revision: $Id: speechd.c,v 1.3 2002-06-30 00:15:59 hanke Exp $
+ * CVS revision: $Id: speechd.c,v 1.4 2002-07-02 07:57:56 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
 #include "speechd.h"
@@ -55,12 +55,19 @@ fdset_list_alloc_element(void* element)
    new = malloc(sizeof(TFDSetElement));
    if (new == NULL) FATAL("Not enough memory!");
    *new = *((TFDSetElement*) element);
+
    new->language = malloc (strlen( ((TFDSetElement*) element)->language) );
    if (new->language == NULL) FATAL("Not enough memory!");
+   strcpy(new->language, ((TFDSetElement*) element)->language);
+
+   new->client_name = malloc (strlen( ((TFDSetElement*) element)->client_name) );
+   if (new->client_name == NULL) FATAL("Not enough memory!");
+   strcpy(new->client_name, ((TFDSetElement*) element)->client_name);
+
    new->output_module = malloc (strlen( ((TFDSetElement*) element)->output_module) );
    if (new->output_module == NULL) FATAL("Not enough memory!");
-   strcpy(new->language, ((TFDSetElement*) element)->language);
    strcpy(new->output_module, ((TFDSetElement*) element)->output_module);
+
    return (gdsl_element_t) new;
 }
 
@@ -86,9 +93,14 @@ static gdsl_element_t
 history_list_alloc_client(void* element)
 {
    THistoryClient *new;
+   TFDSetElement *settings;
    new = malloc(sizeof(THistoryClient));
    if (new == NULL) FATAL("Not enough memory!");
-	//   strcpy(new->client_name,(char*) element);
+   settings = gdsl_list_search_by_value(fd_settings, fdset_list_compare,
+                 *((int*)element));
+   if (settings == NULL) FATAL("Couldn't find appropiate settings for active client."); 
+    new->client_name = malloc(strlen(settings->client_name)+1);
+   strcpy(new->client_name, settings->client_name);
    new->fd = *((int*)element);
    new->messages = gdsl_list_create("message_queue", 
                     history_list_alloc_message, NULL);
@@ -106,7 +118,9 @@ default_fd_set()
    new->language = malloc(16);
    if (new->language == NULL) FATAL("Not enough memory!");
    new->output_module = malloc(16);
-   if (new->language == NULL) FATAL("Not enough memory!");
+   if (new->output_module == NULL) FATAL("Not enough memory!");
+   new->client_name = malloc(32);
+   if (new->client_name == NULL) FATAL("Not enough memory!");
 
    new->paused = 0;
    new->priority = 3;
@@ -115,6 +129,7 @@ default_fd_set()
    new->pitch = 1.0;
    strcpy(new->language,"english");
    strcpy(new->output_module,"flite");
+   strcpy(new->client_name,"direct connection"); 
    new->voice_type = MALE;
    new->spelling = 0;         
    new->cap_let_recogn = 0;
@@ -135,6 +150,9 @@ int main() {
 
    if (MessageQueue == NULL)
 	FATAL("Couldn't alocate memmory for MessageQueue.");
+
+   MessagePausedList = gdsl_list_create("paused_messages",
+	message_alloc, message_free);
 
    fd_settings = gdsl_list_create("fd_settings", fdset_list_alloc_element, 
 		NULL);
@@ -224,7 +242,7 @@ int main() {
                new_fd_set->fd = client_socket;
                gdsl_list_insert_head(fd_settings, new_fd_set);
                if(gdsl_list_insert_head(history, &client_socket) == NULL) 
-                  FATAL("couldn't insert message to history, internal error\n");
+                  FATAL("couldn't insert new client to history, internal error\n");
 		
                MSG(3,"   configuration for %d added to the list\n", client_socket);
 	
