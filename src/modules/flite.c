@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.8 2003-03-16 21:18:00 hanke Exp $
+ * $Id: flite.c,v 1.9 2003-03-19 19:32:40 pdm Exp $
  */
 
 #define VERSION "0.0.2"
@@ -31,7 +31,7 @@
 #include <stdlib.h>
 #include <glib.h>
 #include <pthread.h>
-#include <flite.h>
+#include <flite/flite.h>
 #include <signal.h>
 
 #include "module.h"

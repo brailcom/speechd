@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.8 2003-03-18 19:36:07 pdm Exp $
+ * $Id: parse.c,v 1.9 2003-03-19 19:32:40 pdm Exp $
  */
 
 #include "speechd.h"
@@ -276,7 +276,7 @@ parse_stop(char *buf, int bytes, int fd)
 			
 	MSG(2, "Stop recieved.");
 	ret = stop_c(STOP, fd, target);
-	if(ret) return "ERR CLIENT NOT FOUND";
+	if(ret) return "ERR CLIENT NOT FOUND\n\r";
 	else return "OK STOPPED\n\r";
 }
 
@@ -290,7 +290,7 @@ parse_pause(char *buf, int bytes, int fd)
 	if (isanum(param)) target = atoi(param);
 	MSG(2, "Pause recieved.\n");
 	ret = stop_c(PAUSE, fd, target);
-	if(ret)	return "ERR CLIENT NOT FOUND";
+	if(ret)	return "ERR CLIENT NOT FOUND\n\r";
 	else return "OK PAUSED\n\r";
 }
 
@@ -304,7 +304,7 @@ parse_resume(char *buf, int bytes, int fd)
 	if (isanum(param)) target = atoi(param);
 	MSG(2, "Resume received.");
 	ret = stop_c(RESUME, fd, target);
-	if(ret)	return ("ERR CLIENT NOT FOUND");
+	if(ret)	return ("ERR CLIENT NOT FOUND\n\r");
 	else return "OK RESUMED\n\r";
 }
 
@@ -320,7 +320,7 @@ parse_snd_icon(char *buf, int bytes, int fd)
     GList *gl;		
 	
     param = get_param(buf,1,bytes);
-	if (param == NULL) return ("ERR BAD COMMAND\n");
+	if (param == NULL) return ("ERR BAD COMMAND\n\r");
 	
 	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
 	if (gl == NULL)
@@ -330,12 +330,12 @@ parse_snd_icon(char *buf, int bytes, int fd)
 	icons = g_hash_table_lookup(snd_icon_langs, settings->language);
 	if (icons == NULL){
 		icons = g_hash_table_lookup(snd_icon_langs, GlobalFDSet.language);
-		if (icons == NULL) return ("ERR NO SOUND ICONS\n");
+		if (icons == NULL) return ("ERR NO SOUND ICONS\n\r");
 	}
 	
 	word = g_hash_table_lookup(icons, param); 
 
-	if(word==NULL) return ("ERR UNKNOWN ICON\n");
+	if(word==NULL) return ("ERR UNKNOWN ICON\n\r");
 
 	new = malloc(sizeof(TSpeechDMessage));
 	new->bytes = strlen(word)+1;
@@ -343,5 +343,5 @@ parse_snd_icon(char *buf, int bytes, int fd)
 	strcpy(new->buf, word);
 	if(queue_message(new,fd))  FATAL("Couldn't queue message\n");
 																
-	return "OK SOUND ICON QUEUED\n";
+	return "OK SOUND ICON QUEUED\n\r";
 }				 
