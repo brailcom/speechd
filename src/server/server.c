@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.31 2003-04-17 10:12:44 hanke Exp $
+  * $Id: server.c,v 1.32 2003-04-17 11:12:49 hanke Exp $
   */
 
 #include "speechd.h"
@@ -86,7 +86,7 @@ process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable 
     assert(settings->spelling_table != NULL);
 
     pos = buf;                  /* Set the position cursor for UTF8 to the beginning. */
-    for(i=0; i<=g_utf8_strlen(buf, -1) - 3; i++){
+    for(i=0; i<=g_utf8_strlen(buf, -1) - 1; i++){
         spd_utf8_read_char(pos, character);
         spelled_letter = (char*) snd_icon_spelling_get(settings->spelling_table,
                                                        icons, character);
@@ -124,7 +124,7 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
     assert(settings->punctuation_table!=NULL);
 
     pos = buf;                  /* Set the position cursor for UTF8 to the beginning. */
-    for(i=0; i<=g_utf8_strlen(buf, -1) - 3; i++){
+    for(i=0; i<=g_utf8_strlen(buf, -1) - 1; i++){
         u_char = g_utf8_get_char(pos);
         length = g_unichar_to_utf8(u_char, character);
         character[length]=0;
@@ -133,9 +133,7 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
             if(settings->punctuation_mode == 2){
                 inside = g_utf8_strchr(settings->punctuation_some,-1,u_char);
                 if (inside == NULL){
-                    g_string_append(str, character);
-                    pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */			 
-                    continue;
+                    pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */		                       continue;
                 }
             }
 
