@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: def.h,v 1.8 2003-03-24 22:34:47 hanke Exp $
+ * $Id: def.h,v 1.9 2003-03-25 22:49:56 hanke Exp $
  */
 
 /* some constants common for speech server and client part */
@@ -34,12 +34,5 @@
 #define LOG_LEVEL 2
 
 #define SPEECHD_DEBUG 1
-
-#define MSG(level,args...) { if (level <= LOG_LEVEL) printf(args); }
-
-#define FATAL(msg) { printf("speechd [%s:%d]: "msg"\n", __FILE__, __LINE__); exit(EXIT_FAILURE); }
-
-#define DIE(msg)   { perror("speechd: "msg); exit(EXIT_FAILURE); }
-
 
 #endif
