@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.6 2003-10-07 16:52:01 hanke Exp $
+ * $Id: output.c,v 1.7 2003-10-08 21:31:42 hanke Exp $
  */
 
 #include "output.h"
@@ -43,6 +43,7 @@ get_output_module(const TSpeechDMessage *message)
     OutputModule *output = NULL;
 
     if (message->settings.output_module != NULL){
+        MSG(5, "Desired output module is %s", message->settings.output_module);
         output = g_hash_table_lookup(output_modules, message->settings.output_module);
         if(output == NULL || !output->working){
             if (GlobalFDSet.output_module != NULL){
