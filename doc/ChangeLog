@@ -1,3 +1,14 @@
+2003-12-09  Hynek Hanke  <hanke@volny.cz>
+
+	* ssip.texi (Priority Categories): Priority important clarified (
+	hopefully ).
+	(Index of Concepts): Index removed.
+	(Parameter Setting Commands): Client name can also contain dashes
+	and underscores.
+	(Parameter Setting Commands): Don't speak about index marks, as they
+	are an internal thing to Speech Dispatcher. Refer only to ``sentences''.
+	(Message History): Rewritten.
+
 2003-12-07  Hynek Hanke  <hanke@volny.cz>
 
 	* ssip.texi: New file. SSIP Description splitted from speechd.texi.
