@@ -19,12 +19,12 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.18 2003-05-26 16:04:49 hanke Exp $
+ * $Id: fdset.h,v 1.19 2003-06-08 21:50:57 hanke Exp $
  */
 
 typedef enum 
 {                  /* Type of voice */
-	NO_VOICE = 0,
+    NO_VOICE = 0,
     MALE1 = 1,
     MALE2 = 2,
     MALE3 = 3,
@@ -87,5 +87,6 @@ typedef struct{
     int hist_cur_pos;
     ESort hist_sorted;
     int reparted;
+    unsigned int min_delay_progress;
 }TFDSetElement;
 
