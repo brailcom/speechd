@@ -21,13 +21,11 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.c,v 1.12 2003-03-09 20:49:17 hanke Exp $
+ * $Id: server.c,v 1.13 2003-03-12 22:14:36 hanke Exp $
  */
 
 #include "speechd.h"
 
-#define BUF_SIZE 4096
-#define MAX_CLIENTS 20
 
 char speaking_module[256] = "\0";
 int highest_priority = 0;
@@ -479,7 +477,7 @@ parse(char *buf, int bytes, int fd)
 	char *language; 
 	char *ret;
 		/* TODO: What about buffer sizes? Should these be fixed? */
-	static char o_buf[MAX_CLIENTS][BUF_SIZE];
+//	static char o_buf[MAX_CLIENTS][BUF_SIZE];
 	int r;
 	GList *gl;
 //	TSpeechDMessage *newgl;
@@ -487,6 +485,7 @@ parse(char *buf, int bytes, int fd)
 	char *helper1;
 	int end_data = 0;
 	int i;
+	char *pos;
 
 	end_data = 0;
 	
@@ -555,6 +554,7 @@ parse(char *buf, int bytes, int fd)
 			v = 1;
 			/* Mark this client as ,,sending data'' */
 			g_array_insert_val(awaiting_data, fd, v);
+			o_buf[fd]=g_string_new("");
 			MSG(2, "switching to data mode...\n");
 			return OK_RECEIVE_DATA;
 		}
@@ -580,7 +580,7 @@ parse(char *buf, int bytes, int fd)
 			new = malloc(sizeof(TSpeechDMessage));
 			new->bytes = g_array_index(o_bytes,int,fd);
 			new->buf = malloc(new->bytes);
-			memcpy(new->buf, o_buf[fd], new->bytes);
+			memcpy(new->buf, o_buf[fd]->str, new->bytes);
 
 			if(queue_message(new,fd))  FATAL("Couldn't queue message\n");
 		
@@ -590,18 +590,16 @@ parse(char *buf, int bytes, int fd)
 			v = 0;
 			g_array_insert_val(o_bytes, fd, v);
 			/* Clear the output buffer (well, kind of...)*/
-			o_buf[fd][0]=0;
+//			o_buf[fd][0]=0;
+			g_string_free(o_buf[fd],1);
 			return OK_MESSAGE_QUEUED;
 		}
 	
-		for(i=0;i<=bytes-1;i++){	
-			if(buf[i]=='@'){
-				   	bytes=i;
-					end_data=1;		
-					MSG(5,"command in data catched\n");
-					break;
-			}
-		}	
+		if(pos = strstr(buf,"@data off")){	
+			   	bytes=pos-buf;
+				end_data=1;		
+				MSG(5,"command in data catched\n");
+		}
 
 		/* Get the number of bytes read before, sum it with the number of bytes read
 		 * now and store again in the counter */
@@ -610,13 +608,8 @@ parse(char *buf, int bytes, int fd)
 		g_array_set_size(o_bytes,fd);	 
 		g_array_insert_val(o_bytes, fd, v);
     
-	  	/* Check if we didn't exceed the maximum size of the buffer. */
-		if (g_array_index(o_bytes,int,fd) >= BUF_SIZE) return(ERR_TOO_MUCH_DATA);
-
-		/* Add the new data to the buffer. */
-		o_buf[fd][g_array_index(o_bytes,int,fd)] = 0;
 	    buf[bytes] = 0;
-	    strcat(o_buf[fd],buf);
+	    g_string_append(o_buf[fd],buf);
 	}
 
 	if (end_data == 1) goto enddata;
@@ -639,7 +632,7 @@ serve(int fd)
 	bytes = read(fd, buf, BUF_SIZE);
 	if(bytes == -1) return -1;
 	buf[bytes-1]=0;
-	MSG(3,"    read %d bytes [%s] from client on fd %d\n", bytes, buf, fd);
+	MSG(5,"    read %d bytes from client on fd %d\n", bytes, fd);
 
 	/* Parse the data and read the reply*/
 	strcpy(reply, parse(buf, bytes, fd));
