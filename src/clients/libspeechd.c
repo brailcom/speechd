@@ -10,6 +10,7 @@
 #include <assert.h>
 
 #include "def.h"
+#include "libspeechd.h"
 
 #define FATAL(msg) { perror("client: "msg); exit(1); }
 
@@ -98,12 +99,21 @@ spd_sayf (int fd, int priority, char *format, ...)
 int
 spd_stop(int fd)
 {
-  char helper[16];
+  char helper[32];
 
   sprintf(helper, "@stop\n\r");
   if(!ret_ok(send_data(fd, helper, 1))) return 0;
 
   return 1;
+}
+
+int
+spd_stop_fd(int fd, int target)
+{
+  char helper[32];
+
+  sprintf(helper, "@stop %d\n\r", target);
+  if(!ret_ok(send_data(fd, helper, 1))) return 0;
 }
 
 int
@@ -118,16 +128,35 @@ spd_pause(int fd)
 }
 
 int
-spd_resume(int fd)
+spd_pause_fd(int fd, int target)
 {
   char helper[16];
 
-  sprintf(helper, "@resume\n\r");
+  sprintf(helper, "@pause %d\n\r", target);
   if(!ret_ok(send_data(fd, helper, 1))) return 0;
-
-  return 1;
 }
 
+int
+spd_resume(int fd)
+{
+	char helper[16];
+
+	sprintf(helper, "@resume\n\r");
+	if(!ret_ok(send_data(fd, helper, 1))) return 0;
+
+	return 1;
+}
+
+int
+spd_resume_fd(int fd, int target)
+{
+	char helper[16];
+
+	sprintf(helper, "@resume %d\n\r", target);
+	if(!ret_ok(send_data(fd, helper, 1))) return 0;
+
+	return 1;
+}
 /* Takes the buffer, position of cursor in the buffer
  * and key that have been hit and tries to handle all
  * the speech output, tabulator completion and other
@@ -139,7 +168,7 @@ spd_resume(int fd)
  */
 
 int
-spd_get_client_list(int fd, char **client_names, int *client_ids){
+spd_get_client_list(int fd, char **client_names, int *client_ids, int* active){
 	char command[128];
 	char *reply;
 	int header_ok;
@@ -148,6 +177,7 @@ spd_get_client_list(int fd, char **client_names, int *client_ids){
 	int record_int;
 	char *record_str;
 	
+
 	sprintf(command, "@history get client_list\n\r");
 	reply = send_data(fd, command, 1);
 
@@ -158,15 +188,19 @@ spd_get_client_list(int fd, char **client_names, int *client_ids){
 	}
 	
 	for(count=0;  ;count++){
-		record = parse_response_data(reply, count+1);
+		record = (char*) parse_response_data(reply, count+1);
 		if (record == NULL) break;
 //		MSG(3,"record:(%s)\n", record);
 		record_int = get_rec_int(record, 0);
 		client_ids[count] = record_int;
 //		MSG(3,"record_int:(%d)\n", client_ids[count]);
-		record_str = get_rec_str(record, 1);
+		record_str = (char*) get_rec_str(record, 1);
+		assert(record_str!=NULL);
 		client_names[count] = record_str;
 //		MSG(3,"record_str:(%s)\n", client_names[count]);		
+		record_int = get_rec_int(record, 2);
+		active[count] = record_int;
+//		MSG(3,"record_int:(%d)\n", active[count]);		
 	}	
 	return count;
 }
@@ -216,8 +250,8 @@ spd_command_line(int fd, char *buffer, int pos, int c){
 /* --------------------- Internal functions ------------------------- */
 
 int ret_ok(char *ret){
-   char str[256];
-   char quantum_trashbin[300];
+//   char str[256];
+   char quantum_trashbin[30000];
    /* TODO: It seems that this piece of code is subject to the
 	* laws of quantum mechanics. If you cease to observe what's
 	* going on (remove this sprintf), it works in a completely
@@ -225,9 +259,12 @@ int ret_ok(char *ret){
 	* functions and executes internall error. But if you uncomment
 	* the sprintf and try to determine what's going on, everything
 	* works correctly. Any help appreciated. */
+   if (ret == NULL) FATAL("Couldn't determine the exact velocity and position at once.");
+   fprintf(debugg,"ret_ok::	%s\n", ret);
    sprintf(quantum_trashbin, "returned: %s", ret);
-   if (strstr(ret, "OK") != NULL) return 1;
-   if (strstr(ret, "ERROR") != NULL) return 0;
+   if ((char*)strstr(ret, "OK") != NULL) return 1;
+   if ((char*)strstr(ret, "ERROR") != NULL) return 0;
+   printf("returned: |%s|\n", ret);
    FATAL("Internal error during communication.");
 }
 
@@ -274,6 +311,7 @@ get_rec_int(char *record, int pos)
 	char *num_str;
 	int num;
 
+	assert(record!=0);
 	num_str = get_rec_part(record, pos);
 //	printf("pos:%d, rec:%s num_str:_%s_", pos, record, num_str);
 	if (!isanum(num_str)) return -9999;
@@ -290,6 +328,7 @@ int parse_response_header(char *resp)
 	
 	header = malloc(sizeof(char) * strlen(resp));
 	
+   fprintf(debugg,"command sent:	%s\n", resp);
 	for(i=0;i<=strlen(resp)-1;i++){
 		if ((resp[i]!='\\') || (resp[i]!='\n'))	header[i] = resp[i];
 		else break;
@@ -297,6 +336,7 @@ int parse_response_header(char *resp)
 	header[i] = 0;
 	ret = ret_ok(header);
 
+	free(header);
 	return ret;
 }
 
@@ -341,7 +381,8 @@ send_data(int fd, char *message, int wfr)
    char *reply;
    int bytes;
 
-   reply = malloc(sizeof(char) * 1024);
+   /* TODO: 1000?! */
+   reply = malloc(sizeof(char) * 1000);
    
    /* write message to the socket */
    write(fd, message, strlen(message));
@@ -351,7 +392,7 @@ send_data(int fd, char *message, int wfr)
 
    /* read reply to the buffer */
    if (wfr == 1){
-      bytes = read(fd, reply, 255);
+      bytes = read(fd, reply, 1000);
       /* print server reply to as a string */
       reply[bytes] = 0; 
       fprintf(debugg, "reply from server:	%s\n", reply);
