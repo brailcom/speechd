@@ -1,4 +1,24 @@
+2004-07-13  Hynek Hanke  <hanke@chopin>
+
+	* src/server/speechd.c (MSG): Include timestamps in microseconds.
+
+	* src/server/output.c (output_lock): Don't output silly debugging messages.
+
+	* config/modules/llia_phon-generic.conf: New file.
+
+	* src/modules/festival.c (_festival_parent): Do not delete the wav if it's in cache.
+	(module_speak): Enable multi-mode right at the beginning.
+
+	* src/modules/generic.c (module_init): Set default values for generic_msg_language.
+	(module_speak): Strip ssml marks before speaking.
+
+2004-07-04  Hynek Hanke  <hanke@chopin>
+
+	* src/server/speechd.c (main): Exit if create_pid_file != 0.
+
 2004-07-02  Hynek Hanke  <hanke@chopin>
+
+	* src/modules/Makefila.am: Include module_utils.h into sources.
 
 	* Release 0.5-rc1
 

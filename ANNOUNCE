@@ -1,9 +1,13 @@
 
-Speech Dispatcher 0.5-rc1 release
-=================================
+Speech Dispatcher 0.5 Release Candidate 2
+=========================================
 
-The Brailcom organization is happy to announce the release of Speech
-Dispatcher 0.5-rc1 developed as a part of the Free(b)Soft project.
+The Brailcom organization is happy to announce the availability of
+Speech Dispatcher 0.5-rc2 developed as a part of the Free(b)Soft
+project.
+
+This is a Release Candidate version, so we invite everyone to help
+us testing it before we finally release the 0.5 version.
 
 * What is Speech Dispatcher?
 
@@ -40,7 +44,7 @@ Dispatcher 0.5-rc1 developed as a part of the Free(b)Soft project.
     to any other language can be developed.
 
 
-* What is new in 0.5-rc1?
+* What is new in 0.5-rc2?
 
  - SSIP now supports SSML (Speech Synthesis Markup Language) messages.
 
@@ -55,9 +59,9 @@ Dispatcher 0.5-rc1 developed as a part of the Free(b)Soft project.
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.5-rc1.tar.gz
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.5-rc2.tar.gz
 
-  You also need to get festival-freebsoft-utils in version 3 or newer
+  You also need to get festival-freebsoft-utils in version 0.3 or newer
   http://www.freebsoft.org/pub/projects/festival-freebsoft-utils/
 
   We recommend you to fetch the sound icons Speech Dispatcher can use as
