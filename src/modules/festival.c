@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.13 2003-06-01 21:21:56 hanke Exp $
+ * $Id: festival.c,v 1.14 2003-06-01 22:24:35 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -42,7 +42,7 @@
 
 #include "festival_client.c"
 
-static const int DEBUG_FESTIVAL = 1;
+static const int DEBUG_FESTIVAL = 0;
 
 /* TODO: Cleaning, comments! */
 

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: def.h,v 1.12 2003-05-26 16:04:49 hanke Exp $
+ * $Id: def.h,v 1.13 2003-06-01 22:24:16 hanke Exp $
  */
 
 /* some constants common for speech server and client part */
@@ -29,7 +29,7 @@
 
 #define SPEECH_PORT 9876
 
-#define LOG_LEVEL 5
+#define LOG_LEVEL 3
 
 #define SPEECHD_DEBUG 1
 
