@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.53 2003-10-15 21:03:05 hanke Exp $
+ * $Id: speechd.c,v 1.54 2004-02-23 22:33:02 hanke Exp $
  */
 
 #include "speechd.h"
@@ -73,7 +73,7 @@ fatal_error(void)
 void
 MSG2(int level, char *kind, char *format, ...)
 {
-    int std_log = level <= spd_log_level;
+    int std_log = level <= SpeechdOptions.log_level;
     int custom_log = (kind != NULL && custom_log_kind != NULL &&
                       !strcmp(kind, custom_log_kind) &&
                       custom_logfile != NULL);
@@ -141,7 +141,7 @@ MSG2(int level, char *kind, char *format, ...)
 void
 MSG(int level, char *format, ...)
 {
-    if(level <= spd_log_level) {
+    if(level <= SpeechdOptions.log_level) {
         va_list args;
         int i;
 		
@@ -219,11 +219,11 @@ speechd_connection_new(int server_socket)
         return -1;
     }
     new_fd_set->fd = client_socket;
-    new_fd_set->uid = ++max_uid;
+    new_fd_set->uid = ++SpeechdStatus.max_uid;
     p_client_socket = (int*) spd_malloc(sizeof(int));
     p_client_uid = (int*) spd_malloc(sizeof(int));
     *p_client_socket = client_socket;
-    *p_client_uid = max_uid;
+    *p_client_uid = SpeechdStatus.max_uid;
 
     g_hash_table_insert(fd_settings, p_client_uid, new_fd_set);
 
@@ -340,6 +340,14 @@ speechd_reload_dead_modules(int sig)
 /* --- SPEECHD START/EXIT FUNCTIONS --- */
 
 void
+speechd_options_init(void)
+{
+    SpeechdOptions.log_level_set = 0;
+    SpeechdOptions.port_set = 0;
+    spd_mode = SPD_MODE_DAEMON;
+}
+
+void
 speechd_init(void)
 {
     configfile_t *configfile = NULL;
@@ -349,7 +357,8 @@ speechd_init(void)
     int i;
     int v;
 
-    max_uid = 0;
+    SpeechdStatus.max_uid = 0;
+    SpeechdStatus.max_gid = 0;
 
     /* Initialize logging */
     logfile = stdout;
@@ -432,7 +441,6 @@ speechd_init(void)
             g_hash_table_size(output_modules) > 1 ? "s" : "" );
     }
 
-    max_gid = 0;
     highest_priority = 0;
 }
 
@@ -591,9 +599,7 @@ main(int argc, char *argv[])
     int fd;
     int ret;
 
-    spd_log_level_set = 0;
-    spd_port_set = 0;
-    spd_mode = SPD_MODE_DAEMON;
+    speechd_options_init();
 
     options_parse(argc, argv);
 
@@ -641,7 +647,7 @@ main(int argc, char *argv[])
 
     server_address.sin_family = AF_INET;
     server_address.sin_addr.s_addr = htonl(INADDR_ANY);
-    server_address.sin_port = htons(spd_port);
+    server_address.sin_port = htons(SpeechdOptions.port);
 
     MSG(2,"Openning a socket connection");
     if (bind(server_socket, (struct sockaddr *)&server_address,
