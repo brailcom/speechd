@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.20 2003-10-07 16:52:00 hanke Exp $
+ * $Id: module_utils.c,v 1.21 2003-10-09 21:14:41 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -412,6 +412,21 @@ module_get_message_part(const char* message, char* part, unsigned int *pos, size
                         (*pos)++;
                         return i+1;            
                     }           
+                }
+                if ((message[*pos] == '\n') && (message[*pos+1] == '\n')){
+                    part[i+1] = 0;                
+                    current_index_mark = -1;
+                    (*pos)++;
+                    return i+1;
+                }
+                if((len-1-i) > 4){
+                    if(((message[*pos] == '\r') && (message[*pos+1] == '\n'))
+                       && ((message[*pos+2] == '\r') && (message[*pos+3] == '\n'))){
+                        part[i+1] = 0;                
+                        current_index_mark = -1;
+                        (*pos)++;
+                        return i+1;
+                    }
                 }
             }
         }
