@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.39 2003-10-18 13:02:52 hanke Exp $
+ * $Id: festival.c,v 1.40 2003-10-21 22:55:54 hanke Exp $
  */
 
 #include "fdset.h"
@@ -87,7 +87,7 @@ module_load(void)
 
     REGISTER_DEBUG();
 
-    MOD_OPTION_1_INT_REG(FestivalMaxChunkLength, 150);
+    MOD_OPTION_1_INT_REG(FestivalMaxChunkLength, 300);
     MOD_OPTION_1_STR_REG(FestivalDelimiters, ".");
 
     MOD_OPTION_1_STR_REG(FestivalServerHost, "localhost");
@@ -317,14 +317,14 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
         o_bytes = bytes;
 
         if (msgtype == MSGTYPE_TEXT)
-            bytes = module_get_message_part(message, buf, &pos, 4095, dividers);
+            bytes = module_get_message_part(message, buf, &pos, FestivalMaxChunkLength, dividers);
         else{
-            bytes = module_get_message_part(message, buf, &pos, 4095, "");
+            bytes = module_get_message_part(message, buf, &pos, FestivalMaxChunkLength, "");
         }
         if (current_index_mark != -1) pause = current_index_mark;
         if (bytes == 0){
             if (msgtype == MSGTYPE_TEXT)
-                bytes = module_get_message_part(message, buf, &pos, 4095, dividers);
+                bytes = module_get_message_part(message, buf, &pos, FestivalMaxChunkLength, dividers);
             else
                 return -1;
         }
