@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.25 2003-06-20 00:41:46 hanke Exp $
+ * $Id: dc_decl.h,v 1.26 2003-06-23 05:09:29 hanke Exp $
  */
 
 #include "speechd.h"
@@ -62,7 +62,6 @@ DOTCONF_CB(cb_EndAddModule);
 DOTCONF_CB(cb_AddParam);
 DOTCONF_CB(cb_AddVoice);
 DOTCONF_CB(cb_MinDelayProgress);
-DOTCONF_CB(cb_ApolloLanguage);
 DOTCONF_CB(cb_unknown);
 
 /* define dotconf configuration options */
@@ -75,31 +74,48 @@ static configoption_t first_run_options[] =
 };
 
 configoption_t *
-add_config_option(configoption_t *options, char *name, int type,
+add_config_option(configoption_t *options, int *num_config_options, char *name, int type,
                   dotconf_callback_t callback, info_t *info,
                   unsigned long context)
 {
     configoption_t *opts;
 
-    num_config_options++;
-    opts = (configoption_t*) realloc(options, num_config_options * sizeof(configoption_t));
-    opts[num_config_options-1].name = strdup(name);
-    opts[num_config_options-1].type = type;
-    opts[num_config_options-1].callback = callback;
-    opts[num_config_options-1].info = info;
-    opts[num_config_options-1].context = context;
+    (*num_config_options)++;
+    opts = (configoption_t*) realloc(options, (*num_config_options) * sizeof(configoption_t));
+    opts[*num_config_options-1].name = strdup(name);
+    opts[*num_config_options-1].type = type;
+    opts[*num_config_options-1].callback = callback;
+    opts[*num_config_options-1].info = info;
+    opts[*num_config_options-1].context = context;
     return opts;
 }
 
+void
+free_config_options(configoption_t *opts, int *num)
+{
+    int i = 0;
+
+    if (opts == NULL) return;
+
+    for(i==0; i<=(*num)-1; i++){
+        //        spd_free(opts[i].name);
+        spd_free(opts[i]);     
+    }
+    *num = 0;
+    opts = NULL;
+}
+
 #define ADD_CONFIG_OPTION(name, arg_type) \
-    options = add_config_option(options, #name, arg_type, cb_ ## name, 0, 0);
+    options = add_config_option(options, num_options, #name, arg_type, cb_ ## name, 0, 0);
 
 #define ADD_LAST_OPTION() \
-    options = add_config_option(options, "", 0, NULL, NULL, 0);
+    options = add_config_option(options, num_options, "", 0, NULL, NULL, 0);
 
-int
-load_config_options()
+configoption_t*
+load_config_options(int *num_options)
 {
+    configoption_t *options = NULL;
+   
     ADD_CONFIG_OPTION(LogFile, ARG_STR);
     ADD_CONFIG_OPTION(LogLevel, ARG_INT);
     ADD_CONFIG_OPTION(SndModule, ARG_STR);
@@ -126,11 +142,11 @@ load_config_options()
     ADD_CONFIG_OPTION(AddParam, ARG_LIST);
     ADD_CONFIG_OPTION(AddVoice, ARG_LIST);
     ADD_CONFIG_OPTION(MinDelayProgress, ARG_INT);
-    ADD_CONFIG_OPTION(ApolloLanguage, ARG_LIST);
     /*{"ExampleOption", ARG_STR, cb_example, 0, 0},
      *      {"MultiLineRaw", ARG_STR, cb_multiline, 0, 0},
      *           {"", ARG_NAME, cb_unknown, 0, 0}, */
         //    LAST_OPTION
+    return options;
 }
 
 DOTCONF_CB(cb_LogFile)
@@ -452,7 +468,11 @@ DOTCONF_CB(cb_EndAddModule)
         FATAL("Configuration: Trying to end a BeginModuleOptions section that was never opened");       
     }
 
-    if (init_output_module(cur_mod) == -1) FATAL("Couldn't initialize specified output module");
+    if (init_output_module(cur_mod) == -1){
+        MSG(1,"Couldn't initialize output module %s", cur_mod->name);
+        g_hash_table_remove(output_modules, cur_mod->name);
+        spd_module_free(cur_mod);
+    }
 
     cur_mod = NULL;
     return NULL;
@@ -564,52 +584,6 @@ DOTCONF_CB(cb_AddVoice)
         MSG(2, "Unrecognized symbolic voice name.");
         return NULL;
     }
-
-    return NULL;
-}
-
-DOTCONF_CB(cb_ApolloLanguage)
-{
-  /* This is just copy&paste&edit of cb_AddVoice.  I'm sorry, I don't want to
-     spent my life with C programming... */
-  
-    SPDApolloLanguageDef *apollo_languages;
-    char *language = cmd->data.list[0];
-    char *rom = cmd->data.list[1];
-    char *char_coding = cmd->data.list[2];
-    char *key;
-    SPDApolloLanguageDef *value;
-
-    if (cur_mod == NULL){
-        MSG(2,"Output module parameter not inside an output modules section");
-        return NULL;
-    }
-
-    if (language == NULL){
-        MSG(2,"Missing language.");
-        return NULL;
-    }
-
-    if (rom == NULL){
-        MSG(2,"Missing ROM number.");
-        return NULL;
-    }
-
-    if (char_coding == NULL){
-        MSG(2,"Missing character coding for %s", cmd->data.list[0]);
-        return NULL;
-    }
-
-    value = g_hash_table_lookup(cur_mod->settings.apollo_languages,
-				language);
-    if (value == NULL){
-        key = (char*) spd_malloc((strlen(language) + 1) * sizeof(char));
-        strcpy(key, language);
-        value = (SPDApolloLanguageDef*) spd_malloc(sizeof(SPDApolloLanguageDef));
-        g_hash_table_insert(cur_mod->settings.apollo_languages, key, value);
-    }
-    value->rom = strdup(rom);
-    value->char_coding = strdup(char_coding);    
 
     return NULL;
 }
