@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: msg.h,v 1.8 2003-04-06 23:22:05 hanke Exp $
+ * $Id: msg.h,v 1.9 2003-04-11 20:43:02 hanke Exp $
  */
 
 
@@ -37,6 +37,8 @@
 #define OK_PAUSED				"211 OK PAUSED\r\n"
 #define OK_RESUMED				"212 OK RESUMED\r\n"
 #define OK_CANCELED				"213 OK CANCELED\r\n"
+#define OK_SPELLING_TABLE_SET                   "215 OK SPELLING TABLE SET\r\n"
+
 
 #define OK_CUR_SET_FIRST			"220 OK CURSOR SET FIRST\r\n"
 #define OK_CUR_SET_LAST				"221 OK CURSOR SET LAST\r\n"
@@ -67,7 +69,6 @@
 #define ERR_ID_NOT_EXIST			"406 ERR ID DOESNT EXIST\r\n"
 #define ERR_UNKNOWN_ICON			"407 ERR UNKNOWN ICON\r\n"
 
-
 #define ERR_INTERNAL				"300 ERR INTERNAL\r\n"
 #define ERR_COULDNT_SET_PRIORITY                "301 ERR COULDNT SET PRIORITY\r\n"
 #define ERR_COULDNT_SET_LANGUAGE                "302 ERR COULDNT SET LANGUAGE\r\n"
@@ -76,7 +77,8 @@
 #define ERR_COULDNT_SET_PUNCT_MODE              "305 ERR COULDNT SET PUNCT MODE\r\n"
 #define ERR_COULDNT_SET_CAP_LET_RECOG           "306 ERR COULDNT SET CAP LET RECOGNITION\r\n"
 #define ERR_COULDNT_SET_SPELLING                "308 ERR COULDNT SET SPELLING\r\n"
-#define ERR_COULDNT_SET_VOICE           	 	"308 ERR COULDNT SET VOICE\r\n"
+#define ERR_COULDNT_SET_VOICE                   "309 ERR COULDNT SET VOICE\r\n"
+#define ERR_COULDNT_SET_SPELLING_TABLE          "310 ERR COULDNT SET SPELLING TABLE\r\n"
 #define ERR_NO_SND_ICONS                        "320 ERR NO SOUND ICONS\r\n"
 #define ERR_NOT_IMPLEMENTED                     "380 ERR NOT YET IMPLEMENTED\r\n"
 
