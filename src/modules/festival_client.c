@@ -121,6 +121,7 @@ int save_FT_Wave_snd(FT_Wave *wave, const char *filename)
             header.sample_rate = SWAPINT(header.sample_rate);
             header.channels = SWAPINT(header.channels);
         }
+
     /* write header */
     if (fwrite(&header, sizeof(header), 1, fd) != 1)
 	return -1;
@@ -253,23 +254,25 @@ static FT_Wave *client_accept_waveform(int fd, int *stop_flag, int stop_by_close
             num_samples = nist_get_param_int(wavefile,"sample_count",1);
             sample_rate = nist_get_param_int(wavefile,"sample_rate",16000);
 
-            if (num_samples == 0) return NULL;
-
             if ((num_samples*sizeof(short))+1024 == filesize)
                 {
                     wave = (FT_Wave *)malloc(sizeof(FT_Wave));
 		    DBG("Number of samples from festival: %d", num_samples);
                     wave->num_samples = num_samples;
                     wave->sample_rate = sample_rate;
-                    wave->samples = (short *) malloc(num_samples*sizeof(short));
-                    memmove(wave->samples, wavefile+1024, num_samples*sizeof(short));
-                    if (nist_require_swap(wavefile))
-                        for (i=0; i < num_samples; i++)
-                            wave->samples[i] = SWAPSHORT(wave->samples[i]);
+		    if (num_samples != 0){
+			wave->samples = (short *) malloc(num_samples*sizeof(short));
+			memmove(wave->samples, wavefile+1024, num_samples*sizeof(short));
+			if (nist_require_swap(wavefile))
+			    for (i=0; i < num_samples; i++)
+				wave->samples[i] = SWAPSHORT(wave->samples[i]);
+		    }else{
+			wave->samples = NULL;
+		    }
                 }
         }
     
-    if (wavefile != 0)  /* just in case we've got an ancient free() */
+    if (wavefile != NULL)  /* just in case we've got an ancient free() */
 	free(wavefile);
 
     return wave;
@@ -663,7 +666,9 @@ festivalGetDataMulti(FT_Info *info, char **callback, int *stop_flag, int stop_by
     char *resp = NULL;
     FILE *fd;
 
-    if (festival_check_info(info, "festival_speak_command") == -1) return NULL;
+    if (festival_check_info(info, "festival_speak_command") == -1){	
+	return NULL;	
+    }
 
     /* Read back info from server */
     /* This assumes only one waveform will come back */
