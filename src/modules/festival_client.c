@@ -522,6 +522,9 @@ festivalSetPitch(FT_Info *info, signed int pitch, unsigned int mean)
     int n;
     int f0;
 
+    if (info == NULL) DBG("festivalSetPitch calld with info = NULL\n");
+    if (info->server_fd == -1) DBG("festivalSetPitch: server_fd invalid\n");
+
     f0 = 100;
     if (pitch < 0) f0 += pitch / 2;
     if (pitch > 0) f0 += pitch;
