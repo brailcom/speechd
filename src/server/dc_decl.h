@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.13 2003-04-24 19:26:05 hanke Exp $
+ * $Id: dc_decl.h,v 1.14 2003-05-07 19:06:12 hanke Exp $
  */
 
 #include "speechd.h"
@@ -29,6 +29,7 @@ int table_add(char *name, char *group);
 /* define dotconf callbacks */
 DOTCONF_CB(cb_LogFile);
 DOTCONF_CB(cb_AddModule);
+DOTCONF_CB(cb_SndModule);
 DOTCONF_CB(cb_AddTable);
 DOTCONF_CB(cb_DefaultModule);
 DOTCONF_CB(cb_DefaultRate);
@@ -54,6 +55,7 @@ static const configoption_t options[] =
 {
     {"LogFile", ARG_STR, cb_LogFile, 0, 0},
     {"AddModule", ARG_STR, cb_AddModule, 0, 0},
+    {"SndModule", ARG_STR, cb_SndModule, 0, 0},
     {"AddTable", ARG_STR, cb_AddTable, 0, 0},
     {"DefaultModule", ARG_STR, cb_DefaultModule, 0, 0},
     {"DefaultRate", ARG_INT, cb_DefaultRate, 0, 0},
@@ -109,6 +111,13 @@ DOTCONF_CB(cb_AddModule)
     return NULL;
 }
 
+DOTCONF_CB(cb_SndModule)
+{
+    sound_module = load_output_module(cmd->data.str);
+    return NULL;
+}
+
+
 DOTCONF_CB(cb_AddTable)
 {
     FILE *icons_file;
@@ -123,12 +132,14 @@ DOTCONF_CB(cb_AddTable)
     char *line;
     char *group;
     int group_set = 0;
+    char *bline;
 	
     MSG(4,"Reading sound icons file...");
 	
     language = NULL;
     tablename = NULL;
     line = (char*) spd_malloc(256);
+    bline = (char*) spd_malloc(256);
     filename = (char*) spd_malloc(256);
 	
     sprintf(filename,SYS_CONF"/%s", cmd->data.str);
@@ -144,6 +155,7 @@ DOTCONF_CB(cb_AddTable)
             MSG(2, "Specified table %s empty or missing language, table or group identification.", filename);
             return NULL;
         }
+
         if(strlen(line) <= 2) continue;
         if ((line[0] == '#') && (line[1] == ' ')) continue;
 
@@ -200,13 +212,35 @@ DOTCONF_CB(cb_AddTable)
     while(1){
         helper = (char*) spd_malloc(256*sizeof(char));
         if(fgets(helper, 255, icons_file) == NULL) break;
-        character = strtok(helper,"=\r\n");
-	if (character == NULL) continue;
-        g_strstrip(character);
+        g_strstrip(helper);
+        strcpy(bline, helper);
+        character = strtok(helper, "\"");
+
+	if (character == NULL){
+            /* probably a black line or commentary */
+            continue;
+        }
+
+        if(!strcmp(character,"\\")){
+            strcpy(character,"\"");
+            strtok(NULL, "\""); /* skip the next quotes */
+        }
+        if(!strcmp(character,"\\\\")){
+            strcpy(character,"\\");
+        }
+
         key = malloc((strlen(character) + strlen(tablename) + 2) * sizeof(char));
         sprintf(key, "%s_%s", tablename, character);
-        value = strtok(NULL,"\r\n");
-        if(value == NULL) continue;
+
+        helper = strtok(NULL, "\r\n");
+        g_strstrip(helper);
+        value = strtok(helper, "=\r\n");
+
+        if(value == NULL){
+            MSG(2, "Bad syntax (no value for a given key) [%s] in %s", bline, filename);
+            return NULL;
+        }
+
         g_strstrip(value);
         g_hash_table_insert(icons_hash, key, value);
     }
