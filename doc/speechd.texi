@@ -16,13 +16,13 @@
 @dircategory Development
 
 @direntry
-* Speech Daemon: (speechd).       Speech Daemon.
+* Speech Dispatcher: (speechd).       Speech Dispatcher.
 @end direntry
 
 @titlepage
-@title Speech Daemon --- Easy speech synthesis
+@title Speech Dispatcher --- Easy speech synthesis
 @subtitle Mastering the Babylon of TTS'
-@subtitle for Speech Daemon @value{VERSION}
+@subtitle for Speech Dispatcher @value{VERSION}
 @author Tom@'a@v{s} Cerha <@email{cerha@@brailcom.org}>
 @author Hynek Hanke <@email{hanke@@volny.cz}>
 @author Milan Zamazal <@email{pdm@@brailcom.org}>
@@ -30,7 +30,7 @@
 @page
 @vskip 0pt plus 1filll
 
-This manual documents Speech Daemon, version @value{VERSION}.
+This manual documents Speech Dispatcher, version @value{VERSION}.
 
 Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
 
@@ -54,7 +54,7 @@ Free Documentation License".
 This file documents the @code{speechd} client/server application 
 that attempts to provide a common interface to different synthesizers.
 
-This manual documents Speech Daemon, version @value{VERSION}.
+This manual documents Speech Dispatcher, version @value{VERSION}.
 
 Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
 
@@ -70,16 +70,16 @@ Free Documentation License".
 
 @menu
 * Instructions::                How to read this manual.
-* Introduction::                What is Speech Daemon.
-* Invoking::                    How to start Speech Daemon.
-* Internal structure::          How does Speech Daemon work.
-* Public API::                  How to use Speech Daemon in your programs.
+* Introduction::                What is Speech Dispatcher.
+* Invoking::                    How to start Speech Dispatcher.
+* Internal structure::          How does Speech Dispatcher work.
+* Public API::                  How to use Speech Dispatcher in your programs.
 * SSIP::                        Speech Synthesis Internet Protocol.
 * Priorities::                  Description, guidelines how to use them.
 * Multiple output modules::     Using different synthesizers.
 * Message history::             Handling history of arrived messages.
-* Speech parameters::           Settings that affect the way Speech Daemon speaks.
-* Configuration::               How to configure Speech Daemon.
+* Speech parameters::           Settings that affect the way Speech Dispatcher speaks.
+* Configuration::               How to configure Speech Dispatcher.
 
 * Key names::                   List of the symbolic key names.
 * Standard sound icons::        List of the standard sound icon names.
@@ -87,7 +87,7 @@ Free Documentation License".
 * Standard sound tables::       List of the standard sound table names.
 * Standard voices::             List of the standard voice names.
 
-* GNU General Public License::  Copying conditions of Speech Daemon.
+* GNU General Public License::  Copying conditions of Speech Dispatcher.
 * GNU Free Documentation License::  Copying conditions of this manual.
 
 * Concept index::               Index of concepts.
@@ -103,11 +103,11 @@ Free Documentation License".
 @chapter Introduction
 
 @menu
-* Why and how::                 Why Speech Daemon?  Philosophy, motivation...
+* Why and how::                 Why Speech Dispatcher?  Philosophy, motivation...
 * Current state::               Speaking software today.
 * Basic design::                How does it work?
-* User::                        Speech Daemon from the user's point of view.
-* Programmer::                  Speech Daemon from the programmer's point of view.
+* User::                        Speech Dispatcher from the user's point of view.
+* Programmer::                  Speech Dispatcher from the programmer's point of view.
 @end menu
 
 @node Why and how, Current state, Introduction, Introduction
@@ -115,7 +115,7 @@ Free Documentation License".
 @cindex Basic ideas, Motivation
 @cindex Philosophy
 
-Speech Daemon project comes to provide a device independent layer for
+Speech Dispatcher project comes to provide a device independent layer for
 speech synthesis. It should provide a simple interface for client
 applications (applications, that want to speak) as well as for device
 driver modules (for particular speech synthesis).
@@ -127,7 +127,7 @@ output.  There is a wide field of possible uses from educational software,
 through specialized systems (hospitals, laboratories, telephony servers).
 For visually impaired users it is one of the two essential ways of getting
 the output from computer (the second one is Braille display). That's also
-where Speech Daemon comes from.
+where Speech Dispatcher comes from.
 
 There are different speech synthesizers with different capabilities.  Some
 of them are hardware, some of them are software.  Some of them are Free
@@ -153,11 +153,11 @@ you being obligated to take care of how exactly the communication with
 speech synthesizer is implemented and without you having to worry about
 what synthesizer to use and if it's available.  In an ideal world, there
 would be some speech synthesizer in each GNU/Linux distribution and some
-speech daemon taking care of all applications that want to speak,
+speech dispatcher taking care of all applications that want to speak,
 allowing user to configure speech parameters and providing simple interface
 (as speech_printf()) through some shared library for programmers.  It will
 be a long way until we achieve this state of things, but with Speech
-Daemon, we are taking the first steps...
+Dispatcher, we are taking the first steps...
 
 @node Current state, Basic design, Why and how, Introduction
 @section Current state
@@ -213,7 +213,7 @@ Flite stands for Festival Lite and it is a light fully free English
 speech software synthesizer with good quality of sound, developed
 by the authors of Festival as an end-user product. It seems that
 the developers have some problems with importing the voices from
-Festival. Speech Daemon currently uses Flite as it's primary
+Festival. Speech Dispatcher currently uses Flite as it's primary
 output module for English.
 
 @item Epos
@@ -234,13 +234,13 @@ checked it yet.
 ViaVoice is a multi-lingual software synthesizer available for GNU/Linux.
 The main problem is that ViaVoice is not free (as in freedom). Until IBM
 changes its license, we can't use it in Free World / Free Operating System
-and therefore it's not and will not be supported in Speech Daemon.
+and therefore it's not and will not be supported in Speech Dispatcher.
 
 @item MBROLA
 
 MBROLA is a multi-lingual software synthesis available for GNU/Linux.
 MBROLA is not free as in freedom, although it's gratis. The same problems
-as with IBM ViaVoice prevents us to include it in Speech Daemon.
+as with IBM ViaVoice prevents us to include it in Speech Dispatcher.
 
 @end itemize
 @end itemize
@@ -265,7 +265,7 @@ Emacspeak, so it can't be used for our general purposes.
 This does not mean, that these servers are completely a bad idea and
 we can not use them. Thanks to the author Jim Van Zandt
 <@email{jrv@@vanzandt.mv.com}>, we can learn from the sources and
-write the output driver modules for Speech Daemon (emacspeak-ss is
+write the output driver modules for Speech Dispatcher (emacspeak-ss is
 GPL).
 
 @item GTK+ (Gnome Accessibility project)
@@ -298,7 +298,7 @@ some kind of software synthesis.
 @end itemize
 @end enumerate
 
-We hope to be able to integrate Speech Daemon into these projects
+We hope to be able to integrate Speech Dispatcher into these projects
 in the future.
 
 @node Basic design, User, Current state, Introduction
@@ -307,11 +307,11 @@ in the future.
 
 The communication between all
 these applications and synthesizers is a great mess. For this purpose,
-we wanted Speech Daemon to be a layer separating applications and
+we wanted Speech Dispatcher to be a layer separating applications and
 synthesizers so that applications wouldn't have to care about synthesizers
 and synthesizers wouldn't have to care about interaction with applications.
 
-We decided we would implement Speech Daemon as a server receiving
+We decided we would implement Speech Dispatcher as a server receiving
 commands from applications over a protocol called @code{SSIP},
 parsing them and if it's necessary and calling appropriate functions
 of output modules communicating with the different synthesizers.
@@ -319,11 +319,11 @@ These output modules are implemented as plug-ins, so that the user
 can just load a new module if he wants to use new synthesizer.
 
 Each client (application that wants to speaks) opens a socket
-connection to Speech Daemon and calls functions like spd_say(),
+connection to Speech Dispatcher and calls functions like spd_say(),
 spd_stop(), spd_pause() provided by the shared library. This
 shared library is still on the client side and sends Speech
-Daemon SSIP commands over the socket. When these arrive
-at Speech Daemon, it parses them, reads the text that should
+Dispatcher SSIP commands over the socket. When these arrive
+at Speech Dispatcher, it parses them, reads the text that should
 be said and put it in a queues according to the priority
 of this message and other criteria. It then decides when,
 with which parameters (set up by the client and the user)
@@ -333,7 +333,7 @@ hardware and software synthesizers and then said aloud.
 
 See this figure:
 
-@image{figures/architecture,,,Speech Daemon architecture (you can see a text
+@image{figures/architecture,,,Speech Dispatcher architecture (you can see a text
 version of this figure in the Info manual)}
 
 See also the detailed description of SSIP, public API and module API.
@@ -341,7 +341,7 @@ See also the detailed description of SSIP, public API and module API.
 @node User, Programmer, Basic design, Introduction
 @section User's point of view
 
-In this section we will try to describe what can Speech Daemon offer
+In this section we will try to describe what can Speech Dispatcher offer
 to common users. But every programmer interested in this program should
 also read this because it's very important to understand.
 
@@ -377,9 +377,9 @@ Sketch:
 @node Verbosity,  , Invoking, Invoking
 @section Verbosity
 
-There are 6 different verbosity levels of Speech Daemon logging.
+There are 6 different verbosity levels of Speech Dispatcher logging.
 0 means there is no output, while 5 means that nearly all the information
-about Speech Daemon working is written to standard output.
+about Speech Dispatcher working is written to standard output.
 
 @enumerate
 
@@ -437,7 +437,7 @@ data. Use with caution.)
 @node Definitions, Server core, Internal structure, Internal structure
 @section Definitions
 
-@dfn{Server side} is the side where Speech Daemon operates. It
+@dfn{Server side} is the side where Speech Dispatcher operates. It
 means server core, output modules and partly SSIP which is the layer
 for communication between server side and client side.
 
@@ -447,19 +447,19 @@ located and partly SSIP which is the layer
 for communication between server side and client side.
 
 @dfn{Client} means an application that wants to speak or an application
-that is used to control Speech Daemon. (Of course different combinations
+that is used to control Speech Dispatcher. (Of course different combinations
 are possible.)
 
-@dfn{Server core} is the central part of Speech Daemon composed of
+@dfn{Server core} is the central part of Speech Dispatcher composed of
 two threads. One is listening on the user socket, parsing and proceeding
 incoming commands, and saving incoming text to queues. The other thread
 takes messages from queues and sends them to appropriate synthesizers.
 
-@dfn{Output module} is a backend of Speech Daemon in the form of plug-in.
+@dfn{Output module} is a backend of Speech Dispatcher in the form of plug-in.
 It takes care of communication with the particular synthesizer and provides
 only abstract functions to the server core.
 
-@dfn{Shared library} or @dfn{Public API} is a front-end of Speech Daemon
+@dfn{Shared library} or @dfn{Public API} is a front-end of Speech Dispatcher
 that provides polished functions programmers should
 use to send commands to the server.
 
@@ -478,7 +478,7 @@ see sources, I'll try to write this section soon
 @node Output modules,  , Server core, Internal structure
 @section Output modules
 
-Output modules for Speech Daemon have the form of glib plug-ins
+Output modules for Speech Dispatcher have the form of glib plug-ins
 located in src/modules/. Each output module is a data
 structure composed of some parameters and pointers to it's functions.
 
@@ -500,6 +500,7 @@ typedef struct @{
   gchar*   (*pause)       (void);
   gint     (*is_speaking) (void);
   gint     (*close)       (void);
+  SPDModuleSettings settings;
 @} OutputModule;
 @end example
 
@@ -518,21 +519,10 @@ different speech synthesis settings.
 #include "fdset.h"
 @end example
 
-Each output module has associated a module_init function
-that is called at the starting of Speech Daemon. After doing
-the necessary initialization, it must return a filled structure
-of the type OutputModule (defined above).
-
-@example
-OutputModule *module_init(void)@{
-        ...
-        return &module_flite;
-@}
-@end example
-
 Now what are the 5 functions: write(), stop(), pause(),
 is_speaking() and close()? This is the core of every output module and you
 have to define their bodies in the source code of your plug-in.
+
 You also have to define the output plugin name (usually the name
 of the device or program) and a short description (full name, version, etc.)
 not longer than one or two lines. The third entry `gmodule' should
@@ -549,8 +539,66 @@ OutputModule modinfo_flite = @{
    flite_pause,                  /* pauses speaking
    flite_is_speaking,            /* returns information whether the device 
                                   * is speaking*/
-   flite_close                   /* called on exit *
+   flite_close,                   /* called on exit */
+   @{0, 0@}
 @};
+@end example
+
+Each output module has associated a module_load and
+module_init functions that are called at the starting
+of Speech Dispatcher.
+
+@code{module_load()} should only return a filled in
+structure of the type OutputModule (defined above).
+You should allways initialize the two tables
+(.settings.params and .settings.voices), where
+the configuration of the output module will be passed,
+if you use this type of configuration in your output
+module (you usually do). It can look like this:
+
+@example
+OutputModule *module_load(void)@{
+       module_flite.settings.params = g_hash_table_new(g_str_hash, g_str_equal);
+       module_flite.settings.voices = g_hash_table_new(g_str_hash, g_str_equal);
+       return &module_flite;
+@}
+@end example
+
+When Speech Deamon reaches the point in configuration where module_foo.settings.params
+and module_foo.settings.voices is filled with the appropriate parameters,
+module_init() function is called. This function should do all of the initialization
+you need to do for your plugin.
+
+@example
+        int module_init(void)@{
+            ...
+            return 0;
+        @}       
+@end example
+
+It should return 0 on succes, -1 if the initialization failed. If there
+are some parameters your output module requires to be defined, you
+should check if there are really present in module_foo.settings.param
+and return -1 if it isn't so.
+
+An example from flite:
+
+@example
+int
+module_init(void)
+@{
+    /* Init flite and register a new voice */
+    flite_init();
+    flite_voice = register_cmu_us_kal();
+
+    if (flite_voice == NULL)@{
+        if (DEBUG_FLITE) printf("Couldn't register the basic kal voice.\n");
+        return -1;
+    @}
+
+    /* Initialized succesfuly */
+    return 0;
+@}
 @end example
 
 @node Output module functions,  , Basic structure, Output modules
@@ -559,21 +607,21 @@ OutputModule modinfo_flite = @{
 We use a ``synthesizer_'' prefix in the names of these functions
 to be able to speak in general terms, but note that in real 
 output modules, there should be some other prefix (the name of the
-output module, in most cases) because it would produce a mess
-in the linker. So the functions are called for example @code{flite_write()},
-@code{festival_is_speaking()}, @code{apollo_stop()} etc.
+output module, in most cases). So the functions are called for example
+@code{flite_write()}, @code{festival_is_speaking()}, @code{apollo_stop()} etc.
+These functions should always be declared static.
 
 @deffn {Output module functions}  gint synthesizer_write (const gchar *data, gint len, TFDSetElement* set)
 @findex synthesizer_write()
 
 This is the function where actual speech output is produced. It is called
-every time Speech Daemon decides to send a message to synthesis. The data
+every time Speech Dispatcher decides to send a message to synthesis. The data
 of length @var{len} are passed in @var{data}. Additionally, the structure
 containing settings associated to this particular message is passed,
 although only few options are important for output modules.
 
 Each output module should take care of setting the output device to these parameters
-(the other ones are handled independently in other parts of Speech Daemon):
+(the other ones are handled independently in other parts of Speech Dispatcher):
 @itemize @bullet
 @item (signed int) set->speed
 @item (signed int) set->pitch
@@ -681,7 +729,7 @@ is not speaking. In this case, it should return NULL.
 @findex synthesizer_is_speaking()
 @anchor{synthesizer_is_speaking}
 
-This function is very important to let Speech Daemon know how to
+This function is very important to let Speech Dispatcher know how to
 regulate the speech flow between different queues, programs and even
 other synthesizers. On calling it, the output module must decide
 whether there is currently any output being produced in the speakers.
@@ -711,7 +759,7 @@ it very often for different purposes.
 
 @deffn {Output module function}  {gint synthesizer_close} (void)
 
-This function is called when Speech Daemon terminates. There are no
+This function is called when Speech Dispatcher terminates. There are no
 special requirements on what the output module should do.
 
 It should return 0 on success, -1 otherwise.
@@ -805,17 +853,18 @@ before the end of your program.
 @node Speech synthesis commands (C), Speech output control commands (C), Initializing and terminating (C), C API
 @subsection Speech synthesis commands (C)
 
-@deffn {C API function}  int spd_say(int connection, int priority, char* text);
+@deffn {C API function}  int spd_say(int connection, char* priority, char* text);
 @findex spd_say()
 
 Sends a message to Speech Dispatcher. If this message isn't blocked by some message
 of higher priority and this CONNECTION isn't paused, it will be synthesized
 directly on some of the output devices. Otherwise, the message will be discarded
-(priority 3) or wait in the queue for some time (priority 1, 2).
+or delayed according to it's priority.
 
 @code{connection} is the file descriptor obtained by spd_open().
 
-@code{priority} is a number from @{1,2,3@}. @xref{Priorities}.
+@code{priority} is a NULL terminated string with the name
+of the priority. @xref{Priorities}.
 
 @code{text} is a null terminated string containing text you want to sent to
 synthesis. It must be encoded in UTF-8. Note that this doesn't have to be what
@@ -826,7 +875,7 @@ It returns 0 on succes, -1 otherwise.
 
 @end deffn
 
-@deffn {C API function}  int spd_sayf(int connection, int priority, char* format, ...);
+@deffn {C API function}  int spd_sayf(int connection, char* priority, char* format, ...);
 @findex spd_sayf()
 
 Similar to @code{spd_say()}, simulates the behaviour of printf().
@@ -840,14 +889,14 @@ All other parameters are the same as for spd_say().
 
 For example:
 @example
-       spd_sayf(conn, 2, ``Hello %s, how are you?'', username);
-       spd_sayf(conn, 1, ``Fatal error on [%s:%d]'', filename, line);
+       spd_sayf(conn, "text", ``Hello %s, how are you?'', username);
+       spd_sayf(conn, "important", ``Fatal error on [%s:%d]'', filename, line);
 @end example
 
 But be carefull! For example this doesn't work:
 
 @example
-       spd_sayf(conn, 3, ``Pressed key is %c.'', key);
+       spd_sayf(conn, "notification", ``Pressed key is %c.'', key);
 @end example
 
 Why? Because you are supposing that key is a char, but that will
@@ -855,7 +904,7 @@ fail with languages using amplified charsets. The proper solution
 is:
 
 @example
-       spd_sayf(conn, 3, ``Pressed key is %s'', key);
+       spd_sayf(conn, "notification", ``Pressed key is %s'', key);
 @end example
 where key is a unicode string.
 
@@ -948,7 +997,8 @@ It returns 0 on succes, -1 otherwise.
 @findex int spd_pause()
 
 Pauses all messages received from the given connection. No messages
-except for priority 3 all throwed away, they are all waiting in
+except for priority @code{notification} and @code{progress} all throwed away,
+they are all waiting in
 a separate queue for resume(). The message that was beeing said
 in the moment pause() was received will be continued from the place
 where it was paused.
@@ -1048,7 +1098,8 @@ used for example for reading letters under the cursor.
 
 @code{connection} is the file descriptor obtained by spd_open().
 
-@code{priority} is the priority of the message containing this character.
+@code{priority} is a NULL terminated string with the name
+of the priority. @xref{Priorities}.
 
 @code{character} is a NULL terminated string of chars containing one UTF-8
 character. If it contains more characters, only the first one is processed.
@@ -1072,7 +1123,8 @@ Says a key according to user settings for keys.
 
 @code{connection} is the file descriptor obtained by spd_open().
 
-@code{priority} is the priority of the message containing this key.
+@code{priority} is a NULL terminated string with the name
+of the priority. @xref{Priorities}.
 
 @code{key_name} is the name of the key in a special format.
 @xref{Speech synthesis and sound output commands}, (KEY, the associated
@@ -1094,7 +1146,8 @@ define it's own icons.
 
 @code{connection} is the file descriptor obtained by spd_open().
 
-@code{priority} is the priority of the message containing this icon.
+@code{priority} is a NULL terminated string with the name
+of the priority. @xref{Priorities}.
 
 @code{icon_name} is the name of the icon. It can't contain spaces,
 please use underscores (`_').
@@ -1141,10 +1194,18 @@ It returns 0 on succes, -1 otherwise.
 
 @deffn {C API function}  int spd_set_punctuation_important(int connection, char* punctuation_important);
 @findex spd_set_punctuation_important()
-@end deffn
 
-@deffn {C API function}  int spd_set_punctuation_table(int connection, char* punctuation_table);
-@findex spd_set_punctuation_table()
+Set punctuation characters that are pronounced if punctuation
+is set to @code{some}. It can be for example @code{!?.;}.
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{punctuation_important} is a NULL terminated string containing
+the chosen characters. Space is also an allowed character so don't put them
+in if this is not what you want.
+
+It returns 0 on succes, -1 otherwise.
+
 @end deffn
 
 @deffn {C API function}  int spd_set_spelling(int connection, SPDSpelling type);
@@ -1160,29 +1221,36 @@ spelling tables (see spd_set_spelling_table()).
 
 @end deffn
 
-
 @deffn {C API function}  int spd_set_spelling_table(int connection, char* spelling_table);
 @findex spd_set_spelling_table()
 @end deffn
-
+@deffn {C API function}  int spd_set_punctuation_table(int connection, char* punctuation_table);
+@findex spd_set_punctuation_table()
+@end deffn
 @deffn {C API function}  int spd_set_text_table(int connection, char* text_table);
 @findex spd_set_text_table()
-
-Not implemented yet!
-
 @end deffn
-
 @deffn {C API function}  int spd_set_sound_table(int connection, char* sound_table);
 @findex spd_set_sound_table()
 @end deffn
-
 @deffn {C API function}  int spd_set_character_table(int connection, char* character_table);
 @findex spd_set_character_table()
 @end deffn
-
 @deffn {C API function}  int spd_set_key_table(int connection, char* key_table);
 @findex spd_set_key_table()
 @end deffn
+
+Sets the appropriate table for spelling, punctuation, text substitution,
+sound icons, character reading and key reading respectively. If you
+are going to do this, you must either get the names of the available
+tables by the corresponding spd_list_[type]_tables() and let the user
+choose or use one of the standard tables @xref{Standard spelling tables},
+@xref{Standard sound tables}.
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{type_table} is a NULL terminated string containing the name of
+the requested table.
 
 @deffn {C API function}  int spd_set_voice(int connection, SPDVoice voice);
 @findex spd_set_voice()
@@ -1190,10 +1258,26 @@ Not implemented yet!
 
 @deffn {C API function}  int spd_set_voice_rate(int connection, int rate);
 @findex spd_set_rate()
+
+Set voice rate.
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{rate} is a number between -100 and +100 which means
+the slowest and the fastest speech rate respectively.
+
 @end deffn
 
 @deffn {C API function}  int spd_set_voice_pitch(int connection, int pitch);
 @findex spd_set_pitch()
+
+Set voice pitch.
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{pitch} is a number between -100 and +100, which means the
+lowest and the highest pitch respectively.
+
 @end deffn
 
 @deffn {C API function}  int spd_set_history(int connection, int history_flag);
@@ -1203,8 +1287,6 @@ This function should never be used except by history clients when they are sayin
 message that allready is in history!
 
 @end deffn
-
-
 
 @node Other functions (C), Information retrieval commands (C), Parameter setting commands (C), C API
 @subsection Other functions
@@ -1233,16 +1315,16 @@ libspeechd.c currently doesn't support history commands as defined in SSIP
 @node SSIP, Priorities, Public API, Top
 @chapter Speech Synthesis Internet Protocol (SSIP)
 
-Clients communicate with Speech Daemon via the Speech Synthesis
+Clients communicate with Speech Dispatcher via the Speech Synthesis
 Internet Protocol (SSIP).  The protocol is the actual interface to
-Speech Daemon.
+Speech Dispatcher.
 
 Usually, you don't need to use SSIP directly, you can use one of the
 programming interfaces, see @ref{Public API}, wrapping SSIP with
 programming library calls.  This is a recommended way of communication
-with Speech Daemon.  However, in case your programming environment is
+with Speech Dispatcher.  However, in case your programming environment is
 not supported by any of the provided interfaces or you prefer to
-communicate with Speech Daemon directly for any reason, you can find
+communicate with Speech Dispatcher directly for any reason, you can find
 the complete SSIP description here.
 
 @menu
@@ -1257,7 +1339,7 @@ the complete SSIP description here.
 
 SSIP communicates with the clients through a defined set of text
 commands, in the way usual in common Internet protocols.  The
-characters sent to and from Speech Daemon are encoded using the UTF-8
+characters sent to and from Speech Dispatcher are encoded using the UTF-8
 encoding.
 
 Each SSIP command, unless specified otherwise, consists of exactly one
@@ -1276,7 +1358,7 @@ can be commands having no arguments.
 All lines of SSIP input and output must be ended with the pair of
 carriage return and line feed characters, in this order.
 
-When you connect to Speech Daemon, you should at least set your client
+When you connect to Speech Dispatcher, you should at least set your client
 name, through the @code{SET CLIENT_NAME} command, @ref{Parameter
 setting commands}.  This is important to get a proper identification
 of your client --- to allow managing it from the control center
@@ -1284,25 +1366,25 @@ application and to identify it in a message history browser.  You
 might want to set other connection parameters as well, look for more
 details in @ref{Parameter setting commands}.
 
-Connection to Speech Daemon is preferably closed by issuing the
+Connection to Speech Dispatcher is preferably closed by issuing the
 @code{QUIT} command, see @ref{Other commands}.
 
 SSIP is a synchronous protocol --- you send commands and only after a
 complete response from SSIP arrives back you are allowed to send the
-next command.  Usually, the connection to Speech Daemon remains open
+next command.  Usually, the connection to Speech Dispatcher remains open
 during the whole run of the particular client application.  If you
 close the connection and open it again, you must set all the
-previously set parameters again, Speech Daemon doesn't store session
+previously set parameters again, Speech Dispatcher doesn't store session
 parameters between connections.
 
 The protocol allows you to perform commands regarding other currently
 connected or previously connected clients.  This allows you to write a
 control application managing or browsing all the messages received by
-the current Speech Daemon process.  The mechanism is completely
+the current Speech Dispatcher process.  The mechanism is completely
 relaxed, there are no restrictions on accessing messages of other
 clients and users and managing some aspects of their sound output.
 
-SSIP replies of Speech Daemon are of the following format:
+SSIP replies of Speech Dispatcher are of the following format:
 
 @example
 @var{ccc}-line 1
@@ -1351,28 +1433,28 @@ current brackets.
 @node Speech synthesis and sound output commands, Speech output control commands, SSIP commands, SSIP commands
 @subsection Speech synthesis and sound output
 
-These commands invoke Speech Daemon mechanisms transforming given data
+These commands invoke Speech Dispatcher mechanisms transforming given data
 and parameters into an audio sample and sending it onto an audio
 device.  The particular way how the message is handled is defined by
-the Speech Daemon configuration mechanism (@pxref{Configuration}) and
+the Speech Dispatcher configuration mechanism (@pxref{Configuration}) and
 are out of scope of SSIP.
 
 @table @code
 @item SPEAK
 Start receiving a text message and synthesize it.  After sending a
-reply to the command, Speech Daemon waits for the text of the
+reply to the command, Speech Dispatcher waits for the text of the
 message.  The text can spread over any number of lines and is
 finished by an end of line marker followed by the line containing the
 single character @code{.} (dot).  Thus the complete character sequence
 closing the input text is @code{CR LF . CR LF}.  If any line within
 the sent text starts with a dot, an extra dot is prepended before it.
 
-During reception of the text message, Speech Daemon doesn't send
+During reception of the text message, Speech Dispatcher doesn't send
 response to the particular lines sent.  The response line is sent only
 immediately after the @code{SPEAK} command and after receiving the
 closing dot line.
 
-Speech Daemon can start speech synthesis as soon as a sufficient
+Speech Dispatcher can start speech synthesis as soon as a sufficient
 amount of the text arrives, it generally needn't (but may) wait until
 the end of data marker is received.
 
@@ -1441,7 +1523,7 @@ control
 Send a sound identified by @var{icon-name} to the audio output.
 @var{icon-name} is a symbolic name of the given sound from the
 standard set listed in @ref{Standard sound icons}, or another name
-from the particular Speech Daemon sound icon configuration.
+from the particular Speech Dispatcher sound icon configuration.
 @end table
 
 @node Speech output control commands, Parameter setting commands, Speech synthesis and sound output commands, SSIP commands
@@ -1479,8 +1561,8 @@ command.
 
 @item RESUME @{ @var{id} | all | self @}
 Cancel the effect of the previously issued @code{PAUSE} command.
-Note that messages of the priority 3 received during the pause are not
-output (but they remain stored in the message history).
+Note that messages of the priority ``progress'' and ``notification'' received during
+the pause are not output (but they remain stored in the message history).
 
 It is an error to send the @code{RESUME} command when the output
 corresponding to the given argument is not paused by a previous
@@ -1495,7 +1577,7 @@ command.
 @subsection Parameter setting
 
 The @code{SET} command sets various control parameters of Speech
-Daemon.  The parameter is always denoted by the first command
+Dispatcher.  The parameter is always denoted by the first command
 argument.
 
 All the settings take effect to the client connection (only) and until
@@ -1510,7 +1592,7 @@ of the client (application).  Each of the parts of the client name may
 contain only alphanumeric characters.
 
 For example, for a client called @code{lynx} that creates Speech
-Daemon connection for its command processing, the name could be set in
+Dispatcher connection for its command processing, the name could be set in
 the following way:
 
 @example
@@ -1520,11 +1602,11 @@ SET CLIENT_NAME joe:lynx:cmd_processing
 The client name is used in the server configuration settings, client
 listings and message history handling.  All its three parts can be
 arbitrary, but it's important to define and follow rules for each
-application supporting Speech Daemon, so that a Speech Daemon user can
+application supporting Speech Dispatcher, so that a Speech Dispatcher user can
 configure all the aspects of the speech output easily.
 
 Usually, this command should be sent as the very first command when a
-new connection to Speech Daemon is established.  The command may be
+new connection to Speech Dispatcher is established.  The command may be
 sent only once within a single connection, attempts to change the
 client's name once it's already set are answered with an error code.
 
@@ -1541,7 +1623,8 @@ SET LANGUAGE cs
 
 @item SET self PRIORITY @var{n}
 Set message priority to @var{n}.  @var{n} must be one of the values
-@code{1}, @code{2}, and @code{3}.
+@code{important}, @code{text}, @code{message}, @code{notification},
+@code{progress}.
 
 @item SET @{ all | self | @var{id} @} PUNCTUATION @{ all | some | none @}
 Set punctuation mode to the given value.  @code{all} means read all
@@ -1635,7 +1718,7 @@ List the names of all the text spelling tables available on the
 server.  Each table name is listed on a separate line.  Each name may
 contain only alphanumeric characters and underscores.
 
-Example Speech Daemon response:
+Example Speech Dispatcher response:
 
 @example
 200-sptable2
@@ -1707,9 +1790,9 @@ handling requests or in the speech output control commands
 name as set through the @code{SET CLIENT_NAME} command, and
 @var{status} is @code{1} for connected clients and @code{0} for
 disconnected clients.  @var{id}s are unique within a single run of
-Speech Daemon.
+Speech Dispatcher.
 
-Sample reply of Speech Daemon:
+Sample reply of Speech Dispatcher:
 
 @example
 240-0 joe:speechd_client:main 0
@@ -1751,7 +1834,7 @@ messages.
 Messages are sorted by the criterion used in the last client's
 invocation of the @code{HISTORY SORT} command.  If no @code{HISTORY
 SET} has been invoked yet, the messages are sorted from the oldest to
-the newest, according to their time of arrival to Speech Daemon.
+the newest, according to their time of arrival to Speech Dispatcher.
 
 Each message id is listed, together with other information, on a
 separate line, in the following format:
@@ -1774,7 +1857,7 @@ command.  @var{intro} does not contain any double quotes nor the line
 feed character.
 
 All the message identifiers in the history, regardless of clients that
-issued them, are unique within a single run of Speech Daemon and
+issued them, are unique within a single run of Speech Dispatcher and
 remain unchanged.
 
 @item HISTORY GET LAST
@@ -1805,7 +1888,7 @@ An example SSIP response to the command:
 @item HISTORY CURSOR GET
 Get the id of the message the history cursor is pointing on.
 
-The id is listed on a separate line.  Sample Speech Daemon reply to
+The id is listed on a separate line.  Sample Speech Dispatcher reply to
 this command:
 
 @example
@@ -1862,7 +1945,7 @@ Priority.
 
 @item message_type
 Type of the message (text, sound icon, character, key), in the order
-specified in the Speech Daemon configuration or by the @code{HISTORY
+specified in the Speech Dispatcher configuration or by the @code{HISTORY
 SET MESSAGE_TYPE_ORDERING} command.
 @end table
 
@@ -1947,7 +2030,7 @@ effect only if the given condition is the OR rule.
 The criterion used in the last client's invocation of the
 @code{HISTORY SORT} command.  If no @code{HISTORY SORT} has been
 invoked yet, the messages are sorted from the oldest to the newest,
-according to their time of arrival to Speech Daemon.
+according to their time of arrival to Speech Dispatcher.
 @end enumerate
 @end table
 
@@ -1991,33 +2074,33 @@ Client error, invalid command syntax, unparseable input.
 
 Result groups @var{1xx} and @var{2xx} correspond to successful
 actions, other groups to unsuccessful actions.  Only the groups
-defined here may be returned from the Speech Daemon.
+defined here may be returned from the Speech Dispatcher.
 
 Currently, only the meaning of the first digit of the result code is
 defined, the last two digits are insignificant and can be of any
 value.  Clients shouldn't rely on the unspecified digits in any way.
 If you are going to write your own SSIP implementation, please consult
-the authors of Speech Daemon to define more precise set of return
+the authors of Speech Dispatcher to define more precise set of return
 codes.
 
 @node Sample SSIP relation,  , Return codes, SSIP
 @section Example of an SSIP relation
 
 The following example illustrates a sample relation with SSIP.  The
-client connects to the Speech Daemon, sets all the common parameters,
+client connects to the Speech Dispatcher, sets all the common parameters,
 sends two text messages, displays the list of clients, instructs
-Speech Daemon to repeat the second message, and closes the connection.
+Speech Dispatcher to repeat the second message, and closes the connection.
 Lines starting with a numeric code are response lines of the server,
 other lines are the lines sent by the client.
 
 @example
-SET CLIENT_NAME joe:vi:default
+SET SELF CLIENT_NAME joe:vi:default
 208 OK CLIENT NAME SET
-SET PRIORITY 2
+SET SELF PRIORITY MESSAGE
 202 OK PRIORITY SET
 SPEAK
 230 OK RECEIVING DATA
-Hello, I'm a Speech Daemon communication example!
+Hello, I'm a Speech Dispatcher communication example!
 How are you?
 .
 225 OK MESSAGE QUEUED
@@ -2045,42 +2128,107 @@ QUIT
 @chapter Priorities
 @cindex priorities
 
-The possibility to distinguish between several message priority levels
-seems to be essential. Each message sent by client to speech server
-should have a priority level assigned.
+Speech Dispatcher can't synthesize everything that comes to it,
+for the simple reason, that messages are often comming faster
+than a synthetic voice can say them. On the screen of a
+monitor, there is relatively a lot of space compared to
+one-chanel speech synthesis output. For this reason, we
+use a system of several priorities targeted at different
+types of messages.
 
-Speech Daemon provides the system of three priority levels. Every message will
-either contain explicit level information, or the default value will be
-considered. There is a separate message queue for each of the levels.
-The behavior is as follows:
+@menu
+* Description of priorities::  What are the available priorities 
+* Examples of using priorities::  When to use which priority
+@end menu
 
-@section Level 1
-These messages will be said immediately as they come to server.
-They are never interrupted. These messages should be as short
-as possible, because they block the output of all other
-messages. When several concurrent messages are received by
+@node Description of priorities, Examples of using priorities, Priorities, Priorities
+@section Description of priorities
+                     
+Speech Dispatcher provides the system of five priorities.
+Every message will either contain explicit priority information,
+or the default value will be considered.
+
+Please see also the diagram bellow.
+
+@subsection Priority @code{important}
+@cindex Priority text
+
+This message will be said immediately as it comes to server.
+It is never interrupted. When several concurrent messages are received by
 server, they are queued and said in the order, they came.
-When a new message of level 1 comes during lower level
+
+When a new message of level @code{important} comes during lower level
 message is spoken, lower level message is canceled and removed
-from the queue (this message is already stored in the history)
+from the queue.
 
-@section Level 2
-Second level messages are said in the moment, when there is no
-message of level 1 queued. Several messages of level 2 are said
-in the order, they are received (queued, but in their own
-queue). This is the default level for messages without explicit
-level information.
+These messages should be as short as possible and should
+be rarely used, because they block the output of all other
+messages.
 
-@section Level 3
-Third level messages are only said, when there are no messages
-of any higher level queued. If there are level 3 messages being
-said or waiting in queues, they are interrupted by the last
-incoming level 3 message and this one is said, in other words,
-level 3 is interrupting itself.
+@subsection Priority @code{message}
+@cindex Priority text
 
-@section How to use them wisely
+This message will be said when there is no message of priority
+@code{important}, @code{text} or @code{message} waiting in the queue.
+If more messages with priority @code{message} come, they are queued
+and said in the order they were received, so to say, priority
+text doesn't interrupt itself. Messages of priorities @code{notification}
+and @code{progress} are thrown away.
 
-Example uses for level @strong{one} are:
+@subsection Priority @code{text}
+
+This message will be said when there is no message of priority
+@code{important}, @code{message} or @code{text} waiting in the queue.
+Each time a priority @code{text} message arrives and there is
+some other message of this priority queued or being spoken,
+this message is canceled and the new one is spoken. Priority
+text interrupts itself. Messages of priorities @code{notification}
+and @code{progress} are thrown away.
+
+@subsection Priority @code{notification}
+
+This is a low priority message. If there are messages with priorities
+@code{important}, @code{messages}, @code{text} or @code{progress} waiting in the
+queues or being spoken, this @code{notification} message is canceled.
+
+This priority interrupts itself, so if more messages with priority
+@code{notification} come at the same time, only the last of them is
+spoken.
+
+@subsection Priority @code{progress}
+
+This is a special priority for messages that are comming
+shortly one after each other and they carry the information
+about some work in progress (e.g. @code{Completed 45%}).
+If each new message would interrupt each other (see priority
+Notification), the user would hear none of the message
+till the end.
+
+This priority behaves the same as ``notification'' except
+for 2 things:
+
+@itemize
+   @item The messages of this priority don't interrupt
+each other, instead, they are canceled if some other message
+is being spoken.
+   @item It tries to detect the last message of a series
+of messages (It's important for the user to hear the
+@code{Completed 100%} message to know that the process has
+terminated). It does so by setting an alarm for a specified
+amount of time when receiving each message. If no other message
+comes in this time, the message is considered the last and
+it's sent to synthesis.
+@end itemize
+
+@subsection Diagram of the priorities
+
+@image{figures/priorities,,,Speech Dispatcher architecture (you can see a text
+version of this figure in the Info manual)}
+
+@node Examples of using priorities,  , Description of priorities, Priorities
+@section Examples of using priorities
+
+Example uses for priority @code{important} are:
  
 @itemize
 @item error messages
@@ -2088,20 +2236,34 @@ Example uses for level @strong{one} are:
 @item ...
 @end itemize
 
-Example uses for level @strong{two} are:
+Example uses for level @code{message} are:
 
 @itemize
 @item regular program messages
-@item menus
-@item text the user is working on
+@item warnings
 @item ...
 @end itemize
 
-Example uses for level @strong{three} are:
+Example uses for level @code{text} are:
+
+@itemize
+@item text the user is working on
+@item menu items
+@item ...
+@end itemize
+
+Example uses for level @code{notification} are:
 
 @itemize
 @item less important status information
 @item letters when typing input
+@item ...
+@end itemize
+
+Example uses for level @code{progress} are:
+
+@itemize
+@item ``completed 15%''
 @item ...
 @end itemize
 
@@ -2111,7 +2273,7 @@ Example uses for level @strong{three} are:
 @cindex output module
 @cindex different synthesizers
 
-Speech Daemon supports concurrent use of multiple output modules.
+Speech Dispatcher supports concurrent use of multiple output modules.
 In the case these output modules provide good synchronization,
 you can combine them in reading messages. For example if module1 can
 speak English and Czech while module2 speaks only German, the idea
@@ -2121,10 +2283,10 @@ selection of output modules can be influenced through the configuration
 file @file{speechd.conf}.
 
 If you want to compile and use a new output module, you should place
-it in @file{src/modules} in your source directory of Speech Daemon and
+it in @file{src/modules} in your source directory of Speech Dispatcher and
 add it to @file{src/modules/Makefile.am}. You can compile and install
 it by typing: @code{make; su root; make install}. The last step you
-have to do is to let Speech Daemon know you want to use this new
+have to do is to let Speech Dispatcher know you want to use this new
 module by adding a line to @file{speechd.conf} in your configuration directory
 @example
 AddModule module_name
@@ -2149,7 +2311,7 @@ to make it default.
 @section Access rights
 @cindex access rights
 
-To protect privacy of users, Speech Daemon restricts history access to
+To protect privacy of users, Speech Dispatcher restricts history access to
 a certain subset of all the received messages.  The following rules
 apply:
 
@@ -2165,7 +2327,7 @@ All the messages sent by a given user are accessible to that user.
 @cindex @code{speechd} user
 @cindex @code{speechd} group
 All the messages sent by the user @code{speechd} are accessible to all
-users on the system running the Speech Daemon instance present in the
+users on the system running the Speech Dispatcher instance present in the
 group @code{speechd}.
 
 @item
@@ -2177,15 +2339,15 @@ No other messages are accessible.
 @cindex RFC 1413
 Two users are considered the same, if and only if their connections
 originate on the same host, their user names are the same, and their
-identity can be checked, as described bellow.  Speech daemon does not
+identity can be checked, as described bellow.  Speech Dispatcher does not
 provide any explicit authentication mechanism.  To check the identity
-of users, Speech Daemon uses the Identification Protocol mechanism
+of users, Speech Dispatcher uses the Identification Protocol mechanism
 defined by RFC 1413 to get the user's identity.  If user's identity
 cannot be checked, the user is considered different of all other
 connected or previously connected users.
 
 @cindex user mapping
-Speech Daemon allows to specify user mapping in its configuration,
+Speech Dispatcher allows to specify user mapping in its configuration,
 allowing to change certain users to different users, see
 @ref{Configuration}.
 
@@ -2230,7 +2392,7 @@ here, as with Speed setting.
 @section Voice type
 Most synthesizers provide several voice types, such as male,
 female, child etc. The set is again different for each
-of the devices. Speech Daemon should try to find the nearest
+of the devices. Speech Dispatcher should try to find the nearest
 possible (if the request is child female and it's not available,
 we will try to use adult female rather then adult male).
 
@@ -2250,14 +2412,14 @@ synchronization, which is not  possible with all devices.
 @cindex configuration
 @cindex default values
 
-Speech Daemon can be configured on several levels.
+Speech Dispatcher can be configured on several levels.
 There is a configuration file where permanent settings
 are stored, but user and applications can also change
-the majority of parameters on-fly by calling Speech Daemon
+the majority of parameters on-fly by calling Speech Dispatcher
 functions. The third level of configuration can't be
 changed and it's given by the capabilities of each output
 device (each output module for each output device reports
-it's capabilities when it's loaded into Speech Daemon).
+it's capabilities when it's loaded into Speech Dispatcher).
 
 We use DotConf for the permanent text file based configuration.
 See @file{speechd.conf}.
