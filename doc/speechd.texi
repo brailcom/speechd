@@ -76,7 +76,7 @@ in the section entitled "GNU Free Documentation License".
 * How You Can Help::        What is needed
 
 * Appendices::                  
-* GNU General Public License::  Copying conditions for Speechd Dispatcher
+* GNU General Public License::  Copying conditions for Speech Dispatcher
 * GNU Free Documentation License::  Copying conditions for this manual
 
 * Index of Concepts::           
@@ -2283,7 +2283,7 @@ The main documentation for the server core is the code itself. This section
 is only a general introduction intended to give you some basic information
 and hints where to look for things. If you are going to make some modifications
 in the server core, we will be happy if you get in touch with us on
-@email{speechd-bugs@@freebsoft.org}.
+@email{speechd@@freebsoft.org}.
 
 The server core is composed of two main parts, each of them implemented
 in a separate thread. The @emph{server part} handles the communication
