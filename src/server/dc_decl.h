@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.6 2003-04-05 21:12:07 hanke Exp $
+ * $Id: dc_decl.h,v 1.7 2003-04-06 20:00:45 hanke Exp $
  */
 
 #include "speechd.h"
@@ -129,7 +129,7 @@ DOTCONF_CB(cb_AddSndIcons)
 	language[strlen(language)-1]=0;
 	
 	icons_hash = g_hash_table_lookup(snd_icon_langs, language);
-	if(icons_hash) icons_hash = g_hash_table_new(g_str_hash, g_str_equal);
+	if(!icons_hash) icons_hash = g_hash_table_new(g_str_hash, g_str_equal);
 	g_hash_table_insert(snd_icon_langs, language, icons_hash);
 	
     
