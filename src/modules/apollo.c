@@ -18,15 +18,14 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.3 2003-04-24 07:55:55 pdm Exp $
+ * $Id: apollo.c,v 1.4 2003-04-24 10:21:03 pdm Exp $
  */
 
 
 #include <fcntl.h>
 #include <glib.h>
+#include <math.h>
 #include <unistd.h>
-
-#include <stdio.h>
 
 #include "module.h"
 #include "fdset.h"
@@ -98,7 +97,8 @@ static gint write_it (const void *data, size_t size)
 
 static gint send_apollo_command (const char *command)
 {
-  return write_it ((const void *)command, strlen (command) * sizeof (char));
+  return write_it ((const void *)command, strlen (command) * sizeof (char))
+         || write_it ((const void *)"\r", sizeof (char));
 }
 
 static gint set_speed (signed int value)
