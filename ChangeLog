@@ -1,3 +1,21 @@
+2003-06-27  Hynek Hanke  <hanke@volny.cz>
+
+	* src/modules/module_utils.c (module_audio_output_child): Check if spd_audio_open returns ok.
+	Use xfree().
+
+	* src/audio/spd_audio.c: Check parameters for a NULL wave.
+
+	* src/modules/festival_client.c: festivalEmptySocket deleted.
+
+	* src/modules/festival.c (_festival_parent): asserts added.
+
+	* src/modules/festival_client.c (festivalOpen): Added definition of
+	speechd_tts_textall.
+	(festivalStringToWaveRequest): Use (speechd_tts_textall).
+
+	* src/modules/festival.c: Check if bytes != 0 also in the first run.
+	(module_close): Delete the est_ files in tmp if there are any.
+
 2003-06-25  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/modules/module_utils.c (module_strip_punctuation_default):
