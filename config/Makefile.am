@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS=en
+SUBDIRS= en
 
-sysconf_DATA=speechd.conf 
+dist_sysconf_DATA= speechd.conf 
 
