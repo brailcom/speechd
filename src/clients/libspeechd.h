@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.5 2003-03-09 20:48:17 hanke Exp $
+ * $Id: libspeechd.h,v 1.6 2003-03-12 18:39:21 pdm Exp $
  */
 
 	/* This is the header file for the libspeechd library.
@@ -148,7 +148,7 @@ int spd_say(int fd, int priority, char* text);
 	 * for screen output. */
 int spd_sayf (int fd, int priority, char *format, ...);
 	/* You can for example write:
-	 *		spd_sayf(fd_main, 2, "Your speed was %d words per minute.", wpm);
+	 *		spd_sayf(fd_main, 2, "Your rate was %d words per minute.", wpm);
 	 */
 
 	/* stop, pause and resume are the functions you will
@@ -207,9 +207,9 @@ int spd_say_key(int fd, int priority, int c);
 	/* The spd_voice_ family of commands can be used to set the
 	 * parameters of the voice. But note that these are only prefered values
 	 * and the user is free to set different parameters. */
-int spd_voice_speed(int fd, int speed);
+int spd_voice_rate(int fd, int rate);
 int spd_voice_pitch(int fd, int pitch);
-	/* spd_voice_speed() and spd_voice_pitch() set the speed and the pitch
+	/* spd_voice_rate() and spd_voice_pitch() set the rate and the pitch
 	 * of the voice respectively to the value passed in the second parameter.
 	 * It must be between -100 and +100. 0 is the default value representing
 	 * normal speech. Speech Deamon will then try to find the most appropiate

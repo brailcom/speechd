@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.7 2003-03-09 21:44:13 hanke Exp $
+ * $Id: libspeechd.c,v 1.8 2003-03-12 18:39:21 pdm Exp $
  */
 
 #include <sys/types.h>
@@ -247,10 +247,10 @@ spd_say_key(int fd, int priority, int c)
 }
 
 int
-spd_voice_speed(int fd, int speed)
+spd_voice_rate(int fd, int rate)
 {
-	assert(speed>=-100);
-	assert(speed<=100);
+	assert(rate>=-100);
+	assert(rate<=100);
 	return 0;
 }
 

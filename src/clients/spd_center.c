@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: spd_center.c,v 1.4 2003-02-01 22:16:55 hanke Exp $
+ * $Id: spd_center.c,v 1.5 2003-03-12 18:39:21 pdm Exp $
  */
 
 #include<stdio.h>
@@ -67,7 +67,7 @@ char *menu_items_global_s[] =
 
 char *menu_items_settings_s[] =
 {
-	_("Speed"),
+	_("Rate"),
 	_("Language"),
 	_("Voice type"),
 	_("Pitch"),
