@@ -7,9 +7,11 @@
 #include <sys/time.h>
 #include <sys/ioctl.h>
 #include <stdio.h>
+#include <errno.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 #include <glib.h>
 #include <gmodule.h>
 #include <dotconf.h>
@@ -89,6 +91,7 @@ typedef enum{
 
 typedef struct{
    int fd;
+   int uid;
    guint cur_client_id;
    int cur_pos;
    ESort sorted;
@@ -98,8 +101,8 @@ GList *history_settings;
 
 typedef struct{
    int fd;
+   guint uid;
    char *client_name;
-   guint id;
    int active;
    GList *messages;
 }THistoryClient;
@@ -109,10 +112,14 @@ int serve(int fd); 	// serve the client on this file descriptor (socket)
 
 gint fdset_list_compare (gconstpointer, gconstpointer, gpointer);
 gint message_nto_speak (TSpeechDMessage*, gpointer, gpointer);
+gint message_list_compare_fd (gconstpointer, gconstpointer, gpointer);
 
 gint (*p_fdset_lc)();
 gint (*p_msg_nto_speak)();
 gint (*p_hc_lc)();
+gint (*p_msg_lc)();
+gint (*p_cli_comp_id)();
+gint (*p_cli_comp_fd)();
 
 GArray *awaiting_data;
 GArray *o_bytes;
@@ -127,10 +134,13 @@ typedef enum{
 	RESUME = 3
 }EStopCommands;
 
-int stop_c(EStopCommands command, int fd);
+int stop_c(EStopCommands command, int fd, int target);
 		
 /* isanum() tests if the given string is a number,
  * returns 1 if yes, 0 otherwise. */
 int isanum(char *str);
+
+void stop_from_client(int fd);
+		
 
 #endif
