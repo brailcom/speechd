@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.53 2004-07-21 21:35:48 hanke Exp $
+ * $Id: festival.c,v 1.54 2004-07-22 12:59:44 hanke Exp $
  */
 
 #include "fdset.h"
@@ -542,7 +542,7 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 	}
 
 	if (fwave == NULL){
-	    DBG("End of sound samples for this message, returning");
+	    DBG("End of sound samples, returning...");
 	    CLEAN_UP(0);
 	}
 	
