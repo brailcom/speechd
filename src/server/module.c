@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.20 2004-07-21 08:15:56 hanke Exp $
+ * $Id: module.c,v 1.21 2004-10-18 19:09:34 hanke Exp $
  */
 
 #include <sys/wait.h>
@@ -105,7 +105,8 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile)
                                    with the execlp */
         ret = waitpid(module->pid, NULL, WNOHANG);
         if (ret != 0){
-            MSG(2, "Can't load output module %s. Bad filename in configuration?", module->name);
+            MSG(2, "ERROR: Can't load output module %s with binary %s. Bad filename in configuration?", 
+		module->name, module->filename);
             destroy_module(module);
             return NULL;
         }
