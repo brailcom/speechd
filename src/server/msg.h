@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: msg.h,v 1.14 2003-04-18 21:26:37 hanke Exp $
+ * $Id: msg.h,v 1.15 2003-04-24 19:26:35 hanke Exp $
  */
 
 
@@ -35,7 +35,7 @@
 #define OK_PAUSED				"211 OK PAUSED\r\n"
 #define OK_RESUMED				"212 OK RESUMED\r\n"
 #define OK_CANCELED				"213 OK CANCELED\r\n"
-#define OK_TABLE_SET                           "215 OK TABLE SET\r\n"
+#define OK_TABLE_SET                            "215 OK TABLE SET\r\n"
 
 #define OK_CUR_SET_FIRST			"220 OK CURSOR SET FIRST\r\n"
 #define OK_CUR_SET_LAST				"221 OK CURSOR SET LAST\r\n"
@@ -59,6 +59,10 @@
 #define C_OK_CUR_POS				"243"
 #define OK_TABLE_LIST_SENT                      "244 OK TABLE LIST SEND\r\n"
 #define C_OK_TABLES                             "244"
+#define OK_HELP_SENT                            "248 OK HELP SENT\r\n"
+#define C_OK_HELP                               "248"
+
+#define OK_NOT_IMPLEMENTED                      "299 OK BUT NOT IMPLEMENTED -- DOES NOTHING"
 
 #define ERR_NO_CLIENT				"401 ERR NO CLIENT\r\n"
 #define ERR_NO_SUCH_CLIENT			"402 ERR NO SUCH CLIENT\r\n"
@@ -78,6 +82,7 @@
 #define ERR_COULDNT_SET_SPELLING                "308 ERR COULDNT SET SPELLING\r\n"
 #define ERR_COULDNT_SET_VOICE                   "309 ERR COULDNT SET VOICE\r\n"
 #define ERR_COULDNT_SET_TABLE                   "310 ERR COULDNT SET TABLE\r\n"
+#define ERR_COULDNT_SET_CLIENT_NAME             "311 ERR COULDNT SET CLIENT_NAME\r\n"
 #define ERR_NO_SND_ICONS                        "320 ERR NO SOUND ICONS\r\n"
 #define ERR_NOT_IMPLEMENTED                     "380 ERR NOT YET IMPLEMENTED\r\n"
 
@@ -87,5 +92,3 @@
 #define ERR_NOT_A_STRING                        "512 ERR PARAMETER NOT A STRING\r\n"
 #define ERR_PARAMETER_NOT_ON_OFF                "513 ERR PARAMETER NOT ON OR OFF\r\n"
 #define ERR_PARAMETER_INVALID                   "512 ERR PARAMETER INVALID\r\n"
-
-

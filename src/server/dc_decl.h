@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.12 2003-04-18 21:20:01 hanke Exp $
+ * $Id: dc_decl.h,v 1.13 2003-04-24 19:26:05 hanke Exp $
  */
 
 #include "speechd.h"
@@ -31,7 +31,7 @@ DOTCONF_CB(cb_LogFile);
 DOTCONF_CB(cb_AddModule);
 DOTCONF_CB(cb_AddTable);
 DOTCONF_CB(cb_DefaultModule);
-DOTCONF_CB(cb_DefaultSpeed);
+DOTCONF_CB(cb_DefaultRate);
 DOTCONF_CB(cb_DefaultPitch);
 DOTCONF_CB(cb_DefaultLanguage);
 DOTCONF_CB(cb_DefaultPriority);
@@ -56,7 +56,7 @@ static const configoption_t options[] =
     {"AddModule", ARG_STR, cb_AddModule, 0, 0},
     {"AddTable", ARG_STR, cb_AddTable, 0, 0},
     {"DefaultModule", ARG_STR, cb_DefaultModule, 0, 0},
-    {"DefaultSpeed", ARG_INT, cb_DefaultSpeed, 0, 0},
+    {"DefaultRate", ARG_INT, cb_DefaultRate, 0, 0},
     {"DefaultPitch", ARG_INT, cb_DefaultPitch, 0, 0},
     {"DefaultLanguage", ARG_STR, cb_DefaultLanguage, 0, 0},
     {"DefaultPriority", ARG_INT, cb_DefaultPriority, 0, 0},
@@ -221,9 +221,9 @@ DOTCONF_CB(cb_DefaultModule)
     return NULL;
 }
 
-DOTCONF_CB(cb_DefaultSpeed)
+DOTCONF_CB(cb_DefaultRate)
 {
-    GlobalFDSet.speed = cmd->data.value;
+    GlobalFDSet.rate = cmd->data.value;
     return NULL;
 }
 
