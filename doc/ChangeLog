@@ -1,3 +1,12 @@
+2003-12-18  Hynek Hanke  <hanke@volny.cz>
+
+	* ssip.texi: Don't include any version.texi.
+
+	* Makefile.am (.texi.html): Added target for ssip.texi.
+
+	* speechd.texi: Removed the part that is now contained in ssip.texi. Added
+	cross references where necessary.
+
 2003-12-11  Hynek Hanke  <hanke@volny.cz>
 
 	* ssip.texi: Added link to http://www.freebsoft.org as contact.
