@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: msg.h,v 1.17 2003-05-25 21:04:56 hanke Exp $
+ * $Id: msg.h,v 1.18 2003-05-26 14:06:10 hanke Exp $
  */
 
 
@@ -36,6 +36,7 @@
 #define OK_RESUMED				"212 OK RESUMED\r\n"
 #define OK_CANCELED				"213 OK CANCELED\r\n"
 #define OK_TABLE_SET                            "215 OK TABLE SET\r\n"
+#define OK_OUTPUT_MODULE_SET                    "216 OK OUTPUT MODULE SET\r\n"
 
 #define OK_CUR_SET_FIRST			"220 OK CURSOR SET FIRST\r\n"
 #define OK_CUR_SET_LAST				"221 OK CURSOR SET LAST\r\n"
@@ -90,6 +91,8 @@
 #define ERR_COULDNT_SET_VOICE                   "309 ERR COULDNT SET VOICE\r\n"
 #define ERR_COULDNT_SET_TABLE                   "310 ERR COULDNT SET TABLE\r\n"
 #define ERR_COULDNT_SET_CLIENT_NAME             "311 ERR COULDNT SET CLIENT_NAME\r\n"
+#define ERR_COULDNT_SET_OUTPUT_MODULE           "312 ERR COULDNT SET OUTPUT MODULE\r\n"
+
 #define ERR_NO_SND_ICONS                        "320 ERR NO SOUND ICONS\r\n"
 #define ERR_NOT_IMPLEMENTED                     "380 ERR NOT YET IMPLEMENTED\r\n"
 
