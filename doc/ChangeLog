@@ -1,5 +1,17 @@
 2002-06-20  Tomas Cerha  <cerha@brailcom.org>
 
+	* speechd.xml: DocBook DTD changed to version 4.1.2.
+
+	* Makefile: Variable DST for specifying html destination
+	directory.  This enables automatic update of HTML documentation on
+	the web after CVS commits.  Rules for copying images to html
+	destination directory.
+
+	* analysis.xml: Architecture diagram described.  Added section
+	"Server Core".
+
+2002-06-19  Tomas Cerha  <cerha@brailcom.org>
+
 	* figures/architecture.dia: Enhanced.
 
 	* speechd.xml: Title changed: Speechd -> Speech Daemon.
@@ -10,6 +22,7 @@
 	* analysis.xml: More about SSIP.  Redesigned Session managenemt.
 	More about Multiple output devices (some corrections).
 	
+
 2002-05-10  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd.xml: Formatting changes.
