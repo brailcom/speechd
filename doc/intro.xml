@@ -17,55 +17,54 @@
       
       <para>
 	Hardware synthesizers are the devices, which may be connected to PC.
-	Mostly they are external, connected via serial or parallel port.
-	There are also some internal devices for ISA bus. Application may
+	Mostly they are external, connected via serial or parallel port.  There
+	are also some internal devices for ISA bus or USB.  Application may
 	send textual data to the port and the device converts it to spoken
-	letters and words. Data may contain also several
-	control sequences in the form of escaped characters as commands. 
-	The problem, we are facing, is that each of these devices uses its
-	own communication protocol.
-
-	<itemizedlist>
-	  <listitem>
-	    <para>Apollo</para>
-	  </listitem>
-	  <listitem>
-	    <para>...</para>
-	  </listitem>
-	</itemizedlist>
-	
+	letters and words.  Data may contain also several control sequences in
+	the form of escaped characters as commands.  The problem, we are
+	facing, is that each of these devices uses its own communication
+	protocol.
       </para>
       
     </sect2>
    
     <!-- ********************************************************* -->
     <sect2>
-      <title>IBM ViaVoice</title>
+      <title>Software devices</title>
+
+      <sect3><title>Festival</title>
+	<para>
+	  ...
+	</para>
+      </sect3>
+
+      <sect3><title>Epos</title>
+	<para>
+	  Epos is czech GPL synthesis ...
+	</para>
+      </sect3>
+
+      <sect3><title>IBM ViaVoice</title>
+	<para>
+	  IBM ViaVoice is a commercial product, but we see it to be very good.
+	  It is available for Linux, ....
+	</para>
+      </sect3>
       
-      <para>
-	IBM ViaVoice is a commercial product, but we see it to be very good.
-	It is available for Linux, ....
-      </para>
-    </sect2>
-    
-    <!-- ********************************************************* -->
-    <sect2>
-      <title>MBrola project</title>
+      <sect3><title>MBrola project</title>
+	<para>
+	  MBrola is a software speech synhesis ...
+	</para>
+      </sect3>
       
-      <para>
-	MBrola is a software speech synhesis ...
-      </para>
+      <sect3><title>Odmluva</title>
+	<para>
+	  Odmluva is a simple (and very light) czech software speech synhesis
+	  ...
+	</para>
+      </sect3>
+
     </sect2>
-    
-    <!-- ********************************************************* -->
-    <sect2>
-      <title>Mluvitko</title>
-      
-      <para>
-	Mluvitko is a simple (and very light) czech software speech synhesis ...
-      </para>
-    </sect2>
-    
   </sect1>
   
   <!-- ========================================================= -->
@@ -76,6 +75,14 @@
     <para>
     </para>
     
+    <!-- ********************************************************* -->
+    <sect2>
+      <title>Speakup</title>
+      <para>
+	
+      </para>
+    </sect2>
+
     <!-- ********************************************************* -->
     <sect2>
       <title>EmacSpeak</title>
@@ -153,43 +160,47 @@
 	</itemizedlist>
       </para>
 
-	<sect3>
-	  <title>Window managers</title>
-	  <para> 
-	  </para>
-	</sect3>
-	<sect3>
-	  <title>Desktop managers</title>
-	</sect3>
-	<sect3>
-	  <title>Widget toolkit libraries</title>
-	  <para>
-	    Several windowing toolkit libraries take speech support 
-	    into a focus the last few years. These are:
+      <sect3>
+	<title>Window managers</title>
+	<para> 
+	</para>
+      </sect3>
+      <sect3>
+	<title>Desktop managers</title>
+	<para> 
+	</para>
+      </sect3>
+      <sect3>
+	<title>Widget toolkit libraries</title>
+	<para>
+	  Several windowing toolkit libraries take speech support 
+	  into a focus the last few years. These are:
+	  
+	  <itemizedlist>
+	    <listitem>
+	      <para>GTK+ (Gnome Accessibility project)</para>
+	    </listitem>
+	    <listitem>
+	      <para>wxWindows</para>
+	    </listitem>
+	    <listitem>
+	      <para>Java AWT</para>
+	    </listitem>
+	    <listitem>
+	      <para>FOX toolkit</para>
+	    </listitem>
+	  </itemizedlist>
 
-	    <itemizedlist>
-	      <listitem>
-		<para>GTK+ (Gnome Accessibility project)</para>
-	      </listitem>
-	      <listitem>
-		<para>wxWindows</para>
-	      </listitem>
-	      <listitem>
-		<para>Java AWT</para>
-	      </listitem>
-	      <listitem>
-		<para>FOX toolkit</para>
-	      </listitem>
-	    </itemizedlist>
-
-	    We hope to be able to integrate Speech Daemon into these projects
-	    in the future.
-
-          </para>
-	</sect3>
-	<sect3>
-	  <title>Applications themselves</title>
-	</sect3>
+	  We hope to be able to integrate Speech Daemon into these projects
+	  in the future.
+	  
+	</para>
+      </sect3>
+      <sect3>
+	<title>Applications themselves</title>
+	<para> 
+	</para>
+      </sect3>
 
     </sect2>
     
@@ -197,7 +208,8 @@
 
   <sect1>
     <title>What we lack</title>
-    
+    <para> 
+    </para>
   </sect1>
   
 </chapter>
