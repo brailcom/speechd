@@ -1,5 +1,5 @@
 # Makefile to convert Speech Daemon documentation into various output formats
-# CVS revision: $Id: Makefile,v 1.17 2003-04-08 11:26:04 cerha Exp $
+# CVS revision: $Id: Makefile,v 1.18 2003-04-08 18:14:26 pdm Exp $
 # Author: Hynek Hanke <hanke@volny.cz>
 
 # HTMLDIR variable is set by automatic update script during CVS commits.
@@ -28,5 +28,6 @@ $(NAME).dvi: $(NAME).texi
 ###################################################
 
 clean:
-	rm -rf $(HTMLDIR)/*
+	rm -rf $(HTMLDIR)
 	rm -f $(NAME).info $(NAME).pdf $(NAME).dvi
+	rm -f *.aux *.cp *.cps *.fn *.ky *.log *.pg *.toc *.tp *.vr
