@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.7 2003-06-01 21:16:04 hanke Exp $
+ * $Id: libspeechd.c,v 1.8 2003-06-08 21:51:30 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -115,7 +115,7 @@ spd_close(int connection)
 /* Say TEXT with priority PRIORITY.
  * Returns 0 on success, -1 otherwise. */                            
 int
-spd_say(int connection, int priority, char* text)
+spd_say(int connection, char* priority, char* text)
 {
     static char command[64];
     static int i;
@@ -124,10 +124,9 @@ spd_say(int connection, int priority, char* text)
     int ret;
 
     if (text == NULL) return -1;
-    if (priority < 1 || priority > 3) return -1;
 
     /* Set priority */
-    sprintf(command, "SET SELF PRIORITY %d", priority);
+    sprintf(command, "SET SELF PRIORITY %s", priority);
     ret = _spd_execute_command(connection, command);
     if(ret){
         _SPD_DBG("Can't set priority");
@@ -167,7 +166,7 @@ spd_say(int connection, int priority, char* text)
 
 /* The same as spd_say, accepts also formated strings */
 int
-spd_sayf(int fd, int priority, char *format, ...)
+spd_sayf(int fd, char* priority, char *format, ...)
 {
     static int ret;    
     va_list args;
@@ -270,13 +269,13 @@ spd_resume_uid(int connection, int target_uid)
 }
 
 int
-spd_key(int connection, int priority, char *key_name)
+spd_key(int connection, char* priority, char *key_name)
 {
     static char command[32];
     char *command_key;
     int ret;
 
-    sprintf(command, "SET SELF PRIORITY %d", priority);
+    sprintf(command, "SET SELF PRIORITY %s", priority);
     ret = _spd_execute_command(connection, command);
     if(ret) return -1;
 
@@ -288,7 +287,7 @@ spd_key(int connection, int priority, char *key_name)
 }
 
 int
-spd_char(int connection, int priority, char *character)
+spd_char(int connection, char* priority, char *character)
 {
     static char command[32];
     char *command_char;
@@ -296,7 +295,7 @@ spd_char(int connection, int priority, char *character)
 
     if (character == NULL) return -1;
 
-    sprintf(command, "SET SELF PRIORITY %d", priority);
+    sprintf(command, "SET SELF PRIORITY %s", priority);
     ret = _spd_execute_command(connection, command);
     if(ret) return -1;
 
@@ -309,7 +308,7 @@ spd_char(int connection, int priority, char *character)
 }
 
 int
-spd_wchar(int connection, int priority, wchar_t wcharacter)
+spd_wchar(int connection, char* priority, wchar_t wcharacter)
 {
     static char command[32];
     char *command_char;
@@ -319,7 +318,7 @@ spd_wchar(int connection, int priority, wchar_t wcharacter)
     ret = wcrtomb(character, wcharacter, NULL);
     if( ret <= 0 ) return -1;
 
-    sprintf(command, "SET SELF PRIORITY %d", priority);
+    sprintf(command, "SET SELF PRIORITY %s", priority);
     ret = _spd_execute_command(connection, command);
     if(ret) return -1;
 
@@ -330,12 +329,12 @@ spd_wchar(int connection, int priority, wchar_t wcharacter)
 }
 
 int
-spd_sound_icon(int connection, int priority, char *icon_name)
+spd_sound_icon(int connection, char* priority, char *icon_name)
 {
     char *command;
     int ret;
 
-    sprintf(command, "SET SELF PRIORITY %d", priority);
+    sprintf(command, "SET SELF PRIORITY %s", priority);
     ret = _spd_execute_command(connection, command);
     if(ret) return -1;
 
@@ -636,7 +635,7 @@ spd_command_line(int fd, char *buffer, int pos, char* c){
 	new_s[0] = 0;
 		
 	/* Speech output for the symbol. */
-	spd_key(fd, 3, c);	
+	spd_key(fd, "notification", c);	
 	
 	/* TODO: */
 	/* What kind of symbol do we have. */
