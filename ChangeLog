@@ -1,3 +1,8 @@
+
+2003-04-15  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/clients: Content moved to src/c/ ...
+
 2003-04-15  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* config/speechd.conf (PunctuationSome): New option.
