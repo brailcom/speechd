@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.43 2003-12-19 15:47:03 hanke Exp $
+ * $Id: festival.c,v 1.44 2003-12-19 16:08:51 hanke Exp $
  */
 
 #include "fdset.h"
@@ -576,7 +576,7 @@ cache_insert(char* key, FT_Wave *value)
   }
 
   cache = g_hash_table_lookup(FestivalCache.caches, msg_settings.language);
-  if (cache = NULL){
+  if (cache == NULL){
     cache = g_hash_table_new(g_str_hash, g_str_equal);
     g_hash_table_insert(FestivalCache.caches, msg_settings.language, cache);
   }
