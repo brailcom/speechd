@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.26 2003-06-20 00:26:09 hanke Exp $
+ * $Id: flite.c,v 1.27 2003-06-23 05:06:23 hanke Exp $
  */
 
 
@@ -27,7 +27,6 @@
 
 #include "module.h"
 #include "fdset.h"
-#include "spd_audio.h"
 
 #include "module_utils.c"
 
