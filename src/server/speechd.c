@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.11 2003-02-01 22:16:55 hanke Exp $
+ * $Id: speechd.c,v 1.12 2003-03-09 20:50:14 hanke Exp $
  */
 
 #include <signal.h>
@@ -218,6 +218,8 @@ main()
    history = NULL;
    
    history_settings = NULL;
+ 
+   snd_icon_langs = g_hash_table_new(g_str_hash,g_str_equal);
 
    awaiting_data = (GArray*) g_array_sized_new(1, 1, sizeof(int),20);
    g_array_set_size(awaiting_data,20);
@@ -239,7 +241,7 @@ main()
       DIE("Error reading config file\n");
 
    dotconf_cleanup(configfile);
-
+ 
    if (g_hash_table_size(output_modules) == 0)
       DIE("No output modules were loaded - aborting...");
 
