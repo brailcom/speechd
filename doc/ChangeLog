@@ -1,3 +1,8 @@
+2003-12-30  Milan Zamazal  <pdm@brailcom.org>
+
+	* ssip.texi (Blocks of Messages Commands): BLOCK END added to the
+	commands allowed inside blocks.
+
 2003-12-19  Hynek Hanke  <hanke@volny.cz>
 
 	* ssip.texi: Don't include any version.texi.
