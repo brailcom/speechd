@@ -1,3 +1,17 @@
+2003-09-22  Hynek Hanke  <hanke@volny.cz>
+
+	* src/modules/module_utils.c (MODULE_VERSION): Definition removed.
+	Some functions moved to module_utils_audio.c
+	(module_recode_to_iso): Replace invalid characters with a '?'.
+
+	* src/modules/module_utils_audio.c (module_parent_send_samples): Moved from module_utils.c
+	(module_add_samples): Moved from module_utils.c
+
+	* src/modules/module_utils.c (module_speak_thread_wfork): Force exit() in the child
+	if the child_function() didn't exit itself.
+	(module_speak_thread_wfork): Now returns void.
+	(module_parent_wfork): Return 0 if returning for other reasons than being paused.
+
 2003-09-20  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/Makefile.am: Include insert_marking.c and index_marking.h.

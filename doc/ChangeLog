@@ -1,3 +1,14 @@
+2003-09-22  Hynek Hanke  <hanke@volny.cz>
+
+	* speechd.texi (Output Module Functions): New subsection.
+	(Communication Protocol for Output Modules): New subsection.
+	(Basic Structure): Reworked.
+	(How to Write New Output Module): Now contains only general info.
+	(The Skeleton of an Output Module): New section.
+	(Output Module Functions): Updated.
+	(Module Utils Functions and Macros): New subsection.
+	(Output Modules Configuration): Reworked to reflect the new mechanism.
+
 2003-09-19  Milan Zamazal  <pdm@brailcom.org>
 
 	* Makefile.am (MAINTAINERCLEANFILES): New variable.
