@@ -1,4 +1,14 @@
-2003-05-20  Hynek Hanke  <hanke@localhost.localdomain>
+2003-05-21  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/modules/festival_client.c (festivalSetRate): New function.
+
+	* src/modules/festival.c (festival_write): Set the appropriate rate.
+	(festival_write): Also call festivalSetVoice when the language changes.
+	(festival_cur_rate): New variable. (Set rate only when necessary.)
+	(_festival_recode): Recode the stream when necessary.
+	(festival_write): Call _festival_recode for each incomming data.
+
+2003-05-20  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/server.c (Module): Added debugging message.
 
