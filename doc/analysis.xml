@@ -1,0 +1,389 @@
+<chapter id="ch-analysis">
+  <title>Analysis</title>
+  
+  <sect1><title>Architecture Overview</title>
+    <para>
+      
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="../figures/architecture.eps" format="EPS"/>
+	</imageobject>
+	
+	<imageobject>
+	  <imagedata fileref="../figures/architecture.jpg" format="JPEG"/>
+	</imageobject>
+	<textobject>
+	  <phrase>Speechd Architecture</phrase>
+	</textobject>
+	
+	<caption>
+	  <para>
+	    This figure shows the two speechd interfaces: SSIP and modAPI
+	  </para>
+	</caption>
+      </mediaobject>
+	
+    </para>
+    
+  </sect1>
+  
+  <sect1><title>Input Side</title>
+
+    <sect2 id="s-ssip">      <title>Speech Synthesis Independent Protocol</title>
+      
+      <para>
+	Speech Synthesis Independent Protocol (SSIP) is intended to provide a
+	device independent layer between application and speech synthesizer
+      </para>
+      
+      <para>
+	SSIP will be an application protocol over TCP/IP. However there is no
+	reason to constraint SSIP only for this architecture. SSIP should be
+	designed, to allow its transmission within any higher level protocol
+	such as HTTP.
+      </para>
+
+      <sect3><title>SSIP syntax</title>
+	
+	<para>
+	  We see XML to be a good alternative for this purpose.
+	</para>
+
+      </sect3>
+
+
+    </sect2>
+        
+    <sect2 id="s-control">   <title>Message Control Commands</title>
+      
+      <para>
+      </para>
+      
+      <variablelist>
+	<varlistentry><term>message</term>
+	  <listitem>
+	    <para>
+	      Add a message to the queue.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry><term>stop</term>
+	  <listitem>
+	    <para>
+	      Stop speaking and empty all message queues.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry><term>pause</term>
+	  <listitem>
+	    <para>
+	      Stop speaking until continue is received.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry><term>continue</term>
+	  <listitem>
+	    <para>
+	      Continue paused speech.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry><term>cancel</term>
+	  <listitem>
+	    <para>
+	      Throw away currently spoken message.
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2 id="s-priority">  <title>Message Priority System</title>
+
+      <para>
+	The possibility to distinguish between several message priority levels
+	seems to be essential. Each message sent by client to speech server
+	should have a priority level assigned.
+      </para>
+
+      <para>
+	We suppose the system of three priority levels. Every message will
+	either contain explicit level information, or the default value will be
+	considered. The behavior should be as follows:
+	
+	<variablelist>
+	  <varlistentry><term>level 1</term>
+	    <listitem>
+	      <para>
+		These messages will be said immediately as they come to server.
+		They are never interrupted. These messages should be as short
+		as possible, because they block the output of all other
+		messages. When several concurrent messages are received by
+		server, they are queued and said in the order, they came.
+		When a new message of level 1 comes during lower level
+		message is spoken, lower level message is canceled and removed
+		from the queue (removed messages are stored in the history, as
+		described in <xref linkend="s-history" endterm="s-history"/>).
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry><term>level 2</term>
+	    <listitem>
+	      <para>
+		Second level messages are said in the moment, when there is no
+		message of level 1 queued. Several messages of level 2 are said
+		in the order, they are received (queued, but in their own
+		queue). This is the default level for messages without explicit
+		level information.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry><term>level 3</term>
+	    <listitem>
+	      <para>
+		Third level messages are only said, when there are no messages
+		of any higher level queued, when.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+      </para>
+    </sect2>
+
+    <sect2 id="s-synthesis"> <title>Synthesis control</title>
+      
+      <para>
+	SSIP should provide the following basic primitives, to control the way,
+	in which the synthesizer handles the input text:
+	
+	<variablelist>
+	  <varlistentry><term>Language selection</term>
+	    <listitem>
+	      <para>
+		Various synthesizers provide different sets of possible
+		languages, they are allowed to speak. We must be able to
+		receive a request for setting particular language (using
+		ISO language code) and reply, if the language is supported.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry><term>Punctuation mode</term>
+	    <listitem>
+	      <para>
+		Punctuation mode describes the way, in which the synthesizer
+		works with non-alphanumeric characters. Most synthesizers
+		support several punctuation modes. We will support a reasonable
+		superset of those modes, which may be implemented in device
+		driver, when not supported by hardware.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry><term>Prosody</term>
+	    <listitem>
+	      <para>
+		Prosody setting allows us, to distinguish interpunction
+		characters in spoken text, as we are familiar in normal speech.
+		This means the way, we pronounce the text with interrogation mark,
+		coma, dot etc.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry><term>Speed</term>
+	    <listitem>
+	      <para>
+		Speed of the speech is supported by all synthesizers, but the
+		values and their ranges differ. Each output module is
+		responsible to set the speed to the value, best responding to
+		current setting. This may be a little bit difficult, because
+		there is no exact scale.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry><term>Pitch</term>
+	    <listitem>
+	      <para>
+		Pitch is the voice frequency. We face the similar problems here, as
+		with Speed setting.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry><term>Voice type</term>
+	    <listitem>
+	      <para>
+		Most synthesizers provide several voice types, such as male,
+		female, child etc. The set is again different for each of the devices.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry><term>Spelling</term>
+	    <listitem>
+	      <para>
+		Spelling mode is provided by nearly all devices and is also
+		easy to emulate in output module.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry><term>Capital letters recognition</term>
+	    <listitem>
+	      <para>
+		That is again a widely supported feature. However it would be
+		desirable to support this internally, using the
+		sound icons feature (<xref linkend="s-icons"/>), but this
+		requires a good possibility of synchronization, which is not
+		possible with all devices (as discussed in
+		<xref linkend="s-synchro"/>).
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+      </para>
+      
+    </sect2>
+
+    <sect2 id="s-session">   <title>Session Management</title>
+
+      <para>
+	Before any other commands, client shoud open a session. This
+	request will result in assigning a unique session id to the
+	client. This will enable the server to keep state information
+	between several TCP connections. Session information should
+	persist for a limited time (timeout). The number of opened
+	sessions must be also limited for security reasons (DOS attack).
+      </para>
+      
+    </sect2>
+    
+    <sect2 id="s-synchro">   <title>Synchronization</title>
+      <para>
+	Speaking application may need to synchronize it's bahavior with speech
+	output. For this purpose we want to enable to insert synchonization
+	marks into spoken text. The idea is as follows:
+      </para>
+	
+      <itemizedlist mark="opencircle" spacing="compact">
+	<listitem>
+	  <para>
+	    Client application inserts a callback mark with arbitrary parameter
+  	    into a message sent to server.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Server passes this mark to output driver, which is responsible to
+	    call server's callback routine with parameter, which belongs to the
+	    mark just in the time, when mark is reached in the spoken text.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+  	    Server sends a synchronization message to the client, with the
+  	    parameter.
+	  </para>
+	</listitem>
+      </itemizedlist>
+
+      <para>
+	What we called a parameter in the above text, may be a simple text string.
+      </para>
+      <para>
+	This method has several problematic issues.
+      </para>
+      <para>
+	At first, there are some
+	devices, which do not support backwards communication, so they will not
+	inform the output driver at the right time. There is some possibility
+	to predict the time of speech in software, but it does not seem to be a
+	reliable solution.
+      </para>
+      <para>
+	The another drawback is the necessity for client to keep connection for
+	whole time of speech and listen for server messages. However this
+	problem is determined by the rules of socket communication, which still
+	seems to be the best choice for other reasons.
+      </para>
+      
+    </sect2>
+    
+    <sect2 id="s-history">   <title>Message History</title>
+      
+      <para>
+	All messages will be copied to the history in order, they are
+	received, without respect to priority. 
+      </para>
+      <para>
+	Messages should be sorted to groups with respect, to their originating
+	client, but any client will be able to browse the history of all
+	clients (in addition to browsing it's own messages).
+      </para>
+      
+    </sect2>
+
+    <sect2 id="s-icons">     <title>Sound Icons</title>
+      
+      <para>
+      </para>
+      
+    </sect2>
+    
+    <sect2 id="s-oselect">   <title>Output Device Selection</title>
+      
+      <para>
+	We discuss the usage of multiple output devices in
+	<xref linkend="s-multiple-output"/>. Client should be enabled to
+	explicitly specify the name of output device. When the device is not
+	specified, or server is not configured for a device of specified name,
+	default device will be used. Default device is determined by server
+	according to configuration file, which may assign the name of output
+	device to each name of client (client identifies itself to the server
+	by name).
+      </para>
+	  
+      <para>
+	We believe, that, as far as this model might seem to be confusing, it
+	is straight enough and it allows user to finetune the configuration. It
+	is also intended to be robust, by always present default values.
+      </para>
+      
+    </sect2>
+
+  </sect1>
+  
+  <sect1><title>Output Side</title>
+    
+    <para>
+      Speechd provides a simple and transparent interface for output drivers.
+      Each output driver allows to use one speech synthesizer with speechd. Output
+      driver is implemented as a shared library, which uses the common API, to
+      communicate with speechd. Output driver is called "output module" or simply
+      just the <emphasis>module</emphasis>.
+    </para>
+    
+    <sect2><title>API for Output Modules</title>
+      
+      <para>
+	
+	
+      </para>
+      
+    </sect2>
+    
+    <sect2 id="s-multiple-output"><title>Multiple Output Modules</title>
+      
+      <para>
+	Speechd is enabled to use multiple output mudules, each one for
+	particular speech synthesizer.
+      </para>
+      
+    </sect2>
+    
+    <sect2><title>Configuration</title>
+      
+      <para>
+	Speechd allows to be configured for multiple output speech synthesizers.
+      </para>
+      
+    </sect2>
+    
+  </sect1>
+  
+</chapter>
