@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.h,v 1.9 2003-07-06 15:02:22 hanke Exp $
+ * $Id: set.h,v 1.10 2003-08-11 15:01:40 hanke Exp $
  */
 
 #ifndef ALLOC_H
@@ -58,6 +58,6 @@ int set_output_module_all(char* output_module);
 TFDSetElement* default_fd_set(void);
 		
 void set_param_int(int* parameter, int value);
-void set_param_str(char** parameter, char* value);
+char* set_param_str(char* parameter, char* value);
 
 #endif		
