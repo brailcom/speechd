@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.6 2003-06-08 21:51:54 hanke Exp $
+ * $Id: libspeechd.h,v 1.7 2003-07-06 15:07:43 hanke Exp $
  */
 
 /* Debugging */
@@ -36,6 +36,7 @@ void _SPD_DBG(char *format, ...);
 
 
 /* --------------------- Public data types ------------------------ */
+
 typedef enum{
     SPD_PUNCT_ALL = 0,
     SPD_PUNCT_NONE = 1,
@@ -47,16 +48,34 @@ typedef enum{
     SPD_SPELL_ON = 1
 }SPDSpelling;
 
+typedef enum{
+    SPD_MALE1 = 1,
+    SPD_MALE2 = 2,
+    SPD_MALE3 = 3,
+    SPD_FEMALE1 = 4,
+    SPD_FEMALE2 = 5,
+    SPD_FEMALE3 = 6,
+    SPD_CHILD_MALE = 7,
+    SPD_CHILD_FEMALE = 8
+}SPDVoiceType;
+
+typedef enum{
+    SPD_IMPORTANT = 1,
+        SPD_MESSAGE = 2,
+        SPD_TEXT = 3,
+        SPD_NOTIFICATION = 4,
+        SPD_PROGRESS = 5
+}SPDPriority;
 
 /* -------------- Public functions --------------------------*/
 
 /* Openning and closing Speech Dispatcher connection */
-int spd_open(char* client_name, char* connection_name, char *user_name);
+int spd_open(const char* client_name, const char* connection_name, const char *user_name);
 void spd_close(int connection);
 
 /* Speaking */
-int spd_say(int connection, char* priority, char* text);
-int spd_sayf(int fd, char* priority, char *format, ...);
+int spd_say(int connection, SPDPriority priority, const char* text);
+int spd_sayf(int fd, SPDPriority priority, const char *format, ...);
 
 /* Speech flow */
 int spd_stop(int connection);
@@ -76,43 +95,46 @@ int spd_resume_all(int connection);
 int spd_resume_uid(int connection, int target_uid);
 
 /* Characters and keys */
-int spd_key(int connection, char* priority, char *key_name);
-int spd_char(int connection, char* priority, char *character);
-int spd_wchar(int connection, char* priority, wchar_t wcharacter);
+int spd_key(int connection, SPDPriority priority, const char *key_name);
+int spd_char(int connection, SPDPriority priority, const char *character);
+int spd_wchar(int connection, SPDPriority priority, wchar_t wcharacter);
 
 /* Sound icons */
-int spd_sound_icon(int connection, char* priority, char *icon_name);
+int spd_sound_icon(int connection, SPDPriority priority, const char *icon_name);
 
 /* Setting parameters */
-int spd_set_voice_rate(int connection, int rate);
-int spd_set_voice_rate_all(int connection, int rate);
-int spd_set_voice_rate_uid(int connection, int rate, int uid);
+int spd_set_voice_rate(int connection, signed int rate);
+int spd_set_voice_rate_all(int connection, signed int rate);
+int spd_set_voice_rate_uid(int connection, signed int rate, unsigned int uid);
 
-int spd_set_voice_pitch(int connection, int pitch);
-int spd_set_voice_pitch_all(int connection, int pitch);
-int spd_set_voice_pitch_uid(int connection, int pitch, int uid);
+int spd_set_voice_pitch(int connection, signed int pitch);
+int spd_set_voice_pitch_all(int connection, signed int pitch);
+int spd_set_voice_pitch_uid(int connection, signed int pitch, unsigned int uid);
 
 int spd_set_punctuation(int connection, SPDPunctuation type);
 int spd_set_punctuation_all(int connection, SPDPunctuation type);
-int spd_set_punctuation_uid(int connection, SPDPunctuation type, int uid);
+int spd_set_punctuation_uid(int connection, SPDPunctuation type, unsigned int uid);
 
-int spd_set_punctuation_important(int connection, char* punctuation_important);
-int spd_set_punctuation_important_all(int connection, char* punctuation_important);
-int spd_set_punctuation_important_uid(int connection, char* punctuation_important,
-                                      int uid);
+int spd_set_punctuation_important(int connection, const char* punctuation_important);
+int spd_set_punctuation_important_all(int connection, const char* punctuation_important);
+int spd_set_punctuation_important_uid(int connection, const char* punctuation_important,
+                                      unsigned int uid);
 
 int spd_set_spelling(int connection, SPDSpelling type);
 int spd_set_spelling_all(int connection, SPDSpelling type);
-int spd_set_spelling_uid(int connection, SPDSpelling type, int uid);
+int spd_set_spelling_uid(int connection, SPDSpelling type, unsigned int uid);
 
 
 
 /* --------------  Private functions  ------------------------*/
-int _spd_set_voice_rate(int connection, int rate, char* who);
-int _spd_set_voice_pitch(int connection, int pitch, char *who);
-int _spd_set_punctuation(int connection, SPDPunctuation type, char* who);
-int _spd_set_punctuation_important(int connection, char* punctuation_important, char* who);
-int _spd_set_spelling(int connection, SPDSpelling type, char* who);
+
+int _spd_set_priority(int connection, SPDPriority priority);
+
+int _spd_set_voice_rate(int connection, signed int rate, const char* who);
+int _spd_set_voice_pitch(int connection, int pitch, const char *who);
+int _spd_set_punctuation(int connection, SPDPunctuation type, const char* who);
+int _spd_set_punctuation_important(int connection, const char* punctuation_important, const char* who);
+int _spd_set_spelling(int connection, SPDSpelling type, const char* who);
 
 char* send_data(int fd, char *message, int wfr);
 int isanum(char* str);		
