@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.15 2004-07-13 20:04:52 hanke Exp $
+ * $Id: generic.c,v 1.16 2004-07-18 20:44:48 hanke Exp $
  */
 
 #include <glib.h>
@@ -191,6 +191,8 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 	tmp = module_recode_to_iso(data, bytes, generic_msg_language->name,
 						GenericRecodeFallback);
     }
+
+    if (tmp == NULL) return -1;
 
     *generic_message = module_strip_ssml(tmp);
     xfree(tmp);
