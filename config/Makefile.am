@@ -3,7 +3,7 @@
 SUBDIRS= en cs modules clients
 
 all-local:
-	sed -e s-INCLUDE_PATH-\"$(spdconfdir)\"-g speechd.conf.in > speechd.conf
+	sed -e s:INCLUDE_PATH:\"$(spdconfdir)\":g speechd.conf.in > speechd.conf
 
 
 spdconf_DATA= speechd.conf
