@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.4 2003-09-24 08:42:11 pdm Exp $
+ * $Id: output.c,v 1.5 2003-10-03 17:49:16 hanke Exp $
  */
 
 #include "output.h"
@@ -164,7 +164,7 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
     if (msg->settings.name != NULL){ \
        g_string_append_printf(set_str, #name"=%s\n", msg->settings.name); \
     }else{ \
-       g_string_append_printf(set_str, #name"=NULL"); \
+       g_string_append_printf(set_str, #name"=NULL\n"); \
     }
 
 int
