@@ -97,7 +97,6 @@ Free Documentation License".
 @chapter How to read this manual
 @cindex How to read
 
--> there should be a simple map of the manual and where to search for different concepts
 
 @node Introduction, Invoking, Instructions, Top
 @chapter Introduction
@@ -238,22 +237,35 @@ and therefore it's not and will not be supported in Speech Dispatcher.
 
 @item MBROLA
 
-MBROLA is a multi-lingual software synthesis available for GNU/Linux.
+MBROLA is a multi-lingual software synthesis, available for GNU/Linux.
 MBROLA is not free as in freedom, although it's gratis. The same problems
 as with IBM ViaVoice prevents us to include it in Speech Dispatcher.
+(You can use MBROLA voices through Festival though, although we will
+be much happier if you try to setup a new free -- as in freedom -- voice
+for festival)
 
 @end itemize
-@end itemize
+@end itemize 
 
 @item Speaking applications
 
 @itemize @minus
+
+@item SpeechdSpeak
+
+...
 
 @item Emacspeak
 
 The Emacspeak (by T. V. Raman <@email{raman@@cs.cornell.edu}>) software package
 provides speech output for Emacs, and includes ,,speech servers'' for
 the Dectalk speech synthesizers.
+
+We had been experimenting with an Emacspeak server for Speech Dispatcher,
+but for the bellow stated reasons we decided to abandon this idea and
+implement Speechdspeak, which is in some respects similar to
+Emacspeak, but it's written specially to best suit Speech Dispatcher
+capabilities.
 
 The Emacspeak speech servers package provides servers for several
 additional synthesizers.  None of these programs are normally run by
@@ -267,6 +279,7 @@ we can not use them. Thanks to the author Jim Van Zandt
 <@email{jrv@@vanzandt.mv.com}>, we can learn from the sources and
 write the output driver modules for Speech Dispatcher (emacspeak-ss is
 GPL).
+
 
 @item GTK+ (Gnome Accessibility project)
 
@@ -479,33 +492,76 @@ see sources, I'll try to write this section soon
 @section Output modules
 
 Output modules for Speech Dispatcher have the form of glib plug-ins
-located in src/modules/. Each output module is a data
-structure composed of some parameters and pointers to it's functions.
+(dynamically loaded libraries) located in src/modules/. They
+should have a firm structure, contain all the required functions
+and data structures.
 
 @menu
 * Basic structure::             The definition of an output module
+* How to write new output module::  
 * Output module functions::     stop(), pause(), ...   
+* Configuration of output modules::  
 @end menu
 
-@node Basic structure, Output module functions, Output modules, Output modules
+@node Basic structure, How to write new output module, Output modules, Output modules
 @subsection Basic structure
 
+The heart of each output module is this structure:
+
 @example
-typedef struct @{
-  gchar    *name;
-  gchar    *description;
-  GModule  *gmodule;
-  gint     (*write)       (const gchar *, gint, void*);
-  gint     (*stop)        (void);
-  gchar*   (*pause)       (void);
-  gint     (*is_speaking) (void);
-  gint     (*close)       (void);
-  SPDModuleSettings settings;
-@} OutputModule;
+typedef struct@{
+    gchar    *name;
+    gchar    *description;
+    GModule  *gmodule;
+    gint     (*write)       (gchar *, size_t, TFDSetElement*);
+    gint     (*stop)        (void);
+    size_t   (*pause)       (void);
+    gint     (*is_speaking) (void);
+    gint     (*close)       (void);
+    SPDModuleSettings settings;
+@}OutputModule;
 @end example
 
-This structure is defined in @file{intl/modules.h} and therefore 
-this header must be included in every plug-in source code.
+Each output module fills in some of the items (e.g. name and description, function
+calls pointers) on module_load() and then Speech Dispatcher provides the rest
+(gmodule, settings). After module_init(), this structure is fully working and
+Speech Dispatcher will communicate with the output module only through
+this simple interface. So you can see what are the functions each new
+output module must implement, nothing else is necessary.
+
+To be able to load the output module, two additional functions must
+be present in it's code:
+
+@example
+OutputModule* module_load(configoption_t **options, int *num_options);
+int module_init(void);
+@end example
+
+They are discussed in more details in @ref{How to write new output module}.
+
+@node How to write new output module, Output module functions, Basic structure, Output modules
+@subsection How to write new output module
+We will recommend here a basic structure of the code for an output module
+you should follow, although it's perfectly ok to establish your own if
+you have reasons to do so, if all the necessary functions and data are
+defined somewhere in the file. For this purpose, we will use examples
+from the output module for Flite (Festival Lite), so it's recommended
+to keep looking at @code{flite.c} for reference.
+
+A few rules you should respect:
+@itemize
+        @item Everything is declared as @code{static} except where explicitly desired to be otherwise.
+        @item If one or more new threads are used in the output module, they must block all signals.
+        @item On module_close(), all lateral threads and processes should be terminated,
+        all memmory freed. Don't suppose module_close() is allways called before exit()
+        and the sources will be freed automatically.
+        @item All of the functions and macros you define should have prefix module_
+        @item We will be happy if all the copyrights are assigned to Brailcom, o.p.s.
+        in order for us to be in a better legal position against possible intruders.
+@end itemize
+
+The basic structure OutputModule is defined in @file{intl/modules.h}
+and therefore  this header must be included in every plug-in source code.
 
 @example
 #include "modules.h"
@@ -519,100 +575,199 @@ different speech synthesis settings.
 #include "fdset.h"
 @end example
 
-Now what are the 5 functions: write(), stop(), pause(),
-is_speaking() and close()? This is the core of every output module and you
-have to define their bodies in the source code of your plug-in.
+Additionally, it's also reccomended to include @code{module_utils.c}
+which provides many tools to help writing output modules
+and make the code simpler.
 
-You also have to define the output plugin name (usually the name
-of the device or program) and a short description (full name, version, etc.)
-not longer than one or two lines. The third entry `gmodule' should
-be set to NULL, it will be filled later by Speech Dispatcher. So the definition
-can look like this:
+Definition of macros @code{MODULE_NAME} and @code{MODULE_VERSION}
+should follow:
 
 @example
-OutputModule modinfo_flite = @{
-   "flite",                      /* name */
-   "Software synthetizer Flite", /* description */
-   NULL,                         /* GModule (should be set to NULL)*/
-   flite_write,                  /* receives data for synthesis*/
-   flite_stop,                   /* stops speaking */
-   flite_pause,                  /* pauses speaking
-   flite_is_speaking,            /* returns information whether the device 
-                                  * is speaking*/
-   flite_close,                   /* called on exit */
-   @{0, 0@}
-@};
+#define MODULE_NAME     "flite"
+#define MODULE_VERSION  "0.1"
 @end example
 
-Each output module has associated a module_load and
-module_init functions that are called at the starting
-of Speech Dispatcher.
-
-@code{module_load()} should only return a filled in
-structure of the type OutputModule (defined above).
-You should allways initialize the two tables
-(.settings.params and .settings.voices), where
-the configuration of the output module will be passed,
-if you use this type of configuration in your output
-module (you usually do). It can look like this:
+If you want to use the @code{DBG(message)} macro from @code{module_utils.c}
+to print out debugging messages, you should insert these two lines. (Please
+don't use printf for debugging, this doesn't work with threads!)
+(You will later have to actually start debugging in @code{module_load()})
 
 @example
-OutputModule *module_load(void)@{
-       module_flite.settings.params = g_hash_table_new(g_str_hash, g_str_equal);
-       module_flite.settings.voices = g_hash_table_new(g_str_hash, g_str_equal);
-       return &module_flite;
+#define DEBUG_MODULE 0  /* Switch to 1 for debugging */
+DECLARE_DEBUG_FILE("/tmp/debug-flite");
+@end example
+
+You also have to define the function prototypes, first for your
+own functions you use in your module internals, and then also
+the public functions which are passed to the OutputModule
+structure. You can do this easily by using the macro
+@code{DECLARE_MODULE_PROTOTYPES()} (See module_utils.c
+for the expansion.)
+
+@example
+/* Public function prototypes */
+DECLARE_MODULE_PROTOTYPES();
+@end example
+
+When these prototypes are defined, you can finally define
+the OutputModule structure for your plugin, again, it can
+be easily done using a macro (recommended: see module_utils.c
+for the expansion).
+
+@example
+DECLARE_MODINFO("flite", "Flite software synthesizer v. 1.2");
+@end example
+
+You should specify the name of your output module, which should
+coincide with the filename of that plugin, in the first
+parameter and a short description in the second one, together
+with the version of the @emph{synthesizer} this plugin is
+intended for. The version of your @emph{plugin} will be appended
+automatically from MODULE_VERSION.
+
+Optionally, if your output module requires some special configuration,
+apart from defining voices (they are handled differently, see bellow),
+you can declare the requested option here. It will expand into a dotconf
+callback and declaration of the variable.
+
+(You will later have to actually register these options for
+Speech Dispatcher in @code{module_load()})
+
+There are currently 4 types of possible configuration options:
+@itemize
+@item @code{MOD_OPTION_1_INT(name);   /* Set up `int name' */}
+@item @code{MOD_OPTION_1_STR(name);   /* Set up `char* name' */}
+@item @code{MOD_OPTION_2(name);       /* Set up `char *name[2]' */}
+@item @code{MOD_OPTION_@{2,3@}_HT(name);  /* Set up a hash table */}
+@end itemize
+
+@xref{Configuration of output modules}.
+
+For example Flite uses 2 options:
+@example
+MOD_OPTION_1_INT(FliteMaxChunkLenght);
+MOD_OPTION_1_STR(FliteDelimiters);
+@end example
+
+This is the end of the declarations section, take a deep breath, function
+definitions follow.
+
+Every output module is being started in 2 phases: @emph{loading} and @emph{initialization}.
+The goal of loading is to pass Speech Dispatcher a pointer to OutputModule,
+init debugging and register the configuration options. In the later phase,
+initialization, all the configuration has been read yet and the output module
+can accomplish the rest (check if the synthesizer works, set up threads etc.).
+
+You should start by the definition of @code{module_load()}. Note that
+this function @emph{can't} be static in order to be able to load the
+module!
+
+@example
+OutputModule* module_load(configoption_t **options, int *num_options)@{
+@end example
+
+First of all, you should start debugging, if you decided to use 
+the DBG() macro. @code{module_utils.c} offers this macro:
+
+@example
+    INIT_DEBUG_FILE();
+@end example
+
+So, lets finally register the configuration options. If you
+use the @code{module_utils.c} macros, you don't have to
+touch the parameters @code{options} and @code{num_options}
+directly. If you don't, please see @code{module_utils.c}
+and DotConf documentation for more details.
+
+Just use these macros:
+@itemize
+        @item MOD_OPTION_1_INT_REG(name, default);  /* for integer parameters */
+        @item MOD_OPTION_1_STR_REG(name, default);  /* for string parameters */
+        @item MOD_OPTION_MORE_REG(name);   /* for an array of strings */
+        @item MOD_OPTION_HT_REG(name);     /* for hash tables */
+@end itemize
+
+Again, example from Flite:
+@example
+    MOD_OPTION_1_INT_REG(FliteMaxChunkLenght, 300);
+    MOD_OPTION_1_STR_REG(FliteDelimiters, ".");
+@end example
+
+If you want to enable the mechanism for setting
+voices through AddVoice, use this function (for
+an example see @code{festival.c}):
+
+@example
+    module_register_settings_voices(&module_info);
+@end example
+
+@xref{Configuration of output modules}.
+
+At this place, before terminating, Flite prints it's first debugging message:
+
+@example
+    DBG("module_load()\n");
+@end example
+
+The last thing you have to do here is return the module's OutputModule
+structure.
+
+@example
+    return &module_info;
 @}
 @end example
 
-When Speech Deamon reaches the point in configuration where module_foo.settings.params
-and module_foo.settings.voices is filled with the appropriate parameters,
-module_init() function is called. This function should do all of the initialization
-you need to do for your plugin.
+The second phase of starting an output module is handled by
+(also @emph{non-static}):
 
 @example
-        int module_init(void)@{
-            ...
-            return 0;
-        @}       
+int module_init(void)@{
+[...]
+@}
 @end example
 
-It should return 0 on succes, -1 if the initialization failed. If there
-are some parameters your output module requires to be defined, you
-should check if there are really present in module_foo.settings.param
-and return -1 if it isn't so.
+The body of this function is entirely up to you. You should do all
+the necessary initialization of the particular synthesizer.
+All declared configuration variables and configuration hash
+tables, together with the definition of voices, are filled
+with their values (either default or read from configuration),
+so you can use them yet.
 
-An example from flite:
+This function should return 0 if the module was initialized
+successfully, or -1 if some failure was encountered. In
+this case, you should clean up everything, cancel threads,
+deallocate memory etc, no more functions of this output
+module will be touched (except for other tries to load
+and initialize the module).
 
+Example from Flite:
 @example
-int
-module_init(void)
-@{
     /* Init flite and register a new voice */
     flite_init();
     flite_voice = register_cmu_us_kal();
 
     if (flite_voice == NULL)@{
-        if (DEBUG_FLITE) printf("Couldn't register the basic kal voice.\n");
+        DBG("Couldn't register the basic kal voice.\n");
         return -1;
     @}
-
-    /* Initialized succesfuly */
-    return 0;
-@}
+    [...]
 @end example
 
-@node Output module functions,  , Basic structure, Output modules
+Now you have to define the synthesis control functions @code{module_write}, @code{module_stop}
+etc. @ref{Output module functions}, and try to implement it somehow. If it doesn't work
+(and it will probably not), it's most likely not your fault, complain! This manual
+is not complete and the instructions in this sections aren't either. Get in touch with
+us and together we can figure out what's wrong, fix it and then warn others in this
+manual.
+
+@node Output module functions, Configuration of output modules, How to write new output module, Output modules
 @subsection Output module functions
 
-We use a ``synthesizer_'' prefix in the names of these functions
-to be able to speak in general terms, but note that in real 
-output modules, there should be some other prefix (the name of the
-output module, in most cases). So the functions are called for example
-@code{flite_write()}, @code{festival_is_speaking()}, @code{apollo_stop()} etc.
-These functions should always be declared static.
+Note that all these functuions have to be declared as static,
+so that they don't mix with other output modules.
 
-@deffn {Output module functions}  gint synthesizer_write (const gchar *data, gint len, TFDSetElement* set)
-@findex synthesizer_write()
+@deffn {Output module functions} static gint module_write (const gchar *data, size_t bytes, TFDSetElement* set)
+@findex module_write()
 
 This is the function where actual speech output is produced. It is called
 every time Speech Dispatcher decides to send a message to synthesis. The data
@@ -642,14 +797,15 @@ voice_type is used only when the output module supports more types of voices
 for this particular language. The values represent (from @file{intl/fdset.h})
 @example
 typedef enum @{
-    MALE1 = 0,
-    MALE2 = 1,
-    MALE3 = 2,
-    FEMALE1 = 3,
-    FEMALE2 = 4,
-    FEMALE3 = 5,
-    CHILD_MALE = 6,
-    CHILD_FEMALE = 7
+    NO_VOICE = 0,
+    MALE1 = 1,
+    MALE2 = 2,
+    MALE3 = 3,
+    FEMALE1 = 4,
+    FEMALE2 = 5,
+    FEMALE3 = 6,
+    CHILD_MALE = 7,
+    CHILD_FEMALE = 8
 @}EVoiceType;
 @end example
 We can consider also other voice types. 
@@ -665,11 +821,11 @@ the case of some software synthesizers who use a blocking
 function (eg. spd_audio_play) or hardware devices that have
 to send data to output modules at some particular speed. Note
 that if you use threads for that purpose, you have to set them
-to ignore all signals.
+to ignore all signals. See @code{flite.c} for reference.
 
 @end deffn
 
-@deffn {Output module function}  {gint synthesizer_stop} (void)
+@deffn {Output module function}  {static gint module_stop} (void)
 @findex synthesizer_stop()
 
 This function should stop the synthesis of the currently spoken message
@@ -679,12 +835,12 @@ It should return 0 on success, -1 otherwise.
 
 @end deffn
 
-@deffn {Output module function}  {gchar* synthesizer_pause} (void)
-@findex synthesizer_pause()
+@deffn {Output module function}  {static size_t synthesizer_pause} (void)
+@findex module_pause()
 
 This function should stop speaking on the synthesizer (or sending
-data to soundcard) and return the rest of the message that wasn't
-synthesized yet.
+data to soundcard) and return the position where the text was
+interrupted.
 
 This may be a different approach of what you would
 expect on the first sight, but it's important to understand that
@@ -696,37 +852,37 @@ Emacs buffer in order to, say, check new mail. If the output
 device would be blocked by the Emacs pause, he couldn't check
 his email, because there would be no output.
 
-It's ok not to return the exact text in precission of letters,
+It's ok not to return the exact text position in precission of letters,
 you can for example take sentences as units. Also, this function
 can be blocking for a short time, so you can wait till the last
 sentence is said and then return the text from the end of this
 sentence. 
 
 For some software synthesizer the desired effect can be archieved in this way:
-When synthesizer_write() is called, you execute a separate
+When @code{module_write()} is called, you execute a separate
 process and pass it the requested message. This process
 cuts the message into sentences and then runs in a loop
 and sends these pieces to synthesis. If a signal arrives
-from synthesizer_pause, you set a flag and stop that loop
+from @code{module_pause()}, you set a flag and stop that loop
 at the point where next piece of text would be synthesized.
 Instead, you return the rest of the unprocessed text to
-synthesizer_pause.
+@code{module_pause()}.
 
-It's generally better if the returned text overlays
+It's generally better if the ``returned text'' overlays
 a little bit with what was actually said than if there is
 a gap.
 
 If the given output device doesn't support synchronization
 (@pxref{synthesizer_is_speaking}), it should execute STOP on the output
-device and return a NULL pointer.
+device and return 0.
 
 It's not an error if this function is called when the device
-is not speaking. In this case, it should return NULL.
+is not speaking. In this case, it should return 0.
 
 @end deffn
 
-@deffn {Output module function}  {gint synthesizer_is_speaking} (void)
-@findex synthesizer_is_speaking()
+@deffn {Output module function}  {static gint module_is_speaking} (void)
+@findex module_is_speaking()
 @anchor{synthesizer_is_speaking}
 
 This function is very important to let Speech Dispatcher know how to
@@ -739,8 +895,8 @@ It should return 0 if the synthesis is silent, 1 if it is speaking.
 This can be a very hard problem and it's not clear how to do it
 with different synthesizers that don't support backward communication.
 Sometimes maybe there is a possibility to calculate a good estimate
-(one seccond or so), but if there is really no way how to tell,
-it can also return 2 for ``don't know''. The usefullness of such
+(one second or so), but if there is really no way how to tell,
+it can also return 2 for ``don't know''. The usefulness of such
 output module would be highly reduced: there will be problems in
 cooperating with other output devices, no real possibility to
 use sound-mapped sound icons, priorities wouldn't sometimes work,
@@ -749,26 +905,33 @@ it will sometimes cut-off text etc.
 You should do your best to get it working (sometimes there are
 not-obvious ways around), but if this effort fails, it's better
 to return 2 than a bad estimate (which can cause yet a greater damage).
-Not that such a module is still usefull, because the user can map all
-his sound-icons to text, use only this ouput device etc.
+Not that such a module is still useful, because the user can map all
+his sound-icons to text, use only this output device etc.
 
 This function should return very fast, because Speech Dispatcher calls
 it very often for different purposes.
 
 @end deffn
 
-@deffn {Output module function}  {gint synthesizer_close} (void)
+@deffn {Output module function}  {static gint module_close} (void)
+@findex module_close()
 
-This function is called when Speech Dispatcher terminates. There are no
-special requirements on what the output module should do.
+This function is called when Speech Dispatcher terminates. The output
+module should terminate all threads and processes, free all resources,
+close all sockets etc. Never assume this function is called only when
+Speech Dispatcher terminates and exit(0) will do the work for you. It's
+perfectly ok for Speech Dispatcher to load, unload or reload output modules
+in the middle of it's run.
 
 It should return 0 on success, -1 otherwise.
 
 @end deffn
 
+@node Configuration of output modules,  , Output module functions, Output modules
+@subsection Configuration of output modules
+
 @node Public API, SSIP, Internal structure, Top
 @chapter Public API
-
 
 @menu
 * SSIP (socket communication)::  Direct connection
@@ -816,10 +979,10 @@ functions.
 
 The three parameters @code{client_name}, @code{connection_name} and @code{username}
 are there only for informational and navigational purpose, they don't affect
-any settings or behavior of any functions. The authentification mechanism
+any settings or behavior of any functions. The authentication mechanism
 has nothing to do with @code{username}. These parameters are important for
 the user when he wants to set some parameters for a given session, when he
-want's to browse through history, etc.
+wants to browse through history, etc.
 
 @code{client_name} is the name of the client that opens the connection. Normally,
 it should be the name of the executable, for example ``lynx'', ``emacs'', ``bash'',
@@ -871,14 +1034,14 @@ synthesis. It must be encoded in UTF-8. Note that this doesn't have to be what
 you will finally hear. It can be affected by different settings as spelling,
 punctuation, text substitution etc.
 
-It returns 0 on succes, -1 otherwise.
+It returns 0 on success, -1 otherwise.
 
 @end deffn
 
 @deffn {C API function}  int spd_sayf(int connection, char* priority, char* format, ...);
 @findex spd_sayf()
 
-Similar to @code{spd_say()}, simulates the behaviour of printf().
+Similar to @code{spd_say()}, simulates the behavior of printf().
 
 @code{format} is a string containing text and format of the parameters, like ``%d'',
 ``%s'' etc. It must be encoded in UTF-8.
@@ -893,7 +1056,7 @@ For example:
        spd_sayf(conn, "important", ``Fatal error on [%s:%d]'', filename, line);
 @end example
 
-But be carefull! For example this doesn't work:
+But be careful! For example this doesn't work:
 
 @example
        spd_sayf(conn, "notification", ``Pressed key is %c.'', key);
@@ -906,7 +1069,7 @@ is:
 @example
        spd_sayf(conn, "notification", ``Pressed key is %s'', key);
 @end example
-where key is a unicode string.
+where key is a encode string.
 
 It returns 0 on succes, -1 otherwise.
 @end deffn
@@ -922,7 +1085,7 @@ It returns 0 on succes, -1 otherwise.
 Stops the message currently being spoken on a given connection. If there
 is no message being spoken, does nothing. (It doesn't touch the messages
 waiting in queues). This is intended for stops executed by the user,
-not for automatical stops (becouse automatically, you can't control
+not for automatic stops (because automatically, you can't control
 how many messages are still waiting in queues on the server).
 
 @code{connection} is the file descriptor obtained by spd_open().
@@ -948,7 +1111,7 @@ The same as spd_stop() except that it stops some other client than
 the calling one. You must specify this client in @code{target_uid}.
 
 @code{target_uid} is the unique ID of the connection you want
-to execute stop() on. It can be obtained from spd_history_get_clien_list(),
+to execute stop() on. It can be obtained from spd_history_get_client_list(),
 @xref{History commands (C)}.
 
 It returns 0 on succes, -1 otherwise.
@@ -984,7 +1147,7 @@ The same as spd_cancel() except that it executes cancel for some other client
 than the calling one. You must specify this client in @code{target_uid}.
 
 @code{target_uid} is the unique ID of the connection you want
-to execute cancel() on. It can be obtained from spd_history_get_clien_list(),
+to execute cancel() on. It can be obtained from spd_history_get_client_list(),
 @xref{History commands (C)}.
 
 It returns 0 on succes, -1 otherwise.
@@ -997,14 +1160,14 @@ It returns 0 on succes, -1 otherwise.
 @findex int spd_pause()
 
 Pauses all messages received from the given connection. No messages
-except for priority @code{notification} and @code{progress} all throwed away,
+except for priority @code{notification} and @code{progress} all threw away,
 they are all waiting in
-a separate queue for resume(). The message that was beeing said
+a separate queue for resume(). The message that was being said
 in the moment pause() was received will be continued from the place
 where it was paused.
 
 To be able to guarantee this, we had to define this function
-as blocking. On some devices, it can return immediatelly
+as blocking. On some devices, it can return immediately
 while on some others, it can return after a short period
 of time, for example after some sentence is synthesized till
 the end.
@@ -1041,7 +1204,7 @@ The same as spd_pause() except that it executes pause for some other client
 than the calling one. You must specify this client in @code{target_uid}.
 
 @code{target_uid} is the unique ID of the connection you want
-to pause. It can be obtained from spd_history_get_clien_list(),
+to pause. It can be obtained from spd_history_get_client_list(),
 @xref{History commands (C)}.
 
 It returns 0 on succes, -1 otherwise.
@@ -1081,7 +1244,7 @@ The same as spd_resume() except that it executes resume for some other client
 than the calling one. You must specify this client in @code{target_uid}.
 
 @code{target_uid} is the unique ID of the connection you want
-to resume. It can be obtained from spd_history_get_clien_list(),
+to resume. It can be obtained from spd_history_get_client_list(),
 @xref{History commands (C)}.
 
 It returns 0 on succes, -1 otherwise.
@@ -1134,7 +1297,7 @@ It returns 0 on succes, -1 otherwise.
 @end deffn
 
 @node Sound icons (C), Parameter setting commands (C), Characters and keys (C), C API
-@subsection Soun icons
+@subsection Sound icons
 
 @deffn {C API function}  int spd_sound_icon(int connection, int priority, char* icon_name);
 @findex spd_sound_icon()
@@ -1159,7 +1322,7 @@ please use underscores (`_').
 
 The following parameter setting commands are available. For configuration
 and history clients there are also functions for setting the value for
-some other connection and for all connections. They are listed bellow separatelly.
+some other connection and for all connections. They are listed bellow separately.
 
 Please @xref{Speech parameters}, for a general description of what they mean.
 
@@ -1212,7 +1375,7 @@ It returns 0 on succes, -1 otherwise.
 @findex spd_set_spelling()
 
 Switches spelling mode on and off. If set to on, all incomming messages
-from this particular connection will be processed according to appropiate
+from this particular connection will be processed according to appropriate
 spelling tables (see spd_set_spelling_table()).
 
 @code{connection} is the file descriptor obtained by spd_open().
@@ -1252,7 +1415,7 @@ choose or use one of the standard tables @xref{Standard spelling tables},
 @code{type_table} is a NULL terminated string containing the name of
 the requested table.
 
-@deffn {C API function}  int spd_set_voice(int connection, SPDVoice voice);
+@deffn {C API function}  int spd_set_voice_type(int connection, SPDVoiceType voice);
 @findex spd_set_voice()
 @end deffn
 
@@ -1280,11 +1443,31 @@ lowest and the highest pitch respectively.
 
 @end deffn
 
+@deffn {C API function} int spd_set_punctuation_table(int connection, const char* ptable);
+@findex spd_set_punctuation_table()
+@end deffn
+@deffn {C API function} int spd_set_spelling_table(int connection, const char* stable);
+@findex spd_set_spelling_table()
+@end deffn
+@deffn {C API function} int spd_set_text_table(int connection, const char* ttable);
+@findex spd_set_text_table()
+@end deffn
+@deffn {C API function} int spd_set_sound_table(int connection, const char* stable);
+@findex spd_set_sound_table()
+@end deffn
+@deffn {C API function} int spd_set_char_table(int connection, const char* ctable);
+@findex spd_set_char_table()
+@end deffn
+@deffn {C API function} int spd_set_key_table(int connection, const char* ktable);
+@findex spd_set_key_table()
+@end deffn
+
+
 @deffn {C API function}  int spd_set_history(int connection, int history_flag);
 @findex spd_set_history()
 
 This function should never be used except by history clients when they are saying
-message that allready is in history!
+message that already is in history!
 
 @end deffn
 
@@ -1566,7 +1749,7 @@ the pause are not output (but they remain stored in the message history).
 
 It is an error to send the @code{RESUME} command when the output
 corresponding to the given argument is not paused by a previous
-invocation of the @code{PAUSE} command.  Such an error is signalled by
+invocation of the @code{PAUSE} command.  Such an error is signaled by
 a @code{4XX} return code.
 
 The meaning of the command arguments is the same as in the @code{STOP}
@@ -1846,7 +2029,7 @@ listed.
 @var{start}.  Both @var{number} and @var{start} must be positive
 integers.  The first message is numbered 1, the second 2, etc.  If the
 given range exceeds the range of available messages, no error is
-signalled and the given range is restricted to the available range of
+signaled and the given range is restricted to the available range of
 messages.
 
 Messages are sorted by the criterion used in the last client's
@@ -2147,15 +2330,15 @@ QUIT
 @cindex priorities
 
 Speech Dispatcher can't synthesize everything that comes to it,
-for the simple reason, that messages are often comming faster
+for the simple reason, that messages are often coming faster
 than a synthetic voice can say them. On the screen of a
 monitor, there is relatively a lot of space compared to
-one-chanel speech synthesis output. For this reason, we
+one-channel speech synthesis output. For this reason, we
 use a system of several priorities targeted at different
 types of messages.
 
 @menu
-* Description of priorities::  What are the available priorities 
+* Description of priorities::   What are the available priorities 
 * Examples of using priorities::  When to use which priority
 @end menu
 
@@ -2215,7 +2398,7 @@ spoken.
 
 @subsection Priority @code{progress}
 
-This is a special priority for messages that are comming
+This is a special priority for messages that are coming
 shortly one after each other and they carry the information
 about some work in progress (e.g. @code{Completed 45%}).
 If each new message would interrupt each other (see priority
@@ -2631,4 +2814,4 @@ to another voice by the output module.
 @c  LocalWords:  su AddModule DefaultModule xref identd printindex Dectalk GTK
 
 @c speechd.texi ends here
-@c  LocalWords:  emph
+@c  LocalWords:  emph soundcard precission archieved succes
