@@ -1,3 +1,7 @@
+2004-11-14  Milan Zamazal  <pdm@brailcom.org>
+
+	* configure.in (audio): -L/usr/X11R6/lib added to the test.
+
 2004-11-13  Hynek Hanke  <hanke@chopin>
 
 	* src/tests/Makefile.am (bin_PROGRAMS): Exclude audio target.

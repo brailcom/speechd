@@ -61,7 +61,7 @@ AC_CHECK_LIB(audio,
         AuOpenServer,
 	nas_aud="true";echo "Compiling with NAS support.";,
         nas_aud="false";echo "*** NAS Audio library missing. Compiling without NAS support! See INSTALL.";,
-	-lXau)
+	-L/usr/X11R6/lib -lXau)
 
 AM_CONDITIONAL(nas_support, test $nas_aud = "true")
 
