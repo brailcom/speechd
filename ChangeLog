@@ -1,3 +1,30 @@
+2004-07-21  Hynek Hanke  <hanke@chopin>
+
+	* src/modules/module_utils.h: module_init now has a new parametere char **status_info.
+
+	* src/audio/Makefile.am (spdlib_LTLIBRARIES): Install into spdlibdir.
+
+	* configure.in: Define spdlibdir.
+
+	* src/server/module.c (load_output_module): Send the INIT command and provide the user with
+	the resulting information in log.
+
+	* src/modules/module_utils.c (module_strip_punctuation_some): Don't care about index marks.
+
+	* src/modules/generic.c (module_init): Provide information about the reason if initialization fails.
+
+	* src/modules/flite.c (module_init): Provide information about the reason if initialization fails.
+
+	* src/modules/festival.c (module_init): Provide information about the reson if initialization fails.
+
+	* src/modules/module_main.c (main): Wait for INIT command after launch.
+
+	* src/server/speechd.h (BUF_SIZE): Lowered to 128 since we are reading only one line.
+
+	* src/server/speechd.c (MSG2): Append exact timestamps to custom log also.
+
+	* src/modules/festival_client.c: Don't wait for response with character, sound-icon, key.
+
 2004-07-18  Hynek Hanke  <hanke@chopin>
 
 	* src/modules/generic.c (module_speak): Handle if recoding fails.
