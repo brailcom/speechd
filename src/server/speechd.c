@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.17 2003-03-29 20:15:19 hanke Exp $
+ * $Id: speechd.c,v 1.18 2003-03-30 22:31:58 hanke Exp $
  */
 
 #include "speechd.h"
@@ -36,7 +36,6 @@
 int server_socket;
 
 gint (*p_msg_nto_speak)() = message_nto_speak;
-gint (*p_hc_lc)() = hc_list_compare;
 gint (*p_msg_lc)() = message_list_compare_fd;
 
 /* Logging messages, level of verbosity is defined between 1 and 5, 
@@ -49,7 +48,7 @@ MSG(int level, char *format, ...)
 		int i;
 		char *format_with_spaces;
 		
-		format_with_spaces = spd_malloc(sizeof(char)*(strlen(format) + 3*level + 1));
+		format_with_spaces = (char*) spd_malloc(sizeof(char)*(strlen(format) + 3*level + 1));
 		format_with_spaces[0] = '\0';
 		for(i=1;i<level;i++){
 			strcat(format_with_spaces, "  ");
@@ -348,7 +347,7 @@ main()
 						ret = speechd_connection_new(server_socket);
 						if (ret!=0){
 						  	MSG(2,"Failed to add new client");
-							if (SPEECHD_DEBUG) FATAL("failed to add new client");
+							if (SPEECHD_DEBUG) FATAL("Failed to add new client");
 						}						
 				    }else{	
 						/* client activity */
