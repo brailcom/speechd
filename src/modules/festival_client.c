@@ -458,6 +458,36 @@ int festivalClose(FT_Info *info)
     return 0;
 }
 
+int
+festivalSetVoice(FT_Info *info, char *voice)
+{
+    FILE* fd;
+    char buf[4];
+    int n;
+
+    fd = fdopen(dup(info->server_fd),"wb");
+    /* Send the command and set new voice */
+    fprintf(fd,"(%s)\n", voice);
+    fclose(fd);
+
+    for (n=0; n < 3; )
+        n += read(info->server_fd,buf+n,3-n);
+    
+    buf[3] = 0;
+    if (!strcmp(buf,"ER\n")){
+        printf("Couldn't set voice!\n");
+        return 1;
+    }else{
+        client_accept_s_expr(info->server_fd);
+    }
+
+    for (n=0; n < 3; )
+        n += read(info->server_fd,buf+n,3-n);
+
+    return 0;
+}
+
+
 /* For testing purposes, this library can be compiled as
  * a standalone program, please see the introduction at
  * the beginning  of this file
