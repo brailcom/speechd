@@ -1,3 +1,10 @@
+
+2003-04-04	Hynek Hanke	<hanke@volny.cz>
+	* src/server/server.c (stop_c): Return 0 after resume.
+	* src/server/dc_decl.h (cb_AddSndIcons): Accept more files defining icons for the same language.
+	* src/modules/festival.c: Prototype for Festival output plugin.
+	* src/clients/say.c: Unused variables removed.
+
 2003-04-02  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/server/msg.h: Multiple occurence of
