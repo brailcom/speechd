@@ -1,9 +1,53 @@
+2003-09-11  Hynek Hanke  <hanke@volny.cz>
+
+	* src/modules/festival_client.c: Formating.
+
+	* config/modules/flite.conf: Reformated.
+
+	* config/modules/epos-generic.conf: Reformated.
+
+	* config/modules/festival.conf: Reformated.
+
+	* src/modules/festival.c (_festival_parent): Only write samples to soundcards if they
+	are more than zero.
+
+	* src/server/speaking.c (stop_priority_except_first): Removed unnecessary debugging message.
+
+	* src/server/speechd.c (speechd_load_configuration): Unload old output modules before
+	loading new ones.
+
+	* src/server/output.c (output_close): Sleep only 100 usecs before killing the module.
+
+	* src/server/parse.c (parse): Redudant entry for CHAR removed from CHECK_SSIP_COMMANDs.
+	(parse_char): Pass inside_block[fd] as parameter of queue_message, since CHAR is allowed
+	inside blocks.
+
 2003-09-10  Hynek Hanke  <hanke@volny.cz>
 
 	* src/modules/module_utils.c (module_strip_punctuation_some): Don't use unicode (this processing is called after converting to uni-byte character set).  
 
-2003-09-07  Hynek Hanke  <hanke@volny.cz>
+2003-09-08  Hynek Hanke  <hanke@volny.cz>
 
+	* config/modules/epos-generic.conf: Use "play" as the output device.
+
+	* src/modules/generic.c (_generic_child): Bugfix: setpgid() takes two arguments, not zero.
+
+	* src/modules/generic.c (_generic_child): Allocate new char *text for each chunk of data
+	that comes, not only once.
+
+	* config/modules/festival.conf: Formating.
+
+	* config/modules/epos-generic.conf: Formating.
+	(GenericStripPunctChars): New option.
+
+	* src/modules/generic.c (module_write): Strip only requested punctuation characters.
+	(_generic_child): Escape also '`'.
+
+	* src/server/output.c (output_is_speaking): Bug fixed, report the right value, not just
+	-1. Don't unlock mutex (since it isn't locked).
+
+2003-09-07  Hynek Hanke  <hanke@volny.cz>
+	
 	* Big changes in output modules and communication with output modules.
 	
 	* Client-specific configuration.
