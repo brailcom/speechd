@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.4 2003-04-24 10:21:03 pdm Exp $
+ * $Id: apollo.c,v 1.5 2003-04-24 12:22:30 pdm Exp $
  */
 
 
@@ -190,7 +190,7 @@ gint apollo_write (gchar *data, gint len, void* set_)
   /* TODO: Apollo has a buffer of a certain size (~2 KB?).  If the buffer size
      is exceeded, the extra data is thrown away. */
   {
-    int blen = len * sizeof (gchar);
+    int blen = len * sizeof (gchar) + 1;
     gchar *edata = g_malloc (blen);
     int result;
     
@@ -202,7 +202,10 @@ gint apollo_write (gchar *data, gint len, void* set_)
       {
 	int i;
 	for (i = 0; i < len; i++)
-	  edata[i] = (data[i] == '@' ? AT_REPLACEMENT_CHAR : data[i]);
+	  edata[i] = (data[i] == '@'  ? AT_REPLACEMENT_CHAR :
+		      data[i] == '\n' ? '\r' :
+		                        data[i]);
+	edata[len] = '\r';
 	result = write_it (edata, blen);
 	g_free (edata);
       }
