@@ -1,5 +1,9 @@
 2003-04-17  Milan Zamazal  <pdm@brailcom.org>
 
+	* Makefile (clean): Remove *.info*, not only *.info.
+	(clean): Renamed to `mostlyclean'.
+	(maintainer-clean, distclean, clean): New trivial targets.
+
 	* speechd.texi (Parameter setting commands): New commands SET
 	PUNCTUATION_TABLE a SET IMPORTANT_PUNCTUATION.
 	(Information retrieval commands): New command LIST
