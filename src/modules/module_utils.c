@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.4 2003-06-25 13:44:07 pdm Exp $
+ * $Id: module_utils.c,v 1.5 2003-06-27 12:44:06 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -353,6 +353,7 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
     short *samples = NULL;
     int bytes;
     int num_samples = 0;
+    int ret;
 
     module_sigblockall(&some_signals);
 
@@ -360,7 +361,11 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
 
     data = xmalloc(CHILD_SAMPLE_BUF_SIZE);
 
-    spd_audio_open(module_sample_wave);
+    ret = spd_audio_open(module_sample_wave);
+    if (ret == -1){
+        DBG("Can't open audio output!\n");
+        return;
+    }
 
     DBG("Entering child loop\n");
     while(1){
@@ -683,7 +688,7 @@ module_semaphore_init()
     ret = sem_init(semaphore, 0, 0);
     if (ret != 0){
         DBG("Semaphore initialization failed");
-        free(semaphore);
+        xfree(semaphore);
         semaphore = NULL;
     }
     return semaphore;
