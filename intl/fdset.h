@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.20 2003-06-20 00:20:33 hanke Exp $
+ * $Id: fdset.h,v 1.21 2003-07-07 08:38:57 hanke Exp $
  */
 
 #ifndef FDSET_H
@@ -56,6 +56,13 @@ typedef enum
 
 typedef enum
 {
+    RECOGN_NONE = 0,
+    RECOGN_SPELL = 1,
+    RECOGN_ICON = 2
+}ECapLetRecogn;
+
+typedef enum
+{
     PUNCT_NONE = 0,
     PUNCT_ALL = 1,
     PUNCT_SOME = 2
@@ -85,7 +92,9 @@ typedef struct{
     char *language;             /* Selected language name. (e.g. "english", "czech", "french", ...) */
     char *output_module;        /* Output module name. (e.g. "festival", "flite", "apollo", ...) */
     EVoiceType voice_type;      /* see EVoiceType definition above */
-    int cap_let_recogn;         /* Capital letters recognition: (0 - off, 1 - on) */
+    ECapLetRecogn cap_let_recogn;         /* Capital letters recognition: (0 - off, 1 - on) */
+    char* cap_let_recogn_table;
+    char *cap_let_recogn_sound;
     unsigned int hist_cur_uid;
     int hist_cur_pos;
     ESort hist_sorted;
