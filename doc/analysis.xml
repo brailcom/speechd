@@ -3,28 +3,35 @@
   
   <sect1><title>Architecture Overview</title>
 
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="figures/architecture.eps" format="EPS"/>
+      </imageobject>
+      <imageobject>
+	<imagedata fileref="figures/architecture.jpg" format="JPEG"/>
+      </imageobject>
+      <textobject>
+	<phrase>Speechd Architecture</phrase>
+      </textobject>
+      <caption>
+      </caption>
+    </mediaobject>
+    
     <para>
-      <mediaobject>
-	<imageobject>
-	  <imagedata fileref="figures/architecture.eps" format="EPS"/>
-	</imageobject>
-	<imageobject>
-	  <imagedata fileref="figures/architecture.jpg" format="JPEG"/>
-	</imageobject>
-	<textobject>
-	  <phrase>Speechd Architecture</phrase>
-	</textobject>
-	<caption>
-	  <para>
-	    This figure shows the two speechd interfaces: SSIP and modAPI
-	  </para>
-	</caption>
-      </mediaobject>
+      The figure above shows the two speechd interfaces: SSIP and modules
+      API.  Both of them are described in the following subsections.  SSIP
+      is subject of <xref linkend="s-input-side"/> and output modules and
+      the API for them are subject of <xref linkend="s-output-side"/>.
+    </para>
+    
+    <para>
+      The blue box with dashed border is the speechd program itself, however
+      all boxes with gray background are a part of Speech Daemon project.
     </para>
     
   </sect1>
   
-  <sect1><title>Input Side</title>
+  <sect1 id="s-input-side">  <title>Input Side</title>
 
     <sect2 id="s-ssip">      <title>Speech Synthesis Independent Protocol</title>
       
@@ -374,7 +381,7 @@
 
   </sect1>
   
-  <sect1><title>Output Side</title>
+  <sect1 id="s-output-side"> <title>Output Side</title>
 
     
     <para>
@@ -425,6 +432,13 @@
       </para>
       
     </sect2>
+    
+  </sect1>
+
+  <sect1 id="s-server-core"> <title>Server Core</title>
+
+    <para>
+    </para>
     
   </sect1>
   
