@@ -1,3 +1,10 @@
+2004-01-21  Hynek Hanke  <hanke@volny.cz>
+
+	* ssip.texi: "Internet" finally fixed to "Interface" in Speech Synthesis
+	Interface protocol.
+
+	* ssip.texi: KEY command allowed inside BLOCK.
+
 2003-12-30  Milan Zamazal  <pdm@brailcom.org>
 
 	* ssip.texi (Blocks of Messages Commands): BLOCK END added to the
