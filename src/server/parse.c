@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.54 2003-10-15 20:08:12 hanke Exp $
+ * $Id: parse.c,v 1.55 2003-10-21 22:57:52 hanke Exp $
  */
 
 #include "speechd.h"
@@ -146,15 +146,18 @@ parse(const char *buf, const int bytes, const int fd)
 
             /* Prepare element (text+settings commands) to be queued. */
             /* Remove */
-            if (o_bytes[fd] == 0) return OK_MSG_CANCELED;          
+
+            if ((bytes == 3) && (o_bytes[fd] > 2)) o_bytes[fd] -= 2;
+
+            if (o_bytes[fd] == 0) return OK_MSG_CANCELED;
             new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
             new->bytes = o_bytes[fd];
+
             new->buf = (char*) spd_malloc(new->bytes + 1);
 
             assert(new->bytes >= 0); 
             assert(o_buf[fd] != NULL);
 
-            if ((bytes == 3) && (new->bytes > 2)) new->bytes -= 2;
             memcpy(new->buf, o_buf[fd]->str, new->bytes);
 
             new->buf[new->bytes] = 0;
