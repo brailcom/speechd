@@ -1,4 +1,5 @@
 
+
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -57,7 +58,9 @@ spd_audio_open(cst_wave *w)
 void
 spd_audio_close()
 {
-    audio_close(spd_audio_device);
+    if (spd_audio_device != NULL)
+        audio_close(spd_audio_device);
+    spd_audio_device = NULL;
 }
 
 /*
