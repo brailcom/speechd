@@ -1,3 +1,7 @@
+2003-05-13    <buchal@robinson>
+
+	* src/server/server.c (process_message_punctuation): Only fill new_message if str not NULL.
+
 2003-05-12  Milan Zamazal  <pdm@zamazal.org>
 
 	* configure.in: Missing AC_CHECK_LIB arguments added.
