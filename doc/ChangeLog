@@ -1,3 +1,10 @@
+2003-10-20  Hynek Hanke  <hanke@volny.cz>
+
+	* speechd.texi: Cleaning, empty sections fillwed with information,
+	updating.
+
+	* speechd-cs.texi: New file. Basic information and user documentation in Czech.
+
 2003-10-02  Hynek Hanke  <hanke@volny.cz>
 
 	* speechd.texi (Tables Configuration): Text transformation tables removed.

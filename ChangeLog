@@ -1,5 +1,21 @@
-2003-10-16  Hynek Hanke  <hanke@volny.cz>
+2003-10-20  Hynek Hanke  <hanke@volny.cz>
 
+	* src/server/options.c (options_print_help): Info about the -v option added.
+	(options_print_help): Address for sending bug reports changed.
+
+2003-10-18  Hynek Hanke  <hanke@volny.cz>
+
+	* src/modules/module_utils_audio.c (module_add_samples): Check for the terminating
+	sequence \r\nOK_SPEECHD_DATA_SENT\r\n here. It handles the situation when this
+	message comes reparted because of buffering.
+	
+	* src/modules/module_utils.c (module_add_samples): Declaration moved to module_utils_audio.c
+
+	* src/c/api/libspeechd.h (SPD_FATAL): Renamed from FATAL as not to cause conflicts.
+	All callers changed.
+
+2003-10-16  Hynek Hanke  <hanke@volny.cz>
+	
 	* src/c/api/libspeechd.c (spd_sayf): Correct escaping of \r\n.\r\n
 	(spd_key): Don't enclose argument in quotes.
 	(spd_key): Free the command string.
