@@ -19,19 +19,19 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.42 2004-07-21 08:14:31 hanke Exp $
+ * $Id: flite.c,v 1.43 2004-11-13 14:50:41 hanke Exp $
  */
 
 
 #include <flite/flite.h>
+#include "spd_audio.h"
 
 #include "fdset.h"
 
 #include "module_utils.h"
-#include "module_utils_audio.c"
 
 #define MODULE_NAME     "flite"
-#define MODULE_VERSION  "0.1"
+#define MODULE_VERSION  "0.5"
 
 #define DEBUG_MODULE 1
 DECLARE_DEBUG();
@@ -49,24 +49,35 @@ static EMessageType flite_message_type;
 static int flite_position = 0;
 static int flite_pause_requested = 0;
 
+signed int flite_volume = 0;
+
 /* Internal functions prototypes */
 static void flite_set_rate(signed int rate);
 static void flite_set_pitch(signed int pitch);
+static void flite_set_volume(signed int pitch);
 static void flite_set_voice(EVoiceType voice);
 
 static void* _flite_speak(void*);
-static void _flite_child(TModuleDoublePipe dpipe, const size_t maxlen);
-static void flite_child_close(TModuleDoublePipe dpipe);
 
 /* Voice */
 cst_voice *register_cmu_us_kal();
 cst_voice *flite_voice;
+
+AudioID *flite_audio_id = NULL;
+AudioOutputType flite_audio_output_method;
+char *flite_pars[10];
+int flite_stop = 0;
 
 /* Fill the module_info structure with pointers to this modules functions */
 //DECLARE_MODINFO("flite", "Flite software synthesizer v. 1.2");
 
 MOD_OPTION_1_INT(FliteMaxChunkLength);
 MOD_OPTION_1_STR(FliteDelimiters);
+
+MOD_OPTION_1_STR(FliteAudioOutputMethod);
+MOD_OPTION_1_STR(FliteOSSDevice);
+MOD_OPTION_1_STR(FliteNASServer);
+
 
 /* Public functions */
 
@@ -80,15 +91,27 @@ module_load(void)
    MOD_OPTION_1_INT_REG(FliteMaxChunkLength, 300);
    MOD_OPTION_1_STR_REG(FliteDelimiters, ".");
 
+   MOD_OPTION_1_STR_REG(FliteAudioOutputMethod, "oss");
+   MOD_OPTION_1_STR_REG(FliteOSSDevice, "/dev/dsp");
+   MOD_OPTION_1_STR_REG(FliteNASServer, NULL);
+
    return 0;
 }
+
+#define ABORT(msg) g_string_append(info, msg); \
+	*status_info = info->str; \
+	g_string_free(info, 0); \
+	return -1;
 
 int
 module_init(char **status_info)
 {
     int ret;
+    char *error;
+    GString *info;
 
     *status_info = NULL;    
+    info = g_string_new("");
 
     INIT_DEBUG();
 
@@ -103,7 +126,29 @@ module_init(char **status_info)
 			      "instalation is incomplete.");
         return -1;
     }
-    
+
+    if (!strcmp(FliteAudioOutputMethod, "oss")){
+	flite_pars[0] = FliteOSSDevice;
+	flite_pars[1] = NULL;
+	flite_audio_id = spd_audio_open(AUDIO_OSS, flite_pars, &error);
+	flite_audio_output_method = AUDIO_OSS;
+    }
+    else if (!strcmp(FliteAudioOutputMethod, "nas")){
+	flite_pars[0] = FliteNASServer;
+	flite_pars[1] = NULL;
+	flite_audio_id = spd_audio_open(AUDIO_NAS, flite_pars, &error);
+	flite_audio_output_method = AUDIO_NAS;
+    }
+    else{
+	ABORT("Sound output method specified in configuration not supported. "
+	      "Please choose 'oss' or 'nas'.");
+    }
+    if (flite_audio_id == NULL){
+	g_string_append_printf(info, "Opening sound device failed. Reason: %s. ", error);
+	ABORT("Can't open sound device.");
+    }
+    spd_audio_close(flite_audio_id);
+
     DBG("FliteMaxChunkLength = %d\n", FliteMaxChunkLength);
     DBG("FliteDelimiters = %s\n", FliteDelimiters);
     
@@ -126,7 +171,7 @@ module_init(char **status_info)
 								
     return 0;
 }
-
+#undef ABORT
 
 int
 module_speak(gchar *data, size_t bytes, EMessageType msgtype)
@@ -150,6 +195,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
     /* Setting voice */
     UPDATE_PARAMETER(voice, flite_set_voice);
     UPDATE_PARAMETER(rate, flite_set_rate);
+    UPDATE_PARAMETER(volume, flite_set_volume);
     UPDATE_PARAMETER(pitch, flite_set_pitch);
 
     /* Send semaphore signal to the speaking thread */
@@ -163,12 +209,16 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 int
 module_stop(void) 
 {
+    int ret;
     DBG("flite: stop()\n");
 
-    if(flite_speaking && (flite_pid != 0)){
-        DBG("flite: killing process pid %d\n", flite_pid);
-        kill(flite_pid, SIGKILL);
+    flite_stop = 1;
+    if (flite_speaking && flite_audio_id){
+	ret = spd_audio_stop(flite_audio_id);
+	if (ret != 0) DBG("WARNING: Non 0 value from spd_audio_stop: %d", ret);
+	flite_stop = 1;
     }
+
     return 0;
 }
 
@@ -181,9 +231,9 @@ module_pause(void)
         DBG("Sending request to pause to child\n");
         flite_pause_requested = 1;
         DBG("Waiting in pause for child to terminate\n");
-        while(flite_speaking) usleep(10);
+        while(flite_speaking) usleep(100);
 
-        DBG("paused at byte: %d", flite_position);
+        DBG("paused at mark: %d", flite_position);
         return flite_position;
         
     }else{
@@ -223,66 +273,108 @@ module_close(int status)
 void*
 _flite_speak(void* nothing)
 {	
+    AudioTrack track;
+    cst_wave *wav;
+    void *oss_pars[2];
+    int pos;
+    char *buf;
+    int bytes;
+    int ret;
+    char *error;
+    AudioID *id;
 
     DBG("flite: speaking thread starting.......\n");
 
-    module_speak_thread_wfork(flite_semaphore, &flite_pid,
-                              _flite_child, module_parent_wfork, 
-                              &flite_speaking, flite_message, &flite_message_type,
-                              FliteMaxChunkLength, FliteDelimiters,
-                              &flite_position, &flite_pause_requested);
+    oss_pars[0] = (char*) strdup("/dev/dsp");
+    oss_pars[1] = NULL;
+
+    set_speaking_thread_parameters();
+
+    while(1){        
+        sem_wait(flite_semaphore);
+        DBG("Semaphore on\n");
+
+	flite_stop = 0;
+	flite_speaking = 1;
+	
+	DBG("Openning audio");
+	flite_audio_id = spd_audio_open(flite_audio_output_method, flite_pars, &error);
+	if (flite_audio_id == NULL){
+	    DBG("ERROR (child): Couldn't open audio output!\nReason:%s", error);
+	    continue;
+	}
+
+	spd_audio_set_volume(flite_audio_id, flite_volume);
+
+	/* TODO: free(buf) */
+	buf = (char*) malloc((FliteMaxChunkLength+1) * sizeof(char));	
+	pos = 0;
+	while(1){
+	    if (flite_stop){
+		DBG("Stop in child, terminating");
+		break;
+	    }
+	    bytes = module_get_message_part(*flite_message, buf, &pos, FliteMaxChunkLength, FliteDelimiters);
+	    buf[bytes] = 0;
+	    DBG("Returned %d bytes from get_part\n", bytes);
+	    DBG("Text to synthesize is '%s'\n", buf);
+	    
+	    if (flite_pause_requested && (current_index_mark!=-1)){               
+		DBG("Pause requested in parent, position %d\n", current_index_mark);                
+		flite_pause_requested = 0;
+		flite_position = current_index_mark;
+		break;
+	    }
+
+	    if (bytes > 0){
+		DBG("Speaking in child...");
+
+		DBG("a");
+		wav = flite_text_to_wave(buf, flite_voice);
+		
+		track.num_samples = wav->num_samples;
+		track.num_channels = wav->num_channels;
+		track.sample_rate = wav->sample_rate;
+		track.bits = 16;
+		track.samples = wav->samples;
+
+		DBG("b");
+		if (track.samples != NULL){
+		    if (flite_stop){
+			DBG("Stop in child, terminating");
+			break;
+		    }
+		    ret = spd_audio_play(flite_audio_id, track);
+		    if (ret < 0) DBG("ERROR: What's wrong these days?");
+		}
+		DBG("c");
+	    }
+	    else if (bytes == -1){
+		DBG("End of data in speaking thread");
+		break;
+	    }
+
+	    if (flite_stop){
+		DBG("Stop in child, terminating");
+		break;
+	    }
+	}
+	DBG("Closing audio");
+	id = flite_audio_id;
+	flite_audio_id = NULL;
+	spd_audio_close(id);
+	flite_speaking = 0;
+	flite_stop = 0;
+
+	module_signal_end();
+    }
+
     flite_speaking = 0;
 
     DBG("flite: speaking thread ended.......\n");    
 
     pthread_exit(NULL);
 }	
-
-void
-_flite_child(TModuleDoublePipe dpipe, const size_t maxlen)
-{
-    char *text;  
-    sigset_t some_signals;
-    int bytes;
-
-    sigfillset(&some_signals);
-    module_sigunblockusr(&some_signals);
-
-    module_child_dp_init(dpipe);
-
-    text = malloc((maxlen + 1) * sizeof(char));
-
-    DBG("Entering child loop\n");
-    while(1){
-        /* Read the waiting data */
-        bytes = module_child_dp_read(dpipe, text, maxlen);
-        DBG("read %d bytes in child", bytes);
-        if (bytes == 0){
-            free(text);
-            flite_child_close(dpipe);
-        }
-
-        //        text[bytes] = '.';
-        text[bytes] = 0;
-
-        DBG("child: got data |%s|, bytes:%d", text, bytes);
-
-        DBG("Speaking in child...");
-        module_sigblockusr(&some_signals);        
-        {
-	    const char outtype[] = "play";
-	    flite_text_to_speech(text, flite_voice, outtype);
-	    /*            spd_audio_open(wave);
-			  spd_audio_play_wave(wave);
-			  spd_audio_close(); */
-        }
-        module_sigunblockusr(&some_signals);        
-
-        DBG("child->parent: ok, send more data");      
-        module_child_dp_write(dpipe, "C", 1);
-    }
-}
-
 
 static void
 flite_set_rate(signed int rate)
@@ -294,6 +386,15 @@ flite_set_rate(signed int rate)
     if (rate > 0) stretch -= ((float) rate) / 200;
     feat_set_float(flite_voice->features, "duration_stretch",
                    stretch);
+}
+
+static void
+flite_set_volume(signed int volume)
+{
+    float stretch = 1;
+
+    assert(volume >= -100 && volume <= +100);
+    flite_volume = volume;
 }
 
 static void
@@ -315,14 +416,5 @@ flite_set_voice(EVoiceType voice)
     }
 }
 
-static void
-flite_child_close(TModuleDoublePipe dpipe)
-{   
-    spd_audio_close();
-    DBG("child: Pipe closed, exiting, closing pipes..\n");
-    module_child_dp_close(dpipe);          
-    DBG("Child ended...\n");
-    exit(0);
-}
 
 #include "module_main.c"
