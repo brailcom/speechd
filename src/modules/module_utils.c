@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.10 2003-07-18 14:32:34 hanke Exp $
+ * $Id: module_utils.c,v 1.11 2003-07-18 21:37:48 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -249,8 +249,7 @@ module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid,
         ret = pipe(module_pipe.cp);
         if (ret != 0){
             DBG("Can't create pipe cp\n");
-            //            pclose(module_pipe.pc);
-
+            close(module_pipe.pc[0]);     close(module_pipe.pc[1]);
             *speaking_flag = 0;
             continue;
         }
@@ -261,8 +260,8 @@ module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid,
         switch(*process_pid){
         case -1:	
             DBG("Can't say the message. fork() failed!\n");
-            //            pclose(module_pipe.pc);
-            //            pclose(module_pipe.cp)
+            close(module_pipe.pc[0]);     close(module_pipe.pc[1]);
+            close(module_pipe.cp[0]);     close(module_pipe.cp[1]);
             *speaking_flag = 0;
             continue;
 
