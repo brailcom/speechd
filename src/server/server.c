@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.67 2004-01-20 11:15:34 pdm Exp $
+  * $Id: server.c,v 1.68 2004-01-27 07:42:54 pdm Exp $
   */
 
 #include "speechd.h"
@@ -195,7 +195,7 @@ serve(int fd)
         bytes += n;
         buf[bytes] = 0;
         MSG(4,"Read %d bytes from client on fd %d", n, fd);
-        if(buf[bytes-1] == '\n')
+        if(n == 0 || buf[bytes-1] == '\n')
           break;
     }
 
