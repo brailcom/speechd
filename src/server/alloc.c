@@ -12,6 +12,25 @@ spd_malloc(size_t bytes)
 	return mem;
 }
 
+void
+spd_free(void* data)
+{
+    if (data != NULL) free(data);
+}
+
+char*
+spd_strdup(char* string)
+{
+    char *newstr;
+
+    assert(string != NULL);
+
+    newstr = spd_malloc((strlen(string) + 1) * sizeof(string));
+    strcpy(newstr, string);
+
+    return newstr;
+}
+
 TSpeechDQueue* 
 speechd_queue_alloc()
 {
