@@ -50,6 +50,10 @@
     ("{" "left" "brace")
     ("(" "right" "brace")))
 
+(define (punctuation-character string)
+  (or (string-matches string punctuation-chars)
+      (string-matches string punctuation-chars-2)))
+
 (define (punctuation-split-token token name ttw)
   (cond
    ((and (not (string-matches name
@@ -58,8 +62,7 @@
                               (string-append ".*" punctuation-chars-2 ".*"))))
     (ttw token name))
    ((let ((char (substring name 0 1)))
-      (or (string-matches char punctuation-chars)
-          (string-matches char punctuation-chars-2)))
+      (punctuation-character char))
     (append (if (eq? punctuation-mode 'all)
                 (let ((char (substring name 0 1)))
                   (if (and (member current-voice '(kal_diphone ked_diphone))
@@ -72,8 +75,7 @@
    (t
     (let ((i 1))
       (while (let ((char (substring name i 1)))
-               (and (not (string-matches char punctuation-chars))
-                    (not (string-matches char punctuation-chars-2))))
+               (not (punctuation-character char)))
         (set! i (+ i 1)))
       (append (ttw token (substring name 0 i))
               (punctuation-split-token
@@ -84,21 +86,28 @@
       (ttw token name)
       (punctuation-split-token token name ttw)))
 
-(define (punctuation-process-english-words utt)
-  (if (and (eq? punctuation-mode 'all)
-           (member (Parameter.get 'Language)
-                   '(english britishenglish americanenglish)))
-      (mapcar
-       (lambda (w)
-         (let ((trans (assoc (item.name w) punctuation-pronunciation)))
-           (if trans
-               (begin
-                 (item.set_name w (car (cdr trans)))
-                 (set! trans (cdr (cdr trans)))
-                 (while trans
-                   (item.insert w (list (car trans)))
-                   (set! trans (cdr trans)))))))
-       (utt.relation.items utt 'Word)))
+(define (punctuation-process-words utt)
+  (cond
+   ((and (eq? punctuation-mode 'all)
+         (member (Parameter.get 'Language)
+                 '(english britishenglish americanenglish)))
+    (mapcar
+     (lambda (w)
+       (let ((trans (assoc (item.name w) punctuation-pronunciation)))
+         (if trans
+             (begin
+               (item.set_name w (car (cdr trans)))
+               (set! trans (cdr (cdr trans)))
+               (while trans
+                 (item.insert w (list (car trans)))
+                 (set! trans (cdr trans)))))))
+     (utt.relation.items utt 'Word)))
+   ((eq punctuation-mode 'none)
+    (mapcar
+     (lambda (w)
+       (if (punctuation-character (item.name w))
+           (item.delete w)))
+     (utt.relation.items utt 'Word))))
   utt)
 
 (define (punctuation-process-final-punctuation utt)
@@ -131,7 +140,7 @@
 (define (setup-punctuation-mode)
   (ttw-setup)
   (add-hook ttw-token-to-words-funcs punctuation-token-to-words)
-  (add-hook ttw-token-method-hook punctuation-process-english-words)
+  (add-hook ttw-token-method-hook punctuation-process-words)
   (add-hook ttw-token-method-hook punctuation-process-final-punctuation)
   (if (not (eq? (Param.get 'Word_Method) punctuation-word_method))
       (begin
