@@ -1,12 +1,12 @@
  applications      protocol                    output modules 
-            interface        Speech Dispatcher core          synthesizers
+            interface      Speech Dispatcher core           synthesizers
                           .-----------------------.
-|EmacSpeak|    :s l:  < > |  Speech Dispatcher        | :m  :  |Apollo|
-               :h i:  <S> |    - configuration    | :o  :  |Odmluva|
-|Bash Client|  :a b:  <S> | - synchronization     | :d A:  |Flite|
+|Emacspeak|    :s l:  < > |  Speech Dispatcher    | :m  :  |Apollo|
+               :h i:  <S> |    - configuration    | :o  :  |Festival|
+|Speakup|      :a b:  <S> | - synchronization     | :d A:  |Flite|
                :r r:  <I> |        - sound icons  | :u P:     .
-|User Center|  :e a:  <P> |  - history            | :l I:     .
-      .        :d r:  < > |                       | :e  :     .
-      .        :  y:  < > |  [priority queues]    | :   :     .
+|User center|  :e a:  <P> |  - history            | :l I:     .
+      .        :d r:  < > |   - punctuation, ...  | :e  :     .
+      .        :  y:  < > | [||| priority queues] | :   :     .
       .        :   :  < > |                       | :   :     .
                           `-----------------------'
