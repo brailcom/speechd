@@ -21,29 +21,13 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.h,v 1.4 2003-03-23 21:22:14 hanke Exp $
+ * $Id: history.h,v 1.5 2003-03-29 20:12:08 hanke Exp $
  */
 
 #ifndef ALLOC_H
  #define ALLOC_H
 
 #include "speechd.h"
-
-typedef enum{
-	BY_TIME = 0,
-	BY_ALPHABET = 1
-}ESort;
-
-
-typedef struct{
-	int fd;
-	int uid;
-	guint cur_client_id;
-	int cur_pos;
-	ESort sorted;
-}THistSetElement;
-
-THistSetElement* default_history_settings();
 
 char* history_get_client_list();
 char* history_get_message_list(guint client_id, int from, int num);
@@ -55,7 +39,11 @@ char* history_cursor_next(int fd);
 char* history_cursor_prev(int fd);
 char* history_cursor_get(int fd);
 char* history_say_id(int fd, int id);
-		
+
+/* Internal functions */
+
+GList* get_messages_by_client(int uid);
+
 gint (*p_cli_comp_id)();
 
 #endif
