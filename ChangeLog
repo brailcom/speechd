@@ -1,3 +1,8 @@
+2003-04-09  Tomas Cerha  <cerha@freebsoft.org>
+
+	* INSTALL (Module): Added `autoheader' to suggested compilation
+	process.
+
 2003-04-07  Milan Zamazal  <pdm@brailcom.org>
 
 	* configure.in (AM_CONFIG_HEADER): Generate template for config.h,
