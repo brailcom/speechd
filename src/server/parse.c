@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.49 2003-10-07 16:52:01 hanke Exp $
+ * $Id: parse.c,v 1.50 2003-10-08 21:32:09 hanke Exp $
  */
 
 #include "speechd.h"
@@ -388,15 +388,6 @@ parse_set(const char *buf, const int bytes, const int fd)
         if (ret) return ERR_COULDNT_SET_LANGUAGE;
         return OK_LANGUAGE_SET;
     }
-    else if (TEST_CMD(set_sub, "spelling_table")){
-        char *spelling_table;
-        NOT_ALLOWED_INSIDE_BLOCK();
-        GET_PARAM_STR(spelling_table, 3, CONV_DOWN);
-
-        SSIP_SET_COMMAND(spelling_table);
-        if (ret) return ERR_COULDNT_SET_TABLE;
-        return OK_TABLE_SET;
-    }
     else if (TEST_CMD(set_sub, "client_name")){
         char *client_name;
         NOT_ALLOWED_INSIDE_BLOCK();
@@ -465,27 +456,6 @@ parse_set(const char *buf, const int bytes, const int fd)
         if (ret) return ERR_COULDNT_SET_PUNCT_MODE;
         return OK_PUNCT_MODE_SET;
     }
-    else if (TEST_CMD(set_sub, "punctuation_table")){
-        char *punctuation_table;
-        NOT_ALLOWED_INSIDE_BLOCK();
-        GET_PARAM_STR(punctuation_table, 3, CONV_DOWN);
-
-        SSIP_SET_COMMAND(punctuation_table);
-        spd_free(punctuation_table);
-
-        if (ret) return ERR_COULDNT_SET_TABLE;
-        return OK_TABLE_SET;
-    }
-    else if (TEST_CMD(set_sub, "character_table")){
-        char *character_table;
-        GET_PARAM_STR(character_table, 3, CONV_DOWN);
-
-        SSIP_SET_COMMAND(character_table);
-        spd_free(character_table);
-
-        if (ret) return ERR_COULDNT_SET_TABLE;
-        return OK_TABLE_SET;
-    }
     else if (TEST_CMD(set_sub, "output_module")){
         char *output_module;
         NOT_ALLOWED_INSIDE_BLOCK();
@@ -496,43 +466,6 @@ parse_set(const char *buf, const int bytes, const int fd)
 
         if (ret) return ERR_COULDNT_SET_OUTPUT_MODULE;
         return OK_OUTPUT_MODULE_SET;
-    }
-    else if (TEST_CMD(set_sub, "key_table")){
-        char *key_table;
-        NOT_ALLOWED_INSIDE_BLOCK();
-        GET_PARAM_STR(key_table, 3, CONV_DOWN);
-        
-        SSIP_SET_COMMAND(key_table);
-        spd_free(key_table);
-
-        if (ret) return ERR_COULDNT_SET_TABLE;
-        return OK_TABLE_SET;
-    }
-    else if (TEST_CMD(set_sub, "text_table")){
-        NOT_ALLOWED_INSIDE_BLOCK();
-        return OK_NOT_IMPLEMENTED;
-    }
-    else if (TEST_CMD(set_sub,"sound_table")){
-        char *sound_table;
-        NOT_ALLOWED_INSIDE_BLOCK();
-        GET_PARAM_STR(sound_table, 3, CONV_DOWN);
-
-        SSIP_SET_COMMAND(sound_table);
-        spd_free(sound_table);
-
-        if (ret) return ERR_COULDNT_SET_TABLE;
-        return OK_TABLE_SET;
-    }
-    else if (TEST_CMD(set_sub,"cap_let_recogn_table")){
-        char *cap_let_recogn_table;
-        NOT_ALLOWED_INSIDE_BLOCK();
-        GET_PARAM_STR(cap_let_recogn_table, 3, CONV_DOWN);
-
-        SSIP_SET_COMMAND(cap_let_recogn_table);
-        spd_free(cap_let_recogn_table);
-
-        if (ret) return ERR_COULDNT_SET_TABLE;
-        return OK_TABLE_SET;
     }
     else if (TEST_CMD(set_sub, "cap_let_recogn")){
         int capital_letter_recognition;
