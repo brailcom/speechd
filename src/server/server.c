@@ -19,10 +19,11 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.49 2003-06-20 00:48:47 hanke Exp $
+  * $Id: server.c,v 1.50 2003-06-23 05:12:11 hanke Exp $
   */
 
 #include "speechd.h"
+
 
 int last_message_id = -1;
 
@@ -70,12 +71,10 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type,
     /* Copy the settings to the new to-be-queued element */
     new->settings = *settings;
     new->settings.type = type;
-    new->settings.output_module = (char*) spd_malloc(strlen(settings->output_module) + 1);
-    new->settings.language = (char*) spd_malloc( strlen(settings->language) + 1);
-    new->settings.client_name = (char*) spd_malloc( strlen(settings->client_name) + 1);
-    strcpy(new->settings.output_module, settings->output_module);
-    strcpy(new->settings.language, settings->language);
-    strcpy(new->settings.client_name, settings->client_name);
+    new->settings.output_module = spd_strdup(settings->output_module);
+    new->settings.language = spd_strdup(settings->language);
+    new->settings.client_name = spd_strdup(settings->client_name);
+
     new->settings.reparted = reparted;
 
     MSG(5, "Queueing message |%s| with priority %d", new->buf, settings->priority);
@@ -100,7 +99,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type,
         speechd_alarm(0);
         break;
     case 5: MessageQueue->p5 = g_list_append(MessageQueue->p5, new);        
-        last_p5_message = (TSpeechDMessage*) history_list_new_message(new);
+        last_p5_message = (TSpeechDMessage*) spd_message_copy(new);
         speechd_alarm(GlobalFDSet.min_delay_progress);
         break;
 
@@ -111,7 +110,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type,
     /* If desired, put the message also into history */
     if (history_flag){
         /* We will make an exact copy of the message for inclusion into history. */
-        hist_msg = (TSpeechDMessage*) history_list_new_message(new); 
+        hist_msg = (TSpeechDMessage*) spd_message_copy(new); 
         if(hist_msg != NULL){
             message_history = g_list_append(message_history, hist_msg);
         }else{
