@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.41 2003-07-18 21:39:39 hanke Exp $
+ * $Id: speechd.c,v 1.42 2003-07-21 17:25:15 pdm Exp $
  */
 
 #include "speechd.h"
@@ -414,6 +414,12 @@ main(int argc, char *argv[])
 
     /* Initialize socket functionality */
     server_socket = socket(AF_INET, SOCK_STREAM, 0);
+    {
+      const int flag = 1;
+      if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &flag,
+                     sizeof (int)))
+        MSG(2,"Setting socket option failed");
+    }
 
     server_address.sin_family = AF_INET;
     server_address.sin_addr.s_addr = htonl(INADDR_ANY);
