@@ -1,6 +1,22 @@
+2003-07-23  Hynek Hanke  <hanke@volny.cz>
+
+	* config/cs/sound_icons.conf: Junk definitions with beep.wav removed, changed
+	to some more logical text, however without diacritics.
+
+	* src/server/dc_decl.h (cb_AddVoice): Accept also upper-case voice names.
+
+	* src/c/api/libspeechd.h: Define extern "C".
+
+	* src/server/speaking.c (resolve_priorities): Don't stop priority 2 and 3 if
+	priority 1 arrives.
+	(resolve_priorities): Cancel message of priority 4 if some other priority is
+	speaking.
+
+
 2003-07-21  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/server/speechd.c (main): Set SO_REUSEADDR.
+
 
 2003-07-21  Hynek Hanke  <hanke@volny.cz>
 
