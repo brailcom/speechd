@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: cstsnd.c,v 1.6 2003-07-21 07:35:02 hanke Exp $
+ * $Id: cstsnd.c,v 1.7 2003-09-07 11:25:03 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -35,15 +35,15 @@
 
 #include "module.h"
 #include "fdset.h"
-#include "spd_audio.h"
 
 #include "module_utils.c"
+#include "module_utils_audio.c"
 
-#define MODULE_NAME     "flite"
+#define MODULE_NAME     "cstsnd"
 #define MODULE_VERSION  "0.1"
 
 #define DEBUG_MODULE  1
-DECLARE_DEBUG_FILE("/tmp/debug-flite");
+DECLARE_DEBUG_FILE("/tmp/debug-cstsnd");
 
 /* Thread and process control */
 static int cstsnd_speaking = 0;
@@ -54,37 +54,33 @@ static pid_t cstsnd_pid;
 
 static char* cstsnd_message;
 
-/* Public function prototypes */
-DECLARE_MODULE_PROTOTYPES();
-
 /* Internal functions prototypes */
 static void* _cstsnd_speak(void*);
 static void _cstsnd_synth(void);
 
-/* Fill the module_info structure with pointers to this modules functions */
-DECLARE_MODINFO("cstsnd", "CST sound plugin from Flite 1.2");
-
 /* Entry point of this module */
-OutputModule*
+int
 module_load(void)
 {
     INIT_DEBUG_FILE();
+    
+    INIT_SETTINGS_TABLES();
 
     DBG("module_load()\n");
 
-    return &module_info;
+    return 0;
 }
 
 int
-module_init(OutputModule* module)
+module_init(void)
 {
     return 0;
 }
 
 /* Public functions */
 
-static gint
-module_write(gchar *data, size_t bytes, TFDSetElement* set)
+int
+module_write(char *data, size_t bytes)
 {
     int ret;
 
@@ -100,8 +96,6 @@ module_write(gchar *data, size_t bytes, TFDSetElement* set)
         DBG("cstsnd: requested data empty\n");
         return -1;
     }
-
-    DBG("cstsnd: requested file: |%s|\n", data);
 	
     if (cstsnd_speaking){
         DBG("cstsnd: speaking when requested to cstsnd-write");
@@ -109,6 +103,19 @@ module_write(gchar *data, size_t bytes, TFDSetElement* set)
     }
 
     cstsnd_message = strdup(data);
+
+    /* Strip the trailing "\n" */
+    {
+        int l;
+        l = strlen(cstsnd_message) - 1;
+        if ((cstsnd_message[l] == '\n') || (cstsnd_message[l] == '\r'))
+            cstsnd_message[l] = 0;
+        l--;
+        if ((cstsnd_message[l] == '\n') || (cstsnd_message[l] == '\r'))
+            cstsnd_message[l] = 0;
+    }
+
+    DBG("cstsnd: requested file: |%s|\n", cstsnd_message);    
 
     /* Running Cstsnd */
     DBG("Cstsnd: creating new thread for cstsnd_speak\n");
@@ -126,25 +133,25 @@ module_write(gchar *data, size_t bytes, TFDSetElement* set)
     return bytes;
 }
 
-static gint
+int
 module_stop(void) 
 {
     DBG("cstsnd: stop()\n");
 
     if(cstsnd_running){
         DBG("cstsnd: stopping process pid %d\n", cstsnd_pid);
-        kill(cstsnd_pid, SIGKILL);
+        kill(-cstsnd_pid, SIGKILL); /* Kill the process group */
     }
     
 }
 
-static size_t
+size_t
 module_pause(void)
 {
      return 0;
 }
 
-static gint
+int
 module_is_speaking(void)
 {
     int ret;
@@ -164,8 +171,8 @@ module_is_speaking(void)
     return cstsnd_speaking; 
 }
 
-static gint
-module_close(void)
+void
+module_close(int status)
 {
     int ret;
 
@@ -176,11 +183,11 @@ module_close(void)
         ret = pthread_join(cstsnd_speak_thread, NULL);
         if (ret != 0){
             DBG("join failed!\n");
-            return 1;
+            exit(1);
         }
     }
    
-    return 0;
+    exit(status);
 }
 
 /* Internal functions */
@@ -203,9 +210,10 @@ _cstsnd_speak(void* nothing)
 
     case 0:
         /* This is the child. Make cstsnd speak, but exit on SIGINT. */
-
+        setpgrp();
         _cstsnd_synth();
-
+        
+        exit(0);
     default:
         /* This is the parent. Wait for the child to terminate. */
         waitpid(cstsnd_pid, &status, 0);
@@ -226,14 +234,15 @@ _cstsnd_synth()
 {
     int ret;
     cst_wave* wave;
-    sigset_t *all_signals;	
+    sigset_t all_signals;	
 
-    sigfillset(all_signals);
-    ret = sigprocmask(SIG_BLOCK, all_signals, NULL);
+    sigfillset(&all_signals);
+    ret = sigprocmask(SIG_BLOCK, &all_signals, NULL);
     if (ret != 0)
         DBG("flite: Can't block signals, expect problems with terminating!\n");
 
     spd_audio_play_file(cstsnd_message);
-    fprintf(stderr,"cstsnd_message: |%s|\n", cstsnd_message);
+    DBG("cstsnd_message: |%s|\n", cstsnd_message);
 }
 
+#include "module_main.c"
