@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.29 2003-05-28 23:20:18 hanke Exp $
+ * $Id: speechd.h,v 1.30 2003-06-01 21:28:16 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -40,6 +40,7 @@
 #include <gmodule.h>
 #include <dotconf.h>
 #include <pthread.h>
+#include <semaphore.h>
 #include <limits.h>
 #include <signal.h>
 
@@ -114,7 +115,7 @@ pthread_t speak_thread;
 pthread_mutex_t element_free_mutex;
 
 /* How many messages in total are waiting in the queues */
-int msgs_to_say;
+sem_t *sem_messages_waiting;
 
 /* Table of all configured (and succesfully loaded) output modules */
 GHashTable *output_modules;	
@@ -157,9 +158,6 @@ void* speak(void*);
 /* serve() reads data from clients and sends it to parse() */
 int serve(int fd);
 
-/* Decides if the message should (not) be spoken now */
-gint message_nto_speak (TSpeechDMessage*, gpointer, gpointer);
-
 /* Functions for parsing the input from clients */
 /* also parse() */
 char* get_param(char *buf, int n, int bytes, int lower_case);
@@ -175,7 +173,5 @@ TFDSetElement* get_client_settings_by_uid(int uid);
 TFDSetElement* get_client_settings_by_fd(int fd);
 int get_client_uid_by_fd(int fd);
 
-/* Some pointers to functions for searching through lists */
-gint (*p_msg_nto_speak)();
 
 #endif
