@@ -1,3 +1,36 @@
+2003-04-14  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/server/msg.h: ERR_PARAMETER_INVALID added.
+
+	* src/server/speechd.c: (p_msg_lc), (p_msg_uid_lc): Moved to compare.c
+
+	* src/clients/libspeechd.c (spd_cancel): New function.
+	(spd_cancel_fd): New function.
+
+	* src/clients/libspeechd.h (spd_cancel): New function.
+	(spd_cancel_fd): New function.
+
+	* src/server/parse.c (parse_set): set spelling parameter switched to on/off.
+	(parse_set): set punctuation now accepts {all|some|none}
+
+	* src/server/server.c (process_message_spell): Splitted from process_message.
+	Correct UTF-8 handling.
+	(spd_utf8_read_char): New function.
+	(speak): Bug fixed: Pull message from queue 3 if there are more than zero, not one.
+	
+	* src/modules/flite.c (flite_write): Speech rate scale up to duration_stretch=4
+
+	* src/server/compare.c: New file, functions for comparing fd's, id's and other
+	data in elements of different lists moved here.
+
+	* src/server/compare.h: New header file for compare.c
+
+	* Makefiles: Use AM_CFLAGS instead of CFLAGS.
+
+	* configure.in: Don't call AC_ARG_PROG, it is called before implicitly.
+
+	* depcomp: New script. Needed for automake 1.7.2.
+
 2003-04-12  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/server/parse.c: English grammar and spelling fixes.
