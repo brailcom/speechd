@@ -1,3 +1,7 @@
+2003-06-09  Jan Buchal  <buchal@brailcom.org>
+
+	* src/tests/Makefile.am: references to multiple_messages removed.
+
 2003-06-08  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* src/server/dc_decl.h (cb_MinDelayProgress): New callback.
