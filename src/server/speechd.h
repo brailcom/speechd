@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.46 2003-10-08 21:33:20 hanke Exp $
+ * $Id: speechd.h,v 1.47 2003-10-09 21:26:18 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -195,6 +195,7 @@ int fds_allocated;
 int pause_requested;
 int pause_requested_fd;
 int pause_requested_uid;
+int resume_requested;
 
 /* speak() runs in a separate thread, pulls messages from
  * the priority queue and sends them to synthesizers */
