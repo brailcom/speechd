@@ -1,3 +1,11 @@
+2004-05-24  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/output.c (SEND_DATA): Back to using OL_RET(), but SEND_DATA_N is newly defined for
+	other purposes.
+	(SEND_CMD): See SEND_DATA.
+
+	* Makefile.am (EXTRA_DIST): Added build.sh.
+
 2004-05-23  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/options.c (print_version): Don't talk me about GNU Emacs!

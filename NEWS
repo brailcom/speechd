@@ -2,6 +2,8 @@
 Version 0.4
  * Volume settings in the Generic output module.
  * The 16-bit voice for Flite is installed if available.
+ * spd-say now accepts the most important speech parameters.
+ * libspeechd now uses TCP_NODELAY to make the communication faster.
  * Bugfixes. 
 
 Version 0.3
