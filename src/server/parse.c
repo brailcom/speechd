@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.61 2004-04-17 14:54:03 hanke Exp $
+ * $Id: parse.c,v 1.62 2004-06-28 08:12:09 hanke Exp $
  */
 
 #include "speechd.h"
@@ -531,6 +531,24 @@ parse_set(const char *buf, const int bytes, const int fd)
         SSIP_SET_COMMAND(pause_context);
         if (ret) return ERR_COULDNT_SET_PAUSE_CONTEXT;
         return OK_PAUSE_CONTEXT_SET;
+    }
+    else if (!strcmp(set_sub, "ssml_mode")){
+	char *ssml_mode_s;
+	int ssml_mode;
+
+        GET_PARAM_STR(ssml_mode_s, 3, CONV_DOWN);
+
+        if(TEST_CMD(ssml_mode_s, "on")) ssml_mode = 1;
+        else if(TEST_CMD(ssml_mode_s, "off")) ssml_mode = 0;        
+        else{
+            spd_free(ssml_mode_s);
+            return ERR_PARAMETER_NOT_ON_OFF;
+        }
+
+        SSIP_SET_COMMAND(ssml_mode);
+
+        if (ret) return ERR_COULDNT_SET_SSML_MODE;
+        return OK_SSML_MODE_SET;
     }
     else{
         return ERR_PARAMETER_INVALID;
