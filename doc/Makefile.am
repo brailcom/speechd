@@ -1,7 +1,5 @@
 
-info_TEXINFOS = ssip.texi speechd.texi speechd-cs.texi
-speechd_TEXINFOS = fdl.texi gpl.texi
-
+info_TEXINFOS = ssip.texi speech-dispatcher.texi speech-dispatcher-cs.texi
 
 SUFFIXES = .html
 html_docs = speechd.html ssip.html

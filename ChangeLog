@@ -1,3 +1,23 @@
+2004-03-31  Hynek Hanke  <hanke@volny.cz>
+
+	* doc/Makefila.am: speechd.texi and speechd-cs.texi renamed to speech-dispatcher[-cs].texi. 
+
+	* src/server/speechd.c (main): Pid file is now speech-dispatcher.pid instead of speechd.pid.
+
+	* config/speechd.conf: Log to /var/log/speech-dispatcher by default.
+
+	* src/c/clients/say/Makefile.am: say renamed to spd-say.
+
+	* version.sh: Version number incremented (0.3)
+
+	* configure.in: speechd -> speech-dispatcher in substitution variables.
+
+	* INSTALL: speechd -> speechd-dispatcher
+
+	* configure.in: Package name changed to speech-dispatcher.
+
+	* src/server/Makefile.am: Program name changed to speech-dispatcher.
+
 2004-03-14  Hynek Hanke  <hanke@volny.cz>
 
 	* config/modules/epos-generic.conf (GenericExecuteSynth): sed command to strip
