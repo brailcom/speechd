@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.5 2003-04-24 12:22:30 pdm Exp $
+ * $Id: apollo.c,v 1.6 2003-04-24 20:17:58 hanke Exp $
  */
 
 
@@ -164,7 +164,7 @@ static gint set_voice_type (int value)
 
 OutputModule *module_init (void)
 {
-  current_parameters.speed = -101;
+  current_parameters.rate = -101;
   current_parameters.pitch = -101;
   current_parameters.language = NULL;
   current_parameters.voice_type = -1;
@@ -180,7 +180,7 @@ gint apollo_write (gchar *data, gint len, void* set_)
 {
   TFDSetElement *set = set_;
   
-  UPDATE_PARAMETER (current_parameters.speed, set->speed, set_speed);
+  UPDATE_PARAMETER (current_parameters.rate, set->rate, set_speed);
   UPDATE_PARAMETER (current_parameters.pitch, set->pitch, set_pitch);
   UPDATE_PARAMETER (current_parameters.voice_type, set->voice_type,
 		    set_voice_type);
