@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.13 2003-04-14 02:12:20 hanke Exp $
+ * $Id: libspeechd.c,v 1.14 2003-04-14 22:52:35 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -93,7 +93,7 @@ spd_say(int fd, int priority, char* text)
   if(!ret_ok(send_data(fd, helper, 1))){
 		  if(LIBSPEECHD_DEBUG) printf("Can't set priority");
 		  return -1;
-	}
+  }
 		  
   /* This needs to be fixed! */
 //  while(pos = (char*) strstr(text,"\r\n.\r\n")){
@@ -142,7 +142,7 @@ spd_stop(int fd)
 {
   char helper[32];
 
-  sprintf(helper, "STOP\r\n");
+  sprintf(helper, "STOP SELF\r\n");
   if(!ret_ok(send_data(fd, helper, 1))) return -1;
 
   return 0;
@@ -163,7 +163,7 @@ spd_cancel(int fd)
 {
   char helper[32];
 
-  sprintf(helper, "CANCEL\r\n");
+  sprintf(helper, "CANCEL SELF\r\n");
   if(!ret_ok(send_data(fd, helper, 1))) return -1;
 
   return 0;
@@ -185,7 +185,7 @@ spd_pause(int fd)
 {
   char helper[16];
 
-  sprintf(helper, "PAUSE\r\n");
+  sprintf(helper, "PAUSE SELF\r\n");
   if(!ret_ok(send_data(fd, helper, 1))) return -1;
 
   return 0;
@@ -206,7 +206,7 @@ spd_resume(int fd)
 {
 	char helper[16];
 
-	sprintf(helper, "RESUME\r\n");
+	sprintf(helper, "RESUME SELF\r\n");
 
 	if(!ret_ok(send_data(fd, helper, 1))) return -1;
 	return 0;
@@ -238,17 +238,26 @@ spd_icon(int fd, char *name)
 int
 spd_say_key(int fd, int priority, int c)
 {
-	static int r;
+    static char helper[64];
 
-	return 0;	
+    sprintf(helper, "SET PRIORITY 3\r\n");
+    if(!ret_ok(send_data(fd, helper, 1))){
+        if(LIBSPEECHD_DEBUG) printf("Can't set priority");
+        return -1;
+    }
+
+    sprintf(helper, "KEY %c\r\n", c);
+    if(!ret_ok(send_data(fd, helper, 1))) return -1;
+
+    return 0;
 }
 
 int
 spd_voice_rate(int fd, int rate)
 {
-	if(rate < -100) return -1;
-	if(rate > +100) return -1;
-	return 0;
+    if(rate < -100) return -1;
+    if(rate > +100) return -1;
+    return 0;
 }
 
 int
