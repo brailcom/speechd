@@ -1,3 +1,34 @@
+2003-10-08  Hynek Hanke  <hanke@volny.cz>
+
+	* config/speechd.conf.in: Removed tables configuration, removed sound module.
+
+	* src/server/parse.c (parse_set): Table commands removed from SSIP.
+
+	* src/server/set.c (set_spelling_uid): Parameter changed to ESpellMode.
+	Code related to tables removed.
+
+	* src/server/speechd.c (speechd_init): Tables removed.
+
+	* src/server/speechd.h (TSpeechDTables): Definition removed, not necessary.
+	Sound module removed.
+
+	* src/server/dc_decl.h: No longer necessary callbacks removed (tables, etc.).
+
+	* src/modules/module_utils_audio.c (module_audio_output_child): Read bitrate information
+	from parent. Close and open audio.
+	(module_parent_send_samples): Send also bitrate information in the first 10 bytes.
+
+	* src/modules/module_utils_audio.c (module_audio_output_child): Don't open/close audio.
+
+	* src/modules/flite.c (module_init): Don't fill module_sample_wave.
+	(_flite_child): No module_sample_wave.
+	(_flite_child): Open and close audio.
+
+	* src/modules/festival.c (festival_fill_sample_wave): Removed.
+
+	* src/modules/module_utils_audio.c (module_audio_output_child): Open audio before saying
+	each data and close it after that.
+
 2003-10-07  Hynek Hanke  <hanke@volny.cz>
 
 	* intl/fdsetconv.c: New file.

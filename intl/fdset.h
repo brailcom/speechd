@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.24 2003-10-07 16:52:00 hanke Exp $
+ * $Id: fdset.h,v 1.25 2003-10-08 21:27:12 hanke Exp $
  */
 
 #ifndef FDSET_H
@@ -80,26 +80,18 @@ typedef struct{
     int paused;                 /* Internal flag, 1 for paused client or 0 for normal. */
     EMessageType type;          /* Type of the message (1=text, 2=icon, 3=char, 4=key) */
     int priority;               /* Priority between 1 and 3 (1 - highest, 3 - lowest) */
+    signed int rate; 		/* Speed of voice from <-100;+100>, 0 is the default medium */
+    signed int pitch;		/* Pitch of voice from <-100;+100>, 0 is the default medium */
     EPunctMode punctuation_mode;	/* Punctuation mode: 0, 1 or 2
                                    0	-	no punctuation
                                    1 	-	all punctuation
                                    2	-	only user-selected punctuation */
-    char *punctuation_some;
-    char *punctuation_table;    /*  Selected punctuation table */
     ESpellMode spelling_mode;   /* Spelling mode: 0 or 1 (0 - off, 1 - on) */
-    char* spelling_table;	/* Selected spelling table */
-    char* char_table;           /* Selected character table */
-    char* key_table;            /* Selected key table */
-    char* snd_icon_table;        /* Selected sound icons table */
-    signed int rate; 		/* Speed of voice from <-100;+100>, 0 is the default medium */
-    signed int pitch;		/* Pitch of voice from <-100;+100>, 0 is the default medium */
     char *client_name;		/* Name of the client. */
     char *language;             /* Selected language name. (e.g. "en", "cz", "fr", ...) */
     char *output_module;        /* Output module name. (e.g. "festival", "flite", "apollo", ...) */
     EVoiceType voice;           /* see EVoiceType definition above */
     ECapLetRecogn cap_let_recogn;         /* Capital letters recognition: (0 - off, 1 - on) */
-    char* cap_let_recogn_table;
-    char *cap_let_recogn_sound;
     unsigned int hist_cur_uid;
     int hist_cur_pos;
     ESort hist_sorted;
