@@ -6,10 +6,10 @@
     <para>
       <mediaobject>
 	<imageobject>
-	  <imagedata fileref="../figures/architecture.eps" format="EPS"/>
+	  <imagedata fileref="figures/architecture.eps" format="EPS"/>
 	</imageobject>
 	<imageobject>
-	  <imagedata fileref="../figures/architecture.jpg" format="JPEG"/>
+	  <imagedata fileref="figures/architecture.jpg" format="JPEG"/>
 	</imageobject>
 	<textobject>
 	  <phrase>Speechd Architecture</phrase>
