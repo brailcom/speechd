@@ -1,3 +1,17 @@
+2004-11-29  Hynek Hanke  <hanke@chopin>
+
+	* configure.in (LIB_SDAUDIO_REVISION): Incremented.
+
+	* src/audio/oss.c (_oss_open): Don't use O_NONBLOCK since this is some undocumented
+	feature and doesn't have to work on other systems.
+	(oss_play): Compute the number of bytes needed to send correctly with bytes_per_sample.
+	(oss_play): Determine the optimal fragment size and available buffer space in OSS
+	using SNDCTL_DSP_GETOSPACE ioctl().
+	(oss_play): DELAY is now in seconds rather than nanoseconds.
+	(oss_play): If after the first write in the loop we still have a little data,
+	but not a full fragment, we write them to OSS immediatelly.
+	(oss_play): Better calculation of the timing shift (delay).
+
 2004-11-21  Hynek Hanke  <hanke@chopin>
 
 	* src/audio/nas.c (nas_play): Correct type for event_handler.
