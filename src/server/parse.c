@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.43 2003-08-07 14:41:50 hanke Exp $
+ * $Id: parse.c,v 1.44 2003-08-08 09:48:28 pdm Exp $
  */
 
 #include "speechd.h"
@@ -94,7 +94,7 @@ parse(const char *buf, const int bytes, const int fd)
         CHECK_SSIP_COMMAND("pause", parse_pause, BLOCK_NO);
         CHECK_SSIP_COMMAND("resume", parse_resume, BLOCK_NO);
         CHECK_SSIP_COMMAND("sound_icon", parse_snd_icon, BLOCK_OK);
-        CHECK_SSIP_COMMAND("char", parse_char, BLOCK_NO);
+        CHECK_SSIP_COMMAND("char", parse_char, BLOCK_OK);
         CHECK_SSIP_COMMAND("key", parse_key, BLOCK_NO)
         CHECK_SSIP_COMMAND("list", parse_list, BLOCK_NO);
         CHECK_SSIP_COMMAND("char", parse_char, BLOCK_NO);
