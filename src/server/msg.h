@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: msg.h,v 1.4 2003-03-24 22:23:19 hanke Exp $
+ * $Id: msg.h,v 1.5 2003-03-25 22:48:24 hanke Exp $
  */
 
 
@@ -43,8 +43,10 @@
 #define OK_CUR_MOV_BACK				"224 OK CURSOR MOVED BACKWARD\r\n"
 #define OK_MESSAGE_QUEUED			"225 OK MESSAGE QUEUED\r\n"
 #define OK_SND_ICON_QUEUED			"226 OK SOUND ICON QUEUED\r\n"
+#define OK_MSG_CANCELED				"227 OK MESSAGE CANCELED\r\n"
 
 #define OK_RECEIVE_DATA				"230 OK RECEIVING DATA\r\n"
+#define OK_BYE						"231 HAPPY HACKING\r\n"
 
 #define OK_CLIENT_LIST_SENT			"240 OK CLIENTS LIST SENT\r\n"
 	#define C_OK_CLIENTS				"240"
@@ -81,5 +83,4 @@
 #define ERR_NOT_A_NUMBER 		   	"511 ERR GIVEN PARAMETER NOT A NUMBER\r\n"
 #define ERR_NOT_A_STRING 		   	"512 ERR GIVEN PARAMETER NOT A STRING\r\n"
 
-#define BYE_MSG						"700 HAPPY HACKING\r\n"
 
