@@ -1,5 +1,7 @@
 2003-08-08  Milan Zamazal  <pdm@brailcom.org>
 
+	* ltmain.sh: Updated for libtool 1.5.
+
 	* src/server/parse.c (parse): Allow CHAR in blocks.
 
 2003-08-07  Hynek Hanke  <hanke@volny.cz>
