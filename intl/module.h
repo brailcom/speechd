@@ -19,11 +19,12 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.h,v 1.16 2003-06-23 05:14:51 hanke Exp $
+ * $Id: module.h,v 1.17 2003-08-11 14:57:51 hanke Exp $
  */
 
 #include <glib.h>
 #include <gmodule.h>
+#include <stdlib.h>
 #include "fdset.h"
 
 typedef struct
