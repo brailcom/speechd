@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.15 2003-09-20 17:29:32 hanke Exp $
+ * $Id: module_utils.c,v 1.16 2003-09-22 00:31:46 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -54,8 +54,6 @@ int module_num_dc_options = 0;
 static FILE *debug_file;
 
 #define DEBUG_MODULE 1
-
-#define MODULE_VERSION "0.0"
 
 #define DECLARE_DEBUG_FILE(name) static char debug_filename[]=name;
 
@@ -333,7 +331,10 @@ do_speaking(void)
     else return "205-0\n205 OK SPEAKING STATUS SENT";
 }
 
-
+/* This has to return int (although it doesn't return) so that we could
+ * call it from PROCESS_CMD() macro like the other commands that return
+ * something */
+int
 do_quit(void)
 {
     printf("210 OK QUIT\n");    
@@ -439,11 +440,48 @@ module_get_message_part(const char* message, char* part, unsigned int *pos, size
     return i;
 }
 
+static void
+module_strip_punctuation_some(char *message, char *punct_chars)
+{
+    int len;
+    char *p = message;
+    guint32 u_char;
+    int pchar_bytes;
+    int i;
+    assert(message != NULL);
+
+    if (punct_chars == NULL) return;
+
+    pchar_bytes = strlen(punct_chars);
+    len = strlen(message);
+    for (i = 0; i <= len-1; i++){
+        if (strchr(punct_chars, *p)){
+            if (*p == '@'){
+                if (((len-1-i)>0) && (*(p+1) == '@')){
+                    *p = ' ';
+                    *(p+1) = ' ';
+                }
+            }else{
+                DBG("Substitution %d: char -%c- for whitespace\n", i, *p);
+                *p = ' ';
+            }
+        }
+        p++;
+    }
+}
+
+static void
+module_strip_punctuation_default(char *buf)
+{
+    assert(buf != NULL);
+    module_strip_punctuation_some(buf, "~#$%^&*+=|<>[]_");
+}
+
 typedef void (*TChildFunction)(TModuleDoublePipe dpipe, const size_t maxlen);
 typedef size_t (*TParentFunction)(TModuleDoublePipe dpipe, const char* message,
                              const size_t maxlen, const char* dividers,
                              int *pause_requested);
-int
+void
 module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid, 
                           TChildFunction child_function,
                           TParentFunction parent_function,
@@ -491,7 +529,7 @@ module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid,
 
             DBG("Starting child...\n");
             (* child_function)(module_pipe, maxlen);           
-            break;
+            exit(0);
 
         default:
             /* This is the parent. Send data to the child. */
@@ -570,71 +608,7 @@ module_parent_wfork(TModuleDoublePipe dpipe, const char* message,
         }
             
     }    
-}
-
-static void
-module_strip_punctuation_some(char *message, char *punct_chars)
-{
-    int len;
-    char *p = message;
-    guint32 u_char;
-    int pchar_bytes;
-    int i;
-    assert(message != NULL);
-
-    if (punct_chars == NULL) return;
-
-    pchar_bytes = strlen(punct_chars);
-    len = strlen(message);
-    for (i = 0; i <= len-1; i++){
-        if (strchr(punct_chars, *p)){
-            if (*p == '@'){
-                if (((len-1-i)>0) && (*(p+1) == '@')){
-                    *p = ' ';
-                    *(p+1) = ' ';
-                }
-            }else{
-                DBG("Substitution %d: char -%c- for whitespace\n", i, *p);
-                *p = ' ';
-            }
-        }
-        p++;
-    }
-}
-
-static void
-module_strip_punctuation_default(char *buf)
-{
-    assert(buf != NULL);
-    module_strip_punctuation_some(buf, "~#$%^&*+=|<>[]_");
-}
-
-static short *
-module_add_samples(short* samples, short* data, size_t bytes, size_t *num_samples)
-{
-    int i;
-    short *new_samples;
-    static size_t allocated;
-
-    if (samples == NULL) *num_samples = 0;
-    if (*num_samples == 0){
-        allocated = CHILD_SAMPLE_BUF_SIZE;
-        new_samples = (short*) xmalloc(CHILD_SAMPLE_BUF_SIZE);        
-    }else{
-        new_samples = samples;
-    }
-
-    if (*num_samples * sizeof(short) + bytes > allocated){
-        allocated *= 2;
-        new_samples = (short*) xrealloc(new_samples, allocated);
-    }
-
-    for(i=0; i <= (bytes/sizeof(short)) - 1; i++){
-        new_samples[*num_samples] = data[i];
-        (*num_samples)++;
-    }
-
-    return new_samples;
+    return 0;
 }
 
 static int
@@ -657,24 +631,68 @@ module_parent_wait_continue(TModuleDoublePipe dpipe)
     }
 }
 
-static int
-module_parent_send_samples(TModuleDoublePipe dpipe, short* samples, size_t num_samples)
+static void
+module_parent_dp_init(TModuleDoublePipe dpipe)
 {
-    size_t ret;
-    size_t acc_ret = 0;
-
-    while(acc_ret < num_samples * sizeof(short)){
-        ret = module_parent_dp_write(dpipe, (char*) samples, 
-                                     num_samples * sizeof(short) - acc_ret);
-                
-        if (ret == -1){
-            DBG("parent: Error in sending data to child:\n   %s\n",
-                strerror(errno));
-            return -1;
-        }
-        acc_ret += ret;
-    }
+    close(dpipe.pc[0]);
+    close(dpipe.cp[1]);
 }
+
+static void
+module_parent_dp_close(TModuleDoublePipe dpipe)
+{
+    close(dpipe.pc[1]);
+    close(dpipe.cp[0]);
+}
+
+static void
+module_child_dp_init(TModuleDoublePipe dpipe)
+{
+    close(dpipe.pc[1]);
+    close(dpipe.cp[0]);
+}
+
+static void
+module_child_dp_close(TModuleDoublePipe dpipe)
+{
+    close(dpipe.pc[0]);
+    close(dpipe.cp[1]);
+}
+
+static void
+module_child_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes)
+{
+    assert(msg != NULL);
+    write(dpipe.cp[1], msg, bytes);       
+}
+
+static int
+module_parent_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes)
+{
+    int ret;
+    assert(msg != NULL);
+    DBG("going to write %d bytes", bytes);
+    ret = write(dpipe.pc[1], msg, bytes);      
+    DBG("written %d bytes", ret);
+    return ret;
+}
+
+static int
+module_child_dp_read(TModuleDoublePipe dpipe, char *msg, size_t maxlen)
+{
+    int bytes;
+    bytes = read(dpipe.pc[0], msg, maxlen);    
+    return bytes;
+}
+
+static int
+module_parent_dp_read(TModuleDoublePipe dpipe, char *msg, size_t maxlen)
+{
+    int bytes;
+    bytes = read(dpipe.cp[0], msg, maxlen);    
+    return bytes;
+}
+
 
 static void
 module_sigblockall(void)
@@ -709,32 +727,6 @@ module_sigblockusr(sigset_t *some_signals)
     ret = sigprocmask(SIG_SETMASK, some_signals, NULL);
     if (ret != 0)
         DBG("flite: Can't block signal set, expect problems when terminating!\n");
-}
-
-static char*
-module_getparam_str(GHashTable *table, char* param_name)
-{
-    char *param;
-    param = g_hash_table_lookup(table, param_name);
-    return param;
-}
-
-static int
-module_getparam_int(GHashTable *table, char* param_name)
-{
-    char *param_str;
-    int param;
-    
-    param_str = module_getparam_str(table, param_name);
-    if (param_str == NULL) return -1;
-    
-    {
-      char *tailptr;
-      param = strtol(param_str, &tailptr, 0);
-      if (tailptr == param_str) return -1;
-    }
-    
-    return param;
 }
 
 void
@@ -809,68 +801,6 @@ module_semaphore_init()
     return semaphore;
 }
 
-static void
-module_parent_dp_init(TModuleDoublePipe dpipe)
-{
-    close(dpipe.pc[0]);
-    close(dpipe.cp[1]);
-}
-
-static void
-module_parent_dp_close(TModuleDoublePipe dpipe)
-{
-    close(dpipe.pc[1]);
-    close(dpipe.cp[0]);
-}
-
-static void
-module_child_dp_init(TModuleDoublePipe dpipe)
-{
-    close(dpipe.pc[1]);
-    close(dpipe.cp[0]);
-}
-
-static void
-module_child_dp_close(TModuleDoublePipe dpipe)
-{
-    close(dpipe.pc[0]);
-    close(dpipe.cp[1]);
-}
-
-static void
-module_child_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes)
-{
-    assert(msg != NULL);
-    write(dpipe.cp[1], msg, bytes);       
-}
-
-static int
-module_parent_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes)
-{
-    int ret;
-    assert(msg != NULL);
-    DBG("going to write %d bytes", bytes);
-    ret = write(dpipe.pc[1], msg, bytes);      
-    DBG("written %d bytes", ret);
-    return ret;
-}
-
-static int
-module_child_dp_read(TModuleDoublePipe dpipe, char *msg, size_t maxlen)
-{
-    int bytes;
-    bytes = read(dpipe.pc[0], msg, maxlen);    
-    return bytes;
-}
-
-static int
-module_parent_dp_read(TModuleDoublePipe dpipe, char *msg, size_t maxlen)
-{
-    int bytes;
-    bytes = read(dpipe.cp[0], msg, maxlen);    
-    return bytes;
-}
-
 static char *
 module_recode_to_iso(char *data, int bytes, char *language)
 {
@@ -879,7 +809,7 @@ module_recode_to_iso(char *data, int bytes, char *language)
     if (language == NULL) recoded = strdup(data);
 
     if (!strcmp(language, "cs"))
-        recoded = (char*) g_convert(data, bytes, "ISO8859-2", "UTF-8", NULL, NULL, NULL);
+        recoded = (char*) g_convert_with_fallback(data, bytes, "ISO8859-2", "UTF-8", "?", NULL, NULL, NULL);
     else
         recoded = strdup(data);
 
