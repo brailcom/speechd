@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.27 2004-02-10 21:18:45 hanke Exp $
+ * $Id: module_utils.c,v 1.28 2004-03-08 21:25:19 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -166,6 +166,8 @@ static void module_signal_end(void);
 
 static void module_strip_punctuation_default(char *buf);
 static void module_strip_punctuation_some(char *buf, char* punct_some);
+static char* module_strip_ssml(char *buf);
+
 
 static void module_sigblockall(void);
 static void module_sigblockusr(sigset_t *signal_set);
@@ -522,6 +524,46 @@ module_strip_punctuation_some(char *message, char *punct_chars)
         }
         p++;
     }
+}
+
+static char*
+module_strip_ssml(char *message)
+{
+
+    int len;
+    char *out;
+    int i, n;
+    int omit = 0;
+
+    assert(message != NULL);
+
+    len = strlen(message);
+    out = (char*) xmalloc(sizeof(char) * (len+1));
+
+    for (i = 0, n = 0; i <= len; i++){
+
+	if (message[i] == '<'){
+	    omit = 1;
+	    continue;
+	}
+	if (message[i] == '>'){
+	    omit = 0;
+	    continue;
+	}
+	    
+	if (!strncmp(&(message[i]), "&lt;", 4)){ 
+	    i+=3;
+	    out[n++] = '<';
+	}
+	else if (!strncmp(&(message[i]), "&gt;", 4)){
+	    i+=3;
+	    out[n++] = '>';
+	}
+	else if (!omit) out[n++] = message[i];
+    }
+    DBG("in stripping ssml: |%s|", out);
+
+    return out;
 }
 
 static void
