@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: cstsnd.c,v 1.1 2003-05-07 19:15:10 hanke Exp $
+ * $Id: cstsnd.c,v 1.2 2003-05-18 20:54:40 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -68,12 +68,19 @@ OutputModule modinfo_cstsnd = {
    cstsnd_stop,
    cstsnd_pause,
    cstsnd_is_speaking,
-   cstsnd_close
+   cstsnd_close,
+   {0,0}
 };
+
+int
+module_init(OutputModule* module)
+{
+    return 0;
+}
 
 /* Entry point of this module */
 OutputModule*
-module_init(void)
+module_load(void)
 {
     if(DEBUG_CSTSND) printf("cstsnd: init_module()\n");
 
