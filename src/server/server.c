@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.64 2003-10-22 12:45:50 pdm Exp $
+  * $Id: server.c,v 1.65 2003-10-24 17:32:21 hanke Exp $
   */
 
 #include "speechd.h"
@@ -93,7 +93,8 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
     /* NOTE: This should be before we put it into queues() to
      avoid conflicts with the other thread (it could delete
      the message before we woud copy it) */
-    if (history_flag){
+    //    if (history_flag){
+    if (0){
         /* We will make an exact copy of the message for inclusion into history. */
         hist_msg = (TSpeechDMessage*) spd_message_copy(new); 
 
