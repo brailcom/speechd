@@ -12,6 +12,7 @@
 	(Client.close): Don't send `BYE' command.
 	(Client.say): Don't return server response (isolate client from
 	those details). 
+	(Client.get_client_list): New method.
 
 2003-03-29  Tomas Cerha  <cerha@freebsoft.org>
 
