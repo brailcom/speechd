@@ -1,3 +1,7 @@
+2004-06-28  Hynek Hanke  <hanke@chopin>
+
+	* ssip.texi (Parameter Setting Commands): Added SSML_MODE {on|off}
+
 2004-06-08  Hynek Hanke  <hanke@volny.cz>
 
 	* Makefile.am: Include also gpl.texi fdl.texi.

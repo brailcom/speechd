@@ -1528,7 +1528,7 @@ The text can spread over any number of lines and is finished by an end
 of line marker followed by the line containing the single character
 @code{.} (dot).  Thus the complete character sequence closing the
 input text is @code{LF . LF}.  If any line within the sent text
-contains only a dot, an extra dot is prepended before it.
+contains only a dot, an extra dot should be prepended before it.
 
 During reception of the text message, output module doesn't send
 response to the particular lines sent.  The response line is sent only

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.28 2004-02-23 22:26:30 hanke Exp $
+ * $Id: fdset.h,v 1.29 2004-06-28 08:00:15 hanke Exp $
  */
 
 #ifndef FDSET_H
@@ -79,6 +79,7 @@ typedef struct{
     int active;                 /* Is this client still active on socket or gone?*/
     int paused;                 /* Internal flag, 1 for paused client or 0 for normal. */
     EMessageType type;          /* Type of the message (1=text, 2=icon, 3=char, 4=key) */
+    int ssml_mode;		/* SSML mode on (1)/off (0) */
     int priority;               /* Priority between 1 and 3 (1 - highest, 3 - lowest) */
     signed int rate; 		/* Speed of voice from <-100;+100>, 0 is the default */
     signed int pitch;		/* Pitch of voice from <-100;+100>, 0 is the default */
@@ -98,6 +99,7 @@ typedef struct{
     unsigned int min_delay_progress;
     int pause_context;          /* Number of words that should be repeated after a pause */
     int index_mark;             /* Current index mark for the message (only if paused) */
+
 
     /* TODO: Should be moved out */
     unsigned int hist_cur_uid;
