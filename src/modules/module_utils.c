@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.11 2003-07-18 21:37:48 hanke Exp $
+ * $Id: module_utils.c,v 1.12 2003-08-11 14:59:39 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -862,6 +862,16 @@ module_cstwave_free(cst_wave* wave)
         return NULL; \
     }
 
+/* TODO: Switch this to real float, not /100 integer,
+   as soon as DotConf supports floats */
+#define MOD_OPTION_1_FLOAT(name) \
+    static float name; \
+    DOTCONF_CB(name ## _cb) \
+    { \
+        name = ((float) cmd->data.value) / ((float) 100); \
+        return NULL; \
+    }
+
 #define MOD_OPTION_2(name, arg1, arg2) \
     typedef struct{ \
         char* arg1; \
@@ -935,6 +945,13 @@ module_cstwave_free(cst_wave* wave)
                                         ARG_STR, name ## _cb, NULL, 0);
 
 #define MOD_OPTION_1_INT_REG(name, default) \
+    name = default; \
+    *options = module_add_config_option(*options, num_options, #name, \
+                                        ARG_INT, name ## _cb, NULL, 0);
+
+/* TODO: Switch this to real float, not /100 integer,
+   as soon as DotConf supports floats */
+#define MOD_OPTION_1_FLOAT_REG(name, default) \
     name = default; \
     *options = module_add_config_option(*options, num_options, #name, \
                                         ARG_INT, name ## _cb, NULL, 0);
