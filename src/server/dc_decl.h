@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.14 2003-05-07 19:06:12 hanke Exp $
+ * $Id: dc_decl.h,v 1.15 2003-05-07 20:58:19 hanke Exp $
  */
 
 #include "speechd.h"
@@ -107,6 +107,7 @@ DOTCONF_CB(cb_AddModule)
 {
     OutputModule *om;
     om = load_output_module(cmd->data.str);
+    if (om == NULL) FATAL("Couldn't load specified output module");
     g_hash_table_insert(output_modules, om->name, om);
     return NULL;
 }
