@@ -31,31 +31,33 @@ AC_CHECK_LIB(pthread,
 dnl Check for Flite (currently required)
 AC_CHECK_LIB(flite,
         flite_init, echo "",
-        echo "*** Required Flite libraries missing or instalation incomplete! See INSTALL .";exit 1,
+        echo "",
 	-lm)
 
 AC_CHECK_LIB(flite_cmulex,
         cmu_lex_init, echo "",
-        echo "*** Required Flite libraries missing or instalation incomplete! See INSTALL .";exit 1,
+        echo "",
 	-lflite -lm)
 
 AC_CHECK_LIB(flite_usenglish,
         usenglish_init, echo "",
-        echo "*** Required Flite libraries missing or instalation incomplete! See INSTALL .";exit 1,
+        echo "",
 	-lflite -lm)
 
 flite_basic="-lm -lflite -lflite_cmulex -lflite_usenglish";
 
 AC_CHECK_LIB(flite_cmu_us_kal16,
-        register_cmu_us_kal, flite_kal="-lflite_cmu_us_kal16", 
+        register_cmu_us_kal, flite_ok="true";flite_kal="-lflite_cmu_us_kal16";echo "16-bit Kal Flite voice found. Flite support enabled.", 
         	AC_CHECK_LIB(flite_cmu_us_kal,	
-        	register_cmu_us_kal, flite_libs="-lflite_cmu_us_kal", 
-        	echo "*** Required Flite kal voice library missing or instalation incomplete! See INSTALL .";exit 1,
+        	register_cmu_us_kal, flite_ok="true";flite_libs="-lflite_cmu_us_kal";
+		echo "8-bit Kal Flite voice found. Flite support enabled.", 
+        	flite_ok="false"; echo "Flite libraries missing. Compiling without Flite support!",
 		-lflite -lflite_usenglish -lflite_cmulex),
 	-lm -lflite -lflite_usenglish -lflite_cmulex)
 
 AC_SUBST(flite_basic)
 AC_SUBST(flite_kal)
+AM_CONDITIONAL(flite_support, test $flite_ok = "true")
 
 AC_CHECK_LIB(audio,
         AuOpenServer,
