@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.36 2003-10-12 23:27:20 hanke Exp $
+ * $Id: flite.c,v 1.37 2003-12-18 23:42:09 hanke Exp $
  */
 
 
@@ -155,7 +155,7 @@ module_stop(void)
 {
     DBG("flite: stop()\n");
 
-    if(flite_speaking && flite_pid != 0){
+    if(flite_speaking && (flite_pid != 0)){
         DBG("flite: killing process pid %d\n", flite_pid);
         kill(flite_pid, SIGKILL);
     }
