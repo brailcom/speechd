@@ -1,3 +1,19 @@
+2004-04-17  Hynek Hanke  <hanke@volny.cz>
+
+	* configure.in: LIB_SPD_CURRENT version number incremented.
+
+	* src/c/api/libspeechd.h: New functions for setting output_module and volume
+	added.
+
+	* src/c/api/libspeechd.c (speechd_set_output_module): New function.
+	(speechd_set_volume): New function.
+
+	* src/server/parse.c (parse_set): Use TEST_CMD instead of strcmp.
+
+	* src/c/api/Makefile.am (libspeechd_la_HEADERS): libspeechd.h moved here because otherwise
+	it wasn't be installed.
+	(libspeechd_ladir): Points to includedir.
+
 2004-04-04  Hynek Hanke  <hanke@volny.cz>
 
 	* INSTALL: Mention festival-freebsoft-utils.
