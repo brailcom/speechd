@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.32 2003-06-05 16:29:57 hanke Exp $
+ * $Id: speechd.c,v 1.33 2003-06-08 22:19:29 hanke Exp $
  */
 
 #include "speechd.h"
@@ -228,6 +228,9 @@ speechd_init()
     if(_POSIX_VERSION < 199506L)
         DIE("This system doesn't support POSIX.1c threads\n");
 
+	/* Fill GlobalFDSet with default values */
+	GlobalFDSet.min_delay_progress = 2000;
+	
     /* Initialize mutexes, semaphores and synchronization */
     ret = pthread_mutex_init(&element_free_mutex, NULL);
     if(ret != 0) DIE("Mutex initialization failed");

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.23 2003-06-08 21:54:17 hanke Exp $
+ * $Id: dc_decl.h,v 1.24 2003-06-08 22:19:29 hanke Exp $
  */
 
 #include "speechd.h"
@@ -386,10 +386,10 @@ DOTCONF_CB(cb_DefaultCapLetRecognition)
     return NULL;
 }
 
-DOTCONF_CB(cb_MaxDelayProgrees)
+DOTCONF_CB(cb_MinDelayProgress)
 {
     if (cmd->data.value < 0) MSG(2, "Time specified in MinDelayProgress not valid");
-    GlobalFDSet.max_delay_progress = cmd->data.value;
+    GlobalFDSet.min_delay_progress = cmd->data.value;
     return NULL;
 }
 
