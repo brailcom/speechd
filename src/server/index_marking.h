@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: index_marking.h,v 1.2 2003-10-12 23:32:07 hanke Exp $
+ * $Id: index_marking.h,v 1.3 2004-06-28 08:11:13 hanke Exp $
  */
 
 #include "speechd.h"
@@ -27,20 +27,15 @@
 #ifndef INDEX_MARKING_H
 #define INDEX_MARKING_H
 
-/* Insert index marks into a message and escape '@'.*/
-void insert_index_marks(TSpeechDMessage *msg);
+/* Insert index marks into a message. */
+void insert_index_marks(TSpeechDMessage *msg, int ssml_mode);
 
-/* Finds next index mark in *buf and returns it's position
-   in _begin_ and the position after the mark as the return
-   value. The number of the mark is stored in _mark_*/
-char* find_next_index_mark(char *buf, int *mark, char **begin);
-
-/* Finds a specific index marks specified in _mark_. The
- return value is a pointer to the message after the mark. */
+/* Find the index mark specified as _mark_ and return the
+rest of the text after that index mark. */
 char* find_index_mark(TSpeechDMessage *msg, int mark);
 
-/* Delete all index marks from _buf_ and de-escape '@'. Returns
-   the new allocated text. */
-char* strip_index_marks(char *buf);
+/* Delete all index marks from _buf_ and return a newly
+   allocated string. */
+char* strip_index_marks(char *buf, int ssml_mode);
 
 #endif /* INDEX_MARKING_H */
