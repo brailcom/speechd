@@ -7,7 +7,7 @@
 # Port on which Speech Dispatcher should be available
 # to clients.
 
-# Port 9876
+# Port 6560
 
 # This should be the path where Speech Dispatcher's configuration
 # is stored, it's the base directory for Include commands in this
