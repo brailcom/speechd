@@ -326,6 +326,10 @@ static char *socket_receive_file_to_buff(int fd,int *size)
 FT_Info *
 festivalOpen(FT_Info *info)
 {
+    int n;
+    char ack[4];
+    FILE *fd;
+
     /* Open socket to server */
 
     if (info == 0)
@@ -338,6 +342,43 @@ festivalOpen(FT_Info *info)
         delete_FT_Info(info);
 	return NULL;
     }
+
+    /* Opens a stream associated to the socket */
+    fd = fdopen(dup(info->server_fd),"wb");
+    /* Send the command and data */
+    fprintf(fd,"(define (speechd_tts_textall string)\n"
+            "  (let ((tmpfile (make_tmp_filename))\n"
+            "        (fd))\n"
+            "    (set! fd (fopen tmpfile \"wb\"))\n"
+            "    (format fd \"%%s\" string)\n"
+            "    (fclose fd)\n"
+            "    (set! tts_hooks (list utt.synth save_record_wave))\n"
+            "    (set! wavefiles nil)\n"
+            "    (tts_file tmpfile \"fundamental\")\n"
+            "    (delete-file tmpfile)\n"
+            "    (let ((utt (combine_waves)))\n"
+            "      (if (member 'Wave (utt.relationnames utt))\n"
+            "          (utt.send.wave.client utt)))))\n"
+            );
+    fclose(fd);
+
+    do {
+	for (n=0; n < 3; )
+	    n += read(info->server_fd,ack+n,3-n);
+
+	ack[3] = '\0';
+
+	if (strcmp(ack,"WV\n") == 0){         /* receive a waveform */
+	    client_accept_waveform(info->server_fd);
+	}else if (strcmp(ack,"LP\n") == 0)    /* receive an s-expr */
+	    client_accept_s_expr(info->server_fd);
+	else if (strcmp(ack,"ER\n") == 0)    /* server got an error */
+            {
+                fprintf(stderr,"festival_client: server returned error\n");
+                break;
+            }
+    }while (strcmp(ack,"OK\n") != 0);
+
 
     return info;
 }
@@ -359,18 +400,18 @@ festivalStringToWaveRequest(FT_Info *info, char *text)
     int n;
 
     if (info == 0)
-	return 0;
+	return -1;
     if (info->server_fd == -1)
     {
 	fprintf(stderr,"festival_client: server connection unopened\n");
-	return 0;
+	return -1;
     }
 
     /* Opens a stream associated to the socket */
     fd = fdopen(dup(info->server_fd),"wb");
 
     /* Send the command and data */
-    fprintf(fd,"(tts_textall \"");
+    fprintf(fd,"(speechd_tts_textall \"");
     /* Copy text over to server, escaping any quotes */
     for (p=text; p && (*p != '\0'); p++)
     {
@@ -379,7 +420,7 @@ festivalStringToWaveRequest(FT_Info *info, char *text)
 	putc(*p,fd);
     }
     /* Specify mode */
-    fprintf(fd,"\" \"%s\")\n",info->text_mode);
+    fprintf(fd,"\")\n");
 
     /* Close the stream (but not the socket) */
     fclose(fd);
@@ -417,26 +458,6 @@ festivalStringToWaveGetData(FT_Info *info)
     } while (strcmp(ack,"OK\n") != 0);
     
     return wave;
-}
-
-void
-festivalEmptySocket(FT_Info *info)
-{
-    char *comm;
-    int ret;
-    int n = 0;
-
-    comm = (char*) spd_malloc(4096);
-
-    while(1){   
-        ret = read(info->server_fd, comm, 4096);    
-        if (ret <= 0) break;
-        if (comm[ret-1] == '\n' && comm[ret-2] == 'K' && comm[ret-3] == 'O')
-            break;
-        if (comm[ret-1] == '\n' && comm[ret-2] == 'R' && comm[ret-3] == 'E')
-            break;
-    }
-
 }
 
 /* Closes the Festival server socket connection */
@@ -487,6 +508,9 @@ festivalSetRate(FT_Info *info, signed int rate)
     char buf[4];
     int n;
     float stretch;
+
+    if (info == NULL) DBG("festivalSetRate called with info = NULL\n");
+    if (info->server_fd == -1) DBG("festivalSetRate: server_fd invalid\n");
 
     stretch = 1;
     if (rate < 0) stretch -= ((float) rate) / 50;
