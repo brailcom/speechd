@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.39 2003-07-17 12:00:38 hanke Exp $
+ * $Id: speechd.h,v 1.40 2003-07-18 21:40:52 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -174,6 +174,7 @@ OutputModule *sound_module;
 
 /* Arrays needed for receiving data over socket */
 int *awaiting_data;
+int *inside_block;
 size_t *o_bytes;
 GString **o_buf;
 int fds_allocated;
