@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: spd_audio.c,v 1.11 2004-11-13 14:47:55 hanke Exp $
+ * $Id: spd_audio.c,v 1.12 2004-11-21 22:12:44 hanke Exp $
  */
 
 /* 
@@ -79,23 +79,23 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     AudioID *id;
     int ret;
 
-    id = malloc(sizeof(AudioID));
+    id = (AudioID*) malloc(sizeof(AudioID));
 
     *error = NULL;
 
     if (type == AUDIO_OSS){
 #ifdef WITH_OSS
-	id->function = &oss_functions;
+	id->function = (Funct*) &oss_functions;
 
 	if (id->function->open != NULL){
 	    ret = id->function->open(id, pars);
 	    if (ret != 0){
-		*error = strdup("Couldn't open OSS device.");
+		*error = (char*) strdup("Couldn't open OSS device.");
 		return NULL;
 	    }
 	}
 	else{
-	    *error = strdup("Couldn't open OSS device module.");
+	    *error = (char*) strdup("Couldn't open OSS device module.");
 	    return NULL;
 	}
 	id->type = AUDIO_OSS;
@@ -106,17 +106,17 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     }
     else if (type == AUDIO_NAS){
 #ifdef WITH_NAS
-	id->function = &nas_functions;
+	id->function = (Funct*) &nas_functions;
 
 	if (id->function->open != NULL){
 	    ret = id->function->open(id, pars);
 	    if (ret != 0){
-		*error = strdup("Couldn't open connection to the NAS server.");
+		*error = (char*) strdup("Couldn't open connection to the NAS server.");
 		return NULL;
 	    }
 	}
 	else{
-	    *error = strdup("Couldn't open NAS device module.");
+	    *error = (char*) strdup("Couldn't open NAS device module.");
 	    return NULL;
 	}
 	id->type = AUDIO_NAS;
@@ -126,7 +126,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 #endif
     }
     else{
-	*error = strdup("Unknown device");
+	*error = (char*) strdup("Unknown device");
 	return NULL;
     }
 
