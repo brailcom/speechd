@@ -1,4 +1,3 @@
-
 /*
  * parse.c - Parses commands Speech Dispatcher got from client
  *
@@ -19,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.53 2003-10-13 16:20:17 hanke Exp $
+ * $Id: parse.c,v 1.54 2003-10-15 20:08:12 hanke Exp $
  */
 
 #include "speechd.h"
@@ -155,14 +154,14 @@ parse(const char *buf, const int bytes, const int fd)
             assert(new->bytes >= 0); 
             assert(o_buf[fd] != NULL);
 
-            if ((bytes == 3) && (new->bytes > 2))
-                memcpy(new->buf, o_buf[fd]->str, new->bytes-2);
-            else
-                memcpy(new->buf, o_buf[fd]->str, new->bytes);
+            if ((bytes == 3) && (new->bytes > 2)) new->bytes -= 2;
+            memcpy(new->buf, o_buf[fd]->str, new->bytes);
 
             new->buf[new->bytes] = 0;
 
             reparted = inside_block[fd];
+
+            new->buf = deescape_dot(new->buf);
 
             MSG(4, "New buf is now: |%s|", new->buf);		
             if(queue_message(new, fd, 1, MSGTYPE_TEXT, reparted) != 0){
@@ -784,6 +783,77 @@ parse_block(const char *buf, const int bytes, const int fd)
     }
     else return ERR_PARAMETER_INVALID;
 }
+
+char*
+deescape_dot(char *otext)
+{
+    char *seq;
+    GString *ntext;
+    char *ootext;
+    char *line;
+    char *ret = NULL;
+    int len;
+
+    if (otext == NULL) return NULL;
+
+    MSG2(5, "escaping", "Incomming text: |%s|", otext);
+
+    ootext = otext;
+
+    ntext = g_string_new("");
+
+    if (strlen(otext) == 2){
+        if (!strcmp(otext, "..")){
+            otext[1] = 0;
+            return otext;
+        }
+    }
+
+    if (strlen(otext) >= 4){
+        if ((otext[0] == '.') && (otext[1] == '.')
+            && (otext[2] == '\r') && (otext[3] == '\n')){
+            g_string_append(ntext, ".\r\n");
+            otext = otext+4;
+        }
+    }
+
+    MSG2(5, "escaping", "Altering text (I): |%s|", ntext->str);
+
+    while (seq = strstr(otext, "\r\n..\r\n")){
+        *seq = 0;
+        g_string_append(ntext, otext);
+        g_string_append(ntext, "\r\n.\r\n");
+
+        MSG2(5, "escaping", "Altering text (II) / 1: |%s|", otext);    
+        otext = seq + 6;
+        MSG2(5, "escaping", "Altering text (II) / 2: |%s|", otext);    
+    }
+
+    MSG2(5, "escaping", "Altering text (II): |%s|", ntext->str);    
+
+    len = strlen(otext);
+    if (len >= 4){
+        if ((otext[len-4] == '\r') && (otext[len-3] == '\n')
+            && (otext[len-2] == '.') && (otext[len-1] == '.')){
+            otext[len-1] = 0;
+            MSG2(5, "escaping", "Altering text (II-b) otext: |%s|", otext);    
+        }
+    }
+
+    if (otext == ootext){
+        ret = otext;
+    }else{
+        g_string_append(ntext, otext);
+        free(ootext);
+        ret = ntext->str;
+    }
+    g_string_free(ntext, 0);
+
+    MSG2(5, "escaping", "Altered text: |%s|", ret);
+
+    return ret;
+}
+
    
 /* isanum() tests if the given string is a number,
  * returns 1 if yes, 0 otherwise. */

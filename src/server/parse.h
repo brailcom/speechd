@@ -17,6 +17,8 @@ char* parse_list(const char* buf, const int bytes, const int fd);
 char* parse_help(const char* buf, const int bytes, const int fd);
 char* parse_block(const char* buf, const int bytes, const int fd);
 
+char* deescape_dot(char *otext);
+
 /* Function for parsing the input from clients */
 char* get_param(const char *buf, const int n, const int bytes, const int lower_case);
 
