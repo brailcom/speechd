@@ -1,3 +1,23 @@
+2002-11-18  Tomas Cerha  <cerha@brailcom.org>
+
+	* Makefile: Use customized DSSSL stylesheet `html.dsl' and
+	simplify the Makefile using some of its features.
+
+	* analysis.xml: `Robod' -> `Speech Deamon'.
+
+	* robod.xml: `Robod' -> `Speech Deamon'.
+
+	* preface.xml: `Robod' -> `Speech Deamon'.
+
+	* intro.xml: `Robod' -> `Speech Deamon'.
+
+	* implementation.xml: Corrected indentation.  `Robod' -> `Speech
+	Deamon'.
+
+	* README: Added note on `html.dsl'.  Updated.
+
+	* html.dsl: Initial version.
+
 2002-06-20  Tomas Cerha  <cerha@brailcom.org>
 
 	* preface.xml: Formatting corrected.
