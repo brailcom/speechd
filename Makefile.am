@@ -2,7 +2,7 @@
 
 SUBDIRS= src config sounds
 
-EXTRA_DIST= ChangeLog NEWS TODO AUTHORS COPYING INSTALL README intl/ doc/
+EXTRA_DIST= ChangeLog NEWS TODO AUTHORS COPYING INSTALL README intl doc
 
 ## man_MANS = 
 
