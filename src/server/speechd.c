@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.31 2003-06-03 12:08:07 hanke Exp $
+ * $Id: speechd.c,v 1.32 2003-06-05 16:29:57 hanke Exp $
  */
 
 #include "speechd.h"
@@ -145,6 +145,30 @@ speechd_reload_configuration(int sig)
     dotconf_cleanup(configfile);
     MSG(1,"Configuration has been read from \"%s\"", configfilename);
 }
+
+void
+speechd_alarm_handle(int sig)
+{
+        sem_post(sem_messages_waiting);
+}
+
+/* Set alarm to the requested time in microseconds. */
+
+unsigned int
+speechd_alarm (unsigned int useconds)
+{
+    struct itimerval old, new;
+    new.it_interval.tv_usec = 0;
+    new.it_interval.tv_sec = 0;
+    new.it_value.tv_usec = (long int) useconds;
+    new.it_value.tv_sec = 0;
+    if (setitimer (ITIMER_REAL, &new, &old) < 0)
+        return 0;
+    else
+        return old.it_value.tv_sec;
+}
+
+
 
 void
 speechd_init()
@@ -335,7 +359,8 @@ main()
 	
     /* Register signals */
     (void) signal(SIGINT, speechd_quit);	
-    (void) signal(SIGHUP, speechd_reload_configuration);
+    (void) signal(SIGALRM, speechd_alarm_handle);	
+    (void) signal(SIGUSR2, speechd_reload_configuration);
 
     speechd_init();
 
