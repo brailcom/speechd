@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.h,v 1.12 2003-10-12 23:34:01 hanke Exp $
+ * $Id: set.h,v 1.13 2004-02-10 21:24:07 hanke Exp $
  */
 
 #ifndef SET_H
@@ -36,6 +36,7 @@ int set_priority_uid(int uid, int priority);
 int set_language_uid(int uid, char *language);
 int set_rate_uid(int uid, int rate);
 int set_pitch_uid(int uid, int pitch);
+int set_volume_uid(int uid, int volume);
 int set_punct_mode_uid(int uid, int punct);
 int set_cap_let_recog_uid(int uid, int recog);
 int set_spelling_uid(int uid, ESpellMode spelling);
@@ -45,6 +46,7 @@ int set_priority_self(int fd, int priority);
 int set_language_self(int fd, char *language);
 int set_rate_self(int fd, int rate);
 int set_pitch_self(int fd, int pitch);
+int set_volume_self(int fd, int volume);
 int set_punct_mode_self(int fd, int punct);
 int set_cap_let_recog_self(int fd, int recog);
 int set_spelling_self(int fd, ESpellMode spelling);
@@ -54,6 +56,7 @@ int set_priority_all(int priority);
 int set_language_all(char *language);
 int set_rate_all(int rate);
 int set_pitch_all(int pitch);
+int set_volume_all(int volume);
 int set_punct_mode_all(int punct);
 int set_cap_let_recog_all(int recog);
 int set_spelling_all(ESpellMode spelling);
