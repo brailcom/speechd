@@ -1173,13 +1173,6 @@ The message is spoken as it would be sent by its originating command
 (@code{SPEAK} or @code{SOUND_ICON}), but the @emph{current} settings
 (priority, etc.) apply.
 
-@item HISTORY SET SHORT_MESSAGE_LENGTH @var{length}
-Set the maximum length of short versions of history messages to
-@var{length} characters.  @var{length} must be a non-negative integer.
-
-Short (truncated) versions of history messages are used e.g. in the
-answer to the @code{HISTORY GET CLIENT_MESSAGES} format.
-
 @item HISTORY SORT @{ asc | desc @} @{ time | user | client_name | priority | message_type @}
 Sort the messages in history according to the given criteria.  If the
 second command argument is @code{asc}, sort in the ascending order, if
@@ -1201,7 +1194,8 @@ Priority.
 
 @item message_type
 Type of the message (text, sound icon, character, key), in the order
-specified in the Speech Daemon configuration.
+specified in the Speech Daemon configuration or by the @code{HISTORY
+SET MESSAGE_TYPE_ORDERING} command.
 @end table
 
 The sorting is stable --- order of all the messages that are equal in
@@ -1209,6 +1203,22 @@ the given ordering remains the same.
 
 The sorting is specific to the given client connection, other
 connections are unaffected by invocation of this command.
+
+@item HISTORY SET SHORT_MESSAGE_LENGTH @var{length}
+Set the maximum length of short versions of history messages to
+@var{length} characters.  @var{length} must be a non-negative integer.
+
+Short (truncated) versions of history messages are used e.g. in the
+answer to the @code{HISTORY GET CLIENT_MESSAGES} format.
+
+@item HISTORY SET MESSAGE_TYPE_ORDERING "@var{ordering}"
+Set the ordering of the message types, from the minimum to the
+maximum.  @var{ordering} is a sequence of the following symbols,
+separated by spaces: @code{text}, @code{sound_icon}, @code{char},
+@code{key}.  The symbols are case insensitive and each of them must be
+present in @var{ordering} exactly once.
+
+The specified ordering can be used by the @code{HISTORY SORT} command.
 
 @item HISTORY SEARCH @{ @var{id} | all | self @} "@var{condition}"
 Return the list of history messages satisfying @var{condition}.  The
@@ -1327,10 +1337,10 @@ codes.
 
 The following example illustrates a sample relation with SSIP.  The
 client connects to the Speech Daemon, sets all the common parameters,
-sends two text messages, looks up them in the message history,
-instructs Speech Daemon to repeat the second message, and closes the
-connection.  Lines starting with a numeric code are response lines of
-the server, other lines are the lines sent by the client.
+sends two text messages, displays the list of clients, instructs
+Speech Daemon to repeat the second message, and closes the connection.
+Lines starting with a numeric code are response lines of the server,
+other lines are the lines sent by the client.
 
 @example
 SET CLIENT_NAME joe:vi:default
@@ -1349,11 +1359,15 @@ Still there?
 .
 225 OK MESSAGE QUEUED
 HISTORY GET CLIENT_LIST
-240-1 joe:vi:default 1
+240-1 jim:Emacs:default 0
+240-2 jim:Emacs:default 0
+240-3 unknown:unknown:unknown 0
+240-4 jim:Emacs:default 1
+240-5 joe:vi:default 1
 240 OK CLIENTS LIST SENT
-HISTORY GET CLIENT_MESSAGES joe:vi:default 2 1
-500 ERR INVALID COMMAND
-...
+HISTORY GET LAST
+242-39 joe:vi:default
+242 OK LAST MSG SAID
 QUIT
 231 HAPPY HACKING
 @end example
