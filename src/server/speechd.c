@@ -1,5 +1,5 @@
 /* Speechd server program
- * CVS revision: $Id: speechd.c,v 1.7 2002-12-08 20:21:52 hanke Exp $
+ * CVS revision: $Id: speechd.c,v 1.8 2002-12-16 01:39:21 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
 #include "speechd.h"
@@ -71,10 +71,10 @@ history_list_create_client(int fd)
    gl = g_list_find_custom(fd_settings, (int*) fd, fdset_list_compare);
    if (gl == NULL) FATAL("Couldn't find appropiate settings for active client."); 
    settings = gl->data;
-    new->client_name = malloc(strlen(settings->client_name)+1);
+   new->client_name = malloc(strlen(settings->client_name)+1);
    strcpy(new->client_name, settings->client_name);
    new->fd = fd;
-   new->id = fd;
+   new->id = fd;		// TODO: Unique ID
    new->active = 1;
    new->messages = NULL;
 
@@ -89,15 +89,6 @@ default_hist_set(){
    new->sorted = BY_TIME;  
    return new;
 }
-
-/*static gdsl_element_t
-hset_alloc_element(void* element)
-{
- THistSetElement *new;
- new = malloc(sizeof(THistSetElement));
- *new = *((THistSetElement*) element);
- return (gdsl_element_t) new;
-}*/
 
 TFDSetElement*
 default_fd_set()
@@ -130,7 +121,7 @@ default_fd_set()
 
 int main() {
    configfile_t *configfile = NULL;
-   char *configfilename = "/usr/local/etc/speechd.conf";
+   char *configfilename = SYS_CONF"/speechd.conf" ;
    int server_socket;
    struct sockaddr_in server_address;
    fd_set testfds;
@@ -139,7 +130,10 @@ int main() {
    THistSetElement *new_hist_set;
    THistoryClient *hnew_element;
    int v, i;
+	int fd;
 
+   msgs_to_say = 0;
+   
    MessageQueue = speechd_queue_alloc();
 
    if (MessageQueue == NULL)
@@ -205,10 +199,10 @@ int main() {
     tv.tv_sec = 0;
     tv.tv_usec = 10;
    while (1) {
-      int fd;
       testfds = readfds;
 
       if (select(FD_SETSIZE, &testfds, (fd_set *)0, (fd_set *)0, &tv) >= 1){
+			  
       /* Once we know we've got activity,
        * we find which descriptor it's on by checking each in turn using FD_ISSET. */
 
@@ -231,6 +225,12 @@ int main() {
 	       if (client_socket > fdmax) fdmax = client_socket;
 	       MSG(3,"   adding client on fd %d\n", client_socket);
 
+           g_array_set_size(awaiting_data, fd+1);
+           v = 0;
+           /* Mark this client as ,,receiving commands'' */
+           g_array_insert_val(awaiting_data, fd, v);
+											   
+		   
                new_fd_set = default_fd_set();
                new_fd_set->fd = client_socket;
                fd_settings = g_list_append(fd_settings, new_fd_set);
@@ -267,7 +267,11 @@ int main() {
       }
 
     }
-    speak();
+	if(msgs_to_say > 0){
+		 	speak();
+	}else{
+		usleep(10);
+	}
    }
 
    /* on exit ...
@@ -278,4 +282,6 @@ int main() {
 }
 
 
-
+/* isanum() tests if the given string is a number,
+ * returns 1 if yes, 0 otherwise. */
+int isanum(char *str);

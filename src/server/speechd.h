@@ -25,12 +25,7 @@
 
 /* ==================================================================== */
 
-#define LOG_LEVEL 3
-#define SPEECH_PORT 9876
-
-#define FATAL(msg) { printf("speechd: "msg"\n"); exit(EXIT_FAILURE); }
-#define DIE(msg)   { perror("speechd: "msg); exit(EXIT_FAILURE); }
-#define MSG(level,args...) if (level <= LOG_LEVEL) printf(args)
+#include "def.h"
 
 #include "module.h"
 #include "fdset.h"
@@ -43,6 +38,7 @@ fd_set readfds;
 
 int fdmax;
 
+int msgs_to_say;
 /* associative array of all configured (and succesfully loaded) output modules */
 
 GHashTable *output_modules;	
@@ -124,7 +120,6 @@ GArray *o_bytes;
 char* parse_history(char *buf, int bytes, int fd);
 char* parse_set(char *buf, int bytes, int fd);
 char* get_param(char *buf, int n, int bytes);
-int isanum(char *str);
 
 typedef enum{
 	STOP = 1,
@@ -134,5 +129,8 @@ typedef enum{
 
 int stop_c(EStopCommands command, int fd);
 		
+/* isanum() tests if the given string is a number,
+ * returns 1 if yes, 0 otherwise. */
+int isanum(char *str);
 
 #endif
