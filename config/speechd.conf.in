@@ -95,42 +95,6 @@ LogFile  "/var/log/speechd.log"
 
 # DefaultPauseContext 0
 
-# -----EVENT TABLES-----
-# AddTable adds sound icons files for different languages in
-# etc/speechd/. This includes character tables, key names lists
-# and others. These tables should be sorted in directories
-# according to their languages.
-
-# WARNING: This is only a temporary solution before all
-# these features will be supported in Festival or in some
-# other intermediate layer after Speech Dispatcher. We
-# are convinced, that Speech Dispatcher should only pass
-# requests, not do the work itself. Therefore, please
-# be prepared that the format and place of these tables
-# will be different in 0.2 and future versions!
-
-AddTable	"en/characters.conf"
-AddTable	"en/keys.conf"
-AddTable	"en/sound_icons.conf"
-
-AddTable    "cs/characters.conf"
-AddTable    "cs/keys.conf"
-AddTable    "cs/sound_icons.conf"
-
-# The tables with language "generic" are available in
-# all languages.
-AddTable        "generic/sound_icons.conf"
-
-# Which table should be used when Speech Dispatcher is requested
-# to say a "character",
-DefaultCharacterTable     "characters"
-
-# to say a "key",
-DefaultKeyTable           "keys"
-
-# or to say a sound icon
-DefaultSoundTable         "sound_icons"
-
 # -----SPELLING/PUNCTUATION/CAPITAL LETTERS  CONFIGURATION-----
 
 # DefaultPunctuationMode sets the way dots, comas, exclamation
@@ -174,12 +138,6 @@ AddModule "epos-generic" "sd_generic"   "epos-generic.conf"
 # communication with output modules can be tested easily.
 
 # AddModule "testing"
-
-# Sound module loads the sound output module. 
-#  Syntax: SoundModule "name" "binary" "configuration"
-# See AddModule for the description of these parameters
-
-SoundModule "cstsnd" "sd_cstsnd"
 
 # DefaultModule selects which output module is the default.
 # You must use one of the modules loaded with AddModule.
