@@ -1,3 +1,32 @@
+2003-07-21  Hynek Hanke  <hanke@volny.cz>
+
+	* src/audio/spd_audio.c (spd_audio_play_file): New function.
+	(spd_audio_play_file_wav): New function. Stuff moved from src/modules/cstsnd.c
+
+	* src/audio/spd_audio.h: New prototypes included.
+
+	* src/audio/spd_audio.c (spd_audio_play_file_ogg): New function. Only quick and
+	dirty; it calls ogg123 through system(), but currently I don't know how to do
+	it better. It seems to work good.
+
+	* src/modules/cstsnd.c (_cstsnd_synth): Call spd_audio_play_file() instead of
+	doing it all alone.
+
+	* src/audio/spd_audio.c (spd_audio_play_file): New function for playing .wav
+	and .ogg files.
+
+	* src/tests/audio.c: New test for the audio library: play a wave or ogg file.
+
+	* src/tests/Makefile.am: audio.c: New test.
+
+	* configure.in: Complain if some of the libraries isn't present and exit the build process.
+	(AC_LANG): Now set to C.
+	(AC_OUTPUT): Inserted doc/Makefile
+
+2003-07-20  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/parse.c (parse_set): Allow SET * LANGUAGE command inside a BLOCK.
+
 2003-07-18  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/speechd.h (inside_block): New variable, keeps track of whether

@@ -1,3 +1,7 @@
+2003-07-20  Hynek Hanke  <hanke@volny.cz>
+
+	* Makefile.am: Now documentation also uses auto-tools
+
 2003-07-08  Hynek Hanke  <hanke@volny.cz>
 
 	* speechd.texi (C API): New functions added.
