@@ -29,6 +29,7 @@ tests = TestSuite()
 class Client(unittest.TestCase):
     def check_it(self):
         c = client.Client('xxx','yyy')
+        c.say("Hello, this is a Python client test.")
         c.close()
 tests.add(Client)
 
