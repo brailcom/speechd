@@ -1,3 +1,7 @@
+2003-09-10  Hynek Hanke  <hanke@volny.cz>
+
+	* src/modules/module_utils.c (module_strip_punctuation_some): Don't use unicode (this processing is called after converting to uni-byte character set).  
+
 2003-09-07  Hynek Hanke  <hanke@volny.cz>
 
 	* Big changes in output modules and communication with output modules.
