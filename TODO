@@ -1,6 +1,4 @@
 
-
-
 Short-term goals
 ================
 
@@ -10,10 +8,7 @@ Short-term goals
 
 	* default (language independent tables) + add to NEWS
 
-	* finish/rework documentation of output modules
-
 	* clear CVS
-
 
 Longer-term goals
 =================
@@ -32,7 +27,6 @@ We don't know how to do it (external help needed)
 =================================================
 	* noises/cracking ... Festival + MBROLA + Czech language makes some strange
 	   noises while speakig.
-	* install output modules with debugging symbols (not stripped)
 	* RPM packaging
 	* documentation how to install MBROLA with Festival and Speech Dispatcher
 
