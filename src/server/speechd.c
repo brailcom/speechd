@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.36 2003-07-05 12:31:33 hanke Exp $
+ * $Id: speechd.c,v 1.37 2003-07-06 15:03:07 hanke Exp $
  */
 
 #include "speechd.h"
@@ -136,22 +136,33 @@ speechd_load_configuration(int sig)
     char *configfilename = SYS_CONF"/speechd.conf";
     configfile_t *configfile = NULL;
 
+    load_default_global_set_options();
+
     spd_num_options = 0;
     spd_options = load_config_options(&spd_num_options);
 
     configfile = dotconf_create(configfilename, first_run_options, 0, CASE_INSENSITIVE);
-    if (!configfile) DIE ("Error opening config file\n");
-    if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
-    dotconf_cleanup(configfile);
-    MSG(4,"Configuration (pre) has been read from \"%s\"", configfilename);    
+    if (configfile){
+        if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
+        dotconf_cleanup(configfile);
+        MSG(4,"Configuration (pre) has been read from \"%s\"", configfilename);    
 
-    /* Add the LAST option */
-    spd_options = add_config_option(spd_options, &spd_num_options, "", 0, NULL, NULL, 0);
+        /* Add the LAST option */
+        spd_options = add_config_option(spd_options, &spd_num_options, "", 0, NULL, NULL, 0);
 
-    configfile = dotconf_create(configfilename, spd_options, 0, CASE_INSENSITIVE);
-    if (!configfile) DIE ("Error opening config file\n");
-    if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
-    dotconf_cleanup(configfile);
+        configfile = dotconf_create(configfilename, spd_options, 0, CASE_INSENSITIVE);
+        if (!configfile) DIE ("Error opening config file\n");
+        if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
+        dotconf_cleanup(configfile);
+    }else{
+        MSG(2, "Error opening config file\n");
+        
+    }
+    if (sound_module == NULL){
+        sound_module = load_output_module("cstsnd");
+        if (sound_module == NULL) FATAL("Couldn't load specified sound module,"
+                                        "check configuration.");
+    }
 
     free_config_options(spd_options, &spd_num_options);
     MSG(1,"Configuration has been read from \"%s\"", configfilename);
@@ -213,6 +224,9 @@ speechd_init()
     snd_icon_langs = g_hash_table_new(g_str_hash, g_str_equal);
     assert(snd_icon_langs != NULL);
 
+    language_default_modules = g_hash_table_new(g_str_hash, g_str_equal);
+    assert(language_default_modules != NULL);
+
     output_modules = g_hash_table_new(g_str_hash, g_str_equal);
     assert(output_modules != NULL);
 
@@ -254,7 +268,7 @@ speechd_init()
 
     /* Check for output modules */
     if (g_hash_table_size(output_modules) == 0){
-        DIE("No output modules were loaded - aborting...");
+        DIE("No speech output modules were loaded - aborting...");
     }else{
         MSG(1,"Speech Dispatcher started with %d output module%s",
             g_hash_table_size(output_modules),
@@ -385,7 +399,7 @@ main()
 
     server_address.sin_family = AF_INET;
     server_address.sin_addr.s_addr = htonl(INADDR_ANY);
-    server_address.sin_port = htons(SPEECH_PORT);
+    server_address.sin_port = htons(SPEECHD_PORT);
 
     MSG(1,"Openning a socket connection");
     if (bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address)) == -1){
