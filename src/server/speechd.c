@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.34 2003-06-20 00:50:17 hanke Exp $
+ * $Id: speechd.c,v 1.35 2003-06-23 05:13:11 hanke Exp $
  */
 
 #include "speechd.h"
@@ -131,18 +131,30 @@ speechd_quit(int sig)
 }
 
 void
-speechd_reload_configuration(int sig)
+speechd_load_configuration(int sig)
 {
     char *configfilename = SYS_CONF"/speechd.conf";
     configfile_t *configfile = NULL;
 
-    /* WARNING: there is no blocking of other threads */
-    /* Load configuration from the config file*/
-    configfile = dotconf_create(configfilename, options, 0, CASE_INSENSITIVE);
+    spd_num_options = 0;
+    spd_options = load_config_options(&spd_num_options);
+
+    configfile = dotconf_create(configfilename, first_run_options, 0, CASE_INSENSITIVE);
+    if (!configfile) DIE ("Error opening config file\n");
+    if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
+    dotconf_cleanup(configfile);
+    MSG(4,"Configuration (pre) has been read from \"%s\"", configfilename);    
+
+    /* Add the LAST option */
+    spd_options = add_config_option(spd_options, &spd_num_options, "", 0, NULL, NULL, 0);
+
+    configfile = dotconf_create(configfilename, spd_options, 0, CASE_INSENSITIVE);
     if (!configfile) DIE ("Error opening config file\n");
     if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
     dotconf_cleanup(configfile);
 
+
+    free_config_options(spd_options, &spd_num_options);
     MSG(1,"Configuration has been read from \"%s\"", configfilename);
 }
 
@@ -187,8 +199,6 @@ speechd_init()
     /* Initialize Speech Dispatcher priority queue */
     MessageQueue = (TSpeechDQueue*) speechd_queue_alloc();
     if (MessageQueue == NULL) FATAL("Couldn't alocate memmory for MessageQueue.");
-
-    num_config_options = 0;
 
     /* Initialize lists */
     MessagePausedList = NULL;
@@ -241,23 +251,8 @@ speechd_init()
     if (ret != 0) DIE("Semaphore initialization failed");
 
     /* Load configuration from the config file*/
-    load_config_options();
+    speechd_load_configuration(0);
 
-    configfile = dotconf_create(configfilename, first_run_options, 0, CASE_INSENSITIVE);
-    if (!configfile) DIE ("Error opening config file\n");
-    if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
-    dotconf_cleanup(configfile);
-    MSG(4,"Configuration (pre) has been read from \"%s\"", configfilename);    
-
-    /* Add the LAST option */
-    options = add_config_option(options, "", 0, NULL, NULL, 0);
-
-    configfile = dotconf_create(configfilename, options, 0, CASE_INSENSITIVE);
-    if (!configfile) DIE ("Error opening config file\n");
-    if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
-    dotconf_cleanup(configfile);
-    MSG(1,"Configuration has been read from \"%s\"", configfilename);
-	
     /* Check for output modules */
     if (g_hash_table_size(output_modules) == 0){
         DIE("No output modules were loaded - aborting...");
@@ -378,7 +373,7 @@ main()
     /* Register signals */
     (void) signal(SIGINT, speechd_quit);	
     (void) signal(SIGALRM, speechd_alarm_handle);	
-    (void) signal(SIGUSR2, speechd_reload_configuration);
+    (void) signal(SIGUSR2, speechd_load_configuration);
 
     speechd_init();
 
