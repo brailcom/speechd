@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.c,v 1.22 2003-03-29 20:13:45 hanke Exp $
+ * $Id: server.c,v 1.23 2003-03-30 22:32:53 hanke Exp $
  */
 
 #include "speechd.h"
@@ -422,7 +422,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag)
 	msgs_to_say++;
 	
 	if (history_flag){
-	/* Put the element _new_ to history also. */
+		/* Put the element _new_ to history also. */
 		/* We will make an exact copy of the message for inclusion into history. */
 		newgl = (TSpeechDMessage*) history_list_new_message(new); 
 		if(newgl != NULL){
@@ -477,7 +477,7 @@ parse(char *buf, int bytes, int fd)
 		 * it with it's parameters. */
 
 		if (command == NULL){
-			if(SPEECHD_DEBUG) FATAL("invalid buffer for parse()\n");
+			if(SPEECHD_DEBUG) FATAL("Invalid buffer for parse()\n");
 			return ERR_INTERNAL; 
 		}		
 		
@@ -506,6 +506,8 @@ parse(char *buf, int bytes, int fd)
 			/* Send a reply to the socket */
 			write(fd, OK_BYE, strlen(OK_BYE)+1);
 			speechd_connection_destroy(fd);
+			/* This is internal Speech Deamon message, see serve() */
+			return "999 CLIENT GONE";
 		}
 	
 		if (!strcmp(command,"speak")){
@@ -514,7 +516,7 @@ parse(char *buf, int bytes, int fd)
 				 * everything we got before */
 				r = server_data_on(fd);
 				if (r!=0){
-			        if(SPEECHD_DEBUG) FATAL("can't switch to data on mode\n");
+			        if(SPEECHD_DEBUG) FATAL("Can't switch to data on mode\n");
 			        return "ERR INTERNAL";								 
 				}
 				return OK_RECEIVE_DATA;
@@ -617,7 +619,7 @@ serve(int fd)
 {
 	int bytes;				/* Number of bytes we got */
 	char buf[BUF_SIZE];		/* The content (commands or data) we got */
-	char reply[256] = "\0";	/* Our reply to the client */
+	char reply[4000] = "\0";	/* Our reply to the client */
 	int ret;					/* Return value of write() */
  
 	/* Read data from socket */
@@ -631,20 +633,14 @@ serve(int fd)
 	strcpy(reply, parse(buf, bytes, fd));
 	
 	/* Send the reply to the socket */
-	ret = write(fd, reply, strlen(reply));
-	if (ret == -1) return -1;	
+	if (strlen(reply) == 0) return 0;
+
+	if(reply[0] != '9'){
+		ret = write(fd, reply, strlen(reply));
+		if (ret == -1) return -1;	
+	}
 
 	return 0;
-}
-
-/* hc_list_compare() compares THistoryClients according
- * to the given file descriptor */
-gint
-hc_list_compare (gconstpointer element, gconstpointer value, gpointer n)
-{
-	int ret;
-//	ret = ((THistoryClient*) element)->fd - (int) value;
-	return ret;
 }
 
 gint
