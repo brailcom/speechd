@@ -234,7 +234,7 @@ static FT_Wave *client_accept_waveform(int fd)
     FT_Wave *wave;
 
     wavefile = socket_receive_file_to_buff(fd,&filesize);
-    wave = 0;
+    wave = NULL;
     
     /* I know this is NIST file and its an error if it isn't */
     if (filesize >= 1024)
@@ -242,24 +242,24 @@ static FT_Wave *client_accept_waveform(int fd)
             /* If this doesn't work, probably you forgot to set
              the output file type to NIST ! by Parameter.set */
             num_samples = nist_get_param_int(wavefile,"sample_count",1);
-
             sample_rate = nist_get_param_int(wavefile,"sample_rate",16000);
-
+            
             if ((num_samples*sizeof(short))+1024 == filesize)
                 {		
                     wave = (FT_Wave *)malloc(sizeof(FT_Wave));
                     wave->num_samples = num_samples;
                     wave->sample_rate = sample_rate;
-                    wave->samples = (short *)malloc(num_samples*sizeof(short));
-                    memmove(wave->samples,wavefile+1024,num_samples*sizeof(short));
+                    wave->samples = (short *) malloc(num_samples*sizeof(short));
+                    memmove(wave->samples, wavefile+1024, num_samples*sizeof(short));
                     if (nist_require_swap(wavefile))
                         for (i=0; i < num_samples; i++)
                             wave->samples[i] = SWAPSHORT(wave->samples[i]);
                 }
         }
-
+    
     if (wavefile != 0)  /* just in case we've got an ancient free() */
 	free(wavefile);
+
     return wave;
 }
 
@@ -445,7 +445,7 @@ festivalStringToWaveRequest(FT_Info *info, char *text)
     {
 	if ((*p == '"') || (*p == '\\'))
 	    putc('\\',fd);
-	putc(*p,fd);
+	putc(*p, fd);
     }
     /* Specify mode */
     fprintf(fd,"\")\n");
