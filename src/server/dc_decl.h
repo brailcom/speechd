@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.7 2003-04-06 20:00:45 hanke Exp $
+ * $Id: dc_decl.h,v 1.8 2003-04-11 20:39:12 hanke Exp $
  */
 
 #include "speechd.h"
@@ -29,7 +29,7 @@
 /* define dotconf callbacks */
 DOTCONF_CB(cb_LogFile);
 DOTCONF_CB(cb_AddModule);
-DOTCONF_CB(cb_AddSndIcons);
+DOTCONF_CB(cb_AddTable);
 DOTCONF_CB(cb_DefaultModule);
 DOTCONF_CB(cb_DefaultSpeed);
 DOTCONF_CB(cb_DefaultPitch);
@@ -39,6 +39,7 @@ DOTCONF_CB(cb_DefaultPunctuationMode);
 DOTCONF_CB(cb_DefaultClientName);
 DOTCONF_CB(cb_DefaultVoiceType);
 DOTCONF_CB(cb_DefaultSpelling);
+DOTCONF_CB(cb_DefaultSpellingTable);
 DOTCONF_CB(cb_DefaultCapLetRecognition);
 
 
@@ -47,7 +48,7 @@ static const configoption_t options[] =
 {
 		   {"LogFile", ARG_STR, cb_LogFile, 0, 0},
 		   {"AddModule", ARG_STR, cb_AddModule, 0, 0},
-		   {"AddSndIcons", ARG_STR, cb_AddSndIcons, 0, 0},
+		   {"AddTable", ARG_STR, cb_AddTable, 0, 0},
 		   {"DefaultModule", ARG_STR, cb_DefaultModule, 0, 0},
 		   {"DefaultSpeed", ARG_INT, cb_DefaultSpeed, 0, 0},
 		   {"DefaultPitch", ARG_INT, cb_DefaultPitch, 0, 0},
@@ -57,6 +58,7 @@ static const configoption_t options[] =
 		   {"DefaultClientName", ARG_STR, cb_DefaultClientName, 0, 0},
 		   {"DefaultVoiceType", ARG_INT, cb_DefaultVoiceType, 0, 0},
 		   {"DefaultSpelling", ARG_TOGGLE, cb_DefaultSpelling, 0, 0},
+		   {"DefaultSpellingTable", ARG_STR, cb_DefaultSpellingTable, 0, 0},
 		   {"DefaultCapLetRecognition", ARG_TOGGLE, cb_DefaultCapLetRecognition, 0, 0},
 		      /*{"ExampleOption", ARG_STR, cb_example, 0, 0},
 			   *      {"MultiLineRaw", ARG_STR, cb_multiline, 0, 0},
@@ -64,7 +66,6 @@ static const configoption_t options[] =
 			   *                {"MoreArgs", ARG_LIST, cb_moreargs, 0, 0},*/
 		      LAST_OPTION
 };
-
 
 DOTCONF_CB(cb_LogFile)
 {
@@ -97,51 +98,82 @@ DOTCONF_CB(cb_AddModule)
 	return NULL;
 }
 
-DOTCONF_CB(cb_AddSndIcons)
+DOTCONF_CB(cb_AddTable)
 {
-	FILE *icons_file;
-	char *language;
-	GHashTable *icons_hash;
-	char *helper;
-	char *key;
-	char *value;
-	char *filename;
+    FILE *icons_file;
+    char *language;
+    char *tablename;
+    GHashTable *icons_hash;
+    char *helper;
+    char *key;
+    char *character;
+    char *value;
+    char *filename;
+    char *line;
 	
-	MSG(4,"Reading sound icons file...");
+    MSG(4,"Reading sound icons file...");
 	
-	language = (char*) spd_malloc(256);
-	filename = (char*) spd_malloc(256);
+    language = NULL;
+    tablename = NULL;
+    line = (char*) spd_malloc(256);
+    filename = (char*) spd_malloc(256);
 	
-	sprintf(filename,SYS_CONF"/%s", cmd->data.str);
-	MSG(4, "Reading sound icons from file %s", filename);
-	if((icons_file = fopen(filename, "r"))==NULL){
-		MSG(2,"Sound icons file specified in speechd.conf doesn't exist!");
-		return NULL;	  
-	}
+    sprintf(filename,SYS_CONF"/%s", cmd->data.str);
+    MSG(4, "Reading table from file %s", filename);
+    if((icons_file = fopen(filename, "r"))==NULL){
+        MSG(2,"Table %s file specified in speechd.conf doesn't exist!", filename);
+        return NULL;	  
+    }
 
-	fgets(language, 254, icons_file);
+    while(1){
+        line = (char*) spd_malloc(256 * sizeof(char));
+        fgets(line, 254, icons_file);
+        if(line == NULL){
+            MSG(2, "Specified table %s empty or missing language and table identification.", filename);
+            return NULL;
+        }
+        if(strlen(line) <= 2) continue;
+        if ((line[0] == '#') && (line[1] == ' ')) continue;
 
-	if(strlen(language)<3){
-			MSG(2,"Corrupted sound icons file");
-			return NULL;
-	}
+        key = strtok(line,":\r\n");
+        if(key == NULL) continue;
+        value = strtok(NULL,"=\r\n");
+        if(value == NULL) continue;
+        g_strstrip(key);
+        g_strstrip(value);
 
-	language[strlen(language)-1]=0;
-	
-	icons_hash = g_hash_table_lookup(snd_icon_langs, language);
-	if(!icons_hash) icons_hash = g_hash_table_new(g_str_hash, g_str_equal);
-	g_hash_table_insert(snd_icon_langs, language, icons_hash);
-	
+        if(!strcmp(key,"language")) language = value;
+        if(!strcmp(key,"table")) tablename = value;
+
+        if((language != NULL) && (tablename!=NULL)) break;
+    }
+    MSG(4, "Parsing icons data: lang:%s name:%s", language, tablename);
+    if(strlen(language)<2){
+        MSG(2,"Invalid language code in table.");
+        return NULL;
+    }
+
+    icons_hash = g_hash_table_lookup(snd_icon_langs, language);
+    if(!icons_hash){
+        icons_hash = g_hash_table_new(g_str_hash, g_str_equal);
+        g_hash_table_insert(snd_icon_langs, language, icons_hash);
+    }
     
-	while(1){
-		helper = malloc(512);
-		if(fgets(helper, 511, icons_file) == NULL) break;
-		key = strtok(helper,":\r\n");
-		value = strtok(NULL,":\r\n");	
-		g_hash_table_insert(icons_hash, key, value);	
-	}
+    while(1){
+        helper = (char*) spd_malloc(256*sizeof(char));
+        if(fgets(helper, 255, icons_file) == NULL) break;
+        character = strtok(helper,"=\r\n");
+	if (character == NULL) continue;
+        g_strstrip(character);
+        key = malloc((strlen(character) + strlen(tablename) + 2) * sizeof(char));
+        sprintf(key, "%s_%s", tablename, character);
+        value = strtok(NULL,"\r\n");
+        if(value == NULL) continue;
+        g_strstrip(value);
+        g_hash_table_insert(icons_hash, key, value);
+    }
 
-	return NULL;
+    return NULL;
 }
 
 DOTCONF_CB(cb_DefaultModule)
@@ -198,6 +230,13 @@ DOTCONF_CB(cb_DefaultVoiceType)
 DOTCONF_CB(cb_DefaultSpelling)
 {
 	GlobalFDSet.spelling = cmd->data.value;
+	return NULL;
+}
+
+DOTCONF_CB(cb_DefaultSpellingTable)
+{
+	GlobalFDSet.spelling_table = (char*) spd_malloc((strlen(cmd->data.str) + 1) * sizeof(char));
+	strcpy(GlobalFDSet.spelling_table,cmd->data.str);
 	return NULL;
 }
 
