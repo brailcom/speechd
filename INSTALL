@@ -7,7 +7,7 @@ You will need these components to compile Speech Daemon:
  - pthreads
  - libasound1 (0.5.8)
  - gcc and GNU make
- - flite [the only synthetiser that has working output module now]
+ - flite [we use it for sound track output also]
  - libfestival-dev and libestools-dev
  - librecode
  - ncurses [for Speech Deamon Center]
@@ -45,6 +45,21 @@ When everything worked ok, you can install all the parts to the default
 path by running:
 
  $ make install
+
+Testing
+=======
+
+You can try to execute Speech Deamon by
+ $ speechd
+
+If Speech Deamon is running, you can test if it's working by:
+ (on some other console)
+ $ cd speechd-@VERSION/src/tests
+ $ ./run_test basic.test
+(You can also try other tests, if you like.)
+
+Troubleshooting
+===============
 
 If you think something is missing, try additionally:
 
