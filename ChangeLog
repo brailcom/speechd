@@ -1,3 +1,11 @@
+2003-05-22  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/modules/festival.c: All internal objects declared static.
+	(module_getparam_int): Use `strtol' instead of `atoi' and be safe
+	on conversion failure.
+	(module_getvoice): Report "Unknown voice" instead of "Internal
+	error".
+
 2003-05-21  Hynek Hanke  <hanke@localhost.localdomain>
 	
 	* src/server/speaking.c (speak): Don't include process message into mutex.
