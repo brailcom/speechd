@@ -710,8 +710,8 @@ SET CLIENT_NAME lynx:cmd_line
 @end deffn
 
 @deffn {SSIP Command} {SET LANGUAGE} str
-Set recommended language for this client to @code{str}. @code{str}
-@code{str} is the language name.
+Set recommended language for this client to @code{str}.
+The @code{str} parameter is the language name.
 
 For example, if we want to set the prefered language to Czech,
 we can send:
