@@ -1,3 +1,8 @@
+2003-03-12  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/clients/libspeechd.c: `speed' -> `rate'.
+	* src/clients/libspeechd.h: Likewise.
+	* src/clients/spd_center.c: Likewise.
 
 2003-03-09	Hynek Hanke	<hanke@volny.cz>
 	* src/clients/libspeechd.c (spd_icon()): New function.
