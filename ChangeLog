@@ -1,5 +1,9 @@
 2003-05-21  Hynek Hanke  <hanke@localhost.localdomain>
+	
+	* src/server/speaking.c (speak): Don't include process message into mutex.
 
+2003-05-21  Hynek Hanke  <hanke@volny.cz>
+	
 	* src/modules/festival_client.c (festivalSetRate): New function.
 
 	* src/modules/festival.c (festival_write): Set the appropriate rate.
