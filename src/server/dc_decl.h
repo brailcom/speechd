@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.31 2003-07-16 19:18:06 hanke Exp $
+ * $Id: dc_decl.h,v 1.32 2003-07-17 12:00:21 hanke Exp $
  */
 
 #include "speechd.h"
@@ -196,11 +196,12 @@ load_default_global_set_options()
     GlobalFDSet.cap_let_recogn_sound = NULL;
     GlobalFDSet.min_delay_progress = 2000;
 
-    spd_log_level = 3;
-    logfile = stderr;
-    sound_module = NULL;
+    if (!spd_log_level_set) spd_log_level = 3;    
+    if (!spd_port_set) spd_port = SPEECHD_DEFAULT_PORT;
 
-    SPEECHD_PORT = SPEECHD_DEFAULT_PORT;
+    sound_module = NULL;
+    logfile = stderr;
+
     SOUND_DATA_DIR = strdup(SND_DATA);
 }
 
@@ -211,8 +212,10 @@ DOTCONF_CB(cb_Port)
         return NULL;
     }
 
-    if (cmd->data.value > 0)
-        SPEECHD_PORT = cmd->data.value;        
+    if (!spd_port_set){
+        spd_port = cmd->data.value;        
+        spd_port_set = 1;
+    }
 
     return NULL;
 }
@@ -246,7 +249,10 @@ DOTCONF_CB(cb_LogLevel)
         return NULL;
     }
 
-    spd_log_level = level;
+    if (!spd_log_level_set){
+        spd_log_level = level;
+        spd_log_level_set = 1;
+    }
 
     MSG(4,"Speech Dispatcher Logging with priority %d", spd_log_level);
     return NULL;
@@ -571,7 +577,7 @@ DOTCONF_CB(cb_EndAddModule)
     }
 
     if (init_output_module(cur_mod) == -1){
-        MSG(1,"Couldn't initialize output module %s", cur_mod->name);
+        MSG(2,"Couldn't initialize output module %s", cur_mod->name);
         g_hash_table_remove(output_modules, cur_mod->name);
         spd_module_free(cur_mod);
     }
