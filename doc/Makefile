@@ -1,6 +1,6 @@
-# Makefile to convert speechd documentation into various output formats
+# Makefile to convert Robod documentation into various output formats
 # Original xml documentation uses DocBook XML format (see README)
-# CVS revision: $Id: Makefile,v 1.5 2002-07-02 20:34:45 cerha Exp $
+# CVS revision: $Id: Makefile,v 1.6 2002-07-18 17:39:52 hanke Exp $
 # Author: Tomas Cerha <cerha@brailcom.cz>
 
 # Destination directory for HTML documentation. This variable must be here, to
@@ -11,7 +11,7 @@ DSL  = /usr/lib/sgml/stylesheet/dsssl/docbook/nwalsh/html/docbook.dsl
 DECL = /usr/lib/sgml/declaration/xml.decl
 
 # DocBook root document
-MAIN    = speechd.xml
+MAIN    = robod.xml
 
 PWD     = $(shell pwd)
 XML_SRC = $(shell ls *.xml 2>/dev/null)

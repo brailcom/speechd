@@ -3,7 +3,7 @@
   <title>Preface</title>
 
   <para>
-    Speech Daemon project comes to provide a device independent layer for
+    Robod project comes to provide a device independent layer for
     speech synthesis. It should provide a simple interface for client
     applications (applications, that want to speak) as well as for device
     driver modules (for particular speech synthesis).
@@ -17,7 +17,7 @@
    There is a wide field of possible uses from educational
    software, through specialized systems (hospitals, laboratories)
    and friendlier user interfaces to software for our visually impaired
-   fellows. This is exactly where Speech Deamon came from.
+   fellows. This is exactly where Robod came from.
   </para>
   <para>
    Ordinary users don't meet speech synthesis too often
@@ -48,18 +48,18 @@
   </para>
   <para>
    In an ideal world, programmers could use similar commands for
-   speech synthesis as they do for normal text` output (printf, 
+   speech synthesis as they do for normal text output (printf, 
    puts, ...). In an ideal world, there would be some speech_printf()
    that would take care of saying your message in the right time without
    interumping others, without you beeing obligated to take care of
    how exactly the communication with speech synthetiser is implemented
    and without you having to worry about what synthetiser to use and if
    it's available. In an ideal world, there would be some speech synthetiser
-   in each GNU/Linux distribution and some speech deamon taking care of all
+   in each GNU/Linux distribution and some speech dispatcher taking care of all
    applications that want to speak, allowing user to configure speech
    parameters and providing simple interface (as speech_printf())
    through some shared library for programmers. It will be a long
-   way until we get archieve this state of things, but with Speech Deamon,
+   way until we get archieve this state of things, but with Robod,
    we are taking the first steps...
   </para>
   

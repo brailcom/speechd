@@ -11,10 +11,10 @@
 	<imagedata fileref="img/architecture.png" format="PNG"/>
       </imageobject>
       <textobject>
-	<phrase>Speech Daemon Architecture</phrase>
+	<phrase>Robod Architecture</phrase>
       </textobject>
       <caption>
-	<para>Speech Daemon block diagram.</para>
+	<para>Robod block diagram.</para>
       </caption>
     </mediaobject>
     
@@ -27,7 +27,7 @@
     
     <para>
       The blue box with dashed border is the speechd program itself, however
-      all boxes with gray background are a part of Speech Daemon project.
+      all boxes with gray background are a part of Robod project.
     </para>
     
   </sect1>
@@ -249,7 +249,7 @@
 	      <para>
 		Most synthesizers provide several voice types, such as male,
 		female, child etc. The set is again different for each
-                of the devices. Speech Deamon should try to find the nearest
+                of the devices. Robod should try to find the nearest
                 possible (if the request is child female and it's not available,
                 we will try to use adult female rather then adult male).
 	      </para>
@@ -283,13 +283,13 @@
     <sect2 id="s-session-mgmt"><title>Session Management</title>
 
       <para>
-	One Speech Daemon session is based on one TCP/IP connection as
+	One Robod session is based on one TCP/IP connection as
 	described in <xref linkend="s-ssip"/>.  This connection persist during
 	the whole session.  Session is closed, by closing the connection.
       </para>
 
       <para>
-	Speech Daemon is responsible for tracking global properties for each
+	Robod is responsible for tracking global properties for each
 	session and switching the context properly, while switching between
 	particular sessions.
       </para>
@@ -381,7 +381,7 @@
     <sect2 id="s-oselect">   <title>Output Device Selection</title>
       
       <para>
-	Client must identify itself by a name, which alows Speech Daemon to
+	Client must identify itself by a name, which alows Robod to
 	select appropriate output device for this client as discussed in <xref
 	linkend="s-multiple-output"/>. Client should not deal with the explicit
 	selection of output device, but may use different identification names

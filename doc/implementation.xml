@@ -10,11 +10,11 @@
        <variablelist>
            <varlistentry>
 	      <term>
-                int speechd_init(char* client_name, char* conn_name);
+                int rbd_init(char* client_name, char* conn_name);
 	      </term>
               <listitem>
                 <para>
-           Initiates new Speech Deamon session.
+           Initiates new Robod session.
            Returns connection socket number or 0 if some error occured.
                 </para>
                </listitem>
@@ -32,26 +32,26 @@
       <sect3><title>Basic functions</title>
         <variablelist>
           <varlistentry>
-            <term> int speechd_init(char* client_name, char* conn_name); </term>
+            <term> int rbd_init(char* client_name, char* conn_name); </term>
              <listitem>
             <para>
-             Initiates new Speech Deamon session.
+             Initiates new Robod session.
              Returns connection socket number or 0 if some error occured.
             </para>
             </listitem>
           </varlistentry>
 
           <varlistentry>
-            <term> void speechd_close(int fd); </term>
+            <term> void rbd_close(int fd); </term>
              <listitem>
             <para>
-             Closes active speechd session.
+             Closes active rbd session.
             </para>
             </listitem>
           </varlistentry>
 
           <varlistentry>
-            <term> int speechd_get_client_id(int fd); </term>
+            <term> int rbd_get_client_id(int fd); </term>
              <listitem>
             <para>
              Returns id of client on the given fd or 0 if
@@ -66,10 +66,10 @@
       <sect3><title>Message manipulation functions</title>
         <variablelist>
           <varlistentry>
-            <term> int speechd_say(int fd, int priority, char* text); </term>
+            <term> int rbd_say(int fd, int priority, char* text); </term>
              <listitem>
             <para>
-              Speech Deamon receives given text and says it
+              Robod receives given text and says it
               as soon as possible according to it's priority.
               On success, it returns 1, otherwise 0.
             </para>
@@ -77,10 +77,10 @@
           </varlistentry>
 
           <varlistentry>
-            <term> int speechd_sayf(int fd, int priority, char *text, ...) </term>
+            <term> int rbd_sayf(int fd, int priority, char *text, ...) </term>
              <listitem>
             <para>
-             Same as speechd_say() but the input text can
+             Same as rbd_say() but the input text can
              be formated with the same technique as printf
              uses. (in fact, it calls printf internally).
              On success, it returns 1, otherwise 0.
@@ -89,7 +89,7 @@
           </varlistentry>
 
           <varlistentry>
-            <term> int speechd_stop(int fd); </term>
+            <term> int rbd_stop(int fd); </term>
              <listitem>
             <para>
               Stops speaking and cancels all queued messages for
@@ -100,22 +100,22 @@
           </varlistentry>
 
           <varlistentry>
-            <term> int speechd_pause(int fd); </term>
+            <term> int rbd_pause(int fd); </term>
              <listitem>
             <para>
              Pauses messages from client connected on given fd. 
              This means that it *cancels* currently spoken message
              and *waits* with all others queued or received messages
-             until speechd_resume(fd) is called.  Returns 1 on succes,
+             until rbd_resume(fd) is called.  Returns 1 on succes,
              0 if there is no client on fd.
             </para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term> int speechd_resume(int fd); </term>
+            <term> int rbd_resume(int fd); </term>
              <listitem>
             <para>
-             Unpauses paused messages. Speech Deamon will continue
+             Unpauses paused messages. Robod will continue
              saying them according to their priority.
              Returns 1 on succes, 0 if there is no client on fd.
             </para>
@@ -141,7 +141,7 @@
       <sect3><title>History functions</title>
         <variablelist>
           <varlistentry>
-            <term> int speechd_history_get_client_list(char **client_list, int **id, int *num); </term>
+            <term> int rbd_history_get_client_list(char **client_list, int **id, int *num); </term>
             <listitem>
             <para>
              This command retrieves list off all active and inactive
@@ -156,7 +156,7 @@
           </varlistentry>
 
           <varlistentry>
-            <term> int speechd_history_get_last(int fd, int *id, time_t *time, int *client_id); </term>
+            <term> int rbd_history_get_last(int fd, int *id, time_t *time, int *client_id); </term>
             <listitem>
             <para>
              Finds the last message spoken (acording to time)
@@ -169,11 +169,11 @@
 
           <varlistentry>
             <term>
-             int speechd_history_cursor_set_pos(int fd, int pos); 
-             int speechd_history_cursor_set_first(int fd); 
-             int speechd_history_cursor_set_last(int fd); 
-             int speechd_history_cursor_next(int fd); 
-             int speechd_history_cursor_prev(int fd);
+             int rbd_history_cursor_set_pos(int fd, int pos); 
+             int rbd_history_cursor_set_first(int fd); 
+             int rbd_history_cursor_set_last(int fd); 
+             int rbd_history_cursor_next(int fd); 
+             int rbd_history_cursor_prev(int fd);
             </term>
             <listitem>
             <para>
@@ -188,7 +188,7 @@
           </varlistentry>
 
           <varlistentry>
-            <term> int speechd_history_cursor_get(int fd, int *id, time_t *time); </term>
+            <term> int rbd_history_cursor_get(int fd, int *id, time_t *time); </term>
              <listitem>
             <para>
              This command simply retrieves ID and time of the message
@@ -199,7 +199,7 @@
           </varlistentry>
 
           <varlistentry>
-            <term> int speechd_history_say_id(int fd, int id); </term>
+            <term> int rbd_history_say_id(int fd, int id); </term>
              <listitem>
             <para>
 
@@ -211,7 +211,7 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term> int speechd_history_say_text(int fd, char *text); </term>
+            <term> int rbd_history_say_text(int fd, char *text); </term>
              <listitem>
             <para>
              Says unspecified text that is not intended to be put
