@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.11 2003-04-06 20:00:28 hanke Exp $
+ * $Id: set.c,v 1.12 2003-04-06 23:21:43 hanke Exp $
  */
 
 
@@ -57,6 +57,25 @@ set_pitch(int fd, int pitch)
 	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL) FATAL("Couldnt find settings for active client, internal error.");
 	settings->pitch = pitch;
+	return 1;
+}
+
+int
+set_voice(int fd, char *voice)
+{
+	TFDSetElement *settings;
+
+	settings = get_client_settings_by_fd(fd);
+	if (!strcmp(voice, "male1")) settings->voice_type = MALE1;
+	else if (!strcmp(voice, "male2")) settings->voice_type = MALE2;
+	else if (!strcmp(voice, "male3")) settings->voice_type = MALE3;
+	else if (!strcmp(voice, "female1")) settings->voice_type = FEMALE1;
+	else if (!strcmp(voice, "female2")) settings->voice_type = FEMALE2;
+	else if (!strcmp(voice, "female3")) settings->voice_type = FEMALE3;
+	else if (!strcmp(voice, "child_male")) settings->voice_type = CHILD_MALE;
+	else if (!strcmp(voice, "child_female")) settings->voice_type = CHILD_FEMALE;
+	else return 0;
+
 	return 1;
 }
 
