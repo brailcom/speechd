@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.16 2003-03-29 20:14:31 hanke Exp $
+ * $Id: speechd.h,v 1.17 2003-03-30 22:35:57 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -158,14 +158,12 @@ int isanum(char *str);
 
 /* Functions for searching through lists */
 gint message_list_compare_fd (gconstpointer, gconstpointer, gpointer);
-gint hc_list_compare (gconstpointer, gconstpointer, gpointer);		
 
 TFDSetElement* get_client_settings_by_uid(int uid);
 TFDSetElement* get_client_settings_by_fd(int fd);
 
 /* Some pointers to functions for searching through lists */
 gint (*p_msg_nto_speak)();
-gint (*p_hc_lc)();
 gint (*p_msg_lc)();
 gint (*p_cli_comp_id)();
 gint (*p_cli_comp_fd)();
