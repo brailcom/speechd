@@ -1,5 +1,5 @@
 /* Speechd server functions
- * CVS revision: $Id: server.c,v 1.9 2003-01-04 22:12:33 hanke Exp $
+ * CVS revision: $Id: server.c,v 1.10 2003-01-11 11:59:42 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
 #include "speechd.h"
@@ -12,7 +12,8 @@ int highest_priority = 0;
 
 gint hc_list_compare (gconstpointer, gconstpointer, gpointer);
 
-gint (*p_fdset_lc)() = fdset_list_compare;
+gint (*p_fdset_lc_fd)() = fdset_list_compare_fd;
+gint (*p_fdset_lc_uid)() = fdset_list_compare_uid;
 gint (*p_msg_nto_speak)() = message_nto_speak;
 gint (*p_hc_lc)() = hc_list_compare;
 gint (*p_msg_lc)() = message_list_compare_fd;
@@ -50,7 +51,9 @@ stop_p23()
 	int i, num;
 	GList *gl;
 	/* Stop speaking. */
-	stop_speaking_active_module();
+	if (highest_priority == 2) stop_speaking_active_module();	
+	if (highest_priority == 3) stop_speaking_active_module();	
+//	stop_speaking_active_module();
 	/* Remove all messages to be spoken. */
 	num = g_list_length(MessageQueue->p2);
 	for(i=0;i<=num-1;i++){
@@ -62,6 +65,24 @@ stop_p23()
 		MessageQueue->p2 = g_list_delete_link(MessageQueue->p2, gl);
 		msgs_to_say--;
 	}
+	num = g_list_length(MessageQueue->p3);
+	for(i=0;i<=num-1;i++){
+		gl = g_list_first(MessageQueue->p3);
+		assert(gl!=NULL);
+		assert(gl->data!=NULL);
+		MessageQueue->p3 = g_list_delete_link(MessageQueue->p3, gl);
+		msgs_to_say--;
+	}
+}
+
+void
+stop_p3(){
+    int i, num;
+    GList *gl;
+
+	if (highest_priority == 3) stop_speaking_active_module();	
+	
+    /* Remove all messages with priority 3. */
 	num = g_list_length(MessageQueue->p3);
 	for(i=0;i<=num-1;i++){
 		gl = g_list_first(MessageQueue->p3);
@@ -138,7 +159,7 @@ message_nto_speak(TSpeechDMessage *elem, gpointer a, gpointer b)
 	if(elem == NULL) return 0;
 
 	/* Find global settings for this connection. */
-	gl = g_list_find_custom(fd_settings, (int*) elem->settings.fd, p_fdset_lc);
+	gl = g_list_find_custom(fd_settings, (int*) elem->settings.fd, p_fdset_lc_fd);
 
 	/* TODO: only temporal fix! */
 	if (gl==NULL) return 1;
@@ -170,8 +191,7 @@ speak()
 	/* If all queues are empty, there is no reason for saying something */
 	if( (g_list_length(MessageQueue->p1) == 0) &&
 		(g_list_length(MessageQueue->p2) == 0) &&
-		(g_list_length(MessageQueue->p3) == 0) &&
-		(g_list_length(MessagePausedList) == 0))
+		(g_list_length(MessageQueue->p3) == 0))
 	{
 		return 0;
 	}
@@ -181,28 +201,10 @@ speak()
 	/* Check if sb is speaking or they are all silent. 
 	 * If some synthetizer is speaking, we must wait. */
 	if (is_sb_speaking()){
-//			MSG(3, "Somebody is speaking, waiting...");			/* Do not uncomment this */
+//			MSG(3, "Somebody is speaking, waiting...");			/* you should better not uncomment this */
 		   	return 0;
 	}
       
-	/* TODO: We have to somehow solve them according to priorities
-	 * and not only have p1 hardcoded here. */
-	/* Is there any message after @resume? */
-      if(g_list_length(MessagePausedList) != 0){
-         gl = g_list_find_custom(MessagePausedList, (void*) NULL, p_msg_nto_speak);
-         if (gl != NULL){
-			element = (TSpeechDMessage*) gl->data;
-			MessagePausedList = g_list_remove_link(MessagePausedList, gl);
-			highest_priority = 0;
-			MSG(9,"           Msg in queue history\n");
-         }else{
-            element = NULL;
-		}
-      }
-
-	/* If we haven't found anything, we will browse through queues. */
-
-	if(element == NULL){
 		/* We will descend through priorities to say more important
 		 * messages first. */
 		gl = g_list_first(MessageQueue->p1); 
@@ -215,18 +217,18 @@ speak()
 				if (gl != NULL){
 						MSG(9,"           Msg in queue p2\n");
 					   	MessageQueue->p2 = g_list_remove_link(MessageQueue->p2, gl);
-						highest_priority = 0;
+						highest_priority = 2;
 				}else{
 					gl = g_list_first(MessageQueue->p3);
 					if (gl != NULL){
 							MSG(9,"           Msg in queue p3\n");
 						   	MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
-							highest_priority = 0;
+							highest_priority = 3;
 					}
 					if (gl == NULL) return 0;
 			}
  		} 
-	}
+	
 
 	/* If we got here, we have some message to say. */
 	element = (TSpeechDMessage *) gl->data;
@@ -242,8 +244,14 @@ speak()
 	/* Isn't the parent client of this message paused? 
 	 * If it is, insert the message to the MessagePausedList. */
 	if (message_nto_speak(element, NULL, NULL)){
-		MSG(3, "Inserting message to paused list...\n");
-		MessagePausedList = g_list_append(MessagePausedList, element);
+		if(element->settings.priority!=3){
+			MSG(3, "Inserting message to paused list...\n");
+			MessagePausedList = g_list_append(MessagePausedList, element);
+			msgs_to_say--;
+		}else{
+			free(element);
+			msgs_to_say--;
+		}
 		return 0;
 	}
 
@@ -277,10 +285,18 @@ hc_list_compare (gconstpointer element, gconstpointer value, gpointer n)
  * of TFDSetElement while searching in the fd_settings
  * list by fd. */
 gint
-fdset_list_compare (gconstpointer element, gconstpointer value, gpointer x)
+fdset_list_compare_fd (gconstpointer element, gconstpointer value, gpointer x)
 {
    int ret;
    ret = ((TFDSetElement*) element)->fd - (int) value;
+   return ret;
+}
+
+gint
+fdset_list_compare_uid (gconstpointer element, gconstpointer value, gpointer x)
+{
+   int ret;
+   ret = ((TFDSetElement*) element)->uid - (int) value;
    return ret;
 }
 
@@ -319,8 +335,8 @@ stop_c(EStopCommands command, int fd, int target)
       /* first stop speaking on the output module */
       stop_speaking_active_module();
       /* Find settings for this particular client */
-	  if(target) gl = g_list_find_custom(fd_settings, (int*) target, p_fdset_lc);
-	  else gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc);
+	  if(target) gl = g_list_find_custom(fd_settings, (int*) target, p_fdset_lc_uid);
+	  else gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
       
       if (gl == NULL) return 1;
 	  
@@ -332,15 +348,35 @@ stop_c(EStopCommands command, int fd, int target)
 
    if (command == RESUME){
       /* Find settings for this particular client */
-	  if(target) gl = g_list_find_custom(fd_settings, (int*) target, p_fdset_lc);
-	  else gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc);
+	  if(target) gl = g_list_find_custom(fd_settings, (int*) target, p_fdset_lc_uid);
+	  else gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
 	  if (gl == NULL) return 1;
       settings = gl->data;
       /* Set it to speak again. */
       settings->paused = 0;
-      return 0;
-   }
 
+	/* TODO: We have to somehow solve them according to priorities
+	 * and not only have p2 hardcoded here. */
+	/* Is there any message after @resume? */
+
+  {
+	TSpeechDMessage *element;
+
+    if(g_list_length(MessagePausedList) != 0){
+		while(1){
+	         gl = g_list_find_custom(MessagePausedList, (void*) NULL, p_msg_nto_speak);
+	         if (gl != NULL){
+				element = (TSpeechDMessage*) gl->data;
+				MessageQueue->p2 = g_list_append(MessageQueue->p2, element);
+				MessagePausedList = g_list_remove_link(MessagePausedList, gl);
+				msgs_to_say++;
+    	     }else{
+            	break;
+			}
+		}
+	}
+  }	  
+   }
    return 1; 
 }
 
@@ -365,7 +401,7 @@ parse(char *buf, int bytes, int fd)
 	char *ret;
 		/* TODO: What about buffer sizes? Should these be fixed? */
 	static char o_buf[MAX_CLIENTS][BUF_SIZE];
-	static int last_message_id = 0;
+	static int last_message_id = -1;
 	int r;
 	GList *gl;
 	TSpeechDMessage *newgl;
@@ -417,7 +453,7 @@ parse(char *buf, int bytes, int fd)
         MSG(5,"     stopping client's messages \n");
 		stop_from_client(fd);
         MSG(5,"     removing client from settings \n");
-        gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc);
+        gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
         assert(gl!=NULL);
         assert(gl->data!=NULL);
 		mem_free_fdset((TFDSetElement*) gl->data);
@@ -471,7 +507,7 @@ parse(char *buf, int bytes, int fd)
 			memcpy(new->buf, o_buf[fd], new->bytes);
 
 			/* Find settings for this particular client */
-			gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc);
+			gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
 			if (gl == NULL)
             FATAL("Couldnt find settings for active client, internal error.");
 			settings = gl->data;
@@ -493,10 +529,12 @@ parse(char *buf, int bytes, int fd)
 		/* Put the element new to queue according to it's priority. */
 			assert(new!=NULL);
 			switch(settings->priority){
-				case 1:	if((is_sb_speaking())&&(highest_priority!=1)) stop_p23();
+				case 1:	if(is_sb_speaking()) stop_p23();
 						MessageQueue->p1 = g_list_append(MessageQueue->p1, new); 
 						break;
-				case 2: MessageQueue->p2 = g_list_append(MessageQueue->p2, new); break;
+				case 2: if(is_sb_speaking()) stop_p3();
+					   	MessageQueue->p2 = g_list_append(MessageQueue->p2, new);
+					   	break;
 				case 3: MessageQueue->p3 = g_list_append(MessageQueue->p3, new); break;
 				default: FATAL("Non existing priority requiered");
 			}
