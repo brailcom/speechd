@@ -1,4 +1,11 @@
-2004-11-29  Hynek Hanke  <hanke@chopin>
+2004-12-10  Hynek Hanke  <hanke@chopin>
+
+	* configure.in (LIB_SDAUDIO_REVISION): Incremented.
+
+	* src/audio/nas.c (_nas_handle_server_error): New function.
+	(nas_open): Setup our own error handler.
+
+2004-11-29  Hynek Hanke  <hanke@brailcom.org>
 
 	* configure.in (LIB_SDAUDIO_REVISION): Incremented.
 
@@ -12,7 +19,7 @@
 	but not a full fragment, we write them to OSS immediatelly.
 	(oss_play): Better calculation of the timing shift (delay).
 
-2004-11-21  Hynek Hanke  <hanke@chopin>
+2004-11-21  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/audio/nas.c (nas_play): Correct type for event_handler.
 
@@ -24,7 +31,7 @@
 
 	* src/modules/festival.c (_festival_speak): Set FestivalMultiMode only if text not found in cache.
 
-2004-11-19  Hynek Hanke  <hanke@chopin>
+2004-11-19  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/audio/spd_audio.h (device_name): New parameter of AudioID.
 
