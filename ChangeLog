@@ -1,4 +1,49 @@
+2003-07-05  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/speechd.c (main): Use SIGHUP again instead of SIGUSR2 to reload configuration.
+
+	* src/server/server.c: Don't use alarms for priority 5 handling.
+
+	* src/server/dc_decl.h: Better checking for validity of parameters.
+	(GLOBAL_FDSET_OPTION_CB_INT): New macro.
+	(GLOBAL_FDSET_OPTION_CB_STR): New macro.
+	
+	* src/modules/flite.c (module_close): Missing `static' added.
+
+	* src/modules/festival_client.c (festivalClose): Send (quit) to festival server before
+	closing pipe.
+
+	* src/audio/spd_audio.c: Check if spd_audio_device is not NULL.
+
+	* intl/def.h (LOG_LEVEL): Unnecessary macro removed.
+
+	* config/en/spelling_long.conf: Table name changed.
+
+	* config/en/keys.conf: Table name changed.
+
+	* config/speechd.conf: Table names changed, default voice now MALE1, not 1.
+
+	* src/modules/festival.c (module_close): Call festivalClose().
+
+	* src/modules/module_utils.c (module_write_data_ok): Check data[0] against 0, not 
+	'0' (the character).
+	(module_audio_output_child): Close pipes before exiting.
+
+	* src/server/speaking.c (resolve_priorities): Leave at least one message in p5 queue waiting.
+	(speak): Speak "last" priority 5 message if there are no msgs waiting and the last
+	message said was of priority 5. Set on semaphore after that.
+
+	* src/server/parse.c: Cleaning, using macros, better memmory management.
+
+	* src/server/msg.h (ERR_RATE_TOO_LOW, HIGH): New SSIP messages.
+
+	* src/server/parse.c (parse_history): Don't crash if SSIP "history" is sent alone.
+
 2003-06-27  Hynek Hanke  <hanke@volny.cz>
+
+	* src/audio/spd_audio.c (spd_audio_open): Fill spd_audio_device with NULL if can't open audio.
+
+	* src/modules/festival.c (_festival_parent): Only report number of samples in debugging message.
 
 	* src/modules/module_utils.c (module_audio_output_child): Check if spd_audio_open returns ok.
 	Use xfree().
