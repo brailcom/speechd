@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.32 2003-07-17 12:00:21 hanke Exp $
+ * $Id: dc_decl.h,v 1.33 2003-07-18 21:38:11 hanke Exp $
  */
 
 #include "speechd.h"
@@ -231,7 +231,7 @@ DOTCONF_CB(cb_LogFile)
         logfile = stderr;
         return NULL;
     }
-    logfile = fopen(cmd->data.str, "w");
+    logfile = fopen(cmd->data.str, "a");
     if (logfile == NULL){
         printf("Error: can't open logging file! Using stdout.\n");
         logfile = stdout;
