@@ -1,5 +1,5 @@
 /* Speechd server functions
- * CVS revision: $Id: server.c,v 1.7 2002-12-08 20:16:22 hanke Exp $
+ * CVS revision: $Id: server.c,v 1.8 2002-12-16 01:38:24 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
 #include "speechd.h"
@@ -82,7 +82,7 @@ speak()
 	TSpeechDMessage *element = NULL;
 	OutputModule *output;
 	GList *gl = NULL;
- 
+
 	/* If all queues are empty, there is no reason for saying something */
 	if( (g_list_length(MessageQueue->p1) == 0) &&
 		(g_list_length(MessageQueue->p2) == 0) &&
@@ -92,12 +92,12 @@ speak()
 		return 0;
 	}
 
-	MSG(3, "   Some message for speaking");
+//	MSG(3, "   Some message for speaking");
 	
 	/* Check if sb is speaking or they are all silent. 
 	 * If some synthetizer is speaking, we must wait. */
 	if (is_sb_speaking()){
-			MSG(3, "Somebody is speaking, waiting...");
+//			MSG(3, "Somebody is speaking, waiting...");
 		   	return 0;
 	}
       
@@ -119,13 +119,13 @@ speak()
 	if(element == NULL){
 		/* We will descend through priorities to say more important
 		 * messages first. */
-		gl = g_list_last(MessageQueue->p1); 
+		gl = g_list_first(MessageQueue->p1); 
 		if (gl != NULL) MessageQueue->p1 = g_list_remove_link(MessageQueue->p1, gl);
 		else{
-				gl = g_list_last(MessageQueue->p2); 
+				gl = g_list_first(MessageQueue->p2); 
 				if (gl != NULL) MessageQueue->p2 = g_list_remove_link(MessageQueue->p2, gl);
 				else{
-					gl = g_list_last(MessageQueue->p3);
+					gl = g_list_first(MessageQueue->p3);
 					if (gl != NULL) MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
 					if (gl == NULL) return 0;
 			}
@@ -152,6 +152,8 @@ speak()
 	  
 	/* Write the data to the output module. (say them aloud) */
 	(*output->write) (element->buf, element->bytes, &element->settings); 
+
+	msgs_to_say--;
 
 	/* TODO: free(element); */
    return 0;
@@ -252,12 +254,14 @@ parse(char *buf, int bytes, int fd)
 	TSpeechDMessage *newgl;
 	int v;
 	char *helper1;
+	int end_data = 0;
+	int i;
 
 	if ((buf == NULL) || (bytes == 0)) FATAL("invalid buffer for parse()");
    
 	/* First the condition that we are not in data mode and we
 	 * are awaiting commands */
-	if ((g_array_index(awaiting_data,int,fd)) == 0){
+	if (g_array_index(awaiting_data,int,fd) == 0){
 		/* Every command has to be introduced by '@' */
 		if(buf[0] != '@') return "ERROR INVALID COMMAND\n\r";
 		/* Read the command */
@@ -304,7 +308,6 @@ parse(char *buf, int bytes, int fd)
 			/* Ckeck if we have enough space in awaiting_data table for
 			 * this client, that can have higher file descriptor that
 			 * everything we got before */
-			g_array_set_size(awaiting_data, fd+1);
 			v = 1;
 			/* Mark this client as ,,sending data'' */
 			g_array_insert_val(awaiting_data, fd, v);
@@ -318,8 +321,12 @@ parse(char *buf, int bytes, int fd)
 	/* The other case is that we are in awaiting_data mode and
 	 * we are waiting for text that is comming through the chanel */
 	}else{
+		enddata:
 		/* In the end of the data flow we got a "@data off" command. */
-		if(!strncmp(buf,"@data off", bytes-2)){
+		MSG(3,"testing +%d+ ", end_data);
+		if((!strncmp(buf,"@data off", bytes-2))||(end_data==1)){
+			MSG(3,"ending data\n");
+			end_data=0;
 			/* Set the flag to command mode */
 			v = 0;
 			g_array_set_size(awaiting_data, fd+1);
@@ -374,9 +381,20 @@ parse(char *buf, int bytes, int fd)
 		g_array_insert_val(o_bytes, fd, v);
 		/* Clear the output buffer (well, kind of...)*/
 		o_buf[fd][0]=0;
+		msgs_to_say++;
+		MSG(3, "msgs_to_say %d\n", msgs_to_say);
 		return OK_MESSAGE_QUEUED;
 	}
 	
+	for(i=0;i<=bytes-1;i++){	
+		if(buf[i]=='@'){
+			   	bytes=i;
+				end_data=1;		
+				MSG(3,"command in data catched\n");
+				break;
+		}
+	}	
+
 	/* Get the number of bytes read before, sum it with the number of bytes read
 	 * now and store again in the counter */
 	v = g_array_index(o_bytes,int,fd);
@@ -393,6 +411,8 @@ parse(char *buf, int bytes, int fd)
     strcat(o_buf[fd],buf);
 	}
 
+	if (end_data == 1) goto enddata;
+	
 	// TODO: eh??
 	return "";
 }
@@ -407,9 +427,11 @@ serve(int fd)
 	int ret;					/* Return value of write() */
  
 	/* Read data from socket */
+	MSG(3, "reading data\n");
 	bytes = read(fd, buf, BUF_SIZE);
 	if(bytes == -1) return -1;
-	MSG(3,"    read %d bytes from client on fd %d\n", bytes, fd);
+	buf[bytes-1]=0;
+	MSG(3,"    read %d bytes [%s] from client on fd %d\n", bytes, buf, fd);
 
 	/* Parse the data and read the reply*/
 	strcpy(reply, parse(buf, bytes, fd));
