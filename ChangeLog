@@ -1,3 +1,9 @@
+2003-04-24  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/modules/apollo.c (set_speed, set_pitch): Allocate `command'
+	as an empty array.  Use `snprintf', not `sprintf'.
+	(apollo_write): Negate the return value.
+
 2003-04-23  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/modules/apollo.c: New file.
