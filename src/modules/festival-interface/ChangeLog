@@ -1,3 +1,8 @@
+2003-11-03  Milan Zamazal  <pdm@brailcom.org>
+
+	* events.scm (logical-event-mapping): New default value.
+	(key-event-mapping): Likewise.
+
 2003-10-24  Milan Zamazal  <pdm@brailcom.org>
 
 	* punctuation.scm (punctuation-split-token) 
