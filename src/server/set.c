@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.10 2003-03-29 20:21:49 hanke Exp $
+ * $Id: set.c,v 1.11 2003-04-06 20:00:28 hanke Exp $
  */
 
 
@@ -153,18 +153,27 @@ default_fd_set(void)
 	return(new);
 }
 
-TFDSetElement*
-get_client_settings_by_fd(int fd){
-	TFDSetElement* element;
-	int *uid;
-	
-	if (fd <= 0) return NULL;
+int
+get_client_uid_by_fd(int fd)
+{
+    int *uid;
+    if(fd <= 0) return 0;
+    uid = g_hash_table_lookup(fd_uid, &fd);
+    if(uid == NULL) return 0;
+    return *uid;
+}
 
-	uid = g_hash_table_lookup(fd_uid, &fd);
-	if(uid == NULL) return NULL;
-	
-	element = g_hash_table_lookup(fd_settings, uid);
-	return element;	
+TFDSetElement*
+get_client_settings_by_fd(int fd)
+{
+    TFDSetElement* element;
+    int uid;
+
+    uid = get_client_uid_by_fd(fd);
+    if (uid == 0) return NULL;
+
+    element = g_hash_table_lookup(fd_settings, &uid);
+    return element;	
 }
 
 TFDSetElement*
