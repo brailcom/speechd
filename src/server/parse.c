@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.14 2003-04-06 23:21:20 hanke Exp $
+ * $Id: parse.c,v 1.15 2003-04-11 20:40:13 hanke Exp $
  */
 
 #include "speechd.h"
@@ -43,7 +43,7 @@ isanum(char *str){
  * which has _bytes_ bytes. Note that the parameter with
  * index 0 is the command itself. */
 char* 
-get_param(char *buf, int n, int bytes)
+get_param(char *buf, int n, int bytes, int lower_case)
 {
     char* param;
     int i, y, z;
@@ -85,13 +85,13 @@ get_param(char *buf, int n, int bytes)
         param[z] = 0;
     }
 
-    param = g_ascii_strdown(param, strlen(param));
+    if(lower_case){
+        param = g_ascii_strdown(param, strlen(param));
+    }
 
-	
     return param;
 }
 
-/* CONTINUE: Cleaning the rest of the file from here. */
 
 /* Parses @history commands and calls the appropriate history_ functions. */
 char*
@@ -100,10 +100,10 @@ parse_history(char *buf, int bytes, int fd)
     char *param;
     char *helper1, *helper2, *helper3;				
 		
-    param = get_param(buf,1,bytes);
-    MSG(4, "  param 1 caught: %s\n", param);
+    param = get_param(buf,1,bytes, 1);
+    MSG(4, "param 1 caught: %s\n", param);
     if (!strcmp(param,"get")){
-        param = get_param(buf,2,bytes);
+        param = get_param(buf,2,bytes, 1);
         if (!strcmp(param,"last")){
             return (char*) history_get_last(fd);
         }
@@ -111,11 +111,11 @@ parse_history(char *buf, int bytes, int fd)
             return (char*) history_get_client_list();
         }  
         if (!strcmp(param,"message_list")){
-            helper1 = get_param(buf,3,bytes);
+            helper1 = get_param(buf,3,bytes, 0);
             if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
-            helper2 = get_param(buf,4,bytes);
+            helper2 = get_param(buf,4,bytes, 0);
             if (!isanum(helper2)) return ERR_NOT_A_NUMBER;
-            helper3 = get_param(buf,5,bytes);
+            helper3 = get_param(buf,5,bytes, 0);
             if (!isanum(helper2)) return ERR_NOT_A_NUMBER;
             return (char*) history_get_message_list( atoi(helper1), atoi(helper2), atoi (helper3));
         }  
@@ -125,25 +125,25 @@ parse_history(char *buf, int bytes, int fd)
         // TODO: everything :)
     }
     if (!strcmp(param,"cursor")){
-        param = get_param(buf,2,bytes);
-        MSG(4, "    param 2 caught: %s\n", param);
+        param = get_param(buf,2,bytes, 1);
+        MSG(4, "param 2 caught: %s\n", param);
         if (!strcmp(param,"set")){
-            param = get_param(buf,4,bytes);
-            MSG(4, "    param 4 caught: %s\n", param);
+            param = get_param(buf,4,bytes, 1);
+            MSG(4, "param 4 caught: %s\n", param);
             if (!strcmp(param,"last")){
-                helper1 = get_param(buf,3,bytes);
+                helper1 = get_param(buf,3,bytes, 0);
                 if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
                 return (char*) history_cursor_set_last(fd,atoi(helper1));
             }
             if (!strcmp(param,"first")){
-                helper1 = get_param(buf,3,bytes);
+                helper1 = get_param(buf,3,bytes, 0);
                 if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
                 return (char*) history_cursor_set_first(fd, atoi(helper1));
             }
             if (!strcmp(param,"pos")){
-                helper1 = get_param(buf,3,bytes);
+                helper1 = get_param(buf,3,bytes, 0);
                 if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
-                helper2 = get_param(buf,5,bytes);
+                helper2 = get_param(buf,5,bytes, 0);
                 if (!isanum(helper2)) return ERR_NOT_A_NUMBER;
                 return (char*) history_cursor_set_pos( fd, atoi(helper1), atoi(helper2) );
             }
@@ -159,9 +159,9 @@ parse_history(char *buf, int bytes, int fd)
         }
     }
     if (!strcmp(param,"say")){
-        param = get_param(buf,2,bytes);
+        param = get_param(buf,2,bytes, 1);
         if (!strcmp(param,"id")){
-            helper1 = get_param(buf,3,bytes);
+            helper1 = get_param(buf,3,bytes, 0);
             if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
             return (char*) history_say_id(fd, atoi(helper1));
         }
@@ -179,19 +179,20 @@ parse_set(char *buf, int bytes, int fd)
     char *param;
     char *language;
     char *client_name;
+    char *spelling_table;
     char *priority;
     char *rate;
     char *pitch;
     char *punct;
     char *spelling;
     char *recog;
-	char *voice;
+    char *voice;
     int helper;
     int ret;
 
-    param = get_param(buf,1,bytes);
+    param = get_param(buf,1,bytes, 1);
     if (!strcmp(param, "priority")){
-        priority = get_param(buf,2,bytes);
+        priority = get_param(buf,2,bytes, 0);
         if (!isanum(priority)) return ERR_NOT_A_NUMBER;
         helper = atoi(priority);
         MSG(4, "Setting priority to %d \n", helper);
@@ -201,24 +202,32 @@ parse_set(char *buf, int bytes, int fd)
     }
 
     if (!strcmp(param,"language")){
-        language = get_param(buf,2,bytes);
+        language = get_param(buf,2,bytes, 0);
         MSG(4, "Setting language to %s \n", language);
         ret = set_language(fd, language);
         if (!ret) return ERR_COULDNT_SET_LANGUAGE;
         return OK_LANGUAGE_SET;
     }
 
+    if (!strcmp(param,"spelling_table")){
+        spelling_table = get_param(buf,2,bytes, 0);
+        MSG(4, "Setting spelling table to %s \n", spelling_table);
+        ret = set_spelling_table(fd, spelling_table);
+        if (!ret) return ERR_COULDNT_SET_SPELLING_TABLE;
+        return OK_SPELLING_TABLE_SET;
+    }
+
     if (!strcmp(param,"client_name")){
         MSG(4, "Setting client name. \n");
 
-        client_name = get_param(buf,2,bytes);
+        client_name = get_param(buf,2,bytes, 0);
         ret = set_client_name(fd, client_name);
         if (!ret) return ERR_COULDNT_SET_LANGUAGE;
         return OK_CLIENT_NAME_SET;
     }		 
 
     if (!strcmp(param,"rate")){
-        rate = get_param(buf,2,bytes);
+        rate = get_param(buf,2,bytes, 0);
         if (!isanum(rate)) return ERR_NOT_A_NUMBER;
         helper = atoi(rate);
         if(helper < -100) return ERR_COULDNT_SET_RATE;
@@ -230,7 +239,7 @@ parse_set(char *buf, int bytes, int fd)
     }
 
     if (!strcmp(param,"pitch")){
-        pitch = get_param(buf,2,bytes);
+        pitch = get_param(buf,2,bytes, 0);
         if (!isanum(pitch)) return ERR_NOT_A_NUMBER;
         helper = atoi(pitch);
         if(helper < -100) return ERR_COULDNT_SET_PITCH;
@@ -241,16 +250,16 @@ parse_set(char *buf, int bytes, int fd)
         return OK_PITCH_SET;
     }
 
-	if (!strcmp(param,"voice")){
-        voice = get_param(buf,2,bytes);
-        MSG(4, "Setting voice to |%s|", voice);
+    if (!strcmp(param,"voice")){
+        voice = get_param(buf,2,bytes, 0);
+        MSG(4, "Setting voice to %s", voice);
         ret = set_voice(fd, voice);
         if (!ret) return ERR_COULDNT_SET_VOICE;
         return OK_VOICE_SET;
     }
 
     if (!strcmp(param,"punctuation")){
-        punct = get_param(buf,2,bytes);
+        punct = get_param(buf,2,bytes, 1);
         if (!isanum(punct)) return ERR_NOT_A_NUMBER;
         helper = atoi(punct);
         if((helper != 0)&&(helper != 1)&&(helper != 2)) return ERR_COULDNT_SET_PUNCT_MODE;
@@ -261,7 +270,7 @@ parse_set(char *buf, int bytes, int fd)
     }
 
     if (!strcmp(param,"cap_let_recogn")){
-        recog = get_param(buf,2,bytes);
+        recog = get_param(buf,2,bytes, 1);
         if (!isanum(recog)) return ERR_NOT_A_NUMBER;
         helper = atoi(recog);
         if((helper != 0)&&(helper != 1)) return ERR_COULDNT_SET_CAP_LET_RECOG;
@@ -272,7 +281,7 @@ parse_set(char *buf, int bytes, int fd)
     }
 
     if (!strcmp(param,"spelling")){
-        spelling = get_param(buf,2,bytes);
+        spelling = get_param(buf,2,bytes, 1);
         if (!isanum(spelling)) return ERR_NOT_A_NUMBER;
         helper = atoi(spelling);
         if((helper != 0)&&(helper != 1)) return ERR_COULDNT_SET_SPELLING;
@@ -292,7 +301,7 @@ parse_stop(char *buf, int bytes, int fd)
     int uid = 0;
     char *param;
 
-    param = get_param(buf,1,bytes);
+    param = get_param(buf,1,bytes, 0);
     if (isanum(param)) uid = atoi(param);
 
     /* If the parameter target_uid wasn't specified,
@@ -310,7 +319,7 @@ parse_cancel(char *buf, int bytes, int fd)
     int uid = 0;
     char *param;
 
-    param = get_param(buf,1,bytes);
+    param = get_param(buf,1,bytes, 0);
     if (isanum(param)) uid = atoi(param);
 
     /* If the parameter target_uid wasn't specified,
@@ -329,7 +338,7 @@ parse_pause(char *buf, int bytes, int fd)
     int uid = 0;
     char *param;
 
-    param = get_param(buf,1,bytes);
+    param = get_param(buf,1,bytes, 0);
     if (isanum(param)) uid = atoi(param);
 
     /* If the parameter target_uid wasn't specified,
@@ -349,7 +358,7 @@ parse_resume(char *buf, int bytes, int fd)
     int uid = 0;
     char *param;
 
-    param = get_param(buf,1,bytes);
+    param = get_param(buf,1,bytes, 0);
     if (isanum(param)) uid = atoi(param);
 
     /* If the parameter target_uid wasn't specified,
@@ -362,39 +371,107 @@ parse_resume(char *buf, int bytes, int fd)
     return OK_RESUMED;
 }
 
+/*
+  Returns 0 on succes, 
+  1 if the table for the specified language wasn't found
+  2 if there is no such sound icon
+*/
+
+int
+queue_icon(int fd, char* language, char* prefix, char* name)
+{
+    GHashTable *icons;
+    TSpeechDMessage *new;
+    char *key;
+    char *text;
+
+    icons = g_hash_table_lookup(snd_icon_langs, language);
+    if (icons == NULL){
+        icons = g_hash_table_lookup(snd_icon_langs, GlobalFDSet.language);
+        if (icons == NULL) return 1;
+    }
+
+    key = (char*) spd_malloc((strlen(name) + strlen(prefix) + 3) * sizeof(char));
+    sprintf(key, "%s_%s", prefix, name);
+	
+    text = g_hash_table_lookup(icons, key); 
+
+    if(text == NULL) return 2;
+
+    new = malloc(sizeof(TSpeechDMessage));
+    new->bytes = strlen(text)+1;
+    new->buf = malloc(new->bytes);
+    strcpy(new->buf, text);
+    if(queue_message(new,fd))  FATAL("Couldn't queue message\n");
+
+    return 0;
+}
+
 char*
 parse_snd_icon(char *buf, int bytes, int fd)
 {
     char *param;
     int ret;
-    GHashTable *icons;
-    char *word;
-    TSpeechDMessage *new;
     TFDSetElement *settings;		
-    GList *gl;		
-	
-    param = get_param(buf,1,bytes);
+    	
+    param = get_param(buf,1,bytes, 0);
     if (param == NULL) return ERR_MISSING_PARAMETER;
 	
     settings = get_client_settings_by_fd(fd);
     if (settings == NULL)
-        FATAL("Couldn't find settings for active client, internal error.");
-	
-    icons = g_hash_table_lookup(snd_icon_langs, settings->language);
-    if (icons == NULL){
-        icons = g_hash_table_lookup(snd_icon_langs, GlobalFDSet.language);
-        if (icons == NULL) return ERR_NO_SND_ICONS;
+        FATAL("Couldn't find settings for active client, internal error."); 
+
+    ret = queue_icon(fd, settings->language, "icons", param);
+    if (ret!=0){
+        if(ret == 1) return ERR_NO_SND_ICONS;
+        if(ret == 2) return ERR_UNKNOWN_ICON;
     }
-	
-    word = g_hash_table_lookup(icons, param); 
 
-    if(word==NULL) return ERR_UNKNOWN_ICON;
-
-    new = malloc(sizeof(TSpeechDMessage));
-    new->bytes = strlen(word)+1;
-    new->buf = malloc(new->bytes);
-    strcpy(new->buf, word);
-    if(queue_message(new,fd))  FATAL("Couldn't queue message\n");
-																
     return OK_SND_ICON_QUEUED;
 }				 
+
+char*
+parse_char(char *buf, int bytes, int fd)
+{
+    char *param;
+    TFDSetElement *settings;
+    int ret;
+
+    param = get_param(buf,1,bytes, 0);
+    if (param == NULL) return ERR_MISSING_PARAMETER;
+    MSG(4,"Parameter catched: %s", param);
+
+    settings = get_client_settings_by_fd(fd);
+    if (settings == NULL)
+        FATAL("Couldn't find settings for active client, internal error."); 
+
+    ret = queue_icon(fd, settings->language, settings->spelling_table, param);
+    if (ret!=0){
+        if(ret == 1) return ERR_NO_SND_ICONS;
+        if(ret == 2) return ERR_UNKNOWN_ICON;
+    }
+    return OK_SND_ICON_QUEUED;
+}
+
+char*
+parse_key(char* buf, int bytes, int fd)
+{
+    char *param;
+    TFDSetElement *settings;
+    int ret;
+
+    param = get_param(buf, 1, bytes, 0);
+    if (param == NULL) return ERR_MISSING_PARAMETER;
+    MSG(4,"Parameter catched: %s", param);
+
+    settings = get_client_settings_by_fd(fd);
+    if (settings == NULL)
+        FATAL("Couldn't find settings for active client, internal error."); 
+
+    ret = queue_icon(fd, settings->language, "keys", param);
+    if (ret != 0){
+        if(ret == 1) return ERR_NO_SND_ICONS;
+        if(ret == 2) return ERR_UNKNOWN_ICON;
+    }
+    return OK_SND_ICON_QUEUED;
+}
