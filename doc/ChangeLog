@@ -1,3 +1,9 @@
+2002-11-21  Tomas Cerha  <cerha@brailcom.org>
+
+	* Makefile (HTMLDIR): New variable for automatic update script run
+	after CVS commits (replaced original `DST' variable).
+	Rename the target `html_doc' to `html'.
+
 2002-11-18  Tomas Cerha  <cerha@brailcom.org>
 
 	* Makefile: Use customized DSSSL stylesheet `html.dsl' and
