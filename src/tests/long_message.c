@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: long_message.c,v 1.3 2003-04-15 10:08:59 pdm Exp $
+ * $Id: long_message.c,v 1.4 2003-05-11 11:28:30 hanke Exp $
  */
 
 /* Warning: VIM currently has some problems with highliting syntax
@@ -41,7 +41,7 @@ int main() {
 	printf("Start of the test.\n");
    
 	printf("Trying to initialize Speech Deamon...");
-	sockfd = spd_init("test","main");
+	sockfd = spd_open("test", NULL, NULL);
 	if (sockfd == 0) FATAL("Speech Deamon failed");
 	printf("OK\n");
 

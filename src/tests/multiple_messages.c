@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: multiple_messages.c,v 1.4 2003-04-15 10:08:59 pdm Exp $
+ * $Id: multiple_messages.c,v 1.5 2003-05-11 11:28:44 hanke Exp $
  */
 
 #include <stdio.h>
@@ -37,7 +37,7 @@ int main() {
 	printf("Start of the test of the test.\n");
    
 	printf("Trying to initialize Speech Deamon...");
-	sockfd = spd_init("say","main");
+	sockfd = spd_open("say", NULL, NULL);
 	if (sockfd == 0) FATAL("Speech Deamon failed");
 	printf("OK\n");
 
