@@ -1,3 +1,8 @@
+2004-07-21  root  <hanke@chopin>
+
+	* src/modules/festival.c (cache_insert): Don't copy the fwave structure, just save the pointer.
+	(module_speak): Removed redudant debugging messages.
+
 2004-07-21  Hynek Hanke  <hanke@chopin>
 
 	* src/modules/Makefile.am (AM_CFLAGS): $(spdlibdir) not ($spdlibdir)

@@ -252,10 +252,13 @@ static FT_Wave *client_accept_waveform(int fd, int *stop_flag, int stop_by_close
              the output file type to NIST ! by Parameter.set */
             num_samples = nist_get_param_int(wavefile,"sample_count",1);
             sample_rate = nist_get_param_int(wavefile,"sample_rate",16000);
-            
+
+            if (num_samples == 0) return NULL;
+
             if ((num_samples*sizeof(short))+1024 == filesize)
                 {
                     wave = (FT_Wave *)malloc(sizeof(FT_Wave));
+		    DBG("Number of samples from festival: %d", num_samples);
                     wave->num_samples = num_samples;
                     wave->sample_rate = sample_rate;
                     wave->samples = (short *) malloc(num_samples*sizeof(short));
@@ -633,7 +636,7 @@ festivalStringToWaveGetData(FT_Info *info)
 {
     FT_Wave *wave = NULL;
     char ack[5];
-
+    
     /* Read back info from server */
     /* This assumes only one waveform will come back, also LP is unlikely */
     do{
