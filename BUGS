@@ -1,12 +1,9 @@
 
 A list of known bugs:
 
- - All history functions are now in problems, because we don't
-stop all messages when the client is gone. This causes problems
-with fdset which is freed on client_close(). We should use rather
-history_fdset as a hash table using a composed key of both fd and uid.
-spd_center often crashes Speech Deamon because of this.
-
  - SSIP isn't stabilized yet, it's going to change. The current
 protocol isn't described in documentation yet.
+
+ - speechd must be run from src/server/speechd in order to be able
+to read sound icons file
 

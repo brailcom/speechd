@@ -1,4 +1,11 @@
 
+2003-03-30  Hynek Hanke <hanke@volny.cz>
+    * src/server/dc_decl.h (cb_AddSndIcons): Read sound icons file from SYS_CONF/filename.conf
+    * src/server/server.c (serve): Check if the client connection isn't closed yet before write().
+    * src/server/Makefile.am: Added snd_icons_en.conf to instalation.
+    * src/server/speechd.h: Removed unnecessary history client search functions.
+    * configure.in: etc/ -> etc/speechd/
+	
 2003-03-29  Hynek Hanke <hanke@volny.cz>
     * src/server/speechd.h (fdset): Now hash table -> faster searching. 
 	* src/server/speechd.h (fd_uid): New hash table for fast searching of unique ids.
