@@ -7,7 +7,7 @@ dnl progs
 AC_PROG_CC
 
 dnl info
-AM_INIT_AUTOMAKE("speechd", "`cat version.sh|grep '^VERSION'|awk -F= '{print $2}'`")
+AM_INIT_AUTOMAKE("speech-dispatcher", "`cat version.sh|grep '^VERSION'|awk -F= '{print $2}'`")
 
 AM_CONFIG_HEADER(config.h)
 
@@ -46,13 +46,13 @@ glib_include=`pkg-config --cflags glib-2.0`
 AC_SUBST(glib_include)
 glib_libs=`pkg-config --libs glib-2.0`
 AC_SUBST(glib_libs)
-spdconfdir="$sysconfdir/speechd" 
+spdconfdir="$sysconfdir/speech-dispatcher/" 
 AC_SUBST(spdconfdir)
-snddatadir="$datadir/sounds/speechd" 
+snddatadir="$datadir/sounds/speech-dispatcher/" 
 AC_SUBST(snddatadir)
 modulebindir="$bindir/speechd-modules/" 
 AC_SUBST(modulebindir)
-moduleconfdir="$sysconfdir/speechd/modules/" 
+moduleconfdir="$sysconfdir/speech-dispatcher/modules/" 
 AC_SUBST(moduleconfdir)
 
 AC_ARG_VAR(pidpath, Absolute path to a pid file)
