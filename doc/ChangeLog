@@ -1,5 +1,7 @@
 2003-04-08  Tomas Cerha  <cerha@freebsoft.org>
 
+	* Makefile (html): Copy figures.
+
 	* speechd.texi (Settings): Typo corrected.
 
 2003-04-07  Milan Zamazal  <pdm@brailcom.org>
