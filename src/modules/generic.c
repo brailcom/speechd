@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.2 2003-09-07 11:25:40 hanke Exp $
+ * $Id: generic.c,v 1.3 2003-09-07 23:01:19 hanke Exp $
  */
 
 #include <glib.h>
@@ -67,6 +67,7 @@ static void generic_child_close(TModuleDoublePipe dpipe);
 MOD_OPTION_1_STR(GenericExecuteSynth);
 MOD_OPTION_1_INT(GenericMaxChunkLenght);
 MOD_OPTION_1_STR(GenericDelimiters);
+MOD_OPTION_1_STR(GenericStripPunctChars);
 
 MOD_OPTION_1_INT(GenericRateAdd);
 MOD_OPTION_1_FLOAT(GenericRateMultiply);
@@ -88,6 +89,7 @@ module_load(void)
 
     MOD_OPTION_1_INT_REG(GenericMaxChunkLenght, 300);
     MOD_OPTION_1_STR_REG(GenericDelimiters, ".");
+    MOD_OPTION_1_STR_REG(GenericStripPunctChars, "~@#$%^&*+=|\\/<>[]_");
 
     MOD_OPTION_1_INT_REG(GenericRateAdd, 0);
     MOD_OPTION_1_FLOAT_REG(GenericRateMultiply, 1);
@@ -158,7 +160,7 @@ module_write(gchar *data, size_t bytes)
     }else{
         *generic_message = module_recode_to_iso(data, bytes, generic_msg_language);
     }
-    module_strip_punctuation_default(*generic_message);
+    module_strip_punctuation_some(*generic_message, GenericStripPunctChars);
 
     DBG("Requested data: |%s|\n", data);
 	
@@ -302,6 +304,10 @@ _generic_speak(void* nothing)
             char *voice_name;
             TGenericLanguage *language;
 
+            /* Set this process as a process group leader (so that SIGKILL
+               is also delivered to the child processes created by system()) */
+            if (setpgid(0,0) == -1) DBG("Can't set myself as project group leader!");
+
             snprintf(str_pitch,15,"%.2f",
                      ((float) generic_msg_pitch) * GenericPitchMultiply + GenericPitchAdd);
             snprintf(str_rate,15,"%.2f",
@@ -379,58 +385,59 @@ _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
     char *command;
     GString *message;
     int i;
+    char *mq;
 
     sigfillset(&some_signals);
     module_sigunblockusr(&some_signals);
 
-    /* Set this process as a process group leader (so that SIGKILL
-     is also delivered to the child processes created by system()) */
-    setpgrp();
-
     module_child_dp_init(dpipe);
-
-    text = malloc((maxlen + 1) * sizeof(char));
 
     DBG("Entering child loop\n");
     while(1){
         /* Read the waiting data */
+        text = malloc((maxlen + 1) * sizeof(char));
         bytes = module_child_dp_read(dpipe, text, maxlen);
         DBG("read %d bytes in child", bytes);
         if (bytes == 0){
             free(text);
             generic_child_close(dpipe);
-
         }
 
         text[bytes] = 0;
+        DBG("text read is: |%s|\n", text);
 
         /* Escape any quotes */
         message = g_string_new("");
-        for(i=0; i<=strlen(text); i++){
+        for(i=0; i<=bytes-1; i++){
             if (text[i] == '\"')
                 message = g_string_append(message, "\\\"");
-            else
+            else if (text[i] == '`')
+                message = g_string_append(message, "\\`");
+            else{
                 g_string_append_printf(message, "%c", text[i]);
+            }
         }
 
-        DBG("child: got data |%s|", message->str);
+        DBG("child: escaped text is |%s|", message->str);
 
         command = malloc((strlen(message->str)+strlen(execute_synth_str1)+
-                          strlen(execute_synth_str2) + 1) * sizeof(char));
+                          strlen(execute_synth_str2) + 8) * sizeof(char));
 
-        sprintf(command, "%s%s%s", execute_synth_str1, message->str, execute_synth_str2);        
+        if (strlen(message->str) != 0){
+            sprintf(command, "%s%s%s", execute_synth_str1, message->str, execute_synth_str2);        
 
-        DBG("child: synth command = |%s|", command);
+            DBG("child: synth command = |%s|", command);
 
-        DBG("Speaking in child...");
-        module_sigblockusr(&some_signals);        
-        {
-            system(command);
+            DBG("Speaking in child...");
+            module_sigblockusr(&some_signals);        
+            {
+                system(command);
+            }
         }
         module_sigunblockusr(&some_signals);        
 
-        free(command);
-        free(text);
+        xfree(command);
+        xfree(text);
         g_string_free(message, 1);
 
         DBG("child->parent: ok, send more data", text);      
