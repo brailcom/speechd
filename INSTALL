@@ -9,7 +9,7 @@ You will need these components to compile Speech Daemon:
  - gcc and GNU make
  - flite [the only synthetiser that has working output module now]
  - ncurses [for Speech Deamon Center]
- - automake, autoconf, autoheader, pkg-config and libtool (if you are building from CVS)
+ - automake 1.7+, autoconf, pkg-config and libtool (if you are building from CVS)
 
 Building Speech Deamon:
 =======================
