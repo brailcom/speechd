@@ -1,3 +1,6 @@
+
+#ifndef SPEECHDH
+ #define SPEECHDH
 #include <netinet/in.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -12,12 +15,10 @@
 #include <dotconf.h>
 #include <gdsl/gdsl.h>
 
-#ifndef SPEECHDH
- #define SPEECHDH
 
-#ifndef EXIT_FAILURE
+/*#ifndef EXIT_FAILURE
 #  define EXIT_FAILURE        1
-#endif
+#endif*/
 
 #include <limits.h>
 #ifndef PATH_MAX
@@ -35,14 +36,18 @@
 
 #include "module.h"
 #include "fdset.h"
+#include "set.h"
+
+#include "msg.h"
 /* ==================================================================== */
 
 fd_set readfds;
+
 int fdmax;
 
 /* associative array of all configured (and succesfully loaded) output modules */
 
-GHashTable *output_modules;
+GHashTable *output_modules;	
 
 /* 
   TSpeechDQueue is a queue for messages. 
@@ -50,9 +55,9 @@ GHashTable *output_modules;
 
 typedef struct{
 	char *name[100];	// name of the output module
-	gdsl_queue_t p1;	// priority 1 queue
-	gdsl_queue_t p2;	// priority 2 queue
-	gdsl_queue_t p3;	// priority 3 queue
+	GList *p1;	// priority 1 queue
+	GList *p2;	// priority 2 queue
+	GList *p3;	// priority 3 queue
 }TSpeechDQueue;
 
 /*
@@ -70,14 +75,18 @@ typedef struct{
 
 
 TSpeechDQueue *MessageQueue;
+GList *MessageList;
 
-gdsl_list_t MessagePausedList;
+GList *MessagePausedList;
 
-gdsl_list_t fd_settings;	// list of current settings for each
+GList *fd_settings;	// list of current settings for each
 				// client (= each active socket)
+
+TFDSetElement GlobalFDSet;
+
 /* History */
 
-gdsl_list_t history;
+GList *history;
 
 typedef enum{
    BY_TIME = 0,
@@ -91,22 +100,41 @@ typedef struct{
    ESort sorted;
 }THistSetElement;
 
-gdsl_list_t history_settings;
+GList *history_settings;
 
 typedef struct{
    int fd;
    char *client_name;
    guint id;
    int active;
-   gdsl_list_t messages;
+   GList *messages;
 }THistoryClient;
 
 OutputModule* load_output_module(gchar* modname);
 int serve(int fd); 	// serve the client on this file descriptor (socket)
 
-/* define dotconf callbacks */
-DOTCONF_CB(cb_addmodule);
+gint fdset_list_compare (gconstpointer, gconstpointer, gpointer);
+gint message_nto_speak (TSpeechDMessage*, gpointer, gpointer);
 
-int fdset_list_compare (gdsl_element_t, void*);
+gint (*p_fdset_lc)();
+gint (*p_msg_nto_speak)();
+gint (*p_hc_lc)();
+
+GArray *awaiting_data;
+GArray *o_bytes;
+
+char* parse_history(char *buf, int bytes, int fd);
+char* parse_set(char *buf, int bytes, int fd);
+char* get_param(char *buf, int n, int bytes);
+int isanum(char *str);
+
+typedef enum{
+	STOP = 1,
+	PAUSE = 2,
+	RESUME = 3
+}EStopCommands;
+
+int stop_c(EStopCommands command, int fd);
+		
 
 #endif
