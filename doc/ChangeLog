@@ -1,3 +1,9 @@
+2004-05-23  Hynek Hanke  <hanke@volny.cz>
+
+	* Makefile.am (info_TEXINFOS): Include spd-say.texi.
+
+	* spd-say.texi: Some documentation about the spd-say command.
+
 2004-04-17  Hynek Hanke  <hanke@volny.cz>
 
 	* speech-dispatcher.texi (Server Programming) 
