@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sem_functions.c,v 1.3 2003-10-03 15:19:43 hanke Exp $
+ * $Id: sem_functions.c,v 1.4 2003-10-12 23:33:32 hanke Exp $
  */
 
 #include "speechd.h"
@@ -94,7 +94,7 @@ int
 speaking_semaphore_create(key_t key)
 {
     int ret;
-    ret = semaphore_create(key, 0666 | IPC_CREAT);
+    ret = semaphore_create(key, 0600 | IPC_CREAT);
     if (ret == -1) 
         FATAL("Can't initialize semaphore. Does your system support SYS V/IPC?");   
     MSG(4, "Created semaphore with key %d and id %d", key, ret);
