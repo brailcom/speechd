@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.12 2003-03-12 22:31:12 hanke Exp $
+ * $Id: speechd.h,v 1.13 2003-03-16 19:59:46 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -40,6 +40,7 @@
 #include <glib.h>
 #include <gmodule.h>
 #include <dotconf.h>
+#include <pthread.h>
 
 /*#ifndef EXIT_FAILURE
 #  define EXIT_FAILURE        1
@@ -66,6 +67,8 @@
 #define MAX_CLIENTS 20
 
 fd_set readfds;
+
+pthread_t speak_thread;
 
 int fdmax;
 
@@ -176,6 +179,7 @@ int stop_c(EStopCommands command, int fd, int target);
 int isanum(char *str);
 
 void stop_from_client(int fd);
-		
+int speak();
+						
 
 #endif
