@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.41 2003-11-23 21:21:23 hanke Exp $
+ * $Id: festival.c,v 1.42 2003-12-18 23:39:56 hanke Exp $
  */
 
 #include "fdset.h"
@@ -78,6 +78,20 @@ MOD_OPTION_1_INT(FestivalPitchDeviation);
 MOD_OPTION_1_INT(FestivalDebugSaveOutput);
 MOD_OPTION_1_STR(FestivalRecodeFallback);
 
+
+typedef struct{
+    size_t size;
+    GHashTable *data;
+}TCache;
+
+TCache FestivalCache;
+
+int cache_init();
+int cache_reset();
+int cache_insert(char* key, FT_Wave *value);
+FT_Wave* cache_lookup(char *key);
+void cache_free_item(gpointer key, gpointer value, gpointer user_data);
+
 /* Public functions */
 
 int
@@ -118,7 +132,7 @@ module_init(void)
     festival_info->server_port = FestivalServerPort;
 
     festival_info = festivalOpen(festival_info);
-    if (festival_info == NULL) return -1;
+    if (festival_info == NULL) return -2;
 
     DBG("FestivalServerHost = %s\n", FestivalServerHost);
     DBG("FestivalServerPort = %d\n", FestivalServerPort);
@@ -164,7 +178,7 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
         festival_message_type = MSGTYPE_SPELL;
 
     /* If the connection crashed or language or voice
-     change, we will need to set all the parameters again */
+       change, we will need to set all the parameters again */
     if (festival_connection_crashed){
         CLEAN_OLD_SETTINGS_TABLE();
         festival_connection_crashed = 0;
@@ -255,9 +269,8 @@ module_close(int status)
     DBG("festivalClose()");
     festivalClose(festival_info);
     
-    if (module_terminate_thread(festival_speak_thread) != 0)
-        exit(1);
-
+    module_terminate_thread(festival_speak_thread);
+   
     delete_FT_Info(festival_info);
 
     DBG("Removing junk files in tmp/");
@@ -278,6 +291,8 @@ _festival_speak(void* nothing)
 {	
 
     DBG("festival: speaking thread starting.......\n");
+
+    cache_init();
 
     module_speak_thread_wfork(festival_semaphore, &festival_pid,
                               module_audio_output_child, _festival_parent, 
@@ -344,6 +359,35 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
             if (bytes > 0){
                 switch(msgtype)
                     {
+                    case MSGTYPE_CHAR:
+                    case MSGTYPE_KEY:
+                    case MSGTYPE_SOUND_ICON:
+                        fwave = cache_lookup(buf);
+                        if (fwave != NULL){
+                            if (fwave->num_samples != 0){
+                                ret = module_parent_send_samples(dpipe, fwave->samples,
+                                                                 fwave->num_samples, fwave->sample_rate);
+                                if (ret == -1) terminate = 1;
+                                if(FestivalDebugSaveOutput){
+                                    char filename_debug[256];
+                                    sprintf(filename_debug, "/tmp/debug-festival-%d.snd", debug_count++);
+                                    save_FT_Wave_snd(fwave, filename_debug);
+                                }
+               
+                                DBG("parent (1): Sent %d bytes\n", ret);            
+                                ret = module_parent_dp_write(dpipe, "\r\nOK_SPEECHD_DATA_SENT\r\n", 24);
+                                if (ret == -1) terminate = 1;
+
+                                if (terminate != 1) terminate = module_parent_wait_continue(dpipe);
+                                DBG("End of data in parent (1), closing pipes [%d:%d]", terminate, bytes);
+                                module_parent_dp_close(dpipe);
+                            }
+                            return 0;
+                        }
+                    }
+
+                switch(msgtype)
+                    {
                     case MSGTYPE_TEXT: r = festivalStringToWaveRequest(festival_info, buf); break;
                     case MSGTYPE_SOUND_ICON: r = festivalSoundIcon(festival_info, buf); break;
                     case MSGTYPE_CHAR: r = festivalCharacter(festival_info, buf); break;
@@ -388,8 +432,14 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 
                     if (terminate != 1) terminate = module_parent_wait_continue(dpipe);
                 }
-                delete_FT_Wave(fwave);
-                
+
+                if (msgtype == MSGTYPE_CHAR || msgtype == MSGTYPE_KEY ||
+                    msgtype == MSGTYPE_SOUND_ICON){
+                    DBG("Storing record for %s in cache\n", buf);
+                    cache_insert(strdup(buf), fwave);
+                }else{
+                    delete_FT_Wave(fwave);
+                }
             }            
         }
         if ((pause >= 0) && (*pause_requested)){
@@ -421,7 +471,7 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 
 void
 festival_set_language(char* language)
-{    
+{   
     FestivalSetLanguage(festival_info, language, &festival_coding);
 }
 
@@ -492,5 +542,48 @@ festival_conv(FT_Wave *fwave)
     return ret;
 }
 
+void
+cache_free_item(gpointer key, gpointer value, gpointer user_data)
+{
+    xfree(key);
+    delete_FT_Wave(value);
+}
+
+int
+cache_init()
+{
+    FestivalCache.size = 0;
+    FestivalCache.data = g_hash_table_new(g_str_hash, g_str_equal);
+}
+
+int
+cache_reset()
+{
+    g_hash_table_foreach(FestivalCache.data, cache_free_item, NULL);
+    g_hash_table_destroy(FestivalCache.data);
+    cache_init();
+    return 0;
+}
+
+int
+cache_insert(char* key, FT_Wave *value)
+{
+
+    if (cache_lookup(key) == NULL){        
+        FestivalCache.size += value->num_samples * sizeof(short);
+        g_hash_table_insert(FestivalCache.data, key, value);
+    }else{
+        delete_FT_Wave(value);
+    }
+    return 0;
+}
+
+FT_Wave*
+cache_lookup(char *key)
+{
+    FT_Wave *fwave;
+    fwave = g_hash_table_lookup(FestivalCache.data, key);
+    return fwave;
+}
 
 #include "module_main.c"
