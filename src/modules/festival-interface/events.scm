@@ -25,9 +25,12 @@
 (require 'punctuation)
 
 
+(defvar sound-icon-directory "/usr/share/sounds/sound-icons"
+  "Directory where sound icons are placed by default.")
+
 (defvar logical-event-mapping
-  '((capital text "capital letter")
-    (clicked sound "/home/pdm/tmp/clicked.wav"))
+  '((capital sound "percussion-12.wav")
+    (empty-text sound "gummy-cat-2.wav"))
   "Alist mapping logical sound events to any events.
 Each element of the alist is of the form (LOGICAL-EVENT EVENT-TYPE
 EVENT-VALUE), where LOGICAL-EVENT is the symbol naming the event to transform,
@@ -36,7 +39,9 @@ EVENT-VALUE is the corresponding transformed event value.
 The following event types are supported:
 `logical' -- just this event type again, the value is a symbol naming the event
 `text' -- plain text (the event value) to be synthesized
-`sound' -- a WAV file to be played, the value is a string naming the file
+`sound' -- a WAV file to be played, the value is a string naming the file;
+  either as an absolute pathname starting with the slash character or a
+  pathname relative to `sound-icon-directory'
 `key' -- a key event, the value is a string naming the key
 `character' -- a character event, the value is a string naming the character
 ")
@@ -63,9 +68,9 @@ EVENT-TYPE is one of the symbols `logical', `text', `sound', `key',
 `logical-event-mapping'.")
 
 (defvar word-mapping
-  '(("mistral" text "chello")
-    ("(" logical clicked)
-    (")" logical clicked))
+  '(("(" sound "guitar-13.wav")
+    (")" sound "guitar-12.wav")
+    ("@" sound "cembalo-6.wav"))
   "Alist mapping words to events.
 Each element of the list is of the form (WORD EVENT-TYPE EVENT-VALUE), where
 WORD is a string representing a word or a punctuation character and EVENT-TYPE
@@ -169,7 +174,10 @@ and EVENT-VALUE are the same as in `logical-event-mapping'.")
    ((eq? type 'text)
     (event-synth-text value))
    ((eq? type 'sound)
-    (utt.import.wave (Utterance Wave nil) value))
+    (utt.import.wave (Utterance Wave nil)
+                     (if (string-matches value "^/.*")
+                         value
+                         (string-append sound-icon-directory "/" value))))
    (t
     (let ((transformed (cdr (assoc value (cadr (assq type event-mappings))))))
       (cond
