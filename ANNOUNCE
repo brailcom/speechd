@@ -1,13 +1,10 @@
 
-Speech Dispatcher 0.5 Release Candidate 2
-=========================================
+Speech Dispatcher 0.5
+=====================
 
 The Brailcom organization is happy to announce the availability of
-Speech Dispatcher 0.5-rc2 developed as a part of the Free(b)Soft
+Speech Dispatcher 0.5 developed as a part of the Free(b)Soft
 project.
-
-This is a Release Candidate version, so we invite everyone to help
-us testing it before we finally release the 0.5 version.
 
 * What is Speech Dispatcher?
 
@@ -38,13 +35,12 @@ us testing it before we finally release the 0.5 version.
     settings for different clients that connect to Speech Dispatcher.
 
   - Simple interface for programs written in C, C++ provided through a
-    shared library, Common Lisp and Guile interface. The
-    Python interface is being worked on. An Elisp library is
+    shared library, Common Lisp and Guile interface. Full
+    Python interface is newly available. An Elisp library is
     developed as a sperate project speechd-el. Possibly an interface
     to any other language can be developed.
 
-
-* What is new in 0.5-rc2?
+* What is new in 0.5?
 
  - SSIP now supports SSML (Speech Synthesis Markup Language) messages.
 
@@ -52,14 +48,19 @@ us testing it before we finally release the 0.5 version.
 
  - Improved DTK Software Synthesis support.
 
+ - Python interface library now supports full SSIP.
+
+ - Various bugfixes.
+
  NOTE: The communication mode of the Festival output module (SSML mode)
  is incompatible with the previous festival-freebsoft-utils releases.
- You need to install festival-freebsoft-utils 0.3 or higher!
+ You need to install festival-freebsoft-utils 0.3 or higher to be able
+ to run Speech Dispatcher with Festival!
 
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.5-rc2.tar.gz
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.5.tar.gz
 
   You also need to get festival-freebsoft-utils in version 0.3 or newer
   http://www.freebsoft.org/pub/projects/festival-freebsoft-utils/
@@ -68,8 +69,8 @@ us testing it before we finally release the 0.5 version.
   well. They are available at
   http://www.freebsoft.org/pub/projects/sound-icons/sound-icons-0.1.tar.gz
 
-  Corresponding Debian packages will be available at your
-  Debian distribution mirror as soon as the official version 0.5 is released.
+  Corresponding Debian packages will be shortly available at your
+  Debian distribution mirror.
   (We would highly appreciate any help with RPM distribution!)
 
   The home page of the project is http://www.freebsoft.org/speechd

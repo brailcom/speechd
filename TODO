@@ -2,8 +2,6 @@
 Short-term goals
 =================
 
-        * Index marking support in SSIP.
-
         * Sound output that supports OSS, Alsa and some sound server
           instead of the hardcoded OSS output (Any help with this highly
           appreciated!)
