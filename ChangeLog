@@ -1,3 +1,18 @@
+2003-10-22  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/parse.c (parse): Bug with sometimes incorrect canceled message handling corrected.
+
+	* src/server/index_marking.c (insert_index_marks): Additional debugging messages.
+
+	* src/server/index_marking.c (insert_index_marks): Use MSG2 for the seccond message, not MSG1.
+
+	* src/modules/festival.c (module_load): FestivalMaxChunkLength changed to 300 by default.
+	(_festival_parent): Use FestivalMaxChunkLength instead of the wrong buffer size 4095.
+
+	* src/server/server.c (queue_message): Mutex locking added again around
+	resolve_priorities().
+
+
 2003-10-20  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/options.c (options_print_help): Info about the -v option added.
