@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.13 2003-05-28 23:19:18 hanke Exp $
+  * $Id: speaking.c,v 1.14 2003-06-01 21:25:18 hanke Exp $
   */
 
 #include <glib.h>
@@ -28,202 +28,101 @@
 
 /*
   Speak() is responsible for getting right text from right
-  queue in right time and saying it loud through corresponding
+  queue in right time and saying it loud through the corresponding
   synthetiser.  This runs in a separate thread.
 */
 void* 
 speak(void* data)
 {
-    TSpeechDMessage *element = NULL;
+    TSpeechDMessage *message;
     OutputModule *output;
     GList *gl = NULL;
     char *buffer;
     int ret;
-    sigset_t all_signals;
     TSpeechDMessage *msg;
 
-    ret = sigfillset(&all_signals);
-    if (ret == 0){
-        ret = pthread_sigmask(SIG_BLOCK, &all_signals, NULL);
-        if (ret != 0) MSG(1, "Can't set signal set, expect problems when terminating!");
-    }else{
-        MSG(1, "Can't fill signal set, expect problems when terminating!");
-    }
-
-    pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
-    pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
+    /* Block all signals and sets thread states */
+    set_speak_thread_attributes();
 	
     while(1){
-        usleep(10);
-        if (msgs_to_say>0){
-            MSG(1,"Looking for messages");
-            /* Look what is the highest priority of waiting
-             * messages and take the desired actions on other
-             * messages */
-            if(g_list_length(MessageQueue->p1) != 0){
-                stop_p3();	
-                if (is_sb_speaking() && (highest_priority != 1))
-                    stop_speaking_active_module();
-            }
-		    
-            if(g_list_length(MessageQueue->p2) != 0){
-                stop_p3();
-            }
+        sem_wait(sem_messages_waiting);
 
-            if(g_list_length(MessageQueue->p3) != 0){
-                /* Stop all other priority 3 messages but leave the first */
-                gl = g_list_last(MessageQueue->p3); 
-                
-                assert(gl!=NULL);
-                assert(gl->data != NULL);
+        /* Look what is the highest priority of waiting
+         * messages and take the desired actions on other
+         * messages */
+        resolve_priorities();
 
-                msg = (TSpeechDMessage*) gl->data;
-                if (msg->settings.reparted <= 0){                
-                    MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
-                    stop_p3();
-                    /* Fill the queue with the list containing only the first message */
-                    MessageQueue->p3 = gl;
-                }
-
-            }
-            MSG(1,"Looking for messages 2");
-            /* Check if sb is speaking or they are all silent. 
-             * If some synthesizer is speaking, we must wait. */
-            if (is_sb_speaking() == 1){
-                MSG(1, "sb speaking");
-                usleep(5);
-                continue;
-            }
-            MSG(1,"before mutex");
-            pthread_mutex_lock(&element_free_mutex);
-            MSG(1,"after mutex");
-            element = NULL;
-            gl = NULL;
-
-            if(SPEECHD_DEBUG){
-                if( (g_list_length(MessageQueue->p1) == 0) &&
-                    (g_list_length(MessageQueue->p2) == 0) &&
-                    (g_list_length(MessageQueue->p3) == 0))
-                    {
-                        FATAL("All queues empty but msgs_to_say > 0\n");
-                    }
-            }
-
-            MSG(1,"Looking for messages 3");
-            /* We will descend through priorities to say more important
-             * messages first. */
-            gl = g_list_first(MessageQueue->p1); 
-            if (gl != NULL){
-                MSG(4,"Message in queue p1");
-                MessageQueue->p1 = g_list_remove_link(MessageQueue->p1, gl);
-                highest_priority = 1;
-            }else{
-                gl = g_list_first(MessageQueue->p2); 
-                if (gl != NULL){
-                    MSG(4,"Message in queue p2");
-                    MessageQueue->p2 = g_list_remove_link(MessageQueue->p2, gl);
-                    highest_priority = 2;
-                }else{
-                    gl = g_list_first(MessageQueue->p3);
-                    if (gl != NULL){
-                        MSG(4,"Message in queue p3");
-                        MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
-                        highest_priority = 3;
-                    }else{
-                        if (SPEECHD_DEBUG) FATAL("Descending through queues but all of them are empty");
-                        pthread_mutex_unlock(&element_free_mutex);
-                        continue;
-                    }
-                }
-            } 
-	            MSG(1,"Looking for messages 4");
-            /* If we got here, we have some message to say. */
-            element = (TSpeechDMessage *) gl->data;
-            if (element == NULL){
-                if(SPEECHD_DEBUG) FATAL("Non-NULL element containing NULL data found!\n");
-                MessageQueue->p1 = g_list_delete_link(MessageQueue->p1, gl);
-                MessageQueue->p2 = g_list_delete_link(MessageQueue->p2, gl);
-                MessageQueue->p3 = g_list_delete_link(MessageQueue->p3, gl);
-                pthread_mutex_unlock(&element_free_mutex);
-                continue;
-            }
-     
-            /* Isn't the parent client of this message paused? 
-             * If it is, insert the message to the MessagePausedList. */
-            assert(element != NULL);
-            if (message_nto_speak(element, NULL, NULL)){
-                if(element->settings.priority != 3){
-                    MSG(4, "Inserting message to paused list...");
-                    MessagePausedList = g_list_append(MessagePausedList, element);
-                }else{
-                    mem_free_message(element);
-                }
-                msgs_to_say--;
-                pthread_mutex_unlock(&element_free_mutex);
-                continue;
-            }
-
-            /* Determine which output module should be used */
-            if (element->settings.type != MSGTYPE_SOUND){
-                output = g_hash_table_lookup(output_modules, element->settings.output_module);
-                if(output == NULL){
-                    MSG(4,"Didn't find prefered output module, using default");
-                    output = g_hash_table_lookup(output_modules, GlobalFDSet.output_module); 
-                    if (output == NULL) MSG(2,"Can't find default output module!");
-                }
-            }else{
-                output = sound_module;
-                if (output == NULL) MSG(2,"Can't find sound module!");
-            }
-
-            if (output == NULL){
-                mem_free_message(element);
-                msgs_to_say--;
-                pthread_mutex_unlock(&element_free_mutex);
-                continue;				
-            }                    
-
-            if(element->settings.type == MSGTYPE_TEXT){
-                MSG(4, "Processing message...");
-
-                buffer = (char*) process_message(element->buf, element->bytes, &(element->settings));
-                if (buffer == NULL){
-                    mem_free_message(element);
-                    msgs_to_say--;
-                    pthread_mutex_unlock(&element_free_mutex);
-                    continue;
-                }
-
-                if (buffer == NULL){
-                    pthread_mutex_unlock(&element_free_mutex);
-                    continue;
-                }
-                if (strlen(buffer) <= 0){
-                    pthread_mutex_unlock(&element_free_mutex);
-                    continue;
-                }
-            }else{
-                MSG(4, "Passing message as it is...");
-                MSG(5, "Message text: |%s|", element->buf);
-                buffer = element->buf;
-            }
-
-            assert(buffer!=NULL);
-	
-            /* Set the speking_module monitor so that we knew who is speaking */
-            speaking_module = output;
-            speaking_uid = element->settings.uid;
-            /* Write the data to the output module. (say them aloud) */
-            ret = (*output->write) (buffer, strlen(buffer), &element->settings); 
-            if (ret <= 0) MSG(2, "Output module failed");
-            mem_free_message(element);
-            msgs_to_say--;
-            pthread_mutex_unlock(&element_free_mutex);
+        /* Check if sb is speaking or they are all silent. 
+         * If some synthesizer is speaking, we must wait. */
+        if (is_sb_speaking() == 1){
+            sem_post(sem_messages_waiting);
+            usleep(5);
+            continue;
         }
+
+        pthread_mutex_lock(&element_free_mutex);
+
+        /* Extract the right message from priority queue */
+        message = get_message_from_queues();
+        if (message == NULL) FATAL("Non-NULL element containing NULL\n"
+                                   "data found or semaphore failed!\n");
+        
+     
+        /* Isn't the parent client of this message paused? 
+         * If it is, insert the message to the MessagePausedList. */
+        if (message_nto_speak(message, NULL)){
+            MSG(4, "Inserting message to paused list...");
+            MessagePausedList = g_list_append(MessagePausedList, message);              
+            pthread_mutex_unlock(&element_free_mutex);
+            continue;
+        }
+
+        /* Determine which output module should be used */
+        output = get_output_module(message);
+        if (output == NULL){
+            mem_free_message(message);             
+            pthread_mutex_unlock(&element_free_mutex);
+            continue;				
+        }                    
+
+        /* Process message: spelling, punctuation, etc. */
+        if(message->settings.type == MSGTYPE_TEXT){
+            MSG(4, "Processing message...");
+
+            buffer = (char*) process_message(message->buf, message->bytes, &(message->settings));
+            if (buffer == NULL){
+                mem_free_message(message);
+                pthread_mutex_unlock(&element_free_mutex);
+                continue;
+            }
+
+            if (strlen(buffer) <= 0){
+                mem_free_message(message);
+                pthread_mutex_unlock(&element_free_mutex);
+                continue;
+            }
+        }else{
+            MSG(4, "Passing message as it is...");
+            MSG(5, "Message text: |%s|", message->buf);
+            buffer = message->buf;
+        }
+        assert(buffer!=NULL);
+	
+        /* Set the speking-monitor so that we know who is speaking */
+        speaking_module = output;
+        speaking_uid = message->settings.uid;
+
+        /* Write the data to the output module. (say them aloud) */
+        ret = (*output->write) (buffer, strlen(buffer), &message->settings); 
+        MSG(4,"Message sent to output module");
+        if (ret <= 0) MSG(2, "Output module failed");
+
+        /* Tidy up... */
+        mem_free_message(message);
+        pthread_mutex_unlock(&element_free_mutex);        
     }	 
 }
 
-/* TODO: Needs some refactoring */
 void
 speaking_stop(int uid)
 {
@@ -232,42 +131,43 @@ speaking_stop(int uid)
     GList *queue;
     signed int gid = -1;
 
+    /* Only act if the currently speaking client is the specified one */
     if(get_speaking_client_uid() == uid){
         stop_speaking_active_module();
 
-        if (highest_priority == 1) queue = MessageQueue->p1;
-        if (highest_priority == 2) queue = MessageQueue->p2;
-        if (highest_priority == 3) queue = MessageQueue->p3;
+        /* Get the queue where the message being spoken came from */
+        queue = speaking_get_queue(highest_priority);
         if (queue == NULL) return;
 
+        /* Get group ID of the current message */
         gl = g_list_last(queue);
         if (gl == NULL) return;
-        if (SPEECHD_DEBUG) assert(gl->data != NULL);
+        assert(gl->data != NULL);
 
         msg = (TSpeechDMessage*) gl->data;
         if ((msg->settings.reparted != 0) && (msg->settings.uid == uid)){
             gid = msg->settings.reparted;           
+        }else{
+            return;
         }
 
         while(1){
             gl = g_list_last(queue);
             if (gl == NULL){
-                if (highest_priority == 1) MessageQueue->p1 = queue;
-                if (highest_priority == 2) MessageQueue->p2 = queue;
-                if (highest_priority == 3) MessageQueue->p3 = queue;
+                speaking_set_queue(highest_priority, queue);
                 return;
             }
-            if (SPEECHD_DEBUG) assert(gl->data != NULL);
+            assert(gl->data != NULL);
 
             msg = (TSpeechDMessage*) gl->data;
 
             if ((msg->settings.reparted == gid) && (msg->settings.uid == uid)){
                 queue = g_list_remove_link(queue, gl);
-                msgs_to_say--;
+                assert(gl->data != NULL);
+                mem_free_message(gl->data);
+                sem_trywait(sem_messages_waiting);
             }else{
-                if (highest_priority == 1) MessageQueue->p1 = queue;
-                if (highest_priority == 2) MessageQueue->p2 = queue;
-                if (highest_priority == 3) MessageQueue->p3 = queue;
+                speaking_set_queue(highest_priority, queue);
                 return;
             }
         }
@@ -284,26 +184,24 @@ speaking_stop_all()
 
     stop_speaking_active_module();
 
-    if (highest_priority == 1) queue = MessageQueue->p1;
-    if (highest_priority == 2) queue = MessageQueue->p2;
-    if (highest_priority == 3) queue = MessageQueue->p3;
+    queue = speaking_get_queue(highest_priority);
     if (queue == NULL) return;
 
     gl = g_list_last(queue);
     if (gl == NULL) return;
-    if (SPEECHD_DEBUG) assert(gl->data != NULL);
+    assert(gl->data != NULL);
     msg = (TSpeechDMessage*) gl->data;
 
     if (msg->settings.reparted != 0){
         gid = msg->settings.reparted;
+    }else{
+        return;
     }
 
     while(1){
         gl = g_list_last(queue);
         if (gl == NULL){
-            if (highest_priority == 1) MessageQueue->p1 = queue;
-            if (highest_priority == 2) MessageQueue->p2 = queue;
-            if (highest_priority == 3) MessageQueue->p3 = queue;
+            speaking_set_queue(highest_priority, queue);
             return;
         }
         if (SPEECHD_DEBUG) assert(gl->data != NULL);
@@ -311,11 +209,11 @@ speaking_stop_all()
         msg = (TSpeechDMessage*) gl->data;
         if (msg->settings.reparted == 1){
             queue = g_list_remove_link(queue, gl);
-            msgs_to_say--;
+            assert(gl->data != NULL);
+            mem_free_message(gl->data);
+            sem_trywait(sem_messages_waiting);
         }else{
-            if (highest_priority == 1) MessageQueue->p1 = queue;
-            if (highest_priority == 2) MessageQueue->p2 = queue;
-            if (highest_priority == 3) MessageQueue->p3 = queue;
+            speaking_set_queue(highest_priority, queue);
             return;
         }
     }
@@ -420,12 +318,12 @@ speaking_resume(int uid)
     /* Is there any message after resume? */
     if(g_list_length(MessagePausedList) != 0){
         while(1){
-            gl = g_list_find_custom(MessagePausedList, (void*) NULL, p_msg_nto_speak);
+            gl = g_list_find_custom(MessagePausedList, (void*) NULL, message_nto_speak);
             if (gl != NULL){
                 element = (TSpeechDMessage*) gl->data;
                 MessageQueue->p2 = g_list_append(MessageQueue->p2, element);
                 MessagePausedList = g_list_remove_link(MessagePausedList, gl);
-                msgs_to_say++;
+                sem_post(sem_messages_waiting);
             }else{
                 break;
             }
@@ -516,7 +414,7 @@ stop_priority(int priority)
         assert(gl->data != NULL);
         mem_free_message(gl->data);
         queue = g_list_delete_link(queue, gl);
-        msgs_to_say--;
+        sem_trywait(sem_messages_waiting);
     }
 
     switch(priority){
@@ -538,17 +436,447 @@ stop_from_uid(int uid)
     while(gl = g_list_find_custom(MessageQueue->p1, &uid, p_msg_uid_lc)){
         if(gl->data != NULL) mem_free_message(gl->data);
         MessageQueue->p1 = g_list_delete_link(MessageQueue->p1, gl);
-        msgs_to_say--;
+        sem_trywait(sem_messages_waiting);
     }
     while(gl = g_list_find_custom(MessageQueue->p2, &uid, p_msg_uid_lc)){
         if(gl->data != NULL) mem_free_message(gl->data);
         MessageQueue->p2 = g_list_delete_link(MessageQueue->p2, gl);
-        msgs_to_say--;
+        sem_trywait(sem_messages_waiting);
     }	
     while(gl = g_list_find_custom(MessageQueue->p3, &uid, p_msg_uid_lc)){
         if(gl->data != NULL) mem_free_message(gl->data);
         MessageQueue->p3 = g_list_delete_link(MessageQueue->p3, gl);
-        msgs_to_say--;
+        sem_trywait(sem_messages_waiting);
     }	
     pthread_mutex_unlock(&element_free_mutex);
+}
+
+static char*
+process_message_spell(char *buf, int bytes, TFDSetElement *settings, GHashTable *icons)
+{
+    int i;
+    char *spelled_letter;
+    char *character;
+    char *pos;
+    GString *str;
+    char *new_message = NULL;
+    int first_part = 1;
+    GList *plist = NULL;
+    int *sound;
+    long int size;
+    char *spelled;
+
+    sound = (int*) spd_malloc(sizeof(int));
+
+    str = g_string_sized_new(bytes);
+    character = (char*) spd_malloc(8); /* 6 bytes should be enough, plus the trailing 0 */
+
+    assert(settings->spelling_table != NULL);
+
+    MSG(4,"Processing %d bytes", size);
+    pos = buf;                  /* Set the position cursor for UTF8 to the beginning. */
+    size = g_utf8_strlen(buf, -1) - 1;
+    for(i=0; i <= size; i++){
+        spd_utf8_read_char(pos, character);
+        spelled_letter = (char*) snd_icon_spelling_get(settings->spelling_table,
+                                                       icons, character, sound);
+  		
+        if(*sound == 1){
+            /* If this is the first part of the message, save it
+             * as return value. */
+            if (first_part){
+                first_part = 0;
+                if (str->str != NULL)
+                    if (strlen(str->str) > 0)
+                        new_message = str->str;
+            }else{              /* It's not the first part... */
+                if (str->str != NULL){
+                    if (strlen(str->str) > 0){
+                        plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);
+                    }
+                }
+            }
+            /* Set up a new buffer */
+            g_string_free(str, 0);
+            str = g_string_new("");
+
+            /* Add the icon to plist */
+            if (spelled_letter != NULL){
+                spelled = (char*) spd_malloc((strlen(spelled_letter) +1)  * sizeof(char)); 
+                strcpy(spelled, spelled_letter);
+                if (strlen(spelled_letter) > 0)
+                    plist = msglist_insert(plist, spelled, MSGTYPE_SOUND);
+            }else{
+                assert(character != NULL);
+                if (character[0] != '\r' && character[0] != '\n'){
+                   MSG(4,"Using character verbatim...");
+                   g_string_append(str, character);			
+                }
+            }
+
+        }else{                  /* this icon is represented by a string */
+            if (spelled_letter != NULL){
+                g_string_append(str, spelled_letter);
+            }else{
+                assert(character!= NULL);
+                if (character[0] != '\r' && character[0] != '\n'){
+                   MSG(4,"Using character verbatim...");
+                   g_string_append(str, character);
+                }
+            }
+            g_string_append(str," ");
+        }
+        pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */
+    }
+
+    MSG(4,"Processing done...");
+
+    /* Handle dle last part of the parsed message */
+    if(first_part){	
+        new_message = str->str;
+    }else{   
+        if (str != NULL)
+            if (str->str != NULL)
+                if (strlen(str->str) > 0)
+                    plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);
+    }
+    g_string_free(str, 0);
+
+    /* Queue the parts not returned. */
+    if(plist != NULL){
+        queue_messages(plist, -settings->uid, 0, ++max_gid);
+        MSG(4, "Max gid set to %d", max_gid);
+    }
+
+    free(character);
+    return new_message;
+}
+
+static char*
+process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHashTable *icons)
+{
+    int i;
+    char *spelled_punct;
+    char *character;
+    char *pos;
+    char *inside;
+    gunichar u_char;
+    int length;
+    GString *str;
+    char *new_message = NULL;
+    int *sound;
+    int first_part = 1;
+    char *punct;
+    long int size;
+    GList *plist = NULL;
+
+    sound = (int*) spd_malloc(sizeof(int));
+
+    str = g_string_sized_new(bytes);
+    character = (char*) spd_malloc(8); /* 6 bytes should be enough, plus the trailing 0 */
+
+    assert(settings->punctuation_table != NULL);
+
+    pos = buf;                  /* Set the position cursor for UTF8 to the beginning. */
+
+    size = g_utf8_strlen(buf, -1);
+    MSG(4,"Processing %d bytes", size);
+
+    for(i=0; i <= size; i++){
+
+        spd_utf8_read_char(pos, character);
+        u_char = g_utf8_get_char(character);
+
+        if (character != NULL){ 
+            if (g_unichar_isprint(u_char)) g_string_append(str, character);
+        }else{
+            break;
+        }
+
+        if(g_unichar_ispunct(u_char)){ 
+            if(settings->punctuation_mode == 2){ 
+                inside = g_utf8_strchr(settings->punctuation_some,-1,u_char); 
+                if (inside == NULL){
+                    pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */
+                    continue; 
+                }
+            } 
+
+            spelled_punct = (char*) snd_icon_spelling_get(settings->punctuation_table, 
+                                                          icons, character, sound); 
+
+            if(*sound == 1){
+                /* If this is the first part of the message, save it */
+                /* as return value. */
+
+                if (first_part){
+                    first_part = 0; 
+                    if (str != NULL) 
+                        if (str->str != NULL) 
+                            if (strlen(str->str) > 0) 
+                                new_message = str->str; 
+                }else{              /* It's not the first part... */ 
+                    if (str->str != NULL){ 
+                        if (strlen(str->str) > 0) 
+                            plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);                         
+                    } 
+                } 
+                /* Set up a new buffer */
+                g_string_free(str, 0); 
+                str = g_string_new(""); 
+
+                /* Add the icon to plist */
+                if (spelled_punct != NULL){
+                    if (strlen(spelled_punct) > 0){
+                        punct = (char*) spd_malloc((strlen(spelled_punct) +1)  * sizeof(char)); 
+                        strcpy(punct, spelled_punct);
+                        plist = msglist_insert(plist, punct, MSGTYPE_SOUND);           
+                    }
+                }
+            }else{                  /* this icon is represented by a string */
+                if (spelled_punct != NULL){ 
+                    g_string_append_printf(str," %s ", spelled_punct); 
+                }
+            } 
+        }
+
+        pos = g_utf8_find_next_char(pos, NULL); /* Skip to the next UTF8 character */		
+    }
+
+    MSG(4,"Processing done...");
+
+    if(first_part){
+        if (str != NULL)
+            new_message = str->str;
+        else
+            new_message = NULL;
+    }else{
+        if (str != NULL)
+            if (str->str != NULL)
+                if (strlen(str->str) > 0)
+                    plist = msglist_insert(plist, str->str, MSGTYPE_TEXTP);
+    }
+    g_string_free(str, 0);
+    
+    /* Queue the parts not returned. */
+    if(plist != NULL){
+        queue_messages(plist, -settings->uid, 0, ++max_gid);
+    }
+
+    free(character);
+    return new_message;
+}
+
+static char*
+process_message(char *buf, int bytes, TFDSetElement* settings)
+{
+    GHashTable *icons;
+    char *new_message;
+
+    if(settings->spelling || settings->punctuation_mode){
+        icons = g_hash_table_lookup(snd_icon_langs, settings->language);
+        if (icons == NULL){
+            icons = g_hash_table_lookup(snd_icon_langs, GlobalFDSet.language);
+            if (icons == NULL) return NULL;
+        }
+    
+        if(settings->spelling){
+            new_message = process_message_spell(buf, bytes, settings, icons);
+        }
+        else if(settings->punctuation_mode){
+            new_message = process_message_punctuation(buf, bytes, settings, icons);
+        }
+
+        return new_message;
+    }
+
+    return buf;
+}
+
+/* Creates a new message from string STR and stores it
+ * in a LIST of messages. This LIST is returned. This
+ * is particularly useful for dividing messages
+ * when processing punctuation in messages
+ * (see process_message_punctuation())
+ *
+ * If LIST is NULL, new list is created 
+ */
+static GList*
+msglist_insert(GList *list, char *str, EMessageType type)
+{
+    TSpeechDMessage *msg;
+    GList *nlist;
+
+    if (str == NULL){
+        if (SPEECHD_DEBUG) FATAL("msglist_insert passed NULL in str");
+        return list;
+    }
+    if (strlen (str) == 0){
+        if (SPEECHD_DEBUG) FATAL("msglist_insert passed nothing in str");
+        return list;
+    }
+
+    msg = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
+    msg->bytes = strlen(str);
+    msg->buf = str;
+    msg->settings.type = type;
+    nlist = g_list_append(list, msg);                   
+
+    return nlist;
+}
+
+/* Determines if this messages is to be spoken
+ * (returns 1) or it's parent client is paused (returns 0).
+ * Note: If you are wondering why it's reversed (not to speak instead
+ * of to speak), it's because we also use this function for
+ * searching through the list. */
+static gint
+message_nto_speak(gconstpointer data, gconstpointer nothing)
+{
+    TFDSetElement *global_settings;
+    GList *gl;
+    TSpeechDMessage *message = (TSpeechDMessage *) data;
+
+    /* Is there something in the body of the message? */
+    if(message == NULL) return 0;
+
+    /* Find global settings for this connection. */	
+    global_settings = get_client_settings_by_fd(message->settings.fd);
+    if (global_settings == NULL) return 0;	
+ 
+    if (!global_settings->paused) return 0;
+    else return 1;
+}
+
+static void
+set_speak_thread_attributes()
+{
+    int ret;
+    sigset_t all_signals;
+
+    ret = sigfillset(&all_signals);
+    if (ret == 0){
+        ret = pthread_sigmask(SIG_BLOCK, &all_signals, NULL);
+        if (ret != 0) MSG(1, "Can't set signal set, expect problems when terminating!");
+    }else{
+        MSG(1, "Can't fill signal set, expect problems when terminating!");
+    }
+
+    pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
+    pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
+}
+
+static void
+resolve_priorities()
+{
+    GList *gl;
+    TSpeechDMessage *msg;
+
+    if(g_list_length(MessageQueue->p1) != 0){
+        stop_p3();	
+        if (is_sb_speaking() && (highest_priority != 1))
+            stop_speaking_active_module();
+    }
+		    
+    if(g_list_length(MessageQueue->p2) != 0){
+        stop_p3();
+    }
+
+    if(g_list_length(MessageQueue->p3) != 0){
+        /* Stop all other priority 3 messages but leave the first */
+        gl = g_list_last(MessageQueue->p3); 
+                
+        assert(gl!=NULL);
+        assert(gl->data != NULL);
+
+        msg = (TSpeechDMessage*) gl->data;
+        if (msg->settings.reparted <= 0){                
+            MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
+            stop_p3();
+            /* Fill the queue with the list containing only the first message */
+            MessageQueue->p3 = gl;
+        }
+    }
+}
+
+static TSpeechDMessage*
+get_message_from_queues()
+{
+    GList *gl = NULL;
+
+    /* We will descend through priorities to say more important
+     * messages first. */
+    gl = g_list_first(MessageQueue->p1); 
+    if (gl != NULL){
+        MSG(4,"Message in queue p1");
+        MessageQueue->p1 = g_list_remove_link(MessageQueue->p1, gl);
+        highest_priority = 1;
+    }else{
+        gl = g_list_first(MessageQueue->p2); 
+        if (gl != NULL){
+            MSG(4,"Message in queue p2");
+            MessageQueue->p2 = g_list_remove_link(MessageQueue->p2, gl);
+            highest_priority = 2;
+        }else{
+            gl = g_list_first(MessageQueue->p3);
+            if (gl != NULL){
+                MSG(4,"Message in queue p3");
+                MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
+                highest_priority = 3;
+            }else{
+                if (SPEECHD_DEBUG) FATAL("Descending through queues but all of them are empty");
+                return NULL;
+            }
+        }
+    } 
+    assert(gl != NULL);
+    return (TSpeechDMessage *) gl->data;
+}
+
+static OutputModule*
+get_output_module(const TSpeechDMessage *message)
+{
+    OutputModule *output;
+
+    if (message->settings.type != MSGTYPE_SOUND){
+        output = g_hash_table_lookup(output_modules, message->settings.output_module);
+        if(output == NULL){
+            MSG(4,"Didn't find prefered output module, using default");
+            output = g_hash_table_lookup(output_modules, GlobalFDSet.output_module); 
+            if (output == NULL) MSG(2, "Can't find default output module!");                
+        }
+    }else{   /* if MSGTYPE_SOUND */
+        output = sound_module;
+        if (output == NULL) MSG(2,"Can't find sound module!");
+    }
+
+    return output;
+}
+
+static GList*
+speaking_get_queue(int priority)
+{
+    GList *queue = NULL;
+
+    assert(priority > 0  &&  priority <= 3);
+
+    switch(priority){           
+    case 1: queue = MessageQueue->p1; break;
+    case 2: queue = MessageQueue->p2; break;
+    case 3: queue = MessageQueue->p3; break;
+    }
+
+    return queue;
+}
+
+static void
+speaking_set_queue(int priority, GList *queue)
+{
+    assert(priority > 0  &&  priority <= 3);
+
+    switch(priority){           
+    case 1: MessageQueue->p1 = queue; break;
+    case 2: MessageQueue->p2 = queue; break;
+    case 3: MessageQueue->p3 = queue; break;
+    }
 }
