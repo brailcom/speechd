@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.11 2004-05-23 13:43:20 hanke Exp $
+ * $Id: generic.c,v 1.12 2004-05-29 16:41:11 hanke Exp $
  */
 
 #include <glib.h>
@@ -81,10 +81,10 @@ MOD_OPTION_1_INT(GenericVolumeForceInteger);
 MOD_OPTION_3_HT(GenericLanguage, code, name, charset);
 
 
-static char* generic_msg_pitch_str = NULL;
-static char* generic_msg_rate_str = NULL;
-static char* generic_msg_volume_str = NULL;
-static char *generic_msg_voice_str = NULL;
+static char generic_msg_pitch_str[16];
+static char generic_msg_rate_str[16];
+static char generic_msg_volume_str[16];
+static char* generic_msg_voice_str = NULL;
 static TGenericLanguage* generic_msg_language = NULL;
 
 
@@ -156,14 +156,17 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
         DBG("Speaking when requested to write");
         return 0;
     }
-    
+
+
     if(module_write_data_ok(data) != 0) return -1;
+
 
     UPDATE_PARAMETER(pitch, generic_set_pitch);
     UPDATE_PARAMETER(rate, generic_set_rate);
     UPDATE_PARAMETER(volume, generic_set_volume);
-    UPDATE_PARAMETER(language, generic_set_language);
+    UPDATE_STRING_PARAMETER(language, generic_set_language);
     UPDATE_PARAMETER(voice, generic_set_voice);
+
 
     /* Set the appropriate charset */
     assert(generic_msg_language != NULL);
@@ -496,13 +499,13 @@ generic_set_volume(int volume)
 void
 generic_set_language(char *lang)
 {
-    xfree(generic_msg_language);
 
     generic_msg_language = (TGenericLanguage*) module_get_ht_option(GenericLanguage, 
 							lang);
     if (generic_msg_language == NULL){
 	DBG("Language %s not found in the configuration file.", lang);
 	generic_msg_language = (TGenericLanguage*) xmalloc(sizeof(TGenericLanguage));
+	generic_msg_language->code = strdup("en");
 	generic_msg_language->charset = NULL;
 	generic_msg_language->name = strdup("english");
     }
@@ -512,13 +515,14 @@ generic_set_language(char *lang)
 	generic_msg_language->name = strdup("english");
     }
 
+    generic_set_voice(msg_settings.voice);
 }
 
 void
-generic_set_voice(EVoiceType voice){
-    xfree(generic_msg_voice_str);
+generic_set_voice(EVoiceType voice)
+{
     assert(generic_msg_language);
-    generic_msg_voice_str = module_getvoice(generic_msg_language->name, voice);
+    generic_msg_voice_str = module_getvoice(generic_msg_language->code, voice);
     if (generic_msg_voice_str == NULL){
 	DBG("Invalid voice type specified or no voice available!");
     }
