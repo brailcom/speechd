@@ -1,4 +1,8 @@
 
+Version 0.0.6
+  * Speech Deamon now works in 2 threads for better performance
+  * New output module for flite
+
 Version 0.0.5
   * Renamed back to Speech Deamon
   * Speech Deamon Center -- history and configuration client (first version)
@@ -20,31 +24,21 @@ Version 0.0.4
 
 Version 0.0.3
   * API for communication with Robod. 
-
   * New output module for flite.
-
   * History commands implemented.
- 
   * Shared library API in Robodlib.so.
 
 Version 0.0.2
 
   * API for output modules designed
-
   * sample output module implementation written
-
   * server configuration based on DotConf implemented
-
   * analysis of input protocol requirements documented
 
 Version 0.0.1
         
   * Project started ...
-
   * Design documentation written (using DocBook XML)
-
   * pre API designed
-
   * simple server core and client example written
-
   * CVS repository and other project stuff set up

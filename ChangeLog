@@ -1,3 +1,18 @@
+2003-03-13  Hynek Hanke <hanke@volny.cz>
+    * src/modules/flite.c: Now uses threads and processes to get better performance.
+    * src/modules/Makefile.am: Links also flite shared libraries.
+    * src/clients/libspeechd.c: Cosmetical changes.
+    * src/tests: New directory.
+    * src/tests/Makefile.am: Makefile for new directory.
+    * src/tests/multiple_messages.c: New file, a speed test.
+    * src/server/server.c (speaking_module): Now directly a pointer to the module instead of its name.
+    * src/server/server.c (speak): speak() is now a separate thread.
+    * src/server/speechd.c (main): speak_thread initialization.
+    * src/server/speechd.h (speak_thread): New thread for speak().
+	* src/Makefile.am: Added new directory tests.
+	* configure.in: Added tests for pthread and flite shared libraries.
+	* INSTALL: Note about the requierement to have compiled flite with shared libraries.
+
 2003-03-16  Tomas Cerha  <cerha@brailcom.org>
 
 	* README: Robod -> Speech Daemon.
