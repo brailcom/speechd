@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.19 2003-04-25 00:18:14 hanke Exp $
+ * $Id: set.c,v 1.20 2003-05-26 14:06:57 hanke Exp $
  */
 
 #include "set.h"
@@ -655,7 +655,51 @@ set_character_table_all(char* char_table)
     if (err > 0) return 1;
     return 0;
 }
-		 
+
+int
+set_output_module_uid(int uid, char* output_module)
+{
+    TFDSetElement *settings;
+
+    settings = get_client_settings_by_uid(uid);
+    if (settings == NULL) return 1;
+    if (output_module == NULL) return 1;
+
+    set_param_str(settings->output_module, output_module);
+
+    return 0;
+}
+
+int
+set_output_module_all(char* output_module)
+{
+    int i;
+    int uid;
+    int err = 0;
+
+    for(i=1;i<=fdmax;i++){
+        uid = get_client_uid_by_fd(i);
+        if (uid == 0) continue;
+        err += set_output_module_uid(uid, output_module);
+    }
+
+    if (err > 0) return 1;
+    return 0;
+}	
+
+int
+set_output_module_self(int fd, char* output_module)
+{
+    int uid;
+    int ret;
+	
+    uid = get_client_uid_by_fd(fd);
+    if (uid == 0) return 1;
+    ret = set_output_module_uid(uid, output_module);
+
+    return ret;
+}	
+
 TFDSetElement*
 default_fd_set(void)
 {
