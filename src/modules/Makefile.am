@@ -4,7 +4,8 @@ inc_local = "-I$(top_srcdir)/intl/"
 
 AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@ -L$(top_srcdir)/src/audio -I$(top_srcdir)/src/audio -I../../intl/ -Wl,--rpath -Wl,$(spdlibdir)
 
-EXTRA_DIST = module_main.c module_utils_addvoice.c module_utils_audio.c festival_client.c festival_client.h
+
+EXTRA_DIST = module_main.c module_utils_addvoice.c festival_client.c festival_client.h
 
 modulebin_PROGRAMS = sd_flite sd_generic sd_festival
 
@@ -17,4 +18,4 @@ sd_generic_LDADD = -lm -lpthread -ldotconf @glib_libs@
 
 sd_festival_SOURCES = festival.c module_utils.c
 sd_festival_LDFLAGS = -rpath '$(spdlibdir)'
-sd_festival_LDADD = -lm -lsdaudio -lpthread -ldotconf @glib_libs@
+sd_festival_LDADD = -lsdaudio -lm -lpthread -ldotconf @glib_libs@
