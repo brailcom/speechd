@@ -29,6 +29,8 @@ sysconfdir="$sysconfdir/speechd"
 AC_SUBST(sysconfdir)
 snddatadir="$datadir/sounds/speechd" 
 AC_SUBST(snddatadir)
+pluginsdir="$libdir/speechd" 
+AC_SUBST(pluginsdir)
 
 dnl Checks for header files.
 AC_HEADER_STDC
