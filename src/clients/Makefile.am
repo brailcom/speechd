@@ -8,7 +8,7 @@ bin_PROGRAMS = say spd_center
 say_SOURCES = say.c libspeechd.h
 say_LDADD = libspeechd.la
 
-spd_center_SOURCES = spd_center.c libspeechd.h
+spd_center_SOURCES = spd_center.c spd_center.h libspeechd.h
 spd_center_LDADD = libspeechd.la
 
 lib_LTLIBRARIES = libspeechd.la
