@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.h,v 1.8 2003-10-16 20:55:26 hanke Exp $
+  * $Id: speaking.h,v 1.9 2003-10-29 11:10:43 hanke Exp $
   */
 
 #ifndef SPEAKING_H
@@ -49,6 +49,7 @@ void* speak(void* data);
 int reload_message(TSpeechDMessage *msg);
 
 
+/* Speech flow control functions */
 void speaking_stop(int uid);
 void speaking_stop_all();
 
@@ -61,20 +62,16 @@ int speaking_pause_all(int fd);
 int speaking_resume(int uid);
 int speaking_resume_all();
 
+/* Internal speech flow control functions */
+
 /* If there is someone speaking on some output
  * module, return 1, otherwise 0. */
 int is_sb_speaking();
-
-/* Get the unique id of the client who is speaking
- * on some output module */
-int get_speaking_client_uid();
 
 /* Stops speaking and cancels currently spoken message.*/
 void stop_speaking_active_module();
 
 int stop_priority(int priority);
-int stop_p3();
-int stop_p23();
 
 void stop_from_uid(int uid);
 
@@ -83,14 +80,19 @@ static gint message_nto_speak (gconstpointer, gconstpointer);
 
 static void set_speak_thread_attributes();
 
+
+/* Do priority interaction */
 void resolve_priorities(int priority);
 
+
+/* Queue interaction helper functions */
 static TSpeechDMessage* get_message_from_queues();
-
-
 static GList* speaking_get_queue(int priority);
-
 static void speaking_set_queue(int priority, GList *queue);
+gint sortbyuid (gconstpointer a,  gconstpointer b);
 
+/* Get the unique id of the client who is speaking
+ * on some output module */
+int get_speaking_client_uid();
 
 #endif /* SPEAKING_H */
