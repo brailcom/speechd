@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.38 2003-10-13 16:20:44 hanke Exp $
+ * $Id: festival.c,v 1.39 2003-10-18 13:02:52 hanke Exp $
  */
 
 #include "fdset.h"
@@ -364,7 +364,7 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
             /* fwave can be NULL if the given text didn't produce any sound
                output, e.g. this text: "." */
             if (fwave != NULL){
-                DBG("Sending buf to child in wav: %d samples\n",
+                DBG("Sending buf to child in wav: %d bytes\n",
                     (fwave->num_samples) * sizeof(short));
                 if (fwave->num_samples != 0){
                     ret = module_parent_send_samples(dpipe, fwave->samples,
