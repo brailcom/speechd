@@ -1,3 +1,34 @@
+2003-04-28  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/server/speaking.h: New headers for speaking_pause_all(), speaking_resume_all().
+
+	* src/server/speaking.c (speaking_pause_all): New function.
+	(speaking_resume_all): New function.
+	(speaking_pause): Reworked.
+	(speaking_resume): Reworked.
+
+	* src/server/speechd.h: Removed stop/cancel/pause/resume functions.
+	
+	* src/server/parse.c (pause): Reworked.
+	(resume): Reworked.
+	
+	
+	* src/modules/apollo.c (apollo_pause): New function. Needs some work:)
+
+	* src/modules/flite.c (_flite_speak): Use the spd_audio.c library.
+	(_flite_synth): New function. Splitted from _flite_speak.
+	(flite_pause): New function. Stop speaking the message and return the rest.
+
+	* src/audio/spd_audio.h: New header file for spd_audio.c.
+
+	* src/audio/spd_audio.c: New file: Audio output for Speech Deamon.
+
+	* configure.in: Build src/audio.	
+
+	* Makefile.am: Build src/audio.
+
+	* src/Makefile.am: Build src/audio.
+
 2003-04-25  Milan Zamazal  <pdm@brailcom.org>
 
 	* INSTALL: Dependency on librecode added.
