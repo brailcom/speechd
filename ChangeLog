@@ -1,3 +1,15 @@
+2003-10-29  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/speaking.h (empty_queue_by_time): New prototype.
+	(stop_priority_older_than): New prototype.
+	Restructured.
+
+	* src/server/speaking.c (speak): Insert the last priority 5 message sorted by time.
+	(empty_queue_by_time): New function.
+	(stop_priority_older_than): New function.
+
+	* src/server/server.c (queue_message): Insert timestamp.
+
 2003-10-27  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/parse.c (parse): KEY can be used in blocks.
