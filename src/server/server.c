@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.68 2004-01-27 07:42:54 pdm Exp $
+  * $Id: server.c,v 1.69 2004-01-27 11:00:09 pdm Exp $
   */
 
 #include "speechd.h"
@@ -183,25 +183,43 @@ server_data_off(int fd)
 int
 serve(int fd)
 {
-    size_t bytes = 0;       /* Number of bytes we got */
-    char buf[BUF_SIZE+1];   /* The content (commands or data) we got */
     char *reply;            /* Reply to the client */
     int ret;
- 
-    /* Read data from socket */
-    while(1){
-        int n = read(fd, buf+bytes, BUF_SIZE-bytes-1);
-        if(n == -1) return -1;
-        bytes += n;
-        buf[bytes] = 0;
-        MSG(4,"Read %d bytes from client on fd %d", n, fd);
-        if(n == 0 || buf[bytes-1] == '\n')
-          break;
+    
+    {
+      size_t bytes = 0;       /* Number of bytes we got */
+      int buflen = BUF_SIZE;
+      char *buf = (char *)spd_malloc (buflen + 1);
+      
+      /* Read data from socket */
+      /* Read exactly one complete line, the `parse' routine relies on it */
+      {
+        while (1)
+          {
+            int n = read (fd, buf+bytes, 1);
+            if (n <= 0)
+              {
+                spd_free (buf);
+                return -1;
+              }
+            if (buf[bytes] == '\n')
+              {
+                buf[++bytes] = '\0';
+                break;
+              }
+            if ((++bytes) == buflen)
+              {
+                buflen *= 2;
+                buf = spd_realloc (buf, buflen + 1);
+              }
+          }
+      }
+      
+      /* Parse the data and read the reply*/
+      MSG2(5, "protocol", "%d:DATA:|%s|", fd, buf);
+      reply = parse(buf, bytes, fd);
+      spd_free(buf);
     }
-
-    /* Parse the data and read the reply*/
-    MSG2(5, "protocol", "%d:DATA:|%s|", fd, buf);
-    reply = parse(buf, bytes, fd);
 
     if (reply == NULL) FATAL("Internal error, reply from parse() is NULL!");
 

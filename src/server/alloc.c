@@ -12,6 +12,17 @@ spd_malloc(size_t bytes)
 	return mem;
 }
 
+void*
+spd_realloc(void *ptr, size_t bytes)
+{
+	void *mem;
+
+	mem = realloc(ptr, bytes);
+	if(mem == NULL) FATAL("Can't allocate memmory.\n");
+
+	return mem;
+}
+
 void
 spd_free(void* data)
 {
