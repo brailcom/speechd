@@ -13,8 +13,6 @@
 #include <glib.h>
 #include <gmodule.h>
 #include <dotconf.h>
-#include <gdsl/gdsl.h>
-
 
 /*#ifndef EXIT_FAILURE
 #  define EXIT_FAILURE        1
