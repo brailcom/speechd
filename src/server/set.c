@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.34 2004-03-08 21:26:09 hanke Exp $
+ * $Id: set.c,v 1.35 2004-06-28 08:12:18 hanke Exp $
  */
 
 #include "set.h"
@@ -251,6 +251,7 @@ update_cl_settings(gpointer data, gpointer user_data)
     CHECK_SET_PAR(voice, -1)
     CHECK_SET_PAR(cap_let_recogn, -1)
     CHECK_SET_PAR(pause_context, -1)
+    CHECK_SET_PAR(ssml_mode, -1)
     CHECK_SET_PAR_STR(language)
     CHECK_SET_PAR_STR(output_module)
 
@@ -318,6 +319,21 @@ set_pause_context_uid(int uid, int pause_context)
     return 0;
 }
 
+SET_SELF_ALL(int, ssml_mode);
+
+set_ssml_mode_uid(int uid, int ssml_mode)
+{
+    TFDSetElement *settings;
+
+    settings = get_client_settings_by_uid(uid);
+    if (settings == NULL) return 1;
+
+    set_param_int(&settings->ssml_mode, ssml_mode);
+    return 0;
+}
+
+
+
 TFDSetElement*
 default_fd_set(void)
 {
@@ -340,6 +356,7 @@ default_fd_set(void)
 	new->spelling_mode = GlobalFDSet.spelling_mode;         
 	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;       
         new->pause_context = GlobalFDSet.pause_context;
+	new->ssml_mode = GlobalFDSet.ssml_mode;
 	new->active = 1;
 	new->hist_cur_uid = -1;
 	new->hist_cur_pos = -1;
