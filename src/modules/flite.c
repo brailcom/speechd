@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.43 2004-11-13 14:50:41 hanke Exp $
+ * $Id: flite.c,v 1.44 2004-11-19 13:54:32 hanke Exp $
  */
 
 
@@ -127,13 +127,16 @@ module_init(char **status_info)
         return -1;
     }
 
+    DBG("Openning audio");
     if (!strcmp(FliteAudioOutputMethod, "oss")){
+	DBG("Using OSS sound output.");
 	flite_pars[0] = FliteOSSDevice;
 	flite_pars[1] = NULL;
 	flite_audio_id = spd_audio_open(AUDIO_OSS, flite_pars, &error);
 	flite_audio_output_method = AUDIO_OSS;
     }
     else if (!strcmp(FliteAudioOutputMethod, "nas")){
+	DBG("Using NAS sound output.");
 	flite_pars[0] = FliteNASServer;
 	flite_pars[1] = NULL;
 	flite_audio_id = spd_audio_open(AUDIO_NAS, flite_pars, &error);
@@ -147,7 +150,6 @@ module_init(char **status_info)
 	g_string_append_printf(info, "Opening sound device failed. Reason: %s. ", error);
 	ABORT("Can't open sound device.");
     }
-    spd_audio_close(flite_audio_id);
 
     DBG("FliteMaxChunkLength = %d\n", FliteMaxChunkLength);
     DBG("FliteDelimiters = %s\n", FliteDelimiters);
@@ -253,14 +255,19 @@ module_close(int status)
     
     DBG("flite: close()\n");
 
+    DBG("Stopping speech");
     if(flite_speaking){
         module_stop();
     }
 
+    DBG("Terminating threads");
     if (module_terminate_thread(flite_speak_thread) != 0)
         exit(1);
    
     xfree(flite_voice);
+
+    DBG("Closing audio output");
+    spd_audio_close(flite_audio_id);
     
     CLOSE_DEBUG_FILE();
 
@@ -285,9 +292,6 @@ _flite_speak(void* nothing)
 
     DBG("flite: speaking thread starting.......\n");
 
-    oss_pars[0] = (char*) strdup("/dev/dsp");
-    oss_pars[1] = NULL;
-
     set_speaking_thread_parameters();
 
     while(1){        
@@ -295,14 +299,7 @@ _flite_speak(void* nothing)
         DBG("Semaphore on\n");
 
 	flite_stop = 0;
-	flite_speaking = 1;
-	
-	DBG("Openning audio");
-	flite_audio_id = spd_audio_open(flite_audio_output_method, flite_pars, &error);
-	if (flite_audio_id == NULL){
-	    DBG("ERROR (child): Couldn't open audio output!\nReason:%s", error);
-	    continue;
-	}
+	flite_speaking = 1;       
 
 	spd_audio_set_volume(flite_audio_id, flite_volume);
 
@@ -360,9 +357,6 @@ _flite_speak(void* nothing)
 	    }
 	}
 	DBG("Closing audio");
-	id = flite_audio_id;
-	flite_audio_id = NULL;
-	spd_audio_close(id);
 	flite_speaking = 0;
 	flite_stop = 0;
 
