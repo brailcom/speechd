@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.c,v 1.5 2003-04-18 21:03:45 hanke Exp $
+ * $Id: sndicon.c,v 1.6 2003-04-24 19:31:26 hanke Exp $
 */
 
 #include "sndicon.h"
@@ -51,7 +51,7 @@ sndicon_queue(int fd, char* language, char* prefix, char* name)
     new->bytes = strlen(text)+1;
     new->buf = malloc(new->bytes);
     strcpy(new->buf, text);
-    if(queue_message(new, fd, 1, SOUND_ICON))  FATAL("Couldn't queue message\n");
+    if(queue_message(new, fd, 1, MSGTYPE_SOUND_ICON))  FATAL("Couldn't queue message\n");
 
     return 0;
 }
@@ -107,14 +107,57 @@ int
 sndicon_key(int fd, char *name)
 {
     int ret;
-    TFDSetElement *settings;		
+    TFDSetElement *settings;
+    char *key_text;
+    char *key_name;
+    GString *sequence;
+    TSpeechDMessage *message;
+    GHashTable *icons;
+
+    sequence = g_string_new("\0");
 
     settings = get_client_settings_by_fd(fd);
-    if (settings == NULL)
-        FATAL("Couldn't find settings for active client, internal error."); 
+    if (settings == NULL) return 1;
 
-    ret = sndicon_queue(fd, settings->language, settings->key_table, name);
-    return ret;
+    icons = g_hash_table_lookup(snd_icon_langs, settings->language);
+    if (icons == NULL){
+        icons = g_hash_table_lookup(snd_icon_langs, GlobalFDSet.language);
+        if (icons == NULL) return 1;
+    }
+
+    key_name = strtok(name, "_\r\n");
+    if (key_name == NULL) return 1;
+
+    do{
+        key_text = (char*) snd_icon_spelling_get(settings->key_table, icons, key_name);
+        if (key_text != NULL){            
+            sequence = g_string_append(sequence," ");
+            sequence = g_string_append(sequence, key_text);
+        }else{
+            sequence = g_string_append(sequence," ");
+            sequence = g_string_append(sequence, key_name);
+        }
+        key_name = strtok(NULL, "_\r\n");
+    }while(key_name!=NULL);
+
+    assert(sequence != NULL);
+    assert(sequence->str != NULL);
+
+    message = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
+    message->bytes = strlen(sequence->str);
+    assert(message->bytes > 0);
+
+
+    message->buf = sequence->str;
+
+    if(queue_message(message, fd, 1, MSGTYPE_KEY) != 0){
+        if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
+        free(message->buf);
+        free(message);
+        return 1;
+    }
+
+    return 0;
 }
 
 char*
