@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.35 2003-07-05 12:28:01 hanke Exp $
+ * $Id: parse.c,v 1.36 2003-07-05 13:33:39 hanke Exp $
  */
 
 #include "speechd.h"
@@ -711,6 +711,8 @@ parse_char(const char *buf, const int bytes, const int fd)
 
     GET_PARAM_STR(character, 1, NO_CONV);
 
+    if (character == NULL) return ERR_MISSING_PARAMETER;
+
     ret = sndicon_char(fd, character);
     if (ret != 0){
         TSpeechDMessage *verbat;
@@ -718,7 +720,10 @@ parse_char(const char *buf, const int bytes, const int fd)
         verbat = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
         verbat->bytes = bytes;
         verbat->buf = strdup(character);
-        if(queue_message(verbat, fd, 1, MSGTYPE_TEXTP, 0))  FATAL("Couldn't queue message\n");
+        if(queue_message(verbat, fd, 1, MSGTYPE_TEXTP, 0)){
+            if (SPEECHD_DEBUG) FATAL("Couldn't queue message\n");
+            MSG(1, "Couldn't queue message\n");            
+        }
     }
 
     spd_free(character);
