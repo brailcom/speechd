@@ -18,12 +18,24 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils_addvoice.c,v 1.1 2003-09-07 11:26:52 hanke Exp $
+ * $Id: module_utils_addvoice.c,v 1.2 2003-10-12 23:28:09 hanke Exp $
  */
 
 #include <glib.h>
 
 GHashTable *module_voice_table = NULL;
+
+typedef struct
+{
+    char *male1;
+    char *male2;
+    char *male3;
+    char *female1;
+    char *female2;
+    char *female3;
+    char *child_male;
+    char *child_female;
+}SPDVoiceDef;
 
 DOTCONF_CB(AddVoice_cb)
 {
