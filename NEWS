@@ -1,3 +1,8 @@
+xc
+Version 0.5
+ * SSIP now supports SSML (Speech Synthesis Markup Language) messages.
+ * Communication with Festival is highly improved.
+ * Improved DTK Software Synthesis support.
 
 Version 0.4
  * Volume settings in the Generic output module.

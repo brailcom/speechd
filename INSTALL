@@ -8,7 +8,7 @@ You will need these components to compile Speech Dispatcher:
  - libasound1 (0.5.8) 
  - gcc and GNU make (http://www.gnu.org)
  - flite [we use it for sound track output] (http://cmuflite.org/)
- - festival-freebsoft-utils (http://www.freebsoft.org/festival-freebsoft-utils
+ - festival-freebsoft-utils 0.3+ (http://www.freebsoft.org/festival-freebsoft-utils)
 
 Only if you are building from CVS, you also need these:
  - automake 1.7+, autoconf, pkg-config and libtool
@@ -19,8 +19,11 @@ We recommend to also install these packages:
 Building Speech Dispatcher:
 ===========================
 
-WARNING: Since version 0.3, you also need festival-freebsoft-utils (listed
-above) in order to make Speech Dispatcher speak through festival.
+If you want to use Speech Dispatcher with Festival (recommended), you
+also need to install festival-freebsoft-utils version 0.3 or higher!
+There is a new key feature -- SSML support -- in Speech Dispatcher and
+the Festival output module *won't* work with the old
+festival-freebsoft-utils. See above for where to get them.
 
 To compile the whole project, including Speech Dispatcher server, all modules
 and clients, simply extract the distribution archive and change to 
@@ -62,11 +65,8 @@ path by running (as root):
 Installing Festival Speech Dispatcher interface:
 ================================================
 
-If you have installed Festival and you want to use it, you must place
-the .scm files located in the directory
-        speech-dispatcher-@VERSION/src/modules/festival-interface
-to a place where it can find them. Please follow the instructions given in
-speech-dispatcher-@VERSION/src/modules/festival-interface/README.festival-interface
+You need to install the new version of festival-freebsoft-utils (0.3
+or higher).
 
 Please make sure that Festival server_access_list configuration
 variable and your /etc/hosts.conf are set properly. server_access_list

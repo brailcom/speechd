@@ -4,21 +4,14 @@ Short-term goals
 
         * Index marking support in SSIP.
 
-        * Index marking and improved commmunication in Festival output
-   module.
-
         * Sound output that supports OSS, Alsa and some sound server
-   instead of the hardcoded OSS output (Any help with this highly
-   appreciated!)
+          instead of the hardcoded OSS output (Any help with this highly
+          appreciated!)
 
 Longer-term goals
 =================
 
-        * Identd authentication.
-
-	* HISTORY commands and their return values (more...)
-
-	* History should be saved to disk when Speech Dispatcher terminates
+	* Decide what to do with history. 
 
 We don't know how to do it (external help needed)
 =================================================

@@ -1,10 +1,9 @@
 
-Speech Dispatcher 0.4.1 released
-================================
+Speech Dispatcher 0.5-rc1 release
+=================================
 
-The Brailcom organization is happy to announce the release
-of Speech Dispatcher 0.4.1 developed as a part of the Free(b)Soft
-project.
+The Brailcom organization is happy to announce the release of Speech
+Dispatcher 0.5-rc1 developed as a part of the Free(b)Soft project.
 
 * What is Speech Dispatcher?
 
@@ -35,44 +34,41 @@ project.
     settings for different clients that connect to Speech Dispatcher.
 
   - Simple interface for programs written in C, C++ provided through a
-    shared library and a Common Lisp interface. The
+    shared library, Common Lisp and Guile interface. The
     Python interface is being worked on. An Elisp library is
     developed as a sperate project speechd-el. Possibly an interface
     to any other language can be developed.
 
-* What is new in 0.4.1?
 
-  - This is a bugfix release because there was a severe bug in the
-    0.4 release in the Generic output module. Below follows the list
-    of new things in 0.4:
+* What is new in 0.5-rc1?
 
-  - Flite output is now installed with the 16-bit voice, if available.
+ - SSIP now supports SSML (Speech Synthesis Markup Language) messages.
 
-  - The generic output module can now also set volume.
+ - Communication with Festival is highly improved.
 
-  - spd-say is now rewritten to accept the most important speech
-    parameters and thus provide a simple but useful Speech Dispatcher
-    client. Documentation is provided in info.
+ - Improved DTK Software Synthesis support.
 
-  - The C/C++ shared library interface now uses TCP_NODELAY to prevent
-    timeouts and make the communication faster.
-
-  - Bugfixes.
+ NOTE: The communication mode of the Festival output module (SSML mode)
+ is incompatible with the previous festival-freebsoft-utils releases.
+ You need to install festival-freebsoft-utils 0.3 or higher!
 
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.4.1.tar.gz .
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.5-rc1.tar.gz
+
+  You also need to get festival-freebsoft-utils in version 3 or newer
+  http://www.freebsoft.org/pub/projects/festival-freebsoft-utils/
 
   We recommend you to fetch the sound icons Speech Dispatcher can use as
   well. They are available at
   http://www.freebsoft.org/pub/projects/sound-icons/sound-icons-0.1.tar.gz
 
-  Corresponding Debian packages are or soon will be available at your
-  Debian distribution mirror. (We would highly appreciate any help
-  with RPM distribution!)
+  Corresponding Debian packages will be available at your
+  Debian distribution mirror as soon as the official version 0.5 is released.
+  (We would highly appreciate any help with RPM distribution!)
 
-  The home page of the project is http://www.freebsoft.org/speechd .
+  The home page of the project is http://www.freebsoft.org/speechd
 
 * How to report bugs?
 

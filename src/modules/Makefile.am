@@ -8,10 +8,10 @@ EXTRA_DIST = module_main.c module_utils_addvoice.c module_utils_audio.c festival
 
 modulebin_PROGRAMS = sd_flite sd_generic sd_festival
 
-sd_flite_SOURCES = flite.c module_utils.c
-sd_flite_LDFLAGS = -lsdaudio -lm $(flite_basic) $(flite_kal)
+sd_flite_SOURCES = flite.c module_utils.c module_utils.h
+sd_flite_LDFLAGS = -lsdaudio -rpath $(libdir)/speech-dispatcher -lm $(flite_basic) $(flite_kal)
 
-sd_generic_SOURCES = generic.c module_utils.c
+sd_generic_SOURCES = generic.c module_utils.c module_utils.h
 sd_generic_LDFLAGS = -lm
 
 sd_festival_SOURCES = festival.c module_utils.c

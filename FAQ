@@ -36,3 +36,8 @@ will be automatically installed with the better voice).
 If you are using Debian or any other package based distribution, the
 16-bit voice should be installed by default and there is no need for
 you to care about it.
+
+Q: Festival doesn't speak. What can I do?
+
+A: Are you sure you have installed festival-freebsoft-utils 0.3 or higher
+as described in the file INSTALL?

@@ -1,3 +1,9 @@
+2004-07-02  Hynek Hanke  <hanke@chopin>
+
+	* src/modules/Makefila.am: Include module_utils.h into sources.
+
+	* Release 0.5-rc1
+
 2004-06-28  Hynek Hanke  <hanke@chopin>
 
 	* src/server/parse.c (parse_set): New SSIP command SET SELF SSML_MODE.

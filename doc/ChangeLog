@@ -1,3 +1,7 @@
+2004-07-02  Hynek Hanke  <hanke@chopin>
+
+	* Makefile.am (EXTRA_DIST): Include figures/*.{txt, png, pdf, dia, eps} into tarball.
+
 2004-06-28  Hynek Hanke  <hanke@chopin>
 
 	* ssip.texi (Parameter Setting Commands): Added SSML_MODE {on|off}
