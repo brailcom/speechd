@@ -21,9 +21,19 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.h,v 1.2 2003-02-01 22:16:55 hanke Exp $
+ * $Id: set.h,v 1.3 2003-03-12 22:28:37 hanke Exp $
  */
 
 int set_priority(int fd, int priority);
 int set_language(int fd, char *language);
+int set_rate(int fd, int rate);
+int set_pitch(int fd, int pitch);
+int set_punct_mode(int fd, int punct);
+int set_cap_let_recog(int fd, int recog);
+int set_spelling(int fd, int spelling);
+
+		
+		
+		
+		
 		
