@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.23 2003-04-18 21:20:20 hanke Exp $
+ * $Id: speechd.h,v 1.24 2003-04-24 19:33:09 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -57,9 +57,6 @@
 #include "sndicon.h"
 #include "compare.h"
 
-/* We should get rid of this very soon */
-#define MAX_CLIENTS 20
-
 /*  TSpeechDQueue is a queue for messages. */
 typedef struct{
     GList *p1;			/* priority 1 queue */
@@ -71,7 +68,7 @@ typedef struct{
     that is, some text with ''formating'' tags inside. */
 typedef struct{
     guint id;			/* unique id */
-    time_t time;			/* when was this message received */
+    time_t time;                /* when was this message received */
     char *buf;			/* the actual text */
     int bytes;			/* number of bytes in buf */
     TFDSetElement settings;	/* settings of the client when queueing this message */
@@ -138,9 +135,10 @@ GList *message_history;
 TFDSetElement GlobalFDSet;
 
 /* Arrays needed for receiving data over socket */
-GArray *awaiting_data;
-GArray *o_bytes;
-GString *o_buf[MAX_CLIENTS];
+int *awaiting_data;
+int *o_bytes;
+GString **o_buf;
+int fds_allocated;
 
 /* Loads output module */
 OutputModule* load_output_module(gchar* modname);
