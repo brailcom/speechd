@@ -27,7 +27,7 @@ spd_audio_play_wave(const cst_wave *w)
     }
 
     if (spd_audio_device == NULL){
-        fprintf(stderr, "Audio device not initialized.");
+        fprintf(stderr, "Audio device not initialized in spd_audio_play_wave.");
         return -1;
     }
 
@@ -111,8 +111,15 @@ spd_audio_open(const cst_wave *w)
     }
     if ((spd_audio_device = audio_open(w->sample_rate, w->num_channels,
                          CST_AUDIO_LINEAR16)) == NULL){
-        return CST_ERROR_FORMAT;
+        fprintf(stderr, "Audio device can't be inicialized (1)!\n");
+        return -1;
     }
+
+    if (spd_audio_device == NULL){
+        fprintf(stderr, "Audio device can't be inicialized! (2)\n");
+        return -1;
+    }
+
     return 0;
 }
 
