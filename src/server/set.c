@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.33 2004-02-13 15:17:01 hanke Exp $
+ * $Id: set.c,v 1.34 2004-03-08 21:26:09 hanke Exp $
  */
 
 #include "set.h"
@@ -74,7 +74,7 @@ set_priority_uid(int uid, int priority)
       int i; \
       int uid; \
       int err = 0; \
-      for(i=1;i<=fdmax;i++){ \
+      for(i=1;i<=SpeechdStatus.max_fd;i++){ \
         uid = get_client_uid_by_fd(i); \
         if (uid == 0) continue; \
         err += set_ ## param ## _uid(uid, param); \

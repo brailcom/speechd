@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.40 2003-12-21 22:03:19 hanke Exp $
+  * $Id: speaking.c,v 1.41 2004-03-08 21:26:22 hanke Exp $
   */
 
 #include <glib.h>
@@ -314,7 +314,7 @@ speaking_pause_all(int fd)
     int err, i;
     int uid;
 
-    for(i=1;i<=fdmax;i++){
+    for(i=1;i<=SpeechdStatus.max_fd;i++){
         uid = get_client_uid_by_fd(i);
         if (uid == 0) continue;
         err += speaking_pause(i, uid);
@@ -359,7 +359,7 @@ speaking_resume_all()
     int err, i;
     int uid;
 
-    for(i=1;i<=fdmax;i++){
+    for(i=1;i<=SpeechdStatus.max_fd;i++){
         uid = get_client_uid_by_fd(i);
         if (uid == 0) continue;
         err += speaking_resume(uid);

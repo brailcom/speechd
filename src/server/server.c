@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.70 2004-02-23 22:32:46 hanke Exp $
+  * $Id: server.c,v 1.71 2004-03-08 21:25:57 hanke Exp $
   */
 
 #include "speechd.h"
@@ -159,11 +159,9 @@ int
 server_data_on(int fd)
 {
     /* Mark this client as ,,sending data'' */
-    awaiting_data[fd] = 1;
+    SpeechdSocket[fd].awaiting_data = 1;
     /* Create new output buffer */
-    o_buf[fd] = g_string_new("\0");
-    assert(o_buf[fd] != NULL);
-    assert(o_buf[fd]->str != NULL);
+    SpeechdSocket[fd].o_buf = g_string_new("");
     MSG(4, "Switching to data mode...");
     return 0;
 }
@@ -172,11 +170,11 @@ server_data_on(int fd)
 void
 server_data_off(int fd)
 {
-    assert (o_buf[fd] != NULL);
+    assert(SpeechdSocket[fd].o_buf != NULL);
 
-    o_bytes[fd] = 0;
-    g_string_free(o_buf[fd],1);
-    o_buf[fd] = NULL;
+    SpeechdSocket[fd].o_bytes = 0;
+    g_string_free(SpeechdSocket[fd].o_buf,1);
+    SpeechdSocket[fd].o_buf = NULL;
 }
 
 /* Serve the client on _fd_ if we got some activity. */

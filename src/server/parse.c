@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.59 2004-02-23 22:32:32 hanke Exp $
+ * $Id: parse.c,v 1.60 2004-03-08 21:25:50 hanke Exp $
  */
 
 #include "speechd.h"
@@ -41,13 +41,13 @@
 #define CHECK_SSIP_COMMAND(cmd_name, parse_function, allowed_in_block)\
     if(!strcmp(command, cmd_name)){ \
         spd_free(command); \
-        if ((allowed_in_block == BLOCK_NO) && inside_block[fd]) \
+        if ((allowed_in_block == BLOCK_NO) && SpeechdSocket[fd].inside_block) \
             return ERR_NOT_ALLOWED_INSIDE_BLOCK; \
         return (char*) (parse_function) (buf, bytes, fd); \
     }
 
 #define NOT_ALLOWED_INSIDE_BLOCK() \
-    if(inside_block[fd] > 0) \
+    if(SpeechdSocket[fd].inside_block > 0) \
         return ERR_NOT_ALLOWED_INSIDE_BLOCK;
 
 char* 
@@ -76,7 +76,7 @@ parse(const char *buf, const int bytes, const int fd)
    	
     /* First the condition that we are not in data mode and we
      * are awaiting commands */
-    if (awaiting_data[fd] == 0){
+    if (SpeechdSocket[fd].awaiting_data == 0){
         /* Read the command */
         command = get_param(buf, 0, bytes, 1);
 
@@ -142,29 +142,27 @@ parse(const char *buf, const int bytes, const int fd)
             end_data = 0;
             /* Set the flag to command mode */
             MSG(4, "Switching back to command mode...");
-            awaiting_data[fd] = 0;
+            SpeechdSocket[fd].awaiting_data = 0;
 
             /* Prepare element (text+settings commands) to be queued. */
-            /* Remove */
 
-            if ((bytes == 3) && (o_bytes[fd] > 2)) o_bytes[fd] -= 2;
+	    /* TODO: Remove? */
+            if ((bytes == 3) && (SpeechdSocket[fd].o_bytes > 2)) SpeechdSocket[fd].o_bytes -= 2;
 
-            if (o_bytes[fd] == 0) return OK_MSG_CANCELED;
+            if (SpeechdSocket[fd].o_bytes == 0) return OK_MSG_CANCELED;
             new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
-            new->bytes = o_bytes[fd];
+            new->bytes = SpeechdSocket[fd].o_bytes;
+	    new->buf = (char*) spd_malloc(new->bytes + 1);
+	    
+	    assert(SpeechdSocket[fd].o_buf != NULL);
+	    memcpy(new->buf, SpeechdSocket[fd].o_buf->str, new->bytes);
+	    new->buf[new->bytes] = 0;
 
-            new->buf = (char*) spd_malloc(new->bytes + 1);
 
-            assert(new->bytes >= 0); 
-            assert(o_buf[fd] != NULL);
+            reparted = SpeechdSocket[fd].inside_block; 
 
-            memcpy(new->buf, o_buf[fd]->str, new->bytes);
-
-            new->buf[new->bytes] = 0;
-
-            reparted = inside_block[fd];
-
-            new->buf = deescape_dot(new->buf);
+	    /* TODO: Unify this with the above copying */
+	    new->buf = deescape_dot(new->buf);
 
             MSG(4, "New buf is now: |%s|", new->buf);		
             if(queue_message(new, fd, 1, MSGTYPE_TEXT, reparted) != 0){
@@ -194,9 +192,9 @@ parse(const char *buf, const int bytes, const int fd)
             }      
             /* Get the number of bytes read before, sum it with the number of bytes read
              * now and store again in the counter */        
-            o_bytes[fd] += real_bytes;       
+            SpeechdSocket[fd].o_bytes += real_bytes;       
 
-            g_string_insert_len(o_buf[fd], -1, buf, real_bytes);
+            g_string_insert_len(SpeechdSocket[fd].o_buf, -1, buf, real_bytes);
         }
     }
 
@@ -697,7 +695,7 @@ parse_general_event(const char *buf, const int bytes, const int fd, EMessageType
     msg->bytes = strlen(param);
     msg->buf = strdup(param);
 
-    if(queue_message(msg, fd, 1, type, inside_block[fd])){
+    if(queue_message(msg, fd, 1, type, SpeechdSocket[fd].inside_block)){
         if (SPEECHD_DEBUG) FATAL("Couldn't queue message\n");
         MSG(2, "Couldn't queue message!\n");            
     }   
@@ -778,18 +776,18 @@ parse_block(const char *buf, const int bytes, const int fd)
     GET_PARAM_STR(cmd_main, 1, CONV_DOWN);
 
     if (TEST_CMD(cmd_main, "begin")){
-        assert(inside_block[fd] >= 0);
-        if (inside_block[fd] == 0){
-            inside_block[fd] = ++SpeechdStatus.max_gid;
+        assert(SpeechdSocket[fd].inside_block >= 0);
+        if (SpeechdSocket[fd].inside_block == 0){
+            SpeechdSocket[fd].inside_block = ++SpeechdStatus.max_gid;
             return OK_INSIDE_BLOCK;
         }else{
             return ERR_ALREADY_INSIDE_BLOCK;
         }        
     }
     else if (TEST_CMD(cmd_main, "end")){
-        assert(inside_block[fd] >= 0);
-        if (inside_block[fd] > 0){
-            inside_block[fd] = 0;
+        assert(SpeechdSocket[fd].inside_block >= 0);
+        if (SpeechdSocket[fd].inside_block > 0){
+            SpeechdSocket[fd].inside_block = 0;
             return OK_OUTSIDE_BLOCK;
         }else{
             return ERR_ALREADY_OUTSIDE_BLOCK;
@@ -798,6 +796,8 @@ parse_block(const char *buf, const int bytes, const int fd)
     else return ERR_PARAMETER_INVALID;
 }
 
+/* TODO: I have no idea how this works. It seems it doesn't
+even work. */
 char*
 deescape_dot(char *otext)
 {
