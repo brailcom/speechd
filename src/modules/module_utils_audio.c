@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils_audio.c,v 1.1 2003-09-07 11:27:31 hanke Exp $
+ * $Id: module_utils_audio.c,v 1.2 2003-09-22 00:32:31 hanke Exp $
  */
 
 #include "spd_audio.h"
@@ -101,6 +101,53 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
                                          bytes, &num_samples);
         } 
     }        
+}
+
+static short *
+module_add_samples(short* samples, short* data, size_t bytes, size_t *num_samples)
+{
+    int i;
+    short *new_samples;
+    static size_t allocated;
+
+    if (samples == NULL) *num_samples = 0;
+    if (*num_samples == 0){
+        allocated = CHILD_SAMPLE_BUF_SIZE;
+        new_samples = (short*) xmalloc(CHILD_SAMPLE_BUF_SIZE);        
+    }else{
+        new_samples = samples;
+    }
+
+    if (*num_samples * sizeof(short) + bytes > allocated){
+        allocated *= 2;
+        new_samples = (short*) xrealloc(new_samples, allocated);
+    }
+
+    for(i=0; i <= (bytes/sizeof(short)) - 1; i++){
+        new_samples[*num_samples] = data[i];
+        (*num_samples)++;
+    }
+
+    return new_samples;
+}
+
+static int
+module_parent_send_samples(TModuleDoublePipe dpipe, short* samples, size_t num_samples)
+{
+    size_t ret;
+    size_t acc_ret = 0;
+
+    while(acc_ret < num_samples * sizeof(short)){
+        ret = module_parent_dp_write(dpipe, (char*) samples, 
+                                     num_samples * sizeof(short) - acc_ret);
+                
+        if (ret == -1){
+            DBG("parent: Error in sending data to child:\n   %s\n",
+                strerror(errno));
+            return -1;
+        }
+        acc_ret += ret;
+    }
 }
 
 static void
