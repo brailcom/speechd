@@ -4,7 +4,7 @@ inc_local = "-I$(top_srcdir)/intl/"
 
 AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@
 
-lib_LTLIBRARIES = libsdflite.la libsdmluvitko.la # libsdfestival.la
+lib_LTLIBRARIES = libsdflite.la libsdmluvitko.la libapollo.la # libsdfestival.la
 
 libsdflite_la_SOURCES = flite.c
 libsdflite_la_LDFLAGS = -lflite_cmu_us_kal -lflite_cmu_time_awb -lflite_usenglish -lflite_cmulex -lflite -lm
@@ -14,4 +14,5 @@ libsdflite_la_LDFLAGS = -lflite_cmu_us_kal -lflite_cmu_time_awb -lflite_usenglis
 
 libsdmluvitko_la_SOURCES = mluvitko.c
 
-
+libapollo_la_SOURCES = apollo.c
+libapollo_la_LDFLAGS = -lm
