@@ -76,5 +76,5 @@ AC_PROG_MAKE_SET
 
 AM_PROG_LIBTOOL
 
-AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/c/Makefile src/c/api/Makefile src/c/clients/Makefile src/c/clients/say/Makefile src/tests/Makefile src/audio/Makefile config/Makefile config/modules/Makefile config/clients/Makefile sounds/Makefile doc/Makefile])
+AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/c/Makefile src/c/api/Makefile src/c/clients/Makefile src/c/clients/say/Makefile src/tests/Makefile src/audio/Makefile config/Makefile config/modules/Makefile config/clients/Makefile doc/Makefile])
 
