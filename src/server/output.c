@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.8 2003-10-15 20:09:00 hanke Exp $
+ * $Id: output.c,v 1.9 2003-12-21 22:02:50 hanke Exp $
  */
 
 #include "output.h"
@@ -92,9 +92,10 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
     ret = TEMP_FAILURE_RETRY(write(output->pipe_in[1], cmd, strlen(cmd)));
     fflush(NULL);
     if (ret == -1){
-        MSG(3, "Broken pipe to module. Module exiting or crashed.");
+        MSG(3, "Broken pipe to module.");        
         output->working = 0;
         speaking_module = NULL;
+        output_check_module(output);
         return -1;   /* Broken pipe */
     }
     MSG2(5, "protocol", "Command sent to output module: |%s|", cmd);
@@ -102,13 +103,13 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
     if (wfr){                   /* wait for reply? */
         ret = TEMP_FAILURE_RETRY(read(output->pipe_out[0], response, 255));
         if ((ret == -1) || (ret == 0)){
-            MSG(3, "Broken pipe to module. Module exiting or crashed.");
+            MSG(3, "Broken pipe to module.");
             output->working = 0;
             speaking_module = NULL;
+            output_check_module(output);
             return -1; /* Broken pipe */       
         }
         MSG2(5, "protocol", "Reply from output module: |%s|", response);
-        fflush(NULL);
         if (response[0] == '3'){
             MSG(3, "Module reported error in request from speechd (code 3xx).");
             return -2; /* User (speechd) side error */
@@ -138,6 +139,7 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
                             MSG(3, "Broken pipe to module. Module crashed?");
                             output->working = 0;
                             speaking_module = NULL;
+                            output_check_module(output);
                             return -1; /* Broken pipe */       
                         }
                     }
@@ -215,6 +217,7 @@ output_send_settings(TSpeechDMessage *msg, OutputModule *output)
     SEND_DATA(msg->buf); \
     SEND_CMD("\n.");
 
+int
 output_speak(TSpeechDMessage *msg)
 {
     OutputModule *output;
@@ -335,6 +338,44 @@ output_close(OutputModule *module)
 #undef SEND_CMD
 #undef SEND_DATA
 
+int
+output_check_module(OutputModule* output)
+{
+    int ret;
+    int err;
+    int status;
+
+    if(output == NULL) return -1;
+
+    MSG(3, "Output module working status: %d (pid:%d)", output->working, output->pid);
+
+    if (output->working == 0){
+        /* Investigate on why it crashed */
+        ret = waitpid(output->pid, &status, WNOHANG);
+        if (ret == 0){
+            MSG(2, "Output module not running.");
+            return 0;
+        }
+        ret = WIFEXITED(status);
+        if (ret == 0){
+            /* Module terminated abnormally */
+            MSG(2, "Output module terminated abnormally, probably crashed.");
+        }else{
+            /* Module terminated normally, check status */
+            err = WEXITSTATUS(status);
+            if (err == 0) MSG(2, "Module exited normally");
+            if (err == 1) MSG(2, "Internal error in output module!");
+            if (err == 2){
+                MSG(2, "Output device not working. For software devices, this can mean"
+                "that they are not running or they are not accessible due to wrong"
+                "acces permissions.");
+            }
+            if (err > 2) MSG(2, "Unknown error happened in output module, exit status: %d !", err);            
+        }
+    }
+    return 0;
+}
+
 
 char*
 escape_dot(char *otext)
@@ -403,3 +444,5 @@ escape_dot(char *otext)
 
     return ret;
 }
+
+
