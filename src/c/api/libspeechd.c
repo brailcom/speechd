@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.2 2003-04-15 10:09:00 pdm Exp $
+ * $Id: libspeechd.c,v 1.3 2003-05-11 11:27:20 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -36,275 +36,510 @@
 #include "def.h"
 #include "libspeechd.h"
 
-#define FATAL(msg) { perror("client: "msg); exit(1); }
 
-static FILE* debugg;
+/* Private function prototypes */
+char* _spd_send_data(int fd, char *message, int wfr);
+void* xmalloc(int bytes);
+void xfree(void* ptr);
+
 
 /* --------------------- Public functions ------------------------- */
 
+/* Opens a new Speech Deamon connection.
+ * Returns socket file descriptor of the created connection
+ * or 0 if no connection was opened. */
 int 
-spd_init(char* client_name, char* conn_name)
+spd_open(char* client_name, char* connection_name, char *user_name)
 {
-  int sockfd;
   struct sockaddr_in address;
-  char helper[256];
-  char *buf;
+  int connection;
+  char *set_client_name;
+  char *reply;
+  char* conn_name;
+  char* usr_name;
+  int ret;
 
+  if (client_name == NULL) return 0;
+
+  if (user_name == NULL){
+      usr_name = g_get_user_name();
+  }else{
+      usr_name = user_name;
+  }
+
+  if(connection_name == NULL){
+      conn_name = (char*) xmalloc(6);
+      strcpy(conn_name, "main");
+  }else{
+      conn_name = connection_name;
+  }
+   
+  /* Prepare a new socket */
   address.sin_addr.s_addr = inet_addr("127.0.0.1");
   address.sin_port = htons(SPEECH_PORT);
   address.sin_family = AF_INET;
-  sockfd = socket(AF_INET, SOCK_STREAM, 0);
+  connection = socket(AF_INET, SOCK_STREAM, 0);
 
-  debugg = fopen("/tmp/libspeechd_debug", "w");
-  if (debugg == NULL) FATAL("COULDN'T ACCES FILE");
-  /* connect to server */
-  if (connect(sockfd, (struct sockaddr *)&address, sizeof(address)) == -1)
-      return 0;
+#ifdef LIBSPEECHD_DEBUG
+  _spd_debug = fopen("/tmp/libspeechd_debug", "w");
+  if (_spd_debug == NULL) FATAL("COULDN'T ACCES FILE INTENDED FOR DEBUG");
+#endif /* LIBSPEECHD_DEBUG */
 
-  buf = malloc((strlen(client_name) + strlen(conn_name) + 64) * sizeof(char));
-  if (buf == NULL) FATAL ("Not enough memory.\n");
+  /* Connect to server */
+  ret = connect(connection, (struct sockaddr *)&address, sizeof(address));
+  if (ret == -1) return 0;
+ 
+  set_client_name = xmalloc((strlen(client_name) + strlen(conn_name)
+                            + strlen(usr_name) + 32) * sizeof(char));
 
-  sprintf(buf, "SET CLIENT_NAME %s:%s\r\n", client_name, conn_name);
-  if(! ret_ok( send_data(sockfd, buf, 1) )) return 0; 
+  sprintf(set_client_name, "SET SELF CLIENT_NAME \"%s:%s:%s\"", usr_name,
+          client_name, conn_name);
 
-  free(buf);
+  ret = _spd_execute_command(connection, set_client_name);
 
-  return sockfd;
+  xfree(set_client_name);
+
+  return connection;
 }
 
+/* Close a Speech Deamon connection */
 void
-spd_close(int fd)
+spd_close(int connection)
 {
+  char command[16];
+
+  sprintf(command, "QUIT");
+  _spd_execute_command(connection, command);
+    
    /* close the socket */
-   close(fd);
+   close(connection);
 }
 
+/* Say TEXT with priority PRIORITY.
+ * Returns 0 on success, -1 otherwise. */                            
 int
-spd_say(int fd, int priority, char* text)
+spd_say(int connection, int priority, char* text)
 {
-  static char helper[256];
-  char *buf;
-  static int i;
-  static char *pos;
+    static char command[64];
+    static int i;
+    char *buf;
+    char *pos;
+    int ret;
 
-  sprintf(helper, "SET PRIORITY %d\r\n", priority);
-  if(!ret_ok(send_data(fd, helper, 1))){
-		  if(LIBSPEECHD_DEBUG) printf("Can't set priority");
-		  return -1;
-  }
-		  
-  /* This needs to be fixed! */
-//  while(pos = (char*) strstr(text,"\r\n.\r\n")){
-//	text[pos-text+3] = ' ';
- // }
+    if (text == NULL) return -1;
+    if (priority < 1 || priority > 3) return -1;
+
+    /* Set priority */
+    sprintf(command, "SET SELF PRIORITY %d", priority);
+    ret = _spd_execute_command(connection, command);
+    if(ret){
+        _SPD_DBG("Can't set priority");
+        return -1;
+    }
+		 
+    /* Check if there is no escape sequence in the text */
+    /* TODO: This needs to be fixed! */
+    //  while(pos = (char*) strstr(text,"\r\n.\r\n")){
+    //	text[pos-text+3] = ' ';
+    // }
   
-  sprintf(helper, "SPEAK\r\n");
-  if(!ret_ok(send_data(fd, helper, 1))){
-		  if(LIBSPEECHD_DEBUG) printf("Can't start data flow");
-		  return -1;
-	}
+    /* Start the data flow */
+    sprintf(command, "SPEAK");
+    ret = _spd_execute_command(connection, command);
+    if(ret){     
+        _SPD_DBG("Can't start data flow");
+        return -1;
+    }
   
-  buf = malloc((strlen(text) + 16)*sizeof(char));
-  if (buf == NULL) FATAL ("Not enough memory.\n");
-  sprintf(buf, "%s\r\n", text); 
-  send_data(fd, buf, 0);
+    /* Send data */
+    buf = xmalloc((strlen(text) + 4) * sizeof(char));
+    sprintf(buf, "%s\r\n", text); 
+    _spd_send_data(connection, buf, _SPD_NO_REPLY);
+    xfree(buf);
 
-  sprintf(helper, "\r\n.\r\n");
-  if(!ret_ok(send_data(fd, helper, 1))){
-		  if(LIBSPEECHD_DEBUG) printf("Can't terminate data flow");
-		  return -1; 
-  }
+    /* Terminate data flow */
+    sprintf(command, "\r\n.");
+    ret = _spd_execute_command(connection, command);
+    if(ret){
+        _SPD_DBG("Can't terminate data flow");
+        return -1; 
+    }
 
-  return 0;
+    return 0;
 }
 
+/* The same as spd_say, accepts also formated strings */
 int
 spd_sayf(int fd, int priority, char *format, ...)
 {
-	va_list args;
-	char *buf;
-	int ret;
-	
-	buf = malloc(strlen(format)*3+4096);	// TODO: solve this problem!!!
-	
-	va_start(args, format);
-	vsprintf(buf, format, args);
-	va_end(args);
+    static int ret;    
+    va_list args;
+    char *buf;
+    
+    /* Print the text to buffer */
+    va_start(args, format);
+    buf = g_strdup_vprintf(format, args);
+    va_end(args);
+    
+    /* Send the buffer to Speech Deamon */
+    ret = spd_say(fd, priority, buf);	
 
-	ret = spd_say(fd, priority, buf);	
-	return ret;
+    xfree(buf);
+    return ret;
 }
 
 int
-spd_stop(int fd)
+spd_stop(int connection)
 {
-  char helper[32];
-
-  sprintf(helper, "STOP SELF\r\n");
-  if(!ret_ok(send_data(fd, helper, 1))) return -1;
-
-  return 0;
+  return _spd_execute_command(connection, "STOP SELF");
 }
 
 int
-spd_stop_fd(int fd, int target)
+spd_stop_all(int connection)
 {
-  char helper[32];
-
-  sprintf(helper, "STOP %d\r\n", target);
-  if(!ret_ok(send_data(fd, helper, 1))) return -1;
-  return 0;
+  return _spd_execute_command(connection, "STOP ALL");
 }
 
 int
-spd_cancel(int fd)
+spd_stop_uid(int connection, int target_uid)
 {
-  char helper[32];
+  char command[32];
 
-  sprintf(helper, "CANCEL SELF\r\n");
-  if(!ret_ok(send_data(fd, helper, 1))) return -1;
-
-  return 0;
+  sprintf(command, "STOP %d", target_uid);
+  return _spd_execute_command(connection, command);
 }
 
 int
-spd_cancel_fd(int fd, int target)
+spd_cancel(int connection)
 {
-  char helper[32];
-
-  sprintf(helper, "CANCEL %d\r\n", target);
-  if(!ret_ok(send_data(fd, helper, 1))) return -1;
-  return 0;
-}
-
-
-int
-spd_pause(int fd)
-{
-  char helper[16];
-
-  sprintf(helper, "PAUSE SELF\r\n");
-  if(!ret_ok(send_data(fd, helper, 1))) return -1;
-
-  return 0;
+  return _spd_execute_command(connection, "CANCEL SELF");
 }
 
 int
-spd_pause_fd(int fd, int target)
+spd_cancel_all(int connection)
 {
-  char helper[16];
-
-  sprintf(helper, "PAUSE %d\r\n", target);
-  if(!ret_ok(send_data(fd, helper, 1))) return -1;
-  return 0;
+  return _spd_execute_command(connection, "CANCEL ALL");
 }
 
 int
-spd_resume(int fd)
+spd_cancel_uid(int connection, int target_uid)
 {
-	char helper[16];
+  char command[16];
 
-	sprintf(helper, "RESUME SELF\r\n");
-
-	if(!ret_ok(send_data(fd, helper, 1))) return -1;
-	return 0;
+  sprintf(command, "CANCEL %d", target_uid);
+  return _spd_execute_command(connection, command);
 }
 
 int
-spd_resume_fd(int fd, int target)
+spd_pause(int connection)
 {
-	char helper[16];
-
-	sprintf(helper, "RESUME %d\r\n", target);
-
-	if(!ret_ok(send_data(fd, helper, 1))) return -1;
-	return 0;
+  return _spd_execute_command(connection, "PAUSE SELF");
 }
 
 int
-spd_icon(int fd, char *name)
+spd_pause_all(int connection)
 {
-	static char helper[256];
-	char *buf;
-
-	sprintf(helper, "SOUND_ICON %s\r\n", name);
-	if(!ret_ok(send_data(fd, helper, 1))) return -1;
-
-	return 0;
+  return _spd_execute_command(connection, "PAUSE ALL");
 }
 
 int
-spd_say_key(int fd, int priority, int c)
+spd_pause_uid(int connection, int target_uid)
 {
-    static char helper[64];
+  char command[16];
 
-    sprintf(helper, "SET PRIORITY 3\r\n");
-    if(!ret_ok(send_data(fd, helper, 1))){
-        if(LIBSPEECHD_DEBUG) printf("Can't set priority");
-        return -1;
-    }
+  sprintf(command, "PAUSE %d", target_uid);
+  return _spd_execute_command(connection, command);
+}
 
-    sprintf(helper, "KEY %c\r\n", c);
-    if(!ret_ok(send_data(fd, helper, 1))) return -1;
+int
+spd_resume(int connection)
+{
+  return _spd_execute_command(connection, "RESUME SELF");
+}
+
+int
+spd_resume_all(int connection)
+{
+  return _spd_execute_command(connection, "RESUME ALL");
+}
+
+int
+spd_resume_uid(int connection, int target_uid)
+{
+  static char command[16];
+
+  sprintf(command, "RESUME %d", target_uid);
+  return _spd_execute_command(connection, command);
+}
+
+int
+spd_key(int connection, int priority, char *key_name)
+{
+    static char command[32];
+    char *command_key;
+    int ret;
+
+    sprintf(command, "SET SELF PRIORITY %d", priority);
+    ret = _spd_execute_command(connection, command);
+    if(ret) return -1;
+
+    command_key = g_strdup_printf("KEY \"%s\"", key_name);
+    ret = _spd_execute_command(connection, command_key);
+    if(ret) return -1;
 
     return 0;
 }
 
 int
-spd_voice_rate(int fd, int rate)
+spd_char(int connection, int priority, char *character)
 {
+    static char command[32];
+    char *command_char;
+    int ret;
+
+    if (character == NULL) return -1;
+
+    sprintf(command, "SET SELF PRIORITY %d", priority);
+    ret = _spd_execute_command(connection, command);
+    if(ret) return -1;
+
+    command_char = g_strdup_printf("CHAR \"%s\"", character);
+    ret = _spd_execute_command(connection, command_char);
+    xfree(command_char);
+    if(ret) return -1;
+
+    return 0;
+}
+
+int
+spd_wchar(int connection, int priority, wchar_t wcharacter)
+{
+    static char command[32];
+    char *command_char;
+    char character[8];
+    int ret;
+
+    ret = wcrtomb(character, wcharacter, NULL);
+    if( ret <= 0 ) return -1;
+
+    sprintf(command, "SET SELF PRIORITY %d", priority);
+    ret = _spd_execute_command(connection, command);
+    if(ret) return -1;
+
+    command_char = g_strdup_printf("CHAR \"%s\"", character);
+    ret = _spd_execute_command(connection, command_char);
+
+    return ret;
+}
+
+int
+spd_sound_icon(int connection, int priority, char *icon_name)
+{
+    char *command;
+    int ret;
+
+    sprintf(command, "SET SELF PRIORITY %d", priority);
+    ret = _spd_execute_command(connection, command);
+    if(ret) return -1;
+
+    if (icon_name == NULL) return -1;
+    command = g_strdup_printf("SOUND_ICON \"%s\"", icon_name);
+    ret = _spd_execute_command(connection, command);
+    xfree (command);
+    
+    return ret;
+}
+
+int
+spd_set_voice_rate(int connection, int rate)
+{
+    char who[] = "SELF\0";
+    return _spd_set_voice_rate(connection, rate, who);
+}
+
+int
+spd_set_voice_rate_all(int connection, int rate)
+{
+    char who[] = "ALL\0";
+    return _spd_set_voice_rate(connection, rate, who);
+}
+
+int
+spd_set_voice_rate_uid(int connection, int rate, int uid)
+{
+    char who[16];
+    sprintf(who, "%d", uid);
+    return _spd_set_voice_rate(connection, rate, who);
+}
+
+int
+spd_set_voice_pitch(int connection, int pitch)
+{
+    char who[] = "SELF\0";
+    return _spd_set_voice_pitch(connection, pitch, who);
+}
+
+int
+spd_set_voice_pitch_all(int connection, int pitch)
+{
+   char who[] = "ALL\0";
+   return _spd_set_voice_pitch(connection, pitch, who);
+}
+
+int
+spd_set_voice_pitch_uid(int connection, int pitch, int uid)
+{
+   char who[16];
+   sprintf(who, "%d", uid);
+   return _spd_set_voice_pitch(connection, pitch, who);
+}
+
+int
+spd_set_punctuation(int connection, SPDPunctuation type)
+{
+   char who[] = "SELF\0";
+   return _spd_set_punctuation(connection, type, who);
+}
+
+int
+spd_set_punctuation_all(int connection, SPDPunctuation type)
+{
+   char who[] = "ALL\0";
+   return _spd_set_punctuation(connection, type, who);
+}
+
+int
+spd_set_punctuation_uid(int connection, SPDPunctuation type, int uid)
+{
+  char who[16];
+  sprintf(who, "%d", uid);
+  return _spd_set_punctuation(connection, type, who);
+}
+
+int
+spd_set_punctuation_important(int connection, char* punctuation_important)
+{
+   char who[] = "SELF\0";
+   return _spd_set_punctuation_important(connection, punctuation_important,
+                                         who);
+}
+
+int
+spd_set_punctuation_important_all(int connection, char* punctuation_important)
+{
+   char who[] = "ALL\0";
+   return _spd_set_punctuation_important(connection, punctuation_important,
+                                         who);
+}
+
+int
+spd_set_punctuation_important_uid(int connection, char* punctuation_important, int uid)
+{
+    char who[16];
+    sprintf(who, "%d", uid);
+    return _spd_set_punctuation_important(connection, punctuation_important, who);
+}
+
+int
+spd_set_spelling(int connection, SPDSpelling type)
+{
+   char who[] = "SELF\0";
+   return _spd_set_spelling(connection, type, who);
+}
+
+int
+spd_set_spelling_all(int connection, SPDSpelling type)
+{
+   char who[] = "ALL\0";
+   return _spd_set_spelling(connection, type, who);
+}
+
+int
+spd_set_spelling_uid(int connection, SPDSpelling type, int uid)
+{
+  char who[16];
+  sprintf(who, "%d", uid);
+  return _spd_set_spelling(connection, type, who);
+}
+
+int
+_spd_set_voice_rate(int connection, int rate, char* who)
+{
+    static char command[32];
+    int ret;
+
     if(rate < -100) return -1;
     if(rate > +100) return -1;
-    return 0;
+
+    sprintf(command, "SET %s RATE %d", who, rate);
+    ret = _spd_execute_command(connection, command);    
+
+    return ret;
 }
 
 int
-spd_voice_pitch(int fd, int pitch)
+_spd_set_voice_pitch(int connection, int pitch, char *who)
 {
-	if(pitch < -100) return -1;
-	if(pitch > +100) return -1;
-	return 0;
+    static char command[32];
+    int ret;
+
+    if(pitch < -100) return -1;
+    if(pitch > +100) return -1;
+
+    sprintf(command, "SET %s PITCH %d", who, pitch);
+    ret = _spd_execute_command(connection, command);    
+
+    return ret;
 }
 
 int
-spd_voice_punctuation(int fd, int flag)
+_spd_set_punctuation(int connection, SPDPunctuation type, char* who)
 {
-	if((flag != 0)&&(flag != 1)&&(flag != 2)) return -1;
-	return 0;
+    static char command[32];
+    int ret;
+
+    if (type == SPD_PUNCT_ALL)
+        sprintf(command, "SET %s PUNCTUATION ALL", who);
+    if (type == SPD_PUNCT_NONE)
+        sprintf(command, "SET %s PUNCTUATION NONE", who);
+    if (type = SPD_PUNCT_SOME)
+        sprintf(command, "SET %s PUNCTUATION SOME", who);
+
+    ret = _spd_execute_command(connection, command);    
+    
+    return ret;
 }
 
 int
-spd_voice_cap_let_recognition(int fd, int flag)
+_spd_set_punctuation_important(int connection, char* punctuation_important, char* who)
 {
-	if((flag != 0)&&(flag != 1)) return -1;
-	return 0;
+    char *command;
+    int ret;
+
+    if (punctuation_important == NULL) return -1;
+    command = g_strdup_printf("SET %s IMPORTANT_PUNCTUATION \"%s\"", 
+                              who, punctuation_important);
+
+    ret = _spd_execute_command(connection, command);    
+    xfree(command);    
+
+    return ret;
 }
 
 int
-spd_voice_spelling(int fd, int flag)
+_spd_set_spelling(int connection, SPDSpelling type, char* who)
 {
-	if((flag != 0)&&(flag != 1)) return -1;
-	return 0;
-}
+    static char command[32];
+    int ret;
 
-int
-spd_history_say_msg(int fd, int id)
-{
-	char helper[32];
-	sprintf(helper,"HISTORY SAY ID %d\r\n",id);
+    if (type == SPD_SPELL_ON)
+        sprintf(command, "SET %s SPELLING ON", who);
+    if (type == SPD_SPELL_OFF)
+        sprintf(command, "SET %s SPELLING OFF", who);
 
-	if(!ret_ok(send_data(fd, helper, 1))) return -1;
-	return 0;
-}
+    ret = _spd_execute_command(connection, command);
 
-int
-spd_history_select_client(int fd, int id)
-{
-	char helper[64];
-	sprintf(helper,"HISTORY CURSOR SET %d FIRST\r\n",id);
-
-	if(!ret_ok(send_data(fd, helper, 1))) return -1;
-	return 0;
+    return ret;
 }
 
 /* Takes the buffer, position of cursor in the buffer
@@ -328,7 +563,7 @@ spd_get_client_list(int fd, char **client_names, int *client_ids, int* active){
 	char *record_str;	
 
 	sprintf(command, "HISTORY GET CLIENT_LIST\r\n");
-	reply = (char*) send_data(fd, command, 1);
+	reply = (char*) _spd_send_data(fd, command, 1);
 
 	footer_ok = parse_response_footer(reply);
 	if(footer_ok != 1){
@@ -366,7 +601,7 @@ spd_get_message_list_fd(int fd, int target, int *msg_ids, char **client_names)
 	char *record_str;	
 
 	sprintf(command, "HISTORY GET MESSAGE_LIST %d 0 20\r\n", target);
-	reply = send_data(fd, command, 1);
+	reply = _spd_send_data(fd, command, 1);
 
 /*	header_ok = parse_response_header(reply);
 	if(header_ok != 1){
@@ -390,7 +625,7 @@ spd_get_message_list_fd(int fd, int target, int *msg_ids, char **client_names)
 }
 
 char*
-spd_command_line(int fd, char *buffer, int pos, int c){
+spd_command_line(int fd, char *buffer, int pos, char* c){
 	char* new_s;
 
 	if (buffer == NULL){
@@ -404,11 +639,11 @@ spd_command_line(int fd, char *buffer, int pos, int c){
 	new_s[0] = 0;
 		
 	/* Speech output for the symbol. */
-	spd_say_key(fd, 3, c);	
+	spd_key(fd, 3, c);	
 	
 	/* TODO: */
 	/* What kind of symbol do we have. */
-		switch(c){
+		switch(c[0]){
 			/* Completion. */
 			case '\t':	
 					break;
@@ -438,11 +673,11 @@ ret_ok(char *reply)
 	int err;
 
 	err = get_err_code(reply);
+	xfree(reply);
 		
 	if ((err>=100) && (err<300)) return 1;
 	if (err>=300) return 0;
-	
-	printf("reply:%d", err);
+
 	FATAL("Internal error during communication.");
 }
 
@@ -491,7 +726,6 @@ get_rec_int(char *record, int pos)
 
 	assert(record!=0);
 	num_str = get_rec_part(record, pos);
-	if(LIBSPEECHD_DEBUG) fprintf(debugg, "pos:%d, rec:%s num_str:_%s_", pos, record, num_str);
 	if (!isanum(num_str)) return -9999;
 	num = atoi(num_str);
 	free(num_str);
@@ -578,17 +812,17 @@ get_err_code(char *reply)
 	int err;
 	
 	if (reply == NULL) return -1;
-	if(LIBSPEECHD_DEBUG) fprintf(debugg,"send_data:	reply: %s\n", reply);
+	_SPD_DBG("_spd_send_data:	reply: %s\n", reply);
 
 	err_code[0] = reply[0];	err_code[1] = reply[1];
 	err_code[2] = reply[2];	err_code[3] = '\0';
 
-	if(LIBSPEECHD_DEBUG) fprintf(debugg,"ret_ok: err_code:	|%s|\n", err_code);
+	_SPD_DBG("ret_ok: err_code:	|%s|\n", err_code);
    
 	if(isanum(err_code)){
 		err = atoi(err_code);
 	}else{
-		fprintf(debugg,"ret_ok: not a number\n");
+		_SPD_DBG("ret_ok: not a number\n");
 		return -1;	
 	}
 
@@ -596,7 +830,7 @@ get_err_code(char *reply)
 }
 
 char*
-send_data(int fd, char *message, int wfr)
+_spd_send_data(int fd, char *message, int wfr)
 {
 	char *reply;
 	int bytes;
@@ -608,16 +842,16 @@ send_data(int fd, char *message, int wfr)
 	write(fd, message, strlen(message));
 
 	message[strlen(message)] = 0;
-	if(LIBSPEECHD_DEBUG) fprintf(debugg,"command sent:	|%s|", message);
+	_SPD_DBG("command sent:	|%s|", message);
 
 	/* read reply to the buffer */
 	if (wfr == 1){
 		bytes = read(fd, reply, 1000);
 		/* print server reply to as a string */
 		reply[bytes] = 0; 
-		if(LIBSPEECHD_DEBUG) fprintf(debugg, "reply from server:	%s\n", reply);
+		_SPD_DBG("reply from server:	%s\n", reply);
 	}else{
-		if(LIBSPEECHD_DEBUG) fprintf(debugg, "reply from server: no reply\n\n");
+		_SPD_DBG("reply from server: no reply\n\n");
 		return "NO REPLY";
 	} 
 
@@ -636,3 +870,52 @@ isanum(char *str){
     return 1;
 }
 
+int
+_spd_execute_command(int connection, char* command)
+{
+    char *buf;
+    char *ret;
+    
+    buf = g_strdup_printf("%s\r\n", command);
+    ret = _spd_send_data(connection, buf, _SPD_WAIT_REPLY);
+    
+    if(!ret_ok(ret))  return -1;
+    else              return 0;
+}
+
+void*
+xmalloc(int bytes)
+{
+    void *mem;
+
+    mem = malloc(bytes);
+    if (mem == NULL){
+        FATAL("Not enough memmory!");
+        exit(1);
+    }
+    
+    return mem;
+}
+
+void
+xfree(void *ptr)
+{
+    if (ptr != NULL) free(ptr);
+}
+
+#ifdef LIBSPEECHD_DEBUG
+void
+_SPD_DBG(char *format, ...)
+{
+        va_list args;
+
+        va_start(args, format);
+        vfprintf(_spd_debug, format, args);
+        va_end(args);
+}
+#else  /* LIBSPEECHD_DEBUG */
+void
+_SPD_DBG(char *format, ...)
+{
+}
+#endif /* LIBSPEECHD_DEBUG */

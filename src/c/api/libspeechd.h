@@ -19,307 +19,128 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.2 2003-04-15 10:09:00 pdm Exp $
+ * $Id: libspeechd.h,v 1.3 2003-05-11 11:27:34 hanke Exp $
  */
 
-#define LIBSPEECHD_DEBUG 0
+/* Debugging */
+#define LIBSPEECHD_DEBUG
+static FILE* _spd_debug;
+void _SPD_DBG(char *format, ...);
 
-	/* This is the header file for the libspeechd library.
-	 * If you are reading this, you are either a developer
-	 * of Speech Deamon, a (potential) developer of some
-	 * application and you want it to speak, or just an
-	 * interested user who wants to learn. In all these
-	 * cases, I'll try to explain you how this works and
-	 * how Speech Deamon could help you. Right here, right
-	 * now. You can also see the documentation for reference,
-	 * but this *inline* documentation is probably more
-	 * complete and up-to-date. If you are new to this
-	 * speech interface, we recommend you to start reading
-	* it from top to down, not skipping.*/
+/* Unless there is an fatal error, it doesn't print anything */
+#define FATAL(msg) { printf("Fatal error (libspeechd) [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
 
-	/* I'll suppose you know what Speech Deamon is and how
-	 * does it work (more or less) internally. If not,
-	 * you should have a look at the general documentation
-	 * in ../../doc and maybe also at .../server/speechd.h */
-
-	/* From the point of view of a developer who wants
-	 * to use Speech Deamon as his output interface,
-	 * the basic things you'll have to do are the following:
-	 * 	- you must include this header file in your program
-	 * 	- you must link with -llibspeechd
-	 *  - you should let the user know (eg. in documentation)
-	 *  you suppose he'll have Speech Deamon running when your
-	 *  program starts
-	 */
-
-	/* Speech Deamon operates as a server internally and
-	 * your app will be a client. So in some point in
-	 * your sourcecode you have to open the connection,
-	 * passing some necessary identification parameters.
-	 */
-int spd_init(char* client_name, char* conn_name);
-	/* For the purpose of further communication with speech
-	 * interface, you will receive an identification code (file
-	 * descriptor) of the opened socket as the return value.
-	 * But what do _client_name_ and _conn_name_ stand for?
-	 * Well, these are two strings that Speech Deamon uses for
-	 * the identification of your client. It will be
-	 * particularly useful for the user for settings
-	 * of the synthesis parameters and also for browsing
-	 * through history of said messages (eg. for visually
-	 * impaired people).
-	 *
-	 * The first, _client_name_, is some general name for your
-	 * app (eg. "lynx", "emacs", "vi", "bash"), while the
-	 * seccond one, _conn_name_ is some more detailed description
-	 * of what should this particular client do (eg. "main",
-	 * "cmd_line", "text_buffer", "menu", "status_bar"). 
-	 *
-	 * The reason is that if you have a more complicated
-	 * program, like emacs definitely is, it's a good
-	 * idea not to mess all the messages together, but
-	 * maintain several different connections each
-	 * for a particular purpose. You will then make
-	 * your user's life much easier, because he will
-	 * be able to set the speech parameters for different
-	 * part of you program differently. For example,
-	 * a blind person would appreciate if he or she
-	 * could set up the cmd_line connection of your
-	 * program so that it always spells the input
-	 * while the text_buffer will always speak
-	 * fluently, by default.
-	 *
-	 * By conclusion, you should open several connections
-	 * to Speeach Deamon, each with the same _client_name_
-	 * but with different _conn_name_, and save the returned
-	 * connection fd's (file descriptors) 
-	 *
-	 * But take care, if it returns -1, then it failed
-	 * to estabilish a connection and you can't use it!
-	 */
-
-	 /* Each connection you open should be closed before
-	  * the end of your program. You simply pass it's
-	  * file descriptor to spd_close() */
-void spd_close(int fd);
-
-	/* Now let's suppose you have succesfully opened
-	 * one or more connections, saved it's fd's
-	 * and you want to make some fun. The basic thing
-	 * you can do is to send some message to Speech
-	 * Deamon and if everything goes well, you will
-	 * hear it in your speakers. */
-int spd_say(int fd, int priority, char* text);
-	/* _fd_ is the file descriptor of the connection
-	 * you want to use, _text_ is a NULL-terminated
-	 * string containing your message. 
-	 * 
-	 * But there is one more parameter called _priority_,
-	 * the reason is, sometimes some messages are more
-	 * important than other ones. For example, your app
-	 * is a mail client and it's reading a text of a mail
-	 * when suddenly you receive an important error.
-	 * So you will naturally want to say it with priority
-	 * one so that it supresses the currently spoken text.
-	 *
-	 * There are three priorities 1,2,3. 2 is the normal
-	 * for text, menu output and other things. 3 is the
-	 * lowest and it should represent messages that can
-	 * help the user if there is nothing else to say, but
-	 * aren't important and can be supressed at any time.
-	 * Well, the priority one is the most powerfull and
-	 * you should use it scarcely, important errors are
-	 * a good example of a well-founded use. It supresses
-	 * all other messages, even from other clients, and
-	 * thus it's a little bit dangerous.
-	 *
-	 * If there are more than one message of the same
-	 * priority at one time, they would be said in
-	 * the order they were received. 
-	 *
-	 * It returns 0 on succes, -1 if something failed.*/
-
-	/* spd_sayf is only a shortcut, very similar to
-	 * spd_say() (see spd_say() for the detailed description
-	 * of it's parameters).
-	 *
-	 * The good thing about it is that you can call it in
-	 * exactly the same way you are used to call printf()
-	 * for screen output. */
-int spd_sayf (int fd, int priority, char *format, ...);
-	/* You can for example write:
-	 *		spd_sayf(fd_main, 2, "Your rate was %d words per minute.", wpm);
-	 */
-
-	/* stop, pause and resume are the functions you will
-	 * want to use to regulate the speech flow. */
-
-	/* spd_stop() immediatelly stops the currently spoken
-	 * message (from this client) but doesn't touch the others
-	 * that are waiting in queues. However, it isn't pause() so any
-	 * other received messages will be said normally. 
-	 * _fd_ is the file descriptor of your connection. */
-int spd_stop(int fd);
-	/* It returns 0 on succes, -1 if there is no such connection. */
-
-        /* If you want to stop the currently spoken message
-         * and in adition to stop all the messages waiting
-         * in queues, please use spd_cancel() */
-int spd_cancel(int fd);
-	/* It returns 0 on succes, -1 if there is no such connection. */
-
-	/* spd_pause() and spd_resume() are the regular pause
-	 * and resume known from standard media players.
-	 * _fd_ is again the file descriptor of your connection. */
-int spd_pause(int fd);
-int spd_resume(int fd);
-	/* Both return 0 on succes, -1 if there is no such connection. */
-
-	/* Speech Deamon supports a facility called sound icons.
-	 * Sound icons are a language independent objects that
-	 * you can use with communication with user. For example
-	 * there are sound icons: "letter_K", "digit_0", "warning"
-	 * or "bell". The exact sound each of them will produce
-	 * depends on the current language and can be also set by
-	 * user. */
-
-int spd_icon(int fd,  char *name);
-	/* spd_icon() gets client's fd, the desired priority
-	 * of generated message	and name of the sound icon.
-	 * Speech Deamon than converts this sound icon into
-	 * regular message and puts it into it's queues. 
-	 *
-	 * spd_icon() returns 0 on succes, -1 if it fails there
-	 * is no such connection or there is no such icon). */
-
-int spd_say_key(int fd, int priority, int c);
-	/* spd_say_key() is a synthesis of the above 3 functions.
-	 * You can pass letters, digits or other printable signs
-	 * as _c_ and Speech Deamon will find the appropiate sound
-	 * icon.
-	 * It returns 0 on succes, -1 otherwise. */
-
-	/* The spd_voice_ family of commands can be used to set the
-	 * parameters of the voice. But note that these are only prefered values
-	 * and the user is free to set different parameters. */
-int spd_voice_rate(int fd, int rate);
-int spd_voice_pitch(int fd, int pitch);
-	/* spd_voice_rate() and spd_voice_pitch() set the rate and the pitch
-	 * of the voice respectively to the value passed in the second parameter.
-	 * It must be between -100 and +100. 0 is the default value representing
-	 * normal speech. Speech Deamon will then try to find the most appropiate
-	 * values for each synthesizers. 
-	 * Both functions return 0 on succes, -1 otherwise. */
-
-	/* If punctuation mode is on, Speech Deamon will make the synthesizer
-	 * pronounce even marks that are normally silent, like coma, dash, or dot. */
-int spd_voice_punctuation(int fd, int flag);
-	/* If flag is set to 1, the punctuation mode is on, 0 means off. 
-	 * It returns 0 on succes, -1 otherwise. */		
-	
-	/* Sometimes it's necessary to make distinction between small
-	 * and capital letters in the pronounced text. */
-int spd_voice_cap_let_recognition(int fd, int flag);
-	/* If flag is set to 1, capital letters are pronounced differently.
-	 * 0 means normal speech.	
-	 * It returns 0 on succes, -1 otherwise. */		
+/* Arguments for _spd_send_data() */
+#define _SPD_WAIT_REPLY 1              /* Wait for reply */
+#define _SPD_NO_REPLY 0               /* No reply requested */
 
 
-	/* If you are going to use Speech Deamon to make your application
-	 * accessible to visually impaired people (which is The Good
-	 * Thing (tm) !), you can use this function for all
-	 * command line oriented text input: */
-char* spd_command_line(int fd, char *buffer, int pos, int c);
-	/* Now how it works: you have to use it in a loop, each time
-	 * you catch a newly typed key, you call this function and pass
-	 * it what's currently on the line as _buffer_, the current
-	 * position of cursor on the line as _pos_ and the new key
-	 * as _c_. Why so dificult you ask? Well, because it's interface
-	 * independent. You can for example use it with ncurses, or even
-	 * in X where it would fail if we would have some printf() hardwired
-	 * here.
-	 * 
-	 * Here is an example from Speech Deamon Center (using ncurses library):
-	 *     do{
-	 *        c = getch();
-	 *        if (c==KEY_TAB){
-	 *           buffer = spdc_complete(buffer, (buffer!=NULL)?strlen(buffer):0,
-	 *              cmd_completions);
-	 *        }else{
-	 * -->       buffer = (char*) spd_command_line(s_main_fd, buffer, 
-	 *              (buffer!=NULL)?strlen(buffer):0, c);
-	 *        }
-	 *     mvhline(BAR_DIV_Y,BAR_DIV_X+strlen(PROMPT)+1,' ',strlen(buffer)+3);
-	 *     mvprintw(CMD_L_Y, CMD_L_X+strlen(PROMPT),buffer);
-	 *     }while(c!='\n');
-	 */                                                                                 
-		
-	/* These were all the basic functions Speech Deamon
-	 * currently provides and that should be enough
-	 * to write common client applications. If it's
-	 * your case, you can stop reading here. If there
-	 * is some function you miss, please report it
-	 * on <mailing list> */
+/* --------------------- Public data types ------------------------ */
+typedef enum{
+    SPD_PUNCT_ALL = 0,
+    SPD_PUNCT_NONE = 1,
+    SPD_PUNCT_SOME = 2
+}SPDPunctuation;
 
-/* END OF THE BASIC FUNCTIONS */
+typedef enum{
+    SPD_SPELL_OFF = 0,
+    SPD_SPELL_ON = 1
+}SPDSpelling;
 
-	/* Now there are some more functions that are usefull
-	 * for clients modifying the behavior of Speech Deamon
-	 * or providing user with the history functions. 
-	 * You should also have a look at our client called
-	 * Speech Deamon User Center in spd_center.h and spd_center.c*/
 
-	/* Exactly the same as spd_stop(), spd_pause() and
-	 * spd_resume(), except that they operate on _foreign_
-	 * clients, it's unique id specified as _target_.
-	 * You can obtain the unique id for example by
-	 * spd_get_client_list() */
-int spd_stop_fd(int fd, int target);
-int spd_cancel_fd(int fd, int target);
-int spd_pause_fd(int fd, int target);
-int spd_resume_fd(int fd, int target);
+/* -------------- Public functions --------------------------*/
 
-	/* When operating with history, some functions
-	 * require you to have specified on with
-	 * client you operate. You can do that like this: */
-int spd_history_select_client(int fd, int id);
-	/* _fd_ is again file descriptor of your connection
-	 * and _id_ is the unique id.  You can obtain the unique
-	 * id for example by spd_get_client_list() */
-	/* It returns 0 on succes, -1 if something went wrong. */
+/* Openning and closing Speech Deamon connection */
+int spd_open(char* client_name, char* connection_name, char *user_name);
+void spd_close(int connection);
 
-	/* So it's time to present the misterious spd_get_client_list()
-	 * function, I guess.*/
+/* Speaking */
+int spd_say(int connection, int priority, char* text);
+int spd_sayf(int fd, int priority, char *format, ...);
 
-	/* You have to pass your (main) connection file descriptor as _fd_,
-	 * and pointers to allocated arrays _client_names_, _client_ids_ and _active_
-	 * where the obtained information will be stored */
-int spd_get_client_list(int fd, char **client_names, int *client_ids, int* active);
-	/* So let's suppose we have run this function and we didn't get a -1 as
-	 * a return value. We got some number instead and that will be the number
-	 * of clients in the list (should be the total number of clients Speech Deamon
-	 * has had in this run.
-	 *
-	 * Now client_names[i] (where i is less than the return value) is the
-	 * name of the i-th client in the form "client_name:conn_name", client_ids[i]
-	 * is the misteriuous unique id we have to pass to every seccond function
-	 * working with history, and active[i] contains either 1 or 0 if the client
-	 * is still active or gone, respectively. */
+/* Speech flow */
+int spd_stop(int connection);
+int spd_stop_all(int connection);
+int spd_stop_uid(int connection, int target_uid);
 
-	/* Similar function with spd_get_client_list() is spd_get_message_list_fd,
-	 * which retrieves the list of messages said by a particular client specified
-	 * as target (it's unique id, not file descriptor!). */
-int spd_get_message_list_fd(int fd, int target, int *msg_ids, char **client_names);
-	/* It returns -1 if it fails, the number of retrieved messages otherwise.
-	* But be warned that this function is still to be reworked and the parameters
-	* will most likely change in future. */
+int spd_cancel(int connection);
+int spd_cancel_all(int connection);
+int spd_cancel_uid(int connection, int target_uid);
 
-/* END OF ADVANCED FUNCTIONS */	
-		
-	/* Internal functions. You should never touch these unless you are
-	 * developing Speech Deamon (what is of course The Right Thing (tm) :) */
+int spd_pause(int connection);
+int spd_pause_all(int connection);
+int spd_pause_uid(int connection, int target_uid);
+
+int spd_resume(int connection);
+int spd_resume_all(int connection);
+int spd_resume_uid(int connection, int target_uid);
+
+/* Characters and keys */
+int spd_key(int connection, int priority, char *key_name);
+int spd_char(int connection, int priority, char *character);
+int spd_wchar(int connection, int priority, wchar_t wcharacter);
+
+/* Sound icons */
+int spd_sound_icon(int connection, int priority, char *icon_name);
+
+/* Setting parameters */
+int spd_set_voice_rate(int connection, int rate);
+int spd_set_voice_rate_all(int connection, int rate);
+int spd_set_voice_rate_uid(int connection, int rate, int uid);
+
+int spd_set_voice_pitch(int connection, int pitch);
+int spd_set_voice_pitch_all(int connection, int pitch);
+int spd_set_voice_pitch_uid(int connection, int pitch, int uid);
+
+int spd_set_punctuation(int connection, SPDPunctuation type);
+int spd_set_punctuation_all(int connection, SPDPunctuation type);
+int spd_set_punctuation_uid(int connection, SPDPunctuation type, int uid);
+
+int spd_set_punctuation_important(int connection, char* punctuation_important);
+int spd_set_punctuation_important_all(int connection, char* punctuation_important);
+int spd_set_punctuation_important_uid(int connection, char* punctuation_important,
+                                      int uid);
+
+int spd_set_spelling(int connection, SPDSpelling type);
+int spd_set_spelling_all(int connection, SPDSpelling type);
+int spd_set_spelling_uid(int connection, SPDSpelling type, int uid);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------  Private functions  ------------------------*/
+int _spd_set_voice_rate(int connection, int rate, char* who);
+int _spd_set_voice_pitch(int connection, int pitch, char *who);
+int _spd_set_punctuation(int connection, SPDPunctuation type, char* who);
+int _spd_set_punctuation_important(int connection, char* punctuation_important, char* who);
+int _spd_set_spelling(int connection, SPDSpelling type, char* who);
+
 char* send_data(int fd, char *message, int wfr);
 int isanum(char* str);		
 char* get_rec_str(char *record, int pos);
 int get_rec_int(char *record, int pos);
 char* parse_response_data(char *resp, int pos);
+void *xmalloc(int bytes);
