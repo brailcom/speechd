@@ -19,11 +19,12 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.h,v 1.14 2003-05-31 12:04:24 pdm Exp $
+ * $Id: module.h,v 1.15 2003-06-20 00:20:42 hanke Exp $
  */
 
 #include <glib.h>
 #include <gmodule.h>
+#include "fdset.h"
 
 typedef struct
 {
@@ -53,9 +54,9 @@ typedef struct{
     gchar    *name;
     gchar    *description;
     GModule  *gmodule;
-    gint     (*write)       (gchar *, gint, void*);
+    gint     (*write)       (gchar *, size_t, TFDSetElement*);
     gint     (*stop)        (void);
-    gchar*   (*pause)       (void);
+    size_t   (*pause)       (void);
     gint     (*is_speaking) (void);
     gint     (*close)       (void);
     SPDModuleSettings settings;
