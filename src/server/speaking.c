@@ -19,12 +19,13 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.28 2003-09-11 16:34:27 hanke Exp $
+  * $Id: speaking.c,v 1.29 2003-09-20 17:31:45 hanke Exp $
   */
 
 #include <glib.h>
 #include <speechd.h>
 #include "speaking.h"
+#include "index_marking.h"
 
 TSpeechDMessage *current_message = NULL;
 
@@ -122,6 +123,11 @@ speak(void* data)
             }
         }
         assert(message->buf != NULL);       
+
+        if((message->settings.type == MSGTYPE_TEXT) 
+           || (message->settings. type == MSGTYPE_TEXTP)){
+            insert_index_marks(message);
+        }
 
         /* Write the message to the output layer. */
         ret = output_speak(message);
@@ -276,8 +282,9 @@ speaking_pause(int fd, int uid)
     TFDSetElement *settings;
     TSpeechDMessage *new;
     char *msg_rest;
-    size_t msg_pos;
+    char *pos;
     int i;
+    int im;
 
     /* Find settings for this particular client */
     settings = get_client_settings_by_uid(uid);
@@ -287,26 +294,24 @@ speaking_pause(int fd, int uid)
     if (is_sb_speaking() == 0) return 0;
     if (speaking_uid != uid) return 0;    
 
-    msg_pos = output_pause();
-    if (msg_pos == 0 || msg_pos == -1) return 0;
+    im = output_pause();
+    if (im == -1) return 0;
     if (current_message == NULL) return 0;
 
-    assert(msg_pos <= current_message->bytes);
-    
+    pos = find_index_mark(current_message, im);
+    if (pos == NULL) return 1;
     new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
-    new->bytes = current_message->bytes - msg_pos;
-    new->buf = (char*) spd_malloc((new->bytes + 2) * sizeof(char)); 
-    for (i=0; i<=new->bytes-1; i++){
-        new->buf[i] = current_message->buf[i+msg_pos];
-    }
+    new->bytes = strlen(pos);
+    new->buf = strip_index_marks(pos); 
+
     assert(new->bytes >= 0);
     assert(new->buf != NULL);
     new->buf[new->bytes] = 0;
 
     if(queue_message(new, fd, 0, MSGTYPE_TEXTP, 0) != 0){
         if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
-        free(new->buf);
-        free(new);
+        spd_free(new->buf);
+        spd_free(new);
         return 1;
     }
 
@@ -612,9 +617,8 @@ process_message_punct_cap(char *buf, int bytes, TFDSetElement *settings, GHashTa
     for(i=0; i <= size; i++){
 
         spd_utf8_read_char(pos, character);
-        u_char = g_utf8_get_char(character);
-
         if (character == NULL) break;
+        u_char = g_utf8_get_char(character);
 
         if (g_unichar_isupper(u_char) && settings->cap_let_recogn) chu = 1;
         else chu = 0;
