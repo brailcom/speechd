@@ -19,14 +19,16 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.h,v 1.5 2003-05-25 21:08:54 hanke Exp $
+ * $Id: sndicon.h,v 1.6 2003-07-09 14:04:59 pdm Exp $
  */
 
-#ifdef SNDICON_H
- #define SNDICON_H
+#ifndef SNDICON_H
+#define SNDICON_H
+
+#include <glib.h>
 
 int sndicon_queue(int fd, char* language, char* prefix, char* name);
-char* snd_icon_spelling_get(char* table, char* language, char* name, int *sound);
+char* snd_icon_spelling_get(char* table, GHashTable *icons, char* name, int *sound);
 
 int sndicon_icon(int fd, char *name);
 int sndicon_char(int fd, char *name);
