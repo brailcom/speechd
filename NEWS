@@ -1,4 +1,12 @@
 
+Version 0.0.7
+  * Support for sound-mapped icons (cstsnd output module)
+  * Debian package support
+  * Apollo output module
+  * Experimental Python API
+  * Tests in src/tests/
+  * Improved PAUSE mechanism
+
 Version 0.0.6
   * Speech Deamon now works in 2 threads for better performance
   * New output module for Flite (using Flite C API)
