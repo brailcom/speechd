@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.27 2003-07-05 12:27:21 hanke Exp $
+ * $Id: dc_decl.h,v 1.28 2003-07-06 14:59:15 hanke Exp $
  */
 
 #include "speechd.h"
@@ -35,11 +35,13 @@ char cur_mod_options[255];      /* Which section with parameters of output modul
 OutputModule* cur_mod;
 
 /* define dotconf callbacks */
+DOTCONF_CB(cb_Port);
 DOTCONF_CB(cb_LogFile);
 DOTCONF_CB(cb_LogLevel);
 DOTCONF_CB(cb_SndModule);
 DOTCONF_CB(cb_AddTable);
 DOTCONF_CB(cb_DefaultModule);
+DOTCONF_CB(cb_LanguageDefaultModule);
 DOTCONF_CB(cb_DefaultRate);
 DOTCONF_CB(cb_DefaultPitch);
 DOTCONF_CB(cb_DefaultLanguage);
@@ -131,11 +133,13 @@ load_config_options(int *num_options)
 {
     configoption_t *options = NULL;
    
+    ADD_CONFIG_OPTION(Port, ARG_INT);
     ADD_CONFIG_OPTION(LogFile, ARG_STR);
     ADD_CONFIG_OPTION(LogLevel, ARG_INT);
     ADD_CONFIG_OPTION(SndModule, ARG_STR);
     ADD_CONFIG_OPTION(AddTable, ARG_STR);
     ADD_CONFIG_OPTION(DefaultModule, ARG_STR);
+    ADD_CONFIG_OPTION(LanguageDefaultModule, ARG_LIST);
     ADD_CONFIG_OPTION(DefaultRate, ARG_INT);
   
     ADD_CONFIG_OPTION(DefaultPitch, ARG_INT);
@@ -162,6 +166,47 @@ load_config_options(int *num_options)
      *           {"", ARG_NAME, cb_unknown, 0, 0}, */
         //    LAST_OPTION
     return options;
+}
+
+void
+load_default_global_set_options()
+{
+    GlobalFDSet.priority = 3;
+    GlobalFDSet.punctuation_mode = PUNCT_NONE;
+    GlobalFDSet.punctuation_some = strdup("(){}[]<>@#$%^&*");
+    GlobalFDSet.punctuation_table = strdup("spelling_short");
+    GlobalFDSet.spelling = 0;
+    GlobalFDSet.spelling_table = strdup("spelling_short");
+    GlobalFDSet.char_table = strdup("spelling_short");
+    GlobalFDSet.key_table = strdup("keys");
+    GlobalFDSet.snd_icon_table = strdup("sound_icons");
+    GlobalFDSet.rate = 0;
+    GlobalFDSet.pitch = 0;
+    GlobalFDSet.client_name = strdup("unknown:unknown:unknown");
+    GlobalFDSet.language = strdup("en");
+    GlobalFDSet.output_module = NULL;
+    GlobalFDSet.voice_type = MALE1;
+    GlobalFDSet.cap_let_recogn = 0;
+    GlobalFDSet.min_delay_progress = 2000;
+
+    spd_log_level = 3;
+    logfile = stderr;
+    sound_module = NULL;
+
+    SPEECHD_PORT = SPEECHD_DEFAULT_PORT;
+}
+
+DOTCONF_CB(cb_Port)
+{
+    if (cmd->data.value <= 0){
+        MSG(3, "Unvalid port specified in configuration");
+        return NULL;
+    }
+
+    if (cmd->data.value > 0)
+        SPEECHD_PORT = cmd->data.value;        
+
+    return NULL;
 }
 
 DOTCONF_CB(cb_LogFile)
@@ -203,7 +248,6 @@ DOTCONF_CB(cb_LogLevel)
 DOTCONF_CB(cb_SndModule)
 {
     sound_module = load_output_module(cmd->data.str);
-    if (sound_module == NULL) FATAL("Couldn't load specified sound module");
     return NULL;
 }
 
@@ -369,8 +413,10 @@ DOTCONF_CB(cb_DefaultPitch)
 
 DOTCONF_CB(cb_DefaultPriority)
 {
-    char *priority_s = cmd->data.str;
-    assert(priority_s != NULL);
+    char *priority_s;
+    assert(cmd->data.str != NULL);
+
+    priority_s = g_ascii_strdown(cmd->data.str, strlen(cmd->data.str));
 
     if (!strcmp(priority_s, "important")) GlobalFDSet.priority = 1;
     else if (!strcmp(priority_s, "text")) GlobalFDSet.priority = 2;
@@ -382,13 +428,18 @@ DOTCONF_CB(cb_DefaultPriority)
         return NULL;
     }
 
+    spd_free(priority_s);
+
     return NULL;
 }
 
 DOTCONF_CB(cb_DefaultVoiceType)
 {
-    char *voice_s = cmd->data.str;
-    assert(voice_s != NULL);
+    char *voice_s;
+
+    assert(cmd->data.str != NULL);
+
+    voice_s = g_ascii_strup(cmd->data.str, strlen(cmd->data.str));
 
     if (!strcmp(voice_s, "MALE1")) GlobalFDSet.voice_type = MALE1;
     else if (!strcmp(voice_s, "MALE2")) GlobalFDSet.voice_type = MALE2;
@@ -399,9 +450,14 @@ DOTCONF_CB(cb_DefaultVoiceType)
     else if (!strcmp(voice_s, "CHILD_MALE")) GlobalFDSet.voice_type = CHILD_MALE;
     else if (!strcmp(voice_s, "CHILD_FEMALE")) GlobalFDSet.voice_type = CHILD_FEMALE;
     else{
-        MSG(2, "Unknown default voice specified in configuration.");
+        MSG(2, "Unknown default voice specified in configuration, using default.");
+        GlobalFDSet.voice_type = MALE1;
         return NULL;
     }
+
+    MSG(4, "Default voice type set to %d", GlobalFDSet.voice_type);
+
+    spd_free(voice_s);
 
     return NULL;
 }
@@ -426,8 +482,6 @@ DOTCONF_CB(cb_DefaultSpelling)
 }
 
 
-
-
 DOTCONF_CB(cb_DefaultCapLetRecognition)
 {
     GlobalFDSet.cap_let_recogn = cmd->data.value;
@@ -446,6 +500,22 @@ DOTCONF_CB(cb_AddModule)
     if (cmd->data.str == NULL) FATAL("No output module name specified");
     cur_mod = g_hash_table_lookup(output_modules, cmd->data.str);
     if (cur_mod == NULL) FATAL("Internal error in finding output modules");
+
+    return NULL;
+}
+
+DOTCONF_CB(cb_LanguageDefaultModule)
+{
+    char *key;
+    char *value;
+
+    if(cmd->data.list[0] == NULL) FATAL("No language specified for LanguageDefaultModule");
+    if(cmd->data.list[0] == NULL) FATAL("No module specified for LanguageDefaultModule");
+    
+    key = strdup(cmd->data.list[0]);
+    value = strdup(cmd->data.list[1]);
+
+    g_hash_table_insert(language_default_modules, key, value);
 
     return NULL;
 }
