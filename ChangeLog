@@ -1,3 +1,26 @@
+2003-06-03  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* config/speechd.conf: New option ``LogLevel''.
+
+	* src/server/speechd.c (MSG): Use spd_log_level instead of LOG_LEVEL.
+
+	* src/server/speechd.h (spd_log_level): New variable: current log level.
+
+	* src/server/dc_decl.h (cb_LogLevel): New dotconf callback.
+
+	* src/server/speechd.c (speechd_reload_configuration): Reload configuration on SIGHUP.
+	(main): Register speechd_reload_configuration for SIGHUP.
+
+2003-06-02  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/modules/flite.c (flite_close): Don't panic if stopped around fork().
+
+	* src/server/sndicon.c (sndicon_queue): Don't print out the ugly debuging message.
+
+	* src/server/speaking.c (speak): Don't crash if the data in the message is NULL.
+
+	* src/server/sndicon.c (snd_icon_spelling_get): Cut off the trailing `"'
+
 2003-06-01  Hynek Hanke  <hanke@localhost.localdomain>
 
 	* src/server/speechd.c (MSG): Bug fixed: free allocated memmory.
