@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.11 2003-03-09 20:52:11 hanke Exp $
+ * $Id: speechd.h,v 1.12 2003-03-12 22:31:12 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -60,6 +60,10 @@
 
 #include "msg.h"
 /* ==================================================================== */
+
+
+#define BUF_SIZE 4096
+#define MAX_CLIENTS 20
 
 fd_set readfds;
 
@@ -152,6 +156,8 @@ gint (*p_cli_comp_fd)();
 
 GArray *awaiting_data;
 GArray *o_bytes;
+
+GString *o_buf[MAX_CLIENTS];
 
 char* parse_history(char *buf, int bytes, int fd);
 char* parse_set(char *buf, int bytes, int fd);
