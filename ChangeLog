@@ -1,3 +1,8 @@
+2004-10-12  Hynek Hanke  <hanke@chopin>
+
+	* src/server: Log levels for various status messages going into the logfile
+	changed.
+
 2004-10-10  Hynek Hanke  <hanke@chopin>
 
 	* src/server/server.c (serve): Substitute binary zeros with a '?'

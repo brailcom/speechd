@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.15 2004-07-21 08:16:12 hanke Exp $
+ * $Id: output.c,v 1.16 2004-10-12 20:27:29 hanke Exp $
  */
 
 #include "output.h"
@@ -48,15 +48,15 @@ get_output_module(const TSpeechDMessage *message)
         output = g_hash_table_lookup(output_modules, message->settings.output_module);
         if(output == NULL || !output->working){
             if (GlobalFDSet.output_module != NULL){
-                MSG(4,"Didn't find prefered output module, using default");                
+                MSG(3,"Warning: Didn't find prefered output module, using default");                
                 output = g_hash_table_lookup(output_modules, GlobalFDSet.output_module); 
                 if (output == NULL || !output->working) 
-                    MSG(2, "Can't find default output module or it's not working!");
+                    MSG(2, "Error: Can't find default output module or it's not working!");
             }
         }
     }
     if (output == NULL){
-        MSG(3, "Unspecified output module!\n");
+        MSG(3, "Error: Unspecified output module!\n");
         return NULL;
     }
 
@@ -93,7 +93,7 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
     ret = TEMP_FAILURE_RETRY(write(output->pipe_in[1], cmd, strlen(cmd)));
     fflush(NULL);
     if (ret == -1){
-        MSG(3, "Broken pipe to module.");        
+        MSG(2, "Error: Broken pipe to module.");        
         output->working = 0;
         speaking_module = NULL;
         output_check_module(output);
@@ -104,7 +104,7 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
     if (wfr){                   /* wait for reply? */
         ret = TEMP_FAILURE_RETRY(read(output->pipe_out[0], response, 255));
         if ((ret == -1) || (ret == 0)){
-            MSG(3, "Broken pipe to module.");
+            MSG(2, "Error: Broken pipe to module.");
             output->working = 0;
             speaking_module = NULL;
             output_check_module(output);
@@ -112,11 +112,11 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
         }
         MSG2(5, "protocol", "Reply from output module: |%s|", response);
         if (response[0] == '3'){
-            MSG(3, "Module reported error in request from speechd (code 3xx).");
+            MSG(2, "Error: Module reported error in request from speechd (code 3xx).");
             return -2; /* User (speechd) side error */
         }
         if (response[0] == '4'){
-            MSG(3, "Module reported error in itself (code 4xx).");
+            MSG(2, "Error: Module reported error in itself (code 4xx).");
             return -3; /* Module side error */
         }
         if (response[0] == '2'){
@@ -124,7 +124,7 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
                 if (response[3] == '-'){
                     num_resp = strtol(&(response[4]), &tptr, 10);
                     if (tptr == &(response[4])){
-                        MSG(3, "Invalid response from output module.");
+                        MSG(2, "Error: Invalid response from output module.");
                         output->working = 0; /* The syntax of what we read and what
                                                 we expect to read is now messed up,
                                                 so better not to use the module more. */
@@ -137,7 +137,7 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
                         /* Read the rest of the response (the last line) */
                         ret = TEMP_FAILURE_RETRY(read(output->pipe_out[0], response, 255));
                         if ((ret == -1) || (ret == 0)){
-                            MSG(3, "Broken pipe to module. Module crashed?");
+                            MSG(2, "Error: Broken pipe to module. Module crashed?");
                             output->working = 0;
                             speaking_module = NULL;
                             output_check_module(output);
@@ -201,7 +201,7 @@ output_send_settings(TSpeechDMessage *msg, OutputModule *output)
     char *val;
     int err;
 
-    MSG(4, "Module set.");
+    MSG(4, "Module set parameters.");
     set_str = g_string_new("");
     ADD_SET_INT(pitch);
     ADD_SET_INT(rate);
@@ -376,7 +376,7 @@ output_check_module(OutputModule* output)
         }
         ret = WIFEXITED(status);
 
-	/* TODO: What the hell happens here?  */
+	/* TODO: Linux kernel implementation of threads is not very good :(  */
 	//        if (ret == 0){
 	if (1){
             /* Module terminated abnormally */
@@ -430,7 +430,7 @@ escape_dot(char *otext)
         }
     }
 
-    MSG2(5, "escaping", "Altering text (I): |%s|", ntext->str);
+    MSG2(6, "escaping", "Altering text (I): |%s|", ntext->str);
 
     while (seq = strstr(otext, "\n.\n")){
         *seq = 0;
@@ -439,7 +439,7 @@ escape_dot(char *otext)
         otext = seq+3;
     }
 
-    MSG2(5, "escaping", "Altering text (II): |%s|", ntext->str);    
+    MSG2(6, "escaping", "Altering text (II): |%s|", ntext->str);    
 
     len = strlen(otext);
     if (len >= 2){
@@ -447,7 +447,7 @@ escape_dot(char *otext)
             g_string_append(ntext, otext);
             g_string_append(ntext, ".");
             otext = otext+len;
-            MSG2(5, "escaping", "Altering text (II-b): |%s|", ntext->str);    
+            MSG2(6, "escaping", "Altering text (II-b): |%s|", ntext->str);    
         }
     }
 
@@ -461,7 +461,7 @@ escape_dot(char *otext)
 
     g_string_free(ntext, 0);
 
-    MSG2(5, "escaping", "Altered text: |%s|", ret);
+    MSG2(6, "escaping", "Altered text: |%s|", ret);
 
     return ret;
 }
