@@ -1,4 +1,10 @@
-2004-10-12  Hynek Hanke  <hanke@chopin>
+2004-10-18  Hynek Hanke  <hanke@chopin>
+
+	* ANNOUNCE: 0.5 release.
+
+	* src/modules/module_utils.c (module_get_message_part): Old-style index marking with '@' removed.
+
+	* src/server/module.c (load_output_module): Report path of each module it can't load.
 
 	* src/server: Log levels for various status messages going into the logfile
 	changed.
@@ -64,7 +70,7 @@
 
 	* src/modules/Makefile.am (AM_CFLAGS): $(spdlibdir) not ($spdlibdir)
 
-	* src/modules/module_utils.h: module_init now has a new parametere char **status_info.
+	* src/modules/module_utils.h: module_init now has a new parameter char **status_info.
 
 	* src/audio/Makefile.am (spdlib_LTLIBRARIES): Install into spdlibdir.
 
