@@ -1,3 +1,11 @@
+2004-05-28  Hynek Hanke  <hanke@volny.cz>
+
+	* ANNOUNCE: Release 0.4.
+
+	* FAQ: 16-bit Flite voice.
+
+	* TODO: Index marking.
+
 2004-05-26  Hynek Hanke  <hanke@volny.cz>
 
 	* configure.in: Install output modules into libdir instead of bindir.
