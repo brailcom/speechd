@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.14 2003-04-24 19:25:15 hanke Exp $
+ * $Id: fdset.h,v 1.15 2003-05-07 19:02:20 hanke Exp $
  */
 
 typedef enum 
@@ -45,7 +45,9 @@ typedef enum
     MSGTYPE_TEXT = 0,
     MSGTYPE_SOUND_ICON = 1,
     MSGTYPE_CHAR = 2,
-    MSGTYPE_KEY = 3
+    MSGTYPE_KEY = 3,
+    MSGTYPE_SOUND = 4,
+    MSGTYPE_TEXTP = 5
 }EMessageType;
 
 typedef enum
@@ -83,5 +85,6 @@ typedef struct{
     unsigned int hist_cur_uid;
     int hist_cur_pos;
     ESort hist_sorted;
+    int intact;
 }TFDSetElement;
 
