@@ -1,3 +1,13 @@
+2004-05-31  Hynek Hanke  <hanke@volny.cz>
+
+	* configure.in: LIBTOOL_IS_A_FOOL workaround for -rpath by Marcelo Magallon
+
+	* src/modules/Makefile.am (EXTRA_DIST): Don't include the festival-interface directory (obsolete).
+
+	* Makefile.am (EXTRA_DIST): Only the .c and .h files from intl/
+
+	* src/Makefile.am (EXTRA_DIST): A positive list of what should be included from cl/.
+
 2004-05-30  Hynek Hanke  <hanke@volny.cz>
 
 	* ANNOUNCE: 0.4.1 release.
