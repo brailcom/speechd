@@ -1,3 +1,10 @@
+2003-10-27  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/parse.c (parse): KEY can be used in blocks.
+
+	* src/server/speaking.c (speak): Priority important doesn't interrupt last priority
+	PROGRESS message now.
+
 2003-10-25  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/speaking.c (speak): Mutex handling reworked a little bit to prevent
