@@ -1641,7 +1641,7 @@ Example Speech Daemon response:
 200-sptable2
 200-sptable1
 200-sptable44
-200-special-table
+200-special_table
 200 OK Tables listed.
 @end example
 
