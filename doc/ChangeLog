@@ -1,3 +1,9 @@
+2003-07-29  Tomas Cerha  <cerha@freebsoft.org>
+
+	* speechd.texi: The whole document completely restructurized.  All
+	titles capitalized.  Some texts rewritten.  Title changed.  All
+	references corrected.  Lots of minor changes.
+
 2003-07-23  Hynek Hanke  <hanke@volny.cz>
 
 	* speechd.texi (Log levels): Renamed from verbosity.
