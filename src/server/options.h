@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.h,v 1.1 2003-07-17 11:59:44 hanke Exp $
+ * $Id: options.h,v 1.2 2003-10-15 20:09:05 hanke Exp $
  */
 
 #include <getopt.h>
@@ -28,8 +28,9 @@ static struct option spd_long_options[] = {
     {"run-single", 0, 0, 's'},
     {"log-level", 1, 0, 0},
     {"port", 1, 0, 0},
+    {"version", 0, 0, 'v'},
     {"help", 0, 0, 0},
     {0, 0, 0, 0}
 };
 
-static char* spd_short_options = "dshl:p:";
+static char* spd_short_options = "dsvhl:p:";
