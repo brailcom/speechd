@@ -145,20 +145,6 @@ void delete_FT_Info(FT_Info *info)
 	free(info);
 }
 
-static FT_Info *festival_default_info()
-{
-    FT_Info *info;
-    info = (FT_Info *)malloc(1 * sizeof(FT_Info));
-    
-    info->server_host = FESTIVAL_DEFAULT_SERVER_HOST;
-    info->server_port = FESTIVAL_DEFAULT_SERVER_PORT;
-    info->text_mode = FESTIVAL_DEFAULT_TEXT_MODE;
-
-    info->server_fd = -1;
-    
-    return info;
-}
-
 static int festival_socket_open(const char *host, int port)
 {   
     /* Return an FD to a remote server */
@@ -343,12 +329,15 @@ festivalOpen(FT_Info *info)
     /* Open socket to server */
 
     if (info == 0)
-	info = festival_default_info();
+	info = festivalDefaultInfo();
 
     info->server_fd = 
 	festival_socket_open(info->server_host, info->server_port);
-    if (info->server_fd == -1)
+
+    if (info->server_fd == -1){
+        delete_FT_Info(info);
 	return NULL;
+    }
 
     return info;
 }
@@ -559,6 +548,19 @@ festivalSetPitch(FT_Info *info, signed int pitch, unsigned int mean)
     return 0;
 }
 
+static FT_Info *festivalDefaultInfo()
+{
+    FT_Info *info;
+    info = (FT_Info *) malloc(sizeof(FT_Info));
+    
+    info->server_host = FESTIVAL_DEFAULT_SERVER_HOST;
+    info->server_port = FESTIVAL_DEFAULT_SERVER_PORT;
+    info->text_mode = FESTIVAL_DEFAULT_TEXT_MODE;
+
+    info->server_fd = -1;
+    
+    return info;
+}
 
 /* For testing purposes, this library can be compiled as
  * a standalone program, please see the introduction at
@@ -579,7 +581,7 @@ int main(int argc, char **argv)
 
     printf("Welcome to Festival client library for Speech Dispatcher\n");
 
-    info = festival_default_info();
+    info = festivalDefaultInfo();
     if (server != 0)
 	info->server_host = FESTIVAL_DEFAULT_SERVER_HOST;
     if (port != -1)
