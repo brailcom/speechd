@@ -5,6 +5,8 @@
 	(Parameter Setting Commands in C): Added spd_set_output_module().
 	(Parameter Setting Commands in C): Added spd_set_volume().
 	(Parameter Setting Commands in C): spd_set_voice_type() described.
+	(Direct SSIP Communication in C): Added spd_send_data().
+	(Direct SSIP Communication in C): Added spd_execute_command().
 
 2004-02-10  Hynek Hanke  <hanke@eda>
 
