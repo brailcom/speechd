@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: msg.h,v 1.7 2003-04-06 20:02:49 hanke Exp $
+ * $Id: msg.h,v 1.8 2003-04-06 23:22:05 hanke Exp $
  */
 
 
@@ -32,6 +32,7 @@
 #define OK_CAP_LET_RECOGN_SET		        "206 OK CAP LET RECOGNITION SET\r\n"
 #define OK_SPELLING_SET				"207 OK SPELLING SET\r\n"
 #define OK_CLIENT_NAME_SET			"208 OK CLIENT NAME SET\r\n"
+#define OK_VOICE_SET				"209 OK VOICE SET\r\n"
 #define OK_STOPED                               "210 OK STOPED\r\n"
 #define OK_PAUSED				"211 OK PAUSED\r\n"
 #define OK_RESUMED				"212 OK RESUMED\r\n"
@@ -75,6 +76,7 @@
 #define ERR_COULDNT_SET_PUNCT_MODE              "305 ERR COULDNT SET PUNCT MODE\r\n"
 #define ERR_COULDNT_SET_CAP_LET_RECOG           "306 ERR COULDNT SET CAP LET RECOGNITION\r\n"
 #define ERR_COULDNT_SET_SPELLING                "308 ERR COULDNT SET SPELLING\r\n"
+#define ERR_COULDNT_SET_VOICE           	 	"308 ERR COULDNT SET VOICE\r\n"
 #define ERR_NO_SND_ICONS                        "320 ERR NO SOUND ICONS\r\n"
 #define ERR_NOT_IMPLEMENTED                     "380 ERR NOT YET IMPLEMENTED\r\n"
 
