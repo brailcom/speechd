@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.26 2003-06-23 05:09:29 hanke Exp $
+ * $Id: dc_decl.h,v 1.27 2003-07-05 12:27:21 hanke Exp $
  */
 
 #include "speechd.h"
@@ -106,10 +106,25 @@ free_config_options(configoption_t *opts, int *num)
 }
 
 #define ADD_CONFIG_OPTION(name, arg_type) \
-    options = add_config_option(options, num_options, #name, arg_type, cb_ ## name, 0, 0);
+   options = add_config_option(options, num_options, #name, arg_type, cb_ ## name, 0, 0);
+
+#define GLOBAL_FDSET_OPTION_CB_STR(name, arg) \
+   DOTCONF_CB(cb_ ## name) \
+   { \
+       assert(cmd->data.str != NULL); \
+       GlobalFDSet.arg = strdup(cmd->data.str); \
+       return NULL; \
+   }    
+
+#define GLOBAL_FDSET_OPTION_CB_INT(name, arg) \
+   DOTCONF_CB(cb_name) \
+   { \
+       GlobalFDSet. ## arg = cmd->data.value; \
+       return NULL; \
+   }    
 
 #define ADD_LAST_OPTION() \
-    options = add_config_option(options, num_options, "", 0, NULL, NULL, 0);
+   options = add_config_option(options, num_options, "", 0, NULL, NULL, 0);
 
 configoption_t*
 load_config_options(int *num_options)
@@ -125,12 +140,12 @@ load_config_options(int *num_options)
   
     ADD_CONFIG_OPTION(DefaultPitch, ARG_INT);
     ADD_CONFIG_OPTION(DefaultLanguage, ARG_STR);
-    ADD_CONFIG_OPTION(DefaultPriority, ARG_INT);
+    ADD_CONFIG_OPTION(DefaultPriority, ARG_STR);
     ADD_CONFIG_OPTION(DefaultPunctuationMode, ARG_STR);
     ADD_CONFIG_OPTION(DefaultPunctuationTable, ARG_STR);
     ADD_CONFIG_OPTION(PunctuationSome, ARG_STR);
     ADD_CONFIG_OPTION(DefaultClientName, ARG_STR);
-    ADD_CONFIG_OPTION(DefaultVoiceType, ARG_INT);
+    ADD_CONFIG_OPTION(DefaultVoiceType, ARG_STR);
     ADD_CONFIG_OPTION(DefaultSpelling, ARG_TOGGLE);
     ADD_CONFIG_OPTION(DefaultSpellingTable, ARG_STR);
     ADD_CONFIG_OPTION(DefaultCharacterTable, ARG_STR);
@@ -324,72 +339,83 @@ DOTCONF_CB(cb_AddTable)
     return NULL;
 }
 
-DOTCONF_CB(cb_DefaultModule)
-{
-    GlobalFDSet.output_module = malloc(sizeof(char) * strlen(cmd->data.str) + 1);
-    strcpy(GlobalFDSet.output_module,cmd->data.str);
-    return NULL;
-}
+GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module);
+GLOBAL_FDSET_OPTION_CB_STR(DefaultLanguage, language);
+GLOBAL_FDSET_OPTION_CB_STR(PunctuationSome, punctuation_some);
+GLOBAL_FDSET_OPTION_CB_STR(DefaultPunctuationTable, punctuation_table);
+GLOBAL_FDSET_OPTION_CB_STR(DefaultSpellingTable, spelling_table);
+GLOBAL_FDSET_OPTION_CB_STR(DefaultCharacterTable, char_table);
+GLOBAL_FDSET_OPTION_CB_STR(DefaultKeyTable, key_table);
+GLOBAL_FDSET_OPTION_CB_STR(DefaultSoundTable, snd_icon_table);
+
+GLOBAL_FDSET_OPTION_CB_STR(DefaultClientName, client_name);
 
 DOTCONF_CB(cb_DefaultRate)
 {
+    int rate = cmd->data.value;
+
+    if (rate < -100 || rate > +100) MSG(3, "Default rate out of range.");
     GlobalFDSet.rate = cmd->data.value;
     return NULL;
 }
 
 DOTCONF_CB(cb_DefaultPitch)
 {
-    GlobalFDSet.pitch = cmd->data.value;
-    return NULL;
-}
-
-DOTCONF_CB(cb_DefaultLanguage)
-{
-    GlobalFDSet.language = malloc(sizeof(char) * strlen(cmd->data.str) + 1);
-    strcpy(GlobalFDSet.language,cmd->data.str);
+    int pitch = cmd->data.value;
+    if (pitch < -100 || pitch > +100) MSG(3, "Default pitch out of range.");
+    GlobalFDSet.pitch = pitch;
     return NULL;
 }
 
 DOTCONF_CB(cb_DefaultPriority)
 {
-    GlobalFDSet.priority = cmd->data.value;
-    return NULL;
-}
+    char *priority_s = cmd->data.str;
+    assert(priority_s != NULL);
 
-DOTCONF_CB(cb_DefaultPunctuationMode)
-{
-    assert(cmd->data.str != NULL);
-    if(!strcmp(cmd->data.str, "all")) GlobalFDSet.punctuation_mode = 1;
-    else if(!strcmp(cmd->data.str, "none")) GlobalFDSet.punctuation_mode = 0;
-    else if(!strcmp(cmd->data.str, "some")) GlobalFDSet.punctuation_mode = 2;
-    return NULL;
-}
+    if (!strcmp(priority_s, "important")) GlobalFDSet.priority = 1;
+    else if (!strcmp(priority_s, "text")) GlobalFDSet.priority = 2;
+    else if (!strcmp(priority_s, "message")) GlobalFDSet.priority = 3;
+    else if (!strcmp(priority_s, "notification")) GlobalFDSet.priority = 4;
+    else if (!strcmp(priority_s, "progress")) GlobalFDSet.priority = 5;
+    else{
+        MSG(2, "Unknown default priority specified in configuration.");
+        return NULL;
+    }
 
-DOTCONF_CB(cb_PunctuationSome)
-{
-    assert(cmd->data.str != NULL);
-    GlobalFDSet.punctuation_some = (char*) spd_malloc(sizeof(char) * (strlen(cmd->data.str) + 1));
-    strcpy(GlobalFDSet.punctuation_some, cmd->data.str);
-    return NULL;
-}
-
-DOTCONF_CB(cb_DefaultPunctuationTable)
-{
-    GlobalFDSet.punctuation_table = spd_strdup(cmd->data.str);
-    return NULL;
-}
-
-
-DOTCONF_CB(cb_DefaultClientName)
-{
-    GlobalFDSet.client_name = malloc(sizeof(char) * (strlen(cmd->data.str) + 1));
-    strcpy(GlobalFDSet.client_name,cmd->data.str);
     return NULL;
 }
 
 DOTCONF_CB(cb_DefaultVoiceType)
 {
-    GlobalFDSet.voice_type = (EVoiceType)cmd->data.value;
+    char *voice_s = cmd->data.str;
+    assert(voice_s != NULL);
+
+    if (!strcmp(voice_s, "MALE1")) GlobalFDSet.voice_type = MALE1;
+    else if (!strcmp(voice_s, "MALE2")) GlobalFDSet.voice_type = MALE2;
+    else if (!strcmp(voice_s, "MALE3")) GlobalFDSet.voice_type = MALE3;
+    else if (!strcmp(voice_s, "FEMALE1")) GlobalFDSet.voice_type = FEMALE1;
+    else if (!strcmp(voice_s, "FEMALE2")) GlobalFDSet.voice_type = FEMALE2;
+    else if (!strcmp(voice_s, "FEMALE3")) GlobalFDSet.voice_type = FEMALE3;
+    else if (!strcmp(voice_s, "CHILD_MALE")) GlobalFDSet.voice_type = CHILD_MALE;
+    else if (!strcmp(voice_s, "CHILD_FEMALE")) GlobalFDSet.voice_type = CHILD_FEMALE;
+    else{
+        MSG(2, "Unknown default voice specified in configuration.");
+        return NULL;
+    }
+
+    return NULL;
+}
+
+DOTCONF_CB(cb_DefaultPunctuationMode)
+{
+    char *pmode = cmd->data.str;
+
+    assert(pmode != NULL);
+    if(!strcmp(pmode, "all")) GlobalFDSet.punctuation_mode = 1;
+    else if(!strcmp(pmode, "none")) GlobalFDSet.punctuation_mode = 0;
+    else if(!strcmp(pmode, "some")) GlobalFDSet.punctuation_mode = 2;
+    else MSG(2,"Unknown punctuation mode specified in configuration.");
+
     return NULL;
 }
 
@@ -399,29 +425,7 @@ DOTCONF_CB(cb_DefaultSpelling)
     return NULL;
 }
 
-DOTCONF_CB(cb_DefaultSpellingTable)
-{
-    GlobalFDSet.spelling_table = spd_strdup(cmd->data.str);
-    return NULL;
-}
 
-DOTCONF_CB(cb_DefaultCharacterTable)
-{
-    GlobalFDSet.char_table = spd_strdup(cmd->data.str);
-    return NULL;
-}
-
-DOTCONF_CB(cb_DefaultKeyTable)
-{
-    GlobalFDSet.key_table = spd_strdup(cmd->data.str);
-    return NULL;
-}
-
-DOTCONF_CB(cb_DefaultSoundTable)
-{
-    GlobalFDSet.snd_icon_table = spd_strdup(cmd->data.str);
-    return NULL;
-}
 
 
 DOTCONF_CB(cb_DefaultCapLetRecognition)
