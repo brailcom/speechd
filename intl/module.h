@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.h,v 1.13 2003-05-26 16:04:49 hanke Exp $
+ * $Id: module.h,v 1.14 2003-05-31 12:04:24 pdm Exp $
  */
 
 #include <glib.h>
@@ -37,9 +37,16 @@ typedef struct
     char *child_female;
 }SPDVoiceDef;
 
+typedef struct
+{
+    char *rom;
+    char *char_coding;
+}SPDApolloLanguageDef;
+
 typedef struct{
     GHashTable *voices;
     GHashTable *params;
+    GHashTable *apollo_languages;
 }SPDModuleSettings;
 
 typedef struct{

@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.14 2003-05-26 16:04:50 hanke Exp $
+ * $Id: apollo.c,v 1.15 2003-05-31 12:04:24 pdm Exp $
  */
 
 
@@ -136,26 +136,29 @@ static gint set_pitch (signed int value)
 
 static gint set_language (const char *value)
 {
-  /* TODO: Just hard-wired switching between English and another language.
-     Any masochist willing to use @L and DTR in C is welcome to do so here.
-  */
-  char *command, *request;
+  SPDApolloLanguageDef *language_def;
+  const int MAX_REQUEST_LENGTH = 100;
+  char command[5], request[MAX_REQUEST_LENGTH];
+  char *rom, *char_coding;
+  
+  language_def = g_hash_table_lookup (module_apollo.settings.apollo_languages,
+				      value);
+  if (language_def == NULL)
+    {
+      rom = "1";
+      char_coding = "ASCII";
+    }
+  else 
+    {
+      rom = language_def->rom;
+      if (strlen (rom) > 1)
+	rom[1] = '\0';
+      char_coding = language_def->char_coding;
+    }
 
-  if (! strcmp (value, "cs"))
-    {
-      command = "@=2,";
-      request = "UTF-8..Kamenicky";
-    }
-  else if (! strcmp (value, "en"))
-    {
-      command = "@=1,";
-      request = "UTF-8..ASCII";
-    }
-  else
-    {
-      command = "@=2,";
-      request = "UTF-8..ASCII";
-    }
+  sprintf (command, "@=%d,", rom);
+  snprintf (request, MAX_REQUEST_LENGTH, "UTF-8..%s", char_coding);
+
   recode_scan_request (recode_request, request);
   return send_apollo_command (command);
 }
@@ -213,6 +216,7 @@ OutputModule *module_load (void)
 {
   module_apollo.settings.params = g_hash_table_new(g_str_hash, g_str_equal);
   module_apollo.settings.voices = g_hash_table_new(g_str_hash, g_str_equal);
+  module_apollo.settings.apollo_languages = g_hash_table_new(g_str_hash, g_str_equal);
   
   return &module_apollo;
 }

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.19 2003-05-28 23:17:25 hanke Exp $
+ * $Id: dc_decl.h,v 1.20 2003-05-31 12:04:24 pdm Exp $
  */
 
 #include "speechd.h"
@@ -56,6 +56,7 @@ DOTCONF_CB(cb_AddModule);
 DOTCONF_CB(cb_EndAddModule);
 DOTCONF_CB(cb_AddParam);
 DOTCONF_CB(cb_AddVoice);
+DOTCONF_CB(cb_ApolloLanguage);
 
 
 /* define dotconf configuration options */
@@ -84,6 +85,7 @@ static const configoption_t options[] =
     {"EndAddModule", ARG_NONE, cb_EndAddModule, 0,0},
     {"AddParam", ARG_LIST, cb_AddParam, 0, 0},
     {"AddVoice", ARG_LIST, cb_AddVoice, 0, 0},
+    {"ApolloLanguage", ARG_LIST, cb_ApolloLanguage, 0, 0},
     /*{"ExampleOption", ARG_STR, cb_example, 0, 0},
      *      {"MultiLineRaw", ARG_STR, cb_multiline, 0, 0},
      *           {"", ARG_NAME, cb_unknown, 0, 0},
@@ -481,6 +483,51 @@ DOTCONF_CB(cb_AddVoice)
     else{
         MSG(2, "Unrecognized symbolic voice name.");
         return NULL;
+    }
+
+    return NULL;
+}
+
+DOTCONF_CB(cb_ApolloLanguage)
+{
+  /* This is just copy&paste&edit of cb_AddVoice.  I'm sorry, I don't want to
+     spent my life with C programming... */
+  
+    SPDApolloLanguageDef *apollo_languages;
+    char *language = cmd->data.list[0];
+    char *rom = cmd->data.list[1];
+    char *char_coding = cmd->data.list[2];
+    char *key;
+    SPDApolloLanguageDef *value;
+
+    if (cur_mod == NULL){
+        MSG(2,"Output module parameter not inside an output modules section");
+        return NULL;
+    }
+
+    if (language == NULL){
+        MSG(2,"Missing language.");
+        return NULL;
+    }
+
+    if (rom == NULL){
+        MSG(2,"Missing ROM number.");
+        return NULL;
+    }
+
+    if (char_coding == NULL){
+        MSG(2,"Missing character coding for %s", cmd->data.list[0]);
+        return NULL;
+    }
+
+    apollo_languages = g_hash_table_lookup(cur_mod->settings.apollo_languages,
+					   language);
+    if (apollo_languages == NULL){
+        key = (char*) spd_malloc((strlen(language) + 1) * sizeof(char));
+        strcpy(key, language);
+        value = (SPDApolloLanguageDef*) spd_malloc(sizeof(SPDApolloLanguageDef));
+        g_hash_table_insert(cur_mod->settings.apollo_languages, key, value);
+        apollo_languages = value;
     }
 
     return NULL;
