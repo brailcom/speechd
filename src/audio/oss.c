@@ -19,8 +19,38 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: oss.c,v 1.2 2004-11-14 23:20:18 hanke Exp $
+ * $Id: oss.c,v 1.3 2004-11-19 13:53:12 hanke Exp $
  */
+
+int
+_oss_open(AudioID *id)
+{
+    pthread_mutex_lock(&id->fd_mutex);
+
+    id->fd = open(id->device_name, O_WRONLY | O_NONBLOCK, 0);
+    if (id->fd == -1){
+	perror(id->device_name);
+	id = NULL;
+	pthread_mutex_unlock(&id->fd_mutex);
+	return -1;
+    }
+
+    pthread_mutex_unlock(&id->fd_mutex);
+
+    return 0;
+}
+
+int
+_oss_close(AudioID *id)
+{
+    if (id == NULL) return 0;
+    if (id->fd == 0) return 0;
+
+    pthread_mutex_lock(&id->fd_mutex);
+    close(id->fd);
+    id->fd = 0;
+    pthread_mutex_unlock(&id->fd_mutex);
+}
 
 /* Open OSS device
    Arguments:
@@ -31,34 +61,31 @@
 int
 oss_open(AudioID *id, void **pars)
 {
-    char *device_name;
+    int ret;
 
     if (id == NULL) return 0;
+    if (pars[0] == NULL) return -1;
 
-    if (pars[0] != NULL) device_name=(char*) pars[0];
+    if (pars[0] != NULL) id->device_name=strdup((char*) pars[0]);
 
     pthread_mutex_init(&id->fd_mutex, NULL);
-    pthread_mutex_lock(&id->fd_mutex);
-
-    id->fd = open(device_name, O_WRONLY | O_NONBLOCK, 0);
-    if (id->fd == -1){
-	perror(device_name);
-	id = NULL;
-	pthread_mutex_unlock(&id->fd_mutex);
-	return -1;
-    }
 
     pthread_cond_init(&id->pt_cond, NULL);
     pthread_mutex_init(&id->pt_mutex, NULL);
 
-    pthread_mutex_unlock(&id->fd_mutex);
+    /* Test if it's possible to access the device */
+    ret = _oss_open(id);
+    if (ret) return ret;
+    ret = _oss_close(id);
+    if (ret) return ret;
+
 
     return 0; 
 }
 
 /* Internal function. */
 int
-oss_sync(AudioID *id)
+_oss_sync(AudioID *id)
 {
     int ret;
 
@@ -90,14 +117,16 @@ oss_play(AudioID *id, AudioTrack track)
     float real_volume;
     int i;
 
-
     AudioTrack track_volume;
 
     if (id == NULL) return -1;
 
+    ret = _oss_open(id);
+    if (ret) return -2;
+
     /* Create a copy of track with the adjusted volume */
     track_volume = track;
-    track_volume.samples = malloc(sizeof(short)*track.num_samples);
+    track_volume.samples = (short*) malloc(sizeof(short)*track.num_samples);
     real_volume = ((float) id->volume + 100)/(float)200;
     for (i=0; i<=track.num_samples-1; i++)
 	track_volume.samples[i] = track.samples[i] * real_volume;
@@ -106,19 +135,23 @@ oss_play(AudioID *id, AudioTrack track)
     if (track.bits == 16)
 	format = AFMT_S16_NE;
     else if (track.bits == 8)
-       format = AFMT_S8;
+	format = AFMT_S8;
     else{
 	fprintf(stderr, "Audio: Unrecognized sound data format.\n");
+	_oss_close(id);
 	return -10;
     }
+
     oformat = format;	
     ret = ioctl(id->fd, SNDCTL_DSP_SETFMT, &format);
     if (ret == -1){
 	perror("format");
+	_oss_close(id);
 	return -1;
     }
     if (format != oformat){
 	fprintf(stderr, "Device doesn't support 16-bit sound format.\n");
+	_oss_close(id);
 	return -2;
     }
 
@@ -127,10 +160,12 @@ oss_play(AudioID *id, AudioTrack track)
     ret = ioctl(id->fd, SNDCTL_DSP_CHANNELS, &channels);
     if (ret == -1){
 	perror("channels");
+	_oss_close(id);
 	return -3;
     }
     if (channels != track.num_channels){
 	fprintf(stderr, "Device doesn't support stereo sound.\n");
+	_oss_close(id);
 	return -4;
     }
     
@@ -139,15 +174,20 @@ oss_play(AudioID *id, AudioTrack track)
     ret = ioctl(id->fd, SNDCTL_DSP_SPEED, &speed);
     if (ret == -1){
 	perror("speed");
+	_oss_close(id);
 	return -5;
     }
     if (speed != track.sample_rate){
 	fprintf(stderr, "Device doesn't support bitrate %d.\n", track.sample_rate);
+	_oss_close(id);
 	return -6;
     }
 
     /* Is it not an empty track? */
-    if (track.samples == NULL) return 0;
+    if (track.samples == NULL){
+	_oss_close(id);
+	return 0;
+    }
 
     /* Loop until all samples are played on the device.
        In the meantime, wait in pthread_cond_timedwait for more data
@@ -159,7 +199,7 @@ oss_play(AudioID *id, AudioTrack track)
         ret = write(id->fd, output_samples, num_bytes > MAX_BUF ? MAX_BUF : num_bytes);
 
 	/* Send SYNC before the last write() */
-	if (MAX_BUF > num_bytes) oss_sync(id);
+	if (MAX_BUF > num_bytes) _oss_sync(id);
 	    
 	/* Handle write() errors */
 	if (ret <= 0){
@@ -167,6 +207,7 @@ oss_play(AudioID *id, AudioTrack track)
 		continue;
 	    }
 	    perror("audio");
+	    _oss_close(id);
 	    return -6;
 	}
 
@@ -206,6 +247,8 @@ oss_play(AudioID *id, AudioTrack track)
 	pthread_mutex_unlock(&id->pt_mutex);
     }
 
+    _oss_close(id);
+
     return 0;
 }
 
@@ -238,12 +281,13 @@ oss_stop(AudioID *id)
 int
 oss_close(AudioID *id)
 {
-    if (id == NULL) return 0;
 
-    pthread_mutex_lock(&id->fd_mutex);
-    close(id->fd);
-    id->fd = 0;
-    pthread_mutex_unlock(&id->fd_mutex);
+    /* Does nothing because the device is being automatically openned and
+       closed in oss_play before and after playing each sample. */
+
+    free(id->device_name);
+
+    id = NULL;
 
     return 0;
 }
