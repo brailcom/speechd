@@ -1,18 +1,18 @@
 The requirements:
-==================
+=================
 
-You will need these components to compile Robod: 
-    - glib 2.0
-    - libdotconf 1.0
-    - pthreads
-    - libasound1 (0.5.8)
-    - gcc and GNU make
-    - flite [the only synthetiser that has working output module now]
-	- ncurses [for Speech Deamon Center]
-	(-automake and autoconf if you are building from CVS)
+You will need these components to compile Speech Daemon: 
+ - glib 2.0
+ - libdotconf 1.0
+ - pthreads
+ - libasound1 (0.5.8)
+ - gcc and GNU make
+ - flite [the only synthetiser that has working output module now]
+ - ncurses [for Speech Deamon Center]
+ - automake, autoconf, pkg-config and libtool (if you are building from CVS)
 
 Building Speech Deamon:
-=================
+=======================
 
 To compile the whole project, including Speech Deamon server, all modules
 and clients, simply extract the distribution archive and change to 
