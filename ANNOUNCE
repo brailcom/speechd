@@ -46,7 +46,7 @@ project.
 
   - The generic output module can now also set volume.
 
-  - spd-say is now rewritten to accepts the most important speech
+  - spd-say is now rewritten to accept the most important speech
     parameters and thus provide a simple but useful Speech Dispatcher
     client. Documentation is provided in info.
 
@@ -58,7 +58,7 @@ project.
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speechd-0.4.tar.gz .
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.4.tar.gz .
 
   We recommend you to fetch the sound icons Speech Dispatcher can use as
   well. They are available at

@@ -1,3 +1,12 @@
+2004-05-29  Hynek Hanke  <hanke@volny.cz>
+
+	* config/modules/dtk-generic.conf: Jacob's new version.
+
+	* config/modules/epos-generic.conf: Use LANGUAGE instead of LANG.
+
+	* src/modules/generic.c (module_speak): Update string parameter, not an ordinary parameter.
+	generic_msg_pitch, rate, volume are now statically allocated (!).
+
 2004-05-28  Hynek Hanke  <hanke@volny.cz>
 
 	* ANNOUNCE: Release 0.4.
