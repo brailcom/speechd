@@ -2,8 +2,7 @@
  /*
   * speaking.c - Speech Deamon speech output functions
   * 
-  * Copyright (C) 2001,2002,2003 Brailcom, o.p.s, Prague 2,
-  * Vysehradska 3/255, 128 00, <freesoft@freesoft.cz>
+  * Copyright (C) 2001,2002,2003 Brailcom, o.p.s
   *
   * This is free software; you can redistribute it and/or modify it
   * under the terms of the GNU General Public License as published by
@@ -20,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.3 2003-04-17 11:14:39 hanke Exp $
+  * $Id: speaking.c,v 1.4 2003-04-24 19:32:38 hanke Exp $
   */
 
 #include <glib.h>
@@ -170,7 +169,7 @@ speak(void* data)
             /* TODO: There is a problem. This can take time, but we are
              * working under a locked mutex and blocking the second thread! */
 
-            if( element->settings.type == TEXT ){
+            if(element->settings.type == MSGTYPE_TEXT){
                 buffer = (char*) process_message(element->buf, element->bytes, &(element->settings));
             }else{
                 buffer = element->buf;
