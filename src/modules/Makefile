@@ -1,24 +1,20 @@
-# CVS revision: $Id: Makefile,v 1.3 2001-06-28 15:08:38 cerha Exp $
+# CVS revision: $Id: Makefile,v 1.4 2001-06-29 07:39:38 cerha Exp $
 # Author: Tomas Cerha <cerha@brailcom.cz>
 
 BASEDIR = ../..
-
 include $(BASEDIR)/Makefile.config
-
-CFLAGS = `glib-config --cflags` -I$(BASEDIR)/include
-LIBS = `glib-config --libs`
 
 MODULES = mluvitko.so
 SRCS = mluvitko.c
 
 all: $(MODULES)
 
-# === mluvitko ===
 mluvitko.so: mluvitko.o
 	$(CC) $(CFLAGS) $(LIBS) -shared -export-dynamic -avoid-version mluvitko.o -o mluvitko.so 
 
 dep:
 	makedepend -- $(CFLAGS) -- $(SRCS)
+	rm -f Makefile.bak
 
 clean:
 	rm -f *.o $(MODULES)

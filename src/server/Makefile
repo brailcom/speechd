@@ -1,13 +1,13 @@
-# CVS revision: $Id: Makefile,v 1.3 2001-06-28 14:53:17 cerha Exp $
+# CVS revision: $Id: Makefile,v 1.4 2001-06-29 07:39:42 cerha Exp $
 # Author: Tomas Cerha <cerha@brailcom.cz>
 
 BASEDIR = ../..
 
 include $(BASEDIR)/Makefile.config
 
-CFLAGS = -g -Wall -pedantic `glib-config --cflags` -I$(BASEDIR)/include -I/usr/local/include
-LIBS = `glib-config --libs gmodule` -ldotconf
- 
+CFLAGS = $(FLAGS) -I/usr/local/include
+LIBS = $(LIB) -ldotconf
+
 SRCS = speechd.c server.c module.c
 
 all: speechd
@@ -17,6 +17,8 @@ speechd: speechd.o server.o module.o
 
 dep:
 	makedepend -- $(CFLAGS) -- $(SRCS)
+	rm -f Makefile.bak
+
 
 clean:
 	rm -f *.o speechd

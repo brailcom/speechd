@@ -1,12 +1,8 @@
-# CVS revision: $Id: Makefile,v 1.3 2001-06-28 15:09:10 cerha Exp $
+# CVS revision: $Id: Makefile,v 1.4 2001-06-29 07:39:32 cerha Exp $
 # Author: Tomas Cerha <cerha@brailcom.cz>
 
 BASEDIR = ../..
-
 include $(BASEDIR)/Makefile.config
-
-CFLAGS = -g -Wall -ansi -pedantic `glib-config --cflags` -I$(BASEDIR)/include
-LIBS = `glib-config --libs`
 
 CLIENTS = say
 SRCS = say.c
@@ -17,6 +13,7 @@ say: say.o
 
 dep:
 	makedepend -- $(CFLAGS) -- $(SRCS)
+	rm -f Makefile.bak
 
 clean:
 	rm -f *.o $(CLIENTS)
