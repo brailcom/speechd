@@ -19,11 +19,11 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.49 2004-02-23 22:33:11 hanke Exp $
+ * $Id: speechd.h,v 1.50 2004-03-08 21:27:35 hanke Exp $
  */
 
 #ifndef SPEECHDH
- #define SPEECHDH
+#define SPEECHDH
 
 #include <netinet/in.h>
 #include <sys/types.h>
@@ -103,18 +103,17 @@ typedef struct{
 #include "alloc.h"
 #include "speaking.h"
 
-typedef struct{
+struct{
     int port, port_set;
     int log_level, log_level_set;
     int max_history_messages;	/* Maximum of messages in history before they expire */
-
-}TSpeechdOptions;
-
-TSpeechdOptions SpeechdOptions;
+}SpeechdOptions;
 
 struct{
     int max_uid;		/* The largest assigned uid + 1 */
     int max_gid;		/* The largest assigned gid + 1 */
+    int max_fd;
+    int num_fds;		/* Number of available allocated sockets */
 }SpeechdStatus;
 
 /* speak() thread defined in speaking.c */
@@ -158,21 +157,24 @@ TSpeechDMessage *last_p5_message;
 TFDSetElement GlobalFDSet;
 
 /* Variables for socket communication */
-int fdmax;
 fd_set readfds;
 
 /* Arrays needed for receiving data over socket */
-int *awaiting_data;
-int *inside_block;
-size_t *o_bytes;
-GString **o_buf;
-int fds_allocated;
+typedef struct{
+    int awaiting_data;
+    int inside_block;
+    size_t o_bytes;
+    GString *o_buf;
+}TSpeechdSock;
+
+TSpeechdSock *SpeechdSocket;
 
 /* Debugging */
 void MSG(int level, char *format, ...);
 void MSG2(int level, char* kind, char *format, ...);
 #define FATAL(msg) { fatal_error(); MSG(0,"Fatal error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
 #define DIE(msg) { MSG(0,"Error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
+
 FILE *logfile;
 FILE *custom_logfile;
 char *custom_log_kind;
