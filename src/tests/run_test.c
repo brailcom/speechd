@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: run_test.c,v 1.4 2003-07-07 22:28:28 hanke Exp $
+ * $Id: run_test.c,v 1.5 2003-07-16 19:23:53 hanke Exp $
  */
 
 #include <stdio.h>
@@ -96,25 +96,33 @@ main(int argc, char* argv[])
     char* reply;
     int i, j;
     char *ret;
-    FILE* test_file;
+    FILE* test_file = NULL;
     int delays = 1;
 	int indent = 0;
-
+	
     if(argc < 2){
         printf("No test script specified!\n");
         exit(1);
     }
+	
+	if (!strcmp(argv[1],"stdin")){
+	 	test_file = stdin;
+	}else{
+	    test_file = fopen(argv[1], "r");
+	    if(test_file == NULL) FATAL("Test file doesn't exist");
+	}	
 
     if(argc == 3){
         if(!strcmp(argv[2],"fast")) delays = 0;
+		else{
+	    	printf("Unrecognized parameter\n");
+			exit(1);
+		}
     }
-
+	
     printf("Start of the test.\n");
     printf("==================\n\n");
-   
-    test_file = fopen(argv[1], "r");
-    if(test_file == NULL) FATAL("Test file doesn't exist");
-
+	
     line = malloc(1024 * sizeof(char));
     reply = malloc(4096 * sizeof(char));
 
@@ -146,8 +154,10 @@ main(int argc, char* argv[])
             if (command == NULL) continue;
 
             printf("     >> %s", command);
+            fflush(NULL);
             reply = send_data(sockk, command, 1);
             printf("     < %s", reply);
+            fflush(NULL);
             continue;
         }
         
