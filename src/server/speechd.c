@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.48 2003-09-28 22:31:59 hanke Exp $
+ * $Id: speechd.c,v 1.49 2003-10-08 21:33:14 hanke Exp $
  */
 
 #include "speechd.h"
@@ -221,7 +221,6 @@ speechd_quit(int sig)
 	/*  Call the close() function of each registered output module. */
 	g_hash_table_foreach_remove(output_modules, speechd_modules_terminate, NULL);
 	g_hash_table_destroy(output_modules);
-        speechd_modules_terminate(NULL, sound_module, NULL);
 	
 	MSG(2,"Closing server connection...");
 	if(close(server_socket) == -1) MSG(2, "close() failed: %s", strerror(errno));
@@ -253,7 +252,7 @@ speechd_load_configuration(int sig)
     /* Clean previous configuration */
     assert(output_modules != NULL);
     g_hash_table_foreach_remove(output_modules, speechd_modules_terminate, NULL);
-    speechd_modules_terminate(NULL, sound_module, NULL);
+
     /* Make sure there aren't any more child processes left */
     while(waitpid(-1, NULL, WNOHANG) > 0);    
 
@@ -333,10 +332,6 @@ speechd_init(void)
     fd_uid = g_hash_table_new(g_str_hash, g_str_equal);
     assert(fd_uid != NULL);
 
-    snd_icon_langs = g_hash_table_new(g_str_hash, g_str_equal);
-    assert(snd_icon_langs != NULL);
-    generic_lang_icons = NULL;
-
     language_default_modules = g_hash_table_new(g_str_hash, g_str_equal);
     assert(language_default_modules != NULL);
 
@@ -354,14 +349,6 @@ speechd_init(void)
         inside_block[i] = 0;              
         o_buf[i] = 0;              
     }
-
-    /* Initialize lists of available tables */
-    tables.sound_icons = NULL;
-    tables.spelling = NULL;
-    tables.characters = NULL;
-    tables.keys = NULL;
-    tables.punctuation = NULL;
-    tables.cap_let_recogn = NULL;
 
     /* Perform some functionality tests */
     if (g_module_supported() == FALSE)
