@@ -19,20 +19,30 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.50 2003-10-09 21:24:09 hanke Exp $
+ * $Id: speechd.c,v 1.51 2003-10-12 23:34:38 hanke Exp $
  */
 
 #include "speechd.h"
 
 /* Declare dotconf functions and data structures*/
-#include "dc_decl.h"
+#include "config.h"
 
 /* Declare functions to allocate and create important data
  * structures */
 #include "alloc.h"
 #include "sem_functions.h"
+#include "speaking.h"
+#include "set.h"
 
+/* Manipulating pid files */
+int create_pid_file();
+void destroy_pid_file();
+
+/* Server socket file descriptor */
 int server_socket;
+
+void speechd_load_configuration(int sig);
+
 
 char*
 spd_get_path(char *filename, char* startdir)
@@ -47,6 +57,9 @@ spd_get_path(char *filename, char* startdir)
     }
     return ret;
 }
+
+
+/* --- DEBUGGING --- */
 
 /* Just to be able to set breakpoints */
 void
@@ -122,6 +135,10 @@ MSG2(int level, char *kind, char *format, ...)
     }				
 }
 
+/* The main logging function for Speech Dispatcher,
+   level is between 1 and 5. 1 means the most important.*/
+/* TODO: Define this in terms of MSG somehow. I don't
+   know how to pass ... arguments to another C function */
 void
 MSG(int level, char *format, ...)
 {
@@ -154,249 +171,7 @@ MSG(int level, char *format, ...)
     }				
 }
 
-gboolean
-speechd_client_terminate(gpointer key, gpointer value, gpointer user)
-{
-	TFDSetElement *set;
-
-	set = (TFDSetElement *) value;
-	if (set == NULL){
-		MSG(2, "Empty connection, internal error");
-		if(SPEECHD_DEBUG) FATAL("Internal error");
-		return TRUE;
-	}	
-
-	if(set->fd>0){
-		MSG(3,"Closing connection on fd %d\n", set->fd);
-		speechd_connection_destroy(set->fd);
-	}
-	mem_free_fdset(set);
-	return TRUE;
-}
-
-gboolean
-speechd_modules_terminate(gpointer key, gpointer value, gpointer user)
-{
-    OutputModule *module;
-
-    module = (OutputModule *) value;
-    if (module == NULL){
-        MSG(2,"Empty module, internal error");
-        return TRUE;
-    }
-    unload_output_module(module);		       
-
-    return TRUE;
-}
-
-void
-speechd_modules_reload(gpointer key, gpointer value, gpointer user)
-{
-    OutputModule *module;
-
-    module = (OutputModule *) value;
-    if (module == NULL){
-        MSG(2,"Empty module, internal error");
-        return;
-    }
- 
-    reload_output_module(module);		       
-
-    return;
-}
-	
-void
-speechd_quit(int sig)
-{
-	int ret;
-	
-	MSG(1, "Terminating...");
-
-	MSG(2, "Closing open connections...");
-	/* We will browse through all the connections and close them. */
-	g_hash_table_foreach_remove(fd_settings, speechd_client_terminate, NULL);
-	g_hash_table_destroy(fd_settings);
-	
-	MSG(2,"Closing open output modules...");
-	/*  Call the close() function of each registered output module. */
-	g_hash_table_foreach_remove(output_modules, speechd_modules_terminate, NULL);
-	g_hash_table_destroy(output_modules);
-	
-	MSG(2,"Closing server connection...");
-	if(close(server_socket) == -1) MSG(2, "close() failed: %s", strerror(errno));
-	FD_CLR(server_socket, &readfds);
-	
-	MSG(2,"Closing speak() thread...");
-	ret = pthread_cancel(speak_thread);
-	if(ret != 0) FATAL("Speak thread failed to cancel!\n");
-	
-	ret = pthread_join(speak_thread, NULL);
-	if(ret != 0) FATAL("Speak thread failed to join!\n");
-
-        MSG(2, "Removing semaphore");
-	speaking_semaphore_destroy();
-
-	fflush(NULL);
-
-        MSG(2,"Speech Dispatcher terminated correctly");
-
-	exit(0);	
-}
-
-void
-speechd_load_configuration(int sig)
-{
-    char *configfilename = SYS_CONF"/speechd.conf";
-    configfile_t *configfile = NULL;
-
-    /* Clean previous configuration */
-    assert(output_modules != NULL);
-    g_hash_table_foreach_remove(output_modules, speechd_modules_terminate, NULL);
-
-    /* Make sure there aren't any more child processes left */
-    while(waitpid(-1, NULL, WNOHANG) > 0);    
-
-    /* Load new configuration */
-    load_default_global_set_options();
-
-    spd_num_options = 0;
-    spd_options = load_config_options(&spd_num_options);
-
-    /* Add the LAST option */
-    spd_options = add_config_option(spd_options, &spd_num_options, "", 0, NULL, NULL, 0);
-    
-    configfile = dotconf_create(configfilename, spd_options, 0, CASE_INSENSITIVE);
-    if (!configfile) DIE ("Error opening config file\n");
-    if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
-    dotconf_cleanup(configfile);
-
-    free_config_options(spd_options, &spd_num_options);
-    MSG(2,"Configuration has been read from \"%s\"", configfilename);
-}
-
-void
-speechd_reload_dead_modules(int sig)
-{
-    /* Reload dead modules */
-    g_hash_table_foreach(output_modules, speechd_modules_reload, NULL);
-
-    /* Make sure there aren't any more child processes left */
-    while(waitpid(-1, NULL, WNOHANG) > 0);    
-}
-
-/* Set alarm to the requested time in microseconds. */
-unsigned int
-speechd_alarm (unsigned int useconds)
-{
-    struct itimerval old, new;
-    new.it_interval.tv_usec = 0;
-    new.it_interval.tv_sec = 0;
-    new.it_value.tv_usec = (long int) useconds;
-    new.it_value.tv_sec = 0;
-    if (setitimer (ITIMER_REAL, &new, &old) < 0)
-        return 0;
-    else
-        return old.it_value.tv_sec;
-}
-
-
-void
-speechd_init(void)
-{
-    configfile_t *configfile = NULL;
-    char *configfilename = SYS_CONF"/speechd.conf" ;
-    int ret;
-    char *p;
-    int i;
-    int v;
-
-    max_uid = 0;
-
-    /* Initialize logging */
-    logfile = stdout;
-    custom_logfile = NULL;
-    custom_log_kind = NULL;
-
-    /* Initialize Speech Dispatcher priority queue */
-    MessageQueue = (TSpeechDQueue*) speechd_queue_alloc();
-    if (MessageQueue == NULL) FATAL("Couldn't alocate memmory for MessageQueue.");
-
-    /* Initialize lists */
-    MessagePausedList = NULL;
-    message_history = NULL;
-
-    /* Initialize hash tables */
-    fd_settings = g_hash_table_new(g_int_hash,g_int_equal);
-    assert(fd_settings != NULL);
-
-    fd_uid = g_hash_table_new(g_str_hash, g_str_equal);
-    assert(fd_uid != NULL);
-
-    language_default_modules = g_hash_table_new(g_str_hash, g_str_equal);
-    assert(language_default_modules != NULL);
-
-    output_modules = g_hash_table_new(g_str_hash, g_str_equal);
-    assert(output_modules != NULL);
-
-    o_bytes = (size_t*) spd_malloc(16*sizeof(size_t));
-    o_buf = (GString**) spd_malloc(16*sizeof(GString*));
-    awaiting_data = (int*) spd_malloc(16*sizeof(int));
-    inside_block = (int*) spd_malloc(16*sizeof(int));
-    fds_allocated = 16;
-
-    for(i=0;i<=15;i++){
-        awaiting_data[i] = 0;              
-        inside_block[i] = 0;              
-        o_buf[i] = 0;              
-    }
-
-    pause_requested = 0;
-    resume_requested = 0;
-
-    /* Perform some functionality tests */
-    if (g_module_supported() == FALSE)
-        DIE("Loadable modules not supported by current platform.\n");
-
-    if(_POSIX_VERSION < 199506L)
-        DIE("This system doesn't support POSIX.1c threads\n");
-
-    /* Fill GlobalFDSet with default values */
-    GlobalFDSet.min_delay_progress = 2000;
-
-    /* Initialize list of different client specific settings entries */
-    client_specific_settings = NULL;
-
-    /* Initialize mutexes, semaphores and synchronization */
-    ret = pthread_mutex_init(&element_free_mutex, NULL);
-    if(ret != 0) DIE("Mutex initialization failed");
-
-    ret = pthread_mutex_init(&output_layer_mutex, NULL);
-    if(ret != 0) DIE("Mutex initialization failed");
-
-    /* Create a SYS V semaphore */
-    MSG(4, "Creating semaphore");
-    speaking_sem_key = (key_t) 1228;
-    speaking_sem_id = speaking_semaphore_create(speaking_sem_key);
-    MSG(4, "Testing semaphore");
-    speaking_semaphore_post();
-    speaking_semaphore_wait();
-
-    /* Load configuration from the config file*/
-    speechd_load_configuration(0);
-
-    /* Check for output modules */
-    if (g_hash_table_size(output_modules) == 0){
-        DIE("No speech output modules were loaded - aborting...");
-    }else{
-        MSG(3,"Speech Dispatcher started with %d output module%s",
-            g_hash_table_size(output_modules),
-            g_hash_table_size(output_modules) > 1 ? "s" : "" );
-    }
-
-    max_gid = 0;
-    highest_priority = 0;
-}
-
+/* --- CLIENTS / CONNECTIONS MANAGING --- */
 
 /* activity is on server_socket (request for a new connection) */
 int
@@ -487,21 +262,330 @@ speechd_connection_destroy(int fd)
 	MSG(3,"Closing clients file descriptor %d", fd);
 
 	if(close(fd) != 0)
-		if(SPEECHD_DEBUG) DIE("Can't close file descriptor associated to this client");
+		if(SPEECHD_DEBUG)
+                    DIE("Can't close file descriptor associated to this client");
 	   	
 	FD_CLR(fd, &readfds);
-	if (fd == fdmax) fdmax--; /* this may not apply in all cases, but this is sufficient ... */
+	if (fd == fdmax) fdmax--;
 
         MSG(3,"Connection closed");
 
 	return 0;
 }
 
+gboolean
+speechd_client_terminate(gpointer key, gpointer value, gpointer user)
+{
+	TFDSetElement *set;
+
+	set = (TFDSetElement *) value;
+	if (set == NULL){
+		MSG(2, "Empty connection, internal error");
+		if(SPEECHD_DEBUG) FATAL("Internal error");
+		return TRUE;
+	}	
+
+	if(set->fd>0){
+		MSG(3,"Closing connection on fd %d\n", set->fd);
+		speechd_connection_destroy(set->fd);
+	}
+	mem_free_fdset(set);
+	return TRUE;
+}
+
+
+/* --- OUTPUT MODULES MANAGING --- */
+
+gboolean
+speechd_modules_terminate(gpointer key, gpointer value, gpointer user)
+{
+    OutputModule *module;
+
+    module = (OutputModule *) value;
+    if (module == NULL){
+        MSG(2,"Empty module, internal error");
+        return TRUE;
+    }
+    unload_output_module(module);		       
+
+    return TRUE;
+}
+
+void
+speechd_modules_reload(gpointer key, gpointer value, gpointer user)
+{
+    OutputModule *module;
+
+    module = (OutputModule *) value;
+    if (module == NULL){
+        MSG(2,"Empty module, internal error");
+        return;
+    }
+ 
+    reload_output_module(module);		       
+
+    return;
+}
+
+void
+speechd_reload_dead_modules(int sig)
+{
+    /* Reload dead modules */
+    g_hash_table_foreach(output_modules, speechd_modules_reload, NULL);
+
+    /* Make sure there aren't any more child processes left */
+    while(waitpid(-1, NULL, WNOHANG) > 0);    
+}
+
+
+/* --- SPEECHD START/EXIT FUNCTIONS --- */
+
+void
+speechd_init(void)
+{
+    configfile_t *configfile = NULL;
+    char *configfilename = SYS_CONF"/speechd.conf" ;
+    int ret;
+    char *p;
+    int i;
+    int v;
+
+    max_uid = 0;
+
+    /* Initialize logging */
+    logfile = stdout;
+    custom_logfile = NULL;
+    custom_log_kind = NULL;
+
+    /* Initialize Speech Dispatcher priority queue */
+    MessageQueue = (TSpeechDQueue*) speechd_queue_alloc();
+    if (MessageQueue == NULL) FATAL("Couldn't alocate memmory for MessageQueue.");
+
+    /* Initialize lists */
+    MessagePausedList = NULL;
+    message_history = NULL;
+
+    /* Initialize hash tables */
+    fd_settings = g_hash_table_new(g_int_hash,g_int_equal);
+    assert(fd_settings != NULL);
+
+    fd_uid = g_hash_table_new(g_str_hash, g_str_equal);
+    assert(fd_uid != NULL);
+
+    language_default_modules = g_hash_table_new(g_str_hash, g_str_equal);
+    assert(language_default_modules != NULL);
+
+    output_modules = g_hash_table_new(g_str_hash, g_str_equal);
+    assert(output_modules != NULL);
+
+    o_bytes = (size_t*) spd_malloc(16*sizeof(size_t));
+    o_buf = (GString**) spd_malloc(16*sizeof(GString*));
+    awaiting_data = (int*) spd_malloc(16*sizeof(int));
+    inside_block = (int*) spd_malloc(16*sizeof(int));
+    fds_allocated = 16;
+
+    for(i=0;i<=15;i++){
+        awaiting_data[i] = 0;              
+        inside_block[i] = 0;              
+        o_buf[i] = 0;              
+    }
+
+    pause_requested = 0;
+    resume_requested = 0;
+
+    /* Perform some functionality tests */
+    if (g_module_supported() == FALSE)
+        DIE("Loadable modules not supported by current platform.\n");
+
+    if(_POSIX_VERSION < 199506L)
+        DIE("This system doesn't support POSIX.1c threads\n");
+
+    /* Fill GlobalFDSet with default values */
+    GlobalFDSet.min_delay_progress = 2000;
+
+    /* Initialize list of different client specific settings entries */
+    client_specific_settings = NULL;
+
+    /* Initialize mutexes, semaphores and synchronization */
+    ret = pthread_mutex_init(&element_free_mutex, NULL);
+    if(ret != 0) DIE("Mutex initialization failed");
+
+    ret = pthread_mutex_init(&output_layer_mutex, NULL);
+    if(ret != 0) DIE("Mutex initialization failed");
+
+    /* Create a SYS V semaphore */
+    MSG(4, "Creating semaphore");
+    speaking_sem_key = ftok(speechd_pid_file, 1);
+    speaking_sem_id = speaking_semaphore_create(speaking_sem_key);
+    MSG(4, "Testing semaphore");
+    speaking_semaphore_post();
+    speaking_semaphore_wait();
+
+    /* Load configuration from the config file*/
+    speechd_load_configuration(0);
+
+    /* Check for output modules */
+    if (g_hash_table_size(output_modules) == 0){
+        DIE("No speech output modules were loaded - aborting...");
+    }else{
+        MSG(3,"Speech Dispatcher started with %d output module%s",
+            g_hash_table_size(output_modules),
+            g_hash_table_size(output_modules) > 1 ? "s" : "" );
+    }
+
+    max_gid = 0;
+    highest_priority = 0;
+}
+
+void
+speechd_load_configuration(int sig)
+{
+    char *configfilename = SYS_CONF"/speechd.conf";
+    configfile_t *configfile = NULL;
+
+    /* Clean previous configuration */
+    assert(output_modules != NULL);
+    g_hash_table_foreach_remove(output_modules, speechd_modules_terminate,
+                                NULL);
+
+    /* Make sure there aren't any more child processes left */
+    while(waitpid(-1, NULL, WNOHANG) > 0);    
+
+    /* Load new configuration */
+    load_default_global_set_options();
+
+    spd_num_options = 0;
+    spd_options = load_config_options(&spd_num_options);
+
+    /* Add the LAST option */
+    spd_options = add_config_option(spd_options, &spd_num_options, "", 0,
+                                    NULL, NULL, 0);
+    
+    configfile = dotconf_create(configfilename, spd_options, 0, CASE_INSENSITIVE);
+    if (!configfile) DIE ("Error opening config file\n");
+    if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
+    dotconf_cleanup(configfile);
+
+    free_config_options(spd_options, &spd_num_options);
+    MSG(2,"Configuration has been read from \"%s\"", configfilename);
+}
+	
+void
+speechd_quit(int sig)
+{
+	int ret;
+	
+	MSG(1, "Terminating...");
+
+	MSG(2, "Closing open connections...");
+	/* We will browse through all the connections and close them. */
+	g_hash_table_foreach_remove(fd_settings, speechd_client_terminate, NULL);
+	g_hash_table_destroy(fd_settings);
+	
+	MSG(2,"Closing open output modules...");
+	/*  Call the close() function of each registered output module. */
+	g_hash_table_foreach_remove(output_modules, speechd_modules_terminate, NULL);
+	g_hash_table_destroy(output_modules);
+	
+	MSG(2,"Closing server connection...");
+	if(close(server_socket) == -1)
+            MSG(2, "close() failed: %s", strerror(errno));
+	FD_CLR(server_socket, &readfds);
+	
+	MSG(2,"Closing speak() thread...");
+	ret = pthread_cancel(speak_thread);
+	if(ret != 0) FATAL("Speak thread failed to cancel!\n");
+	
+	ret = pthread_join(speak_thread, NULL);
+	if(ret != 0) FATAL("Speak thread failed to join!\n");
+
+        MSG(2, "Removing semaphore");
+	speaking_semaphore_destroy();
+
+        MSG(2, "Removing pid file");
+	destroy_pid_file();
+
+	fflush(NULL);
+
+        MSG(2,"Speech Dispatcher terminated correctly");
+
+	exit(0);	
+}
+
+
+/* --- PID FILES --- */
+
+int
+create_pid_file()
+{
+    FILE *pid_file;
+    int pid_fd;
+    struct flock lock;
+    int ret;    
+      
+    /* If the file exists, examine it's lock */
+    pid_file = fopen(speechd_pid_file, "r");
+    if (pid_file != NULL){
+        pid_fd = fileno(pid_file);
+
+        lock.l_type = F_WRLCK;
+        lock.l_whence = SEEK_SET;
+        lock.l_start = 1;
+        lock.l_len = 3;
+
+        /* If there is a lock, exit, otherwise remove the old file */
+        ret = fcntl(pid_fd, F_GETLK, &lock);
+        if (ret == -1){
+            fprintf(stderr, "Can't check lock status of an existing pid file.\n");
+            return -1;
+        }
+
+        fclose(pid_file);
+        if (lock.l_type != F_UNLCK){
+            fprintf(stderr, "Speech Dispatcher already running.\n");
+            return -1;
+        }
+
+        unlink(speechd_pid_file);        
+    }    
+    
+    /* Create a new pid file and lock it */
+    pid_file = fopen(speechd_pid_file, "w");
+    if (pid_file == NULL){
+        fprintf(stderr, "Can't create pid file in /var/run/, wrong permissions?\n");
+        return -1;
+    }
+    fprintf(pid_file, "%d\n", getpid());
+    fflush(pid_file);
+
+    pid_fd = fileno(pid_file);
+    lock.l_type = F_WRLCK;
+    lock.l_whence = SEEK_SET;
+    lock.l_start = 1;
+    lock.l_len = 3;
+
+    ret = fcntl(pid_fd, F_SETLK, &lock);
+    if (ret == -1){
+        fprintf(stderr, "Can't set lock on pid file.\n");
+        return -1;
+    }
+
+    return 0;
+}
+
+void
+destroy_pid_file()
+{
+    unlink(speechd_pid_file);
+}
+
+
+/* --- MAIN --- */
 
 int
 main(int argc, char *argv[])
 {
-    struct sockaddr_in server_address;
+    struct sockaddr_in server_address;    
     fd_set testfds;
     int i, v;
     int fd;
@@ -512,6 +596,9 @@ main(int argc, char *argv[])
     spd_mode = SPD_MODE_DAEMON;
 
     options_parse(argc, argv);
+
+    speechd_pid_file = strdup("/var/run/speechd.pid");
+    if (create_pid_file() == -1) exit(1);
 
     /* Don't print anything on console... */
     if (spd_mode == SPD_MODE_DAEMON){
@@ -526,11 +613,16 @@ main(int argc, char *argv[])
     (void) signal(SIGUSR1, speechd_reload_dead_modules);
 
     /* Fork, set uid, chdir, etc. */
-    if (spd_mode == SPD_MODE_DAEMON) daemon(0,0);	   
+    if (spd_mode == SPD_MODE_DAEMON){
+        daemon(0,0);	   
+        /* Re-create the pid file under this process */
+        unlink(speechd_pid_file);
+        if (create_pid_file() == -1) return -1;
+    }
 
     speechd_init();
 
-    MSG(3,"Creating new thread for speak()");
+    MSG(4,"Creating new thread for speak()");
     ret = pthread_create(&speak_thread, NULL, speak, NULL);
     if(ret != 0) FATAL("Speak thread failed!\n");
 
@@ -540,7 +632,7 @@ main(int argc, char *argv[])
       const int flag = 1;
       if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &flag,
                      sizeof (int)))
-        MSG(2,"Setting socket option failed");
+        MSG(2,"Setting socket option failed!");
     }
 
     server_address.sin_family = AF_INET;
@@ -548,13 +640,16 @@ main(int argc, char *argv[])
     server_address.sin_port = htons(spd_port);
 
     MSG(2,"Openning a socket connection");
-    if (bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address)) == -1){
+    if (bind(server_socket, (struct sockaddr *)&server_address,
+             sizeof(server_address)) == -1){
         MSG(1, "bind() failed: %s", strerror(errno));
         FATAL("Couldn't open socket, try a few minutes later.");
     }
 
-    /* Create a connection queue and initialize readfds to handle input from server_socket. */
-    if (listen(server_socket, 5) == -1) FATAL("listen() failed, another Speech Dispatcher running?");
+    /* Create a connection queue and initialize readfds to handle input
+       from server_socket. */
+    if (listen(server_socket, 5) == -1)
+        FATAL("listen() failed, another Speech Dispatcher running?");
 
     FD_ZERO(&readfds);
     FD_SET(server_socket, &readfds);
@@ -577,7 +672,7 @@ main(int argc, char *argv[])
                         /* server activity (new client) */
                         ret = speechd_connection_new(server_socket);
                         if (ret!=0){
-                            MSG(2,"Failed to add new client");
+                            MSG(2,"Error: Failed to add new client!");
                             if (SPEECHD_DEBUG) FATAL("Failed to add new client");
                         }						
                     }else{	
@@ -588,10 +683,11 @@ main(int argc, char *argv[])
                         if (nread == 0) {
                             /* client has gone */
                             speechd_connection_destroy(fd);
-                            if (ret!=0) MSG(2,"Failed to close the client");
+                            if (ret!=0) MSG(2,"Error: Failed to close the client!");
                         }else{
                             /* client sends some commands or data */
-                            if (serve(fd) == -1) MSG(2,"Failed to serve client on fd %d!",fd);
+                            if (serve(fd) == -1)
+                                MSG(2,"Error: Failed to serve client on fd %d!",fd);
                         }
                     }
                 }
