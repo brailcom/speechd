@@ -1,3 +1,43 @@
+2003-09-07  Hynek Hanke  <hanke@volny.cz>
+
+	* Big changes in output modules and communication with output modules.
+	
+	* Client-specific configuration.
+
+	* src/modules/module_utils_audio.c: New file.
+
+	* src/modules/module_utils_addvoice.c: New file.
+
+	* src/modules/module_main.c: New file.
+
+	* src/server/sem_functions.h: New file.
+
+	* src/server/sem_functions.c: New file.
+
+	* src/modules/module_utils_addvoice.c: New file.
+
+	* src/modules/cstsnd.c (_cstsnd_synth): Bug with pointer to signal set fixed.
+	(module_stop): Kill the process group, not just the process that calls ogg123 etc.
+
+	* src/audio/spd_audio.c (spd_audio_play_file_wav): Check if the file really exists.
+
+	* src/modules/module_utils_audio.c: New file.
+
+
+	* src/modules/module_utils.c (xfree): Direct the pointer to NULL after freeing the memmory.
+
+2003-09-03  Hynek Hanke  <hanke@volny.cz>
+
+	* intl/fdset.h (TFDSetElement): Fixed comment on languages.
+
+2003-08-31  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/output.h: New header file.
+
+	* src/server/output.c: New file: output layer.
+
+	* intl/module.h: Definition of new output module (and communication).
+
 2003-08-11  Hynek Hanke  <hanke@volny.cz>
 
 	* src/modules/Makefile.am: Include festival_client.{c,h} and module_utils.c in
