@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: nas.c,v 1.3 2004-12-09 23:47:34 hanke Exp $
+ * $Id: nas.c,v 1.4 2004-12-10 12:32:51 hanke Exp $
  */
 
 /* Internal event handler */
@@ -36,11 +36,10 @@ _nas_handle_events(void *par)
 /* NAS Server error handler */
 /* Unfortunatelly we can't return these errors to the caller
    since this handler gets called in the event handler thread. */
-#define DBG(par...) fprintf(stderr, par);
 AuBool
 _nas_handle_server_error(AuServer *server, AuErrorEvent *event)
 {
-    DBG("ERROR: Non-fatal server error in NAS\n");
+    fprintf(stderr,"ERROR: Non-fatal server error in NAS\n");
 
     if (event->type != 0){
 	DBG("Event of a different type received in NAS error handler.");
@@ -50,15 +49,14 @@ _nas_handle_server_error(AuServer *server, AuErrorEvent *event)
     /* It's a pain but we can't ask for string return code
      since it's not allowed to talk to the server inside error handlers
      because of possible deadlocks. */
-    DBG("NAS: Serial number of failed request: %d\n", event->serial);
-    DBG("NAS: Error code: %d\n", event->error_code);
-    DBG("NAS: Resource id: %d\n", event->resourceid);
-    DBG("NAS: Request code: %d\n", event->request_code);
-    DBG("NAS: Minor code: %d\n\n", event->minor_code);
+    fprintf(stderr,"NAS: Serial number of failed request: %d\n", event->serial);
+    fprintf(stderr,"NAS: Error code: %d\n", event->error_code);
+    fprintf(stderr,"NAS: Resource id: %d\n", event->resourceid);
+    fprintf(stderr,"NAS: Request code: %d\n", event->request_code);
+    fprintf(stderr,"NAS: Minor code: %d\n\n", event->minor_code);
 
     return 0;
 }
-#undef DBG
 
 int
 nas_open(AudioID *id, void **pars)
