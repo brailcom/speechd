@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.10 2003-05-21 16:39:09 hanke Exp $
+  * $Id: speaking.c,v 1.11 2003-05-25 21:08:44 hanke Exp $
   */
 
 #include <glib.h>
@@ -40,6 +40,7 @@ speak(void* data)
     char *buffer;
     int ret;
     sigset_t all_signals;
+    TSpeechDMessage *msg;
 
     ret = sigfillset(&all_signals);
     if (ret == 0){
@@ -72,10 +73,18 @@ speak(void* data)
             if(g_list_length(MessageQueue->p3) != 0){
                 /* Stop all other priority 3 messages but leave the first */
                 gl = g_list_last(MessageQueue->p3); 
-                MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
-                stop_p3();
-                /* Fill the queue with the list containing only the first message */
-                MessageQueue->p3 = gl;
+                
+                assert(gl!=NULL);
+                assert(gl->data != NULL);
+
+                msg = (TSpeechDMessage*) gl->data;
+                if (msg->settings.reparted != 1){                
+                    MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
+                    stop_p3();
+                    /* Fill the queue with the list containing only the first message */
+                    MessageQueue->p3 = gl;
+                }
+
             }
 
             /* Check if sb is speaking or they are all silent. 
@@ -169,9 +178,7 @@ speak(void* data)
                 msgs_to_say--;
                 pthread_mutex_unlock(&element_free_mutex);
                 continue;				
-            }
-            
-        
+            }                    
 
             /* TODO: There is a problem. This can take time, but we are
              * working under a locked mutex and blocking the second thread! */
@@ -182,14 +189,16 @@ speak(void* data)
                 pthread_mutex_unlock(&element_free_mutex);
                 buffer = (char*) process_message(element->buf, element->bytes, &(element->settings));
                 if (buffer == NULL){
-                    MSG(3,"Processing message unsuccesful, using raw text!");
-                    buffer = element->buf;
+                    mem_free_message(element);
+                    msgs_to_say--;
+                    continue;
                 }
             	pthread_mutex_lock(&element_free_mutex);
                 if (buffer == NULL) continue;
                 if (strlen(buffer) <= 0) continue;
             }else{
                 MSG(4, "Passing message as it is...");
+                MSG(5, "Message text: |%s|", element->buf);
                 buffer = element->buf;
             }
 
@@ -277,7 +286,7 @@ speaking_pause(int fd, int uid)
     assert(new->buf != NULL);
     new->buf[new->bytes] = 0;
 
-    if(queue_message(new, fd, 0, MSGTYPE_TEXT) != 0){
+    if(queue_message(new, fd, 0, MSGTYPE_TEXT, 0) != 0){
         if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
         free(new->buf);
         free(new);
