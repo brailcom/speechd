@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.17 2003-09-28 22:28:17 hanke Exp $
+ * $Id: module_utils.c,v 1.18 2003-10-01 06:43:46 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -804,14 +804,15 @@ module_semaphore_init()
 }
 
 static char *
-module_recode_to_iso(char *data, int bytes, char *language)
+module_recode_to_iso(char *data, int bytes, char *language, char *fallback)
 {
     char *recoded;
     
     if (language == NULL) recoded = strdup(data);
 
     if (!strcmp(language, "cs"))
-        recoded = (char*) g_convert_with_fallback(data, bytes, "ISO8859-2", "UTF-8", "?", NULL, NULL, NULL);
+        recoded = (char*) g_convert_with_fallback(data, bytes, "ISO8859-2", "UTF-8",
+                                                  fallback, NULL, NULL, NULL);
     else
         recoded = strdup(data);
 
