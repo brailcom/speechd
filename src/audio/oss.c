@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: oss.c,v 1.1 2004-11-14 11:52:11 hanke Exp $
+ * $Id: oss.c,v 1.2 2004-11-14 23:20:18 hanke Exp $
  */
 
 /* Open OSS device
@@ -90,12 +90,17 @@ oss_play(AudioID *id, AudioTrack track)
     float real_volume;
     int i;
 
+
+    AudioTrack track_volume;
+
     if (id == NULL) return -1;
 
-    /* Adjust the volume */
+    /* Create a copy of track with the adjusted volume */
+    track_volume = track;
+    track_volume.samples = malloc(sizeof(short)*track.num_samples);
     real_volume = ((float) id->volume + 100)/(float)200;
     for (i=0; i<=track.num_samples-1; i++)
-	track.samples[i] = track.samples[i] * real_volume;
+	track_volume.samples[i] = track.samples[i] * real_volume;
 
     /* Choose the correct format */
     if (track.bits == 16)
@@ -147,7 +152,7 @@ oss_play(AudioID *id, AudioTrack track)
     /* Loop until all samples are played on the device.
        In the meantime, wait in pthread_cond_timedwait for more data
        or for interruption. */
-    output_samples = track.samples;
+    output_samples = track_volume.samples;
     num_bytes = track.num_samples*2;
     while(num_bytes > 0) {
 	/* A non-blocking write */
