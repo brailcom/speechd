@@ -22,12 +22,49 @@ called 'Client'.
 """
 
 import socket
+import string
 
 SPEECH_PORT = 9876
+"""Default port number for server connections."""
 
+RECV_BUFFER_SIZE = 255
+"""Size of buffer for receiving server responses (just one line)."""
+
+class _CommunicationError(Exception):
+    def __init__(self, code, msg, data):
+        Exception.__init__(self, "%s: %s" % (code, msg))
+        self._code = code
+        self._msg = msg
+        self._data = data
+
+    def code(self):
+        """Return the server response error code as integer number."""
+        return self._code
+        
+    def msg(self):
+        """Return server response error message as string."""
+        return self._msg
+
+    
+class CommandError(_CommunicationError):
+    """Exception risen after receiving error response when command was sent."""
+
+    def command(self):
+        """Return the command string which resulted in this error."""
+        return self._data
+
+    
+class SendDataError(_CommunicationError):
+    """Exception risen after receiving error response when data were sent."""
+
+    def data(self):
+        """Return the data which resulted in this error."""
+        return self._data
+        
+        
 class Client:
-    def __init__(self, client_name, conn_name, host='127.0.0.1',
-                 port=SPEECH_PORT):
+    def __init__(self, client_name='python', conn_name='001',
+                 host='127.0.0.1', port=SPEECH_PORT):
         """Initialize the instance and connect to the server.
 
         Arguments:
@@ -48,81 +85,91 @@ class Client:
         self._send_command('SET', 'CLIENT_NAME', name)
         
     def _send_command(self, command, *args):
-        cmd = ' '.join((command,) + args) + "\r\n"
+        # send command with given arguments and check server responsse.
+        cmd = ' '.join((command,) + tuple(map(str, args))) + "\r\n"
         self._socket.send(cmd)
-        # TODO: handle errors
+        code, msg = self._recv_response()
+        if code/100 != 2:
+            raise CommandError(code, msg, cmd)
+        return code, msg
 
+    def _send_data(self, data):
+        # send data and check server responsse.
+        escaped = string.replace(data, "\r\n.\r\n", "\r\n..\r\n")
+        self._socket.send(escaped + "\r\n.\r\n")
+        code, msg = self._recv_response()
+        if code/100 != 2:
+            raise SendDataError(code, msg, escaped)
+        return code, msg
+        
+    def _recv_response(self):
+        msg = ''
+        code = None
+        while (1):
+            response = self._socket.recv(RECV_BUFFER_SIZE)
+            msg = msg + response[4:]
+            c = int(response[:3])
+            assert code is None or code == c
+            code = c
+            if response[3] == ' ':
+                break
+        return code, msg
+        
     def close(self):
+        self._send_command('BYE')
         self._socket.close()
         
+    def stop(self):
+        self._send_command('STOP')
 
+    def say(self, text, priority=2):
+        self._send_command('SET', 'PRIORITY', str(priority))
+        self._send_command('SPEAK')
+        self._send_data(text)
+        
+#    def get_client_list(self):
+#        code, list = self.send_command('HISTORY', 'GET', 'CLIENT_LIST')
+        
+        
 # int
-# spd_say(int fd, int priority, char* text)
-# {
-#   static char helper[256];
-#   char *buf;
-#   static int i;
-#   static char *pos;
+# spd_get_client_list(int fd, char **client_names, int *client_ids, int* active){
+# 	char command[128];
+# 	char *reply;
+# 	int footer_ok;
+# 	int count;
+# 	char *record;
+# 	int record_int;
+# 	char *record_str;	
 
-#   sprintf(helper, "SET PRIORITY %d\r\n", priority);
-#   if(!ret_ok(send_data(fd, helper, 1))){
-# 		  if(LIBSPEECHD_DEBUG) printf("Can't set priority");
-# 		  return -1;
+# 	sprintf(command, "HISTORY GET CLIENT_LIST\r\n");
+# 	reply = (char*) send_data(fd, command, 1);
+
+# 	footer_ok = parse_response_footer(reply);
+# 	if(footer_ok != 1){
+# 		free(reply);
+# 		return -1;
 # 	}
-		  
-#   /* This needs to be fixed! */
-# //  while(pos = (char*) strstr(text,"\r\n.\r\n")){
-# //	text[pos-text+3] = ' ';
-#  // }
-  
-#   sprintf(helper, "SPEAK\r\n");
-#   if(!ret_ok(send_data(fd, helper, 1))){
-# 		  if(LIBSPEECHD_DEBUG) printf("Can't start data flow");
-# 		  return -1;
-# 	}
-  
-#   buf = malloc((strlen(text) + 16)*sizeof(char));
-#   if (buf == NULL) FATAL ("Not enough memory.\n");
-#   sprintf(buf, "%s\r\n", text); 
-#   send_data(fd, buf, 0);
-
-#   sprintf(helper, "\r\n.\r\n");
-#   if(!ret_ok(send_data(fd, helper, 1))){
-# 		  if(LIBSPEECHD_DEBUG) printf("Can't terminate data flow");
-# 		  return -1; 
-#   }
-
-#   return 0;
-# }
-
-# int
-# spd_sayf(int fd, int priority, char *format, ...)
-# {
-# 	va_list args;
-# 	char *buf;
-# 	int ret;
 	
-# 	buf = malloc(strlen(format)*3+4096);	// TODO: solve this problem!!!
-	
-# 	va_start(args, format);
-# 	vsprintf(buf, format, args);
-# 	va_end(args);
-
-# 	ret = spd_say(fd, priority, buf);	
-# 	return ret;
+# 	for(count=0;  ;count++){
+# 		record = (char*) parse_response_data(reply, count+1);
+# 		if (record == NULL) break;
+# //		MSG(3,"record:(%s)\n", record);
+# 		record_int = get_rec_int(record, 0);
+# 		client_ids[count] = record_int;
+# //		MSG(3,"record_int:(%d)\n", client_ids[count]);
+# 		record_str = (char*) get_rec_str(record, 1);
+# 		assert(record_str!=NULL);
+# 		client_names[count] = record_str;
+# //		MSG(3,"record_str:(%s)\n", client_names[count]);		
+# 		record_int = get_rec_int(record, 2);
+# 		active[count] = record_int;
+# //		MSG(3,"record_int:(%d)\n", active[count]);		
+# 	}	
+# 	return count;
 # }
 
-# int
-# spd_stop(int fd)
-# {
-#   char helper[32];
 
-#   sprintf(helper, "STOP\r\n");
-#   if(!ret_ok(send_data(fd, helper, 1))) return -1;
-
-#   return 0;
-# }
-
+        
 # int
 # spd_stop_fd(int fd, int target)
 # {
@@ -303,42 +350,6 @@ class Client:
 #  * output every time there is some input to this command line.
 #  */
 
-# int
-# spd_get_client_list(int fd, char **client_names, int *client_ids, int* active){
-# 	char command[128];
-# 	char *reply;
-# 	int footer_ok;
-# 	int count;
-# 	char *record;
-# 	int record_int;
-# 	char *record_str;	
-
-# 	sprintf(command, "HISTORY GET CLIENT_LIST\r\n");
-# 	reply = (char*) send_data(fd, command, 1);
-
-# 	footer_ok = parse_response_footer(reply);
-# 	if(footer_ok != 1){
-# 		free(reply);
-# 		return -1;
-# 	}
-	
-# 	for(count=0;  ;count++){
-# 		record = (char*) parse_response_data(reply, count+1);
-# 		if (record == NULL) break;
-# //		MSG(3,"record:(%s)\n", record);
-# 		record_int = get_rec_int(record, 0);
-# 		client_ids[count] = record_int;
-# //		MSG(3,"record_int:(%d)\n", client_ids[count]);
-# 		record_str = (char*) get_rec_str(record, 1);
-# 		assert(record_str!=NULL);
-# 		client_names[count] = record_str;
-# //		MSG(3,"record_str:(%s)\n", client_names[count]);		
-# 		record_int = get_rec_int(record, 2);
-# 		active[count] = record_int;
-# //		MSG(3,"record_int:(%d)\n", active[count]);		
-# 	}	
-# 	return count;
-# }
 
 # int
 # spd_get_message_list_fd(int fd, int target, int *msg_ids, char **client_names)
@@ -621,6 +632,3 @@ class Client:
 #     }
 #     return 1;
 # }
-
-        
-
