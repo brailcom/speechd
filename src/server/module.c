@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.19 2004-03-08 21:25:31 hanke Exp $
+ * $Id: module.c,v 1.20 2004-07-21 08:15:56 hanke Exp $
  */
 
 #include <sys/wait.h>
@@ -109,8 +109,58 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile)
             destroy_module(module);
             return NULL;
         }
+
         module->working = 1;
         MSG(2, "Module %s loaded.", module->name);        
+
+	MSG(4, "Trying to initialize %s.", module->name);
+	if (output_send_data("INIT\n", module, 0) != 0){
+	    MSG(1, "ERROR: Something wrong with %s, can't initialize", module->name);
+	    return NULL;
+	}else{
+	    char *rep_line = malloc(1024);
+	    FILE *f;
+	    int n = 1024;
+	    char s;
+	    GString *reply;
+
+	    reply = g_string_new("\n---------------\n");
+	    f = fdopen(dup(module->pipe_out[0]), "r");
+	    while(1){
+		ret = getline(&rep_line, &n, f);
+		if (ret <= 0){
+		    MSG(1, "ERROR: Bad syntax from output module %s 1", module->name);
+		    return NULL;
+		}
+		assert(rep_line != NULL);
+		MSG(5, "Reply from output module: %d %s", n, rep_line);
+		if (strlen(rep_line) <= 4){
+		    MSG(1, "ERROR: Bad syntax from output module %s 2", module->name);
+		    return NULL;
+		}
+
+		if (rep_line[3] == '-') g_string_append(reply, rep_line + 4);
+		else{
+		    s = rep_line[0];
+		    spd_free(rep_line);
+		    break;
+		}
+
+	    }
+	    fclose(f);
+	    g_string_append_printf(reply, "---------------\n");
+
+	    if (s == '2') MSG(2, "Module %s started sucessfully with message: %s", module->name, reply->str);
+	    else if (s == '3'){
+		MSG(1, "ERROR: Module %s failed to initialize. Reason: %s", module->name, reply->str);
+		module->working = 0;
+		kill(module->pid, 9);
+		waitpid(module->pid, NULL, WNOHANG);
+		destroy_module(module);
+		return NULL;
+	    }
+	    g_string_free(reply, 1);
+	}
 
         return module;
     }
