@@ -1,4 +1,4 @@
-_
+
 /*
  * festival.c - Speech Dispatcher backend for Festival
  *
@@ -19,7 +19,7 @@ _
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.47 2004-04-04 21:09:54 hanke Exp $
+ * $Id: festival.c,v 1.48 2004-04-04 21:33:22 hanke Exp $
  */
 
 #include "fdset.h"
