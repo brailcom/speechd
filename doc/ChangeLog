@@ -1,3 +1,10 @@
+2003-04-16  Milan Zamazal  <pdm@brailcom.org>
+
+	* version.texi: Changed to 0.0.
+
+	* speechd.texi: Authors fixed.
+	(History handling commands): New command HISTORY SORT.
+
 2003-04-15  Milan Zamazal  <pdm@brailcom.org>
 
 	* fdl.texi: New file.
