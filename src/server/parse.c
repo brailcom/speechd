@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.55 2003-10-21 22:57:52 hanke Exp $
+ * $Id: parse.c,v 1.56 2003-10-21 23:35:35 hanke Exp $
  */
 
 #include "speechd.h"
@@ -812,11 +812,10 @@ deescape_dot(char *otext)
         }
     }
 
-    if (strlen(otext) >= 4){
-        if ((otext[0] == '.') && (otext[1] == '.')
-            && (otext[2] == '\r') && (otext[3] == '\n')){
-            g_string_append(ntext, ".\r\n");
-            otext = otext+4;
+    if (strlen(otext) >= 2){
+        if ((otext[0] == '.') && (otext[1] == '.')){
+            g_string_append(ntext, ".");
+            otext = otext+2;
         }
     }
 
