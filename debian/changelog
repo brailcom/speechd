@@ -1,3 +1,9 @@
+speechd (0.0-9) unstable; urgency=low
+
+  * Work around invalid installation libtool paths.
+
+ -- Milan Zamazal <pdm@brailcom.org>  Sat, 17 May 2003 15:08:28 +0200
+
 speechd (0.0-8) unstable; urgency=low
 
   * Build-Depends: g++-2.95 added.

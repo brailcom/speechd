@@ -51,6 +51,7 @@ install: build
 	dh_testroot
 	dh_clean -k
 	dh_installdirs
+	find -name '*.la' -exec rm {} \; # to avoid invalid libtool paths
 	$(MAKE) install prefix=$(CURDIR)/debian/speechd/usr sysconfdir=$(CURDIR)/debian/speechd/etc/speechd
 
 
