@@ -41,6 +41,16 @@ class Client(unittest.TestCase):
         c.say("I am quick Dick.")
         c.set_rate(-100)
         c.say("I am slow Joe.")
+        c.set_rate(0)
+        c.set_volume(0)
+        c.say("I am quite Mariette.")
+        c.set_volume(100)
+    
+        c.say("Now some other commands:")
+        c.char("a")
+        c.key("shift_b")
+        c.sound_icon("empty")
+        
         c.close()
 tests.add(Client)
 
