@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.33 2003-06-08 22:19:29 hanke Exp $
+ * $Id: speechd.c,v 1.34 2003-06-20 00:50:17 hanke Exp $
  */
 
 #include "speechd.h"
@@ -41,20 +41,19 @@ MSG(int level, char *format, ...)
     if(level <= spd_log_level){
         va_list args;
         int i;
-        char *format_with_spaces;
 		
-        format_with_spaces = (char*) spd_malloc(sizeof(char)*(strlen(format) + 3*level + 1));
-        format_with_spaces[0] = '\0';
-        for(i=1;i<level;i++){
-            strcat(format_with_spaces, "  ");
+        va_start(args, format);
+        {
+            for(i=1;i<level;i++){
+                fprintf(logfile, "  ");
+            }
+            vfprintf(logfile, format, args);
+            fprintf(logfile, "\n");
+            
+            if(SPEECHD_DEBUG) vfprintf(stdout, format, args);
         }
-        strcat(format_with_spaces, format);
-        strcat(format_with_spaces, "\n");
-        va_start(args, format_with_spaces);
-        vfprintf(logfile, format_with_spaces, args);
-        if(SPEECHD_DEBUG) vfprintf(stdout, format_with_spaces, args);
         va_end(args);
-        free(format_with_spaces);
+
     }				
 }
 
@@ -143,6 +142,7 @@ speechd_reload_configuration(int sig)
     if (!configfile) DIE ("Error opening config file\n");
     if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
     dotconf_cleanup(configfile);
+
     MSG(1,"Configuration has been read from \"%s\"", configfilename);
 }
 
@@ -169,7 +169,6 @@ speechd_alarm (unsigned int useconds)
 }
 
 
-
 void
 speechd_init()
 {
@@ -183,12 +182,13 @@ speechd_init()
     max_uid = 0;
 
     /* Initialize logging */
-    logfile = malloc(sizeof(FILE));
     logfile = stdout;
 	
     /* Initialize Speech Dispatcher priority queue */
     MessageQueue = (TSpeechDQueue*) speechd_queue_alloc();
     if (MessageQueue == NULL) FATAL("Couldn't alocate memmory for MessageQueue.");
+
+    num_config_options = 0;
 
     /* Initialize lists */
     MessagePausedList = NULL;
@@ -207,12 +207,13 @@ speechd_init()
     output_modules = g_hash_table_new(g_str_hash, g_str_equal);
     assert(output_modules != NULL);
 
-    o_bytes = (int*) spd_malloc(16*sizeof(int));
+    o_bytes = (size_t*) spd_malloc(16*sizeof(size_t));
     o_buf = (GString**) spd_malloc(16*sizeof(GString*));
     awaiting_data = (int*) spd_malloc(16*sizeof(int));
     fds_allocated = 16;
 
     for(i=0;i<=15;i++) awaiting_data[i] = 0;              
+    for(i=0;i<=15;i++) o_buf[i] = 0;              
 
     /* Initialize lists of available tables */
     tables.sound_icons = NULL;
@@ -240,6 +241,17 @@ speechd_init()
     if (ret != 0) DIE("Semaphore initialization failed");
 
     /* Load configuration from the config file*/
+    load_config_options();
+
+    configfile = dotconf_create(configfilename, first_run_options, 0, CASE_INSENSITIVE);
+    if (!configfile) DIE ("Error opening config file\n");
+    if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
+    dotconf_cleanup(configfile);
+    MSG(4,"Configuration (pre) has been read from \"%s\"", configfilename);    
+
+    /* Add the LAST option */
+    options = add_config_option(options, "", 0, NULL, NULL, 0);
+
     configfile = dotconf_create(configfilename, options, 0, CASE_INSENSITIVE);
     if (!configfile) DIE ("Error opening config file\n");
     if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
@@ -283,13 +295,16 @@ speechd_connection_new(int server_socket)
     MSG(3,"Adding client on fd %d", client_socket);
 
     /* Check if there is space for server status data; allocate it */
-    if(client_socket >= fds_allocated){
-        o_bytes = (int*) realloc(o_bytes, client_socket * 2 * sizeof(int));
+    if(client_socket >= fds_allocated-1){
+        o_bytes = (size_t*) realloc(o_bytes, client_socket * 2 * sizeof(size_t));
         awaiting_data = (int*) realloc(awaiting_data, client_socket * 2 * sizeof(int));
         o_buf = (GString**) realloc(o_buf, client_socket * 2 * sizeof(GString*));
+        fds_allocated *= 2;
     }
-
+    o_buf[client_socket] = g_string_new("");
+    o_bytes[client_socket] = 0;
     awaiting_data[client_socket] = 0;
+    
 
     /* Create a record in fd_settings */
     new_fd_set = (TFDSetElement *) default_fd_set();
