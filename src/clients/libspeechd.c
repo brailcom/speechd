@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.8 2003-03-12 18:39:21 pdm Exp $
+ * $Id: libspeechd.c,v 1.9 2003-03-12 22:21:26 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -87,14 +87,20 @@ spd_close(int fd)
 int
 spd_say(int fd, int priority, char* text)
 {
-  char helper[256];
+  static char helper[256];
   char *buf;
+  static int i;
+  static char *pos;
 
   sprintf(helper, "@set priority %d\n\r", priority);
-  if(!ret_ok(send_data(fd, helper, 1))) return 0;
+  if(!ret_ok(send_data(fd, helper, 1))) return -1;
 
+  while(pos = strstr(text,"@data off")){
+	text[pos-text] = 'a';
+  }
+  
   sprintf(helper, "@data on\n\r");
-  if(!ret_ok(send_data(fd, helper, 1))) return 0;
+  if(!ret_ok(send_data(fd, helper, 1))) return -1;
 
   buf = malloc((strlen(text) + 4)*sizeof(char));
   if (buf == NULL) FATAL ("Not enough memory.\n");
@@ -108,11 +114,13 @@ spd_say(int fd, int priority, char* text)
 }
 
 int
-spd_sayf (int fd, int priority, char *format, ...)
+spd_sayf(int fd, int priority, char *format, ...)
 {
 	va_list args;
-	char buf[512];
+	char *buf;
 	int ret;
+	
+	buf = malloc(strlen(format)*3+4096);	// TODO: solve this problem!!
 	
 	va_start(args, format);
 	vsprintf(buf, format, args);
@@ -249,37 +257,37 @@ spd_say_key(int fd, int priority, int c)
 int
 spd_voice_rate(int fd, int rate)
 {
-	assert(rate>=-100);
-	assert(rate<=100);
+	if(rate < -100) return -1;
+	if(rate > +100) return -1;
 	return 0;
 }
 
 int
 spd_voice_pitch(int fd, int pitch)
 {
-	assert(pitch>=-100);
-	assert(pitch<=100);
+	if(pitch < -100) return -1;
+	if(pitch > +100) return -1;
 	return 0;
 }
 
 int
 spd_voice_punctuation(int fd, int flag)
 {
-	assert((flag != 0)||(flag != 1));
+	if((flag != 0)&&(flag != 1)&&(flag != 2)) return -1;
 	return 0;
 }
 
 int
 spd_voice_cap_let_recognition(int fd, int flag)
 {
-	assert((flag != 0)||(flag != 1));
+	if((flag != 0)&&(flag != 1)) return -1;
 	return 0;
 }
 
 int
 spd_voice_spelling(int fd, int flag)
 {
-	assert((flag == 0)||(flag==1));
+	if((flag != 0)&&(flag != 1)) return -1;
 	return 0;
 }
 
