@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.c,v 1.26 2003-04-06 19:59:46 hanke Exp $
+ * $Id: server.c,v 1.27 2003-04-11 20:41:01 hanke Exp $
  */
 
 #include "speechd.h"
@@ -476,7 +476,7 @@ parse(char *buf, int bytes, int fd)
      * are awaiting commands */
     if (g_array_index(awaiting_data,int,fd) == 0){
         /* Read the command */
-        command = get_param(buf, 0, bytes);
+        command = get_param(buf, 0, bytes, 1);
 
         MSG(5, "Command caught: \"%s\"", command);
 
@@ -506,8 +506,14 @@ parse(char *buf, int bytes, int fd)
         if (!strcmp(command,"cancel")){
             return (char *) parse_cancel(buf, bytes, fd);
         }
-        if (!strcmp(command,"snd_icon")){				
+        if (!strcmp(command,"sound_icon")){				
             return (char *) parse_snd_icon(buf, bytes, fd);
+        }
+        if (!strcmp(command,"char")){				
+            return (char *) parse_char(buf, bytes, fd);
+        }
+        if (!strcmp(command,"key")){				
+            return (char *) parse_key(buf, bytes, fd);
         }
 
         /* Check if the client didn't end the session */
@@ -627,10 +633,10 @@ server_data_off(int fd)
 int
 serve(int fd)
 {
-    int bytes;				/* Number of bytes we got */
-    char buf[BUF_SIZE];		/* The content (commands or data) we got */
-    char reply[4000] = "\0";	/* Our reply to the client */
-    int ret;					/* Return value of write() */
+    int bytes;              /* Number of bytes we got */
+    char buf[BUF_SIZE];     /* The content (commands or data) we got */
+    char *reply;
+    int ret;                /* Return value of write() */
  
     /* Read data from socket */
     MSG(4, "Reading data");
@@ -640,7 +646,7 @@ serve(int fd)
     MSG(4,"Read %d bytes from client on fd %d", bytes, fd);
 
     /* Parse the data and read the reply*/
-    strcpy(reply, parse(buf, bytes, fd));
+    reply = parse(buf, bytes, fd);
 	
     /* Send the reply to the socket */
     if (strlen(reply) == 0) return 0;
