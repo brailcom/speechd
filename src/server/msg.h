@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: msg.h,v 1.16 2003-05-05 22:40:06 hanke Exp $
+ * $Id: msg.h,v 1.17 2003-05-25 21:04:56 hanke Exp $
  */
 
 
@@ -65,6 +65,9 @@
 #define C_OK_MSG_TEXT                           "246"
 #define OK_HELP_SENT                            "248 OK HELP SENT\r\n"
 #define C_OK_HELP                               "248"
+#define OK_VOICE_LIST_SENT                      "249 OK VOICE LIST SENT\r\n"
+#define C_OK_VOICES                             "249"
+
 
 #define OK_NOT_IMPLEMENTED                      "299 OK BUT NOT IMPLEMENTED -- DOES NOTHING"
 
