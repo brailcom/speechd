@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.c,v 1.9 2003-05-25 21:08:31 hanke Exp $
+ * $Id: sndicon.c,v 1.10 2003-05-26 20:15:57 hanke Exp $
 */
 
 #include "sndicon.h"
@@ -71,27 +71,28 @@ sndicon_queue(int fd, char* language, char* prefix, char* name)
 char*
 snd_icon_spelling_get(char *table, GHashTable *icons, char *name, int *sound)
 {
-    char *key;
-    char *text;
+    char *textt = NULL;
     char *ret;
+    static char key[256];       /* This is not dynamic to make it faster */
 
-    key = (char*) spd_malloc((strlen(name) + strlen(table) + 3) * sizeof(char));
     sprintf(key, "%s_%s", table, name);
 
-    text = g_hash_table_lookup(icons, key); 
-    if(text == NULL) return NULL;
-    if(strlen(text) == 0) return NULL;
+    textt = g_hash_table_lookup(icons, key); 
 
-    ret = (char*) spd_malloc((strlen(text)+1+strlen(DATA_DIR)) *  sizeof(char));
+    if(textt == NULL) return NULL;
+    if(strlen(textt) == 0) return NULL;
 
-    if(text[0] == '\"'){
+    if(textt[0] == '\"'){
         *sound = 0;
         /* Strip the leading and the trailing quotes */
-        strcpy(ret, &(text[1]));
-        ret[strlen(ret)-1] = 0;
+        ret = &(textt[1]);
     }else{       
-        if(text[0] != '/') sprintf(ret, DATA_DIR"/%s", text);
-        else strcpy(ret, text);
+        if(textt[0] != '/'){
+            ret = (char*) spd_malloc((strlen(DATA_DIR) + strlen(textt) + 4) * sizeof(char));
+            sprintf(ret, DATA_DIR"/%s", textt);
+        }else{ 
+            ret = textt;
+        }
         *sound = 1;
     }
     
