@@ -1,10 +1,12 @@
 <preface>
 
-<title>Preface</title>
+  <title>Preface</title>
 
-<para>Speechd project comes to provide a device independent layer for speech
-synthesis. It should provide a simple interface for client applications
-(applications, that want to speak) as well as for device driver modules (for
-particular speech synthesis).</para>
-
+  <para>
+    Speech Daemon project comes to provide a device independent layer for speech
+    synthesis. It should provide a simple interface for client applications
+    (applications, that want to speak) as well as for device driver modules
+    (for particular speech synthesis).
+  </para>
+  
 </preface>
