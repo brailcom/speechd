@@ -23,6 +23,7 @@
 
 (require 'util)
 (require 'punctuation)
+(require 'cap-signalization)
 
 
 (defvar sound-icon-directory "/usr/share/sounds/sound-icons"
@@ -76,9 +77,21 @@ Each element of the list is of the form (WORD EVENT-TYPE EVENT-VALUE), where
 WORD is a string representing a word or a punctuation character and EVENT-TYPE
 and EVENT-VALUE are the same as in `logical-event-mapping'.")
 
+(defvar event-debug nil)
+
 
 (defvar event-synth-result-format nil)
 
+(defmac (event-with-mode form)
+  (let ((mode-name (nth 0 (nth 1 form)))
+        (mode-value (nth 1 (nth 1 form)))
+        (body (nth_cdr 2 form)))
+    (let ((mode-var (intern (string-append mode-name "-mode")))
+          (mode-func (intern (string-append "set-" mode-name "-mode"))))
+      `(let ((,mode-name ,mode-var))
+         (,mode-func ,mode-value)
+         (unwind-protect* (begin ,@body)
+           (,mode-func ,mode-name))))))
 
 (define (event-mark-items utt)
   (mapcar
@@ -148,7 +161,8 @@ and EVENT-VALUE are the same as in `logical-event-mapping'.")
     (event-mark-items utt)
     (let ((items (event-split-items utt)))
       (if (or (> (length items) 1)
-              (item.has_feat (caar items) 'event))
+              (and items
+                   (item.has_feat (caar items) 'event)))
           (if event-synth-result-format
               (apply append (mapcar (lambda (i) (event-synth-words utt i))
                                     items))
@@ -169,6 +183,15 @@ and EVENT-VALUE are the same as in `logical-event-mapping'.")
                 (list result)
                 result))))))
 
+(define (event-synth-key value)
+  (let ((text (string-append value)))
+    (while (string-matches text ".*_.*")
+      (aset text (length (string-before text "_")) 32))
+    (event-synth-text text)))
+
+(define (event-synth-character value)
+  (event-synth-text value))
+
 (define (event-synth-sound value)
   (utt.import.wave (Utterance Wave nil)
                    (if (string-matches value "^/.*")
@@ -187,18 +210,27 @@ and EVENT-VALUE are the same as in `logical-event-mapping'.")
        (transformed
         (apply event-synth transformed))
        ((or (eq? type 'key) (eq? type 'character))
-        (let ((pmode punctuation-mode))
-          (set-punctuation-mode 'all)
-          (unwind-protect
-              (prog1 (SynthText value)
-                (set-punctuation-mode pmode))
-            (set-punctuation-mode pmode))))
+        (event-with-mode (punctuation 'all)
+          (event-with-mode (cap-signalization t)
+            ((if (eq? type 'key) event-synth-key event-synth-character)
+             value))))
        ((eq? type 'logical)
-        (event-synth-text value))
+        (event-synth-text (if (string-matches value "^_.*") "" value)))
        (t
         (error "Event description not found" (cons type value))))))))
 
 (define (event-synth type value)
+  (if event-debug
+      (print (list 'event event-debug type value)))
+  (if (and (eq? type 'logical)
+           (string-matches value "^_.*"))
+      (cond
+       ((string-matches value "^_debug_on.*")
+        (set! event-debug (string-after value '_debug_on))
+        (print value))
+       ((string-matches value "^_debug_off.*")
+        (set! event-debug nil)
+        (print value))))
   (let ((result (event-synth-plain type value)))
     (if (or (not event-synth-result-format) (consp result))
         result
