@@ -3,6 +3,8 @@
 	* speechd.texi: The whole document completely restructurized.  All
 	titles capitalized.  Some texts rewritten.  Title changed.  All
 	references corrected.  Lots of minor changes.
+	(Appendices): All appendices changed from `@appendixsubsec' to
+	`@appendixsec'.
 
 2003-07-23  Hynek Hanke  <hanke@volny.cz>
 
