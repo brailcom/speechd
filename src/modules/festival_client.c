@@ -339,6 +339,8 @@ static char *socket_receive_file_to_buff2(int fd, int *size, int *stop_flag, int
     int n,k,i;
     char c;
 
+    DBG("Com: Receiving file");
+
     if (fd < 0) return NULL;
 
     bufflen = 1024;
@@ -424,6 +426,8 @@ festival_read_response(FT_Info *info, char **expr)
 {
     char buf[4];    
 
+    DBG("Com: Reading response");
+
     if (info == NULL) return 1;
     if (info->server_fd < 0) return 1;
 
@@ -462,6 +466,7 @@ void
 festival_accept_any_response(FT_Info *info)
 {
     char ack[4];
+    DBG("Com: Accepting any response");
     do {
         if(festival_get_ack(&info, ack)) return;
 
@@ -679,15 +684,18 @@ festivalGetDataMulti(FT_Info *info, char **callback, int *stop_flag, int stop_by
 
 	if (strcmp(ack,"WV\n") == 0){
 	    wave = client_accept_waveform(info->server_fd, stop_flag, stop_by_close);
-	    if (wave == NULL) return NULL;
 	}else if (strcmp(ack,"LP\n") == 0){
 	    resp = client_accept_s_expr(info->server_fd);	    
-	    if (resp == NULL) return NULL;
+	    if (resp == NULL){
+		DBG("ERROR: Something wrong in communication with Festival, s_expr = NULL");
+		return NULL;
+	    }
 	    if (strlen(resp) != 0) resp[strlen(resp)-1] = 0;
 	    DBG("<- Festival: |%s|", resp);
 	    if (!strcmp(resp, "nil")){
 		DBG("festival_client: end of samples\n");
-		return NULL;
+		wave = NULL;
+		resp = NULL;
 	    }
 	}else if (strcmp(ack,"ER\n") == 0){
             DBG("festival_client: server returned error\n");
