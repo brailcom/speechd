@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.12 2003-05-26 16:04:50 hanke Exp $
+ * $Id: module.c,v 1.13 2003-06-20 00:42:42 hanke Exp $
  */
 
 #include "speechd.h"
@@ -31,9 +31,13 @@ OutputModule*
 load_output_module(gchar* modname)
 {
    GModule* gmodule;
-   OutputModule *(*module_load) (void);
+   OutputModule *(*module_load) (configoption_t **options, int *num_options);
    OutputModule *module_info;
    char filename[PATH_MAX];
+   configoption_t **p_options;
+
+   p_options = (configoption_t**) spd_malloc(sizeof (configoption_t*));
+   *p_options = options;
 
    snprintf(filename, PATH_MAX, LIB_DIR"/libsd%s.so", modname);
 
@@ -48,11 +52,13 @@ load_output_module(gchar* modname)
       return NULL;
    }
    
-   module_info = module_load();
+   module_info = module_load(p_options, &num_config_options);
    if (module_info == NULL) {
       MSG(2, "module entry point execution failed\n");
       return NULL;
    }
+
+   options = *p_options;
 
    module_info->gmodule = gmodule;
    
