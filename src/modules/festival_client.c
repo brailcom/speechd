@@ -599,8 +599,11 @@ int festivalClose(FT_Info *info)
     name(FT_Info *info, char *param) \
     { \
         if (festival_check_info(info, #name)) return -1; \
-        if (param == NULL) FEST_SEND_CMD("("fest_param" nil)"); \
-        else FEST_SEND_CMD("("fest_param" \"%s\")", g_ascii_strdown(param, -1)); \
+        if (param == NULL){ \
+	  FEST_SEND_CMD("("fest_param" nil)", 1); \
+        }else{ \
+	  FEST_SEND_CMD("("fest_param" \"%s\")", g_ascii_strdown(param, -1)); \
+	} \
         return festival_read_response(info); \
     }
 
