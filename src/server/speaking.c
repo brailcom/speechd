@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.1 2003-04-14 22:47:26 hanke Exp $
+  * $Id: speaking.c,v 1.2 2003-04-17 10:20:09 hanke Exp $
   */
 
 #include <glib.h>
@@ -170,7 +170,13 @@ speak(void* data)
             /* TODO: There is a problem. This can take time, but we are
              * working under a locked mutex and blocking the second thread! */
 
-            buffer = (char*) process_message(element->buf, element->bytes, &(element->settings));
+            if( element->settings.type == TEXT ){
+                printf("first case");
+                buffer = (char*) process_message(element->buf, element->bytes, &(element->settings));
+            }else{
+                printf("second case");
+                buffer = element->buf;
+            }
 
             /* Set the speking_module monitor so that we knew who is speaking */
             speaking_module = output;
