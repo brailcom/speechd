@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.59 2003-10-08 21:32:52 hanke Exp $
+  * $Id: server.c,v 1.60 2003-10-09 21:19:14 hanke Exp $
   */
 
 #include "speechd.h"
@@ -76,6 +76,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type,
     /* Copy the settings to the new to-be-queued element */
     new->settings = *settings;
     new->settings.type = type;
+    new->settings.index_mark = -1;
     COPY_SET_STR(language);
     COPY_SET_STR(client_name);
     COPY_SET_STR(output_module);

@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: index_marking.c,v 1.1 2003-09-20 17:30:53 hanke Exp $
+  * $Id: index_marking.c,v 1.2 2003-10-09 21:18:50 hanke Exp $
   */
 
 #include "index_marking.h"
@@ -132,7 +132,7 @@ find_next_index_mark(char *buf, int *mark, char **begin)
                 g_string_free(num, 1);
                 pos = g_utf8_find_next_char(pos, NULL);
                 if (pos == NULL) return NULL;
-                MSG(5, "returning position of index %d |%s|", *mark, pos);
+                MSG(5, "returning position of index %d", *mark);
                 return pos;
             }
         }
