@@ -1,3 +1,7 @@
+01.02.2003	Hynek Hanke <hanke@volny.cz>
+	* Added copyright notices to each file, better comments.
+	* doc/: Switched to Texinfo.
+
 11.1.2003	Hynek Hanke <hanke@volny.cz>
 	* /src/client/spd_center.c (spdc_complete): String completion from given template.
 	* /src/client/spd_center.h (quit()): endwin() added to fix the weird behavior after quitting.
