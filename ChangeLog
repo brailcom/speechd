@@ -1,3 +1,23 @@
+2004-03-14  Hynek Hanke  <hanke@volny.cz>
+
+	* AUTHORS: Added Jacob Schmude to Thanks.
+
+	* config/speechd.conf (dtk-generic): New generic output module
+	added (by default commented out).
+
+	* config/modules/dtk-generic.conf: New configuration file for the generic
+	output module for DecTalk Software synthesizer (non-free).
+
+	* config/modules/festival.conf: Typo fixed.
+
+	* config/modules/epos-generic.conf (GenericRateForceInteger): New option.
+	(GenericPitchForceInteger): New option.
+
+	* src/modules/generic.c (GenericRateForceInteger): New parameter.
+	(GenericPitchForceInteger): New parameter.
+	(_generic_speak): If GenericPitchForceInteger is set, write the rate to the bash
+	command without decimals. The same for GenericRateForceInteger.
+
 2004-03-08  Hynek Hanke  <hanke@volny.cz>
 
 	* speechd.c, set.c, server.c, parse.c: Use SpeechdSocket ans SpeechdStatus.
