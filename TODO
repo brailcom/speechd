@@ -1,22 +1,20 @@
 
 Short-term goals
-================
+================       
 
-        * debugging in output modules configurable
+        * send the festival files
 
-        * configurable replacement char in recoding in output modules
+        * pid file
+
+	* translate documentation to Czech
 
 Longer-term goals
 =================
 
-	* translate documentation to Czech
-	* debugging ... focus on segfaults
-	* documentation ... finish.
 	* volume setting for synthetizers
 
 	* Sorting in history.
 	* HISTORY commands and their return values (more...)
-
 	* (History should be saved to disk when Speech Dispatcher terminates)
 
 We don't know how to do it (external help needed)
