@@ -1,0 +1,54 @@
+/* config.h.in.  Generated automatically by configure.  */
+/* config.h.in.in.  Generated automatically from configure.in by autoheader.  */
+
+/* Define to empty if the keyword does not work.  */
+/* #undef const */
+
+/* Define if you have the ANSI C header files.  */
+#define STDC_HEADERS 1
+
+/* Define if you can safely include both <sys/time.h> and <time.h>.  */
+#define TIME_WITH_SYS_TIME 1
+
+/* Define if you have the select function.  */
+#define HAVE_SELECT 1
+
+/* Define if you have the socket function.  */
+#define HAVE_SOCKET 1
+
+/* Define if you have the <dlfcn.h> header file.  */
+#define HAVE_DLFCN_H 1
+
+/* Define if you have the <limits.h> header file.  */
+#define HAVE_LIMITS_H 1
+
+/* Define if you have the <sys/ioctl.h> header file.  */
+#define HAVE_SYS_IOCTL_H 1
+
+/* Define if you have the <sys/time.h> header file.  */
+#define HAVE_SYS_TIME_H 1
+
+/* Define if you have the <unistd.h> header file.  */
+#define HAVE_UNISTD_H 1
+
+/* Define if you have the dl library (-ldl).  */
+#define HAVE_LIBDL 1
+
+/* Define if you have the dotconf library (-ldotconf).  */
+#define HAVE_LIBDOTCONF 1
+
+/* Define if you have the gdsl library (-lgdsl).  */
+#define HAVE_LIBGDSL 1
+
+/* Define if you have the glib-2.0 library (-lglib-2.0).  */
+#define HAVE_LIBGLIB_2_0 1
+
+/* Define if you have the ibs library (-libs).  */
+/* #undef HAVE_LIBIBS */
+
+/* Name of package */
+#define PACKAGE "robod"
+
+/* Version number of package */
+#define VERSION "0.0.4"
+

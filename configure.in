@@ -1,0 +1,43 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(configure.in)
+
+
+dnl info
+AM_INIT_AUTOMAKE(robod, "`cat version.sh|grep '^VERSION'|awk -F= '{print $2}'`")
+dnl Checks for programs.
+AC_PROG_CC
+
+AM_CONFIG_HEADER(config.h.in)
+
+dnl Checks for libraries.
+AC_CHECK_LIB(dl, main)
+AC_CHECK_LIB(dotconf, main)
+AC_CHECK_LIB(gdsl, main)
+AC_CHECK_LIB(glib-2.0, main)
+AC_CHECK_LIB(ibs, main)
+
+glib_include = `pkg-config --cflags glib-2.0`
+AC_SUBST(glib_include)
+glib_libs = `pkg-config --libs glib-2.0`
+AC_SUBST(glib_libs)
+
+dnl Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS(limits.h sys/ioctl.h sys/time.h unistd.h)
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_HEADER_TIME
+
+dnl Checks for library functions.
+AC_PROG_GCC_TRADITIONAL
+AC_CHECK_FUNCS(select socket)
+
+AC_ARG_PROGRAM
+AC_PROG_INSTALL
+AC_PROG_MAKE_SET
+
+AM_PROG_LIBTOOL
+
+AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/clients/Makefile])
+
