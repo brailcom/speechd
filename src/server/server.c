@@ -21,13 +21,13 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.c,v 1.13 2003-03-12 22:14:36 hanke Exp $
+ * $Id: server.c,v 1.14 2003-03-16 19:57:35 hanke Exp $
  */
 
 #include "speechd.h"
 
 
-char speaking_module[256] = "\0";
+OutputModule *speaking_module;
 int highest_priority = 0;
 
 int last_message_id = -1;
@@ -45,14 +45,10 @@ int
 is_sb_speaking()
 {
 	int speaking = 0;
-	OutputModule *output;
 
-	/* If some module is speaking, fill _output_ with it
-	 * and determine if it's still speaking. If so, stop it.*/
-	if(strlen(speaking_module)>1){
-		output = g_hash_table_lookup(output_modules, speaking_module);
-		if (output == NULL) FATAL("Speaking module not in hash table.");
-		speaking = (*output->is_speaking) ();
+	/* Determine is the current module is still speaking */
+	if(speaking_module!=NULL){
+		speaking = (*speaking_module->is_speaking) ();
 	} 
 	return speaking;
 }
@@ -61,9 +57,7 @@ void
 stop_speaking_active_module(){
 	OutputModule *output;
 	if (is_sb_speaking()){
-		output = g_hash_table_lookup(output_modules, speaking_module);
-		if (output == NULL) FATAL("Speaking module not in hash table.");
-		(*output->stop) ();
+		(*speaking_module->stop) ();
 	}	
 }
 
@@ -210,23 +204,28 @@ speak()
 	OutputModule *output;
 	GList *gl = NULL;
 
-	/* If all queues are empty, there is no reason for saying something */
-	if( (g_list_length(MessageQueue->p1) == 0) &&
-		(g_list_length(MessageQueue->p2) == 0) &&
-		(g_list_length(MessageQueue->p3) == 0))
-	{
-		return 0;
-	}
+	while(1){
+		usleep(10);
+	    if (msgs_to_say>0){
+			/* Check if sb is speaking or they are all silent. 
+			 * If some synthetizer is speaking, we must wait. */
+		    if (is_sb_speaking()){
+	            usleep(100);
+	            continue;
+		    }
 
-//	MSG(3, "   Some message for speaking");
-	
-	/* Check if sb is speaking or they are all silent. 
-	 * If some synthetizer is speaking, we must wait. */
-	if (is_sb_speaking()){
-//			MSG(3, "Somebody is speaking, waiting...");			/* you should better not uncomment this */
-		   	return 0;
-	}
-      
+			element = NULL;
+			gl = NULL;
+
+			    /* If all queues are empty, there is no reason for saying something */
+			    if( (g_list_length(MessageQueue->p1) == 0) &&
+								        (g_list_length(MessageQueue->p2) == 0) &&
+										        (g_list_length(MessageQueue->p3) == 0))
+						    {
+									            continue;
+												    }
+				
+			
 		/* We will descend through priorities to say more important
 		 * messages first. */
 		gl = g_list_first(MessageQueue->p1); 
@@ -247,7 +246,7 @@ speak()
 						   	MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
 							highest_priority = 3;
 					}
-					if (gl == NULL) return 0;
+					if (gl == NULL) continue;
 			}
  		} 
 	
@@ -259,7 +258,7 @@ speak()
 			MessageQueue->p1 = g_list_remove(MessageQueue->p1, gl->data);
 			MessageQueue->p2 = g_list_remove(MessageQueue->p2, gl->data);
 			MessageQueue->p3 = g_list_remove(MessageQueue->p3, gl->data);
-			return 0;
+			continue;
 	}
 	assert(element!=NULL);
       
@@ -274,7 +273,7 @@ speak()
 			free(element);
 			msgs_to_say--;
 		}
-		return 0;
+		continue;
 	}
 
   	/* Determine which output module should be used */
@@ -282,15 +281,17 @@ speak()
 	  
 	if (output == NULL) FATAL("Couldn't find appropiate output module.");
 	/* Set the speking_module monitor so that we know who is speaking */
-	strcpy(speaking_module, element->settings.output_module);      
+	speaking_module = output;
 	  
 	/* Write the data to the output module. (say them aloud) */
 	(*output->write) (element->buf, element->bytes, &element->settings); 
 	/* CAUTION: The message structure must be freed inside the output module! */
 
 	msgs_to_say--;
-	
-   return 0;
+	}else{
+		usleep(10);
+   }
+ }	 
 }
 
 /* hc_list_compare() compares THistoryClients according
@@ -436,10 +437,11 @@ queue_message(TSpeechDMessage *new, int fd)
 		case 1:	if(is_sb_speaking()) stop_p23();
 				MessageQueue->p1 = g_list_append(MessageQueue->p1, new); 
 				break;
-		case 2: if(is_sb_speaking()) stop_p3();
+		case 2: stop_p3();
 			   	MessageQueue->p2 = g_list_append(MessageQueue->p2, new);
 			   	break;
-		case 3: MessageQueue->p3 = g_list_append(MessageQueue->p3, new); break;
+		case 3: stop_p3();
+				MessageQueue->p3 = g_list_append(MessageQueue->p3, new); break;
 		default: FATAL("Non existing priority requiered");
 	}
 
@@ -470,17 +472,13 @@ parse(char *buf, int bytes, int fd)
 {
 	TSpeechDMessage *new;
 	TFDSetElement *settings;
-//	THistoryClient *history_client;
 	char *command;
 	char *param;
 	int helper;
 	char *language; 
 	char *ret;
-		/* TODO: What about buffer sizes? Should these be fixed? */
-//	static char o_buf[MAX_CLIENTS][BUF_SIZE];
 	int r;
 	GList *gl;
-//	TSpeechDMessage *newgl;
 	int v;
 	char *helper1;
 	int end_data = 0;
@@ -589,8 +587,6 @@ parse(char *buf, int bytes, int fd)
 			/* Clear the counter of bytes in the output buffer. */
 			v = 0;
 			g_array_insert_val(o_bytes, fd, v);
-			/* Clear the output buffer (well, kind of...)*/
-//			o_buf[fd][0]=0;
 			g_string_free(o_buf[fd],1);
 			return OK_MESSAGE_QUEUED;
 		}
