@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.19 2003-05-01 10:41:54 hanke Exp $
+ * $Id: flite.c,v 1.20 2003-05-05 22:39:39 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -198,10 +198,9 @@ flite_pause(void)
     
     text = malloc(1024 * sizeof(char));
 
-
     if(flite_speaking){
-        if(kill(flite_pid, SIGUSR1)) printf("error in kill\n");;
-        while(flite_running) usleep(100);
+        if(kill(flite_pid, SIGUSR1)) printf("flite: error in kill\n");;
+        while(flite_running) usleep(10);
 
         if((temp = fopen("/tmp/flite_message", "r")) == NULL){
             printf("Flite: couldn't open temporary file\n");
@@ -214,7 +213,6 @@ flite_pause(void)
             if (ret == NULL) break;
             pause_text = g_string_append(pause_text, text);
         }
-        /* Wait for the flite_speak() thread to terminate */
 
         if (pause_text == NULL){
             printf("text null");
@@ -240,8 +238,6 @@ flite_is_speaking(void)
 {
     int ret;
 
-    if(0) printf("flite: is_speaking: %d %d", flite_speaking, flite_running);
-	
     /* If flite just stopped speaking, join the thread */
     if ((flite_speaking == 1) && (flite_running == 0)){
         ret = pthread_join(flite_speak_thread, NULL);
@@ -325,14 +321,22 @@ void
 _flite_sigunblockusr(sigset_t *some_signals)
 {
     int ret;
+
     sigdelset(some_signals, SIGUSR1);
-    if (ret == 0){
-        ret = sigprocmask(SIG_SETMASK, some_signals, NULL);
-        if ((ret != 0)&&(DEBUG_FLITE))
-            printf("flite: Can't block signal set, expect problems with terminating!\n");
-    }else if(DEBUG_FLITE){
+    ret = sigprocmask(SIG_SETMASK, some_signals, NULL);
+    if ((ret != 0)&&(DEBUG_FLITE))
         printf("flite: Can't block signal set, expect problems with terminating!\n");
-    }
+}
+
+void
+_flite_sigblockusr(sigset_t *some_signals)
+{
+    int ret;
+
+    sigaddset(some_signals, SIGUSR1);
+    ret = sigprocmask(SIG_SETMASK, some_signals, NULL);
+    if ((ret != 0)&&(DEBUG_FLITE))
+        printf("flite: Can't block signal set, expect problems with terminating!\n");
 }
 
 void
@@ -344,6 +348,8 @@ _flite_synth()
     GString *flite_pause_text;
     cst_wave* wave;
     sigset_t some_signals;	
+    int i;
+    char c;
 
     sigfillset(&some_signals);
     _flite_sigunblockusr(&some_signals);
@@ -356,27 +362,21 @@ _flite_synth()
         exit(0);
     }
 
-    ret = fgets(text, 1024, sp_file);
-    if (ret == NULL){
-        fclose(sp_file);
-        free(text);
-        exit(0);
-    }
-
     /* We have separated the first run, because we have to open
        the audio device also */
-    wave = flite_text_to_wave(text, flite_voice);
+    wave = flite_text_to_wave("test", flite_voice);
     spd_audio_open(wave);
-    spd_audio_play_wave(wave);
 
     /* Read the remaining groups of bytes, synthesize them and send
        to sound output */
     while(1){
         if (flite_pause_requested == 1){          
-            flite_pause_text = g_string_new(text);
+            flite_pause_text = g_string_new("");
             //            printf("string created\n");
             while(1){
+
                 ret = fgets(text, 1024, sp_file);
+
                 if (ret == NULL){
                     fclose(sp_file);
                     if((sp_file = fopen("/tmp/flite_message", "w")) == NULL){
@@ -385,23 +385,35 @@ _flite_synth()
                     }
                     fprintf(sp_file,"%s",flite_pause_text->str);
                     fclose(sp_file);
-                    //              printf("terminating flite run\n");
+                    if (DEBUG_FLITE) printf("terminating flite run\n");
                     free(text);
                     exit(0);
                 }
                 flite_pause_text = g_string_append(flite_pause_text, text);
             }
         }
-        ret = fgets(text, 1024, sp_file);
-        if (ret == NULL){
-            fclose(sp_file);
-            free(text);
-            spd_audio_close();
-            exit(0);
+
+        for (i=0; i<=510; i++){
+            c = fgetc(sp_file);
+            if (c == EOF){
+                text[i] = 0;
+                fclose(sp_file);
+                free(text);
+                spd_audio_close();
+                exit(0);
+            }
+            if (c == '.' || c == '!' || c == '?'|| c == ';'){
+                text[i] = c;
+                text[i+1] = 0;
+                break;
+            }
+            text[i] = c;
         }
 
+        _flite_sigblockusr(&some_signals);        
         wave = flite_text_to_wave(text, flite_voice);
         spd_audio_play_wave(wave);
+        _flite_sigunblockusr(&some_signals);
 
     }
 }
@@ -410,5 +422,5 @@ void
 _flite_sigpause()
 {
     flite_pause_requested = 1;
-    //    printf("received signal\n");
+    if(DEBUG_FLITE) printf("flite: received signal for pause\n");
 }
