@@ -21,14 +21,18 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.7 2003-03-29 20:25:17 hanke Exp $
+ * $Id: fdset.h,v 1.8 2003-04-06 23:24:56 hanke Exp $
  */
 
 typedef enum {                  /* Prefered type of voice */
-        MALE = 0,               
-        FEMALE = 1,
-        CHILD_MALE = 2,
-        CHILD_FEMALE = 3
+        MALE1 = 0,
+		MALE2 = 1,
+		MALE3 = 2,
+        FEMALE1 = 3,
+        FEMALE2 = 4,
+        FEMALE3 = 5,
+        CHILD_MALE = 6,
+        CHILD_FEMALE = 7
 }EVoiceType;
 
 typedef enum{
