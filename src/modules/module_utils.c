@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.5 2003-06-27 12:44:06 hanke Exp $
+ * $Id: module_utils.c,v 1.6 2003-07-05 12:21:49 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -189,7 +189,7 @@ module_get_message_part(const char* message, char* part, unsigned int *pos, size
     assert(part != NULL);
     assert(message != NULL);
 
-    if (message[*pos] == '0') return 0;
+    if (message[*pos] == 0) return 0;
     
     if (dividers != NULL){
         num_dividers = strlen(dividers);
@@ -205,7 +205,7 @@ module_get_message_part(const char* message, char* part, unsigned int *pos, size
         }
         (*pos)++;
 
-        DBG("pos: %d", *pos);
+        // DBG("pos: %d", *pos);
         for(n = 0; n <= num_dividers; n++){
             if (part[i] == dividers[n]){    
                 part[i+1] = 0;                
@@ -273,11 +273,12 @@ module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid,
 
         default:
             /* This is the parent. Send data to the child. */
+
             *module_position = (* parent_function)(module_pipe, *message, maxlen, dividers,
                                                    pause_requested);
 
             DBG("Waiting for child...");
-            waitpid(*process_pid, &status, 0);
+            waitpid(*process_pid, &status, 0);            
 
             DBG("child terminated -: status:%d signal?:%d signal number:%d.\n",
                 WIFEXITED(status), WIFSIGNALED(status), WTERMSIG(status));
@@ -362,9 +363,10 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
     data = xmalloc(CHILD_SAMPLE_BUF_SIZE);
 
     ret = spd_audio_open(module_sample_wave);
-    if (ret == -1){
+    if (ret != 0){
         DBG("Can't open audio output!\n");
-        return;
+        module_child_dp_close(dpipe);
+        exit(0);
     }
 
     DBG("Entering child loop\n");
@@ -373,8 +375,9 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
         bytes = module_child_dp_read(dpipe, data, CHILD_SAMPLE_BUF_SIZE);
         DBG("child: Got %d bytes\n", bytes);
         if (bytes == 0){
-            DBG("child: exiting, closing audio");
+            DBG("child: exiting, closing audio, pipes");
             spd_audio_close();
+            module_child_dp_close(dpipe);
             DBG("child: good bye");
             exit(0);
         }
@@ -383,7 +386,7 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
         if (!strncmp(data,"\r\n.\r\n", 5) 
             || !strncmp(data+bytes-5,"\r\n.\r\n", 5)){
 
-            DBG("child: End of data catched\n");
+            DBG("child: End of data caught\n");
             wave = (cst_wave*) xmalloc(sizeof(cst_wave));
             wave->type = strdup("riff");
             wave->sample_rate = 16000;
@@ -652,7 +655,7 @@ module_write_data_ok(char *data)
         return -1;
     }
 
-    if(data[0] == '0'){
+    if(data[0] == 0){
         DBG("requested data empty\n");
         return -1;
     }
@@ -761,6 +764,8 @@ module_recode_to_iso(char *data, int bytes, char *language)
 {
     char *recoded;
     
+    if (language == NULL) recoded = strdup(data);
+
     if (!strcmp(language, "cs"))
         recoded = (char*) g_convert(data, bytes, "ISO8859-2", "UTF-8", NULL, NULL, NULL);
     else
