@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.c,v 1.13 2003-06-01 23:05:12 hanke Exp $
+ * $Id: sndicon.c,v 1.14 2003-06-02 15:48:11 hanke Exp $
 */
 
 #include "sndicon.h"
@@ -128,7 +128,6 @@ sndicon_char(int fd, char *name)
         FATAL("Couldn't find settings for active client, internal error."); 
 
     if (!strcmp(name,"space")){
-        MSG(1, "space cought\n!\n");
         icon_name = (char*) spd_malloc(4);
         strcpy(icon_name, " ");
     }else{
