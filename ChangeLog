@@ -1,3 +1,7 @@
+2003-07-21  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/server/speechd.c (main): Set SO_REUSEADDR.
+
 2003-07-21  Hynek Hanke  <hanke@volny.cz>
 
 	* configure.in: Create config/cs/Makefile.in
