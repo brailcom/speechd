@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.5 2003-02-01 22:16:55 hanke Exp $
+ * $Id: parse.c,v 1.6 2003-03-09 20:51:10 hanke Exp $
  */
 
 #include "speechd.h"
@@ -241,5 +241,41 @@ parse_resume(char *buf, int bytes, int fd)
 	if(ret)	return ("ERR CLIENT NOT FOUND");
 	else return "OK RESUMED\n\r";
 }
-							  
-					 
+
+char*
+parse_snd_icon(char *buf, int bytes, int fd)
+{
+    char *param;
+    int ret;
+	GHashTable *icons;
+	char *word;
+	TSpeechDMessage *new;
+    TFDSetElement *settings;		
+    GList *gl;		
+	
+    param = get_param(buf,1,bytes);
+	if (param == NULL) return ("ERR BAD COMMAND\n");
+	
+	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
+	if (gl == NULL)
+	        FATAL("Couldn't find settings for active client, internal error.");
+	settings = gl->data;
+	
+	icons = g_hash_table_lookup(snd_icon_langs, settings->language);
+	if (icons == NULL){
+		icons = g_hash_table_lookup(snd_icon_langs, GlobalFDSet.language);
+		if (icons == NULL) return ("ERR NO SOUND ICONS\n");
+	}
+	
+	word = g_hash_table_lookup(icons, param); 
+
+	if(word==NULL) return ("ERR UNKNOWN ICON\n");
+
+	new = malloc(sizeof(TSpeechDMessage));
+	new->bytes = strlen(word)+1;
+	new->buf = malloc(new->bytes);
+	strcpy(new->buf, word);
+	if(queue_message(new,fd))  FATAL("Couldn't queue message\n");
+																
+	return "OK SOUND ICON QUEUED\n";
+}				 
