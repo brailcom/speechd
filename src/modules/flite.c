@@ -21,14 +21,15 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.9 2003-03-19 19:32:40 pdm Exp $
+ * $Id: flite.c,v 1.10 2003-03-23 21:10:20 hanke Exp $
  */
 
-#define VERSION "0.0.2"
+#define VERSION "0.1"
 
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 #include <glib.h>
 #include <pthread.h>
 #include <flite/flite.h>
@@ -37,114 +38,168 @@
 #include "module.h"
 #include "fdset.h"
 
-#define FATAL(msg) { printf("flite output module for speechd [%s:%d]: "msg"\n", __FILE__, __LINE__); exit(1); }
+const int DEBUG_FLITE = 0;
 
-int f_speaking = 0;
-int f_running = 0;
+/* Thread and process control */
+int flite_speaking = 0;
+int flite_running = 0;
 
-pthread_t f_speak_thread;
+pthread_t flite_speak_thread;
+pid_t flite_pid;
 
-gint       flite_write      (const gchar *data, gint len, TFDSetElement *);
-gint       flite_stop       (void);
-gint       flite_is_speaking (void);
-gint       flite_close(void);
+/* Public function prototypes */
+gint	flite_write			(gchar *data, gint len, TFDSetElement *);
+gint	flite_stop			(void);
+gint	flite_is_speaking	(void);
+gint	flite_close			(void);
 
-/* fill the module_info structure with pointers to this modules functions */
+/* Internal functions prototypes */
+void flite_speak(void);
+
+/* Voice */
+cst_voice *register_cmu_us_kal();
+cst_voice *flite_voice;
+
+/* Fill the module_info structure with pointers to this modules functions */
 OutputModule modinfo_flite = {
-   "flite",
-   "Software synthetizer Flite",
-   NULL, /* filename */
-   flite_write,
+   "flite",							/* name */
+   "Software synthetizer Flite",	/* description */
+   NULL,							/* filename */
+   NULL,							/* GModule */
+   flite_write,						/* module functions */
    flite_stop,
    flite_is_speaking,
    flite_close
 };
 
-cst_voice *register_cmu_us_kal();
-cst_voice *mvoice;
+/* Entry point of this module */
+OutputModule*
+module_init(void)
+{
+	if(DEBUG_FLITE) printf("flite: init_module()\n");
 
-pid_t flite_pid;
+	/* Init flite and register a new voice */
+	flite_init();
+	flite_voice = register_cmu_us_kal();
 
-/* entry point of this module */
-OutputModule *module_init(void) {
-   printf("flite: init_module()\n");
+	if (DEBUG_FLITE && (flite_voice == NULL))
+		printf("Couldn't register the basic kal voice.\n"); 
+	
+	modinfo_flite.description = g_strdup_printf(
+		"Flite software synthesizer, version %s",VERSION);
 
-   /* Init flite and register a new voice */
-   flite_init();
-   mvoice = register_cmu_us_kal();
-   
-   /*modinfo.name = g_strdup("flite"),
-   modinfo_flite.description = g_strdup_printf(
-	"Flite software synthesizer, version %s",VERSION);*/
-   return &modinfo_flite;
+	assert(modinfo_flite.name != NULL);
+	assert(modinfo_flite.description != NULL);
+	
+	return &modinfo_flite;
 }
 
-void
-flite_speak()
-{	
-//	printf("flite speaking.......\n");
-	flite_pid = fork();
-	switch(flite_pid){
-		case -1:	FATAL("fork failed!\n");
-					exit(0);
-		case 0:
-			/* This is the child. Make flite speak, but exit on SIGINT. */
-			flite_file_to_speech("/tmp/flite_message", mvoice, "play");
-			exit(0);
-		default:
-			/* This is the parent. Wait for the child to terminate. */
-			waitpid(flite_pid,NULL,0);
-	}
-//	printf("flite ended.......\n");
-	f_running = 0;
-	pthread_exit(NULL);
-}	
+/* Public functions */
 
-/* module operations */
-gint flite_write(const gchar *data, gint len, TFDSetElement* set) {
+gint
+flite_write(gchar *data, gint len, TFDSetElement* set)
+{
 	int ret;
 	FILE *temp;
 
-//	printf("flite: write()\n");
+	if(DEBUG_FLITE) printf("flite: write()\n");
 
-	if (f_speaking) return 0;
-   
-	if((temp = fopen("/tmp/flite_message", "w")) == NULL)
-		FATAL("Output module flite couldn't open temporary file");
+	if(data == NULL){
+		if(DEBUG_FLITE) printf("flite: requested data NULL\n");		
+	   	return -1;
+	}
+
+	if(data == ""){
+		if(DEBUG_FLITE) printf("flite: requested data empty\n");
+		return -1;
+	}
+
+
+	if (flite_speaking){
+		if(DEBUG_FLITE) printf("flite: speaking when requested to flite-write");
+	   	return 0;
+   	}
+	if((temp = fopen("/tmp/flite_message", "w")) == NULL){
+		printf("Flite: couldn't open temporary file\n");
+		return 0;
+	}
+
 	fprintf(temp,"%s\n\r",data);
 	fclose(temp);
-   
-   {
-//		printf("creating new thread for flite speak\n");
-		f_speaking = 1;
-		f_running = 1;
-		ret = pthread_create(&f_speak_thread, NULL, flite_speak, NULL);
-		if(ret != 0) printf("THREAD FAILED\n");
+	fflush(NULL);
+  
+	if(DEBUG_FLITE) printf("Flite: creating new thread for flite_speak\n");
+	flite_speaking = 1;
+	flite_running = 1;
+	ret = pthread_create(&flite_speak_thread, NULL, flite_speak, NULL);
+	if(ret != 0){
+		if(DEBUG_FLITE) printf("Flite: thread failed\n");
+		flite_speaking = 0;
+		flite_running = 0;
+		return 0;
 	}
-   
-//	printf("flite: leaving\n\r");
+		
+   	if(DEBUG_FLITE) printf("Flite: leaving write() normaly\n\r");
 	return len;
 }
 
 gint flite_stop(void) {
-//	printf("flite: stop()\n");
-	if(f_speaking){
-		kill(flite_pid, SIGINT);
+	if(DEBUG_FLITE) printf("flite: stop()\n");
+
+	if(flite_running){
+		if(DEBUG_FLITE) printf("flite: stopping %d\n", flite_pid);
+		kill(flite_pid, SIGKILL);
 	}
 }
 
 gint flite_is_speaking(void) {
 	int ret;
-	if ((f_speaking == 1) && (f_running == 0)){
-		ret = pthread_join(f_speak_thread, NULL);
-		if (ret != 0) FATAL("join failed!\n");
-		f_speaking = 0;
+
+	if(DEBUG_FLITE) printf("flite: is_speaking: %d %d", flite_speaking, flite_running);
+	
+	/* If flite just stopped speaking, join the thread */
+	if ((flite_speaking == 1) && (flite_running == 0)){
+		ret = pthread_join(flite_speak_thread, NULL);
+		if (ret != 0){
+			if (DEBUG_FLITE) printf("join failed!\n");
+			return 1;
+		}
+   		if(DEBUG_FLITE) printf("flite: join ok\n\r");
+		flite_speaking = 0;
 	}
-	return f_speaking; 
+	
+	return flite_speaking; 
 }
 
 gint flite_close(void){
-//   printf("flite: close()\n");
+   if(DEBUG_FLITE) printf("flite: close()\n");
+   free(flite_voice);
    return 0;
 }
+
+/* Internal functions */
+void
+flite_speak(void)
+{	
+	if(DEBUG_FLITE)	printf("flite: speaking.......\n");
+
+	/* Create a new process so that we could send it signals */
+	flite_pid = fork();
+	switch(flite_pid){
+		case -1:	
+			printf("Can't say the message. fork() failed!\n");
+			exit(0);
+		case 0:
+			/* This is the child. Make flite speak, but exit on SIGINT. */
+			flite_file_to_speech("/tmp/flite_message", flite_voice, "play");
+			exit(0);
+		default:
+			/* This is the parent. Wait for the child to terminate. */
+			waitpid(flite_pid,NULL,0);
+	}
+	if(DEBUG_FLITE) printf("flite ended.......\n");
+	
+	flite_running = 0;
+	pthread_exit(NULL);
+}	
 
