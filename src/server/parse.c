@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.58 2004-02-10 21:23:47 hanke Exp $
+ * $Id: parse.c,v 1.59 2004-02-23 22:32:32 hanke Exp $
  */
 
 #include "speechd.h"
@@ -780,7 +780,7 @@ parse_block(const char *buf, const int bytes, const int fd)
     if (TEST_CMD(cmd_main, "begin")){
         assert(inside_block[fd] >= 0);
         if (inside_block[fd] == 0){
-            inside_block[fd] = ++max_gid;
+            inside_block[fd] = ++SpeechdStatus.max_gid;
             return OK_INSIDE_BLOCK;
         }else{
             return ERR_ALREADY_INSIDE_BLOCK;

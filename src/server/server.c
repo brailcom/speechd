@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.69 2004-01-27 11:00:09 pdm Exp $
+  * $Id: server.c,v 1.70 2004-02-23 22:32:46 hanke Exp $
   */
 
 #include "speechd.h"
@@ -103,7 +103,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
         pthread_mutex_lock(&element_free_mutex);
         if(hist_msg != NULL){
             /* Do the necessary expiration of old messages*/
-            if (g_list_length(message_history) >= MaxHistoryMessages){
+            if (g_list_length(message_history) >= SpeechdOptions.max_history_messages){
                 GList *gl;
                 MSG(5, "Discarding older history message, limit reached");
                 gl = g_list_first(message_history);

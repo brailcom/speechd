@@ -1,10 +1,34 @@
-2004-02-16  Hynek Hanke  <hanke@eda>
+2004-02-23  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/options.c (options_print_help): Moved.
+	(options_print_help): Typo \v -> \n fixed.
+
+	* src/server/config.c (cb_MinDelayProgress): Deleted.
+	Cleaning.
+	(GLOBAL_FDSET_OPTION_CB_SPECIAL): New macro.
+	(SPEECHD_OPTION_CB_STR_M): New macro.
+	(SPEECHD_OPTION_CB_INT_M): New macro.
+	(SPEECHD_OPTION_CB_STR): New macro.
+	(SPEECHD_OPTION_CB_INT): New macro.
+
+	* intl/fdsetconv.c (str2intpriority): New function.
+
+	* src/server/speechd.c (speechd_init): max_gid initialization moved to the
+	beginning.
+
+	* src/server/speechd.h (spd_log_level): Renamed to SpeechdOptions.log_level.
+	(spd_port): Renamed to SpeechdOptions.log_level. All references changed.
+
+	* src/server/config.c (GLOBAL_FDSET_OPTION_CB_INT): Accept also condition and error messages.
+	(load_default_global_set_options): Moved to the end of the file.
+
+2004-02-16  Hynek Hanke  <hanke@volny.cz>
 
 	* src/modules/flite.c (_flite_child): Don't use spd_audio.
 
 	* configure.in: Speechd C API library versions fixed.
 
-2004-02-14  Hynek Hanke  <hanke@eda>
+2004-02-14  Hynek Hanke  <hanke@volny.cz>
 
 	* configure.in: Variables for versions of libraries added.
 

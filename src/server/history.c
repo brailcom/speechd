@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.c,v 1.19 2003-10-12 23:31:02 hanke Exp $
+ * $Id: history.c,v 1.20 2004-02-23 22:30:42 hanke Exp $
  */
 
 #include "speechd.h"
@@ -50,8 +50,8 @@ history_get_client_list()
 
     clist = g_string_new("");
 
-    for(i=1;i<=max_uid;i++){
-        MSG(3,"Getting settings for client %d of %d", i, max_uid-1);
+    for(i=1; i<=SpeechdStatus.max_uid; i++){
+        MSG(3,"Getting settings for client %d of %d", i, SpeechdStatus.max_uid-1);
         client = get_client_settings_by_uid(i);
         assert(client!=NULL);
         g_string_append_printf(clist, C_OK_CLIENTS"-");
