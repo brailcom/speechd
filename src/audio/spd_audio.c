@@ -57,7 +57,7 @@ spd_audio_read_wave(const char *filename)
         printf("Not enough memory");
         exit(1);
     }
-    cst_wave_load_riff(new, filename);   
+    if (cst_wave_load_riff(new, filename) == -1) return NULL;   
 
     return new;
 }
@@ -67,17 +67,20 @@ spd_audio_play_file_wav(const char* filename)
 {
     cst_wave *wave;
     wave = (cst_wave*) spd_audio_read_wave(filename);
- 
+    if (wave == NULL) return -1;
+
     spd_audio_open(wave);
     spd_audio_play_wave(wave);
     spd_audio_close(wave);
+
+    return 0;
 }
 
 int
 spd_audio_play_file_ogg(const char* filename)
 {
     char *cmd;
-
+    /* TODO: This should be done better (using libvorbis?) ... */
     cmd = g_strdup_printf("ogg123 -d oss %s 2> /dev/null", filename);
     return system(cmd);
 }
@@ -122,7 +125,7 @@ spd_audio_close()
     spd_audio_device = NULL;
 }
 
-/*
+#if 0
 int
 main()
 {
@@ -146,4 +149,4 @@ main()
     spd_audio_close();
 
 }	
-*/
+#endif
