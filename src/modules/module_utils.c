@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.24 2003-10-18 13:02:13 hanke Exp $
+ * $Id: module_utils.c,v 1.25 2003-11-11 14:12:15 pdm Exp $
  */
 
 #include <semaphore.h>
@@ -863,9 +863,10 @@ module_recode_to_iso(char *data, int bytes, char *language, char *fallback)
         recoded = (char*) g_convert_with_fallback(data, bytes, "ISO8859-2", "UTF-8",
                                                   fallback, NULL, NULL, NULL);
     else
-        recoded = strdup(data);
+        recoded = (char*) g_convert_with_fallback(data, bytes, "ISO8859-1", "UTF-8",
+                                                  fallback, NULL, NULL, NULL);
 
-    if(recoded == NULL) DBG("festival: Conversion to ISO conding failed\n");
+    if(recoded == NULL) DBG("festival: Conversion to ISO coding failed\n");
 
     return recoded;
 }
