@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.15 2003-03-25 22:46:13 hanke Exp $
+ * $Id: speechd.h,v 1.16 2003-03-29 20:14:31 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -76,16 +76,6 @@ typedef struct{
    TFDSetElement settings;	/* settings of the client when queueing this message */
 }TSpeechDMessage;
 
-/* THistoryClient is a structure associated to each
- * client either active or inactive, maintaining it's history */
-typedef struct{
-   guint uid;			/* unique id */
-   int fd;				/* file descriptor if active, or 0 if gone */
-   char *client_name;	/* client's name */
-   int active;			/* 1 for active, 0 if gone */
-   GList *messages;		/* list of messages in it's history */
-}THistoryClient;
-
 /* EStopCommands describes the stop family of commands */
 typedef enum{
 	STOP = 1,
@@ -103,6 +93,9 @@ FILE *logfile;
 int fdmax;
 fd_set readfds;
 
+/* The largest assigned uid + 1 */
+int max_uid;
+
 /* speak() thread */
 pthread_t speak_thread;
 pthread_mutex_t element_free_mutex;
@@ -116,27 +109,28 @@ GHashTable *output_modules;
 GHashTable *fd_settings;	
 /* Table of sound icons for different languages */
 GHashTable *snd_icon_langs;
+/* Table of relations between client file descriptors and their uids*/
+GHashTable *fd_uid;
 
 /* Speech Deamon main priority queue for messages */
 TSpeechDQueue *MessageQueue;
 /* List of messages from paused clients waiting for resume */
 GList *MessagePausedList;
+/* List of settings related to history */
+GList *history_settings;
+/* List of messages in history */
+GList *message_history;
 
 /* Global default settings */
 TFDSetElement GlobalFDSet;
-/* Settings related to history */
-GList *history_settings;
-
-/* List of all clients' histories */
-GList *history;
-
-/* Loads output module */
-OutputModule* load_output_module(gchar* modname);
 
 /* Arrays needed for receiving data over socket */
 GArray *awaiting_data;
 GArray *o_bytes;
 GString *o_buf[MAX_CLIENTS];
+
+/* Loads output module */
+OutputModule* load_output_module(gchar* modname);
 
 /* speak() runs in a separate thread, pulls messages from
  * the priority queue and sends them to synthesizers */
@@ -165,6 +159,9 @@ int isanum(char *str);
 /* Functions for searching through lists */
 gint message_list_compare_fd (gconstpointer, gconstpointer, gpointer);
 gint hc_list_compare (gconstpointer, gconstpointer, gpointer);		
+
+TFDSetElement* get_client_settings_by_uid(int uid);
+TFDSetElement* get_client_settings_by_fd(int fd);
 
 /* Some pointers to functions for searching through lists */
 gint (*p_msg_nto_speak)();
