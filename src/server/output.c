@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.9 2003-12-21 22:02:50 hanke Exp $
+ * $Id: output.c,v 1.10 2004-02-10 21:23:10 hanke Exp $
  */
 
 #include "output.h"
@@ -196,6 +196,7 @@ output_send_settings(TSpeechDMessage *msg, OutputModule *output)
     set_str = g_string_new("");
     ADD_SET_INT(pitch);
     ADD_SET_INT(rate);
+    ADD_SET_INT(volume);
     ADD_SET_STR_C(punctuation_mode, EPunctMode2str);
     ADD_SET_STR_C(spelling_mode, ESpellMode2str);
     ADD_SET_STR_C(cap_let_recogn, ECapLetRecogn2str);
