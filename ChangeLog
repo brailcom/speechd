@@ -1,3 +1,12 @@
+2003-04-29  Milan Zamazal  <pdm@brailcom.org>
+
+	* configure.in: Call AC_PROG_CXX.
+	* src/modules/est_string_config.h: New file.
+	* src/modules/Makefile.am: Build the Festival module.
+	(AM_CXXFLAGS): New variable.
+	* src/modules/festival.cc: Renamed from festival.c.
+	(festival_pause): New function.
+
 2003-04-28  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/Makefile.am (SUBDIRS): Process `audio' before `modules'.
