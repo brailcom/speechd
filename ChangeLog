@@ -1,7 +1,7 @@
 2003-04-06  Hynek Hanke  <hanke@localhost.localdomain>
-
-	* src/server/server.c (message_list_compare_uid): New function.
 	
+	* src/server/msg.h OK_CANCELED: New SSIP message. 
+
 	* src/server/dc_decl.h (cb_AddSndIcons): Typo. 
 
 	* src/server/server.c (parse): cancel: new SSIP command.
@@ -12,6 +12,8 @@
 
 	* src/server/set.c (get_client_uid_by_fd): New function.
 	(get_client_settings_by_fd): Use get_client_uid_by_fd().
+
+	* src/server/server.c (message_list_compare_uid): New function.
 
 	* src/server/server.c (speaking_uid): New variable.
 	(get_speaking_uid ()): New function.
