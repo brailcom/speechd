@@ -155,7 +155,8 @@ application would use to let you read and browse the documents encoded
 in either ordinary formats (like plain text, HTML, PDF) or the
 voice-enabled formats (SABLE, VoiceXML, SSML). These higher level
 protocols describe only how the document should be said, while SSIP is
-a mean how to acually do it on your system.
+a mean how to acually do it on your system. In this manner, one of the
+supported formats of the messages you can send through SSIP is SSML.
 
 @node Higher Level API,  , Protocol Philosophy, Introduction
 @section Higher Level API
@@ -782,6 +783,11 @@ All the settings take effect on the connections specified in the first
 argument (@pxref{General Rules}) and until the parameter setting is
 changed by another invocation of the appropriate @code{SET} command or
 until the connection is closed.
+
+The voice property and TTS-processing settings can sometimes be
+without any real effect if the end synthesizer doesn't provide the
+required functionality.  This is not considered an error in the
+implementation of SSIP.
 
 @table @code
 @item SET self CLIENT_NAME @var{user}:@var{client}:@var{component}
