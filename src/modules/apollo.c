@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.1 2003-04-23 14:32:05 pdm Exp $
+ * $Id: apollo.c,v 1.2 2003-04-23 16:04:14 pdm Exp $
  */
 
 
@@ -36,7 +36,7 @@ gint apollo_is_speaking (void);
 gint apollo_close (void);
 
 OutputModule module_apollo = {
-  "Apollo2",			/* name */
+  "apollo",			/* name */
   "Apollo2 hardware synthesizer", /* description */
   NULL,				/* filename -- what's it? */
   NULL,				/* GModule* -- what's it? */
@@ -67,12 +67,18 @@ static TFDSetElement current_parameters;
   if (old_value == NULL || strcmp (old_value, new_value)) \
     { \
       if (old_value != NULL) \
-        free (old_value); \
-      old_value = g_strdup (new_value); \
-      setter ((new_value)); \
+      { \
+        g_free (old_value); \
+	old_value = NULL; \
+      } \
+      if (new_value == NULL) \
+      { \
+        old_value = g_strdup (new_value); \
+        setter ((new_value)); \
+      } \
     }
 
-static int write_it (const void *data, size_t size)
+static gint write_it (const void *data, size_t size)
 {
   if (fd == -1)
     return -2;
@@ -88,12 +94,12 @@ static int write_it (const void *data, size_t size)
   return 0;
 }
 
-static int send_apollo_command (const char *command)
+static gint send_apollo_command (const char *command)
 {
-  return write_it ((const void *)command, strlen (command));
+  return write_it ((const void *)command, strlen (command) * sizeof (char));
 }
 
-static int set_speed (signed int value)
+static gint set_speed (signed int value)
 {
   int speed = (int) (pow (3, (value+100)/100.0));
   char *command = "@W_";
@@ -106,7 +112,7 @@ static int set_speed (signed int value)
   return send_apollo_command (command);
 }
 
-static int set_pitch (signed int value)
+static gint set_pitch (signed int value)
 {
   int pitch = (int) ((value+100)/13.0 + 0.5);
   char *command = "@F_";
@@ -119,7 +125,7 @@ static int set_pitch (signed int value)
   return send_apollo_command (command);
 }
 
-static int set_language (const char *value)
+static gint set_language (const char *value)
 {
   /* TODO: Just hard-wired switching between English and another language.
      Any masochist willing to use @L and DTR in C is welcome to do so here.
@@ -127,7 +133,7 @@ static int set_language (const char *value)
   return send_apollo_command (strcmp (value, "en") ? "@=2," : "@=1,");
 }
 
-static int set_voice_type (int value)
+static gint set_voice_type (int value)
 {
   char *command;
 
@@ -183,7 +189,7 @@ gint apollo_write (gchar *data, gint len, void* set_)
      is exceeded, the extra data is thrown away. */
   {
     int blen = len * sizeof (gchar);
-    gchar *edata = g_malloc (blen + 1);
+    gchar *edata = g_malloc (blen);
     int result;
     
     if (edata == NULL)
@@ -215,9 +221,7 @@ gint apollo_is_speaking (void)
 
 gint apollo_close (void)
 {
-  gint result;
-
-  result = close (fd);
+  gint result = (fd == -1 ? -1 : close (fd));
   fd = -1;
   return result;
 }
