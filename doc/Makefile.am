@@ -1,8 +1,8 @@
 
-info_TEXINFOS = ssip.texi speech-dispatcher.texi speech-dispatcher-cs.texi
+info_TEXINFOS = ssip.texi speech-dispatcher.texi speech-dispatcher-cs.texi spd-say.texi
 
 SUFFIXES = .html
-html_docs = speechd.html ssip.html
+html_docs = speechd.html ssip.html spd-say.texi
 HTMLDIR = htmldoc
 
 MAINTAINERCLEANFILES = speechd/*
