@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.c,v 1.17 2003-03-24 22:22:47 hanke Exp $
+ * $Id: server.c,v 1.18 2003-03-25 18:08:02 hanke Exp $
  */
 
 #include "speechd.h"
@@ -194,7 +194,7 @@ speak(void* data)
 				gl = g_list_first(MessageQueue->p3); 
 				MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
 				stop_p3();
-				/* Fill the Queue with the list containing only the first message */
+				/* Fill the queue with the list containing only the first message */
 				MessageQueue->p3 = gl;
 				continue;
 			}
@@ -223,19 +223,19 @@ speak(void* data)
 			 * messages first. */
 			gl = g_list_first(MessageQueue->p1); 
 			if (gl != NULL){
-				MSG(9,"           Msg in queue p1\n");
+				MSG(4,"           Msg in queue p1\n");
 				MessageQueue->p1 = g_list_remove_link(MessageQueue->p1, gl);
 				highest_priority = 1;
 			}else{
 				gl = g_list_first(MessageQueue->p2); 
 				if (gl != NULL){
-					MSG(9,"           Msg in queue p2\n");
+					MSG(4,"           Msg in queue p2\n");
 					MessageQueue->p2 = g_list_remove_link(MessageQueue->p2, gl);
 					highest_priority = 2;
 				}else{
 					gl = g_list_first(MessageQueue->p3);
 					if (gl != NULL){
-						MSG(9,"           Msg in queue p3\n");
+						MSG(4,"           Msg in queue p3\n");
 						MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
 						highest_priority = 3;
 					}else{
@@ -275,10 +275,10 @@ speak(void* data)
 			/* Determine which output module should be used */
 			output = g_hash_table_lookup(output_modules, element->settings.output_module);
 			if(output == NULL){
-				MSG(5,"Didn't find prefered output module, using default\n");
+				MSG(4,"Didn't find prefered output module, using default\n");
 				output = g_hash_table_lookup(output_modules, GlobalFDSet.output_module); 
 				if (output == NULL){
-					MSG(3, "Can't find default output module.");
+					MSG(2, "Can't find default output module.");
 					mem_free_message(element);
 					msgs_to_say--;
 					pthread_mutex_unlock(&element_free_mutex);
@@ -291,7 +291,7 @@ speak(void* data)
 	  
 			/* Write the data to the output module. (say them aloud) */
 			ret = (*output->write) (element->buf, element->bytes, &element->settings); 
-			if (ret <= 0) MSG(3, "Output module failed");
+			if (ret <= 0) MSG(2, "Output module failed");
 			mem_free_message(element);
 			msgs_to_say--;
 			pthread_mutex_unlock(&element_free_mutex);
@@ -461,10 +461,9 @@ parse(char *buf, int bytes, int fd)
 	/* First the condition that we are not in data mode and we
 	 * are awaiting commands */
 	if (g_array_index(awaiting_data,int,fd) == 0){
-//		/* Every command has to be introduced by '@' */
-//		if(buf[0] != '@') return ERR_INVALID_COMMAND;	/* no longer needed */
 		/* Read the command */
 		command = get_param(buf, 0, bytes);
+
 		MSG(5, "Command caught: \"%s\" \n", command);
 
 		/* Here we will check which command we got and process
@@ -496,9 +495,9 @@ parse(char *buf, int bytes, int fd)
 
 		/* Check if the client didn't end the session */
 		if (!strcmp(command,"bye") || !strcmp(command,"quit")){
-			MSG(5, "Bye received.\n");
+			MSG(4, "Bye received.\n");
 			/* Send a reply to the socket */
-			write(fd, BYE_MSG, 15);
+			write(fd, OK_BYE, 15);
 			speechd_connection_destroy(fd);
 		}
 	
@@ -520,12 +519,12 @@ parse(char *buf, int bytes, int fd)
 		}else{
 			enddata:
 			/* In the end of the data flow we got a "@data off" command. */
-			MSG(2,"testing |%s| ", buf);
+			MSG(5,"buffer: |%s| ", buf);
 			if((!strncmp(buf,".\r\n", bytes))||(!strncmp(buf,"\r\n.\r\n", bytes))||(end_data==1)){
-				MSG(5,"finishing data\n");
+				MSG(4,"finishing data\n");
 				end_data=0;
 				/* Set the flag to command mode */
-				MSG(5, "switching back to command mode...\n");
+				MSG(4, "switching back to command mode...\n");
 				v = 0;
 				g_array_insert_val(awaiting_data, fd, v);
 
@@ -534,8 +533,11 @@ parse(char *buf, int bytes, int fd)
 				new->bytes = g_array_index(o_bytes,int,fd);
 				new->buf = (char*) spd_malloc(new->bytes + 1);
 				memcpy(new->buf, o_buf[fd]->str, new->bytes);
+				assert(new->bytes>=0);
 				new->buf[new->bytes] = 0;
 
+				if (new->bytes==0) return OK_MSG_CANCELED;
+				
 				if(queue_message(new,fd) != 0){
 					if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
 					free(new->buf);
@@ -544,7 +546,7 @@ parse(char *buf, int bytes, int fd)
 				}
 				
 				MSG(4, "%d bytes put in queue and history\n", g_array_index(o_bytes,int,fd));
-				MSG(4, "Messages to say set to:%d\n",msgs_to_say);
+				MSG(4, "messages_to_say set to: %d\n",msgs_to_say);
 
 				/* Clear the counter of bytes in the output buffer. */
 				server_data_off(fd);
