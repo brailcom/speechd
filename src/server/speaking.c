@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.35 2003-10-16 20:55:18 hanke Exp $
+  * $Id: speaking.c,v 1.36 2003-10-23 14:40:04 hanke Exp $
   */
 
 #include <glib.h>
@@ -92,23 +92,28 @@ speak(void* data)
             continue;
         }
 
-        pthread_mutex_lock(&element_free_mutex);
-               
+       pthread_mutex_lock(&element_free_mutex);
         /* Handle postponed priority progress message */
-        if (highest_priority == 5 && (last_p5_message != NULL) 
-            && (g_list_length(MessageQueue->p5) == 0)){
+        if ((last_p5_message != NULL) && (g_list_length(MessageQueue->p5) == 0)
+            && (highest_priority != 1)){
             message = last_p5_message;
             last_p5_message = NULL;
-            highest_priority = 2;
+            MessageQueue->p3 = g_list_prepend(MessageQueue->p3, message);
+            highest_priority = 3;
+            stop_priority(2);
+            stop_priority(4);
+            stop_priority(5);
             speaking_semaphore_post();
+            pthread_mutex_unlock(&element_free_mutex);         
+            continue;
         }else{
             /* Extract the right message from priority queue */
             message = get_message_from_queues();
             if (message == NULL){
-                pthread_mutex_unlock(&element_free_mutex);
-                continue;     
+                pthread_mutex_unlock(&element_free_mutex);         
+                continue;
             }
-        }    
+        }
 
         /* Isn't the parent client of this message paused? 
          * If it is, insert the message to the MessagePausedList. */
@@ -179,7 +184,7 @@ reload_message(TSpeechDMessage *msg)
         msg->buf = newtext;
         msg->bytes = strlen(msg->buf);
 
-        if(queue_message(msg, -msg->settings.uid, 0, MSGTYPE_TEXT, 0) != 0){
+        if(queue_message(msg, -msg->settings.uid, 0, MSGTYPE_TEXT, 0, 0) != 0){
             if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
             spd_free(msg->buf);
             spd_free(msg);
