@@ -7,7 +7,11 @@ AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_incl
 
 EXTRA_DIST = module_main.c module_utils_addvoice.c festival_client.c festival_client.h
 
-modulebin_PROGRAMS = sd_flite sd_generic sd_festival
+if flite_support
+modulebin_PROGRAMS = sd_flite
+else
+modulebin_PROGRAMS = sd_generic sd_festival
+endif
 
 sd_flite_SOURCES = flite.c module_utils.c module_utils.h
 sd_flite_LDFLAGS = -rpath '$(spdlibdir)'
