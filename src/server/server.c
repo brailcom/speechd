@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.58 2003-09-24 08:42:11 pdm Exp $
+  * $Id: server.c,v 1.59 2003-10-08 21:32:52 hanke Exp $
   */
 
 #include "speechd.h"
@@ -71,20 +71,14 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type,
         return -1;
     }
 
+    MSG(5, "In queue_message desired output module is %s", settings->output_module);
+
     /* Copy the settings to the new to-be-queued element */
     new->settings = *settings;
     new->settings.type = type;
     COPY_SET_STR(language);
     COPY_SET_STR(client_name);
     COPY_SET_STR(output_module);
-    COPY_SET_STR(punctuation_some);
-    COPY_SET_STR(punctuation_table);
-    COPY_SET_STR(spelling_table);
-    COPY_SET_STR(char_table);
-    COPY_SET_STR(key_table);
-    COPY_SET_STR(snd_icon_table);
-    COPY_SET_STR(cap_let_recogn_table);
-    COPY_SET_STR(cap_let_recogn_sound);
 
     new->settings.reparted = reparted;
 
