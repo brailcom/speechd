@@ -19,10 +19,12 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.11 2003-04-17 10:16:31 hanke Exp $
+ * $Id: dc_decl.h,v 1.12 2003-04-18 21:20:01 hanke Exp $
  */
 
 #include "speechd.h"
+
+int table_add(char *name, char *group);
 
 /* define dotconf callbacks */
 DOTCONF_CB(cb_LogFile);
@@ -41,6 +43,9 @@ DOTCONF_CB(cb_DefaultClientName);
 DOTCONF_CB(cb_DefaultVoiceType);
 DOTCONF_CB(cb_DefaultSpelling);
 DOTCONF_CB(cb_DefaultSpellingTable);
+DOTCONF_CB(cb_DefaultCharacterTable);
+DOTCONF_CB(cb_DefaultKeyTable);
+DOTCONF_CB(cb_DefaultSoundTable);
 DOTCONF_CB(cb_DefaultCapLetRecognition);
 
 
@@ -62,6 +67,9 @@ static const configoption_t options[] =
     {"DefaultVoiceType", ARG_INT, cb_DefaultVoiceType, 0, 0},
     {"DefaultSpelling", ARG_TOGGLE, cb_DefaultSpelling, 0, 0},
     {"DefaultSpellingTable", ARG_STR, cb_DefaultSpellingTable, 0, 0},
+    {"DefaultCharacterTable", ARG_STR, cb_DefaultCharacterTable, 0, 0},
+    {"DefaultKeyTable", ARG_STR, cb_DefaultKeyTable, 0, 0},
+    {"DefaultSoundTable", ARG_STR, cb_DefaultSoundTable, 0, 0},
     {"DefaultCapLetRecognition", ARG_TOGGLE, cb_DefaultCapLetRecognition, 0, 0},
     /*{"ExampleOption", ARG_STR, cb_example, 0, 0},
      *      {"MultiLineRaw", ARG_STR, cb_multiline, 0, 0},
@@ -113,6 +121,8 @@ DOTCONF_CB(cb_AddTable)
     char *value;
     char *filename;
     char *line;
+    char *group;
+    int group_set = 0;
 	
     MSG(4,"Reading sound icons file...");
 	
@@ -130,9 +140,8 @@ DOTCONF_CB(cb_AddTable)
 
     while(1){
         line = (char*) spd_malloc(256 * sizeof(char));
-        fgets(line, 254, icons_file);
-        if(line == NULL){
-            MSG(2, "Specified table %s empty or missing language and table identification.", filename);
+        if(fgets(line, 254, icons_file) == NULL){
+            MSG(2, "Specified table %s empty or missing language, table or group identification.", filename);
             return NULL;
         }
         if(strlen(line) <= 2) continue;
@@ -140,16 +149,42 @@ DOTCONF_CB(cb_AddTable)
 
         key = strtok(line,":\r\n");
         if(key == NULL) continue;
-        value = strtok(NULL,"=\r\n");
-        if(value == NULL) continue;
         g_strstrip(key);
+
+        value = strtok(NULL,"\r\n");
+        if(value == NULL){
+            if(!strcmp(key,"definition")){
+                if(tablename == NULL){
+                    MSG(2, "Table name must preceed definition of symbols in [%s]!", filename);
+                    return NULL;
+                }
+                if(language == NULL){
+                    MSG(2, "Table language must preceed definition of symbols in [%s]!", filename);
+                    return NULL;
+                }
+                if(group_set == 0){             
+                    MSG(2, "Table group(s) must preceed definition of symbols in [%s]!", filename);
+                    return NULL;
+                }
+                break;
+            }            
+            continue;
+        }
+
         g_strstrip(value);
 
-        if(!strcmp(key,"language")) language = value;
+        if(!strcmp(key,"language"))  language = value;
         if(!strcmp(key,"table")) tablename = value;
+        if(!strcmp(key,"group")){
+            if(tablename == NULL){
+                MSG(2, "Table name must preceed group definitions in [%s]!", filename);
+                return NULL;
+            }
+            if(table_add(tablename, value) == 0) group_set = 1;
+        }
 
-        if((language != NULL) && (tablename!=NULL)) break;
     }
+
     MSG(4, "Parsing icons data: lang:%s name:%s", language, tablename);
     if(strlen(language)<2){
         MSG(2,"Invalid language code in table.");
@@ -262,9 +297,62 @@ DOTCONF_CB(cb_DefaultSpellingTable)
     return NULL;
 }
 
+DOTCONF_CB(cb_DefaultCharacterTable)
+{
+    GlobalFDSet.char_table = (char*) spd_malloc((strlen(cmd->data.str) + 1) * sizeof(char));
+    strcpy(GlobalFDSet.char_table, cmd->data.str);
+    return NULL;
+}
+
+DOTCONF_CB(cb_DefaultKeyTable)
+{
+    GlobalFDSet.key_table = (char*) spd_malloc((strlen(cmd->data.str) + 1) * sizeof(char));
+    strcpy(GlobalFDSet.key_table,cmd->data.str);
+    return NULL;
+}
+
+DOTCONF_CB(cb_DefaultSoundTable)
+{
+    GlobalFDSet.snd_icon_table = (char*) spd_malloc((strlen(cmd->data.str) + 1) * sizeof(char));
+    strcpy(GlobalFDSet.snd_icon_table,cmd->data.str);
+    return NULL;
+}
+
+
 DOTCONF_CB(cb_DefaultCapLetRecognition)
 {
     GlobalFDSet.cap_let_recogn = cmd->data.value;
     return NULL;
 }
 
+int
+table_add(char *name, char *group)
+{
+    char *p;
+
+    if((name == NULL)||(strlen(name)<=1)){
+        MSG(2,"Invalid table name!");
+        return 0;
+    }
+    if((group == NULL)||(strlen(group)<=1)){
+        MSG(2,"Invalid table group for %s!", name);
+        return 0;
+    }
+
+    p = (char*) spd_malloc((strlen(name)+1) * sizeof(char));
+    strcpy(p, name);
+
+    if (!strcmp(group,"sound_icons"))
+        tables.sound_icons = g_list_append(tables.sound_icons, p);
+    else if(!strcmp(group,"spelling"))
+        tables.spelling = g_list_append(tables.spelling, p);
+    else if(!strcmp(group, "characters"))
+        tables.characters = g_list_append(tables.characters, p);
+    else if(!strcmp(group, "keys"))
+        tables.keys = g_list_append(tables.keys, p);
+    else if(!strcmp(group, "punctuation"))
+        tables.punctuation = g_list_append(tables.punctuation, p);
+    else return 1;
+
+    return 0;
+} 
