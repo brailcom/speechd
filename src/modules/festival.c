@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.7 2003-05-17 21:01:17 hanke Exp $
+ * $Id: festival.c,v 1.8 2003-05-18 20:55:02 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -39,13 +39,13 @@
 
 #include "festival_client.c"
 
-const int DEBUG_FESTIVAL = 0;
+const int DEBUG_FESTIVAL = 1;
 
 /* Thread and process control */
 int festival_speaking = 0;
 int festival_running = 0;
 
-EVoiceType festival_cur_voice = MALE1;
+EVoiceType festival_cur_voice = NO_VOICE;
 
 pthread_t festival_speak_thread;
 pid_t festival_pid;
@@ -77,34 +77,115 @@ OutputModule modinfo_festival = {
    festival_stop,
    festival_pause,
    festival_is_speaking,
-   festival_close
+   festival_close,
+   {0,0}
 };
+
+char*
+module_getparam_str(GHashTable *table, char* param_name)
+{
+    char *param;
+    param = g_hash_table_lookup(table, param_name);
+    return param;
+}
+
+int
+module_getparam_int(GHashTable *table, char* param_name)
+{
+    char *param_str;
+    int param;
+    
+    param_str = module_getparam_str(table, param_name);
+    if (param_str == NULL) return -1;
+
+    param = atoi(param_str);
+
+    return param;
+}
+
+char*
+module_getvoice(GHashTable *table, char* language, EVoiceType voice)
+{
+    SPDVoiceDef *voices;
+    char *ret;
+
+    voices = g_hash_table_lookup(table, language);
+    if (voices == NULL) return NULL;
+
+    switch(voice){
+    case MALE1: 
+        ret = voices->male1; break;
+    case MALE2: 
+        ret = voices->male2; break;
+    case MALE3: 
+        ret = voices->male3; break;
+    case FEMALE1: 
+        ret = voices->female1; break;
+    case FEMALE2: 
+        ret = voices->female2; break;
+    case FEMALE3: 
+        ret = voices->female3; break;
+    case CHILD_MALE: 
+        ret = voices->child_male; break;
+    case CHILD_FEMALE: 
+        ret = voices->child_female; break;
+    default:
+        FATAL("Internal error");
+    }
+
+    if (ret == NULL) ret = voices->male1;
+    if (ret == NULL) printf("No voice available for this output module!");
+
+    return ret;
+}
 
 /* Entry point of this module */
 OutputModule*
+module_load()
+{
+    if(DEBUG_FESTIVAL) printf("festival: load_module()\n");
+    modinfo_festival.description =
+        g_strdup_printf("Festival software synthesizer, version %s",VERSION);
+
+    assert(modinfo_festival.name != NULL);
+    assert(modinfo_festival.description != NULL);
+
+    modinfo_festival.settings.params = g_hash_table_new(g_str_hash, g_str_equal);
+    modinfo_festival.settings.voices = g_hash_table_new(g_str_hash, g_str_equal);
+
+    return &modinfo_festival;
+}
+
+int
 module_init(void)
 {
     FT_Wave *fwave;
+    char *host;
+    int port;
 
     if(DEBUG_FESTIVAL) printf("festival: init_module()\n");
 
     /* Init festival and register a new voice */
-
-    modinfo_festival.description =
-        g_strdup_printf("Festival software synthesizer, version %s",VERSION);
-
+ 
     festival_info = festival_default_info();
+
+    host = module_getparam_str(modinfo_festival.settings.params, "host");
+    if (host != NULL){
+        festival_info->server_host = malloc(strlen(host) * sizeof(char) + 1);
+        strcpy(festival_info->server_host, host);
+    }
+    port = module_getparam_int(modinfo_festival.settings.params, "port");
+    if (port != -1) festival_info->server_port = port;
+
     festival_info = festivalOpen(festival_info);
+    if (festival_info == NULL) return -1;
 
     festivalStringToWaveRequest(festival_info, "test");
     fwave = (FT_Wave*) festivalStringToWaveGetData(festival_info);
     if (DEBUG_FESTIVAL) printf("(init) wave num samples = %d\n", fwave->num_samples);
     festival_test_wave = (cst_wave*) festival_conv(fwave);
 
-    assert(modinfo_festival.name != NULL);
-    assert(modinfo_festival.description != NULL);
-
-    return &modinfo_festival;
+    return 0;
 }
 
 /* Public functions */
@@ -116,6 +197,7 @@ festival_write(gchar *data, gint len, void* v_set)
     FILE *temp;
     float stretch;
     TFDSetElement *set = v_set;
+    char *voice;
 
     /* Tests */
     if(DEBUG_FESTIVAL) printf("festival: write()\n");
@@ -133,7 +215,7 @@ festival_write(gchar *data, gint len, void* v_set)
     if(DEBUG_FESTIVAL) printf("requested data: |%s|\n", data);
 	
     if (festival_speaking){
-        if(DEBUG_FESTIVAL) printf("festival: speaking when requested to festival-write");
+        if(DEBUG_FESTIVAL) printf("festival: speaking when requested to festival-write\n");
         return 0;
     }
 
@@ -148,14 +230,13 @@ festival_write(gchar *data, gint len, void* v_set)
 
     /* Setting voice */
     if (set->voice_type != festival_cur_voice){
-        if(set->voice_type == MALE1){
-            festival_cur_voice = MALE1;
+        voice = module_getvoice(modinfo_festival.settings.voices, set->language,
+                                set->voice_type);
+        if (voice == NULL){
+            if (DEBUG_FESTIVAL) printf("festival: No voice available\n");
+            return 0;
         }
-        if(set->voice_type == MALE2){
-            /* This is only an experimental voice. But if you want
-             to know what's the time... :)*/
-            festival_cur_voice = MALE2;
-        }
+        festivalSetVoice(festival_info, voice);
     }
 	
     stretch = 1;
@@ -418,8 +499,6 @@ _festival_synth()
         for (i=0; i<=200; i++){
             c = fgetc(sp_file);
             if (c == EOF){
-                printf("EOF\n\n");
-                fflush(NULL);
                 text[i] = 0;
                 terminate = 1;
                 break;
@@ -427,8 +506,6 @@ _festival_synth()
             /* We have to divide the text into small chunks to be able to
              start early */
             if (c == '.' || c == '!' || c == '?'|| c == ';' || c == '-' || c == ','){
-                printf(".%c.", c);
-                fflush(NULL);
                 if (i==0){                    
                     text[0] = 0;
                 }else{
