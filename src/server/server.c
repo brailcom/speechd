@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.53 2003-07-06 15:00:20 hanke Exp $
+  * $Id: server.c,v 1.54 2003-07-16 19:19:44 hanke Exp $
   */
 
 #include "speechd.h"
@@ -83,6 +83,20 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type,
     last_message_id++;				
     new->id = last_message_id;
 
+    /* If desired, put the message also into history */
+    /* NOTE: This should be before we put it into queues() to
+     avoid conflicts with the other thread (it could delete
+    the message before we woud copy it) */
+    if (history_flag){
+        /* We will make an exact copy of the message for inclusion into history. */
+        hist_msg = (TSpeechDMessage*) spd_message_copy(new); 
+        if(hist_msg != NULL){
+            message_history = g_list_append(message_history, hist_msg);
+        }else{
+            if(SPEECHD_DEBUG) FATAL("Can't include message into history\n");
+        }
+    }
+
     /* Put the element new to queue according to it's priority. */
     switch(settings->priority){
     case 1: MessageQueue->p1 = g_list_append(MessageQueue->p1, new); 
@@ -105,17 +119,6 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag, EMessageType type,
     default: FATAL("Nonexistent priority given");
     }
     sem_post(sem_messages_waiting);
-
-    /* If desired, put the message also into history */
-    if (history_flag){
-        /* We will make an exact copy of the message for inclusion into history. */
-        hist_msg = (TSpeechDMessage*) spd_message_copy(new); 
-        if(hist_msg != NULL){
-            message_history = g_list_append(message_history, hist_msg);
-        }else{
-            if(SPEECHD_DEBUG) FATAL("Can't include message into history\n");
-        }
-    }
 
     return 0;
 }
