@@ -1645,8 +1645,8 @@ Example Speech Daemon response:
 200 OK Tables listed.
 @end example
 
-The standard spelling tables are always listed, see @ref{Standard
-spelling tables}.
+The standard sound tables are listed only if they are mapped
+to some real table, see @ref{Standard sound tables}.
 
 @item LIST PUNCTUATION_TABLES
 Similar to @code{LIST SPELLING_TABLES}, but lists the names of the
