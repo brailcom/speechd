@@ -5,11 +5,17 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
 #include <glib.h>
 
 #include "def.h"
 
 #define FATAL(msg) { perror("client: "msg); exit(1); }
+
+char* send_data(int fd, char *message, int wfr);
+
+
+/* --------------------- Public functions ------------------------- */
 
 int 
 rbd_init(char* client_name, char* conn_name)
@@ -30,8 +36,10 @@ rbd_init(char* client_name, char* conn_name)
 
   buf = malloc((strlen(client_name) + strlen(conn_name) + 64) * sizeof(char));
   if (buf == NULL) FATAL ("Not enough memory.\n");
+
   sprintf(buf, "@client_name %s:%s\n\r", client_name, conn_name);
   if(! ret_ok( send_data(sockfd, buf, 1) )) return 0; 
+
   free(buf);
 
   return sockfd;
@@ -47,9 +55,10 @@ int rbd_say(int fd, int priority, char* text){
   char *buf;
 
   sprintf(helper, "@priority %d\n\r", priority);
-  if(! ret_ok( send_data(fd, helper, 1) )) return 0;
+  if(!ret_ok(send_data(fd, helper, 1))) return 0;
+
   sprintf(helper, "@data on\n\r");
-  if(! ret_ok( send_data(fd, helper, 1) )) return 0;
+  if(!ret_ok(send_data(fd, helper, 1))) return 0;
 
   buf = malloc((strlen(text) + 4)*sizeof(char));
   if (buf == NULL) FATAL ("Not enough memory.\n");
@@ -57,14 +66,66 @@ int rbd_say(int fd, int priority, char* text){
   send_data(fd, buf, 0);
 
   sprintf(helper, "@data off\n\r");
-  if(! ret_ok( send_data(fd, helper, 1) )) return 0; 
+  if(!ret_ok(send_data(fd, helper, 1))) return 0; 
   
   return 1;
 }
 
+int rbd_sayf (int fd, int priority, char *format, ...){
+	va_list args;
+	char buf[512];
+	int ret;
+	
+	va_start(args, format);
+		vsprintf(buf, format, args);
+	va_end(args);
+
+	ret = rbd_say(fd, priority, buf);	
+	return ret;
+}
+
+int rbd_stop(int fd){
+  char helper[16];
+
+  sprintf(helper, "@stop\n\r");
+  if(!ret_ok(send_data(fd, helper, 1))) return 0;
+
+  return 1;
+}
+
+int rbd_pause(int fd){
+  char helper[16];
+
+  sprintf(helper, "@pause\n\r");
+  if(!ret_ok(send_data(fd, helper, 1))) return 0;
+
+  return 1;
+}
+
+int rbd_resume(int fd){
+  char helper[16];
+
+  sprintf(helper, "@resume\n\r");
+  if(!ret_ok(send_data(fd, helper, 1))) return 0;
+
+  return 1;
+}
+
+/* --------------------- Internal functions ------------------------- */
+
 int ret_ok(char *ret){
-   if (strstr(ret, "OK")) return 1;
-   if (strstr(ret, "ERROR")) return 0;
+   char str[256];
+   char quantum_trashbin[300];
+   /* TODO: It seems that this piece of code is subject to the
+	* laws of quantum mechanics. If you cease to observe what's
+	* going on (remove this sprintf), it works in a completely
+	* different manner. It doesn't stop in either one of the strstr
+	* functions and executes internall error. But if you uncomment
+	* the sprintf and try to determine what's going on, everything
+	* works correctly. */
+   sprintf(quantum_trashbin, "returned: %s", ret);
+   if (strstr(ret, "OK") != NULL) return 1;
+   if (strstr(ret, "ERROR") != NULL) return 0;
    FATAL("Internal error during communication.");
 }
 
@@ -75,14 +136,19 @@ char* send_data(int fd, char *message, int wfr) {
    /* write message to the socket */
    write(fd, message, strlen(message));
 
+   message[strlen(message)] = 0;
+   printf("command sent:	%s", message);
+
    /* read reply to the buffer */
    if (wfr == 1){
       bytes = read(fd, reply, 255);
       /* print server reply to as a string */
       reply[bytes] = 0; 
-      printf("reply from server: %s (%d bytes)\n", reply, bytes);
+      printf("reply from server:	%s\n", reply);
       return reply;
    }else{
+      printf("reply from server: no reply\n\n");
       return "NO REPLY";
    } 
 }
+
