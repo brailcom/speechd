@@ -8,7 +8,7 @@ OutputModule* load_output_module(gchar* modname) {
    OutputModule *module_info;
    char filename[PATH_MAX];
 
-   snprintf(filename, PATH_MAX, "../modules/%s.so", modname);
+   snprintf(filename, PATH_MAX, "/usr/local/lib/libr%s.so", modname);
 
    gmodule = g_module_open(filename, G_MODULE_BIND_LAZY);
    if (gmodule == NULL) {
