@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.12 2003-05-06 11:43:56 pdm Exp $
+ * $Id: apollo.c,v 1.13 2003-05-18 20:54:25 hanke Exp $
  */
 
 
@@ -48,7 +48,8 @@ OutputModule module_apollo = {
   apollo_stop,
   apollo_pause,
   apollo_is_speaking,
-  apollo_close
+  apollo_close,
+  {0, 0}
 };
 
 static const char * const DEVICE = "/dev/apollo";
@@ -185,8 +186,8 @@ static gint set_voice_type (int value)
 
 /* *** Interface functions *** */
 
-
-OutputModule *module_init (void)
+int
+module_init()
 {
   current_parameters.rate = -101;
   current_parameters.pitch = -101;
@@ -204,6 +205,14 @@ OutputModule *module_init (void)
   recode_outer = recode_new_outer (true);
   recode_request = recode_new_request (recode_outer);
   recode_scan_request (recode_request, "UTF-8..ASCII");
+
+  return 0;
+}
+
+OutputModule *module_load (void)
+{
+  module_apollo.settings.params = g_hash_table_new(g_str_hash, g_str_equal);
+  module_apollo.settings.voices = g_hash_table_new(g_str_hash, g_str_equal);
   
   return &module_apollo;
 }
