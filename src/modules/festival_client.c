@@ -488,6 +488,40 @@ festivalSetVoice(FT_Info *info, char *voice)
     return 0;
 }
 
+int
+festivalSetRate(FT_Info *info, signed int rate)
+{
+    FILE* fd;
+    char buf[4];
+    int n;
+    float stretch;
+
+    stretch = 1;
+    if (rate < 0) stretch -= ((float) rate) / 50;
+    if (rate > 0) stretch -= ((float) rate) / 200;
+
+    fd = fdopen(dup(info->server_fd),"wb");
+    /* Send the command and set new voice */
+    fprintf(fd,"(Parameter.set \"Duration_Stretch\" %f)\n", stretch);
+    fclose(fd);
+
+    for (n=0; n < 3; )
+        n += read(info->server_fd,buf+n,3-n);
+
+    buf[3] = 0;
+    if (!strcmp(buf,"ER\n")){
+        printf("Couldn't set voice!\n");
+        return 1;
+    }else{
+        client_accept_s_expr(info->server_fd);
+    }
+
+    for (n=0; n < 3; )
+        n += read(info->server_fd,buf+n,3-n);
+
+    return 0;
+}
+
 
 /* For testing purposes, this library can be compiled as
  * a standalone program, please see the introduction at
