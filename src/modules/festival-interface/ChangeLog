@@ -1,3 +1,10 @@
+2003-11-26  Milan Zamazal  <pdm@brailcom.org>
+
+	* speech-dispatcher.scm (speechd-set-pitch): Be more clean;
+	support `simple' intonation method.
+
+	* util.scm (assoc-set): New function.
+
 2003-11-20  Milan Zamazal  <pdm@brailcom.org>
 
 	* speech-dispatcher.scm (speechd-language-voices): Coding added to
