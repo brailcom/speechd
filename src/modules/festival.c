@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.34 2003-10-09 21:16:58 hanke Exp $
+ * $Id: festival.c,v 1.35 2003-10-10 14:33:48 buchal Exp $
  */
 
 #include "module.h"
@@ -66,6 +66,7 @@ void festival_set_pitch(signed int pitch);
 void festival_set_voice(EVoiceType voice);
 void festival_set_language(char* language);
 void festival_set_punctuation_mode(EPunctMode punct);
+void festival_set_cap_let_recogn(ECapLetRecogn recogn);
 
 
 MOD_OPTION_1_INT(FestivalMaxChunkLength);
@@ -190,6 +191,7 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
     UPDATE_PARAMETER(rate, festival_set_rate);
     UPDATE_PARAMETER(pitch, festival_set_pitch);
     UPDATE_PARAMETER(punctuation_mode, festival_set_punctuation_mode);
+    UPDATE_PARAMETER(cap_let_recogn, festival_set_cap_let_recogn);
 
     /* Send semaphore signal to the speaking thread */
     festival_speaking = 1;    
@@ -451,6 +453,17 @@ festival_set_punctuation_mode(EPunctMode punct)
     punct_mode = EPunctMode2str(punct);
     FestivalSetPunctuationMode(festival_info, punct_mode);
     xfree(punct_mode);
+}
+
+void
+festival_set_cap_let_recogn(ECapLetRecogn recogn)
+{
+    char *recogn_mode;
+
+    if (recogn == RECOGN_NONE) recogn_mode = NULL;
+    else recogn_mode = ECapLetRecogn2str(recogn);
+    FestivalSetCapLetRecogn(festival_info, recogn_mode);
+    xfree(recogn_mode);
 }
 
 /* Warning: In order to be faster, this function doesn't copy
