@@ -1,5 +1,5 @@
 /* speechd simple client program
- * CVS revision: $Id: say.c,v 1.2 2002-07-07 21:43:42 hanke Exp $
+ * CVS revision: $Id: say.c,v 1.3 2002-07-07 21:45:11 hanke Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
 #include <sys/types.h>
@@ -32,6 +32,7 @@ int main(int argc, const char **argv) {
    err = speechd_say(sockfd, 2, argv[1]);
 
    if (err != 1) FATAL("Speechd failed");
+
   
    /* close the socket */
    speechd_close(sockfd);
