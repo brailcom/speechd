@@ -1,3 +1,8 @@
+2003-09-24  Milan Zamazal  <pdm@brailcom.org>
+
+	* config/Makefile.am (speechd.conf): New target.
+	(all-local): Depend on it, do nothing otherwise.
+
 2003-09-23  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/server/output.c (output_send_data): Log module communication
