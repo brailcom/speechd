@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.21 2003-05-31 18:40:00 pdm Exp $
+ * $Id: dc_decl.h,v 1.22 2003-06-03 12:06:27 hanke Exp $
  */
 
 #include "speechd.h"
@@ -33,6 +33,7 @@ OutputModule* cur_mod;
 
 /* define dotconf callbacks */
 DOTCONF_CB(cb_LogFile);
+DOTCONF_CB(cb_LogLevel);
 DOTCONF_CB(cb_SndModule);
 DOTCONF_CB(cb_AddTable);
 DOTCONF_CB(cb_DefaultModule);
@@ -63,6 +64,7 @@ DOTCONF_CB(cb_ApolloLanguage);
 static const configoption_t options[] =
 {
     {"LogFile", ARG_STR, cb_LogFile, 0, 0},
+    {"LogLevel", ARG_INT, cb_LogLevel, 0, 0},
     {"SndModule", ARG_STR, cb_SndModule, 0, 0},
     {"AddTable", ARG_STR, cb_AddTable, 0, 0},
     {"DefaultModule", ARG_STR, cb_DefaultModule, 0, 0},
@@ -115,6 +117,22 @@ DOTCONF_CB(cb_LogFile)
     MSG(2,"Speech Dispatcher Logging to file %s", cmd->data.str);
     return NULL;
 }
+
+DOTCONF_CB(cb_LogLevel)
+{
+    int level = cmd->data.value;
+
+    if(level < 0 || level > 5){
+        MSG(1,"Log level must be betwen 1 and 5.");
+        return NULL;
+    }
+
+    spd_log_level = level;
+
+    MSG(4,"Speech Dispatcher Logging with priority %d", spd_log_level);
+    return NULL;
+}
+
 
 DOTCONF_CB(cb_SndModule)
 {
