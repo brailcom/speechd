@@ -1,0 +1,192 @@
+
+# Global configuration for Speech Dispatcher
+# ==========================================
+
+# -----SYSTEM OPTIONS-----
+
+# Port on which Speech Dispatcher should be available
+# to clients.
+
+# Port 9876
+
+# This should be the path where Speech Dispatcher's configuration
+# is stored, it's the base directory for Include commands in this
+# file.
+IncludePath INCLUDE_PATH
+
+# -----DEBUGING CONFIGURATION-----
+
+# LogLevel is a number between 0 and 5 that specifies
+# how much of the logging information should be printed
+# out on the screen or in the logfile (see LogFile)
+# 0 means nothing, 5 means everything (not recommended).
+
+LogLevel  3
+
+# LogFile specifies where should Speech Dispatcher write it's logging
+# messages (status information, error messages, etc.)
+# Specify "stdout" for standard console output
+# or a full path to some file which the log should be written to.
+
+#LogFile  "speechd.log"
+LogFile  "stdout"
+
+
+# -----MISC OPTIONS-----
+
+# MaxHistoryMessages specifies the maximum number of messages
+# that are stored in history. If they are more, older messages
+# expire.
+# MaxHistoryMessages 10000
+
+# SoundDataDir "/usr/share/sounds/sounds-library"
+
+# Minimal delay for saying postponed messages in priority progress (in microseconds)
+# MinDelayProgress  2000
+
+# DefaultRate controls how fast the synthesizer is going to speak.
+# It's parameter must be between -100 (slowest) and +100 (fastest),
+# default is 0.
+
+# DefaultRate  0
+
+# DefaultPitch controls the pitch of the synthesized voice.
+# It's parameter must be between -100 (lowest) and +100 (highest),
+# default is 0.
+
+# DefaultPitch  0
+
+# DefaultPunctuationMode sets the way dots, comas, exclamation
+# marks, question marks etc. are interpreted.
+#       none    -     they are ignored
+#       some    -     some of them are sent to synthesis
+#							(see DefaultPunctuationSome)					
+#       all     -     all punctuation marks are sent to synthesis
+
+# DefaultPunctuationMode  "none"
+
+# PunctuationSome defines what punctuation symbols shoud be
+# read when punctuation mode is set to "some"
+# PunctuationSome  ",.?!"
+
+# Default language:
+# DefaultLanguage  "en"
+
+# DefaultClientName specifies the name of a client
+# who didn't introduce himself at the beginning of
+# a SSIP session.
+#
+# (Note that if you see this string during working
+# with Speech Dispatcher aplications as a user, it's a good
+# reason to complain to the autor of said application!)
+
+# DefaultClientName  "unknown:unknown:unknown"
+
+# DefaultVoiceType  "MALE1"
+
+# Use with caution
+# DefaultPriority  "text"
+
+
+# -----GENERIC FILTERING TABLES-----
+# AddTable adds sound icons files for different languages in
+# etc/speechd/. This includes spelling tables, key names lists
+# and others. These tables should be sorted in directories
+# according to their languages.
+
+AddTable	"en/spelling_short.conf"
+AddTable	"en/spelling_long.conf"
+AddTable	"en/sound_icons.conf"
+AddTable	"en/keys.conf"
+
+AddTable        "cs/spelling_short.conf"
+AddTable        "cs/keys.conf"
+AddTable        "cs/sound_icons.conf"
+
+# -----FILTERING CONFIGURATION-----
+# DefaultSpellingTable specifies which spelling table should
+# be used if the client application doesn't specify anything.
+#
+# "spelling_short" and "spelling_full" are allways available.
+
+DefaultSpellingTable      "spelling_short"
+DefaultPunctuationTable   "spelling_short"
+DefaultCharacterTable     "spelling_short"
+DefaultKeyTable           "keys"
+DefaultSoundTable         "sound_icons"
+
+# DefaultSpelling: if set to On, every messages will
+# be spelled unless set otherwise. (This is usually
+# not something you want to do.)
+
+# DefaultSpelling  Off
+
+# DefaultCapLetRecognition: if set to "icon" or "insert_sound",
+# capital letters are distinguished from other text automatically,
+# otherwise only on client request.
+
+DefaultCapLetRecognition  "none"
+CapLetRecognIcon "capital_letter"
+
+
+# -----OUTPUT MODULES CONFIGURATION-----
+
+# AddModule loads an output module.
+#  Syntax: AddModule "name" filter_type "binary" "configuration"
+#  - name is the name under which you can acces this module
+#  - filter_type is the type of filtering (punctuation, capital_letters,
+#    spelling) for this module
+#          filter_generic -- let Speech Dispatcher's output layer do it
+#                            (the module doesn't have to care about it then)
+#          filter_self    -- the output module will provide the filtering
+#          filter_none    -- this output module doesn't need filtering
+#  - binary is the path to the binary executable of this module,
+#    either relative (to bin/speechd-modules/) or absolute
+#  - configuration is the path to the config file of this module,
+#    either relative (to etc/speechd/modules/) or absolute
+
+AddModule "flite"        filter_generic  "sd_flite"     "flite.conf"
+AddModule "festival"     filter_generic  "sd_festival"  "festival.conf"
+AddModule "epos-generic" filter_generic  "sd_generic"   "epos-generic.conf"
+# AddModule "apollo"     filter_generic  "sd_apollo"    "apollo.conf"
+
+# The output module testing doesn't actually connect to
+# anything. It outputs the requested commands to standard output
+# and reads responses from stdandard input. This way, Speech Dispatcher's
+# communication with output modules can be tested easily.
+
+# AddModule "testing"    filter_generic
+
+# Sound module loads the sound output module. 
+#  Syntax: SoundModule "name" "binary" "configuration"
+# See AddModule for the description of these parameters
+
+SoundModule "cstsnd" "sd_cstsnd"
+
+# DefaultModule selects which output module is the default.
+# You must use one of the modules loaded with AddModule.
+
+DefaultModule flite
+
+# LanguageDefaultModule selects which output modules are prefered
+# for specified languages.
+
+LanguageDefaultModule "en"  "flite"
+LanguageDefaultModule "cs"  "festival"
+LanguageDefaultModule "es"  "festival"
+
+# -----CLIENT SPECIFIC CONFIGURATION-----
+
+# Here you can include the files with client-specific configuration
+# for different types of clients. They must contain one or more sections with
+# this structure:
+#     BeginClient "emacs:*"
+#          DefaultPunctuationMode "some"
+#          ...and/or some other settings
+#     EndClient
+# The parameter of BeginClient tells Speech Dispatcher to which clients
+# it should apply this settings (it does glob-style matching, you can use
+# * to match any number of characters and ? to match one character)
+
+# Include "clients/emacs.conf"
+
