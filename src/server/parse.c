@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.33 2003-06-05 16:13:53 hanke Exp $
+ * $Id: parse.c,v 1.34 2003-06-20 00:43:11 hanke Exp $
  */
 
 #include "speechd.h"
@@ -32,8 +32,15 @@
   with corresponding parameters for synthesis.
 */
 
+#define CHECK_SSIP_COMMAND(cmd_name, parse_function)\
+ if(!strcmp(command, cmd_name)){ \
+    spd_free(command); \
+    return (char*) (parse_function) (buf, bytes, fd); \
+ }
+
+
 char* 
-parse(char *buf, int bytes, int fd)
+parse(const char *buf, const int bytes, const int fd)
 {
     TSpeechDMessage *new;
     TFDSetElement *settings;
@@ -70,48 +77,27 @@ parse(char *buf, int bytes, int fd)
             if(SPEECHD_DEBUG) FATAL("Invalid buffer for parse()\n");
             return ERR_INTERNAL; 
         }		
-		
-        if (!strcmp(command,"set")){				
-            return (char *) parse_set(buf, bytes, fd);
-        }
-        if (!strcmp(command,"history")){				
-            return (char *) parse_history(buf, bytes, fd);
-        }
-        if (!strcmp(command,"stop")){
-            return (char *) parse_stop(buf, bytes, fd);
-        }
-        if (!strcmp(command,"pause")){
-            return (char *) parse_pause(buf, bytes, fd);
-        }
-        if (!strcmp(command,"resume")){
-            return (char *) parse_resume(buf, bytes, fd);
-        }
-        if (!strcmp(command,"cancel")){
-            return (char *) parse_cancel(buf, bytes, fd);
-        }
-        if (!strcmp(command,"sound_icon")){				
-            return (char *) parse_snd_icon(buf, bytes, fd);
-        }
-        if (!strcmp(command,"char")){				
-            return (char *) parse_char(buf, bytes, fd);
-        }
-        if (!strcmp(command,"key")){				
-            return (char *) parse_key(buf, bytes, fd);
-        }
-        if (!strcmp(command,"list")){				
-            return (char *) parse_list(buf, bytes, fd);
-        }
-        if (!strcmp(command,"help")){
-            return (char *) parse_help(buf, bytes, fd);
-        }
 
-        /* Check if the client didn't end the session */
+        CHECK_SSIP_COMMAND("set", parse_set);
+        CHECK_SSIP_COMMAND("history", parse_history);
+        CHECK_SSIP_COMMAND("stop", parse_stop);
+        CHECK_SSIP_COMMAND("cancel", parse_cancel);
+        CHECK_SSIP_COMMAND("pause", parse_pause);
+        CHECK_SSIP_COMMAND("resume", parse_resume);
+        CHECK_SSIP_COMMAND("sound_icon", parse_snd_icon);
+        CHECK_SSIP_COMMAND("char", parse_char);
+        CHECK_SSIP_COMMAND("key", parse_key)
+        CHECK_SSIP_COMMAND("list", parse_list);
+        CHECK_SSIP_COMMAND("char", parse_char);
+        CHECK_SSIP_COMMAND("help", parse_help);		
+
         if (!strcmp(command,"bye") || !strcmp(command,"quit")){
             MSG(4, "Bye received.");
             /* Send a reply to the socket */
             write(fd, OK_BYE, strlen(OK_BYE)+1);
             speechd_connection_destroy(fd);
             /* This is internal Speech Dispatcher message, see serve() */
+            spd_free(command);
             return "999 CLIENT GONE";
         }
 	
@@ -122,10 +108,13 @@ parse(char *buf, int bytes, int fd)
             r = server_data_on(fd);
             if (r!=0){
                 if(SPEECHD_DEBUG) FATAL("Can't switch to data on mode\n");
+                spd_free(command);
                 return "ERR INTERNAL";								 
             }
+            spd_free(command);
             return OK_RECEIVE_DATA;
         }
+        spd_free(command);
         return ERR_INVALID_COMMAND;
 
         /* The other case is that we are in awaiting_data mode and
@@ -143,6 +132,7 @@ parse(char *buf, int bytes, int fd)
             awaiting_data[fd] = 0;
 
             /* Prepare element (text+settings commands) to be queued. */
+            /* Remove */
             if (o_bytes[fd] == 0) return OK_MSG_CANCELED;          
             new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
             new->bytes = o_bytes[fd];
@@ -153,36 +143,38 @@ parse(char *buf, int bytes, int fd)
 
             memcpy(new->buf, o_buf[fd]->str, new->bytes);
             new->buf[new->bytes] = 0;
-				
+            MSG(4, "New buf is now: |%s|", new->buf);		
             if(queue_message(new, fd, 1, MSGTYPE_TEXT, 0) != 0){
                 if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
                 free(new->buf);
                 free(new);
                 return ERR_INTERNAL;
-            }
-				
-            //            MSG(4, "%d bytes put in queue and history", o_bytes[fd]);
+            }			       
 
             /* Clear the counter of bytes in the output buffer. */
             server_data_off(fd);
             return OK_MESSAGE_QUEUED;
         }
-	
-        if(bytes>=5){
-            if(pos = strstr(buf,"\r\n.\r\n")){	
-                bytes=pos-buf;
-                end_data=1;		
-                MSG(4,"Command in data caught");
-            }
+
+        {
+            int real_bytes;
+            if(bytes>=5){
+                if(pos = strstr(buf,"\r\n.\r\n")){	
+                    real_bytes=pos-buf;
+                    end_data=1;		
+                    MSG(4,"Command in data caught");
+                }else{
+                    real_bytes = bytes;
+                }
+            }else{
+                real_bytes = bytes;
+            }      
+            /* Get the number of bytes read before, sum it with the number of bytes read
+             * now and store again in the counter */        
+            o_bytes[fd] += real_bytes;       
+
+            g_string_insert_len(o_buf[fd], -1, buf, real_bytes);
         }
-
-        /* Get the number of bytes read before, sum it with the number of bytes read
-         * now and store again in the counter */
-        
-        o_bytes[fd] += bytes;
-
-        buf[bytes] = 0;
-        g_string_append(o_buf[fd],buf);
     }
 
     if (end_data == 1) goto enddata;
@@ -194,7 +186,7 @@ parse(char *buf, int bytes, int fd)
 
 /* Parses @history commands and calls the appropriate history_ functions. */
 char*
-parse_history(char *buf, int bytes, int fd)
+parse_history(const char *buf, const int bytes, const int fd)
 {
     char *param;
     char *helper1, *helper2, *helper3;				
@@ -281,7 +273,7 @@ parse_history(char *buf, int bytes, int fd)
 }
 
 char*
-parse_set(char *buf, int bytes, int fd)
+parse_set(const char *buf, const int bytes, const int fd)
 {
     char *param;
     int who;                    /* 0 - self, 1 - uid specified, 2 - all */
@@ -517,7 +509,7 @@ parse_set(char *buf, int bytes, int fd)
 }
 
 char*
-parse_stop(char *buf, int bytes, int fd)
+parse_stop(const char *buf, const int bytes, const int fd)
 {
     int uid = 0;
     char *param;
@@ -546,7 +538,7 @@ parse_stop(char *buf, int bytes, int fd)
 }
 
 char*
-parse_cancel(char *buf, int bytes, int fd)
+parse_cancel(const char *buf, const int bytes, const int fd)
 {
     int uid = 0;
     char *param;
@@ -576,7 +568,7 @@ parse_cancel(char *buf, int bytes, int fd)
 }
 
 char*
-parse_pause(char *buf, int bytes, int fd)
+parse_pause(const char *buf, const int bytes, const int fd)
 {
     int ret;
     int uid = 0;
@@ -586,17 +578,25 @@ parse_pause(char *buf, int bytes, int fd)
     if (param == NULL) return ERR_MISSING_PARAMETER;
 
     if (!strcmp(param,"all")){
-        speaking_pause_all(fd);
+        pause_requested = 1;
+        pause_requested_fd = fd;
+        sem_post(sem_messages_waiting);
     }
     else if (!strcmp(param, "self")){
         uid = get_client_uid_by_fd(fd);
         if(uid == 0) return ERR_INTERNAL;
-        speaking_pause(fd, uid);
+        pause_requested = 2;
+        pause_requested_fd = fd;
+        pause_requested_uid = uid;
+        sem_post(sem_messages_waiting);
     }
     else if (isanum(param)){
         uid = atoi(param);
         if (uid <= 0) return ERR_ID_NOT_EXIST;
-        speaking_pause(fd, uid);
+        pause_requested = 2;
+        pause_requested_fd = fd;
+        pause_requested_uid = uid;
+        sem_post(sem_messages_waiting);
     }else{
         return ERR_PARAMETER_INVALID;
     }
@@ -607,7 +607,7 @@ parse_pause(char *buf, int bytes, int fd)
 }
 
 char*
-parse_resume(char *buf, int bytes, int fd)
+parse_resume(const char *buf, const int bytes, const int fd)
 {
     int ret;
     int uid = 0;
@@ -638,7 +638,7 @@ parse_resume(char *buf, int bytes, int fd)
 }
 
 char*
-parse_snd_icon(char *buf, int bytes, int fd)
+parse_snd_icon(const char *buf, const int bytes, const int fd)
 {
     char *param;
     int ret;
@@ -659,7 +659,7 @@ parse_snd_icon(char *buf, int bytes, int fd)
 }				 
 
 char*
-parse_char(char *buf, int bytes, int fd)
+parse_char(const char *buf, const int bytes, const int fd)
 {
     char *param;
     TFDSetElement *settings;
@@ -679,7 +679,7 @@ parse_char(char *buf, int bytes, int fd)
 }
 
 char*
-parse_key(char* buf, int bytes, int fd)
+parse_key(const char* buf, const int bytes, const int fd)
 {
     char *param;
     TFDSetElement *settings;
@@ -698,7 +698,7 @@ parse_key(char* buf, int bytes, int fd)
 }
 
 char*
-parse_list(char* buf, int bytes, int fd)
+parse_list(const char* buf, const int bytes, const int fd)
 {
     char *param;
     char *voice_list;
@@ -743,7 +743,7 @@ parse_list(char* buf, int bytes, int fd)
 }
 
 char*
-parse_help(char* buf, int bytes, int fd)
+parse_help(const char* buf, const int bytes, const int fd)
 {
     char *help;
 
@@ -766,7 +766,7 @@ parse_help(char* buf, int bytes, int fd)
 /* isanum() tests if the given string is a number,
  * returns 1 if yes, 0 otherwise. */
 int
-isanum(char *str){
+isanum(const char *str){
    int i;
    if (!isdigit(str[0]) && !( (str[0]=='+') || (str[0]=='-'))) return 0;
    for(i=1;i<=strlen(str)-1;i++){
@@ -779,13 +779,13 @@ isanum(char *str){
  * which has _bytes_ bytes. Note that the parameter with
  * index 0 is the command itself. */
 char* 
-get_param(char *buf, int n, int bytes, int lower_case)
+get_param(const char *buf, const int n, const int bytes, const int lower_case)
 {
     char* param;
     int i, y, z;
     int quote_open = 0;
 
-    param = (char*) malloc(bytes);
+    param = (char*) spd_malloc(bytes);
     assert(param != NULL);
 	
     strcpy(param,"");
@@ -814,7 +814,10 @@ get_param(char *buf, int n, int bytes, int lower_case)
         i++;
     }
 
-    if(z <= 0) return NULL;   
+    if(z <= 0){
+        free(param);
+        return NULL;   
+    }
 
     /* Write the trailing zero */
     if (i >= bytes){
