@@ -1,3 +1,29 @@
+2003-04-11  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* config/speechd.conf: Moved from speechd.conf.
+
+	* Makefile.am: Added configuration for the new directory config/
+
+	* configure.in: Added configuration for the new directory config/
+
+	* INSTALL: Added info about config/, fixed some paths.
+
+	* config/en: Configuration for English.
+
+	* src/server/set.c (set_spelling_table): New function.
+
+	* intl/fdset.h (TFDSetElement): New entry char* spelling_table. 
+
+	* src/server/dc_decl.h (cb_DefaultSpellingTable): New function.
+	(cb_AddTable): Moved from cb_AddSndIcon, apmplified.
+
+	* src/server/parse.c (parse_key): New function.
+	(parse_char): New function.
+	(get_param): New parameter lower_case: 1 -> convert output to lower case.
+
+	* src/server/server.c (parse): SND_ICON -> SOUND_ICON
+	(parse): CHAR: new SSIP command, KEY: new SSIP command.
+
 2003-04-11  Milan Zamazal  <pdm@brailcom.org>
 
 	* INSTALL: Order of auto* tools invocations improved.
@@ -29,8 +55,6 @@
 
 	* src/server/dc_decl.h (cb_AddSndIcons): Typo. 
 
-	* src/server/server.c (parse): cancel: new SSIP command.
-
 	* src/server/parse.c: Call the new stop-family functions.
 
 	* src/server/speechd.h: +get_client_uid_by_fd().
@@ -38,14 +62,14 @@
 	* src/server/set.c (get_client_uid_by_fd): New function.
 	(get_client_settings_by_fd): Use get_client_uid_by_fd().
 
-	* src/server/server.c (message_list_compare_uid): New function.
-
 	* src/server/server.c (speaking_uid): New variable.
 	(get_speaking_uid ()): New function.
 	(speaking_stop ()): Moved from stop_c().
 	(speaking_cancel ()): Moved from stop_c().
 	(speaking_pause ()): Moved from stop_c().
 	(speaking_resume ()): Moved from stop_c().
+	(message_list_compare_uid): New function.
+	(parse): cancel: new SSIP command.
 
 2003-04-04	Hynek Hanke	<hanke@volny.cz>
 	* src/server/server.c (stop_c): Return 0 after resume.
