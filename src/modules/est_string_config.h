@@ -1,1 +1,0 @@
-/* The file is here just to avoid Festival compilation errors. */
