@@ -3,7 +3,7 @@ AC_INIT(configure.in)
 
 dnl progs
 AC_PROG_CC
-AC_PROG_CXX
+
 dnl info
 AM_INIT_AUTOMAKE(speechd, "`cat version.sh|grep '^VERSION'|awk -F= '{print $2}'`")
 
@@ -19,6 +19,7 @@ AC_CHECK_LIB(flite, flite_init)
 AC_CHECK_LIB(flite_cmu_us_kal, register_cmu_us_kal)
 AC_CHECK_LIB(flite_usenglish, usenglish_init)
 AC_CHECK_LIB(flite_cmulex, cmu_lex_init)
+AC_CHECK_LIB(recode, main)
 
 glib_include=`pkg-config --cflags glib-2.0`
 AC_SUBST(glib_include)
