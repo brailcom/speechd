@@ -1,0 +1,12 @@
+ applications      protocol                    output modules 
+            interface        Speech Deamon core          synthesizers
+                          .-----------------------.
+|EmacSpeak|    :s l:  < > |  Speech Deamon        | :m  :  |Apollo|
+               :h i:  <S> |    - configuration    | :o  :  |Odmluva|
+|Bash Client|  :a b:  <S> | - synchronization     | :d A:  |Flite|
+               :r r:  <I> |        - sound icons  | :u P:     .
+|User Center|  :e a:  <P> |  - history            | :l I:     .
+      .        :d r:  < > |                       | :e  :     .
+      .        :  y:  < > |  [priority queues]    | :   :     .
+      .        :   :  < > |                       | :   :     .
+                          `-----------------------'

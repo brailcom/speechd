@@ -1,4 +1,4 @@
-\input texinfo @c -*-texinfo-*-
+\input texinfo   @c -*-texinfo-*-
 @c %**start of header
 @setfilename speechd.info
 @settitle Speech Deamon -- Easy acces to speech synthesis
@@ -11,46 +11,24 @@
 @syncodeindex vr cp
 
 @include version.texi
-
-@ifinfo
+     
 @copying
-This file documents the GNU @code{hello} command for printing a
-greeting message.
+This manual is for Speech Daemon, version @value{VERSION}.
 
-Copyright (C) 1992, 1993, 1996, 2002 Free Software Foundation, Inc.
+Copyright @copyright{} 2001, 2002, 2003 ???
 
-Permission is granted to make and distribute verbatim copies of
-this manual provided the copyright notice and this permission notice
-are preserved on all copies.
-
-@ignore
-Permission is granted to process this file through TeX and print the
-results, provided the printed document carries copying permission
-notice identical to this one except for the removal of this paragraph
-(this paragraph not being relevant to the printed manual).
-@end ignore
-
-Permission is granted to copy and distribute modified versions of this
-manual under the conditions for verbatim copying, provided that the entire
-resulting derived work is distributed under the terms of a permission
-notice identical to this one.
-
-Permission is granted to copy and distribute translations of this manual
-into another language, under the above conditions for modified versions,
-except that this permission notice may be stated in a translation approved
-by the Foundation.
-
+@quotation
+Permission is granted to ...
+@end quotation
 @end copying
 
-@dircategory Speech Interface
-@dircategory Speech Synthesis
-@dircategory Programming
+@dircategory Sound
+@dircategory Development
 
 @direntry
 * Speech Deamon: (speechd).       Speech Deamon.
 @end direntry
 
-@end ifinfo
 
 @titlepage
 @title Speech Deamon -- Easy acces to speech synthesis
@@ -58,61 +36,63 @@ by the Foundation.
 @subtitle Edition @value{EDITION}, for Speech Deamon @value{VERSION}
 @subtitle @value{UPDATED}
 @author by Tomas Cerha <@email{cerha@@brailcom.cz}>, Hynek Hanke <@email{hanke@@volny.cz}>
-@author and Czech Free Software organization <@email{freesoft@@freesoft.cz}>
+@author and Czech Free Software organization <@email{info@@freesoft.cz}>
 
 @page
 @vskip 0pt plus 1filll
 
-@ifinfo
 @insertcopying
-@end ifinfo
 
 @end titlepage
 
-@node Top, , , (dir)
+@c So the toc is printed in the right place.
+@contents
 
-@ifinfo
+@ifnottex
+@node Top, Instructions, (dir), (dir)
+
 This file documents the @code{speechd} client/server application 
 that attempts to provide a common interface to different synthesizers.
-@end ifinfo
+
+@insertcopying
+@end ifnottex
 
 @menu
-* Instructions::    How to read this manual.
-* Copying::         How you can copy and share @code{Speech Deamon}.
-* Introduction::    What is Speech Deamon.
-* Invoking::		How to start Speech Deamon
-* Internal structure::  How does Speech Deamon work.
-* Public API::  	How to use Speech Deamon in your programs.
-* Priorities::      Description, guidelines how to use them.
-* Multiple output modules:: How Speech Deamon produces speech output.
-* History::         Message history.
-* Speech parameters:: Settings that affect the way Speech Deamon speaks.
-* Configuration::   How to configure Speech Deamon.
-* Concept index::   Index of concepts.
+* Instructions::             How to read this manual.
+* Introduction::             What is Speech Deamon.
+* Invoking::                 How to start Speech Deamon.
+* Internal structure::       How does Speech Deamon work.
+* Public API::               How to use Speech Deamon in your programs.
+* SSIP::                     Speech Synthesis Independent Protocol.
+* Priorities::               Description, guidelines how to use them.
+* Multiple output modules::  Using different synthesizers.
+* Messsage history::         Handling history of arrived messages.
+* Speech parameters::        Settings that affect the way Speech Deamon speaks.
+* Configuration::            How to configure Speech Deamon.
+
+* Copying::                  GNU General Public License.
+
+* Concept index::            Index of concepts.
 @end menu
 
-@node Instructions, 	Copying, 	,	Top
+@node Instructions, Introduction, Top, Top
 @chapter How to read this manual
 @cindex How to read
 
 -> there should be a simple map of the manual and where to search for different concepts
 
-@node Copying,	Introduction,	Instructions,	Top
-@include gpl.texi
-
-@node Introduction,	Invoking,	Copying,	Top
+@node Introduction, Invoking, Instructions, Top
 @chapter Introduction
 
-@menu 
-* Why and how::		Why Speech Deamon? Philosophy, motivation...
-* Current state::	Speaking software today.
-* Basic design::	How does it work?
-* User::			Speech Deamon from user's point of view.
-* Programmer::		Speech Deam from programmer's poing of view.
-
+@menu
+* Why and how::                 Why Speech Deamon?  Philosophy, motivation...
+* Current state::               Speaking software today.
+* Basic design::                How does it work?
+* User::                        Speech Deamon from user's point of view.
+* Programmer::                  Speech Deam from programmer's poing of view.
 @end menu
 
-@node Why and how,	Current state,	Introduction,	Introduction
+@node Why and how, Current state, Introduction, Introduction
 @section Why and how
 @cindex Basic ideas, Motivation
 @cindex Philosophy
@@ -228,7 +208,7 @@ under the terms of GNU GPL. We are working on it's support in Speech Deamon.
 
 @item Epos
 
-Epos is czech synthesis. It is an academical project and it
+Epos is Czech synthesis. It is an academical project and it
 already gives quite good results, but some parts are covered
 by a proprietary license.
 @c TODO: We need to add more information.
@@ -243,7 +223,7 @@ checked it yet.
 
 ViaVoice is a multi-lingual software synthesizer available for GNU/Linux.
 The main problem is that ViaVoice is not free (as in freedom). Until IBM
-changes it's licence, we can't use it in Free World / Free Operating System
+changes its licence, we can't use it in Free World / Free Operating System
 and therefore it's not and will not be supported in Speech Deamon.
 
 @item MBROLA
@@ -309,7 +289,7 @@ some kind of software synthesis.
 We hope to be able to integrate Speech Daemon into these projects
 in the future.
 
-@node	Basic design,	User,	Current state,	Introduction
+@node   Basic design, User, Current state, Introduction
 @section Design
 @cindex Design
 
@@ -339,37 +319,10 @@ and on which synthesizer it will say the message. These requests
 are handled by the output plug-ins (output modules) for different
 hardware and software synthesizers and then said aloud.
 
-@ifinfo
 See this figure:
 
-@verbatim
-
- applications      protocol                    output modules 
-            interface        Speech Deamon core          synthesizers
-                          .-----------------------.
-|EmacSpeak|    :s l:  < > |  Speech Deamon        | :m  :  |Apollo|                  
-               :h i:  <S> |    - configuration    | :o  :  |Odmluva|
-|Bash Client|  :a b:  <S> | - synchronization     | :d A:  |Flite|
-               :r r:  <I> |        - sound icons  | :u P:     .
-|User Center|  :a a:  <P> |  - history            | :l I:     .
-      .        :d r:  < > |                       | :e  :     .
-      .        :  y:  < > |  [priority queues]    | :   :     .
-      .        :   :  < > |                       | :   :     .
-                          `-----------------------'
-@end verbatim
-@end ifinfo
-
-@iftex
-@c TODO: We should somehow include figures/architecture.png, but I've no idea how to do it:(
-@end iftex
-
-@ifhtml
-<p>
-See this figure:
-</p>
-<img src="figures/architecture.png" alt="Speech Deamon architecture (you can see a text version of this figure
-in the .info file)">
-@end ifhtml
+@image{figures/architecture,,,Speech Deamon architecture (you can see a text
+version of this figure in the Info manual)}
 
 See also the detailed description of SSIP, public API and module API.
 
@@ -390,7 +343,7 @@ Sketch:
 
 @c TODO: needs a lot of more work
 
-@node Programmer,	,	User,	Introduction
+@node Programmer,  , User, Introduction
 @section Programmer's point of view
 
 @itemize @bullet
@@ -407,10 +360,10 @@ Sketch:
 
 
 @menu
-* Verbosity::    Definition of the different verbosity levels.
+* Verbosity::                   Definition of the different verbosity levels.
 @end menu
 
-@node Verbosity, , , Invoking
+@node Verbosity,  , Invoking, Invoking
 @section Verbosity
 
 There are 6 different verbosity levels of Speech Deamon logging.
@@ -422,48 +375,48 @@ No information.
 
 @subsection Level 1
 @itemize @bullet
-	@item Information about loading and exiting.
+@item Information about loading and exiting.
 @end itemize
 
 @subsection Level 2
 @itemize @bullet
-	@item Information about errors that ocured.
-	@item Allocating and freeing resources on start and exit.
+@item Information about errors that ocured.
+@item Allocating and freeing resources on start and exit.
 @end itemize
 
 @subsection Level 3
 @itemize @bullet
-	@item Information about accepting/rejecting/closing clients' connections.
-	@item Information about invalid client commands.
+@item Information about accepting/rejecting/closing clients' connections.
+@item Information about invalid client commands.
 @end itemize
 
 @subsection Level 4
 @itemize @bullet
-	@item Every received command is output.
-	@item Information about proceeding the command output
-	@item Information about queueing/allocating messages.
-	@item Information about the function of history, sound icons and other facilities.
-	@item Information about the work of the speak() thread.
+@item Every received command is output.
+@item Information about proceeding the command output
+@item Information about queueing/allocating messages.
+@item Information about the function of history, sound icons and other
+facilities.
+@item Information about the work of the speak() thread.
 @end itemize
 
 @subsection Level 5
 This is only for debugging purposes and can output really *much*
 data. Use with caution.
 @itemize @bullet
-	@item Also received data (messages etc.) is output.
+@item Also received data (messages etc.) is output.
 @end itemize
 
-@node Internal structure,	Public API,	Invoking,		Top
+@node Internal structure, Public API, Invoking, Top
 @chapter Internal structure
 
 @menu
-* Definitions::		What is output module, who is client...
-* SSIP::			Speech Synthesis Independent Protocol
-* Server core::		Message handling, configuration, history
-* Output modules::	How they work and what we need from them
+* Definitions::                 What is output module, who is client...
+* Server core::                 Message handling, configuration, history
+* Output modules::              How they work and what we need from them
 @end menu
 
-@node Definitions,	SSIP,	,	Internal structure
+@node Definitions, Server core, Internal structure, Internal structure
 @section Definitions
 
 @dfn{Server side} is the side where Speech Deamon operates. It
@@ -492,15 +445,188 @@ only abstract functions to the server core.
 that provides polished functions programmers should
 use to send commands to the server.
 
-@dfn{SSIP} is the layer (communication protocol) between server side (server core)
-and client side (shared library). It stands for Speech Synthesis Internet Protocol.
-Client programs should never use it directly.
+@dfn{SSIP} is the layer (communication protocol) between server side
+(server core) and client side (shared library). It stands for Speech
+Synthesis Internet Protocol.  Client programs should never use it
+directly.
 
 @dfn{Socket} or @dfn{File descriptor} represents the particular connection
 between a client and server. In C, it's and integer variable.
 
-@node	SSIP,	Server core,	Definitions,	Internal structure
-@section SSIP
+@node Server core, Output modules, Definitions, Internal structure
+@section Server core
+
+see sources, I'll try to write this section soon
+
+@node Output modules,  , Server core, Internal structure
+@section Output modules
+
+@findex synthesizer_write()
+@findex synthesizer_stop()
+@findex synthesizer_is_speaking()
+@findex synthesizer_close()
+
+Output modules for Speech Deamon have the form of a glib plug-ins
+located in src/modules/. Each output module is a data
+structure composed of some parameters and pointers to it's functions.
+
+@example
+typedef struct @{
+  gchar    *name;
+  gchar    *description;
+  gchar    *filename;
+  gint     (*write)    (const gchar *, gint, void*);
+  gint     (*stop)     (void);
+  gint     (*is_speaking) (void);
+  gint     (*close)    (void);
+@} OutputModule;
+@end example
+
+This structure is defined in @file{intl/modules.h} and therefore 
+this header must be included in every plugin source code.
+
+@example
+#include "modules.h"
+@end example
+
+Also one other file called @file{intl/fdset.h} where the FDSetElement
+structure is defined must be included to be able to handle the
+different speech synthesis settings.
+
+@example
+#include "fdset.h"
+@end example
+
+Each output module has associated a module_init function
+that is called at the starting of Speech Deamon. After doing
+the necessary initialization, it must return a filled structure
+of the type OutputModule (defined above).
+
+@example
+OutputModule *module_init(void)@{
+        ...
+        return &module_flite;
+@}
+@end example
+
+Now what are the 4 functions: flite_write, flite_stop, flite_is_speaking
+and flite_close? This is the core of every output module and you
+have to define their bodies in the source code of your plug-in.
+
+@deffn {Output module functions}  gint synthesizer_write const gchar *data, gint len, TFDSetElement* set
+
+This is the function where actual speech output is produced. It is called
+every time Speech Deamon decides to send a message to synthesis. The data
+of lenght @var{len} are passed in @var{data}. Additionally, the structure
+containing settings associated to this particular message is passed,
+however only few options are important for output modules.
+
+Each output module should take care of setting the output device to these parameters
+(the other ones are handled independently in other parts of Speech Deamon):
+@itemize @bullet
+@item (signed int) set->speed
+@item (signed int) set->pitch
+@item (char*) set->language
+@item (int) set->voice_type
+@end itemize
+
+Speed and pitch are values between -100 and 100 included. 0 is the default
+value that represents normal speech flow. So -100 is the slowest (or lowest)
+and +100 is the fastest (or highest) speech.
+
+(We should estabilish a constant scale refered to some text, standard speeds
+and different associated times. This will probably be the work of the person
+who will program the first real output module. We need to chose some longer
+text, decide what speed of reading we consider 0 and what we consider, say,
++-50, measure the times needed to read it at these speeds and put it there
+in documentation as our standard scale.)
+
+The language parameter is given as a null-terminated string containnig 
+the name of the language in english in lowercase (e.g. "english", "czech", "spanish").
+
+voice_type is used only when the output module supports more types of voices
+for this particular language. The values represent (from @file{intl/fdset.h})
+@example
+typedef enum @{
+    MALE = 0,
+    FEMALE = 1,
+    CHILD_MALE = 2,
+    CHILD_FEMALE = 3
+@}EVoiceType;
+@end example
+We can consider also other voice types. 
+
+This function should return 0 if it fails and some non-0 value
+if the delivery to the synthesis is succesful. Formerly we thought
+that it should return the number of bytes written, but it's still
+not clear how to handle messages that have to be divided in more
+parts (for example if the output device has a finite size buffer).
+
+@end deffn
+
+@deffn {Output module functions}  {gint synthesizer_stop} void
+
+This function should stop the synthesis of the currently spoken message
+immediately and throw away the rest of the message.
+
+It should return 0 on succes, -1 otherwise.
+
+@end deffn
+
+@deffn {Output module functions}  {gint synthesizer_is_speaking} void
+
+This function is very important to let Speech Deamon know how to
+regulate the speech flow between different queues, programs and even
+other synthesizers. On calling it, the output module must decide
+whether there is currently any output beeing produced in the speakers.
+
+This can be a very hard problem and it's not clear how to do it
+with diferent synthesizers. If it's not possible to return an exact
+value, at least some estimate should be calculated. But such an inacurate
+value can highly reduce the usefulness of an even otherwise very good
+plug-in. To some degree, this is still an open question.
+
+It should return 0 if the synthesis is silent, 1 if it's speaking.
+
+@end deffn
+
+@deffn {Output module functions}  {gint synthesizer_close} void
+
+This function is called when Speech Deamon terminates. There are no
+special requierements on what the output plug-in should do.
+
+It should return 0 on succes, -1 otherwise.
+
+@end deffn
+
+@node Public API, SSIP, Internal structure, Top
+@chapter Public API
+@findex spd_init()
+@findex spd_close()
+@findex spd_say()
+@findex spd_sayf()
+@findex spd_stop()
+@findex int spd_pause()
+@findex int spd_resume()
+@findex spd_command_line()
+@findex spd_stop_fd()
+@findex spd_pause_fd()
+@findex spd_resume_fd()
+@findex spd_history_select_client()
+@findex spd_get_client_list()
+@findex spd_get_message_list_fd()
+
+@ifinfo
+@verbatiminclude ../src/clients/libspeechd.h
+@end ifinfo
+
+@c don't know if it's really The Right Thing, but I often miss *any*
+@c description in the header files, and there is literate programming
+@c on the other side. if you have a reason why it's not ok, I'm open
+@c to the idea to move it all here
+
+@node   SSIP, Priorities, Public API, Top
+@chapter SSIP
 Shared library implementimg public API like
 @code{spd_sayf(int, int, char*, ...)} communicates
 with Speech Deamon through SSIP, Speech Synthesis Internet
@@ -508,7 +634,15 @@ Protocol.
 
 Here is a description of it's commands and what they do.
 
-@subsection Data flow and speech control
+@menu
+* Data flow and speech control::  
+* Settings::                    
+* Message history handling::    
+* Return values::               
+@end menu
+
+@node Data flow and speech control, Settings, SSIP, SSIP
+@section Data flow and speech control
 
 Note that some "less important" aspects of SSIP, e.g. history commands,
 can still change in near future.
@@ -561,7 +695,8 @@ If there is a positive integer number @code{uid} as parameter,
 it's related to some other client with unique id @code{uid}.
 @end deffn
 
-@subsection Settings
+@node Settings, Message history handling, Data flow and speech control, SSIP
+@section Settings
 
 @deffn {SSIP Command} {SET CLIENT_NAME} str
 Set the name of this client to @code{str}. String parameter @code{str}
@@ -590,7 +725,8 @@ Set the priority for this client to @code{num}.
 It must be either 1, 2 or 3. 1 is the highest, 3 the lowest.
 @end deffn
 
-@subsection History
+@node Message history handling, Return values, Settings, SSIP
+@section Message history handling
 
 @deffn {SSIP Command} @w{HISTORY GET CLIENT_LIST}
 Retrieves a list of know client names, its unique ids and
@@ -679,192 +815,21 @@ Say text @code{str} without including it in history. Useful for
 history clients. Not implemented yet...
 @end deffn
 
-@subsection Return values
+@node Return values,  , Message history handling, SSIP
+@section Return values
 
 @multitable {codes} {name of group} {more detailed information about the command and what it does}
- @item 1xx    @tab     META          @tab   information about the protocol, help
- @item 2xx    @tab     OK            @tab   ok, specification of the performed action
- @item 3xx    @tab     SERVER ERROR  @tab   problems on server side
- @item 4xx    @tab     CLIENT ERROR  @tab   problems on client side, requests that don't make sense
- @item 5xx    @tab     SYNTAX ERROR  @tab   errors in syntax of SSIP commands
- @item 6xx    @tab     reserved
+@item 1xx    @tab     META          @tab   information about the protocol, help
+@item 2xx    @tab     OK            @tab   ok, specification of the performed action
+@item 3xx    @tab     SERVER ERROR  @tab   problems on server side
+@item 4xx    @tab     CLIENT ERROR  @tab   problems on client side, requests that don't make sense
+@item 5xx    @tab     SYNTAX ERROR  @tab   errors in syntax of SSIP commands
+@item 6xx    @tab     reserved
 @end multitable 
 
 Please see @file{src/server/msg.h} for detailed description.
 
-@node Server core, Output modules, SSIP, Internal structure
-@section Server core
-
-see sources, I'll try to write this section soon
-
-@node Output modules, ,	Server core, Internal structure
-@section Output modules
-
-@findex synthesizer_write()
-@findex synthesizer_stop()
-@findex synthesizer_is_speaking()
-@findex synthesizer_close()
-
-Output modules for Speech Deamon have the form of a glib plug-ins
-located in src/modules/. Each output module is a data
-structure composed of some parameters and pointers to it's functions.
-
-@example
-	typedef struct @{
-       gchar    *name;
-       gchar    *description;
-       gchar    *filename;
-       gint     (*write)    (const gchar *, gint, void*);
-       gint     (*stop)     (void);
-       gint     (*is_speaking) (void);
-       gint     (*close)    (void);
-     @} OutputModule;
-@end example
-
-This structure is defined in @file{intl/modules.h} and therefore 
-this header must be included in every plugin source code.
-
-@example
-    #include "modules.h"
-@end example
-
-Also one other file called @file{intl/fdset.h} where the FDSetElement
-structure is defined must be included to be able to handle the
-different speech synthesis settings.
-
-@example
-    #include "fdset.h"
-@end example
-
-Each output module has associated a module_init function
-that is called at the starting of Speech Deamon. After doing
-the necessary initialization, it must return a filled structure
-of the type OutputModule (defined above).
-
-@example
-	OutputModule *module_init(void)@{
-		...
-		return &module_flite;
-	@}
-@end example
-
-Now what are the 4 functions: flite_write, flite_stop, flite_is_speaking
-and flite_close? This is the core of every output module and you
-have to define their bodies in the source code of your plug-in.
-
-@deffn {Output module functions}  gint synthesizer_write const gchar *data, gint len, TFDSetElement* set
-
-This is the function where actual speech output is produced. It is called
-every time Speech Deamon decides to send a message to synthesis. The data
-of lenght @var{len} are passed in @var{data}. Additionally, the structure
-containing settings associated to this particular message is passed,
-however only few options are important for output modules.
-
-Each output module should take care of setting the output device to these parameters
-(the other ones are handled independently in other parts of Speech Deamon):
-@itemize @bullet
-	@item (signed int) set->speed
-	@item (signed int) set->pitch
-	@item (char*) set->language
-	@item (int) set->voice_type
-@end itemize
-
-Speed and pitch are values between -100 and 100 included. 0 is the default
-value that represents normal speech flow. So -100 is the slowest (or lowest)
-and +100 is the fastest (or highest) speech.
-
-(We should estabilish a constant scale refered to some text, standard speeds
-and different associated times. This will probably be the work of the person
-who will program the first real output module. We need to chose some longer
-text, decide what speed of reading we consider 0 and what we consider, say,
-+-50, measure the times needed to read it at these speeds and put it there
-in documentation as our standard scale.)
-
-The language parameter is given as a null-terminated string containnig 
-the name of the language in english in lowercase (e.g. "english", "czech", "spanish").
-
-voice_type is used only when the output module supports more types of voices
-for this particular language. The values represent (from @file{intl/fdset.h})
-@example
-typedef enum @{
-    MALE = 0,
-    FEMALE = 1,
-    CHILD_MALE = 2,
-    CHILD_FEMALE = 3
-@}EVoiceType;
-@end example
-We can consider also other voice types. 
-
-This function should return 0 if it fails and some non-0 value
-if the delivery to the synthesis is succesful. Formerly we thought
-that it should return the number of bytes written, but it's still
-not clear how to handle messages that have to be divided in more
-parts (for example if the output device has a finite size buffer).
-
-@end deffn
-
-@deffn {Output module functions}  {gint synthesizer_stop} void
-
-This function should stop the synthesis of the currently spoken message
-immediately and throw away the rest of the message.
-
-It should return 0 on succes, -1 otherwise.
-
-@end deffn
-
-@deffn {Output module functions}  {gint synthesizer_is_speaking} void
-
-This function is very important to let Speech Deamon know how to
-regulate the speech flow between different queues, programs and even
-other synthesizers. On calling it, the output module must decide
-whether there is currently any output beeing produced in the speakers.
-
-This can be a very hard problem and it's not clear how to do it
-with diferent synthesizers. If it's not possible to return an exact
-value, at least some estimate should be calculated. But such an inacurate
-value can highly reduce the usefulness of an even otherwise very good
-plug-in. To some degree, this is still an open question.
-
-It should return 0 if the synthesis is silent, 1 if it's speaking.
-
-@end deffn
-
-@deffn {Output module functions}  {gint synthesizer_close} void
-
-This function is called when Speech Deamon terminates. There are no
-special requierements on what the output plug-in should do.
-
-It should return 0 on succes, -1 otherwise.
-
-@end deffn
-
-@node Public API,	Priorities,	Internal structure,	Top
-@chapter Public API
-@findex spd_init()
-@findex spd_close()
-@findex spd_say()
-@findex spd_sayf()
-@findex spd_stop()
-@findex int spd_pause()
-@findex int spd_resume()
-@findex spd_command_line()
-@findex spd_stop_fd()
-@findex spd_pause_fd()
-@findex spd_resume_fd()
-@findex spd_history_select_client()
-@findex spd_get_client_list()
-@findex spd_get_message_list_fd()
-
-@ifinfo
-@verbatiminclude ../src/clients/libspeechd.h
-@end ifinfo
-
-@c don't know if it's really The Right Thing, but I often miss *any*
-@c description in the header files, and there is literate programming
-@c on the other side. if you have a reason why it's not ok, I'm open
-@c to the idea to move it all here
-
-@node Priorities, Multiple output modules, Public API, Top
+@node Priorities, Multiple output modules, SSIP, Top
 @chapter Priorities
 @cindex priorities
 
@@ -903,30 +868,34 @@ level 3 is interrupting itself.
 
 @section How to use them wisely
 
+Example uses for level @strong{one} are:
+ 
 @itemize
- Example uses for level @strong{one} are:
-	@item error messages
-	@item very important messages
-	@item ...
+@item error messages
+@item very important messages
+@item ...
 @end itemize
 
-
-@itemize
 Example uses for level @strong{two} are:
-	@item regular program messages
-	@item menus
-	@item text the user is working on
-	@item ...
-@end itemize
 
 @itemize
-Example uses for level @strong{three} are:
-	@item less important status information
-	@item letters when typing input
-	@item ...
+@item regular program messages
+@item menus
+@item text the user is working on
+@item ...
 @end itemize
 
-@node Multiple output modules, History, Priorities, Top
+Example uses for level @strong{three} are:
+
+@itemize
+@item less important status information
+@item letters when typing input
+@item ...
+@end itemize
+
+
+@node Multiple output modules, Messsage history, Priorities, Top
+@chapter Multiple output modules
 @cindex output module
 @cindex different synthesizers
 
@@ -956,10 +925,10 @@ to make it default.
 
 @xref{Output modules}.
 
-@node History, Speech parameters, Multiple output modules, Top
-@chapter History
+@node Messsage history, Speech parameters, Multiple output modules, Top
+@chapter Message history
 
-@node Speech parameters, Configuration, History, Top
+@node Speech parameters, Configuration, Messsage history, Top
 @chapter Speech parameters
 @cindex Speech parameters
 @cindex Settings
@@ -1020,7 +989,7 @@ sound icons feature, but this  requires a good possibility of
 synchronization, which is not  possible with all devices.
 
 
-@node Configuration, Concept index, Speech parameters, Top
+@node Configuration, Copying, Speech parameters, Top
 @chapter Configuration
 @cindex configuration
 @cindex default values
@@ -1039,17 +1008,22 @@ See @file{speechd.conf}.
 
 Other parts of this manual deal with the runtime configuration.
 
-@node Concept index, , Configuration, Top
+
+@node Copying, Concept index, Configuration, Top
+@appendix GNU GENERAL PUBLIC LICENSE
+@center Version 2, June 1991
+
+@include gpl.texi
+
+
+@node Concept index,  , Copying, Top
 @unnumbered Concept index
 
 @cindex tail recursion
 @printindex cp
 
-
 @contents
 @bye
 
 @c speechd.texi ends here
-
-
 
