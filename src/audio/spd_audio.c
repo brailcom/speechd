@@ -1,175 +1,269 @@
 
+/*
+ * spd_audio.c -- Spd Audio Output Library
+ *
+ * Copyright (C) 2004 Brailcom, o.p.s.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2, or (at your option)
+ * any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this package; see the file COPYING.  If not, write to
+ * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ * Boston, MA 02111-1307, USA.
+ *
+ * $Id: spd_audio.c,v 1.11 2004-11-13 14:47:55 hanke Exp $
+ */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <assert.h>
-#include <glib.h>
-#include <pthread.h>
-#include <flite/flite.h>
-#include <signal.h>
+/* 
+ * spd_audio is a simple realtime audio output library with the capability of
+ * playing 8 or 16 bit data, immediate stop and synchronization. This library
+ * currently provides only OSS and NAS backend. The available backends are
+ * specified at compile-time using the directives WITH_OSS and WITH_NAS, but
+ * the user program is allowed to switch between them at run-time.
+ */
 
 #include "spd_audio.h"
 
-/* Voice */
-extern cst_voice *register_cmu_us_kal();
-cst_voice *spd_audio_flite_voice;
-cst_audiodev *spd_audio_device = NULL;
+#include <stdio.h>
+#include <sys/soundcard.h>
+#include <sys/fcntl.h>
+#include <sys/ioctl.h>
+#include <unistd.h>
+#include <errno.h>
 
-/* Volume */
-signed int spd_audio_volume;
+#include <pthread.h>
 
-int
-spd_audio_play_wave(const cst_wave *w)
-{
-    int i, r, n;
-
-    if (w == NULL){
-        fprintf(stderr, "Passed is NULL\n");
-        return -1;
-    }
-
-    if (spd_audio_device == NULL){
-        fprintf(stderr, "Audio device not initialized in spd_audio_play_wave.");
-        return -1;
-    }
-
-    /* Multiple sample bytes to get desired volume. */
-    if(spd_audio_volume != 0){
-      for (i=0; i < w->num_samples; i++){
-	w->samples[i] *= ((float) (spd_audio_volume+100))/ (float)100;
-      } 
-    }
-
-    for (i=0; i < w->num_samples; i += r/2){
-      if (w->num_samples > i+CST_AUDIOBUFFSIZE){
-            n = CST_AUDIOBUFFSIZE;
-        }else{
-            n = w->num_samples-i;
-        }
-
-        r = audio_write(spd_audio_device, &w->samples[i], n*2);
-        if (r <= 0){
-		/* couldn't make it to the end */
-            break;
-        }
-    }
-
-    return 0;
-}
-
-cst_wave *
-spd_audio_read_wave(const char *filename)
-{
-    cst_wave *new;
-    new = (cst_wave*) malloc(sizeof(cst_wave));
-    if (new == NULL){
-        printf("Not enough memory");
-        exit(1);
-    }
-    if (cst_wave_load_riff(new, filename) == -1) return NULL;   
-
-    return new;
-}
-
-int
-spd_audio_set_volume(const signed int volume)
-{
-  spd_audio_volume = volume;
-}
-
-int
-spd_audio_play_file_wav(const char* filename)
-{
-  cst_wave *wave;
-    wave = (cst_wave*) spd_audio_read_wave(filename);
-    if (wave == NULL) return -1;
-
-    spd_audio_open(wave);
-    spd_audio_play_wave(wave);
-    spd_audio_close(wave);
-
-    return 0;
-}
-
-int
-spd_audio_play_file_ogg(const char* filename)
-{
-    char *cmd;
-    /* TODO: This should be done better (using libvorbis?) ... */
-    cmd = g_strdup_printf("ogg123 -d oss %s 2> /dev/null", filename);
-    return system(cmd);
-}
-
-int
-spd_audio_play_file(const char* filename)
-{
-    /* NOTE: I've no idea why the g_str_has_suffix(),
-       as defined in documentation, is actually missing
-       in libglib-2.0.so ?! */
-
-    if(g_pattern_match_simple("*.wav*", filename))
-        return spd_audio_play_file_wav(filename);
-    else if (g_pattern_match_simple("*.ogg*", filename))
-        return spd_audio_play_file_ogg(filename);
-    else{
-        fprintf(stderr,"Not matched!\n");
-        return -1;
-    }
-}
-
-int
-spd_audio_open(const cst_wave *w)
-{
-    if (w == NULL){
-        spd_audio_device = NULL;
-        return -1;
-    }
-    if ((spd_audio_device = audio_open(w->sample_rate, w->num_channels,
-                         CST_AUDIO_LINEAR16)) == NULL){
-        fprintf(stderr, "Audio device can't be inicialized (1)!\n");
-        return -1;
-    }
-
-    if (spd_audio_device == NULL){
-        fprintf(stderr, "Audio device can't be inicialized! (2)\n");
-        return -1;
-    }
-
-    return 0;
-}
-
-void
-spd_audio_close()
-{
-    if (spd_audio_device != NULL)
-        audio_close(spd_audio_device);
-
-    spd_audio_device = NULL;
-}
-
-#if 0
-int
-main()
-{
-    cst_wave *wave1, *wave2, *wave3;
-    printf("hello...\n");
-    flite_init();
-    flite_voice = register_cmu_us_kal();
-    if (flite_voice == NULL)
-        printf("Couldn't register the basic kal voice.\n"); 
-
-    wave1 = flite_text_to_wave("c", flite_voice);
-    wave2 = flite_text_to_wave("b", flite_voice);
-    wave3 = flite_text_to_wave("a", flite_voice);
-
-    spd_audio_open(wave1);
-
-    spd_audio_play(wave1);
-    spd_audio_play(wave2);
-    spd_audio_play(wave3);
-
-    spd_audio_close();
-
-}	
+/* The OSS backend */
+#ifdef WITH_OSS
+#include "oss.c"
 #endif
+
+/* The NAS backend */
+#ifdef WITH_NAS
+#include "nas.c"
+#endif
+
+/* Open the audio device.
+
+   Arguments:
+   type -- The requested device. Currently AudioOSS or AudioNAS.
+   pars -- and array of pointers to parameters to pass to
+           the device backend, terminated by a NULL pointer.
+           See the source/documentation of each specific backend.
+   error -- a pointer to the string where error description is
+           stored in case of failure (returned AudioID == NULL).
+           Otherwise will contain NULL.
+
+   Return value:
+   Newly allocated AudioID structure that can be passed to
+   all other spd_audio functions, or NULL in case of failure.
+
+   Comment:
+   If OSS is one of the possible backends, it's prefered to open
+   the device before each playing and close it immediately after
+   to allow the other applications to access /dev/dsp. NAS or
+   another mixing sound server should be used whenever possible
+   to avoid the /dev/dsp problem.
+*/
+AudioID*
+spd_audio_open(AudioOutputType type, void **pars, char **error)
+{
+    AudioID *id;
+    int ret;
+
+    id = malloc(sizeof(AudioID));
+
+    *error = NULL;
+
+    if (type == AUDIO_OSS){
+#ifdef WITH_OSS
+	id->function = &oss_functions;
+
+	if (id->function->open != NULL){
+	    ret = id->function->open(id, pars);
+	    if (ret != 0){
+		*error = strdup("Couldn't open OSS device.");
+		return NULL;
+	    }
+	}
+	else{
+	    *error = strdup("Couldn't open OSS device module.");
+	    return NULL;
+	}
+	id->type = AUDIO_OSS;
+#else
+	*error = strdup("The sound library wasn't compiled with OSS support.");
+	return NULL;
+#endif       
+    }
+    else if (type == AUDIO_NAS){
+#ifdef WITH_NAS
+	id->function = &nas_functions;
+
+	if (id->function->open != NULL){
+	    ret = id->function->open(id, pars);
+	    if (ret != 0){
+		*error = strdup("Couldn't open connection to the NAS server.");
+		return NULL;
+	    }
+	}
+	else{
+	    *error = strdup("Couldn't open NAS device module.");
+	    return NULL;
+	}
+	id->type = AUDIO_NAS;
+#else
+	*error = strdup("The sound library wasn't compiled with NAS support.");
+	return NULL;
+#endif
+    }
+    else{
+	*error = strdup("Unknown device");
+	return NULL;
+    }
+
+    return id;
+}
+
+/* Play a track on the audio device (blocking).
+
+   Arguments:
+   id -- the AudioID* of the device returned by spd_audio_open
+   track -- a track to play (see spd_audio.h)
+
+   Return value:
+   0 if everything is ok, a non-zero value in case of failure.
+   See the particular backend documentation or source for the
+   meaning of these non-zero values.
+
+   Comment:
+   spd_audio_play() is a blocking function. It returns exactly
+   when the given track stopped playing. However, it's possible
+   to safely interrupt it using spd_audio_stop() described bellow.
+   (spd_audio_stop() needs to be called from another thread, obviously.)
+
+*/
+int
+spd_audio_play(AudioID *id, AudioTrack track)
+{
+    int ret;
+
+    if (id && id->function->play){
+	ret = id->function->play(id, track);
+    }
+    else{
+	fprintf(stderr, "Play not supported on this device\n");
+	return -1;
+    }
+
+    return ret;
+}
+
+/* Stop playing the current track on device id
+
+Arguments:
+   id -- the AudioID* of the device returned by spd_audio_open
+
+Return value:
+   0 if everything is ok, a non-zero value in case of failure.
+   See the particular backend documentation or source for the
+   meaning of these non-zero values.
+
+Comment:
+   spd_audio_stop() safely interrupts spd_audio_play() when called
+   from another thread. It shouldn't cause any clicks or unwanted
+   effects in the sound output.
+
+   It's safe to call spd_audio_stop() even if the device isn't playing
+   any track. In that case, it does nothing. However, there is a danger
+   when using spd_audio_stop(). Since you must obviously do it from
+   another thread than where spd_audio_play is running, you must make
+   yourself sure that the device is still open and the id you pass it
+   is valid and will be valid until spd_audio_stop returns. In other words,
+   you should use some mutex or other synchronization device to be sure
+   spd_audio_close isn't called before or during spd_audio_stop execution.
+*/
+
+int
+spd_audio_stop(AudioID *id)
+{
+    int ret;
+    if (id && id->function->stop){
+	ret = id->function->stop(id);
+    }
+    else{
+	fprintf(stderr, "Stop not supported on this device\n");
+	return -1;
+    }
+    return ret;
+}
+
+/* Close the audio device id
+
+Arguments:
+   id -- the AudioID* of the device returned by spd_audio_open
+
+Return value:
+   0 if everything is ok, a non-zero value in case of failure.
+
+Comments:
+
+   Please make sure no other spd_audio function with this device id
+   is running in another threads. See spd_audio_stop() for detailed
+   description of possible problems.
+*/
+int
+spd_audio_close(AudioID *id)
+{
+    int ret;
+    if (id && id->function->close){
+	ret = id->function->close(id);
+    }
+
+    free(id);
+
+    id = NULL;
+
+    return ret;
+}
+
+/* Set volume for playing tracks on the device id
+
+Arguments:
+   id -- the AudioID* of the device returned by spd_audio_open
+   volume -- a value in the range <-100:100> where -100 means the
+             least volume (probably silence), 0 the default volume
+	     and +100 the highest volume possible to make on that
+	     device for a single flow (i.e. not using mixer).
+
+Return value:
+   0 if everything is ok, a non-zero value in case of failure.
+   See the particular backend documentation or source for the
+   meaning of these non-zero values.
+
+Comments:
+
+   In case of /dev/dsp, it's not possible to set volume for
+   the particular flow. For that reason, the value 0 means
+   the volume the track was recorded on and each smaller value
+   means less volume (since this works by deviding the samples
+   in the track by a constant).
+*/
+int
+spd_audio_set_volume(AudioID *id, int volume)
+{
+    if ((volume > 100) || (volume < -100)){
+	fprintf(stderr, "Requested volume out of range");
+	return -1;
+    }
+
+    id->volume = volume;
+}
