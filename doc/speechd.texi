@@ -1383,9 +1383,13 @@ Only @code{self} is allowed as the `target' argument.
 @item SET @{ all | self | @var{id} @} PUNCTUATION @{ all | some | none @}
 Set punctuation mode to the given value.  @code{all} means read all
 punctuation characters, @code{none} read no punctuation characters,
-@code{some} means read only punctuation characters given in the
-server configuration or defined by the client's last @code{SET
-IMPORTANT_PUNCTUATION} command.
+@code{some} means read only punctuation characters set in the synthesizer's
+configuration.
+
+@item SET @{ all | self | @var{id} @} SPELLING @{ on | off @}
+Switch spelling on or off.  If spelling is set to on, all the
+incomming messages will be said letter-by-letter, instead than
+reading them as whole words.
 
 @item SET @{ all | self | @var{id} @} CAP_LET_RECOGN @{ none | spell | icon @}
 Set capital letters recognition mode. @code{none} switches this
