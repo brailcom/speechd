@@ -50,7 +50,7 @@ See also `speechd-language-voices'.")
     (german
      (male1 voice_german))
     (czech
-     (male1 voice_czech)))
+     (male1 voice_czech_mbrola_cz2)))
   "Alist mapping Festival language names and voice names to voice functions.
 Each element of the alist is of the form (LANGUAGE VOICE-LIST), where elements
 of VOICE-LIST are of the form (VOICE-NAME VOICE-FUNCTION CODING).  VOICE-NAME
