@@ -1,7 +1,7 @@
 2.11.2002	Hynek Hanke	<hanke@volny.cz>
 	* gdsl --> glib2 transaction
 	* polished
-	* Autoconf and all it's standard files and Makefiles.am
+	* Autoconf and all it's standard files and various Makefile.am
 	* /src/server/msg.h: New file defining the messages transmitted between client and server.
 	* /src/server/parse.c: Functions related to parsing the input from the client moved here.
 	* /src/server/set.c: Functions related to setting parameters of the client/server session moved here.
