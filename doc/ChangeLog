@@ -1,3 +1,7 @@
+2003-09-29  Hynek Hanke  <hanke@volny.cz>
+
+	* speechd.texi (Parameter Setting Commands): Added SET * PAUSE_CONTEXT.
+
 2003-09-22  Hynek Hanke  <hanke@volny.cz>
 
 	* speechd.texi (Output Module Functions): New subsection.
