@@ -1,3 +1,20 @@
+2004-03-08  Hynek Hanke  <hanke@volny.cz>
+
+	* speechd.c, set.c, server.c, parse.c: Use SpeechdSocket ans SpeechdStatus.
+
+	* src/server/module.c: init and load symbols removed (unnecessary). 
+
+	* src/modules/flite.c (module_speak): Strip ssml before sending to Flite.
+
+	* src/modules/module_utils.c (module_strip_ssml): New function.
+
+	* src/server/speechd.c (speechd_init): Initialize TSpeechdSock.
+	(speechd_connection_destroy): Also free the buffer.
+
+	* src/server/speechd.h (TSpeechdSock): New structure. 
+
+	* src/server/config.c (table_add): Removed (old&unnecessary). 
+
 2004-02-23  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/options.c (options_print_help): Moved.
