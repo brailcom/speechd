@@ -45,6 +45,8 @@
 #define FESTIVAL_DEFAULT_SERVER_PORT 1314
 #define FESTIVAL_DEFAULT_TEXT_MODE "fundamental"
 
+int festival_connection_crashed;
+
 typedef struct FT_Info
 {
     int encoding;
@@ -84,7 +86,7 @@ void delete_FT_Info(FT_Info *info);
 
 /* If called with NULL will attempt to access using defaults */
 FT_Info *festivalOpen(FT_Info *info);
-int festivalStringToWaveRequest(FT_Info *info, char *text);
+int festivalStringToWaveRequest(FT_Info *info, char *text, int spelling);
 FT_Wave *festivalStringToWaveGetData(FT_Info *info);
 int festivalClose(FT_Info *info);
 static FT_Info *festivalDefaultInfo();
