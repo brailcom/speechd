@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.9 2003-03-19 19:32:40 pdm Exp $
+ * $Id: parse.c,v 1.10 2003-03-23 21:12:32 hanke Exp $
  */
 
 #include "speechd.h"
@@ -193,7 +193,7 @@ parse_set(char *buf, int bytes, int fd)
       }
 
 	if (!strcmp(param,"client_name")){
-		MSG(2, "Setting client name.");
+		MSG(3, "Setting client name. \n");
 
 		client_name = get_param(buf,2,bytes);
 		ret = set_client_name(fd, client_name);
@@ -322,10 +322,9 @@ parse_snd_icon(char *buf, int bytes, int fd)
     param = get_param(buf,1,bytes);
 	if (param == NULL) return ("ERR BAD COMMAND\n\r");
 	
-	gl = g_list_find_custom(fd_settings, (int*) fd, p_fdset_lc_fd);
-	if (gl == NULL)
+	settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);
+	if (settings == NULL)
 	        FATAL("Couldn't find settings for active client, internal error.");
-	settings = gl->data;
 	
 	icons = g_hash_table_lookup(snd_icon_langs, settings->language);
 	if (icons == NULL){
