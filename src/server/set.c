@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.23 2003-07-06 15:01:54 hanke Exp $
+ * $Id: set.c,v 1.24 2003-07-07 08:42:14 hanke Exp $
  */
 
 #include "set.h"
@@ -58,20 +58,32 @@ set_priority_uid(int uid, int priority)
     return 0;
 }
 
-int
-set_rate_self(int fd, int rate)
-{
-    int uid;
-    int ret;
-	
-    uid = get_client_uid_by_fd(fd);
-    if (uid == 0) return 1;
-    ret = set_rate_uid(uid, rate);
+#define SET_SELF_ALL(type, param) \
+   int \
+   set_ ## param ## _self(int fd, type param) \
+   { \
+      int uid; \
+      uid = get_client_uid_by_fd(fd); \
+      if (uid == 0) return 1; \
+      return set_ ## param ## _uid(uid, param); \
+   } \
+   int \
+   set_ ## param ## _all(type param) \
+   { \
+      int i; \
+      int uid; \
+      int err = 0; \
+      for(i=1;i<=fdmax;i++){ \
+        uid = get_client_uid_by_fd(i); \
+        if (uid == 0) continue; \
+        err += set_ ## param ## _uid(uid, param); \
+      } \
+      if (err > 0) return 1; \
+      return 0; \
+   }
 
-    return ret;
-}
+SET_SELF_ALL(int, rate);
 
-int
 set_rate_uid(int uid, int rate)
 {
     TFDSetElement *settings;
@@ -85,35 +97,7 @@ set_rate_uid(int uid, int rate)
     return 0;
 }
 
-int
-set_rate_all(int rate)
-{
-    int i;
-    int uid;
-    int err = 0;
-
-    for(i=1;i<=fdmax;i++){
-        uid = get_client_uid_by_fd(i);
-        if (uid == 0) continue;
-        err += set_rate_uid(uid, rate);
-    }
-
-    if (err > 0) return 1;
-    return 0;
-}
-
-int
-set_pitch_self(int fd, int pitch)
-{
-    int uid;
-    int ret;
-	
-    uid = get_client_uid_by_fd(fd);
-    if (uid == 0) return 1;
-    ret = set_pitch_uid(uid, pitch);
-
-    return ret;
-}
+SET_SELF_ALL(int, pitch);
 
 int
 set_pitch_uid(int uid, int pitch)
@@ -129,35 +113,7 @@ set_pitch_uid(int uid, int pitch)
     return 0;
 }
 
-int
-set_pitch_all(int pitch)
-{
-    int i;
-    int uid;
-    int err = 0;
-
-    for(i=1;i<=fdmax;i++){
-        uid = get_client_uid_by_fd(i);
-        if (uid == 0) continue;
-        err += set_pitch_uid(uid, pitch);
-    }
-
-    if (err > 0) return 1;
-    return 0;
-}
-
-int
-set_voice_self(int fd, char* voice)
-{
-    int uid;
-    int ret;
-	
-    uid = get_client_uid_by_fd(fd);
-    if (uid == 0) return 1;
-    ret = set_voice_uid(uid, voice);
-
-    return ret;
-}
+SET_SELF_ALL(char*, voice)
 
 int
 set_voice_uid(int uid, char *voice)
@@ -180,22 +136,7 @@ set_voice_uid(int uid, char *voice)
     return 0;
 }
 
-int
-set_voice_all(char* voice)
-{
-    int i;
-    int uid;
-    int err = 0;
-
-    for(i=1;i<=fdmax;i++){
-        uid = get_client_uid_by_fd(i);
-        if (uid == 0) continue;
-        err += set_voice_uid(uid, voice);
-    }
-
-    if (err > 0) return 1;
-    return 0;
-}
+SET_SELF_ALL(EPunctMode, punctuation_mode)
 
 int
 set_punctuation_mode_uid(int uid, EPunctMode punctuation)
@@ -209,35 +150,7 @@ set_punctuation_mode_uid(int uid, EPunctMode punctuation)
     return 0;
 }
 
-int
-set_punctuation_mode_self(int fd, EPunctMode punctuation)
-{
-    int uid;
-    int ret;
-	
-    uid = get_client_uid_by_fd(fd);
-    if (uid == 0) return 1;
-    ret = set_punctuation_mode_uid(uid, punctuation);
-
-    return ret;
-}
-
-int
-set_punctuation_mode_all(EPunctMode punctuation_mode)
-{
-    int i;
-    int uid;
-    int err = 0;
-
-    for(i=1;i<=fdmax;i++){
-        uid = get_client_uid_by_fd(i);
-        if (uid == 0) continue;
-        err += set_punctuation_mode_uid(uid, punctuation_mode);
-    }
-
-    if (err > 0) return 1;
-    return 0;
-}
+SET_SELF_ALL(char*, punctuation_table)
 
 int
 set_punctuation_table_uid(int uid, char* punctuation_table)
@@ -262,79 +175,22 @@ set_punctuation_table_uid(int uid, char* punctuation_table)
     return 0;
 }
 
-int
-set_punctuation_table_self(int fd, char* punctuation_table)
-{
-    int uid;
-    int ret;
-	
-    uid = get_client_uid_by_fd(fd);
-    if (uid == 0) return 1;
-    ret = set_punctuation_table_uid(uid, punctuation_table);
-
-    return ret;
-}
+SET_SELF_ALL(ECapLetRecogn, capital_letter_recognition)
 
 int
-set_punctuation_table_all(char* punctuation_table)
-{
-    int i;
-    int uid;
-    int err = 0;
-
-    for(i=1;i<=fdmax;i++){
-        uid = get_client_uid_by_fd(i);
-        if (uid == 0) continue;
-        err += set_punctuation_table_uid(uid, punctuation_table);
-    }
-
-    if (err > 0) return 1;
-    return 0;
-}
-
-
-
-int
-set_capital_letter_recognition_uid(int uid, int recogn)
+set_capital_letter_recognition_uid(int uid, ECapLetRecogn recogn)
 {
     TFDSetElement *settings;
 
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int(&settings->cap_let_recogn, recogn);
+    set_param_int((int*) &settings->cap_let_recogn, (int) recogn);
     return 0;
 }
 
-int
-set_capital_letter_recognition_self(int fd, int recogn)
-{
-    int uid;
-    int ret;
-	
-    uid = get_client_uid_by_fd(fd);
-    if (uid == 0) return 1;
-    ret = set_capital_letter_recognition_uid(uid, recogn);
 
-    return ret;
-}
-
-int
-set_capital_letter_recognition_all(int recogn)
-{
-    int i;
-    int uid;
-    int err = 0;
-
-    for(i=1;i<=fdmax;i++){
-        uid = get_client_uid_by_fd(i);
-        if (uid == 0) continue;
-        err += set_capital_letter_recognition_uid(uid, recogn);
-    }
-
-    if (err > 0) return 1;
-    return 0;
-}
+SET_SELF_ALL(int, spelling)
 
 int
 set_spelling_uid(int uid, int spelling)
@@ -350,35 +206,7 @@ set_spelling_uid(int uid, int spelling)
     return 0;
 }
 
-int
-set_spelling_self(int fd, int spelling)
-{
-    int uid;
-    int ret;
-	
-    uid = get_client_uid_by_fd(fd);
-    if (uid == 0) return 1;
-    ret = set_spelling_uid(uid, spelling);
-
-    return ret;
-}
-
-int
-set_spelling_all(int spelling)
-{
-    int i;
-    int uid;
-    int err = 0;
-
-    for(i=1;i<=fdmax;i++){
-        uid = get_client_uid_by_fd(i);
-        if (uid == 0) continue;
-        err += set_spelling_uid(uid, spelling);
-    }
-
-    if (err > 0) return 1;
-    return 0;
-}
+SET_SELF_ALL(char*, spelling_table)
 
 int
 set_spelling_table_uid(int uid, char* spelling_table)
@@ -404,35 +232,7 @@ set_spelling_table_uid(int uid, char* spelling_table)
     return 0;
 }
 
-int
-set_spelling_table_self(int fd, char* spelling_table)
-{
-    int uid;
-    int ret;
-	
-    uid = get_client_uid_by_fd(fd);
-    if (uid == 0) return 1;
-    ret = set_spelling_table_uid(uid, spelling_table);
-
-    return ret;
-}
-
-int
-set_spelling_table_all(char* spelling_table)
-{
-    int i;
-    int uid;
-    int err = 0;
-
-    for(i=1;i<=fdmax;i++){
-        uid = get_client_uid_by_fd(i);
-        if (uid == 0) continue;
-        err += set_spelling_table_uid(uid, spelling_table);
-    }
-
-    if (err > 0) return 1;
-    return 0;
-}
+SET_SELF_ALL(char*, sound_table)
 
 int
 set_sound_table_uid(int uid, char* sound_table)
@@ -446,7 +246,7 @@ set_sound_table_uid(int uid, char* sound_table)
     if(g_list_find_custom(tables.sound_icons, sound_table, spd_str_compare)){
         set_param_str(&(settings->snd_icon_table), sound_table);
     }else{
-        if(!strcmp(sound_table, "sound_icons_default")){
+        if(!strcmp(sound_table, "sound_icons")){
             MSG(4,"Couldn't find requested table, using the previous");
             return 0;
         }else{
@@ -457,36 +257,28 @@ set_sound_table_uid(int uid, char* sound_table)
     return 0;
 }
 
-int
-set_sound_table_self(int fd, char* sound_table)
-{
-    int uid;
-    int ret;
-	
-    uid = get_client_uid_by_fd(fd);
-    if (uid == 0) return 1;
-    ret = set_sound_table_uid(uid, sound_table);
-
-    return ret;
-}
+SET_SELF_ALL(char*, cap_let_recogn_table)
 
 int
-set_sound_table_all(char* sound_table)
+set_cap_let_recogn_table_uid(int uid, char* cap_let_recogn_table)
 {
-    int i;
-    int uid;
-    int err = 0;
+    TFDSetElement *settings;
 
-    for(i=1;i<=fdmax;i++){
-        uid = get_client_uid_by_fd(i);
-        if (uid == 0) continue;
-        err += set_sound_table_uid(uid, sound_table);
+    settings = get_client_settings_by_uid(uid);
+    if (settings == NULL) return 1;
+    if (cap_let_recogn_table == NULL) return 1;
+
+    if(g_list_find_custom(tables.cap_let_recogn, cap_let_recogn_table, spd_str_compare)){
+        set_param_str(&(settings->cap_let_recogn_table), cap_let_recogn_table);
+    }else{
+        MSG(4,"Couldn't find requested table, using the previous");
+        return 0;
     }
 
-    if (err > 0) return 1;
     return 0;
 }
 
+SET_SELF_ALL(char*, language);
 
 int
 set_language_uid(int uid, char *language)
@@ -504,36 +296,6 @@ set_language_uid(int uid, char *language)
     if (output_module != NULL)
         set_output_module_uid(uid, output_module);
 
-    return 0;
-}
-
-int
-set_language_self(int fd, char* language)
-{
-    int uid;
-    int ret;
-	
-    uid = get_client_uid_by_fd(fd);
-    if (uid == 0) return 1;
-    ret = set_language_uid(uid, language);
-
-    return ret;
-}
-
-int
-set_language_all(char* language)
-{
-    int i;
-    int uid;
-    int err = 0;
-
-    for(i=1;i<=fdmax;i++){
-        uid = get_client_uid_by_fd(i);
-        if (uid == 0) continue;
-        err += set_language_uid(uid, language);
-    }
-
-    if (err > 0) return 1;
     return 0;
 }
 
@@ -559,6 +321,8 @@ set_client_name_self(int fd, char *client_name)
     return 0;
 }
 
+SET_SELF_ALL(char*, key_table);
+
 int
 set_key_table_uid(int uid, char* key_table)
 {
@@ -572,7 +336,7 @@ set_key_table_uid(int uid, char* key_table)
     if(g_list_find_custom(tables.keys, key_table, spd_str_compare)){
         set_param_str(&(settings->key_table), key_table);
     }else{
-        if(!strcmp(key_table, "keys_basic")){
+        if(!strcmp(key_table, "keys")){
             MSG(4,"Couldn't find requested table, using the previous");
             return 0;
         }else{
@@ -582,35 +346,7 @@ set_key_table_uid(int uid, char* key_table)
     return 0;
 }
 
-int
-set_key_table_self(int fd, char* key_table)
-{
-    int uid;
-    int ret;
-	
-    uid = get_client_uid_by_fd(fd);
-    if (uid == 0) return 1;
-    ret = set_key_table_uid(uid, key_table);
-
-    return ret;
-}
-
-int
-set_key_table_all(char* key_table)
-{
-    int i;
-    int uid;
-    int err = 0;
-
-    for(i=1;i<=fdmax;i++){
-        uid = get_client_uid_by_fd(i);
-        if (uid == 0) continue;
-        err += set_key_table_uid(uid, key_table);
-    }
-
-    if (err > 0) return 1;
-    return 0;
-}
+SET_SELF_ALL(char*, character_table);
 
 int
 set_character_table_uid(int uid, char* char_table)
@@ -624,7 +360,7 @@ set_character_table_uid(int uid, char* char_table)
     if(g_list_find_custom(tables.characters, char_table, spd_str_compare)){
         set_param_str(&(settings->char_table), char_table);
     }else{
-        if(!strcmp(char_table, "characters_basic")){
+        if(!strcmp(char_table, "characters")){
             MSG(4,"Couldn't find requested table, using the previous");
             return 0;
         }else{
@@ -635,35 +371,8 @@ set_character_table_uid(int uid, char* char_table)
     return 0;
 }
 
-int
-set_character_table_self(int fd, char* char_table)
-{
-    int uid;
-    int ret;
-	
-    uid = get_client_uid_by_fd(fd);
-    if (uid == 0) return 1;
-    ret = set_character_table_uid(uid, char_table);
 
-    return ret;
-}
-
-int
-set_character_table_all(char* char_table)
-{
-    int i;
-    int uid;
-    int err = 0;
-
-    for(i=1;i<=fdmax;i++){
-        uid = get_client_uid_by_fd(i);
-        if (uid == 0) continue;
-        err += set_character_table_uid(uid, char_table);
-    }
-
-    if (err > 0) return 1;
-    return 0;
-}
+SET_SELF_ALL(char*, output_module);
 
 int
 set_output_module_uid(int uid, char* output_module)
@@ -680,36 +389,6 @@ set_output_module_uid(int uid, char* output_module)
 
     return 0;
 }
-
-int
-set_output_module_all(char* output_module)
-{
-    int i;
-    int uid;
-    int err = 0;
-
-    for(i=1;i<=fdmax;i++){
-        uid = get_client_uid_by_fd(i);
-        if (uid == 0) continue;
-        err += set_output_module_uid(uid, output_module);
-    }
-
-    if (err > 0) return 1;
-    return 0;
-}	
-
-int
-set_output_module_self(int fd, char* output_module)
-{
-    int uid;
-    int ret;
-	
-    uid = get_client_uid_by_fd(fd);
-    if (uid == 0) return 1;
-    ret = set_output_module_uid(uid, output_module);
-
-    return ret;
-}	
 
 TFDSetElement*
 default_fd_set(void)
@@ -729,6 +408,8 @@ default_fd_set(void)
 	new->output_module = spd_strdup(GlobalFDSet.output_module);
 	new->client_name = spd_strdup(GlobalFDSet.client_name); 
 	new->spelling_table = spd_strdup(GlobalFDSet.spelling_table); 
+        new->cap_let_recogn_table = spd_strdup(GlobalFDSet.cap_let_recogn_table);
+        new->cap_let_recogn_sound = spd_strdup(GlobalFDSet.cap_let_recogn_sound);
         new->punctuation_some = spd_strdup(GlobalFDSet.punctuation_some);
         new->punctuation_table = spd_strdup(GlobalFDSet.punctuation_table);
         new->key_table = spd_strdup(GlobalFDSet.key_table);
@@ -736,7 +417,7 @@ default_fd_set(void)
         new->snd_icon_table = spd_strdup(GlobalFDSet.snd_icon_table);
 	new->voice_type = GlobalFDSet.voice_type;
 	new->spelling = GlobalFDSet.spelling;         
-	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;
+	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;       
 	new->active = 1;
 	new->hist_cur_uid = -1;
 	new->hist_cur_pos = -1;
