@@ -1,5 +1,29 @@
-2003-10-13  Hynek Hanke  <hanke@volny.cz>
+2003-10-15  Hynek Hanke  <hanke@volny.cz>
 
+	* src/server/Makefile.am: Pass VERSION and PACKAGENAME to the program with -D.
+
+	* src/server/output.h (escape_dot): New function.
+
+	* src/server/parse.h (deescape_dot): New function.
+
+	* configure.in (AM_INIT_AUTOMAKE): PACKAGENAME is now Speech Dispatcher, not speechd.
+
+	* src/server/options.c (options_parse): Call options_print_version.
+
+	* src/server/options.h: Added --version, -v.
+
+	* src/modules/module_utils.c (do_message): Convert escape sequence double dots into dots.
+
+	* src/server/output.c (escape_dot): New function.
+
+	* src/server/parse.c (deescape_dot): New function.
+
+	* src/server/sem_functions.c (semaphore_wait): If the system call for semaphores
+	was unsuccesful, repeat the call (e.g. because of EINTR). Fixes a bug under
+	Valgrind.
+
+2003-10-13  Hynek Hanke  <hanke@volny.cz>
+	
 	* src/modules/festival.c (_festival_parent): Call module_parent_wait_continue() only
 	if some data were sent to synthesis.
 
