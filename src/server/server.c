@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.54 2003-07-16 19:19:44 hanke Exp $
+  * $Id: server.c,v 1.55 2003-08-07 14:44:07 hanke Exp $
   */
 
 #include "speechd.h"
@@ -197,6 +197,8 @@ serve(int fd)
     /* Parse the data and read the reply*/
     MSG(5, "DATA:|%s|", buf);
     reply = parse(buf, bytes, fd);
+
+    if (reply == NULL) FATAL("Internal error, reply is NULL");
 
     /* Send the reply to the socket */
     if (strlen(reply) == 0) return 0;
