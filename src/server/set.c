@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.32 2004-02-10 21:24:01 hanke Exp $
+ * $Id: set.c,v 1.33 2004-02-13 15:17:01 hanke Exp $
  */
 
 #include "set.h"
@@ -332,6 +332,7 @@ default_fd_set(void)
 	new->punctuation_mode = GlobalFDSet.punctuation_mode;
 	new->rate = GlobalFDSet.rate;
 	new->pitch = GlobalFDSet.pitch;
+	new->volume = GlobalFDSet.volume;
 	new->language = spd_strdup(GlobalFDSet.language);
 	new->output_module = spd_strdup(GlobalFDSet.output_module);
 	new->client_name = spd_strdup(GlobalFDSet.client_name); 
