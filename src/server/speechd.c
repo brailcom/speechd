@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.20 2003-04-11 20:45:12 hanke Exp $
+ * $Id: speechd.c,v 1.21 2003-04-14 02:08:18 hanke Exp $
  */
 
 #include "speechd.h"
@@ -36,8 +36,6 @@
 int server_socket;
 
 gint (*p_msg_nto_speak)() = message_nto_speak;
-gint (*p_msg_lc)() = message_list_compare_fd;
-gint (*p_msg_uid_lc)() = message_list_compare_uid;
 
 /* Logging messages, level of verbosity is defined between 1 and 5, 
  * see documentation */
