@@ -1,5 +1,7 @@
 
-- Some decent output module (odmluva)
-- Better configuration from text file
-- many other things...
+* Some decent output module (festival)
+* Old messages in history must expire
+* History should be saved to disk when Speech Deamon terminates
+* Better configuration using Dotconf
+* many other things...
 
