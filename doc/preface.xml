@@ -3,10 +3,10 @@
   <title>Preface</title>
 
   <para>
-    Speech Daemon project comes to provide a device independent layer for speech
-    synthesis. It should provide a simple interface for client applications
-    (applications, that want to speak) as well as for device driver modules
-    (for particular speech synthesis).
+    Speech Daemon project comes to provide a device independent layer for
+    speech synthesis. It should provide a simple interface for client
+    applications (applications, that want to speak) as well as for device
+    driver modules (for particular speech synthesis).
   </para>
   
 </preface>
