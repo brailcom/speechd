@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: config.c,v 1.4 2004-03-08 21:25:27 hanke Exp $
+ * $Id: config.c,v 1.5 2004-06-28 08:10:31 hanke Exp $
  */
 
 #include <dotconf.h>
@@ -382,6 +382,7 @@ load_default_global_set_options()
     GlobalFDSet.cap_let_recogn = 0;
     GlobalFDSet.min_delay_progress = 2000;
     GlobalFDSet.pause_context = 0;
+    GlobalFDSet.ssml_mode = 0;
 
     SpeechdOptions.max_history_messages = 10000;
 
