@@ -1,3 +1,8 @@
+2003-09-17  Milan Zamazal  <pdm@brailcom.org>
+
+	* config/modules/festival.conf: Use voice_czech instead of
+	voice_cz2_mbrola.
+
 2003-09-15  Milan Zamazal  <pdm@brailcom.org>
 
 	* config/Makefile.am (all-local): Use `:' instead of `-' as the
