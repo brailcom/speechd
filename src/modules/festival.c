@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.40 2003-10-21 22:55:54 hanke Exp $
+ * $Id: festival.c,v 1.41 2003-11-23 21:21:23 hanke Exp $
  */
 
 #include "fdset.h"
@@ -46,6 +46,8 @@ static char **festival_message;
 static EMessageType festival_message_type;
 static int festival_position = 0;
 
+char *festival_coding;
+
 FT_Info *festival_info;
 
 /* Internal functions prototypes */
@@ -66,7 +68,6 @@ void festival_set_voice(EVoiceType voice);
 void festival_set_language(char* language);
 void festival_set_punctuation_mode(EPunctMode punct);
 void festival_set_cap_let_recogn(ECapLetRecogn recogn);
-
 
 MOD_OPTION_1_INT(FestivalMaxChunkLength);
 MOD_OPTION_1_STR(FestivalDelimiters);
@@ -128,6 +129,8 @@ module_init(void)
     festival_semaphore = module_semaphore_init();
     if (festival_semaphore == NULL) return -1;
 
+    festival_coding = g_strdup("ISO-8859-1");
+
     DBG("Festival: creating new thread for festival_speak\n");
     festival_speaking = 0;
     ret = pthread_create(&festival_speak_thread, NULL, _festival_speak, NULL);
@@ -156,19 +159,6 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
     /* Check the parameters */
     if(module_write_data_ok(data) != 0) return -1;
 
-    DBG("Requested data: |%s| (before recoding)\n", data);
-    *festival_message = module_recode_to_iso(data, bytes, msg_settings.language, FestivalRecodeFallback);
-    if (*festival_message == NULL){
-        return -1;
-    }
-    DBG("Requested data after recoding: |%s|\n", *festival_message);
-    if(msgtype == MSGTYPE_TEXT){
-        module_strip_punctuation_some(*festival_message, FestivalStripPunctChars);
-        DBG("Requested after stripping punct: |%s|\n", *festival_message);
-    }else{
-        DBG("Non-textual event: |%s|\n", *festival_message);
-    }
-
     festival_message_type = msgtype;
     if ((msgtype == MSGTYPE_TEXT) && (msg_settings.spelling_mode == SPELLING_ON))
         festival_message_type = MSGTYPE_SPELL;
@@ -191,6 +181,22 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
     UPDATE_PARAMETER(pitch, festival_set_pitch);
     UPDATE_PARAMETER(punctuation_mode, festival_set_punctuation_mode);
     UPDATE_PARAMETER(cap_let_recogn, festival_set_cap_let_recogn);
+
+    DBG("Requested data: |%s| (recoding to %s)\n", data, festival_coding);
+
+    *festival_message = (char*) g_convert_with_fallback(data, bytes, festival_coding, "UTF-8",
+                                              FestivalRecodeFallback, NULL, NULL, NULL);
+    if (*festival_message == NULL){
+        DBG("Error: Recoding unsuccessful.");
+        return -1;
+    }
+    DBG("Requested data after recoding: |%s|\n", *festival_message);
+    if(msgtype == MSGTYPE_TEXT){
+        module_strip_punctuation_some(*festival_message, FestivalStripPunctChars);
+        DBG("Requested after stripping punct: |%s|\n", *festival_message);
+    }else{
+        DBG("Non-textual event: |%s|\n", *festival_message);
+    }
 
     /* Send semaphore signal to the speaking thread */
     festival_speaking = 1;    
@@ -409,17 +415,14 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
             DBG("End of data in parent, closing pipes [%d:%d]", terminate, bytes);
             module_parent_dp_close(dpipe);
             break;
-        }
-            
+        }            
     }    
-
-
 }
 
 void
 festival_set_language(char* language)
-{
-    FestivalSetLanguage(festival_info, language);
+{    
+    FestivalSetLanguage(festival_info, language, &festival_coding);
 }
 
 void
@@ -428,7 +431,7 @@ festival_set_voice(EVoiceType voice)
     char* voice_name;
 
     voice_name = EVoice2str(voice);
-    FestivalSetVoice(festival_info, voice_name);
+    FestivalSetVoice(festival_info, voice_name, &festival_coding);
     xfree(voice_name);
 
     /* Because the new voice can use diferent bitrate */
@@ -463,7 +466,7 @@ festival_set_cap_let_recogn(ECapLetRecogn recogn)
 
     if (recogn == RECOGN_NONE) recogn_mode = NULL;
     else recogn_mode = ECapLetRecogn2str(recogn);
-    FestivalSetCapLetRecogn(festival_info, recogn_mode);
+    FestivalSetCapLetRecogn(festival_info, recogn_mode, NULL);
     xfree(recogn_mode);
 }
 
