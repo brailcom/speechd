@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.16 2003-03-25 22:45:46 hanke Exp $
+ * $Id: speechd.c,v 1.17 2003-03-29 20:15:19 hanke Exp $
  */
 
 #include "speechd.h"
@@ -34,7 +34,6 @@
 #include "alloc.h"
 
 int server_socket;
-int max_uid = 0;
 
 gint (*p_msg_nto_speak)() = message_nto_speak;
 gint (*p_hc_lc)() = hc_list_compare;
@@ -59,6 +58,7 @@ MSG(int level, char *format, ...)
 		strcat(format_with_spaces, "\n");
 		va_start(args, format_with_spaces);
 		vfprintf(logfile, format_with_spaces, args);
+		if(SPEECHD_DEBUG) vfprintf(stdout, format_with_spaces, args);
 		va_end(args);
 	}				
 }
@@ -75,10 +75,10 @@ speechd_client_terminate(gpointer key, gpointer value, gpointer user)
 		return TRUE;
 	}	
 
-	MSG(3,"Closing connection on fd %d\n", set->fd);
-	if(close(set->fd) == -1) MSG(2, "close() failed: %s", strerror(errno));
-    FD_CLR(set->fd, &readfds);
-
+	if(set->fd>0){
+		MSG(3,"Closing connection on fd %d\n", set->fd);
+		speechd_connection_destroy(set->fd);
+	}
 	mem_free_fdset(set);
 	return TRUE;
 }
@@ -109,8 +109,8 @@ speechd_quit(int sig)
 	int ret;
 	
 	MSG(1, "Terminating...");
-	MSG(1, "Closing open connections...");
 
+	MSG(1, "Closing open connections...");
 	/* We will browse through all the connections and close them. */
 	g_hash_table_foreach_remove(fd_settings, speechd_client_terminate, NULL);
 	g_hash_table_destroy(fd_settings);
@@ -122,6 +122,7 @@ speechd_quit(int sig)
 	
 	MSG(1,"Closing server connection...");
 	if(close(server_socket) == -1) MSG(2, "close() failed: %s", strerror(errno));
+	FD_CLR(server_socket, &readfds);
 	
 	MSG(1,"Closing speak() thread...");
 	ret = pthread_cancel(speak_thread);
@@ -143,6 +144,7 @@ speechd_init()
 	int ret;
 
 	msgs_to_say = 0;
+	max_uid = 0;
 
 	/* Initialize logging */
 	logfile = malloc(sizeof(FILE));
@@ -154,12 +156,14 @@ speechd_init()
 
 	/* Initialize lists */
 	MessagePausedList = NULL;
-	history = NULL;
-	history_settings = NULL;
+	message_history = NULL;
 
 	/* Initialize hash tables */
 	fd_settings = g_hash_table_new(g_int_hash,g_int_equal);
 	assert(fd_settings != NULL);
+
+	fd_uid = g_hash_table_new(g_str_hash, g_str_equal);
+	assert(fd_uid != NULL);
 	
 	snd_icon_langs = g_hash_table_new(g_str_hash,g_str_equal);
 	assert(snd_icon_langs != NULL);
@@ -208,13 +212,11 @@ int
 speechd_connection_new(int server_socket)
 {
 	TFDSetElement *new_fd_set;
-	THistSetElement *new_hist_set;
-	THistoryClient *hnew_element;
 	struct sockaddr_in client_address;
 	unsigned int client_len = sizeof(client_address);
 	int client_socket;
 	int v;
-	int *p;
+	int *p_client_socket, *p_client_uid;
 	   
 	client_socket = accept(server_socket, (struct sockaddr *)&client_address,
 	  	&client_len);
@@ -243,23 +245,14 @@ speechd_connection_new(int server_socket)
 		return -1;
 	}
 	new_fd_set->fd = client_socket;
-	new_fd_set->uid = max_uid;
-	p = (int*) spd_malloc(sizeof(int));
-	*p = client_socket;
-	g_hash_table_insert(fd_settings, p, new_fd_set);
-	max_uid++;				
-			
-	/* Create the corresponding history list and history settings record */
-	hnew_element = (THistoryClient*) history_list_create_client(client_socket);
-	if (hnew_element == NULL)
-		MSG(2,"Failed to create a history client structure for this client");
-	history = g_list_append(history, hnew_element);
-
-	new_hist_set = default_history_settings();
-	if (new_hist_set == NULL)
-		MSG(2,"Failed to create a history settings element for this client");
-	new_hist_set->fd = client_socket;			
-	history_settings = g_list_append(history_settings, new_hist_set);
+	new_fd_set->uid = ++max_uid;
+	p_client_socket = (int*) spd_malloc(sizeof(int));
+	p_client_uid = (int*) spd_malloc(sizeof(int));
+	*p_client_socket = client_socket;
+	*p_client_uid = max_uid;
+	g_hash_table_insert(fd_settings, p_client_uid, new_fd_set);
+	g_hash_table_insert(fd_uid, p_client_socket, p_client_uid);
+		
 
 	MSG(3,"Data structures for client on fd %d created", client_socket);
 	return 0;
@@ -269,31 +262,23 @@ int
 speechd_connection_destroy(int fd)
 {
 	TFDSetElement *fdset_element;
-	THistoryClient *hclient;
 	GList *gl;
 	int v;
 	
 	/* Client has gone away and we remove it from the descriptor set. */
 	MSG(3,"Removing client on fd %d", fd);
 
-	MSG(4,"Removing client from settings");
-	fdset_element = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);
+	MSG(4,"Tagging client as inactive in settings");
+	fdset_element = get_client_settings_by_fd(fd);
 	if(fdset_element != NULL){
-		g_hash_table_remove(fd_settings, &fd);
-		mem_free_fdset(fdset_element);
+		fdset_element->fd = -1;
+		fdset_element->active = 0;
 	}else if(SPEECHD_DEBUG){
 	 	DIE("Can't find settings for this client\n");
 	}
 
-	MSG(4,"Tagging client as inactive in history");
-	gl = g_list_find_custom(history, (int*) fd, p_cli_comp_fd);
-	if ((gl != NULL) && (gl->data!=NULL)){
-		hclient = gl->data;
-		hclient->fd = -1;
-		hclient->active = 0;
-	}else if (SPEECHD_DEBUG){
-	 	DIE("Can't find history for this client\n");	
-	}
+	MSG(4,"Removing client from the fd->uid table.");
+	g_hash_table_remove(fd_uid, &fd);
 		
 	v = 0;
 	g_array_insert_val(awaiting_data, fd, v);
@@ -336,7 +321,7 @@ main()
 	MSG(1,"Openning a socket connection");
 	if (bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address)) == -1){
 		MSG(1, "bind() failed: %s", strerror(errno));
-		FATAL("Couldn't open socket");
+		FATAL("Couldn't open socket, try a few minutes later.");
 	}
 	
 	/* Create a connection queue and initialize readfds to handle input from server_socket. */
