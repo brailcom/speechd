@@ -204,6 +204,11 @@ this is the application that ``wants to speak''.
 is a chunk of text that a client sends to Speech Server to request
 saying something or playing some sound.
 
+@item @emph{To cancel a message}
+means to stop saying it and/or remove it from the queue of messages
+waiting to be said. However, it is not removed from the history, where
+it was stored after being received by Speech Server.
+
 @end itemize
 
 @node Message Priority Model, Message History, Basic Terminology, Top
@@ -247,10 +252,11 @@ It is never interrupted. When several concurrent messages of
 this priority are received by server, they are queued and said
 in the order, they came.
 
-When a new message of level @code{important} comes when a message of
-another priority is spoken, this message is canceled. Other messages
+When a new message of level @code{important} comes during a message of
+another priority is being spoken, this message other message is canceled
+and the message with priority @code{important} is said instead. Other messages
 of lower priorities are either postponed (priority @code{message} and
-@code{text}) until there will be no messages of priority important
+@code{text}) until there are no messages of priority important
 waiting or canceled (priority @code{notification} and @code{progress}.
 
 These messages should be as short as possible and should rarely be
@@ -378,15 +384,24 @@ Example uses for level @code{progress} are:
 
 It seems as a good feature for the blind and visually impaired to
 provide a possibility to browse, through some simple client, the
-history of received messages.
+history of received and previously said messages.
 
-Some less important messages are received by Speech Server over SSIP
-without being said, because they are suppressed by more important
-messages. This is an inherent property of each speech output interface,
-since it's not possible to output in speech as much information as is
-presented on a screen. This is another reason why it's advantageous to
-have a history of received messages, so that the user can look if there
-isn't something important he didn't hear.
+Some messages are even received by Speech Server without being said,
+because there will always be more space for information on the screen
+that a speech output can possibly provide.
+
+For this reason, SSIP defines a set of commands that allow client
+applications to browse through the history of previously received
+messages saved on the server. The idea is that @emph{each} message
+received by the server should be accessible through the history and
+the user can search for it later by time, keywords or using other
+methods.
+
+On the other hand, this may cause security issues as several
+clients may connect to Speech Server and they might originate
+from different users. For this reason, only those messages,
+that come from the same user should be accessible by default
+(if not overridden in server configuration).
 
 @node Protocol Description, Appendices, Message History, Top
 @chapter Protocol Description
@@ -760,7 +775,8 @@ until the connection is closed.
 Set client's name.  Client name consists of the user name, client
 (application) identification, and the identification of the component
 of the client (application).  Each of the parts of the client name may
-contain only alphanumeric characters.
+contain only alphanumeric characters, dashes @code{-} and underscores
+@code{_}.
 
 For example, for a client called @code{lynx} that creates an SSIP
 connection for its command processing, the name could be set in the
@@ -842,11 +858,11 @@ current speech synthesis output module, lower values meaning lower
 pitch and higher values meaning higher pitch.
 
 @item SET @{ all | self | @var{id} @} PAUSE_CONTEXT @var{n}
-Set the number of index marks (more or less the number of sentences)
-that should be repeated after a previously paused text is resumed.
-If there isn't enough text before the place of the pause, the entire
-message is repeated. @var{n} is a positive integer value specifying
-the number of index marks to repeat.
+Set the number of (more or less) sentences that should be repeated
+after a previously paused text is resumed. If there isn't enough text
+before the place of the pause, the entire message is repeated. @var{n}
+is a positive integer value specifying the number of sentences to
+repeat.
 
 @item SET @{ all | self | @var{id} @} HISTORY @{ on | off @}
 Enable (@code{on}) or disable (@code{off}) storing of received
@@ -1232,6 +1248,8 @@ HISTORY GET CLIENT_LIST
 HISTORY GET LAST
 242-39 joe:vi:default
 242 OK LAST MSG SENT
+HISTORY SAY 39
+225 OK MESSAGE QUEUED
 QUIT
 231 HAPPY HACKING
 @end example
@@ -1263,6 +1281,7 @@ names are case sensitive.
 @subheading Auxiliary Keys
 
 @table @code
+@item alt
 @item control
 @item hyper
 @item meta
@@ -1374,7 +1393,5 @@ to another voice by the output module.
 
 @node Index of Concepts,  , GNU Free Documentation License, Top
 @unnumbered Index of Concepts
-
-@printindex cp
 
 @bye
