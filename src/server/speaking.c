@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.17 2003-06-20 00:49:48 hanke Exp $
+  * $Id: speaking.c,v 1.18 2003-06-23 05:12:49 hanke Exp $
   */
 
 #include <glib.h>
@@ -147,6 +147,7 @@ speak(void* data)
         /* Tidy up... */
         if (current_message != NULL) mem_free_message(current_message);
         current_message = message;
+
         pthread_mutex_unlock(&element_free_mutex);        
     }	 
 }
@@ -679,7 +680,7 @@ process_message_punctuation(char *buf, int bytes, TFDSetElement *settings, GHash
                 }
             }else{                  /* this icon is represented by a string */
                 if (spelled_punct != NULL){ 
-                    g_string_append_printf(str," %s ", spelled_punct); 
+                    g_string_append_printf(str," %s, ", spelled_punct); 
                 }
             } 
         }
@@ -874,7 +875,6 @@ resolve_priorities()
             MessageQueue->p5 = empty_queue(MessageQueue->p5);
         }
     }
-
 
 }
 
