@@ -20,7 +20,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.c,v 1.17 2003-07-07 09:59:31 hanke Exp $
+ * $Id: sndicon.c,v 1.18 2003-07-16 19:20:05 hanke Exp $
 */
 
 #include "sndicon.h"
@@ -48,7 +48,7 @@ sndicon_queue(int fd, char* language, char* prefix, char* name)
     if(text == NULL) return 2;
 
     new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
-    ret = (char*) spd_malloc ((strlen(text) + 1 + strlen(SOUND_DATA_DIR)) * sizeof(char));
+    ret = (char*) spd_malloc ((strlen(text) + 1 + strlen(SOUND_DATA_DIR) + 1) * sizeof(char));
 
     if(text[0] == '\"'){
         /* Strip the leading and the trailing quotes */
@@ -75,6 +75,9 @@ snd_icon_spelling_get(char *table, GHashTable *icons, char *name, int *sound)
     char *ret;
     static char key[256];       /* This is not dynamic to make it faster */
 
+    /* Make sure *sound is initialized to something */
+    *sound = 0;
+
     sprintf(key, "%s_%s", table, name);
 
     textt = g_hash_table_lookup(icons, key); 
@@ -89,6 +92,7 @@ snd_icon_spelling_get(char *table, GHashTable *icons, char *name, int *sound)
         strcpy(ret, &(textt[1]));
         ret[strlen(ret)-1] = 0;
     }else{       
+        *sound = 1;
         if(textt[0] != '/'){
             ret = (char*) spd_malloc((strlen(SOUND_DATA_DIR) + strlen(textt) + 4) * sizeof(char));
             sprintf(ret, "%s/%s", SOUND_DATA_DIR, textt);
@@ -96,7 +100,6 @@ snd_icon_spelling_get(char *table, GHashTable *icons, char *name, int *sound)
             ret = (char*) spd_malloc((strlen(textt)+1) * sizeof(char));
             strcpy(ret, textt);
         }
-        *sound = 1;
     }
     
     return ret;
