@@ -1,3 +1,8 @@
+2003-03-05  Milan Zamazal  <pdm@brailcom.org>
+
+	* INSTALL: libdotconf added to the required software.  Current way
+	of the build process mentioned.
+
 2003-03-04  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/clients/say.c (main): Dummy `cl_active' argument added to
