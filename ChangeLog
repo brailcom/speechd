@@ -1,5 +1,25 @@
 2003-10-09  Hynek Hanke  <hanke@volny.cz>
 
+	* src/modules/festival.c (_festival_parent): Wrong debugging message removed.
+
+	* src/modules/module_utils.c (module_get_message_part): Divide message
+	also on blank lines.
+
+	* intl/fdset.h (TFDSetElement): New parameter index_mark.
+
+	* src/server/set.c (set_pause_context_uid): Accept negative values also.
+
+	* src/server/parse.c (parse_set): SSIP SET * PAUSE_CONTEXT now accepts negative values.
+
+	* src/server/speaking.c (reload_message): New function.
+	(reload_message): pause_context is now negative or positive.
+
+	* src/server/speechd.h (resume_requested): New global variable.
+
+	* src/server/speaking.c (speak): Handle request for resume here.
+
+	* src/server/speechd.c (speechd_init): pause and resume _ requested set to 0 on start.
+
 	* src/modules/festival_client.h (festivalStringToWaveGetData): Parameters added.
 
 	* src/modules/festival.c (_festival_parent): Call festivalStringToWaveGetData
