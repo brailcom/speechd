@@ -19,15 +19,13 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: clibrary.c,v 1.1 2003-07-06 15:04:23 hanke Exp $
+ * $Id: clibrary.c,v 1.2 2003-10-12 23:35:23 hanke Exp $
  */
 
 #include <stdio.h>
 
 #include "libspeechd.h"
 #include "def.h"
-
-#define FATAL(msg) { perror("client: "msg); exit(1); }
 
 int main() {
    int conn;
@@ -38,7 +36,10 @@ int main() {
    
    printf("Trying to initialize Speech Deamon...");
    conn = spd_open("say", NULL, NULL);
-   if (conn == 0) FATAL("Speech Deamon failed");
+   if (conn == 0){
+	  printf("Speech Deamon failed");
+	  exit(1);
+   }
    printf("OK\n");
 
 

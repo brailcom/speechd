@@ -19,15 +19,13 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: long_message.c,v 1.9 2003-07-06 15:05:32 hanke Exp $
+ * $Id: long_message.c,v 1.10 2003-10-12 23:35:31 hanke Exp $
  */
 
 #include <stdio.h>
 
 #include "libspeechd.h"
 #include "def.h"
-
-#define FATAL(msg) { perror("client: "msg); exit(1); }
 
 int main() {
    int sockfd;
@@ -38,7 +36,10 @@ int main() {
    
 	printf("Trying to initialize Speech Dispatcher...");
 	sockfd = spd_open("test", NULL, NULL);
-	if (sockfd == 0) FATAL("Speech Dispatcher failed");
+	if (sockfd == 0){
+	    printf("Speech Dispatcher failed");
+		exit(1);
+    }
 	printf("OK\n");
 
 		printf("Sending message number 1, text \n");
