@@ -8,7 +8,7 @@ AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_incl
 EXTRA_DIST = module_main.c module_utils_addvoice.c festival_client.c festival_client.h
 
 if flite_support
-modulebin_PROGRAMS = sd_flite
+modulebin_PROGRAMS = sd_flite sd_generic sd_festival
 else
 modulebin_PROGRAMS = sd_generic sd_festival
 endif
