@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.34 2003-06-23 05:13:27 hanke Exp $
+ * $Id: speechd.h,v 1.35 2003-07-06 15:03:23 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -98,6 +98,7 @@ typedef struct
     GList *punctuation;
 }TSpeechDTables;
 
+int SPEECHD_PORT;
 
 /* Message logging */
 int spd_log_level;
@@ -134,6 +135,8 @@ GHashTable *output_modules;
 GHashTable *fd_settings;	
 /* Table of sound icons for different languages */
 GHashTable *snd_icon_langs;
+/* Table of default output modules for different languages */
+GHashTable *language_default_modules;
 /* Table of relations between client file descriptors and their uids*/
 GHashTable *fd_uid;
 /* A list of all defined tables grouped by their categories */
