@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.11 2003-03-25 22:49:27 hanke Exp $
+ * $Id: flite.c,v 1.12 2003-04-06 23:19:52 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -43,6 +43,8 @@ const int DEBUG_FLITE = 0;
 /* Thread and process control */
 int flite_speaking = 0;
 int flite_running = 0;
+
+EVoiceType flite_cur_voice = MALE1;
 
 pthread_t flite_speak_thread;
 pid_t flite_pid;
@@ -102,6 +104,7 @@ flite_write(gchar *data, gint len, TFDSetElement* set)
 	int ret;
 	FILE *temp;
 
+	/* Tests */
 	if(DEBUG_FLITE) printf("flite: write()\n");
 
 	if(data == NULL){
@@ -114,20 +117,39 @@ flite_write(gchar *data, gint len, TFDSetElement* set)
 		return -1;
 	}
 
-
 	if (flite_speaking){
 		if(DEBUG_FLITE) printf("flite: speaking when requested to flite-write");
 	   	return 0;
    	}
+
+	/* Preparing data */
 	if((temp = fopen("/tmp/flite_message", "w")) == NULL){
 		printf("Flite: couldn't open temporary file\n");
 		return 0;
 	}
-
 	fprintf(temp,"%s\n\r",data);
 	fclose(temp);
 	fflush(NULL);
-  
+
+	/* Setting voice */
+	if (set->voice_type != flite_cur_voice){
+		if(set->voice_type == MALE1){
+			free(flite_voice);
+			flite_voice = (cst_voice*) register_cmu_us_kal();
+			flite_cur_voice = MALE1;
+		}
+		if(set->voice_type == MALE2){
+			free(flite_voice);
+			/* This is only an experimental voice */
+			flite_voice = (cst_voice*) register_cmu_time_awb();	
+			flite_cur_voice = MALE2;
+		}
+	}
+	
+	feat_set_float(flite_voice->features,"duration_stretch", 1 - ((float) set->speed) / 200);
+	feat_set_float(flite_voice->features,"int_f0_target_mean", (((float)set->pitch) * 0.8) + 100);
+  	
+	/* Running Flite */
 	if(DEBUG_FLITE) printf("Flite: creating new thread for flite_speak\n");
 	flite_speaking = 1;
 	flite_running = 1;
