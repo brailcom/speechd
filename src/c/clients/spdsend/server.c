@@ -24,11 +24,17 @@
 
 #include "spdsend.h"
 
+#ifndef USE_THREADS
+#define USE_THREADS 1
+#endif
+
 #include <errno.h>
 #include <netdb.h>
 #include <netinet/in.h>
 #include <netinet/tcp.h>
+#if USE_THREADS
 #include <pthread.h>
+#endif
 #include <pwd.h>
 #include <signal.h>
 #include <stdio.h>
@@ -54,7 +60,9 @@ static void system_error (const char *message)
 
 
 Stream *connections;
+#if USE_THREADS
 pthread_mutex_t connections_mutex = PTHREAD_MUTEX_INITIALIZER;
+#endif
 
 
 static Stream get_connection (Connection_Id id)
@@ -64,14 +72,20 @@ static Stream get_connection (Connection_Id id)
 
 static void set_connection (Connection_Id id, Stream s)
 {
+#if USE_THREADS
   pthread_mutex_lock (&connections_mutex);
+#endif
   connections[id] = s;
+#if USE_THREADS
   pthread_mutex_unlock (&connections_mutex);
+#endif
 }
 
 static Connection_Id new_connection (Stream s)
 {
+#if USE_THREADS
   pthread_mutex_lock (&connections_mutex);
+#endif
   int id;
   for (id = CONNECTION_ID_MIN;
        id < CONNECTION_ID_MAX && connections[id] != NONE;
@@ -80,7 +94,9 @@ static Connection_Id new_connection (Stream s)
   if (id >= CONNECTION_ID_MAX)
     return NONE;
   connections[id] = s;
+#if USE_THREADS
   pthread_mutex_unlock (&connections_mutex);
+#endif
   return id;
 }
 
@@ -286,10 +302,11 @@ static void process_request (Stream s)
     process_data (s);
   else
     report_error (s);
-
+  
   close (s);
 }
 
+#if USE_THREADS
 static void *process_request_thread (void *s)
 {
   Stream s_deref = *((Stream *) s);
@@ -298,6 +315,7 @@ static void *process_request_thread (void *s)
   process_request (s_deref);
   return NULL;
 }
+#endif
 
 
 /* Starting the server */
@@ -349,8 +367,14 @@ static void serve ()
       if (*s < 0)
         break;
       {
+#if USE_THREADS
         pthread_t tid;
+#endif
+#if USE_THREADS
         pthread_create (&tid, NULL, &process_request_thread, s);
+#else
+        process_request (*s);
+#endif
       }
     }
 }
@@ -382,7 +406,9 @@ static void init_connections ()
     for (i = CONNECTION_ID_MIN; i < CONNECTION_ID_MAX; i++)
       connections[i] = NONE;
   }
+#if USE_THREADS
   pthread_mutex_init (&connections_mutex, NULL);
+#endif
 }
 
 static void start_server ()
