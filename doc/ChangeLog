@@ -1,12 +1,24 @@
-2004-10-18  Hynek Hanke  <hanke@chopin>
+2005-01-07  Hynek Hanke  <hanke@brailcom.org>
+
+	* ssip.texi (Protocol Philosophy): Note about SSML support in
+	SSIP.
+	(Parameter Setting Commands): Warning about some settings not
+	having any real effect on the simple synthesizers.
+
+	* speech-dispatcher.texi (Invoking): Typo.
+	(Multiple Output Modules): A more complex description including a warning about the missing
+	capabilities of some synthesizers.
+	(Current State): Updated.
+
+2004-10-18  Hynek Hanke  <hanke@brailcom.org>
 
 	* speech-dispatcher.texi: Python and Guile interface.
 
-2004-07-02  Hynek Hanke  <hanke@chopin>
+2004-07-02  Hynek Hanke  <hanke@brailcom.org>
 
 	* Makefile.am (EXTRA_DIST): Include figures/*.{txt, png, pdf, dia, eps} into tarball.
 
-2004-06-28  Hynek Hanke  <hanke@chopin>
+2004-06-28  Hynek Hanke  <hanke@brailcom.org>
 
 	* ssip.texi (Parameter Setting Commands): Added SSML_MODE {on|off}
 
