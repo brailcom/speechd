@@ -1,3 +1,34 @@
+2003-10-16  Hynek Hanke  <hanke@volny.cz>
+
+	* src/c/api/libspeechd.c (spd_sayf): Correct escaping of \r\n.\r\n
+	(spd_key): Don't enclose argument in quotes.
+	(spd_key): Free the command string.
+	(spd_char): Don't enclose argument in quotes.	
+	(spd_sound_icon): Don't enclose argument in quotes.	
+	(spd_w_set_capital_letter_mode): New function.
+	Cleaning.
+	
+	* src/c/api/libspeechd.h (escape_dot): New function.
+
+	* src/c/api/libspeechd.c (spd_open): Now returns -1 on failure.
+	(spd_say): Don't append \r\n at the end of sent data.
+
+	* src/server/speaking.c (resolve_priorities): Now takes priority of the newly
+	arriving message as parameter.
+
+	* src/server/server.c (queue_message): resolve_priorities() call moved here
+	from the other thread.
+
+2003-10-15  Hynek Hanke  <hanke@volny.cz>
+
+	* src/server/speechd.c (main): Use PIDPATH when not empty.
+
+	* src/server/Makefile.am (pidpath): Pass PIDPATH as parameter to the sources.
+
+	* configure.in: Fixed bug(?) with "Speech Dispatcher". Now it's written without
+	the space, so that gcc doesn't comply.
+	(pidpath): New configuration variable with path to the pid file.
+
 2003-10-15  Hynek Hanke  <hanke@volny.cz>
 
 	* src/server/Makefile.am: Pass VERSION and PACKAGENAME to the program with -D.

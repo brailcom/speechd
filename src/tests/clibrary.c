@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: clibrary.c,v 1.2 2003-10-12 23:35:23 hanke Exp $
+ * $Id: clibrary.c,v 1.3 2003-10-16 20:55:36 hanke Exp $
  */
 
 #include <stdio.h>
@@ -82,3 +82,4 @@ int main() {
    printf("End of the test.\n");
    exit(0);
 }
+

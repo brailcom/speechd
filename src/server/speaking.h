@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.h,v 1.7 2003-10-12 23:34:31 hanke Exp $
+  * $Id: speaking.h,v 1.8 2003-10-16 20:55:26 hanke Exp $
   */
 
 #ifndef SPEAKING_H
@@ -83,7 +83,7 @@ static gint message_nto_speak (gconstpointer, gconstpointer);
 
 static void set_speak_thread_attributes();
 
-static void resolve_priorities();
+void resolve_priorities(int priority);
 
 static TSpeechDMessage* get_message_from_queues();
 
