@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.38 2003-07-07 08:43:35 hanke Exp $
+ * $Id: speechd.c,v 1.39 2003-07-16 19:21:34 hanke Exp $
  */
 
 #include "speechd.h"
@@ -173,6 +173,13 @@ speechd_alarm_handle(int sig)
 {
     sem_post(sem_messages_waiting);
 }
+
+void
+speechd_sigpipe_handle(int sig)
+{
+    return;
+}
+
 
 /* Set alarm to the requested time in microseconds. */
 
@@ -382,12 +389,17 @@ main()
     int fd;
     int ret;
 
+    /* Fork, set uid, chdir, etc. */
+    daemon(0,0);	
+
+
     spd_log_level = 2;
 	
     /* Register signals */
     (void) signal(SIGINT, speechd_quit);	
     (void) signal(SIGALRM, speechd_alarm_handle);	
     (void) signal(SIGHUP, speechd_load_configuration);
+    (void) signal(SIGPIPE, speechd_sigpipe_handle);
 
     speechd_init();
 
@@ -407,7 +419,7 @@ main()
         MSG(1, "bind() failed: %s", strerror(errno));
         FATAL("Couldn't open socket, try a few minutes later.");
     }
-	
+
     /* Create a connection queue and initialize readfds to handle input from server_socket. */
     if (listen(server_socket, 5) == -1) FATAL("listen() failed");
     FD_ZERO(&readfds);
