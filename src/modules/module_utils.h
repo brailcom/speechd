@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.h,v 1.2 2004-07-21 08:15:42 hanke Exp $
+ * $Id: module_utils.h,v 1.3 2004-11-13 14:51:13 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -321,7 +321,8 @@ configoption_t * add_config_option(configoption_t *options, int *num_config_opti
     }
 
 #define MOD_OPTION_1_STR_REG(name, default) \
-    name = strdup(default); \
+    if (default != NULL) name = strdup(default); \
+    else name = NULL; \
     module_dc_options = module_add_config_option(module_dc_options, \
                                      &module_num_dc_options, #name, \
                                      ARG_STR, name ## _cb, NULL, 0);
