@@ -1,0 +1,14 @@
+
+07.02.2002	Hynek Hanke <hanke@volny.cz>
+	* /src/server/server.c (stop_speaking_active_module): New function divided from stop_c().
+	* /src/server/server.c (history_get_client_list): New function implementing @history get client_list
+	* /src/server/server.c (message_nto_speak): Changed name from message_to_speak (more logical). Added parameter void* value so that it's useful also as compare function for searching through queues and lists.
+	* /src/server/server.c (MessagePausedList): Added list for messages that we get from output queues but it's client is paused. We browse through this list every cycle to see if some client have sent @resume.
+	* /src/server/server.c (o_buf[fd][0] = 0;): Bug fixed.
+	* /src/server/speechd.h (TFDSetElement): Moved to /include/fdset.h
+	* /src/server/speechd.h (EVoiceType): Moved to /include/fdset.h
+	* /src/server/speechd.h (client_name): Uncomented, now used.
+	* /src/server/speechd.c : Now working with client_name.
+	* /src/modules/flite.c (TFDSetElement): Moved to /include/fdset.h
+	* /src/modules/flite.c (EVoiceType): Moved to /include/fdset.h
+	* /include/fdset.h : New include file used in both modules and server.
