@@ -1,3 +1,9 @@
+2003-05-26	Hynek Hanke  <hanke@volny.cz>
+
+	* speechd.texi (SSIP): LIST SPELLING_TABLES only lists available tables (fixed).
+
+2003-05-25  Hynek Hanke  <hanke@volny.cz>
+
 2003-05-26  Milan Zamazal  <pdm@brailcom.org>
 
 	* speechd.texi (Information retrieval commands): Use underscore
