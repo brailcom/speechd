@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.42 2003-07-20 08:48:00 hanke Exp $
+ * $Id: parse.c,v 1.43 2003-08-07 14:41:50 hanke Exp $
  */
 
 #include "speechd.h"
@@ -44,7 +44,7 @@
     }
 
 #define NOT_ALLOWED_INSIDE_BLOCK() \
-    if(inside_block[fd] == 1) \
+    if(inside_block[fd] > 0) \
         return ERR_NOT_ALLOWED_INSIDE_BLOCK;
 
 char* 
@@ -875,23 +875,24 @@ parse_block(const char *buf, const int bytes, const int fd)
     GET_PARAM_STR(cmd_main, 1, CONV_DOWN);
 
     if (TEST_CMD(cmd_main, "begin")){
-        assert((inside_block[fd] == 1) || (inside_block[fd] == 0));
+        assert(inside_block[fd] >= 0);
         if (inside_block[fd] == 0){
-            inside_block[fd] = 1;
+            inside_block[fd] = ++max_gid;
             return OK_INSIDE_BLOCK;
         }else{
             return ERR_ALREADY_INSIDE_BLOCK;
         }        
     }
     else if (TEST_CMD(cmd_main, "end")){
-        assert((inside_block[fd] == 1) || (inside_block[fd] == 0));
-        if (inside_block[fd] == 1){
+        assert(inside_block[fd] >= 0);
+        if (inside_block[fd] > 0){
             inside_block[fd] = 0;
             return OK_OUTSIDE_BLOCK;
         }else{
             return ERR_ALREADY_OUTSIDE_BLOCK;
         }        
     }
+    else return ERR_PARAMETER_INVALID;
 }
    
 /* isanum() tests if the given string is a number,
