@@ -1,4 +1,16 @@
-2003-05-18  Hynek Hanke  <hanke@localhost.localdomain>
+2003-05-20  Hynek Hanke  <hanke@localhost.localdomain>
+
+	* src/server/server.c (Module): Added debugging message.
+
+	* src/modules/festival.c (festival_write): Insert one extra space to festival_message.
+	More debugging messages.
+
+	* src/modules/festival.c (_festival_synth): Make sure the buffer is empty.
+	(_festival_synth): Only process wave if it's not NULL.
+
+	* src/modules/festival_client.c (festivalEmptySocket): New function: clear the data stream.
+
+2003-05-18  Hynek Hanke  <hanke@volny.cz>
 
 	* intl/fdset.h (Module): NO_VOICE: New type of voice
 
@@ -45,7 +57,7 @@
 	* src/modules/festival.c (module_init): Set server_host and server_port according
 	to user settings.
 
-2003-05-17  Hynek Hanke  <hanke@localhost.localdomain>
+2003-05-17  Hynek Hanke  <hanke@volny.cz>
 
 	* src/audio/spd_audio.h: Include flite/flite.h.
 
