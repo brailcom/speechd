@@ -1,3 +1,19 @@
+
+Version 0.0.3
+  * API for communication with Speech Deamon. 
+
+  * New output module for flite.
+
+Version 0.0.2
+
+  * API for output modules designed
+
+  * sample output module implementation written
+
+  * server configuration based on DotConf implemented
+
+  * analysis of input protocol requirements documented
+
 Version 0.0.1
         
   * Project started ...
@@ -9,13 +25,3 @@ Version 0.0.1
   * simple server core and client example written
 
   * CVS repository and other project stuff set up
-
-Version 0.0.2
-
-  * API for output modules designed
-
-  * sample output module implementation written
-
-  * server configuration based on DotConf implemented
-
-  * analysis of input protocol requirements documented
