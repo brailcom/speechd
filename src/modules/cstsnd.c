@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: cstsnd.c,v 1.5 2003-07-17 11:55:37 hanke Exp $
+ * $Id: cstsnd.c,v 1.6 2003-07-21 07:35:02 hanke Exp $
  */
 
 #define VERSION "0.1"
@@ -233,10 +233,7 @@ _cstsnd_synth()
     if (ret != 0)
         DBG("flite: Can't block signals, expect problems with terminating!\n");
 
-    wave = (cst_wave*) spd_audio_read_wave(cstsnd_message);
- 
-    spd_audio_open(wave);
-    spd_audio_play_wave(wave);
-    spd_audio_close(wave);
+    spd_audio_play_file(cstsnd_message);
+    fprintf(stderr,"cstsnd_message: |%s|\n", cstsnd_message);
 }
 
