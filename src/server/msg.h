@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: msg.h,v 1.24 2004-02-10 21:21:24 hanke Exp $
+ * $Id: msg.h,v 1.25 2004-06-28 08:11:32 hanke Exp $
  */
 
 
@@ -39,6 +39,7 @@
 #define OK_OUTPUT_MODULE_SET                    "216 OK OUTPUT MODULE SET\r\n"
 #define OK_PAUSE_CONTEXT_SET                    "217 OK PAUSE CONTEXT SET\r\n"
 #define OK_VOLUME_SET                           "218 OK VOLUME SET\r\n"
+#define OK_SSML_MODE_SET                        "218 OK SSML MODE SET\r\n"
 
 #define OK_CUR_SET_FIRST			"220 OK CURSOR SET FIRST\r\n"
 #define OK_CUR_SET_LAST				"221 OK CURSOR SET LAST\r\n"
@@ -104,7 +105,8 @@
 #define ERR_COULDNT_SET_CLIENT_NAME             "311 ERR COULDNT SET CLIENT_NAME\r\n"
 #define ERR_COULDNT_SET_OUTPUT_MODULE           "312 ERR COULDNT SET OUTPUT MODULE\r\n"
 #define ERR_COULDNT_SET_PAUSE_CONTEXT           "313 ERR COULDNT SET PAUSE CONTEXT\r\n"
-#define ERR_COULDNT_SET_VOLUME                  "313 ERR COULDNT SET VOLUME\r\n"
+#define ERR_COULDNT_SET_VOLUME                  "314 ERR COULDNT SET VOLUME\r\n"
+#define ERR_COULDNT_SET_SSML_MODE               "315 ERR COULDNT SET SSML MODE\r\n"
 
 #define ERR_NO_SND_ICONS                        "320 ERR NO SOUND ICONS\r\n"
 
@@ -119,4 +121,4 @@
 #define ERR_NOT_A_NUMBER                        "511 ERR PARAMETER NOT A NUMBER\r\n"
 #define ERR_NOT_A_STRING                        "512 ERR PARAMETER NOT A STRING\r\n"
 #define ERR_PARAMETER_NOT_ON_OFF                "513 ERR PARAMETER NOT ON OR OFF\r\n"
-#define ERR_PARAMETER_INVALID                   "512 ERR PARAMETER INVALID\r\n"
+#define ERR_PARAMETER_INVALID                   "514 ERR PARAMETER INVALID\r\n"
