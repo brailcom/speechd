@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.31 2003-10-12 23:33:55 hanke Exp $
+ * $Id: set.c,v 1.32 2004-02-10 21:24:01 hanke Exp $
  */
 
 #include "set.h"
@@ -85,6 +85,7 @@ set_priority_uid(int uid, int priority)
 
 SET_SELF_ALL(int, rate);
 
+int
 set_rate_uid(int uid, int rate)
 {
     TFDSetElement *settings;
@@ -111,6 +112,22 @@ set_pitch_uid(int uid, int pitch)
     if (settings == NULL) return 1;
 
     set_param_int(&settings->pitch, pitch);
+    return 0;
+}
+
+SET_SELF_ALL(int, volume);
+
+int
+set_volume_uid(int uid, int volume)
+{
+    TFDSetElement *settings;
+
+    if ((volume > 100) || (volume < -100)) return 1;
+
+    settings = get_client_settings_by_uid(uid);
+    if (settings == NULL) return 1;
+
+    set_param_int(&settings->volume, volume);
     return 0;
 }
 
@@ -208,17 +225,22 @@ set_language_uid(int uid, char *language)
 }
 
 #define CHECK_SET_PAR(name, ival) \
-   if (cl_set->val.name != ival) set->name = cl_set->val.name;
+   if (cl_set->val.name != ival){ set->name = cl_set->val.name; \
+            MSG(4,"par set to %d", cl_set->val.name); }
 #define CHECK_SET_PAR_STR(name) \
    if (cl_set->val.name != NULL){ \
      spd_free(set->name); \
      set->name = strdup(cl_set->val.name); \
+            MSG(4,"par set to %s", cl_set->val.name); \
    }
 void
 update_cl_settings(gpointer data, gpointer user_data)
 {
     TFDSetClientSpecific *cl_set = data;
     TFDSetElement *set = user_data;
+
+    MSG(4,"Updating client specific settings %s against %s",
+	set->client_name, cl_set->pattern);
 
     if (fnmatch(cl_set->pattern, set->client_name, 0)) return;
 
