@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.26 2003-05-01 10:42:33 hanke Exp $
+ * $Id: speechd.h,v 1.27 2003-05-07 19:09:18 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -135,6 +135,8 @@ GList *message_history;
 
 /* Global default settings */
 TFDSetElement GlobalFDSet;
+
+OutputModule *sound_module;
 
 /* Arrays needed for receiving data over socket */
 int *awaiting_data;
