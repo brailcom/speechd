@@ -29,32 +29,32 @@
 
 
 (defvar speechd-languages
-  '(("en" "english")
-    ("de" "german")
-    ("cs" "czech"))
+  '(("en" english)
+    ("de" german)
+    ("cs" czech))
   "Alist mapping ISO language codes to Festival language names.
 Each element of the alist is of the form (LANGUAGE-CODE LANGUAGE-NAME), where
 both the elements are strings.
 See also `speechd-language-voices'.")
 
 (defvar speechd-language-voices
-  '(("english"
-     ("male1" voice_kal_diphone ISO-8859-1)
-     ("male2" voice_ked_diphone ISO-8859-1))
-    ("americanenglish"
-     ("male1" voice_kal_diphone ISO-8859-1)
-     ("male2" voice_ked_diphone ISO-8859-1))
-    ("britishenglish"
-     ("male1" voice_kal_diphone ISO-8859-1)
-     ("male2" voice_ked_diphone ISO-8859-1))
-    ("german"
-     ("male1" voice_german ISO-8859-1))
-    ("czech"
-     ("male1" voice_czech ISO-8859-2)))
+  '((english
+     (male1 voice_kal_diphone)
+     (male2 voice_ked_diphone))
+    (americanenglish
+     (male1 voice_kal_diphone)
+     (male2 voice_ked_diphone))
+    (britishenglish
+     (male1 voice_kal_diphone)
+     (male2 voice_ked_diphone))
+    (german
+     (male1 voice_german))
+    (czech
+     (male1 voice_czech)))
   "Alist mapping Festival language names and voice names to voice functions.
 Each element of the alist is of the form (LANGUAGE VOICE-LIST), where elements
 of VOICE-LIST are of the form (VOICE-NAME VOICE-FUNCTION CODING).  VOICE-NAME
-is a voice name string, VOICE-FUNCTION is the name of the function setting the
+is a voice name symbol, VOICE-FUNCTION is the name of the function setting the
 given voice, and CODING is the text encoding required by the voice
 definition.  CODING may be one of the symbols ISO-8859-<N>, where <N> is a
 number within the range 1-16.")
@@ -70,7 +70,8 @@ number within the range 1-16.")
     (if spec
         (begin
           (apply (second spec) nil)
-          (third spec))
+          (or (cadr (assoc 'coding (cadr (voice.description current-voice))))
+              'ISO-8859-1))
         (error "Undefined voice"))))
 
 (define (speechd-send-to-client result)
