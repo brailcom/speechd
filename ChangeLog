@@ -1,3 +1,17 @@
+2003-05-31  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/modules/apollo.c (module_load): Initialize apollo_languages.
+	(set_language): Get the language definition parmeters from
+	configuration.
+	* intl/module.h (SPDApolloLanguageDef): New structure.
+	(SPDModuleSettings): New member `apollo_coding'.
+	* src/server/dc_decl.h (options): ApolloLanguage added.
+	(cb_ApolloLanguage): New dotconf callback.
+	* config/speechd.conf: LanguageROM options added to "apollo".
+
+	* src/tests/long_message.c: Omitted newlines added to the
+	multiline strings.
+
 2003-05-29  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/tests/long_message.c (main): Split multi-line strings to
