@@ -1169,15 +1169,31 @@ Documentation} for a general description of what they mean.
 
 @deffn {C API function}  int spd_set_language(int connection, char* language);
 @findex spd_set_language()
-@end deffn
 
-Sets the language that should be used for synthesis, selecting tables
-and other related things.
+Sets the language that should be used for synthesis.
 
 @code{connection} is the file descriptor obtained by spd_open().
 
 @code{language} is the language code as defined in RFC 1776 (``cs'',
 ``en'', ...).
+
+@end deffn
+
+@deffn {C API function}  int spd_set_output_module(int connection, char* output_module);
+@findex spd_set_output_module()
+
+Sets the output module that should be used for synthesis. Ther parameter
+of this command should always be entered by the user in some way
+and not hardcoded anywhere in the code as the available synthesizers
+and their registration names may vary from machine to machine.
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{output_module} is the output module name under which the module
+was loaded into Speech Dispatcher in it's configuration (``flite'',
+``festival'', ``epos-generic''... )
+
+@end deffn
 
 @deffn {C API function}  int spd_set_punctuation(int connection, SPDPunctuation type);
 @findex spd_set_punctuation()
@@ -1208,11 +1224,21 @@ spelling tables (see spd_set_spelling_table()).
 @end deffn
 
 @deffn {C API function}  int spd_set_voice_type(int connection, SPDVoiceType voice);
-@findex spd_set_voice()
+@findex spd_set_voice_type()
+
+Set a prefered voice.
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{voice} is one of the following values: @code{SPD_MALE1},
+@code{SPD_MALE2}, @code{SPD_MALE3}, @code{SPD_FEMALE1}, @code{SPD_FEMALE2},
+@code{SPD_FEMALE3}, @code{SPD_CHILD_MALE}, @code{SPD_CHILD_FEMALE}.
+
+
 @end deffn
 
 @deffn {C API function}  int spd_set_voice_rate(int connection, int rate);
-@findex spd_set_rate()
+@findex spd_set_voice_rate()
 
 Set voice rate.
 
@@ -1224,7 +1250,7 @@ the slowest and the fastest speech rate respectively.
 @end deffn
 
 @deffn {C API function}  int spd_set_voice_pitch(int connection, int pitch);
-@findex spd_set_pitch()
+@findex spd_set_voice_pitch()
 
 Set voice pitch.
 
@@ -1235,9 +1261,22 @@ lowest and the highest pitch respectively.
 
 @end deffn
 
+@deffn {C API function}  int spd_set_volume(int connection, int volume);
+@findex spd_set_volume()
+
+Set the volume of the voice and sounds produced by Speech Dispatcher's output
+modules.
+
+@code{connection} is the file descriptor obtained by spd_open().
+
+@code{volume} is a number between -100 and +100 which means
+the lowest and the loudest voice respectively.
+
+@end deffn
+
+
 @node Other Functions in C, Information Retrieval Commands in C, Parameter Setting Commands in C, C API
 @subsection Other Functions
-@findex spd_command_line()
 
 @node Information Retrieval Commands in C, History Commands in C, Other Functions in C, C API
 @subsection Information Retrieval Commands
