@@ -5,6 +5,6 @@ c_api = $(top_srcdir)/src/c/api
 
 AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@ -I$(c_api)
 
-bin_PROGRAMS = say
-say_SOURCES = say.c $(c_api)/libspeechd.h
-say_LDADD = $(c_api)/libspeechd.la
+bin_PROGRAMS = spd-say
+spd_say_SOURCES = say.c $(c_api)/libspeechd.h
+spd_say_LDADD = $(c_api)/libspeechd.la
