@@ -19,19 +19,20 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.15 2003-05-07 19:02:20 hanke Exp $
+ * $Id: fdset.h,v 1.16 2003-05-18 20:53:58 hanke Exp $
  */
 
 typedef enum 
 {                  /* Type of voice */
-    MALE1 = 0,
-    MALE2 = 1,
-    MALE3 = 2,
-    FEMALE1 = 3,
-    FEMALE2 = 4,
-    FEMALE3 = 5,
-    CHILD_MALE = 6,
-    CHILD_FEMALE = 7
+	NO_VOICE = 0,
+    MALE1 = 1,
+    MALE2 = 2,
+    MALE3 = 3,
+    FEMALE1 = 4,
+    FEMALE2 = 5,
+    FEMALE3 = 6,
+    CHILD_MALE = 7,
+    CHILD_FEMALE = 8
 }EVoiceType;
 
 typedef enum
