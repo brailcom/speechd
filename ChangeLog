@@ -12,6 +12,7 @@
 	* src/Makefile.am: Added new directory tests.
 	* configure.in: Added tests for pthread and flite shared libraries.
 	* INSTALL: Note about the requierement to have compiled flite with shared libraries.
+	* speechd.conf: Default values of speed and pitch of voice now 0, not 100.
 
 2003-03-16  Tomas Cerha  <cerha@brailcom.org>
 

@@ -36,14 +36,26 @@
 /* Define if you have the dotconf library (-ldotconf).  */
 #undef HAVE_LIBDOTCONF
 
+/* Define if you have the flite library (-lflite).  */
+#undef HAVE_LIBFLITE
+
+/* Define if you have the flite_cmu_us_kal library (-lflite_cmu_us_kal).  */
+#undef HAVE_LIBFLITE_CMU_US_KAL
+
+/* Define if you have the flite_cmulex library (-lflite_cmulex).  */
+#undef HAVE_LIBFLITE_CMULEX
+
+/* Define if you have the flite_usenglish library (-lflite_usenglish).  */
+#undef HAVE_LIBFLITE_USENGLISH
+
 /* Define if you have the glib-2.0 library (-lglib-2.0).  */
 #undef HAVE_LIBGLIB_2_0
 
-/* Define if you have the ibs library (-libs).  */
-#undef HAVE_LIBIBS
-
 /* Define if you have the ncurses library (-lncurses).  */
 #undef HAVE_LIBNCURSES
+
+/* Define if you have the pthread library (-lpthread).  */
+#undef HAVE_LIBPTHREAD
 
 /* Name of package */
 #undef PACKAGE
