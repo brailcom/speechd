@@ -1,3 +1,11 @@
+2003-11-20  Milan Zamazal  <pdm@brailcom.org>
+
+	* speech-dispatcher.scm (speechd-language-voices): Coding added to
+	voices.
+	(speechd-set-lang-voice): Return language coding.
+
+	* util.scm (third): New function.
+
 2003-11-12  Milan Zamazal  <pdm@brailcom.org>
 
 	* events.scm (event-mark-items, event-synth-plain): Honor language
