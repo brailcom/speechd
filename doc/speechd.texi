@@ -510,33 +510,26 @@ Here is a description of it's commands and what they do.
 
 @subsection Data flow and speech control
 
-Note that SSIP is still going to change and shouldn't be used
-directly!
+Note that some "less important" aspects of SSIP, e.g. history commands,
+can still change in near future.
 
-@deffn {SSIP Command} {@@data on}
+@deffn {SSIP Command} {SPEAK}
 As Speech Deamon receives this command, it becomes listening for
 incomming data. It adds incomming data to it's buffer until 
-@w{@code{@@data off}} comes. If client sends more data than
-Speech Deamon can handle, the session is interrupted, because
-there is no reasonable way how to handle this error. The client
-is responsible for sending only reasonable amount of data at once.
-Note that there is a very good reason to put an upper limit on
-the number of bytes in one message, it forces developers to
-structure their output more and therefore history and other
-Speech Deamon functions become a lot simpler for users.
+@w{@code{LFCR.LFCR}} comes. There is no upper limit on the amount
+of data sent, but be aware that the user can set Speech Deamon
+to ignore parts of very long messages from some number of (kilo)bytes.
+
+When @code{LFCR.LFCR}, the data flow is terminated and Speech
+Deamon switches to normal command mode. If you want to send
+this sequence without being interpreted as command, you have
+to change it to @code{LFCR..LFCR}, Speech Deamon will change
+that back to @code{LFCR.LFCR} inside. If your program is
+sending user's input, be sure to check for this combination
+inside the text before sending it!
 @end deffn
 
-@deffn {SSIP Command} {@@data off}
-The only command that puts end to a data flow. It is allways
-interpreted as command, so you should be sure to never send
-this command inside the data to Speech Deamon and expecting
-it will say it.
-
-@c TODO: well, but we should handle somehow the case when it's
-@c TODO: neccessary, it's a common word in Speech Deamon documentation
-@end deffn
-
-@deffn {SSIP Command} {@@stop} [uid|"all"]
+@deffn {SSIP Command} {STOP} [uid|"all"]
 Immediately stop speaking from this client and throw away all messages.
 
 If it has no parameter, it's related only to that client.
@@ -549,7 +542,7 @@ whatsoever and throws away all messages whatsoever.
  
 @end deffn
 
-@deffn {SSIP Command} {@@pause} [uid]
+@deffn {SSIP Command} {PAUSE} [uid]
 Immediately stop speaking and pause all messages.
 
 If it has no parameter, it's related only to that client.
@@ -558,7 +551,7 @@ If there is a positive integer number @code{uid} as parameter,
 it's related to some other client with unique id @code{uid}.
 @end deffn
 
-@deffn {SSIP Command} {@@resume} [uid]
+@deffn {SSIP Command} {RESUME} [uid]
 Start speaking again and say all unpaused messages.
 (Note that messages level 3 are never said after pause).
 
@@ -570,120 +563,134 @@ it's related to some other client with unique id @code{uid}.
 
 @subsection Settings
 
-@deffn {SSIP Command} {@@set client_name} str
+@deffn {SSIP Command} {SET CLIENT_NAME} str
 Set the name of this client to @code{str}. String parameter @code{str}
 must be in the format @w{@code{client_name:subclient_name}}.
 
 For example if the client is lynx and it creates connection for it's
 command line, the command would be something like this:
 @example
-@@set client_name lynx:cmd_line
+SET CLIENT_NAME lynx:cmd_line
 @end example
 @end deffn
 
-@deffn {SSIP Command} {@@set language} str
+@deffn {SSIP Command} {SET LANGUAGE} str
 Set recommended language for this client to @code{str}. @code{str}
-@code{str} must be a valid LANG language code.
+@code{str} is the language name.
 
 For example, if we want to set the prefered language to Czech,
 we can send:
 @example
-@@set language cs_CZ
+SET LANGUAGE czech
 @end example
 @end deffn
 
-@deffn {SSIP Command} {@@set priority} num
+@deffn {SSIP Command} {SET PRIORITY} num
 Set the priority for this client to @code{num}.
 It must be either 1, 2 or 3. 1 is the highest, 3 the lowest.
 @end deffn
 
 @subsection History
 
-@deffn {SSIP Command} @w{@@history get client_list}
+@deffn {SSIP Command} @w{HISTORY GET CLIENT_LIST}
 Retrieves a list of know client names, its unique ids and
 if they are gone or alive in the form:
 
-@code{OK CLIENTS:\}
-@code{uid client_name:subclient_name active}
+@code{240-uid client_name:subclient_name active}
+@code{240 OK CLIENTS LIST SENT}
 
 The reply can look for example like this:
 @example
-OK CLIENTS:
-1 spd_center:main 1\
-2 spd_center:status 1\
-3 lynx:main 0\
-4 lynx:text_buffer 0\
-5 lynx:cmd_line 0\
+240-0 speechd_client:main 0
+240-1 speechd_client:status 0
+240-2 unknown:unknown 1
+240 OK CLIENTS LIST SENT
 @end example
 @end deffn
 
-@deffn {SSIP Command} {@@history get client_messges} client_uid from num
+@deffn {SSIP Command} {HISTORY GET CLIENT_MESSAGES} client_uid from num
 Retrieves @code{num} messages from the buffer of specified client (@code{client_uid}),
 starting from the number in parameter @code{from}, in the follwing form:
 
-@code{OK MESSAGES:\}
-@code{uid client_name:subclient_name}
+@example
+241-uid client_name:subclient_name
+241 OK MSGS LIST SENT
+@end example
 
-Warning: This will be subject to future changes!
+Warning: This is going to be subject to future changes!
 @end deffn
 
-@deffn {SSIP Command} @w{@@history get last}
+@deffn {SSIP Command} @w{HISTORY GET LAST}
 Get the uid of last received message. Useful if the user
 wants to repeat something he didn't hear.
 
 The reply is in the form:
-@code{OK LAST MESSAGE:\}
-@code{uid client_name:subclient_name}
+@example
+242-uid client_name:subclient_name
+242 OK LAST MSG SAID
+@end example
+
 @end deffn
 
-@deffn {SSIP Command} @w{@@history sort} ...
+@deffn {SSIP Command} @w{HISTORY SORT} ...
 Sorts the history buffer of messages.
 
 Well, this is not implemented yet. I'm sorry...
 @end deffn
 
-@deffn {SSIP Command} {@@history cursor set} uid ["first","last","pos" position]
+@deffn {SSIP Command} {HISTORY CURSOR SET} uid ["FIRST","LAST","POS" position]
 
 Sets the position of cursor in the history to some particular place.
-Note that the buffer can be sorted, see @code{@@history sort}.
+Note that the buffer can be sorted, see @code{HISTORY SORT}.
 
-If the parameter is @code{first} or @code{last}, Speech Deamon sets
+If the parameter is @code{FIRST} or @code{LAST}, Speech Deamon sets
 the position to the first or to the last message of client @code{uid}
 respectively.
 
-It the parameter is @code{pos}, then an aditional integer parameter
-@code{position} must be specified. Speech Deamon then sets the postion
+It the parameter is @code{POS}, an aditional integer parameter
+@code{position} must be specified. Speech Deamon then sets the position
 of cursor to the message number @code{pos} of client @code{uid}.
 @end deffn
 
-@deffn {SSIP Command} {@@history cursor} ["next"|"prev"]
+@deffn {SSIP Command} {HISTORY CURSOR} ["NEXT"|"PREV"]
 Move the cursor one position forward or backward between the messages
 of currently specified client.
 @end deffn
 
-@deffn {SSIP Command} @w{@@history cursor get}
+@deffn {SSIP Command} @w{HISTORY CURSOR GET}
 Get the unique id number of the message the cursor is pointing on.
 
 The reply is in the form:
-@code{OK MESSAGE:\}
-@code{uid}
+@example
+243-uid
+243 OK CURSOR POSITION RETURNED
+@end example
+
+This is still going to change!
+
 @end deffn
 
-@deffn {SSIP Command} {@@history say ID} str
+@deffn {SSIP Command} {HISTORY SAY ID} id
 Send message ID to Speech Deamon core to say it aloud.
 @end deffn
 
-@deffn {SSIP Command} @w{@@history say TEXT} str
+@deffn {SSIP Command} @w{HISTORY SAY TEXT} str
 Say text @code{str} without including it in history. Useful for
 history clients. Not implemented yet...
 @end deffn
 
-@subsection Return error values
+@subsection Return values
 
-... are going to change soon.
+@multitable {codes} {name of group} {more detailed information about the command and what it does}
+ @item 1xx    @tab     META          @tab   information about the protocol, help
+ @item 2xx    @tab     OK            @tab   ok, specification of the performed action
+ @item 3xx    @tab     SERVER ERROR  @tab   problems on server side
+ @item 4xx    @tab     CLIENT ERROR  @tab   problems on client side, requests that don't make sense
+ @item 5xx    @tab     SYNTAX ERROR  @tab   errors in syntax of SSIP commands
+ @item 6xx    @tab     reserved
+@end multitable 
 
-@c TODO: add return error values when we stabilize them
-@c in SSIP
+Please see @file{src/server/msg.h} for detailed description.
 
 @node Server core, Output modules, SSIP, Internal structure
 @section Server core
