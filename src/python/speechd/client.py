@@ -157,7 +157,7 @@ class Client:
 
     """
     
-    SPEECH_PORT = 9876
+    SPEECH_PORT = 6560
     """Default port number for server connections."""
     
     def __init__(self, user='joe', client='python', component='default',
