@@ -18,12 +18,10 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils_audio.c,v 1.2 2003-09-22 00:32:31 hanke Exp $
+ * $Id: module_utils_audio.c,v 1.3 2003-10-08 21:29:47 hanke Exp $
  */
 
 #include "spd_audio.h"
-
-static cst_wave *module_sample_wave = NULL;
 
 static void module_cstwave_free(cst_wave* wave);
 
@@ -36,7 +34,9 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
     int bytes;
     int num_samples = 0;
     int ret;
-    int data_mode = 0;
+    int data_mode = -1;
+    int bitrate;
+    char *tail_ptr;
 
     module_sigblockall();
 
@@ -44,21 +44,28 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
     
     data = xmalloc(CHILD_SAMPLE_BUF_SIZE);
 
-    ret = spd_audio_open(module_sample_wave);
-    if (ret != 0){
-        DBG("Can't open audio output!\n");
-        module_child_dp_close(dpipe);
-        exit(0);
-    }
-
     DBG("Entering child loop\n");
     while(1){
+
+        if (data_mode == -1){
+            bytes = module_child_dp_read(dpipe, data, 10);
+            if (bytes != 10){
+                DBG("child: Missing header of send data! (FATAL ERROR)");
+                exit(1); /* Missing header */
+            }
+            bitrate = strtol(data, &tail_ptr, 10);
+            if(tail_ptr == data){
+                DBG("child: Invalid header of send data! (FATAL ERROR)");
+                exit(1);
+            }
+            data_mode = 0;
+        }
+
         /* Read the waiting data */
         bytes = module_child_dp_read(dpipe, data, CHILD_SAMPLE_BUF_SIZE);
         DBG("child: Got %d bytes\n", bytes);
         if (bytes == 0){
             DBG("child: exiting, closing audio, pipes");
-            spd_audio_close();
             module_child_dp_close(dpipe);
             DBG("child: good bye");
             exit(0);
@@ -67,7 +74,7 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
         /* Are we at the end? */
         if (bytes>=24){
             if (!strncmp(data+bytes-24,"\r\nOK_SPEECHD_DATA_SENT\r\n", 24)) data_mode = 2;
-            if (!strncmp(data,"\r\nOK_SPEECHD_DATA_SENT\r\n", 24)) data_mode = 1;        
+            if (!strncmp(data,"\r\nOK_SPEECHD_DATA_SENT\r\n", 24)) data_mode = 1;
         }
 
         if ((data_mode == 1) || (data_mode == 2)){
@@ -79,23 +86,30 @@ module_audio_output_child(TModuleDoublePipe dpipe, const size_t nothing)
             DBG("child: End of data caught\n");
             wave = (cst_wave*) xmalloc(sizeof(cst_wave));
             wave->type = strdup("riff");
-            wave->sample_rate = 0; /* We don't use sample rate here, it was significant
-                                    when opening the device */
+            wave->sample_rate = bitrate;
             wave->num_samples = num_samples;
             wave->num_channels = 1;
             wave->samples = samples;
 
-            DBG("child: Sending data to audio output...\n");
+            DBG("child: Opening audio...");                
+            ret = spd_audio_open(wave);
+            if (ret != 0){
+                DBG("child: Can't open audio device!");
+                exit(1);
+            }
 
+            DBG("child: Sending data to audio output...\n");            
             spd_audio_play_wave(wave);
             module_cstwave_free(wave);            
 
             DBG("child->parent: Ok, send next samples.");
             module_child_dp_write(dpipe, "C", 1);
 
+            spd_audio_close();
+
             num_samples = 0;        
             samples = NULL;
-            data_mode = 0;
+            data_mode = -1;
         }else{
             samples = module_add_samples(samples, (short*) data,
                                          bytes, &num_samples);
@@ -132,10 +146,19 @@ module_add_samples(short* samples, short* data, size_t bytes, size_t *num_sample
 }
 
 static int
-module_parent_send_samples(TModuleDoublePipe dpipe, short* samples, size_t num_samples)
+module_parent_send_samples(TModuleDoublePipe dpipe, short* samples, size_t num_samples, int bitrate)
 {
     size_t ret;
     size_t acc_ret = 0;
+    char bitrate_str[10];
+
+    snprintf(bitrate_str, 10, "%-9d\n", bitrate);
+    ret = module_parent_dp_write(dpipe, bitrate_str, 10);   
+    if (ret == -1){
+        DBG("parent: Error in sending bitrate information to child:\n   %s\n",
+            strerror(errno));
+        return -1;
+    }
 
     while(acc_ret < num_samples * sizeof(short)){
         ret = module_parent_dp_write(dpipe, (char*) samples, 
