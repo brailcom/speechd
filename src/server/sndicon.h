@@ -19,14 +19,14 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sndicon.h,v 1.3 2003-04-18 21:21:55 hanke Exp $
+ * $Id: sndicon.h,v 1.4 2003-05-07 19:08:56 hanke Exp $
  */
 
 #ifdef SNDICON_H
  #define SNDICON_H
 
 int sndicon_queue(int fd, char* language, char* prefix, char* name);
-char* snd_icon_spelling_get(char* table, char* language, char* name);
+char* snd_icon_spelling_get(char* table, char* language, char* name, int *sound);
 
 int sndicon_icon(int fd, char *name);
 int sndicon_char(int fd, char *name);
