@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.49 2004-06-28 08:05:18 hanke Exp $
+ * $Id: festival.c,v 1.50 2004-07-13 20:04:42 hanke Exp $
  */
 
 #include "fdset.h"
@@ -231,6 +231,7 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
 	    DBG("Recovering after a connection loss");
 	    CLEAN_OLD_SETTINGS_TABLE();
 	    festival_info = festivalOpen(festival_info);
+	    FestivalEnableMultiMode(festival_info, "t");
 	    festival_connection_crashed = 0;
 	}
     }
@@ -378,10 +379,11 @@ _festival_speak(void* nothing)
 
 #define CLEAN_UP(code) \
         { \
-          delete_FT_Wave(fwave); \
+          if(!wave_cached) delete_FT_Wave(fwave); \
           module_parent_dp_close(dpipe); \
           return(code); \
-        }               
+        }
+
 
 size_t
 _festival_parent(TModuleDoublePipe dpipe, const char* message,
@@ -397,6 +399,7 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
     int l;
     int h;
     char *tptr;
+    int wave_cached = 0;
 
     char *callback;
 
@@ -406,8 +409,8 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 
     module_parent_dp_init(dpipe);
 
-    if (COM_SOCKET)
-	FestivalEnableMultiMode(festival_info, "t");
+    FestivalEnableMultiMode(festival_info, "t");
+    //    FestivalSetRate(festival_info, 0);
 
     DBG("Synthesizing: |%s|", message);
     if (bytes > 0){
@@ -419,6 +422,7 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 		DBG("Cache mechanisms...");
 		fwave = cache_lookup(message, msgtype, 1);
 		if (fwave != NULL){
+		    wave_cached = 1;
 		    if (fwave->num_samples != 0){
 			if(FestivalDebugSaveOutput){
 			    char filename_debug[256];
@@ -469,7 +473,6 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 	/* (speechd-next) */
 	fwave = festivalGetDataMulti(festival_info, &callback, &festival_stop, FestivalReopenSocket);	
 
-	/* TODO: As for now, callbacks are ignored */
 	if (callback != NULL){
 	    DBG("Callback detected: %s", callback);
 	    l = strlen(callback);
@@ -494,7 +497,8 @@ _festival_parent(TModuleDoublePipe dpipe, const char* message,
 	if (msgtype == MSGTYPE_CHAR || msgtype == MSGTYPE_KEY ||
 	    msgtype == MSGTYPE_SOUND_ICON){
 	    DBG("Storing record for %s in cache\n", message);
-	    //	    cache_insert(strdup(message), msgtype, fwave);
+	    wave_cached = 1;
+	    cache_insert(strdup(message), msgtype, fwave);
 	}
 	
 	DBG("Sending message to child in wav: %d bytes\n",
@@ -907,6 +911,7 @@ init_festival_socket()
     
     festival_info = festivalOpen(festival_info);
     if (festival_info == NULL) return -1;
+    FestivalEnableMultiMode(festival_info, "t");
     
     DBG("FestivalServerHost = %s\n", FestivalServerHost);
     DBG("FestivalServerPort = %d\n", FestivalServerPort);
