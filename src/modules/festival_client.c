@@ -334,9 +334,9 @@ festival_get_ack(FT_Info **info, char* ack)
 }
 
 int
-festival_read_response(FT_Info *info)
+festival_read_response(FT_Info *info, char **expr)
 {
-    char buf[4];
+    char buf[4];    
 
     if (festival_get_ack(&info, buf)) return 1;
     buf[3] = 0;
@@ -344,9 +344,13 @@ festival_read_response(FT_Info *info)
     DBG("<- Festival: |%s|", buf);
 
     if (!strcmp(buf,"ER\n")){
+        if (expr != NULL) *expr = NULL;
         return 1;
     }else{
-        client_accept_s_expr(info->server_fd);
+        if (expr != NULL)
+            *expr = client_accept_s_expr(info->server_fd);
+        else
+            client_accept_s_expr(info->server_fd);        
     }
 
     if (festival_get_ack(&info, buf)) return 1;
@@ -592,19 +596,23 @@ int festivalClose(FT_Info *info)
     return 0;
 }
 
-/* --- SETTINGS COMMANDS */
+/* --- SETTINGS COMMANDS --- */
 
 #define FEST_SET_STR(name, fest_param) \
     int \
-    name(FT_Info *info, char *param) \
+    name(FT_Info *info, char *param, char **resp) \
     { \
+        char *r; \
+        int ret; \
         if (festival_check_info(info, #name)) return -1; \
         if (param == NULL){ \
 	  FEST_SEND_CMD("("fest_param" nil)", 1); \
         }else{ \
 	  FEST_SEND_CMD("("fest_param" \"%s\")", g_ascii_strdown(param, -1)); \
 	} \
-        return festival_read_response(info); \
+        ret = festival_read_response(info, &r); \
+        if ((resp != NULL) && (r != NULL)) *resp = r; \
+        return ret; \
     }
 
 #define FEST_SET_SYMB(name, fest_param) \
@@ -614,7 +622,7 @@ int festivalClose(FT_Info *info)
         if (festival_check_info(info, #name)) return -1; \
         if (param == NULL) return -1; \
         FEST_SEND_CMD("("fest_param" '%s)", g_ascii_strdown(param, -1)); \
-        return festival_read_response(info); \
+        return festival_read_response(info, NULL); \
     } 
 
 #define FEST_SET_INT(name, fest_param) \
@@ -623,7 +631,7 @@ int festivalClose(FT_Info *info)
     { \
         if (festival_check_info(info, #name)) return -1; \
         FEST_SEND_CMD("("fest_param" %d)", param); \
-        return festival_read_response(info); \
+        return festival_read_response(info, NULL); \
     }
 
 FEST_SET_INT(FestivalSetRate, "speechd-set-rate");
