@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.52 2003-10-12 23:33:13 hanke Exp $
+ * $Id: parse.c,v 1.53 2003-10-13 16:20:17 hanke Exp $
  */
 
 #include "speechd.h"
@@ -134,10 +134,11 @@ parse(const char *buf, const int bytes, const int fd)
          * we are waiting for text that is comming through the chanel */
     }else{
          enddata:
-        /* In the end of the data flow we got a "@data off" command. */
+        /* In the end of the data flow we got a "\r\n.\r\n" command. */
         MSG(5,"Buffer: |%s| bytes:", buf, bytes);
         if(((bytes >= 5)&&((!strncmp(buf, "\r\n.\r\n", bytes))))||(end_data == 1)
            ||((bytes == 3)&&(!strncmp(buf, ".\r\n", bytes)))){
+
             MSG(4,"Finishing data");
             end_data = 0;
             /* Set the flag to command mode */
@@ -154,7 +155,11 @@ parse(const char *buf, const int bytes, const int fd)
             assert(new->bytes >= 0); 
             assert(o_buf[fd] != NULL);
 
-            memcpy(new->buf, o_buf[fd]->str, new->bytes);
+            if ((bytes == 3) && (new->bytes > 2))
+                memcpy(new->buf, o_buf[fd]->str, new->bytes-2);
+            else
+                memcpy(new->buf, o_buf[fd]->str, new->bytes);
+
             new->buf[new->bytes] = 0;
 
             reparted = inside_block[fd];
