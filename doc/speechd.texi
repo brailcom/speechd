@@ -1814,10 +1814,6 @@ QUIT
 @node C API, Python API, SSIP, Client Programming
 @section C API
 
-TODO: introduction
-
-None of the functions, except where explicitly stated, are blocking.
-
 @menu
 * Initializing and Terminating in C::  
 * Speech Synthesis Commands in C::  
@@ -1838,7 +1834,8 @@ None of the functions, except where explicitly stated, are blocking.
 
 Opens a new connection to Speech Dispatcher and returns a socket file descriptor you will
 use to communicate with Speech Dispatcher. It's one of the parameter of all the others
-functions.
+functions. It reads Speech Dispatcher's port number from the environment variable
+@var{SPEECHD_PORT}.
 
 The three parameters @code{client_name}, @code{connection_name} and @code{username}
 are there only for informational and navigational purpose, they don't affect
@@ -1879,7 +1876,27 @@ before the end of your program.
 @node Speech Synthesis Commands in C, Speech output control commands in C, Initializing and Terminating in C, C API
 @subsection Speech Synthesis Commands
 
-@deffn {C API function}  int spd_say(int connection, char* priority, char* text);
+@defvar {C API type} SPDPriority
+@vindex SPDPriority
+
+@code{SPDPriority} is an enum type that represents the possible priorities that
+can be assigned to a message.
+
+@example
+typedef enum@{
+    SPD_IMPORTANT = 1,
+    SPD_MESSAGE = 2,
+    SPD_TEXT = 3,
+    SPD_NOTIFICATION = 4,
+    SPD_PROGRESS = 5
+@}SPDPriority;
+@end example
+
+@xref{Message Priority Model}.
+
+@end defvar
+
+@deffn {C API function}  int spd_say(int connection, SPDPriority priority, char* text);
 @findex spd_say()
 
 Sends a message to Speech Dispatcher. If this message isn't blocked by some message
@@ -1889,8 +1906,7 @@ or delayed according to it's priority.
 
 @code{connection} is the file descriptor obtained by spd_open().
 
-@code{priority} is a NULL terminated string with the name
-of the priority. @xref{Message Priority Model}.
+@code{priority} is the desired priority for this message. @xref{Message Priority Model}.
 
 @code{text} is a null terminated string containing text you want to sent to
 synthesis. It must be encoded in UTF-8. Note that this doesn't have to be what
@@ -1901,7 +1917,7 @@ It returns 0 on success, -1 otherwise.
 
 @end deffn
 
-@deffn {C API function}  int spd_sayf(int connection, char* priority, char* format, ...);
+@deffn {C API function}  int spd_sayf(int connection, SPDPriority priority, char* format, ...);
 @findex spd_sayf()
 
 Similar to @code{spd_say()}, simulates the behavior of printf().
@@ -1922,7 +1938,7 @@ For example:
 But be careful with unicode! For example this doesn't work:
 
 @example
-       spd_sayf(conn, "notification", ``Pressed key is %c.'', key);
+       spd_sayf(conn, SPD_NOTIFY, ``Pressed key is %c.'', key);
 @end example
 
 Why? Because you are supposing that key is a char, but that will
@@ -1930,7 +1946,7 @@ fail with languages using amplified charsets. The proper solution
 is:
 
 @example
-       spd_sayf(conn, "notification", ``Pressed key is %s'', key);
+       spd_sayf(conn, SPD_NOTIFY, ``Pressed key is %s'', key);
 @end example
 where key is a encoded string.
 
@@ -2097,7 +2113,7 @@ It returns 0 on succes, -1 otherwise.
 @node Characters and Keys in C, Sound Icons in C, Speech output control commands in C, C API
 @subsection Characters and Keys
 
-@deffn {C API function}  int spd_char(int connection, int priority, char* character);
+@deffn {C API function}  int spd_char(int connection, SPDPriority priority, char* character);
 @findex spd_char()
 
 Says a character according to user settings for characters. This can be
@@ -2105,8 +2121,8 @@ used for example for reading letters under the cursor.
 
 @code{connection} is the file descriptor obtained by spd_open().
 
-@code{priority} is a NULL terminated string with the name
-of the priority. @xref{Message Priority Model}.
+@code{priority} is the desired priority for this
+message. @xref{Message Priority Model}.
 
 @code{character} is a NULL terminated string of chars containing one UTF-8
 character. If it contains more characters, only the first one is processed.
@@ -2114,7 +2130,7 @@ character. If it contains more characters, only the first one is processed.
 It returns 0 on succes, -1 otherwise.
 @end deffn
 
-@deffn {C API function}  int spd_wchar(int connection, int priority, wchar_t wcharacter);
+@deffn {C API function}  int spd_wchar(int connection, SPDPriority priority, wchar_t wcharacter);
 @findex spd_say_wchar()
 
 The same as spd_char(), but it takes a wchar_t variable as it's argument. 
@@ -2122,15 +2138,15 @@ The same as spd_char(), but it takes a wchar_t variable as it's argument.
 It returns 0 on succes, -1 otherwise.
 @end deffn
 
-@deffn {C API function}  int spd_key(int connection, char* key_name);
+@deffn {C API function} int spd_key(int connection, SPDPriority priority, char* key_name);
 @findex spd_key()
 
 Says a key according to user settings for keys.
 
 @code{connection} is the file descriptor obtained by spd_open().
 
-@code{priority} is a NULL terminated string with the name
-of the priority. @xref{Message Priority Model}.
+@code{priority} is the desired priority for this
+message. @xref{Message Priority Model}.
 
 @code{key_name} is the name of the key in a special format.
 @xref{Speech Synthesis and Sound Output Commands}, (KEY, the corresponding
@@ -2142,7 +2158,7 @@ It returns 0 on succes, -1 otherwise.
 @node Sound Icons in C, Parameter Setting Commands in C, Characters and Keys in C, C API
 @subsection Sound Icons
 
-@deffn {C API function}  int spd_sound_icon(int connection, int priority, char* icon_name);
+@deffn {C API function}  int spd_sound_icon(int connection, SPDPriority priority, char* icon_name);
 @findex spd_sound_icon()
 
 Sends a sound icon ICON_NAME. These are symbolic names that are mapped
@@ -2152,8 +2168,8 @@ define it's own icons.
 
 @code{connection} is the file descriptor obtained by spd_open().
 
-@code{priority} is a NULL terminated string with the name
-of the priority. @xref{Message Priority Model}.
+@code{priority} is the desired priority for this
+message. @xref{Message Priority Model}.
 
 @code{icon_name} is the name of the icon. It can't contain spaces,
 please use underscores (`_'). Icon names starting with an underscore
@@ -2864,8 +2880,6 @@ This function should return 0 if it fails and 1 if the delivery
 to the synthesis is successful. It should return immediately,
 because otherwise, it would block stopping, priority handling
 and other important things in Speech Dispatcher.
-
-26+ 60 10 169
 
 If there is a need to stay longer, you should create a separate thread
 or process. This is for example the case of some software synthesizers
