@@ -6,7 +6,7 @@
 $4
 !SET SELF CLIENT_NAME unknown_user:test-basic:main
 $4
-!SET SELF PRIORITY 2
+!SET SELF PRIORITY MESSAGE
 $4
 
 @ Hope it was ok. Now I can try to say something:
