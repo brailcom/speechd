@@ -1,6 +1,5 @@
 
 A list of known bugs:
 
- - SSIP isn't stabilized yet, it's going to change. The current
-protocol isn't described in documentation yet.
-
+ - pause/resume does nothing
+ - SSIP isn't stabilized yet, it's going to change. 
