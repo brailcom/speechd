@@ -1,3 +1,9 @@
+2003-11-12  Milan Zamazal  <pdm@brailcom.org>
+
+	* events.scm (event-mark-items, event-synth-plain): Honor language
+	dependent variable values.
+	* util.scm (langvar): New function.
+
 2003-11-11  Milan Zamazal  <pdm@brailcom.org>
 
 	* speech-dispatcher.scm (speechd-languages) 
