@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.36 2003-07-07 08:44:04 hanke Exp $
+ * $Id: speechd.h,v 1.37 2003-07-07 09:59:11 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -100,6 +100,8 @@ typedef struct
 }TSpeechDTables;
 
 int SPEECHD_PORT;
+
+char *SOUND_DATA_DIR;
 
 /* Message logging */
 int spd_log_level;
