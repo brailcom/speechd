@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: apollo.c,v 1.15 2003-05-31 12:04:24 pdm Exp $
+ * $Id: apollo.c,v 1.16 2003-05-31 18:40:00 pdm Exp $
  */
 
 
@@ -139,24 +139,22 @@ static gint set_language (const char *value)
   SPDApolloLanguageDef *language_def;
   const int MAX_REQUEST_LENGTH = 100;
   char command[5], request[MAX_REQUEST_LENGTH];
-  char *rom, *char_coding;
+  char rom, *char_coding;
   
   language_def = g_hash_table_lookup (module_apollo.settings.apollo_languages,
 				      value);
   if (language_def == NULL)
     {
-      rom = "1";
+      rom = '1';
       char_coding = "ASCII";
     }
   else 
     {
-      rom = language_def->rom;
-      if (strlen (rom) > 1)
-	rom[1] = '\0';
+      rom = language_def->rom[0];
       char_coding = language_def->char_coding;
     }
 
-  sprintf (command, "@=%d,", rom);
+  sprintf (command, "@=%c,", rom);
   snprintf (request, MAX_REQUEST_LENGTH, "UTF-8..%s", char_coding);
 
   recode_scan_request (recode_request, request);

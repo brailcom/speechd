@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: dc_decl.h,v 1.20 2003-05-31 12:04:24 pdm Exp $
+ * $Id: dc_decl.h,v 1.21 2003-05-31 18:40:00 pdm Exp $
  */
 
 #include "speechd.h"
@@ -520,15 +520,16 @@ DOTCONF_CB(cb_ApolloLanguage)
         return NULL;
     }
 
-    apollo_languages = g_hash_table_lookup(cur_mod->settings.apollo_languages,
-					   language);
-    if (apollo_languages == NULL){
+    value = g_hash_table_lookup(cur_mod->settings.apollo_languages,
+				language);
+    if (value == NULL){
         key = (char*) spd_malloc((strlen(language) + 1) * sizeof(char));
         strcpy(key, language);
         value = (SPDApolloLanguageDef*) spd_malloc(sizeof(SPDApolloLanguageDef));
         g_hash_table_insert(cur_mod->settings.apollo_languages, key, value);
-        apollo_languages = value;
     }
+    value->rom = strdup(rom);
+    value->char_coding = strdup(char_coding);    
 
     return NULL;
 }
