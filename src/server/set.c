@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.29 2003-10-08 21:32:57 hanke Exp $
+ * $Id: set.c,v 1.30 2003-10-09 21:21:46 hanke Exp $
  */
 
 #include "set.h"
@@ -287,8 +287,6 @@ SET_SELF_ALL(int, pause_context);
 set_pause_context_uid(int uid, int pause_context)
 {
     TFDSetElement *settings;
-
-    if ((pause_context < 0)) return 1;
 
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
