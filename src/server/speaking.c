@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.5 2003-04-25 00:19:30 hanke Exp $
+  * $Id: speaking.c,v 1.6 2003-04-28 02:01:51 hanke Exp $
   */
 
 #include <glib.h>
@@ -225,20 +225,70 @@ speaking_cancel_all()
 }
 
 int
-speaking_pause(int uid)
+speaking_pause_all(int fd)
+{
+    int err, i;
+    int uid;
+
+    for(i=1;i<=fdmax;i++){
+        uid = get_client_uid_by_fd(i);
+        if (uid == 0) continue;
+        err += speaking_pause(fd, uid);
+    }
+
+    if (err>0) return 1;
+    else return 0;
+}
+
+int
+speaking_pause(int fd, int uid)
 {
     TFDSetElement *settings;
-    /* first stop speaking on the output module */
-    /* TODO: rework pause()...
-    //pause_active_module(); ???
+    TSpeechDMessage *new;
+    char *msg_rest;
+
     /* Find settings for this particular client */
     settings = get_client_settings_by_uid(uid);
-          
     if (settings == NULL) return 1;
-	  
-    /* Set _paused_ flag. */
     settings->paused = 1;     
+
+    if (!is_sb_speaking()) return 0;
+    if (speaking_uid != uid) return 0;    
+
+    msg_rest = (*speaking_module->pause) ();
+    if (msg_rest == NULL) return 0;
+
+    new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
+    new->bytes = strlen(msg_rest);
+    new->buf = msg_rest;
+    assert(new->bytes >= 0);
+    assert(new->buf != NULL);
+    new->buf[new->bytes] = 0;
+
+    if(queue_message(new, fd, 0, MSGTYPE_TEXT) != 0){
+        if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
+        free(new->buf);
+        free(new);
+        return 1;
+    }
+
     return 0;  
+}
+
+int
+speaking_resume_all()
+{
+    int err, i;
+    int uid;
+
+    for(i=1;i<=fdmax;i++){
+        uid = get_client_uid_by_fd(i);
+        if (uid == 0) continue;
+        err += speaking_resume(uid);
+    }
+
+    if (err>0) return 1;
+    else return 0;
 }
 
 int
@@ -247,10 +297,10 @@ speaking_resume(int uid)
     TFDSetElement *settings;
     TSpeechDMessage *element;
     GList *gl;
+
     /* Find settings for this particular client */
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
-
     /* Set it to speak again. */
     settings->paused = 0;
 
