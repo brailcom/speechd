@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.24 2003-04-24 19:29:38 hanke Exp $
+ * $Id: parse.c,v 1.25 2003-04-25 00:14:03 hanke Exp $
  */
 
 #include "speechd.h"
@@ -313,7 +313,7 @@ parse_set(char *buf, int bytes, int fd)
     if (param == NULL) return ERR_MISSING_PARAMETER;
 
     if (!strcmp(param, "priority")){
-        if (uid != 0) return ERR_COULDNT_SET_PRIORITY; /* Setting priority only allowed for "self" */
+        if (who != 0) return ERR_COULDNT_SET_PRIORITY; /* Setting priority only allowed for "self" */
         priority = get_param(buf,3,bytes, 0);
         if (priority == NULL) return ERR_MISSING_PARAMETER;
         if (!isanum(priority)) return ERR_NOT_A_NUMBER;
@@ -381,7 +381,7 @@ parse_set(char *buf, int bytes, int fd)
         return OK_PITCH_SET;
     }
     else if (!strcmp(param,"voice")){
-        voice = get_param(buf, 3, bytes, 0);
+        voice = get_param(buf, 3, bytes, 1);
         if (voice == NULL) return ERR_MISSING_PARAMETER;
         MSG(4, "Setting voice to %s", voice);
         if (who == 0) ret = set_voice_self(fd, voice);        
