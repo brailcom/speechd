@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.c,v 1.16 2003-03-23 21:18:56 hanke Exp $
+ * $Id: server.c,v 1.17 2003-03-24 22:22:47 hanke Exp $
  */
 
 #include "speechd.h"
@@ -344,7 +344,7 @@ stop_c(EStopCommands command, int fd, int target)
 
 	/* TODO: We have to somehow solve them according to priorities
 	 * and not only have p2 hardcoded here. */
-	/* Is there any message after @resume? */
+	/* Is there any message after resume? */
 
   {
 	TSpeechDMessage *element;
@@ -461,8 +461,8 @@ parse(char *buf, int bytes, int fd)
 	/* First the condition that we are not in data mode and we
 	 * are awaiting commands */
 	if (g_array_index(awaiting_data,int,fd) == 0){
-		/* Every command has to be introduced by '@' */
-		if(buf[0] != '@') return "ERROR INVALID COMMAND\n\r";
+//		/* Every command has to be introduced by '@' */
+//		if(buf[0] != '@') return ERR_INVALID_COMMAND;	/* no longer needed */
 		/* Read the command */
 		command = get_param(buf, 0, bytes);
 		MSG(5, "Command caught: \"%s\" \n", command);
@@ -472,25 +472,25 @@ parse(char *buf, int bytes, int fd)
 
 		if (command == NULL){
 			if(SPEECHD_DEBUG) FATAL("invalid buffer for parse()\n");
-			return "ERR INTERNAL";					 
+			return ERR_INTERNAL; 
 		}		
 		
-		if (!strcmp(command,"set")){				
+		if (!strcmp(command,"SET")){				
 			return (char *) parse_set(buf, bytes, fd);
 		}
-		if (!strcmp(command,"history")){				
+		if (!strcmp(command,"HISTORY")){				
 			return (char *) parse_history(buf, bytes, fd);
 		}
-		if (!strcmp(command,"stop")){
+		if (!strcmp(command,"STOP")){
 			return (char *) parse_stop(buf, bytes, fd);
 		}
-		if (!strcmp(command,"pause")){
+		if (!strcmp(command,"PAUSE")){
 			return (char *) parse_pause(buf, bytes, fd);
 		}
-		if (!strcmp(command,"resume")){
+		if (!strcmp(command,"RESUME")){
 			return (char *) parse_resume(buf, bytes, fd);
 		}
-		if (!strcmp(command,"snd_icon")){				
+		if (!strcmp(command,"SND_ICON")){				
 			return (char *) parse_snd_icon(buf, bytes, fd);
 		}
 
@@ -499,13 +499,10 @@ parse(char *buf, int bytes, int fd)
 			MSG(5, "Bye received.\n");
 			/* Send a reply to the socket */
 			write(fd, BYE_MSG, 15);
-			speechd_connection_destroy();
+			speechd_connection_destroy(fd);
 		}
 	
-		/* Check if the command isn't "@data on" */
-		if (!strcmp(command,"data")){
-			param = get_param(buf,1,bytes);
-			if (!strcmp(param,"on")){
+		if (!strcmp(command,"SPEAK")){
 				/* Ckeck if we have enough space in awaiting_data table for
 				 * this client, that can have higher file descriptor that
 				 * everything we got before */
@@ -515,8 +512,6 @@ parse(char *buf, int bytes, int fd)
 			        return "ERR INTERNAL";								 
 				}
 				return OK_RECEIVE_DATA;
-			}
-			return ERR_INVALID_COMMAND;
 		}
 		return ERR_INVALID_COMMAND;
 
@@ -525,8 +520,8 @@ parse(char *buf, int bytes, int fd)
 		}else{
 			enddata:
 			/* In the end of the data flow we got a "@data off" command. */
-			MSG(5,"testing +%d+ ", end_data);
-			if((!strncmp(buf,"@data off", bytes-2))||(end_data==1)){
+			MSG(2,"testing |%s| ", buf);
+			if((!strncmp(buf,".\r\n", bytes))||(!strncmp(buf,"\r\n.\r\n", bytes))||(end_data==1)){
 				MSG(5,"finishing data\n");
 				end_data=0;
 				/* Set the flag to command mode */
@@ -539,15 +534,16 @@ parse(char *buf, int bytes, int fd)
 				new->bytes = g_array_index(o_bytes,int,fd);
 				new->buf = (char*) spd_malloc(new->bytes + 1);
 				memcpy(new->buf, o_buf[fd]->str, new->bytes);
+				new->buf[new->bytes] = 0;
 
 				if(queue_message(new,fd) != 0){
 					if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
 					free(new->buf);
 					free(new);
-					return "ERR INTERNAL";
+					return ERR_INTERNAL;
 				}
 				
-				MSG(5, "%d bytes put in queue and history\n", g_array_index(o_bytes,int,fd));
+				MSG(4, "%d bytes put in queue and history\n", g_array_index(o_bytes,int,fd));
 				MSG(4, "Messages to say set to:%d\n",msgs_to_say);
 
 				/* Clear the counter of bytes in the output buffer. */
@@ -555,10 +551,10 @@ parse(char *buf, int bytes, int fd)
 				return OK_MESSAGE_QUEUED;
 			}
 	
-			if(pos = strstr(buf,"@data off")){	
+			if(pos = strstr(buf,"\r\n.\r\n")){	
 				bytes=pos-buf;
 				end_data=1;		
-				MSG(5,"command in data caught\n");
+				MSG(4,"command in data caught\n");
 			}
 
 			/* Get the number of bytes read before, sum it with the number of bytes read
@@ -574,7 +570,7 @@ parse(char *buf, int bytes, int fd)
 
 		if (end_data == 1) goto enddata;
 
-	/* Don't reply on data on */
+	/* Don't reply on data */
 	return "";
 }
 
@@ -589,7 +585,7 @@ server_data_on(int fd)
 	/* Create new output buffer */
 	o_buf[fd] = g_string_new("\0");
 	assert(o_buf[fd] != NULL);
-	MSG(5, "switching to data mode...\n");
+	MSG(4, "switching to data mode...\n");
 	return 0;
 }
 
@@ -613,11 +609,11 @@ serve(int fd)
 	int ret;					/* Return value of write() */
  
 	/* Read data from socket */
-	MSG(3, "reading data\n");
+	MSG(4, "reading data\n");
 	bytes = read(fd, buf, BUF_SIZE);
 	if(bytes == -1) return -1;
-	buf[bytes-1]=0;
-	MSG(5,"    read %d bytes from client on fd %d\n", bytes, fd);
+	buf[bytes]=0;
+	MSG(4,"    read %d bytes from client on fd %d\n", bytes, fd);
 
 	/* Parse the data and read the reply*/
 	strcpy(reply, parse(buf, bytes, fd));

@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.11 2003-03-23 21:30:22 hanke Exp $
+ * $Id: libspeechd.c,v 1.12 2003-03-24 22:24:18 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -40,10 +40,7 @@
 
 #define FATAL(msg) { perror("client: "msg); exit(1); }
 
-char* send_data(int fd, char *message, int wfr);
-
 static FILE* debugg;
-
 
 /* --------------------- Public functions ------------------------- */
 
@@ -60,7 +57,7 @@ spd_init(char* client_name, char* conn_name)
   address.sin_family = AF_INET;
   sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
-  debugg = fopen("/tmp/debugg", "w");
+  debugg = fopen("/tmp/libspeechd_debug", "w");
   if (debugg == NULL) FATAL("COULDN'T ACCES FILE");
   /* connect to server */
   if (connect(sockfd, (struct sockaddr *)&address, sizeof(address)) == -1)
@@ -69,7 +66,7 @@ spd_init(char* client_name, char* conn_name)
   buf = malloc((strlen(client_name) + strlen(conn_name) + 64) * sizeof(char));
   if (buf == NULL) FATAL ("Not enough memory.\n");
 
-  sprintf(buf, "@set client_name %s:%s\n\r", client_name, conn_name);
+  sprintf(buf, "SET CLIENT_NAME %s:%s\r\n", client_name, conn_name);
   if(! ret_ok( send_data(sockfd, buf, 1) )) return 0; 
 
   free(buf);
@@ -92,28 +89,29 @@ spd_say(int fd, int priority, char* text)
   static int i;
   static char *pos;
 
-  sprintf(helper, "@set priority %d\n\r", priority);
+  sprintf(helper, "SET PRIORITY %d\r\n", priority);
   if(!ret_ok(send_data(fd, helper, 1))){
 		  if(LIBSPEECHD_DEBUG) printf("Can't set priority");
 		  return -1;
 	}
 		  
-  while(pos = strstr(text,"@data off")){
-	text[pos-text] = 'a';
-  }
+  /* This needs to be fixed! */
+//  while(pos = (char*) strstr(text,"\r\n.\r\n")){
+//	text[pos-text+3] = ' ';
+ // }
   
-  sprintf(helper, "@data on\n\r");
+  sprintf(helper, "SPEAK\r\n");
   if(!ret_ok(send_data(fd, helper, 1))){
 		  if(LIBSPEECHD_DEBUG) printf("Can't start data flow");
 		  return -1;
 	}
   
-  buf = malloc((strlen(text) + 4)*sizeof(char));
+  buf = malloc((strlen(text) + 16)*sizeof(char));
   if (buf == NULL) FATAL ("Not enough memory.\n");
-  sprintf(buf, "%s\n\r", text); 
+  sprintf(buf, "%s\r\n", text); 
   send_data(fd, buf, 0);
 
-  sprintf(helper, "@data off\n\r");
+  sprintf(helper, "\r\n.\r\n");
   if(!ret_ok(send_data(fd, helper, 1))){
 		  if(LIBSPEECHD_DEBUG) printf("Can't terminate data flow");
 		  return -1; 
@@ -144,7 +142,7 @@ spd_stop(int fd)
 {
   char helper[32];
 
-  sprintf(helper, "@stop\n\r");
+  sprintf(helper, "STOP\r\n");
   if(!ret_ok(send_data(fd, helper, 1))) return -1;
 
   return 0;
@@ -155,7 +153,7 @@ spd_stop_fd(int fd, int target)
 {
   char helper[32];
 
-  sprintf(helper, "@stop %d\n\r", target);
+  sprintf(helper, "STOP %d\r\n", target);
   if(!ret_ok(send_data(fd, helper, 1))) return -1;
   return 0;
 }
@@ -165,7 +163,7 @@ spd_pause(int fd)
 {
   char helper[16];
 
-  sprintf(helper, "@pause\n\r");
+  sprintf(helper, "PAUSE\r\n");
   if(!ret_ok(send_data(fd, helper, 1))) return -1;
 
   return 0;
@@ -176,7 +174,7 @@ spd_pause_fd(int fd, int target)
 {
   char helper[16];
 
-  sprintf(helper, "@pause %d\n\r", target);
+  sprintf(helper, "PAUSE %d\r\n", target);
   if(!ret_ok(send_data(fd, helper, 1))) return -1;
   return 0;
 }
@@ -186,7 +184,7 @@ spd_resume(int fd)
 {
 	char helper[16];
 
-	sprintf(helper, "@resume\n\r");
+	sprintf(helper, "RESUME\r\n");
 
 	if(!ret_ok(send_data(fd, helper, 1))) return -1;
 	return 0;
@@ -197,7 +195,7 @@ spd_resume_fd(int fd, int target)
 {
 	char helper[16];
 
-	sprintf(helper, "@resume %d\n\r", target);
+	sprintf(helper, "RESUME %d\r\n", target);
 
 	if(!ret_ok(send_data(fd, helper, 1))) return -1;
 	return 0;
@@ -209,10 +207,10 @@ spd_icon(int fd, int priority, char *name)
 	static char helper[256];
 	char *buf;
 
-	sprintf(helper, "@set priority %d\n\r", priority);
+	sprintf(helper, "SET PRIORITY %d\r\n", priority);
 	if(!ret_ok(send_data(fd, helper, 1))) return 0;
 	
-	sprintf(helper, "@snd_icon %s\n\r", name);
+	sprintf(helper, "SND_ICON %s\r\n", name);
 	if(!ret_ok(send_data(fd, helper, 1))) return -1;
 
 	return 0;
@@ -304,7 +302,7 @@ int
 spd_history_say_msg(int fd, int id)
 {
 	char helper[32];
-	sprintf(helper,"@history say ID %d\n\r",id);
+	sprintf(helper,"HISTORY SAY ID %d\r\n",id);
 
 	if(!ret_ok(send_data(fd, helper, 1))) return -1;
 	return 0;
@@ -314,7 +312,7 @@ int
 spd_history_select_client(int fd, int id)
 {
 	char helper[64];
-	sprintf(helper,"@history cursor set %d first\n\r",id);
+	sprintf(helper,"HISTORY CURSOR SET %d FIRST\r\n",id);
 
 	if(!ret_ok(send_data(fd, helper, 1))) return -1;
 	return 0;
@@ -334,17 +332,17 @@ int
 spd_get_client_list(int fd, char **client_names, int *client_ids, int* active){
 	char command[128];
 	char *reply;
-	int header_ok;
+	int footer_ok;
 	int count;
 	char *record;
 	int record_int;
 	char *record_str;	
 
-	sprintf(command, "@history get client_list\n\r");
-	reply = send_data(fd, command, 1);
+	sprintf(command, "HISTORY GET CLIENT_LIST\r\n");
+	reply = (char*) send_data(fd, command, 1);
 
-	header_ok = parse_response_header(reply);
-	if(header_ok != 1){
+	footer_ok = parse_response_footer(reply);
+	if(footer_ok != 1){
 		free(reply);
 		return -1;
 	}
@@ -378,14 +376,14 @@ spd_get_message_list_fd(int fd, int target, int *msg_ids, char **client_names)
 	int record_int;
 	char *record_str;	
 
-	sprintf(command, "@history get message_list %d 0 20\n\r", target);
+	sprintf(command, "HISTORY GET MESSAGE_LIST %d 0 20\r\n", target);
 	reply = send_data(fd, command, 1);
 
-	header_ok = parse_response_header(reply);
+/*	header_ok = parse_response_header(reply);
 	if(header_ok != 1){
 		free(reply);
 		return -1;
-	}
+	}*/
 
 	for(count=0;  ;count++){
 		record = (char*) parse_response_data(reply, count+1);
@@ -445,23 +443,18 @@ spd_command_line(int fd, char *buffer, int pos, int c){
 
 /* --------------------- Internal functions ------------------------- */
 
-int ret_ok(char *ret){
-//   char str[256];
-   char quantum_trashbin[30000];
-   /* TODO: It seems that this piece of code is subject to the
-	* laws of quantum mechanics. If you cease to observe what's
-	* going on (remove this sprintf), it works in a completely
-	* different manner. It doesn't stop in either one of the strstr
-	* functions and executes internall error. But if you uncomment
-	* the sprintf and try to determine what's going on, everything
-	* works correctly. Any help appreciated. */
-   if (ret == NULL) FATAL("Couldn't determine the exact velocity and position at once.");
-   fprintf(debugg,"ret_ok::	%s\n", ret);
-   sprintf(quantum_trashbin, "returned: %s", ret);
-   if ((char*)strstr(ret, "OK") != NULL) return 1;
-   if ((char*)strstr(ret, "ERR") != NULL) return 0;
-   printf("returned: |%s|\n", ret);
-   FATAL("Internal error during communication.");
+int
+ret_ok(char *reply)
+{
+	int err;
+
+	err = get_err_code(reply);
+		
+	if ((err>=100) && (err<300)) return 1;
+	if (err>=300) return 0;
+	
+	printf("reply:%d", err);
+	FATAL("Internal error during communication.");
 }
 
 char*
@@ -509,53 +502,71 @@ get_rec_int(char *record, int pos)
 
 	assert(record!=0);
 	num_str = get_rec_part(record, pos);
-//	printf("pos:%d, rec:%s num_str:_%s_", pos, record, num_str);
+	if(LIBSPEECHD_DEBUG) fprintf(debugg, "pos:%d, rec:%s num_str:_%s_", pos, record, num_str);
 	if (!isanum(num_str)) return -9999;
 	num = atoi(num_str);
 	free(num_str);
 	return num;
 }
 
-int parse_response_header(char *resp)
+int parse_response_footer(char *resp)
 {
 	int ret;
-	char *header;
 	int i;
-	
-	header = malloc(sizeof(char) * strlen(resp));
-	
-   fprintf(debugg,"command sent:	%s\n", resp);
+	int n = 0;
+	char footer[256];
 	for(i=0;i<=strlen(resp)-1;i++){
-		if ((resp[i]!='\\') && (resp[i]!='\n'))	header[i] = resp[i];
-		else break;
+		if (resp[i]=='\r'){
+			i+=2;
+			if(resp[i+3] == ' '){
+				for(; i<=strlen(resp)-1; i++){
+					if (resp[i] != '\r'){
+							footer[n] = resp[i];
+							n++;
+					}else{
+						footer[n]=0;
+						ret = ret_ok(footer);
+						return ret;
+					}
+				}					
+			}
+		}
 	}
-	header[i] = 0;
-	ret = ret_ok(header);
+	ret = ret_ok(footer);
 
-	free(header);
 	return ret;
 }
 
 char*
 parse_response_data(char *resp, int pos)
 {
-	int p = 0;
+	int p = 1;
 	char *data;
 	int i;
 	int n = 0;
 		
 	data = malloc(sizeof(char) * strlen(resp));
 	assert(data!=NULL);
+
+	if (resp == NULL) return NULL;
+	if (pos<1) return NULL;
 	
 	for(i=0;i<=strlen(resp)-1;i++){
-		if (resp[i]=='\\'){
+		if (resp[i]=='\r'){
 			   	p++;
-				i+=2;
+				/* Skip the LFCR sequence */
+				i++;
+				if(i+3 < strlen(resp)-1){
+					if(resp[i+4] == ' ') return NULL;
+				}
 				continue;
 		}
 		if (p==pos){
-			for(;i<=strlen(resp)-1;i++){
-				if ((resp[i]!='\\') && (resp[i]!='\n')){
+			/* Skip the ERR code */
+			i+=4;	
+			/* Read the data */
+			for(; i<=strlen(resp)-1; i++){
+				if (resp[i] != '\r'){
 						data[n] = resp[i];
 						n++;
 				}else{
@@ -571,33 +582,57 @@ parse_response_data(char *resp, int pos)
 	return NULL;
 }
 
+int
+get_err_code(char *reply)
+{
+	char err_code[4];
+	int err;
+	
+	if (reply == NULL) return -1;
+	if(LIBSPEECHD_DEBUG) fprintf(debugg,"send_data:	reply: %s\n", reply);
+
+	err_code[0] = reply[0];	err_code[1] = reply[1];
+	err_code[2] = reply[2];	err_code[3] = '\0';
+
+	if(LIBSPEECHD_DEBUG) fprintf(debugg,"ret_ok: err_code:	|%s|\n", err_code);
+   
+	if(isanum(err_code)){
+		err = atoi(err_code);
+	}else{
+		fprintf(debugg,"ret_ok: not a number\n");
+		return -1;	
+	}
+
+	return err;
+}
+
 char*
 send_data(int fd, char *message, int wfr)
 {
-   char *reply;
-   int bytes;
+	char *reply;
+	int bytes;
 
-   /* TODO: 1000?! */
-   reply = malloc(sizeof(char) * 1000);
+	/* TODO: 1000?! */
+	reply = malloc(sizeof(char) * 1000);
    
-   /* write message to the socket */
-   write(fd, message, strlen(message));
+	/* write message to the socket */
+	write(fd, message, strlen(message));
 
-   message[strlen(message)] = 0;
-   if(LIBSPEECHD_DEBUG) fprintf(debugg,"command sent:	%s", message);
+	message[strlen(message)] = 0;
+	if(LIBSPEECHD_DEBUG) fprintf(debugg,"command sent:	|%s|", message);
 
-   /* read reply to the buffer */
-   if (wfr == 1){
-      bytes = read(fd, reply, 1000);
-      /* print server reply to as a string */
-      reply[bytes] = 0; 
-      if(LIBSPEECHD_DEBUG) fprintf(debugg, "reply from server:	%s\n", reply);
-      return reply;
-   }else{
-      if(LIBSPEECHD_DEBUG) fprintf(debugg, "reply from server: no reply\n\n");
-	  strcpy(reply, "NO REPLY\n\r");
-      return reply;
-   } 
+	/* read reply to the buffer */
+	if (wfr == 1){
+		bytes = read(fd, reply, 1000);
+		/* print server reply to as a string */
+		reply[bytes] = 0; 
+		if(LIBSPEECHD_DEBUG) fprintf(debugg, "reply from server:	%s\n", reply);
+	}else{
+		if(LIBSPEECHD_DEBUG) fprintf(debugg, "reply from server: no reply\n\n");
+		return "NO REPLY";
+	} 
+
+	return reply;
 }
 
 /* isanum() tests if the given string is a number,
@@ -605,6 +640,7 @@ send_data(int fd, char *message, int wfr)
 int
 isanum(char *str){
     int i;
+	if (str == NULL) return 0;
     for(i=0;i<=strlen(str)-1;i++){
         if (!isdigit(str[i]))   return 0;
     }

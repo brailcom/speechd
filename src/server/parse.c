@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.10 2003-03-23 21:12:32 hanke Exp $
+ * $Id: parse.c,v 1.11 2003-03-24 22:22:47 hanke Exp $
  */
 
 #include "speechd.h"
@@ -52,7 +52,7 @@ get_param(char *buf, int n, int bytes)
 	assert(param != NULL);
 	
 	strcpy(param,"");
-	i = 1;				/* it's 1 because we can skip the leading '@' */
+	i = 0;
 
 	/* Read all the parameters one by one,
 	 * but stop after the one with index n,
@@ -88,15 +88,15 @@ parse_history(char *buf, int bytes, int fd)
 		
          param = get_param(buf,1,bytes);
          MSG(3, "  param 1 caught: %s\n", param);
-         if (!strcmp(param,"get")){
+         if (!strcmp(param,"GET")){
             param = get_param(buf,2,bytes);
-            if (!strcmp(param,"last")){
+            if (!strcmp(param,"LAST")){
                return (char*) history_get_last(fd);
             }
-            if (!strcmp(param,"client_list")){
+            if (!strcmp(param,"CLIENT_LIST")){
                return (char*) history_get_client_list();
             }  
-            if (!strcmp(param,"message_list")){
+            if (!strcmp(param,"MESSAGE_LIST")){
 				helper1 = get_param(buf,3,bytes);
 				if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
 				helper2 = get_param(buf,4,bytes);
@@ -106,26 +106,27 @@ parse_history(char *buf, int bytes, int fd)
                return (char*) history_get_message_list( atoi(helper1), atoi(helper2), atoi (helper3));
             }  
          }
-         if (!strcmp(param,"sort")){
+         if (!strcmp(param,"SORT")){
+			return ERR_NOT_IMPLEMENTED;
          	// TODO: everything :)
          }
-         if (!strcmp(param,"cursor")){
+         if (!strcmp(param,"CURSOR")){
             param = get_param(buf,2,bytes);
             MSG(3, "    param 2 caught: %s\n", param);
-            if (!strcmp(param,"set")){
+            if (!strcmp(param,"SET")){
                param = get_param(buf,4,bytes);
                MSG(3, "    param 4 caught: %s\n", param);
-               if (!strcmp(param,"last")){
+               if (!strcmp(param,"LAST")){
 				  helper1 = get_param(buf,3,bytes);
 				  if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
                   return (char*) history_cursor_set_last(fd,atoi(helper1));
                }
-               if (!strcmp(param,"first")){
+               if (!strcmp(param,"FIRST")){
 				  helper1 = get_param(buf,3,bytes);
 				  if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
                   return (char*) history_cursor_set_first(fd, atoi(helper1));
                }
-               if (!strcmp(param,"pos")){
+               if (!strcmp(param,"POS")){
 				  helper1 = get_param(buf,3,bytes);
 				  if (!isanum(helper1)) return ERR_NOT_A_NUMBER;
 				  helper2 = get_param(buf,5,bytes);
@@ -133,17 +134,17 @@ parse_history(char *buf, int bytes, int fd)
                   return (char*) history_cursor_set_pos( fd, atoi(helper1), atoi(helper2) );
                }
             }
-            if (!strcmp(param,"next")){
+            if (!strcmp(param,"NEXT")){
                return (char*) history_cursor_next(fd);
             }
-            if (!strcmp(param,"prev")){
+            if (!strcmp(param,"PREV")){
                return (char*) history_cursor_prev(fd);
             }
-            if (!strcmp(param,"get")){
+            if (!strcmp(param,"GET")){
                return (char*) history_cursor_get(fd);
             }
          }
-         if (!strcmp(param,"say")){
+         if (!strcmp(param,"SAY")){
             param = get_param(buf,2,bytes);
             if (!strcmp(param,"ID")){
 				helper1 = get_param(buf,3,bytes);
@@ -151,7 +152,7 @@ parse_history(char *buf, int bytes, int fd)
               return (char*) history_say_id(fd, atoi(helper1));
             }
             if (!strcmp(param,"TEXT")){
-			return "NIY\n\r";
+			return ERR_NOT_IMPLEMENTED;
             }
          }
  
@@ -174,7 +175,7 @@ parse_set(char *buf, int bytes, int fd)
 	int ret;
 
 	param = get_param(buf,1,bytes);
-	if (!strcmp(param, "priority")){
+	if (!strcmp(param, "PRIORITY")){
 		priority = get_param(buf,2,bytes);
 		if (!isanum(priority)) return ERR_NOT_A_NUMBER;
 		helper = atoi(priority);
@@ -184,7 +185,7 @@ parse_set(char *buf, int bytes, int fd)
 		return OK_PRIORITY_SET;
 	}
 
-      if (!strcmp(param,"language")){
+      if (!strcmp(param,"LANGUAGE")){
         language = get_param(buf,2,bytes);
         MSG(3, "Setting language to %s \n", language);
 		ret = set_language(fd, language);
@@ -192,7 +193,7 @@ parse_set(char *buf, int bytes, int fd)
         return OK_LANGUAGE_SET;
       }
 
-	if (!strcmp(param,"client_name")){
+	if (!strcmp(param,"CLIENT_NAME")){
 		MSG(3, "Setting client name. \n");
 
 		client_name = get_param(buf,2,bytes);
@@ -201,7 +202,7 @@ parse_set(char *buf, int bytes, int fd)
 		return OK_CLIENT_NAME_SET;
 	}		 
 
-	if (!strcmp(param,"rate")){
+	if (!strcmp(param,"RATE")){
 		rate = get_param(buf,2,bytes);
 		if (!isanum(rate)) return ERR_NOT_A_NUMBER;
 		helper = atoi(rate);
@@ -213,7 +214,7 @@ parse_set(char *buf, int bytes, int fd)
 		return OK_RATE_SET;
 	}
 
-	if (!strcmp(param,"pitch")){
+	if (!strcmp(param,"PITCH")){
 		pitch = get_param(buf,2,bytes);
 		if (!isanum(pitch)) return ERR_NOT_A_NUMBER;
 		helper = atoi(pitch);
@@ -228,7 +229,7 @@ parse_set(char *buf, int bytes, int fd)
 		return OK_RATE_SET;
 	}
 
-	if (!strcmp(param,"punctuation")){
+	if (!strcmp(param,"PUNCTUATION")){
 		punct = get_param(buf,2,bytes);
 		if (!isanum(punct)) return ERR_NOT_A_NUMBER;
 		helper = atoi(punct);
@@ -239,7 +240,7 @@ parse_set(char *buf, int bytes, int fd)
 		return OK_PUNCT_MODE_SET;
 	}
 
-	if (!strcmp(param,"cap_let_recogn")){
+	if (!strcmp(param,"CAP_LET_RECOGN")){
 		recog = get_param(buf,2,bytes);
 		if (!isanum(recog)) return ERR_NOT_A_NUMBER;
 		helper = atoi(recog);
@@ -250,7 +251,7 @@ parse_set(char *buf, int bytes, int fd)
 		return OK_CAP_LET_RECOGN_SET;
 	}
 
-	if (!strcmp(param,"spelling")){
+	if (!strcmp(param,"SPELLING")){
 		spelling = get_param(buf,2,bytes);
 		if (!isanum(spelling)) return ERR_NOT_A_NUMBER;
 		helper = atoi(spelling);
@@ -274,10 +275,10 @@ parse_stop(char *buf, int bytes, int fd)
     param = get_param(buf,1,bytes);
 	if (isanum(param)) target = atoi(param);
 			
-	MSG(2, "Stop recieved.");
+	MSG(4, "Stop recieved.");
 	ret = stop_c(STOP, fd, target);
-	if(ret) return "ERR CLIENT NOT FOUND\n\r";
-	else return "OK STOPPED\n\r";
+	if(ret) return ERR_NO_SUCH_CLIENT;
+	else return OK_STOPED;
 }
 
 char*
@@ -288,10 +289,10 @@ parse_pause(char *buf, int bytes, int fd)
 	int ret;
 	param = get_param(buf,1,bytes);
 	if (isanum(param)) target = atoi(param);
-	MSG(2, "Pause recieved.\n");
+	MSG(4, "Pause recieved.\n");
 	ret = stop_c(PAUSE, fd, target);
-	if(ret)	return "ERR CLIENT NOT FOUND\n\r";
-	else return "OK PAUSED\n\r";
+	if(ret)	return ERR_NO_SUCH_CLIENT;
+	else return OK_PAUSED;
 }
 
 char*
@@ -302,10 +303,10 @@ parse_resume(char *buf, int bytes, int fd)
 	int ret;
 	param = get_param(buf,1,bytes);
 	if (isanum(param)) target = atoi(param);
-	MSG(2, "Resume received.");
+	MSG(4, "Resume received.");
 	ret = stop_c(RESUME, fd, target);
-	if(ret)	return ("ERR CLIENT NOT FOUND\n\r");
-	else return "OK RESUMED\n\r";
+	if(ret)	return ERR_NO_SUCH_CLIENT;
+	else return OK_RESUMED;
 }
 
 char*
@@ -320,7 +321,7 @@ parse_snd_icon(char *buf, int bytes, int fd)
     GList *gl;		
 	
     param = get_param(buf,1,bytes);
-	if (param == NULL) return ("ERR BAD COMMAND\n\r");
+	if (param == NULL) return ERR_MISSING_PARAMETER;
 	
 	settings = (TFDSetElement*) g_hash_table_lookup(fd_settings, &fd);
 	if (settings == NULL)
@@ -329,12 +330,12 @@ parse_snd_icon(char *buf, int bytes, int fd)
 	icons = g_hash_table_lookup(snd_icon_langs, settings->language);
 	if (icons == NULL){
 		icons = g_hash_table_lookup(snd_icon_langs, GlobalFDSet.language);
-		if (icons == NULL) return ("ERR NO SOUND ICONS\n\r");
+		if (icons == NULL) return ERR_NO_SND_ICONS;
 	}
 	
 	word = g_hash_table_lookup(icons, param); 
 
-	if(word==NULL) return ("ERR UNKNOWN ICON\n\r");
+	if(word==NULL) return ERR_UNKNOWN_ICON;
 
 	new = malloc(sizeof(TSpeechDMessage));
 	new->bytes = strlen(word)+1;
@@ -342,5 +343,5 @@ parse_snd_icon(char *buf, int bytes, int fd)
 	strcpy(new->buf, word);
 	if(queue_message(new,fd))  FATAL("Couldn't queue message\n");
 																
-	return "OK SOUND ICON QUEUED\n\r";
+	return OK_SND_ICON_QUEUED;
 }				 

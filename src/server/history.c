@@ -21,7 +21,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.c,v 1.8 2003-03-23 21:22:14 hanke Exp $
+ * $Id: history.c,v 1.9 2003-03-24 22:22:47 hanke Exp $
  */
 
 #include "speechd.h"
@@ -76,19 +76,22 @@ history_get_client_list()
    GString *clist;
    GList *cursor;
 
-   clist = g_string_new("OK CLIENTS:\\\n\r");
+   clist = g_string_new("");
    cursor = history;
    if (cursor == NULL) return ERR_NO_CLIENT;
 
    do{
      client = cursor->data;
+	 assert(client!=NULL);
+     g_string_append_printf(clist, C_OK_CLIENTS"-", client->uid);
      g_string_append_printf(clist, "%d ", client->uid);
      g_string_append(clist, client->client_name);
      g_string_append_printf(clist, " %d", client->active);
      cursor = g_list_next(cursor);
-     if (cursor != NULL) g_string_append(clist, "\\\n\r");
-	 else g_string_append(clist,"\n\r");
+     if (cursor != NULL) g_string_append(clist, "\r\n");
+	 else g_string_append(clist,"\r\n");
    }while(cursor != NULL);
+	g_string_append_printf(clist, OK_CLIENT_LIST_SENT);
 
    return clist->str;                
 }
@@ -102,29 +105,33 @@ history_get_message_list(guint client_id, int from, int num)
    GList *gl;
    int i;
 
-   MSG(3, "from %d num %d, client %d\n", from, num, client_id);
+   MSG(4, "from %d num %d, client %d\n", from, num, client_id);
    
    gl = g_list_find_custom(history, (int*) client_id, p_cli_comp_id);
    if (gl == NULL) return ERR_NO_SUCH_CLIENT;
    client = gl->data;
 
-   mlist = g_string_new("OK MESSAGES:\\\n\r");
+   mlist = g_string_new("");
 
    for (i=from; i<=from+num-1; i++){
      gl = g_list_nth(client->messages, i);
      if (gl == NULL){
-			 MSG(3,"no more data\n");
+			 MSG(4,"no more data\n");
 			 return mlist->str;
 	 }
      message = gl->data;
-     if (message == NULL) FATAL("Internal error.\n");
-	 if(i<from+num-1)
-	     g_string_append_printf(mlist, "%d %s\\\n\r", message->id, client->client_name);
-	 else
-	     g_string_append_printf(mlist, "%d %s\n\r", message->id, client->client_name);
-			
+
+ 	 if (message == NULL){
+		if(SPEECHD_DEBUG) FATAL("Internal error.\n");
+		return ERR_INTERNAL;
+	}
+
+		g_string_append_printf(mlist, C_OK_MSGS"-");
+		g_string_append_printf(mlist, "%d %s\r\n", message->id, client->client_name);
    }
-   return mlist->str;
+ 	
+	g_string_append_printf(mlist, OK_MSGS_LIST_SENT);
+	return mlist->str;
 }
 
 char*
@@ -146,9 +153,10 @@ history_get_last(int fd)
    if (gl == NULL) return ERR_NO_MESSAGE;
    message = gl->data;
       
-   g_string_append_printf(lastm, "OK LAST MESSAGE:\\\n\r%d %s\n\r", 
-           message->id, client->client_name);
-   return lastm->str;
+	g_string_append_printf(lastm, C_OK_LAST_MSG"-%d %s\r\n", 
+		message->id, client->client_name);
+	g_string_append_printf(lastm, OK_LAST_MSG);
+	return lastm->str;
 }
 
 char*
@@ -275,7 +283,7 @@ history_cursor_get(int fd){
    if (gl == NULL)  return ERR_NO_MESSAGE;
    new = gl->data;
 
-   g_string_printf(reply, "OK CURSOR:\\\n\r%d\n\r", new->id);
+   g_string_printf(reply, C_OK_CUR_POS"-%d\r\n"OK_CUR_POS_RET, new->id);
    return reply->str;
 }
 
