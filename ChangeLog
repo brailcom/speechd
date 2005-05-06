@@ -1,3 +1,17 @@
+2005-05-06  Hynek Hanke  <hanke@chopin>
+
+	* src/tests/run_test.c: Cancel everything at the end.
+
+	* src/server/index_marking.c (insert_index_marks): Escape '<' correctly after a dot.
+
+	* INSTALL: Updated the list of compatible applications.	
+	New section ``Building from CVS''
+
+	* INSTALL: libaudio removed, speechd doesn't depend on it.
+	autotool chain replaced by build.sh
+
+	* src/c/clients/say/options.c (options_parse): Missing 'break'.
+
 2005-02-27  Hynek Hanke  <hanke@chopin>
 
 	* src/modules/festival.c (_festival_speak): Removed some redudant debug messages.

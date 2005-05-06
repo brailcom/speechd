@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.58 2005-02-27 20:55:29 hanke Exp $
+ * $Id: festival.c,v 1.59 2005-05-06 19:51:13 hanke Exp $
  */
 
 #include "fdset.h"
@@ -337,7 +337,6 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
     /* Send semaphore signal to the speaking thread */
     festival_speaking = 1;
     sem_post(festival_semaphore);
-
 
     DBG("Festival: leaving write() normaly\n\r");
     return bytes;
