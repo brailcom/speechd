@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: index_marking.c,v 1.10 2004-10-12 20:27:22 hanke Exp $
+  * $Id: index_marking.c,v 1.11 2005-05-06 19:50:54 hanke Exp $
   */
 
 #include "index_marking.h"
@@ -82,12 +82,12 @@ insert_index_marks(TSpeechDMessage *msg, int ssml_mode)
 	    }
 	}
         else if (((u_char == '.') || (u_char == '?') || (u_char == '!')) && !inside_tag){
-            pos = g_utf8_find_next_char(pos, NULL);   
+            pos = g_utf8_find_next_char(pos, NULL);
             ret = spd_utf8_read_char(pos, character2);
             if ((ret == 0) || (strlen(character2) == 0)){
                 g_string_append_printf(marked_text, "%s", character);
                 MSG2(6, "index_marking", "MSG altering 1: |%s|", marked_text->str);
-                break;            
+                break;
             }
             u_char = g_utf8_get_char(character2);
             if (g_unichar_isspace(u_char)){
@@ -95,8 +95,10 @@ insert_index_marks(TSpeechDMessage *msg, int ssml_mode)
                 n++;
                 MSG2(6, "index_marking", "MSG altering 2: |%s|", marked_text->str);
             }else{
-                g_string_append_printf(marked_text, "%s%s", character, character2);
+                g_string_append_printf(marked_text, "%s", character);
+		//		pos = g_utf8_find_prev_char(pos, NULL);
                 MSG2(6, "index_marking", "MSG altering 3: |%s|", marked_text->str);
+		continue;
             }
         }
         else{
