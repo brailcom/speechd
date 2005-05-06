@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.c,v 1.1 2004-05-23 21:23:57 hanke Exp $
+ * $Id: options.c,v 1.2 2005-05-06 19:51:26 hanke Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would
@@ -137,6 +137,7 @@ options_parse(int argc, char *argv[])
             break;
 	case 's':
 	    spelling = 1;
+	    break;
         case 'v':
             options_print_version(argv);
             exit(0);
