@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: run_test.c,v 1.7 2003-12-21 22:07:31 hanke Exp $
+ * $Id: run_test.c,v 1.8 2005-05-06 19:50:31 hanke Exp $
  */
 
 #include <stdio.h>
@@ -208,6 +208,11 @@ main(int argc, char* argv[])
         printf("     >> %s", line);
     }
 
+
+    printf("\nCanceling...\n");
+    send_data(sockk, "CANCEL SELF\r\n", 1);
+
+    
     close(sockk);
 
     printf("\n==================\n");
