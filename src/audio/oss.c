@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: oss.c,v 1.4 2004-11-29 14:26:18 hanke Exp $
+ * $Id: oss.c,v 1.5 2005-05-06 19:52:13 hanke Exp $
  */
 
 int
@@ -201,7 +201,7 @@ oss_play(AudioID *id, AudioTrack track)
     num_bytes = track.num_samples*bytes_per_sample;
     while(num_bytes > 0) {
 
-	/* OSS doesn't support non-blocking write, so lets check how much date
+	/* OSS doesn't support non-blocking write, so lets check how much data
 	 can we write so that write() returns immediatelly */	
 	re = ioctl(id->fd, SNDCTL_DSP_GETOSPACE, &info);
 	if (re == -1){
@@ -271,7 +271,7 @@ oss_play(AudioID *id, AudioTrack track)
 	pthread_mutex_unlock(&id->pt_mutex);
 
 	/* The pthread_cond_timedwait was interrupted by change in the
-	 condition variable? if so, terminate.*/
+ 	   condition variable? if so, terminate.*/
         if (r != ETIMEDOUT) break;               
     }
 
@@ -290,7 +290,7 @@ oss_play(AudioID *id, AudioTrack track)
     }
 
     /* Close the device so that we don't block other apps trying to
-       acces the device. */
+       access the device. */
     _oss_close(id);
 
     return 0;
