@@ -18,14 +18,14 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.c,v 1.2 2005-05-06 19:51:26 hanke Exp $
+ * $Id: options.c,v 1.3 2005-05-13 10:35:09 hanke Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would
    get repetitive initializations warnings */
 
 #define PACKAGE "spd-say"
-#define VERSION "0.1"
+#define VERSION "0.3"
 
 #include <stdio.h>
 #include <assert.h>
@@ -52,6 +52,8 @@ options_print_help(char *argv[])
            "                               (male1, male2, male3, female1, female2\n"
 	   "                                female3, child_male, child_female)\n"
 	   "-m, --punctuation-mode -     Set the punctuation mode (none, some, all) \n"
+           "-P, --priority         -     Set priority of the message (important, message,\n"
+           "                                text, notification, progress)\n"
 	   "-s, --spelling         -     Spell the message\n"
 	   "-v, --version          -     Print version and copyright info\n"
 	   "-h, --help             -     Print this info\n\n"
@@ -137,6 +139,9 @@ options_parse(int argc, char *argv[])
             break;
 	case 's':
 	    spelling = 1;
+	    break;
+	case 'P':
+	    OPT_SET_STR(priority);
 	    break;
         case 'v':
             options_print_version(argv);
