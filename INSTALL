@@ -60,17 +60,26 @@ check for example for libflite_cmu_us_kal.so in your library directory.
 (It's also possible to use Speech Dispatcher with Flite static libraries,
 but it is generally not a good way unless you know what you are doing.)
 
-Notes about NAS support
-=======================
+Notes about NAS and ALSA support
+================================
 
 Speech Dispatcher's default audio output system is the Open Sound System,
 e.g. /dev/dsp. But it's also possible to build it with Network Audio System
-support and then switch between these two audio systems in the output module
-configuration files (e.g. festival.conf). If you have NAS and all the necessary
-developement libraries installed (audio, Xau), it will be detected
-automatically when running ./configure and Speech Dispatcher will be compiled
-with NAS support.  Please make sure the libraries are installed
-correctly. Please examine ./configure output for possible problems.
+and/or Alsa support and then switch between these two audio systems in the
+output module configuration files (e.g. festival.conf). If you have NAS and/or
+Alsa and all the necessary developement libraries installed (audio and Xau for
+NAS, libasound for ALSA)), it will be detected automatically when running
+./configure and Speech Dispatcher will be compiled with NAS and/or ALSA
+support.  Please make sure the libraries are installed correctly. Please
+examine ./configure output for possible problems.
+
+We would like to warn you, that the latest version of NAS 1.7 available to us
+has problems in heavy use (fast typing of keys, many messages comming at once).
+Until this is fixed in NAS, we can't recommend you to use this plugin unless
+you know what you are doing.
+
+Please note that the ALSA output plugin is now in an experimental stage.
+
 
 Continue building Speech Dispatcher
 ===================================
