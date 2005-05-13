@@ -1,3 +1,30 @@
+2005-05-13  Hynek Hanke  <hanke@chopin>
+
+	* src/audio/alsa.c: New file.
+
+	* src/modules/festival.c (module_init): Added the "alsa" parameter
+	as a valid output method.
+
+	* INSTALL: Warn about NAS bugs under heavy use, mention ALSA.
+
+	* src/c/clients/say/say.c: New parameter -P, --priority.
+
+	* src/c/clients/say/options.c (options_print_help): Added -P, --priority.
+	(VERSION): 0.3
+	(options_parse): priority.
+
+	* src/c/clients/say/options.h: Added the priority parameter.
+
+	* src/audio/spd_audio.c: Include alsa module.
+
+	* configure.in: Optional (and autodetect) compilation with ALSA support.
+
+	* src/audio/Makefile.am (ALSA_LIBS): New variable.
+	(ALSA_FLAGS): New variable.
+
+	* src/audio/spd_audio.h (AudioID): Added ALSA variables.
+	include alsa/asoundlib.h
+
 2005-05-06  Hynek Hanke  <hanke@chopin>
 
 	* src/tests/run_test.c: Cancel everything at the end.
