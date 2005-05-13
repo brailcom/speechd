@@ -121,6 +121,24 @@ AC_ARG_WITH(nas, AS_HELP_STRING(--with-nas, Compile with Network Audio System (N
 
 AM_CONDITIONAL(nas_support, test $nas_aud = "true")
 
+AC_CHECK_LIB(asound,
+        snd_pcm_open,
+	alsa_aud="true";echo "Compiling with ALSA support.";,
+        alsa_aud="false";echo "*** ALSA C API library missing. Compiling without ALSA support! See INSTALL.";)
+
+AC_ARG_WITH(alsa, AS_HELP_STRING(--with-alsa, Compile with ALSA support),
+		 if test $withval = "no"; then 
+		    echo "Forced compilation without ALSA support.";
+		    alsa_aud="false";
+		 else 
+		    if test $alsa_aud = "false"; then
+		       echo "ALSA support is not available. Sorry."; exit 1;
+		    fi
+                 fi
+ 		 echo "")
+
+AM_CONDITIONAL(alsa_support, test $alsa_aud = "true")
+
 glib_include=`pkg-config --cflags glib-2.0`
 AC_SUBST(glib_include)
 glib_libs=`pkg-config --libs glib-2.0`
