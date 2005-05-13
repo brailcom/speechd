@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: spd_audio.h,v 1.7 2004-11-21 22:12:12 hanke Exp $
+ * $Id: spd_audio.h,v 1.8 2005-05-13 10:34:55 hanke Exp $
  */
 
 #include <pthread.h>
@@ -29,9 +29,13 @@
 #include <audio/soundlib.h>
 #endif
 
+#ifdef WITH_ALSA
+#include <alsa/asoundlib.h>
+#endif
+
 #define AUDIO_BUF_SIZE 4096
 
-typedef enum{AUDIO_OSS = 0, AUDIO_NAS = 1} AudioOutputType;
+typedef enum{AUDIO_OSS = 0, AUDIO_NAS = 1, AUDIO_ALSA=2} AudioOutputType;
 
 typedef struct{
     int bits;
@@ -62,6 +66,12 @@ typedef struct{
     pthread_mutex_t fd_mutex;
     pthread_cond_t pt_cond;
     pthread_mutex_t pt_mutex;
+#endif
+
+#ifdef WITH_ALSA
+snd_pcm_t *pcm;			/* identifier of the ALSA device */
+snd_pcm_hw_params_t *hw_params;	/* parameters of sound */
+pthread_mutex_t pcm_mutex;	/* mutex to guard the state of the device */
 #endif
 
 #ifdef WITH_NAS
