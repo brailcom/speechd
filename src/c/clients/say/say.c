@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: say.c,v 1.7 2005-02-27 20:55:21 hanke Exp $
+ * $Id: say.c,v 1.8 2005-05-13 10:35:16 hanke Exp $
  */
 
 #include <stdio.h>
@@ -32,6 +32,7 @@
 int main(int argc, char **argv) {
    int sockfd;
    int err;
+   SPDPriority spd_priority;
 
    /* Check if the text to say is specified in the argument */
    if (argc < 2) {
@@ -46,6 +47,7 @@ int main(int argc, char **argv) {
    voice_type = NULL;
    punctuation_mode = NULL;
    spelling = -2;
+   priority = NULL;
 
    options_parse(argc, argv);
    
@@ -114,7 +116,7 @@ int main(int argc, char **argv) {
        if(spd_set_volume(sockfd, volume))
 	   printf("Invalid volume!\n");
 
-   if(spelling == 1)
+   if (spelling == 1)
        if(spd_set_spelling(sockfd, SPD_SPELL_ON))
 	   printf("Can't set spelling to on!\n");
 
@@ -131,13 +133,29 @@ int main(int argc, char **argv) {
 	   if(spd_set_punctuation(sockfd, SPD_PUNCT_ALL))
 	       printf("Can't set this punctuation mode!\n");
        }else{
-	   printf("Invalid punctuation mode\n");
+	   printf("Invalid punctuation mode.\n");
        }
    }
 
+   /* Set default priority... */
+   spd_priority = SPD_TEXT;
+   /* ...and look if it wasn't overriden */
+   if (priority != NULL){
+       if (!strcmp(priority, "important")) spd_priority = SPD_IMPORTANT;
+       else if (!strcmp(priority, "message")) spd_priority = SPD_MESSAGE;
+       else if (!strcmp(priority, "text")) spd_priority = SPD_TEXT;
+       else if (!strcmp(priority, "notification")) spd_priority = SPD_NOTIFICATION;
+       else if (!strcmp(priority, "progress")) spd_priority = SPD_PROGRESS;
+       else{
+	   printf("Invalid priority.\n");
+       }
+   }
+
+	   
+
    /* Say the message with priority "text" */
    assert(argv[argc-1]);
-   err = spd_sayf(sockfd, SPD_TEXT, (char*) argv[argc-1]);
+   err = spd_sayf(sockfd, spd_priority, (char*) argv[argc-1]);
    if (err == -1) FATAL("Speech Dispatcher failed to say message");
    
    /* Close the connection */
