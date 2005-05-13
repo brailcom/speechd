@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: spd_audio.c,v 1.12 2004-11-21 22:12:44 hanke Exp $
+ * $Id: spd_audio.c,v 1.13 2005-05-13 10:35:01 hanke Exp $
  */
 
 /* 
@@ -51,6 +51,10 @@
 #include "nas.c"
 #endif
 
+#ifdef WITH_ALSA
+#include "alsa.c"
+#endif
+
 /* Open the audio device.
 
    Arguments:
@@ -66,12 +70,6 @@
    Newly allocated AudioID structure that can be passed to
    all other spd_audio functions, or NULL in case of failure.
 
-   Comment:
-   If OSS is one of the possible backends, it's prefered to open
-   the device before each playing and close it immediately after
-   to allow the other applications to access /dev/dsp. NAS or
-   another mixing sound server should be used whenever possible
-   to avoid the /dev/dsp problem.
 */
 AudioID*
 spd_audio_open(AudioOutputType type, void **pars, char **error)
@@ -103,6 +101,27 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 	*error = strdup("The sound library wasn't compiled with OSS support.");
 	return NULL;
 #endif       
+    }
+    else if (type == AUDIO_ALSA){
+#ifdef WITH_ALSA
+	id->function = (Funct*) &alsa_functions;
+
+	if (id->function->open != NULL){
+	    ret = id->function->open(id, pars);
+	    if (ret != 0){
+		*error = (char*) strdup("Couldn't open Alsa device.");
+		return NULL;
+	    }
+	}
+	else{
+	    *error = (char*) strdup("Couldn't open ALSA device module.");
+	    return NULL;
+	}
+	id->type = AUDIO_ALSA;
+#else
+	*error = strdup("The sound library wasn't compiled with Alsa support.");
+	return NULL;
+#endif
     }
     else if (type == AUDIO_NAS){
 #ifdef WITH_NAS
