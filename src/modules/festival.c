@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.59 2005-05-06 19:51:13 hanke Exp $
+ * $Id: festival.c,v 1.60 2005-05-13 10:36:26 hanke Exp $
  */
 
 #include "fdset.h"
@@ -225,19 +225,25 @@ module_init(char **status_info)
 	DBG("Using OSS audio output method");
 	festival_pars[0] = FestivalOSSDevice;
 	festival_pars[1] = NULL;
-	festival_audio_id = spd_audio_open(AUDIO_OSS, festival_pars, &error);
+	festival_audio_id = spd_audio_open(AUDIO_OSS, (void**) festival_pars, &error);
 	festival_audio_output_method = AUDIO_OSS;
+    }
+    else if (!strcmp(FestivalAudioOutputMethod, "alsa")){
+	DBG("Using Alsa audio output method");
+	festival_pars[0] = NULL;
+	festival_audio_id = spd_audio_open(AUDIO_ALSA, (void**) festival_pars, &error);
+	festival_audio_output_method = AUDIO_ALSA;
     }
     else if (!strcmp(FestivalAudioOutputMethod, "nas")){
 	DBG("Using NAS audio output method");
 	festival_pars[0] = FestivalNASServer;
 	festival_pars[1] = NULL;
-	festival_audio_id = spd_audio_open(AUDIO_NAS, festival_pars, &error);
+	festival_audio_id = spd_audio_open(AUDIO_NAS, (void**) festival_pars, &error);
 	festival_audio_output_method = AUDIO_NAS;
     }
     else{
 	ABORT("Sound output method specified in configuration not supported. "
-	      "Please choose 'oss' or 'nas'.");
+	      "Please choose 'oss', 'alsa' or 'nas'.");
     }
     if (festival_audio_id == NULL){
 	g_string_append_printf(info, "Opening sound device failed. Reason: %s. ", error);
