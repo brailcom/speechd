@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.h,v 1.1 2003-10-12 23:32:38 hanke Exp $
+ * $Id: module.h,v 1.2 2005-06-10 10:49:33 hanke Exp $
  */
 
 #ifndef MODULE_H
@@ -32,14 +32,16 @@ typedef struct{
     char* name;
     char* filename;
     char* configfilename;
+    char* debugfilename;
     int pipe_in[2];
     int pipe_out[2];    
+    int stderr_redirect;
     pid_t pid;
     int working;
 }OutputModule;
 
 OutputModule* load_output_module(char* mod_name, char* mod_prog,
-                                 char* mod_cfgfile);
+                                 char* mod_cfgfile, char * mod_dbgfile);
 int unload_output_module(OutputModule *module);
 int reload_output_module(OutputModule *old_module);
 void destroy_module(OutputModule *module);
