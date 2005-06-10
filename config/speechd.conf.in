@@ -28,13 +28,13 @@ LogLevel  3
 # Specify "stdout" for standard console output
 # or a full path to some file which the log should be written to.
 
-LogFile  "/var/log/speechd.log"
+LogFile  "/var/log/speech-dispatcher/speechd.log"
 #LogFile  "stdout"
 
 # CustomLogFile allows logging all messages of the given kind, regardless their
 # priority, to the given destination.
 
-#CustomLogFile "protocol" "/tmp/speechd-protocol.log"
+#CustomLogFile "protocol" "/var/log/speech-dispatcher/speechd-protocol.log"
 
 
 # -----MISC OPTIONS-----
@@ -126,17 +126,19 @@ DefaultVolume 100
 # -----OUTPUT MODULES CONFIGURATION-----
 
 # AddModule loads an output module.
-#  Syntax: AddModule "name" "binary" "configuration"
+#  Syntax: AddModule "name" "binary" "configuration" "logfile"
 #  - name is the name under which you can acces this module
 #  - binary is the path to the binary executable of this module,
 #    either relative (to lib/speech-dispatcher-modules/) or absolute
 #  - configuration is the path to the config file of this module,
 #    either relative (to etc/speechd/modules/) or absolute
+#  - logfile is the path where logging information should be stored
+#      (most modules support debug logging, see their configuration)
 
-AddModule "flite"        "sd_flite"     "flite.conf"
-AddModule "festival"     "sd_festival"  "festival.conf"
-#AddModule "epos-generic" "sd_generic"   "epos-generic.conf"
-#AddModule "dtk-generic"  "sd_generic"   "dtk-generic.conf"
+AddModule "flite"        "sd_flite"     "flite.conf"  "/var/log/speech-dispatcher/flite.log"
+AddModule "festival"     "sd_festival"  "festival.conf" "/var/log/speech-dispatcher/festival.log"
+#AddModule "epos-generic" "sd_generic"   "epos-generic.conf" "/var/log/speech-dispatcher/epos.log"
+#AddModule "dtk-generic"  "sd_generic"   "dtk-generic.conf" "/var/log/speech-dispatcher/dtk-generic.log"
 
 # The output module testing doesn't actually connect to
 # anything. It outputs the requested commands to standard output
