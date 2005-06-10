@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.44 2004-11-19 13:54:32 hanke Exp $
+ * $Id: flite.c,v 1.45 2005-06-10 10:48:45 hanke Exp $
  */
 
 
@@ -113,8 +113,6 @@ module_init(char **status_info)
     *status_info = NULL;    
     info = g_string_new("");
 
-    INIT_DEBUG();
-
     /* Init flite and register a new voice */
     flite_init();
     flite_voice = register_cmu_us_kal();
@@ -130,16 +128,16 @@ module_init(char **status_info)
     DBG("Openning audio");
     if (!strcmp(FliteAudioOutputMethod, "oss")){
 	DBG("Using OSS sound output.");
-	flite_pars[0] = FliteOSSDevice;
+	flite_pars[0] = strdup(FliteOSSDevice);
 	flite_pars[1] = NULL;
-	flite_audio_id = spd_audio_open(AUDIO_OSS, flite_pars, &error);
+	flite_audio_id = spd_audio_open(AUDIO_OSS, (void**) flite_pars, &error);
 	flite_audio_output_method = AUDIO_OSS;
     }
     else if (!strcmp(FliteAudioOutputMethod, "nas")){
 	DBG("Using NAS sound output.");
 	flite_pars[0] = FliteNASServer;
 	flite_pars[1] = NULL;
-	flite_audio_id = spd_audio_open(AUDIO_NAS, flite_pars, &error);
+	flite_audio_id = spd_audio_open(AUDIO_NAS, (void**) flite_pars, &error);
 	flite_audio_output_method = AUDIO_NAS;
     }
     else{
@@ -269,8 +267,6 @@ module_close(int status)
     DBG("Closing audio output");
     spd_audio_close(flite_audio_id);
     
-    CLOSE_DEBUG_FILE();
-
     exit(status);
 }
 
@@ -335,14 +331,14 @@ _flite_speak(void* nothing)
 		track.bits = 16;
 		track.samples = wav->samples;
 
-		DBG("b");
+		DBG("b %d", track.num_samples);
 		if (track.samples != NULL){
 		    if (flite_stop){
 			DBG("Stop in child, terminating");
 			break;
 		    }
 		    ret = spd_audio_play(flite_audio_id, track);
-		    if (ret < 0) DBG("ERROR: What's wrong these days?");
+		    if (ret < 0) DBG("ERROR: spd_audio failed to play the track");
 		}
 		DBG("c");
 	    }
@@ -356,7 +352,6 @@ _flite_speak(void* nothing)
 		break;
 	    }
 	}
-	DBG("Closing audio");
 	flite_speaking = 0;
 	flite_stop = 0;
 

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.17 2004-07-21 08:14:35 hanke Exp $
+ * $Id: generic.c,v 1.18 2005-06-10 10:48:49 hanke Exp $
  */
 
 #include <glib.h>
@@ -131,8 +131,6 @@ module_init(char **status_info)
     int ret;
 
     *status_info = NULL;
-
-    INIT_DEBUG();
 
     DBG("GenericMaxChunkLength = %d\n", GenericMaxChunkLength);
     DBG("GenericDelimiters = %s\n", GenericDelimiters);
@@ -268,8 +266,6 @@ module_close(int status)
     if (module_terminate_thread(generic_speak_thread) != 0)
         exit(1);
     
-    CLOSE_DEBUG_FILE();
-
     exit(status);
 }
 
