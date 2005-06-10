@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.21 2004-10-18 19:09:34 hanke Exp $
+ * $Id: module.c,v 1.22 2005-06-10 10:49:21 hanke Exp $
  */
 
 #include <sys/wait.h>
@@ -35,7 +35,7 @@ destroy_module(OutputModule *module)
 }
 
 OutputModule*
-load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile)
+load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_dbgfile)
 {
     OutputModule *module;
     int fr;
@@ -44,6 +44,7 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile)
     int cfg = 0;
     int ret;
     char buf[256];
+    int dbgfile;
 
     if (mod_name == NULL) return NULL;
     
@@ -52,6 +53,8 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile)
     module->name = (char*) spd_strdup(mod_name);
     module->filename = (char*) spd_get_path(mod_prog, MODULEBINDIR);    
     module->configfilename = (char*) spd_get_path(mod_cfgfile, MODULECONFDIR);
+    if (mod_dbgfile != NULL) module->debugfilename = strdup(mod_dbgfile);
+    else module->debugfilename = NULL;
 
     if (!strcmp(mod_name, "testing")){
         module->pipe_in[1] = 1; /* redirect to stdin */
@@ -71,9 +74,24 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile)
         cfg=1;
     }
 
-    MSG(5,"Initializing output module %s with binary %s and configuration %s",
-        module->name, module->filename, module->configfilename);
-    
+    /* Open the file for child stderr (logging) redirection */
+    if (module->debugfilename != NULL){
+	module->stderr_redirect = open(module->debugfilename, O_WRONLY | O_CREAT | O_TRUNC);
+	if (module->stderr_redirect == -1)
+	    MSG(1,"ERROR: Openning debug file for %s failed: (error=%d) %s", module->name,
+		module->stderr_redirect, strerror(errno));    
+    }else{
+	module->stderr_redirect = -1;
+    }
+
+    MSG(2,"Initializing output module %s with binary %s and configuration %s",
+        module->name, module->filename, module->configfilename);    
+    if (module->stderr_redirect >= 0)
+	MSG(2,"Output module is logging to file %s", module->debugfilename);    
+    else
+	MSG(2,"Output module is logging to standard error output (stderr)");    
+
+
     fr = fork();
     switch(fr){
     case -1: printf("Can't fork, error! Module not loaded."); return NULL;
@@ -85,7 +103,12 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile)
         ret = dup2(module->pipe_out[1], 1);
         close(module->pipe_out[1]);
         close(module->pipe_out[0]);        
-        
+
+	/* Redirrect stderr to the appropriate logfile */
+	if (module->stderr_redirect >= 0 ){
+	    ret = dup2(module->stderr_redirect, 2);
+	}
+
         if (cfg == 0){
             if (execlp(module->filename, "", arg1, (char *) 0) == -1){                                
                 exit(1);
@@ -203,7 +226,7 @@ reload_output_module(OutputModule *old_module)
     close(old_module->pipe_out[0]);
 
     new_module = load_output_module(old_module->name, old_module->filename,
-                                    old_module->configfilename);
+                                    old_module->configfilename, old_module->debugfilename);
     if (new_module == NULL){
         MSG(3, "Can't load module %s while reloading modules.", old_module->name);
         return -1;
