@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.h,v 1.3 2004-11-13 14:51:13 hanke Exp $
+ * $Id: module_utils.h,v 1.4 2005-06-10 10:48:59 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -46,10 +46,7 @@ SPDMsgSettings msg_settings_old;
 
 int current_index_mark;
 
-/* This variable is defined later in this
-   file using MOD_OPTION* macro */
-int debug_on;
-FILE* debug_file;
+int Debug;
 
 int SPDSemaphore;
 
@@ -79,11 +76,8 @@ int module_num_dc_options;
  msg_settings.voice = MALE1;\
  CLEAN_OLD_SETTINGS_TABLE()
 
-#define CLOSE_DEBUG_FILE() \
-  if (debug_file != NULL) fclose(debug_file);
-
 #define DBG(arg...) \
-  if (debug_on){ \
+  if (Debug){ \
     time_t t; \
     struct timeval tv; \
     char *tstr; \
@@ -91,11 +85,11 @@ int module_num_dc_options;
     tstr = strdup(ctime(&t)); \
     tstr[strlen(tstr)-1] = 0; \
     gettimeofday(&tv,NULL); \
-    fprintf(debug_file," %s [%d]",tstr, (int) tv.tv_usec); \
-    fprintf(debug_file, ": "); \
-    fprintf(debug_file, arg); \
-    fprintf(debug_file, "\n"); \
-    fflush(debug_file); \
+    fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
+    fprintf(stderr, ": "); \
+    fprintf(stderr, arg); \
+    fprintf(stderr, "\n"); \
+    fflush(stderr); \
     xfree(tstr); \
   }
 
@@ -353,38 +347,18 @@ configoption_t * add_config_option(configoption_t *options, int *num_config_opti
                                      ARG_LIST, name ## _cb, NULL, 0);
 
 
-
-
-
-
-
-
-
 /* --- DEBUGGING SUPPORT  ---*/
 
 #define DECLARE_DEBUG() \
-    static char debug_filename[]; \
-    MOD_OPTION_1_INT(Debug); \
-    MOD_OPTION_1_STR(DebugFile);
+    DOTCONF_CB(Debug ## _cb) \
+    { \
+        Debug = cmd->data.value; \
+        return NULL; \
+    }
+
 
 #define REGISTER_DEBUG() \
     MOD_OPTION_1_INT_REG(Debug, 0); \
-    MOD_OPTION_1_STR_REG(DebugFile, "/tmp/debug-module");
 
-#define INIT_DEBUG() \
-{ \
-    debug_on = Debug; \
-    if (debug_on){ \
-        debug_file = fopen(DebugFile, "w"); \
-        if (debug_file == NULL){ \
-           printf("Can't open debug file!"); \
-           debug_file = stdout; \
-        } \
-    }else{ \
-        debug_file = NULL; \
-    } \
-}
-
-
-/* So that gcc doesn't comply */
+/* So that gcc doesn't complain */
 int getline(char**, int*, FILE*);
