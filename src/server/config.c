@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: config.c,v 1.6 2004-08-04 08:11:59 hanke Exp $
+ * $Id: config.c,v 1.7 2005-06-10 10:49:11 hanke Exp $
  */
 
 #include <dotconf.h>
@@ -246,6 +246,7 @@ DOTCONF_CB(cb_AddModule)
     char *module_name;
     char *module_prgname;
     char *module_cfgfile;
+    char *module_dbgfile;
 
     OutputModule *cur_mod;
 
@@ -254,8 +255,9 @@ DOTCONF_CB(cb_AddModule)
 
     module_prgname = cmd->data.list[1];
     module_cfgfile = cmd->data.list[2];
+    module_dbgfile = cmd->data.list[3];
 
-    cur_mod = load_output_module(module_name, module_prgname, module_cfgfile);
+    cur_mod = load_output_module(module_name, module_prgname, module_cfgfile, module_dbgfile);
     if (cur_mod == NULL){
         MSG(3, "Couldn't load specified output module");
         return NULL;
