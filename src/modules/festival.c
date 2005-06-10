@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.60 2005-05-13 10:36:26 hanke Exp $
+ * $Id: festival.c,v 1.61 2005-06-10 10:48:40 hanke Exp $
  */
 
 #include "fdset.h"
@@ -190,8 +190,6 @@ module_init(char **status_info)
     GString *info;
 
     info = g_string_new("");
-
-    INIT_DEBUG();
 
     DBG("module_init()");
 
@@ -432,9 +430,6 @@ module_close(int status)
 
     DBG("Closing audio output");
     spd_audio_close(festival_audio_id);
-
-    DBG("Closing debug file");
-    CLOSE_DEBUG_FILE();
 
     exit(status);
 }
