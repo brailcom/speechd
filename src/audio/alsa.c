@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.2 2005-06-10 10:47:57 hanke Exp $
+ * $Id: alsa.c,v 1.3 2005-06-11 16:07:32 cramblitt Exp $
  */
 
 #ifndef timersub
@@ -48,6 +48,7 @@ do { \
     fprintf(stderr," ALSA: "); \
     fprintf(stderr,arg); \
     fprintf(stderr,"\n"); \
+    fflush(stderr); \
  }
 
 /* I/O error handler */
@@ -201,7 +202,8 @@ int
 alsa_play(AudioID *id, AudioTrack track)
 {
     int ret;
-    int format, channels;
+    snd_pcm_format_t format;
+    int channels;
     int bytes_per_sample;
     int num_bytes;
     int frames;
@@ -217,14 +219,18 @@ alsa_play(AudioID *id, AudioTrack track)
 
     AudioTrack track_volume;
 
+    MSG("alsa_play called");
+
     if (id == NULL) return -1;
 
     /* Is it not an empty track? */
-    if (track.samples == NULL) return 0;   
+    if (track.samples == NULL) return 0;
 
     /* pcm_mutex: Other threads aren't allowed to change the state */
     pthread_mutex_lock(&id->pcm_mutex);
     /* Ensure we are in the right state */
+    snd_pcm_state_t state = snd_pcm_state(id->pcm);
+    MSG("pcm state: %s", snd_pcm_state_name(state));
     if ((snd_pcm_state(id->pcm) != SND_PCM_STATE_OPEN)
 	&& (snd_pcm_state(id->pcm) != SND_PCM_STATE_SETUP))
 	{
@@ -248,6 +254,7 @@ alsa_play(AudioID *id, AudioTrack track)
     }
 
     /* Set access mode, bitrate, sample rate and channels */
+    MSG("setting access type to INTERLEAVED");
     if ((err = snd_pcm_hw_params_set_access (id->pcm, id->hw_params, SND_PCM_ACCESS_RW_INTERLEAVED)) < 0) {
 	MSG("Cannot set access type (%s)",
 		 snd_strerror (err));
@@ -255,27 +262,31 @@ alsa_play(AudioID *id, AudioTrack track)
 	return -1;
     }
     
+    MSG("setting sample format to %s", snd_pcm_format_name(format));
     if ((err = snd_pcm_hw_params_set_format (id->pcm, id->hw_params, format)) < 0) {
 	MSG("Cannot set sample format (%s)",
 		 snd_strerror (err));
 	pthread_mutex_unlock(&id->pcm_mutex);
 	return -1;
     }
-	
+
+    MSG("setting sample rate to %i", track.sample_rate);	
     if ((err = snd_pcm_hw_params_set_rate_near (id->pcm, id->hw_params, &(track.sample_rate), 0)) < 0) {
 	MSG("Cannot set sample rate (%s)",
 		 snd_strerror (err));
 	pthread_mutex_unlock(&id->pcm_mutex);
 	return -1;
     }
-	    
+
+    MSG("setting channel count to %i", track.num_channels);
     if ((err = snd_pcm_hw_params_set_channels (id->pcm, id->hw_params, track.num_channels)) < 0) {
 	MSG("cannot set channel count (%s)",
 		 snd_strerror (err));
 	pthread_mutex_unlock(&id->pcm_mutex);
 	return -1;
     }
-	
+
+    MSG("setting hardware parameters");	
     if ((err = snd_pcm_hw_params (id->pcm, id->hw_params)) < 0) {
 	MSG("cannot set parameters (%s) %d",
 		 snd_strerror (err), snd_pcm_state(id->pcm));
@@ -284,6 +295,7 @@ alsa_play(AudioID *id, AudioTrack track)
     }
 
 
+    MSG("preparing");
     if ((err = snd_pcm_prepare (id->pcm)) < 0) {
 	MSG("cannot prepare audio interface for use (%s)",
 		 snd_strerror (err));
@@ -296,57 +308,82 @@ alsa_play(AudioID *id, AudioTrack track)
     snd_pcm_hw_params_get_period_size(id->hw_params, &period_size, 0);
     /* Calculate size of silence at end of buffer. */
     size_t samples_per_period = period_size * track.num_channels;
+    MSG("samples per period = %i", samples_per_period);
+    MSG("num_samples = %i", track.num_samples);
     size_t silent_samples = samples_per_period - (track.num_samples % samples_per_period);
+    MSG("silent samples = %i", silent_samples);
     /* Calculate space needed to round up to nearest period size. */
     size_t volume_size = bytes_per_sample*(track.num_samples + silent_samples);
+    MSG("volume size = %i", volume_size);
 
-    /* Create a copy of track with adjusted volume.  
-   TODO: Maybe Alsa can adjust volume itself and this can be done in a clean
-   way? */
+    /* Create a copy of track with adjusted volume. */
+    MSG("making copy of track and adjusting volume");
     track_volume = track;
     track_volume.samples = (short*) malloc(volume_size);
     real_volume = ((float) id->volume + 100)/(float)200;
     for (i=0; i<=track.num_samples-1; i++)
-	track_volume.samples[i] = track.samples[i] * real_volume;
+        track_volume.samples[i] = track.samples[i] * real_volume;
 
-    /* Fill remaining space with silence */
     if (silent_samples > 0) {
+        /* Fill remaining space with silence */
+        MSG("filling with silence");
+        /* TODO: This hangs.  Why?
         snd_pcm_format_set_silence(format,
             track_volume.samples + (track.num_samples * bytes_per_sample), silent_samples);
+        */
+        u_int16_t silent16;
+        u_int8_t silent8;
+        switch (bytes_per_sample) {
+            case 2:
+                silent16 = snd_pcm_format_silence_16(format);
+                for (i = 0; i < silent_samples; i++)
+                    track_volume.samples[track.num_samples + i] = silent16;
+                break;
+            case 1:
+                silent8 = snd_pcm_format_silence_8(format);
+                for (i = 0; i < silent_samples; i++)
+                    track_volume.samples[track.num_samples + i] = silent8;
+                break;
+        }
     }
 
     pthread_mutex_unlock(&id->pcm_mutex);
 
-    /* Loop until all samples are played on the device.
-       In the meantime sleep. */
+    /* Loop until all samples are played on the device. */
     output_samples = track_volume.samples;
     num_bytes = (track.num_samples + silent_samples)*bytes_per_sample;
-    /* MSG("ALSA: %i bytes to output\n", num_bytes); */
+    MSG("ALSA: %i bytes to output\n", num_bytes);
     while(num_bytes > 0) {
 
 	pthread_mutex_lock(&id->pcm_mutex);
-	if ((snd_pcm_state(id->pcm) != SND_PCM_STATE_RUNNING)
-	    && (snd_pcm_state(id->pcm) != SND_PCM_STATE_PREPARED))
+        /* See if alsa_stop was called, in which case state will change to SETUP. */
+        state = snd_pcm_state(id->pcm);
+        MSG("pcm state: %s", snd_pcm_state_name(state));
+	if ((state != SND_PCM_STATE_RUNNING)
+	    && (state != SND_PCM_STATE_PREPARED))
 	{
 	    /* The device was stopped in the meantime */
+            free(track_volume.samples);
 	    pthread_mutex_unlock(&id->pcm_mutex);
-	    return 0;	    
+	    return 0;
 	}
-
 
 	/* Write as much samples as possible */
         framecount = num_bytes/bytes_per_sample/track.num_channels;
         if (framecount < period_size) framecount = period_size;
+
+        /* Hynek: Try with and without the following statement.
+        if (framecount > 2000) framecount = 2000; */
+
 	pthread_mutex_unlock(&id->pcm_mutex);
         // MSG("ALSA: Writing %i frames\n", framecount);
         /* This will block until either ALSA is ready for more input or
            snd_pcm_drop() has been called by another thread. */
 	/* TODO: remove, debug message */
 	MSG("write");
-	fflush(stderr);
 	ret = snd_pcm_writei (id->pcm, output_samples, framecount);
 
-	/* WARNING: Looks like we never get there after stop is called when snd_pcm_writei
+	/* WARNING: Looks like we never get here after stop is called when snd_pcm_writei
 	 is blocking! */
         MSG("Wrote %i frames.", ret);
 
@@ -355,9 +392,9 @@ alsa_play(AudioID *id, AudioTrack track)
             /* MSG("ALSA: Waiting for ALSA pcm to come ready\n"); */
             snd_pcm_wait(id->pcm, 1000);
         } else if (ret == -EPIPE) {
-            if (xrun(id) != 0) return -1;
+            if (xrun(id) != 0) goto error_exit;
         } else if (ret == -ESTRPIPE) {
-            if (suspend(id) != 0) return -1;
+            if (suspend(id) != 0) goto error_exit;
         } else if (ret == -EBUSY){
 	    /* TODO: This should use something more sophisticated, the sleep
 	       should be interruptible and prevent buffer underruns as in
@@ -372,7 +409,7 @@ alsa_play(AudioID *id, AudioTrack track)
 	    /* Some error happened or snd_pcm_drop() was called */
 	    MSG("Write to audio interface failed (%s)",
 		     snd_strerror (ret));
-	    return -1;
+	    goto error_exit;
 	}
         if (ret > 0) {
 
@@ -386,10 +423,16 @@ alsa_play(AudioID *id, AudioTrack track)
     /* NOTE: I'm not sure if this is interruptible by alsa_stop() */
     snd_pcm_drain(id->pcm);
 
-    /* TODO: Is this necessary or does AudioCD take care of it? */
     free(track_volume.samples);
 
+    MSG("alsa_play normal exit");
+
     return 0;
+
+error_exit:
+    free(track_volume.samples);
+    MSG("alsa_play abnormal exit");
+    return -1;
 }
 
 /*
@@ -428,6 +471,7 @@ alsa_close(AudioID *id)
 	MSG("Cannot close audio device (%s)");
 	return -1;
     }
+    MSG("ALSA closed.");
 
     /* Destroy mutexes, free memory */
     pthread_mutex_destroy(&id->pcm_mutex);
