@@ -173,5 +173,5 @@ LanguageDefaultModule "es"  "festival"
 # * to match any number of characters and ? to match one character)
 
 Include "clients/emacs.conf"
-Include "clients/gnome-speech.conf"
+Include "clients/gnomespeech.conf"
 
