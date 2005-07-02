@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: spd_audio.c,v 1.13 2005-05-13 10:35:01 hanke Exp $
+ * $Id: spd_audio.c,v 1.14 2005-07-02 12:15:55 hanke Exp $
  */
 
 /* 
@@ -109,7 +109,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 	if (id->function->open != NULL){
 	    ret = id->function->open(id, pars);
 	    if (ret != 0){
-		*error = (char*) strdup("Couldn't open Alsa device.");
+		*error = (char*) strdup("Couldn't open ALSA device.");
 		return NULL;
 	    }
 	}
