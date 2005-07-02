@@ -1,3 +1,17 @@
+2005-07-02  Hynek Hanke  <hanke@chopin>
+
+	* config/clients/gnome-speech.conf: Local configuration for gnome speech.
+
+	* config/modules/festival.conf: Mention FestivalALSADEvice
+
+	* src/audio/alsa.c (alsa_play): Bug: snd_pcm_format_silence_8() -> snd_pcm_format_silence()
+
+	* src/audio/spd_audio.c (spd_audio_open): Typo.
+
+	* src/modules/festival.c (module_load): Add FestivalALSADevice parameter.
+
+	* src/audio/alsa.c (alsa_open): New parameter: alsa device.
+
 2005-06-10  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/audio/alsa.c: Alsa now works in blocking mode (thx Gary Cramblitt)

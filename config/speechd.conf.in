@@ -172,5 +172,6 @@ LanguageDefaultModule "es"  "festival"
 # it should apply this settings (it does glob-style matching, you can use
 # * to match any number of characters and ? to match one character)
 
-# Include "clients/emacs.conf"
+Include "clients/emacs.conf"
+Include "clients/gnome-speech.conf"
 
