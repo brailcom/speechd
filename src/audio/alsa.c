@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.3 2005-06-11 16:07:32 cramblitt Exp $
+ * $Id: alsa.c,v 1.4 2005-07-02 12:15:44 hanke Exp $
  */
 
 #ifndef timersub
@@ -119,12 +119,14 @@ suspend(AudioID *id)
  not the right one?
 */
 int
-_alsa_open(AudioID *id)
+_alsa_open(AudioID *id, char *device)
 {
     int err;
 
+    assert (device);
+
     /* Open the device */
-    if ((err = snd_pcm_open (&id->pcm, "default",
+    if ((err = snd_pcm_open (&id->pcm, device,
 			     SND_PCM_STREAM_PLAYBACK, 0)) < 0) { 
 	MSG("Cannot open audio device (%s)",
 		 snd_strerror (err));
@@ -179,10 +181,11 @@ alsa_open(AudioID *id, void **pars)
     if (id == NULL) return 0;
 
     MSG("Opened succesfully");
-    
-    ret = _alsa_open(id);
+    if (pars[0] == NULL) return -1;
+
+    ret = _alsa_open(id, pars[0]);
     if (ret){
-	MSG("Cannot initialize Alsa device");
+	MSG("Cannot initialize Alsa device '%s'", pars[0]);
 	return -1;
     }
 
@@ -340,10 +343,11 @@ alsa_play(AudioID *id, AudioTrack track)
                     track_volume.samples[track.num_samples + i] = silent16;
                 break;
             case 1:
-                silent8 = snd_pcm_format_silence_8(format);
-                for (i = 0; i < silent_samples; i++)
-                    track_volume.samples[track.num_samples + i] = silent8;
-                break;
+		/*  */
+		silent8 = snd_pcm_format_silence(format);
+		for (i = 0; i < silent_samples; i++)
+				    track_volume.samples[track.num_samples + i] = silent8;
+		                break;
         }
     }
 
@@ -363,6 +367,7 @@ alsa_play(AudioID *id, AudioTrack track)
 	    && (state != SND_PCM_STATE_PREPARED))
 	{
 	    /* The device was stopped in the meantime */
+	    MSG("Device stopped in meantine");
             free(track_volume.samples);
 	    pthread_mutex_unlock(&id->pcm_mutex);
 	    return 0;
@@ -372,8 +377,8 @@ alsa_play(AudioID *id, AudioTrack track)
         framecount = num_bytes/bytes_per_sample/track.num_channels;
         if (framecount < period_size) framecount = period_size;
 
-        /* Hynek: Try with and without the following statement.
-        if (framecount > 2000) framecount = 2000; */
+        /* Hynek: Try with and without the following statement. */
+        /*if (framecount > 2000) framecount = 2000;*/
 
 	pthread_mutex_unlock(&id->pcm_mutex);
         // MSG("ALSA: Writing %i frames\n", framecount);
@@ -382,7 +387,6 @@ alsa_play(AudioID *id, AudioTrack track)
 	/* TODO: remove, debug message */
 	MSG("write");
 	ret = snd_pcm_writei (id->pcm, output_samples, framecount);
-
 	/* WARNING: Looks like we never get here after stop is called when snd_pcm_writei
 	 is blocking! */
         MSG("Wrote %i frames.", ret);
@@ -444,14 +448,19 @@ alsa_stop(AudioID *id)
     int ret;
 
     /* TODO: remove, debug message */
-    MSG("alsa_stop() called");
+    MSG("alsa_stop() called%s", snd_pcm_state_name(snd_pcm_state(id->pcm)));
     
     if (id == NULL) return 0;
 
     pthread_mutex_lock(&id->pcm_mutex);
-    
+
+    //    if (snd_pcm_state(id->pcm) != SND_PCM_STATE_RUNNING) return 0;
+    MSG("drop() (before: %s)", snd_pcm_state_name(snd_pcm_state(id->pcm)));
     /* Stop the playback, this will interrupt alsa_play() */
     snd_pcm_drop(id->pcm);
+    MSG("drop() (after: %s)", snd_pcm_state_name(snd_pcm_state(id->pcm)));
+    //    snd_pcm_drain(id->pcm);
+    //    MSG("drain() (after) %s", snd_pcm_state_name(snd_pcm_state(id->pcm)));
     
     pthread_mutex_unlock(&id->pcm_mutex);
 
