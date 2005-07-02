@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.61 2005-06-10 10:48:40 hanke Exp $
+ * $Id: festival.c,v 1.62 2005-07-02 12:17:01 hanke Exp $
  */
 
 #include "fdset.h"
@@ -102,6 +102,7 @@ MOD_OPTION_1_STR(FestivalRecodeFallback);
 
 MOD_OPTION_1_STR(FestivalAudioOutputMethod);
 MOD_OPTION_1_STR(FestivalOSSDevice);
+MOD_OPTION_1_STR(FestivalALSADevice);
 MOD_OPTION_1_STR(FestivalNASServer);
 
 MOD_OPTION_1_INT(FestivalCacheOn);
@@ -161,6 +162,7 @@ module_load(void)
 
     MOD_OPTION_1_STR_REG(FestivalAudioOutputMethod, "oss");
     MOD_OPTION_1_STR_REG(FestivalOSSDevice, "/dev/dsp");
+    MOD_OPTION_1_STR_REG(FestivalALSADevice, "default");
     MOD_OPTION_1_STR_REG(FestivalNASServer, NULL);
 
     MOD_OPTION_1_INT_REG(FestivalCacheOn, 1);
@@ -228,7 +230,8 @@ module_init(char **status_info)
     }
     else if (!strcmp(FestivalAudioOutputMethod, "alsa")){
 	DBG("Using Alsa audio output method");
-	festival_pars[0] = NULL;
+	festival_pars[0] = FestivalALSADevice;
+	festival_pars[1] = NULL;
 	festival_audio_id = spd_audio_open(AUDIO_ALSA, (void**) festival_pars, &error);
 	festival_audio_output_method = AUDIO_ALSA;
     }
