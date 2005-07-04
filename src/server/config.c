@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: config.c,v 1.7 2005-06-10 10:49:11 hanke Exp $
+ * $Id: config.c,v 1.8 2005-07-04 18:46:23 hanke Exp $
  */
 
 #include <dotconf.h>
@@ -313,6 +313,9 @@ DOTCONF_CB(cb_EndClient)
         FATAL("Configuration: Already outside the client specific section!");
     
     client_specific_settings = g_list_append(client_specific_settings, cl_spec_section);
+
+    cl_spec_section = NULL;
+
     return NULL;
 }
 
