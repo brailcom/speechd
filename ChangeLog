@@ -1,4 +1,19 @@
+2005-07-04  Hynek Hanke  <hanke@chopin>
+
+	* src/server/config.c (cb_EndClient): Assign NULL to cl_spec_section.
+
+	* src/server/server.c (last_messge_id): Start counting from 1.
+	(queue_message): Changed return value to message uid on success, 0 on failure.
+
 2005-07-02  Hynek Hanke  <hanke@chopin>
+
+	* src/c/clients/say/options.c (options_print_version): fixed copyright notice
+
+2005-07-02  Hynek Hanke  <hanke@chopin>
+
+	* config/clients/emacs.conf: Change nothing by default.
+
+	* config/speechd.conf.in: Load the clients specific configuration files for Emacs and Gnome Speech by default.
 
 	* config/clients/gnome-speech.conf: Local configuration for gnome speech.
 
