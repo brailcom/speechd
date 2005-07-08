@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: config.c,v 1.8 2005-07-04 18:46:23 hanke Exp $
+ * $Id: config.c,v 1.9 2005-07-08 14:19:41 hanke Exp $
  */
 
 #include <dotconf.h>
@@ -291,6 +291,7 @@ DOTCONF_CB(cb_BeginClient)
 
     MSG(3, "Reading configuration for pattern %s", cl_spec->pattern);
 
+    /*  Warning: If you modify this, you must also modify update_cl_settings() in set.c !*/
     SET_PAR(rate, -101)
     SET_PAR(pitch, -101)
     SET_PAR(volume, -101)
@@ -299,6 +300,7 @@ DOTCONF_CB(cb_BeginClient)
     SET_PAR(voice, -1)
     SET_PAR(cap_let_recogn, -1)
     SET_PAR(pause_context, -1);
+    SET_PAR(ssml_mode, -1);
     SET_PAR_STR(language)
     SET_PAR_STR(output_module)
     
