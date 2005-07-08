@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.36 2004-08-04 08:12:07 hanke Exp $
+ * $Id: set.c,v 1.37 2005-07-08 14:20:11 hanke Exp $
  */
 
 #include "set.h"
@@ -244,6 +244,7 @@ update_cl_settings(gpointer data, gpointer user_data)
 
     if (fnmatch(cl_set->pattern, set->client_name, 0)) return;
 
+    /*  Warning: If you modify this, you must also modify cb_BeginClient in config.c !*/
     CHECK_SET_PAR(rate, -101)
     CHECK_SET_PAR(pitch, -101)
     CHECK_SET_PAR(volume, -101)
