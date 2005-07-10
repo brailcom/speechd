@@ -1,3 +1,16 @@
+2005-07-10  Hynek Hanke  <hanke@chopin>
+
+	* src/audio/alsa.c (ERR): New macro. Use it, when appropriate.
+	(_alsa_open): Output device name too when impossible to open.
+	No mutexes now necessary.
+	(_alsa_open): Create a pipe for communication of stop requests to
+	the other thread.
+	(_alsa_close): Close the pipe.
+	Improved logging.
+	(wait_for_poll): New function.
+	(ERROR_EXIT): New macro. Used instead of ``goto error_exit''.
+	(alsa_play): The while loop modified for the new mechanism (see comments).
+
 2005-07-04  Hynek Hanke  <hanke@chopin>
 
 	* src/server/config.c (cb_EndClient): Assign NULL to cl_spec_section.
