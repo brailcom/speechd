@@ -1,3 +1,7 @@
+2005-07-23  Hynek Hanke  <hanke@chopin>
+
+	* src/audio/alsa.c (alsa_play): Initialize hw_params each time before
+
 2005-07-10  Hynek Hanke  <hanke@chopin>
 
 	* src/audio/alsa.c (ERR): New macro. Use it, when appropriate.
