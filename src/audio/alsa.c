@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.5 2005-07-10 16:59:57 hanke Exp $
+ * $Id: alsa.c,v 1.6 2005-07-23 16:46:57 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -150,8 +150,9 @@ _alsa_open(AudioID *id, char *device)
 	ERR("Cannot open audio device %s (%s)", device, snd_strerror (err));
 	return -1;
     }
-    
+   
     /* Allocate space for hw_params (description of the sound parameters) */
+    MSG("Allocating new hw_params structure");
     if ((err = snd_pcm_hw_params_malloc (&id->hw_params)) < 0) {
 	ERR("Cannot allocate hardware parameter structure (%s)", 
 	    snd_strerror(err));
@@ -379,11 +380,22 @@ alsa_play(AudioID *id, AudioTrack track)
     /* Passing an empty track is not an error */
     if (track.samples == NULL) return 0;
 
+    /* Initialize hw_params on our pcm */
+    /* This should get us to the proper state for setting parameters */
+    /* WARNING: Either this is only a side-effect of this function
+     or it's name is really really misleading! */
+    if ((err = snd_pcm_hw_params_any (id->pcm, id->hw_params)) < 0) {
+	ERR("Cannot initialize hardware parameter structure (%s)", 
+	    snd_strerror (err));
+	return -1;
+    }
+
     /* Ensure we are in the right state */
     snd_pcm_state_t state = snd_pcm_state(id->pcm);
 
     MSG("PCM state before setting audio parameters: %s",
-	snd_pcm_state_name(state));
+	snd_pcm_state_name(state));    
+
     if ((snd_pcm_state(id->pcm) != SND_PCM_STATE_OPEN)
 	&& (snd_pcm_state(id->pcm) != SND_PCM_STATE_SETUP)
 	&& (snd_pcm_state(id->pcm) != SND_PCM_STATE_RUNNING))
