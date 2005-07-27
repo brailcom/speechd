@@ -1,7 +1,15 @@
+2005-07-27  Hynek Hanke  <hanke@chopin>
+
+	* src/c/api/libspeechd.{c.h}: Declarations of internal functions moved to libspeechd.c so that
+	gcc doesn't complain about redeclarations of static functions as non-static.
+
+	* src/audio/alsa.c (alsa_play): Handle XRUN state when preparing to play.
+
 2005-07-23  Hynek Hanke  <hanke@chopin>
 
-	* src/audio/alsa.c (alsa_play): Initialize hw_params each time before
-
+	* src/audio/alsa.c (alsa_play): Initialize hw_params each time
+	before setting parameters.
+ 
 2005-07-10  Hynek Hanke  <hanke@chopin>
 
 	* src/audio/alsa.c (ERR): New macro. Use it, when appropriate.

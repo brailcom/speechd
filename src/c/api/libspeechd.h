@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.18 2004-06-10 10:17:43 pdm Exp $
+ * $Id: libspeechd.h,v 1.19 2005-07-27 15:47:07 hanke Exp $
  */
 
 
@@ -32,7 +32,6 @@ extern "C" {
 
 /* Debugging */
 FILE* spd_debug;
-void SPD_DBG(char *format, ...);
 
 /* Unless there is an fatal error, it doesn't print anything */
 #define SPD_FATAL(msg) { printf("Fatal error (libspeechd) [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
@@ -156,21 +155,7 @@ int spd_set_output_module_uid(int connection, const char* output_module, unsigne
 int spd_execute_command(int connection, char* command);
 char* spd_send_data(int fd, const char *message, int wfr);
 
-/* --------------  Private functions  ------------------------*/
 
-int spd_set_priority(int connection, SPDPriority priority);
-
-char* escape_dot(const char *otext);
-
-int isanum(char* str);		
-char* get_rec_str(char *record, int pos);
-int get_rec_int(char *record, int pos);
-int get_err_code(char *reply);
-char* parse_response_data(char *resp, int pos);
-void *xmalloc(size_t bytes);
-void xfree(void *ptr);
-    
-int ret_ok(char *reply);
 
 #ifdef __cplusplus
 }
