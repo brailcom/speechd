@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.16 2004-05-23 12:34:03 hanke Exp $
+ * $Id: libspeechd.c,v 1.17 2005-07-27 15:47:03 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -41,6 +41,20 @@
 
 /* Comment/uncomment to switch debugging on/off */
 // #define LIBSPEECHD_DEBUG
+
+/* --------------  Private functions headers ------------------------*/
+
+static int spd_set_priority(int connection, SPDPriority priority);
+static char* escape_dot(const char *otext);
+static int isanum(char* str);		
+static char* get_rec_str(char *record, int pos);
+static int get_rec_int(char *record, int pos);
+static int get_err_code(char *reply);
+static char* parse_response_data(char *resp, int pos);
+static void *xmalloc(size_t bytes);
+static void xfree(void *ptr);   
+static int ret_ok(char *reply);
+static void SPD_DBG(char *format, ...);
 
 /* --------------------- Public functions ------------------------- */
 
