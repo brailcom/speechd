@@ -1,5 +1,7 @@
 2005-07-27  Hynek Hanke  <hanke@chopin>
 
+	* src/audio/alsa.c (alsa_play): Typo.
+
 	* src/c/api/libspeechd.{c.h}: Declarations of internal functions moved to libspeechd.c so that
 	gcc doesn't complain about redeclarations of static functions as non-static.
 
