@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.6 2005-07-23 16:46:57 hanke Exp $
+ * $Id: alsa.c,v 1.7 2005-07-27 15:45:49 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -396,14 +396,31 @@ alsa_play(AudioID *id, AudioTrack track)
     MSG("PCM state before setting audio parameters: %s",
 	snd_pcm_state_name(state));    
 
-    if ((snd_pcm_state(id->pcm) != SND_PCM_STATE_OPEN)
-	&& (snd_pcm_state(id->pcm) != SND_PCM_STATE_SETUP)
-	&& (snd_pcm_state(id->pcm) != SND_PCM_STATE_RUNNING))
-	{
+    if (snd_pcm_state(id->pcm) == SND_PCM_STATE_XRUN){
+	    MSG("WARNING: Buffer underrun detected!");
+	    /* This is going to get fixed with snd_pcm_prepare() */
+    }	
+
+    if (snd_pcm_state(id->pcm) == SND_PCM_STATE_DRAINING){
+	if (snd_pcm_state_drain(id->pcm) != 0){
+	    	    ERR("Wrong state of the audio device %s, can't recover", 
+		snd_pcm_state_name(snd_pcm_state(id->pcm)));
+	    return -1;
+	}
+    }else if(snd_pcm_state(id->pcm) == SND_PCM_STATE_SUSPENDED){
+	if(suspend(id) != 0){
+	    ERR("Wrong state of the audio device %s, can't recover", 
+		snd_pcm_state_name(snd_pcm_state(id->pcm)));
+	    return -1;
+	}
+    }else if(snd_pcm_state(id->pcm) == SND_PCM_STATE_DISCONNECTED){
+	if(suspend(id) != 0){
 	    ERR("Wrong state of the audio device %s", 
 		snd_pcm_state_name(snd_pcm_state(id->pcm)));
 	    return -1;
 	}
+    }
+	
 
     /* Choose the correct format */
     if (track.bits == 16){	
