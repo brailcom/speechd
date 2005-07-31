@@ -19,15 +19,14 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.8 2005-07-27 16:02:12 hanke Exp $
+ * $Id: alsa.c,v 1.9 2005-07-31 22:55:13 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
     alsa-lib functions.*/
 
-int alsa_stop_pipe[2];		/* Pipe for communication about stop requests*/
-int alsa_fd_count;
-struct pollfd *alsa_poll_fds;
+/* TODO: This is temporary. It rellies on just one instance of this library to be running
+ at one time */
 
 #ifndef timersub
 #define	timersub(a, b, result) \
@@ -137,17 +136,15 @@ suspend(AudioID *id)
 /* Open the device so that it's ready for playing on the default
    device. Internal function used by the public alsa_open. */
 int
-_alsa_open(AudioID *id, char *device)
+_alsa_open(AudioID *id)
 {
     int err;
     struct pollfd alsa_stop_pipe_pfd;
-    
-    assert (device);
-    
+        
     /* Open the device */
-    if ((err = snd_pcm_open (&id->pcm, device,
+    if ((err = snd_pcm_open (&id->pcm, id->alsa_device_name,
 			     SND_PCM_STREAM_PLAYBACK, SND_PCM_NONBLOCK)) < 0) { 
-	ERR("Cannot open audio device %s (%s)", device, snd_strerror (err));
+	ERR("Cannot open audio device %s (%s)", id->alsa_device_name, snd_strerror (err));
 	return -1;
     }
    
@@ -167,37 +164,38 @@ _alsa_open(AudioID *id, char *device)
     }
     
     /* Create the pipe for communication about stop requests */
-    if (pipe (alsa_stop_pipe))
+    if (pipe (id->alsa_stop_pipe))
 	{
 	    ERR("Stop pipe creation failed (%s)", strerror(errno));
 	    return -1;
 	}   
 
     /* Find how many descriptors we will get for poll() */
-    alsa_fd_count = snd_pcm_poll_descriptors_count(id->pcm);
-    if (alsa_fd_count <= 0){
+    id->alsa_fd_count = snd_pcm_poll_descriptors_count(id->pcm);
+    if (id->alsa_fd_count <= 0){
 	ERR("Invalid poll descriptors count returned from ALSA.");
 	return -1;
     }
 
     /* Create and fill in struct pollfd *alsa_poll_fds with ALSA descriptors */
-    alsa_poll_fds = malloc ((alsa_fd_count + 1) * sizeof(struct pollfd));
-    assert(alsa_poll_fds);    
-    if ((err = snd_pcm_poll_descriptors(id->pcm, alsa_poll_fds, alsa_fd_count)) < 0) {
+    id->alsa_poll_fds = malloc ((id->alsa_fd_count + 1) * sizeof(struct pollfd));
+    assert(id->alsa_poll_fds);    
+    if ((err = snd_pcm_poll_descriptors(id->pcm, id->alsa_poll_fds, id->alsa_fd_count)) < 0) {
 	ERR("Unable to obtain poll descriptors for playback: %s\n", snd_strerror(err));
 	return -1;
     }
     
     /* Create a new pollfd structure for requests by alsa_stop()*/
-    alsa_stop_pipe_pfd.fd = alsa_stop_pipe[0];
+    alsa_stop_pipe_pfd.fd = id->alsa_stop_pipe[0];
     alsa_stop_pipe_pfd.events = POLLIN;
     alsa_stop_pipe_pfd.revents = 0;
-    
-    
+        
     /* Join this our own pollfd to the ALSAs ones */
-    alsa_poll_fds[alsa_fd_count] = alsa_stop_pipe_pfd;
-    alsa_fd_count++;
-    
+    id->alsa_poll_fds[id->alsa_fd_count] = alsa_stop_pipe_pfd;
+    id->alsa_fd_count++;
+
+    id->alsa_opened = 1;
+
     return 0;
 }
 
@@ -209,14 +207,20 @@ int
 _alsa_close(AudioID *id)
 {
     int err;
+
+    id->alsa_opened = 0;
     
     if ((err = snd_pcm_close (id->pcm)) < 0) {
 	MSG("Cannot close ALSA device (%s)", snd_strerror (err));
 	return -1;
     }
     
-    close(alsa_stop_pipe[0]);
-    close(alsa_stop_pipe[1]);
+    close(id->alsa_stop_pipe[0]);
+    close(id->alsa_stop_pipe[1]);
+
+    snd_pcm_hw_params_free (id->hw_params);
+    free(id->alsa_poll_fds);
+
     
     return 0;
 }
@@ -234,7 +238,9 @@ int
 alsa_open(AudioID *id, void **pars)
 {
     int ret;
-    
+
+    id->alsa_opened = 0;
+
     if (id == NULL){
 	ERR("Can't open ALSA sound output, invalid AudioID structure.");
 	return 0;
@@ -246,10 +252,17 @@ alsa_open(AudioID *id, void **pars)
     }
     
     MSG("Opening ALSA sound output");
+
+    id->alsa_device_name = strdup(pars[0]);
     
-    ret = _alsa_open(id, pars[0]);
+    ret = _alsa_open(id);
     if (ret){
-	ERR("Cannot initialize Alsa device '%s'.", pars[0]);
+	ERR("Cannot initialize Alsa device '%s': Can't open.", pars[0]);
+	return -1;
+    }
+    _alsa_close(id);
+    if (ret){
+	ERR("Cannot initialize Alsa device '%s': Can't close.", pars[0]);
 	return -1;
     }
     
@@ -266,12 +279,10 @@ alsa_close(AudioID *id)
 
     /* Close device */
     if ((err = _alsa_close(id)) < 0) { 
-	MSG("Cannot close audio device (%s)");
+	ERR("Cannot close audio device (%s)");
 	return -1;
     }
     MSG("ALSA closed.");
-
-    snd_pcm_hw_params_free (id->hw_params);
 
     id = NULL;
 
@@ -283,20 +294,21 @@ alsa_close(AudioID *id)
 Returns 0 if ALSA is ready for more input, +1 if a request to stop
 the sound output was received and a negative value on error.  */
 
-int wait_for_poll(snd_pcm_t *handle, struct pollfd *alsa_poll_fds, 
+int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds, 
 			 unsigned int count)
 {
         unsigned short revents;
+	snd_pcm_state_t state;
 	int ret;
 
 	/* Wait for certain events */
         while (1) {
-                ret = poll(alsa_poll_fds, count, -1);
+                ret = poll(id->alsa_poll_fds, count, -1);
 		// MSG("wait_for_poll: activity on %d descriptors", ret);
 
 		/* Check for stop request from alsa_stop on the last file
 		 descriptors*/
-		if (revents = alsa_poll_fds[count-1].revents){
+		if (revents = id->alsa_poll_fds[count-1].revents){
 		    if (revents & POLLIN){
 			MSG("wait_for_poll: stop requested");
 			return 1;
@@ -304,11 +316,24 @@ int wait_for_poll(snd_pcm_t *handle, struct pollfd *alsa_poll_fds,
 		}
 
 		/* Check the first count-1 descriptors for ALSA events */
-		snd_pcm_poll_descriptors_revents(handle, alsa_poll_fds, count-1, &revents);
-
+		snd_pcm_poll_descriptors_revents(id->pcm, id->alsa_poll_fds, count-1, &revents);
+	       
 		/* Check for errors */
                 if (revents & POLLERR) 
 		    return -EIO;
+
+		/* Ensure we are in the right state */
+		state = snd_pcm_state(id->pcm);
+
+		if (snd_pcm_state(id->pcm) == SND_PCM_STATE_XRUN){
+		    MSG("WARNING: Buffer underrun detected!");
+		    if (xrun(id) != 0) return -1;
+		}
+
+		if (snd_pcm_state(id->pcm) == SND_PCM_STATE_SUSPENDED){
+		    MSG("WARNING: Suspend detected!");
+		    if (suspend(id) != 0) return -1;
+		}
 
 		/* Is ALSA ready for more input? */
                 if (revents & POLLOUT)
@@ -320,6 +345,7 @@ int wait_for_poll(snd_pcm_t *handle, struct pollfd *alsa_poll_fds,
 #define ERROR_EXIT()\
     free(track_volume.samples); \
     ERR("alsa_play() abnormal exit"); \
+    _alsa_close(id); \
     return -1;
 
 /* Play the track _track_ (see spd_audio.h) using the id->pcm device and
@@ -358,69 +384,27 @@ alsa_play(AudioID *id, AudioTrack track)
 
     char buf[100];
 
+    snd_pcm_state_t state;
+
     MSG("Start of playback on ALSA");
 
     if (id == NULL){
 	ERR("Invalide device passed to alsa_play()");
 	return -1;
     }
-    
-    /* Clear the stop pipe of any previous trash */
-    /* WARNING, TODO: This still admits some troubles with wrong timing. We may
-       remove a valid request here. This, however, seems to be a drawback of the
-       design of spd_audio. The practical effect seems to be negligible. */
-    ret = poll(alsa_poll_fds, alsa_fd_count, 0);
-    if (ret > 0 && alsa_poll_fds[alsa_fd_count-1].revents == POLLIN){
-	do{
-	    ret = read(alsa_stop_pipe[0], buf, 100);
-	}while(ret == 100);
-    }
 
+    /* This is needed, otherwise we can't set different
+     parameters than in tha last call. */
+    _alsa_open(id);
+    
     /* Is it not an empty track? */
     /* Passing an empty track is not an error */
     if (track.samples == NULL) return 0;
 
-    /* Initialize hw_params on our pcm */
-    /* This should get us to the proper state for setting parameters */
-    /* WARNING: Either this is only a side-effect of this function
-     or it's name is really really misleading! */
-    if ((err = snd_pcm_hw_params_any (id->pcm, id->hw_params)) < 0) {
-	ERR("Cannot initialize hardware parameter structure (%s)", 
-	    snd_strerror (err));
-	return -1;
-    }
-
-    /* Ensure we are in the right state */
-    snd_pcm_state_t state = snd_pcm_state(id->pcm);
-
+    /* Report current state state */
+    state = snd_pcm_state(id->pcm);
     MSG("PCM state before setting audio parameters: %s",
-	snd_pcm_state_name(state));    
-
-    if (snd_pcm_state(id->pcm) == SND_PCM_STATE_XRUN){
-	    MSG("WARNING: Buffer underrun detected!");
-	    /* This is going to get fixed with snd_pcm_prepare() */
-    }	
-
-    if (snd_pcm_state(id->pcm) == SND_PCM_STATE_DRAINING){
-	if (snd_pcm_drain(id->pcm) != 0){
-	    	    ERR("Wrong state of the audio device %s, can't recover", 
-		snd_pcm_state_name(snd_pcm_state(id->pcm)));
-	    return -1;
-	}
-    }else if(snd_pcm_state(id->pcm) == SND_PCM_STATE_SUSPENDED){
-	if(suspend(id) != 0){
-	    ERR("Wrong state of the audio device %s, can't recover", 
-		snd_pcm_state_name(snd_pcm_state(id->pcm)));
-	    return -1;
-	}
-    }else if(snd_pcm_state(id->pcm) == SND_PCM_STATE_DISCONNECTED){
-	if(suspend(id) != 0){
-	    ERR("Wrong state of the audio device %s", 
-		snd_pcm_state_name(snd_pcm_state(id->pcm)));
-	    return -1;
-	}
-    }
-	
+	snd_pcm_state_name(state));
 
     /* Choose the correct format */
     if (track.bits == 16){	
@@ -546,16 +530,15 @@ alsa_play(AudioID *id, AudioTrack track)
 	ret = snd_pcm_writei (id->pcm, output_samples, framecount);
         MSG("Sent %i frames.", ret);
 
-
-        if (ret == -EAGAIN || (ret >= 0 && ret < framecount)) {
-            /* MSG("ALSA: Waiting for ALSA pcm to come ready\n"); */
-            snd_pcm_wait(id->pcm, 1000);
+        if (ret == -EAGAIN) {
+	    MSG("Warning: Forced wait!");
+	    snd_pcm_wait(id->pcm, 100);
         } else if (ret == -EPIPE) {
             if (xrun(id) != 0) ERROR_EXIT();
 	} else if (ret == -ESTRPIPE) {
 	    if (suspend(id) != 0) ERROR_EXIT();
 	} else if (ret == -EBUSY){
-            MSG("ALSA WARNING: sleeping while PCM BUSY");
+            MSG("WARNING: sleeping while PCM BUSY");
             usleep(100);
             continue;
         } else if (ret < 0) {	    
@@ -574,24 +557,13 @@ alsa_play(AudioID *id, AudioTrack track)
 	/* Don't do stop() here since we would get trash in
 	 the pipe which would not be cleared */
 
-	err = wait_for_poll(id->pcm, alsa_poll_fds, alsa_fd_count);
+	err = wait_for_poll(id, id->alsa_poll_fds, id->alsa_fd_count);
 	if (err < 0) {
-	    if (snd_pcm_state(id->pcm) == SND_PCM_STATE_XRUN ||
-		snd_pcm_state(id->pcm) == SND_PCM_STATE_SUSPENDED) {	       
-		/* Playing probably canceled */
-		/* TODO: This is a little mysterious, isn't it?  We should
-		 probably never get there. */
-		return 0;
-	    } else {
-		ERR("Wait for poll() failed\n");
-		ERROR_EXIT();
-	    }	
-	}else if (err == 1){
+	    ERR("Wait for poll() failed\n");
+	    ERROR_EXIT();
+	}	
+	else if (err == 1){
 	    MSG("Playback stopped");
-	    /* Empty the pipe with the stop requests */
-	    do{
-		ret = read(alsa_stop_pipe[0], buf, 100);
-	    }while(ret == 100);
 
 	    /* Drop the playback on the sound device (probably
 	       still in progress up till now) */
@@ -610,7 +582,7 @@ alsa_play(AudioID *id, AudioTrack track)
     if (track_volume.samples != NULL)
 	free(track_volume.samples);
     
-    snd_pcm_drain(id->pcm);
+    _alsa_close(id);
     
 
     MSG("End of playback on ALSA");
@@ -629,25 +601,26 @@ alsa_stop(AudioID *id)
     int ret;
     char buf;
 
-    /* This constant is arbitrary */
-    buf = 42;
-
-    /* TODO: remove, debug message */
-    MSG("Request for stop, device state is %s",
-	snd_pcm_state_name(snd_pcm_state(id->pcm)));
-    
-    if (id == NULL) return 0;
-
-    write(alsa_stop_pipe[1], &buf, 1);
+    if (id->alsa_opened){
+	/* This constant is arbitrary */
+	buf = 42;
+	
+	/* TODO: remove, debug message */
+	MSG("Request for stop, device state is %s",
+	    snd_pcm_state_name(snd_pcm_state(id->pcm)));
+	
+	if (id == NULL) return 0;
+	
+	write(id->alsa_stop_pipe[1], &buf, 1);
+    }	
 
     return 0;
 }
 
-
 /* 
   Set volume
 
-  Comments: I don't know how to set individual track volume with Alsa, so we
+  Comments: It's not possible to set individual track volume with Alsa, so we
    handle volume in alsa_play() by scalar multiplication of each sample.
 */
 int
