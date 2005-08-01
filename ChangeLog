@@ -1,5 +1,9 @@
 2005-08-01  Hynek Hanke  <hanke@chopin>
 
+	* src/audio/alsa.c: New debugging messages.
+
+2005-08-01  Hynek Hanke  <hanke@chopin>
+	
 	* src/audio/spd_audio.h: New parameters moved here, including alsa_device_name (taken from pars[0]).
 
 	* src/audio/alsa.c (wait_for_poll): SND_PCM_STATE_XRUN and SND_PCM_STATE suspend are now checked here.
