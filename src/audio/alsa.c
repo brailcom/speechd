@@ -19,14 +19,11 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.9 2005-07-31 22:55:13 hanke Exp $
+ * $Id: alsa.c,v 1.10 2005-08-01 09:53:08 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
     alsa-lib functions.*/
-
-/* TODO: This is temporary. It rellies on just one instance of this library to be running
- at one time */
 
 #ifndef timersub
 #define	timersub(a, b, result) \
@@ -81,7 +78,9 @@ xrun(AudioID *id)
     int res;
     
     if (id == NULL) return -1;
-    
+
+    MSG("WARNING: Entering XRUN handler");
+
     
     snd_pcm_status_alloca(&status);
     if ((res = snd_pcm_status(id->pcm, status))<0) {
@@ -115,6 +114,8 @@ int
 suspend(AudioID *id)
 {
     int res;
+
+    MSG("WARNING: Entering SUSPEND handler.");
     
     if (id == NULL) return -1;
     
@@ -140,14 +141,17 @@ _alsa_open(AudioID *id)
 {
     int err;
     struct pollfd alsa_stop_pipe_pfd;
-        
+
+    MSG("Opening ALSA device");
+    fflush(stderr);
+
     /* Open the device */
     if ((err = snd_pcm_open (&id->pcm, id->alsa_device_name,
 			     SND_PCM_STREAM_PLAYBACK, SND_PCM_NONBLOCK)) < 0) { 
 	ERR("Cannot open audio device %s (%s)", id->alsa_device_name, snd_strerror (err));
 	return -1;
     }
-   
+
     /* Allocate space for hw_params (description of the sound parameters) */
     MSG("Allocating new hw_params structure");
     if ((err = snd_pcm_hw_params_malloc (&id->hw_params)) < 0) {
@@ -196,6 +200,8 @@ _alsa_open(AudioID *id)
 
     id->alsa_opened = 1;
 
+    MSG("Opening ALSA device ... success");
+
     return 0;
 }
 
@@ -207,6 +213,8 @@ int
 _alsa_close(AudioID *id)
 {
     int err;
+
+    MSG("Closing ALSA device");
 
     id->alsa_opened = 0;
     
@@ -221,6 +229,7 @@ _alsa_close(AudioID *id)
     snd_pcm_hw_params_free (id->hw_params);
     free(id->alsa_poll_fds);
 
+    MSG("Opening ALSA device ... success");
     
     return 0;
 }
@@ -301,6 +310,8 @@ int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds,
 	snd_pcm_state_t state;
 	int ret;
 
+	MSG("Waiting for poll");
+
 	/* Wait for certain events */
         while (1) {
                 ret = poll(id->alsa_poll_fds, count, -1);
@@ -325,6 +336,8 @@ int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds,
 		/* Ensure we are in the right state */
 		state = snd_pcm_state(id->pcm);
 
+		MSG("State after poll returned is %s", snd_pcm_state_name(state));
+
 		if (snd_pcm_state(id->pcm) == SND_PCM_STATE_XRUN){
 		    MSG("WARNING: Buffer underrun detected!");
 		    if (xrun(id) != 0) return -1;
@@ -336,8 +349,10 @@ int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds,
 		}
 
 		/* Is ALSA ready for more input? */
-                if (revents & POLLOUT)
+                if (revents & POLLOUT){
+		    MSG("Poll: Ready for more input");
 		    return 0;	       
+		}
         }
 }
 
@@ -494,7 +509,7 @@ alsa_play(AudioID *id, AudioTrack track)
 
     if (silent_samples > 0) {
         /* Fill remaining space with silence */
-        MSG("Filling with silence up to the period size");
+        MSG("Filling with silence up to the period size, silent_samples=%d", silent_samples);
         /* TODO: This hangs.  Why?
         snd_pcm_format_set_silence(format,
             track_volume.samples + (track.num_samples * bytes_per_sample), silent_samples);
@@ -507,8 +522,7 @@ alsa_play(AudioID *id, AudioTrack track)
 	    for (i = 0; i < silent_samples; i++)
 		track_volume.samples[track.num_samples + i] = silent16;
 	    break;
-	case 1:
-	    /*  */
+	case 1:	    
 	    silent8 = snd_pcm_format_silence(format);
 	    for (i = 0; i < silent_samples; i++)
 		track_volume.samples[track.num_samples + i] = silent8;
@@ -519,16 +533,21 @@ alsa_play(AudioID *id, AudioTrack track)
     /* Loop until all samples are played on the device. */
     output_samples = track_volume.samples;
     num_bytes = (track.num_samples + silent_samples)*bytes_per_sample;
-    MSG("Still %i bytes left to be played", num_bytes);
+    MSG("Still %d bytes left to be played", num_bytes);
     while(num_bytes > 0) {
 	
 	/* Write as much samples as possible */
         framecount = num_bytes/bytes_per_sample/track.num_channels;
         if (framecount < period_size) framecount = period_size;
 
+	/* Report current state state */
+	state = snd_pcm_state(id->pcm);
+	MSG("PCM state before writei: %s",
+	    snd_pcm_state_name(state));
+
 	/* MSG("snd_pcm_writei() called") */
 	ret = snd_pcm_writei (id->pcm, output_samples, framecount);
-        MSG("Sent %i frames.", ret);
+        MSG("Sent %d frames of %d remaining", ret, num_bytes);
 
         if (ret == -EAGAIN) {
 	    MSG("Warning: Forced wait!");
@@ -554,8 +573,10 @@ alsa_play(AudioID *id, AudioTrack track)
         }
 	
 
-	/* Don't do stop() here since we would get trash in
-	 the pipe which would not be cleared */
+	/* Report current state state */
+	state = snd_pcm_state(id->pcm);
+	MSG("PCM state before polling: %s",
+	    snd_pcm_state_name(state));
 
 	err = wait_for_poll(id, id->alsa_poll_fds, id->alsa_fd_count);
 	if (err < 0) {
