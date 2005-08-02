@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.13 2005-08-02 17:48:45 hanke Exp $
+ * $Id: alsa.c,v 1.14 2005-08-02 22:13:51 cramblitt Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -316,8 +316,8 @@ int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds,
 	/* Wait for certain events */
         while (1) {
 	    ret = poll(id->alsa_poll_fds, count, -1);
-	    // MSG("wait_for_poll: activity on %d descriptors", ret);
-	    
+	    MSG("wait_for_poll: activity on %d descriptors", ret);
+
 	    /* Check for stop request from alsa_stop on the last file
 	       descriptors*/
 	    if (revents = id->alsa_poll_fds[count-1].revents){
@@ -330,16 +330,11 @@ int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds,
 	    /* Check the first count-1 descriptors for ALSA events */
 	    snd_pcm_poll_descriptors_revents(id->pcm, id->alsa_poll_fds, count-1, &revents);
 	    
-	    /* Check for errors */
-	    if (revents & POLLERR) 
-		return -EIO;
-	    
 	    /* Ensure we are in the right state */
 	    state = snd_pcm_state(id->pcm);
-	    
 	    MSG("State after poll returned is %s", snd_pcm_state_name(state));
 	    
-	    if (snd_pcm_state(id->pcm) == SND_PCM_STATE_XRUN){
+	    if (SND_PCM_STATE_XRUN == state){
 		if (!draining){
 		    MSG("WARNING: Buffer underrun detected!");
 		    if (xrun(id) != 0) return -1;
@@ -350,11 +345,17 @@ int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds,
 		}
 	    }
 	    
-	    if (snd_pcm_state(id->pcm) == SND_PCM_STATE_SUSPENDED){
+	    if (SND_PCM_STATE_SUSPENDED == state){
 		MSG("WARNING: Suspend detected!");
 		if (suspend(id) != 0) return -1;
 		return 0;
 	    }
+	    
+	    /* Check for errors */
+	    if (revents & POLLERR) {
+                MSG("wait_for_poll: poll revents says POLLERR");
+		return -EIO;
+            }
 	    
 	    /* Is ALSA ready for more input? */
 	    if ((revents & POLLOUT)){
