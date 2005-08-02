@@ -1,3 +1,10 @@
+2005-08-02  Hynek Hanke  <hanke@chopin>
+
+	* src/audio/alsa.c (alsa_play): At the end of playback, set avail_min to the whole buffer and
+	wait until poll() returns, meaning the buffer is free.
+
+	* src/audio/spd_audio.h (AudioID): New member sw_params for alsa.
+
 2005-08-01  Hynek Hanke  <hanke@chopin>
 
 	* src/audio/alsa.c: New debugging messages.
