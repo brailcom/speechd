@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.10 2005-08-01 09:53:08 hanke Exp $
+ * $Id: alsa.c,v 1.11 2005-08-02 14:34:06 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -95,7 +95,7 @@ xrun(AudioID *id)
 	timersub(&now, &tstamp, &diff);
 	MSG("underrun!!! (at least %.3f ms long)",
 	    diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
-	if ((res = snd_pcm_prepare(id->pcm))<0) {
+	if ((res = snd_pcm_prepare(id->pcm)) < 0) {
 	    ERR("xrun: prepare error: %s", snd_strerror(res));
 	    
 	    return -1;
@@ -159,7 +159,7 @@ _alsa_open(AudioID *id)
 	    snd_strerror(err));
 	return -1;
     }
-    
+
     /* Initialize hw_params on our pcm */
     if ((err = snd_pcm_hw_params_any (id->pcm, id->hw_params)) < 0) {
 	ERR("Cannot initialize hardware parameter structure (%s)", 
@@ -227,9 +227,10 @@ _alsa_close(AudioID *id)
     close(id->alsa_stop_pipe[1]);
 
     snd_pcm_hw_params_free (id->hw_params);
+    snd_pcm_sw_params_free (id->sw_params);
     free(id->alsa_poll_fds);
 
-    MSG("Opening ALSA device ... success");
+    MSG("Closing ALSA device ... success");
     
     return 0;
 }
@@ -341,15 +342,17 @@ int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds,
 		if (snd_pcm_state(id->pcm) == SND_PCM_STATE_XRUN){
 		    MSG("WARNING: Buffer underrun detected!");
 		    if (xrun(id) != 0) return -1;
+		    return 0;
 		}
-
+		
 		if (snd_pcm_state(id->pcm) == SND_PCM_STATE_SUSPENDED){
 		    MSG("WARNING: Suspend detected!");
 		    if (suspend(id) != 0) return -1;
+		    return 0;
 		}
-
+		
 		/* Is ALSA ready for more input? */
-                if (revents & POLLOUT){
+		if ((revents & POLLOUT)){
 		    MSG("Poll: Ready for more input");
 		    return 0;	       
 		}
@@ -455,7 +458,7 @@ alsa_play(AudioID *id, AudioTrack track)
     if ((err = snd_pcm_hw_params_set_rate_near (id->pcm, id->hw_params,
 						&(track.sample_rate), 0)) < 0) {
 	ERR("Cannot set sample rate (%s)",
-		 snd_strerror (err));
+	    snd_strerror (err));
 	
 	return -1;
     }
@@ -474,6 +477,35 @@ alsa_play(AudioID *id, AudioTrack track)
 	    snd_strerror (err), snd_pcm_state_name(snd_pcm_state(id->pcm)));	
 	return -1;
     }
+
+    /* Allocate space for sw_params (description of the sound parameters) */
+    MSG("Allocating new sw_params structure");
+    if ((err = snd_pcm_sw_params_malloc (&id->sw_params)) < 0) {
+	ERR("Cannot allocate hardware parameter structure (%s)", 
+	    snd_strerror(err));
+	return -1;
+    }       
+
+    /* Get the current swparams */
+    if ((err = snd_pcm_sw_params_current(id->pcm, id->sw_params)) < 0){
+	ERR("Unable to determine current swparams for playback: %s\n",
+	       snd_strerror(err));
+	return -1;
+    }    
+
+    MSG("Checking buffer size");
+    if ((err = snd_pcm_hw_params_get_buffer_size(id->hw_params, &id->buffer_size)) < 0){	
+	ERR("Unable to get buffer size for playback: %s\n", snd_strerror(err));
+	return -1;
+    }
+    MSG("Buffer size on ALSA device is %d bytes", id->buffer_size);
+
+    /* allow the transfer when at least period_size samples can be processed */
+    /*    err = snd_pcm_sw_params_set_avail_min(id->pcm, id->sw_params, id->buffer_size/4);
+    if (err < 0) {
+	ERR("Unable to set avail min for playback: %s\n", snd_strerror(err));
+	return err;
+	}*/
 
 
     MSG("Preparing device for playback");
@@ -547,7 +579,7 @@ alsa_play(AudioID *id, AudioTrack track)
 
 	/* MSG("snd_pcm_writei() called") */
 	ret = snd_pcm_writei (id->pcm, output_samples, framecount);
-        MSG("Sent %d frames of %d remaining", ret, num_bytes);
+        MSG("Sent %d frames of %d remaining bytes", ret*bytes_per_sample, num_bytes);
 
         if (ret == -EAGAIN) {
 	    MSG("Warning: Forced wait!");
@@ -590,7 +622,14 @@ alsa_play(AudioID *id, AudioTrack track)
 	       still in progress up till now) */
 	    snd_pcm_drop(id->pcm);
 	    
-	    break;	   
+	    if (track_volume.samples != NULL)
+		free(track_volume.samples);
+	    
+	    _alsa_close(id);
+	    
+	    
+	    MSG("End of playback on ALSA");	    
+	    return 0;
 	}
 	
 	if (num_bytes <= 0) break;
@@ -598,6 +637,30 @@ alsa_play(AudioID *id, AudioTrack track)
 
 	/* Stop requests can be issued again */
     }
+
+    MSG("Draining...");
+
+    /* We want to next "device ready" notification only after the buffer is
+       already empty */
+    err = snd_pcm_sw_params_set_avail_min(id->pcm, id->sw_params, id->buffer_size);
+    if (err < 0) {
+	ERR("Unable to set avail min for playback: %s\n", snd_strerror(err));
+	return err;
+    }
+   
+    MSG("Waiting for poll");	
+    err = wait_for_poll(id, id->alsa_poll_fds, id->alsa_fd_count);
+    if (err < 0) {
+	ERR("Wait for poll() failed\n");
+	return -1;
+    } else if (err == 1){
+	MSG("Playback stopped");
+	
+	/* Drop the playback on the sound device (probably
+	   still in progress up till now) */
+	snd_pcm_drop(id->pcm);	
+    }
+    MSG("Draining terminated");
 
     /* Terminating (successfully or after a stop) */
     if (track_volume.samples != NULL)
