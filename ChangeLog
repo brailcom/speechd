@@ -2,6 +2,7 @@
 
 	* src/audio/alsa.c (alsa_play): At the end of playback, set avail_min to the whole buffer and
 	wait until poll() returns, meaning the buffer is free.
+	(alsa_play): Call snd_pcm_set_swparams() addiotionally.
 
 	* src/audio/spd_audio.h (AudioID): New member sw_params for alsa.
 
