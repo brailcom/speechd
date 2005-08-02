@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: spd_audio.h,v 1.9 2005-07-31 22:55:19 hanke Exp $
+ * $Id: spd_audio.h,v 1.10 2005-08-02 14:33:59 hanke Exp $
  */
 
 #include <pthread.h>
@@ -71,6 +71,8 @@ typedef struct{
 #ifdef WITH_ALSA
     snd_pcm_t *pcm;			/* identifier of the ALSA device */
     snd_pcm_hw_params_t *hw_params;	/* parameters of sound */
+    snd_pcm_sw_params_t *sw_params;	/* parameters of playback */
+    snd_pcm_sframes_t buffer_size;
     pthread_mutex_t pcm_mutex;	/* mutex to guard the state of the device */
     int alsa_stop_pipe[2];		/* Pipe for communication about stop requests*/
     int alsa_fd_count;		/* Counter of descriptors to poll */
