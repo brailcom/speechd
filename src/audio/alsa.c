@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.12 2005-08-02 15:35:23 hanke Exp $
+ * $Id: alsa.c,v 1.13 2005-08-02 17:48:45 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -305,7 +305,7 @@ Returns 0 if ALSA is ready for more input, +1 if a request to stop
 the sound output was received and a negative value on error.  */
 
 int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds, 
-			 unsigned int count)
+			 unsigned int count, int draining)
 {
         unsigned short revents;
 	snd_pcm_state_t state;
@@ -315,47 +315,52 @@ int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds,
 
 	/* Wait for certain events */
         while (1) {
-                ret = poll(id->alsa_poll_fds, count, -1);
-		// MSG("wait_for_poll: activity on %d descriptors", ret);
-
-		/* Check for stop request from alsa_stop on the last file
-		 descriptors*/
-		if (revents = id->alsa_poll_fds[count-1].revents){
-		    if (revents & POLLIN){
-			MSG("wait_for_poll: stop requested");
-			return 1;
-		    }
+	    ret = poll(id->alsa_poll_fds, count, -1);
+	    // MSG("wait_for_poll: activity on %d descriptors", ret);
+	    
+	    /* Check for stop request from alsa_stop on the last file
+	       descriptors*/
+	    if (revents = id->alsa_poll_fds[count-1].revents){
+		if (revents & POLLIN){
+		    MSG("wait_for_poll: stop requested");
+		    return 1;
 		}
-
-		/* Check the first count-1 descriptors for ALSA events */
-		snd_pcm_poll_descriptors_revents(id->pcm, id->alsa_poll_fds, count-1, &revents);
-	       
-		/* Check for errors */
-                if (revents & POLLERR) 
-		    return -EIO;
-
-		/* Ensure we are in the right state */
-		state = snd_pcm_state(id->pcm);
-
-		MSG("State after poll returned is %s", snd_pcm_state_name(state));
-
-		if (snd_pcm_state(id->pcm) == SND_PCM_STATE_XRUN){
+	    }
+	    
+	    /* Check the first count-1 descriptors for ALSA events */
+	    snd_pcm_poll_descriptors_revents(id->pcm, id->alsa_poll_fds, count-1, &revents);
+	    
+	    /* Check for errors */
+	    if (revents & POLLERR) 
+		return -EIO;
+	    
+	    /* Ensure we are in the right state */
+	    state = snd_pcm_state(id->pcm);
+	    
+	    MSG("State after poll returned is %s", snd_pcm_state_name(state));
+	    
+	    if (snd_pcm_state(id->pcm) == SND_PCM_STATE_XRUN){
+		if (!draining){
 		    MSG("WARNING: Buffer underrun detected!");
 		    if (xrun(id) != 0) return -1;
 		    return 0;
-		}
-		
-		if (snd_pcm_state(id->pcm) == SND_PCM_STATE_SUSPENDED){
-		    MSG("WARNING: Suspend detected!");
-		    if (suspend(id) != 0) return -1;
+		}else{
+		    MSG("Poll: Playback terminated");
 		    return 0;
 		}
-		
-		/* Is ALSA ready for more input? */
-		if ((revents & POLLOUT)){
-		    MSG("Poll: Ready for more input");
-		    return 0;	       
-		}
+	    }
+	    
+	    if (snd_pcm_state(id->pcm) == SND_PCM_STATE_SUSPENDED){
+		MSG("WARNING: Suspend detected!");
+		if (suspend(id) != 0) return -1;
+		return 0;
+	    }
+	    
+	    /* Is ALSA ready for more input? */
+	    if ((revents & POLLOUT)){
+		MSG("Poll: Ready for more input");
+		return 0;	       
+	    }
         }
 }
 
@@ -610,7 +615,7 @@ alsa_play(AudioID *id, AudioTrack track)
 	MSG("PCM state before polling: %s",
 	    snd_pcm_state_name(state));
 
-	err = wait_for_poll(id, id->alsa_poll_fds, id->alsa_fd_count);
+	err = wait_for_poll(id, id->alsa_poll_fds, id->alsa_fd_count, 0);
 	if (err < 0) {
 	    ERR("Wait for poll() failed\n");
 	    ERROR_EXIT();
@@ -653,11 +658,9 @@ alsa_play(AudioID *id, AudioTrack track)
 	ERR("Unable to set sw params for playback: %s\n", snd_strerror(err));
 	return -1;
     }
-    return 0;
-
    
     MSG("Waiting for poll");	
-    err = wait_for_poll(id, id->alsa_poll_fds, id->alsa_fd_count);
+    err = wait_for_poll(id, id->alsa_poll_fds, id->alsa_fd_count, 1);
     if (err < 0) {
 	ERR("Wait for poll() failed\n");
 	return -1;

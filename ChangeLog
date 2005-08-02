@@ -1,4 +1,7 @@
 2005-08-02  Hynek Hanke  <hanke@chopin>
+	* (wait_for_poll): Handle XRUN as correct termination when in draining mode.
+
+2005-08-02  Hynek Hanke  <hanke@chopin>
 
 	* src/audio/alsa.c (alsa_play): At the end of playback, set avail_min to the whole buffer and
 	wait until poll() returns, meaning the buffer is free.
