@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.11 2005-08-02 14:34:06 hanke Exp $
+ * $Id: alsa.c,v 1.12 2005-08-02 15:35:23 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -647,6 +647,14 @@ alsa_play(AudioID *id, AudioTrack track)
 	ERR("Unable to set avail min for playback: %s\n", snd_strerror(err));
 	return err;
     }
+    /* write the parameters to the playback device */
+    err = snd_pcm_sw_params(id->pcm, id->sw_params);
+    if (err < 0) {
+	ERR("Unable to set sw params for playback: %s\n", snd_strerror(err));
+	return -1;
+    }
+    return 0;
+
    
     MSG("Waiting for poll");	
     err = wait_for_poll(id, id->alsa_poll_fds, id->alsa_fd_count);
