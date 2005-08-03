@@ -1,3 +1,10 @@
+2005-08-03  Hynek Hanke  <hanke@chopin>
+
+	* src/audio/alsa.c (alsa_play): Check all returned values properly.
+	Cleaning. 
+
+	* src/audio/spd_audio.h: ALSA variables have now their proper alsa_ namespace in AudioID.
+
 2005-08-02  Hynek Hanke  <hanke@chopin>
 	* (wait_for_poll): Handle XRUN as correct termination when in draining mode.
 
