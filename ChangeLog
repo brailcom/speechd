@@ -1,3 +1,7 @@
+2005-08-04  Hynek Hanke  <hanke@chopin>
+
+	* src/audio/alsa.c (alsa_play): Most verbose logging messages commented out.
+
 2005-08-03  Hynek Hanke  <hanke@chopin>
 
 	* src/audio/alsa.c (alsa_play): Check all returned values properly.
