@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.15 2005-08-03 10:13:19 hanke Exp $
+ * $Id: alsa.c,v 1.16 2005-08-04 14:12:37 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -310,12 +310,12 @@ int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds,
 	snd_pcm_state_t state;
 	int ret;
 
-	MSG("Waiting for poll");
+	//	MSG("Waiting for poll");
 
 	/* Wait for certain events */
         while (1) {
 	    ret = poll(id->alsa_poll_fds, count, -1);
-	    MSG("wait_for_poll: activity on %d descriptors", ret);
+	    //	    MSG("wait_for_poll: activity on %d descriptors", ret);
 
 	    /* Check for stop request from alsa_stop on the last file
 	       descriptors*/
@@ -331,7 +331,7 @@ int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds,
 	    
 	    /* Ensure we are in the right state */
 	    state = snd_pcm_state(id->alsa_pcm);
-	    MSG("State after poll returned is %s", snd_pcm_state_name(state));
+	    //	    MSG("State after poll returned is %s", snd_pcm_state_name(state));
 	    
 	    if (SND_PCM_STATE_XRUN == state){
 		if (!draining){
@@ -358,7 +358,7 @@ int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds,
 	    
 	    /* Is ALSA ready for more input? */
 	    if ((revents & POLLOUT)){
-		MSG("Poll: Ready for more input");
+		// MSG("Poll: Ready for more input");
 		return 0;	       
 	    }
         }
@@ -404,6 +404,10 @@ alsa_play(AudioID *id, AudioTrack track)
     int ret;
 
     snd_pcm_uframes_t framecount;
+    snd_pcm_uframes_t period_size;
+    size_t samples_per_period;
+    size_t silent_samples;
+    size_t volume_size;
 
     char buf[100];
 
@@ -502,7 +506,7 @@ alsa_play(AudioID *id, AudioTrack track)
 	return -1;
     }    
 
-    MSG("Checking buffer size");
+    //    MSG("Checking buffer size");
     if ((err = snd_pcm_hw_params_get_buffer_size(id->alsa_hw_params, &id->alsa_buffer_size)) < 0){	
 	ERR("Unable to get buffer size for playback: %s\n", snd_strerror(err));
 	return -1;
@@ -527,18 +531,17 @@ alsa_play(AudioID *id, AudioTrack track)
     }
 
     /* Get period size. */
-    snd_pcm_uframes_t period_size;
     snd_pcm_hw_params_get_period_size(id->alsa_hw_params, &period_size, 0);
 
     /* Calculate size of silence at end of buffer. */
-    size_t samples_per_period = period_size * track.num_channels;
-    MSG("samples per period = %i", samples_per_period);
-    MSG("num_samples = %i", track.num_samples);
-    size_t silent_samples = samples_per_period - (track.num_samples % samples_per_period);
-    MSG("silent samples = %i", silent_samples);
+    samples_per_period = period_size * track.num_channels;
+    //    MSG("samples per period = %i", samples_per_period);
+    //    MSG("num_samples = %i", track.num_samples);
+    silent_samples = samples_per_period - (track.num_samples % samples_per_period);
+    //    MSG("silent samples = %i", silent_samples);
 
     /* Calculate space needed to round up to nearest period size. */
-    size_t volume_size = bytes_per_sample*(track.num_samples + silent_samples);
+    volume_size = bytes_per_sample*(track.num_samples + silent_samples);
     MSG("volume size = %i", volume_size);
 
     /* Create a copy of track with adjusted volume. */
@@ -550,14 +553,15 @@ alsa_play(AudioID *id, AudioTrack track)
         track_volume.samples[i] = track.samples[i] * real_volume;
 
     if (silent_samples > 0) {
+        u_int16_t silent16;
+        u_int8_t silent8;
+
         /* Fill remaining space with silence */
         MSG("Filling with silence up to the period size, silent_samples=%d", silent_samples);
         /* TODO: This hangs.  Why?
         snd_pcm_format_set_silence(format,
             track_volume.samples + (track.num_samples * bytes_per_sample), silent_samples);
         */
-        u_int16_t silent16;
-        u_int8_t silent8;
         switch (bytes_per_sample) {
 	case 2:
 	    silent16 = snd_pcm_format_silence_16(format);
@@ -575,7 +579,7 @@ alsa_play(AudioID *id, AudioTrack track)
     /* Loop until all samples are played on the device. */
     output_samples = track_volume.samples;
     num_bytes = (track.num_samples + silent_samples)*bytes_per_sample;
-    MSG("Still %d bytes left to be played", num_bytes);
+    //    MSG("Still %d bytes left to be played", num_bytes);
     while(num_bytes > 0) {
 	
 	/* Write as much samples as possible */
@@ -584,12 +588,12 @@ alsa_play(AudioID *id, AudioTrack track)
 
 	/* Report current state state */
 	state = snd_pcm_state(id->alsa_pcm);
-	MSG("PCM state before writei: %s",
-	    snd_pcm_state_name(state));
+	//	MSG("PCM state before writei: %s",
+	//	    snd_pcm_state_name(state));
 
 	/* MSG("snd_pcm_writei() called") */
 	ret = snd_pcm_writei (id->alsa_pcm, output_samples, framecount);
-        MSG("Sent %d of %d remaining bytes", ret*bytes_per_sample, num_bytes);
+	//        MSG("Sent %d of %d remaining bytes", ret*bytes_per_sample, num_bytes);
 
         if (ret == -EAGAIN) {
 	    MSG("Warning: Forced wait!");
@@ -616,8 +620,8 @@ alsa_play(AudioID *id, AudioTrack track)
 	
 	/* Report current state */
 	state = snd_pcm_state(id->alsa_pcm);
-	MSG("PCM state before polling: %s",
-	    snd_pcm_state_name(state));
+	//	MSG("PCM state before polling: %s",
+	//	    snd_pcm_state_name(state));
 
 	err = wait_for_poll(id, id->alsa_poll_fds, id->alsa_fd_count, 0);
 	if (err < 0) {
@@ -639,7 +643,7 @@ alsa_play(AudioID *id, AudioTrack track)
 	}
 	
 	if (num_bytes <= 0) break;
-	MSG("ALSA ready for more samples");
+//	MSG("ALSA ready for more samples");
 
 	/* Stop requests can be issued again */
     }
@@ -660,7 +664,6 @@ alsa_play(AudioID *id, AudioTrack track)
 	return -1;
     }
    
-    MSG("Waiting for poll");	
     err = wait_for_poll(id, id->alsa_poll_fds, id->alsa_fd_count, 1);
     if (err < 0) {
 	ERR("Wait for poll() failed\n");
