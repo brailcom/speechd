@@ -19,10 +19,11 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.22 2005-06-10 10:49:21 hanke Exp $
+ * $Id: module.c,v 1.23 2005-09-04 14:49:14 hanke Exp $
  */
 
 #include <sys/wait.h>
+#include <sys/stat.h>
 #include "speechd.h"
 
 void
@@ -76,7 +77,7 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 
     /* Open the file for child stderr (logging) redirection */
     if (module->debugfilename != NULL){
-	module->stderr_redirect = open(module->debugfilename, O_WRONLY | O_CREAT | O_TRUNC);
+	module->stderr_redirect = open(module->debugfilename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (module->stderr_redirect == -1)
 	    MSG(1,"ERROR: Openning debug file for %s failed: (error=%d) %s", module->name,
 		module->stderr_redirect, strerror(errno));    
