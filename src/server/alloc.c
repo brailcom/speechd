@@ -80,6 +80,7 @@ spd_message_copy(TSpeechDMessage *old)
 	new->settings.language = spd_strdup(old->settings.language);
 	new->settings.client_name = spd_strdup(old->settings.client_name);
 	new->settings.output_module = spd_strdup(old->settings.output_module);
+	new->settings.index_mark = spd_strdup(old->settings.index_mark);
 
 	return new;
 }
@@ -92,6 +93,7 @@ mem_free_fdset(TFDSetElement *fdset)
     spd_free(fdset->client_name);
     spd_free(fdset->language);
     spd_free(fdset->output_module);
+    spd_free(fdset->index_mark);
 }
 
 void
