@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.62 2005-07-02 12:17:01 hanke Exp $
+ * $Id: festival.c,v 1.63 2005-09-12 14:30:53 hanke Exp $
  */
 
 #include "fdset.h"
@@ -195,6 +195,8 @@ module_init(char **status_info)
 
     DBG("module_init()");
 
+    INIT_INDEX_MARKING();
+
     /* Initialize appropriate communication mechanism */
     FestivalComType = FestivalComunicationType;
     if (COM_SOCKET){
@@ -210,7 +212,7 @@ module_init(char **status_info)
 		  "but I got disconnected immediately. This is most likely "
 		  "because of authorization problems. Check the variable "
 		  "server_access_list in etc/festival.scm and consult documentation "
-		  "for more information");
+		  "for more information.");
 	}
     }
     if (COM_LOCAL){
@@ -255,6 +257,7 @@ module_init(char **status_info)
 
     /* Initialize global variables */
     festival_message = (char**) xmalloc (sizeof (char*));    
+    *festival_message = NULL;
 
     /* Initialize festival_speak thread to handle communication
      with festival in a separate thread (to be faster in communication
@@ -335,6 +338,7 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
 
     DBG("Requested data: |%s| \n", data);
 
+    xfree(*festival_message);
     *festival_message = strdup(data);
     if (*festival_message == NULL){
         DBG("Error: Copying data unsuccesful.");
@@ -391,20 +395,23 @@ module_pause(void)
     if(festival_speaking){
         DBG("Sending request for pause to child\n");
         festival_pause_requested = 1;
-        DBG("Waiting in pause for child to terminate\n");
-        while(festival_speaking) usleep(10000);       
-        DBG("Paused at mark: %d", current_index_mark);
-	festival_pause_requested = 0;
-        return current_index_mark;
+        DBG("Signalled to pause");
+        return 0;
     }else{
         return -1;
     }
 }
 
-int
+char *
 module_is_speaking(void)
 {
-    return festival_speaking; 
+    char *ret;
+    DBG("festival: module_is_speaking()");
+
+    ret = module_index_mark_get();
+
+    if (ret != NULL) DBG("reporting index mark: %s", ret);
+    return ret; 
 }
 
 void
@@ -447,7 +454,15 @@ module_close(int status)
           festival_stop = 0; \
           festival_speaking = 0; \
           pthread_mutex_unlock(&sound_output_mutex); \
-          module_signal_end(); \
+          goto sem_wait; \
+        }
+
+#define CLP(code) \
+        { \
+          pthread_mutex_lock(&sound_output_mutex); \
+          festival_stop = 0; \
+          festival_speaking = 0; \
+          pthread_mutex_unlock(&sound_output_mutex); \
           goto sem_wait; \
         }
 
@@ -456,13 +471,13 @@ festival_send_to_audio(FT_Wave *fwave)
 {
     AudioTrack track;
     int ret;
-
+    
     track.num_samples = fwave->num_samples;
     track.num_channels = 1;
     track.sample_rate = fwave->sample_rate;
     track.bits = 16;
     track.samples = fwave->samples;
-
+    
     if (track.samples != NULL){
 	ret = spd_audio_play(festival_audio_id, track);
 	if (ret < 0) DBG("ERROR: Can't play track for unknown reason.");
@@ -511,7 +526,9 @@ _festival_speak(void* nothing)
 	terminate = 0;     
 
 	bytes = strlen(*festival_message);
-    
+
+	module_index_mark_store(INDEX_MARK_BEGIN);
+
 	DBG("Going to synthesize: |%s|", *festival_message);
 	if (bytes > 0){
 	    if (!is_text(festival_message_type)){	/* it is a raw text */	     
@@ -525,12 +542,18 @@ _festival_speak(void* nothing)
 			    sprintf(filename_debug, "/tmp/debug-festival-%d.snd", debug_count++);
 			    save_FT_Wave_snd(fwave, filename_debug);
 			}
-
+						
 			festival_send_to_audio(fwave);
-		    
+
+			if (!festival_stop)
+			    module_index_mark_store(INDEX_MARK_END);
+			else
+			    module_index_mark_store(INDEX_MARK_STOPPED);
+
 			CLEAN_UP(0);
 
 		    }else{
+			module_index_mark_store(INDEX_MARK_END);
 			CLEAN_UP(0);
 		    }
 		}
@@ -557,9 +580,9 @@ _festival_speak(void* nothing)
 	    }
 	}
     
-
 	while(1){
 
+	    wave_cached = 0;
 	    DBG("Retrieving data\n");	   
 
 	    /* (speechd-next) */
@@ -567,6 +590,7 @@ _festival_speak(void* nothing)
 
 		if (festival_stop){
 		    DBG("Module stopped");
+		    module_index_mark_store(INDEX_MARK_STOPPED);
 		    CLEAN_UP(0);
 		}
 
@@ -575,23 +599,19 @@ _festival_speak(void* nothing)
 					     &festival_stop_request,
 					     FestivalReopenSocket);
 
-		if (callback != NULL){
-		    int l, h;
-		    char *tptr;
-		    DBG("Callback detected: %s", callback);
-		    l = strlen(callback);
-		    if (l<4) CLEAN_UP(0);	/* some other index mark */
-		    if (strncmp(callback, "sdm_", 3)) continue;	/* some other index mark */
-		    h = strtol(callback+4, &tptr, 10);
-		    if (tptr != callback+3){ /* is the argument really a number? */
-			    current_index_mark = h;
-			    DBG("Current index mark is set to %d", current_index_mark);
-			    if(festival_pause_requested){
-				DBG("Pause requested, pausing.");
-				CLEAN_UP(0);
-			    }else{
-				continue;
-			    }
+		if (callback != NULL){ 
+		    if((festival_pause_requested) && (!strncmp(callback, INDEX_MARK_BODY,
+							       INDEX_MARK_BODY_LEN))){
+			DBG("Pause requested, pausing.");
+			module_index_mark_store(callback);
+			xfree(callback);
+			module_index_mark_store(INDEX_MARK_PAUSED);			
+			festival_pause_requested = 0;
+			CLEAN_UP(0);
+		    }else{
+			module_index_mark_store(callback);
+			xfree(callback);
+			continue;
 		    }
 		}
 	    }else{			/* is event */
@@ -603,6 +623,7 @@ _festival_speak(void* nothing)
 
 	    if (fwave == NULL){
 		DBG("End of sound samples, terminating this message...");
+		module_index_mark_store(INDEX_MARK_END);
 		CLEAN_UP(0);
 	    }
 	
@@ -618,6 +639,7 @@ _festival_speak(void* nothing)
 
 	    if (festival_stop){
 		DBG("Module stopped");
+		module_index_mark_store(INDEX_MARK_STOPPED);
 		CLEAN_UP(0);
 	    }       	
 
@@ -633,17 +655,21 @@ _festival_speak(void* nothing)
 	    
 		DBG("Playing sound samples");
 		festival_send_to_audio(fwave);
+
+		if (!wave_cached) delete_FT_Wave(fwave);
 		DBG("End of playing sound samples");
 	    }            
 
 	    if (terminate){
 		DBG("Ok, end of samples, returning");
-		CLEAN_UP(0);
+		module_index_mark_store(INDEX_MARK_END);
+		CLP(0);
 	    }
 
 	    if (festival_stop){
 		DBG("Module stopped");
-		CLEAN_UP(0);
+		module_index_mark_store(INDEX_MARK_STOPPED);
+		CLP(0);
 	    }
 	}
 
@@ -863,6 +889,8 @@ cache_gen_key(EMessageType type)
     int kpitch = 0, krate = 0, kvoice = 0;
 
     if (msg_settings.language == NULL) return NULL;
+
+    DBG("v, p, r = %d %d %d", FestivalCacheDistinguishVoices, FestivalCacheDistinguishPitch, FestivalCacheDistinguishRate);
 
     if (FestivalCacheDistinguishVoices) kvoice = msg_settings.voice;
     if (FestivalCacheDistinguishPitch) kpitch = msg_settings.pitch;
