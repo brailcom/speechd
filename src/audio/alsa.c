@@ -2,7 +2,7 @@
 /*
  * alsa.c -- The Advanced Linux Sound System backend for Speech Dispatcher
  *
- * Copyright (C) 2004,2005 Brailcom, o.p.s.
+ * Copyright (C) 2005 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.16 2005-08-04 14:12:37 hanke Exp $
+ * $Id: alsa.c,v 1.17 2005-09-12 14:21:44 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -52,6 +52,7 @@ do { \
      fprintf(stderr,arg); \
      fprintf(stderr,"\n"); \
      fflush(stderr); \
+     xfree(tstr); \
   }
 
 #define ERR(arg...) \
@@ -68,6 +69,7 @@ do { \
      fprintf(stderr,arg); \
      fprintf(stderr,"\n"); \
      fflush(stderr); \
+     xfree(tstr); \
   }
 
 /* I/O error handler */
@@ -221,6 +223,8 @@ _alsa_close(AudioID *id)
 	MSG("Cannot close ALSA device (%s)", snd_strerror (err));
 	return -1;
     }
+
+    xfree(id->alsa_pcm);
     
     close(id->alsa_stop_pipe[0]);
     close(id->alsa_stop_pipe[1]);
@@ -712,7 +716,6 @@ alsa_stop(AudioID *id)
 	/* This constant is arbitrary */
 	buf = 42;
 	
-	/* TODO: remove, debug message */
 	MSG("Request for stop, device state is %s",
 	    snd_pcm_state_name(snd_pcm_state(id->alsa_pcm)));
 	
