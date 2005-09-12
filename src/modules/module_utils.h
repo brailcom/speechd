@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.h,v 1.4 2005-06-10 10:48:59 hanke Exp $
+ * $Id: module_utils.h,v 1.5 2005-09-12 14:33:27 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -104,7 +104,7 @@ int     module_init         (char **status_info);
 int     module_speak        (char *data, size_t bytes, EMessageType msgtype);
 int     module_stop         (void);
 size_t  module_pause        (void);
-int     module_is_speaking  (void);
+char*     module_is_speaking  (void);
 void    module_close        (int status);
 
 #define UPDATE_PARAMETER(value, setter) \
@@ -359,6 +359,26 @@ configoption_t * add_config_option(configoption_t *options, int *num_config_opti
 
 #define REGISTER_DEBUG() \
     MOD_OPTION_1_INT_REG(Debug, 0); \
+
+/* --- INDEX MARKING --- */
+
+#define INDEX_MARK_BODY_LEN 6
+#define INDEX_MARK_BODY "__spd_"
+#define INDEX_MARK_END INDEX_MARK_BODY"end"
+#define INDEX_MARK_BEGIN INDEX_MARK_BODY"begin"
+#define INDEX_MARK_PAUSED INDEX_MARK_BODY"paused"
+#define INDEX_MARK_STOPPED INDEX_MARK_BODY"stopped"
+
+char *module_index_mark;
+
+/* This macro must be placed at the initialization of the module so that the
+   later functions are possible to use */
+
+#define INIT_INDEX_MARKING() module_index_mark = NULL;
+
+void module_index_mark_store(char *mark);
+void module_index_mark_signal(void);
+char* module_index_mark_get(void);
 
 /* So that gcc doesn't complain */
 int getline(char**, int*, FILE*);
