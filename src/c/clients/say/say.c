@@ -19,20 +19,32 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: say.c,v 1.8 2005-05-13 10:35:16 hanke Exp $
+ * $Id: say.c,v 1.9 2005-09-12 14:29:06 hanke Exp $
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <assert.h>
+#include <semaphore.h>
+#include <errno.h>
 #include "libspeechd.h"
 #include "options.h"
 
 #define FATAL(msg) { perror("client: "msg); exit(1); }
 
+sem_t semaphore;
+
+/* Callback for Speech Dispatcher notifications */
+void end_of_speech(size_t msg_id, size_t client_id, SPDNotificationType type)
+{
+    sem_post(&semaphore);    
+}
+
 int main(int argc, char **argv) {
-   int sockfd;
-   int err;
+   SPDConnection *conn;
    SPDPriority spd_priority;
+   int err;
+   int ret;
 
    /* Check if the text to say is specified in the argument */
    if (argc < 2) {
@@ -47,57 +59,58 @@ int main(int argc, char **argv) {
    voice_type = NULL;
    punctuation_mode = NULL;
    spelling = -2;
+   wait_till_end = 0;
    priority = NULL;
 
    options_parse(argc, argv);
    
    /* Open a connection to Speech Dispatcher */
-   sockfd = spd_open("say","main", NULL);
-   if (sockfd == 0) FATAL("Speech Dispatcher failed to open");
+   conn = spd_open("say","main", NULL, SPD_MODE_THREADED);
+   if (conn == NULL) FATAL("Speech Dispatcher failed to open");
 
    /* Set the desired parameters */
 
    if (output_module != NULL)
-       if(spd_set_output_module(sockfd, output_module))
+       if(spd_set_output_module(conn, output_module))
 	   printf("Invalid language!\n");
 
 
    if (language != NULL)
-       if(spd_set_language(sockfd, language))
+       if(spd_set_language(conn, language))
 	   printf("Invalid language!\n");
 
    if (voice_type != NULL){
        int ret;
        if (!strcmp(voice_type, "male1")){
-	   if(spd_set_voice_type(sockfd, SPD_MALE1))
+	   if(spd_set_voice_type(conn, SPD_MALE1))
 	       printf("Can't set this voice!\n");
        }
        else if(!strcmp(voice_type, "male2")){
-	   if(spd_set_voice_type(sockfd, SPD_MALE2))
+	   if(spd_set_voice_type(conn, SPD_MALE2))
 	       printf("Can't set this voice!\n");
        }
        else if(!strcmp(voice_type, "male3")){
-	   if(spd_set_voice_type(sockfd, SPD_MALE3))
+	   if(spd_set_voice_type(conn, SPD_MALE3))
 	       printf("Can't set this voice!\n");
        }
        else if(!strcmp(voice_type, "female1")){
-	   if(spd_set_voice_type(sockfd, SPD_FEMALE1))
+	   if(spd_set_voice_type(conn, SPD_FEMALE1))
 	       printf("Can't set this voice!\n");
        }
        else if(!strcmp(voice_type, "female2")){
-	   if(spd_set_voice_type(sockfd, SPD_FEMALE2))
+	   if(spd_set_voice_type(conn, SPD_FEMALE2))
 	       printf("Can't set this voice!\n");
        }
        else if(!strcmp(voice_type, "female3")){
-	   if(spd_set_voice_type(sockfd, SPD_FEMALE3))
+	   if(spd_set_voice_type(conn, SPD_FEMALE3))
 	       printf("Can't set this voice!\n");
        }
        else if(!strcmp(voice_type, "child_male")){
-	   if(spd_set_voice_type(sockfd, SPD_CHILD_MALE))
+	   if(spd_set_voice_type(conn, SPD_CHILD_MALE))
 	       printf("Can't set this voice!\n");
        }
        else if(!strcmp(voice_type, "child_female")){
-	   if(spd_set_voice_type(sockfd, SPD_CHILD_FEMALE))
+	   if(spd_set_voice_type(conn, SPD_CHILD_FEMALE))
 	       printf("Can't set this voice!\n");
        }else{
 	   printf("Invalid voice\n");
@@ -105,32 +118,32 @@ int main(int argc, char **argv) {
    }
 
    if (rate != -101) 
-       if(spd_set_voice_rate(sockfd, rate))
+       if(spd_set_voice_rate(conn, rate))
 	   printf("Invalid rate!\n");
 
    if (pitch != -101) 
-       if(spd_set_voice_pitch(sockfd, pitch))
+       if(spd_set_voice_pitch(conn, pitch))
 	   printf("Invalid pitch!\n");
    
    if (volume != -101) 
-       if(spd_set_volume(sockfd, volume))
+       if(spd_set_volume(conn, volume))
 	   printf("Invalid volume!\n");
 
    if (spelling == 1)
-       if(spd_set_spelling(sockfd, SPD_SPELL_ON))
+       if(spd_set_spelling(conn, SPD_SPELL_ON))
 	   printf("Can't set spelling to on!\n");
 
    if (punctuation_mode != NULL){
        if (!strcmp(punctuation_mode, "none")){
-	   if(spd_set_punctuation(sockfd, SPD_PUNCT_NONE))
+	   if(spd_set_punctuation(conn, SPD_PUNCT_NONE))
 	       printf("Can't set this punctuation mode!\n");
        }
        else if(!strcmp(punctuation_mode, "some")){
-	   if(spd_set_punctuation(sockfd, SPD_PUNCT_SOME))
+	   if(spd_set_punctuation(conn, SPD_PUNCT_SOME))
 	       printf("Can't set this punctuation mode!\n");
        }
        else if(!strcmp(punctuation_mode, "all")){
-	   if(spd_set_punctuation(sockfd, SPD_PUNCT_ALL))
+	   if(spd_set_punctuation(conn, SPD_PUNCT_ALL))
 	       printf("Can't set this punctuation mode!\n");
        }else{
 	   printf("Invalid punctuation mode.\n");
@@ -151,15 +164,30 @@ int main(int argc, char **argv) {
        }
    }
 
-	   
+   if (wait_till_end){
+       ret = sem_init(&semaphore, 0, 0);
+       if (ret < 0){
+	   fprintf(stderr, "Can't initialize semaphore: %s", strerror(errno));
+	   return 0;
+       }
+
+       /* Notify when the message is canceled or the speech terminates */
+       conn->callback_end = end_of_speech;
+       conn->callback_cancel = end_of_speech;
+       spd_set_notification_on(conn, SPD_END);
+       spd_set_notification_on(conn, SPD_CANCEL);
+   }
 
    /* Say the message with priority "text" */
    assert(argv[argc-1]);
-   err = spd_sayf(sockfd, spd_priority, (char*) argv[argc-1]);
+   err = spd_sayf(conn, spd_priority, (char*) argv[argc-1]);
    if (err == -1) FATAL("Speech Dispatcher failed to say message");
-   
+
+   /* Wait till the callback is called */
+   if (wait_till_end) sem_wait(&semaphore);
+
    /* Close the connection */
-   spd_close(sockfd);
+   spd_close(conn);
   
-   return 0;
+   return 0;      
 }
