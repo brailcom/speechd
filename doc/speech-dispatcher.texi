@@ -852,6 +852,7 @@ about current external client libraries.
 * Parameter Setting Commands in C::  
 * Other Functions in C::        
 * Information Retrieval Commands in C::  
+* Events Notification and Index Marking in C::  
 * History Commands in C::       
 * Direct SSIP Communication in C::  
 @end menu
@@ -859,7 +860,8 @@ about current external client libraries.
 @node Initializing and Terminating in C, Speech Synthesis Commands in C, C API, C API
 @subsection Initializing and Terminating
 
-@deffn {C API function}  int spd_open(char* client_name, char* connection_name, char* user_name)
+@deffn {C API function} SPDConnection* spd_open(char* client_name, char* connection_name, char* user_name,
+                                       SPDConnectionMode connection_mode)
 @findex spd_open()
 
 Opens a new connection to Speech Dispatcher and returns a socket file descriptor you will
@@ -872,7 +874,9 @@ are there only for informational and navigational purpose, they don't affect
 any settings or behavior of any functions. The authentication mechanism
 has nothing to do with @code{username}. These parameters are important for
 the user when he wants to set some parameters for a given session, when he
-wants to browse through history, etc.
+wants to browse through history, etc. The parameter @code{connection_mode}
+specifies how this connection should be handled internally and if events
+notifications and index marking capabilities will be available.
 
 @code{client_name} is the name of the client that opens the connection. Normally,
 it should be the name of the executable, for example ``lynx'', ``emacs'', ``bash'',
@@ -888,19 +892,37 @@ should differ. For example: ``buffer'', ``command_line'', ``text'', ``menu''.
 get this string from the system. If set to NULL, libspeechd will try to
 determine it automatically by g_get_user_name().
 
-It returns the file descriptor of the created connection on success, 0 on error.
+@code{connection_mode} has two possible values: @code{SPD_MODE_SINGLE}
+and @code{SPD_MODE_THREADED}. If the parameter is set to
+@code{SPD_MODE_THREADED}, then @code{spd_open()} will open an
+additional thread in your program which will handle asynchronous SSIP
+replies and will allow you to use callbacks for events notification
+and index marking, allowing you to keep track of the progress of
+timing of speaking the messages. However, you must be avare, that your
+program is now multi-threaded and care must be taken when
+using/handling signals. If @code{SPD_MODE_SINGLE} is chosen, the
+library won't execute any additional threads and SSIP will run only as
+a synchronous protocol, therefore events notifications and index
+marking won't be available.
 
-Each connection you open should be closed by spd_close() before the end of the program.
+It returns a newly allocated SPDConnection* structure on success, or @code{NULL}
+on error.
+
+Each connection you open should be closed by spd_close() before the
+end of the program, so that the associated connection descriptor is
+closed, threads are terminated and memmory is freed.
 
 @end deffn
 
-@deffn {C API function}  void spd_close(int connection)
+@deffn {C API function}  void spd_close(SPDConnection *connection)
 @findex spd_close()
 
-Closes a Speech Dispatcher socket connection. You should close every connection
-before the end of your program.
+Closes a Speech Dispatcher socket connection, terminates associated
+threads (if necessary) and frees the memmory allocated by
+spd_open(). You should close every connection before the end of your
+program.
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection connection obtained by spd_open().
 @end deffn
 
 @node Speech Synthesis Commands in C, Speech output control commands in C, Initializing and Terminating in C, C API
@@ -926,7 +948,7 @@ typedef enum@{
 
 @end defvar
 
-@deffn {C API function}  int spd_say(int connection, SPDPriority priority, char* text);
+@deffn {C API function}  int spd_say(SPDConnection* connection, SPDPriority priority, char* text);
 @findex spd_say()
 
 Sends a message to Speech Dispatcher. If this message isn't blocked by some message
@@ -934,7 +956,7 @@ of higher priority and this CONNECTION isn't paused, it will be synthesized
 directly on some of the output devices. Otherwise, the message will be discarded
 or delayed according to it's priority.
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{priority} is the desired priority for this message. @xref{Top,,Message Priority Model,ssip, SSIP Documentation}.
 
@@ -943,11 +965,13 @@ synthesis. It must be encoded in UTF-8. Note that this doesn't have to be what
 you will finally hear. It can be affected by different settings as spelling,
 punctuation, text substitution etc.
 
-It returns 0 on success, -1 otherwise.
+It returns a positive unique message identification number on success, -1 otherwise.
+This message identification number can be saved and used for the purposes of
+events notification callbacks or history handling.
 
 @end deffn
 
-@deffn {C API function}  int spd_sayf(int connection, SPDPriority priority, char* format, ...);
+@deffn {C API function}  int spd_sayf(SPDConnection* connection, SPDPriority priority, char* format, ...);
 @findex spd_sayf()
 
 Similar to @code{spd_say()}, simulates the behavior of printf().
@@ -980,7 +1004,9 @@ is:
 @end example
 where key is a encoded string.
 
-It returns 0 on succes, -1 otherwise.
+It returns a positive unique message identification number on success, -1 otherwise.
+This message identification number can be saved and used for the purposes of
+events notification callbacks or history handling.
 @end deffn
 
 @node Speech output control commands in C, Characters and Keys in C, Speech Synthesis Commands in C, C API
@@ -988,7 +1014,7 @@ It returns 0 on succes, -1 otherwise.
 
 @subsubheading Stop Commands
 
-@deffn {C API function}  int spd_stop(int connection);
+@deffn {C API function}  int spd_stop(SPDConnection* connection);
 @findex spd_stop()
 
 Stops the message currently being spoken on a given connection. If there
@@ -997,12 +1023,12 @@ waiting in queues). This is intended for stops executed by the user,
 not for automatic stops (because automatically, you can't control
 how many messages are still waiting in queues on the server).
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 It returns 0 on succes, -1 otherwise.
 @end deffn
 
-@deffn {C API function}  int spd_stop_all(int connection);
+@deffn {C API function}  int spd_stop_all(SPDConnection* connection);
 @findex spd_stop_all()
 
 The same as spd_stop(), but it stops every message being said,
@@ -1011,7 +1037,7 @@ without distinguishing where it came from.
 It returns 0 on succes, -1 if some of the stops failed.
 @end deffn
 
-@deffn {C API function}  int spd_stop_uid(int connection, int target_uid);
+@deffn {C API function}  int spd_stop_uid(SPDConnection* connection, int target_uid);
 @findex spd_stop_uid()
 
 The same as spd_stop() except that it stops some other client than
@@ -1027,7 +1053,7 @@ It returns 0 on succes, -1 otherwise.
 
 @subsubheading Cancel Commands
 
-@deffn {C API function}  int spd_cancel(int connection);
+@deffn {C API function}  int spd_cancel(SPDConnection* connection);
 
 Stops the currently spoken message from this connection
 (if there is any) and discard all the queued messages
@@ -1036,7 +1062,7 @@ to do, when you call spd_cancel() automatically in
 your program.
 @end deffn
 
-@deffn {C API function}  int spd_cancel_all(int connection);
+@deffn {C API function}  int spd_cancel_all(SPDConnection* connection);
 @findex spd_cancel_all()
 
 The same as spd_cancel(), but it cancels every message
@@ -1045,7 +1071,7 @@ without distinguishing where it came from.
 It returns 0 on succes, -1 if some of the stops failed.
 @end deffn
 
-@deffn {C API function}  int spd_cancel_uid(int connection, int target_uid);
+@deffn {C API function}  int spd_cancel_uid(SPDConnection* connection, int target_uid);
 @findex spd_cancel_uid()
 
 The same as spd_cancel() except that it executes cancel for some other client
@@ -1060,7 +1086,7 @@ It returns 0 on succes, -1 otherwise.
 
 @subsubheading Pause Commands
 
-@deffn {C API function}  int spd_pause(int connection);
+@deffn {C API function}  int spd_pause(SPDConnection* connection);
 @findex int spd_pause()
 
 Pauses all messages received from the given connection. No messages
@@ -1081,7 +1107,7 @@ messages are also queued and waiting for resume().
 It returns 0 on succes, -1 if something failed.
 @end deffn
 
-@deffn {C API function}  int spd_pause_all(int connection);
+@deffn {C API function}  int spd_pause_all(SPDConnection* connection);
 @findex spd_pause_all()
 
 The same as spd_pause(), but it pauses every message,
@@ -1090,7 +1116,7 @@ without distinguishing where it came from.
 It returns 0 on succes, -1 if some of the pauses failed.
 @end deffn
 
-@deffn {C API function}  int spd_pause_uid(int connection, int target_uid);
+@deffn {C API function}  int spd_pause_uid(SPDConnection* connection, int target_uid);
 @findex spd_pause_uid()
 
 The same as spd_pause() except that it executes pause for some other client
@@ -1105,7 +1131,7 @@ It returns 0 on succes, -1 otherwise.
 
 @subsubheading Resume Commands  
 
-@deffn {C API function}  int spd_resume(int connection);
+@deffn {C API function}  int spd_resume(SPDConnection* connection);
 @findex int spd_resume()
 
 Resumes all paused messages from the given connection. The rest
@@ -1113,12 +1139,12 @@ of the message that was being said in the moment pause() was
 received will be said and all the other messages are queued
 for synthesis again.
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 It returns 0 on succes, -1 otherwise.
 @end deffn
 
-@deffn {C API function}  int spd_resume_all(int connection);
+@deffn {C API function}  int spd_resume_all(SPDConnection* connection);
 @findex spd_resume_all()
 
 The same as spd_resume(), but it resumes every paused message,
@@ -1127,7 +1153,7 @@ without distinguishing where it came from.
 It returns 0 on succes, -1 if some of the pauses failed.
 @end deffn
 
-@deffn {C API function}  int spd_resume_uid(int connection, int target_uid);
+@deffn {C API function}  int spd_resume_uid(SPDConnection* connection, int target_uid);
 @findex spd_resume_uid()
 
 The same as spd_resume() except that it executes resume for some other client
@@ -1143,13 +1169,13 @@ It returns 0 on succes, -1 otherwise.
 @node Characters and Keys in C, Sound Icons in C, Speech output control commands in C, C API
 @subsection Characters and Keys
 
-@deffn {C API function}  int spd_char(int connection, SPDPriority priority, char* character);
+@deffn {C API function}  int spd_char(SPDConnection* connection, SPDPriority priority, char* character);
 @findex spd_char()
 
 Says a character according to user settings for characters. This can be
 used for example for reading letters under the cursor.
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{priority} is the desired priority for this
 message. @xref{Top,,Message Priority Model,ssip, SSIP Documentation}.
@@ -1160,7 +1186,7 @@ character. If it contains more characters, only the first one is processed.
 It returns 0 on succes, -1 otherwise.
 @end deffn
 
-@deffn {C API function}  int spd_wchar(int connection, SPDPriority priority, wchar_t wcharacter);
+@deffn {C API function}  int spd_wchar(SPDConnection* connection, SPDPriority priority, wchar_t wcharacter);
 @findex spd_say_wchar()
 
 The same as spd_char(), but it takes a wchar_t variable as it's argument. 
@@ -1168,12 +1194,12 @@ The same as spd_char(), but it takes a wchar_t variable as it's argument.
 It returns 0 on succes, -1 otherwise.
 @end deffn
 
-@deffn {C API function} int spd_key(int connection, SPDPriority priority, char* key_name);
+@deffn {C API function} int spd_key(SPDConnection* connection, SPDPriority priority, char* key_name);
 @findex spd_key()
 
 Says a key according to user settings for keys.
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{priority} is the desired priority for this
 message. @xref{Top,,Message Priority Model,ssip, SSIP Documentation}.
@@ -1189,7 +1215,7 @@ It returns 0 on succes, -1 otherwise.
 @node Sound Icons in C, Parameter Setting Commands in C, Characters and Keys in C, C API
 @subsection Sound Icons
 
-@deffn {C API function}  int spd_sound_icon(int connection, SPDPriority priority, char* icon_name);
+@deffn {C API function}  int spd_sound_icon(SPDConnection* connection, SPDPriority priority, char* icon_name);
 @findex spd_sound_icon()
 
 Sends a sound icon ICON_NAME. These are symbolic names that are mapped
@@ -1197,7 +1223,7 @@ to a sound or to a text (in the particular language) according to
 Speech Dispatcher tables and user settings. Each program can also
 define it's own icons.
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{priority} is the desired priority for this
 message. @xref{Top,,Message Priority Model,ssip, SSIP Documentation}.
@@ -1217,19 +1243,19 @@ some other connection and for all connections. They are listed bellow separately
 Please see @ref{Top,,Parameter Setting Commands,ssip, SSIP
 Documentation} for a general description of what they mean.
 
-@deffn {C API function}  int spd_set_language(int connection, char* language);
+@deffn {C API function}  int spd_set_language(SPDConnection* connection, char* language);
 @findex spd_set_language()
 
 Sets the language that should be used for synthesis.
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{language} is the language code as defined in RFC 1776 (``cs'',
 ``en'', ...).
 
 @end deffn
 
-@deffn {C API function}  int spd_set_output_module(int connection, char* output_module);
+@deffn {C API function}  int spd_set_output_module(SPDConnection* connection, char* output_module);
 @findex spd_set_output_module()
 
 Sets the output module that should be used for synthesis. The parameter
@@ -1237,7 +1263,7 @@ of this command should always be entered by the user in some way
 and not hardcoded anywhere in the code as the available synthesizers
 and their registration names may vary from machine to machine.
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{output_module} is the output module name under which the module
 was loaded into Speech Dispatcher in it's configuration (``flite'',
@@ -1245,7 +1271,7 @@ was loaded into Speech Dispatcher in it's configuration (``flite'',
 
 @end deffn
 
-@deffn {C API function}  int spd_set_punctuation(int connection, SPDPunctuation type);
+@deffn {C API function}  int spd_set_punctuation(SPDConnection* connection, SPDPunctuation type);
 @findex spd_set_punctuation()
 
 Set punctuation mode to the given value.  `all' means read all
@@ -1253,7 +1279,7 @@ punctuation characters, `none' read no punctuation characters,
 `some' means read only punctuation characters given in the server
 configuration or defined by the client's last spd_set_punctuation_important().
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{type} is one of the following values: @code{SPD_PUNCT_ALL},
 @code{SPD_PUNCT_NONE}, @code{SPD_PUNCT_SOME}.
@@ -1261,24 +1287,24 @@ configuration or defined by the client's last spd_set_punctuation_important().
 It returns 0 on succes, -1 otherwise.
 @end deffn
 
-@deffn {C API function}  int spd_set_spelling(int connection, SPDSpelling type);
+@deffn {C API function}  int spd_set_spelling(SPDConnection* connection, SPDSpelling type);
 @findex spd_set_spelling()
 
 Switches spelling mode on and off. If set to on, all incomming messages
 from this particular connection will be processed according to appropriate
 spelling tables (see spd_set_spelling_table()).
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{type} is one of the following values: @code{SPD_SPELL_ON}, @code{SPD_SPELL_OFF}.
 @end deffn
 
-@deffn {C API function}  int spd_set_voice_type(int connection, SPDVoiceType voice);
+@deffn {C API function}  int spd_set_voice_type(SPDConnection* connection, SPDVoiceType voice);
 @findex spd_set_voice_type()
 
 Set a prefered voice.
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{voice} is one of the following values: @code{SPD_MALE1},
 @code{SPD_MALE2}, @code{SPD_MALE3}, @code{SPD_FEMALE1}, @code{SPD_FEMALE2},
@@ -1287,37 +1313,37 @@ Set a prefered voice.
 
 @end deffn
 
-@deffn {C API function}  int spd_set_voice_rate(int connection, int rate);
+@deffn {C API function}  int spd_set_voice_rate(SPDConnection* connection, int rate);
 @findex spd_set_voice_rate()
 
 Set voice rate.
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{rate} is a number between -100 and +100 which means
 the slowest and the fastest speech rate respectively.
 
 @end deffn
 
-@deffn {C API function}  int spd_set_voice_pitch(int connection, int pitch);
+@deffn {C API function}  int spd_set_voice_pitch(SPDConnection* connection, int pitch);
 @findex spd_set_voice_pitch()
 
 Set voice pitch.
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{pitch} is a number between -100 and +100, which means the
 lowest and the highest pitch respectively.
 
 @end deffn
 
-@deffn {C API function}  int spd_set_volume(int connection, int volume);
+@deffn {C API function}  int spd_set_volume(SPDConnection* connection, int volume);
 @findex spd_set_volume()
 
 Set the volume of the voice and sounds produced by Speech Dispatcher's output
 modules.
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{volume} is a number between -100 and +100 which means
 the lowest and the loudest voice respectively.
@@ -1328,12 +1354,171 @@ the lowest and the loudest voice respectively.
 @node Other Functions in C, Information Retrieval Commands in C, Parameter Setting Commands in C, C API
 @subsection Other Functions
 
-@node Information Retrieval Commands in C, History Commands in C, Other Functions in C, C API
+@node Information Retrieval Commands in C, Events Notification and Index Marking in C, Other Functions in C, C API
 @subsection Information Retrieval Commands
 
 Currently there is none.
 
-@node History Commands in C, Direct SSIP Communication in C, Information Retrieval Commands in C, C API
+@node Events Notification and Index Marking in C, History Commands in C, Information Retrieval Commands in C, C API
+@subsection Events Notification and Index Marking in C
+
+When the SSIP connection is run in asynchronous mode , it is possible
+to register callbacks for all the SSIP events notifications and index
+marks notifications, as defined in @ref{Message Events Notification
+and Index Marking,,, ssip, SSIP Documentation}
+
+@defvar {C API type} SPDNotification
+@vindex SPDNotification
+@anchor{SPDNotification}
+
+@code{SPDNotification} is an enum type that represents the possible
+base notification types that can be assigned to a message.
+
+@example
+typedef enum@{
+    SPD_BEGIN = 1,
+    SPD_END = 2,
+    SPD_INDEX_MARKS = 4,
+    SPD_CANCEL = 8,
+    SPD_PAUSE = 16,
+    SPD_RESUME = 32
+@}SPDNotification;
+@end example
+@end defvar
+
+There are currently two types of callbacks in the C API.
+
+@defvar {C API type} SPDCallback
+@vindex SPDCallback
+@anchor{SPDCallback}
+@code{void (*SPDCallback)(size_t msg_id, size_t client_id, SPDNotificationType state);}
+
+This one is used for notifications about the events: @code{BEGIN}, @code{END}, @code{PAUSE}
+and @code{RESUME}. When the callback is called, it obtains three parameters of the event.
+
+@code{msg_id} unique identification number of the message the notification is about.
+
+@code{client_id} specifies the unique identification number of the client who sent the
+message. This is usually the same connection as the connection which registers this
+callback, and therefore uninteresting. However, in some special cases it might be useful
+to register this callback for other SSIP connections, or register the same callback for
+several connections originating at the same application.
+
+@code{state} is the @code{SPD_Notification} type of this notification. @xref{SPDNotification}.
+@end defvar
+
+@defvar {C API type} SPDCallbackIM
+@vindex SPDCallbackIM
+@code{void (*SPDCallbackIM)(size_t msg_id, size_t client_id, SPDNotificationType state,
+char *index_mark);}
+
+@code{SPDCallbackIM} is used for notifications about reached index marks in the message.
+(A way to specify index marks is e.g. through the SSML element <mark/> in ssml mode.)
+
+The syntax and meaning of these parameters are the same as for @ref{SPDCallback}
+except for the additional parameter @code{index_mark}.
+
+@code{index_mark} is a NULL terminated string associated with the index mark. Please
+note that this string is specified by client application and therefore it needn't be
+unique.
+@end defvar
+
+One or more callbacks can be supplied for a given @code{SPDConnection*} connection by
+assigning the values of pointers to the appropriate functions to the following connection
+members:
+
+@example
+    SPDCallback callback_begin;
+    SPDCallback callback_end;
+    SPDCallback callback_cancel;
+    SPDCallback callback_pause;
+    SPDCallback callback_resume;
+    SPDCallbackIM callback_im;
+@end example
+
+There are three settings commands which will turn notifications on and
+off for the current SSIP connection and cause the callbacks to be called
+when the event is registered by Speech Dispatcher.
+
+@deffn {C API function} int spd_set_notification_on(SPDConnection* connection, SPDNotification notification);
+@findex spd_set_notification_on
+@end deffn
+@deffn {C API function} int spd_set_notification_off(SPDConnection* connection, SPDNotification notification);
+@findex spd_set_notification_off
+@end deffn
+@deffn {C API function} int spd_set_notification(SPDConnection* connection, SPDNotification notification, const char* state);
+@findex spd_set_notification
+
+These functions will set the notification specified by the parameter
+@code{notification} on or off (or to the given value)
+respectively. Note that it is only safe to call these functions after
+the appropriate callback functions were set in the @code{SPDCallback}
+structure. Doing otherwise is not considered an error, but the
+application might miss some events due to callback functions not being
+executed (e.g. the client might receive an @code{END} event without
+receiving the corresponding @code{BEGIN} event in advance.
+
+@code{connection} is the SPDConnection* connection created by spd_open().
+
+@code{notification} is the requested type of notifications that should be reported by SSIP. @xref{SPDNotification}.
+Note that also '|' combinations are possible, as illustrated in the bellow example.
+
+@code{state} must be either the string ``on'' or ``off'', for switching the given notification on or off.
+
+@end deffn
+
+The following example shows how to use callbacks for the simple
+purpose of playing a message and waiting until it's end. (Please note
+that checks of return values in this example as well as other code
+not directly related to index marking, have been removed for the purpose
+of clarity.)
+
+@example
+#include <semaphore.h>
+
+sem_t semaphore;
+
+/* Callback for Speech Dispatcher notifications */
+void end_of_speech(size_t msg_id, size_t client_id, SPDNotificationType type)
+@{
+   /* We don't check msg_id here since we will only send one
+       message */
+
+   /* Callbacks are running in a separate thread, so lets the
+       (sleeping) main thread know about the event and wake it up */
+   sem_post(&semaphore);
+@}
+
+int
+main(int argc, char **argv)
+@{
+   SPDConnection *conn;
+
+   sem_init(&semaphore, 0, 0);
+
+   /* Open Speech Dispatcher connection in THREADED mode */ 
+   conn = spd_open("say","main", NULL, SPD_MODE_THREADED);
+
+   /* Set callback handler for 'end' and 'cancel' events */ 
+   conn->callback_end = con->callback_cancel = end_of_speech;
+
+   /* Ask Speech Dispatcher to notify us about these events */ 
+   spd_set_notification_on(conn, SPD_END);
+   spd_set_notification_on(conn, SPD_CANCEL);
+
+   /* Say our message */
+   spd_sayf(conn, SPD_MESSAGE, (char*) argv[1]);
+
+   /* Wait for 'end' or 'cancel' of the sent message. 
+      By SSIP specifications, we are guaranteed to get
+      one of these two eventually. */ 
+   sem_wait(&semaphore);
+
+   return 0;
+@}
+@end example
+
+@node History Commands in C, Direct SSIP Communication in C, Events Notification and Index Marking in C, C API
 @subsection History Commands
 @findex spd_history_select_client()
 @findex spd_get_client_list()
@@ -1350,7 +1535,7 @@ available functions, please let us know.) For this purpose, there are
 a few functions that will allow you to send arbitrary SSIP commands on
 your connection and read the replies.
 
-@deffn {C API function} int spd_execute_command(int connection, char *command);
+@deffn {C API function} int spd_execute_command(SPDConnection* connection, char *command);
 @findex spd_execute_command()
 
 You can send an arbitrary SSIP command specified in the parameter @code{commnad}.
@@ -1358,7 +1543,7 @@ You can send an arbitrary SSIP command specified in the parameter @code{commnad}
 If the command is succesful, the function returns a 0. If there is no such
 command or the command failed for some reason, it returns -1.
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{command} is a null terminated string containing a full SSIP command
 without the terminating sequence @code{\r\n}.
@@ -1374,7 +1559,7 @@ where you are receiving more than one reply. If this is your case, please
 see `spd_send_data()'.
 @end deffn
 
-@deffn {C API function} char* spd_send_data(int connection, const char *message, int wfr);
+@deffn {C API function} char* spd_send_data(SPDConnection* connection, const char *message, int wfr);
 @findex spd_send_data()
 
 You can send an arbitrary SSIP string specified in the parameter @code{message}
@@ -1385,7 +1570,7 @@ If @code{wfr} (wait for reply) is set to SPD_WAIT_REPLY, you will receive the re
 as the return value. If wfr is set to SPD_NO_REPLY, the return value is a NULL pointer.
 In case wfr is set to SPD_WAIT_REPLY, you should always free the returned string.
 
-@code{connection} is the file descriptor obtained by spd_open().
+@code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{message} is a null terminated string containing a full SSIP
 string.  If this is a complete SSIP command, it must include the full
@@ -1399,14 +1584,13 @@ sequence @code{\r\n.\r\n}.
 
 For example (simplified by not checking and freeing the returned strings):
 @example
-        spd_send_data(fd, "SPEAK", SPD_WAIT_REPLY);
-        spd_send_data(fd, "Hello world!\n", SPD_NO_REPLY);
-        spd_send_data(fd, "How are you today?!", SPD_NO_REPLY);
-        spd_send_data(fd, "\r\n.\r\n.", SPD_WAIT_REPLY);
+        spd_send_data(conn, "SPEAK", SPD_WAIT_REPLY);
+        spd_send_data(conn, "Hello world!\n", SPD_NO_REPLY);
+        spd_send_data(conn, "How are you today?!", SPD_NO_REPLY);
+        spd_send_data(conn, "\r\n.\r\n.", SPD_WAIT_REPLY);
 @end example 
 
 @end deffn
-
 
 
 @node Python API, Guile API, C API, Client Programming
@@ -2754,4 +2938,4 @@ and Free Software.
 @c  LocalWords:  su AddModule DefaultModule xref identd printindex Dectalk GTK
 
 @c speechd.texi ends here
-@c  LocalWords:  emph soundcard precission archieved succes
+@c  LocalWords:  emph soundcard precission archieved succes Dispatcher When
