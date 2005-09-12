@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.c,v 1.42 2004-06-28 08:12:25 hanke Exp $
+  * $Id: speaking.c,v 1.43 2005-09-12 14:39:52 hanke Exp $
   */
 
 #include <glib.h>
@@ -28,10 +28,13 @@
 #include "module.h"
 #include "set.h"
 #include "alloc.h"
+#include "msg.h"
 
 #include "speaking.h"
 
 TSpeechDMessage *current_message = NULL;
+
+int SPEAKING = 0;
 
 /*
   Speak() is responsible for getting right text from right
@@ -66,32 +69,37 @@ speak(void* data)
             resume_requested = 1;
             continue;
         }
-        
+
         /* Handle resume requests */
         if (resume_requested){
             GList *gl;
             TSpeechDMessage *element;
+
+	    MSG(5, "Resume requested");
 
             /* Is there any message after resume? */
             if(g_list_length(MessagePausedList) != 0){
                 while(1){
                     pthread_mutex_lock(&element_free_mutex);
                     gl = g_list_find_custom(MessagePausedList, (void*) NULL, message_nto_speak);
+		    MSG(5, "Message insterted back to the queues!");
                     MessagePausedList = g_list_remove_link(MessagePausedList, gl);
                     pthread_mutex_unlock(&element_free_mutex);           
                     if ((gl != NULL) && (gl->data != NULL)){
+			MSG(5, "Reloading message");
                         reload_message((TSpeechDMessage*) gl->data);
                     }else break;                    
                 }
             }
+	    MSG(5, "End of resume processing");
             resume_requested = 0;
         }       
 
         /* Check if sb is speaking or they are all silent. 
          * If some synthesizer is speaking, we must wait. */
-        if (is_sb_speaking() == 1){
+        if (is_sb_speaking() == 1){	    
             continue;
-        }
+        }        
 
        pthread_mutex_lock(&element_free_mutex);
         /* Handle postponed priority progress message */
@@ -103,8 +111,8 @@ speak(void* data)
             stop_priority_older_than(2, message->id);
             stop_priority(4);
             stop_priority(5);
+            pthread_mutex_unlock(&element_free_mutex);
             speaking_semaphore_post();
-            pthread_mutex_unlock(&element_free_mutex);         
             continue;
         }else{
             /* Extract the right message from priority queue */
@@ -141,14 +149,18 @@ speak(void* data)
         speaking_uid = message->settings.uid;
 
         /* Save the currently spoken message to be able to resume()
-           it after pause */
-        if (current_message != NULL) mem_free_message(current_message);
+           it after pause() */
+        if (current_message != NULL)
+	    if (!current_message->settings.paused_while_speaking) 
+		mem_free_message(current_message);
         current_message = message;
 
         /* Check if the last priority 5 message wasn't said yet */
         if (last_p5_message != NULL){
-            if (last_p5_message->settings.uid == message->settings.uid)
+            if (last_p5_message->settings.uid == message->settings.uid){
+		mem_free_message(last_p5_message);
                 last_p5_message = NULL;
+	    }
         }
 
         pthread_mutex_unlock(&element_free_mutex);        
@@ -162,14 +174,34 @@ reload_message(TSpeechDMessage *msg)
     int im;
     char *pos;
     char *newtext;
+    char *tptr;
 
-    if (msg == NULL) return -1;
-    if (msg->settings.index_mark >= 0){
+    if (msg == NULL){
+	MSG(4, "Warning: msg == NULL in reload_message()");
+	return -1;
+    }
+
+    /* We don't want speak() to free it since we will modify and re-insert it
+       into the queue */
+
+    if (msg->settings.index_mark != NULL){
+	MSG(5, "Recovering index mark %s", msg->settings.index_mark);
         client_settings = get_client_settings_by_uid(msg->settings.uid);
         /* Scroll back to provide context, if required */
-        /* WARNING: This relies on ordered index marks! */
-        im = msg->settings.index_mark + client_settings->pause_context;
-        MSG(5, "index_marking", "Requested index mark is %d (%d+%d)",im,
+        /* WARNING: This relies on ordered SD_MARK_BODY index marks! */
+	MSG(5, "Recovering index mark (number)");
+	im = strtol(msg->settings.index_mark+SD_MARK_BODY_LEN, &tptr, 10);
+	MSG(5, "Recovering index mark (comparing tptr)");
+	if (msg->settings.index_mark+SD_MARK_BODY_LEN == tptr){
+	    MSG2(2, "index_marking", "ERROR: Invalid index_mark '%s'. Message not reloaded.",
+		 msg->settings.index_mark);
+	    return -1;
+	}
+	MSG(5, "Recovered index mark number: %d", im);
+
+        im += client_settings->pause_context;
+
+        MSG2(5, "index_marking", "Requested index mark (with context) is %d (%d+%d)",im,
             msg->settings.index_mark, client_settings->pause_context);
         if (im < 0){
             im = 0;
@@ -186,15 +218,27 @@ reload_message(TSpeechDMessage *msg)
         msg->buf = newtext;
         msg->bytes = strlen(msg->buf);
 
-        if(queue_message(msg, -msg->settings.uid, 0, MSGTYPE_TEXT, 0, 0) != 0){
+        if(queue_message(msg, -msg->settings.uid, 0, MSGTYPE_TEXT, 0) == 0){
             if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
-            spd_free(msg->buf);
-            spd_free(msg);
+	    spd_free(msg->buf);
+	    spd_free(msg);
+            return -1;
+        }
+
+        return 0;
+    }else{
+	MSG(5, "Index mark unknown, inserting the whole message.");
+
+        if(queue_message(msg, -msg->settings.uid, 0, MSGTYPE_TEXT, 0) == 0){
+            if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
+	    spd_free(msg->buf);
+	    spd_free(msg);
             return -1;
         }
 
         return 0;
     }
+    return 0;
 }
 
 void
@@ -294,17 +338,21 @@ speaking_stop_all()
 void
 speaking_cancel(int uid)
 {
+    pthread_mutex_lock(&element_free_mutex);	
     speaking_stop(uid);
     stop_from_uid(uid);
+    pthread_mutex_unlock(&element_free_mutex);
 }
 
 void
 speaking_cancel_all()
 {
     output_stop();
+    pthread_mutex_lock(&element_free_mutex);         
     stop_priority(1);
     stop_priority(2);
     stop_priority(3);
+    pthread_mutex_unlock(&element_free_mutex);         
 }
 
 int
@@ -332,22 +380,40 @@ speaking_pause(int fd, int uid)
     char *pos;
     int i;
     int im;
+    int ret;
+
+    MSG(3, "Pause");
 
     /* Find settings for this particular client */
     settings = get_client_settings_by_uid(uid);
-    if (settings == NULL) return 1;
-    settings->paused = 1;     
+    if (settings == NULL){
+	MSG(3, "ERROR: Can't get settings of active client in speaking_pause()!");
+	return 1;
+    }
+    settings->paused = 1;
 
-    if (is_sb_speaking() == 0) return 0;
-    if (speaking_uid != uid) return 0;    
+    if (speaking_uid != uid){
+	MSG(5, "given uid %d not speaking_uid", speaking_uid, uid);
+	return 0;    
+    }
 
-    im = output_pause();
-    if (im == -1) return 0;
-    if (current_message == NULL) return 0;
+    if (is_sb_speaking()){
+	if (current_message == NULL){
+	    MSG(5, "current_message is null");
+	    return 0;
+	}
+	
+	ret = output_pause();
+	if (ret < 0){
+	    MSG(5, "output_pause returned %d", ret);
+	    return 0;
+	}
     
-    current_message->settings.index_mark = im;
-    MessagePausedList = g_list_append(MessagePausedList, current_message);
-    current_message = NULL;
+	MSG(5, "Including current message into the message paused list");
+	current_message->settings.paused = 2;
+	current_message->settings.paused_while_speaking = 1;
+	MessagePausedList = g_list_append(MessagePausedList, current_message);	
+    }
 
     return 0;  
 }
@@ -387,22 +453,146 @@ speaking_resume(int uid)
     return 0;
 }
 
-/* Stops speaking and cancels currently spoken message.*/
 int
-is_sb_speaking()
+socket_send_msg(int fd, char *msg)
 {
-    int speaking = 0;
+    int ret;
 
-    /* Determine is the current module is still speaking */
-    if(speaking_module != NULL){
-        speaking = output_is_speaking();
-    } 
-    if (speaking == 0) speaking_module = NULL;
-    return speaking;
+    assert(msg!=NULL);
+    pthread_mutex_lock(&socket_com_mutex);
+    MSG2(5, "protocol", "%d:REPLY:|%s|", fd, msg);
+    ret = write(fd, msg, strlen(msg));
+    pthread_mutex_unlock(&socket_com_mutex);
+    if (ret < 0){
+	MSG(1, "write() error: %s", strerror(errno));
+	return -1;
+    }
+    return 0;
 }
 
 int
-get_speaking_client_uid()
+report_index_mark(TSpeechDMessage *msg, char *index_mark)
+{
+    char *cmd;
+    int ret;
+
+    cmd = g_strdup_printf(EVENT_INDEX_MARK_C"-%d\r\n"
+			  EVENT_INDEX_MARK_C"-%d\r\n"
+			  EVENT_INDEX_MARK_C"-%s\r\n"
+			  EVENT_INDEX_MARK,
+			  msg->id, msg->settings.uid, index_mark);
+    ret = socket_send_msg(msg->settings.fd, cmd);
+    if (ret){
+	MSG(1, "ERROR: Can't report index mark!");
+	return -1;
+    }
+    spd_free(cmd);
+    return 0;
+}
+
+#define REPORT_STATE(state, ssip_code, ssip_msg) \
+  int \
+  report_ ## state (TSpeechDMessage *msg) \
+  { \
+    char *cmd; \
+    int ret; \
+    cmd = g_strdup_printf(ssip_code"-%d\r\n"ssip_code"-%d\r\n"ssip_msg, \
+	     msg->id, msg->settings.uid); \
+    ret = socket_send_msg(msg->settings.fd, cmd); \
+    if (ret){ \
+      MSG(2, "ERROR: Can't report index mark!"); \
+      return -1; \
+    } \
+    spd_free(cmd); \
+    return 0; \
+  } 
+
+
+REPORT_STATE(begin, EVENT_BEGIN_C, EVENT_BEGIN);
+REPORT_STATE(end, EVENT_END_C, EVENT_END);
+REPORT_STATE(pause, EVENT_PAUSED_C, EVENT_PAUSED);
+REPORT_STATE(resume, EVENT_RESUMED_C, EVENT_RESUMED);
+REPORT_STATE(cancel, EVENT_CANCELED_C, EVENT_CANCELED);
+
+int
+is_sb_speaking(void)
+{
+    int ret;
+    char *index_mark;
+    TFDSetElement *settings;
+    char *msg;
+
+    MSG(5, "is_sb_speaking(), SPEAKING=%d", SPEAKING);
+
+    /* Determine if the current module is still speaking */
+    if(speaking_module != NULL){
+	if (current_message == NULL){
+	    MSG(1, "Error: Current message is NULL in is_sb_speaking()");
+	    return -1;
+	}
+	settings = &(current_message->settings);	
+
+        ret = output_is_speaking(&index_mark);
+	if (index_mark == NULL) return SPEAKING=0;
+
+	if (!strcmp(index_mark, "no")){
+	    spd_free(index_mark);
+	    return SPEAKING;
+	}
+
+	MSG(5, "INDEX MARK: %s", index_mark);
+
+	if (!strcmp(index_mark, SD_MARK_BODY"begin")){
+	    SPEAKING=1;
+	    if (!settings->paused_while_speaking){
+		if (settings->notification & NOTIFY_BEGIN)
+		    report_begin(current_message);
+	    }else{
+		if (settings->notification & NOTIFY_RESUME)
+		    report_resume(current_message);
+		settings->paused_while_speaking = 0;
+	    }
+	}else if (!strcmp(index_mark, SD_MARK_BODY"end")){
+	    SPEAKING=0;
+	    if (settings->notification & NOTIFY_END)
+		report_end(current_message);
+            speaking_semaphore_post();
+	}else if (!strcmp(index_mark, SD_MARK_BODY"paused")){
+	    SPEAKING=0;
+	    if (settings->notification & NOTIFY_PAUSE)
+		report_pause(current_message);
+	    /* We don't want to free this message in speak() since we will
+	       later copy it in resume() */
+	    current_message = NULL;
+	}else if (!strcmp(index_mark, SD_MARK_BODY"stopped")){
+	    SPEAKING=0;
+	    if (settings->notification & NOTIFY_CANCEL)
+		report_cancel(current_message);
+	}else if (index_mark != NULL){
+	    if (strncmp(index_mark, SD_MARK_BODY, SD_MARK_BODY_LEN)){
+		if (settings->notification & NOTIFY_IM)
+		    report_index_mark(current_message, index_mark);
+	    }else{
+		MSG(5, "Setting current index_mark for the message to %s", index_mark);
+		if (current_message->settings.index_mark != NULL)
+		    free(current_message->settings.index_mark);
+		current_message->settings.index_mark = strdup(index_mark);
+	    }
+	    
+	}
+	spd_free(index_mark);
+    }else{
+	MSG(5, "Speaking module is NULL, SPEAKING==%d", SPEAKING);
+	SPEAKING = 0;
+    }
+
+    if (SPEAKING == 0) speaking_module = NULL;
+
+    return SPEAKING;
+}
+
+int
+get_speaking_client_uid(void)
 {
     int speaking = 0;
     if(is_sb_speaking() == 0){
@@ -420,12 +610,16 @@ empty_queue(GList *queue)
 {
     int num, i;
     GList *gl;
+    TSpeechDMessage *msg;
 
     num = g_list_length(queue);
     for(i=0;i<=num-1;i++){
         gl = g_list_first(queue);
         assert(gl != NULL);
         assert(gl->data != NULL);
+	msg = (TSpeechDMessage*) gl->data;
+	if (msg->settings.notification & NOTIFY_CANCEL)
+	    report_cancel(msg);
         mem_free_message(gl->data);
         queue = g_list_delete_link(queue, gl);
     }
@@ -439,7 +633,7 @@ empty_queue_by_time(GList *queue, unsigned int uid)
     int num, i;
     GList *gl, *gln;
     TSpeechDMessage *msg;
-
+    
     num = g_list_length(queue);
     gl = g_list_first(queue);
     for(i=0;i<=num-1;i++){
@@ -514,13 +708,11 @@ stop_from_uid(const int uid)
 {
     GList *gl;
 
-    pthread_mutex_lock(&element_free_mutex);
     MessageQueue->p1 = stop_priority_from_uid(MessageQueue->p1, uid);
     MessageQueue->p2 = stop_priority_from_uid(MessageQueue->p2, uid);
     MessageQueue->p3 = stop_priority_from_uid(MessageQueue->p3, uid);
     MessageQueue->p4 = stop_priority_from_uid(MessageQueue->p4, uid);
     MessageQueue->p5 = stop_priority_from_uid(MessageQueue->p5, uid);
-    pthread_mutex_unlock(&element_free_mutex);
 }
 
 /* Determines if this messages is to be spoken
