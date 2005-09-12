@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.h,v 1.2 2005-05-13 10:35:12 hanke Exp $
+ * $Id: options.h,v 1.3 2005-09-12 14:28:41 hanke Exp $
  */
 
 #include <getopt.h>
@@ -33,6 +33,7 @@ char *voice_type;
 char *punctuation_mode;
 char *priority;
 int spelling;
+int wait_till_end;
 
 
 static struct option long_options[] = {
@@ -45,9 +46,10 @@ static struct option long_options[] = {
     {"punctuation-mode", 1, 0, 'm'},
     {"spelling", 0, 0, 's'},
     {"priority", 1, 0, 'P'},
+    {"wait", 0, 0, 'w'},
     {"version", 0, 0, 'v'},
     {"help", 0, 0, 'h'},
     {0, 0, 0, 0}
 };
 
-static char* short_options = "r:p:i:o:l:t:m:sP:vh";
+static char* short_options = "r:p:i:o:l:t:m:sP:wvh";
