@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.23 2005-09-04 14:49:14 hanke Exp $
+ * $Id: module.c,v 1.24 2005-09-12 14:36:13 hanke Exp $
  */
 
 #include <sys/wait.h>
@@ -111,16 +111,20 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 	}
 
         if (cfg == 0){
-            if (execlp(module->filename, "", arg1, (char *) 0) == -1){                                
+            if (execlp(module->filename, "", arg1, (char *) 0) == -1){                    
                 exit(1);
             }
         }else{
+	    //            if (execlp("valgrind", "" ,"--leak-check=full", module->filename, arg1, arg2, (char *) 0) == -1){
             if (execlp(module->filename, "", arg1, arg2, (char *) 0) == -1){
                 exit(1);
-            }            
+            }
         }
         assert(0);
     default:
+
+	if (cfg) spd_free(arg2);
+
         module->pid = fr;
         close(module->pipe_in[0]);
         close(module->pipe_out[1]);
