@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.18 2005-06-10 10:48:49 hanke Exp $
+ * $Id: generic.c,v 1.19 2005-09-12 14:32:35 hanke Exp $
  */
 
 #include <glib.h>
@@ -247,10 +247,10 @@ module_pause(void)
     }
 }
 
-int
+char*
 module_is_speaking(void)
 {
-    return generic_speaking; 
+    return NULL ; 
 }
 
 void

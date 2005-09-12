@@ -20,17 +20,10 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: index_marking.c,v 1.11 2005-05-06 19:50:54 hanke Exp $
+  * $Id: index_marking.c,v 1.12 2005-09-12 14:35:07 hanke Exp $
   */
 
 #include "index_marking.h"
-
-/* Insert index marks to the given message _msg_. Index marks have
-the form @number@, the numbers begin with 0. It also escape `@' with
-`@@'.*/
-
-#define SD_MARK_HEAD "<mark name=\"sdm_"
-#define SD_MARK_TAIL "\"/>"
 
 void
 insert_index_marks(TSpeechDMessage *msg, int ssml_mode)
@@ -66,7 +59,7 @@ insert_index_marks(TSpeechDMessage *msg, int ssml_mode)
 	    }
 	    else g_string_append_printf(marked_text, "&lt;");
 	}
-        else if (u_char == '>'){
+	else if (u_char == '>'){
             if (ssml_mode){
 		inside_tag = 0;
 		g_string_append_printf(marked_text, "%s", character);
@@ -153,7 +146,10 @@ strip_index_marks(char *buf, int ssml_mode)
     char *p;
     char *p_old;
 
-    str = g_string_new("<speak>");
+    if (ssml_mode)
+	str = g_string_new("<speak>");
+    else
+	str = g_string_new("");
     
     MSG2(5, "index_marking", "Message before stripping index marks: |%s|", buf);
     
@@ -170,7 +166,6 @@ strip_index_marks(char *buf, int ssml_mode)
 	    break;
 	}
 	do{
-	    MSG(5, "p++");
 	    p++;
 	}while(*p != '>' && *p != '\0');
 	if (*p == '>') p++;
