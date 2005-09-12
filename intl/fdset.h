@@ -19,65 +19,77 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: fdset.h,v 1.29 2004-06-28 08:00:15 hanke Exp $
+ * $Id: fdset.h,v 1.30 2005-09-12 14:21:18 hanke Exp $
  */
 
 #ifndef FDSET_H
 #define FDSET_H
 
 typedef enum 
-{                  /* Type of voice */
-    NO_VOICE = 0,
-    MALE1 = 1,
-    MALE2 = 2,
-    MALE3 = 3,
-    FEMALE1 = 4,
-    FEMALE2 = 5,
-    FEMALE3 = 6,
-    CHILD_MALE = 7,
-    CHILD_FEMALE = 8
-}EVoiceType;
+    {                  /* Type of voice */
+	NO_VOICE = 0,
+	MALE1 = 1,
+	MALE2 = 2,
+	MALE3 = 3,
+	FEMALE1 = 4,
+	FEMALE2 = 5,
+	FEMALE3 = 6,
+	CHILD_MALE = 7,
+	CHILD_FEMALE = 8
+    }EVoiceType;
 
 typedef enum
-{
-    SORT_BY_TIME = 0,
-    SORT_BY_ALPHABET = 1
-}ESort;
+    {
+	SORT_BY_TIME = 0,
+	SORT_BY_ALPHABET = 1
+    }ESort;
 
 typedef enum
-{
-    MSGTYPE_TEXT = 0,
-    MSGTYPE_SOUND_ICON = 1,
-    MSGTYPE_CHAR = 2,
-    MSGTYPE_KEY = 3,
-    MSGTYPE_SPELL = 99
-}EMessageType;
+    {
+	MSGTYPE_TEXT = 0,
+	MSGTYPE_SOUND_ICON = 1,
+	MSGTYPE_CHAR = 2,
+	MSGTYPE_KEY = 3,
+	MSGTYPE_SPELL = 99
+    }EMessageType;
 
 typedef enum
-{
-    RECOGN_NONE = 0,
-    RECOGN_SPELL = 1,
-    RECOGN_ICON = 2
-}ECapLetRecogn;
+    {
+	RECOGN_NONE = 0,
+	RECOGN_SPELL = 1,
+	RECOGN_ICON = 2
+    }ECapLetRecogn;
 
 typedef enum
-{
-    PUNCT_NONE = 0,
-    PUNCT_ALL = 1,
-    PUNCT_SOME = 2
-}EPunctMode;
+    {
+	PUNCT_NONE = 0,
+	PUNCT_ALL = 1,
+	PUNCT_SOME = 2
+    }EPunctMode;
 
 typedef enum
-{
-    SPELLING_OFF = 0,
-    SPELLING_ON = 1
-}ESpellMode;
+    {
+	SPELLING_OFF = 0,
+	SPELLING_ON = 1
+    }ESpellMode;
+
+typedef enum
+    {
+	NOTIFY_NOTHING = 0,
+	NOTIFY_BEGIN = 1,
+	NOTIFY_END = 2,
+	NOTIFY_IM = 4,
+	NOTIFY_CANCEL = 8,
+	NOTIFY_PAUSE = 16,
+	NOTIFY_RESUME = 32
+    }ENotification;
 
 typedef struct{
     unsigned int uid;		/* Unique ID of the client */
     int fd;                     /* File descriptor the client is on. */
     int active;                 /* Is this client still active on socket or gone?*/
     int paused;                 /* Internal flag, 1 for paused client or 0 for normal. */
+    int paused_while_speaking;  
     EMessageType type;          /* Type of the message (1=text, 2=icon, 3=char, 4=key) */
     int ssml_mode;		/* SSML mode on (1)/off (0) */
     int priority;               /* Priority between 1 and 3 (1 - highest, 3 - lowest) */
@@ -95,10 +107,13 @@ typedef struct{
     EVoiceType voice;           /* see EVoiceType definition above */
     ECapLetRecogn cap_let_recogn;         /* Capital letters recognition: (0 - off, 1 - on) */
 
+    ENotification notification;	/* Notification about start and stop of messages, about reached 
+				   index marks and state (canceled, paused, resumed). */
+
     int reparted;
     unsigned int min_delay_progress;
     int pause_context;          /* Number of words that should be repeated after a pause */
-    int index_mark;             /* Current index mark for the message (only if paused) */
+    char* index_mark;           /* Current index mark for the message (only if paused) */
 
 
     /* TODO: Should be moved out */
