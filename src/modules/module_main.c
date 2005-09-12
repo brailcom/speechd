@@ -18,17 +18,19 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_main.c,v 1.5 2004-07-21 08:14:41 hanke Exp $
+ * $Id: module_main.c,v 1.6 2005-09-12 14:32:45 hanke Exp $
  */
 
 /* So that gcc doesn't comply */
 int getline(char**, int*, FILE*);
 
 #define PROCESS_CMD(command, function) if (!strcmp(cmd_buf, #command"\n")){ \
- if (printf("%s\n", (char*) function()) < 0){ \
+ char *msg; \
+ if (printf("%s\n", msg = (char*) function()) < 0){ \
      DBG("Broken pipe, exiting...\n"); \
      module_close(2); \
  } \
+ xfree(msg); \
  fflush(stdout); \
 }
 
@@ -95,10 +97,10 @@ main(int argc, char *argv[])
     if (!strcmp(cmd_buf, "INIT\n")){
 	if (ret_init == 0){
 	    printf("299-%s\n", status_info);
-	    ret = printf("%s\n", "299 OK LOADED SUCCESSFULLY\n");
+	    ret = printf("%s\n", "299 OK LOADED SUCCESSFULLY");
 	}else{
 	    printf("399-%s\n", status_info);
-	    ret = printf("%s\n", "399 ERR CANT INIT MODULE\n");
+	    ret = printf("%s\n", "399 ERR CANT INIT MODULE");
 	    return -1;
 	}
       	xfree(status_info);
@@ -112,6 +114,7 @@ main(int argc, char *argv[])
 	DBG("ERROR: Wrong communication from module client: didn't call INIT\n");
 	module_close(3);
     }
+    xfree(cmd_buf);
 
     while(1){
         cmd_buf = NULL;  n=0;
@@ -134,6 +137,8 @@ main(int argc, char *argv[])
           printf("300 ERR UNKNOWN COMMAND\n"); 
           fflush(stdout);
         }
+	
+	xfree(cmd_buf);
     } 
 }
 
