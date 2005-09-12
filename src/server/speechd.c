@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.59 2004-10-12 20:27:49 hanke Exp $
+ * $Id: speechd.c,v 1.60 2005-09-12 14:40:00 hanke Exp $
  */
 
 #include "speechd.h"
@@ -82,7 +82,7 @@ MSG2(int level, char *kind, char *format, ...)
         va_list args;
         va_list args2;
         int i;
-
+	
         if(std_log) {
             va_start(args, format);
         }
@@ -107,6 +107,7 @@ MSG2(int level, char *kind, char *format, ...)
                 if(custom_log) {
                     fprintf(custom_logfile, "[%s : %d] speechd: ", tstr, tv.tv_usec);
                 }
+		spd_free(tstr);
             }
             for(i=1;i<level;i++){
                 if(std_log) {
@@ -161,6 +162,7 @@ MSG(int level, char *format, ...)
                 assert(strlen(tstr)>1);
                 tstr[strlen(tstr)-1] = 0;
                 fprintf(logfile, "[%s : %d] speechd: ", tstr, tv.tv_usec);
+		spd_free(tstr);
             }
             for(i=1;i<level;i++){
                 fprintf(logfile, " ");
@@ -427,6 +429,9 @@ speechd_init(void)
     ret = pthread_mutex_init(&output_layer_mutex, NULL);
     if(ret != 0) DIE("Mutex initialization failed");
 
+    ret = pthread_mutex_init(&socket_com_mutex, NULL);
+    if(ret != 0) DIE("Mutex initialization failed");
+
     /* Create a SYS V semaphore */
     MSG(4, "Creating semaphore");
     speaking_sem_key = ftok(speechd_pid_file, 1);
@@ -447,6 +452,8 @@ speechd_init(void)
             g_hash_table_size(output_modules) > 1 ? "s" : "" );
     }
 
+
+    last_p5_message = NULL;
     highest_priority = 0;
 }
 
@@ -486,43 +493,43 @@ speechd_load_configuration(int sig)
 void
 speechd_quit(int sig)
 {
-	int ret;
-	
-	MSG(1, "Terminating...");
+    int ret;  
 
-	MSG(2, "Closing open connections...");
-	/* We will browse through all the connections and close them. */
-	g_hash_table_foreach_remove(fd_settings, speechd_client_terminate, NULL);
-	g_hash_table_destroy(fd_settings);
-	
-	MSG(2,"Closing open output modules...");
-	/*  Call the close() function of each registered output module. */
-	g_hash_table_foreach_remove(output_modules, speechd_modules_terminate, NULL);
-	g_hash_table_destroy(output_modules);
-	
-	MSG(2,"Closing server connection...");
-	if(close(server_socket) == -1)
-            MSG(2, "close() failed: %s", strerror(errno));
-	FD_CLR(server_socket, &readfds);
-	
-	MSG(4,"Closing speak() thread...");
-	ret = pthread_cancel(speak_thread);
-	if(ret != 0) FATAL("Speak thread failed to cancel!\n");
-	
-	ret = pthread_join(speak_thread, NULL);
-	if(ret != 0) FATAL("Speak thread failed to join!\n");
+    MSG(1, "Terminating...");    
 
-        MSG(4, "Removing semaphore");
-	speaking_semaphore_destroy();
+    MSG(2, "Closing open connections...");
+    /* We will browse through all the connections and close them. */
+    g_hash_table_foreach_remove(fd_settings, speechd_client_terminate, NULL);
+    g_hash_table_destroy(fd_settings);
 
-        MSG(3, "Removing pid file");
-	destroy_pid_file();
+    MSG(4,"Closing speak() thread...");
+    ret = pthread_cancel(speak_thread);
+    if(ret != 0) FATAL("Speak thread failed to cancel!\n");
+    
+    ret = pthread_join(speak_thread, NULL);
+    if(ret != 0) FATAL("Speak thread failed to join!\n");    
 
-	fflush(NULL);
-
-        MSG(2,"Speech Dispatcher terminated correctly");
-
-	exit(0);	
+    MSG(2,"Closing open output modules...");
+    /*  Call the close() function of each registered output module. */
+    g_hash_table_foreach_remove(output_modules, speechd_modules_terminate, NULL);
+    g_hash_table_destroy(output_modules);
+    
+    MSG(2,"Closing server connection...");
+    if(close(server_socket) == -1)
+	MSG(2, "close() failed: %s", strerror(errno));
+    FD_CLR(server_socket, &readfds);  
+    
+    MSG(4, "Removing semaphore");
+    speaking_semaphore_destroy();
+    
+    MSG(3, "Removing pid file");
+    destroy_pid_file();
+    
+    fflush(NULL);
+    
+    MSG(2,"Speech Dispatcher terminated correctly");
+    
+    exit(0);	
 }
 
 
