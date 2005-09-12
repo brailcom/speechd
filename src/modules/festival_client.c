@@ -430,7 +430,8 @@ festival_get_ack(FT_Info **info, char* ack)
 int
 festival_read_response(FT_Info *info, char **expr)
 {
-    char buf[4];    
+    char buf[4];
+    char *r;
 
     DBG("Com: Reading response");
 
@@ -446,10 +447,12 @@ festival_read_response(FT_Info *info, char **expr)
         if (expr != NULL) *expr = NULL;
         return 1;
     }else{
-        if (expr != NULL)
+        if (expr != NULL){
             *expr = client_accept_s_expr(info->server_fd);
-        else
-            client_accept_s_expr(info->server_fd);        
+        }else{
+            r = client_accept_s_expr(info->server_fd);
+	    if (r != NULL) free(r);
+	}
     }
 
     if (festival_get_ack(&info, buf)) return 1;
@@ -473,6 +476,8 @@ festival_accept_any_response(FT_Info *info)
 {
     char ack[4];
     int r;
+    char *expr;
+
     DBG("Com: Accepting any response");
     do {
         if(r = festival_get_ack(&info, ack)) return r;
@@ -481,9 +486,10 @@ festival_accept_any_response(FT_Info *info)
         DBG("<- Festival: |%s|",ack);
 	if (strcmp(ack,"WV\n") == 0){         /* receive a waveform */
 	    client_accept_waveform(info->server_fd, NULL, 0);
-	}else if (strcmp(ack,"LP\n") == 0)    /* receive an s-expr */
-	    client_accept_s_expr(info->server_fd);
-	else if (strcmp(ack,"ER\n") == 0)    /* server got an error */
+	}else if (strcmp(ack,"LP\n") == 0){    /* receive an s-expr */
+	    expr = client_accept_s_expr(info->server_fd);
+	    if (expr != NULL) free(expr);
+	}else if (strcmp(ack,"ER\n") == 0)    /* server got an error */
             {
                 /* This message ER is returned even if it was because there was
                    no sound produced, for this reason, the warning is disabled */
@@ -694,6 +700,7 @@ festivalGetDataMulti(FT_Info *info, char **callback, int *stop_flag, int stop_by
 	if (strcmp(ack,"WV\n") == 0){
 	    wave = client_accept_waveform(info->server_fd, stop_flag, stop_by_close);
 	}else if (strcmp(ack,"LP\n") == 0){
+	    if (resp != NULL) free(resp);
 	    resp = client_accept_s_expr(info->server_fd);	    
 	    if (resp == NULL){
 		DBG("ERROR: Something wrong in communication with Festival, s_expr = NULL");
@@ -703,6 +710,7 @@ festivalGetDataMulti(FT_Info *info, char **callback, int *stop_flag, int stop_by
 	    DBG("<- Festival: |%s|", resp);
 	    if (!strcmp(resp, "nil")){
 		DBG("festival_client: end of samples\n");
+		free(resp);
 		wave = NULL;
 		resp = NULL;
 	    }
@@ -713,8 +721,8 @@ festivalGetDataMulti(FT_Info *info, char **callback, int *stop_flag, int stop_by
     }while (strcmp(ack,"OK\n") != 0);
 
     if (resp)
-	if (strlen(resp) > 1)
-	    if (resp[0] != '#') *callback = resp;    
+	if ((strlen(resp) > 0) && (resp[0] != '#')) *callback = resp;
+	else free (resp);
 
     return wave;
 }
@@ -746,14 +754,20 @@ int festivalClose(FT_Info *info)
     { \
         char *r; \
         int ret; \
+        char *f; \
         if (festival_check_info(info, #name)) return -1; \
         if (param == NULL){ \
 	  FEST_SEND_CMD("("fest_param" nil)"); \
         }else{ \
-	  FEST_SEND_CMDA("("fest_param" \"%s\")", g_ascii_strdown(param, -1)); \
+	  FEST_SEND_CMDA("("fest_param" \"%s\")", f = g_ascii_strdown(param, -1)); \
+          xfree(f); \
 	} \
         ret = festival_read_response(info, &r); \
-        if ((resp != NULL) && (r != NULL)) *resp = r; \
+        if (r != NULL) \
+          if (resp != NULL) \
+             *resp = r; \
+          else \
+             free(r); \
         return ret; \
     }
 
@@ -761,9 +775,11 @@ int festivalClose(FT_Info *info)
     int \
     name(FT_Info *info, char *param) \
     { \
+        char *f; \
         if (festival_check_info(info, #name)) return -1; \
         if (param == NULL) return -1; \
-        FEST_SEND_CMDA("("fest_param" '%s)", g_ascii_strdown(param, -1)); \
+        FEST_SEND_CMDA("("fest_param" '%s)", f = g_ascii_strdown(param, -1)); \
+        xfree(f); \
         return festival_read_response(info, NULL); \
     } 
 
