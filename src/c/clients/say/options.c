@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.c,v 1.3 2005-05-13 10:35:09 hanke Exp $
+ * $Id: options.c,v 1.4 2005-09-12 14:28:12 hanke Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would
@@ -28,6 +28,8 @@
 #define VERSION "0.3"
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <assert.h>
 #include "options.h"
 
@@ -55,8 +57,10 @@ options_print_help(char *argv[])
            "-P, --priority         -     Set priority of the message (important, message,\n"
            "                                text, notification, progress)\n"
 	   "-s, --spelling         -     Spell the message\n"
+           "-w, --wait             -     Wait till the message is spoken or discarded\n"
 	   "-v, --version          -     Print version and copyright info\n"
-	   "-h, --help             -     Print this info\n\n"
+	   "-h, --help             -     Print this info\n"
+           "\n"
 	   "Copyright (C) 2003 Brailcom, o.p.s.\n"
 	   "This is free software; you can redistribute it and/or modify it\n"
 	   "under the terms of the GNU General Public License as published by\n"
@@ -71,9 +75,9 @@ void
 options_print_version()
 {
     printf(PACKAGE" "VERSION"\n");
-    printf("Copyright (C) 2002-2004 Brailcom, o.p.s.\n"
-           "GNU Emacs comes with ABSOLUTELY NO WARRANTY.\n"
-           "You may redistribute copies of Emacs\n"
+    printf("Copyright (C) 2002-2005 Brailcom, o.p.s.\n"
+           "spd-say comes with ABSOLUTELY NO WARRANTY.\n"
+           "You may redistribute copies of spd-say\n"
            "under the terms of the GNU General Public License.\n"
            "For more information about these matters, see the file named COPYING.\n"
            );
@@ -142,6 +146,9 @@ options_parse(int argc, char *argv[])
 	    break;
 	case 'P':
 	    OPT_SET_STR(priority);
+	    break;
+	case 'w':
+	    wait_till_end = 1;
 	    break;
         case 'v':
             options_print_version(argv);
