@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.17 2005-07-27 15:47:03 hanke Exp $
+ * $Id: libspeechd.c,v 1.18 2005-09-12 14:26:32 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -40,110 +40,167 @@
 #include "libspeechd.h"
 
 /* Comment/uncomment to switch debugging on/off */
-// #define LIBSPEECHD_DEBUG
+// #define LIBSPEECHD_DEBUG 1
 
 /* --------------  Private functions headers ------------------------*/
 
-static int spd_set_priority(int connection, SPDPriority priority);
+static int spd_set_priority(SPDConnection* connection, SPDPriority priority);
 static char* escape_dot(const char *otext);
 static int isanum(char* str);		
-static char* get_rec_str(char *record, int pos);
-static int get_rec_int(char *record, int pos);
+static char* get_reply(SPDConnection *connection);
 static int get_err_code(char *reply);
+static char* get_param_str(char* reply, int num, int *err);
+static int get_param_int(char* reply, int num, int *err);
 static char* parse_response_data(char *resp, int pos);
 static void *xmalloc(size_t bytes);
 static void xfree(void *ptr);   
 static int ret_ok(char *reply);
 static void SPD_DBG(char *format, ...);
-
+static void* spd_events_handler(void*);
 /* --------------------- Public functions ------------------------- */
+
+#define SPD_REPLY_BUF_SIZE 65536
 
 /* Opens a new Speech Dispatcher connection.
  * Returns socket file descriptor of the created connection
  * or -1 if no connection was opened. */
-int 
-spd_open(const char* client_name, const char* connection_name, const char* user_name)
+SPDConnection*
+spd_open(const char* client_name, const char* connection_name, const char* user_name,
+	 SPDConnectionMode mode)
 {
-  struct sockaddr_in address;
-  int connection;
-  char *set_client_name;
-  char *reply;
-  char* conn_name;
-  char* usr_name;
-  char *env_port;
-  int port;
-  int ret;
-  char tcp_no_delay = 1;
+    struct sockaddr_in address;
+    SPDConnection *connection;
+    char *set_client_name;
+    char *reply;
+    char* conn_name;
+    char* usr_name;
+    char *env_port;
+    int port;
+    int ret;
+    char tcp_no_delay = 1;
+    
+    if (client_name == NULL) return NULL;
+    
+    if (user_name == NULL)
+	usr_name = (char*) g_get_user_name();
+    else
+	usr_name = strdup(user_name);
+    
+    if(connection_name == NULL)
+	conn_name = strdup("main");
+    else
+	conn_name = strdup(connection_name);
+    
+    env_port = getenv("SPEECHD_PORT");
+    if (env_port != NULL)
+	port = strtol(env_port, NULL, 10);
+    else
+	port = SPEECHD_DEFAULT_PORT;
 
-  if (client_name == NULL) return -1;
-
-  if (user_name == NULL)
-      usr_name = (char*) g_get_user_name();
-  else
-      usr_name = strdup(user_name);
-  
-  if(connection_name == NULL)
-      conn_name = strdup("main");
-  else
-      conn_name = strdup(connection_name);
-
-  env_port = getenv("SPEECHD_PORT");
-  if (env_port != NULL)
-      port = strtol(env_port, NULL, 10);
-  else
-      port = SPEECHD_DEFAULT_PORT;
-  
-  /* Prepare a new socket */
-  address.sin_addr.s_addr = inet_addr("127.0.0.1");
-  address.sin_port = htons(port);
-  address.sin_family = AF_INET;
-  connection = socket(AF_INET, SOCK_STREAM, 0);
-
+    connection = xmalloc(sizeof(SPDConnection));
+    
+    /* Prepare a new socket */
+    address.sin_addr.s_addr = inet_addr("127.0.0.1");
+    address.sin_port = htons(port);
+    address.sin_family = AF_INET;
+    connection->socket = socket(AF_INET, SOCK_STREAM, 0);
+    
 #ifdef LIBSPEECHD_DEBUG
-  spd_debug = fopen("/tmp/libspeechd_debug", "w");
-  if (spd_debug == NULL) SPD_FATAL("COULDN'T ACCES FILE INTENDED FOR DEBUG");
+    spd_debug = fopen("/tmp/libspeechd_debug", "w");
+    if (spd_debug == NULL) SPD_FATAL("COULDN'T ACCES FILE INTENDED FOR DEBUG");
+    SPD_DBG("Debugging started");
 #endif /* LIBSPEECHD_DEBUG */
-
+    
   /* Connect to server */
-  ret = connect(connection, (struct sockaddr *)&address, sizeof(address));
-  if (ret == -1){
-      SPD_DBG("Error: Can't connect to server: %s", strerror(errno));
-      return 0;
-  }
+    ret = connect(connection->socket, (struct sockaddr *)&address, sizeof(address));
+    if (ret == -1){
+	SPD_DBG("Error: Can't connect to server: %s", strerror(errno));
+	return NULL;
+    }
 
-  setsockopt(connection, IPPROTO_TCP, TCP_NODELAY, &tcp_no_delay, sizeof(int));
- 
-  set_client_name = g_strdup_printf("SET SELF CLIENT_NAME \"%s:%s:%s\"", usr_name,
-          client_name, conn_name);
+    connection->callback_begin = NULL;
+    connection->callback_end = NULL;
+    connection->callback_im = NULL;
+    connection->callback_pause = NULL;
+    connection->callback_resume = NULL;
+    connection->callback_cancel = NULL;
+    
+    connection->mode = mode;
 
-  ret = spd_execute_command(connection, set_client_name);
+    if (mode == SPD_MODE_THREADED){
+	SPD_DBG("Initializing threads, condition variables and mutexes...");
+	connection->events_thread = xmalloc(sizeof(pthread_t));
+	ret = pthread_create(connection->events_thread, NULL, spd_events_handler, connection);
+	if(ret != 0){
+	    SPD_DBG("Thread initialization failed");
+	    return NULL;
+	}
+	connection->cond_reply_ready = xmalloc(sizeof(pthread_cond_t));
+	connection->mutex_reply_ready = xmalloc(sizeof(pthread_mutex_t));
+	connection->cond_reply_ack = xmalloc(sizeof(pthread_cond_t));
+	connection->mutex_reply_ack = xmalloc(sizeof(pthread_mutex_t));
+	pthread_cond_init(connection->cond_reply_ready, NULL);
+	pthread_mutex_init(connection->mutex_reply_ready, NULL);
+	pthread_cond_init(connection->cond_reply_ack, NULL);
+	pthread_mutex_init(connection->mutex_reply_ack, NULL);
+    }
+    
+    setsockopt(connection->socket, IPPROTO_TCP, TCP_NODELAY, &tcp_no_delay, sizeof(int));
 
-  xfree(usr_name);  xfree(conn_name);  xfree(set_client_name);
+    /* Create a stream from the socket */
+    connection->stream = fdopen(connection->socket, "r");
+    if (!connection->stream) SPD_FATAL("Can't create a stream for socket, fdopen() failed.");
+    /* Switch to line buffering mode */
+    ret = setvbuf(connection->stream, NULL, _IOLBF, SPD_REPLY_BUF_SIZE);
+    if (ret) SPD_FATAL("Can't set line buffering, setvbuf failed.");
 
-  return connection;
+    /* By now, the connection is created and operational */
+    
+    set_client_name = g_strdup_printf("SET SELF CLIENT_NAME \"%s:%s:%s\"", usr_name,
+				      client_name, conn_name);
+    
+    ret = spd_execute_command(connection, set_client_name);   
+    
+    xfree(usr_name);  xfree(conn_name);  xfree(set_client_name);
+    
+    return connection;
 }
 
 
 /* Close a Speech Dispatcher connection */
 void
-spd_close(int connection)
+spd_close(SPDConnection* connection)
 {
-  spd_execute_command(connection, "QUIT");
-    
-   /* close the socket */
-   close(connection);
+    if (connection->mode == SPD_MODE_THREADED){
+	pthread_cancel(*connection->events_thread);
+	pthread_mutex_destroy(connection->mutex_reply_ready);
+	pthread_mutex_destroy(connection->mutex_reply_ack);
+	pthread_cond_destroy(connection->cond_reply_ready);
+	pthread_cond_destroy(connection->cond_reply_ack);
+	connection->mode = SPD_MODE_SINGLE;
+    }
+
+    /* close the socket */
+    close(connection->socket);
+
+    xfree(connection);
 }
 
 /* Say TEXT with priority PRIORITY.
- * Returns 0 on success, -1 otherwise. */                            
+ * Returns msg_uid on success, -1 otherwise. */                            
 int
-spd_say(int connection, SPDPriority priority, const char* text)
+spd_say(SPDConnection *connection, SPDPriority priority, const char* text)
 {
     static char command[16];
     char *etext;
     int ret;
-
+    char *reply;
+    int err;
+    int msg_id;
+    
     if (text == NULL) return -1;
+
+    SPD_DBG("Text to say is: %s", text);
 
     /* Set priority */
     ret = spd_set_priority(connection, priority);
@@ -165,18 +222,24 @@ spd_say(int connection, SPDPriority priority, const char* text)
     spd_send_data(connection, etext, SPD_NO_REPLY);
 
     /* Terminate data flow */
-    ret = spd_execute_command(connection, "\r\n.");
+    ret = spd_execute_command_with_reply(connection, "\r\n.", &reply);
     if(ret){
         SPD_DBG("Can't terminate data flow");
         return -1; 
     }
 
-    return 0;
+    msg_id = get_param_int(reply, 1, &err);
+    if (err < 0){
+	SPD_DBG("Can't determine SSIP message unique ID parameter.");
+    }
+    xfree(reply);
+
+    return msg_id;
 }
 
 /* The same as spd_say, accepts also formated strings */
 int
-spd_sayf(int fd, SPDPriority priority, const char *format, ...)
+spd_sayf(SPDConnection *connection, SPDPriority priority, const char *format, ...)
 {
     static int ret;    
     va_list args;
@@ -190,26 +253,26 @@ spd_sayf(int fd, SPDPriority priority, const char *format, ...)
     va_end(args);
     
     /* Send the buffer to Speech Dispatcher */
-    ret = spd_say(fd, priority, buf);	
-
+    ret = spd_say(connection, priority, buf);	
     xfree(buf);
+
     return ret;
 }
 
 int
-spd_stop(int connection)
+spd_stop(SPDConnection *connection)
 {
   return spd_execute_command(connection, "STOP SELF");
 }
 
 int
-spd_stop_all(int connection)
+spd_stop_all(SPDConnection *connection)
 {
   return spd_execute_command(connection, "STOP ALL");
 }
 
 int
-spd_stop_uid(int connection, int target_uid)
+spd_stop_uid(SPDConnection *connection, int target_uid)
 {
   static char command[16];
 
@@ -218,19 +281,19 @@ spd_stop_uid(int connection, int target_uid)
 }
 
 int
-spd_cancel(int connection)
+spd_cancel(SPDConnection *connection)
 {
   return spd_execute_command(connection, "CANCEL SELF");
 }
 
 int
-spd_cancel_all(int connection)
+spd_cancel_all(SPDConnection *connection)
 {
   return spd_execute_command(connection, "CANCEL ALL");
 }
 
 int
-spd_cancel_uid(int connection, int target_uid)
+spd_cancel_uid(SPDConnection *connection, int target_uid)
 {
   static char command[16];
 
@@ -239,19 +302,19 @@ spd_cancel_uid(int connection, int target_uid)
 }
 
 int
-spd_pause(int connection)
+spd_pause(SPDConnection *connection)
 {
   return spd_execute_command(connection, "PAUSE SELF");
 }
 
 int
-spd_pause_all(int connection)
+spd_pause_all(SPDConnection *connection)
 {
   return spd_execute_command(connection, "PAUSE ALL");
 }
 
 int
-spd_pause_uid(int connection, int target_uid)
+spd_pause_uid(SPDConnection *connection, int target_uid)
 {
   char command[16];
 
@@ -260,19 +323,19 @@ spd_pause_uid(int connection, int target_uid)
 }
 
 int
-spd_resume(int connection)
+spd_resume(SPDConnection *connection)
 {
   return spd_execute_command(connection, "RESUME SELF");
 }
 
 int
-spd_resume_all(int connection)
+spd_resume_all(SPDConnection *connection)
 {
   return spd_execute_command(connection, "RESUME ALL");
 }
 
 int
-spd_resume_uid(int connection, int target_uid)
+spd_resume_uid(SPDConnection *connection, int target_uid)
 {
   static char command[16];
 
@@ -281,10 +344,12 @@ spd_resume_uid(int connection, int target_uid)
 }
 
 int
-spd_key(int connection, SPDPriority priority, const char *key_name)
+spd_key(SPDConnection *connection, SPDPriority priority, const char *key_name)
 {
     char *command_key;
     int ret;
+
+    if (key_name == NULL) return -1;
 
     ret = spd_set_priority(connection, priority);
     if (ret) return -1;
@@ -298,7 +363,7 @@ spd_key(int connection, SPDPriority priority, const char *key_name)
 }
 
 int
-spd_char(int connection, SPDPriority priority, const char *character)
+spd_char(SPDConnection *connection, SPDPriority priority, const char *character)
 {
     static char command[16];
     int ret;
@@ -317,7 +382,7 @@ spd_char(int connection, SPDPriority priority, const char *character)
 }
 
 int
-spd_wchar(int connection, SPDPriority priority, wchar_t wcharacter)
+spd_wchar(SPDConnection *connection, SPDPriority priority, wchar_t wcharacter)
 {
     static char command[16];
     char character[8];
@@ -338,7 +403,7 @@ spd_wchar(int connection, SPDPriority priority, wchar_t wcharacter)
 }
 
 int
-spd_sound_icon(int connection, SPDPriority priority, const char *icon_name)
+spd_sound_icon(SPDConnection *connection, SPDPriority priority, const char *icon_name)
 {
     char *command;
     int ret;
@@ -358,7 +423,7 @@ spd_sound_icon(int connection, SPDPriority priority, const char *icon_name)
 
 #define SPD_SET_COMMAND_INT(param, ssip_name, condition) \
     int \
-    spd_w_set_ ## param (int connection, signed int val, const char* who) \
+    spd_w_set_ ## param (SPDConnection *connection, signed int val, const char* who) \
     { \
         static char command[64]; \
         int ret; \
@@ -367,17 +432,17 @@ spd_sound_icon(int connection, SPDPriority priority, const char *icon_name)
         return spd_execute_command(connection, command); \
     } \
     int \
-    spd_set_ ## param (int connection, signed int val) \
+    spd_set_ ## param (SPDConnection *connection, signed int val) \
     { \
         return spd_w_set_ ## param (connection, val, "SELF"); \
     } \
     int \
-    spd_set_ ## param ## _all(int connection, signed int val) \
+    spd_set_ ## param ## _all(SPDConnection *connection, signed int val) \
     { \
         return spd_w_set_ ## param (connection, val, "ALL"); \
     } \
     int \
-    spd_set_ ## param ## _uid(int connection, signed int val, unsigned int uid) \
+    spd_set_ ## param ## _uid(SPDConnection *connection, signed int val, unsigned int uid) \
     { \
         char who[8]; \
         sprintf(who, "%d", uid); \
@@ -386,7 +451,7 @@ spd_sound_icon(int connection, SPDPriority priority, const char *icon_name)
 
 #define SPD_SET_COMMAND_STR(param, ssip_name) \
     int \
-    spd_w_set_ ## param (int connection, const char *str, const char* who) \
+    spd_w_set_ ## param (SPDConnection *connection, const char *str, const char* who) \
     { \
         char *command; \
         int ret; \
@@ -398,17 +463,17 @@ spd_sound_icon(int connection, SPDPriority priority, const char *icon_name)
         return ret; \
     } \
     int \
-    spd_set_ ## param (int connection, const char *str) \
+    spd_set_ ## param (SPDConnection *connection, const char *str) \
     { \
         return spd_w_set_ ## param (connection, str, "SELF"); \
     } \
     int \
-    spd_set_ ## param ## _all(int connection, const char *str) \
+    spd_set_ ## param ## _all(SPDConnection *connection, const char *str) \
     { \
         return spd_w_set_ ## param (connection, str, "ALL"); \
     } \
     int \
-    spd_set_ ## param ## _uid(int connection, const char *str, unsigned int uid) \
+    spd_set_ ## param ## _uid(SPDConnection *connection, const char *str, unsigned int uid) \
     { \
         char who[8]; \
         sprintf(who, "%d", uid); \
@@ -417,17 +482,17 @@ spd_sound_icon(int connection, SPDPriority priority, const char *icon_name)
 
 #define SPD_SET_COMMAND_SPECIAL(param, type) \
     int \
-    spd_set_ ## param (int connection, type val) \
+    spd_set_ ## param (SPDConnection *connection, type val) \
     { \
         return spd_w_set_ ## param (connection, val, "SELF"); \
     } \
     int \
-    spd_set_ ## param ## _all(int connection, type val) \
+    spd_set_ ## param ## _all(SPDConnection *connection, type val) \
     { \
         return spd_w_set_ ## param (connection, val, "ALL"); \
     } \
     int \
-    spd_set_ ## param ## _uid(int connection, type val, unsigned int uid) \
+    spd_set_ ## param ## _uid(SPDConnection *connection, type val, unsigned int uid) \
     { \
         char who[8]; \
         sprintf(who, "%d", uid); \
@@ -446,8 +511,12 @@ SPD_SET_COMMAND_SPECIAL(capital_letters, SPDCapitalLetters);
 SPD_SET_COMMAND_SPECIAL(spelling, SPDSpelling);
 SPD_SET_COMMAND_SPECIAL(voice_type, SPDVoiceType);
 
+#undef SPD_SET_COMMAND_INT
+#undef SPD_SET_COMMAND_STR
+#undef SPD_SET_COMMAND_SPECIAL
+
 int
-spd_w_set_punctuation(int connection, SPDPunctuation type, const char* who)
+spd_w_set_punctuation(SPDConnection *connection, SPDPunctuation type, const char* who)
 {
     static char command[32];
     int ret;
@@ -465,7 +534,7 @@ spd_w_set_punctuation(int connection, SPDPunctuation type, const char* who)
 }
 
 int
-spd_w_set_capital_letters(int connection, SPDCapitalLetters type, const char* who)
+spd_w_set_capital_letters(SPDConnection *connection, SPDCapitalLetters type, const char* who)
 {
     static char command[64];
     int ret;
@@ -483,7 +552,7 @@ spd_w_set_capital_letters(int connection, SPDCapitalLetters type, const char* wh
 }
 
 int
-spd_w_set_spelling(int connection, SPDSpelling type, const char* who)
+spd_w_set_spelling(SPDConnection *connection, SPDSpelling type, const char* who)
 {
     static char command[32];
     int ret;
@@ -499,7 +568,7 @@ spd_w_set_spelling(int connection, SPDSpelling type, const char* who)
 }
 
 int
-spd_w_set_voice_type(int connection, SPDVoiceType type, const char *who)
+spd_w_set_voice_type(SPDConnection *connection, SPDVoiceType type, const char *who)
 {
     static char command[64];
 
@@ -518,12 +587,63 @@ spd_w_set_voice_type(int connection, SPDVoiceType type, const char *who)
     return spd_execute_command(connection, command);      
 }
 
-#undef SPD_SET_COMMAND_INT
-#undef SPD_SET_COMMAND_STR
-#undef SPD_SET_COMMAND_SPECIAL
+int
+spd_set_notification_on(SPDConnection *connection, SPDNotification notification)
+{
+    if (connection->mode == SPD_MODE_THREADED)
+	return spd_set_notification(connection, notification, "on");
+    else
+	return -1;
+}
 
 int
-spd_get_client_list(int fd, char **client_names, int *client_ids, int* active){
+spd_set_notification_off(SPDConnection *connection, SPDNotification notification)
+{
+    if (connection->mode == SPD_MODE_THREADED)
+	return spd_set_notification(connection, notification, "off");
+    else
+	return -1;
+}
+
+
+#define NOTIFICATION_SET(val, ssip_val) \
+    if (notification & val){ \
+	sprintf(command, "SET SELF NOTIFICATION "ssip_val" %s", state);\
+	ret = spd_execute_command(connection, command);\
+	if (ret < 0) return -1;\
+    }
+
+int
+spd_set_notification(SPDConnection *connection, SPDNotification notification, const char* state)
+{
+    static char command[64];
+    int ret;
+
+    if (connection->mode != SPD_MODE_THREADED) return -1;
+
+    if (state == NULL){
+	SPD_DBG("Requested state is NULL");
+	return -1;
+    }
+    if (strcmp(state, "on") && strcmp(state, "off")){
+	SPD_DBG("Invalid argument for spd_set_notification: %s", state);
+	return -1;
+    }
+
+    NOTIFICATION_SET(SPD_INDEX_MARKS, "index_marks");
+    NOTIFICATION_SET(SPD_BEGIN, "begin");
+    NOTIFICATION_SET(SPD_END, "end");
+    NOTIFICATION_SET(SPD_CANCEL, "cancel");
+    NOTIFICATION_SET(SPD_PAUSE, "pause");
+    NOTIFICATION_SET(SPD_RESUME, "resume");
+    NOTIFICATION_SET(SPD_RESUME, "pause");
+
+    return 0;
+}
+#undef NOTIFICATION_SET
+
+int
+spd_get_client_list(SPDConnection *connection, char **client_names, int *client_ids, int* active){
 	char command[128];
 	char *reply;
 	int footer_ok;
@@ -561,7 +681,7 @@ spd_get_client_list(int fd, char **client_names, int *client_ids, int* active){
 }
 
 int
-spd_get_message_list_fd(int fd, int target, int *msg_ids, char **client_names)
+spd_get_message_list_fd(SPDConnection *connection, int target, int *msg_ids, char **client_names)
 {
 	char command[128];
 	char *reply;
@@ -596,104 +716,75 @@ spd_get_message_list_fd(int fd, int target, int *msg_ids, char **client_names)
 #endif
 }
 
-/* Takes the buffer, position of cursor in the buffer
- * and key that have been hit and tries to handle all
- * the speech output, tabulator completion and other
- * things and returns the new string. The cursor should
- * be moved then by the client program to the end of
- * this returned string.
- * The client should call this function and display it's
- * output every time there is some input to this command line.
- */
-/* WARNING: This is still not very well implemented
-   and so probably useless at this time. */
+int
+spd_execute_command(SPDConnection *connection, char* command)
+{
+    char *reply;
+    int ret;
 
-char*
-spd_command_line(int fd, char *buffer, int pos, char* c){
-	char* new_s;
+    ret = spd_execute_command_with_reply(connection, command, &reply);
+    xfree(reply);
 
-	if (buffer == NULL){
-		new_s = malloc(sizeof(char) * 32);		
-		buffer = malloc(sizeof(char));
-		buffer[0] = 0;
-	}else{
-	   	if ((pos > strlen(buffer)) || (pos < 0)) return NULL;
-		new_s = malloc(sizeof(char) * strlen(buffer) * 2);
-	}
-	new_s[0] = 0;
-		
-	/* Speech output for the symbol. */
-	spd_key(fd, SPD_NOTIFICATION, c);	
-	
-	/* TODO: */
-	/* What kind of symbol do we have. */
-		switch(c[0]){
-			/* Completion. */
-			case '\t':	
-					break;
-			/* Other tasks. */	
-			/* Deleting symbol */
-			case '-':	/* TODO: Should be backspace. */
-				strcpy(new_s, buffer);
-				new_s[pos-1]=0;
-				pos--;
-				break;
-			/* Adding symbol */
-			default:	
-				sprintf(new_s, "%s%c", buffer, c);
-				pos++;
-		}
-	/* Speech output */
-
-	/* Return the new string. */
-	return new_s;
+    return ret;
 }
 
 int
-spd_execute_command(int connection, char* command)
+spd_execute_command_with_reply(SPDConnection *connection, char* command, char **reply)
 {
-    char *buf;
-    char *ret;
+    char *buf;    
     int r;
     
     buf = g_strdup_printf("%s\r\n", command);
-    ret = spd_send_data(connection, buf, SPD_WAIT_REPLY);
+    *reply = spd_send_data(connection, buf, SPD_WAIT_REPLY);
     xfree(buf);
     
-    r = ret_ok(ret);
-    xfree(ret);
+    r = ret_ok(*reply);
 
     if (!r) return -1;
     else return 0;
 }
 
-/* TODO: This should be somehow flexible in the
-   length of reply it accepts, but for now, it's enough,
-   as there are no longer replies in Speech Dispatcher */
-#define SPD_MAX_REPLY_LENGTH 1024
+
 char*
-spd_send_data(int fd, const char *message, int wfr)
+spd_send_data(SPDConnection *connection, const char *message, int wfr)
 {
     char *reply;
     int bytes;
 
-    reply = malloc(sizeof(char) * SPD_MAX_REPLY_LENGTH);
-   
+    if (connection->mode == SPD_MODE_THREADED){
+	/* Make sure we don't get the cond_reply_ready signal before we are in
+	   cond_wait() */
+	pthread_mutex_lock(connection->mutex_reply_ready);
+    }
     /* write message to the socket */
-    write(fd, message, strlen(message));
+    write(connection->socket, message, strlen(message));
     SPD_DBG(">> : |%s|", message);
 
     /* read reply to the buffer */
     if (wfr){
-        bytes = read(fd, reply, SPD_MAX_REPLY_LENGTH);
-        if (bytes == -1){
-            SPD_DBG("Error: Can't read reply, broken socket.");
-            return NULL;
-        }
-        /* print server reply to as a string */
-        reply[bytes] = 0; 
-        SPD_DBG("<< : |%s|\n", reply);
+	if (connection->mode == SPD_MODE_THREADED){
+	    /* Wait until the reply is ready */
+	    pthread_cond_wait(connection->cond_reply_ready, connection->mutex_reply_ready);
+	    pthread_mutex_unlock(connection->mutex_reply_ready);
+	    /* Read the reply */
+	    reply = connection->reply;
+	    connection->reply = NULL;
+	    bytes = strlen(reply);
+	    if (bytes == 0){
+		SPD_DBG("Error: Can't read reply, broken socket.");
+		return NULL;
+	    }
+	    /* Signal the reply has been read */
+	    pthread_mutex_lock(connection->mutex_reply_ack);
+	    pthread_cond_signal(connection->cond_reply_ack);
+	    pthread_mutex_unlock(connection->mutex_reply_ack);
+	}else{
+	    reply = get_reply(connection);
+	}
+	SPD_DBG("<< : |%s|\n", reply);	
     }else{
+	if (connection->mode == SPD_MODE_THREADED)
+	    pthread_mutex_unlock(connection->mutex_reply_ready);
         SPD_DBG("<< : no reply expected");
         return "NO REPLY";
     } 
@@ -705,7 +796,7 @@ spd_send_data(int fd, const char *message, int wfr)
 /* --------------------- Internal functions ------------------------- */
 
 static int
-spd_set_priority(int connection, SPDPriority priority)
+spd_set_priority(SPDConnection *connection, SPDPriority priority)
 {
     static char p_name[16];
     static char command[64];
@@ -725,6 +816,112 @@ spd_set_priority(int connection, SPDPriority priority)
     return spd_execute_command(connection, command);
 }
 
+
+static char*
+get_reply(SPDConnection *connection)
+{
+    GString *str;
+    char *line = NULL;
+    int N = 0;
+    int bytes;
+    char *reply;
+
+    str = g_string_new("");
+
+    /* Wait for activity on the socket, when there is some,
+       read all the message line by line */
+    do{
+	bytes = getline(&line, &N, connection->stream);	
+	if (bytes == -1){
+	    SPD_FATAL("Error: Can't read reply, broken socket!");		
+	}
+	g_string_append(str, line);
+	/* terminate if we reached the last line (without '-' after numcode) */
+    }while( !((strlen(line) < 4) || (line[3] == ' ')));
+    
+    /* The resulting message received from the socket is stored in reply */
+    reply = str->str;
+    g_string_free(str, FALSE);
+
+    return reply;
+}
+
+static void*
+spd_events_handler(void* conn)
+{
+    char *reply;
+    int reply_code;
+    int ret;
+    SPDConnection *connection = conn;
+
+    while(1){
+
+	/* Read the reply/event (block if none is available) */
+	reply = get_reply(connection);
+        SPD_DBG("<< : |%s|\n", reply);
+
+	reply_code = get_err_code(reply);
+
+	if ((reply_code > 700) && (reply_code < 800)){
+	    int msg_id;
+	    int client_id;
+	    int err;
+
+	    SPD_DBG("Callback detected: %s", reply);
+
+	    /* This is an index mark */
+	    /* Extract message id */
+	    msg_id = get_param_int(reply, 1, &err);
+	    if (err < 0){
+		SPD_DBG("Bad reply from Speech Dispatcher: %s (code %d)", reply, err);
+		break;
+	    }
+	    client_id = get_param_int(reply, 2, &err);
+	    if (err < 0){
+		SPD_DBG("Bad reply from Speech Dispatcher: %s (code %d)", reply, err);
+		break;
+	    }
+	    /*  Decide if we want to call a callback */
+	    if ((reply_code == 701) && (connection->callback_begin))
+		connection->callback_begin(msg_id, client_id, SPD_EVENT_BEGIN);
+	    if ((reply_code == 702) && (connection->callback_end))
+		connection->callback_end(msg_id, client_id, SPD_EVENT_END);
+	    if ((reply_code == 703) && (connection->callback_cancel))
+		connection->callback_cancel(msg_id, client_id, SPD_EVENT_CANCEL);
+	    if ((reply_code == 704) && (connection->callback_pause))
+		connection->callback_pause(msg_id, client_id, SPD_EVENT_PAUSE);
+	    if ((reply_code == 705) && (connection->callback_resume))
+		connection->callback_resume(msg_id, client_id, SPD_EVENT_RESUME);
+	    if ((reply_code == 700) && (connection->callback_im)){
+		char* im;
+		int err;
+		im = get_param_str(reply, 3, &err);
+		if ((err < 0) || (im == NULL)){
+		    SPD_DBG("Broken reply from Speech Dispatcher: %s", reply);
+		    break;
+		}
+		/* Call the callback */
+		connection->callback_im(msg_id, client_id, SPD_EVENT_INDEX_MARK, im);
+		xfree(im);
+	    }
+
+	}else{
+	    /* This is a protocol reply */
+	    pthread_mutex_lock(connection->mutex_reply_ready);
+	    /* Prepare the reply to the reply buffer in connection */
+	    connection->reply = reply;
+	    /* Signal the reply is available on the condition variable */
+	    pthread_cond_signal(connection->cond_reply_ready);
+	    pthread_mutex_lock(connection->mutex_reply_ack); // this order is correct and necessary
+	    pthread_mutex_unlock(connection->mutex_reply_ready);
+	    /* Wait until it has bean read */
+	    pthread_cond_wait(connection->cond_reply_ack, connection->mutex_reply_ack);
+	    pthread_mutex_unlock(connection->mutex_reply_ack);
+	    /* Continue */	
+	}
+    }
+}
+
 static int
 ret_ok(char *reply)
 {
@@ -739,130 +936,78 @@ ret_ok(char *reply)
 }
 
 static char*
-get_rec_part(char *record, int pos)
+get_param_str(char* reply, int num, int *err)
 {
-    int i, n;
-    char *part;
-    int p = 0;
-
-    part = malloc(sizeof(char)*strlen(record));
-    for(i=0;i<=strlen(record)-1;i++){
-        if (record[i]==' '){
-            p++;
-            continue;
-        }
-        if(p == pos){
-            n = 0;
-            for(  ;i<=strlen(record)-1;i++){
-                if(record[i] != ' '){
-                    part[n] = record[i];
-                    n++;
-                }else{
-                    part[n] = 0;
-                    return part;
-                }
-            }
-            part[n] = 0;
-            return part;
-        }
-    }
-    return NULL;
-}
-
-static char*
-get_rec_str(char *record, int pos)
-{
-	return(get_rec_part(record, pos));
-}
-
-static int
-get_rec_int(char *record, int pos)
-{
-	char *num_str;
-	int num;
-
-	assert(record);
-
-	num_str = get_rec_part(record, pos);
-	if (!isanum(num_str)) return -9999;
-	num = atoi(num_str);
-	free(num_str);
-	return num;
-}
-
-static int
-parse_response_footer(char *resp)
-{
-    int ret;
     int i;
-    int n = 0;
-    char footer[256];
+    char *tptr;
+    char *pos;
+    char *pos_begin;
+    char *pos_end;
+    char *rep;
 
-    for(i=0;i<=strlen(resp)-1;i++){
-        if (resp[i]=='\r'){
-            i+=2;
-            if(resp[i+3] == ' '){
-                for(; i<=strlen(resp)-1; i++){
-                    if (resp[i] != '\r'){
-                        footer[n] = resp[i];
-                        n++;
-                    }else{
-                        footer[n]=0;
-                        ret = ret_ok(footer);
-                        return ret;
-                    }
-                }					
-            }
-        }
+    assert(err != NULL);
+
+    if (num < 1){
+	*err = -1;
+	return NULL;
     }
-    ret = ret_ok(footer);
+
+    pos = reply;
+    for (i=0; i<=num-2; i++){
+	pos = strstr(pos, "\r\n");	
+	if (pos == NULL){
+	    *err = -2;
+	    return NULL;
+	}
+	pos += 2;
+    }
+
+    if (strlen(pos) < 4) return NULL;
+    
+    *err = strtol(pos, &tptr, 10);
+    if (*err >= 300 && *err <= 399)
+	return NULL;
+
+    if ((*tptr != '-') || (tptr != pos+3)){
+	*err = -2;
+	return NULL;
+    }
+
+    pos_begin = pos + 4;
+    pos_end = strstr(pos_begin, "\r\n");
+    if (pos_end == NULL){
+	*err = -2;
+	return NULL;
+    }
+
+    rep = (char*) strndup(pos_begin, pos_end - pos_begin);
+    *err = 0;
+    
+    return rep;
+}
+
+static int
+get_param_int(char* reply, int num, int *err)
+{
+    char *rep_str;
+    char *tptr;
+    int ret;
+
+    rep_str = get_param_str(reply, num, err);
+    if (rep_str == NULL){
+	/* err is already set to the error return code, just return */
+	return 0;
+    }
+    
+    ret = strtol(rep_str, &tptr, 10);
+    if (*tptr != '\0'){
+	/* this is not a number */
+	*err = -3;
+	return 0;
+    }    
+    xfree(rep_str);
 
     return ret;
-}
-
-static char*
-parse_response_data(char *resp, int pos)
-{
-    int p = 1;
-    char *data;
-    int i;
-    int n = 0;
-		
-    data = malloc(sizeof(char) * strlen(resp));
-    assert(data!=NULL);
-
-    if (resp == NULL) return NULL;
-    if (pos<1) return NULL;
-
-    for(i=0;i<=strlen(resp)-1;i++){
-        if (resp[i]=='\r'){
-            p++;
-            /* Skip the LFCR sequence */
-            i++;
-            if(i+3 < strlen(resp)-1){
-                if(resp[i+4] == ' ') return NULL;
-            }
-            continue;
-        }
-        if (p==pos){
-            /* Skip the ERR code */
-            i+=4;	
-            /* Read the data */
-            for(; i<=strlen(resp)-1; i++){
-                if (resp[i] != '\r'){
-                    data[n] = resp[i];
-                    n++;
-                }else{
-                    data[n]=0;
-                    return data;	
-                }
-            }	
-            data[n]=0;
-            break;
-        }
-    }
-    free(data);
-    return NULL;
 }
 
 static int
@@ -1005,8 +1150,8 @@ SPD_DBG(char *format, ...)
         va_start(args, format);
         vfprintf(spd_debug, format, args);
         va_end(args);
-        fprintf(spd_debug, "\n");
-        fflush(spd_debug);
+	fprintf(spd_debug, "\n");
+	fflush(spd_debug);
 }
 #else  /* LIBSPEECHD_DEBUG */
 static void
