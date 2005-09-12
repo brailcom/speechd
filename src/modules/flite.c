@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.45 2005-06-10 10:48:45 hanke Exp $
+ * $Id: flite.c,v 1.46 2005-09-12 14:32:16 hanke Exp $
  */
 
 
@@ -68,8 +68,6 @@ AudioOutputType flite_audio_output_method;
 char *flite_pars[10];
 int flite_stop = 0;
 
-/* Fill the module_info structure with pointers to this modules functions */
-//DECLARE_MODINFO("flite", "Flite software synthesizer v. 1.2");
 
 MOD_OPTION_1_INT(FliteMaxChunkLength);
 MOD_OPTION_1_STR(FliteDelimiters);
@@ -77,7 +75,6 @@ MOD_OPTION_1_STR(FliteDelimiters);
 MOD_OPTION_1_STR(FliteAudioOutputMethod);
 MOD_OPTION_1_STR(FliteOSSDevice);
 MOD_OPTION_1_STR(FliteNASServer);
-
 
 /* Public functions */
 
@@ -109,6 +106,9 @@ module_init(char **status_info)
     int ret;
     char *error;
     GString *info;
+
+    DBG("Module init");
+    INIT_INDEX_MARKING();
 
     *status_info = NULL;    
     info = g_string_new("");
@@ -213,10 +213,10 @@ module_stop(void)
     DBG("flite: stop()\n");
 
     flite_stop = 1;
-    if (flite_speaking && flite_audio_id){
+    if (flite_audio_id){
+	DBG("Stopping audio");
 	ret = spd_audio_stop(flite_audio_id);
 	if (ret != 0) DBG("WARNING: Non 0 value from spd_audio_stop: %d", ret);
-	flite_stop = 1;
     }
 
     return 0;
@@ -227,24 +227,26 @@ module_pause(void)
 {
     DBG("pause requested\n");
     if(flite_speaking){
+        DBG("Flite doesn't support pause, stopping\n");
 
-        DBG("Sending request to pause to child\n");
-        flite_pause_requested = 1;
-        DBG("Waiting in pause for child to terminate\n");
-        while(flite_speaking) usleep(100);
+	module_stop();
 
-        DBG("paused at mark: %d", flite_position);
-        return flite_position;
-        
+        return -1;
     }else{
         return 0;
     }
 }
 
-int
+char*
 module_is_speaking(void)
 {
-    return flite_speaking; 
+    char *ret;
+    DBG("festival: module_is_speaking()");
+
+    ret = module_index_mark_get();
+
+    if (ret != NULL) DBG("reporting index mark: %s", ret);
+    return ret; 
 }
 
 void
@@ -302,9 +304,11 @@ _flite_speak(void* nothing)
 	/* TODO: free(buf) */
 	buf = (char*) malloc((FliteMaxChunkLength+1) * sizeof(char));	
 	pos = 0;
+	module_index_mark_store(INDEX_MARK_BEGIN);
 	while(1){
 	    if (flite_stop){
 		DBG("Stop in child, terminating");
+		module_index_mark_store(INDEX_MARK_STOPPED);
 		break;
 	    }
 	    bytes = module_get_message_part(*flite_message, buf, &pos, FliteMaxChunkLength, FliteDelimiters);
@@ -312,10 +316,10 @@ _flite_speak(void* nothing)
 	    DBG("Returned %d bytes from get_part\n", bytes);
 	    DBG("Text to synthesize is '%s'\n", buf);
 	    
-	    if (flite_pause_requested && (current_index_mark!=-1)){               
+	    if (flite_pause_requested && (current_index_mark!=-1)){
 		DBG("Pause requested in parent, position %d\n", current_index_mark);                
 		flite_pause_requested = 0;
-		flite_position = current_index_mark;
+		flite_position = current_index_mark;		
 		break;
 	    }
 
@@ -335,27 +339,34 @@ _flite_speak(void* nothing)
 		if (track.samples != NULL){
 		    if (flite_stop){
 			DBG("Stop in child, terminating");
+			module_index_mark_store(INDEX_MARK_STOPPED);
 			break;
 		    }
+		    DBG("Playing part of the message");
 		    ret = spd_audio_play(flite_audio_id, track);
 		    if (ret < 0) DBG("ERROR: spd_audio failed to play the track");
+		    if (flite_stop){
+			DBG("Stop in child, terminating (s)");
+			module_index_mark_store(INDEX_MARK_STOPPED);
+			break;
+		    }
 		}
 		DBG("c");
 	    }
 	    else if (bytes == -1){
 		DBG("End of data in speaking thread");
+		module_index_mark_store(INDEX_MARK_END);
 		break;
 	    }
 
 	    if (flite_stop){
 		DBG("Stop in child, terminating");
+		module_index_mark_store(INDEX_MARK_STOPPED);
 		break;
 	    }
 	}
 	flite_speaking = 0;
 	flite_stop = 0;
-
-	module_signal_end();
     }
 
     flite_speaking = 0;
