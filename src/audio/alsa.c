@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.17 2005-09-12 14:21:44 hanke Exp $
+ * $Id: alsa.c,v 1.18 2005-09-12 16:07:27 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -161,6 +161,14 @@ _alsa_open(AudioID *id)
 	return -1;
     }
 
+    /* Allocate space for sw_params (description of the sound parameters) */
+    MSG("Allocating new sw_params structure");
+    if ((err = snd_pcm_sw_params_malloc (&id->alsa_sw_params)) < 0) {
+	ERR("Cannot allocate hardware parameter structure (%s)", 
+	    snd_strerror(err));
+	return -1;
+    }       
+
     /* Initialize hw_params on our pcm */
     if ((err = snd_pcm_hw_params_any (id->alsa_pcm, id->alsa_hw_params)) < 0) {
 	ERR("Cannot initialize hardware parameter structure (%s)", 
@@ -224,13 +232,12 @@ _alsa_close(AudioID *id)
 	return -1;
     }
 
-    xfree(id->alsa_pcm);
-    
     close(id->alsa_stop_pipe[0]);
     close(id->alsa_stop_pipe[1]);
 
     snd_pcm_hw_params_free (id->alsa_hw_params);
     snd_pcm_sw_params_free (id->alsa_sw_params);
+
     free(id->alsa_poll_fds);
 
     MSG("Closing ALSA device ... success");
@@ -494,14 +501,6 @@ alsa_play(AudioID *id, AudioTrack track)
 	    snd_strerror (err), snd_pcm_state_name(snd_pcm_state(id->alsa_pcm)));	
 	return -1;
     }
-
-    /* Allocate space for sw_params (description of the sound parameters) */
-    MSG("Allocating new sw_params structure");
-    if ((err = snd_pcm_sw_params_malloc (&id->alsa_sw_params)) < 0) {
-	ERR("Cannot allocate hardware parameter structure (%s)", 
-	    snd_strerror(err));
-	return -1;
-    }       
 
     /* Get the current swparams */
     if ((err = snd_pcm_sw_params_current(id->alsa_pcm, id->alsa_sw_params)) < 0){
