@@ -18,9 +18,11 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: msg.h,v 1.25 2004-06-28 08:11:32 hanke Exp $
+ * $Id: msg.h,v 1.26 2005-09-12 14:36:51 hanke Exp $
  */
 
+#ifndef MSG_H
+#define MSG_H
 
 #define OK_LANGUAGE_SET                         "201 OK LANGUAGE SET\r\n"
 #define OK_PRIORITY_SET                         "202 OK PRIORITY SET\r\n"
@@ -39,13 +41,15 @@
 #define OK_OUTPUT_MODULE_SET                    "216 OK OUTPUT MODULE SET\r\n"
 #define OK_PAUSE_CONTEXT_SET                    "217 OK PAUSE CONTEXT SET\r\n"
 #define OK_VOLUME_SET                           "218 OK VOLUME SET\r\n"
-#define OK_SSML_MODE_SET                        "218 OK SSML MODE SET\r\n"
+#define OK_SSML_MODE_SET                        "219 OK SSML MODE SET\r\n"
+#define OK_NOTIFICATION_SET                     "220 OK NOTIFICATION SET\r\n"
 
 #define OK_CUR_SET_FIRST			"220 OK CURSOR SET FIRST\r\n"
 #define OK_CUR_SET_LAST				"221 OK CURSOR SET LAST\r\n"
 #define OK_CUR_SET_POS				"222 OK CURSOR SET TO POSITION\r\n"
 #define OK_CUR_MOV_FOR				"223 OK CURSOR MOVED FORWARD\r\n"
 #define OK_CUR_MOV_BACK				"224 OK CURSOR MOVED BACKWARD\r\n"
+#define C_OK_MESSAGE_QUEUED                     "225"
 #define OK_MESSAGE_QUEUED			"225 OK MESSAGE QUEUED\r\n"
 #define OK_SND_ICON_QUEUED			"226 OK SOUND ICON QUEUED\r\n"
 #define OK_MSG_CANCELED				"227 OK MESSAGE CANCELED\r\n"
@@ -107,6 +111,7 @@
 #define ERR_COULDNT_SET_PAUSE_CONTEXT           "313 ERR COULDNT SET PAUSE CONTEXT\r\n"
 #define ERR_COULDNT_SET_VOLUME                  "314 ERR COULDNT SET VOLUME\r\n"
 #define ERR_COULDNT_SET_SSML_MODE               "315 ERR COULDNT SET SSML MODE\r\n"
+#define ERR_COULDNT_SET_NOTIFICATION            "316 ERR COULDNT SET NOTIFICATION\r\n"
 
 #define ERR_NO_SND_ICONS                        "320 ERR NO SOUND ICONS\r\n"
 
@@ -122,3 +127,18 @@
 #define ERR_NOT_A_STRING                        "512 ERR PARAMETER NOT A STRING\r\n"
 #define ERR_PARAMETER_NOT_ON_OFF                "513 ERR PARAMETER NOT ON OR OFF\r\n"
 #define ERR_PARAMETER_INVALID                   "514 ERR PARAMETER INVALID\r\n"
+
+#define EVENT_INDEX_MARK_C                      "700"
+#define EVENT_INDEX_MARK                        EVENT_INDEX_MARK_C" INDEX MARK\r\n"
+#define EVENT_BEGIN_C                           "701"
+#define EVENT_BEGIN                             EVENT_BEGIN_C" BEGIN\r\n"
+#define EVENT_END_C                             "702"
+#define EVENT_END                               EVENT_END_C" END\r\n"
+#define EVENT_CANCELED_C                        "703"
+#define EVENT_CANCELED                          EVENT_CANCELED_C" CANCELED\r\n"
+#define EVENT_PAUSED_C                          "704"
+#define EVENT_PAUSED                            EVENT_PAUSED_C" PAUSED\r\n"
+#define EVENT_RESUMED_C                         "705"
+#define EVENT_RESUMED                           EVENT_RESUMED_C" RESUMED\r\n"
+
+#endif  /* MSG_H */
