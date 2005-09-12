@@ -19,13 +19,18 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: index_marking.h,v 1.3 2004-06-28 08:11:13 hanke Exp $
+ * $Id: index_marking.h,v 1.4 2005-09-12 14:35:51 hanke Exp $
  */
 
 #include "speechd.h"
 
 #ifndef INDEX_MARKING_H
 #define INDEX_MARKING_H
+
+#define SD_MARK_BODY_LEN 6
+#define SD_MARK_BODY "__spd_"
+#define SD_MARK_HEAD "<mark name=\""SD_MARK_BODY
+#define SD_MARK_TAIL "\"/>"
 
 /* Insert index marks into a message. */
 void insert_index_marks(TSpeechDMessage *msg, int ssml_mode);
