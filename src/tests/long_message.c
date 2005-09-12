@@ -19,31 +19,34 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: long_message.c,v 1.10 2003-10-12 23:35:31 hanke Exp $
+ * $Id: long_message.c,v 1.11 2005-09-12 14:41:12 hanke Exp $
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "libspeechd.h"
 #include "def.h"
 
 int main() {
-   int sockfd;
+   SPDConnection *sockfd;
    int err;
    int i, j;
    
 	printf("Start of the test.\n");
    
 	printf("Trying to initialize Speech Dispatcher...");
-	sockfd = spd_open("test", NULL, NULL);
+	sockfd = spd_open("test", NULL, NULL, SPD_MODE_SINGLE);
 	if (sockfd == 0){
 	    printf("Speech Dispatcher failed");
 		exit(1);
     }
 	printf("OK\n");
 
-		printf("Sending message number 1, text \n");
-		spd_say(sockfd, SPD_MESSAGE, ""
+	spd_cancel(sockfd);
+
+	printf("Sending message number 1, text \n");
+	spd_say(sockfd, SPD_MESSAGE, ""
 "						\n"
 "       ALICE'S ADVENTURES IN WONDERLAND by Lewis Carroll.\n"
 "\n"
@@ -263,7 +266,6 @@ int main() {
 "common way.\n"
 "\n"
 "  So she set to work, and very soon finished off the cake. ");
-
 
 	printf("Sending message number 2, code (ugly characters) \n");
 	spd_say(sockfd, SPD_MESSAGE, "\n"

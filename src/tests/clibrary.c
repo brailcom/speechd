@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: clibrary.c,v 1.3 2003-10-16 20:55:36 hanke Exp $
+ * $Id: clibrary.c,v 1.4 2005-09-12 14:40:35 hanke Exp $
  */
 
 #include <stdio.h>
@@ -28,14 +28,14 @@
 #include "def.h"
 
 int main() {
-   int conn;
+   SPDConnection* conn;
    int err;
    int i;   
    
    printf("Start of the test of the test.\n");
    
    printf("Trying to initialize Speech Deamon...");
-   conn = spd_open("say", NULL, NULL);
+   conn = spd_open("say", NULL, NULL, SPD_MODE_SINGLE);
    if (conn == 0){
 	  printf("Speech Deamon failed");
 	  exit(1);
