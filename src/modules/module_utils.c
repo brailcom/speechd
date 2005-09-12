@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.33 2004-10-18 19:09:15 hanke Exp $
+ * $Id: module_utils.c,v 1.34 2005-09-12 14:32:50 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -26,6 +26,7 @@
 
 #include "module_utils.h"
 
+extern char* module_index_mark;
 
 void*
 xmalloc(size_t size)
@@ -78,7 +79,7 @@ do_message(EMessageType msgtype)
         n = 0;
         ret = getline(&cur_line, &n, stdin);
         nlines++;
-        if (ret == -1) return "401 ERROR INTERNAL";
+        if (ret == -1) return strdup("401 ERROR INTERNAL");
 
         if (!strcmp(cur_line, "..\n")){
             xfree(cur_line);
@@ -86,22 +87,24 @@ do_message(EMessageType msgtype)
         }else if (!strcmp(cur_line, ".\n")){
             /* Strip the trailing \n */
             msg->str[strlen(msg->str)-1] = 0;
+	    xfree(cur_line);
             break;
         }
         g_string_append(msg, cur_line);
+	xfree(cur_line);
     }
     
 
     if ((msgtype != MSGTYPE_TEXT) && (nlines > 2)){
-        return "305 DATA MORE THAN ONE LINE";
+        return strdup("305 DATA MORE THAN ONE LINE");
     }
   
     ret = module_speak(msg->str, strlen(msg->str), msgtype);
 
     g_string_free(msg,1);
-    if (ret <= 0) return "301 ERROR CANT SPEAK";
+    if (ret <= 0) return strdup("301 ERROR CANT SPEAK");
     
-    return "200 OK SPEAKING";
+    return strdup("200 OK SPEAKING");
 }
 
 char*
@@ -132,19 +135,20 @@ char*
 do_stop(void)
 {
     module_stop();
-    return "201 OK STOPPED";
+    return strdup("201 OK STOPPED");
 }
 
 char*
 do_pause(void)
 {
-    size_t pos;
-    static char resp[128];
-    pos = module_pause();
-    
-    snprintf(resp, 127, "202-%d\n202 OK PAUSED", pos);
+    int ret;
+   
+    ret = module_pause(); 
+    if (ret){
+	return strdup("300 ERR NOT PAUSED");
+    }
 
-    return resp;
+    return strdup("202 OK PAUSED");
 }
 
 #define SET_PARAM_NUM(name, cond) \
@@ -210,11 +214,11 @@ do_set(void)
         xfree(line);
     }
 
-    if (err == 0) return "203 OK SETTINGS RECEIVED";
-    if (err == 1) return "302 ERROR BAD SYNTAX";
-    if (err == 2) return "303 ERROR INVALID PARAMETER OR VALUE";
+    if (err == 0) return strdup("203 OK SETTINGS RECEIVED");
+    if (err == 1) return strdup("302 ERROR BAD SYNTAX");
+    if (err == 2) return strdup("303 ERROR INVALID PARAMETER OR VALUE");
     
-    return "401 ERROR INTERNAL"; /* Can't be reached */
+    return strdup("401 ERROR INTERNAL"); /* Can't be reached */
 }
 #undef SET_PARAM_NUM
 #undef SET_PARAM_STR
@@ -222,11 +226,20 @@ do_set(void)
 char*
 do_speaking(void)
 {
-    if (module_is_speaking()) return "205-1\n205 OK SPEAKING STATUS SENT";
-    else return "205-0\n205 OK SPEAKING STATUS SENT";
+    char *index_mark;
+    char *reply;
+
+    index_mark = module_is_speaking();
+    if (index_mark != NULL)
+	reply = g_strdup_printf("205-%s\n205 OK SPEAKING STATUS SENT\n", index_mark);
+    else
+    	reply = g_strdup_printf("205-no\n205 OK SPEAKING STATUS SENT\n");
+    xfree(index_mark);
+
+    return reply;
 }
 
-/* This has to return int (although it doesn't return) so that we could
+/* This has to return int (although it doesn't return at all) so that we could
  * call it from PROCESS_CMD() macro like the other commands that return
  * something */
 int
@@ -732,12 +745,51 @@ semaphore_post(int sem_id)
     return semop(sem_id, &sem_b, 1);
 }
 
+/* Deprecated */
 void
 module_signal_end(void)
 {
     semaphore_post(SPDSemaphore);
 }
 
+/* --- INDEX MARKING --- */
+
+void
+module_index_mark_signal(void)
+{
+    semaphore_post(SPDSemaphore);
+}
+
+/* Read index_mark, return it's value and set it to NULL */
+char*
+module_index_mark_get(void)
+{
+    char *ret;
+    if (module_index_mark != NULL){
+	ret = strdup(module_index_mark);
+	xfree(module_index_mark);
+    }else{
+	ret = NULL;
+    }
+    module_index_mark = NULL;
+    return ret;
+}
+
+/* Store mark in index_mark and signal a new event.  If a previous index mark
+ is waiting to be read, this function blocks until it happens. */
+void
+module_index_mark_store(char *mark)
+{
+    DBG("Signalling index mark %s", mark);
+    while (module_index_mark != NULL){
+	DBG("sleeping, waiting for index_mark to turn NULL");
+	usleep(10000);
+    }
+    module_index_mark = strdup(mark);
+    module_index_mark_signal();
+}
+
+/* --- CONFIGURATION --- */
 configoption_t *
 module_add_config_option(configoption_t *options, int *num_options, char *name, int type,
                   dotconf_callback_t callback, info_t *info,
