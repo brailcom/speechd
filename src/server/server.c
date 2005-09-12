@@ -19,14 +19,14 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.73 2004-10-12 20:27:41 hanke Exp $
+  * $Id: server.c,v 1.74 2005-09-12 14:39:11 hanke Exp $
   */
 
 #include "speechd.h"
 #include "set.h"
 #include "speaking.h"
 
-int last_message_id = -1;
+int last_message_id = 0;
 
 /* Put a message into its queue.
  *
@@ -34,7 +34,9 @@ int last_message_id = -1;
  *   new -- the (allocated) message structure to queue, it must contain
  *          the text to be queued in new->buf
  *   fd  -- file descriptor of the calling client (positive)       
- *          unique id if the client is gone (negative)
+ *          unique id if the client is gone (negative) -- in this
+ *          case it means we are reloading the message and the
+ *          behavior is slightly different
  *   history_flag -- should this message be included in history?
  *   type -- type of the message (see intl/fdset.h)
  *   reparted -- if this is a preprocessed message reparted
@@ -75,21 +77,25 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
     /* Copy the settings to the new to-be-queued element */
     new->settings = *settings;
     new->settings.type = type;
-    new->settings.index_mark = -1;
-    COPY_SET_STR(language);
-    COPY_SET_STR(client_name);
-    COPY_SET_STR(output_module);
 
+    if (fd > 0){
+	new->settings.index_mark = NULL;
+	COPY_SET_STR(client_name);
+	COPY_SET_STR(output_module);
+	COPY_SET_STR(language);
+
+	/* And we set the global id (note that this is really global, not
+	 * depending on the particular client, but unique) */
+	last_message_id++;				
+	new->id = last_message_id;
+	new->time = time(NULL);
+
+	new->settings.paused_while_speaking = 0;
+    }
+          
     new->settings.reparted = reparted;
 
     MSG(5, "Queueing message |%s| with priority %d", new->buf, settings->priority);
-
-    /* And we set the global id (note that this is really global, not
-     * depending on the particular client, but unique) */
-    last_message_id++;				
-    new->id = last_message_id;
-
-    new->time = time(NULL);
 
     /* If desired, put the message also into history */
     /* NOTE: This should be before we put it into queues() to
@@ -132,8 +138,9 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
         break;
     case 4: MessageQueue->p4 = g_list_append(MessageQueue->p4, new);        
         break;
-    case 5: MessageQueue->p5 = g_list_append(MessageQueue->p5, new);        
-        last_p5_message = (TSpeechDMessage*) spd_message_copy(new);
+    case 5: MessageQueue->p5 = g_list_append(MessageQueue->p5, new);
+	mem_free_message(last_p5_message);
+	last_p5_message = (TSpeechDMessage*) spd_message_copy(new);
         break;
     default: FATAL("Nonexistent priority given");
     }
@@ -150,7 +157,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
 
     speaking_semaphore_post();
 
-    return 0;
+    return new->id;
 }
 #undef COPY_SET_STR
 
@@ -223,11 +230,22 @@ serve(int fd)
     if (reply == NULL) FATAL("Internal error, reply from parse() is NULL!");
 
     /* Send the reply to the socket */
-    if (strlen(reply) == 0) return 0;
+    if (strlen(reply) == 0){
+	spd_free(reply);
+	return 0;
+    }
     if(reply[0] != '9'){        /* Don't reply to data etc. */
+        pthread_mutex_lock(&socket_com_mutex);	
         MSG2(5, "protocol", "%d:REPLY:|%s|", fd, reply);
         ret = write(fd, reply, strlen(reply));
-        if (ret == -1) return -1;	
+	spd_free(reply);
+        pthread_mutex_unlock(&socket_com_mutex);
+        if (ret == -1){
+	    MSG(5, "write() error: %s", strerror(errno));
+	    return -1;
+	}
+    }else{
+	spd_free(reply);
     }
 
     return 0;
