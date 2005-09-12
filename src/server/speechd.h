@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.51 2004-07-21 08:17:06 hanke Exp $
+ * $Id: speechd.h,v 1.52 2005-09-12 14:40:08 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -120,6 +120,7 @@ struct{
 pthread_t speak_thread;
 pthread_mutex_t element_free_mutex;
 pthread_mutex_t output_layer_mutex;
+pthread_mutex_t socket_com_mutex;
 
 /* Activity requests for the speaking thread are
  handled with SYSV/IPC semaphore */
