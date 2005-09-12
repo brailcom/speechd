@@ -1,3 +1,7 @@
+2005-09-12  Hynek Hanke  <hanke@chopin>
+
+	* src/audio/alsa.c (_alsa_close): Removed redundant free().
+
 2005-09-12  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/tests/run_test.c (main): Do not cancel() the messages at the end.
