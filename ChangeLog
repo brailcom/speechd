@@ -1,39 +1,119 @@
-2005-08-04  Hynek Hanke  <hanke@chopin>
+2005-09-12  Hynek Hanke  <hanke@brailcom.org>
 
-	* src/audio/alsa.c (alsa_play): Most verbose logging messages commented out.
+	* src/tests/run_test.c (main): Do not cancel() the messages at the end.
 
-2005-08-03  Hynek Hanke  <hanke@chopin>
+	* src/tests/long_message.c (main): Updated for new spd_open()
 
-	* src/audio/alsa.c (alsa_play): Check all returned values properly.
-	Cleaning. 
+	* src/tests/clibrary.c (main): Updated for new spd_open()
 
-	* src/audio/spd_audio.h: ALSA variables have now their proper alsa_ namespace in AudioID.
+	* src/server/set.c (set_notification_*): New functions.
+	(SET_NOTIFICATION_STATE): New macro.
 
-2005-08-02  Hynek Hanke  <hanke@chopin>
-	* (wait_for_poll): Handle XRUN as correct termination when in draining mode.
+	* src/server/server.c (queue_message): Behave differently if the message is queued or re-queued.
 
-2005-08-02  Hynek Hanke  <hanke@chopin>
+	* src/server/parse.c (CHECK_SSIP_COMMAND): Index marks.
 
-	* src/audio/alsa.c (alsa_play): At the end of playback, set avail_min to the whole buffer and
-	wait until poll() returns, meaning the buffer is free.
-	(alsa_play): Call snd_pcm_set_swparams() addiotionally.
+	* src/server/msg.h: Define index marking 7xx replies.
 
-	* src/audio/spd_audio.h (AudioID): New member sw_params for alsa.
+	* src/server/index_marking.h (SD_MARK_*): New macros.
 
-2005-08-01  Hynek Hanke  <hanke@chopin>
+	* src/server/history.c (history_get_message): Return dynamically allocated SSIP replies.
 
-	* src/audio/alsa.c: New debugging messages.
+	* src/server/alloc.c (spd_message_copy): Copy index_mark too.
+	(mem_free_fdset): Free index_mark too.
 
-2005-08-01  Hynek Hanke  <hanke@chopin>
+	* src/modules/module_utils.h (module_is_speaking): Now returns char* (index mark).
+
+	* src/modules/flite.c: Implement callbacks.
+
+	* src/modules/festival.c: Implements callbacks.
+	* src/c/clients/say/say.c: Implement -w.
+
+	* src/c/clients/say/options.h: New -v option.
+
+	* src/c/clients/say/options.c: Include correct system headers.
+	(options_print_version): Updated copyright info.
+	(options_parse): New -w option.
+
+	* src/c/api/libspeechd.h: Prototypes for new functions.
+
+	* src/c/api/libspeechd.c: Use SPDConnection* instead of int as a connection.
+	(parse_response_data): Rewritten.
+	(get_param_int): New function.
+	(get_param_str): New function.
+	(spd_events_handler): New function. Asynchronous events handler.
+	(get_reply): Rewritten.
+	(spd_open): Added parameter mode. (Backwards incompatibility :(
+
+	* src/c/api/Makefile.am: Include lpthread.
+
+	* src/audio/oss.c (oss_play): Better debugging.
+	(oss_play): Timing reworked.
+
+	* intl/fdset.h (ENotification): New type.
+	(notification): New variable.
+	(paused_while_speaking): New variable.
+
+	* config/modules/festival.conf: Updated. 0 and 1 insted of On and Off (they don't work).
+
+	* configure.in (LIB_SDAUDIO_AGE): New version of the library, AGE=0.
+
+	* src/server/speaking.c (is_sb_speaking): Post on semaphore when "end" is received.
+
+	* src/modules/module_main.c (main): Redundant \n removed.
+
+	* src/modules/festival_client.c (festivalGetDataMulti): Free reply in the last round.
+
+	* src/server/server.c (queue_message): Free the whole last_p5_message, not just spd_free().
+
+	* src/modules/module_utils.c (do_message): Free 'cur_line'.
+
+	* src/modules/module_main.c (main): Free 'cmd_buf' in each loop.
+
+	* src/modules/festival.c (_festival_speak): Free 'fwave' in multi-mode.
+
+	* src/server/server.c (serve): Free 'reply' even if delivered empty or with '999' code.
+
+	* src/server/speechd.c (MSG2): Free memmory for 'time' string.
+
+	* src/server/parse.c (GET_PARAM_INT): Free memmory for 'helper'
+
+	* src/server/speechd.c (MSG): Free memmory for 'time' string.
+
+	* src/server/module.c (load_output_module): Force read/write
+	privilegies for owner when creating module log.
+
+	* src/c/clients/say/say.c: Now uses callbacks and supports a '-w'
+	option which causes it to wait until the message is said or
+	discarded.
+
+	* src/c/api/libspeechd.c (spd_set_notification): New function.
+	(NOTIFICATION_SET): New macro.
+	(spd_set_notification_off): New function.
+	(spd_set_notification_on): New function.
+
+	* src/server/speaking.c (reload_message): Insert messages with
+	NULL index mark into the queue too.
+
+	* src/modules/flite.c (module_pause): Flite doesn't support real
+	pause. Just stop.
+
+	* src/audio/oss.c (oss_play): Removed a timing bug.
 	
-	* src/audio/spd_audio.h: New parameters moved here, including alsa_device_name (taken from pars[0]).
+	* src/modules/festival.c (module_pause): PAUSE now acts
+	immediatelly. The change of the state is reported by the
+	appropriate index_mark event.
+	
+	* src/server/speaking.c (reload_message): Don't free msg->buf since this will be done through current_message.
 
-	* src/audio/alsa.c (wait_for_poll): SND_PCM_STATE_XRUN and SND_PCM_STATE suspend are now checked here.
-	(alsa_play): Open and close the device before and after each playing.
-	(alsa_open): Ensure it's possible to open ALSA, but close it after that.
-	(alsa_set_volume): Mention in the comment that ALSA *can't* set individual tracks volume.
+	* src/server/index_marking.h (SD_MARK_HEAD): Separated into _HEAD and _BODY
 
-2005-07-27  Hynek Hanke  <hanke@brailcom.org>
+	* src/server/speechd.c (speechd_init): Init socket_com_mutex.
+
+	* src/server/speechd.h (socket_com_mutex): New mutex.
+
+	* src/server/set.c (default_fd_set): Set all notifications to 0.
+	(set_notification_self): New function.
 
 	* src/audio/alsa.c (alsa_play): Typo.
 

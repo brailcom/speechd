@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.17 2004-11-13 14:51:54 hanke Exp $
+ * $Id: output.c,v 1.18 2005-09-12 14:37:22 hanke Exp $
  */
 
 #include "output.h"
@@ -298,33 +298,97 @@ output_pause()
     else output = speaking_module;
 
     MSG(4, "Module pause!");
-    SEND_CMD_GET_VALUE("PAUSE");
+    SEND_CMD("PAUSE");
 
-    OL_RET(-1)
+    OL_RET(0)
 }
 
 int
-output_module_is_speaking(OutputModule *output)
+output_module_is_speaking(OutputModule *output, char **index_mark)
 {
     int err;
+    int ret;
+    char response[255];
 
     output_lock();
 
-    SEND_CMD_GET_VALUE("SPEAKING");   
+    SEND_DATA_N("SPEAKING\n");   
+
+    ret = TEMP_FAILURE_RETRY(read(output->pipe_out[0], response, 255));
+    if ((ret == -1) || (ret == 0)){
+	MSG(2, "Error: Broken pipe to module.");
+	output->working = 0;
+	speaking_module = NULL;
+	output_check_module(output);
+	OL_RET(-1); /* Broken pipe */       
+    }
+    response[ret] = 0;
+
+    MSG2(5, "protocol", "Reply from output module: |%s|", response);
+    if (response[0] == '3'){
+	MSG(2, "Error: Module reported error in request from speechd (code 3xx).");
+	OL_RET(-2); /* User (speechd) side error */
+    }
+    if (response[0] == '4'){
+	MSG(2, "Error: Module reported error in itself (code 4xx).");
+	OL_RET(-3); /* Module side error */
+    }
+    if (response[0] == '2'){
+	if (ret > 4){
+	    if (response[3] == '-'){
+		char *p;                         
+		p = strchr(response, '\n');                
+		*index_mark = (char*) strndup(response+4, p-response-4);
+		MSG(1, "Detected INDEX MARK: %s", *index_mark);
+		/* Check if we got the whole two lines or just one */
+		/* TODO: Fix this ugly hack with strstr bellow */
+		if (strstr(response, "\n2") == NULL){
+		    /* Read the rest of the response (the last line) */
+		    ret = TEMP_FAILURE_RETRY(read(output->pipe_out[0], response, 255));
+		    if (ret<=0){
+			MSG(2, "Error: Broken pipe to module. Module crashed?");
+			output->working = 0;
+			speaking_module = NULL;
+			output_check_module(output);
+			OL_RET(-1); /* Broken pipe */       
+		    }
+		}	       
+	    }else{
+	    	    MSG(2, "Error: Wrong communication from output module!"
+			"Reply on SPEAKING not multi-line.");
+		    OL_RET(-1); 
+	    }
+	}else{
+	    MSG(2, "Error: Wrong communication from output module! Reply less than four bytes.");
+	    OL_RET(-1); 
+	}
+	OL_RET(0)
+    }else{                  /* unknown response */
+	MSG(3, "Unknown response from output module!");
+	OL_RET(-3);
+    }
 
     OL_RET(-1)
 }
 
 int
-output_is_speaking()
+output_is_speaking(char **index_mark)
 {
     int err;
     OutputModule *output;
 
-    if (speaking_module == NULL) OL_RET(0)
-    else output = speaking_module;
+    if (speaking_module == NULL){
+	index_mark = NULL;
+	return 0;
+    }else{
+	output = speaking_module;
+    }
 
-    return output_module_is_speaking(output);   
+    err = output_module_is_speaking(output, index_mark);   
+    if (err < 0){
+	*index_mark = NULL;
+    }
+    return err;
 }
 
 int
@@ -452,14 +516,14 @@ escape_dot(char *otext)
     }
 
     if (otext == ootext){
+	g_string_free(ntext, 1);
         ret = otext;
     }else{
         g_string_append(ntext, otext);
         free(ootext);
         ret = ntext->str;
+	g_string_free(ntext, 0);
     }
-
-    g_string_free(ntext, 0);
 
     MSG2(6, "escaping", "Altered text: |%s|", ret);
 
