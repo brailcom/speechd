@@ -19,17 +19,17 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.19 2005-07-27 15:47:07 hanke Exp $
+ * $Id: libspeechd.h,v 1.20 2005-09-12 14:27:01 hanke Exp $
  */
 
 
 #include <stdio.h>
-
+#include <pthread.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+    
 /* Debugging */
 FILE* spd_debug;
 
@@ -59,7 +59,7 @@ typedef enum{
     SPD_SPELL_OFF = 0,
     SPD_SPELL_ON = 1
 }SPDSpelling;
-
+    
 typedef enum{
     SPD_MALE1 = 1,
     SPD_MALE2 = 2,
@@ -70,6 +70,15 @@ typedef enum{
     SPD_CHILD_MALE = 7,
     SPD_CHILD_FEMALE = 8
 }SPDVoiceType;
+    
+typedef enum{
+    SPD_BEGIN = 1,
+    SPD_END = 2,
+    SPD_INDEX_MARKS = 4,
+    SPD_CANCEL = 8,
+    SPD_PAUSE = 16,
+    SPD_RESUME = 32
+}SPDNotification;
 
 typedef enum{
     SPD_IMPORTANT = 1,
@@ -79,81 +88,129 @@ typedef enum{
     SPD_PROGRESS = 5
 }SPDPriority;
 
+typedef enum{
+    SPD_EVENT_BEGIN,
+    SPD_EVENT_END,
+    SPD_EVENT_CANCEL,
+    SPD_EVENT_PAUSE,
+    SPD_EVENT_RESUME,
+    SPD_EVENT_INDEX_MARK
+}SPDNotificationType;
+
+typedef enum{
+    SPD_MODE_SINGLE = 0,
+    SPD_MODE_THREADED = 1
+}SPDConnectionMode;
+
+typedef void (*SPDCallback)(size_t msg_id, size_t client_id, SPDNotificationType state);
+typedef void (*SPDCallbackIM)(size_t msg_id, size_t client_id, SPDNotificationType state, char *index_mark);
+
+typedef struct{
+
+    /* PUBLIC */
+    SPDCallback callback_begin;
+    SPDCallback callback_end;
+    SPDCallback callback_cancel;
+    SPDCallback callback_pause;
+    SPDCallback callback_resume;
+    SPDCallbackIM callback_im;
+
+    /* PRIVATE */
+    int socket;
+    FILE *stream;
+    SPDConnectionMode mode;
+
+    pthread_t *events_thread;
+    pthread_mutex_t *comm_mutex;
+    pthread_cond_t *cond_reply_ready;
+    pthread_mutex_t *mutex_reply_ready;
+    pthread_cond_t *cond_reply_ack;
+    pthread_mutex_t *mutex_reply_ack;
+
+    char *reply;
+
+}SPDConnection;
+
 /* -------------- Public functions --------------------------*/
 
 /* Openning and closing Speech Dispatcher connection */
-int spd_open(const char* client_name, const char* connection_name, const char *user_name);
-void spd_close(int connection);
+SPDConnection* spd_open(const char* client_name, const char* connection_name, const char *user_name,
+			SPDConnectionMode mode);
+void spd_close(SPDConnection* connection);
 
 /* Speaking */
-int spd_say(int connection, SPDPriority priority, const char* text);
-int spd_sayf(int fd, SPDPriority priority, const char *format, ...);
+int spd_say(SPDConnection* connection, SPDPriority priority, const char* text);
+int spd_sayf(SPDConnection* connection, SPDPriority priority, const char *format, ...);
 
 /* Speech flow */
-int spd_stop(int connection);
-int spd_stop_all(int connection);
-int spd_stop_uid(int connection, int target_uid);
+int spd_stop(SPDConnection* connection);
+int spd_stop_all(SPDConnection* connection);
+int spd_stop_uid(SPDConnection* connection, int target_uid);
 
-int spd_cancel(int connection);
-int spd_cancel_all(int connection);
-int spd_cancel_uid(int connection, int target_uid);
+int spd_cancel(SPDConnection* connection);
+int spd_cancel_all(SPDConnection* connection);
+int spd_cancel_uid(SPDConnection* connection, int target_uid);
 
-int spd_pause(int connection);
-int spd_pause_all(int connection);
-int spd_pause_uid(int connection, int target_uid);
+int spd_pause(SPDConnection* connection);
+int spd_pause_all(SPDConnection* connection);
+int spd_pause_uid(SPDConnection* connection, int target_uid);
 
-int spd_resume(int connection);
-int spd_resume_all(int connection);
-int spd_resume_uid(int connection, int target_uid);
+int spd_resume(SPDConnection* connection);
+int spd_resume_all(SPDConnection* connection);
+int spd_resume_uid(SPDConnection* connection, int target_uid);
 
 /* Characters and keys */
-int spd_key(int connection, SPDPriority priority, const char *key_name);
-int spd_char(int connection, SPDPriority priority, const char *character);
-int spd_wchar(int connection, SPDPriority priority, wchar_t wcharacter);
+int spd_key(SPDConnection* connection, SPDPriority priority, const char *key_name);
+int spd_char(SPDConnection* connection, SPDPriority priority, const char *character);
+int spd_wchar(SPDConnection* connection, SPDPriority priority, wchar_t wcharacter);
 
 /* Sound icons */
-int spd_sound_icon(int connection, SPDPriority priority, const char *icon_name);
+int spd_sound_icon(SPDConnection* connection, SPDPriority priority, const char *icon_name);
 
 /* Setting parameters */
-int spd_set_voice_type(int connection, SPDVoiceType type);
-int spd_set_voice_type_all(int connection, SPDVoiceType type);
-int spd_set_voice_type_uid(int connection, SPDVoiceType type, unsigned int uid);
+int spd_set_voice_type(SPDConnection*, SPDVoiceType type);
+int spd_set_voice_type_all(SPDConnection*, SPDVoiceType type);
+int spd_set_voice_type_uid(SPDConnection*, SPDVoiceType type, unsigned int uid);
 
-int spd_set_voice_rate(int connection, signed int rate);
-int spd_set_voice_rate_all(int connection, signed int rate);
-int spd_set_voice_rate_uid(int connection, signed int rate, unsigned int uid);
+int spd_set_notification_on(SPDConnection* connection, SPDNotification notification);
+int spd_set_notification_off(SPDConnection* connection, SPDNotification notification);
+int spd_set_notification(SPDConnection* connection, SPDNotification notification, const char* state);
 
-int spd_set_voice_pitch(int connection, signed int pitch);
-int spd_set_voice_pitch_all(int connection, signed int pitch);
-int spd_set_voice_pitch_uid(int connection, signed int pitch, unsigned int uid);
+int spd_set_voice_rate(SPDConnection* connection, signed int rate);
+int spd_set_voice_rate_all(SPDConnection* connection, signed int rate);
+int spd_set_voice_rate_uid(SPDConnection* connection, signed int rate, unsigned int uid);
 
-int spd_set_volume(int connection, signed int volume);
-int spd_set_volume_all(int connection, signed int volume);
-int spd_set_volume_uid(int connection, signed int volume, unsigned int uid);
+int spd_set_voice_pitch(SPDConnection* connection, signed int pitch);
+int spd_set_voice_pitch_all(SPDConnection* connection, signed int pitch);
+int spd_set_voice_pitch_uid(SPDConnection* connection, signed int pitch, unsigned int uid);
 
-int spd_set_punctuation(int connection, SPDPunctuation type);
-int spd_set_punctuation_all(int connection, SPDPunctuation type);
-int spd_set_punctuation_uid(int connection, SPDPunctuation type, unsigned int uid);
+int spd_set_volume(SPDConnection* connection, signed int volume);
+int spd_set_volume_all(SPDConnection* connection, signed int volume);
+int spd_set_volume_uid(SPDConnection* connection, signed int volume, unsigned int uid);
 
-int spd_set_capital_letters(int connection, SPDCapitalLetters type);
-int spd_set_capital_letters_all(int connection, SPDCapitalLetters type);
-int spd_set_capital_letters_uid(int connection, SPDCapitalLetters type, unsigned int uid);
+int spd_set_punctuation(SPDConnection* connection, SPDPunctuation type);
+int spd_set_punctuation_all(SPDConnection* connection, SPDPunctuation type);
+int spd_set_punctuation_uid(SPDConnection* connection, SPDPunctuation type, unsigned int uid);
 
-int spd_set_spelling(int connection, SPDSpelling type);
-int spd_set_spelling_all(int connection, SPDSpelling type);
-int spd_set_spelling_uid(int connection, SPDSpelling type, unsigned int uid);
+int spd_set_capital_letters(SPDConnection* connection, SPDCapitalLetters type);
+int spd_set_capital_letters_all(SPDConnection* connection, SPDCapitalLetters type);
+int spd_set_capital_letters_uid(SPDConnection* connection, SPDCapitalLetters type, unsigned int uid);
 
-int spd_set_language(int connection, const char* language);
-int spd_set_language_all(int connection, const char* language);
-int spd_set_language_uid(int connection, const char* language, unsigned int uid);
+int spd_set_spelling(SPDConnection* connection, SPDSpelling type);
+int spd_set_spelling_all(SPDConnection* connection, SPDSpelling type);
+int spd_set_spelling_uid(SPDConnection* connection, SPDSpelling type, unsigned int uid);
 
-int spd_set_output_module(int connection, const char* output_module);
-int spd_set_output_module_all(int connection, const char* output_module);
-int spd_set_output_module_uid(int connection, const char* output_module, unsigned int uid);
+int spd_set_language(SPDConnection* connection, const char* language);
+int spd_set_language_all(SPDConnection* connection, const char* language);
+int spd_set_language_uid(SPDConnection* connection, const char* language, unsigned int uid);
+
+int spd_set_output_module(SPDConnection* connection, const char* output_module);
+int spd_set_output_module_all(SPDConnection* connection, const char* output_module);
+int spd_set_output_module_uid(SPDConnection* connection, const char* output_module, unsigned int uid);
 
 /* Direct SSIP communication */
-int spd_execute_command(int connection, char* command);
-char* spd_send_data(int fd, const char *message, int wfr);
+int spd_execute_command(SPDConnection* connection, char* command);
+char* spd_send_data(SPDConnection* connection, const char *message, int wfr);
 
 
 
