@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.37 2005-07-08 14:20:11 hanke Exp $
+ * $Id: set.c,v 1.38 2005-09-12 14:39:43 hanke Exp $
  */
 
 #include "set.h"
@@ -334,6 +334,51 @@ set_ssml_mode_uid(int uid, int ssml_mode)
     return 0;
 }
 
+#define SET_NOTIFICATION_STATE(state) \
+	if (val) \
+	    settings->notification = settings->notification | NOTIFY_ ## state; \
+        else \
+	    settings->notification = settings->notification & (! NOTIFY_ ## state); 
+
+set_notification_self(int fd, char *type, int val)
+{
+    TFDSetElement *settings;
+    int uid;
+
+    uid = get_client_uid_by_fd(fd);
+    if (uid == 0) return 1;
+
+    settings = get_client_settings_by_uid(uid);
+    if (settings == NULL) return 1;
+
+
+    if (!strcmp(type, "begin")){
+	SET_NOTIFICATION_STATE(BEGIN);
+    }else if (!strcmp(type, "end")){
+	SET_NOTIFICATION_STATE(END);
+    }else if (!strcmp(type, "index_marks")){
+	SET_NOTIFICATION_STATE(IM);
+    }else if (!strcmp(type, "pause")){
+	SET_NOTIFICATION_STATE(PAUSE);
+    }else if (!strcmp(type, "resume")){
+	SET_NOTIFICATION_STATE(RESUME);
+    }else if (!strcmp(type, "cancel")){
+	SET_NOTIFICATION_STATE(CANCEL);
+    }else if (!strcmp(type, "all"))
+	{
+	    SET_NOTIFICATION_STATE(END);
+	    SET_NOTIFICATION_STATE(BEGIN);
+	    SET_NOTIFICATION_STATE(IM);
+	    SET_NOTIFICATION_STATE(CANCEL);
+	    SET_NOTIFICATION_STATE(PAUSE);
+	    SET_NOTIFICATION_STATE(RESUME);
+	}
+    else 
+	return -1;
+
+    return 0;
+
+}
 
 
 TFDSetElement*
@@ -356,13 +401,17 @@ default_fd_set(void)
 	new->client_name = spd_strdup(GlobalFDSet.client_name); 
 	new->voice = GlobalFDSet.voice;
 	new->spelling_mode = GlobalFDSet.spelling_mode;         
-	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;       
+	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;      
+
         new->pause_context = GlobalFDSet.pause_context;
 	new->ssml_mode = GlobalFDSet.ssml_mode;
+	new->notification = GlobalFDSet.notification;
+
 	new->active = 1;
 	new->hist_cur_uid = -1;
 	new->hist_cur_pos = -1;
 	new->hist_sorted = 0;
+	new->index_mark = NULL;
 
 	return(new);
 }
