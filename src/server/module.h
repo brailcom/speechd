@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.h,v 1.2 2005-06-10 10:49:33 hanke Exp $
+ * $Id: module.h,v 1.3 2005-10-10 10:08:20 hanke Exp $
  */
 
 #ifndef MODULE_H
@@ -35,6 +35,7 @@ typedef struct{
     char* debugfilename;
     int pipe_in[2];
     int pipe_out[2];    
+    FILE *stream_out;
     int stderr_redirect;
     pid_t pid;
     int working;
