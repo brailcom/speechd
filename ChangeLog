@@ -1,3 +1,43 @@
+2005-10-10  Hynek Hanke  <hanke@chopin>
+
+	* src/server/speechd.h (speaking_pipe): New global variable.
+
+	* src/server/speechd.c (speechd_init): Init speaking_pipe.
+
+	* src/server/speaking.c (speak): Use pipe instead of semaphore.
+
+	* src/server/sem_functions.c (speaking_semaphore_post): Use pipe
+	instead of semaphore.
+
+	* src/server/output.c (output_read_reply): New function.
+	(output_send_data): Use output_read_reply.
+
+	* src/server/module.h (OutputModule) stream_out: New variable.
+
+	* src/server/module.c (load_output_module): Create stream from socket
+	for buffered reading.
+
+	* src/modules/flite.c (module_load): Include ALSA in audio output methods.
+
+	* configure.in: Fixed versioning for libsdaudio
+
+	* src/modules/festival.c (CLEAN_UP): Index mark signalling moved
+	here.
+	(CLP): Index mark signallling moved here.
+
+	* src/modules/module_main.c (main): STOP and PAUSE are now without
+	reply.
+
+	* src/modules/module_utils.c (module_index_mark_store): Write
+	directly to stdout.
+
+	* src/server/speaking.c (speak): Use pipes and poll() instead of
+	semaphore.
+
+2005-10-05  Hynek Hanke  <hanke@chopin>
+
+	* src/server/speechd.c (speechd_init): Semaphore sanity test temporarily disabled.
+
 2005-09-12  Hynek Hanke  <hanke@chopin>
 
 	* src/audio/alsa.c (_alsa_close): Removed redundant free().

@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.h,v 1.5 2005-09-12 14:33:27 hanke Exp $
+ * $Id: module_utils.h,v 1.6 2005-10-10 10:07:07 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -382,3 +382,8 @@ char* module_index_mark_get(void);
 
 /* So that gcc doesn't complain */
 int getline(char**, int*, FILE*);
+
+pthread_mutex_t module_stdout_mutex;
+
+int module_utils_init(void);
+
