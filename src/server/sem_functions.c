@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: sem_functions.c,v 1.6 2003-11-06 18:16:12 hanke Exp $
+ * $Id: sem_functions.c,v 1.7 2005-10-10 10:09:45 hanke Exp $
  */
 
 #include "speechd.h"
@@ -135,7 +135,10 @@ speaking_semaphore_destroy()
 void
 speaking_semaphore_post(void)
 {
-    semaphore_post(speaking_sem_id);
+    char buf[1];
+    buf[0] = 42;
+    write(speaking_pipe[1], buf, 1);
+    //    semaphore_post(speaking_sem_id);
 }
 
 void
