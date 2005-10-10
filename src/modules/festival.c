@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.63 2005-09-12 14:30:53 hanke Exp $
+ * $Id: festival.c,v 1.64 2005-10-10 10:06:19 hanke Exp $
  */
 
 #include "fdset.h"
@@ -376,15 +376,16 @@ module_stop(void)
 	    //	    festival_stop_local();
 	}
 
-	pthread_mutex_lock(&sound_output_mutex);
-	festival_stop = 1;
-	if (festival_speaking && festival_audio_id){
-	    spd_audio_stop(festival_audio_id);
+	if (!festival_stop){
+	    pthread_mutex_lock(&sound_output_mutex);       
+	    festival_stop = 1;
+	    if (festival_speaking && festival_audio_id){
+		spd_audio_stop(festival_audio_id);
+	    }
+	    pthread_mutex_unlock(&sound_output_mutex);
 	}
-	pthread_mutex_unlock(&sound_output_mutex);
-
     }
-
+    
     return 0;
 }
 
@@ -447,24 +448,31 @@ module_close(int status)
 
 /* Internal functions */
 
-#define CLEAN_UP(code) \
+#define CLEAN_UP(code, im) \
         { \
-          if(!wave_cached) delete_FT_Wave(fwave); \
+          if(!wave_cached) if (fwave) delete_FT_Wave(fwave); \
+          DBG("CLP1"); \
           pthread_mutex_lock(&sound_output_mutex); \
+          DBG("CLP2"); \
           festival_stop = 0; \
           festival_speaking = 0; \
           pthread_mutex_unlock(&sound_output_mutex); \
+          DBG("CLP2"); \
+          module_index_mark_store(im); \
+          DBG("CLP3"); \
           goto sem_wait; \
         }
 
-#define CLP(code) \
+#define CLP(code, im) \
         { \
           pthread_mutex_lock(&sound_output_mutex); \
           festival_stop = 0; \
           festival_speaking = 0; \
           pthread_mutex_unlock(&sound_output_mutex); \
+          module_index_mark_store(im); \
           goto sem_wait; \
         }
+
 
 int
 festival_send_to_audio(FT_Wave *fwave)
@@ -479,8 +487,10 @@ festival_send_to_audio(FT_Wave *fwave)
     track.samples = fwave->samples;
     
     if (track.samples != NULL){
+	DBG("Sending to audio");
 	ret = spd_audio_play(festival_audio_id, track);
 	if (ret < 0) DBG("ERROR: Can't play track for unknown reason.");
+	DBG("Sent to audio.");
     }
 
     return 0;
@@ -544,17 +554,21 @@ _festival_speak(void* nothing)
 			}
 						
 			festival_send_to_audio(fwave);
+			
+			DBG("Here");
 
-			if (!festival_stop)
-			    module_index_mark_store(INDEX_MARK_END);
-			else
-			    module_index_mark_store(INDEX_MARK_STOPPED);
-
-			CLEAN_UP(0);
+			if (!festival_stop){
+			    DBG("Here1");
+			
+			    CLEAN_UP(0, INDEX_MARK_END);
+			}else{
+			    DBG("Here2");
+			
+			    CLEAN_UP(0, INDEX_MARK_STOPPED);
+			}
 
 		    }else{
-			module_index_mark_store(INDEX_MARK_END);
-			CLEAN_UP(0);
+			CLEAN_UP(0, INDEX_MARK_END);
 		    }
 		}
 	    }
@@ -576,7 +590,7 @@ _festival_speak(void* nothing)
 		}
 	    if (r < 0){
 		DBG("Couldn't process the request to say the object.");
-		CLEAN_UP(-1);
+		CLEAN_UP(-1, INDEX_MARK_STOPPED);
 	    }
 	}
     
@@ -589,9 +603,8 @@ _festival_speak(void* nothing)
 	    if (is_text(festival_message_type)){
 
 		if (festival_stop){
-		    DBG("Module stopped");
-		    module_index_mark_store(INDEX_MARK_STOPPED);
-		    CLEAN_UP(0);
+		    DBG("Module stopped 1");
+		    CLEAN_UP(0, INDEX_MARK_STOPPED);
 		}
 
 		DBG("Getting data in multi mode");
@@ -605,9 +618,8 @@ _festival_speak(void* nothing)
 			DBG("Pause requested, pausing.");
 			module_index_mark_store(callback);
 			xfree(callback);
-			module_index_mark_store(INDEX_MARK_PAUSED);			
 			festival_pause_requested = 0;
-			CLEAN_UP(0);
+			CLEAN_UP(0, INDEX_MARK_PAUSED);
 		    }else{
 			module_index_mark_store(callback);
 			xfree(callback);
@@ -623,8 +635,7 @@ _festival_speak(void* nothing)
 
 	    if (fwave == NULL){
 		DBG("End of sound samples, terminating this message...");
-		module_index_mark_store(INDEX_MARK_END);
-		CLEAN_UP(0);
+		CLEAN_UP(0, INDEX_MARK_END);
 	    }
 	
 	    if (festival_message_type == MSGTYPE_CHAR 
@@ -638,9 +649,8 @@ _festival_speak(void* nothing)
 	    }
 
 	    if (festival_stop){
-		DBG("Module stopped");
-		module_index_mark_store(INDEX_MARK_STOPPED);
-		CLEAN_UP(0);
+		DBG("Module stopped 2");
+		CLEAN_UP(0, INDEX_MARK_STOPPED);
 	    }       	
 
 	    if (fwave->num_samples != 0){
@@ -662,14 +672,12 @@ _festival_speak(void* nothing)
 
 	    if (terminate){
 		DBG("Ok, end of samples, returning");
-		module_index_mark_store(INDEX_MARK_END);
-		CLP(0);
+		CLP(0, INDEX_MARK_END);
 	    }
 
 	    if (festival_stop){
-		DBG("Module stopped");
-		module_index_mark_store(INDEX_MARK_STOPPED);
-		CLP(0);
+		DBG("Module stopped 3");
+		CLP(0, INDEX_MARK_END);
 	    }
 	}
 
