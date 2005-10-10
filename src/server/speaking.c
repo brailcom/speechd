@@ -1,28 +1,29 @@
 
- /*
-  * speaking.c - Speech Dispatcher speech output functions
-  * 
-  * Copyright (C) 2001,2002,2003 Brailcom, o.p.s
-  *
-  * This is free software; you can redistribute it and/or modify it
-  * under the terms of the GNU General Public License as published by
-  * the Free Software Foundation; either version 2, or (at your option)
-  * any later version.
-  *
-  * This software is distributed in the hope that it will be useful,
-  * but WITHOUT ANY WARRANTY; without even the implied warranty of
-  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  * General Public License for more details.
-  *
-  * You should have received a copy of the GNU General Public License
-  * along with this package; see the file COPYING.  If not, write to
-  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-  * Boston, MA 02111-1307, USA.
-  *
-  * $Id: speaking.c,v 1.43 2005-09-12 14:39:52 hanke Exp $
-  */
+/*
+ * speaking.c - Speech Dispatcher speech output functions
+ * 
+ * Copyright (C) 2001,2002,2003 Brailcom, o.p.s
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2, or (at your option)
+ * any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this package; see the file COPYING.  If not, write to
+ * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ * Boston, MA 02111-1307, USA.
+ *
+ * $Id: speaking.c,v 1.44 2005-10-10 10:10:05 hanke Exp $
+ */
 
 #include <glib.h>
+#include <poll.h>
 #include "speechd.h"
 #include "index_marking.h"
 #include "module.h"
@@ -35,6 +36,7 @@
 TSpeechDMessage *current_message = NULL;
 
 int SPEAKING = 0;
+int poll_count;
 
 /*
   Speak() is responsible for getting right text from right
@@ -50,12 +52,50 @@ speak(void* data)
     char *buffer;
     int ret;
     TSpeechDMessage *msg;
+    struct pollfd *poll_fds; /* Descriptors to poll */
+    struct pollfd main_pfd;
+    struct pollfd helper_pfd;
+    int revents;
 
     /* Block all signals and set thread states */
     set_speak_thread_attributes();
 
+    poll_fds = spd_malloc (2 * sizeof(struct pollfd));
+    
+    main_pfd.fd = speaking_pipe[0];
+    main_pfd.events = POLLIN;
+    main_pfd.revents = 0;
+
+    helper_pfd.fd = -1;
+    helper_pfd.events = POLLIN;
+    helper_pfd.revents = 0;
+    
+
+    poll_fds[0] = main_pfd;
+    poll_fds[1] = helper_pfd;    
+    poll_count = 1;
+
     while(1){
-        speaking_semaphore_wait();
+	ret = poll(poll_fds, poll_count, -1);
+	if(revents = poll_fds[0].revents){
+	    if (revents & POLLIN){
+		char buf[100];
+		MSG(5, "wait_for_poll: activity in Speech Dispatcher");
+		read(poll_fds[0].fd, buf, 1);
+	    }	    
+	}
+	if (poll_count > 1){
+	    if(revents = poll_fds[1].revents){
+		if (revents & POLLIN){
+		    MSG(5, "wait_for_poll: activity on output_module");	       
+		    /* Check if sb is speaking or they are all silent. 
+		     * If some synthesizer is speaking, we must wait. */
+		    is_sb_speaking();			
+		}        
+	    }	    
+	}
+
+	if (SPEAKING) continue;
 
         /* Handle pause requests */
         if (pause_requested){
@@ -94,12 +134,6 @@ speak(void* data)
 	    MSG(5, "End of resume processing");
             resume_requested = 0;
         }       
-
-        /* Check if sb is speaking or they are all silent. 
-         * If some synthesizer is speaking, we must wait. */
-        if (is_sb_speaking() == 1){	    
-            continue;
-        }        
 
        pthread_mutex_lock(&element_free_mutex);
         /* Handle postponed priority progress message */
@@ -144,6 +178,13 @@ speak(void* data)
             MSG(2, "Error: Output module failed");
             output_check_module(message);
         }
+	SPEAKING=1;
+
+	if (speaking_module != NULL){
+	    poll_count = 2;	
+	    helper_pfd.fd = speaking_module->pipe_out[0];
+	    poll_fds[1] = helper_pfd;
+	}
 
         /* Set the id of the client who is speaking. */
         speaking_uid = message->settings.uid;
@@ -397,7 +438,7 @@ speaking_pause(int fd, int uid)
 	return 0;    
     }
 
-    if (is_sb_speaking()){
+    if (SPEAKING){
 	if (current_message == NULL){
 	    MSG(5, "current_message is null");
 	    return 0;
@@ -554,11 +595,13 @@ is_sb_speaking(void)
 	    }
 	}else if (!strcmp(index_mark, SD_MARK_BODY"end")){
 	    SPEAKING=0;
+	    poll_count=1;
 	    if (settings->notification & NOTIFY_END)
 		report_end(current_message);
             speaking_semaphore_post();
 	}else if (!strcmp(index_mark, SD_MARK_BODY"paused")){
 	    SPEAKING=0;
+	    poll_count=1;
 	    if (settings->notification & NOTIFY_PAUSE)
 		report_pause(current_message);
 	    /* We don't want to free this message in speak() since we will
@@ -566,6 +609,7 @@ is_sb_speaking(void)
 	    current_message = NULL;
 	}else if (!strcmp(index_mark, SD_MARK_BODY"stopped")){
 	    SPEAKING=0;
+	    poll_count=1;
 	    if (settings->notification & NOTIFY_CANCEL)
 		report_cancel(current_message);
 	}else if (index_mark != NULL){
@@ -595,7 +639,7 @@ int
 get_speaking_client_uid(void)
 {
     int speaking = 0;
-    if(is_sb_speaking() == 0){
+    if(SPEAKING == 0){
         speaking_uid = 0;
         return 0;
     }
@@ -832,7 +876,7 @@ resolve_priorities(int priority)
 
     if(priority == 4){
         stop_priority_except_first(4);
-        if (is_sb_speaking()){
+        if (SPEAKING){
             if (highest_priority != 4)
                 stop_priority(4);
         }
@@ -840,7 +884,7 @@ resolve_priorities(int priority)
 
     if(priority == 5){
         stop_priority(4);
-        if (is_sb_speaking()){
+        if (SPEAKING){
             GList *gl;
             gl = g_list_last(MessageQueue->p5); 
             MessageQueue->p5 = g_list_remove_link(MessageQueue->p5, gl);
