@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.52 2005-09-12 14:40:08 hanke Exp $
+ * $Id: speechd.h,v 1.53 2005-10-10 10:10:52 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -159,6 +159,9 @@ TFDSetElement GlobalFDSet;
 
 /* Variables for socket communication */
 fd_set readfds;
+
+/* Inter thread comm pipe */
+int speaking_pipe[2];
 
 /* Arrays needed for receiving data over socket */
 typedef struct{
