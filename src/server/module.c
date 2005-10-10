@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.24 2005-09-12 14:36:13 hanke Exp $
+ * $Id: module.c,v 1.25 2005-10-10 10:07:58 hanke Exp $
  */
 
 #include <sys/wait.h>
@@ -115,8 +115,8 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
                 exit(1);
             }
         }else{
-	    //            if (execlp("valgrind", "" ,"--leak-check=full", module->filename, arg1, arg2, (char *) 0) == -1){
-            if (execlp(module->filename, "", arg1, arg2, (char *) 0) == -1){
+	    //if (execlp("valgrind", "" ,"--trace-children=yes", module->filename, arg1, arg2, (char *) 0) == -1){
+	    if (execlp(module->filename, "", arg1, arg2, (char *) 0) == -1){
                 exit(1);
             }
         }
@@ -141,6 +141,13 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 
         module->working = 1;
         MSG(2, "Module %s loaded.", module->name);        
+
+	/* Create a stream from the socket */
+	module->stream_out = fdopen(module->pipe_out[0], "r");
+	if (!module->stream_out) FATAL("Can't create a stream for socket, fdopen() failed.");
+	/* Switch to line buffering mode */
+	ret = setvbuf(module->stream_out, NULL, _IOLBF, 4096);
+	if (ret) FATAL("Can't set line buffering, setvbuf failed.");
 
 	MSG(4, "Trying to initialize %s.", module->name);
 	if (output_send_data("INIT\n", module, 0) != 0){
