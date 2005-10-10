@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.18 2005-09-12 14:37:22 hanke Exp $
+ * $Id: output.c,v 1.19 2005-10-10 10:09:11 hanke Exp $
  */
 
 #include "output.h"
@@ -79,17 +79,48 @@ output_unlock(void)
   {  output_unlock(); \
     return (value); }
 
+char*
+output_read_reply(OutputModule *output)
+{
+    GString *rstr;
+    int bytes;
+    char *line = NULL;
+    int N = 0;
+    char *reply;
+    
+    rstr = g_string_new("");
+    
+    /* Wait for activity on the socket, when there is some,
+       read all the message line by line */
+    do{
+	bytes = getline(&line, &N, output->stream_out);	
+	if (bytes == -1){
+	    MSG(2, "Error: Broken pipe to module.");
+	    output->working = 0;
+	    speaking_module = NULL;
+	    output_check_module(output);
+	    return NULL; /* Broken pipe */       
+	}
+	g_string_append(rstr, line);
+	/* terminate if we reached the last line (without '-' after numcode) */
+    }while( !((strlen(line) < 4) || (line[3] == ' ')));
+    
+    /* The resulting message received from the socket is stored in reply */
+    reply = rstr->str;
+    g_string_free(rstr, FALSE);
+
+    return reply;
+}
+
 int
 output_send_data(char* cmd, OutputModule *output, int wfr)
 {
     int ret;
-    static char response[256];
-    char *tptr;
-    int num_resp;
+    char *response;
 
     if (output == NULL) return -1;
     if (cmd == NULL) return -1;
-
+    
     ret = TEMP_FAILURE_RETRY(write(output->pipe_in[1], cmd, strlen(cmd)));
     fflush(NULL);
     if (ret == -1){
@@ -100,60 +131,34 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
         return -1;   /* Broken pipe */
     }
     MSG2(5, "protocol", "Command sent to output module: |%s| (%d)", cmd, wfr);
+    
+    if (wfr){                   /* wait for reply? */	
+	response = output_read_reply(output);
+	if (response == NULL) return -1;
 
-    if (wfr){                   /* wait for reply? */
-        ret = TEMP_FAILURE_RETRY(read(output->pipe_out[0], response, 255));
-        if ((ret == -1) || (ret == 0)){
-            MSG(2, "Error: Broken pipe to module.");
-            output->working = 0;
-            speaking_module = NULL;
-            output_check_module(output);
-            return -1; /* Broken pipe */       
-        }
         MSG2(5, "protocol", "Reply from output module: |%s|", response);
+
         if (response[0] == '3'){
             MSG(2, "Error: Module reported error in request from speechd (code 3xx).");
+	    spd_free(response);
             return -2; /* User (speechd) side error */
         }
+
         if (response[0] == '4'){
             MSG(2, "Error: Module reported error in itself (code 4xx).");
+	    spd_free(response);
             return -3; /* Module side error */
         }
+
         if (response[0] == '2'){
-            if (ret > 4){
-                if (response[3] == '-'){
-                    num_resp = strtol(&(response[4]), &tptr, 10);
-                    if (tptr == &(response[4])){
-                        MSG(2, "Error: Invalid response from output module.");
-                        output->working = 0; /* The syntax of what we read and what
-                                                we expect to read is now messed up,
-                                                so better not to use the module more. */
-                        speaking_module = NULL;
-                        return -4;
-                    }
-                    /* Check if we got the whole two lines or just one */
-                    /* TODO: Fix this ugly hack with strstr bellow */
-                    if (strstr(response, "\n2") == NULL){
-                        /* Read the rest of the response (the last line) */
-                        ret = TEMP_FAILURE_RETRY(read(output->pipe_out[0], response, 255));
-                        if ((ret == -1) || (ret == 0)){
-                            MSG(2, "Error: Broken pipe to module. Module crashed?");
-                            output->working = 0;
-                            speaking_module = NULL;
-                            output_check_module(output);
-                            return -1; /* Broken pipe */       
-                        }
-                    }
-                    return num_resp;
-                }
-                return 0;
-            }
-            return 0;
+	    return 0;
         }else{                  /* unknown response */
             MSG(3, "Unknown response from output module!");
+	    spd_free(response);
             return -3;
         }
     }       
+    
     return 0;
 }
 
@@ -281,7 +286,7 @@ output_stop()
     else output = speaking_module;
 
     MSG(4, "Module stop!");     
-    SEND_CMD("STOP");
+    SEND_DATA("STOP\n");
 
     OL_RET(0)
 }
@@ -298,7 +303,7 @@ output_pause()
     else output = speaking_module;
 
     MSG(4, "Module pause!");
-    SEND_CMD("PAUSE");
+    SEND_DATA("PAUSE\n");
 
     OL_RET(0)
 }
@@ -308,21 +313,15 @@ output_module_is_speaking(OutputModule *output, char **index_mark)
 {
     int err;
     int ret;
-    char response[255];
+    char *response;
 
     output_lock();
 
-    SEND_DATA_N("SPEAKING\n");   
-
-    ret = TEMP_FAILURE_RETRY(read(output->pipe_out[0], response, 255));
-    if ((ret == -1) || (ret == 0)){
-	MSG(2, "Error: Broken pipe to module.");
-	output->working = 0;
-	speaking_module = NULL;
-	output_check_module(output);
-	OL_RET(-1); /* Broken pipe */       
+    response = output_read_reply(output);
+    if (response == NULL){
+	*index_mark = NULL;
+	return -1;
     }
-    response[ret] = 0;
 
     MSG2(5, "protocol", "Reply from output module: |%s|", response);
     if (response[0] == '3'){
@@ -334,29 +333,16 @@ output_module_is_speaking(OutputModule *output, char **index_mark)
 	OL_RET(-3); /* Module side error */
     }
     if (response[0] == '2'){
-	if (ret > 4){
+	if (strlen(response) > 4){
 	    if (response[3] == '-'){
 		char *p;                         
 		p = strchr(response, '\n');                
 		*index_mark = (char*) strndup(response+4, p-response-4);
 		MSG(1, "Detected INDEX MARK: %s", *index_mark);
-		/* Check if we got the whole two lines or just one */
-		/* TODO: Fix this ugly hack with strstr bellow */
-		if (strstr(response, "\n2") == NULL){
-		    /* Read the rest of the response (the last line) */
-		    ret = TEMP_FAILURE_RETRY(read(output->pipe_out[0], response, 255));
-		    if (ret<=0){
-			MSG(2, "Error: Broken pipe to module. Module crashed?");
-			output->working = 0;
-			speaking_module = NULL;
-			output_check_module(output);
-			OL_RET(-1); /* Broken pipe */       
-		    }
-		}	       
 	    }else{
-	    	    MSG(2, "Error: Wrong communication from output module!"
-			"Reply on SPEAKING not multi-line.");
-		    OL_RET(-1); 
+		MSG(2, "Error: Wrong communication from output module!"
+		    "Reply on SPEAKING not multi-line.");
+		OL_RET(-1); 
 	    }
 	}else{
 	    MSG(2, "Error: Wrong communication from output module! Reply less than four bytes.");
