@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.46 2005-09-12 14:32:16 hanke Exp $
+ * $Id: flite.c,v 1.47 2005-10-10 10:06:51 hanke Exp $
  */
 
 
@@ -75,6 +75,7 @@ MOD_OPTION_1_STR(FliteDelimiters);
 MOD_OPTION_1_STR(FliteAudioOutputMethod);
 MOD_OPTION_1_STR(FliteOSSDevice);
 MOD_OPTION_1_STR(FliteNASServer);
+MOD_OPTION_1_STR(FliteALSADevice);
 
 /* Public functions */
 
@@ -91,11 +92,13 @@ module_load(void)
    MOD_OPTION_1_STR_REG(FliteAudioOutputMethod, "oss");
    MOD_OPTION_1_STR_REG(FliteOSSDevice, "/dev/dsp");
    MOD_OPTION_1_STR_REG(FliteNASServer, NULL);
+   MOD_OPTION_1_STR_REG(FliteALSADevice, "default");
 
    return 0;
 }
 
 #define ABORT(msg) g_string_append(info, msg); \
+        DBG("FATAL ERROR:", info->str); \
 	*status_info = info->str; \
 	g_string_free(info, 0); \
 	return -1;
@@ -140,7 +143,14 @@ module_init(char **status_info)
 	flite_audio_id = spd_audio_open(AUDIO_NAS, (void**) flite_pars, &error);
 	flite_audio_output_method = AUDIO_NAS;
     }
-    else{
+    else if (!strcmp(FliteAudioOutputMethod, "alsa")){
+	DBG("Using NAS sound output.");
+	flite_pars[0] = FliteALSADevice;
+	flite_pars[1] = NULL;
+	flite_audio_id = spd_audio_open(AUDIO_ALSA, (void**) flite_pars, &error);
+	flite_audio_output_method = AUDIO_ALSA;
+    }
+    else{	
 	ABORT("Sound output method specified in configuration not supported. "
 	      "Please choose 'oss' or 'nas'.");
     }
@@ -237,18 +247,6 @@ module_pause(void)
     }
 }
 
-char*
-module_is_speaking(void)
-{
-    char *ret;
-    DBG("festival: module_is_speaking()");
-
-    ret = module_index_mark_get();
-
-    if (ret != NULL) DBG("reporting index mark: %s", ret);
-    return ret; 
-}
-
 void
 module_close(int status)
 {
@@ -308,10 +306,12 @@ _flite_speak(void* nothing)
 	while(1){
 	    if (flite_stop){
 		DBG("Stop in child, terminating");
+		flite_speaking = 0;
 		module_index_mark_store(INDEX_MARK_STOPPED);
 		break;
 	    }
-	    bytes = module_get_message_part(*flite_message, buf, &pos, FliteMaxChunkLength, FliteDelimiters);
+	    bytes = module_get_message_part(*flite_message, buf, &pos, 
+					    FliteMaxChunkLength, FliteDelimiters);
 	    buf[bytes] = 0;
 	    DBG("Returned %d bytes from get_part\n", bytes);
 	    DBG("Text to synthesize is '%s'\n", buf);
@@ -339,6 +339,7 @@ _flite_speak(void* nothing)
 		if (track.samples != NULL){
 		    if (flite_stop){
 			DBG("Stop in child, terminating");
+			flite_speaking = 0;
 			module_index_mark_store(INDEX_MARK_STOPPED);
 			break;
 		    }
@@ -347,6 +348,7 @@ _flite_speak(void* nothing)
 		    if (ret < 0) DBG("ERROR: spd_audio failed to play the track");
 		    if (flite_stop){
 			DBG("Stop in child, terminating (s)");
+			flite_speaking = 0;
 			module_index_mark_store(INDEX_MARK_STOPPED);
 			break;
 		    }
@@ -355,17 +357,21 @@ _flite_speak(void* nothing)
 	    }
 	    else if (bytes == -1){
 		DBG("End of data in speaking thread");
+		flite_speaking = 0;
 		module_index_mark_store(INDEX_MARK_END);
 		break;
+	    }else{
+		flite_speaking = 0;
+		module_index_mark_store(INDEX_MARK_END);
 	    }
 
 	    if (flite_stop){
 		DBG("Stop in child, terminating");
+		flite_speaking = 0;
 		module_index_mark_store(INDEX_MARK_STOPPED);
 		break;
 	    }
 	}
-	flite_speaking = 0;
 	flite_stop = 0;
     }
 
