@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.60 2005-09-12 14:40:00 hanke Exp $
+ * $Id: speechd.c,v 1.61 2005-10-10 10:10:49 hanke Exp $
  */
 
 #include "speechd.h"
@@ -377,6 +377,13 @@ speechd_init(void)
     custom_logfile = NULL;
     custom_log_kind = NULL;
 
+    /* Initialize inter-thread comm pipe */
+    if (pipe(speaking_pipe))
+	{
+	    MSG(1, "Speaking pipe creation failed (%s)", strerror(errno));
+	    FATAL("Can't create pipe");
+	}   
+
     /* Initialize Speech Dispatcher priority queue */
     MessageQueue = (TSpeechDQueue*) speechd_queue_alloc();
     if (MessageQueue == NULL) FATAL("Couldn't alocate memmory for MessageQueue.");
@@ -436,9 +443,9 @@ speechd_init(void)
     MSG(4, "Creating semaphore");
     speaking_sem_key = ftok(speechd_pid_file, 1);
     speaking_sem_id = speaking_semaphore_create(speaking_sem_key);
-    MSG(4, "Testing semaphore");
-    speaking_semaphore_post();
-    speaking_semaphore_wait();
+    //    MSG(4, "Testing semaphore");
+    //    speaking_semaphore_post();
+    //    speaking_semaphore_wait();
 
     /* Load configuration from the config file*/
     speechd_load_configuration(0);
