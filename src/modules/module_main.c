@@ -18,19 +18,30 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_main.c,v 1.6 2005-09-12 14:32:45 hanke Exp $
+ * $Id: module_main.c,v 1.7 2005-10-10 10:06:58 hanke Exp $
  */
 
 /* So that gcc doesn't comply */
 int getline(char**, int*, FILE*);
 
-#define PROCESS_CMD(command, function) if (!strcmp(cmd_buf, #command"\n")){ \
+#define PROCESS_CMD(command, function) \
+if (!strcmp(cmd_buf, #command"\n")){ \
  char *msg; \
+ pthread_mutex_lock(&module_stdout_mutex); \
  if (printf("%s\n", msg = (char*) function()) < 0){ \
      DBG("Broken pipe, exiting...\n"); \
      module_close(2); \
  } \
+ pthread_mutex_unlock(&module_stdout_mutex);\
  xfree(msg); \
+ fflush(stdout); \
+}
+
+#define PROCESS_CMD_NRP(command, function) \
+if (!strcmp(cmd_buf, #command"\n")){ \
+ pthread_mutex_lock(&module_stdout_mutex); \
+ function(); \
+ pthread_mutex_unlock(&module_stdout_mutex);\
  fflush(stdout); \
 }
 
@@ -42,7 +53,7 @@ main(int argc, char *argv[])
     int ret_init;
     int n;
     char *configfilename;
-    char *status_info;
+    char *status_info;        
 
     module_num_dc_options = 0;
     
@@ -124,14 +135,15 @@ main(int argc, char *argv[])
             module_close(2); 
         }
 
+	DBG("CMD: <%s>", cmd_buf);
+
 	PROCESS_CMD(SPEAK, do_speak) 
         else PROCESS_CMD(SOUND_ICON, do_sound_icon)
         else PROCESS_CMD(CHAR, do_char)
         else PROCESS_CMD(KEY, do_key)
-        else PROCESS_CMD(STOP, do_stop) 
-        else PROCESS_CMD(PAUSE, do_pause) 
+        else PROCESS_CMD_NRP(STOP, do_stop) 
+        else PROCESS_CMD_NRP(PAUSE, do_pause) 
         else PROCESS_CMD(SET, do_set) 
-        else PROCESS_CMD(SPEAKING, do_speaking) 
         else PROCESS_CMD(QUIT, do_quit) 
         else{
           printf("300 ERR UNKNOWN COMMAND\n"); 
