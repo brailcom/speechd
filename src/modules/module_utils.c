@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.34 2005-09-12 14:32:50 hanke Exp $
+ * $Id: module_utils.c,v 1.35 2005-10-10 10:07:03 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -222,22 +222,6 @@ do_set(void)
 }
 #undef SET_PARAM_NUM
 #undef SET_PARAM_STR
-
-char*
-do_speaking(void)
-{
-    char *index_mark;
-    char *reply;
-
-    index_mark = module_is_speaking();
-    if (index_mark != NULL)
-	reply = g_strdup_printf("205-%s\n205 OK SPEAKING STATUS SENT\n", index_mark);
-    else
-    	reply = g_strdup_printf("205-no\n205 OK SPEAKING STATUS SENT\n");
-    xfree(index_mark);
-
-    return reply;
-}
 
 /* This has to return int (although it doesn't return at all) so that we could
  * call it from PROCESS_CMD() macro like the other commands that return
@@ -780,13 +764,18 @@ module_index_mark_get(void)
 void
 module_index_mark_store(char *mark)
 {
+    char *reply;
     DBG("Signalling index mark %s", mark);
-    while (module_index_mark != NULL){
-	DBG("sleeping, waiting for index_mark to turn NULL");
-	usleep(10000);
-    }
-    module_index_mark = strdup(mark);
-    module_index_mark_signal();
+    if (mark != NULL)
+	reply = g_strdup_printf("205-%s\n205 OK SPEAKING STATUS SENT\n", mark);
+    else
+    	reply = g_strdup_printf("205-no\n205 OK SPEAKING STATUS SENT\n");
+
+    pthread_mutex_lock(&module_stdout_mutex);
+    fprintf(stdout, reply);
+    fflush(stdout);
+    pthread_mutex_unlock(&module_stdout_mutex);
+    xfree(reply);
 }
 
 /* --- CONFIGURATION --- */
@@ -842,3 +831,11 @@ add_config_option(configoption_t *options, int *num_config_options, char *name, 
     return opts;
 }
 
+int
+module_utils_init(void)
+{
+    /* Init mutex */
+    pthread_mutex_init(&module_stdout_mutex, NULL);
+
+    return 0;
+}
