@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.19 2005-09-12 14:32:35 hanke Exp $
+ * $Id: generic.c,v 1.20 2005-10-12 15:58:49 hanke Exp $
  */
 
 #include <glib.h>
@@ -382,7 +382,7 @@ _generic_speak(void* nothing)
             
             generic_speaking = 0;
 
-            module_signal_end();
+            module_index_mark_store("INDEX_MARK_END");
 
             DBG("child terminated -: status:%d signal?:%d signal number:%d.\n",
                 WIFEXITED(status), WIFSIGNALED(status), WTERMSIG(status));
