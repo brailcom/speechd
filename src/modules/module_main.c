@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_main.c,v 1.7 2005-10-10 10:06:58 hanke Exp $
+ * $Id: module_main.c,v 1.8 2005-10-12 15:59:21 hanke Exp $
  */
 
 /* So that gcc doesn't comply */
@@ -58,15 +58,7 @@ main(int argc, char *argv[])
     module_num_dc_options = 0;
     
     if (argc >= 2){
-        char *tailptr;
-        SPDSemaphore = strtol(argv[1], &tailptr, 0);
-        if (tailptr == argv[1]) SPDSemaphore = -1;        
-    }else{
-        SPDSemaphore = -1;
-    }
-
-    if (argc >= 3){
-        configfilename = strdup(argv[2]);
+        configfilename = strdup(argv[1]);
     }else{
         configfilename = NULL;
     }
