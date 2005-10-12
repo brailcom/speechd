@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.64 2005-10-10 10:06:19 hanke Exp $
+ * $Id: festival.c,v 1.65 2005-10-12 15:58:42 hanke Exp $
  */
 
 #include "fdset.h"
@@ -677,7 +677,7 @@ _festival_speak(void* nothing)
 
 	    if (festival_stop){
 		DBG("Module stopped 3");
-		CLP(0, INDEX_MARK_END);
+		CLP(0, INDEX_MARK_STOPPED);
 	    }
 	}
 
