@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.18 2005-09-12 14:26:32 hanke Exp $
+ * $Id: libspeechd.c,v 1.19 2005-10-12 15:58:25 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -64,9 +64,9 @@ static void* spd_events_handler(void*);
 /* Opens a new Speech Dispatcher connection.
  * Returns socket file descriptor of the created connection
  * or -1 if no connection was opened. */
+
 SPDConnection*
-spd_open(const char* client_name, const char* connection_name, const char* user_name,
-	 SPDConnectionMode mode)
+spd_open(const char* client_name, const char* connection_name, const char* user_name, SPDConnectionMode mode)
 {
     struct sockaddr_in address;
     SPDConnection *connection;
@@ -151,8 +151,8 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
     connection->stream = fdopen(connection->socket, "r");
     if (!connection->stream) SPD_FATAL("Can't create a stream for socket, fdopen() failed.");
     /* Switch to line buffering mode */
-    ret = setvbuf(connection->stream, NULL, _IOLBF, SPD_REPLY_BUF_SIZE);
-    if (ret) SPD_FATAL("Can't set line buffering, setvbuf failed.");
+    ret = setvbuf(connection->stream, NULL, _IONBF, SPD_REPLY_BUF_SIZE);
+    if (ret) SPD_FATAL("Can't set buffering, setvbuf failed.");
 
     /* By now, the connection is created and operational */
     
