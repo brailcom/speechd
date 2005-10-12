@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.h,v 1.6 2005-10-10 10:07:07 hanke Exp $
+ * $Id: module_utils.h,v 1.7 2005-10-12 15:59:31 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -47,8 +47,6 @@ SPDMsgSettings msg_settings_old;
 int current_index_mark;
 
 int Debug;
-
-int SPDSemaphore;
 
 configfile_t *configfile;
 configoption_t *module_dc_options;
