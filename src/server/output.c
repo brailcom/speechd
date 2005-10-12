@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.19 2005-10-10 10:09:11 hanke Exp $
+ * $Id: output.c,v 1.20 2005-10-12 16:01:03 hanke Exp $
  */
 
 #include "output.h"
@@ -99,15 +99,34 @@ output_read_reply(OutputModule *output)
 	    output->working = 0;
 	    speaking_module = NULL;
 	    output_check_module(output);
-	    return NULL; /* Broken pipe */       
+	    return NULL; /* Broken pipe */   
 	}
 	g_string_append(rstr, line);
 	/* terminate if we reached the last line (without '-' after numcode) */
     }while( !((strlen(line) < 4) || (line[3] == ' ')));
-    
+
     /* The resulting message received from the socket is stored in reply */
     reply = rstr->str;
     g_string_free(rstr, FALSE);
+
+    return reply;
+}
+
+char*
+output_read_reply2(OutputModule *output)
+{
+    GString *rstr;
+    int bytes;
+    char *line = NULL;
+    int N = 0;
+    char *reply;
+    
+
+    reply = malloc( 1024 * sizeof(char));
+
+    bytes = read(output->pipe_out[0], reply, 1024);
+    reply[bytes] = 0;
+    MSG2(1, "output_module", "2Read: %d bytes: <%s>", bytes, reply);
 
     return reply;
 }
@@ -130,13 +149,13 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
         output_check_module(output);
         return -1;   /* Broken pipe */
     }
-    MSG2(5, "protocol", "Command sent to output module: |%s| (%d)", cmd, wfr);
+    MSG2(5, "output_module", "Command sent to output module: |%s| (%d)", cmd, wfr);
     
     if (wfr){                   /* wait for reply? */	
 	response = output_read_reply(output);
 	if (response == NULL) return -1;
 
-        MSG2(5, "protocol", "Reply from output module: |%s|", response);
+        MSG2(5, "output_module", "Reply from output module: |%s|", response);
 
         if (response[0] == '3'){
             MSG(2, "Error: Module reported error in request from speechd (code 3xx).");
@@ -323,7 +342,7 @@ output_module_is_speaking(OutputModule *output, char **index_mark)
 	return -1;
     }
 
-    MSG2(5, "protocol", "Reply from output module: |%s|", response);
+    MSG2(5, "output_module", "Reply from output module: |%s|", response);
     if (response[0] == '3'){
 	MSG(2, "Error: Module reported error in request from speechd (code 3xx).");
 	OL_RET(-2); /* User (speechd) side error */
@@ -332,20 +351,20 @@ output_module_is_speaking(OutputModule *output, char **index_mark)
 	MSG(2, "Error: Module reported error in itself (code 4xx).");
 	OL_RET(-3); /* Module side error */
     }
-    if (response[0] == '2'){
+    if (response[0] == '2'){	
 	if (strlen(response) > 4){
 	    if (response[3] == '-'){
 		char *p;                         
 		p = strchr(response, '\n');                
 		*index_mark = (char*) strndup(response+4, p-response-4);
-		MSG(1, "Detected INDEX MARK: %s", *index_mark);
+		MSG2(1, "output_module", "Detected INDEX MARK: %s", *index_mark);
 	    }else{
-		MSG(2, "Error: Wrong communication from output module!"
+		MSG2(2, "output_module", "Error: Wrong communication from output module!"
 		    "Reply on SPEAKING not multi-line.");
 		OL_RET(-1); 
 	    }
 	}else{
-	    MSG(2, "Error: Wrong communication from output module! Reply less than four bytes.");
+	    MSG2(2, "output_module", "Error: Wrong communication from output module! Reply less than four bytes.");
 	    OL_RET(-1); 
 	}
 	OL_RET(0)
