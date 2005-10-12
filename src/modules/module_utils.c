@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.35 2005-10-10 10:07:03 hanke Exp $
+ * $Id: module_utils.c,v 1.36 2005-10-12 15:59:27 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -433,7 +433,7 @@ module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid,
             
             *speaking_flag = 0;
 
-            module_signal_end();
+            module_index_mark_store("INDEX_MARK_END");
 
             DBG("child terminated -: status:%d signal?:%d signal number:%d.\n",
                 WIFEXITED(status), WIFSIGNALED(status), WTERMSIG(status));
@@ -729,20 +729,6 @@ semaphore_post(int sem_id)
     return semop(sem_id, &sem_b, 1);
 }
 
-/* Deprecated */
-void
-module_signal_end(void)
-{
-    semaphore_post(SPDSemaphore);
-}
-
-/* --- INDEX MARKING --- */
-
-void
-module_index_mark_signal(void)
-{
-    semaphore_post(SPDSemaphore);
-}
 
 /* Read index_mark, return it's value and set it to NULL */
 char*
@@ -772,8 +758,10 @@ module_index_mark_store(char *mark)
     	reply = g_strdup_printf("205-no\n205 OK SPEAKING STATUS SENT\n");
 
     pthread_mutex_lock(&module_stdout_mutex);
+    DBG("Printing reply: %s", reply);
     fprintf(stdout, reply);
     fflush(stdout);
+    DBG("Printed");
     pthread_mutex_unlock(&module_stdout_mutex);
     xfree(reply);
 }
