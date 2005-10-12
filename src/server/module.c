@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.25 2005-10-10 10:07:58 hanke Exp $
+ * $Id: module.c,v 1.26 2005-10-12 15:59:49 hanke Exp $
  */
 
 #include <sys/wait.h>
@@ -41,7 +41,6 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
     OutputModule *module;
     int fr;
     char *arg1;
-    char *arg2;
     int cfg = 0;
     int ret;
     char buf[256];
@@ -69,9 +68,8 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
         return NULL;
     }     
 
-    arg1 = g_strdup_printf("%d", speaking_sem_id);
     if (mod_cfgfile){
-        arg2 = g_strdup_printf("%s", module->configfilename);
+        arg1 = g_strdup_printf("%s", module->configfilename);
         cfg=1;
     }
 
@@ -111,19 +109,19 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 	}
 
         if (cfg == 0){
-            if (execlp(module->filename, "", arg1, (char *) 0) == -1){                    
+            if (execlp(module->filename, "", (char *) 0) == -1){
                 exit(1);
             }
         }else{
 	    //if (execlp("valgrind", "" ,"--trace-children=yes", module->filename, arg1, arg2, (char *) 0) == -1){
-	    if (execlp(module->filename, "", arg1, arg2, (char *) 0) == -1){
+	    if (execlp(module->filename, "", arg1, (char *) 0) == -1){
                 exit(1);
             }
         }
         assert(0);
     default:
 
-	if (cfg) spd_free(arg2);
+	if (cfg) spd_free(arg1);
 
         module->pid = fr;
         close(module->pipe_in[0]);
@@ -146,7 +144,7 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 	module->stream_out = fdopen(module->pipe_out[0], "r");
 	if (!module->stream_out) FATAL("Can't create a stream for socket, fdopen() failed.");
 	/* Switch to line buffering mode */
-	ret = setvbuf(module->stream_out, NULL, _IOLBF, 4096);
+	ret = setvbuf(module->stream_out, NULL, _IONBF, 4096);
 	if (ret) FATAL("Can't set line buffering, setvbuf failed.");
 
 	MSG(4, "Trying to initialize %s.", module->name);

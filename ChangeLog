@@ -1,3 +1,23 @@
+2005-10-12  Hynek Hanke  <hanke@chopin>
+
+	* src/server/speaking.c (speak): Activity events POLLPRI added to POLLIN.
+	(is_sb_speaking): Use speaking_semaphore_post() after CANCEL notification from
+	output module.
+
+	* src/server/output.c (output_send_data): New custom log branch: output_module.
+	(output_send_data2): New function.
+
+	* src/modules/module_main.c (main): Don't use semaphore.
+
+	* src/c/api/libspeechd.c (spd_open): Set no buffering for connection socket associated
+	stream.
+
+	* src/modules/module_utils.h (SPDSemaphore): Variable removed.
+
+	* src/modules/module_utils.c (module_index_mark_store): SPDSemaphore: related functions removed.
+
+	* src/modules/festival.c (_festival_speak): Signal STOPPED instead of END on festival_stop.
+
 2005-10-10  Hynek Hanke  <hanke@chopin>
 
 	* src/server/speechd.h (speaking_pipe): New global variable.
