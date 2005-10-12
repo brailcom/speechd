@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speaking.c,v 1.44 2005-10-10 10:10:05 hanke Exp $
+ * $Id: speaking.c,v 1.45 2005-10-12 16:03:48 hanke Exp $
  */
 
 #include <glib.h>
@@ -86,11 +86,11 @@ speak(void* data)
 	}
 	if (poll_count > 1){
 	    if(revents = poll_fds[1].revents){
-		if (revents & POLLIN){
+		if ((revents & POLLIN) || (revents & POLLPRI)){
 		    MSG(5, "wait_for_poll: activity on output_module");	       
 		    /* Check if sb is speaking or they are all silent. 
 		     * If some synthesizer is speaking, we must wait. */
-		    is_sb_speaking();			
+		    is_sb_speaking();
 		}        
 	    }	    
 	}
@@ -612,6 +612,7 @@ is_sb_speaking(void)
 	    poll_count=1;
 	    if (settings->notification & NOTIFY_CANCEL)
 		report_cancel(current_message);
+	    speaking_semaphore_post();
 	}else if (index_mark != NULL){
 	    if (strncmp(index_mark, SD_MARK_BODY, SD_MARK_BODY_LEN)){
 		if (settings->notification & NOTIFY_IM)
