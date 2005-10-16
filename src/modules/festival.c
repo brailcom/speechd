@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.66 2005-10-16 09:00:00 hanke Exp $
+ * $Id: festival.c,v 1.67 2005-10-16 15:10:54 hanke Exp $
  */
 
 #include "fdset.h"
@@ -53,7 +53,7 @@ int festival_stop = 0;
 
 int festival_process_pid = 0;
 
-FT_Info *festival_info;
+FT_Info *festival_info = NULL;
 
 AudioID *festival_audio_id = NULL;
 AudioOutputType festival_audio_output_method;
@@ -174,6 +174,8 @@ module_load(void)
     /* TODO: Maybe switch this option to 1 when the bug with the 40ms delay
      in Festival is fixed */
     MOD_OPTION_1_INT_REG(FestivalReopenSocket, 0);
+
+    festival_audio_id = NULL;
 
     return 0;
 }
@@ -444,14 +446,16 @@ module_close(int status)
     DBG("Terminating threads");
     module_terminate_thread(festival_speak_thread);
    
-    delete_FT_Info(festival_info);
+    if (festival_info)
+	delete_FT_Info(festival_info);
 
     /* TODO: Solve this */
-    DBG("Removing junk files in tmp/");
-    system("rm -f /tmp/est* 2> /dev/null");
+    //    DBG("Removing junk files in tmp/");
+    //    system("rm -f /tmp/est* 2> /dev/null");
 
     DBG("Closing audio output");
-    spd_audio_close(festival_audio_id);
+    if (festival_audio_id)
+	spd_audio_close(festival_audio_id);
 
     exit(status);
 }
