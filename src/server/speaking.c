@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speaking.c,v 1.45 2005-10-12 16:03:48 hanke Exp $
+ * $Id: speaking.c,v 1.46 2005-10-16 08:56:57 hanke Exp $
  */
 
 #include <glib.h>
@@ -177,7 +177,14 @@ speak(void* data)
         if (ret == -1){
             MSG(2, "Error: Output module failed");
             output_check_module(message);
+            pthread_mutex_unlock(&element_free_mutex);
+	    continue;
         }
+	if (ret != 0){
+	    MSG(2, "ERROR: Can't say message. Module reported error in speaking: %d", ret);
+	    pthread_mutex_unlock(&element_free_mutex);
+	    continue;
+	}
 	SPEAKING=1;
 
 	if (speaking_module != NULL){
