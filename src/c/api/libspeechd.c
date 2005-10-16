@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.19 2005-10-12 15:58:25 hanke Exp $
+ * $Id: libspeechd.c,v 1.20 2005-10-16 09:00:29 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -127,14 +127,16 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
     
     connection->mode = mode;
 
+    /* Create a stream from the socket */
+    connection->stream = fdopen(connection->socket, "r");
+    if (!connection->stream) SPD_FATAL("Can't create a stream for socket, fdopen() failed.");
+    /* Switch to line buffering mode */
+    ret = setvbuf(connection->stream, NULL, _IONBF, SPD_REPLY_BUF_SIZE);
+    if (ret) SPD_FATAL("Can't set buffering, setvbuf failed.");
+
     if (mode == SPD_MODE_THREADED){
 	SPD_DBG("Initializing threads, condition variables and mutexes...");
 	connection->events_thread = xmalloc(sizeof(pthread_t));
-	ret = pthread_create(connection->events_thread, NULL, spd_events_handler, connection);
-	if(ret != 0){
-	    SPD_DBG("Thread initialization failed");
-	    return NULL;
-	}
 	connection->cond_reply_ready = xmalloc(sizeof(pthread_cond_t));
 	connection->mutex_reply_ready = xmalloc(sizeof(pthread_mutex_t));
 	connection->cond_reply_ack = xmalloc(sizeof(pthread_cond_t));
@@ -143,16 +145,14 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
 	pthread_mutex_init(connection->mutex_reply_ready, NULL);
 	pthread_cond_init(connection->cond_reply_ack, NULL);
 	pthread_mutex_init(connection->mutex_reply_ack, NULL);
+	ret = pthread_create(connection->events_thread, NULL, spd_events_handler, connection);
+	if(ret != 0){
+	    SPD_DBG("Thread initialization failed");
+	    return NULL;
+	}
     }
     
     setsockopt(connection->socket, IPPROTO_TCP, TCP_NODELAY, &tcp_no_delay, sizeof(int));
-
-    /* Create a stream from the socket */
-    connection->stream = fdopen(connection->socket, "r");
-    if (!connection->stream) SPD_FATAL("Can't create a stream for socket, fdopen() failed.");
-    /* Switch to line buffering mode */
-    ret = setvbuf(connection->stream, NULL, _IONBF, SPD_REPLY_BUF_SIZE);
-    if (ret) SPD_FATAL("Can't set buffering, setvbuf failed.");
 
     /* By now, the connection is created and operational */
     
