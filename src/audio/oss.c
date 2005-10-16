@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: oss.c,v 1.6 2005-09-12 14:22:42 hanke Exp $
+ * $Id: oss.c,v 1.7 2005-10-16 09:00:51 hanke Exp $
  */
 
 /* Put a message into the logfile (stderr) */
@@ -211,14 +211,12 @@ oss_play(AudioID *id, AudioTrack track)
     speed = track.sample_rate;
     ret = ioctl(id->fd, SNDCTL_DSP_SPEED, &speed);
     if (ret == -1){
-	perror("OSS ERROR: speed");
+	ERR("OSS ERROR: Can't set sample rate %d nor any similar.", track.sample_rate);
 	_oss_close(id);
 	return -5;
     }
     if (speed != track.sample_rate){
-	ERR("Device doesn't support bitrate %d.\n", track.sample_rate);
-	_oss_close(id);
-	return -6;
+	ERR("Device doesn't support bitrate %d, using %d instead.\n", track.sample_rate, speed);
     }
 
     /* Is it not an empty track? */
