@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.65 2005-10-12 15:58:42 hanke Exp $
+ * $Id: festival.c,v 1.66 2005-10-16 09:00:00 hanke Exp $
  */
 
 #include "fdset.h"
@@ -287,6 +287,7 @@ module_init(char **status_info)
 int
 module_speak(char *data, size_t bytes, EMessageType msgtype)
 {
+    int ret;
 
     DBG("module_speak()\n");
 
@@ -314,8 +315,13 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
 	    DBG("Recovering after a connection loss");
 	    CLEAN_OLD_SETTINGS_TABLE();
 	    festival_info = festivalOpen(festival_info);
-	    FestivalSetMultiMode(festival_info, "t");
-	    festival_connection_crashed = 0;
+	    if (festival_info) festival_connection_crashed = 0;
+	    else{
+		DBG("Can't recover. Not possible to open connection to Festival.");
+		return -1;
+	    }
+	    ret = FestivalSetMultiMode(festival_info, "t");
+	    if (ret != 0) return -1;
 	}
     }
 
@@ -335,6 +341,11 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
     UPDATE_PARAMETER(volume, festival_set_volume);
     UPDATE_PARAMETER(punctuation_mode, festival_set_punctuation_mode);
     UPDATE_PARAMETER(cap_let_recogn, festival_set_cap_let_recogn);
+
+    if (festival_connection_crashed){
+	DBG("ERROR: Festival connection not working!");
+	return -1;
+    }
 
     DBG("Requested data: |%s| \n", data);
 
@@ -451,15 +462,11 @@ module_close(int status)
 #define CLEAN_UP(code, im) \
         { \
           if(!wave_cached) if (fwave) delete_FT_Wave(fwave); \
-          DBG("CLP1"); \
           pthread_mutex_lock(&sound_output_mutex); \
-          DBG("CLP2"); \
           festival_stop = 0; \
           festival_speaking = 0; \
           pthread_mutex_unlock(&sound_output_mutex); \
-          DBG("CLP2"); \
           module_index_mark_store(im); \
-          DBG("CLP3"); \
           goto sem_wait; \
         }
 
@@ -575,9 +582,11 @@ _festival_speak(void* nothing)
 	    
 	    /*  Set multi-mode for appropriate kind of events */
 	    if (is_text(festival_message_type)){	/* it is a raw text */
-		FestivalSetMultiMode(festival_info, "t");
+		ret = FestivalSetMultiMode(festival_info, "t");
+		if (ret != 0) CLP(0, INDEX_MARK_STOPPED);
 	    }else{			/* it is some kind of event */
-		FestivalSetMultiMode(festival_info, "nil");	
+		ret = FestivalSetMultiMode(festival_info, "nil");
+		if (ret != 0) CLP(0, INDEX_MARK_STOPPED);
 	    }
 
 	    switch(festival_message_type)
@@ -590,7 +599,7 @@ _festival_speak(void* nothing)
 		}
 	    if (r < 0){
 		DBG("Couldn't process the request to say the object.");
-		CLEAN_UP(-1, INDEX_MARK_STOPPED);
+		CLP(0, INDEX_MARK_STOPPED);
 	    }
 	}
     
