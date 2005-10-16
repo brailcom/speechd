@@ -1,5 +1,17 @@
 2005-10-16  Hynek Hanke  <hanke@chopin>
 
+	* src/modules/festival.c (module_close): Only close audio if festival_audio_id != NULL.
+
+	* src/server/speechd.c (main): fclose(stdout) and fclose(stderr) removed since this would
+	free the first three file descriptors and some function might use them, although daemon()
+	will subsequently close them.
+	(main): Call pthread_create() only after daemon(). For some reason, threads don't mix with
+	daemon.
+
+	* src/audio/alsa.c (_alsa_close): Only close the device if it wasn't closed earlier.
+
+2005-10-16  Hynek Hanke  <hanke@chopin>
+	
 	* src/modules/festival.c (module_speak): Handle
 	festival_connection_crashed == 1
 
