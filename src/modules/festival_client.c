@@ -32,7 +32,7 @@
 /*************************************************************************/
 /*             Author :  Alan W Black (awb@cstr.ed.ac.uk)                */
 /*             Date   :  March 1999                                      */
-/*             Modified: Hynek Hanke (hanke@volny.cz) (2003)             */
+/*             Modified: Hynek Hanke (hanke@brailcom.org) (2003-2005)    */
 /*-----------------------------------------------------------------------*/
 /*                                                                       */
 /* Client end of Festival server API in C designed specifically formerly */
@@ -69,7 +69,9 @@
 int fapi_endian_loc = 1;
 
 static char *socket_receive_file_to_buff(int fd,int *size);
-static char *socket_receive_file_to_buff2(int fd,int *size, int *stop_flag, int stop_by_close);
+
+
+/* --- MANAGING FT STRUCTURES --- */
 
 void delete_FT_Wave(FT_Wave *wave)
 {
@@ -147,43 +149,7 @@ void delete_FT_Info(FT_Info *info)
 	free(info);
 }
 
-static int festival_socket_open(const char *host, int port)
-{   
-    /* Return an FD to a remote server */
-    struct sockaddr_in serv_addr;
-    struct hostent *serverhost;
-    int fd;
-
-    fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-    if (fd < 0)  
-        {
-            fprintf(stderr,"festival_client: can't get socket\n");
-            return -1;
-        }
-    memset(&serv_addr, 0, sizeof(serv_addr));
-    if ((serv_addr.sin_addr.s_addr = inet_addr(host)) == -1)
-        {
-            /* its a name rather than an ipnum */
-            serverhost = gethostbyname(host);
-            if (serverhost == (struct hostent *)0)
-                {
-                    fprintf(stderr,"festival_client: gethostbyname failed\n");
-                    return -1;
-                }
-            memmove(&serv_addr.sin_addr,serverhost->h_addr, serverhost->h_length);
-        }
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port = htons(port);
-
-    if (connect(fd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) != 0)
-        {
-            fprintf(stderr,"festival_client: connect to server failed\n");
-            return -1;
-        }
-
-
-    return fd;
-}
+/* --- FESTIVAL REPLY PARSING --- */
 
 static int
 nist_get_param_int(char *hdr, char *field, int def_val)
@@ -217,6 +183,104 @@ nist_require_swap(char *hdr)
     return 0; /* if unknown assume native byte order */
 }
 
+/* --- FESTIVAL SOCKET MANIPULATION --- */
+
+/* Return an FD to a remote server */
+static int
+festival_socket_open(const char *host, int port)
+{   
+    struct sockaddr_in serv_addr;
+    struct hostent *serverhost;
+    int fd;
+
+    fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    if (fd < 0)  
+        {
+            fprintf(stderr,"festival_client: can't get socket\n");
+            return -1;
+        }
+    memset(&serv_addr, 0, sizeof(serv_addr));
+    if ((serv_addr.sin_addr.s_addr = inet_addr(host)) == -1)
+        {
+            /* its a name rather than an ipnum */
+            serverhost = gethostbyname(host);
+            if (serverhost == (struct hostent *)0)
+                {
+                    fprintf(stderr,"festival_client: gethostbyname failed\n");
+                    return -1;
+                }
+            memmove(&serv_addr.sin_addr,serverhost->h_addr, serverhost->h_length);
+        }
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_port = htons(port);
+
+    if (connect(fd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) != 0)
+        {
+            fprintf(stderr,"festival_client: connect to server failed\n");
+            return -1;
+        }
+
+    return fd;
+}
+
+/* Receive file (probably a waveform file) from socket using   */
+/* Festival key stuff technique, but long winded I know, sorry */
+/* but will receive any file without closing the stream or     */
+/* using OOB data                                              */
+static char*
+socket_receive_file_to_buff(int fd,int *size)
+{
+    static char *file_stuff_key = "ft_StUfF_key"; /* must == Festival's key */
+    char *buff;
+    int bufflen;
+    int n,k,i;
+    char c;
+
+    if (fd < 0) return NULL;
+
+    bufflen = 1024;
+    buff = (char *)malloc(bufflen);
+    *size=0;
+
+    for (k=0; file_stuff_key[k] != '\0';)
+    {
+	n = read(fd,&c,1);
+	if (n<=0){
+            DBG("ERROR: FESTIVAL CLOSED CONNECTION (1)");
+	    close(fd);
+            festival_connection_crashed = 1;
+	    xfree(buff);
+	    return NULL;  /* hit stream eof before end of file */
+	}
+
+	if ((*size)+k+1 >= bufflen)
+	{   /* +1 so you can add a NULL if you want */
+	    bufflen += bufflen/4;
+	    buff = (char *)realloc(buff,bufflen);
+	}
+	if (file_stuff_key[k] == c)
+	    k++;
+	else if ((c == 'X') && (file_stuff_key[k+1] == '\0'))
+	{   /* It looked like the key but wasn't */
+	    for (i=0; i < k; i++,(*size)++) 
+		buff[*size] = file_stuff_key[i];
+	    k=0;
+	    /* omit the stuffed 'X' */
+	}
+	else
+	{
+	    for (i=0; i < k; i++,(*size)++)
+		buff[*size] = file_stuff_key[i];
+	    k=0;
+	    buff[*size] = c;
+	    (*size)++;
+	}
+
+    }
+
+    return buff;
+}
+
 static char *
 client_accept_s_expr(int fd)
 {
@@ -225,7 +289,7 @@ client_accept_s_expr(int fd)
     int filesize;
 
     if (fd < 0) return NULL;
-
+ 
     expr = socket_receive_file_to_buff(fd,&filesize);
     expr[filesize] = '\0';
     return expr;
@@ -278,129 +342,6 @@ static FT_Wave *client_accept_waveform(int fd, int *stop_flag, int stop_by_close
     return wave;
 }
 
-static char *socket_receive_file_to_buff(int fd,int *size)
-{
-    /* Receive file (probably a waveform file) from socket using   */
-    /* Festival key stuff technique, but long winded I know, sorry */
-    /* but will receive any file without closing the stream or     */
-    /* using OOB data                                              */
-    static char *file_stuff_key = "ft_StUfF_key"; /* must == Festival's key */
-    char *buff;
-    int bufflen;
-    int n,k,i;
-    char c;
-
-    if (fd < 0) return NULL;
-
-    bufflen = 1024;
-    buff = (char *)malloc(bufflen);
-    *size=0;
-
-    for (k=0; file_stuff_key[k] != '\0';)
-    {
-	n = read(fd,&c,1);
-	if (n<=0){
-	    xfree(buff);
-	    return NULL;  /* hit stream eof before end of file */
-	}
-
-	if ((*size)+k+1 >= bufflen)
-	{   /* +1 so you can add a NULL if you want */
-	    bufflen += bufflen/4;
-	    buff = (char *)realloc(buff,bufflen);
-	}
-	if (file_stuff_key[k] == c)
-	    k++;
-	else if ((c == 'X') && (file_stuff_key[k+1] == '\0'))
-	{   /* It looked like the key but wasn't */
-	    for (i=0; i < k; i++,(*size)++) 
-		buff[*size] = file_stuff_key[i];
-	    k=0;
-	    /* omit the stuffed 'X' */
-	}
-	else
-	{
-	    for (i=0; i < k; i++,(*size)++)
-		buff[*size] = file_stuff_key[i];
-	    k=0;
-	    buff[*size] = c;
-	    (*size)++;
-	}
-
-    }
-
-    return buff;
-}
-
-/* TODO: Maybe this could make use of festival_info */
-static char *socket_receive_file_to_buff2(int fd, int *size, int *stop_flag, int stop_by_close)
-{
-    /* Receive file (probably a waveform file) from socket using   */
-    /* Festival key stuff technique, but long winded I know, sorry */
-    /* but will receive any file without closing the stream or     */
-    /* using OOB data                                              */
-    static char *file_stuff_key = "ft_StUfF_key"; /* must == Festival's key */
-    char *buff;
-    int bufflen;
-    int n,k,i;
-    char c;
-
-    DBG("Com: Receiving file");
-
-    if (fd < 0) return NULL;
-
-    bufflen = 1024;
-    buff = (char *)malloc(bufflen);
-    *size=0;
-
-    for (k=0; file_stuff_key[k] != '\0';)
-    {
-	/* If in the stop_by_close mode and stop_flag gets set to 1,
-	 return */
-	if (stop_by_close){
-	    if (*stop_flag == 1){
-		/* Set stop_flag to "needed to reopen the socket" */
-		*stop_flag = -1;
-		DBG("Closing socket to stop synthesizing.");
-		close(fd);
-		return NULL; 
-	    }
-	}
-
-	/* Otherwise read more data */
-	n = read(fd,&c,1);
-	if (n<=0){   /* hit stream eof before end of file */
-	    xfree(buff);
-	    return NULL;
-	}
-	if ((*size)+k+1 >= bufflen)
-	{   /* +1 so you can add a NULL if you want */
-	    bufflen += bufflen/4;
-	    buff = (char *)realloc(buff,bufflen);
-	}
-	if (file_stuff_key[k] == c)
-	    k++;
-	else if ((c == 'X') && (file_stuff_key[k+1] == '\0'))
-	{   /* It looked like the key but wasn't */
-	    for (i=0; i < k; i++,(*size)++) 
-		buff[*size] = file_stuff_key[i];
-	    k=0;
-	    /* omit the stuffed 'X' */
-	}
-	else
-	{
-	    for (i=0; i < k; i++,(*size)++)
-		buff[*size] = file_stuff_key[i];
-	    k=0;
-	    buff[*size] = c;
-	    (*size)++;
-	}
-
-    }
-
-    return buff;
-}
-
 int
 festival_get_ack(FT_Info **info, char* ack)
 {
@@ -416,8 +357,8 @@ festival_get_ack(FT_Info **info, char* ack)
             /* WARNING: This is a very strange situation
                but it happens often, I don't really know
                why???*/
-            DBG("FESTIVAL CLOSED CONNECTION");
-	    //	    *info = festivalOpen(*info);
+            DBG("ERROR: FESTIVAL CLOSED CONNECTION (2)");
+	    close((*info)->server_fd);
             festival_connection_crashed = 1;
             return -1; 
         }
@@ -458,16 +399,6 @@ festival_read_response(FT_Info *info, char **expr)
     if (festival_get_ack(&info, buf)) return 1;
     DBG("<- Festival: |%s|", buf);
 
-    return 0;
-}
-
-int
-festival_check_info(FT_Info *info, char *fnname){
-    assert(fnname != NULL);
-    if ((info == NULL) || (info->server_fd == -1)){
-        DBG("%s called with info = NULL or server_fd == -1\n", fnname);
-        return -1;
-    }
     return 0;
 }
 
@@ -534,6 +465,16 @@ festival_accept_any_response(FT_Info *info)
     }
 
 
+/* --- HELPER FUNCTIONS --- */
+int
+festival_check_info(FT_Info *info, char *fnname){
+    assert(fnname != NULL);
+    if ((info == NULL) || (info->server_fd == -1)){
+        DBG("%s called with info = NULL or server_fd == -1\n", fnname);
+        return -1;
+    }
+    return 0;
+}
 
 
 /***********************************************************************/
@@ -545,9 +486,10 @@ festival_accept_any_response(FT_Info *info)
 FT_Info *
 festivalOpen(FT_Info *info)
 {
-    /* Open socket to server */
+    char *resp;
+    int ret;
 
-    DBG("Opening socket fo Festival server");
+    DBG("Openning socket fo Festival server");
 
     festival_connection_crashed = 0;
 
@@ -559,15 +501,26 @@ festivalOpen(FT_Info *info)
 
     if (info->server_fd == -1){
         delete_FT_Info(info);
+	festival_connection_crashed = 1;
 	return NULL;
     }
 
     /* TODO: Not "any" response */
     FEST_SEND_CMD("(require 'speech-dispatcher)");
-    festival_accept_any_response(info);
+    ret = festival_read_response(info, &resp);
+    if (ret || resp == NULL || strcmp(resp, "t\n")){
+	DBG("ERROR: Can't load speech-dispatcher module into Festival. Reason: %s", resp);
+	return NULL;
+    }
+    free(resp);
 
     FEST_SEND_CMD("(Parameter.set 'Wavefiletype 'nist)\n");
-    festival_accept_any_response(info);
+    ret = festival_read_response(info, &resp);
+    if (ret || resp == NULL || strcmp(resp, "nist\n")){
+	DBG("ERROR: Can't set Wavefiletype to nist in Festival. Reason: %s", resp);
+	return NULL;
+    }
+    free(resp);
 
     return info;
 }
@@ -578,6 +531,7 @@ festival_speak_command(FT_Info *info, char *command, const char *text, int symbo
     FILE *fd;
     const char *p;
     char *str;
+    int ret;
 
     if (festival_check_info(info, "festival_speak_command") == -1) return -1;
     if (command == NULL) return -1;
@@ -610,7 +564,13 @@ festival_speak_command(FT_Info *info, char *command, const char *text, int symbo
     fclose(fd);
     DBG("Resources freed");
 
-    if (resp) festival_accept_any_response(info);
+    if (resp){
+	ret = festival_read_response(info, NULL);
+	if (ret){
+	    DBG("ERROR: Festival reported error in speak command);");
+	    return -1;
+	}
+    }
 
     return 0;
 }
@@ -759,10 +719,12 @@ int festivalClose(FT_Info *info)
         if (param == NULL){ \
 	  FEST_SEND_CMD("("fest_param" nil)"); \
         }else{ \
-	  FEST_SEND_CMDA("("fest_param" \"%s\")", f = g_ascii_strdown(param, -1)); \
+          f = g_ascii_strdown(param, -1); \
+	  FEST_SEND_CMDA("("fest_param" \"%s\")", f); \
           xfree(f); \
 	} \
         ret = festival_read_response(info, &r); \
+        if (ret != 0) return -1; \
         if (r != NULL) \
           if (resp != NULL) \
              *resp = r; \
