@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.61 2005-10-10 10:10:49 hanke Exp $
+ * $Id: speechd.c,v 1.62 2005-10-16 08:55:47 hanke Exp $
  */
 
 #include "speechd.h"
@@ -439,14 +439,6 @@ speechd_init(void)
     ret = pthread_mutex_init(&socket_com_mutex, NULL);
     if(ret != 0) DIE("Mutex initialization failed");
 
-    /* Create a SYS V semaphore */
-    MSG(4, "Creating semaphore");
-    speaking_sem_key = ftok(speechd_pid_file, 1);
-    speaking_sem_id = speaking_semaphore_create(speaking_sem_key);
-    //    MSG(4, "Testing semaphore");
-    //    speaking_semaphore_post();
-    //    speaking_semaphore_wait();
-
     /* Load configuration from the config file*/
     speechd_load_configuration(0);
 
@@ -525,9 +517,6 @@ speechd_quit(int sig)
     if(close(server_socket) == -1)
 	MSG(2, "close() failed: %s", strerror(errno));
     FD_CLR(server_socket, &readfds);  
-    
-    MSG(4, "Removing semaphore");
-    speaking_semaphore_destroy();
     
     MSG(3, "Removing pid file");
     destroy_pid_file();
@@ -642,14 +631,6 @@ main(int argc, char *argv[])
     (void) signal(SIGPIPE, SIG_IGN);
     (void) signal(SIGUSR1, speechd_reload_dead_modules);
 
-    /* Fork, set uid, chdir, etc. */
-    if (spd_mode == SPD_MODE_DAEMON){
-        daemon(0,0);	   
-        /* Re-create the pid file under this process */
-        unlink(speechd_pid_file);
-        if (create_pid_file() == -1) return -1;
-    }
-
     speechd_init();
 
     MSG(4,"Creating new thread for speak()");
@@ -680,6 +661,14 @@ main(int argc, char *argv[])
        from server_socket. */
     if (listen(server_socket, 5) == -1)
         FATAL("listen() failed, another Speech Dispatcher running?");
+
+    /* Fork, set uid, chdir, etc. */
+    if (spd_mode == SPD_MODE_DAEMON){
+        daemon(0,0);	   
+        /* Re-create the pid file under this process */
+        unlink(speechd_pid_file);
+        if (create_pid_file() == -1) return -1;
+    }
 
     FD_ZERO(&readfds);
     FD_SET(server_socket, &readfds);
