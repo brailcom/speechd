@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.18 2005-09-12 16:07:27 hanke Exp $
+ * $Id: alsa.c,v 1.19 2005-10-16 09:01:20 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -710,6 +710,8 @@ alsa_stop(AudioID *id)
 {
     int ret;
     char buf;
+
+    MSG("STOP!");
 
     if (id->alsa_opened){
 	/* This constant is arbitrary */

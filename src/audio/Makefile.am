@@ -15,6 +15,8 @@ ALSA_LIBS = -lasound
 endif
 
 
+EXTRA_DIST = alsa.c oss.c nas.c
+
 AM_CFLAGS = $(am_cflags) $(NAS_FLAGS) $(ALSA_FLAGS)
 libsdaudio_la_LDFLAGS = -version-info @LIB_SDAUDIO_CURRENT@:@LIB_SDAUDIO_REVISION@:@LIB_SDAUDIO_AGE@ -lm $(NAS_LIBS) $(ALSA_LIBS)
 
