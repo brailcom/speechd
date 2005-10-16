@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.62 2005-10-16 08:55:47 hanke Exp $
+ * $Id: speechd.c,v 1.63 2005-10-16 15:09:37 hanke Exp $
  */
 
 #include "speechd.h"
@@ -619,12 +619,6 @@ main(int argc, char *argv[])
 
     if (create_pid_file() != 0) exit(1);
 
-    /* Don't print anything on console... */
-    if (spd_mode == SPD_MODE_DAEMON){
-        fclose(stdout);
-        fclose(stderr);
-    }	   
-
     /* Register signals */
     (void) signal(SIGINT, speechd_quit);	
     (void) signal(SIGHUP, speechd_load_configuration);
@@ -632,10 +626,6 @@ main(int argc, char *argv[])
     (void) signal(SIGUSR1, speechd_reload_dead_modules);
 
     speechd_init();
-
-    MSG(4,"Creating new thread for speak()");
-    ret = pthread_create(&speak_thread, NULL, speak, NULL);
-    if(ret != 0) FATAL("Speak thread failed!\n");
 
     /* Initialize socket functionality */
     server_socket = socket(AF_INET, SOCK_STREAM, 0);
@@ -669,6 +659,10 @@ main(int argc, char *argv[])
         unlink(speechd_pid_file);
         if (create_pid_file() == -1) return -1;
     }
+
+    MSG(4,"Creating new thread for speak()");
+    ret = pthread_create(&speak_thread, NULL, speak, NULL);
+    if(ret != 0) FATAL("Speak thread failed!\n");
 
     FD_ZERO(&readfds);
     FD_SET(server_socket, &readfds);
