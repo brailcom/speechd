@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.20 2005-10-12 16:01:03 hanke Exp $
+ * $Id: output.c,v 1.21 2005-10-16 08:58:28 hanke Exp $
  */
 
 #include "output.h"
@@ -357,7 +357,7 @@ output_module_is_speaking(OutputModule *output, char **index_mark)
 		char *p;                         
 		p = strchr(response, '\n');                
 		*index_mark = (char*) strndup(response+4, p-response-4);
-		MSG2(1, "output_module", "Detected INDEX MARK: %s", *index_mark);
+		MSG2(5, "output_module", "Detected INDEX MARK: %s", *index_mark);
 	    }else{
 		MSG2(2, "output_module", "Error: Wrong communication from output module!"
 		    "Reply on SPEAKING not multi-line.");

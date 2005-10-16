@@ -1,3 +1,34 @@
+2005-10-16  Hynek Hanke  <hanke@chopin>
+
+	* src/modules/festival.c (module_speak): Handle
+	festival_connection_crashed == 1
+
+	* src/modules/festival_client.c: If connection to Festival
+	is broken, set festival_connection_crashed to 1.
+
+	* src/server/sem_functions.c: Unnecessary semaphore functions
+	removed.
+
+	* src/server/sem_functions.h: Unnecessary semaphore functions
+	removed.
+
+	* src/server/speaking.c (speak): Log error if the module can't
+	say the message, but doesn't crash.
+
+	* src/server/speechd.c (speechd_init): Semaphore
+	initialization removed.
+	
+	* src/audio/Makefile.am: Include oss.c, alsa.c and nas.c in EXTRA_DIST.
+
+	* src/audio/oss.c (oss_play): Don't fail if it's not possible to set the exact bitrate,
+	just log it as an error.
+
+	* src/c/api/libspeechd.c (spd_open): First create connection->stream and initialize mutexes
+	and only later create the new events thread.
+
+	* src/server/speechd.c (main): Detach only after all initialization took place
+	and Speech Dispatcher is ready to accept new connections.
+
 2005-10-12  Hynek Hanke  <hanke@chopin>
 
 	* src/server/speaking.c (speak): Activity events POLLPRI added to POLLIN.
