@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.21 2005-10-16 08:58:28 hanke Exp $
+ * $Id: output.c,v 1.22 2005-10-29 07:04:54 hanke Exp $
  */
 
 #include "output.h"
@@ -336,26 +336,35 @@ output_module_is_speaking(OutputModule *output, char **index_mark)
 
     output_lock();
 
+    MSG(5, "output_module_is_speaking()");
+
     response = output_read_reply(output);
     if (response == NULL){
 	*index_mark = NULL;
 	return -1;
-    }
+    }    
 
     MSG2(5, "output_module", "Reply from output module: |%s|", response);
+
+    if (strlen(response) < 4){
+	MSG2(2, "output_module",
+	     "Error: Wrong communication from output module! Reply less than four bytes.");
+	OL_RET(-1); 
+    }
+
     if (response[0] == '3'){
 	MSG(2, "Error: Module reported error in request from speechd (code 3xx).");
 	OL_RET(-2); /* User (speechd) side error */
     }
-    if (response[0] == '4'){
+    else if (response[0] == '4'){
 	MSG(2, "Error: Module reported error in itself (code 4xx).");
 	OL_RET(-3); /* Module side error */
     }
-    if (response[0] == '2'){	
+    else if (response[0] == '2'){	
 	if (strlen(response) > 4){
 	    if (response[3] == '-'){
-		char *p;                         
-		p = strchr(response, '\n');                
+		char *p;
+		p = strchr(response, '\n');
 		*index_mark = (char*) strndup(response+4, p-response-4);
 		MSG2(5, "output_module", "Detected INDEX MARK: %s", *index_mark);
 	    }else{
@@ -363,11 +372,24 @@ output_module_is_speaking(OutputModule *output, char **index_mark)
 		    "Reply on SPEAKING not multi-line.");
 		OL_RET(-1); 
 	    }
+	}	
+	OL_RET(0);
+    }else if(response[0] == '7'){
+	MSG2(5, "output_module", "Received event:\n %s", response);
+	if (!strncmp(response, "701", 3)) *index_mark = (char*) strdup("__spd_begin");
+	else if (!strncmp(response, "702", 3)) *index_mark = (char*) strdup("__spd_end");
+	else if (!strncmp(response, "703", 3)) *index_mark = (char*) strdup("__spd_stopped");
+	else if (!strncmp(response, "704", 3)) *index_mark = (char*) strdup("__spd_paused");
+	else if (!strncmp(response, "700", 3)){
+	    char *p;
+	    p = strchr(response, '\n');
+	    *index_mark = (char*) strndup(response+4, p-response-4);
+	    MSG2(5, "output_module", "Detected INDEX MARK: %s", *index_mark);
 	}else{
-	    MSG2(2, "output_module", "Error: Wrong communication from output module! Reply less than four bytes.");
-	    OL_RET(-1); 
+	    MSG2(2, "output_module", "ERROR: Unknown event received from output module");
+	    OL_RET(-5);
 	}
-	OL_RET(0)
+	OL_RET(0);
     }else{                  /* unknown response */
 	MSG(3, "Unknown response from output module!");
 	OL_RET(-3);
@@ -396,10 +418,29 @@ output_is_speaking(char **index_mark)
     return err;
 }
 
+/* Wait until the child _pid_ returns with timeout. Calls waitpid() each 100ms
+ until timeout is exceeded. This is not exact and you should not rely on the 
+ exact time waited. */
+int
+waitpid_with_timeout(pid_t pid, int *status_ptr, int options,
+		     size_t timeout)
+{
+    size_t i;
+    int ret;
+    for (i=0; i<= timeout; i+=100){
+	ret = waitpid(pid, status_ptr, options | WNOHANG);
+	if (ret > 0) return ret;
+	if (ret < 0) return ret;
+	usleep(100 * 1000);	/* Sleep 100 ms */
+    }
+    return 0;    
+}
+
 int
 output_close(OutputModule *module)
 {
     int err;
+    int ret;
     OutputModule *output;
     output = module;
 
@@ -410,15 +451,32 @@ output_close(OutputModule *module)
     assert(output->name != NULL);
     MSG(3, "Closing module \"%s\"...", output->name);
     if (output->working){
-        SEND_CMD("STOP");
+        SEND_DATA("STOP\n");
         SEND_CMD("QUIT");
-        usleep(100);            /* So that the module has some time to exit() correctly */
+        usleep(100);
+	/* So that the module has some time to exit() correctly */
     }
-    kill(module->pid, SIGKILL); /* If the module didn't manage to exit */
 
-    waitpid(module->pid, NULL, WNOHANG);
-    MSG(3, "Ok, closed succesfully.");
-   
+    MSG(4, "Waiting for module pid %d", module->pid);
+    ret = waitpid_with_timeout(module->pid, NULL, 0, 1000); 
+    if (ret > 0){
+	MSG(3, "Ok, closed succesfully.");
+    }else if (ret == 0){
+	int ret2;
+	MSG(1, "ERROR: Timed out when waiting for child cancelation");
+	MSG(3, "Killing the module");
+	kill(module->pid, SIGKILL);
+	MSG(3, "Waiting until the child terminates.");
+	ret2 = waitpid_with_timeout(module->pid, NULL, 0, 1000);
+	if (ret2 > 0){
+	    MSG(3, "Module terminated");
+	}else{
+	    MSG(1, "ERROR: Module is not able to terminate, giving up.");
+	}
+    }else{
+	MSG(1, "ERROR: waitpid() failed when waiting for child (module).");
+    }
+    
     OL_RET(0)
 }
 
