@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.47 2005-10-10 10:06:51 hanke Exp $
+ * $Id: flite.c,v 1.48 2005-10-29 06:45:57 hanke Exp $
  */
 
 
@@ -302,12 +302,12 @@ _flite_speak(void* nothing)
 	/* TODO: free(buf) */
 	buf = (char*) malloc((FliteMaxChunkLength+1) * sizeof(char));	
 	pos = 0;
-	module_index_mark_store(INDEX_MARK_BEGIN);
+	module_report_event_begin();
 	while(1){
 	    if (flite_stop){
 		DBG("Stop in child, terminating");
 		flite_speaking = 0;
-		module_index_mark_store(INDEX_MARK_STOPPED);
+		module_report_event_stop();
 		break;
 	    }
 	    bytes = module_get_message_part(*flite_message, buf, &pos, 
@@ -340,7 +340,7 @@ _flite_speak(void* nothing)
 		    if (flite_stop){
 			DBG("Stop in child, terminating");
 			flite_speaking = 0;
-			module_index_mark_store(INDEX_MARK_STOPPED);
+			module_report_event_stop();
 			break;
 		    }
 		    DBG("Playing part of the message");
@@ -349,26 +349,25 @@ _flite_speak(void* nothing)
 		    if (flite_stop){
 			DBG("Stop in child, terminating (s)");
 			flite_speaking = 0;
-			module_index_mark_store(INDEX_MARK_STOPPED);
+			module_report_event_stop();
 			break;
 		    }
 		}
-		DBG("c");
 	    }
 	    else if (bytes == -1){
 		DBG("End of data in speaking thread");
 		flite_speaking = 0;
-		module_index_mark_store(INDEX_MARK_END);
+		module_report_event_end();
 		break;
 	    }else{
 		flite_speaking = 0;
-		module_index_mark_store(INDEX_MARK_END);
+		module_report_event_end();
 	    }
 
 	    if (flite_stop){
 		DBG("Stop in child, terminating");
 		flite_speaking = 0;
-		module_index_mark_store(INDEX_MARK_STOPPED);
+		module_report_event_stop();
 		break;
 	    }
 	}

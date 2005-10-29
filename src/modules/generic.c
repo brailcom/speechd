@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.20 2005-10-12 15:58:49 hanke Exp $
+ * $Id: generic.c,v 1.21 2005-10-29 06:46:51 hanke Exp $
  */
 
 #include <glib.h>
@@ -178,7 +178,6 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 
     UPDATE_STRING_PARAMETER(language, generic_set_language);
     UPDATE_PARAMETER(voice, generic_set_voice);
-
     UPDATE_PARAMETER(pitch, generic_set_pitch);
     UPDATE_PARAMETER(rate, generic_set_rate);
     UPDATE_PARAMETER(volume, generic_set_volume);
@@ -192,9 +191,11 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 					    "UTF-8", GenericRecodeFallback, NULL, NULL,
 					    NULL);
     }else{
-	DBG("Warning: Recoding to language default iso, might not be ok...");
-	tmp = module_recode_to_iso(data, bytes, generic_msg_language->name,
-						GenericRecodeFallback);
+	DBG("Warning: Prefered charset not specified, recoding to iso-8859-1");
+	tmp = 
+	    (char*) g_convert_with_fallback(data, bytes, "iso-8859-2",
+					    "UTF-8", GenericRecodeFallback, NULL, NULL,
+					    NULL);
     }
 
     if (tmp == NULL) return -1;
@@ -233,17 +234,13 @@ module_pause(void)
 {
     DBG("pause requested\n");
     if(generic_speaking){
-
         DBG("Sending request to pause to child\n");
         generic_pause_requested = 1;
-        DBG("Waiting in pause for child to terminate\n");
-        while(generic_speaking) usleep(10);
 
         DBG("paused at byte: %d", generic_position);
-        return generic_position;
-        
+        return 0;        
     }else{
-        return 0;
+        return -1;
     }
 }
 
@@ -256,7 +253,6 @@ module_is_speaking(void)
 void
 module_close(int status)
 {
-    
     DBG("generic: close()\n");
 
     if(generic_speaking){
@@ -265,10 +261,9 @@ module_close(int status)
 
     if (module_terminate_thread(generic_speak_thread) != 0)
         exit(1);
-    
+
     exit(status);
 }
-
 
 
 /* Internal functions */
@@ -326,6 +321,8 @@ _generic_speak(void* nothing)
             continue;
         }
 
+	module_report_event_begin();
+
         /* Create a new process so that we could send it signals */
         generic_pid = fork();
 
@@ -345,15 +342,15 @@ _generic_speak(void* nothing)
 		/* Set this process as a process group leader (so that SIGKILL
 		   is also delivered to the child processes created by system()) */
 		if (setpgid(0,0) == -1) DBG("Can't set myself as project group leader!");
-		
+
 		e_string = strdup(GenericExecuteSynth);
-		
+
 		e_string = string_replace(e_string, "$PITCH", generic_msg_pitch_str);
-		e_string = string_replace(e_string, "$RATE", generic_msg_rate_str);                       
-		e_string = string_replace(e_string, "$VOLUME", generic_msg_volume_str);                       
+		e_string = string_replace(e_string, "$RATE", generic_msg_rate_str);
+		e_string = string_replace(e_string, "$VOLUME", generic_msg_volume_str);
 		e_string = string_replace(e_string, "$LANGUAGE", generic_msg_language->name);
 		e_string = string_replace(e_string, "$VOICE", generic_msg_voice_str);
-				
+
 		/* Cut it into two strings */           
 		p = strstr(e_string, "$DATA");
 		if (p == NULL) exit(1);
@@ -382,7 +379,7 @@ _generic_speak(void* nothing)
             
             generic_speaking = 0;
 
-            module_index_mark_store("INDEX_MARK_END");
+	    module_report_event_end();
 
             DBG("child terminated -: status:%d signal?:%d signal number:%d.\n",
                 WIFEXITED(status), WIFSIGNALED(status), WTERMSIG(status));
