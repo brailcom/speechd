@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.h,v 1.7 2005-10-12 15:59:31 hanke Exp $
+ * $Id: module_utils.h,v 1.8 2005-10-29 06:52:36 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -362,10 +362,6 @@ configoption_t * add_config_option(configoption_t *options, int *num_config_opti
 
 #define INDEX_MARK_BODY_LEN 6
 #define INDEX_MARK_BODY "__spd_"
-#define INDEX_MARK_END INDEX_MARK_BODY"end"
-#define INDEX_MARK_BEGIN INDEX_MARK_BODY"begin"
-#define INDEX_MARK_PAUSED INDEX_MARK_BODY"paused"
-#define INDEX_MARK_STOPPED INDEX_MARK_BODY"stopped"
 
 char *module_index_mark;
 
@@ -374,9 +370,13 @@ char *module_index_mark;
 
 #define INIT_INDEX_MARKING() module_index_mark = NULL;
 
-void module_index_mark_store(char *mark);
-void module_index_mark_signal(void);
-char* module_index_mark_get(void);
+void module_report_index_mark(char *mark);
+void module_report_event_begin(void);
+void module_report_event_end(void);
+void module_report_event_stop(void);
+void module_report_event_pause(void);
+
+
 
 /* So that gcc doesn't complain */
 int getline(char**, int*, FILE*);
