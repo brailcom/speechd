@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.20 2005-10-16 15:08:01 hanke Exp $
+ * $Id: alsa.c,v 1.21 2005-10-29 06:29:46 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -141,7 +141,6 @@ int
 _alsa_open(AudioID *id)
 {
     int err;
-    struct pollfd alsa_stop_pipe_pfd;
 
     MSG("Opening ALSA device");
     fflush(stderr);
@@ -154,13 +153,6 @@ _alsa_open(AudioID *id)
     }
 
     /* Allocate space for hw_params (description of the sound parameters) */
-    MSG("Allocating new hw_params structure");
-    if ((err = snd_pcm_hw_params_malloc (&id->alsa_hw_params)) < 0) {
-	ERR("Cannot allocate hardware parameter structure (%s)", 
-	    snd_strerror(err));
-	return -1;
-    }
-
     /* Allocate space for sw_params (description of the sound parameters) */
     MSG("Allocating new sw_params structure");
     if ((err = snd_pcm_sw_params_malloc (&id->alsa_sw_params)) < 0) {
@@ -168,46 +160,6 @@ _alsa_open(AudioID *id)
 	    snd_strerror(err));
 	return -1;
     }       
-
-    /* Initialize hw_params on our pcm */
-    if ((err = snd_pcm_hw_params_any (id->alsa_pcm, id->alsa_hw_params)) < 0) {
-	ERR("Cannot initialize hardware parameter structure (%s)", 
-	    snd_strerror (err));
-	return -1;
-    }
-    
-    /* Create the pipe for communication about stop requests */
-    if (pipe (id->alsa_stop_pipe))
-	{
-	    ERR("Stop pipe creation failed (%s)", strerror(errno));
-	    return -1;
-	}   
-
-    /* Find how many descriptors we will get for poll() */
-    id->alsa_fd_count = snd_pcm_poll_descriptors_count(id->alsa_pcm);
-    if (id->alsa_fd_count <= 0){
-	ERR("Invalid poll descriptors count returned from ALSA.");
-	return -1;
-    }
-
-    /* Create and fill in struct pollfd *alsa_poll_fds with ALSA descriptors */
-    id->alsa_poll_fds = malloc ((id->alsa_fd_count + 1) * sizeof(struct pollfd));
-    assert(id->alsa_poll_fds);    
-    if ((err = snd_pcm_poll_descriptors(id->alsa_pcm, id->alsa_poll_fds, id->alsa_fd_count)) < 0) {
-	ERR("Unable to obtain poll descriptors for playback: %s\n", snd_strerror(err));
-	return -1;
-    }
-    
-    /* Create a new pollfd structure for requests by alsa_stop()*/
-    alsa_stop_pipe_pfd.fd = id->alsa_stop_pipe[0];
-    alsa_stop_pipe_pfd.events = POLLIN;
-    alsa_stop_pipe_pfd.revents = 0;
-        
-    /* Join this our own pollfd to the ALSAs ones */
-    id->alsa_poll_fds[id->alsa_fd_count] = alsa_stop_pipe_pfd;
-    id->alsa_fd_count++;
-
-    id->alsa_opened = 1;
 
     MSG("Opening ALSA device ... success");
 
@@ -234,10 +186,6 @@ _alsa_close(AudioID *id)
 	return -1;
     }
 
-    close(id->alsa_stop_pipe[0]);
-    close(id->alsa_stop_pipe[1]);
-
-    snd_pcm_hw_params_free (id->alsa_hw_params);
     snd_pcm_sw_params_free (id->alsa_sw_params);
 
     free(id->alsa_poll_fds);
@@ -282,12 +230,7 @@ alsa_open(AudioID *id, void **pars)
 	ERR("Cannot initialize Alsa device '%s': Can't open.", pars[0]);
 	return -1;
     }
-    _alsa_close(id);
-    if (ret){
-	ERR("Cannot initialize Alsa device '%s': Can't close.", pars[0]);
-	return -1;
-    }
-    
+
     MSG("Device '%s' initialized succesfully.", pars[0]);
     
     return 0; 
@@ -426,26 +369,68 @@ alsa_play(AudioID *id, AudioTrack track)
 
     snd_pcm_state_t state;
 
+    struct pollfd alsa_stop_pipe_pfd;
+
     MSG("Start of playback on ALSA");
 
     if (id == NULL){
-	ERR("Invalide device passed to alsa_play()");
+	ERR("Invalid device passed to alsa_play()");
 	return -1;
     }
 
-    /* This is needed, otherwise we can't set different
-     parameters than in tha last call. */
-    err = _alsa_open(id);
-    if (err){
-	ERR("Cannot initialize Alsa device '%s': Can't open.", id->alsa_device_name);
-	return -1;
-    }
-    
     /* Is it not an empty track? */
     /* Passing an empty track is not an error */
     if (track.samples == NULL) return 0;
 
-    /* Report current state state */
+    /* Allocate space for hw_params (description of the sound parameters) */
+    MSG("Allocating new hw_params structure");
+    if ((err = snd_pcm_hw_params_malloc (&id->alsa_hw_params)) < 0) {
+	ERR("Cannot allocate hardware parameter structure (%s)", 
+	    snd_strerror(err));
+	return -1;
+    }
+
+    /* Initialize hw_params on our pcm */
+    if ((err = snd_pcm_hw_params_any (id->alsa_pcm, id->alsa_hw_params)) < 0) {
+	ERR("Cannot initialize hardware parameter structure (%s)", 
+	    snd_strerror (err));
+	return -1;
+    }
+
+    /* Create the pipe for communication about stop requests */
+    if (pipe (id->alsa_stop_pipe))
+	{
+	    ERR("Stop pipe creation failed (%s)", strerror(errno));
+	    return -1;
+	}   
+
+    /* Find how many descriptors we will get for poll() */
+    id->alsa_fd_count = snd_pcm_poll_descriptors_count(id->alsa_pcm);
+    if (id->alsa_fd_count <= 0){
+	ERR("Invalid poll descriptors count returned from ALSA.");
+	return -1;
+    }
+
+    /* Create and fill in struct pollfd *alsa_poll_fds with ALSA descriptors */
+    id->alsa_poll_fds = malloc ((id->alsa_fd_count + 1) * sizeof(struct pollfd));
+    assert(id->alsa_poll_fds);    
+    if ((err = snd_pcm_poll_descriptors(id->alsa_pcm, id->alsa_poll_fds, id->alsa_fd_count)) < 0) {
+	ERR("Unable to obtain poll descriptors for playback: %s\n", snd_strerror(err));
+	return -1;
+    }
+    
+    /* Create a new pollfd structure for requests by alsa_stop()*/
+    alsa_stop_pipe_pfd.fd = id->alsa_stop_pipe[0];
+    alsa_stop_pipe_pfd.events = POLLIN;
+    alsa_stop_pipe_pfd.revents = 0;
+        
+    /* Join this our own pollfd to the ALSAs ones */
+    id->alsa_poll_fds[id->alsa_fd_count] = alsa_stop_pipe_pfd;
+    id->alsa_fd_count++;
+
+    id->alsa_opened = 1;
+
+    /* Report current state */
     state = snd_pcm_state(id->alsa_pcm);
     MSG("PCM state before setting audio parameters: %s",
 	snd_pcm_state_name(state));
@@ -691,11 +676,11 @@ alsa_play(AudioID *id, AudioTrack track)
     if (track_volume.samples != NULL)
 	free(track_volume.samples);
 
-    err = _alsa_close(id);
-    if (err){
-	ERR("Cannot close Alsa device!");
-	return -1;
-    }    
+    snd_pcm_hw_params_free(id->alsa_hw_params);
+
+    id->alsa_opened = 0;
+    close(id->alsa_stop_pipe[0]);
+    close(id->alsa_stop_pipe[1]);
     
     MSG("End of playback on ALSA");
 
