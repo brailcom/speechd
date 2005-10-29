@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.36 2005-10-12 15:59:27 hanke Exp $
+ * $Id: module_utils.c,v 1.37 2005-10-29 06:49:50 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -271,14 +271,12 @@ module_get_message_part(const char* message, char* part, unsigned int *pos, size
                 for(n = 0; n <= num_dividers; n++){
                     if ((part[i] == dividers[n])){                        
                         part[i+1] = 0;                
-                        current_index_mark = -1;
                         (*pos)++;
                         return i+1;            
                     }           
                 }
                 if ((message[*pos] == '\n') && (message[*pos+1] == '\n')){
                     part[i+1] = 0;                
-                    current_index_mark = -1;
                     (*pos)++;
                     return i+1;
                 }
@@ -433,7 +431,7 @@ module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid,
             
             *speaking_flag = 0;
 
-            module_index_mark_store("INDEX_MARK_END");
+	    module_report_event_end();
 
             DBG("child terminated -: status:%d signal?:%d signal number:%d.\n",
                 WIFEXITED(status), WIFSIGNALED(status), WTERMSIG(status));
@@ -466,11 +464,11 @@ module_parent_wfork(TModuleDoublePipe dpipe, const char* message, EMessageType m
 
         DBG("Returned %d bytes from get_part\n", bytes);
 
-        if (*pause_requested && (current_index_mark!=-1)){               
-            DBG("Pause requested in parent, position %d\n", current_index_mark);                
+        if (*pause_requested){               
+            DBG("Pause requested in parent");                
             module_parent_dp_close(dpipe);
             *pause_requested = 0;
-            return current_index_mark;
+            return 0;
         }             
    
         if (bytes > 0){
@@ -730,41 +728,57 @@ semaphore_post(int sem_id)
 }
 
 
-/* Read index_mark, return it's value and set it to NULL */
-char*
-module_index_mark_get(void)
-{
-    char *ret;
-    if (module_index_mark != NULL){
-	ret = strdup(module_index_mark);
-	xfree(module_index_mark);
-    }else{
-	ret = NULL;
-    }
-    module_index_mark = NULL;
-    return ret;
-}
-
-/* Store mark in index_mark and signal a new event.  If a previous index mark
- is waiting to be read, this function blocks until it happens. */
 void
-module_index_mark_store(char *mark)
+module_send_asynchronous(char *text)
 {
-    char *reply;
-    DBG("Signalling index mark %s", mark);
-    if (mark != NULL)
-	reply = g_strdup_printf("205-%s\n205 OK SPEAKING STATUS SENT\n", mark);
-    else
-    	reply = g_strdup_printf("205-no\n205 OK SPEAKING STATUS SENT\n");
-
     pthread_mutex_lock(&module_stdout_mutex);
-    DBG("Printing reply: %s", reply);
-    fprintf(stdout, reply);
+    DBG("Printing reply: %s", text);
+    fprintf(stdout, text);
     fflush(stdout);
     DBG("Printed");
     pthread_mutex_unlock(&module_stdout_mutex);
+}
+
+void
+module_report_index_mark(char *mark)
+{
+    char *reply;
+    DBG("Event: Index mark %s", mark);
+    if (mark != NULL)
+	reply = g_strdup_printf("700-%s\n700 INDEX MARK\n", mark);
+    else
+    	return;
+    
+    module_send_asynchronous(reply);
+ 
     xfree(reply);
 }
+
+void
+module_report_event_begin(void)
+{
+    module_send_asynchronous("701 BEGIN\n");
+}
+
+void
+module_report_event_end(void)
+{
+    module_send_asynchronous("702 END\n");
+}
+
+void
+module_report_event_stop(void)
+{
+    module_send_asynchronous("703 STOP\n");
+}
+
+void
+module_report_event_pause(void)
+{
+    module_send_asynchronous("704 PAUSE\n");
+}
+
+
 
 /* --- CONFIGURATION --- */
 configoption_t *
