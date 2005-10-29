@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: oss.c,v 1.7 2005-10-16 09:00:51 hanke Exp $
+ * $Id: oss.c,v 1.8 2005-10-29 06:37:37 hanke Exp $
  */
 
 /* Put a message into the logfile (stderr) */
@@ -63,8 +63,8 @@ _oss_open(AudioID *id)
     id->fd = open(id->device_name, O_WRONLY, 0);
     if (id->fd == -1){
 	perror(id->device_name);
-	id = NULL;
 	pthread_mutex_unlock(&id->fd_mutex);
+	id = NULL;
 	return -1;
     }
 
