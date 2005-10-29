@@ -187,7 +187,7 @@ Speech Dispatcher from user's point of view:
 @item history of said messages for visually impaired
 @end itemize
 
-Speech Dispatcher from application programmers's point of view:
+Speech Dispatcher from application programmers' point of view:
 
 @itemize @bullet
 @item easy way to make your applications speak
@@ -1708,41 +1708,42 @@ standard input and then output replies on standard output,
 communicating the requests to the particular software or hardware
 synthesizer. Everything the output module writes on standard output
 or reads from standard input should conform to the specifications
-of the communication protocol.
+of the communication protocol. Additionally, standard error output
+is used for logging of the modules.
 
 Output modules binaries are usually located in
 @file{bin/speechd-modules/} and are loaded automatically when Speech
 Dispatcher starts, according to configuration.  Their standard
-input/output is redirected to a pipe to Speech Dispatcher and this way
-both sides can communicate.
+input/output/error output is redirected to a pipe to Speech Dispatcher
+and this way both sides can communicate.
 
-When the modules start, they are passed an id number of semaphore used
-by Speech Dispatcher and, optionally, a name of a configuration file
-that should be used for this particular output module. The semaphore
-is used to let Speech Dispatcher know when the requested message had
-been finished and the module is free to accept a new message.
+When the modules start, they are passed a name of a configuration file
+that should be used for this particular output module. 
 
 Each output module is started by Speech Dispatcher as:
 
 @example
-my_module sem_id "configfile"
+my_module "configfile"
 @end example
 
-where @code{sem_id} is the id number of the semaphore used by
-Speech Dispatcher and @code{configfile} is the full path to the
-desired configuration file that the output module should parse.
+where @code{configfile} is the full path to the desired configuration
+file that the output module should parse.
 
 @node Communication Protocol for Output Modules, How to Write New Output Module, Basic Structure, Output Modules
 @subsection Communication Protocol for Output Modules
 
 The protocol in which the output modules communicate on standard
-input/output is very similar to @ref{Top,,SSIP,ssip, SSIP
+input/output is based on @ref{Top,,SSIP,ssip, SSIP
 Documentation}, although it is highly simplified and a little bit
-modified for the different purpose here.
+modified for the different purpose here. Another difference
+is that events notification is obligatory in modules communication,
+while in SSIP, this is an optional feature. This is because Speech
+Dispatcher has to know all the events happening in the output modules
+for the purpose of synchronization of various messages.
 
 Since it's very similar to SSIP, @ref{Top,,General Rules,ssip, SSIP
 Documentation}, for a general description how the protocol looks
-like. One of the exceptions is, that since the output modules
+like. One of the exceptions is that since the output modules
 communicate on standard input/output, we use only @code{LF} as the
 line separator.
 
@@ -1751,24 +1752,29 @@ The return values are:
 @item 2xx         OK
 @item 3xx         CLIENT ERROR or BAD SYNTAX or INVALID VALUE
 @item 4xx         OUTPUT MODULE ERROR or INTERNAL ERROR
+
+@item 700         EVENT INDEX MARK
+@item 701         EVENT BEGIN
+@item 702         EVENT END
+@item 703         EVENT STOP
+@item 704         EVENT PAUSE
 @end itemize
 
 @table @code
 @item SPEAK
-Start receiving a text message and synthesize it.  After sending a
-reply to the command, output module waits for the text of the message.
-The text can spread over any number of lines and is finished by an end
-of line marker followed by the line containing the single character
-@code{.} (dot).  Thus the complete character sequence closing the
-input text is @code{LF . LF}.  If any line within the sent text
-contains only a dot, an extra dot should be prepended before it.
+Start receiving a text message in the SSML format and synthesize it.
+After sending a reply to the command, output module waits for the text
+of the message.  The text can spread over any number of lines and is
+finished by an end of line marker followed by the line containing the
+single character @code{.} (dot).  Thus the complete character sequence
+closing the input text is @code{LF . LF}.  If any line within the sent
+text contains only a dot, an extra dot should be prepended before it.
 
 During reception of the text message, output module doesn't send
 response to the particular lines sent.  The response line is sent only
 immediately after the @code{SPEAK} command and after receiving the
 closing dot line. This doesn't provide any means of synchronization,
-instead, we use the @code{SPEAKING} command and a semaphore for
-synchronization.
+instead, event notification is used for this purpose.
 
 There is no explicit upper limit on the size of the text.
 
@@ -1779,10 +1785,24 @@ Example:
 @example
 SPEAK
 202 OK SEND DATA
+<speak>
 Hello, GNU!
+</speak>
 .
 200 OK SPEAKING
 @end example
+
+After receiving the full text (or the first part of it), the output
+module is supposed to start synthesizing it and take care of
+delivering it to an audio device. When (or just before it) the first
+synthesized samples are delivered to the audio and start playing, the
+output module must send the @code{BEGIN} event over the communication
+socket to Speech Dispatcher, @xref{Events notification and index
+marking}. After the audio stops playing, the event @code{STOP},
+@code{PAUSE} or @code{END} must be delivered to Speech
+Dispatcher. Additionally, if supported by the given synthesizer, the
+output module can issue events associated to the included SSML index
+marks when they are reached in the audio output.
 
 @item CHAR
 Synthesize a character. If the synthesizer supports a different behavior
@@ -1817,36 +1837,36 @@ the current message so that the output module is prepared to receive a
 new message. If there is currently no message being synthesized, it is
 not considered an error to call @code{STOP} anyway.
 
+This command is asynchronous. The output module is not supposed to
+send any reply (not even error reply).
+
 It should return immediately, although stopping the synthesizer may
-require a little bit more time. Speech Dispatcher will later make sure
-the synthesizer is really stopped by calling the @code{SPEAKING}
-command, so there can't be any conflict.
+require a little bit more time. The module must issue one of the events
+@code{STOPPED} or @code{END} when the module is finally
+stopped. @code{END} is issued when the playing stopped by itself
+before the module could terminate it or if the architecture of the
+output module doesn't allow it to decide, otherwise @code{STOPPED}
+should be used.
 
 @example
 STOP
-201 OK STOPPED
 @end example
 
 @item PAUSE
 Stop speaking the current message at a place where we can exactly
-determine the position (the argument of the given index mark).  This
+determine the position (preferably after a __spd_ index mark).  This
 doesn't have to be immediately and can be delayed even for a few
 seconds. (Knowing the position exactly is important so that we can
-later continue the message without gaps or overlapping.) It doesn't
-do anything else (like storing the message etc.).
+later continue the message without gaps or overlapping.) It doesn't do
+anything else (like storing the message etc.).
 
-The position is reported as an unsigned number on a single line before
-the final reply. If currently no message is being said, the reported
-position should be -1.
+This command is asynchronous. The output module is not supposed to
+send any reply (not even error reply).
 
 For example:
 @example
 PAUSE
-202-45
-202 OK PAUSED
 @end example
-means that speaking of the message was interrupted on index mark 45.
-and the rest was discarded.
 
 @item SET
 Set one or several speech parameters for the future messages.
@@ -1876,7 +1896,7 @@ The available parameters that accept string values are
 corresponding SSIP commands, except that they are written with small
 letters. @xref{Top,,Parameter Setting Commands,ssip, SSIP
 Documentation}.  The conversion between these string values and the
-corresponding enum variables can be easily done using
+corresponding C enum variables can be easily done using
 @file{intl/fdsetconv.c}.
 
 Not all of these parameters must be set and the value of the string
@@ -1899,23 +1919,6 @@ punctuation_some=NULL
 203 OK SETTINGS RECEIVED
 @end example
 
-@item SPEAKING
-Reports whether the output module is speaking right now or
-not. Additionally, there is a value for the output modules which can't
-decide correctly this question (e.g. some hardware devices etc.).
-
-The status is reported as an unsigned number on a single line before
-the final reply. The value of 0 means the module isn't speaking
-while the value of 1 means that it is currently speaking. If the
-output module can't decide, the value of 2 should be returned.
-
-Here is an example:
-@example
-SPEAKING
-205-0
-205 OK SPEAKING STATUS SENT
-@end example
-
 @item QUIT
 Terminates the output module. It should send the response, deallocate
 all the resources, close all descriptors, terminate all child
@@ -1925,6 +1928,99 @@ processes etc. Then the output module should exit itself.
 QUIT
 210 OK QUIT
 @end example
+@end table
+
+@subsubsection Events notification and index marking
+@anchor{Events notification and index marking}
+
+Each output module must take care of sending asynchronous
+notifications whenever the synthesizer (or the module) starts or stops
+to output audio on the speakers. Additionally, whenever possible, the
+output module should report back to Speech Dispatcher index marks
+found in the incomming SSML text whenever they are reached while
+speaking. See SSML specifications for more details about the
+@code{mark} element
+
+Event and index mark notifications are reported by simply writing them
+to the standard output. An event notification must never get in between
+of synchronous commands (those which require a reply) and their reply.
+
+
+@table @code
+
+@item BEGIN
+
+This event must be issued whenever the module starts to speak the
+given message. If this is not possible, it can issue it when it
+starts to synthesize the message or when it receives the message.
+
+It is prepended by the code @code{701} and takes the form
+
+@example
+701 BEGIN
+@end example
+
+@item END
+
+This event must be issued whenever the module terminates speaking the
+given message because it reached its end. If this is not possible, it
+can issue this event when it is ready to receive a new message after
+speaking the previous message.
+
+Ech @code{END} must allways be preceeded (possibly not directly) by a
+@code{BEGIN}.
+
+It is prepended by the code @code{702} and takes the form
+
+@example
+702 END
+@end example
+
+@item STOP
+
+This event should be issued whenever the module terminates speaking
+the given message without reaching its end (as a consequence of
+receiving the STOP command or because of some error) not because of
+a @code{PAUSE} command. When the synthesizer in use doesn't allow
+the module to decide, the event @code{END} can be used instead.
+
+Ech @code{STOP} must allways be preceeded (possibly not directly) by a
+@code{BEGIN}.
+
+It is prepended by the code @code{703} and takes the form
+
+@example
+703 STOP
+@end example
+
+@item PAUSE
+
+This event should be issued whenever the module terminates speaking
+the given message without reaching its end because of receiving the
+@code{PAUSE} command.
+
+Ech @code{PAUSE} must allways be preceeded (possibly not directly) by a
+@code{BEGIN}.
+
+It is prepended by the code @code{704} and takes the form
+
+@example
+704 PAUSE
+@end example
+
+@item INDEX MARK
+
+This event should be issued by the output module (if supported)
+whenever an index mark (SSML tag @code{<mark/>}) is passed in speaking the incomming message.
+It is preceeded by the code @code{700} and takes the form
+
+@example
+700-name
+700 INDEX MARK
+@end example
+
+where @code{name} is the value of the SSML attribute @code{name} in
+the tag @code{<mark/>}.
 
 @end table
 
