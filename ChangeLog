@@ -1,3 +1,46 @@
+2005-10-29  Hynek Hanke  <hanke@chopin>
+
+	* src/server/output.c
+	(waitpid_with_timeout): New function.
+	(output_close): Don't wait for reply from CLOSE.
+	(output_close): Rewritten.
+	(output_module_is_speaking): Handle 7xx codes.
+
+	* src/server/module.c (unload_output_module): Only load modules with configfilename, drop semaphore.
+
+	* src/modules/module_utils.h: Prototypes for module_report_ functions.
+
+	* src/modules/module_utils.c (module_send_asynchronous): New function.
+	(module_report_index_mark): Renamed.
+	(module_report_event_begin): New function.
+	(module_report_event_end): New function.
+	(module_report_event_pause): New function.
+	(module_report_event_stop): New function.
+	Don't use current_index_mark variable.
+
+	* src/modules/festival.c: Use module_report_event functions
+	for events.
+
+	* src/audio/alsa.c (_alsa_open): Don't initialize hw_params.
+	(_alsa_open): Don't open pipes.
+	(alsa_play): Initialize/free hw_params and pipes.
+	_alsa_open was now splitted into two parts in the hope
+	to avoid crack sounds and go around the buggy place in
+	alsa lib which brings all ALSA apps down when reached.
+
+2005-10-26  Hynek Hanke  <hanke@chopin>
+
+	* src/modules/module_utils.c (module_report_index_mark): Index marking
+	splitted into index marks and events signalization.
+
+	* src/audio/oss.c (_oss_open): Bug: id freed before id->fd_mutex
+	is unlocked.
+
+	* src/server/output.c (output_close): Don't wait for reply from STOP.
+	(output_close): Use waitpid_with_timeout instead of waitpid. If it
+	doesn't succeed in 1 seccond, kill the module.
+	(waitpid_with_timeout): New function.
+
 2005-10-16  Hynek Hanke  <hanke@chopin>
 
 	* src/modules/festival.c (module_close): Only close audio if festival_audio_id != NULL.
