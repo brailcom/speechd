@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.26 2005-10-12 15:59:49 hanke Exp $
+ * $Id: module.c,v 1.27 2005-10-29 07:00:59 hanke Exp $
  */
 
 #include <sys/wait.h>
@@ -150,6 +150,7 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 	MSG(4, "Trying to initialize %s.", module->name);
 	if (output_send_data("INIT\n", module, 0) != 0){
 	    MSG(1, "ERROR: Something wrong with %s, can't initialize", module->name);
+	    output_close(module);
 	    return NULL;
 	}else{
 	    char *rep_line = malloc(1024);
@@ -207,7 +208,7 @@ unload_output_module(OutputModule *module)
 {
     assert(module != NULL);
 
-    MSG(1,"module name=%s", module->name);
+    MSG(3,"Unloading module name=%s", module->name);
 
     output_close(module);
 
@@ -236,9 +237,11 @@ reload_output_module(OutputModule *old_module)
     close(old_module->pipe_out[0]);
 
     new_module = load_output_module(old_module->name, old_module->filename,
-                                    old_module->configfilename, old_module->debugfilename);
+                                    old_module->configfilename, 
+				    old_module->debugfilename);
     if (new_module == NULL){
-        MSG(3, "Can't load module %s while reloading modules.", old_module->name);
+        MSG(3, "Can't load module %s while reloading modules.", 
+	    old_module->name);
         return -1;
     }
 
