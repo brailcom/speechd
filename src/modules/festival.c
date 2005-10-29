@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.67 2005-10-16 15:10:54 hanke Exp $
+ * $Id: festival.c,v 1.68 2005-10-29 06:42:57 hanke Exp $
  */
 
 #include "fdset.h"
@@ -416,18 +416,6 @@ module_pause(void)
     }
 }
 
-char *
-module_is_speaking(void)
-{
-    char *ret;
-    DBG("festival: module_is_speaking()");
-
-    ret = module_index_mark_get();
-
-    if (ret != NULL) DBG("reporting index mark: %s", ret);
-    return ret; 
-}
-
 void
 module_close(int status)
 {
@@ -470,7 +458,7 @@ module_close(int status)
           festival_stop = 0; \
           festival_speaking = 0; \
           pthread_mutex_unlock(&sound_output_mutex); \
-          module_index_mark_store(im); \
+          im(); \
           goto sem_wait; \
         }
 
@@ -480,7 +468,7 @@ module_close(int status)
           festival_stop = 0; \
           festival_speaking = 0; \
           pthread_mutex_unlock(&sound_output_mutex); \
-          module_index_mark_store(im); \
+          im(); \
           goto sem_wait; \
         }
 
@@ -548,7 +536,7 @@ _festival_speak(void* nothing)
 
 	bytes = strlen(*festival_message);
 
-	module_index_mark_store(INDEX_MARK_BEGIN);
+	module_report_event_begin();
 
 	DBG("Going to synthesize: |%s|", *festival_message);
 	if (bytes > 0){
@@ -571,15 +559,15 @@ _festival_speak(void* nothing)
 			if (!festival_stop){
 			    DBG("Here1");
 			
-			    CLEAN_UP(0, INDEX_MARK_END);
+			    CLEAN_UP(0, module_report_event_end);
 			}else{
 			    DBG("Here2");
 			
-			    CLEAN_UP(0, INDEX_MARK_STOPPED);
+			    CLEAN_UP(0, module_report_event_stop);
 			}
 
 		    }else{
-			CLEAN_UP(0, INDEX_MARK_END);
+			CLEAN_UP(0, module_report_event_end);
 		    }
 		}
 	    }
@@ -587,10 +575,10 @@ _festival_speak(void* nothing)
 	    /*  Set multi-mode for appropriate kind of events */
 	    if (is_text(festival_message_type)){	/* it is a raw text */
 		ret = FestivalSetMultiMode(festival_info, "t");
-		if (ret != 0) CLP(0, INDEX_MARK_STOPPED);
+		if (ret != 0) CLP(0, module_report_event_stop);
 	    }else{			/* it is some kind of event */
 		ret = FestivalSetMultiMode(festival_info, "nil");
-		if (ret != 0) CLP(0, INDEX_MARK_STOPPED);
+		if (ret != 0) CLP(0, module_report_event_stop);
 	    }
 
 	    switch(festival_message_type)
@@ -603,7 +591,7 @@ _festival_speak(void* nothing)
 		}
 	    if (r < 0){
 		DBG("Couldn't process the request to say the object.");
-		CLP(0, INDEX_MARK_STOPPED);
+		CLP(0, module_report_event_stop);
 	    }
 	}
     
@@ -617,7 +605,7 @@ _festival_speak(void* nothing)
 
 		if (festival_stop){
 		    DBG("Module stopped 1");
-		    CLEAN_UP(0, INDEX_MARK_STOPPED);
+		    CLEAN_UP(0, module_report_event_stop);
 		}
 
 		DBG("Getting data in multi mode");
@@ -629,12 +617,12 @@ _festival_speak(void* nothing)
 		    if((festival_pause_requested) && (!strncmp(callback, INDEX_MARK_BODY,
 							       INDEX_MARK_BODY_LEN))){
 			DBG("Pause requested, pausing.");
-			module_index_mark_store(callback);
+			module_report_index_mark(callback);
 			xfree(callback);
 			festival_pause_requested = 0;
-			CLEAN_UP(0, INDEX_MARK_PAUSED);
+			CLEAN_UP(0, module_report_event_pause);
 		    }else{
-			module_index_mark_store(callback);
+			module_report_index_mark(callback);
 			xfree(callback);
 			continue;
 		    }
@@ -648,7 +636,7 @@ _festival_speak(void* nothing)
 
 	    if (fwave == NULL){
 		DBG("End of sound samples, terminating this message...");
-		CLEAN_UP(0, INDEX_MARK_END);
+		CLEAN_UP(0, module_report_event_end);
 	    }
 	
 	    if (festival_message_type == MSGTYPE_CHAR 
@@ -663,7 +651,7 @@ _festival_speak(void* nothing)
 
 	    if (festival_stop){
 		DBG("Module stopped 2");
-		CLEAN_UP(0, INDEX_MARK_STOPPED);
+		CLEAN_UP(0, module_report_event_stop);
 	    }       	
 
 	    if (fwave->num_samples != 0){
@@ -685,12 +673,12 @@ _festival_speak(void* nothing)
 
 	    if (terminate){
 		DBG("Ok, end of samples, returning");
-		CLP(0, INDEX_MARK_END);
+		CLP(0, module_report_event_end);
 	    }
 
 	    if (festival_stop){
 		DBG("Module stopped 3");
-		CLP(0, INDEX_MARK_STOPPED);
+		CLP(0, module_report_event_stop);
 	    }
 	}
 
