@@ -1,3 +1,8 @@
+2005-11-08  Hynek Hanke  <hanke@chopin>
+
+	* src/audio/alsa.c (alsa_play): Call snd_pcm_drop at the end of
+	playback.
+
 2005-10-29  Hynek Hanke  <hanke@chopin>
 
 	* src/server/output.c
