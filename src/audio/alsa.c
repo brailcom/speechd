@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.21 2005-10-29 06:29:46 hanke Exp $
+ * $Id: alsa.c,v 1.22 2005-11-07 09:39:57 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -511,15 +511,6 @@ alsa_play(AudioID *id, AudioTrack track)
 	return err;
 	}*/
 
-
-    MSG("Preparing device for playback");
-    if ((err = snd_pcm_prepare (id->alsa_pcm)) < 0) {
-	ERR("Cannot prepare audio interface for playback (%s)",
-		 snd_strerror (err));
-	
-	return -1;
-    }
-
     /* Get period size. */
     snd_pcm_hw_params_get_period_size(id->alsa_hw_params, &period_size, 0);
 
@@ -529,6 +520,15 @@ alsa_play(AudioID *id, AudioTrack track)
     //    MSG("num_samples = %i", track.num_samples);
     silent_samples = samples_per_period - (track.num_samples % samples_per_period);
     //    MSG("silent samples = %i", silent_samples);
+
+
+    MSG("Preparing device for playback");
+    if ((err = snd_pcm_prepare (id->alsa_pcm)) < 0) {
+	ERR("Cannot prepare audio interface for playback (%s)",
+		 snd_strerror (err));
+	
+	return -1;
+    }
 
     /* Calculate space needed to round up to nearest period size. */
     volume_size = bytes_per_sample*(track.num_samples + silent_samples);
@@ -676,6 +676,14 @@ alsa_play(AudioID *id, AudioTrack track)
     if (track_volume.samples != NULL)
 	free(track_volume.samples);
 
+    err = snd_pcm_drop(id->alsa_pcm);
+    if (err < 0) {
+	ERR("snd_pcm_drop() failed: ", snd_strerror (err));	
+	return -1;
+    }
+    
+
+    MSG("Freeing HW parameters");
     snd_pcm_hw_params_free(id->alsa_hw_params);
 
     id->alsa_opened = 0;
