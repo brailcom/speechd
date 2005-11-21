@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.20 2005-09-12 14:27:01 hanke Exp $
+ * $Id: libspeechd.h,v 1.21 2005-11-21 11:32:02 hanke Exp $
  */
 
 
@@ -59,6 +59,11 @@ typedef enum{
     SPD_SPELL_OFF = 0,
     SPD_SPELL_ON = 1
 }SPDSpelling;
+
+typedef enum{
+    SPD_DATA_TEXT = 0,
+    SPD_DATA_SSML = 1
+}SPDDataMode;
     
 typedef enum{
     SPD_MALE1 = 1,
@@ -134,8 +139,8 @@ typedef struct{
 /* -------------- Public functions --------------------------*/
 
 /* Openning and closing Speech Dispatcher connection */
-SPDConnection* spd_open(const char* client_name, const char* connection_name, const char *user_name,
-			SPDConnectionMode mode);
+SPDConnection* spd_open(const char* client_name, const char* connection_name, const char* user_name, SPDConnectionMode mode);
+
 void spd_close(SPDConnection* connection);
 
 /* Speaking */
@@ -171,6 +176,8 @@ int spd_sound_icon(SPDConnection* connection, SPDPriority priority, const char *
 int spd_set_voice_type(SPDConnection*, SPDVoiceType type);
 int spd_set_voice_type_all(SPDConnection*, SPDVoiceType type);
 int spd_set_voice_type_uid(SPDConnection*, SPDVoiceType type, unsigned int uid);
+
+int spd_set_data_mode(SPDConnection *connection, SPDDataMode mode);
 
 int spd_set_notification_on(SPDConnection* connection, SPDNotification notification);
 int spd_set_notification_off(SPDConnection* connection, SPDNotification notification);
