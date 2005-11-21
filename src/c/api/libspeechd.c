@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.21 2005-11-21 09:12:48 hanke Exp $
+ * $Id: libspeechd.c,v 1.22 2005-11-21 11:31:22 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -561,6 +561,22 @@ spd_w_set_spelling(SPDConnection *connection, SPDSpelling type, const char* who)
         sprintf(command, "SET %s SPELLING on", who);
     if (type == SPD_SPELL_OFF)
         sprintf(command, "SET %s SPELLING off", who);
+
+    ret = spd_execute_command(connection, command);
+
+    return ret;
+}
+
+int
+spd_set_data_mode(SPDConnection *connection, SPDDataMode mode)
+{
+    static char command[32];
+    int ret;
+
+    if (mode == SPD_DATA_TEXT)
+        sprintf(command, "SET SELF SSML_MODE off");
+    if (mode == SPD_DATA_SSML)
+        sprintf(command, "SET SELF SSML_MODE on");
 
     ret = spd_execute_command(connection, command);
 
