@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.20 2005-10-16 09:00:29 hanke Exp $
+ * $Id: libspeechd.c,v 1.21 2005-11-21 09:12:48 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -106,7 +106,7 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
     connection->socket = socket(AF_INET, SOCK_STREAM, 0);
     
 #ifdef LIBSPEECHD_DEBUG
-    spd_debug = fopen("/tmp/libspeechd_debug", "w");
+    spd_debug = fopen("/tmp/libspeechd.log", "w");
     if (spd_debug == NULL) SPD_FATAL("COULDN'T ACCES FILE INTENDED FOR DEBUG");
     SPD_DBG("Debugging started");
 #endif /* LIBSPEECHD_DEBUG */
@@ -862,7 +862,7 @@ spd_events_handler(void* conn)
 
 	reply_code = get_err_code(reply);
 
-	if ((reply_code > 700) && (reply_code < 800)){
+	if ((reply_code >= 700) && (reply_code < 800)){
 	    int msg_id;
 	    int client_id;
 	    int err;
@@ -911,8 +911,9 @@ spd_events_handler(void* conn)
 	    /* Prepare the reply to the reply buffer in connection */
 	    connection->reply = reply;
 	    /* Signal the reply is available on the condition variable */
+	    /* this order is correct and necessary */
 	    pthread_cond_signal(connection->cond_reply_ready);
-	    pthread_mutex_lock(connection->mutex_reply_ack); // this order is correct and necessary
+	    pthread_mutex_lock(connection->mutex_reply_ack); 
 	    pthread_mutex_unlock(connection->mutex_reply_ready);
 	    /* Wait until it has bean read */
 	    pthread_cond_wait(connection->cond_reply_ack, connection->mutex_reply_ack);
