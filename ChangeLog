@@ -1,3 +1,7 @@
+2005-11-21  Hynek Hanke  <hanke@chopin>
+
+	* src/c/api/libspeechd.c (spd_events_handler): Bugfix: reply_code >= 700
+
 2005-11-08  Hynek Hanke  <hanke@chopin>
 
 	* src/audio/alsa.c (alsa_play): Call snd_pcm_drop at the end of
