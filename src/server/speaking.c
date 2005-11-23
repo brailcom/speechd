@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speaking.c,v 1.46 2005-10-16 08:56:57 hanke Exp $
+ * $Id: speaking.c,v 1.47 2005-11-23 16:27:34 hanke Exp $
  */
 
 #include <glib.h>
@@ -152,7 +152,8 @@ speak(void* data)
             /* Extract the right message from priority queue */
             message = get_message_from_queues();
             if (message == NULL){
-                pthread_mutex_unlock(&element_free_mutex);         
+                pthread_mutex_unlock(&element_free_mutex);
+		MSG(5, "No message in the queue");
                 continue;
             }
         }
