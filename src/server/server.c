@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.74 2005-09-12 14:39:11 hanke Exp $
+  * $Id: server.c,v 1.75 2005-11-23 16:26:39 hanke Exp $
   */
 
 #include "speechd.h"
@@ -156,6 +156,8 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
     pthread_mutex_unlock(&element_free_mutex);
 
     speaking_semaphore_post();
+
+    MSG(5, "Message inserted into queue.");
 
     return new->id;
 }
