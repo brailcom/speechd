@@ -1,3 +1,11 @@
+2005-11-25  Hynek Hanke  <hanke@chopin>
+
+	* src/server/speaking.c (speak): Debug message.
+
+	* src/server/output.c (output_is_speaking): If speaking_module is NULL, then
+	assigne NULL to *index_mark, not index_mark.
+	(output_module_is_speaking): Added more debugging.
+
 2005-11-21  Hynek Hanke  <hanke@chopin>
 
 	* src/c/api/libspeechd.h (spd_set_data_mode): Added.
