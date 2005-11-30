@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.24 2005-11-25 15:41:57 hanke Exp $
+ * $Id: output.c,v 1.25 2005-11-30 10:07:08 hanke Exp $
  */
 
 #include "output.h"
@@ -338,12 +338,15 @@ output_module_is_speaking(OutputModule *output, char **index_mark)
 
     MSG(5, "output_module_is_speaking()");
 
-    
+    if (output == NULL){
+        MSG(5, "output==NULL in output_module_is_speaking()");
+	OL_RET(-1);
+    }
 
     response = output_read_reply(output);
     if (response == NULL){
 	*index_mark = NULL;
-	return -1;
+	OL_RET(-1);
     }    
 
     MSG2(5, "output_module", "Reply from output module: |%s|", response);
@@ -408,10 +411,6 @@ output_is_speaking(char **index_mark)
     OutputModule *output;
 
     output = speaking_module;
-    if (output == NULL){
-	*index_mark = NULL;
-	return 0;
-    }
 
     err = output_module_is_speaking(output, index_mark);   
     if (err < 0){
