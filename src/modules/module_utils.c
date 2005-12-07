@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.37 2005-10-29 06:49:50 hanke Exp $
+ * $Id: module_utils.c,v 1.38 2005-12-07 08:29:46 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -131,14 +131,14 @@ do_key(void)
     return do_message(MSGTYPE_KEY);
 }
 
-char*
+void
 do_stop(void)
 {
     module_stop();
-    return strdup("201 OK STOPPED");
+    return;
 }
 
-char*
+void
 do_pause(void)
 {
     int ret;
@@ -148,7 +148,7 @@ do_pause(void)
 	return strdup("300 ERR NOT PAUSED");
     }
 
-    return strdup("202 OK PAUSED");
+    return;
 }
 
 #define SET_PARAM_NUM(name, cond) \
@@ -236,8 +236,8 @@ do_quit(void)
 }
 
 int
-module_get_message_part(const char* message, char* part, unsigned int *pos, size_t maxlen,
-                        const char* dividers)
+module_get_message_part(const char* message, char* part, unsigned int *pos,
+			size_t maxlen, const char* dividers)
 {    
     int i, n;
     int num_dividers;
@@ -284,7 +284,6 @@ module_get_message_part(const char* message, char* part, unsigned int *pos, size
                     if(((message[*pos] == '\r') && (message[*pos+1] == '\n'))
                        && ((message[*pos+2] == '\r') && (message[*pos+3] == '\n'))){
                         part[i+1] = 0;                
-                        current_index_mark = -1;
                         (*pos)++;
                         return i+1;
                     }
