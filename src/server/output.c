@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.25 2005-11-30 10:07:08 hanke Exp $
+ * $Id: output.c,v 1.26 2005-12-07 08:24:47 hanke Exp $
  */
 
 #include "output.h"
@@ -340,7 +340,7 @@ output_module_is_speaking(OutputModule *output, char **index_mark)
 
     if (output == NULL){
         MSG(5, "output==NULL in output_module_is_speaking()");
-	OL_RET(-1);
+    	OL_RET(-1);
     }
 
     response = output_read_reply(output);
@@ -365,12 +365,11 @@ output_module_is_speaking(OutputModule *output, char **index_mark)
 	MSG(2, "Error: Module reported error in itself (code 4xx).");
 	OL_RET(-3); /* Module side error */
     }
-    else if (response[0] == '2'){	
+    else if (response[0] == '2'){
 	if (strlen(response) > 4){
 	    if (response[3] == '-'){
 		char *p;
 		p = strchr(response, '\n');
-		MSG2(5, "response:|%s|\n p:|%s|", response, p);
 		*index_mark = (char*) strndup(response+4, p-response-4);
 		MSG2(5, "output_module", "Detected INDEX MARK: %s", *index_mark);
 	    }else{
@@ -378,7 +377,7 @@ output_module_is_speaking(OutputModule *output, char **index_mark)
 		    "Reply on SPEAKING not multi-line.");
 		OL_RET(-1); 
 	    }
-	}	
+	}
 	OL_RET(0);
     }else if(response[0] == '7'){
 	MSG2(5, "output_module", "Received event:\n %s", response);
@@ -389,6 +388,7 @@ output_module_is_speaking(OutputModule *output, char **index_mark)
 	else if (!strncmp(response, "700", 3)){
 	    char *p;
 	    p = strchr(response, '\n');
+	    MSG2(5, "output_module", "response:|%s|\n p:|%s|", response, p);
 	    *index_mark = (char*) strndup(response+4, p-response-4);
 	    MSG2(5, "output_module", "Detected INDEX MARK: %s", *index_mark);
 	}else{
