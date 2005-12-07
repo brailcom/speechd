@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.23 2005-12-07 08:46:49 hanke Exp $
+ * $Id: libspeechd.c,v 1.24 2005-12-07 09:34:22 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -135,6 +135,7 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
     ret = setvbuf(connection->stream, NULL, _IONBF, SPD_REPLY_BUF_SIZE);
     if (ret) SPD_FATAL("Can't set buffering, setvbuf failed.");
 
+    connection->ssip_mutex = xmalloc(sizeof(pthread_mutex_t));
     pthread_mutex_init(connection->ssip_mutex, NULL);
 
     if (mode == SPD_MODE_THREADED){
@@ -807,7 +808,7 @@ spd_execute_command_with_reply(SPDConnection *connection, char* command, char **
     int r;
     
     buf = g_strdup_printf("%s\r\n", command);
-    *reply = spd_send_data(connection, buf, SPD_WAIT_REPLY);
+    *reply = spd_send_data_wo_mutex(connection, buf, SPD_WAIT_REPLY);
     xfree(buf);
     
     r = ret_ok(*reply);
@@ -896,7 +897,7 @@ spd_set_priority(SPDConnection *connection, SPDPriority priority)
     }
 		 
     sprintf(command, "SET SELF PRIORITY %s", p_name);
-    return spd_execute_command(connection, command);
+    return spd_execute_command_wo_mutex(connection, command);
 }
 
 
