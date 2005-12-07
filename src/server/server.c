@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.75 2005-11-23 16:26:39 hanke Exp $
+  * $Id: server.c,v 1.76 2005-12-07 08:22:52 hanke Exp $
   */
 
 #include "speechd.h"
@@ -54,6 +54,8 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
     GList *gl;
     TFDSetElement *settings;
     TSpeechDMessage *hist_msg;
+    int id;
+
 
     /* Check function parameters */
     if (new == NULL) return -1;
@@ -92,6 +94,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
 
 	new->settings.paused_while_speaking = 0;
     }
+    id = new->id;
           
     new->settings.reparted = reparted;
 
@@ -159,7 +162,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
 
     MSG(5, "Message inserted into queue.");
 
-    return new->id;
+    return id;
 }
 #undef COPY_SET_STR
 
