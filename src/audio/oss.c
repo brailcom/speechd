@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: oss.c,v 1.8 2005-10-29 06:37:37 hanke Exp $
+ * $Id: oss.c,v 1.9 2005-12-07 08:53:30 hanke Exp $
  */
 
 /* Put a message into the logfile (stderr) */
@@ -37,6 +37,7 @@
      fprintf(stderr,arg); \
      fprintf(stderr,"\n"); \
      fflush(stderr); \
+     xfree(tstr); \
   }
 
 #define ERR(arg...) \
@@ -53,11 +54,13 @@
      fprintf(stderr,arg); \
      fprintf(stderr,"\n"); \
      fflush(stderr); \
+     xfree(tstr); \
   }
 
 int
 _oss_open(AudioID *id)
 {
+    MSG("_oss_open()")
     pthread_mutex_lock(&id->fd_mutex);
 
     id->fd = open(id->device_name, O_WRONLY, 0);
@@ -76,6 +79,7 @@ _oss_open(AudioID *id)
 int
 _oss_close(AudioID *id)
 {
+    MSG("_oss_close()")
     if (id == NULL) return 0;
     if (id->fd == 0) return 0;
 
@@ -351,6 +355,8 @@ oss_play(AudioID *id, AudioTrack track)
 	pthread_mutex_unlock(&id->pt_mutex);
     }
     MSG("End of wait");
+
+    xfree(track_volume.samples);
 
     /* Flush all the buffers */
     _oss_sync(id);
