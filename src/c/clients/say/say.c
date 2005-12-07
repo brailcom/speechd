@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: say.c,v 1.9 2005-09-12 14:29:06 hanke Exp $
+ * $Id: say.c,v 1.10 2005-12-07 08:45:23 hanke Exp $
  */
 
 #include <stdio.h>
@@ -45,8 +45,9 @@ int main(int argc, char **argv) {
    SPDPriority spd_priority;
    int err;
    int ret;
+   int option_ret;
 
-   /* Check if the text to say is specified in the argument */
+   /* Check if the text to say or options are specified in the argument */
    if (argc < 2) {
        options_print_help(argv);
        return 1;
@@ -60,13 +61,18 @@ int main(int argc, char **argv) {
    punctuation_mode = NULL;
    spelling = -2;
    wait_till_end = 0;
+   stop_previous = 0;
+   cancel_previous = 0;
    priority = NULL;
 
-   options_parse(argc, argv);
+   option_ret = options_parse(argc, argv);
    
    /* Open a connection to Speech Dispatcher */
    conn = spd_open("say","main", NULL, SPD_MODE_THREADED);
    if (conn == NULL) FATAL("Speech Dispatcher failed to open");
+
+   if (stop_previous) spd_stop_all(conn);
+   if (cancel_previous) spd_cancel_all(conn);
 
    /* Set the desired parameters */
 
@@ -180,7 +186,11 @@ int main(int argc, char **argv) {
 
    /* Say the message with priority "text" */
    assert(argv[argc-1]);
-   err = spd_sayf(conn, spd_priority, (char*) argv[argc-1]);
+   if (argv[argc-1][0] != '-')
+       err = spd_sayf(conn, spd_priority, (char*) argv[argc-1]);
+   else
+       wait_till_end = 0;
+
    if (err == -1) FATAL("Speech Dispatcher failed to say message");
 
    /* Wait till the callback is called */
