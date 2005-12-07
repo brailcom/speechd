@@ -1,5 +1,7 @@
 2005-12-07  Hynek Hanke  <hanke@chopin>
 
+	* src/c/api/libspeechd.c (spd_execute_command_with_reply): Don't use mutex.
+
 	* src/audio/oss.c: Fixed memmory leaks.
 
 	* src/audio/alsa.c (alsa_play): Free alsa_poll_fds.
