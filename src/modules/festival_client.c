@@ -505,11 +505,12 @@ festivalOpen(FT_Info *info)
 	return NULL;
     }
 
-    /* TODO: Not "any" response */
+
     FEST_SEND_CMD("(require 'speech-dispatcher)");
     ret = festival_read_response(info, &resp);
     if (ret || resp == NULL || strcmp(resp, "t\n")){
-	DBG("ERROR: Can't load speech-dispatcher module into Festival. Reason: %s", resp);
+	DBG("ERROR: Can't load speech-dispatcher module into Festival."
+	    "Reason: %s", resp);
 	return NULL;
     }
     free(resp);
