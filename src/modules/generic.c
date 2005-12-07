@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: generic.c,v 1.21 2005-10-29 06:46:51 hanke Exp $
+ * $Id: generic.c,v 1.22 2005-12-07 08:31:32 hanke Exp $
  */
 
 #include <glib.h>
@@ -80,16 +80,13 @@ MOD_OPTION_1_FLOAT(GenericVolumeMultiply);
 MOD_OPTION_1_INT(GenericVolumeForceInteger);
 MOD_OPTION_3_HT(GenericLanguage, code, name, charset);
 
-
 static char generic_msg_pitch_str[16];
 static char generic_msg_rate_str[16];
 static char generic_msg_volume_str[16];
 static char* generic_msg_voice_str = NULL;
 static TGenericLanguage* generic_msg_language = NULL;
 
-
 /* Public functions */
-
 int
 module_load(void)
 {
@@ -349,7 +346,10 @@ _generic_speak(void* nothing)
 		e_string = string_replace(e_string, "$RATE", generic_msg_rate_str);
 		e_string = string_replace(e_string, "$VOLUME", generic_msg_volume_str);
 		e_string = string_replace(e_string, "$LANGUAGE", generic_msg_language->name);
-		e_string = string_replace(e_string, "$VOICE", generic_msg_voice_str);
+		if (generic_msg_voice_str != NULL)
+		    e_string = string_replace(e_string, "$VOICE", generic_msg_voice_str);
+		else
+		    e_string = string_replace(e_string, "$VOICE", "no_voice");
 
 		/* Cut it into two strings */           
 		p = strstr(e_string, "$DATA");
@@ -441,7 +441,7 @@ _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
                           strlen(execute_synth_str2) + 8) * sizeof(char));
 
         if (strlen(message->str) != 0){
-            sprintf(command, "%s%s%s", execute_synth_str1, message->str, execute_synth_str2);        
+            sprintf(command, "%s%s%s", execute_synth_str1, message->str, execute_synth_str2);
 
             DBG("child: synth command = |%s|", command);
 
