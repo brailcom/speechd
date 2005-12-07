@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.22 2005-11-07 09:39:57 hanke Exp $
+ * $Id: alsa.c,v 1.23 2005-12-07 08:52:13 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -689,6 +689,8 @@ alsa_play(AudioID *id, AudioTrack track)
     id->alsa_opened = 0;
     close(id->alsa_stop_pipe[0]);
     close(id->alsa_stop_pipe[1]);
+
+    xfree(id->alsa_poll_fds);
     
     MSG("End of playback on ALSA");
 
