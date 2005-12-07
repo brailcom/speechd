@@ -1622,7 +1622,7 @@ The main documentation for the server core is the code itself. This section
 is only a general introduction intended to give you some basic information
 and hints where to look for things. If you are going to make some modifications
 in the server core, we will be happy if you get in touch with us on
-@email{speechd@@freebsoft.org}.
+@email{speechd@@lists.freebsoft.org}.
 
 The server core is composed of two main parts, each of them implemented
 in a separate thread. The @emph{server part} handles the communication
@@ -2925,7 +2925,7 @@ information instead, please do so.
 
 If you want to contribute to the development of Speech Dispatcher,
 we will be very happy if you do so. Please contact us on 
-@email{manage@@freebsoft.org}.
+@email{users@@lists.freebsoft.org}.
 
 There is a short, definitively not exhaustive, list of how you can
 help us and other users.
