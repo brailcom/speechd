@@ -57,6 +57,7 @@ in the section entitled "GNU Free Documentation License".
 @code{spd-say} is a very simple client to Speech Dispatcher that takes some text from the
 command line and even some simple parameters and passes these to Speech Dispatcher
 for synthesis. The resulting syntesized speech is then played on your speakers.
+It can be also used for stopping and canceling the speech on Speech dispatcher.
 
 Usage: @code{spd-say [options] "some text"}
 
@@ -79,6 +80,16 @@ female3, child_male, child_female).
 Set the punctuation mode (none, some, all).
 @item -s or --spelling
 Spell the message
+@item -w or --wait
+Wait till the end of speaking the message. In this mode, spd-say returns only after
+the message is fully spoken in the speakers or after it gets discarded.
+@item -S or --stop
+Stop the previous message in Speech Dispatcher (regardles of the client who send
+it and it's priority) before saying the specified message. If no message is specified,
+it just performs the stop function.
+@item -C or --cancel
+Similar to @code{-S}, but it stops (cancels) all the messages in all the queues in
+Speech Dispatcher. Use this for total stop of speech.
 @item -v or --version
 Print version and copyright info.
 @item -h or --help
