@@ -1,4 +1,55 @@
-2005-11-25  Hynek Hanke  <hanke@chopin>
+2005-12-07  Hynek Hanke  <hanke@chopin>
+
+	* src/audio/oss.c: Fixed memmory leaks.
+
+	* src/audio/alsa.c (alsa_play): Free alsa_poll_fds.
+
+	* src/modules/festival_client.c (FEST_SEND_CMD): Examine reponse on (require 'speech-dispatcher).
+
+	* src/modules/flite.c (module_speak): Bugfix (use *flite_message, not flite_message)
+	(_flite_speak): Call delete_wav().
+	(_flite_speak): Free buf.
+
+	* src/modules/generic.c (_generic_speak): Formatting.
+	(_generic_speak): Print "no_voice" to $VOICE when no voice is
+	specified.
+
+	* src/modules/module_utils.c (do_pause): Changed return values of do_stop, do_pause.
+	(module_get_message_part): reformated header.
+
+	* src/modules/module_utils.h: Cleaning-up: fixed return values of do_stop and do_pause, remove do_speaking
+
+	* src/server/output.c (output_module_is_speaking): Debugging.
+
+	* src/server/server.c (queue_message): Save msg_id before
+	resolv_priorities() is called and return this id.
+x
+	* src/c/clients/say/say.c: Now recognizes also -S (stop all) and -C (cancel all) functions.
+
+	* src/c/api/libspeechd.h (spd_execute_command_wo_mutex): New function
+	(spd_send_data_wo_mutex): New function.
+
+	* src/c/api/libspeechd.c: libspeechd should now be thread-safe.
+
+2005-11-30  root  <hanke@chopin>
+
+	* src/server/server.c (queue_message): Return id, not new->id, since new doesn't have to exist
+	after resolve_priorities().
+
+2005-11-30  Hynek Hanke  <hanke@chopin>
+
+	* src/modules/generic.c (_generic_speak): If no voice is found, print "no_voice"
+	into the command string.
+
+	* src/server/output.c (output_is_speaking): Don't check for output != NULL.
+	(output_module_is_speaking): Check for output != NULL.
+
+	* src/audio/oss.c (oss_play): free track_volume.samples.
+
+	* src/audio/alsa.c (alsa_play): Free id->alsa_poll_fds structure at the end of playback.
+
+	* src/modules/flite.c (module_speak): Memmory leak fixed.
+	(_flite_speak): xfree(buf);
 
 	* src/server/speaking.c (speak): Debug message.
 

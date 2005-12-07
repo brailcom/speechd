@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.c,v 1.4 2005-09-12 14:28:12 hanke Exp $
+ * $Id: options.c,v 1.5 2005-12-07 08:54:02 hanke Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would
@@ -57,7 +57,10 @@ options_print_help(char *argv[])
            "-P, --priority         -     Set priority of the message (important, message,\n"
            "                                text, notification, progress)\n"
 	   "-s, --spelling         -     Spell the message\n"
-           "-w, --wait             -     Wait till the message is spoken or discarded\n"
+           "\n"
+           "-S, --stop             -     Stop speaking the message being spoken in Speech Dispatcher\n"
+           "-C, --cancel           -     Cancel all messages in Speech Dispatcher\n"
+           "\n"
 	   "-v, --version          -     Print version and copyright info\n"
 	   "-h, --help             -     Print this info\n"
            "\n"
@@ -66,7 +69,7 @@ options_print_help(char *argv[])
 	   "under the terms of the GNU General Public License as published by\n"
 	   "the Free Software Foundation; either version 2, or (at your option)\n"
 	   "any later version. Please see COPYING for more details.\n\n"
-	   "Please report bugs to <speechd-bugs@freebsoft.org>\n\n"
+	   "Please report bugs to <speechd@bugs.freebsoft.org>\n\n"
 	   );
     
 }
@@ -74,7 +77,7 @@ options_print_help(char *argv[])
 void
 options_print_version()
 {
-    printf(PACKAGE" "VERSION"\n");
+    printf("spd-say: "PACKAGE" "VERSION"\n");
     printf("Copyright (C) 2002-2005 Brailcom, o.p.s.\n"
            "spd-say comes with ABSOLUTELY NO WARRANTY.\n"
            "You may redistribute copies of spd-say\n"
@@ -102,7 +105,7 @@ options_print_version()
         exit(1); \
     }
 
-void
+int
 options_parse(int argc, char *argv[])
 {
     char* tail_ptr;
@@ -129,11 +132,11 @@ options_parse(int argc, char *argv[])
         case 'i':
             OPT_SET_INT(volume);
             break;
-        case 'o':
-            OPT_SET_STR(output_module);
-            break;
         case 'l':
             OPT_SET_STR(language);
+            break;
+        case 'o':
+            OPT_SET_STR(output_module);
             break;
         case 't':
             OPT_SET_STR(voice_type);
@@ -150,6 +153,12 @@ options_parse(int argc, char *argv[])
 	case 'w':
 	    wait_till_end = 1;
 	    break;
+	case 'S':
+	    stop_previous = 1;
+	    break;
+	case 'C':
+	    cancel_previous = 1;
+	    break;
         case 'v':
             options_print_version(argv);
             exit(0);
@@ -164,5 +173,6 @@ options_parse(int argc, char *argv[])
             exit(1);
         }
     }
+    return 0;
 }
 #undef SPD_OPTION_SET_INT
