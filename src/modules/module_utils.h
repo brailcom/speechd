@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.h,v 1.8 2005-10-29 06:52:36 hanke Exp $
+ * $Id: module_utils.h,v 1.9 2005-12-07 08:28:30 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -170,10 +170,9 @@ char* do_speak(void);
 char* do_sound_icon(void);
 char* do_char(void);
 char* do_key(void);
-char* do_stop(void);
-char* do_pause(void);
+void  do_stop(void);
+void  do_pause(void);
 char* do_set(void);
-char* do_speaking(void);
 int do_quit(void);
 
 
