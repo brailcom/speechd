@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.21 2005-11-21 11:32:02 hanke Exp $
+ * $Id: libspeechd.h,v 1.22 2005-12-07 08:47:08 hanke Exp $
  */
 
 
@@ -125,6 +125,8 @@ typedef struct{
     FILE *stream;
     SPDConnectionMode mode;
 
+    pthread_mutex_t *ssip_mutex;
+
     pthread_t *events_thread;
     pthread_mutex_t *comm_mutex;
     pthread_cond_t *cond_reply_ready;
@@ -217,7 +219,9 @@ int spd_set_output_module_uid(SPDConnection* connection, const char* output_modu
 
 /* Direct SSIP communication */
 int spd_execute_command(SPDConnection* connection, char* command);
+int spd_execute_command_wo_mutex(SPDConnection *connection, char* command);
 char* spd_send_data(SPDConnection* connection, const char *message, int wfr);
+char* spd_send_data_wo_mutex(SPDConnection *connection, const char *message, int wfr);
 
 
 
