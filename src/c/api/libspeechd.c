@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.22 2005-11-21 11:31:22 hanke Exp $
+ * $Id: libspeechd.c,v 1.23 2005-12-07 08:46:49 hanke Exp $
  */
 
 #include <sys/types.h>
@@ -57,6 +57,7 @@ static void xfree(void *ptr);
 static int ret_ok(char *reply);
 static void SPD_DBG(char *format, ...);
 static void* spd_events_handler(void*);
+
 /* --------------------- Public functions ------------------------- */
 
 #define SPD_REPLY_BUF_SIZE 65536
@@ -134,6 +135,8 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
     ret = setvbuf(connection->stream, NULL, _IONBF, SPD_REPLY_BUF_SIZE);
     if (ret) SPD_FATAL("Can't set buffering, setvbuf failed.");
 
+    pthread_mutex_init(connection->ssip_mutex, NULL);
+
     if (mode == SPD_MODE_THREADED){
 	SPD_DBG("Initializing threads, condition variables and mutexes...");
 	connection->events_thread = xmalloc(sizeof(pthread_t));
@@ -159,7 +162,7 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
     set_client_name = g_strdup_printf("SET SELF CLIENT_NAME \"%s:%s:%s\"", usr_name,
 				      client_name, conn_name);
     
-    ret = spd_execute_command(connection, set_client_name);   
+    ret = spd_execute_command_wo_mutex(connection, set_client_name);   
     
     xfree(usr_name);  xfree(conn_name);  xfree(set_client_name);
     
@@ -167,10 +170,20 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
 }
 
 
+#define RET(r) \
+    { \
+    pthread_mutex_lock(connection->ssip_mutex); \
+    return r; \
+    }
+
+
 /* Close a Speech Dispatcher connection */
 void
 spd_close(SPDConnection* connection)
 {
+
+    pthread_mutex_lock(connection->ssip_mutex);
+
     if (connection->mode == SPD_MODE_THREADED){
 	pthread_cancel(*connection->events_thread);
 	pthread_mutex_destroy(connection->mutex_reply_ready);
@@ -183,6 +196,9 @@ spd_close(SPDConnection* connection)
     /* close the socket */
     close(connection->socket);
 
+    pthread_mutex_unlock(connection->ssip_mutex);
+
+    pthread_mutex_destroy(connection->ssip_mutex);
     xfree(connection);
 }
 
@@ -197,14 +213,16 @@ spd_say(SPDConnection *connection, SPDPriority priority, const char* text)
     char *reply;
     int err;
     int msg_id;
-    
+
     if (text == NULL) return -1;
+
+    pthread_mutex_lock(connection->ssip_mutex);
 
     SPD_DBG("Text to say is: %s", text);
 
     /* Set priority */
     ret = spd_set_priority(connection, priority);
-    if(ret) return -1;
+    if(ret) RET(-1); 
     
     /* Check if there is no escape sequence in the text */
     etext = escape_dot(text);
@@ -212,20 +230,20 @@ spd_say(SPDConnection *connection, SPDPriority priority, const char* text)
   
     /* Start the data flow */
     sprintf(command, "SPEAK");
-    ret = spd_execute_command(connection, command);
+    ret = spd_execute_command_wo_mutex(connection, command);
     if(ret){     
         SPD_DBG("Error: Can't start data flow!");
-        return -1;
+        RET(-1);
     }
   
     /* Send data */
-    spd_send_data(connection, etext, SPD_NO_REPLY);
+    spd_send_data_wo_mutex(connection, etext, SPD_NO_REPLY);
 
     /* Terminate data flow */
     ret = spd_execute_command_with_reply(connection, "\r\n.", &reply);
     if(ret){
         SPD_DBG("Can't terminate data flow");
-        return -1; 
+        RET(-1); 
     }
 
     msg_id = get_param_int(reply, 1, &err);
@@ -233,6 +251,8 @@ spd_say(SPDConnection *connection, SPDPriority priority, const char* text)
 	SPD_DBG("Can't determine SSIP message unique ID parameter.");
     }
     xfree(reply);
+
+    pthread_mutex_unlock(connection->ssip_mutex);
 
     return msg_id;
 }
@@ -351,13 +371,17 @@ spd_key(SPDConnection *connection, SPDPriority priority, const char *key_name)
 
     if (key_name == NULL) return -1;
 
+    pthread_mutex_lock(connection->ssip_mutex);
+
     ret = spd_set_priority(connection, priority);
-    if (ret) return -1;
+    if (ret) RET(-1);
 
     command_key = g_strdup_printf("KEY %s", key_name);
-    ret = spd_execute_command(connection, command_key);
+    ret = spd_execute_command_wo_mutex(connection, command_key);
     xfree(command_key);
-    if (ret) return -1;
+    if (ret) RET(-1);
+
+    pthread_mutex_unlock(connection->ssip_mutex);
 
     return 0;
 }
@@ -371,12 +395,16 @@ spd_char(SPDConnection *connection, SPDPriority priority, const char *character)
     if (character == NULL) return -1;
     if (strlen(character)>6) return -1;
 
+    pthread_mutex_lock(connection->ssip_mutex);
+
     ret = spd_set_priority(connection, priority);
-    if (ret) return -1;
+    if (ret) RET(-1);
 
     sprintf(command, "CHAR %s", character);
     ret = spd_execute_command(connection, command);
-    if (ret) return -1;
+    if (ret) RET(-1);
+
+    pthread_mutex_unlock(connection->ssip_mutex);
 
     return 0;
 }
@@ -388,16 +416,20 @@ spd_wchar(SPDConnection *connection, SPDPriority priority, wchar_t wcharacter)
     char character[8];
     int ret;
 
+    pthread_mutex_lock(connection->ssip_mutex);
+
     ret = wcrtomb(character, wcharacter, NULL);
-    if (ret <= 0) return -1;
+    if (ret <= 0) RET(-1);
 
     ret = spd_set_priority(connection, priority);
-    if (ret) return -1;
+    if (ret) RET(-1);
 
     assert(character != NULL);
     sprintf(command, "CHAR %s", character);
-    ret = spd_execute_command(connection, command);
-    if (ret) return -1;
+    ret = spd_execute_command_wo_mutex(connection, command);
+    if (ret) RET(-1);
+
+    pthread_mutex_unlock(connection->ssip_mutex);
  
     return 0;
 }
@@ -410,13 +442,17 @@ spd_sound_icon(SPDConnection *connection, SPDPriority priority, const char *icon
 
     if (icon_name == NULL) return -1;
 
+    pthread_mutex_lock(connection->ssip_mutex);
+
     ret = spd_set_priority(connection, priority);
-    if (ret) return -1;
+    if (ret) RET(-1);
 
     command = g_strdup_printf("SOUND_ICON %s", icon_name);
-    ret = spd_execute_command(connection, command);
+    ret = spd_execute_command_wo_mutex(connection, command);
     xfree (command);
-    if (ret) return -1;
+    if (ret) RET(-1);
+
+    pthread_mutex_unlock(connection->ssip_mutex);
     
     return 0;
 }
@@ -518,7 +554,7 @@ SPD_SET_COMMAND_SPECIAL(voice_type, SPDVoiceType);
 int
 spd_w_set_punctuation(SPDConnection *connection, SPDPunctuation type, const char* who)
 {
-    static char command[32];
+    char command[32];
     int ret;
 
     if (type == SPD_PUNCT_ALL)
@@ -536,7 +572,7 @@ spd_w_set_punctuation(SPDConnection *connection, SPDPunctuation type, const char
 int
 spd_w_set_capital_letters(SPDConnection *connection, SPDCapitalLetters type, const char* who)
 {
-    static char command[64];
+    char command[64];
     int ret;
 
     if (type == SPD_CAP_NONE)
@@ -554,7 +590,7 @@ spd_w_set_capital_letters(SPDConnection *connection, SPDCapitalLetters type, con
 int
 spd_w_set_spelling(SPDConnection *connection, SPDSpelling type, const char* who)
 {
-    static char command[32];
+    char command[32];
     int ret;
 
     if (type == SPD_SPELL_ON)
@@ -570,7 +606,7 @@ spd_w_set_spelling(SPDConnection *connection, SPDSpelling type, const char* who)
 int
 spd_set_data_mode(SPDConnection *connection, SPDDataMode mode)
 {
-    static char command[32];
+    char command[32];
     int ret;
 
     if (mode == SPD_DATA_TEXT)
@@ -625,8 +661,8 @@ spd_set_notification_off(SPDConnection *connection, SPDNotification notification
 #define NOTIFICATION_SET(val, ssip_val) \
     if (notification & val){ \
 	sprintf(command, "SET SELF NOTIFICATION "ssip_val" %s", state);\
-	ret = spd_execute_command(connection, command);\
-	if (ret < 0) return -1;\
+	ret = spd_execute_command_wo_mutex(connection, command);\
+	if (ret < 0) RET(-1);\
     }
 
 int
@@ -646,6 +682,8 @@ spd_set_notification(SPDConnection *connection, SPDNotification notification, co
 	return -1;
     }
 
+    pthread_mutex_lock(connection->ssip_mutex);
+
     NOTIFICATION_SET(SPD_INDEX_MARKS, "index_marks");
     NOTIFICATION_SET(SPD_BEGIN, "begin");
     NOTIFICATION_SET(SPD_END, "end");
@@ -653,6 +691,8 @@ spd_set_notification(SPDConnection *connection, SPDNotification notification, co
     NOTIFICATION_SET(SPD_PAUSE, "pause");
     NOTIFICATION_SET(SPD_RESUME, "resume");
     NOTIFICATION_SET(SPD_RESUME, "pause");
+
+    pthread_mutex_unlock(connection->ssip_mutex);
 
     return 0;
 }
@@ -738,6 +778,22 @@ spd_execute_command(SPDConnection *connection, char* command)
     char *reply;
     int ret;
 
+    pthread_mutex_lock(connection->ssip_mutex);
+
+    ret = spd_execute_command_with_reply(connection, command, &reply);
+    xfree(reply);
+
+    pthread_mutex_unlock(connection->ssip_mutex);
+
+    return ret;
+}
+
+int
+spd_execute_command_wo_mutex(SPDConnection *connection, char* command)
+{
+    char *reply;
+    int ret;
+
     ret = spd_execute_command_with_reply(connection, command, &reply);
     xfree(reply);
 
@@ -764,6 +820,17 @@ spd_execute_command_with_reply(SPDConnection *connection, char* command, char **
 char*
 spd_send_data(SPDConnection *connection, const char *message, int wfr)
 {
+    char *reply;
+    pthread_mutex_lock(connection->ssip_mutex);
+    reply = spd_send_data_wo_mutex(connection, message, wfr);
+    pthread_mutex_unlock(connection->ssip_mutex);
+    return reply;
+}
+
+char*
+spd_send_data_wo_mutex(SPDConnection *connection, const char *message, int wfr)
+{
+
     char *reply;
     int bytes;
 
