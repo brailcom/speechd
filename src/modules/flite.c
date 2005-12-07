@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.48 2005-10-29 06:45:57 hanke Exp $
+ * $Id: flite.c,v 1.49 2005-12-07 08:43:20 hanke Exp $
  */
 
 
@@ -162,7 +162,9 @@ module_init(char **status_info)
     DBG("FliteMaxChunkLength = %d\n", FliteMaxChunkLength);
     DBG("FliteDelimiters = %s\n", FliteDelimiters);
     
-    flite_message = malloc (sizeof (char*));    
+    flite_message = malloc (sizeof (char*));
+    *flite_message = NULL;
+
     flite_semaphore = module_semaphore_init();
 
     DBG("Flite: creating new thread for flite_speak\n");
@@ -197,10 +199,14 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
     
     if(module_write_data_ok(data) != 0) return -1;
 
+    DBG("Requested data: |%s|\n", data);
+
+    if (*flite_message != NULL){
+	xfree(*flite_message);
+	*flite_message = NULL;
+    }
     *flite_message = module_strip_ssml(data);
     flite_message_type = MSGTYPE_TEXT;
-
-    DBG("Requested data: |%s|\n", data);
 	
     /* Setting voice */
     UPDATE_PARAMETER(voice, flite_set_voice);
@@ -300,7 +306,7 @@ _flite_speak(void* nothing)
 	spd_audio_set_volume(flite_audio_id, flite_volume);
 
 	/* TODO: free(buf) */
-	buf = (char*) malloc((FliteMaxChunkLength+1) * sizeof(char));	
+	buf = (char*) malloc((FliteMaxChunkLength+1) * sizeof(char));
 	pos = 0;
 	module_report_event_begin();
 	while(1){
@@ -312,6 +318,14 @@ _flite_speak(void* nothing)
 	    }
 	    bytes = module_get_message_part(*flite_message, buf, &pos, 
 					    FliteMaxChunkLength, FliteDelimiters);
+
+	    if (bytes < 0){
+		DBG("ERROR: Can't get message part, terminating");
+		flite_speaking = 0;
+		module_report_event_stop();
+		break;
+	    }
+
 	    buf[bytes] = 0;
 	    DBG("Returned %d bytes from get_part\n", bytes);
 	    DBG("Text to synthesize is '%s'\n", buf);
@@ -319,28 +333,36 @@ _flite_speak(void* nothing)
 	    if (flite_pause_requested && (current_index_mark!=-1)){
 		DBG("Pause requested in parent, position %d\n", current_index_mark);                
 		flite_pause_requested = 0;
-		flite_position = current_index_mark;		
+		flite_position = current_index_mark;
 		break;
 	    }
 
 	    if (bytes > 0){
 		DBG("Speaking in child...");
 
-		DBG("a");
+		DBG("Trying to synthesize text");
 		wav = flite_text_to_wave(buf, flite_voice);
-		
+
+		if (wav == NULL){
+		    DBG("Stop in child, terminating");
+		    flite_speaking = 0;
+		    module_report_event_stop();
+		    break;
+		}
+
 		track.num_samples = wav->num_samples;
 		track.num_channels = wav->num_channels;
 		track.sample_rate = wav->sample_rate;
 		track.bits = 16;
 		track.samples = wav->samples;
 
-		DBG("b %d", track.num_samples);
+		DBG("Got %d samples", track.num_samples);
 		if (track.samples != NULL){
 		    if (flite_stop){
 			DBG("Stop in child, terminating");
 			flite_speaking = 0;
 			module_report_event_stop();
+			delete_wave(wav);
 			break;
 		    }
 		    DBG("Playing part of the message");
@@ -350,9 +372,11 @@ _flite_speak(void* nothing)
 			DBG("Stop in child, terminating (s)");
 			flite_speaking = 0;
 			module_report_event_stop();
+			delete_wave(wav);
 			break;
 		    }
 		}
+		delete_wave(wav);
 	    }
 	    else if (bytes == -1){
 		DBG("End of data in speaking thread");
@@ -362,6 +386,7 @@ _flite_speak(void* nothing)
 	    }else{
 		flite_speaking = 0;
 		module_report_event_end();
+		break;
 	    }
 
 	    if (flite_stop){
@@ -372,6 +397,7 @@ _flite_speak(void* nothing)
 	    }
 	}
 	flite_stop = 0;
+	xfree(buf);
     }
 
     flite_speaking = 0;
