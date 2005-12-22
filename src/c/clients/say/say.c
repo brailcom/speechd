@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: say.c,v 1.10 2005-12-07 08:45:23 hanke Exp $
+ * $Id: say.c,v 1.11 2005-12-22 13:23:27 hanke Exp $
  */
 
 #include <stdio.h>
@@ -64,11 +64,16 @@ int main(int argc, char **argv) {
    stop_previous = 0;
    cancel_previous = 0;
    priority = NULL;
+   application_name = NULL;
+   connection_name = NULL;
 
    option_ret = options_parse(argc, argv);
    
    /* Open a connection to Speech Dispatcher */
-   conn = spd_open("say","main", NULL, SPD_MODE_THREADED);
+   conn = spd_open(application_name ? application_name : "spd-say",
+		   connection_name ? connection_name : "main",
+		   NULL,
+		   SPD_MODE_THREADED);
    if (conn == NULL) FATAL("Speech Dispatcher failed to open");
 
    if (stop_previous) spd_stop_all(conn);

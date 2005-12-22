@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.c,v 1.5 2005-12-07 08:54:02 hanke Exp $
+ * $Id: options.c,v 1.6 2005-12-22 13:23:11 hanke Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would
@@ -43,22 +43,31 @@ options_print_help(char *argv[])
     printf("Speech Dispatcher Say -- a simple client for speech synthesis (GNU GPL)\n\n");
     printf(
 	   "-r, --rate             -     Set the rate of the speech\n"
-           "                               (between -100 and +100, 0 is default)\n"
+           "                               (between -100 and +100, default: 0)\n"
 	   "-p, --pitch            -     Set the pitch of the speech\n"
-	   "                               (between -100 and +100, 0 is default)\n"
+	   "                               (between -100 and +100, default: 0)\n"
 	   "-i, --volume           -     Set the volume (intensity) of the speech\n"
-           "                               (between -100 and +100, 0 is default)\n"
+           "                               (between -100 and +100, default: 0) \n"
 	   "-o, --output-module    -     Set the output module\n"
 	   "-l, --language         -     Set the language (iso code)\n"
 	   "-t, --voice-type       -     Set the prefered voice type\n"
            "                               (male1, male2, male3, female1, female2\n"
 	   "                                female3, child_male, child_female)\n"
 	   "-m, --punctuation-mode -     Set the punctuation mode (none, some, all) \n"
-           "-P, --priority         -     Set priority of the message (important, message,\n"
-           "                                text, notification, progress)\n"
 	   "-s, --spelling         -     Spell the message\n"
            "\n"
-           "-S, --stop             -     Stop speaking the message being spoken in Speech Dispatcher\n"
+           "-P, --priority         -     Set priority of the message (important, message,\n"
+           "                                text, notification, progress; default: text)\n"
+           "-N, --application-name -     Set the application name used to estabilish\n"
+           "                                the connection to specified string value\n"
+           "                                (default: spd-say)\n"
+           "-n, --connection-name  -     Set the connection name used to estabilish\n"
+           "                                the connection to specified string value\n"
+	   "                                (default: main)\n"
+           "\n"
+	   "-w, --wait             -     Wait till the message is spoken or discarded\n"
+           "-S, --stop             -     Stop speaking the message being spoken\n"
+           "                                in Speech Dispatcher\n"
            "-C, --cancel           -     Cancel all messages in Speech Dispatcher\n"
            "\n"
 	   "-v, --version          -     Print version and copyright info\n"
@@ -149,6 +158,12 @@ options_parse(int argc, char *argv[])
 	    break;
 	case 'P':
 	    OPT_SET_STR(priority);
+	    break;
+	case 'N':
+	    OPT_SET_STR(application_name);
+	    break;
+	case 'n':
+	    OPT_SET_STR(connection_name);
 	    break;
 	case 'w':
 	    wait_till_end = 1;

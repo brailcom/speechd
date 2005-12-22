@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.h,v 1.4 2005-12-07 08:45:35 hanke Exp $
+ * $Id: options.h,v 1.5 2005-12-22 13:23:19 hanke Exp $
  */
 
 #include <getopt.h>
@@ -37,6 +37,9 @@ int wait_till_end;
 int stop_previous;
 int cancel_previous;
 
+char *application_name;
+char *connection_name;
+
 static struct option long_options[] = {
     {"rate", 1, 0, 'r'},
     {"pitch", 1, 0, 'p'},
@@ -47,6 +50,8 @@ static struct option long_options[] = {
     {"punctuation-mode", 1, 0, 'm'},
     {"spelling", 0, 0, 's'},
     {"priority", 1, 0, 'P'},
+    {"application-name", 1, 0, 'N'},
+    {"connection-name", 1, 0, 'n'},
     {"wait", 0, 0, 'w'},
     {"stop", 1, 0, 'S'},
     {"cancel", 1, 0, 'C'},
