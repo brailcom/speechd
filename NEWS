@@ -1,6 +1,9 @@
+
 Version 0.6
- * ALSA and NAS sound output supported (apart from OSS)
+ * ALSA and experimental NAS sound output supported (apart from OSS)
  * SSIP implementation now supports events notification and index marking
+ * Improved documentation
+ * spd-say client functionality expanded (stopping, client name setting)
  * Better performance
 
 Version 0.5

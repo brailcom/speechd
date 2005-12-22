@@ -1,3 +1,10 @@
+2005-12-22  Hynek Hanke  <hanke@chopin>
+
+	* src/c/clients/say/say.c, options.c, options.h: Allow setting of
+	client name and connection name.
+	
+	* version.sh: version 0.6rc1
+
 2005-12-07  Hynek Hanke  <hanke@chopin>
 
 	* src/c/api/libspeechd.c (spd_execute_command_with_reply): Don't use mutex.

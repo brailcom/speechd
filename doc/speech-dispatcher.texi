@@ -880,8 +880,8 @@ Speech Dispatcher in an easy way and have them spoken, or cancel
 speech from other applications.
 
 @menu
-* spd-say::      Say a given text or cancel messages in Dispatcher
-* spd-send::     Direct SSIP communication from command line    
+* spd-say::                     Say a given text or cancel messages in Dispatcher
+* spd-send::                    Direct SSIP communication from command line    
 @end menu
 
 @node spd-say, spd-send, Tools, Tools
@@ -920,6 +920,7 @@ about current external client libraries.
 * C API::                       Shared library for C/C++
 * Python API::                  Pythom module.
 * Guile API::                   
+* Common Lisp API::             
 @end menu
 
 @node C API, Python API, Client Programming, Client Programming
@@ -1335,6 +1336,8 @@ or include changes of voice parameters into the text.
 @code{mode} is the requeted data mode: @code{SPD_DATA_TEXT} or
 @code{SPD_DATA_SSML}.
 
+@end deffn
+
 @deffn {C API function}  int spd_set_language(SPDConnection* connection, char* language);
 @findex spd_set_language()
 
@@ -1692,12 +1695,20 @@ There is a full Python API available in @file{src/python/speechd/} in
 the source tree. Please see the included docstrings for reference
 documentation about the available objects and methods.
 
-@node Guile API,  , Python API, Client Programming
+@node Guile API, Common Lisp API, Python API, Client Programming
 @section Guile API
 
 The Guile API can be found @file{src/guile/} in
 the source tree, however it's still considered to be
 at the experimental stage. Please read @file{src/guile/README}.
+
+@node Common Lisp API,  , Guile API, Client Programming
+@section Common Lisp API
+
+The Common Lisp API can be found @file{src/cl/} in
+the source tree, however it's still considered to be
+at the experimental stage. Please read @file{src/cl/README}.
+
 
 @node Server Programming, Download and Contact, Client Programming, Top
 @chapter Server Programming
