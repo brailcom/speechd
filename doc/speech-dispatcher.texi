@@ -145,11 +145,12 @@ Dispatcher, we are taking the first steps...
 @section Design
 @cindex Design
         
-The communication between all applications and synthesizers is a
-great mess. For this purpose, we wanted Speech Dispatcher to be a
-layer separating applications and synthesizers so that applications
-wouldn't have to care about synthesizers and synthesizers wouldn't
-have to care about interaction with applications.
+The communication between all applications and synthesizers, when
+implemented directly, is a great mess. For this purpose, we wanted
+Speech Dispatcher to be a layer separating applications and
+synthesizers so that applications wouldn't have to care about
+synthesizers and synthesizers wouldn't have to care about interaction
+with applications.
 
 We decided we would implement Speech Dispatcher as a server receiving
 commands from applications over a protocol called @code{SSIP},
@@ -187,7 +188,7 @@ Speech Dispatcher from user's point of view:
 @item history of said messages for visually impaired
 @end itemize
 
-Speech Dispatcher from application programmers' point of view:
+Speech Dispatcher from application programmers's point of view:
 
 @itemize @bullet
 @item easy way to make your applications speak
@@ -205,27 +206,35 @@ In this version, most of the features of Speech Dispatcher are
 implemented and we believe it's now useful for applications as a
 device independent Text-to-Speech layer.
 
-Currently, the main application that works with Speech Dispatcher is
-speechd-el. This is a client for Emacs, targeted primarily on blind
-people. It's similar to Emacspeak, however the two take a bit
-different approach and serve different user needs. You can find
-speechd-el on @uref{http://www.freebsoft.org/speechd-el/}. This way
-Speech Dispatcher can be used to do nearly everything one can do in
-GNU/Linux text interface, like editing text, reading email, browsing
-web, etc.
+Currently, one of the most advanced applications that works with
+Speech Dispatcher is @code{speechd-el}. This is a client for Emacs,
+targeted primarily on blind people. It's similar to Emacspeak, however
+the two take a bit different approach and serve different user
+needs. You can find speechd-el on
+@uref{http://www.freebsoft.org/speechd-el/}. This way Speech
+Dispatcher can be used to do nearly everything one can do in GNU/Linux
+text interface, like editing text, reading email, browsing web, etc.
 
-We also provide a shared C library, that implements the SSIP functions
-of Speech Dispatcher in a higher level interface, so writing client
-applications in C should be quite easy. There is currently none,
-however, we are looking to implement support into GNU Typist,
-a typing tutorial, and maybe others applications.
+It's possible to use Speakup, the kernel-based screen reader, with
+software speech using the @code{speechd-up} package and Speech
+Dispatcher. A bridge for Gnome-Speech was created recently, which
+enables users to use Gnopernicus and Gnome speaking capabilities
+on top of Speech Dispatcher.
+
+We also provide a shared C library, a Python library and a Common Lisp
+library that implement the SSIP functions of Speech Dispatcher in a
+higher level interface, so writing client applications in these
+languages should be quite easy. 
 
 On the synthesis side, there is a good support for Festival. Festival
-is a Free Software multi-language Text-to-Speech and synthesis system, that
-is very flexible and extensible using the Scheme scripting
+is a Free Software multi-language Text-to-Speech and synthesis system,
+that is very flexible and extensible using the Scheme scripting
 language. Currently, it supports high quality synthesis for several
-languages, and on today's computers runs reasonably fast.
-See @uref{http://www.cstr.ed.ac.uk/projects/festival/}
+languages (English, Czech, Italian, Spanish, Russian, Polish...), and
+on today's computers it runs reasonably fast.  See
+@uref{http://www.cstr.ed.ac.uk/projects/festival/}. The Speech
+Dispatcher output module for Festival is highly optimized for fast
+responsivity.
 
 For simpler purposes, there is also support for Flite. Flite (Festival
 Light) is a lighter Free Software TTS with synthesis intended to run
@@ -235,18 +244,27 @@ With the caching mechanism provided by Speech Dispatcher, Festival is
 even Faster than Flite in many situations.  See
 @uref{http://www.speech.cs.cmu.edu/flite/}
 
-Then Speech Dispatcher offers support for generic output devices,
+Speech Dispatcher also offers support for generic output devices,
 which means that basically every Text-to-Speech program that provides
 a simple command line interface can be run with Speech Dispatcher
-after a little bit of tuning in the configuration file. This kind
-of output module provides only limited functionality, but it can
-be useful if there are no other choices for your language.
+after a little bit of tuning in the configuration file. This kind of
+output module provides only limited functionality, but it can be
+useful if there are no other choices for your language. Configuration
+files for Epos, Dectalk software and (experimental) LiaPhon are
+shipped with Speech Dispatcher.
 
 We decided not to support the simple hardware devices ourselves,
 because they don't support synchronization and therefore have serious
-problems when handling multiple messages. On the other hand, we
-will be happy if someone other writes output modules for these
-devices, because for some users, there is still no other choice.
+problems when handling multiple messages, they are not extensible,
+they are usually expansive and often hard to support. Today computers
+are fast enough to perform software speech synthesis and Festival is a
+great example. It seems the public still percieves software synthesis
+as slow, therefore inferior to hardware synthesis. Even Festival is
+often cited as slow. According to our experience, this is mostly due
+to inappropriate interfacing and processing of the results, Festival
+itself doesn't consume more than about 30% CPU (in peaks) on a 1500MHz
+machine. This shows that CPU power is no longer the limiting factor of
+speech synthesis.
 
 Currently, there is no application that would serve as a managing
 center for Speech Dispatcher. We think of this application as a client
@@ -259,27 +277,32 @@ help us with such a client.
 @chapter User's Documentation
 
 @menu
-* Features::                    Description of all fetures in more detail.
-* Invoking::                    Command line options.
-* Configuration::               How to configure Speech Dispatcher.
+* Features::                    Description of some fetures in more detail
+
+* Installation::                How to get it running in the best way
+* Troubleshooting::             What to do if something doesn't work...
+
+* Configuration::               How to configure Speech Dispatcher
+
+* Tools::                       What tools come with Speech Dispatcher
 @end menu
 
-@node Features, Invoking, User's Documentation, User's Documentation
+@node Features, Installation, User's Documentation, User's Documentation
 @section Features
 
 In this section, there is a more detailed description of the main
 features of Speech Dispatcher. These features are only the ones
-specific to this implementation of SSIP. For the general overview
-of the features included in SSIP, and therefore supported by Speech
+specific to this implementation of SSIP. For the general overview of
+the features included in SSIP, and therefore also supported by Speech
 Dispatcher, please @xref{Top,,,ssip, SSIP Documentation}.
 
 @menu
 * Multiple Output Modules::     Using various speech synthesizers on one system.
-* Security::                    How Speech Dispatcher protects the privacy of users.
+* Client Specific Default Configuration::  Managing multiple speaking applications
+* Security::                    Speech Dispatcher protects the privacy of users.
 @end menu
 
-
-@node Multiple Output Modules, Security, Features, Features
+@node Multiple Output Modules, Client Specific Default Configuration, Features, Features
 @subsection Multiple Output Modules
 @cindex output module
 @cindex different synthesizers
@@ -374,7 +397,18 @@ LanguageDefaultModule "en"  "new_module"
 
 to make it default for some language.
 
-@node Security,  , Multiple Output Modules, Features
+@node Client Specific Default Configuration, Security, Multiple Output Modules, Features
+@subsection Client Specific Default Configuration
+
+In Speech Dispatcher's configuration, it is possible to specify
+default values of message parameters for different applications/users
+that connect to it. For example, you can modify the configuration so
+that your instant messanger allways speaks your notifications louder
+by raising it's default volume.
+
+For more details, @xref{Client Specific Configuration}.
+
+@node Security,  , Client Specific Default Configuration, Features
 @subsection Security
 
 @menu
@@ -403,6 +437,10 @@ their @ref{Top,,Message History,ssip, SSIP Documentation}).
 @node Access Rights to Message History,  , User Authentication, Security
 @subsubsection Access Rights to Message History
 @cindex access rights
+
+NOTE: This feature is being implemented, however the current version
+does not support it. For security reasons, history was turned off in
+this release of Speech Dispatcher.
 
 To protect privacy of users, Speech Dispatcher restricts history access to a
 certain subset of all the received messages.  The following rules apply:
@@ -433,65 +471,48 @@ be checked, the user is considered different of all other connected or
 previously connected users.
 
 
-@node Invoking, Configuration, Features, User's Documentation
-@section Invoking
+@node Installation, Troubleshooting, Features, User's Documentation
+@section Installation
 
-@subsection Necessary Privileges
+Temporary: Please see the file INSTALL in the source directory of this
+package.
 
-Speech Dispatcher can generally run under an ordinary user.
-We tried to make it as secure as possible, however, we aren't
-security experts and the code can contain dangerous bugs. It's
-not advisable to run it as root or some other highly privileged
-user.
 
-The only restrictions are these:
+@node Troubleshooting, Configuration, Installation, User's Documentation
+@section Troubleshooting
+
+If you are experiencing problems when running Speech Dispatcher, please:
 
 @itemize
 @item
-Speech Dispatcher creates a PID file in @file{/var/run/speech-dispatcher.pid}
-by default, so @file{/var/run/} must be writable by the user that
-runs Speech Dispatcher. This can be overridden by specifying
-the @code{pidpath} option when calling the @code{./configure}
-script during the compilation process.
+Try to say some message through the utility @code{spd-say}.
+
+Example:
+@example
+        spd-say "Hello, does it work?"
+        spd-say --language=cs --rate=20 "Everything ok?"
+@end example
 @item
-When logging is on, the default path to place Speech Dispatcher's
-log is @file{/var/log/speech-dispatcher.log}. However, this can be configured
-at any time in the main configuration file.
+Check your configuration files speechd.conf, modules/*.conf if they
+are correct (some uninstalled synthesizer specified as the default,
+wrong values of default voice parameters etc.)
+@item
+Check /var/log/speech-dispatcher/speech-dispatcher.log, look for lines
+containing the string 'ERROR' and their surrounding. If you hear no
+speech, restart Speech Dispatcher and try to check the end of the file
+before any attempts for synthesis of any message. Usually, if
+something goes wrong with the initialization of the output modules, a
+textual description of the problem and of possible solution can be
+found in the logfile.
+@item
+If you still didn't find the cause of your problems and you are an
+experienced user, you might want to enable the Debug option of your
+output module in @code{etc/speech-dispatcher/modules/} and examine
+@code{/var/log/speech-dispatcher/module_name.log}.
+
 @end itemize
 
-@subsection Command Line Options
-
-Speech Dispatcher can be invoked with these options:
-
-@code{speech-dispatcher [-@{d|s@}] [-l @{1|2|3|4|5@}] [-p=port] | [-v] | [-h]}
-
-@table @code
-@item -d or --run-daemon
-Run as a deamon (it runs in background, detaches of the current
-terminal, etc.)
-
-@item -s or --run-single
-Run in single mode (continues as a regular application).
-
-@item -l level or --log-level=level
-Specifies the desired log level. Log level is a number between 0 and 5
-(0 means don't write log, 5 means write almost everything including
-the text being processed). Default is 3. @xref{Log Levels}.
-
-@item -p or --port
-Wait for clients on this port. Default is ???.
-
-@item -v or --version
-Print information about this version of Speech Dispatcher. It also
-reports basic copyright info.
-
-@item -h or --help
-Print out help about command line options, copyright message and email
-address for sending bug reports.
-@end table
-
-
-@node Configuration,  , Invoking, User's Documentation
+@node Configuration, Tools, Troubleshooting, User's Documentation
 @section Configuration
 @cindex configuration
 @cindex default values
@@ -510,6 +531,7 @@ configuration file.
 @menu
 * Configuration file syntax::   Basic rules.
 * Configuration options::       What to configure.
+* Client Specific Configuration::  
 * Output Modules Configuration::  Adding and customizing output modules.
 * Log Levels::                  Description of log levels.
 @end menu
@@ -548,7 +570,7 @@ Boolean values use On (for true) and Off (for false).
 Debug Off
 @end example
 
-@node Configuration options, Output Modules Configuration, Configuration file syntax, Configuration
+@node Configuration options, Client Specific Configuration, Configuration file syntax, Configuration
 @subsection Configuration options
 
 All available options are documented directly in the file and examples
@@ -556,7 +578,13 @@ are provided.  Most of the options are set to their default value and
 commented out.  If you want to change them, just change the value and
 remove the comment symbol @code{#}.
 
-@node Output Modules Configuration, Log Levels, Configuration options, Configuration
+@node Client Specific Configuration, Output Modules Configuration, Configuration options, Configuration
+@subsection Client Specific Configuration
+
+Please see @code{/etc/speechd.conf} and @code{etc/clients/emacs.conf}.
+This section will be written for the 0.6 final release.
+
+@node Output Modules Configuration, Log Levels, Client Specific Configuration, Configuration
 @subsection Output Modules Configuration
 
 Each user should turn on at least one output module in his
@@ -566,8 +594,13 @@ will start, log messages into history and communicate with clients,
 but no sound is produced.
 
 Each output module has to be loaded to Speech Dispatcher by an
-``AddModule'' line in @file{speech-dispatcher/speechd.conf}. Additionally, each
-output module can have associated it's own configuration file.
+``AddModule'' line in
+@file{speech-dispatcher/speechd.conf}. Additionally, each output
+module can have associated it's own configuration file.
+
+The audio output is handled by the output modules themselves, so this
+can be switched in their own configuration files under
+@code{etc/speech-dispatcher/modules/}
 
 @menu
 * Loading Modules in speechd.conf::  
@@ -609,6 +642,26 @@ are several options which are common for some
 output modules. Here is a short overview of them.
 
 @table @code
+@item AudioOutputMethod
+@anchor{AudioOutputMethod method}
+
+When the module is able to use different methods of audio output for
+the given synthesizer, you can choose between them using this command.
+
+@var{method} is one of the strings 'alsa' for Advanced Linux Sound
+Architecture, 'oss' for Open Sound System and 'nas' for Network Audio
+Server. Please note that NAS support is only experimental and there
+are known problems in NAS.
+
+Sometimes there is an additional command in the configuration file
+where you can specify additional parameters.
+
+We recommend (e.g. for Festival:
+@example
+        FestivalAudioOutputMethod "alsa"
+        FestivalALSADevice "default"        
+@end example
+
 @item AddVoice "@var{language}" "@var{symbolicname}" "@var{name}"
 @anchor{AddVoice}
 
@@ -817,6 +870,35 @@ data. Use with caution.)
 @item Debugging information
 @end itemize
 @end itemize
+
+@node Tools,  , Configuration, User's Documentation
+@section Tools
+
+Several small tools are distributed together with Speech Dispatcher.
+@code{spd-say} is a small client that allows you to send messages into
+Speech Dispatcher in an easy way and have them spoken, or cancel
+speech from other applications.
+
+@menu
+* spd-say::      Say a given text or cancel messages in Dispatcher
+* spd-send::     Direct SSIP communication from command line    
+@end menu
+
+@node spd-say, spd-send, Tools, Tools
+@subsection spd-say
+
+spd-say is documented in it's own manual. @xref{Top,,,spd-say, Spd-say
+Documentation}.
+
+@node spd-send,  , spd-say, Tools
+@subsection spd-send
+
+spd-send is a small client/server application, which allows you to
+establish a connection to Speech Dispatcher and then use a simple
+command line tool to send and receive SSIP protocol communication.
+
+Please see @file{src/c/clients/spd-say/README} in the Speech
+Dispatcher's source tree for more information.
 
 @node Client Programming, Server Programming, User's Documentation, Top
 @chapter Client Programming
@@ -1242,6 +1324,16 @@ some other connection and for all connections. They are listed bellow separately
 
 Please see @ref{Top,,Parameter Setting Commands,ssip, SSIP
 Documentation} for a general description of what they mean.
+
+@deffn {C API function} int spd_set_data_mode(SPDConnection *connection, SPDDataMode mode)
+@findex spd_set_data_mode()
+
+Set Speech Dispatcher data mode. Currently, plain text and SSML are
+supported. SSML is especially useful if you want to use index marks
+or include changes of voice parameters into the text.
+
+@code{mode} is the requeted data mode: @code{SPD_DATA_TEXT} or
+@code{SPD_DATA_SSML}.
 
 @deffn {C API function}  int spd_set_language(SPDConnection* connection, char* language);
 @findex spd_set_language()

@@ -33,7 +33,12 @@
 @vskip 0pt plus 1filll
 
 Tento manuál se vzathuje ke Speech Dispatcher, verze @value{VERSION}.
-Jedná se v¹ak pouze o u¾ivatelskou èást dokumentace.
+Jedná se v¹ak pouze o u¾ivatelskou èást dokumentace a upozoròujeme, ¾e
+tento pøeklad ji¾ není aktuální! Poskytujeme jej s tím, ¾e mo¾ná bude
+u¾iteèný a to zejména v sekcích, které popisují obecné koncepty a
+my¹lenky projektu, a to tìm, kteøí si nemohou pøeèíst anglickou
+dokumentaci. Nikdo by nicménì nemìl spoléhat na technické detaily zde
+uvedené, proto¾e mnoho vìcí je ji¾ dnes jinak.
 
 Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
 
@@ -52,8 +57,13 @@ je pøilo¾ena v sekci nazvané ,,GNU Free Documentation License''.
 @ifnottex
 @node Top, Úvod, (dir), (dir)
 
-Tento manuál dokumentuje Speech Dispatcher, verze @value{VERSION}.
-Jedná se v¹ak pouze o u¾ivatelskou èást dokumentace.
+Tento manuál se vzathuje ke Speech Dispatcher, verze @value{VERSION}.
+Jedná se v¹ak pouze o u¾ivatelskou èást dokumentace a upozoròujeme, ¾e
+tento pøeklad ji¾ není aktuální! Poskytujeme jej s tím, ¾e mo¾ná bude
+u¾iteèný a to zejména v sekcích, které popisují obecné koncepty a
+my¹lenky projektu, a to tìm, kteøí si nemohou pøeèíst anglickou
+dokumentaci. Nikdo by nicménì nemìl spoléhat na technické detaily zde
+uvedené, proto¾e mnoho vìcí je ji¾ dnes jinak.
 
 Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
 
