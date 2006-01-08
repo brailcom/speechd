@@ -26,4 +26,6 @@ ECapLetRecogn ECapLetRecognstr2ECapLetRecogn(char* str);
 
 EVoiceType str2intpriority(char* str);
 
+ECapLetRecogn str2ECapLetRecogn(char* str);
+
 #endif
