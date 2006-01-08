@@ -19,11 +19,13 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.53 2005-10-10 10:10:52 hanke Exp $
+ * $Id: speechd.h,v 1.54 2006-01-08 13:36:58 hanke Exp $
  */
 
 #ifndef SPEECHDH
 #define SPEECHDH
+
+#define _GNU_SOURCE
 
 #include <netinet/in.h>
 #include <sys/types.h>
@@ -194,5 +196,21 @@ int isanum(const char *str);
  where to refer relative paths. filename can be either
  absolute (starting with slash) or relative. */
 char* spd_get_path(char *filename, char* startdir);
+
+
+/* Functions used in speechd.c only */
+int speechd_connection_new(int server_socket);
+int speechd_connection_destroy(int fd);
+gboolean speechd_client_terminate(gpointer key, gpointer value, gpointer user);
+gboolean speechd_modules_terminate(gpointer key, gpointer value, gpointer user);
+void speechd_modules_reload(gpointer key, gpointer value, gpointer user);
+void speechd_reload_dead_modules(int sig);
+void speechd_options_init(void);
+void speechd_init(void);
+void speechd_load_configuration(int sig);
+void speechd_quit(int sig);
+int create_pid_file();
+void destroy_pid_file();
+
 
 #endif

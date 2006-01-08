@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: long_message.c,v 1.11 2005-09-12 14:41:12 hanke Exp $
+ * $Id: long_message.c,v 1.12 2006-01-08 13:36:58 hanke Exp $
  */
 
 #include <stdio.h>
@@ -30,9 +30,7 @@
 
 int main() {
    SPDConnection *sockfd;
-   int err;
-   int i, j;
-   
+
 	printf("Start of the test.\n");
    
 	printf("Trying to initialize Speech Dispatcher...");

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: compare.c,v 1.2 2003-04-15 10:09:00 pdm Exp $
+ * $Id: compare.c,v 1.3 2006-01-08 13:36:57 hanke Exp $
  */
 
 #include <glib.h>
@@ -33,7 +33,6 @@ gint (*p_msg_uid_lc)() = compare_message_uid;
 gint
 compare_message_fd (gconstpointer element, gconstpointer value, gpointer x)
 {
-    int ret;
     int *fd_val;
     TSpeechDMessage *message;
 

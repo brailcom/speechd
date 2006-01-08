@@ -19,9 +19,10 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.h,v 1.22 2005-12-07 08:47:08 hanke Exp $
+ * $Id: libspeechd.h,v 1.23 2006-01-08 13:36:56 hanke Exp $
  */
 
+#define _GNU_SOURCE
 
 #include <stdio.h>
 #include <pthread.h>
@@ -217,8 +218,13 @@ int spd_set_output_module(SPDConnection* connection, const char* output_module);
 int spd_set_output_module_all(SPDConnection* connection, const char* output_module);
 int spd_set_output_module_uid(SPDConnection* connection, const char* output_module, unsigned int uid);
 
+int spd_get_client_list(SPDConnection *connection, char **client_names, int *client_ids, int* active);
+int spd_get_message_list_fd(SPDConnection *connection, int target, int *msg_ids, char **client_names);
+
+
 /* Direct SSIP communication */
 int spd_execute_command(SPDConnection* connection, char* command);
+int spd_execute_command_with_reply(SPDConnection *connection, char* command, char **reply);
 int spd_execute_command_wo_mutex(SPDConnection *connection, char* command);
 char* spd_send_data(SPDConnection* connection, const char *message, int wfr);
 char* spd_send_data_wo_mutex(SPDConnection *connection, const char *message, int wfr);

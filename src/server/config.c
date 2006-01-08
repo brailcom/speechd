@@ -19,12 +19,14 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: config.c,v 1.10 2005-09-12 14:34:20 hanke Exp $
+ * $Id: config.c,v 1.11 2006-01-08 13:36:57 hanke Exp $
  */
 
 #include <dotconf.h>
 
 #include "speechd.h"
+#include "config.h"
+#include "intl/fdsetconv.h"
 
 static TFDSetClientSpecific *cl_spec_section;
 
@@ -60,7 +62,7 @@ free_config_options(configoption_t *opts, int *num)
 
     if (opts == NULL) return;
 
-    for(i==0; i<=(*num)-1; i++){
+    for(i=0; i<=(*num)-1; i++){
         spd_free((char*) opts[i].name);
     }
     spd_free(opts);

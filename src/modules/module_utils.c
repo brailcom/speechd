@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.38 2005-12-07 08:29:46 hanke Exp $
+ * $Id: module_utils.c,v 1.39 2006-01-08 13:36:57 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -145,7 +145,8 @@ do_pause(void)
    
     ret = module_pause(); 
     if (ret){
-	return strdup("300 ERR NOT PAUSED");
+	DBG("WARNING: Can't pause");
+	return;
     }
 
     return;
@@ -303,7 +304,6 @@ module_strip_punctuation_some(char *message, char *punct_chars)
 {
     int len;
     char *p = message;
-    int pchar_bytes;
     int i;
     assert(message != NULL);
 
@@ -442,7 +442,7 @@ size_t
 module_parent_wfork(TModuleDoublePipe dpipe, const char* message, EMessageType msgtype,
                     const size_t maxlen, const char* dividers, int *pause_requested)
 {
-    int pos = 0;
+    size_t pos = 0;
     char msg[16];
     char *buf;
     int bytes;

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: festival.c,v 1.68 2005-10-29 06:42:57 hanke Exp $
+ * $Id: festival.c,v 1.69 2006-01-08 13:36:57 hanke Exp $
  */
 
 #include "fdset.h"
@@ -38,14 +38,12 @@ DECLARE_DEBUG();
 
 /* Thread and process control */
 static pthread_t festival_speak_thread;
-static pid_t festival_child_pid = 0;
 static sem_t *festival_semaphore;
 static int festival_speaking = 0;
 static int festival_pause_requested = 0;
 
 static char **festival_message;
 static EMessageType festival_message_type;
-static int festival_position = 0;
 signed int festival_volume = 0;
 
 int festival_stop_request = 0;
@@ -88,6 +86,8 @@ void festival_set_volume(signed int volume);
 
 int init_festival_standalone();
 int init_festival_socket();
+
+int is_text(EMessageType msg_type);
 
 MOD_OPTION_1_INT(FestivalComunicationType);
 
@@ -509,10 +509,6 @@ _festival_speak(void* nothing)
     int r;
 
     char *callback;
-
-    char *error;
-
-    AudioID *id;
 
     DBG("festival: speaking thread starting.......\n");
 

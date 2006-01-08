@@ -19,13 +19,15 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: say.c,v 1.11 2005-12-22 13:23:27 hanke Exp $
+ * $Id: say.c,v 1.12 2006-01-08 13:36:56 hanke Exp $
  */
 
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include <assert.h>
 #include <semaphore.h>
+#include <error.h>
 #include <errno.h>
 #include "libspeechd.h"
 #include "options.h"
@@ -91,7 +93,6 @@ int main(int argc, char **argv) {
 	   printf("Invalid language!\n");
 
    if (voice_type != NULL){
-       int ret;
        if (!strcmp(voice_type, "male1")){
 	   if(spd_set_voice_type(conn, SPD_MALE1))
 	       printf("Can't set this voice!\n");

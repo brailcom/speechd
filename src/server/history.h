@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.h,v 1.9 2003-10-12 23:31:56 hanke Exp $
+ * $Id: history.h,v 1.10 2006-01-08 13:36:57 hanke Exp $
  */
 
 #ifndef HISTORY_H
@@ -36,10 +36,16 @@ char* history_cursor_set_pos(int fd, guint client_id, int pos);
 char* history_cursor_next(int fd);
 char* history_cursor_prev(int fd);
 char* history_cursor_get(int fd);
+char* history_cursor_forward(int fd);
+char* history_cursor_backward(int fd);
 char* history_say_id(int fd, int id);
+char* history_get_client_id(int fd);
+char* history_get_message(int uid);
 
 /* Internal functions */
 GList* get_messages_by_client(int uid);
+int message_compare_id (gconstpointer element, gconstpointer value, gpointer n);
+
 
 #endif /* HISTORY_H */
 

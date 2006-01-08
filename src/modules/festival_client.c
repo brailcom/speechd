@@ -681,9 +681,10 @@ festivalGetDataMulti(FT_Info *info, char **callback, int *stop_flag, int stop_by
         }
     }while (strcmp(ack,"OK\n") != 0);
 
-    if (resp)
+    if (resp){
 	if ((strlen(resp) > 0) && (resp[0] != '#')) *callback = resp;
 	else free (resp);
+    }
 
     return wave;
 }
@@ -726,11 +727,12 @@ int festivalClose(FT_Info *info)
 	} \
         ret = festival_read_response(info, &r); \
         if (ret != 0) return -1; \
-        if (r != NULL) \
+        if (r != NULL){ \
           if (resp != NULL) \
              *resp = r; \
           else \
              free(r); \
+        } \
         return ret; \
     }
 

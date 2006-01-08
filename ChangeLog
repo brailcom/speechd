@@ -1,11 +1,15 @@
-2005-12-22  Hynek Hanke  <hanke@chopin>
+2006-01-08  Hynek Hanke  <hanke@chopin>
 
+	* : Missing declarations fixed, cleaning w/r to gcc -Wall
+
+2005-12-22  Hynek Hanke  <hanke@brailcom.org>
+	
 	* src/c/clients/say/say.c, options.c, options.h: Allow setting of
 	client name and connection name.
 	
 	* version.sh: version 0.6rc1
 
-2005-12-07  Hynek Hanke  <hanke@chopin>
+2005-12-07  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/c/api/libspeechd.c (spd_execute_command_with_reply): Don't use mutex.
 
@@ -40,12 +44,12 @@ x
 
 	* src/c/api/libspeechd.c: libspeechd should now be thread-safe.
 
-2005-11-30  root  <hanke@chopin>
+2005-11-30  root  <hanke@brailcom.org>
 
 	* src/server/server.c (queue_message): Return id, not new->id, since new doesn't have to exist
 	after resolve_priorities().
 
-2005-11-30  Hynek Hanke  <hanke@chopin>
+2005-11-30  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/modules/generic.c (_generic_speak): If no voice is found, print "no_voice"
 	into the command string.
@@ -66,7 +70,7 @@ x
 	assigne NULL to *index_mark, not index_mark.
 	(output_module_is_speaking): Added more debugging.
 
-2005-11-21  Hynek Hanke  <hanke@chopin>
+2005-11-21  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/c/api/libspeechd.h (spd_set_data_mode): Added.
 
@@ -76,12 +80,12 @@ x
 
 	* src/c/api/libspeechd.c (spd_events_handler): Bugfix: reply_code >= 700
 
-2005-11-08  Hynek Hanke  <hanke@chopin>
+2005-11-08  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/audio/alsa.c (alsa_play): Call snd_pcm_drop at the end of
 	playback.
 
-2005-10-29  Hynek Hanke  <hanke@chopin>
+2005-10-29  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/output.c
 	(waitpid_with_timeout): New function.
@@ -111,7 +115,7 @@ x
 	to avoid crack sounds and go around the buggy place in
 	alsa lib which brings all ALSA apps down when reached.
 
-2005-10-26  Hynek Hanke  <hanke@chopin>
+2005-10-26  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/modules/module_utils.c (module_report_index_mark): Index marking
 	splitted into index marks and events signalization.
@@ -124,7 +128,7 @@ x
 	doesn't succeed in 1 seccond, kill the module.
 	(waitpid_with_timeout): New function.
 
-2005-10-16  Hynek Hanke  <hanke@chopin>
+2005-10-16  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/modules/festival.c (module_close): Only close audio if festival_audio_id != NULL.
 
@@ -136,7 +140,7 @@ x
 
 	* src/audio/alsa.c (_alsa_close): Only close the device if it wasn't closed earlier.
 
-2005-10-16  Hynek Hanke  <hanke@chopin>
+2005-10-16  Hynek Hanke  <hanke@brailcom.org>
 	
 	* src/modules/festival.c (module_speak): Handle
 	festival_connection_crashed == 1
@@ -167,7 +171,7 @@ x
 	* src/server/speechd.c (main): Detach only after all initialization took place
 	and Speech Dispatcher is ready to accept new connections.
 
-2005-10-12  Hynek Hanke  <hanke@chopin>
+2005-10-12  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/speaking.c (speak): Activity events POLLPRI added to POLLIN.
 	(is_sb_speaking): Use speaking_semaphore_post() after CANCEL notification from
@@ -187,7 +191,7 @@ x
 
 	* src/modules/festival.c (_festival_speak): Signal STOPPED instead of END on festival_stop.
 
-2005-10-10  Hynek Hanke  <hanke@chopin>
+2005-10-10  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/speechd.h (speaking_pipe): New global variable.
 
@@ -223,11 +227,11 @@ x
 	* src/server/speaking.c (speak): Use pipes and poll() instead of
 	semaphore.
 
-2005-10-05  Hynek Hanke  <hanke@chopin>
+2005-10-05  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/speechd.c (speechd_init): Semaphore sanity test temporarily disabled.
 
-2005-09-12  Hynek Hanke  <hanke@chopin>
+2005-09-12  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/audio/alsa.c (_alsa_close): Removed redundant free().
 

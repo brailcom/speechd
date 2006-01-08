@@ -19,12 +19,14 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.76 2005-12-07 08:22:52 hanke Exp $
+  * $Id: server.c,v 1.77 2006-01-08 13:36:57 hanke Exp $
   */
 
 #include "speechd.h"
+#include "server.h"
 #include "set.h"
 #include "speaking.h"
+#include "sem_functions.h"
 
 int last_message_id = 0;
 
@@ -51,7 +53,6 @@ int
 queue_message(TSpeechDMessage *new, int fd, int history_flag,
               EMessageType type, int reparted)
 {
-    GList *gl;
     TFDSetElement *settings;
     TSpeechDMessage *hist_msg;
     int id;

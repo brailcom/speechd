@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: config.h,v 1.1 2003-10-12 23:30:00 hanke Exp $
+ * $Id: config.h,v 1.2 2006-01-08 13:36:57 hanke Exp $
  */
 
 #ifndef CONFIG_H
@@ -38,5 +38,7 @@ configoption_t *
 add_config_option(configoption_t *options, int *num_config_options, char *name, int type,
                   dotconf_callback_t callback, info_t *info,
                   unsigned long context);
+
+void load_default_global_set_options();
 
 #endif

@@ -19,17 +19,18 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: clibrary.c,v 1.4 2005-09-12 14:40:35 hanke Exp $
+ * $Id: clibrary.c,v 1.5 2006-01-08 13:36:58 hanke Exp $
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #include "libspeechd.h"
 #include "def.h"
 
 int main() {
    SPDConnection* conn;
-   int err;
    int i;   
    
    printf("Start of the test of the test.\n");

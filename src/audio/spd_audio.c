@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: spd_audio.c,v 1.14 2005-07-02 12:15:55 hanke Exp $
+ * $Id: spd_audio.c,v 1.15 2006-01-08 13:36:56 hanke Exp $
  */
 
 /* 
@@ -36,6 +36,8 @@
 #include <sys/soundcard.h>
 #include <sys/fcntl.h>
 #include <sys/ioctl.h>
+#include <sys/time.h>
+#include <time.h>
 #include <unistd.h>
 #include <errno.h>
 
@@ -285,4 +287,5 @@ spd_audio_set_volume(AudioID *id, int volume)
     }
 
     id->volume = volume;
+    return 0;
 }

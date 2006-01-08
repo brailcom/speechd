@@ -19,12 +19,13 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: history.c,v 1.21 2005-09-12 14:34:51 hanke Exp $
+ * $Id: history.c,v 1.22 2006-01-08 13:36:57 hanke Exp $
  */
 
 #include "speechd.h"
 #include "msg.h"
 #include "set.h"
+#include "server.h"
 
 #include "history.h"
 
@@ -45,7 +46,6 @@ history_get_client_list()
 {
     TFDSetElement *client;
     GString *clist;
-    GList *cursor;
     int i;
 
     clist = g_string_new("");
@@ -85,6 +85,8 @@ history_get_client_id(int fd)
 char*
 history_get_message(int uid)
 {
+    /* TODO: Rework. */
+#if 0
     GString *mtext;
     GList *gl;
     TSpeechDMessage *msg;
@@ -92,8 +94,6 @@ history_get_message(int uid)
     char c;
     char helper[1024];
 
-    /* TODO: Rework. */
-#if 0
     mtext = g_string_new("");
 
     gl = g_list_find_custom(message_history, &uid, compare_message_uid);
@@ -233,7 +233,6 @@ history_cursor_set_pos(int fd, guint client_id, int pos)
 char*
 history_cursor_forward(int fd)
 {
-	GList *client;
 	TFDSetElement *settings;
 	GList *client_msgs;
 	
@@ -251,7 +250,6 @@ char*
 history_cursor_backward(int fd)
 {
 	TFDSetElement *settings;
-	GList *client_msgs;
 
 	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL) FATAL("Couldn't find settings for active client");
@@ -287,7 +285,6 @@ history_cursor_get(int fd)
 char*
 history_say_id(int fd, int id)
 {
-	GList *client;
 	TSpeechDMessage *msg, *new;
 	GList *gl; 
 
@@ -298,7 +295,7 @@ history_say_id(int fd, int id)
 
 	MSG(4,"putting history message into queue\n");
 	new = (TSpeechDMessage*) spd_message_copy(msg);
-	queue_message(new, fd, 0, 0);
+	//	queue_message(new, fd, 0, 0);
 
 	return strdup(OK_MESSAGE_QUEUED);
 }
@@ -306,7 +303,7 @@ history_say_id(int fd, int id)
 GList*
 get_messages_by_client(int uid){
 	GList *list = NULL;
-	GList *gl, *temp;
+	GList *gl;
 	TSpeechDMessage* msg;
 	int i;
 

@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: index_marking.c,v 1.12 2005-09-12 14:35:07 hanke Exp $
+  * $Id: index_marking.c,v 1.13 2006-01-08 13:36:57 hanke Exp $
   */
 
 #include "index_marking.h"
@@ -29,15 +29,12 @@ void
 insert_index_marks(TSpeechDMessage *msg, int ssml_mode)
 {
     GString *marked_text;
-    int i;
-    size_t len;
     char* pos;
     char character[6];
     char character2[6];
     gunichar u_char;
     int n = 0;
     int ret;
-    int insert = 0;
     int inside_tag = 0;
 
     marked_text = g_string_new("");

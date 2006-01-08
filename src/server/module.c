@@ -19,12 +19,16 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.27 2005-10-29 07:00:59 hanke Exp $
+ * $Id: module.c,v 1.28 2006-01-08 13:36:57 hanke Exp $
  */
+
+#define _GNU_SOURCE
 
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <stdio.h>
 #include "speechd.h"
+#include "output.h"
 
 void
 destroy_module(OutputModule *module)
@@ -43,8 +47,6 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
     char *arg1;
     int cfg = 0;
     int ret;
-    char buf[256];
-    int dbgfile;
 
     if (mod_name == NULL) return NULL;
     
@@ -155,7 +157,7 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 	}else{
 	    char *rep_line = malloc(1024);
 	    FILE *f;
-	    int n = 1024;
+	    size_t n = 1024;
 	    char s;
 	    GString *reply;
 
@@ -227,7 +229,6 @@ reload_output_module(OutputModule *old_module)
 
     assert(old_module != NULL); assert(old_module->name != NULL);
 
-    if (old_module->working) output_module_is_speaking(old_module);
     if (old_module->working) return 0;
 
     MSG(3, "Reloading output module %s", old_module->name);    

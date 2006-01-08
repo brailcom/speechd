@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.49 2005-12-07 08:43:20 hanke Exp $
+ * $Id: flite.c,v 1.50 2006-01-08 13:36:57 hanke Exp $
  */
 
 
@@ -40,7 +40,6 @@ DECLARE_DEBUG();
 static int flite_speaking = 0;
 
 static pthread_t flite_speak_thread;
-static pid_t flite_pid;
 static sem_t *flite_semaphore;
 
 static char **flite_message;
@@ -188,8 +187,6 @@ module_init(char **status_info)
 int
 module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 {
-    char *temp;
-
     DBG("write()\n");
 
     if (flite_speaking){
@@ -284,13 +281,10 @@ _flite_speak(void* nothing)
 {	
     AudioTrack track;
     cst_wave *wav;
-    void *oss_pars[2];
-    int pos;
+    unsigned int pos;
     char *buf;
     int bytes;
     int ret;
-    char *error;
-    AudioID *id;
 
     DBG("flite: speaking thread starting.......\n");
 
@@ -422,8 +416,6 @@ flite_set_rate(signed int rate)
 static void
 flite_set_volume(signed int volume)
 {
-    float stretch = 1;
-
     assert(volume >= -100 && volume <= +100);
     flite_volume = volume;
 }

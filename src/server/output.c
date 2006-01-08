@@ -18,16 +18,13 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.c,v 1.26 2005-12-07 08:24:47 hanke Exp $
+ * $Id: output.c,v 1.27 2006-01-08 13:36:57 hanke Exp $
  */
 
 #include "output.h"
 
 #include "fdsetconv.c"
 #include "parse.h"
-
-/* TODO: Correct macro */
-#define TEMP_FAILURE_RETRY(expr) (expr)
 
 void
 output_set_speaking_monitor(TSpeechDMessage *msg, OutputModule *output)
@@ -38,7 +35,7 @@ output_set_speaking_monitor(TSpeechDMessage *msg, OutputModule *output)
     speaking_gid = msg->settings.reparted;
 }
 
-static OutputModule*
+OutputModule*
 get_output_module(const TSpeechDMessage *message)
 {
     OutputModule *output = NULL;
@@ -85,7 +82,7 @@ output_read_reply(OutputModule *output)
     GString *rstr;
     int bytes;
     char *line = NULL;
-    int N = 0;
+    size_t N = 0;
     char *reply;
     
     rstr = g_string_new("");
@@ -115,10 +112,7 @@ output_read_reply(OutputModule *output)
 char*
 output_read_reply2(OutputModule *output)
 {
-    GString *rstr;
     int bytes;
-    char *line = NULL;
-    int N = 0;
     char *reply;
     
 
@@ -330,8 +324,6 @@ output_pause()
 int
 output_module_is_speaking(OutputModule *output, char **index_mark)
 {
-    int err;
-    int ret;
     char *response;
 
     output_lock();
@@ -532,7 +524,6 @@ escape_dot(char *otext)
     char *seq;
     GString *ntext;
     char *ootext;
-    char *line;
     char *ret = NULL;
     int len;
 

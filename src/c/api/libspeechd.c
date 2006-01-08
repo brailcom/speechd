@@ -19,19 +19,26 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.24 2005-12-07 09:34:22 hanke Exp $
+ * $Id: libspeechd.c,v 1.25 2006-01-08 13:36:56 hanke Exp $
  */
 
+
+#define _GNU_SOURCE
+
 #include <sys/types.h>
+#include <wchar.h>
 #include <sys/socket.h>
 #include <netinet/tcp.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
+#include <ctype.h>
 #include <glib.h>
 #include <errno.h>
 #include <assert.h>
@@ -51,7 +58,6 @@ static char* get_reply(SPDConnection *connection);
 static int get_err_code(char *reply);
 static char* get_param_str(char* reply, int num, int *err);
 static int get_param_int(char* reply, int num, int *err);
-static char* parse_response_data(char *resp, int pos);
 static void *xmalloc(size_t bytes);
 static void xfree(void *ptr);   
 static int ret_ok(char *reply);
@@ -72,7 +78,6 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
     struct sockaddr_in address;
     SPDConnection *connection;
     char *set_client_name;
-    char *reply;
     char* conn_name;
     char* usr_name;
     char *env_port;
@@ -458,12 +463,99 @@ spd_sound_icon(SPDConnection *connection, SPDPriority priority, const char *icon
     return 0;
 }
 
+int
+spd_w_set_punctuation(SPDConnection *connection, SPDPunctuation type, const char* who)
+{
+    char command[32];
+    int ret;
+
+    if (type == SPD_PUNCT_ALL)
+        sprintf(command, "SET %s PUNCTUATION all", who);
+    if (type == SPD_PUNCT_NONE)
+        sprintf(command, "SET %s PUNCTUATION none", who);
+    if (type == SPD_PUNCT_SOME)
+        sprintf(command, "SET %s PUNCTUATION some", who);
+
+    ret = spd_execute_command(connection, command);    
+    
+    return ret;
+}
+
+int
+spd_w_set_capital_letters(SPDConnection *connection, SPDCapitalLetters type, const char* who)
+{
+    char command[64];
+    int ret;
+
+    if (type == SPD_CAP_NONE)
+        sprintf(command, "SET %s CAP_LET_RECOGN none", who);
+    if (type == SPD_CAP_SPELL)
+        sprintf(command, "SET %s CAP_LET_RECOGN spell", who);
+    if (type == SPD_CAP_ICON)
+        sprintf(command, "SET %s CAP_LET_RECOGN icon", who);
+
+    ret = spd_execute_command(connection, command);    
+    
+    return ret;
+}
+
+int
+spd_w_set_spelling(SPDConnection *connection, SPDSpelling type, const char* who)
+{
+    char command[32];
+    int ret;
+
+    if (type == SPD_SPELL_ON)
+        sprintf(command, "SET %s SPELLING on", who);
+    if (type == SPD_SPELL_OFF)
+        sprintf(command, "SET %s SPELLING off", who);
+
+    ret = spd_execute_command(connection, command);
+
+    return ret;
+}
+
+int
+spd_set_data_mode(SPDConnection *connection, SPDDataMode mode)
+{
+    char command[32];
+    int ret;
+
+    if (mode == SPD_DATA_TEXT)
+        sprintf(command, "SET SELF SSML_MODE off");
+    if (mode == SPD_DATA_SSML)
+        sprintf(command, "SET SELF SSML_MODE on");
+
+    ret = spd_execute_command(connection, command);
+
+    return ret;
+}
+
+int
+spd_w_set_voice_type(SPDConnection *connection, SPDVoiceType type, const char *who)
+{
+    static char command[64];
+
+    switch(type){
+    case SPD_MALE1: sprintf(command, "SET %s VOICE MALE1", who); break;
+    case SPD_MALE2: sprintf(command, "SET %s VOICE MALE2", who); break;
+    case SPD_MALE3: sprintf(command, "SET %s VOICE MALE3", who); break;
+    case SPD_FEMALE1: sprintf(command, "SET %s VOICE FEMALE1", who); break;
+    case SPD_FEMALE2: sprintf(command, "SET %s VOICE FEMALE2", who); break;
+    case SPD_FEMALE3: sprintf(command, "SET %s VOICE FEMALE3", who); break;
+    case SPD_CHILD_MALE: sprintf(command, "SET %s VOICE CHILD_MALE", who); break;
+    case SPD_CHILD_FEMALE: sprintf(command, "SET %s VOICE CHILD_FEMALE", who); break;
+    default: return -1;
+    }
+    
+    return spd_execute_command(connection, command);      
+}
+
 #define SPD_SET_COMMAND_INT(param, ssip_name, condition) \
     int \
     spd_w_set_ ## param (SPDConnection *connection, signed int val, const char* who) \
     { \
         static char command[64]; \
-        int ret; \
         if ((!condition)) return -1; \
         sprintf(command, "SET %s " #ssip_name " %d", who, val); \
         return spd_execute_command(connection, command); \
@@ -553,94 +645,6 @@ SPD_SET_COMMAND_SPECIAL(voice_type, SPDVoiceType);
 #undef SPD_SET_COMMAND_SPECIAL
 
 int
-spd_w_set_punctuation(SPDConnection *connection, SPDPunctuation type, const char* who)
-{
-    char command[32];
-    int ret;
-
-    if (type == SPD_PUNCT_ALL)
-        sprintf(command, "SET %s PUNCTUATION all", who);
-    if (type == SPD_PUNCT_NONE)
-        sprintf(command, "SET %s PUNCTUATION none", who);
-    if (type == SPD_PUNCT_SOME)
-        sprintf(command, "SET %s PUNCTUATION some", who);
-
-    ret = spd_execute_command(connection, command);    
-    
-    return ret;
-}
-
-int
-spd_w_set_capital_letters(SPDConnection *connection, SPDCapitalLetters type, const char* who)
-{
-    char command[64];
-    int ret;
-
-    if (type == SPD_CAP_NONE)
-        sprintf(command, "SET %s CAP_LET_RECOGN none", who);
-    if (type == SPD_CAP_SPELL)
-        sprintf(command, "SET %s CAP_LET_RECOGN spell", who);
-    if (type == SPD_CAP_ICON)
-        sprintf(command, "SET %s CAP_LET_RECOGN icon", who);
-
-    ret = spd_execute_command(connection, command);    
-    
-    return ret;
-}
-
-int
-spd_w_set_spelling(SPDConnection *connection, SPDSpelling type, const char* who)
-{
-    char command[32];
-    int ret;
-
-    if (type == SPD_SPELL_ON)
-        sprintf(command, "SET %s SPELLING on", who);
-    if (type == SPD_SPELL_OFF)
-        sprintf(command, "SET %s SPELLING off", who);
-
-    ret = spd_execute_command(connection, command);
-
-    return ret;
-}
-
-int
-spd_set_data_mode(SPDConnection *connection, SPDDataMode mode)
-{
-    char command[32];
-    int ret;
-
-    if (mode == SPD_DATA_TEXT)
-        sprintf(command, "SET SELF SSML_MODE off");
-    if (mode == SPD_DATA_SSML)
-        sprintf(command, "SET SELF SSML_MODE on");
-
-    ret = spd_execute_command(connection, command);
-
-    return ret;
-}
-
-int
-spd_w_set_voice_type(SPDConnection *connection, SPDVoiceType type, const char *who)
-{
-    static char command[64];
-
-    switch(type){
-    case SPD_MALE1: sprintf(command, "SET %s VOICE MALE1", who); break;
-    case SPD_MALE2: sprintf(command, "SET %s VOICE MALE2", who); break;
-    case SPD_MALE3: sprintf(command, "SET %s VOICE MALE3", who); break;
-    case SPD_FEMALE1: sprintf(command, "SET %s VOICE FEMALE1", who); break;
-    case SPD_FEMALE2: sprintf(command, "SET %s VOICE FEMALE2", who); break;
-    case SPD_FEMALE3: sprintf(command, "SET %s VOICE FEMALE3", who); break;
-    case SPD_CHILD_MALE: sprintf(command, "SET %s VOICE CHILD_MALE", who); break;
-    case SPD_CHILD_FEMALE: sprintf(command, "SET %s VOICE CHILD_FEMALE", who); break;
-    default: return -1;
-    }
-    
-    return spd_execute_command(connection, command);      
-}
-
-int
 spd_set_notification_on(SPDConnection *connection, SPDNotification notification)
 {
     if (connection->mode == SPD_MODE_THREADED)
@@ -701,14 +705,6 @@ spd_set_notification(SPDConnection *connection, SPDNotification notification, co
 
 int
 spd_get_client_list(SPDConnection *connection, char **client_names, int *client_ids, int* active){
-	char command[128];
-	char *reply;
-	int footer_ok;
-	int count;
-	char *record;
-	int record_int;
-	char *record_str;	
-
         SPD_DBG("spd_get_client_list: History is not yet implemented.");
         return -1;
 #if 0
@@ -740,14 +736,6 @@ spd_get_client_list(SPDConnection *connection, char **client_names, int *client_
 int
 spd_get_message_list_fd(SPDConnection *connection, int target, int *msg_ids, char **client_names)
 {
-	char command[128];
-	char *reply;
-	int header_ok;
-	int count;
-	char *record;
-	int record_int;
-	char *record_str;	
-
         SPD_DBG("spd_get_client_list: History is not yet implemented.");
         return -1;
 #if 0
@@ -906,7 +894,7 @@ get_reply(SPDConnection *connection)
 {
     GString *str;
     char *line = NULL;
-    int N = 0;
+    size_t N = 0;
     int bytes;
     char *reply;
 
@@ -935,7 +923,6 @@ spd_events_handler(void* conn)
 {
     char *reply;
     int reply_code;
-    int ret;
     SPDConnection *connection = conn;
 
     while(1){
@@ -1005,6 +992,7 @@ spd_events_handler(void* conn)
 	    /* Continue */	
 	}
     }
+    return 0; 			/* to please gcc */
 }
 
 static int
@@ -1162,7 +1150,6 @@ escape_dot(const char *text)
     GString *ntext;
     char *p;
     char *otext;
-    char *line;
     char *ret = NULL;
     int len;
 

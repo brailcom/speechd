@@ -211,7 +211,7 @@ static Success forward_ssip_answer (Stream from, Stream to, bool _closep)
 {
   int result = OK;
   FILE *f = fdopen (from, "r");
-  int line_size = 256;
+  size_t line_size = 256;
   char *line = malloc (line_size);
   if (line == NULL)
     system_error ("memory allocation");
@@ -363,7 +363,7 @@ static void serve ()
   while (1)
     {
       struct sockaddr_un client_address;
-      int client_address_len = sizeof (client_address);
+      size_t client_address_len = sizeof (client_address);
       Stream *s = malloc (sizeof (Stream));
       if (s == NULL)
         system_error ("memory allocation");

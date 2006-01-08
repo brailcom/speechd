@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.h,v 1.6 2005-12-22 13:34:12 hanke Exp $
+ * $Id: options.h,v 1.7 2006-01-08 13:36:56 hanke Exp $
  */
 
 #include <getopt.h>
@@ -61,3 +61,7 @@ static struct option long_options[] = {
 };
 
 static char* short_options = "r:p:i:l:o:t:m:sP:N:n:wSCvh";
+
+int options_parse(int argc, char *argv[]);
+void options_print_version();
+void options_print_help(char *argv[]);

@@ -18,13 +18,13 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: output.h,v 1.4 2005-09-12 14:37:27 hanke Exp $
+ * $Id: output.h,v 1.5 2006-01-08 13:36:57 hanke Exp $
  */
 
 #include "speechd.h"
 #include "speaking.h"
 
-static OutputModule* get_output_module(const TSpeechDMessage *message);
+OutputModule* get_output_module(const TSpeechDMessage *message);
 
 int output_speak(TSpeechDMessage *msg);
 int output_stop();
@@ -34,3 +34,12 @@ int output_is_speaking(char **index_mark);
 int output_check_module(OutputModule* output);
 
 char* escape_dot(char *otext);
+
+void output_set_speaking_monitor(TSpeechDMessage *msg, OutputModule *output);
+char* output_read_reply(OutputModule *output);
+char* output_read_reply2(OutputModule *output);
+int output_send_data(char* cmd, OutputModule *output, int wfr);
+int output_send_settings(TSpeechDMessage *msg, OutputModule *output);
+int output_module_is_speaking(OutputModule *output, char **index_mark);
+int waitpid_with_timeout(pid_t pid, int *status_ptr, int options, size_t timeout);
+int output_close(OutputModule *module);

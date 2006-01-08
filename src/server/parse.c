@@ -18,14 +18,18 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: parse.c,v 1.64 2005-09-12 14:38:03 hanke Exp $
+ * $Id: parse.c,v 1.65 2006-01-08 13:36:57 hanke Exp $
  */
+
+#include <ctype.h>
 
 #include "speechd.h"
 
 #include "set.h"
 #include "history.h"
 #include "msg.h"
+#include "server.h"
+#include "sem_functions.h"
 
 /*
   Parse() receives input data and parses them. It can
@@ -56,14 +60,8 @@ char*
 parse(const char *buf, const int bytes, const int fd)
 {
     TSpeechDMessage *new;
-    TFDSetElement *settings;
-    GList *gl;
     char *command;
-    char *param;
-    int helper;
-    char *ret;
-    int r, i;
-    int v;
+    int r;
     int end_data;
     char *pos;
     int reparted;
@@ -554,7 +552,6 @@ parse_set(const char *buf, const int bytes, const int fd)
 	char *scope;
         char *par_s;
 	int par;
-        EPunctMode punctuation_mode;
 
 	if (who != 0) return strdup(ERR_PARAMETER_INVALID);
 
@@ -649,7 +646,6 @@ parse_cancel(const char *buf, const int bytes, const int fd)
 char*
 parse_pause(const char *buf, const int bytes, const int fd)
 {
-    int ret;
     int uid = 0;
     char *who_s;
 
@@ -692,7 +688,6 @@ parse_pause(const char *buf, const int bytes, const int fd)
 char*
 parse_resume(const char *buf, const int bytes, const int fd)
 {
-    int ret;
     int uid = 0;
     char *who_s;
 
@@ -725,7 +720,6 @@ char*
 parse_general_event(const char *buf, const int bytes, const int fd, EMessageType type)
 {
     char *param;
-    int ret;
     TSpeechDMessage *msg;
 
     GET_PARAM_STR(param, 1, NO_CONV);
@@ -852,7 +846,6 @@ deescape_dot(char *otext)
     char *seq;
     GString *ntext;
     char *ootext;
-    char *line;
     char *ret = NULL;
     int len;
 
@@ -939,7 +932,6 @@ get_param(const char *buf, const int n, const int bytes, const int lower_case)
     char* param;
     char* par;
     int i, y, z;
-    int quote_open = 0;
 
     param = (char*) spd_malloc(bytes);
     assert(param != NULL);

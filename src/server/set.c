@@ -19,8 +19,10 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.38 2005-09-12 14:39:43 hanke Exp $
+ * $Id: set.c,v 1.39 2006-01-08 13:36:58 hanke Exp $
  */
+
+#include <fnmatch.h>
 
 #include "set.h"
 #include "alloc.h"
@@ -233,6 +235,7 @@ set_language_uid(int uid, char *language)
      set->name = strdup(cl_set->val.name); \
             MSG(4,"parameter " #name " set to %s", cl_set->val.name); \
    }
+
 void
 update_cl_settings(gpointer data, gpointer user_data)
 {
@@ -310,6 +313,7 @@ set_output_module_uid(int uid, char* output_module)
 
 SET_SELF_ALL(int, pause_context);
 
+int
 set_pause_context_uid(int uid, int pause_context)
 {
     TFDSetElement *settings;
@@ -323,6 +327,7 @@ set_pause_context_uid(int uid, int pause_context)
 
 SET_SELF_ALL(int, ssml_mode);
 
+int
 set_ssml_mode_uid(int uid, int ssml_mode)
 {
     TFDSetElement *settings;
@@ -339,7 +344,7 @@ set_ssml_mode_uid(int uid, int ssml_mode)
 	    settings->notification = settings->notification | NOTIFY_ ## state; \
         else \
 	    settings->notification = settings->notification & (! NOTIFY_ ## state); 
-
+int
 set_notification_self(int fd, char *type, int val)
 {
     TFDSetElement *settings;

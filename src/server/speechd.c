@@ -18,8 +18,10 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.63 2005-10-16 15:09:37 hanke Exp $
+ * $Id: speechd.c,v 1.64 2006-01-08 13:36:58 hanke Exp $
  */
+
+#include <gmodule.h>
 
 #include "speechd.h"
 
@@ -32,6 +34,8 @@
 #include "sem_functions.h"
 #include "speaking.h"
 #include "set.h"
+#include "options.h"
+#include "server.h"
 
 /* Manipulating pid files */
 int create_pid_file();
@@ -102,10 +106,12 @@ MSG2(int level, char *kind, char *format, ...)
                 assert(strlen(tstr)>1);
                 tstr[strlen(tstr)-1] = 0;
                 if(std_log) {
-                    fprintf(logfile, "[%s : %d] speechd: ", tstr, tv.tv_usec);
+                    fprintf(logfile, "[%s : %d] speechd: ",
+			    tstr, (int) tv.tv_usec);
                 }
                 if(custom_log) {
-                    fprintf(custom_logfile, "[%s : %d] speechd: ", tstr, tv.tv_usec);
+                    fprintf(custom_logfile, "[%s : %d] speechd: ",
+			    tstr, (int) tv.tv_usec);
                 }
 		spd_free(tstr);
             }
@@ -161,7 +167,8 @@ MSG(int level, char *format, ...)
                 /* Remove the trailing \n */
                 assert(strlen(tstr)>1);
                 tstr[strlen(tstr)-1] = 0;
-                fprintf(logfile, "[%s : %d] speechd: ", tstr, tv.tv_usec);
+                fprintf(logfile, "[%s : %d] speechd: ",
+			tstr, (int) tv.tv_usec);
 		spd_free(tstr);
             }
             for(i=1;i<level;i++){
@@ -186,9 +193,7 @@ speechd_connection_new(int server_socket)
     struct sockaddr_in client_address;
     unsigned int client_len = sizeof(client_address);
     int client_socket;
-    int v;
     int *p_client_socket, *p_client_uid;
-    GList *gl;
 
     client_socket = accept(server_socket, (struct sockaddr *)&client_address,
                            &client_len);
@@ -244,8 +249,6 @@ int
 speechd_connection_destroy(int fd)
 {
 	TFDSetElement *fdset_element;
-	GList *gl;
-	int v;
 	
 	/* Client has gone away and we remove it from the descriptor set. */
 	MSG(4,"Removing client on fd %d", fd);
@@ -361,12 +364,8 @@ void
 speechd_init(void)
 {
     int START_NUM_FD = 16;
-    configfile_t *configfile = NULL;
-    char *configfilename = SYS_CONF"/speechd.conf" ;
     int ret;
-    char *p;
     int i;
-    int v;
 
 
     SpeechdStatus.max_uid = 0;
@@ -604,7 +603,6 @@ main(int argc, char *argv[])
 {
     struct sockaddr_in server_address;    
     fd_set testfds;
-    int i, v;
     int fd;
     int ret;
 

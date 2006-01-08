@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: speaking.h,v 1.9 2003-10-29 11:10:43 hanke Exp $
+  * $Id: speaking.h,v 1.10 2006-01-08 13:36:58 hanke Exp $
   */
 
 #ifndef SPEAKING_H
@@ -76,9 +76,9 @@ int stop_priority(int priority);
 void stop_from_uid(int uid);
 
 /* Decides if the message should (not) be spoken now */
-static gint message_nto_speak (gconstpointer, gconstpointer);
+gint message_nto_speak (gconstpointer, gconstpointer);
 
-static void set_speak_thread_attributes();
+void set_speak_thread_attributes();
 
 
 /* Do priority interaction */
@@ -86,13 +86,28 @@ void resolve_priorities(int priority);
 
 
 /* Queue interaction helper functions */
-static TSpeechDMessage* get_message_from_queues();
-static GList* speaking_get_queue(int priority);
-static void speaking_set_queue(int priority, GList *queue);
+TSpeechDMessage* get_message_from_queues();
+GList* speaking_get_queue(int priority);
+void speaking_set_queue(int priority, GList *queue);
 gint sortbyuid (gconstpointer a,  gconstpointer b);
 
 /* Get the unique id of the client who is speaking
  * on some output module */
 int get_speaking_client_uid();
+
+int socket_send_msg(int fd, char *msg);
+int report_index_mark(TSpeechDMessage *msg, char *index_mark);
+int report_begin (TSpeechDMessage *msg);
+int report_end (TSpeechDMessage *msg);
+int report_pause (TSpeechDMessage *msg);
+int report_resume (TSpeechDMessage *msg);
+int report_cancel (TSpeechDMessage *msg);
+
+GList* empty_queue(GList *queue);
+GList* empty_queue_by_time(GList *queue, unsigned int uid);
+
+int stop_priority_older_than(int priority, unsigned int uid);
+GList* stop_priority_from_uid(GList *queue, const int uid);
+void stop_priority_except_first(int priority);
 
 #endif /* SPEAKING_H */

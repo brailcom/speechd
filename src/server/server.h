@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: server.h,v 1.1 2003-10-12 23:34:15 hanke Exp $
+ * $Id: server.h,v 1.2 2006-01-08 13:36:58 hanke Exp $
  */
 
 #ifndef SERVER_H
@@ -31,6 +31,11 @@ int serve(int fd);
 /* Switches `receiving data' mode on and off for specified client */
 int server_data_on(int fd);
 void server_data_off(int fd);
+
+/* Put a message into Dispatcher's queue */
+int queue_message(TSpeechDMessage *new, int fd, int history_flag,
+		  EMessageType type, int reparted);
+
 
 #endif
 

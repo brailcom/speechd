@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: run_test.c,v 1.9 2005-09-12 14:41:47 hanke Exp $
+ * $Id: run_test.c,v 1.10 2006-01-08 13:36:58 hanke Exp $
  */
 
 #include <stdio.h>
@@ -29,6 +29,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
 #include <assert.h>
 
 #include "def.h"
@@ -90,11 +91,10 @@ init(char* client_name, char* conn_name)
 int
 main(int argc, char* argv[])
 {
-    int err;
     char* line;
     char* command;
     char* reply;
-    int i, j;
+    int i;
     char *ret;
     FILE* test_file = NULL;
     int delays = 1;
@@ -184,7 +184,6 @@ main(int argc, char* argv[])
         }
 
         if(line[0] == '~'){
-            int i;
             command = (char*) strtok(line, "~\r\n");
             indent = atoi(command);
             continue;

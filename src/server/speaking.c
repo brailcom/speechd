@@ -19,19 +19,21 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speaking.c,v 1.47 2005-11-23 16:27:34 hanke Exp $
+ * $Id: speaking.c,v 1.48 2006-01-08 13:36:58 hanke Exp $
  */
 
 #include <glib.h>
 #include <poll.h>
 #include "speechd.h"
+#include "server.h"
 #include "index_marking.h"
 #include "module.h"
 #include "set.h"
 #include "alloc.h"
 #include "msg.h"
-
+#include "output.h"
 #include "speaking.h"
+#include "sem_functions.h"
 
 TSpeechDMessage *current_message = NULL;
 
@@ -47,11 +49,7 @@ void*
 speak(void* data)
 {
     TSpeechDMessage *message;
-    OutputModule *output;
-    GList *gl = NULL;
-    char *buffer;
     int ret;
-    TSpeechDMessage *msg;
     struct pollfd *poll_fds; /* Descriptors to poll */
     struct pollfd main_pfd;
     struct pollfd helper_pfd;
@@ -113,7 +111,6 @@ speak(void* data)
         /* Handle resume requests */
         if (resume_requested){
             GList *gl;
-            TSpeechDMessage *element;
 
 	    MSG(5, "Resume requested");
 
@@ -177,7 +174,7 @@ speak(void* data)
         MSG(4,"Message sent to output module");
         if (ret == -1){
             MSG(2, "Error: Output module failed");
-            output_check_module(message);
+            output_check_module(get_output_module(message));
             pthread_mutex_unlock(&element_free_mutex);
 	    continue;
         }
@@ -424,11 +421,6 @@ int
 speaking_pause(int fd, int uid)
 {
     TFDSetElement *settings;
-    TSpeechDMessage *new;
-    char *msg_rest;
-    char *pos;
-    int i;
-    int im;
     int ret;
 
     MSG(3, "Pause");
@@ -487,8 +479,6 @@ int
 speaking_resume(int uid)
 {
     TFDSetElement *settings;
-    TSpeechDMessage *element;
-    GList *gl;
 
     /* Find settings for this particular client */
     settings = get_client_settings_by_uid(uid);
@@ -569,7 +559,6 @@ is_sb_speaking(void)
     int ret;
     char *index_mark;
     TFDSetElement *settings;
-    char *msg;
 
     MSG(5, "is_sb_speaking(), SPEAKING=%d", SPEAKING);
 
@@ -707,7 +696,6 @@ empty_queue_by_time(GList *queue, unsigned int uid)
 int
 stop_priority(int priority)
 {
-    GList *gl;
     GList *queue;
 
     queue = speaking_get_queue(priority);
@@ -726,7 +714,6 @@ stop_priority(int priority)
 int
 stop_priority_older_than(int priority, unsigned int uid)
 {
-    GList *gl;
     GList *queue;
 
     queue = speaking_get_queue(priority);
@@ -759,8 +746,6 @@ stop_priority_from_uid(GList *queue, const int uid){
 void
 stop_from_uid(const int uid)
 {
-    GList *gl;
-
     MessageQueue->p1 = stop_priority_from_uid(MessageQueue->p1, uid);
     MessageQueue->p2 = stop_priority_from_uid(MessageQueue->p2, uid);
     MessageQueue->p3 = stop_priority_from_uid(MessageQueue->p3, uid);
@@ -773,11 +758,10 @@ stop_from_uid(const int uid)
  * Note: If you are wondering why it's reversed (not to speak instead
  * of to speak), it's because we also use this function for
  * searching through the list. */
-static gint
+gint
 message_nto_speak(gconstpointer data, gconstpointer nothing)
 {
     TFDSetElement *global_settings;
-    GList *gl;
     TSpeechDMessage *message = (TSpeechDMessage *) data;
 
     /* Is there something in the body of the message? */
@@ -791,7 +775,7 @@ message_nto_speak(gconstpointer data, gconstpointer nothing)
     else return 1;
 }
 
-static void
+void
 set_speak_thread_attributes()
 {
     int ret;
@@ -862,9 +846,6 @@ stop_priority_except_first(int priority)
 void
 resolve_priorities(int priority)
 {
-    GList *gl;
-    TSpeechDMessage *msg;
-
     if(priority == 1){
         if (highest_priority != 1) output_stop();
         stop_priority(4);
@@ -908,7 +889,7 @@ resolve_priorities(int priority)
 
 }
 
-static TSpeechDMessage*
+TSpeechDMessage*
 get_message_from_queues()
 {
     GList *gl = NULL;
@@ -955,7 +936,7 @@ get_message_from_queues()
     return (TSpeechDMessage *) gl->data;
 }
 
-static GList*
+GList*
 speaking_get_queue(int priority)
 {
     GList *queue = NULL;
@@ -973,7 +954,7 @@ speaking_get_queue(int priority)
     return queue;
 }
 
-static void
+void
 speaking_set_queue(int priority, GList *queue)
 {
     assert(priority > 0  &&  priority <= 5);

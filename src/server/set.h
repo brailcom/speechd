@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.h,v 1.13 2004-02-10 21:24:07 hanke Exp $
+ * $Id: set.h,v 1.14 2006-01-08 13:36:58 hanke Exp $
  */
 
 #ifndef SET_H
@@ -41,6 +41,12 @@ int set_punct_mode_uid(int uid, int punct);
 int set_cap_let_recog_uid(int uid, int recog);
 int set_spelling_uid(int uid, ESpellMode spelling);
 int set_output_module_self(int uid, char *output_module);
+int set_voice_uid(int uid, char *voice);
+int set_punctuation_mode_uid(int uid, EPunctMode punctuation);
+int set_capital_letter_recognition_uid(int uid, ECapLetRecogn recogn);
+int set_output_module_uid(int uid, char* output_module);
+int set_ssml_mode_uid(int uid, int ssml_mode);
+int set_pause_context_uid(int uid, int pause_context);
 
 int set_priority_self(int fd, int priority);
 int set_language_self(int fd, char *language);
@@ -51,6 +57,14 @@ int set_punct_mode_self(int fd, int punct);
 int set_cap_let_recog_self(int fd, int recog);
 int set_spelling_self(int fd, ESpellMode spelling);
 int set_output_module_self(int fd, char *output_module);
+int set_client_name_self(int fd, char *client_name);
+int set_voice_self(int fd, char *voice);
+int set_punctuation_mode_self(int fd, EPunctMode punctuation);
+int set_capital_letter_recognition_self(int fd, ECapLetRecogn recogn);
+int set_output_module_self(int fd, char* output_module);
+int set_ssml_mode_self(int fd, int ssml_mode);
+int set_notification_self(int fd, char *type, int val);
+int set_pause_context_self(int fd, int pause_context);
 
 int set_priority_all(int priority);
 int set_language_all(char *language);
@@ -61,10 +75,20 @@ int set_punct_mode_all(int punct);
 int set_cap_let_recog_all(int recog);
 int set_spelling_all(ESpellMode spelling);
 int set_output_module_all(char* output_module);
+int set_voice_all(char *voice);
+int set_punctuation_mode_all(EPunctMode punctuation);
+int set_capital_letter_recognition_all(ECapLetRecogn recogn);
+int set_output_module_all(char* output_module);
+int set_ssml_mode_all(int ssml_mode);
+int set_pause_context_all(int pause_context);
 
 TFDSetElement* default_fd_set(void);
 		
 void set_param_int(int* parameter, int value);
 char* set_param_str(char* parameter, char* value);
+
+void update_cl_settings(gpointer data, gpointer user_data);
+
+gint spd_str_compare(gconstpointer a, gconstpointer b);
 
 #endif		

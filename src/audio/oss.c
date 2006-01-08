@@ -19,8 +19,22 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: oss.c,v 1.9 2005-12-07 08:53:30 hanke Exp $
+ * $Id: oss.c,v 1.10 2006-01-08 13:36:56 hanke Exp $
  */
+
+#include <sys/time.h>
+#include <time.h>
+
+int _oss_open(AudioID *id);
+int _oss_close(AudioID *id);
+int _oss_sync(AudioID *id);
+int oss_stop(AudioID *id);
+
+int oss_open(AudioID *id, void **pars);
+int oss_close(AudioID *id);
+int oss_set_volume(AudioID*id, int volume);
+int oss_play(AudioID *id, AudioTrack track);
+int oss_set_volume(AudioID*id, int volume);
 
 /* Put a message into the logfile (stderr) */
 #define MSG(arg...) \
@@ -57,6 +71,12 @@
      xfree(tstr); \
   }
 
+void
+xfree(void* p)
+{
+    if (p != NULL) free(p);
+}
+
 int
 _oss_open(AudioID *id)
 {
@@ -87,6 +107,7 @@ _oss_close(AudioID *id)
     close(id->fd);
     id->fd = 0;
     pthread_mutex_unlock(&id->fd_mutex);
+    return 0;
 }
 
 /* Open OSS device
@@ -131,7 +152,7 @@ _oss_sync(AudioID *id)
         perror("reset");
         return -1;
     }
-
+    return 0;
 }
 
 int
@@ -356,7 +377,7 @@ oss_play(AudioID *id, AudioTrack track)
     }
     MSG("End of wait");
 
-    xfree(track_volume.samples);
+    if (track_volume.samples!=NULL) free(track_volume.samples);
 
     /* Flush all the buffers */
     _oss_sync(id);
