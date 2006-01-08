@@ -19,11 +19,29 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: alsa.c,v 1.23 2005-12-07 08:52:13 hanke Exp $
+ * $Id: alsa.c,v 1.24 2006-01-08 13:35:04 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
     alsa-lib functions.*/
+
+#include <sys/time.h>
+#include <time.h>
+
+int _alsa_close(AudioID *id);
+int _alsa_open(AudioID *id);
+
+int xrun(AudioID *id);
+int suspend(AudioID *id);
+
+int alsa_open(AudioID *id, void **pars);
+int alsa_close(AudioID *id);
+int alsa_play(AudioID *id, AudioTrack track);
+int alsa_stop(AudioID *id);
+int alsa_set_volume(AudioID*id, int volume);
+
+int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds, 
+		  unsigned int count, int draining);
 
 #ifndef timersub
 #define	timersub(a, b, result) \
@@ -227,11 +245,11 @@ alsa_open(AudioID *id, void **pars)
     
     ret = _alsa_open(id);
     if (ret){
-	ERR("Cannot initialize Alsa device '%s': Can't open.", pars[0]);
+	ERR("Cannot initialize Alsa device '%s': Can't open.", (char*) pars[0]);
 	return -1;
     }
 
-    MSG("Device '%s' initialized succesfully.", pars[0]);
+    MSG("Device '%s' initialized succesfully.", (char*) pars[0]);
     
     return 0; 
 }
@@ -244,7 +262,7 @@ alsa_close(AudioID *id)
 
     /* Close device */
     if ((err = _alsa_close(id)) < 0) { 
-	ERR("Cannot close audio device (%s)");
+	ERR("Cannot close audio device");
 	return -1;
     }
     MSG("ALSA closed.");
@@ -343,12 +361,8 @@ int
 alsa_play(AudioID *id, AudioTrack track)
 {
     snd_pcm_format_t format;
-    int channels;
     int bytes_per_sample;
     int num_bytes;
-    int frames;
-
-    int bytes; 
 
     signed short* output_samples;
 
@@ -364,8 +378,8 @@ alsa_play(AudioID *id, AudioTrack track)
     size_t samples_per_period;
     size_t silent_samples;
     size_t volume_size;
+    unsigned int sr;
 
-    char buf[100];
 
     snd_pcm_state_t state;
 
@@ -465,9 +479,10 @@ alsa_play(AudioID *id, AudioTrack track)
 	return -1;
     }
 
-    MSG("Setting sample rate to %i", track.sample_rate);	
+    MSG("Setting sample rate to %i", track.sample_rate);
+    sr = track.sample_rate;
     if ((err = snd_pcm_hw_params_set_rate_near (id->alsa_pcm, id->alsa_hw_params,
-						&(track.sample_rate), 0)) < 0) {
+						&sr, 0)) < 0) {
 	ERR("Cannot set sample rate (%s)",
 	    snd_strerror (err));
 	
@@ -497,11 +512,11 @@ alsa_play(AudioID *id, AudioTrack track)
     }    
 
     //    MSG("Checking buffer size");
-    if ((err = snd_pcm_hw_params_get_buffer_size(id->alsa_hw_params, &id->alsa_buffer_size)) < 0){	
+    if ((err = snd_pcm_hw_params_get_buffer_size(id->alsa_hw_params, &(id->alsa_buffer_size))) < 0){	
 	ERR("Unable to get buffer size for playback: %s\n", snd_strerror(err));
 	return -1;
     }
-    MSG("Buffer size on ALSA device is %d bytes", id->alsa_buffer_size);
+    MSG("Buffer size on ALSA device is %d bytes", (int) id->alsa_buffer_size);
 
     /* This is probably better left for the device driver to decide */
     /* allow the transfer when at least period_size samples can be processed */
@@ -625,7 +640,7 @@ alsa_play(AudioID *id, AudioTrack track)
 	       still in progress up till now) */
 	    err = snd_pcm_drop(id->alsa_pcm);
 	    if (err < 0) {
-		ERR("snd_pcm_drop() failed: ", snd_strerror (err));	
+		ERR("snd_pcm_drop() failed: %s", snd_strerror (err));	
 		return -1;
 	    }
 	    
@@ -665,7 +680,7 @@ alsa_play(AudioID *id, AudioTrack track)
 	   still in progress up till now) */
 	err = snd_pcm_drop(id->alsa_pcm);
 	if (err < 0) {
-	    ERR("snd_pcm_drop() failed: ", snd_strerror (err));	
+	    ERR("snd_pcm_drop() failed: %s", snd_strerror (err));	
 	    return -1;
 	}
     }
@@ -678,7 +693,7 @@ alsa_play(AudioID *id, AudioTrack track)
 
     err = snd_pcm_drop(id->alsa_pcm);
     if (err < 0) {
-	ERR("snd_pcm_drop() failed: ", snd_strerror (err));	
+	ERR("snd_pcm_drop() failed: %s", snd_strerror (err));	
 	return -1;
     }
     
@@ -705,7 +720,6 @@ alsa_play(AudioID *id, AudioTrack track)
 int
 alsa_stop(AudioID *id)
 {
-    int ret;
     char buf;
 
     MSG("STOP!");
