@@ -1,3 +1,10 @@
+2006-01-09  Hynek Hanke  <hanke@chopin>
+
+	* src/audio/alsa.c (gettimeofday): 0->NULL
+	
+	* src/audio/nas.c (nas_play): gettimeofday takes 2 arguments only
+	under _GNU_SOURCE.
+
 2006-01-08  Hynek Hanke  <hanke@chopin>
 
 	* : Missing declarations fixed, cleaning w/r to gcc -Wall
