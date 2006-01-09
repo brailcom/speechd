@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: nas.c,v 1.5 2004-12-10 12:49:26 hanke Exp $
+ * $Id: nas.c,v 1.6 2006-01-09 12:28:09 hanke Exp $
  */
 
 /* Internal event handler */
@@ -139,7 +139,7 @@ nas_play(AudioID *id, AudioTrack track)
     /* Another timing magic */
     pthread_mutex_lock(&id->pt_mutex);
     lenght = (((float) track.num_samples) / (float) track.sample_rate);
-    gettimeofday(&now);
+    gettimeofday(&now, NULL);
     timeout.tv_sec = now.tv_sec + (int) lenght;
     timeout.tv_nsec = now.tv_usec * 1000 + (lenght - (int) lenght) * 1000000000;
     pthread_cond_timedwait(&id->pt_cond, &id->pt_mutex, &timeout);
