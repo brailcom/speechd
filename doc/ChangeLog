@@ -1,17 +1,32 @@
-2005-12-19  Hynek Hanke  <hanke@chopin>
+2006-01-25  Hynek Hanke  <hanke@chopin>
+
+	* speech-dispatcher.texi: Copyright (c) 2006.  The whole content
+	of speech-dispatcher.texi is now also licensed by Brailcom,
+	o.p.s. under the GNU General Public License version 2 or later (at
+	user's option).
+
+	* ssip.texi: Copyright (c) 2006.  The whole content of ssip.texi
+	is now also licensed by Brailcom o.p.s. under the GNU General
+	Public License version 2 or later (at user's option).
+
+2005-12-19  Hynek Hanke  <hanke@volny.cz>
+
+	* speech-dispatcher.texi (Client Specific Configuration): Filled in.
+
+	* speech-dispatcher.texi (Installation): Filled in.
 
 	* speech-dispatcher.texi (Parameter Setting Commands in C): Included
 	spd_data_mode().
 
 	* speech-dispatcher.texi: User section of the manual expanded.
 
-2005-12-07  Hynek Hanke  <hanke@chopin>
+2005-12-07  Hynek Hanke  <hanke@volny.cz>
 
 	* speech-dispatcher.texi: Updated mailing list addresses.
 
 	* spd-say.texi (Top): Updated docs.
 
-2005-09-12  Hynek Hanke  <hanke@chopin>
+2005-09-12  Hynek Hanke  <hanke@volny.cz>
 
 	* ssip.texi (Types of Events): Restructured, added information about
 	events notifications and index marking.

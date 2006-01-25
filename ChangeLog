@@ -1,3 +1,7 @@
+2006-01-25  Hynek Hanke  <hanke@chopin>
+
+	* FAQ (A): +server_access_list
+
 2006-01-09  Hynek Hanke  <hanke@chopin>
 
 	* src/audio/alsa.c (gettimeofday): 0->NULL

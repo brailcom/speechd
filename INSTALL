@@ -22,10 +22,13 @@ These Free Software packages are known to work with Speech Dispatcher:
  - FLite (http://cmuflite.org/) -- a lightweight software synthesizer for English,
      we believe it's highly surpassed by Festival, but can be easier to install
      for the beginning
+
  User applications:
- - speechd-el (http://www.freebsoft.org) -- an Emacs interface for the blind
- - speechd-up (http://www.freebsoft.org) -- interface to the Speakup screen
+ - speechd-el (http://www.freebsoft.org/) -- an Emacs interface for the blind
+ - speechd-up (http://www.freebsoft.org/) -- interface to the Speakup screen
      reader
+ - gnome-speech/Gnopernicus interface (http://www.gnome.org/)
+ - ...
 
 Building Speech Dispatcher:
 ===========================
@@ -42,8 +45,8 @@ To compile the whole project, including Speech Dispatcher server, all modules
 and clients, simply extract the distribution archive and change to 
 speech-dispatcher-<version> directory and run "make all" command as follows:
 
- $ tar -xzvf speech-dispatcher-@VERSION.tar.gz
- $ cd speech-dispatcher-@VERSION
+ $ tar -xzvf speech-dispatcher-0.6.tar.gz
+ $ cd speech-dispatcher-0.6
 
 Notes about Flite support
 =========================
@@ -78,8 +81,7 @@ has problems in heavy use (fast typing of keys, many messages comming at once).
 Until this is fixed in NAS, we can't recommend you to use this plugin unless
 you know what you are doing.
 
-Please note that the ALSA output plugin is now in an experimental stage.
-
+We recommend to use ALSA if possible on your system.
 
 Continue building Speech Dispatcher
 ===================================
@@ -97,7 +99,7 @@ path by running (as root):
  $ make install
 
 If it doesn't work, please see "Building from CVS" if this is your case. If
-not, you can ask us on users@freebsoft.org or report possible bugs on
+not, you can ask us on users@lists.freebsoft.org or report possible bugs on
 speechd@bugs.freebsoft.org .
 
 Building from CVS
@@ -111,7 +113,7 @@ sensitive.
 
 Then please do:
 
- $ cd speech-dispatcher-@VERSION
+ $ cd speech-dispatcher-0.6
  $ ./build.sh
 
 Now the ./configure file should be created and you can proceed like with
@@ -140,7 +142,7 @@ You can try to execute Speech Dispatcher by
 
 If Speech Dispatcher is running, you can test if it's working by:
  (on some other console)
- $ cd speech-dispatcher-@VERSION/src/tests
+ $ cd speech-dispatcher-0.6/src/tests
  $ ./run_test basic.test
 (You can also try other tests, if you like.)
 
