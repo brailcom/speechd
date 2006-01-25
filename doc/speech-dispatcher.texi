@@ -32,15 +32,28 @@
 
 This manual documents Speech Dispatcher, version @value{VERSION}.
 
-Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
+Copyright @copyright{} 2001, 2002, 2003, 2006 Brailcom, o.p.s.
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.2
-or any later version published by the Free Software Foundation;
-with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
-A copy of the license is included in the section entitled "GNU
-Free Documentation License".
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts and no Back-Cover Texts.
+A copy of the license is included in the section entitled ``GNU Free
+Documentation License.''
+@end quotation
+
+You can also (at your option) distribute this manual under the GNU
+General Public License:
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 2 of the License, or (at your
+option) any later version.
+
+A copy of the license is included in the section entitled ``GNU
+General Public License''
 @end quotation
 
 @end titlepage
@@ -50,15 +63,30 @@ Free Documentation License".
 
 This manual documents Speech Dispatcher, version @value{VERSION}.
 
-Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
+Copyright @copyright{} 2001, 2002, 2003, 2006 Brailcom, o.p.s.
 
 @quotation
-Permission is granted to copy, distribute and/or modify this document under the
-terms of the GNU Free Documentation License, Version 1.2 or any later version
-published by the Free Software Foundation; with no Invariant Sections, no
-Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included
-in the section entitled "GNU Free Documentation License".
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts and no Back-Cover Texts.
+A copy of the license is included in the section entitled ``GNU Free
+Documentation License.''
 @end quotation
+
+You can also (at your option) distribute this manual under the GNU
+General Public License:
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 2 of the License, or (at your
+option) any later version.
+
+A copy of the license is included in the section entitled ``GNU
+General Public License''
+@end quotation
+
 @end ifnottex
 
 @ifhtml
@@ -218,8 +246,9 @@ text interface, like editing text, reading email, browsing web, etc.
 It's possible to use Speakup, the kernel-based screen reader, with
 software speech using the @code{speechd-up} package and Speech
 Dispatcher. A bridge for Gnome-Speech was created recently, which
-enables users to use Gnopernicus and Gnome speaking capabilities
-on top of Speech Dispatcher.
+enables users to use Gnopernicus and Gnome speaking capabilities on
+top of Speech Dispatcher. The driver is distributed as a part of Gnome
+Speech.
 
 We also provide a shared C library, a Python library and a Common Lisp
 library that implement the SSIP functions of Speech Dispatcher in a
@@ -238,7 +267,7 @@ responsivity.
 
 For simpler purposes, there is also support for Flite. Flite (Festival
 Light) is a lighter Free Software TTS with synthesis intended to run
-on systems with limited resources. In this time, it only has one
+on systems with limited resources. At this time, it only has one
 English voice and porting voices from Festival looks rather difficult.
 With the caching mechanism provided by Speech Dispatcher, Festival is
 even Faster than Flite in many situations.  See
@@ -474,9 +503,104 @@ previously connected users.
 @node Installation, Troubleshooting, Features, User's Documentation
 @section Installation
 
-Temporary: Please see the file INSTALL in the source directory of this
-package.
+This text only deals with the general aspects of installation of
+Speech Dispatcher. If you are compiling from sourcecode (distribution
+tarball or CVS), please refer to the file @file{INSTALL} in your
+source tree.
 
+@subsection The requirements 
+
+You will need these components to run Speech Dispatcher:  
+@itemize
+@item glib 2.0  (http://www.gtk.org)
+@item libdotconf 1.0 (http://www.azzit.de/dotconf/)
+@item pthreads
+@end itemize
+
+We recommend to also install these packages:
+@itemize
+ @item Festival (http://www.cstr.ed.ac.uk/projects/festival/)
+ @item festival-freebsoft-utils 0.3+ (http://www.freebsoft.org/festival-freebsoft-utils)
+ @item Sound icons library (http://www.freebsoft.org/pub/projects/sound-icons/sound-icons-0.1.tar.gz)
+@end itemize
+
+@subsection Recommended instalation procedure
+
+@itemize
+
+@item Install your software synthesizer
+
+Although we highly recommend to use Festival for its excelent
+extensibility, good quality of voices, good responsiveness and most
+elaborate support in Speech Dispatcher, you might want to start with
+Flite, a lightweight version of Festival, to get all the key
+components working and only then switch to Festival. Instalation of
+Flite should be easier and the default configuration of Speech
+Dispatcher is set up for Flite for this reason. However, if it is not
+easy for you to install Flite (as your distribution doesn't provide
+packages for it), then don't bother with it.
+
+You can of course also start with Epos or any other supported syntesizer.
+
+@item Make sure your synthesizer works
+
+There is usually a way to test if your installation of your speech
+synthesizer works. For Flite run @code{flite -t "Hello!"} and hear
+the speech. For Festival run @code{festival} and type in
+
+@example
+(SayText "Hello!")
+(quit)
+@end example
+
+@item Install Speech Dispatcher
+
+Install the packages for Speech Dispatcher from your distribution or
+download the source tarball (or CVS) from
+@url{http://www.freebsoft.org/speechd} and follow the instructions in
+the attached file @code{INSTALL} in the source tree.
+
+@item Configure Speech Dispatcher
+
+(If you have working Flite installation on your system, you can now
+skip to the next section, test if your installation of Speech
+Dispatcher works, and then return to tweak the configuration.)
+
+Go to @file{/etc/speech-dispatcher/speechd.conf} or similar (it might
+be @file{/usr/local/etc/speech-dispatcher/speechd.conf} if you install
+from sources) and edit the lines @code{AddModule},
+@code{DefaultModule} and @code{LanguageDefaultModule} for your chosen
+synthesizer. If you want to run Festival, just substitute 'Flite' for
+'Festival' in the last two options.
+
+Another thing you will likely want to change is the default rate of
+speech (line @code{DefaultRate}). Return to this later to adjust
+details.
+
+Another important thing is to configure the output module you are
+using. Go to @file{/etc/speech-dispatcher/festival.conf} or similar
+according to the synthesizers you want to run. If supported, choose
+your prefered audio output method through the option
+@code{FestivalAudioOutputMethod} or similar. We highly recommend
+@code{ALSA} audio output when supported. Review the other options if
+their values are correct (if there is a '#' sign before the option, it
+means it doesn't have any effect and it's argument is it's default
+value).
+
+@item Test Speech Dispatcher
+
+The simplest way to test Speech Dispatcher is through the
+@code{spd-say} tool. 
+
+Example:
+@example
+spd-say "Hello!"
+spd-say -l cs -r 90 "Ahoj"
+@end example
+
+If you don't hear anything, please @xref{Troubleshooting}.
+
+@end itemize
 
 @node Troubleshooting, Configuration, Installation, User's Documentation
 @section Troubleshooting
@@ -510,6 +634,16 @@ experienced user, you might want to enable the Debug option of your
 output module in @code{etc/speech-dispatcher/modules/} and examine
 @code{/var/log/speech-dispatcher/module_name.log}.
 
+@item
+There is a know problem in Festival. Please make sure that Festival
+server_access_list configuration variable and your /etc/hosts.conf are
+set properly. server_access_list must contain the symbolic name of
+your machine and this name must be defined in /etc/hosts.conf and
+point to your IP address. You can test if this is set correctly by
+trying to connect to the port Festival server is running on via an
+ordinary telnet (by default like this: @code{telnet localhost
+1314}). If you are not rejected, it works.
+
 @end itemize
 
 @node Configuration, Tools, Troubleshooting, User's Documentation
@@ -531,7 +665,7 @@ configuration file.
 @menu
 * Configuration file syntax::   Basic rules.
 * Configuration options::       What to configure.
-* Client Specific Configuration::  
+* Client Specific Configuration::  Specific default values for applications
 * Output Modules Configuration::  Adding and customizing output modules.
 * Log Levels::                  Description of log levels.
 @end menu
@@ -581,8 +715,32 @@ remove the comment symbol @code{#}.
 @node Client Specific Configuration, Output Modules Configuration, Configuration options, Configuration
 @subsection Client Specific Configuration
 
-Please see @code{/etc/speechd.conf} and @code{etc/clients/emacs.conf}.
-This section will be written for the 0.6 final release.
+It is possible to set different default values of speech parameters
+(e.g.  rate, volume, punctuation, default voice...) for different
+applications that connect to Speech Dispatcher automatically. This is
+especially useful for simple applications that have no parameter
+setting capabilities themselves or they don't support a parameter
+setting you wish to change (e.g. language).
+
+Using the commands @code{BeginClient "IDENTIFICATION"} and
+@code{EndClient} it is possible to open and close a section of
+parameter settings that only affects those client applications that
+identify themselves to Speech Dispatcher under the a specific
+identification code which is matched against the string
+@code{IDENTIFICATION}.  It is possible to use wildcards ('*' matches
+any number of characters and '?' matches exactly one caracter) in the
+string @code{IDENTIFICATION}.
+
+The identification code normally consists of 3 parts:
+@code{user:application:connection}. @code{user} is the username of the
+one who started the application, @code{application} is the name of the
+application (usually the name of the binary for it) and
+@code{connection} is a name of the connection (one application might
+use more connections for different purposes).
+
+An example is provided in @code{/etc/speech-dispatcher/speechd.conf}
+(see the line @code{Include "clients/emacs.conf"} and
+@code{/etc/speech-dispatcher/clients/emacs.conf}.
 
 @node Output Modules Configuration, Log Levels, Client Specific Configuration, Configuration
 @subsection Output Modules Configuration
@@ -684,8 +842,9 @@ Documentation} for the list of names you can use.
 the comments in the configuration file under the appropriate AddModule
 section for more info.
 
-For example our current definition of voices for Epos looks
-like this:
+For example our current definition of voices for Epos (file
+@code{/etc/speech-dispatcher/modules/generic-epos.conf} looks like
+this:
 
 @example
         AddVoice        "cs"  "male1"   "kadlec"
@@ -2429,21 +2588,13 @@ It should return 0 on success, -1 otherwise.
 @findex module_pause()
 
 This function should stop speaking on the synthesizer (or sending
-data to soundcard) and return the identification number of the
-last index mark or the index mark where the text was paused.
-
-This may be a different approach of what you would
-expect on the first sight, but it's important to understand that
-simply sending some @@pause to the output device won't work.
-In Speech Dispatcher, these requests for pause are handled on a
-client-per-client basis, so the output device can't be blocked
-for other clients. For example, a user can pause the text in
-Emacs buffer in order to, say, check new mail. If the output
-device would be blocked by the Emacs pause, he couldn't check
-his email, because there would be no output.
+data to soundcard) just after sending an @code{__spd_} index
+mark so that Speech Dispatcher knows the position of stop.
 
 This function can be blocking for a short time, so you can wait till
-an index mark is reached.
+an index mark is reached. However, if it's not possible to determine
+the exact position, this function should have the same effect
+as @code{module_stop}.
 
 For some software synthesizer the desired effect can be archieved in this way:
 When @code{module_write()} is called, you execute a separate
@@ -2452,70 +2603,11 @@ cuts the message into sentences and then runs in a loop
 and sends these pieces to synthesis. If a signal arrives
 from @code{module_pause()}, you set a flag and stop that loop
 at the point where next piece of text would be synthesized.
-Instead, you return the rest of the unprocessed text to
-@code{module_pause()}.
-
-It's generally better if the ``returned text'' overlays
-a little bit with what was actually said than if there is
-a gap.
-
-If the given output device doesn't support synchronization
-(@pxref{module_is_speaking}), it should execute STOP on the output
-device and return 0.
 
 It's not an error if this function is called when the device
 is not speaking. In this case, it should return 0.
 @end deffn
 
-@deffn {Output module function}  {static gint module_is_speaking} (void)
-@findex module_is_speaking()
-@anchor{module_is_speaking}
-
-This function is very important to let Speech Dispatcher know how to
-regulate the speech flow between different queues, programs and even
-other synthesizers. On calling it, the output module must decide
-whether there is currently any output being produced in the speakers.
-
-It should return 0 if the synthesis is silent, 1 if it is speaking.
-
-This can be a very hard problem and it's not clear how to do it
-with different synthesizers that don't support backward communication.
-Sometimes maybe there is a possibility to calculate a good estimate
-(one second or so), but if there is really no way how to tell,
-it can also return 2 for ``don't know''. The usefulness of such
-output module would be highly reduced: there will be problems in
-cooperating with other output devices, no real possibility to
-use sound-mapped sound icons, priorities wouldn't sometimes work,
-it will sometimes cut-off text etc.
-
-You should do your best to get it working (sometimes there are
-not-obvious ways around), but if this effort fails, it's better
-to return 2 than a bad estimate (which can cause yet a greater damage).
-Not that such a module is still useful, because the user can map all
-his sound-icons to text, use only this output device etc.
-
-This function should return very fast, because Speech Dispatcher calls
-it very often for different purposes.
-
-@end deffn
-
-@deffn {Output module function}  {int module_close(int status)} (void)
-@findex module_close()
-
-This function is called when Speech Dispatcher terminates.  The output
-module should terminate all threads and processes, free all resources,
-close all sockets etc.  Never assume this function is called only when
-Speech Dispatcher terminates and exit(0) will do the work for you.  It's
-perfectly ok for Speech Dispatcher to load, unload or reload output modules
-in the middle of it's run.
-
-If the parameter @code{status} is non-zero, the process should
-terminate with this error value.
-
-This function never returns, instead, it should call exit() to terminate
-the whole process.
-
-@end deffn
 
 @node Module Utils Functions and Macros, Index Marks in Output Modules, Output Module Functions, Output Modules
 @subsection Module Utils Functions and Macros
@@ -2708,6 +2800,36 @@ in smaller parts (if they are followed by a whitespace).
 After returning, @code{current_index_mark} is either -1 or the number
 of the encountered index mark and in @code{pos} is stored the position
 where the function terminated in processing @code{message}.
+@end deffn
+
+@deffn {Output module function} void module_report_index_mark(char *mark)
+@findex module_report_index_mark
+@end deffn
+@deffn {Output module function} void module_report_event_*()
+@findex module_report_event_*
+
+The @code{module_report_} functions serve for reporting events
+notifications and index marking events. You should use them whenever
+you get an event from the synthesizer which is defined in the output
+module communication protocol.
+
+@end deffn
+
+@deffn {Output module function}  {int module_close(int status)} (void)
+@findex module_close()
+
+This function is called when Speech Dispatcher terminates.  The output
+module should terminate all threads and processes, free all resources,
+close all sockets etc.  Never assume this function is called only when
+Speech Dispatcher terminates and exit(0) will do the work for you.  It's
+perfectly ok for Speech Dispatcher to load, unload or reload output modules
+in the middle of it's run.
+
+If the parameter @code{status} is non-zero, the process should
+terminate with this error value.
+
+This function never returns, instead, it should call exit() to terminate
+the whole process.
 @end deffn
 
 @node Multi-process output modules, Memory Handling Functions, Functions for use when talking to synthesizer, Module Utils Functions and Macros
@@ -2963,7 +3085,7 @@ like RedHat, Mandrake or SuSE Linux, please try to look at
 
 If you want to contact us, please look at
 @uref{http://www.freebsoft.org/contact} for possible ways how to do
-it or use the email @email{users@@freebsoft.org}.
+it or use the email @email{users@@lists.freebsoft.org}.
 
 @node Reporting Bugs, How You Can Help, Download and Contact, Top
 @chapter Reporting Bugs
@@ -3109,7 +3231,6 @@ and Free Software.
 @cindex GPL, GNU General Public License
 
 @include gpl.texi
-
 
 @node GNU Free Documentation License, Index of Concepts, GNU General Public License, Top
 @appendix GNU Free Documentation License
