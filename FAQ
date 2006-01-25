@@ -41,3 +41,5 @@ Q: Festival doesn't speak. What can I do?
 
 A: Are you sure you have installed festival-freebsoft-utils 0.3 or higher
 as described in the file INSTALL?
+
+A: Are you sure you are not running into the famous 'server_access_list' problem? Please see the file INSTALL.
