@@ -18,7 +18,7 @@
 
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program; if not, write to the Free Software
-;; Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
+;; Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
 
 ;;; Note: This library was ported from the Elisp library, so don't wonder much
@@ -53,7 +53,7 @@ language.")
 ;;; Internal constants and configuration variables
 
 
-(defparameter +version+ "$Id: ssip.lisp,v 1.2 2004-01-20 15:37:48 pdm Exp $"
+(defparameter +version+ "$Id: ssip.lisp,v 1.3 2006-02-17 13:18:55 pdm Exp $"
   "Version stamp of the source file.
 Useful only for diagnosing problems.")
 
