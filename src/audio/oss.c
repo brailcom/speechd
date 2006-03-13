@@ -19,11 +19,12 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: oss.c,v 1.10 2006-01-08 13:36:56 hanke Exp $
+ * $Id: oss.c,v 1.11 2006-03-13 19:44:22 hanke Exp $
  */
 
 #include <sys/time.h>
 #include <time.h>
+#include <string.h>
 
 int _oss_open(AudioID *id);
 int _oss_close(AudioID *id);
