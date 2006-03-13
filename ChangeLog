@@ -1,3 +1,7 @@
+2006-03-13  Hynek Hanke  <hanke@chopin>
+
+	* src/audio/oss.c: Include string.h
+
 2006-01-25  Hynek Hanke  <hanke@chopin>
 
 	* version.sh: 0.6
