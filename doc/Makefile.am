@@ -4,7 +4,7 @@ info_TEXINFOS = ssip.texi speech-dispatcher.texi speech-dispatcher-cs.texi spd-s
 EXTRA_DIST = figures/*.txt figures/*.png figures/*.pdf figures/*.dia figures/*.eps gpl.texi fdl.texi
 
 SUFFIXES = .html
-html_docs = speechd.html ssip.html spd-say.texi
+html_docs = speech-dispatcher.html ssip.html spd-say.texi
 HTMLDIR = htmldoc
 
 MAINTAINERCLEANFILES = speechd/*
