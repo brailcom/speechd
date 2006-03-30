@@ -125,47 +125,47 @@ General Public License''
 @cindex Basic ideas, Motivation
 @cindex Philosophy
 
-Speech Dispatcher project comes to provide a device independent layer for
-speech synthesis. It should provide a simple interface for client
+The Speech Dispatcher project provides a device independent layer for
+speech synthesis. It provides a simple interface for client
 applications (applications, that want to speak) as well as for device
-driver modules (the different speech synthesisizers).
+driver modules (the different speech synthesizers).
 
 High quality speech synthesis has been available for a long time and
-now it's usable even by ordinary users on their home PC's. It comes
-sometimes as a necessity, sometimes as a good feature for programs to
+now it's usable even by ordinary users on their home PC's. It is a good
+feature, and sometimes mandatory, for programs to
 provide speech output.  There is a wide field of possible uses from
 educational software, to specialized systems (hospitals,
 laboratories).  For visually impaired users it is one of the two
-essential ways of getting the output from computer (the second one is
-a Braille display). That's also where Speech Dispatcher comes from.
+essential ways of getting output from a computer (the second one is
+a Braille display). This is also where Speech Dispatcher helps.
 
 There are different speech synthesizers with different capabilities.
 Some of them are hardware, some of them are software.  Some of them
 are Free Software and are are available on the Internet.  Programmers
 have really hard times when they want to make their program speak
-because they need to find some suitable synthesizer (long hours of
-experiments and so on...) and then make it work with their program.
+because they need to find a suitable synthesizer (long hours of
+experimentation and so on...) and then make it work with their program.
 They often need to write output device drivers for these programs or
 hardware devices and are doing it again and again.  You can imagine it
-all fails when an innocent user executes two programs with speech
-output at once --- if they even start both (what I doubt), they will
-be shouting one over the other.  This makes it very hard for
-programmers to implement speech support to their programs (for blind
+all fails when an innocent user simultaneously executes two programs with
+speech output --- if both even start (which I doubt), they will
+be talking one over the other.  This makes it very hard for
+programmers to implement speech support in their programs (for blind
 users or simply to make a better user interface) and it's one of the
 reasons we still don't fully exploit what speech synthesis technology
 offers.
 
-In an ideal world, programmers could use similar commands for speech
+In an ideal world, programmers would use the same commands for speech
 synthesis as they do for normal text output (printf, puts, ...).  In an
-ideal world, there would be some speech_printf() that would take care of
-saying your message in the right time without interrupting others, without
+ideal world, there would be a speech_printf() function that would take care of
+saying a message at the right time without interrupting others, without
 them being obligated to take care of how exactly the communication with
-speech synthesizer is implemented and without them having to worry about
+speech synthesizer is implemented, and without them having to worry about
 what synthesizer to use and if it's available.  In an ideal world, there
-would be some speech synthesizer in each GNU/Linux distribution and some
+would be a speech synthesizer in each GNU/Linux distribution and some
 common interface taking care of all applications that want to speak,
-allowing user to configure speech parameters and providing simple interface
-(as speech_printf()) through some shared library for programmers.  It will
+allowing users to configure speech parameters and providing a simple interface
+(as speech_printf()) through a shared library for programmers.  It will
 be a long way until we achieve this state of things, but with Speech
 Dispatcher, we are taking the first steps...
 
@@ -174,7 +174,7 @@ Dispatcher, we are taking the first steps...
 @cindex Design
         
 The communication between all applications and synthesizers, when
-implemented directly, is a great mess. For this purpose, we wanted
+implemented directly, is a mess. For this purpose, we wanted
 Speech Dispatcher to be a layer separating applications and
 synthesizers so that applications wouldn't have to care about
 synthesizers and synthesizers wouldn't have to care about interaction
@@ -182,20 +182,20 @@ with applications.
 
 We decided we would implement Speech Dispatcher as a server receiving
 commands from applications over a protocol called @code{SSIP},
-parsing them and if it's necessary and calling appropriate functions
+parsing them if needed, and calling the appropriate functions
 of output modules communicating with the different synthesizers.
 These output modules are implemented as plug-ins, so that the user
-can just load a new module if he wants to use new synthesizer.
+can just load a new module if he wants to use a new synthesizer.
 
 Each client (application that wants to speak) opens a socket
 connection to Speech Dispatcher and calls functions like say(),
-stop(), pause() provided by a library implementing the protocol.
+stop(), and pause() provided by a library implementing the protocol.
 This shared library is still on the client side and sends Speech
-Dispatcher SSIP commands over the socket. When these arrive
+Dispatcher SSIP commands over the socket. When the messages arrive
 at Speech Dispatcher, it parses them, reads the text that should
-be said and put it in a queues according to the priority
-of this message and other criteria. It then decides when,
-with which parameters (set up by the client and the user)
+be said and puts it in one of several queues according to the priority
+of the message and other criteria. It then decides when,
+with which parameters (set up by the client and the user),
 and on which synthesizer it will say the message. These requests
 are handled by the output plug-ins (output modules) for different
 hardware and software synthesizers and then said aloud.
@@ -210,9 +210,9 @@ See also the detailed description @ref{Client Programming} interfaces, and
 Speech Dispatcher from user's point of view:
 
 @itemize @bullet
-@item easy configuration of different speaking applications, central maintenance
-@item the ability to freely choose which synthesizer with which application
-@item less time devoted to configuration and tuning different applications and synthesis
+@item easy configuration of different speaking applications and central maintenance
+@item the ability to freely choose which synthesizer is to be used with each application
+@item less time devoted to configuring and tuning different applications and synthesizers
 @item history of said messages for visually impaired
 @end itemize
 
@@ -231,17 +231,17 @@ Speech Dispatcher from application programmers's point of view:
 @cindex Other programs
 
 In this version, most of the features of Speech Dispatcher are
-implemented and we believe it's now useful for applications as a
+implemented and we believe it is now useful for applications as a
 device independent Text-to-Speech layer.
 
 Currently, one of the most advanced applications that works with
 Speech Dispatcher is @code{speechd-el}. This is a client for Emacs,
-targeted primarily on blind people. It's similar to Emacspeak, however
+targeted primarily for blind people. It is similar to Emacspeak, however
 the two take a bit different approach and serve different user
 needs. You can find speechd-el on
-@uref{http://www.freebsoft.org/speechd-el/}. This way Speech
-Dispatcher can be used to do nearly everything one can do in GNU/Linux
-text interface, like editing text, reading email, browsing web, etc.
+@uref{http://www.freebsoft.org/speechd-el/}. speechd-el provides speech
+output when using nearly any GNU/Linux
+text interface, like editing text, reading email, browsing the web, etc.
 
 It's possible to use Speakup, the kernel-based screen reader, with
 software speech using the @code{speechd-up} package and Speech
@@ -255,8 +255,8 @@ library that implement the SSIP functions of Speech Dispatcher in a
 higher level interface, so writing client applications in these
 languages should be quite easy. 
 
-On the synthesis side, there is a good support for Festival. Festival
-is a Free Software multi-language Text-to-Speech and synthesis system,
+On the synthesis side, there is good support for Festival. Festival
+is a Free Software multi-language Text-to-Speech synthesis system,
 that is very flexible and extensible using the Scheme scripting
 language. Currently, it supports high quality synthesis for several
 languages (English, Czech, Italian, Spanish, Russian, Polish...), and
@@ -266,16 +266,16 @@ Dispatcher output module for Festival is highly optimized for fast
 responsivity.
 
 For simpler purposes, there is also support for Flite. Flite (Festival
-Light) is a lighter Free Software TTS with synthesis intended to run
-on systems with limited resources. At this time, it only has one
+Light) is a lightweight free software TTS synthesizer intended to run
+on systems with limited resources. At this time, it has only one
 English voice and porting voices from Festival looks rather difficult.
 With the caching mechanism provided by Speech Dispatcher, Festival is
-even Faster than Flite in many situations.  See
-@uref{http://www.speech.cs.cmu.edu/flite/}
+even faster than Flite in many situations.  See
+@uref{http://www.speech.cs.cmu.edu/flite/}.
 
 Speech Dispatcher also offers support for generic output devices,
-which means that basically every Text-to-Speech program that provides
-a simple command line interface can be run with Speech Dispatcher
+which means that basically any Text-to-Speech program that provides
+a simple command line interface can be used with Speech Dispatcher
 after a little bit of tuning in the configuration file. This kind of
 output module provides only limited functionality, but it can be
 useful if there are no other choices for your language. Configuration
@@ -284,21 +284,21 @@ shipped with Speech Dispatcher.
 
 We decided not to support the simple hardware devices ourselves,
 because they don't support synchronization and therefore have serious
-problems when handling multiple messages, they are not extensible,
-they are usually expansive and often hard to support. Today computers
+problems when handling multiple messages.  Also they are not extensible,
+they are usually expensive and often hard to support. Today's computers
 are fast enough to perform software speech synthesis and Festival is a
 great example. It seems the public still percieves software synthesis
 as slow, therefore inferior to hardware synthesis. Even Festival is
 often cited as slow. According to our experience, this is mostly due
-to inappropriate interfacing and processing of the results, Festival
+to inappropriate interfacing and processing of the results. Festival
 itself doesn't consume more than about 30% CPU (in peaks) on a 1500MHz
-machine. This shows that CPU power is no longer the limiting factor of
+machine. This shows that CPU power is no longer the limiting factor for
 speech synthesis.
 
-Currently, there is no application that would serve as a managing
-center for Speech Dispatcher. We think of this application as a client
+Currently, there is no application that would serve as a configuration 
+manager for Speech Dispatcher. We think of this application as a client
 of Speech Dispatcher, where a user can modify all the parameters of
-the other connections, browse history, modify settings in permanent
+connections, browse history, modify settings in a permanent
 text file configuration and so on. We welcome anyone who would like to
 help us with such a client.
 
@@ -306,14 +306,14 @@ help us with such a client.
 @chapter User's Documentation
 
 @menu
-* Features::                    Description of some fetures in more detail
+* Features::                    Description of some fetures in more detail.
 
-* Installation::                How to get it running in the best way
+* Installation::                How to get it running in the best way.
 * Troubleshooting::             What to do if something doesn't work...
 
-* Configuration::               How to configure Speech Dispatcher
+* Configuration::               How to configure Speech Dispatcher.
 
-* Tools::                       What tools come with Speech Dispatcher
+* Tools::                       What tools come with Speech Dispatcher.
 @end menu
 
 @node Features, Installation, User's Documentation, User's Documentation
@@ -327,7 +327,7 @@ Dispatcher, please @xref{Top,,,ssip, SSIP Documentation}.
 
 @menu
 * Multiple Output Modules::     Using various speech synthesizers on one system.
-* Client Specific Default Configuration::  Managing multiple speaking applications
+* Client Specific Default Configuration::  Managing multiple speaking applications.
 * Security::                    Speech Dispatcher protects the privacy of users.
 @end menu
 
@@ -336,8 +336,8 @@ Dispatcher, please @xref{Top,,,ssip, SSIP Documentation}.
 @cindex output module
 @cindex different synthesizers
 
-Speech Dispatcher supports concurrent use of multiple output modules.  In the
-case these output modules provide good synchronization, you can combine them in
+Speech Dispatcher supports concurrent use of multiple output modules.  If the
+output modules provide good synchronization, you can combine them when
 reading messages.  For example if module1 can speak English and Czech while
 module2 speaks only German, the idea is that if there is some message in
 German, module2 is used, while module1 is used for the other languages.
@@ -346,9 +346,9 @@ selection of an output module can be influenced through the configuration file
 @file{speech-dispatcher/speechd.conf}.
 
 @menu
-* Provided Functionality::      Some synthesizers don't support the full set of SSIP features
-* Supported Modules::           Festival, Flite, Epos, Generic
-* Compiling a New Module ::     How to compile a new output module
+* Provided Functionality::      Some synthesizers don't support the full set of SSIP features.
+* Supported Modules::           Festival, Flite, Epos, Generic.
+* Compiling a New Module ::     How to compile a new output module.
 @end menu
 
 @node Provided Functionality, Supported Modules, Multiple Output Modules, Multiple Output Modules
@@ -367,32 +367,32 @@ Dispatcher and we encourage you to use it.
 @subsubsection Supported Modules
 
 Currently, these output modules are supported: Festival, Flite, Epos
-and Generic. 
+and Generic.
 
 @itemize
 
 @item Festival
-Festival is a Free Software multi-language Text-to-Speech and
-synthesis system, that is very flexible and extensible using the
+Festival is a free software multi-language Text-to-Speech 
+synthesis system that is very flexible and extensible using the
 Scheme scripting language. Currently, it supports high quality
 synthesis for several languages, and on today's computers it runs
 reasonably fast.  If you are not sure which one to use and your
-language is supported by Festival, we avise you to use it. See
-@uref{http://www.cstr.ed.ac.uk/projects/festival/}
+language is supported by Festival, we advise you to use it. See
+@uref{http://www.cstr.ed.ac.uk/projects/festival/}.
 
 @item Flite 
-Flite (Festival Light) is a lighter Free Software TTS with synthesis
-intended to run on systems with limited resources. In this time, it
-only has one English voice and porting voices from Festival looks
+Flite (Festival Light) is a lightweight free software TTS synthesizer
+intended to run on systems with limited resources. At this time, it
+has only one English voice and porting voices from Festival looks
 rather difficult.  With the caching mechanism provided by Speech
 Dispatcher, Festival is faster than Flite in most situations.  See
-@uref{http://www.speech.cs.cmu.edu/flite/}
+@uref{http://www.speech.cs.cmu.edu/flite/}.
 
 @item Generic
 The Generic module can be used with any synthesizer that can be
 managed by a simple command line application. @xref{Configuration of
 the Generic Output Module}, for more details about how to use it.
-However, it only provides a very rudimentary support of speaking.
+However, it provides only very rudimentary support of speaking.
 
 @end itemize
 
@@ -400,10 +400,10 @@ However, it only provides a very rudimentary support of speaking.
 @subsubsection Compiling a New Module 
 
 If you want to compile and use a new output module, you should place
-it in @file{src/modules} in your source directory of Speech Dispatcher
+it in @file{src/modules} in your source directory for Speech Dispatcher
 and add it to @file{src/modules/Makefile.am}. You can compile and
 install it by typing: @code{make; su root; make install}. The last
-step you have to do is to let Speech Dispatcher know that you want to
+step is to let Speech Dispatcher know that you want to
 use this new module by adding at least these two lines to
 @file{speech-dispatcher/speechd.conf} in your configuration
 directory. @xref{AddModule}.
@@ -418,22 +418,22 @@ and possibly also changing the lines
 DefaultModule new_module
 @end example
 
-to make it default or
+to make it the default output module or
 
 @example
 LanguageDefaultModule "en"  "new_module"
 @end example
 
-to make it default for some language.
+to make it the default for some language.
 
 @node Client Specific Default Configuration, Security, Multiple Output Modules, Features
 @subsection Client Specific Default Configuration
 
 In Speech Dispatcher's configuration, it is possible to specify
-default values of message parameters for different applications/users
+default values for message parameters from different applications/users
 that connect to it. For example, you can modify the configuration so
-that your instant messanger allways speaks your notifications louder
-by raising it's default volume.
+that your instant messenger always speaks notifications louder
+by raising the volume.
 
 For more details, @xref{Client Specific Configuration}.
 
@@ -441,8 +441,8 @@ For more details, @xref{Client Specific Configuration}.
 @subsection Security
 
 @menu
-* User Authentication::         
-* Access Rights to Message History::  
+* User Authentication::
+* Access Rights to Message History::
 @end menu
 
 @node User Authentication, Access Rights to Message History, Security, Security
@@ -461,7 +461,7 @@ mechanism defined by RFC 1413 to get the user's identity.
 @cindex user mapping
 It is possible to specify user mapping in the configuration.  This allows
 certain users to be considered the same and have the same rights (eg. to browse
-their @ref{Top,,Message History,ssip, SSIP Documentation}).
+their message history)  See @ref{Top,,Message History,ssip, SSIP Documentation}.
 
 @node Access Rights to Message History,  , User Authentication, Security
 @subsubsection Access Rights to Message History
@@ -496,55 +496,55 @@ No other messages are accessible.
 Two users are considered the same, if and only if their connections originate
 on the same host, their user names are the same, and their identity can be
 checked, as described in @ref{User Authentication}.  If user's identity cannot
-be checked, the user is considered different of all other connected or
+be checked, the user is considered different from all other connected or
 previously connected users.
 
 
 @node Installation, Troubleshooting, Features, User's Documentation
 @section Installation
 
-This text only deals with the general aspects of installation of
-Speech Dispatcher. If you are compiling from sourcecode (distribution
+This part only deals with the general aspects of installing
+Speech Dispatcher. If you are compiling from source code (distribution
 tarball or CVS), please refer to the file @file{INSTALL} in your
 source tree.
 
 @subsection The requirements 
 
-You will need these components to run Speech Dispatcher:  
+You will need these components to run Speech Dispatcher:
 @itemize
-@item glib 2.0  (http://www.gtk.org)
-@item libdotconf 1.0 (http://www.azzit.de/dotconf/)
+@item glib 2.0  (@uref{http://www.gtk.org})
+@item libdotconf 1.0 (@uref{http://www.azzit.de/dotconf/})
 @item pthreads
 @end itemize
 
 We recommend to also install these packages:
 @itemize
- @item Festival (http://www.cstr.ed.ac.uk/projects/festival/)
- @item festival-freebsoft-utils 0.3+ (http://www.freebsoft.org/festival-freebsoft-utils)
- @item Sound icons library (http://www.freebsoft.org/pub/projects/sound-icons/sound-icons-0.1.tar.gz)
+ @item Festival (@uref{http://www.cstr.ed.ac.uk/projects/festival/})
+ @item festival-freebsoft-utils 0.3+ (@uref{http://www.freebsoft.org/festival-freebsoft-utils})
+ @item Sound icons library @* (@uref{http://www.freebsoft.org/pub/projects/sound-icons/sound-icons-0.1.tar.gz})
 @end itemize
 
-@subsection Recommended instalation procedure
+@subsection Recommended installation procedure
 
 @itemize
 
 @item Install your software synthesizer
 
-Although we highly recommend to use Festival for its excelent
-extensibility, good quality of voices, good responsiveness and most
-elaborate support in Speech Dispatcher, you might want to start with
+Although we highly recommend to use Festival for its excellent
+extensibility, good quality voices, good responsiveness and best
+support in Speech Dispatcher, you might want to start with
 Flite, a lightweight version of Festival, to get all the key
-components working and only then switch to Festival. Instalation of
+components working and only then switch to Festival. Installation of
 Flite should be easier and the default configuration of Speech
 Dispatcher is set up for Flite for this reason. However, if it is not
 easy for you to install Flite (as your distribution doesn't provide
 packages for it), then don't bother with it.
 
-You can of course also start with Epos or any other supported syntesizer.
+You can of course also start with Epos or any other supported synthesizer.
 
 @item Make sure your synthesizer works
 
-There is usually a way to test if your installation of your speech
+There is usually a way to test if the installation of your speech
 synthesizer works. For Flite run @code{flite -t "Hello!"} and hear
 the speech. For Festival run @code{festival} and type in
 
@@ -558,11 +558,11 @@ the speech. For Festival run @code{festival} and type in
 Install the packages for Speech Dispatcher from your distribution or
 download the source tarball (or CVS) from
 @url{http://www.freebsoft.org/speechd} and follow the instructions in
-the attached file @code{INSTALL} in the source tree.
+the file @code{INSTALL} in the source tree.
 
 @item Configure Speech Dispatcher
 
-(If you have working Flite installation on your system, you can now
+(If you have a working Flite installation on your system, you can now
 skip to the next section, test if your installation of Speech
 Dispatcher works, and then return to tweak the configuration.)
 
@@ -580,17 +580,17 @@ details.
 Another important thing is to configure the output module you are
 using. Go to @file{/etc/speech-dispatcher/festival.conf} or similar
 according to the synthesizers you want to run. If supported, choose
-your prefered audio output method through the option
+your preferred audio output method through the option
 @code{FestivalAudioOutputMethod} or similar. We highly recommend
-@code{ALSA} audio output when supported. Review the other options if
-their values are correct (if there is a '#' sign before the option, it
-means it doesn't have any effect and it's argument is it's default
-value).
+@code{ALSA} audio output when supported. Review the other options.
+If there is a '#' sign before the option, it
+means it doesn't have any effect and its argument is its default
+value.
 
 @item Test Speech Dispatcher
 
 The simplest way to test Speech Dispatcher is through the
-@code{spd-say} tool. 
+@code{spd-say} tool.
 
 Example:
 @example
@@ -617,19 +617,19 @@ Example:
         spd-say --language=cs --rate=20 "Everything ok?"
 @end example
 @item
-Check your configuration files speechd.conf, modules/*.conf if they
+Check if your configuration files (speechd.conf, modules/*.conf) 
 are correct (some uninstalled synthesizer specified as the default,
-wrong values of default voice parameters etc.)
+wrong values for default voice parameters etc.)
 @item
-Check /var/log/speech-dispatcher/speech-dispatcher.log, look for lines
-containing the string 'ERROR' and their surrounding. If you hear no
-speech, restart Speech Dispatcher and try to check the end of the file
+Check @code{/var/log/speech-dispatcher/speech-dispatcher.log}. Look for lines
+containing the string 'ERROR' and their surrounding contents. If you hear no
+speech, restart Speech Dispatcher and look near the end of the log file --
 before any attempts for synthesis of any message. Usually, if
 something goes wrong with the initialization of the output modules, a
-textual description of the problem and of possible solution can be
-found in the logfile.
+textual description of the problem and a possible solution can be
+found in the log file.
 @item
-If you still didn't find the cause of your problems and you are an
+If you still can't find the cause of the problem and you are an
 experienced user, you might want to enable the Debug option of your
 output module in @code{etc/speech-dispatcher/modules/} and examine
 @code{/var/log/speech-dispatcher/module_name.log}.
@@ -652,20 +652,20 @@ ordinary telnet (by default like this: @code{telnet localhost
 @cindex default values
 
 Speech Dispatcher can be configured on several different levels.  You can
-configure the global settings through server configuration file.  There is also
-a support for per-client configuration.
+configure the global settings through the server configuration file.  There is also
+support for per-client configuration.
 
-Further more applications often come with their own means of configuration of
+Furthermore, applications often come with their own means of configuring 
 speech related settings.  Please see the documentation of your application for
 details about application specific configuration.
 
-The following chapters only discuss the server configuration using a
+The following chapters discuss only the server configuration using a
 configuration file.
 
 @menu
 * Configuration file syntax::   Basic rules.
 * Configuration options::       What to configure.
-* Client Specific Configuration::  Specific default values for applications
+* Client Specific Configuration::  Specific default values for applications.
 * Output Modules Configuration::  Adding and customizing output modules.
 * Log Levels::                  Description of log levels.
 @end menu
@@ -676,17 +676,17 @@ configuration file.
 We use the DotConf library to read a permanent text-file based
 configuration, so the syntax might be familiar to many users.
 
-Each of the string constants, if not specified differently,
-should be encoded in UTF-8. The option names can't use use
-other than the standard ASCII charset restricted to characters
+Each of the string constants, if not otherwise stated differently,
+should be encoded in UTF-8. The option names use only the
+standard ASCII charset restricted to upper- and lowercase characters
 (@code{a}, @code{b}), dashes (@code{-}) and underscores @code{_}.
 
-Commentaries and temporarily inactive options begin with @code{#}.
+Comments and temporarily inactive options begin with @code{#}.
 If such an option should be turned on, just remove the comment
 character and set it to the desired value.
 @example
 # this is a comment
-# InactiveOption "this option is turned off by the commentary"
+# InactiveOption "this option is turned off"
 @end example
 
 Strings are enclosed in doublequotes.
@@ -715,9 +715,9 @@ remove the comment symbol @code{#}.
 @node Client Specific Configuration, Output Modules Configuration, Configuration options, Configuration
 @subsection Client Specific Configuration
 
-It is possible to set different default values of speech parameters
-(e.g.  rate, volume, punctuation, default voice...) for different
-applications that connect to Speech Dispatcher automatically. This is
+It is possible to automatically set different default values of speech
+parameters (e.g.  rate, volume, punctuation, default voice...) for
+different applications that connect to Speech Dispatcher. This is
 especially useful for simple applications that have no parameter
 setting capabilities themselves or they don't support a parameter
 setting you wish to change (e.g. language).
@@ -725,17 +725,17 @@ setting you wish to change (e.g. language).
 Using the commands @code{BeginClient "IDENTIFICATION"} and
 @code{EndClient} it is possible to open and close a section of
 parameter settings that only affects those client applications that
-identify themselves to Speech Dispatcher under the a specific
+identify themselves to Speech Dispatcher under the specific
 identification code which is matched against the string
 @code{IDENTIFICATION}.  It is possible to use wildcards ('*' matches
-any number of characters and '?' matches exactly one caracter) in the
+any number of characters and '?' matches exactly one character) in the
 string @code{IDENTIFICATION}.
 
 The identification code normally consists of 3 parts:
 @code{user:application:connection}. @code{user} is the username of the
 one who started the application, @code{application} is the name of the
 application (usually the name of the binary for it) and
-@code{connection} is a name of the connection (one application might
+@code{connection} is a name for the connection (one application might
 use more connections for different purposes).
 
 An example is provided in @code{/etc/speech-dispatcher/speechd.conf}
@@ -751,14 +751,14 @@ any sound output. If no output module is loaded, Speech Dispatcher
 will start, log messages into history and communicate with clients,
 but no sound is produced.
 
-Each output module has to be loaded to Speech Dispatcher by an
+Each output module has an
 ``AddModule'' line in
 @file{speech-dispatcher/speechd.conf}. Additionally, each output
-module can have associated it's own configuration file.
+module can have its own configuration file.
 
 The audio output is handled by the output modules themselves, so this
 can be switched in their own configuration files under
-@code{etc/speech-dispatcher/modules/}
+@code{etc/speech-dispatcher/modules/}.
 
 @menu
 * Loading Modules in speechd.conf::  
@@ -793,9 +793,9 @@ to @file{etc/speech-dispatcher/modules/}. This parameter is optional.
 @node Configuration files of output modules, Configuration of the Generic Output Module, Loading Modules in speechd.conf, Output Modules Configuration
 @subsubsection Configuration Files of Output Modules
 
-Each output module is different and therefore has a different
-configuration options. Please look at the comments in it's
-configuration file for detailed description. However, there
+Each output module is different and therefore has different
+configuration options. Please look at the comments in its
+configuration file for a detailed description. However, there
 are several options which are common for some
 output modules. Here is a short overview of them.
 
@@ -824,11 +824,11 @@ We recommend (e.g. for Festival:
 @anchor{AddVoice}
 
 Each output module provides some voices and sometimes it even supports
-different languages. For this reason, there is a common mechanism how
-these can be defined in configuration, although, no module is
+different languages. For this reason, there is a common mechanism for
+specifying these in the configuration, although no module is
 obligated to use it. Some synthesizers, e.g. Festival, support the
 SSIP symbolic names directly, so the particular configuration of these
-zvoices is done in the synthesizer itself.
+voices is done in the synthesizer itself.
 
 For each voice, there is exactly one @code{AddVoice} line.
 
@@ -860,27 +860,30 @@ them one by one. This second approach, used by some output
 modules, is much faster, however it limits the ability of
 the output module to provide good intonation.
 
+NOTE: The Festival module does not use ModuleDelimiters and
+ModuleMaxChunkLength.
+
 For this reason, you can configure at which characters
-(@var{delimiters}) the text should be cut in smaller blocks
-or after how much characters (@var{length}) it should be cut,
+(@var{delimiters}) the text should be cut into smaller blocks
+or after how many characters (@var{length}) it should be cut,
 if there is no @var{delimiter} found.
 
 Making the two rules more strict, you will get better speed
 but give away some quality of intonation. So for example
-for slower computers, we recommend to include coma (,)
-in @var{delimiters} so that the text is cut in parts
-of sentences, while for faster computers, it's preferable
-not to include coma and synthesize the whole composed
-sentences.
+for slower computers, we recommend to include comma (,)
+in @var{delimiters} so that sentences are cut into phrases,
+while for faster computers, it's preferable
+not to include comma and synthesize the whole compound
+sentence.
 
 The same applies to @code{MaxChunkLength}, it's better
-to set higher value for faster computers.
+to set higher values for faster computers.
 
-For example, curently the default for Festival is
+For example, curently the default for Flite is
 
 @example
-    FestivalMaxChunkLength  300
-    FestivalDelimiters  ".?!;,"
+    FestivalMaxChunkLength  500
+    FestivalDelimiters  ".?!;"
 @end example
 
 The output module may also decide to cut sentences on delimiters
@@ -894,10 +897,9 @@ would be. (This is an interesting sentence, by the way.)
 @subsubsection Configuration files of the Generic Output Module
 
 The generic output module allows you to easily write your
-own simple output module for synthesizers that have a simple
-command line interface only by modifying the configuration
-file. This way, no specific code is needed to write in C
-and users can add support for their device even if they don't
+own output module for synthesizers that have a simple
+command line interface by modifying the configuration
+file. This way, users can add support for their device even if they don't
 know how to program. @xref{AddModule}.
 
 The core part of a generic output module is the command
@@ -906,21 +908,21 @@ execution line.
 @defvr {Generic Module Configuration} GenericExecuteSynth "@var{execution_string}"
 
 @code{execution_string} is the command that should be executed
-in shell when it's desired to say something. In fact, it can
-be more commands concatenated by the @code{&&} operator. To stop
+in a shell when it's desired to say something. In fact, it can
+be multiple commands concatenated by the @code{&&} operator. To stop
 saying the message, the output module will send a KILL signal to
-this process group, so it's important that it immediately
-stoped speaking after the processes are killed. (On most GNU/Linux
+the process group, so it's important that it immediately
+stops speaking after the processes are killed. (On most GNU/Linux
 system, the @code{play} utility has this property).
 
 In the execution string, you can use the following variables,
-that will be substituted by the desired values before executing
+which will be substituted by the desired values before executing
 the command.
 
 @itemize
 @item @code{$DATA}
 The text data that should be said. The string's characters that would interfere
-with bash processing are already escaped. However, it may be needed to put
+with bash processing are already escaped. However, it may be necessary to put
 double quotes around it (like this: @code{\"$DATA\"}).
 @item @code{$LANG}
 The language identification string (it's defined by GenericLanguage).
@@ -947,7 +949,7 @@ GenericExecuteSynth \
 @defvr {GenericModuleConfiguration} GenericLanguage "iso-code" "string-subst"
 
 Defines which string @code{string-subst} should be substituted for @code{$LANG}
-for a given @code{iso-code} language code.
+given an @code{iso-code} language code.
 
 Another example from Epos generic:
 @example
@@ -971,11 +973,11 @@ The resulting rate (or pitch) is calculated using the following formula:
 @example
    (speechd_rate * GenericRateMultiply) + GenericRateAdd
 @end example
-while speechd_rate is a value between -100 (lowest) and +100 (highest)
+where speechd_rate is a value between -100 (lowest) and +100 (highest)
 Some meaningful conversion for the specific text-to-speech system
 used must by defined.
 
-(The values in GenericSthMultiply are multiplied by 100, because
+(The values in GenericSthMultiply are multiplied by 100 because
 DotConf currently doesn't support floats. So you can write 0.85 as 85 and
 so on.)
 @end defvr
@@ -1014,19 +1016,19 @@ about Speech Dispatcher's operation is logged.
 @item Level 4
 @itemize @bullet
 @item Every received command is output.
-@item Information about proceeding the command output
+@item Information preceding the command output.
 @item Information about queueing/allocating messages.
-@item Information about the function of history, sound icons and other
+@item Information about the history, sound icons and other
 facilities.
 @item Information about the work of the speak() thread.
 @end itemize
 
 @item Level 5
-(This is only for debugging purposes and can output really *much*
-data. Use with caution.)
+(This is only for debugging purposes and will output *a lot*
+of data. Use with caution.)
 @itemize @bullet
 @item Received data (messages etc.) is output.
-@item Debugging information
+@item Debugging information.
 @end itemize
 @end itemize
 
@@ -1034,25 +1036,25 @@ data. Use with caution.)
 @section Tools
 
 Several small tools are distributed together with Speech Dispatcher.
-@code{spd-say} is a small client that allows you to send messages into
+@code{spd-say} is a small client that allows you to send messages to
 Speech Dispatcher in an easy way and have them spoken, or cancel
 speech from other applications.
 
 @menu
-* spd-say::                     Say a given text or cancel messages in Dispatcher
-* spd-send::                    Direct SSIP communication from command line    
+* spd-say::                     Say a given text or cancel messages in Dispatcher.
+* spd-send::                    Direct SSIP communication from command line.
 @end menu
 
 @node spd-say, spd-send, Tools, Tools
 @subsection spd-say
 
-spd-say is documented in it's own manual. @xref{Top,,,spd-say, Spd-say
+spd-say is documented in its own manual. @xref{Top,,,spd-say, Spd-say
 Documentation}.
 
 @node spd-send,  , spd-say, Tools
 @subsection spd-send
 
-spd-send is a small client/server application, which allows you to
+spd-send is a small client/server application that allows you to
 establish a connection to Speech Dispatcher and then use a simple
 command line tool to send and receive SSIP protocol communication.
 
@@ -1067,17 +1069,17 @@ Internet Protocol (SSIP) @xref{Top, , , ssip, Speech Synthesis
 Internet Protocol documentation}.  The protocol is the actual
 interface to Speech Dispatcher.
 
-Usually you don't need to use SSIP directly.  You can use one of the
-programming interfaces wrapping SSIP with programming library calls.  This is a
-recommended way of communication with Speech Dispatcher.  We try so support as
+Usually you don't need to use SSIP directly.  You can use one of the supplied
+libraries, which wrap the SSIP interface.  This is the
+recommended way of communicating with Speech Dispatcher.  We try so support as
 many programming environments as possible.  This manual (except SSIP) contains
-documentation for C and Python interface, however there are also other
-interfaces developed as external projects.  Please contact us for information
+documentation for the C and Python libraries, however there are also other
+libraries developed as external projects.  Please contact us for information
 about current external client libraries.
 
 @menu
 * C API::                       Shared library for C/C++
-* Python API::                  Pythom module.
+* Python API::                  Python module.
 * Guile API::                   
 * Common Lisp API::             
 @end menu
@@ -1094,7 +1096,7 @@ about current external client libraries.
 * Parameter Setting Commands in C::  
 * Other Functions in C::        
 * Information Retrieval Commands in C::  
-* Events Notification and Index Marking in C::  
+* Event Notification and Index Marking in C::  
 * History Commands in C::       
 * Direct SSIP Communication in C::  
 @end menu
@@ -1107,22 +1109,22 @@ about current external client libraries.
 @findex spd_open()
 
 Opens a new connection to Speech Dispatcher and returns a socket file descriptor you will
-use to communicate with Speech Dispatcher. It's one of the parameter of all the others
-functions. It reads Speech Dispatcher's port number from the environment variable
-@var{SPEECHD_PORT}.
+use to communicate with Speech Dispatcher. The socket file descriptor is a parameter used
+in all the other functions. It reads Speech Dispatcher's port number from the environment
+variable @var{SPEECHD_PORT}.
 
 The three parameters @code{client_name}, @code{connection_name} and @code{username}
-are there only for informational and navigational purpose, they don't affect
+are there only for informational and navigational purposes, they don't affect
 any settings or behavior of any functions. The authentication mechanism
 has nothing to do with @code{username}. These parameters are important for
 the user when he wants to set some parameters for a given session, when he
 wants to browse through history, etc. The parameter @code{connection_mode}
-specifies how this connection should be handled internally and if events
+specifies how this connection should be handled internally and if event
 notifications and index marking capabilities will be available.
 
 @code{client_name} is the name of the client that opens the connection. Normally,
 it should be the name of the executable, for example ``lynx'', ``emacs'', ``bash'',
-or ``gcc''. It can't be left to NULL.
+or ``gcc''. It can be left as NULL.
 
 @code{connection_name} determines the particular use of that connection. If you
 use only one connection in your program, this should be set to ``main'' (passing
@@ -1138,13 +1140,13 @@ determine it automatically by g_get_user_name().
 and @code{SPD_MODE_THREADED}. If the parameter is set to
 @code{SPD_MODE_THREADED}, then @code{spd_open()} will open an
 additional thread in your program which will handle asynchronous SSIP
-replies and will allow you to use callbacks for events notification
-and index marking, allowing you to keep track of the progress of
-timing of speaking the messages. However, you must be avare, that your
+replies and will allow you to use callbacks for event notifications
+and index marking, allowing you to keep track of the progress
+of speaking the messages. However, you must be aware that your
 program is now multi-threaded and care must be taken when
 using/handling signals. If @code{SPD_MODE_SINGLE} is chosen, the
 library won't execute any additional threads and SSIP will run only as
-a synchronous protocol, therefore events notifications and index
+a synchronous protocol, therefore event notifications and index
 marking won't be available.
 
 It returns a newly allocated SPDConnection* structure on success, or @code{NULL}
@@ -1152,7 +1154,7 @@ on error.
 
 Each connection you open should be closed by spd_close() before the
 end of the program, so that the associated connection descriptor is
-closed, threads are terminated and memmory is freed.
+closed, threads are terminated and memory is freed.
 
 @end deffn
 
@@ -1160,7 +1162,7 @@ closed, threads are terminated and memmory is freed.
 @findex spd_close()
 
 Closes a Speech Dispatcher socket connection, terminates associated
-threads (if necessary) and frees the memmory allocated by
+threads (if necessary) and frees the memory allocated by
 spd_open(). You should close every connection before the end of your
 program.
 
@@ -1195,21 +1197,21 @@ typedef enum@{
 
 Sends a message to Speech Dispatcher. If this message isn't blocked by some message
 of higher priority and this CONNECTION isn't paused, it will be synthesized
-directly on some of the output devices. Otherwise, the message will be discarded
-or delayed according to it's priority.
+directly on one of the output devices. Otherwise, the message will be discarded
+or delayed according to its priority.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{priority} is the desired priority for this message. @xref{Top,,Message Priority Model,ssip, SSIP Documentation}.
 
-@code{text} is a null terminated string containing text you want to sent to
+@code{text} is a null terminated string containing text you want sent to
 synthesis. It must be encoded in UTF-8. Note that this doesn't have to be what
-you will finally hear. It can be affected by different settings as spelling,
+you will finally hear. It can be affected by different settings, such as spelling,
 punctuation, text substitution etc.
 
 It returns a positive unique message identification number on success, -1 otherwise.
-This message identification number can be saved and used for the purposes of
-events notification callbacks or history handling.
+This message identification number can be saved and used for the purpose of
+event notification callbacks or history handling.
 
 @end deffn
 
@@ -1218,7 +1220,7 @@ events notification callbacks or history handling.
 
 Similar to @code{spd_say()}, simulates the behavior of printf().
 
-@code{format} is a string containing text and format of the parameters, like ``%d'',
+@code{format} is a string containing text and formatting of the parameters, such as ``%d'',
 ``%s'' etc. It must be encoded in UTF-8.
 
 @code{...} is an arbitrary number of arguments.
@@ -1238,17 +1240,17 @@ But be careful with unicode! For example this doesn't work:
 @end example
 
 Why? Because you are supposing that key is a char, but that will
-fail with languages using amplified charsets. The proper solution
+fail with languages using multibyte charsets. The proper solution
 is:
 
 @example
        spd_sayf(conn, SPD_NOTIFY, ``Pressed key is %s'', key);
 @end example
-where key is a encoded string.
+where key is an encoded string.
 
 It returns a positive unique message identification number on success, -1 otherwise.
-This message identification number can be saved and used for the purposes of
-events notification callbacks or history handling.
+This message identification number can be saved and used for the purpose of
+event notification callbacks or history handling.
 @end deffn
 
 @node Speech output control commands in C, Characters and Keys in C, Speech Synthesis Commands in C, C API
@@ -1262,12 +1264,12 @@ events notification callbacks or history handling.
 Stops the message currently being spoken on a given connection. If there
 is no message being spoken, does nothing. (It doesn't touch the messages
 waiting in queues). This is intended for stops executed by the user,
-not for automatic stops (because automatically, you can't control
+not for automatic stops (because automatically you can't control
 how many messages are still waiting in queues on the server).
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 
-It returns 0 on succes, -1 otherwise.
+It returns 0 on success, -1 otherwise.
 @end deffn
 
 @deffn {C API function}  int spd_stop_all(SPDConnection* connection);
@@ -1276,20 +1278,20 @@ It returns 0 on succes, -1 otherwise.
 The same as spd_stop(), but it stops every message being said,
 without distinguishing where it came from.
 
-It returns 0 on succes, -1 if some of the stops failed.
+It returns 0 on success, -1 if some of the stops failed.
 @end deffn
 
 @deffn {C API function}  int spd_stop_uid(SPDConnection* connection, int target_uid);
 @findex spd_stop_uid()
 
-The same as spd_stop() except that it stops some other client than
+The same as spd_stop() except that it stops a client client different from
 the calling one. You must specify this client in @code{target_uid}.
 
 @code{target_uid} is the unique ID of the connection you want
 to execute stop() on. It can be obtained from spd_history_get_client_list().
 @xref{History Commands in C}.
 
-It returns 0 on succes, -1 otherwise.
+It returns 0 on success, -1 otherwise.
 
 @end deffn
 
@@ -1298,7 +1300,7 @@ It returns 0 on succes, -1 otherwise.
 @deffn {C API function}  int spd_cancel(SPDConnection* connection);
 
 Stops the currently spoken message from this connection
-(if there is any) and discard all the queued messages
+(if there is any) and discards all the queued messages
 from this connection. This is probably what you want
 to do, when you call spd_cancel() automatically in
 your program.
@@ -1310,7 +1312,7 @@ your program.
 The same as spd_cancel(), but it cancels every message
 without distinguishing where it came from.
 
-It returns 0 on succes, -1 if some of the stops failed.
+It returns 0 on success, -1 if some of the stops failed.
 @end deffn
 
 @deffn {C API function}  int spd_cancel_uid(SPDConnection* connection, int target_uid);
@@ -1323,7 +1325,7 @@ than the calling one. You must specify this client in @code{target_uid}.
 execute cancel() on.  It can be obtained from
 spd_history_get_client_list().  @xref{History Commands in C}.
 
-It returns 0 on succes, -1 otherwise.
+It returns 0 on success, -1 otherwise.
 @end deffn
 
 @subsubheading Pause Commands
@@ -1332,13 +1334,13 @@ It returns 0 on succes, -1 otherwise.
 @findex int spd_pause()
 
 Pauses all messages received from the given connection. No messages
-except for priority @code{notification} and @code{progress} all thrown
-away, they are all waiting in a separate queue for resume(). The
-message that was being said in the moment pause() was received will be
+except for priority @code{notification} and @code{progress} are thrown
+away, they are all waiting in a separate queue for resume(). Upon resume(), the
+message that was being said at the moment pause() was received will be
 continued from the place where it was paused.
 
 It returns immediately. However, that doesn't mean that the speech
-output must be stopped immediately. Instead, it can continue speaking
+output will stop immediately. Instead, it can continue speaking
 the message for a while until a place where the position in the text
 can be determined exactly is reached. This is necessary to be able to
 provide `resume' without gaps and overlapping.
@@ -1346,7 +1348,7 @@ provide `resume' without gaps and overlapping.
 When pause is on for the given client, all newly received
 messages are also queued and waiting for resume().
 
-It returns 0 on succes, -1 if something failed.
+It returns 0 on success, -1 if something failed.
 @end deffn
 
 @deffn {C API function}  int spd_pause_all(SPDConnection* connection);
@@ -1355,20 +1357,20 @@ It returns 0 on succes, -1 if something failed.
 The same as spd_pause(), but it pauses every message,
 without distinguishing where it came from.
 
-It returns 0 on succes, -1 if some of the pauses failed.
+It returns 0 on success, -1 if some of the pauses failed.
 @end deffn
 
 @deffn {C API function}  int spd_pause_uid(SPDConnection* connection, int target_uid);
 @findex spd_pause_uid()
 
-The same as spd_pause() except that it executes pause for some other client
-than the calling one. You must specify this client in @code{target_uid}.
+The same as spd_pause() except that it executes pause for a client different from
+the calling one. You must specify the client in @code{target_uid}.
 
 @code{target_uid} is the unique ID of the connection you want
 to pause. It can be obtained from spd_history_get_client_list().
 @xref{History Commands in C}.
 
-It returns 0 on succes, -1 otherwise.
+It returns 0 on success, -1 otherwise.
 @end deffn
 
 @subsubheading Resume Commands  
@@ -1377,13 +1379,13 @@ It returns 0 on succes, -1 otherwise.
 @findex int spd_resume()
 
 Resumes all paused messages from the given connection. The rest
-of the message that was being said in the moment pause() was
+of the message that was being said at the moment pause() was
 received will be said and all the other messages are queued
 for synthesis again.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 
-It returns 0 on succes, -1 otherwise.
+It returns 0 on success, -1 otherwise.
 @end deffn
 
 @deffn {C API function}  int spd_resume_all(SPDConnection* connection);
@@ -1392,20 +1394,20 @@ It returns 0 on succes, -1 otherwise.
 The same as spd_resume(), but it resumes every paused message,
 without distinguishing where it came from.
 
-It returns 0 on succes, -1 if some of the pauses failed.
+It returns 0 on success, -1 if some of the pauses failed.
 @end deffn
 
 @deffn {C API function}  int spd_resume_uid(SPDConnection* connection, int target_uid);
 @findex spd_resume_uid()
 
-The same as spd_resume() except that it executes resume for some other client
-than the calling one. You must specify this client in @code{target_uid}.
+The same as spd_resume() except that it executes resume for a client different from
+the calling one. You must specify the client in @code{target_uid}.
 
 @code{target_uid} is the unique ID of the connection you want
 to resume. It can be obtained from spd_history_get_client_list().
 @xref{History Commands in C}.
 
-It returns 0 on succes, -1 otherwise.
+It returns 0 on success, -1 otherwise.
 @end deffn
 
 @node Characters and Keys in C, Sound Icons in C, Speech output control commands in C, C API
@@ -1414,8 +1416,8 @@ It returns 0 on succes, -1 otherwise.
 @deffn {C API function}  int spd_char(SPDConnection* connection, SPDPriority priority, char* character);
 @findex spd_char()
 
-Says a character according to user settings for characters. This can be
-used for example for reading letters under the cursor.
+Says a character according to user settings for characters. For example, this can be
+used for speaking letters under the cursor.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 
@@ -1425,15 +1427,15 @@ message. @xref{Top,,Message Priority Model,ssip, SSIP Documentation}.
 @code{character} is a NULL terminated string of chars containing one UTF-8
 character. If it contains more characters, only the first one is processed.
 
-It returns 0 on succes, -1 otherwise.
+It returns 0 on success, -1 otherwise.
 @end deffn
 
 @deffn {C API function}  int spd_wchar(SPDConnection* connection, SPDPriority priority, wchar_t wcharacter);
 @findex spd_say_wchar()
 
-The same as spd_char(), but it takes a wchar_t variable as it's argument. 
+The same as spd_char(), but it takes a wchar_t variable as its argument. 
 
-It returns 0 on succes, -1 otherwise.
+It returns 0 on success, -1 otherwise.
 @end deffn
 
 @deffn {C API function} int spd_key(SPDConnection* connection, SPDPriority priority, char* key_name);
@@ -1451,7 +1453,7 @@ message. @xref{Top,,Message Priority Model,ssip, SSIP Documentation}.
 Documentation}, (KEY, the corresponding SSIP command) for description
 of the format of @code{key_name}
 
-It returns 0 on succes, -1 otherwise.
+It returns 0 on success, -1 otherwise.
 @end deffn
 
 @node Sound Icons in C, Parameter Setting Commands in C, Characters and Keys in C, C API
@@ -1461,17 +1463,17 @@ It returns 0 on succes, -1 otherwise.
 @findex spd_sound_icon()
 
 Sends a sound icon ICON_NAME. These are symbolic names that are mapped
-to a sound or to a text (in the particular language) according to
+to a sound or to a text string (in the particular language) according to
 Speech Dispatcher tables and user settings. Each program can also
-define it's own icons.
+define its own icons.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{priority} is the desired priority for this
 message. @xref{Top,,Message Priority Model,ssip, SSIP Documentation}.
 
-@code{icon_name} is the name of the icon. It can't contain spaces,
-please use underscores (`_'). Icon names starting with an underscore
+@code{icon_name} is the name of the icon. It can't contain spaces, instead
+use underscores (`_'). Icon names starting with an underscore
 are considered internal and shouldn't be used.
 @end deffn
 
@@ -1480,7 +1482,7 @@ are considered internal and shouldn't be used.
 
 The following parameter setting commands are available. For configuration
 and history clients there are also functions for setting the value for
-some other connection and for all connections. They are listed bellow separately.
+some other connection and for all connections. They are listed separately below.
 
 Please see @ref{Top,,Parameter Setting Commands,ssip, SSIP
 Documentation} for a general description of what they mean.
@@ -1490,9 +1492,9 @@ Documentation} for a general description of what they mean.
 
 Set Speech Dispatcher data mode. Currently, plain text and SSML are
 supported. SSML is especially useful if you want to use index marks
-or include changes of voice parameters into the text.
+or include changes of voice parameters in the text.
 
-@code{mode} is the requeted data mode: @code{SPD_DATA_TEXT} or
+@code{mode} is the requested data mode: @code{SPD_DATA_TEXT} or
 @code{SPD_DATA_SSML}.
 
 @end deffn
@@ -1520,7 +1522,7 @@ and their registration names may vary from machine to machine.
 @code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{output_module} is the output module name under which the module
-was loaded into Speech Dispatcher in it's configuration (``flite'',
+was loaded into Speech Dispatcher in its configuration (``flite'',
 ``festival'', ``epos-generic''... )
 
 @end deffn
@@ -1528,9 +1530,9 @@ was loaded into Speech Dispatcher in it's configuration (``flite'',
 @deffn {C API function}  int spd_set_punctuation(SPDConnection* connection, SPDPunctuation type);
 @findex spd_set_punctuation()
 
-Set punctuation mode to the given value.  `all' means read all
-punctuation characters, `none' read no punctuation characters,
-`some' means read only punctuation characters given in the server
+Set punctuation mode to the given value.  `all' means speak all
+punctuation characters, `none' menas speak no punctuation characters,
+`some' means speak only punctuation characters given in the server
 configuration or defined by the client's last spd_set_punctuation_important().
 
 @code{connection} is the SPDConnection* connection created by spd_open().
@@ -1538,13 +1540,13 @@ configuration or defined by the client's last spd_set_punctuation_important().
 @code{type} is one of the following values: @code{SPD_PUNCT_ALL},
 @code{SPD_PUNCT_NONE}, @code{SPD_PUNCT_SOME}.
 
-It returns 0 on succes, -1 otherwise.
+It returns 0 on success, -1 otherwise.
 @end deffn
 
 @deffn {C API function}  int spd_set_spelling(SPDConnection* connection, SPDSpelling type);
 @findex spd_set_spelling()
 
-Switches spelling mode on and off. If set to on, all incomming messages
+Switches spelling mode on and off. If set to on, all incoming messages
 from this particular connection will be processed according to appropriate
 spelling tables (see spd_set_spelling_table()).
 
@@ -1556,7 +1558,7 @@ spelling tables (see spd_set_spelling_table()).
 @deffn {C API function}  int spd_set_voice_type(SPDConnection* connection, SPDVoiceType voice);
 @findex spd_set_voice_type()
 
-Set a prefered voice.
+Set a preferred voice.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 
@@ -1570,7 +1572,7 @@ Set a prefered voice.
 @deffn {C API function}  int spd_set_voice_rate(SPDConnection* connection, int rate);
 @findex spd_set_voice_rate()
 
-Set voice rate.
+Set voice speaking rate.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 
@@ -1608,17 +1610,17 @@ the lowest and the loudest voice respectively.
 @node Other Functions in C, Information Retrieval Commands in C, Parameter Setting Commands in C, C API
 @subsection Other Functions
 
-@node Information Retrieval Commands in C, Events Notification and Index Marking in C, Other Functions in C, C API
+@node Information Retrieval Commands in C, Event Notification and Index Marking in C, Other Functions in C, C API
 @subsection Information Retrieval Commands
 
-Currently there is none.
+Currently there are none.
 
-@node Events Notification and Index Marking in C, History Commands in C, Information Retrieval Commands in C, C API
-@subsection Events Notification and Index Marking in C
+@node Event Notification and Index Marking in C, History Commands in C, Information Retrieval Commands in C, C API
+@subsection Event Notification and Index Marking in C
 
-When the SSIP connection is run in asynchronous mode , it is possible
-to register callbacks for all the SSIP events notifications and index
-marks notifications, as defined in @ref{Message Events Notification
+When the SSIP connection is run in asynchronous mode, it is possible
+to register callbacks for all the SSIP event notifications and index
+mark notifications, as defined in @ref{Message Event Notification
 and Index Marking,,, ssip, SSIP Documentation}
 
 @defvar {C API type} SPDNotification
@@ -1648,15 +1650,15 @@ There are currently two types of callbacks in the C API.
 @code{void (*SPDCallback)(size_t msg_id, size_t client_id, SPDNotificationType state);}
 
 This one is used for notifications about the events: @code{BEGIN}, @code{END}, @code{PAUSE}
-and @code{RESUME}. When the callback is called, it obtains three parameters of the event.
+and @code{RESUME}. When the callback is called, it provides three parameters for the event.
 
 @code{msg_id} unique identification number of the message the notification is about.
 
 @code{client_id} specifies the unique identification number of the client who sent the
-message. This is usually the same connection as the connection which registers this
+message. This is usually the same connection as the connection which registered this
 callback, and therefore uninteresting. However, in some special cases it might be useful
 to register this callback for other SSIP connections, or register the same callback for
-several connections originating at the same application.
+several connections originating from the same application.
 
 @code{state} is the @code{SPD_Notification} type of this notification. @xref{SPDNotification}.
 @end defvar
@@ -1666,8 +1668,9 @@ several connections originating at the same application.
 @code{void (*SPDCallbackIM)(size_t msg_id, size_t client_id, SPDNotificationType state,
 char *index_mark);}
 
-@code{SPDCallbackIM} is used for notifications about reached index marks in the message.
-(A way to specify index marks is e.g. through the SSML element <mark/> in ssml mode.)
+@code{SPDCallbackIM} is used for notifications about index marks that have been reached
+in the message.  (A way to specify index marks is e.g. through the SSML element
+<mark/> in ssml mode.)
 
 The syntax and meaning of these parameters are the same as for @ref{SPDCallback}
 except for the additional parameter @code{index_mark}.
@@ -1706,7 +1709,7 @@ when the event is registered by Speech Dispatcher.
 These functions will set the notification specified by the parameter
 @code{notification} on or off (or to the given value)
 respectively. Note that it is only safe to call these functions after
-the appropriate callback functions were set in the @code{SPDCallback}
+the appropriate callback functions have been set in the @code{SPDCallback}
 structure. Doing otherwise is not considered an error, but the
 application might miss some events due to callback functions not being
 executed (e.g. the client might receive an @code{END} event without
@@ -1715,14 +1718,14 @@ receiving the corresponding @code{BEGIN} event in advance.
 @code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{notification} is the requested type of notifications that should be reported by SSIP. @xref{SPDNotification}.
-Note that also '|' combinations are possible, as illustrated in the bellow example.
+Note that also '|' combinations are possible, as illustrated in the example below.
 
 @code{state} must be either the string ``on'' or ``off'', for switching the given notification on or off.
 
 @end deffn
 
 The following example shows how to use callbacks for the simple
-purpose of playing a message and waiting until it's end. (Please note
+purpose of playing a message and waiting until its end. (Please note
 that checks of return values in this example as well as other code
 not directly related to index marking, have been removed for the purpose
 of clarity.)
@@ -1736,10 +1739,10 @@ sem_t semaphore;
 void end_of_speech(size_t msg_id, size_t client_id, SPDNotificationType type)
 @{
    /* We don't check msg_id here since we will only send one
-       message */
+       message. */
 
-   /* Callbacks are running in a separate thread, so lets the
-       (sleeping) main thread know about the event and wake it up */
+   /* Callbacks are running in a separate thread, so let the
+       (sleeping) main thread know about the event and wake it up. */
    sem_post(&semaphore);
 @}
 
@@ -1750,17 +1753,17 @@ main(int argc, char **argv)
 
    sem_init(&semaphore, 0, 0);
 
-   /* Open Speech Dispatcher connection in THREADED mode */ 
+   /* Open Speech Dispatcher connection in THREADED mode. */ 
    conn = spd_open("say","main", NULL, SPD_MODE_THREADED);
 
-   /* Set callback handler for 'end' and 'cancel' events */ 
+   /* Set callback handler for 'end' and 'cancel' events. */ 
    conn->callback_end = con->callback_cancel = end_of_speech;
 
-   /* Ask Speech Dispatcher to notify us about these events */ 
+   /* Ask Speech Dispatcher to notify us about these events. */ 
    spd_set_notification_on(conn, SPD_END);
    spd_set_notification_on(conn, SPD_CANCEL);
 
-   /* Say our message */
+   /* Say our message. */
    spd_sayf(conn, SPD_MESSAGE, (char*) argv[1]);
 
    /* Wait for 'end' or 'cancel' of the sent message. 
@@ -1782,9 +1785,9 @@ main(int argc, char **argv)
 @subsection Direct SSIP Communication in C
 
 It might happen that you want to use some SSIP function that is not
-available through this library or you may want to use an available
+available through a library or you may want to use an available
 function in a different manner. (If you think there is something
-missing in this library or you have some useful comment on the
+missing in a library or you have some useful comment on the
 available functions, please let us know.) For this purpose, there are
 a few functions that will allow you to send arbitrary SSIP commands on
 your connection and read the replies.
@@ -1792,9 +1795,9 @@ your connection and read the replies.
 @deffn {C API function} int spd_execute_command(SPDConnection* connection, char *command);
 @findex spd_execute_command()
 
-You can send an arbitrary SSIP command specified in the parameter @code{commnad}.
+You can send an arbitrary SSIP command specified in the parameter @code{command}.
 
-If the command is succesful, the function returns a 0. If there is no such
+If the command is successful, the function returns a 0. If there is no such
 command or the command failed for some reason, it returns -1.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
@@ -1808,7 +1811,7 @@ For example:
         spd_execute_command(fd, "SOUND_ICON bell");
 @end example 
 
-It's not possible to use this function for composed commands like @code{SPEAK}
+It's not possible to use this function for compound commands like @code{SPEAK}
 where you are receiving more than one reply. If this is your case, please
 see `spd_send_data()'.
 @end deffn
@@ -1817,12 +1820,12 @@ see `spd_send_data()'.
 @findex spd_send_data()
 
 You can send an arbitrary SSIP string specified in the parameter @code{message}
-and, if specified, wait for the reply. The string can be an SSIP command, but
+and, if specified, wait for the reply. The string can be any SSIP command, but
 it can also be textual data or a command parameter.
 
 If @code{wfr} (wait for reply) is set to SPD_WAIT_REPLY, you will receive the reply string
 as the return value. If wfr is set to SPD_NO_REPLY, the return value is a NULL pointer.
-In case wfr is set to SPD_WAIT_REPLY, you should always free the returned string.
+If wfr is set to SPD_WAIT_REPLY, you should always free the returned string.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 
@@ -1831,9 +1834,9 @@ string.  If this is a complete SSIP command, it must include the full
 terminating sequence @code{\r\n}.
 
 @code{wfr} is either SPD_WAIT_REPLY (integer value of 1) or SPD_NO_REPLY (0).
-This specifies if you expect to get a reply on the send data according to SSIP.
-For example if you are sending an ordinary text inside a @code{SPEAK} command,
-you don't expect to get a reply. But you expect a reply after sending the final
+This specifies if you expect to get a reply on the sent data according to SSIP.
+For example, if you are sending ordinary text inside a @code{SPEAK} command,
+you don't expect to get a reply, but you expect a reply after sending the final
 sequence @code{\r\n.\r\n}.
 
 For example (simplified by not checking and freeing the returned strings):
@@ -1889,9 +1892,9 @@ in the server core, we will be happy if you get in touch with us on
 The server core is composed of two main parts, each of them implemented
 in a separate thread. The @emph{server part} handles the communication
 with clients and, with the desired configuration options, stores the messages
-in the priority queue. The @emph{speaking part} takes care about the
-communication with the output modules, pulls messages out of the priority
-queue in the right time and sends them to the appropriate synthesizer.
+in the priority queue. The @emph{speaking part} takes care of
+communicating with the output modules, pulls messages out of the priority
+queue at the correct time and sends them to the appropriate synthesizer.
 
 Synchronization between these two parts is done by thread mutexes.
 Additionally, synchronization of the speaking part from both sides
@@ -1901,17 +1904,17 @@ Additionally, synchronization of the speaking part from both sides
 
 After switching to the daemon mode (if required), it reads configuration
 files and initializes the speaking part. Then it opens the socket
-and waits for incomming data. This is implemented mainly in
+and waits for incoming data. This is implemented mainly in
 @file{src/server/speechd.c} and @file{src/server/server.c}.
 
 There are three types of events: new client connects to speechd,
-old client disconnects or a client sends some data. In the third
-case, this data is passed to the @code{parse()} function defined
+old client disconnects, or a client sends some data. In the third
+case, the data is passed to the @code{parse()} function defined
 in @file{src/server/parse.c}.
 
-If the incomming data is a new message, it's stored in the
-queues according to its priority. If it is some SSIP
-commands, it's handled by the appropriate handles.
+If the incoming data is a new message, it's stored in a
+queue according to its priority. If it is SSIP
+commands, it's handled by the appropriate handlers.
 Handling of the @code{SET} family of commands can be found
 in @file{src/server/set.c} and @code{HISTORY} commands are
 processed in @file{src/server/history.c}.
@@ -1923,7 +1926,7 @@ All reply messages of SSIP are defined in @file{src/server/msg.h}.
 This thread, the function @code{speak()} defined in
 @file{src/server/speaking.c}, is created from the server part process
 shortly after initialization. Then it enters an infinite loop and
-waits on a SYSV/IPC semaphore until on of the following actions
+waits on a SYSV/IPC semaphore until one of the following actions
 happen:
 
 @itemize
@@ -1931,18 +1934,18 @@ happen:
 The server adds a new message to the queue of messages waiting
 to be said.
 @item
-The currently active output module signalizes that the message
+The currently active output module signals that the message
 that was being spoken is done.
 @item
 Pause or resume is requested.
 @end itemize
 
-After handling the rest of priority interaction (like actions
+After handling the rest of the priority interaction (like actions
 needed to repeat the last priority progress message) it decides
 which action should be performed. Usually it's picking up
 a message from the queue and sending it to the desired output
 module (synthesizer), but sometimes it's handling the pause
-or resume requests, and sometimes it's to do nothing.
+or resume requests, and sometimes it's doing nothing.
 
 As said before, this is the part of Speech Dispatcher that
 talks to the output modules. It does so by using the output
@@ -1954,7 +1957,7 @@ interface defined in @file{src/server/output.c}.
 @menu
 * Basic Structure::             The definition of an output module.
 * Communication Protocol for Output Modules::  
-* How to Write New Output Module::  How to include support for new synthesizer.
+* How to Write New Output Module::  How to include support for new synthesizers.
 * The Skeleton of an Output Module::  
 * Output Module Functions::     
 * Module Utils Functions and Macros::  
@@ -1973,13 +1976,13 @@ or reads from standard input should conform to the specifications
 of the communication protocol. Additionally, standard error output
 is used for logging of the modules.
 
-Output modules binaries are usually located in
+Output module binaries are usually located in
 @file{bin/speechd-modules/} and are loaded automatically when Speech
 Dispatcher starts, according to configuration.  Their standard
 input/output/error output is redirected to a pipe to Speech Dispatcher
 and this way both sides can communicate.
 
-When the modules start, they are passed a name of a configuration file
+When the modules start, they are passed the name of a configuration file
 that should be used for this particular output module. 
 
 Each output module is started by Speech Dispatcher as:
@@ -1994,17 +1997,17 @@ file that the output module should parse.
 @node Communication Protocol for Output Modules, How to Write New Output Module, Basic Structure, Output Modules
 @subsection Communication Protocol for Output Modules
 
-The protocol in which the output modules communicate on standard
+The protocol by which the output modules communicate on standard
 input/output is based on @ref{Top,,SSIP,ssip, SSIP
 Documentation}, although it is highly simplified and a little bit
 modified for the different purpose here. Another difference
-is that events notification is obligatory in modules communication,
+is that event notification is obligatory in modules communication,
 while in SSIP, this is an optional feature. This is because Speech
 Dispatcher has to know all the events happening in the output modules
 for the purpose of synchronization of various messages.
 
 Since it's very similar to SSIP, @ref{Top,,General Rules,ssip, SSIP
-Documentation}, for a general description how the protocol looks
+Documentation}, for a general description of what the protocol looks
 like. One of the exceptions is that since the output modules
 communicate on standard input/output, we use only @code{LF} as the
 line separator.
@@ -2032,7 +2035,7 @@ single character @code{.} (dot).  Thus the complete character sequence
 closing the input text is @code{LF . LF}.  If any line within the sent
 text contains only a dot, an extra dot should be prepended before it.
 
-During reception of the text message, output module doesn't send
+During reception of the text message, output module doesn't send a
 response to the particular lines sent.  The response line is sent only
 immediately after the @code{SPEAK} command and after receiving the
 closing dot line. This doesn't provide any means of synchronization,
@@ -2041,7 +2044,7 @@ instead, event notification is used for this purpose.
 There is no explicit upper limit on the size of the text.
 
 If the @code{SPEAK} command is received while the output module
-is already speaking, this is considered an error.
+is already speaking, it is considered an error.
 
 Example:
 @example
@@ -2056,14 +2059,14 @@ Hello, GNU!
 
 After receiving the full text (or the first part of it), the output
 module is supposed to start synthesizing it and take care of
-delivering it to an audio device. When (or just before it) the first
+delivering it to an audio device. When (or just before) the first
 synthesized samples are delivered to the audio and start playing, the
 output module must send the @code{BEGIN} event over the communication
 socket to Speech Dispatcher, @xref{Events notification and index
 marking}. After the audio stops playing, the event @code{STOP},
 @code{PAUSE} or @code{END} must be delivered to Speech
 Dispatcher. Additionally, if supported by the given synthesizer, the
-output module can issue events associated to the included SSML index
+output module can issue events associated with the included SSML index
 marks when they are reached in the audio output.
 
 @item CHAR
@@ -2117,7 +2120,7 @@ STOP
 @item PAUSE
 Stop speaking the current message at a place where we can exactly
 determine the position (preferably after a __spd_ index mark).  This
-doesn't have to be immediately and can be delayed even for a few
+doesn't have to be immediate and can be delayed even for a few
 seconds. (Knowing the position exactly is important so that we can
 later continue the message without gaps or overlapping.) It doesn't do
 anything else (like storing the message etc.).
@@ -2131,13 +2134,13 @@ PAUSE
 @end example
 
 @item SET
-Set one or several speech parameters for the future messages.
+Set one of several speech parameters for the future messages.
 
 Each of the parameters is written on a single line in the form
 @example
 name=value
 @end example
-where @code{value} can be either a number or a string, depending on
+where @code{value} can be either a number or a string, depending upon
 the name of the parameter.
 
 The @code{SET} environment is terminated by a dot on a single line.
@@ -2149,12 +2152,12 @@ response to the particular lines sent.  The response line is sent only
 immediately after the @code{SET} command and after receiving the
 closing dot line.
 
-The available parameters that accept numerical values are @code{rate},
-@code{pitch}.
+The available parameters that accept numerical values are @code{rate}
+and @code{pitch}.
 
 The available parameters that accept string values are
 @code{punctuation_mode}, @code{spelling_mode}, @code{cap_let_recogn},
-@code{voice}. @code{language}.  The arguments are the same as for the
+@code{voice}, and @code{language}.  The arguments are the same as for the
 corresponding SSIP commands, except that they are written with small
 letters. @xref{Top,,Parameter Setting Commands,ssip, SSIP
 Documentation}.  The conversion between these string values and the
@@ -2163,10 +2166,10 @@ corresponding C enum variables can be easily done using
 
 Not all of these parameters must be set and the value of the string
 arguments can also be @code{NULL}. If some of the parameters aren't
-set, the output module should use it's default.
+set, the output module should use its default.
 
 It's not necessary to set these parameters on the synthesizer right
-away, instead, it can be postponed until some message to say arrives.
+away, instead, it can be postponed until some message to be spoken arrives.
 
 Here is an example:
 @example
@@ -2197,15 +2200,15 @@ QUIT
 
 Each output module must take care of sending asynchronous
 notifications whenever the synthesizer (or the module) starts or stops
-to output audio on the speakers. Additionally, whenever possible, the
+output audio on the speakers. Additionally, whenever possible, the
 output module should report back to Speech Dispatcher index marks
-found in the incomming SSML text whenever they are reached while
+found in the incoming SSML text whenever they are reached while
 speaking. See SSML specifications for more details about the
 @code{mark} element
 
 Event and index mark notifications are reported by simply writing them
 to the standard output. An event notification must never get in between
-of synchronous commands (those which require a reply) and their reply.
+synchronous commands (those which require a reply) and their reply.
 
 
 @table @code
@@ -2229,7 +2232,7 @@ given message because it reached its end. If this is not possible, it
 can issue this event when it is ready to receive a new message after
 speaking the previous message.
 
-Ech @code{END} must allways be preceeded (possibly not directly) by a
+Each @code{END} must always be preceeded (possibly not directly) by a
 @code{BEGIN}.
 
 It is prepended by the code @code{702} and takes the form
@@ -2246,7 +2249,7 @@ receiving the STOP command or because of some error) not because of
 a @code{PAUSE} command. When the synthesizer in use doesn't allow
 the module to decide, the event @code{END} can be used instead.
 
-Ech @code{STOP} must allways be preceeded (possibly not directly) by a
+Each @code{STOP} must always be preceeded (possibly not directly) by a
 @code{BEGIN}.
 
 It is prepended by the code @code{703} and takes the form
@@ -2261,7 +2264,7 @@ This event should be issued whenever the module terminates speaking
 the given message without reaching its end because of receiving the
 @code{PAUSE} command.
 
-Ech @code{PAUSE} must allways be preceeded (possibly not directly) by a
+Each @code{PAUSE} must always be preceeded (possibly not directly) by a
 @code{BEGIN}.
 
 It is prepended by the code @code{704} and takes the form
@@ -2273,8 +2276,8 @@ It is prepended by the code @code{704} and takes the form
 @item INDEX MARK
 
 This event should be issued by the output module (if supported)
-whenever an index mark (SSML tag @code{<mark/>}) is passed in speaking the incomming message.
-It is preceeded by the code @code{700} and takes the form
+whenever an index mark (SSML tag @code{<mark/>}) is passed while speaking
+a message. It is preceeded by the code @code{700} and takes the form
 
 @example
 700-name
@@ -2290,8 +2293,8 @@ the tag @code{<mark/>}.
 @subsection How to Write New Output Module
 
 If you want to write your own output module, there are basically two
-ways how to do it. Either you can program it all itself, which is fine
-as long as you stick to the definition of an output module and it's
+ways to do it. Either you can program it all yourself, which is fine
+as long as you stick to the definition of an output module and its
 communication protocol, or you can use our @file{module_*.c} tools.
 If you use these tools, you will only have to write the core functions
 like module_speak() and module_stop etc. and you will not have to
@@ -2311,12 +2314,12 @@ A few rules you should respect:
 @item
 The @file{module_*.c} files should be included at the specified place and
 in the specified order, because they include directly some pieces of the
-code and wouldn't work on other places.
+code and won't work in other places.
 @item
 If one or more new threads are used in the output module, they must block all signals.
 @item
 On module_close(), all lateral threads and processes should be terminated,
-all memmory freed. Don't suppose module_close() is allways called before exit()
+all memory freed. Don't assume module_close() is always called before exit()
 and the sources will be freed automatically.
 @item
 We will be happy if all the copyrights are assigned to Brailcom, o.p.s.
@@ -2336,9 +2339,9 @@ speech synthesis settings.
 
 Additionally, it's also reccomended to include @file{module_utils.c}
 which provides many tools to help writing output modules and make the
-code simpler. If your plugin needs the audio tools also (if you take
+code simpler. If your plugin needs the audio tools (if you take
 care of the output to the soundcard instead of the synthesizer),
-you have to also include @file{module_utils_audio.c}
+you also have to include @file{module_utils_audio.c}
 
 @example
 #include "module_utils.c"
@@ -2363,12 +2366,12 @@ DECLARE_DEBUG();
 @end example
 
 You don't have to define the prototypes of the core functions
-like module_speak() and module_stop(), these all already
+like module_speak() and module_stop(), these are already
 defined in @file{module_utils.c}
 
 Optionally, if your output module requires some special configuration,
 apart from defining voices and configuring debugging (they are handled
-differently, see bellow), you can declare the requested option
+differently, see below), you can declare the requested option
 here. It will expand into a dotconf callback and declaration of the
 variable.
 
@@ -2392,16 +2395,16 @@ MOD_OPTION_1_INT(FliteMaxChunkLength);
 MOD_OPTION_1_STR(FliteDelimiters);
 @end example
 
-Every output module is being started in 2 phases: @emph{loading} and
+Every output module is started in 2 phases: @emph{loading} and
 @emph{initialization}.
 
 The goal of loading is to initialize empty structures for storing
 settings and declare the DotConf callbacks for parsing configuration
-files. In the later phase, initialization, all the configuration has
-been read yet and the output module can accomplish the rest (check if
+files. In the second phase, initialization, all the configuration has
+been read and the output module can accomplish the rest (check if
 the synthesizer works, set up threads etc.).
 
-You should start by the definition of @code{module_load()}. 
+You should start with the definition of @code{module_load()}. 
 
 @example
 int
@@ -2465,7 +2468,7 @@ module_init(void)
 @end example
 
 If you use the DBG() macro, you should init debugging on the start
-of this function. From that moment, you can use DBG(). Apart from that,
+of this function. From that moment on, you can use DBG(). Apart from that,
 the body of this function is entirely up to you. You should do all the
 necessary initialization of the particular synthesizer.  All declared
 configuration variables and configuration hash tables, together with
@@ -2513,7 +2516,7 @@ of your output module.
 #include "module_main.c"
 @end example
 
-If it doesn't work, it's most likely not your fault, complain!  This
+If it doesn't work, it's most likely not your fault. Complain!  This
 manual is not complete and the instructions in this sections aren't
 either. Get in touch with us and together we can figure out what's
 wrong, fix it and then warn others in this manual.
@@ -2563,7 +2566,7 @@ Example from festival:
 @end example
 
 This function should return 0 if it fails and 1 if the delivery
-to the synthesis is successful. It should return immediately,
+to the synthesizer is successful. It should return immediately,
 because otherwise, it would block stopping, priority handling
 and other important things in Speech Dispatcher.
 
@@ -2596,12 +2599,12 @@ an index mark is reached. However, if it's not possible to determine
 the exact position, this function should have the same effect
 as @code{module_stop}.
 
-For some software synthesizer the desired effect can be archieved in this way:
+For some software synthesizers, the desired effect can be archieved in this way:
 When @code{module_write()} is called, you execute a separate
 process and pass it the requested message. This process
 cuts the message into sentences and then runs in a loop
-and sends these pieces to synthesis. If a signal arrives
-from @code{module_pause()}, you set a flag and stop that loop
+and sends the pieces to synthesis. If a signal arrives
+from @code{module_pause()}, you set a flag and stop the loop
 at the point where next piece of text would be synthesized.
 
 It's not an error if this function is called when the device
@@ -2654,10 +2657,10 @@ function. In fact, it calls printf() internally.
 @findex FATAL
 Outputs a message specified as @code{text} and calls exit() with
 the value EXIT_FAILURE. This terminates the whole output module
-without trying to kill the children processes or freeing other
+without trying to kill the child processes or freeing other
 resources other than those that will be freed by the system.
 
-It is intended to be used after some severe error has happened.
+It is intended to be used after some severe error has occurred.
 @end deffn
 
 @node Generic Macros and Functions, Functions used by module_main.c, Initialization Macros and Functions, Module Utils Functions and Macros
@@ -2665,13 +2668,13 @@ It is intended to be used after some severe error has happened.
 
 @deffn {Module Utils macro} UPDATE_PARAMETER (param, setter)
 @findex UPDATE_PARAMETER
-Looks if the integer or enum parameter specified in @code{param}
+Tests if the integer or enum parameter specified in @code{param}
 (e.g. rate, pitch, cap_let_recogn, ...) changed since the
 last time when the @code{setter} function was called.
 
 If it changed, it calls the function @code{setter} with the
 new value. (The new value is stored in the msg_settings
-structure that is created by module_utils.c and that
+structure that is created by module_utils.c, which
 you normally don't have to care about.)
 
 The function @code{setter} should be defined as:
@@ -2705,7 +2708,7 @@ module_write(char *data, size_t bytes)
 
 @deffn {Module Utils macro} UPDATE_STRING_PARAMETER (param, setter)
 @findex  UPDATE_STRING_PARAMETER
-The same as @code{UPDATE_PARAMETER} except that it works for the
+The same as @code{UPDATE_PARAMETER} except that it works for
 parameters with a string value.
 @end deffn
 
@@ -2714,7 +2717,7 @@ parameters with a string value.
 
 @deffn {Module Utils function} char* do_speak(void)
 @findex do_speak
-Takes care about the communication after the @code{SPEAK} command was
+Takes care of communication after the @code{SPEAK} command was
 received. Calls @code{module_write()} when the full text is received.
 
 It returns a response according to the communication protocol.
@@ -2739,7 +2742,7 @@ and the value returned by @code{module_pause()}.
 
 @deffn {Module Utils function} char* do_set()
 @findex do_set
-Takes care about the communication after the @code{SET} command was
+Takes care of communication after the @code{SET} command was
 received. Doesn't call any particular function of the output module,
 only sets the values in the settings tables. (You should then call the
 @code{UPDATE_PARAMETER()} macro in module_write() to actually set the
@@ -2778,7 +2781,7 @@ It scans the text in @code{message} from the byte specified by
 terminating NULL byte. If one of them is encountered, the read text is
 stored in @code{part} and the number of bytes read is
 returned. However, if the current position @code{message[*pos]} when
-calling this function is on the beginning of an index mark, nothing is
+calling this function is at the beginning of an index mark, nothing is
 stored in @code{part}, 0 is returned and the global variable
 @code{current_index_mark} is set to the number of the encountered
 index mark. If end of @code{message} is reached, the return value is
@@ -2795,10 +2798,10 @@ to @code{part}.
 
 @code{dividers} is a NULL-terminated uni-byte string containing
 the punctuation characters where the message should be divided
-in smaller parts (if they are followed by a whitespace).
+into smaller parts (if they are followed by whitespace).
 
 After returning, @code{current_index_mark} is either -1 or the number
-of the encountered index mark and in @code{pos} is stored the position
+of the encountered index mark and @code{pos} is the position
 where the function terminated in processing @code{message}.
 @end deffn
 
@@ -2808,7 +2811,7 @@ where the function terminated in processing @code{message}.
 @deffn {Output module function} void module_report_event_*()
 @findex module_report_event_*
 
-The @code{module_report_} functions serve for reporting events
+The @code{module_report_} functions serve for reporting event
 notifications and index marking events. You should use them whenever
 you get an event from the synthesizer which is defined in the output
 module communication protocol.
@@ -2823,7 +2826,7 @@ module should terminate all threads and processes, free all resources,
 close all sockets etc.  Never assume this function is called only when
 Speech Dispatcher terminates and exit(0) will do the work for you.  It's
 perfectly ok for Speech Dispatcher to load, unload or reload output modules
-in the middle of it's run.
+in the middle of its run.
 
 If the parameter @code{status} is non-zero, the process should
 terminate with this error value.
@@ -2850,7 +2853,7 @@ is supposed to never return. If it returns, exit(0) is called
 immediatelly.
 
 In the parent, it starts the @code{parent_function} and passes the
-parameters. It waits until the function returns and writes it's return
+parameters. It waits until the function returns and writes its return
 value to the @code{*module_position}. It then cleans the process, logs
 the return values of @code{waitpid()} using DBG, sets *speaking_flag
 to 0 and calls module_signal_end().
@@ -2869,7 +2872,7 @@ newly started child process should be stored.
 @code{parent_function} is the function that should be called in the parent.
 
 @code{speaking_flag} is a pointer to an integer where this function
-will write a 0 after the parent function terminates. This should mean
+will write a 0 after the parent function terminates. This would mean
 that the synthesizer stopped speaking.
 
 @code{message} is a pointer to a NULL-terminated string containing the message
@@ -2879,15 +2882,15 @@ that should be passed to the parent function for synthesis.
 parent to child over the pipe.
 
 @code{dividers} is a NULL-terminated string containing the punctuation characters
-at which the parent function should divide the message in smaller pieces.
+at which the parent function should divide the message into smaller pieces.
 
-@code{module_position} is a pointer to an integer where the actual position
+@code{module_position} is a pointer to an integer for the actual position
 (according to index marks) where the speaking terminated, as returned by
 the parent function, will be stored.
 
 @code{pause_requested} is a pointer to an integer flag, which is either 0 if
 no pause request is pending, or 1 if the parent function should terminate
-at a convenient place at the message because a pause is requested.
+at a convenient place in the message because a pause is requested.
 
 The two types of functions @code{child_function} and @code{parent_function}
 are:
@@ -2904,7 +2907,7 @@ there is the @code{dpipe} parameter which contains the information
 necessary for communicating through pipes between the parent and the
 child and vice-versa. Each of these functions should initialize
 the pipes at the beginning and then communicate through them. The
-prefered functions to do that are listed bellow.
+preferred functions to do that are listed below.
 
 @example
 typedef struct@{
@@ -2951,7 +2954,7 @@ This function is intended to be run from the parent.
 @code{dpipe} is the double pipe used for communication between the child and parent.
 
 Returns 0 if the character was read or 1 if the pipe was broken before the
-character could have been read.
+character could be read.
 @end deffn
 
 @deffn {Module Utils function} void module_parent_dp_init (TModuleDoublePipe dpipe)
@@ -2975,7 +2978,7 @@ Uses the pipes defined in @code{dpipe}.
 @deffn {Module Utils function} void module_parent_dp_write(TModuleDoublePipe dpipe,
  const char *msg, size_t bytes)
 @findex module_parent_dp_write
-Writes the specified number of @code{bytes} from @code{msg} to the pipe to the
+Writes the specified number of @code{bytes} from @code{msg} into the pipe to the
 child. This function is intended, as the prefix says, to be run from the parent.
 Uses the pipes defined in @code{dpipe}.
 @end deffn
@@ -2999,7 +3002,7 @@ Uses the pipes defined in @code{dpipe}.
 @deffn {Module Utils function} void module_sigblockall(void)
 @findex module_sigblockall
 Blocks all signals. This is intended to be run from the child processes
-and threads so that their signal handling wouldn't interfere with the
+and threads so that their signal handling won't interfere with the
 parent.
 @end deffn
 
@@ -3019,7 +3022,7 @@ Use the set @code{some_signals} to block SIGUSR1.
 @deffn {Module Utils function} static void* xmalloc (size_t size)
 @findex xmalloc
 The same as the classical @code{malloc()} except that it executes
-@code{FATAL(``Not enough memmory'')} on error.
+@code{FATAL(``Not enough memory'')} on error.
 @end deffn
 
 @deffn {Module Utils function} static void* xrealloc (void *data, size_t size)
@@ -3040,30 +3043,29 @@ the pointer @code{data} is set to @code{NULL} before returning.
 
 Output modules need to provide some kind of synchronization and they have to
 give Speech Dispatcher back some information about what part of the message
-is currently being said. On the other side, output modules are not able to tell
-the exact position in the text as the number of bytes from the beginning of
-the message because various conversions and message processing take place
+is currently being said. On the other hand, output modules are not able to tell
+the exact position in the text because various conversions and message processing take place
 (sometimes punctuation and spelling substitution, the message needs to be
 recoded from multibyte to unibyte coding etc.) before the text reaches
 the synthesizer.
 
 For this reason, Speech Dispatcher places so-called index marks in
-the text it sends to it's output modules. They have the form:
+the text it sends to its output modules. They have the form:
 
 @example
 @@id_number@@
 @end example
 
-@code{id_number} is the identification number associated to each index
+@code{id_number} is the identification number associated with each index
 mark. It's unique with respect to each message.
 
-When an index mark is reached, it's identification number should be stored
+When an index mark is reached, its identification number should be stored
 so that the output module is able to tell Speech Dispatcher the number
 of the last index mark. Also, index marks are the best place to stop
 when the module is requested to pause (although it's ok to stop at
 some nearer place and report the last index mark).
 
-Because index mark use the @code{@@} character, all the regular
+Because index marks use the @code{@@} character, all the regular
 @code{@@} characters are replaced by an escape sequence @code{@@@@}
 and should be converted back before sending the text to a text-to-speech
 system. In a similar way, the index marks should be stripped after their
@@ -3072,20 +3074,20 @@ information is stored.
 @node Download and Contact, Reporting Bugs, Server Programming, Top
 @chapter Download
 
-You can download Speech Dispatcher's latest release source codes from
-@uref{http://www.freebsoft.org/speechd}. There are also informations
-how to set up anonymous access to our CVS.
+You can download Speech Dispatcher's latest release source code from
+@uref{http://www.freebsoft.org/speechd}. There is also information
+on how to set up anonymous access to our CVS.
 
 However, you may prefer to download Speech Dispatcher in a binary
 package for your system. We don't distribute such packages ourselves.
 If you run Debian GNU/Linux, it should be in the central repository
-under the name @code{speechd}. If you run an rpm-based distribution
-like RedHat, Mandrake or SuSE Linux, please try to look at
-@uref{http://www.rpmfind.net/}.
+under the name @code{speech-dispatcher} or @code{speechd}. If you run
+an rpm-based distribution like RedHat, Mandrake or SuSE Linux, please
+try to look at @uref{http://www.rpmfind.net/}.
 
 If you want to contact us, please look at
-@uref{http://www.freebsoft.org/contact} for possible ways how to do
-it or use the email @email{users@@lists.freebsoft.org}.
+@uref{http://www.freebsoft.org/contact} 
+or use the email @email{users@@lists.freebsoft.org}.
 
 @node Reporting Bugs, How You Can Help, Download and Contact, Top
 @chapter Reporting Bugs
@@ -3097,14 +3099,14 @@ messages larger than half a megabyte unless we ask you.
 
 To report a bug in a way that is useful for the developers is not
 as easy as it may seem. Here are some hints that you should follow in
-order to give us the best information and so that we can find and fix
+order to give us the best information so that we can find and fix
 the bug easily.
 
 First of all, please try to describe the problem as exactly as you
 can. We prefer raw data over speculations about where the problem may
-lie. Please try to explain in what situation does the bug happen. Even
+lie. Please try to explain in what situation the bug happens. Even
 if it's a general bug that happens in many situations, please try to
-describe at least one case in as many details, as possible.
+describe at least one case in as much detail, as possible.
 
 Also, please specify the versions of programs that you use when
 the bug happens. This is not only Speech Dispatcher, but also
@@ -3122,26 +3124,26 @@ variable @code{LogFile}. After modifying these options, please restart
 Speech Dispatcher and repeat the situation in which the bug
 happens. After it happened, please take the log and attach it to the
 bug report, preferably compressed using @code{gzip}. But note, that
-when logging with level 5, all the data that come to Speech Dispatcher
-are also recorded, so make sure there are no sensitive information
+when logging with level 5, all the data that come from Speech Dispatcher
+is also recorded, so make sure there is no sensitive information
 when you are reproducing the bug. Please make sure you switch back
 to priority 3 or lower logging, because priority 4 or 5 produces
 really huge logs.
 
-If you are a programmer and you find a bug, that is reproducible in
-SSIP, you can send us the sequence of SSIP commands, that leads to the
+If you are a programmer and you find a bug that is reproducible in
+SSIP, you can send us the sequence of SSIP commands that lead to the
 bug (preferably from starting the connection). You can also try to
 reproduce the bug in a simple test-script under
 @file{speech-dispatcher/src/tests} in the source tree. Please check
-@file{speech-dispatcher/src/tests/README} and see the other tests scripts here
-for an example.
+@file{speech-dispatcher/src/tests/README} and see the other tests
+scripts there for an example.
 
 When the bug is a SEGMENTATION FAULT, a backtrace from gdb is also
 valuable, but if you are not familiar with gdb, don't bother with
 that, we may ask you to do it later.
 
-On the last place, you may also send us a guess of what do you think
-that happens in Speech Dispatcher that causes the bug, but this is
+Finally, you may also send us a guess of what you think
+happens in Speech Dispatcher that causes the bug, but this is
 usually not very helpful. If you are able to provide additional technical
 information instead, please do so.
 
@@ -3152,7 +3154,7 @@ If you want to contribute to the development of Speech Dispatcher,
 we will be very happy if you do so. Please contact us on 
 @email{users@@lists.freebsoft.org}.
 
-There is a short, definitively not exhaustive, list of how you can
+Here is a short, definitively not exhaustive, list of how you can
 help us and other users.
 
 @itemize
@@ -3176,7 +3178,7 @@ Dispatcher on @email{speechd@@bugs.freebsoft.org}.
 @emph{Write or modify an application to support synthesis:} With
 Speech Dispatcher, we have provided an interface that allows
 applications easy access to speech synthesis. However powerful, it's
-no more than an interface, and it's useless on it's own. Now it's time
+no more than an interface, and it's useless on its own. Now it's time
 to write the particular client applications, or modify existing
 applications so that they can support speech synthesis.  It is useful
 if the application needs a specific interface for blind people or if
@@ -3186,12 +3188,12 @@ it wants to use speech synthesis for educational or other purposes.
 @emph{Develop new voices and language definitions for Festival:} In
 the world of Free Software, currently Festival is the most promising
 interface for Text-to-Speech processing and speech synthesis. It's
-extensible and highly configurable platform for developing synthetic
+an extensible and highly configurable platform for developing synthetic
 voices. If there is a lack of synthetic voices or no voices at all for
 some language, we believe the wisest solution is to try to develop
 a voice in Festival. It's certainly not advisable to develop your
-own synthesizer, if the goal is producing a quality voice system
-in reasonable time. Festival developers provide a nice documentation
+own synthesizer if the goal is producing a quality voice system
+in a reasonable time. Festival developers provide nice documentation
 about how to develop a voice and a lot of tools that help doing
 this. We found that some language definitions can be constructed
 by canibalizing the already existing definitions and can be tuned
@@ -3209,11 +3211,11 @@ projects. There is a plenty of work to be done for the blind and
 visually impaired people to make their work with computers easier.
 
 @item
-@emph{Spread a word about Speech Dispatcher and Free Software:} You can
+@emph{Spread the word about Speech Dispatcher and Free Software:} You can
 help us, and the whole community around Free Software, just by telling
 your friends about the amazing world of Free Software. It doesn't
-have to be just about Speech Dispatcher, you can tell them about
-other project or about Free Software in general. Remember that
+have to be just about Speech Dispatcher; you can tell them about
+other projects or about Free Software in general. Remember that
 Speech Dispatcher could only arise out of understanding of some people
 of the principles and ideas behind Free Software. And this is mostly
 the same for the rest of the Free Software world.
