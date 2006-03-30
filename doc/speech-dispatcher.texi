@@ -1775,7 +1775,7 @@ main(int argc, char **argv)
 @}
 @end example
 
-@node History Commands in C, Direct SSIP Communication in C, Events Notification and Index Marking in C, C API
+@node History Commands in C, Direct SSIP Communication in C, Event Notification and Index Marking in C, C API
 @subsection History Commands
 @findex spd_history_select_client()
 @findex spd_get_client_list()
