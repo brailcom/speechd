@@ -1,4 +1,14 @@
-2006-01-25  Hynek Hanke  <hanke@volny.cz>
+2006-03-31  Tomas Cerha  <cerha@brailcom.org>
+
+	* figures/architecture.pdf (Module): Converted to an unscaled
+	vector graphics.
+
+	* speech-dispatcher.texi (Module): The figure size set explicitly.
+
+	* speech-dispatcher-cs.texi (Module): The figure size set
+	explicitly. Minor stylistic and formatting changes.
+
+2006-01-25  Hynek Hanke  <hanke@chopin>
 
 	* speech-dispatcher.texi: Copyright (c) 2006.  The whole content
 	of speech-dispatcher.texi is now also licensed by Brailcom,
