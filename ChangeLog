@@ -1,6 +1,6 @@
 2006-03-30  Gary Cramblitt <garycramblitt@comcast.net>
 
-    * doc/ssip.text: Spelling and grammer corrections.
+    * doc/ssip.texi, spd-say.texi: Spelling and grammer corrections.
     * doc/Makefile.am: Correct build error for HTML.
 
 2006-03-29  Gary Cramblitt <garycramblitt@comcast.net>

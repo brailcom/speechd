@@ -13,7 +13,7 @@
 @end direntry
 
 @titlepage
-@title Say
+@title Say for Speech Dispatcher: (spd-say)
 @author Hynek Hanke <@email{hanke@@freebsoft.org}>
 
 @page
@@ -54,10 +54,10 @@ in the section entitled "GNU Free Documentation License".
 @heading Say for Speech Dispatcher
 @end ifhtml
 
-@code{spd-say} is a very simple client to Speech Dispatcher that takes some text from the
-command line and even some simple parameters and passes these to Speech Dispatcher
-for synthesis. The resulting syntesized speech is then played on your speakers.
-It can be also used for stopping and canceling the speech on Speech dispatcher.
+@code{spd-say} is a very simple client for Speech Dispatcher that takes some text from the
+command line and some simple parameters and passes them to Speech Dispatcher
+for synthesis. The resulting synthesized speech is then played on your speakers.
+It can also be used for stopping and cancelling speech on Speech Dispatcher.
 
 Usage: @code{spd-say [options] "some text"}
 
@@ -82,9 +82,9 @@ Set the punctuation mode (none, some, all).
 Spell the message
 @item -w or --wait
 Wait till the end of speaking the message. In this mode, spd-say returns only after
-the message is fully spoken in the speakers or after it gets discarded.
+the message is fully spoken on the speakers or after it gets discarded.
 @item -S or --stop
-Stop the previous message in Speech Dispatcher (regardles of the client who send
+Stop the previous message in Speech Dispatcher (regardless of the client who sent
 it and it's priority) before saying the specified message. If no message is specified,
 it just performs the stop function.
 @item -C or --cancel
@@ -93,7 +93,7 @@ Speech Dispatcher. Use this for total stop of speech.
 @item -v or --version
 Print version and copyright info.
 @item -h or --help
-Print a short help.
+Print a short help message.
 @end table
 
 @bye
