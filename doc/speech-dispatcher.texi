@@ -200,7 +200,7 @@ and on which synthesizer it will say the message. These requests
 are handled by the output plug-ins (output modules) for different
 hardware and software synthesizers and then said aloud.
 
-@image{figures/architecture,,,Speech Dispatcher architecture}
+@image{figures/architecture,155mm,,Speech Dispatcher architecture}
 
 See also the detailed description @ref{Client Programming} interfaces, and
 @ref{Server Programming} documentation.
