@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.50 2006-01-08 13:36:57 hanke Exp $
+ * $Id: flite.c,v 1.51 2006-04-01 20:19:16 cramblitt Exp $
  */
 
 
@@ -80,11 +80,11 @@ MOD_OPTION_1_STR(FliteALSADevice);
 
 int
 module_load(void)
-{  
+{
    INIT_SETTINGS_TABLES();
 
    REGISTER_DEBUG();
-   
+
    MOD_OPTION_1_INT_REG(FliteMaxChunkLength, 300);
    MOD_OPTION_1_STR_REG(FliteDelimiters, ".");
 
@@ -112,22 +112,22 @@ module_init(char **status_info)
     DBG("Module init");
     INIT_INDEX_MARKING();
 
-    *status_info = NULL;    
+    *status_info = NULL;
     info = g_string_new("");
 
     /* Init flite and register a new voice */
     flite_init();
     flite_voice = register_cmu_us_kal();
-    
+
     if (flite_voice == NULL){
         DBG("Couldn't register the basic kal voice.\n");
 	*status_info = strdup("Can't register the basic kal voice. "
 			      "Currently only kal is supported. Seems your FLite "
-			      "instalation is incomplete.");
+			      "installation is incomplete.");
         return -1;
     }
 
-    DBG("Openning audio");
+    DBG("Opening audio");
     if (!strcmp(FliteAudioOutputMethod, "oss")){
 	DBG("Using OSS sound output.");
 	flite_pars[0] = strdup(FliteOSSDevice);
@@ -160,7 +160,7 @@ module_init(char **status_info)
 
     DBG("FliteMaxChunkLength = %d\n", FliteMaxChunkLength);
     DBG("FliteDelimiters = %s\n", FliteDelimiters);
-    
+
     flite_message = malloc (sizeof (char*));
     *flite_message = NULL;
 
@@ -172,14 +172,14 @@ module_init(char **status_info)
     if(ret != 0){
         DBG("Flite: thread failed\n");
 	*status_info = strdup("The module couldn't initialize threads "
-			      "This can be either an internal problem or an "
+			      "This could be either an internal problem or an "
 			      "architecture problem. If you are sure your architecture "
 			      "supports threads, please report a bug.");
         return -1;
     }
 
-    *status_info = strdup("Flite initialized succesfully.");
-								
+    *status_info = strdup("Flite initialized successfully.");
+
     return 0;
 }
 #undef ABORT
@@ -193,7 +193,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
         DBG("Speaking when requested to write");
         return 0;
     }
-    
+
     if(module_write_data_ok(data) != 0) return -1;
 
     DBG("Requested data: |%s|\n", data);
@@ -214,8 +214,8 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
     /* Send semaphore signal to the speaking thread */
     flite_speaking = 1;    
     sem_post(flite_semaphore);    
-		
-    DBG("Flite: leaving write() normaly\n\r");
+
+    DBG("Flite: leaving write() normally\n\r");
     return bytes;
 }
 
@@ -253,7 +253,7 @@ module_pause(void)
 void
 module_close(int status)
 {
-    
+
     DBG("flite: close()\n");
 
     DBG("Stopping speech");
@@ -264,12 +264,12 @@ module_close(int status)
     DBG("Terminating threads");
     if (module_terminate_thread(flite_speak_thread) != 0)
         exit(1);
-   
+
     xfree(flite_voice);
 
     DBG("Closing audio output");
     spd_audio_close(flite_audio_id);
-    
+
     exit(status);
 }
 
@@ -290,12 +290,12 @@ _flite_speak(void* nothing)
 
     set_speaking_thread_parameters();
 
-    while(1){        
+    while(1){
         sem_wait(flite_semaphore);
         DBG("Semaphore on\n");
 
 	flite_stop = 0;
-	flite_speaking = 1;       
+	flite_speaking = 1;
 
 	spd_audio_set_volume(flite_audio_id, flite_volume);
 
@@ -323,9 +323,9 @@ _flite_speak(void* nothing)
 	    buf[bytes] = 0;
 	    DBG("Returned %d bytes from get_part\n", bytes);
 	    DBG("Text to synthesize is '%s'\n", buf);
-	    
+
 	    if (flite_pause_requested && (current_index_mark!=-1)){
-		DBG("Pause requested in parent, position %d\n", current_index_mark);                
+		DBG("Pause requested in parent, position %d\n", current_index_mark);
 		flite_pause_requested = 0;
 		flite_position = current_index_mark;
 		break;
@@ -396,10 +396,10 @@ _flite_speak(void* nothing)
 
     flite_speaking = 0;
 
-    DBG("flite: speaking thread ended.......\n");    
+    DBG("flite: speaking thread ended.......\n");
 
     pthread_exit(NULL);
-}	
+}
 
 static void
 flite_set_rate(signed int rate)
