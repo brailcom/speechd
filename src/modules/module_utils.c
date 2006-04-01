@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.39 2006-01-08 13:36:57 hanke Exp $
+ * $Id: module_utils.c,v 1.40 2006-04-01 20:35:43 cramblitt Exp $
  */
 
 #include "fdsetconv.h"
@@ -619,7 +619,7 @@ module_sigblockusr(sigset_t *some_signals)
     sigaddset(some_signals, SIGUSR1);
     ret = sigprocmask(SIG_SETMASK, some_signals, NULL);
     if (ret != 0)
-	DBG("flite: Can't block signal set, expect problems when terminating!\n");
+	DBG("Can't block signal set, expect problems when terminating!\n");
     
 }
 
@@ -633,9 +633,9 @@ set_speaking_thread_parameters()
     if (ret == 0){
 	ret = pthread_sigmask(SIG_BLOCK,&all_signals,NULL);
         if (ret != 0)
-            DBG("flite: Can't set signal set, expect problems when terminating!\n");
+            DBG("Can't set signal set, expect problems when terminating!\n");
     }else{
-        DBG("flite: Can't fill signal set, expect problems when terminating!\n");
+        DBG("Can't fill signal set, expect problems when terminating!\n");
     }
 
     pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
