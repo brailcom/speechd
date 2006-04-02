@@ -4,13 +4,13 @@
 
 2006-03-30  Gary Cramblitt <garycramblitt@comcast.net>
 
-    * doc/ssip.texi, spd-say.texi: Spelling and grammer corrections.
-    * doc/Makefile.am: Correct build error for HTML.
+	* doc/ssip.texi, spd-say.texi: Spelling and grammer corrections.
+	* doc/Makefile.am: Correct build error for HTML.
 
 2006-03-29  Gary Cramblitt <garycramblitt@comcast.net>
 
-    * doc/speech-dispatcher.texi: Spelling and grammar corrections.
-    * doc/figures/architecture.pdf: Make image smaller so it fits on pdf page.
+	* doc/speech-dispatcher.texi: Spelling and grammar corrections.
+	* doc/figures/architecture.pdf: Make image smaller so it fits on pdf page.
 
 2006-03-13  Hynek Hanke  <hanke@chopin>
 
