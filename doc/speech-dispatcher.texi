@@ -2337,15 +2337,15 @@ speech synthesis settings.
 #include "fdset.h"
 @end example
 
-Additionally, it's also reccomended to include @file{module_utils.c}
+Additionally, it's also reccomended to include @file{module_utils.h}
 which provides many tools to help writing output modules and make the
 code simpler. If your plugin needs the audio tools (if you take
 care of the output to the soundcard instead of the synthesizer),
-you also have to include @file{module_utils_audio.c}
+you also have to include @file{spd_audio.h}
 
 @example
-#include "module_utils.c"
-#include "module_utils_audio.c"
+#include "module_utils.h"
+#include "spd_audio.c"
 @end example
 
 The definition of macros @code{MODULE_NAME} and @code{MODULE_VERSION}
@@ -2367,7 +2367,7 @@ DECLARE_DEBUG();
 
 You don't have to define the prototypes of the core functions
 like module_speak() and module_stop(), these are already
-defined in @file{module_utils.c}
+defined in @file{module_utils.h}
 
 Optionally, if your output module requires some special configuration,
 apart from defining voices and configuring debugging (they are handled
@@ -2413,7 +2413,7 @@ module_load(void)
 @end example
 
 Then you should initialize the settings tables. These are defined in
-@file{module_utils.c} and will be used to store the settings received
+@file{module_utils.h} and will be used to store the settings received
 by the @code{SET} command.
 @example
     INIT_SETTINGS_TABLES();
@@ -2524,7 +2524,7 @@ wrong, fix it and then warn others in this manual.
 @node Output Module Functions, Module Utils Functions and Macros, The Skeleton of an Output Module, Output Modules
 @subsection Output Module Functions
 
-@deffn {Output Module Functions} int module_write (char *data, size_t bytes, EMessageType msgtype)
+@deffn {Output Module Functions} int module_speak (char *data, size_t bytes, EMessageType msgtype)
 @findex module_speak()
 
 This is the function where the actual speech output is produced. It is
@@ -2535,7 +2535,7 @@ defines what type of message it is (different types should be handled
 differently, if the synthesizer supports it).
 
 Each output module should take care of setting the output device to
-the parameters from msg_settings (defined in module_utils.c) (See
+the parameters from msg_settings (defined in module_utils.h) (See
 SPDMsgSettings in @file{intl/fdset.h}). However, it is not an error if
 some of these values are ignored. At least rate, pitch and language
 should be set correctly.
@@ -2574,8 +2574,10 @@ If there is a need to stay longer, you should create a separate thread
 or process. This is for example the case of some software synthesizers
 which use a blocking function (eg. spd_audio_play) or hardware devices
 that have to send data to output modules at some particular
-speed. Note that if you use threads for that purpose, you have to set
-them to ignore all signals. See @code{flite.c} for reference.
+speed. Note that if you use threads for this purpose, you have to set
+them to ignore all signals. The simplest way to do this is to call
+@code{set_speaking_thread_parameters()} which is defined in
+module_utils.c.  Call it at the beginning of the thread code.
 @end deffn
 
 @deffn {Output module function}  {int module_stop} (void)
@@ -2600,7 +2602,7 @@ the exact position, this function should have the same effect
 as @code{module_stop}.
 
 For some software synthesizers, the desired effect can be archieved in this way:
-When @code{module_write()} is called, you execute a separate
+When @code{module_speak()} is called, you execute a separate
 process and pass it the requested message. This process
 cuts the message into sentences and then runs in a loop
 and sends the pieces to synthesis. If a signal arrives
@@ -2616,7 +2618,7 @@ is not speaking. In this case, it should return 0.
 @subsection Module Utils Functions and Macros
 
 This section describes the various variables, functions and macros
-that are available in the @file{module_utils.c} file. They are
+that are available in the @file{module_utils.h} file. They are
 intended to make writing new output modules easier and allow the
 programmer to reuse existing pieces of code instead of writing
 everything from scratch.
@@ -2674,7 +2676,7 @@ last time when the @code{setter} function was called.
 
 If it changed, it calls the function @code{setter} with the
 new value. (The new value is stored in the msg_settings
-structure that is created by module_utils.c, which
+structure that is created by module_utils.h, which
 you normally don't have to care about.)
 
 The function @code{setter} should be defined as:
@@ -2696,7 +2698,7 @@ festival_set_rate(signed int rate)
 }
 [...]
 int
-module_write(char *data, size_t bytes)
+module_speak(char *data, size_t bytes, EMessageType msgtype)
 {
     [...]
     UPDATE_PARAMETER(rate, festival_set_rate);
@@ -2718,7 +2720,7 @@ parameters with a string value.
 @deffn {Module Utils function} char* do_speak(void)
 @findex do_speak
 Takes care of communication after the @code{SPEAK} command was
-received. Calls @code{module_write()} when the full text is received.
+received. Calls @code{module_speak()} when the full text is received.
 
 It returns a response according to the communication protocol.
 @end deffn
@@ -2745,7 +2747,7 @@ and the value returned by @code{module_pause()}.
 Takes care of communication after the @code{SET} command was
 received. Doesn't call any particular function of the output module,
 only sets the values in the settings tables. (You should then call the
-@code{UPDATE_PARAMETER()} macro in module_write() to actually set the
+@code{UPDATE_PARAMETER()} macro in module_speak() to actually set the
 synthesizer to these values.)
 
 It returns a response according to the communication protocol.
