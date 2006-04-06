@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module_utils.h,v 1.9 2005-12-07 08:28:30 hanke Exp $
+ * $Id: module_utils.h,v 1.10 2006-04-06 21:47:15 cramblitt Exp $
  */
 
 #include <semaphore.h>
@@ -271,7 +271,7 @@ configoption_t * add_config_option(configoption_t *options, int *num_config_opti
     { \
         T ## name *new_item; \
         char* new_key; \
-        new_item = (new_item*) malloc(sizeof(new_item)); \
+        new_item = (T ## name *) malloc(sizeof(T ## name *)); \
         if (cmd->data.list[0] == NULL) return NULL; \
         new_item->arg1 = strdup(cmd->data.list[0]); \
         new_key = strdup(cmd->data.list[0]); \

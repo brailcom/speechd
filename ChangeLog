@@ -1,3 +1,7 @@
+2006-04-06  Gary Cramblitt <garycramblitt@comcast.net>
+
+	* src/modules/module_utils.h: Fix broken macro (not previously used).
+
 2006-03-31  Tomas Cerha  <cerha@brailcom.org>
 
 	* FAQ: Formatting improved.
