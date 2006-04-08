@@ -1,3 +1,7 @@
+2006-04-07  Gary Cramblitt <garycramblitt@comcast.net>
+
+	* /src/modules/flite.c: Correct DBG "NAS" -> "ALSA"
+
 2006-04-06  Gary Cramblitt <garycramblitt@comcast.net>
 
 	* src/modules/module_utils.h: Fix broken macro (not previously used).

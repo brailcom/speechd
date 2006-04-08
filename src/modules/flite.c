@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: flite.c,v 1.51 2006-04-01 20:19:16 cramblitt Exp $
+ * $Id: flite.c,v 1.52 2006-04-08 01:14:31 cramblitt Exp $
  */
 
 
@@ -143,7 +143,7 @@ module_init(char **status_info)
 	flite_audio_output_method = AUDIO_NAS;
     }
     else if (!strcmp(FliteAudioOutputMethod, "alsa")){
-	DBG("Using NAS sound output.");
+	DBG("Using ALSA sound output.");
 	flite_pars[0] = FliteALSADevice;
 	flite_pars[1] = NULL;
 	flite_audio_id = spd_audio_open(AUDIO_ALSA, (void**) flite_pars, &error);
