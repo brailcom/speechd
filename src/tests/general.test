@@ -6,14 +6,14 @@
 @       this is a tour through SSIP!
 
 @ SSIP stands for Speech Synthesis Internet Protocol,
-@ It's the actual interface to Speech Dispatcher
+@ It's the actual interface to Speech Dispatcher.
 
 ?
 *
 
 @               Introductory examples  I
 
-@ Let's try our first commands
+@ Let's try our first commands.
 ?
 
 !SET SELF CLIENT_NAME unknown:run_test:main
@@ -28,13 +28,13 @@ Hello all, welcome at Libre Software Meeting 2003!
 
 @               Introductory examples  II
 
-@ Now something more complicated
-@ We will switch our output module to Festival
+@ Now something more complicated.
+@ We will switch our output module to Festival.
 
 !SET SELF OUTPUT_MODULE festival
 ?
 
-@ Set the voice rate a little bit lower
+@ Set the voice rate a little bit lower.
 
 !SET SELF RATE -20
 ?
@@ -88,7 +88,7 @@ I have often regretted my speech, never my silence.
 
 @               More examples -- Languages and output modules
 
-@  Again the English voice (english is default)
+@  Again the English voice (english is default).
 
 !SPEAK
 I call our world Flatland, not because we call it so,
@@ -138,13 +138,13 @@ Es que es una lengua muy bonita!
 
 @               Text processing -- Examples
 
-@ When reading books, it's best to just listen the text,
+@ When reading books, it's best to just listen to the text,
 @ but when a visually impaired person wants to edit some
-@ text, it comes handy if there is some recognition of
+@ text, it is handy if there is some recognition of
 @ the present punctuation characters, capital letters, etc.
 ?
 
-@ This will pronounce all punctuation charracters and
+@ This will pronounce all punctuation characters and
 @ additionally produce a sound before each capital letter.
 ?
 
@@ -187,7 +187,7 @@ to those of us with no interest at all in computers.
 
 @               Sound icons   ---   Examples
 
-@ We will try some sound icons to see how they work
+@ We will try some sound icons to see how they work.
 ?
 
 !SOUND_ICON warning
@@ -204,7 +204,7 @@ to those of us with no interest at all in computers.
 
 @               Priorities   ---   Examples I
 
-@ We will send two messages with different priorities at once
+@ We will send two messages with different priorities at once.
 ?
 
 !SET SELF PRIORITY NOTIFICATION 
@@ -223,7 +223,7 @@ Accept cookie [Y/N/A]?
 @               Priorities   ---   Examples II
 
 @ Or take for example this situation, where the user requested
-@ his application to read some text but then changed his mind
+@ his application to read some text but then changed his mind.
 
 !SET SELF PRIORITY TEXT
 

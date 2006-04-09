@@ -54,9 +54,9 @@ $8
 
 !QUIT
 
-@ If the tests did what expected, your instalation of Speech Dispatcher
+@ If the tests did what was expected, your installation of Speech Dispatcher
 @ probably works fine. If not, there can be different causes, see
 @ the documentation -- Troubleshooting. (Note that some synthesizers
 @ don't have to support setting of the voice parameters. If everything
-@ other worked correctly, this is not a fatal problem.).
+@ else worked correctly, this is not a fatal problem.).
 
