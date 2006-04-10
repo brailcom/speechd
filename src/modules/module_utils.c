@@ -1,24 +1,24 @@
 /*
  * module_utils.c - Module utilities
  *           Functions to help writing output modules for Speech Dispatcher
- * Copyright (C) 2003 Brailcom, o.p.s.
+ * Copyright (C) 2003,2006 Brailcom, o.p.s.
  *
- * This is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2, or (at your option)
- * any later version.
+ * This is free software; you can redistribute it and/or modify it under the
+ * terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1, or (at your option) any later
+ * version.
  *
  * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with this package; see the file COPYING.  If not, write to
- * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this package; see the file COPYING.  If not, write to the Free
+ * Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+ * 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.40 2006-04-01 20:35:43 cramblitt Exp $
+ * $Id: module_utils.c,v 1.41 2006-04-10 17:20:44 hanke Exp $
  */
 
 #include "fdsetconv.h"
