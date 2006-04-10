@@ -1,3 +1,21 @@
+2006-04-10  Hynek Hanke  <hanke@chopin>
+
+	* COPYING: Added GNU Lesser General Public License.
+
+	* src/modules/module_utils.c: Relicensed to GNU Lesser General
+	Public License
+
+	* src/modules/module_utils.h: Relicensed to GNU Lesser
+	General Public License
+
+	* src/modules/module_utils_addvoice.c: Relicensed to GNU Lesser
+	General Public License
+
+	* src/modules/module_main.c: Relicensed to GNU Lesser
+	General Public License
+
+	* src/audio: Relicensed to GNU Lesser General Public License
+
 2006-04-07  Gary Cramblitt <garycramblitt@comcast.net>
 
 	* /src/modules/flite.c: Correct DBG "NAS" -> "ALSA"
@@ -20,6 +38,7 @@
 	* doc/speech-dispatcher.texi: Spelling and grammar corrections.
 	* doc/figures/architecture.pdf: Make image smaller so it fits on pdf page.
 
+>>>>>>> 1.264
 2006-03-13  Hynek Hanke  <hanke@chopin>
 
 	* src/audio/oss.c: Include string.h
