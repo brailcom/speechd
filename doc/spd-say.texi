@@ -80,6 +80,8 @@ female3, child_male, child_female).
 Set the punctuation mode (none, some, all).
 @item -s or --spelling
 Spell the message
+@item -x or --ssml
+Set SSML mode on (default: off).  The text contains SSML markup.
 @item -w or --wait
 Wait till the end of speaking the message. In this mode, spd-say returns only after
 the message is fully spoken on the speakers or after it gets discarded.

@@ -1,3 +1,20 @@
+2006-04-10  Gary Cramblitt <garycramblitt@comcast.net>
+
+	* src/c/clients/say/say.c, options.h, options.c:
+	* doc/spd-say.texi: Add --ssml (-x) option for speaking SSML text.
+
+	* config/modules/ibmtts.conf:
+	* src/modules/ibmtts.c, Makefile.am: 
+	* src/configure.in.in: New output module for IBM TTS synthesizer.
+	It compiles and even speaks, but don't expect much else right now.
+
+	* src/modules/module_utils.c, src/c/api/libspeechd.c: Remove do
+	nothing statement in xfree().
+
+	* src/tests/basic.test: Minor spelling and grammar corrections.
+
+	* src/tests/ssml.text: Start on new SSML test script.
+
 2006-04-10  Hynek Hanke  <hanke@chopin>
 
 	* COPYING: Added GNU Lesser General Public License.

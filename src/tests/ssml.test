@@ -1,0 +1,42 @@
+@ Hi, this is a test for SSML support in Speech Dispatcher.
+
+@ Note that not all synthesizers (output modules) support SSML.
+@ If they do not, they should still speak but should not speak any
+@ of the SSML tags.
+
+@ We'll begin with a simple message.
+$4
+!SET SELF SSML_MODE ON
+!SPEAK
+<speak>
+S S M L or Speech Synthesis Markup Language is an XML
+language that provides authors of synthesizable content a standard way
+to control aspects of speech such as pronunciation, volume, pitch, rate,
+etc. across different synthesis-capable platforms.
+</speak>
+. 
+$16
+@ If you heard the full message, Speech Dispatcher
+@ works correctly.
+$2
+
+
+@ Now we will try changing the volume in mid-sentence.
+$2
+!SPEAK
+<speak>
+This sentence starts out normally, <prosody volume="loud">
+but then speaks loudly,</prosody><prosody volume="soft">
+and ends very softly.</prosody>
+</speak>
+.
+$8
+
+!QUIT
+
+@ If the tests did what was expected, your installation of Speech Dispatcher
+@ probably works fine. If not, there can be different causes, see
+@ the documentation -- Troubleshooting. (Note that some synthesizers
+@ don't support SSML. If everything
+@ else worked correctly, this is not a fatal problem.).
+

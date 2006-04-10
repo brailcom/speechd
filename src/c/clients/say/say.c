@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: say.c,v 1.12 2006-01-08 13:36:56 hanke Exp $
+ * $Id: say.c,v 1.13 2006-04-10 21:57:28 cramblitt Exp $
  */
 
 #include <stdio.h>
@@ -62,6 +62,7 @@ int main(int argc, char **argv) {
    voice_type = NULL;
    punctuation_mode = NULL;
    spelling = -2;
+   ssml_mode = 0;
    wait_till_end = 0;
    stop_previous = 0;
    cancel_previous = 0;
@@ -128,6 +129,10 @@ int main(int argc, char **argv) {
 	   printf("Invalid voice\n");
        }
    }
+
+   if (ssml_mode)
+       if(spd_execute_command(conn, "SET SELF SSML_MODE ON"))
+           printf("Failed to set SSML mode.\n");
 
    if (rate != -101) 
        if(spd_set_voice_rate(conn, rate))

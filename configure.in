@@ -102,6 +102,28 @@ AC_ARG_WITH(flite, AS_HELP_STRING(--with-flite, Compile with Festival Lite (Flit
 
 AM_CONDITIONAL(flite_support, test $flite_ok = "true")
 
+dnl Check for IBM TTS
+AC_CHECK_LIB(ibmeci,
+        eciStop,
+        ibmtts_ok="true";ibmtts_include="-I/opt/IBM/ibmtts/inc/"; echo "Compiling with IBM TTS support.",
+        ibmtts_ok="false";ibmtts_include=""; echo "*** IBM TTS ECI library missing. Compiling without IBM TTS support! See INSTALL.";,
+	-libmeci)
+
+AC_ARG_WITH(ibmtts, AS_HELP_STRING(--with-ibmtts, Compile with IBM TTS support),
+		 if test $withval = "no"; then 
+		    echo "Forced compilation without IBMTTS support."; 
+		    ibmtts_ok="false";
+		 else 
+		    if test $ibmtts_ok = "false"; then
+		       echo "IBM TTS support is not available. Sorry."; exit 1;
+		    fi
+                 fi
+ 		 echo "")
+
+AM_CONDITIONAL(ibmtts_support, test $ibmtts_ok = "true")
+
+AC_SUBST(ibmtts_include)
+
 AC_CHECK_LIB(audio,
         AuOpenServer,
 	nas_aud="true";echo "Compiling with NAS support.";,

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: libspeechd.c,v 1.25 2006-01-08 13:36:56 hanke Exp $
+ * $Id: libspeechd.c,v 1.26 2006-04-10 21:57:28 cramblitt Exp $
  */
 
 
@@ -1137,10 +1137,8 @@ xmalloc(size_t bytes)
 static void
 xfree(void *ptr)
 {
-    if (ptr != NULL){
+    if (ptr != NULL)
         free(ptr);
-        ptr = NULL;
-    }
 }
 
 static char*

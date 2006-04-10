@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
  * 02111-1307, USA.
  *
- * $Id: module_utils.c,v 1.41 2006-04-10 17:20:44 hanke Exp $
+ * $Id: module_utils.c,v 1.42 2006-04-10 21:57:28 cramblitt Exp $
  */
 
 #include "fdsetconv.h"
@@ -57,7 +57,6 @@ void
 xfree(void *data)
 {
     if (data != NULL) free(data);
-    data = NULL;
 }
 
 char*

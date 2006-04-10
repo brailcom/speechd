@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.c,v 1.6 2005-12-22 13:23:11 hanke Exp $
+ * $Id: options.c,v 1.7 2006-04-10 21:57:28 cramblitt Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would
@@ -55,6 +55,7 @@ options_print_help(char *argv[])
 	   "                                female3, child_male, child_female)\n"
 	   "-m, --punctuation-mode -     Set the punctuation mode (none, some, all) \n"
 	   "-s, --spelling         -     Spell the message\n"
+           "-x, --ssml             -     Set SSML mode on (default: off)\n"
            "\n"
            "-P, --priority         -     Set priority of the message (important, message,\n"
            "                                text, notification, progress; default: text)\n"
@@ -159,6 +160,9 @@ options_parse(int argc, char *argv[])
 	case 'P':
 	    OPT_SET_STR(priority);
 	    break;
+        case 'x':
+            ssml_mode = 1;
+            break;
 	case 'N':
 	    OPT_SET_STR(application_name);
 	    break;
