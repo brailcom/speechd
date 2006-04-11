@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: run_test.c,v 1.11 2006-04-11 11:40:03 cramblitt Exp $
+ * $Id: run_test.c,v 1.12 2006-04-11 23:36:52 cramblitt Exp $
  */
 
 #include <stdio.h>
@@ -80,6 +80,8 @@ wait_for(int fd, char* event)
         }
     }
     free(reply);
+    printf("       Continuing.\n", reply);
+    fflush(NULL);
 }
 
 int 
