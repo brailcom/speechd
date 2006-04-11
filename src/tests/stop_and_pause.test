@@ -25,7 +25,7 @@ causes which impel them to the separation.
 +BEGIN
 $2
 !STOP SELF
-+CANCELED
+$3
 !SPEAK
 The previous stop should not prevent this sentence from being heard.
 .
@@ -41,10 +41,11 @@ $2
 !SPEAK
 Jack and Jill went up the hill to fetch a pail of water.
 Jack fell down and broke his crown, and Jill came tumbling after.
+This sentence should not be heard until resumed.
 .
-+BEGIN
++701 BEGIN
 !PAUSE SELF
-+704 END
++704 PAUSED
 @ Speaking should now be paused.  Resuming in 2 seconds.
 $2
 !RESUME SELF
