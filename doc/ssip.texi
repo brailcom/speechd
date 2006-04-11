@@ -1159,7 +1159,7 @@ SSML tag <mark/>.
 @example
 704-msg_id
 704-client_id
-704 END
+704 PAUSED
 @end example
 
 @item RESUME
@@ -1167,7 +1167,7 @@ SSML tag <mark/>.
 @example
 705-msg_id
 705-client_id
-705 END
+705 RESUMED
 @end example
 @end table
 
