@@ -139,6 +139,7 @@ AddModule "flite"        "sd_flite"     "flite.conf"  "/var/log/speech-dispatche
 AddModule "festival"     "sd_festival"  "festival.conf" "/var/log/speech-dispatcher/festival.log"
 #AddModule "epos-generic" "sd_generic"   "epos-generic.conf" "/var/log/speech-dispatcher/epos.log"
 #AddModule "dtk-generic"  "sd_generic"   "dtk-generic.conf" "/var/log/speech-dispatcher/dtk-generic.log"
+#AddModule "ibmtts"       "sd_ibmtts"    "ibmtts.conf" "/var/log/speech-dispatcher/ibmtts.log"
 
 # The output module testing doesn't actually connect to
 # anything. It outputs the requested commands to standard output
@@ -173,5 +174,5 @@ LanguageDefaultModule "es"  "festival"
 # * to match any number of characters and ? to match one character)
 
 Include "clients/emacs.conf"
-Include "clients/gnomespeech.conf"
+Include "clients/gnome-speech.conf"
 

@@ -2119,7 +2119,7 @@ STOP
 
 @item PAUSE
 Stop speaking the current message at a place where we can exactly
-determine the position (preferably after a __spd_ index mark).  This
+determine the position (preferably after a @code{__spd_} index mark).  This
 doesn't have to be immediate and can be delayed even for a few
 seconds. (Knowing the position exactly is important so that we can
 later continue the message without gaps or overlapping.) It doesn't do
@@ -2611,6 +2611,14 @@ at the point where next piece of text would be synthesized.
 
 It's not an error if this function is called when the device
 is not speaking. In this case, it should return 0.
+
+Note there is no module_resume() function.  The semantics of
+@code{module_pause()} is the same as @code{module_stop()} except that
+your module should stop after reaching a @code{__spd_} index mark.
+Just like @code{module_stop()}, it should discard the rest of the
+message after pausing.  On the next @code{module_speak()} call,
+Speech Dispatcher will resend the rest of the message after the
+index mark.
 @end deffn
 
 
@@ -2774,19 +2782,14 @@ to the protocol. Then it calls @code{module_close(0)}.
 const char* message, char* part, unsigned int *pos, size_t maxlen, const char* dividers)
 @findex  module_get_message_part
 
-Gets a part of the @code{message} according to the specified @code{dividers}
-and encountered index marks, @xref{Index Marks in Output Modules}.
+Gets a part of the @code{message} according to the specified @code{dividers}.
 
 It scans the text in @code{message} from the byte specified by
 @code{*pos} and looks for one of the characters specified in
-@code{dividers} followed by a whitespace character, index marks or the
+@code{dividers} followed by a whitespace character or the
 terminating NULL byte. If one of them is encountered, the read text is
 stored in @code{part} and the number of bytes read is
-returned. However, if the current position @code{message[*pos]} when
-calling this function is at the beginning of an index mark, nothing is
-stored in @code{part}, 0 is returned and the global variable
-@code{current_index_mark} is set to the number of the encountered
-index mark. If end of @code{message} is reached, the return value is
+returned. If end of @code{message} is reached, the return value is
 -1.
 
 @code{message} is the text to process. It must be a NULL-terminated
@@ -2802,8 +2805,7 @@ to @code{part}.
 the punctuation characters where the message should be divided
 into smaller parts (if they are followed by whitespace).
 
-After returning, @code{current_index_mark} is either -1 or the number
-of the encountered index mark and @code{pos} is the position
+After returning, @code{pos} is the position
 where the function terminated in processing @code{message}.
 @end deffn
 
@@ -3036,8 +3038,7 @@ The same as the classical @code{realloc()} except that it also accepts
 @deffn {Module Utils function} void xfree(void *data)
 @findex xfree
 The same as the classical @code{free()} except that it checks
-if data isn't NULL before calling @code{free()} and makes sure
-the pointer @code{data} is set to @code{NULL} before returning.
+if data isn't NULL before calling @code{free()}.
 @end deffn
 
 @node Index Marks in Output Modules,  , Module Utils Functions and Macros, Output Modules
@@ -3055,23 +3056,26 @@ For this reason, Speech Dispatcher places so-called index marks in
 the text it sends to its output modules. They have the form:
 
 @example
-@@id_number@@
+<mark name="id"/>
 @end example
 
-@code{id_number} is the identification number associated with each index
-mark. It's unique with respect to each message.
+@code{id} is the identifier associated with each index
+mark. Within a @code{module_speak()} message, each identifer is unique.
+It consists of the string @code{__spd_} and a counter number.  Numbers
+begin from zero for each message.  For example, the fourth index mark
+within a message looks like
 
-When an index mark is reached, its identification number should be stored
-so that the output module is able to tell Speech Dispatcher the number
+@example
+<mark name="__spd_id_3"/>
+@end example
+
+When an index mark is reached, its identifier should be stored
+so that the output module is able to tell Speech Dispatcher the identifier
 of the last index mark. Also, index marks are the best place to stop
 when the module is requested to pause (although it's ok to stop at
-some nearer place and report the last index mark).
+some place close by and report the last index mark).
 
-Because index marks use the @code{@@} character, all the regular
-@code{@@} characters are replaced by an escape sequence @code{@@@@}
-and should be converted back before sending the text to a text-to-speech
-system. In a similar way, the index marks should be stripped after their
-information is stored.
+Notice that index marks are in SSML format using the @code{mark} tag.
 
 @node Download and Contact, Reporting Bugs, Server Programming, Top
 @chapter Download

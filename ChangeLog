@@ -4,6 +4,7 @@
 	* doc/spd-say.texi: Add --ssml (-x) option for speaking SSML text.
 
 	* config/modules/ibmtts.conf:
+	* config/speechd.conf.in:
 	* src/modules/ibmtts.c, Makefile.am: 
 	* src/configure.in.in: New output module for IBM TTS synthesizer.
 	It compiles and even speaks, but don't expect much else right now.
@@ -16,6 +17,8 @@
 	* src/tests/ssml.test: Start on new SSML test script.
 
 	* src/tests/stop_and_pause.test: A script for testing STOP and PAUSE functions.
+
+	* doc/speech-dispatcher.texi: Corrections and clarifications.
 
 2006-04-10  Hynek Hanke  <hanke@chopin>
 
