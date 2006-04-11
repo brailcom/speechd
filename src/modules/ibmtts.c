@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.1 2006-04-10 21:57:28 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.2 2006-04-11 01:28:32 cramblitt Exp $
  */
 
 /* This output module operates with three threads:
@@ -82,9 +82,8 @@ static EMessageType ibmtts_message_type;
 
 static int ibmtts_stop = 0;
 static int ibmtts_thread_exit_requested = 0;
-/*
 static int ibmtts_pause_requested = 0;
-*/
+
 
 /* ECI */
 static ECIHand eciHandle = NULL_ECI_HAND;
@@ -166,6 +165,7 @@ static int ibmtts_send_to_audio(TPlaybackQueueEntry *playback_queue_entry);
 
 /* Miscellaneous internal function prototypes. */
 static void ibmtts_log_eci_error();
+void* _ibmtts_report_event(void* isStop);
 
 /* The synthesis thread start routine. */
 static void* _ibmtts_synth(void*);
@@ -406,7 +406,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 }
 
 int
-module_stop(void) 
+module_stop(void)
 {
     DBG("Ibmtts:  stop().");
 
@@ -431,21 +431,35 @@ module_stop(void)
         pthread_mutex_unlock(&sound_stop_mutex);
     }
 
-    /* Wait for synthesis thread to suspend. */
+    DBG("Ibmtts: Waiting for synthesis thread to suspend.");
     while (is_thread_busy(&ibmtts_synth_suspended_mutex))
         usleep(100);
-    /* Wait for playback thread to suspend. */
+    DBG("Ibmtts: Waiting for playback thread to suspend.");
     while (is_thread_busy(&ibmtts_play_suspended_mutex))
         usleep(100);
 
-    /* Clear playback queue. */
+    DBG("Ibmtts: Clearing playback queue.");
     ibmtts_clear_playback_queue();
 
     ibmtts_stop = 0;
 
-    /* TODO: OK to call this from main thread? */
+    /* TODO: OK to call this from main thread?
+             Hmm, apparently not as it hangs ibmtts. Why?
+    DBG("Ibmtts: Reporting stop event.");
     module_report_event_stop();
+    */
 
+    /* This works. Set up a one-shot thread that reports the stop back to SD. */
+    pthread_t stop_event_thread;
+    void* isStop = NULL;
+    if (ibmtts_pause_requested) isStop = &isStop;
+    pthread_create(&stop_event_thread, NULL, _ibmtts_report_event, isStop);
+    ibmtts_pause_requested = 0;
+    /* But not if this is enabled. ??
+    pthread_join(stop_event_thread, NULL);
+    */
+
+    DBG("Ibmtts: Stop completed.");
     return 0;
 }
 
@@ -462,7 +476,9 @@ module_pause(void)
     DBG("Ibmtts: Pause requested.");
     if (is_thread_busy(&ibmtts_synth_suspended_mutex) ||
         is_thread_busy(&ibmtts_play_suspended_mutex)) {
-        ibmtts_wait_for_index_mark();
+        ibmtts_pause_requested = 1;
+        while (is_thread_busy(&ibmtts_play_suspended_mutex)) usleep(100);
+        /* ibmtts_wait_for_index_mark(); */
         return module_stop();
     }else
         return -1;
@@ -965,7 +981,7 @@ void*
 _ibmtts_play(void* nothing)
 {
     GString *mark;
-    TPlaybackQueueEntry *playback_queue_entry;
+    TPlaybackQueueEntry *playback_queue_entry = NULL;
 
     DBG("Ibmtts: Playback thread starting.......\n");
 
@@ -984,13 +1000,15 @@ _ibmtts_play(void* nothing)
         }
         /* DBG("Ibmtts: Playback semaphore on."); */
 
-        while ((NULL != playback_queue) && (1 != ibmtts_stop))
-        {
-            pthread_mutex_lock(&playback_queue_mutex);
+        pthread_mutex_lock(&playback_queue_mutex);
+        if (NULL != playback_queue) {
             playback_queue_entry = playback_queue->data;
             playback_queue = g_slist_remove(playback_queue, playback_queue->data);
-            pthread_mutex_unlock(&playback_queue_mutex);
+        }
+        pthread_mutex_unlock(&playback_queue_mutex);
 
+        while ((NULL != playback_queue_entry) && (1 != ibmtts_stop))
+        {
             /* TODO: The sem_post calls below are not thread safe. */
 
             switch (playback_queue_entry->type) {
@@ -1005,12 +1023,15 @@ _ibmtts_play(void* nothing)
                     g_string_printf(mark, SD_MARK_BODY"%i", playback_queue_entry->data.markId);
                     module_report_index_mark(mark->str);
                     g_string_free(mark, TRUE);
+                    if (1 == ibmtts_pause_requested) ibmtts_stop = 1;
+                    /*
                     pthread_mutex_lock(&ibmtts_wait_for_index_mark_mutex);
                     /* If waiting for an index mark, signal it.
-                       TODO: See TODO in ibmtts_wait_for_index_mark(). */
+                    TODO: See TODO in ibmtts_wait_for_index_mark().
                     if (NULL != ibmtts_wait_for_index_mark_semaphore)
                         sem_post(ibmtts_wait_for_index_mark_semaphore);
                     pthread_mutex_unlock(&ibmtts_wait_for_index_mark_mutex);
+                    */
                     break;
                 case IBMTTS_QET_BEGIN:
                     module_report_event_begin();
@@ -1029,7 +1050,16 @@ _ibmtts_play(void* nothing)
             }
 
             ibmtts_delete_playback_queue_entry(playback_queue_entry);
+            playback_queue_entry = NULL;
+
+            pthread_mutex_lock(&playback_queue_mutex);
+            if (NULL != playback_queue) {
+                playback_queue_entry = playback_queue->data;
+                playback_queue = g_slist_remove(playback_queue, playback_queue->data);
+            }
+            pthread_mutex_unlock(&playback_queue_mutex);
         }
+        if (1 == ibmtts_stop) DBG("Ibmtts: Stop or pause in playback thread.");
     }
 
     DBG("Ibmtts: Playback thread ended.......\n");
@@ -1052,6 +1082,22 @@ ibmtts_wait_for_index_mark()
     sem_destroy(ibmtts_wait_for_index_mark_semaphore);
     ibmtts_wait_for_index_mark_semaphore = NULL;
     pthread_mutex_unlock(&ibmtts_wait_for_index_mark_mutex);
+}
+
+/* This is a simple thread to report the stop event. */
+void*
+_ibmtts_report_event(void* isStop)
+{
+    if (NULL == isStop) {
+            DBG("Ibmtts: Reporting stop event.");
+            module_report_event_stop();
+            DBG("Ibmtts: Stop event reported.");
+    } else {
+            DBG("Ibmtts: Reporting pause event.");
+            module_report_event_pause();
+            DBG("Ibmtts: Pause event reported.");
+    }
+    pthread_exit(NULL);
 }
 
 #include "module_main.c"

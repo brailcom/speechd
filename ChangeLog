@@ -13,7 +13,9 @@
 
 	* src/tests/basic.test: Minor spelling and grammar corrections.
 
-	* src/tests/ssml.text: Start on new SSML test script.
+	* src/tests/ssml.test: Start on new SSML test script.
+
+	* src/tests/stop_and_pause.test: A script for testing STOP and PAUSE functions.
 
 2006-04-10  Hynek Hanke  <hanke@chopin>
 
