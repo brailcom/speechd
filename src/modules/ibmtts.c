@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.2 2006-04-11 01:28:32 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.3 2006-04-11 03:35:32 cramblitt Exp $
  */
 
 /* This output module operates with three threads:
@@ -433,10 +433,10 @@ module_stop(void)
 
     DBG("Ibmtts: Waiting for synthesis thread to suspend.");
     while (is_thread_busy(&ibmtts_synth_suspended_mutex))
-        usleep(100);
+        g_usleep(100);
     DBG("Ibmtts: Waiting for playback thread to suspend.");
     while (is_thread_busy(&ibmtts_play_suspended_mutex))
-        usleep(100);
+        g_usleep(100);
 
     DBG("Ibmtts: Clearing playback queue.");
     ibmtts_clear_playback_queue();
@@ -477,7 +477,7 @@ module_pause(void)
     if (is_thread_busy(&ibmtts_synth_suspended_mutex) ||
         is_thread_busy(&ibmtts_play_suspended_mutex)) {
         ibmtts_pause_requested = 1;
-        while (is_thread_busy(&ibmtts_play_suspended_mutex)) usleep(100);
+        while (is_thread_busy(&ibmtts_play_suspended_mutex)) g_usleep(100);
         /* ibmtts_wait_for_index_mark(); */
         return module_stop();
     }else
