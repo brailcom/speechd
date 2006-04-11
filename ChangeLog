@@ -1,3 +1,14 @@
+2006-04-11  Gary Cramblitt <garycramblitt@comcast.net>
+
+	* src/tests/run_test.c: Add "wait for <str>" operator.  Useful for waiting
+	for event notifications.
+
+	* src/tests/README: Document "wait for".
+
+	* src/tests/stop_and_pause.test: Use "wait for".
+
+	* doc/ssip.texi: Minor correction for CANCEL notification.
+
 2006-04-10  Gary Cramblitt <garycramblitt@comcast.net>
 
 	* src/c/clients/say/say.c, options.h, options.c:

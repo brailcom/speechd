@@ -4,6 +4,8 @@
 @ stop and pause.  If they do not, they should at least not crash
 @ or mangle the speech.
 
+!SET SELF NOTIFICATION ALL ON
+
 @ We'll begin by queueing a paragraph, waiting 2 seconds, stopping,
 @ and then queueing another message.  The paragraph contains several
 @ sentences.  If stop is working well, the speech should stop instantly,
@@ -20,12 +22,14 @@ respect to the opinions of mankind requires that they should declare the
 causes which impel them to the separation.
             -- United States Declaration of Independence
 . 
++BEGIN
 $2
 !STOP SELF
++CANCELED
 !SPEAK
 The previous stop should not prevent this sentence from being heard.
 .
-$5
+$3
 
 @ Now we'll queue another request, pause it two seconds later, wait
 @ 8 seconds, and resume.  If working well, the pause should occur on
@@ -38,12 +42,15 @@ $2
 Jack and Jill went up the hill to fetch a pail of water.
 Jack fell down and broke his crown, and Jill came tumbling after.
 .
-$2
++BEGIN
 !PAUSE SELF
-$8
++704 END
+@ Speaking should now be paused.  Resuming in 2 seconds.
+$2
 !RESUME SELF
-$8
++705 END
 
++702 END
 !QUIT
 
 @ Tests completed.

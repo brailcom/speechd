@@ -34,6 +34,11 @@ Available tests:
                 * ^ run_test will wait for the specified time (in microseconds)
                 * ~ sets the indentation (in spaces from left border), it can
                         be used multiple times in different places
+                * + wait for response string. Note, you cannot use this to wait
+                        for synchronous replies to commands.  Generally,
+                        you will use this to wait for notification events
+                        (SET SELF NOTIFICATION ALL ON).  It will wait for
+                        any reply containing the string that follows "+".
                 * ? waits until the user presses a key
                 * * clear screen
                 * Blank lines in the script produce blank lines in the output.

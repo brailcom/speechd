@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: run_test.c,v 1.10 2006-01-08 13:36:58 hanke Exp $
+ * $Id: run_test.c,v 1.11 2006-04-11 11:40:03 cramblitt Exp $
  */
 
 #include <stdio.h>
@@ -60,6 +60,26 @@ send_data(int fd, char *message, int wfr)
 	} 
             
 	return reply;
+}
+
+void
+wait_for(int fd, char* event)
+{
+    char * reply;
+    int bytes;
+
+    printf("       Waiting for: |%s|\n", event);
+    reply = (char*) malloc(sizeof(char) * 1000);
+    reply[0] = 0;
+    while (NULL == strcasestr(reply, event)) {
+        bytes = read(fd, reply, 1000);
+        if (bytes > 0) {
+            reply[bytes] = 0;
+            printf("       < %s\n", reply);
+            fflush(NULL);
+        }
+    }
+    free(reply);
 }
 
 int 
@@ -164,6 +184,12 @@ main(int argc, char* argv[])
         if(line[0] == '.'){
             reply = send_data(sockk, "\r\n.\r\n", 1);
             printf("       < %s", reply);
+            continue;
+        }
+
+        if(line[0] == '+'){
+            command = (char*) strtok(&(line[1]), "+\r\n");
+            wait_for(sockk, command);
             continue;
         }
 
