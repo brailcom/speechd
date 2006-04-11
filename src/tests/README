@@ -8,7 +8,7 @@ Available tests:
         (it uses libspeechd.c)
 
 * multiple_messages:
-        Tests how fast can Speech Dispatcher handle messages incomming
+        Tests how fast can Speech Dispatcher handles messages coming
         in short intervals for all 3 priorities. It also tests
         how the priorities influence each other.
         (it uses libspeechd.c)
@@ -20,9 +20,9 @@ Available tests:
         and executes the SSIP commands inside it. It also outputs
         the comments from the file on the screen and waits where
         requested. If an aditional parameter "fast" is specified, that
-        means execute everything without the specified dellays.
+        means execute everything without the specified delays.
 
-		You can find it convenient to redirect the output to some
+		You may find it convenient to redirect the output to some
 		logfile.
 
         The script files have the following simple syntax:
