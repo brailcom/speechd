@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.4 2006-04-12 02:11:06 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.5 2006-04-12 16:40:59 cramblitt Exp $
  */
 
 /* This output module operates with three threads:
@@ -79,10 +79,10 @@ static pthread_t ibmtts_synth_thread;
 static pthread_t ibmtts_play_thread;
 static sem_t *ibmtts_synth_semaphore;
 static sem_t *ibmtts_play_semaphore;
-static sem_t *ibmtts_wait_for_index_mark_semaphore = NULL;
+/* static sem_t *ibmtts_wait_for_index_mark_semaphore = NULL; */
 static pthread_mutex_t ibmtts_synth_suspended_mutex;
 static pthread_mutex_t ibmtts_play_suspended_mutex;
-static pthread_mutex_t ibmtts_wait_for_index_mark_mutex;
+/* static pthread_mutex_t ibmtts_wait_for_index_mark_mutex; */
 
 static char **ibmtts_message;
 static EMessageType ibmtts_message_type;
@@ -148,7 +148,7 @@ static void ibmtts_set_language_and_voice(char *lang, EVoiceType voice);
 static void ibmtts_set_rate(signed int rate);
 static void ibmtts_set_pitch(signed int pitch);
 static void ibmtts_set_volume(signed int pitch);
-static void ibmtts_wait_for_index_mark();
+/* static void ibmtts_wait_for_index_mark(); */
 static void ibmtts_clear_playback_queue();
 
 /* Internal function prototypes for synthesis thread. */
@@ -327,7 +327,7 @@ module_init(char **status_info)
 
     /* This mutex mediates between the main and playback threads on the
        wait_for_index_mark_semaphore. */
-    pthread_mutex_init(&ibmtts_wait_for_index_mark_mutex, NULL);
+    /* pthread_mutex_init(&ibmtts_wait_for_index_mark_mutex, NULL); */
 
     /* This mutex mediates access to the playback queue between the synthesis and
        playback threads. */
@@ -1067,17 +1067,21 @@ _ibmtts_play(void* nothing)
                     break;
                 case IBMTTS_QET_BEGIN:
                     module_report_event_begin();
+                    /*
                     pthread_mutex_lock(&ibmtts_wait_for_index_mark_mutex);
                     if (NULL != ibmtts_wait_for_index_mark_semaphore)
                         sem_post(ibmtts_wait_for_index_mark_semaphore);
                     pthread_mutex_unlock(&ibmtts_wait_for_index_mark_mutex);
+                    */
                     break;
                 case IBMTTS_QET_END:
                     module_report_event_end();
+                    /*
                     pthread_mutex_lock(&ibmtts_wait_for_index_mark_mutex);
                     if (NULL != ibmtts_wait_for_index_mark_semaphore)
                         sem_post(ibmtts_wait_for_index_mark_semaphore);
                     pthread_mutex_unlock(&ibmtts_wait_for_index_mark_mutex);
+                    */
                     break;
             }
 
@@ -1103,6 +1107,7 @@ _ibmtts_play(void* nothing)
 /* TODO: Perhaps this should wait for and end-of-sentence mark (__spd_),
          i.e., skip over custom index marks?
          If so, rename this function to ibmtts_wait_for_eos(). */
+/*
 void
 ibmtts_wait_for_index_mark()
 {
@@ -1115,6 +1120,7 @@ ibmtts_wait_for_index_mark()
     ibmtts_wait_for_index_mark_semaphore = NULL;
     pthread_mutex_unlock(&ibmtts_wait_for_index_mark_mutex);
 }
+*/
 
 /* This is a simple thread to report the stop event. */
 void*
