@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.3 2006-04-11 03:35:32 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.4 2006-04-12 02:11:06 cramblitt Exp $
  */
 
 /* This output module operates with three threads:
@@ -49,6 +49,13 @@
 #include "fdset.h"
 #include "module_utils.h"
 #include "module_utils_addvoice.c"
+
+typedef enum { IBMTTS_FALSE, IBMTTS_TRUE } TIbmttsBool;
+typedef enum {
+    FATAL_ERROR = -1,
+    OK = 0,
+    ERROR = 1
+} TIbmttsSuccess;
 
 /* TODO: These defines are in src/server/index_marking.h, but including that
          file here causes a redefinition error on FATAL macro in speechd.h. */
@@ -80,9 +87,9 @@ static pthread_mutex_t ibmtts_wait_for_index_mark_mutex;
 static char **ibmtts_message;
 static EMessageType ibmtts_message_type;
 
-static int ibmtts_stop = 0;
-static int ibmtts_thread_exit_requested = 0;
-static int ibmtts_pause_requested = 0;
+static TIbmttsBool ibmtts_stop = IBMTTS_FALSE;
+static TIbmttsBool ibmtts_thread_exit_requested = IBMTTS_FALSE;
+static TIbmttsBool ibmtts_pause_requested = IBMTTS_FALSE;
 
 
 /* ECI */
@@ -134,7 +141,7 @@ char *ibmtts_audio_pars[10];
 pthread_mutex_t sound_stop_mutex;
 
 /* Internal function prototypes for main thread. */
-static int is_thread_busy(pthread_mutex_t *suspended_mutex);
+static TIbmttsBool is_thread_busy(pthread_mutex_t *suspended_mutex);
 static void ibmtts_set_language(char *lang);
 static void ibmtts_set_voice(EVoiceType voice);
 static void ibmtts_set_language_and_voice(char *lang, EVoiceType voice);
@@ -142,7 +149,7 @@ static void ibmtts_set_rate(signed int rate);
 static void ibmtts_set_pitch(signed int pitch);
 static void ibmtts_set_volume(signed int pitch);
 static void ibmtts_wait_for_index_mark();
-static int ibmtts_clear_playback_queue();
+static void ibmtts_clear_playback_queue();
 
 /* Internal function prototypes for synthesis thread. */
 char* ibmtts_extract_mark_name(char *mark);
@@ -157,11 +164,12 @@ static enum ECICallbackReturn eciCallback(
 );
 
 /* Internal function prototypes for playback thread. */
-static int ibmtts_add_audio_to_playback_queue(TEciAudioSamples *audio_chunk, long num_samples);
-static int ibmtts_add_mark_to_playback_queue(long markId);
-static int ibmtts_add_flag_to_playback_queue(EPlaybackQueueEntryType type);
+static TIbmttsBool ibmtts_add_audio_to_playback_queue(TEciAudioSamples *audio_chunk,
+    long num_samples);
+static TIbmttsBool ibmtts_add_mark_to_playback_queue(long markId);
+static TIbmttsBool ibmtts_add_flag_to_playback_queue(EPlaybackQueueEntryType type);
 static void ibmtts_delete_playback_queue_entry(TPlaybackQueueEntry *playback_queue_entry);
-static int ibmtts_send_to_audio(TPlaybackQueueEntry *playback_queue_entry);
+static TIbmttsBool ibmtts_send_to_audio(TPlaybackQueueEntry *playback_queue_entry);
 
 /* Miscellaneous internal function prototypes. */
 static void ibmtts_log_eci_error();
@@ -211,14 +219,14 @@ module_load(void)
     /* Register dialects. */
     MOD_OPTION_HT_REG(IbmttsDialect);
 
-    return 0;
+    return OK;
 }
 
 #define ABORT(msg) g_string_append(info, msg); \
         DBG("FATAL ERROR:", info->str); \
         *status_info = info->str; \
         g_string_free(info, 0); \
-        return -1;
+        return FATAL_ERROR;
 
 int
 module_init(char **status_info)
@@ -234,7 +242,7 @@ module_init(char **status_info)
 
     *status_info = NULL;
     info = g_string_new("");
-    ibmtts_thread_exit_requested = 0;
+    ibmtts_thread_exit_requested = IBMTTS_FALSE;
 
     /* Report versions. */
     eciVersion(ibmVersion);
@@ -248,7 +256,7 @@ module_init(char **status_info)
         DBG("Ibmtts: Could not create ECI instance.\n");
         *status_info = strdup("Could not create ECI instance. "
             "Is the IBM TTS engine installed?");
-        return -1;
+        return FATAL_ERROR;
     }
 
     /* Get ECI audio sample rate. */
@@ -337,30 +345,30 @@ module_init(char **status_info)
     DBG("Ibmtts: Creating new thread for playback.");
     ibmtts_play_semaphore = module_semaphore_init();
     ret = pthread_create(&ibmtts_play_thread, NULL, _ibmtts_play, NULL);
-    if(ret != 0){
+    if(0 != ret) {
         DBG("Ibmtts: play thread creation failed.");
         *status_info = strdup("The module couldn't initialize play thread. "
             "This could be either an internal problem or an "
             "architecture problem. If you are sure your architecture "
             "supports threads, please report a bug.");
-        return -1;
+        return FATAL_ERROR;
     }
 
     DBG("Ibmtts: Creating new thread for IBM TTS synthesis.");
     ibmtts_synth_semaphore = module_semaphore_init();
     ret = pthread_create(&ibmtts_synth_thread, NULL, _ibmtts_synth, NULL);
-    if(ret != 0){
+    if(0 != ret) {
         DBG("Ibmtts: synthesis thread creation failed.");
         *status_info = strdup("The module couldn't initialize synthesis thread. "
             "This could be either an internal problem or an "
             "architecture problem. If you are sure your architecture "
             "supports threads, please report a bug.");
-        return -1;
+        return FATAL_ERROR;
     }
 
     *status_info = strdup("Ibmtts: Initialized successfully.");
 
-    return 0;
+    return OK;
 }
 #undef ABORT
 
@@ -372,10 +380,10 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
     if (is_thread_busy(&ibmtts_synth_suspended_mutex) || 
         is_thread_busy(&ibmtts_play_suspended_mutex)) {
         DBG("Ibmtts: Already synthesizing when requested to synthesize (module_speak).");
-        return 0;
+        return IBMTTS_FALSE;
     }
 
-    if(module_write_data_ok(data) != 0) return -1;
+    if (0 != module_write_data_ok(data)) return FATAL_ERROR;
 
     DBG("Ibmtts: Requested data: |%s|\n", data);
 
@@ -412,7 +420,7 @@ module_stop(void)
 
     /* Request both synth and playback threads to stop what they are doing
        (if anything). */
-    ibmtts_stop = 1;
+    ibmtts_stop = IBMTTS_TRUE;
 
     /* Stop synthesis (if in progress). */
     if (eciHandle)
@@ -441,7 +449,7 @@ module_stop(void)
     DBG("Ibmtts: Clearing playback queue.");
     ibmtts_clear_playback_queue();
 
-    ibmtts_stop = 0;
+    ibmtts_stop = IBMTTS_FALSE;
 
     /* TODO: OK to call this from main thread?
              Hmm, apparently not as it hangs ibmtts. Why?
@@ -454,13 +462,13 @@ module_stop(void)
     void* isStop = NULL;
     if (ibmtts_pause_requested) isStop = &isStop;
     pthread_create(&stop_event_thread, NULL, _ibmtts_report_event, isStop);
-    ibmtts_pause_requested = 0;
+    ibmtts_pause_requested = IBMTTS_FALSE;
     /* But not if this is enabled. ??
     pthread_join(stop_event_thread, NULL);
     */
 
     DBG("Ibmtts: Stop completed.");
-    return 0;
+    return OK;
 }
 
 size_t
@@ -476,7 +484,7 @@ module_pause(void)
     DBG("Ibmtts: Pause requested.");
     if (is_thread_busy(&ibmtts_synth_suspended_mutex) ||
         is_thread_busy(&ibmtts_play_suspended_mutex)) {
-        ibmtts_pause_requested = 1;
+        ibmtts_pause_requested = IBMTTS_TRUE;
         while (is_thread_busy(&ibmtts_play_suspended_mutex)) g_usleep(100);
         /* ibmtts_wait_for_index_mark(); */
         return module_stop();
@@ -511,7 +519,7 @@ module_close(int status)
 
     /* Request each thread exit and wait until it exits. */
     DBG("Ibmtts: Terminating threads");
-    ibmtts_thread_exit_requested = 1;
+    ibmtts_thread_exit_requested = IBMTTS_TRUE;
     sem_post(ibmtts_synth_semaphore);
     sem_post(ibmtts_play_semaphore);
     if (0 != pthread_join(ibmtts_synth_thread, NULL))
@@ -525,15 +533,15 @@ module_close(int status)
 /* Internal functions */
 
 /* Return true if the thread is busy, i.e., suspended mutex is not locked. */
-int
+TIbmttsBool
 is_thread_busy(pthread_mutex_t *suspended_mutex)
 {
     if (EBUSY == pthread_mutex_trylock(suspended_mutex))
-        return 0;
+        return IBMTTS_FALSE;
     else
     {
         pthread_mutex_unlock(suspended_mutex);
-        return 1;
+        return IBMTTS_TRUE;
     }
 }
 
@@ -585,6 +593,7 @@ _ibmtts_synth(void* nothing)
     char *part = NULL;
     int part_len = 0;
     int markId = 0;
+    TIbmttsBool scan_msg;
 
     DBG("Ibmtts: Synthesis thread starting.......\n");
 
@@ -608,10 +617,35 @@ _ibmtts_synth(void* nothing)
         DBG("Ibmtts: Synthesis semaphore on.");
 
         pos = *ibmtts_message;
-        ibmtts_add_flag_to_playback_queue(IBMTTS_QET_BEGIN);
-        while (1) {
+        scan_msg = IBMTTS_TRUE;
+
+        switch (ibmtts_message_type) {
+            case MSGTYPE_TEXT:
+                eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
+                break;
+            case MSGTYPE_SOUND_ICON:
+                DBG("Ibmtts: WARNING: Sound icons not supported by IBM TTS.");
+                scan_msg = IBMTTS_FALSE;
+                break;
+            case MSGTYPE_CHAR:
+                eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
+                break;
+            case MSGTYPE_KEY:
+                /* TODO: Map keys to speakable words. */
+                eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
+                break;
+            case MSGTYPE_SPELL:
+                if (PUNCT_NONE != msg_settings.punctuation_mode)
+                    eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
+                else
+                    eciSetParam(eciHandle, eciTextMode, eciTextModeAlphaSpell);
+                break;
+        }
+
+        if (scan_msg) ibmtts_add_flag_to_playback_queue(IBMTTS_QET_BEGIN);
+        while (scan_msg) {
             if (ibmtts_stop) {
-                DBG("Ibmtts: Stop in child, terminating.");
+                DBG("Ibmtts: Stop in synthesis thread, terminating.");
                 break;
             }
 
@@ -626,39 +660,6 @@ _ibmtts_synth(void* nothing)
                     RECOGN_NONE = 0,
                     RECOGN_SPELL = 1,
                     RECOGN_ICON = 2
-            */
-
-            /* TODO: I think these can be moved up into the outer loop? */
-            switch (ibmtts_message_type) {
-                case MSGTYPE_TEXT:
-                    eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
-                    break;
-                case MSGTYPE_SOUND_ICON:
-                    DBG("Ibmtts: WARNING: Sound icons not supported by IBM TTS.");
-                    pos += strlen(pos);
-                    break;
-                case MSGTYPE_CHAR:
-                    eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
-                    break;
-                case MSGTYPE_KEY:
-                    /* TODO: Map keys to speakable words. */
-                    eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
-                    break;
-                case MSGTYPE_SPELL:
-                    if (PUNCT_NONE != msg_settings.punctuation_mode)
-                        eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
-                    else
-                        eciSetParam(eciHandle, eciTextMode, eciTextModeAlphaSpell);
-                    break;
-            }
-
-            /*
-            if (ibmtts_pause_requested && (-1 != current_index_mark)) {
-                DBG("Ibmtts: Pause requested in parent, position %d .\n", current_index_mark);
-                ibmtts_pause_requested = 0;
-                ibmtts_position = current_index_mark;
-                break;
-            }
             */
 
             part = ibmtts_next_part(pos, mark_name);
@@ -684,6 +685,12 @@ _ibmtts_synth(void* nothing)
                     DBG("Ibmtts: Index mark |%s| (id %i) sent to synthesizer.",*mark_name, markId);
                 xfree(*mark_name);
                 *mark_name = NULL;
+                /* If pause is requested, skip over rest of message,
+                   but synthesize what we have so far. */
+                if (ibmtts_pause_requested) {
+                    DBG("Ibmtts: Pause requested in synthesis thread.");
+                    pos += strlen(pos);
+                }
             }
             /* Handle normal text. */
             else if (part_len > 0) {
@@ -721,7 +728,7 @@ _ibmtts_synth(void* nothing)
             }
 
             if (ibmtts_stop){
-                DBG("Ibmtts: Stop in child, terminating.");
+                DBG("Ibmtts: Stop in synthesis thread, terminating.");
                 break;
             }
         }
@@ -739,11 +746,14 @@ _ibmtts_synth(void* nothing)
 static void
 ibmtts_set_rate(signed int rate)
 {
-    /* TODO: Setting rate to midpoint is too fast.  An eci value of 50 is "normal".
-             See chart on pg 38 of the ECI manual.
+    /* Setting rate to midpoint is too fast.  An eci value of 50 is "normal".
+       See chart on pg 38 of the ECI manual. */
     assert(rate >= -100 && rate <= +100);
-    /* Adjust to range 0 to 250.
-    int speed = (((float)rate + 100) * 250) / (float)200;
+    int speed;
+    /* Possible ECI range is 0 to 250. */
+    /* Map -100 to 100 onto 0 to 100. */
+    speed = (rate + 100) / 2;
+    assert(speed >= 0 && speed <= 100);
     int ret = eciSetVoiceParam(eciHandle, 0, eciSpeed, speed);
     if (-1 == ret) {
         DBG("Ibmtts: Error setting rate %i.", speed);
@@ -751,42 +761,57 @@ ibmtts_set_rate(signed int rate)
     }
     else
         DBG("Ibmtts: Rate set to %i.", speed);
-    */
 }
 
 static void
 ibmtts_set_volume(signed int volume)
 {
-    /* TODO: Setting volume to midpoint makes speech too soft.  An eci value
-             of 90 to 100 is "normal".
-             See chart on pg 38 of the ECI manual.
-       TODO: Rather than setting volume in the synth, maybe control volume on playback?
+    /* Setting volume to midpoint makes speech too soft.  An eci value
+       of 90 to 100 is "normal".
+       See chart on pg 38 of the ECI manual.
+       TODO: Rather than setting volume in the synth, maybe control volume on playback? */
     assert(volume >= -100 && volume <= +100);
-    /* Adjust to range 0 to 100.
-    int vol = (volume + 100) / 2;
+    int vol;
+    /* Possible ECI range is 0 to 100. */
+    if (volume < 0)
+        /* Map -100 to 0 onto 0 to 90 */
+        vol = (((float)volume + 100) * 90) / (float)100;
+    else
+        /* Map 0 to 100 onto 90 to 100 */
+        vol = ((float)(volume * 10) / (float)100) + 90;
+    assert(vol >= 0 && vol <= 100);
     int ret = eciSetVoiceParam(eciHandle, 0, eciVolume, vol);
     if (-1 == ret) {
         DBG("Ibmtts: Error setting volume %i.", vol);
         ibmtts_log_eci_error();
     }
-    */
+    else
+        DBG("Ibmtts: Volume set to %i.", vol);
 }
 
 static void
 ibmtts_set_pitch(signed int pitch)
 {
-    /* TODO: Setting pitch to midpoint is to low.  eci values between 65 and 89
-             are "normal".
-             See chart on pg 38 of the ECI manual.
+    /* Setting pitch to midpoint is to low.  eci values between 65 and 89
+       are "normal".
+       See chart on pg 38 of the ECI manual. */
     assert(pitch >= -100 && pitch <= +100);
-    /* Adjust to range 0 to 100;
-    int pitchBaseline = (pitch + 100) / 2;
+    int pitchBaseline;
+    /* Possible range 0 to 100. */
+    if (pitch < 0)
+        /* Map -100 to 0 onto 0 to 70 */
+        pitchBaseline = ((float)(pitch + 100) * 70) / (float)100;
+    else
+        /* Map 0 to 100 onto 70 to 100 */
+        pitchBaseline = (((float)pitch * 30) / (float)100) + 70;
+    assert (pitchBaseline >= 0 && pitchBaseline <= 100);
     int ret = eciSetVoiceParam(eciHandle, 0, eciPitchBaseline, pitchBaseline);
     if (-1 == ret) {
         DBG("Ibmtts: Error setting pitch %i.", pitchBaseline);
         ibmtts_log_eci_error();
     }
-    */
+    else
+        DBG("Ibmtts: Pitch set to %i.", pitchBaseline);
 }
 
 /* Given an IBM TTS Dialect Name returns the code from the DIALECTS table in config file. */
@@ -795,7 +820,7 @@ static enum ECILanguageDialect ibmtts_dialect_to_code(char *dialect_name)
     long int code = 0;
     TIbmttsDialect *dialect = (TIbmttsDialect *) module_get_ht_option(IbmttsDialect, dialect_name);
     if (NULL == dialect) {
-        DBG("Ibmtts: Invalid dialect name %s.  Check DIALECTS section of ibmtts.conf file.", dialect_name);
+        DBG("Ibmtts: Invalid dialect name %s.  Check VOICES and DIALECTS sections of ibmtts.conf file.", dialect_name);
         ibmtts_log_eci_error();
         return NODEFINEDCODESET;
     }
@@ -860,7 +885,7 @@ static enum ECICallbackReturn eciCallback(
        i.e., the _ibmtts_synth() thread. */
 
     /* If module_stop was called, discard any further callbacks until module_speak is called. */
-    if (1 == ibmtts_stop) return eciDataProcessed;
+    if (ibmtts_stop) return eciDataProcessed;
 
     switch (msg) {
         case eciWaveformBuffer:
@@ -868,7 +893,8 @@ static enum ECICallbackReturn eciCallback(
             /* Add audio to output queue. */
             ret = ibmtts_add_audio_to_playback_queue(audio_chunk, lparam);
             /* Wake up the audio playback thread, if not already awake. */
-            sem_post(ibmtts_play_semaphore);
+            if (!is_thread_busy(&ibmtts_play_suspended_mutex))
+                sem_post(ibmtts_play_semaphore);
             return eciDataProcessed;
             break;
         case eciIndexReply:
@@ -876,17 +902,19 @@ static enum ECICallbackReturn eciCallback(
             /* Add index mark to output queue. */
             ret = ibmtts_add_mark_to_playback_queue(lparam);
             /* Wake up the audio playback thread, if not already awake. */
-            sem_post(ibmtts_play_semaphore);
+            if (!is_thread_busy(&ibmtts_play_suspended_mutex))
+                sem_post(ibmtts_play_semaphore);
             return eciDataProcessed;
             break;
     }
 }
 
 /* Adds a chunk of pcm audio to the audio playback queue. */
-int
+TIbmttsBool
 ibmtts_add_audio_to_playback_queue(TEciAudioSamples *audio_chunk, long num_samples)
 {
     TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) xmalloc (sizeof (TPlaybackQueueEntry));
+    if (NULL == playback_queue_entry) return IBMTTS_FALSE;
     playback_queue_entry->type = IBMTTS_QET_AUDIO;
     playback_queue_entry->data.audio.num_samples = (int) num_samples;
     int wlen = sizeof (TEciAudioSamples) * num_samples;
@@ -895,32 +923,34 @@ ibmtts_add_audio_to_playback_queue(TEciAudioSamples *audio_chunk, long num_sampl
     pthread_mutex_lock(&playback_queue_mutex);
     playback_queue = g_slist_append(playback_queue, playback_queue_entry);
     pthread_mutex_unlock(&playback_queue_mutex);
-    return 0;
+    return IBMTTS_TRUE;
 }
 
 /* Adds an Index Mark to the audio playback queue. */
-int
+TIbmttsBool
 ibmtts_add_mark_to_playback_queue(long markId)
 {
     TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) xmalloc (sizeof (TPlaybackQueueEntry));
+    if (NULL == playback_queue_entry) return IBMTTS_FALSE;
     playback_queue_entry->type = IBMTTS_QET_INDEX_MARK;
     playback_queue_entry->data.markId = markId;
     pthread_mutex_lock(&playback_queue_mutex);
     playback_queue = g_slist_append(playback_queue, playback_queue_entry);
     pthread_mutex_unlock(&playback_queue_mutex);
-    return 0;
+    return IBMTTS_TRUE;
 }
 
 /* Adds a begin or end flag to the playback queue. */
-int
+TIbmttsBool
 ibmtts_add_flag_to_playback_queue(EPlaybackQueueEntryType type)
 {
     TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) xmalloc (sizeof (TPlaybackQueueEntry));
+    if (NULL == playback_queue_entry) return IBMTTS_FALSE;
     playback_queue_entry->type = type;
     pthread_mutex_lock(&playback_queue_mutex);
     playback_queue = g_slist_append(playback_queue, playback_queue_entry);
     pthread_mutex_unlock(&playback_queue_mutex);
-    return 0;
+    return IBMTTS_TRUE;
 }
 
 /* Deletes an entry from the playback audio queue, freeing memory. */
@@ -938,7 +968,7 @@ ibmtts_delete_playback_queue_entry(TPlaybackQueueEntry *playback_queue_entry)
 }
 
 /* Erases the entire playback queue, freeing memory. */
-int
+void
 ibmtts_clear_playback_queue()
 {
     pthread_mutex_lock(&playback_queue_mutex);
@@ -950,11 +980,10 @@ ibmtts_clear_playback_queue()
     }
     playback_queue = NULL;
     pthread_mutex_unlock(&playback_queue_mutex);
-    return 0;
 }
 
 /* Sends a chunk of audio to the audio player and waits for completion or error. */
-int
+TIbmttsBool
 ibmtts_send_to_audio(TPlaybackQueueEntry *playback_queue_entry)
 {
     AudioTrack track;
@@ -969,11 +998,14 @@ ibmtts_send_to_audio(TPlaybackQueueEntry *playback_queue_entry)
         /* Volume is controlled by the synthesizer.  Always play at normal on audio device. */
         spd_audio_set_volume(ibmtts_audio_id, 0);
         int ret = spd_audio_play(ibmtts_audio_id, track);
-        if (ret < 0) DBG("ERROR: Can't play track for unknown reason.");
+        if (ret < 0) {
+            DBG("ERROR: Can't play track for unknown reason.");
+            return IBMTTS_FALSE;
+        }
         DBG("Ibmtts: Sent to audio.");
     }
 
-    return 0;
+    return IBMTTS_TRUE;
 }
 
 /* Playback thread. */
@@ -1007,7 +1039,7 @@ _ibmtts_play(void* nothing)
         }
         pthread_mutex_unlock(&playback_queue_mutex);
 
-        while ((NULL != playback_queue_entry) && (1 != ibmtts_stop))
+        while ((NULL != playback_queue_entry) && (IBMTTS_FALSE == ibmtts_stop))
         {
             /* TODO: The sem_post calls below are not thread safe. */
 
@@ -1023,7 +1055,7 @@ _ibmtts_play(void* nothing)
                     g_string_printf(mark, SD_MARK_BODY"%i", playback_queue_entry->data.markId);
                     module_report_index_mark(mark->str);
                     g_string_free(mark, TRUE);
-                    if (1 == ibmtts_pause_requested) ibmtts_stop = 1;
+                    if (ibmtts_pause_requested) ibmtts_stop = IBMTTS_TRUE;
                     /*
                     pthread_mutex_lock(&ibmtts_wait_for_index_mark_mutex);
                     /* If waiting for an index mark, signal it.
@@ -1059,7 +1091,7 @@ _ibmtts_play(void* nothing)
             }
             pthread_mutex_unlock(&playback_queue_mutex);
         }
-        if (1 == ibmtts_stop) DBG("Ibmtts: Stop or pause in playback thread.");
+        if (ibmtts_stop) DBG("Ibmtts: Stop or pause in playback thread.");
     }
 
     DBG("Ibmtts: Playback thread ended.......\n");
