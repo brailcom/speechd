@@ -52,6 +52,38 @@ Do not believe in miracles -- rely on them.
 .
 $8
 
+@ This time, we will return to normal speed, but decrease the pitch.
+@ Some distortion is probably unavoidable.
+$4
+!SET SELF RATE 0
+!SET SELF PITCH -90
+!SPEAK
+I detest that man who hides one thing in the depths of his heart, and speaks for another.
+        -- Homer (800 BC - 700 BC)
+.
+$8
+
+@ Let's return to normal but try speaking loudly.
+@ Since most synthesizers already speak near maximum volume, you may not
+@ hear any difference.
+$4
+!SET SELF PITCH 0
+!SET SELF VOLUME 90
+!SPEAK
+Actions lie louder than words.
+        -- Carolyn Wells
+.
+$8
+
+@ And finally, very softly.
+$4
+!SET SELF VOLUME -90
+!SPEAK
+What you do speaks so loud that I cannot hear what you say.
+        -- Ralph Waldo Emerson (1803 - 1882)
+.
+$8
+
 !QUIT
 
 @ If the tests did what was expected, your installation of Speech Dispatcher
