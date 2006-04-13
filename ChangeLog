@@ -1,3 +1,10 @@
+2006-04-12  Gary Cramblitt <garycramblitt@comcast.net>
+
+	* src/modules/ibmtts.c:
+	* config/modules/ibmtts.conf: Key substitution for IBM TTS.
+
+	* src/tests/keys.test: Test script for keys.
+
 2006-04-11  Gary Cramblitt <garycramblitt@comcast.net>
 
 	* src/tests/run_test.c: Add "wait for <str>" operator.  Useful for waiting

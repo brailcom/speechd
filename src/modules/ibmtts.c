@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.5 2006-04-12 16:40:59 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.6 2006-04-13 01:48:33 cramblitt Exp $
  */
 
 /* This output module operates with three threads:
@@ -74,6 +74,37 @@ typedef enum {
 #define DEBUG_MODULE 1
 DECLARE_DEBUG();
 
+/* Define a double-linked list loaded from config file where each item
+   has two character strings. */
+#define MOD_OPTION_2_STR_DLL(name, arg1, arg2) \
+    typedef struct{ \
+        char* arg1; \
+        char* arg2; \
+    }T ## name; \
+    GList *name = NULL; \
+    \
+    DOTCONF_CB(name ## _cb) \
+    { \
+        T ## name *new_item; \
+        new_item = (T ## name *) malloc(sizeof(T ## name *)); \
+        if (cmd->data.list[0] != NULL) \
+           new_item->arg1 = strdup(cmd->data.list[0]); \
+        else \
+            new_item->arg1 = NULL; \
+        if (cmd->data.list[1] != NULL) \
+           new_item->arg2 = strdup(cmd->data.list[1]); \
+        else \
+            new_item->arg2 = NULL; \
+        name = g_list_append(name, new_item); \
+        return NULL; \
+    }
+
+/* Load a double-linked list from config file. */
+#define MOD_OPTION_DLL_REG(name) \
+    module_dc_options = module_add_config_option(module_dc_options, \
+                                     &module_num_dc_options, #name, \
+                                     ARG_LIST, name ## _cb, NULL, 0);
+
 /* Thread and process control. */
 static pthread_t ibmtts_synth_thread;
 static pthread_t ibmtts_play_thread;
@@ -103,8 +134,7 @@ static int eci_sample_rate = 0;
 typedef signed short int TEciAudioSamples;
 static TEciAudioSamples *audio_chunk;
 
-/* TODO: For some reason, these were left out of eci.h.
-         Let IBM know about this. */
+/* For some reason, these were left out of eci.h. */
 typedef enum {
     eciTextModeDefault = 0,
     eciTextModeAlphaSpell = 1,
@@ -155,6 +185,9 @@ static void ibmtts_clear_playback_queue();
 char* ibmtts_extract_mark_name(char *mark);
 char* ibmtts_next_part(char *msg, char **mark_name);
 static enum ECILanguageDialect ibmtts_dialect_to_code(char *dialect_name);
+static int ibmtts_replace(char *from, char *to, GString *msg);
+static void ibmtts_subst_keys_cb(gpointer data, gpointer user_data);
+static char * ibmtts_subst_keys(char *key);
 
 static enum ECICallbackReturn eciCallback(
     ECIHand hEngine,
@@ -192,6 +225,7 @@ MOD_OPTION_1_STR(IbmttsALSADevice);
 
 MOD_OPTION_1_INT(IbmttsAudioChunkSize);
 MOD_OPTION_2_HT(IbmttsDialect, dialect, code);
+MOD_OPTION_2_STR_DLL(IbmttsKeySubstitution, key, newkey);
 
 /* Public functions */
 
@@ -218,6 +252,9 @@ module_load(void)
 
     /* Register dialects. */
     MOD_OPTION_HT_REG(IbmttsDialect);
+
+    /* Register key substitutions. */
+    MOD_OPTION_DLL_REG(IbmttsKeySubstitution);
 
     return OK;
 }
@@ -631,8 +668,13 @@ _ibmtts_synth(void* nothing)
                 eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
                 break;
             case MSGTYPE_KEY:
-                /* TODO: Map keys to speakable words. */
-                eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
+                /* Map unspeakable keys to speakable words. */
+                DBG("Ibmtts: Key from Speech Dispatcher: |%s|", pos);
+                pos = ibmtts_subst_keys(pos);
+                DBG("Ibmtts: Key to speak: |%s|", pos);
+                xfree(*ibmtts_message);
+                *ibmtts_message = pos;
+                eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
                 break;
             case MSGTYPE_SPELL:
                 if (PUNCT_NONE != msg_settings.punctuation_mode)
@@ -641,6 +683,8 @@ _ibmtts_synth(void* nothing)
                     eciSetParam(eciHandle, eciTextMode, eciTextModeAlphaSpell);
                 break;
         }
+
+        if (0 == strlen(pos)) scan_msg = IBMTTS_FALSE;
 
         if (scan_msg) ibmtts_add_flag_to_playback_queue(IBMTTS_QET_BEGIN);
         while (scan_msg) {
@@ -1136,6 +1180,52 @@ _ibmtts_report_event(void* isStop)
             DBG("Ibmtts: Pause event reported.");
     }
     pthread_exit(NULL);
+}
+
+/* Replaces all occurrences of "from" with "to" in msg.
+   Returns count of replacements. */
+static int
+ibmtts_replace(char *from, char *to, GString *msg)
+{
+    int count = 0;
+    char *p;
+    int pos;
+    int from_len = strlen(from);
+    while (NULL != (p = strstr(msg->str, from))) {
+        pos = p - msg->str;
+        g_string_erase(msg, pos, from_len);
+        g_string_insert(msg, pos, to);
+        ++count;
+    }
+    return count;
+}
+
+static void
+ibmtts_subst_keys_cb(gpointer data, gpointer user_data)
+{
+    TIbmttsKeySubstitution *key_subst = data;
+    GString *msg = user_data;
+    ibmtts_replace(key_subst->key, key_subst->newkey, msg);
+}
+
+/* Given a Speech Dispatcher !KEY key sequence, replaces unspeakable
+   or incorrectly spoken keys or characters with speakable ones.
+   The subsitutions come from the KEY NAME SUBSTITUTIONS section of the
+   config file.
+   Caller is responsible for freeing returned string. */
+static char *
+ibmtts_subst_keys(char *key)
+{
+    GString *tmp = g_string_sized_new(30);
+    g_string_append(tmp, key);
+
+    g_list_foreach(IbmttsKeySubstitution, ibmtts_subst_keys_cb, tmp);
+
+    /* Hyphen hangs IBM TTS */
+    if (0 == strcmp(tmp->str, "-"))
+        g_string_assign(tmp, "hyphen");
+
+    return g_string_free(tmp, FALSE);
 }
 
 #include "module_main.c"
