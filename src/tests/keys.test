@@ -1,0 +1,320 @@
+@ This test speaks every defined keyboard key name and special character in the latin-1
+@ character set using the KEY SSIP command.  Useful for output module debugging.
+
+!SPEAK
+Special Key Names:
+.
+!KEY space
+!KEY underscore
+!KEY double-quote
+
+!SPEAK
+Auxiliary Keys:
+.
+!KEY alt
+!KEY control
+!KEY hyper
+!KEY meta
+!KEY shift
+!KEY super
+
+!SPEAK
+Control Character Keys:
+.
+!KEY backspace
+!KEY break
+!KEY delete
+!KEY down
+!KEY end
+!KEY enter
+!KEY escape
+!KEY f1
+!KEY f2
+!KEY f3
+!KEY f4
+!KEY f5
+!KEY f6
+!KEY f7
+!KEY f8
+!KEY f9
+!KEY f10
+!KEY f11
+!KEY f12
+!KEY f13
+!KEY f14
+!KEY f15
+!KEY f16
+!KEY f17
+!KEY f18
+!KEY f19
+!KEY f20
+!KEY f21
+!KEY f22
+!KEY f23
+!KEY f24
+!KEY home
+!KEY insert
+!KEY kp-*
+!KEY kp-+
+!KEY kp--
+!KEY kp-.
+!KEY kp-/
+!KEY kp-0
+!KEY kp-1
+!KEY kp-2
+!KEY kp-3
+!KEY kp-4
+!KEY kp-5
+!KEY kp-6
+!KEY kp-7
+!KEY kp-8
+!KEY kp-9
+!KEY kp-enter
+!KEY left
+!KEY menu
+!KEY next
+!KEY num-lock
+!KEY pause
+!KEY print
+!KEY prior
+!KEY return
+!KEY right
+!KEY scroll-lock
+!KEY space
+!KEY tab
+!KEY up
+!KEY window
+
+!SPEAK
+Special characters:
+.
+!SPEAK
+Exclamation mark:
+.
+!KEY !
+!SPEAK
+Note that Double quote is not a valid key.
+.
+@ !KEY "
+!SPEAK
+Pound, or Sharp:
+.
+!KEY #
+!SPEAK
+Dollar:
+.
+!KEY $
+!SPEAK
+Percent:
+.
+!KEY %
+!SPEAK
+Ampersand:
+.
+!KEY &
+!SPEAK
+Single quote:
+.
+!KEY '
+!SPEAK
+Left parenthesis:
+.
+!KEY (
+!SPEAK
+Right parenthesis:
+.
+!KEY )
+!SPEAK
+Asterisk:
+.
+!KEY *
+!SPEAK
+Plus:
+.
+!KEY +
+!SPEAK
+Comma:
+.
+!KEY ,
+!SPEAK
+Hyphen:
+.
+!KEY -
+!SPEAK
+Period:
+.
+!KEY .
+!SPEAK
+Slash:
+.
+!KEY /
+!SPEAK
+Colon:
+.
+!KEY :
+!SPEAK
+Semicolon:
+.
+!KEY ;
+!SPEAK
+Less than:
+.
+!KEY <
+!SPEAK
+Equals:
+.
+!KEY =
+!SPEAK
+Greater than:
+.
+!KEY >
+!SPEAK
+Question mark:
+.
+!KEY ?
+!SPEAK
+At:
+.
+!KEY @
+!SPEAK
+Left bracket:
+.
+!KEY [
+!SPEAK
+Backslash:
+.
+!KEY \
+!SPEAK
+Right bracket:
+.
+!KEY ]
+!SPEAK
+Caret::
+.
+!KEY ^
+!SPEAK
+Note that underscore is not a valid key.
+.
+@ !KEY _
+!SPEAK
+Backquote or backtick:
+.
+!KEY `
+!SPEAK
+Left brace:
+.
+!KEY {
+!SPEAK
+Vertical bar or pipe:
+.
+!KEY |
+!SPEAK
+Right brace:
+.
+!KEY }
+!SPEAK
+Tilde:
+.
+!KEY ~
+!SPEAK
+Cents:
+.
+!KEY ¢
+!SPEAK
+British Pounds:
+.
+!KEY £
+!SPEAK
+Vertical bar or pipe:
+.
+!KEY ¦
+!SPEAK
+Copyright:
+.
+!KEY ©
+!SPEAK
+Superscript a:
+.
+!KEY ª
+!SPEAK
+German left quote:
+.
+!KEY «
+!SPEAK
+Trademark:
+.
+!KEY ®
+!SPEAK
+Superscript 0, null, or degrees:
+.
+!KEY º
+!SPEAK
+Plus or minus:
+.
+!KEY ±
+!SPEAK
+Superscript 2 or squared:
+.
+!KEY ²
+!SPEAK
+Superscript 3 or cubed:
+.
+!KEY ³
+!SPEAK
+Mu or micro:
+.
+!KEY µ
+!SPEAK
+Dot:
+.
+!KEY ·
+!SPEAK
+Superscript 1:
+.
+!KEY ¹
+!SPEAK
+Superscript 0:
+.
+!KEY º
+!SPEAK
+German right quote:
+.
+!KEY »
+!SPEAK
+One fourth or quarter:
+.
+!KEY ¼
+!SPEAK
+One half:
+.
+!KEY ½
+!SPEAK
+Three fourths or 3 quarters:
+.
+!KEY ¾
+!SPEAK
+inverted question mark:
+.
+!KEY ¿
+
+!SPEAK
+Foreign letters:
+.
+
+
+!SPEAK
+Examples of valid key names:
+.
+
+!KEY a
+!KEY A
+!KEY shift_a
+!KEY shift_A
+!KEY ú
+!KEY $
+!KEY enter
+!KEY shift_kp-enter
+!KEY control_alt_delete
+!KEY control
+
+!QUIT
