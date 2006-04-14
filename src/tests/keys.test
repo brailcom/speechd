@@ -107,7 +107,7 @@ Note that Double quote (") is not a valid key. Use "double-quote" instead.
 @ !KEY "
 @ U+0023
 !SPEAK
-Pound, or Sharp:
+Pound, Hash, or Sharp:
 .
 !KEY #
 
@@ -131,7 +131,7 @@ Ampersand:
 
 @ U+0027
 !SPEAK
-Single quote or apostrophe:
+Single quote, right quote, or apostrophe:
 .
 !KEY '
 
@@ -257,7 +257,7 @@ Note that underscore (_) is not a valid key.  Use "underscore" instead.
 
 @ U+0060
 !SPEAK
-Backquote or backtick:
+Backquote, Left quote,  or backtick:
 .
 !KEY `
 
@@ -676,37 +676,37 @@ eztset:
 
 @ U+00E0
 !SPEAK
-a grav:
+ay grav:
 .
 !KEY à
 
 @ U+00E1
 !SPEAK
-a acute:
+ay acute:
 .
 !KEY á
 
 @ U+00E2
 !SPEAK
-a circumflex:
+ay circumflex:
 .
 !KEY â
 
 @ U+00E3
 !SPEAK
-a tilde:
+ay tilde:
 .
 !KEY ã
 
 @ U+00E4
 !SPEAK
-a umlaut:
+ay umlaut:
 .
 !KEY ä
 
 @ U+00E5
 !SPEAK
-a dot:
+ay dot:
 .
 !KEY å
 
