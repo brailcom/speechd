@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.7 2006-04-14 00:47:03 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.8 2006-04-14 23:39:55 cramblitt Exp $
  */
 
 /* This output module operates with three threads:
@@ -164,6 +164,8 @@ typedef struct {
 
 static GSList *playback_queue = NULL;
 static pthread_mutex_t playback_queue_mutex;
+
+GHashTable *ibmtts_index_mark_ht = NULL;
 
 AudioID *ibmtts_audio_id = NULL;
 AudioOutputType ibmtts_audio_output_method;
@@ -564,6 +566,10 @@ module_close(int status)
     if (0 != pthread_join(ibmtts_play_thread, NULL))
         exit(1);
 
+    /* Free index mark lookup table. */
+    if (ibmtts_index_mark_ht)
+        g_hash_table_destroy(ibmtts_index_mark_ht);
+
     exit(status);
 }
 
@@ -629,7 +635,7 @@ _ibmtts_synth(void* nothing)
     char *pos = NULL;
     char *part = NULL;
     int part_len = 0;
-    int markId = 0;
+    int *markId = NULL;
     TIbmttsBool scan_msg;
 
     DBG("Ibmtts: Synthesis thread starting.......\n");
@@ -652,6 +658,12 @@ _ibmtts_synth(void* nothing)
             if (ibmtts_thread_exit_requested) break;
         }
         DBG("Ibmtts: Synthesis semaphore on.");
+
+        /* This table assigns each index mark name an integer id for fast lookup when
+           ECI returns the integer index mark event. */
+        if (ibmtts_index_mark_ht)
+            g_hash_table_destroy(ibmtts_index_mark_ht);
+        ibmtts_index_mark_ht = g_hash_table_new_full(g_int_hash, g_int_equal, g_free, g_free);
 
         pos = *ibmtts_message;
         scan_msg = IBMTTS_TRUE;
@@ -723,15 +735,17 @@ _ibmtts_synth(void* nothing)
 
             /* Handle index marks. */
             if (NULL != *mark_name) {
-                /* TODO: Assign the mark name an integer number and store in lookup table. */
-                /*       For now, just skip over __spd_ and convert string to int. */
-                sscanf(*mark_name + SD_MARK_BODY_LEN, "%i", &markId);
-                if (!eciInsertIndex(eciHandle, markId)) {
+                /* Assign the mark name an integer number and store in lookup table. */
+                markId = (int *) xmalloc( sizeof (int) );
+                *markId = g_hash_table_size(ibmtts_index_mark_ht);
+                g_hash_table_insert(ibmtts_index_mark_ht, markId, mark_name);
+                // sscanf(*mark_name + SD_MARK_BODY_LEN, "%i", &markId);
+                if (!eciInsertIndex(eciHandle, *markId)) {
                     DBG("Ibmtts: Error sending index mark to synthesizer.");
                     ibmtts_log_eci_error();
                     /* Try to keep going. */
                 } else
-                    DBG("Ibmtts: Index mark |%s| (id %i) sent to synthesizer.",*mark_name, markId);
+                    DBG("Ibmtts: Index mark |%s| (id %i) sent to synthesizer.",*mark_name, *markId);
                 xfree(*mark_name);
                 *mark_name = NULL;
                 /* If pause is requested, skip over rest of message,
@@ -1061,7 +1075,9 @@ ibmtts_send_to_audio(TPlaybackQueueEntry *playback_queue_entry)
 void*
 _ibmtts_play(void* nothing)
 {
-    GString *mark;
+    /* GString *mark; */
+    int markId;
+    char *mark_name;
     TPlaybackQueueEntry *playback_queue_entry = NULL;
 
     DBG("Ibmtts: Playback thread starting.......\n");
@@ -1097,13 +1113,21 @@ _ibmtts_play(void* nothing)
                     ibmtts_send_to_audio(playback_queue_entry);
                     break;
                 case IBMTTS_QET_INDEX_MARK:
-                    /* TODO: Look up the index mark integer id in lookup table to
-                             find string name and emit that name.
-                             For now, emit __spd_ and the id converted to string. */
+                    /* Look up the index mark integer id in lookup table to
+                       find string name and emit that name. */
+                    markId = playback_queue_entry->data.markId;
+                    mark_name = g_hash_table_lookup(ibmtts_index_mark_ht, &markId);
+                    if (NULL == mark_name)
+                        DBG("Ibmtts: markId %li returned by IBM TTS not found in lookup table.",
+                            markId)
+                    else
+                        module_report_index_mark(mark_name);
+                    /*
                     mark = g_string_new("");
                     g_string_printf(mark, SD_MARK_BODY"%i", playback_queue_entry->data.markId);
                     module_report_index_mark(mark->str);
                     g_string_free(mark, TRUE);
+                    */
                     if (ibmtts_pause_requested) ibmtts_stop = IBMTTS_TRUE;
                     /*
                     pthread_mutex_lock(&ibmtts_wait_for_index_mark_mutex);
