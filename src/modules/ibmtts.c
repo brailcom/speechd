@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.6 2006-04-13 01:48:33 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.7 2006-04-14 00:47:03 cramblitt Exp $
  */
 
 /* This output module operates with three threads:
@@ -686,6 +686,11 @@ _ibmtts_synth(void* nothing)
 
         if (0 == strlen(pos)) scan_msg = IBMTTS_FALSE;
 
+        /* TODO: If an empty message is sent, this routine receives a buffer containing:
+                 <speak></speak>.  If this string is sent to IBM TTS, it hangs. 
+                 Actually, what is happening is no audio callback occurs, so
+                 this output module waits forever for something that never comes. */
+
         if (scan_msg) ibmtts_add_flag_to_playback_queue(IBMTTS_QET_BEGIN);
         while (scan_msg) {
             if (ibmtts_stop) {
@@ -1188,13 +1193,15 @@ static int
 ibmtts_replace(char *from, char *to, GString *msg)
 {
     int count = 0;
-    char *p;
     int pos;
     int from_len = strlen(from);
-    while (NULL != (p = strstr(msg->str, from))) {
+    int to_len = strlen(to);
+    char *p = msg->str;
+    while (NULL != (p = strstr(p, from))) {
         pos = p - msg->str;
         g_string_erase(msg, pos, from_len);
         g_string_insert(msg, pos, to);
+        p = msg->str + pos + to_len;
         ++count;
     }
     return count;
