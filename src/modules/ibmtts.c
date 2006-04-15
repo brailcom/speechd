@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.9 2006-04-15 00:22:45 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.10 2006-04-15 00:59:24 cramblitt Exp $
  */
 
 /* This output module operates with three threads:
@@ -741,7 +741,6 @@ _ibmtts_synth(void* nothing)
                 markId = (int *) xmalloc( sizeof (int) );
                 *markId = g_hash_table_size(ibmtts_index_mark_ht);
                 g_hash_table_insert(ibmtts_index_mark_ht, markId, strdup(*mark_name));
-                // sscanf(*mark_name + SD_MARK_BODY_LEN, "%i", &markId);
                 if (!eciInsertIndex(eciHandle, *markId)) {
                     DBG("Ibmtts: Error sending index mark to synthesizer.");
                     ibmtts_log_eci_error();
@@ -1126,12 +1125,6 @@ _ibmtts_play(void* nothing)
                         DBG("Ibmtts: reporting index mark |%s|.", mark_name);
                         module_report_index_mark(mark_name);
                     }
-                    /*
-                    mark = g_string_new("");
-                    g_string_printf(mark, SD_MARK_BODY"%i", playback_queue_entry->data.markId);
-                    module_report_index_mark(mark->str);
-                    g_string_free(mark, TRUE);
-                    */
                     if (ibmtts_pause_requested) ibmtts_stop = IBMTTS_TRUE;
                     /*
                     pthread_mutex_lock(&ibmtts_wait_for_index_mark_mutex);
