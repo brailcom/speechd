@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.8 2006-04-14 23:39:55 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.9 2006-04-15 00:22:45 cramblitt Exp $
  */
 
 /* This output module operates with three threads:
@@ -567,8 +567,10 @@ module_close(int status)
         exit(1);
 
     /* Free index mark lookup table. */
-    if (ibmtts_index_mark_ht)
+    if (ibmtts_index_mark_ht) {
         g_hash_table_destroy(ibmtts_index_mark_ht);
+        ibmtts_index_mark_ht = NULL;
+    }
 
     exit(status);
 }
@@ -738,7 +740,7 @@ _ibmtts_synth(void* nothing)
                 /* Assign the mark name an integer number and store in lookup table. */
                 markId = (int *) xmalloc( sizeof (int) );
                 *markId = g_hash_table_size(ibmtts_index_mark_ht);
-                g_hash_table_insert(ibmtts_index_mark_ht, markId, mark_name);
+                g_hash_table_insert(ibmtts_index_mark_ht, markId, strdup(*mark_name));
                 // sscanf(*mark_name + SD_MARK_BODY_LEN, "%i", &markId);
                 if (!eciInsertIndex(eciHandle, *markId)) {
                     DBG("Ibmtts: Error sending index mark to synthesizer.");
@@ -1117,11 +1119,13 @@ _ibmtts_play(void* nothing)
                        find string name and emit that name. */
                     markId = playback_queue_entry->data.markId;
                     mark_name = g_hash_table_lookup(ibmtts_index_mark_ht, &markId);
-                    if (NULL == mark_name)
+                    if (NULL == mark_name) {
                         DBG("Ibmtts: markId %li returned by IBM TTS not found in lookup table.",
                             markId)
-                    else
+                    } else {
+                        DBG("Ibmtts: reporting index mark |%s|.", mark_name);
                         module_report_index_mark(mark_name);
+                    }
                     /*
                     mark = g_string_new("");
                     g_string_printf(mark, SD_MARK_BODY"%i", playback_queue_entry->data.markId);
