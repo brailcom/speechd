@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.11 2006-04-16 02:35:18 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.12 2006-04-16 02:45:10 cramblitt Exp $
  */
 
 /* This output module operates with three threads:
@@ -1125,8 +1125,12 @@ _ibmtts_play(void* nothing)
                     } else {
                         DBG("Ibmtts: reporting index mark |%s|.", mark_name);
                         module_report_index_mark(mark_name);
+                        /* If pause requested, wait for an end-of-sentence index mark. */
+                        if (ibmtts_pause_requested) {
+                            if (0 == strncmp(mark_name, SD_MARK_BODY, SD_MARK_BODY_LEN))
+                            ibmtts_stop = IBMTTS_TRUE;
+                        }
                     }
-                    if (ibmtts_pause_requested) ibmtts_stop = IBMTTS_TRUE;
                     /*
                     pthread_mutex_lock(&ibmtts_wait_for_index_mark_mutex);
                     /* If waiting for an index mark, signal it.
