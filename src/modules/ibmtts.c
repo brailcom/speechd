@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.10 2006-04-15 00:59:24 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.11 2006-04-16 02:35:18 cramblitt Exp $
  */
 
 /* This output module operates with three threads:
@@ -675,8 +675,9 @@ _ibmtts_synth(void* nothing)
                 eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
                 break;
             case MSGTYPE_SOUND_ICON:
-                DBG("Ibmtts: WARNING: Sound icons not supported by IBM TTS.");
-                scan_msg = IBMTTS_FALSE;
+                /* IBM TTS does not support sound icons, but
+                   go ahead and speak the name of the sound icon. */
+                eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
                 break;
             case MSGTYPE_CHAR:
                 eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
