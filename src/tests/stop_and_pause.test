@@ -46,12 +46,13 @@ This sentence should not be heard until resumed.
 +701 BEGIN
 !PAUSE SELF
 +704 PAUSED
-@ Speaking should now be paused.  Resuming in 2 seconds.
-$2
+@ Speaking should now be paused.  Resuming in 4 seconds.
+$4
 !RESUME SELF
 +705 RESUMED
 
 +702 END
+
 !QUIT
 
 @ Tests completed.
