@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.13 2006-04-16 15:18:39 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.14 2006-04-16 19:17:04 cramblitt Exp $
  */
 
 /* This output module operates with four threads:
@@ -125,6 +125,7 @@ static TIbmttsBool ibmtts_stop_synth_requested = IBMTTS_FALSE;
 static TIbmttsBool ibmtts_stop_play_requested = IBMTTS_FALSE;
 static TIbmttsBool ibmtts_pause_requested = IBMTTS_FALSE;
 
+/* Current message from Speech Dispatcher. */
 static char **ibmtts_message;
 static EMessageType ibmtts_message_type;
 
@@ -188,12 +189,12 @@ static void ibmtts_set_pitch(signed int pitch);
 static void ibmtts_set_volume(signed int pitch);
 
 /* Internal function prototypes for synthesis thread. */
-char* ibmtts_extract_mark_name(char *mark);
-char* ibmtts_next_part(char *msg, char **mark_name);
+static char* ibmtts_extract_mark_name(char *mark);
+static char* ibmtts_next_part(char *msg, char **mark_name);
 static enum ECILanguageDialect ibmtts_dialect_to_code(char *dialect_name);
 static int ibmtts_replace(char *from, char *to, GString *msg);
 static void ibmtts_subst_keys_cb(gpointer data, gpointer user_data);
-static char * ibmtts_subst_keys(char *key);
+static char* ibmtts_subst_keys(char *key);
 
 static enum ECICallbackReturn eciCallback(
     ECIHand hEngine,
@@ -574,7 +575,7 @@ is_thread_busy(pthread_mutex_t *suspended_mutex)
    <mark name="some_name"/>, returns some_name.  Calling routine is
    responsible for freeing returned string. If an error occurs,
    returns NULL. */
-char*
+static char*
 ibmtts_extract_mark_name(char *mark)
 {
     if ((SD_MARK_HEAD_ONLY_LEN + SD_MARK_TAIL_LEN + 1) > strlen(mark)) return NULL;
@@ -592,7 +593,7 @@ ibmtts_extract_mark_name(char *mark)
    Caller is responsible for freeing both returned string and mark_name (if not NULL). */
 /* TODO: This routine needs to be more tolerant of custom index marks with spaces. */
 /* TODO: Should there be a MaxChunkLength? Delimiters? */
-char*
+static char*
 ibmtts_next_part(char *msg, char **mark_name)
 {
     char* mark_head = strstr(msg, SD_MARK_HEAD_ONLY);
@@ -619,7 +620,7 @@ _ibmtts_stop_or_pause(void* nothing)
     /* Block all signals to this thread. */
     set_speaking_thread_parameters();
 
-    while(!ibmtts_thread_exit_requested)
+    while (!ibmtts_thread_exit_requested)
     {
         /* If semaphore not set, set suspended lock and suspend until it is signaled. */
         if (0 != sem_trywait(ibmtts_stop_or_pause_semaphore))
@@ -701,7 +702,7 @@ _ibmtts_synth(void* nothing)
     char **mark_name = (char **) xmalloc(sizeof (char *));
     *mark_name = NULL;
 
-    while(!ibmtts_thread_exit_requested)
+    while (!ibmtts_thread_exit_requested)
     {
         /* If semaphore not set, set suspended lock and suspend until it is signaled. */
         if (0 != sem_trywait(ibmtts_synth_semaphore))
@@ -1138,7 +1139,7 @@ _ibmtts_play(void* nothing)
     /* Block all signals to this thread. */
     set_speaking_thread_parameters();
 
-    while(!ibmtts_thread_exit_requested)
+    while (!ibmtts_thread_exit_requested)
     {
         /* If semaphore not set, set suspended lock and suspend until it is signaled. */
         if (0 != sem_trywait(ibmtts_play_semaphore))
