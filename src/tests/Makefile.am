@@ -16,4 +16,4 @@ clibrary_LDADD = $(c_api)/libspeechd.la
 run_test_SOURCES = run_test.c $(c_api)/libspeechd.h
 run_test_LDADD = $(c_api)/libspeechd.la
 
-EXTRA_DIST= *.test
+EXTRA_DIST= *.test *.wav
