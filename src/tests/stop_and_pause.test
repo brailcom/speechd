@@ -49,7 +49,7 @@ This sentence should not be heard until resumed.
 @ Speaking should now be paused.  Resuming in 2 seconds.
 $2
 !RESUME SELF
-+705 END
++705 RESUMED
 
 +702 END
 !QUIT
