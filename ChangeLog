@@ -1,3 +1,12 @@
+2006-04-16  Gary Cramblitt <garycramblitt@comcast.net>
+
+	* doc/ssip.texi: Clarify module_pause(), module_stop(), and module_report_*.
+
+	* src/modules/ibmtts.c: Rework stop and pause logic.  You cannot call
+	module_report_* from within a modules_stop() or module_pause call.
+
+	* src/tests/stop_and_pause.test: Minor changes.
+
 2006-04-12  Gary Cramblitt <garycramblitt@comcast.net>
 
 	* src/modules/ibmtts.c:

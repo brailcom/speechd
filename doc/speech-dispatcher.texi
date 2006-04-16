@@ -2586,6 +2586,12 @@ module_utils.c.  Call it at the beginning of the thread code.
 This function should stop the synthesis of the currently spoken message
 immediately and throw away the rest of the message.
 
+This function should return immediately.  Speech Dispatcher will
+not send another command until module_report_event_stop() is called.
+Note that you cannot call module_report_event_stop() from within
+the call to module_stop().  The best thing to do is emit
+the stop event from another thread.
+
 It should return 0 on success, -1 otherwise.
 @end deffn
 
@@ -2596,10 +2602,16 @@ This function should stop speaking on the synthesizer (or sending
 data to soundcard) just after sending an @code{__spd_} index
 mark so that Speech Dispatcher knows the position of stop.
 
-This function can be blocking for a short time, so you can wait till
+The pause can wait for a short time until
 an index mark is reached. However, if it's not possible to determine
 the exact position, this function should have the same effect
 as @code{module_stop}.
+
+This function should return immediately.  Speech Dispatcher will
+not send another command until module_report_event_pause() is called.
+Note that you cannot call module_report_event_pause() from within
+the call to module_pause().  The best thing to do is emit
+the pause event from another thread.
 
 For some software synthesizers, the desired effect can be archieved in this way:
 When @code{module_speak()} is called, you execute a separate
@@ -2819,6 +2831,10 @@ The @code{module_report_} functions serve for reporting event
 notifications and index marking events. You should use them whenever
 you get an event from the synthesizer which is defined in the output
 module communication protocol.
+
+Note that you cannot call these functions from within a call
+to module_speak(), module_stop(), or module_pause().  The best
+way to do this is to emit the events from another thread.
 
 @end deffn
 
