@@ -449,8 +449,8 @@ used for speaking keys pressed by the user.
 of a key name, optionally prepended with one or more prefixes, each
 containing an auxiliary key name and the underscore character.
 
-Key name may contain any character excluding control characters (the
-characters in the range 0 to 31 in the ASCII table, characters in the
+Key name may contain any character excluding control characters (for example,
+the characters in the range 0 to 31 in the ASCII table, characters in the
 range 128 to 159 in the Latin-* tables and other ``invisible''
 characters), spaces, underscores, and double quotes.
 
