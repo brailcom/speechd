@@ -1,3 +1,10 @@
+2006-04-21  Gary Cramblitt <garycramblitt@comcast.net>
+
+	* config/modules/ibmtts.conf:
+	* src/modules/ibmtts.c: Permit per-language key substitution.
+
+	* doc/ssip.texi: Clarify KEY allowed characters.
+
 2006-04-16  Gary Cramblitt <garycramblitt@comcast.net>
 
 	* doc/ssip.texi: Clarify module_pause(), module_stop(), and module_report_*.

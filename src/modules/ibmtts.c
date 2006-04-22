@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.14 2006-04-16 19:17:04 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.15 2006-04-22 03:13:54 cramblitt Exp $
  */
 
 /* This output module operates with four threads:
@@ -76,33 +76,41 @@ typedef enum {
 #define DEBUG_MODULE 1
 DECLARE_DEBUG();
 
-/* Define a double-linked list loaded from config file where each item
-   has two character strings. */
-#define MOD_OPTION_2_STR_DLL(name, arg1, arg2) \
+/* Define a hash table where each entry is a double-linked list
+   loaded from the config file.  Each entry in the config file
+   is 3 strings, where the 1st string is used to access a list
+   of the 2nd and 3rd strings. */
+#define MOD_OPTION_3_STR_HT_DLL(name, arg1, arg2, arg3) \
     typedef struct{ \
-        char* arg1; \
         char* arg2; \
+        char* arg3; \
     }T ## name; \
-    GList *name = NULL; \
+    GHashTable *name; \
     \
     DOTCONF_CB(name ## _cb) \
     { \
         T ## name *new_item; \
-        new_item = (T ## name *) malloc(sizeof(T ## name *)); \
-        if (cmd->data.list[0] != NULL) \
-           new_item->arg1 = strdup(cmd->data.list[0]); \
-        else \
-            new_item->arg1 = NULL; \
-        if (cmd->data.list[1] != NULL) \
-           new_item->arg2 = strdup(cmd->data.list[1]); \
+        char *new_key; \
+        GList *dll = NULL; \
+        new_item = (T ## name *) malloc(sizeof(T ## name)); \
+        new_key = strdup(cmd->data.list[0]); \
+        if (NULL != cmd->data.list[1]) \
+            new_item->arg2 = strdup(cmd->data.list[1]); \
         else \
             new_item->arg2 = NULL; \
-        name = g_list_append(name, new_item); \
+        if (NULL != cmd->data.list[2]) \
+            new_item->arg3 = strdup(cmd->data.list[2]); \
+        else \
+            new_item->arg3 = NULL; \
+        dll = g_hash_table_lookup(name, new_key); \
+        dll = g_list_append(dll, new_item); \
+        g_hash_table_insert(name, new_key, dll); \
         return NULL; \
     }
 
 /* Load a double-linked list from config file. */
-#define MOD_OPTION_DLL_REG(name) \
+#define MOD_OPTION_HT_DLL_REG(name) \
+    name = g_hash_table_new(g_str_hash, g_str_equal); \
     module_dc_options = module_add_config_option(module_dc_options, \
                                      &module_num_dc_options, #name, \
                                      ARG_LIST, name ## _cb, NULL, 0);
@@ -235,7 +243,7 @@ MOD_OPTION_1_STR(IbmttsALSADevice);
 
 MOD_OPTION_1_INT(IbmttsAudioChunkSize);
 MOD_OPTION_2_HT(IbmttsDialect, dialect, code);
-MOD_OPTION_2_STR_DLL(IbmttsKeySubstitution, key, newkey);
+MOD_OPTION_3_STR_HT_DLL(IbmttsKeySubstitution, lang, key, newkey);
 
 /* Public functions */
 
@@ -264,7 +272,7 @@ module_load(void)
     MOD_OPTION_HT_REG(IbmttsDialect);
 
     /* Register key substitutions. */
-    MOD_OPTION_DLL_REG(IbmttsKeySubstitution);
+    MOD_OPTION_HT_DLL_REG(IbmttsKeySubstitution);
 
     return OK;
 }
@@ -1250,7 +1258,10 @@ ibmtts_subst_keys(char *key)
     GString *tmp = g_string_sized_new(30);
     g_string_append(tmp, key);
 
-    g_list_foreach(IbmttsKeySubstitution, ibmtts_subst_keys_cb, tmp);
+    GList *keyTable = g_hash_table_lookup(IbmttsKeySubstitution, msg_settings.language);
+
+    if (keyTable)
+        g_list_foreach(keyTable, ibmtts_subst_keys_cb, tmp);
 
     /* Hyphen hangs IBM TTS */
     if (0 == strcmp(tmp->str, "-"))
