@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speaking.c,v 1.48 2006-01-08 13:36:58 hanke Exp $
+ * $Id: speaking.c,v 1.49 2006-04-22 11:33:25 hanke Exp $
  */
 
 #include <glib.h>
@@ -93,8 +93,6 @@ speak(void* data)
 	    }	    
 	}
 
-	if (SPEAKING) continue;
-
         /* Handle pause requests */
         if (pause_requested){
             MSG(4, "Trying to pause...");
@@ -104,9 +102,10 @@ speak(void* data)
                 speaking_pause(pause_requested_fd, pause_requested_uid);
             MSG(4, "Paused...");
             pause_requested = 0;
-            resume_requested = 1;
             continue;
         }
+
+	if (SPEAKING) continue;
 
         /* Handle resume requests */
         if (resume_requested){
@@ -124,7 +123,7 @@ speak(void* data)
                     pthread_mutex_unlock(&element_free_mutex);           
                     if ((gl != NULL) && (gl->data != NULL)){
 			MSG(5, "Reloading message");
-                        reload_message((TSpeechDMessage*) gl->data);
+			reload_message((TSpeechDMessage*) gl->data);
                     }else break;                    
                 }
             }
@@ -193,11 +192,8 @@ speak(void* data)
 
         /* Set the id of the client who is speaking. */
         speaking_uid = message->settings.uid;
-
-        /* Save the currently spoken message to be able to resume()
-           it after pause() */
-        if (current_message != NULL)
-	    if (!current_message->settings.paused_while_speaking) 
+	if (current_message != NULL)
+	    if (!current_message->settings.paused_while_speaking)
 		mem_free_message(current_message);
         current_message = message;
 
@@ -226,9 +222,6 @@ reload_message(TSpeechDMessage *msg)
 	MSG(4, "Warning: msg == NULL in reload_message()");
 	return -1;
     }
-
-    /* We don't want speak() to free it since we will modify and re-insert it
-       into the queue */
 
     if (msg->settings.index_mark != NULL){
 	MSG(5, "Recovering index mark %s", msg->settings.index_mark);
