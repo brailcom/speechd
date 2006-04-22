@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   * Boston, MA 02111-1307, USA.
   *
-  * $Id: server.c,v 1.77 2006-01-08 13:36:57 hanke Exp $
+  * $Id: server.c,v 1.78 2006-04-22 11:30:48 hanke Exp $
   */
 
 #include "speechd.h"
@@ -49,6 +49,18 @@ int last_message_id = 0;
 #define COPY_SET_STR(name) \
     new->settings.name = (char*) spd_strdup(settings->name);
 
+
+/* Queue a message _new_. When fd is a positive number,
+it means we have a new message from the client on connection
+fd and we should fill in the proper settings. When fd is
+negative, it's absolute value is the client uid and the
+message _new_ already contains a fully filled in settings
+structure which should not be overwritten (on must be cautius
+that the original client might not be still connected
+to speechd). _history_flag_ indicates if inclusion into
+history is desired and _reparted_ flag indicates whether
+this message is a part of a reparted message (one of a block
+of messages). */
 int
 queue_message(TSpeechDMessage *new, int fd, int history_flag,
               EMessageType type, int reparted)
@@ -77,11 +89,10 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
 
     MSG(5, "In queue_message desired output module is %s", settings->output_module);
 
-    /* Copy the settings to the new to-be-queued element */
-    new->settings = *settings;
-    new->settings.type = type;
-
     if (fd > 0){
+	/* Copy the settings to the new to-be-queued element */
+	new->settings = *settings;
+	new->settings.type = type;
 	new->settings.index_mark = NULL;
 	COPY_SET_STR(client_name);
 	COPY_SET_STR(output_module);
