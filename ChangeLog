@@ -1,5 +1,9 @@
 2006-04-22  Hynek Hanke  <hanke@chopin>
 
+	* config/modules/espeak-generic.conf: eSpeak generic output module configuration.
+
+	* config/speechd.conf.in: Added espeak-generic conf module (commented out).
+
 	* src/server/speaking.c (speak): Break loop when SPEAKING only after checking for pause. Do not fill resume_requested with 1.
 
 	* src/server/set.c (default_fd_set): Initialize paused_while_speaking to 0.
