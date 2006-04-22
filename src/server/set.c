@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: set.c,v 1.39 2006-01-08 13:36:58 hanke Exp $
+ * $Id: set.c,v 1.40 2006-04-22 11:31:15 hanke Exp $
  */
 
 #include <fnmatch.h>
@@ -417,6 +417,7 @@ default_fd_set(void)
 	new->hist_cur_pos = -1;
 	new->hist_sorted = 0;
 	new->index_mark = NULL;
+	new->paused_while_speaking = 0;
 
 	return(new);
 }
