@@ -1,3 +1,12 @@
+2006-04-21  Gary Cramblitt <garycramblitt@comcast.net>
+
+	* config/modules/ibmtts.conf:
+	* src/modules/ibmtts.c:
+	* configure.in:
+	* src/modules/Makefile.am: Sound icon emulation.  Requires libsndfile.
+
+	* src/tests/sound_icons.test: Simple test script for sound icons.
+
 2006-04-22  Hynek Hanke  <hanke@chopin>
 
 	* config/modules/espeak-generic.conf: eSpeak generic output module configuration.

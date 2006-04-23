@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.15 2006-04-22 03:13:54 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.16 2006-04-23 18:31:38 cramblitt Exp $
  */
 
 /* This output module operates with four threads:
@@ -47,10 +47,15 @@
 #include <eci.h>
 
 /* Speech Dispatcher includes. */
+#include "config.h"
 #include "spd_audio.h"
 #include "fdset.h"
 #include "module_utils.h"
 #include "module_utils_addvoice.c"
+
+#if HAVE_SNDFILE
+#include <sndfile.h>
+#endif
 
 typedef enum { IBMTTS_FALSE, IBMTTS_TRUE } TIbmttsBool;
 typedef enum {
@@ -159,6 +164,7 @@ typedef enum {
 typedef enum {
     IBMTTS_QET_AUDIO,        /* Chunk of audio. */
     IBMTTS_QET_INDEX_MARK,   /* Index mark event. */
+    IBMTTS_QET_SOUND_ICON,   /* A Sound Icon */
     IBMTTS_QET_BEGIN,        /* Beginning of speech. */
     IBMTTS_QET_END           /* Speech completed. */
 } EPlaybackQueueEntryType;
@@ -173,6 +179,7 @@ typedef struct {
     union {
         long markId;
         TPlaybackQueueAudioChunk audio;
+        char *sound_icon_filename;
     } data;
 } TPlaybackQueueEntry;
 
@@ -203,6 +210,8 @@ static enum ECILanguageDialect ibmtts_dialect_to_code(char *dialect_name);
 static int ibmtts_replace(char *from, char *to, GString *msg);
 static void ibmtts_subst_keys_cb(gpointer data, gpointer user_data);
 static char* ibmtts_subst_keys(char *key);
+static char *ibmtts_search_for_sound_icon(const char *icon_name);
+static TIbmttsBool ibmtts_add_sound_icon_to_playback_queue(char* filename);
 
 static enum ECICallbackReturn eciCallback(
     ECIHand hEngine,
@@ -218,6 +227,7 @@ static TIbmttsBool ibmtts_add_mark_to_playback_queue(long markId);
 static TIbmttsBool ibmtts_add_flag_to_playback_queue(EPlaybackQueueEntryType type);
 static void ibmtts_delete_playback_queue_entry(TPlaybackQueueEntry *playback_queue_entry);
 static TIbmttsBool ibmtts_send_to_audio(TPlaybackQueueEntry *playback_queue_entry);
+static TIbmttsBool ibmtts_play_file(char *filename);
 
 /* Miscellaneous internal function prototypes. */
 static TIbmttsBool is_thread_busy(pthread_mutex_t *suspended_mutex);
@@ -242,6 +252,7 @@ MOD_OPTION_1_STR(IbmttsNASServer);
 MOD_OPTION_1_STR(IbmttsALSADevice);
 
 MOD_OPTION_1_INT(IbmttsAudioChunkSize);
+MOD_OPTION_1_STR(IbmttsSoundIconFolder);
 MOD_OPTION_2_HT(IbmttsDialect, dialect, code);
 MOD_OPTION_3_STR_HT_DLL(IbmttsKeySubstitution, lang, key, newkey);
 
@@ -264,6 +275,7 @@ module_load(void)
     MOD_OPTION_1_STR_REG(IbmttsALSADevice, "default");
 
     MOD_OPTION_1_INT_REG(IbmttsAudioChunkSize, 20000);
+    MOD_OPTION_1_STR_REG(IbmttsSoundIconFolder, "/usr/share/sounds/sound-icons/");
 
     /* Register voices. */
     module_register_settings_voices();
@@ -567,7 +579,7 @@ module_close(int status)
 /* Internal functions */
 
 /* Return true if the thread is busy, i.e., suspended mutex is not locked. */
-TIbmttsBool
+static TIbmttsBool
 is_thread_busy(pthread_mutex_t *suspended_mutex)
 {
     if (EBUSY == pthread_mutex_trylock(suspended_mutex))
@@ -736,9 +748,21 @@ _ibmtts_synth(void* nothing)
                 eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
                 break;
             case MSGTYPE_SOUND_ICON:
-                /* IBM TTS does not support sound icons, but
-                   go ahead and speak the name of the sound icon. */
-                eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
+                /* IBM TTS does not support sound icons.
+                   If we can find a sound icon file, play that,
+                   otherwise speak the name of the sound icon. */
+                part = ibmtts_search_for_sound_icon(*ibmtts_message);
+                if (NULL != part) {
+                    ibmtts_add_flag_to_playback_queue(IBMTTS_QET_BEGIN);
+                    ibmtts_add_sound_icon_to_playback_queue(part);
+                    part = NULL;
+                    ibmtts_add_flag_to_playback_queue(IBMTTS_QET_END);
+                    scan_msg = IBMTTS_FALSE;
+                    /* Wake up the audio playback thread, if not already awake. */
+                    if (!is_thread_busy(&ibmtts_play_suspended_mutex))
+                        sem_post(ibmtts_play_semaphore);
+                } else
+                    eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
                 break;
             case MSGTYPE_CHAR:
                 eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
@@ -1015,7 +1039,7 @@ static enum ECICallbackReturn eciCallback(
 
     switch (msg) {
         case eciWaveformBuffer:
-            DBG("Ibmtts: %li audio samples returned from IBM TTS.", lparam);
+            DBG("Ibmtts: %d audio samples returned from IBM TTS.", lparam);
             /* Add audio to output queue. */
             ret = ibmtts_add_audio_to_playback_queue(audio_chunk, lparam);
             /* Wake up the audio playback thread, if not already awake. */
@@ -1024,7 +1048,7 @@ static enum ECICallbackReturn eciCallback(
             return eciDataProcessed;
             break;
         case eciIndexReply:
-            DBG("Ibmtts: Index mark id %li returned from IBM TTS.", lparam);
+            DBG("Ibmtts: Index mark id %d returned from IBM TTS.", lparam);
             /* Add index mark to output queue. */
             ret = ibmtts_add_mark_to_playback_queue(lparam);
             /* Wake up the audio playback thread, if not already awake. */
@@ -1036,7 +1060,7 @@ static enum ECICallbackReturn eciCallback(
 }
 
 /* Adds a chunk of pcm audio to the audio playback queue. */
-TIbmttsBool
+static TIbmttsBool
 ibmtts_add_audio_to_playback_queue(TEciAudioSamples *audio_chunk, long num_samples)
 {
     TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) xmalloc (sizeof (TPlaybackQueueEntry));
@@ -1053,7 +1077,7 @@ ibmtts_add_audio_to_playback_queue(TEciAudioSamples *audio_chunk, long num_sampl
 }
 
 /* Adds an Index Mark to the audio playback queue. */
-TIbmttsBool
+static TIbmttsBool
 ibmtts_add_mark_to_playback_queue(long markId)
 {
     TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) xmalloc (sizeof (TPlaybackQueueEntry));
@@ -1067,7 +1091,7 @@ ibmtts_add_mark_to_playback_queue(long markId)
 }
 
 /* Adds a begin or end flag to the playback queue. */
-TIbmttsBool
+static TIbmttsBool
 ibmtts_add_flag_to_playback_queue(EPlaybackQueueEntryType type)
 {
     TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) xmalloc (sizeof (TPlaybackQueueEntry));
@@ -1079,13 +1103,30 @@ ibmtts_add_flag_to_playback_queue(EPlaybackQueueEntryType type)
     return IBMTTS_TRUE;
 }
 
+/* Add a sound icon to the playback queue. */
+static TIbmttsBool
+ibmtts_add_sound_icon_to_playback_queue(char* filename)
+{
+    TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) xmalloc (sizeof (TPlaybackQueueEntry));
+    if (NULL == playback_queue_entry) return IBMTTS_FALSE;
+    playback_queue_entry->type = IBMTTS_QET_SOUND_ICON;
+    playback_queue_entry->data.sound_icon_filename = filename;
+    pthread_mutex_lock(&playback_queue_mutex);
+    playback_queue = g_slist_append(playback_queue, playback_queue_entry);
+    pthread_mutex_unlock(&playback_queue_mutex);
+    return IBMTTS_TRUE;
+}
+
 /* Deletes an entry from the playback audio queue, freeing memory. */
-void
+static void
 ibmtts_delete_playback_queue_entry(TPlaybackQueueEntry *playback_queue_entry)
 {
     switch (playback_queue_entry->type) {
         case IBMTTS_QET_AUDIO:
             xfree(playback_queue_entry->data.audio.audio_chunk);
+            break;
+        case IBMTTS_QET_SOUND_ICON:
+            xfree(playback_queue_entry->data.sound_icon_filename);
             break;
         default:
             break;
@@ -1094,7 +1135,7 @@ ibmtts_delete_playback_queue_entry(TPlaybackQueueEntry *playback_queue_entry)
 }
 
 /* Erases the entire playback queue, freeing memory. */
-void
+static void
 ibmtts_clear_playback_queue()
 {
     pthread_mutex_lock(&playback_queue_mutex);
@@ -1109,7 +1150,7 @@ ibmtts_clear_playback_queue()
 }
 
 /* Sends a chunk of audio to the audio player and waits for completion or error. */
-TIbmttsBool
+static TIbmttsBool
 ibmtts_send_to_audio(TPlaybackQueueEntry *playback_queue_entry)
 {
     AudioTrack track;
@@ -1178,7 +1219,7 @@ _ibmtts_play(void* nothing)
                     markId = playback_queue_entry->data.markId;
                     mark_name = g_hash_table_lookup(ibmtts_index_mark_ht, &markId);
                     if (NULL == mark_name) {
-                        DBG("Ibmtts: markId %li returned by IBM TTS not found in lookup table.",
+                        DBG("Ibmtts: markId %d returned by IBM TTS not found in lookup table.",
                             markId)
                     } else {
                         DBG("Ibmtts: reporting index mark |%s|.", mark_name);
@@ -1192,6 +1233,9 @@ _ibmtts_play(void* nothing)
                             }
                         }
                     }
+                    break;
+                case IBMTTS_QET_SOUND_ICON:
+                    ibmtts_play_file(playback_queue_entry->data.sound_icon_filename);
                     break;
                 case IBMTTS_QET_BEGIN:
                     module_report_event_begin();
@@ -1268,6 +1312,108 @@ ibmtts_subst_keys(char *key)
         g_string_assign(tmp, "hyphen");
 
     return g_string_free(tmp, FALSE);
+}
+
+/* Given a sound icon name, searches for a file to play and if found
+   returns the filename.  Returns NULL if none found.  Caller is responsible
+   for freeing the returned string. */
+/* TODO: These current assumptions should be dealt with:
+        Sound icon files are in a single directory (IbmttsSoundIconFolder).
+        The name of each icon is symlinked to a .wav file.
+   If you have installed the free(b)soft sound-icons package under
+   Debian, then these assumptions are true, but what about other distros
+   and OSes? */
+static char *
+ibmtts_search_for_sound_icon(const char *icon_name)
+{
+    char *fn = NULL;
+#if HAVE_SNDFILE
+    if (0 == strlen(IbmttsSoundIconFolder)) return fn;
+    GString *filename = g_string_new(IbmttsSoundIconFolder);
+    filename = g_string_append(filename, icon_name);
+    if (g_file_test(filename->str, G_FILE_TEST_EXISTS))
+        fn = filename->str;
+/*
+    else {
+        filename = g_string_assign(filename, g_utf8_strdown(filename->str, -1));
+        if (g_file_test(filename->str, G_FILE_TEST_EXISTS))
+            fn = filename->str;
+    }
+*/
+    g_string_free(filename, FALSE);
+#endif
+    return fn;
+}
+
+/* Plays the specified audio file. */
+static TIbmttsBool
+ibmtts_play_file(char *filename)
+{
+    TIbmttsBool result = IBMTTS_TRUE;
+#if HAVE_SNDFILE
+    int ret;
+    int subformat;
+    sf_count_t items;
+    sf_count_t readcount;
+    SNDFILE* sf;
+    SF_INFO sfinfo;
+
+    DBG("Ibmtts: Playing |%s|", filename);
+    memset (&sfinfo, 0, sizeof (sfinfo));
+    sf = sf_open(filename, SFM_READ, &sfinfo);
+    subformat = sfinfo.format & SF_FORMAT_SUBMASK ;
+    items = sfinfo.channels * sfinfo.frames;
+    DBG("Ibmtts: frames = %ld, channels = %d", (long) sfinfo.frames, sfinfo.channels);
+    DBG("Ibmtts: samplerate = %i, items = %ld", sfinfo.samplerate, items);
+    DBG("Ibmtts: major format = 0x%08X, subformat = 0x%08X, endian = 0x%08X",
+        sfinfo.format & SF_FORMAT_TYPEMASK, subformat, sfinfo.format & SF_FORMAT_ENDMASK);
+    if (sfinfo.channels < 1 || sfinfo.channels > 2) {
+        DBG("Ibmtts: ERROR: channels = %d.\n", sfinfo.channels);
+        result = IBMTTS_FALSE;
+        goto cleanup1;
+    }
+    if (sfinfo.frames > 0x7FFFFFFF) {
+        DBG("Ibmtts: ERROR: Unknown number of frames.");
+        result = IBMTTS_FALSE;
+        goto cleanup1;
+    }
+    if (subformat == SF_FORMAT_FLOAT || subformat == SF_FORMAT_DOUBLE) {
+        /* Set scaling for float to integer conversion. */
+        sf_command (sf, SFC_SET_SCALE_FLOAT_INT_READ, NULL, SF_TRUE);
+    }
+    AudioTrack track;
+    track.num_samples = sfinfo.frames;
+    track.num_channels = sfinfo.channels;
+    track.sample_rate = sfinfo.samplerate;
+    track.bits = 16;
+    track.samples = xmalloc(items * sizeof(short));
+    if (NULL == track.samples) {
+        DBG("Ibmtts: ERROR: Cannot allocate audio buffer.");
+        result = IBMTTS_FALSE;
+        goto cleanup1;
+    }
+    readcount = sf_read_short(sf, (short *) track.samples, items);
+    DBG("Ibmtts: read %ld items from audio file.", readcount);
+
+    if (readcount > 0) {
+        track.num_samples = readcount / sfinfo.channels;
+        DBG("Ibmtts: Sending %i samples to audio.", track.num_samples);
+        /* Volume is controlled by the synthesizer.  Always play at normal on audio device. */
+        spd_audio_set_volume(ibmtts_audio_id, 0);
+        int ret = spd_audio_play(ibmtts_audio_id, track);
+        if (ret < 0) {
+            DBG("ERROR: Can't play track for unknown reason.");
+            result = IBMTTS_FALSE;
+            goto cleanup2;
+        }
+        DBG("Ibmtts: Sent to audio.");
+    }
+cleanup2:
+    xfree(track.samples);
+cleanup1:
+    sf_close(sf);
+#endif
+    return result;
 }
 
 #include "module_main.c"

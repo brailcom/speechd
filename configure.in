@@ -59,6 +59,15 @@ AC_CHECK_LIB(pthread,
         pthread_create, echo "",
         echo "*** Required pthread library missing! See INSTALL .";exit 1)
 
+dnl Check for libsndfile.
+PKG_CHECK_MODULES(SNDFILE, sndfile >= 1.0.2, ac_cv_sndfile=1, ac_cv_sndfile=0)
+
+AC_DEFINE_UNQUOTED([HAVE_SNDFILE],${ac_cv_sndfile},
+        [Set to 1 if you have libsndfile.])
+
+AC_SUBST(SNDFILE_CFLAGS)
+AC_SUBST(SNDFILE_LIBS)
+
 dnl Check for Flite (currently required)
 AC_CHECK_LIB(flite,
         flite_init, echo "",
