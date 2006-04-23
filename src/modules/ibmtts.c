@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.16 2006-04-23 18:31:38 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.17 2006-04-23 21:29:59 cramblitt Exp $
  */
 
 /* This output module operates with four threads:
@@ -786,10 +786,12 @@ _ibmtts_synth(void* nothing)
 
         if (0 == strlen(pos)) scan_msg = IBMTTS_FALSE;
 
-        /* TODO: If an empty message is sent, this routine receives a buffer containing:
-                 <speak></speak>.  If this string is sent to IBM TTS, it hangs. 
-                 Actually, what is happening is no audio callback occurs, so
-                 this output module waits forever for something that never comes. */
+        /* If an empty message is sent, this routine receives a buffer containing:
+           <speak></speak>.  If this string is sent to IBM TTS, it hangs. 
+           Actually, what is happening is no audio callback occurs, so
+           this output module waits forever for something that never comes. */
+        if (scan_msg)
+            if (0 == strncmp("<speak></speak>", pos, 15)) scan_msg = IBMTTS_FALSE;
 
         if (scan_msg) ibmtts_add_flag_to_playback_queue(IBMTTS_QET_BEGIN);
         while (scan_msg) {
