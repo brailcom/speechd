@@ -3,7 +3,8 @@
 	* config/modules/ibmtts.conf:
 	* src/modules/ibmtts.c:
 	* configure.in:
-	* src/modules/Makefile.am: Sound icon emulation.  Requires libsndfile.
+	* src/modules/Makefile.am: Sound icon emulation.  Requires libsndfile.  Also,
+	permit customization of voices in config file.
 
 	* src/tests/sound_icons.test: Simple test script for sound icons.
 

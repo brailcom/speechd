@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.17 2006-04-23 21:29:59 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.18 2006-04-24 00:46:00 cramblitt Exp $
  */
 
 /* This output module operates with four threads:
@@ -120,6 +120,37 @@ DECLARE_DEBUG();
                                      &module_num_dc_options, #name, \
                                      ARG_LIST, name ## _cb, NULL, 0);
 
+/* Define a hash table mapping a string to 7 integer values. */
+#define MOD_OPTION_6_INT_HT(name, arg1, arg2, arg3, arg4, arg5, arg6, arg7) \
+    typedef struct{ \
+        int arg1; \
+        int arg2; \
+        int arg3; \
+        int arg4; \
+        int arg5; \
+        int arg6; \
+        int arg7; \
+    }T ## name; \
+    GHashTable *name; \
+    \
+    DOTCONF_CB(name ## _cb) \
+    { \
+        T ## name *new_item; \
+        char* new_key; \
+        new_item = (T ## name *) malloc(sizeof(T ## name)); \
+        if (cmd->data.list[0] == NULL) return NULL; \
+        new_key = strdup(cmd->data.list[0]); \
+        new_item->arg1 = (int) strtol(cmd->data.list[1], NULL, 10); \
+        new_item->arg2 = (int) strtol(cmd->data.list[2], NULL, 10); \
+        new_item->arg3 = (int) strtol(cmd->data.list[3], NULL, 10); \
+        new_item->arg4 = (int) strtol(cmd->data.list[4], NULL, 10); \
+        new_item->arg5 = (int) strtol(cmd->data.list[5], NULL, 10); \
+        new_item->arg6 = (int) strtol(cmd->data.list[6], NULL, 10); \
+        new_item->arg7 = (int) strtol(cmd->data.list[7], NULL, 10); \
+        g_hash_table_insert(name, new_key, new_item); \
+        return NULL; \
+    }
+
 /* Thread and process control. */
 static pthread_t ibmtts_synth_thread;
 static pthread_t ibmtts_play_thread;
@@ -195,6 +226,13 @@ AudioOutputType ibmtts_audio_output_method;
 char *ibmtts_audio_pars[10];
 pthread_mutex_t sound_stop_mutex;
 
+/* When a voice is set, this is the baseline pitch of the voice.
+   SSIP PITCH commands then adjust relative to this. */
+int ibmtts_voice_pitch_baseline;
+/* When a voice is set, this the default speed of the voice.
+   SSIP RATE commands then adjust relative to this. */
+int ibmtts_voice_speed;
+
 /* Internal function prototypes for main thread. */
 static void ibmtts_set_language(char *lang);
 static void ibmtts_set_voice(EVoiceType voice);
@@ -254,6 +292,8 @@ MOD_OPTION_1_STR(IbmttsALSADevice);
 MOD_OPTION_1_INT(IbmttsAudioChunkSize);
 MOD_OPTION_1_STR(IbmttsSoundIconFolder);
 MOD_OPTION_2_HT(IbmttsDialect, dialect, code);
+MOD_OPTION_6_INT_HT(IbmttsVoiceParameters,
+    gender, breathiness, head_size, pitch_baseline, pitch_fluctuation, roughness, speed);
 MOD_OPTION_3_STR_HT_DLL(IbmttsKeySubstitution, lang, key, newkey);
 
 /* Public functions */
@@ -282,6 +322,9 @@ module_load(void)
 
     /* Register dialects. */
     MOD_OPTION_HT_REG(IbmttsDialect);
+
+    /* Register voice parameters */
+    MOD_OPTION_HT_REG(IbmttsVoiceParameters);
 
     /* Register key substitutions. */
     MOD_OPTION_HT_DLL_REG(IbmttsKeySubstitution);
@@ -904,7 +947,14 @@ ibmtts_set_rate(signed int rate)
     int speed;
     /* Possible ECI range is 0 to 250. */
     /* Map -100 to 100 onto 0 to 100. */
-    speed = (rate + 100) / 2;
+    if (rate < 0)
+        /* Map -100 to 0 onto 0 to ibmtts_voice_speed */
+        speed = ((float)(rate + 100) * ibmtts_voice_speed) / (float)100;
+    else
+        /* Map 0 to 100 onto ibmtts_voice_speed to 100 */
+        speed = (((float)rate * (100 - ibmtts_voice_speed)) / (float)100)
+            + ibmtts_voice_speed;
+    /* speed = (rate + 100) / 2; */
     assert(speed >= 0 && speed <= 100);
     int ret = eciSetVoiceParam(eciHandle, 0, eciSpeed, speed);
     if (-1 == ret) {
@@ -951,11 +1001,12 @@ ibmtts_set_pitch(signed int pitch)
     int pitchBaseline;
     /* Possible range 0 to 100. */
     if (pitch < 0)
-        /* Map -100 to 0 onto 0 to 70 */
-        pitchBaseline = ((float)(pitch + 100) * 70) / (float)100;
+        /* Map -100 to 0 onto 0 to ibmtts_voice_pitch_baseline */
+        pitchBaseline = ((float)(pitch + 100) * ibmtts_voice_pitch_baseline) / (float)100;
     else
-        /* Map 0 to 100 onto 70 to 100 */
-        pitchBaseline = (((float)pitch * 30) / (float)100) + 70;
+        /* Map 0 to 100 onto ibmtts_voice_pitch_baseline to 100 */
+        pitchBaseline = (((float)pitch * (100 - ibmtts_voice_pitch_baseline)) / (float)100)
+            + ibmtts_voice_pitch_baseline;
     assert (pitchBaseline >= 0 && pitchBaseline <= 100);
     int ret = eciSetVoiceParam(eciHandle, 0, eciPitchBaseline, pitchBaseline);
     if (-1 == ret) {
@@ -998,6 +1049,44 @@ static void ibmtts_set_language_and_voice(char *lang, EVoiceType voice)
         DBG("Ibmtts: FATAL: Unable to set dialect (%s = %i)", dialect_name, dialect);
         ibmtts_log_eci_error();
     }
+    /* Get voice parameters (if any are defined for this voice.) */
+    char* voicename = NULL;
+    switch (voice) {
+        case NO_VOICE:      voicename = strdup("no voice");     break;
+        case MALE1:         voicename = strdup("male1");        break;
+        case MALE2:         voicename = strdup("male2");        break;
+        case MALE3:         voicename = strdup("male3");        break;
+        case FEMALE1:       voicename = strdup("female1");      break;
+        case FEMALE2:       voicename = strdup("female2");      break;
+        case FEMALE3:       voicename = strdup("female3");      break;
+        case CHILD_MALE:    voicename = strdup("child_male");   break;
+        case CHILD_FEMALE:  voicename = strdup("child_female"); break;
+        default:            voicename = strdup("no voice");     break;
+    }
+    TIbmttsVoiceParameters *params = g_hash_table_lookup(IbmttsVoiceParameters, voicename);
+    if (NULL != params) {
+        DBG("Ibmtts: Setting custom VoiceParameters for voice %s", voicename);
+        ret = eciSetVoiceParam(eciHandle, 0, eciGender, params->gender);
+        if (-1 == ret) DBG("Ibmtts: ERROR: Setting gender %i", params->gender);
+        ret = eciSetVoiceParam(eciHandle, 0, eciBreathiness, params->breathiness);
+        if (-1 == ret) DBG("Ibmtts: ERROR: Setting breathiness %i", params->breathiness);
+        ret = eciSetVoiceParam(eciHandle, 0, eciHeadSize, params->head_size);
+        if (-1 == ret) DBG("Ibmtts: ERROR: Setting head size %i", params->head_size);
+        ret = eciSetVoiceParam(eciHandle, 0, eciPitchBaseline, params->pitch_baseline);
+        if (-1 == ret) DBG("Ibmtts: ERROR: Setting pitch baseline %i", params->pitch_baseline);
+        ret = eciSetVoiceParam(eciHandle, 0, eciPitchFluctuation, params->pitch_fluctuation);
+        if (-1 == ret) DBG("Ibmtts: ERROR: Setting pitch fluctuation %i", params->pitch_fluctuation);
+        ret = eciSetVoiceParam(eciHandle, 0, eciRoughness, params->roughness);
+        if (-1 == ret) DBG("Ibmtts: ERROR: Setting roughness %i", params->roughness);
+        ret = eciSetVoiceParam(eciHandle, 0, eciSpeed, params->speed);
+        if (-1 == ret) DBG("Ibmtts: ERROR: Setting speed %i", params->speed);
+    }
+    xfree(voicename);
+    /* Retrieve the baseline pitch and speed of the voice. */
+    ibmtts_voice_pitch_baseline = eciGetVoiceParam(eciHandle, 0, eciPitchBaseline);
+    if (-1 == ibmtts_voice_pitch_baseline) DBG("Ibmtts: Cannot get pitch baseline of voice.");
+    ibmtts_voice_speed = eciGetVoiceParam(eciHandle, 0, eciSpeed);
+    if (-1 == ibmtts_voice_speed) DBG("Ibmtts: Cannot get speed of voice.");
 }
 
 static void
