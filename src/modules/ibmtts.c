@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.18 2006-04-24 00:46:00 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.19 2006-04-24 23:07:51 cramblitt Exp $
  */
 
 /* This output module operates with four threads:
@@ -236,6 +236,7 @@ int ibmtts_voice_speed;
 /* Internal function prototypes for main thread. */
 static void ibmtts_set_language(char *lang);
 static void ibmtts_set_voice(EVoiceType voice);
+static char* ibmtts_voice_enum_to_str(EVoiceType voice);
 static void ibmtts_set_language_and_voice(char *lang, EVoiceType voice);
 static void ibmtts_set_rate(signed int rate);
 static void ibmtts_set_pitch(signed int pitch);
@@ -1027,30 +1028,15 @@ static enum ECILanguageDialect ibmtts_dialect_to_code(char *dialect_name)
         ibmtts_log_eci_error();
         return NODEFINEDCODESET;
     }
-    sscanf(dialect->code, "%X", &code);
+    sscanf(dialect->code, "%08X", &code);
     return code;
 }
 
-/* Given a language code and SD voice code, sets the IBM voice dialect based
-   upon VOICES table in config file. */
-static void ibmtts_set_language_and_voice(char *lang, EVoiceType voice)
+static char*
+ibmtts_voice_enum_to_str(EVoiceType voice)
 {
-    /* Map language and symbolic voice name to dialect name. */
-    DBG("Ibmtts: setting language %s and voice %i", lang, voice);
-    char *dialect_name = module_getvoice(lang, voice);
-    DBG("Ibmtts: dialect_name = %s", dialect_name);
-    /* Map dialect name to dialect code. */
-    enum ECILanguageDialect dialect = ibmtts_dialect_to_code(dialect_name);
-    DBG("Ibmtts: converted dialect code = %X", dialect);
-
-    /* Set the dialect. */
-    int ret = eciSetParam(eciHandle, eciLanguageDialect, dialect);
-    if (-1 == ret) {
-        DBG("Ibmtts: FATAL: Unable to set dialect (%s = %i)", dialect_name, dialect);
-        ibmtts_log_eci_error();
-    }
-    /* Get voice parameters (if any are defined for this voice.) */
-    char* voicename = NULL;
+    /* TODO: Would be better to move this to module_utils.c. */
+    char *voicename;
     switch (voice) {
         case NO_VOICE:      voicename = strdup("no voice");     break;
         case MALE1:         voicename = strdup("male1");        break;
@@ -1063,8 +1049,55 @@ static void ibmtts_set_language_and_voice(char *lang, EVoiceType voice)
         case CHILD_FEMALE:  voicename = strdup("child_female"); break;
         default:            voicename = strdup("no voice");     break;
     }
+    return voicename;
+}
+
+/* Given a language code and SD voice code, sets the IBM voice dialect based
+   upon VOICES table in config file. */
+static void
+ibmtts_set_language_and_voice(char *lang, EVoiceType voice)
+{
+    char *dialect_name;
+    enum ECILanguageDialect dialect_code = NODEFINEDCODESET;
+    char *voicename = ibmtts_voice_enum_to_str(voice);
+    int eciVoice;
+    int ret = -1;
+    /* Map language and symbolic voice name to dialect name. */
+    dialect_name = module_getvoice(lang, voice);
+    if (NULL != dialect_name) {
+         /* Map dialect name to dialect code. */
+         dialect_code = ibmtts_dialect_to_code(dialect_name);
+         if (NODEFINEDCODESET != dialect_code) {
+             /* Set the dialect. */
+             ret = eciSetParam(eciHandle, eciLanguageDialect, dialect_code);
+        }
+    }
+    if (-1 == ret) {
+        DBG("Ibmtts: Unable to set language %s and voice %s,  dialect %08X.",
+            lang, voicename, dialect_code);
+        ibmtts_log_eci_error();
+    } else
+        DBG("Ibmtts: Successfully set language %s and voice %s, dialect %s = %08X.",
+            lang, voicename, dialect_name, dialect_code);
+    /* Set voice parameters (if any are defined for this voice.) */
     TIbmttsVoiceParameters *params = g_hash_table_lookup(IbmttsVoiceParameters, voicename);
-    if (NULL != params) {
+    if (NULL == params) {
+        DBG("Ibmtts: Setting default VoiceParameters for voice %s", voicename);
+        switch (voice) {
+            case MALE1:         eciVoice = 1;   break;  /* Adult Male 1 */
+            case MALE2:         eciVoice = 4;   break;  /* Adult Male 2 */
+            case MALE3:         eciVoice = 5;   break;  /* Adult Male 3 */
+            case FEMALE1:       eciVoice = 2;   break;  /* Adult Female 1 */
+            case FEMALE2:       eciVoice = 6;   break;  /* Adult Female 2 */
+            case FEMALE3:       eciVoice = 7;   break;  /* Elderly Female 1 */
+            case CHILD_MALE:    eciVoice = 3;   break;  /* Child */
+            case CHILD_FEMALE:  eciVoice = 3;   break;  /* Child */
+            default:            eciVoice = 1;   break;  /* Adult Male 1 */
+        }
+        ret = eciCopyVoice(eciHandle, eciVoice, 0);
+        if (-1 == ret) DBG("Ibmtts: ERROR: Setting default voice parameters (voice %i).",
+            eciVoice);
+    } else {
         DBG("Ibmtts: Setting custom VoiceParameters for voice %s", voicename);
         ret = eciSetVoiceParam(eciHandle, 0, eciGender, params->gender);
         if (-1 == ret) DBG("Ibmtts: ERROR: Setting gender %i", params->gender);
