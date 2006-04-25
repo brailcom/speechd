@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.19 2006-04-24 23:07:51 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.20 2006-04-25 11:27:43 cramblitt Exp $
  */
 
 /* This output module operates with four threads:
@@ -538,13 +538,18 @@ module_stop(void)
 {
     DBG("Ibmtts: module_stop().");
 
-    /* Request both synth and playback threads to stop what they are doing
-       (if anything). */
-    ibmtts_stop_synth_requested = IBMTTS_TRUE;
-    ibmtts_stop_play_requested = IBMTTS_TRUE;
+    if ((is_thread_busy(&ibmtts_synth_suspended_mutex) ||
+        is_thread_busy(&ibmtts_play_suspended_mutex)) &&
+        !is_thread_busy(&ibmtts_stop_or_pause_suspended_mutex)) {
 
-    /* Wake the stop_or_pause thread. */
-    sem_post(ibmtts_stop_or_pause_semaphore);
+        /* Request both synth and playback threads to stop what they are doing
+           (if anything). */
+        ibmtts_stop_synth_requested = IBMTTS_TRUE;
+        ibmtts_stop_play_requested = IBMTTS_TRUE;
+
+        /* Wake the stop_or_pause thread. */
+        sem_post(ibmtts_stop_or_pause_semaphore);
+    }
 
     return OK;
 }
