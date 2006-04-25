@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.20 2006-04-25 11:27:43 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.21 2006-04-25 11:43:13 cramblitt Exp $
  */
 
 /* This output module operates with four threads:
@@ -840,7 +840,13 @@ _ibmtts_synth(void* nothing)
            Actually, what is happening is no audio callback occurs, so
            this output module waits forever for something that never comes. */
         if (scan_msg)
-            if (0 == strncmp("<speak></speak>", pos, 15)) scan_msg = IBMTTS_FALSE;
+            if (0 == strncmp("<speak>\n</speak>", pos, 16)) {
+                scan_msg = IBMTTS_FALSE;
+                ibmtts_add_flag_to_playback_queue(IBMTTS_QET_BEGIN);
+                ibmtts_add_flag_to_playback_queue(IBMTTS_QET_END);
+                if (!is_thread_busy(&ibmtts_play_suspended_mutex))
+                    sem_post(ibmtts_play_semaphore);
+            }
 
         if (scan_msg) ibmtts_add_flag_to_playback_queue(IBMTTS_QET_BEGIN);
         while (scan_msg) {
