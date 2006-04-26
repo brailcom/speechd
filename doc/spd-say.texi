@@ -138,6 +138,14 @@ up most cases:
  $ cat INSTALL | fmt -u -w 1500 | spd-say -e
 @end example
 
+If the text itself contains @emph{!-!}, just make sure it is not at the start
+of the line to prevent it from being interpreted as a SSIP command.  The following
+sed command will do the job:
+
+@example
+ $ cat myfile | sed -e 's/^!-!/ !-!/g' - | spd-say -e
+@end example
+
 The input is sent to Speech Dispatcher as fast as it will accept and queue it.
 To wait for each line to be spoken, use the @code{--wait} or @code{-w} option.  Example:
 
