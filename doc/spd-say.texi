@@ -6,6 +6,8 @@
 @c @setchapternewpage odd
 @c %**end of header
 
+@set VERSION 0.4
+
 @dircategory Sound
 
 @direntry
@@ -19,9 +21,9 @@
 @page
 @vskip 0pt plus 1filll
 
-This manual documents Speech Dispatcher, version @value{VERSION}.
+This manual documents Say for Speech Dispatcher, version @value{VERSION}.
 
-Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
+Copyright @copyright{} 2001, 2002, 2003, 2006 Brailcom, o.p.s.
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
@@ -37,9 +39,9 @@ Free Documentation License".
 @ifnottex
 @node Top,  , (dir), (dir)
 
-This manual documents Say for Speech Dispatcher, version 0.1.
+This manual documents Say for Speech Dispatcher, version @value{VERSION}.
 
-Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
+Copyright @copyright{} 2001, 2002, 2003, 2006 Brailcom, o.p.s.
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document under the
@@ -54,12 +56,14 @@ in the section entitled "GNU Free Documentation License".
 @heading Say for Speech Dispatcher
 @end ifhtml
 
+@chapter General
+
 @code{spd-say} is a very simple client for Speech Dispatcher that takes some text from the
 command line and some simple parameters and passes them to Speech Dispatcher
 for synthesis. The resulting synthesized speech is then played on your speakers.
 It can also be used for stopping and cancelling speech on Speech Dispatcher.
 
-Usage: @code{spd-say [options] "some text"}
+Usage: @code{spd-say [options] ["some text"]}
 
 
 @table @code
@@ -82,6 +86,9 @@ Set the punctuation mode (none, some, all).
 Spell the message
 @item -x or --ssml
 Set SSML mode on (default: off).  The text contains SSML markup.
+@item -e or --pipe-mode
+Set pipe mode on (default: off).  Reads text from stdin, writes to stdout, and also
+sends to Speech Dispatcher.
 @item -w or --wait
 Wait till the end of speaking the message. In this mode, spd-say returns only after
 the message is fully spoken on the speakers or after it gets discarded.
@@ -97,6 +104,44 @@ Print version and copyright info.
 @item -h or --help
 Print a short help message.
 @end table
+
+@chapter Pipe Mode
+
+In pipe mode (option @code{--pipe-mode} or @code{-e}), spd-say reads text from stdin, writes to stdout,
+and also sends the text to Speech Dispatcher.  Example:
+
+@example
+ $ cat README | spd-say -e
+@end example
+
+If a line begins with the characters
+@emph{!-!}, the line is sent to Speech Dispatcher as a SSIP command.  Example:
+
+@example
+ $ spd-say --pipe-mode
+ The quality of mercy is not strained.
+ !-!SET SELF VOICE FEMALE1
+ It droppeth as the gentle rain from heaven
+ Upon the place beneath: it is twice blest;
+ !-!SET SELF RATE 50
+ It blesseth him that gives and him that takes.
+ ^D
+@end example
+
+Note that each line of input is individually sent to Speech Dispatcher, therefore
+in the example above, the word @emph{heaven} is taken as the end of a sentence.
+It should be possible to use other text filtering utilities, such as @code{tr}
+or @code{fmt} to compensate.
+
+The input is sent to Speech Dispatcher as fast as it will accept and queue it.
+To wait for each line to be spoken, use the @code{--wait} or @code{-w} option.  Example:
+
+@example
+ $ spd-say --pipe-mode -w
+ This line is spoken and processing waits for speaking to finish
+ before this line is sent to Speech Dispatcher.
+ ^D
+@end example
 
 @bye
 

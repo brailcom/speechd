@@ -1,4 +1,11 @@
-2006-04-21  Gary Cramblitt <garycramblitt@comcast.net>
+2006-04-25  Gary Cramblitt <garycramblitt@comcast.net>
+
+	* src/c/clients/say/say.c, options.h, options.c:
+	* doc/spd-say.texi: Add --pipe-mode (-e), which reads text from stdin,
+	writes to stdout, and also sends the text to Speech Dispatcher.
+	Bump to version 0.4.
+
+2006-04-23  Gary Cramblitt <garycramblitt@comcast.net>
 
 	* config/modules/ibmtts.conf:
 	* src/modules/ibmtts.c:

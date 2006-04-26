@@ -18,14 +18,14 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.c,v 1.7 2006-04-10 21:57:28 cramblitt Exp $
+ * $Id: options.c,v 1.8 2006-04-26 00:42:31 cramblitt Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would
    get repetitive initializations warnings */
 
 #define PACKAGE "spd-say"
-#define VERSION "0.3"
+#define VERSION "0.4"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -57,6 +57,7 @@ options_print_help(char *argv[])
 	   "-s, --spelling         -     Spell the message\n"
            "-x, --ssml             -     Set SSML mode on (default: off)\n"
            "\n"
+           "-e, --pipe-mode        -     Pipe from stdin to stdout plus Speech Dispatcher\n"
            "-P, --priority         -     Set priority of the message (important, message,\n"
            "                                text, notification, progress; default: text)\n"
            "-N, --application-name -     Set the application name used to estabilish\n"
@@ -88,7 +89,7 @@ void
 options_print_version()
 {
     printf("spd-say: "PACKAGE" "VERSION"\n");
-    printf("Copyright (C) 2002-2005 Brailcom, o.p.s.\n"
+    printf("Copyright (C) 2002-2006 Brailcom, o.p.s.\n"
            "spd-say comes with ABSOLUTELY NO WARRANTY.\n"
            "You may redistribute copies of spd-say\n"
            "under the terms of the GNU General Public License.\n"
@@ -157,6 +158,9 @@ options_parse(int argc, char *argv[])
 	case 's':
 	    spelling = 1;
 	    break;
+        case 'e':
+            pipe_mode = 1;
+            break;
 	case 'P':
 	    OPT_SET_STR(priority);
 	    break;
