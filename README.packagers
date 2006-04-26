@@ -1,8 +1,6 @@
 Notes for packagers of Speech Dispatcher.
 
 Speech Dispatcher now includes an output module for the IBM TTS synthesizer.
-Since IBM TTS is a commercial, closed source synthesizer, we recommend
-building a separate package (speech-dispatcher-extra) containing it.
 
 In order to build the ibmtts output module, you will need one of two things:
 
