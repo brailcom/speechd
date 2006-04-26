@@ -1,0 +1,28 @@
+Notes for packagers of Speech Dispatcher.
+
+Speech Dispatcher now includes an output module for the IBM TTS synthesizer.
+Since IBM TTS is a commercial, closed source synthesizer, we recommend
+building a separate package (speech-dispatcher-extra) containing it.
+
+In order to build the ibmtts output module, you will need one of two things:
+
+  1.  An install of the commercial IBM TTS synthesizer (for Linux), or
+
+  2.  The sdk for IBM TTS, which contains the headers and a "stub library" for
+      linking against.  The sdk can be obtained here:
+
+      http://ibmtts-sdk.sourceforge.net/
+
+      It isn't obvious on that website, but you download the sdk using cvs:
+
+      cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/ibmtts-sdk login 
+
+      cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/ibmtts-sdk co
+        -P sdk
+
+      The sdk is licensed using a BSD-style license.
+
+You will also need libsndfile in order to enable sound icon emulation with the
+ibmtts output module.  (As of Apr 2006, the Debian packages you need are
+libsndfile1 and libsndfile1-dev.)  If you build with libsndfile, be sure that
+is a DEPENDS in your package.
