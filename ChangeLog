@@ -1,3 +1,7 @@
+2006-05-07  Gary Cramblitt <garycramblitt@comcast.net>
+
+	* config/modules/espeak-generic.conf: Support for pitch adjustment and better mappings.
+
 2006-04-25  Gary Cramblitt <garycramblitt@comcast.net>
 
 	* src/c/clients/say/say.c, options.h, options.c:
