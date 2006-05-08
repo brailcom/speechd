@@ -68,22 +68,23 @@ Usage: @code{spd-say [options] ["some text"]}
 
 @table @code
 @item -r or --rate
-Set the rate of the speech (between -100 and +100, 0 is default).
+Set the rate of the speech (between -100 and +100, default see below).
 @item -p or --pitch
-Set the pitch of the speech (between -100 and +100, 0 is default).
+Set the pitch of the speech (between -100 and +100, default see below).
 @item -i or --volume
-Set the volume (intensity) of the speech (between -100 and +100, 0 is default).
+Set the volume (intensity) of the speech (between -100 and +100, default see below).
 @item -o or --output-module
-Set the output module.
+Set the output module.  Default see below.
 @item -l or --language
 Set the language. The parameter is an iso language code, like @code{en} or @code{cs}.
+Default see below.
 @item -t or --voice-type
 Set the prefered voice type (male1, male2, male3, female1, female2,
 female3, child_male, child_female).
 @item -m or --punctuation-mode
-Set the punctuation mode (none, some, all).
+Set the punctuation mode (none, some, all).  Default see below.
 @item -s or --spelling
-Spell the message
+Spell the message.
 @item -x or --ssml
 Set SSML mode on (default: off).  The text contains SSML markup.
 @item -e or --pipe-mode
@@ -104,6 +105,19 @@ Print version and copyright info.
 @item -h or --help
 Print a short help message.
 @end table
+
+Defaults for rate, pitch, and volume are determined by @code{DefaultRate},
+@code{DefaultPitch}, and @code{DefaultVolume} settings in the @code{speechd.conf} file.
+Factory defaults are 0, 0, and 100 respectively.
+
+The default language code is determined by the @code{DefaultLanguage} setting in
+the @code{speechd.conf} file.  Factory default is @code{en} (English).
+
+The default output module is determined by the @code{LanguageDefaultModule}
+setting in the @code{speechd.conf} file.  Factory default is @code{flite}.
+
+The default punctuation mode is determined by the @code{DefaultPunctuationMode}
+setting in the @code{speechd.conf} file.  Factory default is @code{none}.
 
 @chapter Pipe Mode
 
