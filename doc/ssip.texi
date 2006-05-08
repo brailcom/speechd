@@ -870,6 +870,10 @@ following command:
 SET SELF LANGUAGE cs
 @end example
 
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultLanguage} setting in the
+@code{speechd.conf} file.  The factory default is @code{en} (English).
+
 @item SET @{self@} SSML_MODE  @var{mode}
 Set the mode of the text received in the message body sent by the
 @code{SPEAK} command. This can be either a plain text, if @code{mode}
@@ -897,11 +901,17 @@ Set punctuation mode to the given value.  @code{all} means speak all
 punctuation characters, @code{none} means speak no punctuation characters,
 @code{some} means speak only punctuation characters set in the synthesizer's
 configuration.
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultPunctuationMode} setting in the
+@code{speechd.conf} file.  The factory default is @code{none}.
 
 @item SET @{ all | self | @var{id} @} SPELLING @{ on | off @}
 Switch spelling on or off.  If spelling is set to on, all the
 incoming messages will be said letter-by-letter, instead of
 speaking them as whole words.
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultSpelling} setting in the
+@code{speechd.conf} file.  The factory default is @code{off}.
 
 @item SET @{ all | self | @var{id} @} CAP_LET_RECOGN @{ none | spell | icon @}
 Set capital letters recognition mode. @code{none} switches this
@@ -910,6 +920,9 @@ in the speech using the table set as @code{CAP_LET_RECOGN_TABLE}.
 With parameter @code{icon}, each capital letter will be preceeded
 by a sound icon (either sound or textual) specified by the user
 in his configuration.
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultCapLetRecognition} setting in the
+@code{speechd.conf} file.  The factory default is @code{none}.
 
 @item SET @{ all | self | @var{id} @} VOICE @var{name}
 Set the voice identified by @var{name}.  @var{name} must be one of the voice
@@ -919,23 +932,33 @@ Retrieval Commands}).
 There is a standard set of voice identifiers defined in @ref{Standard
 Voices}.
 
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultVoiceType} setting in the
+@code{speechd.conf} file.  The factory default is @code{MALE1}.
+
 @item SET @{ all | self | @var{id} @} RATE @var{n}
 Set the rate of speech.  @var{n} is an integer value within the range
-from -100 to 100, with 0 corresponding to the default rate of the
-current speech synthesis output module, lower values meaning slower
+from -100 to 100, lower values meaning slower
 speech and higher values meaning faster speech.
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultRate} setting in the
+@code{speechd.conf} file.  The factory default is 0.
 
 @item SET @{ all | self | @var{id} @} PITCH @var{n}
 Set the pitch of speech.  @var{n} is an integer value within the range
-from -100 to 100, with 0 corresponding to the default pitch of the
-current speech synthesis output module, lower values meaning lower
+from -100 to 100, lower values meaning lower
 pitch and higher values meaning higher pitch.
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultPitch} setting in the
+@code{speechd.conf} file.  The factory default is 0.
 
 @item SET @{ all | self | @var{id} @} VOLUME @var{n}
 Set the volume of speech.  @var{n} is an integer value within the range
-from -100 to 100, with 0 corresponding to the default volume of the
-current speech synthesis output module, lower values meaning lower
+from -100 to 100. lower values meaning lower
 volume and higher values meaning higher volume.
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultVolume} setting in the
+@code{speechd.conf} file.  The factory default is 100.
 
 @item SET @{ all | self | @var{id} @} PAUSE_CONTEXT @var{n}
 Set the number of (more or less) sentences that should be repeated
@@ -943,6 +966,9 @@ after a previously paused text is resumed. If there isn't enough text
 before the pause spot, the entire message is repeated. @var{n}
 is a positive integer value specifying the number of sentences to
 repeat.
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultPauseContext} setting in the
+@code{speechd.conf} file.  The factory default is 0.
 
 @item SET @{ all | self | @var{id} @} HISTORY @{ on | off @}
 Enable (@code{on}) or disable (@code{off}) storing of received
