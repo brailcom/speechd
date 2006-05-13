@@ -13,10 +13,9 @@ In order to build the ibmtts output module, you will need one of two things:
 
       It isn't obvious on that website, but you download the sdk using cvs:
 
-      cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/ibmtts-sdk login 
+      cvs -d:pserver:anonymous@ibmtts-sdk.cvs.sourceforge.net:/cvsroot/ibmtts-sdk login 
 
-      cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/ibmtts-sdk co
-        -P sdk
+      cvs -d:pserver:anonymous@ibmtts-sdk.cvs.sourceforge.net:/cvsroot/ibmtts-sdk co sdk
 
       The sdk is licensed using a BSD-style license.
 
