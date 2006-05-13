@@ -1,3 +1,38 @@
+2006-05-13  Hynek Hanke  <hanke@chopin>
+
+	* figures: New diagram added for future architecture. Source
+	in Kivio.
+	
+	* speech-dispatcher-cs.texi: Bug fixed.
+
+	* speech-dispatcher.texi (Basic Design): Mention future -- Message
+	Dispatcher. Architecture diagram describing the future included.
+
+2006-04-25  Gary Cramblitt <garycramblitt@comcast.net>
+	
+	* doc/spd-say.texi: Add --pipe-mode (-e), which reads text from stdin,
+	writes to stdout, and also sends the text to Speech Dispatcher.
+	Bump to version 0.4.
+
+	* doc/ssip.texi: Clarify KEY allowed characters.
+
+	* doc/ssip.texi: Clarify module_pause(), module_stop(), and
+	module_report_*.
+
+	* doc/ssip.texi: Minor correction for CANCEL notification.
+
+	* doc/spd-say.texi: Add --ssml (-x) option for speaking SSML text.
+
+	* doc/speech-dispatcher.texi: Corrections and clarifications.
+
+	* doc/ssip.texi, spd-say.texi: Spelling and grammer corrections.
+
+	* doc/speech-dispatcher.texi: Spelling and grammar corrections.
+
+	* doc/figures/architecture.pdf: Make image smaller so it fits on
+	pdf page.
+
+	
 2006-03-31  Tomas Cerha  <cerha@brailcom.org>
 
 	* figures/architecture.pdf (Module): Converted to an unscaled
@@ -52,8 +87,8 @@
 	having any real effect on the simple synthesizers.
 
 	* speech-dispatcher.texi (Invoking): Typo.
-	(Multiple Output Modules): A more complex description including a warning about the missing
-	capabilities of some synthesizers.
+	(Multiple Output Modules): A more complex description including a
+	warning about the missing capabilities of some synthesizers.
 	(Current State): Updated.
 
 2004-10-18  Hynek Hanke  <hanke@brailcom.org>
@@ -154,8 +189,8 @@
 
 2003-11-07  Hynek Hanke  <hanke@volny.cz>
 
-	* speechd.texi (Speech Synthesis Commands in C): SPDPriority substitued
-	everywhere instead of char*.
+	* speechd.texi (Speech Synthesis Commands in C): SPDPriority
+	substitued everywhere instead of char*.
 
 2003-10-27  Milan Zamazal  <pdm@brailcom.org>
 
@@ -175,8 +210,9 @@
 
 2003-10-20  Hynek Hanke  <hanke@volny.cz>
 	
-	* speechd-cs.texi: Cleaning, language and coding specification. Top node
-	name such that it coexists with speechd.texi. Corrected grammar mistakes.
+	* speechd-cs.texi: Cleaning, language and coding
+	specification. Top node name such that it coexists with
+	speechd.texi. Corrected grammar mistakes.
 
 	* Makefile.am (info_TEXINFOS): Also build speechd-cs.texi
 
@@ -185,34 +221,39 @@
 	* speechd.texi: Cleaning, empty sections fillwed with information,
 	updating.
 
-	* speechd-cs.texi: New file. Basic information and user documentation in Czech.
+	* speechd-cs.texi: New file. Basic information and user
+	documentation in Czech.
 
 2003-10-02  Hynek Hanke  <hanke@volny.cz>
 
-	* speechd.texi (Tables Configuration): Text transformation tables removed.
-	Updated.
-	(Tables Configuration): Added warning about "temporarility" of our solution
-	with the remaining tables and our wish to remove them from speechd.
+	* speechd.texi (Tables Configuration): Text transformation tables
+	removed.  Updated.
+	(Tables Configuration): Added warning about "temporarility" of our
+	solution with the remaining tables and our wish to remove them
+	from speechd.
 	(Evemt Tables (ET)): Renamed.
-	(Evemt Tables (ET)): Added warning about "temporarility" of this solution.
+	(Evemt Tables (ET)): Added warning about "temporarility" of this
+	solution.
 	(Evemt Tables (ET)): Removed some tables.
 	(Parameter Setting Commands): SET * TABLE marked as deprecated.
 	(Information Retrieval Commands): LIST table commands removed.
-	(History Handling Commands): Note that the implementation of history
-	is still incomplete.
-	(The Skeleton of an Output Module): Updated info about the DBG() mechanism.
+	(History Handling Commands): Note that the implementation of
+	history is still incomplete.
+	(The Skeleton of an Output Module): Updated info about the DBG()
+	mechanism.
 	(Initialization Macros and Functions): DBG() is now configurable.
 
 2003-10-01  Hynek Hanke  <hanke@volny.cz>
 
-	* speechd.texi (TTT Types): Spelling, punctuation and capital letters recognition
-	marked as only suplementary for the "general" filtering.
+	* speechd.texi (TTT Types): Spelling, punctuation and capital
+	letters recognition marked as only suplementary for the "general"
+	filtering.
 	(Configuration file syntax): About comments.
 	(Writing tables and modifying): The "generic" language mentioned.
 	(Configuration of the Generic Output Module): New section.
 	(Functions for use when talking to synthesizer): Index marks.
-	(Output Module Functions): Index marks.
-	Other less important changes.
+	(Output Module Functions): Index marks.  Other less important
+	changes.
 
 2003-09-29  Hynek Hanke  <hanke@volny.cz>
 
@@ -227,7 +268,8 @@
 	(The Skeleton of an Output Module): New section.
 	(Output Module Functions): Updated.
 	(Module Utils Functions and Macros): New subsection.
-	(Output Modules Configuration): Reworked to reflect the new mechanism.
+	(Output Modules Configuration): Reworked to reflect the new
+	mechanism.
 
 2003-09-19  Milan Zamazal  <pdm@brailcom.org>
 
@@ -270,14 +312,13 @@
 	I may introduced new problems or wiped out someone's contribution
 	accidentally, I'm sorry.
 
-	* speechd.texi: Include version.texi again. It's not missing, it's automatically
-	generated by the auto-tools.
+	* speechd.texi: Include version.texi again. It's not missing, it's
+	automatically generated by the auto-tools.
 	(Invoking): Command line options of Speech Dispatcher.
 	(Speech synthesis and sound output commands): Removed the sentence
-	that ``The particular way how the message is handled is [...]
-	out of scope of SSIP.'' There are SSIP SET commands that can
-	influence the message, not only the static configuration in
-	speechd.conf.
+	that ``The particular way how the message is handled is [...]  out
+	of scope of SSIP.'' There are SSIP SET commands that can influence
+	the message, not only the static configuration in speechd.conf.
 
 	* speechd.texi (Tables configuration): Some documentation about tables.
 	(C API): The suffix of the subnodes ``(C)'' changed to ``in C'', because
@@ -287,9 +328,11 @@
 
 	* Makefile.am (html_docs): New rules to build target HTML.
 	
-	* speechd.texi (Blocks of messages commands): New subsection about SSIP.
+	* speechd.texi (Blocks of messages commands): New subsection about
+	SSIP.
 	(Description of priorities): Tuning.
-	(Multiple output modules): Mention the LanguageDefaultmodule option.
+	(Multiple output modules): Mention the LanguageDefaultmodule
+	option.
 	(Parameter setting commands): Added missing "self" in examples.
 	(General rules): Mention the ``{id | all | self}'' mechanism.
 
@@ -320,20 +363,22 @@
 
 	* speechd.texi (C API): New functions added.
 
-	* speechd.texi (Parameter setting commands): New SSIP commands for capital letters
-	recognition.
-	Spellchecked.
-	(Output module functions): Some more info about how to write output modules.
+	* speechd.texi (Parameter setting commands): New SSIP commands for
+	capital letters recognition.  Spellchecked.
+	(Output module functions): Some more info about how to write
+	output modules.
 
 2003-06-08  Hynek Hanke  <hanke@localhost.localdomain>
 
-	* speechd.texi (Output module functions): module_load and module_init distinguished.
+	* speechd.texi (Output module functions): module_load and
+	module_init distinguished.
 	(Priorities): Reworked, diagram added.
 	(Parameter setting commands (C)): Documented missing commands.
 
 2003-05-26	Hynek Hanke  <hanke@volny.cz>
 
-	* speechd.texi (SSIP): LIST SPELLING_TABLES only lists available tables (fixed).
+	* speechd.texi (SSIP): LIST SPELLING_TABLES only lists available
+	tables (fixed).
 
 
 2003-05-26  Milan Zamazal  <pdm@brailcom.org>
@@ -578,3 +623,4 @@
 
 	* analysis.xml: Minor changes and fixes.
 
+ 
