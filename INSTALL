@@ -83,6 +83,37 @@ you know what you are doing.
 
 We recommend to use ALSA if possible on your system.
 
+Notes about IBM TTS support
+===========================
+
+In order to build the propriatary (non-free software) ibmtts output
+module, you will need one of two things:
+
+  1.  An install of the proprietary commercial IBM TTS synthesizer (for Linux),
+or
+
+  2.  The sdk for IBM TTS, which contains the headers and a "stub library" for
+      linking against. This SDK is Free Software and freely available, however
+      it doesn't contain the synthesizer. It will enable you to build the
+      module, but this module will give you no sound until you install the
+      synthesizer itself.
+
+The sdk can be obtained here:
+
+      http://ibmtts-sdk.sourceforge.net/
+
+      It isn't obvious on that website, but you download the sdk using cvs:
+
+      cvs -d:pserver:anonymous@ibmtts-sdk.cvs.sourceforge.net:/cvsroot/ibmtts-sdk login 
+
+      cvs -d:pserver:anonymous@ibmtts-sdk.cvs.sourceforge.net:/cvsroot/ibmtts-sdk co sdk
+
+      The sdk is licensed using a BSD-style license.
+
+You will also need libsndfile in order to enable sound icon emulation with the
+ibmtts output module.  (As of Apr 2006, the Debian packages you need are
+libsndfile1 and libsndfile1-dev.)
+
 Continue building Speech Dispatcher
 ===================================
 
