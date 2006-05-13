@@ -217,10 +217,10 @@ TODO:
 V této sekci je detailnìj¹í popis základních funkcí Speech Dispatcheru.
 
 @menu
-* Model priorit zpráv::       Zpracování souèasnì pøíchozích zpráv  
-* Historie zpráv::            Ukládání zpráv pro pozdìj¹í nahlédnutí
-* Více výstupních modulù::    Interakce s rùznými syntetizéry  
-* Autentifikace u¾ivatelù::   Autentifikace pro pøístup k historii  
+* Model priorit zpráv::         Zpracování souèasnì pøíchozích zpráv  
+* Historie zpráv::              Ukládání zpráv pro pozdìj¹í nahlédnutí
+* Více výstupních modulù::      Interakce s rùznými syntetizéry  
+* Autentifikace u¾ivatelù::     Autentifikace pro pøístup k historii  
 @end menu
 
 @node Model priorit zpráv, Historie zpráv, Základní funkce, Základní funkce
@@ -835,7 +835,7 @@ dat. Pou¾ívejte opatrnì.)
 @end itemize
 @end itemize
 
-@appendixsec Standardní hlasy
+@appendix Standardní hlasy
 @anchor{Standardní hlasy}
 
 @table @code
