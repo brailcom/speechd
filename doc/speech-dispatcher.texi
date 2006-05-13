@@ -172,7 +172,8 @@ Dispatcher, we are taking the first steps...
 @node Basic Design, Features Overview, Motivation, Introduction
 @section Design
 @cindex Design
-        
+
+@heading Current Design        
 The communication between all applications and synthesizers, when
 implemented directly, is a mess. For this purpose, we wanted
 Speech Dispatcher to be a layer separating applications and
@@ -201,6 +202,31 @@ are handled by the output plug-ins (output modules) for different
 hardware and software synthesizers and then said aloud.
 
 @image{figures/architecture,155mm,,Speech Dispatcher architecture}
+
+@heading Future Design
+
+Speech Dispatcher currently mixes two important features: common
+low-level interface to multiple speech synthesizers and message
+management (including priorities and history). This became even more
+evident when we started thinking about handling messages intended for
+output on braille devices.  Such messages of course need to be
+synchronized with speech messages and there is little reason why the
+accessibility tools should send the same message twice for
+these two different kinds of output used by blind people (often
+simultaneously).
+
+In near future, we would like to split Speech Dispatcher into two
+independent components: one providing a low-level interface to
+speech synthesis drivers, which we now call TTS API Provider, and the
+second doing message managemenet, some Message Dispatcher. This will
+allow Message Dispatcher to also output on Braille.
+
+While a good API and its implementation for Braille are already
+existent in the form of BrlAPI, the API for speech is now under active
+developement. Please see another architecture diagram showing how we
+imagine Message Dispatcher in the future.
+
+@image{figures/architecture-future,155mm,,Speech Dispatcher architecture}
 
 See also the detailed description @ref{Client Programming} interfaces, and
 @ref{Server Programming} documentation.
@@ -1104,23 +1130,24 @@ about current external client libraries.
 @node Initializing and Terminating in C, Speech Synthesis Commands in C, C API, C API
 @subsection Initializing and Terminating
 
-@deffn {C API function} SPDConnection* spd_open(char* client_name, char* connection_name, char* user_name,
-                                       SPDConnectionMode connection_mode)
+@deffn {C API function} SPDConnection* spd_open(char* client_name, char* connection_name, char* user_name, SPDConnectionMode connection_mode)
 @findex spd_open()
 
-Opens a new connection to Speech Dispatcher and returns a socket file descriptor you will
-use to communicate with Speech Dispatcher. The socket file descriptor is a parameter used
-in all the other functions. It reads Speech Dispatcher's port number from the environment
-variable @var{SPEECHD_PORT}.
+Opens a new connection to Speech Dispatcher and returns a socket file
+descriptor you will use to communicate with Speech Dispatcher. The
+socket file descriptor is a parameter used in all the other
+functions. It reads Speech Dispatcher's port number from the
+environment variable @var{SPEECHD_PORT}.
 
-The three parameters @code{client_name}, @code{connection_name} and @code{username}
-are there only for informational and navigational purposes, they don't affect
-any settings or behavior of any functions. The authentication mechanism
-has nothing to do with @code{username}. These parameters are important for
-the user when he wants to set some parameters for a given session, when he
-wants to browse through history, etc. The parameter @code{connection_mode}
-specifies how this connection should be handled internally and if event
-notifications and index marking capabilities will be available.
+The three parameters @code{client_name}, @code{connection_name} and
+@code{username} are there only for informational and navigational
+purposes, they don't affect any settings or behavior of any
+functions. The authentication mechanism has nothing to do with
+@code{username}. These parameters are important for the user when he
+wants to set some parameters for a given session, when he wants to
+browse through history, etc. The parameter @code{connection_mode}
+specifies how this connection should be handled internally and if
+event notifications and index marking capabilities will be available.
 
 @code{client_name} is the name of the client that opens the connection. Normally,
 it should be the name of the executable, for example ``lynx'', ``emacs'', ``bash'',
@@ -1957,7 +1984,7 @@ interface defined in @file{src/server/output.c}.
 @menu
 * Basic Structure::             The definition of an output module.
 * Communication Protocol for Output Modules::  
-* How to Write New Output Module::  How to include support for new synthesizers.
+* How to Write New Output Module::  How to include support for new synthesizers
 * The Skeleton of an Output Module::  
 * Output Module Functions::     
 * Module Utils Functions and Macros::  
@@ -2790,8 +2817,7 @@ to the protocol. Then it calls @code{module_close(0)}.
 @node Functions for use when talking to synthesizer, Multi-process output modules, Functions used by module_main.c, Module Utils Functions and Macros
 @subsubsection Functions for use when talking to synthesizer
 
-@deffn {Module Utils function} static int module_get_message_part (
-const char* message, char* part, unsigned int *pos, size_t maxlen, const char* dividers)
+@deffn {Module Utils function} static int module_get_message_part ( const char* message, char* part, unsigned int *pos, size_t maxlen, const char* dividers)
 @findex  module_get_message_part
 
 Gets a part of the @code{message} according to the specified @code{dividers}.
@@ -2858,10 +2884,7 @@ the whole process.
 @node Multi-process output modules, Memory Handling Functions, Functions for use when talking to synthesizer, Module Utils Functions and Macros
 @subsubsection Multi-process output modules
 
-@deffn {Module Utils function} void module_speak_thread_wfork (sem_t *semaphore,
-pid_t *process_pid, TChildFunction child_function, TParentFunction parent_function,
-int *speaking_flag, char **message, const size_t maxlen, const char *dividers,
-size_t *module_position, int *pause_requested)
+@deffn {Module Utils function} void module_speak_thread_wfork (sem_t *semaphore,pid_t *process_pid, TChildFunction child_function, TParentFunction parent_function, int *speaking_flag, char **message, const size_t maxlen, const char *dividers, size_t *module_position, int *pause_requested)
 @findex module_speak_thread_wfork
 
 This function waits on the specified @code{semaphore} for activity.
@@ -2937,9 +2960,7 @@ typedef struct@{
 @end example
 @end deffn
 
-@deffn {Module Utils function} size_t module_parent_wfork (
-TModuleDoublePipe dpipe, const char* message, const size_t maxlen,
-const char* dividers, int *pause_requested)
+@deffn {Module Utils function} size_t module_parent_wfork ( TModuleDoublePipe dpipe, const char* message, const size_t maxlen, const char* dividers, int *pause_requested)
 @findex module_parent_wfork
 
 This is a generic function that can be used as the @code{parent_function()}
@@ -2987,32 +3008,28 @@ Initializes pipes (dpipe) in the parent. Currently it only closes the unnecessar
 Initializes pipes (dpipe) in the child. Currently it only closes the unnecessary ends.
 @end deffn
 
-@deffn {Module Utils function} void module_child_dp_write(TModuleDoublePipe dpipe,
- const char *msg, size_t bytes)
+@deffn {Module Utils function} void module_child_dp_write(TModuleDoublePipe dpipe,  const char *msg, size_t bytes)
 @findex module_child_dp_write
 Writes the specified number of @code{bytes} from @code{msg} to the pipe to the
 parent. This function is intended, as the prefix says, to be run from the child.
 Uses the pipes defined in @code{dpipe}.
 @end deffn
 
-@deffn {Module Utils function} void module_parent_dp_write(TModuleDoublePipe dpipe,
- const char *msg, size_t bytes)
+@deffn {Module Utils function} void module_parent_dp_write(TModuleDoublePipe dpipe,  const char *msg, size_t bytes)
 @findex module_parent_dp_write
 Writes the specified number of @code{bytes} from @code{msg} into the pipe to the
 child. This function is intended, as the prefix says, to be run from the parent.
 Uses the pipes defined in @code{dpipe}.
 @end deffn
 
-@deffn {Module Utils function} int module_child_dp_read(TModuleDoublePipe dpipe,
- char *msg, size_t maxlen)
+@deffn {Module Utils function} int module_child_dp_read(TModuleDoublePipe dpipe  char *msg, size_t maxlen)
 @findex module_child_dp_read
 Reads up to @code{maxlen} bytes from the pipe from parent into the buffer @code{msg}.
 This function is intended, as the prefix says, to be run from the child.
 Uses the pipes defined in @code{dpipe}.
 @end deffn
 
-@deffn {Module Utils function} int module_parent_dp_read(TModuleDoublePipe dpipe,
- char *msg, size_t maxlen)
+@deffn {Module Utils function} int module_parent_dp_read(TModuleDoublePipe dpipe,  char *msg, size_t maxlen)
 @findex module_parent_dp_read
 Reads up to @code{maxlen} bytes from the pipe from child into the buffer @code{msg}.
 This function is intended, as the prefix says, to be run from the parent.
