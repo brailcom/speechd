@@ -1,33 +1,38 @@
+2006-05-13  Hynek Hanke  <hanke@chopin>
+
+	* ChangeLog: Comments about documentation moved to doc/ChangeLog.
+
 2006-05-07  Gary Cramblitt <garycramblitt@comcast.net>
 
-	* config/modules/espeak-generic.conf: Support for pitch adjustment and better mappings.
+	* config/modules/espeak-generic.conf: Support for pitch adjustment
+	and better mappings.
 
 2006-04-25  Gary Cramblitt <garycramblitt@comcast.net>
 
 	* src/c/clients/say/say.c, options.h, options.c:
-	* doc/spd-say.texi: Add --pipe-mode (-e), which reads text from stdin,
-	writes to stdout, and also sends the text to Speech Dispatcher.
-	Bump to version 0.4.
 
 2006-04-23  Gary Cramblitt <garycramblitt@comcast.net>
 
-	* config/modules/ibmtts.conf:
-	* src/modules/ibmtts.c:
-	* configure.in:
-	* src/modules/Makefile.am: Sound icon emulation.  Requires libsndfile.  Also,
-	permit customization of voices in config file.
+	* config/modules/ibmtts.conf: * src/modules/ibmtts.c: *
+	configure.in: * src/modules/Makefile.am: Sound icon emulation.
+	Requires libsndfile.  Also, permit customization of voices in
+	config file.
 
 	* src/tests/sound_icons.test: Simple test script for sound icons.
 
 2006-04-22  Hynek Hanke  <hanke@chopin>
 
-	* config/modules/espeak-generic.conf: eSpeak generic output module configuration.
+	* config/modules/espeak-generic.conf: eSpeak generic output module
+	configuration.
 
-	* config/speechd.conf.in: Added espeak-generic conf module (commented out).
+	* config/speechd.conf.in: Added espeak-generic conf module
+	(commented out).
 
-	* src/server/speaking.c (speak): Break loop when SPEAKING only after checking for pause. Do not fill resume_requested with 1.
+	* src/server/speaking.c (speak): Break loop when SPEAKING only
+	after checking for pause. Do not fill resume_requested with 1.
 
-	* src/server/set.c (default_fd_set): Initialize paused_while_speaking to 0.
+	* src/server/set.c (default_fd_set): Initialize
+	paused_while_speaking to 0.
 
 	* src/server/server.c (queue_message): Only copy settings and
 	type when we get an fd. For uids, the message settings are
@@ -39,11 +44,8 @@
 	* config/modules/ibmtts.conf:
 	* src/modules/ibmtts.c: Permit per-language key substitution.
 
-	* doc/ssip.texi: Clarify KEY allowed characters.
 
 2006-04-16  Gary Cramblitt <garycramblitt@comcast.net>
-
-	* doc/ssip.texi: Clarify module_pause(), module_stop(), and module_report_*.
 
 	* src/modules/ibmtts.c: Rework stop and pause logic.  You cannot call
 	module_report_* from within a modules_stop() or module_pause call.
@@ -59,19 +61,16 @@
 
 2006-04-11  Gary Cramblitt <garycramblitt@comcast.net>
 
-	* src/tests/run_test.c: Add "wait for <str>" operator.  Useful for waiting
-	for event notifications.
+	* src/tests/run_test.c: Add "wait for <str>" operator.  Useful for
+	waiting for event notifications.
 
 	* src/tests/README: Document "wait for".
 
 	* src/tests/stop_and_pause.test: Use "wait for".
 
-	* doc/ssip.texi: Minor correction for CANCEL notification.
-
 2006-04-10  Gary Cramblitt <garycramblitt@comcast.net>
 
 	* src/c/clients/say/say.c, options.h, options.c:
-	* doc/spd-say.texi: Add --ssml (-x) option for speaking SSML text.
 
 	* config/modules/ibmtts.conf:
 	* config/speechd.conf.in:
@@ -86,9 +85,9 @@
 
 	* src/tests/ssml.test: Start on new SSML test script.
 
-	* src/tests/stop_and_pause.test: A script for testing STOP and PAUSE functions.
+	* src/tests/stop_and_pause.test: A script for testing STOP and
+	PAUSE functions.
 
-	* doc/speech-dispatcher.texi: Corrections and clarifications.
 
 2006-04-10  Hynek Hanke  <hanke@chopin>
 
@@ -122,15 +121,11 @@
 
 2006-03-30  Gary Cramblitt <garycramblitt@comcast.net>
 
-	* doc/ssip.texi, spd-say.texi: Spelling and grammer corrections.
 	* doc/Makefile.am: Correct build error for HTML.
 
 2006-03-29  Gary Cramblitt <garycramblitt@comcast.net>
 
-	* doc/speech-dispatcher.texi: Spelling and grammar corrections.
-	* doc/figures/architecture.pdf: Make image smaller so it fits on pdf page.
 
->>>>>>> 1.264
 2006-03-13  Hynek Hanke  <hanke@chopin>
 
 	* src/audio/oss.c: Include string.h
