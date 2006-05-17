@@ -1,3 +1,7 @@
+2006-05-17  Hynek Hanke  <hanke@chopin>
+
+	* INSTALL: Users must run './configure' before 'make all'.
+
 2006-05-13  Hynek Hanke  <hanke@chopin>
 
 	* README.packagers: Most information about IBM TTS moved to INSTALL.
