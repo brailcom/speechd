@@ -122,6 +122,7 @@ SED to your binary of the sed application. This is usually done as:
 
 $ export SED=sed
 
+$ ./configure
 $ make all
 
 If everything worked ok, you can install all the parts to the default
@@ -147,9 +148,8 @@ Then please do:
  $ cd speech-dispatcher-0.6
  $ ./build.sh
 
-Now the ./configure file should be created and you can proceed like with
+Now the configure file should be created and you can proceed like with
 an ordinary instalation.
-
 
 Installing Festival Speech Dispatcher interface:
 ================================================
