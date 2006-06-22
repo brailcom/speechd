@@ -1,3 +1,13 @@
+2006-06-22  Olivier BERT  <bert_o@epita.fr>
+
+	* Added support for the cicero TTS (french and english).
+	    Cicero TTS URL: www.cam.org/~nico/cicero
+	* Updated config/speechd.conf.in to add the declaration of the
+	 cicero module.
+	* The specific documentation and files for the cicero module are
+	  still at the following URL:
+	  http://www.terramitica.net/projects/speech-dispatcher
+
 2006-05-17  Hynek Hanke  <hanke@chopin>
 
 	* INSTALL: Users must run './configure' before 'make all'.
@@ -82,7 +92,7 @@
 
 	* config/modules/ibmtts.conf:
 	* config/speechd.conf.in:
-	* src/modules/ibmtts.c, Makefile.am: 
+	* src/modules/ibmtts.c, Makefile.am:
 	* src/configure.in.in: New output module for IBM TTS synthesizer.
 	It compiles and even speaks, but don't expect much else right now.
 
@@ -149,7 +159,7 @@
 2006-01-09  Hynek Hanke  <hanke@chopin>
 
 	* src/audio/alsa.c (gettimeofday): 0->NULL
-	
+
 	* src/audio/nas.c (nas_play): gettimeofday takes 2 arguments only
 	under _GNU_SOURCE.
 
@@ -158,10 +168,10 @@
 	* : Missing declarations fixed, cleaning w/r to gcc -Wall
 
 2005-12-22  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* src/c/clients/say/say.c, options.c, options.h: Allow setting of
 	client name and connection name.
-	
+
 	* version.sh: version 0.6rc1
 
 2005-12-07  Hynek Hanke  <hanke@brailcom.org>
@@ -296,7 +306,7 @@ x
 	* src/audio/alsa.c (_alsa_close): Only close the device if it wasn't closed earlier.
 
 2005-10-16  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* src/modules/festival.c (module_speak): Handle
 	festival_connection_crashed == 1
 
@@ -314,7 +324,7 @@ x
 
 	* src/server/speechd.c (speechd_init): Semaphore
 	initialization removed.
-	
+
 	* src/audio/Makefile.am: Include oss.c, alsa.c and nas.c in EXTRA_DIST.
 
 	* src/audio/oss.c (oss_play): Don't fail if it's not possible to set the exact bitrate,
@@ -491,11 +501,11 @@ x
 	pause. Just stop.
 
 	* src/audio/oss.c (oss_play): Removed a timing bug.
-	
+
 	* src/modules/festival.c (module_pause): PAUSE now acts
 	immediatelly. The change of the state is reported by the
 	appropriate index_mark event.
-	
+
 	* src/server/speaking.c (reload_message): Don't free msg->buf since this will be done through current_message.
 
 	* src/server/index_marking.h (SD_MARK_HEAD): Separated into _HEAD and _BODY
@@ -518,7 +528,7 @@ x
 
 	* src/audio/alsa.c (alsa_play): Initialize hw_params each time
 	before setting parameters.
- 
+
 2005-07-10  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/audio/alsa.c (ERR): New macro. Use it, when appropriate.
@@ -623,7 +633,7 @@ x
 
 	* src/server/index_marking.c (insert_index_marks): Escape '<' correctly after a dot.
 
-	* INSTALL: Updated the list of compatible applications.	
+	* INSTALL: Updated the list of compatible applications.
 	New section ``Building from CVS''
 
 	* INSTALL: libaudio removed, speechd doesn't depend on it.
@@ -756,7 +766,7 @@ x
 
 	* configure.in (LIB_SDAUDIO): Version incremented (backwards incompatible).
 
-	* src/audio/spd_audio.c (oss_play): New audio output library with support of stopable 
+	* src/audio/spd_audio.c (oss_play): New audio output library with support of stopable
 	(and possibly non-blocking) OSS output.
 	(oss_play): Some more timing magic.
 
@@ -809,7 +819,7 @@ x
 	* src/python/speechd/_test.py (tests): Added test for escaping dot.
 
 	* configure.in, all Makefiles.am: Don't link unnecessary libraries.
-	
+
 2004-08-12  Milan Zamazal  <pdm@brailcom.org>
 
 	* configure.in (AC_OUTPUT): spdsend added.
@@ -1058,7 +1068,7 @@ x
 
 	* ltmain.sh: Removed.
 	* build.sh: Copy the correct version of ltmain.sh to the source tree.
-	
+
 2004-05-20  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/output.c (output_send_msg): New function.
@@ -1091,13 +1101,13 @@ x
 
 	* src/Makefile.am (EXTRA_DIST): Include the Common Lisp library in the distribution.
 
-	*  (Module): 
+	*  (Module):
 
 	* src/modules/module_main.c: Unused variable removed.
 
-	* src/modules/generic.c: Unused variables cleaned. 
+	* src/modules/generic.c: Unused variables cleaned.
 
-	* src/modules/flite.c: Unused variables cleaned. 
+	* src/modules/flite.c: Unused variables cleaned.
 
 	* src/modules/festival.c (cache_gen_key): bug: == instead of =
 
@@ -1107,7 +1117,7 @@ x
 
 2004-03-31  Hynek Hanke  <hanke@brailcom.org>
 
-	* doc/Makefila.am: speechd.texi and speechd-cs.texi renamed to speech-dispatcher[-cs].texi. 
+	* doc/Makefila.am: speechd.texi and speechd-cs.texi renamed to speech-dispatcher[-cs].texi.
 
 	* src/server/speechd.c (main): Pid file is now speech-dispatcher.pid instead of speechd.pid.
 
@@ -1153,7 +1163,7 @@ x
 
 	* speechd.c, set.c, server.c, parse.c: Use SpeechdSocket ans SpeechdStatus.
 
-	* src/server/module.c: init and load symbols removed (unnecessary). 
+	* src/server/module.c: init and load symbols removed (unnecessary).
 
 	* src/modules/flite.c (module_speak): Strip ssml before sending to Flite.
 
@@ -1162,9 +1172,9 @@ x
 	* src/server/speechd.c (speechd_init): Initialize TSpeechdSock.
 	(speechd_connection_destroy): Also free the buffer.
 
-	* src/server/speechd.h (TSpeechdSock): New structure. 
+	* src/server/speechd.h (TSpeechdSock): New structure.
 
-	* src/server/config.c (table_add): Removed (old&unnecessary). 
+	* src/server/config.c (table_add): Removed (old&unnecessary).
 
 2004-02-23  Hynek Hanke  <hanke@brailcom.org>
 
@@ -1392,14 +1402,14 @@ x
 2003-10-23  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/speaking.c (speak): Insert last priority 5 message as MESSAGE,
-	not TEXT. 
+	not TEXT.
 	Insert it as the first message in the MESSAGE queue.
 
 2003-10-22  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* src/server/parse.c (deescape_dot): Handle doubledot on every beginning of line,
 	not just the ones followed by \r\n.
-	
+
 2003-10-22  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/server/server.c (serve): Log connection descriptors as well.
@@ -1430,22 +1440,22 @@ x
 	* src/modules/module_utils_audio.c (module_add_samples): Check for the terminating
 	sequence \r\nOK_SPEECHD_DATA_SENT\r\n here. It handles the situation when this
 	message comes reparted because of buffering.
-	
+
 	* src/modules/module_utils.c (module_add_samples): Declaration moved to module_utils_audio.c
 
 	* src/c/api/libspeechd.h (SPD_FATAL): Renamed from FATAL as not to cause conflicts.
 	All callers changed.
 
 2003-10-16  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* src/c/api/libspeechd.c (spd_sayf): Correct escaping of \r\n.\r\n
 	(spd_key): Don't enclose argument in quotes.
 	(spd_key): Free the command string.
-	(spd_char): Don't enclose argument in quotes.	
-	(spd_sound_icon): Don't enclose argument in quotes.	
+	(spd_char): Don't enclose argument in quotes.
+	(spd_sound_icon): Don't enclose argument in quotes.
 	(spd_w_set_capital_letter_mode): New function.
 	Cleaning.
-	
+
 	* src/c/api/libspeechd.h (escape_dot): New function.
 
 	* src/c/api/libspeechd.c (spd_open): Now returns -1 on failure.
@@ -1492,7 +1502,7 @@ x
 	Valgrind.
 
 2003-10-13  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* src/modules/festival.c (_festival_parent): Call module_parent_wait_continue() only
 	if some data were sent to synthesis.
 
@@ -1504,7 +1514,7 @@ x
 	* src/modules/module_utils.c (do_message): Strip the trailing '\n'.
 
 2003-10-13  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* configure.in: Don't require librecode.
 
 	* src/tests/long_message.c: Don't use FATAL.
@@ -1545,7 +1555,7 @@ x
 	* src/server/config.c (free_config_options): Bug with array of opts[] fixed.
 
 	* src/modules/cstsnd.c: Removed.
-	
+
 	* src/modules/generic.c: Don't include module.h
 
 	* src/modules/festival.c: Don't include module.h
@@ -1601,7 +1611,7 @@ x
 	* src/modules/Makefile.am (EXTRA_DIST): Include festival-interface in distribution.
 
 2003-10-09  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* src/modules/festival.c (_festival_parent): Wrong debugging message removed.
 
 	* src/modules/module_utils.c (module_get_message_part): Divide message
@@ -1686,11 +1696,11 @@ x
 
 	* src/server/output.c (ADD_SET_STR): Added missing line terminator after "NULL".
 
-	* src/modules/cstsnd.c (module_load):  Call REGISTER_DEBUG().	
+	* src/modules/cstsnd.c (module_load):  Call REGISTER_DEBUG().
 
-	* src/modules/generic.c (module_load):  Call REGISTER_DEBUG().	
+	* src/modules/generic.c (module_load):  Call REGISTER_DEBUG().
 
-	* src/modules/flite.c (module_load):  Call REGISTER_DEBUG().	
+	* src/modules/flite.c (module_load):  Call REGISTER_DEBUG().
 
 	* src/modules/festival.c (module_load): Call REGISTER_DEBUG().
 
@@ -1788,7 +1798,7 @@ x
 	* src/modules/festival_client.c (festivalSetVoice): Use festival_read_response().
 	(festivalSetRate): Use festival_read_response().
 	(festivalSetPitch): Use festival_read_response().
-	(festivalSetPunctuationMode): Use festival_read_response().	
+	(festivalSetPunctuationMode): Use festival_read_response().
 
 	* src/modules/festival.c (module_write): Set punctuation_mode in festival.
 	(festival_set_punctuation_mode): New function.
@@ -1804,10 +1814,10 @@ x
 
 	* src/server/sem_functions.h: +semaphore_destroy.
 	+speaking_semaphore_destroy
-	
+
 	* src/server/sem_functions.c (semaphore_destroy): New function.
 	(speaking_semaphore_destroy): New function.
-	
+
 	* src/modules/module_utils.c (module_signal_end): Removed unnecessary comment.
 
 	* src/server/sem_functions.c (semaphore_post): Debugging message amplified.
@@ -1824,14 +1834,14 @@ x
 	* src/server/output.c (output_send_data): Log module communication
 	with the logging kind `protocol'.
 	* src/server/server.c (serve): Likewise.  Log server reply too.
-	
+
 	* config/speechd.conf.in: CustomLogFile, commented out, added.
 	* src/server/speechd.h (custom_logfile, custom_log_kind): New
 	variables.
 	* src/server/dc_decl.h (load_config_options): New option
 	CustomLogFile.
 	(load_default_global_set_options): Initialize custom logging
-	options.	
+	options.
 	(cb_CustomLogFile): New callback.
 	(cb_LogFile): Print error to stderr, not stdout.
 	* src/server/speechd.c (MSG2): New function.
@@ -1933,7 +1943,7 @@ x
 
 2003-09-10  Hynek Hanke  <hanke@brailcom.org>
 
-	* src/modules/module_utils.c (module_strip_punctuation_some): Don't use unicode (this processing is called after converting to uni-byte character set).  
+	* src/modules/module_utils.c (module_strip_punctuation_some): Don't use unicode (this processing is called after converting to uni-byte character set).
 
 2003-09-08  Hynek Hanke  <hanke@brailcom.org>
 
@@ -1956,9 +1966,9 @@ x
 	-1. Don't unlock mutex (since it isn't locked).
 
 2003-09-07  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* Big changes in output modules and communication with output modules.
-	
+
 	* Client-specific configuration.
 
 	* src/modules/module_utils_audio.c: New file.
@@ -2044,7 +2054,7 @@ x
 	* src/server/dc_decl.h (cb_AddModule): Take a LIST argument, not STRING.
 	(cb_fr_AddModule): Take a LIST argument, not STRING.
 	(cb_SoundModule): Take a LIST argument, not STRING.
-	
+
 
 
 2003-08-08  Milan Zamazal  <pdm@brailcom.org>
@@ -2083,7 +2093,7 @@ x
 2003-07-31	Jan Buchal  <buchal@brailcom.org>
 
 	* config/en/spelling_short.conf: Colon added.
-	
+
 2003-07-23  Hynek Hanke  <hanke@brailcom.org>
 
 	* config/cs/sound_icons.conf: Junk definitions with beep.wav removed, changed
@@ -2109,7 +2119,7 @@ x
 	* configure.in: Create config/cs/Makefile.in
 
 2003-07-21  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* config/Makefile.am (subdirs) + cs/
 
 	* src/audio/spd_audio.c (spd_audio_play_file): New function.
@@ -2157,8 +2167,8 @@ x
 	(CHECK_SSIP_COMMAND): New argument: allowed_in_block
 	(NOT_ALLOWED_INSIDE_BLOCK): New macro.
 
-	* src/server/sndicon.c (sndicon_queue): If inside_block[fd], queue the 
-	icon with `reparted' flag.	
+	* src/server/sndicon.c (sndicon_queue): If inside_block[fd], queue the
+	icon with `reparted' flag.
 
 	* src/server/parse.c (parse_block): New function.
 	(parse): If inside_block[fd], queue the message with `reparted' flag.
@@ -2222,7 +2232,7 @@ x
 	* src/server/speechd.c (main): Priorities of some debugging messages changed.
 
 	* src/server/dc_decl.h (load_default_global_set_options): SPEECHD_PORT -> spd_port.
-	(cb_Port): SPEECHD_PORT -> spd_port.	
+	(cb_Port): SPEECHD_PORT -> spd_port.
 
 	* src/server/speechd.h (spd_port): Renamed from SPEECHD_PORT.
 
@@ -2271,7 +2281,7 @@ x
 
 	* src/server/parse.c (parse_key): Copy strlen(key), not _bytes_ (of the command) to verbat.
 	(parse_char): Copy strlen(character), not _bytes_ (of the command) to verbat.
-	
+
 	* src/modules/festival_client.c (festivalStringToWaveGetData): Check if read() doesn't return
 	0, if yes, return NULL. I don't really understand how read() can return 0 in this situation
 	=> possible problems. Or maybe there is some problem in festival itself...
@@ -2317,7 +2327,7 @@ x
 	* src/c/api/libspeechd.h: Missing prototypes added.
 
 2003-07-07  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* src/server/sndicon.c: Use SOUND_DATA_DIR.
 
 	* src/server/speechd.h (SOUND_DATA_DIR): New variable.
@@ -2329,7 +2339,7 @@ x
 	(SoundDataDir): New option.
 
 2003-07-07  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* src/server/sndicon.c: Use SOUND_DIR instead of DATA_DIR.
 
 	* src/server/set.c (SET_SELF_ALL): New macro.
@@ -2338,7 +2348,7 @@ x
 
 	* intl/fdset.h (ECapLetRecogn): New type.
 
-	* config/en/spelling_short.conf: Also in capital letters recognition group.	
+	* config/en/spelling_short.conf: Also in capital letters recognition group.
 
 	* config/en/spelling_long.conf: Also in capital letters recognition group.
 
@@ -2370,11 +2380,11 @@ x
 
 	* src/modules/flite.c (flite_set_voice): Don't use MALE3 for awb.
 
-	* config/speechd.conf: SupportedLanguage deleted. 
+	* config/speechd.conf: SupportedLanguage deleted.
 	"en" is now first item in LanguageDefaultModule.
 
 2003-07-06  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* intl/def.h (SPEECHD_DEFAULT_PORT): Renamed from SPEECH_PORT.
 
 	* src/c/clients/say/say.c (main): Removed junk code.
@@ -2424,7 +2434,7 @@ x
 	(spd_set_*_table_*): New commands for setting tables.
 	(spd_set_voice_*): New commands.
 	Priorities are now passed as type SPDPriority.
-	
+
 
 	* src/tests/clibrary.c: A general test of some of the capabilities of the
 	C API for Speech Dispatcher.
@@ -2437,7 +2447,7 @@ x
 	is invalid.
 
 2003-07-05  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* src/c/clients/Makefile.am: spd-center removed.
 
 	* src/server/parse.c (parse_char): Check if character != NULL or empty.
@@ -2450,7 +2460,7 @@ x
 	* src/server/dc_decl.h: Better checking for validity of parameters.
 	(GLOBAL_FDSET_OPTION_CB_INT): New macro.
 	(GLOBAL_FDSET_OPTION_CB_STR): New macro.
-	
+
 	* src/modules/flite.c (module_close): Missing `static' added.
 
 	* src/modules/festival_client.c (festivalClose): Send (quit) to festival server before
@@ -2468,7 +2478,7 @@ x
 
 	* src/modules/festival.c (module_close): Call festivalClose().
 
-	* src/modules/module_utils.c (module_write_data_ok): Check data[0] against 0, not 
+	* src/modules/module_utils.c (module_write_data_ok): Check data[0] against 0, not
 	'0' (the character).
 	(module_audio_output_child): Close pipes before exiting.
 
@@ -2598,7 +2608,7 @@ x
 
 	* intl/fdset.h: Include only once.
 
-	* src/modules/module_utils.c: Many new function and macro utilities 
+	* src/modules/module_utils.c: Many new function and macro utilities
 	aiming to make writing output modules easier.
 
 	* src/module/module_utils.c Proper closing of audio device.
@@ -2786,7 +2796,7 @@ x
 	* src/server/server.c (process_message_spell): Fixed bug with strlen in for-cycle condition.
 	Take into account the changes in snd_icon_spelling_get()
 	(process_message_punctuation): Fixed bug with strlen in for-cycle condition.
-	
+
 
 	* src/server/sndicon.c (snd_icon_spelling_get): Optimized for speed.
 
@@ -2806,7 +2816,7 @@ x
 
 	* src/server/msg.h (ERR_COULDNT_SET_OUTPUT_MODULE): New SSIP message.
 	(OK_OUTPUT_MODULE_SET): New SSIP message.
-	
+
 
 2003-05-25  Hynek Hanke  <hanke@localhost.localdomain>
 
@@ -2839,11 +2849,11 @@ x
 
 
 2003-05-21  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* src/server/speaking.c (speak): Don't include process message into mutex.
 
 2003-05-21  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* src/modules/festival_client.c (festivalSetRate): New function.
 
 	* src/modules/festival.c (festival_write): Set the appropriate rate.
@@ -2892,7 +2902,7 @@ x
 	* src/modules/apollo.c (modinfo_apollo): Settings initialization.
 	(module_init): New function.
 	(module_load): Renamed from module_init().
-	
+
 	* intl/module.h (SPDVoiceDef): New structure type: Mapping of the symbolic voice names.
 	(SPDModuleSettings): New structure type: Settings for the output modules.
 	(OutputModule): New item: SPDModuleSettings settings.
@@ -2958,24 +2968,24 @@ x
 2003-05-07  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/tests/spelling.test: New test.
-	
+
 	* src/server/dc_decl.h: Exit if the specified output module doesn't exist.
-	
+
 	* src/tests/punctuation.test: New test.
 
 	* src/server/parse.c: Added "LIST PUNCTUATION_TABLES"
-	
+
 	* src/server/server.c (process_message_punctuation): Bug corrected.
 
 2003-05-07  Hynek Hanke  <hanke@brailcom.org>
-	
+
 	* config/speechd.conf (SndModule): New option: sound module to load.
 	Fixed sound->rate in commentaries.
 
 	* src/modules/Makefile.am (cstsnd): New output module for sound.
 
 	* src/modules/cstsnd.c: New output module.
-	
+
 	* src/server/sndicon.c (sndicon_queue): Handle icons represented by sounds.
 
 	* src/server/server.c (process_message_punctuation): Handle icons represented by sounds.
@@ -2993,7 +3003,7 @@ x
 	(queue_messages): New function. Queue a list of messages.
 
 	* src/server/sndicon.h (snd_icon_spelling_get): New parameter int *sound
-	
+
 	* src/server/dc_decl.h (cb_SndModule): Define sound module.
 
 	* src/server/sndicon.c (snd_icon_spelling_get): Handle icons representing sound (wav).
@@ -3044,7 +3054,7 @@ x
 	* src/modules/apollo.c (apollo_is_speaking): Return 2 for ``don't know''
 	(module_apollo): filename entry deleted.
 
-	* src/server/speaking.c: is_sb_speaking() can also return 2 for ``don't know'' 
+	* src/server/speaking.c: is_sb_speaking() can also return 2 for ``don't know''
 
 2003-04-29  Milan Zamazal  <pdm@brailcom.org>
 
@@ -3072,11 +3082,11 @@ x
 	(speaking_resume): Reworked.
 
 	* src/server/speechd.h: Removed stop/cancel/pause/resume functions.
-	
+
 	* src/server/parse.c (pause): Reworked.
 	(resume): Reworked.
-	
-	
+
+
 	* src/modules/apollo.c (apollo_pause): New function. Needs some work:)
 
 	* src/modules/flite.c (_flite_speak): Use the spd_audio.c library.
@@ -3087,7 +3097,7 @@ x
 
 	* src/audio/spd_audio.c: New file: Audio output for Speech Deamon.
 
-	* configure.in: Build src/audio.	
+	* configure.in: Build src/audio.
 
 	* Makefile.am: Build src/audio.
 
@@ -3110,9 +3120,9 @@ x
 2003-04-24  Hynek Hanke  <hanke@brailcom.org>
 
 	* config/speechd.conf: english -> en
-	
+
 	* src/server/dc_decl.h: speed -> rate
-	
+
 	* src/server/speechd.h (fds_allocated): New variable.
 
 	* src/server/sndicon.c (sndicon_key): Reworked, new key format introduced.
@@ -3126,7 +3136,7 @@ x
 
 	* src/server/speechd.h (awaiting_data): Now ordinary dynamic array instead of GArray.
 	(o_bytes): Now ordinary dynamic array instead of GArray.
-	
+
 	* src/server/parse.c (parse_set): Call the new settings functions.
 	(parse_set): Added {id, self, all} to every SSIP settings command.
 
@@ -3162,9 +3172,9 @@ x
 	* src/server/set.c (set_character_table): New function.
 	(set_key_table): New function.
 	(set_sound_table): New function.
-	
+
 	* src/server/parse.c (parse_set): New settings SSIP commands.
-	
+
 	* src/server/server.c (parse): New LIST SSIP command.
 
 	* src/server/sndicon.c (sndicon_list_sound_tables): New function.
@@ -3178,7 +3188,7 @@ x
 
 	* intl/fdset.h (TFDSetElement): Added tables for characters, keys, sound icons.
 
-	* src/server/speechd.h (TSpeechDTables): New structure. 
+	* src/server/speechd.h (TSpeechDTables): New structure.
 
 	* src/server/speechd.c (speechd_init): Initialize lists of (speechd_init): Initialize lists of tables.tables.
 
@@ -3224,7 +3234,7 @@ x
 
 	* INSTALL: Requierement to have automake 1.7+ added.
 	Remove autoheader from requiered tools.
-	
+
 	* src/server/icons_en_conf: Old version removed.
 
 2003-04-15  Hynek Hanke <hanke@brailcom.org>
@@ -3278,7 +3288,7 @@ x
 	Correct UTF-8 handling.
 	(spd_utf8_read_char): New function.
 	(speak): Bug fixed: Pull message from queue 3 if there are more than zero, not one.
-	
+
 	* src/modules/flite.c (flite_write): Speech rate scale up to duration_stretch=4
 
 	* src/server/compare.c: New file, functions for comparing fd's, id's and other
@@ -3330,7 +3340,7 @@ x
 
 	* src/server/set.c (set_spelling_table): New function.
 
-	* intl/fdset.h (TFDSetElement): New entry char* spelling_table. 
+	* intl/fdset.h (TFDSetElement): New entry char* spelling_table.
 
 	* src/server/dc_decl.h (cb_DefaultSpellingTable): New function.
 	(cb_AddTable): Moved from cb_AddSndIcon, apmplified.
@@ -3366,13 +3376,13 @@ x
 	* src/server/set.c (set_voice): New function.
 	* src/server/msg.h (OK_VOICE_SET): New SSIP message.
 	(ERR_COULDNT_SET_VOICE): New SSIP message.
-	* intl/fdset.h: EVoiceType now includes more than one male and female voices. 
+	* intl/fdset.h: EVoiceType now includes more than one male and female voices.
 
 2003-04-06  Hynek Hanke  <hanke@brailcom.org>
-	
-	* src/server/msg.h OK_CANCELED: New SSIP message. 
 
-	* src/server/dc_decl.h (cb_AddSndIcons): Typo. 
+	* src/server/msg.h OK_CANCELED: New SSIP message.
+
+	* src/server/dc_decl.h (cb_AddSndIcons): Typo.
 
 	* src/server/parse.c: Call the new stop-family functions.
 
@@ -3411,10 +3421,10 @@ x
 	* src/server/speechd.h: Removed unnecessary history client search
 	functions.
 	* configure.in: etc/ -> etc/speechd/
-	
+
 2003-03-29  Hynek Hanke <hanke@brailcom.org>
 
-        * src/server/speechd.h (fdset): Now hash table -> faster searching. 
+        * src/server/speechd.h (fdset): Now hash table -> faster searching.
 	* src/server/speechd.h (fd_uid): New hash table for fast searching of unique ids.
 	* src/server/speechd.c (speechd_quit): Call FD_CLR for server socket.
 	* src/server/server.c (fdset): Also includes non-active connections.
@@ -3434,18 +3444,18 @@ x
 	* INSTALL (Module): `robod' -> `speechd'.
 
 	* INSTALL.in (Module): `robod' -> `speechd'.
-	
+
 
 2003-03-25  Hynek Hanke <hanke@brailcom.org>
 	* src/server/speechd.c: Logging messages switched to their levels of verbosity.
 	* src/server/speechd.c (speechd_modules_terminate()): Call module_speak for each module being closed.
 	* src/server/speechd.c (MSG): Now a function instead of macro.
 	* src/server/speechd.h (MSG): Declaration.
-	* src/server/speechd.h (FATAL) (DIE): Macros moved from src/intl/def.h 
+	* src/server/speechd.h (FATAL) (DIE): Macros moved from src/intl/def.h
 	* src/server/server.c (speak()): Ignore all signals in this thread.
 	* src/server/server.c: Logging messages switched to their levels of verbosity.
 	* src/modules/flite.c (flite_close): Terminate the flite_speak() thread if speaking.
-	* src/server/dc_decl.c (LogFile()): New DotConf callback function.	
+	* src/server/dc_decl.c (LogFile()): New DotConf callback function.
 	* src/intl/def.h: - MSG, FATAL, DIE
 	* speechd.conf: + LogFile settings.
 
@@ -3505,7 +3515,7 @@ x
 
 	* README: Robod -> Speech Daemon.
 
-	* INSTALL: pkg-config and libtool added to requirements.  
+	* INSTALL: pkg-config and libtool added to requirements.
 	Robod -> Speech Daemon.  Cosmetical changes.
 
 2003-03-13  Hynek Hanke	 <hanke@brailcom.org>
@@ -3581,7 +3591,7 @@ x
 
 4.1.2003	Hynek Hanke	<hanke@brailcom.org>
 
-	* /src/server/speechd.c (main): Added handling for SIGINT and the function quit() 
+	* /src/server/speechd.c (main): Added handling for SIGINT and the function quit()
 	* /src/server/speechd.c (history_list_alloc_message): Bug with not copying the actual data of settings.language,output_module and client_name, but only pointers to them fixed.
 	* /src/server/server.c (serve): Bug with the missing FD_CLR() fixed.
 	* /src/server/server.c (awaiting_data): the size of awaiting_data array is now handled in speechd.c
@@ -3666,7 +3676,7 @@ x
         * /src/server/speechd.c (default_fd_set): Bug with client_name fixed.
         * /src/server/speechd.h (THistSetElement): New type of structure for settings for each active client.
         * /src/server/speechd.h: (ESort) New enum type for sorting modes.
-        
+
 
 07.02.2002	Hynek Hanke <hanke@brailcom.org>
 	* /src/server/server.c (stop_speaking_active_module): New function divided from stop_c().

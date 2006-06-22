@@ -141,6 +141,7 @@ AddModule "festival"     "sd_festival"  "festival.conf" "/var/log/speech-dispatc
 #AddModule "epos-generic" "sd_generic"   "epos-generic.conf" "/var/log/speech-dispatcher/epos.log"
 #AddModule "dtk-generic"  "sd_generic"   "dtk-generic.conf" "/var/log/speech-dispatcher/dtk-generic.log"
 #AddModule "ibmtts"       "sd_ibmtts"    "ibmtts.conf" "/var/log/speech-dispatcher/ibmtts.log"
+#AddModule "cicero"        "sd_cicero"     "cicero.conf"  "/var/log/speech-dispatcher/cicero.log"
 
 # The output module testing doesn't actually connect to
 # anything. It outputs the requested commands to standard output

@@ -11,15 +11,15 @@ AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_incl
 
 if flite_support
 if ibmtts_support
-modulebin_PROGRAMS = sd_flite sd_generic sd_festival sd_ibmtts
+modulebin_PROGRAMS = sd_flite sd_generic sd_festival sd_ibmtts sd_cicero
 else
-modulebin_PROGRAMS = sd_flite sd_generic sd_festival
+modulebin_PROGRAMS = sd_flite sd_generic sd_festival sd_cicero
 endif
 else
 if ibmtts_support
-modulebin_PROGRAMS = sd_generic sd_festival sd_ibmtts
+modulebin_PROGRAMS = sd_generic sd_festival sd_ibmtts sd_cicero
 else
-modulebin_PROGRAMS = sd_generic sd_festival
+modulebin_PROGRAMS = sd_generic sd_festival sd_cicero
 endif
 endif
 
@@ -37,4 +37,7 @@ sd_festival_LDADD = -lsdaudio -lm -lpthread -ldotconf @glib_libs@
 sd_ibmtts_SOURCES = ibmtts.c module_utils.c module_utils.h
 sd_ibmtts_LDFLAGS = -rpath '$(spdlibdir)'
 sd_ibmtts_LDADD = -lsdaudio -lm -lpthread -ldotconf -libmeci @SNDFILE_LIBS@ @glib_libs@
+
+sd_cicero_SOURCES = cicero.c module_utils.c module_utils.h
+sd_cicero_LDADD = -lm -lpthread -ldotconf @glib_libs@
 
