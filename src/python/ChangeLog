@@ -1,3 +1,13 @@
+2006-06-27  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd/client.py (_SSIP_Connection.__init__): Initialize
+	the `_buffer' attribute.
+	(_SSIP_Connection._readline): Read data from the socket using a
+	buffer, not character by character...
+	(Client.__init__): Require the `name' argument.  Changed the
+	default value of `user' to `unknown' and `component' to `default'.
+	(Client.pause): Cosmetical change.
+
 2003-11-20  Tomas Cerha  <cerha@freebsoft.org>
 
 	* speechd/client.py (Client): Changed the port number.
