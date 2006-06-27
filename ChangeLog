@@ -1,3 +1,8 @@
+2006-06-27  Hynek Hanke  <hanke@chopin>
+
+	* src/Makefile.am: Include Python and Guile files in the
+	distribution.
+
 2006-06-22  Olivier BERT  <bert_o@epita.fr>
 
 	* Added support for the cicero TTS (french and english).
