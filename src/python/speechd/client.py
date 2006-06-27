@@ -1,4 +1,4 @@
-# Copyright (C) 2003 Brailcom, o.p.s.
+# Copyright (C) 2003-2006 Brailcom, o.p.s.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,8 +16,8 @@
 
 """Python API to Speech Dispatcher
 
-Python client API to Speech Dispatcher is provided in a nice OO style by the class
-called 'Client'.
+Python client API to Speech Dispatcher is provided in an OO style by the
+'Client' class.
 
 """
 
@@ -54,6 +54,7 @@ class _SSIP_Connection:
     def __init__(self, host, port):
         self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._socket.connect((socket.gethostbyname(host), port))
+        self._buffer = ""
 
     
     def _readline(self):
@@ -63,17 +64,13 @@ class _SSIP_Connection:
         `NEWLINE' constant).  Blocks until the delimiter is read.
         
         """
-        line = ''
-        pointer = 0
-        while 1:
-            char = self._socket.recv(1)
-            line += char
-            if char == self.NEWLINE[pointer]:
-                pointer += 1
-            else:
-                pointer = 0
-            if pointer == len(self.NEWLINE):
-                return line[:-pointer]
+        pointer = self._buffer.find(self.NEWLINE)
+        while pointer == -1:
+            self._buffer += self._socket.recv(1024)
+            pointer = self._buffer.find(self.NEWLINE)
+        line = self._buffer[:pointer]
+        self._buffer = self._buffer[pointer+len(self.NEWLINE):]
+        return line
             
     def _recv_response(self):
         """Read server response and return the triplet (code, msg, data)."""
@@ -181,25 +178,32 @@ class Client:
     SPEECH_PORT = 6560
     """Default port number for server connections."""
     
-    def __init__(self, user='joe', client='python', component='default',
+    def __init__(self, name, component='default', user='unknown',
                  host='127.0.0.1', port=SPEECH_PORT):
         """Initialize the instance and connect to the server.
 
         Arguments:
 
-          user -- user identification string (user name)
-          client -- client identification string
-          component -- connection identification string
-          host -- server hostname or IP address as string
-          port -- server port as number (default value %d)
+          name -- client identification string
+
+          component -- connection identification string.  When one client opens
+            multiple connections, this can be used to identify each of them.
+            
+          user -- user identification string (user name).  When multi-user
+            acces is expected, this can be used to identify their connections.
+          
+          host -- server hostname or IP address as a string.
+          
+          port -- server port as number (default value %d).
         
         For more information on client identification strings see Speech
         Dispatcher documentation.
           
         """ % self.SPEECH_PORT
+        
         self._conn = _SSIP_Connection(host, port)
-        name = '%s:%s:%s' % (user, client, component)
-        self._conn.send_command('SET', 'self', 'CLIENT_NAME', name)
+        full_name = '%s:%s:%s' % (user, name, component)
+        self._conn.send_command('SET', 'self', 'CLIENT_NAME', full_name)
 
     def __set_priority(self, priority):
         """Set the given priority
@@ -273,7 +277,8 @@ class Client:
         Arguments:
 
           key -- the key-name (as defined in SSIP) of the key to be spoken.
-             For example: 'a', 'A', 'shift_a', 'shift_kp-enter', 'ctrl-alt-del'.
+             For example: 'a', 'A', 'shift_a', 'shift_kp-enter',
+             'ctrl-alt-del'.
 
           priority -- one of 'important', 'text', 'message', 'notification',
             'progress'.  For detailed description see SSIP documentation.
@@ -321,6 +326,7 @@ class Client:
             particular connection by supplying its identification number (this
             feature is only meant to be used by Speech Dispatcher control
             application).
+            
         """
         self.__check_scope(scope)
         self._conn.send_command('CANCEL', scope)
@@ -338,10 +344,10 @@ class Client:
         self._conn.send_command('STOP', scope)
 
     def pause(self, scope='self'):
-        """Pause speaking the currently spoken message and postpone other messages
-        until the resume method is called. This method is non-blocking. However,
-        speaking can continue for a short while even after it's called (typically
-        to the end of the sentence).
+        """Pause speaking the currently spoken message and postpone other
+        messages until the resume method is called. This method is
+        non-blocking. However, speaking can continue for a short while even
+        after it's called (typically to the end of the sentence).
 
         Arguments:
 
@@ -440,10 +446,10 @@ class Client:
         Arguments:
 
           value -- choses how much punctuation characters should be read.
-            Possible values are: 'all', 'some', 'none'. 'all' means read
-            all punctuation characters, while 'none' means that no punctuation
-            character will be read. For 'some', only the user-defined punctuation
-            characters are pronounced.
+            Possible values are: 'all', 'some', 'none'. 'all' means read all
+            punctuation characters, while 'none' means that no punctuation
+            character will be read. For 'some', only the user-defined
+            punctuation characters are pronounced.
 
           scope -- as described in 'set_language()'.
             
@@ -476,9 +482,9 @@ class Client:
         Arguments:
 
           value -- one of 'none', 'spell', 'icon'. None means no signalization
-            of capital letters, 'spell' means capital letters will be spelled with
-            a syntetic voice and 'icon' means that the capital-letter icon will be
-            prepended before each capital letter.
+            of capital letters, 'spell' means capital letters will be spelled
+            with a syntetic voice and 'icon' means that the capital-letter icon
+            will be prepended before each capital letter.
 
           scope -- as described in 'set_language()'.
             
@@ -501,14 +507,15 @@ class Client:
             
         """
         assert type(value) == type("t")
-        assert value.lower() in ["male1", "male2", "male3", "female1", "female2",
-                                 "female3", "child_male", "child_female"]
+        assert value.lower() in ("male1", "male2", "male3", "female1",
+                                 "female2", "female3", "child_male",
+                                 "child_female")
         self.__check_scope(scope)
         self._conn.send_command('SET', scope, 'VOICE', value)
 
     def set_pause_context(self, value, scope='self'):
-        """Set the amount of context that is provided to the user after resuming
-        a paused message to the given value.
+        """Set the amount of context that is provided to the user after
+        resuming a paused message to the given value.
 
         Arguments:
 
@@ -534,11 +541,9 @@ class Client:
 
         self._conn.send_command('BLOCK', 'END')
         
-    
 #    def get_client_list(self):
 #        c, m, data = self._conn.send_command('HISTORY', 'GET', 'CLIENT_LIST')
 #        return data
-        
         
     def close(self):
         """Close the connection to Speech Dispatcher."""
