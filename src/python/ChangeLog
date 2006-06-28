@@ -26,6 +26,12 @@
 	(Client.set_cap_let_recogn, Client.set_voice)
 	(Client.set_pause_context): Use `Scope' constants for default
 	values.  Don't call `__check_scope()'.  Docstrings updated.
+	(Client.say): Only set the priority if it's not a 'MESSAGE'.
+	(Client.set_rate, _SSIP_Connection.send_command): Use the `Scope'
+	constants for assertions.
+	(_SSIP_Connection.close): Unset the `_socket' attribute.
+	(PunctuationMode): New class.
+	(Client.__init__, Client._set_priority): Use the `Scope' constants.
 
 2006-06-27  Tomas Cerha  <cerha@brailcom.org>
 
