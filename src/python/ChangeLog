@@ -31,7 +31,14 @@
 	constants for assertions.
 	(_SSIP_Connection.close): Unset the `_socket' attribute.
 	(PunctuationMode): New class.
-	(Client.__init__, Client._set_priority): Use the `Scope' constants.
+	(Client.__init__, Client._set_priority): Use the `Scope'
+	constants.
+	(Client.say): Don't set the priority if it is 'MESSAGE'.
+	(Client.set_pitch, Client.set_rate, Client.set_volume)
+	(Client.set_voice, Client.set_pause_context): Use `isinstance'
+	instead of comparint types.
+	(Client.set_punctuation): Use the 'PunctuationMode' constants for
+	assertions.
 
 2006-06-27  Tomas Cerha  <cerha@brailcom.org>
 
