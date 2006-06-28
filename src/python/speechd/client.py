@@ -17,7 +17,7 @@
 """Python API to Speech Dispatcher
 
 Python client API to Speech Dispatcher is provided in an OO style by the
-'Client' class.
+'Client' class.  Please note, that the API is subject to change!
 
 """
 
@@ -56,7 +56,6 @@ class SSIPDataError(SSIPError):
     def data(self):
         """Return the data which resulted in this error."""
         return self._data
-    
 
 
 class _SSIP_Connection:
@@ -89,7 +88,6 @@ class _SSIP_Connection:
         self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._socket.connect((socket.gethostbyname(host), port))
         self._buffer = ""
-
     
     def _readline(self):
         """Read one whole line from the socket.
@@ -139,8 +137,8 @@ class _SSIP_Connection:
         """
         if __debug__:
             if command in ('SET', 'CANCEL', 'STOP',):
-                assert args[0] in ('self', 'all') #or type(args[0]) == type(0)
-            
+                assert args[0] in (Scope.SELF, Scope.ALL), scope
+                #or isinstance(args[0], int)
         cmd = ' '.join((command,) + tuple(map(str, args)))
         self._socket.send(cmd + self.NEWLINE)
         code, msg, data = self._recv_response()
@@ -158,7 +156,6 @@ class _SSIP_Connection:
         documentation.
         
         """
-
         # Escape the end-of-data sequence even if presented on the beginning
         if data[0:3] == self.END_OF_DATA_BEGIN:
             data = self.END_OF_DATA_ESCAPED_BEGIN + data[3:]
@@ -174,6 +171,7 @@ class _SSIP_Connection:
     def close(self):
         """Close the connection."""
         self._socket.close()
+        self._socket = None
             
 
 class Scope(object):
@@ -202,7 +200,26 @@ class Priority(object):
     MESSAGE = 'message'
     NOTIFICATION = 'notification'
     PROGRESS = 'progress'
-        
+
+    
+class PunctuationMode(object):
+    """Constants for selecting a punctuation mode.
+
+    The mode determines which characters should be read.
+
+    """
+    ALL = 'all'
+    """Read all punctuation characters."""
+    NONE = 'none'
+    """Don't read any punctuation character at all."""
+    SOME = 'some'
+    """Only the user-defined punctuation characters are read.
+
+    The set of characters is specified in Speech Dispatcher configuration.
+
+    """
+
+    
 class Client(object):
     """Speech Dispatcher client.
 
@@ -247,13 +264,13 @@ class Client(object):
         """
         self._conn = _SSIP_Connection(host, port or self.SPEECH_PORT)
         full_name = '%s:%s:%s' % (user, name, component)
-        self._conn.send_command('SET', 'self', 'CLIENT_NAME', full_name)
+        self._conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
 
     def _set_priority(self, priority):
         assert priority in (Priority.IMPORTANT, Priority.TEXT,
                             Priority.MESSAGE, Priority.NOTIFICATION,
                             Priority.PROGRESS), priority
-        self._conn.send_command('SET', 'self', 'PRIORITY', priority)
+        self._conn.send_command('SET', Scope.SELF, 'PRIORITY', priority)
 
     def say(self, text, priority=Priority.MESSAGE):
         """Say given message with given priority.
@@ -268,6 +285,8 @@ class Client(object):
         message is queued on the server and the method returns immediately.
 
         """
+        # TODO: the priority might not be always set to avoid the unnecessary
+        # delay (if that's noticable).
         self._set_priority(priority)
         self._conn.send_command('SPEAK')
         self._conn.send_data(text)
@@ -382,7 +401,7 @@ class Client(object):
           scope -- see the documentaion of this class.
             
         """
-        assert type(language) == type('') and len(language) == 2
+        assert isinstance(language, str) and len(language) == 2
         self._conn.send_command('SET', scope, 'LANGUAGE', language)
 
     def set_pitch(self, value, scope=Scope.SELF):
@@ -396,9 +415,9 @@ class Client(object):
             meaning higher pitch.
 
           scope -- see the documentaion of this class.
-
+          
         """
-        assert type(value) == type(0) and value >= -100 and value <= 100
+        assert isinstance(value, int) and -100 <= value <= 100, value
         self._conn.send_command('SET', scope, 'PITCH', value)
 
     def set_rate(self, value, scope=Scope.SELF):
@@ -414,7 +433,7 @@ class Client(object):
           scope -- see the documentaion of this class.
             
         """
-        assert type(value) == type(0) and value >= -100 and value <= 100
+        assert isinstance(value, int) and -100 <= value <= 100
         self._conn.send_command('SET', scope, 'RATE', value)
 
     def set_volume(self, value, scope=Scope.SELF):
@@ -429,7 +448,7 @@ class Client(object):
           scope -- see the documentaion of this class.
             
         """
-        assert type(value) == type(0) and value >= -100 and value <= 100
+        assert isinstance(value, int) and -100 <= value <= 100
         self._conn.send_command('SET', scope, 'VOLUME', value)
 
     def set_punctuation(self, value, scope=Scope.SELF):
@@ -437,16 +456,13 @@ class Client(object):
 
         Arguments:
 
-          value -- choses how much punctuation characters should be read.
-            Possible values are: 'all', 'some', 'none'. 'all' means read all
-            punctuation characters, while 'none' means that no punctuation
-            character will be read. For 'some', only the user-defined
-            punctuation characters are pronounced.
+          value -- one of the 'PunctuationMode' constants.
 
           scope -- see the documentaion of this class.
             
         """
-        assert value in ['all', 'some', 'none']
+        assert value in (PunctuationMode.ALL, PunctuationMode.SOME,
+                         PunctuationMode.NONE), value
         self._conn.send_command('SET', scope, 'PUNCTUATION', value)
 
     def set_spelling(self, value, scope=Scope.SELF):
@@ -498,8 +514,8 @@ class Client(object):
           scope -- see the documentaion of this class.
             
         """
-        assert type(value) == type("t")
-        assert value.lower() in ("male1", "male2", "male3", "female1",
+        assert isinstance(value, str) and \
+               value.lower() in ("male1", "male2", "male3", "female1",
                                  "female2", "female3", "child_male",
                                  "child_female")
         self._conn.send_command('SET', scope, 'VOICE', value)
@@ -510,12 +526,12 @@ class Client(object):
         Arguments:
 
           value -- a positive or negative value meaning how many chunks of data
-          after or before the pause should be read when resume() is executed.
+            after or before the pause should be read when resume() is executed.
 
           scope -- see the documentaion of this class.
             
         """
-        assert type(value) == type(-1)
+        assert isinstance(value, int)
         self._conn.send_command('SET', scope, 'PAUSE_CONTEXT', value)
 
     def block_begin(self):
@@ -540,5 +556,4 @@ class Client(object):
         
     def close(self):
         """Close the connection to Speech Dispatcher."""
-        #self._conn.send_command('BYE')
         self._conn.close()
