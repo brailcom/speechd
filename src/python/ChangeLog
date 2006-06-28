@@ -1,3 +1,32 @@
+2006-06-28  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd/client.py (SSIPCommandError)
+	(_CommunicationError): Renamed to `SSIPError'.
+	(CommandError): Renamed to `SSIPCommandError'.
+	(SendDataError): Renamed to `SSIPDataError'.
+	(_SSIP_Connection.send_command): Added an assertion on the 'scope'
+	argument for certain commands.
+	(_SSIP_Connection.send_command): `CommandError' ->
+	`SSIPCommandError'.
+	(_SSIP_Connection.send_data): `SendDataError' -> `SSIPDataError'.
+	(Scope, Priority): New classes.
+	(Client): Derive from `object'.  Some doc added.
+	(Client.__init__): The `port' default value set to `None'.
+	(Client.__set_priority): Renamed to `_set_priority()'.
+	(Client._set_priority): Use the `Priority' constants for
+	assertion.
+	(__check_scope): Method removed.
+	(Client.say, Client.char, Client.key, Client.sound_icon): Use
+	`Priority' constants for default values.  `__set_priority()' ->
+	`_set_priority()'.  Docstrings updated.
+	(Client.char): Don't replace space by "space".
+	(Client.cancel, Client.stop, Client.resume, Client.set_language)
+	(Client.set_pitch, Client.set_rate, Client.set_volume)
+	(Client.set_punctuation, Client.set_spelling)
+	(Client.set_cap_let_recogn, Client.set_voice)
+	(Client.set_pause_context): Use `Scope' constants for default
+	values.  Don't call `__check_scope()'.  Docstrings updated.
+
 2006-06-27  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd/client.py (_SSIP_Connection.__init__): Initialize
