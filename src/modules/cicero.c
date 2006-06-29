@@ -32,7 +32,7 @@
 #define MODULE_NAME     "cicero"
 #define MODULE_VERSION  "0.3"
 
-#define DEBUG_MODULE 1
+// #define DEBUG_MODULE 1
 DECLARE_DEBUG();
 
 /* Thread and process control */
@@ -125,7 +125,7 @@ module_load(void)
 {
   INIT_SETTINGS_TABLES();
   REGISTER_DEBUG();
-   MOD_OPTION_1_STR_REG(CiceroWrapper, "/usr/bin/cicero_speechd_wrapper");
+  MOD_OPTION_1_STR_REG(CiceroWrapper, "/usr/bin/cicero_speechd_wrapper");
   return 0;
 }
 
