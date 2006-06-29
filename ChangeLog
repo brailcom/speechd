@@ -1,3 +1,7 @@
+2006-06-29  Hynek Hanke  <hanke@chopin>
+
+	* config/modules/cicero.conf: Captions, debugging.
+
 2006-06-27  Hynek Hanke  <hanke@chopin>
 
 	* src/Makefile.am: Include Python and Guile files in the
