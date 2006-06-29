@@ -1,6 +1,8 @@
 /*
  * cicero.c - Speech Dispatcher backend for Cicero French TTS engine
  *
+ * Copyright (C) 2006 Brailcom, o.p.s.
+ *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2, or (at your option)
@@ -16,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * cicero.c: Olivier BERT 2006-21-04
+ * @author: Olivier BERT
  */
 
 #include <fdset.h>
@@ -133,7 +135,6 @@ int
 module_init(char **status_info)
 {
   int ret;
-  Debug = 1;
 
   DBG("Module init\n");
   setlocale(LC_ALL, "");
@@ -215,10 +216,11 @@ int
 module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 {
   size_t i,o,n;
-  char temp[500];
+  char *temp;
   char *p = data, *p2 = temp;
 
-  for (i = 0; i <= bytes + 10; i++)
+  temp = xmalloc((bytes + 1) * sizeof(char));
+  for (i = 0; i <= bytes; i++)
     temp[i] = 0;
 
     DBG("Module speak\n");
