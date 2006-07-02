@@ -138,7 +138,7 @@ module_init(char **status_info)
 
   DBG("Module init\n");
   setlocale(LC_ALL, "");
-  conv = iconv_open("ISO-8859-1", "UTF8");
+  conv = iconv_open("ISO-8859-1//translit", "UTF-8");
   if (conv == NULL)
     {
       DBG("Error iconv_open\n");
