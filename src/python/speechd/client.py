@@ -71,7 +71,7 @@ class _SSIP_Connection:
     _END_OF_DATA = _NEWLINE + _END_OF_DATA_MARKER + _NEWLINE
     """Data end marker."""
 
-    _END_OF_DATA_ESCAPED = _NEWLINE + _END_OF_DATA_MARKER_ESCAPED  + _NEWLINE
+    _END_OF_DATA_ESCAPED = _NEWLINE + _END_OF_DATA_MARKER_ESCAPED + _NEWLINE
     """Data may contain a marker string, so we need to escape it..."""
 
     def __init__(self, host, port):
