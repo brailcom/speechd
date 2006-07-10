@@ -16,8 +16,10 @@
 
 """Python API to Speech Dispatcher
 
-Python client API to Speech Dispatcher is provided in an OO style by the
-'Client' class.  Please note, that the API is subject to change!
+Basic Python client API to Speech Dispatcher is provided by the 'SSIPClient'
+class.  This interface maps directly to available SSIP commands and logic.
+
+A more convenient interface is provided by the 'Speaker' class.
 
 """
 
@@ -56,7 +58,6 @@ class SSIPDataError(SSIPError):
 
 
 class _SSIP_Connection:
-    
     """Implemantation of low level SSIP communication."""
     
     _NEWLINE = "\r\n"
@@ -210,16 +211,17 @@ class PunctuationMode(object):
     """
 
     
-class Client(object):
-    """Speech Dispatcher client.
+class SSIPClient(object):
+    """Basic Speech Dispatcher client interface.
 
-    This class implements most of the SSIP commands and provides OO style
-    Python interface to all Speech Dispatcher functions.  Each connection to
-    Speech Dispatcher is represented by one instance of this class.
+    This class provides a Python interface to Speech Dispatcher functionality
+    over an SSIP connection.  The API maps directly to available SSIP commands.
+    Each connection to Speech Dispatcher is represented by one instance of this
+    class.
     
     Many commands take the 'scope' argument, thus it is shortly documented
     here.  It is either one of 'Scope' constants or a number of connection.  By
-    specifying the connection number, you are applying the command to the any
+    specifying the connection number, you are applying the command to a
     particular connection.  This feature is only meant to be used by Speech
     Dispatcher control application, however.  More datails can be found in
     Speech Dispatcher documentation.
@@ -255,80 +257,71 @@ class Client(object):
         self._conn = _SSIP_Connection(host, port or self.SPEECH_PORT)
         full_name = '%s:%s:%s' % (user, name, component)
         self._conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
-        self._current_priority = None
 
     def set_priority(self, priority):
-        assert priority in (Priority.IMPORTANT, Priority.TEXT,
-                            Priority.MESSAGE, Priority.NOTIFICATION,
-                            Priority.PROGRESS), priority
-        if priority != self._current_priority:
-            self._conn.send_command('SET', Scope.SELF, 'PRIORITY', priority)
-            self._current_priority = priority
+        """Set the priority category for the following messages.
 
-    def say(self, text, priority=Priority.MESSAGE):
-        """Say given message with given priority.
+        Arguments:
+
+          priority -- one of the 'Priority' constants.
+
+        """
+        assert priority in (Priority.IMPORTANT, Priority.MESSAGE,
+                            Priority.TEXT, Priority.NOTIFICATION,
+                            Priority.PROGRESS), priority
+        self._conn.send_command('SET', Scope.SELF, 'PRIORITY', priority)
+
+    def speak(self, text):
+        """Say given message.
 
         Arguments:
 
           text -- message text to be spoken as string.
           
-          priority -- one of 'Priority' constants.
-        
         This method is non-blocking;  it just sends the command, given
         message is queued on the server and the method returns immediately.
 
         """
-        self.set_priority(priority)
         self._conn.send_command('SPEAK')
         self._conn.send_data(text)
 
-    def char(self, char, priority=Priority.TEXT):
-        """Say given character with given priority.
+    def char(self, char):
+        """Say given character.
 
         Arguments:
 
           char -- a character to be spoken (as a unicode string of length 1).
 
-          priority -- one of 'Priority' constants.
-
         This method is non-blocking;  it just sends the command, given
         message is queued on the server and the method returns immediately.
 
         """
-        assert isinstance(char, (str, unicode)) and len(char) == 1
-        self.set_priority(priority)
         self._conn.send_command('CHAR', char.replace(' ', 'space'))
         
-    def key(self, key, priority=Priority.TEXT):
+    def key(self, key):
         """Say given key name.
 
         Arguments:
 
           key -- the key name (as defined in SSIP).
 
-          priority -- one of 'Priority' constants.
-
         This method is non-blocking;  it just sends the command, given
         message is queued on the server and the method returns immediately.
 
         """
-        self.set_priority(priority)
         self._conn.send_command('KEY', key)
 
-    def sound_icon(self, sound_icon, priority=Priority.TEXT):
-        """Output given sound_icon with given priority
+    def sound_icon(self, sound_icon):
+        """Output given sound_icon.
 
         Arguments:
 
           sound_icon -- the name of the sound icon as defined by SSIP.
 
-          priority -- one of 'Priority' constants.
-
         This method is non-blocking; it just sends the command, given message
         is queued on the server and the method returns immediately.
 
         """        
-        self.set_priority(priority)
         self._conn.send_command('SOUND_ICON', sound_icon)
                     
     def cancel(self, scope=Scope.SELF):
@@ -542,3 +535,26 @@ class Client(object):
     def close(self):
         """Close the connection to Speech Dispatcher."""
         self._conn.close()
+
+
+class Speaker(SSIPClient):
+    """Extended Speech Dispatcher Interface.
+
+    This class provides an extended intercace to Speech Dispatcher
+    functionality and tries to hide most of the lower level details of SSIP
+    under a more convenient API.
+    
+    Please note that thw API is not yet stabilized and thus is subject to
+    change!  Please contact the author if you plan using it and/or if you have
+    any suggestions.
+
+    Well, in fact this class is currently not implemented at all.  It is just a
+    draft.
+
+    """
+
+    def say(self, text, voice=None, interrupt=False, interruptable=True):
+        #self.set_priority(priority)
+        self.speak(text)
+    
+    
