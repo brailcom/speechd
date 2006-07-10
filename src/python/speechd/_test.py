@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Copyright (C) 2003 Brailcom, o.p.s.
+# Copyright (C) 2003, 2006 Brailcom, o.p.s.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public Licensex1 as published by
@@ -18,7 +18,7 @@
 
 import unittest
 
-import client
+from client import Client, PunctuationMode
 
 class TestSuite(unittest.TestSuite):
     def add(self, cls, prefix = 'check_'):
@@ -26,12 +26,25 @@ class TestSuite(unittest.TestSuite):
         self.addTest(unittest.TestSuite(map(cls, tests)))
 tests = TestSuite()
 
-class Client(unittest.TestCase):
-    def check_it(self):
-        c = client.Client('bill', 'xxx', 'yyy')
-        c.set_rate(30)
+class ClientTest(unittest.TestCase):
+    
+    def _client(self):
+        c = Client('test')
         c.set_language('en')
-        c.say("Hello, this is a Python client test.")
+        c.set_rate(30)
+        return c
+
+    def check_escapes(self):
+        c = self._client()
+        c.say("Testing data escapes:")
+        c.set_punctuation(PunctuationMode.ALL)
+        c.say(".")
+        c.say("Marker at the end.\r\n.\r\n")
+        c.say(".\r\nMarker at the beginning.")
+        
+    def check_voice_properties(self):
+        c = self._client()
+        c.say("Testing voice properties:")
         c.set_pitch(-100)
         c.say("I am fat Billy")
         c.set_pitch(100)
@@ -39,20 +52,23 @@ class Client(unittest.TestCase):
         c.set_pitch(0)
         c.set_rate(100)
         c.say("I am quick Dick.")
-        c.set_rate(-100)
+        c.set_rate(-80)
         c.say("I am slow Joe.")
         c.set_rate(0)
-        c.set_volume(0)
-        c.say("I am quite Mariette.")
+        c.set_pitch(100)
+        c.set_volume(-50)
+        c.say("I am quiet Mariette.")
         c.set_volume(100)
-    
-        c.say("Now some other commands:")
+        c.say("I am noisy Daisy.")
+
+    def check_other_commands(self):
+        c = self._client()
+        c.say("Testing other commands:")
         c.char("a")
         c.key("shift_b")
         c.sound_icon("empty")
         
-        c.close()
-tests.add(Client)
+tests.add(ClientTest)
 
 def get_tests():
     return tests
