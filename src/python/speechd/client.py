@@ -255,15 +255,15 @@ class Client(object):
         self._conn = _SSIP_Connection(host, port or self.SPEECH_PORT)
         full_name = '%s:%s:%s' % (user, name, component)
         self._conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
-        self._priority = None
+        self._current_priority = None
 
-    def _set_priority(self, priority):
+    def set_priority(self, priority):
         assert priority in (Priority.IMPORTANT, Priority.TEXT,
                             Priority.MESSAGE, Priority.NOTIFICATION,
                             Priority.PROGRESS), priority
-        if priority != self._priority:
+        if priority != self._current_priority:
             self._conn.send_command('SET', Scope.SELF, 'PRIORITY', priority)
-            self._priority = priority
+            self._current_priority = priority
 
     def say(self, text, priority=Priority.MESSAGE):
         """Say given message with given priority.
@@ -278,7 +278,7 @@ class Client(object):
         message is queued on the server and the method returns immediately.
 
         """
-        self._set_priority(priority)
+        self.set_priority(priority)
         self._conn.send_command('SPEAK')
         self._conn.send_data(text)
 
@@ -296,7 +296,7 @@ class Client(object):
 
         """
         assert isinstance(char, (str, unicode)) and len(char) == 1
-        self._set_priority(priority)
+        self.set_priority(priority)
         self._conn.send_command('CHAR', char.replace(' ', 'space'))
         
     def key(self, key, priority=Priority.TEXT):
@@ -312,7 +312,7 @@ class Client(object):
         message is queued on the server and the method returns immediately.
 
         """
-        self._set_priority(priority)
+        self.set_priority(priority)
         self._conn.send_command('KEY', key)
 
     def sound_icon(self, sound_icon, priority=Priority.TEXT):
@@ -328,7 +328,7 @@ class Client(object):
         is queued on the server and the method returns immediately.
 
         """        
-        self._set_priority(priority)
+        self.set_priority(priority)
         self._conn.send_command('SOUND_ICON', sound_icon)
                     
     def cancel(self, scope=Scope.SELF):
@@ -355,8 +355,9 @@ class Client(object):
     def pause(self, scope=Scope.SELF):
         """Pause speaking and postpone other messages until resume.
 
-        This method is non-blocking. However, speaking can continue for a short
-        while even after it's called (typically to the end of the sentence).
+        This method is non-blocking.  However, speaking can continue for a
+        short while even after it's called (typically to the end of the
+        sentence).
 
         Arguments:
 
@@ -537,10 +538,6 @@ class Client(object):
 
         """
         self._conn.send_command('BLOCK', 'END')
-        
-#    def get_client_list(self):
-#        c, m, data = self._conn.send_command('HISTORY', 'GET', 'CLIENT_LIST')
-#        return data
         
     def close(self):
         """Close the connection to Speech Dispatcher."""
