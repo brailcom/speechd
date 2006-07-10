@@ -1,3 +1,37 @@
+2006-07-10  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd/_test.py: Import `speechd' not `client'.
+	(Client): Renamed to `ClientTest'.
+	(ClientTest._client): New method.
+	(ClientTest.check_escapes, ClientTest.check_voice_properties) 
+	(ClientTest.check_other_commands): New methods.
+	(ClientTest.check_it): Method split into the above new methods.
+
+	* speechd/client.py: Don't import `string'.
+	(SSIPCommandError, SSIPDataError): Docstrings improved.
+	(_SSIP_Connection.NEWLINE): Renamed to `_NEWLINE'.
+	(_SSIP_Connection.END_OF_DATA_SINGLE): Renamed to
+	`_END_OF_DATA_MARKER'.
+	(_SSIP_Connection.END_OF_DATA_ESCAPED_SINGLE): Renamed to
+	`_END_OF_DATA_MARKER_ESCAPED'.
+	(_SSIP_Connection.END_OF_DATA_BEGIN)
+	(_SSIP_Connection.END_OF_DATA_ESCAPED_BEGIN): Constants removed.
+	(_SSIP_Connection.END_OF_DATA): Renamed to `_END_OF_DATA'.
+	(_SSIP_Connection.END_OF_DATA_ESCAPED): Renamed to
+	`_END_OF_DATA_ESCAPED'.
+	(_SSIP_Connection._readline): Docstring improved.  `self.NEWLINE'
+	-> `self._NEWLINE'.
+	(_SSIP_Connection.send_command): `self.NEWLINE' -> `self._NEWLINE'.
+	(_SSIP_Connection.send_data): Use new constant names.
+	(Client.__init__): Initialize the `_priority' attribute to None.
+	(Client._set_priority): Only set the priority if it is different
+	than the last priority stored in the `_priority' attribute.  Set
+	this attribute on change.
+	(Client.char): Replace the space by `space' as required by SSIP.
+	
+
+	* speechd/util.py: File removed.
+
 2006-06-28  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd/client.py (SSIPCommandError)
