@@ -22,9 +22,6 @@ Python client API to Speech Dispatcher is provided in an OO style by the
 """
 
 import socket
-import string
-from util import *
-
 
 class SSIPError(Exception):
     def __init__(self, code, msg, data):
@@ -43,7 +40,7 @@ class SSIPError(Exception):
 
     
 class SSIPCommandError(SSIPError):
-    """Exception risen after receiving error response when command was sent."""
+    """Exception raised on error response after sending command."""
 
     def command(self):
         """Return the command string which resulted in this error."""
@@ -51,7 +48,7 @@ class SSIPCommandError(SSIPError):
 
     
 class SSIPDataError(SSIPError):
-    """Exception risen after receiving error response when data were sent."""
+    """Exception raised on error response after sending data."""
 
     def data(self):
         """Return the data which resulted in this error."""
@@ -62,26 +59,19 @@ class _SSIP_Connection:
     
     """Implemantation of low level SSIP communication."""
     
-    NEWLINE = "\r\n"
+    _NEWLINE = "\r\n"
     """New line delimeter as a string."""
 
-    END_OF_DATA_SINGLE = '.'
-    """Data end marker single in a message"""
+    _END_OF_DATA_MARKER = '.'
+    """Data end marker."""
 
-    END_OF_DATA_BEGIN = END_OF_DATA_SINGLE + NEWLINE
-    """Data end marker on the begginning of a message"""
-
-    END_OF_DATA = NEWLINE + END_OF_DATA_BEGIN
-    """Data end marker as a string."""
-
-
-    END_OF_DATA_ESCAPED_SINGLE = '..'
-    """Data may contain a marker string, so we need to escape it..."""
-
-    END_OF_DATA_ESCAPED_BEGIN = END_OF_DATA_ESCAPED_SINGLE + NEWLINE
-    """Data may contain a marker string, so we need to escape it..."""
+    _END_OF_DATA_MARKER_ESCAPED = '..'
+    """Escaped data end marker."""
     
-    END_OF_DATA_ESCAPED = NEWLINE + END_OF_DATA_ESCAPED_BEGIN
+    _END_OF_DATA = _NEWLINE + _END_OF_DATA_MARKER + _NEWLINE
+    """Data end marker."""
+
+    _END_OF_DATA_ESCAPED = _NEWLINE + _END_OF_DATA_MARKER_ESCAPED  + _NEWLINE
     """Data may contain a marker string, so we need to escape it..."""
 
     def __init__(self, host, port):
@@ -91,17 +81,16 @@ class _SSIP_Connection:
     
     def _readline(self):
         """Read one whole line from the socket.
-        
-        Read from the socket until the newline delimeter (given by the
-        `NEWLINE' constant).  Blocks until the delimiter is read.
+
+        Blocks until the line delimiter ('_NEWLINE') is read.
         
         """
-        pointer = self._buffer.find(self.NEWLINE)
+        pointer = self._buffer.find(self._NEWLINE)
         while pointer == -1:
             self._buffer += self._socket.recv(1024)
-            pointer = self._buffer.find(self.NEWLINE)
+            pointer = self._buffer.find(self._NEWLINE)
         line = self._buffer[:pointer]
-        self._buffer = self._buffer[pointer+len(self.NEWLINE):]
+        self._buffer = self._buffer[pointer+len(self._NEWLINE):]
         return line
             
     def _recv_response(self):
@@ -140,7 +129,7 @@ class _SSIP_Connection:
                 assert args[0] in (Scope.SELF, Scope.ALL), scope
                 #or isinstance(args[0], int)
         cmd = ' '.join((command,) + tuple(map(str, args)))
-        self._socket.send(cmd + self.NEWLINE)
+        self._socket.send(cmd + self._NEWLINE)
         code, msg, data = self._recv_response()
         if code/100 != 2:
             raise SSIPCommandError(code, msg, cmd)
@@ -156,13 +145,14 @@ class _SSIP_Connection:
         documentation.
         
         """
-        # Escape the end-of-data sequence even if presented on the beginning
-        if data[0:3] == self.END_OF_DATA_BEGIN:
-            data = self.END_OF_DATA_ESCAPED_BEGIN + data[3:]
-        if (len(data) == 1) and (data[0] == '.'):
-            data = self.END_OF_DATA_ESCAPED_SINGLE
-        data = string.replace(data, self.END_OF_DATA, self.END_OF_DATA_ESCAPED)
-        self._socket.send(data + self.END_OF_DATA)
+        # Escape the end-of-data marker even if present at the beginning
+        if data.startswith(self._END_OF_DATA_MARKER + self._NEWLINE):
+            l = len(self._END_OF_DATA_MARKER)
+            data = self._END_OF_DATA_MARKER_ESCAPED + data[l:]
+        elif data == self._END_OF_DATA_MARKER:
+            data = self._END_OF_DATA_MARKER_ESCAPED
+        data = data.replace(self._END_OF_DATA, self._END_OF_DATA_ESCAPED)
+        self._socket.send(data + self._END_OF_DATA)
         code, msg, data = self._recv_response()
         if code/100 != 2:
             raise SSIPDataError(code, msg, data)
@@ -265,12 +255,15 @@ class Client(object):
         self._conn = _SSIP_Connection(host, port or self.SPEECH_PORT)
         full_name = '%s:%s:%s' % (user, name, component)
         self._conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
+        self._priority = None
 
     def _set_priority(self, priority):
         assert priority in (Priority.IMPORTANT, Priority.TEXT,
                             Priority.MESSAGE, Priority.NOTIFICATION,
                             Priority.PROGRESS), priority
-        self._conn.send_command('SET', Scope.SELF, 'PRIORITY', priority)
+        if priority != self._priority:
+            self._conn.send_command('SET', Scope.SELF, 'PRIORITY', priority)
+            self._priority = priority
 
     def say(self, text, priority=Priority.MESSAGE):
         """Say given message with given priority.
@@ -285,8 +278,6 @@ class Client(object):
         message is queued on the server and the method returns immediately.
 
         """
-        # TODO: the priority might not be always set to avoid the unnecessary
-        # delay (if that's noticable).
         self._set_priority(priority)
         self._conn.send_command('SPEAK')
         self._conn.send_data(text)
@@ -306,10 +297,7 @@ class Client(object):
         """
         assert isinstance(char, (str, unicode)) and len(char) == 1
         self._set_priority(priority)
-        #if char == " ":
-        #self._conn.send_command('CHAR', 'space')
-        #else:
-        self._conn.send_command('CHAR', char)
+        self._conn.send_command('CHAR', char.replace(' ', 'space'))
         
     def key(self, key, priority=Priority.TEXT):
         """Say given key name.
