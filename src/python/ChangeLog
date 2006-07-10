@@ -1,3 +1,24 @@
+2006-07-11  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd/_test.py: `Client' -> `SSIPClient'.
+	(ClientTest): -> `SSIPClientTest'.
+	(SSIPClientTest.check_escapes)
+	(SSIPClientTest.check_voice_properties) 
+	(SSIPClientTest.check_other_commands): `say' -> `speak'.
+	(SpeakerTest): New test class.
+
+	* speechd/client.py (Module): Docstring updated.
+	(Client): Class renamed to `SSIPClient'.
+	(SSIPClient): Docstring improved.
+	(SSIPClient.__init__): Don't initialize `self._current_priority'.
+	(SSIPClient.set_priority): Added docstring.  Always send the
+	command.  Don't check `self._current_priority'.
+	(SSIPClient.say): Method renamed to `speak'.
+	(SSIPClient.speak, SSIPClient.char, SSIPClient.key)
+	(SSIPClient.sound_icon): The arguent `priority' removed.  Don't
+	set the priority here.
+	(Speaker): New class.
+
 2006-07-10  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd/_test.py: Import `speechd' not `client'.
