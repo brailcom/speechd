@@ -21,14 +21,22 @@
 	`_END_OF_DATA_ESCAPED'.
 	(_SSIP_Connection._readline): Docstring improved.  `self.NEWLINE'
 	-> `self._NEWLINE'.
-	(_SSIP_Connection.send_command): `self.NEWLINE' -> `self._NEWLINE'.
+	(_SSIP_Connection.send_command): `self.NEWLINE' ->
+	`self._NEWLINE'.
 	(_SSIP_Connection.send_data): Use new constant names.
 	(Client.__init__): Initialize the `_priority' attribute to None.
 	(Client._set_priority): Only set the priority if it is different
 	than the last priority stored in the `_priority' attribute.  Set
 	this attribute on change.
 	(Client.char): Replace the space by `space' as required by SSIP.
-	
+	(Client.__init__): `self._priority' renamed to
+	`self._current_priority'.
+	(Client._set_priority): Renamed to `_set_priority'.
+	(Client.set_priority): `self._priority' ->
+	`self._current_priority'.
+	(Client.char, Client.key, Client.sound_icon, Client.say):
+	`self._set_priority' -> `self.set_priority'.
+	(Client.pause): Improved docstring formatting.
 
 	* speechd/util.py: File removed.
 
