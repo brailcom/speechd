@@ -18,7 +18,7 @@
 
 import unittest
 
-from client import Client, PunctuationMode
+from client import PunctuationMode, SSIPClient, Speaker
 
 class TestSuite(unittest.TestSuite):
     def add(self, cls, prefix = 'check_'):
@@ -26,49 +26,59 @@ class TestSuite(unittest.TestSuite):
         self.addTest(unittest.TestSuite(map(cls, tests)))
 tests = TestSuite()
 
-class ClientTest(unittest.TestCase):
+class SSIPClientTest(unittest.TestCase):
     
     def _client(self):
-        c = Client('test')
+        c = SSIPClient('test')
         c.set_language('en')
         c.set_rate(30)
         return c
 
     def check_escapes(self):
         c = self._client()
-        c.say("Testing data escapes:")
+        c.speak("Testing data escapes:")
         c.set_punctuation(PunctuationMode.ALL)
-        c.say(".")
-        c.say("Marker at the end.\r\n.\r\n")
-        c.say(".\r\nMarker at the beginning.")
+        c.speak(".")
+        c.speak("Marker at the end.\r\n.\r\n")
+        c.speak(".\r\nMarker at the beginning.")
         
     def check_voice_properties(self):
         c = self._client()
-        c.say("Testing voice properties:")
+        c.speak("Testing voice properties:")
         c.set_pitch(-100)
-        c.say("I am fat Billy")
+        c.speak("I am fat Billy")
         c.set_pitch(100)
-        c.say("I am slim Willy")
+        c.speak("I am slim Willy")
         c.set_pitch(0)
         c.set_rate(100)
-        c.say("I am quick Dick.")
+        c.speak("I am quick Dick.")
         c.set_rate(-80)
-        c.say("I am slow Joe.")
+        c.speak("I am slow Joe.")
         c.set_rate(0)
         c.set_pitch(100)
         c.set_volume(-50)
-        c.say("I am quiet Mariette.")
+        c.speak("I am quiet Mariette.")
         c.set_volume(100)
-        c.say("I am noisy Daisy.")
+        c.speak("I am noisy Daisy.")
 
     def check_other_commands(self):
         c = self._client()
-        c.say("Testing other commands:")
+        c.speak("Testing other commands:")
         c.char("a")
         c.key("shift_b")
         c.sound_icon("empty")
         
-tests.add(ClientTest)
+tests.add(SSIPClientTest)
+
+class SpeakerTest(unittest.TestCase):
+    
+    def check_it(self):
+        s = Speaker('test')
+        s.set_language('en')
+        #s.set_rate(30)
+        s.say("Testing the say command.")
+        
+tests.add(SpeakerTest)
 
 def get_tests():
     return tests
