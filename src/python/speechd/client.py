@@ -537,6 +537,36 @@ class SSIPClient(object):
         self._conn.close()
 
 
+class Client(SSIPClient):
+    """A DEPRICATED backwards-compatible API.
+
+    This Class is only for backwards compatibility with the prevoius unofficial
+    API.  It will be removed in future versions.  Please use either
+    'SSIPClient' or 'Speaker' interface instead.  As deprecated, the API is no
+    longer documented.
+
+    """
+    def __init__(self, name=None, client=None, **kwargs):
+        name = name or client or 'python'
+        super(Client, self).__init__(name, **kwargs)
+        
+    def say(self, text, priority=Priority.MESSAGE):
+        self.set_priority(priority)
+        self.speak(text)
+
+    def char(self, char, priority=Priority.TEXT):
+        self.set_priority(priority)
+        super(Client, self).char(char)
+
+    def key(self, key, priority=Priority.TEXT):
+        self.set_priority(priority)
+        super(Client, self).key(key)
+
+    def sound_icon(self, sound_icon, priority=Priority.TEXT):
+        self.set_priority(priority)
+        super(Client, self).sound_icon(sound_icon)
+        
+
 class Speaker(SSIPClient):
     """Extended Speech Dispatcher Interface.
 
@@ -549,12 +579,12 @@ class Speaker(SSIPClient):
     any suggestions.
 
     Well, in fact this class is currently not implemented at all.  It is just a
-    draft.
+    draft.  The intention is to hide the SSIP details and provide a generic
+    interface practical for screen readers.
 
     """
 
     def say(self, text, voice=None, interrupt=False, interruptable=True):
-        #self.set_priority(priority)
         self.speak(text)
-    
+   
     
