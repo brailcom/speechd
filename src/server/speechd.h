@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.h,v 1.54 2006-01-08 13:36:58 hanke Exp $
+ * $Id: speechd.h,v 1.55 2006-07-11 15:17:58 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -108,6 +108,7 @@ typedef struct{
 struct{
     int port, port_set;
     int log_level, log_level_set;
+    char *pid_file;
     int max_history_messages;	/* Maximum of messages in history before they expire */
 }SpeechdOptions;
 
@@ -128,9 +129,6 @@ pthread_mutex_t socket_com_mutex;
  handled with SYSV/IPC semaphore */
 key_t speaking_sem_key;
 int speaking_sem_id;
-
-/* PID file name */
-char *speechd_pid_file;
 
 /* Table of all configured (and succesfully loaded) output modules */
 GHashTable *output_modules;	
