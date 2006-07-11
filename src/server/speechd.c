@@ -1,7 +1,7 @@
 /*
  * speechd.c - Speech Dispatcher server program
  *  
- * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2006 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: speechd.c,v 1.64 2006-01-08 13:36:58 hanke Exp $
+ * $Id: speechd.c,v 1.65 2006-07-11 15:17:53 hanke Exp $
  */
 
 #include <gmodule.h>
@@ -356,7 +356,8 @@ speechd_options_init(void)
 {
     SpeechdOptions.log_level_set = 0;
     SpeechdOptions.port_set = 0;
-    spd_mode = SPD_MODE_DAEMON;
+    SpeechdOptions.pid_file = NULL;
+    spd_mode = SPD_MODE_DAEMON;    
 }
 
 
@@ -539,7 +540,7 @@ create_pid_file()
     int ret;    
       
     /* If the file exists, examine it's lock */
-    pid_file = fopen(speechd_pid_file, "r");
+    pid_file = fopen(SpeechdOptions.pid_file, "r");
     if (pid_file != NULL){
         pid_fd = fileno(pid_file);
 
@@ -561,14 +562,14 @@ create_pid_file()
             return -1;
         }
 
-        unlink(speechd_pid_file);        
+        unlink(SpeechdOptions.pid_file);        
     }    
     
     /* Create a new pid file and lock it */
-    pid_file = fopen(speechd_pid_file, "w");
+    pid_file = fopen(SpeechdOptions.pid_file, "w");
     if (pid_file == NULL){
         fprintf(stderr, "Can't create pid file in %s, wrong permissions?\n",
-                speechd_pid_file);
+                SpeechdOptions.pid_file);
         return -1;
     }
     fprintf(pid_file, "%d\n", getpid());
@@ -592,7 +593,7 @@ create_pid_file()
 void
 destroy_pid_file()
 {
-    unlink(speechd_pid_file);
+    unlink(SpeechdOptions.pid_file);
 }
 
 
@@ -610,10 +611,12 @@ main(int argc, char *argv[])
 
     options_parse(argc, argv);
 
-    if (!strcmp(PIDPATH, ""))
-        speechd_pid_file = strdup("/var/run/speech-dispatcher.pid");
-    else
-        speechd_pid_file = strdup(PIDPATH"speech-dispatcher.pid");
+    if (SpeechdOptions.pid_file == NULL){
+	if (!strcmp(PIDPATH, ""))
+	    SpeechdOptions.pid_file = strdup("/var/run/speech-dispatcher.pid");
+	else
+	    SpeechdOptions.pid_file = strdup(PIDPATH"speech-dispatcher.pid");
+    }
 
     if (create_pid_file() != 0) exit(1);
 
@@ -654,7 +657,7 @@ main(int argc, char *argv[])
     if (spd_mode == SPD_MODE_DAEMON){
         daemon(0,0);	   
         /* Re-create the pid file under this process */
-        unlink(speechd_pid_file);
+        unlink(SpeechdOptions.pid_file);
         if (create_pid_file() == -1) return -1;
     }
 
