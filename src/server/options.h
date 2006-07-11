@@ -1,7 +1,7 @@
 /*
  * options.h - Defines possible command line options
  *
- * Copyright (C) 2003 Brailcom, o.p.s.
+ * Copyright (C) 2003, 2006 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.h,v 1.3 2006-01-08 13:36:57 hanke Exp $
+ * $Id: options.h,v 1.4 2006-07-11 15:17:07 hanke Exp $
  */
 
 #include <getopt.h>
@@ -26,14 +26,15 @@
 static struct option spd_long_options[] = {
     {"run-daemon", 0, 0, 'd'},
     {"run-single", 0, 0, 's'},
-    {"log-level", 1, 0, 0},
-    {"port", 1, 0, 0},
+    {"log-level", 1, 0, 'l'},
+    {"port", 1, 0, 'p'},
+    {"pid-file", 1, 0, 'P'},
     {"version", 0, 0, 'v'},
-    {"help", 0, 0, 0},
+    {"help", 0, 0, 'h'},
     {0, 0, 0, 0}
 };
 
-static char* spd_short_options = "dsvhl:p:";
+static char* spd_short_options = "dsl:p:P:vh";
 
 void options_print_help(char *argv[]);
 void options_print_version(void);
