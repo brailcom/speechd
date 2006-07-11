@@ -538,10 +538,10 @@ class SSIPClient(object):
 
 
 class Client(SSIPClient):
-    """A DEPRICATED backwards-compatible API.
+    """A DEPRECATED backwards-compatible API.
 
-    This Class is only for backwards compatibility with the prevoius unofficial
-    API.  It will be removed in future versions.  Please use either
+    This Class is provided only for backwards compatibility with the prevoius
+    unofficial API.  It will be removed in future versions.  Please use either
     'SSIPClient' or 'Speaker' interface instead.  As deprecated, the API is no
     longer documented.
 
@@ -572,19 +572,14 @@ class Speaker(SSIPClient):
 
     This class provides an extended intercace to Speech Dispatcher
     functionality and tries to hide most of the lower level details of SSIP
-    under a more convenient API.
+    (such as a more sophisticated handling of blocks and priorities and
+    advanced event notifications) under a more convenient API.
     
-    Please note that thw API is not yet stabilized and thus is subject to
-    change!  Please contact the author if you plan using it and/or if you have
+    Please note that the API is not yet stabilized and thus is subject to
+    change!  Please contact the authors if you plan using it and/or if you have
     any suggestions.
 
     Well, in fact this class is currently not implemented at all.  It is just a
     draft.  The intention is to hide the SSIP details and provide a generic
     interface practical for screen readers.
-
     """
-
-    def say(self, text, voice=None, interrupt=False, interruptable=True):
-        self.speak(text)
-   
-    
