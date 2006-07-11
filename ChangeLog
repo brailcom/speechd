@@ -1,3 +1,17 @@
+2006-07-11  Hynek Hanke  <hanke@chopin>
+
+	* src/server/speechd.h: speechd_pid_file removed.
+
+	* src/server/speechd.c (main): If pid_file specified on command
+	line, use this one.
+
+	* src/server/options.c (options_parse): Added pid_file.
+	(SPD_OPTION_SET_STR): New macro.
+
+	* src/server/speechd.h: Added pid_file to SpeechdOptions.
+
+	* src/server/options.h: Added options pid-file.
+
 2006-06-29  Olivier BERT  <obert01@mistigri.org>
 
 	* src/modules/cicero.c: Updated Copyright in cicero.c

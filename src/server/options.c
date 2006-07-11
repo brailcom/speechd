@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: options.c,v 1.6 2004-05-23 21:25:10 hanke Exp $
+ * $Id: options.c,v 1.7 2006-07-11 15:16:54 hanke Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would
@@ -40,6 +40,7 @@ options_print_help(char *argv[])
     "-s, --run-single     -      Run as single application\n"
     "-l, --log-level      -      Set log level (1..5)\n"
     "-p, --port           -      Specify a port number\n"
+    "-P, --pid-file       -      Set path to pid file\n"
     "-v, --version        -      Report version of this program\n"
     "-h, --help           -      Print this info\n\n"
     "Copyright (C) 2003 Brailcom, o.p.s.\n"
@@ -70,6 +71,9 @@ options_print_version(void)
         SpeechdOptions.param = val; \
     }
 
+#define SPD_OPTION_SET_STR(param) \
+    SpeechdOptions.param = optarg
+
 void
 options_parse(int argc, char *argv[])
 {
@@ -95,11 +99,14 @@ options_parse(int argc, char *argv[])
             spd_mode = SPD_MODE_SINGLE;
             break;
         case 'l':
-            SPD_OPTION_SET_INT(log_level);
+            SPD_OPTION_SET_INT(log_level);	   
             break;
         case 'p':
             SPD_OPTION_SET_INT(port);
             break;
+	case 'P':
+	    SPD_OPTION_SET_STR(pid_file);
+	    break;
         case 'v':
             options_print_version();
             exit(0);

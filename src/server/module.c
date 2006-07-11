@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: module.c,v 1.28 2006-01-08 13:36:57 hanke Exp $
+ * $Id: module.c,v 1.29 2006-07-11 15:17:01 hanke Exp $
  */
 
 #define _GNU_SOURCE
@@ -77,7 +77,8 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 
     /* Open the file for child stderr (logging) redirection */
     if (module->debugfilename != NULL){
-	module->stderr_redirect = open(module->debugfilename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+	module->stderr_redirect = open(module->debugfilename,
+				       O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (module->stderr_redirect == -1)
 	    MSG(1,"ERROR: Openning debug file for %s failed: (error=%d) %s", module->name,
 		module->stderr_redirect, strerror(errno));    
