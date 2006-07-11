@@ -1,5 +1,8 @@
-2006-07-11  Hynek Hanke  <hanke@chopin>
+2006-07-11  Hynek Hanke  <hanke@brailcom.org>
+	FSF address updated in all files.
 
+2006-07-11  Hynek Hanke  <hanke@brailcom.org>
+	
 	* src/server/speechd.h: speechd_pid_file removed.
 
 	* src/server/speechd.c (main): If pid_file specified on command
@@ -19,11 +22,11 @@
 	  allocation
 
 
-2006-06-29  Hynek Hanke  <hanke@chopin>
+2006-06-29  Hynek Hanke  <hanke@brailcom.org>
 
 	* config/modules/cicero.conf: Captions, debugging.
 
-2006-06-27  Hynek Hanke  <hanke@chopin>
+2006-06-27  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/Makefile.am: Include Python and Guile files in the
 	distribution.
@@ -38,11 +41,11 @@
 	  still at the following URL:
 	  http://www.terramitica.net/projects/speech-dispatcher
 
-2006-05-17  Hynek Hanke  <hanke@chopin>
+2006-05-17  Hynek Hanke  <hanke@brailcom.org>
 
 	* INSTALL: Users must run './configure' before 'make all'.
 
-2006-05-13  Hynek Hanke  <hanke@chopin>
+2006-05-13  Hynek Hanke  <hanke@brailcom.org>
 
 	* README.packagers: Most information about IBM TTS moved to INSTALL.
 
@@ -68,7 +71,7 @@
 
 	* src/tests/sound_icons.test: Simple test script for sound icons.
 
-2006-04-22  Hynek Hanke  <hanke@chopin>
+2006-04-22  Hynek Hanke  <hanke@brailcom.org>
 
 	* config/modules/espeak-generic.conf: eSpeak generic output module
 	configuration.
@@ -137,7 +140,7 @@
 	PAUSE functions.
 
 
-2006-04-10  Hynek Hanke  <hanke@chopin>
+2006-04-10  Hynek Hanke  <hanke@brailcom.org>
 
 	* COPYING: Added GNU Lesser General Public License.
 
@@ -174,11 +177,11 @@
 2006-03-29  Gary Cramblitt <garycramblitt@comcast.net>
 
 
-2006-03-13  Hynek Hanke  <hanke@chopin>
+2006-03-13  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/audio/oss.c: Include string.h
 
-2006-01-25  Hynek Hanke  <hanke@chopin>
+2006-01-25  Hynek Hanke  <hanke@brailcom.org>
 
 	* version.sh: 0.6
 
@@ -186,14 +189,14 @@
 
 	* FAQ (A): +server_access_list
 
-2006-01-09  Hynek Hanke  <hanke@chopin>
+2006-01-09  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/audio/alsa.c (gettimeofday): 0->NULL
 
 	* src/audio/nas.c (nas_play): gettimeofday takes 2 arguments only
 	under _GNU_SOURCE.
 
-2006-01-08  Hynek Hanke  <hanke@chopin>
+2006-01-08  Hynek Hanke  <hanke@brailcom.org>
 
 	* : Missing declarations fixed, cleaning w/r to gcc -Wall
 

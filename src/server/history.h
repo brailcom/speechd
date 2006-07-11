@@ -16,10 +16,10 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this package; see the file COPYING.  If not, write to
- * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301, USA.
  *
- * $Id: history.h,v 1.10 2006-01-08 13:36:57 hanke Exp $
+ * $Id: history.h,v 1.11 2006-07-11 16:12:27 hanke Exp $
  */
 
 #ifndef HISTORY_H

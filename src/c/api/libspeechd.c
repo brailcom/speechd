@@ -16,10 +16,10 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this package; see the file COPYING.  If not, write to
- * the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301, USA.
  *
- * $Id: libspeechd.c,v 1.26 2006-04-10 21:57:28 cramblitt Exp $
+ * $Id: libspeechd.c,v 1.27 2006-07-11 16:12:26 hanke Exp $
  */
 
 

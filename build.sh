@@ -17,10 +17,10 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this package; see the file COPYING.  If not, write to
-# the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-# Boston, MA 02111-1307, USA.
+# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+# Boston, MA 02110-1301, USA.
 #
-# $Id: build.sh,v 1.4 2004-05-22 21:15:42 hanke Exp $
+# $Id: build.sh,v 1.5 2006-07-11 16:12:25 hanke Exp $
 
 
 echo "Copying libtool macros (libtoolize)"
