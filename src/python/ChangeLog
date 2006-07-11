@@ -1,3 +1,9 @@
+2006-07-11  Hynek Hanke  <hanke@chopin>
+
+	* speechd/client.py: Typos in docstrings.
+	(Speaker): Docstring clarification.
+	Method say() removed.
+
 2006-07-11  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd/_test.py: `Client' -> `SSIPClient'.
