@@ -1,3 +1,7 @@
+2006-07-13  Hynek Hanke  <hanke@brailcom.org>
+
+	* Makefile: Only attempt to use distutils if python is installed.
+
 2006-07-11  Hynek Hanke  <hanke@chopin>
 
 	* speechd/client.py: Typos in docstrings.
