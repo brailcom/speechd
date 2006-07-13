@@ -5,9 +5,9 @@
 # in SUBDIRS if they contain another Makefile)
 # otherwise they won't be included in distribution packages
 EXTRA_DIST = cl/ChangeLog cl/README cl/*.lisp cl/*.asd \
-python/ChangeLog python/speechd/*.py guile/ChangeLog guile/Makefile \
-guile/README guile/*.in guile/*.c guile/*.h
+guile/ChangeLog guile/Makefile guile/README guile/*.in guile/*.c guile/*.h \
+python/*.py
 
-SUBDIRS= server audio c modules tests
+SUBDIRS= server audio c modules tests python
 
 
