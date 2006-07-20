@@ -30,6 +30,7 @@
 #include <langinfo.h>
 #include <locale.h>
 #include <iconv.h>
+#include <sys/stat.h>
 
 #define MODULE_NAME     "cicero"
 #define MODULE_VERSION  "0.3"
@@ -66,7 +67,9 @@ int cicero_stop = 0;
 /*
 ** Config file options
 */
-MOD_OPTION_1_STR(CiceroWrapper);
+//MOD_OPTION_1_STR(CiceroWrapper);
+MOD_OPTION_1_STR(CiceroExecutable)
+MOD_OPTION_1_STR(CiceroExecutableLog)
 
 /*
 ** Pipes to cicero
@@ -127,7 +130,9 @@ module_load(void)
 {
   INIT_SETTINGS_TABLES();
   REGISTER_DEBUG();
-  MOD_OPTION_1_STR_REG(CiceroWrapper, "/usr/bin/cicero_speechd_wrapper");
+  MOD_OPTION_1_STR_REG(CiceroExecutable, "/usr/bin/cicero");
+  MOD_OPTION_1_STR_REG(CiceroExecutableLog,
+		       "/var/log/speech-dispatcher/cicero-executable.log");
   return 0;
 }
 
@@ -135,8 +140,12 @@ int
 module_init(char **status_info)
 {
   int ret;
+  int stderr_redirect;
 
   DBG("Module init\n");
+
+  (void) signal(SIGPIPE, SIG_IGN);
+
   setlocale(LC_ALL, "");
   conv = iconv_open("ISO-8859-1//translit", "UTF-8");
   if (conv == NULL)
@@ -152,6 +161,15 @@ module_init(char **status_info)
       return -1;
   }
   DBG("Call fork system call\n");
+
+  stderr_redirect = open(CiceroExecutableLog,
+			  O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+  if (stderr_redirect == -1){
+      DBG("ERROR: Openning debug file for Cicero binary failed: (error=%d) %s", stderr_redirect,
+	  strerror(errno));    
+  }else{
+      DBG("Cicero synthesizer logging to file %s", CiceroExecutableLog);
+  }
   switch (fork()) {
   case -1:
     {
@@ -166,13 +184,18 @@ module_init(char **status_info)
 	  DBG("Error dup2()\n");
 	  exit(1);
 	}
+      if (stderr_redirect >= 0 ){
+	  if(dup2(stderr_redirect, 2) < 0)
+	      DBG("ERROR: Couldn't redirect stderr, not logging for Cicero synthesizer.");
+      }
       /*close(2);
       close(fd2[1]);
       close(fd1[0]); */
       int i = 0;
-      for (i = 2; i < 256; i++)
+      for (i = 3; i < 256; i++)
 	close(i);
-      execl(CiceroWrapper, CiceroWrapper, (void*) NULL);
+      (void) signal(SIGPIPE, SIG_IGN);
+      execl(CiceroExecutable, CiceroExecutable, (void*) NULL);
       DBG("Error execl()\n");
       exit(1);
     }
@@ -191,8 +214,8 @@ module_init(char **status_info)
 
   cicero_message = malloc (sizeof (char*));
   *cicero_message = NULL;
-
-    cicero_semaphore = module_semaphore_init();
+  
+  cicero_semaphore = module_semaphore_init();
 
   DBG("Cicero: creating new thread for cicero_tracking\n");
   cicero_speaking = 0;
