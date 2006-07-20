@@ -2,7 +2,7 @@
 /*
  * module.c - Output modules for Speech Dispatcher
  *
- * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2006 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: module.c,v 1.30 2006-07-11 16:12:27 hanke Exp $
+ * $Id: module.c,v 1.31 2006-07-20 15:32:48 hanke Exp $
  */
 
 #define _GNU_SOURCE
