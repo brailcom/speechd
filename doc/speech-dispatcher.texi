@@ -258,16 +258,17 @@ Speech Dispatcher from application programmers's point of view:
 
 In this version, most of the features of Speech Dispatcher are
 implemented and we believe it is now useful for applications as a
-device independent Text-to-Speech layer.
+device independent Text-to-Speech layer and an accessibility message
+coordination layer.
 
 Currently, one of the most advanced applications that works with
 Speech Dispatcher is @code{speechd-el}. This is a client for Emacs,
-targeted primarily for blind people. It is similar to Emacspeak, however
-the two take a bit different approach and serve different user
+targeted primarily for blind people. It is similar to Emacspeak,
+however the two take a bit different approach and serve different user
 needs. You can find speechd-el on
-@uref{http://www.freebsoft.org/speechd-el/}. speechd-el provides speech
-output when using nearly any GNU/Linux
-text interface, like editing text, reading email, browsing the web, etc.
+@uref{http://www.freebsoft.org/speechd-el/}. speechd-el provides
+speech output when using nearly any GNU/Linux text interface, like
+editing text, reading email, browsing the web, etc.
 
 It's possible to use Speakup, the kernel-based screen reader, with
 software speech using the @code{speechd-up} package and Speech
@@ -275,6 +276,12 @@ Dispatcher. A bridge for Gnome-Speech was created recently, which
 enables users to use Gnopernicus and Gnome speaking capabilities on
 top of Speech Dispatcher. The driver is distributed as a part of Gnome
 Speech.
+
+Recently, there is also a bridge between Gnome Speech and Speech
+Dispatcher making it possible to use Gnome applications (most notably
+Gnopernicus) with Speech Dispatcher. This bridge is now part of Gnome
+Speech.  An experimental support for the Orca screen reader is available
+@uref{http://www.freebsoft.org/~cerha/orca/speech-dispatcher-backend.html}
 
 We also provide a shared C library, a Python library and a Common Lisp
 library that implement the SSIP functions of Speech Dispatcher in a
@@ -291,22 +298,26 @@ on today's computers it runs reasonably fast.  See
 Dispatcher output module for Festival is highly optimized for fast
 responsivity.
 
-For simpler purposes, there is also support for Flite. Flite (Festival
-Light) is a lightweight free software TTS synthesizer intended to run
-on systems with limited resources. At this time, it has only one
-English voice and porting voices from Festival looks rather difficult.
-With the caching mechanism provided by Speech Dispatcher, Festival is
-even faster than Flite in many situations.  See
-@uref{http://www.speech.cs.cmu.edu/flite/}.
+For simpler purposes, there is also support for Flite and eSpeak who
+currently only support English. Flite (Festival Light) is a
+lightweight free software TTS synthesizer intended to run on systems
+with limited resources. At this time, it has only one English voice
+and porting voices from Festival looks rather difficult.  With the
+caching mechanism provided by Speech Dispatcher, Festival is even
+faster than Flite in many situations.  See
+@uref{http://www.speech.cs.cmu.edu/flite/}. eSpeak is a newer very
+lightweight free software engine with a good quality of voice at high
+rates. See @uref{http://espeak.sourceforge.net/}.
 
-Speech Dispatcher also offers support for generic output devices,
-which means that basically any Text-to-Speech program that provides
-a simple command line interface can be used with Speech Dispatcher
-after a little bit of tuning in the configuration file. This kind of
-output module provides only limited functionality, but it can be
-useful if there are no other choices for your language. Configuration
-files for Epos, Dectalk software and (experimental) LiaPhon are
-shipped with Speech Dispatcher.
+Speech Dispatcher also offers support for the non-free Cicero and IBM
+TTS. Also generic output devices are supported, which means that
+basically any Text-to-Speech program that provides a simple command
+line interface can be used with Speech Dispatcher after a little bit
+of tuning in the configuration file. This kind of output module
+provides only limited functionality, but it can be useful if there are
+no other choices for your language. Configuration files for Epos,
+Dectalk software and (experimental) LiaPhon are shipped with Speech
+Dispatcher.
 
 We decided not to support the simple hardware devices ourselves,
 because they don't support synchronization and therefore have serious
