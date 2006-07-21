@@ -1,10 +1,11 @@
 
-Speech Dispatcher 0.6
-=====================
+Speech Dispatcher 0.6.1
+=======================
 
 The Brailcom organization is happy to announce the availability of Speech
-Dispatcher 0.6 developed as a part of the Free(b)Soft project.  Please read
-`What is new' and `NOTES' bellow.
+Dispatcher 0.6.1 developed as a part of the Free(b)Soft project. This
+is a minor release, it contains mostly bugfixes and support for new
+synthesizers. Please read `What is new' and `NOTES' bellow.
 
 * What is Speech Dispatcher?
 
@@ -40,44 +41,51 @@ Dispatcher 0.6 developed as a part of the Free(b)Soft project.  Please read
     is developed as a sperate project speechd-el. Possibly an interface
     to any other language can be developed.
 
-* What is new in 0.6?
+* What is new in 0.6.1?
 
- - ALSA and experimental NAS sound output supported (apart from OSS)
+ - Bug fixes
 
- - SSIP implementation now supports events notification and index marking
+ - Generic output module support for the eSpeak synthesizer (free, GPL)
 
- - Improved documentation
+ - Output module for Cicero (french TTS, GPL but requires mbrola)
+	(thanks to Olivier Bert)
 
- - spd-say client functionality expanded (stopping, client name setting)
+ - Output module for IBM TTS (non-free)
+	(thanks to Gary Cramblitt)
 
- - Better performance
+ - Revision and stabilization of the Python interface
 
- NOTES:
+ NOTES (0.6 and 0.6.1)
+
+   - A Gnome Speech output module was developed which allows you to use
+     Gnopernicus with Speech Dispatcher and is available in Gnome Speech
+     distribution.
+
+   - An experimental module for Orca provides support of
+     Speech Dispatcher:
+   http://www.freebsoft.org/~cerha/orca/speech-dispatcher-backend.html
+     (this version of Speech Dispatcher 0.6.1 is required)
+
    - ALSA audio output is not turned on by default. If you like,
      go to etc/speech-dispatcher/modules and turn it on for your
      output module.
 
    - If you are using speechd-up, you likely need to upgrade to
-     speechd-up-0.3rc1 due to a bug in speechd-up. Speechd-up 0.3 also brings
+     speechd-up-0.3 due to a bug in speechd-up. Speechd-up 0.3 also brings
      new capabilities, notably support for the ``Read all'' function in
      Speakup.
 
-   - Although not necessary, we highly recommend you to install the new version
-     of festival-freebsoft-utils 0.6 available on
+   - Although not necessary, we highly recommend you to install the
+     festival-freebsoft-utils 0.6 available on
 	http://www.freebsoft.org/pub/projects/festival-freebsoft-utils/
-
-   - A Gnome Speech output module was developed which allows you to use
-     Gnopernicus with Speech Dispatcher and will shortly be available
-     in Gnome Speech distribution.
-
 
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.6.tar.gz
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.6.1.tar.gz
 
-  We recommend you to fetch the sound icons Speech Dispatcher can use as
-  well. They are available at
+  We recommend you to fetch the sound icons for use with Speech Dispatcher.
+  They are available at
   http://www.freebsoft.org/pub/projects/sound-icons/sound-icons-0.1.tar.gz
 
   Corresponding Debian packages will soon be available at your

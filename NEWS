@@ -1,4 +1,11 @@
 
+Version 0.6.1
+ * Bug fixes
+ * Generic output module support for the eSpeak synthesizer (free, GPL)
+ * Output module for Cicero (french TTS, GPL but requires mbrola)
+ * Output module for IBM TTS (non-free)
+ * Revision and stabilization of the Python interface
+
 Version 0.6
  * ALSA and experimental NAS sound output supported (apart from OSS)
  * SSIP implementation now supports events notification and index marking
