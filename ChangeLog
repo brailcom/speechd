@@ -1,3 +1,11 @@
+2006-07-25  Hynek Hanke  <hanke@brailcom.org>
+
+	* Makefile: Added distdir: target
+
+	* version.sh: 0.6.1
+
+	* INSTALL: +Orca experimental support.
+
 2006-07-20  Hynek Hanke  <hanke@brailcom.org>
 
 	* config/modules/cicero.conf: Rewritten + comments.
