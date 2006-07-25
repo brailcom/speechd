@@ -18,7 +18,8 @@ These Free Software packages are known to work with Speech Dispatcher:
  Software synthesizers:
  - Festival (http://www.cstr.ed.ac.uk/projects/festival/) -- an extensible
      speech synthesis engine with support for various languages (English,
-     Spanis, Italian, Czech, Russian, maybe others)
+     Spanish, Italian, Finnish, Czech, Russian, Hindi, some African languages
+     and others)
  - FLite (http://cmuflite.org/) -- a lightweight software synthesizer for English,
      we believe it's highly surpassed by Festival, but can be easier to install
      for the beginning
