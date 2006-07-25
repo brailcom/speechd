@@ -15,5 +15,8 @@ clean:
 
 distclean: clean
 
+distdir:
+
+
 check:
 
