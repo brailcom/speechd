@@ -3,7 +3,7 @@ all:
 
 install:
 	if test -x /usr/bin/python; then \
-		./setup.py install; \
+		./setup.py install --prefix=$(prefix); \
 	else \
 	echo "Python not found, not installing speechd module"; \
 	fi
