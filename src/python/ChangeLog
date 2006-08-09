@@ -1,3 +1,7 @@
+2006-08-09  Hynek Hanke  <hanke@brailcom.org>
+
+	* Makefile (install): Install with correct prefix.
+
 2006-07-13  Hynek Hanke  <hanke@brailcom.org>
 
 	* Makefile: Only attempt to use distutils if python is installed.
