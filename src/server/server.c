@@ -2,7 +2,7 @@
  /*
   * server.c - Speech Dispatcher server core
   * 
-  * Copyright (C) 2001,2002,2003, 2004 Brailcom, o.p.s
+  * Copyright (C) 2001,2002,2003, 2004, 2006 Brailcom, o.p.s
   *
   * This is free software; you can redistribute it and/or modify it
   * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   * Boston, MA 02110-1301, USA.
   *
-  * $Id: server.c,v 1.79 2006-07-11 16:12:27 hanke Exp $
+  * $Id: server.c,v 1.80 2006-09-28 13:33:25 hanke Exp $
   */
 
 #include "speechd.h"
@@ -66,8 +66,9 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
               EMessageType type, int reparted)
 {
     TFDSetElement *settings;
-    TSpeechDMessage *hist_msg;
+    TSpeechDMessage *hist_msg, *message_copy;
     int id;
+    GList *element;
 
 
     /* Check function parameters */
@@ -154,8 +155,20 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
     case 4: MessageQueue->p4 = g_list_append(MessageQueue->p4, new);        
         break;
     case 5: MessageQueue->p5 = g_list_append(MessageQueue->p5, new);
-	mem_free_message(last_p5_message);
-	last_p5_message = (TSpeechDMessage*) spd_message_copy(new);
+	//clear last_p5_block if we get new block or no block message
+	element = g_list_last(last_p5_block);
+	if (!element || !element->data 
+	    || ((TSpeechDMessage *) (element->data))->settings.reparted != new->settings.reparted){
+	    g_list_foreach(last_p5_block, (GFunc*) mem_free_message, NULL);
+	    g_list_free(last_p5_block);
+	    last_p5_block = NULL;	    
+	}
+	
+	// insert message
+	message_copy = spd_message_copy(new);
+	if (message_copy != NULL)
+	    last_p5_block = g_list_append(last_p5_block, message_copy);
+
         break;
     default: FATAL("Nonexistent priority given");
     }
