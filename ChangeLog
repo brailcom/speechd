@@ -1,3 +1,17 @@
+2006-09-28  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/tests/priority_progress.test: New test.
+
+	* src/server/server.c (queue_message): Insert all messages from tha last priority
+	progress block into the last_p5_block list.
+
+	* src/server/speaking.c (speak): Handle last priority progress messages as a list
+	of messages in a block.
+
+	* src/server/speechd.c (speechd_init): last_p5_message renamed to last_p5_block.
+
+	* src/server/speechd.h: last_p5_message renamed to last_p5_block.
+
 2006-07-25  Hynek Hanke  <hanke@brailcom.org>
 
 	* Makefile: Added distdir: target
