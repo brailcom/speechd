@@ -2,7 +2,7 @@
 /*
  * speechd.h - Speech Dispatcher header
  *
- * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2006 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.h,v 1.56 2006-07-11 16:12:28 hanke Exp $
+ * $Id: speechd.h,v 1.57 2006-09-28 13:33:15 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -152,7 +152,7 @@ GList *message_history;
 GList *client_specific_settings;
 
 /* Saves the last received priority progress message */
-TSpeechDMessage *last_p5_message;
+GList *last_p5_block;
 
 /* Global default settings */
 TFDSetElement GlobalFDSet;
