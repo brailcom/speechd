@@ -2,7 +2,7 @@
 /*
  * speaking.c - Speech Dispatcher speech output functions
  * 
- * Copyright (C) 2001,2002,2003 Brailcom, o.p.s
+ * Copyright (C) 2001,2002,2003, 2006 Brailcom, o.p.s
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speaking.c,v 1.50 2006-07-11 16:12:27 hanke Exp $
+ * $Id: speaking.c,v 1.51 2006-09-28 13:33:22 hanke Exp $
  */
 
 #include <glib.h>
@@ -133,10 +133,15 @@ speak(void* data)
 
        pthread_mutex_lock(&element_free_mutex);
         /* Handle postponed priority progress message */
-        if ((last_p5_message != NULL) && (g_list_length(MessageQueue->p5) == 0)){
-            message = last_p5_message;
-            last_p5_message = NULL;
-            MessageQueue->p3 = g_list_insert_sorted(MessageQueue->p3, message, sortbyuid);
+        if ((g_list_length(last_p5_block) != 0) && (g_list_length(MessageQueue->p5) == 0)){      
+	    /* Transfer messages from last_p5_block to priority 3 (message) queue*/
+	    while (g_list_length(last_p5_block) != 0){
+		GList* item;
+		item = g_list_first(last_p5_block);
+		message = item->data;
+		MessageQueue->p3 = g_list_insert_sorted(MessageQueue->p3, message, sortbyuid);
+		last_p5_block = g_list_remove_link(last_p5_block, item);
+	    }
             highest_priority = 3;
             stop_priority_older_than(2, message->id);
             stop_priority(4);
@@ -198,10 +203,17 @@ speak(void* data)
         current_message = message;
 
         /* Check if the last priority 5 message wasn't said yet */
-        if (last_p5_message != NULL){
-            if (last_p5_message->settings.uid == message->settings.uid){
-		mem_free_message(last_p5_message);
-                last_p5_message = NULL;
+        if (last_p5_block != NULL){
+	    GList *elem;
+	    TSpeechDMessage *p5_message;
+	    elem = g_list_last(last_p5_block);
+	    if (elem != NULL){
+		p5_message = (TSpeechDMessage*) elem->data;
+		    if (p5_message->settings.reparted == message->settings.reparted){
+			g_list_foreach(last_p5_block, (GFunc*) mem_free_message, NULL);
+			g_list_free(last_p5_block);
+			last_p5_block = NULL;	    
+		    }
 	    }
         }
 
