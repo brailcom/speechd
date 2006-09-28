@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.c,v 1.66 2006-07-11 16:12:27 hanke Exp $
+ * $Id: speechd.c,v 1.67 2006-09-28 13:33:18 hanke Exp $
  */
 
 #include <gmodule.h>
@@ -452,7 +452,7 @@ speechd_init(void)
     }
 
 
-    last_p5_message = NULL;
+    last_p5_block = NULL;
     highest_priority = 0;
 }
 
