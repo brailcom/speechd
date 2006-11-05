@@ -23,7 +23,15 @@ A more convenient interface is provided by the 'Speaker' class.
 
 """
 
+#TODO: Blocking variants for speak, char, key, sound_icon.
+
 import socket
+import sys
+
+try:
+    import threading
+except:
+    import dummy_threading as threading
 
 class SSIPError(Exception):
     def __init__(self, code, msg, data):
@@ -76,10 +84,90 @@ class _SSIP_Connection:
     """Data may contain a marker string, so we need to escape it..."""
 
     def __init__(self, host, port):
+        """Init connection: open the socket to server,
+        initialize buffers, launch a communication handling
+        thread."""
         self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._socket.connect((socket.gethostbyname(host), port))
         self._buffer = ""
+
+        self._com_buffer = []
+        self._callbacks = {}
+        self._ssip_reply_semaphore = threading.Semaphore(0)
+        self._communication_thread = \
+                         threading.Thread(target=self._communication,
+                         name="Client communication thread", kwargs={})
+        self._communication_thread.start()
     
+
+    def close(self):
+        """Close connection to the server, destroy communication thread"""
+        # Read-write shutdown here is necessary,
+        # otherwise the socket.recv() function
+        # in the other thread won't return at last
+        # on some platforms
+        self._socket.shutdown(socket.SHUT_RDWR)
+        self._socket.close()
+        # Wait for the other thread to terminate
+        self._communication_thread.join()
+        
+    def _communication(self):
+        """Listens for all incomming communication on the socket,
+        dispatches events and puts all other replies into
+        self._com_buffer list in the already parsed form as
+        (code, msg, data). Each time a new item is included
+        into the _com_buffer list, the corresponding semaphore
+        self._ssip_reply_semaphore is incremented.
+
+        This method is designed to run in a separate thread.
+        The thread can be interrupted by closing the shutting down
+        the socket on which it is listening for reading."""
+
+        while True:
+            try:
+                code, msg, data = self._recv_message()
+            except IOError:
+                # If the socket has been closed, exit the thread
+                sys.exit()
+
+            if code/100 != 7:
+                # This is not an index mark nor an event
+                self._com_buffer.append((code, msg, data))
+                self._ssip_reply_semaphore.release()
+                continue
+
+            # Read message and client ID of the event
+            msg_id, client_id = map(int, data[:2])
+
+            # Dispatch the callbacks or throw a KeyError if no
+            # callback is prepared for the event
+            try:
+                if code == 701:
+                    self._callbacks[CallbackType.BEGIN](msg_id, client_id,
+                                         CallbackType.BEGIN)
+                elif code == 702:
+                    self._callbacks[CallbackType.END](msg_id, client_id,
+                                       CallbackType.END)
+                elif code == 703:
+                    self._callbacks[CallbackType.CANCEL](msg_id, client_id,
+                                        CallbackType.CANCEL)
+                elif code == 704:
+                    self._callbacks[CallbackType.PAUSE](msg_id, client_id,
+                                        CallbackType.PAUSE)
+                elif code == 705:
+                    self._callbacks[CallbackType.RESUME](msg_id, client_id,
+                                        CallbackType.RESUME)
+                elif code == 700:
+                    index_mark = data[3]
+                    self._callbacks[CallbackType.INDEX_MARK](msg_id,
+                                        client_id,
+                                        CallbackType.INDEX_MARK,
+                                        index_mark = index_mark)
+            except KeyError:
+                # Non-associated callback received. Throwing away.
+                pass
+                
+                
     def _readline(self):
         """Read one whole line from the socket.
 
@@ -88,17 +176,25 @@ class _SSIP_Connection:
         """
         pointer = self._buffer.find(self._NEWLINE)
         while pointer == -1:
-            self._buffer += self._socket.recv(1024)
+            try:
+                d = self._socket.recv(1024)
+            except:
+                raise IOError
+            if len(d) == 0:
+                raise IOError
+            self._buffer += d
+            
             pointer = self._buffer.find(self._NEWLINE)
         line = self._buffer[:pointer]
         self._buffer = self._buffer[pointer+len(self._NEWLINE):]
         return line
-            
-    def _recv_response(self):
-        """Read server response and return the triplet (code, msg, data)."""
+
+    def _recv_message(self):
+        """Read server response or a callback
+        and return the triplet (code, msg, data)."""
         data = []
         c = None
-        while 1:
+        while True:
             line = self._readline()
             assert len(line) >= 4, "Malformed data received from server!"
             code, sep, text = line[:3], line[3], line[4:]
@@ -108,6 +204,15 @@ class _SSIP_Connection:
                 msg = text
                 return int(code), msg, tuple(data)
             data.append(text)
+
+    def _recv_response(self):
+        """Read server response from the communication thread
+        and return the triplet (code, msg, data)."""
+        self._ssip_reply_semaphore.acquire()
+        # The list is sorted, read the first item
+        response = self._com_buffer[0]
+        del self._com_buffer[0]
+        return response
 
     def send_command(self, command, *args):
         """Send SSIP command with given arguments and read server responsse.
@@ -127,8 +232,8 @@ class _SSIP_Connection:
         """
         if __debug__:
             if command in ('SET', 'CANCEL', 'STOP',):
-                assert args[0] in (Scope.SELF, Scope.ALL), scope
-                #or isinstance(args[0], int)
+                assert args[0] in (Scope.SELF, Scope.ALL) \
+                       or isinstance(args[0], int)
         cmd = ' '.join((command,) + tuple(map(str, args)))
         self._socket.send(cmd + self._NEWLINE)
         code, msg, data = self._recv_response()
@@ -158,13 +263,35 @@ class _SSIP_Connection:
         if code/100 != 2:
             raise SSIPDataError(code, msg, data)
         return code, msg
-        
-    def close(self):
-        """Close the connection."""
-        self._socket.close()
-        self._socket = None
-            
 
+    def set_callback(self, callback, events):
+        """Register callback for a set of events. In case
+        callback is None, it removes callback for the set of events.
+        It is possible to register only one callback for one type
+        of event, although it is possible to use one callback for
+        multiple types of events. Attempts to register a second callback
+        for an event will result in the former callback being replaced.
+
+        Arguments:
+
+        callback -- a function with mandatory arguments
+        (message_id, client_id, event_type) and an optional keyword
+        argument index_mark. In case 'index_mark' is included in _events_,
+        the index_mark argument must be present. The function will be
+        called whenever one of the events specified in _events_ occurs.
+
+        events -- a tuple of events this callback should be assigned to.
+        Each event is of type CallbackType.
+        """
+
+        for event in events:
+            if callback == None:
+                if self._callbacks.has_key(event):
+                    del self._callbacks[event]                
+            else:
+                self._callbacks[event] = callback
+
+            
 class Scope(object):
     """An enumeration of valid SSIP command scopes.
 
@@ -210,7 +337,30 @@ class PunctuationMode(object):
 
     """
 
-    
+class CallbackType(object):
+    """Constants describing the available types of callbacks"""
+    INDEX_MARK = 'index_marks'
+    """Index mark events are reported when the place they were
+    included into the text by the client application is reached
+    when speaking them"""
+    BEGIN = 'begin'
+    """The begin event is reported when Speech Dispatcher starts
+    actually speaking the message."""
+    END = 'end'
+    """The end event is reported after the message has terminated and
+    there is no longer any sound from it being produced"""
+    CANCEL = 'cancel'
+    """The cancel event is reported when a message is canceled either
+    on request of the user, because of prioritization of messages or
+    due to an error"""
+    PAUSE = 'pause'
+    """The pause event is reported after speaking of a message
+    was paused. It no longer produces any audio."""
+    RESUME = 'resume'
+    """The resume event is reported right after speaking of a message
+    was resumed after previous pause."""
+
+
 class SSIPClient(object):
     """Basic Speech Dispatcher client interface.
 
@@ -257,6 +407,10 @@ class SSIPClient(object):
         self._conn = _SSIP_Connection(host, port or self.SPEECH_PORT)
         full_name = '%s:%s:%s' % (user, name, component)
         self._conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
+
+    def __del__(self):
+        """Close the connection"""
+        self.close()
 
     def set_priority(self, priority):
         """Set the priority category for the following messages.
@@ -531,6 +685,46 @@ class SSIPClient(object):
 
         """
         self._conn.send_command('BLOCK', 'END')
+
+    def set_notification(self, callback, events):
+        """Switch on notification and register callback for one or a tuple of
+        events. In case callback is None, it switches the particular
+        notifications off.  It is possible to register only one callback for
+        one type of event, although it is possible to use one callback for
+        multiple types of events. Attempts to register a second callback for an
+        event will result in the former callback being replaced.
+
+        The callback will be called from a second thread. You are responsible
+        for ensuring that the code contained in the callback won't interfere
+        with your application in some unpredictable way. Also, the callback
+        should be short and simple, as for the time of its execution, all other
+        communication with the server, particularly other callbacks, will be
+        blocked.
+
+        Arguments:
+
+        callback -- a function with mandatory arguments
+        (message_id, client_id, event_type) and an optional keyword
+        argument index_mark. In case 'index_mark' is included in _events_,
+        the index_mark argument must be present. The function will be
+        called whenever one of the events specified in _events_ occurs.
+
+        events -- a tuple of events this callback should be assigned to.
+        Each event is of type CallbackType.
+        """
+        if not isinstance(events, tuple):
+            events = (events,)
+
+        self._conn.set_callback(callback, events)
+        # Set notification on:
+        if callback == None:
+            flag = 'off'
+        else:
+            flag = 'on'
+
+        for event in events:
+            self._conn.send_command('SET', 'self', 'NOTIFICATION',
+                                    event, flag)
         
     def close(self):
         """Close the connection to Speech Dispatcher."""
