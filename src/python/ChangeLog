@@ -1,3 +1,26 @@
+2006-11-05  Hynek Hanke  <hanke@brailcom.org>
+
+	* speechd/client.py: IMPORTANT: On initialization of the
+	connection, new lateral thread is started to handle the
+	communication. This thread is terminated when the connection is
+	closed.
+	(_SSIP_Connection._com_buffer): New attribute.
+	(_SSIP_Connection._callbacks): New attribute.
+	(_SSIP_Connection._ssip_reply_semaphore): New attribute.
+	(_SSIP_Connection._communication_thread): New attribute.
+	(_SSIP_Connection.send_command): 'or isinstance(args[0], int)'
+	added back again. This is valid SSIP.
+	(SSIPClient.set_notification): New public API function.
+
+	* speechd/_test.py
+	(SSIPClientTest.check_notification.my_callback): New test.
+
+	* speechd/client.py (_SSIP_Connection.__init__): Start the
+	self._communication method in a new thread.
+	(_SSIP_Connection._recv_response): 1->True
+	(_SSIP_Connection._recv_message): Renamed from _recv_response.
+	(SSIPClient.__del__): New destructor.
+
 2006-08-09  Hynek Hanke  <hanke@brailcom.org>
 
 	* setup.py: Use /usr/bin/env instead of /usr/bin/python
