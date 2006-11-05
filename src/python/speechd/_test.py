@@ -17,8 +17,9 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import unittest
+import time
 
-from client import PunctuationMode, SSIPClient, Speaker
+from client import PunctuationMode, CallbackType, SSIPClient, Scope, Speaker
 
 class TestSuite(unittest.TestSuite):
     def add(self, cls, prefix = 'check_'):
@@ -67,16 +68,39 @@ class SSIPClientTest(unittest.TestCase):
         c.char("a")
         c.key("shift_b")
         c.sound_icon("empty")
-        
+
+    def check_notification(self):
+
+        def my_callback(msg_id, client_id, ctype, index_mark=None):            
+            print "  Callback received on message " + str(msg_id) + \
+                  " from client " + str(client_id) \
+                  + ": " + ctype
+            if index_mark:
+                print "    Index mark name: " + index_mark
+
+        print "Starting callback test"
+        c = self._client()
+        print "  Cancel all previous messages"
+        c.cancel(Scope.ALL)
+        c.set_notification(my_callback, (CallbackType.BEGIN, CallbackType.END))
+        c.speak("""Informationabout the beginning and the end of this message
+        should appear on the screen""")
+        print "  Waiting for the speech to start and finish in 10 seconds"
+        time.sleep(10)
+        print "End of callback test"
+    
+
 tests.add(SSIPClientTest)
 
 class SpeakerTest(unittest.TestCase):
+    pass
+    #Commented out. This is not implemented yet and there is no spec.
     
-    def check_it(self):
-        s = Speaker('test')
-        s.set_language('en')
-        #s.set_rate(30)
-        s.say("Testing the say command.")
+    #def check_it(self):
+    #    s = Speaker('test')
+    #    s.set_language('en')
+    #    #s.set_rate(30)
+    #    s.say("Testing the say command.")
         
 tests.add(SpeakerTest)
 
