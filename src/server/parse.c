@@ -1,7 +1,7 @@
 /*
  * parse.c - Parses commands Speech Dispatcher got from client
  *
- * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2006 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: parse.c,v 1.66 2006-07-11 16:12:27 hanke Exp $
+ * $Id: parse.c,v 1.67 2006-11-17 14:30:24 hanke Exp $
  */
 
 #include <ctype.h>
@@ -590,19 +590,25 @@ parse_stop(const char *buf, const int bytes, const int fd)
     GET_PARAM_STR(who_s, 1, CONV_DOWN);
 
     if (TEST_CMD(who_s, "all")){
+	pthread_mutex_lock(&element_free_mutex);
         speaking_stop_all();
+	pthread_mutex_unlock(&element_free_mutex);	
     }
     else if (TEST_CMD(who_s, "self")){
         uid = get_client_uid_by_fd(fd);
         if(uid == 0) return strdup(ERR_INTERNAL);
+	pthread_mutex_lock(&element_free_mutex);    
         speaking_stop(uid);
+	pthread_mutex_unlock(&element_free_mutex);    
     }
     else if (isanum(who_s)){
         uid = atoi(who_s);
         spd_free(who_s);
 
         if (uid <= 0) return strdup(ERR_ID_NOT_EXIST);
+	pthread_mutex_lock(&element_free_mutex);    
         speaking_stop(uid);
+	pthread_mutex_unlock(&element_free_mutex);    
     }else{
         spd_free(who_s);
         return strdup(ERR_PARAMETER_INVALID);
