@@ -1,3 +1,11 @@
+2006-11-17  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/c/api/libspeechd.c (spd_get_client_list): removed.
+	: Copyright updated.
+
+	* src/server/parse.c (parse_stop, parse_stop): Added mutexes
+	around speaking_stop*() calls.
+
 2006-11-05  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/guile/README: Mailing list correction.
