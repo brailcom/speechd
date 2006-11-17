@@ -2,7 +2,7 @@
 /*
  * libspeechd.c - Shared library for easy acces to Speech Dispatcher functions
  *
- * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2006 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: libspeechd.c,v 1.27 2006-07-11 16:12:26 hanke Exp $
+ * $Id: libspeechd.c,v 1.28 2006-11-17 14:29:46 hanke Exp $
  */
 
 
@@ -703,35 +703,12 @@ spd_set_notification(SPDConnection *connection, SPDNotification notification, co
 }
 #undef NOTIFICATION_SET
 
-int
-spd_get_client_list(SPDConnection *connection, char **client_names, int *client_ids, int* active){
-        SPD_DBG("spd_get_client_list: History is not yet implemented.");
-        return -1;
-#if 0
-	sprintf(command, "HISTORY GET CLIENT_LIST\r\n");
-	reply = (char*) spd_send_data(fd, command, 1);
-
-	footer_ok = parse_response_footer(reply);
-	if(footer_ok != 1){
-		free(reply);
-		return -1;
-	}
-	
-	for(count=0;  ;count++){
-		record = (char*) parse_response_data(reply, count+1);
-		if (record == NULL) break;
-		record_int = get_rec_int(record, 0);
-		client_ids[count] = record_int;
-		record_str = (char*) get_rec_str(record, 1);
-		assert(record_str!=NULL);
-		client_names[count] = record_str;
-		record_int = get_rec_int(record, 2);
-		active[count] = record_int;
-	}	
-	return count;
-
-#endif
-}
+//int
+//spd_get_client_list(SPDConnection *connection, char **client_names, int *client_ids, int* active){
+//        SPD_DBG("spd_get_client_list: History is not yet implemented.");
+//        return -1;
+//
+//}
 
 int
 spd_get_message_list_fd(SPDConnection *connection, int target, int *msg_ids, char **client_names)
