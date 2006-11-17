@@ -1,3 +1,7 @@
+2006-11-17  root  <hanke@brailcom.org>
+
+	* configure.in (LIB_SDAUDIO_AGE): LIB_SPD_REVISION=2
+
 2006-11-17  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/c/api/libspeechd.c (spd_get_client_list): removed.
