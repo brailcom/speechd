@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: libspeechd.c,v 1.28 2006-11-17 14:29:46 hanke Exp $
+ * $Id: libspeechd.c,v 1.29 2006-11-29 16:56:11 hanke Exp $
  */
 
 
@@ -130,7 +130,7 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
     connection->callback_pause = NULL;
     connection->callback_resume = NULL;
     connection->callback_cancel = NULL;
-    
+
     connection->mode = mode;
 
     /* Create a stream from the socket */
@@ -160,25 +160,25 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
 	    return NULL;
 	}
     }
-    
+
     setsockopt(connection->socket, IPPROTO_TCP, TCP_NODELAY, &tcp_no_delay, sizeof(int));
 
     /* By now, the connection is created and operational */
-    
+
     set_client_name = g_strdup_printf("SET SELF CLIENT_NAME \"%s:%s:%s\"", usr_name,
 				      client_name, conn_name);
-    
+
     ret = spd_execute_command_wo_mutex(connection, set_client_name);   
-    
+
     xfree(usr_name);  xfree(conn_name);  xfree(set_client_name);
-    
+
     return connection;
 }
 
 
 #define RET(r) \
     { \
-    pthread_mutex_lock(connection->ssip_mutex); \
+    pthread_mutex_unlock(connection->ssip_mutex); \
     return r; \
     }
 
@@ -407,7 +407,7 @@ spd_char(SPDConnection *connection, SPDPriority priority, const char *character)
     if (ret) RET(-1);
 
     sprintf(command, "CHAR %s", character);
-    ret = spd_execute_command(connection, command);
+    ret = spd_execute_command_wo_mutex(connection, command);
     if (ret) RET(-1);
 
     pthread_mutex_unlock(connection->ssip_mutex);
