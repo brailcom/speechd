@@ -35,7 +35,7 @@ class SSIPClientTest(unittest.TestCase):
         c.set_rate(30)
         return c
 
-    def _check_escapes(self):
+    def check_escapes(self):
         c = self._client()
         try:
             c.speak("Testing data escapes:")
@@ -46,7 +46,7 @@ class SSIPClientTest(unittest.TestCase):
         finally:
             c.close()
         
-    def _check_voice_properties(self):
+    def check_voice_properties(self):
         c = self._client()
         try:
             c.speak("Testing voice properties:")
@@ -68,7 +68,7 @@ class SSIPClientTest(unittest.TestCase):
         finally:
             c.close()
 
-    def _check_other_commands(self):
+    def check_other_commands(self):
         try:
             c = self._client()
             c.speak("Testing other commands:")
