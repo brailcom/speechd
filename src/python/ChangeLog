@@ -1,3 +1,28 @@
+2007-01-26  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd/client.py
+	(_SSIP_Connection._CALLBACK_TYPE_MAP): New constant.
+	(_SSIP_Connection.__init__): Initialize `self._callback' instead
+	of `self._callbacks'.
+	(_SSIP_Connection._communication): Docstring reformatted.  The
+	whole event dispatching rewritten to use `_CALLBACK_TYPE_MAP' and
+	use a single callback function.
+	(_SSIP_Connection.send_command): Docstring typo fixed.
+	(_SSIP_Connection.send_data): Docstring typo fixed.
+	(_SSIP_Connection.send_data): Return also server response data.
+	(_SSIP_Connection.set_callback): Argument `events' removed.
+	Docstring updated and extended.
+	(SSIPClient.__init__): Find out and store the client id.  Register
+	callback and turn on notifications for all supported event types.
+	(SSIPClient._callback_handler): New method.
+	(SSIPClient.speak): New keyword arguments `callback' and
+	`event_types'.  Docstring extended.  Convert `text' to `utf-8' if
+	it is a unicode instance.
+	(SSIPClient.char): Convert `char' to `utf-8' if it is a unicode
+	instance.
+	(SSIPClient.set_notification): Method removed.
+	(SSIPClient.close): Only operate on `self._conn' if it is defined.
+
 2006-11-05  Hynek Hanke  <hanke@brailcom.org>
 
 	* speechd/client.py: IMPORTANT: On initialization of the
