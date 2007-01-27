@@ -1,3 +1,7 @@
+2007-01-27  Olivier BERT  <obert01@mistigri.org>
+
+	* src/modules/cicero.c: Converting to ISO-8859-1 is not needed anymore
+
 2006-11-29  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/c/api/libspeechd.c (spd_char): Execute CHAR command

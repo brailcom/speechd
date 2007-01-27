@@ -28,8 +28,6 @@
 #include <sys/poll.h>
 #include <fcntl.h>
 #include <langinfo.h>
-#include <locale.h>
-#include <iconv.h>
 #include <sys/stat.h>
 
 #define MODULE_NAME     "cicero"
@@ -50,7 +48,6 @@ static EMessageType cicero_message_type;
 static int cicero_position = 0;
 static int cicero_pause_requested = 0;
 signed int cicero_volume = 0;
-static iconv_t conv;
 static unsigned int CiceroMaxChunkLength = 500;
 
 /* Internal functions prototypes */
@@ -146,13 +143,6 @@ module_init(char **status_info)
 
   (void) signal(SIGPIPE, SIG_IGN);
 
-  setlocale(LC_ALL, "");
-  conv = iconv_open("ISO-8859-1//translit", "UTF-8");
-  if (conv == NULL)
-    {
-      DBG("Error iconv_open\n");
-      return -1;
-    }
   DBG("call the pipe system call\n");
   if(pipe(fd1) < 0
      || pipe(fd2) < 0)
@@ -238,56 +228,36 @@ module_init(char **status_info)
 int
 module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 {
-  size_t i,o,n;
-  char *temp;
-  char *p = data, *p2 = temp;
+  DBG("Module speak\n");
 
-  temp = xmalloc((bytes + 1) * sizeof(char));
-  for (i = 0; i <= bytes; i++)
-    temp[i] = 0;
+  /* The following should not happen */
+  if (cicero_speaking){
+    DBG("Speaking when requested to write");
+    return 0;
+  }
 
-    DBG("Module speak\n");
+  if(module_write_data_ok(data) != 0) return -1;
+  
+  DBG("Requested data: |%s|\n", data);
 
-    /* The following should not happen */
-    if (cicero_speaking){
-        DBG("Speaking when requested to write");
-        return 0;
-    }
+  if (*cicero_message != NULL){
+    xfree(*cicero_message);
+    *cicero_message = NULL;
+  }
+  *cicero_message = module_strip_ssml(data);
+  cicero_message_type = MSGTYPE_TEXT;
 
-    if(module_write_data_ok(data) != 0) return -1;
-
-    DBG("Requested data: |%s|\n", data);
-
-    if (*cicero_message != NULL){
-	xfree(*cicero_message);
-	*cicero_message = NULL;
-    }
-
-    /* --- convert from UTF8 to ISO --- */
-    p = data;
-    p2 = temp;
-    i = bytes, o = bytes;
-    if (iconv(conv, &p, &i, &p2, &o) == -1)
-      {
-	perror("iconv");
-	return -1;
-      }
-    bytes = bytes - o;
-
-    *cicero_message = module_strip_ssml(temp);
-    cicero_message_type = MSGTYPE_TEXT;
-
-    /* Setting voice */
-    /*    UPDATE_PARAMETER(voice, cicero_set_voice); */
-    UPDATE_PARAMETER(rate, cicero_set_rate);
-    /*    UPDATE_PARAMETER(pitch, cicero_set_pitch); */
-
-    /* Send semaphore signal to the speaking thread */
-    cicero_speaking = 1;
-    sem_post(cicero_semaphore);
-
-    DBG("Cicero: leaving module_speak() normaly\n\r");
-    return bytes;
+  /* Setting voice */
+  /*    UPDATE_PARAMETER(voice, cicero_set_voice); */
+  UPDATE_PARAMETER(rate, cicero_set_rate);
+  /*    UPDATE_PARAMETER(pitch, cicero_set_pitch); */
+  
+  /* Send semaphore signal to the speaking thread */
+  cicero_speaking = 1;
+  sem_post(cicero_semaphore);
+  
+  DBG("Cicero: leaving module_speak() normaly\n\r");
+  return bytes;
 }
 
 int
