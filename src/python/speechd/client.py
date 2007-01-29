@@ -398,20 +398,18 @@ class SSIPClient(object):
         self.close()
 
     def _callback_handler(self, msg_id, client_id, type, **kwargs):
-        if not client_id == self._client_id:
+        if client_id != self._client_id:
             # TODO: does that ever happen?
             return
         try:
             callback, event_types = self._callbacks[msg_id]
         except KeyError:
-            #print "..", msg_id, type
             pass
         else:
             if event_types is None or type in event_types:
                 callback(type, **kwargs)
             if type in (CallbackType.END, CallbackType.CANCEL):
                 del self._callbacks[msg_id]
-                #print "<-", msg_id, type, self._callbacks.keys()
                 
         
     def set_priority(self, priority):
@@ -461,8 +459,6 @@ class SSIPClient(object):
         result = self._conn.send_data(text)
         if callback:
             msg_id = int(result[2][0])
-            #print "->", msg_id, unicode(text[:20],
-            #                    'utf-8').encode('iso-8859-2', 'replace')
             self._callbacks[msg_id] = (callback, event_types)
         return result
 
