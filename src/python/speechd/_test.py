@@ -21,117 +21,90 @@ import time
 
 from client import PunctuationMode, CallbackType, SSIPClient, Scope, Speaker
 
-class TestSuite(unittest.TestSuite):
-    def add(self, cls, prefix = 'check_'):
-        tests = filter(lambda s: s[:len(prefix)] == prefix, dir(cls))
-        self.addTest(unittest.TestSuite(map(cls, tests)))
-tests = TestSuite()
 
-class SSIPClientTest(unittest.TestCase):
+class _SSIPClientTest(unittest.TestCase):
+        
+    def setUp(self):
+        self._client = SSIPClient('test')
+        self._client.set_language('en')
+        self._client.set_rate(30)
+
+    def tearDown(self):
+        self._client.close()
+
+
+class AutomaticTest(_SSIPClientTest):
+    """A set of tests which may be evaluated automatically.
+
+    Please put all tests which require a user to listen to their output to the
+    VoiceTest below.
+
+    """
     
-    def _client(self):
-        c = SSIPClient('test')
-        c.set_language('en')
-        c.set_rate(30)
-        return c
-
-    def check_escapes(self):
-        c = self._client()
-        try:
-            c.speak("Testing data escapes:")
-            c.set_punctuation(PunctuationMode.ALL)
-            c.speak(".")
-            c.speak("Marker at the end.\r\n.\r\n")
-            c.speak(".\r\nMarker at the beginning.")
-        finally:
-            c.close()
-        
-    def check_voice_properties(self):
-        c = self._client()
-        try:
-            c.speak("Testing voice properties:")
-            c.set_pitch(-100)
-            c.speak("I am fat Billy")
-            c.set_pitch(100)
-            c.speak("I am slim Willy")
-            c.set_pitch(0)
-            c.set_rate(100)
-            c.speak("I am quick Dick.")
-            c.set_rate(-80)
-            c.speak("I am slow Joe.")
-            c.set_rate(0)
-            c.set_pitch(100)
-            c.set_volume(-50)
-            c.speak("I am quiet Mariette.")
-            c.set_volume(100)
-            c.speak("I am noisy Daisy.")
-        finally:
-            c.close()
-
-    def check_other_commands(self):
-        try:
-            c = self._client()
-            c.speak("Testing other commands:")
-            c.char("a")
-            c.key("shift_b")
-            c.sound_icon("empty")
-        finally:
-            c.close()
-        
-    def check_callbacks(self):
-        c = self._client()
-        finished = []
-        def callback(type, context):
-            if type in (CallbackType.CANCEL, CallbackType.END):
-                finished.append(context)
-        try:
-            c.speak("This message should get interrupted.",
-                    callback=lambda type: callback(type, 'msg1'))
-            c.speak("This message should not be spoken at all.",
-                    callback=lambda type: callback(type, 'msg2'))
-            time.sleep(1)
-            c.cancel(Scope.ALL)
-            time.sleep(1)
-            assert 'msg1' in finished, finished
-            assert 'msg2' in finished, finished
-        finally:
-            c.close()
-
-#    def check_notification(self):
-#         def my_callback(msg_id, client_id, ctype, index_mark=None):            
-#             print "  Callback received on message " + str(msg_id) + \
-#                   " from client " + str(client_id) \
-#                   + ": " + ctype
-#             if index_mark:
-#                 print "    Index mark name: " + index_mark
-
-#         c = self._client()
-#         print "  Cancel all previous messages"
-#         c.cancel(Scope.ALL)
-#         c.set_notification(my_callback, (CallbackType.BEGIN, CallbackType.END))
-#         c.speak("""Informationabout the beginning and the end of this message
-#         should appear on the screen""")
-#         print "  Waiting for the speech to start and finish in 10 seconds"
-#         time.sleep(10)
-#         print "End of callback test"
+    def test_callbacks(self):
+        called = {CallbackType.BEGIN: [],
+                  CallbackType.CANCEL: [],
+                  CallbackType.END: []}
+        self._client.speak("This message should get interrupted.  It is "
+                           "hopefully long enough to last more than 1 second.",
+                           callback=lambda type: called[type].append('msg1'))
+        self._client.speak("This second message should not be spoken at all.",
+                           callback=lambda type: called[type].append('msg2'))
+        time.sleep(1)
+        # Uncommenting scope ALL below fixes the problem, but is that correct?
+        self._client.cancel() #Scope.ALL)
+        # Wait for pending events...
+        time.sleep(1)
+        started, canceled, ended = [called[t] for t in (CallbackType.BEGIN,
+                                                      CallbackType.CANCEL,
+                                                      CallbackType.END)]
+        assert started == ['msg1'], started
+        assert 'msg1' in canceled and 'msg2' in canceled, canceled
+        assert ended == [], ended
     
 
-tests.add(SSIPClientTest)
+class VoiceTest(_SSIPClientTest):
+    """This set of tests requires a user to listen to it.
 
-class SpeakerTest(unittest.TestCase):
-    pass
-    #Commented out. This is not implemented yet and there is no spec.
+    The success or failure of the tests defined here can not be detected
+    automatically.
+
+    """
     
-    #def check_it(self):
-    #    s = Speaker('test')
-    #    s.set_language('en')
-    #    #s.set_rate(30)
-    #    s.say("Testing the say command.")
-        
-tests.add(SpeakerTest)
+    def test_escapes(self):
+        c = self._client
+        c.speak("Testing data escapes:")
+        c.set_punctuation(PunctuationMode.ALL)
+        c.speak(".")
+        c.speak("Marker at the end.\r\n.\r\n")
+        c.speak(".\r\nMarker at the beginning.")
+    
+    def test_voice_properties(self):
+        c = self._client
+        c.speak("Testing voice properties:")
+        c.set_pitch(-100)
+        c.speak("I am fat Billy")
+        c.set_pitch(100)
+        c.speak("I am slim Willy")
+        c.set_pitch(0)
+        c.set_rate(100)
+        c.speak("I am quick Dick.")
+        c.set_rate(-80)
+        c.speak("I am slow Joe.")
+        c.set_rate(0)
+        c.set_pitch(100)
+        c.set_volume(-50)
+        c.speak("I am quiet Mariette.")
+        c.set_volume(100)
+        c.speak("I am noisy Daisy.")
 
-def get_tests():
-    return tests
+    def test_other_commands(self):
+        c = self._client
+        c.speak("Testing other commands:")
+        c.char("a")
+        c.key("shift_b")
+        c.sound_icon("empty")
+
 
 if __name__ == '__main__':
-    unittest.main(defaultTest='get_tests')
+    unittest.main()
