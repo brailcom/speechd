@@ -82,16 +82,18 @@ class SSIPClientTest(unittest.TestCase):
         c = self._client()
         finished = []
         def callback(type, context):
-            print "**", type, context
             if type in (CallbackType.CANCEL, CallbackType.END):
                 finished.append(context)
         try:
-            c.speak("Message 1", callback=lambda type: callback(type, 'msg1'))
-            c.speak("Message 2", callback=lambda type: callback(type, 'msg2'))
-            time.sleep(2)
-            print "= CANCEL ="
+            c.speak("This message should get interrupted.",
+                    callback=lambda type: callback(type, 'msg1'))
+            c.speak("This message should not be spoken at all.",
+                    callback=lambda type: callback(type, 'msg2'))
+            time.sleep(1)
             c.cancel(Scope.ALL)
-            assert 'msg1' in finished and 'msg2' in finished, finished
+            time.sleep(1)
+            assert 'msg1' in finished, finished
+            assert 'msg2' in finished, finished
         finally:
             c.close()
 
