@@ -1,4 +1,21 @@
+2007-01-29  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd/client.py (SSIPClient._callback_handler)
+	(SSIPClient.speak): Removed prints.
+
+	* speechd/_test.py (SSIPClientTest.check_callbacks): Wait for
+	callbacks after canceling messages.
+	(TestSuite): Class removed.
+	(tests): Instance removed.
+	(SSIPClientTest): Class split into `AutomaticTest' and `VoiceTest'.
+	(_SSIPClientTest, AutomaticTest, VoiceTest): New classes.
+	(SpeakerTest): Class removed.
+	(get_tests): Function removed.
+
 2007-01-26  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd/_test.py (SSIPClientTest.check_callbacks): New test.
+	(SSIPClientTest.check_notification): Temporarily commented out.
 
 	* speechd/client.py
 	(_SSIP_Connection._CALLBACK_TYPE_MAP): New constant.
