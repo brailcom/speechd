@@ -118,8 +118,8 @@ class _SSIP_Connection:
         self._callback = None
         self._ssip_reply_semaphore = threading.Semaphore(0)
         self._communication_thread = \
-                         threading.Thread(target=self._communication,
-                         name="Client communication thread", kwargs={})
+                threading.Thread(target=self._communication, kwargs={},
+                                 name="SSIP client communication thread")
         self._communication_thread.start()
     
 
@@ -382,6 +382,7 @@ class SSIPClient(object):
         self._conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
         result = self._conn.send_command('HISTORY', 'GET', 'CLIENT_ID')
         self._client_id = int(result[2][0])
+        self._lock = threading.Lock()
         self._callbacks = {}
         self._conn.set_callback(self._callback_handler)
         for event in (CallbackType.INDEX_MARK,
@@ -401,15 +402,19 @@ class SSIPClient(object):
         if client_id != self._client_id:
             # TODO: does that ever happen?
             return
+        self._lock.acquire()
         try:
-            callback, event_types = self._callbacks[msg_id]
-        except KeyError:
-            pass
-        else:
-            if event_types is None or type in event_types:
-                callback(type, **kwargs)
-            if type in (CallbackType.END, CallbackType.CANCEL):
-                del self._callbacks[msg_id]
+            try:
+                callback, event_types = self._callbacks[msg_id]
+            except KeyError:
+                pass
+            else:
+                if event_types is None or type in event_types:
+                    callback(type, **kwargs)
+                if type in (CallbackType.END, CallbackType.CANCEL):
+                    del self._callbacks[msg_id]
+        finally:
+            self._lock.release()
                 
         
     def set_priority(self, priority):
@@ -449,6 +454,10 @@ class SSIPClient(object):
         keyword argument `index_mark' will be passed and will contain the index
         mark identifier as specified within the text.
 
+        The callback function should not perform anything complicated and is
+        not allowed to issue any further SSIP client commands.  An attempt to
+        do so would lead to a deadlock in SSIP communication.
+
         This method is non-blocking;  it just sends the command, given
         message is queued on the server and the method returns immediately.
 
@@ -459,7 +468,14 @@ class SSIPClient(object):
         result = self._conn.send_data(text)
         if callback:
             msg_id = int(result[2][0])
-            self._callbacks[msg_id] = (callback, event_types)
+            # TODO: Here we risk, that the callback arrives earlier, than we
+            # add the item to `self._callbacks'.  Such a situation will lead to
+            # the callback being ignored.
+            self._lock.acquire()
+            try:
+                self._callbacks[msg_id] = (callback, event_types)
+            finally:
+                self._lock.release()
         return result
 
     def char(self, char):
