@@ -2,7 +2,7 @@
 /*
  * speaking.c - Speech Dispatcher speech output functions
  * 
- * Copyright (C) 2001,2002,2003, 2006 Brailcom, o.p.s
+ * Copyright (C) 2001,2002,2003, 2006, 2007 Brailcom, o.p.s
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speaking.c,v 1.51 2006-09-28 13:33:22 hanke Exp $
+ * $Id: speaking.c,v 1.52 2007-02-17 18:57:34 hanke Exp $
  */
 
 #include <glib.h>
@@ -403,6 +403,8 @@ speaking_cancel_all()
     stop_priority(1);
     stop_priority(2);
     stop_priority(3);
+    stop_priority(4);
+    stop_priority(5);
     pthread_mutex_unlock(&element_free_mutex);         
 }
 
@@ -652,23 +654,29 @@ get_speaking_client_uid(void)
     return speaking;
 }
 
+GList* queue_remove_message(GList *queue, GList *gl)
+{
+    TSpeechDMessage *msg;
+    assert(gl != NULL);
+    assert(gl->data != NULL);
+    msg = (TSpeechDMessage*) gl->data;
+    if (msg->settings.notification & NOTIFY_CANCEL)
+	report_cancel(msg);
+    mem_free_message(gl->data);
+    queue = g_list_delete_link(queue, gl);
+    return queue;
+}
+
 GList*
 empty_queue(GList *queue)
 {
     int num, i;
     GList *gl;
-    TSpeechDMessage *msg;
 
     num = g_list_length(queue);
     for(i=0;i<=num-1;i++){
         gl = g_list_first(queue);
-        assert(gl != NULL);
-        assert(gl->data != NULL);
-	msg = (TSpeechDMessage*) gl->data;
-	if (msg->settings.notification & NOTIFY_CANCEL)
-	    report_cancel(msg);
-        mem_free_message(gl->data);
-        queue = g_list_delete_link(queue, gl);
+	queue=queue_remove_message(queue, gl);
     }
 
     return queue;
@@ -689,8 +697,7 @@ empty_queue_by_time(GList *queue, unsigned int uid)
         assert(gl->data != NULL);
         msg = gl->data;
         if (msg->id < uid){
-            queue = g_list_delete_link(queue, gl);
-            mem_free_message(msg);
+	    queue = queue_remove_message(queue, gl);
         }
         gl = gln;
     }
@@ -740,10 +747,8 @@ stop_priority_from_uid(GList *queue, const int uid){
     GList *ret = queue;
     GList *gl;
 
-    while(gl = g_list_find_custom(ret, &uid, p_msg_uid_lc)){
-        if(gl->data != NULL) mem_free_message(gl->data);
-        ret = g_list_delete_link(ret, gl);
-    }
+    while(gl = g_list_find_custom(ret, &uid, p_msg_uid_lc))
+	ret = queue_remove_message(ret, gl);
 
     return ret;
 }
@@ -759,7 +764,7 @@ stop_from_uid(const int uid)
 }
 
 /* Determines if this messages is to be spoken
- * (returns 1) or it's parent client is paused (returns 0).
+ * (returns 1) or its parent client is paused (returns 0).
  * Note: If you are wondering why it's reversed (not to speak instead
  * of to speak), it's because we also use this function for
  * searching through the list. */
