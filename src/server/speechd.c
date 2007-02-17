@@ -1,7 +1,7 @@
 /*
  * speechd.c - Speech Dispatcher server program
  *  
- * Copyright (C) 2001, 2002, 2003, 2006 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2006, 2007 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.c,v 1.67 2006-09-28 13:33:18 hanke Exp $
+ * $Id: speechd.c,v 1.68 2007-02-17 18:55:56 hanke Exp $
  */
 
 #include <gmodule.h>
@@ -650,7 +650,7 @@ main(int argc, char *argv[])
 
     /* Create a connection queue and initialize readfds to handle input
        from server_socket. */
-    if (listen(server_socket, 5) == -1)
+    if (listen(server_socket, 50) == -1)
         FATAL("listen() failed, another Speech Dispatcher running?");
 
     /* Fork, set uid, chdir, etc. */
