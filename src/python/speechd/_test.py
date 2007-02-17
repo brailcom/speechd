@@ -32,7 +32,6 @@ class _SSIPClientTest(unittest.TestCase):
     def tearDown(self):
         self._client.close()
 
-
 class AutomaticTest(_SSIPClientTest):
     """A set of tests which may be evaluated automatically.
 
@@ -42,6 +41,15 @@ class AutomaticTest(_SSIPClientTest):
     """
     
     def test_callbacks(self):
+        # TODO: This needs to be fixed. There is no guarantee that
+        # the message will start in one second nor is there any
+        # guarantee that it will start at all. It can be interrupted
+        # by other applications etc. Also there is no guarantee that
+        # the cancel will arrive on time and the end callback will be
+        # received on time. Also the combination cancel/end does not have
+        # to work as expected and SD and the interface can still be ok.
+        # -- Hynek Hanke
+        
         called = {CallbackType.BEGIN: [],
                   CallbackType.CANCEL: [],
                   CallbackType.END: []}
@@ -51,8 +59,7 @@ class AutomaticTest(_SSIPClientTest):
         self._client.speak("This second message should not be spoken at all.",
                            callback=lambda type: called[type].append('msg2'))
         time.sleep(1)
-        # Uncommenting scope ALL below fixes the problem, but is that correct?
-        self._client.cancel() #Scope.ALL)
+        self._client.cancel()
         # Wait for pending events...
         time.sleep(1)
         started, canceled, ended = [called[t] for t in (CallbackType.BEGIN,
