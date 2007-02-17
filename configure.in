@@ -175,7 +175,7 @@ AC_SUBST(glib_include)
 glib_libs=`pkg-config --libs glib-2.0`
 AC_SUBST(glib_libs)
 
-spdconfdir="$sysconfdir/speech-dispatcher/" 
+spdconfdir="$sysconfdir/speech-dispatcher/"
 AC_SUBST(spdconfdir)
 snddatadir="$datadir/sounds/speech-dispatcher/" 
 AC_SUBST(snddatadir)

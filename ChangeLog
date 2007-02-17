@@ -1,3 +1,31 @@
+2007-02-17  Hynek Hanke  <hanke@brailcom.org>
+
+	* version.sh : Version number 0.6.2test1
+
+2007-02-17  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/server/compare.c (compare_message_uid): Remove unnecessary
+	assertion.
+
+	* src/server/config.h: Copyright.
+
+	* src/server/index_marking.c (insert_index_marks): Assert msg->buf
+	!= NULL.
+
+	* src/server/speaking.c (queue_remove_message): New function.
+	(empty_queue): Use queue_remove_message.
+	(empty_queue_by_time): Use queue_remove_message.
+	(message_nto_speak): Spelling.
+
+	* src/server/speechd.c (main): Increased number of connections to
+	hold in the listen() queue to 50.
+	Copyright.
+
+	* src/server/compare.c (compare_message_uid): Do not check for
+	message->settings.fd.
+
+	* src/server/speaking.c (speaking_cancel_all): +stop_priority(4,5)
+
 2007-01-27  Olivier BERT  <obert01@mistigri.org>
 
 	* src/modules/cicero.c: Converting to ISO-8859-1 is not needed anymore
