@@ -7,6 +7,6 @@ To compile it, run `make'.  libspeechd and guile libraries and headers files
 must be installed to get compiled the C part of the interface.
 
 If you have any questions, suggestions, etc., feel free to contact us at the
-mailing list <speechd@freebsoft.org>.
+mailing list <speechd@lists.freebsoft.org>.
 
 -- Milan Zamazal <pdm@freebsoft.org>
