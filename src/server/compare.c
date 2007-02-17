@@ -2,7 +2,7 @@
 /*
  * compare.c - Auxiliary functions for comparing elements in lists
  * 
- * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2007 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: compare.c,v 1.4 2006-07-11 16:12:27 hanke Exp $
+ * $Id: compare.c,v 1.5 2007-02-17 18:58:53 hanke Exp $
  */
 
 #include <glib.h>
@@ -55,7 +55,7 @@ compare_message_uid (gconstpointer element, gconstpointer value, gpointer x)
 
     message = ((TSpeechDMessage*) element);
     assert(message!=NULL);    
-    assert(message->settings.fd!=0);
+    //assert(message->settings.fd!=0);
 
     return (message->settings.uid - *uid_val);
 }
