@@ -1,3 +1,9 @@
+2007-02-17  Hynek Hanke  <hanke@brailcom.org>
+
+	* speechd/_test.py (AutomaticTest.test_callbacks): Removed comment
+	about Scope.SELF not working.
+	Added TODO comment about fixing this test.
+
 2007-02-05  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd/client.py (_SSIP_Connection.__init__): Thread name
