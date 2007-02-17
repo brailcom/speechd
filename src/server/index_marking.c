@@ -3,7 +3,7 @@
   * index_marking.c -- Implements functions handling index marking
   *                    for Speech Dispatcher
   * 
-  * Copyright (C) 2001,2002,2003 Brailcom, o.p.s
+  * Copyright (C) 2001,2002,2003, 2007 Brailcom, o.p.s
   *
   * This is free software; you can redistribute it and/or modify it
   * under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   * Boston, MA 02110-1301, USA.
   *
-  * $Id: index_marking.c,v 1.14 2006-07-11 16:12:27 hanke Exp $
+  * $Id: index_marking.c,v 1.15 2007-02-17 18:58:14 hanke Exp $
   */
 
 #include "index_marking.h"
@@ -38,6 +38,8 @@ insert_index_marks(TSpeechDMessage *msg, int ssml_mode)
     int inside_tag = 0;
 
     marked_text = g_string_new("");
+
+    assert(msg->buf != NULL);
 
     MSG2(5, "index_marking", "MSG before index marking: |%s|, ssml_mode=%d", msg->buf, ssml_mode);
 
