@@ -49,11 +49,6 @@ class AutomaticTest(_SSIPClientTest):
         # received on time. Also the combination cancel/end does not have
         # to work as expected and SD and the interface can still be ok.
         # -- Hynek Hanke
-        warning = ("This failure only indicates a possible error.  The test "
-                   "depends on proper timing and results may warry depending "
-                   "on the used output module and other conditions.  See the "
-                   "code of this test method if you want to investigate "
-                   "further.")
         called = {CallbackType.BEGIN: [],
                   CallbackType.CANCEL: [],
                   CallbackType.END: []}
@@ -69,9 +64,15 @@ class AutomaticTest(_SSIPClientTest):
         started, canceled, ended = [called[t] for t in (CallbackType.BEGIN,
                                                       CallbackType.CANCEL,
                                                       CallbackType.END)]
-        assert started == ['msg1'], (started, warning)
-        assert 'msg1' in canceled and 'msg2' in canceled, (canceled, warning)
-        assert ended == [], (ended, warning)
+        assert started == ['msg1'] and ended == [] and \
+               'msg1' in canceled and 'msg2' in canceled, \
+               (called,
+                "This failure only indicates a possible error.  The test "
+                "depends on proper timing and results may warry depending "
+                "on the used output module and other conditions.  See the "
+                "code of this test method if you want to investigate "
+                "further.")
+
     
 
 class VoiceTest(_SSIPClientTest):
