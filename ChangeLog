@@ -1,11 +1,29 @@
 2007-02-27  Hynek Hanke  <hanke@brailcom.org>
 
+	* src/modules/generic.c (generic_set_language): If no language
+	entry is specified, set the language code passed by SSIP without
+	any charset recoding.
+
+	* config/modules/espeak-generic.conf: Language settings removed
+	(unnecessary).  Added definitions for all available espeak voices.
+	Changed speak to espeak.
+
+	* src/server/server.c (queue_message): Cast mem_free_message to GFunc
+	instead of GFunc* in g_list_foreach.
+
+	* src/server/speaking.c (speak): Cast mem_free_message to GFunc
+	instead of GFunc* in g_list_foreach.
+
+	* INSTALL: Reverted to version 1.40 and small improvements
+	(mention espeak etc.)
+
 	* version.sh (VERSION): 0.6.2
 
 	* src/modules/festival.c: Copyright update.
 
-	* src/modules/generic.c (_generic_speak): Report CANCEL on signal termination
-	of the child process and END if it terminates normally.
+	* src/modules/generic.c (_generic_speak): Report CANCEL on signal
+	termination of the child process and END if it terminates
+	normally.
 
 2007-02-17  Hynek Hanke  <hanke@brailcom.org>
 
