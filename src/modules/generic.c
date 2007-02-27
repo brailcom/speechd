@@ -2,7 +2,7 @@
 /*
  * generic.c - Speech Dispatcher generic output module
  *
- * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2007 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: generic.c,v 1.23 2006-07-11 16:12:27 hanke Exp $
+ * $Id: generic.c,v 1.24 2007-02-27 15:52:58 hanke Exp $
  */
 
 #include <glib.h>
@@ -375,11 +375,13 @@ _generic_speak(void* nothing)
                                                    &generic_pause_requested);
 
             DBG("Waiting for child...");
-            waitpid(generic_pid, &status, 0);            
-            
+            waitpid(generic_pid, &status, 0); 
             generic_speaking = 0;
 
-	    module_report_event_end();
+	    // Report CANCEL if the process was signal-terminated
+	    // and END if it terminated normally
+	    if (WIFSIGNALED(status)) module_report_event_stop();
+	    else module_report_event_end();
 
             DBG("child terminated -: status:%d signal?:%d signal number:%d.\n",
                 WIFEXITED(status), WIFSIGNALED(status), WTERMSIG(status));
