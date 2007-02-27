@@ -1,5 +1,11 @@
 2007-02-27  Hynek Hanke  <hanke@brailcom.org>
 
+	* config/speechd.conf.in: Uncomment espeak.
+
+	* config/speechd.conf.in: Comment out default language modules.
+
+	* NEWS: 0.6.2
+
 	* config/modules/espeak-generic.conf: speak changed to espeak.
 
 	* src/modules/generic.c (generic_set_language): If no language
