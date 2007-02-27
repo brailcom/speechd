@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: generic.c,v 1.24 2007-02-27 15:52:58 hanke Exp $
+ * $Id: generic.c,v 1.25 2007-02-27 17:38:12 hanke Exp $
  */
 
 #include <glib.h>
@@ -525,9 +525,9 @@ generic_set_language(char *lang)
     if (generic_msg_language == NULL){
 	DBG("Language %s not found in the configuration file, using defaults.", lang);
 	generic_msg_language = (TGenericLanguage*) xmalloc(sizeof(TGenericLanguage));
-	generic_msg_language->code = strdup("en");
-	generic_msg_language->charset = strdup("iso-8859-1");
-	generic_msg_language->name = strdup("english");
+	generic_msg_language->code = strdup(lang);
+	generic_msg_language->charset = NULL;
+	generic_msg_language->name = strdup(lang);
     }
 
     if (generic_msg_language->name == NULL){
