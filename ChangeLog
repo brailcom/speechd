@@ -1,5 +1,7 @@
 2007-02-27  Hynek Hanke  <hanke@brailcom.org>
 
+	* config/modules/espeak-generic.conf: speak changed to espeak.
+
 	* src/modules/generic.c (generic_set_language): If no language
 	entry is specified, set the language code passed by SSIP without
 	any charset recoding.
