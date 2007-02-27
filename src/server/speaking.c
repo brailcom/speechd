@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speaking.c,v 1.52 2007-02-17 18:57:34 hanke Exp $
+ * $Id: speaking.c,v 1.53 2007-02-27 17:33:31 hanke Exp $
  */
 
 #include <glib.h>
@@ -210,7 +210,7 @@ speak(void* data)
 	    if (elem != NULL){
 		p5_message = (TSpeechDMessage*) elem->data;
 		    if (p5_message->settings.reparted == message->settings.reparted){
-			g_list_foreach(last_p5_block, (GFunc*) mem_free_message, NULL);
+			g_list_foreach(last_p5_block, (GFunc) mem_free_message, NULL);
 			g_list_free(last_p5_block);
 			last_p5_block = NULL;	    
 		    }
