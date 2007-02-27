@@ -2,7 +2,7 @@
  /*
   * server.c - Speech Dispatcher server core
   * 
-  * Copyright (C) 2001,2002,2003, 2004, 2006 Brailcom, o.p.s
+  * Copyright (C) 2001,2002,2003, 2004, 2006, 2007 Brailcom, o.p.s
   *
   * This is free software; you can redistribute it and/or modify it
   * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   * Boston, MA 02110-1301, USA.
   *
-  * $Id: server.c,v 1.80 2006-09-28 13:33:25 hanke Exp $
+  * $Id: server.c,v 1.81 2007-02-27 17:33:23 hanke Exp $
   */
 
 #include "speechd.h"
@@ -159,7 +159,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
 	element = g_list_last(last_p5_block);
 	if (!element || !element->data 
 	    || ((TSpeechDMessage *) (element->data))->settings.reparted != new->settings.reparted){
-	    g_list_foreach(last_p5_block, (GFunc*) mem_free_message, NULL);
+	    g_list_foreach(last_p5_block, (GFunc) mem_free_message, NULL);
 	    g_list_free(last_p5_block);
 	    last_p5_block = NULL;	    
 	}
