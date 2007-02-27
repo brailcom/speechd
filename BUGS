@@ -1,12 +1,13 @@
 A list of known bugs:
 
+* There are indications that the C library might be crashing on
+dual-core 64bit systems. If you can provide more details about this
+issue, please contact us on users@lists.freebsoft.org
+
 * The Flite output module doesn't support sound icons and spelling
 as there is not any support for that in Flite.
 
-* The Festival output module occasionally crashes under mysterious
-circumstances. This might somehow be connected with the ALSA output, but it is
-very difficult to track down under the current architecture. The issue will be
-revisited after porting the module under TTS API. Accept our apologies.
+* Espeak generic module doesn't support punctuation.
 
 * The BLOCK command currently doesn't interface correctly with the
 priority PROGRESS. Only the last message in the block is guaranteed
