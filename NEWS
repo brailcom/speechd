@@ -1,3 +1,8 @@
+Version 0.6.2
+ * Bug fixes.
+ * Generic output module for eSpeak includes definitions for all
+   known languages.
+ * Python interface now supports callbacks.
 
 Version 0.6.1
  * Bug fixes
