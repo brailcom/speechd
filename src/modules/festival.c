@@ -2,7 +2,7 @@
 /*
  * festival.c - Speech Dispatcher backend for Festival
  *
- * Copyright (C) 2003 Brailcom, o.p.s.
+ * Copyright (C) 2003, 2007 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: festival.c,v 1.70 2006-07-11 16:12:27 hanke Exp $
+ * $Id: festival.c,v 1.71 2007-02-27 15:53:35 hanke Exp $
  */
 
 #include "fdset.h"
