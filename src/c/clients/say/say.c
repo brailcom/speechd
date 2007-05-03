@@ -2,7 +2,7 @@
 /*
  * say.c - Super-simple Speech Dispatcher client
  *
- * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2007 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: say.c,v 1.15 2006-07-11 16:12:27 hanke Exp $
+ * $Id: say.c,v 1.16 2007-05-03 09:43:12 hanke Exp $
  */
 
 #include <stdio.h>
@@ -88,14 +88,13 @@ int main(int argc, char **argv) {
 
     /* Set the desired parameters */
 
-    if (output_module != NULL)
-        if(spd_set_output_module(conn, output_module))
-            printf("Invalid language!\n");
-
-
     if (language != NULL)
         if(spd_set_language(conn, language))
             printf("Invalid language!\n");
+
+    if (output_module != NULL)
+        if(spd_set_output_module(conn, output_module))
+            printf("Invalid output module!\n");
 
     if (voice_type != NULL){
         if (!strcmp(voice_type, "male1")){
