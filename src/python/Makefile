@@ -12,6 +12,7 @@ uninstall:
 
 clean:
 	rm -f *.pyc
+	rm -rf build
 
 distclean: clean
 
