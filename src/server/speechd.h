@@ -2,7 +2,7 @@
 /*
  * speechd.h - Speech Dispatcher header
  *
- * Copyright (C) 2001, 2002, 2003, 2006 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2006, 2007 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.h,v 1.57 2006-09-28 13:33:15 hanke Exp $
+ * $Id: speechd.h,v 1.58 2007-05-03 09:41:06 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -121,6 +121,7 @@ struct{
 
 /* speak() thread defined in speaking.c */
 pthread_t speak_thread;
+pthread_mutex_t logging_mutex;
 pthread_mutex_t element_free_mutex;
 pthread_mutex_t output_layer_mutex;
 pthread_mutex_t socket_com_mutex;
