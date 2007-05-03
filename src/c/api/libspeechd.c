@@ -1,8 +1,7 @@
-
 /*
  * libspeechd.c - Shared library for easy acces to Speech Dispatcher functions
  *
- * Copyright (C) 2001, 2002, 2003, 2006 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2006, 2007 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: libspeechd.c,v 1.29 2006-11-29 16:56:11 hanke Exp $
+ * $Id: libspeechd.c,v 1.30 2007-05-03 09:40:26 hanke Exp $
  */
 
 
@@ -63,6 +62,8 @@ static void xfree(void *ptr);
 static int ret_ok(char *reply);
 static void SPD_DBG(char *format, ...);
 static void* spd_events_handler(void*);
+
+pthread_mutex_t spd_logging_mutex;
 
 /* --------------------- Public functions ------------------------- */
 
@@ -114,13 +115,19 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
 #ifdef LIBSPEECHD_DEBUG
     spd_debug = fopen("/tmp/libspeechd.log", "w");
     if (spd_debug == NULL) SPD_FATAL("COULDN'T ACCES FILE INTENDED FOR DEBUG");
+
+    ret = pthread_mutex_init(&spd_logging_mutex, NULL);
+    if(ret != 0){
+      fprintf(stderr, "Mutex initialization failed");
+      exit(1);
+    }
     SPD_DBG("Debugging started");
 #endif /* LIBSPEECHD_DEBUG */
     
   /* Connect to server */
     ret = connect(connection->socket, (struct sockaddr *)&address, sizeof(address));
     if (ret == -1){
-	SPD_DBG("Error: Can't connect to server: %s", strerror(errno));
+        SPD_DBG("Error: Can't connect to server: %s", strerror(errno));
 	return NULL;
     }
 
@@ -254,7 +261,7 @@ spd_say(SPDConnection *connection, SPDPriority priority, const char* text)
 
     msg_id = get_param_int(reply, 1, &err);
     if (err < 0){
-	SPD_DBG("Can't determine SSIP message unique ID parameter.");
+       SPD_DBG("Can't determine SSIP message unique ID parameter.");
     }
     xfree(reply);
 
@@ -679,12 +686,12 @@ spd_set_notification(SPDConnection *connection, SPDNotification notification, co
     if (connection->mode != SPD_MODE_THREADED) return -1;
 
     if (state == NULL){
-	SPD_DBG("Requested state is NULL");
-	return -1;
+      SPD_DBG("Requested state is NULL");
+      return -1;
     }
     if (strcmp(state, "on") && strcmp(state, "off")){
-	SPD_DBG("Invalid argument for spd_set_notification: %s", state);
-	return -1;
+      SPD_DBG("Invalid argument for spd_set_notification: %s", state);
+      return -1;
     }
 
     pthread_mutex_lock(connection->ssip_mutex);
@@ -771,7 +778,6 @@ spd_execute_command_with_reply(SPDConnection *connection, char* command, char **
 {
     char *buf;    
     int r;
-    
     buf = g_strdup_printf("%s\r\n", command);
     *reply = spd_send_data_wo_mutex(connection, buf, SPD_WAIT_REPLY);
     xfree(buf);
@@ -816,11 +822,11 @@ spd_send_data_wo_mutex(SPDConnection *connection, const char *message, int wfr)
 	    pthread_cond_wait(connection->cond_reply_ready, connection->mutex_reply_ready);
 	    pthread_mutex_unlock(connection->mutex_reply_ready);
 	    /* Read the reply */
-	    reply = connection->reply;
-	    connection->reply = NULL;
+	    reply = strdup(connection->reply); ///
+	    xfree(connection->reply);  ///
 	    bytes = strlen(reply);
 	    if (bytes == 0){
-		SPD_DBG("Error: Can't read reply, broken socket.");
+	        SPD_DBG("Error: Can't read reply, broken socket.");
 		return NULL;
 	    }
 	    /* Signal the reply has been read */
@@ -834,8 +840,8 @@ spd_send_data_wo_mutex(SPDConnection *connection, const char *message, int wfr)
     }else{
 	if (connection->mode == SPD_MODE_THREADED)
 	    pthread_mutex_unlock(connection->mutex_reply_ready);
-        SPD_DBG("<< : no reply expected");
-        return "NO REPLY";
+	SPD_DBG("<< : no reply expected");
+        return strdup("NO REPLY");
     } 
 
     return reply;
@@ -857,8 +863,8 @@ spd_set_priority(SPDConnection *connection, SPDPriority priority)
     case SPD_NOTIFICATION: strcpy(p_name, "NOTIFICATION"); break;
     case SPD_PROGRESS: strcpy(p_name, "PROGRESS"); break;
     default: 
-        SPD_DBG("Error: Can't set priority! Incorrect value.");
-        return -1;
+      SPD_DBG("Error: Can't set priority! Incorrect value.");
+      return -1;
     }
 		 
     sprintf(command, "SET SELF PRIORITY %s", p_name);
@@ -882,7 +888,7 @@ get_reply(SPDConnection *connection)
     do{
 	bytes = getline(&line, &N, connection->stream);	
 	if (bytes == -1){
-	    SPD_FATAL("Error: Can't read reply, broken socket!");		
+	    SPD_FATAL("Error: Can't read reply, broken socket!");	       
 	}
 	g_string_append(str, line);
 	/* terminate if we reached the last line (without '-' after numcode) */
@@ -906,7 +912,7 @@ spd_events_handler(void* conn)
 
 	/* Read the reply/event (block if none is available) */
 	reply = get_reply(connection);
-        SPD_DBG("<< : |%s|\n", reply);
+	SPD_DBG("<< : |%s|\n", reply);
 
 	reply_code = get_err_code(reply);
 
@@ -921,12 +927,12 @@ spd_events_handler(void* conn)
 	    /* Extract message id */
 	    msg_id = get_param_int(reply, 1, &err);
 	    if (err < 0){
-		SPD_DBG("Bad reply from Speech Dispatcher: %s (code %d)", reply, err);
+	      SPD_DBG("Bad reply from Speech Dispatcher: %s (code %d)", reply, err);
 		break;
 	    }
 	    client_id = get_param_int(reply, 2, &err);
 	    if (err < 0){
-		SPD_DBG("Bad reply from Speech Dispatcher: %s (code %d)", reply, err);
+	      SPD_DBG("Bad reply from Speech Dispatcher: %s (code %d)", reply, err);
 		break;
 	    }
 	    /*  Decide if we want to call a callback */
@@ -945,7 +951,7 @@ spd_events_handler(void* conn)
 		int err;
 		im = get_param_str(reply, 3, &err);
 		if ((err < 0) || (im == NULL)){
-		    SPD_DBG("Broken reply from Speech Dispatcher: %s", reply);
+		  SPD_DBG("Broken reply from Speech Dispatcher: %s", reply);
 		    break;
 		}
 		/* Call the callback */
@@ -957,7 +963,7 @@ spd_events_handler(void* conn)
 	    /* This is a protocol reply */
 	    pthread_mutex_lock(connection->mutex_reply_ready);
 	    /* Prepare the reply to the reply buffer in connection */
-	    connection->reply = reply;
+	    connection->reply = strdup(reply); /// without strdup ???
 	    /* Signal the reply is available on the condition variable */
 	    /* this order is correct and necessary */
 	    pthread_cond_signal(connection->cond_reply_ready);
@@ -966,6 +972,7 @@ spd_events_handler(void* conn)
 	    /* Wait until it has bean read */
 	    pthread_cond_wait(connection->cond_reply_ack, connection->mutex_reply_ack);
 	    pthread_mutex_unlock(connection->mutex_reply_ack);
+	    xfree(reply);
 	    /* Continue */	
 	}
     }
@@ -1077,8 +1084,8 @@ get_err_code(char *reply)
     if(isanum(err_code)){
         err = atoi(err_code);
     }else{
-        SPD_DBG("ret_ok: not a number\n");
-        return -1;	
+      SPD_DBG("ret_ok: not a number\n");
+      return -1;	
     }
 
     return err;
@@ -1130,7 +1137,7 @@ escape_dot(const char *text)
 
     if (otext == NULL) return NULL;
 
-    SPD_DBG("Incomming text to escaping: |%s|", otext);
+    SPD_DBG("Incomming text to escaping: |%s|", text);
 
     p = (char*) text;
     otext = p;
@@ -1151,7 +1158,7 @@ escape_dot(const char *text)
         }
     }
 
-    //    SPD_DBG("Altering text (I): |%s|", ntext->str);
+    // SPD_DBG("Altering text (I): |%s|", ntext->str);
 
     while (seq = strstr(p, "\r\n.\r\n")){
         assert(seq>p);
@@ -1160,7 +1167,7 @@ escape_dot(const char *text)
         p = seq+5;
     }
 
-    //   SPD_DBG("Altering text (II): |%s|", ntext->str);    
+    //    SPD_DBG("Altering text (II): |%s|", ntext->str);    
 
     len = strlen(p);
     if (len >= 3){
@@ -1169,20 +1176,19 @@ escape_dot(const char *text)
             g_string_append(ntext, p);
             g_string_append(ntext, ".");
             p += len;
-            //  SPD_DBG("Altering text (II-b): |%s|", ntext->str);    
+	    //	    SPD_DBG("Altering text (II-b): |%s|", ntext->str);    
         }
     }
 
     if (p == otext){
-        SPD_DBG("No escaping needed.");
+      //  SPD_DBG("No escaping needed.");
         g_string_free(ntext, 1);
         return NULL;
     }else{
         g_string_append(ntext, p);
         ret = ntext->str;
-        g_string_free(ntext, 0);
+	g_string_free(ntext, 0); ///
     }
-
     SPD_DBG("Altered text after escaping: |%s|", ret);
 
     return ret;
@@ -1194,11 +1200,13 @@ SPD_DBG(char *format, ...)
 {
         va_list args;
 
-        va_start(args, format);
-        vfprintf(spd_debug, format, args);
-        va_end(args);
+	pthread_mutex_lock(&spd_logging_mutex);    	
+	va_start(args, format);
+	vfprintf(spd_debug, format, args);
+	va_end(args);
 	fprintf(spd_debug, "\n");
 	fflush(spd_debug);
+	pthread_mutex_unlock(&spd_logging_mutex);    	
 }
 #else  /* LIBSPEECHD_DEBUG */
 static void
