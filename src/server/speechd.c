@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.c,v 1.68 2007-02-17 18:55:56 hanke Exp $
+ * $Id: speechd.c,v 1.69 2007-05-03 09:40:55 hanke Exp $
  */
 
 #include <gmodule.h>
@@ -81,18 +81,17 @@ MSG2(int level, char *kind, char *format, ...)
     int custom_log = (kind != NULL && custom_log_kind != NULL &&
                       !strcmp(kind, custom_log_kind) &&
                       custom_logfile != NULL);
-    
+
     if(std_log || custom_log) {
         va_list args;
         va_list args2;
         int i;
-	
-        if(std_log) {
-            va_start(args, format);
-        }
-        if(custom_log) {
-            va_start(args2, format);
-        }
+
+	pthread_mutex_lock(&logging_mutex);    	
+
+        if(std_log) va_start(args, format);        
+        if(custom_log) va_start(args2, format);
+        
         {
             {
                 /* Print timestamp */
@@ -100,18 +99,21 @@ MSG2(int level, char *kind, char *format, ...)
                 char *tstr;
 		struct timeval tv;
                 t = time(NULL);
-                tstr = strdup(ctime(&t));
-		gettimeofday(&tv,NULL);
-                /* Remove the trailing \n */
-                assert(strlen(tstr)>1);
-                tstr[strlen(tstr)-1] = 0;
+		tstr = strdup(ctime(&t));
+		gettimeofday(&tv,NULL);                
+		assert(tstr);
+		/* Remove the trailing \n */
+		assert(strlen(tstr)>1);
+		tstr[strlen(tstr)-1] = 0;
                 if(std_log) {
-                    fprintf(logfile, "[%s : %d] speechd: ",
-			    tstr, (int) tv.tv_usec);
+		  fprintf(logfile, "[%s : %d] speechd: ",
+			  tstr, (int) tv.tv_usec); 
+		    //		  fprintf(logfile, "[test : %d] speechd: ",
+		    //			   (int) tv.tv_usec); 
                 }
                 if(custom_log) {
-                    fprintf(custom_logfile, "[%s : %d] speechd: ",
-			    tstr, (int) tv.tv_usec);
+		  fprintf(custom_logfile, "[%s : %d] speechd: ",
+			  tstr, (int) tv.tv_usec);
                 }
 		spd_free(tstr);
             }
@@ -140,7 +142,8 @@ MSG2(int level, char *kind, char *format, ...)
         if(custom_log) {
             va_end(args2);
         }
-    }				
+	pthread_mutex_unlock(&logging_mutex);		
+    }		
 }
 
 /* The main logging function for Speech Dispatcher,
@@ -150,11 +153,12 @@ MSG2(int level, char *kind, char *format, ...)
 void
 MSG(int level, char *format, ...)
 {
+
     if(level <= SpeechdOptions.log_level) {
         va_list args;
         int i;
-		
-        va_start(args, format);
+	pthread_mutex_lock(&logging_mutex);		
+	va_start(args, format);
         {
             {
                 /* Print timestamp */
@@ -162,24 +166,27 @@ MSG(int level, char *format, ...)
                 char *tstr;
 		struct timeval tv;
                 t = time(NULL);
-                tstr = strdup(ctime(&t));
+		tstr = strdup(ctime(&t));
 		gettimeofday(&tv,NULL);
                 /* Remove the trailing \n */
-                assert(strlen(tstr)>1);
-                tstr[strlen(tstr)-1] = 0;
-                fprintf(logfile, "[%s : %d] speechd: ",
+		assert(tstr);
+		assert(strlen(tstr)>1);
+		tstr[strlen(tstr)-1] = 0;
+		fprintf(logfile, "[%s : %d] speechd: ",
 			tstr, (int) tv.tv_usec);
+		/*                fprintf(logfile, "[%s : %d] speechd: ",
+				  tstr, (int) tv.tv_usec);*/
 		spd_free(tstr);
             }
             for(i=1;i<level;i++){
-                fprintf(logfile, " ");
+	      fprintf(logfile, " ");
             }
             vfprintf(logfile, format, args);
             fprintf(logfile, "\n");
             fflush(logfile);
         }
         va_end(args);
-
+	pthread_mutex_unlock(&logging_mutex);		
     }				
 }
 
@@ -610,6 +617,14 @@ main(int argc, char *argv[])
     speechd_options_init();
 
     options_parse(argc, argv);
+
+    /* Initialize logging mutex to workaround ctime threading bug */
+    /* Must be done no later than here */
+    ret = pthread_mutex_init(&logging_mutex, NULL);
+    if(ret != 0){
+      fprintf(stderr, "Mutex initialization failed");
+      exit(1);
+    }
 
     if (SpeechdOptions.pid_file == NULL){
 	if (!strcmp(PIDPATH, ""))
