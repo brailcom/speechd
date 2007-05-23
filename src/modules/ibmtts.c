@@ -2,7 +2,7 @@
 /*
  * ibmtts.c - Speech Dispatcher backend for IBM TTS
  *
- * Copyright (C) 2006 Brailcom, o.p.s.
+ * Copyright (C) 2006, 2007 Brailcom, o.p.s.
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.21 2006-04-25 11:43:13 cramblitt Exp $
+ * $Id: ibmtts.c,v 1.22 2007-05-23 21:33:14 hanke Exp $
  */
 
 /* This output module operates with four threads:
@@ -510,7 +510,9 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
     xfree(*ibmtts_message);
     *ibmtts_message = NULL;
 
-    *ibmtts_message = strdup(data);
+    //    *ibmtts_message = strdup(data);  // IBM TTS doesn't support SSML
+    /* Strip all SSML */
+    *ibmtts_message = module_strip_ssml(data);
     ibmtts_message_type = msgtype;
     if ((msgtype == MSGTYPE_TEXT) && (msg_settings.spelling_mode == SPELLING_ON))
         ibmtts_message_type = MSGTYPE_SPELL;
