@@ -1,9 +1,5 @@
 A list of known bugs:
 
-* There are indications that the C library might be crashing on
-dual-core 64bit systems. If you can provide more details about this
-issue, please contact us on users@lists.freebsoft.org
-
 * The Flite output module doesn't support sound icons and spelling
 as there is not any support for that in Flite.
 

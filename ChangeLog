@@ -1,4 +1,26 @@
+2007-05-23  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/modules/module_utils.h: Copyright updated.
+
+	* src/server/Makefile.am (AM_CFLAGS): Added -Wall.
+
+	* configure.in (LIB_SDAUDIO_BEVISION): Incremented.
+
+	* config/speechd.conf: DefaultCapLetRecognition comment updated.
+
+	* src/modules/ibmtts.c (module_speak): Strip SSML via module_strip_ssml() of module_utils.c
+
+	* src/c/api/libspeechd.c (spd_string_new): New function.
+	(spd_string_append): New function.
+	(escape_dot): Completely rewritten.
+
 2007-05-06  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/modules/module_utils.h (MOD_OPTION_1_INT_REG): Switch order
+	of module_dc_options field addition and variable assigment.
+
+	* src/modules/module_utils.h (MOD_OPTION_1_STR_REG): Switch order
+	of module_dc_options field addition and variable assigment.
 
 	* version.sh: 0.6.3test1
 
