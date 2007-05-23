@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: libspeechd.c,v 1.30 2007-05-03 09:40:26 hanke Exp $
+ * $Id: libspeechd.c,v 1.31 2007-05-23 21:35:17 hanke Exp $
  */
 
 
@@ -50,6 +50,11 @@
 
 /* --------------  Private functions headers ------------------------*/
 
+typedef struct {
+    char *str;
+    size_t bytes;
+}_SPDString;
+
 static int spd_set_priority(SPDConnection* connection, SPDPriority priority);
 static char* escape_dot(const char *otext);
 static int isanum(char* str);		
@@ -62,6 +67,8 @@ static void xfree(void *ptr);
 static int ret_ok(char *reply);
 static void SPD_DBG(char *format, ...);
 static void* spd_events_handler(void*);
+static _SPDString spd_string_append(_SPDString str, char *tail, int bytes);
+static _SPDString spd_string_new(void);
 
 pthread_mutex_t spd_logging_mutex;
 
@@ -1125,73 +1132,91 @@ xfree(void *ptr)
         free(ptr);
 }
 
+static _SPDString
+spd_string_new(void)
+{
+    _SPDString result;
+    
+    result.bytes=1024;
+    result.str=malloc(result.bytes);
+    result.str[0]='\0';
+    
+    return result;
+}
+
+static _SPDString
+spd_string_append(_SPDString str, char *tail, int bytes)
+{
+    if (tail == NULL) return str;
+    
+    while ((strlen(str.str)+strlen(tail))>= str.bytes){
+	str.bytes *= 2;
+	str.str = realloc(str.str, str.bytes);
+    }
+
+    if (bytes != -1)
+	strncat(str.str, tail, bytes);
+    else
+	strcat(str.str, tail);
+
+    return str;
+}
+   
+
 static char*
 escape_dot(const char *text)
 {
-    char *seq;
-    GString *ntext;
-    char *p;
-    char *otext;
-    char *ret = NULL;
-    int len;
+    _SPDString result;
+    size_t text_len;
+    int pos;
+    char *place;
 
-    if (otext == NULL) return NULL;
+    result=spd_string_new();
 
-    SPD_DBG("Incomming text to escaping: |%s|", text);
+    if (text == NULL) return NULL;
+    text_len = strlen(text);
 
-    p = (char*) text;
-    otext = p;
-
-    ntext = g_string_new("");
-
-    len = strlen(text);
-    if (len == 1){
-        if (!strcmp(text, ".")){
-            g_string_append(ntext, "..");
-            p += 1;
-        }
+    pos = 0;
+    if (text_len == 0){
+	return result.str;
     }
-    else if (len >= 3){
-        if ((p[0] == '.') && (p[1] == '\r') && (p[2] == '\n')){
-            g_string_append(ntext, "..\r\n");
-            p += 3;
-        }
+    /*It text contains only a dot, escape it*/
+    else if (text_len==1){
+	result = spd_string_append(result, "..", -1);
+	return result.str;
+    }
+    /*Escape the leading '.\r\n', if present*/
+    else if (text_len >=3){
+	if (!strncmp(text, ".\r\n", 3)){
+	    result = spd_string_append(result, "..", -1);
+	    pos += 1;
+	}
     }
 
-    // SPD_DBG("Altering text (I): |%s|", ntext->str);
-
-    while (seq = strstr(p, "\r\n.\r\n")){
-        assert(seq>p);
-        g_string_append_len(ntext, p, seq-p);
-        g_string_append(ntext, "\r\n..\r\n");
-        p = seq+5;
+    /* Replace all full \r\n.\r\n sequences */
+    while((place = strstr(&text[pos], "\r\n.\r\n"))){
+	assert (place >= text);
+	int n = place-&text[pos];
+	result = spd_string_append(result, (char*) &text[pos], n);
+	result = spd_string_append(result, "\r\n..", -1);
+	/* Only rewind before the following \r\n to resume search for
+	   sequence */
+	pos +=n+3;
     }
 
-    //    SPD_DBG("Altering text (II): |%s|", ntext->str);    
-
-    len = strlen(p);
-    if (len >= 3){
-        if ((p[len-3] == '\r') && (p[len-2] == '\n')
-            && (p[len-1] == '.')){
-            g_string_append(ntext, p);
-            g_string_append(ntext, ".");
-            p += len;
-	    //	    SPD_DBG("Altering text (II-b): |%s|", ntext->str);    
-        }
+    /* Paste the rest */    
+    result=spd_string_append(result, (char*) &text[pos], -1);
+    
+    /*Escape the trailing '\r\n.' if found by adding an additional dot at the
+      end*/
+    if(strlen(result.str)>=3){
+	if(!strncmp(&result.str[strlen(result.str)-3], "\r\n.", 3)){
+	    result=spd_string_append(result, ".", -1);
+	    return result.str;
+	}
     }
 
-    if (p == otext){
-      //  SPD_DBG("No escaping needed.");
-        g_string_free(ntext, 1);
-        return NULL;
-    }else{
-        g_string_append(ntext, p);
-        ret = ntext->str;
-	g_string_free(ntext, 0); ///
-    }
-    SPD_DBG("Altered text after escaping: |%s|", ret);
-
-    return ret;
+    return result.str;
 }
 
 #ifdef LIBSPEECHD_DEBUG
