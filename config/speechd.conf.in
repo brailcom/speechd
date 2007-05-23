@@ -111,9 +111,11 @@ DefaultVolume 100
 #       all     -     all punctuation marks are sent to synthesis
 # DefaultPunctuationMode  "none"
 
-# DefaultCapLetRecognition: if set to "icon" or "insert_sound",
-# capital letters are distinguished from other text automatically,
-# otherwise only on client request.
+# DefaultCapLetRecognition: if set to "spell", capital letters
+# should be spelled (e.g. "capital b"), if set to "icon",
+# capital letters are indicated by inserting a special sound
+# before them but they should be read normally, it set to "none"
+# capital letters are not recognized (by default)
 
 # DefaultCapLetRecognition  "none"
 
@@ -174,6 +176,8 @@ DefaultModule flite
 # The parameter of BeginClient tells Speech Dispatcher to which clients
 # it should apply this settings (it does glob-style matching, you can use
 # * to match any number of characters and ? to match one character)
+
+# There are some sample client settings
 
 Include "clients/emacs.conf"
 Include "clients/gnome-speech.conf"

@@ -1,5 +1,9 @@
 2007-05-23  Hynek Hanke  <hanke@brailcom.org>
 
+	* src/modules/Makefile.am (EXTRA_DIST): Added -Wall.
+
+	* src/c/api/Makefile.am (AM_CFLAGS): Added -Wall
+
 	* src/modules/module_utils.h: Copyright updated.
 
 	* src/server/Makefile.am (AM_CFLAGS): Added -Wall.
