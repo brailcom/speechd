@@ -7,7 +7,7 @@ SNDFILE_LIBS = @SNDFILE_LIBS@
 
 EXTRA_DIST = module_main.c module_utils_addvoice.c festival_client.c festival_client.h
 
-AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@ -L$(top_srcdir)/src/audio -I$(top_srcdir)/src/audio -I../../intl/ $(ibmtts_include) @SNDFILE_CFLAGS@ -Wl,--rpath -Wl,$(spdlibdir)
+AM_CFLAGS = -Wall -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@ -L$(top_srcdir)/src/audio -I$(top_srcdir)/src/audio -I../../intl/ $(ibmtts_include) @SNDFILE_CFLAGS@ -Wl,--rpath -Wl,$(spdlibdir)
 
 if flite_support
 if ibmtts_support
