@@ -1,7 +1,7 @@
 /*
  * module_utils.h - Module utilities
  *           Functions to help writing output modules for Speech Dispatcher
- * Copyright (C) 2003, 2004 Brailcom, o.p.s.
+ * Copyright (C) 2003, 2004, 2007 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.h,v 1.13 2006-07-11 16:12:27 hanke Exp $
+ * $Id: module_utils.h,v 1.14 2007-05-23 21:34:32 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -316,13 +316,13 @@ configoption_t * add_config_option(configoption_t *options, int *num_config_opti
     else name = NULL; \
     module_dc_options = module_add_config_option(module_dc_options, \
                                      &module_num_dc_options, #name, \
-                                     ARG_STR, name ## _cb, NULL, 0);
+                                     ARG_STR, name ## _cb, NULL, 0); 
 
 #define MOD_OPTION_1_INT_REG(name, default) \
     name = default; \
     module_dc_options = module_add_config_option(module_dc_options, \
                                      &module_num_dc_options, #name, \
-                                     ARG_INT, name ## _cb, NULL, 0);
+                                     ARG_INT, name ## _cb, NULL, 0); 
 
 /* TODO: Switch this to real float, not /100 integer,
    as soon as DotConf supports floats */
