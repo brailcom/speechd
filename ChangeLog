@@ -1,3 +1,9 @@
+2007-06-16  Hynek Hanke  <hanke@homer.brailcom.xx>
+
+	* src/c/api/libspeechd.c (spd_events_handler): Do not exit on
+	broken socket, but report error.
+	(escape_dot): Bug with single character omisions fixed.
+
 2007-05-23  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/modules/Makefile.am (EXTRA_DIST): Added -Wall.
