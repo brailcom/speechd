@@ -1,5 +1,5 @@
 /*
- * libspeechd.c - Shared library for easy acces to Speech Dispatcher functions
+  libspeechd.c - Shared library for easy acces to Speech Dispatcher functions
  *
  * Copyright (C) 2001, 2002, 2003, 2006, 2007 Brailcom, o.p.s.
  *
@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: libspeechd.c,v 1.31 2007-05-23 21:35:17 hanke Exp $
+ * $Id: libspeechd.c,v 1.32 2007-06-16 21:11:04 hanke Exp $
  */
 
 
@@ -829,11 +829,16 @@ spd_send_data_wo_mutex(SPDConnection *connection, const char *message, int wfr)
 	    pthread_cond_wait(connection->cond_reply_ready, connection->mutex_reply_ready);
 	    pthread_mutex_unlock(connection->mutex_reply_ready);
 	    /* Read the reply */
-	    reply = strdup(connection->reply); ///
-	    xfree(connection->reply);  ///
+	    if (connection->reply != NULL){
+		reply = strdup(connection->reply);
+	    }else{
+	        SPD_DBG("Error: Can't read reply, broken socket.");
+		return NULL;
+	    }
+	    xfree(connection->reply);
 	    bytes = strlen(reply);
 	    if (bytes == 0){
-	        SPD_DBG("Error: Can't read reply, broken socket.");
+	        SPD_DBG("Error: Empty reply, broken socket.");
 		return NULL;
 	    }
 	    /* Signal the reply has been read */
@@ -895,7 +900,8 @@ get_reply(SPDConnection *connection)
     do{
 	bytes = getline(&line, &N, connection->stream);	
 	if (bytes == -1){
-	    SPD_FATAL("Error: Can't read reply, broken socket!");	       
+	    SPD_DBG("Error: Can't read reply, broken socket!");
+	    return NULL;
 	}
 	g_string_append(str, line);
 	/* terminate if we reached the last line (without '-' after numcode) */
@@ -919,9 +925,13 @@ spd_events_handler(void* conn)
 
 	/* Read the reply/event (block if none is available) */
 	reply = get_reply(connection);
-	SPD_DBG("<< : |%s|\n", reply);
-
-	reply_code = get_err_code(reply);
+	if (reply == NULL){
+	    SPD_DBG("ERROR: BROKEN SOCKET");
+	    reply_code = -1;
+	}else{
+	    SPD_DBG("<< : |%s|\n", reply);
+	    reply_code = get_err_code(reply);
+	}
 
 	if ((reply_code >= 700) && (reply_code < 800)){
 	    int msg_id;
@@ -970,7 +980,11 @@ spd_events_handler(void* conn)
 	    /* This is a protocol reply */
 	    pthread_mutex_lock(connection->mutex_reply_ready);
 	    /* Prepare the reply to the reply buffer in connection */
-	    connection->reply = strdup(reply); /// without strdup ???
+	    if (reply != NULL){
+		connection->reply = strdup(reply);
+	    }else{
+		connection->reply = NULL;
+	    }
 	    /* Signal the reply is available on the condition variable */
 	    /* this order is correct and necessary */
 	    pthread_cond_signal(connection->cond_reply_ready);
@@ -1180,8 +1194,8 @@ escape_dot(const char *text)
     if (text_len == 0){
 	return result.str;
     }
-    /*It text contains only a dot, escape it*/
-    else if (text_len==1){
+    /*If text contains only a dot, escape it*/
+    else if (text_len==1 && text[0]=='.'){
 	result = spd_string_append(result, "..", -1);
 	return result.str;
     }
