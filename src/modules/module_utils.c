@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.c,v 1.43 2006-07-11 16:12:27 hanke Exp $
+ * $Id: module_utils.c,v 1.44 2007-06-21 20:19:27 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -208,6 +208,7 @@ do_set(void)
             else SET_PARAM_STR_C(spelling_mode, str2ESpellMode)
             else SET_PARAM_STR_C(cap_let_recogn, str2ECapLetRecogn)
             else SET_PARAM_STR_C(voice, str2EVoice)
+            else SET_PARAM_STR(synthesis_voice)
             else SET_PARAM_STR(language)
             else err=2;             /* Unknown parameter */
         }
@@ -220,6 +221,30 @@ do_set(void)
     
     return strdup("401 ERROR INTERNAL"); /* Can't be reached */
 }
+
+char *
+do_list_voices(void)
+{
+  VoiceDescription **voices;
+  int i;
+  char *lang, *dialect;
+
+  voices = module_list_voices();
+  if (voices == NULL){
+    return strdup("304 CANT LIST VOICES");
+  }
+  for (i=0; ;i++){
+    if (voices[i] == NULL) break;
+    if (voices[i]->language==NULL) lang=strdup("none");
+    else lang=strdup(voices[i]->language);
+    if (voices[i]->dialect==NULL) dialect=strdup("none");
+    else dialect=strdup(voices[i]->dialect);
+    printf("200-%s %s %s\n", voices[i]->name, lang, dialect);
+    xfree(lang); xfree(dialect);
+  }
+  return strdup("200 OK VOICE LIST SENT");
+}
+
 #undef SET_PARAM_NUM
 #undef SET_PARAM_STR
 
