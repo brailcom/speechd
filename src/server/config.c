@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: config.c,v 1.12 2006-07-11 16:12:27 hanke Exp $
+ * $Id: config.c,v 1.13 2007-06-21 20:23:29 hanke Exp $
  */
 
 #include <dotconf.h>
@@ -268,6 +268,7 @@ DOTCONF_CB(cb_AddModule)
     MSG(5,"Module name=%s being inserted into hash table", cur_mod->name);
     assert(cur_mod->name != NULL);
     g_hash_table_insert(output_modules, module_name, cur_mod);
+    output_modules_list=g_list_append(output_modules_list, module_name);
 
     return NULL;
 }
