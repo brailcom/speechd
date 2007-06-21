@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: output.h,v 1.6 2006-07-11 16:12:27 hanke Exp $
+ * $Id: output.h,v 1.7 2007-06-21 20:29:49 hanke Exp $
  */
 
 #include "speechd.h"
@@ -43,3 +43,4 @@ int output_send_settings(TSpeechDMessage *msg, OutputModule *output);
 int output_module_is_speaking(OutputModule *output, char **index_mark);
 int waitpid_with_timeout(pid_t pid, int *status_ptr, int options, size_t timeout);
 int output_close(OutputModule *module);
+VoiceDescription** output_list_voices(char* module_name);

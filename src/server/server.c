@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   * Boston, MA 02110-1301, USA.
   *
-  * $Id: server.c,v 1.81 2007-02-27 17:33:23 hanke Exp $
+  * $Id: server.c,v 1.82 2007-06-21 20:30:06 hanke Exp $
   */
 
 #include "speechd.h"
@@ -69,7 +69,6 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
     TSpeechDMessage *hist_msg, *message_copy;
     int id;
     GList *element;
-
 
     /* Check function parameters */
     if (new == NULL) return -1;

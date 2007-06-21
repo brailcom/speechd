@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: set.h,v 1.15 2006-07-11 16:12:27 hanke Exp $
+ * $Id: set.h,v 1.16 2007-06-21 20:30:23 hanke Exp $
  */
 
 #ifndef SET_H
@@ -42,6 +42,7 @@ int set_cap_let_recog_uid(int uid, int recog);
 int set_spelling_uid(int uid, ESpellMode spelling);
 int set_output_module_self(int uid, char *output_module);
 int set_voice_uid(int uid, char *voice);
+int set_synthesis_voice_uid(int uid, char *synthesis_voice);
 int set_punctuation_mode_uid(int uid, EPunctMode punctuation);
 int set_capital_letter_recognition_uid(int uid, ECapLetRecogn recogn);
 int set_output_module_uid(int uid, char* output_module);
@@ -59,6 +60,7 @@ int set_spelling_self(int fd, ESpellMode spelling);
 int set_output_module_self(int fd, char *output_module);
 int set_client_name_self(int fd, char *client_name);
 int set_voice_self(int fd, char *voice);
+int set_synthesis_voice_self(int fd, char *synthesis_voice);
 int set_punctuation_mode_self(int fd, EPunctMode punctuation);
 int set_capital_letter_recognition_self(int fd, ECapLetRecogn recogn);
 int set_output_module_self(int fd, char* output_module);
@@ -76,6 +78,7 @@ int set_cap_let_recog_all(int recog);
 int set_spelling_all(ESpellMode spelling);
 int set_output_module_all(char* output_module);
 int set_voice_all(char *voice);
+int set_synthesis_voice_all(char *synthesis_voice);
 int set_punctuation_mode_all(EPunctMode punctuation);
 int set_capital_letter_recognition_all(ECapLetRecogn recogn);
 int set_output_module_all(char* output_module);

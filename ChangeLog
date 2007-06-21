@@ -1,3 +1,53 @@
+2007-06-21  Hynek Hanke  <hanke@syrr.buchal.name>
+
+	* src/server/speechd.c(speechd_init): initialize output modules list.
+
+	* src/server/config.c: Update output_modules_list.
+
+	* src/modules/module_utils.h(INIT_SETTINGS_TABLES): Added module_get_voices.
+
+	* src/modules/module_utils.c: New parameter synthesis_voice.
+	(do_list_voices): New function
+
+	* src/modules/generic.c (module_list_voices): New interface function (do nothing)
+	
+	* src/modules/festival_client.c (lisp_list_get_vect): New function.
+	(festivalGetVoices): New function.
+	(vect_read_item): New function.
+
+	* src/modules/module_utils.h (CLEAN_OLD_SETTINGS_TABLE): _old.language=strdup("en")
+
+	* src/modules/festival.c (module_speak): Added synthesis_voice.
+	(festival_set_synthesis_voice): New function.
+
+	* src/server/output.c (output_send_settings): synthesis_voice new parameter.
+
+	* src/server/set.c (set_synthesis_voice_uid): New function.
+
+	* intl/fdsetconv.c (str2EVoice): If unresolved, voice=NO_VOICE
+	instead of -1 (out of enum).
+
+	* src/server/output.c (output_list_voices): New function.
+
+	* src/server/parse.c (parse_list): LIST SYNTH_VOICES: New SSIP command.
+
+	* src/server/output.c (get_output_module_by_name): New function.
+
+	* src/server/msg.h (C_OK_MODULES): New constant.
+	(OK_MODULES_LIST_SENT): New constant.
+
+	* src/server/speechd.h (output_modules_list): New variable.
+
+	* src/server/module.c (reload_output_module): Add module name into output_modules_list.
+
+	* src/modules/ibmtts.c (module_list_voices): New interface function (do nothing)
+
+	* src/modules/cicero.c (module_list_voices): New interface function (do nothing)	
+
+	* src/modules/flite.c (module_list_voices): New interface function (do nothing)	
+
+	* src/modules/module_main.c (main): New command GET
+
 2007-06-16  Hynek Hanke  <hanke@homer.brailcom.xx>
 
 	* src/c/api/libspeechd.c (spd_events_handler): Do not exit on
