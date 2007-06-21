@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: fdset.h,v 1.31 2006-07-11 16:12:26 hanke Exp $
+ * $Id: fdset.h,v 1.32 2007-06-21 20:09:52 hanke Exp $
  */
 
 #ifndef FDSET_H
@@ -84,6 +84,13 @@ typedef enum
 	NOTIFY_RESUME = 32
     }ENotification;
 
+typedef struct {
+  char* name;
+  char* language;
+  char* dialect;
+}VoiceDescription;
+
+
 typedef struct{
     unsigned int uid;		/* Unique ID of the client */
     int fd;                     /* File descriptor the client is on. */
@@ -105,6 +112,7 @@ typedef struct{
     char *language;             /* Selected language name. (e.g. "en", "cz", "fr", ...) */
     char *output_module;        /* Output module name. (e.g. "festival", "flite", "apollo", ...) */
     EVoiceType voice;           /* see EVoiceType definition above */
+    char *synthesis_voice;
     ECapLetRecogn cap_let_recogn;         /* Capital letters recognition: (0 - off, 1 - on) */
 
     ENotification notification;	/* Notification about start and stop of messages, about reached 
@@ -140,6 +148,7 @@ typedef struct{
     char* language;
 
     EVoiceType voice;
+    char *synthesis_voice;
 }SPDMsgSettings;
 
 #endif /* not ifndef FDSET */
