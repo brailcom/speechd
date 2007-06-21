@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: module.c,v 1.31 2006-07-20 15:32:48 hanke Exp $
+ * $Id: module.c,v 1.32 2007-06-21 20:26:25 hanke Exp $
  */
 
 #define _GNU_SOURCE
@@ -248,7 +248,6 @@ reload_output_module(OutputModule *old_module)
     }
 
     g_hash_table_replace(output_modules, new_module->name, new_module);
-    
     destroy_module(old_module);
 
     return 0;
