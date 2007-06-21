@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.c,v 1.69 2007-05-03 09:40:55 hanke Exp $
+ * $Id: speechd.c,v 1.70 2007-06-21 20:30:57 hanke Exp $
  */
 
 #include <gmodule.h>
@@ -398,6 +398,7 @@ speechd_init(void)
     /* Initialize lists */
     MessagePausedList = NULL;
     message_history = NULL;
+    output_modules_list = NULL;
 
     /* Initialize hash tables */
     fd_settings = g_hash_table_new(g_int_hash,g_int_equal);
