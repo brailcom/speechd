@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.h,v 1.14 2007-05-23 21:34:32 hanke Exp $
+ * $Id: module_utils.h,v 1.15 2007-06-21 20:22:56 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -52,6 +52,7 @@ configfile_t *configfile;
 configoption_t *module_dc_options;
 int module_num_dc_options;
 
+
 #define CLEAN_OLD_SETTINGS_TABLE()\
  msg_settings_old.rate = -101;\
  msg_settings_old.pitch = -101;\
@@ -59,7 +60,7 @@ int module_num_dc_options;
  msg_settings_old.punctuation_mode = -1;\
  msg_settings_old.spelling_mode = -1;\
  msg_settings_old.cap_let_recogn = -1;\
- msg_settings_old.language = NULL;\
+ msg_settings_old.language = strdup("en");	\
  msg_settings_old.voice = NO_VOICE;
 
 #define INIT_SETTINGS_TABLES()\
@@ -101,6 +102,7 @@ int     module_load         (void);
 int     module_init         (char **status_info);
 int     module_speak        (char *data, size_t bytes, EMessageType msgtype);
 int     module_stop         (void);
+VoiceDescription**     module_get_voices   (void);
 size_t  module_pause        (void);
 char*     module_is_speaking  (void);
 void    module_close        (int status);
@@ -113,7 +115,7 @@ void    module_close        (int status);
     }
 
 #define UPDATE_STRING_PARAMETER(value, setter) \
-  if (msg_settings_old.value == NULL \
+  if (msg_settings_old.value == NULL || msg_settings.value == NULL \
          || strcmp (msg_settings_old.value, msg_settings.value)) \
     { \
       if (msg_settings_old.value != NULL) \
@@ -172,6 +174,7 @@ char* do_char(void);
 char* do_key(void);
 void  do_stop(void);
 void  do_pause(void);
+char* do_list_voices(void);
 char* do_set(void);
 int do_quit(void);
 
