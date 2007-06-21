@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: output.c,v 1.28 2006-07-11 16:12:27 hanke Exp $
+ * $Id: output.c,v 1.29 2007-06-21 20:29:45 hanke Exp $
  */
 
 #include "output.h"
@@ -36,38 +36,46 @@ output_set_speaking_monitor(TSpeechDMessage *msg, OutputModule *output)
 }
 
 OutputModule*
-get_output_module(const TSpeechDMessage *message)
+get_output_module_by_name(char *name)
 {
-    OutputModule *output = NULL;
-
-    if (message->settings.output_module != NULL){
-        MSG(5, "Desired output module is %s", message->settings.output_module);
-        output = g_hash_table_lookup(output_modules, message->settings.output_module);
-        if(output == NULL || !output->working){
-            if (GlobalFDSet.output_module != NULL){
-                MSG(3,"Warning: Didn't find prefered output module, using default");                
-                output = g_hash_table_lookup(output_modules, GlobalFDSet.output_module); 
-                if (output == NULL || !output->working) 
-                    MSG(2, "Error: Can't find default output module or it's not working!");
-            }
-        }
-    }
-    if (output == NULL){
-        MSG(3, "Error: Unspecified output module!\n");
-        return NULL;
-    }
-
-    return output;
+  OutputModule *output;
+  output = g_hash_table_lookup(output_modules, name);
+  if (output == NULL || !output->working) output = NULL;
+  
+  return output;
 }
 
-static void
-output_lock(void)
+OutputModule*
+get_output_module(const TSpeechDMessage *message)
+{
+  OutputModule *output = NULL;
+  
+  if (message->settings.output_module != NULL){
+    MSG(5, "Desired output module is %s", message->settings.output_module);
+    output = get_output_module_by_name(message->settings.output_module);
+    if(output == NULL){
+      if (GlobalFDSet.output_module != NULL){
+	MSG(3,"Warning: Didn't find prefered output module, using default");                
+	output = g_hash_table_lookup(output_modules, GlobalFDSet.output_module); 
+	if (output == NULL || !output->working) 
+	  MSG(2, "Error: Can't find default output module or it's not working!");
+      }
+      if (output == NULL){
+	MSG(3, "Error: Unspecified output module!\n");
+	return NULL;
+      }
+    }
+  }
+  return output;
+}
+void
+static output_lock(void)
 {
     pthread_mutex_lock(&output_layer_mutex);
 }
 
-static void
-output_unlock(void)
+void
+static output_unlock(void)
 {
     pthread_mutex_unlock(&output_layer_mutex);
 }
@@ -98,6 +106,7 @@ output_read_reply(OutputModule *output)
 	    output_check_module(output);
 	    return NULL; /* Broken pipe */   
 	}
+	MSG(5, "Got %d bytes from output module over socket", bytes);
 	g_string_append(rstr, line);
 	/* terminate if we reached the last line (without '-' after numcode) */
     }while( !((strlen(line) < 4) || (line[3] == ' ')));
@@ -175,6 +184,61 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
     return 0;
 }
 
+VoiceDescription**
+output_list_voices(char* module_name)
+{
+  VoiceDescription** voice_dscr;
+  OutputModule *module;
+  char *reply;
+  gchar **lines;
+  gchar **atoms;
+  char *atom;
+  int i, j;
+
+  output_lock();
+
+  module=get_output_module_by_name(module_name);
+  if (module == NULL){
+    MSG(1, "ERROR: Can't list voices for module %s", module_name);
+    return NULL;
+  }
+  output_send_data("LIST VOICES\n", module, 0);
+  reply = output_read_reply(module);
+  MSG(1, "REPLY IS %s", reply);
+
+  //TODO: only 256 voices supported here
+  lines = g_strsplit(reply, "\n", 256);
+  voice_dscr = malloc(256*sizeof(VoiceDescription*));
+  for (i=0; ;i++){
+    if (lines[i] == NULL) break;
+    MSG(1, "LINE here:|%s|", lines[i]);
+    if (strlen(lines[i])<=4){
+      MSG(1, "ERROR: Bad communication from driver in synth_voices");
+      output_unlock();
+      return NULL;
+    }
+    if (lines[i][3] == ' ') break;
+    else if (lines[i][3] == '-'){
+      atoms = g_strsplit(&lines[i][4]," ", 0);
+      // Name, language, dialect
+      if ((atoms[0] == NULL) || (atoms[1] == NULL) || (atoms[2] == NULL)){
+	output_unlock();
+	return NULL;
+      }
+      //Fill in VoiceDescription
+      voice_dscr[i] = (VoiceDescription*) malloc(sizeof(VoiceDescription));
+      voice_dscr[i]->name=strdup(atoms[0]);
+      voice_dscr[i]->language=strdup(atoms[1]);
+      voice_dscr[i]->dialect=strdup(atoms[2]);
+    }
+
+  }
+  voice_dscr[i] = NULL;
+
+  output_unlock();
+  return voice_dscr;
+}
+
 #define SEND_CMD_N(cmd) \
   {  err = output_send_data(cmd"\n", output, 1); \
     if (err < 0) return (err); }
@@ -229,6 +293,7 @@ output_send_settings(TSpeechDMessage *msg, OutputModule *output)
     ADD_SET_STR_C(cap_let_recogn, ECapLetRecogn2str);
     ADD_SET_STR(language);
     ADD_SET_STR_C(voice, EVoice2str);
+    ADD_SET_STR(synthesis_voice)
 
     SEND_CMD_N("SET");
     SEND_DATA_N(set_str->str);
