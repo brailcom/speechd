@@ -225,6 +225,13 @@ module_init(char **status_info)
   return 0;
 }
 
+VoiceDescription**
+module_list_voices(void)
+{
+  return NULL;
+}
+
+
 int
 module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 {

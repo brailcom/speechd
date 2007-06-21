@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: generic.c,v 1.25 2007-02-27 17:38:12 hanke Exp $
+ * $Id: generic.c,v 1.26 2007-06-21 20:15:46 hanke Exp $
  */
 
 #include <glib.h>
@@ -155,6 +155,13 @@ module_init(char **status_info)
 								
     *status_info = strdup("Everything ok so far.");
     return 0;
+}
+
+
+VoiceDescription**
+module_list_voices(void)
+{
+  return NULL;
 }
 
 

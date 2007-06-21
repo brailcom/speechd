@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.22 2007-05-23 21:33:14 hanke Exp $
+ * $Id: ibmtts.c,v 1.23 2007-06-21 20:17:53 hanke Exp $
  */
 
 /* This output module operates with four threads:
@@ -490,6 +490,13 @@ module_init(char **status_info)
     return OK;
 }
 #undef ABORT
+
+VoiceDescription**
+module_list_voices(void)
+{
+  return NULL;
+}
+
 
 int
 module_speak(gchar *data, size_t bytes, EMessageType msgtype)

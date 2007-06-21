@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: flite.c,v 1.53 2006-07-11 16:12:27 hanke Exp $
+ * $Id: flite.c,v 1.54 2007-06-21 20:15:01 hanke Exp $
  */
 
 
@@ -183,6 +183,12 @@ module_init(char **status_info)
     return 0;
 }
 #undef ABORT
+
+VoiceDescription**
+module_list_voices(void)
+{
+  return NULL;
+}
 
 int
 module_speak(gchar *data, size_t bytes, EMessageType msgtype)
