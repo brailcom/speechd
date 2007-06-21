@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: fdsetconv.c,v 1.4 2006-07-11 16:12:26 hanke Exp $
+ * $Id: fdsetconv.c,v 1.5 2007-06-21 20:09:45 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -58,7 +58,7 @@ str2EVoice(char* str)
     else if (!strcmp(str, "female3")) voice = FEMALE3;
     else if (!strcmp(str, "child_male")) voice = CHILD_MALE;
     else if (!strcmp(str, "child_female")) voice = CHILD_FEMALE;
-    else voice = -1;
+    else voice = NO_VOICE;
 
     return voice;
 }
