@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_main.c,v 1.10 2006-07-11 16:12:27 hanke Exp $
+ * $Id: module_main.c,v 1.11 2007-06-21 20:18:00 hanke Exp $
  */
 
 /* So that gcc doesn't comply */
@@ -135,6 +135,7 @@ main(int argc, char *argv[])
         else PROCESS_CMD(KEY, do_key)
         else PROCESS_CMD_NRP(STOP, do_stop) 
         else PROCESS_CMD_NRP(PAUSE, do_pause) 
+        else PROCESS_CMD(LIST VOICES, do_list_voices)
         else PROCESS_CMD(SET, do_set) 
         else PROCESS_CMD(QUIT, do_quit) 
         else{
