@@ -411,7 +411,7 @@ festival_accept_any_response(FT_Info *info)
 
     DBG("Com: Accepting any response");
     do {
-        if(r = festival_get_ack(&info, ack)) return r;
+      if( (r = festival_get_ack(&info, ack)) ) return r;
 
 	if (ack == 0) DBG("ack is NULL");
         DBG("<- Festival: |%s|",ack);
@@ -708,6 +708,125 @@ int festivalClose(FT_Info *info)
     return 0;
 }
 
+/* --- INFORMATION RETRIEVAL COMMANDS --- */
+
+char**
+lisp_list_get_vect(char* expr)
+{
+  int len;
+  char *helper;
+  gchar **vect;
+  int i,j;
+
+  len = strlen(expr);
+  helper = malloc(sizeof(char) * (len+1));
+
+  //Remove parenthesis
+  j=0;
+  for (i=0; i<=len; i++){
+    if ((expr[i] != '(') && (expr[i] != ')')){
+      helper[j] = expr[i];
+      j++;
+    }
+  }
+  helper[j]='0';
+
+  // Split into a vector of atoms
+  vect = g_strsplit(helper, " ", 0);
+
+  return vect;
+}
+
+char* vect_read_item(char **vect, char* field)
+{
+  int i; 
+
+  for (i=0; ;i++){
+    if (vect[i] == NULL)
+      return NULL;
+    else
+      {
+	if (!strcmp(vect[i], field)){
+	  if (vect[i+1] != NULL) return vect[i+1];
+	  else return NULL;
+	}
+      }
+  }
+}
+
+
+VoiceDescription** festivalGetVoices(FT_Info *info)
+{
+  char *reply;
+  char** voices;
+  char** voice_dscr;
+  char* lang; char* dialect;
+  int i, j;
+  int num_voices = 0;
+  VoiceDescription** result;
+
+  FEST_SEND_CMD("(voice-list)");
+  festival_read_response(info, &reply);
+  if (reply == NULL){
+    DBG("ERROR: Invalid reply for voice-list");
+    return NULL;
+  }
+  /* Remove trailing newline */
+  reply[strlen(reply)-1]=0;
+  DBG("Voice list reply: |%s|", reply);
+  voices = lisp_list_get_vect(reply);
+  if (voices == NULL){
+    DBG("ERROR: Can't parse reply for voice-list into vector");
+    return NULL;
+  }
+  
+  /* Compute number of voices */
+  for (i=0; ; i++, num_voices++) if (voices[i] == NULL) break;
+  
+  result = (VoiceDescription*) malloc((num_voices + 1)*sizeof(VoiceDescription*));
+  
+  for (i=0, j=0; ;i++){
+    if (voices[i] == NULL)
+      break;
+    else if (strlen(voices[i]) == 0)
+      continue;
+    else // vect[i] contains name of a voice, get further information about the voice
+      {
+	DBG("Resolving voice %s", voices[i]);
+	FEST_SEND_CMDA("(voice.description '%s)", voices[i]);\
+	festival_read_response(info, &reply);
+	DBG("Reply: %s", reply);
+	if (reply == NULL){
+	  DBG("ERROR: Invalid reply for voice-description");
+	  return NULL;
+	}
+	voice_dscr = lisp_list_get_vect(reply);
+	if (voice_dscr == NULL){
+	  DBG("ERROR: Can't parse reply for voice-description into vector");
+	  return NULL;
+	}
+	
+	result[j] = (VoiceDescription*) malloc(sizeof(VoiceDescription));
+	result[j]->name = voices[i];
+	
+	lang = vect_read_item(voice_dscr, "language");
+	if ((lang != NULL) && (strcmp(lang, "nil")))
+	  result[j]->language = strdup(lang);
+	else
+	  result[j]->language = NULL;
+
+	dialect = vect_read_item(voice_dscr, "dialect");
+	if ((dialect != NULL) && (strcmp(dialect, "nil")))
+	  result[j]->dialect = strdup(dialect);
+	else
+	  result[j]->dialect=NULL; 
+	j++;
+      }
+  }
+  result[j] = NULL;
+  return result;
+}
+
 /* --- SETTINGS COMMANDS --- */
 
 #define FEST_SET_STR(name, fest_param) \
@@ -765,6 +884,8 @@ FEST_SET_SYMB(FestivalSetPunctuationMode, "speechd-set-punctuation-mode");
 FEST_SET_STR(FestivalSetCapLetRecogn, "speechd-set-capital-character-recognition-mode");
 FEST_SET_STR(FestivalSetLanguage, "speechd-set-language");
 FEST_SET_STR(FestivalSetVoice, "speechd-set-voice");
+FEST_SET_STR(FestivalSetSynthesisVoice, "speechd-set-voice");
+
 
 static FT_Info *festivalDefaultInfo()
 {
