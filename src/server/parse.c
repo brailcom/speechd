@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: parse.c,v 1.67 2006-11-17 14:30:24 hanke Exp $
+ * $Id: parse.c,v 1.68 2007-06-21 20:29:52 hanke Exp $
  */
 
 #include <ctype.h>
@@ -30,6 +30,7 @@
 #include "msg.h"
 #include "server.h"
 #include "sem_functions.h"
+#include "output.h"
 
 /*
   Parse() receives input data and parses them. It can
@@ -426,6 +427,17 @@ parse_set(const char *buf, const int bytes, const int fd)
         if (ret) return strdup(ERR_COULDNT_SET_LANGUAGE);
         return strdup(OK_LANGUAGE_SET);
     }
+    else if (TEST_CMD(set_sub, "synthesis_voice")){
+        char *synthesis_voice;
+
+        GET_PARAM_STR(synthesis_voice, 3, CONV_DOWN);
+
+        SSIP_SET_COMMAND(synthesis_voice);
+	spd_free(synthesis_voice);
+
+        if (ret) return strdup(ERR_COULDNT_SET_VOICE);
+        return strdup(OK_VOICE_SET);
+    }
     else if (TEST_CMD(set_sub, "client_name")){
         char *client_name;
         NOT_ALLOWED_INSIDE_BLOCK();
@@ -790,9 +802,55 @@ parse_list(const char* buf, const int bytes, const int fd)
                 C_OK_VOICES"-CHILD_FEMALE\r\n"
                 OK_VOICE_LIST_SENT);
         return voice_list;
+    }else if(TEST_CMD(list_type, "output_modules")){
+	GString *result;
+	char *helper;
+	GList *gl;
+	int i;
+	int len;
+	result = g_string_new("");
+	len = g_list_length(output_modules_list);
+	MSG(1, "G LIST LENGHT IS %d", len);
+	for (i=0; i<=len-1; i++){
+	  gl = g_list_nth(output_modules_list, i);
+	  assert(gl!=NULL);
+	  if (gl->data == NULL) continue;
+	  g_string_append_printf(result, C_OK_MODULES"-%s\r\n", (char*) gl->data);
+	}
+	g_string_append(result, OK_MODULES_LIST_SENT);
+	helper = result->str;
+	g_string_free(result, 0);
+        return helper;
+    }else if(TEST_CMD(list_type, "synthesis_voices")){
+      char *module_name;
+      int uid;
+      TFDSetElement *settings;
+      VoiceDescription **voices;
+      GString *result;
+      int i;
+      char *helper;
+      
+      uid = get_client_uid_by_fd(fd);		       
+      settings = get_client_settings_by_uid(uid);
+      if (settings == NULL) return strdup(ERR_INTERNAL);
+      module_name = settings->output_module;
+      if (module_name == NULL) return strdup(ERR_NO_OUTPUT_MODULE);
+      voices = output_list_voices(module_name);
+      if (voices == NULL)  return strdup(ERR_CANT_REPORT_VOICES);
+
+      result = g_string_new("");
+      for (i=0; ; i++){
+	if (voices[i] == NULL) break;
+	g_string_append_printf(result, C_OK_VOICES"-%s %s %s\r\n",
+			       voices[i]->name, voices[i]->language, voices[i]->dialect);	
+      }
+      g_string_append(result, OK_VOICE_LIST_SENT);
+      helper = result->str;
+      g_string_free(result, 0);	
+      return helper;      
     }else{
-        spd_free(list_type);
-        return strdup(ERR_PARAMETER_INVALID);
+      spd_free(list_type);
+      return strdup(ERR_PARAMETER_INVALID);
     }
 }
 
