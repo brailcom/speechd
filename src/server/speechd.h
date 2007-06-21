@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.h,v 1.58 2007-05-03 09:41:06 hanke Exp $
+ * $Id: speechd.h,v 1.59 2007-06-21 20:31:01 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -133,6 +133,7 @@ int speaking_sem_id;
 
 /* Table of all configured (and succesfully loaded) output modules */
 GHashTable *output_modules;	
+GList *output_modules_list;
 /* Table of settings for each active client (=each active socket)*/
 GHashTable *fd_settings;	
 /* Table of default output modules for different languages */
