@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: msg.h,v 1.27 2006-07-11 16:12:27 hanke Exp $
+ * $Id: msg.h,v 1.28 2007-06-21 20:29:41 hanke Exp $
  */
 
 #ifndef MSG_H
@@ -75,6 +75,8 @@
 #define C_OK_HELP                               "248"
 #define OK_VOICE_LIST_SENT                      "249 OK VOICE LIST SENT\r\n"
 #define C_OK_VOICES                             "249"
+#define OK_MODULES_LIST_SENT                    "250 OK VOICE LIST SENT\r\n"
+#define C_OK_MODULES                            "250"
 
 #define OK_INSIDE_BLOCK                         "260 OK INSIDE BLOCK\r\n"
 #define OK_OUTSIDE_BLOCK                        "261 OK OUTSIDE BLOCK\r\n"
@@ -114,6 +116,8 @@
 #define ERR_COULDNT_SET_NOTIFICATION            "316 ERR COULDNT SET NOTIFICATION\r\n"
 
 #define ERR_NO_SND_ICONS                        "320 ERR NO SOUND ICONS\r\n"
+#define ERR_CANT_REPORT_VOICES                  "321 ERR MODULE CANT REPORT VOICES\r\n"
+#define ERR_NO_OUTPUT_MODULE                    "321 ERR NO OUTPUT MODULE LOADED\r\n"
 
 #define ERR_ALREADY_INSIDE_BLOCK                "330 ERR ALREADY INSIDE BLOCK\r\n"
 #define ERR_ALREADY_OUTSIDE_BLOCK               "331 ERR ALREADY OUTSIDE BLOCK\r\n"
