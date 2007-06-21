@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: festival.c,v 1.71 2007-02-27 15:53:35 hanke Exp $
+ * $Id: festival.c,v 1.72 2007-06-21 20:10:39 hanke Exp $
  */
 
 #include "fdset.h"
@@ -282,9 +282,16 @@ module_init(char **status_info)
 
     *status_info = info->str;
     g_string_free(info, 0);
+
     return 0;
 }
 #undef ABORT
+
+VoiceDescription**
+module_list_voices(void)
+{
+  return festivalGetVoices(festival_info);
+}
 
 int
 module_speak(char *data, size_t bytes, EMessageType msgtype)
@@ -327,17 +334,24 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
 	}
     }
 
+    if (msg_settings.language == NULL) msg_settings.language=strdup("");
+    if (msg_settings_old.language == NULL) msg_settings.language=strdup("");
+    if (msg_settings.synthesis_voice == NULL) msg_settings.synthesis_voice=strdup("");
     /* If the voice was changed, re-set all the parameters */
-    if ((msg_settings.voice != msg_settings_old.voice) 
-        || strcmp(msg_settings.language, msg_settings_old.language)){
+
+    if ((msg_settings.voice != msg_settings_old.voice)
+	|| (strcmp(msg_settings.language, msg_settings_old.language))){
 	DBG("Cleaning old settings table");
         CLEAN_OLD_SETTINGS_TABLE();
     }
 
+
     /* Setting voice parameters */
     DBG("Updating parameters");
     UPDATE_STRING_PARAMETER(language, festival_set_language);
+    UPDATE_STRING_PARAMETER(synthesis_voice, festival_set_language);
     UPDATE_PARAMETER(voice, festival_set_voice);
+    UPDATE_PARAMETER(synthesis_voice, festival_set_synthesis_voice);
     UPDATE_PARAMETER(rate, festival_set_rate);
     UPDATE_PARAMETER(pitch, festival_set_pitch);
     UPDATE_PARAMETER(volume, festival_set_volume);
@@ -712,9 +726,13 @@ festival_set_voice(EVoiceType voice)
     voice_name = EVoice2str(voice);
     FestivalSetVoice(festival_info, voice_name, NULL);
     xfree(voice_name);
+}
 
-    /* Because the new voice can use diferent bitrate */
-    DBG("Filling new sample wave\n");
+void
+festival_set_synthesis_voice(char *voice_name)
+{
+
+  FestivalSetSynthesisVoice(festival_info, voice_name, NULL);
 }
 
 void
