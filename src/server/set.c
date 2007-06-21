@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: set.c,v 1.41 2006-07-11 16:12:27 hanke Exp $
+ * $Id: set.c,v 1.42 2007-06-21 20:30:19 hanke Exp $
  */
 
 #include <fnmatch.h>
@@ -153,6 +153,10 @@ set_voice_uid(int uid, char *voice)
     else if (!strcmp(voice, "child_female")) settings->voice = CHILD_FEMALE;
     else return 1;
 
+    if (settings->synthesis_voice != NULL){
+      free(settings->synthesis_voice);
+      settings->synthesis_voice = NULL;
+    }
     return 0;
 }
 
@@ -222,6 +226,25 @@ set_language_uid(int uid, char *language)
     output_module = g_hash_table_lookup(language_default_modules, language);
     if (output_module != NULL)
         set_output_module_uid(uid, output_module);
+
+    return 0;
+}
+
+SET_SELF_ALL(char*, synthesis_voice);
+
+int
+set_synthesis_voice_uid(int uid, char *synthesis_voice)
+{
+    TFDSetElement *settings;
+    char *output_module;
+
+    settings = get_client_settings_by_uid(uid);
+    if (settings == NULL) return 1;
+	
+    SET_PARAM_STR(synthesis_voice);        
+
+    /* Delete ordinary voice settings so that we don't mix */
+    settings->voice = NO_VOICE;
 
     return 0;
 }
@@ -307,6 +330,12 @@ set_output_module_uid(int uid, char* output_module)
     MSG(5, "In set_output_module the desired output module is x%s", output_module);
 
     SET_PARAM_STR(output_module);
+
+    /* Delete synth_voice since it is module specific */
+    if (settings->synthesis_voice != NULL){
+      free(settings->synthesis_voice);
+      settings->synthesis_voice = NULL;
+    }
 
     return 0;
 }
@@ -405,6 +434,7 @@ default_fd_set(void)
 	new->output_module = spd_strdup(GlobalFDSet.output_module);
 	new->client_name = spd_strdup(GlobalFDSet.client_name); 
 	new->voice = GlobalFDSet.voice;
+	new->synthesis_voice = NULL;
 	new->spelling_mode = GlobalFDSet.spelling_mode;         
 	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;      
 
