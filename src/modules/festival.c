@@ -1,4 +1,3 @@
-
 /*
  * festival.c - Speech Dispatcher backend for Festival
  *
@@ -19,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: festival.c,v 1.72 2007-06-21 20:10:39 hanke Exp $
+ * $Id: festival.c,v 1.73 2007-06-21 20:55:27 hanke Exp $
  */
 
 #include "fdset.h"
@@ -79,6 +78,7 @@ void festival_parent_clean();
 void festival_set_rate(signed int rate);
 void festival_set_pitch(signed int pitch);
 void festival_set_voice(EVoiceType voice);
+void festival_set_synthesis_voice(char* synthesis_voice);
 void festival_set_language(char* language);
 void festival_set_punctuation_mode(EPunctMode punct);
 void festival_set_cap_let_recogn(ECapLetRecogn recogn);
