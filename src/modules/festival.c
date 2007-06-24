@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: festival.c,v 1.73 2007-06-21 20:55:27 hanke Exp $
+ * $Id: festival.c,v 1.74 2007-06-24 19:46:27 hanke Exp $
  */
 
 #include "fdset.h"
@@ -334,13 +334,11 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
 	}
     }
 
-    if (msg_settings.language == NULL) msg_settings.language=strdup("");
-    if (msg_settings_old.language == NULL) msg_settings.language=strdup("");
-    if (msg_settings.synthesis_voice == NULL) msg_settings.synthesis_voice=strdup("");
     /* If the voice was changed, re-set all the parameters */
-
+    // TODO: Handle synthesis_voice change too 
     if ((msg_settings.voice != msg_settings_old.voice)
-	|| (strcmp(msg_settings.language, msg_settings_old.language))){
+	|| (msg_settings.language != NULL) && (msg_settings_old.language!=NULL) &&
+	(strcmp(msg_settings.language, msg_settings_old.language))){
 	DBG("Cleaning old settings table");
         CLEAN_OLD_SETTINGS_TABLE();
     }
