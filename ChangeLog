@@ -1,3 +1,8 @@
+2007-06-24  Hynek Hanke  <hanke@homer.brailcom.xx>
+
+	* src/modules/festival.c (module_speak): Removed NULL
+	substitutions for an empty string.
+
 2007-06-21  Hynek Hanke  <hanke@syrr.buchal.name>
 
 	* src/server/speechd.c(speechd_init): initialize output modules list.
