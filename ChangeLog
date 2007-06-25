@@ -1,3 +1,8 @@
+2007-06-25  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/modules/module_utils.h (CLEAN_OLD_SETTINGS_TABLE)
+	(INIT_SETTINGS_TABLES): Set language to NULL.
+
 2007-06-24  Hynek Hanke  <hanke@homer.brailcom.xx>
 
 	* src/modules/festival.c (module_speak): Removed NULL
