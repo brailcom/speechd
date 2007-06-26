@@ -269,7 +269,6 @@ class _SSIP_Connection:
         """Register a callback function for handling asynchronous events.
 
         Arguments:
-
           callback -- a callable object (function) which will be called to
             handle asynchronous events (arguments described below).  Passing
             `None' results in removing the callback function and ignoring
@@ -359,17 +358,12 @@ class SSIPClient(object):
         """Initialize the instance and connect to the server.
 
         Arguments:
-
           name -- client identification string
-
           component -- connection identification string.  When one client opens
             multiple connections, this can be used to identify each of them.
-            
           user -- user identification string (user name).  When multi-user
             acces is expected, this can be used to identify their connections.
-          
           host -- server hostname or IP address as a string.
-          
           port -- server port as number or None.  If None, the default value is
             determined by the SPEECH_PORT attribute of this class.
         
@@ -377,21 +371,21 @@ class SSIPClient(object):
         Dispatcher documentation.
           
         """
-        self._conn = _SSIP_Connection(host, port or self.SPEECH_PORT)
+        self._conn = conn = _SSIP_Connection(host, port or self.SPEECH_PORT)
         full_name = '%s:%s:%s' % (user, name, component)
-        self._conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
-        result = self._conn.send_command('HISTORY', 'GET', 'CLIENT_ID')
-        self._client_id = int(result[2][0])
+        conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
+        code, msg, data = conn.send_command('HISTORY', 'GET', 'CLIENT_ID')
+        self._client_id = int(data[0])
         self._lock = threading.Lock()
         self._callbacks = {}
-        self._conn.set_callback(self._callback_handler)
+        conn.set_callback(self._callback_handler)
         for event in (CallbackType.INDEX_MARK,
                       CallbackType.BEGIN,
                       CallbackType.END,
                       CallbackType.CANCEL,
                       CallbackType.PAUSE,
                       CallbackType.RESUME):
-            self._conn.send_command('SET', 'self', 'NOTIFICATION', event, 'on')
+            conn.send_command('SET', 'self', 'NOTIFICATION', event, 'on')
 
     
     def __del__(self):
@@ -421,7 +415,6 @@ class SSIPClient(object):
         """Set the priority category for the following messages.
 
         Arguments:
-
           priority -- one of the 'Priority' constants.
 
         """
@@ -434,15 +427,12 @@ class SSIPClient(object):
         """Say given message.
 
         Arguments:
-
           text -- message text to be spoken.  This may be either a UTF-8
             encoded byte string or a Python unicode string.
-
           callback -- a callback handler for asynchronous event notifications.
             A callable object (function) which accepts one positional argument
             `type' and one keyword argument `index_mark'.  See below for more
             details.
-
           event_types -- a tuple of event types for which the callback should
             be called.  Each item must be one of `CallbackType' constants.
             None (the default value) means to handle all event types.  This
@@ -482,7 +472,6 @@ class SSIPClient(object):
         """Say given character.
 
         Arguments:
-
           char -- a character to be spoken.  Either a Python unicode string or
             a UTF-8 encoded byte string.
 
@@ -498,7 +487,6 @@ class SSIPClient(object):
         """Say given key name.
 
         Arguments:
-
           key -- the key name (as defined in SSIP); string.
 
         This method is non-blocking;  it just sends the command, given
@@ -511,7 +499,6 @@ class SSIPClient(object):
         """Output given sound_icon.
 
         Arguments:
-
           sound_icon -- the name of the sound icon as defined by SSIP; string.
 
         This method is non-blocking; it just sends the command, given message
@@ -524,7 +511,6 @@ class SSIPClient(object):
         """Immediately stop speaking and discard messages in queues.
 
         Arguments:
-
           scope -- see the documentaion of this class.
             
         """
@@ -535,7 +521,6 @@ class SSIPClient(object):
         """Immediately stop speaking the currently spoken message.
 
         Arguments:
-
           scope -- see the documentaion of this class.
         
         """
@@ -549,7 +534,6 @@ class SSIPClient(object):
         sentence).
 
         Arguments:
-
           scope -- see the documentaion of this class.
         
         """
@@ -563,35 +547,57 @@ class SSIPClient(object):
         sentence).
 
         Arguments:
-
           scope -- see the documentaion of this class.
         
         """
         self._conn.send_command('STOP', scope)
 
+    def list_output_modules(self):
+        """Return names of all active output modules as a tuple of strings."""
+        code, msg, data = self._conn.send_command('LIST', 'OUTPUT_MODULES')
+        return data
+
+    def list_synthesis_voices(self):
+        """Return names of all available voices for the current output module.
+
+        Returns a tuple of tripplets (NAME, LANGUAGE, DIALECT).
+
+        """
+        try:
+            code, msg, data = self._conn.send_command('LIST', 'SYNTHESIS_VOICES')
+        except SSIPCommandError:
+            return ()
+        return tuple([tuple(item.split(' ')) for item in data])
+
     def set_language(self, language, scope=Scope.SELF):
         """Switch to a particular language for further speech commands.
 
         Arguments:
-
           language -- two letter language code according to RFC 1776 as string.
-
           scope -- see the documentaion of this class.
             
         """
         assert isinstance(language, str) and len(language) == 2
         self._conn.send_command('SET', scope, 'LANGUAGE', language)
 
+    def set_output_module(self, name, scope=Scope.SELF):
+        """Switch to a particular output module.
+
+        Arguments:
+          name -- module (string) as returned by 'list_output_modules()'.
+          scope -- see the documentaion of this class.
+        
+        """
+        self._conn.send_command('SET', scope, 'OUTPUT_MODULE', name)
+
     def set_pitch(self, value, scope=Scope.SELF):
         """Set the pitch for further speech commands.
 
         Arguments:
-
           value -- integer value within the range from -100 to 100, with 0
             corresponding to the default pitch of the current speech synthesis
             output module, lower values meaning lower pitch and higher values
             meaning higher pitch.
-
           scope -- see the documentaion of this class.
           
         """
@@ -602,12 +608,10 @@ class SSIPClient(object):
         """Set the speech rate (speed) for further speech commands.
 
         Arguments:
-
           value -- integer value within the range from -100 to 100, with 0
             corresponding to the default speech rate of the current speech
             synthesis output module, lower values meaning slower speech and
             higher values meaning faster speech.
-
           scope -- see the documentaion of this class.
             
         """
@@ -618,11 +622,9 @@ class SSIPClient(object):
         """Set the speech volume for further speech commands.
 
         Arguments:
-
           value -- integer value within the range from -100 to 100, with 100
             corresponding to the default speech volume of the current speech
             synthesis output module, lower values meaning softer speech.
-
           scope -- see the documentaion of this class.
             
         """
@@ -633,9 +635,7 @@ class SSIPClient(object):
         """Set the punctuation pronounciation level.
 
         Arguments:
-
           value -- one of the 'PunctuationMode' constants.
-
           scope -- see the documentaion of this class.
             
         """
@@ -647,11 +647,9 @@ class SSIPClient(object):
         """Toogle the spelling mode or on off.
 
         Arguments:
-
           value -- if 'True', all incomming messages will be spelled
             instead of being read as normal words. 'False' switches
             this behavior off.
-
           scope -- see the documentaion of this class.
             
         """
@@ -665,12 +663,10 @@ class SSIPClient(object):
         """Set capital letter recognition mode.
 
         Arguments:
-
           value -- one of 'none', 'spell', 'icon'. None means no signalization
             of capital letters, 'spell' means capital letters will be spelled
             with a syntetic voice and 'icon' means that the capital-letter icon
             will be prepended before each capital letter.
-
           scope -- see the documentaion of this class.
             
         """
@@ -678,18 +674,16 @@ class SSIPClient(object):
         self._conn.send_command('SET', scope, 'CAP_LET_RECOGN', value)
 
     def set_voice(self, value, scope=Scope.SELF):
-        """Set voice to given value.
-
-        Note that this doesn't guarantee that such a voice is actually
-        available by the used synthesizer.  If not, the suggested voice will be
-        mapped to one of the available voices.
+        """Set voice by a symbolic name.
 
         Arguments:
-
           value -- one of the SSIP symbolic voice names: 'MALE1' .. 'MALE3',
             'FEMALE1' ... 'FEMALE3', 'CHILD_MALE', 'CHILD_FEMALE'
-
           scope -- see the documentaion of this class.
+
+        Symbolic voice names are mapped to real synthesizer voices in the
+        configuration of the output module.  Use the method
+        'set_synthesis_voice()' if you want to work with real voices.
             
         """
         assert isinstance(value, str) and \
@@ -698,14 +692,22 @@ class SSIPClient(object):
                                  "child_female")
         self._conn.send_command('SET', scope, 'VOICE', value)
 
+    def set_synthesis_voice(self, value, scope=Scope.SELF):
+        """Set voice by its real name.
+
+        Arguments:
+          value -- voice name as returned by 'list_synthesis_voices()'
+          scope -- see the documentaion of this class.
+            
+        """
+        self._conn.send_command('SET', scope, 'SYNTHESIS_VOICE', value)
+        
     def set_pause_context(self, value, scope=Scope.SELF):
         """Set the amount of context when resuming a paused message.
 
         Arguments:
-
           value -- a positive or negative value meaning how many chunks of data
             after or before the pause should be read when resume() is executed.
-
           scope -- see the documentaion of this class.
             
         """
