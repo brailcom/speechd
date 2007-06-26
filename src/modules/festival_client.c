@@ -759,13 +759,12 @@ VoiceDescription** festivalGetVoices(FT_Info *info)
 {
   char *reply;
   char** voices;
-  char** voice_dscr;
   char* lang; char* dialect;
   int i, j;
   int num_voices = 0;
   VoiceDescription** result;
 
-  FEST_SEND_CMD("(voice-list)");
+  FEST_SEND_CMD("(apply append (voice-list-language-codes))");
   festival_read_response(info, &reply);
   if (reply == NULL){
     DBG("ERROR: Invalid reply for voice-list");
@@ -776,51 +775,36 @@ VoiceDescription** festivalGetVoices(FT_Info *info)
   DBG("Voice list reply: |%s|", reply);
   voices = lisp_list_get_vect(reply);
   if (voices == NULL){
-    DBG("ERROR: Can't parse reply for voice-list into vector");
+    DBG("ERROR: Can't parse voice listing reply into vector");
     return NULL;
   }
   
   /* Compute number of voices */
   for (i=0; ; i++, num_voices++) if (voices[i] == NULL) break;
+  num_voices /= 3;  
   
   result = (VoiceDescription*) malloc((num_voices + 1)*sizeof(VoiceDescription*));
   
-  for (i=0, j=0; ;i++){
+  for (i=0, j=0; ;j++){
     if (voices[i] == NULL)
       break;
     else if (strlen(voices[i]) == 0)
       continue;
-    else // vect[i] contains name of a voice, get further information about the voice
+    else
       {
-	DBG("Resolving voice %s", voices[i]);
-	FEST_SEND_CMDA("(voice.description '%s)", voices[i]);\
-	festival_read_response(info, &reply);
-	DBG("Reply: %s", reply);
-	if (reply == NULL){
-	  DBG("ERROR: Invalid reply for voice-description");
-	  return NULL;
-	}
-	voice_dscr = lisp_list_get_vect(reply);
-	if (voice_dscr == NULL){
-	  DBG("ERROR: Can't parse reply for voice-description into vector");
-	  return NULL;
-	}
-	
 	result[j] = (VoiceDescription*) malloc(sizeof(VoiceDescription));
 	result[j]->name = voices[i];
-	
-	lang = vect_read_item(voice_dscr, "language");
+	lang = voices[i+1];
 	if ((lang != NULL) && (strcmp(lang, "nil")))
 	  result[j]->language = strdup(lang);
 	else
 	  result[j]->language = NULL;
-
-	dialect = vect_read_item(voice_dscr, "dialect");
+	dialect = voices[i+2];
 	if ((dialect != NULL) && (strcmp(dialect, "nil")))
 	  result[j]->dialect = strdup(dialect);
 	else
-	  result[j]->dialect=NULL; 
-	j++;
+	  result[j]->dialect=NULL;
+	i+=3;
       }
   }
   result[j] = NULL;
