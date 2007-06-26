@@ -1,5 +1,10 @@
 2007-06-26  Milan Zamazal  <pdm@brailcom.org>
 
+	* src/modules/festival_client.c (festivalGetVoices): Incorrect
+	type cast fixed.
+
+2007-06-26  Milan Zamazal  <pdm@brailcom.org>
+
 	* src/modules/festival_client.c (festivalGetVoices): Return
 	language and dialect codes instead of names.
 

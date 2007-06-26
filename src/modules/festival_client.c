@@ -783,7 +783,7 @@ VoiceDescription** festivalGetVoices(FT_Info *info)
   for (i=0; ; i++, num_voices++) if (voices[i] == NULL) break;
   num_voices /= 3;  
   
-  result = (VoiceDescription*) malloc((num_voices + 1)*sizeof(VoiceDescription*));
+  result = (VoiceDescription**) malloc((num_voices + 1)*sizeof(VoiceDescription*));
   
   for (i=0, j=0; ;j++){
     if (voices[i] == NULL)
