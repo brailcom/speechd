@@ -1,3 +1,7 @@
+2007-07-02  Hynek Hanke  <hanke@syrr.buchal.name>
+
+	* speechd/_test.py: Voice list test uncommented.
+
 2007-06-26  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd/_test.py (VoiceTest.test_lists): New test.

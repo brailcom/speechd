@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.c,v 1.44 2007-06-21 20:19:27 hanke Exp $
+ * $Id: module_utils.c,v 1.45 2007-07-02 10:12:31 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -228,21 +228,28 @@ do_list_voices(void)
   VoiceDescription **voices;
   int i;
   char *lang, *dialect;
+  GString *voice_list;
 
   voices = module_list_voices();
   if (voices == NULL){
     return strdup("304 CANT LIST VOICES");
   }
+  
+  voice_list = g_string_new("");
   for (i=0; ;i++){
     if (voices[i] == NULL) break;
     if (voices[i]->language==NULL) lang=strdup("none");
     else lang=strdup(voices[i]->language);
     if (voices[i]->dialect==NULL) dialect=strdup("none");
     else dialect=strdup(voices[i]->dialect);
-    printf("200-%s %s %s\n", voices[i]->name, lang, dialect);
+    g_string_append_printf(voice_list, "200-%s %s %s\n", voices[i]->name, lang, dialect);
     xfree(lang); xfree(dialect);
   }
-  return strdup("200 OK VOICE LIST SENT");
+  g_string_append(voice_list, "200 OK VOICE LIST SENT");
+
+  DBG("Voice prepared to  sens to speechd");
+
+  return voice_list->str;
 }
 
 #undef SET_PARAM_NUM

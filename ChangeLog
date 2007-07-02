@@ -1,3 +1,13 @@
+2007-07-02  root  <root@syrr.buchal.name>
+
+	* src/server/output.c (_output_get_voices): Renamed from output_list_voices.
+	(output_list_voices): New function. Only read from module attributes.
+
+2007-07-02  root  <root@homer.brailcom.xx>
+
+	* src/modules/festival.c (festival_voice_list): New variable.
+	(module_init): Get a list of festival voices.
+
 2007-06-26  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/modules/festival_client.c (festivalGetVoices): Incorrect
