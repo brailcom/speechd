@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: module.c,v 1.32 2007-06-21 20:26:25 hanke Exp $
+ * $Id: module.c,v 1.33 2007-07-02 10:14:56 hanke Exp $
  */
 
 #define _GNU_SOURCE
@@ -185,6 +185,8 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 		}
 
 	    }
+	    /* Get a list of supported voices */
+	    _output_get_voices(module);
 	    fclose(f);
 	    g_string_append_printf(reply, "---------------\n");
 
