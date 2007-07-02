@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: module.h,v 1.4 2006-07-11 16:12:27 hanke Exp $
+ * $Id: module.h,v 1.5 2007-07-02 10:15:24 hanke Exp $
  */
 
 #ifndef MODULE_H
@@ -39,6 +39,7 @@ typedef struct{
     int stderr_redirect;
     pid_t pid;
     int working;
+    VoiceDescription **voices;
 }OutputModule;
 
 OutputModule* load_output_module(char* mod_name, char* mod_prog,
