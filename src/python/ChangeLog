@@ -1,3 +1,11 @@
+2007-07-02  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd/client.py (SSIPCommunicationError): New class.
+	(_SSIP_Connection._recv_response): Quit if the communication
+	thread is not alive.
+	(_SSIP_Connection.send_command, _SSIP_Connection.send_data): Raise
+	`SSIPCommunicationError' on socket error.
+
 2007-07-02  Hynek Hanke  <hanke@syrr.buchal.name>
 
 	* speechd/_test.py: Voice list test uncommented.

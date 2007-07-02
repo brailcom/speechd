@@ -57,8 +57,13 @@ class CallbackType(object):
     """The resume event is reported right after speaking of a message
     was resumed after previous pause."""
 
-    
 class SSIPError(Exception):
+    """Common base class for exceptions during SSIP communication."""
+    
+class SSIPCommunicationError(SSIPError):
+    """Exception raised when trying to operate on a closed connection."""
+    
+class SSIPResponseError(Exception):
     def __init__(self, code, msg, data):
         Exception.__init__(self, "%s: %s" % (code, msg))
         self._code = code
@@ -73,8 +78,8 @@ class SSIPError(Exception):
         """Return server response error message as string."""
         return self._msg
 
-    
-class SSIPCommandError(SSIPError):
+
+class SSIPCommandError(SSIPResponseError):
     """Exception raised on error response after sending command."""
 
     def command(self):
@@ -82,14 +87,14 @@ class SSIPCommandError(SSIPError):
         return self._data
 
     
-class SSIPDataError(SSIPError):
+class SSIPDataError(SSIPResponseError):
     """Exception raised on error response after sending data."""
 
     def data(self):
         """Return the data which resulted in this error."""
         return self._data
 
-
+    
 class _SSIP_Connection:
     """Implemantation of low level SSIP communication."""
     
@@ -122,14 +127,14 @@ class _SSIP_Connection:
                                  name="SSIP client communication thread")
         self._communication_thread.start()
     
-
     def close(self):
         """Close the server connection, destroy the communication thread."""
-        # Read-write shutdown here is necessary,
-        # otherwise the socket.recv() function
-        # in the other thread won't return at last
-        # on some platforms
-        self._socket.shutdown(socket.SHUT_RDWR)
+        # Read-write shutdown here is necessary, otherwise the socket.recv()
+        # function in the other thread won't return at last on some platforms.
+        try:
+            self._socket.shutdown(socket.SHUT_RDWR)
+        except socket.error:
+            pass
         self._socket.close()
         # Wait for the other thread to terminate
         self._communication_thread.join()
@@ -209,11 +214,14 @@ class _SSIP_Connection:
     def _recv_response(self):
         """Read server response from the communication thread
         and return the triplet (code, msg, data)."""
-        self._ssip_reply_semaphore.acquire()
-        # The list is sorted, read the first item
-        response = self._com_buffer[0]
-        del self._com_buffer[0]
-        return response
+        if self._communication_thread.isAlive():
+            # TODO: This check is dumb but seems to work.  The main thread
+            # hangs without it, when the Speech Dispatcher connection is lost.
+            self._ssip_reply_semaphore.acquire()
+            # The list is sorted, read the first item
+            response = self._com_buffer[0]
+            del self._com_buffer[0]
+            return response
 
     def send_command(self, command, *args):
         """Send SSIP command with given arguments and read server response.
@@ -221,22 +229,26 @@ class _SSIP_Connection:
         Arguments can be of any data type -- they are all stringified before
         being sent to the server.
 
-        Return a triplet (code, msg, data), where 'code' is a numeric SSIP
+        Returns a triplet (code, msg, data), where 'code' is a numeric SSIP
         response code as an integer, 'msg' is an SSIP rsponse message as string
         and 'data' is a tuple of strings (all lines of response data) when a
         response contains some data.
         
-        An 'SSIPCommandError' exception is raised in case of non 2xx return
-        code.  For more information about server responses and codes, see SSIP
-        documentation.
-       
+        'SSIPCommandError' is raised in case of non 2xx return code.  See SSIP
+        documentation for more information about server responses and codes.
+
+        'IOError' is raised when the socket was closed by the remote side.
+        
         """
         if __debug__:
             if command in ('SET', 'CANCEL', 'STOP',):
                 assert args[0] in (Scope.SELF, Scope.ALL) \
                        or isinstance(args[0], int)
         cmd = ' '.join((command,) + tuple(map(str, args)))
-        self._socket.send(cmd + self._NEWLINE)
+        try:
+            self._socket.send(cmd + self._NEWLINE)
+        except socket.error:
+            raise SSIPCommunicationError("Speech Dispatcher connection lost.")
         code, msg, data = self._recv_response()
         if code/100 != 2:
             raise SSIPCommandError(code, msg, cmd)
@@ -247,9 +259,10 @@ class _SSIP_Connection:
 
         Returned value is the same as for 'send_command()' method.
 
-        An 'SSIPCommandError' exception is raised in case of non 2xx return
-        code.  For more information about server responses and codes, see SSIP
-        documentation.
+        'SSIPDataError' is raised in case of non 2xx return code. See SSIP
+        documentation for more information about server responses and codes.
+        
+        'IOError' is raised when the socket was closed by the remote side.
         
         """
         # Escape the end-of-data marker even if present at the beginning
@@ -259,7 +272,10 @@ class _SSIP_Connection:
         elif data == self._END_OF_DATA_MARKER:
             data = self._END_OF_DATA_MARKER_ESCAPED
         data = data.replace(self._END_OF_DATA, self._END_OF_DATA_ESCAPED)
-        self._socket.send(data + self._END_OF_DATA)
+        try:
+            self._socket.send(data + self._END_OF_DATA)
+        except socket.error:
+            raise SSIPCommunicationError("Speech Dispatcher connection lost.")
         code, msg, response_data = self._recv_response()
         if code/100 != 2:
             raise SSIPDataError(code, msg, data)
