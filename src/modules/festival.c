@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: festival.c,v 1.74 2007-06-24 19:46:27 hanke Exp $
+ * $Id: festival.c,v 1.75 2007-07-02 10:12:23 hanke Exp $
  */
 
 #include "fdset.h"
@@ -55,6 +55,8 @@ FT_Info *festival_info = NULL;
 AudioID *festival_audio_id = NULL;
 AudioOutputType festival_audio_output_method;
 char *festival_pars[10];
+
+VoiceDescription** festival_voice_list = NULL;
 
 enum{
     FCT_SOCKET = 0,
@@ -224,6 +226,9 @@ module_init(char **status_info)
 	}
     }
 
+    /* Get festival voice list */
+    festival_voice_list = festivalGetVoices(festival_info);
+
     DBG("Openning audio output system");
     if (!strcmp(FestivalAudioOutputMethod, "oss")){
 	DBG("Using OSS audio output method");
@@ -290,7 +295,7 @@ module_init(char **status_info)
 VoiceDescription**
 module_list_voices(void)
 {
-  return festivalGetVoices(festival_info);
+  return festival_voice_list;
 }
 
 int
@@ -347,7 +352,6 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
     /* Setting voice parameters */
     DBG("Updating parameters");
     UPDATE_STRING_PARAMETER(language, festival_set_language);
-    UPDATE_STRING_PARAMETER(synthesis_voice, festival_set_language);
     UPDATE_PARAMETER(voice, festival_set_voice);
     UPDATE_PARAMETER(synthesis_voice, festival_set_synthesis_voice);
     UPDATE_PARAMETER(rate, festival_set_rate);
@@ -714,6 +718,8 @@ void
 festival_set_language(char* language)
 {   
     FestivalSetLanguage(festival_info, language, NULL);
+    xfree(festival_voice_list);
+    festival_voice_list = festivalGetVoices(festival_info);
 }
 
 void
