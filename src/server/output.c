@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: output.c,v 1.29 2007-06-21 20:29:45 hanke Exp $
+ * $Id: output.c,v 1.30 2007-07-02 10:14:32 hanke Exp $
  */
 
 #include "output.h"
@@ -184,11 +184,10 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
     return 0;
 }
 
-VoiceDescription**
-output_list_voices(char* module_name)
+int
+_output_get_voices(OutputModule *module)
 {
   VoiceDescription** voice_dscr;
-  OutputModule *module;
   char *reply;
   gchar **lines;
   gchar **atoms;
@@ -197,10 +196,9 @@ output_list_voices(char* module_name)
 
   output_lock();
 
-  module=get_output_module_by_name(module_name);
   if (module == NULL){
-    MSG(1, "ERROR: Can't list voices for module %s", module_name);
-    return NULL;
+    MSG(1, "ERROR: Can't list voices for broken output module");
+    return -1;
   }
   output_send_data("LIST VOICES\n", module, 0);
   reply = output_read_reply(module);
@@ -215,7 +213,7 @@ output_list_voices(char* module_name)
     if (strlen(lines[i])<=4){
       MSG(1, "ERROR: Bad communication from driver in synth_voices");
       output_unlock();
-      return NULL;
+      return -1;
     }
     if (lines[i][3] == ' ') break;
     else if (lines[i][3] == '-'){
@@ -223,7 +221,7 @@ output_list_voices(char* module_name)
       // Name, language, dialect
       if ((atoms[0] == NULL) || (atoms[1] == NULL) || (atoms[2] == NULL)){
 	output_unlock();
-	return NULL;
+	return -1;
       }
       //Fill in VoiceDescription
       voice_dscr[i] = (VoiceDescription*) malloc(sizeof(VoiceDescription));
@@ -235,8 +233,22 @@ output_list_voices(char* module_name)
   }
   voice_dscr[i] = NULL;
 
+  module->voices=voice_dscr;
+
   output_unlock();
-  return voice_dscr;
+  return 0;
+}
+
+VoiceDescription**
+output_list_voices(char* module_name)
+{
+  OutputModule *module;
+  module=get_output_module_by_name(module_name);
+  if (module == NULL){
+    MSG(1, "ERROR: Can't list voices for module %s", module_name);
+    return NULL;
+  }
+  return module->voices;
 }
 
 #define SEND_CMD_N(cmd) \
@@ -473,6 +485,7 @@ output_is_speaking(char **index_mark)
     if (err < 0){
 	*index_mark = NULL;
     }
+
     return err;
 }
 
