@@ -117,15 +117,15 @@ class VoiceTest(_SSIPClientTest):
         c.sound_icon("empty")
         
     def test_lists(self):
-        c = self._client
-        for module in  c.list_output_modules():
-            c.set_output_module(module)
-            #print "**", module
-            c.speak(module +"using default voice")
-            #for name, lang, dialect in c.list_synthesis_voices():
-            #    print " -", module, name, lang, dialect
-            #    c.set_synthesis_voice(name)
-            #    c.speak(module +" using voice "+ name)
+         c = self._client
+         for module in  c.list_output_modules():
+             c.set_output_module(module)
+             print "**", module
+             c.speak(module +"using default voice")
+             for name, lang, dialect in c.list_synthesis_voices():
+                 print " -", module, name, lang, dialect
+                 c.set_synthesis_voice(name)
+                 c.speak(module +" using voice "+ name)
         
 
 
