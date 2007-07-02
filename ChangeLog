@@ -1,9 +1,17 @@
-2007-07-02  root  <root@syrr.buchal.name>
+2007-07-02  Hynek Hanke  <hanke@syrr.buchal.name>
+
+	* src/server/module.h (OutputModule): voices -- new variable.
+
+	* src/server/module.c (load_output_module): Generate list of voices.
+
+	* src/server/output.c (_output_get_voices): 
+
+	* src/modules/festival.c (module_speak): Do not update synthesis_voice twice.
+	List of voices is generated on the beginning and each language changed and saved
+	to memmory.
 
 	* src/server/output.c (_output_get_voices): Renamed from output_list_voices.
 	(output_list_voices): New function. Only read from module attributes.
-
-2007-07-02  root  <root@homer.brailcom.xx>
 
 	* src/modules/festival.c (festival_voice_list): New variable.
 	(module_init): Get a list of festival voices.
