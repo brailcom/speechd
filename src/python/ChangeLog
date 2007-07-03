@@ -1,3 +1,8 @@
+2007-07-03  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd/client.py (_SSIP_Connection._recv_response): Raise
+	exception if the communication thread is not alive.
+
 2007-07-02  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd/client.py (SSIPCommunicationError): New class.

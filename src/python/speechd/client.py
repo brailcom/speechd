@@ -214,14 +214,15 @@ class _SSIP_Connection:
     def _recv_response(self):
         """Read server response from the communication thread
         and return the triplet (code, msg, data)."""
-        if self._communication_thread.isAlive():
-            # TODO: This check is dumb but seems to work.  The main thread
-            # hangs without it, when the Speech Dispatcher connection is lost.
-            self._ssip_reply_semaphore.acquire()
-            # The list is sorted, read the first item
-            response = self._com_buffer[0]
-            del self._com_buffer[0]
-            return response
+        # TODO: This check is dumb but seems to work.  The main thread
+        # hangs without it, when the Speech Dispatcher connection is lost.
+        if not self._communication_thread.isAlive():
+            raise SSIPCommunicationError
+        self._ssip_reply_semaphore.acquire()
+        # The list is sorted, read the first item
+        response = self._com_buffer[0]
+        del self._com_buffer[0]
+        return response
 
     def send_command(self, command, *args):
         """Send SSIP command with given arguments and read server response.
