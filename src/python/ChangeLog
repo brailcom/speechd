@@ -1,3 +1,8 @@
+2007-07-04  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd/client.py (SSIPClient.resume, SSIPClient.pause): Send
+	the right SSIP commands.
+
 2007-07-03  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd/client.py (_SSIP_Connection._recv_response): Raise

@@ -554,7 +554,7 @@ class SSIPClient(object):
           scope -- see the documentaion of this class.
         
         """
-        self._conn.send_command('STOP', scope)
+        self._conn.send_command('PAUSE', scope)
 
     def resume(self, scope=Scope.SELF):
         """Resume speaking of the currently paused messages.
@@ -567,7 +567,7 @@ class SSIPClient(object):
           scope -- see the documentaion of this class.
         
         """
-        self._conn.send_command('STOP', scope)
+        self._conn.send_command('RESUME', scope)
 
     def list_output_modules(self):
         """Return names of all active output modules as a tuple of strings."""
