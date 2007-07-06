@@ -133,6 +133,26 @@ AM_CONDITIONAL(ibmtts_support, test $ibmtts_ok = "true")
 
 AC_SUBST(ibmtts_include)
 
+dnl check for espeak support
+AC_CHECK_LIB(espeak,
+espeak_Initialize,
+		espeak_ok="true"; echo "Compiling with espeak support.",
+		espeak_ok="false"; echo "Espeak not found.",
+         	-lpthread -lm)
+
+AC_ARG_WITH(espeak, AS_HELP_STRING(--with-espeak, Compile with espeak support),
+		 if test $withval = "no"; then 
+		    echo "Forced compilation without espeak support."; 
+		    espeak_ok="false";
+		 else 
+		    if test $espeak_ok = "false"; then
+		       echo "Espeak support is not available. Sorry."; exit 1;
+		    fi
+                 fi
+ 		 echo "")
+
+AM_CONDITIONAL(espeak_support, test $espeak_ok = "true")
+
 AC_CHECK_LIB(audio,
         AuOpenServer,
 	nas_aud="true";echo "Compiling with NAS support.";,
@@ -174,6 +194,8 @@ glib_include=`pkg-config --cflags glib-2.0`
 AC_SUBST(glib_include)
 glib_libs=`pkg-config --libs glib-2.0`
 AC_SUBST(glib_libs)
+gthread_libs=`pkg-config --libs gthread-2.0`
+AC_SUBST(gthread_libs)
 
 spdconfdir="$sysconfdir/speech-dispatcher/"
 AC_SUBST(spdconfdir)

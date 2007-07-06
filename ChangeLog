@@ -1,3 +1,15 @@
+2007-07-06  Lukas Loehrer  <listaddr1@gmx.net>
+
+	* src/modules/espeak.c: Added source file for espeak output module.
+
+	* src/modules/Makefile.am: Added sd_espeak to list of output modules.
+
+	* config/modules/espeak.conf: Created configuration file for espeak
+	output module.
+
+	* configure.in: Added configuration option for espeak output
+	module (--with-espeak).
+	
 2007-07-02  Hynek Hanke  <hanke@syrr.buchal.name>
 
 	* src/server/module.h (OutputModule): voices -- new variable.

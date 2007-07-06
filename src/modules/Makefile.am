@@ -23,6 +23,10 @@ modulebin_PROGRAMS = sd_generic sd_festival sd_cicero
 endif
 endif
 
+if espeak_support
+modulebin_PROGRAMS += sd_espeak
+endif
+
 sd_flite_SOURCES = flite.c module_utils.c module_utils.h
 sd_flite_LDFLAGS = -rpath '$(spdlibdir)'
 sd_flite_LDADD = -lsdaudio -lm $(flite_basic) $(flite_kal) -lpthread -ldotconf @glib_libs@
@@ -41,3 +45,6 @@ sd_ibmtts_LDADD = -lsdaudio -lm -lpthread -ldotconf -libmeci @SNDFILE_LIBS@ @gli
 sd_cicero_SOURCES = cicero.c module_utils.c module_utils.h
 sd_cicero_LDADD = -lm -lpthread -ldotconf @glib_libs@
 
+sd_espeak_SOURCES = espeak.c module_utils.c module_utils.h
+sd_espeak_LDFLAGS = -rpath '$(spdlibdir)'
+sd_espeak_LDADD = -lsdaudio -lm -lespeak -lpthread -ldotconf @SNDFILE_LIBS@ @gthread_libs@
