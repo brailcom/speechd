@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: generic.c,v 1.26 2007-06-21 20:15:46 hanke Exp $
+ * $Id: generic.c,v 1.27 2007-07-09 04:54:34 hanke Exp $
  */
 
 #include <glib.h>
@@ -30,7 +30,7 @@
 #include "module_utils_addvoice.c"
 
 #define MODULE_NAME     "generic"
-#define MODULE_VERSION  "0.1"
+#define MODULE_VERSION  "0.2"
 
 DECLARE_DEBUG();
 
@@ -60,12 +60,16 @@ void generic_set_pitch(signed int pitch);
 void generic_set_voice(EVoiceType voice);
 void generic_set_language(char* language);
 void generic_set_volume(signed int volume);
+void generic_set_punct(EPunctMode punct);
 
 /* Fill the module_info structure with pointers to this modules functions */
 
 MOD_OPTION_1_STR(GenericExecuteSynth);
 MOD_OPTION_1_INT(GenericMaxChunkLength);
 MOD_OPTION_1_STR(GenericDelimiters);
+MOD_OPTION_1_STR(GenericPunctNone);
+MOD_OPTION_1_STR(GenericPunctSome);
+MOD_OPTION_1_STR(GenericPunctAll);
 MOD_OPTION_1_STR(GenericStripPunctChars);
 MOD_OPTION_1_STR(GenericRecodeFallback);
 
@@ -85,6 +89,7 @@ static char generic_msg_rate_str[16];
 static char generic_msg_volume_str[16];
 static char* generic_msg_voice_str = NULL;
 static TGenericLanguage* generic_msg_language = NULL;
+static char* generic_msg_punct_str;
 
 /* Public functions */
 int
@@ -116,6 +121,11 @@ module_load(void)
 
 
     MOD_OPTION_HT_REG(GenericLanguage);
+
+    MOD_OPTION_1_STR_REG(GenericPunctNone, "--punct-none");
+    MOD_OPTION_1_STR_REG(GenericPunctSome, "--punct-some");
+    MOD_OPTION_1_STR_REG(GenericPunctAll, "--punct-all");
+
 
     module_register_settings_voices();
 
@@ -182,6 +192,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 
     UPDATE_STRING_PARAMETER(language, generic_set_language);
     UPDATE_PARAMETER(voice, generic_set_voice);
+    UPDATE_PARAMETER(punctuation_mode, generic_set_punct);
     UPDATE_PARAMETER(pitch, generic_set_pitch);
     UPDATE_PARAMETER(rate, generic_set_rate);
     UPDATE_PARAMETER(volume, generic_set_volume);
@@ -353,6 +364,7 @@ _generic_speak(void* nothing)
 		e_string = string_replace(e_string, "$RATE", generic_msg_rate_str);
 		e_string = string_replace(e_string, "$VOLUME", generic_msg_volume_str);
 		e_string = string_replace(e_string, "$LANGUAGE", generic_msg_language->name);
+ 		e_string = string_replace(e_string, "$PUNCT", generic_msg_punct_str);
 		if (generic_msg_voice_str != NULL)
 		    e_string = string_replace(e_string, "$VOICE", generic_msg_voice_str);
 		else
@@ -557,6 +569,26 @@ generic_set_voice(EVoiceType voice)
 	DBG("Invalid voice type specified or no voice available!");
     }
 	
+}
+
+void
+generic_set_punct(EPunctMode punct)
+{
+    if (punct == PUNCT_NONE){
+        generic_msg_punct_str = strdup((char*) GenericPunctNone);
+	return;
+    }
+    else if (punct == PUNCT_SOME){
+	generic_msg_punct_str = strdup((char*) GenericPunctSome);
+	return;
+    }
+    else if (punct == PUNCT_ALL){
+	generic_msg_punct_str = strdup((char*) GenericPunctAll);
+	return;
+    }
+    else{
+	DBG("ERROR: Unknown punctuation setting, ignored");
+    }
 }
 
 #include "module_main.c"
