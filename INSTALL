@@ -31,10 +31,11 @@ These Free Software packages are known to work with Speech Dispatcher:
 
  User applications:
  - Orca (http://www.gnome.org/projects/orca/)
- - speechd-up (http://www.freebsoft.org/) -- interface to the Speakup screen
-     reader
- - speechd-el (http://www.freebsoft.org/) -- an Emacs interface for the blind
- - gnome-speech/Gnopernicus interface (http://www.gnome.org/)
+ - speechd-up (http://www.freebsoft.org/) -- Speakup console screen
+   reader interface
+ - speechd-el (http://www.freebsoft.org/) -- Emacs speech interface
+ - LSR (http://live.gnome.org/LSR)
+ - gnome-speech/Gnopernicus (http://www.gnome.org/)
  - ...
 
 Building Speech Dispatcher:
