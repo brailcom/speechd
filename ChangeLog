@@ -1,5 +1,9 @@
 2007-07-08  Hynek Hanke  <hanke@brailcom.org>
 
+	* AUTHORS: Added Steve Holmes and Lukas Loehrer.
+
+	* doc/ssip.texi: LIST SYNTHESIS_VOICES and SET SYNTHESIS VOICE added.
+
 	* INSTALL: Sections reorganized. Added notes about Espeak.
 
 	* ANNOUNCE: Updated for 0.6.3 relese.
