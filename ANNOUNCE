@@ -1,9 +1,9 @@
 
-Speech Dispatcher 0.6.2
+Speech Dispatcher 0.6.3
 =======================
 
 The Brailcom organization is happy to announce the availability of Speech
-Dispatcher 0.6.2 developed as a part of the Free(b)Soft project. This
+Dispatcher 0.6.3 developed as a part of the Free(b)Soft project. This
 is a minor release, it contains mostly bugfixes and minor improvements.
 Please read `What is new' and `NOTES' bellow.
 
@@ -42,50 +42,35 @@ Please read `What is new' and `NOTES' bellow.
     is developed as a sperate project speechd-el. Possibly an interface
     to any other language can be developed.
 
-* What is new in 0.6.2?
+* What is new in 0.6.3?
 
- - Bug fixes.
+ - Native output module for eSpeak (thanks to Lukas Loehrer)
+ - Support for punctuation settings in the Generic output module
+	(thanks to Steve Holmes)
+ - Default audio output for all modules switched to ALSA
+ - Support for listing output modules and voices supported by
+   a synthesizer
+ - Bug fixes (SMP related bugs, bugs in libspeechd and others)
 
- - Generic output module for eSpeak includes definitions for all
-   known languages.
+ NOTES (0.6.3)
 
- - Python interface now supports callbacks.
+   - Orca supports Speech Dispatcher without needs for any patch
+     in its latest releases.
 
- NOTES (0.6, 0.6.1 and 0.6.2)
-
-   - A Gnome Speech output module was developed which allows you to use
-     Gnopernicus with Speech Dispatcher and is available in Gnome Speech
-     distribution.
-
-   - An experimental module for Orca provides support of
-     Speech Dispatcher:
-     http://www.freebsoft.org/~cerha/orca/speech-dispatcher-backend.html
-     (this version of Speech Dispatcher 0.6.2 is required)
-
-   - ALSA audio output is not turned on by default. If you like,
-     go to etc/speech-dispatcher/modules and turn it on for your
-     output module.
-
-   - If you are using speechd-up, you likely need to upgrade to
-     speechd-up-0.3 due to a bug in speechd-up. Speechd-up 0.3 also brings
-     new capabilities, notably support for the ``Read all'' function in
-     Speakup.
-
-   - Although not necessary, we highly recommend you to install the
-     festival-freebsoft-utils 0.6 available on
-	http://www.freebsoft.org/pub/projects/festival-freebsoft-utils/
+   - All output modules (except generic) are turned to use ALSA by default.
+     Generic output modules use ALSA when possible.
 
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.6.2.tar.gz
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.6.3.tar.gz
 
   We recommend you to fetch the sound icons for use with Speech Dispatcher.
   They are available at
   http://www.freebsoft.org/pub/projects/sound-icons/sound-icons-0.1.tar.gz
 
   Corresponding Debian, Gentoo and Ubuntu packages will soon be available at
-  your Debian distribution mirror.
+  your distribution mirrors.
 
   The home page of the project is http://www.freebsoft.org/speechd
 

@@ -1,5 +1,12 @@
+
 Version 0.6.3
- * Bug fixes
+ * Native output module for eSpeak (thanks to Lukas Loehrer)
+ * Support for punctuation settings in the Generic output module
+	(thanks to Steve Holmes)
+ * Default audio output for all modules switched to ALSA
+ * Support for listing output modules and voices supported by
+   a synthesizer
+ * Bug fixes (SMP related bugs, bugs in libspeechd and others)
 
 Version 0.6.2
  * Bug fixes.
