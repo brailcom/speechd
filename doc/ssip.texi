@@ -936,6 +936,21 @@ The default for the Speech Dispatcher implementation of SSIP
 is determined by the @code{DefaultVoiceType} setting in the
 @code{speechd.conf} file.  The factory default is @code{MALE1}.
 
+@item SET @{ all | self | @var{id} @} SYNTHESIS_VOICE @var{name}
+Set the voice identified by @var{name}.  @var{name} is a voice name
+recognized by the current synthesizer. It must be one of the
+names returned by the command @code{LIST SYNTHESIS_VOICES}
+run for the appropriate synthesizer. (@pxref{Information
+Retrieval Commands}).
+
+There is a standard set of voice identifiers defined in @ref{Standard
+Voices}.
+
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultVoiceType} setting in the
+@code{speechd.conf} file.  The factory default is @code{MALE1}.
+
+
 @item SET @{ all | self | @var{id} @} RATE @var{n}
 Set the rate of speech.  @var{n} is an integer value within the range
 from -100 to 100, lower values meaning slower
@@ -988,7 +1003,10 @@ argument of the @code{LIST} command.
 
 @table @code
 @item LIST VOICES
-Lists the available voice names putting each voice name on a single line.
+Lists the available symbolic voice names putting each voice name on a single
+line. These are symbolic names that are mapped to the real voices used in the
+synthesizer either automatically or via synthesizer or output module
+configuration.
 
 Example:
 @example
@@ -1004,7 +1022,32 @@ LIST VOICES
 249 OK VOICE LIST SENT
 @end example
 
-The standard voices are always listed.  @xref{Standard Voices}.
+@item LIST SYNTHESIS_VOICES
+
+Lists the available voices for the current synthesizer in use. These
+names differ from those obtained by @code{LIST VOICES} in that they
+are names of the real voices used inside the synthesizer.
+
+This feature should only be used to allow the user to choose the voice.
+All automatic switching of voices (unless user-configurable) should be
+done using the symbolic voice names which can be configured in the synthesizer.
+
+Each voice name is listed on a separate line together with its language
+code and dialect identification string separated by spaces. The dialect
+identification strings do not have well-defined meaning yet. If no dialect
+is specified by the synthesizer, the value @code{none} is used.
+
+Example:
+@example
+LIST SYNTHESIS_VOICES
+249-afrikaans af none
+249-welsh-test cy none
+249-german de none
+249-greek_test el none
+249-en-rhotic en r
+249-lancashire en uk-north
+249 OK VOICE LIST SENT
+@end example
 
 @end table
 
