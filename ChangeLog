@@ -1,3 +1,11 @@
+2007-07-09  Lukas Loehrer  <listaddr1@gmx.net>
+
+	* src/modules/espeak.c
+	(synth_callback): Use gnit64 to hold
+	temporary value to prevent integer overflow in long messages.
+	Set default value of EspeakNASServer to "localhost" (fixes warning.
+	(module_speak): Removed spurious <speak> tags.
+
 2007-07-08  Hynek Hanke  <hanke@brailcom.org>
 
 	* AUTHORS: Added Steve Holmes and Lukas Loehrer.

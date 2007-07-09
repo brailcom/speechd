@@ -22,7 +22,7 @@
  * @author Lukas Loehrer
  * Based on ibmtts.c.
  *
- * $Id: espeak.c,v 1.1 2007-07-06 08:29:14 lloehrer Exp $
+ * $Id: espeak.c,v 1.2 2007-07-09 07:37:58 lloehrer Exp $
  */
 
 /* < Includes*/
@@ -178,7 +178,7 @@ static void espeak_set_synthesis_voice(char *);
 /* Internal function prototypes for playback thread. */
 static gboolean  espeak_add_sound_icon_to_playback_queue(const char* filename);
 static gboolean espeak_add_audio_to_playback_queue(short *audio_chunk,
-												   long num_samples);
+												   int num_samples);
 static gboolean espeak_add_mark_to_playback_queue(const char *markId);
 static gboolean espeak_add_flag_to_playback_queue(EPlaybackQueueEntryType type);
 static void espeak_delete_playback_queue_entry(TPlaybackQueueEntry *playback_queue_entry);
@@ -225,7 +225,7 @@ module_load(void)
 	/* Options */
 	MOD_OPTION_1_STR_REG(EspeakAudioOutputMethod, "alsa");
 	MOD_OPTION_1_STR_REG(EspeakOSSDevice, "/dev/dsp");
-	MOD_OPTION_1_STR_REG(EspeakNASServer, NULL);
+	MOD_OPTION_1_STR_REG(EspeakNASServer, "tcp/localhost:5450");
 	MOD_OPTION_1_STR_REG(EspeakALSADevice, "default");
 
 	MOD_OPTION_1_INT_REG(EspeakAudioChunkSize, 2000);
@@ -417,7 +417,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 		break;
 	case MSGTYPE_SOUND_ICON:
 		{
-			char *msg = g_strdup_printf("<speak><audio src=\"%s%s\">%s</audio></speak>",
+			char *msg = g_strdup_printf("<audio src=\"%s%s\">%s</audio>",
 										EspeakSoundIconFolder, data, data);
 			result = espeak_Synth(msg, strlen(msg) + 1, 0, POS_CHARACTER, 0,
 								  flags, NULL, NULL);
@@ -815,7 +815,9 @@ espeak_set_synthesis_voice(char *synthesis_voice)
 
 /* Callbacks */
 
-static gboolean espeak_send_audio_upto(short *wav, int *sent, int upto) {
+static gboolean
+espeak_send_audio_upto(short *wav, int *sent, int upto)
+{
 	assert(*sent >= 0);
 	assert(upto >= 0);
 	int numsamples = upto - (*sent);
@@ -859,9 +861,10 @@ synth_callback(short *wav, int numsamples, espeak_EVENT *events)
 		case espeakEVENT_PLAY:
 			{
 				/* Convert ms position to samples */
-				int pos_msg = events->audio_position * espeak_sample_rate / 1000;
+			  gint64 pos_msg = events->audio_position;
+			  pos_msg = pos_msg * espeak_sample_rate / 1000;
 				/* Convert position in message to position in current chunk */
-				int upto = CLAMP(pos_msg- numsamples_sent_msg,
+			  int upto = (int) CLAMP(pos_msg- numsamples_sent_msg,
 								 0, numsamples);  /* This is just for safety */
 				espeak_send_audio_upto(wav, &numsamples_sent, upto);
 				break;
@@ -945,7 +948,7 @@ playback_queue_push(TPlaybackQueueEntry *entry)
 /* Adds a chunk of pcm audio to the audio playback queue.
    Waits until there is enough space in the queue. */
 static gboolean
-espeak_add_audio_to_playback_queue(short *audio_chunk, long num_samples)
+espeak_add_audio_to_playback_queue(short *audio_chunk, int num_samples)
 {
 	pthread_mutex_lock(&playback_queue_mutex);
 	while (!espeak_stop_requested && playback_queue_size > EspeakAudioQueueMaxSize) {
@@ -956,10 +959,10 @@ espeak_add_audio_to_playback_queue(short *audio_chunk, long num_samples)
 		return FALSE;
 	}
   
-    TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) xmalloc (sizeof (TPlaybackQueueEntry));
+    TPlaybackQueueEntry *playback_queue_entry = g_new(TPlaybackQueueEntry, 1);
     
     playback_queue_entry->type = ESPEAK_QET_AUDIO;
-    playback_queue_entry->data.audio.num_samples = (int) num_samples;
+    playback_queue_entry->data.audio.num_samples = num_samples;
     gint nbytes = sizeof (short) * num_samples;
     playback_queue_entry->data.audio.audio_chunk = (short *) g_memdup((gconstpointer) audio_chunk, nbytes);
 
