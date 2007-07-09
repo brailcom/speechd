@@ -23,15 +23,18 @@ These Free Software packages are known to work with Speech Dispatcher:
      speech synthesis engine with support for various languages (English,
      Spanish, Italian, Finnish, Czech, Russian, Hindi, some African languages
      and others)
- - Flite, Espeak, Cicero, IBM TTS, Dectalk Software
+ - Espeak (http://espeak.sourceforge.net/) -- a light and fast multi-lingual
+     synthesizer with very good support for various Speech Dispatcher
+     features.
+ - Flite, Cicero, IBM TTS, Dectalk Software
 
 
  User applications:
- - speechd-el (http://www.freebsoft.org/) -- an Emacs interface for the blind
+ - Orca (http://www.gnome.org/projects/orca/)
  - speechd-up (http://www.freebsoft.org/) -- interface to the Speakup screen
      reader
+ - speechd-el (http://www.freebsoft.org/) -- an Emacs interface for the blind
  - gnome-speech/Gnopernicus interface (http://www.gnome.org/)
- - Orca (http://www.gnome.org/projects/orca/)
  - ...
 
 Building Speech Dispatcher:
@@ -49,8 +52,37 @@ To compile the whole project, including Speech Dispatcher server, all modules
 and clients, simply extract the distribution archive and change to 
 speech-dispatcher-<version> directory and run "make all" command as follows:
 
- $ tar -xzvf speech-dispatcher-0.6.2.tar.gz
- $ cd speech-dispatcher-0.6.2
+ $ tar -xzvf speech-dispatcher-0.6.4.tar.gz
+ $ cd speech-dispatcher-0.6.4
+
+
+Notes about ALSA, OSS and NAS support
+=====================================
+
+Speech Dispatcher's default audio output system is the ALSA (Advanced Linux
+Sound Architecture system). It's also possible to build it with Network Audio
+System and/or OSS support and then switch between these two audio systems in
+the output module configuration files (e.g. festival.conf). If you have NAS
+and/or OSS and all the necessary developement libraries installed (audio and
+Xau for NAS), it will be detected automatically when running ./configure
+and Speech Dispatcher will be compiled with NAS and/or OSS
+support.  Please make sure the libraries are installed correctly. Please
+examine ./configure output for possible problems.
+
+We would like to warn you, that the version of NAS 1.7 available to us
+has problems in heavy use (fast typing of keys, many messages comming at once).
+Until this is fixed in NAS, we can't recommend you to use this plugin unless
+you know what you are doing.
+
+We strongly recommend to use ALSA if possible on your system to avoid
+problems with mixing sound streams from multiple applications.
+
+Notes about Espeak support
+==========================
+
+You need to install Espeak libraries to be able to use the native
+output module. Some distributions like debian provide
+those libraries in a different package (libespeak1 and libespeak-dev).
 
 Notes about Flite support
 =========================
@@ -66,26 +98,6 @@ to be able to use the flite plug-in. If you aren't sure if you have done this,
 check for example for libflite_cmu_us_kal.so in your library directory.
 (It's also possible to use Speech Dispatcher with Flite static libraries,
 but it is generally not a good way unless you know what you are doing.)
-
-Notes about NAS and ALSA support
-================================
-
-Speech Dispatcher's default audio output system is the Open Sound System,
-e.g. /dev/dsp. But it's also possible to build it with Network Audio System
-and/or Alsa support and then switch between these two audio systems in the
-output module configuration files (e.g. festival.conf). If you have NAS and/or
-Alsa and all the necessary developement libraries installed (audio and Xau for
-NAS, libasound for ALSA)), it will be detected automatically when running
-./configure and Speech Dispatcher will be compiled with NAS and/or ALSA
-support.  Please make sure the libraries are installed correctly. Please
-examine ./configure output for possible problems.
-
-We would like to warn you, that the latest version of NAS 1.7 available to us
-has problems in heavy use (fast typing of keys, many messages comming at once).
-Until this is fixed in NAS, we can't recommend you to use this plugin unless
-you know what you are doing.
-
-We recommend to use ALSA if possible on your system.
 
 Notes about IBM TTS support
 ===========================
