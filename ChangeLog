@@ -1,3 +1,24 @@
+2007-07-08  Hynek Hanke  <hanke@brailcom.org>
+
+	* INSTALL: Sections reorganized. Added notes about Espeak.
+
+	* ANNOUNCE: Updated for 0.6.3 relese.
+
+	* NEWS: Updated for 0.6.3 relese.
+
+	* config/speechd.conf: Added AddModule line for espeak (native) driver.
+
+	* src/server/output.c (_output_get_voices): Check if reply is not
+	null.
+
+2007-07-08  Steve Holmes  <steve@holmesgrown.com>
+
+	* src/modules/generic.c: GenericPunctNone, GenericPunctSome and
+	GenericPunctAll: new options.
+
+ 	* config/modules/espeak-generic.conf: added 3 new punctuation
+ 	variables: GenericPunctNone, GenericPunctSome, and GenericPunctAll 
+	
 2007-07-06  Lukas Loehrer  <listaddr1@gmx.net>
 
 	* src/modules/espeak.c: Added source file for espeak output module.
