@@ -1,7 +1,7 @@
 /*
  * output.c - Output layer for Speech Dispatcher
  *
- * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2007 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: output.c,v 1.30 2007-07-02 10:14:32 hanke Exp $
+ * $Id: output.c,v 1.31 2007-07-09 04:54:43 hanke Exp $
  */
 
 #include "output.h"
@@ -202,7 +202,12 @@ _output_get_voices(OutputModule *module)
   }
   output_send_data("LIST VOICES\n", module, 0);
   reply = output_read_reply(module);
-  MSG(1, "REPLY IS %s", reply);
+
+  if (reply == NULL){
+      output_unlock();
+      voice_dscr = NULL;
+      return -1;
+  }
 
   //TODO: only 256 voices supported here
   lines = g_strsplit(reply, "\n", 256);
