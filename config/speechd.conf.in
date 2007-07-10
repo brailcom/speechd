@@ -9,9 +9,9 @@
 
 # Port 6560
 
-# This should be the path where Speech Dispatcher's configuration
-# is stored, it's the base directory for Include commands in this
-# file.
+# This should be the path where Speech Dispatcher's configuration is stored.
+# It is the base directory for Include commands in this file.
+
 IncludePath INCLUDE_PATH
 
 # -----DEBUGING CONFIGURATION-----
@@ -23,10 +23,9 @@ IncludePath INCLUDE_PATH
 
 LogLevel  3
 
-# LogFile specifies where should Speech Dispatcher write it's logging
-# messages (status information, error messages, etc.)
-# Specify "stdout" for standard console output
-# or a full path to some file which the log should be written to.
+# LogFile specifies where Speech Dispatcher writes its logging messages
+# (status information, error messages, etc.).  Specify "stdout" for standard
+# console output or a full path to a file.
 
 LogFile  "/var/log/speech-dispatcher/speechd.log"
 #LogFile  "stdout"
@@ -39,65 +38,56 @@ LogFile  "/var/log/speech-dispatcher/speechd.log"
 
 # -----MISC OPTIONS-----
 
-# MaxHistoryMessages specifies the maximum number of messages
-# that are stored in history. If they are more, older messages
-# expire.
+# MaxHistoryMessages specifies the maximum number of messages that are stored
+# in history. If there are more, older messages expire.
+
 # MaxHistoryMessages 10000
 
-# SoundDataDir specifies the directory where sounds
-# are stored by default.
+# SoundDataDir specifies the directory where sounds are stored by default.
+
 # SoundDataDir "/usr/share/sounds/sounds-library"
 
-# DefaultRate controls how fast the synthesizer is going to speak.
-# It's parameter must be between -100 (slowest) and +100 (fastest),
-# default is 0.
+# DefaultRate controls how fast the synthesizer is going to speak.  The value
+# must be between -100 (slowest) and +100 (fastest), default is 0.
 
 # DefaultRate  0
 
-# DefaultPitch controls the pitch of the synthesized voice.
-# It's parameter must be between -100 (lowest) and +100 (highest),
-# default is 0.
+# DefaultPitch controls the pitch of the synthesized voice.  The value must be
+# between -100 (lowest) and +100 (highest), default is 0.
 
 # DefaultPitch  0
 
-# DefaultVolume constrols the default volume of the voice.
-# It is a value between -100 (softly) and +100 (loudly).
-# Currently, +100 maps to the default volume of the synthesizer.
+# DefaultVolume constrols the default volume of the voice.  It is a value
+# between -100 (softly) and +100 (loudly).  Currently, +100 maps to the
+# default volume of the synthesizer.
 
 DefaultVolume 100
 
-# DefaultVoiceType controls which voice type should be used.
-# Becaus voices are synthesizers specific, you only set here
-# a symbolic name, which, if possible, is mapped to some of
-# the synthesizers voices. Please see the synthesizer-specific
-# configuration in etc/speechd/modules/ to see what voices are
-# defined for the different symbolic names.
-# Currently, these symbolic names are supported:
-# MALE1, MALE2, MALE3, FEMALE1, FEMALE2, FEMALE3
-# CHILD_MALE, CHILD_FEMALE
+# DefaultVoiceType controls which voice type should be used by default.  Voice
+# types are symbolic names which map to particular voices provided by the
+# synthesizer according to the output module configuratuion.  Please see the
+# synthesizer-specific configuration in etc/speechd/modules/ to see which
+# voices are assigned to different symbolic names.
+# The following symbolic names are currently supported: 
+# MALE1, MALE2, MALE3, FEMALE1, FEMALE2, FEMALE3, CHILD_MALE, CHILD_FEMALE
 
 # DefaultVoiceType  "MALE1"
 
 # Default language with which to speak
 # DefaultLanguage  "en"
 
-# DefaultClientName specifies the name of a client
-# who didn't introduce himself at the beginning of
-# a SSIP session.
-#
-# (Note that if you see this string during working
-# with Speech Dispatcher aplications as a user, it's a good
-# reason to complain to the autor of said application!)
+# DefaultClientName specifies the name of a client who didn't introduce
+# himself at the beginning of an SSIP session.
 
 # DefaultClientName  "unknown:unknown:unknown"
 
 # Use with caution, normally this shouldn't be changed globally
 # DefaultPriority  "text"
 
-# DefaultPauseContext specifies how by how many index marks a speech cursor
-# should return when resuming after a pause. This is roughly equivalent to
-# the number of sentences before the place of the execution of pause that
-# will be repeated.
+# DefaultPauseContext specifies by how many index marks a speech cursor should
+# return when resuming after a pause. This is roughly equivalent to the number
+# of sentences before the place of the execution of pause that will be
+# repeated.
 
 # DefaultPauseContext 0
 
@@ -105,10 +95,9 @@ DefaultVolume 100
 
 # DefaultPunctuationMode sets the way dots, comas, exclamation
 # marks, question marks etc. are interpreted.
-#       none    -     they are ignored
-#       some    -     some of them are sent to synthesis
-#							(see DefaultPunctuationSome)
-#       all     -     all punctuation marks are sent to synthesis
+#   none: they are ignored
+#   some: some of them are sent to synthesis (see DefaultPunctuationSome)
+#   all:  all punctuation marks are sent to synthesis
 # DefaultPunctuationMode  "none"
 
 # DefaultCapLetRecognition: if set to "spell", capital letters
@@ -119,9 +108,8 @@ DefaultVolume 100
 
 # DefaultCapLetRecognition  "none"
 
-# DefaultSpelling: if set to On, every messages will
-# be spelled unless set otherwise. (This is usually
-# not something you want to do.)
+# DefaultSpelling: if set to On, all messages will be spelled unless set
+# otherwise (this is usually not something you want to do.)
 
 # DefaultSpelling  Off
 
@@ -139,16 +127,17 @@ DefaultVolume 100
 
 AddModule "flite"        "sd_flite"     "flite.conf"  "/var/log/speech-dispatcher/flite.log"
 AddModule "festival"     "sd_festival"  "festival.conf" "/var/log/speech-dispatcher/festival.log"
-AddModule "espeak-generic" "sd_generic" "espeak-generic.conf" "/var/log/speech-dispatcher/espeak.log"
+AddModule "espeak-generic" "sd_generic" "espeak-generic.conf" "/var/log/speech-dispatcher/espeak-generic.log"
+#AddModule "espeak"       "sd_espeak"   "espeak.conf" "/var/log/speech-dispatcher/espeak.log"
 #AddModule "epos-generic" "sd_generic"   "epos-generic.conf" "/var/log/speech-dispatcher/epos.log"
 #AddModule "dtk-generic"  "sd_generic"   "dtk-generic.conf" "/var/log/speech-dispatcher/dtk-generic.log"
 #AddModule "ibmtts"       "sd_ibmtts"    "ibmtts.conf" "/var/log/speech-dispatcher/ibmtts.log"
 #AddModule "cicero"        "sd_cicero"     "cicero.conf"  "/var/log/speech-dispatcher/cicero.log"
 
-# The output module testing doesn't actually connect to
-# anything. It outputs the requested commands to standard output
-# and reads responses from stdandard input. This way, Speech Dispatcher's
-# communication with output modules can be tested easily.
+# The output module testing doesn't actually connect to anything. It outputs
+# the requested commands to standard output and reads responses from stdandard
+# input. This way, Speech Dispatcher's communication with output modules can
+# be tested easily.
 
 # AddModule "testing"
 
