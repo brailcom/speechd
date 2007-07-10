@@ -48,6 +48,7 @@ class AutomaticTest(_SSIPClientTest):
         # received on time. Also the combination cancel/end does not have
         # to work as expected and SD and the interface can still be ok.
         # -- Hynek Hanke
+        self._client.set_output_module('flite')
         called = {CallbackType.BEGIN: [],
                   CallbackType.CANCEL: [],
                   CallbackType.END: []}
@@ -58,13 +59,16 @@ class AutomaticTest(_SSIPClientTest):
                            callback=lambda type: called[type].append('msg2'))
         time.sleep(1)
         self._client.cancel()
+        self._client.speak("Hi.",
+                           callback=lambda type: called[type].append('msg3'))
         # Wait for pending events...
-        time.sleep(1)
+        time.sleep(3)
         started, canceled, ended = [called[t] for t in (CallbackType.BEGIN,
-                                                      CallbackType.CANCEL,
-                                                      CallbackType.END)]
-        assert started == ['msg1'] and ended == [] and \
-               'msg1' in canceled and 'msg2' in canceled, \
+                                                        CallbackType.CANCEL,
+                                                        CallbackType.END)]
+        assert started == ['msg1', 'msg3'] and ended == ['msg3'] and \
+               'msg1' in canceled and 'msg2' in canceled and \
+               'msg3' not in canceled, \
                (called,
                 "This failure only indicates a possible error.  The test "
                 "depends on proper timing and results may warry depending "
