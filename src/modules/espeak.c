@@ -22,7 +22,7 @@
  * @author Lukas Loehrer
  * Based on ibmtts.c.
  *
- * $Id: espeak.c,v 1.2 2007-07-09 07:37:58 lloehrer Exp $
+ * $Id: espeak.c,v 1.3 2007-07-10 16:11:06 lloehrer Exp $
  */
 
 /* < Includes*/
@@ -518,6 +518,12 @@ module_close(int status)
 
 	sem_post(espeak_play_semaphore);
 	sem_post(espeak_stop_or_pause_semaphore);
+	/* Give threads a chance to quit on their own terms. */
+	g_usleep(25000);
+
+	/* Make sure threads have really exited */
+	pthread_cancel(espeak_play_thread);
+	pthread_cancel(espeak_stop_or_pause_thread);
 
 	DBG("Joining  play thread.");
 	pthread_join(espeak_play_thread, NULL);
@@ -592,6 +598,11 @@ _espeak_stop_or_pause(void* nothing)
 		}
 		DBG("Espeak: Stop or pause semaphore on.");
 		if (espeak_close_requested) break;
+		if (!espeak_stop_requested) {
+		  /* This sometimes happens after wake-up from suspend-to-disk.  */
+			DBG("Espeak: Warning: spurious wake-up  of stop thread.");
+			continue;
+		}
 
 		pthread_mutex_lock(&playback_queue_mutex);
 		pthread_cond_broadcast(&playback_queue_condition);
@@ -1084,6 +1095,11 @@ _espeak_play(void* nothing)
 		}
 		DBG("Espeak: Playback semaphore on.");
 		if (espeak_close_requested) break;
+		if (espeak_state < BEFORE_PLAY) {
+			/* This can happen after wake-up  from suspend-to-disk */
+			DBG("Espeak: Warning: Spurious wake of of playback thread.");
+			continue;
+		}
 
 		while (1) {
 			gboolean finished = FALSE;
@@ -1133,9 +1149,11 @@ _espeak_play(void* nothing)
 				pthread_mutex_lock(&espeak_state_mutex);
 				DBG("Espeak: playback thread got END from queue.");
 				if (espeak_state == SPEAKING) {
+					if (!espeak_stop_requested) {
 					DBG("Espeak: playback thread reporting end.");
 					espeak_state = IDLE;
 					espeak_pause_state = ESPEAK_PAUSE_OFF;
+					}
 					finished = TRUE;
 				}
 				pthread_mutex_unlock(&espeak_state_mutex);

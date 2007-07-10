@@ -1,3 +1,12 @@
+2007-07-10  Lukas Loehrer  <listaddr1@gmx.net>
+
+	* src/modules/espeak.c (module_close): Before calling
+	pthread_join(), make sure threads have really exited by calling
+	pthread_cancel().
+	(_espeak_play): Fixed potential race with stop thread.
+	(_espeak_play , _espeak_stop_or_pause): Work around spurious sem_post()
+	after wake-up-up from suspend-to-disk.
+
 2007-07-10  Tomas Cerha  <cerha@brailcom.org>
 
 	* config/speechd.conf.in: Espeak module added.  Descriptions
