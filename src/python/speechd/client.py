@@ -584,7 +584,10 @@ class SSIPClient(object):
             code, msg, data = self._conn.send_command('LIST', 'SYNTHESIS_VOICES')
         except SSIPCommandError:
             return ()
-        return tuple([tuple(item.split(' ')) for item in data])
+        def split(item):
+            name, lang, dialect = tuple(item.rsplit(' ', 3))
+            return (name, lang or None, dialect or None)
+        return tuple([split(item) for item in data])
 
     def set_language(self, language, scope=Scope.SELF):
         """Switch to a particular language for further speech commands.
