@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.h,v 1.16 2007-06-25 12:13:29 pdm Exp $
+ * $Id: module_utils.h,v 1.17 2007-07-11 14:09:28 pdm Exp $
  */
 
 #include <semaphore.h>
@@ -61,7 +61,8 @@ int module_num_dc_options;
  msg_settings_old.spelling_mode = -1;\
  msg_settings_old.cap_let_recogn = -1;\
  msg_settings_old.language = NULL;	\
- msg_settings_old.voice = NO_VOICE;
+ msg_settings_old.voice = NO_VOICE;\
+ msg_settings.synthesis_voice = NULL;\
 
 #define INIT_SETTINGS_TABLES()\
  module_dc_options = NULL;\
@@ -73,6 +74,7 @@ int module_num_dc_options;
  msg_settings.cap_let_recogn = RECOGN_NONE;\
  msg_settings.language = NULL;\
  msg_settings.voice = MALE1;\
+ msg_settings.synthesis_voice = NULL;\
  CLEAN_OLD_SETTINGS_TABLE()
 
 #define DBG(arg...) \

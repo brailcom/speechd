@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: festival.c,v 1.76 2007-07-11 14:09:19 pdm Exp $
+ * $Id: festival.c,v 1.77 2007-07-11 14:09:28 pdm Exp $
  */
 
 #include "fdset.h"
@@ -353,7 +353,7 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
     DBG("Updating parameters");
     UPDATE_STRING_PARAMETER(language, festival_set_language);
     UPDATE_PARAMETER(voice, festival_set_voice);
-    UPDATE_PARAMETER(synthesis_voice, festival_set_synthesis_voice);
+    UPDATE_STRING_PARAMETER(synthesis_voice, festival_set_synthesis_voice);
     UPDATE_PARAMETER(rate, festival_set_rate);
     UPDATE_PARAMETER(pitch, festival_set_pitch);
     UPDATE_PARAMETER(volume, festival_set_volume);
