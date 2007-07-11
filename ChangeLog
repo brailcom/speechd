@@ -1,3 +1,9 @@
+2007-07-11  Lukas Loehrer  <listaddr1@gmx.net>
+
+	* src/modules/espeak.c (module_speak): Special treatment of
+	"space" character.
+	(espeak_set_language): Temporary fix for failing assertion when setting language.
+
 2007-07-11  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/modules/module_utils.h (CLEAN_OLD_SETTINGS_TABLE): Fix of

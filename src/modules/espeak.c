@@ -22,7 +22,7 @@
  * @author Lukas Loehrer
  * Based on ibmtts.c.
  *
- * $Id: espeak.c,v 1.3 2007-07-10 16:11:06 lloehrer Exp $
+ * $Id: espeak.c,v 1.4 2007-07-11 16:37:59 lloehrer Exp $
  */
 
 /* < Includes*/
@@ -390,7 +390,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 
 	if (0 != module_write_data_ok(data)) return FATAL_ERROR;
 
-	DBG("Espeak: Requested data: |%s| %d\n", data, msgtype);
+	DBG("Espeak: Requested data: |%s| %d %d", data, msgtype, bytes);
 
 	espeak_state_reset();
 	espeak_state = BEFORE_SYNTH;
@@ -429,6 +429,8 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 			wchar_t wc = 0;
 			if (bytes == 1) { // ASCII
 				wc = (wchar_t) data[0];
+			} else if (bytes == 5 && (0 == strncmp(data, "space", bytes))) {
+				wc = (wchar_t) 0x20;
 			} else {
 				gsize bytes_out;
 				gchar *tmp = g_convert(data, -1, "wchar_t", "utf-8", NULL, &bytes_out, NULL);
@@ -809,7 +811,6 @@ espeak_set_voice(EVoiceType voice)
 static void
 espeak_set_language(char *lang)
 {
-	assert(msg_settings.voice);
 	espeak_set_language_and_voice(lang, msg_settings.voice);
 }
 
