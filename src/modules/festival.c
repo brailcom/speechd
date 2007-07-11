@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: festival.c,v 1.75 2007-07-02 10:12:23 hanke Exp $
+ * $Id: festival.c,v 1.76 2007-07-11 14:09:19 pdm Exp $
  */
 
 #include "fdset.h"
@@ -736,7 +736,7 @@ void
 festival_set_synthesis_voice(char *voice_name)
 {
 
-  FestivalSetSynthesisVoice(festival_info, voice_name, NULL);
+  FestivalSetSynthesisVoice(festival_info, voice_name);
 }
 
 void

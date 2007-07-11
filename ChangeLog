@@ -1,3 +1,8 @@
+2007-07-11  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/modules/festival_client.c: Use FEST_SET_SYMB instead of
+	FEST_SET_STR for FestivalSetSynthesisVoice.
+
 2007-07-10  Lukas Loehrer  <listaddr1@gmx.net>
 
 	* src/modules/espeak.c (module_close): Before calling
