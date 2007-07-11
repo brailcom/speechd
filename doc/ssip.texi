@@ -28,7 +28,7 @@
 
 This manual documents Speech Synthesis Interface Protocol, version 0.2.
 
-Copyright @copyright{} 2001, 2002, 2003, 2006 Brailcom, o.p.s., http://www.brailcom.cz .
+Copyright @copyright{} 2001-2007 Brailcom, o.p.s., http://www.brailcom.cz .
 
 
 @quotation
@@ -870,6 +870,10 @@ following command:
 SET SELF LANGUAGE cs
 @end example
 
+Please note, that switching a language may require switching a voice,
+so this command may actually override a previous call to @code{SET VOICE} or
+@code{SET SYNTHESIS_VOICE}.
+
 The default for the Speech Dispatcher implementation of SSIP
 is determined by the @code{DefaultLanguage} setting in the
 @code{speechd.conf} file.  The factory default is @code{en} (English).
@@ -938,18 +942,13 @@ is determined by the @code{DefaultVoiceType} setting in the
 
 @item SET @{ all | self | @var{id} @} SYNTHESIS_VOICE @var{name}
 Set the voice identified by @var{name}.  @var{name} is a voice name
-recognized by the current synthesizer. It must be one of the
-names returned by the command @code{LIST SYNTHESIS_VOICES}
-run for the appropriate synthesizer. (@pxref{Information
-Retrieval Commands}).
+recognized by the current synthesizer. It must be one of the names
+returned by the command @code{LIST SYNTHESIS_VOICES} run for the
+appropriate synthesizer. (@pxref{Information Retrieval Commands}).
 
-There is a standard set of voice identifiers defined in @ref{Standard
-Voices}.
-
-The default for the Speech Dispatcher implementation of SSIP
-is determined by the @code{DefaultVoiceType} setting in the
-@code{speechd.conf} file.  The factory default is @code{MALE1}.
-
+Please note, that switching to a particular voice may require
+switching a language, so this command may actually override a previous
+call to @code{SET LANGUAGE}.
 
 @item SET @{ all | self | @var{id} @} RATE @var{n}
 Set the rate of speech.  @var{n} is an integer value within the range

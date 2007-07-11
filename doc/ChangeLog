@@ -1,3 +1,8 @@
+2007-07-11  Tomas Cerha  <cerha@brailcom.org>
+
+	* ssip.texi: Clarified relation of `SET LANGUAGE' and `SET
+	SYNTHESIS VOICE'.
+
 2006-07-21  Hynek Hanke  <hanke@brailcom.org>
 
 	* speech-dispatcher.texi (Current State): eSpeak, Cicero and IBM TTS.
@@ -50,7 +55,7 @@
 
 2006-01-25  Hynek Hanke  <hanke@chopin>
 
-	* speech-dispatcher.texi: Copyright (c) 2006.  The whole content
+	* speech-dispatcher.texi: Copyright (c) 2006, 2007.  The whole content
 	of speech-dispatcher.texi is now also licensed by Brailcom,
 	o.p.s. under the GNU General Public License version 2 or later (at
 	user's option).
