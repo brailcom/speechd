@@ -577,7 +577,10 @@ class SSIPClient(object):
     def list_synthesis_voices(self):
         """Return names of all available voices for the current output module.
 
-        Returns a tuple of tripplets (NAME, LANGUAGE, DIALECT).
+        Returns a tuple of tripplets (name, language, dialect).
+
+        'name' is a string, 'language' is an ISO 639-1 Alpha-2 language code
+        and 'dialect' is a string.  Language and dialect may be None.
 
         """
         try:
