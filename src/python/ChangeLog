@@ -1,3 +1,7 @@
+2007-07-13  Hynek Hanke  <hanke@brailcom.org>
+
+	* speechd/_test.py: Set language first, then synthesis voice.
+
 2007-07-11  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd/client.py (SSIPClient.list_synthesis_voices.split):
