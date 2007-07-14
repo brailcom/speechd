@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.h,v 1.18 2007-07-11 16:11:39 pdm Exp $
+ * $Id: module_utils.h,v 1.19 2007-07-14 05:32:45 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -102,6 +102,7 @@ int module_num_dc_options;
 
 int     module_load         (void);
 int     module_init         (char **status_info);
+VoiceDescription** module_list_voices(void);
 int     module_speak        (char *data, size_t bytes, EMessageType msgtype);
 int     module_stop         (void);
 VoiceDescription**     module_get_voices   (void);
