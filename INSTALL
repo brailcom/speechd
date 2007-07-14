@@ -14,6 +14,7 @@ Only if you are building from CVS, you also need these:
  - automake 1.7+, autoconf, pkg-config and libtool
 
 We recommend to also install these packages:
+ - ALSA (http://www.alsa-project.org)
  - Festival (http://www.cstr.ed.ac.uk/projects/festival/)
  - Espeak (http://espeak.sourceforge.net/)
 
@@ -28,9 +29,8 @@ These Free Software packages are known to work with Speech Dispatcher:
      features.
  - Flite, Cicero, IBM TTS, Dectalk Software
 
-
  User applications:
- - Orca (http://www.gnome.org/projects/orca/)
+ - Orca (http://www.gnome.org/projects/orca/) -- AT-SPI screen reader (Gnome)
  - speechd-up (http://www.freebsoft.org/) -- Speakup console screen
    reader interface
  - speechd-el (http://www.freebsoft.org/) -- Emacs speech interface
@@ -46,7 +46,7 @@ Building Speech Dispatcher:
 If you want to use Speech Dispatcher with Festival (recommended), you
 also need to install festival-freebsoft-utils version 0.3 or higher!
 There is a new key feature -- SSML support -- in Speech Dispatcher and
-the Festival output module *won't* work with the old
+the Festival output module *won't* work with the older
 festival-freebsoft-utils. See above for where to get them.
 
 To compile the whole project, including Speech Dispatcher server, all modules
