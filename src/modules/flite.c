@@ -2,7 +2,7 @@
 /*
  * flite.c - Speech Dispatcher backend for Flite (Festival Lite)
  *
- * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2007 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: flite.c,v 1.54 2007-06-21 20:15:01 hanke Exp $
+ * $Id: flite.c,v 1.55 2007-07-14 05:32:28 hanke Exp $
  */
 
 
@@ -320,9 +320,9 @@ _flite_speak(void* nothing)
 					    FliteMaxChunkLength, FliteDelimiters);
 
 	    if (bytes < 0){
-		DBG("ERROR: Can't get message part, terminating");
+		DBG("End of message");
 		flite_speaking = 0;
-		module_report_event_stop();
+		module_report_event_end();
 		break;
 	    }
 
