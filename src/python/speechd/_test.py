@@ -132,6 +132,5 @@ class VoiceTest(_SSIPClientTest):
                  c.speak(module +" using voice "+ name)
         
 
-
 if __name__ == '__main__':
     unittest.main()

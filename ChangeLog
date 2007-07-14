@@ -1,3 +1,36 @@
+2007-07-13  Hynek Hanke  <hanke@brailcom.org>
+
+	* INSTALL: Minor details.
+
+	* config/speechd.conf.in: Espeak is now on by default.
+
+	* config/modules/ibmtts.conf: Removed chunk settings.
+	Docstring to audio output method settings updated.
+
+	* config/modules/festival.conf: Docstring to audio output method
+	settings updated.
+
+	* config/modules/flite.conf: Docstring to audio output method
+	settings updated.
+	
+	* config/modules/espeak.conf: Docstring to audio output method
+	settings updated.
+
+
+	* src/server/alloc.c (spd_message_copy): Copy synthesis_voice to
+	the new message.
+
+	* src/server/server.c (queue_message): Copy also synthesis_voice.
+
+	* src/modules/flite.c (_flite_speak): Report end event if
+	module_get_message_part does not return anything. (Not error
+	and stop event as previously)
+	
+	* src/modules/module_utils.h: Module list voices included.
+
+	* src/modules/module_utils.c (do_message): Pass space as " "
+	to the output modules.
+
 2007-07-11  Lukas Loehrer  <listaddr1@gmx.net>
 
 	* src/modules/espeak.c (module_speak): Special treatment of
