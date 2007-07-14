@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   * Boston, MA 02110-1301, USA.
   *
-  * $Id: server.c,v 1.82 2007-06-21 20:30:06 hanke Exp $
+  * $Id: server.c,v 1.83 2007-07-14 05:34:28 hanke Exp $
   */
 
 #include "speechd.h"
@@ -97,6 +97,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
 	COPY_SET_STR(client_name);
 	COPY_SET_STR(output_module);
 	COPY_SET_STR(language);
+	COPY_SET_STR(synthesis_voice);
 
 	/* And we set the global id (note that this is really global, not
 	 * depending on the particular client, but unique) */
