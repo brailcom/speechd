@@ -78,6 +78,7 @@ spd_message_copy(TSpeechDMessage *old)
 	new->settings = old->settings; 
 
 	new->settings.language = spd_strdup(old->settings.language);
+	new->settings.synthesis_voice = spd_strdup(old->settings.synthesis_voice);
 	new->settings.client_name = spd_strdup(old->settings.client_name);
 	new->settings.output_module = spd_strdup(old->settings.output_module);
 	new->settings.index_mark = spd_strdup(old->settings.index_mark);
@@ -92,6 +93,7 @@ mem_free_fdset(TFDSetElement *fdset)
        in a TSpeechDMessage */
     spd_free(fdset->client_name);
     spd_free(fdset->language);
+    spd_free(fdset->synthesis_voice);
     spd_free(fdset->output_module);
     spd_free(fdset->index_mark);
 }
