@@ -1,7 +1,7 @@
 /*
  * module_utils.c - Module utilities
  *           Functions to help writing output modules for Speech Dispatcher
- * Copyright (C) 2003,2006 Brailcom, o.p.s.
+ * Copyright (C) 2003,2006, 2007 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.c,v 1.45 2007-07-02 10:12:31 hanke Exp $
+ * $Id: module_utils.c,v 1.46 2007-07-14 05:32:36 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -97,7 +97,12 @@ do_message(EMessageType msgtype)
     if ((msgtype != MSGTYPE_TEXT) && (nlines > 2)){
         return strdup("305 DATA MORE THAN ONE LINE");
     }
-  
+
+    if ((msgtype == MSGTYPE_CHAR) && (!strcmp(msg->str,"space"))){
+	g_string_free(msg, 1);
+	msg = g_string_new(" ");
+    }
+
     ret = module_speak(msg->str, strlen(msg->str), msgtype);
 
     g_string_free(msg,1);
