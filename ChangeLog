@@ -31,6 +31,12 @@
 	* src/modules/module_utils.c (do_message): Pass space as " "
 	to the output modules.
 
+2007-07-11  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/modules/festival_client.c: When changing Festival synthesis
+	voice, call speechd-set-festival-voice instead of
+	speechd-set-voice.
+
 2007-07-11  Lukas Loehrer  <listaddr1@gmx.net>
 
 	* src/modules/espeak.c (module_speak): Special treatment of

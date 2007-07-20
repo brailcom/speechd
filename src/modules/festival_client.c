@@ -868,7 +868,7 @@ FEST_SET_SYMB(FestivalSetPunctuationMode, "speechd-set-punctuation-mode");
 FEST_SET_STR(FestivalSetCapLetRecogn, "speechd-set-capital-character-recognition-mode");
 FEST_SET_STR(FestivalSetLanguage, "speechd-set-language");
 FEST_SET_STR(FestivalSetVoice, "speechd-set-voice");
-FEST_SET_SYMB(FestivalSetSynthesisVoice, "speechd-set-voice");
+FEST_SET_SYMB(FestivalSetSynthesisVoice, "speechd-set-festival-voice");
 
 
 static FT_Info *festivalDefaultInfo()
