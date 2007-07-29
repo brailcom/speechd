@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.23 2007-06-21 20:17:53 hanke Exp $
+ * $Id: ibmtts.c,v 1.24 2007-07-29 23:43:08 hanke Exp $
  */
 
 /* This output module operates with four threads:
@@ -285,6 +285,9 @@ static void* _ibmtts_stop_or_pause(void*);
 MOD_OPTION_1_INT(IbmttsMaxChunkLength);
 MOD_OPTION_1_STR(IbmttsDelimiters);
 
+/* Does IBM TTS support SSML or should we strip it off? */
+MOD_OPTION_1_INT(IbmttsUseSSML);
+
 MOD_OPTION_1_STR(IbmttsAudioOutputMethod);
 MOD_OPTION_1_STR(IbmttsOSSDevice);
 MOD_OPTION_1_STR(IbmttsNASServer);
@@ -309,6 +312,8 @@ module_load(void)
     /* TODO: Remove these if we decide they aren't needed. */
     MOD_OPTION_1_INT_REG(IbmttsMaxChunkLength, 3000);
     MOD_OPTION_1_STR_REG(IbmttsDelimiters, "");
+
+    MOD_OPTION_1_INT_REG(IbmttsUseSSML, 0);
 
     MOD_OPTION_1_STR_REG(IbmttsAudioOutputMethod, "oss");
     MOD_OPTION_1_STR_REG(IbmttsOSSDevice, "/dev/dsp");
@@ -517,9 +522,13 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
     xfree(*ibmtts_message);
     *ibmtts_message = NULL;
 
-    //    *ibmtts_message = strdup(data);  // IBM TTS doesn't support SSML
-    /* Strip all SSML */
-    *ibmtts_message = module_strip_ssml(data);
+
+    if (IbmttsUseSSML){
+	*ibmtts_message = strdup(data);
+    }else{
+	/* Strip all SSML */
+	*ibmtts_message = module_strip_ssml(data);
+    }
     ibmtts_message_type = msgtype;
     if ((msgtype == MSGTYPE_TEXT) && (msg_settings.spelling_mode == SPELLING_ON))
         ibmtts_message_type = MSGTYPE_SPELL;
