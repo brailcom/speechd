@@ -1,7 +1,7 @@
 /*
  * module_utils_addvoice.c - Functionality for the DotConf AddVoice feature
  * 
- * Copyright (C) 2001, 2002, 2003, 2006 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2006, 2007 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils_addvoice.c,v 1.4 2006-07-11 16:12:27 hanke Exp $
+ * $Id: module_utils_addvoice.c,v 1.5 2007-07-29 23:43:33 hanke Exp $
  */
 
 #include <glib.h>
@@ -141,7 +141,7 @@ module_getvoice(char* language, EVoiceType voice)
         ret = voices->child_female; break;
     default:
         printf("Unknown voice");
-        exit(1);
+        return NULL;
     }
 
     if (ret == NULL) ret = voices->male1;
