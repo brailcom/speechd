@@ -1,3 +1,17 @@
+2007-07-29  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/modules/module_utils_addvoice.c (module_getvoice): Return
+	NULL instead of exiting on unknown voice.
+
+	* src/modules/ibmtts.c (module_speak): Strip SSML if IbmttsUseSSML
+	is 0.
+	(module_load): IbmttsUseSSML: new option.
+
+	* config/modules/ibmtts.conf (IbmttsUseSSML): New option.
+
+	* src/modules/ibmtts.c (module_speak): Strip SSML only if
+	IbmttsUseSSML is 0.
+
 2007-07-13  Hynek Hanke  <hanke@brailcom.org>
 
 	* INSTALL: Minor details.
