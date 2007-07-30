@@ -1,3 +1,8 @@
+2007-07-30  Lukas Loehrer  <listaddr1@gmx.net>
+
+	* src/modules/module_utils.c (module_strip_ssml): Make sure result
+	is always NULL terminated. "<" was not.
+
 2007-07-29  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/modules/module_utils_addvoice.c (module_getvoice): Return

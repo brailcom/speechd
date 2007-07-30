@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.c,v 1.46 2007-07-14 05:32:36 hanke Exp $
+ * $Id: module_utils.c,v 1.47 2007-07-30 21:45:58 lloehrer Exp $
  */
 
 #include "fdsetconv.h"
@@ -388,7 +388,7 @@ module_strip_ssml(char *message)
 	    i+=3;
 	    out[n++] = '>';
 	}
-	else if (!omit) out[n++] = message[i];
+	else if (!omit || i == len) out[n++] = message[i];
     }
     DBG("in stripping ssml: |%s|", out);
 
