@@ -1,3 +1,21 @@
+2007-08-07  Lukas Loehrer  <listaddr1@gmx.net>
+
+	* config/modules/ibmtts.conf: Add column with expected input encoding to
+	IbmttsDialect for each language.
+	Disable debugging by default
+
+	* src/modules/ibmtts.c: Added TODO list at the beginning of the
+	file.
+	(ibmtts_send_to_audio): Increased maximum speech volume
+	(module_speak): Convert input from utf-8 to expected encoding for
+	selected language dialect, if SSML is not used.
+	Check if input is valid utf-8. Assume it is latin-1 if not.
+	(various places): Fixed most compiler warnings.
+	(_ibmtts_synth): Insert dummy index mark at the end of the message
+	to force a callback even if message produces no speech.
+	Fix race condition where end of message event can get lost.
+	(_ibmtts_stop_or_pause): Prevent stop thread from spuriously waking up.
+
 2007-07-30  Lukas Loehrer  <listaddr1@gmx.net>
 
 	* src/modules/module_utils.c (module_strip_ssml): Make sure result
