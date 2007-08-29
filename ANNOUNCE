@@ -1,9 +1,9 @@
 
-Speech Dispatcher 0.6.3
+Speech Dispatcher 0.6.4
 =======================
 
 The Brailcom organization is happy to announce the availability of Speech
-Dispatcher 0.6.3 developed as a part of the Free(b)Soft project. This
+Dispatcher 0.6.4 developed as a part of the Free(b)Soft project. This
 is a minor release, it contains mostly bugfixes and minor improvements.
 Please read `What is new' and `NOTES' bellow.
 
@@ -42,7 +42,7 @@ Please read `What is new' and `NOTES' bellow.
     is developed as a sperate project speechd-el. Possibly an interface
     to any other language can be developed.
 
-* What is new in 0.6.3?
+* What is new in 0.6.4?
 
  - Native output module for eSpeak (thanks to Lukas Loehrer)
  - Support for punctuation settings in the Generic output module
@@ -52,7 +52,7 @@ Please read `What is new' and `NOTES' bellow.
    a synthesizer
  - Bug fixes (SMP related bugs, bugs in libspeechd and others)
 
- NOTES (0.6.3)
+ NOTES (0.6.4)
 
    - Orca supports Speech Dispatcher without needs for any patch
      in its latest releases.
@@ -63,7 +63,7 @@ Please read `What is new' and `NOTES' bellow.
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.6.3.tar.gz
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.6.4.tar.gz
 
   We recommend you to fetch the sound icons for use with Speech Dispatcher.
   They are available at
