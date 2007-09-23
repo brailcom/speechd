@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.c,v 1.47 2007-07-30 21:45:58 lloehrer Exp $
+ * $Id: module_utils.c,v 1.48 2007-09-23 16:02:19 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -65,7 +65,7 @@ do_message(EMessageType msgtype)
     int ret;
     char *cur_line;
     GString *msg;
-    int n;
+    size_t n;
     int nlines = 0;
 
     msg = g_string_new("");
@@ -185,7 +185,7 @@ do_set(void)
     char *cur_value = NULL;
     char *line = NULL;
     int ret;
-    int n;
+    size_t n;
     int number; char *tptr;
     int err = 0;                /* Error status */
 
