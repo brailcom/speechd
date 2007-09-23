@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.h,v 1.19 2007-07-14 05:32:45 hanke Exp $
+ * $Id: module_utils.h,v 1.20 2007-09-23 16:02:41 hanke Exp $
  */
 
 #include <semaphore.h>
@@ -384,7 +384,7 @@ void module_report_event_pause(void);
 
 
 /* So that gcc doesn't complain */
-int getline(char**, int*, FILE*);
+int getline(char**, size_t*, FILE*);
 
 pthread_mutex_t module_stdout_mutex;
 
