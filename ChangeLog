@@ -1,3 +1,11 @@
+2007-09-23  Hynek Hanke  <hanke@homer.brailcom.xx>
+
+	* src/modules/module_utils.h: Fixed int -> size_t in getline definiton.
+
+	* src/modules/module_utils.c (do_message): Fixed int -> size_t.
+	(do_set): Fixed int -> size_t.
+
+	* src/modules/module_main.c (main): Fixed int -> size_t.
 
 2007-08-28  Hynek Hanke  <hanke@brailcom.org>
 	* Version 0.6.4.
