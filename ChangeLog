@@ -1,3 +1,7 @@
+2007-09-24  Hynek Hanke  <hanke@syrr.buchal.name>
+
+	* src/modules/module_main.c: Conflicting getline definition changed.
+
 2007-09-23  Hynek Hanke  <hanke@homer.brailcom.xx>
 
 	* src/modules/module_utils.h: Fixed int -> size_t in getline definiton.
