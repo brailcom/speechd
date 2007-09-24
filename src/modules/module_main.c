@@ -18,11 +18,11 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_main.c,v 1.12 2007-09-23 16:02:45 hanke Exp $
+ * $Id: module_main.c,v 1.13 2007-09-24 06:51:58 hanke Exp $
  */
 
 /* So that gcc doesn't comply */
-int getline(char**, int*, FILE*);
+int getline(char**, size_t*, FILE*);
 
 #define PROCESS_CMD(command, function) \
 if (!strcmp(cmd_buf, #command"\n")){ \
