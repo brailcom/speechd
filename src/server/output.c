@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: output.c,v 1.31 2007-07-09 04:54:43 hanke Exp $
+ * $Id: output.c,v 1.32 2007-11-05 09:17:51 hanke Exp $
  */
 
 #include "output.h"
@@ -191,8 +191,7 @@ _output_get_voices(OutputModule *module)
   char *reply;
   gchar **lines;
   gchar **atoms;
-  char *atom;
-  int i, j;
+  int i;
 
   output_lock();
 
