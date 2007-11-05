@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.h,v 1.59 2007-06-21 20:31:01 hanke Exp $
+ * $Id: speechd.h,v 1.60 2007-11-05 09:06:16 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -107,6 +107,7 @@ typedef struct{
 
 struct{
     int port, port_set;
+    int localhost_access_only, localhost_access_only_set;
     int log_level, log_level_set;
     char *pid_file;
     int max_history_messages;	/* Maximum of messages in history before they expire */
