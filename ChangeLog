@@ -1,5 +1,14 @@
 2007-11-05  Hynek Hanke  <hanke@syrr.buchal.name>
 
+	* src/server/speaking.c (speaking_pause_all): Initialize err
+	to 0.
+
+	* src/server/output.c (_output_get_voices): Unused variable j,
+	atom removed.
+
+	* src/server/set.c (set_synthesis_voice_uid): Unused variable
+	output_module removed.
+
 	* src/server/speechd.h (SpeechDOptions): localhost_access_only: new
 	variables.
 
