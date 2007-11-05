@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: set.c,v 1.42 2007-06-21 20:30:19 hanke Exp $
+ * $Id: set.c,v 1.43 2007-11-05 09:17:56 hanke Exp $
  */
 
 #include <fnmatch.h>
@@ -236,7 +236,6 @@ int
 set_synthesis_voice_uid(int uid, char *synthesis_voice)
 {
     TFDSetElement *settings;
-    char *output_module;
 
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
