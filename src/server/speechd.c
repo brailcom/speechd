@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.c,v 1.70 2007-06-21 20:30:57 hanke Exp $
+ * $Id: speechd.c,v 1.71 2007-11-05 09:06:12 hanke Exp $
  */
 
 #include <gmodule.h>
@@ -363,6 +363,7 @@ speechd_options_init(void)
 {
     SpeechdOptions.log_level_set = 0;
     SpeechdOptions.port_set = 0;
+    SpeechdOptions.localhost_access_only_set = 0;
     SpeechdOptions.pid_file = NULL;
     spd_mode = SPD_MODE_DAEMON;    
 }
@@ -654,7 +655,14 @@ main(int argc, char *argv[])
     }
 
     server_address.sin_family = AF_INET;
-    server_address.sin_addr.s_addr = htonl(INADDR_ANY);
+
+    /* Enable access only to localhost or for any address
+       based on LocalhostAccessOnly configuration option. */
+    if (SpeechdOptions.localhost_access_only)
+      server_address.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+    else
+      server_address.sin_addr.s_addr = htonl(INADDR_ANY);
+
     server_address.sin_port = htons(SpeechdOptions.port);
 
     MSG(3,"Openning socket connection");
