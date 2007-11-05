@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speaking.c,v 1.53 2007-02-27 17:33:31 hanke Exp $
+ * $Id: speaking.c,v 1.54 2007-11-05 09:18:00 hanke Exp $
  */
 
 #include <glib.h>
@@ -411,8 +411,9 @@ speaking_cancel_all()
 int
 speaking_pause_all(int fd)
 {
-    int err, i;
-    int uid;
+  int err = 0;
+  int i;
+  int uid;
 
     for(i=1;i<=SpeechdStatus.max_fd;i++){
         uid = get_client_uid_by_fd(i);
