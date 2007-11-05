@@ -1,3 +1,17 @@
+2007-11-05  Hynek Hanke  <hanke@syrr.buchal.name>
+
+	* src/server/speechd.h (SpeechDOptions): localhost_access_only: new
+	variables.
+
+	* src/server/speechd.c (speechd_options_init): Default values
+	for LocalhostAccessOnly.
+	(main): Open port to all adresses or to localhost only based
+	on LocalhostAccessOnly option.
+
+	* src/server/config.c (load_default_global_set_options): Added new
+	option LocalhostAccessOnly with default value 1.
+	
+
 2007-09-24  Hynek Hanke  <hanke@syrr.buchal.name>
 
 	* src/modules/module_main.c: Conflicting getline definition changed.
