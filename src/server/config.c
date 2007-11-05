@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: config.c,v 1.13 2007-06-21 20:23:29 hanke Exp $
+ * $Id: config.c,v 1.14 2007-11-05 09:06:30 hanke Exp $
  */
 
 #include <dotconf.h>
@@ -170,6 +170,7 @@ GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultVoiceType, voice, EVoiceType, str2EVoice);
 GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPunctuationMode, punctuation_mode, EPunctMode, str2EPunctMode);
 GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultCapLetRecognition, cap_let_recogn, ECapLetRecogn, str2ECapLetRecogn);
 
+SPEECHD_OPTION_CB_INT_M(LocalhostAccessOnly, localhost_access_only, val>=0, "Invalid access controll mode!");
 SPEECHD_OPTION_CB_INT_M(Port, port, val>=0, "Invalid port number!");
 SPEECHD_OPTION_CB_INT_M(LogLevel, log_level, (val>=0)&&(val<=5), "Invalid log (verbosity) level!");
 SPEECHD_OPTION_CB_INT(MaxHistoryMessages, max_history_messages, val>=0, "Invalid parameter!");
@@ -351,6 +352,7 @@ load_config_options(int *num_options)
     cl_spec_section = NULL;
    
     ADD_CONFIG_OPTION(Port, ARG_INT);
+    ADD_CONFIG_OPTION(LocalhostAccessOnly, ARG_INT);
     ADD_CONFIG_OPTION(LogFile, ARG_STR);
     ADD_CONFIG_OPTION(CustomLogFile, ARG_LIST);
     ADD_CONFIG_OPTION(LogLevel, ARG_INT);
@@ -401,6 +403,7 @@ load_default_global_set_options()
 
     if (!SpeechdOptions.log_level_set) SpeechdOptions.log_level = 3;    
     if (!SpeechdOptions.port_set) SpeechdOptions.port = SPEECHD_DEFAULT_PORT;
+    if (!SpeechdOptions.localhost_access_only_set) SpeechdOptions.localhost_access_only = 1;
 
     logfile = stderr;
     custom_logfile = NULL;    
