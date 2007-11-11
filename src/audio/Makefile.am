@@ -9,16 +9,21 @@ NAS_FLAGS = -DWITH_NAS
 NAS_LIBS = -laudio -L/usr/X11R6/lib -lXau
 endif
 
+if pulse_support
+PULSE_FLAGS = -DWITH_PULSE
+PULSE_LIBS = -lpulse
+endif
+
 if alsa_support
 ALSA_FLAGS = -DWITH_ALSA
 ALSA_LIBS = -lasound
 endif
 
 
-EXTRA_DIST = alsa.c oss.c nas.c
+EXTRA_DIST = alsa.c oss.c nas.c pulse.c
 
-AM_CFLAGS = $(am_cflags) $(NAS_FLAGS) $(ALSA_FLAGS)
-libsdaudio_la_LDFLAGS = -version-info @LIB_SDAUDIO_CURRENT@:@LIB_SDAUDIO_REVISION@:@LIB_SDAUDIO_AGE@ -lm $(NAS_LIBS) $(ALSA_LIBS)
+AM_CFLAGS = $(am_cflags) $(NAS_FLAGS) $(PULSE_FLAGS) $(ALSA_FLAGS)
+libsdaudio_la_LDFLAGS = -version-info @LIB_SDAUDIO_CURRENT@:@LIB_SDAUDIO_REVISION@:@LIB_SDAUDIO_AGE@ -lm $(NAS_LIBS) $(PULSE_LIBS) $(ALSA_LIBS)
 
 spdlib_LTLIBRARIES = libsdaudio.la
 

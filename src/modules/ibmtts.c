@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.25 2007-08-07 07:35:10 lloehrer Exp $
+ * $Id: ibmtts.c,v 1.26 2007-11-11 21:59:04 gcasse Exp $
  */
 
 /* This output module operates with four threads:
@@ -304,6 +304,11 @@ MOD_OPTION_1_STR(IbmttsAudioOutputMethod);
 MOD_OPTION_1_STR(IbmttsOSSDevice);
 MOD_OPTION_1_STR(IbmttsNASServer);
 MOD_OPTION_1_STR(IbmttsALSADevice);
+MOD_OPTION_1_STR(IbmttsPulseServer);
+MOD_OPTION_1_INT(IbmttsPulseMaxLength);
+MOD_OPTION_1_INT(IbmttsPulseTargetLength);
+MOD_OPTION_1_INT(IbmttsPulsePreBuffering);
+MOD_OPTION_1_INT(IbmttsPulseMinRequest);
 
 MOD_OPTION_1_INT(IbmttsAudioChunkSize);
 MOD_OPTION_1_STR(IbmttsSoundIconFolder);
@@ -331,6 +336,11 @@ module_load(void)
     MOD_OPTION_1_STR_REG(IbmttsOSSDevice, "/dev/dsp");
     MOD_OPTION_1_STR_REG(IbmttsNASServer, NULL);
     MOD_OPTION_1_STR_REG(IbmttsALSADevice, "default");
+    MOD_OPTION_1_STR_REG(IbmttsPulseServer, "default");
+    MOD_OPTION_1_INT_REG(IbmttsPulseMaxLength, 132300);
+    MOD_OPTION_1_INT_REG(IbmttsPulseTargetLength, 4410);
+    MOD_OPTION_1_INT_REG(IbmttsPulsePreBuffering, 2200);
+    MOD_OPTION_1_INT_REG(IbmttsPulseMinRequest, 880);
 
     MOD_OPTION_1_INT_REG(IbmttsAudioChunkSize, 20000);
     MOD_OPTION_1_STR_REG(IbmttsSoundIconFolder, "/usr/share/sounds/sound-icons/");
@@ -436,6 +446,17 @@ module_init(char **status_info)
         ibmtts_audio_pars[1] = NULL;
         ibmtts_audio_id = spd_audio_open(AUDIO_ALSA, (void**) ibmtts_audio_pars, &error);
         ibmtts_audio_output_method = AUDIO_ALSA;
+    }
+    else if (!strcmp(IbmttsAudioOutputMethod, "pulse")){
+        DBG("Ibmtts: Using PulseAudio sound output.");
+	ibmtts_audio_pars[0] = (void *) IbmttsPulseServer;
+	ibmtts_audio_pars[1] = (void *) IbmttsPulseMaxLength;
+	ibmtts_audio_pars[2] = (void *) IbmttsPulseTargetLength;
+	ibmtts_audio_pars[3] = (void *) IbmttsPulsePreBuffering;
+	ibmtts_audio_pars[4] = (void *) IbmttsPulseMinRequest;
+	ibmtts_audio_pars[5] = NULL;
+        ibmtts_audio_id = spd_audio_open(AUDIO_PULSE, (void**) ibmtts_audio_pars, &error);
+        ibmtts_audio_output_method = AUDIO_PULSE;
     }
     else{
         ABORT("Sound output method specified in configuration not supported. "

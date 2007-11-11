@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: flite.c,v 1.55 2007-07-14 05:32:28 hanke Exp $
+ * $Id: flite.c,v 1.56 2007-11-11 21:59:04 gcasse Exp $
  */
 
 
@@ -75,6 +75,11 @@ MOD_OPTION_1_STR(FliteAudioOutputMethod);
 MOD_OPTION_1_STR(FliteOSSDevice);
 MOD_OPTION_1_STR(FliteNASServer);
 MOD_OPTION_1_STR(FliteALSADevice);
+MOD_OPTION_1_STR(FlitePulseServer);
+MOD_OPTION_1_INT(FlitePulseMaxLength);
+MOD_OPTION_1_INT(FlitePulseTargetLength);
+MOD_OPTION_1_INT(FlitePulsePreBuffering);
+MOD_OPTION_1_INT(FlitePulseMinRequest);
 
 /* Public functions */
 
@@ -92,6 +97,11 @@ module_load(void)
    MOD_OPTION_1_STR_REG(FliteOSSDevice, "/dev/dsp");
    MOD_OPTION_1_STR_REG(FliteNASServer, NULL);
    MOD_OPTION_1_STR_REG(FliteALSADevice, "default");
+   MOD_OPTION_1_STR_REG(FlitePulseServer, "default");
+   MOD_OPTION_1_INT_REG(FlitePulseMaxLength, 132300);
+   MOD_OPTION_1_INT_REG(FlitePulseTargetLength, 4410);
+   MOD_OPTION_1_INT_REG(FlitePulsePreBuffering, 2200);
+   MOD_OPTION_1_INT_REG(FlitePulseMinRequest, 880);
 
    return 0;
 }
@@ -148,6 +158,17 @@ module_init(char **status_info)
 	flite_pars[1] = NULL;
 	flite_audio_id = spd_audio_open(AUDIO_ALSA, (void**) flite_pars, &error);
 	flite_audio_output_method = AUDIO_ALSA;
+    }
+    else if (!strcmp(FliteAudioOutputMethod, "pulse")){
+	DBG("Using PulseAudio sound output.");
+	flite_pars[0] = (void *) FlitePulseServer;
+	flite_pars[1] = (void *) FlitePulseMaxLength;
+	flite_pars[2] = (void *) FlitePulseTargetLength;
+	flite_pars[3] = (void *) FlitePulsePreBuffering;
+	flite_pars[4] = (void *) FlitePulseMinRequest;
+	flite_pars[5] = NULL;
+	flite_audio_id = spd_audio_open(AUDIO_PULSE, (void**) flite_pars, &error);
+	flite_audio_output_method = AUDIO_PULSE;
     }
     else{	
 	ABORT("Sound output method specified in configuration not supported. "

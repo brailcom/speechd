@@ -19,7 +19,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: spd_audio.h,v 1.14 2006-07-11 16:12:26 hanke Exp $
+ * $Id: spd_audio.h,v 1.15 2007-11-11 21:59:02 gcasse Exp $
  */
 
 #include <pthread.h>
@@ -33,9 +33,14 @@
 #include <alsa/asoundlib.h>
 #endif
 
+#ifdef WITH_PULSE
+#include <pulse/pulseaudio.h>
+#include <stdio.h> // TBD
+#endif
+
 #define AUDIO_BUF_SIZE 4096
 
-typedef enum{AUDIO_OSS = 0, AUDIO_NAS = 1, AUDIO_ALSA=2} AudioOutputType;
+typedef enum{AUDIO_OSS = 0, AUDIO_NAS = 1, AUDIO_ALSA=2, AUDIO_PULSE=3} AudioOutputType;
 
 typedef struct{
     int bits;
@@ -86,6 +91,26 @@ typedef struct{
     AuFlowID flow;
     pthread_mutex_t flow_mutex;
     pthread_t nas_event_handler;
+#endif
+
+#ifdef WITH_PULSE
+    pa_context *pulse_context;
+    pa_stream *pulse_stream;
+    pa_threaded_mainloop *pulse_mainloop;
+    pa_cvolume pulse_volume;
+    int pulse_volume_valid;
+    int pulse_do_trigger;
+    int pulse_time_offset_msec;
+    int pulse_just_flushed;
+    int pulse_connected;
+    int pulse_success; // status for synchronous operation */
+    int pulse_drained;
+    pa_time_event *pulse_volume_time_event;
+    int pulse_max_length;
+    int pulse_target_length;
+    int pulse_pre_buffering;
+    int pulse_min_request;
+    char* pulse_server;
 #endif
 
     Funct *function;

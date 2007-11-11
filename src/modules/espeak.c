@@ -22,7 +22,7 @@
  * @author Lukas Loehrer
  * Based on ibmtts.c.
  *
- * $Id: espeak.c,v 1.4 2007-07-11 16:37:59 lloehrer Exp $
+ * $Id: espeak.c,v 1.5 2007-11-11 21:59:02 gcasse Exp $
  */
 
 /* < Includes*/
@@ -206,6 +206,11 @@ MOD_OPTION_1_STR(EspeakAudioOutputMethod);
 MOD_OPTION_1_STR(EspeakOSSDevice);
 MOD_OPTION_1_STR(EspeakNASServer);
 MOD_OPTION_1_STR(EspeakALSADevice);
+MOD_OPTION_1_STR(EspeakPulseServer);
+MOD_OPTION_1_INT(EspeakPulseMaxLength);
+MOD_OPTION_1_INT(EspeakPulseTargetLength);
+MOD_OPTION_1_INT(EspeakPulsePreBuffering);
+MOD_OPTION_1_INT(EspeakPulseMinRequest);
 
 MOD_OPTION_1_INT(EspeakAudioChunkSize);
 MOD_OPTION_1_INT(EspeakAudioQueueMaxSize);
@@ -227,6 +232,11 @@ module_load(void)
 	MOD_OPTION_1_STR_REG(EspeakOSSDevice, "/dev/dsp");
 	MOD_OPTION_1_STR_REG(EspeakNASServer, "tcp/localhost:5450");
 	MOD_OPTION_1_STR_REG(EspeakALSADevice, "default");
+	MOD_OPTION_1_STR_REG(EspeakPulseServer, "default");
+	MOD_OPTION_1_INT_REG(EspeakPulseMaxLength, 132300);
+	MOD_OPTION_1_INT_REG(EspeakPulseTargetLength, 4410);
+	MOD_OPTION_1_INT_REG(EspeakPulsePreBuffering, 2200);
+	MOD_OPTION_1_INT_REG(EspeakPulseMinRequest, 880);
 
 	MOD_OPTION_1_INT_REG(EspeakAudioChunkSize, 2000);
 	MOD_OPTION_1_INT_REG(EspeakAudioQueueMaxSize, 20*22050);
@@ -319,6 +329,16 @@ module_init(char **status_info)
 		espeak_audio_pars[1] = NULL;
 		espeak_audio_id = spd_audio_open(AUDIO_ALSA, (void**) espeak_audio_pars, &error);
 		espeak_audio_output_method = AUDIO_ALSA;
+	} else if (!strcmp(EspeakAudioOutputMethod, "pulse")){
+		DBG("Espeak: Using PulseAudio sound output.");
+		espeak_audio_pars[0] = (void *) EspeakPulseServer;
+		espeak_audio_pars[1] = (void *) EspeakPulseMaxLength;
+		espeak_audio_pars[2] = (void *) EspeakPulseTargetLength;
+		espeak_audio_pars[3] = (void *) EspeakPulsePreBuffering;
+		espeak_audio_pars[4] = (void *) EspeakPulseMinRequest;
+		espeak_audio_pars[5] = NULL;
+		espeak_audio_id = spd_audio_open(AUDIO_PULSE, (void**) espeak_audio_pars, &error);
+		espeak_audio_output_method = AUDIO_PULSE;
 	} else{
 		ABORT("Sound output method specified in configuration not supported. "
 			  "Please choose 'oss', 'nas', or 'alsa'.");

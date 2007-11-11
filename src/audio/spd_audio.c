@@ -19,15 +19,15 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: spd_audio.c,v 1.17 2006-07-11 16:12:26 hanke Exp $
+ * $Id: spd_audio.c,v 1.18 2007-11-11 21:59:02 gcasse Exp $
  */
 
 /* 
  * spd_audio is a simple realtime audio output library with the capability of
  * playing 8 or 16 bit data, immediate stop and synchronization. This library
- * currently provides only OSS and NAS backend. The available backends are
- * specified at compile-time using the directives WITH_OSS and WITH_NAS, but
- * the user program is allowed to switch between them at run-time.
+ * currently provides OSS, NAS, ALSA and PulseAudio backend. The available backends are
+ * specified at compile-time using the directives WITH_OSS, WITH_NAS, WITH_ALSA, 
+ * WITH_PULSE, but the user program is allowed to switch between them at run-time.
  */
 
 #include "spd_audio.h"
@@ -53,8 +53,14 @@
 #include "nas.c"
 #endif
 
+/* The ALSA backend */
 #ifdef WITH_ALSA
 #include "alsa.c"
+#endif
+
+/* The PulseAudio backend */
+#ifdef WITH_PULSE
+#include "pulse.c"
 #endif
 
 /* Open the audio device.
@@ -143,6 +149,27 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 	id->type = AUDIO_NAS;
 #else
 	*error = strdup("The sound library wasn't compiled with NAS support.");
+	return NULL;
+#endif
+    }
+    else if (type == AUDIO_PULSE){
+#ifdef WITH_PULSE
+	id->function = (Funct*) &pulse_functions;
+
+	if (id->function->open != NULL){
+	    ret = id->function->open(id, pars);
+	    if (ret != 0){
+		*error = (char*) strdup("Couldn't open connection to the PulseAudio server.");
+		return NULL;
+	    }
+	}
+	else{
+	    *error = (char*) strdup("Couldn't open PulseAudio device module.");
+	    return NULL;
+	}
+	id->type = AUDIO_PULSE;
+#else
+	*error = strdup("The sound library wasn't compiled with PulseAudio support.");
 	return NULL;
 #endif
     }

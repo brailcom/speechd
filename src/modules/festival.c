@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: festival.c,v 1.77 2007-07-11 14:09:28 pdm Exp $
+ * $Id: festival.c,v 1.78 2007-11-11 21:59:03 gcasse Exp $
  */
 
 #include "fdset.h"
@@ -106,6 +106,11 @@ MOD_OPTION_1_STR(FestivalAudioOutputMethod);
 MOD_OPTION_1_STR(FestivalOSSDevice);
 MOD_OPTION_1_STR(FestivalALSADevice);
 MOD_OPTION_1_STR(FestivalNASServer);
+MOD_OPTION_1_STR(FestivalPulseServer);
+MOD_OPTION_1_INT(FestivalPulseMaxLength);
+MOD_OPTION_1_INT(FestivalPulseTargetLength);
+MOD_OPTION_1_INT(FestivalPulsePreBuffering);
+MOD_OPTION_1_INT(FestivalPulseMinRequest);
 
 MOD_OPTION_1_INT(FestivalCacheOn);
 MOD_OPTION_1_INT(FestivalCacheMaxKBytes);
@@ -166,6 +171,11 @@ module_load(void)
     MOD_OPTION_1_STR_REG(FestivalOSSDevice, "/dev/dsp");
     MOD_OPTION_1_STR_REG(FestivalALSADevice, "default");
     MOD_OPTION_1_STR_REG(FestivalNASServer, NULL);
+    MOD_OPTION_1_STR_REG(FestivalPulseServer, "default");
+    MOD_OPTION_1_INT_REG(FestivalPulseMaxLength, 132300);
+    MOD_OPTION_1_INT_REG(FestivalPulseTargetLength, 4410);
+    MOD_OPTION_1_INT_REG(FestivalPulsePreBuffering, 2200);
+    MOD_OPTION_1_INT_REG(FestivalPulseMinRequest, 880);
 
     MOD_OPTION_1_INT_REG(FestivalCacheOn, 1);
     MOD_OPTION_1_INT_REG(FestivalCacheMaxKBytes, 5120);
@@ -251,9 +261,20 @@ module_init(char **status_info)
 	festival_audio_id = spd_audio_open(AUDIO_NAS, (void**) festival_pars, &error);
 	festival_audio_output_method = AUDIO_NAS;
     }
+    else if (!strcmp(FestivalAudioOutputMethod, "pulse")){
+	DBG("Using PulseAudio output method");
+	festival_pars[0] = (void *) FestivalPulseServer;
+	festival_pars[1] = (void *) FestivalPulseMaxLength;
+	festival_pars[2] = (void *) FestivalPulseTargetLength;
+	festival_pars[3] = (void *) FestivalPulsePreBuffering;
+	festival_pars[4] = (void *) FestivalPulseMinRequest;
+	festival_pars[5] = NULL;
+	festival_audio_id = spd_audio_open(AUDIO_PULSE, (void**) festival_pars, &error);
+	festival_audio_output_method = AUDIO_PULSE;
+    }
     else{
 	ABORT("Sound output method specified in configuration not supported. "
-	      "Please choose 'oss', 'alsa' or 'nas'.");
+	      "Please choose 'oss', 'alsa', 'nas' or 'pulse'.");
     }
     if (festival_audio_id == NULL){
 	g_string_append_printf(info, "Opening sound device failed. Reason: %s. ", error);

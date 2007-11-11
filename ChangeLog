@@ -1,3 +1,14 @@
+2007-11-11  Gilles Casse  <gcasse@oralux.org>
+
+	* src/audio/pulse.c: New file.
+
+	* configure.in, config/modules/espeak.conf,
+	config/modules/festival.conf, config/modules/flite.conf,
+	config/modules/ibmtts.conf, src/audio/Makefile.am,
+	src/audio/spd_audio.c, src/audio/spd_audio.h,
+	src/modules/espeak.c, src/modules/festival.c, src/modules/flite.c,
+	src/modules/ibmtts.c: files updated for PulseAudio support.
+
 2007-11-05  Hynek Hanke  <hanke@syrr.buchal.name>
 
 	* src/server/speaking.c (speaking_pause_all): Initialize err
@@ -108,7 +119,7 @@
 	to the output modules.
 
 2007-07-11  Milan Zamazal  <pdm@brailcom.org>
-
+>
 	* src/modules/festival_client.c: When changing Festival synthesis
 	voice, call speechd-set-festival-voice instead of
 	speechd-set-voice.
