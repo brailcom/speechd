@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.26 2007-11-11 21:59:04 gcasse Exp $
+ * $Id: ibmtts.c,v 1.27 2007-11-12 14:46:52 hanke Exp $
  */
 
 /* This output module operates with four threads:
@@ -1381,7 +1381,7 @@ ibmtts_send_to_audio(TPlaybackQueueEntry *playback_queue_entry)
         DBG("Ibmtts: Sending %i samples to audio.", track.num_samples);
         /* Volume is controlled by the synthesizer.  Always play at normal on audio device. */
         spd_audio_set_volume(ibmtts_audio_id, 75);
-        int ret = spd_audio_play(ibmtts_audio_id, track);
+        int ret = spd_audio_play(ibmtts_audio_id, track, SPD_AUDIO_LE);
         if (ret < 0) {
             DBG("ERROR: Can't play track for unknown reason.");
             return IBMTTS_FALSE;
@@ -1616,7 +1616,7 @@ ibmtts_play_file(char *filename)
         DBG("Ibmtts: Sending %i samples to audio.", track.num_samples);
         /* Volume is controlled by the synthesizer.  Always play at normal on audio device. */
         spd_audio_set_volume(ibmtts_audio_id, 0);
-        int ret = spd_audio_play(ibmtts_audio_id, track);
+        int ret = spd_audio_play(ibmtts_audio_id, track, SPD_AUDIO_LE);
         if (ret < 0) {
             DBG("ERROR: Can't play track for unknown reason.");
             result = IBMTTS_FALSE;
