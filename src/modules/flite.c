@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: flite.c,v 1.56 2007-11-11 21:59:04 gcasse Exp $
+ * $Id: flite.c,v 1.57 2007-11-12 14:46:49 hanke Exp $
  */
 
 
@@ -387,7 +387,14 @@ _flite_speak(void* nothing)
 			break;
 		    }
 		    DBG("Playing part of the message");
-		    ret = spd_audio_play(flite_audio_id, track);
+		    switch (audio_endian){
+		        case SPD_AUDIO_LE:
+		            ret = spd_audio_play(flite_audio_id, track, SPD_AUDIO_LE);
+		            break;
+		        case SPD_AUDIO_BE:
+		            ret = spd_audio_play(flite_audio_id, track, SPD_AUDIO_BE);
+		            break;
+		    }
 		    if (ret < 0) DBG("ERROR: spd_audio failed to play the track");
 		    if (flite_stop){
 			DBG("Stop in child, terminating (s)");
