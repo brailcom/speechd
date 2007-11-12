@@ -19,10 +19,11 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: spd_audio.h,v 1.15 2007-11-11 21:59:02 gcasse Exp $
+ * $Id: spd_audio.h,v 1.16 2007-11-12 14:46:06 hanke Exp $
  */
 
 #include <pthread.h>
+#include <sys/types.h>
 
 #ifdef WITH_NAS
 #include <audio/audiolib.h>
@@ -41,6 +42,13 @@
 #define AUDIO_BUF_SIZE 4096
 
 typedef enum{AUDIO_OSS = 0, AUDIO_NAS = 1, AUDIO_ALSA=2, AUDIO_PULSE=3} AudioOutputType;
+typedef enum{SPD_AUDIO_LE, SPD_AUDIO_BE} AudioFormat;
+
+#if defined(BYTE_ORDER) && BYTE_ORDER == BIG_ENDIAN
+AudioFormat audio_endian = SPD_AUDIO_BE;
+#else
+AudioFormat audio_endian = SPD_AUDIO_LE;
+#endif
 
 typedef struct{
     int bits;
@@ -134,7 +142,7 @@ typedef struct{
 
 AudioID* spd_audio_open(AudioOutputType type, void **pars, char **error);
 
-int spd_audio_play(AudioID *id, AudioTrack track);
+int spd_audio_play(AudioID *id, AudioTrack track, AudioFormat format);
 
 int spd_audio_stop(AudioID *id);
 
