@@ -19,7 +19,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: alsa.c,v 1.26 2006-07-11 16:12:26 hanke Exp $
+ * $Id: alsa.c,v 1.27 2007-11-12 14:45:57 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -451,7 +451,14 @@ alsa_play(AudioID *id, AudioTrack track)
 
     /* Choose the correct format */
     if (track.bits == 16){	
-	format = SND_PCM_FORMAT_S16_LE;
+        switch (audio_endian){
+            case SPD_AUDIO_LE:
+                format = SND_PCM_FORMAT_S16_LE;
+                break;
+            case SPD_AUDIO_BE:
+                format = SND_PCM_FORMAT_S16_BE;
+                break;
+        }
 	bytes_per_sample = 2;
     }else if (track.bits == 8){
 	bytes_per_sample = 1;
