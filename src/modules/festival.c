@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: festival.c,v 1.78 2007-11-11 21:59:03 gcasse Exp $
+ * $Id: festival.c,v 1.79 2007-11-12 14:46:17 hanke Exp $
  */
 
 #include "fdset.h"
@@ -524,7 +524,14 @@ festival_send_to_audio(FT_Wave *fwave)
     
     if (track.samples != NULL){
 	DBG("Sending to audio");
-	ret = spd_audio_play(festival_audio_id, track);
+		switch (audio_endian){
+			case SPD_AUDIO_LE:
+				ret = spd_audio_play(festival_audio_id, track, SPD_AUDIO_LE);
+				break;
+			case SPD_AUDIO_BE:
+				ret = spd_audio_play(festival_audio_id, track, SPD_AUDIO_BE);
+				break;
+		}
 	if (ret < 0) DBG("ERROR: Can't play track for unknown reason.");
 	DBG("Sent to audio.");
     }
