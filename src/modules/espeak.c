@@ -22,7 +22,7 @@
  * @author Lukas Loehrer
  * Based on ibmtts.c.
  *
- * $Id: espeak.c,v 1.5 2007-11-11 21:59:02 gcasse Exp $
+ * $Id: espeak.c,v 1.6 2007-11-12 14:46:43 hanke Exp $
  */
 
 /* < Includes*/
@@ -1086,7 +1086,7 @@ espeak_send_to_audio(TPlaybackQueueEntry *playback_queue_entry)
 	DBG("Espeak: Sending %i samples to audio.", track.num_samples);
 	/* Volume is controlled by the synthesizer.  Always play at normal on audio device. */
 	spd_audio_set_volume(espeak_audio_id, 85);
-	ret = spd_audio_play(espeak_audio_id, track);
+	ret = spd_audio_play(espeak_audio_id, track, SPD_AUDIO_LE);
 	if (ret < 0) {
 		DBG("ERROR: Can't play track for unknown reason.");
 		return FALSE;
@@ -1244,7 +1244,7 @@ espeak_play_file(char *filename)
 		DBG("Espeak: Sending %i samples to audio.", track.num_samples);
 		/* Volume is controlled by the synthesizer.  Always play at normal on audio device. */
 		spd_audio_set_volume(espeak_audio_id, EspeakSoundIconVolume);
-		int ret = spd_audio_play(espeak_audio_id, track);
+		int ret = spd_audio_play(espeak_audio_id, track, SPD_AUDIO_LE);
 		if (ret < 0) {
 			DBG("ERROR: Can't play track for unknown reason.");
 			result = FALSE;
