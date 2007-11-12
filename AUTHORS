@@ -43,4 +43,10 @@ eSpeak output module.
 Thanks to Steve Holmes <steve at holmesgrown point com> for his work on the
 generic output module.
 
+Thanks to Luke Yelavich <themuso at themuseo point com> for contributing
+fixes for the audio output subsystem.
+
+Thanks to Gilless Casse <gcasse at oralux point com> for contributing
+the Pulse Audio output module.
+
 ...and to many others.

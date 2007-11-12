@@ -1,3 +1,29 @@
+2007-11-12  Hynek Hanke  <hanke@homer.brailcom.xx>
+
+	* src/modules/espeak.c (espeak_send_to_audio): spd_audio_play
+	call updated with endian information.
+
+	* src/audio/alsa.c (alsa_play): Handle endianness correctly.
+
+	* src/modules/ibmtts.c (ibmtts_play_file): spd_audio_play
+	call updated with endian information.
+
+	* src/modules/flite.c (_flite_speak): spd_audio_play
+	call updated with endian information.
+
+	* src/modules/festival.c (festival_send_to_audio): spd_audio_play
+	call updated with endian information.
+
+	* src/modules/espeak.c (espeak_play_file): spd_audio_play
+	call updated with endian information.
+
+	* src/audio/spd_audio.h: Argument format added to spd_audio_play,
+	all callers updated.
+
+	* src/audio/spd_audio.c (spd_audio_play): Perform
+	byte swap if endianness doesn't match (Patch by Luke
+	Yelavich.
+
 2007-11-11  Gilles Casse  <gcasse@oralux.org>
 
 	* src/audio/pulse.c: New file.
