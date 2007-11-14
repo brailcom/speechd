@@ -1,3 +1,8 @@
+2007-11-14  Gilles Casse  <gcasse@oralux.org>
+
+	* src/audio/pulse.c: fixes, take in account rate changes if the stream is
+	already opened, add a missing userdata in _subscribe_cb.
+	
 2007-11-12  Hynek Hanke  <hanke@homer.brailcom.xx>
 
 	* src/modules/espeak.c (espeak_send_to_audio): spd_audio_play
