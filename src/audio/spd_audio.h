@@ -19,7 +19,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: spd_audio.h,v 1.16 2007-11-12 14:46:06 hanke Exp $
+ * $Id: spd_audio.h,v 1.17 2007-11-18 17:24:13 gcasse Exp $
  */
 
 #include <pthread.h>
@@ -112,7 +112,8 @@ typedef struct{
     int pulse_just_flushed;
     int pulse_connected;
     int pulse_success; // status for synchronous operation */
-    int pulse_drained;
+    int pulse_stop_required;
+    pthread_mutex_t pulse_mutex;
     pa_time_event *pulse_volume_time_event;
     int pulse_max_length;
     int pulse_target_length;

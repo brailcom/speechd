@@ -1,3 +1,7 @@
+2007-11-18  Gilles Casse  <gcasse@oralux.org>
+
+	* src/audio/pulse.c, src/audio/spd_audio.h: add pulse_mutex.
+	
 2007-11-14  Gilles Casse  <gcasse@oralux.org>
 
 	* src/audio/pulse.c: fixes, take in account rate changes if the stream is

@@ -20,7 +20,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: pulse.c,v 1.2 2007-11-14 22:52:55 gcasse Exp $
+ * $Id: pulse.c,v 1.3 2007-11-18 17:24:13 gcasse Exp $
  */
 
 
@@ -137,7 +137,8 @@ debug_time(const char* text)
 static void 
 display_id(AudioID *id, char*s)
 {
-  debug_show("%s >\n id=0x%x\n pulse_context=0x%x\n pulse_stream=0x%x\n pulse_mainloop=0x%x\n pulse_volume_valid=0x%x\n pulse_do_trigger=0x%x\n pulse_time_offset_msec=0x%x\n pulse_just_flushed=0x%x\n pulse_connected=0x%x\n pulse_success=0x%x, pulse_drained=0x%x\n",
+  debug_show("%s >\n id=0x%x\n pulse_context=0x%x\n pulse_stream=0x%x\n pulse_mainloop=0x%x\n pulse_volume_valid=0x%x\n pulse_do_trigger=0x%x\n pulse_time_offset_msec=0x%x\n pulse_just_flushed=0x%x\n pulse_connected=0x%x\n pulse_success=0x%x, pulse_stop_required=0x%x\n",
+	     __FUNCTION__,
 	     id, 
 	     id->pulse_context,
 	     id->pulse_stream,
@@ -148,7 +149,7 @@ display_id(AudioID *id, char*s)
 	     id->pulse_just_flushed,
 	     id->pulse_connected,
 	     id->pulse_success,
-	     id->pulse_drained);
+	     id->pulse_stop_required);
 }
 
 #endif
@@ -323,7 +324,7 @@ _stream_request_cb(pa_stream *s, size_t length, void *userdata) {
 
 static void 
 _stream_latency_update_cb(pa_stream *s, void *userdata) {
-/*   ENTER(__FUNCTION__); */
+  /*   ENTER(__FUNCTION__); */
   assert(s);
   AudioID *id = (AudioID *)userdata;
   if(!id) {
@@ -471,8 +472,7 @@ _pulse_write(AudioID *id, void* ptr, int length)
   pa_threaded_mainloop_lock(id->pulse_mainloop);
   CHECK_DEAD_GOTO(id, fail, 1);
 
-  if (id->pulse_drained || 
-      (pa_stream_write(id->pulse_stream, ptr, length, NULL, PA_SEEK_RELATIVE, (pa_seek_mode_t)0) < 0)) {
+  if (pa_stream_write(id->pulse_stream, ptr, length, NULL, PA_SEEK_RELATIVE, (pa_seek_mode_t)0) < 0) {
     ERR("pa_stream_write() failed: %s", pa_strerror(pa_context_errno(id->pulse_context)));
     ret = -1;
     goto fail;
@@ -486,26 +486,24 @@ _pulse_write(AudioID *id, void* ptr, int length)
   return ret;
 }
 
-static void 
+static int
 _drain(AudioID *id) 
 {
   pa_operation *o = NULL;
+  int ret = -1;
   assert(id);
-
-  id->pulse_success = 0;
 
   ENTER(__FUNCTION__);
 
+  CHECK_CONNECTED(id, -1);
+
+  pa_threaded_mainloop_lock(id->pulse_mainloop);
+  CHECK_DEAD_GOTO(id, fail, 1); //TBD 0 instead?
+
   SHOW("Draining...\n","");
-
-  CHECK_CONNECTED_NO_RETVAL(id);
-
   DISPLAY_ID(id, "pa_threaded_mainloop_lock");
   
-  pa_threaded_mainloop_lock(id->pulse_mainloop);
-  CHECK_DEAD_GOTO(id,fail, 0);
-
-  id->pulse_drained = 1;
+  id->pulse_success = 0;
   
   SHOW_TIME("pa_stream_drain (call)");
   if (!(o = pa_stream_drain(id->pulse_stream, _stream_success_cb, id))) {
@@ -520,19 +518,23 @@ _drain(AudioID *id)
   }
   SHOW_TIME("pa_threaded_mainloop_wait (ret)");
 
-  if (id->pulse_success == 0)
+  if (id->pulse_success == 0) {
     ERR("pa_stream_drain() failed: %s", pa_strerror(pa_context_errno(id->pulse_context)));
-    
+  } 
+  else {
+    ret = 0;
+  }
+
  fail:
   SHOW_TIME("pa_operation_unref (call)");
   if (o)
     pa_operation_unref(o);
 
-  id->pulse_drained = 0;
- 
   pa_threaded_mainloop_unlock(id->pulse_mainloop);
 
   SHOW_TIME("_drain (ret)");
+
+  return ret;
 }
 
 
@@ -543,43 +545,43 @@ _pulse_close(AudioID *id)
     
   assert(id);
 
-  _drain(id);
+  if (_drain(id) == 0) {
+    CHECK_CONNECTED_NO_RETVAL(id);    
+    id->pulse_connected = 0;
 
-  CHECK_CONNECTED_NO_RETVAL(id);
+    if (id->pulse_mainloop)
+      pa_threaded_mainloop_stop(id->pulse_mainloop);
 
-  id->pulse_connected = 0;
-
-  if (id->pulse_mainloop)
-    pa_threaded_mainloop_stop(id->pulse_mainloop);
-
-  if (id->pulse_stream) {
-    SHOW_TIME("pa_stream_disconnect (call)");
-    pa_stream_disconnect(id->pulse_stream);
-    pa_stream_unref(id->pulse_stream);
-    id->pulse_stream = NULL;
-  }
-
-  if (id->pulse_context) {
-    SHOW_TIME("pa_context_disconnect (call)");
-    pa_context_disconnect(id->pulse_context);
-    pa_context_unref(id->pulse_context);
-    id->pulse_context = NULL;
-  }
-  
-  if (id->pulse_mainloop) {
-    SHOW_TIME("pa_threaded_mainloop_free (call)");
-    pa_threaded_mainloop_free(id->pulse_mainloop);
-    id->pulse_mainloop = NULL;
-  }
-  
-  id->pulse_volume_time_event = NULL;
-
-
-  if (id->pulse_server)
-    {
-      free(id->pulse_server);
-      id->pulse_server = NULL;
+    if (id->pulse_stream) {
+      SHOW_TIME("pa_stream_disconnect (call)");
+      pa_stream_disconnect(id->pulse_stream);
+      pa_stream_unref(id->pulse_stream);
+      id->pulse_stream = NULL;
     }
+
+    if (id->pulse_context) {
+      SHOW_TIME("pa_context_disconnect (call)");
+      pa_context_disconnect(id->pulse_context);
+      pa_context_unref(id->pulse_context);
+      id->pulse_context = NULL;
+    }
+  
+    if (id->pulse_mainloop) {
+      SHOW_TIME("pa_threaded_mainloop_free (call)");
+      pa_threaded_mainloop_free(id->pulse_mainloop);
+      id->pulse_mainloop = NULL;
+    }
+  
+    id->pulse_volume_time_event = NULL;
+
+    if (id->pulse_server)
+      {
+	free(id->pulse_server);
+	id->pulse_server = NULL;
+      }
+  }else{
+    ERR("_pulse_close: error (_drain)\n","");
+  }
 
   SHOW_TIME("_pulse_close (ret)");
 }
@@ -792,10 +794,10 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
 
   assert(id);
 
-/*   assert(!id->pulse_mainloop); */
-/*   assert(!id->pulse_context); */
-/*   assert(!id->pulse_stream); */
-/*   assert(!id->pulse_connected); */
+  /*   assert(!id->pulse_mainloop); */
+  /*   assert(!id->pulse_context); */
+  /*   assert(!id->pulse_stream); */
+  /*   assert(!id->pulse_connected); */
 
   /* Choose the correct format */
   if (track.bits == 16){
@@ -824,16 +826,16 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
   SHOW("Sample spec valid\n","");
 
   /*     if (!id->pulse_volume_valid) { */
-  pa_cvolume_reset(&id->pulse_volume, ss.channels);
-  id->pulse_volume_valid = 1;
+/*   pa_cvolume_reset(&id->pulse_volume, ss.channels); */
+/*   id->pulse_volume_valid = 1; */
   /*     } else if (id->pulse_volume.channels != ss.channels) */
   /*         pa_cvolume_set(&id->pulse_volume, ss.channels, pa_cvolume_avg(&id->pulse_volume)); */
 
-/*   SHOW_TIME("pa_threaded_mainloop_new (call)"); */
-/*   if (!(id->pulse_mainloop = pa_threaded_mainloop_new())) { */
-/*     ERR("Failed to allocate main loop",""); */
-/*     goto fail; */
-/*   } */
+  /*   SHOW_TIME("pa_threaded_mainloop_new (call)"); */
+  /*   if (!(id->pulse_mainloop = pa_threaded_mainloop_new())) { */
+  /*     ERR("Failed to allocate main loop",""); */
+  /*     goto fail; */
+  /*   } */
 
   pa_threaded_mainloop_lock(id->pulse_mainloop);
 
@@ -953,7 +955,7 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
     
   pa_threaded_mainloop_unlock(id->pulse_mainloop);
 
-  SHOW("_pulse_open (ret true)\n","");
+  SHOW("_pulse_set_sample (ret true)\n","");
 
   return 0;
 
@@ -968,7 +970,7 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
 
   _pulse_close(id);
 
-  SHOW("_pulse_open (ret false)\n","");
+  SHOW("_pulse_set_sample (ret false)\n","");
     
   return -1;
 }
@@ -979,14 +981,14 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
 
 /* Open PulseaAudio for playback.
   
-  These parameters are passed in pars:
-  (char*) pars[0] ... null-terminated string containing the name
-                      of the PulseAudio server (or "default")
-  (void*) pars[1] ... Maximum length of the buffer
-  (void*) pars[2] ... Target length of the buffer
-  (void*) pars[3] ... Pre-buffering
-  (void*) pars[4] ... Minimum request
-  (void*) pars[5] ... =NULL
+   These parameters are passed in pars:
+   (char*) pars[0] ... null-terminated string containing the name
+   of the PulseAudio server (or "default")
+   (void*) pars[1] ... Maximum length of the buffer
+   (void*) pars[2] ... Target length of the buffer
+   (void*) pars[3] ... Pre-buffering
+   (void*) pars[4] ... Minimum request
+   (void*) pars[5] ... =NULL
 */
 
 int
@@ -1005,6 +1007,8 @@ pulse_open(AudioID *id, void **pars)
     return -1;
   }
     
+  pthread_mutex_init( &id->pulse_mutex, (const pthread_mutexattr_t *)NULL);
+
   id->pulse_context = NULL;
   id->pulse_stream = NULL;
   id->pulse_mainloop = NULL;
@@ -1015,9 +1019,9 @@ pulse_open(AudioID *id, void **pars)
   id->pulse_just_flushed = 0;
   id->pulse_connected = 0;
   id->pulse_success = 0;
-  id->pulse_drained = 0;
   id->pulse_volume_time_event = NULL;
-  
+  id->pulse_stop_required = 0;
+
   if (strcmp(pars[0], "default") != 0) {
     id->pulse_server = strdup(pars[0]);
   }
@@ -1042,10 +1046,7 @@ pulse_play(AudioID *id, AudioTrack track)
 
   int bytes_per_sample;
   int num_bytes;
-  int i;  
-  int err;
-  int ret;
-  unsigned int sr;
+  int ret = 0;
   unsigned int a_total_free_mem;
   pa_sample_spec ss;
 
@@ -1054,8 +1055,6 @@ pulse_play(AudioID *id, AudioTrack track)
     return -1;
   }
 
-  SHOW("Start of playback on PulseAudio\n","");
-  
   /* Is it not an empty track? */
   /* Passing an empty track is not an error */
   if (track.samples == NULL) {
@@ -1065,10 +1064,21 @@ pulse_play(AudioID *id, AudioTrack track)
 
   if (_pulse_get_sample(&track, &ss) == -1) {
     ERR("Erroneous track!\n","");
-    return 0;
+    return -1;
   }
 
+  int a_status = pthread_mutex_lock(&id->pulse_mutex);
+  if (a_status) {
+    ERR("Error: pulse_mutex lock=%d (%s)\n", a_status, __FUNCTION__);
+    return -1;
+    }
+
   if (id->pulse_mainloop) {
+    if (id->pulse_stop_required) {
+      ret = 0;
+      goto terminate;
+    }
+
     /*  if the sample spec changes, the stream will be rebuilt. */
     const pa_sample_spec *ss2 = pa_stream_get_sample_spec (id->pulse_stream);
 
@@ -1078,12 +1088,15 @@ pulse_play(AudioID *id, AudioTrack track)
   }
 
   if (!id->pulse_mainloop) {
+    if (id->pulse_stop_required) {
+      ret = 0;
+      goto terminate;
+    }
     ret = _pulse_open(id, &ss);
     if (ret != 0) {
-      return ret;
+      goto terminate;
     }
   }
-
 
   SHOW("Checking buffer size\n","");
   if (track.bits == 16){
@@ -1104,12 +1117,12 @@ pulse_play(AudioID *id, AudioTrack track)
 
   DISPLAY_ID(id, "pulse_play");
 
-  while(!id->pulse_drained && (num_bytes > 0)) {
+  while(!id->pulse_stop_required && (num_bytes > 0)) {
     SHOW("Still %d bytes left to be played\n", num_bytes);
 
     ret = _pulse_free(id, &a_total_free_mem);
-    if (ret != 0) {
-      return ret;
+    if (ret) {
+      goto terminate;
     }
 
     if (a_total_free_mem >= num_bytes) {
@@ -1118,20 +1131,22 @@ pulse_play(AudioID *id, AudioTrack track)
       num_bytes = 0;
     }
     else if (a_total_free_mem > 500) {
-      /* 500: threshold for avoiding to many calls to pulse_write */
+      /* 500: threshold for avoiding too many calls to pulse_write */
       SHOW("a_total_free_mem(%d) < num_bytes(%d)\n", a_total_free_mem, num_bytes);
       ret = _pulse_write(id, output_samples, a_total_free_mem);
       num_bytes -= a_total_free_mem;
       output_samples += a_total_free_mem/2;
     }
     if (ret) {
-	return ret;
-      }
+      goto terminate;
+    }
     usleep(10000);
   }
 
+ terminate:
+  pthread_mutex_unlock(&id->pulse_mutex);
   SHOW_TIME("pulse_play (ret)");
-  return 0;   
+  return ret;
 }
 
 int
@@ -1144,7 +1159,19 @@ pulse_stop(AudioID *id)
     return -1;
   }
 
+  id->pulse_stop_required = 1;
+  int a_status = pthread_mutex_lock(&id->pulse_mutex);
+  if (a_status) {
+    id->pulse_stop_required = 0;
+    ERR("Error: pulse_mutex lock=%d (%s)\n", a_status, __FUNCTION__);
+    return -1;
+    }
+
   _drain(id);
+
+  id->pulse_stop_required = 0;
+  a_status = pthread_mutex_unlock(&id->pulse_mutex);
+  SHOW_TIME("pulse_stop (ret)");
 
   return 0;
 }
@@ -1153,12 +1180,26 @@ int
 pulse_close(AudioID *id)
 {   
   ENTER(__FUNCTION__);
+
+  int a_status;
+  pthread_mutex_t* a_mutex = NULL;
+
   if (id == NULL){
     ERR("Invalid device passed to %s\n",__FUNCTION__);
     return -1;
   }
 
+  a_mutex = &id->pulse_mutex;
+  a_status = pthread_mutex_lock(a_mutex);
+  if (a_status) {
+    ERR("Error: pulse_mutex lock=%d (%s)\n", a_status, __FUNCTION__);
+    return -1;
+    }
+
   _pulse_close(id);
+
+  a_status = pthread_mutex_unlock(a_mutex);
+  pthread_mutex_destroy(a_mutex);
 
   return 0;
 }
