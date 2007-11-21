@@ -1,3 +1,16 @@
+2007-11-21  Hynek Hanke  <hanke@syrr.buchal.name>
+
+	* src/server/speechd.h (SpeechdOptions): New member: conf_file.
+
+	* src/server/speechd.c (speechd_options_init): New option
+	SpeechdOptions.conf_file.
+	(speechd_load_configuration): Use SpeechDOptions.conf_file.
+	(main): Fill in SpeechdOptions.conf_file with correct value.
+
+	* src/server/options.h: New option: --config-file, -C.
+
+	* src/server/options.c (options_parse): New option: --config-file.
+
 2007-11-18  Gilles Casse  <gcasse@oralux.org>
 
 	* src/audio/pulse.c, src/audio/spd_audio.h: add pulse_mutex.
