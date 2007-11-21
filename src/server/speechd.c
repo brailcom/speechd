@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.c,v 1.71 2007-11-05 09:06:12 hanke Exp $
+ * $Id: speechd.c,v 1.72 2007-11-21 14:20:12 hanke Exp $
  */
 
 #include <gmodule.h>
@@ -365,12 +365,13 @@ speechd_options_init(void)
     SpeechdOptions.port_set = 0;
     SpeechdOptions.localhost_access_only_set = 0;
     SpeechdOptions.pid_file = NULL;
+    SpeechdOptions.conf_file = NULL;
     spd_mode = SPD_MODE_DAEMON;    
 }
 
 
 void
-speechd_init(void)
+speechd_init()
 {
     int START_NUM_FD = 16;
     int ret;
@@ -468,7 +469,6 @@ speechd_init(void)
 void
 speechd_load_configuration(int sig)
 {
-    char *configfilename = SYS_CONF"/speechd.conf";
     configfile_t *configfile = NULL;
 
     /* Clean previous configuration */
@@ -489,13 +489,13 @@ speechd_load_configuration(int sig)
     spd_options = add_config_option(spd_options, &spd_num_options, "", 0,
                                     NULL, NULL, 0);
     
-    configfile = dotconf_create(configfilename, spd_options, 0, CASE_INSENSITIVE);
+    configfile = dotconf_create(SpeechdOptions.conf_file, spd_options, 0, CASE_INSENSITIVE);
     if (!configfile) DIE ("Error opening config file\n");
     if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
     dotconf_cleanup(configfile);
 
     free_config_options(spd_options, &spd_num_options);
-    MSG(2,"Configuration has been read from \"%s\"", configfilename);
+    MSG(2,"Configuration has been read from \"%s\"", SpeechdOptions.conf_file);
 }
 	
 void
@@ -633,6 +633,13 @@ main(int argc, char *argv[])
 	    SpeechdOptions.pid_file = strdup("/var/run/speech-dispatcher.pid");
 	else
 	    SpeechdOptions.pid_file = strdup(PIDPATH"speech-dispatcher.pid");
+    }
+
+    if (SpeechdOptions.conf_file == NULL){
+	if (!strcmp(SYS_CONF, ""))
+	    SpeechdOptions.conf_file = strdup("/etc/speech-dispatcher/speechd.conf");
+	else
+	    SpeechdOptions.conf_file = strdup(SYS_CONF"/speechd.conf");
     }
 
     if (create_pid_file() != 0) exit(1);
