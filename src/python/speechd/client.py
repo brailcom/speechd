@@ -25,8 +25,7 @@ A more convenient interface is provided by the 'Speaker' class.
 
 #TODO: Blocking variants for speak, char, key, sound_icon.
 
-import socket
-import sys
+import socket, sys, os
 
 try:
     import threading
@@ -367,7 +366,7 @@ class SSIPClient(object):
 
     """
     
-    SPEECH_PORT = 6560
+    DEFAULT_SPEECHD_PORT = 6560
     """Default port number for server connections."""
     
     def __init__(self, name, component='default', user='unknown',
@@ -388,7 +387,12 @@ class SSIPClient(object):
         Dispatcher documentation.
           
         """
-        self._conn = conn = _SSIP_Connection(host, port or self.SPEECH_PORT)
+        if port is None:
+            try:
+                port = int(os.environ.get('SPEECHD_PORT'))
+            except ValueError:
+                port = self.DEFAULT_SPEECHD_PORT
+        self._conn = conn = _SSIP_Connection(host, port)
         full_name = '%s:%s:%s' % (user, name, component)
         conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
         code, msg, data = conn.send_command('HISTORY', 'GET', 'CLIENT_ID')

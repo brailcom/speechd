@@ -1,3 +1,8 @@
+2007-11-22  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd/client.py (SSIPClient.__init__): Use the environment
+	variable `SPEECHD_PORT' if defined.
+
 2007-07-11  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd/client.py (SSIPClient.list_synthesis_voices.split):
