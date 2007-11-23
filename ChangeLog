@@ -1,3 +1,36 @@
+2007-11-23  Hynek Hanke  <hanke@homer.brailcom.xx>
+
+	* src/server/speechd.h (SpeechdOptions): New members: conf_dir,
+	home_speechd_dir, log_dir.
+
+	* src/server/speechd.c (speechd_options_init): Initialize
+	home_speech_dir and log_dir.
+	(speechd_init): Construct log_dir and initialize logging.
+	(logging_init): New function
+	(main): Decide where to place PID file (.speech-dispatcher/pid/,
+	PIDPATH or user specified option). Create the pid/ directory
+	in ~/.speech-dispatcher if it doesn't exist.
+
+	* src/server/module.c (load_output_module): Handle module
+	configuration with respect to MODULE_CONF_DIR, .speech-dispatcher.
+
+	* src/server/config.c (cb_LogDir): New handler.
+	(cb_LogFile): Deprecated.
+	(cb_AddModule): Do not use custom path any more,
+	construct a path to the default log directory
+	instead.
+
+	* config/speechd.conf.in: LogFile configuration option
+	removed and LogDir added.
+	Default output module is espeak.
+	Some descriptions updated.
+	Removed IncludePath as this is overriden by Dispatcher
+	to the configuration directory.
+
+2007-11-23  Hynek Hanke  <hanke@syrr.buchal.name>
+
+	* src/server/speechd.c (logging_init): New function.
+
 2007-11-21  Hynek Hanke  <hanke@syrr.buchal.name>
 
 	* src/server/speechd.h (SpeechdOptions): New member: conf_file.
