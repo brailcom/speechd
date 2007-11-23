@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.h,v 1.61 2007-11-21 14:20:50 hanke Exp $
+ * $Id: speechd.h,v 1.62 2007-11-23 18:07:13 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -111,6 +111,9 @@ struct{
     int log_level, log_level_set;
     char *pid_file;
     char *conf_file;
+    char *conf_dir;
+    char *home_speechd_dir;
+    char *log_dir;
     int max_history_messages;	/* Maximum of messages in history before they expire */
 }SpeechdOptions;
 
@@ -211,8 +214,9 @@ void speechd_options_init(void);
 void speechd_init(void);
 void speechd_load_configuration(int sig);
 void speechd_quit(int sig);
-int create_pid_file();
-void destroy_pid_file();
+int create_pid_file(void);
+void destroy_pid_file(void);
 
+void logging_init(void);
 
 #endif
