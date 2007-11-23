@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: module.c,v 1.33 2007-07-02 10:14:56 hanke Exp $
+ * $Id: module.c,v 1.34 2007-11-23 18:07:05 hanke Exp $
  */
 
 #define _GNU_SOURCE
@@ -47,6 +47,7 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
     char *arg1;
     int cfg = 0;
     int ret;
+    char *module_conf_dir;
 
     if (mod_name == NULL) return NULL;
     
@@ -54,7 +55,18 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 
     module->name = (char*) spd_strdup(mod_name);
     module->filename = (char*) spd_get_path(mod_prog, MODULEBINDIR);    
-    module->configfilename = (char*) spd_get_path(mod_cfgfile, MODULECONFDIR);
+    
+
+    if (SpeechdOptions.home_speechd_dir){	
+      module_conf_dir = g_strdup_printf("%s/conf/modules/",
+						SpeechdOptions.home_speechd_dir);
+    }else if (!strcmp(MODULECONFDIR, ""))
+      module_conf_dir = strdup(MODULECONFDIR);
+    else
+      module_conf_dir = strdup("/usr/etc/speech-dispatcher/modules/");
+    module->configfilename = (char*) spd_get_path(mod_cfgfile, module_conf_dir);
+    g_free(module_conf_dir);
+
     if (mod_dbgfile != NULL) module->debugfilename = strdup(mod_dbgfile);
     else module->debugfilename = NULL;
 
