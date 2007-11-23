@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: config.c,v 1.14 2007-11-05 09:06:30 hanke Exp $
+ * $Id: config.c,v 1.15 2007-11-23 18:07:02 hanke Exp $
  */
 
 #include <dotconf.h>
@@ -194,24 +194,28 @@ DOTCONF_CB(cb_LanguageDefaultModule)
 
 DOTCONF_CB(cb_LogFile)
 {
-    assert(cmd->data.str != NULL);
-    if (!strncmp(cmd->data.str,"stdout",6)){
-        logfile = stdout;
-        return NULL;
-    }
-    if (!strncmp(cmd->data.str,"stderr",6)){
-        logfile = stderr;
-        return NULL;
-    }
-    logfile = fopen(cmd->data.str, "a");
-    if (logfile == NULL){
-        fprintf(stderr, "Error: can't open logging file! Using stdout.\n");
-        logfile = stdout;
-    }
-    
-    MSG(2,"Speech Dispatcher Logging to file %s", cmd->data.str);
-    return NULL;
+  /* This option is DEPRECATED. If it is specified, get the directory.*/
+  assert(cmd->data.str != NULL);
+  SpeechdOptions.log_dir = g_path_get_dirname(cmd->data.str);
+  logging_init();
+
+  MSG(1, "WARNING: The LogFile option is deprecated. Directory accepted but filename ignored");
+  return NULL;
 }
+
+
+DOTCONF_CB(cb_LogDir)
+{
+  assert(cmd->data.str != NULL);
+
+  if (strcmp(cmd->data.str, "default")){
+    // cmd->data.str different from "default"
+    SpeechdOptions.log_dir = strdup(cmd->data.str);
+  }
+  logging_init();
+  return NULL;
+}
+
 
 DOTCONF_CB(cb_CustomLogFile)
 {
@@ -258,9 +262,12 @@ DOTCONF_CB(cb_AddModule)
 
     module_prgname = cmd->data.list[1];
     module_cfgfile = cmd->data.list[2];
-    module_dbgfile = cmd->data.list[3];
+   
+    module_dbgfile = g_strdup_printf("%s/%s.log", SpeechdOptions.log_dir,
+				     module_name);
 
-    cur_mod = load_output_module(module_name, module_prgname, module_cfgfile, module_dbgfile);
+    cur_mod = load_output_module(module_name, module_prgname, module_cfgfile,
+				 module_dbgfile);
     if (cur_mod == NULL){
         MSG(3, "Couldn't load specified output module");
         return NULL;
@@ -354,6 +361,7 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(Port, ARG_INT);
     ADD_CONFIG_OPTION(LocalhostAccessOnly, ARG_INT);
     ADD_CONFIG_OPTION(LogFile, ARG_STR);
+    ADD_CONFIG_OPTION(LogDir, ARG_STR);
     ADD_CONFIG_OPTION(CustomLogFile, ARG_LIST);
     ADD_CONFIG_OPTION(LogLevel, ARG_INT);
     ADD_CONFIG_OPTION(DefaultModule, ARG_STR);
