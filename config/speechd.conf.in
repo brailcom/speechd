@@ -9,11 +9,6 @@
 
 # Port 6560
 
-# This should be the path where Speech Dispatcher's configuration is stored.
-# It is the base directory for Include commands in this file.
-
-IncludePath INCLUDE_PATH
-
 # -----DEBUGING CONFIGURATION-----
 
 # LogLevel is a number between 0 and 5 that specifies
@@ -23,15 +18,20 @@ IncludePath INCLUDE_PATH
 
 LogLevel  3
 
-# LogFile specifies where Speech Dispatcher writes its logging messages
-# (status information, error messages, etc.).  Specify "stdout" for standard
-# console output or a full path to a file.
+# LogDir specifies where Speech Dispatcher writes its logging messages
+# (status information, error messages, etc.).  Specify "stdout" for
+# standard console output or a directory path. 'default' means that
+# the logs are written to the default destination (e.g. a preconfigured
+# system directory or the home directory if .speech-dispatcher is present)
+# DO NOT COMMENT OUT THIS OPTION, SET IT TO "default" if you do not
+# want to influence it.
 
-LogFile  "/var/log/speech-dispatcher/speechd.log"
-#LogFile  "stdout"
+LogDir  "default"
+#LogDir  "/var/log/speech-dispatcher/"
+#LogDir  "stdout"
 
-# CustomLogFile allows logging all messages of the given kind, regardless their
-# priority, to the given destination.
+# CustomLogFile allows logging all messages of the given kind,
+# regardless their priority, to the given destination.
 
 #CustomLogFile "protocol" "/var/log/speech-dispatcher/speechd-protocol.log"
 
@@ -125,14 +125,14 @@ DefaultVolume 100
 #  - logfile is the path where logging information should be stored
 #      (most modules support debug logging, see their configuration)
 
-AddModule "flite"        "sd_flite"     "flite.conf"  "/var/log/speech-dispatcher/flite.log"
-AddModule "festival"     "sd_festival"  "festival.conf" "/var/log/speech-dispatcher/festival.log"
-AddModule "espeak-generic" "sd_generic" "espeak-generic.conf" "/var/log/speech-dispatcher/espeak-generic.log"
-AddModule "espeak"       "sd_espeak"   "espeak.conf" "/var/log/speech-dispatcher/espeak.log"
-#AddModule "epos-generic" "sd_generic"   "epos-generic.conf" "/var/log/speech-dispatcher/epos.log"
-#AddModule "dtk-generic"  "sd_generic"   "dtk-generic.conf" "/var/log/speech-dispatcher/dtk-generic.log"
-#AddModule "ibmtts"       "sd_ibmtts"    "ibmtts.conf" "/var/log/speech-dispatcher/ibmtts.log"
-#AddModule "cicero"        "sd_cicero"     "cicero.conf"  "/var/log/speech-dispatcher/cicero.log"
+AddModule "espeak"       "sd_espeak"   "espeak.conf"
+AddModule "festival"     "sd_festival"  "festival.conf"
+AddModule "flite"        "sd_flite"     "flite.conf"
+#AddModule "espeak-generic" "sd_generic" "espeak-generic.conf"
+#AddModule "epos-generic" "sd_generic"   "epos-generic.conf"
+#AddModule "dtk-generic"  "sd_generic"   "dtk-generic.conf"
+#AddModule "ibmtts"       "sd_ibmtts"    "ibmtts.conf"
+#AddModule "cicero"        "sd_cicero"     "cicero.conf"
 
 # The output module testing doesn't actually connect to anything. It outputs
 # the requested commands to standard output and reads responses from stdandard
@@ -144,7 +144,7 @@ AddModule "espeak"       "sd_espeak"   "espeak.conf" "/var/log/speech-dispatcher
 # DefaultModule selects which output module is the default.
 # You must use one of the modules loaded with AddModule.
 
-DefaultModule flite
+DefaultModule espeak
 
 # LanguageDefaultModule selects which output modules are prefered
 # for specified languages.
