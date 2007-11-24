@@ -2,7 +2,7 @@
 /*
  * module.c - Output modules for Speech Dispatcher
  *
- * Copyright (C) 2001, 2002, 2003, 2006 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2006, 2007 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: module.c,v 1.34 2007-11-23 18:07:05 hanke Exp $
+ * $Id: module.c,v 1.35 2007-11-24 12:35:13 pdm Exp $
  */
 
 #define _GNU_SOURCE
@@ -60,7 +60,7 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
     if (SpeechdOptions.home_speechd_dir){	
       module_conf_dir = g_strdup_printf("%s/conf/modules/",
 						SpeechdOptions.home_speechd_dir);
-    }else if (!strcmp(MODULECONFDIR, ""))
+    }else if (strcmp(MODULECONFDIR, ""))
       module_conf_dir = strdup(MODULECONFDIR);
     else
       module_conf_dir = strdup("/usr/etc/speech-dispatcher/modules/");
