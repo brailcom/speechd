@@ -390,7 +390,7 @@ class SSIPClient(object):
         if port is None:
             try:
                 port = int(os.environ.get('SPEECHD_PORT'))
-            except ValueError:
+            except (ValueError, TypeError):
                 port = self.DEFAULT_SPEECHD_PORT
         self._conn = conn = _SSIP_Connection(host, port)
         full_name = '%s:%s:%s' % (user, name, component)

@@ -1,3 +1,8 @@
+2007-11-25  Tomas Cerha  <cerha@brailcom.org>
+
+	* speechd/client.py: Handle TypeError while SPEECHD_PORT value
+	conversion.
+
 2007-11-22  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd/client.py (SSIPClient.__init__): Use the environment
