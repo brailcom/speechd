@@ -222,7 +222,7 @@ snddatadir="$datadir/sounds/speech-dispatcher/"
 AC_SUBST(snddatadir)
 modulebindir="$libdir/speech-dispatcher-modules/"
 AC_SUBST(modulebindir)
-moduleconfdir="$sysconfdir/speech-dispatcher/modules/" 
+moduleconfdir="$spdconfdir/modules/" 
 AC_SUBST(moduleconfdir)
 spdlibdir="$libdir/speech-dispatcher/" 
 AC_SUBST(spdlibdir)
