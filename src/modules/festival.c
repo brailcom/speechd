@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: festival.c,v 1.79 2007-11-12 14:46:17 hanke Exp $
+ * $Id: festival.c,v 1.80 2007-11-26 14:41:03 hanke Exp $
  */
 
 #include "fdset.h"
@@ -695,7 +695,7 @@ _festival_speak(void* nothing)
 	    }       	
 
 	    if (fwave->num_samples != 0){
-		DBG("Sending message to audio: %d bytes\n",
+		DBG("Sending message to audio: %ld bytes\n",
 		    (fwave->num_samples) * sizeof(short));	
     
 		if(FestivalDebugSaveOutput){
