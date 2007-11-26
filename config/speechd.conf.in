@@ -9,7 +9,17 @@
 
 # Port 6560
 
-# -----DEBUGING CONFIGURATION-----
+# By default, the specified port is opened only for connections
+# comming from localhost. If LocalhostAccessOnly is set to 0 it
+# disables this access controll. It means that the port will be
+# accessible from all computers on the network. If you turn off this
+# option, please make sure you set up some system rules on what
+# computers are and are not allowed to access the Speech Dispatcher
+# port.
+
+# LocalhostAccessOnly 1
+
+# -----LOGGING CONFIGURATION-----
 
 # LogLevel is a number between 0 and 5 that specifies
 # how much of the logging information should be printed
@@ -36,16 +46,7 @@ LogDir  "default"
 #CustomLogFile "protocol" "/var/log/speech-dispatcher/speechd-protocol.log"
 
 
-# -----MISC OPTIONS-----
-
-# MaxHistoryMessages specifies the maximum number of messages that are stored
-# in history. If there are more, older messages expire.
-
-# MaxHistoryMessages 10000
-
-# SoundDataDir specifies the directory where sounds are stored by default.
-
-# SoundDataDir "/usr/share/sounds/sounds-library"
+# ----- VOICE PARAMETERS -----
 
 # DefaultRate controls how fast the synthesizer is going to speak.  The value
 # must be between -100 (slowest) and +100 (fastest), default is 0.
@@ -76,12 +77,17 @@ DefaultVolume 100
 # Default language with which to speak
 # DefaultLanguage  "en"
 
+
+# ----- MESSAGE DISPATCHING CONTROLL -----
+
 # DefaultClientName specifies the name of a client who didn't introduce
 # himself at the beginning of an SSIP session.
 
 # DefaultClientName  "unknown:unknown:unknown"
 
-# Use with caution, normally this shouldn't be changed globally
+# Default Priority. Use with caution, normally this shouldn't 
+# be changed globally (at this place)
+
 # DefaultPriority  "text"
 
 # DefaultPauseContext specifies by how many index marks a speech cursor should
@@ -122,8 +128,6 @@ DefaultVolume 100
 #    either relative (to lib/speech-dispatcher-modules/) or absolute
 #  - configuration is the path to the config file of this module,
 #    either relative (to etc/speechd/modules/) or absolute
-#  - logfile is the path where logging information should be stored
-#      (most modules support debug logging, see their configuration)
 
 AddModule "espeak"       "sd_espeak"   "espeak.conf"
 AddModule "festival"     "sd_festival"  "festival.conf"
@@ -134,22 +138,22 @@ AddModule "flite"        "sd_flite"     "flite.conf"
 #AddModule "ibmtts"       "sd_ibmtts"    "ibmtts.conf"
 #AddModule "cicero"        "sd_cicero"     "cicero.conf"
 
-# The output module testing doesn't actually connect to anything. It outputs
-# the requested commands to standard output and reads responses from stdandard
-# input. This way, Speech Dispatcher's communication with output modules can
-# be tested easily.
+# The output module testing doesn't actually connect to anything. It
+# outputs the requested commands to standard output and reads
+# responses from stdandard input. This way, Speech Dispatcher's
+# communication with output modules can be tested easily.
 
 # AddModule "testing"
 
-# DefaultModule selects which output module is the default.
-# You must use one of the modules loaded with AddModule.
+# DefaultModule selects which output module is the default.  You must
+# use one of the names of the modules loaded with AddModule.
 
 DefaultModule espeak
 
 # LanguageDefaultModule selects which output modules are prefered
 # for specified languages.
 
-#LanguageDefaultModule "en"  "flite"
+#LanguageDefaultModule "en"  "espeak"
 #LanguageDefaultModule "cs"  "festival"
 #LanguageDefaultModule "es"  "festival"
 
