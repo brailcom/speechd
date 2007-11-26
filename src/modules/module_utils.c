@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.c,v 1.48 2007-09-23 16:02:19 hanke Exp $
+ * $Id: module_utils.c,v 1.49 2007-11-26 14:42:01 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -379,7 +379,6 @@ module_strip_ssml(char *message)
 	    omit = 0;
 	    continue;
 	}
-	    
 	if (!strncmp(&(message[i]), "&lt;", 4)){ 
 	    i+=3;
 	    out[n++] = '<';
@@ -388,9 +387,13 @@ module_strip_ssml(char *message)
 	    i+=3;
 	    out[n++] = '>';
 	}
+	else if (!strncmp(&(message[i]), "&amp;", 5)){
+	    i+=4;
+	    out[n++] = '>';
+	}
 	else if (!omit || i == len) out[n++] = message[i];
     }
-    DBG("in stripping ssml: |%s|", out);
+    DBG("In stripping ssml: |%s|", out);
 
     return out;
 }
@@ -594,7 +597,7 @@ module_parent_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes)
 {
     int ret;
     assert(msg != NULL);
-    DBG("going to write %d bytes", bytes);
+    DBG("going to write %ld bytes", bytes);
     ret = write(dpipe.pc[1], msg, bytes);      
     DBG("written %d bytes", ret);
     return ret;
