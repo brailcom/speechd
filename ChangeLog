@@ -1,5 +1,16 @@
 2007-11-26  Hynek Hanke  <hanke@syrr.buchal.name>
 
+	* INSTALL: Example of server_access_list for Festival.
+
+	* src/modules/module_utils.c (module_parent_dp_write): %d -> %ld
+	for size_t argument.
+	(module_strip_ssml): Convert &amp; entity back to '&'.
+
+	* src/modules/festival.c: %d -> %ld for size_t argument.
+
+	* src/modules/module_utils.c (module_strip_ssml): Escape ampersound
+	SSML entity.
+
 	* src/server/Makefile.am (AM_CFLAGS): Removed MODULECONFDIR.
 
 	* config/speechd.conf.in: Default output module is espeak.

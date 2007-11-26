@@ -60,14 +60,6 @@ Please read `What is new' and `NOTES' bellow.
 
    - Default output module has been switched to espeak.
 
-   - If you want to use Pulse Audio, specify the 'pulse' option as
-     audio method in the configuration of Dispatcher output
-     modules. Given the design of Pulse Audio mixing, you will have to
-     run Speech Dispatcher under your user account, not under the root
-     or speech-dispatcher account. Please read
-     http://www.freebsoft.org/doc/speechd/speech-dispatcher_6.html
-     section Running for more information how to set this up.
-
 * Where to get it?
 
   You can get the distribution tarball of the released version from
