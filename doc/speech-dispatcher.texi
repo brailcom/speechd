@@ -346,6 +346,7 @@ help us with such a client.
 * Features::                    Description of some fetures in more detail.
 
 * Installation::                How to get it running in the best way.
+* Running::                     
 * Troubleshooting::             What to do if something doesn't work...
 
 * Configuration::               How to configure Speech Dispatcher.
@@ -478,8 +479,8 @@ For more details, @xref{Client Specific Configuration}.
 @subsection Security
 
 @menu
-* User Authentication::
-* Access Rights to Message History::
+* User Authentication::         
+* Access Rights to Message History::  
 @end menu
 
 @node User Authentication, Access Rights to Message History, Security, Security
@@ -537,7 +538,7 @@ be checked, the user is considered different from all other connected or
 previously connected users.
 
 
-@node Installation, Troubleshooting, Features, User's Documentation
+@node Installation, Running, Features, User's Documentation
 @section Installation
 
 This part only deals with the general aspects of installing
@@ -639,7 +640,102 @@ If you don't hear anything, please @xref{Troubleshooting}.
 
 @end itemize
 
-@node Troubleshooting, Configuration, Installation, User's Documentation
+@node Running, Troubleshooting, Installation, User's Documentation
+@section Running
+
+Speech Dispatcher can be executed either as a system-wide system service
+or on a per-user basis. While the first way allows speech output in early
+boot stages and congregation of speech comming from applications running
+under different system users, the second way provides more flexibility
+in user configuration and is essential in an environment where multiple
+people use the computer at the same time.
+
+@menu
+* Runnning as System Wide Service::  
+* Running Under Ordinary Users::  
+* Running in a Custom Setup::   
+* Setting Communication Port::  
+@end menu
+
+@node Runnning as System Wide Service, Running Under Ordinary Users, Running, Running
+@subsection Running as System Wide Service
+
+To run Speech Dispatcher as a system wide service, if your
+distribution supports Speech Dispatcher, most likely you will
+only have to do:
+
+@example
+/etc/init.d/speech-dispatcher start
+@end example
+
+or it will even already be started automatically. Bellow follos a more
+technical description.
+
+When running Speech Dispatcher as a system wide service, it is
+recommended to start it using an /etc/init.d/ script under a special
+user and group, like 'speech-dispatcher'. This user must have read/write
+permissions to access the PID directory (typically
+/var/run/speech-dispatcher/), read permissions to the configuration
+directory (typically /etc/speech-dispatcher/) and read/write permissions
+to the logfile directory (typically /var/log/speech-dispatcher/).  The
+listed typical path are prefixed with /usr/local/ when compiling the
+package from source code and can be overridden using compilation flags.
+
+@xref{Setting Communication Port}, for information about how to
+change the communication port from the default 6560 to other
+values.
+
+@node Running Under Ordinary Users, Running in a Custom Setup, Runnning as System Wide Service, Running
+@subsection Running Under Ordinary Users
+
+Before running Speech Dispatcher under an ordinary user account, a
+directory @file{.speech-dispatcher/conf/} should be created in the users
+home folder and all the configuration files and directories should be
+put here. If Speech Dispatcher is already installed system wide, this
+is most easily done as 
+
+@example
+# mkdir ~/.speech-dispatcher
+# mkdir ~/.speech-dispatcher/conf/
+# cp -r /etc/speech-dispatcher/* ~/.speech-dispatcher/conf/
+@end example
+
+If @file{~/.speech-dispatcher/} is found by Speech Dispatcher on
+startup, it will use the configuration placed here and ignore the
+system-wide configuration. Also, it will create the @file{log/} and
+@file{pid/} subdirectories in @file{~/.speech-dispatcher/} and use them
+for its log files and pid files respectively. This behavior can only
+be overriden directly by the command line options.
+
+It is also necessary to change the communication port, since the default
+6560 will most likely be used by a system-wide Speech Dispatcher. Please
+read @xref{Setting Communication Port}.
+
+@node Running in a Custom Setup, Setting Communication Port, Running Under Ordinary Users, Running
+@subsection Running in a Custom Setup
+
+Speech Dispatcher can be run in any other setup of executing users, port
+numbers and system paths as well. The path to configuration, pidfile and
+logfiles can be specified separately via compilation flags,
+configuration file options or command line options in this ascending
+order of their priority.
+
+@node Setting Communication Port,  , Running in a Custom Setup, Running
+@subsection Setting Communication Port
+
+The default communication port between Speech Dispatcher and user
+applications is 6560 and all applications know this port number as the
+default to contact Speech Dispatcher. If you want to change it however,
+you can do it in the configuration file speechd.conf or through a
+command line option when executing the Speech Dispatcher binary. In such
+a case, it will also be necessary to influence the port used by the
+client applications (speechd-up, Orca, speechd-el, ...]. The most easy
+way to do so is via the SPEECHD_PORT environment variable, which should
+be set to the value of the port in use (e.g. as 'export
+SPEECHD_PORT=6561') before starting the client program, although some
+programs offer another mechanism as well.
+
+@node Troubleshooting, Configuration, Running, User's Documentation
 @section Troubleshooting
 
 If you are experiencing problems when running Speech Dispatcher, please:
@@ -688,16 +784,17 @@ ordinary telnet (by default like this: @code{telnet localhost
 @cindex configuration
 @cindex default values
 
-Speech Dispatcher can be configured on several different levels.  You can
-configure the global settings through the server configuration file.  There is also
-support for per-client configuration.
+Speech Dispatcher can be configured on several different levels.  You
+can configure the global settings through the server configuration file,
+which can be placed either in the Speech Dispatcher default
+configuration system path like /etc/speech-dispatcher/ or in your home
+in ~/.speech-dispatcher, if you are running Dispatcher under an ordinary
+user.  There is also support for per-client configuration, this is,
+specifying different default values for different client applications.
 
-Furthermore, applications often come with their own means of configuring 
-speech related settings.  Please see the documentation of your application for
-details about application specific configuration.
-
-The following chapters discuss only the server configuration using a
-configuration file.
+Furthermore, applications often come with their own means of configuring
+speech related settings.  Please see the documentation of your
+application for details about application specific configuration.
 
 @menu
 * Configuration file syntax::   Basic rules.
