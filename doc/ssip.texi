@@ -859,6 +859,18 @@ client's name once it's already set are answered with an error code.
 
 Only @code{self} is allowed as the `target' argument.
 
+@item SET @{all | self | @var{id} @} OUTPUT_MODULE  @var{module}
+Set the output module to  @var{module}. This overrides the
+selection based on language. Only values returned by the
+@code{LIST OUTPUT_MODULES} command are permitted.
+@xref{list-output-modules}.
+
+@example
+SET self OUTPUT_MODULE espeak
+216 OK OUTPUT MODULE SET
+@end example
+
+
 @item SET @{ all | self | @var{id} @} LANGUAGE @var{language-code}
 Set recommended language for this client according to @var{language-code}.
 @var{language-code} is the code of the language according to RFC 1766.
@@ -1001,6 +1013,20 @@ command.  The information listed is selected according to the first
 argument of the @code{LIST} command.
 
 @table @code
+@anchor{list-output-modules}
+@item LIST OUTPUT_MOUDLES
+Lists the available output modules putting each module identification
+name one on a single line.
+
+Example:
+@example
+LIST OUTPUT_MODULES
+250-festival
+250-espeak
+250 OK MODULE LIST SENT
+@end example
+
+
 @item LIST VOICES
 Lists the available symbolic voice names putting each voice name on a single
 line. These are symbolic names that are mapped to the real voices used in the
@@ -1658,7 +1684,7 @@ In the future, these return codes should be fixed so that clients can
 rely on them.
 
 @menu
-* Sample SSIP Dialog::        
+* Sample SSIP Dialog::          
 @end menu
 
 @node Sample SSIP Dialog,  , Return Codes, Return Codes
