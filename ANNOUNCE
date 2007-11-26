@@ -1,9 +1,9 @@
 
-Speech Dispatcher 0.6.4
+Speech Dispatcher 0.6.5
 =======================
 
 The Brailcom organization is happy to announce the availability of Speech
-Dispatcher 0.6.4 developed as a part of the Free(b)Soft project. This
+Dispatcher 0.6.5 developed as a part of the Free(b)Soft project. This
 is a minor release, it contains mostly bugfixes and minor improvements.
 Please read `What is new' and `NOTES' bellow.
 
@@ -42,28 +42,36 @@ Please read `What is new' and `NOTES' bellow.
     is developed as a sperate project speechd-el. Possibly an interface
     to any other language can be developed.
 
-* What is new in 0.6.4?
+* What is new in 0.6.5?
 
- - Native output module for eSpeak (thanks to Lukas Loehrer)
- - Support for punctuation settings in the Generic output module
-	(thanks to Steve Holmes)
- - Default audio output for all modules switched to ALSA
- - Support for listing output modules and voices supported by
-   a synthesizer
- - Bug fixes (SMP related bugs, bugs in libspeechd and others)
+ - Pulse Audio output module.
 
- NOTES (0.6.4)
+ - Speech Dispatcher is now adapted for easy setup and using
+   under ordinary system user accounts.
 
-   - Orca supports Speech Dispatcher without needs for any patch
-     in its latest releases.
+ - Bugfixes.
 
-   - All output modules (except generic) are turned to use ALSA by default.
-     Generic output modules use ALSA when possible.
+ NOTES (0.6.5)
+
+   - There are changes in the configuration file. It is highly
+     recommended to replace your speechd.conf file with the
+     speechd.conf provided in this package and copy your settings
+     there. The old configuration file should however also work.
+
+   - Default output module has been switched to espeak.
+
+   - If you want to use Pulse Audio, specify the 'pulse' option as
+     audio method in the configuration of Dispatcher output
+     modules. Given the design of Pulse Audio mixing, you will have to
+     run Speech Dispatcher under your user account, not under the root
+     or speech-dispatcher account. Please read
+     http://www.freebsoft.org/doc/speechd/speech-dispatcher_6.html
+     section Running for more information how to set this up.
 
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.6.4.tar.gz
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.6.5.tar.gz
 
   We recommend you to fetch the sound icons for use with Speech Dispatcher.
   They are available at

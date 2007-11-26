@@ -1,3 +1,13 @@
+2007-11-26  Hynek Hanke  <hanke@syrr.buchal.name>
+
+	* ssip.texi: Updated with LIST OUTPUT_MODULES and
+	SET OUTPUT_MOUDLE.
+
+	* speech-dispatcher.texi (Running): New section,
+	describing how to run Speech Dispatcher as a system
+	wide service, under an ordinary user or in other
+	setups
+
 2007-07-11  Tomas Cerha  <cerha@brailcom.org>
 
 	* ssip.texi: Clarified relation of `SET LANGUAGE' and `SET

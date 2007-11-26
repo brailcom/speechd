@@ -1,4 +1,27 @@
-2007-11-23  Hynek Hanke  <hanke@homer.brailcom.xx>
+2007-11-26  Hynek Hanke  <hanke@syrr.buchal.name>
+
+	* src/server/Makefile.am (AM_CFLAGS): Removed MODULECONFDIR.
+
+	* config/speechd.conf.in: Default output module is espeak.
+
+	* version.sh: Version incremented to 0.6.5rc1
+
+	* src/server/module.c (load_output_module): Construct path to
+	module config files from SpeechdOptions.conf_dir.
+
+	* configure.in (modulebindir): MODULECONFDIR definition modified.
+
+	* src/server/speechd.c (main): Only set SpeechdOptions.conf_dir to default
+	if it was not set by the user via command line.
+
+	* src/server/options.c (options_print_help): -C changed
+	from config-file to config-dir.
+
+	* config/speechd.conf.in: LocalhostAccessOnly option
+	and its description.
+	Removed MaxHistoryMessages and SoundDataDir (obsolete).
+
+2007-11-23  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/speechd.h (SpeechdOptions): New members: conf_dir,
 	home_speechd_dir, log_dir.
@@ -27,11 +50,11 @@
 	Removed IncludePath as this is overriden by Dispatcher
 	to the configuration directory.
 
-2007-11-23  Hynek Hanke  <hanke@syrr.buchal.name>
+2007-11-23  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/speechd.c (logging_init): New function.
 
-2007-11-21  Hynek Hanke  <hanke@syrr.buchal.name>
+2007-11-21  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/speechd.h (SpeechdOptions): New member: conf_file.
 
@@ -53,7 +76,7 @@
 	* src/audio/pulse.c: fixes, take in account rate changes if the stream is
 	already opened, add a missing userdata in _subscribe_cb.
 	
-2007-11-12  Hynek Hanke  <hanke@homer.brailcom.xx>
+2007-11-12  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/modules/espeak.c (espeak_send_to_audio): spd_audio_play
 	call updated with endian information.
@@ -90,7 +113,7 @@
 	src/modules/espeak.c, src/modules/festival.c, src/modules/flite.c,
 	src/modules/ibmtts.c: files updated for PulseAudio support.
 
-2007-11-05  Hynek Hanke  <hanke@syrr.buchal.name>
+2007-11-05  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/speaking.c (speaking_pause_all): Initialize err
 	to 0.
@@ -113,11 +136,11 @@
 	option LocalhostAccessOnly with default value 1.
 	
 
-2007-09-24  Hynek Hanke  <hanke@syrr.buchal.name>
+2007-09-24  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/modules/module_main.c: Conflicting getline definition changed.
 
-2007-09-23  Hynek Hanke  <hanke@homer.brailcom.xx>
+2007-09-23  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/modules/module_utils.h: Fixed int -> size_t in getline definiton.
 
@@ -293,7 +316,7 @@
 	* configure.in: Added configuration option for espeak output
 	module (--with-espeak).
 	
-2007-07-02  Hynek Hanke  <hanke@syrr.buchal.name>
+2007-07-02  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/module.h (OutputModule): voices -- new variable.
 
@@ -326,12 +349,12 @@
 	* src/modules/module_utils.h (CLEAN_OLD_SETTINGS_TABLE)
 	(INIT_SETTINGS_TABLES): Set language to NULL.
 
-2007-06-24  Hynek Hanke  <hanke@homer.brailcom.xx>
+2007-06-24  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/modules/festival.c (module_speak): Removed NULL
 	substitutions for an empty string.
 
-2007-06-21  Hynek Hanke  <hanke@syrr.buchal.name>
+2007-06-21  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/speechd.c(speechd_init): initialize output modules list.
 
@@ -381,7 +404,7 @@
 
 	* src/modules/module_main.c (main): New command GET
 
-2007-06-16  Hynek Hanke  <hanke@homer.brailcom.xx>
+2007-06-16  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/c/api/libspeechd.c (spd_events_handler): Do not exit on
 	broken socket, but report error.
