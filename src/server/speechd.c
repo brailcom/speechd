@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.c,v 1.74 2007-11-24 12:04:24 pdm Exp $
+ * $Id: speechd.c,v 1.75 2007-11-26 14:24:39 hanke Exp $
  */
 
 #include <gmodule.h>
@@ -462,6 +462,8 @@ speechd_init()
     }
 
     /* Load configuration from the config file*/
+    MSG(4, "Reading Speech Dispatcher configuration from %s",
+	SpeechdOptions.conf_file);
     speechd_load_configuration(0);
 
     logging_init();
@@ -713,8 +715,8 @@ main(int argc, char *argv[])
       else
 	SpeechdOptions.pid_file = strdup(PIDPATH"speech-dispatcher.pid");
     }
-
-    if (SpeechdOptions.conf_file == NULL){
+    
+    if (SpeechdOptions.conf_dir == NULL){
       if (SpeechdOptions.home_speechd_dir){
 	SpeechdOptions.conf_dir = g_strdup_printf("%sconf/",
 						  SpeechdOptions.home_speechd_dir);
@@ -723,11 +725,9 @@ main(int argc, char *argv[])
       }else{
 	SpeechdOptions.conf_dir = strdup(SYS_CONF);
       }
-      SpeechdOptions.conf_file = g_strdup_printf("%s/speechd.conf",
-						 SpeechdOptions.conf_dir);
-    }else{
-      SpeechdOptions.conf_file =  g_path_get_dirname(SpeechdOptions.conf_file);
     }
+    SpeechdOptions.conf_file = g_strdup_printf("%s/speechd.conf",
+					       SpeechdOptions.conf_dir);
     /* This is needed for DotConf so that it knows where to include files from */
 
     if (create_pid_file() != 0) exit(1);
