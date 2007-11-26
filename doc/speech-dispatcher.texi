@@ -32,7 +32,7 @@
 
 This manual documents Speech Dispatcher, version @value{VERSION}.
 
-Copyright @copyright{} 2001, 2002, 2003, 2006 Brailcom, o.p.s.
+Copyright @copyright{} 2001, 2002, 2003, 2006, 2007 Brailcom, o.p.s.
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
@@ -272,16 +272,18 @@ editing text, reading email, browsing the web, etc.
 
 It's possible to use Speakup, the kernel-based screen reader, with
 software speech using the @code{speechd-up} package and Speech
-Dispatcher. A bridge for Gnome-Speech was created recently, which
-enables users to use Gnopernicus and Gnome speaking capabilities on
-top of Speech Dispatcher. The driver is distributed as a part of Gnome
-Speech.
+Dispatcher.
 
-Recently, there is also a bridge between Gnome Speech and Speech
-Dispatcher making it possible to use Gnome applications (most notably
-Gnopernicus) with Speech Dispatcher. This bridge is now part of Gnome
-Speech.  An experimental support for the Orca screen reader is available
-@uref{http://www.freebsoft.org/~cerha/orca/speech-dispatcher-backend.html}
+Orca, the primary screen reader for the Gnome Desktop, supports Speech
+Dispatcher directly since its version 2.19.0.  See
+@uref{http://live.gnome.org/Orca/SpeechDispatcher} for more
+information.
+
+There is also a bridge for Gnome Speech, which makes Speech Dispatcher
+visible as one of the available synthesizers in the Gnome Speech
+subsystem, but this method is currently deprecated in favor of direct
+Speech Dispatcher backend in Orca (but may be still the only solution
+with older ATs, such as Gnopernicus).
 
 We also provide a shared C library, a Python library and a Common Lisp
 library that implement the SSIP functions of Speech Dispatcher in a
