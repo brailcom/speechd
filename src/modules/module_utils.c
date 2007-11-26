@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.c,v 1.49 2007-11-26 14:42:01 hanke Exp $
+ * $Id: module_utils.c,v 1.50 2007-11-26 17:07:18 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -389,7 +389,7 @@ module_strip_ssml(char *message)
 	}
 	else if (!strncmp(&(message[i]), "&amp;", 5)){
 	    i+=4;
-	    out[n++] = '>';
+	    out[n++] = '&';
 	}
 	else if (!omit || i == len) out[n++] = message[i];
     }
