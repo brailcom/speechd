@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: options.c,v 1.10 2007-11-21 14:18:44 hanke Exp $
+ * $Id: options.c,v 1.11 2007-11-26 14:24:32 hanke Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would
@@ -41,7 +41,7 @@ options_print_help(char *argv[])
     "-l, --log-level      -      Set log level (1..5)\n"
     "-p, --port           -      Specify a port number\n"
     "-P, --pid-file       -      Set path to pid file\n"
-    "-C, --config-file    -      Set path to config file\n"
+    "-C, --config-dir     -      Set path to configuration\n"
     "-v, --version        -      Report version of this program\n"
     "-h, --help           -      Print this info\n\n"
     "Copyright (C) 2003,2006 Brailcom, o.p.s.\n"
@@ -109,7 +109,7 @@ options_parse(int argc, char *argv[])
 	    SPD_OPTION_SET_STR(pid_file);
 	    break;
 	case 'C':
-	    SPD_OPTION_SET_STR(conf_file);
+	    SPD_OPTION_SET_STR(conf_dir);
 	    break;
         case 'v':
             options_print_version();
