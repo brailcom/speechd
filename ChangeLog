@@ -1,3 +1,15 @@
+2007-11-30  Hynek Hanke  <hanke@syrr.buchal.name>
+
+	* INSTALL: Added Pulse Audio.
+
+	* ANNOUNCE: Added information about default access
+	restrictions. Architecture details taken out. Minor
+	details.
+
+2007-11-26  Hynek Hanke  <hanke@homer.brailcom.xx>
+
+	* src/modules/module_utils.c: Typo.
+
 2007-11-26  Hynek Hanke  <hanke@syrr.buchal.name>
 
 	* INSTALL: Example of server_access_list for Festival.
