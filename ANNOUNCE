@@ -39,12 +39,12 @@ Please read `What is new' and `NOTES' bellow.
 
 * What is new in 0.6.5?
 
- - Pulse Audio output module.
+ - Pulse Audio output module (thanks to Gilles Casse)
 
  - Speech Dispatcher is now adapted for easy setup and using
-   under ordinary system user accounts.
+   under ordinary system user accounts
 
- - Bugfixes.
+ - Bugfixes
 
  NOTES (0.6.5)
 
