@@ -16,11 +16,6 @@ Please read `What is new' and `NOTES' bellow.
   is a very high level GUI library to graphics, Speech Dispatcher is
   to speech synthesis.
 
-  The architecture of Speech Dispatcher is based on a proven
-  client/server model. The basic means of client communication
-  with Speech Dispatcher is through a TCP connection using the Speech
-  Synthesis Interface Protocol (SSIP).
-
   Key Speech Dispatcher features are:
 
   - Message priority model that allows multiple simultaneous
@@ -59,6 +54,12 @@ Please read `What is new' and `NOTES' bellow.
      there. The old configuration file should however also work.
 
    - Default output module has been switched to espeak.
+
+   - By default, the communication port of Speech Dispatcher
+     is only opened for localhost connections. Please see
+     the LocalhostAccessOnly option in speechd.conf for
+     information on how to allow connections from other
+     manchines as well.
 
 * Where to get it?
 
