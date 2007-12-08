@@ -20,13 +20,13 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: pulse.c,v 1.3 2007-11-18 17:24:13 gcasse Exp $
+ * $Id: pulse.c,v 1.4 2007-12-08 21:58:40 gcasse Exp $
  */
-
 
 /* debug */
 
 /* #define DEBUG_PULSE */
+
 #include <stdio.h>
 #include <stdarg.h>
 
@@ -74,6 +74,12 @@
 static FILE* fd_log = NULL;
 static const char* FILENAME = "/tmp/pulse.log";
 
+enum {
+  /* 100ms. 
+     If a greater value is set (several seconds), 
+     please update _pulse_timeout_start accordingly */
+  PULSE_TIMEOUT_IN_USEC = 100000,  
+};
 
 static void 
 debug_init()
@@ -498,7 +504,7 @@ _drain(AudioID *id)
   CHECK_CONNECTED(id, -1);
 
   pa_threaded_mainloop_lock(id->pulse_mainloop);
-  CHECK_DEAD_GOTO(id, fail, 1); //TBD 0 instead?
+  CHECK_DEAD_GOTO(id, fail, 1); /* TBD 0 instead? */
 
   SHOW("Draining...\n","");
   DISPLAY_ID(id, "pa_threaded_mainloop_lock");
@@ -694,7 +700,7 @@ _pulse_open(AudioID *id, pa_sample_spec* ss)
   a_attr.tlength = id->pulse_target_length;
   a_attr.prebuf = id->pulse_pre_buffering;
   a_attr.minreq = id->pulse_min_request;
-  a_attr.fragsize = 882;
+  a_attr.fragsize = 0;
 
   SHOW("attr: maxlength=%i, tlength=%i, prebuf=%i, minreq=%i, fragsize=%i\n",
        a_attr.maxlength,
@@ -884,7 +890,7 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
   a_attr.tlength = id->pulse_target_length;
   a_attr.prebuf = id->pulse_pre_buffering;
   a_attr.minreq = id->pulse_min_request;
-  a_attr.fragsize = 882;
+  a_attr.fragsize = 0;
 
   SHOW("attr: maxlength=%i, tlength=%i, prebuf=%i, minreq=%i, fragsize=%i\n",
        a_attr.maxlength,
@@ -976,6 +982,144 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
 }
 
 
+/* _pulse_timeout_thread
+   Close the PulseAudio connection after a while of inactivaty (PULSE_INFINITE_TIMEOUT_IN_SEC).
+
+   The timeout is started by pulse_play as soon as the stream has been played:
+   pulse_play indicates the current time in time_start and increments the semaphore.
+
+   If pulse_play is called again, it simply resets the time_start value.
+   
+   The semaphore incremented by pulse_play wakes up _pulse_timeout_thread which then 
+   stores the time_start value and waits for the next step (timeout occurence or semaphore).
+
+   If timeout occurs, the time_start value is compared to the previous one. 
+   If equal, _pulse_close is called. Otherwise, the timeout is ignored since pulse_play has 
+   been called again.
+*/
+static void* 
+_pulse_timeout_thread(void* the_id)
+{
+  ENTER(__FUNCTION__);
+
+  struct timespec ts;
+  struct timeval tv;	
+  int time_ref;	
+  AudioID * id = (AudioID *)the_id;
+  int a_start_is_required=0;
+  t_pulse_timeout* a_timeout = &(id->pulse_timeout);
+
+  assert (gettimeofday(&tv, NULL) != -1);
+  ts.tv_sec = tv.tv_sec;
+  ts.tv_nsec = tv.tv_usec*1000;
+
+  a_timeout->my_close_is_imminent = 0;
+
+  int i=0;
+  while(1) {
+    int err = 0;
+    
+    SHOW_TIME("sem_wait/sem_timedwait");
+
+    if (a_timeout->my_close_is_imminent) {
+      while ((err = sem_timedwait(&(a_timeout->my_sem), &ts)) == -1 
+	     && errno == EINTR) {
+	continue;
+      }
+      SHOW_TIME("sem_timedwait (ret)");
+    } 
+    else {
+      SHOW("%s > wait for a request\n", __FUNCTION__);    
+      while ((err = sem_wait(&(a_timeout->my_sem))) == -1 
+	     && errno == EINTR) {
+	continue;
+      }
+      SHOW_TIME("sem_wait (ret)");
+    }
+
+    time_ref = a_timeout->my_time_start;
+
+    assert (gettimeofday(&tv, NULL) != -1);
+
+    if (err == 0) { /* got semaphore */
+      if (time_ref) {
+	SHOW("%s > compute timeout (my_time_start=%d)\n", __FUNCTION__, time_ref);
+	int a_usec = tv.tv_usec + PULSE_TIMEOUT_IN_USEC;
+
+	tv.tv_sec += a_usec / 1000000;
+	tv.tv_usec = a_usec % 1000000;
+
+	ts.tv_sec = tv.tv_sec;	  
+	ts.tv_nsec = tv.tv_usec*1000;
+
+	a_timeout->my_close_is_imminent = 1;
+	a_timeout->my_time_start_old = time_ref;
+      }
+      else {
+	SHOW("%s > time_ref=0!\n", __FUNCTION__);
+	a_timeout->my_close_is_imminent = 0;
+      }
+    }
+    else if (a_timeout->my_close_is_imminent) { /* timeout */
+      if (a_timeout->my_time_start_old == time_ref) {	
+	SHOW("%s > timeout!\n", __FUNCTION__);
+	int a_status;
+	pthread_mutex_t* a_mutex = &id->pulse_mutex;
+
+	if ((a_status=pthread_mutex_lock(a_mutex))) {
+	  ERR("Error: pulse_mutex lock=%d (%s)\n", a_status, __FUNCTION__);
+	} 
+	else {
+	  _pulse_close(id);	
+	  pthread_mutex_unlock(a_mutex);
+	}
+      } else {
+	SHOW("%s > my_time_start has changed (old=%d, current=%d)\n", __FUNCTION__, a_timeout->my_time_start_old, time_ref);
+      }
+      a_timeout->my_close_is_imminent = 0;
+    }
+  }
+
+  SHOW_TIME("_pulse_timeout (ret)");
+  
+  return NULL;
+}
+
+/* start timeout */
+static void 
+_pulse_timeout_start(AudioID *id)
+{
+  ENTER(__FUNCTION__);
+
+  assert(id);
+  t_pulse_timeout* a_timeout = &(id->pulse_timeout);
+
+  struct timeval tv;	
+
+  assert (gettimeofday(&tv, NULL) != -1);
+  
+  /* convert the time in ms.
+     the limit (currently 5s) must be higher than PULSE_TIMEOUT_IN_USEC! */
+  a_timeout->my_time_start = tv.tv_usec/1000 + 1000*(tv.tv_sec%4);
+  SHOW("my_time_start=%d\n", a_timeout->my_time_start);
+
+  assert( sem_post(&(a_timeout->my_sem)) != -1);
+}
+
+/* stop timeout */
+static void 
+_pulse_timeout_stop(AudioID *id)
+{
+  ENTER(__FUNCTION__);
+
+  assert(id);
+  t_pulse_timeout* a_timeout = &(id->pulse_timeout);
+  a_timeout->my_time_start = 0;
+  SHOW("my_time_start=%d\n", a_timeout->my_time_start);
+}
+
+
+
 /* external services */
 
 
@@ -1008,6 +1152,19 @@ pulse_open(AudioID *id, void **pars)
   }
     
   pthread_mutex_init( &id->pulse_mutex, (const pthread_mutexattr_t *)NULL);
+
+  assert(-1 != sem_init(&(id->pulse_timeout.my_sem), 0, 0));
+  pthread_attr_t a_attrib;    
+  if (pthread_attr_init (& a_attrib)
+      || pthread_attr_setdetachstate(&a_attrib, PTHREAD_CREATE_JOINABLE)
+      || pthread_create( &(id->pulse_timeout.my_thread), 
+			 & a_attrib, 
+			 _pulse_timeout_thread, 
+			 (void*)id))
+    {
+      assert(0);
+    }
+  pthread_attr_destroy(&a_attrib);
 
   id->pulse_context = NULL;
   id->pulse_stream = NULL;
@@ -1054,6 +1211,8 @@ pulse_play(AudioID *id, AudioTrack track)
     ERR("Invalid device passed to %s()\n",__FUNCTION__);
     return -1;
   }
+
+  _pulse_timeout_stop(id);
 
   /* Is it not an empty track? */
   /* Passing an empty track is not an error */
@@ -1143,6 +1302,11 @@ pulse_play(AudioID *id, AudioTrack track)
     usleep(10000);
   }
 
+  SHOW_TIME("pulse_play > _drain");
+  _drain(id);
+
+  _pulse_timeout_start(id);
+
  terminate:
   pthread_mutex_unlock(&id->pulse_mutex);
   SHOW_TIME("pulse_play (ret)");
@@ -1191,6 +1355,7 @@ pulse_close(AudioID *id)
 
   a_mutex = &id->pulse_mutex;
   a_status = pthread_mutex_lock(a_mutex);
+
   if (a_status) {
     ERR("Error: pulse_mutex lock=%d (%s)\n", a_status, __FUNCTION__);
     return -1;
@@ -1198,6 +1363,12 @@ pulse_close(AudioID *id)
 
   _pulse_close(id);
 
+  SHOW_TIME("timeout thread cancel");
+  pthread_cancel(id->pulse_timeout.my_thread);
+  pthread_join(id->pulse_timeout.my_thread, NULL);
+  sem_destroy(&(id->pulse_timeout.my_sem));
+
+  SHOW_TIME("unlock mutex");
   a_status = pthread_mutex_unlock(a_mutex);
   pthread_mutex_destroy(a_mutex);
 

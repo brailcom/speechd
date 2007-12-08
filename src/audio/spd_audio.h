@@ -19,7 +19,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: spd_audio.h,v 1.17 2007-11-18 17:24:13 gcasse Exp $
+ * $Id: spd_audio.h,v 1.18 2007-12-08 21:58:40 gcasse Exp $
  */
 
 #include <pthread.h>
@@ -37,6 +37,16 @@
 #ifdef WITH_PULSE
 #include <pulse/pulseaudio.h>
 #include <stdio.h> // TBD
+#include <semaphore.h>
+
+typedef struct {
+  unsigned int my_time_start;
+  unsigned int my_time_start_old;
+  int my_close_is_imminent;
+  sem_t my_sem;
+  pthread_t my_thread;
+} t_pulse_timeout;
+
 #endif
 
 #define AUDIO_BUF_SIZE 4096
@@ -120,6 +130,7 @@ typedef struct{
     int pulse_pre_buffering;
     int pulse_min_request;
     char* pulse_server;
+    t_pulse_timeout pulse_timeout;  
 #endif
 
     Funct *function;

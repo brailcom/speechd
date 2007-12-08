@@ -1,3 +1,12 @@
+2007-12-08  Gilles Casse  <gcasse@oralux.org>
+
+	* src/audio/pulse.c, src/audio/spd_audio.h: automatically close
+	the PulseAudio connection after a moment of inactivity (currently
+	set to 100ms in PULSE_TIMEOUT_IN_USEC). 
+
+	* src/audio/pulse.c: pulse_play now returns once the given track
+	has been drained.
+
 2007-11-30  Hynek Hanke  <hanke@syrr.buchal.name>
 
 	* INSTALL: Added Pulse Audio.
