@@ -20,7 +20,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: pulse.c,v 1.4 2007-12-08 21:58:40 gcasse Exp $
+ * $Id: pulse.c,v 1.5 2007-12-09 11:22:00 gcasse Exp $
  */
 
 /* debug */
@@ -29,6 +29,13 @@
 
 #include <stdio.h>
 #include <stdarg.h>
+
+enum {
+  /* 100ms. 
+     If a greater value is set (several seconds), 
+     please update _pulse_timeout_start accordingly */
+  PULSE_TIMEOUT_IN_USEC = 100000,  
+};
 
 #ifdef DEBUG_PULSE
 
@@ -73,13 +80,6 @@
 
 static FILE* fd_log = NULL;
 static const char* FILENAME = "/tmp/pulse.log";
-
-enum {
-  /* 100ms. 
-     If a greater value is set (several seconds), 
-     please update _pulse_timeout_start accordingly */
-  PULSE_TIMEOUT_IN_USEC = 100000,  
-};
 
 static void 
 debug_init()
