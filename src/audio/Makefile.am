@@ -6,7 +6,7 @@ am_cflags = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_incl
 
 if nas_support
 NAS_FLAGS = -DWITH_NAS
-NAS_LIBS = -laudio -L/usr/X11R6/lib -lXau
+NAS_LIBS = -laudio -L/usr/X11R6/lib
 endif
 
 if pulse_support
@@ -23,7 +23,7 @@ endif
 EXTRA_DIST = alsa.c oss.c nas.c pulse.c
 
 AM_CFLAGS = $(am_cflags) $(NAS_FLAGS) $(PULSE_FLAGS) $(ALSA_FLAGS)
-libsdaudio_la_LDFLAGS = -version-info @LIB_SDAUDIO_CURRENT@:@LIB_SDAUDIO_REVISION@:@LIB_SDAUDIO_AGE@ -lm $(NAS_LIBS) $(PULSE_LIBS) $(ALSA_LIBS)
+libsdaudio_la_LDFLAGS = -version-info @LIB_SDAUDIO_CURRENT@:@LIB_SDAUDIO_REVISION@:@LIB_SDAUDIO_AGE@ -lpthread $(NAS_LIBS) $(PULSE_LIBS) $(ALSA_LIBS)
 
 spdlib_LTLIBRARIES = libsdaudio.la
 
