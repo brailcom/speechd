@@ -84,7 +84,7 @@ AC_CHECK_LIB(flite_usenglish,
         echo "",
 	-lflite -lm)
 
-flite_basic="-lm -lflite -lflite_cmulex -lflite_usenglish";
+flite_basic="-lflite -lflite_cmulex -lflite_usenglish";
 
 AC_CHECK_LIB(flite_cmu_us_kal16,
         register_cmu_us_kal, flite_ok="true";flite_kal="-lflite_cmu_us_kal16";echo "16-bit Kal Flite voice found. Flite support enabled.", 
