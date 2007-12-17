@@ -1,3 +1,15 @@
+2007-12-17  Hynek Hanke  <hanke@syrr.buchal.name>
+
+	* src/server/Makefile.am (speech_dispatcher_LDADD): -ldl unnecessary.
+
+	* src/modules/Makefile.am: -lm unnecessary in many modules.
+
+	* src/c/api/Makefile.am: -lm unnecessary.
+
+	* src/audio/Makefile.am (NAS_LIBS): -lXau unnecessary.
+
+	* configure.in (flite_basic): -lm unnecessary.
+
 2007-12-08  Gilles Casse  <gcasse@oralux.org>
 
 	* src/audio/pulse.c, src/audio/spd_audio.h: automatically close
