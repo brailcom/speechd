@@ -20,7 +20,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: pulse.c,v 1.5 2007-12-09 11:22:00 gcasse Exp $
+ * $Id: pulse.c,v 1.6 2007-12-19 16:48:15 gcasse Exp $
  */
 
 /* debug */
@@ -35,6 +35,11 @@ enum {
      If a greater value is set (several seconds), 
      please update _pulse_timeout_start accordingly */
   PULSE_TIMEOUT_IN_USEC = 100000,  
+
+  /* return value */
+  PULSE_OK = 0,
+  PULSE_ERROR = -1,
+  PULSE_NO_CONNECTION = -2
 };
 
 #ifdef DEBUG_PULSE
@@ -370,7 +375,7 @@ _pulse_free(AudioID *id, size_t* length) {
   ENTER(__FUNCTION__);
   assert(id);
   assert(length);
-  int ret = -1;
+  int ret = PULSE_ERROR;
   *length = 0;
   pa_operation *o = NULL;
 
@@ -388,7 +393,7 @@ _pulse_free(AudioID *id, size_t* length) {
 
   SHOW("_pulse_free: %s\n", "pa_stream_writable_size");
 
-  ret = 0;
+  ret = PULSE_OK;
 
   /* If this function is called twice with no _pulse_write() call in
    * between this means we should trigger the playback */
@@ -468,24 +473,24 @@ _pulse_write(AudioID *id, void* ptr, int length)
 {
   ENTER(__FUNCTION__);
 
-  int ret = -1;
+  int ret = PULSE_ERROR;
   assert(id);
 
   SHOW("_pulse_write > length=%d\n", length);
 
-  CHECK_CONNECTED(id, -1);
+  CHECK_CONNECTED(id, PULSE_ERROR);
 
   pa_threaded_mainloop_lock(id->pulse_mainloop);
   CHECK_DEAD_GOTO(id, fail, 1);
 
   if (pa_stream_write(id->pulse_stream, ptr, length, NULL, PA_SEEK_RELATIVE, (pa_seek_mode_t)0) < 0) {
     ERR("pa_stream_write() failed: %s", pa_strerror(pa_context_errno(id->pulse_context)));
-    ret = -1;
+    ret = PULSE_ERROR;
     goto fail;
   }
     
   id->pulse_do_trigger = 0;
-  ret = 0;
+  ret = PULSE_OK;
 
  fail:    
   pa_threaded_mainloop_unlock(id->pulse_mainloop);
@@ -496,12 +501,12 @@ static int
 _drain(AudioID *id) 
 {
   pa_operation *o = NULL;
-  int ret = -1;
+  int ret = PULSE_ERROR;
   assert(id);
 
   ENTER(__FUNCTION__);
 
-  CHECK_CONNECTED(id, -1);
+  CHECK_CONNECTED(id, PULSE_ERROR);
 
   pa_threaded_mainloop_lock(id->pulse_mainloop);
   CHECK_DEAD_GOTO(id, fail, 1); /* TBD 0 instead? */
@@ -528,7 +533,7 @@ _drain(AudioID *id)
     ERR("pa_stream_drain() failed: %s", pa_strerror(pa_context_errno(id->pulse_context)));
   } 
   else {
-    ret = 0;
+    ret = PULSE_OK;
   }
 
  fail:
@@ -607,7 +612,7 @@ _pulse_get_sample(const AudioTrack* track, pa_sample_spec* ss)
     ss->format = PA_SAMPLE_U8; 
   }else{
     ERR("Unsupported sound data format, track.bits = %d\n", track->bits);
-    return -1;
+    return PULSE_ERROR;
   }
 
   ss->rate = track->sample_rate;
@@ -620,19 +625,22 @@ _pulse_get_sample(const AudioTrack* track, pa_sample_spec* ss)
 
   if (!pa_sample_spec_valid(ss)) {      
     ERR("Sample spec not valid!\n","");
-    return -1;
+    return PULSE_ERROR;
   }
 
   SHOW("Sample spec valid\n","");
-  return 0;
+  return PULSE_OK;
 }
 
+
+/* return PULSE_OK, PULSE_ERROR, PULSE_NO_CONNECTION */
 static int 
 _pulse_open(AudioID *id, pa_sample_spec* ss) 
 {
   ENTER(__FUNCTION__);
   
   pa_operation *o = NULL;
+  int ret = PULSE_ERROR;
 
   assert(id && ss);
 
@@ -667,6 +675,7 @@ _pulse_open(AudioID *id, pa_sample_spec* ss)
   SHOW_TIME("pa_context_connect (call)");
   if (pa_context_connect(id->pulse_context, id->pulse_server, (pa_context_flags_t)0, NULL) < 0) {
     ERR("Failed to connect to server: %s", pa_strerror(pa_context_errno(id->pulse_context)));
+    ret = PULSE_NO_CONNECTION;
     goto unlock_and_fail;
   }
 
@@ -682,6 +691,9 @@ _pulse_open(AudioID *id, pa_sample_spec* ss)
 
   if (pa_context_get_state(id->pulse_context) != PA_CONTEXT_READY) {
     ERR("Failed to connect to server: %s", pa_strerror(pa_context_errno(id->pulse_context)));
+    ret = PULSE_NO_CONNECTION;
+    if (id->pulse_mainloop)
+      pa_threaded_mainloop_stop(id->pulse_mainloop);
     goto unlock_and_fail;
   }
 
@@ -773,7 +785,7 @@ _pulse_open(AudioID *id, pa_sample_spec* ss)
 
   SHOW("_pulse_open (ret true)\n","");
 
-  return 0;
+  return PULSE_OK;
 
  unlock_and_fail:
 
@@ -784,11 +796,26 @@ _pulse_open(AudioID *id, pa_sample_spec* ss)
     
  fail:
 
-  _pulse_close(id);
+  if (ret == PULSE_NO_CONNECTION) {
+    if (id->pulse_mainloop) {
+      SHOW_TIME("pa_threaded_mainloop_free (call)");
+      pa_threaded_mainloop_free(id->pulse_mainloop);
+      id->pulse_mainloop = NULL;
+    }
+  
+    if (id->pulse_server)
+      {
+	free(id->pulse_server);
+	id->pulse_server = NULL;
+      }
+  } 
+  else {
+    _pulse_close(id);
+  }
 
-  SHOW("_pulse_open (ret false)\n","");
+  SHOW("_pulse_open (ret %d)\n", ret);
     
-  return -1;
+  return ret;
 }
 
 static int 
@@ -797,6 +824,7 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
   ENTER(__FUNCTION__);
   pa_sample_spec ss;
   pa_operation *o = NULL;
+  int ret = PULSE_ERROR;
 
   assert(id);
 
@@ -813,7 +841,7 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
     ss.format = PA_SAMPLE_U8; 
   }else{
     ERR("Unsupported sound data format, track.bits = %d\n", track.bits);
-    return -1;
+    return PULSE_ERROR;
   }
 
   ss.rate = track.sample_rate;
@@ -826,7 +854,7 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
 
   if (!pa_sample_spec_valid(&ss)) {      
     ERR("Sample spec not valid!\n","");
-    return -1;
+    return PULSE_ERROR;
   }
 
   SHOW("Sample spec valid\n","");
@@ -857,6 +885,7 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
   SHOW_TIME("pa_context_connect (call)");
   if (pa_context_connect(id->pulse_context, id->pulse_server, (pa_context_flags_t)0, NULL) < 0) {
     ERR("Failed to connect to server: %s", pa_strerror(pa_context_errno(id->pulse_context)));
+    ret = PULSE_NO_CONNECTION;
     goto unlock_and_fail;
   }
 
@@ -872,6 +901,9 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
 
   if (pa_context_get_state(id->pulse_context) != PA_CONTEXT_READY) {
     ERR("Failed to connect to server: %s", pa_strerror(pa_context_errno(id->pulse_context)));
+    ret = PULSE_NO_CONNECTION;
+    if (id->pulse_mainloop)
+      pa_threaded_mainloop_stop(id->pulse_mainloop);
     goto unlock_and_fail;
   }
 
@@ -963,7 +995,7 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
 
   SHOW("_pulse_set_sample (ret true)\n","");
 
-  return 0;
+  return PULSE_OK;
 
  unlock_and_fail:
 
@@ -973,12 +1005,26 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
   pa_threaded_mainloop_unlock(id->pulse_mainloop);
     
  fail:
-
-  _pulse_close(id);
+  if (ret == PULSE_NO_CONNECTION) {
+    if (id->pulse_mainloop) {
+      SHOW_TIME("pa_threaded_mainloop_free (call)");
+      pa_threaded_mainloop_free(id->pulse_mainloop);
+      id->pulse_mainloop = NULL;
+    }
+  
+    if (id->pulse_server)
+      {
+	free(id->pulse_server);
+	id->pulse_server = NULL;
+      }
+  } 
+  else {
+    _pulse_close(id);
+  }
 
   SHOW("_pulse_set_sample (ret false)\n","");
     
-  return -1;
+  return ret;
 }
 
 
@@ -1017,7 +1063,7 @@ _pulse_timeout_thread(void* the_id)
 
   int i=0;
   while(1) {
-    int err = 0;
+    int err = PULSE_OK;
     
     SHOW_TIME("sem_wait/sem_timedwait");
 
@@ -1041,7 +1087,7 @@ _pulse_timeout_thread(void* the_id)
 
     assert (gettimeofday(&tv, NULL) != -1);
 
-    if (err == 0) { /* got semaphore */
+    if (err == PULSE_OK) { /* got semaphore */
       if (time_ref) {
 	SHOW("%s > compute timeout (my_time_start=%d)\n", __FUNCTION__, time_ref);
 	int a_usec = tv.tv_usec + PULSE_TIMEOUT_IN_USEC;
@@ -1143,12 +1189,12 @@ pulse_open(AudioID *id, void **pars)
 
   if (id == NULL){
     ERR("Can't open PulseAudio sound output, invalid AudioID structure.\n","");
-    return -1;
+    return PULSE_ERROR;
   }
 
   if (pars[0] == NULL){
     ERR("Can't open PulseAudio sound output, missing parameters in argument.\n","");
-    return -1;
+    return PULSE_ERROR;
   }
     
   pthread_mutex_init( &id->pulse_mutex, (const pthread_mutexattr_t *)NULL);
@@ -1193,7 +1239,7 @@ pulse_open(AudioID *id, void **pars)
 
   SHOW("PulseAudio sound output opened\n","");
 
-  return 0;
+  return PULSE_OK;
 }
 
 int
@@ -1203,13 +1249,13 @@ pulse_play(AudioID *id, AudioTrack track)
 
   int bytes_per_sample;
   int num_bytes;
-  int ret = 0;
+  int ret = PULSE_OK;
   unsigned int a_total_free_mem;
   pa_sample_spec ss;
 
   if (id == NULL){
     ERR("Invalid device passed to %s()\n",__FUNCTION__);
-    return -1;
+    return PULSE_ERROR;
   }
 
   _pulse_timeout_stop(id);
@@ -1218,23 +1264,23 @@ pulse_play(AudioID *id, AudioTrack track)
   /* Passing an empty track is not an error */
   if (track.samples == NULL) {
     ERR("Empty track!\n","");
-    return 0;
+    return PULSE_OK;
   }
 
-  if (_pulse_get_sample(&track, &ss) == -1) {
+  if (_pulse_get_sample(&track, &ss) == PULSE_ERROR) {
     ERR("Erroneous track!\n","");
-    return -1;
+    return PULSE_ERROR;
   }
 
   int a_status = pthread_mutex_lock(&id->pulse_mutex);
   if (a_status) {
     ERR("Error: pulse_mutex lock=%d (%s)\n", a_status, __FUNCTION__);
-    return -1;
+    return PULSE_ERROR;
     }
 
   if (id->pulse_mainloop) {
     if (id->pulse_stop_required) {
-      ret = 0;
+      ret = PULSE_OK;
       goto terminate;
     }
 
@@ -1248,11 +1294,11 @@ pulse_play(AudioID *id, AudioTrack track)
 
   if (!id->pulse_mainloop) {
     if (id->pulse_stop_required) {
-      ret = 0;
+      ret = PULSE_OK;
       goto terminate;
     }
     ret = _pulse_open(id, &ss);
-    if (ret != 0) {
+    if (ret != PULSE_OK) {
       goto terminate;
     }
   }
@@ -1264,7 +1310,7 @@ pulse_play(AudioID *id, AudioTrack track)
     bytes_per_sample = 1;    
   }else{
     ERR("Unsupported sound data format, track.bits = %d\n", track.bits);
-    return -1;
+    return PULSE_ERROR;
   }
 
   /* Loop until all samples are played on the device. */
@@ -1309,6 +1355,7 @@ pulse_play(AudioID *id, AudioTrack track)
 
  terminate:
   pthread_mutex_unlock(&id->pulse_mutex);
+  SHOW("pulse_play: ret=%d", ret);
   SHOW_TIME("pulse_play (ret)");
   return ret;
 }
@@ -1320,7 +1367,7 @@ pulse_stop(AudioID *id)
 
   if (id == NULL){
     ERR("Invalid device passed to %s\n",__FUNCTION__);
-    return -1;
+    return PULSE_ERROR;
   }
 
   id->pulse_stop_required = 1;
@@ -1328,7 +1375,7 @@ pulse_stop(AudioID *id)
   if (a_status) {
     id->pulse_stop_required = 0;
     ERR("Error: pulse_mutex lock=%d (%s)\n", a_status, __FUNCTION__);
-    return -1;
+    return PULSE_ERROR;
     }
 
   _drain(id);
@@ -1337,7 +1384,7 @@ pulse_stop(AudioID *id)
   a_status = pthread_mutex_unlock(&id->pulse_mutex);
   SHOW_TIME("pulse_stop (ret)");
 
-  return 0;
+  return PULSE_OK;
 }
 
 int
@@ -1350,7 +1397,7 @@ pulse_close(AudioID *id)
 
   if (id == NULL){
     ERR("Invalid device passed to %s\n",__FUNCTION__);
-    return -1;
+    return PULSE_ERROR;
   }
 
   a_mutex = &id->pulse_mutex;
@@ -1358,7 +1405,7 @@ pulse_close(AudioID *id)
 
   if (a_status) {
     ERR("Error: pulse_mutex lock=%d (%s)\n", a_status, __FUNCTION__);
-    return -1;
+    return PULSE_ERROR;
     }
 
   _pulse_close(id);
@@ -1372,7 +1419,7 @@ pulse_close(AudioID *id)
   a_status = pthread_mutex_unlock(a_mutex);
   pthread_mutex_destroy(a_mutex);
 
-  return 0;
+  return PULSE_OK;
 }
 
 int
@@ -1384,7 +1431,7 @@ pulse_set_volume(AudioID*id, int volume)
 
   if ((volume > 100) || (volume < -100)){
     ERR("Requested volume out of range (%d)", volume);
-    return -1;
+    return PULSE_ERROR;
   }
 
   if (id->pulse_connected) {
@@ -1412,7 +1459,7 @@ pulse_set_volume(AudioID*id, int volume)
   if (id->pulse_connected)
     pa_threaded_mainloop_unlock(id->pulse_mainloop);
     
-  return 0;
+  return PULSE_OK;
 }
 
 /* Provide the PulseAudio backend */

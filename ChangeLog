@@ -1,3 +1,9 @@
+2007-12-19  Gilles Casse  <gcasse@oralux.org>
+
+	* src/audio/pulse.c: if the connection to the PulseAudio server
+	fails, the internal allocations are now cleaned up. Define the
+	error values in an enum.
+	
 2007-12-17  Hynek Hanke  <hanke@syrr.buchal.name>
 
 	* src/server/Makefile.am (speech_dispatcher_LDADD): -ldl unnecessary.
