@@ -1,3 +1,8 @@
+2007-12-23  Gilles Casse  <gcasse@oralux.org>
+
+	* src/audio/pulse.c: if the connection to the PulseAudio server
+	fails, pulse_context must be freed too.
+	
 2007-12-19  Gilles Casse  <gcasse@oralux.org>
 
 	* src/audio/pulse.c: if the connection to the PulseAudio server

@@ -20,7 +20,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: pulse.c,v 1.6 2007-12-19 16:48:15 gcasse Exp $
+ * $Id: pulse.c,v 1.7 2007-12-23 22:48:58 gcasse Exp $
  */
 
 /* debug */
@@ -797,6 +797,13 @@ _pulse_open(AudioID *id, pa_sample_spec* ss)
  fail:
 
   if (ret == PULSE_NO_CONNECTION) {
+    if (id->pulse_context) {
+      SHOW_TIME("pa_context_disconnect (call)");
+      pa_context_disconnect(id->pulse_context);
+      pa_context_unref(id->pulse_context);
+      id->pulse_context = NULL;
+    }
+  
     if (id->pulse_mainloop) {
       SHOW_TIME("pa_threaded_mainloop_free (call)");
       pa_threaded_mainloop_free(id->pulse_mainloop);
@@ -1006,6 +1013,13 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
     
  fail:
   if (ret == PULSE_NO_CONNECTION) {
+    if (id->pulse_context) {
+      SHOW_TIME("pa_context_disconnect (call)");
+      pa_context_disconnect(id->pulse_context);
+      pa_context_unref(id->pulse_context);
+      id->pulse_context = NULL;
+    }
+  
     if (id->pulse_mainloop) {
       SHOW_TIME("pa_threaded_mainloop_free (call)");
       pa_threaded_mainloop_free(id->pulse_mainloop);
