@@ -1,3 +1,8 @@
+2008-01-14  Hynek Hanke  <hanke@syrr.buchal.name>
+
+	* src/c/api/libspeechd.h: Added include stddef, so that
+	we have type wchar_t.
+
 2007-12-23  Gilles Casse  <gcasse@oralux.org>
 
 	* src/audio/pulse.c: if the connection to the PulseAudio server
