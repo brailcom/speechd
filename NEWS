@@ -1,5 +1,11 @@
 
-Version 0.6.3
+Version 0.6.5
+ * Pulse Audio output module (thanks to Gilles Casse)
+ * Speech Dispatcher is now adapted for easy setup and using
+   under ordinary system user accounts
+ * Bugfixes
+
+Version 0.6.4
  * Native output module for eSpeak (thanks to Lukas Loehrer)
  * Support for punctuation settings in the Generic output module
 	(thanks to Steve Holmes)
