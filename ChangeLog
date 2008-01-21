@@ -1,3 +1,8 @@
+2008-01-21  Hynek Hanke  <hanke@homer.brailcom.xx>
+
+	* NEWS: 0.6.5 added. 
+	0.6.3 -> 0.6.4 (there was no 0.6.3 oficial release).
+
 2008-01-14  Hynek Hanke  <hanke@syrr.buchal.name>
 
 	* src/c/api/libspeechd.h: Added include stddef, so that
