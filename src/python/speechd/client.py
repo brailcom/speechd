@@ -366,11 +366,13 @@ class SSIPClient(object):
 
     """
     
+    DEFAULT_SPEECHD_HOST = '127.0.0.1'
+    """Default host for server connections."""
     DEFAULT_SPEECHD_PORT = 6560
     """Default port number for server connections."""
     
-    def __init__(self, name, component='default', user='unknown',
-                 host='127.0.0.1', port=None):
+    def __init__(self, name, component='default', user='unknown', host=None,
+                 port=None):
         """Initialize the instance and connect to the server.
 
         Arguments:
@@ -387,6 +389,8 @@ class SSIPClient(object):
         Dispatcher documentation.
           
         """
+        if host is None:
+            host = os.environ.get('SPEECHD_HOST', self.DEFAULT_SPEECHD_HOST)
         if port is None:
             try:
                 port = int(os.environ.get('SPEECHD_PORT'))
