@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: msg.h,v 1.28 2007-06-21 20:29:41 hanke Exp $
+ * $Id: msg.h,v 1.29 2008-02-01 11:23:35 hanke Exp $
  */
 
 #ifndef MSG_H
@@ -126,6 +126,7 @@
 #define ERR_NOT_IMPLEMENTED                     "380 ERR NOT YET IMPLEMENTED\r\n"
 
 #define ERR_INVALID_COMMAND                     "500 ERR INVALID COMMAND\r\n"
+#define ERR_INVALID_ENCODING                    "501 ERR INVALID ENCODING\r\n"
 #define ERR_MISSING_PARAMETER	                "510 ERR MISSING PARAMETER\r\n"
 #define ERR_NOT_A_NUMBER                        "511 ERR PARAMETER NOT A NUMBER\r\n"
 #define ERR_NOT_A_STRING                        "512 ERR PARAMETER NOT A STRING\r\n"
