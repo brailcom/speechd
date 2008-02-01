@@ -1,3 +1,18 @@
+2008-02-01  Hynek Hanke  <hanke@mach>
+
+	* src/server/parse.c (parse): Check for proper UTF-8 on input.
+	(parse_general_event): Check for proper UTF-8 on input.
+
+	* src/server/msg.h (ERR_INVALID_ENCODING): New error message ERR_INVALID_ENCODING.
+
+	* src/audio/spd_audio.c (spd_audio_play): Formatting.
+
+	* src/server/parse.c (parse): Check for proper UTF-8 encoding in message data.
+	(parse_general_event): Check for proper UTF-8 in events.
+
+	* src/audio/alsa.c (alsa_stop): Removed log message call to snd_pcm_state
+	so that it doesn't create race conditions. 
+
 2008-01-21  Hynek Hanke  <hanke@homer.brailcom.xx>
 
 	* NEWS: 0.6.5 added. 
