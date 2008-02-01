@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: parse.c,v 1.68 2007-06-21 20:29:52 hanke Exp $
+ * $Id: parse.c,v 1.69 2008-02-01 11:24:24 hanke Exp $
  */
 
 #include <ctype.h>
@@ -76,8 +76,8 @@ parse(const char *buf, const int bytes, const int fd)
     if ((buf == NULL) || (bytes == 0)){
         if(SPEECHD_DEBUG) FATAL("invalid buffer for parse()\n");
         return strdup(ERR_INTERNAL);
-    }	
-   	
+    }
+ 
     /* First the condition that we are not in data mode and we
      * are awaiting commands */
     if (SpeechdSocket[fd].awaiting_data == 0){
@@ -138,11 +138,13 @@ parse(const char *buf, const int bytes, const int fd)
          enddata:
         /* In the end of the data flow we got a "\r\n.\r\n" command. */
         MSG(5,"Buffer: |%s| bytes:", buf, bytes);
-        if(((bytes >= 5)&&((!strncmp(buf, "\r\n.\r\n", bytes))))||(end_data == 1)
-           ||((bytes == 3)&&(!strncmp(buf, ".\r\n", bytes)))){
+
+        if(((bytes >= 5) && ((!strncmp(buf, "\r\n.\r\n", bytes))))||(end_data == 1)
+           ||((bytes == 3) && (!strncmp(buf, ".\r\n", bytes)))){
 
             MSG(5,"Finishing data");
             end_data = 0;
+
             /* Set the flag to command mode */
             MSG(5, "Switching back to command mode...");
             SpeechdSocket[fd].awaiting_data = 0;
@@ -152,7 +154,17 @@ parse(const char *buf, const int bytes, const int fd)
 	    /* TODO: Remove? */
             if ((bytes == 3) && (SpeechdSocket[fd].o_bytes > 2)) SpeechdSocket[fd].o_bytes -= 2;
 
+	    /* Check if message contains any data */
             if (SpeechdSocket[fd].o_bytes == 0) return strdup(OK_MSG_CANCELED);
+
+	    /* Check buffer for proper UTF-8 encoding */
+	    if (!g_utf8_validate(SpeechdSocket[fd].o_buf->str, SpeechdSocket[fd].o_bytes, NULL))
+	      {
+		MSG(3, "ERROR: Invalid character encoding on input (failed UTF-8 validation)");
+		MSG(3, "Rejecting this message.");
+		return strdup(ERR_INVALID_ENCODING);
+	      }
+
             new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
             new->bytes = SpeechdSocket[fd].o_bytes;
 	    new->buf = (char*) spd_malloc(new->bytes + 1);
@@ -748,6 +760,16 @@ parse_general_event(const char *buf, const int bytes, const int fd, EMessageType
 	spd_free(param);
 	return strdup(ERR_MISSING_PARAMETER);
     }
+
+    /* Check for proper UTF-8 */
+    /* Check buffer for proper UTF-8 encoding */
+    if (!g_utf8_validate(buf, bytes, NULL))
+      {
+	MSG(3, "ERROR: Invalid character encoding on event input (failed UTF-8 validation)");
+	MSG(3, "Rejecting this event (char/key/sound_icon).");
+	return strdup(ERR_INVALID_ENCODING);
+      }
+
 
     msg = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
     msg->bytes = strlen(param);
