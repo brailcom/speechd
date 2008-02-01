@@ -19,7 +19,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: alsa.c,v 1.27 2007-11-12 14:45:57 hanke Exp $
+ * $Id: alsa.c,v 1.28 2008-02-01 11:22:03 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -734,9 +734,6 @@ alsa_stop(AudioID *id)
     if (id->alsa_opened){
 	/* This constant is arbitrary */
 	buf = 42;
-	
-	MSG("Request for stop, device state is %s",
-	    snd_pcm_state_name(snd_pcm_state(id->alsa_pcm)));
 	
 	if (id == NULL) return 0;
 	
