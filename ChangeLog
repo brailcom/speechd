@@ -1,4 +1,23 @@
+2008-02-04  Hynek Hanke  <hanke@mach>
+
+	* configure.in (LIB_SPD_AGE): Create src/python/Makefile.
+
 2008-02-01  Hynek Hanke  <hanke@mach>
+
+	* src/modules/cicero.c (_cicero_speak): Fixed bug: assigment instead of comparision.
+
+	* src/modules/festival.c (_festival_speak): Removed debugging messages.
+
+	* src/server/speaking.c (speaking_resume_all): Initialize err correctly.
+
+	* src/server/history.c (history_say_id): 
+
+	* src/audio/pulse.c (pulse_open): Casts changed from int to
+	size_t, which is the correct size for pars[1..4]
+	(pulse_play): a_total_mem_free changed from int to size_t.
+
+	* src/server/speechd.c (fatal_error): Cosmetic to avoid
+	gcc warning.
 
 	* src/server/parse.c (parse): Check for proper UTF-8 on input.
 	(parse_general_event): Check for proper UTF-8 on input.
