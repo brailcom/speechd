@@ -1,3 +1,7 @@
+2008-02-04  Hynek Hanke  <hanke@mach>
+
+	* Makefile.in: New file. Propagate $prefix correctly.
+
 2008-01-29  Tomas Cerha  <cerha@brailcom.org>
 
 	* speechd/client.py (SSIPClient.__init__): Use the environment
