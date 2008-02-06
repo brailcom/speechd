@@ -22,7 +22,7 @@
  * @author Lukas Loehrer
  * Based on ibmtts.c.
  *
- * $Id: espeak.c,v 1.6 2007-11-12 14:46:43 hanke Exp $
+ * $Id: espeak.c,v 1.7 2008-02-06 07:39:06 themuso Exp $
  */
 
 /* < Includes*/
@@ -673,7 +673,7 @@ espeak_set_rate(signed int rate)
 {
 	assert(rate >= -100 && rate <= +100);
 	int speed;
-	int normal_rate = 170, max_rate = 370, min_rate = 80;
+	int normal_rate = 170, max_rate = 390, min_rate = 80;
     
 	if (rate < 0)
 		speed = normal_rate + (normal_rate - min_rate) * rate / 100;
