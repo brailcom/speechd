@@ -1,3 +1,7 @@
+2008-02-06  Luke Yelavich <themuso@themuso.com>
+
+	* src/modules/espeak.c: Set max rate to 390.
+
 2008-02-04  Hynek Hanke  <hanke@mach>
 
 	* configure.in (LIB_SPD_AGE): Create src/python/Makefile.
