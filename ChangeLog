@@ -1,5 +1,7 @@
-2008-02-08  Hynek Hanke  <hanke@mach>
+2008-02-08  Hynek Hanke  <hanke@brailcom.org>
 
+	* version.sh: 0.6.6
+	
 	* ANNOUNCE: Version 0.6.6
 
 	* NEWS: Version 0.6.6
@@ -30,11 +32,11 @@
 
 	* src/modules/espeak.c: Set max rate to 390.
 
-2008-02-04  Hynek Hanke  <hanke@mach>
+2008-02-04  Hynek Hanke  <hanke@brailcom.org>
 
 	* configure.in (LIB_SPD_AGE): Create src/python/Makefile.
 
-2008-02-01  Hynek Hanke  <hanke@mach>
+2008-02-01  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/modules/cicero.c (_cicero_speak): Fixed bug: assigment instead of comparision.
 
