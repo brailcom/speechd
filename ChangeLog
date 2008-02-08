@@ -1,5 +1,11 @@
 2008-02-08  Hynek Hanke  <hanke@mach>
 
+	* ANNOUNCE: Version 0.6.6
+
+	* NEWS: Version 0.6.6
+
+	* src/server/output.c: Check for module_name not null.
+
 	* src/tests/connection-recovery.c: New test.
 
 	* src/tests/Makefile.am (bin_PROGRAMS): connection_recovery
