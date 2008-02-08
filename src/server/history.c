@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: history.c,v 1.23 2006-07-11 16:12:27 hanke Exp $
+ * $Id: history.c,v 1.24 2008-02-08 10:01:09 hanke Exp $
  */
 
 #include "speechd.h"
@@ -288,7 +288,7 @@ history_say_id(int fd, int id)
 	TSpeechDMessage *msg, *new;
 	GList *gl; 
 
-	gl = g_list_find_custom(message_history, (int*) id, p_msg_comp_id);
+	gl = g_list_find_custom(message_history,  &id, p_msg_comp_id);
 	if (gl == NULL) return strdup(ERR_ID_NOT_EXIST);
 	msg = gl->data;
 	if (msg == NULL) return strdup(ERR_INTERNAL);

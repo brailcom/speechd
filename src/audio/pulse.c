@@ -20,7 +20,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: pulse.c,v 1.7 2007-12-23 22:48:58 gcasse Exp $
+ * $Id: pulse.c,v 1.8 2008-02-08 10:01:09 hanke Exp $
  */
 
 /* debug */
@@ -1246,10 +1246,12 @@ pulse_open(AudioID *id, void **pars)
     id->pulse_server = NULL;
   }
   
-  id->pulse_max_length = (int)pars[1];
-  id->pulse_target_length = (int)pars[2];
-  id->pulse_pre_buffering = (int)pars[3];
-  id->pulse_min_request = (int)pars[4];
+  /* The following cast is verified correct despite
+   gcc warnings */
+  id->pulse_max_length = (int) pars[1];
+  id->pulse_target_length = (int) pars[2];
+  id->pulse_pre_buffering = (int) pars[3];
+  id->pulse_min_request = (int) pars[4];
 
   SHOW("PulseAudio sound output opened\n","");
 
@@ -1264,7 +1266,7 @@ pulse_play(AudioID *id, AudioTrack track)
   int bytes_per_sample;
   int num_bytes;
   int ret = PULSE_OK;
-  unsigned int a_total_free_mem;
+  size_t a_total_free_mem;
   pa_sample_spec ss;
 
   if (id == NULL){

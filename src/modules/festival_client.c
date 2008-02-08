@@ -843,7 +843,7 @@ VoiceDescription** festivalGetVoices(FT_Info *info)
     int \
     name(FT_Info *info, char *param) \
     { \
-        char *f; \
+        char *f = NULL; \
         if (festival_check_info(info, #name)) return -1; \
         if (param == NULL) return -1; \
         FEST_SEND_CMDA("("fest_param" '%s)", f = g_ascii_strdown(param, -1)); \

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.h,v 1.62 2007-11-23 18:07:13 hanke Exp $
+ * $Id: speechd.h,v 1.63 2008-02-08 10:01:09 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -218,5 +218,8 @@ int create_pid_file(void);
 void destroy_pid_file(void);
 
 void logging_init(void);
+
+void check_locked(pthread_mutex_t *lock);
+
 
 #endif

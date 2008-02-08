@@ -1,3 +1,23 @@
+2008-02-08  Hynek Hanke  <hanke@mach>
+
+	* src/tests/Makefile.am (bin_PROGRAMS): connection_recovery
+	-- new target.
+
+	* src/c/api/libspeechd.h (SPD_FATAL): Flush stdout.
+
+	* src/c/api/libspeechd.c (spd_close): Join th events thread.
+	(spd_say): Check reply.
+	(spd_say): Set msg_id to -1 on error.
+	(spd_execute_command): Logging message.
+	(spd_execute_command_wo_mutex): Logging message.
+	(spd_execute_command_with_reply): Return -1 on error.
+	(spd_send_data): Return NULL on error in spd_send_data_wo_mutex.
+	(spd_send_data): Return NULL if connection->stream is NULL.
+	(spd_send_data_wo_mutex): Only print out the reply if it is not NULL.
+	(spd_events_handler): Formatting.
+	(spd_events_handler): Signal reply ready even if socket is broken.
+	(xmalloc): Formatting.
+
 2008-02-06  Luke Yelavich <themuso@themuso.com>
 
 	* src/modules/espeak.c: Set max rate to 390.

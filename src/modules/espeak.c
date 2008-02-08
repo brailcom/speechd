@@ -22,7 +22,7 @@
  * @author Lukas Loehrer
  * Based on ibmtts.c.
  *
- * $Id: espeak.c,v 1.7 2008-02-06 07:39:06 themuso Exp $
+ * $Id: espeak.c,v 1.8 2008-02-08 10:01:09 hanke Exp $
  */
 
 /* < Includes*/
@@ -410,7 +410,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 
 	if (0 != module_write_data_ok(data)) return FATAL_ERROR;
 
-	DBG("Espeak: Requested data: |%s| %d %d", data, msgtype, bytes);
+	DBG("Espeak: Requested data: |%s| %d %ld", data, msgtype, bytes);
 
 	espeak_state_reset();
 	espeak_state = BEFORE_SYNTH;

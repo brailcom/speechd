@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: libspeechd.h,v 1.25 2008-01-14 09:25:35 hanke Exp $
+ * $Id: libspeechd.h,v 1.26 2008-02-08 10:01:09 hanke Exp $
  */
 
 #define _GNU_SOURCE
@@ -36,7 +36,7 @@ extern "C" {
 FILE* spd_debug;
 
 /* Unless there is an fatal error, it doesn't print anything */
-#define SPD_FATAL(msg) { printf("Fatal error (libspeechd) [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
+#define SPD_FATAL(msg) { printf("Fatal error (libspeechd) [%s:%d]:"msg, __FILE__, __LINE__); fflush(stdout); exit(EXIT_FAILURE); }
 
 /* Arguments for spd_send_data() */
 #define SPD_WAIT_REPLY 1              /* Wait for reply */

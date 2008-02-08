@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   * Boston, MA 02110-1301, USA.
   *
-  * $Id: server.c,v 1.83 2007-07-14 05:34:28 hanke Exp $
+  * $Id: server.c,v 1.84 2008-02-08 10:01:09 hanke Exp $
   */
 
 #include "speechd.h"
@@ -145,6 +145,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
 
     pthread_mutex_lock(&element_free_mutex);
     /* Put the element new to queue according to it's priority. */
+    check_locked(&element_free_mutex);    
     switch(settings->priority){
     case 1: MessageQueue->p1 = g_list_append(MessageQueue->p1, new); 
         break;

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speaking.c,v 1.54 2007-11-05 09:18:00 hanke Exp $
+ * $Id: speaking.c,v 1.55 2008-02-08 10:01:09 hanke Exp $
  */
 
 #include <glib.h>
@@ -48,7 +48,7 @@ int poll_count;
 void* 
 speak(void* data)
 {
-    TSpeechDMessage *message;
+    TSpeechDMessage *message = NULL;
     int ret;
     struct pollfd *poll_fds; /* Descriptors to poll */
     struct pollfd main_pfd;
@@ -75,7 +75,7 @@ speak(void* data)
 
     while(1){
 	ret = poll(poll_fds, poll_count, -1);
-	if(revents = poll_fds[0].revents){
+	if( (revents = poll_fds[0].revents) ){
 	    if (revents & POLLIN){
 		char buf[100];
 		MSG(5, "wait_for_poll: activity in Speech Dispatcher");
@@ -83,7 +83,7 @@ speak(void* data)
 	    }	    
 	}
 	if (poll_count > 1){
-	    if(revents = poll_fds[1].revents){
+	  if( (revents = poll_fds[1].revents) ){
 		if ((revents & POLLIN) || (revents & POLLPRI)){
 		    MSG(5, "wait_for_poll: activity on output_module");	       
 		    /* Check if sb is speaking or they are all silent. 
@@ -133,30 +133,36 @@ speak(void* data)
 
        pthread_mutex_lock(&element_free_mutex);
         /* Handle postponed priority progress message */
+       
+       check_locked(&element_free_mutex);
+
         if ((g_list_length(last_p5_block) != 0) && (g_list_length(MessageQueue->p5) == 0)){      
 	    /* Transfer messages from last_p5_block to priority 3 (message) queue*/
 	    while (g_list_length(last_p5_block) != 0){
 		GList* item;
 		item = g_list_first(last_p5_block);
 		message = item->data;
+		check_locked(&element_free_mutex);
 		MessageQueue->p3 = g_list_insert_sorted(MessageQueue->p3, message, sortbyuid);
 		last_p5_block = g_list_remove_link(last_p5_block, item);
 	    }
+	    assert(message!=NULL);
             highest_priority = 3;
             stop_priority_older_than(2, message->id);
             stop_priority(4);
             stop_priority(5);
+	    check_locked(&element_free_mutex);
             pthread_mutex_unlock(&element_free_mutex);
             speaking_semaphore_post();
             continue;
         }else{
-            /* Extract the right message from priority queue */
-            message = get_message_from_queues();
-            if (message == NULL){
-                pthread_mutex_unlock(&element_free_mutex);
-		MSG(5, "No message in the queue");
-                continue;
-            }
+	  /* Extract the right message from priority queue */
+	  message = get_message_from_queues();
+	  if (message == NULL){
+	    pthread_mutex_unlock(&element_free_mutex);
+	    MSG(5, "No message in the queue");
+	    continue;
+	  }
         }
 
         /* Isn't the parent client of this message paused? 
@@ -470,8 +476,9 @@ speaking_pause(int fd, int uid)
 int
 speaking_resume_all()
 {
-    int err, i;
-    int uid;
+  int err = 0;
+  int i;
+  int uid;
 
     for(i=1;i<=SpeechdStatus.max_fd;i++){
         uid = get_client_uid_by_fd(i);
@@ -748,7 +755,7 @@ stop_priority_from_uid(GList *queue, const int uid){
     GList *ret = queue;
     GList *gl;
 
-    while(gl = g_list_find_custom(ret, &uid, p_msg_uid_lc))
+    while( (gl = g_list_find_custom(ret, &uid, p_msg_uid_lc) ))
 	ret = queue_remove_message(ret, gl);
 
     return ret;
@@ -757,6 +764,7 @@ stop_priority_from_uid(GList *queue, const int uid){
 void
 stop_from_uid(const int uid)
 {
+    check_locked(&element_free_mutex);
     MessageQueue->p1 = stop_priority_from_uid(MessageQueue->p1, uid);
     MessageQueue->p2 = stop_priority_from_uid(MessageQueue->p2, uid);
     MessageQueue->p3 = stop_priority_from_uid(MessageQueue->p3, uid);
@@ -887,9 +895,12 @@ resolve_priorities(int priority)
         stop_priority(4);
         if (SPEAKING){
             GList *gl;
+	    check_locked(&element_free_mutex);
             gl = g_list_last(MessageQueue->p5); 
+	    check_locked(&element_free_mutex);
             MessageQueue->p5 = g_list_remove_link(MessageQueue->p5, gl);
             if (gl != NULL){
+	      check_locked(&element_free_mutex);
                 MessageQueue->p5 = empty_queue(MessageQueue->p5);
                 if (gl->data != NULL){
                     MessageQueue->p5 = gl;
@@ -907,30 +918,36 @@ get_message_from_queues()
 
     /* We will descend through priorities to say more important
      * messages first. */
+    check_locked(&element_free_mutex);
     gl = g_list_first(MessageQueue->p1); 
     if (gl != NULL){
         MSG(4,"Message in queue p1");
+	check_locked(&element_free_mutex);
         MessageQueue->p1 = g_list_remove_link(MessageQueue->p1, gl);
         highest_priority = 1;
     }else{
+      check_locked(&element_free_mutex);
         gl = g_list_first(MessageQueue->p3); 
         if (gl != NULL){
             MSG(4,"Message in queue p2");
             MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
             highest_priority = 3;
         }else{
+	  check_locked(&element_free_mutex);
             gl = g_list_first(MessageQueue->p2); 
             if (gl != NULL){
                 MSG(4,"Message in queue p3");
                 MessageQueue->p2 = g_list_remove_link(MessageQueue->p2, gl);
                 highest_priority = 2;
             }else{
+	      check_locked(&element_free_mutex);
                 gl = g_list_first(MessageQueue->p4); 
                 if (gl != NULL){
                     MSG(4,"Message in queue p4");
                     MessageQueue->p4 = g_list_remove_link(MessageQueue->p4, gl);
                     highest_priority = 4;
                 }else{
+		  check_locked(&element_free_mutex);
                     gl = g_list_first(MessageQueue->p5);
                     if (gl != NULL){
                         MSG(4,"Message in queue p5");
@@ -954,6 +971,7 @@ speaking_get_queue(int priority)
 
     assert(priority > 0  &&  priority <= 5);
 
+    check_locked(&element_free_mutex);
     switch(priority){           
     case 1: queue = MessageQueue->p1; break;
     case 2: queue = MessageQueue->p2; break;
@@ -970,6 +988,7 @@ speaking_set_queue(int priority, GList *queue)
 {
     assert(priority > 0  &&  priority <= 5);
 
+    check_locked(&element_free_mutex);
     switch(priority){           
     case 1: MessageQueue->p1 = queue; break;
     case 2: MessageQueue->p2 = queue; break;

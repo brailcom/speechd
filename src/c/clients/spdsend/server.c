@@ -363,7 +363,7 @@ static void serve ()
   while (1)
     {
       struct sockaddr_un client_address;
-      size_t client_address_len = sizeof (client_address);
+      socklen_t client_address_len = sizeof (client_address);
       Stream *s = malloc (sizeof (Stream));
       if (s == NULL)
         system_error ("memory allocation");

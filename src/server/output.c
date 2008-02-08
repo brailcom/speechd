@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: output.c,v 1.32 2007-11-05 09:17:51 hanke Exp $
+ * $Id: output.c,v 1.33 2008-02-08 10:01:09 hanke Exp $
  */
 
 #include "output.h"
@@ -633,7 +633,7 @@ escape_dot(char *otext)
 
     MSG2(6, "escaping", "Altering text (I): |%s|", ntext->str);
 
-    while (seq = strstr(otext, "\n.\n")){
+    while ( (seq = strstr(otext, "\n.\n")) ){
         *seq = 0;
         g_string_append(ntext, otext);
         g_string_append(ntext, "\n..\n");

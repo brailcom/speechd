@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: libspeechd.c,v 1.32 2007-06-16 21:11:04 hanke Exp $
+ * $Id: libspeechd.c,v 1.33 2008-02-08 10:01:09 hanke Exp $
  */
 
 
@@ -126,6 +126,7 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
     ret = pthread_mutex_init(&spd_logging_mutex, NULL);
     if(ret != 0){
       fprintf(stderr, "Mutex initialization failed");
+      fflush(stderr);
       exit(1);
     }
     SPD_DBG("Debugging started");
@@ -210,6 +211,7 @@ spd_close(SPDConnection* connection)
 	pthread_mutex_destroy(connection->mutex_reply_ack);
 	pthread_cond_destroy(connection->cond_reply_ready);
 	pthread_cond_destroy(connection->cond_reply_ack);
+	pthread_join(*connection->events_thread, NULL);
 	connection->mode = SPD_MODE_SINGLE;
     }
 
@@ -230,6 +232,7 @@ spd_say(SPDConnection *connection, SPDPriority priority, const char* text)
     static char command[16];
     char *etext;
     int ret;
+    char *pret;
     char *reply;
     int err;
     int msg_id;
@@ -241,6 +244,7 @@ spd_say(SPDConnection *connection, SPDPriority priority, const char* text)
     SPD_DBG("Text to say is: %s", text);
 
     /* Set priority */
+    SPD_DBG("Setting priority");
     ret = spd_set_priority(connection, priority);
     if(ret) RET(-1); 
     
@@ -249,6 +253,7 @@ spd_say(SPDConnection *connection, SPDPriority priority, const char* text)
     if (etext == NULL) etext = (char*) text;
   
     /* Start the data flow */
+    SPD_DBG("Sending SPEAK");
     sprintf(command, "SPEAK");
     ret = spd_execute_command_wo_mutex(connection, command);
     if(ret){     
@@ -257,9 +262,16 @@ spd_say(SPDConnection *connection, SPDPriority priority, const char* text)
     }
   
     /* Send data */
-    spd_send_data_wo_mutex(connection, etext, SPD_NO_REPLY);
+    SPD_DBG("Sending data");
+    pret = spd_send_data_wo_mutex(connection, etext, SPD_NO_REPLY);
+    if(pret==NULL){
+        SPD_DBG("Can't send data wo mutex");
+        RET(-1); 
+    }
+    
 
     /* Terminate data flow */
+    SPD_DBG("Terminating data flow");
     ret = spd_execute_command_with_reply(connection, "\r\n.", &reply);
     if(ret){
         SPD_DBG("Can't terminate data flow");
@@ -269,11 +281,13 @@ spd_say(SPDConnection *connection, SPDPriority priority, const char* text)
     msg_id = get_param_int(reply, 1, &err);
     if (err < 0){
        SPD_DBG("Can't determine SSIP message unique ID parameter.");
+       msg_id = -1;
     }
     xfree(reply);
 
     pthread_mutex_unlock(connection->ssip_mutex);
 
+    SPD_DBG("Returning from spd_say");
     return msg_id;
 }
 
@@ -761,6 +775,9 @@ spd_execute_command(SPDConnection *connection, char* command)
     pthread_mutex_lock(connection->ssip_mutex);
 
     ret = spd_execute_command_with_reply(connection, command, &reply);
+    if (ret){
+      SPD_DBG("Can't execute command in spd_execute_command");
+    }
     xfree(reply);
 
     pthread_mutex_unlock(connection->ssip_mutex);
@@ -774,7 +791,11 @@ spd_execute_command_wo_mutex(SPDConnection *connection, char* command)
     char *reply;
     int ret;
 
+    SPD_DBG("Executing command wo_mutex");
     ret = spd_execute_command_with_reply(connection, command, &reply);
+    if (ret)
+      SPD_DBG("Can't execute command in spd_execute_command_wo_mutex");
+
     xfree(reply);
 
     return ret;
@@ -785,8 +806,15 @@ spd_execute_command_with_reply(SPDConnection *connection, char* command, char **
 {
     char *buf;    
     int r;
+    SPD_DBG("Inside execute_command_with_reply");
+
     buf = g_strdup_printf("%s\r\n", command);
     *reply = spd_send_data_wo_mutex(connection, buf, SPD_WAIT_REPLY);
+    if(*reply==NULL){
+        SPD_DBG("Can't send data wo mutex in spd_execute_command_with_reply");
+	return -1;
+    }
+
     xfree(buf);
     
     r = ret_ok(*reply);
@@ -801,7 +829,16 @@ spd_send_data(SPDConnection *connection, const char *message, int wfr)
 {
     char *reply;
     pthread_mutex_lock(connection->ssip_mutex);
+
+
+    if (connection->stream == NULL) return NULL;
+
     reply = spd_send_data_wo_mutex(connection, message, wfr);
+    if(reply==NULL){
+        SPD_DBG("Can't send data wo mutex in spd_send_data");
+        return NULL; 
+    }
+
     pthread_mutex_unlock(connection->ssip_mutex);
     return reply;
 }
@@ -813,26 +850,35 @@ spd_send_data_wo_mutex(SPDConnection *connection, const char *message, int wfr)
     char *reply;
     int bytes;
 
+    SPD_DBG("Inside spd_send_data_wo_mutex");
+
+    if (connection->stream == NULL) return NULL;
+
     if (connection->mode == SPD_MODE_THREADED){
 	/* Make sure we don't get the cond_reply_ready signal before we are in
 	   cond_wait() */
 	pthread_mutex_lock(connection->mutex_reply_ready);
     }
     /* write message to the socket */
+    SPD_DBG("Writing to socket");
     write(connection->socket, message, strlen(message));
+    SPD_DBG("Written to socket");
     SPD_DBG(">> : |%s|", message);
 
     /* read reply to the buffer */
     if (wfr){
 	if (connection->mode == SPD_MODE_THREADED){
-	    /* Wait until the reply is ready */
-	    pthread_cond_wait(connection->cond_reply_ready, connection->mutex_reply_ready);
-	    pthread_mutex_unlock(connection->mutex_reply_ready);
-	    /* Read the reply */
-	    if (connection->reply != NULL){
+	  /* Wait until the reply is ready */
+	  SPD_DBG("Waiting for cond_reply_ready in spd_send_data_wo_mutex");
+	  pthread_cond_wait(connection->cond_reply_ready, connection->mutex_reply_ready);
+	  SPD_DBG("Condition for cond_reply_ready satisfied");
+	  pthread_mutex_unlock(connection->mutex_reply_ready);
+	  SPD_DBG("Reading the reply in spd_send_data_wo_mutex threaded mode");
+	  /* Read the reply */
+	  if (connection->reply != NULL){
 		reply = strdup(connection->reply);
 	    }else{
-	        SPD_DBG("Error: Can't read reply, broken socket.");
+	        SPD_DBG("Error: Can't read reply, broken socket in spd_send_data.");
 		return NULL;
 	    }
 	    xfree(connection->reply);
@@ -848,7 +894,8 @@ spd_send_data_wo_mutex(SPDConnection *connection, const char *message, int wfr)
 	}else{
 	    reply = get_reply(connection);
 	}
-	SPD_DBG("<< : |%s|\n", reply);	
+	if (reply != NULL)
+	  SPD_DBG("<< : |%s|\n", reply);	
     }else{
 	if (connection->mode == SPD_MODE_THREADED)
 	    pthread_mutex_unlock(connection->mutex_reply_ready);
@@ -856,6 +903,10 @@ spd_send_data_wo_mutex(SPDConnection *connection, const char *message, int wfr)
         return strdup("NO REPLY");
     } 
 
+    if (reply==NULL)
+      SPD_DBG("Reply from get_reply is NULL in spd_send_data_wo_mutex");
+
+    SPD_DBG("Returning from spd_send_data_wo_mutex");
     return reply;
 }
 
@@ -900,7 +951,10 @@ get_reply(SPDConnection *connection)
     do{
 	bytes = getline(&line, &N, connection->stream);	
 	if (bytes == -1){
-	    SPD_DBG("Error: Can't read reply, broken socket!");
+	    SPD_DBG("Error: Can't read reply, broken socket in get_reply!");
+	    if (connection->stream != NULL)
+	      fclose(connection->stream);
+	    connection->stream = NULL;
 	    return NULL;
 	}
 	g_string_append(str, line);
@@ -924,6 +978,7 @@ spd_events_handler(void* conn)
     while(1){
 
 	/* Read the reply/event (block if none is available) */
+        SPD_DBG("Getting reply in spd_events_handler");
 	reply = get_reply(connection);
 	if (reply == NULL){
 	    SPD_DBG("ERROR: BROKEN SOCKET");
@@ -945,12 +1000,12 @@ spd_events_handler(void* conn)
 	    msg_id = get_param_int(reply, 1, &err);
 	    if (err < 0){
 	      SPD_DBG("Bad reply from Speech Dispatcher: %s (code %d)", reply, err);
-		break;
+	      break;
 	    }
 	    client_id = get_param_int(reply, 2, &err);
 	    if (err < 0){
 	      SPD_DBG("Bad reply from Speech Dispatcher: %s (code %d)", reply, err);
-		break;
+	      break;
 	    }
 	    /*  Decide if we want to call a callback */
 	    if ((reply_code == 701) && (connection->callback_begin))
@@ -969,7 +1024,7 @@ spd_events_handler(void* conn)
 		im = get_param_str(reply, 3, &err);
 		if ((err < 0) || (im == NULL)){
 		  SPD_DBG("Broken reply from Speech Dispatcher: %s", reply);
-		    break;
+		  break;
 		}
 		/* Call the callback */
 		connection->callback_im(msg_id, client_id, SPD_EVENT_INDEX_MARK, im);
@@ -983,7 +1038,9 @@ spd_events_handler(void* conn)
 	    if (reply != NULL){
 		connection->reply = strdup(reply);
 	    }else{
-		connection->reply = NULL;
+	      SPD_DBG("Connection reply is NULL");
+	      connection->reply = NULL;
+	      break;
 	    }
 	    /* Signal the reply is available on the condition variable */
 	    /* this order is correct and necessary */
@@ -997,6 +1054,17 @@ spd_events_handler(void* conn)
 	    /* Continue */	
 	}
     }
+    /* In case of broken socket, we must still signal reply ready */
+    if (connection->reply == NULL){
+      SPD_DBG("Signalling reply ready after communication failure");
+      pthread_mutex_unlock(connection->mutex_reply_ready);
+      pthread_mutex_unlock(connection->mutex_reply_ack);
+      if (connection->stream != NULL)
+	fclose(connection->stream);
+      connection->stream = NULL;
+      pthread_cond_signal(connection->cond_reply_ready);
+      pthread_exit(0);
+    }
     return 0; 			/* to please gcc */
 }
 
@@ -1005,11 +1073,13 @@ ret_ok(char *reply)
 {
 	int err;
 
+	if (reply == NULL) return -1;
+
 	err = get_err_code(reply);
 		
 	if ((err>=100) && (err<300)) return 1;
 	if (err>=300) return 0;
-
+    
 	SPD_FATAL("Internal error during communication.");
 }
 
@@ -1132,8 +1202,8 @@ xmalloc(size_t bytes)
 
     mem = malloc(bytes);
     if (mem == NULL){
-        SPD_FATAL("Not enough memmory!");
-        exit(1);
+      SPD_FATAL("Not enough memmory!");
+      exit(1);
     }
     
     return mem;

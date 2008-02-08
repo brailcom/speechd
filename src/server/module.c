@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: module.c,v 1.36 2007-11-26 14:24:21 hanke Exp $
+ * $Id: module.c,v 1.37 2008-02-08 10:01:09 hanke Exp $
  */
 
 #define _GNU_SOURCE
@@ -44,7 +44,7 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 {
     OutputModule *module;
     int fr;
-    char *arg1;
+    char *arg1 = NULL;
     int cfg = 0;
     int ret;
     char *module_conf_dir;

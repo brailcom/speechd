@@ -1,3 +1,7 @@
+2008-02-01  Hynek Hanke  <hanke@mach>
+
+	* server.c (serve): Correct type for client_address_len.
+
 2006-07-25  root  <hanke@brailcom.org>
 
 	* README: speechd

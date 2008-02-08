@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: parse.c,v 1.69 2008-02-01 11:24:24 hanke Exp $
+ * $Id: parse.c,v 1.70 2008-02-08 10:01:09 hanke Exp $
  */
 
 #include <ctype.h>
@@ -199,7 +199,7 @@ parse(const char *buf, const int bytes, const int fd)
         {
             int real_bytes;
             if(bytes>=5){
-                if(pos = strstr(buf,"\r\n.\r\n")){	
+	      if ( (pos = strstr(buf,"\r\n.\r\n")) ){	
                     real_bytes=pos-buf;
                     end_data=1;		
                     MSG(5,"Command in data caught");
@@ -386,7 +386,7 @@ parse_set(const char *buf, const int bytes, const int fd)
 {
     int who;                    /* 0 - self, 1 - uid specified, 2 - all */
     int uid;                    /* uid of the client (only if who == 1) */
-    int ret;  
+    int ret = -1; // =-1 has no effect but avoids gcc warning  
     char *set_sub;
     char *who_s;
 
@@ -960,7 +960,7 @@ deescape_dot(char *otext)
 
     MSG2(6, "escaping", "Altering text (I): |%s|", ntext->str);
 
-    while (seq = strstr(otext, "\r\n..\r\n")){
+    while ( (seq = strstr(otext, "\r\n..\r\n")) ){
         *seq = 0;
         g_string_append(ntext, otext);
         g_string_append(ntext, "\r\n.\r\n");
@@ -1017,7 +1017,7 @@ get_param(const char *buf, const int n, const int bytes, const int lower_case)
 {
     char* param;
     char* par;
-    int i, y, z;
+    int i, y, z = 0;
 
     param = (char*) spd_malloc(bytes);
     assert(param != NULL);

@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.c,v 1.75 2007-11-26 14:24:39 hanke Exp $
+ * $Id: speechd.c,v 1.76 2008-02-08 10:01:09 hanke Exp $
  */
 
 #include <gmodule.h>
@@ -73,7 +73,7 @@ spd_get_path(char *filename, char* startdir)
 void
 fatal_error(void)
 {
-    int i;
+    int i = 0;
     i++;
 }
 
@@ -830,3 +830,13 @@ main(int argc, char *argv[])
 }
 
 
+void
+check_locked(pthread_mutex_t *lock){
+  if (pthread_mutex_trylock(lock) == 0)
+    {
+      MSG(1, "CRITICAL ERROR: Not locked but accessing structure data!");
+      fprintf(stderr, "WARNING! WARNING! MUTEX CHECK FAILED!\n");
+      fflush(stderr);
+      exit(0);
+    }
+}

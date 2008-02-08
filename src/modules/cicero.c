@@ -393,7 +393,7 @@ _cicero_speak(void* nothing)
 	      flag = 1;
 	      break;
 	    }
-	    if (ret = 0) continue;
+	    if (ret == 0) continue;
 	    inx = (b[0]<<8 | b[1]);
 	    DBG("Tracking: index=%u, bytes=%d\n", inx, bytes);
 	    if (inx == bytes) {

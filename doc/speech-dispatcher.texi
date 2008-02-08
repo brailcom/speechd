@@ -1332,23 +1332,24 @@ typedef enum@{
 @deffn {C API function}  int spd_say(SPDConnection* connection, SPDPriority priority, char* text);
 @findex spd_say()
 
-Sends a message to Speech Dispatcher. If this message isn't blocked by some message
-of higher priority and this CONNECTION isn't paused, it will be synthesized
-directly on one of the output devices. Otherwise, the message will be discarded
-or delayed according to its priority.
+Sends a message to Speech Dispatcher. If this message isn't blocked by
+some message of higher priority and this CONNECTION isn't paused, it
+will be synthesized directly on one of the output devices. Otherwise,
+the message will be discarded or delayed according to its priority.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{priority} is the desired priority for this message. @xref{Top,,Message Priority Model,ssip, SSIP Documentation}.
 
-@code{text} is a null terminated string containing text you want sent to
-synthesis. It must be encoded in UTF-8. Note that this doesn't have to be what
-you will finally hear. It can be affected by different settings, such as spelling,
-punctuation, text substitution etc.
+@code{text} is a null terminated string containing text you want sent
+to synthesis. It must be encoded in UTF-8. Note that this doesn't have
+to be what you will finally hear. It can be affected by different
+settings, such as spelling, punctuation, text substitution etc.
 
-It returns a positive unique message identification number on success, -1 otherwise.
-This message identification number can be saved and used for the purpose of
-event notification callbacks or history handling.
+It returns a positive unique message identification number on success,
+-1 otherwise.  This message identification number can be saved and
+used for the purpose of event notification callbacks or history
+handling.
 
 @end deffn
 

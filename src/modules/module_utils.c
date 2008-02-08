@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.c,v 1.50 2007-11-26 17:07:18 hanke Exp $
+ * $Id: module_utils.c,v 1.51 2008-02-08 10:01:09 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -481,7 +481,7 @@ size_t
 module_parent_wfork(TModuleDoublePipe dpipe, const char* message, EMessageType msgtype,
                     const size_t maxlen, const char* dividers, int *pause_requested)
 {
-    size_t pos = 0;
+    unsigned int pos = 0;
     char msg[16];
     char *buf;
     int bytes;

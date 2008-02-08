@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: festival.c,v 1.80 2007-11-26 14:41:03 hanke Exp $
+ * $Id: festival.c,v 1.81 2008-02-08 10:01:09 hanke Exp $
  */
 
 #include "fdset.h"
@@ -514,7 +514,7 @@ int
 festival_send_to_audio(FT_Wave *fwave)
 {
     AudioTrack track;
-    int ret;
+    int ret = 0;
     
     track.num_samples = fwave->num_samples;
     track.num_channels = 1;
@@ -548,9 +548,9 @@ _festival_speak(void* nothing)
     int wave_cached;
     FT_Wave *fwave;
     int debug_count = 0;
-
-    int terminate = 0;
     int r;
+    int terminate = 0;
+
 
     char *callback;
 
@@ -594,15 +594,9 @@ _festival_speak(void* nothing)
 						
 			festival_send_to_audio(fwave);
 			
-			DBG("Here");
-
 			if (!festival_stop){
-			    DBG("Here1");
-			
 			    CLEAN_UP(0, module_report_event_end);
-			}else{
-			    DBG("Here2");
-			
+			}else{			
 			    CLEAN_UP(0, module_report_event_stop);
 			}
 
@@ -628,6 +622,7 @@ _festival_speak(void* nothing)
 		case MSGTYPE_CHAR: r = festivalCharacter(festival_info, *festival_message); break;
 		case MSGTYPE_KEY: r = festivalKey(festival_info, *festival_message); break;
 		case MSGTYPE_SPELL: r = festivalSpell(festival_info, *festival_message); break;
+		default: r = -1;
 		}
 	    if (r < 0){
 		DBG("Couldn't process the request to say the object.");
@@ -903,7 +898,7 @@ cache_clean(size_t new_element_size)
     GList *gl;
     TCounterEntry *centry;
 
-    DBG("Cache: cleaning, cache size %d kbytes (>max %d).", FestivalCache.size/1024,
+    DBG("Cache: cleaning, cache size %ld kbytes (>max %d).", FestivalCache.size/1024,
         FestivalCacheMaxKBytes);
 
     req_size = 2*FestivalCache.size/3;

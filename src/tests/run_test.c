@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: run_test.c,v 1.13 2006-07-11 16:12:28 hanke Exp $
+ * $Id: run_test.c,v 1.14 2008-02-08 10:01:08 hanke Exp $
  */
 
 #include <stdio.h>
@@ -71,7 +71,7 @@ wait_for(int fd, char* event)
     printf("       Waiting for: |%s|\n", event);
     reply = (char*) malloc(sizeof(char) * 1000);
     reply[0] = 0;
-    while (NULL == strcasestr(reply, event)) {
+    while (0 == strcasestr(reply, event)) {
         bytes = read(fd, reply, 1000);
         if (bytes > 0) {
             reply[bytes] = 0;
