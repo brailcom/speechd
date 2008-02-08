@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: output.c,v 1.33 2008-02-08 10:01:09 hanke Exp $
+ * $Id: output.c,v 1.34 2008-02-08 12:05:23 hanke Exp $
  */
 
 #include "output.h"
@@ -247,6 +247,7 @@ VoiceDescription**
 output_list_voices(char* module_name)
 {
   OutputModule *module;
+  if (module_name == NULL) return NULL;
   module=get_output_module_by_name(module_name);
   if (module == NULL){
     MSG(1, "ERROR: Can't list voices for module %s", module_name);
