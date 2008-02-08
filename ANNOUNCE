@@ -1,11 +1,11 @@
 
-Speech Dispatcher 0.6.5
+Speech Dispatcher 0.6.6
 =======================
 
-The Brailcom organization is happy to announce the availability of Speech
-Dispatcher 0.6.5 developed as a part of the Free(b)Soft project. This
-is a minor release, it contains mostly bugfixes and minor improvements.
-Please read `What is new' and `NOTES' bellow.
+The Brailcom organization is happy to announce the availability of
+Speech Dispatcher 0.6.6 developed as a part of the Free(b)Soft
+project. This is a minor release, it contains mostly bugfixes.  Please
+read `NOTES' bellow.
 
 * What is Speech Dispatcher?
 
@@ -37,34 +37,27 @@ Please read `What is new' and `NOTES' bellow.
     is developed as a sperate project speechd-el. Possibly an interface
     to any other language can be developed.
 
-* What is new in 0.6.5?
+* What is new in 0.6.6?
 
- - Pulse Audio output module (thanks to Gilles Casse)
+ - Bugfixes.
 
- - Speech Dispatcher is now adapted for easy setup and using
-   under ordinary system user accounts
+ NOTES (0.6.6)
 
- - Bugfixes
+   - There are changes in the configuration file since the previous
+     release. It is highly recommended to replace your speechd.conf
+     file with the speechd.conf provided in this package and copy your
+     settings there if you are upgrading from 0.6.3 or any older
+     versions. The old configuration file should however also work.
 
- NOTES (0.6.5)
-
-   - There are changes in the configuration file. It is highly
-     recommended to replace your speechd.conf file with the
-     speechd.conf provided in this package and copy your settings
-     there. The old configuration file should however also work.
-
-   - Default output module has been switched to espeak.
-
-   - By default, the communication port of Speech Dispatcher
-     is only opened for localhost connections. Please see
-     the LocalhostAccessOnly option in speechd.conf for
-     information on how to allow connections from other
-     manchines as well.
+   - By default, the communication port of Speech Dispatcher is only
+     opened for localhost connections. Please see the
+     LocalhostAccessOnly option in speechd.conf for information on how
+     to allow connections from other manchines as well.
 
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.6.5.tar.gz
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.6.6.tar.gz
 
   We recommend you to fetch the sound icons for use with Speech Dispatcher.
   They are available at
