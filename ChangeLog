@@ -1,5 +1,7 @@
 2008-02-08  Hynek Hanke  <hanke@mach>
 
+	* src/tests/connection-recovery.c: New test.
+
 	* src/tests/Makefile.am (bin_PROGRAMS): connection_recovery
 	-- new target.
 
