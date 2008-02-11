@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.c,v 1.76 2008-02-08 10:01:09 hanke Exp $
+ * $Id: speechd.c,v 1.77 2008-02-11 14:01:57 hanke Exp $
  */
 
 #include <gmodule.h>
@@ -661,6 +661,9 @@ main(int argc, char *argv[])
     fd_set testfds;
     int fd;
     int ret;
+
+    /* Initialize threading and thread safety in Glib */
+    g_thread_init(NULL);
 
     speechd_options_init();
 
