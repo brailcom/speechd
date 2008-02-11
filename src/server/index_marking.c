@@ -20,7 +20,7 @@
   * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   * Boston, MA 02110-1301, USA.
   *
-  * $Id: index_marking.c,v 1.15 2007-02-17 18:58:14 hanke Exp $
+  * $Id: index_marking.c,v 1.16 2008-02-11 14:01:23 hanke Exp $
   */
 
 #include "index_marking.h"
@@ -39,6 +39,7 @@ insert_index_marks(TSpeechDMessage *msg, int ssml_mode)
 
     marked_text = g_string_new("");
 
+    assert (msg != NULL);
     assert(msg->buf != NULL);
 
     MSG2(5, "index_marking", "MSG before index marking: |%s|, ssml_mode=%d", msg->buf, ssml_mode);
