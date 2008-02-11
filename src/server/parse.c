@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: parse.c,v 1.70 2008-02-08 10:01:09 hanke Exp $
+ * $Id: parse.c,v 1.71 2008-02-11 14:01:42 hanke Exp $
  */
 
 #include <ctype.h>
@@ -1019,6 +1019,7 @@ get_param(const char *buf, const int n, const int bytes, const int lower_case)
     char* par;
     int i, y, z = 0;
 
+    assert (bytes != 0);
     param = (char*) spd_malloc(bytes);
     assert(param != NULL);
 	
