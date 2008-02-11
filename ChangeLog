@@ -1,3 +1,28 @@
+2008-02-11  Hynek Hanke  <hanke@mach>
+
+	* src/modules/Makefile.am: Link with gthread_libs.
+
+	* src/modules/module_main.c (main): Call g_thread_init()
+
+	* src/server/speechd.c (main): Call g_thread_init()
+	so that we are sure GLIB is thread safe!!!
+
+	* src/server/parse.c (get_param): Additional assertion.
+
+	* src/server/index_marking.c (insert_index_marks): Assertion
+	added.
+
+	* src/server/config.c (AddModule): Copy module name
+	before inserting.
+
+	* src/server/Makefile.am (speech_dispatcher_LDADD): Include
+	gthread_libs.
+
+2008-02-08  Hynek Hanke  <hanke@mach>
+
+	* src/server/config.c (DOTCONF_CB): Insert copies of module
+	name string into hash table and output_modules_list .
+
 2008-02-08  Hynek Hanke  <hanke@brailcom.org>
 
 	* version.sh: 0.6.6
