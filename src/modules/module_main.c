@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_main.c,v 1.13 2007-09-24 06:51:58 hanke Exp $
+ * $Id: module_main.c,v 1.14 2008-02-11 14:00:48 hanke Exp $
  */
 
 /* So that gcc doesn't comply */
@@ -54,6 +54,8 @@ main(int argc, char *argv[])
     size_t n;
     char *configfilename;
     char *status_info;        
+
+    g_thread_init(NULL);
 
     module_num_dc_options = 0;
     
