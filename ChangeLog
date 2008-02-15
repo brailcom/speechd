@@ -1,3 +1,9 @@
+2008-02-15  Hynek Hanke  <hanke@brailcom.org>
+
+	* configure.in: Revision incremented.
+
+	* src/Makefile.am (EXTRA_DIST): Include python/Makefile.in instead of python/Makefile.
+
 2008-02-11  Hynek Hanke  <hanke@mach>
 
 	* src/modules/Makefile.am: Link with gthread_libs.
