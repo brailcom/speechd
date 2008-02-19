@@ -1,4 +1,4 @@
-# Copyright (C) 2003-2007 Brailcom, o.p.s.
+# Copyright (C) 2003-2008 Brailcom, o.p.s.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -381,9 +381,12 @@ class SSIPClient(object):
             multiple connections, this can be used to identify each of them.
           user -- user identification string (user name).  When multi-user
             acces is expected, this can be used to identify their connections.
-          host -- server hostname or IP address as a string.
+          host -- server hostname or IP address as a string.  If None, the
+            default value is taken from SPEECHD_HOST environment variable (if it
+            exists) or from the DEFAULT_SPEECHD_HOST attribute of this class.
           port -- server port as number or None.  If None, the default value is
-            determined by the SPEECH_PORT attribute of this class.
+            taken from SPEECHD_PORT environment variable (if it exists) or from the
+            DEFAULT_SPEECHD_PORT attribute of this class.
         
         For more information on client identification strings see Speech
         Dispatcher documentation.
