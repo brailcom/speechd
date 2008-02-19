@@ -1,5 +1,7 @@
 2008-02-19  Tomas Cerha  <cerha@brailcom.org>
 
+	* README: New file.
+
 	* speechd/client.py (SSIPClient.__init__): Docstring improved.
 
 2008-02-04  Hynek Hanke  <hanke@mach>
