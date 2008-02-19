@@ -32,7 +32,7 @@
 
 This manual documents Speech Dispatcher, version @value{VERSION}.
 
-Copyright @copyright{} 2001, 2002, 2003, 2006, 2007 Brailcom, o.p.s.
+Copyright @copyright{} 2001, 2002, 2003, 2006, 2007, 2008 Brailcom, o.p.s.
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
@@ -727,15 +727,15 @@ order of their priority.
 
 The default communication port between Speech Dispatcher and user
 applications is 6560 and all applications know this port number as the
-default to contact Speech Dispatcher. If you want to change it however,
-you can do it in the configuration file speechd.conf or through a
-command line option when executing the Speech Dispatcher binary. In such
-a case, it will also be necessary to influence the port used by the
-client applications (speechd-up, Orca, speechd-el, ...]. The most easy
-way to do so is via the SPEECHD_PORT environment variable, which should
-be set to the value of the port in use (e.g. as 'export
-SPEECHD_PORT=6561') before starting the client program, although some
-programs offer another mechanism as well.
+default to contact Speech Dispatcher. If you want to change it
+however, you can do it in the configuration file speechd.conf or
+through a command line option when executing the Speech Dispatcher
+binary. In such a case, it will also be necessary to influence the
+port used by the client applications (speechd-up, Orca, speechd-el,
+...]. The most easy way to do so is via the @var{SPEECHD_PORT}
+environment variable, which should be set to the value of the port in
+use (e.g. as 'export SPEECHD_PORT=6561') before starting the client
+program, although some programs offer another mechanism as well.
 
 @node Troubleshooting, Configuration, Running, User's Documentation
 @section Troubleshooting
@@ -1992,8 +1992,82 @@ For example (simplified by not checking and freeing the returned strings):
 @section Python API
 
 There is a full Python API available in @file{src/python/speechd/} in
-the source tree. Please see the included docstrings for reference
-documentation about the available objects and methods.
+the source tree.  Please see the Python docstrings for full reference
+about the available objects and methods.
+
+Simple Python client:
+@example
+import speechd
+client = speechd.SSIPClient('test')
+client.set_output_module('festival')
+client.set_language('en')
+client.set_punctuation(speechd.PunctuationMode.SOME)
+client.speak("Hello World!")
+client.close()
+@end example 
+
+The Python API respects the environment variables @var{SPEECHD_HOST}
+and @var{SPEECHD_PORT} if host/port is not specified explicitly (see
+@code{SSIPClient} constructor arguments).
+
+Implementation of callbacks within the Python API tries to hide the
+low level details of SSIP callback handling and provide a convenient
+Pythonic interface.  You just pass a callable object (function) to the
+@code{speak()} method and this function will be called whenever an
+event occurs for the corresponding message.
+
+Callback example:
+@example
+import speechd, time
+called = []
+client = speechd.SSIPClient('callback-test')
+client.speak("Hi!", callback=lambda cb_type: called.append(cb_type))
+time.sleep(2) # Wait for the events to happen.
+print "Called callbacks:", called
+client.close()
+@end example 
+
+Real-world callback functions will most often need some sort of
+context information to be able to distinguish for which message the
+callback was called.  This can be simply done in Python.  The
+following example uses the actual message text as the context
+information within the callback function.
+
+Callback context example:
+@example
+import speechd, time
+
+class CallbackExample(object):
+    def __init__(self):
+        self._client = speechd.SSIPClient('callback-test')
+
+    def speak(self, text):
+        def callback(callback_type):
+            if callback_type == speechd.CallbackType.BEGIN:
+                print "Speech started:", text
+            elif callback_type == speechd.CallbackType.END:
+                print "Speech completed:", text
+            elif callback_type == speechd.CallbackType.CANCEL:
+                print "Speech interupted:", text
+        self._client.speak(text, callback=callback,
+                           event_types=(speechd.CallbackType.BEGIN,
+                                        speechd.CallbackType.CANCEL,
+                                        speechd.CallbackType.END))
+
+    def go(self):
+        self.speak("Hi!")
+        self.speak("How are you?")
+        time.sleep(4) # Wait for the events to happen.
+        self._client.close()
+        
+CallbackExample().go()
+@end example 
+
+@emph{Important notice:} The callback is called in Speech Dispatcher
+listener thread.  No subsequent Speech Dispatcher interaction is
+allowed from within the callback invocation.  If you need to do
+something more complicated, do it in another thread to prevent
+deadlocks in SSIP communication.
 
 @node Guile API, Common Lisp API, Python API, Client Programming
 @section Guile API
