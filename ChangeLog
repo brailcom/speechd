@@ -1,3 +1,10 @@
+2008-02-22  Lukas Loehrer  <listaddr1@gmx.net>
+
+	* src/modules/flite.c (_flite_speak): Call flite_strip_silence to
+	get rid of leading and trailing silence in utterance
+	(Idea and algorithm copied from eflite).
+	(flite_set_rate): Increase maximum speech rate.
+
 2008-02-15  Hynek Hanke  <hanke@brailcom.org>
 
 	* configure.in: Revision incremented.

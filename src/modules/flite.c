@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: flite.c,v 1.57 2007-11-12 14:46:49 hanke Exp $
+ * $Id: flite.c,v 1.58 2008-02-23 07:48:32 lloehrer Exp $
  */
 
 
@@ -56,6 +56,7 @@ static void flite_set_pitch(signed int pitch);
 static void flite_set_volume(signed int pitch);
 static void flite_set_voice(EVoiceType voice);
 
+static void flite_strip_silence(AudioTrack*);
 static void* _flite_speak(void*);
 
 /* Voice */
@@ -302,6 +303,22 @@ module_close(int status)
 
 /* Internal functions */
 
+void 
+flite_strip_silence(AudioTrack* track)
+{
+  int playlen, skip;
+
+  float stretch = get_param_float(flite_voice->features, "duration_stretch", 1.);
+  int speed = (int) (1000./stretch);
+	skip = (187 * track->sample_rate) / speed;
+	playlen = track->num_samples - skip * 2;
+	if (playlen > 0 && playlen < 500) playlen += (skip * 2) / 3;
+	if (playlen < 0) playlen = 0;
+
+  track->num_samples = playlen;
+  assert(track->bits == 16);
+  track->samples += skip * track->num_channels;
+}
 
 void*
 _flite_speak(void* nothing)
@@ -376,6 +393,7 @@ _flite_speak(void* nothing)
 		track.sample_rate = wav->sample_rate;
 		track.bits = 16;
 		track.samples = wav->samples;
+		flite_strip_silence(&track);
 
 		DBG("Got %d samples", track.num_samples);
 		if (track.samples != NULL){
@@ -442,7 +460,7 @@ flite_set_rate(signed int rate)
 
     assert(rate >= -100 && rate <= +100);
     if (rate < 0) stretch -= ((float) rate) / 50;
-    if (rate > 0) stretch -= ((float) rate) / 200;
+    if (rate > 0) stretch -= ((float) rate) / 175;
     feat_set_float(flite_voice->features, "duration_stretch",
                    stretch);
 }
