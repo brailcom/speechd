@@ -1,3 +1,8 @@
+2008-02-29 C. M. Brannon <cmbrannon@cox.net>
+
+	* src/c/api/libspeechd.c (spd_send_data):
+	Insure that function does not hold a mutex when it returns.
+
 2008-02-22  Lukas Loehrer  <listaddr1@gmx.net>
 
 	* src/modules/flite.c (_flite_speak): Call flite_strip_silence to
