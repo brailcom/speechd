@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: libspeechd.c,v 1.33 2008-02-08 10:01:09 hanke Exp $
+ * $Id: libspeechd.c,v 1.34 2008-02-29 16:58:03 cmb Exp $
  */
 
 
@@ -831,12 +831,12 @@ spd_send_data(SPDConnection *connection, const char *message, int wfr)
     pthread_mutex_lock(connection->ssip_mutex);
 
 
-    if (connection->stream == NULL) return NULL;
+    if (connection->stream ==NULL) RET( NULL);
 
     reply = spd_send_data_wo_mutex(connection, message, wfr);
     if(reply==NULL){
         SPD_DBG("Can't send data wo mutex in spd_send_data");
-        return NULL; 
+        RET(NULL); 
     }
 
     pthread_mutex_unlock(connection->ssip_mutex);
