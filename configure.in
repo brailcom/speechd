@@ -1,3 +1,4 @@
+
 dnl Process this file with autoconf to produce a configure script.
 AC_INIT(configure.in)
 
@@ -153,6 +154,26 @@ AC_ARG_WITH(espeak, AS_HELP_STRING(--with-espeak, Compile with espeak support),
 
 AM_CONDITIONAL(espeak_support, test $espeak_ok = "true")
 
+dnl check for dumbtts support
+AC_CHECK_LIB(dumbtts,
+	dumbtts_TTSInit,
+	ivona_ok="true"; echo "Compiling with Ivona support.",
+	ivona_ok="false"; echo "dumbtts library not found.",
+	-ldumbtts)
+
+AC_ARG_WITH(ivona, AS_HELP_STRING(--with-ivona, Compile with ivona support),
+		 if test $withval = "no"; then 
+		    echo "Forced compilation without ivona support."; 
+		    ivona_ok="false";
+		 else 
+		    if test $ivona_ok = "false"; then
+		       echo "Ivona support is not available. Sorry."; exit 1;
+		    fi
+                 fi
+ 		 echo "")
+	
+AM_CONDITIONAL(ivona_support, test $ivona_ok = "true")
+
 AC_CHECK_LIB(audio,
         AuOpenServer,
 	nas_aud="true";echo "Compiling with NAS support.";,
@@ -195,6 +216,9 @@ AC_CHECK_LIB(pulse,
 	pulse_aud="true";echo "Compiling with PulseAudio support.";,
         pulse_aud="false";echo "*** PulseAudio library missing. Compiling without PulseAudio support! See INSTALL.";,
 	-lpulse)
+
+
+AC_PATH_PROG([PYTHON],[python])
 
 AC_ARG_WITH(pulse, AS_HELP_STRING(--with-pulse, Compile with PulseAudio support),
 		 if test $withval = "no"; then 
