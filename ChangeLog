@@ -1,3 +1,17 @@
+2008-04-03  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/modules/ivona.c: New file.
+
+	* src/modules/ivona_client.c: New file.
+
+	* src/modules/Makefile.am: Added Ivona (new output module).
+
+	* config/speechd.conf.in: AddModule line for Ivona.
+
+	* version.sh (VERSION): Version 0.6.7-cvs.
+
+	* configure.in: Ivona compilation.
+
 2008-02-29 C. M. Brannon <cmbrannon@cox.net>
 
 	* src/c/api/libspeechd.c (spd_send_data):
