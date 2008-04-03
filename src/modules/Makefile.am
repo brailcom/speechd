@@ -5,7 +5,7 @@ inc_local = "-I$(top_srcdir)/intl/"
 SNDFILE_CFLAGS = @SNDFILE_CFLAGS@
 SNDFILE_LIBS = @SNDFILE_LIBS@
 
-EXTRA_DIST = module_main.c module_utils_addvoice.c festival_client.c festival_client.h
+EXTRA_DIST = module_main.c module_utils_addvoice.c festival_client.c festival_client.h ivona_client.c
 
 AM_CFLAGS = -Wall -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@ -L$(top_srcdir)/src/audio -I$(top_srcdir)/src/audio -I../../intl/ $(ibmtts_include) @SNDFILE_CFLAGS@ -Wl,--rpath -Wl,$(spdlibdir)
 
@@ -25,6 +25,10 @@ endif
 
 if espeak_support
 modulebin_PROGRAMS += sd_espeak
+endif
+
+if ivona_support
+modulebin_PROGRAMS += sd_ivona
 endif
 
 sd_flite_SOURCES = flite.c module_utils.c module_utils.h
@@ -48,3 +52,7 @@ sd_cicero_LDADD = -lpthread -ldotconf @glib_libs@ @gthread_libs@
 sd_espeak_SOURCES = espeak.c module_utils.c module_utils.h
 sd_espeak_LDFLAGS = -rpath '$(spdlibdir)'
 sd_espeak_LDADD = -lsdaudio -lespeak -lpthread -ldotconf @glib_libs@ @SNDFILE_LIBS@ @gthread_libs@
+
+sd_ivona_SOURCES = ivona.c module_utils.c module_utils.h
+sd_ivona_LDFLAGS = -rpath '$(spdlibdir)'
+sd_ivona_LDADD = -lsdaudio -ldumbtts -lpthread -ldotconf @glib_libs@ @SNDFILE_LIBS@ @gthread_libs@
