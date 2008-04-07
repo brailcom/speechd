@@ -19,8 +19,11 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: libspeechd.h,v 1.26 2008-02-08 10:01:09 hanke Exp $
+ * $Id: libspeechd.h,v 1.27 2008-04-07 06:25:30 hanke Exp $
  */
+
+#ifndef _LIBSPEECHD_H
+#define _LIBSPEECHD_H
 
 #define _GNU_SOURCE
 
@@ -235,3 +238,5 @@ char* spd_send_data_wo_mutex(SPDConnection *connection, const char *message, int
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
+
+#endif /* ifndef _LIBSPEECHD_H */
