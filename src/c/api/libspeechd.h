@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: libspeechd.h,v 1.27 2008-04-07 06:25:30 hanke Exp $
+ * $Id: libspeechd.h,v 1.28 2008-04-09 11:39:10 hanke Exp $
  */
 
 #ifndef _LIBSPEECHD_H
@@ -80,7 +80,14 @@ typedef enum{
     SPD_CHILD_MALE = 7,
     SPD_CHILD_FEMALE = 8
 }SPDVoiceType;
-    
+
+
+typedef struct{
+  char *name;   /* Name of the voice (id) */
+  char *language;  /* 2-letter ISO language code */
+  char *variant;   /* a not-well defined string describing dialect etc. */
+}SPDVoice;
+
 typedef enum{
     SPD_BEGIN = 1,
     SPD_END = 2,
@@ -184,6 +191,10 @@ int spd_set_voice_type(SPDConnection*, SPDVoiceType type);
 int spd_set_voice_type_all(SPDConnection*, SPDVoiceType type);
 int spd_set_voice_type_uid(SPDConnection*, SPDVoiceType type, unsigned int uid);
 
+int spd_set_synthesis_voice(SPDConnection*, const char *voice_name);
+int spd_set_synthesis_voice_type_all(SPDConnection*, const char *voice_name);
+int spd_set_synthesis_voice_type_uid(SPDConnection*, const char *voice_name, unsigned int uid);
+
 int spd_set_data_mode(SPDConnection *connection, SPDDataMode mode);
 
 int spd_set_notification_on(SPDConnection* connection, SPDNotification notification);
@@ -224,6 +235,11 @@ int spd_set_output_module_uid(SPDConnection* connection, const char* output_modu
 
 int spd_get_client_list(SPDConnection *connection, char **client_names, int *client_ids, int* active);
 int spd_get_message_list_fd(SPDConnection *connection, int target, int *msg_ids, char **client_names);
+
+char** spd_list_modules(SPDConnection *connection);
+char** spd_list_voices(SPDConnection *connection);
+SPDVoice** spd_list_synthesis_voices(SPDConnection *connection);
+char** spd_execute_command_with_list_reply(SPDConnection *connection, char* command);
 
 
 /* Direct SSIP communication */
