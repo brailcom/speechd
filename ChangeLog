@@ -1,3 +1,23 @@
+2008-04-09  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/tests/Makefile.am: Added new test clibrary2.c
+
+	* src/c/api/libspeechd.h: Prototypes for new functions.
+
+	* src/c/api/libspeechd.c (spd_list_modules): New function.
+	(spd_list_voices): New function.
+	(spd_list_synthesis_voices): New function.
+	(spd_set_synthesis_voice*): New functions.
+
+	* configure.in (LIB_SDAUDIO_AGE): New interface functions,
+	thus version incremented (compatible).
+
+2008-04-07  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/c/api/libspeechd.h: Do not include more than once.
+
+	* configure.in (LIB_SDAUDIO_REVISION): Incremented revision.
+
 2008-04-03  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/modules/ivona.c: New file.

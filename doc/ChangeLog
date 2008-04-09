@@ -1,3 +1,9 @@
+2008-04-09  Hynek Hanke  <hanke@brailcom.org>
+
+	* speech-dispatcher.texi (Parameter Setting Commands in C): New
+	spd_list_ and spd_set_synthesis_voice C API functions.
+	
+
 2008-02-19  Tomas Cerha  <cerha@brailcom.org>
 
 	* speech-dispatcher.texi (Python API): Basic information with a
