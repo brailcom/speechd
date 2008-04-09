@@ -5,13 +5,16 @@ c_api = $(top_srcdir)/src/c/api
 
 AM_CFLAGS = -I$(c_api) -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@ -I../audio/
 
-bin_PROGRAMS = long_message clibrary run_test connection_recovery
+bin_PROGRAMS = long_message clibrary clibrary2 run_test connection_recovery
 
 long_message_SOURCES = long_message.c $(c_api)/libspeechd.h
 long_message_LDADD = $(c_api)/libspeechd.la
 
 clibrary_SOURCES = clibrary.c $(c_api)/libspeechd.h
 clibrary_LDADD = $(c_api)/libspeechd.la
+
+clibrary2_SOURCES = clibrary2.c $(c_api)/libspeechd.h
+clibrary2_LDADD = $(c_api)/libspeechd.la
 
 connection_recovery_SOURCES = connection-recovery.c $(c_api)/libspeechd.h
 connection_recovery_LDADD = $(c_api)/libspeechd.la
