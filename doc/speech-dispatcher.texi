@@ -1651,6 +1651,7 @@ Sets the language that should be used for synthesis.
 
 @deffn {C API function}  int spd_set_output_module(SPDConnection* connection, char* output_module);
 @findex spd_set_output_module()
+@anchor{spd_set_output_module}
 
 Sets the output module that should be used for synthesis. The parameter
 of this command should always be entered by the user in some way
@@ -1766,26 +1767,27 @@ the lowest and the loudest voice respectively.
 @node Information Retrieval Commands in C, Event Notification and Index Marking in C, Other Functions in C, C API
 @subsection Information Retrieval Commands
 
-@deffn {C API function}  char** spd_list_modules(SPDConnection* connection);
+@deffn {C API function}  char** spd_list_modules(SPDConnection* connection)
 @findex spd_list_modules()
 @anchor{spd_list_modules}
 
 
 Returns a null-terminated array of identification names of the available
 output modules. You can subsequently set the desired output module with
-@xref{spd_set_output_module()}. In case of error, the return value is
+@xref{spd_set_output_module}. In case of error, the return value is
 a NULL pointer.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 
 @end deffn
 
-@deffn {C API function}  char** spd_list_voices(SPDConnection* connection);
+@deffn {C API function}  char** spd_list_voices(SPDConnection* connection)
 @findex spd_list_voices()
+@anchor{spd_list_voices}
 
 Returns a null-terminated array of identification names of the
 symbolic voices. You can subsequently set the desired voice
-with @xref{spd_set_voice_type()}
+with @xref{spd_set_voice_type}.
 
 Please note that this is a fixed list independent of the synthesizer
 in use. The given voices can be mapped to specific synthesizer voices
@@ -1799,7 +1801,7 @@ In case of error, the return value is a NULL pointer.
 
 @end deffn
 
-@deffn {C API function}  char** spd_list_synthesis_voices(SPDConnection* connection);
+@deffn {C API function}  char** spd_list_synthesis_voices(SPDConnection* connection)
 @findex spd_list_synthesis_voices()
 @anchor{spd_list_synthesis_voices}
 
@@ -1809,11 +1811,11 @@ by the synthesizer. You can subsequently set the desired voice with
 @code{spd_set_synthesis_voice()}.
 
 @example
-typedef struct{
+typedef struct@{
   char *name;   /* Name of the voice (id) */
   char *language;  /* 2-letter ISO language code */
   char *variant;   /* a not-well defined string describing dialect etc. */
-}SPDVoice;
+@}SPDVoice;
 @end example
 
 Please note that the list returned is specific to each synthesizer in
