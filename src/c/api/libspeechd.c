@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: libspeechd.c,v 1.34 2008-02-29 16:58:03 cmb Exp $
+ * $Id: libspeechd.c,v 1.35 2008-04-09 11:39:06 hanke Exp $
  */
 
 
@@ -662,11 +662,13 @@ SPD_SET_COMMAND_INT(volume, VOLUME, ((val >= -100) && (val <= +100)) );
 
 SPD_SET_COMMAND_STR(language, LANGUAGE);
 SPD_SET_COMMAND_STR(output_module, OUTPUT_MODULE);
+SPD_SET_COMMAND_STR(synthesis_voice, SYNTHESIS_VOICE);
 
 SPD_SET_COMMAND_SPECIAL(punctuation, SPDPunctuation);
 SPD_SET_COMMAND_SPECIAL(capital_letters, SPDCapitalLetters);
 SPD_SET_COMMAND_SPECIAL(spelling, SPDSpelling);
 SPD_SET_COMMAND_SPECIAL(voice_type, SPDVoiceType);
+
 
 #undef SPD_SET_COMMAND_INT
 #undef SPD_SET_COMMAND_STR
@@ -730,6 +732,91 @@ spd_set_notification(SPDConnection *connection, SPDNotification notification, co
     return 0;
 }
 #undef NOTIFICATION_SET
+
+
+/* spd_list_modules retrieves information about the available output modules.
+   The return value is a null-terminated array of strings containing output module
+   names.
+*/
+
+char**
+spd_list_modules(SPDConnection *connection)
+{
+  char **available_modules;
+  available_modules = spd_execute_command_with_list_reply(connection, "LIST OUTPUT_MODULES");
+  return available_modules;
+}
+
+char**
+spd_list_voices(SPDConnection *connection)
+{
+  char **voices;
+  voices = spd_execute_command_with_list_reply(connection, "LIST VOICES");
+  return voices;
+}
+
+SPDVoice**
+spd_list_synthesis_voices(SPDConnection *connection)
+{
+  char **svoices_str;
+  SPDVoice **svoices;
+  int i, num_items;
+  svoices_str = spd_execute_command_with_list_reply(connection, "LIST SYNTHESIS_VOICES");
+
+  if (svoices_str == NULL) return NULL;
+
+  for (i=0;;i++)
+    if (svoices_str[i] == NULL) break;
+  num_items = i;
+  svoices = (SPDVoice**) malloc((num_items+1) * sizeof(SPDVoice*));
+
+  for (i=0;i<=num_items;i++){
+    const char delimiters[] = " ";
+    char *running;
+
+    if (svoices_str[i] == NULL) break;
+    running = strdup (svoices_str[i]);
+
+    svoices[i] = (SPDVoice*) malloc(sizeof(SPDVoice));
+    svoices[i]->name = strsep (&running, delimiters);
+    svoices[i]->language = strsep (&running, delimiters);
+    svoices[i]->variant = strsep (&running, delimiters);
+    assert (svoices[i]->name != NULL);
+  }
+
+  svoices[num_items] = NULL;
+
+  return svoices;
+}
+
+char**
+spd_execute_command_with_list_reply(SPDConnection *connection, char *command)
+{
+  char *reply, *line;
+  int err;
+  int max_items = 50;
+  char **result;
+  int i, ret;
+
+  result = malloc((max_items+1)*sizeof(char*));
+
+  ret = spd_execute_command_with_reply(connection, command, &reply);
+  if(!ret_ok(reply)) return NULL;
+  
+  for(i=0;  ;i++){
+    line = get_param_str(reply, i+1, &err);
+    if ((err) || (line == NULL)) break;
+    result[i] = strdup(line);
+    if (i>=max_items-2){
+      max_items *= 2;
+      result = realloc(result, max_items*sizeof(char*));
+    }
+  }
+
+  result[i] = NULL;
+  
+  return result;
+}
 
 //int
 //spd_get_client_list(SPDConnection *connection, char **client_names, int *client_ids, int* active){
@@ -1117,14 +1204,14 @@ get_param_str(char* reply, int num, int *err)
 	return NULL;
 
     if ((*tptr != '-') || (tptr != pos+3)){
-	*err = -2;
+	*err = -3;
 	return NULL;
     }
 
     pos_begin = pos + 4;
     pos_end = strstr(pos_begin, "\r\n");
     if (pos_end == NULL){
-	*err = -2;
+	*err = -4;
 	return NULL;
     }
 
@@ -1244,8 +1331,7 @@ spd_string_append(_SPDString str, char *tail, int bytes)
 	strcat(str.str, tail);
 
     return str;
-}
-   
+}   
 
 static char*
 escape_dot(const char *text)
