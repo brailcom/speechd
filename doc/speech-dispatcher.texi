@@ -1695,8 +1695,9 @@ spelling tables (see spd_set_spelling_table()).
 
 @deffn {C API function}  int spd_set_voice_type(SPDConnection* connection, SPDVoiceType voice);
 @findex spd_set_voice_type()
+@anchor{spd_set_voice_type}
 
-Set a preferred voice.
+Set a preferred symbolic voice.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 
@@ -1704,6 +1705,20 @@ Set a preferred voice.
 @code{SPD_MALE2}, @code{SPD_MALE3}, @code{SPD_FEMALE1}, @code{SPD_FEMALE2},
 @code{SPD_FEMALE3}, @code{SPD_CHILD_MALE}, @code{SPD_CHILD_FEMALE}.
 
+@end deffn
+
+@deffn {C API function}  int spd_set_synthesis_voice(SPDConnection* connection, char* voice_name);
+@findex spd_set_voice_type()
+@anchor{spd_set_synthesis_voice}
+
+Set the speech synthesizer voice to use. Please note that synthesis
+voices are an attribute of the synthesizer, so this setting only takes
+effect until the output module in use is changed (via
+@code{spd_set_output_module()} or via @code{spd_set_language}).
+
+@code{connection} is the SPDConnection* connection created by spd_open().
+
+@code{voice_name} is any of the voice name values retrieved by @xref{spd_list_synthesis_voices}.
 
 @end deffn
 
@@ -1751,7 +1766,66 @@ the lowest and the loudest voice respectively.
 @node Information Retrieval Commands in C, Event Notification and Index Marking in C, Other Functions in C, C API
 @subsection Information Retrieval Commands
 
-Currently there are none.
+@deffn {C API function}  char** spd_list_modules(SPDConnection* connection);
+@findex spd_list_modules()
+@anchor{spd_list_modules}
+
+
+Returns a null-terminated array of identification names of the available
+output modules. You can subsequently set the desired output module with
+@xref{spd_set_output_module()}. In case of error, the return value is
+a NULL pointer.
+
+@code{connection} is the SPDConnection* connection created by spd_open().
+
+@end deffn
+
+@deffn {C API function}  char** spd_list_voices(SPDConnection* connection);
+@findex spd_list_voices()
+
+Returns a null-terminated array of identification names of the
+symbolic voices. You can subsequently set the desired voice
+with @xref{spd_set_voice_type()}
+
+Please note that this is a fixed list independent of the synthesizer
+in use. The given voices can be mapped to specific synthesizer voices
+according to user wish or may, for example, all be mapped to the same
+voice. To choose directly from the raw list of voices as implemented
+in the synthesizer, @xref{spd_list_synthesis_voices}.
+
+In case of error, the return value is a NULL pointer.
+
+@code{connection} is the SPDConnection* connection created by spd_open().
+
+@end deffn
+
+@deffn {C API function}  char** spd_list_synthesis_voices(SPDConnection* connection);
+@findex spd_list_synthesis_voices()
+@anchor{spd_list_synthesis_voices}
+
+Returns a null-terminated array of identification names of
+@code{SPDVoice*} structures describing the available voices as given
+by the synthesizer. You can subsequently set the desired voice with
+@code{spd_set_synthesis_voice()}.
+
+@example
+typedef struct{
+  char *name;   /* Name of the voice (id) */
+  char *language;  /* 2-letter ISO language code */
+  char *variant;   /* a not-well defined string describing dialect etc. */
+}SPDVoice;
+@end example
+
+Please note that the list returned is specific to each synthesizer in
+use (so when you switch to another output module, you must also
+retrieve a new list). If you want instead to use symbolic voice
+names which are independent of the synthesizer in use, @xref{spd_list_voices}.
+
+In case of error, the return value is a NULL pointer.
+
+@code{connection} is the SPDConnection* connection created by spd_open().
+
+@end deffn
 
 @node Event Notification and Index Marking in C, History Commands in C, Information Retrieval Commands in C, C API
 @subsection Event Notification and Index Marking in C
