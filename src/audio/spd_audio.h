@@ -19,7 +19,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: spd_audio.h,v 1.18 2007-12-08 21:58:40 gcasse Exp $
+ * $Id: spd_audio.h,v 1.19 2008-05-12 07:40:34 hanke Exp $
  */
 
 #include <pthread.h>
@@ -131,6 +131,7 @@ typedef struct{
     int pulse_min_request;
     char* pulse_server;
     t_pulse_timeout pulse_timeout;  
+    int suspended;
 #endif
 
     Funct *function;
