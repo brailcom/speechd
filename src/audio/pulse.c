@@ -20,21 +20,20 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: pulse.c,v 1.8 2008-02-08 10:01:09 hanke Exp $
+ * $Id: pulse.c,v 1.9 2008-05-12 07:40:26 hanke Exp $
  */
 
 /* debug */
-
-/* #define DEBUG_PULSE */
+// #define DEBUG_PULSE 
 
 #include <stdio.h>
 #include <stdarg.h>
 
 enum {
-  /* 100ms. 
+  /* 10ms. 
      If a greater value is set (several seconds), 
      please update _pulse_timeout_start accordingly */
-  PULSE_TIMEOUT_IN_USEC = 100000,  
+  PULSE_TIMEOUT_IN_USEC = 10000,  // in microseconds
 
   /* return value */
   PULSE_OK = 0,
@@ -471,6 +470,7 @@ _pulse_playing(AudioID *id, const pa_timing_info *the_timing_info)
 static int
 _pulse_write(AudioID *id, void* ptr, int length) 
 {
+  int r;
   ENTER(__FUNCTION__);
 
   int ret = PULSE_ERROR;
@@ -483,7 +483,13 @@ _pulse_write(AudioID *id, void* ptr, int length)
   pa_threaded_mainloop_lock(id->pulse_mainloop);
   CHECK_DEAD_GOTO(id, fail, 1);
 
-  if (pa_stream_write(id->pulse_stream, ptr, length, NULL, PA_SEEK_RELATIVE, (pa_seek_mode_t)0) < 0) {
+
+  // TODO: Problem is if PulseAudio daemon gets suspended
+  // it won't resume playing again
+  r = pa_stream_write(id->pulse_stream, ptr, length, NULL, PA_SEEK_RELATIVE, (pa_seek_mode_t) 0);
+  SHOW("pa_stream_write returned: %d", r);
+
+  if (r<0){
     ERR("pa_stream_write() failed: %s", pa_strerror(pa_context_errno(id->pulse_context)));
     ret = PULSE_ERROR;
     goto fail;
@@ -820,6 +826,8 @@ _pulse_open(AudioID *id, pa_sample_spec* ss)
     _pulse_close(id);
   }
 
+  id->suspended = 0;
+
   SHOW("_pulse_open (ret %d)\n", ret);
     
   return ret;
@@ -937,7 +945,6 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
        a_attr.prebuf,
        a_attr.minreq,
        a_attr.fragsize);
-
 
   SHOW_TIME("pa_connect_playback");
   if (pa_stream_connect_playback(id->pulse_stream, NULL, &a_attr, (pa_stream_flags_t)(PA_STREAM_INTERPOLATE_TIMING|PA_STREAM_AUTO_TIMING_UPDATE), &id->pulse_volume, NULL) < 0) {
@@ -1106,7 +1113,7 @@ _pulse_timeout_thread(void* the_id)
 	SHOW("%s > compute timeout (my_time_start=%d)\n", __FUNCTION__, time_ref);
 	int a_usec = tv.tv_usec + PULSE_TIMEOUT_IN_USEC;
 
-	tv.tv_sec += a_usec / 1000000;
+	tv.tv_sec += a_usec/1000000;
 	tv.tv_usec = a_usec % 1000000;
 
 	ts.tv_sec = tv.tv_sec;	  
@@ -1130,7 +1137,14 @@ _pulse_timeout_thread(void* the_id)
 	  ERR("Error: pulse_mutex lock=%d (%s)\n", a_status, __FUNCTION__);
 	} 
 	else {
-	  _pulse_close(id);	
+	  //SHOW_TIME("Suspending all sinks");
+	  //pa_context_suspend_sink_by_index(id->pulse_context,PA_INVALID_INDEX,1,NULL,NULL);
+	  id->suspended = 1;
+	  
+	  // Do not close the device, just suspend the sinks
+	  //_pulse_close(id);
+	  pa_stream_cork(id->pulse_stream,1,NULL,NULL);
+
 	  pthread_mutex_unlock(a_mutex);
 	}
       } else {
@@ -1304,6 +1318,7 @@ pulse_play(AudioID *id, AudioTrack track)
     const pa_sample_spec *ss2 = pa_stream_get_sample_spec (id->pulse_stream);
 
     if (!pa_sample_spec_equal (&ss, ss2)) {
+      SHOW_TIME("Sound specs changed, closing the device to reopen.");
       _pulse_close(id);
     }
   }
@@ -1317,6 +1332,13 @@ pulse_play(AudioID *id, AudioTrack track)
     if (ret != PULSE_OK) {
       goto terminate;
     }
+  }
+
+  SHOW_TIME("Resume sinks if suspended");
+  if (id->suspended){
+    SHOW_TIME("Resuming sinks");
+    //pa_context_suspend_sink_by_index(id->pulse_context,PA_INVALID_INDEX,0,NULL,NULL);
+    pa_stream_cork(id->pulse_stream,0,NULL,NULL);
   }
 
   SHOW("Checking buffer size\n","");
