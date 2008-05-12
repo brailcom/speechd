@@ -7,7 +7,7 @@ You will need these components to compile Speech Dispatcher:
  - libdotconf 1.0 (http://www.azzit.de/dotconf/)
  - pthreads
  - gcc and GNU make (http://www.gnu.org)
- - festival-freebsoft-utils 0.3+
+ - festival-freebsoft-utils 0.3+ (optional)
 	(http://www.freebsoft.org/festival-freebsoft-utils)
 
 Only if you are building from CVS, you also need these:
@@ -28,7 +28,7 @@ These packages are known to work with Speech Dispatcher:
  - Espeak (http://espeak.sourceforge.net/) -- a light and fast multi-lingual
      synthesizer with very good support for various Speech Dispatcher
      features.
- - Flite, Cicero, IBM TTS, Dectalk Software
+ - Flite, Cicero, IBM TTS, Dectalk Software, Ivona
 
  User applications:
  - Orca (http://www.gnome.org/projects/orca/) -- AT-SPI screen reader (Gnome)
@@ -46,9 +46,9 @@ Building Speech Dispatcher:
 
 If you want to use Speech Dispatcher with Festival (recommended), you
 also need to install festival-freebsoft-utils version 0.3 or higher!
-There is a new key feature -- SSML support -- in Speech Dispatcher and
-the Festival output module *won't* work with the older
-festival-freebsoft-utils. See above for where to get them.
+
+If you want to use Speech Dispatcher with Ivona, you need to install
+libdumbtts (
 
 To compile the whole project, including Speech Dispatcher server, all modules
 and clients, simply extract the distribution archive and change to 
@@ -58,18 +58,24 @@ speech-dispatcher-<version> directory and run "make all" command as follows:
  $ cd speech-dispatcher-0.6.4
 
 
-Notes about ALSA, OSS and NAS support
-=====================================
+Notes about ALSA, Pulse, OSS and NAS support
+============================================
 
-Speech Dispatcher's default audio output system is the ALSA (Advanced Linux
-Sound Architecture system). It's also possible to build it with Network Audio
-System and/or OSS support and then switch between these two audio systems in
-the output module configuration files (e.g. festival.conf). If you have NAS
-and/or OSS and all the necessary developement libraries installed (audio and
-Xau for NAS), it will be detected automatically when running ./configure
-and Speech Dispatcher will be compiled with NAS and/or OSS
-support.  Please make sure the libraries are installed correctly. Please
-examine ./configure output for possible problems.
+Speech Dispatcher's default audio output system is the ALSA (Advanced
+Linux Sound Architecture system). It's also possible to build it with
+Network Audio System and/or OSS support and then switch between these
+two audio systems in the output module configuration files
+(e.g. festival.conf). If you have NAS and/or OSS and all the necessary
+developement libraries installed (audio and Xau for NAS), it will be
+detected automatically when running ./configure and Speech Dispatcher
+will be compiled with NAS and/or OSS support.  Please make sure the
+libraries are installed correctly. Please examine ./configure output
+for possible problems.
+
+Pulse Audio is a very promising sound output server, the whole setup
+is however a bit more difficult to do by hand. You will need to
+run a separate Speech Dispatcher and Pulse Audio for each user in
+the gnome-session. You will also need to 
 
 We would like to warn you, that the version of NAS 1.7 available to us
 has problems in heavy use (fast typing of keys, many messages comming at once).
