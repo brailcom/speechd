@@ -1,3 +1,20 @@
+2008-05-12  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/audio/spd_audio.h (suspended): New flag. 
+
+	* src/audio/pulse.c (_pulse_timeout_thread): Do not close the
+	device, but only cork it.
+	(pulse_play): Uncork device before playback starts.
+
+	* INSTALL: Updated.
+
+	* src/audio/pulse.c (PULSE_TIMEOUT_IN_USEC): Lower the timeout limit.
+	(_pulse_open): Set suspended flag to false.
+	(pulse_play): Debugging message.
+	(pulse_play): Resume sinks (if suspended) before playback.
+
+	* src/audio/spd_audio.h (AudioID): New PulseAudio parameter 'suspended'. 
+
 2008-04-09  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/tests/Makefile.am: Added new test clibrary2.c
