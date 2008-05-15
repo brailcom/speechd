@@ -139,6 +139,11 @@ AddModule "ivona"	 "sd_ivona"    "ivona.conf"
 #AddModule "ibmtts"       "sd_ibmtts"    "ibmtts.conf"
 #AddModule "cicero"        "sd_cicero"     "cicero.conf"
 
+# DO NOT REMOVE the following line unless you have
+# a specific reason -- this is the fallback output module
+# that is only used when no other modules are in use
+AddModule "dummy"         "sd_dummy"      ""
+
 # The output module testing doesn't actually connect to anything. It
 # outputs the requested commands to standard output and reads
 # responses from stdandard input. This way, Speech Dispatcher's
