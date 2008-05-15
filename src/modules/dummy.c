@@ -22,7 +22,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: dummy.c,v 1.1 2008-05-15 10:15:20 hanke Exp $
+ * $Id: dummy.c,v 1.2 2008-05-15 11:48:34 hanke Exp $
  */
 
 #include <glib.h>
@@ -253,9 +253,9 @@ _dummy_child()
   DBG("Entering child loop\n");
   /* Read the waiting data */
 
-  try1 = strdup("play $DUMMY_WAV_PATH >/dev/null 2>/dev/null");
-  try2 = strdup("aplay $DUMMY_WAV_PATH >/dev/null 2>/dev/null");
-  try3 = strdup("paplay $DUMMY_WAV_PATH > /dev/null 2>/dev/null");
+  try1 = strdup("play $DATADIR/dummy-message.wav > /dev/null 2> /dev/null");
+  try2 = strdup("aplay  $DATADIR/dummy-message.wav > /dev/null 2> /dev/null");
+  try3 = strdup("paplay $DATADIR/dummy-message.wav > /dev/null 2> /dev/null");
   
   DBG("child: synth commands = |%s|%s|%s|", try1, try2, try3);
   DBG("Speaking in child...");
