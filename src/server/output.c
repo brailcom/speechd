@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: output.c,v 1.34 2008-02-08 12:05:23 hanke Exp $
+ * $Id: output.c,v 1.35 2008-05-15 10:17:11 hanke Exp $
  */
 
 #include "output.h"
@@ -45,23 +45,64 @@ get_output_module_by_name(char *name)
   return output;
 }
 
+/* get_output_module tries to return a pointer to the
+   appropriate output module according to message context.
+   If it is not possible to find the required module,
+   it will subsequently try to get the default module,
+   any of the other remaining modules except dummy and
+   at last, the dummy output module.
+
+   Only if not even dummy output module is working
+   (serious issues), it will log an error message and return
+   a NULL pointer.
+
+*/
+
 OutputModule*
 get_output_module(const TSpeechDMessage *message)
 {
   OutputModule *output = NULL;
-  
+  GList *gl;
+  int i;
+
   if (message->settings.output_module != NULL){
     MSG(5, "Desired output module is %s", message->settings.output_module);
     output = get_output_module_by_name(message->settings.output_module);
-    if(output == NULL){
+    if((output == NULL) || !output->working){
+      // If the requested module was not found or is not working,
+      // first try to use the default output module
       if (GlobalFDSet.output_module != NULL){
 	MSG(3,"Warning: Didn't find prefered output module, using default");                
-	output = g_hash_table_lookup(output_modules, GlobalFDSet.output_module); 
-	if (output == NULL || !output->working) 
-	  MSG(2, "Error: Can't find default output module or it's not working!");
+	output = get_output_module_by_name(GlobalFDSet.output_module); 
       }
+      if (output == NULL || !output->working){
+	MSG(3, "Couldn't load default output module, trying other modules");
+      }
+
+      // Try all other output modules now to see if some of them
+      // is working
+      MSG(3, "Trying other output modules");
+      for (i=0; i<=g_list_length(output_modules_list)-1; i++){
+	gl = g_list_nth(output_modules_list, i);
+	if (!gl || !gl->data) break;
+	if (strcmp(gl->data, "dummy"))
+	  output = get_output_module_by_name(gl->data);
+	if ((output != NULL) && (output->working)){
+	  MSG(3, "Output module %s seems to be working, using it", gl->data);
+	  break;
+	}
+      }
+
+      // Did we get something working? If not, use dummy (it will just play
+      // a pre-synthesized error message with some hints over and over).
+      if (output == NULL || !output->working){
+	MSG(1, "Error: No output module seems to be working, using the dummy output module");
+	output = get_output_module_by_name("dummy");
+      }
+
+      // Give up....
       if (output == NULL){
-	MSG(3, "Error: Unspecified output module!\n");
+	MSG(1, "Error: No output module working, not even dummy, no sound produced!\n");
 	return NULL;
       }
     }
