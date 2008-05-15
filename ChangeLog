@@ -1,3 +1,27 @@
+2008-05-15  Hynek Hanke  <hanke@brailcom.org>
+
+	* config/speechd.conf.in: Added dummy module AddModule line.
+
+	* src/modules/dummy-message.wav: New file. Pre-recorded
+	message for playback in the dummy output module.
+
+	* src/modules/dummy.c (_dummy_child): Use $DATADIR instead
+	of hardcoded path.
+
+	* src/modules/Makefile.am (AM_CFLAGS): Pass the snddatadir location
+	via -D.
+	(snddata_DATA): Install also dummy-message.wav
+
+	* src/server/output.c (get_output_module): First try the requested
+	module, if impossible to load, then the default module, then
+	any available module, then the dummy output module and if this
+	fails, just produce a serious error message in the logfile.
+
+	* src/modules/dummy.c: New output module.
+
+	* src/modules/Makefile.am (modulebin_PROGRAMS): New output module: sd_dummy.
+	Changes in the conditioning of compilation of various modules.
+
 2008-05-12  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/audio/spd_audio.h (suspended): New flag. 
