@@ -1,5 +1,9 @@
 
 Version 0.6.6
+ * Pulseaudio output now keeps connection to daemon open.
+
+
+Version 0.6.6
  * Bugfixes (ALSA audio output, libspeechd connection
     failure handling and others)
 
