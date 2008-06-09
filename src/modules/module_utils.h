@@ -18,8 +18,11 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.h,v 1.20 2007-09-23 16:02:41 hanke Exp $
+ * $Id: module_utils.h,v 1.21 2008-06-09 10:45:17 hanke Exp $
  */
+
+#ifndef __MODULE_UTILS_H
+#define __MODULE_UTILS_H
 
 #include <semaphore.h>
 #include <dotconf.h>
@@ -41,7 +44,27 @@
 #include <sys/ipc.h>
 #include <sys/sem.h>
 
+#include "spd_audio.h"
+
+typedef struct{
+  char* audio_output_method;
+  char* audio_oss_device;
+  char* audio_alsa_device;
+  char* audio_nas_server;
+  char* audio_pulse_server;
+  int audio_pulse_max_length;
+  int audio_pulse_target_length;
+  int audio_pulse_pre_buffering;
+  int audio_pulse_min_request;
+}SPDAudioSettings;
+
+AudioID *module_audio_id;
+char* module_audio_pars[10];
+char* module_audio_output_method;
+
+
 SPDMsgSettings msg_settings;
+SPDAudioSettings audio_settings;
 SPDMsgSettings msg_settings_old;
 
 int current_index_mark;
@@ -102,6 +125,7 @@ int module_num_dc_options;
 
 int     module_load         (void);
 int     module_init         (char **status_info);
+int     module_audio_init_spd     (char **status_info);
 VoiceDescription** module_list_voices(void);
 int     module_speak        (char *data, size_t bytes, EMessageType msgtype);
 int     module_stop         (void);
@@ -179,6 +203,7 @@ void  do_stop(void);
 void  do_pause(void);
 char* do_list_voices(void);
 char* do_set(void);
+char* do_audio(void);
 int do_quit(void);
 
 
@@ -390,3 +415,4 @@ pthread_mutex_t module_stdout_mutex;
 
 int module_utils_init(void);
 
+#endif /* #ifndef __MODULE_UTILS_H */
