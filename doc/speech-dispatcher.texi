@@ -801,6 +801,7 @@ application for details about application specific configuration.
 @menu
 * Configuration file syntax::   Basic rules.
 * Configuration options::       What to configure.
+* Audio Output Configuration::  How to switch to ALSA, Pulse...
 * Client Specific Configuration::  Specific default values for applications.
 * Output Modules Configuration::  Adding and customizing output modules.
 * Log Levels::                  Description of log levels.
@@ -840,7 +841,7 @@ Boolean values use On (for true) and Off (for false).
 Debug Off
 @end example
 
-@node Configuration options, Client Specific Configuration, Configuration file syntax, Configuration
+@node Configuration options, Audio Output Configuration, Configuration file syntax, Configuration
 @subsection Configuration options
 
 All available options are documented directly in the file and examples
@@ -848,7 +849,23 @@ are provided.  Most of the options are set to their default value and
 commented out.  If you want to change them, just change the value and
 remove the comment symbol @code{#}.
 
-@node Client Specific Configuration, Output Modules Configuration, Configuration options, Configuration
+@node Audio Output Configuration, Client Specific Configuration, Configuration options, Configuration
+@subsection Audio Output Configuration
+
+Audio output method (ALSA, Pulse etc.) can be configured centrally
+from the main configuration file @code{speechd.conf}. The option
+@code{AudioOutputMethod} selects the desired audio method and further
+options labeled as @code{AudioALSA...} or @code{AudioPulse...} provide
+a more detailed configuration of the given audio output method.
+
+Please note however that some more simple output modules or
+synthesizers, like the generic output module, do not respect these
+settings and use their own means of audio output which can't be
+influenced this way. On the other hand, the fallback dummy output
+module tries to use any available means of audio output to deliver its
+error message.
+
+@node Client Specific Configuration, Output Modules Configuration, Audio Output Configuration, Configuration
 @subsection Client Specific Configuration
 
 It is possible to automatically set different default values of speech
@@ -2472,6 +2489,11 @@ punctuation_some=NULL
 203 OK SETTINGS RECEIVED
 @end example
 
+@item AUDIO
+Audio has exactly the same structure as @code{SET}, but is transmitted
+only once immediatelly after @code{INIT} to transmit the requested audio
+parameters and tell the output module to open the audio device.
+
 @item QUIT
 Terminates the output module. It should send the response, deallocate
 all the resources, close all descriptors, terminate all child
@@ -2788,6 +2810,26 @@ Example from Flite:
     @}
     [...]
 @end example
+
+The third part is openning the audio. This is commanded
+by the @code{AUDIO} protocol command. If the synthesizer is able
+to retrieve audio data, it is desirable to open the @code{spd_audio}
+output according to the requested parameters and then use this
+method for audio output. Audio initialization can be done as
+follows:
+
+@example
+int
+module_audio_init(char **status_info)@{
+  DBG("Opening audio");
+  return module_audio_init_spd(status_info);
+@}
+@end example
+
+If it is impossible to retrieve audio from the synthesizer and
+the synthesizer itself is used for playback, than the module must
+still contain this function, but it should just return 0 and
+do nothing.
 
 Now you have to define all the synthesis control functions
 @code{module_speak}, @code{module_stop} etc.  See @ref{Output Module
