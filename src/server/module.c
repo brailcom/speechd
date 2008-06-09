@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: module.c,v 1.37 2008-02-08 10:01:09 hanke Exp $
+ * $Id: module.c,v 1.38 2008-06-09 10:47:03 hanke Exp $
  */
 
 #define _GNU_SOURCE
@@ -192,6 +192,18 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 		}
 
 	    }
+
+	    /* Initialize audio settings */
+	    ret = output_send_audio_settings(module);
+	    if (ret !=0){
+	      MSG(1, "ERROR: Can't initialize audio in output module, see reason above.");
+	      module->working = 0;
+	      kill(module->pid, 9);
+	      waitpid(module->pid, NULL, WNOHANG);
+	      destroy_module(module);
+	      return NULL;
+	    }
+
 	    /* Get a list of supported voices */
 	    _output_get_voices(module);
 	    fclose(f);
