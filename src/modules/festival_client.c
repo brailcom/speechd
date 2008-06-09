@@ -558,6 +558,7 @@ festival_speak_command(FT_Info *info, char *command, const char *text, int symbo
     if (symbol == 0) fprintf(fd,"\")\n");
     else fprintf(fd, ")\n");
 
+    DBG("-> Festival: escaped text is %s", text);
     DBG("-> Festival: |%sthe text is displayed above\")|", str);
 
     free(str);
