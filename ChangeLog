@@ -1,3 +1,9 @@
+2008-06-09  Gilles Casse  <gcasse@oralux.org>
+
+	* src/modules/ibmtts.c, config/modules/ibmtts.conf: the
+	IBM TTS abbreviation dictionaries are now enabled (default) or
+	disabled using the IbmttsUseAbbreviation variable.	
+	
 2008-06-09  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/module.c (load_output_module): Send audio settings

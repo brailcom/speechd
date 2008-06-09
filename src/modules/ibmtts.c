@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.28 2008-06-09 10:38:17 hanke Exp $
+ * $Id: ibmtts.c,v 1.29 2008-06-09 14:10:14 gcasse Exp $
  */
 
 /* This output module operates with four threads:
@@ -296,6 +296,7 @@ MOD_OPTION_1_STR(IbmttsDelimiters);
 /* Does IBM TTS support SSML or should we strip it off? */
 MOD_OPTION_1_INT(IbmttsUseSSML);
 
+MOD_OPTION_1_INT(IbmttsUseAbbreviation);
 MOD_OPTION_1_INT(IbmttsAudioChunkSize);
 MOD_OPTION_1_STR(IbmttsSoundIconFolder);
 MOD_OPTION_3_HT(IbmttsDialect, dialect, code, encoding);
@@ -317,6 +318,7 @@ module_load(void)
     MOD_OPTION_1_STR_REG(IbmttsDelimiters, "");
 	
     MOD_OPTION_1_INT_REG(IbmttsUseSSML, 0);
+    MOD_OPTION_1_INT_REG(IbmttsUseAbbreviation, 1);
 
     MOD_OPTION_1_INT_REG(IbmttsAudioChunkSize, 20000);
     MOD_OPTION_1_STR_REG(IbmttsSoundIconFolder, "/usr/share/sounds/sound-icons/");
@@ -400,6 +402,8 @@ module_init(char **status_info)
         DBG("Ibmtts: Error registering ECI audio buffer.");
         ibmtts_log_eci_error();
     }
+
+    eciSetParam (eciHandle, eciDictionary, !IbmttsUseAbbreviation);
 
     /* These mutexes are locked when the corresponding threads are suspended. */
     pthread_mutex_init(&ibmtts_synth_suspended_mutex, NULL);
