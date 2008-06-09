@@ -45,7 +45,6 @@ LogDir  "default"
 
 #CustomLogFile "protocol" "/var/log/speech-dispatcher/speechd-protocol.log"
 
-
 # ----- VOICE PARAMETERS -----
 
 # DefaultRate controls how fast the synthesizer is going to speak.  The value
@@ -118,6 +117,78 @@ DefaultVolume 100
 # otherwise (this is usually not something you want to do.)
 
 # DefaultSpelling  Off
+
+# ----- AUDIO CONFIGURATION -----------
+
+# -- AUDIO OUTPUT --
+
+# Chooses between three possible sound output systems:
+#       "oss"   - Open Sound System
+#       "alsa"  - Advanced Linux Sound System
+#       "nas"   - Network Audio System
+#       "pulse" - PulseAudio
+# ALSA is default and recommended. The recent implementations
+# support mixing of multiple streams. OSS is only provided
+# for compatibility with architectures that do not include ALSA.
+# NAS is an audio server with higher level of control over
+# your audio stream, with the possibility to stream your audio
+# over the network to a different computer and other advanced
+# features. (The NAS backend is not very well tested however.)
+# PulseAudio is a sound server for POSIX and WIN32 systems. 
+#
+
+#AudioOutputMethod "alsa"
+
+# What ALSA device to use when Advanced Linux Sound Architecture is
+# chosen for the audio output.
+
+#AudioALSADevice "default"
+
+# -- PulseAudio parameters --
+
+#AudioPulseServer "default"
+
+# Maximum length of the buffer
+
+#AudioPulseMaxLength 132300
+
+# Target length of the buffer
+# The server tries to assure that at least FestivalPulseTargetLength
+# bytes are always available in the buffer
+
+#AudioPulseTargetLength 4410
+
+# Pre-buffering
+# The server does not start with playback before at least 
+# FestivalPulsePrebuffering bytes are available in the buffer
+
+#AudioPulsePreBuffering 2200
+
+# Minimum request
+# The server does not request less than FestivalPulseMinRequest bytes
+# from the client, instead waits until the buffer is free enough to
+# request more bytes at once
+
+#AudioPulseMinRequest 880
+
+# -- OSS parameters --
+
+# What OSS device to use when Open Sound System is
+# chosen for the audio output.
+
+#AudioOSSDevice "/dev/dsp"
+
+# -- NAS parameters --
+
+# Route to the Network Audio System server when NAS
+# was chosen for the audio output. Note that NAS
+# server doesn't need to run on your machine,
+# you can use it also over network (for instance
+# when working on remote machines).
+
+#AudioNASServer "tcp/localhost:5450"
+
+
 
 # -----OUTPUT MODULES CONFIGURATION-----
 
