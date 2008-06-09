@@ -1,3 +1,60 @@
+2008-06-09  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/server/module.c (load_output_module): Send audio settings
+	after initializetion.
+
+	* src/server/config.c: New configuration options for audio.
+
+	* src/modules/module_utils.h: Prototypes for new functions.
+	Protect against multiple inclusions.
+	
+
+	* src/modules/module_utils.c (SET_AUDIO_NUM): New macro.
+	(SET_AUDIO_STR): New macro.
+	(do_audio): New function.
+	(module_audio_init_spd): New function.
+
+	* src/modules/festival_client.c (festival_speak_command): New
+	debugging message.
+
+	* src/modules: Removed local audio settings, now
+	depends on global configuration. New function
+	module_audio_init() in every module.
+	
+	* src/modules/dummy.c (module_audio_init): New function.
+	Removed config file options (we do not want dummy to depend
+	on configuration files).
+	Debug on by default (makes sense in a fallback module).
+
+	* src/modules/cicero.c (module_audio_init): New function.
+
+	* src/audio/spd_audio.h: Protect again multiple inclusion.
+
+	* src/audio/spd_audio.c (spd_audio_open): audio_endian ->
+	spd_audio_endian.
+	(spd_audio_open): spd_audio_endian initialization.
+
+	* src/audio/alsa.c (alsa_play): audio_endian -> spd_audio_endian.
+
+	* intl/fdset.h (TFDSetElement): New prefered audio options.
+
+	* config/modules/: Removed all audio output settings, moved to
+	speechd.conf
+
+	* config/speechd.conf.in: All audio output settings moved here.
+
+	* src/modules/dummy.c (_dummy_child): Correct inclusion of DATADIR path.
+
+	* config/modules/ibmtts.conf: Sentence boundary detection section removed.
+
+	* src/audio/spd_audio.c: Definition of spd_audio_endian moved here to avoid multiple def error.
+
+	* src/modules/module_main.c (main): New command: 'AUDIO'.
+
+	* src/server/output.c (output_send_audio_settings): New function.
+
+	* src/server/module.h (OutputModule): New members for audio configuration.
+
 2008-05-15  Hynek Hanke  <hanke@brailcom.org>
 
 	* config/speechd.conf.in: Added dummy module AddModule line.
