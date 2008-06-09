@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: output.c,v 1.35 2008-05-15 10:17:11 hanke Exp $
+ * $Id: output.c,v 1.36 2008-06-09 10:47:26 hanke Exp $
  */
 
 #include "output.h"
@@ -202,13 +202,13 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
         MSG2(5, "output_module", "Reply from output module: |%s|", response);
 
         if (response[0] == '3'){
-            MSG(2, "Error: Module reported error in request from speechd (code 3xx).");
+	    MSG(2, "Error: Module reported error in request from speechd (code 3xx): %s.", response);
 	    spd_free(response);
             return -2; /* User (speechd) side error */
         }
 
         if (response[0] == '4'){
-            MSG(2, "Error: Module reported error in itself (code 4xx).");
+	    MSG(2, "Error: Module reported error in itself (code 4xx): %s", response);
 	    spd_free(response);
             return -3; /* Module side error */
         }
@@ -364,6 +364,43 @@ output_send_settings(TSpeechDMessage *msg, OutputModule *output)
 #undef ADD_SET_INT
 #undef ADD_SET_STR
 
+
+#define ADD_SET_INT(name) \
+    g_string_append_printf(set_str, #name"=%d\n", GlobalFDSet.name);
+#define ADD_SET_STR(name) \
+    if (GlobalFDSet.name != NULL){ \
+       g_string_append_printf(set_str, #name"=%s\n", GlobalFDSet.name); \
+    }else{ \
+       g_string_append_printf(set_str, #name"=NULL\n"); \
+    }
+
+int
+output_send_audio_settings(OutputModule *output)
+{
+    GString *set_str;
+    int err;
+
+    MSG(4, "Module set parameters.");
+    set_str = g_string_new("");
+    ADD_SET_STR(audio_output_method);
+    ADD_SET_STR(audio_oss_device);
+    ADD_SET_STR(audio_alsa_device);
+    ADD_SET_STR(audio_nas_server);
+    ADD_SET_INT(audio_pulse_max_length);
+    ADD_SET_INT(audio_pulse_target_length);
+    ADD_SET_INT(audio_pulse_pre_buffering);
+    ADD_SET_INT(audio_pulse_min_request);
+
+    SEND_CMD_N("AUDIO");
+    SEND_DATA_N(set_str->str);
+    SEND_CMD_N(".");
+
+    g_string_free(set_str, 1);
+
+    return 0;
+}
+#undef ADD_SET_INT
+#undef ADD_SET_STR
 
 int
 output_speak(TSpeechDMessage *msg)
