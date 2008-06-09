@@ -1,3 +1,7 @@
+2008-06-09  Hynek Hanke  <hanke@brailcom.org>
+
+	* speech-dispatcher.texi (Configuration): Document briefly the new central way of setting audio output.
+
 2008-04-09  Hynek Hanke  <hanke@brailcom.org>
 
 	* speech-dispatcher.texi (Parameter Setting Commands in C): New
