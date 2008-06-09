@@ -24,7 +24,6 @@
 #include <fdset.h>
 #include <errno.h>
 #include "module_utils.h"
-/* #include "spd_audio.c" */
 #include <sys/poll.h>
 #include <fcntl.h>
 #include <langinfo.h>
@@ -224,6 +223,14 @@ module_init(char **status_info)
 
   return 0;
 }
+
+
+int
+module_audio_init(char **status_info){
+  status_info == NULL;
+  return 0;
+}
+
 
 VoiceDescription**
 module_list_voices(void)
