@@ -19,7 +19,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: spd_audio.c,v 1.20 2008-02-01 11:22:27 hanke Exp $
+ * $Id: spd_audio.c,v 1.21 2008-06-09 10:29:12 hanke Exp $
  */
 
 /* 
@@ -84,6 +84,13 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 {
     AudioID *id;
     int ret;
+
+#if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
+    spd_audio_endian = SPD_AUDIO_BE;
+#else
+    spd_audio_endian = SPD_AUDIO_LE;
+#endif
+
 
     id = (AudioID*) malloc(sizeof(AudioID));
 
@@ -207,7 +214,7 @@ spd_audio_play(AudioID *id, AudioTrack track, AudioFormat format)
     if (id && id->function->play){
         /* Only perform byte swapping if the driver in use has given us audio in
 	   an endian format other than what the running CPU supports. */
-        if (format != audio_endian){
+        if (format != spd_audio_endian){
                 unsigned char *out_ptr, *out_end, c;
                 out_ptr = (unsigned char *) track.samples;
                 out_end = out_ptr + track.num_samples*2 * track.num_channels;
