@@ -22,7 +22,7 @@
  * @author Lukas Loehrer
  * Based on ibmtts.c.
  *
- * $Id: espeak.c,v 1.8 2008-02-08 10:01:09 hanke Exp $
+ * $Id: espeak.c,v 1.9 2008-06-09 10:33:35 hanke Exp $
  */
 
 /* < Includes*/
@@ -132,14 +132,6 @@ static int playback_queue_size = 0; /* Number of audio frames currently in queue
 static pthread_mutex_t playback_queue_mutex;
 pthread_cond_t playback_queue_condition;
 
-/* > */
-/* < Audio. */
-
-static AudioID *espeak_audio_id = NULL;
-static AudioOutputType espeak_audio_output_method;
-static void *espeak_audio_pars[10];
-
-/* > */
 
 /* When a voice is set, this is the baseline pitch of the voice.
    SSIP PITCH commands then adjust relative to this. */
@@ -200,18 +192,7 @@ static void* _espeak_stop_or_pause(void*);
 MOD_OPTION_1_INT(EspeakPitchRange);
 MOD_OPTION_1_STR(EspeakPunctuationList);
 MOD_OPTION_1_INT(EspeakCapitalPitchRise);
-
-/* Audio options */
-MOD_OPTION_1_STR(EspeakAudioOutputMethod);
-MOD_OPTION_1_STR(EspeakOSSDevice);
-MOD_OPTION_1_STR(EspeakNASServer);
-MOD_OPTION_1_STR(EspeakALSADevice);
-MOD_OPTION_1_STR(EspeakPulseServer);
-MOD_OPTION_1_INT(EspeakPulseMaxLength);
-MOD_OPTION_1_INT(EspeakPulseTargetLength);
-MOD_OPTION_1_INT(EspeakPulsePreBuffering);
-MOD_OPTION_1_INT(EspeakPulseMinRequest);
-
+ 
 MOD_OPTION_1_INT(EspeakAudioChunkSize);
 MOD_OPTION_1_INT(EspeakAudioQueueMaxSize);
 MOD_OPTION_1_STR(EspeakSoundIconFolder);
@@ -228,16 +209,6 @@ module_load(void)
 	REGISTER_DEBUG();
 
 	/* Options */
-	MOD_OPTION_1_STR_REG(EspeakAudioOutputMethod, "alsa");
-	MOD_OPTION_1_STR_REG(EspeakOSSDevice, "/dev/dsp");
-	MOD_OPTION_1_STR_REG(EspeakNASServer, "tcp/localhost:5450");
-	MOD_OPTION_1_STR_REG(EspeakALSADevice, "default");
-	MOD_OPTION_1_STR_REG(EspeakPulseServer, "default");
-	MOD_OPTION_1_INT_REG(EspeakPulseMaxLength, 132300);
-	MOD_OPTION_1_INT_REG(EspeakPulseTargetLength, 4410);
-	MOD_OPTION_1_INT_REG(EspeakPulsePreBuffering, 2200);
-	MOD_OPTION_1_INT_REG(EspeakPulseMinRequest, 880);
-
 	MOD_OPTION_1_INT_REG(EspeakAudioChunkSize, 2000);
 	MOD_OPTION_1_INT_REG(EspeakAudioQueueMaxSize, 20*22050);
 	MOD_OPTION_1_STR_REG(EspeakSoundIconFolder, "/usr/share/sounds/sound-icons/");
@@ -250,6 +221,8 @@ module_load(void)
 		EspeakCapitalPitchRise = 0;
 	}
 
+	module_audio_id = NULL;
+	
 	return OK;
 }
 
@@ -305,51 +278,6 @@ module_init(char **status_info)
 
 	espeak_voice_list = espeak_list_synthesis_voices();
 
-	/* > */
-	/* <Audio setup*/
-
-	DBG("Espeak: Opening audio.");
-	if (!strcmp(EspeakAudioOutputMethod, "oss")){
-		DBG("Espeak: Using OSS sound output.");
-		espeak_audio_pars[0] = (void *) strdup(EspeakOSSDevice);
-		espeak_audio_pars[1] = NULL;
-		espeak_audio_id = spd_audio_open(AUDIO_OSS, (void**) espeak_audio_pars, &error);
-		espeak_audio_output_method = AUDIO_OSS;
-	}
-	else if (!strcmp(EspeakAudioOutputMethod, "nas")){
-		DBG("Espeak: Using NAS sound output.");
-		espeak_audio_pars[0] = (void *) EspeakNASServer;
-		espeak_audio_pars[1] = NULL;
-		espeak_audio_id = spd_audio_open(AUDIO_NAS, (void**) espeak_audio_pars, &error);
-		espeak_audio_output_method = AUDIO_NAS;
-	}
-	else if (!strcmp(EspeakAudioOutputMethod, "alsa")){
-		DBG("Espeak: Using ALSA sound output.");
-		espeak_audio_pars[0] = (void *) EspeakALSADevice;
-		espeak_audio_pars[1] = NULL;
-		espeak_audio_id = spd_audio_open(AUDIO_ALSA, (void**) espeak_audio_pars, &error);
-		espeak_audio_output_method = AUDIO_ALSA;
-	} else if (!strcmp(EspeakAudioOutputMethod, "pulse")){
-		DBG("Espeak: Using PulseAudio sound output.");
-		espeak_audio_pars[0] = (void *) EspeakPulseServer;
-		espeak_audio_pars[1] = (void *) EspeakPulseMaxLength;
-		espeak_audio_pars[2] = (void *) EspeakPulseTargetLength;
-		espeak_audio_pars[3] = (void *) EspeakPulsePreBuffering;
-		espeak_audio_pars[4] = (void *) EspeakPulseMinRequest;
-		espeak_audio_pars[5] = NULL;
-		espeak_audio_id = spd_audio_open(AUDIO_PULSE, (void**) espeak_audio_pars, &error);
-		espeak_audio_output_method = AUDIO_PULSE;
-	} else{
-		ABORT("Sound output method specified in configuration not supported. "
-			  "Please choose 'oss', 'nas', or 'alsa'.");
-	}
-	if (espeak_audio_id == NULL){
-		g_string_append_printf(info, "Opening sound device failed. Reason: %s. ", error);
-		ABORT("Can't open sound device.");
-	}
-
-	/* > */
-
 	/* Reset global state */
 	espeak_state_reset();
 
@@ -380,13 +308,19 @@ module_init(char **status_info)
 		ABORT("Failed to create playback thread.");
 	}
 
-	/* > */
-    
 	*status_info = strdup("Espeak: Initialized successfully.");
 
 	return OK;
 }
 #undef ABORT
+
+
+int
+module_audio_init(char **status_info){
+  DBG("Opening audio");
+  return module_audio_init_spd(status_info);
+}
+
 
 VoiceDescription**
 module_list_voices(void)
@@ -556,8 +490,8 @@ module_close(int status)
 	espeak_Terminate();
 
 	DBG("Espeak: Closing audio output");
-	if (espeak_audio_id) {
-		spd_audio_close(espeak_audio_id);
+	if (module_audio_id) {
+		spd_audio_close(module_audio_id);
 	}
 
 	DBG("Freeing resources.");
@@ -630,12 +564,12 @@ _espeak_stop_or_pause(void* nothing)
 		pthread_cond_broadcast(&playback_queue_condition);
 		pthread_mutex_unlock(&playback_queue_mutex);
 	
-		if (espeak_audio_id) {
+		if (module_audio_id) {
 			DBG("Espeak: Stopping audio.");
-			ret = spd_audio_stop(espeak_audio_id);
+			ret = spd_audio_stop(module_audio_id);
 			DBG_WARN(ret == 0, "spd_audio_stop returned non-zero value.");
 			while (is_thread_busy(&espeak_play_suspended_mutex))  {
-				ret = spd_audio_stop(espeak_audio_id);
+				ret = spd_audio_stop(module_audio_id);
 				DBG_WARN(ret == 0, "spd_audio_stop returned non-zero value.");
 				g_usleep(5000);
 			}
@@ -1085,8 +1019,8 @@ espeak_send_to_audio(TPlaybackQueueEntry *playback_queue_entry)
 
 	DBG("Espeak: Sending %i samples to audio.", track.num_samples);
 	/* Volume is controlled by the synthesizer.  Always play at normal on audio device. */
-	spd_audio_set_volume(espeak_audio_id, 85);
-	ret = spd_audio_play(espeak_audio_id, track, SPD_AUDIO_LE);
+	spd_audio_set_volume(module_audio_id, 85);
+	ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
 	if (ret < 0) {
 		DBG("ERROR: Can't play track for unknown reason.");
 		return FALSE;
@@ -1243,8 +1177,8 @@ espeak_play_file(char *filename)
 		track.num_samples = readcount / sfinfo.channels;
 		DBG("Espeak: Sending %i samples to audio.", track.num_samples);
 		/* Volume is controlled by the synthesizer.  Always play at normal on audio device. */
-		spd_audio_set_volume(espeak_audio_id, EspeakSoundIconVolume);
-		int ret = spd_audio_play(espeak_audio_id, track, SPD_AUDIO_LE);
+		spd_audio_set_volume(module_audio_id, EspeakSoundIconVolume);
+		int ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
 		if (ret < 0) {
 			DBG("ERROR: Can't play track for unknown reason.");
 			result = FALSE;

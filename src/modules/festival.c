@@ -14,17 +14,15 @@
  * General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this package; see the file COPYING.  If not, write to
+- * along with this package; see the file COPYING.  If not, write to
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: festival.c,v 1.81 2008-02-08 10:01:09 hanke Exp $
+ * $Id: festival.c,v 1.82 2008-06-09 10:33:38 hanke Exp $
  */
 
 #include "fdset.h"
 #include "fdsetconv.h"
-
-#include "spd_audio.h"
 
 #include "module_utils.h"
 
@@ -51,10 +49,6 @@ int festival_stop = 0;
 int festival_process_pid = 0;
 
 FT_Info *festival_info = NULL;
-
-AudioID *festival_audio_id = NULL;
-AudioOutputType festival_audio_output_method;
-char *festival_pars[10];
 
 VoiceDescription** festival_voice_list = NULL;
 
@@ -101,16 +95,6 @@ MOD_OPTION_1_INT(FestivalServerPort);
 MOD_OPTION_1_INT(FestivalPitchDeviation);
 MOD_OPTION_1_INT(FestivalDebugSaveOutput);
 MOD_OPTION_1_STR(FestivalRecodeFallback);
-
-MOD_OPTION_1_STR(FestivalAudioOutputMethod);
-MOD_OPTION_1_STR(FestivalOSSDevice);
-MOD_OPTION_1_STR(FestivalALSADevice);
-MOD_OPTION_1_STR(FestivalNASServer);
-MOD_OPTION_1_STR(FestivalPulseServer);
-MOD_OPTION_1_INT(FestivalPulseMaxLength);
-MOD_OPTION_1_INT(FestivalPulseTargetLength);
-MOD_OPTION_1_INT(FestivalPulsePreBuffering);
-MOD_OPTION_1_INT(FestivalPulseMinRequest);
 
 MOD_OPTION_1_INT(FestivalCacheOn);
 MOD_OPTION_1_INT(FestivalCacheMaxKBytes);
@@ -167,16 +151,6 @@ module_load(void)
 
     MOD_OPTION_1_STR_REG(FestivalRecodeFallback, "?");
 
-    MOD_OPTION_1_STR_REG(FestivalAudioOutputMethod, "oss");
-    MOD_OPTION_1_STR_REG(FestivalOSSDevice, "/dev/dsp");
-    MOD_OPTION_1_STR_REG(FestivalALSADevice, "default");
-    MOD_OPTION_1_STR_REG(FestivalNASServer, NULL);
-    MOD_OPTION_1_STR_REG(FestivalPulseServer, "default");
-    MOD_OPTION_1_INT_REG(FestivalPulseMaxLength, 132300);
-    MOD_OPTION_1_INT_REG(FestivalPulseTargetLength, 4410);
-    MOD_OPTION_1_INT_REG(FestivalPulsePreBuffering, 2200);
-    MOD_OPTION_1_INT_REG(FestivalPulseMinRequest, 880);
-
     MOD_OPTION_1_INT_REG(FestivalCacheOn, 1);
     MOD_OPTION_1_INT_REG(FestivalCacheMaxKBytes, 5120);
     MOD_OPTION_1_INT_REG(FestivalCacheDistinguishVoices, 0);
@@ -187,7 +161,7 @@ module_load(void)
      in Festival is fixed */
     MOD_OPTION_1_INT_REG(FestivalReopenSocket, 0);
 
-    festival_audio_id = NULL;
+    module_audio_id = NULL;
 
     return 0;
 }
@@ -200,8 +174,7 @@ module_load(void)
 int
 module_init(char **status_info)
 {
-    int ret;
-    char *error;
+  int ret;
 
     GString *info;
 
@@ -239,50 +212,6 @@ module_init(char **status_info)
     /* Get festival voice list */
     festival_voice_list = festivalGetVoices(festival_info);
 
-    DBG("Openning audio output system");
-    if (!strcmp(FestivalAudioOutputMethod, "oss")){
-	DBG("Using OSS audio output method");
-	festival_pars[0] = FestivalOSSDevice;
-	festival_pars[1] = NULL;
-	festival_audio_id = spd_audio_open(AUDIO_OSS, (void**) festival_pars, &error);
-	festival_audio_output_method = AUDIO_OSS;
-    }
-    else if (!strcmp(FestivalAudioOutputMethod, "alsa")){
-	DBG("Using Alsa audio output method");
-	festival_pars[0] = FestivalALSADevice;
-	festival_pars[1] = NULL;
-	festival_audio_id = spd_audio_open(AUDIO_ALSA, (void**) festival_pars, &error);
-	festival_audio_output_method = AUDIO_ALSA;
-    }
-    else if (!strcmp(FestivalAudioOutputMethod, "nas")){
-	DBG("Using NAS audio output method");
-	festival_pars[0] = FestivalNASServer;
-	festival_pars[1] = NULL;
-	festival_audio_id = spd_audio_open(AUDIO_NAS, (void**) festival_pars, &error);
-	festival_audio_output_method = AUDIO_NAS;
-    }
-    else if (!strcmp(FestivalAudioOutputMethod, "pulse")){
-	DBG("Using PulseAudio output method");
-	festival_pars[0] = (void *) FestivalPulseServer;
-	festival_pars[1] = (void *) FestivalPulseMaxLength;
-	festival_pars[2] = (void *) FestivalPulseTargetLength;
-	festival_pars[3] = (void *) FestivalPulsePreBuffering;
-	festival_pars[4] = (void *) FestivalPulseMinRequest;
-	festival_pars[5] = NULL;
-	festival_audio_id = spd_audio_open(AUDIO_PULSE, (void**) festival_pars, &error);
-	festival_audio_output_method = AUDIO_PULSE;
-    }
-    else{
-	ABORT("Sound output method specified in configuration not supported. "
-	      "Please choose 'oss', 'alsa', 'nas' or 'pulse'.");
-    }
-    if (festival_audio_id == NULL){
-	g_string_append_printf(info, "Opening sound device failed. Reason: %s. ", error);
-	ABORT("Can't open sound device.");
-    }
-
-    pthread_mutex_init(&sound_output_mutex, NULL);
-
     /* Initialize global variables */
     festival_message = (char**) xmalloc (sizeof (char*));    
     *festival_message = NULL;
@@ -306,12 +235,20 @@ module_init(char **status_info)
 	return -1;
     }
 
+    pthread_mutex_init(&sound_output_mutex, NULL);
+
     *status_info = info->str;
     g_string_free(info, 0);
 
     return 0;
 }
+
 #undef ABORT
+
+int
+module_audio_init(char **status_info){
+  return module_audio_init_spd(status_info);
+}
 
 VoiceDescription**
 module_list_voices(void)
@@ -429,8 +366,8 @@ module_stop(void)
 	if (!festival_stop){
 	    pthread_mutex_lock(&sound_output_mutex);       
 	    festival_stop = 1;
-	    if (festival_speaking && festival_audio_id){
-		spd_audio_stop(festival_audio_id);
+	    if (festival_speaking && module_audio_id){
+		spd_audio_stop(module_audio_id);
 	    }
 	    pthread_mutex_unlock(&sound_output_mutex);
 	}
@@ -479,8 +416,8 @@ module_close(int status)
     //    system("rm -f /tmp/est* 2> /dev/null");
 
     DBG("Closing audio output");
-    if (festival_audio_id)
-	spd_audio_close(festival_audio_id);
+    if (module_audio_id)
+	spd_audio_close(module_audio_id);
 
     exit(status);
 }
@@ -524,12 +461,12 @@ festival_send_to_audio(FT_Wave *fwave)
     
     if (track.samples != NULL){
 	DBG("Sending to audio");
-		switch (audio_endian){
+		switch (spd_audio_endian){
 			case SPD_AUDIO_LE:
-				ret = spd_audio_play(festival_audio_id, track, SPD_AUDIO_LE);
+				ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
 				break;
 			case SPD_AUDIO_BE:
-				ret = spd_audio_play(festival_audio_id, track, SPD_AUDIO_BE);
+				ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_BE);
 				break;
 		}
 	if (ret < 0) DBG("ERROR: Can't play track for unknown reason.");
@@ -565,7 +502,7 @@ _festival_speak(void* nothing)
         sem_wait(festival_semaphore);
         DBG("Semaphore on, speaking\n");
 
-	spd_audio_set_volume(festival_audio_id, festival_volume);
+	spd_audio_set_volume(module_audio_id, festival_volume);
 
 	festival_stop = 0;	
 	festival_speaking = 1;

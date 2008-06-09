@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: flite.c,v 1.58 2008-02-23 07:48:32 lloehrer Exp $
+ * $Id: flite.c,v 1.59 2008-06-09 10:38:02 hanke Exp $
  */
 
 
@@ -63,24 +63,11 @@ static void* _flite_speak(void*);
 cst_voice *register_cmu_us_kal();
 cst_voice *flite_voice;
 
-AudioID *flite_audio_id = NULL;
-AudioOutputType flite_audio_output_method;
-char *flite_pars[10];
 int flite_stop = 0;
 
 
 MOD_OPTION_1_INT(FliteMaxChunkLength);
 MOD_OPTION_1_STR(FliteDelimiters);
-
-MOD_OPTION_1_STR(FliteAudioOutputMethod);
-MOD_OPTION_1_STR(FliteOSSDevice);
-MOD_OPTION_1_STR(FliteNASServer);
-MOD_OPTION_1_STR(FliteALSADevice);
-MOD_OPTION_1_STR(FlitePulseServer);
-MOD_OPTION_1_INT(FlitePulseMaxLength);
-MOD_OPTION_1_INT(FlitePulseTargetLength);
-MOD_OPTION_1_INT(FlitePulsePreBuffering);
-MOD_OPTION_1_INT(FlitePulseMinRequest);
 
 /* Public functions */
 
@@ -94,15 +81,6 @@ module_load(void)
    MOD_OPTION_1_INT_REG(FliteMaxChunkLength, 300);
    MOD_OPTION_1_STR_REG(FliteDelimiters, ".");
 
-   MOD_OPTION_1_STR_REG(FliteAudioOutputMethod, "oss");
-   MOD_OPTION_1_STR_REG(FliteOSSDevice, "/dev/dsp");
-   MOD_OPTION_1_STR_REG(FliteNASServer, NULL);
-   MOD_OPTION_1_STR_REG(FliteALSADevice, "default");
-   MOD_OPTION_1_STR_REG(FlitePulseServer, "default");
-   MOD_OPTION_1_INT_REG(FlitePulseMaxLength, 132300);
-   MOD_OPTION_1_INT_REG(FlitePulseTargetLength, 4410);
-   MOD_OPTION_1_INT_REG(FlitePulsePreBuffering, 2200);
-   MOD_OPTION_1_INT_REG(FlitePulseMinRequest, 880);
 
    return 0;
 }
@@ -117,7 +95,6 @@ int
 module_init(char **status_info)
 {
     int ret;
-    char *error;
     GString *info;
 
     DBG("Module init");
@@ -136,48 +113,6 @@ module_init(char **status_info)
 			      "Currently only kal is supported. Seems your FLite "
 			      "installation is incomplete.");
         return -1;
-    }
-
-    DBG("Opening audio");
-    if (!strcmp(FliteAudioOutputMethod, "oss")){
-	DBG("Using OSS sound output.");
-	flite_pars[0] = strdup(FliteOSSDevice);
-	flite_pars[1] = NULL;
-	flite_audio_id = spd_audio_open(AUDIO_OSS, (void**) flite_pars, &error);
-	flite_audio_output_method = AUDIO_OSS;
-    }
-    else if (!strcmp(FliteAudioOutputMethod, "nas")){
-	DBG("Using NAS sound output.");
-	flite_pars[0] = FliteNASServer;
-	flite_pars[1] = NULL;
-	flite_audio_id = spd_audio_open(AUDIO_NAS, (void**) flite_pars, &error);
-	flite_audio_output_method = AUDIO_NAS;
-    }
-    else if (!strcmp(FliteAudioOutputMethod, "alsa")){
-	DBG("Using ALSA sound output.");
-	flite_pars[0] = FliteALSADevice;
-	flite_pars[1] = NULL;
-	flite_audio_id = spd_audio_open(AUDIO_ALSA, (void**) flite_pars, &error);
-	flite_audio_output_method = AUDIO_ALSA;
-    }
-    else if (!strcmp(FliteAudioOutputMethod, "pulse")){
-	DBG("Using PulseAudio sound output.");
-	flite_pars[0] = (void *) FlitePulseServer;
-	flite_pars[1] = (void *) FlitePulseMaxLength;
-	flite_pars[2] = (void *) FlitePulseTargetLength;
-	flite_pars[3] = (void *) FlitePulsePreBuffering;
-	flite_pars[4] = (void *) FlitePulseMinRequest;
-	flite_pars[5] = NULL;
-	flite_audio_id = spd_audio_open(AUDIO_PULSE, (void**) flite_pars, &error);
-	flite_audio_output_method = AUDIO_PULSE;
-    }
-    else{	
-	ABORT("Sound output method specified in configuration not supported. "
-	      "Please choose 'oss' or 'nas'.");
-    }
-    if (flite_audio_id == NULL){
-	g_string_append_printf(info, "Opening sound device failed. Reason: %s. ", error);
-	ABORT("Can't open sound device.");
     }
 
     DBG("FliteMaxChunkLength = %d\n", FliteMaxChunkLength);
@@ -200,11 +135,21 @@ module_init(char **status_info)
         return -1;
     }
 
+    module_audio_id = NULL;
+
     *status_info = strdup("Flite initialized successfully.");
 
     return 0;
 }
 #undef ABORT
+
+
+int
+module_audio_init(char **status_info){
+  DBG("Opening audio");
+  return module_audio_init_spd(status_info);
+}
+
 
 VoiceDescription**
 module_list_voices(void)
@@ -254,9 +199,9 @@ module_stop(void)
     DBG("flite: stop()\n");
 
     flite_stop = 1;
-    if (flite_audio_id){
+    if (module_audio_id){
 	DBG("Stopping audio");
-	ret = spd_audio_stop(flite_audio_id);
+	ret = spd_audio_stop(module_audio_id);
 	if (ret != 0) DBG("WARNING: Non 0 value from spd_audio_stop: %d", ret);
     }
 
@@ -296,7 +241,7 @@ module_close(int status)
     xfree(flite_voice);
 
     DBG("Closing audio output");
-    spd_audio_close(flite_audio_id);
+    spd_audio_close(module_audio_id);
 
     exit(status);
 }
@@ -341,7 +286,7 @@ _flite_speak(void* nothing)
 	flite_stop = 0;
 	flite_speaking = 1;
 
-	spd_audio_set_volume(flite_audio_id, flite_volume);
+	spd_audio_set_volume(module_audio_id, flite_volume);
 
 	/* TODO: free(buf) */
 	buf = (char*) malloc((FliteMaxChunkLength+1) * sizeof(char));
@@ -405,12 +350,12 @@ _flite_speak(void* nothing)
 			break;
 		    }
 		    DBG("Playing part of the message");
-		    switch (audio_endian){
+		    switch (spd_audio_endian){
 		        case SPD_AUDIO_LE:
-		            ret = spd_audio_play(flite_audio_id, track, SPD_AUDIO_LE);
+		            ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
 		            break;
 		        case SPD_AUDIO_BE:
-		            ret = spd_audio_play(flite_audio_id, track, SPD_AUDIO_BE);
+		            ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_BE);
 		            break;
 		    }
 		    if (ret < 0) DBG("ERROR: spd_audio failed to play the track");

@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: ivona.c,v 1.1 2008-04-03 13:20:57 hanke Exp $
+ * $Id: ivona.c,v 1.2 2008-06-09 10:38:21 hanke Exp $
  */
 
 
@@ -64,10 +64,6 @@ static void ivona_set_cap_let_recogn(ECapLetRecogn cap_mode);
 
 static void* _ivona_speak(void*);
 
-
-AudioID *ivona_audio_id = NULL;
-AudioOutputType ivona_audio_output_method;
-char *ivona_pars[10];
 int ivona_stop = 0;
 
 
@@ -78,16 +74,6 @@ MOD_OPTION_1_STR(IvonaSoundIconPath);
 MOD_OPTION_1_STR(IvonaServerHost);
 MOD_OPTION_1_INT(IvonaServerPort);
 MOD_OPTION_1_INT(IvonaSampleFreq);
-
-MOD_OPTION_1_STR(IvonaAudioOutputMethod);
-MOD_OPTION_1_STR(IvonaOSSDevice);
-MOD_OPTION_1_STR(IvonaNASServer);
-MOD_OPTION_1_STR(IvonaALSADevice);
-MOD_OPTION_1_STR(IvonaPulseServer);
-MOD_OPTION_1_INT(IvonaPulseMaxLength);
-MOD_OPTION_1_INT(IvonaPulseTargetLength);
-MOD_OPTION_1_INT(IvonaPulsePreBuffering);
-MOD_OPTION_1_INT(IvonaPulseMinRequest);
 
 MOD_OPTION_1_STR(IvonaSpeakerLanguage);
 MOD_OPTION_1_STR(IvonaSpeakerName);
@@ -112,16 +98,6 @@ module_load(void)
    MOD_OPTION_1_STR_REG(IvonaServerHost,"127.0.0.1");
    MOD_OPTION_1_INT_REG(IvonaServerPort,9123);
    MOD_OPTION_1_INT_REG(IvonaSampleFreq,16000);
-
-   MOD_OPTION_1_STR_REG(IvonaAudioOutputMethod, "oss");
-   MOD_OPTION_1_STR_REG(IvonaOSSDevice, "/dev/dsp");
-   MOD_OPTION_1_STR_REG(IvonaNASServer, NULL);
-   MOD_OPTION_1_STR_REG(IvonaALSADevice, "default");
-   MOD_OPTION_1_STR_REG(IvonaPulseServer, "default");
-   MOD_OPTION_1_INT_REG(IvonaPulseMaxLength, 132300);
-   MOD_OPTION_1_INT_REG(IvonaPulseTargetLength, 4410);
-   MOD_OPTION_1_INT_REG(IvonaPulsePreBuffering, 2200);
-   MOD_OPTION_1_INT_REG(IvonaPulseMinRequest, 880);
 
    MOD_OPTION_1_STR_REG(IvonaSpeakerLanguage,"pl");
    MOD_OPTION_1_STR_REG(IvonaSpeakerName,"Jacek");
@@ -158,47 +134,6 @@ module_init(char **status_info)
 	return -1;
     }
     ivona_conf=dumbtts_TTSInit(IvonaSpeakerLanguage);
-    DBG("Opening audio");
-    if (!strcmp(IvonaAudioOutputMethod, "oss")){
-	DBG("Using OSS sound output.");
-	ivona_pars[0] = strdup(IvonaOSSDevice);
-	ivona_pars[1] = NULL;
-	ivona_audio_id = spd_audio_open(AUDIO_OSS, (void**) ivona_pars, &error);
-	ivona_audio_output_method = AUDIO_OSS;
-    }
-    else if (!strcmp(IvonaAudioOutputMethod, "nas")){
-	DBG("Using NAS sound output.");
-	ivona_pars[0] = IvonaNASServer;
-	ivona_pars[1] = NULL;
-	ivona_audio_id = spd_audio_open(AUDIO_NAS, (void**) ivona_pars, &error);
-	ivona_audio_output_method = AUDIO_NAS;
-    }
-    else if (!strcmp(IvonaAudioOutputMethod, "alsa")){
-	DBG("Using ALSA sound output.");
-	ivona_pars[0] = IvonaALSADevice;
-	ivona_pars[1] = NULL;
-	ivona_audio_id = spd_audio_open(AUDIO_ALSA, (void**) ivona_pars, &error);
-	ivona_audio_output_method = AUDIO_ALSA;
-    }
-    else if (!strcmp(IvonaAudioOutputMethod, "pulse")){
-	DBG("Using PulseAudio sound output.");
-	ivona_pars[0] = (void *) IvonaPulseServer;
-	ivona_pars[1] = (void *) IvonaPulseMaxLength;
-	ivona_pars[2] = (void *) IvonaPulseTargetLength;
-	ivona_pars[3] = (void *) IvonaPulsePreBuffering;
-	ivona_pars[4] = (void *) IvonaPulseMinRequest;
-	ivona_pars[5] = NULL;
-	ivona_audio_id = spd_audio_open(AUDIO_PULSE, (void**) ivona_pars, &error);
-	ivona_audio_output_method = AUDIO_PULSE;
-    }
-    else{	
-	ABORT("Sound output method specified in configuration not supported. "
-	      "Please choose 'oss' or 'nas'.");
-    }
-    if (ivona_audio_id == NULL){
-	g_string_append_printf(info, "Opening sound device failed. Reason: %s. ", error);
-	ABORT("Can't open sound device.");
-    }
 
     DBG("IvonaDelimiters = %s\n", IvonaDelimiters);
 
@@ -219,12 +154,20 @@ module_init(char **status_info)
         return -1;
     }
 
+    module_audio_id = NULL;
+
     *status_info = strdup("Ivona initialized successfully.");
 
     return 0;
 }
 #undef ABORT
 
+
+int
+module_audio_init(char **status_info){
+  DBG("Opening audio");
+  return module_audio_init_spd(status_info);
+}
 
 static VoiceDescription voice_jacek;
 static VoiceDescription *voice_ivona[]={&voice_jacek,NULL};
@@ -280,9 +223,9 @@ module_stop(void)
     DBG("ivona: stop()\n");
 
     ivona_stop = 1;
-    if (ivona_audio_id){
+    if (module_audio_id){
 	DBG("Stopping audio");
-	ret = spd_audio_stop(ivona_audio_id);
+	ret = spd_audio_stop(module_audio_id);
 	if (ret != 0) DBG("WARNING: Non 0 value from spd_audio_stop: %d", ret);
     }
 
@@ -321,7 +264,7 @@ module_close(int status)
 
 
     DBG("Closing audio output");
-    spd_audio_close(ivona_audio_id);
+    spd_audio_close(module_audio_id);
 
     exit(status);
 }
@@ -354,7 +297,7 @@ _ivona_speak(void* nothing)
 	ivona_stop = 0;
 	ivona_speaking = 1;
 
-	spd_audio_set_volume(ivona_audio_id, ivona_volume);
+	spd_audio_set_volume(module_audio_id, ivona_volume);
 
 	module_report_event_begin();
 	msg=*ivona_message;
@@ -454,7 +397,7 @@ _ivona_speak(void* nothing)
 		track.bits = 16;
 		track.samples = ((short *)audio)+offset;
 		DBG("Got %d samples", track.num_samples);
-		spd_audio_play(ivona_audio_id, track, SPD_AUDIO_LE);
+		spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
 		xfree(audio);
 		audio=NULL;
 	    }

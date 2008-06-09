@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.27 2007-11-12 14:46:52 hanke Exp $
+ * $Id: ibmtts.c,v 1.28 2008-06-09 10:38:17 hanke Exp $
  */
 
 /* This output module operates with four threads:
@@ -229,10 +229,6 @@ static pthread_mutex_t playback_queue_mutex;
 GHashTable *ibmtts_index_mark_ht = NULL;
 #define IBMTTS_MSG_END_MARK 0
 
-/* Audio. */
-AudioID *ibmtts_audio_id = NULL;
-AudioOutputType ibmtts_audio_output_method;
-void *ibmtts_audio_pars[10];
 pthread_mutex_t sound_stop_mutex;
 
 /* When a voice is set, this is the baseline pitch of the voice.
@@ -300,16 +296,6 @@ MOD_OPTION_1_STR(IbmttsDelimiters);
 /* Does IBM TTS support SSML or should we strip it off? */
 MOD_OPTION_1_INT(IbmttsUseSSML);
 
-MOD_OPTION_1_STR(IbmttsAudioOutputMethod);
-MOD_OPTION_1_STR(IbmttsOSSDevice);
-MOD_OPTION_1_STR(IbmttsNASServer);
-MOD_OPTION_1_STR(IbmttsALSADevice);
-MOD_OPTION_1_STR(IbmttsPulseServer);
-MOD_OPTION_1_INT(IbmttsPulseMaxLength);
-MOD_OPTION_1_INT(IbmttsPulseTargetLength);
-MOD_OPTION_1_INT(IbmttsPulsePreBuffering);
-MOD_OPTION_1_INT(IbmttsPulseMinRequest);
-
 MOD_OPTION_1_INT(IbmttsAudioChunkSize);
 MOD_OPTION_1_STR(IbmttsSoundIconFolder);
 MOD_OPTION_3_HT(IbmttsDialect, dialect, code, encoding);
@@ -331,16 +317,6 @@ module_load(void)
     MOD_OPTION_1_STR_REG(IbmttsDelimiters, "");
 	
     MOD_OPTION_1_INT_REG(IbmttsUseSSML, 0);
-
-    MOD_OPTION_1_STR_REG(IbmttsAudioOutputMethod, "oss");
-    MOD_OPTION_1_STR_REG(IbmttsOSSDevice, "/dev/dsp");
-    MOD_OPTION_1_STR_REG(IbmttsNASServer, NULL);
-    MOD_OPTION_1_STR_REG(IbmttsALSADevice, "default");
-    MOD_OPTION_1_STR_REG(IbmttsPulseServer, "default");
-    MOD_OPTION_1_INT_REG(IbmttsPulseMaxLength, 132300);
-    MOD_OPTION_1_INT_REG(IbmttsPulseTargetLength, 4410);
-    MOD_OPTION_1_INT_REG(IbmttsPulsePreBuffering, 2200);
-    MOD_OPTION_1_INT_REG(IbmttsPulseMinRequest, 880);
 
     MOD_OPTION_1_INT_REG(IbmttsAudioChunkSize, 20000);
     MOD_OPTION_1_STR_REG(IbmttsSoundIconFolder, "/usr/share/sounds/sound-icons/");
@@ -425,48 +401,6 @@ module_init(char **status_info)
         ibmtts_log_eci_error();
     }
 
-    DBG("Ibmtts: Opening audio.");
-    if (!strcmp(IbmttsAudioOutputMethod, "oss")){
-        DBG("Ibmtts: Using OSS sound output.");
-        ibmtts_audio_pars[0] = strdup(IbmttsOSSDevice);
-        ibmtts_audio_pars[1] = NULL;
-        ibmtts_audio_id = spd_audio_open(AUDIO_OSS, (void**) ibmtts_audio_pars, &error);
-        ibmtts_audio_output_method = AUDIO_OSS;
-    }
-    else if (!strcmp(IbmttsAudioOutputMethod, "nas")){
-        DBG("Ibmtts: Using NAS sound output.");
-        ibmtts_audio_pars[0] = IbmttsNASServer;
-        ibmtts_audio_pars[1] = NULL;
-        ibmtts_audio_id = spd_audio_open(AUDIO_NAS, (void**) ibmtts_audio_pars, &error);
-        ibmtts_audio_output_method = AUDIO_NAS;
-    }
-    else if (!strcmp(IbmttsAudioOutputMethod, "alsa")){
-        DBG("Ibmtts: Using ALSA sound output.");
-        ibmtts_audio_pars[0] = IbmttsALSADevice;
-        ibmtts_audio_pars[1] = NULL;
-        ibmtts_audio_id = spd_audio_open(AUDIO_ALSA, (void**) ibmtts_audio_pars, &error);
-        ibmtts_audio_output_method = AUDIO_ALSA;
-    }
-    else if (!strcmp(IbmttsAudioOutputMethod, "pulse")){
-        DBG("Ibmtts: Using PulseAudio sound output.");
-	ibmtts_audio_pars[0] = (void *) IbmttsPulseServer;
-	ibmtts_audio_pars[1] = (void *) IbmttsPulseMaxLength;
-	ibmtts_audio_pars[2] = (void *) IbmttsPulseTargetLength;
-	ibmtts_audio_pars[3] = (void *) IbmttsPulsePreBuffering;
-	ibmtts_audio_pars[4] = (void *) IbmttsPulseMinRequest;
-	ibmtts_audio_pars[5] = NULL;
-        ibmtts_audio_id = spd_audio_open(AUDIO_PULSE, (void**) ibmtts_audio_pars, &error);
-        ibmtts_audio_output_method = AUDIO_PULSE;
-    }
-    else{
-        ABORT("Sound output method specified in configuration not supported. "
-            "Please choose 'oss', 'nas', or 'alsa'.");
-    }
-    if (ibmtts_audio_id == NULL){
-        g_string_append_printf(info, "Opening sound device failed. Reason: %s. ", error);
-        ABORT("Can't open sound device.");
-    }
-
     /* These mutexes are locked when the corresponding threads are suspended. */
     pthread_mutex_init(&ibmtts_synth_suspended_mutex, NULL);
     pthread_mutex_init(&ibmtts_play_suspended_mutex, NULL);
@@ -523,11 +457,21 @@ module_init(char **status_info)
         return FATAL_ERROR;
     }
 
+    module_audio_id = NULL;
+
     *status_info = strdup("Ibmtts: Initialized successfully.");
 
     return OK;
 }
 #undef ABORT
+
+
+int
+module_audio_init(char **status_info){
+  DBG("Opening audio");
+  return module_audio_init_spd(status_info);
+}
+
 
 VoiceDescription**
 module_list_voices(void)
@@ -668,7 +612,7 @@ module_close(int status)
     xfree(audio_chunk);
 
     DBG("Ibmtts: Closing audio output");
-    spd_audio_close(ibmtts_audio_id);
+    spd_audio_close(module_audio_id);
 
     /* Request each thread exit and wait until it exits. */
     DBG("Ibmtts: Terminating threads");
@@ -782,11 +726,11 @@ _ibmtts_stop_or_pause(void* nothing)
             }
 
             /* Stop any audio playback (if in progress). */
-            if (ibmtts_audio_id)
+            if (module_audio_id)
             {
                 pthread_mutex_lock(&sound_stop_mutex);
                 DBG("Ibmtts: Stopping audio.");
-                int ret = spd_audio_stop(ibmtts_audio_id);
+                int ret = spd_audio_stop(module_audio_id);
                 if (0 != ret) DBG("Ibmtts: WARNING: Non 0 value from spd_audio_stop: %d", ret);
                 pthread_mutex_unlock(&sound_stop_mutex);
             }
@@ -1380,8 +1324,8 @@ ibmtts_send_to_audio(TPlaybackQueueEntry *playback_queue_entry)
     if (track.samples != NULL){
         DBG("Ibmtts: Sending %i samples to audio.", track.num_samples);
         /* Volume is controlled by the synthesizer.  Always play at normal on audio device. */
-        spd_audio_set_volume(ibmtts_audio_id, 75);
-        int ret = spd_audio_play(ibmtts_audio_id, track, SPD_AUDIO_LE);
+        spd_audio_set_volume(module_audio_id, 75);
+        int ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
         if (ret < 0) {
             DBG("ERROR: Can't play track for unknown reason.");
             return IBMTTS_FALSE;
@@ -1615,8 +1559,8 @@ ibmtts_play_file(char *filename)
         track.num_samples = readcount / sfinfo.channels;
         DBG("Ibmtts: Sending %i samples to audio.", track.num_samples);
         /* Volume is controlled by the synthesizer.  Always play at normal on audio device. */
-        spd_audio_set_volume(ibmtts_audio_id, 0);
-        int ret = spd_audio_play(ibmtts_audio_id, track, SPD_AUDIO_LE);
+        spd_audio_set_volume(module_audio_id, 0);
+        int ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
         if (ret < 0) {
             DBG("ERROR: Can't play track for unknown reason.");
             result = IBMTTS_FALSE;
