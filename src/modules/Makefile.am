@@ -34,7 +34,7 @@ sd_flite_LDFLAGS = -rpath '$(spdlibdir)'
 sd_flite_LDADD = -lsdaudio $(flite_basic) $(flite_kal) -lpthread -ldotconf @glib_libs@ @gthread_libs@
 
 sd_generic_SOURCES = generic.c module_utils.c module_utils.h
-sd_generic_LDADD = -lpthread -ldotconf @glib_libs@ @gthread_libs@
+sd_generic_LDADD = -lsdaudio -lpthread -ldotconf @glib_libs@ @gthread_libs@
 
 sd_festival_SOURCES = festival.c module_utils.c
 sd_festival_LDFLAGS = -rpath '$(spdlibdir)'
@@ -45,7 +45,7 @@ sd_ibmtts_LDFLAGS = -rpath '$(spdlibdir)'
 sd_ibmtts_LDADD = -lsdaudio -lm -lpthread -ldotconf -libmeci @SNDFILE_LIBS@ @glib_libs@ @gthread_libs@
 
 sd_cicero_SOURCES = cicero.c module_utils.c module_utils.h
-sd_cicero_LDADD = -lpthread -ldotconf @glib_libs@ @gthread_libs@
+sd_cicero_LDADD = -lsdaudio -lpthread -ldotconf @glib_libs@ @gthread_libs@
 
 sd_espeak_SOURCES = espeak.c module_utils.c module_utils.h
 sd_espeak_LDFLAGS = -rpath '$(spdlibdir)'
