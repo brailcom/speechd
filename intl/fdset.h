@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: fdset.h,v 1.32 2007-06-21 20:09:52 hanke Exp $
+ * $Id: fdset.h,v 1.33 2008-06-09 10:28:08 hanke Exp $
  */
 
 #ifndef FDSET_H
@@ -123,6 +123,15 @@ typedef struct{
     int pause_context;          /* Number of words that should be repeated after a pause */
     char* index_mark;           /* Current index mark for the message (only if paused) */
 
+    char* audio_output_method;
+    char* audio_oss_device;
+    char* audio_alsa_device;
+    char* audio_nas_server;
+    char* audio_pulse_server;
+    int audio_pulse_max_length;
+    int audio_pulse_target_length;
+    int audio_pulse_pre_buffering;
+    int audio_pulse_min_request;
 
     /* TODO: Should be moved out */
     unsigned int hist_cur_uid;
