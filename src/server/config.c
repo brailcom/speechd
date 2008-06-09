@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: config.c,v 1.16 2008-02-11 14:01:13 hanke Exp $
+ * $Id: config.c,v 1.17 2008-06-09 10:46:34 hanke Exp $
  */
 
 #include <dotconf.h>
@@ -158,6 +158,17 @@ free_config_options(configoption_t *opts, int *num)
 GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module);
 GLOBAL_FDSET_OPTION_CB_STR(DefaultLanguage, language);
 GLOBAL_FDSET_OPTION_CB_STR(DefaultClientName, client_name);
+
+GLOBAL_FDSET_OPTION_CB_STR(AudioOutputMethod, audio_output_method);
+GLOBAL_FDSET_OPTION_CB_STR(AudioOSSDevice, audio_oss_device);
+GLOBAL_FDSET_OPTION_CB_STR(AudioALSADevice, audio_alsa_device);
+GLOBAL_FDSET_OPTION_CB_STR(AudioNASServer, audio_nas_server);
+GLOBAL_FDSET_OPTION_CB_STR(AudioPulseServer, audio_pulse_server);
+
+GLOBAL_FDSET_OPTION_CB_INT(AudioPulseMaxLength, audio_pulse_max_length, 1, "");
+GLOBAL_FDSET_OPTION_CB_INT(AudioPulseTargetLength, audio_pulse_target_length, 1, "");
+GLOBAL_FDSET_OPTION_CB_INT(AudioPulsePreBuffering, audio_pulse_pre_buffering, 1, "");
+GLOBAL_FDSET_OPTION_CB_INT(AudioPulseMinRequest, audio_pulse_min_request, 1, "");
 
 GLOBAL_FDSET_OPTION_CB_INT(DefaultRate, rate, (val>=-100)&&(val<=+100), "Rate out of range.");
 GLOBAL_FDSET_OPTION_CB_INT(DefaultPitch, pitch, (val>=-100)&&(val<=+100), "Pitch out of range.");
@@ -381,6 +392,17 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(DefaultCapLetRecognition, ARG_STR);
     ADD_CONFIG_OPTION(DefaultPauseContext, ARG_INT);  
     ADD_CONFIG_OPTION(AddModule, ARG_LIST);
+
+    ADD_CONFIG_OPTION(AudioOutputMethod, ARG_STR);
+    ADD_CONFIG_OPTION(AudioOSSDevice, ARG_STR);
+    ADD_CONFIG_OPTION(AudioALSADevice, ARG_STR);
+    ADD_CONFIG_OPTION(AudioNASServer, ARG_STR);
+    ADD_CONFIG_OPTION(AudioPulseServer, ARG_STR);
+    ADD_CONFIG_OPTION(AudioPulseMaxLength, ARG_INT);
+    ADD_CONFIG_OPTION(AudioPulseTargetLength, ARG_INT);
+    ADD_CONFIG_OPTION(AudioPulsePreBuffering, ARG_INT);
+    ADD_CONFIG_OPTION(AudioPulseMinRequest, ARG_INT);
+
     ADD_CONFIG_OPTION(BeginClient, ARG_STR);
     ADD_CONFIG_OPTION(EndClient, ARG_NONE);
     return options;
@@ -408,6 +430,16 @@ load_default_global_set_options()
     GlobalFDSet.pause_context = 0;
     GlobalFDSet.ssml_mode = 0;
     GlobalFDSet.notification = NOTIFY_NOTHING;
+
+    GlobalFDSet.audio_output_method = strdup("alsa");
+    GlobalFDSet.audio_oss_device = strdup("/dev/dsp");
+    GlobalFDSet.audio_alsa_device = strdup("default");
+    GlobalFDSet.audio_nas_server = strdup("tcp/localhost:5450");
+    GlobalFDSet.audio_pulse_server = strdup("default");
+    GlobalFDSet.audio_pulse_max_length = 132300;
+    GlobalFDSet.audio_pulse_target_length = 4410;
+    GlobalFDSet.audio_pulse_pre_buffering = 2200;
+    GlobalFDSet.audio_pulse_min_request = 880;
 
     SpeechdOptions.max_history_messages = 10000;
 
