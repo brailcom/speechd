@@ -22,7 +22,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: dummy.c,v 1.2 2008-05-15 11:48:34 hanke Exp $
+ * $Id: dummy.c,v 1.3 2008-06-09 10:32:00 hanke Exp $
  */
 
 #include <glib.h>
@@ -35,7 +35,7 @@
 #define MODULE_NAME     "dummy"
 #define MODULE_VERSION  "0.1"
 
-DECLARE_DEBUG();
+#define Debug 1
 
 /* Thread and process control */
 static int dummy_speaking = 0;
@@ -51,19 +51,12 @@ static void _dummy_child();
 
 /* Fill the module_info structure with pointers to this modules functions */
 
-MOD_OPTION_1_STR(DummyExecuteSynth);
-
-
 /* Public functions */
 int
 module_load(void)
 {
 
     INIT_SETTINGS_TABLES();
-
-    MOD_OPTION_1_STR_REG(DummyExecuteSynth, "");
-
-    REGISTER_DEBUG();
     
     return 0;
 }
@@ -96,6 +89,11 @@ module_init(char **status_info)
     return 0;
 }
 
+int
+module_audio_init(char **status_info){
+  status_info = NULL;
+  return 0;
+}
 
 VoiceDescription**
 module_list_voices(void)
@@ -253,9 +251,9 @@ _dummy_child()
   DBG("Entering child loop\n");
   /* Read the waiting data */
 
-  try1 = strdup("play $DATADIR/dummy-message.wav > /dev/null 2> /dev/null");
-  try2 = strdup("aplay  $DATADIR/dummy-message.wav > /dev/null 2> /dev/null");
-  try3 = strdup("paplay $DATADIR/dummy-message.wav > /dev/null 2> /dev/null");
+  try1 = strdup("play "DATADIR"/dummy-message.wav > /dev/null 2> /dev/null");
+  try2 = strdup("aplay  "DATADIR"/dummy-message.wav > /dev/null 2> /dev/null");
+  try3 = strdup("paplay "DATADIR"/dummy-message.wav > /dev/null 2> /dev/null");
   
   DBG("child: synth commands = |%s|%s|%s|", try1, try2, try3);
   DBG("Speaking in child...");
