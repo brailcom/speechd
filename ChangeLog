@@ -1,5 +1,8 @@
 2008-06-11  Hynek Hanke  <hanke@brailcom.org>
 
+	* src/server/index_marking.c (insert_index_marks): Also insert index marks if the end of
+	sentence punctuation is followed by HTML tag or entity instead of space character.
+
 	* src/server/output.c (output_send_audio_settings): Pass audio_pulse_server option.
 
 	* src/modules/module_utils.c (do_audio): Do not report status on success.
