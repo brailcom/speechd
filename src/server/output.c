@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: output.c,v 1.36 2008-06-09 10:47:26 hanke Exp $
+ * $Id: output.c,v 1.37 2008-06-11 08:44:40 hanke Exp $
  */
 
 #include "output.h"
@@ -386,6 +386,7 @@ output_send_audio_settings(OutputModule *output)
     ADD_SET_STR(audio_oss_device);
     ADD_SET_STR(audio_alsa_device);
     ADD_SET_STR(audio_nas_server);
+    ADD_SET_STR(audio_pulse_server);
     ADD_SET_INT(audio_pulse_max_length);
     ADD_SET_INT(audio_pulse_target_length);
     ADD_SET_INT(audio_pulse_pre_buffering);
