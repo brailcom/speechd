@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.c,v 1.52 2008-06-09 10:39:59 hanke Exp $
+ * $Id: module_utils.c,v 1.53 2008-06-11 08:44:29 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -294,7 +294,7 @@ do_audio(void)
     err = module_audio_init(&status);
 
     if (err == 0)
-      msg = g_strdup_printf("203-%s\n203 OK SETTINGS RECEIVED", status);
+      msg = g_strdup_printf("203 OK AUDIO INITIALIZED", status);
     else
       msg = g_strdup_printf("300-%s\n300 UNKNOWN ERROR", status);
     
@@ -999,7 +999,7 @@ module_audio_init_spd(char **status_info)
 	module_audio_pars[3] = (void *) audio_settings.audio_pulse_pre_buffering;
 	module_audio_pars[4] = (void *) audio_settings.audio_pulse_min_request;
 	module_audio_pars[5] = NULL;
-	module_audio_id = spd_audio_open(AUDIO_PULSE, (void**) module_audio_pars, &error);
+        module_audio_id = spd_audio_open(AUDIO_PULSE, (void**) module_audio_pars, &error);
 	module_audio_output_method = AUDIO_PULSE;
     }
     else{
