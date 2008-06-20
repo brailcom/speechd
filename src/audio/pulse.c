@@ -20,7 +20,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: pulse.c,v 1.9 2008-05-12 07:40:26 hanke Exp $
+ * $Id: pulse.c,v 1.10 2008-06-20 10:21:39 hanke Exp $
  */
 
 /* debug */
@@ -147,12 +147,13 @@ debug_time(const char* text)
 static void 
 display_id(AudioID *id, char*s)
 {
-  debug_show("%s >\n id=0x%x\n pulse_context=0x%x\n pulse_stream=0x%x\n pulse_mainloop=0x%x\n pulse_volume_valid=0x%x\n pulse_do_trigger=0x%x\n pulse_time_offset_msec=0x%x\n pulse_just_flushed=0x%x\n pulse_connected=0x%x\n pulse_success=0x%x, pulse_stop_required=0x%x\n",
+  debug_show("%s >\n id=0x%x\n pulse_context=0x%x\n pulse_stream=0x%x\n pulse_mainloop=0x%x\n pulse_volume=0x%x\npulse_volume_valid=0x%x\n pulse_do_trigger=0x%x\n pulse_time_offset_msec=0x%x\n pulse_just_flushed=0x%x\n pulse_connected=0x%x\n pulse_success=0x%x, pulse_stop_required=0x%x\n",
 	     __FUNCTION__,
 	     id, 
 	     id->pulse_context,
 	     id->pulse_stream,
 	     id->pulse_mainloop, 
+	     id->pulse_volume,
 	     id->pulse_volume_valid,
 	     id->pulse_do_trigger,
 	     id->pulse_time_offset_msec,
@@ -655,11 +656,11 @@ _pulse_open(AudioID *id, pa_sample_spec* ss)
   assert(!id->pulse_stream);
   assert(!id->pulse_connected);
 
-  /*     if (!id->pulse_volume_valid) { */
-  pa_cvolume_reset(&id->pulse_volume, ss->channels);
-  id->pulse_volume_valid = 1;
-  /*     } else if (id->pulse_volume.channels != ss.channels) */
-  /*         pa_cvolume_set(&id->pulse_volume, ss.channels, pa_cvolume_avg(&id->pulse_volume)); */
+  if (!id->pulse_volume_valid) {
+    pa_cvolume_reset(&id->pulse_volume, ss->channels);
+    id->pulse_volume_valid = 1;
+  } else if (id->pulse_volume.channels != ss.channels) 
+    pa_cvolume_set(&id->pulse_volume, ss.channels, pa_cvolume_avg(&id->pulse_volume));
 
   SHOW_TIME("pa_threaded_mainloop_new (call)");
   if (!(id->pulse_mainloop = pa_threaded_mainloop_new())) {
@@ -874,17 +875,17 @@ _pulse_set_sample(AudioID *id, AudioTrack track)
 
   SHOW("Sample spec valid\n","");
 
-  /*     if (!id->pulse_volume_valid) { */
-/*   pa_cvolume_reset(&id->pulse_volume, ss.channels); */
-/*   id->pulse_volume_valid = 1; */
-  /*     } else if (id->pulse_volume.channels != ss.channels) */
-  /*         pa_cvolume_set(&id->pulse_volume, ss.channels, pa_cvolume_avg(&id->pulse_volume)); */
-
-  /*   SHOW_TIME("pa_threaded_mainloop_new (call)"); */
-  /*   if (!(id->pulse_mainloop = pa_threaded_mainloop_new())) { */
-  /*     ERR("Failed to allocate main loop",""); */
-  /*     goto fail; */
-  /*   } */
+  if (!id->pulse_volume_valid) { 
+    pa_cvolume_reset(&id->pulse_volume, ss.channels);
+    id->pulse_volume_valid = 1;
+  } else if (id->pulse_volume.channels != ss.channels)
+    pa_cvolume_set(&id->pulse_volume, ss.channels, pa_cvolume_avg(&id->pulse_volume));
+  
+  SHOW_TIME("pa_threaded_mainloop_new (call)");
+  if (!(id->pulse_mainloop = pa_threaded_mainloop_new())) {
+    ERR("Failed to allocate main loop","");
+    goto fail;
+  }
 
   pa_threaded_mainloop_lock(id->pulse_mainloop);
 
@@ -1243,7 +1244,7 @@ pulse_open(AudioID *id, void **pars)
   id->pulse_context = NULL;
   id->pulse_stream = NULL;
   id->pulse_mainloop = NULL;
-  /* id->pulse_volume = 0; */
+  id->pulse_volume = 0;
   id->pulse_volume_valid = 0;
   id->pulse_do_trigger = 0;
   id->pulse_time_offset_msec = 0;
