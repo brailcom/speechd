@@ -20,7 +20,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: pulse.c,v 1.10 2008-06-20 10:21:39 hanke Exp $
+ * $Id: pulse.c,v 1.11 2008-06-20 12:34:43 hanke Exp $
  */
 
 /* debug */
@@ -659,8 +659,8 @@ _pulse_open(AudioID *id, pa_sample_spec* ss)
   if (!id->pulse_volume_valid) {
     pa_cvolume_reset(&id->pulse_volume, ss->channels);
     id->pulse_volume_valid = 1;
-  } else if (id->pulse_volume.channels != ss.channels) 
-    pa_cvolume_set(&id->pulse_volume, ss.channels, pa_cvolume_avg(&id->pulse_volume));
+  } else if (id->pulse_volume.channels != ss->channels) 
+    pa_cvolume_set(&id->pulse_volume, ss->channels, pa_cvolume_avg(&id->pulse_volume));
 
   SHOW_TIME("pa_threaded_mainloop_new (call)");
   if (!(id->pulse_mainloop = pa_threaded_mainloop_new())) {
@@ -1244,7 +1244,6 @@ pulse_open(AudioID *id, void **pars)
   id->pulse_context = NULL;
   id->pulse_stream = NULL;
   id->pulse_mainloop = NULL;
-  id->pulse_volume = 0;
   id->pulse_volume_valid = 0;
   id->pulse_do_trigger = 0;
   id->pulse_time_offset_msec = 0;
