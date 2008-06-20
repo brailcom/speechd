@@ -1,6 +1,8 @@
 2008-06-20  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/audio/pulse.c (_pulse_set_sample): Volume settings back in.
+	(pulse_open): Do not initialize pulse_volume, pulse_volume_valid=0 should be enough.
+	(_pulse_open): Typo.
 
 2008-06-11  Hynek Hanke  <hanke@brailcom.org>
 
