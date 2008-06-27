@@ -748,6 +748,46 @@ class SSIPClient(object):
         assert isinstance(value, int)
         self._conn.send_command('SET', scope, 'PAUSE_CONTEXT', value)
 
+    def set_debug(self, val):
+        """Switch debugging on and off. When switched on,
+        debugging files will be created in the chosen destination
+        (see set_debug_destination()) for Speech Dispatcher and all
+        its running modules. All logging information will then be
+        written into these files with maximal verbosity until switched
+        off. You should always first call set_debug_destination.
+
+        The intended use of this functionality is to switch debuging
+        on for a period of time while the user will repeat the behavior
+        and then send the logs to the appropriate bug-reporting place.
+
+        Arguments:
+          val -- a boolean value determining whether debugging
+                 is switched on or off
+          scope -- see the documentaion of this class.
+        
+        """
+        assert isinstance(val, bool)
+        if val == True:
+            ssip_val = "ON"
+        else:
+            ssip_val = "OFF"
+
+        self._conn.send_command('SET', scope.ALL, 'DEBUG', ssip_val)
+
+
+    def set_debug_destination(self, path):
+        """Set debug destination.
+
+        Arguments:
+          path -- path (string) to the directory where debuging
+                  files will be created
+          scope -- see the documentaion of this class.
+        
+        """
+        assert isinstance(val, string)
+
+        self._conn.send_command('SET', scope.ALL, 'DEBUG_DESTINATION', val)
+
     def block_begin(self):
         """Begin an SSIP block.
 
