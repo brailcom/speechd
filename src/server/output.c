@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: output.c,v 1.37 2008-06-11 08:44:40 hanke Exp $
+ * $Id: output.c,v 1.38 2008-06-27 12:28:48 hanke Exp $
  */
 
 #include "output.h"
@@ -402,6 +402,35 @@ output_send_audio_settings(OutputModule *output)
 }
 #undef ADD_SET_INT
 #undef ADD_SET_STR
+
+int
+output_send_debug(OutputModule *output, int flag, char* log_path)
+{
+    char *cmd_str;
+    int err;
+
+    MSG(4, "Module sending debug flag %d with file %s", flag, log_path);
+    
+    output_lock();
+    if (flag){
+      cmd_str = g_strdup_printf("DEBUG ON %s \n", log_path);
+      err = output_send_data(cmd_str, output, 1);
+      spd_free(cmd_str);
+      if (err){
+	MSG(3, "ERROR: Can't set debugging on for output module %s", output->name);
+	OL_RET(-1);
+      }      
+    }else{
+      err = output_send_data("DEBUG OFF \n", output, 1);
+      if (err){
+	MSG(3, "ERROR: Can't switch debugging off for output module %s", output->name);
+	OL_RET(-1);
+      }
+      
+    }
+   
+    OL_RET(0);
+}
 
 int
 output_speak(TSpeechDMessage *msg)
