@@ -412,8 +412,6 @@ festival_accept_any_response(FT_Info *info)
     DBG("Com: Accepting any response");
     do {
       if( (r = festival_get_ack(&info, ack)) ) return r;
-
-	if (ack == 0) DBG("ack is NULL");
         DBG("<- Festival: |%s|",ack);
 	if (strcmp(ack,"WV\n") == 0){         /* receive a waveform */
 	    client_accept_waveform(info->server_fd, NULL, 0);
