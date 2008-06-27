@@ -249,7 +249,7 @@ sensitive.
 
 Then please do:
 
- $ cd speech-dispatcher-0.6.5
+ $ cd speech-dispatcher-0.6.7
  $ ./build.sh
 
 Now the configure file should be created and you can proceed like with

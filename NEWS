@@ -1,4 +1,12 @@
 
+Version 0.6.7
+ * Dummy output module gives a pre-recorded message whenever
+   no other output module works   
+ * Central settings for prefered audio output method
+ * Volume settings in Pulse Audio
+ * Punctuation mechanism in IBM TTS is now configurable
+ * Bugfixes
+
 Version 0.6.6
  * Pulseaudio output now keeps connection to daemon open.
 
