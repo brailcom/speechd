@@ -19,7 +19,7 @@
   * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   * Boston, MA 02110-1301, USA.
   *
-  * $Id: server.c,v 1.84 2008-02-08 10:01:09 hanke Exp $
+  * $Id: server.c,v 1.85 2008-06-27 12:28:58 hanke Exp $
   */
 
 #include "speechd.h"
@@ -48,7 +48,6 @@ int last_message_id = 0;
 
 #define COPY_SET_STR(name) \
     new->settings.name = (char*) spd_strdup(settings->name);
-
 
 /* Queue a message _new_. When fd is a positive number,
 it means we have a new message from the client on connection

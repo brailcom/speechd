@@ -1315,6 +1315,70 @@ Set the event notifications for @code{INDEX_MARK} to either ``on'' or
 ``off'' for switching the notifications on or off for the messages
 that follow. @xref{Types of Events}.
 
+@item SET self CLIENT_NAME @var{user}:@var{client}:@var{component}
+Set client's name.  Client name consists of the user name, client
+(application) identification, and the identification of the component
+of the client (application).  Each of the parts of the client name may
+contain only alphanumeric characters, dashes (@code{-}) and underscores
+(@code{_}).
+
+For example, for a client called @code{lynx} that creates an SSIP
+connection for its command processing, the name could be set in the
+following way:
+
+@example
+SET CLIENT_NAME joe:lynx:cmd_processing
+@end example
+
+The client name is used in the server configuration settings, client
+listings and message history handling.  All its three parts can be
+arbitrary, but it's important to define and follow rules for each
+application supporting Speech Synthesis Interface Protocol, so that
+a Speech Server user can configure all the aspects of the speech
+output easily.
+
+Usually, this command should be sent as the very first command when a
+new connection SSIP connection is established.  The command may be
+sent only once within a single connection. Attempts to change the
+client's name once it's already set are answered with an error code.
+
+Only @code{self} is allowed as the `target' argument.
+
+@item SET all DEBUG_DESTINATION  @var{path}
+Set the destination for debugging to @var{path}. After this command,
+whenever debugging is switched on via @code{SET all DEBUG ON}, all
+debugging logs will be placed in @var{path}.
+
+@example
+SET all DEBUG_DESTINATION /tmp/speechd-logs
+232 OK DEBUG DESTINATION SET
+@end example
+
+@item SET all DEBUG  @{ON|OFF@}
+If set to @code{ON}, Speech Dispatcher will write all its debugging
+information (including output modules) with maximal verbosity into the
+directory path specified using @code{SET * DEBUG_DESTINATION}. When
+subsequently set to @code{OFF}, Speech Dispatcher will stop writing
+out debugging information into this path and close all the appropriate
+logging files.
+
+The intended use for this functionality is on-line debugging from
+client application. If the user wants to report a problem, the client
+application will ask him for a place to generate the logs, to repeat
+the situation that he considers to be a bug, and then perhaps it will
+automatically pack the logs and offer to send them to the developers
+of Speech Dispatcher or another appropriate place where the contained
+information can be processed.
+
+Warning: This option results in a lot of data being written into the
+output logs and so should not be left on for an unnecessarily long
+time.
+
+@example
+SET all DEBUG ON
+231 OK DEBUGGING SET ON
+@end example
+
 @end table
 
 @node History Handling Commands, Other Commands, Message Events Notification and Index Marking, SSIP Commands

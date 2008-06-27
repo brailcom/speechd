@@ -1,3 +1,10 @@
+2008-06-27  Hynek Hanke  <hanke@brailcom.org>
+
+	* speechd/client.py (SSIPClient.set_debug): New method.
+	(SSIPClient.set_debug_destination): New method.
+	(SSIPClient.set_debug): New method.
+	(SSIPClient.set_debug_destination): New method.
+
 2008-02-19  Tomas Cerha  <cerha@brailcom.org>
 
 	* README: New file.

@@ -1,17 +1,81 @@
-2008-06-20  Hynek Hanke  <hanke@brailcom.org>
+2008-06-27  Hynek Hanke  <hanke@brailcom.org>
 
+	* src/server/speechd.h: New prototypes.
+
+	* src/server/speechd.c (MSG): Handle additional debugging.
+	(speechd_modules_debug): New function.
+	(speechd_module_debug): New function.
+	(speechd_modules_nodebug): New function.	
+	(speechd_module_nodebug): New function.
+	(speechd_options_init): Set defaults for debug and debug_destination.
+
+	* src/server/set.h: New prototypes.
+
+	* src/server/set.c (set_debug_uid): New function.
+	(set_debug_destination_uid): New function.
+
+	* src/server/parse.c (parse_set): Handle 'DEBUG' and
+	'DEBUG_DESTINATION'
+
+	* src/server/output.h: New prototypes.
+
+	* src/server/output.c (output_send_debug): New function.
+
+	* src/server/msg.h (OK_DEBUG_DESTINATION_SET): New messages
+	for debugging functionality
+
+	* src/server/module.h: Prototypes for new functions.
+
+	* src/server/module.c (output_module_debug): New function.
+	(output_module_nodebug): New function.
+
+	* src/modules/module_utils.h: module_audio_output_method switched
+	to correct type AudioOutputType.
+	(DBG): Added external debugging.
+	Prototypes for new functions.
+
+	* src/modules/module_utils.c (do_debug): New function.
+	(do_quit): Change to correct type 'void'.
+
+	* src/modules/module_main.c (PROCESS_CMD_NRP): New macro.
+	(main): Call do_quit() as without reply.
+
+	* src/modules/ivona_client.c (ivona_play_file): Correct casts.
+
+	* src/modules/festival_client.c (festival_accept_any_response):
+	Useless rebug message removed.
+
+	* src/modules/espeak.c (espeak_play_file): Correct casts.
+	(module_init): Unused variable removed.
+
+	* src/modules/Makefile.am: Include dummy-message.wav into EXTRA_DIST.
+
+	* NEWS: 0.6.7
+
+	* INSTALL: 0.6.7
+
+	* ANNOUNCE: 0.6.7
+
+	* src/modules/ivona.c (ivona_set_cap_let_recogn): Handle recogn none.
+
+	* src/modules/festival_client.c (festival_accept_any_response): Useless test removed.
+	
 	* src/audio/pulse.c (_pulse_set_sample): Volume settings back in.
-	(pulse_open): Do not initialize pulse_volume, pulse_volume_valid=0 should be enough.
+	(pulse_open): Do not initialize pulse_volume, pulse_volume_valid=0
+	should be enough.
 	(_pulse_open): Typo.
 
 2008-06-11  Hynek Hanke  <hanke@brailcom.org>
 
-	* src/server/index_marking.c (insert_index_marks): Also insert index marks if the end of
-	sentence punctuation is followed by HTML tag or entity instead of space character.
+	* src/server/index_marking.c (insert_index_marks): Also insert
+	index marks if the end of sentence punctuation is followed by HTML
+	tag or entity instead of space character.
 
-	* src/server/output.c (output_send_audio_settings): Pass audio_pulse_server option.
+	* src/server/output.c (output_send_audio_settings): Pass
+	audio_pulse_server option.
 
-	* src/modules/module_utils.c (do_audio): Do not report status on success.
+	* src/modules/module_utils.c (do_audio): Do not report status on
+	success.
 
 2008-06-09  Gilles Casse  <gcasse@oralux.org>
 
@@ -22,7 +86,7 @@
 2008-06-09  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/module.c (load_output_module): Send audio settings
-	after initializetion.
+	after initialization.
 
 	* src/server/config.c: New configuration options for audio.
 

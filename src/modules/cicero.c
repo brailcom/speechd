@@ -227,7 +227,8 @@ module_init(char **status_info)
 
 int
 module_audio_init(char **status_info){
-  status_info == NULL;
+  /* The following statement has no effect and so was commented out */
+  //status_info == NULL;
   return 0;
 }
 
