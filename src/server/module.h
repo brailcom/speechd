@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: module.h,v 1.5 2007-07-02 10:15:24 hanke Exp $
+ * $Id: module.h,v 1.6 2008-06-27 12:28:43 hanke Exp $
  */
 
 #ifndef MODULE_H
@@ -46,6 +46,8 @@ OutputModule* load_output_module(char* mod_name, char* mod_prog,
                                  char* mod_cfgfile, char * mod_dbgfile);
 int unload_output_module(OutputModule *module);
 int reload_output_module(OutputModule *old_module);
+int output_module_debug(OutputModule *module);		       
+int output_module_nodebug(OutputModule *module);		       
 void destroy_module(OutputModule *module);
 
 #endif
