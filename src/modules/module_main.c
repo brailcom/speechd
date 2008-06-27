@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_main.c,v 1.15 2008-06-09 10:38:56 hanke Exp $
+ * $Id: module_main.c,v 1.16 2008-06-27 12:29:26 hanke Exp $
  */
 
 /* So that gcc doesn't comply */
@@ -29,6 +29,19 @@ if (!strcmp(cmd_buf, #command"\n")){ \
  char *msg; \
  pthread_mutex_lock(&module_stdout_mutex); \
  if (printf("%s\n", msg = (char*) function()) < 0){ \
+     DBG("Broken pipe, exiting...\n"); \
+     module_close(2); \
+ } \
+ pthread_mutex_unlock(&module_stdout_mutex);\
+ xfree(msg); \
+ fflush(stdout); \
+}
+
+#define PROCESS_CMD_W_ARGS(command, function) \
+if (!strncmp(cmd_buf, #command, strlen(#command))){	\
+ char *msg; \
+ pthread_mutex_lock(&module_stdout_mutex); \
+ if (printf("%s\n", msg = (char*) function(cmd_buf)) < 0){ \
      DBG("Broken pipe, exiting...\n"); \
      module_close(2); \
  } \
@@ -140,7 +153,8 @@ main(int argc, char *argv[])
         else PROCESS_CMD(LIST VOICES, do_list_voices)
         else PROCESS_CMD(SET, do_set) 
         else PROCESS_CMD(AUDIO, do_audio) 
-        else PROCESS_CMD(QUIT, do_quit) 
+	else PROCESS_CMD_W_ARGS(DEBUG, do_debug)
+        else PROCESS_CMD_NRP(QUIT, do_quit) 
         else{
           printf("300 ERR UNKNOWN COMMAND\n"); 
           fflush(stdout);
