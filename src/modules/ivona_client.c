@@ -47,7 +47,8 @@ int ivona_init_sock(void)
 
 static int get_unichar(char **str)
 {
-	wchar_t wc;int i,n;
+	wchar_t wc;
+	int n;
 	wc=*(*str)++ & 255;
 	if ((wc & 0xe0)==0xc0) {
 		wc &=0x1f;
@@ -283,7 +284,7 @@ ivona_play_file(char *filename)
 	subformat = sfinfo.format & SF_FORMAT_SUBMASK ;
 	items = sfinfo.channels * sfinfo.frames;
 	DBG("Ivona: frames = %ld, channels = %d", (long) sfinfo.frames, sfinfo.channels);
-	DBG("Ivona: samplerate = %i, items = %Ld", sfinfo.samplerate, items);
+	DBG("Ivona: samplerate = %i, items = %Ld", sfinfo.samplerate, (long long) items);
 	DBG("Ivona: major format = 0x%08X, subformat = 0x%08X, endian = 0x%08X",
 		sfinfo.format & SF_FORMAT_TYPEMASK, subformat, sfinfo.format & SF_FORMAT_ENDMASK);
 	if (sfinfo.channels < 1 || sfinfo.channels > 2) {
@@ -312,7 +313,7 @@ ivona_play_file(char *filename)
 		goto cleanup1;
 	}
 	readcount = sf_read_short(sf, (short *) track.samples, items);
-	DBG("Ivona: read %Ld items from audio file.", readcount);
+	DBG("Ivona: read %Ld items from audio file.", (long long) readcount);
 
 	if (readcount > 0) {
 		track.num_samples = readcount / sfinfo.channels;
