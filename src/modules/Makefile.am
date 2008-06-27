@@ -5,7 +5,7 @@ inc_local = "-I$(top_srcdir)/intl/"
 SNDFILE_CFLAGS = @SNDFILE_CFLAGS@
 SNDFILE_LIBS = @SNDFILE_LIBS@
 
-EXTRA_DIST = module_main.c module_utils_addvoice.c festival_client.c festival_client.h ivona_client.c dummy.c
+EXTRA_DIST = module_main.c module_utils_addvoice.c festival_client.c festival_client.h ivona_client.c dummy.c dummy-message.wav
 
 AM_CFLAGS = -Wall -DLOCALEDIR=\"$(localedir)\" -DDATADIR=\"$(snddatadir)\" -I/usr/include/ $(inc_local) @glib_include@ -L$(top_srcdir)/src/audio -I$(top_srcdir)/src/audio -I../../intl/ $(ibmtts_include) @SNDFILE_CFLAGS@ -Wl,--rpath -Wl,$(spdlibdir)
 
