@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.c,v 1.53 2008-06-11 08:44:29 hanke Exp $
+ * $Id: module_utils.c,v 1.54 2008-06-27 12:29:24 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -294,11 +294,64 @@ do_audio(void)
     err = module_audio_init(&status);
 
     if (err == 0)
-      msg = g_strdup_printf("203 OK AUDIO INITIALIZED", status);
+      msg = g_strdup_printf("203 OK AUDIO INITIALIZED");
     else
       msg = g_strdup_printf("300-%s\n300 UNKNOWN ERROR", status);
     
     return msg;
+}
+
+char*
+do_debug(char* cmd_buf)
+{
+  /* TODO: Develop the full on/off logic etc. */
+
+  char **cmd;
+  char *filename;
+
+  cmd = g_strsplit (cmd_buf, " ", -1);
+
+  if (!cmd[1]){
+    g_strfreev(cmd);
+    return strdup("302 ERROR BAD SYNTAX");
+  }
+
+  if (!strcmp(cmd[1], "ON")){
+    if (!cmd[2]){
+      g_strfreev(cmd);
+      return strdup("302 ERROR BAD SYNTAX");
+    }
+
+
+    filename = cmd[2];
+    DBG("Additional logging into specific path %s requested", filename);
+    CustomDebugFile = fopen(filename, "w+");
+    if (CustomDebugFile == NULL){
+      DBG("ERROR: Can't open custom debug file for logging");
+      return strdup("303 CANT OPEN CUSTOM DEBUG FILE");
+    }
+    if (Debug == 1)
+      Debug = 3;
+    else
+      Debug = 2;
+
+    DBG("Additional logging initialized");
+  }else if (!strcmp(cmd[1], "OFF")){
+    if (Debug == 3)
+      Debug = 1;
+    else 
+      Debug = 0;
+
+    if (CustomDebugFile != NULL)
+      fclose(CustomDebugFile);
+    CustomDebugFile = NULL;
+    DBG("Additional logging into specific path terminated");
+  }else{
+    return strdup("302 ERROR BAD SYNTAX");
+  }
+
+  g_strfreev(cmd);
+  return g_strdup("200 OK DEBUGGING ON");
 }
 
 char *
@@ -337,13 +390,13 @@ do_list_voices(void)
 /* This has to return int (although it doesn't return at all) so that we could
  * call it from PROCESS_CMD() macro like the other commands that return
  * something */
-int
+void
 do_quit(void)
 {
     printf("210 OK QUIT\n");    
     fflush(stdout);
     module_close(0);
-    return 0;
+    return;
 }
 
 int
