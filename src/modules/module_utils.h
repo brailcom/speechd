@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.h,v 1.21 2008-06-09 10:45:17 hanke Exp $
+ * $Id: module_utils.h,v 1.22 2008-06-27 12:29:21 hanke Exp $
  */
 
 #ifndef __MODULE_UTILS_H
@@ -59,8 +59,8 @@ typedef struct{
 }SPDAudioSettings;
 
 AudioID *module_audio_id;
+AudioOutputType module_audio_output_method;
 char* module_audio_pars[10];
-char* module_audio_output_method;
 
 
 SPDMsgSettings msg_settings;
@@ -70,6 +70,7 @@ SPDMsgSettings msg_settings_old;
 int current_index_mark;
 
 int Debug;
+FILE *CustomDebugFile;
 
 configfile_t *configfile;
 configoption_t *module_dc_options;
@@ -114,11 +115,21 @@ int module_num_dc_options;
     fprintf(stderr, arg); \
     fprintf(stderr, "\n"); \
     fflush(stderr); \
-    xfree(tstr); \
+    if ((Debug==2) || (Debug==3)){ \
+      fprintf(CustomDebugFile," %s [%d]",tstr, (int) tv.tv_usec);	\
+      fprintf(CustomDebugFile, ": ");					\
+      fprintf(CustomDebugFile, arg);					\
+      fprintf(CustomDebugFile, "\n");                                   \
+      fflush(CustomDebugFile);			\
+    } \
+   xfree(tstr); \
   }
 
 #define FATAL(msg) { \
-     fprintf(stderr, "Fatal error in output module [%s:%d]:\n   "msg, \
+     fprintf(stderr, "FATAL ERROR in output module [%s:%d]:\n   "msg, \
+             __FILE__, __LINE__); \
+     if (Debug > 1) \
+       fprintf(CustomDebugFile, "FATAL ERROR in output module [%s:%d]:\n   "msg,	\
              __FILE__, __LINE__); \
      exit(EXIT_FAILURE); \
    }
@@ -204,7 +215,8 @@ void  do_pause(void);
 char* do_list_voices(void);
 char* do_set(void);
 char* do_audio(void);
-int do_quit(void);
+char* do_debug(char *cmd_buf);
+void do_quit(void);
 
 
 typedef void (*TChildFunction)(TModuleDoublePipe dpipe, const size_t maxlen);
@@ -414,5 +426,7 @@ int getline(char**, size_t*, FILE*);
 pthread_mutex_t module_stdout_mutex;
 
 int module_utils_init(void);
+int module_audio_init_spd(char **status_info);
+
 
 #endif /* #ifndef __MODULE_UTILS_H */
