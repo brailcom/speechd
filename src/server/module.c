@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: module.c,v 1.38 2008-06-09 10:47:03 hanke Exp $
+ * $Id: module.c,v 1.39 2008-06-27 12:28:41 hanke Exp $
  */
 
 #define _GNU_SOURCE
@@ -271,5 +271,40 @@ reload_output_module(OutputModule *old_module)
     g_hash_table_replace(output_modules, new_module->name, new_module);
     destroy_module(old_module);
 
+    return 0;
+}
+
+
+int
+output_module_debug(OutputModule *module)
+{
+    char *new_log_path;
+
+    assert(module != NULL); assert(module->name != NULL);
+    if (!module->working) return -1;
+
+    MSG(4, "Output module debug logging for %s into %s", module->name,
+	SpeechdOptions.debug_destination);    
+    
+    new_log_path = g_strdup_printf("%s/%s.log", 
+				   SpeechdOptions.debug_destination,
+				   module->name);
+    
+    output_send_debug(module, 1, new_log_path);
+    
+    return 0;
+}
+
+
+int
+output_module_nodebug(OutputModule *module)
+{
+    assert(module != NULL); assert(module->name != NULL);
+    if (!module->working) return -1;
+
+    MSG(4, "Output module debug logging off for", module->name);
+    
+    output_send_debug(module, 0, NULL);
+    
     return 0;
 }
