@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.c,v 1.77 2008-02-11 14:01:57 hanke Exp $
+ * $Id: speechd.c,v 1.78 2008-06-27 12:29:05 hanke Exp $
  */
 
 #include <gmodule.h>
@@ -154,16 +154,16 @@ MSG2(int level, char *kind, char *format, ...)
 /* The main logging function for Speech Dispatcher,
    level is between 1 and 5. 1 means the most important.*/
 /* TODO: Define this in terms of MSG somehow. I don't
-   know how to pass ... arguments to another C function */
+   know how to pass '...' arguments to another C function */
 void
 MSG(int level, char *format, ...)
 {
 
-    if(level <= SpeechdOptions.log_level) {
+  if((level <= SpeechdOptions.log_level)
+     || (SpeechdOptions.debug)) {
         va_list args;
         int i;
 	pthread_mutex_lock(&logging_mutex);		
-	va_start(args, format);
         {
             {
                 /* Print timestamp */
@@ -177,20 +177,35 @@ MSG(int level, char *format, ...)
 		assert(tstr);
 		assert(strlen(tstr)>1);
 		tstr[strlen(tstr)-1] = 0;
-		fprintf(logfile, "[%s : %d] speechd: ",
-			tstr, (int) tv.tv_usec);
+		if (level <= SpeechdOptions.log_level)
+		  fprintf(logfile, "[%s : %d] speechd: ",
+			  tstr, (int) tv.tv_usec);
+		if (SpeechdOptions.debug)
+		  fprintf(debug_logfile, "[%s : %d] speechd: ",
+			  tstr, (int) tv.tv_usec);
 		/*                fprintf(logfile, "[%s : %d] speechd: ",
 				  tstr, (int) tv.tv_usec);*/
 		spd_free(tstr);
             }
+	    
             for(i=1;i<level;i++){
 	      fprintf(logfile, " ");
             }
-            vfprintf(logfile, format, args);
-            fprintf(logfile, "\n");
-            fflush(logfile);
+	    if (level <= SpeechdOptions.log_level){
+	      va_start(args, format);	    
+	      vfprintf(logfile, format, args);
+	      va_end(args);
+	      fprintf(logfile, "\n");
+	      fflush(logfile);
+	    }
+	    if (SpeechdOptions.debug){
+	      va_start(args, format);	   
+	      vfprintf(debug_logfile, format, args);
+	      va_end(args);
+	      fprintf(debug_logfile, "\n");
+	      fflush(debug_logfile);
+	    }
         }
-        va_end(args);
 	pthread_mutex_unlock(&logging_mutex);		
     }				
 }
@@ -351,6 +366,39 @@ speechd_modules_reload(gpointer key, gpointer value, gpointer user)
 }
 
 void
+speechd_module_debug(gpointer key, gpointer value, gpointer user)
+{
+    OutputModule *module;
+
+    module = (OutputModule *) value;
+    if (module == NULL){
+        MSG(2,"Empty module, internal error");
+        return;
+    }
+ 
+    output_module_debug(module);		       
+
+    return;
+}
+
+
+void
+speechd_module_nodebug(gpointer key, gpointer value, gpointer user)
+{
+    OutputModule *module;
+
+    module = (OutputModule *) value;
+    if (module == NULL){
+        MSG(2,"Empty module, internal error");
+        return;
+    }
+ 
+    output_module_nodebug(module);		       
+
+    return;
+}
+
+void
 speechd_reload_dead_modules(int sig)
 {
     /* Reload dead modules */
@@ -358,6 +406,21 @@ speechd_reload_dead_modules(int sig)
 
     /* Make sure there aren't any more child processes left */
     while(waitpid(-1, NULL, WNOHANG) > 0);    
+}
+
+void
+speechd_modules_debug(void)
+{
+    /* Redirect output to debug for all modules */
+    g_hash_table_foreach(output_modules, speechd_module_debug, NULL);
+
+}
+
+void
+speechd_modules_nodebug(void)
+{
+    /* Redirect output to normal for all modules */
+    g_hash_table_foreach(output_modules, speechd_module_nodebug, NULL);
 }
 
 
@@ -373,6 +436,8 @@ speechd_options_init(void)
     SpeechdOptions.conf_file = NULL;
     SpeechdOptions.home_speechd_dir = NULL;
     SpeechdOptions.log_dir = NULL;
+    SpeechdOptions.debug = 0;
+    SpeechdOptions.debug_destination = strdup("/tmp/");
     spd_mode = SPD_MODE_DAEMON;    
 }
 
@@ -645,6 +710,8 @@ logging_init(void)
 	    file_name);
     logfile = stdout;
   }
+
+  debug_logfile = stdout;
 
   MSG(2,"Speech Dispatcher Logging to file %s", file_name);
   return;
