@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.h,v 1.63 2008-02-08 10:01:09 hanke Exp $
+ * $Id: speechd.h,v 1.64 2008-06-27 12:29:07 hanke Exp $
  */
 
 #ifndef SPEECHDH
@@ -114,6 +114,9 @@ struct{
     char *conf_dir;
     char *home_speechd_dir;
     char *log_dir;
+    int debug;
+    char *debug_destination;
+    char *debug_logfile;
     int max_history_messages;	/* Maximum of messages in history before they expire */
 }SpeechdOptions;
 
@@ -189,6 +192,7 @@ void MSG2(int level, char* kind, char *format, ...);
 FILE *logfile;
 FILE *custom_logfile;
 char *custom_log_kind;
+FILE *debug_logfile;
 
 /* For debugging purposes, does nothing */
 void fatal_error(void);
@@ -209,6 +213,9 @@ int speechd_connection_destroy(int fd);
 gboolean speechd_client_terminate(gpointer key, gpointer value, gpointer user);
 gboolean speechd_modules_terminate(gpointer key, gpointer value, gpointer user);
 void speechd_modules_reload(gpointer key, gpointer value, gpointer user);
+void speechd_modules_debug(void);
+void speechd_modules_nodebug(void);
+
 void speechd_reload_dead_modules(int sig);
 void speechd_options_init(void);
 void speechd_init(void);

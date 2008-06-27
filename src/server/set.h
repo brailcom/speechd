@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: set.h,v 1.16 2007-06-21 20:30:23 hanke Exp $
+ * $Id: set.h,v 1.17 2008-06-27 12:29:02 hanke Exp $
  */
 
 #ifndef SET_H
@@ -48,6 +48,9 @@ int set_capital_letter_recognition_uid(int uid, ECapLetRecogn recogn);
 int set_output_module_uid(int uid, char* output_module);
 int set_ssml_mode_uid(int uid, int ssml_mode);
 int set_pause_context_uid(int uid, int pause_context);
+int set_debug_uid(int uid, int debug);
+int set_debug_destination_uid(int uid, char *debug_destination);
+
 
 int set_priority_self(int fd, int priority);
 int set_language_self(int fd, char *language);
@@ -63,10 +66,11 @@ int set_voice_self(int fd, char *voice);
 int set_synthesis_voice_self(int fd, char *synthesis_voice);
 int set_punctuation_mode_self(int fd, EPunctMode punctuation);
 int set_capital_letter_recognition_self(int fd, ECapLetRecogn recogn);
-int set_output_module_self(int fd, char* output_module);
 int set_ssml_mode_self(int fd, int ssml_mode);
 int set_notification_self(int fd, char *type, int val);
 int set_pause_context_self(int fd, int pause_context);
+int set_debug_self(int fd, int debug);
+int set_debug_destination_self(int fd, char *debug_destination);
 
 int set_priority_all(int priority);
 int set_language_all(char *language);
@@ -81,9 +85,10 @@ int set_voice_all(char *voice);
 int set_synthesis_voice_all(char *synthesis_voice);
 int set_punctuation_mode_all(EPunctMode punctuation);
 int set_capital_letter_recognition_all(ECapLetRecogn recogn);
-int set_output_module_all(char* output_module);
 int set_ssml_mode_all(int ssml_mode);
 int set_pause_context_all(int pause_context);
+int set_debug_all(int debug);
+int set_debug_destination_all(char *debug_destination);
 
 TFDSetElement* default_fd_set(void);
 		
