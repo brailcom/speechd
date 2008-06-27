@@ -22,7 +22,7 @@
  * @author Lukas Loehrer
  * Based on ibmtts.c.
  *
- * $Id: espeak.c,v 1.9 2008-06-09 10:33:35 hanke Exp $
+ * $Id: espeak.c,v 1.10 2008-06-27 12:29:38 hanke Exp $
  */
 
 /* < Includes*/
@@ -237,7 +237,6 @@ int
 module_init(char **status_info)
 {
 	int ret;
-	char *error;
 	const char *espeak_version;
 	GString *info;
     
@@ -1141,8 +1140,8 @@ espeak_play_file(char *filename)
 	sf = sf_open(filename, SFM_READ, &sfinfo);
 	subformat = sfinfo.format & SF_FORMAT_SUBMASK ;
 	items = sfinfo.channels * sfinfo.frames;
-	DBG("Espeak: frames = %ld, channels = %d", (long) sfinfo.frames, sfinfo.channels);
-	DBG("Espeak: samplerate = %i, items = %Ld", sfinfo.samplerate, items);
+	DBG("Espeak: frames = %ld, channels = %d", sfinfo.frames, sfinfo.channels);
+	DBG("Espeak: samplerate = %i, items = %Ld", sfinfo.samplerate, (long long) items);
 	DBG("Espeak: major format = 0x%08X, subformat = 0x%08X, endian = 0x%08X",
 		sfinfo.format & SF_FORMAT_TYPEMASK, subformat, sfinfo.format & SF_FORMAT_ENDMASK);
 	if (sfinfo.channels < 1 || sfinfo.channels > 2) {
@@ -1171,7 +1170,7 @@ espeak_play_file(char *filename)
 		goto cleanup1;
 	}
 	readcount = sf_read_short(sf, (short *) track.samples, items);
-	DBG("Espeak: read %Ld items from audio file.", readcount);
+	DBG("Espeak: read %Ld items from audio file.", (long long) readcount);
 
 	if (readcount > 0) {
 		track.num_samples = readcount / sfinfo.channels;
