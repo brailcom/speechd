@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: ivona.c,v 1.2 2008-06-09 10:38:21 hanke Exp $
+ * $Id: ivona.c,v 1.3 2008-06-27 12:29:32 hanke Exp $
  */
 
 
@@ -118,7 +118,6 @@ int
 module_init(char **status_info)
 {
     int ret;
-    char *error;
     GString *info;
 
     DBG("Module init");
@@ -442,6 +441,9 @@ ivona_set_cap_let_recogn(ECapLetRecogn cap_mode)
 	case RECOGN_ICON:
 		ivona_cap_mode = 1;
 		break;
+	case RECOGN_NONE:
+	        ivona_cap_mode = 0;
+	        break;
 	}
 	if (ivona_cap_mode < IvonaMinCapLet) {
 		ivona_cap_mode = IvonaMinCapLet;
