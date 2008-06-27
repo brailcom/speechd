@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: parse.c,v 1.71 2008-02-11 14:01:42 hanke Exp $
+ * $Id: parse.c,v 1.72 2008-06-27 12:28:53 hanke Exp $
  */
 
 #include <ctype.h>
@@ -572,6 +572,8 @@ parse_set(const char *buf, const int bytes, const int fd)
     else SSIP_ON_OFF_PARAM(ssml_mode,
 	    OK_SSML_MODE_SET, ERR_COULDNT_SET_SSML_MODE,
 	    ALLOWED_INSIDE_BLOCK())
+    else SSIP_ON_OFF_PARAM(debug, OK_DEBUGGING,
+            ERR_COULDNT_START_DEBUGGING, ;)
     else if (TEST_CMD(set_sub, "notification")){
 	char *scope;
         char *par_s;
@@ -594,6 +596,17 @@ parse_set(const char *buf, const int bytes, const int fd)
 	           
         if (ret) return strdup(ERR_COULDNT_SET_NOTIFICATION);
         return strdup(OK_NOTIFICATION_SET);
+    }
+    else if (TEST_CMD(set_sub, "debug_destination")){
+        char *debug_destination;
+
+        GET_PARAM_STR(debug_destination, 3, CONV_DOWN);
+
+        SSIP_SET_COMMAND(debug_destination);
+	spd_free(debug_destination);
+
+        if (ret) return strdup(ERR_COULDNT_SET_DEBUGGING_DESTINATION);
+        return strdup(OK_DEBUG_DESTINATION_SET);
     }
     else{
         return strdup(ERR_PARAMETER_INVALID);
