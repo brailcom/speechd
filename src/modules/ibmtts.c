@@ -20,7 +20,7 @@
  *
  * @author  Gary Cramblitt <garycramblitt@comcast.net> (original author)
  *
- * $Id: ibmtts.c,v 1.29 2008-06-09 14:10:14 gcasse Exp $
+ * $Id: ibmtts.c,v 1.30 2008-06-30 14:34:02 gcasse Exp $
  */
 
 /* This output module operates with four threads:
@@ -965,16 +965,15 @@ ibmtts_set_rate(signed int rate)
     assert(rate >= -100 && rate <= +100);
     int speed;
     /* Possible ECI range is 0 to 250. */
-    /* Map -100 to 100 onto 0 to 100. */
+    /* Map rate -100 to 100 onto speed 0 to 140. */
     if (rate < 0)
         /* Map -100 to 0 onto 0 to ibmtts_voice_speed */
         speed = ((float)(rate + 100) * ibmtts_voice_speed) / (float)100;
     else
-        /* Map 0 to 100 onto ibmtts_voice_speed to 100 */
-        speed = (((float)rate * (100 - ibmtts_voice_speed)) / (float)100)
+        /* Map 0 to 100 onto ibmtts_voice_speed to 140 */
+        speed = (((float)rate * (140 - ibmtts_voice_speed)) / (float)100)
             + ibmtts_voice_speed;
-    /* speed = (rate + 100) / 2; */
-    assert(speed >= 0 && speed <= 100);
+    assert(speed >= 0 && speed <= 140);
     int ret = eciSetVoiceParam(eciHandle, 0, eciSpeed, speed);
     if (-1 == ret) {
         DBG("Ibmtts: Error setting rate %i.", speed);
