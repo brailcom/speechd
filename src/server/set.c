@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: set.c,v 1.44 2008-06-27 12:29:00 hanke Exp $
+ * $Id: set.c,v 1.45 2008-07-01 08:53:55 hanke Exp $
  */
 
 #include <fnmatch.h>
@@ -368,14 +368,18 @@ set_ssml_mode_uid(int uid, int ssml_mode)
     return 0;
 }
 
-/* TODO: Debug should handle uid, self, all correctly. Only 'self' is
-   allowed. */
 SET_SELF_ALL(int, debug);
 int
 set_debug_uid(int uid, int debug)
 {
   char *debug_logfile_path;
 
+  /* Do not switch debugging on when already on
+     and vice-versa */
+  fprintf(stderr, "DEBUG NOW: %d, tryint to set it to %d\n", SpeechdOptions.debug, debug);
+  if (SpeechdOptions.debug && debug) return 1;
+  if (!SpeechdOptions.debug && !debug) return 1;
+ 
   if (debug){
     debug_logfile_path = g_strdup_printf("%s/speechd.log", SpeechdOptions.debug_destination);
 
@@ -383,7 +387,7 @@ set_debug_uid(int uid, int debug)
     if (debug_logfile == NULL){
       MSG(3, "Error: can't open additional debug logging file %s!\n",
 	      debug_logfile_path);
-      return -1;
+      return 1;
     }
     SpeechdOptions.debug = debug;
     
@@ -399,32 +403,12 @@ set_debug_uid(int uid, int debug)
   return 0;
 }
 
-/* TODO: Debug should handle uid, self, all correctly. Only 'self' is
-   allowed. */
-SET_SELF_ALL(char*, debug_destination);
-int
-set_debug_destination_uid(int uid, char *debug_destination)
-{
-  /* TODO: This should eventually be a directory in the
-     home directory of the user identified with the connection
-     uid */
-  SpeechdOptions.debug_destination = g_strdup(debug_destination);
-
-  /* If debugging is already running, restart it with the new
-     destination */
-  if (SpeechdOptions.debug == 1){
-    set_debug_uid(uid, 0);
-    set_debug_uid(uid, 1);
-  }
-
-  return 0;
-}
-
 #define SET_NOTIFICATION_STATE(state) \
 	if (val) \
 	    settings->notification = settings->notification | NOTIFY_ ## state; \
         else \
 	    settings->notification = settings->notification & (! NOTIFY_ ## state); 
+
 int
 set_notification_self(int fd, char *type, int val)
 {
@@ -460,7 +444,7 @@ set_notification_self(int fd, char *type, int val)
 	    SET_NOTIFICATION_STATE(RESUME);
 	}
     else 
-	return -1;
+	return 1;
 
     return 0;
 
