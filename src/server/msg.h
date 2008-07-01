@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: msg.h,v 1.30 2008-06-27 12:28:46 hanke Exp $
+ * $Id: msg.h,v 1.31 2008-07-01 08:50:46 hanke Exp $
  */
 
 #ifndef MSG_H
@@ -43,7 +43,6 @@
 #define OK_VOLUME_SET                           "218 OK VOLUME SET\r\n"
 #define OK_SSML_MODE_SET                        "219 OK SSML MODE SET\r\n"
 #define OK_NOTIFICATION_SET                     "220 OK NOTIFICATION SET\r\n"
-#define OK_DEBUG_DESTINATION_SET                "221 OK DEBUG DESTINATION SET\r\n"
 
 #define OK_CUR_SET_FIRST			"220 OK CURSOR SET FIRST\r\n"
 #define OK_CUR_SET_LAST				"221 OK CURSOR SET LAST\r\n"
@@ -82,7 +81,7 @@
 #define OK_INSIDE_BLOCK                         "260 OK INSIDE BLOCK\r\n"
 #define OK_OUTSIDE_BLOCK                        "261 OK OUTSIDE BLOCK\r\n"
 
-#define OK_DEBUGGING                            "262 OK DEBUGGING\r\n"
+#define OK_DEBUGGING                            "262 OK DEBUGGING SET\r\n"
 
 #define OK_NOT_IMPLEMENTED                      "299 OK BUT NOT IMPLEMENTED -- DOES NOTHING\r\n"
 
@@ -117,8 +116,7 @@
 #define ERR_COULDNT_SET_VOLUME                  "314 ERR COULDNT SET VOLUME\r\n"
 #define ERR_COULDNT_SET_SSML_MODE               "315 ERR COULDNT SET SSML MODE\r\n"
 #define ERR_COULDNT_SET_NOTIFICATION            "316 ERR COULDNT SET NOTIFICATION\r\n"
-#define ERR_COULDNT_START_DEBUGGING             "317 ERR COULDNT START DEBUGGING\r\n"
-#define ERR_COULDNT_SET_DEBUGGING_DESTINATION   "318 ERR COULDNT SET DEBUGGING DESTINATION\r\n"
+#define ERR_COULDNT_SET_DEBUGGING               "317 ERR COULDNT SET DEBUGGING\r\n"
 
 
 #define ERR_NO_SND_ICONS                        "320 ERR NO SOUND ICONS\r\n"
