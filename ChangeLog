@@ -1,3 +1,20 @@
+2008-07-01  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/server/speechd.c (speechd_init): debug_destination
+	is now inside LogDir.
+	(speechd_init): Create the debug/ subdir.
+
+	* src/server/set.c (set_debug_destination_uid): DEBUG_DESTINATION
+	removed.
+	(set_debug_uid): Avoid conflicts in debugging.
+
+	* src/server/parse.c (parse_set): Include debug location in
+	reply on debugging SET ssip command.
+	(parse_set): DEBUG_DESTINATION setting removed from SSIP.
+
+	* src/server/msg.h (OK_DEBUG_DESTINATION_SET): DEBUG_DESTINATION
+	messages removed.
+
 2008-06-27  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/speechd.h: New prototypes.
