@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: set.c,v 1.45 2008-07-01 08:53:55 hanke Exp $
+ * $Id: set.c,v 1.46 2008-07-01 09:00:32 hanke Exp $
  */
 
 #include <fnmatch.h>
@@ -376,7 +376,6 @@ set_debug_uid(int uid, int debug)
 
   /* Do not switch debugging on when already on
      and vice-versa */
-  fprintf(stderr, "DEBUG NOW: %d, tryint to set it to %d\n", SpeechdOptions.debug, debug);
   if (SpeechdOptions.debug && debug) return 1;
   if (!SpeechdOptions.debug && !debug) return 1;
  
