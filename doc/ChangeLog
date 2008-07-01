@@ -1,3 +1,8 @@
+2008-07-01  Hynek Hanke  <hanke@brailcom.org>
+
+	* ssip.texi 
+	(DEBUG): Destination is now fixed and reported to client in reply.
+
 2008-06-09  Hynek Hanke  <hanke@brailcom.org>
 
 	* speech-dispatcher.texi (Configuration): Document briefly the new central way of setting audio output.
