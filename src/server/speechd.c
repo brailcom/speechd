@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.c,v 1.78 2008-06-27 12:29:05 hanke Exp $
+ * $Id: speechd.c,v 1.79 2008-07-01 08:55:33 hanke Exp $
  */
 
 #include <gmodule.h>
@@ -40,7 +40,6 @@
 #include "server.h"
 
 /* Glib g_makedir */
-
 int  g_mkdir      (const gchar *filename, int mode);
 /* Manipulating pid files */
 int create_pid_file();
@@ -437,7 +436,7 @@ speechd_options_init(void)
     SpeechdOptions.home_speechd_dir = NULL;
     SpeechdOptions.log_dir = NULL;
     SpeechdOptions.debug = 0;
-    SpeechdOptions.debug_destination = strdup("/tmp/");
+    SpeechdOptions.debug_destination = NULL;
     spd_mode = SPD_MODE_DAEMON;    
 }
 
@@ -520,9 +519,14 @@ speechd_init()
       if (SpeechdOptions.home_speechd_dir){
 	SpeechdOptions.log_dir = g_strdup_printf("%s/log/",
 						 SpeechdOptions.home_speechd_dir);
-	mkdir(g_path_get_dirname(SpeechdOptions.log_dir), S_IRWXU);
+	mkdir(SpeechdOptions.log_dir, S_IRWXU);
+	SpeechdOptions.debug_destination = g_strdup_printf("%slog/debug",
+							   SpeechdOptions.home_speechd_dir);
+	mkdir(SpeechdOptions.debug_destination, S_IRWXU);
       }else{
 	SpeechdOptions.log_dir = strdup("/var/log/speech-dispatcher/");
+	SpeechdOptions.debug_destination = strdup("/var/log/speech-dispatcher/debug");
+	mkdir(SpeechdOptions.debug_destination, S_IRWXU);
       }
     }
 
