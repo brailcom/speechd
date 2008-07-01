@@ -1344,23 +1344,13 @@ client's name once it's already set are answered with an error code.
 
 Only @code{self} is allowed as the `target' argument.
 
-@item SET all DEBUG_DESTINATION  @var{path}
-Set the destination for debugging to @var{path}. After this command,
-whenever debugging is switched on via @code{SET all DEBUG ON}, all
-debugging logs will be placed in @var{path}.
-
-@example
-SET all DEBUG_DESTINATION /tmp/speechd-logs
-232 OK DEBUG DESTINATION SET
-@end example
-
 @item SET all DEBUG  @{ON|OFF@}
 If set to @code{ON}, Speech Dispatcher will write all its debugging
-information (including output modules) with maximal verbosity into the
-directory path specified using @code{SET * DEBUG_DESTINATION}. When
-subsequently set to @code{OFF}, Speech Dispatcher will stop writing
-out debugging information into this path and close all the appropriate
-logging files.
+information (including output modules) with maximal verbosity into a
+debug directory which is reported by the server to the client in reply
+to this command. When subsequently set to @code{OFF}, Speech
+Dispatcher will stop writing out debugging information into this path
+and close all the appropriate logging files.
 
 The intended use for this functionality is on-line debugging from
 client application. If the user wants to report a problem, the client
@@ -1376,7 +1366,8 @@ time.
 
 @example
 SET all DEBUG ON
-231 OK DEBUGGING SET ON
+262-/home/hanke/.speech-dispatcher/log/debug
+262 OK DEBUGGING SET
 @end example
 
 @end table
