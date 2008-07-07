@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: options.c,v 1.11 2007-11-26 14:24:32 hanke Exp $
+ * $Id: options.c,v 1.12 2008-07-07 14:30:47 hanke Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would
@@ -43,6 +43,7 @@ options_print_help(char *argv[])
     "-P, --pid-file       -      Set path to pid file\n"
     "-C, --config-dir     -      Set path to configuration\n"
     "-v, --version        -      Report version of this program\n"
+    "-D, --debug          -      Output debugging information into /tmp/.speech-dispatcher\n"
     "-h, --help           -      Print this info\n\n"
     "Copyright (C) 2003,2006 Brailcom, o.p.s.\n"
     "This is free software; you can redistribute it and/or modify it\n"
@@ -83,6 +84,9 @@ options_parse(int argc, char *argv[])
     int option_index;
     int val;
 
+    char *debug_logfile_path;
+	  
+
     assert (argc>0);
     assert(argv);
 
@@ -115,6 +119,19 @@ options_parse(int argc, char *argv[])
             options_print_version();
             exit(0);
             break;
+        case 'D':
+	  SpeechdOptions.debug_destination=strdup("/tmp/.speechd-debug");
+	  mkdir(SpeechdOptions.debug_destination, S_IRWXU);
+	  debug_logfile_path = g_strdup_printf("%s/speechd.log", SpeechdOptions.debug_destination);
+	  debug_logfile = fopen(debug_logfile_path, "w");
+	  spd_free(debug_logfile_path);
+	  if (debug_logfile == NULL){
+	    MSG(3, "Error: can't open additional debug logging file %s!\n",
+		debug_logfile_path);
+	    return;
+	  }
+	  SpeechdOptions.debug = 1;
+	  break;
         case 'h':
             options_print_help(argv);
             exit(0);
