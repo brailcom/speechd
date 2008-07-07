@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.c,v 1.79 2008-07-01 08:55:33 hanke Exp $
+ * $Id: speechd.c,v 1.80 2008-07-07 14:32:06 hanke Exp $
  */
 
 #include <gmodule.h>
@@ -119,6 +119,10 @@ MSG2(int level, char *kind, char *format, ...)
 		  fprintf(custom_logfile, "[%s : %d] speechd: ",
 			  tstr, (int) tv.tv_usec);
                 }
+                if(SpeechdOptions.debug) {
+		  fprintf(debug_logfile, "[%s : %d] speechd: ",
+			  tstr, (int) tv.tv_usec);
+                }
 		spd_free(tstr);
             }
             for(i=1;i<level;i++){
@@ -139,6 +143,13 @@ MSG2(int level, char *kind, char *format, ...)
                 fprintf(custom_logfile, "\n");
                 fflush(custom_logfile);
             }
+	    if (SpeechdOptions.debug){
+	      va_start(args, format);	   
+	      vfprintf(debug_logfile, format, args);
+	      va_end(args);
+	      fprintf(debug_logfile, "\n");
+	      fflush(debug_logfile);
+	    }
         }
         if(std_log) {
             va_end(args);
@@ -437,6 +448,7 @@ speechd_options_init(void)
     SpeechdOptions.log_dir = NULL;
     SpeechdOptions.debug = 0;
     SpeechdOptions.debug_destination = NULL;
+    debug_logfile = NULL;
     spd_mode = SPD_MODE_DAEMON;    
 }
 
@@ -520,13 +532,17 @@ speechd_init()
 	SpeechdOptions.log_dir = g_strdup_printf("%s/log/",
 						 SpeechdOptions.home_speechd_dir);
 	mkdir(SpeechdOptions.log_dir, S_IRWXU);
-	SpeechdOptions.debug_destination = g_strdup_printf("%slog/debug",
-							   SpeechdOptions.home_speechd_dir);
-	mkdir(SpeechdOptions.debug_destination, S_IRWXU);
+	if (!SpeechdOptions.debug_destination){
+	  SpeechdOptions.debug_destination = g_strdup_printf("%slog/debug",
+							     SpeechdOptions.home_speechd_dir);
+	  mkdir(SpeechdOptions.debug_destination, S_IRWXU);
+	}
       }else{
 	SpeechdOptions.log_dir = strdup("/var/log/speech-dispatcher/");
-	SpeechdOptions.debug_destination = strdup("/var/log/speech-dispatcher/debug");
-	mkdir(SpeechdOptions.debug_destination, S_IRWXU);
+	if (!SpeechdOptions.debug_destination){
+	  SpeechdOptions.debug_destination = strdup("/var/log/speech-dispatcher/debug");
+	  mkdir(SpeechdOptions.debug_destination, S_IRWXU);
+	}
       }
     }
 
@@ -715,7 +731,8 @@ logging_init(void)
     logfile = stdout;
   }
 
-  debug_logfile = stdout;
+  if (!debug_logfile)
+    debug_logfile = stdout;
 
   MSG(2,"Speech Dispatcher Logging to file %s", file_name);
   return;
