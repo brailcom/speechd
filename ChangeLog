@@ -1,3 +1,16 @@
+2008-07-07  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/server/speechd.c (speechd_init): Only create new debug destination
+	if not already debugging.
+	(MSG2): Debugging.
+
+	* src/server/options.h: -D, --debug new option.
+
+	* src/server/options.c (options_parse): -D, --debug new option.
+
+	* src/server/module.c (load_output_module): Turn debugging on
+	when loading the module.
+
 2008-07-01  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/speechd.c (speechd_init): debug_destination
