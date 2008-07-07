@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: module.c,v 1.39 2008-06-27 12:28:41 hanke Exp $
+ * $Id: module.c,v 1.40 2008-07-07 14:30:51 hanke Exp $
  */
 
 #define _GNU_SOURCE
@@ -193,6 +193,10 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 
 	    }
 
+	    if (SpeechdOptions.debug){
+	      MSG(4, "Switching debugging on for output module %s", module->name);
+	      output_module_debug(module);
+	    }
 	    /* Initialize audio settings */
 	    ret = output_send_audio_settings(module);
 	    if (ret !=0){
