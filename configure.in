@@ -240,14 +240,26 @@ AC_SUBST(glib_libs)
 gthread_libs=`pkg-config --libs gthread-2.0`
 AC_SUBST(gthread_libs)
 
+AC_SUBST(datadir)
+
 spdconfdir="$sysconfdir/speech-dispatcher/"
 AC_SUBST(spdconfdir)
+moduleconfdir="$spdconfdir/modules/" 
+AC_SUBST(moduleconfdir)
+clientconfdir="$spdconfdir/clients"
+AC_SUBST(clientconfdir)
+
+spdconforigdir="$datadir/speech-dispatcher/conf/"
+AC_SUBST(spdconforigdir)
+moduleconforigdir="$spdconforigdir/modules/" 
+AC_SUBST(moduleconforigdir)
+clientconforigdir="$spdconforigdir/clients"
+AC_SUBST(clientconforigdir)
+
 snddatadir="$datadir/sounds/speech-dispatcher/" 
 AC_SUBST(snddatadir)
 modulebindir="$libdir/speech-dispatcher-modules/"
 AC_SUBST(modulebindir)
-moduleconfdir="$spdconfdir/modules/" 
-AC_SUBST(moduleconfdir)
 spdlibdir="$libdir/speech-dispatcher/" 
 AC_SUBST(spdlibdir)
 spdlib2dir="$libdir/speech-dispatcher/" 
