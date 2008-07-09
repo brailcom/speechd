@@ -1,5 +1,8 @@
 2008-07-09  Hynek Hanke  <hanke@brailcom.org>
 
+	* Makefile.in (all): speechd_config/paths.py generation moved
+	from install.
+
 	* setup.py (speechd_config) New module.
 
 	* Makefile.in (speechd_config): New module.
