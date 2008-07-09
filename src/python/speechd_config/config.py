@@ -344,8 +344,12 @@ Please start your system Speech Dispatcher now with parameter '-D'""");
         time.sleep(10)
 
         # sebrat vystup a zabalit
-        report("Collecting debugging output")
-        os.system("tar -cz /tmp/.speechd-debug > /tmp/speechd-debug.tar.gz")
+        report("Collecting debugging output and your configuration information")
+        if type == 'user':
+            configure_directory = self.user_conf_dir()
+        else:
+            configure_directory = self.system_conf_dir()
+        os.system("tar -cz /tmp/.speechd-debug %s> /tmp/speechd-debug.tar.gz" % configure_directory)
 
         # odeslat na speechd-bugs@lists.freebsoft.org
         report("""
