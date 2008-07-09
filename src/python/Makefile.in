@@ -6,12 +6,12 @@ datarootdir = @datarootdir@
 SPD_CONF_PATH_PY="speechd_config/spd_conf_path.py"
 
 all:
+	echo "SPD_CONF_ORIG_PATH=\"@spdconforigdir@\"" > speechd_config/paths.py; \
+	echo "SPD_CONF_PATH=\"@spdconforigdir@\"" >> speechd_config/paths.py; \
+	echo "SPD_SOUND_DATA_PATH=\"@snddatadir@\"" >> speechd_config/paths.py; \
 
 install:
 	if test -x /usr/bin/python; then \
-		echo "SPD_CONF_ORIG_PATH=\"@spdconforigdir@\"" > speechd_config/paths.py; \
-		echo "SPD_CONF_PATH=\"@spdconforigdir@\"" >> speechd_config/paths.py; \
-		echo "SPD_SOUND_DATA_PATH=\"@spdsnddatadir@\"" >> speechd_config/paths.py; \
 		./setup.py install --prefix=@prefix@; \
 	else \
 		echo "Python not found, not installing speechd module nor spd-conf"; \
