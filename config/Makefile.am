@@ -10,6 +10,8 @@ speechd.conf: speechd.conf.in
 
 spdconf_DATA= speechd.conf
 
+spdconforig_DATA= speechd.conf
+
 CLEANFILES = speechd.conf
 
 EXTRA_DIST = speechd.conf.in
