@@ -1,3 +1,10 @@
+2008-07-09  Hynek Hanke  <hanke@brailcom.org>
+
+	* setup.py (speechd_config) New module.
+
+	* Makefile.in (speechd_config): New module.
+	Write necessary paths into speech_config/conf_path.py
+
 2008-06-27  Hynek Hanke  <hanke@brailcom.org>
 
 	* speechd/client.py (SSIPClient.set_debug): New method.

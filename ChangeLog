@@ -1,3 +1,23 @@
+2008-07-09  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/python/speechd_config/__init__.py: New file.
+
+	* src/python/speechd_config/config.py: New config directory.
+
+	* src/python/speechd_config/test.wav: New test sound.
+
+	* config/modules/Makefile.am (dist_moduleconforig_DATA): Place *.conf
+	into moduleconforig dir as well.
+
+	* config/clients/Makefile.am (dist_clientconforig_DATA): Place *.conf
+	into clientconforig dir as well.
+
+	* config/Makefile.am: Place speechd.conf into spdconforig as well.
+
+	* configure.in: Added *conforigdir variables pointing
+	into $datadir, where original untouched configuration
+	is stored.
+
 2008-07-07  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/server/speechd.c (speechd_init): Only create new debug destination
