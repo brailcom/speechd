@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_utils.c,v 1.54 2008-06-27 12:29:24 hanke Exp $
+ * $Id: module_utils.c,v 1.55 2008-07-10 15:37:18 hanke Exp $
  */
 
 #include "fdsetconv.h"
@@ -327,7 +327,8 @@ do_debug(char* cmd_buf)
     DBG("Additional logging into specific path %s requested", filename);
     CustomDebugFile = fopen(filename, "w+");
     if (CustomDebugFile == NULL){
-      DBG("ERROR: Can't open custom debug file for logging");
+      DBG("ERROR: Can't open custom debug file for logging: %d (%s)",
+	  errno, strerror(errno));
       return strdup("303 CANT OPEN CUSTOM DEBUG FILE");
     }
     if (Debug == 1)
