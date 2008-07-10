@@ -1,4 +1,4 @@
- /*
+/*
  * options.c - Parse and process possible command line options
  *
  * Copyright (C) 2003, 2006 Brailcom, o.p.s.
@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: options.c,v 1.12 2008-07-07 14:30:47 hanke Exp $
+ * $Id: options.c,v 1.13 2008-07-10 15:35:56 hanke Exp $
  */
 
 /* NOTE: Be careful not to include options.h, we would
@@ -83,7 +83,9 @@ options_parse(int argc, char *argv[])
     int c_opt;
     int option_index;
     int val;
+    int ret;
 
+    char *tmpdir;
     char *debug_logfile_path;
 	  
 
@@ -120,15 +122,32 @@ options_parse(int argc, char *argv[])
             exit(0);
             break;
         case 'D':
-	  SpeechdOptions.debug_destination=strdup("/tmp/.speechd-debug");
-	  mkdir(SpeechdOptions.debug_destination, S_IRWXU);
-	  debug_logfile_path = g_strdup_printf("%s/speechd.log", SpeechdOptions.debug_destination);
-	  debug_logfile = fopen(debug_logfile_path, "w");
+	  tmpdir = g_strdup(getenv("TMPDIR"));
+	  if (!tmpdir)
+	    tmpdir = g_strdup("/tmp");
+	  SpeechdOptions.debug_destination=g_strdup_printf("%s/speechd-debug", tmpdir);
+	  spd_free(tmpdir);
+
+	  ret = mkdir(SpeechdOptions.debug_destination, S_IRWXU);
+	  if (ret){
+	    MSG(1, "Can't create additional debug destination in %s, reason %d-%s",
+		SpeechdOptions.debug_destination, errno, strerror(errno));
+	    if (errno == EEXIST){
+	      MSG(1, "Debugging directory %s already exists, please delete it first",
+		  SpeechdOptions.debug_destination);
+	    }
+	    exit(1);
+	  }
+	    
+	  debug_logfile_path = g_strdup_printf("%s/speechd.log",
+					       SpeechdOptions.debug_destination);
+	  /* Open logfile for writing */
+	  debug_logfile = fopen(debug_logfile_path, "wx");
 	  spd_free(debug_logfile_path);
 	  if (debug_logfile == NULL){
-	    MSG(3, "Error: can't open additional debug logging file %s!\n",
-		debug_logfile_path);
-	    return;
+	    MSG(1, "Error: can't open additional debug logging file %s [%d-%s]!\n",
+		debug_logfile_path, errno, strerror(errno));
+	    exit(1);
 	  }
 	  SpeechdOptions.debug = 1;
 	  break;
