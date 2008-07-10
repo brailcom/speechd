@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: generic.c,v 1.28 2008-06-09 10:38:08 hanke Exp $
+ * $Id: generic.c,v 1.29 2008-07-10 15:37:15 hanke Exp $
  */
 
 #include <glib.h>
@@ -289,6 +289,8 @@ module_close(int status)
 
 /* Internal functions */
 
+/* Replace all occurances of 'token' in 'sting'
+   with 'data' */
 char*
 string_replace(char *string, char* token, char* data)
 {
@@ -296,20 +298,26 @@ string_replace(char *string, char* token, char* data)
     char *str1;
     char *str2;
     char *new;
+    char *mstring;
 
-    /* Split the string in two parts, ommit the token */
-    p = strstr(string, token);
-    if (p == NULL) return string;
-    *p = 0;
+    mstring = g_strdup(string);
+    while (1){
+      /* Split the string in two parts, ommit the token */
+      p = strstr(mstring, token);
+      if (p == NULL){
+	return mstring;
+      }
+      *p = 0;
 
-    str1 = string;
-    str2 = p + (strlen(token));        
+      str1 = mstring;
+      str2 = p + (strlen(token));        
 
-    /* Put it together, replacing token with data */
-    new = g_strdup_printf("%s%s%s", str1, data, str2);
-    free(string);
+      /* Put it together, replacing token with data */
+      new = g_strdup_printf("%s%s%s", str1, data, str2);
+      xfree(mstring);
+      mstring = new;
+    }
 
-    return new;
 }
 
 void*
@@ -359,13 +367,31 @@ _generic_speak(void* nothing)
             {
 		char *e_string;
 		char *p;	       
+		char *tmpdir, *homedir;
+		char *helper;
 		
+		helper = getenv("TMPDIR");
+		if (helper)
+		  tmpdir = strdup(helper);
+		else
+		  tmpdir = strdup("/tmp");
+
+		helper = g_get_home_dir();
+		if (helper)
+		  homedir = strdup(helper);
+		else
+		  homedir = strdup("UNKNOWN_HOME_DIRECTORY");
+
 		/* Set this process as a process group leader (so that SIGKILL
 		   is also delivered to the child processes created by system()) */
 		if (setpgid(0,0) == -1) DBG("Can't set myself as project group leader!");
 
 		e_string = strdup(GenericExecuteSynth);
 
+		e_string = string_replace(e_string, "$TMPDIR", tmpdir);
+		xfree(tmpdir);
+		e_string = string_replace(e_string, "$HOMEDIR", homedir);
+		xfree(homedir);
 		e_string = string_replace(e_string, "$PITCH", generic_msg_pitch_str);
 		e_string = string_replace(e_string, "$RATE", generic_msg_rate_str);
 		e_string = string_replace(e_string, "$VOLUME", generic_msg_volume_str);
