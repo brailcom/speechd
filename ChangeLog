@@ -1,5 +1,7 @@
 2008-07-10  Hynek Hanke  <hanke@brailcom.org>
 
+	* config/speechd.conf: Do not begin any textual comments with option names.
+
 	* src/server/speechd.c (main): Set umask.
 	(main): Set log_level = 1 early.
 	(main): Output Speech Dispatcher version early.
