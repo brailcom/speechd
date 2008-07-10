@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speechd.c,v 1.80 2008-07-07 14:32:06 hanke Exp $
+ * $Id: speechd.c,v 1.81 2008-07-10 15:36:49 hanke Exp $
  */
 
 #include <gmodule.h>
@@ -753,14 +753,20 @@ main(int argc, char *argv[])
     /* Initialize threading and thread safety in Glib */
     g_thread_init(NULL);
 
-    speechd_options_init();
+    /* Strip all permisions for 'others' from the files created */
+    umask(007);
 
     /* Initialize logging */
     logfile = stderr;
+    SpeechdOptions.log_level = 1;
     custom_logfile = NULL;
     custom_log_kind = NULL;
 
+    speechd_options_init();
+
     options_parse(argc, argv);
+
+    MSG(1, "Speech Dispatcher "VERSION" starting");
 
     /* Check if there is .speech-dispatcher directory
        in user's home directory. If yes, put everything
@@ -831,6 +837,8 @@ main(int argc, char *argv[])
 
     speechd_init();
 
+    MSG(1, "Speech Dispatcher will use port %d", SpeechdOptions.port);
+
     /* Initialize socket functionality */
     server_socket = socket(AF_INET, SOCK_STREAM, 0);
     {
@@ -880,7 +888,8 @@ main(int argc, char *argv[])
     SpeechdStatus.max_fd = server_socket;
 
     /* Now wait for clients and requests. */   
-    MSG(1, "Speech Dispatcher waiting for clients ...");
+    MSG(1, "Speech Dispatcher "VERSION" started on port %d and waiting for clients ...",
+	SpeechdOptions.port);
     while (1) {
         testfds = readfds;
 
