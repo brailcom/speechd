@@ -814,8 +814,11 @@ Do you want to keep it?""", False)
                                  "DefaultLanguage": self.default_language,
                                  "DefaultAudioMethod": self.default_audio_method,
                                  "Port": self.port})
-        report("Configuration written to %s" % configfile)
-        report("Basic configuration now complete")
+        report("""
+Configuration written to %s
+Basic configuration now complete. You might still need to fine tune it by
+manually editing the configuration above file. Especially if you need to
+use special audio settings, non-standard synthesizer ports etc.""" % configfile)
 
     def speechd_start_user(self):
         """Start Speech Dispatcher in user-mode"""
