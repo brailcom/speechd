@@ -1,3 +1,27 @@
+2008-07-10  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/server/speechd.c (main): Set umask.
+	(main): Set log_level = 1 early.
+	(main): Output Speech Dispatcher version early.
+
+	* src/server/options.c (options_parse): Use tmpdir correctly
+	for debugging destination.
+
+	* src/modules/module_utils.c (do_debug): More verbose debugging
+	messgages.
+
+	* src/modules/generic.c (string_replace): Relace all occurances,
+	not just the first one.
+	(_generic_speak): Substitute TMPDIR and HOMEDIR.
+
+	* config/modules/llia_phon-generic.conf: Use TMPDIR instead of /tmp/
+
+	* config/modules/espeak-generic.conf: Use TMPDIR instead of /tmp/
+
+	* config/modules/epos-generic.conf: Use TMPDIR instead of /tmp/
+
+	* config/modules/dtk-generic.conf: Use TMPDIR instead of /tmp/
+
 2008-07-09  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/python/speechd_config/__init__.py: New file.

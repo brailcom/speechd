@@ -1,4 +1,23 @@
+2008-07-10  Hynek Hanke  <hanke@brailcom.org>
+
+	* speechd_config/config.py (Options): Restructured.
+	test_spd_say: New test.
+	Handle SPEECHD_PORT correctly.
+	(Tests.write_diagnostics_results): New method. 
+	Use TMPDIR correctly.
+	(Configuration.
+	(Configure.speechd_start_system): Allow also restart.
+	Bugfixes.
+
 2008-07-09  Hynek Hanke  <hanke@brailcom.org>
+
+	* speechd_config/config.py (Tests.diagnostics.decide_to_test):
+	Also include configuration into debugging archive.
+
+	* speechd_config/spd-conf: Do not call main() since it will
+	be called automatically on import.
+
+	* speechd_config/config.py: Typo.
 
 	* Makefile.in (all): speechd_config/paths.py generation moved
 	from install.
