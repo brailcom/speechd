@@ -205,7 +205,11 @@ class Options(object):
         }
 
     def __init__(self):
-        self.cmdline_parser = OptionParser()
+        usage = """A simple tool for basic configuration of Speech Dispatcher
+and problem diagnostics
+
+usage: %prog [options]"""
+        self.cmdline_parser = OptionParser(usage)
 
         for option, definition in self._conf_options.iteritems():
             # Set object attributes to default values
