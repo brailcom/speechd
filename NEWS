@@ -1,15 +1,15 @@
 
 Version 0.6.7
+ * Central settings for prefered audio output method
  * Dummy output module gives a pre-recorded message whenever
    no other output module works   
- * Central settings for prefered audio output method
+ * Possibility to switch on verbose logging over SSIP
+   for easy debugging and bug-reporting from client applications
+ * 'spd-conf' configuration, diagnostics and troubleshooting tool
  * Volume settings in Pulse Audio
+ * Pulseaudio output now keeps connection to daemon open.
  * Punctuation mechanism in IBM TTS is now configurable
  * Bugfixes
-
-Version 0.6.6
- * Pulseaudio output now keeps connection to daemon open.
-
 
 Version 0.6.6
  * Bugfixes (ALSA audio output, libspeechd connection

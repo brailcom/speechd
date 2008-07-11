@@ -15,7 +15,6 @@ Only if you are building from CVS, you also need these:
 
 We recommend to also install these packages:
  - ALSA (http://www.alsa-project.org)
- - Pulse Audio (http://www.pulseaudio.org/)
  - Festival (http://www.cstr.ed.ac.uk/projects/festival/)
  - Espeak (http://espeak.sourceforge.net/)
 
@@ -29,14 +28,16 @@ These packages are known to work with Speech Dispatcher:
      synthesizer with very good support for various Speech Dispatcher
      features.
  - Flite, Cicero, IBM TTS, Dectalk Software, Ivona
+ - Pulse Audio (http://www.pulseaudio.org/)
 
  User applications:
  - Orca (http://www.gnome.org/projects/orca/) -- AT-SPI screen reader (Gnome)
  - speechd-up (http://www.freebsoft.org/) -- Speakup console screen
    reader interface
  - speechd-el (http://www.freebsoft.org/) -- Emacs speech interface
- - LSR (http://live.gnome.org/LSR)
+ - Linux Screen Reader (LSR (http://live.gnome.org/LSR)
  - gnome-speech/Gnopernicus (http://www.gnome.org/)
+ - BrlTTY (http://mielke.cc/brltty/)
  - ...
 
 Building Speech Dispatcher:
@@ -48,14 +49,14 @@ If you want to use Speech Dispatcher with Festival (recommended), you
 also need to install festival-freebsoft-utils version 0.3 or higher!
 
 If you want to use Speech Dispatcher with Ivona, you need to install
-libdumbtts (
+libdumbtts
 
 To compile the whole project, including Speech Dispatcher server, all modules
 and clients, simply extract the distribution archive and change to 
 speech-dispatcher-<version> directory and run "make all" command as follows:
 
- $ tar -xzvf speech-dispatcher-0.6.4.tar.gz
- $ cd speech-dispatcher-0.6.4
+ $ tar -xzvf speech-dispatcher-0.6.7.tar.gz
+ $ cd speech-dispatcher-0.6.7
 
 
 Notes about ALSA, Pulse, OSS and NAS support
@@ -72,18 +73,19 @@ will be compiled with NAS and/or OSS support.  Please make sure the
 libraries are installed correctly. Please examine ./configure output
 for possible problems.
 
+We strongly recommend to use ALSA if possible on your system to avoid
+problems with mixing sound streams from multiple applications while
+using a stable and well-tested audio output method for Speech Dispatcher.
+
 Pulse Audio is a very promising sound output server, the whole setup
-is however a bit more difficult to do by hand. You will need to
-run a separate Speech Dispatcher and Pulse Audio for each user in
-the gnome-session. You will also need to 
+is however a bit more difficult to do by hand and the support is still
+in an experimental stage. You will need to run a separate Speech Dispatcher
+and Pulse Audio for each user in the gnome-session.
 
 We would like to warn you, that the version of NAS 1.7 available to us
 has problems in heavy use (fast typing of keys, many messages comming at once).
 Until this is fixed in NAS, we can't recommend you to use this plugin unless
 you know what you are doing.
-
-We strongly recommend to use ALSA if possible on your system to avoid
-problems with mixing sound streams from multiple applications.
 
 Notes about Espeak support
 ==========================

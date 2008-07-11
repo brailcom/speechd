@@ -1,11 +1,6 @@
 A list of known bugs:
 
-* The Flite output module doesn't support sound icons and spelling
-as there is not any support for that in Flite.
+* Some output modules doen't support sound icons and spelling
+as there is not any support for that in those modules.
 
 * Espeak generic module doesn't support punctuation.
-
-* The BLOCK command currently doesn't interface correctly with the
-priority PROGRESS. Only the last message in the block is guaranteed
-to work correctly as the progress-termination message. Will be fixed
-in the next major release.

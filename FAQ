@@ -1,5 +1,11 @@
 Frequently Asked Questions
 
+Q: How do I configure Speech Dispatcher in user-mode?
+
+A: Run
+        spd-conf
+   and answer some basic questions
+
 Q: During the instalation, when running `make' and `make install',
    I get some strange message from libtool and the process crashes:
     ../../libtool: s%^.*/%%: is not a file or directory

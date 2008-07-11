@@ -1,3 +1,11 @@
+2008-07-11  Hynek Hanke  <hanke@brailcom.org>
+
+	* speech-dispatcher.texi (Installation): Mention spd-conf.
+	(Installation): Changed the way of setting audio output.
+	(Running Under Ordinary Users): Mention spd-conf.
+	(Troubleshooting): Mention spd-conf, restructured.
+	(spd-conf): New subsection.
+
 2008-07-01  Hynek Hanke  <hanke@brailcom.org>
 
 	* ssip.texi 
