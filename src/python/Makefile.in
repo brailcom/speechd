@@ -7,7 +7,7 @@ SPD_CONF_PATH_PY="speechd_config/spd_conf_path.py"
 
 all:
 	echo "SPD_CONF_ORIG_PATH=\"@spdconforigdir@\"" > speechd_config/paths.py; \
-	echo "SPD_CONF_PATH=\"@spdconforigdir@\"" >> speechd_config/paths.py; \
+	echo "SPD_CONF_PATH=\"@spdconfdir@\"" >> speechd_config/paths.py; \
 	echo "SPD_SOUND_DATA_PATH=\"@snddatadir@\"" >> speechd_config/paths.py; \
 
 install:
