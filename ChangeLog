@@ -1,6 +1,9 @@
-2008-07-10  Hynek Hanke  <hanke@brailcom.org>
+2008-07-11  Hynek Hanke  <hanke@brailcom.org>
 
-	* config/speechd.conf: Do not begin any textual comments with option names.
+	* src/Makefile.am (EXTRA_DIST): Include python/speechd_config
+
+	* config/speechd.conf.in: Do not begin any textual comments with
+	option names.
 
 	* src/server/speechd.c (main): Set umask.
 	(main): Set log_level = 1 early.
