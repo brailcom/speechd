@@ -572,21 +572,21 @@ We recommend to also install these packages:
 
 Although we highly recommend to use Festival for its excellent
 extensibility, good quality voices, good responsiveness and best
-support in Speech Dispatcher, you might want to start with
-Flite, a lightweight version of Festival, to get all the key
-components working and only then switch to Festival. Installation of
-Flite should be easier and the default configuration of Speech
-Dispatcher is set up for Flite for this reason. However, if it is not
-easy for you to install Flite (as your distribution doesn't provide
-packages for it), then don't bother with it.
+support in Speech Dispatcher, you might want to start with eSpeak, a
+lightweight multi-lingual feature-complete synthesizer, to get all the
+key components working and perhaps only then switch to
+Festival. Installation of eSpeak should be easier and the default
+configuration of Speech Dispatcher is set up for eSpeak for this
+reason. 
 
 You can of course also start with Epos or any other supported synthesizer.
 
 @item Make sure your synthesizer works
 
 There is usually a way to test if the installation of your speech
-synthesizer works. For Flite run @code{flite -t "Hello!"} and hear
-the speech. For Festival run @code{festival} and type in
+synthesizer works. For eSpeak run @code{espeak "test"}, for Flite run
+@code{flite -t "Hello!"} and hear the speech. For Festival run
+@code{festival} and type in
 
 @example
 (SayText "Hello!")
@@ -602,38 +602,52 @@ the file @code{INSTALL} in the source tree.
 
 @item Configure Speech Dispatcher
 
-(If you have a working Flite installation on your system, you can now
-skip to the next section, test if your installation of Speech
-Dispatcher works, and then return to tweak the configuration.)
+The easiest way to configure and test your Speech Dispatcher is
+through the @code{spd-conf} configuration script. It will guide you
+through the basic configuration. It will also subsequently perform
+some diagnostics test and offer some limited help with
+troubleshooting. Just execute
+
+@example
+spd-conf
+@end example
+
+under an ordinary user or root depending on whether you like to setup
+Speech Dispatcher as user or system service respectively. You might
+also want to explore the offered options or run some of its subsystems
+manually, type @code{spd-conf -h} for help.
+
+If you do not want to use this script, it doesn't work in your case
+or it doesn't provide enough configuration flexibility, please
+continue as described bellow and/or in @xref{Running Under Ordinary Users}.
 
 Go to @file{/etc/speech-dispatcher/speechd.conf} or similar (it might
 be @file{/usr/local/etc/speech-dispatcher/speechd.conf} if you install
 from sources) and edit the lines @code{AddModule},
 @code{DefaultModule} and @code{LanguageDefaultModule} for your chosen
-synthesizer. If you want to run Festival, just substitute 'Flite' for
-'Festival' in the last two options.
+synthesizer. If you want to run Festival, just substitute 'espeak' for
+'festival' in the last two options.
 
 Another thing you will likely want to change is the default rate of
 speech (line @code{DefaultRate}). Return to this later to adjust
 details.
 
-Another important thing is to configure the output module you are
-using. Go to @file{/etc/speech-dispatcher/festival.conf} or similar
-according to the synthesizers you want to run. If supported, choose
-your preferred audio output method through the option
-@code{FestivalAudioOutputMethod} or similar. We highly recommend
-@code{ALSA} audio output when supported. Review the other options.
-If there is a '#' sign before the option, it
-means it doesn't have any effect and its argument is its default
-value.
+Another important thing is to configure the audio method you are
+using. Choose your preferred audio output method through the option
+@code{AudioOutputMethod} or similar. We highly recommend @code{ALSA}
+audio output when supported. Review the other options for more
+detailed audio configuration. If there is a '#' sign before the
+option, it means it doesn't have any effect and its argument is its
+default value.
 
 @item Test Speech Dispatcher
 
-The simplest way to test Speech Dispatcher is through the
-@code{spd-say} tool.
+The simplest way to test Speech Dispatcher is through 
+@code{spd-conf -d} or through the @code{spd-say} tool.
 
 Example:
 @example
+spd-conf -d
 spd-say "Hello!"
 spd-say -l cs -r 90 "Ahoj"
 @end example
@@ -693,13 +707,27 @@ values.
 Before running Speech Dispatcher under an ordinary user account, a
 directory @file{.speech-dispatcher/conf/} should be created in the users
 home folder and all the configuration files and directories should be
-put here. If Speech Dispatcher is already installed system wide, this
-is most easily done as 
+put here. If Speech Dispatcher is already installed, this
+is most easily done with the @code{spd-conf} configuration utility
+under the appropriate user and answer some basic questions.
+
+@example
+$ spd-conf
+Speech Dispatcher configuration tool
+Do you want to setup a completely new configuration? [yes] :
+>
+Do you want to create/setup a 'user' or 'system' configuration [user] :
+>user
+[...]
+@end example
+
+If you do not want to use the @code{spd-conf} tool,
+you can achieve the same result manually as described bellow:
 
 @example
 # mkdir ~/.speech-dispatcher
 # mkdir ~/.speech-dispatcher/conf/
-# cp -r /etc/speech-dispatcher/* ~/.speech-dispatcher/conf/
+# cp -r /usr/share/speech-dispatcher/conf/* ~/.speech-dispatcher/conf/
 @end example
 
 If @file{~/.speech-dispatcher/} is found by Speech Dispatcher on
@@ -743,41 +771,59 @@ program, although some programs offer another mechanism as well.
 If you are experiencing problems when running Speech Dispatcher, please:
 
 @itemize
+
 @item
-Try to say some message through the utility @code{spd-say}.
+Use @code{spd-conf} to run diagnostics:
+
+@example
+spd-conf -d
+@end example
+
+@item
+Check the appropriate logfile in
+@file{~/.speech-dispatcher/logs/speechd.log} for user Speech
+Dispatcher or in @file{/var/log/speech-dispatcher/speechd.log}. Look
+for lines containing the string 'ERROR' and their surrounding
+contents. If you hear no speech, restart Speech Dispatcher and look
+near the end of the log file -- before any attempts for synthesis of
+any message. Usually, if something goes wrong with the initialization
+of the output modules, a textual description of the problem and a
+suggested solution can be found in the log file.
+
+@item
+If this doesn't reveal the problem, please run
+@example
+spd-conf -D
+@end example
+
+Which will genereate a very detailed logfile archive
+which you can examine yourself or send to us with
+a request for help.
+
+@item
+You can also try to say some message directly through the utility
+@code{spd-say}.
 
 Example:
 @example
         spd-say "Hello, does it work?"
         spd-say --language=cs --rate=20 "Everything ok?"
 @end example
+
 @item
 Check if your configuration files (speechd.conf, modules/*.conf) 
 are correct (some uninstalled synthesizer specified as the default,
 wrong values for default voice parameters etc.)
-@item
-Check @code{/var/log/speech-dispatcher/speech-dispatcher.log}. Look for lines
-containing the string 'ERROR' and their surrounding contents. If you hear no
-speech, restart Speech Dispatcher and look near the end of the log file --
-before any attempts for synthesis of any message. Usually, if
-something goes wrong with the initialization of the output modules, a
-textual description of the problem and a possible solution can be
-found in the log file.
-@item
-If you still can't find the cause of the problem and you are an
-experienced user, you might want to enable the Debug option of your
-output module in @code{etc/speech-dispatcher/modules/} and examine
-@code{/var/log/speech-dispatcher/module_name.log}.
 
 @item
-There is a know problem in Festival. Please make sure that Festival
-server_access_list configuration variable and your /etc/hosts.conf are
-set properly. server_access_list must contain the symbolic name of
-your machine and this name must be defined in /etc/hosts.conf and
-point to your IP address. You can test if this is set correctly by
-trying to connect to the port Festival server is running on via an
-ordinary telnet (by default like this: @code{telnet localhost
-1314}). If you are not rejected, it works.
+There is a know problem in some versions of Festival. Please make sure
+that Festival server_access_list configuration variable and your
+/etc/hosts.conf are set properly. server_access_list must contain the
+symbolic name of your machine and this name must be defined in
+/etc/hosts.conf and point to your IP address. You can test if this is
+set correctly by trying to connect to the port Festival server is
+running on via an ordinary telnet (by default like this: @code{telnet
+localhost 1314}). If you are not rejected, it works.
 
 @end itemize
 
@@ -1195,16 +1241,44 @@ speech from other applications.
 
 @menu
 * spd-say::                     Say a given text or cancel messages in Dispatcher.
+* spd-conf::                    Configuration, diagnostics and troubleshooting tool
 * spd-send::                    Direct SSIP communication from command line.
 @end menu
 
-@node spd-say, spd-send, Tools, Tools
+@node spd-say, spd-conf, Tools, Tools
 @subsection spd-say
 
 spd-say is documented in its own manual. @xref{Top,,,spd-say, Spd-say
 Documentation}.
 
-@node spd-send,  , spd-say, Tools
+@node spd-conf, spd-send, spd-say, Tools
+@subsection spd-conf
+
+spd-conf is a tool for creating basic configuration, initial setup of
+some basic settings (output module, audio method), diagnostics and
+automated debugging with a possibility to send the debugging output to
+the developers with a request for help.
+
+The available command options are self-documented through
+@code{spd-say -h}. In any working mode, the tool asks the user about
+future actions and prefered configuration of the basic options.
+
+Most useful ways of execution are:
+@itemize @bullet
+@item @code{spd-conf}
+Create new configuration and setup basic settings according to user
+answers. Run diagnostics and if some problems occur, run debugging
+and offer to send a request for help to the developers.
+
+@item @code{spd-conf -d}
+Run diagnostics of problems.
+
+@item @code{spd-conf -D}
+Run debugging and offer to send a request for help to the developers.
+
+@end itemize
+
+@node spd-send,  , spd-conf, Tools
 @subsection spd-send
 
 spd-send is a small client/server application that allows you to
