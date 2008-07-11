@@ -6,7 +6,8 @@
 # otherwise they won't be included in distribution packages
 EXTRA_DIST = cl/ChangeLog cl/README cl/*.lisp cl/*.asd \
 guile/ChangeLog guile/Makefile guile/README guile/*.in guile/*.c guile/*.h \
-python/*.py python/speechd/*.py python/Makefile.in
+python/*.py python/speechd/*.py python/Makefile.in python/speechd_config/*.py \
+python/speechd_config/spd-conf python/speechd_config/test.wav
 
 SUBDIRS= server audio c modules tests python
 
