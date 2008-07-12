@@ -1,8 +1,18 @@
+2008-07-12  Hynek Hanke  <hanke@brailcom.org>
+
+	* speechd_config/config.py (Tests.diagnostics.decide_to_test):
+	AudioOutput method is the proper parameter name, not
+	DefaultAudioOutput.
+
 2008-07-11  Hynek Hanke  <hanke@brailcom.org>
+
+	* speechd_config/config.py (Options.__init__): Added basic
+	description into help message.
 
 	* Makefile.in (all): Typo in directory paths.
 
-	* speechd_config/config.py (Options.__init__): Include summary message into help.
+	* speechd_config/config.py (Options.__init__): Include summary
+	message into help.
 
 2008-07-10  Hynek Hanke  <hanke@brailcom.org>
 
