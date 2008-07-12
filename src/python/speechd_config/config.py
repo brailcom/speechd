@@ -816,7 +816,7 @@ Do you want to keep it?""", False)
         self.options_substitute(configfile, 
                                 {"DefaultModule": self.default_output_module,
                                  "DefaultLanguage": self.default_language,
-                                 "DefaultAudioMethod": self.default_audio_method,
+                                 "AudioOutputMethod": self.default_audio_method,
                                  "Port": self.port})
         report("""
 Configuration written to %s
