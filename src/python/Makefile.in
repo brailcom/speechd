@@ -1,6 +1,7 @@
 
 prefix = @prefix@
 datadir = @datadir@
+sysconfdir = @sysconfdir@
 datarootdir = @datarootdir@
 
 SPD_CONF_PATH_PY="speechd_config/spd_conf_path.py"
@@ -12,7 +13,7 @@ all:
 
 install:
 	if test -x /usr/bin/python; then \
-		./setup.py install --prefix=@prefix@; \
+		./setup.py install --prefix=${prefix}; \
 	else \
 		echo "Python not found, not installing speechd module nor spd-conf"; \
 	fi
@@ -24,6 +25,7 @@ uninstall:
 clean:
 	rm -f *.pyc
 	rm -rf build
+	rm -f speechd_config/paths.py
 
 distclean: clean
 
