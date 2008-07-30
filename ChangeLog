@@ -1,5 +1,11 @@
 2008-07-30  Hynek Hanke  <hanke@brailcom.org>
 
+	* src/c/api/libspeechd.c: Do not define _GNU_SOURCE.
+
+	* src/c/api/libspeechd.h: Do not define _GNU_SOURCE.
+
+	* src/c/api/Makefile.am: Define _GNU_SOURCE.
+
 	* config/modules/llia_phon-generic.conf: Use PLAY_COMMAND.
 
 	* config/modules/espeak-generic.conf: Use PLAY_COMMAND.
