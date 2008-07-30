@@ -612,10 +612,11 @@ troubleshooting. Just execute
 spd-conf
 @end example
 
-under an ordinary user or root depending on whether you like to setup
-Speech Dispatcher as user or system service respectively. You might
-also want to explore the offered options or run some of its subsystems
-manually, type @code{spd-conf -h} for help.
+under an ordinary user or system user like 'speech-dispatcher'
+depending on whether you like to setup Speech Dispatcher as user or
+system service respectively. You might also want to explore the
+offered options or run some of its subsystems manually, type
+@code{spd-conf -h} for help.
 
 If you do not want to use this script, it doesn't work in your case
 or it doesn't provide enough configuration flexibility, please
