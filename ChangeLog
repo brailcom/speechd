@@ -1,3 +1,19 @@
+2008-07-30  Hynek Hanke  <hanke@brailcom.org>
+
+	* config/modules/llia_phon-generic.conf: Use PLAY_COMMAND.
+
+	* config/modules/espeak-generic.conf: Use PLAY_COMMAND.
+
+	* config/speechd.conf.in: New addmodule lines
+	for mbrola and swift.
+
+	* src/modules/generic.c (module_load): By default,
+	do not strip any punctuation.
+	(module_speak): Only strip SSML for MSGTYPE_TEXT
+	(_generic_child): Escape backslash as well.
+
+	* src/modules/generic.c (_generic_speak): Substitute play, aplay, paplay for PLAY_COMMAND.
+
 2008-07-14  Hynek Hanke  <hanke@brailcom.org>
 
 	* configure.in (moduleconfdir): Do not expand paths until during 'make'

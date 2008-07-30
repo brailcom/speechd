@@ -9,6 +9,8 @@ Version 0.6.7
  * Volume settings in Pulse Audio
  * Pulseaudio output now keeps connection to daemon open.
  * Punctuation mechanism in IBM TTS is now configurable
+ * New generic output modules for Espeak with Mbrola
+   and for Cepstral Swift.
  * Bugfixes
 
 Version 0.6.6
