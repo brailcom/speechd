@@ -1,5 +1,7 @@
 2008-07-30  Hynek Hanke  <hanke@brailcom.org>
 
+	* configure.in (LIB_SDAUDIO_AGE): Revision incremented.
+
 	* config/modules/swift-generic.conf: New file.
 
 	* config/modules/espeak-mbrola-generic.conf: Added language coding
