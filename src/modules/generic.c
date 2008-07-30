@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: generic.c,v 1.29 2008-07-10 15:37:15 hanke Exp $
+ * $Id: generic.c,v 1.30 2008-07-30 09:15:51 hanke Exp $
  */
 
 #include <glib.h>
@@ -104,7 +104,7 @@ module_load(void)
 
     MOD_OPTION_1_INT_REG(GenericMaxChunkLength, 300);
     MOD_OPTION_1_STR_REG(GenericDelimiters, ".");
-    MOD_OPTION_1_STR_REG(GenericStripPunctChars, "~@#$%^&*+=|\\/<>[]_");
+    MOD_OPTION_1_STR_REG(GenericStripPunctChars, "");
     MOD_OPTION_1_STR_REG(GenericRecodeFallback, "?");
 
     MOD_OPTION_1_INT_REG(GenericRateAdd, 0);
@@ -221,7 +221,10 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 
     if (tmp == NULL) return -1;
 
-    *generic_message = module_strip_ssml(tmp);
+    if (msgtype == MSGTYPE_TEXT)
+      *generic_message = module_strip_ssml(tmp);
+    else
+      *generic_message = strdup(tmp);
     xfree(tmp);
 
     module_strip_punctuation_some(*generic_message, GenericStripPunctChars);
@@ -369,6 +372,7 @@ _generic_speak(void* nothing)
 		char *p;	       
 		char *tmpdir, *homedir;
 		char *helper;
+		char *play_command;
 		
 		helper = getenv("TMPDIR");
 		if (helper)
@@ -382,12 +386,24 @@ _generic_speak(void* nothing)
 		else
 		  homedir = strdup("UNKNOWN_HOME_DIRECTORY");
 
+		if (!strcmp(audio_settings.audio_output_method, "oss")){
+		  play_command = strdup("play");
+		}else if (!strcmp(audio_settings.audio_output_method, "alsa")){
+		  play_command = strdup("aplay");
+		}else if (!strcmp(audio_settings.audio_output_method, "pulse")){
+		  play_command = strdup("paplay");
+		}else{
+		  assert("Unknown audio output method requested");
+		}
+
 		/* Set this process as a process group leader (so that SIGKILL
 		   is also delivered to the child processes created by system()) */
 		if (setpgid(0,0) == -1) DBG("Can't set myself as project group leader!");
 
 		e_string = strdup(GenericExecuteSynth);
 
+		e_string = string_replace(e_string, "$PLAY_COMMAND", play_command);
+		xfree(play_command);
 		e_string = string_replace(e_string, "$TMPDIR", tmpdir);
 		xfree(tmpdir);
 		e_string = string_replace(e_string, "$HOMEDIR", homedir);
@@ -483,7 +499,9 @@ _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
                 message = g_string_append(message, "\\\"");
             else if (text[i] == '`')
                 message = g_string_append(message, "\\`");
-            else{
+            else if (text[i] == '\\')
+                message = g_string_append(message, "\\\\");
+	    else{
                 g_string_append_printf(message, "%c", text[i]);
             }
         }
@@ -599,8 +617,7 @@ generic_set_voice(EVoiceType voice)
     generic_msg_voice_str = module_getvoice(generic_msg_language->code, voice);
     if (generic_msg_voice_str == NULL){
 	DBG("Invalid voice type specified or no voice available!");
-    }
-	
+    }	
 }
 
 void
