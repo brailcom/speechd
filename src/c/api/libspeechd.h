@@ -19,13 +19,11 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: libspeechd.h,v 1.28 2008-04-09 11:39:10 hanke Exp $
+ * $Id: libspeechd.h,v 1.29 2008-07-30 09:47:00 hanke Exp $
  */
 
 #ifndef _LIBSPEECHD_H
 #define _LIBSPEECHD_H
-
-#define _GNU_SOURCE
 
 #include <stdio.h>
 #include <stddef.h>
