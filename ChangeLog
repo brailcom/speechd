@@ -1,6 +1,12 @@
+
+2008-07-31  Hynek Hanke  <hanke@brailcom.org>
+	
+	* config/modules/espeak-mbrola-generic.conf: Missing space added.
+
 2008-07-31  Hynek Hanke  <hanke@brailcom.org>
 
 	* config/modules/espeak-mbrola-generic.conf: Set volume, do not use TMP files.
+	Missing space added.
 
 2008-07-30  Hynek Hanke  <hanke@brailcom.org>
 

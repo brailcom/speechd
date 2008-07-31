@@ -1,3 +1,8 @@
+2008-07-31  Hynek Hanke  <hanke@brailcom.org>
+
+	* speechd_config/config.py (Tests.diagnostics): Only try hearing
+	test if Speech Dispatcher was started successfuly.
+
 2008-07-14  Hynek Hanke  <hanke@brailcom.org>
 
 	* Makefile.in (clean): Delete speechd_config/paths.py
