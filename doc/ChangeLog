@@ -1,3 +1,9 @@
+2008-07-31  Hynek Hanke  <hanke@brailcom.org>
+
+	* speech-dispatcher.texi (Current State): Mention new generic
+	output modules.
+	(Installation): Howto use espeak with MBROLA.
+
 2008-07-30  Hynek Hanke  <hanke@brailcom.org>
 
 	* speech-dispatcher.texi (Runnning as System Wide Service):
