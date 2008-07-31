@@ -384,10 +384,10 @@ audio output method in configuration.""")
         while True:
             try:
                 if port:
-                    ret = os.system("SPEECHD_PORT=%d spd-say \"Speech Dispatcher seems to work\""
+                    ret = os.system("SPEECHD_PORT=%d spd-say -P important \"Speech Dispatcher seems to work\""
                                     % port)
                 else:
-                    ret = os.system("spd-say \"Speech Dispatcher seems to work\"")
+                    ret = os.system("spd-say -P important \"Speech Dispatcher seems to work\"")
             except:
                 report("""Can't execute the spd-say binary,
 it is likely that Speech Dispatcher is not installed.""")
@@ -418,7 +418,7 @@ $ SPEECHD_PORT=%d spd-conf -d
 """ % (str(speechd_ports), speechd_ports[0]))
                 return False
 
-            hearing_test = question("Did you hear the message 'Speech Dispatcher seems to work'?",
+            hearing_test = question("Did you hear the message about Speech Dispatcher working?",
                                     True)
             if hearing_test:
                 report("Speech Dispatcher is working")
@@ -484,21 +484,27 @@ Speech Dispatcher.""")
         return self.audio_try_play(type='pulse')
 
     def diagnostics(self, speechd_port = 6560,
+                    speechd_running = True,
                     output_modules=[], audio_output=[]):
 
         """Perform a complete diagnostics"""
         working_modules = []
         working_audio = []
 
-        # Test whether Speech Dispatcher works
-        if self.test_spd_say(port=speechd_port):
-            dispatcher_working = True
-            skip = question("Speech Dispatcher works. Do you want to skip other tests?",
-                            True)
-            if skip:
-                return {'dispatcher_working': True}
+        if speechd_running:
+            # Test whether Speech Dispatcher works
+            if self.test_spd_say(port=speechd_port):
+                dispatcher_working = True
+                skip = question("Speech Dispatcher works. Do you want to skip other tests?",
+                                True)
+                if skip:
+                    return {'dispatcher_working': True}
+            else:
+                dispatcher_working = False
         else:
             dispatcher_working = False
+
+        if not dispatcher_working:
             if not question("""
 Speech Dispatcher isn't running or is running on a different port (see above),
 do you want to proceed with other tests? (They can help to determine
@@ -899,6 +905,7 @@ you have to start it manually to continue.""")
                    self.port);
             
         result = test.diagnostics(speechd_port=self.port,
+                                  speechd_running = started,
                                   audio_output=[self.default_audio_method],
                                   output_modules=[self.default_output_module]);
         test.write_diagnostics_results(result)
