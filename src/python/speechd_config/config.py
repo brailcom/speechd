@@ -860,9 +860,10 @@ Do you want to kill all running Speech Dispatchers and try again?""", True)
         reply = question("Is your system using an /etc/init.d/speech-dispatcher script?",
                          True)
         if reply:
-            action = question_with_required_answers("Do you want to 'start' or 'restart' it?",
-                                                     'start', ['start', 'restart']) 
-            ret = os.system("/etc/init.d/speech-dispatcher %s" % action);
+            report("Stopping Speech Dispatcher in case any is running already")
+            os.system("/etc/init.d/speech-dispatcher stop") 
+            report("Starting Speech Dispatcher via /etc/init.d/speech-dispatcher")
+            ret = os.system("/etc/init.d/speech-dispatcher start")
             if ret:
                 report("Can't start Speech Dispatcher. Exited with status %d" % ret)
                 return False
