@@ -300,7 +300,7 @@ on today's computers it runs reasonably fast.  See
 Dispatcher output module for Festival is highly optimized for fast
 responsivity.
 
-For simpler purposes, there is also support for Flite and eSpeak who
+For simpler purposes, there is also support for Flite and eSpeak which
 currently only support English. Flite (Festival Light) is a
 lightweight free software TTS synthesizer intended to run on systems
 with limited resources. At this time, it has only one English voice
@@ -317,9 +317,9 @@ basically any Text-to-Speech program that provides a simple command
 line interface can be used with Speech Dispatcher after a little bit
 of tuning in the configuration file. This kind of output module
 provides only limited functionality, but it can be useful if there are
-no other choices for your language. Configuration files for Epos,
-Dectalk software and (experimental) LiaPhon are shipped with Speech
-Dispatcher.
+no other choices for your language. Configuration files for
+Espeak+MBROLA, Epos, Dectalk software, Cepstral Swift and
+(experimental) LiaPhon are shipped with Speech Dispatcher.
 
 We decided not to support the simple hardware devices ourselves,
 because they don't support synchronization and therefore have serious
@@ -656,6 +656,31 @@ spd-say -l cs -r 90 "Ahoj"
 If you don't hear anything, please @xref{Troubleshooting}.
 
 @end itemize
+
+@subsection How to use eSpeak with MBROLA
+
+Please follow the guidelines at @url{http://espeak.sourceforge.net/mbrola.html}
+for installing eSpeak with a set of MBROLA voices that you want
+to use.
+
+Check the @file{modules/espeak-mbrola-generic.conf} configuration
+files for the @code{AddVoice} lines. If a line for any of the voices
+you have installed (and it is supported by your version of eSpeak,
+e.g. @code{ls /usr/share/espeak-data/voices/mb/mb-*}) is not contained
+here, please add it. Check if @code{GenericExecuteString} contains the
+correct name of your mbrola binary and correct path to its voice
+database.
+
+Uncomment the @code{AddModule} line for @code{espeak-mbrola-generic}
+in @file{speechd.conf} in your configuration for Speech Dispatcher.
+
+Restart speech-dispatcher and in your client, select
+@code{espeak-mbrola-generic} as your output module, or
+test it with the following command
+
+@example
+spd-say -o espeak-mbrola-generic -l cs Testing
+@end example
 
 @node Running, Troubleshooting, Installation, User's Documentation
 @section Running
