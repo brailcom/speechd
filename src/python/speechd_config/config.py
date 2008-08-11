@@ -342,7 +342,7 @@ Search for package like python-speechd.""")
     def audio_try_play(self, type):
         """Try to play a sound through the standard playback utility for the
         given audio method."""
-        wavfile = paths.SPD_SOUND_DATA_PATH + "test.wav"
+        wavfile = os.path.join(paths.SPD_SOUND_DATA_PATH,"test.wav")
 
         if type == 'alsa':
             cmd = "aplay" + " " + wavfile
