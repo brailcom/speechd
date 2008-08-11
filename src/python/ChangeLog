@@ -1,3 +1,8 @@
+2008-08-11  Hynek Hanke  <hanke@brailcom.org>
+
+	* speechd_config/config.py (Tests.audio_try_play): Use proper os.path.join
+	for constructing path to the testing wav file.
+
 2008-07-31  Hynek Hanke  <hanke@brailcom.org>
 
 	* speechd_config/config.py (Tests.diagnostics): Only try hearing
