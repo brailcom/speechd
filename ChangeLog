@@ -1,3 +1,16 @@
+2008-08-26  Hynek Hanke  <hanke@brailcom.org>
+
+	* config/modules/dtk-generic.conf: Prevent bash expansion of $DATA.
+
+	* config/modules/epos-generic.conf: Prevent bash expansion of $DATA.
+
+	* config/modules/espeak-generic.conf: Prevent bash expansion of $DATA.
+
+	* config/modules/espeak-mbrola-generic.conf: Prevent bash expansion of $DATA.
+
+	* config/modules/llia_phon-generic.conf: Prevent bash expansion of $DATA.
+
+	* config/modules/swift-generic.conf: Prevent bash expansion of $DATA.
 
 2008-07-31  Hynek Hanke  <hanke@brailcom.org>
 	
