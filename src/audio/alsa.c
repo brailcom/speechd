@@ -19,7 +19,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: alsa.c,v 1.29 2008-06-09 10:28:32 hanke Exp $
+ * $Id: alsa.c,v 1.30 2008-10-15 17:27:32 hanke Exp $
  */
 
 /* NOTE: This module uses the non-blocking write() / poll() approach to
@@ -197,6 +197,7 @@ _alsa_close(AudioID *id)
 
     if (id->alsa_opened == 0) return 0;
 
+    pthread_mutex_lock(&id->alsa_pipe_mutex);
     id->alsa_opened = 0;
     
     if ((err = snd_pcm_close (id->alsa_pcm)) < 0) {
@@ -207,6 +208,7 @@ _alsa_close(AudioID *id)
     snd_pcm_sw_params_free (id->alsa_sw_params);
 
     free(id->alsa_poll_fds);
+    pthread_mutex_unlock(&id->alsa_pipe_mutex);
 
     MSG("Closing ALSA device ... success");
     
@@ -226,6 +228,8 @@ int
 alsa_open(AudioID *id, void **pars)
 {
     int ret;
+
+    pthread_mutex_init(&id->alsa_pipe_mutex, NULL);
 
     id->alsa_opened = 0;
 
@@ -380,27 +384,31 @@ alsa_play(AudioID *id, AudioTrack track)
     size_t volume_size;
     unsigned int sr;
 
-
     snd_pcm_state_t state;
 
     struct pollfd alsa_stop_pipe_pfd;
-
-    MSG("Start of playback on ALSA");
 
     if (id == NULL){
 	ERR("Invalid device passed to alsa_play()");
 	return -1;
     }
 
+    pthread_mutex_lock(&id->alsa_pipe_mutex);
+
+    MSG("Start of playback on ALSA");
+
     /* Is it not an empty track? */
     /* Passing an empty track is not an error */
-    if (track.samples == NULL) return 0;
-
+    if (track.samples == NULL){
+      pthread_mutex_unlock(&id->alsa_pipe_mutex);
+      return 0;
+    }
     /* Allocate space for hw_params (description of the sound parameters) */
     MSG("Allocating new hw_params structure");
     if ((err = snd_pcm_hw_params_malloc (&id->alsa_hw_params)) < 0) {
 	ERR("Cannot allocate hardware parameter structure (%s)", 
 	    snd_strerror(err));
+	pthread_mutex_unlock(&id->alsa_pipe_mutex);
 	return -1;
     }
 
@@ -408,6 +416,7 @@ alsa_play(AudioID *id, AudioTrack track)
     if ((err = snd_pcm_hw_params_any (id->alsa_pcm, id->alsa_hw_params)) < 0) {
 	ERR("Cannot initialize hardware parameter structure (%s)", 
 	    snd_strerror (err));
+	pthread_mutex_unlock(&id->alsa_pipe_mutex);
 	return -1;
     }
 
@@ -415,6 +424,7 @@ alsa_play(AudioID *id, AudioTrack track)
     if (pipe (id->alsa_stop_pipe))
 	{
 	    ERR("Stop pipe creation failed (%s)", strerror(errno));
+	    pthread_mutex_unlock(&id->alsa_pipe_mutex);
 	    return -1;
 	}   
 
@@ -422,6 +432,7 @@ alsa_play(AudioID *id, AudioTrack track)
     id->alsa_fd_count = snd_pcm_poll_descriptors_count(id->alsa_pcm);
     if (id->alsa_fd_count <= 0){
 	ERR("Invalid poll descriptors count returned from ALSA.");
+	pthread_mutex_unlock(&id->alsa_pipe_mutex);
 	return -1;
     }
 
@@ -430,6 +441,7 @@ alsa_play(AudioID *id, AudioTrack track)
     assert(id->alsa_poll_fds);    
     if ((err = snd_pcm_poll_descriptors(id->alsa_pcm, id->alsa_poll_fds, id->alsa_fd_count)) < 0) {
 	ERR("Unable to obtain poll descriptors for playback: %s\n", snd_strerror(err));
+	pthread_mutex_unlock(&id->alsa_pipe_mutex);
 	return -1;
     }
     
@@ -443,6 +455,7 @@ alsa_play(AudioID *id, AudioTrack track)
     id->alsa_fd_count++;
 
     id->alsa_opened = 1;
+    pthread_mutex_unlock(&id->alsa_pipe_mutex);
 
     /* Report current state */
     state = snd_pcm_state(id->alsa_pcm);
@@ -554,7 +567,7 @@ alsa_play(AudioID *id, AudioTrack track)
 
     /* Calculate space needed to round up to nearest period size. */
     volume_size = bytes_per_sample*(track.num_samples + silent_samples);
-    MSG("volume size = %i", volume_size);
+    MSG("volume size = %i", (int) volume_size);
 
     /* Create a copy of track with adjusted volume. */
     MSG("Making copy of track and adjusting volume");
@@ -569,7 +582,7 @@ alsa_play(AudioID *id, AudioTrack track)
         u_int8_t silent8;
 
         /* Fill remaining space with silence */
-        MSG("Filling with silence up to the period size, silent_samples=%d", silent_samples);
+        MSG("Filling with silence up to the period size, silent_samples=%d", (int) silent_samples);
         /* TODO: This hangs.  Why?
         snd_pcm_format_set_silence(format,
             track_volume.samples + (track.num_samples * bytes_per_sample), silent_samples);
@@ -708,11 +721,13 @@ alsa_play(AudioID *id, AudioTrack track)
     MSG("Freeing HW parameters");
     snd_pcm_hw_params_free(id->alsa_hw_params);
 
+    pthread_mutex_lock(&id->alsa_pipe_mutex);
     id->alsa_opened = 0;
     close(id->alsa_stop_pipe[0]);
     close(id->alsa_stop_pipe[1]);
 
     xfree(id->alsa_poll_fds);
+    pthread_mutex_unlock(&id->alsa_pipe_mutex);
     
     MSG("End of playback on ALSA");
 
@@ -728,17 +743,23 @@ int
 alsa_stop(AudioID *id)
 {
     char buf;
+    int ret;
 
     MSG("STOP!");
 
+    pthread_mutex_lock(&id->alsa_pipe_mutex);
     if (id->alsa_opened){
 	/* This constant is arbitrary */
 	buf = 42;
 	
 	if (id == NULL) return 0;
 	
-	write(id->alsa_stop_pipe[1], &buf, 1);
+	ret =  write(id->alsa_stop_pipe[1], &buf, 1);
+	if (ret <= 0){
+	  ERR("Can't write stop request to pipe, err %d: %s", errno, strerror(errno));
+	}
     }	
+    pthread_mutex_unlock(&id->alsa_pipe_mutex);
 
     return 0;
 }
