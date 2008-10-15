@@ -1,3 +1,13 @@
+2008-10-15  Hynek Hanke  <hanke@mach>
+
+	* src/modules/module_main.c (PROCESS_CMD_NRP): Mutex unlock moved to correct place.
+
+	* src/modules/espeak.c (module_speak): Added mutex to protect espeak_state != IDLE
+
+	* src/modules/module_main.c (PROCESS_CMD_NRP): Flush before leaving module_stdout_mutex.
+	(PROCESS_CMD_W_ARGS):  Flush before leaving module_stdout_mutex.
+	(PROCESS_CMD): Flush before leaving module_stdout_mutex.
+
 2008-08-26  Hynek Hanke  <hanke@brailcom.org>
 
 	* config/modules/dtk-generic.conf: Prevent bash expansion of $DATA.
@@ -179,7 +189,7 @@
 	* src/modules/ivona_client.c (ivona_play_file): Correct casts.
 
 	* src/modules/festival_client.c (festival_accept_any_response):
-	Useless rebug message removed.
+	Useless debug message removed.
 
 	* src/modules/espeak.c (espeak_play_file): Correct casts.
 	(module_init): Unused variable removed.
