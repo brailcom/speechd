@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: speaking.c,v 1.55 2008-02-08 10:01:09 hanke Exp $
+ * $Id: speaking.c,v 1.56 2008-10-15 18:06:48 hanke Exp $
  */
 
 #include <glib.h>
@@ -75,6 +75,8 @@ speak(void* data)
 
     while(1){
 	ret = poll(poll_fds, poll_count, -1);
+	MSG(5, "Poll in speak() returned socket activity, main_pfd revents=%d, poll_pfd revents=%d",
+	    poll_fds[0].revents, poll_fds[1].revents);
 	if( (revents = poll_fds[0].revents) ){
 	    if (revents & POLLIN){
 		char buf[100];
@@ -105,7 +107,10 @@ speak(void* data)
             continue;
         }
 
-	if (SPEAKING) continue;
+	if (SPEAKING){
+	  MSG(5, "Continuing because already speaking in speak()");
+	  continue;
+	}
 
         /* Handle resume requests */
         if (resume_requested){
@@ -131,6 +136,7 @@ speak(void* data)
             resume_requested = 0;
         }       
 
+       MSG(5, "Locking element_free_mutex in speak()");
        pthread_mutex_lock(&element_free_mutex);
         /* Handle postponed priority progress message */
        
