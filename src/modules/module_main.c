@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: module_main.c,v 1.16 2008-06-27 12:29:26 hanke Exp $
+ * $Id: module_main.c,v 1.17 2008-10-15 17:05:37 hanke Exp $
  */
 
 /* So that gcc doesn't comply */
@@ -32,9 +32,9 @@ if (!strcmp(cmd_buf, #command"\n")){ \
      DBG("Broken pipe, exiting...\n"); \
      module_close(2); \
  } \
+ fflush(stdout); \
  pthread_mutex_unlock(&module_stdout_mutex);\
  xfree(msg); \
- fflush(stdout); \
 }
 
 #define PROCESS_CMD_W_ARGS(command, function) \
@@ -45,17 +45,17 @@ if (!strncmp(cmd_buf, #command, strlen(#command))){	\
      DBG("Broken pipe, exiting...\n"); \
      module_close(2); \
  } \
+ fflush(stdout); \
  pthread_mutex_unlock(&module_stdout_mutex);\
  xfree(msg); \
- fflush(stdout); \
 }
 
 #define PROCESS_CMD_NRP(command, function) \
 if (!strcmp(cmd_buf, #command"\n")){ \
  pthread_mutex_lock(&module_stdout_mutex); \
  function(); \
- pthread_mutex_unlock(&module_stdout_mutex);\
  fflush(stdout); \
+ pthread_mutex_unlock(&module_stdout_mutex);\
 }
 
 int 
