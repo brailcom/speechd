@@ -1,5 +1,12 @@
 2008-10-15  Hynek Hanke  <hanke@mach>
 
+	* src/server/speaking.c (speak): Added debugging messages.
+
+	* src/audio/spd_audio.h (alsa_pipe_mutex): New mutex.
+
+	* src/audio/alsa.c (_alsa_close): Protect stop pipes with mutex.
+	(alsa_stop): Handle correctly write return value.
+
 	* src/modules/module_main.c (PROCESS_CMD_NRP): Mutex unlock moved to correct place.
 
 	* src/modules/espeak.c (module_speak): Added mutex to protect espeak_state != IDLE
