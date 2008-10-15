@@ -19,7 +19,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: spd_audio.h,v 1.20 2008-06-09 10:29:31 hanke Exp $
+ * $Id: spd_audio.h,v 1.21 2008-10-15 17:28:17 hanke Exp $
  */
 
 #ifndef __SPD_AUDIO_H
@@ -96,6 +96,7 @@ typedef struct{
     snd_pcm_sw_params_t *alsa_sw_params;	/* parameters of playback */
     snd_pcm_uframes_t alsa_buffer_size;
     pthread_mutex_t alsa_pcm_mutex;	/* mutex to guard the state of the device */
+    pthread_mutex_t alsa_pipe_mutex;	/* mutex to guard the stop pipes */
     int alsa_stop_pipe[2];		/* Pipe for communication about stop requests*/
     int alsa_fd_count;		/* Counter of descriptors to poll */
     struct pollfd *alsa_poll_fds; /* Descriptors to poll */
