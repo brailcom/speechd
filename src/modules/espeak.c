@@ -22,7 +22,7 @@
  * @author Lukas Loehrer
  * Based on ibmtts.c.
  *
- * $Id: espeak.c,v 1.10 2008-06-27 12:29:38 hanke Exp $
+ * $Id: espeak.c,v 1.11 2008-10-15 17:04:36 hanke Exp $
  */
 
 /* < Includes*/
@@ -336,13 +336,17 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
     
 	DBG("Espeak: module_speak().");
 
+	pthread_mutex_lock(&espeak_state_mutex);
 	if (espeak_state != IDLE) {
 		DBG("Espeak: Warning, module_speak called when not ready.");
+		pthread_mutex_unlock(&espeak_state_mutex);
 		return FALSE;
 	}
 
-	if (0 != module_write_data_ok(data)) return FATAL_ERROR;
-
+	if (0 != module_write_data_ok(data)){
+	  pthread_mutex_unlock(&espeak_state_mutex);
+	  return FATAL_ERROR;
+	}
 	DBG("Espeak: Requested data: |%s| %d %ld", data, msgtype, bytes);
 
 	espeak_state_reset();
@@ -418,7 +422,9 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 	if (result != EE_OK) {
 		return FALSE;
 	}
-    
+
+	pthread_mutex_unlock(&espeak_state_mutex);    
+
 	DBG("Espeak: Leaving module_speak() normally.");
 	return bytes;
 }
@@ -597,7 +603,7 @@ _espeak_stop_or_pause(void* nothing)
 		}
 	
 		DBG("Espeak: Stop or pause thread ended.......\n")
-			}
+		  }
 	pthread_exit(NULL);
 }
 
