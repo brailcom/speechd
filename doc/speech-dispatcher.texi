@@ -2617,8 +2617,18 @@ speaking. See SSML specifications for more details about the
 @code{mark} element
 
 Event and index mark notifications are reported by simply writing them
-to the standard output. An event notification must never get in between
-synchronous commands (those which require a reply) and their reply.
+to the standard output. An event notification must never get in
+between synchronous commands (those which require a reply) and their
+reply. Before Speech Dispatcher sends any new requests (like
+@code{SET}, @code{SPEAK} etc.) it waits for the previous request to be
+terminated by the output module by signalling @code{STOP}, @code{END}
+or @code{PAUSE} index marks. So the only thing the output module must
+ensure in order to satisfy this requirement is that it doesn't send
+any index marks until it acknowledges the receival of the new message
+via @code{200 OK SPEAKING}. It must also ensure that index marks
+written to the pipe are well ordered -- of course it doesn't make any
+sense and it is an error to send any index marks after @code{STOP},
+@code{END} or @code{PAUSE} is sent.
 
 
 @table @code
