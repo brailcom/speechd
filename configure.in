@@ -157,8 +157,8 @@ AM_CONDITIONAL(espeak_support, test $espeak_ok = "true")
 dnl check for dumbtts support
 AC_CHECK_LIB(dumbtts,
 	dumbtts_TTSInit,
-	ivona_ok="true"; echo "Compiling with Ivona support.",
-	ivona_ok="false"; echo "Dumbtts library not found, not installing Ivona.",
+	ivona_ok="true"; echo "Compiling with Ivona support.";,
+	ivona_ok="false"; echo "Dumbtts library not found. Not installing Ivona.";,
 	-ldumbtts)
 
 AC_ARG_WITH(ivona, AS_HELP_STRING(--with-ivona, Compile with ivona support),
