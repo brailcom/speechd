@@ -158,7 +158,7 @@ dnl check for dumbtts support
 AC_CHECK_LIB(dumbtts,
 	dumbtts_TTSInit,
 	ivona_ok="true"; echo "Compiling with Ivona support.",
-	ivona_ok="false"; echo "dumbtts library not found.",
+	ivona_ok="false"; echo "Dumbtts library not found, not installing Ivona.",
 	-ldumbtts)
 
 AC_ARG_WITH(ivona, AS_HELP_STRING(--with-ivona, Compile with ivona support),
