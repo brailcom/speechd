@@ -29,6 +29,8 @@ clean:
 
 distclean: clean
 
+maintainer-clean: clean
+
 distdir:
 
 
