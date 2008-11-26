@@ -1,3 +1,7 @@
+2008-11-26  Hynek Hanke  <hanke@mach>
+
+	* Makefile.in (maintainer-clean): Maintainer-clean does clean.
+
 2008-10-15  Hynek Hanke  <hanke@mach>
 
 	* Makefile.in: Respect ${DESTDIR}. 

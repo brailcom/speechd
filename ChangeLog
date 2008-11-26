@@ -1,3 +1,7 @@
+2008-11-26  Hynek Hanke  <hanke@mach>
+
+	* Makefile.am: Maintainer-clean deletes configure.
+
 2008-10-15  Hynek Hanke  <hanke@mach>
 
 	* src/server/speaking.c (speak): Added debugging messages.
