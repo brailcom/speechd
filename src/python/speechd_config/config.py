@@ -824,7 +824,21 @@ Do you want to keep it?""", False)
                                  "DefaultLanguage": self.default_language,
                                  "AudioOutputMethod": self.default_audio_method,
                                  "Port": self.port})
-        report("""
+        if type == 'user':
+            self.setup_port = question(
+                "Do you want to configure your system to use Speech Dispatcher on this port in ~/.profile?",
+                True)
+            self.setup_autostart = question(
+                "Do you want to have Speech Dispatcher automatically started from ~/.config/autostart ?",
+                True)
+
+            if self.setup_port:
+                os.system("""echo "export SPEECHD_PORT=%d" >> ~/.profile""" % self.port) 
+            if self.setup_autostart:
+                os.system("""cp %s ~/.config/autostart/""" % os.path.join(paths.SPD_DESKTOP_CONF_PATH,
+                                                                          "speechd.desktop")) 
+                         
+                report("""
 Configuration written to %s
 Basic configuration now complete. You might still need to fine tune it by
 manually editing the configuration above file. Especially if you need to
@@ -918,6 +932,8 @@ Warning: Speech Dispatcher is configured for port %d
 but this is not the default port on your system (%d).
 You must configure your SPEECHD_CONF environment variable
 for this value or adjust the settings in the particular clients.
+If you opted to do that during the run of this script, you just
+have to restart your GNOME now.
 """  % (self.port, test.default_port()))
                 
         else:
