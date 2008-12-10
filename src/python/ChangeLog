@@ -1,3 +1,10 @@
+2008-12-10  Hynek Hanke  <hanke@mach>
+
+	* speechd_config/config.py (Tests.diagnostics.decide_to_test): Set port in
+	~/.profile and place speechd.desktop in ~/.config/autostart
+
+	* Makefile.in (all): Handle speechd.desktop.
+
 2008-11-26  Hynek Hanke  <hanke@mach>
 
 	* Makefile.in (maintainer-clean): Maintainer-clean does clean.
