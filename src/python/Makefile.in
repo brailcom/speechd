@@ -2,6 +2,7 @@
 prefix = @prefix@
 datadir = @datadir@
 sysconfdir = @sysconfdir@
+spdconforigdir = @spdconforigdir@
 datarootdir = @datarootdir@
 
 SPD_CONF_PATH_PY="speechd_config/spd_conf_path.py"
@@ -10,6 +11,7 @@ all:
 	echo "SPD_CONF_ORIG_PATH=\"@spdconforigdir@\"" > speechd_config/paths.py; \
 	echo "SPD_CONF_PATH=\"@spdconfdir@\"" >> speechd_config/paths.py; \
 	echo "SPD_SOUND_DATA_PATH=\"${DESTDIR}@snddatadir@\"" >> speechd_config/paths.py; \
+	echo "SPD_DESKTOP_CONF_PATH=\"${DESTDIR}@spddesktopconforigdir@\"" >> speechd_config/paths.py; \
 
 install:
 	if test -x /usr/bin/python; then \
@@ -18,9 +20,11 @@ install:
 		echo "Python not found, not installing speechd module nor spd-conf"; \
 	fi
 	cp speechd_config/test.wav ${DESTDIR}@snddatadir@
+	cp speechd_config/speechd.desktop ${DESTDIR}@spddesktopconforigdir@
 
 uninstall:
 	rm -f ${DESTDIR}@snddatadir@/test.wav
+	rm -f ${DESTDIR}@spddesktopconforigdir@
 
 clean:
 	rm -f *.pyc
