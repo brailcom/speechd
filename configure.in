@@ -255,6 +255,9 @@ moduleconforigdir='${spdconforigdir}/modules'
 AC_SUBST(moduleconforigdir)
 clientconforigdir='${spdconforigdir}/clients'
 AC_SUBST(clientconforigdir)
+spddesktopconforigdir='${spdconforigdir}/desktop'
+AC_SUBST(spddesktopconforigdir)
+
 
 snddatadir='${datadir}/sounds/speech-dispatcher'
 AC_SUBST(snddatadir)
