@@ -1,3 +1,11 @@
+2008-12-10  Hynek Hanke  <hanke@mach>
+
+	* src/python/speechd_config/speechd.desktop: New file.
+
+	* src/Makefile.am (EXTRA_DIST): Include speechd.desktop in distro.
+
+	* configure.in (clientconforigdir): New location for .desktop file.
+
 2008-11-26  Hynek Hanke  <hanke@mach>
 
 	* Makefile.am: Maintainer-clean deletes configure.
