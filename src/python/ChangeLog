@@ -1,3 +1,8 @@
+2008-12-17  Hynek Hanke  <hanke@mach>
+
+	* Makefile.in: Create conf/desktop/ directory for
+	installation.
+
 2008-12-10  Hynek Hanke  <hanke@mach>
 
 	* speechd_config/config.py (Tests.diagnostics.decide_to_test): Set port in
