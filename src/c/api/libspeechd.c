@@ -1,7 +1,7 @@
 /*
   libspeechd.c - Shared library for easy acces to Speech Dispatcher functions
  *
- * Copyright (C) 2001, 2002, 2003, 2006, 2007 Brailcom, o.p.s.
+ * Copyright (C) 2001, 2002, 2003, 2006, 2007, 2008 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: libspeechd.c,v 1.36 2008-07-30 09:46:56 hanke Exp $
+ * $Id: libspeechd.c,v 1.37 2008-12-23 09:15:32 pdm Exp $
  */
 
 
@@ -134,6 +134,7 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
     ret = connect(connection->socket, (struct sockaddr *)&address, sizeof(address));
     if (ret == -1){
         SPD_DBG("Error: Can't connect to server: %s", strerror(errno));
+        close(connection->socket);
 	return NULL;
     }
 
