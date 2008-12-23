@@ -1,3 +1,10 @@
+2008-12-23  Milan Zamazal  <pdm@brailcom.org>
+
+	* src/c/api/libspeechd.c:
+	Fix socket leak on connection error in libspeechd.
+	.
+	(Thanks to Mario Lang).
+
 2008-12-10  Hynek Hanke  <hanke@mach>
 
 	* src/python/speechd_config/speechd.desktop: New file.
