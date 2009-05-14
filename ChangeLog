@@ -1,5 +1,7 @@
 2009-05-14  Hynek Hanke  <hanke@brailcom.org>
 
+	* src/audio/pulse.c (_pulse_open): Typo.
+
 	* src/server/config.c (load_default_global_set_options): Pulse
 	Audio parameters modified according to Lennart's instructions.
  
