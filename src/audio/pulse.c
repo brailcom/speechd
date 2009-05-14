@@ -20,7 +20,7 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  *
- * $Id: pulse.c,v 1.11 2008-06-20 12:34:43 hanke Exp $
+ * $Id: pulse.c,v 1.12 2009-05-14 08:10:55 hanke Exp $
  */
 
 /* debug */
@@ -730,7 +730,9 @@ _pulse_open(AudioID *id, pa_sample_spec* ss)
 
 
   SHOW_TIME("pa_connect_playback");
-  if (pa_stream_connect_playback(id->pulse_stream, NULL, &a_attr, (pa_stream_flags_t)(PA_STREAM_INTERPOLATE_TIMING|PA_STREAM_AUTO_TIMING_UPDATE), &id->pulse_volume, NULL) < 0) {
+  if (pa_stream_connect_playback(id->pulse_stream, NULL, &a_attr,
+				 (pa_stream_flags_t)(PA_STREAM_INTERPOLATE_TIMING|PA_STREAM_AUTO_TIMING_UPDATE|PA_STREAM_AJDUST_LATENCY),
+				 &id->pulse_volume, NULL) < 0) {
     ERR("Failed to connect stream: %s", pa_strerror(pa_context_errno(id->pulse_context)));
     goto unlock_and_fail;
   }
