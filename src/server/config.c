@@ -19,7 +19,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
- * $Id: config.c,v 1.17 2008-06-09 10:46:34 hanke Exp $
+ * $Id: config.c,v 1.18 2009-05-14 08:11:33 hanke Exp $
  */
 
 #include <dotconf.h>
@@ -436,10 +436,10 @@ load_default_global_set_options()
     GlobalFDSet.audio_alsa_device = strdup("default");
     GlobalFDSet.audio_nas_server = strdup("tcp/localhost:5450");
     GlobalFDSet.audio_pulse_server = strdup("default");
-    GlobalFDSet.audio_pulse_max_length = 132300;
+    GlobalFDSet.audio_pulse_max_length = -1;
     GlobalFDSet.audio_pulse_target_length = 4410;
-    GlobalFDSet.audio_pulse_pre_buffering = 2200;
-    GlobalFDSet.audio_pulse_min_request = 880;
+    GlobalFDSet.audio_pulse_pre_buffering = -1;
+    GlobalFDSet.audio_pulse_min_request = -1;
 
     SpeechdOptions.max_history_messages = 10000;
 
