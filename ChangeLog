@@ -1,3 +1,10 @@
+2009-05-14  Hynek Hanke  <hanke@brailcom.org>
+
+	* src/server/config.c (load_default_global_set_options): Pulse
+	Audio parameters modified according to Lennart's instructions.
+ 
+	* src/audio/pulse.c (_pulse_open): Added PA_STREAM_ADJUST_LATENCY
+
 2008-12-23  Milan Zamazal  <pdm@brailcom.org>
 
 	* src/c/api/libspeechd.c:
