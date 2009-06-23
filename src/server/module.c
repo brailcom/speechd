@@ -208,6 +208,17 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 	      return NULL;
 	    }
 
+	    /* Send log level configuration setting */
+	    ret = output_send_loglevel_setting(module);
+	    if (ret !=0){
+	      MSG(1, "ERROR: Can't set the log level inin the output module.");
+	      module->working = 0;
+	      kill(module->pid, 9);
+	      waitpid(module->pid, NULL, WNOHANG);
+	      destroy_module(module);
+	      return NULL;
+	    }
+
 	    /* Get a list of supported voices */
 	    _output_get_voices(module);
 	    fclose(f);

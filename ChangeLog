@@ -1,3 +1,20 @@
+2009-06-23  Luke Yelavich <luke.yelavich@canonical.com>
+
+	* src/server/config.c: Add new macro GLOBAL_SET_LOGLEVEL, to set the
+	log level for both the server and speech modules. Make use of this
+	macro when reading the LogLevel setting from the configuration file.
+
+	* src/server/output.c (output_send_loglevel_setting): Fix typo.
+
+2009-06-22  Luke Yelavich <luke.yelavich@canonical.com>
+
+	* src/server/output.c: Add output_send_loglevel_setting function
+	to send the loglevel configuration setting through to speech modules.
+
+	* src/server/module.c (load_output_module): Add a call to
+	output_send_loglevel_setting to send the log level configuration
+	setting to modules.
+
 2009-05-14  Hynek Hanke  <hanke@brailcom.org>
 
 	* src/audio/pulse.c (_pulse_open): Typo.

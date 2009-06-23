@@ -153,6 +153,19 @@ free_config_options(configoption_t *opts, int *num)
        return NULL; \
    }    
 
+#define GLOBAL_SET_LOGLEVEL(name, arg, cond, str) \
+   DOTCONF_CB(cb_ ## name) \
+   { \
+       int val = cmd->data.value; \
+       if (cl_spec_section) \
+         FATAL("This command isn't allowed in a client specific section!"); \
+       if (!(cond)) FATAL(str); \
+       if (!SpeechdOptions.arg ## _set){ \
+         SpeechdOptions.arg = val; \
+         GlobalFDSet.arg = val; \
+       } \
+       return NULL; \
+   }
 
 /* == CALLBACK DEFINITIONS == */
 GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module);
@@ -183,7 +196,7 @@ GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultCapLetRecognition, cap_let_recogn, ECapLet
 
 SPEECHD_OPTION_CB_INT_M(LocalhostAccessOnly, localhost_access_only, val>=0, "Invalid access controll mode!");
 SPEECHD_OPTION_CB_INT_M(Port, port, val>=0, "Invalid port number!");
-SPEECHD_OPTION_CB_INT_M(LogLevel, log_level, (val>=0)&&(val<=5), "Invalid log (verbosity) level!");
+GLOBAL_SET_LOGLEVEL(LogLevel, log_level, (val>=0)&&(val<=5), "Invalid log (verbosity) level!");
 SPEECHD_OPTION_CB_INT(MaxHistoryMessages, max_history_messages, val>=0, "Invalid parameter!");
 
 DOTCONF_CB(cb_LanguageDefaultModule)

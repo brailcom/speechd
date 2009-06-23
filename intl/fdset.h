@@ -132,6 +132,7 @@ typedef struct{
     int audio_pulse_target_length;
     int audio_pulse_pre_buffering;
     int audio_pulse_min_request;
+    int log_level;
 
     /* TODO: Should be moved out */
     unsigned int hist_cur_uid;

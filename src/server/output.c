@@ -400,6 +400,25 @@ output_send_audio_settings(OutputModule *output)
 
     return 0;
 }
+
+int
+output_send_loglevel_setting(OutputModule *output)
+{
+    GString *set_str;
+    int err;
+
+    MSG(4, "Module set parameters.");
+    set_str = g_string_new("");
+    ADD_SET_INT(log_level);
+
+    SEND_CMD_N("LOGLEVEL");
+    SEND_DATA_N(set_str->str);
+    SEND_CMD_N(".");
+
+    g_string_free(set_str, 1);
+
+    return 0;
+}
 #undef ADD_SET_INT
 #undef ADD_SET_STR
 
