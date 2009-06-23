@@ -38,8 +38,8 @@ int oss_play(AudioID *id, AudioTrack track);
 int oss_set_volume(AudioID*id, int volume);
 
 /* Put a message into the logfile (stderr) */
-#define MSG(arg...) \
- { \
+#define MSG(level, arg...) \
+ if(level <= log_level){ \
      time_t t; \
      struct timeval tv; \
      char *tstr; \

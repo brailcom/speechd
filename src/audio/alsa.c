@@ -56,8 +56,8 @@ do { \
 #endif
 
 /* Put a message into the logfile (stderr) */
-#define MSG(arg...) \
- { \
+#define MSG(level, arg...) \
+ if(level <= log_level){ \
      time_t t; \
      struct timeval tv; \
      char *tstr; \

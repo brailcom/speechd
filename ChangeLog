@@ -15,6 +15,12 @@
 	* src/modules/module_main.c (main): Add a call to do_loglevel to set
 	the log level for the module.
 
+	* src/audio/alsa.c: Adjust the MSG macro to take the log level setting
+	into account before logging a message.
+
+	* src/audio/oss.c: Adjust the MSG macro to take the log level setting
+	into account before logging a message.
+
 2009-06-22  Luke Yelavich <luke.yelavich@canonical.com>
 
 	* src/server/output.c: Add output_send_loglevel_setting function
