@@ -153,6 +153,7 @@ main(int argc, char *argv[])
         else PROCESS_CMD(LIST VOICES, do_list_voices)
         else PROCESS_CMD(SET, do_set) 
         else PROCESS_CMD(AUDIO, do_audio) 
+        else PROCESS_CMD(LOGLEVEL, do_loglevel)
 	else PROCESS_CMD_W_ARGS(DEBUG, do_debug)
         else PROCESS_CMD_NRP(QUIT, do_quit) 
         else{

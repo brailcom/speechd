@@ -6,6 +6,15 @@
 
 	* src/server/output.c (output_send_loglevel_setting): Fix typo.
 
+	* src/modules/module_utils.c:
+	  - Add new macro SET_LOGLEVEL_NUM to set the log level variable for
+	    speech modules.
+	  - Add new function do_loglevel, to retrieve and call the above
+	    mentioned macro to set the log level.
+
+	* src/modules/module_main.c (main): Add a call to do_loglevel to set
+	the log level for the module.
+
 2009-06-22  Luke Yelavich <luke.yelavich@canonical.com>
 
 	* src/server/output.c: Add output_send_loglevel_setting function

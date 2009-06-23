@@ -301,6 +301,58 @@ do_audio(void)
     return msg;
 }
 
+#define SET_LOGLEVEL_NUM(name, cond) \
+ if(!strcmp(cur_item, #name)){ \
+     number = strtol(cur_value, &tptr, 10); \
+     if(!(cond)){ err = 2; continue; } \
+     if (tptr == cur_value){ err = 2; continue; } \
+     log_level = number; \
+ }
+
+char*
+do_loglevel(void)
+{
+    char *cur_item = NULL;
+    char *cur_value = NULL;
+    char *line = NULL;
+    int ret;
+    size_t n;
+    int number; char *tptr;
+    int err = 0;                /* Error status */
+    char *status;
+    char *msg;
+
+    printf("207 OK RECEIVING LOGLEVEL SETTINGS\n");
+    fflush(stdout);
+
+    while(1){
+        line = NULL; n = 0;
+        ret = getline(&line, &n, stdin);
+        if (ret == -1){ err=1; break; }
+        if (!strcmp(line, ".\n")){
+            xfree(line);
+            break;
+        }
+        if (!err){
+            cur_item = strtok(line, "=");
+            if (cur_item == NULL){ err=1; continue; }
+            cur_value = strtok(NULL, "\n");
+            if (cur_value == NULL){ err=1; continue; }
+
+            SET_LOGLEVEL_NUM(log_level, 1)
+            else err=2;             /* Unknown parameter */
+        }
+        xfree(line);
+    }
+
+    if (err == 1) return strdup("302 ERROR BAD SYNTAX");
+    if (err == 2) return strdup("303 ERROR INVALID PARAMETER OR VALUE");
+
+    msg = g_strdup_printf("203 OK LOG LEVEL SET");
+
+    return msg;
+}
+
 char*
 do_debug(char* cmd_buf)
 {

@@ -58,6 +58,8 @@ typedef struct{
   int audio_pulse_min_request;
 }SPDAudioSettings;
 
+int log_level;
+
 AudioID *module_audio_id;
 AudioOutputType module_audio_output_method;
 char* module_audio_pars[10];
@@ -215,6 +217,7 @@ void  do_pause(void);
 char* do_list_voices(void);
 char* do_set(void);
 char* do_audio(void);
+char* do_loglevel(void);
 char* do_debug(char *cmd_buf);
 void do_quit(void);
 
