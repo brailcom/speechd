@@ -307,6 +307,7 @@ do_audio(void)
      if(!(cond)){ err = 2; continue; } \
      if (tptr == cur_value){ err = 2; continue; } \
      log_level = number; \
+     spd_audio_set_loglevel(log_level); \
  }
 
 char*

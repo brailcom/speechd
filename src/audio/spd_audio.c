@@ -336,3 +336,11 @@ spd_audio_set_volume(AudioID *id, int volume)
     id->volume = volume;
     return 0;
 }
+
+void
+spd_audio_set_loglevel(int level)
+{
+    if (level){
+        log_level = level;
+    }
+}

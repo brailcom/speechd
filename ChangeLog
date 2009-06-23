@@ -11,6 +11,7 @@
 	    speech modules.
 	  - Add new function do_loglevel, to retrieve and call the above
 	    mentioned macro to set the log level.
+	  - Add a call to spd_audio_set_loglevel to the SET_LOGLEVEL_NUM macro.
 
 	* src/modules/module_main.c (main): Add a call to do_loglevel to set
 	the log level for the module.
@@ -24,6 +25,9 @@
 	  - Adjust the MSG macro to take the log level setting into account
 	    before logging a message.
 	  - Assign all log messages to a log level.
+
+	* src/audio/spd_audio.c: Add a new function spd_audio_set_loglevel to
+	set the internal log_level variable for the libspdaudio library.
 
 2009-06-22  Luke Yelavich <luke.yelavich@canonical.com>
 
