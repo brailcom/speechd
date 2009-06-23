@@ -81,7 +81,7 @@ xfree(void* p)
 int
 _oss_open(AudioID *id)
 {
-    MSG("_oss_open()")
+    MSG(1, "_oss_open()")
     pthread_mutex_lock(&id->fd_mutex);
 
     id->fd = open(id->device_name, O_WRONLY, 0);
@@ -100,7 +100,7 @@ _oss_open(AudioID *id)
 int
 _oss_close(AudioID *id)
 {
-    MSG("_oss_close()")
+    MSG(1, "_oss_close()")
     if (id == NULL) return 0;
     if (id->fd == 0) return 0;
 
@@ -228,7 +228,7 @@ oss_play(AudioID *id, AudioTrack track)
 	return -3;
     }
     if (channels != track.num_channels){
-	MSG("Device doesn't support stereo sound.\n");
+	MSG(1, "Device doesn't support stereo sound.\n");
 	_oss_close(id);
 	return -4;
     }
@@ -254,10 +254,10 @@ oss_play(AudioID *id, AudioTrack track)
     /* Loop until all samples are played on the device.
        In the meantime, wait in pthread_cond_timedwait for more data
        or for interruption. */
-    MSG("Starting playback");
+    MSG(4, "Starting playback");
     output_samples = track_volume.samples;
     num_bytes = track.num_samples*bytes_per_sample;
-    MSG("bytes to play: %d, (%f secs)", num_bytes, (((float) (num_bytes)/2) / (float) track.sample_rate));
+    MSG(4, "bytes to play: %d, (%f secs)", num_bytes, (((float) (num_bytes)/2) / (float) track.sample_rate));
     while(num_bytes > 0) {
 
 	/* OSS doesn't support non-blocking write, so lets check how much data
@@ -272,12 +272,12 @@ oss_play(AudioID *id, AudioTrack track)
 	/* If there is not enough space for a single fragment, try later.
 	   (This shouldn't happen, it has very bad effect on synchronization!) */
 	if (info.fragments == 0){
-	    MSG("WARNING: There is not enough space for a single fragment, looping");
+	    MSG(4, "WARNING: There is not enough space for a single fragment, looping");
 	    usleep (100);
 	    continue;
 	}
 	
-	MSG("There is space for %d more fragments, fragment size is %d bytes",
+	MSG(4, "There is space for %d more fragments, fragment size is %d bytes",
 	    info.fragments, info.fragsize);	
 	    
 	bytes = info.fragments * info.fragsize;
@@ -293,7 +293,7 @@ oss_play(AudioID *id, AudioTrack track)
 	num_bytes -= ret;
 	output_samples += ret/2;
 
-	MSG("%d bytes written to OSS, %d remaining", ret, num_bytes);
+	MSG(4, "%d bytes written to OSS, %d remaining", ret, num_bytes);
 
 	/* If there is some more data that is less than a
 	   full fragment, we need to write it immediatelly so
@@ -302,7 +302,7 @@ oss_play(AudioID *id, AudioTrack track)
 	    && (num_bytes < info.fragsize) 
 	    && (bytes+num_bytes < info.bytes)){
 
-	    MSG("Writing the rest of the data (%d bytes) to OSS, not a full fragment", num_bytes);
+	    MSG(4, "Writing the rest of the data (%d bytes) to OSS, not a full fragment", num_bytes);
 
 	    ret2 = write(id->fd, output_samples, num_bytes);       
 	    num_bytes -= ret2;
@@ -325,14 +325,14 @@ oss_play(AudioID *id, AudioTrack track)
 	   in the first pass through the while() loop. Then our timer
 	   will be DELAY nsecs backwards.
 	*/
-	MSG("Now we will try to wait");
+	MSG(4, "Now we will try to wait");
 	pthread_mutex_lock(&id->pt_mutex);
         lenght = (((float) (ret)/2) / (float) track.sample_rate);
 	if (!delay){
 	    delay = lenght>DELAY ? DELAY : lenght;
 	    lenght -= delay;
 	}
-	MSG("Wait for %f secs (begin: %f, delay: %f)", lenght, lenght+delay, delay)
+	MSG(4, "Wait for %f secs (begin: %f, delay: %f)", lenght, lenght+delay, delay)
         gettimeofday(&now, NULL);
         timeout.tv_sec = now.tv_sec + (int) lenght;
         timeout.tv_nsec = now.tv_usec * 1000 + (lenght - (int) lenght) * 1000000000;
@@ -345,12 +345,12 @@ oss_play(AudioID *id, AudioTrack track)
 	//  now.tv_sec, now.tv_usec*1000, timeout.tv_sec - now.tv_sec, timeout.tv_nsec-now.tv_usec*1000);
         r = pthread_cond_timedwait(&id->pt_cond, &id->pt_mutex, &timeout);
 	pthread_mutex_unlock(&id->pt_mutex);
-	MSG("End of wait");
+	MSG(4, "End of wait");
 
 	/* The pthread_cond_timedwait was interrupted by change in the
  	   condition variable? if so, terminate.*/
         if (r != ETIMEDOUT){
-	    MSG("Playback stopped, %d", r);
+	    MSG(4, "Playback stopped, %d", r);
 	    break;
 	}
     }
@@ -361,7 +361,7 @@ oss_play(AudioID *id, AudioTrack track)
     /* Ugly hack: correct for the time we spend outside timing segments */
     delay -= 0.05;
 
-    MSG("Wait for the resting delay = %f secs", delay)
+    MSG(4, "Wait for the resting delay = %f secs", delay)
     if ((delay > 0) && (r == ETIMEDOUT)){
 	pthread_mutex_lock(&id->pt_mutex);
 	gettimeofday(&now, NULL);
@@ -376,7 +376,7 @@ oss_play(AudioID *id, AudioTrack track)
 	r = pthread_cond_timedwait(&id->pt_cond, &id->pt_mutex, &timeout);
 	pthread_mutex_unlock(&id->pt_mutex);
     }
-    MSG("End of wait");
+    MSG(4, "End of wait");
 
     if (track_volume.samples!=NULL) free(track_volume.samples);
 
@@ -387,7 +387,7 @@ oss_play(AudioID *id, AudioTrack track)
        access the device. */
     _oss_close(id);
 
-    MSG("Device closed");
+    MSG(4, "Device closed");
 
     return 0;
 }
@@ -400,7 +400,7 @@ oss_stop(AudioID *id)
 
     if (id == NULL) return 0;
 
-    MSG("stop() called");
+    MSG(4, "stop() called");
 
     /* Stop the playback on /dev/dsp */
     pthread_mutex_lock(&id->fd_mutex);

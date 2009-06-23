@@ -99,7 +99,7 @@ xrun(AudioID *id)
     
     if (id == NULL) return -1;
 
-    MSG("WARNING: Entering XRUN handler");
+    MSG(1, "WARNING: Entering XRUN handler");
     
     snd_pcm_status_alloca(&status);
     if ((res = snd_pcm_status(id->alsa_pcm, status))<0) {
@@ -112,7 +112,7 @@ xrun(AudioID *id)
 	gettimeofday(&now, 0);
 	snd_pcm_status_get_trigger_tstamp(status, &tstamp);
 	timersub(&now, &tstamp, &diff);
-	MSG("underrun!!! (at least %.3f ms long)",
+	MSG(1, "underrun!!! (at least %.3f ms long)",
 	    diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
 	if ((res = snd_pcm_prepare(id->alsa_pcm)) < 0) {
 	    ERR("xrun: prepare error: %s", snd_strerror(res));
@@ -134,7 +134,7 @@ suspend(AudioID *id)
 {
     int res;
 
-    MSG("WARNING: Entering SUSPEND handler.");
+    MSG(1, "WARNING: Entering SUSPEND handler.");
     
     if (id == NULL) return -1;
     
@@ -160,7 +160,7 @@ _alsa_open(AudioID *id)
 {
     int err;
 
-    MSG("Opening ALSA device");
+    MSG(1, "Opening ALSA device");
     fflush(stderr);
 
     /* Open the device */
@@ -172,14 +172,14 @@ _alsa_open(AudioID *id)
 
     /* Allocate space for hw_params (description of the sound parameters) */
     /* Allocate space for sw_params (description of the sound parameters) */
-    MSG("Allocating new sw_params structure");
+    MSG(2, "Allocating new sw_params structure");
     if ((err = snd_pcm_sw_params_malloc (&id->alsa_sw_params)) < 0) {
 	ERR("Cannot allocate hardware parameter structure (%s)", 
 	    snd_strerror(err));
 	return -1;
     }       
 
-    MSG("Opening ALSA device ... success");
+    MSG(1, "Opening ALSA device ... success");
 
     return 0;
 }
@@ -193,7 +193,7 @@ _alsa_close(AudioID *id)
 {
     int err;
 
-    MSG("Closing ALSA device");
+    MSG(1, "Closing ALSA device");
 
     if (id->alsa_opened == 0) return 0;
 
@@ -201,7 +201,7 @@ _alsa_close(AudioID *id)
     id->alsa_opened = 0;
     
     if ((err = snd_pcm_close (id->alsa_pcm)) < 0) {
-	MSG("Cannot close ALSA device (%s)", snd_strerror (err));
+	MSG(2, "Cannot close ALSA device (%s)", snd_strerror (err));
 	return -1;
     }
 
@@ -210,7 +210,7 @@ _alsa_close(AudioID *id)
     free(id->alsa_poll_fds);
     pthread_mutex_unlock(&id->alsa_pipe_mutex);
 
-    MSG("Closing ALSA device ... success");
+    MSG(1, "Closing ALSA device ... success");
     
     return 0;
 }
@@ -243,7 +243,7 @@ alsa_open(AudioID *id, void **pars)
 	return -1;
     }
     
-    MSG("Opening ALSA sound output");
+    MSG(1, "Opening ALSA sound output");
 
     id->alsa_device_name = strdup(pars[0]);
     
@@ -253,7 +253,7 @@ alsa_open(AudioID *id, void **pars)
 	return -1;
     }
 
-    MSG("Device '%s' initialized succesfully.", (char*) pars[0]);
+    MSG(1, "Device '%s' initialized succesfully.", (char*) pars[0]);
     
     return 0; 
 }
@@ -269,7 +269,7 @@ alsa_close(AudioID *id)
 	ERR("Cannot close audio device");
 	return -1;
     }
-    MSG("ALSA closed.");
+    MSG(1, "ALSA closed.");
 
     id = NULL;
 
@@ -299,7 +299,7 @@ int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds,
 	       descriptors*/
 	    if (revents = id->alsa_poll_fds[count-1].revents){
 		if (revents & POLLIN){
-		    MSG("wait_for_poll: stop requested");
+		    MSG(4, "wait_for_poll: stop requested");
 		    return 1;
 		}
 	    }
@@ -313,24 +313,24 @@ int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds,
 	    
 	    if (SND_PCM_STATE_XRUN == state){
 		if (!draining){
-		    MSG("WARNING: Buffer underrun detected!");
+		    MSG(1, "WARNING: Buffer underrun detected!");
 		    if (xrun(id) != 0) return -1;
 		    return 0;
 		}else{
-		    MSG("Poll: Playback terminated");
+		    MSG(4, "Poll: Playback terminated");
 		    return 0;
 		}
 	    }
 	    
 	    if (SND_PCM_STATE_SUSPENDED == state){
-		MSG("WARNING: Suspend detected!");
+		MSG(1, "WARNING: Suspend detected!");
 		if (suspend(id) != 0) return -1;
 		return 0;
 	    }
 	    
 	    /* Check for errors */
 	    if (revents & POLLERR) {
-                MSG("wait_for_poll: poll revents says POLLERR");
+                MSG(4, "wait_for_poll: poll revents says POLLERR");
 		return -EIO;
             }
 	    
@@ -395,7 +395,7 @@ alsa_play(AudioID *id, AudioTrack track)
 
     pthread_mutex_lock(&id->alsa_pipe_mutex);
 
-    MSG("Start of playback on ALSA");
+    MSG(2, "Start of playback on ALSA");
 
     /* Is it not an empty track? */
     /* Passing an empty track is not an error */
@@ -404,7 +404,7 @@ alsa_play(AudioID *id, AudioTrack track)
       return 0;
     }
     /* Allocate space for hw_params (description of the sound parameters) */
-    MSG("Allocating new hw_params structure");
+    MSG(2, "Allocating new hw_params structure");
     if ((err = snd_pcm_hw_params_malloc (&id->alsa_hw_params)) < 0) {
 	ERR("Cannot allocate hardware parameter structure (%s)", 
 	    snd_strerror(err));
@@ -459,7 +459,7 @@ alsa_play(AudioID *id, AudioTrack track)
 
     /* Report current state */
     state = snd_pcm_state(id->alsa_pcm);
-    MSG("PCM state before setting audio parameters: %s",
+    MSG(4, "PCM state before setting audio parameters: %s",
 	snd_pcm_state_name(state));
 
     /* Choose the correct format */
@@ -482,7 +482,7 @@ alsa_play(AudioID *id, AudioTrack track)
     }
 
     /* Set access mode, bitrate, sample rate and channels */
-    MSG("Setting access type to INTERLEAVED");
+    MSG(4, "Setting access type to INTERLEAVED");
     if ((err = snd_pcm_hw_params_set_access (id->alsa_pcm, 
 					     id->alsa_hw_params, 
 					     SND_PCM_ACCESS_RW_INTERLEAVED)
@@ -492,14 +492,14 @@ alsa_play(AudioID *id, AudioTrack track)
 	return -1;
     }
     
-    MSG("Setting sample format to %s", snd_pcm_format_name(format));
+    MSG(4, "Setting sample format to %s", snd_pcm_format_name(format));
     if ((err = snd_pcm_hw_params_set_format (id->alsa_pcm, id->alsa_hw_params, format)) < 0) {
 	ERR("Cannot set sample format (%s)",
 		 snd_strerror (err));
 	return -1;
     }
 
-    MSG("Setting sample rate to %i", track.sample_rate);
+    MSG(4, "Setting sample rate to %i", track.sample_rate);
     sr = track.sample_rate;
     if ((err = snd_pcm_hw_params_set_rate_near (id->alsa_pcm, id->alsa_hw_params,
 						&sr, 0)) < 0) {
@@ -509,17 +509,17 @@ alsa_play(AudioID *id, AudioTrack track)
 	return -1;
     }
 
-    MSG("Setting channel count to %i", track.num_channels);
+    MSG(4, "Setting channel count to %i", track.num_channels);
     if ((err = snd_pcm_hw_params_set_channels (id->alsa_pcm, id->alsa_hw_params,
 					       track.num_channels)) < 0) {
-	MSG("cannot set channel count (%s)",
+	MSG(4, "cannot set channel count (%s)",
 		 snd_strerror (err));	
 	return -1;
     }
 
-    MSG("Setting hardware parameters on the ALSA device");	
+    MSG(4, "Setting hardware parameters on the ALSA device");	
     if ((err = snd_pcm_hw_params (id->alsa_pcm, id->alsa_hw_params)) < 0) {
-	MSG("cannot set parameters (%s) state=%s",
+	MSG(4, "cannot set parameters (%s) state=%s",
 	    snd_strerror (err), snd_pcm_state_name(snd_pcm_state(id->alsa_pcm)));	
 	return -1;
     }
@@ -536,7 +536,7 @@ alsa_play(AudioID *id, AudioTrack track)
 	ERR("Unable to get buffer size for playback: %s\n", snd_strerror(err));
 	return -1;
     }
-    MSG("Buffer size on ALSA device is %d bytes", (int) id->alsa_buffer_size);
+    MSG(4, "Buffer size on ALSA device is %d bytes", (int) id->alsa_buffer_size);
 
     /* This is probably better left for the device driver to decide */
     /* allow the transfer when at least period_size samples can be processed */
@@ -557,7 +557,7 @@ alsa_play(AudioID *id, AudioTrack track)
     //    MSG("silent samples = %i", silent_samples);
 
 
-    MSG("Preparing device for playback");
+    MSG(4, "Preparing device for playback");
     if ((err = snd_pcm_prepare (id->alsa_pcm)) < 0) {
 	ERR("Cannot prepare audio interface for playback (%s)",
 		 snd_strerror (err));
@@ -567,10 +567,10 @@ alsa_play(AudioID *id, AudioTrack track)
 
     /* Calculate space needed to round up to nearest period size. */
     volume_size = bytes_per_sample*(track.num_samples + silent_samples);
-    MSG("volume size = %i", (int) volume_size);
+    MSG(4, "volume size = %i", (int) volume_size);
 
     /* Create a copy of track with adjusted volume. */
-    MSG("Making copy of track and adjusting volume");
+    MSG(4, "Making copy of track and adjusting volume");
     track_volume = track;
     track_volume.samples = (short*) malloc(volume_size);
     real_volume = ((float) id->volume + 100)/(float)200;
@@ -582,7 +582,7 @@ alsa_play(AudioID *id, AudioTrack track)
         u_int8_t silent8;
 
         /* Fill remaining space with silence */
-        MSG("Filling with silence up to the period size, silent_samples=%d", (int) silent_samples);
+        MSG(4, "Filling with silence up to the period size, silent_samples=%d", (int) silent_samples);
         /* TODO: This hangs.  Why?
         snd_pcm_format_set_silence(format,
             track_volume.samples + (track.num_samples * bytes_per_sample), silent_samples);
@@ -621,14 +621,14 @@ alsa_play(AudioID *id, AudioTrack track)
 	//        MSG("Sent %d of %d remaining bytes", ret*bytes_per_sample, num_bytes);
 
         if (ret == -EAGAIN) {
-	    MSG("Warning: Forced wait!");
+	    MSG(4, "Warning: Forced wait!");
 	    snd_pcm_wait(id->alsa_pcm, 100);
         } else if (ret == -EPIPE) {
             if (xrun(id) != 0) ERROR_EXIT();
 	} else if (ret == -ESTRPIPE) {
 	    if (suspend(id) != 0) ERROR_EXIT();
 	} else if (ret == -EBUSY){
-            MSG("WARNING: sleeping while PCM BUSY");
+            MSG(4, "WARNING: sleeping while PCM BUSY");
             usleep(100);
             continue;
         } else if (ret < 0) {	    
@@ -654,7 +654,7 @@ alsa_play(AudioID *id, AudioTrack track)
 	    ERROR_EXIT();
 	}	
 	else if (err == 1){
-	    MSG("Playback stopped");
+	    MSG(4, "Playback stopped");
 
 	    /* Drop the playback on the sound device (probably
 	       still in progress up till now) */
@@ -673,7 +673,7 @@ alsa_play(AudioID *id, AudioTrack track)
 	/* Stop requests can be issued again */
     }
 
-    MSG("Draining...");
+    MSG(4, "Draining...");
 
     /* We want to next "device ready" notification only after the buffer is
        already empty */
@@ -694,7 +694,7 @@ alsa_play(AudioID *id, AudioTrack track)
 	ERR("Wait for poll() failed\n");
 	return -1;
     } else if (err == 1){
-	MSG("Playback stopped while draining");
+	MSG(4, "Playback stopped while draining");
 	
 	/* Drop the playback on the sound device (probably
 	   still in progress up till now) */
@@ -704,7 +704,7 @@ alsa_play(AudioID *id, AudioTrack track)
 	    return -1;
 	}
     }
-    MSG("Draining terminated");
+    MSG(4, "Draining terminated");
 
  terminate:
     /* Terminating (successfully or after a stop) */
@@ -718,7 +718,7 @@ alsa_play(AudioID *id, AudioTrack track)
     }
     
 
-    MSG("Freeing HW parameters");
+    MSG(2, "Freeing HW parameters");
     snd_pcm_hw_params_free(id->alsa_hw_params);
 
     pthread_mutex_lock(&id->alsa_pipe_mutex);
@@ -729,7 +729,7 @@ alsa_play(AudioID *id, AudioTrack track)
     xfree(id->alsa_poll_fds);
     pthread_mutex_unlock(&id->alsa_pipe_mutex);
     
-    MSG("End of playback on ALSA");
+    MSG(1, "End of playback on ALSA");
 
     return 0;   
 }
@@ -745,7 +745,7 @@ alsa_stop(AudioID *id)
     char buf;
     int ret;
 
-    MSG("STOP!");
+    MSG(1, "STOP!");
 
     pthread_mutex_lock(&id->alsa_pipe_mutex);
     if (id->alsa_opened){
