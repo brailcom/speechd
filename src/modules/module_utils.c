@@ -1073,47 +1073,74 @@ module_audio_init_spd(char **status_info)
   char * error;
   GString *info;
   char *module_audio_pars[10];
+  char *outputs;
+  int audio_output_set;
 
   info = g_string_new("");
+  outputs = audio_settings.audio_output_method;
 
     DBG("Openning audio output system");
-    if (!strcmp(audio_settings.audio_output_method, "oss")){
-    DBG("Using OSS audio output method");
-	module_audio_pars[0] = strdup(audio_settings.audio_oss_device);
-        module_audio_pars[1] = NULL;
-        module_audio_id = spd_audio_open(AUDIO_OSS, (void**) module_audio_pars, &error);
-        module_audio_output_method = AUDIO_OSS;
+    if (outputs[0]){
+	const char *next = outputs;
+	size_t len;
+
+	do{
+	    outputs = next;
+	    next = strchr(outputs, ',');
+
+	    if (!outputs[0] || outputs[0] == ',')
+		continue;
+
+	    len = (next ? ((size_t)(next-outputs)) : strlen(outputs));
+
+	    if (len == 3 && strncmp("oss", outputs, len) == 0){
+		DBG("Using OSS audio output method");
+		module_audio_pars[0] = strdup(audio_settings.audio_oss_device);
+		module_audio_pars[1] = NULL;
+		module_audio_id = spd_audio_open(AUDIO_OSS, (void**) module_audio_pars, &error);
+		if (module_audio_id){
+		    module_audio_output_method = AUDIO_OSS;
+		    audio_output_set = 1;
+		}
+	    } else if (len == 4 && strncmp("alsa", outputs, len) == 0){
+		DBG("Using Alsa audio output method");
+		module_audio_pars[0] = audio_settings.audio_alsa_device;
+		module_audio_pars[1] = NULL;
+		module_audio_id = spd_audio_open(AUDIO_ALSA, (void**) module_audio_pars, &error);
+		if (module_audio_id){
+		    module_audio_output_method = AUDIO_ALSA;
+		    audio_output_set = 1;
+		}
+	    } else if (len == 3 && strncmp("nas", outputs, len) == 0){
+		DBG("Using NAS audio output method");
+		module_audio_pars[0] = audio_settings.audio_nas_server;
+		module_audio_pars[1] = NULL;
+		module_audio_id = spd_audio_open(AUDIO_NAS, (void**) module_audio_pars, &error);
+		if (module_audio_id){
+		    module_audio_output_method = AUDIO_NAS;
+		    audio_output_set = 1;
+		}
+	    } else if (len == 5 && strncmp("pulse", outputs, len) == 0){
+		DBG("Using PulseAudio output method");
+		module_audio_pars[0] = (void *) audio_settings.audio_pulse_server;
+		module_audio_pars[1] = (void *) audio_settings.audio_pulse_max_length;
+		module_audio_pars[2] = (void *) audio_settings.audio_pulse_target_length;
+		module_audio_pars[3] = (void *) audio_settings.audio_pulse_pre_buffering;
+		module_audio_pars[4] = (void *) audio_settings.audio_pulse_min_request;
+		module_audio_pars[5] = NULL;
+		module_audio_id = spd_audio_open(AUDIO_PULSE, (void**) module_audio_pars, &error);
+		if (module_audio_id){
+		    module_audio_output_method = AUDIO_PULSE;
+		    audio_output_set = 1;
+		}
+	    } else{
+		ABORT("Sound output method specified in configuration not supported. "
+		    "Please choose 'oss', 'alsa', 'nas' or 'pulse'.");
+	    }
+	} while(next++);
     }
-    else if (!strcmp(audio_settings.audio_output_method, "alsa")){
-	DBG("Using Alsa audio output method");
-	module_audio_pars[0] = audio_settings.audio_alsa_device;
-	module_audio_pars[1] = NULL;
-	module_audio_id = spd_audio_open(AUDIO_ALSA, (void**) module_audio_pars, &error);
-	module_audio_output_method = AUDIO_ALSA;
-    }
-    else if (!strcmp(audio_settings.audio_output_method, "nas")){
-	DBG("Using NAS audio output method");
-	module_audio_pars[0] = audio_settings.audio_nas_server;
-	module_audio_pars[1] = NULL;
-	module_audio_id = spd_audio_open(AUDIO_NAS, (void**) module_audio_pars, &error);
-	module_audio_output_method = AUDIO_NAS;
-    }
-    else if (!strcmp(audio_settings.audio_output_method, "pulse")){
-	DBG("Using PulseAudio output method");
-	module_audio_pars[0] = (void *) audio_settings.audio_pulse_server;
-	module_audio_pars[1] = (void *) audio_settings.audio_pulse_max_length;
-	module_audio_pars[2] = (void *) audio_settings.audio_pulse_target_length;
-	module_audio_pars[3] = (void *) audio_settings.audio_pulse_pre_buffering;
-	module_audio_pars[4] = (void *) audio_settings.audio_pulse_min_request;
-	module_audio_pars[5] = NULL;
-        module_audio_id = spd_audio_open(AUDIO_PULSE, (void**) module_audio_pars, &error);
-	module_audio_output_method = AUDIO_PULSE;
-    }
-    else{
-	ABORT("Sound output method specified in configuration not supported. "
-	      "Please choose 'oss', 'alsa', 'nas' or 'pulse'.");
-    }
-    if (module_audio_id == NULL){
+
+    if (!audio_output_set){
 	g_string_append_printf(info, "Opening sound device failed. Reason: %s. ", error);
 	ABORT("Can't open sound device.");
     }
