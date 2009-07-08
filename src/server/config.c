@@ -444,7 +444,7 @@ load_default_global_set_options()
     GlobalFDSet.ssml_mode = 0;
     GlobalFDSet.notification = NOTIFY_NOTHING;
 
-    GlobalFDSet.audio_output_method = strdup("alsa");
+    GlobalFDSet.audio_output_method = strdup("pulse,alsa");
     GlobalFDSet.audio_oss_device = strdup("/dev/dsp");
     GlobalFDSet.audio_alsa_device = strdup("default");
     GlobalFDSet.audio_nas_server = strdup("tcp/localhost:5450");

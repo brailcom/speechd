@@ -142,7 +142,7 @@ DefaultVolume 100
 # PulseAudio is a sound server for POSIX and WIN32 systems. 
 #
 
-# AudioOutputMethod "alsa"
+# AudioOutputMethod "pulse,alsa"
 
 # What ALSA device to use when Advanced Linux Sound Architecture is
 # chosen for the audio output.

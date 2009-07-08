@@ -1,3 +1,11 @@
+2009-07-08  Luke Yelavich <luke.yelavich@canonical.com>
+
+	* src/server/config.c (load_default_global_set_options): Set the default
+	audio output to "pulse,alsa".
+
+	* config/speechd.conf.in: Set the default audio output to
+	"pulse,alsa".
+
 2009-06-23  Luke Yelavich <luke.yelavich@canonical.com>
 
 	* src/server/config.c: Add new macro GLOBAL_SET_LOGLEVEL, to set the
