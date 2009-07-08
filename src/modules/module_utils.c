@@ -1081,7 +1081,7 @@ module_audio_init_spd(char **status_info)
 
     DBG("Openning audio output system");
     if (outputs[0]){
-	const char *next = outputs;
+	char *next = outputs;
 	size_t len;
 
 	do{
