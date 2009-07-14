@@ -1,0 +1,1 @@
+export SPEECHD_PORT=$(expr @SPEECHD_DEFAULT_PORT@ + $(getent passwd $USER | cut -f 3 -d :))

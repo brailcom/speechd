@@ -766,6 +766,19 @@ main(int argc, char *argv[])
 
     options_parse(argc, argv);
 
+#ifdef ENABLE_SESSION
+    /* Get the server port from the SPEECHD_PORT environment variable. */
+    char *tail_ptr;
+    int val;
+    if (getenv("SPEECHD_PORT") && !SpeechdOptions.port_set){
+      SpeechdOptions.port_set = 1;
+      val = strtol(getenv("SPEECHD_PORT"), &tail_ptr, 10);
+      if (tail_ptr != getenv("SPEECHD_PORT")){
+        SpeechdOptions.port = val;
+      }
+    }
+#endif
+
     MSG(1, "Speech Dispatcher "VERSION" starting");
 
     /* Check if there is .speech-dispatcher directory

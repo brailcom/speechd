@@ -7,3 +7,7 @@ speech_dispatcher_LDFLAGS = -rdynamic
 inc_local = -I$(top_srcdir)/intl/
 localedir = $(datadir)/locale
 AM_CFLAGS = -Wall $(inc_local) -I$(localedir) @glib_include@ -DSYS_CONF=\"@spdconfdir@\" -DSND_DATA=\"@snddatadir@\" -DMODULEBINDIR=\"@modulebindir@\"  -DVERSION=\"@VERSION@\" -DPACKAGE=\"@PACKAGE@\" -DPIDPATH=\"@pidpath@\" 
+
+if ENABLE_SESSION
+AM_CFLAGS += -DENABLE_SESSION
+endif
