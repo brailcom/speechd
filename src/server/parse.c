@@ -104,6 +104,7 @@ parse(const char *buf, const int bytes, const int fd)
         CHECK_SSIP_COMMAND("char", parse_char, BLOCK_OK);
         CHECK_SSIP_COMMAND("key", parse_key, BLOCK_OK)
         CHECK_SSIP_COMMAND("list", parse_list, BLOCK_NO);
+        CHECK_SSIP_COMMAND("get", parse_get, BLOCK_NO);
         CHECK_SSIP_COMMAND("help", parse_help, BLOCK_NO);		
         CHECK_SSIP_COMMAND("block", parse_block, BLOCK_OK);
 
@@ -879,6 +880,72 @@ parse_list(const char* buf, const int bytes, const int fd)
 }
 
 char*
+parse_get(const char *buf, const int bytes, const int fd)
+{
+    char *get_type;
+    GString *result;
+    char *helper;
+
+    TFDSetElement *settings;
+
+    settings = get_client_settings_by_fd(fd);
+    if (settings == NULL) 
+        return strdup(ERR_INTERNAL);
+
+    GET_PARAM_STR(get_type, 1, CONV_DOWN);
+    if(TEST_CMD(get_type, "voice")) {
+        result = g_string_new("");
+
+        switch (settings->voice)
+        {
+            case MALE1:
+                g_string_append_printf(result, C_OK_GET"-MALE1\r\n");
+                break;
+            case MALE2:
+                g_string_append_printf(result, C_OK_GET"-MALE2\r\n");
+                break;
+            case MALE3:
+                g_string_append_printf(result, C_OK_GET"-MALE3\r\n");
+                break;
+            case FEMALE1:
+                g_string_append_printf(result, C_OK_GET"-FEMALE1\r\n");
+                break;
+            case FEMALE2:
+                g_string_append_printf(result, C_OK_GET"-FEMALE2\r\n");
+                break;
+            case FEMALE3:
+                g_string_append_printf(result, C_OK_GET"-FEMALE3\r\n");
+                break;
+            case CHILD_MALE:
+                g_string_append_printf(result, C_OK_GET"-CHILD_MALE\r\n");
+                break;
+            case CHILD_FEMALE:
+                g_string_append_printf(result, C_OK_GET"-CHILD_FEMALE\r\n");
+                break;
+            case NO_VOICE:
+            default:
+                g_string_append_printf(result, C_OK_GET"-NO_VOICE\r\n");
+                break;
+        }
+        helper = result->str;
+        g_string_free(result, 0);
+        return helper;
+    }
+    else if (TEST_CMD(get_type, "output_module")) {
+        result = g_string_new("");
+        g_string_append_printf(result, C_OK_GET"-%s\r\n",
+                       settings->output_module);
+        helper = result->str;
+        g_string_free(result, 0);
+        return helper;      
+    }
+    else{
+      spd_free(get_type);
+      return strdup(ERR_PARAMETER_INVALID);
+    }
+}
+
+char*
 parse_help(const char* buf, const int bytes, const int fd)
 {
     char *help;
@@ -891,6 +958,7 @@ parse_help(const char* buf, const int bytes, const int fd)
             C_OK_HELP"-  CHAR            -- say a character \r\n"
             C_OK_HELP"-  SOUND_ICON      -- execute a sound icon \r\n"
             C_OK_HELP"-  SET             -- set a parameter \r\n"
+            C_OK_HELP"-  GET             -- get a current parameter \r\n"
             C_OK_HELP"-  LIST            -- list available arguments \r\n"
             C_OK_HELP"-  HISTORY         -- commands related to history \r\n"
             C_OK_HELP"-  QUIT            -- close the connection \r\n"

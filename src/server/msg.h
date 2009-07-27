@@ -77,6 +77,8 @@
 #define C_OK_VOICES                             "249"
 #define OK_MODULES_LIST_SENT                    "250 OK VOICE LIST SENT\r\n"
 #define C_OK_MODULES                            "250"
+#define OK_GET                                  "251 OK GET RETURNED\r\n"
+#define C_OK_GET                                "251"
 
 #define OK_INSIDE_BLOCK                         "260 OK INSIDE BLOCK\r\n"
 #define OK_OUTSIDE_BLOCK                        "261 OK OUTSIDE BLOCK\r\n"
