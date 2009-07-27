@@ -33,8 +33,10 @@
 extern "C" {
 #endif
     
+#ifdef LIBSPEECHD_DEBUG
 /* Debugging */
 FILE* spd_debug;
+#endif
 
 /* Unless there is an fatal error, it doesn't print anything */
 #define SPD_FATAL(msg) { printf("Fatal error (libspeechd) [%s:%d]:"msg, __FILE__, __LINE__); fflush(stdout); exit(EXIT_FAILURE); }
