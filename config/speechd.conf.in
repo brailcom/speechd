@@ -256,6 +256,6 @@ DefaultModule espeak
 
 # There are some sample client settings
 
-Include "clients/emacs.conf"
-Include "clients/gnome-speech.conf"
+Include "INCLUDE_PATH/clients/*.conf"
+Include "clients/*.conf"
 
