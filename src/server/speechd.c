@@ -784,7 +784,7 @@ main(int argc, char *argv[])
     /* Check if there is .speech-dispatcher directory
        in user's home directory. If yes, put everything
        here */
-    if (strncmp("/home", g_get_home_dir(), 5) == 0){
+    {
       char *home_dir;
       GDir *testing;
       home_dir = (char*) g_get_home_dir();
