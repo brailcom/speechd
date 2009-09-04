@@ -1110,6 +1110,7 @@ module_audio_init_spd(char **status_info)
 		if (module_audio_id){
 		    module_audio_output_method = AUDIO_ALSA;
 		    audio_output_set = 1;
+		    break;
 		}
 	    } else if (len == 3 && strncmp("nas", outputs, len) == 0){
 		DBG("Using NAS audio output method");
@@ -1119,6 +1120,7 @@ module_audio_init_spd(char **status_info)
 		if (module_audio_id){
 		    module_audio_output_method = AUDIO_NAS;
 		    audio_output_set = 1;
+		    break;
 		}
 	    } else if (len == 5 && strncmp("pulse", outputs, len) == 0){
 		DBG("Using PulseAudio output method");
@@ -1132,6 +1134,7 @@ module_audio_init_spd(char **status_info)
 		if (module_audio_id){
 		    module_audio_output_method = AUDIO_PULSE;
 		    audio_output_set = 1;
+		    break;
 		}
 	    } else{
 		ABORT("Sound output method specified in configuration not supported. "
