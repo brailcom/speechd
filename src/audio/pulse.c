@@ -1271,45 +1271,52 @@ pulse_open(AudioID *id, void **pars)
 
   /* Check if the server is running */
   id->pulse_mainloop = pa_mainloop_new();
-  if (id->pulse_mainloop == NULL)
+  if (id->pulse_mainloop == NULL) {
     ERR("Failed to allocate main loop","");
     ret = PULSE_ERROR;
     goto fail;
+  }
 
   id->pulse_context = pa_context_new(pa_mainloop_get_api(id->pulse_mainloop), "speech-dispatcher");
-  if (id->pulse_context == NULL)
+  if (id->pulse_context == NULL) {
     ERR("Failed to allocate context","");
     ret = PULSE_ERROR;
     goto fail;
+  }
 
   err = pa_context_connect(id->pulse_context, id->pulse_server, 0, NULL);
-  if (err < 0)
+  if (err < 0) {
     ERR("Failed to connect to server: %s", pa_strerror(pa_context_errno(id->pulse_context)));
     ret = PULSE_ERROR;
     goto fail;
+  }
 
   do {
     err = pa_mainloop_prepare(id->pulse_mainloop, -1);
-    if (err < 0)
+    if (err < 0) {
       ret = PULSE_ERROR;
       goto fail;
+    }
 
     err = pa_mainloop_poll(id->pulse_mainloop);
-    if (err < 0)
+    if (err < 0) {
       ret = PULSE_ERROR;
       goto fail;
+    }
 
     err = pa_mainloop_dispatch(id->pulse_mainloop);
-    if (err < 0)
+    if (err < 0) {
       ret = PULSE_ERROR;
       goto fail;
+    }
 
     state = pa_context_get_state(id->pulse_context);
   } while (state < PA_CONTEXT_AUTHORIZING);
 
-  if (state > PA_CONTEXT_READY)
+  if (state > PA_CONTEXT_READY) {
     ret = PULSE_ERROR;
     goto fail;
+  }
 
   SHOW("PulseAudio sound output opened\n","");
 
