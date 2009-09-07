@@ -94,20 +94,22 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
     if (client_name == NULL) return NULL;
     
     if (user_name == NULL)
-	usr_name = (char*) g_get_user_name();
+    {
+        usr_name = strdup((char*) g_get_user_name());
+    }
     else
-	usr_name = strdup(user_name);
+        usr_name = strdup(user_name);
     
     if(connection_name == NULL)
-	conn_name = strdup("main");
+        conn_name = strdup("main");
     else
-	conn_name = strdup(connection_name);
+        conn_name = strdup(connection_name);
     
     env_port = getenv("SPEECHD_PORT");
     if (env_port != NULL)
-	port = strtol(env_port, NULL, 10);
+        port = strtol(env_port, NULL, 10);
     else
-	port = SPEECHD_DEFAULT_PORT;
+        port = SPEECHD_DEFAULT_PORT;
 
     connection = xmalloc(sizeof(SPDConnection));
     
