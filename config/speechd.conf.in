@@ -155,7 +155,7 @@ DefaultVolume 100
 
 # Maximum length of the buffer
 
-#AudioPulseMaxLength 132300
+#AudioPulseMaxLength -1
 
 # Target length of the buffer
 # The server tries to assure that at least FestivalPulseTargetLength
@@ -167,14 +167,14 @@ DefaultVolume 100
 # The server does not start with playback before at least 
 # FestivalPulsePrebuffering bytes are available in the buffer
 
-#AudioPulsePreBuffering 2200
+#AudioPulsePreBuffering -1
 
 # Minimum request
 # The server does not request less than FestivalPulseMinRequest bytes
 # from the client, instead waits until the buffer is free enough to
 # request more bytes at once
 
-#AudioPulseMinRequest 880
+#AudioPulseMinRequest -1
 
 # -- OSS parameters --
 
