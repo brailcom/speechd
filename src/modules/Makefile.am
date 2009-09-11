@@ -7,7 +7,7 @@ SNDFILE_LIBS = @SNDFILE_LIBS@
 
 EXTRA_DIST = module_main.c module_utils_addvoice.c festival_client.c festival_client.h ivona_client.c dummy.c dummy-message.wav
 
-AM_CFLAGS = -Wall -DLOCALEDIR=\"$(localedir)\" -DDATADIR=\"$(snddatadir)\" -I/usr/include/ $(inc_local) @glib_include@ -L$(top_srcdir)/src/audio -I$(top_srcdir)/src/audio -I../../intl/ $(ibmtts_include) @SNDFILE_CFLAGS@ -Wl,--rpath -Wl,$(spdlibdir)
+AM_CFLAGS = -Wall -DLOCALEDIR=\"$(localedir)\" -DDATADIR=\"$(snddatadir)\" -I/usr/include/ $(inc_local) @glib_include@ -L$(top_srcdir)/src/audio -I$(top_srcdir)/src/audio -I../../intl/ $(ibmtts_include) @SNDFILE_CFLAGS@ -Wl,--rpath -Wl,$(spdlibdir) -D_GNU_SOURCE
 
 modulebin_PROGRAMS = sd_dummy sd_generic sd_festival sd_cicero
 

@@ -21,9 +21,6 @@
  * $Id: module_main.c,v 1.17 2008-10-15 17:05:37 hanke Exp $
  */
 
-/* So that gcc doesn't comply */
-int getline(char**, size_t*, FILE*);
-
 #define PROCESS_CMD(command, function) \
 if (!strcmp(cmd_buf, #command"\n")){ \
  char *msg; \

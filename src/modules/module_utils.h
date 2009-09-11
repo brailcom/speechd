@@ -423,9 +423,6 @@ void module_report_event_pause(void);
 
 
 
-/* So that gcc doesn't complain */
-int getline(char**, size_t*, FILE*);
-
 pthread_mutex_t module_stdout_mutex;
 
 int module_utils_init(void);
