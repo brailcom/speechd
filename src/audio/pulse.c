@@ -1323,12 +1323,19 @@ pulse_open(AudioID *id, void **pars)
   ret = PULSE_OK;
 
   fail:
-    ERR("Failed to connect to pulse server.");
-    if (id->pulse_context != NULL)
-      pa_context_unref(id->pulse_context);
+    if (ret != PULSE_OK)
+      ERR("Failed to connect to pulse server.");
 
-    if (id->pulse_mainloop != NULL)
+    if (id->pulse_context != NULL) {
+      pa_context_disconnect(id->pulse_context);
+      pa_context_unref(id->pulse_context);
+      id->pulse_context = NULL;
+    }
+	
+    if (id->pulse_mainloop != NULL) {
       pa_mainloop_free(id->pulse_mainloop);
+      id->pulse_mainloop = NULL;
+    }
 
     return ret;
 }
