@@ -259,3 +259,5 @@ DefaultModule espeak
 Include "INCLUDE_PATH/clients/*.conf"
 Include "clients/*.conf"
 
+# This line below is to enable autospawning, without breaking everything else read by dotconf.
+# AutoSpawn

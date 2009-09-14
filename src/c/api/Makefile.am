@@ -11,3 +11,6 @@ libspeechd_ladir = $(includedir)
 libspeechd_la_LDFLAGS = -version-info @LIB_SPD_CURRENT@:@LIB_SPD_REVISION@:@LIB_SPD_AGE@ -lpthread
 libspeechd_la_LIBADD = @glib_libs@
 
+if ENABLE_SESSION
+AM_CFLAGS += -DSPD_SPAWN_CMD=\"@prefix@/bin/speechd-server-spawn\"
+endif

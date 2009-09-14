@@ -260,6 +260,14 @@ AC_ARG_WITH([bash-profile-dir],
 BASH_PROFILE_DIR=$with_bash_profile_dir
 AC_SUBST(BASH_PROFILE_DIR)
 
+AC_ARG_WITH([system-speechd-start-cmd],
+            AC_HELP_STRING([--with-system-speechd-start-cmd=COMMAND],
+                           [Specify the command that you want used when spawning the speech-dispatcher server as a system process (default is /etc/init.d/speech-dispatcher start)]),
+            with_system_speechd_start_cmd=$withval,
+            with_system_speechd_start_cmd="/etc/init.d/speech-dispatcher start")
+SPEECHD_SYSTEM_START_CMD=$with_system_speechd_start_cmd
+AC_SUBST(SPEECHD_SYSTEM_START_CMD)
+
 spdconfdir='${sysconfdir}/speech-dispatcher'
 AC_SUBST(spdconfdir)
 moduleconfdir='${spdconfdir}/modules' 

@@ -25,7 +25,13 @@ A more convenient interface is provided by the 'Speaker' class.
 
 #TODO: Blocking variants for speak, char, key, sound_icon.
 
-import socket, sys, os
+import socket, sys, os, subprocess, time
+
+# IF session integration has been enabled, the spawn module will be available.
+try:
+    import spawn
+except:
+    spawn = None
 
 try:
     import threading
@@ -110,11 +116,16 @@ class _SSIP_Connection:
                           704: CallbackType.PAUSE,
                           705: CallbackType.RESUME,
                           }
-    
+    if spawn:
+        speechd_server_pid = ''
+
     def __init__(self, host, port):
         """Init connection: open the socket to server,
         initialize buffers, launch a communication handling
         thread."""
+        if host == '127.0.0.1' and spawn:
+            self.speechd_server_pid = self.speechd_server_spawn()
+            time.sleep(0.5)
         self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._socket.connect((socket.gethostbyname(host), port))
         self._buffer = ""
@@ -303,7 +314,13 @@ class _SSIP_Connection:
         """
         self._callback = callback
 
-            
+    def speechd_server_spawn(self):
+        """Attempts to spawn the speech-dispatcher server."""
+        if os.path.exists(spawn.SPD_SPAWN_CMD):
+            speechd_server = subprocess.Popen([spawn.SPD_SPAWN_CMD],
+                        stdin=None, stdout=subprocess.PIPE, stderr=None)
+            return speechd_server.communicate()[0].rstrip('\n')
+
 class Scope(object):
     """An enumeration of valid SSIP command scopes.
 

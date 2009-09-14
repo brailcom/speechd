@@ -8,10 +8,13 @@ datarootdir = @datarootdir@
 SPD_CONF_PATH_PY="speechd_config/spd_conf_path.py"
 
 all:
-	echo "SPD_CONF_ORIG_PATH=\"@spdconforigdir@\"" > speechd_config/paths.py; \
-	echo "SPD_CONF_PATH=\"@spdconfdir@\"" >> speechd_config/paths.py; \
-	echo "SPD_SOUND_DATA_PATH=\"${DESTDIR}@snddatadir@\"" >> speechd_config/paths.py; \
-	echo "SPD_DESKTOP_CONF_PATH=\"${DESTDIR}@spddesktopconforigdir@\"" >> speechd_config/paths.py; \
+	echo "SPD_CONF_ORIG_PATH=\"@spdconforigdir@\"" > speechd_config/paths.py
+	echo "SPD_CONF_PATH=\"@spdconfdir@\"" >> speechd_config/paths.py
+	echo "SPD_SOUND_DATA_PATH=\"${DESTDIR}@snddatadir@\"" >> speechd_config/paths.py
+	echo "SPD_DESKTOP_CONF_PATH=\"${DESTDIR}@spddesktopconforigdir@\"" >> speechd_config/paths.py
+ifneq ($(ENABLE_SESSION_TRUE), "")
+	echo "SPD_SPAWN_CMD=\"@prefix@/bin/speechd-server-spawn\"" > speechd/spawn.py
+endif
 
 install:
 	if test -x /usr/bin/python; then \
@@ -35,6 +38,7 @@ clean:
 	rm -f *.pyc
 	rm -rf build
 	rm -f speechd_config/paths.py
+	rm -f speechd/spawn.py
 
 distclean: clean
 
