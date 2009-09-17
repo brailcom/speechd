@@ -90,11 +90,13 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
     int port;
     int ret;
     char tcp_no_delay = 1;
+#ifdef ENABLE_SESSION
     const char *pidof_speechd[] = { "pidof", "speech-dispatcher", NULL };
     const char *speechd_cmd[] = { SPD_SPAWN_CMD, NULL };
     gchar *speechd_pid = NULL;
     GError *error = NULL;
     gint exit_status;
+#endif
     
     if (client_name == NULL) return NULL;
     
@@ -137,11 +139,13 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
     SPD_DBG("Debugging started");
 #endif /* LIBSPEECHD_DEBUG */
     
+#ifdef ENABLE_SESSION
   /* Start the speech-dispatcher server if it isn't running. */
     if (g_spawn_sync(NULL, (gchar**)pidof_speechd, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, &speechd_pid, NULL, &exit_status, &error) && strlen(speechd_pid) == 0){
 	g_spawn_sync(NULL, (gchar**)speechd_cmd, NULL, G_SPAWN_SEARCH_PATH | G_SPAWN_STDOUT_TO_DEV_NULL | G_SPAWN_STDERR_TO_DEV_NULL, NULL, NULL, NULL, NULL, &exit_status, &error);
 	sleep(0.5);
     }
+#endif
 
   /* Connect to server */
     ret = connect(connection->socket, (struct sockaddr *)&address, sizeof(address));
