@@ -31,7 +31,7 @@
 #define MODULE_NAME     "festival"
 #define MODULE_VERSION  "0.5"
 
-DECLARE_DEBUG();
+DECLARE_DEBUG()
 
 /* Thread and process control */
 static pthread_t festival_speak_thread;
@@ -85,24 +85,24 @@ int init_festival_socket();
 
 int is_text(EMessageType msg_type);
 
-MOD_OPTION_1_INT(FestivalComunicationType);
+MOD_OPTION_1_INT(FestivalComunicationType)
 
-MOD_OPTION_1_INT(FestivalMaxChunkLength);
-MOD_OPTION_1_STR(FestivalDelimiters);
-MOD_OPTION_1_STR(FestivalServerHost);
-MOD_OPTION_1_STR(FestivalStripPunctChars);
-MOD_OPTION_1_INT(FestivalServerPort);
-MOD_OPTION_1_INT(FestivalPitchDeviation);
-MOD_OPTION_1_INT(FestivalDebugSaveOutput);
-MOD_OPTION_1_STR(FestivalRecodeFallback);
+MOD_OPTION_1_INT(FestivalMaxChunkLength)
+MOD_OPTION_1_STR(FestivalDelimiters)
+MOD_OPTION_1_STR(FestivalServerHost)
+MOD_OPTION_1_STR(FestivalStripPunctChars)
+MOD_OPTION_1_INT(FestivalServerPort)
+MOD_OPTION_1_INT(FestivalPitchDeviation)
+MOD_OPTION_1_INT(FestivalDebugSaveOutput)
+MOD_OPTION_1_STR(FestivalRecodeFallback)
 
-MOD_OPTION_1_INT(FestivalCacheOn);
-MOD_OPTION_1_INT(FestivalCacheMaxKBytes);
-MOD_OPTION_1_INT(FestivalCacheDistinguishVoices);
-MOD_OPTION_1_INT(FestivalCacheDistinguishRate);
-MOD_OPTION_1_INT(FestivalCacheDistinguishPitch);
+MOD_OPTION_1_INT(FestivalCacheOn)
+MOD_OPTION_1_INT(FestivalCacheMaxKBytes)
+MOD_OPTION_1_INT(FestivalCacheDistinguishVoices)
+MOD_OPTION_1_INT(FestivalCacheDistinguishRate)
+MOD_OPTION_1_INT(FestivalCacheDistinguishPitch)
 
-MOD_OPTION_1_INT(FestivalReopenSocket);
+MOD_OPTION_1_INT(FestivalReopenSocket)
 
 typedef struct{
     size_t size;

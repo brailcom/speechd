@@ -31,12 +31,29 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
+#include <ctype.h>
 
 #include "def.h"
 
 #define FATAL(msg) { printf(msg"\n"); exit(1); }
 
 int sockk;
+
+#ifdef __SUNPRO_C
+/* Added by Willie Walker - strcasestr is a gcc-ism
+ */
+char *strcasestr (const char *a, const char *b)
+{
+       size_t l;
+       char f[3];
+
+       snprintf (f, sizeof(f), "%c%c", tolower(*b), toupper(*b));
+       for (l = strcspn(a, f); l != strlen(a); l += strcspn(a+l+1, f) + 1)
+               if (strncasecmp(a+l, b, strlen(b)) == 0)
+                       return (a + l);
+       return NULL;
+}
+#endif /* __SUNPRO_C */
 
 char*
 send_data(int fd, char *message, int wfr)

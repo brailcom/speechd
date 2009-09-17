@@ -33,7 +33,7 @@
 #define MODULE_VERSION  "0.3"
 
 // #define DEBUG_MODULE 1
-DECLARE_DEBUG();
+DECLARE_DEBUG()
 
 /* Thread and process control */
 static int cicero_speaking = 0;

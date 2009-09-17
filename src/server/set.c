@@ -85,7 +85,7 @@ set_priority_uid(int uid, int priority)
       return 0; \
    }
 
-SET_SELF_ALL(int, rate);
+SET_SELF_ALL(int, rate)
 
 int
 set_rate_uid(int uid, int rate)
@@ -101,7 +101,7 @@ set_rate_uid(int uid, int rate)
     return 0;
 }
 
-SET_SELF_ALL(int, pitch);
+SET_SELF_ALL(int, pitch)
 
 
 int
@@ -118,7 +118,7 @@ set_pitch_uid(int uid, int pitch)
     return 0;
 }
 
-SET_SELF_ALL(int, volume);
+SET_SELF_ALL(int, volume)
 
 int
 set_volume_uid(int uid, int volume)
@@ -210,7 +210,7 @@ set_spelling_uid(int uid, ESpellMode spelling)
     return 0;
 }
 
-SET_SELF_ALL(char*, language);
+SET_SELF_ALL(char*, language)
 
 int
 set_language_uid(int uid, char *language)
@@ -231,7 +231,7 @@ set_language_uid(int uid, char *language)
     return 0;
 }
 
-SET_SELF_ALL(char*, synthesis_voice);
+SET_SELF_ALL(char*, synthesis_voice)
 
 int
 set_synthesis_voice_uid(int uid, char *synthesis_voice)
@@ -314,7 +314,7 @@ set_client_name_self(int fd, char *client_name)
     return 0;
 }
 
-SET_SELF_ALL(char*, output_module);
+SET_SELF_ALL(char*, output_module)
 
 int
 set_output_module_uid(int uid, char* output_module)
@@ -340,7 +340,7 @@ set_output_module_uid(int uid, char* output_module)
     return 0;
 }
 
-SET_SELF_ALL(int, pause_context);
+SET_SELF_ALL(int, pause_context)
 
 int
 set_pause_context_uid(int uid, int pause_context)
@@ -354,7 +354,7 @@ set_pause_context_uid(int uid, int pause_context)
     return 0;
 }
 
-SET_SELF_ALL(int, ssml_mode);
+SET_SELF_ALL(int, ssml_mode)
 
 int
 set_ssml_mode_uid(int uid, int ssml_mode)
@@ -368,7 +368,8 @@ set_ssml_mode_uid(int uid, int ssml_mode)
     return 0;
 }
 
-SET_SELF_ALL(int, debug);
+SET_SELF_ALL(int, debug)
+
 int
 set_debug_uid(int uid, int debug)
 {

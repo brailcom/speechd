@@ -26,6 +26,88 @@
 #include "fdsetconv.c"
 #include "parse.h"
 
+#ifdef TEMP_FAILURE_RETRY	/* GNU libc */
+#define safe_write(fd, buf, count) TEMP_FAILURE_RETRY(write(fd, buf, count))
+#else /* TEMP_FAILURE_RETRY */
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+static inline ssize_t
+safe_write(int fd, const void *buf, size_t count) {
+	do {
+		ssize_t w = write(fd, buf, count);
+
+		if (w == -1 && errno == EINTR) continue;
+		return w;
+	} while (1);
+}
+#endif /* TEMP_FAILURE_RETRY */
+
+#ifdef __SUNPRO_C
+/* Added by Willie Walker - strndup, and getline are gcc-isms
+ */
+char *strndup ( const char *s, size_t n)
+{
+        size_t nAvail;
+        char *p;
+
+        if ( !s )
+                return 0;
+
+        if ( strlen(s) > n )
+                nAvail = n + 1;
+        else
+                nAvail = strlen(s) + 1;
+        p = malloc ( nAvail );
+        memcpy ( p, s, nAvail );
+        p[nAvail - 1] = '\0';
+
+        return p;
+}
+
+#define BUFFER_LEN 256
+ssize_t getline (char **lineptr, size_t *n, FILE *f)
+{
+        char ch;
+        size_t m = 0;
+        ssize_t buf_len = 0;
+        char * buf = NULL;
+        char * p = NULL;
+
+	if (errno != 0) {
+	        errno = 0;
+	}
+        while ( (ch = getc(f)) !=EOF )
+        {
+                if (errno != 0)
+                        return -1;
+                if ( m++ >= buf_len )
+                {
+                        buf_len += BUFFER_LEN;
+                        buf = (char *) realloc(buf, buf_len + 1);
+                        if ( buf == NULL )
+                        {
+                                return -1;
+                        }
+                        p = buf + buf_len - BUFFER_LEN;
+                }
+                *p = ch;
+                p++;
+                if ( ch == '\n' )
+                        break;
+        }
+        if ( m == 0 )
+        {
+                return -1;
+        } else {
+                *p = '\0';
+                *lineptr = buf;
+                *n = m;
+                return m;
+        }
+}
+#endif /* __SUNPRO_C */
+
 void
 output_set_speaking_monitor(TSpeechDMessage *msg, OutputModule *output)
 {
@@ -184,7 +266,7 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
     if (output == NULL) return -1;
     if (cmd == NULL) return -1;
     
-    ret = TEMP_FAILURE_RETRY(write(output->pipe_in[1], cmd, strlen(cmd)));
+    ret = safe_write(output->pipe_in[1], cmd, strlen(cmd));
     fflush(NULL);
     if (ret == -1){
         MSG(2, "Error: Broken pipe to module.");        
@@ -794,5 +876,3 @@ escape_dot(char *otext)
 
     return ret;
 }
-
-

@@ -30,6 +30,13 @@
 #include "speechd.h"
 #include "output.h"
 
+#ifdef __SUNPRO_C
+/* Added by Willie Walker - TEMP_FAILURE_RETRY, strndup, and getline
+ * are gcc-isms
+ */
+ssize_t getline (char **lineptr, size_t *n, FILE *f);
+#endif /* __SUNPRO_C */
+
 void
 destroy_module(OutputModule *module)
 {

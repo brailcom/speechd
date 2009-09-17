@@ -54,7 +54,7 @@
 #define MODULE_VERSION  "0.1"
 
 #define DEBUG_MODULE 1
-DECLARE_DEBUG();
+DECLARE_DEBUG()
 
 #define DBG_WARN(e, msg)						\
 	if (Debug && !(e)) {						\
@@ -189,14 +189,14 @@ static void* _espeak_stop_or_pause(void*);
 /* > */
 /* < Module configuration options*/
 
-MOD_OPTION_1_INT(EspeakPitchRange);
-MOD_OPTION_1_STR(EspeakPunctuationList);
-MOD_OPTION_1_INT(EspeakCapitalPitchRise);
+MOD_OPTION_1_INT(EspeakPitchRange)
+MOD_OPTION_1_STR(EspeakPunctuationList)
+MOD_OPTION_1_INT(EspeakCapitalPitchRise)
  
-MOD_OPTION_1_INT(EspeakAudioChunkSize);
-MOD_OPTION_1_INT(EspeakAudioQueueMaxSize);
-MOD_OPTION_1_STR(EspeakSoundIconFolder);
-MOD_OPTION_1_INT(EspeakSoundIconVolume);
+MOD_OPTION_1_INT(EspeakAudioChunkSize)
+MOD_OPTION_1_INT(EspeakAudioQueueMaxSize)
+MOD_OPTION_1_STR(EspeakSoundIconFolder)
+MOD_OPTION_1_INT(EspeakSoundIconVolume)
 
 /* > */
 /* < Public functions */
@@ -1222,7 +1222,7 @@ espeak_list_synthesis_voices()
 
 			voice->name = g_strdup(v->name);
 
-			gchar *first_lang = v->languages + 1;
+			const gchar *first_lang = v->languages + 1;
 			gchar *lang = NULL;
 			gchar *dialect = NULL;
 			if (g_utf8_validate(first_lang, -1, NULL)) {

@@ -27,6 +27,7 @@
 #include <wctype.h>
 #include <libspeechd.h>
 #include <signal.h>
+#include <unistd.h>
 
 SPDConnection*
 try_to_reconnect(void)

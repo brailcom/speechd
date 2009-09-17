@@ -50,6 +50,44 @@ int server_socket;
 
 void speechd_load_configuration(int sig);
 
+#ifdef __SUNPRO_C
+/* Added by Willie Walker - daemon is a gcc-ism
+ */
+#include <sys/filio.h>
+static int daemon(int nochdir, int noclose)
+{
+       int fd, i;
+
+       switch (fork()) {
+               case 0:
+                       break;
+               case -1:
+                       return -1;
+               default:
+                       _exit(0);
+       }
+
+       if (!nochdir) {
+               chdir("/");
+       }
+
+       if (setsid() < 0) {
+               return -1;
+       }
+
+       if (!noclose) {
+               if (fd = open("/dev/null", O_RDWR) >= 0) {
+                       for (i = 0; i < 3; i++) {
+                               dup2(fd, i);
+                       }
+                       if (fd > 2) {
+                               close(fd);
+                       }
+               }
+       }
+       return 0;
+}
+#endif /* __SUNPRO_C */
 
 char*
 spd_get_path(char *filename, char* startdir)

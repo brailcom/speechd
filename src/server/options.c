@@ -24,6 +24,8 @@
 /* NOTE: Be careful not to include options.h, we would
    get repetitive initializations warnings */
 
+#include <sys/stat.h>
+
 #include "speechd.h"
 
 #include "options.h"

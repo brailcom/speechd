@@ -70,6 +70,73 @@ static _SPDString spd_string_new(void);
 
 pthread_mutex_t spd_logging_mutex;
 
+#ifdef __SUNPRO_C
+/* Added by Willie Walker - strndup and getline are gcc-isms */
+char *strndup ( const char *s, size_t n)
+{
+        size_t nAvail;
+        char *p;
+
+        if ( !s )
+                return 0;
+
+        if ( strlen(s) > n )
+                nAvail = n + 1;
+        else
+                nAvail = strlen(s) + 1;
+        p = malloc ( nAvail );
+        memcpy ( p, s, nAvail );
+        p[nAvail - 1] = '\0';
+
+        return p;
+}
+
+#define BUFFER_LEN 256
+ssize_t getline (char **lineptr, size_t *n, FILE *f)
+{
+        char ch;
+        size_t m = 0;
+        ssize_t buf_len = 0;
+        char * buf = NULL;
+        char * p = NULL;
+
+	if (errno != 0) {
+                SPD_DBG("getline: errno came in as %d!!!\n", errno);
+	        errno = 0;
+	}
+        while ( (ch = getc(f)) !=EOF )
+        {
+                if (errno != 0)
+                        return -1;
+                if ( m++ >= buf_len )
+                {
+                        buf_len += BUFFER_LEN;
+                        buf = (char *) realloc(buf, buf_len + 1);
+                        if ( buf == NULL )
+                        {
+                                SPD_DBG("buf==NULL");
+                                return -1;
+                        }
+                        p = buf + buf_len - BUFFER_LEN;
+                }
+                *p = ch;
+                p++;
+                if ( ch == '\n' )
+                        break;
+        }
+        if ( m == 0 )
+        {
+                SPD_DBG("getline: m=%d!",m);
+                return -1;
+        } else {
+                *p = '\0';
+                *lineptr = buf;
+                *n = m;
+                return m;
+        }
+}
+#endif /* __SUNPRO_C */
+
 /* --------------------- Public functions ------------------------- */
 
 #define SPD_REPLY_BUF_SIZE 65536
@@ -672,18 +739,18 @@ spd_w_set_voice_type(SPDConnection *connection, SPDVoiceType type, const char *w
         return spd_w_set_ ## param (connection, val, who); \
     }
 
-SPD_SET_COMMAND_INT(voice_rate, RATE, ((val >= -100) && (val <= +100)) );
-SPD_SET_COMMAND_INT(voice_pitch, PITCH, ((val >= -100) && (val <= +100)) );
-SPD_SET_COMMAND_INT(volume, VOLUME, ((val >= -100) && (val <= +100)) );
+SPD_SET_COMMAND_INT(voice_rate, RATE, ((val >= -100) && (val <= +100)) )
+SPD_SET_COMMAND_INT(voice_pitch, PITCH, ((val >= -100) && (val <= +100)) )
+SPD_SET_COMMAND_INT(volume, VOLUME, ((val >= -100) && (val <= +100)) )
 
-SPD_SET_COMMAND_STR(language, LANGUAGE);
-SPD_SET_COMMAND_STR(output_module, OUTPUT_MODULE);
-SPD_SET_COMMAND_STR(synthesis_voice, SYNTHESIS_VOICE);
+SPD_SET_COMMAND_STR(language, LANGUAGE)
+SPD_SET_COMMAND_STR(output_module, OUTPUT_MODULE)
+SPD_SET_COMMAND_STR(synthesis_voice, SYNTHESIS_VOICE)
 
-SPD_SET_COMMAND_SPECIAL(punctuation, SPDPunctuation);
-SPD_SET_COMMAND_SPECIAL(capital_letters, SPDCapitalLetters);
-SPD_SET_COMMAND_SPECIAL(spelling, SPDSpelling);
-SPD_SET_COMMAND_SPECIAL(voice_type, SPDVoiceType);
+SPD_SET_COMMAND_SPECIAL(punctuation, SPDPunctuation)
+SPD_SET_COMMAND_SPECIAL(capital_letters, SPDCapitalLetters)
+SPD_SET_COMMAND_SPECIAL(spelling, SPDSpelling)
+SPD_SET_COMMAND_SPECIAL(voice_type, SPDVoiceType)
 
 
 #undef SPD_SET_COMMAND_INT

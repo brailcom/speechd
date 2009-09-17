@@ -25,7 +25,7 @@ install:
 	cp speechd_config/test.wav ${DESTDIR}@snddatadir@
 
 	if test ! -d ${DESTDIR}@spddesktopconforigdir@; then \
-		mkdir ${DESTDIR}@spddesktopconforigdir@; \
+		mkdir -p ${DESTDIR}@spddesktopconforigdir@; \
 	fi
 
 	cp speechd_config/speechd.desktop ${DESTDIR}@spddesktopconforigdir@/

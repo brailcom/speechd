@@ -168,36 +168,36 @@ free_config_options(configoption_t *opts, int *num)
    }
 
 /* == CALLBACK DEFINITIONS == */
-GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module);
-GLOBAL_FDSET_OPTION_CB_STR(DefaultLanguage, language);
-GLOBAL_FDSET_OPTION_CB_STR(DefaultClientName, client_name);
+GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module)
+GLOBAL_FDSET_OPTION_CB_STR(DefaultLanguage, language)
+GLOBAL_FDSET_OPTION_CB_STR(DefaultClientName, client_name)
 
-GLOBAL_FDSET_OPTION_CB_STR(AudioOutputMethod, audio_output_method);
-GLOBAL_FDSET_OPTION_CB_STR(AudioOSSDevice, audio_oss_device);
-GLOBAL_FDSET_OPTION_CB_STR(AudioALSADevice, audio_alsa_device);
-GLOBAL_FDSET_OPTION_CB_STR(AudioNASServer, audio_nas_server);
-GLOBAL_FDSET_OPTION_CB_STR(AudioPulseServer, audio_pulse_server);
+GLOBAL_FDSET_OPTION_CB_STR(AudioOutputMethod, audio_output_method)
+GLOBAL_FDSET_OPTION_CB_STR(AudioOSSDevice, audio_oss_device)
+GLOBAL_FDSET_OPTION_CB_STR(AudioALSADevice, audio_alsa_device)
+GLOBAL_FDSET_OPTION_CB_STR(AudioNASServer, audio_nas_server)
+GLOBAL_FDSET_OPTION_CB_STR(AudioPulseServer, audio_pulse_server)
 
-GLOBAL_FDSET_OPTION_CB_INT(AudioPulseMaxLength, audio_pulse_max_length, 1, "");
-GLOBAL_FDSET_OPTION_CB_INT(AudioPulseTargetLength, audio_pulse_target_length, 1, "");
-GLOBAL_FDSET_OPTION_CB_INT(AudioPulsePreBuffering, audio_pulse_pre_buffering, 1, "");
-GLOBAL_FDSET_OPTION_CB_INT(AudioPulseMinRequest, audio_pulse_min_request, 1, "");
+GLOBAL_FDSET_OPTION_CB_INT(AudioPulseMaxLength, audio_pulse_max_length, 1, "")
+GLOBAL_FDSET_OPTION_CB_INT(AudioPulseTargetLength, audio_pulse_target_length, 1, "")
+GLOBAL_FDSET_OPTION_CB_INT(AudioPulsePreBuffering, audio_pulse_pre_buffering, 1, "")
+GLOBAL_FDSET_OPTION_CB_INT(AudioPulseMinRequest, audio_pulse_min_request, 1, "")
 
-GLOBAL_FDSET_OPTION_CB_INT(DefaultRate, rate, (val>=-100)&&(val<=+100), "Rate out of range.");
-GLOBAL_FDSET_OPTION_CB_INT(DefaultPitch, pitch, (val>=-100)&&(val<=+100), "Pitch out of range.");
-GLOBAL_FDSET_OPTION_CB_INT(DefaultVolume, volume, (val>=-100)&&(val<=+100), "Volume out of range.");
-GLOBAL_FDSET_OPTION_CB_INT(DefaultSpelling, spelling_mode, 1, "Invalid spelling mode");
-GLOBAL_FDSET_OPTION_CB_INT(DefaultPauseContext, pause_context, 1, "");
+GLOBAL_FDSET_OPTION_CB_INT(DefaultRate, rate, (val>=-100)&&(val<=+100), "Rate out of range.")
+GLOBAL_FDSET_OPTION_CB_INT(DefaultPitch, pitch, (val>=-100)&&(val<=+100), "Pitch out of range.")
+GLOBAL_FDSET_OPTION_CB_INT(DefaultVolume, volume, (val>=-100)&&(val<=+100), "Volume out of range.")
+GLOBAL_FDSET_OPTION_CB_INT(DefaultSpelling, spelling_mode, 1, "Invalid spelling mode")
+GLOBAL_FDSET_OPTION_CB_INT(DefaultPauseContext, pause_context, 1, "")
 
-GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPriority, priority, int, str2intpriority);
-GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultVoiceType, voice, EVoiceType, str2EVoice);
-GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPunctuationMode, punctuation_mode, EPunctMode, str2EPunctMode);
-GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultCapLetRecognition, cap_let_recogn, ECapLetRecogn, str2ECapLetRecogn);
+GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPriority, priority, int, str2intpriority)
+GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultVoiceType, voice, EVoiceType, str2EVoice)
+GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPunctuationMode, punctuation_mode, EPunctMode, str2EPunctMode)
+GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultCapLetRecognition, cap_let_recogn, ECapLetRecogn, str2ECapLetRecogn)
 
-SPEECHD_OPTION_CB_INT_M(LocalhostAccessOnly, localhost_access_only, val>=0, "Invalid access controll mode!");
-SPEECHD_OPTION_CB_INT_M(Port, port, val>=0, "Invalid port number!");
-GLOBAL_SET_LOGLEVEL(LogLevel, log_level, (val>=0)&&(val<=5), "Invalid log (verbosity) level!");
-SPEECHD_OPTION_CB_INT(MaxHistoryMessages, max_history_messages, val>=0, "Invalid parameter!");
+SPEECHD_OPTION_CB_INT_M(LocalhostAccessOnly, localhost_access_only, val>=0, "Invalid access controll mode!")
+SPEECHD_OPTION_CB_INT_M(Port, port, val>=0, "Invalid port number!")
+GLOBAL_SET_LOGLEVEL(LogLevel, log_level, (val>=0)&&(val<=5), "Invalid log (verbosity) level!")
+SPEECHD_OPTION_CB_INT(MaxHistoryMessages, max_history_messages, val>=0, "Invalid parameter!")
 
 DOTCONF_CB(cb_LanguageDefaultModule)
 {
@@ -444,7 +444,12 @@ load_default_global_set_options()
     GlobalFDSet.ssml_mode = 0;
     GlobalFDSet.notification = NOTIFY_NOTHING;
 
+#ifdef __SUNPRO_C
+/* Added by Willie Walker - default to OSS for Solaris */
+    GlobalFDSet.audio_output_method = strdup("oss");
+#else
     GlobalFDSet.audio_output_method = strdup("pulse,alsa");
+#endif /* __SUNPRO_C */
     GlobalFDSet.audio_oss_device = strdup("/dev/dsp");
     GlobalFDSet.audio_alsa_device = strdup("default");
     GlobalFDSet.audio_nas_server = strdup("tcp/localhost:5450");

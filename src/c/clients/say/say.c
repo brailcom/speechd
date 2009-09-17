@@ -27,7 +27,6 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <semaphore.h>
-#include <error.h>
 #include <errno.h>
 #include "libspeechd.h"
 #include "options.h"

@@ -435,7 +435,7 @@ festival_accept_any_response(FT_Info *info)
         FILE *fd; \
         char *str; \
         fd = fdopen(dup(info->server_fd),"wb"); \
-        if (fd > 0){ \
+        if (fd != NULL){ \
           str = g_strdup_printf(format"\n"); \
           fprintf(fd, str); \
           DBG("-> Festival: |%s|", str); \
@@ -451,7 +451,7 @@ festival_accept_any_response(FT_Info *info)
         FILE *fd; \
         char *str; \
         fd = fdopen(dup(info->server_fd),"wb"); \
-        if (fd > 0){ \
+        if (fd != NULL){ \
           str = g_strdup_printf(format"\n", args); \
           fprintf(fd, str); \
           DBG("-> Festival: |%s|", str); \
@@ -589,11 +589,11 @@ festival_speak_command(FT_Info *info, char *command, const char *text, int symbo
  * in response.
  * Returns 0 if everything is ok, -1 otherwise.
 */
-FEST_SPEAK_CMD(festivalStringToWaveRequest, "speechd-speak-ssml", 0, 1);
-FEST_SPEAK_CMD(festivalSpell, "speechd-spell", 0, 1);
-FEST_SPEAK_CMD(festivalSoundIcon, "speechd-sound-icon", 1, 0);
-FEST_SPEAK_CMD(festivalCharacter, "speechd-character", 0, 0);
-FEST_SPEAK_CMD(festivalKey, "speechd-key", 0, 0);
+FEST_SPEAK_CMD(festivalStringToWaveRequest, "speechd-speak-ssml", 0, 1)
+FEST_SPEAK_CMD(festivalSpell, "speechd-spell", 0, 1)
+FEST_SPEAK_CMD(festivalSoundIcon, "speechd-sound-icon", 1, 0)
+FEST_SPEAK_CMD(festivalCharacter, "speechd-character", 0, 0)
+FEST_SPEAK_CMD(festivalKey, "speechd-key", 0, 0)
 
 /* Reads the wavefile sent back after festivalStringToWaveRequest()
  * has been called. This function blocks until all the data is
@@ -859,15 +859,15 @@ VoiceDescription** festivalGetVoices(FT_Info *info)
         return festival_read_response(info, NULL); \
     }
 
-FEST_SET_SYMB(FestivalSetMultiMode, "speechd-enable-multi-mode");
+FEST_SET_SYMB(FestivalSetMultiMode, "speechd-enable-multi-mode")
 
-FEST_SET_INT(FestivalSetRate, "speechd-set-rate");
-FEST_SET_INT(FestivalSetPitch, "speechd-set-pitch");
-FEST_SET_SYMB(FestivalSetPunctuationMode, "speechd-set-punctuation-mode");
-FEST_SET_STR(FestivalSetCapLetRecogn, "speechd-set-capital-character-recognition-mode");
-FEST_SET_STR(FestivalSetLanguage, "speechd-set-language");
-FEST_SET_STR(FestivalSetVoice, "speechd-set-voice");
-FEST_SET_SYMB(FestivalSetSynthesisVoice, "speechd-set-festival-voice");
+FEST_SET_INT(FestivalSetRate, "speechd-set-rate")
+FEST_SET_INT(FestivalSetPitch, "speechd-set-pitch")
+FEST_SET_SYMB(FestivalSetPunctuationMode, "speechd-set-punctuation-mode")
+FEST_SET_STR(FestivalSetCapLetRecogn, "speechd-set-capital-character-recognition-mode")
+FEST_SET_STR(FestivalSetLanguage, "speechd-set-language")
+FEST_SET_STR(FestivalSetVoice, "speechd-set-voice")
+FEST_SET_SYMB(FestivalSetSynthesisVoice, "speechd-set-festival-voice")
 
 
 static FT_Info *festivalDefaultInfo()
@@ -938,3 +938,4 @@ int main(int argc, char **argv)
     return 0;
 }
 #endif
+

@@ -21,6 +21,11 @@
  * $Id: module_main.c,v 1.17 2008-10-15 17:05:37 hanke Exp $
  */
 
+#ifdef __SUNPRO_C
+/* Added by Willie Walker - getline is a gcc-ism */
+ssize_t getline (char **lineptr, size_t *n, FILE *f);
+#endif
+
 #define PROCESS_CMD(command, function) \
 if (!strcmp(cmd_buf, #command"\n")){ \
  char *msg; \

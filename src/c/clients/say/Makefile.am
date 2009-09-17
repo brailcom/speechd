@@ -7,4 +7,4 @@ AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_incl
 
 bin_PROGRAMS = spd-say
 spd_say_SOURCES = say.c options.c options.h $(c_api)/libspeechd.h
-spd_say_LDADD = $(c_api)/libspeechd.la
+spd_say_LDADD = $(c_api)/libspeechd.la @EXTRA_SOCKET_LIBS@

@@ -134,12 +134,22 @@ AM_CONDITIONAL(ibmtts_support, test $ibmtts_ok = "true")
 
 AC_SUBST(ibmtts_include)
 
+# Additional library check added by Willie Walker to account
+# for how the SunStudio CC compiler works.
+#
 dnl check for espeak support
+if test "$GCC" = yes; then
+    EXTRA_ESPEAK_LIBS="-lpthread -lm"
+else
+    EXTRA_ESPEAK_LIBS="-lpthread -lm -lCstd -lCrun"
+fi
+AC_SUBST(EXTRA_ESPEAK_LIBS)
+
 AC_CHECK_LIB(espeak,
-espeak_Initialize,
+espeak_Synth,
 		espeak_ok="true"; echo "Compiling with espeak support.",
 		espeak_ok="false"; echo "Espeak not found.",
-         	-lpthread -lm)
+		$EXTRA_ESPEAK_LIBS)
 
 AC_ARG_WITH(espeak, AS_HELP_STRING(--with-espeak, Compile with espeak support),
 		 if test $withval = "no"; then 
@@ -310,6 +320,26 @@ LIB_SPD_AGE=1
 AC_SUBST(LIB_SPD_CURRENT)
 AC_SUBST(LIB_SPD_REVISION)
 AC_SUBST(LIB_SPD_AGE)
+
+# Extra libraries for sockets added by Willie Walker
+# based upon how SunStudio libraries work.  Also
+# conditionally set other compiler/linker flags.
+#
+if test "$GCC" = yes; then
+    EXTRA_SOCKET_LIBS=""
+    ERROR_CFLAGS="-Wall"
+    RPATH="-rpath"
+    RDYNAMIC="-rdynamic"
+else
+    EXTRA_SOCKET_LIBS="-lsocket -lnsl"
+    ERROR_CFLAGS="-errwarn=%all -errtags=yes -erroff=E_STATEMENT_NOT_REACHED"
+    RPATH="-R"
+    RDYNAMIC=""
+fi
+AC_SUBST(EXTRA_SOCKET_LIBS)
+AC_SUBST(ERROR_CFLAGS)
+AC_SUBST(RPATH)
+AC_SUBST(RDYNAMIC)
 
 AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/c/Makefile src/c/api/Makefile src/c/clients/Makefile src/c/clients/say/Makefile src/c/clients/spdsend/Makefile src/tests/Makefile src/audio/Makefile config/Makefile config/modules/Makefile config/clients/Makefile doc/Makefile src/python/Makefile src/session/Makefile])
 

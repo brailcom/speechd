@@ -32,7 +32,7 @@
 #define MODULE_NAME     "generic"
 #define MODULE_VERSION  "0.2"
 
-DECLARE_DEBUG();
+DECLARE_DEBUG()
 
 /* Thread and process control */
 static int generic_speaking = 0;
@@ -64,25 +64,25 @@ void generic_set_punct(EPunctMode punct);
 
 /* Fill the module_info structure with pointers to this modules functions */
 
-MOD_OPTION_1_STR(GenericExecuteSynth);
-MOD_OPTION_1_INT(GenericMaxChunkLength);
-MOD_OPTION_1_STR(GenericDelimiters);
-MOD_OPTION_1_STR(GenericPunctNone);
-MOD_OPTION_1_STR(GenericPunctSome);
-MOD_OPTION_1_STR(GenericPunctAll);
-MOD_OPTION_1_STR(GenericStripPunctChars);
-MOD_OPTION_1_STR(GenericRecodeFallback);
+MOD_OPTION_1_STR(GenericExecuteSynth)
+MOD_OPTION_1_INT(GenericMaxChunkLength)
+MOD_OPTION_1_STR(GenericDelimiters)
+MOD_OPTION_1_STR(GenericPunctNone)
+MOD_OPTION_1_STR(GenericPunctSome)
+MOD_OPTION_1_STR(GenericPunctAll)
+MOD_OPTION_1_STR(GenericStripPunctChars)
+MOD_OPTION_1_STR(GenericRecodeFallback)
 
-MOD_OPTION_1_INT(GenericRateAdd);
-MOD_OPTION_1_FLOAT(GenericRateMultiply);
-MOD_OPTION_1_INT(GenericRateForceInteger);
-MOD_OPTION_1_INT(GenericPitchAdd);
-MOD_OPTION_1_FLOAT(GenericPitchMultiply);
-MOD_OPTION_1_INT(GenericPitchForceInteger);
-MOD_OPTION_1_INT(GenericVolumeAdd);
-MOD_OPTION_1_FLOAT(GenericVolumeMultiply);
-MOD_OPTION_1_INT(GenericVolumeForceInteger);
-MOD_OPTION_3_HT(GenericLanguage, code, name, charset);
+MOD_OPTION_1_INT(GenericRateAdd)
+MOD_OPTION_1_FLOAT(GenericRateMultiply)
+MOD_OPTION_1_INT(GenericRateForceInteger)
+MOD_OPTION_1_INT(GenericPitchAdd)
+MOD_OPTION_1_FLOAT(GenericPitchMultiply)
+MOD_OPTION_1_INT(GenericPitchForceInteger)
+MOD_OPTION_1_INT(GenericVolumeAdd)
+MOD_OPTION_1_FLOAT(GenericVolumeMultiply)
+MOD_OPTION_1_INT(GenericVolumeForceInteger)
+MOD_OPTION_3_HT(GenericLanguage, code, name, charset)
 
 static char generic_msg_pitch_str[16];
 static char generic_msg_rate_str[16];
@@ -371,7 +371,7 @@ _generic_speak(void* nothing)
 		char *e_string;
 		char *p;	       
 		char *tmpdir, *homedir;
-		char *helper;
+		const char *helper;
 		char *play_command;
 		
 		helper = getenv("TMPDIR");

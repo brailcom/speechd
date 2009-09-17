@@ -32,6 +32,50 @@
 
 const char *const VERSION = "0.0.0";
 
+#ifdef __SUNPRO_C
+/* Added by Willie Walker - getline is a gcc-ism */
+#define BUFFER_LEN 256
+ssize_t getline (char **lineptr, size_t *n, FILE *f)
+{
+        char ch;
+        size_t m = 0;
+        ssize_t buf_len = 0;
+        char * buf = NULL;
+        char * p = NULL;
+
+	if (errno != 0) {
+	        errno = 0;
+	}
+        while ( (ch = getc(f)) !=EOF )
+        {
+                if (errno != 0)
+                        return -1;
+                if ( m++ >= buf_len )
+                {
+                        buf_len += BUFFER_LEN;
+                        buf = (char *) realloc(buf, buf_len + 1);
+                        if ( buf == NULL )
+                        {
+                                return -1;
+                        }
+                        p = buf + buf_len - BUFFER_LEN;
+                }
+                *p = ch;
+                p++;
+                if ( ch == '\n' )
+                        break;
+        }
+        if ( m == 0 )
+        {
+                return -1;
+        } else {
+                *p = '\0';
+                *lineptr = buf;
+                *n = m;
+                return m;
+        }
+}
+#endif /* __SUNPRO_C */
 
 static void usage (const char *const message)
 {
