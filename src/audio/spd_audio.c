@@ -27,7 +27,7 @@
  * playing 8 or 16 bit data, immediate stop and synchronization. This library
  * currently provides OSS, NAS, ALSA and PulseAudio backend. The available backends are
  * specified at compile-time using the directives WITH_OSS, WITH_NAS, WITH_ALSA, 
- * WITH_PULSE, but the user program is allowed to switch between them at run-time.
+ * WITH_PULSE, WITH_LIBAO but the user program is allowed to switch between them at run-time.
  */
 
 #include "spd_audio.h"
@@ -46,6 +46,9 @@
 /* The OSS backend */
 #ifdef WITH_OSS
 #include "oss.c"
+#endif
+#ifdef WITH_LIBAO
+#include "libao.c"
 #endif
 
 /* The NAS backend */
@@ -116,6 +119,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 	*error = strdup("The sound library wasn't compiled with OSS support.");
 	return NULL;
 #endif       
+
     }
     else if (type == AUDIO_ALSA){
 #ifdef WITH_ALSA
@@ -177,6 +181,27 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 	id->type = AUDIO_PULSE;
 #else
 	*error = strdup("The sound library wasn't compiled with PulseAudio support.");
+	return NULL;
+#endif
+    }
+    else if (type == AUDIO_LIBAO){
+#ifdef WITH_LIBAO
+	id->function = (Funct*) &libao_functions;
+
+	if (id->function->open != NULL){
+	    ret = id->function->open(id, pars);
+	    if (ret != 0){
+		*error = (char*) strdup("Couldn't open libao");
+		return NULL;
+	    }
+	}
+	else{
+	    *error = (char*) strdup("Couldn't open libao  module.");
+	    return NULL;
+	}
+	id->type = AUDIO_LIBAO;
+#else
+	*error = strdup("The sound library wasn't compiled with libao support.");
 	return NULL;
 #endif
     }

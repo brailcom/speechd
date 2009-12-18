@@ -18,12 +18,16 @@ if alsa_support
 ALSA_FLAGS = -DWITH_ALSA
 ALSA_LIBS = -lasound
 endif
+if libao_support
+LIBAO_FLAGS = -DWITH_LIBAO
+LIBAO_LIBS = -lao
+endif
 
 
-EXTRA_DIST = alsa.c oss.c nas.c pulse.c
+EXTRA_DIST = alsa.c libao.c oss.c nas.c pulse.c
 
-AM_CFLAGS = $(am_cflags) $(NAS_FLAGS) $(PULSE_FLAGS) $(ALSA_FLAGS)
-libsdaudio_la_LDFLAGS = -version-info @LIB_SDAUDIO_CURRENT@:@LIB_SDAUDIO_REVISION@:@LIB_SDAUDIO_AGE@ -lpthread $(NAS_LIBS) $(PULSE_LIBS) $(ALSA_LIBS)
+AM_CFLAGS = $(am_cflags) $(NAS_FLAGS) $(PULSE_FLAGS) $(ALSA_FLAGS) $(LIBAO_FLAGS)
+libsdaudio_la_LDFLAGS = -version-info @LIB_SDAUDIO_CURRENT@:@LIB_SDAUDIO_REVISION@:@LIB_SDAUDIO_AGE@ -lpthread $(NAS_LIBS) $(PULSE_LIBS) $(ALSA_LIBS) $(LIBAO_LIBS)
 
 spdlib_LTLIBRARIES = libsdaudio.la
 

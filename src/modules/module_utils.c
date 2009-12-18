@@ -1150,6 +1150,15 @@ module_audio_init_spd(char **status_info)
 		    module_audio_output_method = AUDIO_OSS;
 		    audio_output_set = 1;
 		}
+	    } else if (len == 5 && strncmp("libao", outputs, len) == 0){
+		DBG("Using libao audio output method");
+		module_audio_pars[0] = NULL;
+		module_audio_pars[1] = NULL;
+		module_audio_id = spd_audio_open(AUDIO_LIBAO, (void**) module_audio_pars, &error);
+		if (module_audio_id){
+		    module_audio_output_method = AUDIO_LIBAO;
+		    audio_output_set = 1;
+		}
 	    } else if (len == 4 && strncmp("alsa", outputs, len) == 0){
 		DBG("Using Alsa audio output method");
 		module_audio_pars[0] = audio_settings.audio_alsa_device;

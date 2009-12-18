@@ -54,7 +54,7 @@ typedef struct {
 
 #define AUDIO_BUF_SIZE 4096
 
-typedef enum{AUDIO_OSS = 0, AUDIO_NAS = 1, AUDIO_ALSA=2, AUDIO_PULSE=3} AudioOutputType;
+typedef enum{AUDIO_OSS = 0, AUDIO_NAS = 1, AUDIO_ALSA=2, AUDIO_PULSE=3, AUDIO_LIBAO=4} AudioOutputType;
 typedef enum{SPD_AUDIO_LE, SPD_AUDIO_BE} AudioFormat;
 
 AudioFormat spd_audio_endian;
