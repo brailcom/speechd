@@ -11,7 +11,7 @@ endif
 
 if pulse_support
 PULSE_FLAGS = -DWITH_PULSE
-PULSE_LIBS = -lpulse
+PULSE_LIBS = -lpulse-simple
 endif
 
 if alsa_support
