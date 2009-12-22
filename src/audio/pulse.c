@@ -1,11 +1,14 @@
 /*
- * libao.c -- The libao backend for the spd_audio library.
+ * pulse.c -- The simple pulseaudio backend for the spd_audio library.
  *
- * Author: Marco Skambraks <marco@openblinux.de>
+ * Based on libao.c from Marco Skambraks <marco@openblinux.de>
  * Date:  2009-12-15
  *
  * Copied from Luke Yelavich's libao.c driver, and merged with code from
  * Marco's ao_pulse.c driver, by Bill Cox, Dec 21, 2009.
+ *
+ * Minor changes be Rui Batista <rui.batista@ist.utl.pt> to configure settings through speech-dispatcher configuration files
+ * Date: Dec 22, 2009
  *
  * This is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Leser General Public License as published by the Free
