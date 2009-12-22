@@ -177,11 +177,7 @@ GLOBAL_FDSET_OPTION_CB_STR(AudioOSSDevice, audio_oss_device)
 GLOBAL_FDSET_OPTION_CB_STR(AudioALSADevice, audio_alsa_device)
 GLOBAL_FDSET_OPTION_CB_STR(AudioNASServer, audio_nas_server)
 GLOBAL_FDSET_OPTION_CB_STR(AudioPulseServer, audio_pulse_server)
-
-GLOBAL_FDSET_OPTION_CB_INT(AudioPulseMaxLength, audio_pulse_max_length, 1, "")
-GLOBAL_FDSET_OPTION_CB_INT(AudioPulseTargetLength, audio_pulse_target_length, 1, "")
-GLOBAL_FDSET_OPTION_CB_INT(AudioPulsePreBuffering, audio_pulse_pre_buffering, 1, "")
-GLOBAL_FDSET_OPTION_CB_INT(AudioPulseMinRequest, audio_pulse_min_request, 1, "")
+GLOBAL_FDSET_OPTION_CB_INT(AudioPulseMinLength, audio_pulse_min_length, 1, "")
 
 GLOBAL_FDSET_OPTION_CB_INT(DefaultRate, rate, (val>=-100)&&(val<=+100), "Rate out of range.")
 GLOBAL_FDSET_OPTION_CB_INT(DefaultPitch, pitch, (val>=-100)&&(val<=+100), "Pitch out of range.")
@@ -411,10 +407,7 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(AudioALSADevice, ARG_STR);
     ADD_CONFIG_OPTION(AudioNASServer, ARG_STR);
     ADD_CONFIG_OPTION(AudioPulseServer, ARG_STR);
-    ADD_CONFIG_OPTION(AudioPulseMaxLength, ARG_INT);
-    ADD_CONFIG_OPTION(AudioPulseTargetLength, ARG_INT);
-    ADD_CONFIG_OPTION(AudioPulsePreBuffering, ARG_INT);
-    ADD_CONFIG_OPTION(AudioPulseMinRequest, ARG_INT);
+    ADD_CONFIG_OPTION(AudioPulseMinLength, ARG_INT);
 
     ADD_CONFIG_OPTION(BeginClient, ARG_STR);
     ADD_CONFIG_OPTION(EndClient, ARG_NONE);
@@ -454,10 +447,7 @@ load_default_global_set_options()
     GlobalFDSet.audio_alsa_device = strdup("default");
     GlobalFDSet.audio_nas_server = strdup("tcp/localhost:5450");
     GlobalFDSet.audio_pulse_server = strdup("default");
-    GlobalFDSet.audio_pulse_max_length = -1;
-    GlobalFDSet.audio_pulse_target_length = 4410;
-    GlobalFDSet.audio_pulse_pre_buffering = -1;
-    GlobalFDSet.audio_pulse_min_request = -1;
+    GlobalFDSet.audio_pulse_min_length = 100;
 
     SpeechdOptions.max_history_messages = 10000;
 

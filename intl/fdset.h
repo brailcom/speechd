@@ -128,10 +128,7 @@ typedef struct{
     char* audio_alsa_device;
     char* audio_nas_server;
     char* audio_pulse_server;
-    int audio_pulse_max_length;
-    int audio_pulse_target_length;
-    int audio_pulse_pre_buffering;
-    int audio_pulse_min_request;
+    int audio_pulse_min_length;
     int log_level;
 
     /* TODO: Should be moved out */

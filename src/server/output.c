@@ -469,10 +469,7 @@ output_send_audio_settings(OutputModule *output)
     ADD_SET_STR(audio_alsa_device);
     ADD_SET_STR(audio_nas_server);
     ADD_SET_STR(audio_pulse_server);
-    ADD_SET_INT(audio_pulse_max_length);
-    ADD_SET_INT(audio_pulse_target_length);
-    ADD_SET_INT(audio_pulse_pre_buffering);
-    ADD_SET_INT(audio_pulse_min_request);
+    ADD_SET_INT(audio_pulse_min_length);
 
     SEND_CMD_N("AUDIO");
     SEND_DATA_N(set_str->str);
