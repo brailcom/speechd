@@ -327,10 +327,7 @@ do_audio(void)
 	    else SET_AUDIO_STR(audio_alsa_device)
 	    else SET_AUDIO_STR(audio_nas_server)
             else SET_AUDIO_STR(audio_pulse_server)
-	    else SET_AUDIO_NUM(audio_pulse_max_length, 1)
-	    else SET_AUDIO_NUM(audio_pulse_target_length, 1)
-	    else SET_AUDIO_NUM(audio_pulse_pre_buffering, 1)
-	    else SET_AUDIO_NUM(audio_pulse_min_request, 1)
+	    else SET_AUDIO_NUM(audio_pulse_min_length, 1)
             else err=2;             /* Unknown parameter */
         }
         xfree(line);
@@ -1182,11 +1179,7 @@ module_audio_init_spd(char **status_info)
 	    } else if (len == 5 && strncmp("pulse", outputs, len) == 0){
 		DBG("Using PulseAudio output method");
 		module_audio_pars[0] = (void *) audio_settings.audio_pulse_server;
-		module_audio_pars[1] = (void *) audio_settings.audio_pulse_max_length;
-		module_audio_pars[2] = (void *) audio_settings.audio_pulse_target_length;
-		module_audio_pars[3] = (void *) audio_settings.audio_pulse_pre_buffering;
-		module_audio_pars[4] = (void *) audio_settings.audio_pulse_min_request;
-		module_audio_pars[5] = NULL;
+		module_audio_pars[1] = (void *) audio_settings.audio_pulse_min_length;
 		module_audio_id = spd_audio_open(AUDIO_PULSE, (void**) module_audio_pars, &error);
 		if (module_audio_id){
 		    module_audio_output_method = AUDIO_PULSE;

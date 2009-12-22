@@ -38,18 +38,7 @@
 #endif
 
 #ifdef WITH_PULSE
-#include <pulse/pulseaudio.h>
-#include <stdio.h> // TBD
-#include <semaphore.h>
-
-typedef struct {
-  unsigned int my_time_start;
-  unsigned int my_time_start_old;
-  int my_close_is_imminent;
-  sem_t my_sem;
-  pthread_t my_thread;
-} t_pulse_timeout;
-
+#include <pulse/simple.h>
 #endif
 
 #define AUDIO_BUF_SIZE 4096
@@ -110,28 +99,11 @@ typedef struct{
     pthread_mutex_t flow_mutex;
     pthread_t nas_event_handler;
 #endif
-
 #ifdef WITH_PULSE
-    pa_context *pulse_context;
-    pa_stream *pulse_stream;
-    pa_threaded_mainloop *pulse_mainloop;
-    pa_cvolume pulse_volume;
-    int pulse_volume_valid;
-    int pulse_do_trigger;
-    int pulse_time_offset_msec;
-    int pulse_just_flushed;
-    int pulse_connected;
-    int pulse_success; // status for synchronous operation */
-    int pulse_stop_required;
-    pthread_mutex_t pulse_mutex;
-    pa_time_event *pulse_volume_time_event;
-    int pulse_max_length;
-    int pulse_target_length;
-    int pulse_pre_buffering;
-    int pulse_min_request;
-    char* pulse_server;
-    t_pulse_timeout pulse_timeout;  
-    int suspended;
+    pa_simple *pa_simple;
+    char *pa_server;
+    unsigned int pa_min_audio_length;
+    volatile int pa_stop_playback;
 #endif
 
     Funct *function;

@@ -1,3 +1,4 @@
+
 /*
  * libao.c -- The libao backend for the spd_audio library.
  *
@@ -35,7 +36,8 @@
 #define PULSE_SEND_BYTES 256
 
 /* This is the smallest audio sound we are expected to play immediately without buffering. */
-#define PA_MIN_AUDIO_LENTH 100
+/* Changed to define on config file. Default is the same. */
+#define DEFAULT_PA_MIN_AUDIO_LENgTH 100
 
 static FILE *pulseDebugFile = NULL;
 
@@ -69,13 +71,15 @@ int pulse_play (AudioID * id, AudioTrack track);
 
 int pulse_set_volume (AudioID * id, int volume);
 
-static volatile int pulse_stop_playback = 0;
-
-static pa_simple *s = NULL;
 
 int pulse_open (AudioID * id, void **pars)
 {
-    return 0;
+    id->pa_simple = NULL;
+    if(pars[0]) {
+        id->pa_server = (char *)pars[0];
+    }
+    id->pa_min_audio_length = pars[1]?(unsigned int)pars[1] : DEFAULT_PA_MIN_AUDIO_LENgTH;
+    id->pa_stop_playback = 0;
 }
 
 int pulse_play (AudioID * id, AudioTrack track)
@@ -107,7 +111,7 @@ int pulse_play (AudioID * id, AudioTrack track)
     }
     output_samples = track.samples;
     num_bytes = track.num_samples * bytes_per_sample;
-    if(s == NULL) {
+    if(id->pa_simple == NULL) {
         /* Choose the correct format */
         ss.rate = track.sample_rate;
         ss.channels = track.num_channels;
@@ -119,29 +123,29 @@ int pulse_play (AudioID * id, AudioTrack track)
         /* Set prebuf to one sample so that keys are spoken as soon as typed rather than delayed until the next key pressed */
         buffAttr.maxlength = (uint32_t)-1;
         //buffAttr.tlength = (uint32_t)-1; - this is the default, which causes key echo to not work properly.
-        buffAttr.tlength = PA_MIN_AUDIO_LENTH;
+        buffAttr.tlength = id->pa_min_audio_length;
         buffAttr.prebuf = (uint32_t)-1;
         buffAttr.minreq = (uint32_t)-1;
         buffAttr.fragsize = (uint32_t)-1;
-        if(!(s = pa_simple_new(NULL, "speech-dispatcher", PA_STREAM_PLAYBACK, NULL, "playback", &ss, NULL, &buffAttr, &error))) {
+        if(!(id->pa_simple = pa_simple_new(id->pa_server, "speech-dispatcher", PA_STREAM_PLAYBACK, NULL, "playback", &ss, NULL, &buffAttr, &error))) {
             fprintf(stderr, __FILE__": pa_simple_new() failed: %s\n", pa_strerror(error));
             return 1;
         }
     }
     MSG("bytes to play: %d, (%f secs)\n", num_bytes, (((float) (num_bytes) / 2) / (float) track.sample_rate));
-    pulse_stop_playback = 0;
+    id->pa_stop_playback = 0;
     outcnt = 0;
     i = 0;
-    while((outcnt < num_bytes) && !pulse_stop_playback) {
+    while((outcnt < num_bytes) && !id->pa_stop_playback) {
        if((num_bytes - outcnt) > PULSE_SEND_BYTES) {
            i = PULSE_SEND_BYTES;
        } else {
            i = (num_bytes - outcnt);
        }
-       if(pa_simple_write(s, ((char *)output_samples) + outcnt, i, &error) < 0) {
-           pa_simple_drain(s, NULL);
-           pa_simple_free(s);
-           s = NULL;
+       if(pa_simple_write(id->pa_simple, ((char *)output_samples) + outcnt, i, &error) < 0) {
+           pa_simple_drain(id->pa_simple, NULL);
+           pa_simple_free(id->pa_simple);
+           id->pa_simple = NULL;
            MSG("ERROR: Audio: pulse_play(): %s - closing device - re-open it in next run\n", pa_strerror(error));
        } else {
            MSG("Pulse: wrote %u bytes\n", i);
@@ -154,16 +158,16 @@ int pulse_play (AudioID * id, AudioTrack track)
 /* stop the pulse_play() loop */
 int pulse_stop (AudioID * id)
 {
-    pulse_stop_playback = 1;
+    id->pa_stop_playback = 1;
     return 0;
 }
 
 int pulse_close (AudioID * id)
 {
-    if(s != NULL) {
-        pa_simple_drain(s, NULL);
-        pa_simple_free(s);
-        s = NULL;
+    if(id->pa_simple != NULL) {
+        pa_simple_drain(id->pa_simple, NULL);
+        pa_simple_free(id->pa_simple);
+        id->pa_simple = NULL;
     }
     return 0;
 }
