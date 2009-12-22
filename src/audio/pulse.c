@@ -1,4 +1,3 @@
-
 /*
  * libao.c -- The libao backend for the spd_audio library.
  *
@@ -75,11 +74,15 @@ int pulse_set_volume (AudioID * id, int volume);
 int pulse_open (AudioID * id, void **pars)
 {
     id->pa_simple = NULL;
-    if(pars[0]) {
-        id->pa_server = (char *)pars[0];
+    id->pa_server = (char *)pars[0];
+
+    if(! strcmp(id->pa_server, "default")) {
+    id->pa_server = NULL;
     }
-    id->pa_min_audio_length = pars[1]?(unsigned int)pars[1] : DEFAULT_PA_MIN_AUDIO_LENgTH;
+
+    id->pa_min_audio_length = pars[1]?(int)pars[1] : DEFAULT_PA_MIN_AUDIO_LENgTH;
     id->pa_stop_playback = 0;
+return 0;
 }
 
 int pulse_play (AudioID * id, AudioTrack track)

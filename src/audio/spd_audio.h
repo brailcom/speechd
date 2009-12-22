@@ -102,7 +102,7 @@ typedef struct{
 #ifdef WITH_PULSE
     pa_simple *pa_simple;
     char *pa_server;
-    unsigned int pa_min_audio_length;
+    int pa_min_audio_length;
     volatile int pa_stop_playback;
 #endif
 
