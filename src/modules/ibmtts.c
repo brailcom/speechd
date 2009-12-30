@@ -241,6 +241,10 @@ int ibmtts_voice_speed;
 /* Expected input encoding for current language dialect. */
 static char *ibmtts_input_encoding = "cp1252";
 
+/* list of voices */
+static VoiceDescription **ibmtts_voice_list = NULL;
+static int *ibmtts_voice_index = NULL;
+
 /* Internal function prototypes for main thread. */
 static void ibmtts_set_language(char *lang);
 static void ibmtts_set_voice(EVoiceType voice);
@@ -253,7 +257,6 @@ static void ibmtts_set_volume(signed int pitch);
 /* Internal function prototypes for synthesis thread. */
 static char* ibmtts_extract_mark_name(char *mark);
 static char* ibmtts_next_part(char *msg, char **mark_name);
-static enum ECILanguageDialect ibmtts_dialect_to_code(char *dialect_name);
 static int ibmtts_replace(char *from, char *to, GString *msg);
 static void ibmtts_subst_keys_cb(gpointer data, gpointer user_data);
 static char* ibmtts_subst_keys(char *key);
@@ -280,6 +283,8 @@ static TIbmttsBool ibmtts_play_file(char *filename);
 static TIbmttsBool is_thread_busy(pthread_mutex_t *suspended_mutex);
 static void ibmtts_log_eci_error();
 static void ibmtts_clear_playback_queue();
+static void alloc_voice_list();
+static void free_voice_list();
 
 /* The synthesis thread start routine. */
 static void* _ibmtts_synth(void*);
@@ -299,10 +304,61 @@ MOD_OPTION_1_INT(IbmttsUseSSML);
 MOD_OPTION_1_INT(IbmttsUseAbbreviation);
 MOD_OPTION_1_INT(IbmttsAudioChunkSize);
 MOD_OPTION_1_STR(IbmttsSoundIconFolder);
-MOD_OPTION_3_HT(IbmttsDialect, dialect, code, encoding);
 MOD_OPTION_6_INT_HT(IbmttsVoiceParameters,
     gender, breathiness, head_size, pitch_baseline, pitch_fluctuation, roughness, speed);
 MOD_OPTION_3_STR_HT_DLL(IbmttsKeySubstitution, lang, key, newkey);
+
+
+typedef struct _eciLocale {
+	char *name;
+	char *lang;
+	char *dialect;
+	enum ECILanguageDialect langID;
+	char* charset;
+} eciLocale, *eciLocaleList;
+
+static eciLocale eciLocales[] = {
+    {"American_English", "en", "US", eciGeneralAmericanEnglish, "ISO-8859-1"},
+    {"British_English", "en", "GB", eciBritishEnglish, "ISO-8859-1"},
+    {"Castilian_Spanish", "es", "ES", eciCastilianSpanish, "ISO-8859-1"},
+    {"Mexican_Spanish", "es", "MX", eciMexicanSpanish, "ISO-8859-1"},
+    {"French", "fr", "FR", eciStandardFrench, "ISO-8859-1"},
+    {"Canadian_French", "ca", "FR", eciCanadianFrench, "ISO-8859-1"},
+    {"German", "de", "DE", eciStandardGerman, "ISO-8859-1"},
+    {"Italian", "it", "IT", eciStandardItalian, "ISO-8859-1"},
+    {"Mandarin_Chinese", "zh", "CN", eciMandarinChinese, "GBK"},
+    {"Mandarin_Chinese GB", "zh", "CN_GB", eciMandarinChineseGB, "GBK"},
+    {"Mandarin_Chinese PinYin", "zh", "CN_PinYin", eciMandarinChinesePinYin, "GBK"},
+    {"Mandarin_Chinese UCS", "zh", "CN_UCS", eciMandarinChineseUCS, "UCS2"},
+    {"Taiwanese_Mandarin", "zh", "TW", eciTaiwaneseMandarin, "BIG5"},
+    {"Taiwanese_Mandarin Big 5", "zh", "TW_Big5", eciTaiwaneseMandarinBig5, "BIG5"},
+    {"Taiwanese_Mandarin ZhuYin", "zh", "TW_ZhuYin", eciTaiwaneseMandarinZhuYin, "BIG5"},
+    {"Taiwanese_Mandarin PinYin", "zh", "TW_PinYin", eciTaiwaneseMandarinPinYin, "BIG5"},
+    {"Taiwanese_Mandarin UCS", "zh", "TW_UCS", eciTaiwaneseMandarinUCS, "UCS2"},
+    {"Brazilian_Portuguese", "pt", "BR", eciBrazilianPortuguese, "ISO-8859-1"},
+    {"Japanese", "ja", "JP", eciStandardJapanese, "SJIS"},
+    {"Japanese_SJIS", "ja", "JP_SJIS", eciStandardJapaneseSJIS, "SJIS"},
+    {"Japanese_UCS", "ja", "JP_UCS", eciStandardJapaneseUCS, "UCS2"},
+    {"Finnish", "fi", "FI", eciStandardFinnish, "ISO-8859-1"},
+    {"Korean", "ko", "KR", eciStandardKorean, "UHC"},
+    {"Korean_UHC", "ko", "KR_UHC", eciStandardKoreanUHC, "UHC"},
+    {"Korean_UCS", "ko", "KR_UCS", eciStandardKoreanUCS, "UCS2"},
+    {"Cantonese", "zh", "HK", eciStandardCantonese, "GBK"},
+    {"Cantonese_GB", "zh", "HK_GB", eciStandardCantoneseGB, "GBK"},
+    {"Cantonese_UCS", "zh", "HK_UCS", eciStandardCantoneseUCS, "UCS2"},
+    {"HongKong_Cantonese", "zh", "HK", eciHongKongCantonese, "BIG5"},
+    {"HongKong_Cantonese Big 5", "zh", "HK_BIG5", eciHongKongCantoneseBig5, "BIG5"},
+    {"HongKong_Cantonese UCS", "zh", "HK_UCS", eciHongKongCantoneseUCS, "UCS-2"},
+    {"Dutch", "nl", "BE", eciStandardDutch, "ISO-8859-1"},
+    {"Norwegian", "no", "NO", eciStandardNorwegian, "ISO-8859-1"},
+    {"Swedish", "sv", "SE", eciStandardSwedish, "ISO-8859-1"},
+    {"Danish", "da", "DK", eciStandardDanish, "ISO-8859-1"},
+    {"Reserved", "en", "US", eciStandardReserved, "ISO-8859-1"},
+    {"Thai", "th", "TH", eciStandardThai, "TIS-620"},
+    {"ThaiTIS", "th", "TH_TIS", eciStandardThaiTIS, "TIS-620"},
+    {NULL, 0, NULL}
+};
+
 
 /* Public functions */
 
@@ -326,9 +382,6 @@ module_load(void)
     /* Register voices. */
     module_register_settings_voices();
 
-    /* Register dialects. */
-    MOD_OPTION_HT_REG(IbmttsDialect);
-
     /* Register voice parameters */
     MOD_OPTION_HT_REG(IbmttsVoiceParameters);
 
@@ -348,7 +401,6 @@ int
 module_init(char **status_info)
 {
     int ret;
-    char *error;
     GString *info;
     char ibmVersion[20];
     int ibm_sample_rate;
@@ -404,6 +456,8 @@ module_init(char **status_info)
     }
 
     eciSetParam (eciHandle, eciDictionary, !IbmttsUseAbbreviation);
+
+    alloc_voice_list();
 
     /* These mutexes are locked when the corresponding threads are suspended. */
     pthread_mutex_init(&ibmtts_synth_suspended_mutex, NULL);
@@ -480,14 +534,15 @@ module_audio_init(char **status_info){
 VoiceDescription**
 module_list_voices(void)
 {
-  return NULL;
+  DBG("Ibmtts: %s", __FUNCTION__);
+  return ibmtts_voice_list;
 }
 
 
 int
 module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 {
-	DBG("Ibmtts: module_speak().");
+    DBG("Ibmtts: module_speak().");
 
     if (is_thread_busy(&ibmtts_synth_suspended_mutex) || 
         is_thread_busy(&ibmtts_play_suspended_mutex) ||
@@ -639,6 +694,8 @@ module_close(int status)
         ibmtts_index_mark_ht = NULL;
     }
 
+    free_voice_list();
+    
     exit(status);
 }
 
@@ -1035,31 +1092,6 @@ ibmtts_set_pitch(signed int pitch)
         DBG("Ibmtts: Pitch set to %i.", pitchBaseline);
 }
 
-/* Given an IBM TTS Dialect Name returns the code from the DIALECTS table in config file. */
-static enum ECILanguageDialect ibmtts_dialect_to_code(char *dialect_name)
-{
-    long int code = 0;
-    TIbmttsDialect *dialect = (TIbmttsDialect *) module_get_ht_option(IbmttsDialect, dialect_name);
-    if (NULL == dialect) {
-        DBG("Ibmtts: Invalid dialect name %s.  Check VOICES and DIALECTS sections of ibmtts.conf file.", dialect_name);
-        ibmtts_log_eci_error();
-        return NODEFINEDCODESET;
-    }
-    sscanf(dialect->code, "%08X", &code);
-    return code;
-}
-
-/* Given an IBM TTS Dialect Name returns the expected input encoding from the DIALECTS table in config file. */
-static char *ibmtts_dialect_to_encoding(char *dialect_name)
-{
-        TIbmttsDialect *dialect = (TIbmttsDialect *) module_get_ht_option(IbmttsDialect, dialect_name);
-    if (NULL == dialect) {
-        DBG("Ibmtts: Invalid dialect name %s.  Check VOICES and DIALECTS sections of ibmtts.conf file.", dialect_name);
-        ibmtts_log_eci_error();
-        return NULL;
-    }
-    return dialect->encoding;
-}
 
 static char*
 ibmtts_voice_enum_to_str(EVoiceType voice)
@@ -1086,33 +1118,34 @@ ibmtts_voice_enum_to_str(EVoiceType voice)
 static void
 ibmtts_set_language_and_voice(char *lang, EVoiceType voice)
 {
-	char *dialect_name;
-    enum ECILanguageDialect dialect_code = NODEFINEDCODESET;
+    char *dialect_name;
     char *voicename = ibmtts_voice_enum_to_str(voice);
     int eciVoice;
     int ret = -1;
-    /* Map language and symbolic voice name to dialect name. */
-    dialect_name = module_getvoice(lang, voice);
-    if (NULL != dialect_name) {
-         /* Map dialect name to dialect code. */
-         dialect_code = ibmtts_dialect_to_code(dialect_name);
-         if (NODEFINEDCODESET != dialect_code) {
-             /* Set the dialect. */
-             ret = eciSetParam(eciHandle, eciLanguageDialect, dialect_code);
-        }
-		 /* Set expected input encoding for dialect */
-		 char *encoding = ibmtts_dialect_to_encoding(dialect_name);
-		 if (encoding != NULL) {
-			 ibmtts_input_encoding = encoding;
-		 }
+    int i = 0;
+ 
+    DBG("Ibmtts: %s, lang=%s, voice=%d", __FUNCTION__, lang, (int)voice);
+
+    VoiceDescription **v = ibmtts_voice_list;
+    assert(v);
+
+    for (i=0; v[i]; i++) {
+	if (!strcmp(v[i]->language, lang)) {
+	    int j = ibmtts_voice_index[i];
+	    dialect_name = v[i]->name;
+	    ret = eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
+	    ibmtts_input_encoding = eciLocales[j].charset;
+	    break;
+	}
     }
+
     if (-1 == ret) {
-        DBG("Ibmtts: Unable to set language %s and voice %s,  dialect %08X.",
-            lang, voicename, dialect_code);
+        DBG("Ibmtts: Unable to set language %s and voice %s",
+            lang, voicename);
         ibmtts_log_eci_error();
     } else
-        DBG("Ibmtts: Successfully set language %s and voice %s, dialect %s = %08X.",
-            lang, voicename, dialect_name, dialect_code);
+        DBG("Ibmtts: Successfully set language %s and voice %s, name=%s",
+            lang, voicename, dialect_name);
     /* Set voice parameters (if any are defined for this voice.) */
     TIbmttsVoiceParameters *params = g_hash_table_lookup(IbmttsVoiceParameters, voicename);
     if (NULL == params) {
@@ -1578,5 +1611,70 @@ cleanup1:
 #endif
     return result;
 }
+
+
+void 
+alloc_voice_list()
+{
+#define MAX_NB_OF_LANGUAGES 13
+
+    enum ECILanguageDialect aLanguage[MAX_NB_OF_LANGUAGES];
+    int nLanguages = MAX_NB_OF_LANGUAGES;
+    int i = 0;
+
+    if (eciGetAvailableLanguages(aLanguage, &nLanguages))
+	return;
+
+    ibmtts_voice_list = malloc((nLanguages+1)*sizeof(VoiceDescription*));
+    ibmtts_voice_index = malloc((nLanguages+1)*sizeof(VoiceDescription*));
+    if (!ibmtts_voice_list)
+	return;
+
+    DBG("Ibmtts: nLanguages=%d", nLanguages);
+    for(i=0; i<nLanguages; i++) {
+	/* look for the language name */
+	int j;
+	ibmtts_voice_list[i] = malloc(sizeof(VoiceDescription));
+
+	DBG("Ibmtts: aLanguage[%d]=0x%08x", i, aLanguage[i]);
+	for (j=0; j<MAX_NB_OF_LANGUAGES; j++) {
+	    DBG("Ibmtts: eciLocales[%d].langID=0x%08x", j, eciLocales[j].langID);
+	    if (eciLocales[j].langID == aLanguage[i]) {
+		ibmtts_voice_list[i]->name = eciLocales[j].name;
+		ibmtts_voice_list[i]->language = eciLocales[j].lang;
+		ibmtts_voice_list[i]->dialect = eciLocales[j].dialect;
+		ibmtts_voice_index[i] = j;
+		DBG("Ibmtts: alloc_voice_list %s", ibmtts_voice_list[i]->name);
+		break;
+	    }
+	}
+	assert(j<MAX_NB_OF_LANGUAGES);
+    }
+    ibmtts_voice_list[nLanguages] = NULL;
+    DBG("Ibmtts: LEAVE %s", __func__);
+}
+
+static void
+free_voice_list()
+{
+    int i=0;
+
+    if (ibmtts_voice_index) {
+	free(ibmtts_voice_index);
+	ibmtts_voice_index = NULL;
+    }
+
+    if (!ibmtts_voice_list)
+	return;
+
+    for(i=0; ibmtts_voice_list[i]; i++) {
+	free(ibmtts_voice_list[i]);
+    }
+
+    free(ibmtts_voice_list);
+    ibmtts_voice_list = NULL;
+}
+
+
 
 #include "module_main.c"

@@ -1,3 +1,10 @@
+2009-12-30  Gilles Casse <gcasse@oralux.org>
+ 
+	* src/modules/ibmtts.c, config/modules/ibmtts.conf: 
+	  - module_list_voices returns the list of the installed languages,
+	  - the encoding associated to each language has been updated (same values as in Gnome Speech Viavoice driver).
+	  - the IbmttDialect and the list of possible voices have been removed from the ibmtts.conf file.
+
 2009-07-08  Luke Yelavich <luke.yelavich@canonical.com>
 
 	* src/server/config.c (load_default_global_set_options): Set the default
