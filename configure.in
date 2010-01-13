@@ -272,14 +272,10 @@ AC_SUBST(gthread_libs)
 AC_SUBST(datadir)
 
 AC_ARG_ENABLE([session-integration],
-	    AC_HELP_STRING([--enable-session-integration],
-		[build with user session integration support]),
-		msg_session_integration=$enableval,
-		msg_session_integration=no)
-	    if test "x$enable_session_integration" != "xyes"; then
-		msg_session_integration=no
-	    fi
-AM_CONDITIONAL(ENABLE_SESSION, test "$msg_session_integration" = "yes")
+		AS_HELP_STRING([--enable-session-integration], [build with user session integration support (default)]),
+		[], [enable_session_integration=yes])
+
+AM_CONDITIONAL([ENABLE_SESSION], [test x$enable_session_integration = xyes])
 
 AC_ARG_WITH([bash-profile-dir],
             AC_HELP_STRING([--with-bash-profile-dir=PATH],

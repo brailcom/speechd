@@ -11,6 +11,10 @@ python/speechd_config/spd-conf python/speechd_config/test.wav \
 python/speechd_config/speechd.desktop session/Makefile.in session/speechd-user-port.sh.in \
 session/speechd-server-spawn.1 session/speechd-server-spawn.in
 
-SUBDIRS= server audio c modules tests python session
+SUBDIRS=server audio c modules tests python
+DIST_SUBDIRS=server audio c modules tests python session
 
+if ENABLE_SESSION
+SUBDIRS+=session
+endif
 

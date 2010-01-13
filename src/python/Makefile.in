@@ -12,9 +12,7 @@ all:
 	echo "SPD_CONF_PATH=\"@spdconfdir@\"" >> speechd_config/paths.py
 	echo "SPD_SOUND_DATA_PATH=\"${DESTDIR}@snddatadir@\"" >> speechd_config/paths.py
 	echo "SPD_DESKTOP_CONF_PATH=\"${DESTDIR}@spddesktopconforigdir@\"" >> speechd_config/paths.py
-ifneq ($(ENABLE_SESSION_TRUE), "")
-	echo "SPD_SPAWN_CMD=\"@prefix@/bin/speechd-server-spawn\"" > speechd/spawn.py
-endif
+	@ENABLE_SESSION_TRUE@echo "SPD_SPAWN_CMD=\"@prefix@/bin/speechd-server-spawn\"" > speechd/spawn.py
 
 install:
 	if test -x /usr/bin/python; then \

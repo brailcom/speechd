@@ -7,20 +7,16 @@ speechd_default_port = $(shell grep SPEECHD_DEFAULT_PORT ../../intl/def.h | awk 
 speechd_system_start_cmd = @SPEECHD_SYSTEM_START_CMD@
 
 all:
-ifneq ($(ENABLE_SESSION_TRUE), "")
 	sed -e "s/@SPEECHD_DEFAULT_PORT@/$(speechd_default_port)/" speechd-user-port.sh.in > speechd-user-port.sh
 	sed -e "s#@SPEECHD_SYSTEM_STARTUP_CMD@#$(speechd_system_start_cmd)#" speechd-server-spawn.in > speechd-server-spawn
-endif
 
 install:
-ifneq ($(ENABLE_SESSION_TRUE), "")
 	install -d -o root -m 755 $(DESTDIR)/$(bash_profile_dir)
 	install -o root -m 644 speechd-user-port.sh $(DESTDIR)/$(bash_profile_dir)
 	install -d -o root -m 755 $(DESTDIR)/@prefix@/bin
 	install -o root -m 755 speechd-server-spawn $(DESTDIR)/@prefix@/bin
 	install -d -o root -m 755 $(DESTDIR)/@mandir@/man1
 	install -o root -m 644 speechd-server-spawn.1 $(DESTDIR)/@mandir@/man1
-endif
 
 uninstall:
 	rm -f $(DESTDIR)/$(bash_profile_dir)/speechd-user-port.sh
