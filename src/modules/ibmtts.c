@@ -359,6 +359,7 @@ static eciLocale eciLocales[] = {
     {NULL, 0, NULL}
 };
 
+#define MAX_NB_OF_LANGUAGES (sizeof(eciLocales)/sizeof(eciLocales[0]) - 1)
 
 /* Public functions */
 
@@ -1616,8 +1617,6 @@ cleanup1:
 void 
 alloc_voice_list()
 {
-#define MAX_NB_OF_LANGUAGES 13
-
     enum ECILanguageDialect aLanguage[MAX_NB_OF_LANGUAGES];
     int nLanguages = MAX_NB_OF_LANGUAGES;
     int i = 0;
@@ -1630,7 +1629,7 @@ alloc_voice_list()
     if (!ibmtts_voice_list)
 	return;
 
-    DBG("Ibmtts: nLanguages=%d", nLanguages);
+    DBG("Ibmtts: nLanguages=%d/%d", nLanguages, MAX_NB_OF_LANGUAGES);
     for(i=0; i<nLanguages; i++) {
 	/* look for the language name */
 	int j;
