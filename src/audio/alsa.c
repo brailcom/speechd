@@ -777,7 +777,7 @@ alsa_set_volume(AudioID*id, int volume)
 }
 
 /* Provide the Alsa backend. */
-AudioFunctions alsa_functions = {alsa_open, alsa_play, alsa_stop, alsa_close, alsa_set_volume};
+spd_audio_plugin_t alsa_functions = {alsa_open, alsa_play, alsa_stop, alsa_close, alsa_set_volume};
 
 #undef MSG
 #undef ERR

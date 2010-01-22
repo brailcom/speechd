@@ -101,7 +101,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 
     if (type == AUDIO_OSS){
 #ifdef WITH_OSS
-	id->function = (Funct*) &oss_functions;
+	id->function = &oss_functions;
 
 	if (id->function->open != NULL){
 	    ret = id->function->open(id, pars);
@@ -123,7 +123,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     }
     else if (type == AUDIO_ALSA){
 #ifdef WITH_ALSA
-	id->function = (Funct*) &alsa_functions;
+	id->function = &alsa_functions;
 
 	if (id->function->open != NULL){
 	    ret = id->function->open(id, pars);
@@ -144,7 +144,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     }
     else if (type == AUDIO_NAS){
 #ifdef WITH_NAS
-	id->function = (Funct*) &nas_functions;
+	id->function = &nas_functions;
 
 	if (id->function->open != NULL){
 	    ret = id->function->open(id, pars);
@@ -165,7 +165,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     }
     else if (type == AUDIO_PULSE){
 #ifdef WITH_PULSE
-	id->function = (Funct*) &pulse_functions;
+	id->function = &pulse_functions;
 
 	if (id->function->open != NULL){
 	    ret = id->function->open(id, pars);
@@ -186,7 +186,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     }
     else if (type == AUDIO_LIBAO){
 #ifdef WITH_LIBAO
-	id->function = (Funct*) &libao_functions;
+	id->function = &libao_functions;
 
 	if (id->function->open != NULL){
 	    ret = id->function->open(id, pars);

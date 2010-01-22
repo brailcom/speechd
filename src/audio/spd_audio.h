@@ -57,13 +57,7 @@ typedef struct{
     signed short *samples;
 }AudioTrack;
 
-typedef struct{
-    int   (* open)  (void *id, void** pars);
-    int   (* play)  (void *id, AudioTrack track);
-    int   (* stop)  (void *id);
-    int   (* close) (void *id);
-    int   (* set_volume) (void *id, int);
-}Funct;
+struct spd_audio_plugin;
 
 typedef struct{
     AudioOutputType type;
@@ -106,24 +100,18 @@ typedef struct{
     volatile int pa_stop_playback;
 #endif
 
-    Funct *function;
+    struct spd_audio_plugin *function;
 
     int working;
 }AudioID;
 
-typedef int (* t_audio_open)(AudioID *id, void** pars);
-typedef int (* t_audio_play)(AudioID *id, AudioTrack track);
-typedef int (* t_audio_stop)(AudioID *id);
-typedef int (* t_audio_close)(AudioID *id);
-typedef int (* t_audio_set_volume)(AudioID *id, int volume);
-
-typedef struct{
-    t_audio_open open;
-    t_audio_play play;
-    t_audio_stop stop;
-    t_audio_close close;
-    t_audio_set_volume set_volume;
-}AudioFunctions;    
+typedef struct spd_audio_plugin {
+    int   (* open)  (AudioID *id, void** pars);
+    int   (* play)  (AudioID *id, AudioTrack track);
+    int   (* stop)  (AudioID *id);
+    int   (* close) (AudioID *id);
+    int   (* set_volume) (AudioID *id, int);
+} spd_audio_plugin_t;
 
 AudioID* spd_audio_open(AudioOutputType type, void **pars, char **error);
 

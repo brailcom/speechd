@@ -184,7 +184,7 @@ int libao_set_volume (AudioID * id, int volume)
 }
 
 /* Provide the libao backend. */
-AudioFunctions libao_functions =
+spd_audio_plugin_t libao_functions =
   { libao_open, libao_play, libao_stop, libao_close, libao_set_volume };
 
 #undef MSG

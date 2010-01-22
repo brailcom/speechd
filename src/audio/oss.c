@@ -449,7 +449,7 @@ oss_set_volume(AudioID*id, int volume)
 }
 
 /* Provide the OSS backend. */
-AudioFunctions oss_functions = {oss_open, oss_play, oss_stop, oss_close, oss_set_volume};
+spd_audio_plugin_t oss_functions = {oss_open, oss_play, oss_stop, oss_close, oss_set_volume};
 
 #undef MSG
 #undef ERR

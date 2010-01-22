@@ -184,4 +184,4 @@ int pulse_set_volume (AudioID * id, int volume)
 }
 
 /* Provide the pulse backend. */
-AudioFunctions pulse_functions = {pulse_open, pulse_play, pulse_stop, pulse_close, pulse_set_volume};
+spd_audio_plugin_t pulse_functions = {pulse_open, pulse_play, pulse_stop, pulse_close, pulse_set_volume};

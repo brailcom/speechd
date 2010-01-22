@@ -197,4 +197,4 @@ nas_set_volume(AudioID*id, int volume)
 }
 
 /* Provide the NAS backend */
-AudioFunctions nas_functions = {nas_open, nas_play, nas_stop, nas_close, nas_set_volume};
+spd_audio_plugin_t nas_functions = {nas_open, nas_play, nas_stop, nas_close, nas_set_volume};
