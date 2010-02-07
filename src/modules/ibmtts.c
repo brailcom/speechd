@@ -249,7 +249,8 @@ static int *ibmtts_voice_index = NULL;
 static void ibmtts_set_language(char *lang);
 static void ibmtts_set_voice(EVoiceType voice);
 static char* ibmtts_voice_enum_to_str(EVoiceType voice);
-static void ibmtts_set_language_and_voice(char *lang, EVoiceType voice);
+static void ibmtts_set_language_and_voice(char *lang, EVoiceType voice, char* dialect);
+static void ibmtts_set_synthesis_voice(char *);
 static void ibmtts_set_rate(signed int rate);
 static void ibmtts_set_pitch(signed int pitch);
 static void ibmtts_set_volume(signed int pitch);
@@ -578,6 +579,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
     /* Setting speech parameters. */
     UPDATE_STRING_PARAMETER(language, ibmtts_set_language);
     UPDATE_PARAMETER(voice, ibmtts_set_voice);
+    UPDATE_STRING_PARAMETER(synthesis_voice, ibmtts_set_synthesis_voice);
     UPDATE_PARAMETER(rate, ibmtts_set_rate);
     UPDATE_PARAMETER(volume, ibmtts_set_volume);
     UPDATE_PARAMETER(pitch, ibmtts_set_pitch);
@@ -1114,39 +1116,54 @@ ibmtts_voice_enum_to_str(EVoiceType voice)
     return voicename;
 }
 
-/* Given a language code and SD voice code, sets the IBM voice dialect based
-   upon VOICES table in config file. */
+/* Given a language, dialect and SD voice codes sets the IBM voice */
 static void
-ibmtts_set_language_and_voice(char *lang, EVoiceType voice)
+ibmtts_set_language_and_voice(char *lang, EVoiceType voice, char* dialect)
 {
-    char *dialect_name;
+    char *dialect_name = dialect;
     char *voicename = ibmtts_voice_enum_to_str(voice);
     int eciVoice;
     int ret = -1;
     int i = 0;
  
-    DBG("Ibmtts: %s, lang=%s, voice=%d", __FUNCTION__, lang, (int)voice);
+    DBG("Ibmtts: %s, lang=%s, voice=%d, dialect=%s", 
+	__FUNCTION__, lang, (int)voice, 
+	dialect ? dialect : NULL);
 
     VoiceDescription **v = ibmtts_voice_list;
     assert(v);
 
-    for (i=0; v[i]; i++) {
-	if (!strcmp(v[i]->language, lang)) {
-	    int j = ibmtts_voice_index[i];
-	    dialect_name = v[i]->name;
-	    ret = eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
-	    ibmtts_input_encoding = eciLocales[j].charset;
-	    break;
+    if (dialect_name) {
+	for (i=0; v[i]; i++) {
+	    DBG("%d. dialect=%s", i, v[i]->dialect);
+	    if (!strcmp(v[i]->dialect, dialect_name)) {
+		int j = ibmtts_voice_index[i];
+		ret = eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
+		DBG("Ibmtts: set langID=0x%x (ret=%d)", eciLocales[j].langID, ret);
+		ibmtts_input_encoding = eciLocales[j].charset;
+		break;
+	    }
+	}
+    }
+    else {
+	for (i=0; v[i]; i++) {
+	    DBG("%d. language=%s", i, v[i]->language);
+	    if (!strcmp(v[i]->language, lang)) {
+		int j = ibmtts_voice_index[i];
+		dialect_name = v[i]->name;
+		ret = eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
+		DBG("Ibmtts: set langID=0x%x (ret=%d)", eciLocales[j].langID, ret);
+		ibmtts_input_encoding = eciLocales[j].charset;
+		break;
+	    }
 	}
     }
 
     if (-1 == ret) {
-        DBG("Ibmtts: Unable to set language %s and voice %s",
-            lang, voicename);
+        DBG("Ibmtts: Unable to set language");
         ibmtts_log_eci_error();
-    } else
-        DBG("Ibmtts: Successfully set language %s and voice %s, name=%s",
-            lang, voicename, dialect_name);
+    } 
+
     /* Set voice parameters (if any are defined for this voice.) */
     TIbmttsVoiceParameters *params = g_hash_table_lookup(IbmttsVoiceParameters, voicename);
     if (NULL == params) {
@@ -1194,14 +1211,35 @@ static void
 ibmtts_set_voice(EVoiceType voice)
 {
     if (msg_settings.language) {
-		ibmtts_set_language_and_voice(msg_settings.language, voice);
+	ibmtts_set_language_and_voice(msg_settings.language, voice, NULL);
 	}
 }
 
 static void
 ibmtts_set_language(char *lang)
 {
-	ibmtts_set_language_and_voice(lang, msg_settings.voice);
+	ibmtts_set_language_and_voice(lang, msg_settings.voice, NULL);
+}
+
+/* sets the IBM voice according to its name. */
+static void
+ibmtts_set_synthesis_voice(char *synthesis_voice)
+{
+    int i = 0;
+    
+    if (synthesis_voice == NULL) {
+	return;
+    }
+
+    DBG("Ibmtts: %s, synthesis voice=%s", __FUNCTION__, synthesis_voice);
+    
+    for (i=0; i < MAX_NB_OF_LANGUAGES; i++) {
+	if (!strcasecmp(eciLocales[i].name, synthesis_voice)) {
+	    ibmtts_set_language_and_voice(eciLocales[i].lang, msg_settings.voice, eciLocales[i].dialect);
+	    break;
+	}
+    }
+
 }
 
 static void
