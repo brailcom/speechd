@@ -207,14 +207,14 @@ static output_unlock(void)
   {  output_unlock(); \
     return (value); }
 
-char*
+GString*
 output_read_reply(OutputModule *output)
 {
     GString *rstr;
     int bytes;
     char *line = NULL;
     size_t N = 0;
-    char *reply;
+    gboolean errors = FALSE;
     
     rstr = g_string_new("");
     
@@ -227,18 +227,23 @@ output_read_reply(OutputModule *output)
 	    output->working = 0;
 	    speaking_module = NULL;
 	    output_check_module(output);
-	    return NULL; /* Broken pipe */   
+	    errors = TRUE; /* Broken pipe */   
+	} else {
+	    MSG(5, "Got %d bytes from output module over socket", bytes);
+	    g_string_append(rstr, line);
 	}
-	MSG(5, "Got %d bytes from output module over socket", bytes);
-	g_string_append(rstr, line);
 	/* terminate if we reached the last line (without '-' after numcode) */
-    }while( !((strlen(line) < 4) || (line[3] == ' ')));
+    }while( !errors && !((strlen(line) < 4) || (line[3] == ' ')));
 
-    /* The resulting message received from the socket is stored in reply */
-    reply = rstr->str;
-    g_string_free(rstr, FALSE);
+    if(line != NULL)
+	free(line);	/* getline allocates with malloc and realloc. */
 
-    return reply;
+    if(errors) {
+	g_string_free(rstr, TRUE);
+	rstr = NULL;
+    }
+
+    return rstr;
 }
 
 char*
@@ -261,7 +266,7 @@ int
 output_send_data(char* cmd, OutputModule *output, int wfr)
 {
     int ret;
-    char *response;
+    GString *response;
 
     if (output == NULL) return -1;
     if (cmd == NULL) return -1;
@@ -278,30 +283,33 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
     MSG2(5, "output_module", "Command sent to output module: |%s| (%d)", cmd, wfr);
     
     if (wfr){                   /* wait for reply? */	
+	int ret = 0;
 	response = output_read_reply(output);
 	if (response == NULL) return -1;
 
-        MSG2(5, "output_module", "Reply from output module: |%s|", response);
+        MSG2(5, "output_module", "Reply from output module: |%s|", response->str);
 
-        if (response[0] == '3'){
-	    MSG(2, "Error: Module reported error in request from speechd (code 3xx): %s.", response);
-	    spd_free(response);
-            return -2; /* User (speechd) side error */
-        }
+	switch (response->str[0]){
+	    case '3':
+		MSG(2, "Error: Module reported error in request from speechd (code 3xx): %s.", response->str);
+		ret = -2; /* User (speechd) side error */
+		break;
 
-        if (response[0] == '4'){
-	    MSG(2, "Error: Module reported error in itself (code 4xx): %s", response);
-	    spd_free(response);
-            return -3; /* Module side error */
-        }
+	    case '4':
+		MSG(2, "Error: Module reported error in itself (code 4xx): %s", response->str);
+		ret = -3; /* Module side error */
+		break;
 
-        if (response[0] == '2'){
-	    return 0;
-        }else{                  /* unknown response */
-            MSG(3, "Unknown response from output module!");
-	    spd_free(response);
-            return -3;
-        }
+	    case '2':
+		ret = 0;
+		break;
+	    default:                  /* unknown response */
+		MSG(3, "Unknown response from output module!");
+		ret = -3;
+		break;
+	}
+    g_string_free(response, TRUE);
+    return ret;
     }       
     
     return 0;
@@ -311,7 +319,7 @@ int
 _output_get_voices(OutputModule *module)
 {
   VoiceDescription** voice_dscr;
-  char *reply;
+  GString *reply;
   gchar **lines;
   gchar **atoms;
   int i;
@@ -332,7 +340,8 @@ _output_get_voices(OutputModule *module)
   }
 
   //TODO: only 256 voices supported here
-  lines = g_strsplit(reply, "\n", 256);
+  lines = g_strsplit(reply->str, "\n", 256);
+  g_string_free(reply, TRUE);
   voice_dscr = malloc(256*sizeof(VoiceDescription*));
   for (i=0; ;i++){
     if (lines[i] == NULL) break;
@@ -612,7 +621,8 @@ output_pause()
 int
 output_module_is_speaking(OutputModule *output, char **index_mark)
 {
-    char *response;
+    GString *response;
+    int retcode = -1;
 
     output_lock();
 
@@ -629,59 +639,74 @@ output_module_is_speaking(OutputModule *output, char **index_mark)
 	OL_RET(-1);
     }    
 
-    MSG2(5, "output_module", "Reply from output module: |%s|", response);
+    MSG2(5, "output_module", "Reply from output module: |%s|", response->str);
 
-    if (strlen(response) < 4){
+    if (response->len < 4){
 	MSG2(2, "output_module",
 	     "Error: Wrong communication from output module! Reply less than four bytes.");
+	g_string_free(response, TRUE);
 	OL_RET(-1); 
     }
 
-    if (response[0] == '3'){
-	MSG(2, "Error: Module reported error in request from speechd (code 3xx).");
-	OL_RET(-2); /* User (speechd) side error */
-    }
-    else if (response[0] == '4'){
-	MSG(2, "Error: Module reported error in itself (code 4xx).");
-	OL_RET(-3); /* Module side error */
-    }
-    else if (response[0] == '2'){
-	if (strlen(response) > 4){
-	    if (response[3] == '-'){
-		char *p;
-		p = strchr(response, '\n');
-		*index_mark = (char*) strndup(response+4, p-response-4);
-		MSG2(5, "output_module", "Detected INDEX MARK: %s", *index_mark);
-	    }else{
-		MSG2(2, "output_module", "Error: Wrong communication from output module!"
-		    "Reply on SPEAKING not multi-line.");
-		OL_RET(-1); 
+    switch(response->str[0]) {
+    	case '3':
+	    MSG(2, "Error: Module reported error in request from speechd (code 3xx).");
+	    retcode = -2; /* User (speechd) side error */
+	    break;
+
+	case '4':
+	    MSG(2, "Error: Module reported error in itself (code 4xx).");
+	    retcode = -3; /* Module side error */
+	    break;
+
+	case '2':
+	    retcode = 0;
+	    if (response->len > 4){
+		if (response->str[3] == '-'){
+		    char *p;
+		    p = strchr(response->str, '\n');
+		    *index_mark = (char*) strndup(response->str+4, p-response->str-4);
+		    MSG2(5, "output_module", "Detected INDEX MARK: %s", *index_mark);
+		}else{
+		    MSG2(2, "output_module", "Error: Wrong communication from output module!"
+			"Reply on SPEAKING not multi-line.");
+		    retcode = -1; 
+		}
 	    }
-	}
-	OL_RET(0);
-    }else if(response[0] == '7'){
-	MSG2(5, "output_module", "Received event:\n %s", response);
-	if (!strncmp(response, "701", 3)) *index_mark = (char*) strdup("__spd_begin");
-	else if (!strncmp(response, "702", 3)) *index_mark = (char*) strdup("__spd_end");
-	else if (!strncmp(response, "703", 3)) *index_mark = (char*) strdup("__spd_stopped");
-	else if (!strncmp(response, "704", 3)) *index_mark = (char*) strdup("__spd_paused");
-	else if (!strncmp(response, "700", 3)){
-	    char *p;
-	    p = strchr(response, '\n');
-	    MSG2(5, "output_module", "response:|%s|\n p:|%s|", response, p);
-	    *index_mark = (char*) strndup(response+4, p-response-4);
-	    MSG2(5, "output_module", "Detected INDEX MARK: %s", *index_mark);
-	}else{
-	    MSG2(2, "output_module", "ERROR: Unknown event received from output module");
-	    OL_RET(-5);
-	}
-	OL_RET(0);
-    }else{                  /* unknown response */
-	MSG(3, "Unknown response from output module!");
-	OL_RET(-3);
+	    break;
+
+	case '7':
+	    retcode = 0;
+	    MSG2(5, "output_module", "Received event:\n %s", response->str);
+	    if (!strncmp(response->str, "701", 3))
+		*index_mark = (char*) strdup("__spd_begin");
+	    else if (!strncmp(response->str, "702", 3))
+		*index_mark = (char*) strdup("__spd_end");
+	    else if (!strncmp(response->str, "703", 3))
+		*index_mark = (char*) strdup("__spd_stopped");
+	    else if (!strncmp(response->str, "704", 3))
+		*index_mark = (char*) strdup("__spd_paused");
+	    else if (!strncmp(response->str, "700", 3)) {
+		char *p;
+		p = strchr(response->str, '\n');
+		MSG2(5, "output_module", "response:|%s|\n p:|%s|", response->str, p);
+		*index_mark = (char*) strndup(response->str+4, p-response->str-4);
+		MSG2(5, "output_module", "Detected INDEX MARK: %s", *index_mark);
+	    } else {
+		MSG2(2, "output_module", "ERROR: Unknown event received from output module");
+		retcode = -5;
+	    }
+	    break;
+
+	default:                  /* unknown response */
+	    MSG(3, "Unknown response from output module!");
+	    retcode = -3;
+	    break;
+
     }
 
-    OL_RET(-1)
+    g_string_free(response, TRUE);
+    OL_RET(retcode)
 }
 
 int
