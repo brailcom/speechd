@@ -773,6 +773,7 @@ logging_init(void)
     debug_logfile = stdout;
 
   MSG(2,"Speech Dispatcher Logging to file %s", file_name);
+  g_free(file_name);
   return;
 
 }
@@ -855,9 +856,11 @@ main(int argc, char *argv[])
 
     if (SpeechdOptions.pid_file == NULL){
       if (SpeechdOptions.home_speechd_dir){	
+	char *temp = NULL;
 	SpeechdOptions.pid_file = g_strdup_printf("%s/pid/speech-dispatcher.pid",
 						  SpeechdOptions.home_speechd_dir);
-	mkdir(g_path_get_dirname(SpeechdOptions.pid_file), S_IRWXU);
+	temp = g_path_get_dirname(SpeechdOptions.pid_file);
+	mkdir(temp, S_IRWXU);
       }else if (!strcmp(PIDPATH, ""))
 	SpeechdOptions.pid_file = strdup("/var/run/speech-dispatcher.pid");
       else
