@@ -323,6 +323,8 @@ _output_get_voices(OutputModule *module)
   gchar **lines;
   gchar **atoms;
   int i;
+  int ret = 0;
+  gboolean errors = FALSE;
 
   output_lock();
 
@@ -343,36 +345,41 @@ _output_get_voices(OutputModule *module)
   lines = g_strsplit(reply->str, "\n", 256);
   g_string_free(reply, TRUE);
   voice_dscr = malloc(256*sizeof(VoiceDescription*));
-  for (i=0; ;i++){
-    if (lines[i] == NULL) break;
+  for (i = 0; !errors && (lines[i] != NULL); i++) {
     MSG(1, "LINE here:|%s|", lines[i]);
     if (strlen(lines[i])<=4){
       MSG(1, "ERROR: Bad communication from driver in synth_voices");
-      output_unlock();
-      return -1;
+      ret = -1;
+      errors = TRUE;
     }
-    if (lines[i][3] == ' ') break;
+    else if (lines[i][3] == ' ')
+      break;
     else if (lines[i][3] == '-'){
       atoms = g_strsplit(&lines[i][4]," ", 0);
       // Name, language, dialect
       if ((atoms[0] == NULL) || (atoms[1] == NULL) || (atoms[2] == NULL)){
-	output_unlock();
-	return -1;
+	ret = -1;
+      errors = TRUE;
+      } else {
+        //Fill in VoiceDescription
+        voice_dscr[i] = (VoiceDescription*) malloc(sizeof(VoiceDescription));
+        voice_dscr[i]->name=strdup(atoms[0]);
+        voice_dscr[i]->language=strdup(atoms[1]);
+        voice_dscr[i]->dialect=strdup(atoms[2]);
       }
-      //Fill in VoiceDescription
-      voice_dscr[i] = (VoiceDescription*) malloc(sizeof(VoiceDescription));
-      voice_dscr[i]->name=strdup(atoms[0]);
-      voice_dscr[i]->language=strdup(atoms[1]);
-      voice_dscr[i]->dialect=strdup(atoms[2]);
+    if (atoms != NULL)
+      g_strfreev(atoms);
     }
+    /* Should we do something in a final "else" branch? */
 
   }
   voice_dscr[i] = NULL;
+  g_strfreev(lines);
 
   module->voices=voice_dscr;
 
   output_unlock();
-  return 0;
+  return ret;
 }
 
 VoiceDescription**
