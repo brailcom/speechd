@@ -756,26 +756,24 @@ logging_init(void)
   assert(file_name != NULL);
   if (!strncmp(file_name,"stdout",6)){
     logfile = stdout;
-    return;
-  }
-  if (!strncmp(file_name,"stderr",6)){
+  } else if (!strncmp(file_name, "stderr", 6)) {
     logfile = stderr;
-    return;
-  }
-  logfile = fopen(file_name, "a");
-  if (logfile == NULL){
-    fprintf(stderr, "Error: can't open logging file %s! Using stdout.\n",
-	    file_name);
-    logfile = stdout;
+  } else {
+    logfile = fopen(file_name, "a");
+    if (logfile == NULL){
+      fprintf(stderr, "Error: can't open logging file %s! Using stdout.\n",
+	      file_name);
+      logfile = stdout;
+    } else {
+      MSG(2,"Speech Dispatcher Logging to file %s", file_name);
+    }
   }
 
   if (!debug_logfile)
     debug_logfile = stdout;
 
-  MSG(2,"Speech Dispatcher Logging to file %s", file_name);
   g_free(file_name);
   return;
-
 }
 
 
