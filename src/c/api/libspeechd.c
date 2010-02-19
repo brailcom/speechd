@@ -1113,6 +1113,7 @@ get_reply(SPDConnection *connection)
     size_t N = 0;
     int bytes;
     char *reply;
+    gboolean errors = FALSE;
 
     str = g_string_new("");
 
@@ -1125,15 +1126,25 @@ get_reply(SPDConnection *connection)
 	    if (connection->stream != NULL)
 	      fclose(connection->stream);
 	    connection->stream = NULL;
-	    return NULL;
+	    errors = TRUE;
+	} else {
+	    g_string_append(str, line);
 	}
-	g_string_append(str, line);
 	/* terminate if we reached the last line (without '-' after numcode) */
-    }while( !((strlen(line) < 4) || (line[3] == ' ')));
+    }while(!errors &&  !((strlen(line) < 4) || (line[3] == ' ')));
     
-    /* The resulting message received from the socket is stored in reply */
-    reply = str->str;
-    g_string_free(str, FALSE);
+    xfree(line);	/* getline allocates with malloc. */
+
+    if (errors) {
+	/* Free the GString and its character data, and return NULL. */
+	g_string_free(str, TRUE);
+	reply = NULL;
+    } else {
+	    /* The resulting message received from the socket is stored in reply */
+	    reply = str->str;
+	/* Free the GString, but not its character data. */
+	    g_string_free(str, FALSE);
+    }
 
     return reply;
 }
