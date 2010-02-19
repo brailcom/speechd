@@ -980,13 +980,13 @@ spd_execute_command_with_reply(SPDConnection *connection, char* command, char **
 
     buf = g_strdup_printf("%s\r\n", command);
     *reply = spd_send_data_wo_mutex(connection, buf, SPD_WAIT_REPLY);
+    xfree(buf);
+    buf = NULL;
     if(*reply==NULL){
         SPD_DBG("Can't send data wo mutex in spd_execute_command_with_reply");
 	return -1;
     }
 
-    xfree(buf);
-    
     r = ret_ok(*reply);
 
     if (!r) return -1;
