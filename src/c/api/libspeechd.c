@@ -307,68 +307,92 @@ spd_close(SPDConnection* connection)
     xfree(connection);
 }
 
-/* Say TEXT with priority PRIORITY.
- * Returns msg_uid on success, -1 otherwise. */                            
-int
-spd_say(SPDConnection *connection, SPDPriority priority, const char* text)
+/* Helper functions for spd_say. */
+static inline int
+spd_say_prepare(SPDConnection *connection, SPDPriority priority,
+	const char* text, char **escaped_text)
 {
-    static char command[16];
-    char *etext;
-    int ret;
-    char *pret;
-    char *reply;
-    int err;
-    int msg_id;
-
-    if (text == NULL) return -1;
-
-    pthread_mutex_lock(connection->ssip_mutex);
+    int ret = 0;
 
     SPD_DBG("Text to say is: %s", text);
 
-    /* Set priority */
-    SPD_DBG("Setting priority");
-    ret = spd_set_priority(connection, priority);
-    if(ret) RET(-1); 
-    
-    /* Check if there is no escape sequence in the text */
-    etext = escape_dot(text);
-    if (etext == NULL) etext = (char*) text;
-  
-    /* Start the data flow */
-    SPD_DBG("Sending SPEAK");
-    sprintf(command, "SPEAK");
-    ret = spd_execute_command_wo_mutex(connection, command);
-    if(ret){     
-        SPD_DBG("Error: Can't start data flow!");
-        RET(-1);
+    /* Insure that there is no escape sequence in the text */
+    *escaped_text = escape_dot(text);
+    /* Caller is now responsible for escaped_text. */
+    if (*escaped_text == NULL) {	/* Out of memory. */
+	SPD_DBG("spd_say could not allocate memory.");
+	ret = -1;
+    } else {
+	/* Set priority */
+	SPD_DBG("Setting priority");
+	ret = spd_set_priority(connection, priority);
+	if (!ret) {
+	    /* Start the data flow */
+	    SPD_DBG("Sending SPEAK");
+	    ret = spd_execute_command_wo_mutex(connection, "speak");
+	    if (ret) {
+		SPD_DBG("Error: Can't start data flow!");
+	    }
+	}
     }
-  
+
+    return ret;
+}
+
+static inline int
+spd_say_sending(SPDConnection *connection, const char* text)
+{
+    int msg_id = -1;
+    int err = 0;
+    char *reply = NULL;
+    char *pret = NULL;
+
     /* Send data */
     SPD_DBG("Sending data");
-    pret = spd_send_data_wo_mutex(connection, etext, SPD_NO_REPLY);
-    if(pret==NULL){
-        SPD_DBG("Can't send data wo mutex");
-        RET(-1); 
+    pret = spd_send_data_wo_mutex(connection, text, SPD_NO_REPLY);
+    if (pret==NULL) {
+	SPD_DBG("Can't send data wo mutex");
+    } else {
+	/* Terminate data flow */
+	SPD_DBG("Terminating data flow");
+	err = spd_execute_command_with_reply(connection, "\r\n.", &reply);
+	if (err) {
+	    SPD_DBG("Can't terminate data flow");
+	} else {
+	    msg_id = get_param_int(reply, 1, &err);
+	    if (err < 0) {
+		SPD_DBG("Can't determine SSIP message unique ID parameter.");
+		msg_id = -1;
+	    }
+	}
     }
-    
 
-    /* Terminate data flow */
-    SPD_DBG("Terminating data flow");
-    ret = spd_execute_command_with_reply(connection, "\r\n.", &reply);
-    if(ret){
-        SPD_DBG("Can't terminate data flow");
-        RET(-1); 
-    }
-
-    msg_id = get_param_int(reply, 1, &err);
-    if (err < 0){
-       SPD_DBG("Can't determine SSIP message unique ID parameter.");
-       msg_id = -1;
-    }
     xfree(reply);
+    xfree(pret);
+    return msg_id;
+}
 
-    pthread_mutex_unlock(connection->ssip_mutex);
+/* Say TEXT with priority PRIORITY.
+ * Returns msg_uid on success, -1 otherwise. */
+int
+spd_say(SPDConnection *connection, SPDPriority priority, const char* text)
+{
+    char *escaped_text = NULL;
+    int msg_id = -1;
+    int prepare_failed = 0;
+
+    if (text != NULL) {
+    pthread_mutex_lock(connection->ssip_mutex);
+
+	prepare_failed = spd_say_prepare(connection, priority, text, &escaped_text);
+	if (!prepare_failed)
+	    msg_id = spd_say_sending(connection, escaped_text);
+
+	xfree(escaped_text);
+	pthread_mutex_unlock(connection->ssip_mutex);
+    } else {
+	SPD_DBG("spd_say called with a NULL argument for <text>");
+    }
 
     SPD_DBG("Returning from spd_say");
     return msg_id;
