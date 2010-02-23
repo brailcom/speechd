@@ -30,7 +30,7 @@ endif
 
 sd_flite_SOURCES = flite.c module_utils.c module_utils.h
 sd_flite_LDFLAGS = @RPATH@ '$(spdlibdir)'
-sd_flite_LDADD = -lsdaudio $(flite_basic) $(flite_kal) -lpthread -ldotconf @glib_libs@ @gthread_libs@
+sd_flite_LDADD = -lsdaudio $(flite_kal) $(flite_basic) -lpthread -ldotconf @glib_libs@ @gthread_libs@
 
 sd_generic_SOURCES = generic.c module_utils.c module_utils.h
 sd_generic_LDADD = -lsdaudio -lpthread -ldotconf @glib_libs@ @gthread_libs@

@@ -85,7 +85,7 @@ AC_CHECK_LIB(flite_usenglish,
         echo "",
 	-lflite -lm)
 
-flite_basic="-lflite -lflite_cmulex -lflite_usenglish";
+flite_basic="-lflite_cmulex -lflite_usenglish -lflite -lm";
 
 AC_CHECK_LIB(flite_cmu_us_kal16,
         register_cmu_us_kal, flite_ok="true";flite_kal="-lflite_cmu_us_kal16";echo "16-bit Kal Flite voice found. Flite support enabled.", 
@@ -93,8 +93,8 @@ AC_CHECK_LIB(flite_cmu_us_kal16,
         	register_cmu_us_kal, flite_ok="true";flite_libs="-lflite_cmu_us_kal";
 		echo "8-bit Kal Flite voice found. Flite support enabled.", 
         	flite_ok="false"; echo "Flite libraries missing. Compiling without Flite support!",
-		-lflite -lflite_usenglish -lflite_cmulex),
-	-lm -lflite -lflite_usenglish -lflite_cmulex)
+		-lflite_cmulex -lflite_usenglish -lflite -lm),
+	-lflite_cmulex -lflite_usenglish -lflite -lm)
 
 AC_SUBST(flite_basic)
 AC_SUBST(flite_kal)
