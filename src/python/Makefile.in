@@ -10,14 +10,14 @@ SPD_CONF_PATH_PY="speechd_config/spd_conf_path.py"
 all:
 	echo "SPD_CONF_ORIG_PATH=\"@spdconforigdir@\"" > speechd_config/paths.py
 	echo "SPD_CONF_PATH=\"@spdconfdir@\"" >> speechd_config/paths.py
-	echo "SPD_SOUND_DATA_PATH=\"${DESTDIR}@snddatadir@\"" >> speechd_config/paths.py
-	echo "SPD_DESKTOP_CONF_PATH=\"${DESTDIR}@spddesktopconforigdir@\"" >> speechd_config/paths.py
+	echo "SPD_SOUND_DATA_PATH=\"@snddatadir@\"" >> speechd_config/paths.py
+	echo "SPD_DESKTOP_CONF_PATH=\"@spddesktopconforigdir@\"" >> speechd_config/paths.py
 
 	echo "SPD_SPAWN_CMD=\"@prefix@/bin/speech-dispatcher\"" > speechd/paths.py
 
 install:
 	if test -x /usr/bin/python; then \
-		./setup.py install --prefix=${DESTDIR}${prefix}; \
+		./setup.py install --root="${DESTDIR}" --prefix=${prefix}; \
 	else \
 		echo "Python not found, not installing speechd module nor spd-conf"; \
 	fi
