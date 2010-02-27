@@ -21,17 +21,17 @@ install:
 	else \
 		echo "Python not found, not installing speechd module nor spd-conf"; \
 	fi
-	cp speechd_config/test.wav ${DESTDIR}@snddatadir@
+	cp speechd_config/test.wav "${DESTDIR}@snddatadir@"
 
-	if test ! -d ${DESTDIR}@spddesktopconforigdir@; then \
-		mkdir -p ${DESTDIR}@spddesktopconforigdir@; \
+	if test ! -d "${DESTDIR}@spddesktopconforigdir@"; then \
+		mkdir -p "${DESTDIR}@spddesktopconforigdir@"; \
 	fi
 
-	cp speechd_config/speechd.desktop ${DESTDIR}@spddesktopconforigdir@/
+	cp speechd_config/speechd.desktop "${DESTDIR}@spddesktopconforigdir@/"
 
 uninstall:
-	rm -f ${DESTDIR}@snddatadir@/test.wav
-	rm -rf ${DESTDIR}@spddesktopconforigdir@
+	rm -f "${DESTDIR}@snddatadir@/test.wav"
+	rm -rf "${DESTDIR}@spddesktopconforigdir@"
 
 clean:
 	rm -f *.pyc
