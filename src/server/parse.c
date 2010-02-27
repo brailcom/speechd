@@ -168,18 +168,9 @@ parse(const char *buf, const int bytes, const int fd)
 
             new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
             new->bytes = SpeechdSocket[fd].o_bytes;
-	    new->buf = (char*) spd_malloc(new->bytes + 1);
-	    
 	    assert(SpeechdSocket[fd].o_buf != NULL);
-	    memcpy(new->buf, SpeechdSocket[fd].o_buf->str, new->bytes);
-	    new->buf[new->bytes] = 0;
-
-
+	    new->buf = deescape_dot(SpeechdSocket[fd].o_buf->str, new->bytes);
             reparted = SpeechdSocket[fd].inside_block; 
-
-	    /* TODO: Unify this with the above copying */
-	    new->buf = deescape_dot(new->buf);
-
             MSG(5, "New buf is now: |%s|", new->buf);		
             if((msg_uid = queue_message(new, fd, 1, MSGTYPE_TEXT, reparted)) == 0){
                 if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
@@ -993,80 +984,71 @@ parse_block(const char *buf, const int bytes, const int fd)
     }
     else return strdup(ERR_PARAMETER_INVALID);
 }
+   
+/*
+     * deescape_dot: Replace .. with . at the start of lines or at the
+     * start of the string.
+ * @orig_text: text to be unescaped.
+  * @orig_len: length of the text.
+ * Returns: a freshly allocated string, containing the unescaped data.
+ *
+ * In SSIP, the message terminator is \r\n.\r\n, just as it is in SMTP
+ * and similar protocols.  Thus, period needs to be escaped when it
+ * is the only character on a line.  deescape_dot reverts that
+ * transformation, after the message is received.
+ * This function deserves further examination.
+ */
 
-/* TODO: I have no idea how this works. It seems it doesn't
-even work. */
 char*
-deescape_dot(char *otext)
+deescape_dot(const char *orig_text, size_t orig_len)
 {
-    char *seq;
-    GString *ntext;
-    char *ootext;
-    char *ret = NULL;
-    int len;
+    /* Constants.  DOTLINE is CRLF followed by a period.
+     * DOTLINELEN is the length of DOTLINE.
+     * ESCAPED_DOTLINELEN is the length of the sequence \r\n..,
+     * which is used in the original (unescaped) text.
+     */
+    static const char *DOTLINE = "\r\n.";
+    static const size_t DOTLINELEN = 3;
+    static const size_t ESCAPED_DOTLINELEN = 4;	/* \r\n.. */
 
-    if (otext == NULL) return NULL;
+    char *out_text = NULL;
+    char *out_ptr;
+    const char *orig_end = orig_text + orig_len;
 
-    MSG2(6, "escaping", "Incomming text: |%s|", otext);
+    if (orig_text == NULL)
+        return NULL;
 
-    ootext = otext;
+    out_text = spd_malloc(orig_len + 1);
+    /* We may have allocated more than we need.  In any case, out_text
+     * can be no longer than orig_text.
+     * Note: spd_malloc aborts the program on failure to allocate. */
 
-    ntext = g_string_new("");
-
-    if (strlen(otext) == 2){
-        if (!strcmp(otext, "..")){
-            otext[1] = 0;
-	    g_string_free(ntext,1);
-            return otext;
+    out_ptr = out_text;
+    if (orig_len >= 2) {
+        /* De-escape .. at start of text. */
+        if ((orig_text[0] == '.') && (orig_text[1] == '.')) {
+            *(out_ptr++) = '.';
+            orig_text = orig_text+2;
         }
     }
 
-    if (strlen(otext) >= 2){
-        if ((otext[0] == '.') && (otext[1] == '.')){
-            g_string_append(ntext, ".");
-            otext = otext+2;
+    while (orig_text < orig_end) {
+        if ((orig_text[0] == '\r') && (orig_text[1] == '\n')
+                && (orig_text[2] == '.') && (orig_text[3] == '.')) {
+            /* We just found \r\n.., the sequence we want to unescape. */
+            memcpy(out_ptr, DOTLINE, DOTLINELEN);
+            out_ptr += DOTLINELEN;
+            orig_text += ESCAPED_DOTLINELEN;
+        } else {
+            /* Just copy the character from source to destination... */
+            *(out_ptr++) = *(orig_text++);
         }
     }
 
-    MSG2(6, "escaping", "Altering text (I): |%s|", ntext->str);
-
-    while ( (seq = strstr(otext, "\r\n..\r\n")) ){
-        *seq = 0;
-        g_string_append(ntext, otext);
-        g_string_append(ntext, "\r\n.\r\n");
-
-        MSG2(6, "escaping", "Altering text (II) / 1: |%s|", otext);    
-        otext = seq + 6;
-        MSG2(6, "escaping", "Altering text (II) / 2: |%s|", otext);    
-    }
-
-    MSG2(6, "escaping", "Altering text (II): |%s|", ntext->str);    
-
-    len = strlen(otext);
-    if (len >= 4){
-        if ((otext[len-4] == '\r') && (otext[len-3] == '\n')
-            && (otext[len-2] == '.') && (otext[len-1] == '.')){
-            otext[len-1] = 0;
-            MSG2(6, "escaping", "Altering text (II-b) otext: |%s|", otext);    
-        }
-    }
-
-    if (otext == ootext){
-        ret = otext;
-	g_string_free(ntext, 1);
-    }else{
-        g_string_append(ntext, otext);
-        spd_free(ootext);
-        ret = ntext->str;
-	g_string_free(ntext, 0);
-    }
-
-    MSG2(6, "escaping", "Altered text: |%s|", ret);
-
-    return ret;
+    *out_ptr = '\0';	/* NUL-terminate. */
+    return out_text;
 }
 
-   
 /* isanum() tests if the given string is a number,
  * returns 1 if yes, 0 otherwise. */
 int
