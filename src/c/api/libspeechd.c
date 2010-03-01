@@ -53,13 +53,9 @@
 FILE *spd_debug;
 #endif
 
-typedef struct {
-    char *str;
-    size_t bytes;
-}_SPDString;
 
 static int spd_set_priority(SPDConnection* connection, SPDPriority priority);
-static char* escape_dot(const char *otext);
+static char* escape_dot(const char *text);
 static int isanum(char* str);		
 static char* get_reply(SPDConnection *connection);
 static int get_err_code(char *reply);
@@ -70,8 +66,6 @@ static void xfree(void *ptr);
 static int ret_ok(char *reply);
 static void SPD_DBG(char *format, ...);
 static void* spd_events_handler(void*);
-static _SPDString spd_string_append(_SPDString str, char *tail, int bytes);
-static _SPDString spd_string_new(void);
 
 pthread_mutex_t spd_logging_mutex;
 
@@ -1464,90 +1458,58 @@ xfree(void *ptr)
         free(ptr);
 }
 
-static _SPDString
-spd_string_new(void)
-{
-    _SPDString result;
-    
-    result.bytes=1024;
-    result.str=malloc(result.bytes);
-    result.str[0]='\0';
-    
-    return result;
-}
-
-static _SPDString
-spd_string_append(_SPDString str, char *tail, int bytes)
-{
-    if (tail == NULL) return str;
-    
-    while ((strlen(str.str)+strlen(tail))>= str.bytes){
-	str.bytes *= 2;
-	str.str = realloc(str.str, str.bytes);
-    }
-
-    if (bytes != -1)
-	strncat(str.str, tail, bytes);
-    else
-	strcat(str.str, tail);
-
-    return str;
-}   
-
+/*
+ * escape_dot: Replace . with .. at the start of lines.
+ * @text: text to escape
+ * @Returns: An allocated string, containing the escaped text.
+ */
 static char*
 escape_dot(const char *text)
 {
-    _SPDString result;
-    size_t text_len;
-    int pos;
-    char *place;
+    size_t orig_len = 0;
+    const char *orig_end;
+    char *result = NULL;
+    char *result_ptr;
+    static const char *ESCAPED_DOTLINE = "\r\n..";
+    static const size_t ESCAPED_DOTLINELEN = 4;
+    static const size_t DOTLINELEN = 3;
 
-    result=spd_string_new();
+    if (text == NULL)
+        return NULL;
 
-    if (text == NULL) return NULL;
-    text_len = strlen(text);
+orig_len = strlen(text);
+    orig_end = text + orig_len;
+    result = malloc((orig_len * 2 + 1) * sizeof(char));
 
-    pos = 0;
-    if (text_len == 0){
-	return result.str;
-    }
-    /*If text contains only a dot, escape it*/
-    else if (text_len==1 && text[0]=='.'){
-	result = spd_string_append(result, "..", -1);
-	return result.str;
-    }
-    /*Escape the leading '.\r\n', if present*/
-    else if (text_len >=3){
-	if (!strncmp(text, ".\r\n", 3)){
-	    result = spd_string_append(result, "..", -1);
-	    pos += 1;
-	}
-    }
+    if (result == NULL)
+        return NULL;
 
-    /* Replace all full \r\n.\r\n sequences */
-    while((place = strstr(&text[pos], "\r\n.\r\n"))){
-	assert (place >= text);
-	int n = place-&text[pos];
-	result = spd_string_append(result, (char*) &text[pos], n);
-	result = spd_string_append(result, "\r\n..", -1);
-	/* Only rewind before the following \r\n to resume search for
-	   sequence */
-	pos +=n+3;
+    result_ptr = result;
+
+    /* We're over-allocating.  Even if we replaced every character
+     * in text with "..", the length of the escaped string can be no more
+     * than orig_len * 2.  We could tighten that upper bound with
+     * a little more work.
+     */
+
+    if ((orig_len >= 1) && (text[0] == '.')) {
+        *(result_ptr++) = '.';
+        *(result_ptr++) = '.';
+        text += 1;
     }
 
-    /* Paste the rest */    
-    result=spd_string_append(result, (char*) &text[pos], -1);
-    
-    /*Escape the trailing '\r\n.' if found by adding an additional dot at the
-      end*/
-    if(strlen(result.str)>=3){
-	if(!strncmp(&result.str[strlen(result.str)-3], "\r\n.", 3)){
-	    result=spd_string_append(result, ".", -1);
-	    return result.str;
-	}
+    while (text < orig_end) {
+        if ((text[0] == '\r') && (text[1] == '\n') && (text[2] == '.')) {
+            memcpy(result_ptr, ESCAPED_DOTLINE, ESCAPED_DOTLINELEN);
+            result_ptr += ESCAPED_DOTLINELEN;
+            text += DOTLINELEN;
+        } else {
+            *(result_ptr++) = *(text++);
+        }
     }
 
-    return result.str;
+    * result_ptr = '\0';
+    return result;
 }
 
 #ifdef LIBSPEECHD_DEBUG
