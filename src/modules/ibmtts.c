@@ -520,6 +520,7 @@ module_init(char **status_info)
     module_audio_id = NULL;
 
     *status_info = strdup("Ibmtts: Initialized successfully.");
+    g_string_free(info, 1);
 
     return OK;
 }
@@ -1432,19 +1433,19 @@ _ibmtts_play(void* nothing)
             pthread_mutex_lock(&ibmtts_play_suspended_mutex);
             sem_wait(ibmtts_play_semaphore);
             pthread_mutex_unlock(&ibmtts_play_suspended_mutex);
-            if (ibmtts_thread_exit_requested) break;
         }
         /* DBG("Ibmtts: Playback semaphore on."); */
 
-        pthread_mutex_lock(&playback_queue_mutex);
-        if (NULL != playback_queue) {
-            playback_queue_entry = playback_queue->data;
-            playback_queue = g_slist_remove(playback_queue, playback_queue->data);
-        }
-        pthread_mutex_unlock(&playback_queue_mutex);
-
-        while ((NULL != playback_queue_entry) && !ibmtts_stop_play_requested)
+        while (!ibmtts_stop_play_requested && !ibmtts_thread_exit_requested)
         {
+            pthread_mutex_lock(&playback_queue_mutex);
+            if (NULL != playback_queue) {
+                playback_queue_entry = playback_queue->data;
+                playback_queue = g_slist_remove(playback_queue, playback_queue->data);
+            }
+            pthread_mutex_unlock(&playback_queue_mutex);
+            if (NULL == playback_queue_entry) break;
+
             switch (playback_queue_entry->type) {
                 case IBMTTS_QET_AUDIO:
                     ibmtts_send_to_audio(playback_queue_entry);
@@ -1483,14 +1484,7 @@ _ibmtts_play(void* nothing)
 
             ibmtts_delete_playback_queue_entry(playback_queue_entry);
             playback_queue_entry = NULL;
-
-            pthread_mutex_lock(&playback_queue_mutex);
-            if (NULL != playback_queue) {
-                playback_queue_entry = playback_queue->data;
-                playback_queue = g_slist_remove(playback_queue, playback_queue->data);
-            }
-            pthread_mutex_unlock(&playback_queue_mutex);
-		}
+        }
 		if (ibmtts_stop_play_requested) DBG("Ibmtts: Stop or pause in playback thread.");
 	}
 
