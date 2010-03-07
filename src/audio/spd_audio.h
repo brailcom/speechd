@@ -37,10 +37,6 @@
 #include <alsa/asoundlib.h>
 #endif
 
-#ifdef WITH_PULSE
-#include <pulse/simple.h>
-#endif
-
 #define AUDIO_BUF_SIZE 4096
 
 typedef enum{AUDIO_OSS = 0, AUDIO_NAS = 1, AUDIO_ALSA=2, AUDIO_PULSE=3, AUDIO_LIBAO=4} AudioOutputType;
@@ -91,15 +87,6 @@ typedef struct{
     AuFlowID flow;
     pthread_mutex_t flow_mutex;
     pthread_t nas_event_handler;
-#endif
-#ifdef WITH_PULSE
-    pa_simple *pa_simple;
-    char *pa_server;
-    int pa_min_audio_length;
-    volatile int pa_stop_playback;
-    int pa_current_rate;  // Sample rate for currently PA connection
-    int pa_current_bps; // Bits per sample rate for currently PA connection
-    int pa_current_channels; // Number of channels for currently PA connection
 #endif
 
     struct spd_audio_plugin *function;
