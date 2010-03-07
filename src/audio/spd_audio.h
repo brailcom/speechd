@@ -30,7 +30,6 @@
 
 #define AUDIO_BUF_SIZE 4096
 
-typedef enum{AUDIO_OSS = 0, AUDIO_NAS = 1, AUDIO_ALSA=2, AUDIO_PULSE=3, AUDIO_LIBAO=4} AudioOutputType;
 typedef enum{SPD_AUDIO_LE, SPD_AUDIO_BE} AudioFormat;
 
 typedef struct{
@@ -45,8 +44,6 @@ typedef struct{
 struct spd_audio_plugin;
 
 typedef struct{
-    AudioOutputType type;
-
     int volume;
     AudioFormat format;
 
@@ -65,7 +62,7 @@ typedef struct spd_audio_plugin {
     char const *  (* get_playcmd) (void);
 } spd_audio_plugin_t;
 
-AudioID* spd_audio_open(AudioOutputType type, void **pars, char **error);
+AudioID* spd_audio_open(char *name, void **pars, char **error);
 
 int spd_audio_play(AudioID *id, AudioTrack track, AudioFormat format);
 

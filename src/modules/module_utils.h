@@ -58,7 +58,6 @@ typedef struct{
 int log_level;
 
 AudioID *module_audio_id;
-AudioOutputType module_audio_output_method;
 char* module_audio_pars[10];
 
 

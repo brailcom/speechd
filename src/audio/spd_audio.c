@@ -62,14 +62,14 @@ static int spd_audio_log_level;
 
 */
 AudioID*
-spd_audio_open(AudioOutputType type, void **pars, char **error)
+spd_audio_open(char *name, void **pars, char **error)
 {
     AudioID *id;
     struct spd_audio_plugin *function;
 
     *error = NULL;
 
-    if (type == AUDIO_OSS){
+    if (!strcmp(name,"oss")){
 #ifdef WITH_OSS
 	function = oss_plugin_get();
 	function->set_loglevel(spd_audio_log_level);
@@ -91,7 +91,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 #endif       
 
     }
-    else if (type == AUDIO_ALSA){
+    else if (!strcmp(name,"alsa")){
 #ifdef WITH_ALSA
 	function = alsa_plugin_get();
 	function->set_loglevel(spd_audio_log_level);
@@ -112,7 +112,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 	return NULL;
 #endif
     }
-    else if (type == AUDIO_NAS){
+    else if (!strcmp(name,"nas")){
 #ifdef WITH_NAS
 	function = nas_plugin_get();
 	function->set_loglevel(spd_audio_log_level);
@@ -133,7 +133,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 	return NULL;
 #endif
     }
-    else if (type == AUDIO_PULSE){
+    else if (!strcmp(name,"pulse")){
 #ifdef WITH_PULSE
 	function = pulse_plugin_get();
 	function->set_loglevel(spd_audio_log_level);
@@ -154,7 +154,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 	return NULL;
 #endif
     }
-    else if (type == AUDIO_LIBAO){
+    else if (!strcmp(name,"libao")){
 #ifdef WITH_LIBAO
 	function = libao_plugin_get();
 	function->set_loglevel(spd_audio_log_level);
@@ -181,7 +181,6 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     }
 
     id->function = function;
-	id->type = type;
 #if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
     id->format = SPD_AUDIO_BE;
 #else
