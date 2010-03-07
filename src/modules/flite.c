@@ -359,7 +359,7 @@ _flite_speak(void* nothing)
 			break;
 		    }
 		    DBG("Playing part of the message");
-		    switch (spd_audio_endian){
+		    switch (module_audio_id->format){
 		        case SPD_AUDIO_LE:
 		            ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
 		            break;

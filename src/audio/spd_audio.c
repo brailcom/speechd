@@ -87,14 +87,12 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     AudioID *id;
     int ret;
 
-#if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
-    spd_audio_endian = SPD_AUDIO_BE;
-#else
-    spd_audio_endian = SPD_AUDIO_LE;
-#endif
-
-
     id = (AudioID*) malloc(sizeof(AudioID));
+#if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
+    id->format = SPD_AUDIO_BE;
+#else
+    id->format = SPD_AUDIO_LE;
+#endif
 
     *error = NULL;
 
@@ -238,7 +236,7 @@ spd_audio_play(AudioID *id, AudioTrack track, AudioFormat format)
     if (id && id->function->play){
         /* Only perform byte swapping if the driver in use has given us audio in
 	   an endian format other than what the running CPU supports. */
-        if (format != spd_audio_endian){
+        if (format != id->format){
                 unsigned char *out_ptr, *out_end, c;
                 out_ptr = (unsigned char *) track.samples;
                 out_end = out_ptr + track.num_samples*2 * track.num_channels;

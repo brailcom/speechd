@@ -461,7 +461,7 @@ festival_send_to_audio(FT_Wave *fwave)
     
     if (track.samples != NULL){
 	DBG("Sending to audio");
-		switch (spd_audio_endian){
+		switch (module_audio_id->format){
 			case SPD_AUDIO_LE:
 				ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
 				break;

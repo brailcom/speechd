@@ -46,8 +46,6 @@
 typedef enum{AUDIO_OSS = 0, AUDIO_NAS = 1, AUDIO_ALSA=2, AUDIO_PULSE=3, AUDIO_LIBAO=4} AudioOutputType;
 typedef enum{SPD_AUDIO_LE, SPD_AUDIO_BE} AudioFormat;
 
-AudioFormat spd_audio_endian;
-
 typedef struct{
     int bits;
     int num_channels;
@@ -63,6 +61,7 @@ typedef struct{
     AudioOutputType type;
 
     int volume;
+    AudioFormat format;
 
 #ifdef WITH_OSS
     /* OSS specific */

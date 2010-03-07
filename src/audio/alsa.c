@@ -464,7 +464,7 @@ alsa_play(AudioID *id, AudioTrack track)
 
     /* Choose the correct format */
     if (track.bits == 16){	
-        switch (spd_audio_endian){
+        switch (id->format){
             case SPD_AUDIO_LE:
                 format = SND_PCM_FORMAT_S16_LE;
                 break;
