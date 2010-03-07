@@ -108,7 +108,7 @@ typedef struct{
 }AudioID;
 
 typedef struct spd_audio_plugin {
-    int   (* open)  (AudioID *id, void** pars);
+    AudioID * (* open)  (void** pars);
     int   (* play)  (AudioID *id, AudioTrack track);
     int   (* stop)  (AudioID *id);
     int   (* close) (AudioID *id);

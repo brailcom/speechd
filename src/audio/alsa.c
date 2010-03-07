@@ -222,24 +222,22 @@ _alsa_close(AudioID *id)
                       on ALSA
   (void*) pars[1] ... =NULL
 */
-static int
-alsa_open(AudioID *id, void **pars)
+static AudioID *
+alsa_open(void **pars)
 {
+    AudioID * id;
     int ret;
+
+    if (pars[0] == NULL){
+	ERR("Can't open ALSA sound output, missing parameters in argument.");
+	return NULL;
+    }
+
+    id = (AudioID *) malloc(sizeof(AudioID));
 
     pthread_mutex_init(&id->alsa_pipe_mutex, NULL);
 
     id->alsa_opened = 0;
-
-    if (id == NULL){
-	ERR("Can't open ALSA sound output, invalid AudioID structure.");
-	return 0;
-    }
-
-    if (pars[0] == NULL){
-	ERR("Can't open ALSA sound output, missing parameters in argument.");
-	return -1;
-    }
     
     MSG(1, "Opening ALSA sound output");
 
@@ -248,12 +246,13 @@ alsa_open(AudioID *id, void **pars)
     ret = _alsa_open(id);
     if (ret){
 	ERR("Cannot initialize Alsa device '%s': Can't open.", (char*) pars[0]);
-	return -1;
+    free (id);
+	return NULL;
     }
 
     MSG(1, "Device '%s' initialized succesfully.", (char*) pars[0]);
     
-    return 0; 
+    return id;
 }
 
 /* Close ALSA */
@@ -269,6 +268,8 @@ alsa_close(AudioID *id)
     }
     MSG(1, "ALSA closed.");
 
+    free (id->alsa_device_name);
+    free (id);
     id = NULL;
 
     return 0;

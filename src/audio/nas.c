@@ -62,18 +62,19 @@ _nas_handle_server_error(AuServer *server, AuErrorEvent *event)
     return 0;
 }
 
-static int
-nas_open(AudioID *id, void **pars)
+static AudioID *
+nas_open(void **pars)
 {
+    AudioID * id;
     int ret;
     AuBool r;
 
-    if (id == NULL) return -2;
+    id = (AudioID *) malloc(sizeof(AudioID));
 
     id->aud = AuOpenServer(pars[0], 0, NULL, 0, NULL, NULL);
     if (!id->aud){
 	fprintf(stderr, "Can't connect to NAS audio server\n");
-	return -1;
+	return NULL;
     }
 
     AuSetErrorHandler(id->aud, _nas_handle_server_error);
@@ -92,10 +93,10 @@ nas_open(AudioID *id, void **pars)
     ret = pthread_create(&id->nas_event_handler, NULL, _nas_handle_events, (void*) id);
     if(ret != 0){
         fprintf(stderr, "ERROR: NAS Audio module: thread creation failed\n");
-        return -2;
+        return NULL;
     }
 
-    return 0;
+    return id;
 }
 
 static int
@@ -189,6 +190,7 @@ nas_close(AudioID *id)
 
     AuCloseServer(id->aud);
 
+    free (id);
     id = NULL;
 
     return 0;

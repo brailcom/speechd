@@ -64,25 +64,18 @@ AudioID*
 spd_audio_open(AudioOutputType type, void **pars, char **error)
 {
     AudioID *id;
-    int ret;
-
-    id = (AudioID*) malloc(sizeof(AudioID));
-#if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
-    id->format = SPD_AUDIO_BE;
-#else
-    id->format = SPD_AUDIO_LE;
-#endif
+    struct spd_audio_plugin *function;
 
     *error = NULL;
 
     if (type == AUDIO_OSS){
 #ifdef WITH_OSS
-	id->function = oss_plugin_get();
-	id->function->set_loglevel(spd_audio_log_level);
+	function = oss_plugin_get();
+	function->set_loglevel(spd_audio_log_level);
 
-	if (id->function->open != NULL){
-	    ret = id->function->open(id, pars);
-	    if (ret != 0){
+	if (function->open != NULL){
+	    id = function->open(pars);
+	    if (id == NULL){
 		*error = (char*) strdup("Couldn't open OSS device.");
 		return NULL;
 	    }
@@ -91,7 +84,6 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 	    *error = (char*) strdup("Couldn't open OSS device module.");
 	    return NULL;
 	}
-	id->type = AUDIO_OSS;
 #else
 	*error = strdup("The sound library wasn't compiled with OSS support.");
 	return NULL;
@@ -100,12 +92,12 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     }
     else if (type == AUDIO_ALSA){
 #ifdef WITH_ALSA
-	id->function = alsa_plugin_get();
-	id->function->set_loglevel(spd_audio_log_level);
+	function = alsa_plugin_get();
+	function->set_loglevel(spd_audio_log_level);
 
-	if (id->function->open != NULL){
-	    ret = id->function->open(id, pars);
-	    if (ret != 0){
+	if (function->open != NULL){
+	    id = function->open(pars);
+	    if (id == NULL){
 		*error = (char*) strdup("Couldn't open ALSA device.");
 		return NULL;
 	    }
@@ -114,7 +106,6 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 	    *error = (char*) strdup("Couldn't open ALSA device module.");
 	    return NULL;
 	}
-	id->type = AUDIO_ALSA;
 #else
 	*error = strdup("The sound library wasn't compiled with Alsa support.");
 	return NULL;
@@ -122,12 +113,12 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     }
     else if (type == AUDIO_NAS){
 #ifdef WITH_NAS
-	id->function = nas_plugin_get();
-	id->function->set_loglevel(spd_audio_log_level);
+	function = nas_plugin_get();
+	function->set_loglevel(spd_audio_log_level);
 
-	if (id->function->open != NULL){
-	    ret = id->function->open(id, pars);
-	    if (ret != 0){
+	if (function->open != NULL){
+	    id = function->open(pars);
+	    if (id == NULL){
 		*error = (char*) strdup("Couldn't open connection to the NAS server.");
 		return NULL;
 	    }
@@ -136,7 +127,6 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 	    *error = (char*) strdup("Couldn't open NAS device module.");
 	    return NULL;
 	}
-	id->type = AUDIO_NAS;
 #else
 	*error = strdup("The sound library wasn't compiled with NAS support.");
 	return NULL;
@@ -144,12 +134,12 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     }
     else if (type == AUDIO_PULSE){
 #ifdef WITH_PULSE
-	id->function = pulse_plugin_get();
-	id->function->set_loglevel(spd_audio_log_level);
+	function = pulse_plugin_get();
+	function->set_loglevel(spd_audio_log_level);
 
-	if (id->function->open != NULL){
-	    ret = id->function->open(id, pars);
-	    if (ret != 0){
+	if (function->open != NULL){
+	    id = function->open(pars);
+	    if (id == NULL){
 		*error = (char*) strdup("Couldn't open connection to the PulseAudio server.");
 		return NULL;
 	    }
@@ -158,7 +148,6 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 	    *error = (char*) strdup("Couldn't open PulseAudio device module.");
 	    return NULL;
 	}
-	id->type = AUDIO_PULSE;
 #else
 	*error = strdup("The sound library wasn't compiled with PulseAudio support.");
 	return NULL;
@@ -166,12 +155,12 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     }
     else if (type == AUDIO_LIBAO){
 #ifdef WITH_LIBAO
-	id->function = libao_plugin_get();
-	id->function->set_loglevel(spd_audio_log_level);
+	function = libao_plugin_get();
+	function->set_loglevel(spd_audio_log_level);
 
-	if (id->function->open != NULL){
-	    ret = id->function->open(id, pars);
-	    if (ret != 0){
+	if (function->open != NULL){
+	    id =  function->open(pars);
+	    if (id == NULL){
 		*error = (char*) strdup("Couldn't open libao");
 		return NULL;
 	    }
@@ -180,7 +169,6 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 	    *error = (char*) strdup("Couldn't open libao  module.");
 	    return NULL;
 	}
-	id->type = AUDIO_LIBAO;
 #else
 	*error = strdup("The sound library wasn't compiled with libao support.");
 	return NULL;
@@ -190,6 +178,14 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 	*error = (char*) strdup("Unknown device");
 	return NULL;
     }
+
+    id->function = function;
+	id->type = type;
+#if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
+    id->format = SPD_AUDIO_BE;
+#else
+    id->format = SPD_AUDIO_LE;
+#endif
 
     return id;
 }
@@ -299,14 +295,9 @@ spd_audio_close(AudioID *id)
 {
     int ret = 0;
     if (id && id->function->close){
-	ret = id->function->close(id);
+	return (id->function->close(id));
     }
-
-    free(id);
-
-    id = (AudioID *)NULL;
-
-    return ret;
+    return -1;
 }
 
 /* Set volume for playing tracks on the device id

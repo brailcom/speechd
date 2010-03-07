@@ -73,9 +73,8 @@ static void MSG(char *message, ...)
 }
 #endif
 
-static int pulse_close (AudioID * id);
 
-static int _pulse_open(AudioID * id, int sample_rate, int num_channels,
+static int_pulse_open(AudioID * id, int sample_rate, int num_channels,
 		       int bytes_per_sample)
 {
   pa_buffer_attr buffAttr;
@@ -113,8 +112,30 @@ static int _pulse_open(AudioID * id, int sample_rate, int num_channels,
   return 0;
 }
 
-static int pulse_open (AudioID * id, void **pars)
+/* Close the connection to the server.  Does not free the AudioID struct. */
+/* Usable in pulse_play, which closes connections on failure or */
+/* changes in audio parameters. */
+static void pulse_connection_close(AudioID *pulse_id)
 {
+    if(pulse_id->pa_simple != NULL) {
+        pa_simple_free(pulse_id->pa_simple);
+        pulse_id->pa_simple = NULL;
+    }
+}
+
+static AudioID * pulse_open (void **pars)
+{
+    AudioID * id;
+    int ret;
+
+    id = (AudioID *) malloc(sizeof(AudioID));
+
+    /* Select an Endianness for the initial connection. */
+#if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
+    id->format = SPD_AUDIO_BE;
+#else
+    id->format = SPD_AUDIO_LE;
+#endif
 
     id->pa_simple = NULL;
     id->pa_server = (char *)pars[0];
@@ -130,7 +151,13 @@ static int pulse_open (AudioID * id, void **pars)
     id->pa_min_audio_length = pars[1]?(int)pars[1] : DEFAULT_PA_MIN_AUDIO_LENgTH;
     id->pa_stop_playback = 0;
 
-    return _pulse_open(id, 44100, 1, 2);
+    ret =  _pulse_open(id, 44100, 1, 2);
+    if (ret) {
+        free(id);
+        id = NULL;
+    }
+
+    return id;
 }
 
 static int pulse_play (AudioID * id, AudioTrack track)
@@ -167,7 +194,7 @@ static int pulse_play (AudioID * id, AudioTrack track)
         MSG("Reopenning connection due to change in track parameters sample_rate:%d bps:%d channels:%d\n",
 	    track.sample_rate, track.bits, track.num_channels);
 	/* Close old connection if any */
-        pulse_close(id);
+        pulse_connection_close(id);
 	/* Open a new connection */
 	_pulse_open(id, track.sample_rate, track.num_channels, bytes_per_sample);
 	/* Keep track of current connection parameters */
@@ -187,7 +214,7 @@ static int pulse_play (AudioID * id, AudioTrack track)
        }
        if(pa_simple_write(id->pa_simple, ((char *)output_samples) + outcnt, i, &error) < 0) {
            pa_simple_drain(id->pa_simple, NULL);
-           pulse_close(id);
+           pulse_connection_close(id);
            MSG("ERROR: Audio: pulse_play(): %s - closing device - re-open it in next run\n", pa_strerror(error));
            break;
        } else {
@@ -207,10 +234,10 @@ static int pulse_stop (AudioID * id)
 
 static int pulse_close (AudioID * id)
 {
-    if(id->pa_simple != NULL) {
-        pa_simple_free(id->pa_simple);
-        id->pa_simple = NULL;
-    }
+    pulse_connection_close(id);
+    free (id);
+    id = NULL;
+
     return 0;
 }
 

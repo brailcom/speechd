@@ -119,15 +119,17 @@ _oss_close(AudioID *id)
       (char*) pars[0] -- the name of the device (e.g. "/dev/dsp")
       (void*) pars[1] = NULL 
 */
-static int
-oss_open(AudioID *id, void **pars)
+static AudioID *
+oss_open(void **pars)
 {
+    AudioID * id;
     int ret;
 
-    if (id == NULL) return 0;
-    if (pars[0] == NULL) return -1;
+    if (pars[0] == NULL) return NULL;
 
-    if (pars[0] != NULL) id->device_name = (char*) strdup((char*) pars[0]);
+    id = (AudioID *) malloc(sizeof(AudioID));
+
+    id->device_name = (char*) strdup((char*) pars[0]);
 
     pthread_mutex_init(&id->fd_mutex, NULL);
 
@@ -136,12 +138,19 @@ oss_open(AudioID *id, void **pars)
 
     /* Test if it's possible to access the device */
     ret = _oss_open(id);
-    if (ret) return ret;
+    if (ret) {
+        free (id->device_name);
+        free (id);
+        return NULL;
+    }
     ret = _oss_close(id);
-    if (ret) return ret;
+    if (ret) {
+        free (id->device_name);
+        free (id);
+        return NULL;
+    }
 
-
-    return 0; 
+    return id;
 }
 
 /* Internal function. */
@@ -430,7 +439,7 @@ oss_close(AudioID *id)
        closed in oss_play before and after playing each sample. */
 
     free(id->device_name);
-
+    free (id);
     id = NULL;
 
     return 0;
