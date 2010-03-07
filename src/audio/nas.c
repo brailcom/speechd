@@ -21,10 +21,12 @@
  * $Id: nas.c,v 1.8 2006-07-11 16:12:26 hanke Exp $
  */
 
+#include "spd_audio.h"
+
 static int nas_log_level;
 
 /* Internal event handler */
-void*
+static void*
 _nas_handle_events(void *par)
 {
     AudioID *id = par;
@@ -38,7 +40,7 @@ _nas_handle_events(void *par)
 /* NAS Server error handler */
 /* Unfortunatelly we can't return these errors to the caller
    since this handler gets called in the event handler thread. */
-AuBool
+static AuBool
 _nas_handle_server_error(AuServer *server, AuErrorEvent *event)
 {
     fprintf(stderr,"ERROR: Non-fatal server error in NAS\n");
@@ -60,7 +62,7 @@ _nas_handle_server_error(AuServer *server, AuErrorEvent *event)
     return 0;
 }
 
-int
+static int
 nas_open(AudioID *id, void **pars)
 {
     int ret;
@@ -96,7 +98,7 @@ nas_open(AudioID *id, void **pars)
     return 0;
 }
 
-int
+static int
 nas_play(AudioID *id, AudioTrack track)
 {
     char *buf;
@@ -154,7 +156,7 @@ nas_play(AudioID *id, AudioTrack track)
     return 0;
 }
 
-int
+static int
 nas_stop(AudioID *id)
 {
     int ret;
@@ -174,7 +176,7 @@ nas_stop(AudioID *id)
     return 0;
 }
 
-int
+static int
 nas_close(AudioID *id)
 {   
     if (id == NULL) return -2;
@@ -192,13 +194,13 @@ nas_close(AudioID *id)
     return 0;
 }
 
-int
+static int
 nas_set_volume(AudioID*id, int volume)
 {
     return 0;
 }
 
-void
+static void
 nas_set_loglevel (int level)
 {
     if (level){
@@ -207,7 +209,7 @@ nas_set_loglevel (int level)
 }
 
 /* Provide the NAS backend */
-spd_audio_plugin_t nas_functions = {
+static spd_audio_plugin_t nas_functions = {
     nas_open,
     nas_play,
     nas_stop,
@@ -215,3 +217,5 @@ spd_audio_plugin_t nas_functions = {
     nas_set_volume,
     nas_set_loglevel
 };
+
+spd_audio_plugin_t * nas_plugin_get (void) {return &nas_functions;}

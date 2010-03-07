@@ -42,11 +42,6 @@
 
 #include <pthread.h>
 
-/* The NAS backend */
-#ifdef WITH_NAS
-#include "nas.c"
-#endif
-
 static int spd_audio_log_level;
 
 /* Open the audio device.
@@ -127,7 +122,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     }
     else if (type == AUDIO_NAS){
 #ifdef WITH_NAS
-	id->function = &nas_functions;
+	id->function = nas_plugin_get();
 	id->function->set_loglevel(spd_audio_log_level);
 
 	if (id->function->open != NULL){
