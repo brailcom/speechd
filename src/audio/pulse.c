@@ -38,7 +38,7 @@
 #include <pulse/simple.h>
 #include <pulse/error.h>
 
-#include "spd_audio.h"
+#include "spd_audio_plugin.h"
 
 /* Switch this on to debug, see output log location in MSG() */
 //#define DEBUG_PULSE

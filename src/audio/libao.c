@@ -26,7 +26,7 @@
 #include <string.h>
 #include <ao/ao.h>
 
-#include "spd_audio.h"
+#include "spd_audio_plugin.h"
 
 /* send a packet of XXX bytes to the sound device */
 #define AO_SEND_BYTES 256

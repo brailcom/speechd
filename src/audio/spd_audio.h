@@ -25,42 +25,7 @@
 #ifndef __SPD_AUDIO_H
 #define __SPD_AUDIO_H
 
-#include <pthread.h>
-#include <sys/types.h>
-
-#define AUDIO_BUF_SIZE 4096
-
-typedef enum{SPD_AUDIO_LE, SPD_AUDIO_BE} AudioFormat;
-
-typedef struct{
-    int bits;
-    int num_channels;
-    int sample_rate;
-
-    int num_samples;
-    signed short *samples;
-}AudioTrack;
-
-struct spd_audio_plugin;
-
-typedef struct{
-    int volume;
-    AudioFormat format;
-
-    struct spd_audio_plugin *function;
-
-    int working;
-}AudioID;
-
-typedef struct spd_audio_plugin {
-    AudioID * (* open)  (void** pars);
-    int   (* play)  (AudioID *id, AudioTrack track);
-    int   (* stop)  (AudioID *id);
-    int   (* close) (AudioID *id);
-    int   (* set_volume) (AudioID *id, int);
-    void  (* set_loglevel) (int level);
-    char const *  (* get_playcmd) (void);
-} spd_audio_plugin_t;
+#include "spd_audio_plugin.h"
 
 AudioID* spd_audio_open(char *name, void **pars, char **error);
 

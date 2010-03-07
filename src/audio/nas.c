@@ -26,7 +26,9 @@
 #include <audio/audiolib.h>
 #include <audio/soundlib.h>
 
-#include "spd_audio.h"
+#include <pthread.h>
+
+#include "spd_audio_plugin.h"
 
 typedef struct {
     AudioID id;
