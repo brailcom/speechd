@@ -21,6 +21,7 @@ endif
 if alsa_support
 ALSA_FLAGS = -DWITH_ALSA
 ALSA_LIBS = -lasound
+libsdaudio_la_SOURCES += alsa.c
 endif
 
 if libao_support

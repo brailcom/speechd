@@ -28,19 +28,15 @@
 #include <sys/time.h>
 #include <time.h>
 
-int _alsa_close(AudioID *id);
-int _alsa_open(AudioID *id);
+#include "spd_audio.h"
 
-int xrun(AudioID *id);
-int suspend(AudioID *id);
+static int _alsa_close(AudioID *id);
+static int _alsa_open(AudioID *id);
 
-int alsa_open(AudioID *id, void **pars);
-int alsa_close(AudioID *id);
-int alsa_play(AudioID *id, AudioTrack track);
-int alsa_stop(AudioID *id);
-int alsa_set_volume(AudioID*id, int volume);
+static int xrun(AudioID *id);
+static int suspend(AudioID *id);
 
-int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds, 
+static int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds,
 		  unsigned int count, int draining);
 
 #ifndef timersub
@@ -93,7 +89,7 @@ do { \
 static int alsa_log_level;
 
 /* I/O error handler */
-int
+static int
 xrun(AudioID *id)
 {
     snd_pcm_status_t *status;
@@ -131,7 +127,7 @@ xrun(AudioID *id)
 }
 
 /* I/O suspend handler */
-int
+static int
 suspend(AudioID *id)
 {
     int res;
@@ -157,7 +153,7 @@ suspend(AudioID *id)
 
 /* Open the device so that it's ready for playing on the default
    device. Internal function used by the public alsa_open. */
-int
+static int
 _alsa_open(AudioID *id)
 {
     int err;
@@ -190,7 +186,7 @@ _alsa_open(AudioID *id)
    Close the device. Internal function used by public alsa_close. 
 */
 
-int
+static int
 _alsa_close(AudioID *id)
 {
     int err;
@@ -226,7 +222,7 @@ _alsa_close(AudioID *id)
                       on ALSA
   (void*) pars[1] ... =NULL
 */
-int
+static int
 alsa_open(AudioID *id, void **pars)
 {
     int ret;
@@ -261,7 +257,7 @@ alsa_open(AudioID *id, void **pars)
 }
 
 /* Close ALSA */
-int
+static int
 alsa_close(AudioID *id)
 {
     int err;
@@ -363,7 +359,7 @@ int wait_for_poll(AudioID *id, struct pollfd *alsa_poll_fds,
  thread with alsa_play() that the stop of the playback is requested. The
  variable can_be_stopped is used for very simple synchronization between the
  two threads. */
-int
+static int
 alsa_play(AudioID *id, AudioTrack track)
 {
     snd_pcm_format_t format;
@@ -741,7 +737,7 @@ alsa_play(AudioID *id, AudioTrack track)
 /*
  Stop the playback on the device and interrupt alsa_play()
 */
-int
+static int
 alsa_stop(AudioID *id)
 {
     char buf;
@@ -772,13 +768,13 @@ alsa_stop(AudioID *id)
   Comments: It's not possible to set individual track volume with Alsa, so we
    handle volume in alsa_play() by multiplication of each sample.
 */
-int
+static int
 alsa_set_volume(AudioID*id, int volume)
 {
     return 0;
 }
 
-void
+static void
 alsa_set_loglevel (int level)
 {
     if (level){
@@ -787,7 +783,7 @@ alsa_set_loglevel (int level)
 }
 
 /* Provide the Alsa backend. */
-spd_audio_plugin_t alsa_functions = {
+static spd_audio_plugin_t alsa_functions = {
     alsa_open,
     alsa_play,
     alsa_stop,
@@ -796,5 +792,6 @@ spd_audio_plugin_t alsa_functions = {
     alsa_set_loglevel
 };
 
+spd_audio_plugin_t * alsa_plugin_get (void) {return &alsa_functions;}
 #undef MSG
 #undef ERR

@@ -55,11 +55,6 @@
 #include "nas.c"
 #endif
 
-/* The ALSA backend */
-#ifdef WITH_ALSA
-#include "alsa.c"
-#endif
-
 static int spd_audio_log_level;
 
 /* Open the audio device.
@@ -118,7 +113,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     }
     else if (type == AUDIO_ALSA){
 #ifdef WITH_ALSA
-	id->function = &alsa_functions;
+	id->function = alsa_plugin_get();
 	id->function->set_loglevel(spd_audio_log_level);
 
 	if (id->function->open != NULL){
