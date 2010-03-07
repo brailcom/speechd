@@ -21,7 +21,22 @@
  * $Id: nas.c,v 1.8 2006-07-11 16:12:26 hanke Exp $
  */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <audio/audiolib.h>
+#include <audio/soundlib.h>
+
 #include "spd_audio.h"
+
+typedef struct {
+    AudioID id;
+    AuServer *aud;
+    AuFlowID flow;
+    pthread_mutex_t flow_mutex;
+    pthread_t nas_event_handler;
+    pthread_cond_t pt_cond;
+    pthread_mutex_t pt_mutex;
+} spd_nas_id_t;
 
 static int nas_log_level;
 
@@ -29,11 +44,11 @@ static int nas_log_level;
 static void*
 _nas_handle_events(void *par)
 {
-    AudioID *id = par;
+    spd_nas_id_t * nas_id = (spd_nas_id_t *)par;
     pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
 
     while(1)
-	AuHandleEvents(id->aud);   
+	AuHandleEvents(nas_id->aud);
     
 }
 
@@ -65,38 +80,38 @@ _nas_handle_server_error(AuServer *server, AuErrorEvent *event)
 static AudioID *
 nas_open(void **pars)
 {
-    AudioID * id;
+    spd_nas_id_t * nas_id;
     int ret;
     AuBool r;
 
-    id = (AudioID *) malloc(sizeof(AudioID));
+    nas_id = (spd_nas_id_t *) malloc(sizeof(spd_nas_id_t));
 
-    id->aud = AuOpenServer(pars[0], 0, NULL, 0, NULL, NULL);
-    if (!id->aud){
+    nas_id->aud = AuOpenServer(pars[0], 0, NULL, 0, NULL, NULL);
+    if (!nas_id->aud){
 	fprintf(stderr, "Can't connect to NAS audio server\n");
 	return NULL;
     }
 
-    AuSetErrorHandler(id->aud, _nas_handle_server_error);
+    AuSetErrorHandler(nas_id->aud, _nas_handle_server_error);
     /* return value incompatible with documentation here */
     /*    if (!r){
 	fprintf(stderr, "Can't set default NAS event handler\n");
 	return -1;
 	}*/
 
-    id->flow = 0;
+    nas_id->flow = 0;
 
-    pthread_cond_init(&id->pt_cond, NULL);
-    pthread_mutex_init(&id->pt_mutex, NULL);
-    pthread_mutex_init(&id->flow_mutex, NULL);
+    pthread_cond_init(&nas_id->pt_cond, NULL);
+    pthread_mutex_init(&nas_id->pt_mutex, NULL);
+    pthread_mutex_init(&nas_id->flow_mutex, NULL);
 
-    ret = pthread_create(&id->nas_event_handler, NULL, _nas_handle_events, (void*) id);
+    ret = pthread_create(&nas_id->nas_event_handler, NULL, _nas_handle_events, (void*) nas_id);
     if(ret != 0){
         fprintf(stderr, "ERROR: NAS Audio module: thread creation failed\n");
         return NULL;
     }
 
-    return id;
+    return (AudioID *)nas_id;
 }
 
 static int
@@ -109,8 +124,9 @@ nas_play(AudioID *id, AudioTrack track)
     float lenght;
     struct timeval now;
     struct timespec timeout;
+    spd_nas_id_t * nas_id = (spd_nas_id_t *)id;
 
-    if (id == NULL) return -2;
+    if (nas_id == NULL) return -2;
     
     s = SoundCreate(SoundFileFormatNone,
 		    AuFormatLinearSigned16LSB,
@@ -121,14 +137,14 @@ nas_play(AudioID *id, AudioTrack track)
 
     buf = (char*) track.samples;
 
-    pthread_mutex_lock(&id->flow_mutex);
+    pthread_mutex_lock(&nas_id->flow_mutex);
 
-    event_handler = AuSoundPlayFromData(id->aud, 
+    event_handler = AuSoundPlayFromData(nas_id->aud,
 			      s,
 			      buf,
 			      AuNone,
-			      ((id->volume + 100)/2) * 1500,
-			      NULL, NULL, &id->flow,
+			      ((nas_id->id.volume + 100)/2) * 1500,
+			      NULL, NULL, &nas_id->flow,
 			      NULL, NULL, NULL);
 
     if (event_handler == NULL){
@@ -136,23 +152,23 @@ nas_play(AudioID *id, AudioTrack track)
 	return -1;
     }
     
-    if (id->flow == 0){
+    if (nas_id->flow == 0){
 	fprintf (stderr, "Couldn't start data flow");
     }
-    pthread_mutex_unlock(&id->flow_mutex);
+    pthread_mutex_unlock(&nas_id->flow_mutex);
     
     /* Another timing magic */
-    pthread_mutex_lock(&id->pt_mutex);
+    pthread_mutex_lock(&nas_id->pt_mutex);
     lenght = (((float) track.num_samples) / (float) track.sample_rate);
     gettimeofday(&now, NULL);
     timeout.tv_sec = now.tv_sec + (int) lenght;
     timeout.tv_nsec = now.tv_usec * 1000 + (lenght - (int) lenght) * 1000000000;
-    pthread_cond_timedwait(&id->pt_cond, &id->pt_mutex, &timeout);
-    pthread_mutex_unlock(&id->pt_mutex);
+    pthread_cond_timedwait(&nas_id->pt_cond, &nas_id->pt_mutex, &timeout);
+    pthread_mutex_unlock(&nas_id->pt_mutex);
 
-    pthread_mutex_lock(&id->flow_mutex);
-    id->flow = 0;
-    pthread_mutex_unlock(&id->flow_mutex);
+    pthread_mutex_lock(&nas_id->flow_mutex);
+    nas_id->flow = 0;
+    pthread_mutex_unlock(&nas_id->flow_mutex);
 
     return 0;
 }
@@ -161,18 +177,19 @@ static int
 nas_stop(AudioID *id)
 {
     int ret;
+    spd_nas_id_t * nas_id = (spd_nas_id_t *)id;
 
-    if (id == NULL) return -2;
+    if (nas_id == NULL) return -2;
 
-    pthread_mutex_lock(&id->flow_mutex);
-    if (id->flow != 0)
-	AuStopFlow(id->aud, id->flow, NULL);
-    id->flow = 0;
-    pthread_mutex_unlock(&id->flow_mutex);
+    pthread_mutex_lock(&nas_id->flow_mutex);
+    if (nas_id->flow != 0)
+	AuStopFlow(nas_id->aud, nas_id->flow, NULL);
+    nas_id->flow = 0;
+    pthread_mutex_unlock(&nas_id->flow_mutex);
 
-    pthread_mutex_lock(&id->pt_mutex);
-    pthread_cond_signal(&id->pt_cond);
-    pthread_mutex_unlock(&id->pt_mutex);
+    pthread_mutex_lock(&nas_id->pt_mutex);
+    pthread_cond_signal(&nas_id->pt_cond);
+    pthread_mutex_unlock(&nas_id->pt_mutex);
 
     return 0;
 }
@@ -180,17 +197,19 @@ nas_stop(AudioID *id)
 static int
 nas_close(AudioID *id)
 {   
-    if (id == NULL) return -2;
+    spd_nas_id_t * nas_id = (spd_nas_id_t *)id;
 
-    pthread_cancel(id->nas_event_handler);
-    pthread_join(id->nas_event_handler, NULL);
+    if (nas_id == NULL) return -2;
 
-    pthread_mutex_destroy(&id->pt_mutex);
-    pthread_mutex_destroy(&id->flow_mutex);
+    pthread_cancel(nas_id->nas_event_handler);
+    pthread_join(nas_id->nas_event_handler, NULL);
 
-    AuCloseServer(id->aud);
+    pthread_mutex_destroy(&nas_id->pt_mutex);
+    pthread_mutex_destroy(&nas_id->flow_mutex);
 
-    free (id);
+    AuCloseServer(nas_id->aud);
+
+    free (nas_id);
     id = NULL;
 
     return 0;

@@ -28,11 +28,6 @@
 #include <pthread.h>
 #include <sys/types.h>
 
-#ifdef WITH_NAS
-#include <audio/audiolib.h>
-#include <audio/soundlib.h>
-#endif
-
 #ifdef WITH_ALSA
 #include <alsa/asoundlib.h>
 #endif
@@ -80,13 +75,6 @@ typedef struct{
     struct pollfd *alsa_poll_fds; /* Descriptors to poll */
     int alsa_opened; 		/* 1 between snd_pcm_open and _close, 0 otherwise */
     char *alsa_device_name; 	/* the name of the device to open */
-#endif
-
-#ifdef WITH_NAS
-    AuServer *aud;
-    AuFlowID flow;
-    pthread_mutex_t flow_mutex;
-    pthread_t nas_event_handler;
 #endif
 
     struct spd_audio_plugin *function;
