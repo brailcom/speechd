@@ -65,6 +65,8 @@
 #include "pulse.c"
 #endif
 
+static int spd_audio_log_level;
+
 /* Open the audio device.
 
    Arguments:
@@ -99,6 +101,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     if (type == AUDIO_OSS){
 #ifdef WITH_OSS
 	id->function = &oss_functions;
+	id->function->set_loglevel(spd_audio_log_level);
 
 	if (id->function->open != NULL){
 	    ret = id->function->open(id, pars);
@@ -121,6 +124,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     else if (type == AUDIO_ALSA){
 #ifdef WITH_ALSA
 	id->function = &alsa_functions;
+	id->function->set_loglevel(spd_audio_log_level);
 
 	if (id->function->open != NULL){
 	    ret = id->function->open(id, pars);
@@ -142,6 +146,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     else if (type == AUDIO_NAS){
 #ifdef WITH_NAS
 	id->function = &nas_functions;
+	id->function->set_loglevel(spd_audio_log_level);
 
 	if (id->function->open != NULL){
 	    ret = id->function->open(id, pars);
@@ -163,6 +168,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     else if (type == AUDIO_PULSE){
 #ifdef WITH_PULSE
 	id->function = &pulse_functions;
+	id->function->set_loglevel(spd_audio_log_level);
 
 	if (id->function->open != NULL){
 	    ret = id->function->open(id, pars);
@@ -184,6 +190,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     else if (type == AUDIO_LIBAO){
 #ifdef WITH_LIBAO
 	id->function = &libao_functions;
+	id->function->set_loglevel(spd_audio_log_level);
 
 	if (id->function->open != NULL){
 	    ret = id->function->open(id, pars);
@@ -320,7 +327,7 @@ spd_audio_close(AudioID *id)
 
     free(id);
 
-    id = NULL;
+    id = (AudioID *)NULL;
 
     return ret;
 }
@@ -360,9 +367,11 @@ spd_audio_set_volume(AudioID *id, int volume)
 }
 
 void
-spd_audio_set_loglevel(int level)
+spd_audio_set_loglevel(AudioID *id, int level)
 {
     if (level){
-        log_level = level;
+        spd_audio_log_level = level;
+	if (id != 0 && id->function != 0)
+	    id->function->set_loglevel(level);
     }
 }

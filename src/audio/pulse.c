@@ -45,6 +45,8 @@
 /* Changed to define on config file. Default is the same. */
 #define DEFAULT_PA_MIN_AUDIO_LENgTH 100
 
+static int pulse_log_level;
+
 static FILE *pulseDebugFile = NULL;
 
 /* Write to /tmp/speech-dispatcher-pulse.log */
@@ -222,5 +224,19 @@ int pulse_set_volume (AudioID * id, int volume)
     return 0;
 }
 
+void pulse_set_loglevel (int level)
+{
+    if (level){
+        pulse_log_level = level;
+    }
+}
+
 /* Provide the pulse backend. */
-spd_audio_plugin_t pulse_functions = {pulse_open, pulse_play, pulse_stop, pulse_close, pulse_set_volume};
+spd_audio_plugin_t pulse_functions = {
+    pulse_open,
+    pulse_play,
+    pulse_stop,
+    pulse_close,
+    pulse_set_volume,
+    pulse_set_loglevel
+};

@@ -21,6 +21,8 @@
  * $Id: nas.c,v 1.8 2006-07-11 16:12:26 hanke Exp $
  */
 
+static int nas_log_level;
+
 /* Internal event handler */
 void*
 _nas_handle_events(void *par)
@@ -196,5 +198,20 @@ nas_set_volume(AudioID*id, int volume)
     return 0;
 }
 
+void
+nas_set_loglevel (int level)
+{
+    if (level){
+        nas_log_level = level;
+    }
+}
+
 /* Provide the NAS backend */
-spd_audio_plugin_t nas_functions = {nas_open, nas_play, nas_stop, nas_close, nas_set_volume};
+spd_audio_plugin_t nas_functions = {
+    nas_open,
+    nas_play,
+    nas_stop,
+    nas_close,
+    nas_set_volume,
+    nas_set_loglevel
+};

@@ -30,7 +30,7 @@
 #define AO_SEND_BYTES 256
 /* Put a message into the logfile (stderr) */
 #define MSG(level, arg...) \
- if(level <= log_level){ \
+ if(level <= libao_log_level){ \
      time_t t; \
      struct timeval tv; \
      char *tstr; \
@@ -84,6 +84,7 @@ static ao_sample_format AO_FORMAT_INITIALIZER;
 static volatile int ao_stop_playback = 0;
 
 static int default_driver;
+static int libao_log_level;
 
 ao_device *device = NULL;
 
@@ -192,9 +193,23 @@ int libao_set_volume (AudioID * id, int volume)
   return 0;
 }
 
+void libao_set_loglevel (int level)
+{
+    if (level){
+        libao_log_level = level;
+    }
+}
+
 /* Provide the libao backend. */
 spd_audio_plugin_t libao_functions =
-  { libao_open, libao_play, libao_stop, libao_close, libao_set_volume };
+{
+    libao_open,
+    libao_play,
+    libao_stop,
+    libao_close,
+    libao_set_volume,
+    libao_set_loglevel
+};
 
 #undef MSG
 #undef ERR

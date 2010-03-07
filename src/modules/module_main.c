@@ -73,7 +73,8 @@ main(int argc, char *argv[])
     g_thread_init(NULL);
 
     module_num_dc_options = 0;
-    
+    module_audio_id = 0;
+
     if (argc >= 2){
         configfilename = strdup(argv[1]);
     }else{

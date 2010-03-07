@@ -42,7 +42,7 @@ int oss_set_volume(AudioID*id, int volume);
 
 /* Put a message into the logfile (stderr) */
 #define MSG(level, arg...) \
- if(level <= log_level){ \
+ if(level <= oss_log_level){ \
      time_t t; \
      struct timeval tv; \
      char *tstr; \
@@ -74,6 +74,8 @@ int oss_set_volume(AudioID*id, int volume);
      fflush(stderr); \
      xfree(tstr); \
   }
+
+static int oss_log_level;
 
 void
 xfree(void* p)
@@ -449,8 +451,23 @@ oss_set_volume(AudioID*id, int volume)
     return 0;
 }
 
+void
+oss_set_loglevel (int level)
+{
+    if (level){
+        oss_log_level = level;
+    }
+}
+
 /* Provide the OSS backend. */
-spd_audio_plugin_t oss_functions = {oss_open, oss_play, oss_stop, oss_close, oss_set_volume};
+spd_audio_plugin_t oss_functions = {
+    oss_open,
+    oss_play,
+    oss_stop,
+    oss_close,
+    oss_set_volume,
+    oss_set_loglevel
+};
 
 #undef MSG
 #undef ERR

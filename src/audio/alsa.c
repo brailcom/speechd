@@ -57,7 +57,7 @@ do { \
 
 /* Put a message into the logfile (stderr) */
 #define MSG(level, arg...) \
- if(level <= log_level){ \
+ if(level <= alsa_log_level){ \
      time_t t; \
      struct timeval tv; \
      char *tstr; \
@@ -89,6 +89,8 @@ do { \
      fflush(stderr); \
      xfree(tstr); \
   }
+
+static int alsa_log_level;
 
 /* I/O error handler */
 int
@@ -776,8 +778,23 @@ alsa_set_volume(AudioID*id, int volume)
     return 0;
 }
 
+void
+alsa_set_loglevel (int level)
+{
+    if (level){
+        alsa_log_level = level;
+    }
+}
+
 /* Provide the Alsa backend. */
-spd_audio_plugin_t alsa_functions = {alsa_open, alsa_play, alsa_stop, alsa_close, alsa_set_volume};
+spd_audio_plugin_t alsa_functions = {
+    alsa_open,
+    alsa_play,
+    alsa_stop,
+    alsa_close,
+    alsa_set_volume,
+    alsa_set_loglevel
+};
 
 #undef MSG
 #undef ERR
