@@ -26,6 +26,8 @@
 #include <string.h>
 #include <ao/ao.h>
 
+#include "spd_audio.h"
+
 /* send a packet of XXX bytes to the sound device */
 #define AO_SEND_BYTES 256
 /* Put a message into the logfile (stderr) */
@@ -63,16 +65,6 @@
      xfree(tstr); \
   }
 
-int libao_stop (AudioID * id);
-
-int libao_open (AudioID * id, void **pars);
-
-int libao_close (AudioID * id);
-
-int libao_play (AudioID * id, AudioTrack track);
-
-int libao_set_volume (AudioID * id, int volume);
-
 /* AO_FORMAT_INITIALIZER is an ao_sample_format structure with zero values
    in all of its fields.  We can guarantee that the fields of a
    stack-allocated ao_sample_format are zeroed by assigning
@@ -88,7 +80,7 @@ static int libao_log_level;
 
 ao_device *device = NULL;
 
-int libao_open (AudioID * id, void **pars)
+static int libao_open (AudioID * id, void **pars)
 {
 
   ao_initialize ();
@@ -96,7 +88,7 @@ int libao_open (AudioID * id, void **pars)
   return 0;
 }
 
-int libao_play (AudioID * id, AudioTrack track)
+static int libao_play (AudioID * id, AudioTrack track)
 {
   int bytes_per_sample;
 
@@ -168,14 +160,14 @@ int libao_play (AudioID * id, AudioTrack track)
 }
 
 /* stop the libao_play() loop */
-int libao_stop (AudioID * id)
+static int libao_stop (AudioID * id)
 {
 
   ao_stop_playback = 1;
   return 0;
 }
 
-int libao_close (AudioID * id)
+static int libao_close (AudioID * id)
 {
 
   if (device != NULL)
@@ -188,12 +180,12 @@ int libao_close (AudioID * id)
   return 0;
 }
 
-int libao_set_volume (AudioID * id, int volume)
+static int libao_set_volume (AudioID * id, int volume)
 {
   return 0;
 }
 
-void libao_set_loglevel (int level)
+static void libao_set_loglevel (int level)
 {
     if (level){
         libao_log_level = level;
@@ -201,7 +193,7 @@ void libao_set_loglevel (int level)
 }
 
 /* Provide the libao backend. */
-spd_audio_plugin_t libao_functions =
+static spd_audio_plugin_t libao_functions =
 {
     libao_open,
     libao_play,
@@ -210,6 +202,7 @@ spd_audio_plugin_t libao_functions =
     libao_set_volume,
     libao_set_loglevel
 };
+spd_audio_plugin_t * libao_plugin_get (void) {return &libao_functions;}
 
 #undef MSG
 #undef ERR

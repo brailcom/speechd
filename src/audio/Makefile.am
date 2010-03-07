@@ -27,6 +27,7 @@ endif
 if libao_support
 LIBAO_FLAGS = -DWITH_LIBAO
 LIBAO_LIBS = -lao
+libsdaudio_la_SOURCES += libao.c
 endif
 
 if oss_support

@@ -42,10 +42,6 @@
 
 #include <pthread.h>
 
-#ifdef WITH_LIBAO
-#include "libao.c"
-#endif
-
 /* The NAS backend */
 #ifdef WITH_NAS
 #include "nas.c"
@@ -175,7 +171,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     }
     else if (type == AUDIO_LIBAO){
 #ifdef WITH_LIBAO
-	id->function = &libao_functions;
+	id->function = libao_plugin_get();
 	id->function->set_loglevel(spd_audio_log_level);
 
 	if (id->function->open != NULL){
