@@ -42,10 +42,6 @@
 
 #include <pthread.h>
 
-/* The OSS backend */
-#ifdef WITH_OSS
-#include "oss.c"
-#endif
 #ifdef WITH_LIBAO
 #include "libao.c"
 #endif
@@ -90,7 +86,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
 
     if (type == AUDIO_OSS){
 #ifdef WITH_OSS
-	id->function = &oss_functions;
+	id->function = oss_plugin_get();
 	id->function->set_loglevel(spd_audio_log_level);
 
 	if (id->function->open != NULL){

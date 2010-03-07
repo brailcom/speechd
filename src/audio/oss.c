@@ -29,16 +29,13 @@
 #include <fcntl.h>
 #include <sys/soundcard.h>
 
-int _oss_open(AudioID *id);
-int _oss_close(AudioID *id);
-int _oss_sync(AudioID *id);
-int oss_stop(AudioID *id);
+#include <sys/soundcard.h>
 
-int oss_open(AudioID *id, void **pars);
-int oss_close(AudioID *id);
-int oss_set_volume(AudioID*id, int volume);
-int oss_play(AudioID *id, AudioTrack track);
-int oss_set_volume(AudioID*id, int volume);
+#include "spd_audio.h"
+
+static int _oss_open(AudioID *id);
+static int _oss_close(AudioID *id);
+static int _oss_sync(AudioID *id);
 
 /* Put a message into the logfile (stderr) */
 #define MSG(level, arg...) \
@@ -83,7 +80,7 @@ xfree(void* p)
     if (p != NULL) free(p);
 }
 
-int
+static int
 _oss_open(AudioID *id)
 {
     MSG(1, "_oss_open()")
@@ -102,7 +99,7 @@ _oss_open(AudioID *id)
     return 0;
 }
 
-int
+static int
 _oss_close(AudioID *id)
 {
     MSG(1, "_oss_close()")
@@ -122,7 +119,7 @@ _oss_close(AudioID *id)
       (char*) pars[0] -- the name of the device (e.g. "/dev/dsp")
       (void*) pars[1] = NULL 
 */
-int
+static int
 oss_open(AudioID *id, void **pars)
 {
     int ret;
@@ -148,7 +145,7 @@ oss_open(AudioID *id, void **pars)
 }
 
 /* Internal function. */
-int
+static int
 _oss_sync(AudioID *id)
 {
     int ret;
@@ -161,7 +158,7 @@ _oss_sync(AudioID *id)
     return 0;
 }
 
-int
+static int
 oss_play(AudioID *id, AudioTrack track)
 {
     int ret, ret2;
@@ -398,7 +395,7 @@ oss_play(AudioID *id, AudioTrack track)
 }
 
 /* Stop the playback on the device and interrupt oss_play */
-int
+static int
 oss_stop(AudioID *id)
 {
     int ret;
@@ -425,7 +422,7 @@ oss_stop(AudioID *id)
 }
 
 /* Close the device */
-int
+static int
 oss_close(AudioID *id)
 {
 
@@ -445,13 +442,13 @@ Comments:
   /dev/dsp can't set volume. We just multiply the track samples by
   a constant in oss_play (see oss_play() for more information).
 */
-int
+static int
 oss_set_volume(AudioID*id, int volume)
 {
     return 0;
 }
 
-void
+static void
 oss_set_loglevel (int level)
 {
     if (level){
@@ -460,7 +457,7 @@ oss_set_loglevel (int level)
 }
 
 /* Provide the OSS backend. */
-spd_audio_plugin_t oss_functions = {
+static spd_audio_plugin_t oss_functions = {
     oss_open,
     oss_play,
     oss_stop,
@@ -468,6 +465,6 @@ spd_audio_plugin_t oss_functions = {
     oss_set_volume,
     oss_set_loglevel
 };
-
+spd_audio_plugin_t * oss_plugin_get (void) {return &oss_functions;}
 #undef MSG
 #undef ERR

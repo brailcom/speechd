@@ -5,7 +5,7 @@ inc_local = "-I$(top_srcdir)/intl/"
 am_cflags = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@
 
 spdlib_LTLIBRARIES = libsdaudio.la
-libsdaudio_la_SOURCES = spd_audio.c spd_audio.h
+libsdaudio_la_SOURCES = spd_audio.c spd_audio.h oss.c
 
 if nas_support
 NAS_FLAGS = -DWITH_NAS
