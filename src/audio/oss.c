@@ -22,20 +22,31 @@
  * $Id: oss.c,v 1.13 2006-07-11 16:12:26 hanke Exp $
  */
 
+#include <stdio.h>
 #include <sys/time.h>
 #include <time.h>
 #include <string.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <sys/soundcard.h>
+#include <errno.h>
 
 #include <sys/soundcard.h>
 
 #include "spd_audio.h"
 
-static int _oss_open(AudioID *id);
-static int _oss_close(AudioID *id);
-static int _oss_sync(AudioID *id);
+typedef struct {
+    AudioID id;
+    int fd;
+    char* device_name;
+    pthread_mutex_t fd_mutex;
+    pthread_cond_t pt_cond;
+    pthread_mutex_t pt_mutex;
+} spd_oss_id_t;
+
+static int _oss_open(spd_oss_id_t *id);
+static int _oss_close(spd_oss_id_t *id);
+static int _oss_sync(spd_oss_id_t *id);
 
 /* Put a message into the logfile (stderr) */
 #define MSG(level, arg...) \
@@ -81,7 +92,7 @@ xfree(void* p)
 }
 
 static int
-_oss_open(AudioID *id)
+_oss_open(spd_oss_id_t *id)
 {
     MSG(1, "_oss_open()")
     pthread_mutex_lock(&id->fd_mutex);
@@ -100,7 +111,7 @@ _oss_open(AudioID *id)
 }
 
 static int
-_oss_close(AudioID *id)
+_oss_close(spd_oss_id_t *id)
 {
     MSG(1, "_oss_close()")
     if (id == NULL) return 0;
@@ -122,40 +133,40 @@ _oss_close(AudioID *id)
 static AudioID *
 oss_open(void **pars)
 {
-    AudioID * id;
+    spd_oss_id_t * oss_id;
     int ret;
 
     if (pars[0] == NULL) return NULL;
 
-    id = (AudioID *) malloc(sizeof(AudioID));
+    oss_id = (spd_oss_id_t *) malloc(sizeof(spd_oss_id_t));
 
-    id->device_name = (char*) strdup((char*) pars[0]);
+    oss_id->device_name = (char*) strdup((char*) pars[0]);
 
-    pthread_mutex_init(&id->fd_mutex, NULL);
+    pthread_mutex_init(&oss_id->fd_mutex, NULL);
 
-    pthread_cond_init(&id->pt_cond, NULL);
-    pthread_mutex_init(&id->pt_mutex, NULL);
+    pthread_cond_init(&oss_id->pt_cond, NULL);
+    pthread_mutex_init(&oss_id->pt_mutex, NULL);
 
     /* Test if it's possible to access the device */
-    ret = _oss_open(id);
+    ret = _oss_open(oss_id);
     if (ret) {
-        free (id->device_name);
-        free (id);
+        free (oss_id->device_name);
+        free (oss_id);
         return NULL;
     }
-    ret = _oss_close(id);
+    ret = _oss_close(oss_id);
     if (ret) {
-        free (id->device_name);
-        free (id);
+        free (oss_id->device_name);
+        free (oss_id);
         return NULL;
     }
 
-    return id;
+    return (AudioID *)oss_id;
 }
 
 /* Internal function. */
 static int
-_oss_sync(AudioID *id)
+_oss_sync(spd_oss_id_t *id)
 {
     int ret;
 
@@ -186,15 +197,16 @@ oss_play(AudioID *id, AudioTrack track)
     float real_volume;
     int i;
     int re;  
+    spd_oss_id_t * oss_id = (spd_oss_id_t *)id;
 
     AudioTrack track_volume;
 
-    if (id == NULL) return -1;
+    if (oss_id == NULL) return -1;
 
     /* Open the sound device. This is necessary for OSS so that the
      application doesn't prevent others from accessing /dev/dsp when
      it doesn't play anything. */
-    ret = _oss_open(id);
+    ret = _oss_open(oss_id);
     if (ret) return -2;
 
     /* Create a copy of track with the adjusted volume */
@@ -213,43 +225,43 @@ oss_play(AudioID *id, AudioTrack track)
 	format = AFMT_S8;
     }else{
 	ERR("Audio: Unrecognized sound data format.\n");
-	_oss_close(id);
+	_oss_close(oss_id);
 	return -10;
     }
 
     oformat = format;	
-    ret = ioctl(id->fd, SNDCTL_DSP_SETFMT, &format);
+    ret = ioctl(oss_id->fd, SNDCTL_DSP_SETFMT, &format);
     if (ret == -1){
 	perror("OSS ERROR: format");
-	_oss_close(id);
+	_oss_close(oss_id);
 	return -1;
     }
     if (format != oformat){
 	ERR("Device doesn't support 16-bit sound format.\n");
-	_oss_close(id);
+	_oss_close(oss_id);
 	return -2;
     }
 
     /* Choose the correct number of channels*/
     channels = track.num_channels;
-    ret = ioctl(id->fd, SNDCTL_DSP_CHANNELS, &channels);
+    ret = ioctl(oss_id->fd, SNDCTL_DSP_CHANNELS, &channels);
     if (ret == -1){
 	perror("OSS ERROR: channels");
-	_oss_close(id);
+	_oss_close(oss_id);
 	return -3;
     }
     if (channels != track.num_channels){
 	MSG(1, "Device doesn't support stereo sound.\n");
-	_oss_close(id);
+	_oss_close(oss_id);
 	return -4;
     }
     
     /* Choose the correct sample rate */
     speed = track.sample_rate;
-    ret = ioctl(id->fd, SNDCTL_DSP_SPEED, &speed);
+    ret = ioctl(oss_id->fd, SNDCTL_DSP_SPEED, &speed);
     if (ret == -1){
 	ERR("OSS ERROR: Can't set sample rate %d nor any similar.", track.sample_rate);
-	_oss_close(id);
+	_oss_close(oss_id);
 	return -5;
     }
     if (speed != track.sample_rate){
@@ -258,7 +270,7 @@ oss_play(AudioID *id, AudioTrack track)
 
     /* Is it not an empty track? */
     if (track.samples == NULL){
-	_oss_close(id);
+	_oss_close(oss_id);
 	return 0;
     }
 
@@ -273,10 +285,10 @@ oss_play(AudioID *id, AudioTrack track)
 
 	/* OSS doesn't support non-blocking write, so lets check how much data
 	 can we write so that write() returns immediatelly */	
-	re = ioctl(id->fd, SNDCTL_DSP_GETOSPACE, &info);
+	re = ioctl(oss_id->fd, SNDCTL_DSP_GETOSPACE, &info);
 	if (re == -1){
 	    perror("OSS ERROR: GETOSPACE");
-	    _oss_close(id);
+	    _oss_close(oss_id);
 	    return -5;
 	}
 	
@@ -292,12 +304,12 @@ oss_play(AudioID *id, AudioTrack track)
 	    info.fragments, info.fragsize);	
 	    
 	bytes = info.fragments * info.fragsize;
-	ret = write(id->fd, output_samples, num_bytes > bytes ? bytes : num_bytes);
+	ret = write(oss_id->fd, output_samples, num_bytes > bytes ? bytes : num_bytes);
 
 	/* Handle write() errors */
 	if (ret <= 0){
 	    perror("audio");
-	    _oss_close(id);
+	    _oss_close(oss_id);
 	    return -6;
 	}
 	
@@ -315,7 +327,7 @@ oss_play(AudioID *id, AudioTrack track)
 
 	    MSG(4, "Writing the rest of the data (%d bytes) to OSS, not a full fragment", num_bytes);
 
-	    ret2 = write(id->fd, output_samples, num_bytes);       
+	    ret2 = write(oss_id->fd, output_samples, num_bytes);
 	    num_bytes -= ret2;
 	    output_samples += ret2/2;
 	    ret += ret2;
@@ -324,7 +336,7 @@ oss_play(AudioID *id, AudioTrack track)
 	/* Handle write() errors */
 	if (ret <= 0){
 	    perror("audio");
-	    _oss_close(id);
+	    _oss_close(oss_id);
 	    return -6;
 	}
 
@@ -337,7 +349,7 @@ oss_play(AudioID *id, AudioTrack track)
 	   will be DELAY nsecs backwards.
 	*/
 	MSG(4, "Now we will try to wait");
-	pthread_mutex_lock(&id->pt_mutex);
+	pthread_mutex_lock(&oss_id->pt_mutex);
         lenght = (((float) (ret)/2) / (float) track.sample_rate);
 	if (!delay){
 	    delay = lenght>DELAY ? DELAY : lenght;
@@ -354,8 +366,8 @@ oss_play(AudioID *id, AudioTrack track)
 	timeout.tv_nsec = timeout.tv_nsec % 1000000000;
 	//	MSG("6, waiting till %d:%d (%d:%d | %d:%d)", timeout.tv_sec, timeout.tv_nsec,
 	//  now.tv_sec, now.tv_usec*1000, timeout.tv_sec - now.tv_sec, timeout.tv_nsec-now.tv_usec*1000);
-        r = pthread_cond_timedwait(&id->pt_cond, &id->pt_mutex, &timeout);
-	pthread_mutex_unlock(&id->pt_mutex);
+        r = pthread_cond_timedwait(&oss_id->pt_cond, &oss_id->pt_mutex, &timeout);
+	pthread_mutex_unlock(&oss_id->pt_mutex);
 	MSG(4, "End of wait");
 
 	/* The pthread_cond_timedwait was interrupted by change in the
@@ -374,7 +386,7 @@ oss_play(AudioID *id, AudioTrack track)
 
     MSG(4, "Wait for the resting delay = %f secs", delay)
     if ((delay > 0) && (r == ETIMEDOUT)){
-	pthread_mutex_lock(&id->pt_mutex);
+	pthread_mutex_lock(&oss_id->pt_mutex);
 	gettimeofday(&now, NULL);
         timeout.tv_sec = now.tv_sec;
         timeout.tv_nsec = now.tv_usec * 1000 + delay * 1000000000;
@@ -384,19 +396,19 @@ oss_play(AudioID *id, AudioTrack track)
 	timeout.tv_nsec = timeout.tv_nsec % 1000000000;
 	// MSG("6, waiting till %d:%d (%d:%d | %d:%d)", timeout.tv_sec, timeout.tv_nsec,
 	//	    now.tv_sec, now.tv_usec*1000, timeout.tv_sec - now.tv_sec, timeout.tv_nsec-now.tv_usec*1000);
-	r = pthread_cond_timedwait(&id->pt_cond, &id->pt_mutex, &timeout);
-	pthread_mutex_unlock(&id->pt_mutex);
+	r = pthread_cond_timedwait(&oss_id->pt_cond, &oss_id->pt_mutex, &timeout);
+	pthread_mutex_unlock(&oss_id->pt_mutex);
     }
     MSG(4, "End of wait");
 
     if (track_volume.samples!=NULL) free(track_volume.samples);
 
     /* Flush all the buffers */
-    _oss_sync(id);
+    _oss_sync(oss_id);
 
     /* Close the device so that we don't block other apps trying to
        access the device. */
-    _oss_close(id);
+    _oss_close(oss_id);
 
     MSG(4, "Device closed");
 
@@ -408,25 +420,26 @@ static int
 oss_stop(AudioID *id)
 {
     int ret;
+    spd_oss_id_t * oss_id = (spd_oss_id_t *)id;
 
-    if (id == NULL) return 0;
+    if (oss_id == NULL) return 0;
 
     MSG(4, "stop() called");
 
     /* Stop the playback on /dev/dsp */
-    pthread_mutex_lock(&id->fd_mutex);
-    if (id->fd >= 0)
-	ret = ioctl(id->fd, SNDCTL_DSP_RESET, 0);
-    pthread_mutex_unlock(&id->fd_mutex);
+    pthread_mutex_lock(&oss_id->fd_mutex);
+    if (oss_id->fd >= 0)
+	ret = ioctl(oss_id->fd, SNDCTL_DSP_RESET, 0);
+    pthread_mutex_unlock(&oss_id->fd_mutex);
     if (ret == -1){
 	perror("reset");
 	return -1;
     }
 
     /* Interrupt oss_play by setting the condition variable */
-    pthread_mutex_lock(&id->pt_mutex);
-    pthread_cond_signal(&id->pt_cond);
-    pthread_mutex_unlock(&id->pt_mutex);
+    pthread_mutex_lock(&oss_id->pt_mutex);
+    pthread_cond_signal(&oss_id->pt_cond);
+    pthread_mutex_unlock(&oss_id->pt_mutex);
     return 0;
 }
 
@@ -434,12 +447,13 @@ oss_stop(AudioID *id)
 static int
 oss_close(AudioID *id)
 {
+    spd_oss_id_t * oss_id = (spd_oss_id_t *)id;
 
     /* Does nothing because the device is being automatically openned and
        closed in oss_play before and after playing each sample. */
 
-    free(id->device_name);
-    free (id);
+    free(oss_id->device_name);
+    free (oss_id);
     id = NULL;
 
     return 0;

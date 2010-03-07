@@ -54,15 +54,6 @@ typedef struct{
     int volume;
     AudioFormat format;
 
-#ifdef WITH_OSS
-    /* OSS specific */
-    int fd;
-    char* device_name;
-    pthread_mutex_t fd_mutex;
-    pthread_cond_t pt_cond;
-    pthread_mutex_t pt_mutex;
-#endif
-
 #ifdef WITH_ALSA
     snd_pcm_t *alsa_pcm;		/* identifier of the ALSA device */
     snd_pcm_hw_params_t *alsa_hw_params;	/* parameters of sound */
