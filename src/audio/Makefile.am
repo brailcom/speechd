@@ -7,39 +7,29 @@ include_HEADERS = spd_audio_plugin.h
 am_cflags = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@
 
 spdlib_LTLIBRARIES = libsdaudio.la
-libsdaudio_la_SOURCES = spd_audio.c spd_audio.h spd_audio_plugin.h oss.c
+libsdaudio_la_SOURCES = spd_audio.c spd_audio.h spd_audio_plugin.h static_plugins.c
 
 if nas_support
-NAS_FLAGS = -DWITH_NAS
-NAS_LIBS = -laudio -L/usr/X11R6/lib
 libsdaudio_la_SOURCES += nas.c
 endif
 
 if pulse_support
-PULSE_FLAGS = -DWITH_PULSE
-PULSE_LIBS = -lpulse-simple
 libsdaudio_la_SOURCES += pulse.c
 endif
 
 if alsa_support
-ALSA_FLAGS = -DWITH_ALSA
-ALSA_LIBS = -lasound
 libsdaudio_la_SOURCES += alsa.c
 endif
 
 if libao_support
-LIBAO_FLAGS = -DWITH_LIBAO
-LIBAO_LIBS = -lao
 libsdaudio_la_SOURCES += libao.c
 endif
 
 if oss_support
-LIBOSS_FLAGS = -DWITH_OSS
+libsdaudio_la_SOURCES += oss.c
 endif
 
+EXTRA_DIST = alsa.c libao.c oss.c nas.c pulse.c static_plugins.c.in
 
-EXTRA_DIST = alsa.c libao.c oss.c nas.c pulse.c
-
-AM_CFLAGS = $(am_cflags) $(NAS_FLAGS) $(PULSE_FLAGS) $(ALSA_FLAGS) $(LIBAO_FLAGS) $(LIBOSS_FLAGS)
-libsdaudio_la_LDFLAGS = -version-info @LIB_SDAUDIO_CURRENT@:@LIB_SDAUDIO_REVISION@:@LIB_SDAUDIO_AGE@ -lpthread $(NAS_LIBS) $(PULSE_LIBS) $(ALSA_LIBS) $(LIBAO_LIBS)
-
+AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@
+libsdaudio_la_LDFLAGS = -version-info @LIB_SDAUDIO_CURRENT@:@LIB_SDAUDIO_REVISION@:@LIB_SDAUDIO_AGE@ -lpthread $(SPD_AUDIO_LIBS)

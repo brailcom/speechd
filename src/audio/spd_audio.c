@@ -44,6 +44,7 @@
 #include <pthread.h>
 
 static int spd_audio_log_level;
+extern  spd_audio_plugin_t * spd_audio_static_plugin_get (char * name);
 
 /* Open the audio device.
 
@@ -66,126 +67,29 @@ spd_audio_open(char *name, void **pars, char **error)
 {
     AudioID *id;
     struct spd_audio_plugin *function;
+    spd_audio_plugin_t const *p;
 
-    *error = NULL;
-
-    if (!strcmp(name,"oss")){
-#ifdef WITH_OSS
-	function = oss_plugin_get();
-	function->set_loglevel(spd_audio_log_level);
-
-	if (function->open != NULL){
-	    id = function->open(pars);
-	    if (id == NULL){
-		*error = (char*) strdup("Couldn't open OSS device.");
-		return NULL;
-	    }
-	}
-	else{
-	    *error = (char*) strdup("Couldn't open OSS device module.");
-	    return NULL;
-	}
-#else
-	*error = strdup("The sound library wasn't compiled with OSS support.");
-	return NULL;
-#endif       
-
-    }
-    else if (!strcmp(name,"alsa")){
-#ifdef WITH_ALSA
-	function = alsa_plugin_get();
-	function->set_loglevel(spd_audio_log_level);
-
-	if (function->open != NULL){
-	    id = function->open(&pars[1]);
-	    if (id == NULL){
-		*error = (char*) strdup("Couldn't open ALSA device.");
-		return NULL;
-	    }
-	}
-	else{
-	    *error = (char*) strdup("Couldn't open ALSA device module.");
-	    return NULL;
-	}
-#else
-	*error = strdup("The sound library wasn't compiled with Alsa support.");
-	return NULL;
-#endif
-    }
-    else if (!strcmp(name,"nas")){
-#ifdef WITH_NAS
-	function = nas_plugin_get();
-	function->set_loglevel(spd_audio_log_level);
-
-	if (function->open != NULL){
-	    id = function->open(&pars[2]);
-	    if (id == NULL){
-		*error = (char*) strdup("Couldn't open connection to the NAS server.");
-		return NULL;
-	    }
-	}
-	else{
-	    *error = (char*) strdup("Couldn't open NAS device module.");
-	    return NULL;
-	}
-#else
-	*error = strdup("The sound library wasn't compiled with NAS support.");
-	return NULL;
-#endif
-    }
-    else if (!strcmp(name,"pulse")){
-#ifdef WITH_PULSE
-	function = pulse_plugin_get();
-	function->set_loglevel(spd_audio_log_level);
-
-	if (function->open != NULL){
-	    id = function->open(&pars[3]);
-	    if (id == NULL){
-		*error = (char*) strdup("Couldn't open connection to the PulseAudio server.");
-		return NULL;
-	    }
-	}
-	else{
-	    *error = (char*) strdup("Couldn't open PulseAudio device module.");
-	    return NULL;
-	}
-#else
-	*error = strdup("The sound library wasn't compiled with PulseAudio support.");
-	return NULL;
-#endif
-    }
-    else if (!strcmp(name,"libao")){
-#ifdef WITH_LIBAO
-	function = libao_plugin_get();
-	function->set_loglevel(spd_audio_log_level);
-
-	if (function->open != NULL){
-	    id =  function->open(pars);
-	    if (id == NULL){
-		*error = (char*) strdup("Couldn't open libao");
-		return NULL;
-	    }
-	}
-	else{
-	    *error = (char*) strdup("Couldn't open libao  module.");
-	    return NULL;
-	}
-#else
-	*error = strdup("The sound library wasn't compiled with libao support.");
-	return NULL;
-#endif
-    }
-    else{
-	*error = (char*) strdup("Unknown device");
-	return NULL;
+    /* check whether static plugin is available */
+    p = spd_audio_static_plugin_get (name);
+    if (p == NULL || p->name == NULL) {
+        *error = (char*)g_strdup_printf("Unknown plugin %s ", name);
+        return (AudioID *)NULL;
     }
 
-    id->function = function;
+    id = p->open (pars);
+    if (id == NULL) {
+        *error = (char*) g_strdup_printf("Couldn't open %s plugin", name);
+        return (AudioID *)NULL;
+    }
+
+    id->function = p;
 #if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
     id->format = SPD_AUDIO_BE;
 #else
     id->format = SPD_AUDIO_LE;
 #endif
+
+    *error = NULL;
 
     return id;
 }

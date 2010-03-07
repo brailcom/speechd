@@ -248,7 +248,7 @@ alsa_open(void **pars)
     spd_alsa_id_t * alsa_id;
     int ret;
 
-    if (pars[0] == NULL){
+    if (pars[1] == NULL){
 	ERR("Can't open ALSA sound output, missing parameters in argument.");
 	return NULL;
     }
@@ -261,16 +261,16 @@ alsa_open(void **pars)
     
     MSG(1, "Opening ALSA sound output");
 
-    alsa_id->alsa_device_name = strdup(pars[0]);
+    alsa_id->alsa_device_name = strdup(pars[1]);
     
     ret = _alsa_open(alsa_id);
     if (ret){
-	ERR("Cannot initialize Alsa device '%s': Can't open.", (char*) pars[0]);
+	ERR("Cannot initialize Alsa device '%s': Can't open.", alsa_id->alsa_device_name);
     free (alsa_id);
 	return NULL;
     }
 
-    MSG(1, "Device '%s' initialized succesfully.", (char*) pars[0]);
+    MSG(1, "Device '%s' initialized succesfully.", alsa_id->alsa_device_name);
     
     return (AudioID *)alsa_id;
 }

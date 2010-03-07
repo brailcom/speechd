@@ -88,7 +88,7 @@ nas_open(void **pars)
 
     nas_id = (spd_nas_id_t *) malloc(sizeof(spd_nas_id_t));
 
-    nas_id->aud = AuOpenServer(pars[0], 0, NULL, 0, NULL, NULL);
+    nas_id->aud = AuOpenServer(pars[2], 0, NULL, 0, NULL, NULL);
     if (!nas_id->aud){
 	fprintf(stderr, "Can't connect to NAS audio server\n");
 	return NULL;
