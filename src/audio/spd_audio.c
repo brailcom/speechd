@@ -60,11 +60,6 @@
 #include "alsa.c"
 #endif
 
-/* The PulseAudio backend */
-#ifdef WITH_PULSE
-#include "pulse.c"
-#endif
-
 static int spd_audio_log_level;
 
 /* Open the audio device.
@@ -167,7 +162,7 @@ spd_audio_open(AudioOutputType type, void **pars, char **error)
     }
     else if (type == AUDIO_PULSE){
 #ifdef WITH_PULSE
-	id->function = &pulse_functions;
+	id->function = pulse_plugin_get();
 	id->function->set_loglevel(spd_audio_log_level);
 
 	if (id->function->open != NULL){
