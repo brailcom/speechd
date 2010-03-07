@@ -279,6 +279,7 @@ pulse_get_playcmd (void)
 
 /* Provide the pulse backend. */
 static spd_audio_plugin_t pulse_functions = {
+    "pulse",
     pulse_open,
     pulse_play,
     pulse_stop,

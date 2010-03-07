@@ -814,6 +814,7 @@ alsa_get_playcmd (void)
 
 /* Provide the Alsa backend. */
 static spd_audio_plugin_t alsa_functions = {
+    "alsa",
     alsa_open,
     alsa_play,
     alsa_stop,

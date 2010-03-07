@@ -239,6 +239,7 @@ nas_get_playcmd (void)
 
 /* Provide the NAS backend */
 static spd_audio_plugin_t nas_functions = {
+    "nas",
     nas_open,
     nas_play,
     nas_stop,

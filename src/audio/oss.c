@@ -488,6 +488,7 @@ oss_get_playcmd (void)
 
 /* Provide the OSS backend. */
 static spd_audio_plugin_t oss_functions = {
+    "oss",
     oss_open,
     oss_play,
     oss_stop,
