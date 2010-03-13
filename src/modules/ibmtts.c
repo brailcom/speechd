@@ -833,6 +833,68 @@ _ibmtts_stop_or_pause(void* nothing)
     pthread_exit(NULL);
 }
 
+static int 
+process_text_mark(char *part, int part_len, char *mark_name)
+{
+    /* Handle index marks. */
+    if (NULL != mark_name) {
+        /* Assign the mark name an integer number and store in lookup table. */
+        int *markId = (int *) xmalloc( sizeof (int) );
+        *markId = 1 + g_hash_table_size(ibmtts_index_mark_ht);
+        g_hash_table_insert(ibmtts_index_mark_ht, markId, mark_name);
+        if (!eciInsertIndex(eciHandle, *markId)) {
+            DBG("Ibmtts: Error sending index mark to synthesizer.");
+            ibmtts_log_eci_error();
+            /* Try to keep going. */
+        } else
+            DBG("Ibmtts: Index mark |%s| (id %i) sent to synthesizer.",mark_name, *markId);
+        /* If pause is requested, skip over rest of message,
+           but synthesize what we have so far. */
+        if (ibmtts_pause_requested) {
+            DBG("Ibmtts: Pause requested in synthesis thread.");
+            return 1;
+        }
+        return 0;
+    }
+    
+    /* Handle normal text. */
+    if (part_len > 0) {
+        DBG("Ibmtts: Returned %d bytes from get_part.", part_len);
+        DBG("Ibmtts: Text to synthesize is |%s|\n", part);
+        DBG("Ibmtts: Sending text to synthesizer.");
+        if (!eciAddText(eciHandle, part)) {
+            DBG("Ibmtts: Error sending text.");
+            ibmtts_log_eci_error();
+            return 2;
+        }
+        return 0;
+    }
+    
+    /* Handle end of text. */
+    DBG("Ibmtts: End of data in synthesis thread.");
+    /*
+     Add index mark for end of message.
+     This also makes sure the callback gets called at least once 
+    */
+    eciInsertIndex(eciHandle, IBMTTS_MSG_END_MARK);
+    DBG("Ibmtts: Trying to synthesize text.");
+    if (!eciSynthesize(eciHandle)) {
+        DBG("Ibmtts: Error synthesizing.");
+        ibmtts_log_eci_error();
+        return 2;;
+    }
+
+    /* Audio and index marks are returned in eciCallback(). */
+    DBG("Ibmtts: Waiting for synthesis to complete.");
+    if (!eciSynchronize(eciHandle)) {
+        DBG("Ibmtts: Error waiting for synthesis to complete.");
+        ibmtts_log_eci_error();
+        return 2;
+    }
+    DBG("Ibmtts: Synthesis complete.");
+    return 3;
+    }
+
 /* Synthesis thread. */
 static void*
 _ibmtts_synth(void* nothing)
@@ -840,7 +902,7 @@ _ibmtts_synth(void* nothing)
     char *pos = NULL;
     char *part = NULL;
     int part_len = 0;
-    int *markId = NULL;
+    int ret;
     
     DBG("Ibmtts: Synthesis thread starting.......\n");
 
@@ -848,8 +910,7 @@ _ibmtts_synth(void* nothing)
     set_speaking_thread_parameters();
 
     /* Allocate a place for index mark names to be placed. */
-    char **mark_name = (char **) xmalloc(sizeof (char *));
-    *mark_name = NULL;
+    char *mark_name = NULL;
 
     while (!ibmtts_thread_exit_requested)
     {
@@ -932,86 +993,22 @@ _ibmtts_synth(void* nothing)
                     RECOGN_ICON = 2
             */
 
-            part = ibmtts_next_part(pos, mark_name);
+            part = ibmtts_next_part(pos, &mark_name);
             if (NULL == part) {
                 DBG("Ibmtts: Error getting next part of message.");
                 /* TODO: What to do here? */
                 break;
-            } else {
-                part_len = strlen(part);
-                pos += part_len;
             }
-
-            /* Handle index marks. */
-            if (NULL != *mark_name) {
-                /* Assign the mark name an integer number and store in lookup table. */
-                markId = (int *) xmalloc( sizeof (int) );
-                *markId = 1 + g_hash_table_size(ibmtts_index_mark_ht);
-                g_hash_table_insert(ibmtts_index_mark_ht, markId, strdup(*mark_name));
-                if (!eciInsertIndex(eciHandle, *markId)) {
-                    DBG("Ibmtts: Error sending index mark to synthesizer.");
-                    ibmtts_log_eci_error();
-                    /* Try to keep going. */
-                } else
-                    DBG("Ibmtts: Index mark |%s| (id %i) sent to synthesizer.",*mark_name, *markId);
-                xfree(*mark_name);
-                *mark_name = NULL;
-                /* If pause is requested, skip over rest of message,
-                   but synthesize what we have so far. */
-                if (ibmtts_pause_requested) {
-                    DBG("Ibmtts: Pause requested in synthesis thread.");
-                    pos += strlen(pos);
-                }
-            }
-            /* Handle normal text. */
-            else if (part_len > 0) {
-                DBG("Ibmtts: Returned %d bytes from get_part.", part_len);
-                DBG("Ibmtts: Text to synthesize is |%s|\n", part);
-                DBG("Ibmtts: Sending text to synthesizer.");
-                if (!eciAddText(eciHandle, part)) {
-                    DBG("Ibmtts: Error sending text.");
-                    ibmtts_log_eci_error();
-                    break;
-                }
-                xfree(part);
-                part = NULL;
-            }
-            /* Handle end of text. */
-            else {
-                xfree(part);
-                part = NULL;
-                DBG("Ibmtts: End of data in synthesis thread.");
-				/* Add index mark for end of message.
-				   This also makes sure the callback gets called at least once */
-				eciInsertIndex(eciHandle, IBMTTS_MSG_END_MARK);
-                DBG("Ibmtts: Trying to synthesize text.");
-                if (!eciSynthesize(eciHandle)) {
-                    DBG("Ibmtts: Error synthesizing.");
-                    ibmtts_log_eci_error();
-                    break;
-                }
-				
-                /* Audio and index marks are returned in eciCallback(). */
-                DBG("Ibmtts: Waiting for synthesis to complete.");
-                if (!eciSynchronize(eciHandle)) {
-                    DBG("Ibmtts: Error waiting for synthesis to complete.");
-                    ibmtts_log_eci_error();
-                    break;
-                }
-				DBG("Ibmtts: Synthesis complete.");
-                                break;
-            }
-
-            if (ibmtts_stop_synth_requested){
-                DBG("Ibmtts: Stop in synthesis thread, terminating.");
-                break;
-            }
+            part_len = strlen(part);
+            pos += part_len;
+            ret = process_text_mark(part, part_len, mark_name);
+            free(part);
+            part = NULL;
+            mark_name = NULL;
+            if (ret == 1) pos += strlen(pos);
+            else if (ret > 1) break;
         }
     }
-
-    xfree(part);
-    xfree(*mark_name);
-    xfree(mark_name);
 
     DBG("Ibmtts: Synthesis thread ended.......\n");
 
