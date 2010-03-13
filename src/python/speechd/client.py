@@ -113,6 +113,9 @@ class _SSIP_Connection(object):
     _END_OF_DATA_MARKER_ESCAPED = '..'
     _END_OF_DATA = _NEWLINE + _END_OF_DATA_MARKER + _NEWLINE
     _END_OF_DATA_ESCAPED = _NEWLINE + _END_OF_DATA_MARKER_ESCAPED + _NEWLINE
+    # Constants representing \r\n. and \r\n..
+    _RAW_DOTLINE = _NEWLINE + _END_OF_DATA_MARKER
+    _ESCAPED_DOTLINE = _NEWLINE + _END_OF_DATA_MARKER_ESCAPED
 
     _CALLBACK_TYPE_MAP = {700: CallbackType.INDEX_MARK,
                           701: CallbackType.BEGIN,
@@ -293,12 +296,17 @@ class _SSIP_Connection(object):
         
         """
         # Escape the end-of-data marker even if present at the beginning
-        if data.startswith(self._END_OF_DATA_MARKER + self._NEWLINE):
+        # The start of the string is also the start of a line.
+        if data.startswith(self._END_OF_DATA_MARKER):
             l = len(self._END_OF_DATA_MARKER)
             data = self._END_OF_DATA_MARKER_ESCAPED + data[l:]
-        elif data == self._END_OF_DATA_MARKER:
-            data = self._END_OF_DATA_MARKER_ESCAPED
-        data = data.replace(self._END_OF_DATA, self._END_OF_DATA_ESCAPED)
+
+        # Escape the end of data marker at the start of each subsequent
+        # line.  We can do that by simply replacing \r\n. with \r\n..,
+        # since the start of a line is immediately preceded by \r\n,
+        # when the line is not the beginning of the string.
+        data = data.replace(self._RAW_DOTLINE, self._ESCAPED_DOTLINE)
+
         try:
             self._socket.send(data + self._END_OF_DATA)
         except socket.error:
