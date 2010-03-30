@@ -30,6 +30,9 @@
 #include <fcntl.h>
 #include <sys/soundcard.h>
 #include <errno.h>
+#include <unistd.h> /* for open, close */
+#include <sys/ioctl.h>
+#include <pthread.h>
 
 #include <sys/soundcard.h>
 

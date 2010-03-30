@@ -28,6 +28,7 @@
 #include <stdio.h>
 #include <sys/time.h>
 #include <time.h>
+#include <pthread.h>
 
 #include <alsa/asoundlib.h>
 

@@ -43,6 +43,8 @@
 
 #include <pthread.h>
 
+#include <glib.h>
+
 static int spd_audio_log_level;
 extern  spd_audio_plugin_t * spd_audio_static_plugin_get (char * name);
 
