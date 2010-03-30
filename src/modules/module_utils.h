@@ -46,23 +46,12 @@
 
 #include "spd_audio.h"
 
-typedef struct{
-  char* audio_output_method;
-  char* audio_oss_device;
-  char* audio_alsa_device;
-  char* audio_nas_server;
-  char* audio_pulse_server;
-  int audio_pulse_min_length;
-}SPDAudioSettings;
-
 int log_level;
 
 AudioID *module_audio_id;
 char* module_audio_pars[10];
 
-
 SPDMsgSettings msg_settings;
-SPDAudioSettings audio_settings;
 SPDMsgSettings msg_settings_old;
 
 int current_index_mark;

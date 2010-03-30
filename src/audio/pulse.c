@@ -150,6 +150,7 @@ static AudioID * pulse_open (void **pars)
 #endif
     pulse_id->pa_simple = NULL;
     pulse_id->pa_server = (char *)pars[0];
+    pulse_id->pa_min_audio_length = DEFAULT_PA_MIN_AUDIO_LENgTH;
 
     pulse_id->pa_current_rate = -1;
     pulse_id->pa_current_bps = -1;
@@ -159,7 +160,9 @@ static AudioID * pulse_open (void **pars)
     pulse_id->pa_server = NULL;
     }
 
-    pulse_id->pa_min_audio_length = pars[1]?(int)pars[1] : DEFAULT_PA_MIN_AUDIO_LENgTH;
+    if (pars[1] != NULL && atoi(pars[1]) != 0)
+        pulse_id->pa_min_audio_length = atoi(pars[1]);
+
     pulse_id->pa_stop_playback = 0;
 
     ret =  _pulse_open(pulse_id, 44100, 1, 2);

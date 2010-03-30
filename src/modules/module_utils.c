@@ -276,21 +276,12 @@ do_set(void)
     return strdup("401 ERROR INTERNAL"); /* Can't be reached */
 }
 
-#define SET_AUDIO_NUM(name, cond) \
+#define SET_AUDIO_STR(name,idx) \
  if(!strcmp(cur_item, #name)){ \
-     number = strtol(cur_value, &tptr, 10); \
-     if(!(cond)){ err = 2; continue; } \
-     if (tptr == cur_value){ err = 2; continue; } \
-     audio_settings.name = number; \
+     xfree(module_audio_pars[idx]); \
+     if(!strcmp(cur_value, "NULL")) module_audio_pars[idx] = NULL; \
+     else module_audio_pars[idx] = strdup(cur_value); \
  }
-
-#define SET_AUDIO_STR(name) \
- if(!strcmp(cur_item, #name)){ \
-     xfree(audio_settings.name); \
-     if(!strcmp(cur_value, "NULL")) audio_settings.name = NULL; \
-     else audio_settings.name = strdup(cur_value); \
- }
-
 
 char*
 do_audio(void)
@@ -300,7 +291,6 @@ do_audio(void)
     char *line = NULL;
     int ret;
     size_t n;
-    int number; char *tptr;
     int err = 0;                /* Error status */
     char *status;
     char *msg;
@@ -322,12 +312,12 @@ do_audio(void)
             cur_value = strtok(NULL, "\n");
             if (cur_value == NULL){ err=1; continue; }
             
-            SET_AUDIO_STR(audio_output_method)
-            else SET_AUDIO_STR(audio_oss_device)
-	    else SET_AUDIO_STR(audio_alsa_device)
-	    else SET_AUDIO_STR(audio_nas_server)
-            else SET_AUDIO_STR(audio_pulse_server)
-	    else SET_AUDIO_NUM(audio_pulse_min_length, 1)
+            SET_AUDIO_STR(audio_output_method, 0)
+            else SET_AUDIO_STR(audio_oss_device, 1)
+            else SET_AUDIO_STR(audio_alsa_device, 2)
+            else SET_AUDIO_STR(audio_nas_server, 3)
+            else SET_AUDIO_STR(audio_pulse_server, 4)
+            else SET_AUDIO_STR(audio_pulse_min_length, 5)
             else err=2;             /* Unknown parameter */
         }
         xfree(line);
@@ -1115,105 +1105,34 @@ module_utils_init(void)
     return 0;
 }
 
-
-#define ABORT(msg) g_string_append(info, msg); \
-	*status_info = info->str; \
-	g_string_free(info, 0); \
-	return -1;
-
 int
 module_audio_init_spd(char **status_info)
 {
-  char * error;
-  GString *info;
-  char *module_audio_pars[10];
-  char *outputs;
-  int audio_output_set = 0;
+    char *error=0;
+    gchar **outputs;
+    int i=0;
 
-  info = g_string_new("");
-  outputs = audio_settings.audio_output_method;
+    DBG ("Openning audio output system");
+    if (NULL == module_audio_pars[0]) {
+        *status_info = g_strdup ("Sound output method specified in configuration not supported. "
+                                                 "Please choose 'oss', 'alsa', 'nas', 'libao' or 'pulse'.");
+        return -1;
+     }
 
-    DBG("Openning audio output system");
-    if (outputs[0]){
-	char *next = outputs;
-	size_t len;
+    outputs = g_strsplit(module_audio_pars[0], ",", 0);
+    while (NULL != outputs[i]) {
+        module_audio_id = spd_audio_open(outputs[i], (void**) &module_audio_pars[1], &error);
+        if (module_audio_id) {
+            DBG("Using %s audio output method", outputs[i]);
+            free (outputs);
+            return 0;
+        }
+        i++;
+     }
 
-	do{
-	    outputs = next;
-	    next = strchr(outputs, ',');
+    *status_info = g_strdup_printf("Opening sound device failed. Reason: %s. ", error);
 
-	    if (!outputs[0] || outputs[0] == ',')
-		continue;
+    free (outputs);
+    return -1;
 
-	    len = (next ? ((size_t)(next-outputs)) : strlen(outputs));
-
-	    if (len == 3 && strncmp("oss", outputs, len) == 0){
-		DBG("Using OSS audio output method");
-		module_audio_pars[0] = strdup(audio_settings.audio_oss_device);
-		module_audio_pars[1] = NULL;
-		module_audio_id = spd_audio_open("oss", (void**) module_audio_pars, &error);
-		if (module_audio_id){
-                    DBG("OSS initialization successful");
-		    module_audio_output_method = AUDIO_OSS;
-		    audio_output_set = 1;
-		}
-	    } else if (len == 5 && strncmp("libao", outputs, len) == 0){
-		DBG("Using libao audio output method");
-		module_audio_pars[0] = NULL;
-		module_audio_pars[1] = NULL;
-		module_audio_id = spd_audio_open("libao", (void**) module_audio_pars, &error);
-		if (module_audio_id){
-                    DBG("libao initialization successful");
-		    module_audio_output_method = AUDIO_LIBAO;
-		    audio_output_set = 1;
-		}
-	    } else if (len == 4 && strncmp("alsa", outputs, len) == 0){
-		DBG("Using Alsa audio output method");
-		module_audio_pars[0] = audio_settings.audio_alsa_device;
-		module_audio_pars[1] = NULL;
-		module_audio_id = spd_audio_open("alsa", (void**) module_audio_pars, &error);
-		if (module_audio_id){
-                    DBG("Alsa initialization successful");
-		    module_audio_output_method = AUDIO_ALSA;
-		    audio_output_set = 1;
-		    break;
-		}
-	    } else if (len == 3 && strncmp("nas", outputs, len) == 0){
-		DBG("Using NAS audio output method");
-		module_audio_pars[0] = audio_settings.audio_nas_server;
-		module_audio_pars[1] = NULL;
-		module_audio_id = spd_audio_open("nas", (void**) module_audio_pars, &error);
-		if (module_audio_id){
-                    DBG("NAS initialization successful");
-		    module_audio_output_method = AUDIO_NAS;
-		    audio_output_set = 1;
-		    break;
-		}
-	    } else if (len == 5 && strncmp("pulse", outputs, len) == 0){
-		DBG("Using PulseAudio output method");
-		module_audio_pars[0] = (void *) audio_settings.audio_pulse_server;
-		module_audio_pars[1] = (void *) audio_settings.audio_pulse_min_length;
-		module_audio_id = spd_audio_open("pulse", (void**) module_audio_pars, &error);
-		if (module_audio_id){
-                    DBG("PulseAudio initialization successful");
-		    module_audio_output_method = AUDIO_PULSE;
-		    audio_output_set = 1;
-		    break;
-		}
-	    } else{
-		ABORT("Sound output method specified in configuration not supported. "
-		    "Please choose 'oss', 'alsa', 'nas' or 'pulse'.");
-	    }
-	} while(next++);
-    }
-
-    if (!audio_output_set){
-	g_string_append_printf(info, "Opening sound device failed. Reason: %s. ", error);
-	ABORT("Can't open sound device.");
-	g_string_free(info, 1);
-    }
-
-    return 0;
 }
-
-#undef ABORT
