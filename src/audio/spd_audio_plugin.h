@@ -45,7 +45,7 @@ typedef struct{
     int volume;
     AudioFormat format;
 
-    struct spd_audio_plugin *function;
+    struct spd_audio_plugin const *function;
     void *private_data;
 
     int working;

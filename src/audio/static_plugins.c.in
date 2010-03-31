@@ -32,10 +32,10 @@ static spd_audio_plugin_t const * (* spd_audio_static_plugins[]) (void) =
 	0
 };
 
-spd_audio_plugin_t * spd_audio_static_plugin_get (char * name)
+spd_audio_plugin_t const * spd_audio_static_plugin_get (char * name)
 {
     int i;
-    spd_audio_plugin_t * plugin;
+    spd_audio_plugin_t const * plugin;
 
     for (i=0; spd_audio_static_plugins[i]; i++)
     {
