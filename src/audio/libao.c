@@ -197,6 +197,12 @@ static void libao_set_loglevel (int level)
     }
 }
 
+static char  const *
+libao_get_playcmd (void)
+{
+    return NULL;
+}
+
 /* Provide the libao backend. */
 static spd_audio_plugin_t libao_functions =
 {
@@ -205,7 +211,8 @@ static spd_audio_plugin_t libao_functions =
     libao_stop,
     libao_close,
     libao_set_volume,
-    libao_set_loglevel
+    libao_set_loglevel,
+    libao_get_playcmd
 };
 spd_audio_plugin_t * libao_plugin_get (void) {return &libao_functions;}
 

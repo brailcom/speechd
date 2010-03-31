@@ -106,6 +106,7 @@ do { \
   }
 
 static int alsa_log_level;
+static char const * alsa_play_cmd="aplay";
 
 /* I/O error handler */
 static int
@@ -805,6 +806,12 @@ alsa_set_loglevel (int level)
     }
 }
 
+static char const *
+alsa_get_playcmd (void)
+{
+    return alsa_play_cmd;
+}
+
 /* Provide the Alsa backend. */
 static spd_audio_plugin_t alsa_functions = {
     alsa_open,
@@ -812,7 +819,8 @@ static spd_audio_plugin_t alsa_functions = {
     alsa_stop,
     alsa_close,
     alsa_set_volume,
-    alsa_set_loglevel
+    alsa_set_loglevel,
+    alsa_get_playcmd
 };
 
 spd_audio_plugin_t * alsa_plugin_get (void) {return &alsa_functions;}

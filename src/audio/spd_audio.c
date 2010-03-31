@@ -344,3 +344,12 @@ spd_audio_set_loglevel(AudioID *id, int level)
 	    id->function->set_loglevel(level);
     }
 }
+
+char const *
+spd_audio_get_playcmd(AudioID *id)
+{
+	if (id != 0 && id->function != 0) {
+	    return id->function->get_playcmd();
+    }
+    return NULL;
+}

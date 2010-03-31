@@ -84,6 +84,7 @@ static int _oss_sync(spd_oss_id_t *id);
   }
 
 static int oss_log_level;
+static char const * oss_play_cmd="play";
 
 void
 xfree(void* p)
@@ -479,6 +480,12 @@ oss_set_loglevel (int level)
     }
 }
 
+static char  const *
+oss_get_playcmd (void)
+{
+    return oss_play_cmd;
+}
+
 /* Provide the OSS backend. */
 static spd_audio_plugin_t oss_functions = {
     oss_open,
@@ -486,7 +493,8 @@ static spd_audio_plugin_t oss_functions = {
     oss_stop,
     oss_close,
     oss_set_volume,
-    oss_set_loglevel
+    oss_set_loglevel,
+    oss_get_playcmd
 };
 spd_audio_plugin_t * oss_plugin_get (void) {return &oss_functions;}
 #undef MSG

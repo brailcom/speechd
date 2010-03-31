@@ -62,6 +62,7 @@ typedef struct spd_audio_plugin {
     int   (* close) (AudioID *id);
     int   (* set_volume) (AudioID *id, int);
     void  (* set_loglevel) (int level);
+    char const *  (* get_playcmd) (void);
 } spd_audio_plugin_t;
 
 AudioID* spd_audio_open(AudioOutputType type, void **pars, char **error);
@@ -75,5 +76,7 @@ int spd_audio_close(AudioID *id);
 int spd_audio_set_volume(AudioID *id, int volume);
 
 void spd_audio_set_loglevel(AudioID *id, int level);
+
+char const *  spd_audio_get_playcmd (AudioID *id);
 
 #endif /* ifndef #__SPD_AUDIO_H */

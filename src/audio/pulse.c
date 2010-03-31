@@ -61,6 +61,7 @@ typedef struct {
 #define DEFAULT_PA_MIN_AUDIO_LENgTH 100
 
 static int pulse_log_level;
+static char const * pulse_play_cmd="paplay";
 
 static FILE *pulseDebugFile = NULL;
 
@@ -267,6 +268,12 @@ static void pulse_set_loglevel (int level)
     }
 }
 
+static char  const *
+pulse_get_playcmd (void)
+{
+    return pulse_play_cmd;
+}
+
 /* Provide the pulse backend. */
 static spd_audio_plugin_t pulse_functions = {
     pulse_open,
@@ -274,7 +281,8 @@ static spd_audio_plugin_t pulse_functions = {
     pulse_stop,
     pulse_close,
     pulse_set_volume,
-    pulse_set_loglevel
+    pulse_set_loglevel,
+    pulse_get_playcmd
 };
 
 spd_audio_plugin_t * pulse_plugin_get (void) {return &pulse_functions;}

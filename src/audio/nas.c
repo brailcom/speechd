@@ -229,6 +229,12 @@ nas_set_loglevel (int level)
     }
 }
 
+static char  const *
+nas_get_playcmd (void)
+{
+    return NULL;
+}
+
 /* Provide the NAS backend */
 static spd_audio_plugin_t nas_functions = {
     nas_open,
@@ -236,7 +242,8 @@ static spd_audio_plugin_t nas_functions = {
     nas_stop,
     nas_close,
     nas_set_volume,
-    nas_set_loglevel
+    nas_set_loglevel,
+    nas_get_playcmd
 };
 
 spd_audio_plugin_t * nas_plugin_get (void) {return &nas_functions;}

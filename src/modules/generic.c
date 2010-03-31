@@ -129,6 +129,7 @@ module_load(void)
 
     module_register_settings_voices();
 
+    module_audio_id = NULL;
     return 0;
 }
 
@@ -169,8 +170,9 @@ module_init(char **status_info)
 
 int
 module_audio_init(char **status_info){
-  status_info = NULL;
-  return 0;
+  *status_info = NULL;
+  DBG("Opening audio");
+  return module_audio_init_spd(status_info);
 }
 
 
@@ -286,6 +288,9 @@ module_close(int status)
     if (module_terminate_thread(generic_speak_thread) != 0)
         exit(1);
 
+    if (module_audio_id)
+        spd_audio_close(module_audio_id);
+
     exit(status);
 }
 
@@ -295,7 +300,7 @@ module_close(int status)
 /* Replace all occurances of 'token' in 'sting'
    with 'data' */
 char*
-string_replace(char *string, char* token, char* data)
+string_replace(char *string, const char* token, const char* data)
 {
     char *p;
     char *str1;
@@ -372,9 +377,7 @@ _generic_speak(void* nothing)
 		char *p;	       
 		char *tmpdir, *homedir;
 		const char *helper;
-		char *play_command;
-		char *next_method;
-		int amlen;
+		const char *play_command = NULL;
 
 		helper = getenv("TMPDIR");
 		if (helper)
@@ -388,23 +391,10 @@ _generic_speak(void* nothing)
 		else
 		  homedir = strdup("UNKNOWN_HOME_DIRECTORY");
 
-		
-		/* Generic will always use the first audio method,
-		 it doesn't currently support fallback*/
-		next_method = strchr(audio_settings.audio_output_method, ',');
-		amlen = (next_method ? ((size_t)(next_method-audio_settings.audio_output_method)) : strlen(audio_settings.audio_output_method));
-
-		DBG("Requested audio output methods are: %s (only first taken into account", audio_settings.audio_output_method);
-		if (!strncmp(audio_settings.audio_output_method, "oss", amlen)){
-		  play_command = strdup("play");
-		}else if (!strncmp(audio_settings.audio_output_method, "alsa", amlen)){
-		  play_command = strdup("aplay");
-		}else if (!strncmp(audio_settings.audio_output_method, "pulse", amlen)){
-		  play_command = strdup("paplay");
-		}else{
-		  /* This should not happen */
-		  DBG("ERROR: Unsupported audio output method");
-		  exit(1);
+		play_command = spd_audio_get_playcmd(module_audio_id);
+		if (play_command == NULL) {
+		    DBG("This audio backend has no default play command; using \"play\"\n");
+		    play_command = "play";
 		}
 
 		/* Set this process as a process group leader (so that SIGKILL
@@ -414,7 +404,6 @@ _generic_speak(void* nothing)
 		e_string = strdup(GenericExecuteSynth);
 
 		e_string = string_replace(e_string, "$PLAY_COMMAND", play_command);
-		xfree(play_command);
 		e_string = string_replace(e_string, "$TMPDIR", tmpdir);
 		xfree(tmpdir);
 		e_string = string_replace(e_string, "$HOMEDIR", homedir);
