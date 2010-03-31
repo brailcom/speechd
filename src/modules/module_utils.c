@@ -1124,15 +1124,16 @@ module_audio_init_spd(char **status_info)
         module_audio_id = spd_audio_open(outputs[i], (void**) &module_audio_pars[1], &error);
         if (module_audio_id) {
             DBG("Using %s audio output method", outputs[i]);
-            free (outputs);
+            g_strfreev (outputs);
             return 0;
         }
         i++;
      }
 
     *status_info = g_strdup_printf("Opening sound device failed. Reason: %s. ", error);
+    g_free(error);	/* g_malloc'ed, in spd_audio_open. */
 
-    free (outputs);
+    g_strfreev (outputs);
     return -1;
 
 }
