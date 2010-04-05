@@ -426,5 +426,8 @@ int module_utils_init(void);
 int module_audio_init_spd(char **status_info);
 int module_audio_init(char **status_info);
 
+/* Prototypes from module_utils_addvoice.c */
+void module_register_settings_voices(void);
+char* module_getvoice(char* language, EVoiceType voice);
 
 #endif /* #ifndef __MODULE_UTILS_H */

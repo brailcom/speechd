@@ -96,8 +96,8 @@ DOTCONF_CB(AddVoice_cb)
     return NULL;
 }
 
-static void
-module_register_settings_voices()
+void
+module_register_settings_voices(void)
 {
     module_voice_table = g_hash_table_new(g_str_hash, g_str_equal);
     module_dc_options = module_add_config_option(module_dc_options,
