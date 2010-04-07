@@ -99,4 +99,6 @@ FT_Wave* festivalStringToWaveGetData(FT_Info *info);
 static FT_Info *festivalDefaultInfo();
 void festivalEmptySocket(FT_Info *info);
 
+int festival_check_info(FT_Info *info, char *fnname);
+int festival_read_response(FT_Info *info, char **expr);
 #endif
