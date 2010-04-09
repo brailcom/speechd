@@ -833,7 +833,7 @@ Do you want to keep it?""", False)
                 True)
 
             if self.setup_port:
-                os.system("""echo "export SPEECHD_PORT=%d" >> ~/.profile""" % self.port) 
+                os.system("""echo "\nexport SPEECHD_PORT=%d\n" >> ~/.profile""" % self.port) 
             if self.setup_autostart:
                 os.system("""cp %s ~/.config/autostart/""" % os.path.join(paths.SPD_DESKTOP_CONF_PATH,
                                                                           "speechd.desktop")) 
