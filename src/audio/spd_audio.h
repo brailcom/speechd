@@ -98,6 +98,9 @@ typedef struct{
     char *pa_server;
     int pa_min_audio_length;
     volatile int pa_stop_playback;
+    int pa_current_rate;  // Sample rate for currently PA connection
+    int pa_current_bps; // Bits per sample rate for currently PA connection
+    int pa_current_channels; // Number of channels for currently PA connection
 #endif
 
     struct spd_audio_plugin *function;

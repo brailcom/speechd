@@ -34,6 +34,9 @@
 #include <pulse/error.h>
 #include <stdarg.h>
 
+/* Switch this on to debug, see output log location in MSG() */
+//#define DEBUG_PULSE
+
 /* send a packet of XXX bytes to the sound device */
 #define PULSE_SEND_BYTES 256
 
@@ -79,6 +82,10 @@ int pulse_open (AudioID * id, void **pars)
     id->pa_simple = NULL;
     id->pa_server = (char *)pars[0];
 
+    id->pa_current_rate = -1;
+    id->pa_current_bps = -1;
+    id->pa_current_channels = -1;
+    
     if(! strcmp(id->pa_server, "default")) {
     id->pa_server = NULL;
     }
@@ -112,12 +119,19 @@ int pulse_play (AudioID * id, AudioTrack track)
     } else if(track.bits == 8){
         bytes_per_sample = 1;
     } else {
-        MSG("ERROR: Unsupported sound data format, track.bits = %d\n", track.bits);		
+        MSG("ERROR: Unsupported sound data format, track.bits = %d\n", track.bits);
         return -1;
     }
     output_samples = track.samples;
     num_bytes = track.num_samples * bytes_per_sample;
-    if(id->pa_simple == NULL) {
+
+    /* Check if the current connection has suitable parameters for this track */
+    if(id->pa_current_rate != track.sample_rate || id->pa_current_bps != track.bits
+       || id->pa_current_channels != track.num_channels) {
+        MSG("Reopenning connection due to change in track parameters sample_rate:%d bps:%d channels:%d\n",
+	    track.sample_rate, track.bits, track.num_channels);
+	/* Close old connection if any */
+        if(id->pa_simple != NULL) pa_simple_free(id->pa_simple);
         /* Choose the correct format */
         ss.rate = track.sample_rate;
         ss.channels = track.num_channels;
@@ -133,10 +147,15 @@ int pulse_play (AudioID * id, AudioTrack track)
         buffAttr.prebuf = (uint32_t)-1;
         buffAttr.minreq = (uint32_t)-1;
         buffAttr.fragsize = (uint32_t)-1;
+	/* Open new connection */
         if(!(id->pa_simple = pa_simple_new(id->pa_server, "speech-dispatcher", PA_STREAM_PLAYBACK, NULL, "playback", &ss, NULL, &buffAttr, &error))) {
             fprintf(stderr, __FILE__": pa_simple_new() failed: %s\n", pa_strerror(error));
             return 1;
         }
+	/* Keep track of current connection parameters */
+	id->pa_current_rate = track.sample_rate;
+	id->pa_current_bps = track.bits;
+	id->pa_current_channels = track.num_channels;
     }
     MSG("bytes to play: %d, (%f secs)\n", num_bytes, (((float) (num_bytes) / 2) / (float) track.sample_rate));
     id->pa_stop_playback = 0;
