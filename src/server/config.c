@@ -190,8 +190,10 @@ GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultVoiceType, voice, EVoiceType, str2EVoice)
 GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPunctuationMode, punctuation_mode, EPunctMode, str2EPunctMode)
 GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultCapLetRecognition, cap_let_recogn, ECapLetRecogn, str2ECapLetRecogn)
 
-SPEECHD_OPTION_CB_INT_M(LocalhostAccessOnly, localhost_access_only, val>=0, "Invalid access controll mode!")
+SPEECHD_OPTION_CB_STR(CommunicationMethod, communication_method)
+SPEECHD_OPTION_CB_STR(SocketName, socket_name)
 SPEECHD_OPTION_CB_INT_M(Port, port, val>=0, "Invalid port number!")
+SPEECHD_OPTION_CB_INT_M(LocalhostAccessOnly, localhost_access_only, val>=0, "Invalid access controll mode!")
 GLOBAL_SET_LOGLEVEL(LogLevel, log_level, (val>=0)&&(val<=5), "Invalid log (verbosity) level!")
 SPEECHD_OPTION_CB_INT(MaxHistoryMessages, max_history_messages, val>=0, "Invalid parameter!")
 
@@ -380,6 +382,8 @@ load_config_options(int *num_options)
 
     cl_spec_section = NULL;
    
+    ADD_CONFIG_OPTION(CommunicationMethod, ARG_STR);
+    ADD_CONFIG_OPTION(SocketName, ARG_STR);
     ADD_CONFIG_OPTION(Port, ARG_INT);
     ADD_CONFIG_OPTION(LocalhostAccessOnly, ARG_INT);
     ADD_CONFIG_OPTION(LogFile, ARG_STR);
@@ -451,7 +455,12 @@ load_default_global_set_options()
 
     SpeechdOptions.max_history_messages = 10000;
 
+
+    /* Options which are accessible from command line must be handled
+       specially to make sure we don't overwrite them */
     if (!SpeechdOptions.log_level_set) SpeechdOptions.log_level = 3;    
+    if (!SpeechdOptions.communication_method) SpeechdOptions.communication_method = strdup("unix_socket");
+    if (!SpeechdOptions.socket_name) SpeechdOptions.socket_name = strdup("default");
     if (!SpeechdOptions.port_set) SpeechdOptions.port = SPEECHD_DEFAULT_PORT;
     if (!SpeechdOptions.localhost_access_only_set) SpeechdOptions.localhost_access_only = 1;
 

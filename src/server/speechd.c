@@ -479,6 +479,8 @@ void
 speechd_options_init(void)
 {
     SpeechdOptions.log_level_set = 0;
+    SpeechdOptions.communication_method = NULL;
+    SpeechdOptions.socket_name = NULL;
     SpeechdOptions.port_set = 0;
     SpeechdOptions.localhost_access_only_set = 0;
     SpeechdOptions.pid_file = NULL;
@@ -965,17 +967,20 @@ main(int argc, char *argv[])
 
     speechd_init();
 
-    // TODO: Temporary, move into configuration
-    int USE_INET_SOCKETS = 0;
-    if(USE_INET_SOCKETS){
+    if(!strcmp(SpeechdOptions.communication_method, "inet_socket")){
       MSG(2, "Speech Dispatcher will use inet port %d", SpeechdOptions.port);
       /* Connect and start listening on inet socket */
       server_socket = make_inet_socket(SpeechdOptions.port);
-    }else{
+    }else if (!strcmp(SpeechdOptions.communication_method, "unix_socket")){
       /* Determine appropariate socket file name */
       GString *socket_filename;
-      socket_filename = g_string_new("");
-      g_string_printf(socket_filename, "%s/speechd-sock-%d", g_get_tmp_dir(), getuid());
+
+      if (!strcmp(SpeechdOptions.socket_name, "default")){
+	socket_filename = g_string_new("");
+	g_string_printf(socket_filename, "%s/speechd-sock-%d", g_get_tmp_dir(), getuid());
+      }else{
+	socket_filename = g_string_new(SpeechdOptions.socket_name);
+      }
       MSG(2, "Speech Dispatcher will use local unix socket: %s", socket_filename->str);
 
       /* Delete an old socket file if it exists */
@@ -986,6 +991,8 @@ main(int argc, char *argv[])
       /* Connect and start listening on local unix socket */
       server_socket = make_local_socket(socket_filename->str);
       g_string_free(socket_filename, 1);
+    }else{
+      FATAL("Unknown communication method");
     }
 
     /* Fork, set uid, chdir, etc. */
@@ -1005,8 +1012,7 @@ main(int argc, char *argv[])
     SpeechdStatus.max_fd = server_socket;
 
     /* Now wait for clients and requests. */   
-    MSG(1, "Speech Dispatcher "VERSION" started on port %d and waiting for clients ...",
-	SpeechdOptions.port);
+    MSG(1, "Speech Dispatcher started and waiting for clients ...");
     while (1) {
         testfds = readfds;
 

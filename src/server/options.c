@@ -36,12 +36,14 @@ options_print_help(char *argv[])
     assert(argv);
     assert(argv[0]);
 
-    printf("Usage: %s [-{d|s}] [-l {1|2|3|4|5}] [-p=port] | [-v] | [-h]\n", argv[0]);
+    printf("Usage: %s [-{d|s}] [-l {1|2|3|4|5}] [-c com_method] [-S socket_name] [-p port] | [-v] | [-h]\n", argv[0]);
     printf("Speech Dispatcher -- Common interface for Speech Synthesis (GNU GPL)\n\n");
     printf("-d, --run-daemon     -      Run as a daemon\n"
     "-s, --run-single     -      Run as single application\n"
     "-l, --log-level      -      Set log level (1..5)\n"
-    "-p, --port           -      Specify a port number\n"
+    "-c, --communication-method  Communication method to use (unix_socket or inet_socket)\n"
+    "-S, --socket-name    -      Socket name to use for 'unix_socket' method (filesystem path or 'default')\n"
+    "-p, --port           -      Specify a port number for 'inet_socket' method\n"
     "-P, --pid-file       -      Set path to pid file\n"
     "-C, --config-dir     -      Set path to configuration\n"
     "-v, --version        -      Report version of this program\n"
@@ -109,6 +111,12 @@ options_parse(int argc, char *argv[])
             break;
         case 'l':
             SPD_OPTION_SET_INT(log_level);	   
+            break;
+        case 'c':
+            SPD_OPTION_SET_STR(communication_method);
+            break;
+        case 'S':
+            SPD_OPTION_SET_STR(socket_name);
             break;
         case 'p':
             SPD_OPTION_SET_INT(port);

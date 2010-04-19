@@ -4,18 +4,42 @@
 
 # -----SYSTEM OPTIONS-----
 
-# The Port on which Speech Dispatcher should be available
-# to clients.
+# CommunicationMethod specifies the method to be used by Speech Dispatcher to communicate with
+# its clients. Two basic methods are "unix_socket" and "inet_socket".
+#
+# unix_socket -- communication over Unix sockets represented by a file in the
+# filesystem (see SocketName bellow). This method works only locally, but is
+# prefered for standard session setup, where every user runs his own instance of Speech
+# Dispatcher to get voice feedback on his own computer.
+#
+# inet_socket -- alternatively, you can start Speech Dispatcher on
+# a TCP port and connect to it via hostname/port. This allows for a more
+# flexible setup, where you can use Speech Dispatcher over network
+# from different machines. See also the Port and LocalhostAccessOnly
+# configuration variables.
+#
+# CommunicationMethod "unix_socket"
+
+# SocketName is either "default" or a full path to the filesystem
+# where the driving Unix socket file should be created in case the
+# CommunicationMethod is set to "unix_socket". The default is
+# TMPDIR+speechd-sock-UID where TMPDIR is the default temp dir
+# location on the system and UID the user id who starts Speech Dispatcher
+# (e.g. /tmp/speechd-sock-1005 for a user # whose uid is 1005).
+# Do not change this unless you have a reason and know what you are doing.
+
+# SocketName "default"
+
+# The Port on which Speech Dispatcher should be available to clients if the "inet_socket"
+# communication method is used.
 
 # Port 6560
 
-# By default, the specified port is opened only for connections
-# comming from localhost. If LocalhostAccessOnly is set to 0 it
-# disables this access controll. It means that the port will be
-# accessible from all computers on the network. If you turn off this
-# option, please make sure you set up some system rules on what
-# computers are and are not allowed to access the Speech Dispatcher
-# port.
+# By default, if "inet_socket" communication method is used, the specified port is opened only
+# for connections comming from localhost. If LocalhostAccessOnly is set to 0 it disables this
+# access controll. It means that the port will be accessible from all computers on the
+# network. If you turn off this option, please make sure you set up some system rules on what
+# computers are and are not allowed to access the Speech Dispatcher port.
 
 # LocalhostAccessOnly 1
 
