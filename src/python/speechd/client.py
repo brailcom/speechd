@@ -25,7 +25,7 @@ A more convenient interface is provided by the 'Speaker' class.
 
 #TODO: Blocking variants for speak, char, key, sound_icon.
 
-import socket, sys, os, subprocess, time
+import socket, sys, os, subprocess, time, tempfile
 
 # IF session integration has been enabled, the spawn module will be available.
 try:
@@ -119,15 +119,27 @@ class _SSIP_Connection:
     if spawn:
         speechd_server_pid = ''
 
-    def __init__(self, host, port):
+    def __init__(self, method, socket_name, host, port, autospawn):
         """Init connection: open the socket to server,
         initialize buffers, launch a communication handling
-        thread."""
-        if host == '127.0.0.1' and spawn:
+        thread.
+
+        """
+
+        if autospawn:
             self.speechd_server_pid = self.speechd_server_spawn()
             time.sleep(0.5)
-        self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self._socket.connect((socket.gethostbyname(host), port))
+
+        if method == 'unix_socket':
+            self._socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+            self._socket.connect(socket_name)
+        elif method == 'inet_socket':
+            assert host and port
+            self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self._socket.connect((socket.gethostbyname(host), port))
+        else:
+            raise "Unsupported communication method"
+
         self._buffer = ""
         self._com_buffer = []
         self._callback = None
@@ -389,7 +401,7 @@ class SSIPClient(object):
     """Default port number for server connections."""
     
     def __init__(self, name, component='default', user='unknown', host=None,
-                 port=None):
+                 port=None, method='unix_socket', socket_name=None, autospawn=True):
         """Initialize the instance and connect to the server.
 
         Arguments:
@@ -398,17 +410,28 @@ class SSIPClient(object):
             multiple connections, this can be used to identify each of them.
           user -- user identification string (user name).  When multi-user
             acces is expected, this can be used to identify their connections.
-          host -- server hostname or IP address as a string.  If None, the
-            default value is taken from SPEECHD_HOST environment variable (if it
-            exists) or from the DEFAULT_SPEECHD_HOST attribute of this class.
-          port -- server port as number or None.  If None, the default value is
-            taken from SPEECHD_PORT environment variable (if it exists) or from the
-            DEFAULT_SPEECHD_PORT attribute of this class.
+          method -- communication method to use: 'unix_socket' for unix style sockets
+          or 'inet_socket' for TCP ports
+          socket_name -- for 'unix_socket' method, socket name in filesystem. If none
+          is specified, the default name speechd-sock-UID is used located in the current
+          TEMP dir (determined via tempfile.gettempdir() according to the contents of
+          the TMPDIR like environment variables)
+          host -- for 'inet_socket' method, server hostname or IP address as a string.
+          If None, the default value is taken from SPEECHD_HOST environment variable (if it
+          exists) or from the DEFAULT_SPEECHD_HOST attribute of this class.
+          port -- for 'inet_socket' method, server port as number or None.  If None,
+          the default value is taken from SPEECHD_PORT environment variable (if it exists)
+          or from the DEFAULT_SPEECHD_PORT attribute of this class.
+          autospawn -- a flag to specify whether the library should try to start the
+          server if it determines its not already running
         
         For more information on client identification strings see Speech
         Dispatcher documentation.
           
         """
+        if socket_name is None:
+            if not socket_name:
+                socket_name = os.path.join(tempfile.gettempdir(), "speechd-sock-%d" % (os.getuid(),))
         if host is None:
             host = os.environ.get('SPEECHD_HOST', self.DEFAULT_SPEECHD_HOST)
         if port is None:
@@ -416,7 +439,9 @@ class SSIPClient(object):
                 port = int(os.environ.get('SPEECHD_PORT'))
             except (ValueError, TypeError):
                 port = self.DEFAULT_SPEECHD_PORT
-        self._conn = conn = _SSIP_Connection(host, port)
+
+        self._conn = conn = _SSIP_Connection(method=method, socket_name=socket_name,
+                                             host=host, port=port, autospawn=autospawn)
         full_name = '%s:%s:%s' % (user, name, component)
         conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
         code, msg, data = conn.send_command('HISTORY', 'GET', 'CLIENT_ID')

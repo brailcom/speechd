@@ -23,7 +23,8 @@
 
 #include <gmodule.h>
 #include <sys/stat.h>
-
+#include <sys/socket.h>
+#include <sys/un.h>
 
 #include "speechd.h"
 
@@ -776,13 +777,88 @@ logging_init(void)
   return;
 }
 
+/* --- Sockets --- */
+
+int
+make_local_socket (const char *filename)
+{
+  struct sockaddr_un name;
+  int sock;
+  size_t size;
+
+  /* Create the socket. */
+  sock = socket (AF_UNIX, SOCK_STREAM, 0);
+  if (sock < 0){
+    FATAL("Can't create local socket");
+  }
+
+  /* Bind a name to the socket. */
+  name.sun_family = AF_UNIX;
+  strncpy (name.sun_path, filename, sizeof (name.sun_path));
+  name.sun_path[sizeof (name.sun_path) - 1] = '\0';
+  size = SUN_LEN(&name);
+
+  if (bind (sock, (struct sockaddr *) &name, size) < 0){
+    FATAL("Can't bind local socket");
+  }
+
+  if (listen(sock, 0) == -1){
+    MSG(2,"ERRNO:%s", strerror(errno));
+    FATAL("listen() failed for local socket");
+  }
+
+  return sock;
+}
+
+int
+make_inet_socket(const int port)
+{
+  struct sockaddr_in server_address;    
+  int server_socket;
+
+  /* Create an inet socket */
+  server_socket = socket(AF_INET, SOCK_STREAM, 0);
+  if (server_socket < 0){
+      FATAL("Can't create inet socket");
+  }
+
+  /* Set REUSEADDR flag */
+  const int flag = 1;
+  if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &flag,
+		 sizeof (int)))
+    MSG(2,"Error: Setting socket option failed!");
+  
+  server_address.sin_family = AF_INET;
+  
+  /* Enable access only to localhost or for any address
+     based on LocalhostAccessOnly configuration option. */
+  if (SpeechdOptions.localhost_access_only)
+    server_address.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+  else
+    server_address.sin_addr.s_addr = htonl(INADDR_ANY);
+  
+  server_address.sin_port = htons(port);
+
+  MSG(3,"Openning inet socket connection");
+  if (bind(server_socket, (struct sockaddr *)&server_address,
+	   sizeof(server_address)) == -1){
+    MSG(1, "bind() failed: %s", strerror(errno));
+    FATAL("Couldn't open inet socket, try a few minutes later.");
+  }
+
+  if (listen(server_socket, 50) == -1){
+    MSG(2,"ERRNO:%s", strerror(errno));
+    FATAL("listen() failed for inet socket, another Speech Dispatcher running?");
+  }
+
+  return server_socket;
+}
 
 /* --- MAIN --- */
 
 int
 main(int argc, char *argv[])
 {
-    struct sockaddr_in server_address;    
     fd_set testfds;
     int fd;
     int ret;
@@ -889,43 +965,32 @@ main(int argc, char *argv[])
 
     speechd_init();
 
-    MSG(1, "Speech Dispatcher will use port %d", SpeechdOptions.port);
+    // TODO: Temporary, move into configuration
+    int USE_INET_SOCKETS = 0;
+    if(USE_INET_SOCKETS){
+      MSG(2, "Speech Dispatcher will use inet port %d", SpeechdOptions.port);
+      /* Connect and start listening on inet socket */
+      server_socket = make_inet_socket(SpeechdOptions.port);
+    }else{
+      /* Determine appropariate socket file name */
+      GString *socket_filename;
+      socket_filename = g_string_new("");
+      g_string_printf(socket_filename, "%s/speechd-sock-%d", g_get_tmp_dir(), getuid());
+      MSG(2, "Speech Dispatcher will use local unix socket: %s", socket_filename->str);
 
-    /* Initialize socket functionality */
-    server_socket = socket(AF_INET, SOCK_STREAM, 0);
-    {
-      const int flag = 1;
-      if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &flag,
-                     sizeof (int)))
-        MSG(2,"Error: Setting socket option failed!");
+      /* Delete an old socket file if it exists */
+      if (g_file_test(socket_filename->str, G_FILE_TEST_EXISTS))
+	  if (g_unlink(socket_filename->str) == -1)
+	    FATAL("Local socket file exists but impossible to delete. Wrong permissions?");
+
+      /* Connect and start listening on local unix socket */
+      server_socket = make_local_socket(socket_filename->str);
+      g_string_free(socket_filename, 1);
     }
-
-    server_address.sin_family = AF_INET;
-
-    /* Enable access only to localhost or for any address
-       based on LocalhostAccessOnly configuration option. */
-    if (SpeechdOptions.localhost_access_only)
-      server_address.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
-    else
-      server_address.sin_addr.s_addr = htonl(INADDR_ANY);
-
-    server_address.sin_port = htons(SpeechdOptions.port);
-
-    MSG(3,"Openning socket connection");
-    if (bind(server_socket, (struct sockaddr *)&server_address,
-             sizeof(server_address)) == -1){
-        MSG(1, "bind() failed: %s", strerror(errno));
-        FATAL("Couldn't open socket, try a few minutes later.");
-    }
-
-    /* Create a connection queue and initialize readfds to handle input
-       from server_socket. */
-    if (listen(server_socket, 50) == -1)
-        FATAL("listen() failed, another Speech Dispatcher running?");
 
     /* Fork, set uid, chdir, etc. */
     if (spd_mode == SPD_MODE_DAEMON){
-        daemon(0,0);	   
+        daemon(0,0);
         /* Re-create the pid file under this process */
         unlink(SpeechdOptions.pid_file);
         if (create_pid_file() == -1) return -1;
@@ -952,7 +1017,7 @@ main(int argc, char *argv[])
             for (fd = 0; fd <= SpeechdStatus.max_fd && fd < FD_SETSIZE; fd++) {
                 if (FD_ISSET(fd,&testfds)){
                     MSG(4,"Activity on fd %d ...",fd);
-				
+		    
                     if (fd == server_socket){ 
                         /* server activity (new client) */
                         ret = speechd_connection_new(server_socket);
