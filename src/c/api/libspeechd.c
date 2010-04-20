@@ -27,6 +27,7 @@
 #include <sys/socket.h>
 #include <netinet/tcp.h>
 #include <netinet/in.h>
+#include <sys/un.h>
 #include <arpa/inet.h>
 #include <unistd.h>
 
@@ -146,9 +147,17 @@ ssize_t getline (char **lineptr, size_t *n, FILE *f)
  * or -1 if no connection was opened. */
 
 SPDConnection*
-spd_open(const char* client_name, const char* connection_name, const char* user_name, SPDConnectionMode mode)
+spd_open(const char* client_name, const char* connection_name, const char* user_name,
+	 SPDConnectionMode mode)
 {
-    struct sockaddr_in address;
+    return spd_open2(client_name, connection_name, user_name,
+		     mode, SPD_METHOD_UNIX_SOCKET);
+}
+
+SPDConnection*
+spd_open2(const char* client_name, const char* connection_name, const char* user_name,
+	  SPDConnectionMode mode, SPDConnectionMethod method)
+{
     SPDConnection *connection;
     char *set_client_name;
     char* conn_name;
@@ -179,20 +188,6 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
     else
         conn_name = strdup(connection_name);
     
-    env_port = getenv("SPEECHD_PORT");
-    if (env_port != NULL)
-        port = strtol(env_port, NULL, 10);
-    else
-        port = SPEECHD_DEFAULT_PORT;
-
-    connection = xmalloc(sizeof(SPDConnection));
-    
-    /* Prepare a new socket */
-    address.sin_addr.s_addr = inet_addr("127.0.0.1");
-    address.sin_port = htons(port);
-    address.sin_family = AF_INET;
-    connection->socket = socket(AF_INET, SOCK_STREAM, 0);
-    
 #ifdef LIBSPEECHD_DEBUG
     spd_debug = fopen("/tmp/libspeechd.log", "w");
     if (spd_debug == NULL) SPD_FATAL("COULDN'T ACCES FILE INTENDED FOR DEBUG");
@@ -214,13 +209,47 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
     }
 #endif
 
-  /* Connect to server */
-    ret = connect(connection->socket, (struct sockaddr *)&address, sizeof(address));
-    if (ret == -1){
-        SPD_DBG("Error: Can't connect to server: %s", strerror(errno));
+
+  /* Connect to server using the selected method */
+    connection = xmalloc(sizeof(SPDConnection));
+    if (method==SPD_METHOD_INET_SOCKET){    
+      struct sockaddr_in address_inet;
+
+      env_port = getenv("SPEECHD_PORT");
+      if (env_port != NULL)
+        port = strtol(env_port, NULL, 10);
+      else
+        port = SPEECHD_DEFAULT_PORT;
+    
+      address_inet.sin_addr.s_addr = inet_addr("127.0.0.1");
+      address_inet.sin_port = htons(port);
+      address_inet.sin_family = AF_INET;
+      connection->socket = socket(AF_INET, SOCK_STREAM, 0);
+      ret = connect(connection->socket, (struct sockaddr *)&address_inet, sizeof(address_inet));
+      if (ret == -1){
+        SPD_DBG("Error: Can't connect to localhost on port %d using inet sockets: %s", port, strerror(errno));
         close(connection->socket);
 	return NULL;
-    }
+      }
+      setsockopt(connection->socket, IPPROTO_TCP, TCP_NODELAY, &tcp_no_delay, sizeof(int));
+
+    }else if (method==SPD_METHOD_UNIX_SOCKET){
+      struct sockaddr_un address_unix;
+      GString* socket_filename;
+      address_unix.sun_family = AF_UNIX;
+      socket_filename = g_string_new("");
+      g_string_printf(socket_filename, "%s/speechd-sock-%d", g_get_tmp_dir(), getuid());
+      strncpy (address_unix.sun_path, socket_filename->str, sizeof (address_unix.sun_path));
+      address_unix.sun_path[sizeof (address_unix.sun_path) - 1] = '\0';
+      connection->socket = socket(AF_UNIX, SOCK_STREAM, 0);
+      ret = connect(connection->socket, (struct sockaddr *)&address_unix, SUN_LEN(&address_unix));
+      if (ret == -1){
+        SPD_DBG("Error: Can't connect to unix socket %s: %s", socket_filename->str, strerror(errno));
+        close(connection->socket);
+	return NULL;
+      }
+      g_string_free(socket_filename, 0);
+    }else SPD_FATAL("Unsupported connection method to spd_open");
 
     connection->callback_begin = NULL;
     connection->callback_end = NULL;
@@ -258,8 +287,6 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
 	    return NULL;
 	}
     }
-
-    setsockopt(connection->socket, IPPROTO_TCP, TCP_NODELAY, &tcp_no_delay, sizeof(int));
 
     /* By now, the connection is created and operational */
 
