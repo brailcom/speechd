@@ -27,17 +27,12 @@ A more convenient interface is provided by the 'Speaker' class.
 
 import socket, sys, os, subprocess, time, tempfile
 
-# IF session integration has been enabled, the spawn module will be available.
-try:
-    import spawn
-except:
-    spawn = None
-
 try:
     import threading
 except:
     import dummy_threading as threading
 
+import paths
     
 class CallbackType(object):
     """Constants describing the available types of callbacks"""
@@ -116,8 +111,6 @@ class _SSIP_Connection:
                           704: CallbackType.PAUSE,
                           705: CallbackType.RESUME,
                           }
-    if spawn:
-        speechd_server_pid = ''
 
     def __init__(self, method, socket_name, host, port, autospawn):
         """Init connection: open the socket to server,
@@ -126,8 +119,9 @@ class _SSIP_Connection:
 
         """
 
+        # Autospawn Speech Dispatcher if not already running
         if autospawn:
-            self.speechd_server_pid = self.speechd_server_spawn()
+            self.speechd_server_spawn()
             time.sleep(0.5)
 
         if method == 'unix_socket':
@@ -328,10 +322,12 @@ class _SSIP_Connection:
 
     def speechd_server_spawn(self):
         """Attempts to spawn the speech-dispatcher server."""
-        if os.path.exists(spawn.SPD_SPAWN_CMD):
-            speechd_server = subprocess.Popen([spawn.SPD_SPAWN_CMD],
-                        stdin=None, stdout=subprocess.PIPE, stderr=None)
+        if os.path.exists(paths.SPD_SPAWN_CMD):
+            speechd_server = subprocess.Popen([paths.SPD_SPAWN_CMD], stdin=None,
+                                              stdout=subprocess.PIPE, stderr=None)
             return speechd_server.communicate()[0].rstrip('\n')
+        else:
+            raise "Can't find Speech Dispatcher spawn command %s" % (paths.SPD_SPAWN_CMD,)
 
 class Scope(object):
     """An enumeration of valid SSIP command scopes.
@@ -401,7 +397,7 @@ class SSIPClient(object):
     """Default port number for server connections."""
     
     def __init__(self, name, component='default', user='unknown', host=None,
-                 port=None, method='unix_socket', socket_name=None, autospawn=True):
+                 port=None, method='unix_socket', socket_name=None, autospawn=None):
         """Initialize the instance and connect to the server.
 
         Arguments:
@@ -423,7 +419,7 @@ class SSIPClient(object):
           the default value is taken from SPEECHD_PORT environment variable (if it exists)
           or from the DEFAULT_SPEECHD_PORT attribute of this class.
           autospawn -- a flag to specify whether the library should try to start the
-          server if it determines its not already running
+          server if it determines its not already running or no
         
         For more information on client identification strings see Speech
         Dispatcher documentation.
@@ -439,6 +435,11 @@ class SSIPClient(object):
                 port = int(os.environ.get('SPEECHD_PORT'))
             except (ValueError, TypeError):
                 port = self.DEFAULT_SPEECHD_PORT
+
+        # If autospawn is not specified, use system default
+        if autospawn is None:
+            if paths.SPD_SPAWN_CMD == "": autospawn = False
+            else: autospawn = True                
 
         self._conn = conn = _SSIP_Connection(method=method, socket_name=socket_name,
                                              host=host, port=port, autospawn=autospawn)
