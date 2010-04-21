@@ -150,13 +150,18 @@ SPDConnection*
 spd_open(const char* client_name, const char* connection_name, const char* user_name,
 	 SPDConnectionMode mode)
 {
+#ifdef ENABLE_SESSION
+    int autospawn = 1;
+#else
+    int autospawn = 0;
+#endif
     return spd_open2(client_name, connection_name, user_name,
-		     mode, SPD_METHOD_UNIX_SOCKET);
+		     mode, SPD_METHOD_UNIX_SOCKET, autospawn);
 }
 
 SPDConnection*
 spd_open2(const char* client_name, const char* connection_name, const char* user_name,
-	  SPDConnectionMode mode, SPDConnectionMethod method)
+	  SPDConnectionMode mode, SPDConnectionMethod method, int autospawn)
 {
     SPDConnection *connection;
     char *set_client_name;
@@ -166,13 +171,13 @@ spd_open2(const char* client_name, const char* connection_name, const char* user
     int port;
     int ret;
     char tcp_no_delay = 1;
-#ifdef ENABLE_SESSION
+
+    /* Autospawn related */
     const char *pidof_speechd[] = { "pidof", "speech-dispatcher", NULL };
     const char *speechd_cmd[] = { SPD_SPAWN_CMD, NULL };
     gchar *speechd_pid = NULL;
     GError *error = NULL;
     gint exit_status;
-#endif
     
     if (client_name == NULL) return NULL;
     
@@ -201,16 +206,16 @@ spd_open2(const char* client_name, const char* connection_name, const char* user
     SPD_DBG("Debugging started");
 #endif /* LIBSPEECHD_DEBUG */
     
-#ifdef ENABLE_SESSION
-  /* Start the speech-dispatcher server if it isn't running. */
-    if (g_spawn_sync(NULL, (gchar**)pidof_speechd, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, &speechd_pid, NULL, &exit_status, &error) && strlen(speechd_pid) == 0){
+    /* Autospawn -- check if Dispatcher is not running and if so, start it*/
+    if (autospawn){
+      /* Start the speech-dispatcher server if it isn't running. */
+      if (g_spawn_sync(NULL, (gchar**)pidof_speechd, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, &speechd_pid, NULL, &exit_status, &error) && strlen(speechd_pid) == 0){
 	g_spawn_sync(NULL, (gchar**)speechd_cmd, NULL, G_SPAWN_SEARCH_PATH | G_SPAWN_STDOUT_TO_DEV_NULL | G_SPAWN_STDERR_TO_DEV_NULL, NULL, NULL, NULL, NULL, &exit_status, &error);
 	sleep(0.5);
+      }
     }
-#endif
 
-
-  /* Connect to server using the selected method */
+    /* Connect to server using the selected method */
     connection = xmalloc(sizeof(SPDConnection));
     if (method==SPD_METHOD_INET_SOCKET){    
       struct sockaddr_in address_inet;
