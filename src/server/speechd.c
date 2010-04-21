@@ -569,22 +569,13 @@ speechd_init()
     if(ret != 0) DIE("Mutex initialization failed");
 
     if (SpeechdOptions.log_dir == NULL){
-      if (SpeechdOptions.home_speechd_dir){
-	SpeechdOptions.log_dir = g_strdup_printf("%s/log/",
-						 SpeechdOptions.home_speechd_dir);
-	mkdir(SpeechdOptions.log_dir, S_IRWXU);
-	if (!SpeechdOptions.debug_destination){
-	  SpeechdOptions.debug_destination = g_strdup_printf("%slog/debug",
-							     SpeechdOptions.home_speechd_dir);
-	  mkdir(SpeechdOptions.debug_destination, S_IRWXU);
-	}
-      }else{
-	SpeechdOptions.log_dir = strdup("/var/log/speech-dispatcher/");
-	if (!SpeechdOptions.debug_destination){
-	  SpeechdOptions.debug_destination = strdup("/var/log/speech-dispatcher/debug");
-	  mkdir(SpeechdOptions.debug_destination, S_IRWXU);
-	}
-      }
+      SpeechdOptions.log_dir = g_strdup_printf("%s/log/", SpeechdOptions.home_speechd_dir);
+      mkdir(SpeechdOptions.log_dir, S_IRWXU);
+      if (!SpeechdOptions.debug_destination){
+	SpeechdOptions.debug_destination = g_strdup_printf("%slog/debug",
+							   SpeechdOptions.home_speechd_dir);
+	mkdir(SpeechdOptions.debug_destination, S_IRWXU);
+      }     
     }
 
     /* Load configuration from the config file*/
@@ -615,8 +606,7 @@ speechd_load_configuration(int sig)
 
     /* Clean previous configuration */
     assert(output_modules != NULL);
-    g_hash_table_foreach_remove(output_modules, speechd_modules_terminate,
-                                NULL);
+    g_hash_table_foreach_remove(output_modules, speechd_modules_terminate, NULL);
 
     /* Make sure there aren't any more child processes left */
     while(waitpid(-1, NULL, WNOHANG) > 0);    
@@ -632,17 +622,17 @@ speechd_load_configuration(int sig)
                                     NULL, NULL, 0);
     
     configfile = dotconf_create(SpeechdOptions.conf_file, spd_options, 0, CASE_INSENSITIVE);
-    if (!configfile){
+    if (configfile){
+      configfile->includepath = strdup(SpeechdOptions.conf_dir);
+      MSG(5, "Config file include path is: %s", configfile->includepath);
+      if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
+      dotconf_cleanup(configfile);
+      MSG(2,"Configuration has been read from \"%s\"", SpeechdOptions.conf_file);
+    }else{
       MSG(1, "Can't open %s", SpeechdOptions.conf_file);
-      DIE ("Error opening config file\n");
     }
-    configfile->includepath = strdup(SpeechdOptions.conf_dir);
-    MSG(5, "Config file include path is: %s", configfile->includepath);
-    if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
-    dotconf_cleanup(configfile);
 
     free_config_options(spd_options, &spd_num_options);
-    MSG(2,"Configuration has been read from \"%s\"", SpeechdOptions.conf_file);
 }
 	
 void
@@ -883,30 +873,42 @@ main(int argc, char *argv[])
 
     MSG(1, "Speech Dispatcher "VERSION" starting");
 
-    /* Check if there is .speech-dispatcher directory
-       in user's home directory. If yes, put everything
-       here */
+    /* By default, search for configuration options and put everything
+       in a .speech-dispatcher directory  in user's home directory. */
     {
-      char *home_dir;
-      GDir *testing;
-      home_dir = (char*) g_get_home_dir();
-      if (home_dir){
-	SpeechdOptions.home_speechd_dir = g_strdup_printf("%s/.speech-dispatcher/",
-							  home_dir);
-	MSG(4, "Home dir found, trying to find %s", SpeechdOptions.home_speechd_dir);
-	testing =  g_dir_open(SpeechdOptions.home_speechd_dir, 0, NULL);
-	if (testing){
-	  /* Ok, directory exists */
-	  g_dir_close(testing);
-	  MSG(4, "Using home directory: %s for configuration, pidfile and logging",
-	      SpeechdOptions.home_speechd_dir);
-	}else{
-	  MSG(1, "Directory .speech-dispatcher not found in home");
-	  g_free(SpeechdOptions.home_speechd_dir);
-	  SpeechdOptions.home_speechd_dir = NULL;
-	}
-	g_free(home_dir);
+      char *user_home_dir;
+      
+      /* Get users home dir */
+      user_home_dir = (char*) g_get_home_dir();
+      if (!user_home_dir){
+	FATAL("Cant'f find users home directory");
       }
+
+      /* Setup a ~/.speechd-dispatcher/ directory or create a new one */
+      SpeechdOptions.home_speechd_dir = g_strdup_printf("%s/.speech-dispatcher", user_home_dir);
+      MSG(4, "Home dir found, trying to find %s", SpeechdOptions.home_speechd_dir);
+      g_mkdir(g_path_get_dirname(SpeechdOptions.home_speech_dir), S_IRWXU);
+      MSG(4, "Using home directory: %s for configuration, pidfile and logging", SpeechdOptions.home_speechd_dir);
+      g_free(user_home_dir);
+
+      /* Pidfile */
+      if (SpeechdOptions.pid_file == NULL){
+	/* If no pidfile path specified on command line, use default local dir */
+	SpeechdOptions.pid_file = g_strdup_printf("%s/pid/speech-dispatcher.pid", SpeechdOptions.home_speechd_dir);
+	g_mkdir(g_path_get_dirname(SpeechdOptions.pid_file), S_IRWXU);
+      }
+
+      /* Config file */
+      if (SpeechdOptions.conf_dir == NULL){
+	/* If no conf_dir was specified on command line, try default local config dir */
+	SpeechdOptions.conf_dir = g_strdup_printf("%s/conf/", SpeechdOptions.home_speechd_dir);
+	if (!g_file_test(SpeechdOptions.conf_file, G_FILE_TEST_IS_DIR)){
+	  /* If the local confiration dir doesn't exist, read the global configuration */
+	  if (strcmp(SYS_CONF, "")) SpeechdOptions.conf_dir = strdup(SYS_CONF);
+	  else SpeechdOptions.conf_dir = strdup("/etc/speech-dispatcher/");
+	}
+      }
+      SpeechdOptions.conf_file = g_strdup_printf("%s/speechd.conf", SpeechdOptions.conf_dir);      
     }
 
     /* Initialize logging mutex to workaround ctime threading bug */
@@ -916,33 +918,7 @@ main(int argc, char *argv[])
       fprintf(stderr, "Mutex initialization failed");
       exit(1);
     }
-
-    if (SpeechdOptions.pid_file == NULL){
-      if (SpeechdOptions.home_speechd_dir){	
-	char *temp = NULL;
-	SpeechdOptions.pid_file = g_strdup_printf("%s/pid/speech-dispatcher.pid",
-						  SpeechdOptions.home_speechd_dir);
-	temp = g_path_get_dirname(SpeechdOptions.pid_file);
-	mkdir(temp, S_IRWXU);
-      }else if (!strcmp(PIDPATH, ""))
-	SpeechdOptions.pid_file = strdup("/var/run/speech-dispatcher.pid");
-      else
-	SpeechdOptions.pid_file = strdup(PIDPATH"speech-dispatcher.pid");
-    }
     
-    if (SpeechdOptions.conf_dir == NULL){
-      if (SpeechdOptions.home_speechd_dir){
-	SpeechdOptions.conf_dir = g_strdup_printf("%sconf/",
-						  SpeechdOptions.home_speechd_dir);
-      }else if (!strcmp(SYS_CONF, "")){
-	SpeechdOptions.conf_dir = strdup("/etc/speech-dispatcher/");
-      }else{
-	SpeechdOptions.conf_dir = strdup(SYS_CONF);
-      }
-    }
-    SpeechdOptions.conf_file = g_strdup_printf("%s/speechd.conf",
-					       SpeechdOptions.conf_dir);
-    /* This is needed for DotConf so that it knows where to include files from */
 
     if (create_pid_file() != 0) exit(1);
 
@@ -961,7 +937,7 @@ main(int argc, char *argv[])
     }else if (!strcmp(SpeechdOptions.communication_method, "unix_socket")){
       /* Determine appropariate socket file name */
       GString *socket_filename;
-
+      
       if (!strcmp(SpeechdOptions.socket_name, "default")){
 	socket_filename = g_string_new("");
 	g_string_printf(socket_filename, "%s/speechd-sock-%d", g_get_tmp_dir(), getuid());
@@ -974,7 +950,7 @@ main(int argc, char *argv[])
       if (g_file_test(socket_filename->str, G_FILE_TEST_EXISTS))
 	  if (g_unlink(socket_filename->str) == -1)
 	    FATAL("Local socket file exists but impossible to delete. Wrong permissions?");
-
+      
       /* Connect and start listening on local unix socket */
       server_socket = make_local_socket(socket_filename->str);
       g_string_free(socket_filename, 1);
