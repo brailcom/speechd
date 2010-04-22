@@ -903,7 +903,7 @@ main(int argc, char *argv[])
       if (SpeechdOptions.conf_dir == NULL){
 	/* If no conf_dir was specified on command line, try default local config dir */
 	SpeechdOptions.conf_dir = g_strdup_printf("%s/conf/", SpeechdOptions.home_speechd_dir);
-	if (!g_file_test(SpeechdOptions.conf_file, G_FILE_TEST_IS_DIR)){
+	if (!g_file_test(SpeechdOptions.conf_dir, G_FILE_TEST_IS_DIR)){
 	  /* If the local confiration dir doesn't exist, read the global configuration */
 	  if (strcmp(SYS_CONF, "")) SpeechdOptions.conf_dir = strdup(SYS_CONF);
 	  else SpeechdOptions.conf_dir = strdup("/etc/speech-dispatcher/");
