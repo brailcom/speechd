@@ -122,7 +122,6 @@ class _SSIP_Connection:
         # Autospawn Speech Dispatcher if not already running
         if autospawn:
             self.speechd_server_spawn()
-            time.sleep(0.5)
 
         if method == 'unix_socket':
             self._socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
@@ -323,9 +322,13 @@ class _SSIP_Connection:
     def speechd_server_spawn(self):
         """Attempts to spawn the speech-dispatcher server."""
         if os.path.exists(paths.SPD_SPAWN_CMD):
-            speechd_server = subprocess.Popen([paths.SPD_SPAWN_CMD], stdin=None,
-                                              stdout=subprocess.PIPE, stderr=None)
-            return speechd_server.communicate()[0].rstrip('\n')
+            speechd_server = subprocess.Popen([paths.SPD_SPAWN_CMD, "--spawn"], stdin=None,
+                                              stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            #TODO: When logging will be implemented in this library, it will be very
+            #desirable to read the stdout output and log it because it contains valuable
+            #information on the result of the autospawn and the reason for it
+            time.sleep(0.5)
+            return speechd_server.pid
         else:
             raise "Can't find Speech Dispatcher spawn command %s" % (paths.SPD_SPAWN_CMD,)
 
