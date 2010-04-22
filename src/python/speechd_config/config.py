@@ -265,16 +265,6 @@ class Tests:
     """Tests of functionality of Speech Dispatcher and its dependencies
     and methods for determination of proper paths"""
 
-    def default_port(self):
-        if os.environ.has_key('SPEECHD_PORT'):
-            port = int(os.environ['SPEECHD_PORT'])
-            report("""
-Speech Dispatcher port suggested by SPEECHD_PORT environment variable: %d""" %
-                   port)
-            return port
-        else:
-            return 6560
-
     def user_speechd_dir(self):
         """Return user Speech Dispatcher configuration and logging directory"""
         return os.path.expanduser(os.path.join('~', '.speech-dispatcher'))
@@ -376,50 +366,19 @@ not muted in the mixer? Please fix your audio system first or choose a different
 audio output method in configuration.""")
             return False
 
-    def test_spd_say(self, host="localhost", port=None):
+    def test_spd_say(self):
         """Test Speech Dispatcher using spd_say"""
 
         report("Testing Speech Dispatcher using spd_say")
         
         while True:
             try:
-                if port:
-                    ret = os.system("SPEECHD_PORT=%d spd-say -P important \"Speech Dispatcher seems to work\""
-                                    % port)
-                else:
-                    ret = os.system("spd-say -P important \"Speech Dispatcher seems to work\"")
+                ret = os.system("spd-say -P important \"Speech Dispatcher seems to work\"")
             except:
                 report("""Can't execute the spd-say binary,
 it is likely that Speech Dispatcher is not installed.""")
                 return False
-            if ret:
-                report("Can't connect to server on host %s port %d" % (host, port))
-                scan = question("Do you want to scan nearby ports for a running Speech Dispatcher?",
-                                True)
-                if scan:
-                    speechd_ports = []
-                    for sport in range (port-10, port+10):
-                        ret = os.system(
-                            "SPEECHD_PORT=%d spd-say \"Speech Dispatcher seems to work on port %d\""
-                                        % (sport, sport))
-                        if not ret:
-                            report("Speech Dispatcher running on port %d" % sport)
-                            speechd_ports += [sport]
-                    if len(speechd_ports) == 0:
-                        report("No Speech Dispatchers found on ports %d to %d" % (port-10, port+10))
-                        report("""
-Speech Dispatcher doesn't seem to be running. Please start it and try again.""")
-                    else:
-                        report("""Speech Dispatchers active on ports: %s.
-This very likely means a slight misconfiguration in your environment.
-You can influence the default Speech Dispatcher port through the SPEECHD_PORT
-environment variable. You can try to run this test again as
-$ SPEECHD_PORT=%d spd-conf -d
-""" % (str(speechd_ports), speechd_ports[0]))
-                return False
-
-            hearing_test = question("Did you hear the message about Speech Dispatcher working?",
-                                    True)
+            hearing_test = question("Did you hear the message about Speech Dispatcher working?", True)
             if hearing_test:
                 report("Speech Dispatcher is working")
                 return True
@@ -483,9 +442,7 @@ Speech Dispatcher.""")
         report("Testing PULSE sound output")
         return self.audio_try_play(type='pulse')
 
-    def diagnostics(self, speechd_port = 6560,
-                    speechd_running = True,
-                    output_modules=[], audio_output=[]):
+    def diagnostics(self, speechd_running = True, output_modules=[], audio_output=[]):
 
         """Perform a complete diagnostics"""
         working_modules = []
@@ -493,7 +450,7 @@ Speech Dispatcher.""")
 
         if speechd_running:
             # Test whether Speech Dispatcher works
-            if self.test_spd_say(port=speechd_port):
+            if self.test_spd_say():
                 dispatcher_working = True
                 skip = question("Speech Dispatcher works. Do you want to skip other tests?",
                                 True)
@@ -506,7 +463,7 @@ Speech Dispatcher.""")
 
         if not dispatcher_working:
             if not question("""
-Speech Dispatcher isn't running or is running on a different port (see above),
+Speech Dispatcher isn't running or we can't connect to it (see above),
 do you want to proceed with other tests? (They can help to determine
 what is wrong)""", True):
                 return {'dispatcher_working': False}
@@ -526,7 +483,7 @@ what is wrong)""", True):
                 working_modules += ["festival"]
 
         if decide_to_test('espeak', "Espeak synthesizer", output_modules): 
-            if not self.test_espeak():
+            if self.test_espeak():
                 working_modules += ["espeak"]
 
         if decide_to_test('alsa', "ALSA sound system", audio_output): 
@@ -611,9 +568,7 @@ Please make sure your Speech Dispatcher is not running now.""")
             if not reply:
                 report("Can't continue, please stop your Speech Dispatcher and try again")
 
-
         time.sleep(2)
-
 
         # All debugging files are written to TMPDIR/speech-dispatcher/
         if os.environ.has_key('TMPDIR'):
@@ -646,23 +601,12 @@ Please start your system Speech Dispatcher now with parameter '-D'""");
             reply = question("Speech Dispatcher failed to start, continuing anyway");
 
         report("Trying to speak some messages");
-        ret = 1
-        while ret:
-            ret = os.system("SPEECHD_PORT=%d spd-say \"Speech Dispatcher debugging 1\""
-                            % speechd_port)
-            if ret:
-                reply = question("""
-Can't connect Speech Dispatcher on the given port.
-Do you want to try another port?""", True)
-                if reply:
-                    speechd_port = question("What port?", 6561)
-                else:
-                    report("Can't test Speech Dispatcher connection, continuing anyway.")
-                    
-        os.system("SPEECHD_PORT=%d spd-say \"Speech Dispatcher debugging 2\""
-                  % speechd_port)
-        os.system("SPEECHD_PORT=%d spd-say \"Speech Dispatcher debugging 3\""
-                  % speechd_port)
+        ret = os.system("spd-say \"Speech Dispatcher debugging 1\"")
+        if ret:
+            report("Can't test Speech Dispatcher connection, can't connect")
+
+        os.system("spd-say \"Speech Dispatcher debugging 2\"")
+        os.system("spd-say \"Speech Dispatcher debugging 3\"")
 
         report("Please wait (about 5 seconds)")
         time.sleep(5)
@@ -689,7 +633,6 @@ class Configure:
     default_output_module = None
     default_language = None
     default_audio_method = None
-    port = None
     
     def remove_user_configuration(self):
         """Remove user configuration tree"""
@@ -802,17 +745,17 @@ Do you want to keep it?""", False)
 
         self.default_audio_method = question_with_suggested_answers(
             "Default audio output method",
-            "alsa",
-            ["alsa", "pulse", "oss"])
-    
-        if type == 'user':
-            default_port = 6561
-        else:
-            default_port = 6560
-        self.port = question(
-            "Default port",
-            default_port)
+            "pulse,alsa",
+            ["pulse", "alsa", "oss", "pulse,alsa"])
 
+        self.default_speech_rate = question(
+            "Default speech rate (on the scale of -100..100, 0 is default, 50 is faster, -50 is slower)",
+            "0")
+
+        self.default_speech_pitch = question(
+            "Default speech pitch (on the scale of -100..100, 0 is default, 50 is higher, -50 is lower)",
+            "0")
+    
         # Substitute given configuration options
         if type == 'user':
             configfile = os.path.join(test.user_conf_dir(), "speechd.conf")
@@ -823,17 +766,14 @@ Do you want to keep it?""", False)
                                 {"DefaultModule": self.default_output_module,
                                  "DefaultLanguage": self.default_language,
                                  "AudioOutputMethod": self.default_audio_method,
-                                 "Port": self.port})
+                                 "DefaultRate": self.default_speech_rate,
+                                 "DefaultPitch": self.default_speech_pitch,
+                                 "DefaultLanguage": self.default_language,
+                                 })
         if type == 'user':
-            self.setup_port = question(
-                "Do you want to configure your system to use Speech Dispatcher on this port in ~/.profile?",
-                True)
             self.setup_autostart = question(
                 "Do you want to have Speech Dispatcher automatically started from ~/.config/autostart ?",
                 True)
-
-            if self.setup_port:
-                os.system("""echo "\nexport SPEECHD_PORT=%d\n" >> ~/.profile""" % self.port) 
             if self.setup_autostart:
                 os.system("""cp %s ~/.config/autostart/""" % os.path.join(paths.SPD_DESKTOP_CONF_PATH,
                                                                           "speechd.desktop")) 
@@ -916,31 +856,17 @@ you have to start it manually to continue.""")
                 started= self.speechd_start_system()
 
         if not started:
-            report("Your Speech Dispatcher is not running now on port %d" %
-                   self.port);
+            report("Your Speech Dispatcher is not running");
             
-        result = test.diagnostics(speechd_port=self.port,
-                                  speechd_running = started,
+        result = test.diagnostics(speechd_running = started,
                                   audio_output=[self.default_audio_method],
                                   output_modules=[self.default_output_module]);
         test.write_diagnostics_results(result)
 
-        if result['dispatcher_working']:
-            if self.port != test.default_port():
-                report("""
-Warning: Speech Dispatcher is configured for port %d
-but this is not the default port on your system (%d).
-You must configure your SPEECHD_CONF environment variable
-for this value or adjust the settings in the particular clients.
-If you opted to do that during the run of this script, you just
-have to restart your GNOME now.
-"""  % (self.port, test.default_port()))
-                
-        else:
-            reply = question("Do you want to run debugging now and send a request for help to the developers?",
-                             True)
-            if reply:
-                test.debug_and_report(speechd_port=self.port, type=speechd_type)
+        reply = question("Do you want to run debugging now and send a request for help to the developers?",
+                         False)
+        if reply:
+            test.debug_and_report(type=speechd_type)
 
 
 # Basic objects
@@ -954,6 +880,7 @@ def main():
     report("Speech Dispatcher configuration tool")
     
     if options.create_user_configuration:
+        # Check for and/or create basic user configuration
         configure.create_user_configuration()
         reply = question("Do you want to continue with basic settings?", True)
         if reply:
@@ -968,7 +895,7 @@ def main():
         test.test_festival()
 
     elif options.test_spd_say:
-        test.test_spd_say(port=test.default_port())
+        test.test_spd_say()
 
     elif options.test_espeak:
         test.test_espeak()
@@ -980,11 +907,11 @@ def main():
         test.audio_try_play(type='pulse')
 
     elif options.diagnostics:
-        ret = test.diagnostics(test.default_port())
+        ret = test.diagnostics()
         test.write_diagnostics_results(ret)
 
     elif options.debug:
-        test.debug_and_report(test.default_port())
+        test.debug_and_report()
 
     else:
         reply = question("Do you want to setup a completely new configuration?", True)
@@ -993,7 +920,7 @@ def main():
         else:
             reply = question("Do you want to run diagnosis of problems?", True)
             if reply:
-                test.diagnostics(test.default_port())
+                test.diagnostics()
                 test.write_diagnostics_results(ret)
             else:
                 report("""Please run this command again and select what you want to do
