@@ -478,6 +478,7 @@ speechd_modules_nodebug(void)
 void
 speechd_options_init(void)
 {
+    SpeechdOptions.spawn = FALSE;
     SpeechdOptions.log_level_set = 0;
     SpeechdOptions.communication_method = NULL;
     SpeechdOptions.socket_name = NULL;
@@ -887,7 +888,7 @@ main(int argc, char *argv[])
       /* Setup a ~/.speechd-dispatcher/ directory or create a new one */
       SpeechdOptions.home_speechd_dir = g_strdup_printf("%s/.speech-dispatcher", user_home_dir);
       MSG(4, "Home dir found, trying to find %s", SpeechdOptions.home_speechd_dir);
-      g_mkdir(g_path_get_dirname(SpeechdOptions.home_speech_dir), S_IRWXU);
+      g_mkdir(g_path_get_dirname(SpeechdOptions.home_speechd_dir), S_IRWXU);
       MSG(4, "Using home directory: %s for configuration, pidfile and logging", SpeechdOptions.home_speechd_dir);
       g_free(user_home_dir);
 
@@ -909,6 +910,29 @@ main(int argc, char *argv[])
 	}
       }
       SpeechdOptions.conf_file = g_strdup_printf("%s/speechd.conf", SpeechdOptions.conf_dir);      
+    }
+
+    if (SpeechdOptions.spawn){
+      /* Check whether spawning is not disabled */
+      gchar *config_contents;
+      int err;
+      GRegex *regexp;
+      int result;
+
+      err = g_file_get_contents(SpeechdOptions.conf_file, &config_contents, NULL, NULL);
+      if (err == FALSE){
+	MSG(1,"Error openning %s", SpeechdOptions.conf_file);
+	FATAL("Can't open conf file");
+      }
+      regexp = g_regex_new ("^[ ]*DisableAutoSpawn", G_REGEX_MULTILINE,0,NULL);
+      result = g_regex_match(regexp, config_contents, 0, NULL);      
+      if (result){
+	MSG(4,"Autospawn requested but disabled in configuration");	
+	exit(1);
+      }
+      g_free(config_contents);
+      g_regex_unref(regexp);
+      MSG(2,"Starting Speech Dispatcher due to auto-spawn");
     }
 
     /* Initialize logging mutex to workaround ctime threading bug */
@@ -982,7 +1006,6 @@ main(int argc, char *argv[])
         if (select(FD_SETSIZE, &testfds, (fd_set *)0, (fd_set *)0, NULL) >= 1){
             /* Once we know we've got activity,
              * we find which descriptor it's on by checking each in turn using FD_ISSET. */
-
             for (fd = 0; fd <= SpeechdStatus.max_fd && fd < FD_SETSIZE; fd++) {
                 if (FD_ISSET(fd,&testfds)){
                     MSG(4,"Activity on fd %d ...",fd);

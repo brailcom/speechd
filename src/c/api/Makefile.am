@@ -12,5 +12,5 @@ libspeechd_la_LDFLAGS = -version-info @LIB_SPD_CURRENT@:@LIB_SPD_REVISION@:@LIB_
 libspeechd_la_LIBADD = @glib_libs@
 
 if ENABLE_SESSION
-AM_CFLAGS += -DENABLE_SESSION -DSPD_SPAWN_CMD=\"@prefix@/bin/speechd-server-spawn\"
+AM_CFLAGS += -DENABLE_SESSION -DSPD_SPAWN_CMD=\""@prefix@/bin/speech-dispatcher"\"
 endif

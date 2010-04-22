@@ -118,6 +118,7 @@ struct{
     char *conf_dir;
     char *home_speechd_dir;
     char *log_dir;
+    int spawn;
     int debug;
     char *debug_destination;
     char *debug_logfile;

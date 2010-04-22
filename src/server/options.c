@@ -40,6 +40,7 @@ options_print_help(char *argv[])
     printf("Speech Dispatcher -- Common interface for Speech Synthesis (GNU GPL)\n\n");
     printf("-d, --run-daemon     -      Run as a daemon\n"
     "-s, --run-single     -      Run as single application\n"
+    "-a, --spawn          -      Start only if autospawn is not disabled\n"
     "-l, --log-level      -      Set log level (1..5)\n"
     "-c, --communication-method  Communication method to use (unix_socket or inet_socket)\n"
     "-S, --socket-name    -      Socket name to use for 'unix_socket' method (filesystem path or 'default')\n"
@@ -120,6 +121,9 @@ options_parse(int argc, char *argv[])
             break;
         case 'p':
             SPD_OPTION_SET_INT(port);
+            break;
+        case 'a':
+   	    SpeechdOptions.spawn = TRUE;
             break;
 	case 'P':
 	    SPD_OPTION_SET_STR(pid_file);

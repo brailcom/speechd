@@ -33,7 +33,6 @@ static TFDSetClientSpecific *cl_spec_section;
 /* So that gcc doesn't comply about casts to char* */
 extern char* spd_strdup(char* string);
 
-
 /* == CONFIGURATION MANAGEMENT FUNCTIONS */
 
 /* Add dotconf configuration option */
@@ -357,12 +356,21 @@ DOTCONF_CB(cb_EndClient)
 }
 
 
+
 /* == CALLBACK FOR UNKNOWN OPTIONS == */
 
 DOTCONF_CB(cb_unknown)
 {
     MSG(2,"Unknown option in configuration!");
     return NULL;
+}
+
+/* == Auto-spawn no-action callback == */
+DOTCONF_CB(cb_DisableAutoSpawn){
+  /* DisableAutoSpawn option is handled earlier during startup, not via the DotConf
+     mechanism. This callback here is a hack to ensure DotConf doesn't complain about
+     an unknown option */
+  return NULL;
 }
 
 
@@ -385,6 +393,7 @@ load_config_options(int *num_options)
     ADD_CONFIG_OPTION(CommunicationMethod, ARG_STR);
     ADD_CONFIG_OPTION(SocketName, ARG_STR);
     ADD_CONFIG_OPTION(Port, ARG_INT);
+    ADD_CONFIG_OPTION(DisableAutoSpawn, ARG_NONE);
     ADD_CONFIG_OPTION(LocalhostAccessOnly, ARG_INT);
     ADD_CONFIG_OPTION(LogFile, ARG_STR);
     ADD_CONFIG_OPTION(LogDir, ARG_STR);

@@ -26,6 +26,7 @@
 static struct option spd_long_options[] = {
     {"run-daemon", 0, 0, 'd'},
     {"run-single", 0, 0, 's'},
+    {"spawn", 0, 0, 'a'},
     {"log-level", 1, 0, 'l'},
     {"communication-method", 1, 0, 'c'},
     {"socket-name", 1, 0, 'S'},
@@ -38,7 +39,7 @@ static struct option spd_long_options[] = {
     {0, 0, 0, 0}
 };
 
-static char* spd_short_options = "dsl:c:S:p:P:C:vDh";
+static char* spd_short_options = "dsal:c:S:p:P:C:vDh";
 
 void options_print_help(char *argv[]);
 void options_print_version(void);

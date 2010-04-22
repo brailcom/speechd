@@ -171,14 +171,13 @@ spd_open2(const char* client_name, const char* connection_name, const char* user
     int port;
     int ret;
     char tcp_no_delay = 1;
-
     /* Autospawn related */
     const char *pidof_speechd[] = { "pidof", "speech-dispatcher", NULL };
-    const char *speechd_cmd[] = { SPD_SPAWN_CMD, NULL };
+    const char *speechd_cmd[] = { SPD_SPAWN_CMD, "--spawn", NULL };
     gchar *speechd_pid = NULL;
     GError *error = NULL;
     gint exit_status;
-    
+
     if (client_name == NULL) return NULL;
     
     if (user_name == NULL)
@@ -208,10 +207,11 @@ spd_open2(const char* client_name, const char* connection_name, const char* user
     
     /* Autospawn -- check if Dispatcher is not running and if so, start it*/
     if (autospawn){
-      /* Start the speech-dispatcher server if it isn't running. */
-      if (g_spawn_sync(NULL, (gchar**)pidof_speechd, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, &speechd_pid, NULL, &exit_status, &error) && strlen(speechd_pid) == 0){
-	g_spawn_sync(NULL, (gchar**)speechd_cmd, NULL, G_SPAWN_SEARCH_PATH | G_SPAWN_STDOUT_TO_DEV_NULL | G_SPAWN_STDERR_TO_DEV_NULL, NULL, NULL, NULL, NULL, &exit_status, &error);
-	sleep(0.5);
+      if (g_spawn_sync(NULL, (gchar**)pidof_speechd, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, &speechd_pid, NULL,
+		       &exit_status, &error) && strlen(speechd_pid) == 0){
+	g_spawn_sync(NULL, (gchar**)speechd_cmd, NULL, G_SPAWN_SEARCH_PATH | G_SPAWN_STDOUT_TO_DEV_NULL | G_SPAWN_STDERR_TO_DEV_NULL,
+		     NULL, NULL, NULL, NULL, &exit_status, &error);
+	sleep(1);
       }
     }
 
