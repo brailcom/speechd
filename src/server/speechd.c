@@ -699,13 +699,13 @@ create_pid_file()
         /* If there is a lock, exit, otherwise remove the old file */
         ret = fcntl(pid_fd, F_GETLK, &lock);
         if (ret == -1){
-            fprintf(stderr, "Can't check lock status of an existing pid file.\n");
+            MSG(1, "Can't check lock status of an existing pid file.\n");
             return -1;
         }
 
         fclose(pid_file);
         if (lock.l_type != F_UNLCK){
-            fprintf(stderr, "Speech Dispatcher already running.\n");
+            MSG(2, "Speech Dispatcher already running.\n");
             return -1;
         }
 
@@ -715,8 +715,8 @@ create_pid_file()
     /* Create a new pid file and lock it */
     pid_file = fopen(SpeechdOptions.pid_file, "w");
     if (pid_file == NULL){
-        fprintf(stderr, "Can't create pid file in %s, wrong permissions?\n",
-                SpeechdOptions.pid_file);
+        MSG(1, "Can't create pid file in %s, wrong permissions?\n",
+	    SpeechdOptions.pid_file);
         return -1;
     }
     fprintf(pid_file, "%d\n", getpid());
@@ -730,7 +730,7 @@ create_pid_file()
 
     ret = fcntl(pid_fd, F_SETLK, &lock);
     if (ret == -1){
-        fprintf(stderr, "Can't set lock on pid file.\n");
+        MSG(1, "Can't set lock on pid file.\n");
         return -1;
     }
 
@@ -912,6 +912,11 @@ main(int argc, char *argv[])
       SpeechdOptions.conf_file = g_strdup_printf("%s/speechd.conf", SpeechdOptions.conf_dir);      
     }
 
+    /* Check for PID file or create a new one or exit if Speech Dispatcher
+       is already running */
+    if (create_pid_file() != 0) exit(1);
+
+    /* Handle --spawn request */
     if (SpeechdOptions.spawn){
       /* Check whether spawning is not disabled */
       gchar *config_contents;
@@ -943,8 +948,6 @@ main(int argc, char *argv[])
       exit(1);
     }
     
-
-    if (create_pid_file() != 0) exit(1);
 
     /* Register signals */
     (void) signal(SIGINT, speechd_quit);	
