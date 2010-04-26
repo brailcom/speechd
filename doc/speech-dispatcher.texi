@@ -126,49 +126,38 @@ General Public License''
 @cindex Basic ideas, Motivation
 @cindex Philosophy
 
-The Speech Dispatcher project provides a device independent layer for
-speech synthesis. It provides a simple interface for client
-applications (applications, that want to speak) as well as for device
-driver modules (the different speech synthesizers).
+Speech Dispatcher is a device independent layer for speech synthesis
+that provides a common easy to use interface for both client
+applications (programs that want to speak) and for software
+synthesizers (programs actually able to convert text to speech).
 
-High quality speech synthesis has been available for a long time and
-now it's usable even by ordinary users on their home PC's. It is a good
-feature, and sometimes mandatory, for programs to
-provide speech output.  There is a wide field of possible uses from
-educational software, to specialized systems (hospitals,
-laboratories).  For visually impaired users it is one of the two
-essential ways of getting output from a computer (the second one is
-a Braille display). This is also where Speech Dispatcher helps.
+High quality speech synthesis is now commonly available both as
+propriatary and Free Software solutions. It has a wide field of
+possible uses from educational software to specialized systems,
+e.g. in hospitals or laboratories. It is also a key compensation tool
+for the visually impaired users. For them, it is one of the two
+possible ways of getting output from a computer (the second one being
+a Braille display).
 
-There are different speech synthesizers with different capabilities.
-Some of them are hardware, some of them are software.  Some of them
-are Free Software and are are available on the Internet.  Programmers
-have really hard times when they want to make their program speak
-because they need to find a suitable synthesizer (long hours of
-experimentation and so on...) and then make it work with their program.
-They often need to write output device drivers for these programs or
-hardware devices and are doing it again and again.  You can imagine it
-all fails when an innocent user simultaneously executes two programs with
-speech output --- if both even start (which I doubt), they will
-be talking one over the other.  This makes it very hard for
-programmers to implement speech support in their programs (for blind
-users or simply to make a better user interface) and it's one of the
-reasons we still don't fully exploit what speech synthesis technology
-offers.
+The various speech synthesizers are quite different, both in their
+interfaces and capabilities. Thus a general common interface is needed
+so that the client application programmers have an easy way to use
+software speech synthesis and don't have to care about peculiar
+details of the various synthesizers.
 
-In an ideal world, programmers would use the same commands for speech
-synthesis as they do for normal text output (printf, puts, ...).  In an
-ideal world, there would be a speech_printf() function that would take care of
-saying a message at the right time without interrupting others, without
-them being obligated to take care of how exactly the communication with
-speech synthesizer is implemented, and without them having to worry about
-what synthesizer to use and if it's available.  In an ideal world, there
-would be a speech synthesizer in each GNU/Linux distribution and some
-common interface taking care of all applications that want to speak,
-allowing users to configure speech parameters and providing a simple interface
-(as speech_printf()) through a shared library for programmers.  It will
-be a long way until we achieve this state of things, but with Speech
-Dispatcher, we are taking the first steps...
+The absence of such a common and standardized interface and thus the
+difficulty for programmers to use software speech synthesis has
+been a major reason why the potential of speech synthesis technology
+is still not fully expoited.
+
+Ideally, there would be little distinction for applications whether
+they output messages on the screen or via speech. Speech Dispatcher
+can be compared to what a GUI toolkit is for the graphical
+interface. Not only does it provide an easy to use interface, some
+kind of theming and configuration mechanisms, but also it takes care
+of some of the issues inherent with this particular mode of output,
+such as the need for speech message serialization and interaction with
+the audio subsystem.
 
 @node Basic Design, Features Overview, Motivation, Introduction
 @section Design
@@ -193,16 +182,19 @@ Each client (application that wants to speak) opens a socket
 connection to Speech Dispatcher and calls functions like say(),
 stop(), and pause() provided by a library implementing the protocol.
 This shared library is still on the client side and sends Speech
-Dispatcher SSIP commands over the socket. When the messages arrive
-at Speech Dispatcher, it parses them, reads the text that should
-be said and puts it in one of several queues according to the priority
-of the message and other criteria. It then decides when,
-with which parameters (set up by the client and the user),
-and on which synthesizer it will say the message. These requests
-are handled by the output plug-ins (output modules) for different
-hardware and software synthesizers and then said aloud.
+Dispatcher SSIP commands over the socket. When the messages arrive at
+Speech Dispatcher, it parses them, reads the text that should be said
+and puts it in one of several queues according to the priority of the
+message and other criteria. It then decides when, with which
+parameters (set up by the client and the user), and on which
+synthesizer it will say the message. These requests are handled by the
+output plug-ins (output modules) for different hardware and software
+synthesizers and then said aloud.
 
 @image{figures/architecture,155mm,,Speech Dispatcher architecture}
+
+See also the detailed description @ref{Client Programming} interfaces, and
+@ref{Server Programming} documentation.
 
 @heading Future Design
 
@@ -212,35 +204,47 @@ management (including priorities and history). This became even more
 evident when we started thinking about handling messages intended for
 output on braille devices.  Such messages of course need to be
 synchronized with speech messages and there is little reason why the
-accessibility tools should send the same message twice for
-these two different kinds of output used by blind people (often
-simultaneously).
+accessibility tools should send the same message twice for these two
+different kinds of output used by blind people (often simultaneously).
+Outside the world of accessibility, applications also want to either
+have full controll over the sound (bypass prioritisation) or to only
+retrieve the synthesized data, but not play them immediatelly.
 
-In near future, we would like to split Speech Dispatcher into two
-independent components: one providing a low-level interface to
-speech synthesis drivers, which we now call TTS API Provider, and the
-second doing message managemenet, some Message Dispatcher. This will
-allow Message Dispatcher to also output on Braille.
+We want to eventually split Speech Dispatcher into two independent
+components: one providing a low-level interface to speech synthesis
+drivers, which we now call TTS API Provider and is already largely
+implemented in the Free(b)Soft project, and the second doing message
+managemenet, called Message Dispatcher. This will allow Message
+Dispatcher to also output on Braille as well as to use the TTS API
+Provider separately.
+
+From implementation point of view, an opportunity for new design based
+on our previous experiences allowed us to remove several bottlenecks
+for speed (responsiveness), ease of use and ease of implementation of
+extensions (particularly output modules for new synthesizers). From
+the architecture point of view and possibilities for new developments,
+we are entirely convinced that both the new design in general and the
+inner design of the new components is much better.
 
 While a good API and its implementation for Braille are already
-existent in the form of BrlAPI, the API for speech is now under active
+existent in the form of BrlAPI, the API for speech is now under
 developement. Please see another architecture diagram showing how we
 imagine Message Dispatcher in the future.
 
 @image{figures/architecture-future,155mm,,Speech Dispatcher architecture}
 
-See also the detailed description @ref{Client Programming} interfaces, and
-@ref{Server Programming} documentation.
+References:
+@uref{http://www.freebsoft.org/tts-api/}
+@uref{http://www.freebsoft.org/tts-api-provider/}
 
 @node Features Overview, Current State, Basic Design, Introduction
 @section Features Overview
 Speech Dispatcher from user's point of view:
 
 @itemize @bullet
-@item easy configuration of different speaking applications and central maintenance
-@item the ability to freely choose which synthesizer is to be used with each application
-@item less time devoted to configuring and tuning different applications and synthesizers
-@item history of said messages for visually impaired
+@item ability to freely combine applications with your favorite synthesizer
+@item message synchronization and coordination
+@item less time devoted to configuration of applications
 @end itemize
 
 Speech Dispatcher from application programmers's point of view:
@@ -276,186 +280,36 @@ Dispatcher directly since its version 2.19.0.  See
 @uref{http://live.gnome.org/Orca/SpeechDispatcher} for more
 information.
 
-We also provide a shared C library, a Python library and a Common Lisp
-library that implement the SSIP functions of Speech Dispatcher in a
-higher level interface, so writing client applications in these
-languages should be quite easy. 
+We also provide a shared C library, a Python library, a Java, Guile
+and a Common Lisp libraries that implement the SSIP functions of
+Speech Dispatcher in higher level interfaces. Writing client
+applications in these languages should be quite easy.
 
 On the synthesis side, there is good support for Festival, eSpeak,
 Flite, Cicero, IBM TTS, MBROLA, Epos, Dectalk software, Cepstral Swift
 and others. See @xref{Supported Modules}.
 
-We decided not to support the simple hardware devices ourselves,
-because they don't support synchronization and therefore have serious
-problems when handling multiple messages.  Also they are not extensible,
-they are usually expensive and often hard to support. Today's computers
-are fast enough to perform software speech synthesis and Festival is a
+We decided not to interface the simple hardware speech devices as they
+don't support synchronization and therefore cause serious problems
+when handling multiple messages.  Also they are not extensible, they
+are usually expensive and often hard to support. Today's computers are
+fast enough to perform software speech synthesis and Festival is a
 great example.
-
-Currently, there is no application that would serve as a configuration 
-manager for Speech Dispatcher. We think of this application as a client
-of Speech Dispatcher, where a user can modify all the parameters of
-connections, browse history, modify settings in a permanent
-text file configuration and so on. We welcome anyone who would like to
-help us with such a client.
 
 @node User's Documentation, Technical Specifications, Introduction, Top
 @chapter User's Documentation
 
 @menu
-* Features::                    Description of some fetures in more detail.
 * Installation::                How to get it installed in the best way.
 * Running::                     The different ways to start it.
 * Troubleshooting::             What to do if something doesn't work...
 * Configuration::               How to configure Speech Dispatcher.
-
 * Tools::                       What tools come with Speech Dispatcher.
+* Synthesis Output Modules::    Drivers for different synthesizers.
+* Security::                    Security mechanisms and restrictions.
 @end menu
 
-@node Features, Installation, User's Documentation, User's Documentation
-@section Features
-
-In this section, there is a more detailed description of the main
-features of Speech Dispatcher. These features are only the ones
-specific to this implementation of SSIP. For the general overview of
-the features included in SSIP, and therefore also supported by Speech
-Dispatcher, please @xref{Top,,,ssip, SSIP Documentation}.
-
-@menu
-* Multiple Output Modules::     Using various speech synthesizers on one system.
-* Client Specific Default Configuration::  Managing multiple speaking applications.
-* Security::                    Speech Dispatcher protects the privacy of users.
-@end menu
-
-@node Multiple Output Modules, Client Specific Default Configuration, Features, Features
-@subsection Multiple Output Modules
-@cindex output module
-@cindex different synthesizers
-
-Speech Dispatcher supports concurrent use of multiple output modules.  If the
-output modules provide good synchronization, you can combine them when
-reading messages.  For example if module1 can speak English and Czech while
-module2 speaks only German, the idea is that if there is some message in
-German, module2 is used, while module1 is used for the other languages.
-However the language is not the only criteria for the decision.  The rules for
-selection of an output module can be influenced through the configuration file
-@file{speech-dispatcher/speechd.conf}.
-
-@menu
-* Provided Functionality::      Some synthesizers don't support the full set of SSIP features.
-* Supported Modules::           Festival, Flite, Epos, Generic.
-* Compiling a New Module ::     How to compile a new output module.
-@end menu
-
-@node Provided Functionality, Supported Modules, Multiple Output Modules, Multiple Output Modules
-@subsubsection Provided functionality
-
-Please note that some output modules don't support the full Speech
-Dispatcher functionality (e.g. spelling mode, sound icons). If there
-is no easy way around the missing functionality, we don't try to
-emulate it in some complicated way and rather try to encourage the
-developers of that particular synthesizer to add that
-functionality. We are actively working on adding the missing parts to
-Festival, so Festival supports nearly all of the features of Speech
-Dispatcher and we encourage you to use it. Much progress has also been
-done with eSpeak.
-
-@node Supported Modules, Compiling a New Module , Provided Functionality, Multiple Output Modules
-@subsubsection Supported Modules
-
-@itemize @bullet
-
-@item Festival
-Festival is a free software multi-language Text-to-Speech 
-synthesis system that is very flexible and extensible using the
-Scheme scripting language. Currently, it supports high quality
-synthesis for several languages, and on today's computers it runs
-reasonably fast.  If you are not sure which one to use and your
-language is supported by Festival, we advise you to use it. See
-@uref{http://www.cstr.ed.ac.uk/projects/festival/}.
-
-@item eSpeak
-eSpeak is a newer very lightweight free software engine with a broad
-range of supported languages and a good quality of voice at high
-rates. See @uref{http://espeak.sourceforge.net/}.
-
-@item Flite 
-Flite (Festival Light) is a lightweight free software TTS synthesizer
-intended to run on systems with limited resources. At this time, it
-has only one English voice and porting voices from Festival looks
-rather difficult.  With the caching mechanism provided by Speech
-Dispatcher, Festival is faster than Flite in most situations.  See
-@uref{http://www.speech.cs.cmu.edu/flite/}.
-
-@item Generic
-The Generic module can be used with any synthesizer that can be
-managed by a simple command line application. @xref{Configuration of
-the Generic Output Module}, for more details about how to use it.
-However, it provides only very rudimentary support of speaking.
-
-@end itemize
-
-@node Compiling a New Module ,  , Supported Modules, Multiple Output Modules
-@subsubsection Compiling a New Module 
-
-If you want to compile and use a new output module, you should place
-it in @file{src/modules} in your source directory for Speech Dispatcher
-and add it to @file{src/modules/Makefile.am}. You can compile and
-install it by typing: @code{make; su root; make install}. The last
-step is to let Speech Dispatcher know that you want to
-use this new module by adding at least these two lines to
-@file{speech-dispatcher/speechd.conf} in your configuration
-directory. @xref{AddModule}.
-
-@example
-AddModule "module_name" "binary" "configuration"
-@end example
-
-and possibly also changing the lines
-
-@example
-DefaultModule new_module
-@end example
-
-to make it the default output module or
-
-@example
-LanguageDefaultModule "en"  "new_module"
-@end example
-
-to make it the default for some language.
-
-@node Client Specific Default Configuration, Security, Multiple Output Modules, Features
-@subsection Client Specific Default Configuration
-
-In Speech Dispatcher's configuration, it is possible to specify
-default values for message parameters from different applications/users
-that connect to it. For example, you can modify the configuration so
-that your instant messenger always speaks notifications louder
-by raising the volume.
-
-For more details, @xref{Client Specific Configuration}.
-
-@node Security,  , Client Specific Default Configuration, Features
-@subsection Security
-
-Speech Dispatcher doesn't implement any special authentication
-mechanisms but uses the standard system mechanisms to regulate access.
-
-If the default `unix_socket' communication mechanism is used, only the
-user who starts the server can connect to it due to imposed
-restrictions on the unix socket file permissions.
-
-In case of the `inet_socket' communication mechanism, where clients
-connect to Speech Dispatcher on a specified port, theoretically
-everyone could connect to it. The access is by default restricted only
-for connections originating on the same machine, which can be changed
-via the LocalhostAccessOnly option in the server configuration
-file. In such a case, the user is reponsible to set appropriate
-security restrictions on the access to the given port on his machine
-from the outside network using a firewall or similar mechanism.
-
-@node Installation, Running, Features, User's Documentation
+@node Installation, Running, User's Documentation, User's Documentation
 @section Installation
 
 This part only deals with the general aspects of installing
@@ -1114,7 +968,7 @@ of data. Use with caution.)
 @end itemize
 @end itemize
 
-@node Tools,  , Configuration, User's Documentation
+@node Tools, Synthesis Output Modules, Configuration, User's Documentation
 @section Tools
 
 Several small tools are distributed together with Speech Dispatcher.
@@ -1170,6 +1024,95 @@ command line tool to send and receive SSIP protocol communication.
 
 Please see @file{src/c/clients/spd-say/README} in the Speech
 Dispatcher's source tree for more information.
+
+@node Synthesis Output Modules, Security, Tools, User's Documentation
+@section Synthesis Output Modules
+@cindex output module
+@cindex different synthesizers
+
+Speech Dispatcher supports concurrent use of multiple output modules.  If the
+output modules provide good synchronization, you can combine them when
+reading messages.  For example if module1 can speak English and Czech while
+module2 speaks only German, the idea is that if there is some message in
+German, module2 is used, while module1 is used for the other languages.
+However the language is not the only criteria for the decision.  The rules for
+selection of an output module can be influenced through the configuration file
+@file{speech-dispatcher/speechd.conf}.
+
+@menu
+* Provided Functionality::      Some synthesizers don't support the full set of SSIP features.
+@end menu
+
+@node Provided Functionality,  , Synthesis Output Modules, Synthesis Output Modules
+@subsection Provided functionality
+
+Please note that some output modules don't support the full Speech
+Dispatcher functionality (e.g. spelling mode, sound icons). If there
+is no easy way around the missing functionality, we don't try to
+emulate it in some complicated way and rather try to encourage the
+developers of that particular synthesizer to add that
+functionality. We are actively working on adding the missing parts to
+Festival, so Festival supports nearly all of the features of Speech
+Dispatcher and we encourage you to use it. Much progress has also been
+done with eSpeak.
+
+@menu
+* Supported Modules::           
+@end menu
+
+@node Supported Modules,  , Provided Functionality, Provided Functionality
+@subsubsection Supported Modules
+
+@itemize @bullet
+
+@item Festival
+Festival is a free software multi-language Text-to-Speech 
+synthesis system that is very flexible and extensible using the
+Scheme scripting language. Currently, it supports high quality
+synthesis for several languages, and on today's computers it runs
+reasonably fast.  If you are not sure which one to use and your
+language is supported by Festival, we advise you to use it. See
+@uref{http://www.cstr.ed.ac.uk/projects/festival/}.
+
+@item eSpeak
+eSpeak is a newer very lightweight free software engine with a broad
+range of supported languages and a good quality of voice at high
+rates. See @uref{http://espeak.sourceforge.net/}.
+
+@item Flite 
+Flite (Festival Light) is a lightweight free software TTS synthesizer
+intended to run on systems with limited resources. At this time, it
+has only one English voice and porting voices from Festival looks
+rather difficult.  With the caching mechanism provided by Speech
+Dispatcher, Festival is faster than Flite in most situations.  See
+@uref{http://www.speech.cs.cmu.edu/flite/}.
+
+@item Generic
+The Generic module can be used with any synthesizer that can be
+managed by a simple command line application. @xref{Configuration of
+the Generic Output Module}, for more details about how to use it.
+However, it provides only very rudimentary support of speaking.
+
+@end itemize
+
+@node Security,  , Synthesis Output Modules, User's Documentation
+@section Security
+
+Speech Dispatcher doesn't implement any special authentication
+mechanisms but uses the standard system mechanisms to regulate access.
+
+If the default `unix_socket' communication mechanism is used, only the
+user who starts the server can connect to it due to imposed
+restrictions on the unix socket file permissions.
+
+In case of the `inet_socket' communication mechanism, where clients
+connect to Speech Dispatcher on a specified port, theoretically
+everyone could connect to it. The access is by default restricted only
+for connections originating on the same machine, which can be changed
+via the LocalhostAccessOnly option in the server configuration
+file. In such a case, the user is reponsible to set appropriate
+security restrictions on the access to the given port on his machine
+from the outside network using a firewall or similar mechanism.
 
 @node Technical Specifications, Client Programming, User's Documentation, Top
 @chapter Technical Specifications
@@ -2366,7 +2309,7 @@ shortly after initialization. Then it enters an infinite loop and
 waits on a SYSV/IPC semaphore until one of the following actions
 happen:
 
-@itemize
+@itemize @bullet
 @item
 The server adds a new message to the queue of messages waiting
 to be said.
