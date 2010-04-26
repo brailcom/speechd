@@ -1,4 +1,22 @@
 
+Version 0.7
+ * Speech Dispatcher uses UNIX style sockets as default means of communication,
+   thus avoiding the necessity to choose a numeric port and greatly easying
+   session integration
+ * Autospawn -- server is started automatically when a client requests it
+   It can be forbidden in the appropriate server configuration file
+   (thanks to Luke Yelavich)
+ * Pulse Audio output reworked and fixed (thanks to Rui Batista)
+ * Dispatcher runs as user service (not system service) by default
+   and doesn't require the previous presence of ~/.speech-dispatcher
+   directory
+ * All logging is now managed centrally, not by separate options
+   (thanks to Luke Yelavich)
+ * Graceful audio fallback (e.g. if pulse is not working, use Alsa...)
+   (thanks to Luke Yelavich)
+ * Various bugfixes and fine-tunnings
+ * Updated documentation
+
 Version 0.6.7
  * Central settings for prefered audio output method
  * Dummy output module gives a pre-recorded message whenever

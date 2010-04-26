@@ -1,17 +1,7 @@
 Notes for packagers of Speech Dispatcher.
 
-* In Speech Dispatcher 0.6.7 configuration files were
-  significantly changed (audio output method settings
-  moved from output modules settings into speechd.conf
-  and arragments to allow automated reading/writing of
-  configuration options). It is highly recommended that
-  the users are instructed to overwrite their old configuration
-  files with the new ones provided in this version.
-
-* Since 0.6.7, original clean configuration files are written
-  to /usr/share/speech-dispatcher/conf or similar directory.
-  These are not intended for modifications.
-
-* Speech Dispatcher includes an output module for IBM TTS.
-IBM TTS is comercial proprietary software, but it is possible
-to build the module using a BSD licensed SDK. See INSTALL.
+The communication mechanism of Speech Dispatcher and the way of starting it has been severely
+reworked in this release.  Some ./configure variables as PIDPATH are no longer relevant. It is
+highly recommended to start Speech Dispatcher per-user in his user session and avoid starting
+it as a system service via /etc/init.d/. Please check the updated documentation, especially the
+part Technical Specification.

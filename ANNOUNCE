@@ -1,9 +1,9 @@
 
-Speech Dispatcher 0.6.7
+Speech Dispatcher 0.7
 =======================
 
 The Brailcom organization is happy to announce the availability of
-Speech Dispatcher 0.6.7 developed as a part of the Free(b)Soft
+Speech Dispatcher 0.7 developed as a part of the Free(b)Soft
 project. This is a minor release, it contains mostly bugfixes.  Please
 read `NOTES' bellow.
 
@@ -37,51 +37,43 @@ read `NOTES' bellow.
     is developed as a sperate project speechd-el. Possibly an interface
     to any other language can be developed.
 
-* What is new in 0.6.7?
+* What is new in 0.7?
 
- - Setting of prefered audio output method is now centralized in
-   speechd.conf instead of being scaterred around the various
-   output module configurations.
+ * Speech Dispatcher uses UNIX style sockets as default means of communication,
+   thus avoiding the necessity to choose a numeric port and greatly easying
+   session integration and adressing several security issues
 
- - 'spd-conf' configuration, diagnostics and troubleshooting tool
-   now makes it easy to create a user configuration for Speech Dispatcher
-   or to send a request for help with all appropriate logging information
+ * Autospawn -- server is started automatically when a client requests it
+   It can be forbidden in the appropriate server configuration file
+   (thanks to Luke Yelavich)
 
- - Dummy output module which attempts to play a pre-recorded help
-   message via various sound systems when all other modules fail
+ * Pulse Audio output reworked and fixed (thanks to Rui Batista)
 
- - Possibility to switch on verbose logging over SSIP
-   for easy debugging and bug-reporting from client applications
+ * Dispatcher runs as user service (not system service) by default
+   and doesn't require the previous presence of ~/.speech-dispatcher
+   directory
 
- - Volume settings in Pulse Audio and avoidance of having to reopen
-   the PA connection on every synthesis request
+ * All logging is now managed centrally, not by separate options
+   (thanks to Luke Yelavich)
 
- - Punctuation mechanism in IBM TTS is now configurable
+ * Graceful audio fallback (e.g. if pulse is not working, use Alsa...)
+   (thanks to Luke Yelavich)
 
- - New generic output modules for Espeak with Mbrola
-   and for Cepstral Swift.
+ * Various bugfixes and fine-tunnings
 
- - Bugfixes.
+ * Updated documentation
 
- NOTES (0.6.7)
-
-   - There are changes in the configuration file since the previous
-     release. It is highly recommended to replace your speechd.conf
-     file with the speechd.conf provided in this package and copy your
-     settings there if you are upgrading from 0.6.6 or any older
-     versions. The old configuration file should also work, but
-     audio output method settings will in output modules configuration
-     will have no effect.
-
-   - By default, the communication port of Speech Dispatcher is only
-     opened for localhost connections. Please see the
-     LocalhostAccessOnly option in speechd.conf for information on how
-     to allow connections from other manchines as well.
+NOTES for packagers: The communication mechanism of Speech Dispatcher
+and the way of starting it has been severely reworked in this release.
+Some ./configure variables as PIDPATH are no longer relevant. It is highly
+recommended to start Speech Dispatcher per-user in his user session
+and avoid starting it as a system service via /etc/init.d/. Please check
+the updated documentation, especially the part Technical Specification.
 
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.6.7.tar.gz
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.7.tar.gz
 
   We recommend you to fetch the sound icons for use with Speech Dispatcher.
   They are available at
