@@ -13,8 +13,7 @@ all:
 	echo "SPD_SOUND_DATA_PATH=\"${DESTDIR}@snddatadir@\"" >> speechd_config/paths.py
 	echo "SPD_DESKTOP_CONF_PATH=\"${DESTDIR}@spddesktopconforigdir@\"" >> speechd_config/paths.py
 
-	@ENABLE_SESSION_TRUE@echo "SPD_SPAWN_CMD=\"@prefix@/bin/speech-dispatcher\"" > speechd/paths.py
-	@ENABLE_SESSION_FALSE@echo "SPD_SPAWN_CMD=\"\"" > speechd/paths.py
+	echo "SPD_SPAWN_CMD=\"@prefix@/bin/speech-dispatcher\"" > speechd/paths.py
 
 install:
 	if test -x /usr/bin/python; then \

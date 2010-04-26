@@ -171,6 +171,7 @@ spd_open2(const char* client_name, const char* connection_name, const char* user
     int port;
     int ret;
     char tcp_no_delay = 1;
+
     /* Autospawn related */
     const char *pidof_speechd[] = { "pidof", "speech-dispatcher", NULL };
     const char *speechd_cmd[] = { SPD_SPAWN_CMD, "--spawn", NULL };

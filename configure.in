@@ -271,28 +271,6 @@ AC_SUBST(gthread_libs)
 
 AC_SUBST(datadir)
 
-AC_ARG_ENABLE([session-integration],
-		AS_HELP_STRING([--enable-session-integration], [build with user session integration support (default)]),
-		[], [enable_session_integration=yes])
-
-AM_CONDITIONAL([ENABLE_SESSION], [test x$enable_session_integration = xyes])
-
-AC_ARG_WITH([bash-profile-dir],
-            AC_HELP_STRING([--with-bash-profile-dir=PATH],
-                           [choose directory for session integration shell file (default=SYSCONFDIR/profile.d)]),
-            with_bash_profile_dir=$withval,
-            with_bash_profile_dir=$sysconfdir/profile.d)
-BASH_PROFILE_DIR=$with_bash_profile_dir
-AC_SUBST(BASH_PROFILE_DIR)
-
-AC_ARG_WITH([system-speechd-start-cmd],
-            AC_HELP_STRING([--with-system-speechd-start-cmd=COMMAND],
-                           [Specify the command that you want used when spawning the speech-dispatcher server as a system process (default is /etc/init.d/speech-dispatcher start)]),
-            with_system_speechd_start_cmd=$withval,
-            with_system_speechd_start_cmd="/etc/init.d/speech-dispatcher start")
-SPEECHD_SYSTEM_START_CMD=$with_system_speechd_start_cmd
-AC_SUBST(SPEECHD_SYSTEM_START_CMD)
-
 spdconfdir='${sysconfdir}/speech-dispatcher'
 AC_SUBST(spdconfdir)
 moduleconfdir='${spdconfdir}/modules' 
@@ -309,7 +287,6 @@ AC_SUBST(clientconforigdir)
 spddesktopconforigdir='${spdconforigdir}/desktop'
 AC_SUBST(spddesktopconforigdir)
 
-
 snddatadir='${datadir}/sounds/speech-dispatcher'
 AC_SUBST(snddatadir)
 modulebindir='${libdir}/speech-dispatcher-modules'
@@ -318,9 +295,6 @@ spdlibdir='${libdir}/speech-dispatcher'
 AC_SUBST(spdlibdir)
 spdlib2dir='${libdir}/speech-dispatcher' 
 AC_SUBST(spdlib2dir)
-
-
-AC_ARG_VAR(pidpath, Absolute path to a pid file)
 
 LIB_SDAUDIO_CURRENT=2 # Current main version (increment on every API change -- incompatible AND extensions)
 LIB_SDAUDIO_REVISION=3 # Current minor version (increment on every implementation change)
