@@ -1290,6 +1290,8 @@ about current external client libraries.
 * Python API::                  Python module.
 * Guile API::                   
 * Common Lisp API::             
+
+* Autospawning::                How server is started from clients
 @end menu
 
 @node C API, Python API, Client Programming, Client Programming
@@ -2244,13 +2246,50 @@ The Guile API can be found @file{src/guile/} in
 the source tree, however it's still considered to be
 at the experimental stage. Please read @file{src/guile/README}.
 
-@node Common Lisp API,  , Guile API, Client Programming
+@node Common Lisp API, Autospawning, Guile API, Client Programming
 @section Common Lisp API
 
 The Common Lisp API can be found @file{src/cl/} in
 the source tree, however it's still considered to be
 at the experimental stage. Please read @file{src/cl/README}.
 
+@node Autospawning,  , Common Lisp API, Client Programming
+@section Autospawning                                                                                                                                   
+
+It is suggested that client libraries offer an autospawn functionality
+to automatically start the server process when connecting locally and if
+it is not already running. E.g. if the client application starts and
+Speech Dispatcher is not running already, the client will start Speech
+Dispatcher.
+
+The library API should provide a possibility to turn this
+functionality off, but we suggest to set the default behavior to
+autospawn.
+
+Autospawn is performed by executing Speech Dispatcher with the --spawn
+parameter under the same user and permissions as the client process:
+
+@example
+speech-dispatcher --spawn
+@end example
+
+With the @code{--spawn} parameter, the process will start and return
+with an exit code of 0 only if a) it is not already running (pidfile
+check) b) the server doesn't have autospawn disabled in its
+configuration c) no other error preventing the start
+occurs. Otherwise, Speech Dispatcher is not started and the error code
+of 1 is returned.
+
+The client library should redirect its stdout and stderr outputs
+either to nowhere or to its logging system. It should subsequently
+completely detach from the newly spawned process.
+
+Due to a bug in Speech Dispatcher, it is currently necessary to
+include a wait statement after the autospawn for about 0.5 seconds
+before attempting a connection.
+
+Please see how autospawn is implemented in the C API and in the Python
+API for an example.
 
 @node Server Programming, Download and Contact, Client Programming, Top
 @chapter Server Programming
