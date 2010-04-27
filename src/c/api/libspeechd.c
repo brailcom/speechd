@@ -49,6 +49,10 @@
 
 /* --------------  Private functions headers ------------------------*/
 
+#ifdef LIBSPEECHD_DEBUG
+FILE *spd_debug;
+#endif
+
 typedef struct {
     char *str;
     size_t bytes;
@@ -150,13 +154,8 @@ SPDConnection*
 spd_open(const char* client_name, const char* connection_name, const char* user_name,
 	 SPDConnectionMode mode)
 {
-#ifdef ENABLE_SESSION
-    int autospawn = 1;
-#else
-    int autospawn = 0;
-#endif
     return spd_open2(client_name, connection_name, user_name,
-		     mode, SPD_METHOD_UNIX_SOCKET, autospawn);
+		     mode, SPD_METHOD_UNIX_SOCKET, 1);
 }
 
 SPDConnection*
