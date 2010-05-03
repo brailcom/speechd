@@ -398,6 +398,8 @@ class SSIPClient(object):
     """Default host for server connections."""
     DEFAULT_SPEECHD_PORT = 6560
     """Default port number for server connections."""
+    DEFAULT_SOCKET_PATH = "~/.speech-dispatcher/speechd.sock"
+    """Default name of the communication unix socket"""
     
     def __init__(self, name, component='default', user='unknown', host=None,
                  port=None, method='unix_socket', socket_name=None, autospawn=None):
@@ -429,8 +431,7 @@ class SSIPClient(object):
           
         """
         if socket_name is None:
-            if not socket_name:
-                socket_name = os.path.join(tempfile.gettempdir(), "speechd-sock-%d" % (os.getuid(),))
+            socket_name = os.environ.get('SPEECHD_SOCKET', os.path.expanduser(self.DEFAULT_SOCKET_PATH))
         if host is None:
             host = os.environ.get('SPEECHD_HOST', self.DEFAULT_SPEECHD_HOST)
         if port is None:

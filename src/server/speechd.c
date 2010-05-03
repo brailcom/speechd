@@ -877,25 +877,24 @@ main(int argc, char *argv[])
     /* By default, search for configuration options and put everything
        in a .speech-dispatcher directory  in user's home directory. */
     {
-      char *user_home_dir;
+      const char *user_home_dir;
       
       /* Get users home dir */
-      user_home_dir = (char*) g_get_home_dir();
+      user_home_dir = g_getenv ("HOME");
+      if (!user_home_dir)
+	user_home_dir = g_get_home_dir ();
       if (user_home_dir){
 	/* Setup a ~/.speechd-dispatcher/ directory or create a new one */
 	SpeechdOptions.home_speechd_dir = g_strdup_printf("%s/.speech-dispatcher", user_home_dir);
 	MSG(4, "Home dir found, trying to find %s", SpeechdOptions.home_speechd_dir);
 	g_mkdir(SpeechdOptions.home_speechd_dir, S_IRWXU);
 	MSG(4, "Using home directory: %s for configuration, pidfile and logging", SpeechdOptions.home_speechd_dir);
-	g_free(user_home_dir);
-
 	/* Pidfile */
 	if (SpeechdOptions.pid_file == NULL){
 	  /* If no pidfile path specified on command line, use default local dir */
 	  SpeechdOptions.pid_file = g_strdup_printf("%s/pid/speech-dispatcher.pid", SpeechdOptions.home_speechd_dir);
 	  g_mkdir(g_path_get_dirname(SpeechdOptions.pid_file), S_IRWXU);
-	}
-	
+	}       
 	/* Config file */
 	if (SpeechdOptions.conf_dir == NULL){
 	  /* If no conf_dir was specified on command line, try default local config dir */
@@ -910,7 +909,6 @@ main(int argc, char *argv[])
 	if (SpeechdOptions.pid_file == NULL || SpeechdOptions.conf_dir == NULL)
 	  FATAL("Paths to pid file or conf dir not specified and the current user has no HOME directory!");
       }
-      
       SpeechdOptions.conf_file = g_strdup_printf("%s/speechd.conf", SpeechdOptions.conf_dir);      
     }
 
@@ -966,10 +964,15 @@ main(int argc, char *argv[])
     }else if (!strcmp(SpeechdOptions.communication_method, "unix_socket")){
       /* Determine appropariate socket file name */
       GString *socket_filename;
-      
       if (!strcmp(SpeechdOptions.socket_name, "default")){
+	/* This code cannot be moved above next to conf_dir and pidpath resolution because
+	 we need to also consider the DotConf configuration, which is read in speechd_init() */
 	socket_filename = g_string_new("");
-	g_string_printf(socket_filename, "%s/speechd-sock-%d", g_get_tmp_dir(), getuid());
+	if (SpeechdOptions.home_speechd_dir){
+	  g_string_printf(socket_filename, "%s/speechd.sock", SpeechdOptions.home_speechd_dir);
+	}else{
+	  FATAL("Socket name file not set and user has no home directory");
+	}
       }else{
 	socket_filename = g_string_new(SpeechdOptions.socket_name);
       }
