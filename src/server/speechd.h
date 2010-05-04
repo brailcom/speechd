@@ -53,7 +53,9 @@
 #include <sys/sem.h>
 
 /* Definition of semun needed for semaphore manipulation */
-#if defined(__GNU_LIBRARY__) && !defined(_SEM_SEMUN_UNDEFINED)
+/* TODO: this needs a better check, possibly including _POSIX_C_SOURCE
+ * and friends*/
+#if (defined(__GNU_LIBRARY__) && !defined(_SEM_SEMUN_UNDEFINED)) || defined(__APPLE__)
 /* union semun is defined by including <sys/sem.h> */
 #else
 /* according to X/OPEN we have to define it ourselves */
