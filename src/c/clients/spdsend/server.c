@@ -45,12 +45,12 @@
 #include <sys/un.h>
 #include <unistd.h>
 
-#ifdef __SUNPRO_C
+#if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
 /* Added by Willie Walker - TEMP_FAILURE_RETRY, strndup, and getline
  * are gcc-isms
  */
 ssize_t getline (char **lineptr, size_t *n, FILE *f);
-#endif /* __SUNPRO_C */
+#endif /* !(defined(__GLIBC__) || defined(_GNU_SOURCE)) */
 
 /* Utilities */
 
