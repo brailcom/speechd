@@ -373,7 +373,9 @@ _generic_speak(void* nothing)
 		char *tmpdir, *homedir;
 		const char *helper;
 		char *play_command;
-		
+		char *next_method;
+		int amlen;
+
 		helper = getenv("TMPDIR");
 		if (helper)
 		  tmpdir = strdup(helper);
@@ -386,15 +388,23 @@ _generic_speak(void* nothing)
 		else
 		  homedir = strdup("UNKNOWN_HOME_DIRECTORY");
 
-		if (!strcmp(audio_settings.audio_output_method, "oss")){
+		
+		/* Generic will always use the first audio method,
+		 it doesn't currently support fallback*/
+		next_method = strchr(audio_settings.audio_output_method, ',');
+		amlen = (next_method ? ((size_t)(next_method-audio_settings.audio_output_method)) : strlen(audio_settings.audio_output_method));
+
+		DBG("Requested audio output methods are: %s (only first taken into account", audio_settings.audio_output_method);
+		if (!strncmp(audio_settings.audio_output_method, "oss", amlen)){
 		  play_command = strdup("play");
-		}else if (!strcmp(audio_settings.audio_output_method, "alsa")){
+		}else if (!strncmp(audio_settings.audio_output_method, "alsa", amlen)){
 		  play_command = strdup("aplay");
-		}else if (!strcmp(audio_settings.audio_output_method, "pulse")){
+		}else if (!strncmp(audio_settings.audio_output_method, "pulse", amlen)){
 		  play_command = strdup("paplay");
 		}else{
-		  /* Use default */
-		  play_command = strdup("play");
+		  /* This should not happen */
+		  DBG("ERROR: Unsupported audio output method");
+		  exit(1);
 		}
 
 		/* Set this process as a process group leader (so that SIGKILL
