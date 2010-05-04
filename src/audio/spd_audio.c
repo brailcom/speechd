@@ -33,7 +33,6 @@
 #include "spd_audio.h"
 
 #include <stdio.h>
-#include <sys/soundcard.h>
 #include <sys/fcntl.h>
 #include <sys/ioctl.h>
 #include <sys/time.h>
