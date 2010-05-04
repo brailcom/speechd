@@ -393,7 +393,8 @@ _generic_speak(void* nothing)
 		}else if (!strcmp(audio_settings.audio_output_method, "pulse")){
 		  play_command = strdup("paplay");
 		}else{
-		  assert("Unknown audio output method requested");
+		  /* Use default */
+		  play_command = strdup("play");
 		}
 
 		/* Set this process as a process group leader (so that SIGKILL
