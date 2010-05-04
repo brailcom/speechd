@@ -1,19 +1,4 @@
 
 info_TEXINFOS = ssip.texi speech-dispatcher.texi speech-dispatcher-cs.texi spd-say.texi
-
 EXTRA_DIST = figures/*.txt figures/*.png figures/*.pdf figures/*.dia figures/*.eps gpl.texi fdl.texi
-
-SUFFIXES = .html
-html_docs = speech-dispatcher.html ssip.html spd-say.texi
-HTMLDIR = htmldoc
-
-MAINTAINERCLEANFILES = speechd/*
-
-.texi.html:
-	$(MAKEINFO) --html -o $(HTMLDIR) $<
-	cp -duv --parents figures/*.png $(HTMLDIR)
-
-.PHONY: html
-html: version.texi $(html_docs)
-
 
