@@ -316,7 +316,7 @@ Comments:
 int
 spd_audio_close(AudioID *id)
 {
-    int ret;
+    int ret = 0;
     if (id && id->function->close){
 	ret = id->function->close(id);
     }
