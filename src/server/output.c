@@ -43,7 +43,7 @@ safe_write(int fd, const void *buf, size_t count) {
 }
 #endif /* TEMP_FAILURE_RETRY */
 
-#ifdef __SUNPRO_C
+#if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
 /* Added by Willie Walker - strndup, and getline are gcc-isms
  */
 char *strndup ( const char *s, size_t n)
@@ -106,7 +106,7 @@ ssize_t getline (char **lineptr, size_t *n, FILE *f)
                 return m;
         }
 }
-#endif /* __SUNPRO_C */
+#endif /* !(defined(__GLIBC__) || defined(_GNU_SOURCE)) */
 
 void
 output_set_speaking_monitor(TSpeechDMessage *msg, OutputModule *output)

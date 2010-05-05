@@ -75,7 +75,7 @@ static _SPDString spd_string_new(void);
 
 pthread_mutex_t spd_logging_mutex;
 
-#ifdef __SUNPRO_C
+#if !(defined(__GLIBC__) || defined(_GNU_SOURCE))
 /* Added by Willie Walker - strndup and getline are gcc-isms */
 char *strndup ( const char *s, size_t n)
 {
@@ -140,7 +140,7 @@ ssize_t getline (char **lineptr, size_t *n, FILE *f)
                 return m;
         }
 }
-#endif /* __SUNPRO_C */
+#endif /* !(defined(__GLIBC__) && defined(_GNU_SOURCE)) */
 
 /* --------------------- Public functions ------------------------- */
 

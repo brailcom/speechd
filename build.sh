@@ -22,9 +22,13 @@
 #
 # $Id: build.sh,v 1.5 2006-07-11 16:12:25 hanke Exp $
 
+libtoolize=libtoolize
+if [ "`uname`" = Darwin ]; then
+    libtoolize=glibtoolize
+fi
 
 echo "Copying libtool macros (libtoolize)"
-if ! libtoolize --force; then
+if ! $libtoolize --force; then
 	echo "libtoolize failed!"
 	exit 1
 fi

@@ -37,7 +37,7 @@
 
 #define Debug 1
 
-#ifdef __SUNPRO_C
+#if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
 /* Added by Willie Walker - getline is a gcc-ism */
 ssize_t getline (char **lineptr, size_t *n, FILE *f);
 #endif

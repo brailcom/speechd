@@ -21,7 +21,7 @@
  * $Id: module_main.c,v 1.17 2008-10-15 17:05:37 hanke Exp $
  */
 
-#ifdef __SUNPRO_C
+#if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
 /* Added by Willie Walker - getline is a gcc-ism */
 ssize_t getline (char **lineptr, size_t *n, FILE *f);
 #endif

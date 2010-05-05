@@ -27,6 +27,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <sys/soundcard.h>
 
 int _oss_open(AudioID *id);
 int _oss_close(AudioID *id);

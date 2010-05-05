@@ -29,7 +29,7 @@
 
 extern char* module_index_mark;
 
-#ifdef __SUNPRO_C
+#if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
 /* Added by Willie Walker - getline is a gcc-ism */
 #define BUFFER_LEN 256
 ssize_t getline (char **lineptr, size_t *n, FILE *f)
@@ -75,7 +75,7 @@ ssize_t getline (char **lineptr, size_t *n, FILE *f)
                 return m;
         }
 }
-#endif /* __SUNPRO_C */
+#endif /* !(defined(__GLIBC__) || defined(_GNU_SOURCE)) */
 
 void*
 xmalloc(size_t size)

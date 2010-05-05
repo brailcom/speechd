@@ -203,6 +203,20 @@ AC_ARG_WITH(nas, AS_HELP_STRING(--with-nas, Compile with Network Audio System (N
 
 AM_CONDITIONAL(nas_support, test $nas_aud = "true")
 
+AC_CHECK_HEADER(sys/soundcard.h, oss_aud="true";echo "Compiling with OSS support", oss_aud="false";echo "*** OSS missing. Compiling without OSS support! See INSTALL.")
+AC_ARG_WITH(oss, AS_HELP_STRING(--with-oss, Compile with OSS support),
+                if test $withval = "no"; then
+                    echo "Forced compilation without OSS support."
+                    oss_aud="false"
+                else
+                    if test $oss_aud = "false"; then
+                        echo "OSS support is not available. Sorry."
+                        exit 1
+                    fi
+                fi
+                echo "")
+AM_CONDITIONAL(oss_support, test $oss_aud = "true")
+
 AC_CHECK_LIB(ao,
         ao_play,
 	libao_aud="true";echo "Compiling with libao support.";,
