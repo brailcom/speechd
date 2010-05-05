@@ -1119,7 +1119,7 @@ module_audio_init_spd(char **status_info)
   GString *info;
   char *module_audio_pars[10];
   char *outputs;
-  int audio_output_set;
+  int audio_output_set = 0;
 
   info = g_string_new("");
   outputs = audio_settings.audio_output_method;
