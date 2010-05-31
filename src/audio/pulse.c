@@ -172,6 +172,7 @@ int pulse_play (AudioID * id, AudioTrack track)
            pa_simple_free(id->pa_simple);
            id->pa_simple = NULL;
            MSG("ERROR: Audio: pulse_play(): %s - closing device - re-open it in next run\n", pa_strerror(error));
+           break;
        } else {
            MSG("Pulse: wrote %u bytes\n", i);
        }
