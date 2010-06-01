@@ -1,3 +1,4 @@
+
 /*
  * pulse.c -- The simple pulseaudio backend for the spd_audio library.
  *
@@ -131,7 +132,7 @@ int pulse_play (AudioID * id, AudioTrack track)
         MSG("Reopenning connection due to change in track parameters sample_rate:%d bps:%d channels:%d\n",
 	    track.sample_rate, track.bits, track.num_channels);
 	/* Close old connection if any */
-        if(id->pa_simple != NULL) pa_simple_free(id->pa_simple);
+        pulse_close(id);
         /* Choose the correct format */
         ss.rate = track.sample_rate;
         ss.channels = track.num_channels;
