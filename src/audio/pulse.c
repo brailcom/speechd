@@ -170,8 +170,7 @@ int pulse_play (AudioID * id, AudioTrack track)
        }
        if(pa_simple_write(id->pa_simple, ((char *)output_samples) + outcnt, i, &error) < 0) {
            pa_simple_drain(id->pa_simple, NULL);
-           pa_simple_free(id->pa_simple);
-           id->pa_simple = NULL;
+           pulse_close(id);
            MSG("ERROR: Audio: pulse_play(): %s - closing device - re-open it in next run\n", pa_strerror(error));
            break;
        } else {
@@ -192,7 +191,6 @@ int pulse_stop (AudioID * id)
 int pulse_close (AudioID * id)
 {
     if(id->pa_simple != NULL) {
-        pa_simple_drain(id->pa_simple, NULL);
         pa_simple_free(id->pa_simple);
         id->pa_simple = NULL;
     }
