@@ -327,7 +327,7 @@ class _SSIP_Connection:
             #TODO: When logging will be implemented in this library, it will be very
             #desirable to read the stdout output and log it because it contains valuable
             #information on the result of the autospawn and the reason for it
-            time.sleep(0.5)
+            speechd_server.wait()
             return speechd_server.pid
         else:
             raise "Can't find Speech Dispatcher spawn command %s" % (paths.SPD_SPAWN_CMD,)
