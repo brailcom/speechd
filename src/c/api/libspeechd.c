@@ -212,7 +212,6 @@ spd_open2(const char* client_name, const char* connection_name, const char* user
 		       &exit_status, &error) && strlen(speechd_pid) == 0){
 	g_spawn_sync(NULL, (gchar**)speechd_cmd, NULL, G_SPAWN_SEARCH_PATH | G_SPAWN_STDOUT_TO_DEV_NULL | G_SPAWN_STDERR_TO_DEV_NULL,
 		     NULL, NULL, NULL, NULL, &exit_status, &error);
-	sleep(1);
       }
     }
 
