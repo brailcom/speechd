@@ -795,7 +795,7 @@ make_local_socket (const char *filename)
     FATAL("Can't bind local socket");
   }
 
-  if (listen(sock, 100) == -1){
+  if (listen(sock, 50) == -1){
     MSG(2,"ERRNO:%s", strerror(errno));
     FATAL("listen() failed for local socket");
   }
