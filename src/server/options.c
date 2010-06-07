@@ -115,9 +115,11 @@ options_parse(int argc, char *argv[])
             break;
         case 'c':
             SPD_OPTION_SET_STR(communication_method);
+            SpeechdOptions.communication_method_set = 1;
             break;
         case 'S':
             SPD_OPTION_SET_STR(socket_name);
+            SpeechdOptions.socket_name_set = 1;
             break;
         case 'p':
             SPD_OPTION_SET_INT(port);
