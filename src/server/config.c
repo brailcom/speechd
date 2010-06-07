@@ -117,7 +117,7 @@ free_config_options(configoption_t *opts, int *num)
    { \
        if (cl_spec_section) \
          FATAL("This command isn't allowed in a client specific section!"); \
-       if (!SpeechdOptions.arg ## _set) SpeechdOptions.arg = cmd->data.str; \
+       if (!SpeechdOptions.arg ## _set) SpeechdOptions.arg = spd_strdup(cmd->data.str); \
        return NULL; \
    }    
 
@@ -137,7 +137,7 @@ free_config_options(configoption_t *opts, int *num)
    { \
        if (cl_spec_section) \
          FATAL("This command isn't allowed in a client specific section!"); \
-       SpeechdOptions.arg = cmd->data.str; \
+       SpeechdOptions.arg = spd_strdup(cmd->data.str); \
        return NULL; \
    }    
 
