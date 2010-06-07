@@ -95,6 +95,16 @@ class SSIPDataError(SSIPResponseError):
         return self._data
 
     
+class SpawnError(Exception):
+    """Indicates failure in server autospawn."""
+
+class ConnectionMethod(object):
+    """Constants describing the possible methods of connection to server."""
+    UNIX_SOCKET = 'unix_socket'
+    """Unix socket communication using a filesystem path"""
+    INET_SOCKET = 'inet_socket'
+    """Inet socket communication using a host and port"""
+
 class _SSIP_Connection:
     """Implemantation of low level SSIP communication."""
     
@@ -112,26 +122,21 @@ class _SSIP_Connection:
                           705: CallbackType.RESUME,
                           }
 
-    def __init__(self, method, socket_name, host, port, autospawn):
+    def __init__(self, method, socket_path, host, port):
         """Init connection: open the socket to server,
         initialize buffers, launch a communication handling
         thread.
-
         """
 
-        # Autospawn Speech Dispatcher if not already running
-        if autospawn:
-            self.speechd_server_spawn()
-
-        if method == 'unix_socket':
+        if method == CommunicationMethod.UNIX_SOCKET:
             self._socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-            self._socket.connect(socket_name)
-        elif method == 'inet_socket':
+            self._socket.connect(socket_path)
+        elif method == CommunicationMethod.INET_SOCKET:
             assert host and port
             self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self._socket.connect((socket.gethostbyname(host), port))
         else:
-            raise "Unsupported communication method"
+            raise ValueError("Unsupported communication method")
 
         self._buffer = ""
         self._com_buffer = []
@@ -319,19 +324,6 @@ class _SSIP_Connection:
         """
         self._callback = callback
 
-    def speechd_server_spawn(self):
-        """Attempts to spawn the speech-dispatcher server."""
-        if os.path.exists(paths.SPD_SPAWN_CMD):
-            speechd_server = subprocess.Popen([paths.SPD_SPAWN_CMD, "--spawn"], stdin=None,
-                                              stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-            #TODO: When logging will be implemented in this library, it will be very
-            #desirable to read the stdout output and log it because it contains valuable
-            #information on the result of the autospawn and the reason for it
-            speechd_server.wait()
-            return speechd_server.pid
-        else:
-            raise "Can't find Speech Dispatcher spawn command %s" % (paths.SPD_SPAWN_CMD,)
-
 class Scope(object):
     """An enumeration of valid SSIP command scopes.
 
@@ -394,15 +386,16 @@ class SSIPClient(object):
 
     """
     
-    DEFAULT_SPEECHD_HOST = '127.0.0.1'
+    DEFAULT_HOST = '127.0.0.1'
     """Default host for server connections."""
-    DEFAULT_SPEECHD_PORT = 6560
+    DEFAULT_PORT = 6560
     """Default port number for server connections."""
-    DEFAULT_SOCKET_PATH = "~/.speech-dispatcher/speechd.sock"
+    DEFAULT_SOCKET = "~/.speech-dispatcher/speechd.sock"
     """Default name of the communication unix socket"""
     
     def __init__(self, name, component='default', user='unknown', host=None,
-                 port=None, method='unix_socket', socket_name=None, autospawn=None):
+                 port=None, method=CommunicationMethod.UNIX_SOCKET, socket_path=None,
+                 autospawn=None):
         """Initialize the instance and connect to the server.
 
         Arguments:
@@ -411,42 +404,45 @@ class SSIPClient(object):
             multiple connections, this can be used to identify each of them.
           user -- user identification string (user name).  When multi-user
             acces is expected, this can be used to identify their connections.
-          method -- communication method to use: 'unix_socket' for unix style sockets
-          or 'inet_socket' for TCP ports
-          socket_name -- for 'unix_socket' method, socket name in filesystem. If none
-          is specified, the default name speechd-sock-UID is used located in the current
-          TEMP dir (determined via tempfile.gettempdir() according to the contents of
-          the TMPDIR like environment variables)
-          host -- for 'inet_socket' method, server hostname or IP address as a string.
-          If None, the default value is taken from SPEECHD_HOST environment variable (if it
-          exists) or from the DEFAULT_SPEECHD_HOST attribute of this class.
-          port -- for 'inet_socket' method, server port as number or None.  If None,
-          the default value is taken from SPEECHD_PORT environment variable (if it exists)
-          or from the DEFAULT_SPEECHD_PORT attribute of this class.
-          autospawn -- a flag to specify whether the library should try to start the
-          server if it determines its not already running or no
+          method -- communication method to use, one of the constants defined in class
+            CommunicationMethod
+          socket_path -- for CommunicationMethod.UNIX_SOCKET, socket
+            path in filesystem. By default, this is ~/.speech-dispatcher/speechd.sock
+            where `~' is the users home directory as determined from the system
+            defaults and from the $HOMEDIR environment variable.
+          host -- for CommunicationMethod.INET_SOCKET, server hostname
+            or IP address as a string.  If None, the default value is
+            taken from SPEECHD_HOST environment variable (if it
+            exists) or from the DEFAULT_HOST attribute of this class.
+          port -- for CommunicationMethod.INET_SOCKET method, server
+            port as number or None.  If None, the default value is
+            taken from SPEECHD_PORT environment variable (if it
+            exists) or from the DEFAULT_PORT attribute of this class.
+          autospawn -- a flag to specify whether the library should
+            try to start the server if it determines its not already
+            running or not
         
         For more information on client identification strings see Speech
         Dispatcher documentation.
           
         """
-        if socket_name is None:
-            socket_name = os.environ.get('SPEECHD_SOCKET', os.path.expanduser(self.DEFAULT_SOCKET_PATH))
+        if socket_path is None:
+            socket_path = os.environ.get('SPEECHD_SOCKET',
+                                         os.path.expanduser(self.DEFAULT_SOCKET_PATH))
         if host is None:
-            host = os.environ.get('SPEECHD_HOST', self.DEFAULT_SPEECHD_HOST)
+            host = os.environ.get('SPEECHD_HOST', self.DEFAULT_HOST)
         if port is None:
             try:
                 port = int(os.environ.get('SPEECHD_PORT'))
             except (ValueError, TypeError):
-                port = self.DEFAULT_SPEECHD_PORT
+                port = self.DEFAULT_PORT
 
-        # If autospawn is not specified, use system default
-        if autospawn is None:
-            if paths.SPD_SPAWN_CMD == "": autospawn = False
-            else: autospawn = True                
+        # Autospawn mechanism
+        if autospawn or (autospawn==None and paths.SPD_SPAWN_CMD!=""):
+            self.server_spawn()
 
-        self._conn = conn = _SSIP_Connection(method=method, socket_name=socket_name,
-                                             host=host, port=port, autospawn=autospawn)
+        self._conn = conn = _SSIP_Connection(method=method, socket_path=socket_path,
+                                             host=host, port=port)
         full_name = '%s:%s:%s' % (user, name, component)
         conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
         code, msg, data = conn.send_command('HISTORY', 'GET', 'CLIENT_ID')
@@ -484,8 +480,21 @@ class SSIPClient(object):
                     del self._callbacks[msg_id]
         finally:
             self._lock.release()
-                
-        
+
+    def server_spawn(self):
+        """Attempts to spawn the speech-dispatcher server."""
+        if os.path.exists(paths.SPD_SPAWN_CMD):
+            server = subprocess.Popen([paths.SPD_SPAWN_CMD, "--spawn"], stdin=None,
+                                      stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            #TODO: When logging will be implemented in this library, it will be very
+            #desirable to read the stdout output and log it because it contains valuable
+            #information on the result of the autospawn and the reason for it
+            server.wait()
+            return server.pid
+        else:
+            raise SpawnError("Can't find Speech Dispatcher spawn command %s"
+                                         % (paths.SPD_SPAWN_CMD,))
+
     def set_priority(self, priority):
         """Set the priority category for the following messages.
 
