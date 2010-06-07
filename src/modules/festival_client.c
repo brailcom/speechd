@@ -712,23 +712,23 @@ int festivalClose(FT_Info *info)
 char**
 lisp_list_get_vect(char* expr)
 {
-  int len;
+  size_t len;
   char *helper;
   gchar **vect;
-  int i,j;
+  size_t i,j;
 
   len = strlen(expr);
-  helper = malloc(sizeof(char) * (len+1));
+  helper = xmalloc(sizeof(char) * (len+1));
 
   //Remove parenthesis
   j=0;
-  for (i=0; i<=len; i++){
+  for (i=0; i<len; i++){
     if ((expr[i] != '(') && (expr[i] != ')')){
       helper[j] = expr[i];
       j++;
     }
   }
-  helper[j]='0';
+  helper[j]='\0';
 
   // Split into a vector of atoms
   vect = g_strsplit(helper, " ", 0);
