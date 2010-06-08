@@ -427,13 +427,15 @@ flite_set_pitch(signed int pitch)
     feat_set_float(flite_voice->features, "int_f0_target_mean", f0);
 }
 
+/*
+ * flite_set_voice is a no-op.  We only support one flite voice, and
+ * that voice is established in module_init.  Furthermore, the voice
+ * data is managed by the flite library.
+ */
 static void
 flite_set_voice(EVoiceType voice)
 {
-    if (voice == MALE1){
-        free(flite_voice);
-        flite_voice = (cst_voice*) register_cmu_us_kal();
-    }
+    return;
 }
 
 
