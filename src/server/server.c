@@ -237,8 +237,9 @@ serve(int fd)
                 spd_free (buf);
                 return -1;
               }
-            if (buf[bytes] == '\n')
-              {
+            /* Note, bytes is a 0-based index into buf. */
+            if ((buf[bytes] == '\n')
+              && (bytes >= 1) && (buf[bytes - 1] == '\r')) {
                 buf[++bytes] = '\0';
                 break;
               }
