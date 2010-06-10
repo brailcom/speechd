@@ -452,7 +452,7 @@ class SSIPClient(object):
             if autospawn != False:
                 # Autospawn is however not guaranteed to start the server. The server
                 # will decide, based on it's configuration, whether to honor the request.
-                self.server_spawn()
+                self._server_spawn()
                 self._conn = conn = _SSIP_Connection(**connection_args)
             else:
                 raise
@@ -495,7 +495,7 @@ class SSIPClient(object):
         finally:
             self._lock.release()
 
-    def server_spawn(self):
+    def _server_spawn(self):
         """Attempts to spawn the speech-dispatcher server."""
         if os.path.exists(paths.SPD_SPAWN_CMD):
             server = subprocess.Popen([paths.SPD_SPAWN_CMD, "--spawn"], stdin=None,
