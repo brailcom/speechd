@@ -28,6 +28,7 @@
 #include <assert.h>
 #include <semaphore.h>
 #include <errno.h>
+#include <getopt.h>
 #include "libspeechd.h"
 #include "options.h"
 
@@ -47,6 +48,7 @@ int main(int argc, char **argv) {
     SPDConnection *conn;
     SPDPriority spd_priority;
     int err;
+    int msg_arg_required = 0;
     int ret;
     int option_ret;
     char *line;
@@ -70,7 +72,9 @@ int main(int argc, char **argv) {
     option_ret = options_parse(argc, argv);
 
     /* Check if the text to say or options are specified in the argument */
-    if ((argc < 2) && (pipe_mode != 1)) {
+    msg_arg_required = (pipe_mode != 1) && (stop_previous != 1)
+                       && (cancel_previous != 1);
+    if ((optind >= argc) && msg_arg_required) {
         options_print_help(argv);
         return 1;
     }
@@ -218,16 +222,14 @@ int main(int argc, char **argv) {
 
     } else {
         /* Say the message with priority "text" */
-        assert(argv[argc-1]);
-        if (argv[argc-1][0] != '-'){
-	  err = spd_sayf(conn, spd_priority, (char*) argv[argc-1]);
+        /* Or do nothing in case of -C or -S with no message. */
+        if (optind < argc) {
+	  err = spd_sayf(conn, spd_priority, (char*) argv[optind]);
 	  if (err == -1) FATAL("Speech Dispatcher failed to say message");
-	} else{
-            wait_till_end = 0;
-	}
 
-        /* Wait till the callback is called */
-        if (wait_till_end) sem_wait(&semaphore);
+          /* Wait till the callback is called */
+          if (wait_till_end) sem_wait(&semaphore);
+        }
     }
 
     /* Close the connection */
