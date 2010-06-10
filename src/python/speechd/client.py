@@ -105,7 +105,7 @@ class ConnectionMethod(object):
     INET_SOCKET = 'inet_socket'
     """Inet socket communication using a host and port"""
 
-class _SSIP_Connection:
+class _SSIP_Connection(object):
     """Implemantation of low level SSIP communication."""
     
     _NEWLINE = "\r\n"
@@ -128,15 +128,21 @@ class _SSIP_Connection:
         thread.
         """
 
-        if method == CommunicationMethod.UNIX_SOCKET:
-            self._socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-            self._socket.connect(socket_path)
-        elif method == CommunicationMethod.INET_SOCKET:
+        if method == ConnectionMethod.UNIX_SOCKET:
+            socket_family = socket.AF_UNIX
+            socket_connect_args = (socket_path,)
+        elif method == ConnectionMethod.INET_SOCKET:
             assert host and port
-            self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self._socket.connect((socket.gethostbyname(host), port))
+            socket_family = socket.AF_INET
+            socket_connect_args = (socket.gethostbyname(host), port)
         else:
             raise ValueError("Unsupported communication method")
+
+        try:
+            self._socket = socket.socket(socket_family, socket.SOCK_STREAM)
+            self._socket.connect(*socket_connect_args)
+        except socket.error:
+            raise SSIPCommunicationError("Can't open socket using method" + method)
 
         self._buffer = ""
         self._com_buffer = []
@@ -390,11 +396,11 @@ class SSIPClient(object):
     """Default host for server connections."""
     DEFAULT_PORT = 6560
     """Default port number for server connections."""
-    DEFAULT_SOCKET = "~/.speech-dispatcher/speechd.sock"
+    DEFAULT_SOCKET_PATH = "~/.speech-dispatcher/speechd.sock"
     """Default name of the communication unix socket"""
     
     def __init__(self, name, component='default', user='unknown', host=None,
-                 port=None, method=CommunicationMethod.UNIX_SOCKET, socket_path=None,
+                 port=None, method=ConnectionMethod.UNIX_SOCKET, socket_path=None,
                  autospawn=None):
         """Initialize the instance and connect to the server.
 
@@ -405,16 +411,16 @@ class SSIPClient(object):
           user -- user identification string (user name).  When multi-user
             acces is expected, this can be used to identify their connections.
           method -- communication method to use, one of the constants defined in class
-            CommunicationMethod
-          socket_path -- for CommunicationMethod.UNIX_SOCKET, socket
+            ConnectionMethod
+          socket_path -- for ConnectionMethod.UNIX_SOCKET, socket
             path in filesystem. By default, this is ~/.speech-dispatcher/speechd.sock
             where `~' is the users home directory as determined from the system
             defaults and from the $HOMEDIR environment variable.
-          host -- for CommunicationMethod.INET_SOCKET, server hostname
+          host -- for ConnectionMethod.INET_SOCKET, server hostname
             or IP address as a string.  If None, the default value is
             taken from SPEECHD_HOST environment variable (if it
             exists) or from the DEFAULT_HOST attribute of this class.
-          port -- for CommunicationMethod.INET_SOCKET method, server
+          port -- for ConnectionMethod.INET_SOCKET method, server
             port as number or None.  If None, the default value is
             taken from SPEECHD_PORT environment variable (if it
             exists) or from the DEFAULT_PORT attribute of this class.
@@ -437,12 +443,20 @@ class SSIPClient(object):
             except (ValueError, TypeError):
                 port = self.DEFAULT_PORT
 
-        # Autospawn mechanism
-        if autospawn or (autospawn==None and paths.SPD_SPAWN_CMD!=""):
-            self.server_spawn()
+        connection_args = {'method': method, 'socket_path': socket_path,
+                           'host': host, 'port': port}
+        try:
+            self._conn = conn = _SSIP_Connection(**connection_args)
+        except SSIPCommunicationError:
+            # Suppose server might not be running, try the autospawn mechanism
+            if autospawn != False:
+                # Autospawn is however not guaranteed to start the server. The server
+                # will decide, based on it's configuration, whether to honor the request.
+                self.server_spawn()
+                self._conn = conn = _SSIP_Connection(**connection_args)
+            else:
+                raise
 
-        self._conn = conn = _SSIP_Connection(method=method, socket_path=socket_path,
-                                             host=host, port=port)
         full_name = '%s:%s:%s' % (user, name, component)
         conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
         code, msg, data = conn.send_command('HISTORY', 'GET', 'CLIENT_ID')
