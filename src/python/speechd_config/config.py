@@ -232,7 +232,7 @@ usage: %prog [options]"""
                 elif type == bool:
                     type_str = None
                 else:
-                    raise "Unknown type"
+                    raise TypeError("Unknown type")
                 
                 if type != bool:
                     self.cmdline_parser.add_option(type=type_str, dest=option,
@@ -254,12 +254,12 @@ usage: %prog [options]"""
                         try:
                             val = map[val]
                         except KeyError:
-                            raise "Invalid option value: "  + str(val)
+                            raise ValueError("Invalid option value: "  + str(val))
                         
                     setattr(self, option, val)
         
         #if len(args) != 0:
-           # raise "This command takes no positional arguments (without - or -- prefix)"
+           # raise ValueError("This command takes no positional arguments (without - or -- prefix)")
 
 class Tests:
     """Tests of functionality of Speech Dispatcher and its dependencies
