@@ -105,7 +105,7 @@ module_register_settings_voices(void)
                                                  ARG_LIST, AddVoice_cb, NULL, 0);
 }
 
-static char*
+char*
 module_getvoice(char* language, EVoiceType voice)
 {
     SPDVoiceDef *voices;
