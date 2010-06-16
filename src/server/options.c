@@ -50,7 +50,7 @@ options_print_help(char *argv[])
     "-v, --version        -      Report version of this program\n"
     "-D, --debug          -      Output debugging information into /tmp/.speech-dispatcher\n"
     "-h, --help           -      Print this info\n\n"
-    "Copyright (C) 2003,2006 Brailcom, o.p.s.\n"
+    "Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 Brailcom, o.p.s.\n"
     "This is free software; you can redistribute it and/or modify it\n"
     "under the terms of the GNU General Public License as published by\n"
     "the Free Software Foundation; either version 2, or (at your option)\n"
@@ -63,7 +63,7 @@ void
 options_print_version(void)
 {
     printf("%s %s\n", PACKAGE, VERSION);
-    printf("Copyright (C) 2002, 2003, 2006 Brailcom, o.p.s.\n"
+    printf("Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 Brailcom, o.p.s.\n"
            "Speech Dispatcher comes with ABSOLUTELY NO WARRANTY.\n"
            "You may redistribute copies of Speech Dispatcher\n"
            "under the terms of the GNU General Public License.\n"
