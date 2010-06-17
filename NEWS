@@ -6,7 +6,7 @@ Version 0.7
  * Autospawn -- server is started automatically when a client requests it
    It can be forbidden in the appropriate server configuration file
    (thanks to Luke Yelavich)
- * Pulse Audio output reworked and fixed (thanks to Rui Batista)
+ * Pulse Audio output reworked and fixed (thanks to Bill Cox and Rui Batista)
  * Dispatcher runs as user service (not system service) by default
    and doesn't require the previous presence of ~/.speech-dispatcher
    directory
@@ -14,6 +14,8 @@ Version 0.7
    (thanks to Luke Yelavich)
  * Graceful audio fallback (e.g. if pulse is not working, use Alsa...)
    (thanks to Luke Yelavich)
+ * Audio output to different soundsystems through the
+   libao library (thanks to Marco Skambraks)
  * Various bugfixes and fine-tunnings
  * Updated documentation
 

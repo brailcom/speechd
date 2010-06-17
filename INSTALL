@@ -62,9 +62,10 @@ Notes about ALSA, Pulse, OSS and NAS support
 
 Speech Dispatcher's default audio output system is the Pulse Audio
 with an automatic fallback on ALSA if Pulse is not available.
-It's also possible to build it with Network Audio System and/or
-OSS support and then switch between these two audio systems in the
-configuration files (speechd.conf).
+It's also possible possible to use libao output and to build
+Speech Dispatcher with Network Audio System and/or OSS support
+and then switch between these two audio systems in the configuration
+files (speechd.conf).
 
 Notes about Espeak support
 ==========================
@@ -182,7 +183,7 @@ You can try to execute Speech Dispatcher by
 
 If Speech Dispatcher is running, you can test if it's working by:
  (on some other console)
- $ cd speech-dispatcher-0.6.5/src/tests
+ $ cd speech-dispatcher-0.7/src/tests
  $ ./run_test basic.test
 (You can also try other tests, if you like.)
 

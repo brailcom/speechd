@@ -2,16 +2,16 @@
 AUTHORS
 =======
 
-Jan Buchal <buchal at freebsoft point org>
+Jan Buchal <buchal at brailcom point org>
     * ideas
     * design
 
-Tomas Cerha <cerha at freebsoft point org>
+Tomas Cerha <cerha at brailcom point org>
     * core design
     * API
     * implementation
 
-Hynek Hanke <hanke at volny point cz>
+Hynek Hanke <hanke at brailcom point org>
     * API
     * internal functionality
     * implementation
@@ -49,8 +49,10 @@ of the development version and many important contributions.
 Thanks to Gilles Casse <gcasse at oralux point org> for contributing
 the PulseAudio output module.
 
-Thanks to Rui Batista for rework of the Pulse Audio output modules.
+Thanks to Bill Cox and Rui Batista for the rework of the Pulse Audio output
+modules.
+
+Thanks to Marco Skambraks for the libao audio output module.
 
 
-
-...and to many others.
+...and to many others who have contributed.
