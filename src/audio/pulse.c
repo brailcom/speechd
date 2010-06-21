@@ -78,6 +78,37 @@ int pulse_play (AudioID * id, AudioTrack track);
 int pulse_set_volume (AudioID * id, int volume);
 
 
+static int _pulse_open(AudioID * id, int sample_rate, int num_channels,
+		       int bytes_per_sample)
+{
+  pa_buffer_attr buffAttr;
+  pa_sample_spec ss;  
+  int error;
+
+  ss.rate = sample_rate;
+  ss.channels = num_channels;
+  if(bytes_per_sample == 2) {
+    ss.format = PA_SAMPLE_S16LE;
+  } else {
+    ss.format = PA_SAMPLE_U8;
+  }
+  
+  /* Set prebuf to one sample so that keys are spoken as soon as typed rather than delayed until the next key pressed */
+  buffAttr.maxlength = (uint32_t)-1;
+  //buffAttr.tlength = (uint32_t)-1; - this is the default, which causes key echo to not work properly.
+  buffAttr.tlength = id->pa_min_audio_length;
+  buffAttr.prebuf = (uint32_t)-1;
+  buffAttr.minreq = (uint32_t)-1;
+  buffAttr.fragsize = (uint32_t)-1;
+  /* Open new connection */
+  if(!(id->pa_simple = pa_simple_new(id->pa_server, "speech-dispatcher", PA_STREAM_PLAYBACK,
+				     NULL, "playback", &ss, NULL, &buffAttr, &error))) {
+    fprintf(stderr, __FILE__": pa_simple_new() failed: %s\n", pa_strerror(error));
+    return 1;
+  }
+  return 0;
+}
+
 int pulse_open (AudioID * id, void **pars)
 {
     id->pa_simple = NULL;
@@ -93,7 +124,8 @@ int pulse_open (AudioID * id, void **pars)
 
     id->pa_min_audio_length = pars[1]?(int)pars[1] : DEFAULT_PA_MIN_AUDIO_LENgTH;
     id->pa_stop_playback = 0;
-return 0;
+
+    return _pulse_open(id, 44100, 1, 2);
 }
 
 int pulse_play (AudioID * id, AudioTrack track)
@@ -103,8 +135,6 @@ int pulse_play (AudioID * id, AudioTrack track)
     int outcnt = 0;
     signed short *output_samples;
     int i;
-    pa_sample_spec ss;
-    pa_buffer_attr buffAttr;
     int error;
 
     if(id == NULL) {
@@ -133,26 +163,8 @@ int pulse_play (AudioID * id, AudioTrack track)
 	    track.sample_rate, track.bits, track.num_channels);
 	/* Close old connection if any */
         pulse_close(id);
-        /* Choose the correct format */
-        ss.rate = track.sample_rate;
-        ss.channels = track.num_channels;
-        if(bytes_per_sample == 2) {
-            ss.format = PA_SAMPLE_S16LE;
-        } else {
-            ss.format = PA_SAMPLE_U8;
-        }
-        /* Set prebuf to one sample so that keys are spoken as soon as typed rather than delayed until the next key pressed */
-        buffAttr.maxlength = (uint32_t)-1;
-        //buffAttr.tlength = (uint32_t)-1; - this is the default, which causes key echo to not work properly.
-        buffAttr.tlength = id->pa_min_audio_length;
-        buffAttr.prebuf = (uint32_t)-1;
-        buffAttr.minreq = (uint32_t)-1;
-        buffAttr.fragsize = (uint32_t)-1;
-	/* Open new connection */
-        if(!(id->pa_simple = pa_simple_new(id->pa_server, "speech-dispatcher", PA_STREAM_PLAYBACK, NULL, "playback", &ss, NULL, &buffAttr, &error))) {
-            fprintf(stderr, __FILE__": pa_simple_new() failed: %s\n", pa_strerror(error));
-            return 1;
-        }
+	/* Open a new connection */
+	_pulse_open(id, track.sample_rate, track.num_channels, bytes_per_sample);
 	/* Keep track of current connection parameters */
 	id->pa_current_rate = track.sample_rate;
 	id->pa_current_bps = track.bits;
