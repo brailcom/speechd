@@ -1144,6 +1144,7 @@ module_audio_init_spd(char **status_info)
 		module_audio_pars[1] = NULL;
 		module_audio_id = spd_audio_open(AUDIO_OSS, (void**) module_audio_pars, &error);
 		if (module_audio_id){
+                    DBG("OSS initialization successful");
 		    module_audio_output_method = AUDIO_OSS;
 		    audio_output_set = 1;
 		}
@@ -1153,6 +1154,7 @@ module_audio_init_spd(char **status_info)
 		module_audio_pars[1] = NULL;
 		module_audio_id = spd_audio_open(AUDIO_LIBAO, (void**) module_audio_pars, &error);
 		if (module_audio_id){
+                    DBG("libao initialization successful");
 		    module_audio_output_method = AUDIO_LIBAO;
 		    audio_output_set = 1;
 		}
@@ -1162,6 +1164,7 @@ module_audio_init_spd(char **status_info)
 		module_audio_pars[1] = NULL;
 		module_audio_id = spd_audio_open(AUDIO_ALSA, (void**) module_audio_pars, &error);
 		if (module_audio_id){
+                    DBG("Alsa initialization successful");
 		    module_audio_output_method = AUDIO_ALSA;
 		    audio_output_set = 1;
 		    break;
@@ -1172,6 +1175,7 @@ module_audio_init_spd(char **status_info)
 		module_audio_pars[1] = NULL;
 		module_audio_id = spd_audio_open(AUDIO_NAS, (void**) module_audio_pars, &error);
 		if (module_audio_id){
+                    DBG("NAS initialization successful");
 		    module_audio_output_method = AUDIO_NAS;
 		    audio_output_set = 1;
 		    break;
@@ -1182,6 +1186,7 @@ module_audio_init_spd(char **status_info)
 		module_audio_pars[1] = (void *) audio_settings.audio_pulse_min_length;
 		module_audio_id = spd_audio_open(AUDIO_PULSE, (void**) module_audio_pars, &error);
 		if (module_audio_id){
+                    DBG("PulseAudio initialization successful");
 		    module_audio_output_method = AUDIO_PULSE;
 		    audio_output_set = 1;
 		    break;
@@ -1196,6 +1201,7 @@ module_audio_init_spd(char **status_info)
     if (!audio_output_set){
 	g_string_append_printf(info, "Opening sound device failed. Reason: %s. ", error);
 	ABORT("Can't open sound device.");
+	g_string_free(info, 1);
     }
 
     return 0;
