@@ -60,7 +60,6 @@ static void flite_strip_silence(AudioTrack*);
 static void* _flite_speak(void*);
 
 /* Voice */
-cst_voice *register_cmu_us_kal();
 cst_voice *flite_voice;
 
 int flite_stop = 0;
@@ -105,7 +104,7 @@ module_init(char **status_info)
 
     /* Init flite and register a new voice */
     flite_init();
-    flite_voice = register_cmu_us_kal();
+    flite_voice = new_voice();
 
     if (flite_voice == NULL){
         DBG("Couldn't register the basic kal voice.\n");
