@@ -485,8 +485,8 @@ service from /etc/init.d/ , although this approach is now discouraged.
 @node Setting Communication Method,  , Running in a Custom Setup, Running
 @subsection Setting Communication Method
 
-Two different methods are supported for communication between the
-server and its clients. 
+Currently, two different methods are supported for communication
+between the server and its clients.
 
 For local communication, it's prefered to use @emph{Unix sockets},
 where the communication takes place over a Unix socket with its
@@ -495,9 +495,7 @@ driving file located by default in the users home directory as
 conflict between different user sessions using different Speech
 Dispatchers in the same system. By default, permissions are set in
 such a way, that only the same user who started the server can access
-it, and communication is hidden to all other users. Clients should
-respect the @var{SPEECHD_SOCK} environment variable, which can specify
-an alternative full path to the socket file.
+it, and communication is hidden to all other users.
 
 The other supported mechanism is @emph{Inet sockets}. The server will
 thus run on a given port, which can be made accessible either localy
@@ -509,10 +507,39 @@ where multiple instances of the server serve multiple different users.
 Also, since there is currently no authentication mechanism, during
 Inet socket communication, the server will make no distinction between
 the different users connecting to it. The default port is 6560 as set
-in the server configuration. The most easy way to tell the client
-applications which port to use is via the @var{SPEECHD_PORT}
-environment variable, which should be set to the value of the port in
-use (e.g. as 'export SPEECHD_PORT=6561').
+in the server configuration.
+
+Clients should respect the @emph{SPEECHD_ADDRESS} environment
+variable.  The method ('@code{unix_socket}' or '@code{inet_socket}')
+is optionally followed by it's parameters separated by a colon. If no
+or some of the communication method parameters are not specified, the
+client will use the appropriate default values. Two forms of addresses
+are currently recognized:
+
+@example
+unix_socket:path/to/socket
+inet_socket:host_ip:port
+@end example
+
+For example:
+
+@example
+unix_socket
+unix_socket:/tmp/test.sock
+inet_socket
+inet_socket:192.168.0.34
+inet_socket:192.168.0.34:6563
+@end example
+
+The environment variable can be set either globally or for the given
+process as in the following example in bash where we launch and use
+Speech Dispatcher on an arbitrary unix socket:
+
+@example
+killall -u `whoami` speech-dispatcher
+speech-dispatcher -c unix_socket -S /tmp/my.sock
+SPEECHD_ADDRESS=unix_socket:/tmp/my.sock spd-say "test"
+@end example
 
 @node Troubleshooting, Configuration, Running, User's Documentation
 @section Troubleshooting
@@ -1154,12 +1181,13 @@ users.
 
 Client applications and libraries are supposed to independently
 replicate the process of construction of the socket path and connect
-to it, thus establishing a common communication channel.
+to it, thus establishing a common communication channel in the default
+setup.
 
 It should be however possible in the client libraries and is possible
 in the server, to define a custom file as a socket name if needed.
-Client libraries should respect the @code{SPEECHD_SOCK} environment
-variable, which, if defined, should contain a full path to the socket.
+Client libraries should respect the @var{SPEECHD_ADDRESS} environment
+variable.
 
 @emph{Inet sockets} are based on communication over a given port on
 the given host, two variables which must be previously agreed between
@@ -1167,10 +1195,12 @@ the server and client before a connection can be established. The only
 implicit security restriction is the server configuration option which
 can allow or disallow access from machines other than localhost.
 
-By convention, if the client connects to a server on localhost, it
-should use a port given by one of the following sources in the following
-order of precedence: its own configuration, value of the SPEECHD_PORT
-environment variable and the default port 6560.
+By convention, the clients should use host and port given by one of
+the following sources in the following order of precedence: its own
+configuration, value of the @var{SPEECHD_ADDRESS} environment variable
+and the default pair (localhost, 6560).
+
+@xref{Setting Communication Method}.
 
 @node Actions performed on startup, Accepted signals, Communication mechanisms, Technical Specifications
 @section Actions performed on startup
@@ -2179,9 +2209,9 @@ client.speak("Hello World!")
 client.close()
 @end example 
 
-The Python API respects the environment variables @var{SPEECHD_SOCK},
-@var{SPEECHD_HOST} and @var{SPEECHD_PORT} if socket/host/port is not
-specified explicitly (see @code{SSIPClient} constructor arguments).
+The Python API respects the environment variables
+@var{SPEECHD_ADDRESS} it the communication address is not specified
+explicitly (see @code{SSIPClient} constructor arguments).
 
 Implementation of callbacks within the Python API tries to hide the
 low level details of SSIP callback handling and provide a convenient

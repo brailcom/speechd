@@ -32,7 +32,6 @@
 #include "libspeechd.h"
 #include "options.h"
 
-#define FATAL(msg) { perror("client: "msg); exit(1); }
 
 #define MAX_LINELEN 16384
 
@@ -48,6 +47,7 @@ int main(int argc, char **argv) {
     SPDConnection *conn;
     SPDPriority spd_priority;
     int err;
+    char *error;
     int msg_arg_required = 0;
     int ret;
     int option_ret;
@@ -80,11 +80,13 @@ int main(int argc, char **argv) {
     }
 
     /* Open a connection to Speech Dispatcher */
-    conn = spd_open(application_name ? application_name : "spd-say",
+    conn = spd_open2(application_name ? application_name : "spd-say",
                     connection_name ? connection_name : "main",
-                    NULL,
-                    SPD_MODE_THREADED);
-    if (conn == NULL) FATAL("Speech Dispatcher failed to open");
+		     NULL, SPD_MODE_THREADED, NULL, 1, &error);
+    if (conn == NULL){
+      fprintf(stderr, "Failed to connect to Speech Dispatcher:\n%s\n", error);
+      exit(1);
+    }
 
     if (stop_previous) spd_stop_all(conn);
     if (cancel_previous) spd_cancel_all(conn);
@@ -225,7 +227,10 @@ int main(int argc, char **argv) {
         /* Or do nothing in case of -C or -S with no message. */
         if (optind < argc) {
 	  err = spd_sayf(conn, spd_priority, (char*) argv[optind]);
-	  if (err == -1) FATAL("Speech Dispatcher failed to say message");
+	  if (err == -1){
+	    fprintf(stderr, "Speech Dispatcher failed to say message");
+	    exit(1);
+	  }
 
           /* Wait till the callback is called */
           if (wait_till_end) sem_wait(&semaphore);

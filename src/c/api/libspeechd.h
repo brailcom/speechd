@@ -121,8 +121,16 @@ typedef enum{
 
 typedef enum{
     SPD_METHOD_UNIX_SOCKET = 0,
-    SPD_METHOD_INET_SOCKET = 1
+    SPD_METHOD_INET_SOCKET = 1,
 }SPDConnectionMethod;
+
+typedef struct{
+  SPDConnectionMethod method;
+  char *unix_socket_name;
+  char *inet_socket_host;
+  int  inet_socket_port;
+  char *dbus_bus;
+}SPDConnectionAddress;
 
 typedef void (*SPDCallback)(size_t msg_id, size_t client_id, SPDNotificationType state);
 typedef void (*SPDCallbackIM)(size_t msg_id, size_t client_id, SPDNotificationType state, char *index_mark);
@@ -158,9 +166,12 @@ typedef struct{
 /* -------------- Public functions --------------------------*/
 
 /* Openning and closing Speech Dispatcher connection */
-SPDConnection* spd_open(const char* client_name, const char* connection_name, const char* user_name, SPDConnectionMode mode);
-SPDConnection* spd_open2(const char* client_name, const char* connection_name, const char* user_name, SPDConnectionMode mode,
-			 SPDConnectionMethod method, int autospawn);
+SPDConnectionAddress* spd_get_default_address(char** error);
+SPDConnection* spd_open(const char* client_name, const char* connection_name, const char* user_name,
+			SPDConnectionMode mode);
+SPDConnection* spd_open2(const char* client_name, const char* connection_name, const char* user_name,
+			 SPDConnectionMode mode, SPDConnectionAddress *address, int autospawn,
+			 char **error_result);
 
 void spd_close(SPDConnection* connection);
 

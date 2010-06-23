@@ -50,7 +50,7 @@
 /* --------------  Private functions headers ------------------------*/
 
 #ifdef LIBSPEECHD_DEBUG
-FILE *spd_debug;
+FILE *spd_debug = NULL;
 #endif
 
 
@@ -140,6 +140,68 @@ ssize_t getline (char **lineptr, size_t *n, FILE *f)
 
 #define SPD_REPLY_BUF_SIZE 65536
 
+SPDConnectionAddress*
+spd_get_default_address(char **error)
+{
+  char *env_address;
+  gchar **pa; /* parsed address */
+  SPDConnectionAddress *address = malloc(sizeof(SPDConnectionAddress));
+
+  env_address = g_getenv("SPEECHD_ADDRESS");
+
+  if (env_address == NULL){ // Default method = unix sockets
+    address->method = SPD_METHOD_UNIX_SOCKET;
+    address->unix_socket_name = _get_default_unix_socket_name();
+  }else{
+    pa = g_strsplit(env_address, ":", 0);
+    assert (pa);
+    if (!g_strcmp0(pa[0], "unix_socket") || pa[0] == NULL){ // Unix sockets
+      address->method = SPD_METHOD_UNIX_SOCKET;
+      if (pa[1] == NULL){
+	address->unix_socket_name = _get_default_unix_socket_name();
+      }else{
+	address->unix_socket_name = strdup(pa[1]);
+      }
+    }else if (!g_strcmp0(pa[0], "inet_socket")){ // Inet sockets
+      address->method = SPD_METHOD_INET_SOCKET;
+      if (pa[1] == NULL){
+	address->inet_socket_host = strdup("127.0.0.1");
+	address->inet_socket_port = 6560;
+      }else{
+	address->inet_socket_host = strdup(pa[1]);
+	if (pa[2] == NULL){
+	  address->inet_socket_port = SPEECHD_DEFAULT_PORT;
+	}else{
+	  address->inet_socket_port = atoi(pa[2]);
+        }
+      }
+    }else{ // Unknown or unsupported method requested
+      *error = strdup("Unknown or unsupported communication method");
+      address = NULL;
+    }
+    g_strfreev(pa);
+  }
+  return address;
+}
+
+
+static void _init_debug(void)
+{
+#ifdef LIBSPEECHD_DEBUG
+  if (!spd_debug){
+    spd_debug = fopen("/tmp/libspeechd.log", "w");
+    if (spd_debug == NULL) SPD_FATAL("COULDN'T ACCES FILE INTENDED FOR DEBUG");
+     
+    if(pthread_mutex_init(&spd_logging_mutex, NULL)){
+      fprintf(stderr, "Mutex initialization failed");
+      fflush(stderr);
+      exit(1);
+    }
+    SPD_DBG("Debugging started");
+  }
+#endif /* LIBSPEECHD_DEBUG */
+}
+
 /* Opens a new Speech Dispatcher connection.
  * Returns socket file descriptor of the created connection
  * or -1 if no connection was opened. */
@@ -148,32 +210,45 @@ SPDConnection*
 spd_open(const char* client_name, const char* connection_name, const char* user_name,
 	 SPDConnectionMode mode)
 {
-    return spd_open2(client_name, connection_name, user_name,
-		     mode, SPD_METHOD_UNIX_SOCKET, 1);
+  char *error;
+  int autospawn = 1;
+  SPDConnection *conn;
+  conn = spd_open2(client_name, connection_name, user_name,
+		   mode, NULL, autospawn, &error);
+  if (!conn){
+    _init_debug();
+    assert(error);
+    SPD_DBG("Could not connect to Speech Dispatcher: %s", error);
+    xfree(error);
+  }
+  return conn;
 }
 
 SPDConnection*
 spd_open2(const char* client_name, const char* connection_name, const char* user_name,
-	  SPDConnectionMode mode, SPDConnectionMethod method, int autospawn)
+	  SPDConnectionMode mode, SPDConnectionAddress *address, int autospawn,
+	  char **error_result)
 {
     SPDConnection *connection;
     char *set_client_name;
     char* conn_name;
     char* usr_name;
-    char *env_port;
-    char *env_socket;
-    int port;
     int ret;
     char tcp_no_delay = 1;
 
     /* Autospawn related */
-    const char *pidof_speechd[] = { "pidof", "speech-dispatcher", NULL };
-    const char *speechd_cmd[] = { SPD_SPAWN_CMD, "--spawn", NULL };
+    const char *pidof_speechd[] = { "pidof", "speech-dispatcher", NULL };    
     gchar *speechd_pid = NULL;
     GError *error = NULL;
     gint exit_status;
 
-    if (client_name == NULL) return NULL;
+    _init_debug();
+
+    if (client_name == NULL){
+      *error_result = strdup("ERROR: Client name not specified");
+      SPD_DBG(*error_result);
+      return NULL;
+    }
     
     if (user_name == NULL)
     {
@@ -186,22 +261,21 @@ spd_open2(const char* client_name, const char* connection_name, const char* user
         conn_name = strdup("main");
     else
         conn_name = strdup(connection_name);
-    
-#ifdef LIBSPEECHD_DEBUG
-    spd_debug = fopen("/tmp/libspeechd.log", "w");
-    if (spd_debug == NULL) SPD_FATAL("COULDN'T ACCES FILE INTENDED FOR DEBUG");
 
-    ret = pthread_mutex_init(&spd_logging_mutex, NULL);
-    if(ret != 0){
-      fprintf(stderr, "Mutex initialization failed");
-      fflush(stderr);
-      exit(1);
+    if (address == NULL){
+      char *err = NULL;
+      address = spd_get_default_address(&err);
+      if (!address){
+	assert(err);
+	*error_result = err;
+	SPD_DBG(*error_result);
+	return NULL;
+      }
     }
-    SPD_DBG("Debugging started");
-#endif /* LIBSPEECHD_DEBUG */
     
-    /* Autospawn -- check if Dispatcher is not running and if so, start it*/
+    /* Autospawn -- check if Dispatcher is not running and if so, start it */
     if (autospawn){
+      const char *speechd_cmd[] = { SPD_SPAWN_CMD, "--spawn", NULL};      
       if (g_spawn_sync(NULL, (gchar**)pidof_speechd, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, &speechd_pid, NULL,
 		       &exit_status, &error) && strlen(speechd_pid) == 0){
 	g_spawn_sync(NULL, (gchar**)speechd_cmd, NULL, G_SPAWN_SEARCH_PATH | G_SPAWN_STDOUT_TO_DEV_NULL | G_SPAWN_STDERR_TO_DEV_NULL,
@@ -211,55 +285,37 @@ spd_open2(const char* client_name, const char* connection_name, const char* user
 
     /* Connect to server using the selected method */
     connection = xmalloc(sizeof(SPDConnection));
-    if (method==SPD_METHOD_INET_SOCKET){    
-      struct sockaddr_in address_inet;
-
-      env_port = getenv("SPEECHD_PORT");
-      if (env_port != NULL)
-        port = strtol(env_port, NULL, 10);
-      else
-        port = SPEECHD_DEFAULT_PORT;
-    
-      address_inet.sin_addr.s_addr = inet_addr("127.0.0.1");
-      address_inet.sin_port = htons(port);
+    if (address->method==SPD_METHOD_INET_SOCKET){    
+      struct sockaddr_in address_inet;    
+      address_inet.sin_addr.s_addr = inet_addr(address->inet_socket_host);
+      address_inet.sin_port = htons(address->inet_socket_port);
       address_inet.sin_family = AF_INET;
       connection->socket = socket(AF_INET, SOCK_STREAM, 0);
       ret = connect(connection->socket, (struct sockaddr *)&address_inet, sizeof(address_inet));
       if (ret == -1){
-        SPD_DBG("Error: Can't connect to localhost on port %d using inet sockets: %s", port, strerror(errno));
-        close(connection->socket);
+        *error_result = g_strdup_printf("Error: Can't connect to %s on port %d using inet sockets: %s", address->inet_socket_host,
+				 address->inet_socket_port, strerror(errno));
+	SPD_DBG(*error_result);
+        close(connection->socket);	
 	return NULL;
       }
       setsockopt(connection->socket, IPPROTO_TCP, TCP_NODELAY, &tcp_no_delay, sizeof(int));
-
-    }else if (method==SPD_METHOD_UNIX_SOCKET){
+    }else if (address->method==SPD_METHOD_UNIX_SOCKET){
       struct sockaddr_un address_unix;
-      GString* socket_filename;
-      /* Determine address for the unix socket */
-      env_socket = getenv("SPEECHD_SOCKET");
-      if (env_socket){
-	socket_filename = g_string_new(env_socket);
-      }else{
-	const char *homedir = g_getenv("HOME");
-	if (!homedir)
-	  homedir = g_get_home_dir();
-	socket_filename = g_string_new("");
-	g_string_printf(socket_filename, "%s/.speech-dispatcher/speechd.sock", homedir);
-      }
       /* Create the unix socket */
       address_unix.sun_family = AF_UNIX;
-      strncpy (address_unix.sun_path, socket_filename->str, sizeof (address_unix.sun_path));
+      strncpy (address_unix.sun_path, address->unix_socket_name, sizeof (address_unix.sun_path));
       address_unix.sun_path[sizeof (address_unix.sun_path) - 1] = '\0';
       connection->socket = socket(AF_UNIX, SOCK_STREAM, 0);
       ret = connect(connection->socket, (struct sockaddr *)&address_unix, SUN_LEN(&address_unix));
       if (ret == -1){
-        SPD_DBG("Error: Can't connect to unix socket %s: %s", socket_filename->str, strerror(errno));
+        *error_result = g_strdup_printf("Error: Can't connect to unix socket %s: %s", address->unix_socket_name, strerror(errno));
+	SPD_DBG(*error_result);
         close(connection->socket);
 	return NULL;
       }
       /* Clean up */
-      g_string_free(socket_filename, 0);
-    }else SPD_FATAL("Unsupported connection method to spd_open");
+    }else SPD_FATAL("Unsupported connection method for spd_open2()");
 
     connection->callback_begin = NULL;
     connection->callback_end = NULL;
@@ -293,7 +349,8 @@ spd_open2(const char* client_name, const char* connection_name, const char* user
 	pthread_mutex_init(connection->mutex_reply_ack, NULL);
 	ret = pthread_create(connection->events_thread, NULL, spd_events_handler, connection);
 	if(ret != 0){
-	    SPD_DBG("Thread initialization failed");
+	    *error_result = strdup("Thread initialization failed");
+	    SPD_DBG(*error_result);
 	    return NULL;
 	}
     }
