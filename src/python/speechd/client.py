@@ -133,7 +133,7 @@ class _SSIP_Connection(object):
 
         if method == ConnectionMethod.UNIX_SOCKET:
             socket_family = socket.AF_UNIX
-            socket_connect_args = (socket_path,)
+            socket_connect_args = socket_path
         elif method == ConnectionMethod.INET_SOCKET:
             assert host and port
             socket_family = socket.AF_INET
@@ -143,9 +143,9 @@ class _SSIP_Connection(object):
 
         try:
             self._socket = socket.socket(socket_family, socket.SOCK_STREAM)
-            self._socket.connect(*socket_connect_args)
+            self._socket.connect(socket_connect_args)
         except socket.error:
-            raise SSIPCommunicationError("Can't open socket using method" + method)
+            raise SSIPCommunicationError("Can't open socket using method " + method)
 
         self._buffer = ""
         self._com_buffer = []
@@ -407,9 +407,10 @@ class SSIPClient(object):
     DEFAULT_SOCKET_PATH = "~/.speech-dispatcher/speechd.sock"
     """Default name of the communication unix socket"""
     
-    def __init__(self, name, component='default', user='unknown', host=None,
-                 port=None, method=ConnectionMethod.UNIX_SOCKET, socket_path=None,
-                 autospawn=None):
+    def __init__(self, name, component='default', user='unknown', address=None,
+                 autospawn=None,
+                 # Deprecated ->
+                 host=None, port=None, method=None, socket_path=None):
         """Initialize the instance and connect to the server.
 
         Arguments:
@@ -418,6 +419,14 @@ class SSIPClient(object):
             multiple connections, this can be used to identify each of them.
           user -- user identification string (user name).  When multi-user
             acces is expected, this can be used to identify their connections.
+          address -- server address as specified in Speech Dispatcher
+            documentation (e.g. "unix:/home/joe/.speech-dispatcher/speechd.sock"
+            or "inet:192.168.0.85:6561")
+          autospawn -- a flag to specify whether the library should
+            try to start the server if it determines its not already
+            running or not
+
+        Deprecated arguments:
           method -- communication method to use, one of the constants defined in class
             ConnectionMethod
           socket_path -- for ConnectionMethod.UNIX_SOCKET, socket
@@ -432,27 +441,65 @@ class SSIPClient(object):
             port as number or None.  If None, the default value is
             taken from SPEECHD_PORT environment variable (if it
             exists) or from the DEFAULT_PORT attribute of this class.
-          autospawn -- a flag to specify whether the library should
-            try to start the server if it determines its not already
-            running or not
-        
+         
         For more information on client identification strings see Speech
         Dispatcher documentation.
           
         """
-        if socket_path is None:
-            socket_path = os.environ.get('SPEECHD_SOCKET',
-                                         os.path.expanduser(self.DEFAULT_SOCKET_PATH))
-        if host is None:
-            host = os.environ.get('SPEECHD_HOST', self.DEFAULT_HOST)
-        if port is None:
-            try:
-                port = int(os.environ.get('SPEECHD_PORT'))
-            except (ValueError, TypeError):
-                port = self.DEFAULT_PORT
 
-        connection_args = {'method': method, 'socket_path': socket_path,
-                           'host': host, 'port': port}
+        # Resolve connection parameters:
+        connection_args = {'method': ConnectionMethod.UNIX_SOCKET,
+                           'socket_path': os.path.expanduser(self.DEFAULT_SOCKET_PATH),
+                           'host': self.DEFAULT_HOST,
+                           'port': self.DEFAULT_PORT,
+                           }
+        # Respect address method argument and SPEECHD_ADDRESS environemt variable
+        _address = address or os.environ.get("SPEECHD_ADDRESS")
+        if _address:
+            address_params = _address.split(":")
+            try:
+                _method = address_params[0]
+            except:
+                raise SSIPCommunicationErrror("Wrong format of server address")
+            connection_args['method'] = _method
+            if _method == ConnectionMethod.UNIX_SOCKET:
+                try:
+                    connection_args['socket_path'] = address_params[1]
+                except IndexError:
+                    pass # The additional parameters was not set, let's stay with defaults
+            elif _method == ConnectionMethod.INET_SOCKET:
+                try:
+                    connection_args['host'] = address_params[1]
+                    connection_args['port'] = int(address_params[2])
+                except ValueError: # Failed conversion to int
+                    raise SSIPCommunicationError("Third parameter of inet_socket address must be a port number")
+                except IndexError:
+                    pass # The additional parameters was not set, let's stay with defaults
+            else:
+                raise SSIPCommunicationError("Unknown communication method in address")
+        # Respect the old (deprecated) key arguments and environment variables
+        else:
+            # Read the environment variables
+            env_speechd_host = os.environ.get("SPEECHD_HOST")
+            try:
+                env_speechd_port = int(os.environ.get("SPEECHD_PORT"))
+            except:
+                env_speechd_port = None
+            env_speechd_socket_path = os.environ.get("SPEECHD_SOCKET")
+            # Prefer old (deprecated) function arguments, but if
+            # not specified and old (deprecated) environment variable
+            # is set, use the value of the environment variable
+            if method:
+                connection_args['method'] = method
+            if port:
+                connection_args['port'] = port
+            elif env_speechd_port:
+                connection_args['port'] = env_speechd_port
+            if socket_path:
+                connection_args['socket_path'] = socket_path
+            elif env_speechd_socket_path:
+                connection_args['socket_path'] = env_speechd_socket_path
+        # Establish new connection (and/or autospawn server)
         try:
             self._conn = conn = _SSIP_Connection(**connection_args)
         except SSIPCommunicationError:
@@ -464,7 +511,7 @@ class SSIPClient(object):
                 self._conn = conn = _SSIP_Connection(**connection_args)
             else:
                 raise
-
+        # Initialize connection -- Set client name, get id, register callbacks etc.
         full_name = '%s:%s:%s' % (user, name, component)
         conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
         code, msg, data = conn.send_command('HISTORY', 'GET', 'CLIENT_ID')
