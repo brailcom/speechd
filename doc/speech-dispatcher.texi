@@ -509,31 +509,14 @@ Inet socket communication, the server will make no distinction between
 the different users connecting to it. The default port is 6560 as set
 in the server configuration.
 
-Clients should respect the @emph{SPEECHD_ADDRESS} environment
+Client applications will respect the @emph{SPEECHD_ADDRESS} environment
 variable.  The method ('@code{unix_socket}' or '@code{inet_socket}')
-is optionally followed by it's parameters separated by a colon. If no
-or some of the communication method parameters are not specified, the
-client will use the appropriate default values. Two forms of addresses
-are currently recognized:
+is optionally followed by it's parameters separated by a colon.
+For an exact description, please  @xref{Address specification}.
 
-@example
-unix_socket:path/to/socket
-inet_socket:host_ip:port
-@end example
-
-For example:
-
-@example
-unix_socket
-unix_socket:/tmp/test.sock
-inet_socket
-inet_socket:192.168.0.34
-inet_socket:192.168.0.34:6563
-@end example
-
-The environment variable can be set either globally or for the given
-process as in the following example in bash where we launch and use
-Speech Dispatcher on an arbitrary unix socket:
+An example of launching Speech Dispatcher using unix_sockets
+for communication on a non-standard destination and subsequently
+using spd-say to speak a message:
 
 @example
 killall -u `whoami` speech-dispatcher
@@ -1148,7 +1131,7 @@ from the outside network using a firewall or similar mechanism.
 
 
 @menu
-* Communication mechanisms::    
+* Communication mechanisms::
 * Actions performed on startup::  
 * Accepted signals::            
 @end menu
@@ -1201,6 +1184,57 @@ configuration, value of the @var{SPEECHD_ADDRESS} environment variable
 and the default pair (localhost, 6560).
 
 @xref{Setting Communication Method}.
+
+@node Address specification
+@section Address specification
+
+Speech Dispatcher provies several methods of communication and can be
+used both locally and over network. @xref{Communication
+mechanisms}. Client applications and interface libraries need to
+recognize an address, which specifies how and where to contact the
+appropriate server.
+
+Address specification consits from the method and one or more of its
+parameters, each item separated by a colon:
+
+@example
+method:parameter1:parameter2
+@end example
+
+The method is either 'unix_socket' or 'inet_socket'. Parameters are
+optional.  If not used in the address line, their default value will
+be used.
+
+Two forms are currently recognized:
+
+@example
+unix_socket:full/path/to/socket
+inet_socket:host_ip:port
+@end example
+
+Examples of valid address lines are:
+@example
+unix_socket
+unix_socket:/tmp/test.sock
+inet_socket
+inet_socket:192.168.0.34
+inet_socket:192.168.0.34:6563
+@end example
+
+Clients implement different mechanisms how the user can set the
+address. Clients should respect the @var{SPEECHD_ADDRESS} environment
+variable @xref{Setting Communication Method}, unless the user
+ovverrides its value by settins in the client application
+itself. Clients should fallback to the default address, if neither the
+environment variable or their specific configuration is set.
+
+The default communication address currently is:
+
+@example
+unix_socket:/~/.speech-dispatcher/speechd.sock
+@end example
+
+where `~' stands for the path to the users home directory.
 
 @node Actions performed on startup, Accepted signals, Communication mechanisms, Technical Specifications
 @section Actions performed on startup
