@@ -444,7 +444,6 @@ class SSIPClient(object):
          
         For more information on client identification strings see Speech
         Dispatcher documentation.
-          
         """
 
         # Resolve connection parameters:
@@ -454,30 +453,12 @@ class SSIPClient(object):
                            'port': self.DEFAULT_PORT,
                            }
         # Respect address method argument and SPEECHD_ADDRESS environemt variable
-        _address = address or os.environ.get("SPEECHD_ADDRESS")
+        _address = address or os.environ.get("SPEECHD_ADDRESS")        
+
         if _address:
-            address_params = _address.split(":")
-            try:
-                _method = address_params[0]
-            except:
-                raise SSIPCommunicationErrror("Wrong format of server address")
-            connection_args['method'] = _method
-            if _method == ConnectionMethod.UNIX_SOCKET:
-                try:
-                    connection_args['socket_path'] = address_params[1]
-                except IndexError:
-                    pass # The additional parameters was not set, let's stay with defaults
-            elif _method == ConnectionMethod.INET_SOCKET:
-                try:
-                    connection_args['host'] = address_params[1]
-                    connection_args['port'] = int(address_params[2])
-                except ValueError: # Failed conversion to int
-                    raise SSIPCommunicationError("Third parameter of inet_socket address must be a port number")
-                except IndexError:
-                    pass # The additional parameters was not set, let's stay with defaults
-            else:
-                raise SSIPCommunicationError("Unknown communication method in address")
+            connection_args.update(_connection_arguments_from_address(_address))
         # Respect the old (deprecated) key arguments and environment variables
+        # TODO: Remove this section in 0.8 release
         else:
             # Read the environment variables
             env_speechd_host = os.environ.get("SPEECHD_HOST")
@@ -499,34 +480,66 @@ class SSIPClient(object):
                 connection_args['socket_path'] = socket_path
             elif env_speechd_socket_path:
                 connection_args['socket_path'] = env_speechd_socket_path
-        # Establish new connection (and/or autospawn server)
+        self._connect_with_autospawn(connection_args, autospawn)
+        self._initialize_connection(user, name, component)
+
+    def _connect_with_autospawn(self, connection_args, autospawn):
+        """Establish new connection (and/or autospawn server)"""
         try:
-            self._conn = conn = _SSIP_Connection(**connection_args)
+            self._conn = _SSIP_Connection(**connection_args)
         except SSIPCommunicationError:
             # Suppose server might not be running, try the autospawn mechanism
             if autospawn != False:
                 # Autospawn is however not guaranteed to start the server. The server
                 # will decide, based on it's configuration, whether to honor the request.
                 self._server_spawn()
-                self._conn = conn = _SSIP_Connection(**connection_args)
+                self._conn = _SSIP_Connection(**connection_args)
             else:
                 raise
-        # Initialize connection -- Set client name, get id, register callbacks etc.
+
+    def _initialize_connection(self, user, name, component):
+        """Initialize connection -- Set client name, get id, register callbacks etc."""
         full_name = '%s:%s:%s' % (user, name, component)
-        conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
-        code, msg, data = conn.send_command('HISTORY', 'GET', 'CLIENT_ID')
+        self._conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
+        code, msg, data = self._conn.send_command('HISTORY', 'GET', 'CLIENT_ID')
         self._client_id = int(data[0])
         self._lock = threading.Lock()
         self._callbacks = {}
-        conn.set_callback(self._callback_handler)
+        self._conn.set_callback(self._callback_handler)
         for event in (CallbackType.INDEX_MARK,
                       CallbackType.BEGIN,
                       CallbackType.END,
                       CallbackType.CANCEL,
                       CallbackType.PAUSE,
                       CallbackType.RESUME):
-            conn.send_command('SET', 'self', 'NOTIFICATION', event, 'on')
+            self._conn.send_command('SET', 'self', 'NOTIFICATION', event, 'on')
 
+    def _connection_arguments_from_address(self, address):
+        """Parse a Speech Dispatcher address line and return a dictionary
+        of connection arguments"""
+        connection_args = {}
+        address_params = address.split(":")
+        try:
+            _method = address_params[0]
+        except:
+            raise SSIPCommunicationErrror("Wrong format of server address")
+        connection_args['method'] = _method
+        if _method == ConnectionMethod.UNIX_SOCKET:
+            try:
+                connection_args['socket_path'] = address_params[1]
+            except IndexError:
+                pass # The additional parameters was not set, let's stay with defaults
+        elif _method == ConnectionMethod.INET_SOCKET:
+            try:
+                connection_args['host'] = address_params[1]
+                connection_args['port'] = int(address_params[2])
+            except ValueError: # Failed conversion to int
+                raise SSIPCommunicationError("Third parameter of inet_socket address must be a port number")
+            except IndexError:
+                pass # The additional parameters was not set, let's stay with defaults
+            else:
+                raise SSIPCommunicationError("Unknown communication method in address")
+        return connection_args
     
     def __del__(self):
         """Close the connection"""
