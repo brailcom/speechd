@@ -467,10 +467,14 @@ load_default_global_set_options()
 
     /* Options which are accessible from command line must be handled
        specially to make sure we don't overwrite them */
-    if (!SpeechdOptions.log_level_set) SpeechdOptions.log_level = 3;    
-    if (!SpeechdOptions.communication_method) SpeechdOptions.communication_method = strdup("unix_socket");
-    if (!SpeechdOptions.socket_name) SpeechdOptions.socket_name = strdup("default");
-    if (!SpeechdOptions.port_set) SpeechdOptions.port = SPEECHD_DEFAULT_PORT;
+    if (!SpeechdOptions.log_level_set)
+      SpeechdOptions.log_level = 3;    
+    if (!SpeechdOptions.communication_method_set)
+      SpeechdOptions.communication_method = strdup("unix_socket");   
+    if (!SpeechdOptions.socket_name_set)
+      SpeechdOptions.socket_name = strdup("default");
+    if (!SpeechdOptions.port_set)
+      SpeechdOptions.port = SPEECHD_DEFAULT_PORT;
     if (!SpeechdOptions.localhost_access_only_set) SpeechdOptions.localhost_access_only = 1;
 
     logfile = stderr;
