@@ -1131,12 +1131,13 @@ from the outside network using a firewall or similar mechanism.
 
 
 @menu
-* Communication mechanisms::
+* Communication mechanisms::    
+* Address specification::       
 * Actions performed on startup::  
 * Accepted signals::            
 @end menu
 
-@node Communication mechanisms, Actions performed on startup, Technical Specifications, Technical Specifications
+@node Communication mechanisms, Address specification, Technical Specifications, Technical Specifications
 @section Communication mechanisms
 
 Speech Dispatcher supports two communicatino mechanisms: UNIX-style
@@ -1185,7 +1186,7 @@ and the default pair (localhost, 6560).
 
 @xref{Setting Communication Method}.
 
-@node Address specification
+@node Address specification, Actions performed on startup, Communication mechanisms, Technical Specifications
 @section Address specification
 
 Speech Dispatcher provies several methods of communication and can be
@@ -1236,7 +1237,7 @@ unix_socket:/~/.speech-dispatcher/speechd.sock
 
 where `~' stands for the path to the users home directory.
 
-@node Actions performed on startup, Accepted signals, Communication mechanisms, Technical Specifications
+@node Actions performed on startup, Accepted signals, Address specification, Technical Specifications
 @section Actions performed on startup
 
 What follows is an overview of the actions the server takes on startup
@@ -1357,7 +1358,6 @@ about current external client libraries.
 * Python API::                  Python module.
 * Guile API::                   
 * Common Lisp API::             
-
 * Autospawning::                How server is started from clients
 @end menu
 
