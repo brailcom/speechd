@@ -79,7 +79,7 @@ options_print_version(void)
     }
 
 #define SPD_OPTION_SET_STR(param) \
-    SpeechdOptions.param = optarg
+    SpeechdOptions.param = strdup(optarg)
 
 void
 options_parse(int argc, char *argv[])
