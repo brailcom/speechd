@@ -855,6 +855,10 @@ main(int argc, char *argv[])
     fd_set testfds;
     int fd;
     int ret;
+    /* Autospawn helper variables */
+    char *spawn_communication_method = NULL;
+    int spawn_port = 0;
+    char *spawn_socket_name = NULL;
 
     /* Initialize threading and thread safety in Glib */
     g_thread_init(NULL);
@@ -871,6 +875,26 @@ main(int argc, char *argv[])
     speechd_options_init();
 
     options_parse(argc, argv);
+
+    if (SpeechdOptions.spawn){
+      /* In case of --spawn, copy the host port and socket_name
+	 parameters into temporary spawn_ variables for later comparison
+	 with the config file and unset them*/
+      if (SpeechdOptions.communication_method_set){
+	spawn_communication_method = strdup(SpeechdOptions.communication_method);
+	spd_free(SpeechdOptions.communication_method);
+	SpeechdOptions.communication_method_set = 0;
+      }
+      if (SpeechdOptions.port_set){
+	spawn_port = SpeechdOptions.port;
+	SpeechdOptions.port_set = 0;
+      }
+      if (SpeechdOptions.socket_name_set){
+	spawn_socket_name = strdup(SpeechdOptions.socket_name);
+	spd_free(SpeechdOptions.socket_name);
+	SpeechdOptions.socket_name_set = 0;
+      }
+    }
 
     MSG(1, "Speech Dispatcher "VERSION" starting");
 
@@ -957,6 +981,54 @@ main(int argc, char *argv[])
 
     speechd_init();
 
+    /* Handle socket_name 'default' */
+    // TODO: This is a hack, we should do that at appropriate places...
+    if (!strcmp(SpeechdOptions.socket_name, "default")){
+      /* This code cannot be moved above next to conf_dir and pidpath resolution because
+	 we need to also consider the DotConf configuration, which is read in speechd_init() */
+      GString *socket_filename;
+      socket_filename = g_string_new("");
+      if (SpeechdOptions.home_speechd_dir){
+	g_string_printf(socket_filename, "%s/speechd.sock", SpeechdOptions.home_speechd_dir);
+      }else{
+	FATAL("Socket name file not set and user has no home directory");
+      }
+      spd_free(SpeechdOptions.socket_name);
+      SpeechdOptions.socket_name = strdup(socket_filename->str);
+      g_string_free(socket_filename, 1);
+    }
+
+
+    /* Check if the communication method corresponds to the spawn request */
+    /* TODO: This should preferably be done much sooner, but the current
+       configuration mechanism doesn't allow it */
+    if (SpeechdOptions.spawn){
+      if (spawn_communication_method){
+	if (strcmp(spawn_communication_method, SpeechdOptions.communication_method)){
+	  MSG(2, "Autospawn failed: Mismatch in communication methods");
+	  exit(1);
+	}else{
+	  if (!strcmp(SpeechdOptions.communication_method, "inet_socket")){
+	    /* Check port */
+	    if (spawn_port != 0)
+	      if (spawn_port != SpeechdOptions.port){
+		MSG(2, "Autospawn failed: Mismatch in port numbers");
+		exit(1);
+	      }
+	  }else if (!strcmp(SpeechdOptions.communication_method, "unix_socket")){
+	    /* Check socket name */
+	    if (spawn_socket_name)
+	      if (strcmp(spawn_socket_name, SpeechdOptions.socket_name)){
+		MSG(2, "Autospawn failed: Mismatch in socket names");
+		exit(1);
+	      }
+	  } else assert (0);
+	}
+      }
+      spd_free(spawn_communication_method);
+      spd_free(spawn_socket_name);
+    }
+
     if(!strcmp(SpeechdOptions.communication_method, "inet_socket")){
       MSG(2, "Speech Dispatcher will use inet port %d", SpeechdOptions.port);
       /* Connect and start listening on inet socket */
@@ -964,28 +1036,13 @@ main(int argc, char *argv[])
     }else if (!strcmp(SpeechdOptions.communication_method, "unix_socket")){
       /* Determine appropariate socket file name */
       GString *socket_filename;
-      if (!strcmp(SpeechdOptions.socket_name, "default")){
-	/* This code cannot be moved above next to conf_dir and pidpath resolution because
-	 we need to also consider the DotConf configuration, which is read in speechd_init() */
-	socket_filename = g_string_new("");
-	if (SpeechdOptions.home_speechd_dir){
-	  g_string_printf(socket_filename, "%s/speechd.sock", SpeechdOptions.home_speechd_dir);
-	}else{
-	  FATAL("Socket name file not set and user has no home directory");
-	}
-      }else{
-	socket_filename = g_string_new(SpeechdOptions.socket_name);
-      }
-      MSG(2, "Speech Dispatcher will use local unix socket: %s", socket_filename->str);
-
+      MSG(2, "Speech Dispatcher will use local unix socket: %s", SpeechdOptions.socket_name);
       /* Delete an old socket file if it exists */
-      if (g_file_test(socket_filename->str, G_FILE_TEST_EXISTS))
-	  if (g_unlink(socket_filename->str) == -1)
-	    FATAL("Local socket file exists but impossible to delete. Wrong permissions?");
-      
+      if (g_file_test(SpeechdOptions.socket_name, G_FILE_TEST_EXISTS))
+	  if (g_unlink(SpeechdOptions.socket_name) == -1)
+	    FATAL("Local socket file exists but impossible to delete. Wrong permissions?");      
       /* Connect and start listening on local unix socket */
-      server_socket = make_local_socket(socket_filename->str);
-      g_string_free(socket_filename, 1);
+      server_socket = make_local_socket(SpeechdOptions.socket_name);
     }else{
       FATAL("Unknown communication method");
     }
