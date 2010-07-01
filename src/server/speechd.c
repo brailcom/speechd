@@ -201,7 +201,10 @@ MSG2(int level, char *kind, char *format, ...)
 }
 
 /* The main logging function for Speech Dispatcher,
-   level is between 1 and 5. 1 means the most important.*/
+   level is between -1 and 5. 1 means the most important,
+   5 less important. Loglevels after 4 can contain private
+   data. -1 logs also to stderr. See Speech Dispatcher
+   documentation */
 /* TODO: Define this in terms of MSG somehow. I don't
    know how to pass '...' arguments to another C function */
 void
@@ -214,8 +217,8 @@ MSG(int level, char *format, ...)
         int i;
 	pthread_mutex_lock(&logging_mutex);		
         {
-            {
-                /* Print timestamp */
+	    /* Print timestamp */
+	    {
                 time_t t;
                 char *tstr;
 		struct timeval tv;
@@ -225,7 +228,9 @@ MSG(int level, char *format, ...)
                 /* Remove the trailing \n */
 		assert(tstr);
 		assert(strlen(tstr)>1);
+		assert((level>=-1) && (level<=5));
 		tstr[strlen(tstr)-1] = 0;
+		/* Write timestamps */
 		if (level <= SpeechdOptions.log_level)
 		  fprintf(logfile, "[%s : %d] speechd: ",
 			  tstr, (int) tv.tv_usec);
@@ -238,8 +243,9 @@ MSG(int level, char *format, ...)
             }
 	    
             for(i=1;i<level;i++){
-	      fprintf(logfile, " ");
+                fprintf(logfile, " ");
             }
+	    /* Log to ordinary logfile */
 	    if (level <= SpeechdOptions.log_level){
 	      va_start(args, format);	    
 	      vfprintf(logfile, format, args);
@@ -247,12 +253,21 @@ MSG(int level, char *format, ...)
 	      fprintf(logfile, "\n");
 	      fflush(logfile);
 	    }
+	    /* Log into debug logfile */
 	    if (SpeechdOptions.debug){
 	      va_start(args, format);	   
 	      vfprintf(debug_logfile, format, args);
 	      va_end(args);
 	      fprintf(debug_logfile, "\n");
 	      fflush(debug_logfile);
+	    }
+	    /* Log also into stderr for loglevel -1*/
+	    if (level == -1){
+	      va_start(args, format);	    
+	      vfprintf(stderr, format, args);
+	      va_end(args);
+	      fprintf(stderr, "\n"); 
+	      fflush(stderr);
 	    }
         }
 	pthread_mutex_unlock(&logging_mutex);		
@@ -481,7 +496,7 @@ speechd_options_init(void)
     SpeechdOptions.spawn = FALSE;
     SpeechdOptions.log_level_set = 0;
     SpeechdOptions.communication_method = NULL;
-    SpeechdOptions.socket_name = NULL;
+    SpeechdOptions.socket_path = NULL;
     SpeechdOptions.port_set = 0;
     SpeechdOptions.localhost_access_only_set = 0;
     SpeechdOptions.pid_file = NULL;
@@ -858,7 +873,7 @@ main(int argc, char *argv[])
     /* Autospawn helper variables */
     char *spawn_communication_method = NULL;
     int spawn_port = 0;
-    char *spawn_socket_name = NULL;
+    char *spawn_socket_path = NULL;
 
     /* Initialize threading and thread safety in Glib */
     g_thread_init(NULL);
@@ -867,7 +882,7 @@ main(int argc, char *argv[])
     umask(007);
 
     /* Initialize logging */
-    logfile = stderr;
+    logfile = stdout;
     SpeechdOptions.log_level = 1;
     custom_logfile = NULL;
     custom_log_kind = NULL;
@@ -877,7 +892,7 @@ main(int argc, char *argv[])
     options_parse(argc, argv);
 
     if (SpeechdOptions.spawn){
-      /* In case of --spawn, copy the host port and socket_name
+      /* In case of --spawn, copy the host port and socket_path
 	 parameters into temporary spawn_ variables for later comparison
 	 with the config file and unset them*/
       if (SpeechdOptions.communication_method_set){
@@ -889,10 +904,10 @@ main(int argc, char *argv[])
 	spawn_port = SpeechdOptions.port;
 	SpeechdOptions.port_set = 0;
       }
-      if (SpeechdOptions.socket_name_set){
-	spawn_socket_name = strdup(SpeechdOptions.socket_name);
-	spd_free(SpeechdOptions.socket_name);
-	SpeechdOptions.socket_name_set = 0;
+      if (SpeechdOptions.socket_path_set){
+	spawn_socket_path = strdup(SpeechdOptions.socket_path);
+	spd_free(SpeechdOptions.socket_path);
+	SpeechdOptions.socket_path_set = 0;
       }
     }
 
@@ -950,13 +965,13 @@ main(int argc, char *argv[])
 
       err = g_file_get_contents(SpeechdOptions.conf_file, &config_contents, NULL, NULL);
       if (err == FALSE){
-	MSG(1,"Error openning %s", SpeechdOptions.conf_file);
+	MSG(-1,"Error openning %s", SpeechdOptions.conf_file);
 	FATAL("Can't open conf file");
       }
       regexp = g_regex_new ("^[ ]*DisableAutoSpawn", G_REGEX_MULTILINE,0,NULL);
       result = g_regex_match(regexp, config_contents, 0, NULL);      
       if (result){
-	MSG(4,"Autospawn requested but disabled in configuration");	
+	MSG(-1,"Autospawn requested but disabled in configuration");	
 	exit(1);
       }
       g_free(config_contents);
@@ -981,9 +996,9 @@ main(int argc, char *argv[])
 
     speechd_init();
 
-    /* Handle socket_name 'default' */
+    /* Handle socket_path 'default' */
     // TODO: This is a hack, we should do that at appropriate places...
-    if (!strcmp(SpeechdOptions.socket_name, "default")){
+    if (!strcmp(SpeechdOptions.socket_path, "default")){
       /* This code cannot be moved above next to conf_dir and pidpath resolution because
 	 we need to also consider the DotConf configuration, which is read in speechd_init() */
       GString *socket_filename;
@@ -993,8 +1008,8 @@ main(int argc, char *argv[])
       }else{
 	FATAL("Socket name file not set and user has no home directory");
       }
-      spd_free(SpeechdOptions.socket_name);
-      SpeechdOptions.socket_name = strdup(socket_filename->str);
+      spd_free(SpeechdOptions.socket_path);
+      SpeechdOptions.socket_path = strdup(socket_filename->str);
       g_string_free(socket_filename, 1);
     }
 
@@ -1005,28 +1020,42 @@ main(int argc, char *argv[])
     if (SpeechdOptions.spawn){
       if (spawn_communication_method){
 	if (strcmp(spawn_communication_method, SpeechdOptions.communication_method)){
-	  MSG(2, "Autospawn failed: Mismatch in communication methods");
+	  MSG(-1, "Autospawn failed: Mismatch in communication methods. Client " \
+	      "requests %s, most probably due to its configuration or the value of " \
+	      "the SPEECHD_ADDRESS environment variable, but the server is configured " \
+	      "to provide the %s method.",
+	      spawn_communication_method, SpeechdOptions.communication_method);
 	  exit(1);
 	}else{
 	  if (!strcmp(SpeechdOptions.communication_method, "inet_socket")){
 	    /* Check port */
 	    if (spawn_port != 0)
 	      if (spawn_port != SpeechdOptions.port){
-		MSG(2, "Autospawn failed: Mismatch in port numbers");
+		MSG(-1, "Autospawn failed: Mismatch in port numbers. Server " \
+		    "is configured to use the inet_socket method on the port %d " \
+		    "while the client requests port %d, most probably due to its " \
+		    "configuration or the value of the SPEECHD_ADDRESS environment "
+		    "variable.",
+		    SpeechdOptions.port, spawn_port);
 		exit(1);
 	      }
 	  }else if (!strcmp(SpeechdOptions.communication_method, "unix_socket")){
 	    /* Check socket name */
-	    if (spawn_socket_name)
-	      if (strcmp(spawn_socket_name, SpeechdOptions.socket_name)){
-		MSG(2, "Autospawn failed: Mismatch in socket names");
+	    if (spawn_socket_path)
+	      if (strcmp(spawn_socket_path, SpeechdOptions.socket_path)){
+		MSG(-1, "Autospawn failed: Mismatch in socket names. The server " \
+		    "is configured to provide a socket interface in %s, but the " \
+		    "client requests a different path: %s. This is most probably " \
+		    "due to the client application configuration or the value of " \
+		    "the SPEECHD_ADDRESS environment variable.",
+		    SpeechdOptions.socket_path, spawn_socket_path);
 		exit(1);
 	      }
 	  } else assert (0);
 	}
       }
       spd_free(spawn_communication_method);
-      spd_free(spawn_socket_name);
+      spd_free(spawn_socket_path);
     }
 
     if(!strcmp(SpeechdOptions.communication_method, "inet_socket")){
@@ -1036,13 +1065,13 @@ main(int argc, char *argv[])
     }else if (!strcmp(SpeechdOptions.communication_method, "unix_socket")){
       /* Determine appropariate socket file name */
       GString *socket_filename;
-      MSG(2, "Speech Dispatcher will use local unix socket: %s", SpeechdOptions.socket_name);
+      MSG(2, "Speech Dispatcher will use local unix socket: %s", SpeechdOptions.socket_path);
       /* Delete an old socket file if it exists */
-      if (g_file_test(SpeechdOptions.socket_name, G_FILE_TEST_EXISTS))
-	  if (g_unlink(SpeechdOptions.socket_name) == -1)
+      if (g_file_test(SpeechdOptions.socket_path, G_FILE_TEST_EXISTS))
+	  if (g_unlink(SpeechdOptions.socket_path) == -1)
 	    FATAL("Local socket file exists but impossible to delete. Wrong permissions?");      
       /* Connect and start listening on local unix socket */
-      server_socket = make_local_socket(SpeechdOptions.socket_name);
+      server_socket = make_local_socket(SpeechdOptions.socket_path);
     }else{
       FATAL("Unknown communication method");
     }
