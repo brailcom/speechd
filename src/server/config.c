@@ -190,7 +190,7 @@ GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPunctuationMode, punctuation_mode, EPunctM
 GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultCapLetRecognition, cap_let_recogn, ECapLetRecogn, str2ECapLetRecogn)
 
 SPEECHD_OPTION_CB_STR_M(CommunicationMethod, communication_method)
-SPEECHD_OPTION_CB_STR_M(SocketName, socket_name)
+SPEECHD_OPTION_CB_STR_M(SocketPath, socket_path)
 SPEECHD_OPTION_CB_INT_M(Port, port, val>=0, "Invalid port number!")
 SPEECHD_OPTION_CB_INT_M(LocalhostAccessOnly, localhost_access_only, val>=0, "Invalid access controll mode!")
 GLOBAL_SET_LOGLEVEL(LogLevel, log_level, (val>=0)&&(val<=5), "Invalid log (verbosity) level!")
@@ -391,7 +391,7 @@ load_config_options(int *num_options)
     cl_spec_section = NULL;
    
     ADD_CONFIG_OPTION(CommunicationMethod, ARG_STR);
-    ADD_CONFIG_OPTION(SocketName, ARG_STR);
+    ADD_CONFIG_OPTION(SocketPath, ARG_STR);
     ADD_CONFIG_OPTION(Port, ARG_INT);
     ADD_CONFIG_OPTION(DisableAutoSpawn, ARG_NONE);
     ADD_CONFIG_OPTION(LocalhostAccessOnly, ARG_INT);
@@ -471,8 +471,8 @@ load_default_global_set_options()
       SpeechdOptions.log_level = 3;    
     if (!SpeechdOptions.communication_method_set)
       SpeechdOptions.communication_method = strdup("unix_socket");   
-    if (!SpeechdOptions.socket_name_set)
-      SpeechdOptions.socket_name = strdup("default");
+    if (!SpeechdOptions.socket_path_set)
+      SpeechdOptions.socket_path = strdup("default");
     if (!SpeechdOptions.port_set)
       SpeechdOptions.port = SPEECHD_DEFAULT_PORT;
     if (!SpeechdOptions.localhost_access_only_set) SpeechdOptions.localhost_access_only = 1;

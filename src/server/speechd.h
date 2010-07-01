@@ -111,8 +111,8 @@ typedef struct{
 struct{
     char *communication_method;
     int communication_method_set;
-    char *socket_name;
-    int socket_name_set;
+    char *socket_path;
+    int socket_path_set;
     int port, port_set;
     int localhost_access_only, localhost_access_only_set;
     int log_level, log_level_set;

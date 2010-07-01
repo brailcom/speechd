@@ -29,7 +29,7 @@ static struct option spd_long_options[] = {
     {"spawn", 0, 0, 'a'},
     {"log-level", 1, 0, 'l'},
     {"communication-method", 1, 0, 'c'},
-    {"socket-name", 1, 0, 'S'},
+    {"socket-path", 1, 0, 'S'},
     {"port", 1, 0, 'p'},
     {"pid-file", 1, 0, 'P'},
     {"config-file", 1, 0, 'C'},
