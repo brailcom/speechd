@@ -8,7 +8,7 @@
 # its clients. Two basic methods are "unix_socket" and "inet_socket".
 #
 # unix_socket -- communication over Unix sockets represented by a file in the
-# filesystem (see SocketName bellow). This method works only locally, but is
+# filesystem (see SocketPath bellow). This method works only locally, but is
 # prefered for standard session setup, where every user runs his own instance of Speech
 # Dispatcher to get voice feedback on his own computer.
 #
@@ -20,15 +20,13 @@
 #
 # CommunicationMethod "unix_socket"
 
-# SocketName is either "default" or a full path to the filesystem
+# SocketPath is either "default" or a full path to the filesystem
 # where the driving Unix socket file should be created in case the
 # CommunicationMethod is set to "unix_socket". The default is
-# TMPDIR+speechd-sock-UID where TMPDIR is the default temp dir
-# location on the system and UID the user id who starts Speech Dispatcher
-# (e.g. /tmp/speechd-sock-1005 for a user # whose uid is 1005).
+# ~/.speech-dispatcher/speechd.sock where ~ is the given users home directory.
 # Do not change this unless you have a reason and know what you are doing.
 
-# SocketName "default"
+# SocketPath "default"
 
 # The Port on which Speech Dispatcher should be available to clients if the "inet_socket"
 # communication method is used.
@@ -283,5 +281,6 @@ DefaultModule espeak
 Include "INCLUDE_PATH/clients/*.conf"
 Include "clients/*.conf"
 
-# This line below is to enable autospawning, without breaking everything else read by dotconf.
-# AutoSpawn
+# The DisableAutoSpawn option will disable the autospawn mechanism.
+# Thus the server will not start automatically on requests from the clients
+# DisableAutoSpawn
