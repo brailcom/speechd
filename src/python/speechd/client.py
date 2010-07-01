@@ -98,7 +98,7 @@ class SSIPDataError(SSIPResponseError):
 class SpawnError(Exception):
     """Indicates failure in server autospawn."""
 
-class ConnectionMethod(object):
+class CommunicationMethod(object):
     """Constants describing the possible methods of connection to server."""
     UNIX_SOCKET = 'unix_socket'
     """Unix socket communication using a filesystem path"""
@@ -125,16 +125,16 @@ class _SSIP_Connection(object):
                           705: CallbackType.RESUME,
                           }
 
-    def __init__(self, method, socket_path, host, port):
+    def __init__(self, communication_method, socket_path, host, port):
         """Init connection: open the socket to server,
         initialize buffers, launch a communication handling
         thread.
         """
 
-        if method == ConnectionMethod.UNIX_SOCKET:
+        if communication_method == CommunicationMethod.UNIX_SOCKET:
             socket_family = socket.AF_UNIX
             socket_connect_args = socket_path
-        elif method == ConnectionMethod.INET_SOCKET:
+        elif communication_method == CommunicationMethod.INET_SOCKET:
             assert host and port
             socket_family = socket.AF_INET
             socket_connect_args = (socket.gethostbyname(host), port)
@@ -145,7 +145,7 @@ class _SSIP_Connection(object):
             self._socket = socket.socket(socket_family, socket.SOCK_STREAM)
             self._socket.connect(socket_connect_args)
         except socket.error:
-            raise SSIPCommunicationError("Can't open socket using method " + method)
+            raise SSIPCommunicationError("Can't open socket using method " + communication_method)
 
         self._buffer = ""
         self._com_buffer = []
@@ -428,16 +428,16 @@ class SSIPClient(object):
 
         Deprecated arguments:
           method -- communication method to use, one of the constants defined in class
-            ConnectionMethod
-          socket_path -- for ConnectionMethod.UNIX_SOCKET, socket
+            CommunicationMethod
+          socket_path -- for CommunicationMethod.UNIX_SOCKET, socket
             path in filesystem. By default, this is ~/.speech-dispatcher/speechd.sock
             where `~' is the users home directory as determined from the system
             defaults and from the $HOMEDIR environment variable.
-          host -- for ConnectionMethod.INET_SOCKET, server hostname
+          host -- for CommunicationMethod.INET_SOCKET, server hostname
             or IP address as a string.  If None, the default value is
             taken from SPEECHD_HOST environment variable (if it
             exists) or from the DEFAULT_HOST attribute of this class.
-          port -- for ConnectionMethod.INET_SOCKET method, server
+          port -- for CommunicationMethod.INET_SOCKET method, server
             port as number or None.  If None, the default value is
             taken from SPEECHD_PORT environment variable (if it
             exists) or from the DEFAULT_PORT attribute of this class.
@@ -447,7 +447,7 @@ class SSIPClient(object):
         """
 
         # Resolve connection parameters:
-        connection_args = {'method': ConnectionMethod.UNIX_SOCKET,
+        connection_args = {'communication_method': CommunicationMethod.UNIX_SOCKET,
                            'socket_path': os.path.expanduser(self.DEFAULT_SOCKET_PATH),
                            'host': self.DEFAULT_HOST,
                            'port': self.DEFAULT_PORT,
@@ -456,7 +456,7 @@ class SSIPClient(object):
         _address = address or os.environ.get("SPEECHD_ADDRESS")        
 
         if _address:
-            connection_args.update(_connection_arguments_from_address(_address))
+            connection_args.update(self._connection_arguments_from_address(_address))
         # Respect the old (deprecated) key arguments and environment variables
         # TODO: Remove this section in 0.8 release
         else:
@@ -492,7 +492,7 @@ class SSIPClient(object):
             if autospawn != False:
                 # Autospawn is however not guaranteed to start the server. The server
                 # will decide, based on it's configuration, whether to honor the request.
-                self._server_spawn()
+                self._server_spawn(connection_args)
                 self._conn = _SSIP_Connection(**connection_args)
             else:
                 raise
@@ -523,13 +523,13 @@ class SSIPClient(object):
             _method = address_params[0]
         except:
             raise SSIPCommunicationErrror("Wrong format of server address")
-        connection_args['method'] = _method
-        if _method == ConnectionMethod.UNIX_SOCKET:
+        connection_args['communication_method'] = _method
+        if _method == CommunicationMethod.UNIX_SOCKET:
             try:
                 connection_args['socket_path'] = address_params[1]
             except IndexError:
                 pass # The additional parameters was not set, let's stay with defaults
-        elif _method == ConnectionMethod.INET_SOCKET:
+        elif _method == CommunicationMethod.INET_SOCKET:
             try:
                 connection_args['host'] = address_params[1]
                 connection_args['port'] = int(address_params[2])
@@ -537,8 +537,8 @@ class SSIPClient(object):
                 raise SSIPCommunicationError("Third parameter of inet_socket address must be a port number")
             except IndexError:
                 pass # The additional parameters was not set, let's stay with defaults
-            else:
-                raise SSIPCommunicationError("Unknown communication method in address")
+        else:
+            raise SSIPCommunicationError("Unknown communication method in address.");
         return connection_args
     
     def __del__(self):
@@ -563,15 +563,22 @@ class SSIPClient(object):
         finally:
             self._lock.release()
 
-    def _server_spawn(self):
+    def _server_spawn(self, connection_args):
         """Attempts to spawn the speech-dispatcher server."""
         if os.path.exists(paths.SPD_SPAWN_CMD):
-            server = subprocess.Popen([paths.SPD_SPAWN_CMD, "--spawn"], stdin=None,
-                                      stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            connection_params = []
+            for param, value in connection_args.items():
+                if param not in ["host",]:
+                    connection_params += ["--"+param.replace("_","-"), str(value)]
+            server = subprocess.Popen([paths.SPD_SPAWN_CMD, "--spawn"]+connection_params,
+                                      stdin=None, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             #TODO: When logging will be implemented in this library, it will be very
             #desirable to read the stdout output and log it because it contains valuable
             #information on the result of the autospawn and the reason for it
-            server.wait()
+            stdout_reply, stderr_reply = server.communicate()
+            retcode = server.wait()
+            if retcode != 0:
+                raise SpawnError("Server refused to autospawn, reason:\n %s" % (stderr_reply,))
             return server.pid
         else:
             raise SpawnError("Can't find Speech Dispatcher spawn command %s"
@@ -995,3 +1002,16 @@ class Speaker(SSIPClient):
     interface practical for screen readers.
     
     """
+
+
+# Deprecated but retained for backwards compatibility
+
+# This class was introduced in 0.7 but later renamed to CommunicationMethod
+class ConnectionMethod(object):
+    """Constants describing the possible methods of connection to server.
+
+    Retained for backwards compatibility but DEPRECATED. See CommunicationMethod."""
+    UNIX_SOCKET = 'unix_socket'
+    """Unix socket communication using a filesystem path"""
+    INET_SOCKET = 'inet_socket'
+    """Inet socket communication using a host and port"""
