@@ -62,7 +62,50 @@ class SSIPError(Exception):
     
 class SSIPCommunicationError(SSIPError):
     """Exception raised when trying to operate on a closed connection."""
-    
+
+    _additional_exception = None
+
+    def __init__(self, description=None, original_exception=None, **kwargs):
+        self._original_exception = original_exception
+        self._description = description
+        super(SSIPError, self).__init__(**kwargs)
+
+    def original_exception(self):
+        """Return the original exception if any
+
+        If this exception is secondary, being caused by a lower
+        level exception, return this original exception, otherwise
+        None"""
+        return self._original_exception
+
+    def set_additional_exception(self, exception):
+        """Set an additional exception
+        
+        See method additional_exception().
+        """
+        self._additional_exception = exception
+
+    def additional_exception(self):
+        """Return an additional exception
+        
+        Additional exceptions araise from failed attempts to resolve
+        the former problem"""
+        return self._additional_exception
+
+    def description(self):
+        """Return error description"""
+        return self._description
+
+    def __str__(self):
+        msgs = []
+        if self.description():
+            msgs.append(self.description())
+        if self.original_exception:
+            msgs.append("Original error: " + str(self.original_exception()))
+        if self.additional_exception:
+            msgs.append("Additional error: " + str(self.additional_exception()))
+        return "\n".join(msgs)
+
 class SSIPResponseError(Exception):
     def __init__(self, code, msg, data):
         Exception.__init__(self, "%s: %s" % (code, msg))
@@ -144,8 +187,10 @@ class _SSIP_Connection(object):
         try:
             self._socket = socket.socket(socket_family, socket.SOCK_STREAM)
             self._socket.connect(socket_connect_args)
-        except socket.error:
-            raise SSIPCommunicationError("Can't open socket using method " + communication_method)
+        except socket.error, ex:
+            raise SSIPCommunicationError("Can't open socket using method "
+                                         + communication_method,
+                                         original_exception = ex)
 
         self._buffer = ""
         self._com_buffer = []
@@ -487,12 +532,16 @@ class SSIPClient(object):
         """Establish new connection (and/or autospawn server)"""
         try:
             self._conn = _SSIP_Connection(**connection_args)
-        except SSIPCommunicationError:
+        except SSIPCommunicationError, ce:
             # Suppose server might not be running, try the autospawn mechanism
             if autospawn != False:
                 # Autospawn is however not guaranteed to start the server. The server
                 # will decide, based on it's configuration, whether to honor the request.
-                self._server_spawn(connection_args)
+                try:
+                    self._server_spawn(connection_args)
+                except SpawnError, se:
+                    ce.set_additional_exception(se)
+                    raise ce
                 self._conn = _SSIP_Connection(**connection_args)
             else:
                 raise
@@ -565,11 +614,34 @@ class SSIPClient(object):
 
     def _server_spawn(self, connection_args):
         """Attempts to spawn the speech-dispatcher server."""
+        # Check whether we are not connecting to a remote host
+        # TODO: This is a hack. inet sockets specific code should
+        # belong to _SSIPConnection. We do not however have an _SSIPConnection
+        # yet.
+        if connection_args['communication_method'] == 'inet_socket':
+            addrinfos = socket.getaddrinfo(connection_args['host'],
+                                           connection_args['port'])
+            # Check resolved addrinfos for presence of localhost
+            ip_addresses = [addrinfo[4][0] for addrinfo in addrinfos]
+            localhost=False
+            for ip in ip_addresses:
+                if ip.startswith("127.") or ip == "::1":
+                    connection_args['host'] = ip
+                    localhost=True
+            if not localhost:
+                # The hostname didn't resolve on localhost in neither case,
+                # do not spawn server on localhost...
+                raise SpawnError(
+                    "Can't start server automatically (autospawn), requested address %s "
+                    "resolves on %s which seems to be a remote host. You must start the "
+                    "server manually or choose another connection address." % (connection_args['host'],
+                                                                               str(ip_addresses),))
         if os.path.exists(paths.SPD_SPAWN_CMD):
             connection_params = []
             for param, value in connection_args.items():
                 if param not in ["host",]:
                     connection_params += ["--"+param.replace("_","-"), str(value)]
+
             server = subprocess.Popen([paths.SPD_SPAWN_CMD, "--spawn"]+connection_params,
                                       stdin=None, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             #TODO: When logging will be implemented in this library, it will be very
@@ -578,7 +650,7 @@ class SSIPClient(object):
             stdout_reply, stderr_reply = server.communicate()
             retcode = server.wait()
             if retcode != 0:
-                raise SpawnError("Server refused to autospawn, reason:\n %s" % (stderr_reply,))
+                raise SpawnError("Server refused to autospawn, stating this reason: %s" % (stderr_reply,))
             return server.pid
         else:
             raise SpawnError("Can't find Speech Dispatcher spawn command %s"
