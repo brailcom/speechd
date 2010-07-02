@@ -141,7 +141,7 @@ ssize_t getline (char **lineptr, size_t *n, FILE *f)
 #define SPD_REPLY_BUF_SIZE 65536
 
 /* Determine address for the unix socket */
-char*
+static char*
 _get_default_unix_socket_name(void)
 {
   GString* socket_filename;
@@ -151,7 +151,7 @@ _get_default_unix_socket_name(void)
     homedir = g_get_home_dir();
   socket_filename = g_string_new("");
   g_string_printf(socket_filename, "%s/.speech-dispatcher/speechd.sock", homedir);
-  //TODO: Normalize...
+  // Do not regurn glib string, but glibc string...
   h = strdup(socket_filename->str);
   g_string_free(socket_filename, 1);
   return h;
