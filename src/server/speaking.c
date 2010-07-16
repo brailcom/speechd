@@ -921,6 +921,7 @@ TSpeechDMessage*
 get_message_from_queues()
 {
     GList *gl = NULL;
+    TSpeechDMessage * message;
 
     /* We will descend through priorities to say more important
      * messages first. */
@@ -967,7 +968,10 @@ get_message_from_queues()
         }
     } 
     assert(gl != NULL);
-    return (TSpeechDMessage *) gl->data;
+   
+    message = gl->data;
+    g_list_free(gl);
+    return message;
 }
 
 GList*
