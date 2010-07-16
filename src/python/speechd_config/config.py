@@ -928,5 +928,3 @@ or read the quick help available through '-h' or '--help'.""")
 
 if __name__ == "__main__":
     sys.exit(main())
-else:
-    main()
