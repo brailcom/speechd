@@ -349,6 +349,11 @@ speechd_connection_destroy(int fd)
 	if(fdset_element != NULL){
 		fdset_element->fd = -1;
 		fdset_element->active = 0;
+		/* TODO: WARNING: This eats up memmory, because we
+		   keep information about every client from the
+		   past. Perhaps we should abandon clients that
+		   are inactive longer than a certain time and have
+		   no message in the queue */
 	}else if(SPEECHD_DEBUG){
 	 	DIE("Can't find settings for this client\n");
 	}
