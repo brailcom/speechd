@@ -150,7 +150,7 @@ speak(void* data)
 		message = item->data;
 		check_locked(&element_free_mutex);
 		MessageQueue->p3 = g_list_insert_sorted(MessageQueue->p3, message, sortbyuid);
-		last_p5_block = g_list_remove_link(last_p5_block, item);
+		last_p5_block = g_list_remove(last_p5_block, item);
 	    }
 	    assert(message!=NULL);
             highest_priority = 3;
