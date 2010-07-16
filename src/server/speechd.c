@@ -307,7 +307,7 @@ speechd_connection_new(int server_socket)
         SpeechdStatus.num_fds *= 2;
     }
 
-    SpeechdSocket[client_socket].o_buf = g_string_new("");
+    SpeechdSocket[client_socket].o_buf = NULL;
     SpeechdSocket[client_socket].o_bytes = 0;
     SpeechdSocket[client_socket].awaiting_data = 0;
     SpeechdSocket[client_socket].inside_block = 0;
