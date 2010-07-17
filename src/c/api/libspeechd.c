@@ -69,7 +69,7 @@ static void* spd_events_handler(void*);
 
 pthread_mutex_t spd_logging_mutex;
 
-#if !(defined(__GLIBC__) || defined(_GNU_SOURCE))
+#if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
 /* Added by Willie Walker - strndup and getline are gcc-isms */
 char *strndup ( const char *s, size_t n)
 {
