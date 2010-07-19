@@ -40,6 +40,7 @@
 #include <glib.h>
 #include <errno.h>
 #include <assert.h>
+#include <netdb.h>
 
 #include "def.h"
 #include "libspeechd.h"
@@ -160,11 +161,9 @@ _get_default_unix_socket_name(void)
 SPDConnectionAddress*
 spd_get_default_address(char **error)
 {
-  char *env_address;
+  const gchar *env_address = g_getenv("SPEECHD_ADDRESS");
   gchar **pa; /* parsed address */
   SPDConnectionAddress *address = malloc(sizeof(SPDConnectionAddress));
-
-  env_address = g_getenv("SPEECHD_ADDRESS");
 
   if (env_address == NULL){ // Default method = unix sockets
     address->method = SPD_METHOD_UNIX_SOCKET;
@@ -241,6 +240,93 @@ spd_open(const char* client_name, const char* connection_name, const char* user_
   return conn;
 }
 
+#define MAX_IP_SIZE 16+1
+/* TODO: This only works in IPV4 */
+static char*
+resolve_host(char* host_name_or_ip, int *is_localhost, gchar **error)
+{
+    struct addrinfo *addr_result;
+    int i;
+    int err;
+    char *resolved_ip = malloc(MAX_IP_SIZE*sizeof(char));
+    char *ip;
+    *error = NULL;
+    struct sockaddr_in *addr_in;
+    
+    err = getaddrinfo(host_name_or_ip, 0, NULL, &addr_result);
+    if (err){
+	*error = g_strdup_printf("Can't resolve address %d due to error %s:",
+				 err, gai_strerror(err));
+	return NULL;
+    }
+    /* Take the first address returned as we are only interested in host ip */
+    addr_in = (struct sockaddr_in *) addr_result->ai_addr;
+    resolved_ip = inet_ntop(AF_INET, &(addr_in->sin_addr.s_addr), resolved_ip, MAX_IP_SIZE);
+    if (!strncmp(resolved_ip, "127.",4)){
+	*is_localhost = 1;
+	/* In case of local addresses, use 127.0.0.1 which is guaranteed
+	   to be local and the server listens on it */
+	xfree(resolved_ip);
+	ip = strdup("127.0.0.1");
+    }else{
+	*is_localhost = 0;
+	return ip = resolved_ip;
+    }
+    freeaddrinfo(addr_result);
+    return ip;
+}
+
+static int
+spawn_server(SPDConnectionAddress *address, int is_localhost, gchar **spawn_error)
+{
+    gchar **speechd_cmd = malloc(16*sizeof(char*));
+    gchar *stderr_output;
+    gboolean spawn_ok;
+    GError *gerror = NULL;
+    int exit_status;
+    int i;
+    char *resolved_ip;
+
+    if ((address->method==SPD_METHOD_INET_SOCKET) && (!is_localhost)){
+	*spawn_error = g_strdup("Spawn failed, the given network address doesn't seem to be on localhost");
+	return 1;
+    }
+
+    speechd_cmd[0] = g_strdup(SPD_SPAWN_CMD);
+    speechd_cmd[1] = g_strdup("--spawn");
+    speechd_cmd[2] = g_strdup("--communication-method");
+    if (address->method==SPD_METHOD_INET_SOCKET){
+	speechd_cmd[3] = g_strdup("inet_socket");
+	speechd_cmd[4] = g_strdup("--port");
+	speechd_cmd[5] = g_strdup_printf("%d",address->inet_socket_port);
+	speechd_cmd[6] = NULL;
+    }else if (address->method==SPD_METHOD_UNIX_SOCKET){
+	speechd_cmd[3] = g_strdup("unix_socket");
+	speechd_cmd[4] = g_strdup("--socket-path");
+	speechd_cmd[5] = g_strdup_printf("%s", address->unix_socket_name);
+	speechd_cmd[6] = NULL;
+    }else assert (0);
+    
+    spawn_ok = g_spawn_sync(NULL, (gchar**)speechd_cmd, NULL, G_SPAWN_SEARCH_PATH | G_SPAWN_STDOUT_TO_DEV_NULL,
+			    NULL, NULL, NULL, &stderr_output, &exit_status, &gerror);
+    for (i=0;speechd_cmd[i]!=NULL;i++)
+	g_free(speechd_cmd[i]);
+    if (!spawn_ok){
+	*spawn_error = g_strdup_printf("Autospawn failed. Spawn error %d: %s", gerror->code, gerror->message);
+	return 1;
+    }else{
+	if (exit_status){
+	    *spawn_error = g_strdup_printf("Autospawn failed. Speech Dispatcher refused to start with error code, " \
+					   "stating this as a reason: %s", stderr_output);
+	    return 1;
+	}else{
+	    *spawn_error = NULL;
+	    return 0;
+	}
+    }
+    assert(0);
+}
+
 SPDConnection*
 spd_open2(const char* client_name, const char* connection_name, const char* user_name,
 	  SPDConnectionMode mode, SPDConnectionAddress *address, int autospawn,
@@ -254,10 +340,18 @@ spd_open2(const char* client_name, const char* connection_name, const char* user
     char tcp_no_delay = 1;
 
     /* Autospawn related */
-    const char *pidof_speechd[] = { "pidof", "speech-dispatcher", NULL };    
-    gchar *speechd_pid = NULL;
     GError *error = NULL;
     gint exit_status;
+    int spawn_err;
+    gchar *spawn_report;
+    char *host_ip;
+    int is_localhost = 1;
+    
+    struct sockaddr_in address_inet;    
+    struct sockaddr_un address_unix;    
+    struct sockaddr *sock_address;
+    size_t sock_address_len;
+    gchar *resolve_error;
 
     _init_debug();
 
@@ -290,50 +384,60 @@ spd_open2(const char* client_name, const char* connection_name, const char* user
       }
     }
     
-    /* Autospawn -- check if Dispatcher is not running and if so, start it */
-    if (autospawn){
-      const char *speechd_cmd[] = { SPD_SPAWN_CMD, "--spawn", NULL};      
-      if (g_spawn_sync(NULL, (gchar**)pidof_speechd, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, &speechd_pid, NULL,
-		       &exit_status, &error) && strlen(speechd_pid) == 0){
-	g_spawn_sync(NULL, (gchar**)speechd_cmd, NULL, G_SPAWN_SEARCH_PATH | G_SPAWN_STDOUT_TO_DEV_NULL | G_SPAWN_STDERR_TO_DEV_NULL,
-		     NULL, NULL, NULL, NULL, &exit_status, &error);
-      }
-    }
-
     /* Connect to server using the selected method */
     connection = xmalloc(sizeof(SPDConnection));
     if (address->method==SPD_METHOD_INET_SOCKET){    
-      struct sockaddr_in address_inet;    
-      address_inet.sin_addr.s_addr = inet_addr(address->inet_socket_host);
-      address_inet.sin_port = htons(address->inet_socket_port);
-      address_inet.sin_family = AF_INET;
-      connection->socket = socket(AF_INET, SOCK_STREAM, 0);
-      ret = connect(connection->socket, (struct sockaddr *)&address_inet, sizeof(address_inet));
-      if (ret == -1){
-        *error_result = g_strdup_printf("Error: Can't connect to %s on port %d using inet sockets: %s", address->inet_socket_host,
-				 address->inet_socket_port, strerror(errno));
-	SPD_DBG(*error_result);
-        close(connection->socket);	
-	return NULL;
-      }
-      setsockopt(connection->socket, IPPROTO_TCP, TCP_NODELAY, &tcp_no_delay, sizeof(int));
+	host_ip = resolve_host(address->inet_socket_host, &is_localhost, &resolve_error);
+	if (host_ip == NULL){
+	    *error_result = strdup(resolve_error);
+	    g_free(resolve_error);
+	    return NULL;
+	}	
+	address_inet.sin_addr.s_addr = inet_addr(host_ip);
+	address_inet.sin_port = htons(address->inet_socket_port);
+	address_inet.sin_family = AF_INET;
+	connection->socket = socket(AF_INET, SOCK_STREAM, 0);
+	sock_address = (struct sockaddr*) &address_inet;
+	sock_address_len = sizeof(address_inet);
     }else if (address->method==SPD_METHOD_UNIX_SOCKET){
-      struct sockaddr_un address_unix;
       /* Create the unix socket */
       address_unix.sun_family = AF_UNIX;
       strncpy (address_unix.sun_path, address->unix_socket_name, sizeof (address_unix.sun_path));
       address_unix.sun_path[sizeof (address_unix.sun_path) - 1] = '\0';
       connection->socket = socket(AF_UNIX, SOCK_STREAM, 0);
-      ret = connect(connection->socket, (struct sockaddr *)&address_unix, SUN_LEN(&address_unix));
-      if (ret == -1){
-        *error_result = g_strdup_printf("Error: Can't connect to unix socket %s: %s", address->unix_socket_name, strerror(errno));
-	SPD_DBG(*error_result);
-        close(connection->socket);
-	return NULL;
-      }
-      /* Clean up */
+      sock_address = (struct sockaddr*) &address_unix;
+      sock_address_len = SUN_LEN(&address_unix);
     }else SPD_FATAL("Unsupported connection method for spd_open2()");
 
+    ret = connect(connection->socket, sock_address, sock_address_len);    
+    if (ret == -1){
+	/* Suppose server might not be running, try to autospawn (autostart) it */
+	if (autospawn){	
+	    spawn_err = spawn_server(address, is_localhost, &spawn_report);
+	    if (!spawn_err)
+		spawn_report = g_strdup("Server successfully autospawned");
+	    ret = connect(connection->socket, sock_address, sock_address_len);    
+	}else{
+	    spawn_report = g_strdup("Autospawn disabled");
+	}
+	if (ret == -1){
+	    if (address->method == SPD_METHOD_INET_SOCKET)
+		*error_result = g_strdup_printf("Error: Can't connect to %s on port %d using inet sockets: %s. " \
+						"Autospawn: %s", address->inet_socket_host,
+						address->inet_socket_port, strerror(errno), spawn_report);
+	    else if (address->method == SPD_METHOD_UNIX_SOCKET)
+		*error_result = g_strdup_printf("Error: Can't connect to unix socket %s: %s. Autospawn: %s",
+						address->unix_socket_name, strerror(errno), spawn_report);
+	    else assert (0);
+	    SPD_DBG(*error_result);
+	    close(connection->socket);	
+	    return NULL;
+	}
+    }
+
+    if (address->method == SPD_METHOD_INET_SOCKET)
+	setsockopt(connection->socket, IPPROTO_TCP, TCP_NODELAY, &tcp_no_delay, sizeof(int));
+    
     connection->callback_begin = NULL;
     connection->callback_end = NULL;
     connection->callback_im = NULL;
@@ -373,14 +477,10 @@ spd_open2(const char* client_name, const char* connection_name, const char* user
     }
 
     /* By now, the connection is created and operational */
-
     set_client_name = g_strdup_printf("SET SELF CLIENT_NAME \"%s:%s:%s\"", usr_name,
 				      client_name, conn_name);
-
     ret = spd_execute_command_wo_mutex(connection, set_client_name);   
-
     xfree(usr_name);  xfree(conn_name);  xfree(set_client_name);
-
     return connection;
 }
 
