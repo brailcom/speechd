@@ -5,3 +5,6 @@
 
 import speechd_config
 
+if __name__=='__main__':
+    import sys
+    sys.exit(speechd_config.main())
