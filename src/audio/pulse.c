@@ -88,7 +88,14 @@ static int _pulse_open(AudioID * id, int sample_rate, int num_channels,
   ss.rate = sample_rate;
   ss.channels = num_channels;
   if(bytes_per_sample == 2) {
-    ss.format = PA_SAMPLE_S16LE;
+      switch (spd_audio_endian) {
+        case SPD_AUDIO_LE:
+	  ss.format = PA_SAMPLE_S16LE;
+	  break;
+        case SPD_AUDIO_BE:
+	  ss.format = PA_SAMPLE_S16BE;
+	  break;
+      }
   } else {
     ss.format = PA_SAMPLE_U8;
   }
