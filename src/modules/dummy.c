@@ -35,7 +35,7 @@
 #define MODULE_NAME     "dummy"
 #define MODULE_VERSION  "0.1"
 
-#define Debug 1
+//#define Debug 0
 
 #if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
 /* Added by Willie Walker - getline is a gcc-ism */
