@@ -194,7 +194,7 @@ TSpeechdSock *SpeechdSocket;
 /* Debugging */
 void MSG(int level, char *format, ...);
 void MSG2(int level, char* kind, char *format, ...);
-#define FATAL(msg) { fatal_error(); MSG(0,"Fatal error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
+#define FATAL(msg) { fatal_error(); MSG(-1,"Fatal error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
 #define DIE(msg) { MSG(0,"Error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); }
 
 FILE *logfile;

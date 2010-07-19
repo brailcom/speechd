@@ -719,13 +719,13 @@ create_pid_file()
         /* If there is a lock, exit, otherwise remove the old file */
         ret = fcntl(pid_fd, F_GETLK, &lock);
         if (ret == -1){
-            MSG(1, "Can't check lock status of an existing pid file.\n");
+            MSG(-1, "Can't check lock status of an existing pid file.\n");
             return -1;
         }
 
         fclose(pid_file);
         if (lock.l_type != F_UNLCK){
-            MSG(2, "Speech Dispatcher already running.\n");
+            MSG(-1, "Speech Dispatcher already running.\n");
             return -1;
         }
 
@@ -735,7 +735,7 @@ create_pid_file()
     /* Create a new pid file and lock it */
     pid_file = fopen(SpeechdOptions.pid_file, "w");
     if (pid_file == NULL){
-        MSG(1, "Can't create pid file in %s, wrong permissions?\n",
+        MSG(-1, "Can't create pid file in %s, wrong permissions?\n",
 	    SpeechdOptions.pid_file);
         return -1;
     }
@@ -750,7 +750,7 @@ create_pid_file()
 
     ret = fcntl(pid_fd, F_SETLK, &lock);
     if (ret == -1){
-        MSG(1, "Can't set lock on pid file.\n");
+        MSG(-1, "Can't set lock on pid file.\n");
         return -1;
     }
 
@@ -855,7 +855,7 @@ make_inet_socket(const int port)
   MSG(3,"Openning inet socket connection");
   if (bind(server_socket, (struct sockaddr *)&server_address,
 	   sizeof(server_address)) == -1){
-    MSG(1, "bind() failed: %s", strerror(errno));
+    MSG(-1, "bind() failed: %s", strerror(errno));
     FATAL("Couldn't open inet socket, try a few minutes later.");
   }
 
