@@ -35,7 +35,7 @@
  * are gcc-isms
  */
 ssize_t getline (char **lineptr, size_t *n, FILE *f);
-#endif /* !(defined(__GLIBC__) || defined(_GNU_SOURCE)) */
+#endif
 
 void
 destroy_module(OutputModule *module)

@@ -75,7 +75,7 @@ ssize_t getline (char **lineptr, size_t *n, FILE *f)
                 return m;
         }
 }
-#endif /* !(defined(__GLIBC__) || defined(_GNU_SOURCE)) */
+#endif /* !(defined(__GLIBC__) && defined(_GNU_SOURCE)) */
 
 void*
 xmalloc(size_t size)
