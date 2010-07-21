@@ -103,9 +103,9 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
     MSG(2,"Initializing output module %s with binary %s and configuration %s",
         module->name, module->filename, module->configfilename);    
     if (module->stderr_redirect >= 0)
-	MSG(2,"Output module is logging to file %s", module->debugfilename);    
+	MSG(3,"Output module is logging to file %s", module->debugfilename);    
     else
-	MSG(2,"Output module is logging to standard error output (stderr)");    
+	MSG(3,"Output module is logging to standard error output (stderr)");    
 
 
     fr = fork();

@@ -444,12 +444,12 @@ speaking_pause(int fd, int uid)
     TFDSetElement *settings;
     int ret;
 
-    MSG(3, "Pause");
+    MSG(4, "Pause");
 
     /* Find settings for this particular client */
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL){
-	MSG(3, "ERROR: Can't get settings of active client in speaking_pause()!");
+	MSG(4, "ERROR: Can't get settings of active client in speaking_pause()!");
 	return 1;
     }
     settings->paused = 1;

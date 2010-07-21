@@ -51,7 +51,7 @@ history_get_client_list()
     clist = g_string_new("");
 
     for(i=1; i<=SpeechdStatus.max_uid; i++){
-        MSG(3,"Getting settings for client %d of %d", i, SpeechdStatus.max_uid-1);
+        MSG(4,"Getting settings for client %d of %d", i, SpeechdStatus.max_uid-1);
         client = get_client_settings_by_uid(i);
         assert(client!=NULL);
         g_string_append_printf(clist, C_OK_CLIENTS"-");

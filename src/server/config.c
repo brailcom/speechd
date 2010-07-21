@@ -323,7 +323,7 @@ DOTCONF_CB(cb_BeginClient)
     cl_spec->pattern = spd_strdup(cmd->data.str);
     cl_spec_section = cl_spec;
 
-    MSG(3, "Reading configuration for pattern %s", cl_spec->pattern);
+    MSG(4, "Reading configuration for pattern %s", cl_spec->pattern);
 
     /*  Warning: If you modify this, you must also modify update_cl_settings() in set.c !*/
     SET_PAR(rate, -101)

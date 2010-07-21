@@ -360,7 +360,7 @@ speechd_connection_destroy(int fd)
 
 	MSG(4,"Removing client from the fd->uid table.");
 	g_hash_table_remove(fd_uid, &fd);
-		
+
         SpeechdSocket[fd].awaiting_data = 0;
         SpeechdSocket[fd].inside_block = 0;
 	if (SpeechdSocket[fd].o_buf != NULL)
@@ -371,11 +371,11 @@ speechd_connection_destroy(int fd)
 	if(close(fd) != 0)
 		if(SPEECHD_DEBUG)
                     DIE("Can't close file descriptor associated to this client");
-	   	
+
 	FD_CLR(fd, &readfds);
 	if (fd == SpeechdStatus.max_fd) SpeechdStatus.max_fd--;
 
-        MSG(3,"Connection closed");
+        MSG(4,"Connection closed");
 
 	return 0;
 }
@@ -393,7 +393,7 @@ speechd_client_terminate(gpointer key, gpointer value, gpointer user)
 	}	
 
 	if(set->fd>0){
-		MSG(4,"Closing connection on fd %d\n", set->fd);
+	        MSG(4,"Closing connection on fd %d\n", set->fd);
 		speechd_connection_destroy(set->fd);
 	}
 	mem_free_fdset(set);
@@ -685,7 +685,7 @@ speechd_quit(int sig)
 	MSG(2, "close() failed: %s", strerror(errno));
     FD_CLR(server_socket, &readfds);  
     
-    MSG(3, "Removing pid file");
+    MSG(4, "Removing pid file");
     destroy_pid_file();
     
     fflush(NULL);
@@ -779,7 +779,7 @@ logging_init(void)
 	      file_name);
       logfile = stdout;
     } else {
-      MSG(2,"Speech Dispatcher Logging to file %s", file_name);
+      MSG(3,"Speech Dispatcher Logging to file %s", file_name);
     }
   }
 
@@ -816,7 +816,7 @@ make_local_socket (const char *filename)
   }
 
   if (listen(sock, 50) == -1){
-    MSG(2,"ERRNO:%s", strerror(errno));
+    MSG(2,"listen failed: ERRNO:%s", strerror(errno));
     FATAL("listen() failed for local socket");
   }
 
@@ -852,7 +852,7 @@ make_inet_socket(const int port)
   
   server_address.sin_port = htons(port);
 
-  MSG(3,"Openning inet socket connection");
+  MSG(4,"Openning inet socket connection");
   if (bind(server_socket, (struct sockaddr *)&server_address,
 	   sizeof(server_address)) == -1){
     MSG(-1, "bind() failed: %s", strerror(errno));
@@ -1064,13 +1064,13 @@ main(int argc, char *argv[])
     }
 
     if(!strcmp(SpeechdOptions.communication_method, "inet_socket")){
-      MSG(2, "Speech Dispatcher will use inet port %d", SpeechdOptions.port);
+      MSG(4, "Speech Dispatcher will use inet port %d", SpeechdOptions.port);
       /* Connect and start listening on inet socket */
       server_socket = make_inet_socket(SpeechdOptions.port);
     }else if (!strcmp(SpeechdOptions.communication_method, "unix_socket")){
       /* Determine appropariate socket file name */
       GString *socket_filename;
-      MSG(2, "Speech Dispatcher will use local unix socket: %s", SpeechdOptions.socket_path);
+      MSG(4, "Speech Dispatcher will use local unix socket: %s", SpeechdOptions.socket_path);
       /* Delete an old socket file if it exists */
       if (g_file_test(SpeechdOptions.socket_path, G_FILE_TEST_EXISTS))
 	  if (g_unlink(SpeechdOptions.socket_path) == -1)

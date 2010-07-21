@@ -161,8 +161,8 @@ parse(const char *buf, const int bytes, const int fd)
 	    /* Check buffer for proper UTF-8 encoding */
 	    if (!g_utf8_validate(SpeechdSocket[fd].o_buf->str, SpeechdSocket[fd].o_bytes, NULL))
 	      {
-		MSG(3, "ERROR: Invalid character encoding on input (failed UTF-8 validation)");
-		MSG(3, "Rejecting this message.");
+		MSG(4, "ERROR: Invalid character encoding on input (failed UTF-8 validation)");
+		MSG(4, "Rejecting this message.");
 		return strdup(ERR_INVALID_ENCODING);
 	      }
 
@@ -219,7 +219,7 @@ parse(const char *buf, const int bytes, const int fd)
 
 #define CHECK_PARAM(param) \
     if (param == NULL){ \
-       MSG(3, "Missing parameter from client"); \
+       MSG(4, "Missing parameter from client"); \
        return strdup(ERR_MISSING_PARAMETER); \
     } 
 
@@ -759,8 +759,8 @@ parse_general_event(const char *buf, const int bytes, const int fd, EMessageType
     /* Check buffer for proper UTF-8 encoding */
     if (!g_utf8_validate(buf, bytes, NULL))
       {
-	MSG(3, "ERROR: Invalid character encoding on event input (failed UTF-8 validation)");
-	MSG(3, "Rejecting this event (char/key/sound_icon).");
+	MSG(4, "ERROR: Invalid character encoding on event input (failed UTF-8 validation)");
+	MSG(4, "Rejecting this event (char/key/sound_icon).");
 	return strdup(ERR_INVALID_ENCODING);
       }
 

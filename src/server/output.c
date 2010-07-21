@@ -774,13 +774,13 @@ output_close(OutputModule *module)
     MSG(4, "Waiting for module pid %d", module->pid);
     ret = waitpid_with_timeout(module->pid, NULL, 0, 1000); 
     if (ret > 0){
-	MSG(3, "Ok, closed succesfully.");
+	MSG(4, "Ok, module closed succesfully.");
     }else if (ret == 0){
 	int ret2;
 	MSG(1, "ERROR: Timed out when waiting for child cancelation");
 	MSG(3, "Killing the module");
 	kill(module->pid, SIGKILL);
-	MSG(3, "Waiting until the child terminates.");
+	MSG(4, "Waiting until the child terminates.");
 	ret2 = waitpid_with_timeout(module->pid, NULL, 0, 1000);
 	if (ret2 > 0){
 	    MSG(3, "Module terminated");
@@ -806,7 +806,7 @@ output_check_module(OutputModule* output)
 
     if(output == NULL) return -1;
 
-    MSG(3, "Output module working status: %d (pid:%d)", output->working, output->pid);
+    MSG(4, "Output module working status: %d (pid:%d)", output->working, output->pid);
 
     if (output->working == 0){
         /* Investigate on why it crashed */

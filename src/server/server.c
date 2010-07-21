@@ -203,7 +203,7 @@ server_data_on(int fd)
     return 0;
 }
 
-/* Switch data mode of for the particular client. */
+/* Switch data mode off for the particular client. */
 void
 server_data_off(int fd)
 {
