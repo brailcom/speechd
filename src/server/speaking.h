@@ -80,16 +80,15 @@ gint message_nto_speak (gconstpointer, gconstpointer);
 
 void set_speak_thread_attributes();
 
-
 /* Do priority interaction */
 void resolve_priorities(int priority);
-
 
 /* Queue interaction helper functions */
 TSpeechDMessage* get_message_from_queues();
 GList* speaking_get_queue(int priority);
 void speaking_set_queue(int priority, GList *queue);
 gint sortbyuid (gconstpointer a,  gconstpointer b);
+int client_has_messages(int uid);
 
 /* Get the unique id of the client who is speaking
  * on some output module */

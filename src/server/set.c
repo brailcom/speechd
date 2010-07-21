@@ -461,6 +461,8 @@ default_fd_set(void)
 	new->paused = 0;
 
 	/* Fill with the global settings values */
+	/* We can't use global_fdset copy as this
+	   returns static structure and we need dynamic */
 	new->priority = GlobalFDSet.priority;
 	new->punctuation_mode = GlobalFDSet.punctuation_mode;
 	new->rate = GlobalFDSet.rate;
@@ -469,10 +471,17 @@ default_fd_set(void)
 	new->language = spd_strdup(GlobalFDSet.language);
 	new->output_module = spd_strdup(GlobalFDSet.output_module);
 	new->client_name = spd_strdup(GlobalFDSet.client_name); 
+	new->index_mark = spd_strdup(GlobalFDSet.index_mark);
+	new->audio_output_method = spd_strdup(GlobalFDSet.audio_output_method);
+	new->audio_oss_device = spd_strdup(GlobalFDSet.audio_oss_device);
+	new->audio_alsa_device = spd_strdup(GlobalFDSet.audio_alsa_device);
+	new->audio_nas_server = spd_strdup(GlobalFDSet.audio_nas_server);
+	new->audio_pulse_server = spd_strdup(GlobalFDSet.audio_pulse_server);
+
 	new->voice = GlobalFDSet.voice;
 	new->synthesis_voice = NULL;
 	new->spelling_mode = GlobalFDSet.spelling_mode;         
-	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;      
+	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;             
 
         new->pause_context = GlobalFDSet.pause_context;
 	new->ssml_mode = GlobalFDSet.ssml_mode;
@@ -508,7 +517,7 @@ get_client_settings_by_fd(int fd)
     if (uid == 0) return NULL;
 
     settings = g_hash_table_lookup(fd_settings, &uid);
-    return settings;	
+    return settings;
 }
 
 TFDSetElement*
@@ -519,6 +528,20 @@ get_client_settings_by_uid(int uid){
 	
 	element = g_hash_table_lookup(fd_settings, &uid);
 	return element;	
+}
+
+void
+remove_client_settings_by_uid(int uid){
+    TFDSetElement* element;    
+    assert(uid>0);    
+    element = (TFDSetElement*) g_hash_table_lookup(fd_settings, &uid);
+    if (!element){
+	mem_free_fdset(element);
+	g_hash_table_remove(fd_settings, &uid);
+	g_free(element);
+    }else{
+	MSG(5, "Warning: FDSet element to be removed not found");
+    }
 }
 
 void

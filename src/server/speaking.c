@@ -139,10 +139,8 @@ speak(void* data)
        MSG(5, "Locking element_free_mutex in speak()");
        pthread_mutex_lock(&element_free_mutex);
         /* Handle postponed priority progress message */
-       
        check_locked(&element_free_mutex);
-
-        if ((g_list_length(last_p5_block) != 0) && (g_list_length(MessageQueue->p5) == 0)){      
+       if ((g_list_length(last_p5_block) != 0) && (g_list_length(MessageQueue->p5) == 0)){      
 	    /* Transfer messages from last_p5_block to priority 3 (message) queue*/
 	    while (g_list_length(last_p5_block) != 0){
 		GList* item;
@@ -210,11 +208,22 @@ speak(void* data)
 
         /* Set the id of the client who is speaking. */
         speaking_uid = message->settings.uid;
-	if (current_message != NULL)
-	    if (!current_message->settings.paused_while_speaking)
+	if (current_message != NULL){
+	    if (!current_message->settings.paused_while_speaking){
+		/* Check if the client who emited this message is disconnected
+		   by now and this was his last message. If so, delete it's settings
+		   from fdset */
+		if (get_client_settings_by_uid(message->settings.uid)->active == 0){
+		    if (!client_has_messages(message->settings.uid)){
+			MSG(4, "Removing client settings for uid %d", current_message->settings.uid);
+			remove_client_settings_by_uid(current_message->settings.uid);
+		    }
+		}
 		mem_free_message(current_message);
+	    }	
+	}
         current_message = message;
-
+	
         /* Check if the last priority 5 message wasn't said yet */
         if (last_p5_block != NULL){
 	    GList *elem;
@@ -973,6 +982,30 @@ get_message_from_queues()
     message = gl->data;
     g_list_free(gl);
     return message;
+}
+
+gint
+message_has_uid(gconstpointer msg, gconstpointer uid)
+{
+    if (((TSpeechDMessage*) msg)->settings.uid == *(int*)uid)
+	return 0;
+    else
+	return 1;
+}
+
+/* Return 1 if any message from this client is found
+   in any of the queues, otherwise return 0 */    
+int
+client_has_messages(int uid){
+    
+    if (g_list_find_custom(MessageQueue->p5, (gconstpointer) &uid, message_has_uid) ||
+	g_list_find_custom(MessageQueue->p4, (gconstpointer) &uid, message_has_uid) ||
+	g_list_find_custom(MessageQueue->p3, (gconstpointer) &uid, message_has_uid) ||
+	g_list_find_custom(MessageQueue->p2, (gconstpointer) &uid, message_has_uid) ||
+	g_list_find_custom(MessageQueue->p1, (gconstpointer) &uid, message_has_uid))
+	return 1;
+    else
+	return 0;       
 }
 
 GList*

@@ -30,6 +30,7 @@
 
 TFDSetElement* get_client_settings_by_uid(int uid);
 TFDSetElement* get_client_settings_by_fd(int fd);
+void remove_client_settings_by_uid(int uid);
 int get_client_uid_by_fd(int fd);
 
 int set_priority_uid(int uid, int priority);

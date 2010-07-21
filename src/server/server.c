@@ -98,6 +98,13 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
 	COPY_SET_STR(language);
 	COPY_SET_STR(synthesis_voice);
 
+	COPY_SET_STR(index_mark);
+	COPY_SET_STR(audio_output_method);
+	COPY_SET_STR(audio_oss_device);
+	COPY_SET_STR(audio_alsa_device);
+	COPY_SET_STR(audio_nas_server);
+	COPY_SET_STR(audio_pulse_server);
+
 	/* And we set the global id (note that this is really global, not
 	 * depending on the particular client, but unique) */
 	last_message_id++;				
