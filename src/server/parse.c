@@ -228,7 +228,10 @@ parse(const char *buf, const int bytes, const int fd)
        char *helper; \
        helper = get_param(buf, pos, bytes, 0); \
        CHECK_PARAM(helper); \
-       if (!isanum(helper)) return strdup(ERR_NOT_A_NUMBER); \
+       if (!isanum(helper)){ \
+	   spd_free(helper); \
+	   return strdup(ERR_NOT_A_NUMBER); \
+       } \
        name = atoi(helper); \
        spd_free(helper); \
    }
@@ -265,18 +268,19 @@ parse_history(const char *buf, const int bytes, const int fd)
         else if (TEST_CMD(hist_get_sub, "client_messages")){
             int start, num;
             char *who;
+	    int who_id;
 
             /* TODO: This needs to be (sim || am)-plified */
             who = get_param(buf,3,bytes, 1);
             CHECK_PARAM(who);
             if (!strcmp(who, "self")) return strdup(ERR_NOT_IMPLEMENTED);
-            if (!strcmp(who, "all")) return strdup(ERR_NOT_IMPLEMENTED);                          
-            if (!isanum(who)) return strdup(ERR_NOT_A_NUMBER);
-            
+            if (!strcmp(who, "all")) return strdup(ERR_NOT_IMPLEMENTED);                         
+            if (!isanum(who)) return strdup(ERR_NOT_A_NUMBER);           
+	    who_id = atoi(who);
+	    spd_free(who);	    
             GET_PARAM_INT(start, 4);
             GET_PARAM_INT(num, 5);
-
-            return (char*) history_get_message_list(atoi(who), start, num);
+            return (char*) history_get_message_list(who_id, start, num);
         }  
         else if (TEST_CMD(hist_get_sub, "last")){
             return (char*) history_get_last(fd);
@@ -564,7 +568,7 @@ parse_set(const char *buf, const int bytes, const int fd)
     else SSIP_ON_OFF_PARAM(ssml_mode,
 	    OK_SSML_MODE_SET, ERR_COULDNT_SET_SSML_MODE,
 	    ALLOWED_INSIDE_BLOCK())
-      else SSIP_ON_OFF_PARAM(debug, g_strdup_printf("262-%s\r\n"OK_DEBUGGING, SpeechdOptions.debug_destination),
+    else SSIP_ON_OFF_PARAM(debug, g_strdup_printf("262-%s\r\n"OK_DEBUGGING, SpeechdOptions.debug_destination),
             ERR_COULDNT_SET_DEBUGGING, ;)
     else if (TEST_CMD(set_sub, "notification")){
 	char *scope;
@@ -578,7 +582,7 @@ parse_set(const char *buf, const int bytes, const int fd)
 
         if(TEST_CMD(par_s,"on")) par = 1;
         else if(TEST_CMD(par_s,"off")) par = 0;        
-        else{
+        else{	    
             spd_free(par_s);
             return strdup(ERR_PARAMETER_INVALID);
         }
@@ -590,6 +594,7 @@ parse_set(const char *buf, const int bytes, const int fd)
         return strdup(OK_NOTIFICATION_SET);
     }
     else{
+	spd_free(set_sub);
         return strdup(ERR_PARAMETER_INVALID);
     }
 
@@ -980,9 +985,12 @@ parse_block(const char *buf, const int bytes, const int fd)
             return strdup(OK_OUTSIDE_BLOCK);
         }else{
             return strdup(ERR_ALREADY_OUTSIDE_BLOCK);
-        }        
+        }
     }
-    else return strdup(ERR_PARAMETER_INVALID);
+    else{
+	spd_free(cmd_main);
+	return strdup(ERR_PARAMETER_INVALID);
+    }
 }
    
 /*

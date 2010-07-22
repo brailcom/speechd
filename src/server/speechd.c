@@ -284,7 +284,7 @@ speechd_connection_new(int server_socket)
     struct sockaddr_in client_address;
     unsigned int client_len = sizeof(client_address);
     int client_socket;
-    int *p_client_socket, *p_client_uid;
+    int *p_client_socket, *p_client_uid, *p_client_uid2;
 
     client_socket = accept(server_socket, (struct sockaddr *)&client_address,
                            &client_len);
@@ -324,12 +324,13 @@ speechd_connection_new(int server_socket)
     new_fd_set->uid = ++SpeechdStatus.max_uid;
     p_client_socket = (int*) spd_malloc(sizeof(int));
     p_client_uid = (int*) spd_malloc(sizeof(int));
+    p_client_uid2 = (int*) spd_malloc(sizeof(int));
     *p_client_socket = client_socket;
     *p_client_uid = SpeechdStatus.max_uid;
+    *p_client_uid2 = SpeechdStatus.max_uid;
 
     g_hash_table_insert(fd_settings, p_client_uid, new_fd_set);
-
-    g_hash_table_insert(fd_uid, p_client_socket, p_client_uid);
+    g_hash_table_insert(fd_uid, p_client_socket, p_client_uid2);
 		
 
     MSG(4,"Data structures for client on fd %d created", client_socket);
@@ -357,6 +358,7 @@ speechd_connection_destroy(int fd)
 	}
 
 	MSG(4,"Removing client from the fd->uid table.");
+
 	g_hash_table_remove(fd_uid, &fd);
 
         SpeechdSocket[fd].awaiting_data = 0;
@@ -542,10 +544,14 @@ speechd_init()
     output_modules_list = NULL;
 
     /* Initialize hash tables */
-    fd_settings = g_hash_table_new(g_int_hash,g_int_equal);
+    fd_settings = g_hash_table_new_full(g_int_hash, g_int_equal,
+					(GDestroyNotify) spd_free,
+					NULL);
     assert(fd_settings != NULL);
 
-    fd_uid = g_hash_table_new(g_str_hash, g_str_equal);
+    fd_uid = g_hash_table_new_full(g_str_hash, g_str_equal,
+				   (GDestroyNotify) spd_free,
+				   (GDestroyNotify) spd_free);
     assert(fd_uid != NULL);
 
     language_default_modules = g_hash_table_new(g_str_hash, g_str_equal);
