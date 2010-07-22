@@ -395,6 +395,7 @@ speechd_client_terminate(gpointer key, gpointer value, gpointer user)
 		speechd_connection_destroy(set->fd);
 	}
 	mem_free_fdset(set);
+	spd_free(set);
 	return TRUE;
 }
 

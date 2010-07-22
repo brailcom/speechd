@@ -535,7 +535,7 @@ remove_client_settings_by_uid(int uid){
     TFDSetElement* element;    
     assert(uid>0);    
     element = (TFDSetElement*) g_hash_table_lookup(fd_settings, &uid);
-    if (!element){
+    if (element){
 	mem_free_fdset(element);
 	g_hash_table_remove(fd_settings, &uid);
 	g_free(element);
