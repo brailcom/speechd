@@ -229,8 +229,8 @@ DefaultVolume 100
 
 AddModule "espeak"       "sd_espeak"   "espeak.conf"
 AddModule "festival"     "sd_festival"  "festival.conf"
-AddModule "flite"        "sd_flite"     "flite.conf"
-AddModule "ivona"	 "sd_ivona"    "ivona.conf"
+#AddModule "flite"        "sd_flite"     "flite.conf"
+#AddModule "ivona"	 "sd_ivona"    "ivona.conf"
 #AddModule "espeak-generic" "sd_generic" "espeak-generic.conf"
 #AddModule "espeak-mbrola-generic" "sd_generic" "espeak-mbrola-generic.conf"
 #AddModule "swift-generic" "sd_generic" "swift-generic.conf"
