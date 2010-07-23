@@ -428,6 +428,17 @@ class PunctuationMode(object):
 
     """
 
+class DataMode(object):
+    """Constants specifying the type of data contained within messages
+    to be spoken.
+
+    """
+    TEXT = 'text'
+    """Data is plain text."""
+    SSML = 'ssml'
+    """Data is SSML (Speech Synthesis Markup Language)."""
+
+
 class SSIPClient(object):
     """Basic Speech Dispatcher client interface.
 
@@ -644,9 +655,6 @@ class SSIPClient(object):
 
             server = subprocess.Popen([paths.SPD_SPAWN_CMD, "--spawn"]+connection_params,
                                       stdin=None, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            #TODO: When logging will be implemented in this library, it will be very
-            #desirable to read the stdout output and log it because it contains valuable
-            #information on the result of the autospawn and the reason for it
             stdout_reply, stderr_reply = server.communicate()
             retcode = server.wait()
             if retcode != 0:
@@ -667,6 +675,20 @@ class SSIPClient(object):
                             Priority.TEXT, Priority.NOTIFICATION,
                             Priority.PROGRESS), priority
         self._conn.send_command('SET', Scope.SELF, 'PRIORITY', priority)
+
+    def set_data_mode(self, value):
+        """Set the data mode for further speech commands.
+
+        Arguments:
+          value - one of the constants defined by the DataMode class.
+
+        """
+        assert value in (DataMode.TEXT, DataMode.SSML)
+        if value == DataMode.SSML:
+            ssip_val = 'on'
+        else value == DataMode.TEXT:
+            ssip_val = 'off'
+        self._conn.send_command('SET', Scope.SELF, 'SSML_MODE', ssip_val)
 
     def speak(self, text, callback=None, event_types=None):
         """Say given message.
