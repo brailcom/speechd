@@ -73,6 +73,14 @@ int libao_play (AudioID * id, AudioTrack track);
 
 int libao_set_volume (AudioID * id, int volume);
 
+/* AO_FORMAT_INITIALIZER is an ao_sample_format structure with zero values
+   in all of its fields.  We can guarantee that the fields of a
+   stack-allocated ao_sample_format are zeroed by assigning
+   AO_FORMAT_INITIALIZER to it.
+   This is the most portable way to initialize a stack-allocated struct to
+   zero. */
+static ao_sample_format AO_FORMAT_INITIALIZER;
+
 static volatile int ao_stop_playback = 0;
 
 static int default_driver;
@@ -99,7 +107,7 @@ int libao_play (AudioID * id, AudioTrack track)
 
   int i;
 
-  ao_sample_format format;
+  ao_sample_format format = AO_FORMAT_INITIALIZER;
 
   if (id == NULL)
     return -1;
