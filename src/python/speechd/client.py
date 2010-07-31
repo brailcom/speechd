@@ -1025,6 +1025,7 @@ class SSIPClient(object):
         """Close the connection to Speech Dispatcher."""
         if hasattr(self, '_conn'):
             self._conn.close()
+            del self._conn
 
 
 class Client(SSIPClient):
