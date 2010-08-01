@@ -213,8 +213,14 @@ speak(void* data)
 		/* Check if the client who emited this message is disconnected
 		   by now and this was his last message. If so, delete it's settings
 		   from fdset */
-		if (get_client_settings_by_uid(message->settings.uid)->active == 0){
-		    if (!client_has_messages(message->settings.uid)){
+		if (get_client_settings_by_uid(current_message->settings.uid)->active == 0){
+		  if (!client_has_messages(current_message->settings.uid)
+		      && (current_message->settings.uid != message->settings.uid)){
+			/* client_has_messages does not account for message,
+			   which was just retrieved from the queue.
+			   We also have to compare the uids of message
+			   and current_message to be sure that there are
+			   no outstanding messages. */
 			MSG(4, "Removing client settings for uid %d", current_message->settings.uid);
 			remove_client_settings_by_uid(current_message->settings.uid);
 		    }
