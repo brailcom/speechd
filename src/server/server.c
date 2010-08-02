@@ -202,10 +202,12 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
 int
 server_data_on(int fd)
 {
+    TSpeechDSock *speechd_socket = speechd_socket_get_by_fd(fd);
+    assert(speechd_socket);
     /* Mark this client as ,,sending data'' */
-    SpeechdSocket[fd].awaiting_data = 1;
+    speechd_socket->awaiting_data = 1;
     /* Create new output buffer */
-    SpeechdSocket[fd].o_buf = g_string_new("");
+    speechd_socket->o_buf = g_string_new("");
     MSG(4, "Switching to data mode...");
     return 0;
 }
@@ -214,11 +216,12 @@ server_data_on(int fd)
 void
 server_data_off(int fd)
 {
-    assert(SpeechdSocket[fd].o_buf != NULL);
-
-    SpeechdSocket[fd].o_bytes = 0;
-    g_string_free(SpeechdSocket[fd].o_buf,1);
-    SpeechdSocket[fd].o_buf = NULL;
+    TSpeechDSock *speechd_socket = speechd_socket_get_by_fd(fd);
+    assert(speechd_socket);
+    assert(speechd_socket->o_buf);
+    speechd_socket->o_bytes = 0;
+    g_string_free(speechd_socket->o_buf,1);
+    speechd_socket->o_buf = NULL;
 }
 
 /* Serve the client on _fd_ if we got some activity. */

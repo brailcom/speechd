@@ -71,7 +71,6 @@ union semun {
 #include "def.h"
 #include "fdset.h"
 #include "module.h"
-#include "parse.h"
 #include "compare.h"
 
 /* Size of the buffer for socket communication */
@@ -132,7 +131,6 @@ struct{
     int max_uid;		/* The largest assigned uid + 1 */
     int max_gid;		/* The largest assigned gid + 1 */
     int max_fd;
-    int num_fds;		/* Number of available allocated sockets */
 }SpeechdStatus;
 
 /* speak() thread defined in speaking.c */
@@ -181,15 +179,22 @@ fd_set readfds;
 /* Inter thread comm pipe */
 int speaking_pipe[2];
 
-/* Arrays needed for receiving data over socket */
+
+/* Managing sockets communication */
+GHashTable *speechd_sockets_status;
 typedef struct{
     int awaiting_data;
     int inside_block;
     size_t o_bytes;
     GString *o_buf;
-}TSpeechdSock;
+}TSpeechDSock;
+int speechd_sockets_status_init(void);
+int speechd_socket_register(int fd);
+void speechd_socket_free(TSpeechDSock* speechd_socket);
+int speechd_socket_unregister(int fd);
+TSpeechDSock* speechd_socket_get_by_fd(int fd);
 
-TSpeechdSock *SpeechdSocket;
+#include "parse.h"
 
 /* Debugging */
 void MSG(int level, char *format, ...);
