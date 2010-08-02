@@ -383,6 +383,39 @@ class _SSIP_Connection(object):
         """
         self._callback = callback
 
+class _CallbackHandler(object):
+    """Internal object which handles callbacks."""
+
+    def __init__(self, client_id):
+        self._client_id = client_id
+        self._callbacks = {}
+        self._lock = threading.Lock()
+
+    def __call__(self, msg_id, client_id, type, **kwargs):
+        if client_id != self._client_id:
+            # TODO: does that ever happen?
+            return
+        self._lock.acquire()
+        try:
+            try:
+                callback, event_types = self._callbacks[msg_id]
+            except KeyError:
+                pass
+            else:
+                if event_types is None or type in event_types:
+                    callback(type, **kwargs)
+                if type in (CallbackType.END, CallbackType.CANCEL):
+                    del self._callbacks[msg_id]
+        finally:
+            self._lock.release()
+
+    def add_callback(self, msg_id,  callback, event_types):
+        self._lock.acquire()
+        try:
+            self._callbacks[msg_id] = (callback, event_types)
+        finally:
+            self._lock.release()
+
 class Scope(object):
     """An enumeration of valid SSIP command scopes.
 
@@ -563,8 +596,7 @@ class SSIPClient(object):
         self._conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
         code, msg, data = self._conn.send_command('HISTORY', 'GET', 'CLIENT_ID')
         self._client_id = int(data[0])
-        self._lock = threading.Lock()
-        self._callbacks = {}
+        self._callback_handler = _CallbackHandler(self._client_id)
         self._conn.set_callback(self._callback_handler)
         for event in (CallbackType.INDEX_MARK,
                       CallbackType.BEGIN,
@@ -604,24 +636,6 @@ class SSIPClient(object):
     def __del__(self):
         """Close the connection"""
         self.close()
-
-    def _callback_handler(self, msg_id, client_id, type, **kwargs):
-        if client_id != self._client_id:
-            # TODO: does that ever happen?
-            return
-        self._lock.acquire()
-        try:
-            try:
-                callback, event_types = self._callbacks[msg_id]
-            except KeyError:
-                pass
-            else:
-                if event_types is None or type in event_types:
-                    callback(type, **kwargs)
-                if type in (CallbackType.END, CallbackType.CANCEL):
-                    del self._callbacks[msg_id]
-        finally:
-            self._lock.release()
 
     def _server_spawn(self, connection_args):
         """Attempts to spawn the speech-dispatcher server."""
@@ -726,13 +740,9 @@ class SSIPClient(object):
         if callback:
             msg_id = int(result[2][0])
             # TODO: Here we risk, that the callback arrives earlier, than we
-            # add the item to `self._callbacks'.  Such a situation will lead to
-            # the callback being ignored.
-            self._lock.acquire()
-            try:
-                self._callbacks[msg_id] = (callback, event_types)
-            finally:
-                self._lock.release()
+            # add the item to `self._callback_handler'.  Such a situation will
+            # lead to the callback being ignored.
+            self._callback_handler.add_callback(msg_id, callback, event_types)
         return result
 
     def char(self, char):
@@ -1047,6 +1057,7 @@ class SSIPClient(object):
         """Close the connection to Speech Dispatcher."""
         if hasattr(self, '_conn'):
             self._conn.close()
+            del self._conn
 
 
 class Client(SSIPClient):
