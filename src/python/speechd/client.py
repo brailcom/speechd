@@ -700,7 +700,7 @@ class SSIPClient(object):
         assert value in (DataMode.TEXT, DataMode.SSML)
         if value == DataMode.SSML:
             ssip_val = 'on'
-        else value == DataMode.TEXT:
+        elif value == DataMode.TEXT:
             ssip_val = 'off'
         self._conn.send_command('SET', Scope.SELF, 'SSML_MODE', ssip_val)
 
