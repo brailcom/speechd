@@ -46,13 +46,13 @@
 #define CHECK_SSIP_COMMAND(cmd_name, parse_function, allowed_in_block)\
     if(!strcmp(command, cmd_name)){ \
         spd_free(command); \
-        if ((allowed_in_block == BLOCK_NO) && SpeechdSocket[fd].inside_block) \
+        if ((allowed_in_block == BLOCK_NO) && speechd_socket->inside_block) \
             return strdup(ERR_NOT_ALLOWED_INSIDE_BLOCK); \
-        return (char*) (parse_function) (buf, bytes, fd); \
+        return (char*) (parse_function) (buf, bytes, fd, speechd_socket);	\
     }
 
 #define NOT_ALLOWED_INSIDE_BLOCK() \
-    if(SpeechdSocket[fd].inside_block > 0) \
+    if(speechd_socket->inside_block > 0) \
         return strdup(ERR_NOT_ALLOWED_INSIDE_BLOCK);
 
 #define ALLOWED_INSIDE_BLOCK() ;
@@ -69,10 +69,10 @@ parse(const char *buf, const int bytes, const int fd)
     int msg_uid;
     GString* ok_queued_reply;
     char *reply;
+    TSpeechDSock *speechd_socket = speechd_socket_get_by_fd(fd);
+    assert(speechd_socket);       
 
     end_data = 0;
-	
-    assert(fd > 0);
     if ((buf == NULL) || (bytes == 0)){
         if(SPEECHD_DEBUG) FATAL("invalid buffer for parse()\n");
         return strdup(ERR_INTERNAL);
@@ -80,7 +80,7 @@ parse(const char *buf, const int bytes, const int fd)
  
     /* First the condition that we are not in data mode and we
      * are awaiting commands */
-    if (SpeechdSocket[fd].awaiting_data == 0){
+    if (speechd_socket->awaiting_data == 0){
         /* Read the command */
         command = get_param(buf, 0, bytes, 1);
 
@@ -148,18 +148,18 @@ parse(const char *buf, const int bytes, const int fd)
 
             /* Set the flag to command mode */
             MSG(5, "Switching back to command mode...");
-            SpeechdSocket[fd].awaiting_data = 0;
+            speechd_socket->awaiting_data = 0;
 
             /* Prepare element (text+settings commands) to be queued. */
 
 	    /* TODO: Remove? */
-            if ((bytes == 3) && (SpeechdSocket[fd].o_bytes > 2)) SpeechdSocket[fd].o_bytes -= 2;
+            if ((bytes == 3) && (speechd_socket->o_bytes > 2)) speechd_socket->o_bytes -= 2;
 
 	    /* Check if message contains any data */
-            if (SpeechdSocket[fd].o_bytes == 0) return strdup(OK_MSG_CANCELED);
+            if (speechd_socket->o_bytes == 0) return strdup(OK_MSG_CANCELED);
 
 	    /* Check buffer for proper UTF-8 encoding */
-	    if (!g_utf8_validate(SpeechdSocket[fd].o_buf->str, SpeechdSocket[fd].o_bytes, NULL))
+	    if (!g_utf8_validate(speechd_socket->o_buf->str, speechd_socket->o_bytes, NULL))
 	      {
 		MSG(4, "ERROR: Invalid character encoding on input (failed UTF-8 validation)");
 		MSG(4, "Rejecting this message.");
@@ -167,10 +167,10 @@ parse(const char *buf, const int bytes, const int fd)
 	      }
 
             new = (TSpeechDMessage*) spd_malloc(sizeof(TSpeechDMessage));
-            new->bytes = SpeechdSocket[fd].o_bytes;
-	    assert(SpeechdSocket[fd].o_buf != NULL);
-	    new->buf = deescape_dot(SpeechdSocket[fd].o_buf->str, new->bytes);
-            reparted = SpeechdSocket[fd].inside_block; 
+            new->bytes = speechd_socket->o_bytes;
+            assert(speechd_socket->o_buf != NULL);
+            new->buf = deescape_dot(speechd_socket->o_buf->str, new->bytes);
+            reparted = speechd_socket->inside_block; 
             MSG(5, "New buf is now: |%s|", new->buf);		
             if((msg_uid = queue_message(new, fd, 1, MSGTYPE_TEXT, reparted)) == 0){
                 if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
@@ -203,9 +203,9 @@ parse(const char *buf, const int bytes, const int fd)
             }      
             /* Get the number of bytes read before, sum it with the number of bytes read
              * now and store again in the counter */        
-            SpeechdSocket[fd].o_bytes += real_bytes;       
+            speechd_socket->o_bytes += real_bytes;       
 
-            g_string_insert_len(SpeechdSocket[fd].o_buf, -1, buf, real_bytes);
+            g_string_insert_len(speechd_socket->o_buf, -1, buf, real_bytes);
         }
     }
 
@@ -250,7 +250,7 @@ parse(const char *buf, const int bytes, const int fd)
 
 /* Parses @history commands and calls the appropriate history_ functions. */
 char*
-parse_history(const char *buf, const int bytes, const int fd)
+parse_history(const char *buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
     char *cmd_main;
     GET_PARAM_STR(cmd_main, 1, CONV_DOWN);
@@ -378,7 +378,7 @@ parse_history(const char *buf, const int bytes, const int fd)
     }
 
 char*
-parse_set(const char *buf, const int bytes, const int fd)
+parse_set(const char *buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
     int who;                    /* 0 - self, 1 - uid specified, 2 - all */
     int uid;                    /* uid of the client (only if who == 1) */
@@ -603,7 +603,7 @@ parse_set(const char *buf, const int bytes, const int fd)
 #undef SSIP_SET_COMMAND
 
 char*
-parse_stop(const char *buf, const int bytes, const int fd)
+parse_stop(const char *buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
     int uid = 0;
     char *who_s;
@@ -641,7 +641,7 @@ parse_stop(const char *buf, const int bytes, const int fd)
 }
 
 char*
-parse_cancel(const char *buf, const int bytes, const int fd)
+parse_cancel(const char *buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
     int uid = 0;
     char *who_s;
@@ -673,7 +673,7 @@ parse_cancel(const char *buf, const int bytes, const int fd)
 }
 
 char*
-parse_pause(const char *buf, const int bytes, const int fd)
+parse_pause(const char *buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
     int uid = 0;
     char *who_s;
@@ -715,7 +715,7 @@ parse_pause(const char *buf, const int bytes, const int fd)
 }
 
 char*
-parse_resume(const char *buf, const int bytes, const int fd)
+parse_resume(const char *buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
     int uid = 0;
     char *who_s;
@@ -746,7 +746,7 @@ parse_resume(const char *buf, const int bytes, const int fd)
 }
 
 char*
-parse_general_event(const char *buf, const int bytes, const int fd, EMessageType type)
+parse_general_event(const char *buf, const int bytes, const int fd, const TSpeechDSock* speechd_socket, EMessageType type)
 {
     char *param;
     TSpeechDMessage *msg;
@@ -774,7 +774,7 @@ parse_general_event(const char *buf, const int bytes, const int fd, EMessageType
     msg->bytes = strlen(param);
     msg->buf = strdup(param);
 
-    if(queue_message(msg, fd, 1, type, SpeechdSocket[fd].inside_block) == 0){
+    if(queue_message(msg, fd, 1, type, speechd_socket->inside_block) == 0){
         if (SPEECHD_DEBUG) FATAL("Couldn't queue message\n");
         MSG(2, "Error: Couldn't queue message!\n");            
     }   
@@ -785,25 +785,25 @@ parse_general_event(const char *buf, const int bytes, const int fd, EMessageType
 }
 
 char*
-parse_snd_icon(const char *buf, const int bytes, const int fd)
+parse_snd_icon(const char *buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
-    return parse_general_event(buf, bytes, fd, MSGTYPE_SOUND_ICON);
+    return parse_general_event(buf, bytes, fd, speechd_socket, MSGTYPE_SOUND_ICON);
 }				 
 
 char*
-parse_char(const char *buf, const int bytes, const int fd)
+parse_char(const char *buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
-    return parse_general_event(buf, bytes, fd, MSGTYPE_CHAR);
+    return parse_general_event(buf, bytes, fd, speechd_socket, MSGTYPE_CHAR);
 }
 
 char*
-parse_key(const char* buf, const int bytes, const int fd)
+parse_key(const char* buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
-    return parse_general_event(buf, bytes, fd, MSGTYPE_KEY);
+    return parse_general_event(buf, bytes, fd, speechd_socket, MSGTYPE_KEY);
 }
 
 char*
-parse_list(const char* buf, const int bytes, const int fd)
+parse_list(const char* buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
     char *list_type;
     char *voice_list;
@@ -876,7 +876,7 @@ parse_list(const char* buf, const int bytes, const int fd)
 }
 
 char*
-parse_get(const char *buf, const int bytes, const int fd)
+parse_get(const char *buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
     char *get_type;
     GString *result;
@@ -942,7 +942,7 @@ parse_get(const char *buf, const int bytes, const int fd)
 }
 
 char*
-parse_help(const char* buf, const int bytes, const int fd)
+parse_help(const char* buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
     char *help;
 
@@ -964,24 +964,24 @@ parse_help(const char* buf, const int bytes, const int fd)
 }
 
 char*
-parse_block(const char *buf, const int bytes, const int fd)
+parse_block(const char *buf, const int bytes, const int fd, TSpeechDSock* speechd_socket)
 {
     char *cmd_main;
     GET_PARAM_STR(cmd_main, 1, CONV_DOWN);
 
     if (TEST_CMD(cmd_main, "begin")){
-        assert(SpeechdSocket[fd].inside_block >= 0);
-        if (SpeechdSocket[fd].inside_block == 0){
-            SpeechdSocket[fd].inside_block = ++SpeechdStatus.max_gid;
+        assert(speechd_socket->inside_block >= 0);
+        if (speechd_socket->inside_block == 0){
+            speechd_socket->inside_block = ++SpeechdStatus.max_gid;
             return strdup(OK_INSIDE_BLOCK);
         }else{
             return strdup(ERR_ALREADY_INSIDE_BLOCK);
         }        
     }
     else if (TEST_CMD(cmd_main, "end")){
-        assert(SpeechdSocket[fd].inside_block >= 0);
-        if (SpeechdSocket[fd].inside_block > 0){
-            SpeechdSocket[fd].inside_block = 0;
+        assert(speechd_socket->inside_block >= 0);
+        if (speechd_socket->inside_block > 0){
+            speechd_socket->inside_block = 0;
             return strdup(OK_OUTSIDE_BLOCK);
         }else{
             return strdup(ERR_ALREADY_OUTSIDE_BLOCK);

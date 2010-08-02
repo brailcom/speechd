@@ -276,6 +276,54 @@ MSG(int level, char *format, ...)
 
 /* --- CLIENTS / CONNECTIONS MANAGING --- */
 
+/* Initialize sockets status table */
+int
+speechd_sockets_status_init(void)
+{
+    speechd_sockets_status = g_hash_table_new_full(g_int_hash, g_int_equal,
+						   (GDestroyNotify) spd_free,
+						   (GDestroyNotify) speechd_socket_free);
+}
+
+/* Register a new socket for SSIP connection */
+int
+speechd_socket_register(int fd)
+{
+    int *fd_key;
+    TSpeechDSock* speechd_socket;
+    speechd_socket = spd_malloc(sizeof(TSpeechDSock));
+    speechd_socket->o_buf = NULL;
+    speechd_socket->o_bytes = 0;
+    speechd_socket->awaiting_data = 0;
+    speechd_socket->inside_block = 0;
+    fd_key = spd_malloc(sizeof(int));
+    *fd_key = fd;
+    g_hash_table_insert(speechd_sockets_status, fd_key, speechd_socket);
+}
+
+/* Free a TSpeechDSock structure including it's data */
+void
+speechd_socket_free(TSpeechDSock* speechd_socket)
+{
+    if (speechd_socket->o_buf)
+	g_string_free(speechd_socket->o_buf, 1);
+    spd_free(speechd_socket);
+}
+
+/* Unregister a socket for SSIP communication */
+int
+speechd_socket_unregister(int fd)
+{
+    g_hash_table_remove(speechd_sockets_status, &fd);
+}
+
+/* Get a pointer to the TSpeechDSock structure for a given file descriptor */
+TSpeechDSock*
+speechd_socket_get_by_fd(int fd)
+{
+    return g_hash_table_lookup(speechd_sockets_status, &fd);
+}
+
 /* activity is on server_socket (request for a new connection) */
 int
 speechd_connection_new(int server_socket)
@@ -299,18 +347,7 @@ speechd_connection_new(int server_socket)
     if (client_socket > SpeechdStatus.max_fd) SpeechdStatus.max_fd = client_socket;
     MSG(4,"Adding client on fd %d", client_socket);
 
-    /* Check if there is space for server status data; allocate it */
-    if(client_socket >= SpeechdStatus.num_fds-1){
-	SpeechdSocket = (TSpeechdSock*) realloc(SpeechdSocket,
-						SpeechdStatus.num_fds*2*
-						sizeof(TSpeechdSock)); 
-        SpeechdStatus.num_fds *= 2;
-    }
-
-    SpeechdSocket[client_socket].o_buf = NULL;
-    SpeechdSocket[client_socket].o_bytes = 0;
-    SpeechdSocket[client_socket].awaiting_data = 0;
-    SpeechdSocket[client_socket].inside_block = 0;
+    speechd_socket_register(client_socket);
 
     /* Create a record in fd_settings */
     new_fd_set = (TFDSetElement *) default_fd_set();
@@ -341,6 +378,7 @@ int
 speechd_connection_destroy(int fd)
 {
 	TFDSetElement *fdset_element;
+	TSpeechDSock* speechd_socket;
 	
 	/* Client has gone away and we remove it from the descriptor set. */
 	MSG(4,"Removing client on fd %d", fd);
@@ -359,12 +397,9 @@ speechd_connection_destroy(int fd)
 
 	MSG(4,"Removing client from the fd->uid table.");
 
-	g_hash_table_remove(fd_uid, &fd);
+	g_hash_table_remove(fd_uid, &fd);       
 
-        SpeechdSocket[fd].awaiting_data = 0;
-        SpeechdSocket[fd].inside_block = 0;
-	if (SpeechdSocket[fd].o_buf != NULL)
-	    g_string_free(SpeechdSocket[fd].o_buf, 1);
+	speechd_socket_unregister(fd);
 
 	MSG(4,"Closing clients file descriptor %d", fd);
 
@@ -560,13 +595,7 @@ speechd_init()
     output_modules = g_hash_table_new(g_str_hash, g_str_equal);
     assert(output_modules != NULL);
 
-    SpeechdSocket = (TSpeechdSock*) spd_malloc(START_NUM_FD * sizeof(TSpeechdSock));
-    SpeechdStatus.num_fds = START_NUM_FD;
-    for(i=0; i<=START_NUM_FD-1; i++){
-        SpeechdSocket[i].awaiting_data = 0;              
-        SpeechdSocket[i].inside_block = 0;              
-        SpeechdSocket[i].o_buf = 0;              
-    }
+    speechd_sockets_status_init();
 
     pause_requested = 0;
     resume_requested = 0;
@@ -1109,7 +1138,10 @@ main(int argc, char *argv[])
 
         if (select(FD_SETSIZE, &testfds, (fd_set *)0, (fd_set *)0, NULL) >= 1){
             /* Once we know we've got activity,
-             * we find which descriptor it's on by checking each in turn using FD_ISSET. */
+             * we find which descriptor it's on by checking each in turn using FD_ISSET.
+	     TODO: This is a hack. We should not be browsing all possible socket numbers
+	     but only those which are connected.
+	     */
             for (fd = 0; fd <= SpeechdStatus.max_fd && fd < FD_SETSIZE; fd++) {
                 if (FD_ISSET(fd,&testfds)){
                     MSG(4,"Activity on fd %d ...",fd);
