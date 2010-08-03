@@ -549,7 +549,7 @@ speechd_init()
 					NULL);
     assert(fd_settings != NULL);
 
-    fd_uid = g_hash_table_new_full(g_str_hash, g_str_equal,
+    fd_uid = g_hash_table_new_full(g_int_hash, g_int_equal,
 				   (GDestroyNotify) spd_free,
 				   (GDestroyNotify) spd_free);
     assert(fd_uid != NULL);
