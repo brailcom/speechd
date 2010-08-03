@@ -111,7 +111,10 @@ parse(const char *buf, const int bytes, const int fd)
         if (!strcmp(command,"bye") || !strcmp(command,"quit")){
             MSG(4, "Bye received.");
             /* Send a reply to the socket */
-            write(fd, OK_BYE, strlen(OK_BYE));
+            if (write(fd, OK_BYE, strlen(OK_BYE))){
+		MSG(2, "ERROR: Can't write OK_BYE message to client socket: %s", strerror(errno));
+	    }
+		
             speechd_connection_destroy(fd);
             /* This is internal Speech Dispatcher message, see serve() */
             spd_free(command);

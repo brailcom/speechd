@@ -291,5 +291,3 @@ serve(int fd)
 
     return 0;
 }
-
-
