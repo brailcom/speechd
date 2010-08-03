@@ -300,8 +300,8 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
     /* If the voice was changed, re-set all the parameters */
     // TODO: Handle synthesis_voice change too 
     if ((msg_settings.voice != msg_settings_old.voice)
-	|| (msg_settings.language != NULL) && (msg_settings_old.language!=NULL) &&
-	(strcmp(msg_settings.language, msg_settings_old.language))){
+	|| ((msg_settings.language != NULL) && (msg_settings_old.language!=NULL) &&
+	    (strcmp(msg_settings.language, msg_settings_old.language)))){
 	DBG("Cleaning old settings table");
         CLEAN_OLD_SETTINGS_TABLE();
     }

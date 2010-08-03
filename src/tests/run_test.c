@@ -31,6 +31,7 @@
 #include <string.h>
 #include <assert.h>
 #include <ctype.h>
+#include <errno.h>
 
 #include "def.h"
 
@@ -64,7 +65,9 @@ send_data(int fd, char *message, int wfr)
 	reply = (char*) malloc(sizeof(char) * 1000);
    
 	/* write message to the socket */
-	write(fd, message, strlen(message));
+	if(!write(fd, message, strlen(message))){
+	    fprintf(stderr, "send_data filed: %s", strerror(errno));
+	}
 
 	/* read reply to the buffer */
 	if (wfr == 1){

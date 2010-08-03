@@ -365,7 +365,6 @@ do_loglevel(void)
     size_t n;
     int number; char *tptr;
     int err = 0;                /* Error status */
-    char *status;
     char *msg;
 
     printf("207 OK RECEIVING LOGLEVEL SETTINGS\n");
@@ -814,8 +813,10 @@ module_child_dp_close(TModuleDoublePipe dpipe)
 void
 module_child_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes)
 {
+    int ret;
     assert(msg != NULL);
-    write(dpipe.cp[1], msg, bytes);       
+    ret = write(dpipe.cp[1], msg, bytes);
+    assert(ret);
 }
 
 int

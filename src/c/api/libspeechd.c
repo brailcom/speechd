@@ -246,7 +246,6 @@ static char*
 resolve_host(char* host_name_or_ip, int *is_localhost, gchar **error)
 {
     struct addrinfo *addr_result;
-    int i;
     int err;
     char *resolved_ip = malloc(MAX_IP_SIZE*sizeof(char));
     char *ip;
@@ -340,8 +339,6 @@ spd_open2(const char* client_name, const char* connection_name, const char* user
     char tcp_no_delay = 1;
 
     /* Autospawn related */
-    GError *error = NULL;
-    gint exit_status;
     int spawn_err;
     gchar *spawn_report;
     char *host_ip;
@@ -1266,7 +1263,11 @@ spd_send_data_wo_mutex(SPDConnection *connection, const char *message, int wfr)
     }
     /* write message to the socket */
     SPD_DBG("Writing to socket");
-    write(connection->socket, message, strlen(message));
+    if(!write(connection->socket, message, strlen(message))){
+	SPD_DBG("Can't write to socket: %s", strerror(errno));
+	pthread_mutex_unlock(connection->mutex_reply_ready);
+	return NULL;
+    }
     SPD_DBG("Written to socket");
     SPD_DBG(">> : |%s|", message);
 

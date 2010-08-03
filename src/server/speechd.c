@@ -21,7 +21,9 @@
  * $Id: speechd.c,v 1.81 2008-07-10 15:36:49 hanke Exp $
  */
 
+#include <glib.h>
 #include <gmodule.h>
+#include <glib/gstdio.h>
 #include <sys/stat.h>
 #include <sys/socket.h>
 #include <sys/un.h>
@@ -40,8 +42,6 @@
 #include "options.h"
 #include "server.h"
 
-/* Glib g_makedir */
-int  g_mkdir      (const gchar *filename, int mode);
 /* Manipulating pid files */
 int create_pid_file();
 void destroy_pid_file();
@@ -283,6 +283,10 @@ speechd_sockets_status_init(void)
     speechd_sockets_status = g_hash_table_new_full(g_int_hash, g_int_equal,
 						   (GDestroyNotify) spd_free,
 						   (GDestroyNotify) speechd_socket_free);
+    if (speechd_sockets_status)
+	return 0;
+    else
+	return 1;
 }
 
 /* Register a new socket for SSIP connection */
@@ -299,6 +303,7 @@ speechd_socket_register(int fd)
     fd_key = spd_malloc(sizeof(int));
     *fd_key = fd;
     g_hash_table_insert(speechd_sockets_status, fd_key, speechd_socket);
+    return 0;
 }
 
 /* Free a TSpeechDSock structure including it's data */
@@ -314,7 +319,7 @@ speechd_socket_free(TSpeechDSock* speechd_socket)
 int
 speechd_socket_unregister(int fd)
 {
-    g_hash_table_remove(speechd_sockets_status, &fd);
+    return (!g_hash_table_remove(speechd_sockets_status, &fd));
 }
 
 /* Get a pointer to the TSpeechDSock structure for a given file descriptor */
@@ -378,7 +383,6 @@ int
 speechd_connection_destroy(int fd)
 {
 	TFDSetElement *fdset_element;
-	TSpeechDSock* speechd_socket;
 	
 	/* Client has gone away and we remove it from the descriptor set. */
 	MSG(4,"Removing client on fd %d", fd);
@@ -554,11 +558,8 @@ speechd_options_init(void)
 void
 speechd_init()
 {
-    int START_NUM_FD = 16;
     int ret;
-    int i;
     
-
     SpeechdStatus.max_uid = 0;
     SpeechdStatus.max_gid = 0;
 
@@ -1103,7 +1104,6 @@ main(int argc, char *argv[])
       server_socket = make_inet_socket(SpeechdOptions.port);
     }else if (!strcmp(SpeechdOptions.communication_method, "unix_socket")){
       /* Determine appropariate socket file name */
-      GString *socket_filename;
       MSG(4, "Speech Dispatcher will use local unix socket: %s", SpeechdOptions.socket_path);
       /* Delete an old socket file if it exists */
       if (g_file_test(SpeechdOptions.socket_path, G_FILE_TEST_EXISTS))
@@ -1117,7 +1117,9 @@ main(int argc, char *argv[])
 
     /* Fork, set uid, chdir, etc. */
     if (spd_mode == SPD_MODE_DAEMON){
-        daemon(0,0);
+        if (daemon(0,0)){
+	    FATAL("Can't fork child process");
+        }
         /* Re-create the pid file under this process */
         unlink(SpeechdOptions.pid_file);
         if (create_pid_file() == -1) return -1;
