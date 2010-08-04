@@ -88,7 +88,7 @@ _oss_open(AudioID *id)
     pthread_mutex_lock(&id->fd_mutex);
 
     id->fd = open(id->device_name, O_WRONLY, 0);
-    if (id->fd == -1){
+    if (id->fd < 0){
 	perror(id->device_name);
 	pthread_mutex_unlock(&id->fd_mutex);
 	id = NULL;
@@ -105,11 +105,11 @@ _oss_close(AudioID *id)
 {
     MSG(1, "_oss_close()")
     if (id == NULL) return 0;
-    if (id->fd == 0) return 0;
+    if (id->fd < 0) return 0;
 
     pthread_mutex_lock(&id->fd_mutex);
     close(id->fd);
-    id->fd = 0;
+    id->fd = -1;
     pthread_mutex_unlock(&id->fd_mutex);
     return 0;
 }
@@ -407,7 +407,7 @@ oss_stop(AudioID *id)
 
     /* Stop the playback on /dev/dsp */
     pthread_mutex_lock(&id->fd_mutex);
-    if (id->fd != 0)
+    if (id->fd >= 0)
 	ret = ioctl(id->fd, SNDCTL_DSP_RESET, 0);
     pthread_mutex_unlock(&id->fd_mutex);
     if (ret == -1){
