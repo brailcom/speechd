@@ -88,22 +88,30 @@ AC_CHECK_LIB(flite_usenglish,
 flite_basic="-lflite_cmulex -lflite_usenglish -lflite -lm";
 
 AC_CHECK_LIB(flite_cmu_us_kal16,
-        register_cmu_us_kal, flite_ok="true";flite_kal="-lflite_cmu_us_kal16";echo "16-bit Kal Flite voice found. Flite support enabled.", 
-        	AC_CHECK_LIB(flite_cmu_us_kal,	
-        	register_cmu_us_kal, flite_ok="true";flite_kal="-lflite_cmu_us_kal";
-		echo "8-bit Kal Flite voice found. Flite support enabled.", 
-        	flite_ok="false"; echo "Flite libraries missing. Compiling without Flite support!",
-		-lflite_cmulex -lflite_usenglish -lflite -lm),
-	-lflite_cmulex -lflite_usenglish -lflite -lm)
+	register_cmu_us_kal, flite_ok="true";flite_kal="-lflite_cmu_us_kal16";echo "16-bit Kal Flite voice found. Flite support enabled.",
+	AC_CHECK_LIB(flite_cmu_us_kal16,
+		register_cmu_us_kal16,
+		flite_ok="true";
+		flite_kal="-lflite_cmu_us_kal16";
+		echo "16-bit Kal Flite voice found. Flite support enabled.";
+		AC_DEFINE([HAVE_REGISTER_CMU_US_KAL16], 1,
+			[Use cmu_register_us_kal16 to register the 16-bit voice.]),
+		AC_CHECK_LIB(flite_cmu_us_kal,	
+			register_cmu_us_kal, flite_ok="true";flite_kal="-lflite_cmu_us_kal";
+			echo "8-bit Kal Flite voice found. Flite support enabled.",
+			flite_ok="false"; echo "Flite libraries missing. Compiling without Flite support!",
+			$flite_basic),
+		$flite_basic),
+	$flite_basic)
 
 AC_SUBST(flite_basic)
 AC_SUBST(flite_kal)
 
 AC_ARG_WITH(flite, AS_HELP_STRING(--with-flite, Compile with Festival Lite (Flite) support),
-		 if test $withval = "no"; then 
-		    echo "Forced compilation without Flite support."; 
+		 if test $withval = "no"; then
+		    echo "Forced compilation without Flite support.";
 		    flite_ok="false";
-		 else 
+		 else
 		    if test $flite_ok = "false"; then
 		       echo "Flite support is not available. Sorry."; exit 1;
 		    fi

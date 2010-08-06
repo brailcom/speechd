@@ -22,6 +22,9 @@
  * $Id: flite.c,v 1.59 2008-06-09 10:38:02 hanke Exp $
  */
 
+#ifndef CONFIG_H
+#include <config.h>
+#endif /* CONFIG_H */
 
 #include <flite/flite.h>
 #include "spd_audio.h"
@@ -104,7 +107,14 @@ module_init(char **status_info)
 
     /* Init flite and register a new voice */
     flite_init();
-    flite_voice = new_voice();
+
+#ifdef HAVE_REGISTER_CMU_US_KAL16
+    cst_voice *register_cmu_us_kal16();/* This isn't declared in any headers. */
+    flite_voice = register_cmu_us_kal16();
+#else
+    cst_voice *register_cmu_us_kal();
+    flite_voice = register_cmu_us_kal();
+#endif /* HAVE_REGISTER_CMU_US_KAL16 */
 
     if (flite_voice == NULL){
         DBG("Couldn't register the basic kal voice.\n");
