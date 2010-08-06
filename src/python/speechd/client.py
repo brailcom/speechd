@@ -788,7 +788,7 @@ class SSIPClient(object):
         """Immediately stop speaking and discard messages in queues.
 
         Arguments:
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
             
         """
         self._conn.send_command('CANCEL', scope)
@@ -798,7 +798,7 @@ class SSIPClient(object):
         """Immediately stop speaking the currently spoken message.
 
         Arguments:
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
         
         """
         self._conn.send_command('STOP', scope)
@@ -811,7 +811,7 @@ class SSIPClient(object):
         sentence).
 
         Arguments:
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
         
         """
         self._conn.send_command('PAUSE', scope)
@@ -824,7 +824,7 @@ class SSIPClient(object):
         sentence).
 
         Arguments:
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
         
         """
         self._conn.send_command('RESUME', scope)
@@ -857,7 +857,7 @@ class SSIPClient(object):
 
         Arguments:
           language -- two letter language code according to RFC 1776 as string.
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
             
         """
         assert isinstance(language, str) and len(language) == 2
@@ -868,7 +868,7 @@ class SSIPClient(object):
 
         Arguments:
           name -- module (string) as returned by 'list_output_modules()'.
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
         
         """
         self._conn.send_command('SET', scope, 'OUTPUT_MODULE', name)
@@ -881,7 +881,7 @@ class SSIPClient(object):
             corresponding to the default pitch of the current speech synthesis
             output module, lower values meaning lower pitch and higher values
             meaning higher pitch.
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
           
         """
         assert isinstance(value, int) and -100 <= value <= 100, value
@@ -895,7 +895,7 @@ class SSIPClient(object):
             corresponding to the default speech rate of the current speech
             synthesis output module, lower values meaning slower speech and
             higher values meaning faster speech.
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
             
         """
         assert isinstance(value, int) and -100 <= value <= 100
@@ -908,7 +908,7 @@ class SSIPClient(object):
           value -- integer value within the range from -100 to 100, with 100
             corresponding to the default speech volume of the current speech
             synthesis output module, lower values meaning softer speech.
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
             
         """
         assert isinstance(value, int) and -100 <= value <= 100
@@ -919,7 +919,7 @@ class SSIPClient(object):
 
         Arguments:
           value -- one of the 'PunctuationMode' constants.
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
             
         """
         assert value in (PunctuationMode.ALL, PunctuationMode.SOME,
@@ -933,7 +933,7 @@ class SSIPClient(object):
           value -- if 'True', all incomming messages will be spelled
             instead of being read as normal words. 'False' switches
             this behavior off.
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
             
         """
         assert value in [True, False]
@@ -950,7 +950,7 @@ class SSIPClient(object):
             of capital letters, 'spell' means capital letters will be spelled
             with a syntetic voice and 'icon' means that the capital-letter icon
             will be prepended before each capital letter.
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
             
         """
         assert value in ("none", "spell", "icon")
@@ -962,7 +962,7 @@ class SSIPClient(object):
         Arguments:
           value -- one of the SSIP symbolic voice names: 'MALE1' .. 'MALE3',
             'FEMALE1' ... 'FEMALE3', 'CHILD_MALE', 'CHILD_FEMALE'
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
 
         Symbolic voice names are mapped to real synthesizer voices in the
         configuration of the output module.  Use the method
@@ -980,7 +980,7 @@ class SSIPClient(object):
 
         Arguments:
           value -- voice name as returned by 'list_synthesis_voices()'
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
             
         """
         self._conn.send_command('SET', scope, 'SYNTHESIS_VOICE', value)
@@ -991,7 +991,7 @@ class SSIPClient(object):
         Arguments:
           value -- a positive or negative value meaning how many chunks of data
             after or before the pause should be read when resume() is executed.
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
             
         """
         assert isinstance(value, int)
@@ -1012,7 +1012,7 @@ class SSIPClient(object):
         Arguments:
           val -- a boolean value determining whether debugging
                  is switched on or off
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
         
         """
         assert isinstance(val, bool)
@@ -1030,7 +1030,7 @@ class SSIPClient(object):
         Arguments:
           path -- path (string) to the directory where debuging
                   files will be created
-          scope -- see the documentaion of this class.
+          scope -- see the documentation of this class.
         
         """
         assert isinstance(val, string)
