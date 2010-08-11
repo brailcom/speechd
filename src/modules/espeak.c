@@ -632,7 +632,7 @@ espeak_set_volume(signed int volume)
 {
     assert(volume >= -100 && volume <= +100);
     int vol;
-	vol = (volume + 100) / 2;
+	vol = volume + 100;
     espeak_ERROR ret = espeak_SetParameter(espeakVOLUME, vol, 0);
     if (ret != EE_OK) {
 		DBG("Espeak: Error setting volume %i.", vol);
