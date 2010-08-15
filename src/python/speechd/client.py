@@ -697,11 +697,14 @@ class SSIPClient(object):
           value - one of the constants defined by the DataMode class.
 
         """
-        assert value in (DataMode.TEXT, DataMode.SSML)
         if value == DataMode.SSML:
             ssip_val = 'on'
         elif value == DataMode.TEXT:
             ssip_val = 'off'
+        else:
+            raise ValueError(
+                'Value "%s" is not one of the constants from the DataMode class.' % \
+                    value)
         self._conn.send_command('SET', Scope.SELF, 'SSML_MODE', ssip_val)
 
     def speak(self, text, callback=None, event_types=None):
