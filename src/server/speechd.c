@@ -628,7 +628,7 @@ speechd_init()
       SpeechdOptions.log_dir = g_strdup_printf("%s/log/", SpeechdOptions.home_speechd_dir);
       mkdir(SpeechdOptions.log_dir, S_IRWXU);
       if (!SpeechdOptions.debug_destination){
-	SpeechdOptions.debug_destination = g_strdup_printf("%slog/debug",
+	SpeechdOptions.debug_destination = g_strdup_printf("%s/log/debug",
 							   SpeechdOptions.home_speechd_dir);
 	mkdir(SpeechdOptions.debug_destination, S_IRWXU);
       }     
