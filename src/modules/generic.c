@@ -495,12 +495,8 @@ _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
         /* Escape any quotes */
         message = g_string_new("");
         for(i=0; i<=bytes-1; i++){
-            if (text[i] == '\"')
-                message = g_string_append(message, "\\\"");
-            else if (text[i] == '`')
-                message = g_string_append(message, "\\`");
-            else if (text[i] == '\\')
-                message = g_string_append(message, "\\\\");
+            if (text[i] == '\'')
+                message = g_string_append(message, "'\\''");
 	    else{
                 g_string_append_printf(message, "%c", text[i]);
             }
