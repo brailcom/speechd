@@ -827,23 +827,24 @@ parse_list(const char* buf, const int bytes, const int fd, const TSpeechDSock *s
                 OK_VOICE_LIST_SENT);
         return voice_list;
     }else if(TEST_CMD(list_type, "output_modules")){
-	GString *result;
+        GString *result = g_string_new("");
 	char *helper;
-	GList *gl;
-	int i;
-	int len;
-	result = g_string_new("");
-	len = g_list_length(output_modules_list);
-	MSG(1, "G LIST LENGHT IS %d", len);
-	for (i=0; i<=len-1; i++){
-	  gl = g_list_nth(output_modules_list, i);
-	  assert(gl!=NULL);
-	  if (gl->data == NULL) continue;
-	  g_string_append_printf(result, C_OK_MODULES"-%s\r\n", (char*) gl->data);
-	}
+	GList *cur_ptr = output_modules_list;
+
+	while(cur_ptr){
+	    if (cur_ptr->data != NULL){
+	        g_string_append_printf(result, C_OK_MODULES"-%s\r\n", (char*) cur_ptr->data);
+	    }else{
+                MSG(2, "null entry in output modules list");
+	    }
+
+            cur_ptr = cur_ptr->next;
+        }
+
 	g_string_append(result, OK_MODULES_LIST_SENT);
 	helper = result->str;
 	g_string_free(result, 0);
+
         return helper;
     }else if(TEST_CMD(list_type, "synthesis_voices")){
       char *module_name;
