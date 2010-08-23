@@ -144,53 +144,56 @@ OutputModule*
 get_output_module(const TSpeechDMessage *message)
 {
   OutputModule *output = NULL;
-  GList *gl;
-  int i;
+  GList *cur_ptr = output_modules_list;
 
   if (message->settings.output_module != NULL){
     MSG(5, "Desired output module is %s", message->settings.output_module);
     output = get_output_module_by_name(message->settings.output_module);
-    if((output == NULL) || !output->working){
-      // If the requested module was not found or is not working,
-      // first try to use the default output module
-      if (GlobalFDSet.output_module != NULL){
-	MSG(3,"Warning: Didn't find prefered output module, using default");                
-	output = get_output_module_by_name(GlobalFDSet.output_module); 
-      }
-      if (output == NULL || !output->working){
-	MSG(3, "Couldn't load default output module, trying other modules");
-      }
+    if((output != NULL) && output->working) return output;
+  }
 
-      // Try all other output modules now to see if some of them
-      // is working
-      MSG(3, "Trying other output modules");
-      for (i=0; i<=g_list_length(output_modules_list)-1; i++){
-	gl = g_list_nth(output_modules_list, i);
-	if (!gl || !gl->data) break;
-	if (strcmp(gl->data, "dummy"))
-	  output = get_output_module_by_name(gl->data);
-	if ((output != NULL) && (output->working)){
-	  MSG(3, "Output module %s seems to be working, using it", gl->data);
-	  break;
-	}
-      }
+  MSG(3,"Warning: Didn't find prefered output module, using default");                
+  // If the requested module was not found or is not working,
+  // first try to use the default output module
+  if (GlobalFDSet.output_module != NULL)
+    output = get_output_module_by_name(GlobalFDSet.output_module); 
 
-      // Did we get something working? If not, use dummy (it will just play
-      // a pre-synthesized error message with some hints over and over).
-      if (output == NULL || !output->working){
-	MSG(1, "Error: No output module seems to be working, using the dummy output module");
-	output = get_output_module_by_name("dummy");
-      }
+  if (output != NULL && output->working) return output;
+
+  MSG(3, "Couldn't load default output module, trying other modules");
+
+  // Try all other output modules now to see if some of them
+  // is working
+  while(cur_ptr){
+    if (!cur_ptr->data){
+      MSG(2, "bad (NULL) module in output module list");
+      cur_ptr = cur_ptr->next;
+    	continue;
+    }
+
+    if (strcmp(cur_ptr->data, "dummy") != 0)
+      output = get_output_module_by_name(cur_ptr->data);
+
+    if ((output != NULL) && (output->working)){
+      MSG(3, "Output module %s seems to be working, using it", cur_ptr->data);
+      return output;
+    }
+
+    cur_ptr	= cur_ptr->next;
+  }
+
+  // if we get here there are no good modules use the dummy
+  // a pre-synthesized error message with some hints over and over).
+  if (output == NULL || !output->working)
+    output = get_output_module_by_name("dummy");
 
       // Give up....
-      if (output == NULL){
-	MSG(1, "Error: No output module working, not even dummy, no sound produced!\n");
-	return NULL;
-      }
-    }
-  }
+  if (output == NULL)
+    MSG(1, "Error: No output module working, not even dummy, no sound produced!\n");
+
   return output;
 }
+
 void
 static output_lock(void)
 {
