@@ -127,7 +127,7 @@ int libao_play (AudioID * id, AudioTrack track)
    }
   format.channels = track.num_channels;
   format.rate = track.sample_rate;
-  format.byte_format = AO_FMT_LITTLE;
+  format.byte_format = AO_FMT_NATIVE;
   MSG (3, "Starting playback");
   output_samples = track.samples;
   num_bytes = track.num_samples * bytes_per_sample;
