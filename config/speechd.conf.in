@@ -164,42 +164,23 @@ DefaultVolume 100
 
 # AudioOutputMethod "pulse"
 
-# What ALSA device to use when Advanced Linux Sound Architecture is
-# chosen for the audio output.
+# -- Pulse Audio parameters --
 
-#AudioALSADevice "default"
-
-# -- PulseAudio parameters --
+# Pulse audio server name or "default" for the default pulse server
 
 #AudioPulseServer "default"
 
-# Maximum length of the buffer
+#AudioPulseMinLength 100
 
-#AudioPulseMaxLength -1
+# -- ALSA parameters --
 
-# Target length of the buffer
-# The server tries to assure that at least FestivalPulseTargetLength
-# bytes are always available in the buffer
+# Audio device for ALSA output
 
-#AudioPulseTargetLength 4410
-
-# Pre-buffering
-# The server does not start with playback before at least 
-# FestivalPulsePrebuffering bytes are available in the buffer
-
-#AudioPulsePreBuffering -1
-
-# Minimum request
-# The server does not request less than FestivalPulseMinRequest bytes
-# from the client, instead waits until the buffer is free enough to
-# request more bytes at once
-
-#AudioPulseMinRequest -1
+#AudioALSADevice "default"
 
 # -- OSS parameters --
 
-# What OSS device to use when Open Sound System is
-# chosen for the audio output.
+# Audio device for OSS output
 
 #AudioOSSDevice "/dev/dsp"
 
