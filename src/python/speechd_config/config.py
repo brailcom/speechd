@@ -1,4 +1,4 @@
-# Copyright (C) 2008 Brailcom, o.p.s.
+# Copyright (C) 2008,2010 Brailcom, o.p.s.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -37,7 +37,7 @@ def report(msg):
 def input_audio_icon():
     """Produce a sound for the event 'input requested' used in question()"""
     if options.use_espeak_synthesis:
-        os.system("espeak \"Type in\"");
+        os.system("espeak \"Type in\"")
 
 def question(text, default):
     """Ask a simple question and suggest the default value"""
@@ -56,15 +56,15 @@ def question(text, default):
         if not options.dont_ask:
             str_inp = raw_input(">") 
 
-        # On plain denter, return default
+        # On plain enter, return default
         if options.dont_ask or (len(str_inp) == 0):
             return default
         # If a value was typed, check it and convert it
         elif isinstance(default, bool):
             if str_inp in ["yes","y", "Y", "true","t", "1"]:
-                return True;
+                return True
             elif str_inp in ["no", "n", "N", "false", "f", "0"]:
-                return False;
+                return False
             else:
                 report ("Unknown answer (type 'yes' or 'no')")
                 continue
@@ -265,6 +265,9 @@ class Tests:
     """Tests of functionality of Speech Dispatcher and its dependencies
     and methods for determination of proper paths"""
 
+    def __init__(self):
+        self.festival_socket = None
+
     def user_speechd_dir(self):
         """Return user Speech Dispatcher configuration and logging directory"""
         return os.path.expanduser(os.path.join('~', '.speech-dispatcher'))
@@ -279,7 +282,7 @@ class Tests:
 
     def system_conf_dir(self):
         """Determine system configuration directory"""
-        return paths.SPD_CONF_PATH;
+        return paths.SPD_CONF_PATH
 
     def user_conf_dir_exists(self):
         """Determine whether user configuration directory exists"""
@@ -297,24 +300,27 @@ class Tests:
             report("""ERROR: It was not possible to connect to Festival on the
 given host and port. Connection failed with error %d : %s .""" % (num, reson))
             report("""Hint: Most likely, your Festival server is not running now
-(or not at the default port.
-Try /etc/init.d/festival start or run 'festival --server' from the command line.""")
-            return False
+or not at the default port %d.
 
+Try /etc/init.d/festival start or run 'festival --server' from the command line.""" % port)
+            return False
         return True
         
     def festival_with_freebsoft_utils(self):
-        """Test whether festival contains working festival-freebsoft-utils.
-        This test must be performed only after festival_connect().
+        """Test whether festival works and contains working festival-freebsoft-utils.
         """
-        self.festival_socket.send("(require 'speech-dispatcher)\n");
-        reply = self.festival_socket.recv(1024);
+        if not self.festival_socket:
+            if not self.festival_connect():
+                return False
+        self.festival_socket.send("(require 'speech-dispatcher)\n")
+        reply = self.festival_socket.recv(1024)
         if "LP" in reply:
+            report("Festival contains freebsoft-utils.")
             return True
         else:
             report("""ERROR: Your Festival server is working but it doesn't seem
 to load festival-freebsoft-utils. You need to install festival-freebsoft-utils
-to be able to use Festival with Speech Dispatcher.""");
+to be able to use Festival with Speech Dispatcher.""")
             return False
 
     def python_speechd_in_path(self):
@@ -324,8 +330,8 @@ to be able to use Festival with Speech Dispatcher.""");
         except:
             report("""Python can't find the Speech Dispatcher library.
 Is it installed? This won't prevent Speech Dispatcher to work, but no
-Python applications like Orca will find it.
-Search for package like python-speechd.""")
+Python applications like Orca will be able to use it.
+Search for package like python-speechd, download and install it""")
             return False
         return True
 
@@ -344,14 +350,14 @@ Search for package like python-speechd.""")
         try:
             ret = os.system(cmd)
         except:
-            report("""Can't execute the %s command, The tool might just not be installed.
-This doesn't mean that the sound system is not working, but we can't determine it.
-Please test manually.""")
+            report("""Can't execute the %s command, this audio output might not be available
+on your system, but it might also be a false warning. Please make
+sure your audio is working.""")
             reply = question("Are you sure that %s audio is working?" % type, False)
             return reply
     
         if ret:
-            report("Can't play audio via %s" % cmd)
+            report("Can't play audio via\n     %s" % cmd)
             report("""Your audio doesn't seem to work, please fix audio first or choose
 a different method.""")
             return False
@@ -365,6 +371,9 @@ utility. If everything seems right, are you sure your audio is loud enough and
 not muted in the mixer? Please fix your audio system first or choose a different
 audio output method in configuration.""")
             return False
+        else:
+            report("Audio output '%s' works" % type)
+            return True
 
     def test_spd_say(self):
         """Test Speech Dispatcher using spd_say"""
@@ -373,35 +382,30 @@ audio output method in configuration.""")
         
         while True:
             try:
-                ret = os.system("spd-say -P important \"Speech Dispatcher seems to work\"")
+                ret = os.system("spd-say -P important \"Speech Dispatcher works\"")
             except:
                 report("""Can't execute the spd-say binary,
-it is likely that Speech Dispatcher is not installed.""")
+it is very likely that Speech Dispatcher is not installed.""")
                 return False
             hearing_test = question("Did you hear the message about Speech Dispatcher working?", True)
             if hearing_test:
-                report("Speech Dispatcher is working")
+                report("Speech Dispatcher is installed and working!")
                 return True
             else:
-                repeat = question("Do you want to repeat the test?", True)
-                if repeat:
-                    continue
-                else:
-                    report("Speech Dispatcher not working now")
-                    return False
+                report("Speech Dispatcher is installed but there is some problem")
+                return False
 
     def test_festival(self):
         """Test whether Festival works as a server"""
         report("Testing whether Festival works as a server")
 
-        ret = self.festival_connect()
-        while not ret:
-            reply = question("Do you want to try again?", True)
-            if not reply:
-                report("Festival server is not working now.")
-                return False
-        report("Festival server seems to work correctly")
-        return True
+        ret = self.festival_with_freebsoft_utils()
+        if not ret:
+            report("Festival server is not working.")
+            return False
+        else:
+            report("Festival server seems to work correctly")
+            return True
 
     def test_espeak(self):
         """Test the espeak utility"""
@@ -416,21 +420,8 @@ it is likely that Speech Dispatcher is not installed.""")
 is not installed.""")
                 return False
 
-            hearing_test = question("Did you hear the message 'Espeak seems to work'?",
-                                    True)
-            if hearing_test:
-                report("Espeak is working")
-                return True
-            else:
-                repeat = question("Do you want to repeat the test?", True)
-                if repeat:
-                    continue
-                else:
-                    report("""
-Espeak is installed, but the espeak utility is not working now.
-This doesn't necessarily mean that your espeak won't work with
-Speech Dispatcher.""")
-                    return False
+            report("Espeak is installed")
+            return True
 
     def test_alsa(self):
         """Test ALSA sound output"""
@@ -451,23 +442,22 @@ Speech Dispatcher.""")
         if speechd_running:
             # Test whether Speech Dispatcher works
             if self.test_spd_say():
-                dispatcher_working = True
+                spd_say_working = True
                 skip = question("Speech Dispatcher works. Do you want to skip other tests?",
                                 True)
                 if skip:
-                    return {'dispatcher_working': True}
+                    return {'spd_say_working': True}
             else:
-                dispatcher_working = False
+                spd_say_working = False
         else:
-            dispatcher_working = False
+            spd_say_working = False
 
-        if not dispatcher_working:
+        if not spd_say_working:
             if not question("""
 Speech Dispatcher isn't running or we can't connect to it (see above),
 do you want to proceed with other tests? (They can help to determine
 what is wrong)""", True):
-                return {'dispatcher_working': False}
-
+                return {'spd_say_working': False}
 
         def decide_to_test(identifier, name, listing):
             """"Ask the user whether to test a specific capability"""
@@ -487,18 +477,17 @@ what is wrong)""", True):
                 working_modules += ["espeak"]
 
         if decide_to_test('alsa', "ALSA sound system", audio_output): 
-            if not self.test_alsa():
+            if self.test_alsa():
                 working_audio += ["alsa"]
 
         if decide_to_test('pulse', "Pulse Audio sound system", audio_output): 
-            if not self.test_pulse():
+            if self.test_pulse():
                 working_audio += ["pulse"]
 
         report("Testing whether Python Speech Dispatcher library is in path and importable")
         python_speechd_working = test.python_speechd_in_path()
         
-        # TODO: Return results of the diagnostics
-        return  {'dispatcher_working': dispatcher_working,
+        return  {'spd_say_working': spd_say_working,
                  'audio': working_audio,
                  'synthesizers': working_modules,
                  'python_speechd' : python_speechd_working}
@@ -509,16 +498,16 @@ what is wrong)""", True):
         report("""
 
 Diagnostics results:""")
-        if results.has_key('dispatcher_working'):
-            if results['dispatcher_working']:
+        if results.has_key('spd_say_working'):
+            if results['spd_say_working']:
                 report("Speech Dispatcher is working")
             else:
-                report("Speech Dispatcher not working");
+                report("Speech Dispatcher not working through spd-say")
         if results.has_key('synthesizers'):
-            report("Synthesizers that were tested and work: %s" %
+            report("Synthesizers that were tested and seem to work: %s" %
                    str(results['synthesizers']))
         if results.has_key('audio'):
-            report("Audio systems that were tested and work: %s" %
+            report("Audio systems that were tested and seem to work: %s" %
                    str(results['audio']))
         if results.has_key('python_speechd'):
             if(results['python_speechd']):
@@ -544,11 +533,11 @@ Either not installed or not in path.""")
 
         return True
 
-    def debug_and_report(self, speechd_port=6560, type = None):
+    def debug_and_report(self, type = None):
         """Start Speech Dispatcher in debugging mode, collect the debugging output
         and offer to send it to the developers"""
 
-        report("Starting collecting debugging output, configuration and logfiles");
+        report("Starting collecting debugging output, configuration and logfiles")
 
         if not type:
             type = question_with_required_answers("""
@@ -557,14 +546,14 @@ Do you want to debug 'system' or  'user' Speech Dispatcher?""",
 
         # Try to kill running Speech Dispatcher
         reply = question("""It is necessary to kill the currently running Speech Dispatcher
-processes. Do you want to do it now?""", True);
+processes. Do you want to do it now?""", True)
         if reply:
             os.system("killall speech-dispatcher")
         else:
             report("""
 You decided not to kill running Speech Dispatcher processes.
 Please make sure your Speech Dispatcher is not running now.""")
-            reply = question("Is your Speech Dispatcher not running now?", True);
+            reply = question("Is your Speech Dispatcher not running now?", True)
             if not reply:
                 report("Can't continue, please stop your Speech Dispatcher and try again")
 
@@ -588,32 +577,32 @@ Please make sure your Speech Dispatcher is not running now.""")
         else:
             report("Warning: You must be root or under sudo to do this.")        
             report("""
-Please start your system Speech Dispatcher now with parameter '-D'""");
-            reply = question("Is your Speech Dispatcher running now?", True);
+Please start your system Speech Dispatcher now with parameter '-D'""")
+            reply = question("Is your Speech Dispatcher running now?", True)
             if reply:
                 speechd_started = True
             else:
-                report("Can't continue");
+                report("Can't continue")
             configure_directory = test.system_conf_dir()
         time.sleep(2)
 
         if not speechd_started:
-            reply = question("Speech Dispatcher failed to start, continuing anyway");
+            reply = question("Speech Dispatcher failed to start, continuing anyway")
 
-        report("Trying to speak some messages");
+        report("Trying to speak some messages")
         ret = os.system("spd-say \"Speech Dispatcher debugging 1\"")
-        if ret:
+        if not ret:
+            os.system("spd-say \"Speech Dispatcher debugging 2\"")
+            os.system("spd-say \"Speech Dispatcher debugging 3\"")
+        else:
             report("Can't test Speech Dispatcher connection, can't connect")
-
-        os.system("spd-say \"Speech Dispatcher debugging 2\"")
-        os.system("spd-say \"Speech Dispatcher debugging 3\"")
 
         report("Please wait (about 5 seconds)")
         time.sleep(5)
 
         report("Collecting debugging output and your configuration information") 
 
-        os.system("umask 077");
+        os.system("umask 077")
         os.system("tar -cz %s %s > %s" % 
                   (debugdir_path, configure_directory, debugarchive_path))   
         os.system("killall speech-dispatcher")
@@ -660,8 +649,8 @@ class Configure:
                             # If a foreign word went before our option identifier,
                             # we are not in code but in comments
                             if unknown != 0:
-                                unknown = 2;
-                                break;
+                                unknown = 2
+                                break
                         else:
                             unknown += 1
 
@@ -713,7 +702,7 @@ Do you want to keep it?""", False)
 
             # TODO: Check for permissions on logfiles and pid
         else:
-            report("Creating " + test.user_speechd_dir());
+            report("Creating " + test.user_speechd_dir())
             os.mkdir(test.user_speechd_dir())
 
         # Copy the original intact configuration files
@@ -726,12 +715,12 @@ Do you want to keep it?""", False)
         """Ask for basic settings and rewrite them in the configuration file"""
 
         if type == 'user':
-            report("Configuring user settings for Speech Dispatcher");
+            report("Configuring user settings for Speech Dispatcher")
         elif type == 'system':
             report("Warning: You must be root or under sudo to do this.")
-            report("Configuring system settings for Speech Dispatcher");
+            report("Configuring system settings for Speech Dispatcher")
         else:
-            assert(0);
+            assert(0)
 
         # Now determine the most important config option
         self.default_output_module = question_with_suggested_answers(
@@ -745,7 +734,7 @@ Do you want to keep it?""", False)
 
         self.default_audio_method = question_with_suggested_answers(
             "Default audio output method",
-            "pulse,alsa",
+            "pulse",
             ["pulse", "alsa", "oss", "pulse,alsa"])
 
         self.default_speech_rate = question(
@@ -772,8 +761,9 @@ Do you want to keep it?""", False)
                                  })
         if type == 'user':
             self.setup_autostart = question(
-                "Do you want to have Speech Dispatcher automatically started from ~/.config/autostart ?",
-                True)
+                """Do you want to have Speech Dispatcher automatically started from ~/.config/autostart ?
+This is usually not necessary, most applications will start Speech Dispatcher automatically.""",
+                False)
             if self.setup_autostart:
                 os.system("""cp %s ~/.config/autostart/""" % os.path.join(paths.SPD_DESKTOP_CONF_PATH,
                                                                           "speechd.desktop")) 
@@ -781,7 +771,7 @@ Do you want to keep it?""", False)
                 report("""
 Configuration written to %s
 Basic configuration now complete. You might still need to fine tune it by
-manually editing the configuration above file. Especially if you need to
+manually editing the configuration file above. Especially if you need to
 use special audio settings, non-standard synthesizer ports etc.""" % configfile)
 
     def speechd_start_user(self):
@@ -789,20 +779,19 @@ use special audio settings, non-standard synthesizer ports etc.""" % configfile)
 
         report("Starting Speech Dispatcher in user-mode")
 
-        not_started = True
-        while not_started:
-            not_started = os.system("speech-dispatcher");
-            if not_started:
-                report("Can't start Speech Dispatcher. Exited with status %d" %
-                       not_started)
-                reply = question("""
-Perhaps this is because your Speech Dispatcher is already running.
+        err = os.system("speech-dispatcher")
+        if err:
+            report("Can't start Speech Dispatcher. Exited with status %d" % err)
+            reply = question("""Perhaps this is because your Speech Dispatcher is already running.
 Do you want to kill all running Speech Dispatchers and try again?""", True)
-                if reply:
-                    os.system("killall speech-dispatcher")
-                else:
-                    report("Can't start Speech Dispatcher");
+            if reply:
+                os.system("killall speech-dispatcher")
+                err = os.system("speech-dispatcher")
+                if err:
+                    report("Can't start Speech Dispatcher")
                     return False
+            else:
+                return False
         return True
 
     def speechd_start_system(self):
@@ -853,20 +842,21 @@ you have to start it manually to continue.""")
             if speechd_type == 'user':
                 started = self.speechd_start_user()
             elif speechd_type == 'system':
-                started= self.speechd_start_system()
+                started = self.speechd_start_system()
 
         if not started:
-            report("Your Speech Dispatcher is not running");
+            report("Your Speech Dispatcher is not running")
             
         result = test.diagnostics(speechd_running = started,
                                   audio_output=[self.default_audio_method],
-                                  output_modules=[self.default_output_module]);
+                                  output_modules=[self.default_output_module])
         test.write_diagnostics_results(result)
 
-        reply = question("Do you want to run debugging now and send a request for help to the developers?",
-                         False)
-        if reply:
-            test.debug_and_report(type=speechd_type)
+        if not started:
+            reply = question("Do you want to run debugging now and send a request for help to the developers?",
+                             False)
+            if reply:
+                test.debug_and_report(type=speechd_type)
 
 
 # Basic objects
@@ -877,7 +867,7 @@ test = Tests()
 
 def main():
 
-    report("Speech Dispatcher configuration tool")
+    report("\nSpeech Dispatcher configuration tool\n")
     
     if options.create_user_configuration:
         # Check for and/or create basic user configuration
@@ -920,7 +910,7 @@ def main():
         else:
             reply = question("Do you want to run diagnosis of problems?", True)
             if reply:
-                test.diagnostics()
+                ret=test.diagnostics()
                 test.write_diagnostics_results(ret)
             else:
                 report("""Please run this command again and select what you want to do
