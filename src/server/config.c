@@ -454,7 +454,7 @@ load_default_global_set_options()
 /* Added by Willie Walker - default to OSS for Solaris */
     GlobalFDSet.audio_output_method = strdup("oss");
 #else
-    GlobalFDSet.audio_output_method = strdup("pulse,alsa");
+    GlobalFDSet.audio_output_method = strdup("pulse");
 #endif /* __SUNPRO_C */
     GlobalFDSet.audio_oss_device = strdup("/dev/dsp");
     GlobalFDSet.audio_alsa_device = strdup("default");

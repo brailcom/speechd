@@ -149,22 +149,20 @@ DefaultVolume 100
 
 # -- AUDIO OUTPUT --
 
-# Chooses between three possible sound output systems:
-#       "oss"   - Open Sound System
-#       "alsa"  - Advanced Linux Sound System
-#       "nas"   - Network Audio System
+# Chooses between the possible sound output systems:
 #       "pulse" - PulseAudio
-# ALSA is default and recommended. The recent implementations
-# support mixing of multiple streams. OSS is only provided
-# for compatibility with architectures that do not include ALSA.
-# NAS is an audio server with higher level of control over
-# your audio stream, with the possibility to stream your audio
-# over the network to a different computer and other advanced
-# features. (The NAS backend is not very well tested however.)
-# PulseAudio is a sound server for POSIX and WIN32 systems. 
-#
+#       "alsa"  - Advanced Linux Sound System
+#       "oss"   - Open Sound System
+#       "nas"   - Network Audio System
+#       "libao" - A cross platform audio library
+# Pulse audio is the default and recommended sound server. OSS and ALSA
+# are only provided for compatibility with architectures that do not
+# include Pulse Audio. NAS provides network transparency, but is not
+# very well tested. libao is a cross platform library with plugins for
+# different sound systems and provides alternative output for Pulse Audio
+# and ALSA as well as for other backends.
 
-# AudioOutputMethod "pulse,alsa"
+# AudioOutputMethod "pulse"
 
 # What ALSA device to use when Advanced Linux Sound Architecture is
 # chosen for the audio output.
