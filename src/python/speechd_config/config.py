@@ -1,4 +1,7 @@
-# Copyright (C) 2008,2010 Brailcom, o.p.s.
+# config.py - A simple dialog based tool for basic configuration of
+#             Speech Dispatcher and problem diagnostics.
+#
+# Copyright (C) 2008, 2010 Brailcom, o.p.s.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -205,10 +208,9 @@ class Options(object):
         }
 
     def __init__(self):
-        usage = """A simple tool for basic configuration of Speech Dispatcher
-and problem diagnostics
-
-usage: %prog [options]"""
+        usage = """%prog [options]
+A simple dialog based tool for basic configuration of Speech Dispatcher
+and problem diagnostics."""
         self.cmdline_parser = OptionParser(usage)
 
         for option, definition in self._conf_options.iteritems():
