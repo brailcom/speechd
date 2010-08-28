@@ -10,7 +10,7 @@ You will need these components to compile Speech Dispatcher:
  - festival-freebsoft-utils 0.3+ (optional)
 	(http://www.freebsoft.org/festival-freebsoft-utils)
 
-Only if you are building from CVS, you also need these:
+Only if you are building from Git, you also need these:
  - automake 1.7+, autoconf, pkg-config and libtool
 
 We recommend to also install these packages:
@@ -41,7 +41,7 @@ These packages are known to work with Speech Dispatcher:
 Building Speech Dispatcher:
 ===========================
 
-(for instructions about how to build from CVS or CVS snapshot see bellow)
+(for instructions about how to build from Git or Git snapshot see bellow)
 
 If you want to use Speech Dispatcher with Festival (recommended), you
 also need to install festival-freebsoft-utils version 0.3 or higher!
@@ -140,10 +140,10 @@ If it doesn't work, please see "Building from CVS" if this is your case. If
 not, you can ask us on users@lists.freebsoft.org or report possible bugs on
 speechd@bugs.freebsoft.org .
 
-Building from CVS
+Building from Git
 =================
 
-If you are building directly from CVS or from some CVS tarball snapshot, you
+If you are building directly from Git or from some Git tarball snapshot, you
 must first create the ./configure file. Please make sure you have all the
 necessary tools listed in the requirements at the beginning of this README
 in their appropriate versions. Automake and autoconf are especially version
@@ -151,7 +151,7 @@ sensitive.
 
 Then please do:
 
- $ cd speech-dispatcher-0.7
+ $ cd speech-dispatcher # where speech-dispatcher is your Git clone
  $ ./build.sh
 
 Now the configure file should be created and you can proceed like with
