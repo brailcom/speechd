@@ -374,7 +374,7 @@ _cicero_speak(void* nothing)
 	if (bytes > 0){
 	  DBG("Speaking ...");
 	  DBG("Trying to synthesize text");
-	  l[0] = 2; /* say code */
+	  l[0] = 4; /* say code for UTF-8 data*/
 	  l[1] = bytes>>8;
 	  l[2] = bytes & 0xFF;
 	  l[3] = 0, l[4] = 0;
