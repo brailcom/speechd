@@ -75,6 +75,8 @@ def question(text, default):
             return int(str_inp)
         elif isinstance(default, str):
             return str_inp
+        else:
+            raise TypeError("Invalid type for the default value")
 
 def question_with_suggested_answers(text, default, suggest):
     """Ask a question with suggested answers. If the answer typed is not
@@ -346,8 +348,8 @@ Search for package like python-speechd, download and install it""")
             cmd = "aplay" + " " + wavfile
         elif type == 'pulse':
             cmd = "paplay" + " " + wavfile
-        elif type == 'oss':
-            raise NotImplementedError
+        else:
+            raise NotImplementedError("Test for this audio system is not implemented")
 
         try:
             ret = os.system(cmd)
@@ -722,7 +724,7 @@ Do you want to keep it?""", False)
             report("Warning: You must be root or under sudo to do this.")
             report("Configuring system settings for Speech Dispatcher")
         else:
-            assert(0)
+            raise ValueError("Invalid configuration type")
 
         # Now determine the most important config option
         self.default_output_module = question_with_suggested_answers(
@@ -834,7 +836,7 @@ you have to start it manually to continue.""")
         elif speechd_type == 'system':
             self.configure_basic_settings(type='system')
         else:
-            assert(False)
+            raise ValueError("Invalid configuration type")
 
         reply = question("Do you want to start/restart Speech Dispatcher now and run some tests?", True)
         if not reply:
