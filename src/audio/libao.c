@@ -80,12 +80,36 @@ int libao_set_volume (AudioID * id, int volume);
    This is the most portable way to initialize a stack-allocated struct to
    zero. */
 static ao_sample_format AO_FORMAT_INITIALIZER;
+static ao_sample_format current_ao_parameters;
 
 static volatile int ao_stop_playback = 0;
 
 static int default_driver;
 
 ao_device *device = NULL;
+
+static inline void libao_open_handle(int rate, int channels, int bits)
+{
+  ao_sample_format format = AO_FORMAT_INITIALIZER;
+
+  format.channels = channels;
+  format.rate = rate;
+  format.bits = bits;
+  format.byte_format = AO_FMT_NATIVE;
+  device = ao_open_live (default_driver, &format, NULL);
+
+  if (device != NULL)
+    current_ao_parameters = format;
+}
+
+static inline void libao_close_handle(void)
+{
+  if (device != NULL)
+    {
+      ao_close(device);
+      device = NULL;
+    }
+}
 
 int libao_open (AudioID * id, void **pars)
 {
@@ -107,15 +131,12 @@ int libao_play (AudioID * id, AudioTrack track)
 
   int i;
 
-  ao_sample_format format = AO_FORMAT_INITIALIZER;
-
   if (id == NULL)
     return -1;
   if (track.samples == NULL || track.num_samples <= 0)
     return 0;
 
   /* Choose the correct format */
-  format.bits = track.bits;
   if (track.bits == 16)
     bytes_per_sample = 2;
   else if (track.bits == 8)
@@ -125,14 +146,19 @@ int libao_play (AudioID * id, AudioTrack track)
      ERR ("Audio: Unrecognized sound data format.\n");
      return -10;
    }
-  format.channels = track.num_channels;
-  format.rate = track.sample_rate;
-  format.byte_format = AO_FMT_NATIVE;
   MSG (3, "Starting playback");
   output_samples = track.samples;
   num_bytes = track.num_samples * bytes_per_sample;
-  if (device == NULL)
-    device = ao_open_live (default_driver, &format, NULL);
+
+  if ((device == NULL)
+      || (track.num_channels != current_ao_parameters.channels)
+      || (track.sample_rate != current_ao_parameters.rate)
+      || (track.bits != current_ao_parameters.bits))
+    {
+      libao_close_handle();
+      libao_open_handle(track.sample_rate, track.num_channels, track.bits);
+    }
+
   if (device == NULL)
    {
      ERR ("error opening libao dev");
@@ -154,8 +180,7 @@ int libao_play (AudioID * id, AudioTrack track)
 
      if (!ao_play (device, (char *) output_samples + outcnt, i))
       {
-        ao_close (device);
-        device = NULL;
+        libao_close_handle();
         ERR ("Audio: ao_play() - closing device - re-open it in next run\n");
         return -1;
       }
@@ -176,14 +201,9 @@ int libao_stop (AudioID * id)
 
 int libao_close (AudioID * id)
 {
-
-  if (device != NULL)
-    ao_close (device);
-  device = NULL;
-
+  libao_close_handle();
   ao_shutdown ();
   id = NULL;
-
   return 0;
 }
 
