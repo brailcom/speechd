@@ -356,7 +356,10 @@ spd_audio_set_volume(AudioID *id, int volume)
 	fprintf(stderr, "Requested volume out of range");
 	return -1;
     }
-
+    if(id == NULL){
+        fprintf(stderr, "audio id is NULL in spd_audio_set_volume\n");
+        return -1;
+    }
     id->volume = volume;
     return 0;
 }
