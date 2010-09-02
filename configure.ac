@@ -121,7 +121,7 @@ AC_CHECK_LIB(flite_cmu_us_kal16,
 		echo "16-bit Kal Flite voice found. Flite support enabled.";
 		AC_DEFINE([HAVE_REGISTER_CMU_US_KAL16], 1,
 			[Use cmu_register_us_kal16 to register the 16-bit voice.]),
-		AC_CHECK_LIB(flite_cmu_us_kal,	
+		AC_CHECK_LIB(flite_cmu_us_kal,
 			register_cmu_us_kal, flite_ok="true";flite_kal="-lflite_cmu_us_kal";
 			echo "8-bit Kal Flite voice found. Flite support enabled.",
 			flite_ok="false"; echo "Flite libraries missing. Compiling without Flite support!",
@@ -141,7 +141,7 @@ AC_ARG_WITH(flite, AS_HELP_STRING(--with-flite, Compile with Festival Lite (Flit
 		       echo "Flite support is not available. Sorry."; exit 1;
 		    fi
                  fi
- 		 echo "")
+		 echo "")
 
 AM_CONDITIONAL(flite_support, test $flite_ok = "true")
 
@@ -153,15 +153,15 @@ AC_CHECK_LIB(ibmeci,
 	-libmeci)
 
 AC_ARG_WITH(ibmtts, AS_HELP_STRING(--with-ibmtts, Compile with IBM TTS support),
-		 if test $withval = "no"; then 
-		    echo "Forced compilation without IBMTTS support."; 
+		 if test $withval = "no"; then
+		    echo "Forced compilation without IBMTTS support.";
 		    ibmtts_ok="false";
-		 else 
+		 else
 		    if test $ibmtts_ok = "false"; then
 		       echo "IBM TTS support is not available. Sorry."; exit 1;
 		    fi
                  fi
- 		 echo "")
+		 echo "")
 
 AM_CONDITIONAL(ibmtts_support, test $ibmtts_ok = "true")
 
@@ -185,15 +185,15 @@ espeak_Synth,
 		$EXTRA_ESPEAK_LIBS)
 
 AC_ARG_WITH(espeak, AS_HELP_STRING(--with-espeak, Compile with espeak support),
-		 if test $withval = "no"; then 
-		    echo "Forced compilation without espeak support."; 
+		 if test $withval = "no"; then
+		    echo "Forced compilation without espeak support.";
 		    espeak_ok="false";
-		 else 
+		 else
 		    if test $espeak_ok = "false"; then
 		       echo "Espeak support is not available. Sorry."; exit 1;
 		    fi
                  fi
- 		 echo "")
+		 echo "")
 
 AM_CONDITIONAL(espeak_support, test $espeak_ok = "true")
 
@@ -205,16 +205,16 @@ AC_CHECK_LIB(dumbtts,
 	-ldumbtts)
 
 AC_ARG_WITH(ivona, AS_HELP_STRING(--with-ivona, Compile with ivona support),
-		 if test $withval = "no"; then 
-		    echo "Forced compilation without ivona support."; 
+		 if test $withval = "no"; then
+		    echo "Forced compilation without ivona support.";
 		    ivona_ok="false";
-		 else 
+		 else
 		    if test $ivona_ok = "false"; then
 		       echo "Ivona support is not available. Sorry."; exit 1;
 		    fi
                  fi
- 		 echo "")
-	
+		 echo "")
+
 AM_CONDITIONAL(ivona_support, test $ivona_ok = "true")
 
 STATIC_AUDIO_PLUGINS_LIST=""
@@ -227,15 +227,15 @@ AC_CHECK_LIB(audio,
 	-L/usr/X11R6/lib -lXau)
 
 AC_ARG_WITH(nas, AS_HELP_STRING(--with-nas, Compile with Network Audio System (NAS) support),
-		 if test $withval = "no"; then 
+		 if test $withval = "no"; then
 		    echo "Forced compilation without NAS support.";
 		    nas_aud="false";
-		 else 
+		 else
 		    if test $nas_aud = "false"; then
 		       echo "NAS support is not available. Sorry."; exit 1;
 		    fi
                  fi
- 		 echo "")
+		 echo "")
 
 AM_CONDITIONAL(nas_support, test $nas_aud = "true")
 if test $nas_aud = "true"; then
@@ -266,15 +266,15 @@ AC_CHECK_LIB(ao,
         libao_aud="false";echo "*** libao library missing. Compiling without libao support! See INSTALL.";)
 
 AC_ARG_WITH(libao, AS_HELP_STRING(--with-libao, Compile with libao support),
-		 if test $withval = "no"; then 
+		 if test $withval = "no"; then
 		    echo "Forced compilation without libao support.";
 		    libao_aud="false";
-		 else 
+		 else
 		    if test $libao_aud = "false"; then
 		       echo "libao support is not available. Sorry."; exit 1;
 		    fi
                  fi
- 		 echo "")
+		 echo "")
 
 AM_CONDITIONAL(libao_support, test $libao_aud = "true")
 if test $libao_aud = "true"; then
@@ -289,15 +289,15 @@ AC_CHECK_LIB(asound,
         alsa_aud="false";echo "*** ALSA C API library missing. Compiling without ALSA support! See INSTALL.";)
 
 AC_ARG_WITH(alsa, AS_HELP_STRING(--with-alsa, Compile with ALSA support),
-		 if test $withval = "no"; then 
+		 if test $withval = "no"; then
 		    echo "Forced compilation without ALSA support.";
 		    alsa_aud="false";
-		 else 
+		 else
 		    if test $alsa_aud = "false"; then
 		       echo "ALSA support is not available. Sorry."; exit 1;
 		    fi
                  fi
- 		 echo "")
+		 echo "")
 
 AM_CONDITIONAL(alsa_support, test $alsa_aud = "true")
 if test $alsa_aud = "true"; then
@@ -314,15 +314,15 @@ AC_CHECK_LIB(pulse,
 
 
 AC_ARG_WITH(pulse, AS_HELP_STRING(--with-pulse, Compile with PulseAudio support),
-		 if test $withval = "no"; then 
+		 if test $withval = "no"; then
 		    echo "Forced compilation without PulseAudio support.";
 		    pulse_aud="false";
-		 else 
+		 else
 		    if test $pulse_aud = "false"; then
 		       echo "PulseAudio support is not available. Sorry."; exit 1;
 		    fi
                  fi
- 		 echo "")
+		 echo "")
 
 AM_CONDITIONAL(pulse_support, test $pulse_aud = "true")
 if test $pulse_aud = "true"; then
@@ -353,7 +353,7 @@ AC_SUBST(datadir)
 
 spdconfdir='${sysconfdir}/speech-dispatcher'
 AC_SUBST(spdconfdir)
-moduleconfdir='${spdconfdir}/modules' 
+moduleconfdir='${spdconfdir}/modules'
 AC_SUBST(moduleconfdir)
 clientconfdir='${spdconfdir}/clients'
 AC_SUBST(clientconfdir)
@@ -371,9 +371,9 @@ snddatadir='${datadir}/sounds/speech-dispatcher'
 AC_SUBST(snddatadir)
 modulebindir='${libdir}/speech-dispatcher-modules'
 AC_SUBST(modulebindir)
-spdlibdir='${libdir}/speech-dispatcher' 
+spdlibdir='${libdir}/speech-dispatcher'
 AC_SUBST(spdlibdir)
-spdlib2dir='${libdir}/speech-dispatcher' 
+spdlib2dir='${libdir}/speech-dispatcher'
 AC_SUBST(spdlib2dir)
 
 LIB_SDAUDIO_CURRENT=2 # Current main version (increment on every API change -- incompatible AND extensions)
