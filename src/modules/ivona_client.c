@@ -339,9 +339,11 @@ ivona_play_file(char *filename)
 
 void play_icon(char *name)
 {
-	char buf[256];
-	sprintf(buf,"%s%s",IvonaSoundIconPath,name);
+	int len = strlen(IvonaSoundIconPath) + strlen(name) + 2;
+	char *buf = g_malloc(len);
+	sprintf(buf, "%s/%s", IvonaSoundIconPath, name);
 	ivona_play_file(buf);
+	g_free(buf);
 }
 
 #define IVONA_CACHE_SIZE 256
