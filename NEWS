@@ -1,4 +1,20 @@
 
+Version 0.7.1
+ * Easy configuration of the client communication method using a
+   single environment variable SPEECHD_ADDRESS.
+ * Advanced autospawn -- server is autostarted only when its
+   communication channel matches the communication channels requested
+   by the client.  Local server is not started when client attempts to
+   connect to a remote server.
+ * Both libspeechd and python library now report a detailed error
+   information in case of connection failure (why has connect failed,
+   why was it not possible to autostart the server, what has the
+   server reported etc.)  Clients can directly show this information
+   to the user and the user doesn't have to search them in logfiles.
+ * Improvements in memmory usage
+ * Cleanup of priorities of messages in logging output
+ * Various bugfixes, cleanups and fine-tunnings
+
 Version 0.7
  * Speech Dispatcher uses UNIX style sockets as default means of communication,
    thus avoiding the necessity to choose a numeric port and greatly easying
