@@ -2,6 +2,7 @@
 
 SUBDIRS= src config doc
 
-EXTRA_DIST= ChangeLog NEWS TODO AUTHORS COPYING INSTALL README intl/*.c intl/*.h build.sh version.sh
+EXTRA_DIST= ChangeLog NEWS TODO AUTHORS COPYING INSTALL README build.sh version.sh \
+            intl/fdsetconv.c intl/def.h intl/fdset.h intl/fdsetconv.h
 
 MAINTAINERCLEANFILES=configure
