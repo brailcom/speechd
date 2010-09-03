@@ -2,6 +2,6 @@
 
 SUBDIRS= modules clients
 
-spdconf_DATA= speechd.conf
+dist_spdconf_DATA= speechd.conf
 
-spdconforig_DATA= speechd.conf
+dist_spdconforig_DATA= speechd.conf
