@@ -27,7 +27,6 @@
 #include "fdset.h"
 
 #include "module_utils.h"
-#include "module_utils_addvoice.c"
 
 #define MODULE_NAME     "generic"
 #define MODULE_VERSION  "0.2"
@@ -635,5 +634,3 @@ generic_set_punct(EPunctMode punct)
 	DBG("ERROR: Unknown punctuation setting, ignored");
     }
 }
-
-#include "module_main.c"
