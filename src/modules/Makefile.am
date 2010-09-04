@@ -46,7 +46,7 @@ sd_ibmtts_LDADD = -lsdaudio -lm -lpthread -ldotconf -libmeci @SNDFILE_LIBS@ @gli
 sd_cicero_SOURCES = cicero.c module_main.c module_utils.c module_utils.h
 sd_cicero_LDADD = -lsdaudio -lpthread -ldotconf @glib_libs@ @gthread_libs@
 
-sd_espeak_SOURCES = espeak.c module_utils.c module_utils.h
+sd_espeak_SOURCES = espeak.c module_main.c module_utils.c module_utils.h
 sd_espeak_LDFLAGS = @RPATH@ '$(spdlibdir)'
 sd_espeak_LDADD = -lsdaudio -lespeak -ldotconf @glib_libs@ @SNDFILE_LIBS@ @gthread_libs@ @EXTRA_ESPEAK_LIBS@
 

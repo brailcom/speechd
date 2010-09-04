@@ -1280,8 +1280,6 @@ espeak_set_punctuation_list_from_utf8(const gchar *punct)
 
 /* > */
 
-#include "module_main.c"
-
 /* local variables: */
 /* folded-file: t */
 /* c-basic-offset: 4 */
