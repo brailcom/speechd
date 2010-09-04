@@ -21,7 +21,13 @@
  * $Id: module_utils_addvoice.c,v 1.5 2007-07-29 23:43:33 hanke Exp $
  */
 
+#include <stdio.h>
+#include <string.h>
+
 #include <glib.h>
+#include <dotconf.h>
+
+#include "module_utils.h"
 
 GHashTable *module_voice_table = NULL;
 

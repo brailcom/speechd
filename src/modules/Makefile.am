@@ -54,6 +54,6 @@ sd_ivona_SOURCES = ivona.c module_utils.c module_utils.h
 sd_ivona_LDFLAGS = @RPATH@ '$(spdlibdir)'
 sd_ivona_LDADD = -lsdaudio -ldumbtts -lpthread -ldotconf @glib_libs@ @SNDFILE_LIBS@ @gthread_libs@
 
-sd_dummy_SOURCES = dummy.c module_utils.c module_utils.h
+sd_dummy_SOURCES = dummy.c module_main.c module_utils.c module_utils_addvoice.c module_utils.h
 sd_dummy_LDFLAGS = @RPATH@ '$(spdlibdir)'
 sd_dummy_LDADD = -lsdaudio -lpthread -ldotconf @glib_libs@ @SNDFILE_LIBS@ @gthread_libs@

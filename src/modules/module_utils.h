@@ -44,12 +44,12 @@
 #include <sys/ipc.h>
 #include <sys/sem.h>
 
+#include "fdset.h"
 #include "spd_audio.h"
 
 int log_level;
 
 AudioID *module_audio_id;
-char* module_audio_pars[10];
 
 SPDMsgSettings msg_settings;
 SPDMsgSettings msg_settings_old;

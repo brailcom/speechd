@@ -26,6 +26,7 @@
 
 #include "module_utils.h"
 
+static char* module_audio_pars[10];
 
 extern char* module_index_mark;
 
