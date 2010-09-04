@@ -2,6 +2,8 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_INIT(configure.in)
 
+
+
 AC_LANG(C)
 
 dnl progs
@@ -17,6 +19,15 @@ AC_ARG_ENABLE([python],
 	[AS_HELP_STRING([--disable-python], [do not install python bindings])],
 	[],
 	[enable_python=check])
+
+#
+# Setup GETTEXT
+#
+GETTEXT_PACKAGE=speech-dispatcher
+AC_SUBST(GETTEXT_PACKAGE)
+AM_GLIB_GNU_GETTEXT
+IT_PROG_INTLTOOL([0.40.0])
+
 
 dnl Checks for header files.
 AC_HEADER_STDC
@@ -399,5 +410,9 @@ AC_SUBST(ERROR_CFLAGS)
 AC_SUBST(RPATH)
 AC_SUBST(RDYNAMIC)
 
-AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/c/Makefile src/c/api/Makefile src/c/clients/Makefile src/c/clients/say/Makefile src/c/clients/spdsend/Makefile src/tests/Makefile src/audio/Makefile src/audio/static_plugins.c config/Makefile config/modules/Makefile config/clients/Makefile doc/Makefile src/python/Makefile src/python/speechd/Makefile src/python/speechd_config/Makefile])
+# Path of installed localization files:
+localedir=${datadir}/locale
+AC_SUBST(localedir)
+
+AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/c/Makefile src/c/api/Makefile src/c/clients/Makefile src/c/clients/say/Makefile src/c/clients/spdsend/Makefile src/tests/Makefile src/audio/Makefile src/audio/static_plugins.c config/Makefile config/modules/Makefile config/clients/Makefile doc/Makefile src/python/Makefile src/python/speechd/Makefile src/python/speechd_config/Makefile po/Makefile.in])
 

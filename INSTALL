@@ -17,6 +17,7 @@ We recommend to also install these packages:
  - PulseAudio (http://www.pulseaudio.org)
  - Festival (http://www.cstr.ed.ac.uk/projects/festival/)
  - Espeak (http://espeak.sourceforge.net/)
+ - Intltool 0.40.0+ (http://freedesktop.org/wiki/Software/intltool) for internationalization support.
 
 These packages are known to work with Speech Dispatcher:
  Software synthesizers:
@@ -238,4 +239,3 @@ Now the configure file should be created and you can proceed like with
 an ordinary instalation.
 
 
-    
