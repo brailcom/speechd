@@ -446,6 +446,3 @@ flite_set_voice(EVoiceType voice)
 {
     return;
 }
-
-
-#include "module_main.c"

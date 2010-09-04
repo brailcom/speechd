@@ -28,7 +28,7 @@ if ivona_support
 modulebin_PROGRAMS += sd_ivona
 endif
 
-sd_flite_SOURCES = flite.c module_utils.c module_utils.h
+sd_flite_SOURCES = flite.c module_main.c module_utils.c module_utils.h
 sd_flite_LDFLAGS = @RPATH@ '$(spdlibdir)'
 sd_flite_LDADD = -lsdaudio $(flite_kal) $(flite_basic) -lpthread -ldotconf @glib_libs@ @gthread_libs@
 
