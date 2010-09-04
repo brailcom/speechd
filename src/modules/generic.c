@@ -399,6 +399,8 @@ _generic_speak(void* nothing)
 		  play_command = strdup("play");
 		}else if (!strncmp(audio_settings.audio_output_method, "alsa", amlen)){
 		  play_command = strdup("aplay");
+		}else if (!strncmp(audio_settings.audio_output_method, "libao", amlen)){
+		  play_command = strdup("play");
 		}else if (!strncmp(audio_settings.audio_output_method, "pulse", amlen)){
 		  play_command = strdup("paplay");
 		}else{
