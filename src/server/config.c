@@ -26,7 +26,7 @@
 
 #include "speechd.h"
 #include "config.h"
-#include "intl/fdsetconv.h"
+#include "fdsetconv.h"
 
 static TFDSetClientSpecific *cl_spec_section;
 
