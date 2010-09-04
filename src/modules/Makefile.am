@@ -39,7 +39,7 @@ sd_festival_SOURCES = festival.c festival_client.c festival_client.h module_main
 sd_festival_LDFLAGS = @RPATH@ '$(spdlibdir)'
 sd_festival_LDADD = -lsdaudio -lpthread -ldotconf @glib_libs@ @gthread_libs@ @EXTRA_SOCKET_LIBS@
 
-sd_ibmtts_SOURCES = ibmtts.c module_utils.c module_utils.h
+sd_ibmtts_SOURCES = ibmtts.c module_main.c module_utils.c module_utils_addvoice.c module_utils.h
 sd_ibmtts_LDFLAGS = @RPATH@ '$(spdlibdir)'
 sd_ibmtts_LDADD = -lsdaudio -lm -lpthread -ldotconf -libmeci @SNDFILE_LIBS@ @glib_libs@ @gthread_libs@
 
