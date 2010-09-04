@@ -43,7 +43,7 @@ sd_ibmtts_SOURCES = ibmtts.c module_utils.c module_utils.h
 sd_ibmtts_LDFLAGS = @RPATH@ '$(spdlibdir)'
 sd_ibmtts_LDADD = -lsdaudio -lm -lpthread -ldotconf -libmeci @SNDFILE_LIBS@ @glib_libs@ @gthread_libs@
 
-sd_cicero_SOURCES = cicero.c module_utils.c module_utils.h
+sd_cicero_SOURCES = cicero.c module_main.c module_utils.c module_utils.h
 sd_cicero_LDADD = -lsdaudio -lpthread -ldotconf @glib_libs@ @gthread_libs@
 
 sd_espeak_SOURCES = espeak.c module_utils.c module_utils.h
