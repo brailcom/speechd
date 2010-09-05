@@ -12,11 +12,6 @@ AM_INIT_AUTOMAKE("speech-dispatcher", "`cat version.sh|grep '^VERSION'|awk -F= '
 
 AM_CONFIG_HEADER(config.h)
 
-# Command-line arguments.
-AC_ARG_ENABLE([python],
-	[AS_HELP_STRING([--disable-python], [do not install python bindings])],
-	[],
-	[enable_python=check])
 
 dnl Checks for header files.
 AC_HEADER_STDC
@@ -25,15 +20,6 @@ AC_CHECK_HEADERS(limits.h sys/ioctl.h sys/time.h unistd.h)
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
 AC_HEADER_TIME
-
-# Python support
-# Python 2.4 or greater should be acceptable.
-AS_IF([test $enable_python != "no"],
-	[AM_PATH_PYTHON([2.4],
-		[enable_python=yes],
-		[AS_IF([test $enable_python = "yes"],
-		[AC_MSG_FAILURE([python is not available])])])])
-AM_CONDITIONAL([HAVE_PYTHON], [test "$enable_python" = 'yes'])
 
 dnl Checks for library functions.
 AC_PROG_GCC_TRADITIONAL
@@ -283,6 +269,7 @@ AC_CHECK_LIB(pulse,
 	-lpulse)
 
 
+AC_PATH_PROG([PYTHON],[python])
 
 AC_ARG_WITH(pulse, AS_HELP_STRING(--with-pulse, Compile with PulseAudio support),
 		 if test $withval = "no"; then 
@@ -365,5 +352,5 @@ AC_SUBST(ERROR_CFLAGS)
 AC_SUBST(RPATH)
 AC_SUBST(RDYNAMIC)
 
-AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/c/Makefile src/c/api/Makefile src/c/clients/Makefile src/c/clients/say/Makefile src/c/clients/spdsend/Makefile src/tests/Makefile src/audio/Makefile config/Makefile config/modules/Makefile config/clients/Makefile doc/Makefile src/python/Makefile src/python/speechd/Makefile src/python/speechd_config/Makefile])
+AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/c/Makefile src/c/api/Makefile src/c/clients/Makefile src/c/clients/say/Makefile src/c/clients/spdsend/Makefile src/tests/Makefile src/audio/Makefile config/Makefile config/modules/Makefile config/clients/Makefile doc/Makefile src/python/Makefile])
 
