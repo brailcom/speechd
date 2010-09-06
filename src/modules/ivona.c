@@ -32,6 +32,7 @@
 #include "fdset.h"
 
 #include "module_utils.h"
+#include "ivona_client.h"
 
 #if HAVE_SNDFILE
 #include <sndfile.h>
@@ -58,6 +59,10 @@ signed int ivona_cap_mode=0;
 int ivona_punct_mode=0;
 
 /* Internal functions prototypes */
+static int ivona_get_msgpart(struct dumbtts_conf *conf, EMessageType type,
+		      char **msg, char *icon, char **buf, int *len,
+		      int cap_mode, char *delimeters, int punct_mode,
+		      char *punct_some);
 static void ivona_set_volume(signed int volume);
 static void ivona_set_punctuation_mode(EPunctMode punct_mode);
 static void ivona_set_cap_let_recogn(ECapLetRecogn cap_mode);
@@ -79,8 +84,6 @@ MOD_OPTION_1_STR(IvonaSpeakerLanguage);
 MOD_OPTION_1_STR(IvonaSpeakerName);
 
 static struct dumbtts_conf *ivona_conf;
-
-#include "ivona_client.c"
 
 /* Public functions */
 
@@ -126,7 +129,7 @@ module_init(char **status_info)
     info = g_string_new("");
 
     /* Init Ivona */
-    if (ivona_init_sock()) {
+    if (ivona_init_sock(IvonaServerHost, IvonaServerPort)) {
         DBG("Couldn't init socket parameters");
 	*status_info = strdup("Can't initialize socket. "
 		"Check server host/port.");
@@ -269,7 +272,148 @@ module_close(int status)
 }
 
 /* Internal functions */
+static int get_unichar(char **str)
+{
+	wchar_t wc;
+	int n;
+	wc=*(*str)++ & 255;
+	if ((wc & 0xe0)==0xc0) {
+		wc &=0x1f;
+		n=1;
+	}
+	else if ((wc & 0xf0)==0xe0) {
+		wc &=0x0f;
+		n=2;
+	}
+	else if ((wc & 0xf8)==0xf0) {
+		wc &=0x07;
+		n=3;
+	}
+	else if ((wc & 0xfc)==0xf8) {
+		wc &=0x03;
+		n=4;
+	}
+	else if ((wc & 0xfe)==0xfc) {
+		wc &=0x01;
+		n=5;
+	}
+	else return wc;
+	while (n--) {
+		if ((**str & 0xc0) != 0x80) {
+			wc='?';
+			break;
+		}
+		wc=(wc << 6) | ((*(*str)++) & 0x3f);
+	}
+	return wc;
+}
 
+static int ivona_get_msgpart(struct dumbtts_conf *conf, EMessageType type,
+		      char **msg, char *icon, char **buf, int *len,
+		      int cap_mode, char *delimeters, int punct_mode,
+		      char *punct_some)
+{
+	int rc;
+	int isicon;
+	int n,pos,bytes;
+	wchar_t wc;
+	char xbuf[1024];
+
+	if (!*msg) return 1;
+	if (!**msg) return 1;
+	isicon=0;
+	icon[0]=0;
+	if (*buf) **buf=0;
+	DBG("Ivona message %s type %d\n",*msg,type);
+	switch(type) {
+		case MSGTYPE_SOUND_ICON:
+		if (strlen(*msg)<63) {
+			strcpy(icon,*msg);
+			rc=0;
+		}
+		else {
+			rc=1;
+		}
+		*msg=NULL;
+		return rc;
+
+		case MSGTYPE_SPELL:
+		wc=get_unichar(msg);
+		if (!wc) {
+			*msg=NULL;
+			return 1;
+		}
+		n=dumbtts_WCharString(conf,wc,*buf,*len,cap_mode,&isicon);
+		if (n>0) {
+			*len=n+128;
+			*buf=xrealloc(*buf,*len);
+			n=dumbtts_WCharString(conf,wc,*buf,*len,cap_mode,&isicon);
+		}
+		if (n) {
+			*msg=NULL;
+			return 1;
+		}
+		if (isicon) strcpy(icon,"capital");
+		return 0;
+
+		case MSGTYPE_KEY:
+		case MSGTYPE_CHAR:
+
+		if (type == MSGTYPE_KEY) {
+			n=dumbtts_KeyString(conf,*msg,*buf,*len,cap_mode,&isicon);
+		}
+		else {
+			n=dumbtts_CharString(conf,*msg,*buf,*len,cap_mode,&isicon);
+		}
+		DBG("Got n=%d",n);
+		if (n>0) {
+			*len=n+128;
+			*buf=xrealloc(*buf,*len);
+			if (type == MSGTYPE_KEY) {
+				n=dumbtts_KeyString(conf,*msg,*buf,*len,cap_mode,&isicon);
+			}
+			else {
+				n=dumbtts_CharString(conf,*msg,*buf,*len,cap_mode,&isicon);
+			}
+		}
+		*msg=NULL;
+
+		if (!n && isicon) strcpy(icon,"capital");
+		return n;
+
+		case MSGTYPE_TEXT:
+		pos=0;
+		bytes=module_get_message_part(*msg,xbuf,&pos, 1023,delimeters);
+		DBG("Got bytes %d, %s",bytes,xbuf);
+		if (bytes <= 0) {
+			*msg=NULL;
+			return 1;
+		}
+		*msg+=pos;
+		xbuf[bytes]=0;
+
+
+		n=dumbtts_GetString(conf,xbuf,*buf,*len,punct_mode,punct_some,",.;:!?");
+
+		if (n>0) {
+			*len=n+128;
+			*buf=xrealloc(*buf,*len);
+			n=dumbtts_GetString(conf,xbuf,*buf,*len,punct_mode,punct_some,",.;:!?");
+		}
+		if (n) {
+			*msg=NULL;
+			return 1;
+		}
+		DBG("Returning to Ivona |%s|",*buf);
+		return 0;
+
+		default:
+
+		*msg=NULL;
+		DBG("Unknown message type\n");
+		return 1;
+	}
+}
 
 void*
 _ivona_speak(void* nothing)
@@ -338,7 +482,11 @@ _ivona_speak(void* nothing)
 		DBG("Got icon");
 	    }
 	    if (!audio && !icon[0]) {
-	    	if(!msg || !*msg || ivona_get_msgpart(&msg,&icon,&buf,&len)) {
+		if(!msg || !*msg
+		   || ivona_get_msgpart(ivona_conf, ivona_message_type,
+		                        &msg,icon,&buf,&len,ivona_cap_mode,
+		                        IvonaDelimiters, ivona_punct_mode,
+		                        IvonaPunctuationSome)) {
 	    	  ivona_speaking=0;
 	          if (ivona_stop) module_report_event_stop();
 		  else module_report_event_end();
@@ -361,7 +509,10 @@ _ivona_speak(void* nothing)
 	    
 	    next_icon[0]=0;
 	    if (msg && *msg) {
-	        if (!ivona_get_msgpart(&msg,&next_icon,&buf,&len)) {
+	        if (!ivona_get_msgpart(ivona_conf, ivona_message_type, &msg,
+	                               next_icon, &buf, &len, ivona_cap_mode,
+	                               IvonaDelimiters, ivona_punct_mode,
+	                               IvonaPunctuationSome)) {
 		    if (buf && *buf) {
 		        next_offset=0;
 		        next_audio=ivona_get_wave_from_cache(buf,&next_samples);
@@ -381,7 +532,7 @@ _ivona_speak(void* nothing)
 		break;
 	    }
 	    if (icon[0]) {
-	        play_icon(icon);
+	        play_icon(IvonaSoundIconPath, icon);
 	        if (ivona_stop) {
 	            ivona_speaking=0;
 		    module_report_event_stop();
@@ -466,9 +617,3 @@ ivona_set_punctuation_mode(EPunctMode punct_mode)
 		break;
 	}
 }
-
-
-
-#include "module_main.c"
-
-
