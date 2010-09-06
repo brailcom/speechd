@@ -21,12 +21,13 @@
  * $Id: festival.c,v 1.82 2008-06-09 10:33:38 hanke Exp $
  */
 
+#include <stdio.h>
+
 #include "fdset.h"
 #include "fdsetconv.h"
 
+#include "festival_client.h"
 #include "module_utils.h"
-
-#include "festival_client.c"
 
 #define MODULE_NAME     "festival"
 #define MODULE_VERSION  "0.5"
@@ -66,7 +67,67 @@ struct{
 #define COM_SOCKET ((FestivalComType == FCT_SOCKET) ? 1 : 0)
 #define COM_LOCAL ((FestivalComType == FCT_LOCAL) ? 1 : 0)
 
+/* --- SETTINGS COMMANDS --- */
+
+#define FEST_SET_STR(name, fest_param) \
+    int \
+    name(FT_Info *info, char *param, char **resp) \
+    { \
+        char *r; \
+        int ret; \
+        char *f; \
+        if (festival_check_info(info, #name)) return -1; \
+        if (param == NULL){ \
+	  FEST_SEND_CMD("("fest_param" nil)"); \
+        }else{ \
+          f = g_ascii_strdown(param, -1); \
+	  FEST_SEND_CMDA("("fest_param" \"%s\")", f); \
+          xfree(f); \
+	} \
+        ret = festival_read_response(info, &r); \
+        if (ret != 0) return -1; \
+        if (r != NULL){ \
+          if (resp != NULL) \
+             *resp = r; \
+          else \
+             free(r); \
+        } \
+        return ret; \
+    }
+
+#define FEST_SET_SYMB(name, fest_param) \
+    int \
+    name(FT_Info *info, char *param) \
+    { \
+        char *f = NULL; \
+        if (festival_check_info(info, #name)) return -1; \
+        if (param == NULL) return -1; \
+        FEST_SEND_CMDA("("fest_param" '%s)", f = g_ascii_strdown(param, -1)); \
+        xfree(f); \
+        return festival_read_response(info, NULL); \
+    }
+
+#define FEST_SET_INT(name, fest_param) \
+    int \
+    name(FT_Info *info, int param) \
+    { \
+        if (festival_check_info(info, #name)) return -1; \
+        FEST_SEND_CMDA("("fest_param" %d)", param); \
+        return festival_read_response(info, NULL); \
+    }
+
+FEST_SET_SYMB(FestivalSetMultiMode, "speechd-enable-multi-mode")
+
+FEST_SET_INT(FestivalSetRate, "speechd-set-rate")
+FEST_SET_INT(FestivalSetPitch, "speechd-set-pitch")
+FEST_SET_SYMB(FestivalSetPunctuationMode, "speechd-set-punctuation-mode")
+FEST_SET_STR(FestivalSetCapLetRecogn, "speechd-set-capital-character-recognition-mode")
+FEST_SET_STR(FestivalSetLanguage, "speechd-set-language")
+FEST_SET_STR(FestivalSetVoice, "speechd-set-voice")
+FEST_SET_SYMB(FestivalSetSynthesisVoice, "speechd-set-festival-voice")
+
 /* Internal functions prototypes */
+static VoiceDescription** festivalGetVoices(FT_Info *info);
 void* _festival_speak(void*);
 
 void festival_parent_clean();
@@ -446,6 +507,61 @@ module_close(int status)
           goto sem_wait; \
         }
 
+static VoiceDescription** festivalGetVoices(FT_Info *info)
+{
+  char *reply;
+  char** voices;
+  char* lang; char* dialect;
+  int i, j;
+  int num_voices = 0;
+  VoiceDescription** result;
+
+  FEST_SEND_CMD("(apply append (voice-list-language-codes))");
+  festival_read_response(info, &reply);
+  if (reply == NULL){
+    DBG("ERROR: Invalid reply for voice-list");
+    return NULL;
+  }
+  /* Remove trailing newline */
+  reply[strlen(reply)-1]=0;
+  DBG("Voice list reply: |%s|", reply);
+  voices = lisp_list_get_vect(reply);
+  if (voices == NULL){
+    DBG("ERROR: Can't parse voice listing reply into vector");
+    return NULL;
+  }
+
+  /* Compute number of voices */
+  for (i=0; ; i++, num_voices++) if (voices[i] == NULL) break;
+  num_voices /= 3;
+
+  result = (VoiceDescription**) malloc((num_voices + 1)*sizeof(VoiceDescription*));
+
+  for (i=0, j=0; ;j++){
+    if (voices[i] == NULL)
+      break;
+    else if (strlen(voices[i]) == 0)
+      continue;
+    else
+      {
+	result[j] = (VoiceDescription*) malloc(sizeof(VoiceDescription));
+	result[j]->name = voices[i];
+	lang = voices[i+1];
+	if ((lang != NULL) && (strcmp(lang, "nil")))
+	  result[j]->language = strdup(lang);
+	else
+	  result[j]->language = NULL;
+	dialect = voices[i+2];
+	if ((dialect != NULL) && (strcmp(dialect, "nil")))
+	  result[j]->dialect = strdup(dialect);
+	else
+	  result[j]->dialect=NULL;
+	i+=3;
+      }
+  }
+  result[j] = NULL;
+  return result;
+}
 
 int
 festival_send_to_audio(FT_Wave *fwave)
@@ -1061,6 +1177,3 @@ stop_festival_local()
 	kill(festival_process_pid, SIGINT);
     return 0;
 }
-
-
-#include "module_main.c"

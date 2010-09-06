@@ -79,6 +79,37 @@ void delete_FT_Info(FT_Info *info);
 /* Intel, Alpha, DEC Mips, Vax */
 #define FAPI_LITTLE_ENDIAN (((char *)&fapi_endian_loc)[0] != 0)
 
+#define FEST_SEND_CMD(format) \
+    { \
+        FILE *fd; \
+        char *str; \
+        fd = fdopen(dup(info->server_fd),"wb"); \
+        if (fd != NULL){ \
+          str = g_strdup_printf(format"\n"); \
+          fprintf(fd, str); \
+          DBG("-> Festival: |%s|", str); \
+          free(str); \
+          fclose(fd); \
+        }else{ \
+          DBG("Can't open connection"); \
+        } \
+    }
+
+#define FEST_SEND_CMDA(format, args...) \
+    { \
+        FILE *fd; \
+        char *str; \
+        fd = fdopen(dup(info->server_fd),"wb"); \
+        if (fd != NULL){ \
+          str = g_strdup_printf(format"\n", args); \
+          fprintf(fd, str); \
+          DBG("-> Festival: |%s|", str); \
+          free(str); \
+          fclose(fd); \
+        }else{ \
+          DBG("Can't open connection"); \
+        } \
+    }
 
 /*****************************************************************/
 /*  Public functions to interface                                */
@@ -96,8 +127,10 @@ int festivalSpell(FT_Info *info, const char *text);
 
 FT_Wave* festivalStringToWaveGetData(FT_Info *info);
 
-static FT_Info *festivalDefaultInfo();
+FT_Info *festivalDefaultInfo();
 void festivalEmptySocket(FT_Info *info);
+int save_FT_Wave_snd(FT_Wave *wave, const char *filename);
+FT_Wave* festivalGetDataMulti(FT_Info *info, char **callback, int *stop_flag, int stop_by_close);
 
 int festival_check_info(FT_Info *info, char *fnname);
 int festival_read_response(FT_Info *info, char **expr);

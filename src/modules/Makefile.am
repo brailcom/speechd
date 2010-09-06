@@ -35,7 +35,7 @@ sd_flite_LDADD = -lsdaudio $(flite_kal) $(flite_basic) -lpthread -ldotconf @glib
 sd_generic_SOURCES = generic.c module_utils.c module_utils.h
 sd_generic_LDADD = -lsdaudio -lpthread -ldotconf @glib_libs@ @gthread_libs@
 
-sd_festival_SOURCES = festival.c module_utils.c
+sd_festival_SOURCES = festival.c festival_client.c festival_client.h module_main.c module_utils.c module_utils.h
 sd_festival_LDFLAGS = @RPATH@ '$(spdlibdir)'
 sd_festival_LDADD = -lsdaudio -lpthread -ldotconf @glib_libs@ @gthread_libs@ @EXTRA_SOCKET_LIBS@
 
