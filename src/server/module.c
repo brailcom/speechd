@@ -22,8 +22,6 @@
  * $Id: module.c,v 1.40 2008-07-07 14:30:51 hanke Exp $
  */
 
-#define _GNU_SOURCE
-
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <stdio.h>

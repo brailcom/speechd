@@ -366,6 +366,8 @@ _flite_speak(void* nothing)
 		        case SPD_AUDIO_BE:
 		            ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_BE);
 		            break;
+                        default:
+                            FATAL("unknown audio format");
 		    }
 		    if (ret < 0) DBG("ERROR: spd_audio failed to play the track");
 		    if (flite_stop){
