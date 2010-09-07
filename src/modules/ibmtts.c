@@ -1588,7 +1588,16 @@ ibmtts_search_for_sound_icon(const char *icon_name)
             fn = filename->str;
     }
 */
-    g_string_free(filename, FALSE);
+
+    /*
+     * if the file was found, the pointer *fn  points to the character data
+     * of the string filename. In this situation the string filename must be
+     * freed but its character data must be preserved.
+     * If the file is not found, the pointer *fn contains NULL. In this
+     * situation the string filename must be freed, including its character
+     * data.
+    */
+    g_string_free(filename, (fn == NULL));
 #endif
     return fn;
 }
