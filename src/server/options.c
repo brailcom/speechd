@@ -30,6 +30,24 @@
 
 #include "options.h"
 
+static const struct option spd_long_options[] = {
+    {"run-daemon", 0, 0, 'd'},
+    {"run-single", 0, 0, 's'},
+    {"spawn", 0, 0, 'a'},
+    {"log-level", 1, 0, 'l'},
+    {"communication-method", 1, 0, 'c'},
+    {"socket-path", 1, 0, 'S'},
+    {"port", 1, 0, 'p'},
+    {"pid-file", 1, 0, 'P'},
+    {"config-file", 1, 0, 'C'},
+    {"version", 0, 0, 'v'},
+    {"debug", 0, 0, 'D'},
+    {"help", 0, 0, 'h'},
+    {0, 0, 0, 0}
+};
+
+static const char *const spd_short_options = "dsal:c:S:p:P:C:vDh";
+
 void
 options_print_help(char *argv[])
 {

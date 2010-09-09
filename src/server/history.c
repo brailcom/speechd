@@ -31,11 +31,11 @@
 
 /* Compares TSpeechDMessage data structure elements
    with given ID */
-int
-message_compare_id (gconstpointer element, gconstpointer value, gpointer n)
+gint
+message_compare_id (gconstpointer element, gconstpointer value)
 {
-   int ret;
-   ret = ((TSpeechDMessage*) element)->id - (int) value;
+   gint ret;
+   ret = ((TSpeechDMessage*) element)->id - *((int *) value);
    return ret;
 }
 

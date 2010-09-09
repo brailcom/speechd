@@ -44,7 +44,7 @@ char* history_get_message(int uid);
 
 /* Internal functions */
 GList* get_messages_by_client(int uid);
-int message_compare_id (gconstpointer element, gconstpointer value, gpointer n);
+gint message_compare_id (gconstpointer element, gconstpointer value);
 
 
 #endif /* HISTORY_H */

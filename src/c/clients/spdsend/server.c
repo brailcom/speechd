@@ -293,8 +293,8 @@ static void process_data (Stream s)
   else
     report_error (s);
 
-  do_send_data (id, s, NONE, forward_data) == OK &&
-  do_send_data (id, NONE, s, forward_ssip_answer) == OK;
+  if (do_send_data (id, s, NONE, forward_data) == OK)
+    do_send_data (id, NONE, s, forward_ssip_answer);
 }
 
 
@@ -392,13 +392,16 @@ static void serve ()
 
 static void daemonize ()
 {
+  int ret = 0;
   if (fork () != 0)
     exit (0);
   setsid ();
   signal (SIGHUP, SIG_IGN);
   if (fork () != 0)
     exit (0);
-  chdir ("/");
+  if ((ret = chdir ("/")) != 0)
+    fputs("server.c:daemonize: could not chdir", stderr);
+    exit (1);
   umask (0);
   {
     int i;

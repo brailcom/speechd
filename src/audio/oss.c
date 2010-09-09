@@ -189,7 +189,7 @@ oss_play(AudioID *id, AudioTrack track)
     struct timeval now;
     struct timespec timeout;
     float lenght;
-    int r;
+    int r = 0;
     int format, oformat, channels, speed;
     int bytes_per_sample;
     int num_bytes;
@@ -423,7 +423,7 @@ oss_play(AudioID *id, AudioTrack track)
 static int
 oss_stop(AudioID *id)
 {
-    int ret;
+    int ret = 0;
     spd_oss_id_t * oss_id = (spd_oss_id_t *)id;
 
     if (oss_id == NULL) return 0;

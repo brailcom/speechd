@@ -743,8 +743,8 @@ _festival_speak(void* nothing)
 	    }       	
 
 	    if (fwave->num_samples != 0){
-		DBG("Sending message to audio: %ld bytes\n",
-		    (fwave->num_samples) * sizeof(short));	
+		DBG("Sending message to audio: %lu bytes\n",
+		    (long unsigned) ((fwave->num_samples) * sizeof(short)));
     
 		if(FestivalDebugSaveOutput){
 		    char filename_debug[256];
@@ -951,7 +951,7 @@ cache_clean(size_t new_element_size)
     GList *gl;
     TCounterEntry *centry;
 
-    DBG("Cache: cleaning, cache size %ld kbytes (>max %d).", FestivalCache.size/1024,
+    DBG("Cache: cleaning, cache size %lu kbytes (>max %d).", (unsigned long) (FestivalCache.size/1024),
         FestivalCacheMaxKBytes);
 
     req_size = 2*FestivalCache.size/3;

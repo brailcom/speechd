@@ -7,4 +7,4 @@ speech_dispatcher_LDFLAGS = @RDYNAMIC@
 
 inc_local = -I$(top_srcdir)/intl/
 localedir = $(datadir)/locale
-AM_CFLAGS = @ERROR_CFLAGS@ $(inc_local) -I$(localedir) @glib_include@ -DSYS_CONF=\"@spdconfdir@\" -DSND_DATA=\"@snddatadir@\" -DMODULEBINDIR=\"@modulebindir@\"  -DVERSION=\"@VERSION@\" -DPACKAGE=\"@PACKAGE@\"
+AM_CFLAGS = @ERROR_CFLAGS@ $(inc_local) -I$(localedir) @glib_include@ -DSYS_CONF=\"@spdconfdir@\" -DSND_DATA=\"@snddatadir@\" -DMODULEBINDIR=\"@modulebindir@\"  -DVERSION=\"@VERSION@\" -DPACKAGE=\"@PACKAGE@\" -D_GNU_SOURCE

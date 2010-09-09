@@ -63,10 +63,9 @@ typedef struct {
 static int pulse_log_level;
 static char const * pulse_play_cmd="paplay";
 
-static FILE *pulseDebugFile = NULL;
-
 /* Write to /tmp/speech-dispatcher-pulse.log */
 #ifdef DEBUG_PULSE
+static FILE *pulseDebugFile = NULL;
 static void MSG(char *message, ...)
 {
     va_list ap;

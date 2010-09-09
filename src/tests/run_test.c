@@ -23,6 +23,7 @@
  */
 
 #include <stdio.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/un.h>
@@ -99,7 +100,7 @@ wait_for(int fd, char* event)
         }
     }
     free(reply);
-    printf("       Continuing.\n", reply);
+    printf("       Continuing.\n");
     fflush(NULL);
 }
 
@@ -297,7 +298,9 @@ main(int argc, char* argv[])
         }
         
         if(line[0] == '*'){
-            system("clear");
+            int ret = system("clear");
+            if (ret == -1)
+                FATAL("Could not execute subprocess");
             for (i=0; i<=indent - 1; i++){
                 printf("\n");
             }				

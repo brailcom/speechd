@@ -24,6 +24,7 @@
 
 #include <glib.h>
 #include <poll.h>
+#include <unistd.h>
 #include "speechd.h"
 #include "server.h"
 #include "index_marking.h"
@@ -79,9 +80,11 @@ speak(void* data)
 	    poll_fds[0].revents, poll_fds[1].revents);
 	if( (revents = poll_fds[0].revents) ){
 	    if (revents & POLLIN){
-		char buf[100];
+		char buf[1];
 		MSG(5, "wait_for_poll: activity in Speech Dispatcher");
-		read(poll_fds[0].fd, buf, 1);
+		const ssize_t rd_bytes = TEMP_FAILURE_RETRY(read(poll_fds[0].fd, buf, 1));
+                if (rd_bytes != 1)
+                    FATAL("read from polled fd: could not read 1 byte");
 	    }	    
 	}
 	if (poll_count > 1){

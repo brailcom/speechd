@@ -813,11 +813,11 @@ module_child_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes)
 int
 module_parent_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes)
 {
-    int ret;
+    ssize_t ret;
     assert(msg != NULL);
-    DBG("going to write %ld bytes", bytes);
+    DBG("going to write %lu bytes", (long unsigned) bytes);
     ret = write(dpipe.pc[1], msg, bytes);      
-    DBG("written %d bytes", ret);
+    DBG("written %ld bytes", (long) ret);
     return ret;
 }
 
@@ -997,7 +997,7 @@ module_send_asynchronous(char *text)
 {
     pthread_mutex_lock(&module_stdout_mutex);
     DBG("Printing reply: %s", text);
-    fprintf(stdout, text);
+    fputs(text, stdout);
     fflush(stdout);
     DBG("Printed");
     pthread_mutex_unlock(&module_stdout_mutex);
