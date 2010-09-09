@@ -127,10 +127,14 @@ MSG2(int level, char *kind, char *format, ...)
 
     if(std_log || custom_log) {
         va_list args;
+        va_list args2;
         int i;
 
 	pthread_mutex_lock(&logging_mutex);    	
 
+        if(std_log) va_start(args, format);        
+        if(custom_log) va_start(args2, format);
+        
         {
             {
                 /* Print timestamp */
@@ -169,16 +173,12 @@ MSG2(int level, char *kind, char *format, ...)
                 }
             }
             if(std_log) {
-                va_start(args, format);
                 vfprintf(logfile, format, args);
-                va_end(args);
                 fprintf(logfile, "\n");
                 fflush(logfile);
             }
             if(custom_log) {
-                va_start(args, format);
-                vfprintf(custom_logfile, format, args);
-                va_end(args);
+                vfprintf(custom_logfile, format, args2);
                 fprintf(custom_logfile, "\n");
                 fflush(custom_logfile);
             }
@@ -189,6 +189,12 @@ MSG2(int level, char *kind, char *format, ...)
 	      fprintf(debug_logfile, "\n");
 	      fflush(debug_logfile);
 	    }
+        }
+        if(std_log) {
+            va_end(args);
+        }
+        if(custom_log) {
+            va_end(args2);
         }
 	pthread_mutex_unlock(&logging_mutex);		
     }		

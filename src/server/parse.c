@@ -384,8 +384,7 @@ char*
 parse_set(const char *buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
     int who;                    /* 0 - self, 1 - uid specified, 2 - all */
-    int uid = -1;               /* uid of the client (only if who == 1) */
-                                /* uid = -1 avoids gcc warning */
+    int uid;                    /* uid of the client (only if who == 1) */
     int ret = -1; // =-1 has no effect but avoids gcc warning  
     char *set_sub;
     char *who_s;

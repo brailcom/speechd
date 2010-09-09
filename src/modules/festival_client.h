@@ -85,8 +85,8 @@ void delete_FT_Info(FT_Info *info);
         char *str; \
         fd = fdopen(dup(info->server_fd),"wb"); \
         if (fd != NULL){ \
-          str = g_strdup(format"\n"); \
-          fputs(str, fd); \
+          str = g_strdup_printf(format"\n"); \
+          fprintf(fd, str); \
           DBG("-> Festival: |%s|", str); \
           free(str); \
           fclose(fd); \
@@ -102,7 +102,7 @@ void delete_FT_Info(FT_Info *info);
         fd = fdopen(dup(info->server_fd),"wb"); \
         if (fd != NULL){ \
           str = g_strdup_printf(format"\n", args); \
-          fputs(str, fd); \
+          fprintf(fd, str); \
           DBG("-> Festival: |%s|", str); \
           free(str); \
           fclose(fd); \

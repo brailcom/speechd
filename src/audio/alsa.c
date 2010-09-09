@@ -318,8 +318,7 @@ int wait_for_poll(spd_alsa_id_t *id, struct pollfd *alsa_poll_fds,
 
 	    /* Check for stop request from alsa_stop on the last file
 	       descriptors*/
-        revents = id->alsa_poll_fds[count-1].revents;
-	    if (0 != revents){
+	    if (revents = id->alsa_poll_fds[count-1].revents){
 		if (revents & POLLIN){
 		    MSG(4, "wait_for_poll: stop requested");
 		    return 1;
@@ -494,9 +493,6 @@ alsa_play(AudioID *id, AudioTrack track)
             case SPD_AUDIO_BE:
                 format = SND_PCM_FORMAT_S16_BE;
                 break;
-            default:
-                ERR("unknown audio format (%d)", alsa_id->id.format);
-                return -1;
         }
 	bytes_per_sample = 2;
     }else if (track.bits == 8){

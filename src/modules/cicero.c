@@ -52,6 +52,9 @@ static unsigned int CiceroMaxChunkLength = 500;
 
 /* Internal functions prototypes */
 static void cicero_set_rate(signed int rate);
+static void cicero_set_pitch(signed int pitch);
+static void cicero_set_volume(signed int pitch);
+static void cicero_set_voice(EVoiceType voice);
 
 static void* _cicero_speak(void*);
 
@@ -392,7 +395,7 @@ _cicero_speak(void* nothing)
 	      break;
 	    }
 	    if (ret > 0)
-	      TEMP_FAILURE_RETRY(read(fd1[0], b, 2));
+	      read(fd1[0], b, 2);
 	    if (cicero_stop) {
 	      cicero_speaking = 0;
 	      module_report_event_stop();
@@ -464,3 +467,12 @@ cicero_set_rate(signed int rate)
 }
 
 
+static void
+cicero_set_pitch(signed int pitch)
+{
+}
+
+static void
+cicero_set_voice(EVoiceType voice)
+{
+}

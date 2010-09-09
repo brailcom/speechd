@@ -347,7 +347,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 	  pthread_mutex_unlock(&espeak_state_mutex);
 	  return FATAL_ERROR;
 	}
-	DBG("Espeak: Requested data: |%s| %d %lu", data, msgtype, (unsigned long) bytes);
+	DBG("Espeak: Requested data: |%s| %d %ld", data, msgtype, bytes);
 
 	espeak_state_reset();
 	espeak_state = BEFORE_SYNTH;
@@ -399,7 +399,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 				}
 				g_free(tmp);
 			}
-			char *msg = g_strdup_printf("<say-as interpret-as=\"tts:char\">&#%ld;</say-as>", (long)wc);
+			char *msg = g_strdup_printf("<say-as interpret-as=\"tts:char\">&#%d;</say-as>", wc);
 			result = espeak_Synth(msg, strlen(msg) + 1, 0, POS_CHARACTER, 0,
 								  flags, NULL, NULL);
 			g_free(msg);
@@ -1146,7 +1146,7 @@ espeak_play_file(char *filename)
 	sf = sf_open(filename, SFM_READ, &sfinfo);
 	subformat = sfinfo.format & SF_FORMAT_SUBMASK ;
 	items = sfinfo.channels * sfinfo.frames;
-	DBG("Espeak: frames = %ld, channels = %ld", sfinfo.frames, (long) sfinfo.channels);
+	DBG("Espeak: frames = %ld, channels = %d", sfinfo.frames, sfinfo.channels);
 	DBG("Espeak: samplerate = %i, items = %Ld", sfinfo.samplerate, (long long) items);
 	DBG("Espeak: major format = 0x%08X, subformat = 0x%08X, endian = 0x%08X",
 		sfinfo.format & SF_FORMAT_TYPEMASK, subformat, sfinfo.format & SF_FORMAT_ENDMASK);

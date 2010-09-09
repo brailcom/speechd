@@ -315,8 +315,7 @@ static int ivona_get_msgpart(struct dumbtts_conf *conf, EMessageType type,
 {
 	int rc;
 	int isicon;
-	int n,bytes;
-    unsigned int pos;
+	int n,pos,bytes;
 	wchar_t wc;
 	char xbuf[1024];
 

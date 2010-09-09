@@ -517,7 +517,7 @@ festival_speak_command(FT_Info *info, char *command, const char *text, int symbo
       str = g_strdup_printf("(%s \"", command);
     else
       str = g_strdup_printf("(%s '", command);
-    fputs(str, fd);
+    fprintf(fd, str);
     /* Copy text over to server, escaping any quotes */
     for (p=text; p && (*p != '\0'); p++)
     {

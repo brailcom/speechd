@@ -117,8 +117,7 @@ int main (int argc, char **argv)
         exit (EXIT_OK);
       }
     
-    const int action_is_open = strcmp (action, "--open") == 0;
-    if (action_is_open)
+    if (! strcmp (action, "--open"))
       {
         if (argc != 4)
           usage ("Invalid number of arguments");
@@ -145,7 +144,7 @@ int main (int argc, char **argv)
         return EXIT_ERROR;
       
       {
-        int result = (action_is_open
+        int result = (! strcmp (action, "--open")
                       ? open_connection (server, host, port)
                       : function (server, conn_id));
         return (result == OK ? EXIT_OK : EXIT_ERROR);

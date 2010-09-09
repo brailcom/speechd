@@ -299,6 +299,7 @@ spawn_server(SPDConnectionAddress *address, int is_localhost, gchar **spawn_erro
     GError *gerror = NULL;
     int exit_status;
     int i;
+    char *resolved_ip;
 
     if ((address->method==SPD_METHOD_INET_SOCKET) && (!is_localhost)){
 	*spawn_error = g_strdup("Spawn failed, the given network address doesn't seem to be on localhost");
