@@ -247,29 +247,44 @@ resolve_host(char* host_name_or_ip, int *is_localhost, gchar **error)
 {
     struct addrinfo *addr_result;
     int err;
-    char *resolved_ip = malloc(MAX_IP_SIZE*sizeof(char));
+    char *resolve_buffer = malloc(MAX_IP_SIZE*sizeof(char));
+    const char *resolved_ip = NULL;
     char *ip;
     *error = NULL;
     struct sockaddr_in *addr_in;
     
+    if (resolve_buffer == NULL) {
+	*error = g_strdup("Failed to allocate memory.");
+	return NULL;
+    }
+
     err = getaddrinfo(host_name_or_ip, 0, NULL, &addr_result);
     if (err){
 	*error = g_strdup_printf("Can't resolve address %d due to error %s:",
 				 err, gai_strerror(err));
+	xfree(resolve_buffer);
 	return NULL;
     }
     /* Take the first address returned as we are only interested in host ip */
     addr_in = (struct sockaddr_in *) addr_result->ai_addr;
-    resolved_ip = inet_ntop(AF_INET, &(addr_in->sin_addr.s_addr), resolved_ip, MAX_IP_SIZE);
+    resolved_ip = inet_ntop(AF_INET, &(addr_in->sin_addr.s_addr), resolve_buffer, MAX_IP_SIZE);
+    if (resolved_ip == NULL) {
+	*error = g_strdup_printf("Could not convert address, due to the following error: %s",
+				 strerror(errno));
+	freeaddrinfo(addr_result);
+	xfree(resolve_buffer);
+	return NULL;
+    }
+
     if (!strncmp(resolved_ip, "127.",4)){
 	*is_localhost = 1;
 	/* In case of local addresses, use 127.0.0.1 which is guaranteed
 	   to be local and the server listens on it */
-	xfree(resolved_ip);
+	xfree(resolve_buffer);
 	ip = strdup("127.0.0.1");
     }else{
 	*is_localhost = 0;
-	return ip = resolved_ip;
+	ip = resolve_buffer;
     }
     freeaddrinfo(addr_result);
     return ip;
