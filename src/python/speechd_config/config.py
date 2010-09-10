@@ -589,7 +589,7 @@ Please start your system Speech Dispatcher now with parameter '-D'""")
         time.sleep(2)
 
         if not speechd_started:
-            reply = question("Speech Dispatcher failed to start, continuing anyway")
+            reply = report("Speech Dispatcher failed to start, continuing anyway")
 
         report("Trying to speak some messages")
         ret = os.system("spd-say \"Speech Dispatcher debugging 1\"")
