@@ -1,6 +1,6 @@
 
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT([speech-dispatcher], [0.7], [speechd@lists.freebsoft.org])
+AC_INIT([speech-dispatcher], [0.7.1-beta1], [speechd@lists.freebsoft.org])
 
 
 
