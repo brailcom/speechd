@@ -25,7 +25,6 @@
    get repetitive initializations warnings */
 
 #define PACKAGE "spd-say"
-#define VERSION "0.4"
 
 #include <stdio.h>
 #include <stdlib.h>
