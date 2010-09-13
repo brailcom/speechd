@@ -50,6 +50,8 @@
 #include <sys/ipc.h>
 #include <sys/sem.h>
 
+#define SPEECHD_DEBUG 0
+
 /* Definition of semun needed for semaphore manipulation */
 /* TODO: This fixes compilation for Mac OS X but might not be a correct
    solution for other platforms. A better check is needed, possibly including
@@ -66,7 +68,6 @@ union semun {
 };
 #endif
 
-#include "def.h"
 #include "fdset.h"
 #include "module.h"
 #include "compare.h"

@@ -34,7 +34,6 @@
 #include <ctype.h>
 #include <errno.h>
 
-#include "def.h"
 
 #define FATAL(msg) { printf(msg"\n"); exit(1); }
 

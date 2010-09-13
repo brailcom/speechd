@@ -28,6 +28,8 @@
 #include <stdlib.h>
 #include <dotconf.h>
 
+#define SPEECHD_DEFAULT_PORT 6560
+
 /* Loading options from DotConf */
 configoption_t *spd_options;
 int spd_num_options;

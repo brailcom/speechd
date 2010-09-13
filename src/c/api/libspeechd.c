@@ -42,7 +42,6 @@
 #include <assert.h>
 #include <netdb.h>
 
-#include "def.h"
 #include "libspeechd.h"
 
 /* Comment/uncomment to switch debugging on/off */

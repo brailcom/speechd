@@ -27,7 +27,6 @@
 #include <unistd.h>
 
 #include "libspeechd.h"
-#include "def.h"
 
 int main() {
    SPDConnection* conn;
