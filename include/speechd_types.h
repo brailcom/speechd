@@ -1,6 +1,6 @@
 
 /*
- * fdset.h - Settings for Speech Dispatcher
+ * speechd_types.h - types for Speech Dispatcher
  *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
@@ -18,14 +18,12 @@
  * along with this package; see the file COPYING.  If not, write to
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
- *
- * $Id: fdset.h,v 1.33 2008-06-09 10:28:08 hanke Exp $
  */
 
-#ifndef FDSET_H
-#define FDSET_H
+#ifndef SPEECHD_TYPES_H
+#define SPEECHD_TYPES_H
 
-typedef enum 
+typedef enum
     {                  /* Type of voice */
 	NO_VOICE = 0,
 	MALE1 = 1,
@@ -90,4 +88,4 @@ typedef struct {
   char* dialect;
 }VoiceDescription;
 
-#endif /* not ifndef FDSET */
+#endif /* not ifndef SPEECHD_TYPES */

@@ -1,6 +1,6 @@
 
 localedir = $(datadir)/locale
-inc_local = "-I$(top_srcdir)/intl/"
+inc_local = "-I$(top_srcdir)/include/"
 
 AM_CFLAGS = @ERROR_CFLAGS@ -DLOCALEDIR=\"$(localedir)\" -D_GNU_SOURCE -I/usr/include/ $(inc_local) @glib_include@ -DSPD_SPAWN_CMD=\""@prefix@/bin/speech-dispatcher"\"
 

@@ -1,6 +1,6 @@
 
 localedir = $(datadir)/locale
-inc_local = "-I$(top_srcdir)/intl/"
+inc_local = "-I$(top_srcdir)/include/"
 
 include_HEADERS = spd_audio_plugin.h
 

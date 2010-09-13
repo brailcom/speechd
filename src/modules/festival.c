@@ -23,7 +23,7 @@
 
 #include <stdio.h>
 
-#include "fdset.h"
+#include <speechd_types.h>
 #include "fdsetconv.h"
 
 #include "festival_client.h"

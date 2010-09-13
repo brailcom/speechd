@@ -21,7 +21,7 @@
  * @author: Olivier BERT
  */
 
-#include <fdset.h>
+#include <speechd_types.h>
 #include <errno.h>
 #include <sys/poll.h>
 #include <fcntl.h>

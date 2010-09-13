@@ -57,7 +57,7 @@
 /* Speech Dispatcher includes. */
 #include "config.h"
 #include "spd_audio.h"
-#include "fdset.h"
+#include <speechd_types.h>
 #include "module_utils.h"
 
 #if HAVE_SNDFILE

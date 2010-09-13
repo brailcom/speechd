@@ -27,7 +27,7 @@
 
 #include <glib.h>
 
-#include "fdset.h"
+#include <speechd_types.h>
 
 #include "module_utils.h"
 

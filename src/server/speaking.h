@@ -26,7 +26,7 @@
 #ifndef SPEAKING_H
 #define SPEAKING_H
 
-#include "fdset.h"
+#include <speechd_types.h>
 
 OutputModule *speaking_module;
 int speaking_uid;

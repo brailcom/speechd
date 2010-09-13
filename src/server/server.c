@@ -40,7 +40,7 @@ int last_message_id = 0;
  *          case it means we are reloading the message and the
  *          behavior is slightly different
  *   history_flag -- should this message be included in history?
- *   type -- type of the message (see intl/fdset.h)
+ *   type -- type of the message (see ../../include/speechd_types.h)
  *   reparted -- if this is a preprocessed message reparted
  *             in more pieces
  * It returns 0 on success, -1 otherwise.

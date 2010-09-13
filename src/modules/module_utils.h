@@ -44,14 +44,14 @@
 #include <sys/ipc.h>
 #include <sys/sem.h>
 
-#include "fdset.h"
+#include <speechd_types.h>
 #include "spd_audio.h"
 
 typedef struct{
     signed int rate;
     signed int pitch;
     signed int volume;
-    
+
     EPunctMode punctuation_mode;
     ESpellMode spelling_mode;
     ECapLetRecogn cap_let_recogn;

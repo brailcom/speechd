@@ -21,9 +21,7 @@
  * $Id: module_utils.c,v 1.55 2008-07-10 15:37:18 hanke Exp $
  */
 
-#include "fdsetconv.h"
-#include "fdsetconv.c"
-
+#include <fdsetconv.h>
 #include "module_utils.h"
 
 static char* module_audio_pars[10];

@@ -2648,7 +2648,7 @@ corresponding SSIP commands, except that they are written with small
 letters. @xref{Top,,Parameter Setting Commands,ssip, SSIP
 Documentation}.  The conversion between these string values and the
 corresponding C enum variables can be easily done using
-@file{intl/fdsetconv.c}.
+@file{src/common/fdsetconv.c}.
 
 Not all of these parameters must be set and the value of the string
 arguments can also be @code{NULL}. If some of the parameters aren't
@@ -3055,7 +3055,7 @@ differently, if the synthesizer supports it).
 
 Each output module should take care of setting the output device to
 the parameters from msg_settings (defined in module_utils.h) (See
-SPDMsgSettings in @file{intl/fdset.h}). However, it is not an error if
+SPDMsgSettings in @file{module_utils.h}). However, it is not an error if
 some of these values are ignored. At least rate, pitch and language
 should be set correctly.
 

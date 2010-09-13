@@ -21,9 +21,8 @@
  * $Id: output.c,v 1.38 2008-06-27 12:28:48 hanke Exp $
  */
 
+#include <fdsetconv.h>
 #include "output.h"
-
-#include "fdsetconv.c"
 #include "parse.h"
 
 #ifdef TEMP_FAILURE_RETRY	/* GNU libc */

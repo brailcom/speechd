@@ -1,12 +1,9 @@
-
-#include "fdset.h"
-
 #ifndef FDSETCONV_H
 #define FDSETCONV_H
 
 #include <stdio.h>
 #include <string.h>
-#include "fdset.h"
+#include <speechd_types.h>
 
 char* EVoice2str(EVoiceType voice);
 

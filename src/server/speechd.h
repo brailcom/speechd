@@ -68,7 +68,7 @@ union semun {
 };
 #endif
 
-#include "fdset.h"
+#include <speechd_types.h>
 #include "module.h"
 #include "compare.h"
 
