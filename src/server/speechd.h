@@ -72,6 +72,58 @@ union semun {
 #include "module.h"
 #include "compare.h"
 
+typedef struct{
+    unsigned int uid;		/* Unique ID of the client */
+    int fd;                     /* File descriptor the client is on. */
+    int active;                 /* Is this client still active on socket or gone?*/
+    int paused;                 /* Internal flag, 1 for paused client or 0 for normal. */
+    int paused_while_speaking;
+    EMessageType type;          /* Type of the message (1=text, 2=icon, 3=char, 4=key) */
+    int ssml_mode;		/* SSML mode on (1)/off (0) */
+    int priority;               /* Priority between 1 and 3 (1 - highest, 3 - lowest) */
+    signed int rate; 		/* Speed of voice from <-100;+100>, 0 is the default */
+    signed int pitch;		/* Pitch of voice from <-100;+100>, 0 is the default */
+    signed int volume;		/* Volume of voice from <-100;+100), 0 is the default */
+    EPunctMode punctuation_mode;	/* Punctuation mode: 0, 1 or 2
+                                   0	-	no punctuation
+                                   1 	-	all punctuation
+                                   2	-	only user-selected punctuation */
+    ESpellMode spelling_mode;   /* Spelling mode: 0 or 1 (0 - off, 1 - on) */
+    char *client_name;		/* Name of the client. */
+    char *language;             /* Selected language name. (e.g. "en", "cz", "fr", ...) */
+    char *output_module;        /* Output module name. (e.g. "festival", "flite", "apollo", ...) */
+    EVoiceType voice;           /* see EVoiceType definition above */
+    char *synthesis_voice;
+    ECapLetRecogn cap_let_recogn;         /* Capital letters recognition: (0 - off, 1 - on) */
+
+    ENotification notification;	/* Notification about start and stop of messages, about reached
+				   index marks and state (canceled, paused, resumed). */
+
+    int reparted;
+    unsigned int min_delay_progress;
+    int pause_context;          /* Number of words that should be repeated after a pause */
+    char* index_mark;           /* Current index mark for the message (only if paused) */
+
+    char* audio_output_method;
+    char* audio_oss_device;
+    char* audio_alsa_device;
+    char* audio_nas_server;
+    char* audio_pulse_server;
+    int audio_pulse_min_length;
+    int log_level;
+
+    /* TODO: Should be moved out */
+    unsigned int hist_cur_uid;
+    int hist_cur_pos;
+    ESort hist_sorted;
+
+}TFDSetElement;
+
+typedef struct{
+    char *pattern;
+    TFDSetElement val;
+}TFDSetClientSpecific;
+
 /* Size of the buffer for socket communication */
 #define BUF_SIZE 128
 
