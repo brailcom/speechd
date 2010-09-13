@@ -90,19 +90,4 @@ typedef struct {
   char* dialect;
 }VoiceDescription;
 
-typedef struct{
-    signed int rate;
-    signed int pitch;
-    signed int volume;
-    
-    EPunctMode punctuation_mode;
-    ESpellMode spelling_mode;
-    ECapLetRecogn cap_let_recogn;
-
-    char* language;
-
-    EVoiceType voice;
-    char *synthesis_voice;
-}SPDMsgSettings;
-
 #endif /* not ifndef FDSET */

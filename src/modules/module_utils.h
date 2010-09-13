@@ -47,6 +47,21 @@
 #include "fdset.h"
 #include "spd_audio.h"
 
+typedef struct{
+    signed int rate;
+    signed int pitch;
+    signed int volume;
+    
+    EPunctMode punctuation_mode;
+    ESpellMode spelling_mode;
+    ECapLetRecogn cap_let_recogn;
+
+    char* language;
+
+    EVoiceType voice;
+    char *synthesis_voice;
+}SPDMsgSettings;
+
 int log_level;
 
 AudioID *module_audio_id;

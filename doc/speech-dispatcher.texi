@@ -2830,23 +2830,21 @@ in order for us to be in a better legal position against possible intruders.
 @node The Skeleton of an Output Module, Output Module Functions, How to Write New Output Module, Output Modules
 @subsection The Skeleton of an Output Module 
 
-Each output module should include @file{intl/fdset.h} where the
+Each output module should include @file{module_utils.h} where the
 SPDMsgSettings structure is defined to be able to handle the different
-speech synthesis settings.
+speech synthesis settings.  This file also provides tools which help
+with writing output modules and making the code simpler.
 
 @example
-#include "fdset.h"
+#include "module_utils.h"
 @end example
 
-Additionally, it's also reccomended to include @file{module_utils.h}
-which provides many tools to help writing output modules and make the
-code simpler. If your plugin needs the audio tools (if you take
+If your plugin needs the audio tools (if you take
 care of the output to the soundcard instead of the synthesizer),
 you also have to include @file{spd_audio.h}
 
 @example
-#include "module_utils.h"
-#include "spd_audio.c"
+#include "spd_audio.h"
 @end example
 
 The definition of macros @code{MODULE_NAME} and @code{MODULE_VERSION}
@@ -3069,8 +3067,6 @@ The language parameter is given as a null-terminated string containing
 the name of the language according to RFC 1776 (en, cs, fr, ...). If the
 requested language is not supported by this synthesizer, it's ok to abort
 and return 0, because that's an error in user settings.
-
-Other parameters are defined in @code{SPDMsgSettings} in @file{intl/fdset.h}.
 
 An easy way to set the parameters is using the UPDATE_PARAMETER() and
 UPDATE_STRING_PARAMETER() macros. @xref{Module Utils Functions and
