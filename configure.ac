@@ -414,4 +414,26 @@ AC_SUBST(RDYNAMIC)
 localedir=${datadir}/locale
 AC_SUBST(localedir)
 
-AC_OUTPUT([Makefile include/Makefile src/Makefile src/common/Makefile src/server/Makefile src/modules/Makefile src/c/Makefile src/c/api/Makefile src/c/clients/Makefile src/c/clients/say/Makefile src/c/clients/spdsend/Makefile src/tests/Makefile src/audio/Makefile src/audio/static_plugins.c config/Makefile config/modules/Makefile config/clients/Makefile doc/Makefile src/python/Makefile src/python/speechd/Makefile src/python/speechd_config/Makefile po/Makefile.in])
+AC_CONFIG_FILES([Makefile
+	config/Makefile
+	config/clients/Makefile
+	config/modules/Makefile
+	doc/Makefile
+	include/Makefile
+	po/Makefile.in
+	src/Makefile
+	src/audio/Makefile
+	src/audio/static_plugins.c
+	src/c/Makefile
+	src/c/api/Makefile
+	src/c/clients/Makefile
+	src/c/clients/say/Makefile
+	src/c/clients/spdsend/Makefile
+	src/common/Makefile
+	src/modules/Makefile
+	src/python/Makefile
+	src/python/speechd/Makefile
+	src/python/speechd_config/Makefile
+	src/server/Makefile
+	src/tests/Makefile])
+AC_OUTPUT
