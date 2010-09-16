@@ -2,5 +2,5 @@
 
 SUBDIRS= c
 
-EXTRA_DIST = cl
+EXTRA_DIST = cl guile
 
