@@ -2,5 +2,9 @@
 
 SUBDIRS= c
 
+if HAVE_PYTHON
+SUBDIRS += python
+endif
+
 EXTRA_DIST = cl guile
 
