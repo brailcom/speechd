@@ -426,9 +426,9 @@ AC_CONFIG_FILES([Makefile
 	src/audio/static_plugins.c
 	src/c/Makefile
 	src/c/api/Makefile
-	src/c/clients/Makefile
-	src/c/clients/say/Makefile
-	src/c/clients/spdsend/Makefile
+	src/clients/Makefile
+	src/clients/say/Makefile
+	src/clients/spdsend/Makefile
 	src/common/Makefile
 	src/modules/Makefile
 	src/python/Makefile
