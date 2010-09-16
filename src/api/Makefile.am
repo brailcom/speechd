@@ -2,3 +2,5 @@
 
 SUBDIRS= c
 
+EXTRA_DIST = cl
+

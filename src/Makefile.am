@@ -5,8 +5,7 @@
 # in SUBDIRS if they contain another Makefile)
 # otherwise they won't be included in distribution packages
 
-EXTRA_DIST = cl/ChangeLog cl/README cl/configuration.lisp cl/elisp.lisp \
-             cl/package.lisp cl/ssip.lisp cl/sysdep.lisp cl/ssip.asd \
+EXTRA_DIST = \
              guile/ChangeLog guile/Makefile guile/README guile/gssip.scm.in \
              guile/gssip.c guile/gssip.h
 
