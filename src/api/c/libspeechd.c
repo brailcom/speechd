@@ -47,6 +47,14 @@
 /* Comment/uncomment to switch debugging on/off */
 // #define LIBSPEECHD_DEBUG 1
 
+#ifdef LIBSPEECHD_DEBUG
+/* Debugging */
+static FILE* spd_debug;
+#endif
+
+/* Unless there is an fatal error, it doesn't print anything */
+#define SPD_FATAL(msg) { printf("Fatal error (libspeechd) [%s:%d]:"msg, __FILE__, __LINE__); fflush(stdout); exit(EXIT_FAILURE); }
+
 /* --------------  Private functions headers ------------------------*/
 
 #ifdef LIBSPEECHD_DEBUG
