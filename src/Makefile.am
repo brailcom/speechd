@@ -2,5 +2,3 @@
 
 SUBDIRS=common server audio modules api clients tests
 
-DIST_SUBDIRS=common server audio modules api clients tests
-
