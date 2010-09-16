@@ -1,9 +1,9 @@
 
 localedir = $(datadir)/locale
 inc_local = "-I$(top_srcdir)/include/"
-c_api = $(top_builddir)/src/c/api
+c_api = $(top_builddir)/src/api/c
 
-AM_CFLAGS = -I$(top_srcdir)/src/c/api -DLOCALEDIR=\"$(localedir)\" $(inc_local) @glib_include@ -I../audio/
+AM_CFLAGS = -I$(top_srcdir)/src/api/c -DLOCALEDIR=\"$(localedir)\" $(inc_local) @glib_include@ -I../audio/
 
 bin_PROGRAMS = long_message clibrary clibrary2 run_test connection_recovery
 

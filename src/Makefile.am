@@ -10,11 +10,11 @@ EXTRA_DIST = cl/ChangeLog cl/README cl/configuration.lisp cl/elisp.lisp \
              guile/ChangeLog guile/Makefile guile/README guile/gssip.scm.in \
              guile/gssip.c guile/gssip.h
 
-SUBDIRS=common server audio c modules clients tests
+SUBDIRS=common server audio modules api clients tests
 
 if HAVE_PYTHON
 SUBDIRS += python
 endif
 
-DIST_SUBDIRS=common server audio c modules clients tests python
+DIST_SUBDIRS=common server audio modules api clients tests python
 

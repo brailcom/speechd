@@ -422,10 +422,10 @@ AC_CONFIG_FILES([Makefile
 	include/Makefile
 	po/Makefile.in
 	src/Makefile
+	src/api/Makefile
+	src/api/c/Makefile
 	src/audio/Makefile
 	src/audio/static_plugins.c
-	src/c/Makefile
-	src/c/api/Makefile
 	src/clients/Makefile
 	src/clients/say/Makefile
 	src/clients/spdsend/Makefile
