@@ -415,6 +415,7 @@ localedir=${datadir}/locale
 AC_SUBST(localedir)
 
 AC_CONFIG_FILES([Makefile
+	speech-dispatcher.pc
 	config/Makefile
 	config/clients/Makefile
 	config/modules/Makefile
