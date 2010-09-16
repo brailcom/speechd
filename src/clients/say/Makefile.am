@@ -3,7 +3,7 @@ localedir = $(datadir)/locale
 inc_local = "-I$(top_srcdir)/include/"
 c_api = $(top_builddir)/src/api/c
 
-AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" $(inc_local) @glib_include@ -I$(top_srcdir)/src/api/c
+AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" $(inc_local) -I$(top_srcdir)/src/api/c
 
 bin_PROGRAMS = spd-say
 spd_say_SOURCES = say.c options.c options.h

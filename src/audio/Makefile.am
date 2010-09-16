@@ -4,9 +4,10 @@ inc_local = "-I$(top_srcdir)/include/"
 
 include_HEADERS = spd_audio_plugin.h
 
-am_cflags = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@
+am_cflags = -DLOCALEDIR=\"$(localedir)\" $(inc_local)
 
 spdlib_LTLIBRARIES = libsdaudio.la
+libsdaudio_la_CPPFLAGS = $(GLIB_CFLAGS)
 libsdaudio_la_SOURCES = spd_audio.c spd_audio.h spd_audio_plugin.h static_plugins.c
 
 if nas_support
@@ -31,5 +32,6 @@ endif
 
 EXTRA_DIST = alsa.c libao.c oss.c nas.c pulse.c static_plugins.c.in
 
-AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@
+AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" $(inc_local)
 libsdaudio_la_LDFLAGS = -version-info @LIB_SDAUDIO_CURRENT@:@LIB_SDAUDIO_REVISION@:@LIB_SDAUDIO_AGE@ -lpthread $(SPD_AUDIO_LIBS)
+libsdaudio_la_LIBADD = $(GLIB_LIBS)

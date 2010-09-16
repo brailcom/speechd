@@ -75,15 +75,25 @@ AC_CHECK_LIB(m,
 AC_CHECK_LIB(dl,
         main, echo "",
         echo "*** Required dl library missing! See INSTALL .";exit 1)
-AC_CHECK_LIB(dotconf,
-        main, echo "",
-        echo "*** Required DotConf library missing! See INSTALL .";exit 1)
-AC_CHECK_LIB(glib-2.0,
-        g_list_append, echo "",
-        echo "*** Required Glib-2.0 library missing! See INSTALL .";exit 1)
 AC_CHECK_LIB(pthread,
         pthread_create, echo "",
         echo "*** Required pthread library missing! See INSTALL .";exit 1)
+
+PKG_CHECK_MODULES(GLIB,glib-2.0,,exit)
+AC_SUBST(GLIB_CFLAGS)
+AC_SUBST(GLIB_LIBS)
+
+PKG_CHECK_MODULES(GTHREAD,gthread-2.0,,exit)
+AC_SUBST(GTHREAD_CFLAGS)
+AC_SUBST(GTHREAD_LIBS)
+
+PKG_CHECK_MODULES(GMODULE,gmodule-2.0,,exit)
+AC_SUBST(GMODULE_CFLAGS)
+AC_SUBST(GMODULE_LIBS)
+
+PKG_CHECK_MODULES(DOTCONF,dotconf,,exit)
+AC_SUBST(DOTCONF_CFLAGS)
+AC_SUBST(DOTCONF_LIBS)
 
 dnl Check for libsndfile.
 PKG_CHECK_MODULES(SNDFILE, sndfile >= 1.0.2, ac_cv_sndfile=1, ac_cv_sndfile=0)
@@ -341,13 +351,6 @@ AC_SUBST(STATIC_AUDIO_PLUGINS_GET)
 AC_SUBST(SPD_AUDIO_LIBS)
 
 AC_PATH_PROG([PYTHON],[python])
-
-glib_include=`pkg-config --cflags glib-2.0`
-AC_SUBST(glib_include)
-glib_libs=`pkg-config --libs glib-2.0`
-AC_SUBST(glib_libs)
-gthread_libs=`pkg-config --libs gthread-2.0`
-AC_SUBST(gthread_libs)
 
 AC_SUBST(datadir)
 
