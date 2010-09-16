@@ -455,20 +455,33 @@ do_list_voices(void)
   }
   
   voice_list = g_string_new("");
-  for (i=0; ;i++){
-    if (voices[i] == NULL) break;
-    if (voices[i]->language==NULL) lang=strdup("none");
-    else lang=strdup(voices[i]->language);
-    if (voices[i]->dialect==NULL) dialect=strdup("none");
-    else dialect=strdup(voices[i]->dialect);
+  for (i=0; voices[i] != NULL; i++){
+    if (voices[i]->name == NULL) {        /* Shouldn't happen! */
+      DBG("Unnamed voice found; ignoring it.");
+      continue;
+    }
+    if (voices[i]->language==NULL)
+      lang = "none";
+    else
+      lang = voices[i]->language;
+    if (voices[i]->dialect==NULL)
+      dialect= "none";
+    else
+      dialect = voices[i]->dialect;
     g_string_append_printf(voice_list, "200-%s %s %s\n", voices[i]->name, lang, dialect);
-    xfree(lang); xfree(dialect);
   }
+
+  /* check whether we found at least one voice */
+  if (voice_list->len == 0){
+    g_string_free(voice_list, TRUE);
+    return strdup("304 CANT LIST VOICES");
+  }
+
   g_string_append(voice_list, "200 OK VOICE LIST SENT");
 
-  DBG("Voice prepared to  sens to speechd");
+  DBG("Voice prepared to  send to speechd");
 
-  return voice_list->str;
+  return g_string_free(voice_list, FALSE);
 }
 
 #undef SET_PARAM_NUM
