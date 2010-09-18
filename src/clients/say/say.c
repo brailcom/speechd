@@ -22,6 +22,10 @@
  * $Id: say.c,v 1.16 2007-05-03 09:43:12 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

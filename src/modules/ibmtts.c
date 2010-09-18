@@ -46,6 +46,10 @@
    - Use SSML mark feature of ibmtts instead of handcrafted parsing.
 */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 /* System includes. */
 #include <string.h>
 #include <glib.h>
@@ -55,7 +59,6 @@
 #include <eci.h>
 
 /* Speech Dispatcher includes. */
-#include "config.h"
 #include "spd_audio.h"
 #include <speechd_types.h>
 #include "module_utils.h"

@@ -22,6 +22,10 @@
  * $Id: config.c,v 1.18 2009-05-14 08:11:33 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <dotconf.h>
 
 #include "speechd.h"

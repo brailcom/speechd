@@ -21,6 +21,10 @@
  * $Id: module_main.c,v 1.17 2008-10-15 17:05:37 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

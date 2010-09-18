@@ -22,9 +22,9 @@
  * $Id: flite.c,v 1.59 2008-06-09 10:38:02 hanke Exp $
  */
 
-#ifndef CONFIG_H
+#ifdef HAVE_CONFIG_H
 #include <config.h>
-#endif /* CONFIG_H */
+#endif
 
 #include <flite/flite.h>
 #include "spd_audio.h"

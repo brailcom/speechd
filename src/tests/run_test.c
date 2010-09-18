@@ -22,6 +22,10 @@
  * $Id: run_test.c,v 1.14 2008-02-08 10:01:08 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 #include <string.h>
 #include <sys/types.h>

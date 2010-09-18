@@ -22,6 +22,10 @@
  * $Id: long_message.c,v 1.13 2006-07-11 16:12:28 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 

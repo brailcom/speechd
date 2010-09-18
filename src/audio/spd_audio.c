@@ -30,6 +30,10 @@
  * WITH_PULSE, WITH_LIBAO but the user program is allowed to switch between them at run-time.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "spd_audio.h"
 
 #include <stdio.h>

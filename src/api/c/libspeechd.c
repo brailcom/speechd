@@ -21,6 +21,9 @@
  * $Id: libspeechd.c,v 1.37 2008-12-23 09:15:32 pdm Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 
 #include <sys/types.h>
 #include <wchar.h>

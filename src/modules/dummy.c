@@ -25,6 +25,10 @@
  * $Id: dummy.c,v 1.3 2008-06-09 10:32:00 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <glib.h>
 
 #include <speechd_types.h>

@@ -21,6 +21,10 @@
  * $Id: speechd.c,v 1.81 2008-07-10 15:36:49 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <glib.h>
 #include <gmodule.h>
 #include <glib/gstdio.h>

@@ -22,6 +22,10 @@
  * $Id: fdsetconv.c,v 1.5 2007-06-21 20:09:45 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "fdsetconv.h"
 
 char*

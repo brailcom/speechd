@@ -22,6 +22,10 @@
  * $Id: history.c,v 1.24 2008-02-08 10:01:09 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "speechd.h"
 #include "msg.h"
 #include "set.h"

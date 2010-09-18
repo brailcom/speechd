@@ -23,6 +23,10 @@
   * $Id: index_marking.c,v 1.17 2008-06-11 12:11:25 hanke Exp $
   */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "index_marking.h"
 
 void

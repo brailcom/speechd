@@ -22,6 +22,10 @@
  * $Id: connection-recovery.c,v 1.1 2008-02-08 10:04:18 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdlib.h>
 #include <wchar.h>
 #include <wctype.h>

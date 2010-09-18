@@ -21,6 +21,10 @@
  * $Id: output.c,v 1.38 2008-06-27 12:28:48 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <fdsetconv.h>
 #include "output.h"
 #include "parse.h"

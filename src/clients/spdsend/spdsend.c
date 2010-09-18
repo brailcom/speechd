@@ -21,6 +21,9 @@
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 
 #include <errno.h>
 #include <stdio.h>
@@ -30,7 +33,7 @@
 #include "spdsend.h"
 
 
-const char *const VERSION = "0.0.0";
+const char *const SPDSEND_VERSION = "0.0.0";
 
 #if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
 /* Added by Willie Walker - getline is a gcc-ism */
@@ -113,7 +116,7 @@ int main (int argc, char **argv)
 
     if (! strcmp (action, "--version"))
       {
-        printf ("spdsend %s\n", VERSION);
+        printf ("spdsend %s\n", SPDSEND_VERSION);
         exit (EXIT_OK);
       }
     

@@ -21,6 +21,10 @@
  *
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -34,6 +38,9 @@
 
 #include <glib.h>
 #include <libdumbtts.h>
+#if HAVE_SNDFILE
+#include <sndfile.h>
+#endif
 
 #include "module_utils.h"
 #include "ivona_client.h"

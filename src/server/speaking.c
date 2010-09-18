@@ -22,6 +22,10 @@
  * $Id: speaking.c,v 1.56 2008-10-15 18:06:48 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <glib.h>
 #include <poll.h>
 #include <unistd.h>

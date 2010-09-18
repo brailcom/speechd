@@ -22,6 +22,10 @@
  * $Id: sem_functions.c,v 1.9 2006-07-11 16:12:27 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "speechd.h"
 #include "sem_functions.h"
 

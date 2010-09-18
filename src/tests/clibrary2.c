@@ -22,6 +22,10 @@
  * $Id: clibrary2.c,v 1.1 2008-04-09 11:41:52 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

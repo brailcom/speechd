@@ -22,6 +22,10 @@
  * $Id: set.c,v 1.46 2008-07-01 09:00:32 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <fnmatch.h>
 
 #include "set.h"

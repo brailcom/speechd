@@ -24,6 +24,10 @@
 /* NOTE: Be careful not to include options.h, we would
    get repetitive initializations warnings */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sys/stat.h>
 
 #include "speechd.h"

@@ -2,6 +2,10 @@
  * CVS revision: $Id: mluvitko.c,v 1.1 2001-04-10 10:42:05 cerha Exp $
  * Author: Tomas Cerha <cerha@brailcom.cz> */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #define VERSION "0.0.1"
 
 #include <stdio.h>

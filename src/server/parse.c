@@ -21,6 +21,10 @@
  * $Id: parse.c,v 1.73 2008-07-01 08:52:31 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <ctype.h>
 
 #include "speechd.h"

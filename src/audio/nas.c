@@ -21,6 +21,10 @@
  * $Id: nas.c,v 1.8 2006-07-11 16:12:26 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <audio/audiolib.h>

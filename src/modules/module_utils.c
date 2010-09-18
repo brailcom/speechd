@@ -21,6 +21,10 @@
  * $Id: module_utils.c,v 1.55 2008-07-10 15:37:18 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <fdsetconv.h>
 #include "module_utils.h"
 

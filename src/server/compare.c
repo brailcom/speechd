@@ -22,6 +22,10 @@
  * $Id: compare.c,v 1.5 2007-02-17 18:58:53 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <glib.h>
 #include "speechd.h"
 #include "compare.h"

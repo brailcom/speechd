@@ -22,6 +22,10 @@
  * $Id: generic.c,v 1.30 2008-07-30 09:15:51 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <glib.h>
 
 #include <speechd_types.h>

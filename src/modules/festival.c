@@ -21,6 +21,10 @@
  * $Id: festival.c,v 1.82 2008-06-09 10:33:38 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 
 #include <speechd_types.h>

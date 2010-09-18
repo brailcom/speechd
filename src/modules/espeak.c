@@ -25,6 +25,10 @@
  * $Id: espeak.c,v 1.11 2008-10-15 17:04:36 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 /* < Includes*/
 
 /* System includes. */
@@ -38,7 +42,6 @@
 #endif
 
 /* Speech Dispatcher includes. */
-#include "config.h"
 #include "spd_audio.h"
 #include <speechd_types.h>
 #include "module_utils.h"

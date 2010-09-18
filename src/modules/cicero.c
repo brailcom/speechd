@@ -21,6 +21,10 @@
  * @author: Olivier BERT
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <speechd_types.h>
 #include <errno.h>
 #include <sys/poll.h>
