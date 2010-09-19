@@ -168,10 +168,10 @@ the right parameters on the synthesizer according to the origin of each
 request. One client can even establish several connections to maintain
 different contexts.
 
-SSIP also solves the issue when more than one client want's to speak
+SSIP also solves the issue when more than one client wants to speak
 at one time or when more messages come than it's possible to say.
 Each message has an assigned priority and according to this priority,
-when multiple messages come to the server, they is directly said,
+when multiple messages come to the server, they are directly said,
 postponed or suppressed.
 
 It is important to understand the difference between SSIP and
@@ -182,7 +182,7 @@ application would use to let you read and browse the documents encoded
 in either ordinary formats (like plain text, HTML, PDF) or the
 voice-enabled formats (SABLE, VoiceXML, SSML). These higher level
 protocols describe only how the document should be said, while SSIP is
-the means to acually do it on your system. In this manner, one of the
+the means to actually do it on your system. In this manner, one of the
 supported formats of the messages you can send through SSIP is SSML.
 
 @node Higher Level API,  , Protocol Philosophy, Introduction
@@ -190,7 +190,7 @@ supported formats of the messages you can send through SSIP is SSML.
 
 SSIP is the basic interface protocol that is being used in the
 communication of a client with the central Speech Server on a
-system. However, in many cases it may more convenient for application
+system. However, in many cases it may be more convenient for application
 programmers not to use SSIP directly (having to care about open
 socket connections etc.) but rather use an interface wrapper written
 in the specific programming language they use. There is no obstacle in
@@ -549,8 +549,8 @@ types of messages.
 The idea is that the task of the programmer of a client application
 is only to assign a meaningful priority to each message and all the
 synchronization and switching between the messages (that can be
-coming from different clients) is automatically handled by applying certain
-rules based on the priorities.
+coming from different clients) is automatically handled by the Speech Server
+by applying certain rules based on the priorities.
 
 @menu
 * Priority Categories::         What are the available priorities.
@@ -581,7 +581,7 @@ another priority is being spoken, the other message is canceled
 and the message with priority @code{important} is said instead. Other messages
 of lower priorities are postponed (priority @code{message} and
 @code{text}) until there are no messages of priority important
-waiting or canceled (priority @code{notification} and @code{progress}.
+waiting, or are canceled (priority @code{notification} and @code{progress}).
 
 These messages should be as short as possible and should rarely be
 used, because they block the output of all other messages.
@@ -853,11 +853,37 @@ a Speech Server user can configure all the aspects of the speech
 output easily.
 
 Usually, this command should be sent as the very first command when a
-new connection SSIP connection is established.  The command may be
+new SSIP connection is established.  The command may be
 sent only once within a single connection. Attempts to change the
 client's name once it's already set are answered with an error code.
 
 Only @code{self} is allowed as the `target' argument.
+
+@item SET all DEBUG  @{ON|OFF@}
+If set to @code{ON}, Speech Dispatcher will write all its debugging
+information (including output modules) with maximal verbosity into a
+debug directory which is reported by the server to the client in reply
+to this command. When subsequently set to @code{OFF}, Speech
+Dispatcher will stop writing out debugging information into this path
+and close all the appropriate logging files.
+
+The intended use for this functionality is on-line debugging from
+client application. If the user wants to report a problem, the client
+application will ask him/her for a place to generate the logs, to repeat
+the situation that he/she considers to be a bug, and then perhaps it will
+automatically pack the logs and offer to send them to the developers
+of Speech Dispatcher or another appropriate place where the contained
+information can be processed.
+
+Warning: This option results in a lot of data being written into the
+output logs and so should not be left on for an unnecessarily long
+time.
+
+@example
+SET all DEBUG ON
+262-/home/hanke/.speech-dispatcher/log/debug
+262 OK DEBUGGING SET
+@end example
 
 @item SET @{all | self | @var{id} @} OUTPUT_MODULE  @var{module}
 Set the output module to  @var{module}. This overrides the
@@ -1090,10 +1116,10 @@ LIST SYNTHESIS_VOICES
 @subsection Why Events Notification
 
 Applications can send messages to a Speech Server through the SSIP
-@code{SPEAK} command. However, this commands only puts the received
+@code{SPEAK} command. However, this command only puts the received
 message into a queue in Speech Server and returns immediately. The
 message then will or will not be said at some particular time
-according to it's priority. Through Message Events Notification, the
+according to its priority. Through Message Events Notification, the
 application is able to discover certain kind of events, including when
 the message started to be played on the speakers, when it terminated
 playing, when it was paused and resumed, or when it was
@@ -1115,7 +1141,7 @@ detailed SSIP syntax, please look below.
 @item BEGIN
 
 This event means that the synthesizer just started to speak the
-message and the user is able to hear the speech on his speakers.
+message and the user is able to hear the speech on his/her speakers.
 
 Please note that not every message stored for speaking by the
 @code{SPEAK} command will issue this event. It can issue the
@@ -1124,8 +1150,8 @@ Please note that not every message stored for speaking by the
 @item END
 
 This event means that the synthesizer just terminated speaking the
-message (by reaching it's end) and the user is no longer able to hear
-the speech on his speakers.
+message (by reaching its end) and the user is no longer able to hear
+the speech on their speakers.
 
 Again, note that not every message that has already reported the
 @code{BEGIN} event will necessarily get to the @code{END} event.
@@ -1141,7 +1167,7 @@ in the queues) and will not be spoken anymore.
 
 The event @code{PAUSE} means that the message that was being spoken
 was paused and no longer produces any sound on the speakers, but
-was not discarded and it the rest of the message might be spoken again after the
+was not discarded and the rest of the message might be spoken again after the
 @code{RESUME} command is sent.  @xref{Speech Output Control
 Commands}. This will be reported by the @code{RESUME} event.
 
@@ -1154,15 +1180,14 @@ The event @code{RESUME} means that a message that was paused
 while being spoken, just started to continue and again produces
 sound in the speakers.
 
-@code{RESUME} is allways preceeded by the event @code{PAUSE}, and can
+@code{RESUME} is always preceeded by the event @code{PAUSE}, and can
 be followed by either the event @code{END} or @code{CANCEL}.
-
 
 @item INDEX_MARK
 
 This event means that some previously specified place in the text
 (so-called index mark) was reached when speaking the synthesized
-message in the speakers. It is allways accompanied by an additional
+message in the speakers. It is always accompanied by an additional
 parameter that indicates which place it is -- the name of the index
 mark.
 
@@ -1202,7 +1227,7 @@ requests but can arrive anytime. However, notifications can't arrive
 in the time between when a SSIP command is sent by the client and its
 reply is sent back by the server.
 
-Each notification consist of a multi-line SSIP reply as defined in
+Each notification consists of a multi-line SSIP reply as defined in
 @ref{General Rules}, and includes at least two parameters:
 @code{msg_id} and @code{client_id}. @code{msg_id} is the
 identification number of the message the event is related to,
@@ -1315,61 +1340,6 @@ Set the event notifications for @code{INDEX_MARK} to either ``on'' or
 ``off'' for switching the notifications on or off for the messages
 that follow. @xref{Types of Events}.
 
-@item SET self CLIENT_NAME @var{user}:@var{client}:@var{component}
-Set client's name.  Client name consists of the user name, client
-(application) identification, and the identification of the component
-of the client (application).  Each of the parts of the client name may
-contain only alphanumeric characters, dashes (@code{-}) and underscores
-(@code{_}).
-
-For example, for a client called @code{lynx} that creates an SSIP
-connection for its command processing, the name could be set in the
-following way:
-
-@example
-SET CLIENT_NAME joe:lynx:cmd_processing
-@end example
-
-The client name is used in the server configuration settings, client
-listings and message history handling.  All its three parts can be
-arbitrary, but it's important to define and follow rules for each
-application supporting Speech Synthesis Interface Protocol, so that
-a Speech Server user can configure all the aspects of the speech
-output easily.
-
-Usually, this command should be sent as the very first command when a
-new connection SSIP connection is established.  The command may be
-sent only once within a single connection. Attempts to change the
-client's name once it's already set are answered with an error code.
-
-Only @code{self} is allowed as the `target' argument.
-
-@item SET all DEBUG  @{ON|OFF@}
-If set to @code{ON}, Speech Dispatcher will write all its debugging
-information (including output modules) with maximal verbosity into a
-debug directory which is reported by the server to the client in reply
-to this command. When subsequently set to @code{OFF}, Speech
-Dispatcher will stop writing out debugging information into this path
-and close all the appropriate logging files.
-
-The intended use for this functionality is on-line debugging from
-client application. If the user wants to report a problem, the client
-application will ask him for a place to generate the logs, to repeat
-the situation that he considers to be a bug, and then perhaps it will
-automatically pack the logs and offer to send them to the developers
-of Speech Dispatcher or another appropriate place where the contained
-information can be processed.
-
-Warning: This option results in a lot of data being written into the
-output logs and so should not be left on for an unnecessarily long
-time.
-
-@example
-SET all DEBUG ON
-262-/home/hanke/.speech-dispatcher/log/debug
-262 OK DEBUGGING SET
-@end example
-
 @end table
 
 @node History Handling Commands, Other Commands, Message Events Notification and Index Marking, SSIP Commands
@@ -1413,7 +1383,8 @@ stored messages.  In each invocation of the @code{HISTORY} command
 there is no difference between processing spoken or not spoken
 messages, all the received messages are processed.
 
-The implementation of these history commands is still under
+The implementation of these history commands in the Speech Dispatcher
+implementation of SSIP is still under
 way. If you want to use them, please contact us to see the
 current status.
 
@@ -1718,7 +1689,7 @@ Client error, invalid arguments or parameters received.
 Client error, invalid command syntax, unparseable input.
 
 @item 7xx
-Index marks. See @xref{Events Notifications in SSIP}.
+Event notifications. See @xref{Events Notifications in SSIP}.
 @end table
 
 Result groups @var{1xx} and @var{2xx} correspond to successful
