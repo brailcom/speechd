@@ -1,7 +1,8 @@
 ## Process this file with automake to produce Makefile.in
 
-INCLUDES = -I$(top_srcdir)/src/api/c
 c_api = $(top_builddir)/src/api/c
+
+AM_CPPFLAGS = -I$(top_srcdir)/src/api/c
 
 bin_PROGRAMS = long_message clibrary clibrary2 run_test connection_recovery
 
