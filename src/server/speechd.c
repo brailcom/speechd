@@ -31,7 +31,7 @@
 #include "speechd.h"
 
 /* Declare dotconf functions and data structures*/
-#include "config.h"
+#include "configuration.h"
 
 /* Declare functions to allocate and create important data
  * structures */
