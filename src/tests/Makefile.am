@@ -16,7 +16,8 @@ clibrary2_SOURCES = clibrary2.c
 clibrary2_LDADD = $(c_api)/libspeechd.la -lpthread $(EXTRA_SOCKET_LIBS)
 
 connection_recovery_SOURCES = connection-recovery.c
-connection_recovery_LDADD = $(c_api)/libspeechd.la -lpthread $(EXTRA_SOCKET_LIBS)
+connection_recovery_LDADD = $(c_api)/libspeechd.la \
+	-lpthread $(EXTRA_SOCKET_LIBS)
 
 run_test_SOURCES = run_test.c
 run_test_LDADD = $(c_api)/libspeechd.la -lpthread $(EXTRA_SOCKET_LIBS)
