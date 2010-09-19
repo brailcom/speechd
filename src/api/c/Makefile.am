@@ -1,13 +1,11 @@
+## Process this file with automake to produce Makefile.in
 
-localedir = $(datadir)/locale
-inc_local = "-I$(top_srcdir)/include/"
-
-AM_CFLAGS = @ERROR_CFLAGS@ -DLOCALEDIR=\"$(localedir)\" -D_GNU_SOURCE -I/usr/include/ $(inc_local) $(GLIB_CFLAGS) -DSPD_SPAWN_CMD=\""@prefix@/bin/speech-dispatcher"\"
+include_HEADERS = libspeechd.h
+INCLUDES = -I$(top_srcdir)/include/
 
 lib_LTLIBRARIES = libspeechd.la
 libspeechd_la_SOURCES = libspeechd.c
-libspeechd_la_HEADERS = libspeechd.h
-libspeechd_ladir = $(includedir)
-libspeechd_la_LDFLAGS = -version-info @LIB_SPD_CURRENT@:@LIB_SPD_REVISION@:@LIB_SPD_AGE@ -lpthread
-libspeechd_la_LIBADD = $(GLIB_LIBS)
-
+libspeechd_la_CFLAGS = $(ERROR_CFLAGS)
+libspeechd_la_CPPFLAGS = -D_GNU_SOURCE $(GLIB_CFLAGS) -DSPD_SPAWN_CMD=\""$(prefix)/bin/speech-dispatcher"\"
+libspeechd_la_LDFLAGS = -version-info $(LIB_SPD_CURRENT):$(LIB_SPD_REVISION):$(LIB_SPD_AGE)
+libspeechd_la_LIBADD = $(GLIB_LIBS) -lpthread
