@@ -142,7 +142,7 @@ MSG2(int level, char *kind, char *format, ...)
                 char *tstr;
 		struct timeval tv;
                 t = time(NULL);
-		tstr = strdup(ctime(&t));
+		tstr = g_strdup(ctime(&t));
 		gettimeofday(&tv,NULL);                
 		assert(tstr);
 		/* Remove the trailing \n */
@@ -162,7 +162,7 @@ MSG2(int level, char *kind, char *format, ...)
 		  fprintf(debug_logfile, "[%s : %d] speechd: ",
 			  tstr, (int) tv.tv_usec);
                 }
-		spd_free(tstr);
+		g_free(tstr);
             }
             for(i=1;i<level;i++){
                 if(std_log) {
@@ -221,7 +221,7 @@ MSG(int level, char *format, ...)
                 char *tstr;
 		struct timeval tv;
                 t = time(NULL);
-		tstr = strdup(ctime(&t));
+		tstr = g_strdup(ctime(&t));
 		gettimeofday(&tv,NULL);
                 /* Remove the trailing \n */
 		assert(tstr);
@@ -237,7 +237,7 @@ MSG(int level, char *format, ...)
 			  tstr, (int) tv.tv_usec);
 		/*                fprintf(logfile, "[%s : %d] speechd: ",
 				  tstr, (int) tv.tv_usec);*/
-		spd_free(tstr);
+		g_free(tstr);
             }
 	    
             for(i=1;i<level;i++){
@@ -279,7 +279,7 @@ int
 speechd_sockets_status_init(void)
 {
     speechd_sockets_status = g_hash_table_new_full(g_int_hash, g_int_equal,
-						   (GDestroyNotify) spd_free,
+						   (GDestroyNotify) g_free,
 						   (GDestroyNotify) speechd_socket_free);
     if (speechd_sockets_status)
 	return 0;
@@ -293,12 +293,12 @@ speechd_socket_register(int fd)
 {
     int *fd_key;
     TSpeechDSock* speechd_socket;
-    speechd_socket = spd_malloc(sizeof(TSpeechDSock));
+    speechd_socket = g_malloc(sizeof(TSpeechDSock));
     speechd_socket->o_buf = NULL;
     speechd_socket->o_bytes = 0;
     speechd_socket->awaiting_data = 0;
     speechd_socket->inside_block = 0;
-    fd_key = spd_malloc(sizeof(int));
+    fd_key = g_malloc(sizeof(int));
     *fd_key = fd;
     g_hash_table_insert(speechd_sockets_status, fd_key, speechd_socket);
     return 0;
@@ -310,7 +310,7 @@ speechd_socket_free(TSpeechDSock* speechd_socket)
 {
     if (speechd_socket->o_buf)
 	g_string_free(speechd_socket->o_buf, 1);
-    spd_free(speechd_socket);
+    g_free(speechd_socket);
 }
 
 /* Unregister a socket for SSIP communication */
@@ -362,9 +362,9 @@ speechd_connection_new(int server_socket)
     }
     new_fd_set->fd = client_socket;
     new_fd_set->uid = ++SpeechdStatus.max_uid;
-    p_client_socket = (int*) spd_malloc(sizeof(int));
-    p_client_uid = (int*) spd_malloc(sizeof(int));
-    p_client_uid2 = (int*) spd_malloc(sizeof(int));
+    p_client_socket = (int*) g_malloc(sizeof(int));
+    p_client_uid = (int*) g_malloc(sizeof(int));
+    p_client_uid2 = (int*) g_malloc(sizeof(int));
     *p_client_socket = client_socket;
     *p_client_uid = SpeechdStatus.max_uid;
     *p_client_uid2 = SpeechdStatus.max_uid;
@@ -434,7 +434,7 @@ speechd_client_terminate(gpointer key, gpointer value, gpointer user)
 		speechd_connection_destroy(set->fd);
 	}
 	mem_free_fdset(set);
-	spd_free(set);
+	g_free(set);
 	return TRUE;
 }
 
@@ -579,13 +579,13 @@ speechd_init()
 
     /* Initialize hash tables */
     fd_settings = g_hash_table_new_full(g_int_hash, g_int_equal,
-					(GDestroyNotify) spd_free,
+					(GDestroyNotify) g_free,
 					NULL);
     assert(fd_settings != NULL);
 
     fd_uid = g_hash_table_new_full(g_int_hash, g_int_equal,
-				   (GDestroyNotify) spd_free,
-				   (GDestroyNotify) spd_free);
+				   (GDestroyNotify) g_free,
+				   (GDestroyNotify) g_free);
     assert(fd_uid != NULL);
 
     language_default_modules = g_hash_table_new(g_str_hash, g_str_equal);
@@ -677,7 +677,7 @@ speechd_load_configuration(int sig)
     
     configfile = dotconf_create(SpeechdOptions.conf_file, spd_options, 0, CASE_INSENSITIVE);
     if (configfile){
-      configfile->includepath = strdup(SpeechdOptions.conf_dir);
+      configfile->includepath = g_strdup(SpeechdOptions.conf_dir);
       MSG(5, "Config file include path is: %s", configfile->includepath);
       if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
       dotconf_cleanup(configfile);
@@ -934,8 +934,8 @@ main(int argc, char *argv[])
 	 parameters into temporary spawn_ variables for later comparison
 	 with the config file and unset them*/
       if (SpeechdOptions.communication_method_set){
-	spawn_communication_method = strdup(SpeechdOptions.communication_method);
-	spd_free(SpeechdOptions.communication_method);
+	spawn_communication_method = g_strdup(SpeechdOptions.communication_method);
+	g_free(SpeechdOptions.communication_method);
 	SpeechdOptions.communication_method_set = 0;
       }
       if (SpeechdOptions.port_set){
@@ -943,8 +943,8 @@ main(int argc, char *argv[])
 	SpeechdOptions.port_set = 0;
       }
       if (SpeechdOptions.socket_path_set){
-	spawn_socket_path = strdup(SpeechdOptions.socket_path);
-	spd_free(SpeechdOptions.socket_path);
+	spawn_socket_path = g_strdup(SpeechdOptions.socket_path);
+	g_free(SpeechdOptions.socket_path);
 	SpeechdOptions.socket_path_set = 0;
       }
     }
@@ -978,8 +978,8 @@ main(int argc, char *argv[])
 	  SpeechdOptions.conf_dir = g_strdup_printf("%s/conf/", SpeechdOptions.home_speechd_dir);
 	  if (!g_file_test(SpeechdOptions.conf_dir, G_FILE_TEST_IS_DIR)){
 	    /* If the local confiration dir doesn't exist, read the global configuration */
-	    if (strcmp(SYS_CONF, "")) SpeechdOptions.conf_dir = strdup(SYS_CONF);
-	    else SpeechdOptions.conf_dir = strdup("/etc/speech-dispatcher/");
+	    if (strcmp(SYS_CONF, "")) SpeechdOptions.conf_dir = g_strdup(SYS_CONF);
+	    else SpeechdOptions.conf_dir = g_strdup("/etc/speech-dispatcher/");
 	  }
 	}
       }else{
@@ -1046,8 +1046,8 @@ main(int argc, char *argv[])
       }else{
 	FATAL("Socket name file not set and user has no home directory");
       }
-      spd_free(SpeechdOptions.socket_path);
-      SpeechdOptions.socket_path = strdup(socket_filename->str);
+      g_free(SpeechdOptions.socket_path);
+      SpeechdOptions.socket_path = g_strdup(socket_filename->str);
       g_string_free(socket_filename, 1);
     }
 
@@ -1092,8 +1092,8 @@ main(int argc, char *argv[])
 	  } else assert (0);
 	}
       }
-      spd_free(spawn_communication_method);
-      spd_free(spawn_socket_path);
+      g_free(spawn_communication_method);
+      g_free(spawn_socket_path);
     }
 
     if(!strcmp(SpeechdOptions.communication_method, "inet_socket")){

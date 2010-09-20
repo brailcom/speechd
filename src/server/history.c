@@ -78,7 +78,7 @@ history_get_client_id(int fd)
     cid = g_string_new("");
 
     uid = get_client_uid_by_fd(fd);
-    if (uid == 0) return strdup(ERR_INTERNAL);
+    if (uid == 0) return g_strdup(ERR_INTERNAL);
 
     g_string_append_printf(cid, C_OK_CLIENT_ID"-%d\r\n", uid);
     g_string_append_printf(cid, OK_CLIENT_ID_SENT);
@@ -101,8 +101,8 @@ history_get_message(int uid)
     mtext = g_string_new("");
 
     gl = g_list_find_custom(message_history, &uid, compare_message_uid);
-    if (gl == NULL) return strdup(ERR_ID_NOT_EXIST);
-    if (gl->data == NULL) return strdup(ERR_INTERNAL);
+    if (gl == NULL) return g_strdup(ERR_ID_NOT_EXIST);
+    if (gl->data == NULL) return g_strdup(ERR_INTERNAL);
     msg = (TSpeechDMessage*) gl->data;
 
     i = 0;
@@ -122,7 +122,7 @@ history_get_message(int uid)
 
 #endif
 
-    return strdup(ERR_NOT_IMPLEMENTED);                
+    return g_strdup(ERR_NOT_IMPLEMENTED);
 }
 
 
@@ -141,7 +141,7 @@ history_get_message_list(guint client_id, int from, int num)
 	mlist = g_string_new("");
 
 	client_settings = get_client_settings_by_uid(client_id);
-        if (client_settings == NULL) return strdup(ERR_NO_SUCH_CLIENT);
+        if (client_settings == NULL) return g_strdup(ERR_NO_SUCH_CLIENT);
 	
 	client_msgs = get_messages_by_client(client_id);
 	
@@ -155,7 +155,7 @@ history_get_message_list(guint client_id, int from, int num)
 
 		if (message == NULL){
 			if(SPEECHD_DEBUG) FATAL("Internal error.\n");
-			return strdup(ERR_INTERNAL);
+			return g_strdup(ERR_INTERNAL);
 		}
 
 		g_string_append_printf(mlist, C_OK_MSGS"-");
@@ -176,7 +176,7 @@ history_get_last(int fd)
 	lastm = g_string_new("");
 
 	gl = g_list_last(message_history);
-	if (gl == NULL) return strdup(ERR_NO_MESSAGE);
+	if (gl == NULL) return g_strdup(ERR_NO_MESSAGE);
 	message = gl->data;
       
 	g_string_append_printf(lastm, C_OK_LAST_MSG"-%d\r\n", 
@@ -198,7 +198,7 @@ history_cursor_set_last(int fd, guint client_id)
 	settings->hist_cur_pos = g_list_length(client_msgs) - 1;
 	settings->hist_cur_uid = client_id;
 
-	return strdup(OK_CUR_SET_LAST);
+	return g_strdup(OK_CUR_SET_LAST);
 }
 
 char*
@@ -211,7 +211,7 @@ history_cursor_set_first(int fd, guint client_id)
 
 	settings->hist_cur_pos = 0;
 	settings->hist_cur_uid = client_id;
-	return strdup(OK_CUR_SET_FIRST);
+	return g_strdup(OK_CUR_SET_FIRST);
 }
 
 char*
@@ -220,10 +220,10 @@ history_cursor_set_pos(int fd, guint client_id, int pos)
 	TFDSetElement *settings;
 	GList *client_msgs;
 
-	if (pos < 0) return strdup(ERR_POS_LOW);
+	if (pos < 0) return g_strdup(ERR_POS_LOW);
 
 	client_msgs = get_messages_by_client(client_id);
-	if (pos > g_list_length(client_msgs)-1) return strdup(ERR_POS_HIGH);
+	if (pos > g_list_length(client_msgs)-1) return g_strdup(ERR_POS_HIGH);
 
 	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL) FATAL("Couldn't find settings for active client");
@@ -231,7 +231,7 @@ history_cursor_set_pos(int fd, guint client_id, int pos)
 	settings->hist_cur_pos = pos;
 	settings->hist_cur_uid = client_id;
 	MSG(4,"cursor pos:%d\n", settings->hist_cur_pos);
-	return strdup(OK_CUR_SET_POS);
+	return g_strdup(OK_CUR_SET_POS);
 }
 
 char*
@@ -244,10 +244,10 @@ history_cursor_forward(int fd)
 	if (settings == NULL) FATAL("Couldn't find settings for active client");
    
 	client_msgs = get_messages_by_client(settings->hist_cur_uid);
-	if ((settings->hist_cur_pos + 1) > g_list_length(client_msgs)-1) return strdup(ERR_POS_HIGH);
+	if ((settings->hist_cur_pos + 1) > g_list_length(client_msgs)-1) return g_strdup(ERR_POS_HIGH);
 	settings->hist_cur_pos++; 
 
-	return strdup(OK_CUR_MOV_FOR);
+	return g_strdup(OK_CUR_MOV_FOR);
 }
 
 char*
@@ -258,10 +258,10 @@ history_cursor_backward(int fd)
 	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL) FATAL("Couldn't find settings for active client");
    
-	if ((settings->hist_cur_pos - 1) < 0) return strdup(ERR_POS_LOW);
+	if ((settings->hist_cur_pos - 1) < 0) return g_strdup(ERR_POS_LOW);
 	settings->hist_cur_pos--; 
    
-	return strdup(OK_CUR_MOV_BACK);
+	return g_strdup(OK_CUR_MOV_BACK);
 }
 
 char*
@@ -279,7 +279,7 @@ history_cursor_get(int fd)
  	 
 	client_msgs = get_messages_by_client(settings->hist_cur_uid);
 	gl = g_list_nth(client_msgs, (int) settings->hist_cur_pos);
-	if (gl == NULL) return strdup(ERR_NO_MESSAGE);
+	if (gl == NULL) return g_strdup(ERR_NO_MESSAGE);
 	new = gl->data;
 
 	g_string_printf(reply, C_OK_CUR_POS"-%d\r\n"OK_CUR_POS_RET, new->id);
@@ -293,15 +293,15 @@ history_say_id(int fd, int id)
 	GList *gl; 
 
 	gl = g_list_find_custom(message_history,  &id, p_msg_comp_id);
-	if (gl == NULL) return strdup(ERR_ID_NOT_EXIST);
+	if (gl == NULL) return g_strdup(ERR_ID_NOT_EXIST);
 	msg = gl->data;
-	if (msg == NULL) return strdup(ERR_INTERNAL);
+	if (msg == NULL) return g_strdup(ERR_INTERNAL);
 
 	MSG(4,"putting history message into queue\n");
 	new = (TSpeechDMessage*) spd_message_copy(msg);
 	//	queue_message(new, fd, 0, 0);
 
-	return strdup(OK_MESSAGE_QUEUED);
+	return g_strdup(OK_MESSAGE_QUEUED);
 }
 
 GList*

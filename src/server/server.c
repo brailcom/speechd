@@ -50,7 +50,7 @@ int last_message_id = 0;
  */
 
 #define COPY_SET_STR(name) \
-    new->settings.name = (char*) spd_strdup(settings->name);
+    new->settings.name = (char*) g_strdup(settings->name);
 
 /* Queue a message _new_. When fd is a positive number,
 it means we have a new message from the client on connection
@@ -237,7 +237,7 @@ serve(int fd)
     {
       size_t bytes = 0;       /* Number of bytes we got */
       int buflen = BUF_SIZE;
-      char *buf = (char *)spd_malloc (buflen + 1);
+      char *buf = (char *)g_malloc (buflen + 1);
       
       /* Read data from socket */
       /* Read exactly one complete line, the `parse' routine relies on it */
@@ -247,7 +247,7 @@ serve(int fd)
             int n = read (fd, buf+bytes, 1);
             if (n <= 0)
               {
-                spd_free (buf);
+                g_free (buf);
                 return -1;
               }
             /* Note, bytes is a 0-based index into buf. */
@@ -260,7 +260,7 @@ serve(int fd)
             if ((++bytes) == buflen)
               {
                 buflen *= 2;
-                buf = spd_realloc (buf, buflen + 1);
+                buf = g_realloc (buf, buflen + 1);
               }
           }
       }
@@ -268,28 +268,28 @@ serve(int fd)
       /* Parse the data and read the reply*/
       MSG2(5, "protocol", "%d:DATA:|%s| (%d)", fd, buf, bytes);
       reply = parse(buf, bytes, fd);
-      spd_free(buf);
+      g_free(buf);
     }
 
     if (reply == NULL) FATAL("Internal error, reply from parse() is NULL!");
 
     /* Send the reply to the socket */
     if (strlen(reply) == 0){
-	spd_free(reply);
+	g_free(reply);
 	return 0;
     }
     if(reply[0] != '9'){        /* Don't reply to data etc. */
         pthread_mutex_lock(&socket_com_mutex);	
         MSG2(5, "protocol", "%d:REPLY:|%s|", fd, reply);
         ret = write(fd, reply, strlen(reply));
-	spd_free(reply);
+	g_free(reply);
         pthread_mutex_unlock(&socket_com_mutex);
         if (ret == -1){
 	    MSG(5, "write() error: %s", strerror(errno));
 	    return -1;
 	}
     }else{
-	spd_free(reply);
+	g_free(reply);
     }
 
     return 0;

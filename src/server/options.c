@@ -101,7 +101,7 @@ options_print_version(void)
     }
 
 #define SPD_OPTION_SET_STR(param) \
-    SpeechdOptions.param = strdup(optarg)
+    SpeechdOptions.param = g_strdup(optarg)
 
 void
 options_parse(int argc, char *argv[])
@@ -164,7 +164,7 @@ options_parse(int argc, char *argv[])
 	  if (!tmpdir)
 	    tmpdir = g_strdup("/tmp");
 	  SpeechdOptions.debug_destination=g_strdup_printf("%s/speechd-debug", tmpdir);
-	  spd_free(tmpdir);
+	  g_free(tmpdir);
 
 	  ret = mkdir(SpeechdOptions.debug_destination, S_IRWXU);
 	  if (ret){
@@ -181,7 +181,7 @@ options_parse(int argc, char *argv[])
 					       SpeechdOptions.debug_destination);
 	  /* Open logfile for writing */
 	  debug_logfile = fopen(debug_logfile_path, "wx");
-	  spd_free(debug_logfile_path);
+	  g_free(debug_logfile_path);
 	  if (debug_logfile == NULL){
 	    MSG(1, "Error: can't open additional debug logging file %s [%d-%s]!\n",
 		debug_logfile_path, errno, strerror(errno));

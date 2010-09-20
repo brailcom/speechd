@@ -61,7 +61,7 @@ char *strndup ( const char *s, size_t n)
                 nAvail = n + 1;
         else
                 nAvail = strlen(s) + 1;
-        p = malloc ( nAvail );
+        p = g_malloc ( nAvail );
         memcpy ( p, s, nAvail );
         p[nAvail - 1] = '\0';
 
@@ -87,7 +87,7 @@ ssize_t getline (char **lineptr, size_t *n, FILE *f)
                 if ( m++ >= buf_len )
                 {
                         buf_len += BUFFER_LEN;
-                        buf = (char *) realloc(buf, buf_len + 1);
+                        buf = (char *) g_realloc(buf, buf_len + 1);
                         if ( buf == NULL )
                         {
                                 return -1;
@@ -242,7 +242,7 @@ output_read_reply(OutputModule *output)
     }while( !errors && !((strlen(line) < 4) || (line[3] == ' ')));
 
     if(line != NULL)
-	free(line);	/* getline allocates with malloc and realloc. */
+	g_free(line);
 
     if(errors) {
 	g_string_free(rstr, TRUE);
@@ -259,7 +259,7 @@ output_read_reply2(OutputModule *output)
     char *reply;
     
 
-    reply = malloc( 1024 * sizeof(char));
+    reply = g_malloc( 1024 * sizeof(char));
 
     bytes = read(output->pipe_out[0], reply, 1024);
     reply[bytes] = 0;
@@ -350,7 +350,7 @@ _output_get_voices(OutputModule *module)
   //TODO: only 256 voices supported here
   lines = g_strsplit(reply->str, "\n", 256);
   g_string_free(reply, TRUE);
-  voice_dscr = malloc(256*sizeof(VoiceDescription*));
+  voice_dscr = g_malloc(256*sizeof(VoiceDescription*));
   for (i = 0; !errors && (lines[i] != NULL); i++) {
     MSG(1, "LINE here:|%s|", lines[i]);
     if (strlen(lines[i])<=4){
@@ -368,10 +368,10 @@ _output_get_voices(OutputModule *module)
       errors = TRUE;
       } else {
         //Fill in VoiceDescription
-        voice_dscr[i] = (VoiceDescription*) malloc(sizeof(VoiceDescription));
-        voice_dscr[i]->name=strdup(atoms[0]);
-        voice_dscr[i]->language=strdup(atoms[1]);
-        voice_dscr[i]->dialect=strdup(atoms[2]);
+        voice_dscr[i] = (VoiceDescription*) g_malloc(sizeof(VoiceDescription));
+        voice_dscr[i]->name=g_strdup(atoms[0]);
+        voice_dscr[i]->language=g_strdup(atoms[1]);
+        voice_dscr[i]->dialect=g_strdup(atoms[2]);
       }
     if (atoms != NULL)
       g_strfreev(atoms);
@@ -436,7 +436,7 @@ output_list_voices(char* module_name)
     }else{ \
        g_string_append_printf(set_str, #name"=NULL\n"); \
     } \
-    spd_free(val);
+    g_free(val);
 
 int
 output_send_settings(TSpeechDMessage *msg, OutputModule *output)
@@ -535,7 +535,7 @@ output_send_debug(OutputModule *output, int flag, char* log_path)
     if (flag){
       cmd_str = g_strdup_printf("DEBUG ON %s \n", log_path);
       err = output_send_data(cmd_str, output, 1);
-      spd_free(cmd_str);
+      g_free(cmd_str);
       if (err){
 	MSG(3, "ERROR: Can't set debugging on for output module %s", output->name);
 	OL_RET(-1);
@@ -692,13 +692,13 @@ output_module_is_speaking(OutputModule *output, char **index_mark)
 	    retcode = 0;
 	    MSG2(5, "output_module", "Received event:\n %s", response->str);
 	    if (!strncmp(response->str, "701", 3))
-		*index_mark = (char*) strdup("__spd_begin");
+		*index_mark = (char*) g_strdup("__spd_begin");
 	    else if (!strncmp(response->str, "702", 3))
-		*index_mark = (char*) strdup("__spd_end");
+		*index_mark = (char*) g_strdup("__spd_end");
 	    else if (!strncmp(response->str, "703", 3))
-		*index_mark = (char*) strdup("__spd_stopped");
+		*index_mark = (char*) g_strdup("__spd_stopped");
 	    else if (!strncmp(response->str, "704", 3))
-		*index_mark = (char*) strdup("__spd_paused");
+		*index_mark = (char*) g_strdup("__spd_paused");
 	    else if (!strncmp(response->str, "700", 3)) {
 		char *p;
 		p = strchr(response->str, '\n');
@@ -902,7 +902,7 @@ escape_dot(char *otext)
         ret = otext;
     }else{
         g_string_append(ntext, otext);
-        free(ootext);
+        g_free(ootext);
         ret = ntext->str;
 	g_string_free(ntext, 0);
     }

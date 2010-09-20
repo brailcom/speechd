@@ -107,7 +107,7 @@ insert_index_marks(TSpeechDMessage *msg, int ssml_mode)
 
     if (!ssml_mode) g_string_append_printf(marked_text, "</speak>");
 
-    spd_free(msg->buf);
+    g_free(msg->buf);
     msg->buf = marked_text->str;
     
     g_string_free(marked_text, 0);
