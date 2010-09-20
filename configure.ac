@@ -431,13 +431,13 @@ AC_CONFIG_FILES([Makefile
 	src/api/python/Makefile
 	src/api/python/speechd/Makefile
 	src/api/python/speechd_config/Makefile
-	src/audio/Makefile
-	src/audio/static_plugins.c
 	src/clients/Makefile
 	src/clients/say/Makefile
 	src/clients/spdsend/Makefile
 	src/common/Makefile
 	src/modules/Makefile
+	src/modules/audio/Makefile
+	src/modules/audio/static_plugins.c
 	src/server/Makefile
 	src/tests/Makefile])
 AC_OUTPUT

@@ -1,7 +1,9 @@
 ## Process this file with automake to produce Makefile.in
 
-inc_local = -I$(top_srcdir)/include -I$(top_srcdir)/src/audio
-lib_audio = -L$(top_builddir)/src/audio
+SUBDIRS = audio
+
+inc_local = -I$(top_srcdir)/include -I$(top_srcdir)/src/modules/audio
+lib_audio = -L$(top_builddir)/src/modules/audio
 
 AM_CFLAGS = $(ERROR_CFLAGS)
 AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" $(DOTCONF_CFLAGS) $(GLIB_CFLAGS) $(GTHREAD_CFLAGS) $(ibmtts_include) $(SNDFILE_CFLAGS) -D_GNU_SOURCE
