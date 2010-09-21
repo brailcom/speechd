@@ -346,10 +346,6 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 		return FALSE;
 	}
 
-	if (0 != module_write_data_ok(data)){
-	  pthread_mutex_unlock(&espeak_state_mutex);
-	  return FATAL_ERROR;
-	}
 	DBG("Espeak: Requested data: |%s| %d %lu", data, msgtype, (unsigned long) bytes);
 
 	espeak_state_reset();

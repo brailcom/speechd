@@ -155,6 +155,13 @@ do_message(EMessageType msgtype)
 	msg = g_string_new(" ");
     }
 
+    /* no sure we need this check here at all */
+    if (msg->str == NULL || msg->str[0] == 0){
+	DBG("requested data NULL or empty\n");
+	g_string_free(msg, TRUE);
+	return strdup("301 ERROR CANT SPEAK");
+    }
+
     ret = module_speak(msg->str, strlen(msg->str), msgtype);
 
     g_string_free(msg,1);
@@ -920,24 +927,6 @@ set_speaking_thread_parameters()
 
     pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
     pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);				
-}
-
-
-int
-module_write_data_ok(char *data)
-{
-    /* Tests */
-    if(data == NULL){
-        DBG("requested data NULL\n");		
-        return -1;
-    }
-
-    if(data[0] == 0){
-        DBG("requested data empty\n");
-        return -1;
-    }
-
-    return 0;
 }
 
 int

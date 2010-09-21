@@ -240,7 +240,6 @@ size_t module_parent_wfork(TModuleDoublePipe dpipe, const char* message, EMessag
 int module_parent_wait_continue(TModuleDoublePipe dpipe);
 
 void set_speaking_thread_parameters();
-int module_write_data_ok(char *data);
 int module_terminate_thread(pthread_t thread);
 sem_t* module_semaphore_init();
 char * module_recode_to_iso(char *data, int bytes, char *language, char *fallback);

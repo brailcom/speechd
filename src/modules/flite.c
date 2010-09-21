@@ -176,8 +176,6 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
         return 0;
     }
 
-    if(module_write_data_ok(data) != 0) return -1;
-
     DBG("Requested data: |%s|\n", data);
 
     if (*flite_message != NULL){

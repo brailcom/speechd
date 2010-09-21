@@ -568,8 +568,6 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
         return IBMTTS_FALSE;
     }
 
-	if (0 != module_write_data_ok(data)) return FATAL_ERROR;
-
 	DBG("Ibmtts: Type: %d, bytes: %d, requested data: |%s|\n", msgtype, bytes, data);
 
 	xfree(*ibmtts_message);    

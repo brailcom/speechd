@@ -198,9 +198,6 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
         return 0;
     }
 
-
-    if(module_write_data_ok(data) != 0) return -1;
-
     UPDATE_STRING_PARAMETER(language, generic_set_language);
     UPDATE_PARAMETER(voice, generic_set_voice);
     UPDATE_PARAMETER(punctuation_mode, generic_set_punct);

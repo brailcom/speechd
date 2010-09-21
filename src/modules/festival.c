@@ -337,9 +337,6 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
 
     festival_stop_request = 0;
 
-    /* Check the parameters */
-    if(module_write_data_ok(data) != 0) return -1;
-
     festival_message_type = msgtype;
     if ((msgtype == MSGTYPE_TEXT) && (msg_settings.spelling_mode == SPELLING_ON))
         festival_message_type = MSGTYPE_SPELL;
