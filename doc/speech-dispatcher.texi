@@ -540,8 +540,8 @@ spd-conf -d
 
 @item
 Check the appropriate logfile in
-@file{~/.speech-dispatcher/logs/speechd.log} for user Speech
-Dispatcher or in @file{/var/log/speech-dispatcher/speechd.log}. Look
+@file{~/.speech-dispatcher/logs/speech-dispatcher.log} for user Speech
+Dispatcher or in @file{/var/log/speech-dispatcher/speech-dispatcher.log}. Look
 for lines containing the string 'ERROR' and their surrounding
 contents. If you hear no speech, restart Speech Dispatcher and look
 near the end of the log file -- before any attempts for synthesis of

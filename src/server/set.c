@@ -384,7 +384,7 @@ set_debug_uid(int uid, int debug)
   if (!SpeechdOptions.debug && !debug) return 1;
  
   if (debug){
-    debug_logfile_path = g_strdup_printf("%s/speechd.log", SpeechdOptions.debug_destination);
+    debug_logfile_path = g_strdup_printf("%s/speech-dispatcher.log", SpeechdOptions.debug_destination);
 
     debug_logfile = fopen(debug_logfile_path, "w");
     if (debug_logfile == NULL){

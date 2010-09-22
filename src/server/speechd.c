@@ -799,7 +799,7 @@ destroy_pid_file(void)
 void
 logging_init(void)
 {
-  char *file_name = g_strdup_printf("%s/speechd.log", SpeechdOptions.log_dir);    
+  char *file_name = g_strdup_printf("%s/speech-dispatcher.log", SpeechdOptions.log_dir);
   assert(file_name != NULL);
   if (!strncmp(file_name,"stdout",6)){
     logfile = stdout;

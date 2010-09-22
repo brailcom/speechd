@@ -177,7 +177,7 @@ options_parse(int argc, char *argv[])
 	    exit(1);
 	  }
 	    
-	  debug_logfile_path = g_strdup_printf("%s/speechd.log",
+	  debug_logfile_path = g_strdup_printf("%s/speech-dispatcher.log",
 					       SpeechdOptions.debug_destination);
 	  /* Open logfile for writing */
 	  debug_logfile = fopen(debug_logfile_path, "wx");
