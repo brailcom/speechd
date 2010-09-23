@@ -203,7 +203,7 @@ module_init(char **status_info)
     }
   }
 
-  cicero_message = malloc (sizeof (char*));
+  cicero_message = g_malloc (sizeof (char*));
   *cicero_message = NULL;
   
   cicero_semaphore = module_semaphore_init();
@@ -214,14 +214,14 @@ module_init(char **status_info)
   if(ret != 0)
     {
       DBG("Cicero: thread failed\n");
-      *status_info = strdup("The module couldn't initialize threads "
+      *status_info = g_strdup("The module couldn't initialize threads "
 			    "This can be either an internal problem or an "
 			    "architecture problem. If you are sure your architecture "
 			    "supports threads, please report a bug.");
       return -1;
     }
 
-  *status_info = strdup("Cicero initialized succesfully.");
+  *status_info = g_strdup("Cicero initialized succesfully.");
 
   return 0;
 }
@@ -256,7 +256,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
   DBG("Requested data: |%s|\n", data);
 
   if (*cicero_message != NULL){
-    xfree(*cicero_message);
+    g_free(*cicero_message);
     *cicero_message = NULL;
   }
   *cicero_message = module_strip_ssml(data);
@@ -312,7 +312,7 @@ module_close(int status)
     if (module_terminate_thread(cicero_speaking_thread) != 0)
         exit(1);
 
-    /*    xfree(cicero_voice); */
+    /*    g_free(cicero_voice); */
     exit(status);
 }
 

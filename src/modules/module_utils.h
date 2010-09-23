@@ -109,7 +109,7 @@ int module_num_dc_options;
     struct timeval tv; \
     char *tstr; \
     t = time(NULL); \
-    tstr = strdup(ctime(&t)); \
+    tstr = g_strdup(ctime(&t)); \
     tstr[strlen(tstr)-1] = 0; \
     gettimeofday(&tv,NULL); \
     fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
@@ -124,7 +124,7 @@ int module_num_dc_options;
       fprintf(CustomDebugFile, "\n");                                   \
       fflush(CustomDebugFile);			\
     } \
-   xfree(tstr); \
+   g_free(tstr); \
   }
 
 #define FATAL(msg) { \
@@ -160,7 +160,7 @@ void    module_close        (int status);
     { \
       if (msg_settings_old.value != NULL) \
       { \
-        xfree (msg_settings_old.value); \
+        g_free (msg_settings_old.value); \
 	msg_settings_old.value = NULL; \
       } \
       if (msg_settings.value != NULL) \
@@ -177,9 +177,6 @@ typedef struct{
     int cp[2];
 }TModuleDoublePipe;
 
-void* xmalloc(size_t size);
-void* xrealloc(void* data, size_t size);
-void xfree(void* data);
 
 int module_get_message_part(const char* message, char* part,
 			    unsigned int *pos, size_t maxlen,
@@ -265,9 +262,9 @@ configoption_t * add_config_option(configoption_t *options, int *num_config_opti
     static char *name = NULL; \
     DOTCONF_CB(name ## _cb) \
     { \
-        xfree(name); \
+        g_free(name); \
         if (cmd->data.str != NULL) \
-            name = strdup(cmd->data.str); \
+            name = g_strdup(cmd->data.str); \
         return NULL; \
     }
 
@@ -299,9 +296,9 @@ configoption_t * add_config_option(configoption_t *options, int *num_config_opti
     DOTCONF_CB(name ## _cb) \
     { \
         if (cmd->data.list[0] != NULL) \
-            name.arg1 = strdup(cmd->data.list[0]); \
+            name.arg1 = g_strdup(cmd->data.list[0]); \
         if (cmd->data.list[1] != NULL) \
-            name.arg2 = strdup(cmd->data.list[1]); \
+            name.arg2 = g_strdup(cmd->data.list[1]); \
         return NULL; \
     }
 
@@ -316,12 +313,12 @@ configoption_t * add_config_option(configoption_t *options, int *num_config_opti
     { \
         T ## name *new_item; \
         char* new_key; \
-        new_item = (T ## name *) malloc(sizeof(T ## name)); \
+        new_item = (T ## name *) g_malloc(sizeof(T ## name)); \
         if (cmd->data.list[0] == NULL) return NULL; \
-        new_item->arg1 = strdup(cmd->data.list[0]); \
-        new_key = strdup(cmd->data.list[0]); \
+        new_item->arg1 = g_strdup(cmd->data.list[0]); \
+        new_key = g_strdup(cmd->data.list[0]); \
         if (cmd->data.list[1] != NULL) \
-           new_item->arg2 = strdup(cmd->data.list[1]); \
+           new_item->arg2 = g_strdup(cmd->data.list[1]); \
         else \
             new_item->arg2 = NULL; \
         g_hash_table_insert(name, new_key, new_item); \
@@ -340,16 +337,16 @@ configoption_t * add_config_option(configoption_t *options, int *num_config_opti
     { \
         T ## name *new_item; \
         char* new_key; \
-        new_item = (T ## name *) malloc(sizeof(T ## name)); \
+        new_item = (T ## name *) g_malloc(sizeof(T ## name)); \
         if (cmd->data.list[0] == NULL) return NULL; \
-        new_item->arg1 = strdup(cmd->data.list[0]); \
-        new_key = strdup(cmd->data.list[0]); \
+        new_item->arg1 = g_strdup(cmd->data.list[0]); \
+        new_key = g_strdup(cmd->data.list[0]); \
         if (cmd->data.list[1] != NULL) \
-           new_item->arg2 = strdup(cmd->data.list[1]); \
+           new_item->arg2 = g_strdup(cmd->data.list[1]); \
         else \
             new_item->arg2 = NULL; \
         if (cmd->data.list[2] != NULL) \
-           new_item->arg3 = strdup(cmd->data.list[2]); \
+           new_item->arg3 = g_strdup(cmd->data.list[2]); \
         else \
             new_item->arg3 = NULL; \
         g_hash_table_insert(name, new_key, new_item); \
@@ -357,7 +354,7 @@ configoption_t * add_config_option(configoption_t *options, int *num_config_opti
     }
 
 #define MOD_OPTION_1_STR_REG(name, default) \
-    if (default != NULL) name = strdup(default); \
+    if (default != NULL) name = g_strdup(default); \
     else name = NULL; \
     module_dc_options = module_add_config_option(module_dc_options, \
                                      &module_num_dc_options, #name, \

@@ -91,10 +91,10 @@ char *ivona_get_wave_fd(int fd,int *nsamples,int *offset)
 	
 	wave_size=BASE_WAVE_SIZE;
 	wave_length=0;
-	ivona_wave=xmalloc(wave_size);
+	ivona_wave=g_malloc(wave_size);
 	for (;;) {
 		if (wave_size <wave_length + 8192) {
-			ivona_wave=xrealloc(ivona_wave,wave_size + STEP_WAVE_SIZE);
+			ivona_wave=g_realloc(ivona_wave,wave_size + STEP_WAVE_SIZE);
 			wave_size += STEP_WAVE_SIZE;
 		}
 		DBG("Have place for %d bytes",wave_size - wave_length);
@@ -107,7 +107,7 @@ char *ivona_get_wave_fd(int fd,int *nsamples,int *offset)
 	w=(short *) ivona_wave;
 	for (i=wave_length/2-1;i>=0;i--) if (w[i]) break;
 	if (i<100) {
-		xfree(ivona_wave);
+		g_free(ivona_wave);
 		return NULL;
 	}
 	DBG("Trimmed %d samples at end",wave_length/2-i-1);
@@ -182,7 +182,7 @@ ivona_play_file(char *filename)
 	track.num_channels = sfinfo.channels;
 	track.sample_rate = sfinfo.samplerate;
 	track.bits = 16;
-	track.samples = malloc(items * sizeof(short));
+	track.samples = g_malloc(items * sizeof(short));
 	if (NULL == track.samples) {
 		DBG("Ivona: ERROR: Cannot allocate audio buffer.");
 		result = FALSE;
@@ -205,7 +205,7 @@ ivona_play_file(char *filename)
 		DBG("Ivona: Sent to audio.");
 	}
  cleanup2:
-	xfree(track.samples);
+	g_free(track.samples);
  cleanup1:
 	sf_close(sf);
 #endif
@@ -281,10 +281,10 @@ void ivona_store_wave_in_cache(char *str,char *wave,int samples)
 	else {
 		ica=find_min_count();
 		if (!ica) return;
-		xfree(ica->wave);
+		g_free(ica->wave);
 	}
 	ica->count=1;
-	ica->wave=xmalloc(samples*2);
+	ica->wave=g_malloc(samples*2);
 	memcpy(ica->wave,wave,samples*2);
 	ica->samples=samples;
 	strcpy(ica->str,str);
@@ -299,7 +299,7 @@ char *ivona_get_wave_from_cache(char *to_say,int *samples)
 	for (ica=ica_tail.succ;ica && ica->samples;ica=ica->succ) {
 		DBG("Cache cmp '%s'='%s'",ica->str,to_say);
 		if (!strcmp(ica->str,to_say)) {
-			char *wave=xmalloc(ica->samples*2);
+			char *wave=g_malloc(ica->samples*2);
 			memcpy(wave,ica->wave,ica->samples*2);
 			*samples=ica->samples;
 			ica->count++;

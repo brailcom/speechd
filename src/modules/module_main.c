@@ -49,7 +49,7 @@ if (!strcmp(cmd_buf, #command"\n")){ \
  } \
  fflush(stdout); \
  pthread_mutex_unlock(&module_stdout_mutex);\
- xfree(msg); \
+ g_free(msg); \
 }
 
 #define PROCESS_CMD_W_ARGS(command, function) \
@@ -62,7 +62,7 @@ if (!strncmp(cmd_buf, #command, strlen(#command))){	\
  } \
  fflush(stdout); \
  pthread_mutex_unlock(&module_stdout_mutex);\
- xfree(msg); \
+ g_free(msg); \
 }
 
 #define PROCESS_CMD_NRP(command, function) \
@@ -89,7 +89,7 @@ main(int argc, char *argv[])
     module_audio_id = 0;
 
     if (argc >= 2){
-        configfilename = strdup(argv[1]);
+        configfilename = g_strdup(argv[1]);
     }else{
         configfilename = NULL;
     }
@@ -111,7 +111,7 @@ main(int argc, char *argv[])
 	    dotconf_cleanup(configfile);
 	    DBG("Configuration (pre) has been read from \"%s\"\n", configfilename);    
 	    
-	    xfree(configfilename);
+	    g_free(configfilename);
         }else{
             DBG("Can't read specified config file!\n");        
         }
@@ -137,7 +137,7 @@ main(int argc, char *argv[])
 	    ret = printf("%s\n", "399 ERR CANT INIT MODULE");
 	    return -1;
 	}
-      	xfree(status_info);
+       g_free(status_info);
 
 	if (ret < 0){ 
 	    DBG("Broken pipe, exiting...\n");
@@ -148,7 +148,7 @@ main(int argc, char *argv[])
 	DBG("ERROR: Wrong communication from module client: didn't call INIT\n");
 	module_close(3);
     }
-    xfree(cmd_buf);
+    g_free(cmd_buf);
 
     while(1){
         cmd_buf = NULL;  n=0;
@@ -177,7 +177,7 @@ main(int argc, char *argv[])
           fflush(stdout);
         }
 	
-	xfree(cmd_buf);
+	g_free(cmd_buf);
     } 
 }
 

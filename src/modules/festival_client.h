@@ -88,7 +88,7 @@ void delete_FT_Info(FT_Info *info);
           str = g_strdup(format"\n"); \
           fputs(str, fd); \
           DBG("-> Festival: |%s|", str); \
-          free(str); \
+          g_free(str); \
           fclose(fd); \
         }else{ \
           DBG("Can't open connection"); \
@@ -104,7 +104,7 @@ void delete_FT_Info(FT_Info *info);
           str = g_strdup_printf(format"\n", args); \
           fputs(str, fd); \
           DBG("-> Festival: |%s|", str); \
-          free(str); \
+          g_free(str); \
           fclose(fd); \
         }else{ \
           DBG("Can't open connection"); \

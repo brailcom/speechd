@@ -118,7 +118,7 @@ module_init(char **status_info)
 
     if (flite_voice == NULL){
         DBG("Couldn't register the basic kal voice.\n");
-	*status_info = strdup("Can't register the basic kal voice. "
+	*status_info = g_strdup("Can't register the basic kal voice. "
 			      "Currently only kal is supported. Seems your FLite "
 			      "installation is incomplete.");
         return -1;
@@ -127,7 +127,7 @@ module_init(char **status_info)
     DBG("FliteMaxChunkLength = %d\n", FliteMaxChunkLength);
     DBG("FliteDelimiters = %s\n", FliteDelimiters);
 
-    flite_message = malloc (sizeof (char*));
+    flite_message = g_malloc (sizeof (char*));
     *flite_message = NULL;
 
     flite_semaphore = module_semaphore_init();
@@ -137,7 +137,7 @@ module_init(char **status_info)
     ret = pthread_create(&flite_speak_thread, NULL, _flite_speak, NULL);
     if(ret != 0){
         DBG("Flite: thread failed\n");
-	*status_info = strdup("The module couldn't initialize threads "
+	*status_info = g_strdup("The module couldn't initialize threads "
 			      "This could be either an internal problem or an "
 			      "architecture problem. If you are sure your architecture "
 			      "supports threads, please report a bug.");
@@ -146,7 +146,7 @@ module_init(char **status_info)
 
     module_audio_id = NULL;
 
-    *status_info = strdup("Flite initialized successfully.");
+    *status_info = g_strdup("Flite initialized successfully.");
 
     return 0;
 }
@@ -179,7 +179,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
     DBG("Requested data: |%s|\n", data);
 
     if (*flite_message != NULL){
-	xfree(*flite_message);
+	g_free(*flite_message);
 	*flite_message = NULL;
     }
     *flite_message = module_strip_ssml(data);
@@ -245,7 +245,7 @@ module_close(int status)
     if (module_terminate_thread(flite_speak_thread) != 0)
         exit(1);
 
-    xfree(flite_voice);
+    g_free(flite_voice);
 
     DBG("Closing audio output");
     spd_audio_close(module_audio_id);
@@ -296,7 +296,7 @@ _flite_speak(void* nothing)
 	spd_audio_set_volume(module_audio_id, flite_volume);
 
 	/* TODO: free(buf) */
-	buf = (char*) malloc((FliteMaxChunkLength+1) * sizeof(char));
+	buf = (char*) g_malloc((FliteMaxChunkLength+1) * sizeof(char));
 	pos = 0;
 	module_report_event_begin();
 	while(1){
@@ -397,7 +397,7 @@ _flite_speak(void* nothing)
 	    }
 	}
 	flite_stop = 0;
-	xfree(buf);
+	g_free(buf);
     }
 
     flite_speaking = 0;

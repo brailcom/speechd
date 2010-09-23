@@ -107,14 +107,14 @@ DECLARE_DEBUG();
         T ## name *new_item; \
         char *new_key; \
         GList *dll = NULL; \
-        new_item = (T ## name *) malloc(sizeof(T ## name)); \
-        new_key = strdup(cmd->data.list[0]); \
+        new_item = (T ## name *) g_malloc(sizeof(T ## name)); \
+        new_key = g_strdup(cmd->data.list[0]); \
         if (NULL != cmd->data.list[1]) \
-            new_item->arg2 = strdup(cmd->data.list[1]); \
+            new_item->arg2 = g_strdup(cmd->data.list[1]); \
         else \
             new_item->arg2 = NULL; \
         if (NULL != cmd->data.list[2]) \
-            new_item->arg3 = strdup(cmd->data.list[2]); \
+            new_item->arg3 = g_strdup(cmd->data.list[2]); \
         else \
             new_item->arg3 = NULL; \
         dll = g_hash_table_lookup(name, new_key); \
@@ -147,9 +147,9 @@ DECLARE_DEBUG();
     { \
         T ## name *new_item; \
         char* new_key; \
-        new_item = (T ## name *) malloc(sizeof(T ## name)); \
+        new_item = (T ## name *) g_malloc(sizeof(T ## name)); \
         if (cmd->data.list[0] == NULL) return NULL; \
-        new_key = strdup(cmd->data.list[0]); \
+        new_key = g_strdup(cmd->data.list[0]); \
         new_item->arg1 = (int) strtol(cmd->data.list[1], NULL, 10); \
         new_item->arg2 = (int) strtol(cmd->data.list[2], NULL, 10); \
         new_item->arg3 = (int) strtol(cmd->data.list[3], NULL, 10); \
@@ -427,7 +427,7 @@ module_init(char **status_info)
     eciHandle = eciNew();
     if (NULL_ECI_HAND == eciHandle ) {
         DBG("Ibmtts: Could not create ECI instance.\n");
-        *status_info = strdup("Could not create ECI instance. "
+        *status_info = g_strdup("Could not create ECI instance. "
             "Is the IBM TTS engine installed?");
         return FATAL_ERROR;
     }
@@ -449,7 +449,7 @@ module_init(char **status_info)
     }
 
     /* Allocate a chunk for ECI to return audio. */
-    audio_chunk = (TEciAudioSamples *) xmalloc((IbmttsAudioChunkSize) * sizeof (TEciAudioSamples));
+    audio_chunk = (TEciAudioSamples *) g_malloc((IbmttsAudioChunkSize) * sizeof (TEciAudioSamples));
 
     DBG("Ibmtts: Registering ECI callback.");
     eciRegisterCallback(eciHandle, eciCallback, NULL);
@@ -492,7 +492,7 @@ module_init(char **status_info)
     */
     DBG("Ibmtts: ImbttsAudioChunkSize = %d", IbmttsAudioChunkSize);
 
-    ibmtts_message = xmalloc (sizeof (char*));
+    ibmtts_message = g_malloc (sizeof (char*));
     *ibmtts_message = NULL;
 
     DBG("Ibmtts: Creating new thread for stop or pause.");
@@ -500,7 +500,7 @@ module_init(char **status_info)
     ret = pthread_create(&ibmtts_stop_or_pause_thread, NULL, _ibmtts_stop_or_pause, NULL);
     if(0 != ret) {
         DBG("Ibmtts: stop or pause thread creation failed.");
-        *status_info = strdup("The module couldn't initialize stop or pause thread. "
+        *status_info = g_strdup("The module couldn't initialize stop or pause thread. "
             "This could be either an internal problem or an "
             "architecture problem. If you are sure your architecture "
             "supports threads, please report a bug.");
@@ -512,7 +512,7 @@ module_init(char **status_info)
     ret = pthread_create(&ibmtts_play_thread, NULL, _ibmtts_play, NULL);
     if(0 != ret) {
         DBG("Ibmtts: play thread creation failed.");
-        *status_info = strdup("The module couldn't initialize play thread. "
+        *status_info = g_strdup("The module couldn't initialize play thread. "
             "This could be either an internal problem or an "
             "architecture problem. If you are sure your architecture "
             "supports threads, please report a bug.");
@@ -524,7 +524,7 @@ module_init(char **status_info)
     ret = pthread_create(&ibmtts_synth_thread, NULL, _ibmtts_synth, NULL);
     if(0 != ret) {
         DBG("Ibmtts: synthesis thread creation failed.");
-        *status_info = strdup("The module couldn't initialize synthesis thread. "
+        *status_info = g_strdup("The module couldn't initialize synthesis thread. "
             "This could be either an internal problem or an "
             "architecture problem. If you are sure your architecture "
             "supports threads, please report a bug.");
@@ -533,7 +533,7 @@ module_init(char **status_info)
 
     module_audio_id = NULL;
 
-    *status_info = strdup("Ibmtts: Initialized successfully.");
+    *status_info = g_strdup("Ibmtts: Initialized successfully.");
     g_string_free(info, 1);
 
     return OK;
@@ -570,7 +570,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 
 	DBG("Ibmtts: Type: %d, bytes: %d, requested data: |%s|\n", msgtype, bytes, data);
 
-	xfree(*ibmtts_message);    
+	g_free(*ibmtts_message);
     *ibmtts_message = NULL;
 
 	if (!g_utf8_validate(data, bytes, NULL)) {
@@ -685,7 +685,7 @@ module_close(int status)
     eciHandle = NULL_ECI_HAND;
 
     /* Free buffer for ECI audio. */
-    xfree(audio_chunk);
+    g_free(audio_chunk);
 
     DBG("Ibmtts: Closing audio output");
     spd_audio_close(module_audio_id);
@@ -852,7 +852,7 @@ process_text_mark(char *part, int part_len, char *mark_name)
     /* Handle index marks. */
     if (NULL != mark_name) {
         /* Assign the mark name an integer number and store in lookup table. */
-        int *markId = (int *) xmalloc( sizeof (int) );
+        int *markId = (int *) g_malloc( sizeof (int) );
         *markId = 1 + g_hash_table_size(ibmtts_index_mark_ht);
         g_hash_table_insert(ibmtts_index_mark_ht, markId, mark_name);
         if (!eciInsertIndex(eciHandle, *markId)) {
@@ -974,7 +974,7 @@ _ibmtts_synth(void* nothing)
                 DBG("Ibmtts: Key from Speech Dispatcher: |%s|", pos);
                 pos = ibmtts_subst_keys(pos);
                 DBG("Ibmtts: Key to speak: |%s|", pos);
-                xfree(*ibmtts_message);
+                g_free(*ibmtts_message);
                 *ibmtts_message = pos;
                 eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
                 break;
@@ -1011,7 +1011,7 @@ _ibmtts_synth(void* nothing)
             part_len = strlen(part);
             pos += part_len;
             ret = process_text_mark(part, part_len, mark_name);
-            free(part);
+            g_free(part);
             part = NULL;
             mark_name = NULL;
             if (ret == 1) pos += strlen(pos);
@@ -1107,12 +1107,12 @@ ibmtts_set_punctuation_mode(EPunctMode punct_mode)
 {
     const char* fmt = "`Pf%d%s";
     size_t len = strlen(fmt) + strlen(IbmttsPunctuationList) + sizeof('\0');
-    char* msg = malloc(len);
+    char* msg = g_malloc(len);
 
     if (msg) {
         snprintf(msg, len, fmt, punct_mode, IbmttsPunctuationList);
         eciAddText(eciHandle, msg);
-        free(msg);
+        g_free(msg);
     }
 }
 
@@ -1122,16 +1122,16 @@ ibmtts_voice_enum_to_str(EVoiceType voice)
     /* TODO: Would be better to move this to module_utils.c. */
     char *voicename;
     switch (voice) {
-        case NO_VOICE:      voicename = strdup("no voice");     break;
-        case MALE1:         voicename = strdup("male1");        break;
-        case MALE2:         voicename = strdup("male2");        break;
-        case MALE3:         voicename = strdup("male3");        break;
-        case FEMALE1:       voicename = strdup("female1");      break;
-        case FEMALE2:       voicename = strdup("female2");      break;
-        case FEMALE3:       voicename = strdup("female3");      break;
-        case CHILD_MALE:    voicename = strdup("child_male");   break;
-        case CHILD_FEMALE:  voicename = strdup("child_female"); break;
-        default:            voicename = strdup("no voice");     break;
+        case NO_VOICE:      voicename = g_strdup("no voice");     break;
+        case MALE1:         voicename = g_strdup("male1");        break;
+        case MALE2:         voicename = g_strdup("male2");        break;
+        case MALE3:         voicename = g_strdup("male3");        break;
+        case FEMALE1:       voicename = g_strdup("female1");      break;
+        case FEMALE2:       voicename = g_strdup("female2");      break;
+        case FEMALE3:       voicename = g_strdup("female3");      break;
+        case CHILD_MALE:    voicename = g_strdup("child_male");   break;
+        case CHILD_FEMALE:  voicename = g_strdup("child_female"); break;
+        default:            voicename = g_strdup("no voice");     break;
     }
     return voicename;
 }
@@ -1219,7 +1219,7 @@ ibmtts_set_language_and_voice(char *lang, EVoiceType voice, char* dialect)
         ret = eciSetVoiceParam(eciHandle, 0, eciSpeed, params->speed);
         if (-1 == ret) DBG("Ibmtts: ERROR: Setting speed %i", params->speed);
     }
-    xfree(voicename);
+    g_free(voicename);
     /* Retrieve the baseline pitch and speed of the voice. */
     ibmtts_voice_pitch_baseline = eciGetVoiceParam(eciHandle, 0, eciPitchBaseline);
     if (-1 == ibmtts_voice_pitch_baseline) DBG("Ibmtts: Cannot get pitch baseline of voice.");
@@ -1319,12 +1319,12 @@ static enum ECICallbackReturn eciCallback(
 static TIbmttsBool
 ibmtts_add_audio_to_playback_queue(TEciAudioSamples *audio_chunk, long num_samples)
 {
-    TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) xmalloc (sizeof (TPlaybackQueueEntry));
+    TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) g_malloc (sizeof (TPlaybackQueueEntry));
     if (NULL == playback_queue_entry) return IBMTTS_FALSE;
     playback_queue_entry->type = IBMTTS_QET_AUDIO;
     playback_queue_entry->data.audio.num_samples = (int) num_samples;
     int wlen = sizeof (TEciAudioSamples) * num_samples;
-    playback_queue_entry->data.audio.audio_chunk = (TEciAudioSamples *) xmalloc (wlen);
+    playback_queue_entry->data.audio.audio_chunk = (TEciAudioSamples *) g_malloc (wlen);
     memcpy(playback_queue_entry->data.audio.audio_chunk, audio_chunk, wlen);
     pthread_mutex_lock(&playback_queue_mutex);
     playback_queue = g_slist_append(playback_queue, playback_queue_entry);
@@ -1336,7 +1336,7 @@ ibmtts_add_audio_to_playback_queue(TEciAudioSamples *audio_chunk, long num_sampl
 static TIbmttsBool
 ibmtts_add_mark_to_playback_queue(long markId)
 {
-    TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) xmalloc (sizeof (TPlaybackQueueEntry));
+    TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) g_malloc (sizeof (TPlaybackQueueEntry));
     if (NULL == playback_queue_entry) return IBMTTS_FALSE;
     playback_queue_entry->type = IBMTTS_QET_INDEX_MARK;
     playback_queue_entry->data.markId = markId;
@@ -1350,7 +1350,7 @@ ibmtts_add_mark_to_playback_queue(long markId)
 static TIbmttsBool
 ibmtts_add_flag_to_playback_queue(EPlaybackQueueEntryType type)
 {
-    TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) xmalloc (sizeof (TPlaybackQueueEntry));
+    TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) g_malloc (sizeof (TPlaybackQueueEntry));
     if (NULL == playback_queue_entry) return IBMTTS_FALSE;
     playback_queue_entry->type = type;
     pthread_mutex_lock(&playback_queue_mutex);
@@ -1363,7 +1363,7 @@ ibmtts_add_flag_to_playback_queue(EPlaybackQueueEntryType type)
 static TIbmttsBool
 ibmtts_add_sound_icon_to_playback_queue(char* filename)
 {
-    TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) xmalloc (sizeof (TPlaybackQueueEntry));
+    TPlaybackQueueEntry *playback_queue_entry = (TPlaybackQueueEntry *) g_malloc (sizeof (TPlaybackQueueEntry));
     if (NULL == playback_queue_entry) return IBMTTS_FALSE;
     playback_queue_entry->type = IBMTTS_QET_SOUND_ICON;
     playback_queue_entry->data.sound_icon_filename = filename;
@@ -1379,15 +1379,15 @@ ibmtts_delete_playback_queue_entry(TPlaybackQueueEntry *playback_queue_entry)
 {
     switch (playback_queue_entry->type) {
         case IBMTTS_QET_AUDIO:
-            xfree(playback_queue_entry->data.audio.audio_chunk);
+            g_free(playback_queue_entry->data.audio.audio_chunk);
             break;
         case IBMTTS_QET_SOUND_ICON:
-            xfree(playback_queue_entry->data.sound_icon_filename);
+            g_free(playback_queue_entry->data.sound_icon_filename);
             break;
         default:
             break;
     }
-    xfree(playback_queue_entry);
+    g_free(playback_queue_entry);
 }
 
 /* Erases the entire playback queue, freeing memory. */
@@ -1643,7 +1643,7 @@ ibmtts_play_file(char *filename)
     track.num_channels = sfinfo.channels;
     track.sample_rate = sfinfo.samplerate;
     track.bits = 16;
-    track.samples = xmalloc(items * sizeof(short));
+    track.samples = g_malloc(items * sizeof(short));
     if (NULL == track.samples) {
         DBG("Ibmtts: ERROR: Cannot allocate audio buffer.");
         result = IBMTTS_FALSE;
@@ -1666,7 +1666,7 @@ ibmtts_play_file(char *filename)
         DBG("Ibmtts: Sent to audio.");
     }
 cleanup2:
-    xfree(track.samples);
+    g_free(track.samples);
 cleanup1:
     sf_close(sf);
 #endif
@@ -1684,8 +1684,8 @@ alloc_voice_list()
     if (eciGetAvailableLanguages(aLanguage, &nLanguages))
 	return;
 
-    ibmtts_voice_list = malloc((nLanguages+1)*sizeof(VoiceDescription*));
-    ibmtts_voice_index = malloc((nLanguages+1)*sizeof(VoiceDescription*));
+    ibmtts_voice_list = g_malloc((nLanguages+1)*sizeof(VoiceDescription*));
+    ibmtts_voice_index = g_malloc((nLanguages+1)*sizeof(VoiceDescription*));
     if (!ibmtts_voice_list)
 	return;
 
@@ -1693,7 +1693,7 @@ alloc_voice_list()
     for(i=0; i<nLanguages; i++) {
 	/* look for the language name */
 	int j;
-	ibmtts_voice_list[i] = malloc(sizeof(VoiceDescription));
+	ibmtts_voice_list[i] = g_malloc(sizeof(VoiceDescription));
 
 	DBG("Ibmtts: aLanguage[%d]=0x%08x", i, aLanguage[i]);
 	for (j=0; j<MAX_NB_OF_LANGUAGES; j++) {
@@ -1719,7 +1719,7 @@ free_voice_list()
     int i=0;
 
     if (ibmtts_voice_index) {
-	free(ibmtts_voice_index);
+	g_free(ibmtts_voice_index);
 	ibmtts_voice_index = NULL;
     }
 
@@ -1727,9 +1727,9 @@ free_voice_list()
 	return;
 
     for(i=0; ibmtts_voice_list[i]; i++) {
-	free(ibmtts_voice_list[i]);
+	g_free(ibmtts_voice_list[i]);
     }
 
-    free(ibmtts_voice_list);
+    g_free(ibmtts_voice_list);
     ibmtts_voice_list = NULL;
 }

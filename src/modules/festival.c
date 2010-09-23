@@ -86,7 +86,7 @@ struct{
         }else{ \
           f = g_ascii_strdown(param, -1); \
 	  FEST_SEND_CMDA("("fest_param" \"%s\")", f); \
-          xfree(f); \
+          g_free(f); \
 	} \
         ret = festival_read_response(info, &r); \
         if (ret != 0) return -1; \
@@ -94,7 +94,7 @@ struct{
           if (resp != NULL) \
              *resp = r; \
           else \
-             free(r); \
+             g_free(r); \
         } \
         return ret; \
     }
@@ -107,7 +107,7 @@ struct{
         if (festival_check_info(info, #name)) return -1; \
         if (param == NULL) return -1; \
         FEST_SEND_CMDA("("fest_param" '%s)", f = g_ascii_strdown(param, -1)); \
-        xfree(f); \
+        g_free(f); \
         return festival_read_response(info, NULL); \
     }
 
@@ -278,7 +278,7 @@ module_init(char **status_info)
     festival_voice_list = festivalGetVoices(festival_info);
 
     /* Initialize global variables */
-    festival_message = (char**) xmalloc (sizeof (char*));    
+    festival_message = (char**) g_malloc (sizeof (char*));
     *festival_message = NULL;
 
     /* Initialize festival_speak thread to handle communication
@@ -387,8 +387,8 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
 
     DBG("Requested data: |%s| \n", data);
 
-    xfree(*festival_message);
-    *festival_message = strdup(data);
+    g_free(*festival_message);
+    *festival_message = g_strdup(data);
     if (*festival_message == NULL){
         DBG("Error: Copying data unsuccesful.");
         return -1;
@@ -536,7 +536,7 @@ static VoiceDescription** festivalGetVoices(FT_Info *info)
   for (i=0; ; i++, num_voices++) if (voices[i] == NULL) break;
   num_voices /= 3;
 
-  result = (VoiceDescription**) malloc((num_voices + 1)*sizeof(VoiceDescription*));
+  result = (VoiceDescription**) g_malloc((num_voices + 1)*sizeof(VoiceDescription*));
 
   for (i=0, j=0; ;j++){
     if (voices[i] == NULL)
@@ -545,16 +545,16 @@ static VoiceDescription** festivalGetVoices(FT_Info *info)
       continue;
     else
       {
-	result[j] = (VoiceDescription*) malloc(sizeof(VoiceDescription));
+	result[j] = (VoiceDescription*) g_malloc(sizeof(VoiceDescription));
 	result[j]->name = voices[i];
 	lang = voices[i+1];
 	if ((lang != NULL) && (strcmp(lang, "nil")))
-	  result[j]->language = strdup(lang);
+	  result[j]->language = g_strdup(lang);
 	else
 	  result[j]->language = NULL;
 	dialect = voices[i+2];
 	if ((dialect != NULL) && (strcmp(dialect, "nil")))
-	  result[j]->dialect = strdup(dialect);
+	  result[j]->dialect = g_strdup(dialect);
 	else
 	  result[j]->dialect=NULL;
 	i+=3;
@@ -707,12 +707,12 @@ _festival_speak(void* nothing)
 							       INDEX_MARK_BODY_LEN))){
 			DBG("Pause requested, pausing.");
 			module_report_index_mark(callback);
-			xfree(callback);
+			g_free(callback);
 			festival_pause_requested = 0;
 			CLEAN_UP(0, module_report_event_pause);
 		    }else{
 			module_report_index_mark(callback);
-			xfree(callback);
+			g_free(callback);
 			continue;
 		    }
 		}
@@ -734,7 +734,7 @@ _festival_speak(void* nothing)
 		DBG("Storing record for %s in cache\n", *festival_message);
 		/* cache_insert takes care of not inserting the same
 		 message again */
-		cache_insert(strdup(*festival_message), festival_message_type, fwave);
+		cache_insert(g_strdup(*festival_message), festival_message_type, fwave);
 		wave_cached = 1;
 	    }
 
@@ -795,7 +795,7 @@ void
 festival_set_language(char* language)
 {   
     FestivalSetLanguage(festival_info, language, NULL);
-    xfree(festival_voice_list);
+    g_free(festival_voice_list);
     festival_voice_list = festivalGetVoices(festival_info);
 }
 
@@ -806,7 +806,7 @@ festival_set_voice(EVoiceType voice)
 
     voice_name = EVoice2str(voice);
     FestivalSetVoice(festival_info, voice_name, NULL);
-    xfree(voice_name);
+    g_free(voice_name);
 }
 
 void
@@ -840,7 +840,7 @@ festival_set_punctuation_mode(EPunctMode punct)
     char *punct_mode;
     punct_mode = EPunctMode2str(punct);
     FestivalSetPunctuationMode(festival_info, punct_mode);
-    xfree(punct_mode);
+    g_free(punct_mode);
 }
 
 void
@@ -851,7 +851,7 @@ festival_set_cap_let_recogn(ECapLetRecogn recogn)
     if (recogn == RECOGN_NONE) recogn_mode = NULL;
     else recogn_mode = ECapLetRecogn2str(recogn);
     FestivalSetCapLetRecogn(festival_info, recogn_mode, NULL);
-    xfree(recogn_mode);
+    g_free(recogn_mode);
 }
 
 
@@ -861,8 +861,8 @@ void
 cache_destroy_entry(gpointer data)
 {
     TCacheEntry *entry = data;
-    xfree(entry->fwave);
-    xfree(entry);
+    g_free(entry->fwave);
+    g_free(entry);
 }
 
 void
@@ -874,8 +874,8 @@ cache_destroy_table_entry(gpointer data)
 void
 cache_free_counter_entry(gpointer data, gpointer user_data)
 {
-    xfree(((TCounterEntry*)data)->key);
-    xfree(data);
+    g_free(((TCounterEntry*)data)->key);
+    g_free(data);
 }
 
 int
@@ -885,7 +885,7 @@ cache_init()
     if (FestivalCacheOn == 0) return 0;
 
     FestivalCache.size = 0;
-    FestivalCache.caches = g_hash_table_new_full(g_str_hash, g_str_equal, free,
+    FestivalCache.caches = g_hash_table_new_full(g_str_hash, g_str_equal, g_free,
                                                  cache_destroy_table_entry);
     FestivalCache.cache_counter = NULL;
     DBG("Cache: initialized");
@@ -1048,25 +1048,25 @@ cache_insert(char* key, EMessageType msgtype, FT_Wave *fwave)
         cache = g_hash_table_new(g_str_hash, g_str_equal);
         g_hash_table_insert(FestivalCache.caches, key_table, cache);
     }else{
-        xfree(key_table);
+        g_free(key_table);
     }
 
     /* Fill the CounterEntry structure that will later allow us to remove
        the less used entries from cache */
-    centry = (TCounterEntry*) xmalloc(sizeof(TCounterEntry));
+    centry = (TCounterEntry*) g_malloc(sizeof(TCounterEntry));
     centry->start = time(NULL);
     centry->count = 1;
     centry->size = fwave->num_samples * sizeof(short);
     centry->p_caches = cache;
-    centry->key = strdup(key);
+    centry->key = g_strdup(key);
     FestivalCache.cache_counter = g_list_append(FestivalCache.cache_counter, centry);
 
-    entry = (TCacheEntry*) xmalloc(sizeof(TCacheEntry));
+    entry = (TCacheEntry*) g_malloc(sizeof(TCacheEntry));
     entry->p_counter_entry = centry;
     entry->fwave = fwave;
 
     FestivalCache.size += centry->size;
-    g_hash_table_insert(cache, strdup(key), entry);
+    g_hash_table_insert(cache, g_strdup(key), entry);
 
     return 0;
 }
@@ -1088,7 +1088,7 @@ cache_lookup(const char *key, EMessageType msgtype, int add_counter)
 
     if (key_table == NULL) return NULL;
     cache = g_hash_table_lookup(FestivalCache.caches, key_table);
-    xfree(key_table);
+    g_free(key_table);
     if (cache == NULL) return NULL;   
 
     entry = g_hash_table_lookup(cache, key);

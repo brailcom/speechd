@@ -147,12 +147,12 @@ module_init(char **status_info)
     DBG("GenericDelimiters = %s\n", GenericDelimiters);
     DBG("GenericExecuteSynth = %s\n", GenericExecuteSynth);
 
-    generic_msg_language = (TGenericLanguage*) xmalloc(sizeof(TGenericLanguage));
-    generic_msg_language->code = strdup("en");
-    generic_msg_language->charset = strdup("iso-8859-1");
-    generic_msg_language->name = strdup("english");    
+    generic_msg_language = (TGenericLanguage*) g_malloc(sizeof(TGenericLanguage));
+    generic_msg_language->code = g_strdup("en");
+    generic_msg_language->charset = g_strdup("iso-8859-1");
+    generic_msg_language->name = g_strdup("english");
 
-    generic_message = malloc (sizeof (char*));    
+    generic_message = g_malloc (sizeof (char*));
     generic_semaphore = module_semaphore_init();
 
     DBG("Generic: creating new thread for generic_speak\n");
@@ -160,14 +160,14 @@ module_init(char **status_info)
     ret = pthread_create(&generic_speak_thread, NULL, _generic_speak, NULL);
     if(ret != 0){
         DBG("Generic: thread failed\n");
-	*status_info = strdup("The module couldn't initialize threads"
+	*status_info = g_strdup("The module couldn't initialize threads"
 			      "This can be either an internal problem or an"
 			      "architecture problem. If you are sure your architecture"
 			      "supports threads, please report a bug.");
         return -1;
     }
 								
-    *status_info = strdup("Everything ok so far.");
+    *status_info = g_strdup("Everything ok so far.");
     return 0;
 }
 
@@ -226,8 +226,8 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
     if (msgtype == MSGTYPE_TEXT)
       *generic_message = module_strip_ssml(tmp);
     else
-      *generic_message = strdup(tmp);
-    xfree(tmp);
+      *generic_message = g_strdup(tmp);
+    g_free(tmp);
 
     module_strip_punctuation_some(*generic_message, GenericStripPunctChars);
 
@@ -322,7 +322,7 @@ string_replace(char *string, const char* token, const char* data)
 
       /* Put it together, replacing token with data */
       new = g_strdup_printf("%s%s%s", str1, data, str2);
-      xfree(mstring);
+      g_free(mstring);
       mstring = new;
     }
 
@@ -381,15 +381,15 @@ _generic_speak(void* nothing)
 
 		helper = getenv("TMPDIR");
 		if (helper)
-		  tmpdir = strdup(helper);
+		  tmpdir = g_strdup(helper);
 		else
-		  tmpdir = strdup("/tmp");
+		  tmpdir = g_strdup("/tmp");
 
 		helper = g_get_home_dir();
 		if (helper)
-		  homedir = strdup(helper);
+		  homedir = g_strdup(helper);
 		else
-		  homedir = strdup("UNKNOWN_HOME_DIRECTORY");
+		  homedir = g_strdup("UNKNOWN_HOME_DIRECTORY");
 
 		play_command = spd_audio_get_playcmd(module_audio_id);
 		if (play_command == NULL) {
@@ -401,13 +401,13 @@ _generic_speak(void* nothing)
 		   is also delivered to the child processes created by system()) */
 		if (setpgid(0,0) == -1) DBG("Can't set myself as project group leader!");
 
-		e_string = strdup(GenericExecuteSynth);
+		e_string = g_strdup(GenericExecuteSynth);
 
 		e_string = string_replace(e_string, "$PLAY_COMMAND", play_command);
 		e_string = string_replace(e_string, "$TMPDIR", tmpdir);
-		xfree(tmpdir);
+		g_free(tmpdir);
 		e_string = string_replace(e_string, "$HOMEDIR", homedir);
-		xfree(homedir);
+		g_free(homedir);
 		e_string = string_replace(e_string, "$PITCH", generic_msg_pitch_str);
 		e_string = string_replace(e_string, "$RATE", generic_msg_rate_str);
 		e_string = string_replace(e_string, "$VOLUME", generic_msg_volume_str);
@@ -422,10 +422,10 @@ _generic_speak(void* nothing)
 		p = strstr(e_string, "$DATA");
 		if (p == NULL) exit(1);
 		*p = 0;
-		execute_synth_str1 = strdup(e_string);
-		execute_synth_str2 = strdup(p + (strlen("$DATA")));
+		execute_synth_str1 = g_strdup(e_string);
+		execute_synth_str2 = g_strdup(p + (strlen("$DATA")));
 		
-		free(e_string);
+		g_free(e_string);
 		
 		/* execute_synth_str1 se sem musi nejak dostat */
 		DBG("Starting child...\n");
@@ -481,11 +481,11 @@ _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
     DBG("Entering child loop\n");
     while(1){
         /* Read the waiting data */
-        text = malloc((maxlen + 1) * sizeof(char));
+        text = g_malloc((maxlen + 1) * sizeof(char));
         bytes = module_child_dp_read(dpipe, text, maxlen);
         DBG("read %d bytes in child", bytes);
         if (bytes == 0){
-            free(text);
+            g_free(text);
             generic_child_close(dpipe);
         }
 
@@ -504,7 +504,7 @@ _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
 
         DBG("child: escaped text is |%s|", message->str);
 
-        command = malloc((strlen(message->str)+strlen(execute_synth_str1)+
+        command = g_malloc((strlen(message->str)+strlen(execute_synth_str1)+
                           strlen(execute_synth_str2) + 8) * sizeof(char));
 
         if (strlen(message->str) != 0){
@@ -521,8 +521,8 @@ _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
         }
         module_sigunblockusr(&some_signals);        
 
-        xfree(command);
-        xfree(text);
+        g_free(command);
+        g_free(text);
         g_string_free(message, 1);
 
         DBG("child->parent: ok, send more data");      
@@ -589,18 +589,18 @@ generic_set_language(char *lang)
 							lang);
     if (generic_msg_language == NULL){
 	DBG("Language %s not found in the configuration file, using defaults.", lang);
-	generic_msg_language = (TGenericLanguage*) xmalloc(sizeof(TGenericLanguage));
-	generic_msg_language->code = strdup(lang);
+	generic_msg_language = (TGenericLanguage*) g_malloc(sizeof(TGenericLanguage));
+	generic_msg_language->code = g_strdup(lang);
 	generic_msg_language->charset = NULL;
-	generic_msg_language->name = strdup(lang);
+	generic_msg_language->name = g_strdup(lang);
     }
 
     if (generic_msg_language->name == NULL){
 	DBG("Language name for %s not found in the configuration file.", lang);
-	generic_msg_language = (TGenericLanguage*) xmalloc(sizeof(TGenericLanguage));
-	generic_msg_language->code = strdup("en");
-	generic_msg_language->charset = strdup("iso-8859-1");
-	generic_msg_language->name = strdup("english");
+	generic_msg_language = (TGenericLanguage*) g_malloc(sizeof(TGenericLanguage));
+	generic_msg_language->code = g_strdup("en");
+	generic_msg_language->charset = g_strdup("iso-8859-1");
+	generic_msg_language->name = g_strdup("english");
     }
 
     generic_set_voice(msg_settings.voice);
@@ -620,15 +620,15 @@ void
 generic_set_punct(EPunctMode punct)
 {
     if (punct == PUNCT_NONE){
-        generic_msg_punct_str = strdup((char*) GenericPunctNone);
+        generic_msg_punct_str = g_strdup((char*) GenericPunctNone);
 	return;
     }
     else if (punct == PUNCT_SOME){
-	generic_msg_punct_str = strdup((char*) GenericPunctSome);
+	generic_msg_punct_str = g_strdup((char*) GenericPunctSome);
 	return;
     }
     else if (punct == PUNCT_ALL){
-	generic_msg_punct_str = strdup((char*) GenericPunctAll);
+	generic_msg_punct_str = g_strdup((char*) GenericPunctAll);
 	return;
     }
     else{

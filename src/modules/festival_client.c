@@ -86,8 +86,8 @@ void delete_FT_Wave(FT_Wave *wave)
     if (wave != 0)
         {
             if (wave->samples != 0)
-                free(wave->samples);
-            free(wave);
+                g_free(wave->samples);
+            g_free(wave);
         }
 }
 
@@ -154,7 +154,7 @@ int save_FT_Wave_snd(FT_Wave *wave, const char *filename)
 void delete_FT_Info(FT_Info *info)
 {
     if (info != 0)
-	free(info);
+	g_free(info);
 }
 
 /* --- FESTIVAL REPLY PARSING --- */
@@ -247,7 +247,7 @@ socket_receive_file_to_buff(int fd,int *size)
     if (fd < 0) return NULL;
 
     bufflen = 1024;
-    buff = (char *)malloc(bufflen);
+    buff = (char *)g_malloc(bufflen);
     *size=0;
 
     for (k=0; file_stuff_key[k] != '\0';)
@@ -257,14 +257,14 @@ socket_receive_file_to_buff(int fd,int *size)
             DBG("ERROR: FESTIVAL CLOSED CONNECTION (1)");
 	    close(fd);
             festival_connection_crashed = 1;
-	    xfree(buff);
+	    g_free(buff);
 	    return NULL;  /* hit stream eof before end of file */
 	}
 
 	if ((*size)+k+1 >= bufflen)
 	{   /* +1 so you can add a NULL if you want */
 	    bufflen += bufflen/4;
-	    buff = (char *)realloc(buff,bufflen);
+	    buff = (char *)g_realloc(buff,bufflen);
 	}
 	if (file_stuff_key[k] == c)
 	    k++;
@@ -328,12 +328,12 @@ static FT_Wave *client_accept_waveform(int fd, int *stop_flag, int stop_by_close
 
             if ((num_samples*sizeof(short))+1024 == filesize)
                 {
-                    wave = (FT_Wave *)malloc(sizeof(FT_Wave));
+                    wave = (FT_Wave *)g_malloc(sizeof(FT_Wave));
 		    DBG("Number of samples from festival: %d", num_samples);
                     wave->num_samples = num_samples;
                     wave->sample_rate = sample_rate;
 		    if (num_samples != 0){
-			wave->samples = (short *) malloc(num_samples*sizeof(short));
+			wave->samples = (short *) g_malloc(num_samples*sizeof(short));
 			memmove(wave->samples, wavefile+1024, num_samples*sizeof(short));
 			if (nist_require_swap(wavefile))
 			    for (i=0; i < num_samples; i++)
@@ -344,8 +344,7 @@ static FT_Wave *client_accept_waveform(int fd, int *stop_flag, int stop_by_close
                 }
         }
     
-    if (wavefile != NULL)  /* just in case we've got an ancient free() */
-	free(wavefile);
+    g_free(wavefile);
 
     return wave;
 }
@@ -400,7 +399,7 @@ festival_read_response(FT_Info *info, char **expr)
             *expr = client_accept_s_expr(info->server_fd);
         }else{
             r = client_accept_s_expr(info->server_fd);
-	    if (r != NULL) free(r);
+	    if (r != NULL) g_free(r);
 	}
     }
 
@@ -425,7 +424,7 @@ festival_accept_any_response(FT_Info *info)
 	    client_accept_waveform(info->server_fd, NULL, 0);
 	}else if (strcmp(ack,"LP\n") == 0){    /* receive an s-expr */
 	    expr = client_accept_s_expr(info->server_fd);
-	    if (expr != NULL) free(expr);
+	    if (expr != NULL) g_free(expr);
 	}else if (strcmp(ack,"ER\n") == 0)    /* server got an error */
             {
                 /* This message ER is returned even if it was because there was
@@ -486,7 +485,7 @@ festivalOpen(FT_Info *info)
 	    "Reason: %s", resp);
 	return NULL;
     }
-    free(resp);
+    g_free(resp);
 
     FEST_SEND_CMD("(Parameter.set 'Wavefiletype 'nist)\n");
     ret = festival_read_response(info, &resp);
@@ -494,7 +493,7 @@ festivalOpen(FT_Info *info)
 	DBG("ERROR: Can't set Wavefiletype to nist in Festival. Reason: %s", resp);
 	return NULL;
     }
-    free(resp);
+    g_free(resp);
 
     return info;
 }
@@ -534,7 +533,7 @@ festival_speak_command(FT_Info *info, char *command, const char *text, int symbo
     DBG("-> Festival: escaped text is %s", text);
     DBG("-> Festival: |%sthe text is displayed above\")|", str);
 
-    free(str);
+    g_free(str);
     /* Close the stream (but not the socket) */
     fclose(fd);
     DBG("Resources freed");
@@ -635,7 +634,7 @@ festivalGetDataMulti(FT_Info *info, char **callback, int *stop_flag, int stop_by
 	if (strcmp(ack,"WV\n") == 0){
 	    wave = client_accept_waveform(info->server_fd, stop_flag, stop_by_close);
 	}else if (strcmp(ack,"LP\n") == 0){
-	    if (resp != NULL) free(resp);
+	    if (resp != NULL) g_free(resp);
 	    resp = client_accept_s_expr(info->server_fd);	    
 	    if (resp == NULL){
 		DBG("ERROR: Something wrong in communication with Festival, s_expr = NULL");
@@ -645,7 +644,7 @@ festivalGetDataMulti(FT_Info *info, char **callback, int *stop_flag, int stop_by
 	    DBG("<- Festival: |%s|", resp);
 	    if (!strcmp(resp, "nil")){
 		DBG("festival_client: end of samples\n");
-		free(resp);
+		g_free(resp);
 		wave = NULL;
 		resp = NULL;
 	    }
@@ -657,7 +656,7 @@ festivalGetDataMulti(FT_Info *info, char **callback, int *stop_flag, int stop_by
 
     if (resp){
 	if ((strlen(resp) > 0) && (resp[0] != '#')) *callback = resp;
-	else free (resp);
+	else g_free (resp);
     }
 
     return wave;
@@ -693,7 +692,7 @@ lisp_list_get_vect(char* expr)
   size_t i,j;
 
   len = strlen(expr);
-  helper = xmalloc(sizeof(char) * (len+1));
+  helper = g_malloc(sizeof(char) * (len+1));
 
   //Remove parenthesis
   j=0;
@@ -731,7 +730,7 @@ char* vect_read_item(char **vect, char* field)
 FT_Info *festivalDefaultInfo()
 {
     FT_Info *info;
-    info = (FT_Info *) malloc(sizeof(FT_Info));
+    info = (FT_Info *) g_malloc(sizeof(FT_Info));
     
     info->server_host = FESTIVAL_DEFAULT_SERVER_HOST;
     info->server_port = FESTIVAL_DEFAULT_SERVER_PORT;

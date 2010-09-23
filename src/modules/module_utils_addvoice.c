@@ -80,7 +80,7 @@ DOTCONF_CB(AddVoice_cb)
     voices = g_hash_table_lookup(module_voice_table, language);
     if (voices == NULL){
         key = (char*) g_strdup(language);
-        value = (SPDVoiceDef*) xmalloc(sizeof(SPDVoiceDef));
+        value = (SPDVoiceDef*) g_malloc(sizeof(SPDVoiceDef));
 
         value->male1=NULL; value->male2=NULL; value->male3=NULL;
         value->female1=NULL; value->female2=NULL; value->female3=NULL;

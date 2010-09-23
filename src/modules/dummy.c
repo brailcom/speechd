@@ -83,14 +83,14 @@ module_init(char **status_info)
     ret = pthread_create(&dummy_speak_thread, NULL, _dummy_speak, NULL);
     if(ret != 0){
         DBG("Dummy: thread failed\n");
-	*status_info = strdup("The module couldn't initialize threads"
+	*status_info = g_strdup("The module couldn't initialize threads"
 			      "This can be either an internal problem or an"
 			      "architecture problem. If you are sure your architecture"
 			      "supports threads, please report a bug.");
         return -1;
     }
 								
-    *status_info = strdup("Everything ok so far.");
+    *status_info = g_strdup("Everything ok so far.");
 
     DBG("Ok, now debugging");
 
@@ -257,9 +257,9 @@ _dummy_child()
   DBG("Entering child loop\n");
   /* Read the waiting data */
 
-  try1 = strdup("play "DATADIR"/dummy-message.wav > /dev/null 2> /dev/null");
-  try2 = strdup("aplay  "DATADIR"/dummy-message.wav > /dev/null 2> /dev/null");
-  try3 = strdup("paplay "DATADIR"/dummy-message.wav > /dev/null 2> /dev/null");
+  try1 = g_strdup("play "DATADIR"/dummy-message.wav > /dev/null 2> /dev/null");
+  try2 = g_strdup("aplay  "DATADIR"/dummy-message.wav > /dev/null 2> /dev/null");
+  try3 = g_strdup("paplay "DATADIR"/dummy-message.wav > /dev/null 2> /dev/null");
   
   DBG("child: synth commands = |%s|%s|%s|", try1, try2, try3);
   DBG("Speaking in child...");
@@ -283,7 +283,7 @@ _dummy_child()
     
   module_sigunblockusr(&some_signals);        
     
-  xfree(try1); xfree(try2); xfree(try3);
+  g_free(try1); g_free(try2); g_free(try3);
 
   DBG("Done, exiting from child.");
   exit(0);
