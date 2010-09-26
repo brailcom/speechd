@@ -11,6 +11,7 @@ AC_PROG_CC
 
 dnl info
 AM_INIT_AUTOMAKE([foreign])
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES])
 
 AM_CONFIG_HEADER(config.h)
 
