@@ -32,7 +32,8 @@
 #include "libspeechd.h"
 
 int main() {
-   SPDConnection *sockfd;
+	SPDConnection *sockfd;
+	int ret;
 
 	printf("Start of the test.\n");
    
@@ -41,13 +42,17 @@ int main() {
 	if (sockfd == 0){
 	    printf("Speech Dispatcher failed");
 		exit(1);
-    }
+	}
 	printf("OK\n");
 
-	spd_cancel(sockfd);
+	ret = spd_cancel(sockfd);
+	if (ret == -1) {
+		printf("spd_cancel failed");
+		exit(1);
+	}
 
 	printf("Sending message number 1, text \n");
-	spd_say(sockfd, SPD_MESSAGE, ""
+	ret = spd_say(sockfd, SPD_MESSAGE, ""
 "						\n"
 "       ALICE'S ADVENTURES IN WONDERLAND by Lewis Carroll.\n"
 "\n"
@@ -268,8 +273,13 @@ int main() {
 "\n"
 "  So she set to work, and very soon finished off the cake. ");
 
+	if (ret == -1) {
+		printf("spd_say failed");
+		exit(1);
+	}
+
 	printf("Sending message number 2, code (ugly characters) \n");
-	spd_say(sockfd, SPD_MESSAGE, "\n"
+	ret = spd_say(sockfd, SPD_MESSAGE, "\n"
 "\n"
 "int\n"
 "stop_p3(){\n"
@@ -382,6 +392,10 @@ int main() {
 "	else return 1;\n"
 "}\n"
 "					");
+	if (ret == -1) {
+		printf("spd_say failed");
+		exit(1);
+	}
   
 	printf("Trying to close Speech Dispatcher connection...");
 	spd_close(sockfd);

@@ -34,7 +34,7 @@
 
 int main() {
    SPDConnection* conn;
-   int i;   
+   int i, ret;
    
    printf("Start of the test of the test.\n");
    
@@ -48,16 +48,34 @@ int main() {
 
 
    printf("Say inviting message\n");
-   spd_say(conn, SPD_MESSAGE, "Hello, how are you? I'm Speech Deamon");
-   
+   ret = spd_say(conn, SPD_MESSAGE, "Hello, how are you? I'm Speech Deamon");
+   if (ret == -1) {
+	  printf("spd_say failed");
+	  exit(1);
+   }
+
    sleep(4);
 
    printf("\n");
    printf("Try to lower pitch and higher rate...\n");
-   spd_set_voice_pitch(conn, -20);
-   spd_set_voice_rate(conn, +20);
+   ret = spd_set_voice_pitch(conn, -20);
+   if (ret == -1) {
+	  printf("spd_set_voice_pitch failed");
+	  exit(1);
+   }
+
+   ret = spd_set_voice_rate(conn, +20);
+   if (ret == -1) {
+	  printf("spd_set_voice_rate failed");
+	  exit(1);
+   }
+
    printf("...and say something\n");
-   spd_say(conn, SPD_MESSAGE, "Do you like this voice more?");
+   ret = spd_say(conn, SPD_MESSAGE, "Do you like this voice more?");
+   if (ret == -1) {
+	  printf("spd_say failed");
+	  exit(1);
+   }
    
    sleep(4);
 
@@ -72,11 +90,19 @@ int main() {
 
    sleep(10);
 
-   spd_set_voice_rate(conn, +90);
+   ret = spd_set_voice_rate(conn, +90);
+   if (ret == -1) {
+	  printf("spd_set_voice_rate failed");
+	  exit(1);
+   }
 
    for (i = 0; i<= 100; i++){
        printf("%d%% completed\n", i);
-       spd_sayf(conn, SPD_PROGRESS, "%d%% completed", i);
+       ret = spd_sayf(conn, SPD_PROGRESS, "%d%% completed", i);
+       if (ret == -1) {
+	      printf("spd_sayf failed");
+	      exit(1);
+       }
    }
 
    printf("Trying to close Speech Dispatcher connection...");

@@ -34,7 +34,7 @@
 
 int main() {
    SPDConnection* conn;
-   int i,j ;   
+   int i, j, ret;
    char **modules;
    char **voices;
    SPDVoice **synth_voices;
@@ -52,7 +52,7 @@ int main() {
    modules = spd_list_modules(conn);
    if (modules == NULL){
      printf("Can't list modules\n");
-     exit(0);
+     exit(1);
    }
 
    printf("Available output modules:\n");
@@ -64,7 +64,7 @@ int main() {
    voices = spd_list_voices(conn);
    if (voices == NULL){
      printf("Can't list voices\n");
-     exit(0);
+     exit(1);
    }
 
    printf("Available symbolic voices:\n");
@@ -75,12 +75,16 @@ int main() {
 
    for (j=0; ;j++){
      if (modules[j] == NULL) break;
-     spd_set_output_module(conn, modules[j]);
+     ret = spd_set_output_module(conn, modules[j]);
+     if (ret == -1) {
+            printf("spd_set_output_module failed");
+	    exit(1);
+     }
      printf("\nListing voices for %s\n", modules[j]);
      synth_voices = spd_list_synthesis_voices(conn);
      if (synth_voices == NULL){
        printf("Can't list voices\n");
-       exit(0);
+       exit(1);
      }
      printf("Available synthesis voices:\n");
      for (i=0;;i++){
@@ -89,8 +93,17 @@ int main() {
        printf("     name: %s language: %s variant: %s\n", 
 	      synth_voices[i]->name, synth_voices[i]->language,
 	      synth_voices[i]->variant);
-       spd_set_synthesis_voice(conn, synth_voices[i]->name);
-       spd_say(conn, SPD_TEXT, "test");
+       ret = spd_set_synthesis_voice(conn, synth_voices[i]->name);
+       if (ret == -1) {
+            printf("spd_set_synthesis_voice failed");
+	    exit(1);
+       }
+
+       ret = spd_say(conn, SPD_TEXT, "test");
+       if (ret == -1) {
+            printf("spd_say failed");
+	    exit(1);
+       }
        sleep(1);
      }
    }
@@ -102,4 +115,3 @@ int main() {
    printf("End of the test.\n");
    exit(0);
 }
-
