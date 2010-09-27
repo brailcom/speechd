@@ -104,10 +104,10 @@ typedef enum{
 typedef enum{
     SPD_EVENT_BEGIN,
     SPD_EVENT_END,
+    SPD_EVENT_INDEX_MARK,
     SPD_EVENT_CANCEL,
     SPD_EVENT_PAUSE,
-    SPD_EVENT_RESUME,
-    SPD_EVENT_INDEX_MARK
+    SPD_EVENT_RESUME
 }SPDNotificationType;
 
 typedef enum{
