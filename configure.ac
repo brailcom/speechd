@@ -70,15 +70,12 @@ case ${host} in
 esac
 
 dnl Checks for libraries.
-AC_CHECK_LIB(m,
-        sqrt, echo "",
-        echo "*** Required math library missing! See INSTALL .";exit 1)
-AC_CHECK_LIB(dl,
-        main, echo "",
-        echo "*** Required dl library missing! See INSTALL .";exit 1)
-AC_CHECK_LIB(pthread,
-        pthread_create, echo "",
-        echo "*** Required pthread library missing! See INSTALL .";exit 1)
+AC_SEARCH_LIBS([sqrt], [m], [],
+	[AC_MSG_FAILURE([Math library missing])])
+AC_SEARCH_LIBS([pthread_create], [pthread], [],
+	[AC_MSG_FAILURE([Threads library missing])])
+AC_SEARCH_LIBS([lt_dlopen], [ltdl], [],
+	[AC_MSG_FAILURE([ltdl library missing])])
 
 PKG_CHECK_MODULES(GLIB,glib-2.0,,exit)
 AC_SUBST(GLIB_CFLAGS)
