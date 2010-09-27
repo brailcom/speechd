@@ -88,7 +88,9 @@ typedef enum{
     SPD_INDEX_MARKS = 4,
     SPD_CANCEL = 8,
     SPD_PAUSE = 16,
-    SPD_RESUME = 32
+    SPD_RESUME = 32,
+
+    SPD_ALL = 0x3F
 }SPDNotification;
 
 typedef enum{

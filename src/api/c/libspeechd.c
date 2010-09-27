@@ -1065,6 +1065,7 @@ spd_set_notification(SPDConnection *connection, SPDNotification notification, co
     NOTIFICATION_SET(SPD_CANCEL, "cancel");
     NOTIFICATION_SET(SPD_PAUSE, "pause");
     NOTIFICATION_SET(SPD_RESUME, "resume");
+    NOTIFICATION_SET(SPD_ALL, "all");
 
     pthread_mutex_unlock(connection->ssip_mutex);
 
