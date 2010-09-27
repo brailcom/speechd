@@ -28,7 +28,7 @@ These packages are known to work with Speech Dispatcher:
  - Espeak (http://espeak.sourceforge.net/) -- a light and fast multi-lingual
      synthesizer with very good support for various Speech Dispatcher
      features.
- - Flite, Cicero, IBM TTS, Dectalk Software, Ivona
+ - Flite, Cicero, IBM TTS, Dectalk Software, Ivona, SVOX Pico
  - Pulse Audio (http://www.pulseaudio.org/)
 
  User applications:
@@ -120,6 +120,24 @@ The sdk can be obtained here:
 You will also need libsndfile in order to enable sound icon emulation with the
 ibmtts output module.  (As of Apr 2006, the Debian packages you need are
 libsndfile1 and libsndfile1-dev.)
+
+Notes about SVOX Pico support
+=============================
+
+SVOX Pico software can be obtained from
+http://git.debian.org/?p=collab-maint/svox.git
+
+SVOX Pico documentation can be found under
+http://android.git.kernel.org/?p=platform/external/svox.git;a=tree;f=pico_resources/docs
+It includes three manuals:
+- SVOX_Pico_Lingware.pdf
+- SVOX_Pico_Manual.pdf
+- SVOX_Pico_architecture_and_design.pdf
+
+To build SVOX Pico go to svox/pico subdirectory and type
+./autogen.sh
+./configure
+make install
 
 Continue building Speech Dispatcher
 ===================================

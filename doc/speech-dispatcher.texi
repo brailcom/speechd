@@ -1105,6 +1105,20 @@ managed by a simple command line application. @xref{Configuration of
 the Generic Output Module}, for more details about how to use it.
 However, it provides only very rudimentary support of speaking.
 
+@item Pico
+The SVOX Pico engine is a software speech synthesizer for German, English (GB
+and US), Spanish, French and Italian.
+SVOX produces clear and distinct speech output made possible by the use of
+Hidden Markov Model (HMM) algorithms.
+See @uref{http://git.debian.org/?p=collab-maint/svox.git}.
+Pico documentation can be found at
+@uref{http://android.git.kernel.org/?p=platform/external/svox.git;
+a=tree;f=pico_resources/docs}
+It includes three manuals:
+- SVOX_Pico_Lingware.pdf
+- SVOX_Pico_Manual.pdf
+- SVOX_Pico_architecture_and_design.pdf
+
 @end itemize
 
 @node Security,  , Synthesis Output Modules, User's Documentation
