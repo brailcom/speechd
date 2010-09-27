@@ -12,6 +12,9 @@ AC_CONFIG_HEADERS([config.h])
 IT_PROG_INTLTOOL([0.40.0])
 AM_GLIB_GNU_GETTEXT
 
+# Config test suite
+AC_CONFIG_TESTDIR(src/tests)
+
 # Checks for programs.
 AC_PROG_CC
 AC_PROG_INSTALL
