@@ -1,4 +1,4 @@
-# testsuite.at - main file for autotest based tests
+# c_api.at - libspeechd library tests
 #
 # Copyright (C) 2010 Andrei Kholodnyi <andrei.kholodnyi@gmail.com>
 #
@@ -17,7 +17,20 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301, USA.
 
-AT_INIT
-AT_COPYRIGHT([Copyright (C) 2010 Andrei Kholodnyi <andrei.kholodnyi@gmail.com>])
+AT_BANNER([C API])
 
-m4_include([c_api.at])
+AT_SETUP([c_api])
+
+AT_KEYWORDS([clibrary])
+AT_CHECK([${abs_builddir}/clibrary], [0], [ignore])
+
+AT_KEYWORDS([clibrary2])
+AT_CHECK([${abs_builddir}/clibrary2], [0], [ignore])
+
+#AT_KEYWORDS([connection-recovery])
+#AT_CHECK([${abs_builddir}/connection-recovery], [0], [ignore])
+
+AT_KEYWORDS([long_message])
+AT_CHECK([${abs_builddir}/long_message], [0], [ignore])
+
+AT_CLEANUP

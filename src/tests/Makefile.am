@@ -25,7 +25,7 @@ atconfig: $(top_builddir)/config.status
 AUTOM4TE = autom4te
 AUTOTEST = $(AUTOM4TE) --language=autotest
 
-TESTSUITE_AT =
+TESTSUITE_AT = c_api.at
 TESTSUITE = ./testsuite
 $(TESTSUITE): package.m4 testsuite.at $(TESTSUITE_AT)
 	$(AUTOTEST) -I '$(srcdir)' -o $@.tmp $@.at
