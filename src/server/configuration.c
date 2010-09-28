@@ -302,6 +302,7 @@ DOTCONF_CB(cb_AddModule)
     g_hash_table_insert(output_modules, g_strdup(module_name), cur_mod);
     output_modules_list=g_list_append(output_modules_list, g_strdup(module_name));
 
+    g_free(module_dbgfile);
     g_free(module_name);
 
     return NULL;
