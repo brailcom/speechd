@@ -26,6 +26,7 @@
 #endif
 
 #include <fdsetconv.h>
+#include <spd_utils.h>
 #include "output.h"
 #include "parse.h"
 
@@ -47,7 +48,7 @@ safe_write(int fd, const void *buf, size_t count) {
 #endif /* TEMP_FAILURE_RETRY */
 
 #if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
-/* Added by Willie Walker - strndup, and getline are gcc-isms
+/* Added by Willie Walker - strndup is a gcc-ism
  */
 char *strndup ( const char *s, size_t n)
 {
@@ -66,48 +67,6 @@ char *strndup ( const char *s, size_t n)
         p[nAvail - 1] = '\0';
 
         return p;
-}
-
-#define BUFFER_LEN 256
-ssize_t getline (char **lineptr, size_t *n, FILE *f)
-{
-        char ch;
-        size_t m = 0;
-        ssize_t buf_len = 0;
-        char * buf = NULL;
-        char * p = NULL;
-
-	if (errno != 0) {
-	        errno = 0;
-	}
-        while ( (ch = getc(f)) !=EOF )
-        {
-                if (errno != 0)
-                        return -1;
-                if ( m++ >= buf_len )
-                {
-                        buf_len += BUFFER_LEN;
-                        buf = (char *) g_realloc(buf, buf_len + 1);
-                        if ( buf == NULL )
-                        {
-                                return -1;
-                        }
-                        p = buf + buf_len - BUFFER_LEN;
-                }
-                *p = ch;
-                p++;
-                if ( ch == '\n' )
-                        break;
-        }
-        if ( m == 0 )
-        {
-                return -1;
-        } else {
-                *p = '\0';
-                *lineptr = buf;
-                *n = m;
-                return m;
-        }
 }
 #endif /* !(defined(__GLIBC__) && defined(_GNU_SOURCE)) */
 
@@ -227,7 +186,7 @@ output_read_reply(OutputModule *output)
     /* Wait for activity on the socket, when there is some,
        read all the message line by line */
     do{
-	bytes = getline(&line, &N, output->stream_out);	
+	bytes = spd_getline(&line, &N, output->stream_out);
 	if (bytes == -1){
 	    MSG(2, "Error: Broken pipe to module.");
 	    output->working = 0;

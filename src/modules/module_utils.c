@@ -26,59 +26,12 @@
 #endif
 
 #include <fdsetconv.h>
+#include <spd_utils.h>
 #include "module_utils.h"
 
 static char* module_audio_pars[10];
 
 extern char* module_index_mark;
-
-#if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
-/* Added by Willie Walker - getline is a gcc-ism */
-#define BUFFER_LEN 256
-ssize_t getline (char **lineptr, size_t *n, FILE *f)
-{
-        char ch;
-        size_t m = 0;
-        ssize_t buf_len = 0;
-        char * buf = NULL;
-        char * p = NULL;
-
-	if (errno != 0) {
-                DBG("getline: errno came in as %d!!!\n", errno);
-	        errno = 0;
-	}
-        while ( (ch = getc(f)) !=EOF )
-        {
-                if (errno != 0)
-                        return -1;
-                if ( m++ >= buf_len )
-                {
-                        buf_len += BUFFER_LEN;
-                        buf = (char *) g_realloc(buf, buf_len + 1);
-                        if ( buf == NULL )
-                        {
-                                DBG("buf==NULL");
-                                return -1;
-                        }
-                        p = buf + buf_len - BUFFER_LEN;
-                }
-                *p = ch;
-                p++;
-                if ( ch == '\n' )
-                        break;
-        }
-        if ( m == 0 )
-        {
-                DBG("getline: m=%d!",m);
-                return -1;
-        } else {
-                *p = '\0';
-                *lineptr = buf;
-                *n = m;
-                return m;
-        }
-}
-#endif /* !(defined(__GLIBC__) && defined(_GNU_SOURCE)) */
 
 char*
 do_message(EMessageType msgtype)
@@ -97,7 +50,7 @@ do_message(EMessageType msgtype)
     while(1){
         cur_line = NULL;
         n = 0;
-        ret = getline(&cur_line, &n, stdin);
+        ret = spd_getline(&cur_line, &n, stdin);
         nlines++;
         if (ret == -1) return g_strdup("401 ERROR INTERNAL");
 
@@ -222,7 +175,7 @@ do_set(void)
 
     while(1){
         line = NULL; n = 0;
-        ret = getline(&line, &n, stdin);
+        ret = spd_getline(&line, &n, stdin);
         if (ret == -1){ err=1; break; }
         if (!strcmp(line, ".\n")){
             g_free(line);
@@ -279,7 +232,7 @@ do_audio(void)
 
     while(1){
         line = NULL; n = 0;
-        ret = getline(&line, &n, stdin);
+        ret = spd_getline(&line, &n, stdin);
         if (ret == -1){ err=1; break; }
         if (!strcmp(line, ".\n")){
             g_free(line);
@@ -341,7 +294,7 @@ do_loglevel(void)
 
     while(1){
         line = NULL; n = 0;
-        ret = getline(&line, &n, stdin);
+        ret = spd_getline(&line, &n, stdin);
         if (ret == -1){ err=1; break; }
         if (!strcmp(line, ".\n")){
             g_free(line);

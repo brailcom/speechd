@@ -30,14 +30,9 @@
 #include <sys/stat.h>
 #include <stdio.h>
 #include "speechd.h"
+#include <spd_utils.h>
 #include "output.h"
 
-#if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
-/* Added by Willie Walker - TEMP_FAILURE_RETRY, strndup, and getline
- * are gcc-isms
- */
-ssize_t getline (char **lineptr, size_t *n, FILE *f);
-#endif
 
 void
 destroy_module(OutputModule *module)
@@ -181,7 +176,7 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 	    reply = g_string_new("\n---------------\n");
 	    f = fdopen(dup(module->pipe_out[0]), "r");
 	    while(1){
-		ret = getline(&rep_line, &n, f);
+		ret = spd_getline(&rep_line, &n, f);
 		if (ret <= 0){
 		    MSG(1, "ERROR: Bad syntax from output module %s 1", module->name);
 		    return NULL;

@@ -32,12 +32,8 @@
 #include <glib.h>
 #include <dotconf.h>
 
+#include <spd_utils.h>
 #include "module_utils.h"
-
-#if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
-/* Added by Willie Walker - getline is a gcc-ism */
-ssize_t getline (char **lineptr, size_t *n, FILE *f);
-#endif
 
 #define PROCESS_CMD(command, function) \
 if (!strcmp(cmd_buf, #command"\n")){ \
@@ -122,7 +118,7 @@ main(int argc, char *argv[])
     ret_init = module_init(&status_info);
 
     cmd_buf = NULL;  n=0;
-    ret = getline(&cmd_buf, &n, stdin);
+    ret = spd_getline(&cmd_buf, &n, stdin);
     if (ret == -1){
 	DBG("Broken pipe when reading INIT, exiting... \n");
 	module_close(2); 
@@ -152,7 +148,7 @@ main(int argc, char *argv[])
 
     while(1){
         cmd_buf = NULL;  n=0;
-        ret = getline(&cmd_buf, &n, stdin);
+        ret = spd_getline(&cmd_buf, &n, stdin);
         if (ret == -1){
             DBG("Broken pipe, exiting... \n");
             module_close(2); 
