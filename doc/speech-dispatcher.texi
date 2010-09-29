@@ -314,7 +314,7 @@ great example.
 
 This part only deals with the general aspects of installing
 Speech Dispatcher. If you are compiling from source code (distribution
-tarball or CVS), please refer to the file @file{INSTALL} in your
+tarball or git), please refer to the file @file{INSTALL} in your
 source tree.
 
 @subsection The requirements 
@@ -365,7 +365,7 @@ synthesizer works. For eSpeak run @code{espeak "test"}, for Flite run
 @item Install Speech Dispatcher
 
 Install the packages for Speech Dispatcher from your distribution or
-download the source tarball (or CVS) from
+download the source tarball (or git) from
 @url{http://www.freebsoft.org/speechd} and follow the instructions in
 the file @code{INSTALL} in the source tree.
 
@@ -3619,7 +3619,7 @@ Notice that index marks are in SSML format using the @code{mark} tag.
 
 You can download Speech Dispatcher's latest release source code from
 @uref{http://www.freebsoft.org/speechd}. There is also information
-on how to set up anonymous access to our CVS.
+on how to set up anonymous access to our git repository.
 
 However, you may prefer to download Speech Dispatcher in a binary
 package for your system. We don't distribute such packages ourselves.
