@@ -179,22 +179,25 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 		ret = spd_getline(&rep_line, &n, f);
 		if (ret <= 0){
 		    MSG(1, "ERROR: Bad syntax from output module %s 1", module->name);
+		    if (rep_line != NULL)
+                        g_free(rep_line);
 		    return NULL;
 		}
 		assert(rep_line != NULL);
 		MSG(5, "Reply from output module: %d %s", n, rep_line);
-		if (strlen(rep_line) <= 4){
+		if (ret <= 4){
 		    MSG(1, "ERROR: Bad syntax from output module %s 2", module->name);
+		    g_free(rep_line);
 		    return NULL;
 		}
 
-		if (rep_line[3] == '-') g_string_append(reply, rep_line + 4);
-		else{
+		if (rep_line[3] != '-') {
 		    s = rep_line[0];
 		    g_free(rep_line);
 		    break;
 		}
 
+		g_string_append(reply, rep_line + 4);
 	    }
 
 	    if (SpeechdOptions.debug){
