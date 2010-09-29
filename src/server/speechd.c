@@ -569,7 +569,7 @@ speechd_init()
 	}   
 
     /* Initialize Speech Dispatcher priority queue */
-    MessageQueue = (TSpeechDQueue*) speechd_queue_alloc();
+    MessageQueue = g_malloc0(sizeof(TSpeechDQueue));
     if (MessageQueue == NULL) FATAL("Couldn't alocate memmory for MessageQueue.");
 
     /* Initialize lists */

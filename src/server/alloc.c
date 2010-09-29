@@ -5,23 +5,6 @@
 
 #include "alloc.h"
 
-TSpeechDQueue* 
-speechd_queue_alloc()
-{
-	TSpeechDQueue *new;
-	
-	new = g_malloc(sizeof(TSpeechDQueue));
-
-        /* Initialize all the queues to be empty */
-	new->p1 = NULL;
-	new->p2 = NULL;
-	new->p3 = NULL;
-        new->p4 = NULL;
-        new->p5 = NULL;
-
-	return(new);
-}
-
 TFDSetElement
 spd_fdset_copy(TFDSetElement old)
 {

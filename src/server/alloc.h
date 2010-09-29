@@ -4,8 +4,6 @@
 #ifndef ALLOC_H
  #define ALLOC_H
 
-TSpeechDQueue* speechd_queue_alloc();					
-
 /* Copy a message */
 TSpeechDMessage* spd_message_copy(TSpeechDMessage *old);
 
