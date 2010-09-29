@@ -63,11 +63,8 @@ clean-local:
 	rm -f *.tmp
 	rm -f -r autom4te.cache
 
-check-local: atconfig $(TESTSUITE)
-	$(SHELL) $(TESTSUITE) $(TESTSUITEFLAGS)
-
 # Run the test suite on the *installed* tree.
-installcheck-local: atconfig $(TESTSUITE)
+testinstall: atconfig $(TESTSUITE)
 	$(SHELL) $(TESTSUITE) AUTOTEST_PATH="$(bindir)" $(TESTSUITEFLAGS)
 
 CLEANFILES = package.m4
