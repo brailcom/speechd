@@ -155,7 +155,7 @@ path by running (as root):
 
  $ make install
 
-If it doesn't work, please see "Building from CVS" if this is your case. If
+If it doesn't work, please see "Building from Git" if this is your case. If
 not, you can ask us on users@lists.freebsoft.org or report possible bugs on
 speechd@bugs.freebsoft.org .
 
@@ -242,7 +242,7 @@ These are:
                    clean documentation)
     - all ........ build server, modules and clients
 
-If you are building directly from CVS or from some CVS tarball snapshot, you
+If you are building directly from git or from some git tarball snapshot, you
 must first create the ./configure file. Please make sure you have all the
 necessary tools listed in the requirements at the beginning of this README
 in their appropriate versions. Automake and autoconf are especially version
