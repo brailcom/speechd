@@ -423,9 +423,9 @@ int module_init(char **status_info)
 	                         (const pico_Char *)pico_voices[0].name,
 	                         &picoEngine))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
-		DBG(MODULE_NAME
-		        "Cannot create a new pico engine (%i): %s\n", ret,
-		        outMessage);
+		*status_info = g_strdup_printf(MODULE_NAME
+			": Cannot create a new pico engine (%i): %s\n",
+		        ret, outMessage);
 		return -1;
 	}
 
