@@ -54,8 +54,8 @@ To compile the whole project, including Speech Dispatcher server, all modules
 and clients, simply extract the distribution archive and change to 
 speech-dispatcher-<version> directory and run "make all" command as follows:
 
- $ tar -xzvf speech-dispatcher-0.7.tar.gz
- $ cd speech-dispatcher-0.7
+ $ tar -xzvf speech-dispatcher-[version].tar.gz
+ $ cd speech-dispatcher-[version]
 
 
 Notes about ALSA, Pulse, OSS and NAS support
@@ -202,7 +202,7 @@ You can try to execute Speech Dispatcher by
 
 If Speech Dispatcher is running, you can test if it's working by:
  (on some other console)
- $ cd speech-dispatcher-0.7/src/tests
+ $ cd speech-dispatcher-[version]/src/tests
  $ ./run_test basic.test
 (You can also try other tests, if you like.)
 
@@ -250,7 +250,7 @@ sensitive.
 
 Then please do:
 
- $ cd speech-dispatcher-0.7
+ $ cd speech-dispatcher-[version]
  $ autoreconf -i
 
 Now the configure file should be created and you can proceed like with
