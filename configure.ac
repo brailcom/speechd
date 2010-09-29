@@ -225,21 +225,6 @@ AC_ARG_WITH(ivona, AS_HELP_STRING(--with-ivona, Compile with ivona support),
 
 AM_CONDITIONAL(ivona_support, test $ivona_ok = "true")
 
-AC_ARG_WITH([pico],
-	[AS_HELP_STRING([--with-pico], [include SVOX pico support])],
-	[],
-	[with_pico=check])
-
-# check for SVOX pico support
-AS_IF([test $with_pico != "no"],
-	[AC_CHECK_LIB([ttspico],
-		[pico_initialize],
-		[with_pico=yes],
-		[AS_IF([test $with_pico = "yes"],
-			[AC_MSG_FAILURE([SVOX pico is not available])])])])
-
-AM_CONDITIONAL(pico_support, test $with_pico = "yes")
-
 STATIC_AUDIO_PLUGINS_LIST=""
 SPD_AUDIO_LIBS=
 

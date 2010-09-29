@@ -70,11 +70,3 @@ sd_ivona_LDADD = $(top_builddir)/src/common/libcommon.la -lsdaudio \
 	-ldumbtts -lpthread $(SNDFILE_LIBS) $(DOTCONF_LIBS) $(GLIB_LIBS) \
 	$(GTHREAD_LIBS)
 endif
-
-if pico_support
-modulebin_PROGRAMS += sd_pico
-sd_pico_SOURCES = pico.c $(common_SOURCES)
-sd_pico_LDFLAGS = $(RPATH) '$(spdlibdir)' $(lib_audio)
-sd_pico_LDADD = $(top_builddir)/src/common/libcommon.la -lsdaudio -lttspico \
-	$(DOTCONF_LIBS) $(GLIB_LIBS) $(GTHREAD_LIBS)
-endif
