@@ -207,7 +207,11 @@ static int pico_process_tts(void)
 				DBG(MODULE_NAME
 				        ": Sending %i samples to audio.", track.num_samples);
 
-				spd_audio_set_volume(module_audio_id, 85);
+				if (spd_audio_set_volume(module_audio_id, 85) < 0) {
+					DBG(MODULE_NAME
+					        "Can't set volume. audio not initialized?");
+					continue;
+				}
 				if (spd_audio_play(module_audio_id, track,
 				                       module_audio_id->format) < 0) {
 					DBG(MODULE_NAME
