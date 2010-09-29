@@ -77,7 +77,7 @@ main(int argc, char *argv[])
     int ret_init;
     size_t n;
     char *configfilename;
-    char *status_info;        
+    char *status_info = NULL;
 
     g_thread_init(NULL);
 
@@ -116,6 +116,10 @@ main(int argc, char *argv[])
     }
     
     ret_init = module_init(&status_info);
+
+    if (status_info == NULL) {
+        status_info = g_strdup("unknown, was not set by module");
+    }
 
     cmd_buf = NULL;  n=0;
     ret = spd_getline(&cmd_buf, &n, stdin);
