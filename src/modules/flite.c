@@ -57,7 +57,6 @@ signed int flite_volume = 0;
 static void flite_set_rate(signed int rate);
 static void flite_set_pitch(signed int pitch);
 static void flite_set_volume(signed int pitch);
-static void flite_set_voice(EVoiceType voice);
 
 static void flite_strip_silence(AudioTrack*);
 static void* _flite_speak(void*);
@@ -186,7 +185,6 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
     flite_message_type = MSGTYPE_TEXT;
 	
     /* Setting voice */
-    UPDATE_PARAMETER(voice, flite_set_voice);
     UPDATE_PARAMETER(rate, flite_set_rate);
     UPDATE_PARAMETER(volume, flite_set_volume);
     UPDATE_PARAMETER(pitch, flite_set_pitch);
@@ -437,15 +435,4 @@ flite_set_pitch(signed int pitch)
     assert(pitch >= -100 && pitch <= +100);
     f0 = ( ((float) pitch) * 0.8 ) + 100;
     feat_set_float(flite_voice->features, "int_f0_target_mean", f0);
-}
-
-/*
- * flite_set_voice is a no-op.  We only support one flite voice, and
- * that voice is established in module_init.  Furthermore, the voice
- * data is managed by the flite library.
- */
-static void
-flite_set_voice(EVoiceType voice)
-{
-    return;
 }
