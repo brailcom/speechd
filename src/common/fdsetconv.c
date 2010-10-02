@@ -26,6 +26,7 @@
 #include <config.h>
 #endif
 
+#include <glib.h>
 #include "fdsetconv.h"
 
 char*
@@ -35,14 +36,14 @@ EVoice2str(EVoiceType voice)
 
     switch (voice)
         {
-        case MALE1: str = strdup("male1"); break;
-        case MALE2: str = strdup("male2"); break;
-        case MALE3: str = strdup("male3"); break;
-        case FEMALE1: str = strdup("female1"); break;
-        case FEMALE2: str = strdup("female2"); break;
-        case FEMALE3: str = strdup("female3"); break;
-        case CHILD_MALE: str = strdup("child_male"); break;
-        case CHILD_FEMALE: str = strdup("child_female"); break;
+        case MALE1: str = g_strdup("male1"); break;
+        case MALE2: str = g_strdup("male2"); break;
+        case MALE3: str = g_strdup("male3"); break;
+        case FEMALE1: str = g_strdup("female1"); break;
+        case FEMALE2: str = g_strdup("female2"); break;
+        case FEMALE3: str = g_strdup("female3"); break;
+        case CHILD_MALE: str = g_strdup("child_male"); break;
+        case CHILD_FEMALE: str = g_strdup("child_female"); break;
         default: str = NULL;
         }
 
@@ -74,9 +75,9 @@ EPunctMode2str(EPunctMode punct)
 
     switch (punct)
         {
-        case PUNCT_NONE: str = strdup("none"); break;
-        case PUNCT_ALL: str = strdup("all"); break;
-        case PUNCT_SOME: str = strdup("some"); break;
+        case PUNCT_NONE: str = g_strdup("none"); break;
+        case PUNCT_ALL: str = g_strdup("all"); break;
+        case PUNCT_SOME: str = g_strdup("some"); break;
         default: str = NULL;
         }
 
@@ -103,8 +104,8 @@ ESpellMode2str(ESpellMode spell)
 
     switch (spell)
         {
-        case SPELLING_ON: str = strdup("on"); break;
-        case SPELLING_OFF: str = strdup("off"); break;
+        case SPELLING_ON: str = g_strdup("on"); break;
+        case SPELLING_OFF: str = g_strdup("off"); break;
         default: str = NULL;
         }
 
@@ -130,9 +131,9 @@ ECapLetRecogn2str(ECapLetRecogn recogn)
 
     switch (recogn)
         {
-        case RECOGN_NONE: str = strdup("none"); break;
-        case RECOGN_SPELL: str = strdup("spell"); break;
-        case RECOGN_ICON: str = strdup("icon"); break;
+        case RECOGN_NONE: str = g_strdup("none"); break;
+        case RECOGN_SPELL: str = g_strdup("spell"); break;
+        case RECOGN_ICON: str = g_strdup("icon"); break;
         default: str = NULL;
         }
 
