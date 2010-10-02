@@ -28,6 +28,7 @@
 #include <sys/time.h>
 #include <time.h>
 #include <string.h>
+#include <glib.h>
 #include <ao/ao.h>
 
 #include "spd_audio_plugin.h"
@@ -41,7 +42,7 @@
      struct timeval tv; \
      char *tstr; \
      t = time(NULL); \
-     tstr = strdup(ctime(&t)); \
+     tstr = g_strdup(ctime(&t)); \
      tstr[strlen(tstr)-1] = 0; \
      gettimeofday(&tv,NULL); \
      fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
@@ -49,7 +50,7 @@
      fprintf(stderr,arg); \
      fprintf(stderr,"\n"); \
      fflush(stderr); \
-     xfree(tstr); \
+     g_free(tstr); \
   }
 
 #define ERR(arg...) \
@@ -58,7 +59,7 @@
      struct timeval tv; \
      char *tstr; \
      t = time(NULL); \
-     tstr = strdup(ctime(&t)); \
+     tstr = g_strdup(ctime(&t)); \
      tstr[strlen(tstr)-1] = 0; \
      gettimeofday(&tv,NULL); \
      fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
@@ -66,7 +67,7 @@
      fprintf(stderr,arg); \
      fprintf(stderr,"\n"); \
      fflush(stderr); \
-     xfree(tstr); \
+     g_free(tstr); \
   }
 
 /* AO_FORMAT_INITIALIZER is an ao_sample_format structure with zero values
@@ -112,7 +113,7 @@ static AudioID * libao_open (void **pars)
 {
   AudioID * id;
 
-  id = (AudioID *) malloc(sizeof(AudioID));
+  id = (AudioID *) g_malloc(sizeof(AudioID));
 
   ao_initialize ();
   default_driver = ao_default_driver_id ();
@@ -204,7 +205,7 @@ static int libao_close (AudioID * id)
   libao_close_handle();
   ao_shutdown ();
 
-  free (id);
+  g_free (id);
   id = NULL;
   return 0;
 }

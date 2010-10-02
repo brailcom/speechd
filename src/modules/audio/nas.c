@@ -27,6 +27,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <glib.h>
 #include <audio/audiolib.h>
 #include <audio/soundlib.h>
 
@@ -90,7 +91,7 @@ nas_open(void **pars)
     int ret;
     AuBool r;
 
-    nas_id = (spd_nas_id_t *) malloc(sizeof(spd_nas_id_t));
+    nas_id = (spd_nas_id_t *) g_malloc(sizeof(spd_nas_id_t));
 
     nas_id->aud = AuOpenServer(pars[2], 0, NULL, 0, NULL, NULL);
     if (!nas_id->aud){
@@ -215,7 +216,7 @@ nas_close(AudioID *id)
 
     AuCloseServer(nas_id->aud);
 
-    free (nas_id);
+    g_free (nas_id);
     id = NULL;
 
     return 0;

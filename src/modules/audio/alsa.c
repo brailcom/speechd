@@ -33,6 +33,7 @@
 #include <sys/time.h>
 #include <time.h>
 #include <pthread.h>
+#include <glib.h>
 
 #include <alsa/asoundlib.h>
 
@@ -82,7 +83,7 @@ do { \
      struct timeval tv; \
      char *tstr; \
      t = time(NULL); \
-     tstr = strdup(ctime(&t)); \
+     tstr = g_strdup(ctime(&t)); \
      tstr[strlen(tstr)-1] = 0; \
      gettimeofday(&tv,NULL); \
      fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
@@ -90,7 +91,7 @@ do { \
      fprintf(stderr,arg); \
      fprintf(stderr,"\n"); \
      fflush(stderr); \
-     xfree(tstr); \
+     g_free(tstr); \
   }
 
 #define ERR(arg...) \
@@ -99,7 +100,7 @@ do { \
      struct timeval tv; \
      char *tstr; \
      t = time(NULL); \
-     tstr = strdup(ctime(&t)); \
+     tstr = g_strdup(ctime(&t)); \
      tstr[strlen(tstr)-1] = 0; \
      gettimeofday(&tv,NULL); \
      fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
@@ -107,7 +108,7 @@ do { \
      fprintf(stderr,arg); \
      fprintf(stderr,"\n"); \
      fflush(stderr); \
-     xfree(tstr); \
+     g_free(tstr); \
   }
 
 static int alsa_log_level;
@@ -230,7 +231,7 @@ _alsa_close(spd_alsa_id_t *id)
 
     snd_pcm_sw_params_free (id->alsa_sw_params);
 
-    free(id->alsa_poll_fds);
+    g_free(id->alsa_poll_fds);
     pthread_mutex_unlock(&id->alsa_pipe_mutex);
 
     MSG(1, "Closing ALSA device ... success");
@@ -258,7 +259,7 @@ alsa_open(void **pars)
 	return NULL;
     }
 
-    alsa_id = (spd_alsa_id_t *) malloc(sizeof(spd_alsa_id_t));
+    alsa_id = (spd_alsa_id_t *) g_malloc(sizeof(spd_alsa_id_t));
 
     pthread_mutex_init(&alsa_id->alsa_pipe_mutex, NULL);
 
@@ -266,12 +267,12 @@ alsa_open(void **pars)
     
     MSG(1, "Opening ALSA sound output");
 
-    alsa_id->alsa_device_name = strdup(pars[1]);
+    alsa_id->alsa_device_name = g_strdup(pars[1]);
     
     ret = _alsa_open(alsa_id);
     if (ret){
 	ERR("Cannot initialize Alsa device '%s': Can't open.", alsa_id->alsa_device_name);
-    free (alsa_id);
+    g_free (alsa_id);
 	return NULL;
     }
 
@@ -294,8 +295,8 @@ alsa_close(AudioID *id)
     }
     MSG(1, "ALSA closed.");
 
-    free (alsa_id->alsa_device_name);
-    free (alsa_id);
+    g_free (alsa_id->alsa_device_name);
+    g_free (alsa_id);
     id = NULL;
 
     return 0;
@@ -370,7 +371,7 @@ int wait_for_poll(spd_alsa_id_t *id, struct pollfd *alsa_poll_fds,
 
 
 #define ERROR_EXIT()\
-    free(track_volume.samples); \
+    g_free(track_volume.samples); \
     ERR("alsa_play() abnormal exit"); \
     _alsa_close(alsa_id); \
     return -1;
@@ -464,7 +465,7 @@ alsa_play(AudioID *id, AudioTrack track)
     }
 
     /* Create and fill in struct pollfd *alsa_poll_fds with ALSA descriptors */
-    alsa_id->alsa_poll_fds = malloc ((alsa_id->alsa_fd_count + 1) * sizeof(struct pollfd));
+    alsa_id->alsa_poll_fds = g_malloc ((alsa_id->alsa_fd_count + 1) * sizeof(struct pollfd));
     assert(alsa_id->alsa_poll_fds);
     if ((err = snd_pcm_poll_descriptors(alsa_id->alsa_pcm, alsa_id->alsa_poll_fds, alsa_id->alsa_fd_count)) < 0) {
 	ERR("Unable to obtain poll descriptors for playback: %s\n", snd_strerror(err));
@@ -602,7 +603,7 @@ alsa_play(AudioID *id, AudioTrack track)
     /* Create a copy of track with adjusted volume. */
     MSG(4, "Making copy of track and adjusting volume");
     track_volume = track;
-    track_volume.samples = (short*) malloc(volume_size);
+    track_volume.samples = (short*) g_malloc(volume_size);
     real_volume = ((float) alsa_id->id.volume + 100)/(float)200;
     for (i=0; i<=track.num_samples-1; i++)
         track_volume.samples[i] = track.samples[i] * real_volume;
@@ -739,7 +740,7 @@ alsa_play(AudioID *id, AudioTrack track)
  terminate:
     /* Terminating (successfully or after a stop) */
     if (track_volume.samples != NULL)
-	free(track_volume.samples);
+	g_free(track_volume.samples);
 
     err = snd_pcm_drop(alsa_id->alsa_pcm);
     if (err < 0) {
@@ -756,7 +757,7 @@ alsa_play(AudioID *id, AudioTrack track)
     close(alsa_id->alsa_stop_pipe[0]);
     close(alsa_id->alsa_stop_pipe[1]);
 
-    xfree(alsa_id->alsa_poll_fds);
+    g_free(alsa_id->alsa_poll_fds);
     pthread_mutex_unlock(&alsa_id->alsa_pipe_mutex);
     
     MSG(1, "End of playback on ALSA");

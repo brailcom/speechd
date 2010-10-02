@@ -38,6 +38,7 @@
 #include <time.h>
 #include <string.h>
 #include <stdarg.h>
+#include <glib.h>
 
 #include <pulse/simple.h>
 #include <pulse/error.h>
@@ -143,7 +144,7 @@ static AudioID * pulse_open (void **pars)
     spd_pulse_id_t * pulse_id;
     int ret;
 
-    pulse_id = (spd_pulse_id_t *) malloc(sizeof(spd_pulse_id_t));
+    pulse_id = (spd_pulse_id_t *) g_malloc(sizeof(spd_pulse_id_t));
 
     /* Select an Endianness for the initial connection. */
 #if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
@@ -170,7 +171,7 @@ static AudioID * pulse_open (void **pars)
 
     ret =  _pulse_open(pulse_id, 44100, 1, 2);
     if (ret) {
-        free(pulse_id);
+        g_free(pulse_id);
         pulse_id = NULL;
     }
 
@@ -256,7 +257,7 @@ static int pulse_close (AudioID * id)
 {
     spd_pulse_id_t * pulse_id = (spd_pulse_id_t *)id;
     pulse_connection_close(pulse_id);
-    free (pulse_id);
+    g_free (pulse_id);
     id = NULL;
 
     return 0;

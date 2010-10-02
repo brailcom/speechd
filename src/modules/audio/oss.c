@@ -37,6 +37,7 @@
 #include <unistd.h> /* for open, close */
 #include <sys/ioctl.h>
 #include <pthread.h>
+#include <glib.h>
 
 #include <sys/soundcard.h>
 
@@ -62,7 +63,7 @@ static int _oss_sync(spd_oss_id_t *id);
      struct timeval tv; \
      char *tstr; \
      t = time(NULL); \
-     tstr = strdup(ctime(&t)); \
+     tstr = g_strdup(ctime(&t)); \
      tstr[strlen(tstr)-1] = 0; \
      gettimeofday(&tv,NULL); \
      fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
@@ -70,7 +71,7 @@ static int _oss_sync(spd_oss_id_t *id);
      fprintf(stderr,arg); \
      fprintf(stderr,"\n"); \
      fflush(stderr); \
-     xfree(tstr); \
+     g_free(tstr); \
   }
 
 #define ERR(arg...) \
@@ -79,7 +80,7 @@ static int _oss_sync(spd_oss_id_t *id);
      struct timeval tv; \
      char *tstr; \
      t = time(NULL); \
-     tstr = strdup(ctime(&t)); \
+     tstr = g_strdup(ctime(&t)); \
      tstr[strlen(tstr)-1] = 0; \
      gettimeofday(&tv,NULL); \
      fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
@@ -87,17 +88,12 @@ static int _oss_sync(spd_oss_id_t *id);
      fprintf(stderr,arg); \
      fprintf(stderr,"\n"); \
      fflush(stderr); \
-     xfree(tstr); \
+     g_free(tstr); \
   }
 
 static int oss_log_level;
 static char const * oss_play_cmd="play";
 
-void
-xfree(void* p)
-{
-    if (p != NULL) free(p);
-}
 
 static int
 _oss_open(spd_oss_id_t *id)
@@ -146,9 +142,9 @@ oss_open(void **pars)
 
     if (pars[0] == NULL) return NULL;
 
-    oss_id = (spd_oss_id_t *) malloc(sizeof(spd_oss_id_t));
+    oss_id = (spd_oss_id_t *) g_malloc(sizeof(spd_oss_id_t));
 
-    oss_id->device_name = (char*) strdup((char*) pars[0]);
+    oss_id->device_name = g_strdup((char*) pars[0]);
 
     pthread_mutex_init(&oss_id->fd_mutex, NULL);
 
@@ -158,14 +154,14 @@ oss_open(void **pars)
     /* Test if it's possible to access the device */
     ret = _oss_open(oss_id);
     if (ret) {
-        free (oss_id->device_name);
-        free (oss_id);
+        g_free (oss_id->device_name);
+        g_free (oss_id);
         return NULL;
     }
     ret = _oss_close(oss_id);
     if (ret) {
-        free (oss_id->device_name);
-        free (oss_id);
+        g_free (oss_id->device_name);
+        g_free (oss_id);
         return NULL;
     }
 
@@ -219,7 +215,7 @@ oss_play(AudioID *id, AudioTrack track)
 
     /* Create a copy of track with the adjusted volume */
     track_volume = track;
-    track_volume.samples = (short*) malloc(sizeof(short)*track.num_samples);
+    track_volume.samples = (short*) g_malloc(sizeof(short)*track.num_samples);
     real_volume = ((float) id->volume + 100)/(float)200;
     for (i=0; i<=track.num_samples-1; i++)
 	track_volume.samples[i] = track.samples[i] * real_volume;
@@ -409,7 +405,7 @@ oss_play(AudioID *id, AudioTrack track)
     }
     MSG(4, "End of wait");
 
-    if (track_volume.samples!=NULL) free(track_volume.samples);
+    if (track_volume.samples!=NULL) g_free(track_volume.samples);
 
     /* Flush all the buffers */
     _oss_sync(oss_id);
@@ -460,8 +456,8 @@ oss_close(AudioID *id)
     /* Does nothing because the device is being automatically openned and
        closed in oss_play before and after playing each sample. */
 
-    free(oss_id->device_name);
-    free (oss_id);
+    g_free(oss_id->device_name);
+    g_free (oss_id);
     id = NULL;
 
     return 0;
