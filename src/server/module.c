@@ -213,6 +213,7 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 	kill(module->pid, 9);
 	waitpid(module->pid, NULL, WNOHANG);
 	destroy_module(module);
+	g_string_free(reply, TRUE);
 	return NULL;
     }
 
