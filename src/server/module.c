@@ -52,6 +52,11 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
     int cfg = 0;
     int ret;
     char *module_conf_dir;
+    char *rep_line = NULL;
+    FILE *f;
+    size_t n = 0;
+    char s;
+    GString *reply;
 
     if (mod_name == NULL) return NULL;
     
@@ -170,82 +175,80 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 	MSG(1, "ERROR: Something wrong with %s, can't initialize", module->name);
 	output_close(module);
 	return NULL;
-    }else{
-        char *rep_line = g_malloc(1024);
-	FILE *f;
-	size_t n = 1024;
-	char s;
-	GString *reply;
+    }
 
-	reply = g_string_new("\n---------------\n");
-	f = fdopen(dup(module->pipe_out[0]), "r");
-	while(1){
-	    ret = spd_getline(&rep_line, &n, f);
-	    if (ret <= 0){
-		MSG(1, "ERROR: Bad syntax from output module %s 1", module->name);
-		if (rep_line != NULL)
-                    g_free(rep_line);
-		return NULL;
-	    }
-	    assert(rep_line != NULL);
-	    MSG(5, "Reply from output module: %d %s", n, rep_line);
-	    if (ret <= 4){
-		MSG(1, "ERROR: Bad syntax from output module %s 2", module->name);
-		g_free(rep_line);
-		return NULL;
-	    }
-
-	    if (rep_line[3] != '-') {
-		s = rep_line[0];
-		g_free(rep_line);
-		break;
-	    }
-
-	    g_string_append(reply, rep_line + 4);
+    reply = g_string_new("\n---------------\n");
+    f = fdopen(dup(module->pipe_out[0]), "r");
+    while(1){
+	ret = spd_getline(&rep_line, &n, f);
+	if (ret <= 0){
+	    MSG(1, "ERROR: Bad syntax from output module %s 1", module->name);
+	    if (rep_line != NULL)
+                g_free(rep_line);
+	    return NULL;
+	}
+	assert(rep_line != NULL);
+	MSG(5, "Reply from output module: %d %s", n, rep_line);
+	if (ret <= 4){
+	    MSG(1, "ERROR: Bad syntax from output module %s 2", module->name);
+	    g_free(rep_line);
+	    return NULL;
         }
 
-	if (SpeechdOptions.debug){
-	     MSG(4, "Switching debugging on for output module %s", module->name);
-	     output_module_debug(module);
-	}
-	/* Initialize audio settings */
-	ret = output_send_audio_settings(module);
-	if (ret !=0){
-	    MSG(1, "ERROR: Can't initialize audio in output module, see reason above.");
-	    module->working = 0;
-	    kill(module->pid, 9);
-	    waitpid(module->pid, NULL, WNOHANG);
-	    destroy_module(module);
-	    return NULL;
-	}
+	if (rep_line[3] != '-') {
+	    s = rep_line[0];
+	    g_free(rep_line);
+	    break;
+        }
 
-	/* Send log level configuration setting */
-	ret = output_send_loglevel_setting(module);
-	if (ret !=0){
-	    MSG(1, "ERROR: Can't set the log level inin the output module.");
-	    module->working = 0;
-	    kill(module->pid, 9);
-	    waitpid(module->pid, NULL, WNOHANG);
-	    destroy_module(module);
-	    return NULL;
-	}
-
-	/* Get a list of supported voices */
-	_output_get_voices(module);
-	fclose(f);
-	g_string_append_printf(reply, "---------------\n");
-
-	if (s == '2') MSG(2, "Module %s started sucessfully with message: %s", module->name, reply->str);
-	else if (s == '3'){
-	    MSG(1, "ERROR: Module %s failed to initialize. Reason: %s", module->name, reply->str);
-	    module->working = 0;
-	    kill(module->pid, 9);
-	    waitpid(module->pid, NULL, WNOHANG);
-	    destroy_module(module);
-	    return NULL;
-	}
-	g_string_free(reply, 1);
+	g_string_append(reply, rep_line + 4);
     }
+
+    if (SpeechdOptions.debug){
+	MSG(4, "Switching debugging on for output module %s", module->name);
+	output_module_debug(module);
+    }
+
+    /* Initialize audio settings */
+    ret = output_send_audio_settings(module);
+    if (ret !=0){
+	MSG(1, "ERROR: Can't initialize audio in output module, see reason above.");
+	module->working = 0;
+	kill(module->pid, 9);
+	waitpid(module->pid, NULL, WNOHANG);
+	destroy_module(module);
+	return NULL;
+    }
+
+    /* Send log level configuration setting */
+    ret = output_send_loglevel_setting(module);
+    if (ret !=0){
+	MSG(1, "ERROR: Can't set the log level inin the output module.");
+	module->working = 0;
+	kill(module->pid, 9);
+	waitpid(module->pid, NULL, WNOHANG);
+	destroy_module(module);
+	return NULL;
+    }
+
+    /* Get a list of supported voices */
+    _output_get_voices(module);
+    fclose(f);
+    g_string_append_printf(reply, "---------------\n");
+
+    if (s == '3'){
+        MSG(1, "ERROR: Module %s failed to initialize. Reason: %s", module->name, reply->str);
+	module->working = 0;
+	kill(module->pid, 9);
+	waitpid(module->pid, NULL, WNOHANG);
+	destroy_module(module);
+	return NULL;
+    }
+
+    if (s == '2')
+        MSG(2, "Module %s started sucessfully with message: %s", module->name, reply->str);
+
+    g_string_free(reply, 1);
 
     return module;
 }
