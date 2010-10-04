@@ -204,6 +204,23 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 	g_string_append(reply, rep_line + 4);
     }
 
+    fclose(f);
+    g_string_append_printf(reply, "---------------\n");
+
+    if (s == '3'){
+        MSG(1, "ERROR: Module %s failed to initialize. Reason: %s", module->name, reply->str);
+	module->working = 0;
+	kill(module->pid, 9);
+	waitpid(module->pid, NULL, WNOHANG);
+	destroy_module(module);
+	return NULL;
+    }
+
+    if (s == '2')
+        MSG(2, "Module %s started sucessfully with message: %s", module->name, reply->str);
+
+    g_string_free(reply, 1);
+
     if (SpeechdOptions.debug){
 	MSG(4, "Switching debugging on for output module %s", module->name);
 	output_module_debug(module);
@@ -233,22 +250,6 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 
     /* Get a list of supported voices */
     _output_get_voices(module);
-    fclose(f);
-    g_string_append_printf(reply, "---------------\n");
-
-    if (s == '3'){
-        MSG(1, "ERROR: Module %s failed to initialize. Reason: %s", module->name, reply->str);
-	module->working = 0;
-	kill(module->pid, 9);
-	waitpid(module->pid, NULL, WNOHANG);
-	destroy_module(module);
-	return NULL;
-    }
-
-    if (s == '2')
-        MSG(2, "Module %s started sucessfully with message: %s", module->name, reply->str);
-
-    g_string_free(reply, 1);
 
     return module;
 }
