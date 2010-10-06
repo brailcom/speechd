@@ -203,6 +203,7 @@ spd_get_default_address(char **error)
       }
     }else{ // Unknown or unsupported method requested
       *error = strdup("Unknown or unsupported communication method");
+      free(address);
       address = NULL;
     }
     g_strfreev(pa);
