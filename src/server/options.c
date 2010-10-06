@@ -34,6 +34,8 @@
 
 #include "options.h"
 
+#include <i18n.h>
+
 static const struct option spd_long_options[] = {
     {"run-daemon", 0, 0, 'd'},
     {"run-single", 0, 0, 's'},
@@ -58,26 +60,39 @@ options_print_help(char *argv[])
     assert(argv);
     assert(argv[0]);
 
-    printf("Usage: %s [-{d|s}] [-l {1|2|3|4|5}] [-c com_method] [-S socket_path] [-p port] | [-v] | [-h]\n", argv[0]);
-    printf("Speech Dispatcher -- Common interface for Speech Synthesis (GNU GPL)\n\n");
-    printf("-d, --run-daemon     -      Run as a daemon\n"
-    "-s, --run-single     -      Run as single application\n"
-    "-a, --spawn          -      Start only if autospawn is not disabled\n"
-    "-l, --log-level      -      Set log level (1..5)\n"
-    "-c, --communication-method  Communication method to use (unix_socket or inet_socket)\n"
-    "-S, --socket-path    -      Socket path to use for 'unix_socket' method (filesystem path or 'default')\n"
-    "-p, --port           -      Specify a port number for 'inet_socket' method\n"
-    "-P, --pid-file       -      Set path to pid file\n"
-    "-C, --config-dir     -      Set path to configuration\n"
-    "-v, --version        -      Report version of this program\n"
-    "-D, --debug          -      Output debugging information into /tmp/.speech-dispatcher\n"
-    "-h, --help           -      Print this info\n\n"
-    "Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 Brailcom, o.p.s.\n"
+    printf(_("Usage: %s [-{d|s}] [-l {1|2|3|4|5}] [-c com_method] [-S socket_path] [-p port] | [-v] | [-h]\n"), argv[0]);
+    printf(_("Speech Dispatcher -- Common interface for Speech Synthesis (GNU GPL)\n\n"));
+    printf("-d, --run-daemon\t");
+    printf(_("Run as a daemon\n"));
+    printf("-s, --run-single\t");
+    printf(_("Run as single application\n"));
+    printf("-a, --spawn\t");
+    printf(_("Start only if autospawn is not disabled\n"));
+    printf("-l, --log-level\t");
+    printf(_("Set log level (1..5)\n"));
+    printf("-c, --communication-method\t");
+    printf(_("Communication method to use (unix_socket or inet_socket)\n"));
+    printf("-S, --socket-path\t");
+    printf(_("Socket path to use for 'unix_socket' method (filesystem path or 'default')\n"));
+    printf("-p, --port\t");
+    printf(_("Specify a port number for 'inet_socket' method\n"));
+    printf("-P, --pid-file\t");
+    printf(_("Set path to pid file\n"));
+    printf(_("-C, --config-dir\t"));
+    printf(_("Set path to configuration\n"));
+    printf("-v, --version\t");
+    printf(_("Report version of this program\n"));
+    printf("-D, --debug\t");
+    printf(_("Output debugging information into /tmp/.speech-dispatcher\n"));
+    printf("-h, --help\t");
+    printf(_("Print this info\n"));
+    printf("\n");
+    printf(_("Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 Brailcom, o.p.s.\n"
     "This is free software; you can redistribute it and/or modify it\n"
     "under the terms of the GNU General Public License as published by\n"
     "the Free Software Foundation; either version 2, or (at your option)\n"
     "any later version. Please see COPYING for more details.\n\n"
-    "Please report bugs to <speechd-bugs@freebsoft.org>\n\n");
+    "Please report bugs to <speechd-bugs@freebsoft.org>\n\n"));
 
 }
 
@@ -85,11 +100,11 @@ void
 options_print_version(void)
 {
     printf("%s %s\n", PACKAGE, VERSION);
-    printf("Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 Brailcom, o.p.s.\n"
+    printf(_("Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 Brailcom, o.p.s.\n"
            "Speech Dispatcher comes with ABSOLUTELY NO WARRANTY.\n"
            "You may redistribute copies of Speech Dispatcher\n"
            "under the terms of the GNU General Public License.\n"
-           "For more information about these matters, see the file named COPYING.\n"
+           "For more information about these matters, see the file named COPYING.\n")
            );
 }
 

@@ -46,6 +46,8 @@
 #include "options.h"
 #include "server.h"
 
+#include <i18n.h>
+
 /* Manipulating pid files */
 int create_pid_file();
 void destroy_pid_file();
@@ -924,6 +926,9 @@ main(int argc, char *argv[])
     SpeechdOptions.log_level = 1;
     custom_logfile = NULL;
     custom_log_kind = NULL;
+
+    /* initialize i18n support */
+    i18n_init();
 
     speechd_options_init();
 
