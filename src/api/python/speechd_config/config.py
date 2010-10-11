@@ -739,7 +739,7 @@ Do you want to keep it?""", False)
         self.default_audio_method = question_with_suggested_answers(
             "Default audio output method",
             "pulse",
-            ["pulse", "alsa", "oss", "pulse,alsa"])
+            ["pulse", "libao", "alsa", "oss", "pulse,alsa"])
 
         self.default_speech_rate = question(
             "Default speech rate (on the scale of -100..100, 0 is default, 50 is faster, -50 is slower)",
