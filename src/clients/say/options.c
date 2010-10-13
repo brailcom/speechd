@@ -53,6 +53,7 @@ options_print_help(char *argv[])
 	   "-i, --volume           -     Set the volume (intensity) of the speech\n"
            "                               (between -100 and +100, default: 0) \n"
 	   "-o, --output-module    -     Set the output module\n"
+           "-O, --list-output-modules    Get the list of output modules\n"
 	   "-l, --language         -     Set the language (iso code)\n"
 	   "-t, --voice-type       -     Set the prefered voice type\n"
            "                               (male1, male2, male3, female1, female2\n"
@@ -154,6 +155,9 @@ options_parse(int argc, char *argv[])
             break;
         case 'o':
             OPT_SET_STR(output_module);
+            break;
+        case 'O':
+            list_output_modules = 1;
             break;
         case 't':
             OPT_SET_STR(voice_type);

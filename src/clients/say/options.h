@@ -27,6 +27,7 @@ signed int rate;
 signed int pitch;
 signed int volume;
 
+int list_output_modules;
 char *output_module;
 char *language;
 char *voice_type;
@@ -49,6 +50,7 @@ static struct option long_options[] = {
     {"pitch", 1, 0, 'p'},
     {"volume", 1, 0, 'i'},
     {"output-module", 1, 0, 'o'},
+    {"list-output-modules", no_argument, 0, 'O'},
     {"language", 1, 0, 'l'},
     {"voice-type", 1, 0, 't'},
     {"list-synthesis-voices", no_argument, 0, 'L'},
@@ -68,7 +70,7 @@ static struct option long_options[] = {
     {0, 0, 0, 0}
 };
 
-static char* short_options = "r:p:i:l:o:t:Ly:m:sxeP:N:n:wSCvh";
+static char* short_options = "r:p:i:l:o:Ot:Ly:m:sxeP:N:n:wSCvh";
 
 int options_parse(int argc, char *argv[]);
 void options_print_version();

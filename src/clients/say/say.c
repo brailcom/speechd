@@ -69,6 +69,7 @@ int main(int argc, char **argv) {
     stop_previous = 0;
     cancel_previous = 0;
     list_synthesis_voices = 0;
+    list_output_modules = 0;
     synthesis_voice = NULL;
     pipe_mode = 0;
     priority = NULL;
@@ -79,7 +80,8 @@ int main(int argc, char **argv) {
 
     /* Check if the text to say or options are specified in the argument */
     msg_arg_required = (pipe_mode != 1) && (stop_previous != 1)
-                       && (cancel_previous != 1) && (list_synthesis_voices != 1);
+                       && (cancel_previous != 1) && (list_synthesis_voices != 1)
+	               && (list_output_modules != 1);
     if ((optind >= argc) && msg_arg_required) {
         options_print_help(argv);
         return 1;
@@ -106,6 +108,22 @@ int main(int argc, char **argv) {
     if (output_module != NULL)
         if(spd_set_output_module(conn, output_module))
             printf("Invalid output module!\n");
+
+    if (list_output_modules) {
+         char **list;
+         int i;
+
+         list = spd_list_modules(conn);
+
+         if (list != NULL) {
+             printf ("OUTPUT MODULES\n");
+             for (i = 0; list[i]; i++) {
+                 printf ("%s\n",list[i]);
+             }
+	 } else {
+	     printf("Output modules not found.\n");
+	 }
+    }
 
     if (voice_type != NULL){
         if (!strcmp(voice_type, "male1")){
