@@ -69,6 +69,7 @@ int main(int argc, char **argv) {
     stop_previous = 0;
     cancel_previous = 0;
     list_synthesis_voices = 0;
+    synthesis_voice = NULL;
     pipe_mode = 0;
     priority = NULL;
     application_name = NULL;
@@ -158,6 +159,10 @@ int main(int argc, char **argv) {
 	    printf("Failed to get voice list.\n");
 	}
     }
+
+    if (synthesis_voice != NULL)
+        if (spd_set_synthesis_voice(conn, synthesis_voice))
+            printf("Failed to set synthesis voice!\n");
 
     if (ssml_mode)
         if(spd_execute_command(conn, "SET SELF SSML_MODE ON"))

@@ -58,6 +58,7 @@ options_print_help(char *argv[])
            "                               (male1, male2, male3, female1, female2\n"
 	   "                                female3, child_male, child_female)\n"
            "-L, --list-synthesis-voices  Get the list of synthesis voices\n"
+           "-y, --synthesis-voice  -     Set the synthesis voice\n"
 	   "-m, --punctuation-mode -     Set the punctuation mode (none, some, all) \n"
 	   "-s, --spelling         -     Spell the message\n"
            "-x, --ssml             -     Set SSML mode on (default: off)\n"
@@ -159,6 +160,9 @@ options_parse(int argc, char *argv[])
             break;
         case 'L':
             list_synthesis_voices = 1;
+            break;
+	case 'y':
+            OPT_SET_STR(synthesis_voice);
             break;
         case 'm':
             OPT_SET_STR(punctuation_mode);
