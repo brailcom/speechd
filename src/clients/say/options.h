@@ -38,6 +38,7 @@ int spelling;
 int wait_till_end;
 int stop_previous;
 int cancel_previous;
+int list_synthesis_voices;
 
 char *application_name;
 char *connection_name;
@@ -49,6 +50,7 @@ static struct option long_options[] = {
     {"output-module", 1, 0, 'o'},
     {"language", 1, 0, 'l'},
     {"voice-type", 1, 0, 't'},
+    {"list-synthesis-voices", no_argument, 0, 'L'},
     {"punctuation-mode", 1, 0, 'm'},
     {"spelling", 0, 0, 's'},
     {"ssml", 0, 0, 'x'},
@@ -64,7 +66,7 @@ static struct option long_options[] = {
     {0, 0, 0, 0}
 };
 
-static char* short_options = "r:p:i:l:o:t:m:sxeP:N:n:wSCvh";
+static char* short_options = "r:p:i:l:o:t:Lm:sxeP:N:n:wSCvh";
 
 int options_parse(int argc, char *argv[]);
 void options_print_version();
