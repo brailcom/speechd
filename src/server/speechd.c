@@ -548,6 +548,7 @@ speechd_options_init(void)
     SpeechdOptions.conf_file = NULL;
     SpeechdOptions.home_speechd_dir = NULL;
     SpeechdOptions.log_dir = NULL;
+    SpeechdOptions.log_dir_set = 0;
     SpeechdOptions.debug = 0;
     SpeechdOptions.debug_destination = NULL;
     debug_logfile = NULL;

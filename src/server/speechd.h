@@ -171,6 +171,7 @@ struct{
     char *conf_dir;
     char *home_speechd_dir;
     char *log_dir;
+    int log_dir_set;
     int spawn;
     int debug;
     char *debug_destination;

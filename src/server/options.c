@@ -41,6 +41,7 @@ static const struct option spd_long_options[] = {
     {"run-single", 0, 0, 's'},
     {"spawn", 0, 0, 'a'},
     {"log-level", 1, 0, 'l'},
+    {"log-dir", required_argument, 0, 'L'},
     {"communication-method", 1, 0, 'c'},
     {"socket-path", 1, 0, 'S'},
     {"port", 1, 0, 'p'},
@@ -52,7 +53,7 @@ static const struct option spd_long_options[] = {
     {0, 0, 0, 0}
 };
 
-static const char *const spd_short_options = "dsal:c:S:p:P:C:vDh";
+static const char *const spd_short_options = "dsal:L:c:S:p:P:C:vDh";
 
 void
 options_print_help(char *argv[])
@@ -70,6 +71,8 @@ options_print_help(char *argv[])
     printf(_("Start only if autospawn is not disabled\n"));
     printf("-l, --log-level\t");
     printf(_("Set log level (1..5)\n"));
+    printf("-L, --log-dir\t");
+    printf(_("Set path to logging\n"));
     printf("-c, --communication-method\t");
     printf(_("Communication method to use (unix_socket or inet_socket)\n"));
     printf("-S, --socket-path\t");
@@ -149,6 +152,10 @@ options_parse(int argc, char *argv[])
             break;
         case 'l':
             SPD_OPTION_SET_INT(log_level);	   
+            break;
+        case 'L':
+            SPD_OPTION_SET_STR(log_dir);
+            SpeechdOptions.log_dir_set = 1;
             break;
         case 'c':
             SPD_OPTION_SET_STR(communication_method);

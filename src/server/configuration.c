@@ -232,7 +232,8 @@ DOTCONF_CB(cb_LogDir)
 {
   assert(cmd->data.str != NULL);
 
-  if (strcmp(cmd->data.str, "default")){
+  if (strcmp(cmd->data.str, "default")
+      && !SpeechdOptions.log_dir_set){
     // cmd->data.str different from "default"
     SpeechdOptions.log_dir = g_strdup(cmd->data.str);
   }
