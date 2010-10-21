@@ -1132,14 +1132,18 @@ spd_list_synthesis_voices(SPDConnection *connection)
 char**
 spd_execute_command_with_list_reply(SPDConnection *connection, char *command)
 {
-  char *reply, *line;
+  char *reply = NULL, *line;
   int err;
   int max_items = 50;
   char **result;
   int i, ret;
 
   ret = spd_execute_command_with_reply(connection, command, &reply);
-  if(!ret_ok(reply)) return NULL;
+  if(!ret_ok(reply)) {
+      if(reply != NULL)
+	  free(reply);
+      return NULL;
+  }
 
   result = malloc((max_items+1)*sizeof(char*));
 
@@ -1154,7 +1158,8 @@ spd_execute_command_with_list_reply(SPDConnection *connection, char *command)
   }
 
   result[i] = NULL;
-  
+
+  free(reply);
   return result;
 }
 
