@@ -1138,11 +1138,11 @@ spd_execute_command_with_list_reply(SPDConnection *connection, char *command)
   char **result;
   int i, ret;
 
-  result = malloc((max_items+1)*sizeof(char*));
-
   ret = spd_execute_command_with_reply(connection, command, &reply);
   if(!ret_ok(reply)) return NULL;
-  
+
+  result = malloc((max_items+1)*sizeof(char*));
+
   for(i=0;  ;i++){
     line = get_param_str(reply, i+1, &err);
     if ((err) || (line == NULL)) break;
