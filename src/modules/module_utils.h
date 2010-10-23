@@ -53,7 +53,7 @@ typedef struct{
     signed int volume;
 
     SPDPunctuation punctuation_mode;
-    ESpellMode spelling_mode;
+    SPDSpelling spelling_mode;
     SPDCapitalLetters cap_let_recogn;
 
     char* language;
@@ -96,7 +96,7 @@ int module_num_dc_options;
  msg_settings.pitch = 0;\
  msg_settings.volume = 0;\
  msg_settings.punctuation_mode = SPD_PUNCT_NONE;\
- msg_settings.spelling_mode = SPELLING_OFF;\
+ msg_settings.spelling_mode = SPD_SPELL_OFF;\
  msg_settings.cap_let_recogn = SPD_CAP_NONE;\
  msg_settings.language = NULL;\
  msg_settings.voice = MALE1;\

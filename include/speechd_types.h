@@ -35,6 +35,11 @@ typedef enum {
     SPD_CAP_ICON = 2
 } SPDCapitalLetters;
 
+typedef enum {
+    SPD_SPELL_OFF = 0,
+    SPD_SPELL_ON = 1
+} SPDSpelling;
+
 typedef enum
     {                  /* Type of voice */
 	NO_VOICE = 0,
@@ -62,12 +67,6 @@ typedef enum
 	MSGTYPE_KEY = 3,
 	MSGTYPE_SPELL = 99
     }EMessageType;
-
-typedef enum
-    {
-	SPELLING_OFF = 0,
-	SPELLING_ON = 1
-    }ESpellMode;
 
 typedef enum
     {

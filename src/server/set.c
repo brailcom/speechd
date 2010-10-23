@@ -197,10 +197,10 @@ set_capital_letter_recognition_uid(int uid, SPDCapitalLetters recogn)
 }
 
 
-SET_SELF_ALL(ESpellMode, spelling)
+SET_SELF_ALL(SPDSpelling, spelling)
 
 int
-set_spelling_uid(int uid, ESpellMode spelling)
+set_spelling_uid(int uid, SPDSpelling spelling)
 {
     TFDSetElement *settings;
 

@@ -13,9 +13,9 @@ char* EPunctMode2str(SPDPunctuation punct);
 
 SPDPunctuation str2EPunctMode(char* str);
 
-char* ESpellMode2str(ESpellMode spell);
+char* ESpellMode2str(SPDSpelling spell);
 
-ESpellMode str2ESpellMode(char* str);
+SPDSpelling str2ESpellMode(char* str);
 
 char* ECapLetRecogn2str(SPDCapitalLetters recogn);
 

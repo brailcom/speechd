@@ -51,11 +51,6 @@ extern "C" {
 /* --------------------- Public data types ------------------------ */
 
 typedef enum{
-    SPD_SPELL_OFF = 0,
-    SPD_SPELL_ON = 1
-}SPDSpelling;
-
-typedef enum{
     SPD_DATA_TEXT = 0,
     SPD_DATA_SSML = 1
 }SPDDataMode;

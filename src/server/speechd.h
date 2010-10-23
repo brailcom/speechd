@@ -88,7 +88,7 @@ typedef struct{
                                    0	-	no punctuation
                                    1 	-	all punctuation
                                    2	-	only user-selected punctuation */
-    ESpellMode spelling_mode;   /* Spelling mode: 0 or 1 (0 - off, 1 - on) */
+    SPDSpelling spelling_mode;   /* Spelling mode: 0 or 1 (0 - off, 1 - on) */
     char *client_name;		/* Name of the client. */
     char *language;             /* Selected language name. (e.g. "en", "cz", "fr", ...) */
     char *output_module;        /* Output module name. (e.g. "festival", "flite", "apollo", ...) */

@@ -98,27 +98,27 @@ str2EPunctMode(char* str)
 }
 
 char*
-ESpellMode2str(ESpellMode spell)
+ESpellMode2str(SPDSpelling spell)
 {
     char *str;
 
     switch (spell)
         {
-        case SPELLING_ON: str = g_strdup("on"); break;
-        case SPELLING_OFF: str = g_strdup("off"); break;
+        case SPD_SPELL_ON: str = g_strdup("on"); break;
+        case SPD_SPELL_OFF: str = g_strdup("off"); break;
         default: str = NULL;
         }
 
     return str;
 }
 
-ESpellMode
+SPDSpelling
 str2ESpellMode(char* str)
 {
-    ESpellMode spell;
+    SPDSpelling spell;
 
-    if (!strcmp(str, "on")) spell = SPELLING_ON;
-    else if (!strcmp(str, "off")) spell = SPELLING_OFF;
+    if (!strcmp(str, "on")) spell = SPD_SPELL_ON;
+    else if (!strcmp(str, "off")) spell = SPD_SPELL_OFF;
     else spell = -1;
 
     return spell;

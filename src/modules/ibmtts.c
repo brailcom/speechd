@@ -586,7 +586,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 	}
     
     ibmtts_message_type = msgtype;
-    if ((msgtype == MSGTYPE_TEXT) && (msg_settings.spelling_mode == SPELLING_ON))
+    if ((msgtype == MSGTYPE_TEXT) && (msg_settings.spelling_mode == SPD_SPELL_ON))
         ibmtts_message_type = MSGTYPE_SPELL;
 	
     /* Setting speech parameters. */
