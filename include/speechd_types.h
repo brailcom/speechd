@@ -23,6 +23,12 @@
 #ifndef SPEECHD_TYPES_H
 #define SPEECHD_TYPES_H
 
+typedef enum {
+    SPD_PUNCT_ALL = 0,
+    SPD_PUNCT_NONE = 1,
+    SPD_PUNCT_SOME = 2
+} SPDPunctuation;
+
 typedef enum
     {                  /* Type of voice */
 	NO_VOICE = 0,
@@ -57,13 +63,6 @@ typedef enum
 	RECOGN_SPELL = 1,
 	RECOGN_ICON = 2
     }ECapLetRecogn;
-
-typedef enum
-    {
-	PUNCT_NONE = 0,
-	PUNCT_ALL = 1,
-	PUNCT_SOME = 2
-    }EPunctMode;
 
 typedef enum
     {

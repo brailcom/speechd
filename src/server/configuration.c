@@ -189,7 +189,7 @@ GLOBAL_FDSET_OPTION_CB_INT(DefaultPauseContext, pause_context, 1, "")
 
 GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPriority, priority, int, str2intpriority)
 GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultVoiceType, voice, EVoiceType, str2EVoice)
-GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPunctuationMode, punctuation_mode, EPunctMode, str2EPunctMode)
+GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPunctuationMode, punctuation_mode, SPDPunctuation, str2EPunctMode)
 GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultCapLetRecognition, cap_let_recogn, ECapLetRecogn, str2ECapLetRecogn)
 
 SPEECHD_OPTION_CB_STR_M(CommunicationMethod, communication_method)
@@ -440,7 +440,7 @@ void
 load_default_global_set_options()
 {
     GlobalFDSet.priority = 3;
-    GlobalFDSet.punctuation_mode = PUNCT_NONE;
+    GlobalFDSet.punctuation_mode = SPD_PUNCT_NONE;
     GlobalFDSet.spelling_mode = 0;
     GlobalFDSet.rate = 0;
     GlobalFDSet.pitch = 0;

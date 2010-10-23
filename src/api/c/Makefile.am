@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-include_HEADERS = libspeechd.h
+spdinclude_HEADERS = libspeechd.h
 inc_local = -I$(top_srcdir)/include/
 
 lib_LTLIBRARIES = libspeechd.la

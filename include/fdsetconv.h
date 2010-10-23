@@ -9,9 +9,9 @@ char* EVoice2str(EVoiceType voice);
 
 EVoiceType str2EVoice(char* str);
 
-char* EPunctMode2str(EPunctMode punct);
+char* EPunctMode2str(SPDPunctuation punct);
 
-EPunctMode str2EPunctMode(char* str);
+SPDPunctuation str2EPunctMode(char* str);
 
 char* ESpellMode2str(ESpellMode spell);
 

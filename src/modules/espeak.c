@@ -157,7 +157,7 @@ static int uri_callback(int type, const char *uri, const char *base);
 static void espeak_set_rate(signed int rate);
 static void espeak_set_pitch(signed int pitch);
 static void espeak_set_volume(signed int volume);
-static void espeak_set_punctuation_mode(EPunctMode punct_mode);
+static void espeak_set_punctuation_mode(SPDPunctuation punct_mode);
 static void espeak_set_cap_let_recogn(ECapLetRecogn cap_mode);
 
 #if 0
@@ -662,17 +662,17 @@ espeak_set_pitch(signed int pitch)
 }
 
 static void
-espeak_set_punctuation_mode(EPunctMode punct_mode)
+espeak_set_punctuation_mode(SPDPunctuation punct_mode)
 {
 	espeak_PUNCT_TYPE espeak_punct_mode = espeakPUNCT_SOME;
 	switch (punct_mode)  {
-	case PUNCT_ALL:
+	case SPD_PUNCT_ALL:
 		espeak_punct_mode = espeakPUNCT_ALL;
 		break;
-	case PUNCT_SOME:
+	case SPD_PUNCT_SOME:
 		espeak_punct_mode = espeakPUNCT_SOME;
 		break;
-	case PUNCT_NONE:
+	case SPD_PUNCT_NONE:
 		espeak_punct_mode = espeakPUNCT_NONE;
 		break;
 	}

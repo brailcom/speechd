@@ -4,7 +4,7 @@ DISTCLEANFILES = atconfig $(TESTSUITE)
 
 c_api = $(top_builddir)/src/api/c
 
-AM_CPPFLAGS = -I$(top_srcdir)/src/api/c
+AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/src/api/c
 
 # The `:;' works around a redirected compound command bash exit status bug.
 package.m4: Makefile

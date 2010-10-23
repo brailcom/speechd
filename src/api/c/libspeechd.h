@@ -29,6 +29,14 @@
 #include <stddef.h>
 #include <pthread.h>
 
+/*
+ * Since the API includes speechd_types.h directly, we only need this
+ * include if we are not being included by the API.
+ */
+#ifndef SPEECHD_TYPES_H
+#include <speech-dispatcher/speechd_types.h>
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -41,12 +49,6 @@ extern "C" {
 
 
 /* --------------------- Public data types ------------------------ */
-
-typedef enum{
-    SPD_PUNCT_ALL = 0,
-    SPD_PUNCT_NONE = 1,
-    SPD_PUNCT_SOME = 2
-}SPDPunctuation;
 
 typedef enum{
     SPD_CAP_NONE = 0,

@@ -164,10 +164,10 @@ set_voice_uid(int uid, char *voice)
     return 0;
 }
 
-SET_SELF_ALL(EPunctMode, punctuation_mode)
+SET_SELF_ALL(SPDPunctuation, punctuation_mode)
 
 int
-set_punctuation_mode_uid(int uid, EPunctMode punctuation)
+set_punctuation_mode_uid(int uid, SPDPunctuation punctuation)
 {
     TFDSetElement *settings;
 	

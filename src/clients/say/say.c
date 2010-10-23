@@ -33,7 +33,16 @@
 #include <semaphore.h>
 #include <errno.h>
 #include <getopt.h>
-#include "libspeechd.h"
+
+/*
+ * Since this client is built as part of the Speech Dispatcher source
+ * tree, we must include speechd_types.h directly.
+ * Clients built outside the speech dispatcher source tree should not do
+ * this.
+ */
+#include <speechd_types.h>
+#include <libspeechd.h>
+
 #include "options.h"
 
 

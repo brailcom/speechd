@@ -45,6 +45,12 @@
 #include <assert.h>
 #include <netdb.h>
 
+/*
+ * This is needed because speechd_types.h is in a different location in
+ * the source tree's include directory than it will be when it is
+ * installed on the user's system.
+ */
+#include <speechd_types.h>
 #include "libspeechd.h"
 
 /* Comment/uncomment to switch debugging on/off */

@@ -63,7 +63,7 @@ void generic_set_pitch(signed int pitch);
 void generic_set_voice(EVoiceType voice);
 void generic_set_language(char* language);
 void generic_set_volume(signed int volume);
-void generic_set_punct(EPunctMode punct);
+void generic_set_punct(SPDPunctuation punct);
 
 /* Fill the module_info structure with pointers to this modules functions */
 
@@ -617,17 +617,17 @@ generic_set_voice(EVoiceType voice)
 }
 
 void
-generic_set_punct(EPunctMode punct)
+generic_set_punct(SPDPunctuation punct)
 {
-    if (punct == PUNCT_NONE){
+    if (punct == SPD_PUNCT_NONE){
         generic_msg_punct_str = g_strdup((char*) GenericPunctNone);
 	return;
     }
-    else if (punct == PUNCT_SOME){
+    else if (punct == SPD_PUNCT_SOME){
 	generic_msg_punct_str = g_strdup((char*) GenericPunctSome);
 	return;
     }
-    else if (punct == PUNCT_ALL){
+    else if (punct == SPD_PUNCT_ALL){
 	generic_msg_punct_str = g_strdup((char*) GenericPunctAll);
 	return;
     }

@@ -69,29 +69,29 @@ str2EVoice(char* str)
 }
 
 char*
-EPunctMode2str(EPunctMode punct)
+EPunctMode2str(SPDPunctuation punct)
 {
     char *str;
 
     switch (punct)
         {
-        case PUNCT_NONE: str = g_strdup("none"); break;
-        case PUNCT_ALL: str = g_strdup("all"); break;
-        case PUNCT_SOME: str = g_strdup("some"); break;
+        case SPD_PUNCT_NONE: str = g_strdup("none"); break;
+        case SPD_PUNCT_ALL: str = g_strdup("all"); break;
+        case SPD_PUNCT_SOME: str = g_strdup("some"); break;
         default: str = NULL;
         }
 
     return str;
 }
 
-EPunctMode
+SPDPunctuation
 str2EPunctMode(char* str)
 {
-    EPunctMode punct;
+    SPDPunctuation punct;
 
-    if (!strcmp(str, "none")) punct = PUNCT_NONE;
-    else if (!strcmp(str, "all")) punct = PUNCT_ALL;
-    else if (!strcmp(str, "some")) punct = PUNCT_SOME;
+    if (!strcmp(str, "none")) punct = SPD_PUNCT_NONE;
+    else if (!strcmp(str, "all")) punct = SPD_PUNCT_ALL;
+    else if (!strcmp(str, "some")) punct = SPD_PUNCT_SOME;
     else punct = -1;
 
     return punct;

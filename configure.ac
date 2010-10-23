@@ -335,6 +335,10 @@ AC_SUBST([modulebindir])
 spdlibdir='${libdir}/speech-dispatcher'
 AC_SUBST([spdlibdir])
 
+# Path for speech-dispatcher include files:
+spdincludedir=${includedir}/speech-dispatcher
+AC_SUBST([spdincludedir])
+
 AC_CONFIG_FILES([Makefile
                  speech-dispatcher.pc
                  config/Makefile

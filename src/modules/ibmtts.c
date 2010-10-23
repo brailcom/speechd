@@ -255,7 +255,7 @@ static void ibmtts_set_language_and_voice(char *lang, EVoiceType voice, char* di
 static void ibmtts_set_synthesis_voice(char *);
 static void ibmtts_set_rate(signed int rate);
 static void ibmtts_set_pitch(signed int pitch);
-static void ibmtts_set_punctuation_mode(EPunctMode punct_mode);
+static void ibmtts_set_punctuation_mode(SPDPunctuation punct_mode);
 static void ibmtts_set_volume(signed int pitch);
 
 /* Internal function prototypes for synthesis thread. */
@@ -979,7 +979,7 @@ _ibmtts_synth(void* nothing)
                 eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
                 break;
             case MSGTYPE_SPELL:
-                if (PUNCT_NONE != msg_settings.punctuation_mode)
+                if (SPD_PUNCT_NONE != msg_settings.punctuation_mode)
                     eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
                 else
                     eciSetParam(eciHandle, eciTextMode, eciTextModeAlphaSpell);
@@ -1103,7 +1103,7 @@ ibmtts_set_pitch(signed int pitch)
 }
 
 static void
-ibmtts_set_punctuation_mode(EPunctMode punct_mode)
+ibmtts_set_punctuation_mode(SPDPunctuation punct_mode)
 {
     const char* fmt = "`Pf%d%s";
     size_t len = strlen(fmt) + strlen(IbmttsPunctuationList) + sizeof('\0');

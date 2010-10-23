@@ -84,7 +84,7 @@ typedef struct{
     signed int rate; 		/* Speed of voice from <-100;+100>, 0 is the default */
     signed int pitch;		/* Pitch of voice from <-100;+100>, 0 is the default */
     signed int volume;		/* Volume of voice from <-100;+100), 0 is the default */
-    EPunctMode punctuation_mode;	/* Punctuation mode: 0, 1 or 2
+    SPDPunctuation punctuation_mode;	/* Punctuation mode: 0, 1 or 2
                                    0	-	no punctuation
                                    1 	-	all punctuation
                                    2	-	only user-selected punctuation */
