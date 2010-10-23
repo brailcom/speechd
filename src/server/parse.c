@@ -903,31 +903,30 @@ parse_get(const char *buf, const int bytes, const int fd, const TSpeechDSock *sp
 
         switch (settings->voice)
         {
-            case MALE1:
+            case SPD_MALE1:
                 g_string_append_printf(result, C_OK_GET"-MALE1\r\n");
                 break;
-            case MALE2:
+            case SPD_MALE2:
                 g_string_append_printf(result, C_OK_GET"-MALE2\r\n");
                 break;
-            case MALE3:
+            case SPD_MALE3:
                 g_string_append_printf(result, C_OK_GET"-MALE3\r\n");
                 break;
-            case FEMALE1:
+            case SPD_FEMALE1:
                 g_string_append_printf(result, C_OK_GET"-FEMALE1\r\n");
                 break;
-            case FEMALE2:
+            case SPD_FEMALE2:
                 g_string_append_printf(result, C_OK_GET"-FEMALE2\r\n");
                 break;
-            case FEMALE3:
+            case SPD_FEMALE3:
                 g_string_append_printf(result, C_OK_GET"-FEMALE3\r\n");
                 break;
-            case CHILD_MALE:
+            case SPD_CHILD_MALE:
                 g_string_append_printf(result, C_OK_GET"-CHILD_MALE\r\n");
                 break;
-            case CHILD_FEMALE:
+            case SPD_CHILD_FEMALE:
                 g_string_append_printf(result, C_OK_GET"-CHILD_FEMALE\r\n");
                 break;
-            case NO_VOICE:
             default:
                 g_string_append_printf(result, C_OK_GET"-NO_VOICE\r\n");
                 break;

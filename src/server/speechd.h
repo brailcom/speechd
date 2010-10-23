@@ -92,7 +92,7 @@ typedef struct{
     char *client_name;		/* Name of the client. */
     char *language;             /* Selected language name. (e.g. "en", "cz", "fr", ...) */
     char *output_module;        /* Output module name. (e.g. "festival", "flite", "apollo", ...) */
-    EVoiceType voice;           /* see EVoiceType definition above */
+    SPDVoiceType voice;           /* see SPDVoiceType definition above */
     char *synthesis_voice;
     SPDCapitalLetters cap_let_recogn;         /* Capital letters recognition: (0 - off, 1 - on) */
 

@@ -58,7 +58,7 @@ typedef struct{
 
     char* language;
 
-    EVoiceType voice;
+    SPDVoiceType voice;
     char *synthesis_voice;
 }SPDMsgSettings;
 
@@ -87,7 +87,7 @@ int module_num_dc_options;
  msg_settings_old.spelling_mode = -1;\
  msg_settings_old.cap_let_recogn = -1;\
  msg_settings_old.language = NULL;	\
- msg_settings_old.voice = NO_VOICE;\
+ msg_settings_old.voice = -1;\
  msg_settings_old.synthesis_voice = NULL;
 
 #define INIT_SETTINGS_TABLES()\
@@ -99,7 +99,7 @@ int module_num_dc_options;
  msg_settings.spelling_mode = SPD_SPELL_OFF;\
  msg_settings.cap_let_recogn = SPD_CAP_NONE;\
  msg_settings.language = NULL;\
- msg_settings.voice = MALE1;\
+ msg_settings.voice = SPD_MALE1;\
  msg_settings.synthesis_voice = NULL;\
  CLEAN_OLD_SETTINGS_TABLE()
 
@@ -427,6 +427,6 @@ int module_audio_init(char **status_info);
 
 /* Prototypes from module_utils_addvoice.c */
 void module_register_settings_voices(void);
-char* module_getvoice(char* language, EVoiceType voice);
+char* module_getvoice(char* language, SPDVoiceType voice);
 
 #endif /* #ifndef __MODULE_UTILS_H */

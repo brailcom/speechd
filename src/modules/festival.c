@@ -138,7 +138,7 @@ void festival_parent_clean();
 
 void festival_set_rate(signed int rate);
 void festival_set_pitch(signed int pitch);
-void festival_set_voice(EVoiceType voice);
+void festival_set_voice(SPDVoiceType voice);
 void festival_set_synthesis_voice(char* synthesis_voice);
 void festival_set_language(char* language);
 void festival_set_punctuation_mode(SPDPunctuation punct);
@@ -800,7 +800,7 @@ festival_set_language(char* language)
 }
 
 void
-festival_set_voice(EVoiceType voice)
+festival_set_voice(SPDVoiceType voice)
 {
     char* voice_name;
 

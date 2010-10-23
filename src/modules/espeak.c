@@ -166,8 +166,8 @@ static void espeak_set_pitch_range(signed int pitch_range);
 
 /* Voices and languages */
 static void espeak_set_language(char *lang);
-static void espeak_set_voice(EVoiceType voice);
-static void espeak_set_language_and_voice(char *lang, EVoiceType voice);
+static void espeak_set_voice(SPDVoiceType voice);
+static void espeak_set_language_and_voice(char *lang, SPDVoiceType voice);
 static void espeak_set_synthesis_voice(char *);
 
 /* Internal function prototypes for playback thread. */
@@ -711,39 +711,39 @@ espeak_set_cap_let_recogn(SPDCapitalLetters cap_mode)
 
 /* Given a language code and SD voice code, sets the espeak voice. */
 static void
-espeak_set_language_and_voice(char *lang, EVoiceType voice_code)
+espeak_set_language_and_voice(char *lang, SPDVoiceType voice_code)
 {
 	DBG("Espeak: set_language_and_voice %s %d", lang, voice_code);
 	espeak_ERROR ret;
     
 	unsigned char overlay = 0;
 	switch (voice_code) {
-	case NO_VOICE:
+	case SPD_MALE1:
 		overlay = 0;
 		break;
-	case MALE1:
-		overlay = 0;
-		break;
-	case MALE2:
+	case SPD_MALE2:
 		overlay = 1;
 		break;
-	case MALE3:
+	case SPD_MALE3:
 		overlay = 2;
 		break;
-	case FEMALE1:
+	case SPD_FEMALE1:
 		overlay = 11;
 		break;
-	case FEMALE2:
+	case SPD_FEMALE2:
 		overlay = 12;
 		break;
-	case FEMALE3:
+	case SPD_FEMALE3:
 		overlay = 13;
 		break;
-	case CHILD_MALE:
+	case SPD_CHILD_MALE:
 		overlay = 4;
 		break;
-	case CHILD_FEMALE:
+	case SPD_CHILD_FEMALE:
 		overlay = 14;
+		break;
+	default:
+		overlay = 0;
 		break;
 	}
 
@@ -760,7 +760,7 @@ espeak_set_language_and_voice(char *lang, EVoiceType voice_code)
 }
 
 static void
-espeak_set_voice(EVoiceType voice)
+espeak_set_voice(SPDVoiceType voice)
 {
 	assert(msg_settings.language);
 	espeak_set_language_and_voice(msg_settings.language, voice);

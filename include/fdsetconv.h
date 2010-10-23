@@ -5,9 +5,9 @@
 #include <string.h>
 #include <speechd_types.h>
 
-char* EVoice2str(EVoiceType voice);
+char* EVoice2str(SPDVoiceType voice);
 
-EVoiceType str2EVoice(char* str);
+SPDVoiceType str2EVoice(char* str);
 
 char* EPunctMode2str(SPDPunctuation punct);
 
@@ -21,6 +21,6 @@ char* ECapLetRecogn2str(SPDCapitalLetters recogn);
 
 SPDCapitalLetters str2ECapLetRecogn(char* str);
 
-EVoiceType str2intpriority(char* str);
+int str2intpriority(char* str);
 
 #endif

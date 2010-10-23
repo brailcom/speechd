@@ -54,18 +54,6 @@ typedef enum{
     SPD_DATA_TEXT = 0,
     SPD_DATA_SSML = 1
 }SPDDataMode;
-    
-typedef enum{
-    SPD_MALE1 = 1,
-    SPD_MALE2 = 2,
-    SPD_MALE3 = 3,
-    SPD_FEMALE1 = 4,
-    SPD_FEMALE2 = 5,
-    SPD_FEMALE3 = 6,
-    SPD_CHILD_MALE = 7,
-    SPD_CHILD_FEMALE = 8
-}SPDVoiceType;
-
 
 typedef struct{
   char *name;   /* Name of the voice (id) */
