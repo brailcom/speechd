@@ -56,32 +56,12 @@ typedef enum{
 }SPDDataMode;
 
 typedef enum{
-    SPD_BEGIN = 1,
-    SPD_END = 2,
-    SPD_INDEX_MARKS = 4,
-    SPD_CANCEL = 8,
-    SPD_PAUSE = 16,
-    SPD_RESUME = 32,
-
-    SPD_ALL = 0x3F
-}SPDNotification;
-
-typedef enum{
     SPD_IMPORTANT = 1,
     SPD_MESSAGE = 2,
     SPD_TEXT = 3,
     SPD_NOTIFICATION = 4,
     SPD_PROGRESS = 5
 }SPDPriority;
-
-typedef enum{
-    SPD_EVENT_BEGIN,
-    SPD_EVENT_END,
-    SPD_EVENT_INDEX_MARK,
-    SPD_EVENT_CANCEL,
-    SPD_EVENT_PAUSE,
-    SPD_EVENT_RESUME
-}SPDNotificationType;
 
 typedef enum{
     SPD_MODE_SINGLE = 0,

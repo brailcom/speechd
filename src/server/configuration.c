@@ -453,7 +453,7 @@ load_default_global_set_options()
     GlobalFDSet.min_delay_progress = 2000;
     GlobalFDSet.pause_context = 0;
     GlobalFDSet.ssml_mode = 0;
-    GlobalFDSet.notification = NOTIFY_NOTHING;
+    GlobalFDSet.notification = 0;
 
 #ifdef __SUNPRO_C
 /* Added by Willie Walker - default to OSS for Solaris */

@@ -627,23 +627,23 @@ is_sb_speaking(void)
 	if (!strcmp(index_mark, SD_MARK_BODY"begin")){
 	    SPEAKING=1;
 	    if (!settings->paused_while_speaking){
-		if (settings->notification & NOTIFY_BEGIN)
+		if (settings->notification & SPD_BEGIN)
 		    report_begin(current_message);
 	    }else{
-		if (settings->notification & NOTIFY_RESUME)
+		if (settings->notification & SPD_RESUME)
 		    report_resume(current_message);
 		settings->paused_while_speaking = 0;
 	    }
 	}else if (!strcmp(index_mark, SD_MARK_BODY"end")){
 	    SPEAKING=0;
 	    poll_count=1;
-	    if (settings->notification & NOTIFY_END)
+	    if (settings->notification & SPD_END)
 		report_end(current_message);
             speaking_semaphore_post();
 	}else if (!strcmp(index_mark, SD_MARK_BODY"paused")){
 	    SPEAKING=0;
 	    poll_count=1;
-	    if (settings->notification & NOTIFY_PAUSE)
+	    if (settings->notification & SPD_PAUSE)
 		report_pause(current_message);
 	    /* We don't want to free this message in speak() since we will
 	       later copy it in resume() */
@@ -651,12 +651,12 @@ is_sb_speaking(void)
 	}else if (!strcmp(index_mark, SD_MARK_BODY"stopped")){
 	    SPEAKING=0;
 	    poll_count=1;
-	    if (settings->notification & NOTIFY_CANCEL)
+	    if (settings->notification & SPD_CANCEL)
 		report_cancel(current_message);
 	    speaking_semaphore_post();
 	}else if (index_mark != NULL){
 	    if (strncmp(index_mark, SD_MARK_BODY, SD_MARK_BODY_LEN)){
-		if (settings->notification & NOTIFY_IM)
+		if (settings->notification & SPD_INDEX_MARKS)
 		    report_index_mark(current_message, index_mark);
 	    }else{
 		MSG(5, "Setting current index_mark for the message to %s", index_mark);
@@ -697,7 +697,7 @@ GList* queue_remove_message(GList *queue, GList *gl)
     assert(gl != NULL);
     assert(gl->data != NULL);
     msg = (TSpeechDMessage*) gl->data;
-    if (msg->settings.notification & NOTIFY_CANCEL)
+    if (msg->settings.notification & SPD_CANCEL)
 	report_cancel(msg);
     mem_free_message(gl->data);
     queue = g_list_delete_link(queue, gl);

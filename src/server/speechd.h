@@ -96,7 +96,7 @@ typedef struct{
     char *synthesis_voice;
     SPDCapitalLetters cap_let_recogn;         /* Capital letters recognition: (0 - off, 1 - on) */
 
-    ENotification notification;	/* Notification about start and stop of messages, about reached
+    SPDNotification notification;	/* Notification about start and stop of messages, about reached
 				   index marks and state (canceled, paused, resumed). */
 
     int reparted;

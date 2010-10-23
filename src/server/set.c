@@ -408,9 +408,9 @@ set_debug_uid(int uid, int debug)
 
 #define SET_NOTIFICATION_STATE(state) \
 	if (val) \
-	    settings->notification = settings->notification | NOTIFY_ ## state; \
+	    settings->notification = settings->notification | SPD_ ## state; \
         else \
-	    settings->notification = settings->notification & (! NOTIFY_ ## state); 
+	    settings->notification = settings->notification & (! SPD_ ## state);
 
 int
 set_notification_self(int fd, char *type, int val)
@@ -430,7 +430,7 @@ set_notification_self(int fd, char *type, int val)
     }else if (!strcmp(type, "end")){
 	SET_NOTIFICATION_STATE(END);
     }else if (!strcmp(type, "index_marks")){
-	SET_NOTIFICATION_STATE(IM);
+	SET_NOTIFICATION_STATE(INDEX_MARKS);
     }else if (!strcmp(type, "pause")){
 	SET_NOTIFICATION_STATE(PAUSE);
     }else if (!strcmp(type, "resume")){
@@ -441,7 +441,7 @@ set_notification_self(int fd, char *type, int val)
 	{
 	    SET_NOTIFICATION_STATE(END);
 	    SET_NOTIFICATION_STATE(BEGIN);
-	    SET_NOTIFICATION_STATE(IM);
+	    SET_NOTIFICATION_STATE(INDEX_MARKS);
 	    SET_NOTIFICATION_STATE(CANCEL);
 	    SET_NOTIFICATION_STATE(PAUSE);
 	    SET_NOTIFICATION_STATE(RESUME);
