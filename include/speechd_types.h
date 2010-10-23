@@ -51,6 +51,13 @@ typedef enum {
     SPD_CHILD_FEMALE = 8
 } SPDVoiceType;
 
+
+typedef struct {
+    char *name;      /* Name of the voice (id) */
+    char *language;  /* 2-letter ISO language code */
+    char *variant;   /* a not-well defined string describing dialect etc. */
+} SPDVoice;
+
 typedef enum
     {
 	SORT_BY_TIME = 0,
@@ -76,11 +83,5 @@ typedef enum
 	NOTIFY_PAUSE = 16,
 	NOTIFY_RESUME = 32
     }ENotification;
-
-typedef struct {
-  char* name;
-  char* language;
-  char* dialect;
-}VoiceDescription;
 
 #endif /* not ifndef SPEECHD_TYPES */

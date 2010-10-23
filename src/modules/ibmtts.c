@@ -244,7 +244,7 @@ int ibmtts_voice_speed;
 static char *ibmtts_input_encoding = "cp1252";
 
 /* list of voices */
-static VoiceDescription **ibmtts_voice_list = NULL;
+static SPDVoice **ibmtts_voice_list = NULL;
 static int *ibmtts_voice_index = NULL;
 
 /* Internal function prototypes for main thread. */
@@ -548,7 +548,7 @@ module_audio_init(char **status_info){
 }
 
 
-VoiceDescription**
+SPDVoice**
 module_list_voices(void)
 {
   DBG("Ibmtts: %s", __FUNCTION__);
@@ -1137,9 +1137,9 @@ ibmtts_voice_enum_to_str(SPDVoiceType voice)
 
 /* Given a language, dialect and SD voice codes sets the IBM voice */
 static void
-ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char* dialect)
+ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char* variant)
 {
-    char *dialect_name = dialect;
+    char *variant_name = variant;
     char *voicename = ibmtts_voice_enum_to_str(voice);
     int eciVoice;
     int ret = -1;
@@ -1147,15 +1147,15 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char* dialect)
  
     DBG("Ibmtts: %s, lang=%s, voice=%d, dialect=%s", 
 	__FUNCTION__, lang, (int)voice, 
-	dialect ? dialect : NULL);
+	variant ? variant : NULL);
 
-    VoiceDescription **v = ibmtts_voice_list;
+    SPDVoice **v = ibmtts_voice_list;
     assert(v);
 
-    if (dialect_name) {
+    if (variant_name) {
 	for (i=0; v[i]; i++) {
-	    DBG("%d. dialect=%s", i, v[i]->dialect);
-	    if (!strcmp(v[i]->dialect, dialect_name)) {
+	    DBG("%d. variant=%s", i, v[i]->variant);
+	    if (!strcmp(v[i]->variant, variant_name)) {
 		int j = ibmtts_voice_index[i];
 		ret = eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
 		DBG("Ibmtts: set langID=0x%x (ret=%d)", eciLocales[j].langID, ret);
@@ -1169,7 +1169,7 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char* dialect)
 	    DBG("%d. language=%s", i, v[i]->language);
 	    if (!strcmp(v[i]->language, lang)) {
 		int j = ibmtts_voice_index[i];
-		dialect_name = v[i]->name;
+		variant_name = v[i]->name;
 		ret = eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
 		DBG("Ibmtts: set langID=0x%x (ret=%d)", eciLocales[j].langID, ret);
 		ibmtts_input_encoding = eciLocales[j].charset;
@@ -1683,8 +1683,8 @@ alloc_voice_list()
     if (eciGetAvailableLanguages(aLanguage, &nLanguages))
 	return;
 
-    ibmtts_voice_list = g_malloc((nLanguages+1)*sizeof(VoiceDescription*));
-    ibmtts_voice_index = g_malloc((nLanguages+1)*sizeof(VoiceDescription*));
+    ibmtts_voice_list = g_malloc((nLanguages+1)*sizeof(SPDVoice*));
+    ibmtts_voice_index = g_malloc((nLanguages+1)*sizeof(SPDVoice*));
     if (!ibmtts_voice_list)
 	return;
 
@@ -1692,7 +1692,7 @@ alloc_voice_list()
     for(i=0; i<nLanguages; i++) {
 	/* look for the language name */
 	int j;
-	ibmtts_voice_list[i] = g_malloc(sizeof(VoiceDescription));
+	ibmtts_voice_list[i] = g_malloc(sizeof(SPDVoice));
 
 	DBG("Ibmtts: aLanguage[%d]=0x%08x", i, aLanguage[i]);
 	for (j=0; j<MAX_NB_OF_LANGUAGES; j++) {
@@ -1700,7 +1700,7 @@ alloc_voice_list()
 	    if (eciLocales[j].langID == aLanguage[i]) {
 		ibmtts_voice_list[i]->name = eciLocales[j].name;
 		ibmtts_voice_list[i]->language = eciLocales[j].lang;
-		ibmtts_voice_list[i]->dialect = eciLocales[j].dialect;
+		ibmtts_voice_list[i]->variant = eciLocales[j].dialect;
 		ibmtts_voice_index[i] = j;
 		DBG("Ibmtts: alloc_voice_list %s", ibmtts_voice_list[i]->name);
 		break;

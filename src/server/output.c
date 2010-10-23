@@ -283,7 +283,7 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
 int
 _output_get_voices(OutputModule *module)
 {
-  VoiceDescription** voice_dscr;
+  SPDVoice** voice_dscr;
   GString *reply;
   gchar **lines;
   gchar **atoms;
@@ -309,7 +309,7 @@ _output_get_voices(OutputModule *module)
   //TODO: only 256 voices supported here
   lines = g_strsplit(reply->str, "\n", 256);
   g_string_free(reply, TRUE);
-  voice_dscr = g_malloc(256*sizeof(VoiceDescription*));
+  voice_dscr = g_malloc(256*sizeof(SPDVoice*));
   for (i = 0; !errors && (lines[i] != NULL); i++) {
     MSG(1, "LINE here:|%s|", lines[i]);
     if (strlen(lines[i])<=4){
@@ -327,10 +327,10 @@ _output_get_voices(OutputModule *module)
       errors = TRUE;
       } else {
         //Fill in VoiceDescription
-        voice_dscr[i] = (VoiceDescription*) g_malloc(sizeof(VoiceDescription));
+        voice_dscr[i] = g_malloc(sizeof(SPDVoice));
         voice_dscr[i]->name=g_strdup(atoms[0]);
         voice_dscr[i]->language=g_strdup(atoms[1]);
-        voice_dscr[i]->dialect=g_strdup(atoms[2]);
+        voice_dscr[i]->variant=g_strdup(atoms[2]);
       }
     if (atoms != NULL)
       g_strfreev(atoms);
@@ -347,7 +347,7 @@ _output_get_voices(OutputModule *module)
   return ret;
 }
 
-VoiceDescription**
+SPDVoice**
 output_list_voices(char* module_name)
 {
   OutputModule *module;

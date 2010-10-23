@@ -81,7 +81,7 @@ static const char * picoInternalSgLingware[] = {
 	"fr-FR_nk0_sg.bin",
 	"it-IT_cm0_sg.bin" };
 
-static const VoiceDescription pico_voices[] = {
+static const SPDVoice pico_voices[] = {
 	{"samantha", "en", "en-US"},
 	{"serena", "en", "en-GB"},
 	{"sabrina", "de", "de-DE"},
@@ -90,7 +90,7 @@ static const VoiceDescription pico_voices[] = {
 	{"silvia", "it", "it-IT"}
 };
 
-static const VoiceDescription *pico_voices_list[] = {
+static const SPDVoice *pico_voices_list[] = {
 	&pico_voices[0],
 	&pico_voices[1],
 	&pico_voices[2],
@@ -409,7 +409,7 @@ int module_init(char **status_info)
 	}
 
 	/* load resource for all language, probably need only one */
-	for (i = 0; i < sizeof(pico_voices)/sizeof(VoiceDescription); i++) {
+	for (i = 0; i < sizeof(pico_voices)/sizeof(SPDVoice); i++) {
 		if (0 != pico_init_voice(i)) {
 			g_free(pmem);
 			*status_info = g_strdup_printf(MODULE_NAME
@@ -440,7 +440,7 @@ int module_audio_init(char **status_info)
 	return module_audio_init_spd(status_info);
 }
 
-VoiceDescription **module_list_voices(void)
+SPDVoice **module_list_voices(void)
 {
 	return pico_voices_list;
 }
@@ -477,7 +477,7 @@ static void pico_set_language(char *lang)
 	int i;
 
 	/* get voice name based on language */
-	for (i = 0; i < sizeof(pico_voices)/sizeof(VoiceDescription); i++) {
+	for (i = 0; i < sizeof(pico_voices)/sizeof(SPDVoice); i++) {
 		if (!strcmp(pico_voices[i].language,lang)) {
 			pico_set_synthesis_voice(pico_voices[i].name);
 			return;

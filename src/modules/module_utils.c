@@ -377,9 +377,9 @@ do_debug(char* cmd_buf)
 char *
 do_list_voices(void)
 {
-  VoiceDescription **voices;
+  SPDVoice **voices;
   int i;
-  char *lang, *dialect;
+  char *lang, *variant;
   GString *voice_list;
 
   voices = module_list_voices();
@@ -397,11 +397,11 @@ do_list_voices(void)
       lang = "none";
     else
       lang = voices[i]->language;
-    if (voices[i]->dialect==NULL)
-      dialect= "none";
+    if (voices[i]->variant==NULL)
+      variant= "none";
     else
-      dialect = voices[i]->dialect;
-    g_string_append_printf(voice_list, "200-%s %s %s\n", voices[i]->name, lang, dialect);
+      variant = voices[i]->variant;
+    g_string_append_printf(voice_list, "200-%s %s %s\n", voices[i]->name, lang, variant);
   }
 
   /* check whether we found at least one voice */

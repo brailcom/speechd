@@ -159,7 +159,7 @@ module_audio_init(char **status_info){
 }
 
 
-VoiceDescription**
+SPDVoice**
 module_list_voices(void)
 {
   return NULL;

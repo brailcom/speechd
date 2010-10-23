@@ -104,7 +104,7 @@ static gboolean espeak_stop_requested = FALSE;
 /* > */
 
 static int espeak_sample_rate = 0;
-static VoiceDescription **espeak_voice_list = NULL;
+static SPDVoice **espeak_voice_list = NULL;
 
 /* < The playback queue. */
 
@@ -144,7 +144,7 @@ static int espeak_voice_pitch_baseline = 50;
 
 static void espeak_state_reset();
 static TEspeakSuccess espeak_set_punctuation_list_from_utf8(const char *punct);
-static VoiceDescription** espeak_list_synthesis_voices();
+static SPDVoice** espeak_list_synthesis_voices();
 static void espeak_free_voice_list();
 
 /* Callbacks */
@@ -324,7 +324,7 @@ module_audio_init(char **status_info){
 }
 
 
-VoiceDescription**
+SPDVoice**
 module_list_voices(void)
 {
 	return espeak_voice_list;
@@ -1198,10 +1198,10 @@ espeak_play_file(char *filename)
 	return result;
 }
 
-static VoiceDescription**
+static SPDVoice**
 espeak_list_synthesis_voices()
 {
-	VoiceDescription **result = NULL;
+	SPDVoice **result = NULL;
 	const espeak_VOICE **espeak_voices = espeak_ListVoices(NULL);
 	int i = 0;
 	int j = 0;
@@ -1212,24 +1212,24 @@ espeak_list_synthesis_voices()
 		numvoices++;
 	}
 	DBG("Espeak: %d voices total.", numvoices);
-	result = g_new0(VoiceDescription*, numvoices + 1);
+	result = g_new0(SPDVoice*, numvoices + 1);
 	for (i = j = 0; espeak_voices[i] != NULL; i++) {
 		const espeak_VOICE *v = espeak_voices[i];
 		if (!g_str_has_prefix(v->identifier, "mb/")) {
 			/* Not an mbrola voice */
-			VoiceDescription *voice = g_new0(VoiceDescription, 1);
+			SPDVoice *voice = g_new0(SPDVoice, 1);
 
 			voice->name = g_strdup(v->name);
 
 			const gchar *first_lang = v->languages + 1;
 			gchar *lang = NULL;
-			gchar *dialect = NULL;
+			gchar *variant = NULL;
 			if (g_utf8_validate(first_lang, -1, NULL)) {
 				gchar *dash = g_utf8_strchr(first_lang, -1, '-');
 				if (dash != NULL) {
-					/* There is probably a dialect string (like en-uk) */
+					/* There is probably a variant string (like en-uk) */
 					lang = g_strndup(first_lang, dash - first_lang);
-					dialect = g_strdup(g_utf8_next_char(dash));
+					variant = g_strdup(g_utf8_next_char(dash));
 				} else {
 					lang = g_strdup(first_lang);
 				}
@@ -1237,7 +1237,7 @@ espeak_list_synthesis_voices()
 				DBG("Espeak: Not a valid utf8 string: %s", first_lang);;
 			}
 			voice->language = lang;
-			voice->dialect  = dialect;
+			voice->variant  = variant;
 	  
 			result[j++] = voice;
 		}
@@ -1256,7 +1256,7 @@ espeak_free_voice_list()
 		for (i = 0; espeak_voice_list[i] != NULL; i++) {
 			g_free(espeak_voice_list[i]->name);
 			g_free(espeak_voice_list[i]->language);
-			g_free(espeak_voice_list[i]->dialect);
+			g_free(espeak_voice_list[i]->variant);
 			g_free(espeak_voice_list[i]);
 		}
 		g_free(espeak_voice_list);

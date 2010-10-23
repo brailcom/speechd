@@ -39,7 +39,7 @@ typedef struct{
     int stderr_redirect;
     pid_t pid;
     int working;
-    VoiceDescription **voices;
+    SPDVoice **voices;
 }OutputModule;
 
 OutputModule* load_output_module(char* mod_name, char* mod_prog,

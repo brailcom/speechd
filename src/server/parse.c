@@ -855,7 +855,7 @@ parse_list(const char* buf, const int bytes, const int fd, const TSpeechDSock *s
       char *module_name;
       int uid;
       TFDSetElement *settings;
-      VoiceDescription **voices;
+      SPDVoice **voices;
       GString *result;
       int i;
       char *helper;
@@ -872,7 +872,7 @@ parse_list(const char* buf, const int bytes, const int fd, const TSpeechDSock *s
       for (i=0; ; i++){
 	if (voices[i] == NULL) break;
 	g_string_append_printf(result, C_OK_VOICES"-%s %s %s\r\n",
-			       voices[i]->name, voices[i]->language, voices[i]->dialect);	
+			       voices[i]->name, voices[i]->language, voices[i]->variant);
       }
       g_string_append(result, OK_VOICE_LIST_SENT);
       helper = result->str;

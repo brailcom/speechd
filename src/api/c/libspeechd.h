@@ -55,12 +55,6 @@ typedef enum{
     SPD_DATA_SSML = 1
 }SPDDataMode;
 
-typedef struct{
-  char *name;   /* Name of the voice (id) */
-  char *language;  /* 2-letter ISO language code */
-  char *variant;   /* a not-well defined string describing dialect etc. */
-}SPDVoice;
-
 typedef enum{
     SPD_BEGIN = 1,
     SPD_END = 2,

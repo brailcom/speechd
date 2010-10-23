@@ -55,7 +55,7 @@ int festival_process_pid = 0;
 
 FT_Info *festival_info = NULL;
 
-VoiceDescription** festival_voice_list = NULL;
+SPDVoice** festival_voice_list = NULL;
 
 enum{
     FCT_SOCKET = 0,
@@ -131,7 +131,7 @@ FEST_SET_STR(FestivalSetVoice, "speechd-set-voice")
 FEST_SET_SYMB(FestivalSetSynthesisVoice, "speechd-set-festival-voice")
 
 /* Internal functions prototypes */
-static VoiceDescription** festivalGetVoices(FT_Info *info);
+static SPDVoice** festivalGetVoices(FT_Info *info);
 void* _festival_speak(void*);
 
 void festival_parent_clean();
@@ -315,7 +315,7 @@ module_audio_init(char **status_info){
   return module_audio_init_spd(status_info);
 }
 
-VoiceDescription**
+SPDVoice**
 module_list_voices(void)
 {
   return festival_voice_list;
@@ -508,14 +508,14 @@ module_close(int status)
           goto sem_wait; \
         }
 
-static VoiceDescription** festivalGetVoices(FT_Info *info)
+static SPDVoice** festivalGetVoices(FT_Info *info)
 {
   char *reply;
   char** voices;
-  char* lang; char* dialect;
+  char* lang; char* variant;
   int i, j;
   int num_voices = 0;
-  VoiceDescription** result;
+  SPDVoice** result;
 
   FEST_SEND_CMD("(apply append (voice-list-language-codes))");
   festival_read_response(info, &reply);
@@ -536,7 +536,7 @@ static VoiceDescription** festivalGetVoices(FT_Info *info)
   for (i=0; ; i++, num_voices++) if (voices[i] == NULL) break;
   num_voices /= 3;
 
-  result = (VoiceDescription**) g_malloc((num_voices + 1)*sizeof(VoiceDescription*));
+  result = g_malloc((num_voices + 1)*sizeof(SPDVoice*));
 
   for (i=0, j=0; ;j++){
     if (voices[i] == NULL)
@@ -545,18 +545,18 @@ static VoiceDescription** festivalGetVoices(FT_Info *info)
       continue;
     else
       {
-	result[j] = (VoiceDescription*) g_malloc(sizeof(VoiceDescription));
+	result[j] = g_malloc(sizeof(SPDVoice));
 	result[j]->name = voices[i];
 	lang = voices[i+1];
 	if ((lang != NULL) && (strcmp(lang, "nil")))
 	  result[j]->language = g_strdup(lang);
 	else
 	  result[j]->language = NULL;
-	dialect = voices[i+2];
-	if ((dialect != NULL) && (strcmp(dialect, "nil")))
-	  result[j]->dialect = g_strdup(dialect);
+	variant = voices[i+2];
+	if ((variant != NULL) && (strcmp(variant, "nil")))
+	  result[j]->variant = g_strdup(variant);
 	else
-	  result[j]->dialect=NULL;
+	  result[j]->variant=NULL;
 	i+=3;
       }
   }
