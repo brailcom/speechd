@@ -182,10 +182,10 @@ set_punctuation_mode_uid(int uid, SPDPunctuation punctuation)
      settings->name = set_param_str(settings->name, name);
 
 
-SET_SELF_ALL(ECapLetRecogn, capital_letter_recognition)
+SET_SELF_ALL(SPDCapitalLetters, capital_letter_recognition)
 
 int
-set_capital_letter_recognition_uid(int uid, ECapLetRecogn recogn)
+set_capital_letter_recognition_uid(int uid, SPDCapitalLetters recogn)
 {
     TFDSetElement *settings;
 

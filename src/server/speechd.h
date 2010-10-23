@@ -94,7 +94,7 @@ typedef struct{
     char *output_module;        /* Output module name. (e.g. "festival", "flite", "apollo", ...) */
     EVoiceType voice;           /* see EVoiceType definition above */
     char *synthesis_voice;
-    ECapLetRecogn cap_let_recogn;         /* Capital letters recognition: (0 - off, 1 - on) */
+    SPDCapitalLetters cap_let_recogn;         /* Capital letters recognition: (0 - off, 1 - on) */
 
     ENotification notification;	/* Notification about start and stop of messages, about reached
 				   index marks and state (canceled, paused, resumed). */

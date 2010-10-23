@@ -158,7 +158,7 @@ static void espeak_set_rate(signed int rate);
 static void espeak_set_pitch(signed int pitch);
 static void espeak_set_volume(signed int volume);
 static void espeak_set_punctuation_mode(SPDPunctuation punct_mode);
-static void espeak_set_cap_let_recogn(ECapLetRecogn cap_mode);
+static void espeak_set_cap_let_recogn(SPDCapitalLetters cap_mode);
 
 #if 0
 static void espeak_set_pitch_range(signed int pitch_range);
@@ -686,17 +686,17 @@ espeak_set_punctuation_mode(SPDPunctuation punct_mode)
 }
 
 static void
-espeak_set_cap_let_recogn(ECapLetRecogn cap_mode)
+espeak_set_cap_let_recogn(SPDCapitalLetters cap_mode)
 {
 	int espeak_cap_mode = 0;
 	switch (cap_mode)  {
-	case RECOGN_NONE:
+	case SPD_CAP_NONE:
 		espeak_cap_mode = EspeakCapitalPitchRise;
 		break;
-	case RECOGN_SPELL:
+	case SPD_CAP_SPELL:
 		espeak_cap_mode = 2;
 		break;
-	case RECOGN_ICON:
+	case SPD_CAP_ICON:
 		espeak_cap_mode = 1;
 		break;
 	}

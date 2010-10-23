@@ -190,7 +190,7 @@ GLOBAL_FDSET_OPTION_CB_INT(DefaultPauseContext, pause_context, 1, "")
 GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPriority, priority, int, str2intpriority)
 GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultVoiceType, voice, EVoiceType, str2EVoice)
 GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPunctuationMode, punctuation_mode, SPDPunctuation, str2EPunctMode)
-GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultCapLetRecognition, cap_let_recogn, ECapLetRecogn, str2ECapLetRecogn)
+GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultCapLetRecognition, cap_let_recogn, SPDCapitalLetters, str2ECapLetRecogn)
 
 SPEECHD_OPTION_CB_STR_M(CommunicationMethod, communication_method)
 SPEECHD_OPTION_CB_STR_M(SocketPath, socket_path)
@@ -449,7 +449,7 @@ load_default_global_set_options()
     GlobalFDSet.language = g_strdup("en");
     GlobalFDSet.output_module = NULL;
     GlobalFDSet.voice = MALE1;
-    GlobalFDSet.cap_let_recogn = 0;
+    GlobalFDSet.cap_let_recogn = SPD_CAP_NONE;
     GlobalFDSet.min_delay_progress = 2000;
     GlobalFDSet.pause_context = 0;
     GlobalFDSet.ssml_mode = 0;

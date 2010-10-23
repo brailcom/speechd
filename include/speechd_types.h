@@ -29,6 +29,12 @@ typedef enum {
     SPD_PUNCT_SOME = 2
 } SPDPunctuation;
 
+typedef enum {
+    SPD_CAP_NONE = 0,
+    SPD_CAP_SPELL = 1,
+    SPD_CAP_ICON = 2
+} SPDCapitalLetters;
+
 typedef enum
     {                  /* Type of voice */
 	NO_VOICE = 0,
@@ -56,13 +62,6 @@ typedef enum
 	MSGTYPE_KEY = 3,
 	MSGTYPE_SPELL = 99
     }EMessageType;
-
-typedef enum
-    {
-	RECOGN_NONE = 0,
-	RECOGN_SPELL = 1,
-	RECOGN_ICON = 2
-    }ECapLetRecogn;
 
 typedef enum
     {

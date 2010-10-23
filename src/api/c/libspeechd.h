@@ -51,12 +51,6 @@ extern "C" {
 /* --------------------- Public data types ------------------------ */
 
 typedef enum{
-    SPD_CAP_NONE = 0,
-    SPD_CAP_SPELL = 1,
-    SPD_CAP_ICON = 2
-}SPDCapitalLetters;
-
-typedef enum{
     SPD_SPELL_OFF = 0,
     SPD_SPELL_ON = 1
 }SPDSpelling;

@@ -549,9 +549,9 @@ parse_set(const char *buf, const int bytes, const int fd, const TSpeechDSock *sp
         NOT_ALLOWED_INSIDE_BLOCK();
         GET_PARAM_STR(recognition, 3, CONV_DOWN);
 
-        if(TEST_CMD(recognition, "none")) capital_letter_recognition = RECOGN_NONE;
-        else if(TEST_CMD(recognition, "spell")) capital_letter_recognition = RECOGN_SPELL;        
-        else if(TEST_CMD(recognition, "icon")) capital_letter_recognition = RECOGN_ICON;        
+        if(TEST_CMD(recognition, "none")) capital_letter_recognition = SPD_CAP_NONE;
+        else if(TEST_CMD(recognition, "spell")) capital_letter_recognition = SPD_CAP_SPELL;
+        else if(TEST_CMD(recognition, "icon")) capital_letter_recognition = SPD_CAP_ICON;
         else{
             g_free(recognition);
             return g_strdup(ERR_PARAMETER_INVALID);

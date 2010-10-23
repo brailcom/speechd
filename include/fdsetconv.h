@@ -17,12 +17,10 @@ char* ESpellMode2str(ESpellMode spell);
 
 ESpellMode str2ESpellMode(char* str);
 
-char* ECapLetRecogn2str(ECapLetRecogn recogn);
+char* ECapLetRecogn2str(SPDCapitalLetters recogn);
 
-ECapLetRecogn ECapLetRecognstr2ECapLetRecogn(char* str);
+SPDCapitalLetters str2ECapLetRecogn(char* str);
 
 EVoiceType str2intpriority(char* str);
-
-ECapLetRecogn str2ECapLetRecogn(char* str);
 
 #endif

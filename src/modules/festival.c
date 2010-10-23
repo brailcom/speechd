@@ -142,7 +142,7 @@ void festival_set_voice(EVoiceType voice);
 void festival_set_synthesis_voice(char* synthesis_voice);
 void festival_set_language(char* language);
 void festival_set_punctuation_mode(SPDPunctuation punct);
-void festival_set_cap_let_recogn(ECapLetRecogn recogn);
+void festival_set_cap_let_recogn(SPDCapitalLetters recogn);
 void festival_set_volume(signed int volume);
 
 int init_festival_standalone();
@@ -844,11 +844,11 @@ festival_set_punctuation_mode(SPDPunctuation punct)
 }
 
 void
-festival_set_cap_let_recogn(ECapLetRecogn recogn)
+festival_set_cap_let_recogn(SPDCapitalLetters recogn)
 {
     char *recogn_mode;
 
-    if (recogn == RECOGN_NONE) recogn_mode = NULL;
+    if (recogn == SPD_CAP_NONE) recogn_mode = NULL;
     else recogn_mode = ECapLetRecogn2str(recogn);
     FestivalSetCapLetRecogn(festival_info, recogn_mode, NULL);
     g_free(recogn_mode);

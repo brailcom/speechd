@@ -125,29 +125,29 @@ str2ESpellMode(char* str)
 }
 
 char*
-ECapLetRecogn2str(ECapLetRecogn recogn)
+ECapLetRecogn2str(SPDCapitalLetters recogn)
 {
     char *str;
 
     switch (recogn)
         {
-        case RECOGN_NONE: str = g_strdup("none"); break;
-        case RECOGN_SPELL: str = g_strdup("spell"); break;
-        case RECOGN_ICON: str = g_strdup("icon"); break;
+        case SPD_CAP_NONE: str = g_strdup("none"); break;
+        case SPD_CAP_SPELL: str = g_strdup("spell"); break;
+        case SPD_CAP_ICON: str = g_strdup("icon"); break;
         default: str = NULL;
         }
 
     return str;
 }
 
-ECapLetRecogn
+SPDCapitalLetters
 str2ECapLetRecogn(char* str)
 {
-    ECapLetRecogn recogn;
+    SPDCapitalLetters recogn;
 
-    if (!strcmp(str, "none")) recogn = RECOGN_NONE;
-    else if (!strcmp(str, "spell")) recogn = RECOGN_SPELL;
-    else if (!strcmp(str, "icon")) recogn = RECOGN_ICON;
+    if (!strcmp(str, "none")) recogn = SPD_CAP_NONE;
+    else if (!strcmp(str, "spell")) recogn = SPD_CAP_SPELL;
+    else if (!strcmp(str, "icon")) recogn = SPD_CAP_ICON;
     else recogn = -1;
 
     return recogn;
