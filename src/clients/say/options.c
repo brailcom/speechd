@@ -181,7 +181,7 @@ options_parse(int argc, char *argv[])
 	    OPT_SET_STR(priority);
 	    break;
         case 'x':
-            ssml_mode = 1;
+            ssml_mode = SPD_DATA_SSML;
             break;
 	case 'N':
 	    OPT_SET_STR(application_name);

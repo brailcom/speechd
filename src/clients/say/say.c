@@ -73,7 +73,7 @@ int main(int argc, char **argv) {
     voice_type = NULL;
     punctuation_mode = NULL;
     spelling = -2;
-    ssml_mode = 0;
+    ssml_mode = SPD_DATA_TEXT;
     wait_till_end = 0;
     stop_previous = 0;
     cancel_previous = 0;
@@ -191,7 +191,7 @@ int main(int argc, char **argv) {
         if (spd_set_synthesis_voice(conn, synthesis_voice))
             printf("Failed to set synthesis voice!\n");
 
-    if (ssml_mode)
+    if (ssml_mode == SPD_DATA_SSML)
         if(spd_execute_command(conn, "SET SELF SSML_MODE ON"))
             printf("Failed to set SSML mode.\n");
 

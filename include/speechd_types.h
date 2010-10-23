@@ -58,6 +58,11 @@ typedef struct {
     char *variant;   /* a not-well defined string describing dialect etc. */
 } SPDVoice;
 
+typedef enum{
+    SPD_DATA_TEXT = 0,
+    SPD_DATA_SSML = 1
+} SPDDataMode;
+
 typedef enum {
     SPD_BEGIN = 1,
     SPD_END = 2,

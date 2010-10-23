@@ -22,6 +22,7 @@
  */
 
 #include <getopt.h>
+#include "speechd_types.h"
 
 signed int rate;
 signed int pitch;
@@ -34,7 +35,7 @@ char *voice_type;
 char *punctuation_mode;
 char *priority;
 int pipe_mode;
-int ssml_mode;
+SPDDataMode ssml_mode;
 int spelling;
 int wait_till_end;
 int stop_previous;

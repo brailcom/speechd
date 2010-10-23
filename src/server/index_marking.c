@@ -30,7 +30,7 @@
 #include "index_marking.h"
 
 void
-insert_index_marks(TSpeechDMessage *msg, int ssml_mode)
+insert_index_marks(TSpeechDMessage *msg, SPDDataMode ssml_mode)
 {
     GString *marked_text;
     char* pos;
@@ -48,7 +48,7 @@ insert_index_marks(TSpeechDMessage *msg, int ssml_mode)
 
     MSG2(5, "index_marking", "MSG before index marking: |%s|, ssml_mode=%d", msg->buf, ssml_mode);
 
-    if (!ssml_mode) g_string_printf(marked_text, "<speak>");
+    if (ssml_mode == SPD_DATA_TEXT) g_string_printf(marked_text, "<speak>");
  
     pos = msg->buf;
     while(pos){
@@ -57,21 +57,21 @@ insert_index_marks(TSpeechDMessage *msg, int ssml_mode)
         u_char = g_utf8_get_char(character);
 
         if (u_char == '<'){
-            if (ssml_mode){
+            if (ssml_mode == SPD_DATA_SSML){
 		inside_tag = 1;
 		g_string_append_printf(marked_text, "%s", character);
 	    }
 	    else g_string_append_printf(marked_text, "&lt;");
 	}
 	else if (u_char == '>'){
-            if (ssml_mode){
+            if (ssml_mode == SPD_DATA_SSML){
 		inside_tag = 0;
 		g_string_append_printf(marked_text, "%s", character);
 	    }
 	    else g_string_append_printf(marked_text, "&gt;");
         }
         else if (u_char == '&'){
-            if (ssml_mode){
+            if (ssml_mode == SPD_DATA_SSML){
 		g_string_append_printf(marked_text, "%s", character);
 	    }
 	    else{
@@ -105,7 +105,7 @@ insert_index_marks(TSpeechDMessage *msg, int ssml_mode)
         pos = g_utf8_find_next_char(pos, NULL);   
     }
 
-    if (!ssml_mode) g_string_append_printf(marked_text, "</speak>");
+    if (ssml_mode == SPD_DATA_TEXT) g_string_append_printf(marked_text, "</speak>");
 
     g_free(msg->buf);
     msg->buf = marked_text->str;
@@ -140,7 +140,7 @@ find_index_mark(TSpeechDMessage *msg, int mark)
 
 /* Deletes all index marks from the given text */
 char*
-strip_index_marks(char *buf, int ssml_mode)
+strip_index_marks(char *buf, SPDDataMode ssml_mode)
 {
     GString *str;
     char *strret;
@@ -150,7 +150,7 @@ strip_index_marks(char *buf, int ssml_mode)
     char *p;
     char *p_old;
 
-    if (ssml_mode)
+    if (ssml_mode = SPD_DATA_SSML)
 	str = g_string_new("<speak>");
     else
 	str = g_string_new("");
@@ -175,7 +175,7 @@ strip_index_marks(char *buf, int ssml_mode)
 	if (*p == '>') p++;
     }
 
-    if (!ssml_mode){
+    if (ssml_mode == SPD_DATA_TEXT){
 	p = strstr(str->str, "</speak>");
 	if (p != NULL) *p = 0;
     }

@@ -51,11 +51,6 @@ extern "C" {
 /* --------------------- Public data types ------------------------ */
 
 typedef enum{
-    SPD_DATA_TEXT = 0,
-    SPD_DATA_SSML = 1
-}SPDDataMode;
-
-typedef enum{
     SPD_IMPORTANT = 1,
     SPD_MESSAGE = 2,
     SPD_TEXT = 3,
