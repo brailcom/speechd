@@ -160,8 +160,8 @@ str2intpriority(char* str)
     int priority;
 
     if (!strcmp(str, "important"))  priority = 1;
-    else if (!strcmp(str, "text")) priority = 2;
-    else if (!strcmp(str, "message")) priority = 3;
+    else if (!strcmp(str, "message")) priority = 2;
+    else if (!strcmp(str, "text")) priority = 3;
     else if (!strcmp(str, "notification")) priority = 4;
     else if (!strcmp(str, "progress")) priority = 5;
     else priority = -1;

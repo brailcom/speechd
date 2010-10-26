@@ -419,8 +419,8 @@ parse_set(const char *buf, const int bytes, const int fd, const TSpeechDSock *sp
         GET_PARAM_STR(priority_s, 3, CONV_DOWN);
 
         if (TEST_CMD(priority_s, "important")) priority = 1;
-        else if (TEST_CMD(priority_s, "text")) priority = 2;
-        else if (TEST_CMD(priority_s, "message")) priority = 3;
+        else if (TEST_CMD(priority_s, "message")) priority = 2;
+        else if (TEST_CMD(priority_s, "text")) priority = 3;
         else if (TEST_CMD(priority_s, "notification")) priority = 4;
         else if (TEST_CMD(priority_s, "progress")) priority = 5;
         else{

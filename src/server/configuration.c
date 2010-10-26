@@ -439,7 +439,7 @@ load_config_options(int *num_options)
 void
 load_default_global_set_options()
 {
-    GlobalFDSet.priority = 3;
+    GlobalFDSet.priority = 2;
     GlobalFDSet.punctuation_mode = SPD_PUNCT_NONE;
     GlobalFDSet.spelling_mode = 0;
     GlobalFDSet.rate = 0;

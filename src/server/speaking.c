@@ -149,19 +149,19 @@ speak(void* data)
         /* Handle postponed priority progress message */
        check_locked(&element_free_mutex);
        if ((g_list_length(last_p5_block) != 0) && (g_list_length(MessageQueue->p5) == 0)){      
-	    /* Transfer messages from last_p5_block to priority 3 (message) queue*/
+	    /* Transfer messages from last_p5_block to priority 2 (message) queue*/
 	    while (g_list_length(last_p5_block) != 0){
 		GList* item;
 		item = g_list_first(last_p5_block);
 		message = item->data;
 		check_locked(&element_free_mutex);
-		MessageQueue->p3 = g_list_insert_sorted(MessageQueue->p3, message, sortbyuid);
+		MessageQueue->p2 = g_list_insert_sorted(MessageQueue->p2, message, sortbyuid);
 		last_p5_block = g_list_remove_link(last_p5_block, item);
 		g_list_free1(item);
 	    }
 	    assert(message!=NULL);
-            highest_priority = 3;
-            stop_priority_older_than(2, message->id);
+            highest_priority = 2;
+            stop_priority_older_than(3, message->id);
             stop_priority(4);
             stop_priority(5);
 	    check_locked(&element_free_mutex);
@@ -896,29 +896,30 @@ void
 resolve_priorities(int priority)
 {
     if(priority == 1){
-        if (highest_priority != 1) output_stop();
+        if (SPEAKING && highest_priority != 1)
+	    output_stop();
         stop_priority(4);
         stop_priority(5);
     }
 		    
     if(priority == 2){
-        stop_priority_except_first(2);
+        if (SPEAKING && highest_priority != 1 && highest_priority != 2)
+	    output_stop();
+        stop_priority(3);
         stop_priority(4);
         stop_priority(5);
     }
 
     if(priority == 3){
-        stop_priority(2);
-        stop_priority(4);
+        stop_priority_except_first(3);
+	stop_priority(4);
         stop_priority(5);
     }
 
     if(priority == 4){
         stop_priority_except_first(4);
-        if (SPEAKING){
-            if (highest_priority != 4)
+        if (SPEAKING && highest_priority != 4)
                 stop_priority(4);
-        }
     }
 
     if(priority == 5){
