@@ -945,58 +945,31 @@ resolve_priorities(int priority)
 TSpeechDMessage*
 get_message_from_queues()
 {
-    GList *gl = NULL;
+    GList *gl;
+    int prio;
     TSpeechDMessage * message;
 
     /* We will descend through priorities to say more important
-     * messages first. */
-    check_locked(&element_free_mutex);
-    gl = g_list_first(MessageQueue->p1); 
-    if (gl != NULL){
-        MSG(4,"Message in queue p1");
-	check_locked(&element_free_mutex);
-        MessageQueue->p1 = g_list_remove_link(MessageQueue->p1, gl);
-        highest_priority = 1;
-    }else{
-      check_locked(&element_free_mutex);
-        gl = g_list_first(MessageQueue->p3); 
-        if (gl != NULL){
-            MSG(4,"Message in queue p2");
-            MessageQueue->p3 = g_list_remove_link(MessageQueue->p3, gl);
-            highest_priority = 3;
-        }else{
-	  check_locked(&element_free_mutex);
-            gl = g_list_first(MessageQueue->p2); 
-            if (gl != NULL){
-                MSG(4,"Message in queue p3");
-                MessageQueue->p2 = g_list_remove_link(MessageQueue->p2, gl);
-                highest_priority = 2;
-            }else{
-	      check_locked(&element_free_mutex);
-                gl = g_list_first(MessageQueue->p4); 
-                if (gl != NULL){
-                    MSG(4,"Message in queue p4");
-                    MessageQueue->p4 = g_list_remove_link(MessageQueue->p4, gl);
-                    highest_priority = 4;
-                }else{
-		  check_locked(&element_free_mutex);
-                    gl = g_list_first(MessageQueue->p5);
-                    if (gl != NULL){
-                        MSG(4,"Message in queue p5");
-                        MessageQueue->p5 = g_list_remove_link(MessageQueue->p5, gl);
-                        highest_priority = 5;
-                    }else{
-                        return NULL;
-                    }
-                }
+     messages first. */
+    for (prio = 1; prio <= 5; prio++) {
+        GList *current_queue = speaking_get_queue(prio);
+        check_locked(&element_free_mutex);
+        gl = g_list_first(current_queue);
+
+        while (gl != NULL) {
+            if (message_nto_speak((TSpeechDMessage *)gl->data, NULL)) {
+                gl = g_list_next(gl);
+                continue;
             }
+            speaking_set_queue(prio, g_list_remove_link(current_queue, gl));
+            highest_priority = prio;
+            message = gl->data;
+            g_list_free(gl);
+            return (TSpeechDMessage *) message;
         }
-    } 
-    assert(gl != NULL);
-   
-    message = gl->data;
-    g_list_free(gl);
-    return message;
+    }
+
+    return NULL;
 }
 
 gint
