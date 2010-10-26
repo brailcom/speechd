@@ -411,18 +411,18 @@ parse_set(const char *buf, const int bytes, const int fd, const TSpeechDSock *sp
 
     if (TEST_CMD(set_sub, "priority")){
         char *priority_s;
-        int priority;
+        SPDPriority priority;
         NOT_ALLOWED_INSIDE_BLOCK();
         
         /* Setting priority only allowed for "self" */
         if (who != 0) return g_strdup(ERR_COULDNT_SET_PRIORITY);
         GET_PARAM_STR(priority_s, 3, CONV_DOWN);
 
-        if (TEST_CMD(priority_s, "important")) priority = 1;
-        else if (TEST_CMD(priority_s, "message")) priority = 2;
-        else if (TEST_CMD(priority_s, "text")) priority = 3;
-        else if (TEST_CMD(priority_s, "notification")) priority = 4;
-        else if (TEST_CMD(priority_s, "progress")) priority = 5;
+        if (TEST_CMD(priority_s, "important")) priority = SPD_IMPORTANT;
+        else if (TEST_CMD(priority_s, "message")) priority = SPD_MESSAGE;
+        else if (TEST_CMD(priority_s, "text")) priority = SPD_TEXT;
+        else if (TEST_CMD(priority_s, "notification")) priority = SPD_NOTIFICATION;
+        else if (TEST_CMD(priority_s, "progress")) priority = SPD_PROGRESS;
         else{
             g_free(priority_s);
             return g_strdup(ERR_UNKNOWN_PRIORITY);

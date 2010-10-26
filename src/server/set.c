@@ -40,7 +40,7 @@ spd_str_compare(gconstpointer a, gconstpointer b)
 }
 
 int
-set_priority_self(int fd, int priority)
+set_priority_self(int fd, SPDPriority priority)
 {
     int uid;
     int ret;
@@ -53,14 +53,14 @@ set_priority_self(int fd, int priority)
 }
 
 int
-set_priority_uid(int uid, int priority)
+set_priority_uid(int uid, SPDPriority priority)
 {
     TFDSetElement *settings;
-    if ((priority < 0) || (priority > 5)) return 1;
+    if ((priority < SPD_IMPORTANT) || (priority > SPD_PROGRESS)) return 1;
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int(&settings->priority, priority);
+    settings->priority = priority;
     return 0;
 }
 

@@ -80,7 +80,7 @@ typedef struct{
     int paused_while_speaking;
     EMessageType type;          /* Type of the message (1=text, 2=icon, 3=char, 4=key) */
     SPDDataMode ssml_mode;	/* SSML mode on (1)/off (0) */
-    int priority;               /* Priority between 1 and 3 (1 - highest, 3 - lowest) */
+    SPDPriority priority;       /* Priority between 1 and 5 (1 - highest, 5 - lowest) */
     signed int rate; 		/* Speed of voice from <-100;+100>, 0 is the default */
     signed int pitch;		/* Pitch of voice from <-100;+100>, 0 is the default */
     signed int volume;		/* Volume of voice from <-100;+100), 0 is the default */

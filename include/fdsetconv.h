@@ -21,6 +21,6 @@ char* ECapLetRecogn2str(SPDCapitalLetters recogn);
 
 SPDCapitalLetters str2ECapLetRecogn(char* str);
 
-int str2intpriority(char* str);
+SPDPriority str2intpriority(char* str);
 
 #endif

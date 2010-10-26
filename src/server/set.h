@@ -33,7 +33,7 @@ TFDSetElement* get_client_settings_by_fd(int fd);
 void remove_client_settings_by_uid(int uid);
 int get_client_uid_by_fd(int fd);
 
-int set_priority_uid(int uid, int priority);
+int set_priority_uid(int uid, SPDPriority priority);
 int set_language_uid(int uid, char *language);
 int set_rate_uid(int uid, int rate);
 int set_pitch_uid(int uid, int pitch);
@@ -53,7 +53,7 @@ int set_debug_uid(int uid, int debug);
 int set_debug_destination_uid(int uid, char *debug_destination);
 
 
-int set_priority_self(int fd, int priority);
+int set_priority_self(int fd, SPDPriority priority);
 int set_language_self(int fd, char *language);
 int set_rate_self(int fd, int rate);
 int set_pitch_self(int fd, int pitch);
@@ -73,7 +73,7 @@ int set_pause_context_self(int fd, int pause_context);
 int set_debug_self(int fd, int debug);
 int set_debug_destination_self(int fd, char *debug_destination);
 
-int set_priority_all(int priority);
+int set_priority_all(SPDPriority priority);
 int set_language_all(char *language);
 int set_rate_all(int rate);
 int set_pitch_all(int pitch);

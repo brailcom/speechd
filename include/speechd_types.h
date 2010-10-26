@@ -64,6 +64,14 @@ typedef enum{
 } SPDDataMode;
 
 typedef enum {
+    SPD_IMPORTANT = 1,
+    SPD_MESSAGE = 2,
+    SPD_TEXT = 3,
+    SPD_NOTIFICATION = 4,
+    SPD_PROGRESS = 5
+} SPDPriority;
+
+typedef enum {
     SPD_BEGIN = 1,
     SPD_END = 2,
     SPD_INDEX_MARKS = 4,

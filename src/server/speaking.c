@@ -41,7 +41,7 @@
 #include "sem_functions.h"
 
 TSpeechDMessage *current_message = NULL;
-static int highest_priority = 0;
+static SPDPriority highest_priority = 0;
 
 int SPEAKING = 0;
 int poll_count;
@@ -160,10 +160,10 @@ speak(void* data)
 		g_list_free1(item);
 	    }
 	    assert(message!=NULL);
-            highest_priority = 2;
-            stop_priority_older_than(3, message->id);
-            stop_priority(4);
-            stop_priority(5);
+            highest_priority = SPD_MESSAGE;
+            stop_priority_older_than(SPD_TEXT, message->id);
+            stop_priority(SPD_NOTIFICATION);
+            stop_priority(SPD_PROGRESS);
 	    check_locked(&element_free_mutex);
             pthread_mutex_unlock(&element_free_mutex);
             speaking_semaphore_post();
@@ -436,11 +436,11 @@ speaking_cancel_all()
 {
     output_stop();
     pthread_mutex_lock(&element_free_mutex);         
-    stop_priority(1);
-    stop_priority(2);
-    stop_priority(3);
-    stop_priority(4);
-    stop_priority(5);
+    stop_priority(SPD_IMPORTANT);
+    stop_priority(SPD_MESSAGE);
+    stop_priority(SPD_TEXT);
+    stop_priority(SPD_NOTIFICATION);
+    stop_priority(SPD_PROGRESS);
     pthread_mutex_unlock(&element_free_mutex);         
 }
 
@@ -744,7 +744,7 @@ empty_queue_by_time(GList *queue, unsigned int uid)
 }
 
 int
-stop_priority(int priority)
+stop_priority(SPDPriority priority)
 {
     GList *queue;
 
@@ -762,7 +762,7 @@ stop_priority(int priority)
 }
 
 int
-stop_priority_older_than(int priority, unsigned int uid)
+stop_priority_older_than(SPDPriority priority, unsigned int uid)
 {
     GList *queue;
 
@@ -843,7 +843,7 @@ set_speak_thread_attributes()
 }
 
 void 
-stop_priority_except_first(int priority)
+stop_priority_except_first(SPDPriority priority)
 {    
     GList *queue;
     GList *gl;
@@ -893,37 +893,38 @@ stop_priority_except_first(int priority)
 }
 
 void
-resolve_priorities(int priority)
+resolve_priorities(SPDPriority priority)
 {
-    if(priority == 1){
-        if (SPEAKING && highest_priority != 1)
+    if(priority == SPD_IMPORTANT){
+        if (SPEAKING && highest_priority != SPD_IMPORTANT)
 	    output_stop();
-        stop_priority(4);
-        stop_priority(5);
+        stop_priority(SPD_NOTIFICATION);
+        stop_priority(SPD_PROGRESS);
     }
 		    
-    if(priority == 2){
-        if (SPEAKING && highest_priority != 1 && highest_priority != 2)
+    if(priority == SPD_MESSAGE){
+        if (SPEAKING && highest_priority != SPD_IMPORTANT
+            && highest_priority != SPD_MESSAGE)
 	    output_stop();
-        stop_priority(3);
-        stop_priority(4);
-        stop_priority(5);
+        stop_priority(SPD_TEXT);
+        stop_priority(SPD_NOTIFICATION);
+        stop_priority(SPD_PROGRESS);
     }
 
-    if(priority == 3){
-        stop_priority_except_first(3);
-	stop_priority(4);
-        stop_priority(5);
+    if(priority == SPD_TEXT){
+        stop_priority_except_first(SPD_TEXT);
+	stop_priority(SPD_NOTIFICATION);
+        stop_priority(SPD_PROGRESS);
     }
 
-    if(priority == 4){
-        stop_priority_except_first(4);
-        if (SPEAKING && highest_priority != 4)
-                stop_priority(4);
+    if(priority == SPD_NOTIFICATION){
+        stop_priority_except_first(SPD_NOTIFICATION);
+        if (SPEAKING && highest_priority != SPD_NOTIFICATION)
+                stop_priority(SPD_NOTIFICATION);
     }
 
-    if(priority == 5){
-        stop_priority(4);
+    if(priority == SPD_PROGRESS){
+        stop_priority(SPD_NOTIFICATION);
         if (SPEAKING){
             GList *gl;
 	    check_locked(&element_free_mutex);
@@ -946,12 +947,12 @@ TSpeechDMessage*
 get_message_from_queues()
 {
     GList *gl;
-    int prio;
+    SPDPriority prio;
     TSpeechDMessage * message;
 
     /* We will descend through priorities to say more important
      messages first. */
-    for (prio = 1; prio <= 5; prio++) {
+    for (prio = SPD_IMPORTANT; prio <= SPD_PROGRESS; prio++) {
         GList *current_queue = speaking_get_queue(prio);
         check_locked(&element_free_mutex);
         gl = g_list_first(current_queue);
@@ -997,36 +998,36 @@ client_has_messages(int uid){
 }
 
 GList*
-speaking_get_queue(int priority)
+speaking_get_queue(SPDPriority priority)
 {
     GList *queue = NULL;
 
-    assert(priority > 0  &&  priority <= 5);
+    assert(priority >= SPD_IMPORTANT && priority <= SPD_PROGRESS);
 
     check_locked(&element_free_mutex);
     switch(priority){           
-    case 1: queue = MessageQueue->p1; break;
-    case 2: queue = MessageQueue->p2; break;
-    case 3: queue = MessageQueue->p3; break;
-    case 4: queue = MessageQueue->p4; break;
-    case 5: queue = MessageQueue->p5; break;
+    case SPD_IMPORTANT: queue = MessageQueue->p1; break;
+    case SPD_MESSAGE: queue = MessageQueue->p2; break;
+    case SPD_TEXT: queue = MessageQueue->p3; break;
+    case SPD_NOTIFICATION: queue = MessageQueue->p4; break;
+    case SPD_PROGRESS: queue = MessageQueue->p5; break;
     }
 
     return queue;
 }
 
 void
-speaking_set_queue(int priority, GList *queue)
+speaking_set_queue(SPDPriority priority, GList *queue)
 {
-    assert(priority > 0  &&  priority <= 5);
+    assert(priority >= SPD_IMPORTANT && priority <= SPD_PROGRESS);
 
     check_locked(&element_free_mutex);
     switch(priority){           
-    case 1: MessageQueue->p1 = queue; break;
-    case 2: MessageQueue->p2 = queue; break;
-    case 3: MessageQueue->p3 = queue; break;
-    case 4: MessageQueue->p4 = queue; break;
-    case 5: MessageQueue->p5 = queue; break;
+    case SPD_IMPORTANT: MessageQueue->p1 = queue; break;
+    case SPD_MESSAGE: MessageQueue->p2 = queue; break;
+    case SPD_TEXT: MessageQueue->p3 = queue; break;
+    case SPD_NOTIFICATION: MessageQueue->p4 = queue; break;
+    case SPD_PROGRESS: MessageQueue->p5 = queue; break;
     }
 }
 

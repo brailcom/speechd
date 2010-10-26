@@ -70,7 +70,7 @@ int is_sb_speaking();
 /* Stops speaking and cancels currently spoken message.*/
 void stop_speaking_active_module();
 
-int stop_priority(int priority);
+int stop_priority(SPDPriority priority);
 
 void stop_from_uid(int uid);
 
@@ -80,12 +80,12 @@ gint message_nto_speak (gconstpointer, gconstpointer);
 void set_speak_thread_attributes();
 
 /* Do priority interaction */
-void resolve_priorities(int priority);
+void resolve_priorities(SPDPriority priority);
 
 /* Queue interaction helper functions */
 TSpeechDMessage* get_message_from_queues();
-GList* speaking_get_queue(int priority);
-void speaking_set_queue(int priority, GList *queue);
+GList* speaking_get_queue(SPDPriority priority);
+void speaking_set_queue(SPDPriority priority, GList *queue);
 gint sortbyuid (gconstpointer a,  gconstpointer b);
 int client_has_messages(int uid);
 
@@ -104,8 +104,8 @@ int report_cancel (TSpeechDMessage *msg);
 GList* empty_queue(GList *queue);
 GList* empty_queue_by_time(GList *queue, unsigned int uid);
 
-int stop_priority_older_than(int priority, unsigned int uid);
+int stop_priority_older_than(SPDPriority priority, unsigned int uid);
 GList* stop_priority_from_uid(GList *queue, const int uid);
-void stop_priority_except_first(int priority);
+void stop_priority_except_first(SPDPriority priority);
 
 #endif /* SPEAKING_H */

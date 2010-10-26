@@ -154,16 +154,16 @@ str2ECapLetRecogn(char* str)
 }
 
 
-int
+SPDPriority
 str2intpriority(char* str)
 {
-    int priority;
+    SPDPriority priority;
 
-    if (!strcmp(str, "important"))  priority = 1;
-    else if (!strcmp(str, "message")) priority = 2;
-    else if (!strcmp(str, "text")) priority = 3;
-    else if (!strcmp(str, "notification")) priority = 4;
-    else if (!strcmp(str, "progress")) priority = 5;
+    if (!strcmp(str, "important"))  priority = SPD_IMPORTANT;
+    else if (!strcmp(str, "message")) priority = SPD_MESSAGE;
+    else if (!strcmp(str, "text")) priority = SPD_TEXT;
+    else if (!strcmp(str, "notification")) priority = SPD_NOTIFICATION;
+    else if (!strcmp(str, "progress")) priority = SPD_PROGRESS;
     else priority = -1;
 
     return priority;
