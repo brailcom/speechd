@@ -31,7 +31,6 @@
 OutputModule *speaking_module;
 int speaking_uid;
 int speaking_gid;
-int highest_priority;
 
 /* Pause and resume handling */
 int pause_requested;

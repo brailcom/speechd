@@ -41,6 +41,7 @@
 #include "sem_functions.h"
 
 TSpeechDMessage *current_message = NULL;
+static int highest_priority = 0;
 
 int SPEAKING = 0;
 int poll_count;

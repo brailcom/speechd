@@ -653,7 +653,6 @@ speechd_init()
 
 
     last_p5_block = NULL;
-    highest_priority = 0;
 }
 
 void
