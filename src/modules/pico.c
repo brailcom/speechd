@@ -499,9 +499,9 @@ int module_speak(char * data, size_t bytes, EMessageType msgtype)
 
 	/* Setting speech parameters. */
 
-	UPDATE_STRING_PARAMETER(synthesis_voice, pico_set_synthesis_voice);
+	UPDATE_STRING_PARAMETER(voice.name, pico_set_synthesis_voice);
 /*	UPDATE_PARAMETER(voice_type, pico_set_voice);*/
-	UPDATE_STRING_PARAMETER(language, pico_set_language);
+	UPDATE_STRING_PARAMETER(voice.language, pico_set_language);
 
 	picoInp = (pico_Char *) module_strip_ssml(data);
 

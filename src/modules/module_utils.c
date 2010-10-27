@@ -85,11 +85,11 @@ do_message(EMessageType msgtype)
     }
 
     /* check voice and synthesis_voice settings for consistency */
-    if (msg_settings.synthesis_voice == NULL
-        && msg_settings_old.synthesis_voice != NULL
-        && msg_settings.voice == msg_settings_old.voice) {
+    if (msg_settings.voice.name == NULL
+        && msg_settings_old.voice.name != NULL
+        && msg_settings.voice_type == msg_settings_old.voice_type) {
         /* force to set voice again, since synthesis_voice changed to NULL */
-	msg_settings_old.voice = -1;
+	msg_settings_old.voice_type = -1;
     }
     ret = module_speak(msg->str, strlen(msg->str), msgtype);
 
@@ -200,9 +200,24 @@ do_set(void)
             else SET_PARAM_STR_C(punctuation_mode, str2EPunctMode)
             else SET_PARAM_STR_C(spelling_mode, str2ESpellMode)
             else SET_PARAM_STR_C(cap_let_recogn, str2ECapLetRecogn)
-            else SET_PARAM_STR_C(voice, str2EVoice)
-            else SET_PARAM_STR(synthesis_voice)
-            else SET_PARAM_STR(language)
+            else
+                if(!strcmp(cur_item, "voice")){
+                    ret = str2EVoice(cur_value);
+                    if (ret != -1) msg_settings.voice_type = ret;
+                    else err = 2;
+                }
+            else
+                if(!strcmp(cur_item, "synthesis_voice")){
+                    g_free(msg_settings.voice.name);
+                    if(!strcmp(cur_value, "NULL")) msg_settings.voice.name = NULL;
+                    else msg_settings.voice.name = g_strdup(cur_value);
+                }
+            else
+                if(!strcmp(cur_item, "language")){
+                    g_free(msg_settings.voice.language);
+                    if(!strcmp(cur_value, "NULL")) msg_settings.voice.language = NULL;
+                    else msg_settings.voice.language = g_strdup(cur_value);
+                }
             else err=2;             /* Unknown parameter */
         }
         g_free(line);

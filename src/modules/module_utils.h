@@ -56,10 +56,8 @@ typedef struct{
     SPDSpelling spelling_mode;
     SPDCapitalLetters cap_let_recogn;
 
-    char* language;
-
-    SPDVoiceType voice;
-    char *synthesis_voice;
+    SPDVoiceType voice_type;
+    SPDVoice voice;
 }SPDMsgSettings;
 
 int log_level;
@@ -86,9 +84,9 @@ int module_num_dc_options;
  msg_settings_old.punctuation_mode = -1;\
  msg_settings_old.spelling_mode = -1;\
  msg_settings_old.cap_let_recogn = -1;\
- msg_settings_old.language = NULL;	\
- msg_settings_old.voice = -1;\
- msg_settings_old.synthesis_voice = NULL;
+ msg_settings_old.voice_type = -1;\
+ msg_settings_old.voice.name = NULL;\
+ msg_settings_old.voice.language = NULL;
 
 #define INIT_SETTINGS_TABLES()\
  module_dc_options = NULL;\
@@ -98,9 +96,9 @@ int module_num_dc_options;
  msg_settings.punctuation_mode = SPD_PUNCT_NONE;\
  msg_settings.spelling_mode = SPD_SPELL_OFF;\
  msg_settings.cap_let_recogn = SPD_CAP_NONE;\
- msg_settings.language = NULL;\
- msg_settings.voice = SPD_MALE1;\
- msg_settings.synthesis_voice = NULL;\
+ msg_settings.voice_type = SPD_MALE1;\
+ msg_settings.voice.name = NULL;\
+ msg_settings.voice.language = NULL;\
  CLEAN_OLD_SETTINGS_TABLE()
 
 #define DBG(arg...) \
