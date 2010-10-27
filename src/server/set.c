@@ -100,7 +100,7 @@ set_rate_uid(int uid, int rate)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int(&settings->msg_settings.rate, rate);
+    settings->msg_settings.rate = rate;
     return 0;
 }
 
@@ -117,7 +117,7 @@ set_pitch_uid(int uid, int pitch)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int(&settings->msg_settings.pitch, pitch);
+    settings->msg_settings.pitch = pitch;
     return 0;
 }
 
@@ -133,7 +133,7 @@ set_volume_uid(int uid, int volume)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int(&settings->msg_settings.volume, volume);
+    settings->msg_settings.volume = volume;
     return 0;
 }
 
@@ -174,7 +174,7 @@ set_punctuation_mode_uid(int uid, SPDPunctuation punctuation)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int((int*) &settings->msg_settings.punctuation_mode, punctuation);
+    settings->msg_settings.punctuation_mode = punctuation;
     return 0;
 }
 
@@ -192,7 +192,7 @@ set_capital_letter_recognition_uid(int uid, SPDCapitalLetters recogn)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int((int*) &settings->msg_settings.cap_let_recogn, (int) recogn);
+    settings->msg_settings.cap_let_recogn = recogn;
     return 0;
 }
 
@@ -209,7 +209,7 @@ set_spelling_uid(int uid, SPDSpelling spelling)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int((int*) &settings->msg_settings.spelling_mode, (int) spelling);
+    settings->msg_settings.spelling_mode = spelling;
     return 0;
 }
 
@@ -355,7 +355,7 @@ set_pause_context_uid(int uid, int pause_context)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int(&settings->pause_context, pause_context);
+    settings->pause_context = pause_context;
     return 0;
 }
 
@@ -547,12 +547,6 @@ remove_client_settings_by_uid(int uid){
     }else{
 	MSG(5, "Warning: FDSet element to be removed not found");
     }
-}
-
-void
-set_param_int(int* parameter, int value)
-{
-    *parameter = value;
 }
 
 char*
