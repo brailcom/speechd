@@ -181,7 +181,7 @@ static TIbmttsBool ibmtts_pause_requested = IBMTTS_FALSE;
 
 /* Current message from Speech Dispatcher. */
 static char **ibmtts_message;
-static EMessageType ibmtts_message_type;
+static SPDMessageType ibmtts_message_type;
 
 /* ECI */
 static ECIHand eciHandle = NULL_ECI_HAND;
@@ -547,7 +547,7 @@ module_list_voices(void)
 
 
 int
-module_speak(gchar *data, size_t bytes, EMessageType msgtype)
+module_speak(gchar *data, size_t bytes, SPDMessageType msgtype)
 {
     DBG("Ibmtts: module_speak().");
 
@@ -576,8 +576,8 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 	}
     
     ibmtts_message_type = msgtype;
-    if ((msgtype == MSGTYPE_TEXT) && (msg_settings.spelling_mode == SPD_SPELL_ON))
-        ibmtts_message_type = MSGTYPE_SPELL;
+    if ((msgtype == SPD_MSGTYPE_TEXT) && (msg_settings.spelling_mode == SPD_SPELL_ON))
+        ibmtts_message_type = SPD_MSGTYPE_SPELL;
 	
     /* Setting speech parameters. */
     UPDATE_STRING_PARAMETER(voice.language, ibmtts_set_language);
@@ -936,10 +936,10 @@ _ibmtts_synth(void* nothing)
         pos = *ibmtts_message;
         
         switch (ibmtts_message_type) {
-            case MSGTYPE_TEXT:
+            case SPD_MSGTYPE_TEXT:
                 eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
                 break;
-            case MSGTYPE_SOUND_ICON:
+            case SPD_MSGTYPE_SOUND_ICON:
                 /* IBM TTS does not support sound icons.
                    If we can find a sound icon file, play that,
                    otherwise speak the name of the sound icon. */
@@ -956,10 +956,10 @@ _ibmtts_synth(void* nothing)
                 } else
                     eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
                 break;
-            case MSGTYPE_CHAR:
+            case SPD_MSGTYPE_CHAR:
                 eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
                 break;
-            case MSGTYPE_KEY:
+            case SPD_MSGTYPE_KEY:
                 /* Map unspeakable keys to speakable words. */
                 DBG("Ibmtts: Key from Speech Dispatcher: |%s|", pos);
                 pos = ibmtts_subst_keys(pos);
@@ -968,7 +968,7 @@ _ibmtts_synth(void* nothing)
                 *ibmtts_message = pos;
                 eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
                 break;
-            case MSGTYPE_SPELL:
+            case SPD_MSGTYPE_SPELL:
                 if (SPD_PUNCT_NONE != msg_settings.punctuation_mode)
                     eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
                 else

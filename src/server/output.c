@@ -541,10 +541,10 @@ output_speak(TSpeechDMessage *msg)
 
     switch(msg->settings.type)
         {
-        case MSGTYPE_TEXT: SEND_CMD("SPEAK") break;
-        case MSGTYPE_SOUND_ICON: SEND_CMD("SOUND_ICON"); break;
-        case MSGTYPE_CHAR: SEND_CMD("CHAR"); break;
-        case MSGTYPE_KEY: SEND_CMD("KEY"); break;
+        case SPD_MSGTYPE_TEXT: SEND_CMD("SPEAK") break;
+        case SPD_MSGTYPE_SOUND_ICON: SEND_CMD("SOUND_ICON"); break;
+        case SPD_MSGTYPE_CHAR: SEND_CMD("CHAR"); break;
+        case SPD_MSGTYPE_KEY: SEND_CMD("KEY"); break;
         default: MSG(2,"Invalid message type in output_speak()!");
         }
 

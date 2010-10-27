@@ -46,7 +46,7 @@ static pthread_t flite_speak_thread;
 static sem_t *flite_semaphore;
 
 static char **flite_message;
-static EMessageType flite_message_type;
+static SPDMessageType flite_message_type;
 
 static int flite_position = 0;
 static int flite_pause_requested = 0;
@@ -166,7 +166,7 @@ module_list_voices(void)
 }
 
 int
-module_speak(gchar *data, size_t bytes, EMessageType msgtype)
+module_speak(gchar *data, size_t bytes, SPDMessageType msgtype)
 {
     DBG("write()\n");
 
@@ -182,7 +182,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 	*flite_message = NULL;
     }
     *flite_message = module_strip_ssml(data);
-    flite_message_type = MSGTYPE_TEXT;
+    flite_message_type = SPD_MSGTYPE_TEXT;
 	
     /* Setting voice */
     UPDATE_PARAMETER(rate, flite_set_rate);

@@ -34,7 +34,7 @@ void server_data_off(int fd);
 
 /* Put a message into Dispatcher's queue */
 int queue_message(TSpeechDMessage *new, int fd, int history_flag,
-		  EMessageType type, int reparted);
+		  SPDMessageType type, int reparted);
 
 
 #endif

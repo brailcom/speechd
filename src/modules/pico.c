@@ -486,7 +486,7 @@ static void pico_set_language(char *lang)
 	return;
 }
 
-int module_speak(char * data, size_t bytes, EMessageType msgtype)
+int module_speak(char * data, size_t bytes, SPDMessageType msgtype)
 {
 	int value;
 	static pico_Char *tmp;

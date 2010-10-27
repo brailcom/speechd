@@ -179,7 +179,7 @@ parse(const char *buf, const int bytes, const int fd)
             new->buf = deescape_dot(speechd_socket->o_buf->str, new->bytes);
             reparted = speechd_socket->inside_block; 
             MSG(5, "New buf is now: |%s|", new->buf);		
-            if((msg_uid = queue_message(new, fd, 1, MSGTYPE_TEXT, reparted)) == 0){
+            if((msg_uid = queue_message(new, fd, 1, SPD_MSGTYPE_TEXT, reparted)) == 0){
                 if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
                 g_free(new->buf);
                 g_free(new);
@@ -754,7 +754,7 @@ parse_resume(const char *buf, const int bytes, const int fd, const TSpeechDSock 
 }
 
 char*
-parse_general_event(const char *buf, const int bytes, const int fd, const TSpeechDSock* speechd_socket, EMessageType type)
+parse_general_event(const char *buf, const int bytes, const int fd, const TSpeechDSock* speechd_socket, SPDMessageType type)
 {
     char *param;
     TSpeechDMessage *msg;
@@ -795,19 +795,19 @@ parse_general_event(const char *buf, const int bytes, const int fd, const TSpeec
 char*
 parse_snd_icon(const char *buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
-    return parse_general_event(buf, bytes, fd, speechd_socket, MSGTYPE_SOUND_ICON);
+    return parse_general_event(buf, bytes, fd, speechd_socket, SPD_MSGTYPE_SOUND_ICON);
 }				 
 
 char*
 parse_char(const char *buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
-    return parse_general_event(buf, bytes, fd, speechd_socket, MSGTYPE_CHAR);
+    return parse_general_event(buf, bytes, fd, speechd_socket, SPD_MSGTYPE_CHAR);
 }
 
 char*
 parse_key(const char* buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
-    return parse_general_event(buf, bytes, fd, speechd_socket, MSGTYPE_KEY);
+    return parse_general_event(buf, bytes, fd, speechd_socket, SPD_MSGTYPE_KEY);
 }
 
 char*

@@ -45,7 +45,7 @@ static int festival_speaking = 0;
 static int festival_pause_requested = 0;
 
 static char **festival_message;
-static EMessageType festival_message_type;
+static SPDMessageType festival_message_type;
 signed int festival_volume = 0;
 
 int festival_stop_request = 0;
@@ -148,7 +148,7 @@ void festival_set_volume(signed int volume);
 int init_festival_standalone();
 int init_festival_socket();
 
-int is_text(EMessageType msg_type);
+int is_text(SPDMessageType msg_type);
 
 MOD_OPTION_1_INT(FestivalComunicationType)
 
@@ -192,8 +192,8 @@ TCache FestivalCache;
 
 int cache_init();
 int cache_reset();
-int cache_insert(char* key, EMessageType msgtype, FT_Wave *value);
-FT_Wave* cache_lookup(const char *key, EMessageType msgtype, int add_counter);
+int cache_insert(char* key, SPDMessageType msgtype, FT_Wave *value);
+FT_Wave* cache_lookup(const char *key, SPDMessageType msgtype, int add_counter);
 
 pthread_mutex_t sound_output_mutex;
 
@@ -322,7 +322,7 @@ module_list_voices(void)
 }
 
 int
-module_speak(char *data, size_t bytes, EMessageType msgtype)
+module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 {
     int ret;
 
@@ -338,8 +338,8 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
     festival_stop_request = 0;
 
     festival_message_type = msgtype;
-    if ((msgtype == MSGTYPE_TEXT) && (msg_settings.spelling_mode == SPD_SPELL_ON))
-        festival_message_type = MSGTYPE_SPELL;
+    if ((msgtype == SPD_MSGTYPE_TEXT) && (msg_settings.spelling_mode == SPD_SPELL_ON))
+        festival_message_type = SPD_MSGTYPE_SPELL;
 
 
     /* If the connection crashed or language or voice
@@ -671,11 +671,11 @@ _festival_speak(void* nothing)
 
 	    switch(festival_message_type)
 		{
-		case MSGTYPE_TEXT: r = festivalStringToWaveRequest(festival_info, *festival_message); break;
-		case MSGTYPE_SOUND_ICON: r = festivalSoundIcon(festival_info, *festival_message); break;
-		case MSGTYPE_CHAR: r = festivalCharacter(festival_info, *festival_message); break;
-		case MSGTYPE_KEY: r = festivalKey(festival_info, *festival_message); break;
-		case MSGTYPE_SPELL: r = festivalSpell(festival_info, *festival_message); break;
+		case SPD_MSGTYPE_TEXT: r = festivalStringToWaveRequest(festival_info, *festival_message); break;
+		case SPD_MSGTYPE_SOUND_ICON: r = festivalSoundIcon(festival_info, *festival_message); break;
+		case SPD_MSGTYPE_CHAR: r = festivalCharacter(festival_info, *festival_message); break;
+		case SPD_MSGTYPE_KEY: r = festivalKey(festival_info, *festival_message); break;
+		case SPD_MSGTYPE_SPELL: r = festivalSpell(festival_info, *festival_message); break;
 		default: r = -1;
 		}
 	    if (r < 0){
@@ -728,9 +728,9 @@ _festival_speak(void* nothing)
 		CLEAN_UP(0, module_report_event_end);
 	    }
 	
-	    if (festival_message_type == MSGTYPE_CHAR 
-		|| festival_message_type == MSGTYPE_KEY 
-		|| festival_message_type == MSGTYPE_SOUND_ICON){
+	    if (festival_message_type == SPD_MSGTYPE_CHAR
+		|| festival_message_type == SPD_MSGTYPE_KEY
+		|| festival_message_type == SPD_MSGTYPE_SOUND_ICON){
 		DBG("Storing record for %s in cache\n", *festival_message);
 		/* cache_insert takes care of not inserting the same
 		 message again */
@@ -784,9 +784,9 @@ _festival_speak(void* nothing)
 
 
 int
-is_text(EMessageType msg_type)
+is_text(SPDMessageType msg_type)
 {
-    if (msg_type == MSGTYPE_TEXT || msg_type == MSGTYPE_SPELL) return 1;
+    if (msg_type == SPD_MSGTYPE_TEXT || msg_type == SPD_MSGTYPE_SPELL) return 1;
     else return 0;
 }
 
@@ -986,7 +986,7 @@ cache_clean(size_t new_element_size)
 
 /* Generate a key for searching between the different hash tables */
 char*
-cache_gen_key(EMessageType type)
+cache_gen_key(SPDMessageType type)
 {
     char *key;
     char ktype;    
@@ -1000,9 +1000,9 @@ cache_gen_key(EMessageType type)
     if (FestivalCacheDistinguishPitch) kpitch = msg_settings.pitch;
     if (FestivalCacheDistinguishRate) krate = msg_settings.rate;
 
-    if (type == MSGTYPE_CHAR) ktype = 'c';
-    else if (type == MSGTYPE_KEY) ktype = 'k';
-    else if (type == MSGTYPE_SOUND_ICON) ktype = 's';
+    if (type == SPD_MSGTYPE_CHAR) ktype = 'c';
+    else if (type == SPD_MSGTYPE_KEY) ktype = 'k';
+    else if (type == SPD_MSGTYPE_SOUND_ICON) ktype = 's';
     else{
 	DBG("Invalid message type for cache_gen_key()");
 	return NULL;
@@ -1016,7 +1016,7 @@ cache_gen_key(EMessageType type)
 
 /* Insert one entry into the cache */
 int
-cache_insert(char* key, EMessageType msgtype, FT_Wave *fwave)
+cache_insert(char* key, SPDMessageType msgtype, FT_Wave *fwave)
 {
     GHashTable *cache;
     TCacheEntry *entry;
@@ -1073,7 +1073,7 @@ cache_insert(char* key, EMessageType msgtype, FT_Wave *fwave)
 
 /* Retrieve wave from the cache */
 FT_Wave*
-cache_lookup(const char *key, EMessageType msgtype, int add_counter)
+cache_lookup(const char *key, SPDMessageType msgtype, int add_counter)
 {
     GHashTable *cache;
     TCacheEntry *entry;

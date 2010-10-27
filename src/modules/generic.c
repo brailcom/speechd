@@ -45,7 +45,7 @@ static pid_t generic_pid;
 static sem_t *generic_semaphore;
 
 static char **generic_message;
-static EMessageType generic_message_type;
+static SPDMessageType generic_message_type;
 
 static int generic_position = 0;
 static int generic_pause_requested = 0;
@@ -187,7 +187,7 @@ module_list_voices(void)
 
 
 int
-module_speak(gchar *data, size_t bytes, EMessageType msgtype)
+module_speak(gchar *data, size_t bytes, SPDMessageType msgtype)
 {
     char *tmp;
 
@@ -223,7 +223,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 
     if (tmp == NULL) return -1;
 
-    if (msgtype == MSGTYPE_TEXT)
+    if (msgtype == SPD_MSGTYPE_TEXT)
       *generic_message = module_strip_ssml(tmp);
     else
       *generic_message = g_strdup(tmp);
@@ -231,7 +231,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 
     module_strip_punctuation_some(*generic_message, GenericStripPunctChars);
 
-    generic_message_type = MSGTYPE_TEXT;
+    generic_message_type = SPD_MSGTYPE_TEXT;
 
     DBG("Requested data: |%s|\n", data);
 	

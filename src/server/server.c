@@ -65,7 +65,7 @@ this message is a part of a reparted message (one of a block
 of messages). */
 int
 queue_message(TSpeechDMessage *new, int fd, int history_flag,
-              EMessageType type, int reparted)
+              SPDMessageType type, int reparted)
 {
     TFDSetElement *settings;
     TSpeechDMessage *hist_msg, *message_copy;

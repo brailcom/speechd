@@ -138,7 +138,7 @@ int     module_load         (void);
 int     module_init         (char **status_info);
 int     module_audio_init_spd     (char **status_info);
 SPDVoice** module_list_voices(void);
-int     module_speak        (char *data, size_t bytes, EMessageType msgtype);
+int     module_speak        (char *data, size_t bytes, SPDMessageType msgtype);
 int     module_stop         (void);
 SPDVoice**     module_get_voices   (void);
 size_t  module_pause        (void);
@@ -202,7 +202,7 @@ void module_sigblockall(void);
 void module_sigblockusr(sigset_t *signal_set);
 void module_sigunblockusr(sigset_t *signal_set);
 
-char* do_message(EMessageType msgtype);
+char* do_message(SPDMessageType msgtype);
 char* do_speak(void);
 char* do_sound_icon(void);
 char* do_char(void);
@@ -219,17 +219,17 @@ void do_quit(void);
 
 typedef void (*TChildFunction)(TModuleDoublePipe dpipe, const size_t maxlen);
 typedef size_t (*TParentFunction)(TModuleDoublePipe dpipe, const char* message,
-                                  const EMessageType msgtype, const size_t maxlen,
+                                  const SPDMessageType msgtype, const size_t maxlen,
                                   const char* dividers, int *pause_requested);
 
 void module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid, 
                           TChildFunction child_function,
                           TParentFunction parent_function,
-                          int *speaking_flag, char **message, const EMessageType *msgtype,
+                          int *speaking_flag, char **message, const SPDMessageType *msgtype,
                           const size_t maxlen, const char *dividers, size_t *module_position,
                           int *pause_requested);
 
-size_t module_parent_wfork(TModuleDoublePipe dpipe, const char* message, EMessageType msgtype,
+size_t module_parent_wfork(TModuleDoublePipe dpipe, const char* message, SPDMessageType msgtype,
                     const size_t maxlen, const char* dividers, int *pause_requested);
 
 int module_parent_wait_continue(TModuleDoublePipe dpipe);

@@ -25,7 +25,7 @@ char* get_param(const char *buf, const int n, const int bytes, const int lower_c
 
 /* Other internal functions */
 char* parse_general_event(const char *buf, const int bytes, const int fd, const TSpeechDSock* speechd_socket,
-			  EMessageType type);
+			  SPDMessageType type);
 int spd_utf8_read_char(char* pointer, char* character);
 
 #endif

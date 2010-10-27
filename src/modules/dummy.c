@@ -106,7 +106,7 @@ module_list_voices(void)
 
 
 int
-module_speak(gchar *data, size_t bytes, EMessageType msgtype)
+module_speak(gchar *data, size_t bytes, SPDMessageType msgtype)
 {
 
     DBG("speak()\n");

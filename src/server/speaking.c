@@ -188,7 +188,7 @@ speak(void* data)
         }
 
         /* Insert index marks into textual messages */
-        if(message->settings.type == MSGTYPE_TEXT){
+        if(message->settings.type == SPD_MSGTYPE_TEXT){
             insert_index_marks(message, message->settings.ssml_mode);
         }
 
@@ -305,7 +305,7 @@ reload_message(TSpeechDMessage *msg)
         msg->buf = newtext;
         msg->bytes = strlen(msg->buf);
 
-        if(queue_message(msg, -msg->settings.uid, 0, MSGTYPE_TEXT, 0) == 0){
+        if(queue_message(msg, -msg->settings.uid, 0, SPD_MSGTYPE_TEXT, 0) == 0){
             if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
 	    g_free(msg->buf);
 	    g_free(msg);
@@ -316,7 +316,7 @@ reload_message(TSpeechDMessage *msg)
     }else{
 	MSG(5, "Index mark unknown, inserting the whole message.");
 
-        if(queue_message(msg, -msg->settings.uid, 0, MSGTYPE_TEXT, 0) == 0){
+        if(queue_message(msg, -msg->settings.uid, 0, SPD_MSGTYPE_TEXT, 0) == 0){
             if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
 	    g_free(msg->buf);
 	    g_free(msg);
