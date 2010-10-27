@@ -81,20 +81,9 @@ typedef struct{
     SPDMessageType type;        /* Type of the message (1=text, 2=icon, 3=char, 4=key) */
     SPDDataMode ssml_mode;	/* SSML mode on (1)/off (0) */
     SPDPriority priority;       /* Priority between 1 and 5 (1 - highest, 5 - lowest) */
-    signed int rate; 		/* Speed of voice from <-100;+100>, 0 is the default */
-    signed int pitch;		/* Pitch of voice from <-100;+100>, 0 is the default */
-    signed int volume;		/* Volume of voice from <-100;+100), 0 is the default */
-    SPDPunctuation punctuation_mode;	/* Punctuation mode: 0, 1 or 2
-                                   0	-	no punctuation
-                                   1 	-	all punctuation
-                                   2	-	only user-selected punctuation */
-    SPDSpelling spelling_mode;   /* Spelling mode: 0 or 1 (0 - off, 1 - on) */
+    SPDMsgSettings msg_settings;
     char *client_name;		/* Name of the client. */
-    char *language;             /* Selected language name. (e.g. "en", "cz", "fr", ...) */
     char *output_module;        /* Output module name. (e.g. "festival", "flite", "apollo", ...) */
-    SPDVoiceType voice;           /* see SPDVoiceType definition above */
-    char *synthesis_voice;
-    SPDCapitalLetters cap_let_recogn;         /* Capital letters recognition: (0 - off, 1 - on) */
 
     SPDNotification notification;	/* Notification about start and stop of messages, about reached
 				   index marks and state (canceled, paused, resumed). */

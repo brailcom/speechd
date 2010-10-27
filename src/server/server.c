@@ -98,8 +98,8 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
 	new->settings.index_mark = NULL;
 	COPY_SET_STR(client_name);
 	COPY_SET_STR(output_module);
-	COPY_SET_STR(language);
-	COPY_SET_STR(synthesis_voice);
+	COPY_SET_STR(msg_settings.voice.language);
+	COPY_SET_STR(msg_settings.voice.name);
 
 	COPY_SET_STR(index_mark);
 	COPY_SET_STR(audio_output_method);

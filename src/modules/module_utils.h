@@ -47,19 +47,6 @@
 #include <speechd_types.h>
 #include "spd_audio.h"
 
-typedef struct{
-    signed int rate;
-    signed int pitch;
-    signed int volume;
-
-    SPDPunctuation punctuation_mode;
-    SPDSpelling spelling_mode;
-    SPDCapitalLetters cap_let_recogn;
-
-    SPDVoiceType voice_type;
-    SPDVoice voice;
-}SPDMsgSettings;
-
 int log_level;
 
 AudioID *module_audio_id;

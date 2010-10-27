@@ -11,8 +11,8 @@ spd_fdset_copy(TFDSetElement old)
     TFDSetElement new;
 
     new = old;
-    new.language = g_strdup(old.language);
-    new.synthesis_voice = g_strdup(old.synthesis_voice);
+    new.msg_settings.voice.language = g_strdup(old.msg_settings.voice.language);
+    new.msg_settings.voice.name = g_strdup(old.msg_settings.voice.name);
     new.client_name = g_strdup(old.client_name);
     new.output_module = g_strdup(old.output_module);
     new.index_mark = g_strdup(old.index_mark);
@@ -51,8 +51,8 @@ mem_free_fdset(TFDSetElement *fdset)
     /* Don't forget that only these items are filled in
        in a TSpeechDMessage */
     g_free(fdset->client_name);
-    g_free(fdset->language);
-    g_free(fdset->synthesis_voice);
+    g_free(fdset->msg_settings.voice.language);
+    g_free(fdset->msg_settings.voice.name);
     g_free(fdset->output_module);
     g_free(fdset->index_mark);
     g_free(fdset->audio_output_method);

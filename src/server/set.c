@@ -100,7 +100,7 @@ set_rate_uid(int uid, int rate)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int(&settings->rate, rate);
+    set_param_int(&settings->msg_settings.rate, rate);
     return 0;
 }
 
@@ -117,7 +117,7 @@ set_pitch_uid(int uid, int pitch)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int(&settings->pitch, pitch);
+    set_param_int(&settings->msg_settings.pitch, pitch);
     return 0;
 }
 
@@ -133,7 +133,7 @@ set_volume_uid(int uid, int volume)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int(&settings->volume, volume);
+    set_param_int(&settings->msg_settings.volume, volume);
     return 0;
 }
 
@@ -147,19 +147,19 @@ set_voice_uid(int uid, char *voice)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    if (!strcmp(voice, "male1")) settings->voice = SPD_MALE1;
-    else if (!strcmp(voice, "male2")) settings->voice = SPD_MALE2;
-    else if (!strcmp(voice, "male3")) settings->voice = SPD_MALE3;
-    else if (!strcmp(voice, "female1")) settings->voice = SPD_FEMALE1;
-    else if (!strcmp(voice, "female2")) settings->voice = SPD_FEMALE2;
-    else if (!strcmp(voice, "female3")) settings->voice = SPD_FEMALE3;
-    else if (!strcmp(voice, "child_male")) settings->voice = SPD_CHILD_MALE;
-    else if (!strcmp(voice, "child_female")) settings->voice = SPD_CHILD_FEMALE;
+    if (!strcmp(voice, "male1")) settings->msg_settings.voice_type = SPD_MALE1;
+    else if (!strcmp(voice, "male2")) settings->msg_settings.voice_type = SPD_MALE2;
+    else if (!strcmp(voice, "male3")) settings->msg_settings.voice_type = SPD_MALE3;
+    else if (!strcmp(voice, "female1")) settings->msg_settings.voice_type = SPD_FEMALE1;
+    else if (!strcmp(voice, "female2")) settings->msg_settings.voice_type = SPD_FEMALE2;
+    else if (!strcmp(voice, "female3")) settings->msg_settings.voice_type = SPD_FEMALE3;
+    else if (!strcmp(voice, "child_male")) settings->msg_settings.voice_type = SPD_CHILD_MALE;
+    else if (!strcmp(voice, "child_female")) settings->msg_settings.voice_type = SPD_CHILD_FEMALE;
     else return 1;
 
-    if (settings->synthesis_voice != NULL){
-      g_free(settings->synthesis_voice);
-      settings->synthesis_voice = NULL;
+    if (settings->msg_settings.voice.name != NULL){
+      g_free(settings->msg_settings.voice.name);
+      settings->msg_settings.voice.name = NULL;
     }
     return 0;
 }
@@ -174,7 +174,7 @@ set_punctuation_mode_uid(int uid, SPDPunctuation punctuation)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int((int*) &settings->punctuation_mode, punctuation);
+    set_param_int((int*) &settings->msg_settings.punctuation_mode, punctuation);
     return 0;
 }
 
@@ -192,7 +192,7 @@ set_capital_letter_recognition_uid(int uid, SPDCapitalLetters recogn)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int((int*) &settings->cap_let_recogn, (int) recogn);
+    set_param_int((int*) &settings->msg_settings.cap_let_recogn, (int) recogn);
     return 0;
 }
 
@@ -209,7 +209,7 @@ set_spelling_uid(int uid, SPDSpelling spelling)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 
-    set_param_int((int*) &settings->spelling_mode, (int) spelling);
+    set_param_int((int*) &settings->msg_settings.spelling_mode, (int) spelling);
     return 0;
 }
 
@@ -224,7 +224,8 @@ set_language_uid(int uid, char *language)
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
 	
-    SET_PARAM_STR(language);        
+    settings->msg_settings.voice.language =
+        set_param_str(settings->msg_settings.voice.language, language);
 
     /* Check if it is not desired to change output module */
     output_module = g_hash_table_lookup(language_default_modules, language);
@@ -243,11 +244,12 @@ set_synthesis_voice_uid(int uid, char *synthesis_voice)
 
     settings = get_client_settings_by_uid(uid);
     if (settings == NULL) return 1;
-	
-    SET_PARAM_STR(synthesis_voice);        
+
+    settings->msg_settings.voice.name =
+        set_param_str(settings->msg_settings.voice.name, synthesis_voice);
 
     /* Delete ordinary voice settings so that we don't mix */
-    settings->voice = -1;
+    settings->msg_settings.voice_type = -1;
 
     return 0;
 }
@@ -274,16 +276,16 @@ update_cl_settings(gpointer data, gpointer user_data)
     if (fnmatch(cl_set->pattern, set->client_name, 0)) return;
 
     /*  Warning: If you modify this, you must also modify cb_BeginClient in config.c !*/
-    CHECK_SET_PAR(rate, -101)
-    CHECK_SET_PAR(pitch, -101)
-    CHECK_SET_PAR(volume, -101)
-    CHECK_SET_PAR(punctuation_mode, -1)
-    CHECK_SET_PAR(spelling_mode, -1)
-    CHECK_SET_PAR(voice, -1)
-    CHECK_SET_PAR(cap_let_recogn, -1)
+    CHECK_SET_PAR(msg_settings.rate, -101)
+    CHECK_SET_PAR(msg_settings.pitch, -101)
+    CHECK_SET_PAR(msg_settings.volume, -101)
+    CHECK_SET_PAR(msg_settings.punctuation_mode, -1)
+    CHECK_SET_PAR(msg_settings.spelling_mode, -1)
+    CHECK_SET_PAR(msg_settings.voice_type, -1)
+    CHECK_SET_PAR(msg_settings.cap_let_recogn, -1)
     CHECK_SET_PAR(pause_context, -1)
     CHECK_SET_PAR(ssml_mode, -1)
-    CHECK_SET_PAR_STR(language)
+    CHECK_SET_PAR_STR(msg_settings.voice.language)
     CHECK_SET_PAR_STR(output_module)
 
 
@@ -335,9 +337,9 @@ set_output_module_uid(int uid, char* output_module)
     SET_PARAM_STR(output_module);
 
     /* Delete synth_voice since it is module specific */
-    if (settings->synthesis_voice != NULL){
-      g_free(settings->synthesis_voice);
-      settings->synthesis_voice = NULL;
+    if (settings->msg_settings.voice.name != NULL){
+      g_free(settings->msg_settings.voice.name);
+      settings->msg_settings.voice.name = NULL;
     }
 
     return 0;
@@ -467,11 +469,11 @@ default_fd_set(void)
 	/* We can't use global_fdset copy as this
 	   returns static structure and we need dynamic */
 	new->priority = GlobalFDSet.priority;
-	new->punctuation_mode = GlobalFDSet.punctuation_mode;
-	new->rate = GlobalFDSet.rate;
-	new->pitch = GlobalFDSet.pitch;
-	new->volume = GlobalFDSet.volume;
-	new->language = g_strdup(GlobalFDSet.language);
+	new->msg_settings.punctuation_mode = GlobalFDSet.msg_settings.punctuation_mode;
+	new->msg_settings.rate = GlobalFDSet.msg_settings.rate;
+	new->msg_settings.pitch = GlobalFDSet.msg_settings.pitch;
+	new->msg_settings.volume = GlobalFDSet.msg_settings.volume;
+	new->msg_settings.voice.language = g_strdup(GlobalFDSet.msg_settings.voice.language);
 	new->output_module = g_strdup(GlobalFDSet.output_module);
 	new->client_name = g_strdup(GlobalFDSet.client_name);
 	new->index_mark = g_strdup(GlobalFDSet.index_mark);
@@ -481,10 +483,10 @@ default_fd_set(void)
 	new->audio_nas_server = g_strdup(GlobalFDSet.audio_nas_server);
 	new->audio_pulse_server = g_strdup(GlobalFDSet.audio_pulse_server);
 
-	new->voice = GlobalFDSet.voice;
-	new->synthesis_voice = NULL;
-	new->spelling_mode = GlobalFDSet.spelling_mode;         
-	new->cap_let_recogn = GlobalFDSet.cap_let_recogn;             
+	new->msg_settings.voice_type = GlobalFDSet.msg_settings.voice_type;
+	new->msg_settings.voice.name = NULL;
+	new->msg_settings.spelling_mode = GlobalFDSet.msg_settings.spelling_mode;
+	new->msg_settings.cap_let_recogn = GlobalFDSet.msg_settings.cap_let_recogn;
 
         new->pause_context = GlobalFDSet.pause_context;
 	new->ssml_mode = GlobalFDSet.ssml_mode;
