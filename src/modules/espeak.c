@@ -412,11 +412,11 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 		break;
 	}
 
+	pthread_mutex_unlock(&espeak_state_mutex);    
+
 	if (result != EE_OK) {
 		return FALSE;
 	}
-
-	pthread_mutex_unlock(&espeak_state_mutex);    
 
 	DBG("Espeak: Leaving module_speak() normally.");
 	return bytes;
