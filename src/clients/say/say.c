@@ -44,7 +44,7 @@
 #include <libspeechd.h>
 
 #include "options.h"
-
+#include <i18n.h>
 
 #define MAX_LINELEN 16384
 
@@ -65,6 +65,9 @@ int main(int argc, char **argv) {
     int ret;
     int option_ret;
     char *line;
+
+    /* initialize i18n support */
+    i18n_init();
 
     rate = -101;
     pitch = -101;
