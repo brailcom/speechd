@@ -150,7 +150,7 @@ strip_index_marks(char *buf, SPDDataMode ssml_mode)
     char *p;
     char *p_old;
 
-    if (ssml_mode = SPD_DATA_SSML)
+    if (ssml_mode == SPD_DATA_SSML)
 	str = g_string_new("<speak>");
     else
 	str = g_string_new("");
