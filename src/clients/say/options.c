@@ -28,9 +28,6 @@
 #include <config.h>
 #endif
 
-#define PACKAGE "spd-say"
-#define VERSION "0.4"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -95,7 +92,7 @@ options_print_help(char *argv[])
 void
 options_print_version()
 {
-    printf("spd-say: "PACKAGE" "VERSION"\n");
+    printf("spd-say: " VERSION "\n");
     printf("Copyright (C) 2002-2006 Brailcom, o.p.s.\n"
            "spd-say comes with ABSOLUTELY NO WARRANTY.\n"
            "You may redistribute copies of spd-say\n"
