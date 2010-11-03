@@ -229,19 +229,11 @@ module_load(void)
 	return OK;
 }
 
-#define ABORT(msg)								\
-	g_string_append(info, msg);					\
-	DBG("FATAL ERROR: %s", info->str);			\
-	*status_info = info->str;					\
-	g_string_free(info, FALSE);					\
-	return FATAL_ERROR;
-
 int
 module_init(char **status_info)
 {
 	int ret;
 	const char *espeak_version;
-	GString *info;
     
 	DBG("Espeak: Module init().");
 	INIT_INDEX_MARKING();
@@ -249,7 +241,6 @@ module_init(char **status_info)
 	if (!g_thread_supported ()) g_thread_init (NULL); 
 
 	*status_info = NULL;
-	info = g_string_new("");
 
 	/* Report versions. */
 	espeak_version = espeak_Info(NULL);
@@ -300,21 +291,24 @@ module_init(char **status_info)
 	espeak_stop_or_pause_semaphore = module_semaphore_init();
 	ret = pthread_create(&espeak_stop_or_pause_thread, NULL, _espeak_stop_or_pause, NULL);
 	if(0 != ret) {
-		ABORT("Failed to create stop-or-pause thread.");
+		DBG("Failed to create stop-or-pause thread.");
+		*status_info = g_strdup("Failed to create stop-or-pause thread.");
+		return FATAL_ERROR;
 	}
         
 	espeak_play_semaphore = module_semaphore_init();
 	DBG("Espeak: Creating new thread for playback.");
 	ret = pthread_create(&espeak_play_thread, NULL, _espeak_play, NULL);
 	if (ret != OK) {
-		ABORT("Failed to create playback thread.");
+		DBG("Failed to create playback thread.");
+		*status_info = g_strdup("Failed to create playback thread.");
+		return FATAL_ERROR;
 	}
 
 	*status_info = g_strdup("Espeak: Initialized successfully.");
 
 	return OK;
 }
-#undef ABORT
 
 
 int
