@@ -29,6 +29,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "speechd_types.h"
 #include "libspeechd.h"
 
 int main() {

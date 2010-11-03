@@ -21,6 +21,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "speechd_types.h"
 #include "libspeechd.h"
 
 #define TEST_NAME __FILE__

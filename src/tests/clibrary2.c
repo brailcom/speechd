@@ -30,6 +30,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include "speechd_types.h"
 #include "libspeechd.h"
 
 int main() {
