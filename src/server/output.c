@@ -392,8 +392,6 @@ output_list_voices(char* module_name)
     val = fconv(msg->settings.name); \
     if (val != NULL){ \
        g_string_append_printf(set_str, #name"=%s\n", val); \
-    }else{ \
-       g_string_append_printf(set_str, #name"=NULL\n"); \
     } \
     g_free(val);
 

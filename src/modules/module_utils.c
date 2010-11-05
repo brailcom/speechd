@@ -84,6 +84,13 @@ do_message(EMessageType msgtype)
 	return g_strdup("301 ERROR CANT SPEAK");
     }
 
+    /* check voice and synthesis_voice settings for consistency */
+    if (msg_settings.synthesis_voice == NULL
+        && msg_settings_old.synthesis_voice != NULL
+        && msg_settings.voice == msg_settings_old.voice) {
+        /* force to set voice again, since synthesis_voice changed to NULL */
+	msg_settings_old.voice = -1;
+    }
     ret = module_speak(msg->str, strlen(msg->str), msgtype);
 
     g_string_free(msg,1);
