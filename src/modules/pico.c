@@ -43,6 +43,8 @@
 #define MODULE_NAME     "pico"
 #define MODULE_VERSION  "0.1"
 
+DECLARE_DEBUG();
+
 #define MAX_OUTBUF_SIZE		(128)
 #define PICO_MEM_SIZE			(10000000)
 
@@ -277,6 +279,7 @@ int module_load(void)
 {
 	INIT_SETTINGS_TABLES();
 
+        MOD_OPTION_1_INT_REG(Debug, 0);
 	MOD_OPTION_1_STR_REG(PicoLingwarePath,PICO_LINGWARE_PATH);
 
 	module_audio_id = NULL;
