@@ -221,9 +221,11 @@ static int pico_process_tts(void)
 					return -1;
 				}
 			}
-		} while (PICO_STEP_BUSY == getstatus
-		         && g_atomic_int_get(&pico_state) == STATE_PLAY);
-
+			if (g_atomic_int_get(&pico_state) != STATE_PLAY) {
+				text_remaining = 0;
+				break;
+			}
+		} while (PICO_STEP_BUSY == getstatus);
 	}
 
 	g_free(picoInp);
