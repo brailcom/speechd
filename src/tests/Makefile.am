@@ -32,7 +32,7 @@ $(TESTSUITE): package.m4 testsuite.at $(TESTSUITE_AT)
 	mv $@.tmp $@
 
 check_PROGRAMS = long_message clibrary clibrary2 run_test connection_recovery \
-               spd_set_notifications_all
+               spd_cancel_long_message spd_set_notifications_all
 
 long_message_SOURCES = long_message.c
 long_message_LDADD = $(c_api)/libspeechd.la -lpthread $(EXTRA_SOCKET_LIBS)
@@ -46,6 +46,9 @@ clibrary2_LDADD = $(c_api)/libspeechd.la -lpthread $(EXTRA_SOCKET_LIBS)
 connection_recovery_SOURCES = connection-recovery.c
 connection_recovery_LDADD = $(c_api)/libspeechd.la \
 	-lpthread $(EXTRA_SOCKET_LIBS)
+
+spd_cancel_long_message_SOURCES = spd_cancel_long_message.c
+spd_cancel_long_message_LDADD = $(c_api)/libspeechd.la -lpthread $(EXTRA_SOCKET_LIBS)
 
 spd_set_notifications_all_SOURCES = spd_set_notifications_all.c
 spd_set_notifications_all_LDADD = $(c_api)/libspeechd.la -lpthread $(EXTRA_SOCKET_LIBS)
