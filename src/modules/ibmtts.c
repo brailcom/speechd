@@ -396,17 +396,10 @@ module_load(void)
     return OK;
 }
 
-#define ABORT(msg) g_string_append(info, msg); \
-        DBG("FATAL ERROR: %s", info->str); \
-        *status_info = info->str; \
-        g_string_free(info, 0); \
-        return FATAL_ERROR;
-
 int
 module_init(char **status_info)
 {
     int ret;
-    GString *info;
     char ibmVersion[20];
     int ibm_sample_rate;
 
@@ -414,7 +407,6 @@ module_init(char **status_info)
     INIT_INDEX_MARKING();
 
     *status_info = NULL;
-    info = g_string_new("");
     ibmtts_thread_exit_requested = IBMTTS_FALSE;
 
     /* Report versions. */
@@ -534,11 +526,9 @@ module_init(char **status_info)
     module_audio_id = NULL;
 
     *status_info = g_strdup("Ibmtts: Initialized successfully.");
-    g_string_free(info, 1);
 
     return OK;
 }
-#undef ABORT
 
 
 int
