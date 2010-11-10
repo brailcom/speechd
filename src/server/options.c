@@ -46,7 +46,7 @@ static const struct option spd_long_options[] = {
     {"socket-path", 1, 0, 'S'},
     {"port", 1, 0, 'p'},
     {"pid-file", 1, 0, 'P'},
-    {"config-file", 1, 0, 'C'},
+    {"config-dir", required_argument, 0, 'C'},
     {"version", 0, 0, 'v'},
     {"debug", 0, 0, 'D'},
     {"help", 0, 0, 'h'},
