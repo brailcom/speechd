@@ -192,7 +192,7 @@ int main(int argc, char **argv) {
             printf("Failed to set synthesis voice!\n");
 
     if (ssml_mode == SPD_DATA_SSML)
-        if(spd_execute_command(conn, "SET SELF SSML_MODE ON"))
+        if (spd_set_data_mode(conn, ssml_mode))
             printf("Failed to set SSML mode.\n");
 
     if (rate != -101)
