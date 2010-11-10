@@ -63,10 +63,7 @@ if (!strncmp(cmd_buf, #command, strlen(#command))){	\
 
 #define PROCESS_CMD_NRP(command, function) \
 if (!strcmp(cmd_buf, #command"\n")){ \
- pthread_mutex_lock(&module_stdout_mutex); \
  function(); \
- fflush(stdout); \
- pthread_mutex_unlock(&module_stdout_mutex);\
 }
 
 int 
