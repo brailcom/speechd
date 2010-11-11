@@ -106,7 +106,8 @@ OutputModule*
 get_output_module(const TSpeechDMessage *message)
 {
   OutputModule *output = NULL;
-  GList *cur_ptr = output_modules_list;
+  GList *gl;
+  int i, len;
 
   if (message->settings.output_module != NULL){
     MSG(5, "Desired output module is %s", message->settings.output_module);
@@ -124,24 +125,18 @@ get_output_module(const TSpeechDMessage *message)
 
   MSG(3, "Couldn't load default output module, trying other modules");
 
-  // Try all other output modules now to see if some of them
-  // is working
-  while(cur_ptr){
-    if (!cur_ptr->data){
-      MSG(2, "bad (NULL) module in output module list");
-      cur_ptr = cur_ptr->next;
-    	continue;
-    }
+  /* Try all other output modules other than dummy */
+  gl = g_hash_table_get_values(output_modules);
+  len = g_list_length(gl);
+  for (i = 0; i < len; i++) {
+      output = g_list_nth_data(gl, i);
+      if (0 == strcmp(output->name, "dummy"))
+           continue;
 
-    if (strcmp(cur_ptr->data, "dummy") != 0)
-      output = get_output_module_by_name(cur_ptr->data);
-
-    if ((output != NULL) && (output->working)){
-      MSG(3, "Output module %s seems to be working, using it", cur_ptr->data);
-      return output;
-    }
-
-    cur_ptr	= cur_ptr->next;
+      if (output->working) {
+          MSG(3, "Output module %s seems to be working, using it", gl->data);
+          return output;
+      }
   }
 
   // if we get here there are no good modules use the dummy

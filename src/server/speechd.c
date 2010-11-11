@@ -577,7 +577,6 @@ speechd_init()
 
     /* Initialize lists */
     MessagePausedList = NULL;
-    output_modules_list = NULL;
 
     /* Initialize hash tables */
     fd_settings = g_hash_table_new_full(g_int_hash, g_int_equal,

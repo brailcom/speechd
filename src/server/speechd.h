@@ -188,7 +188,7 @@ int speaking_sem_id;
 
 /* Table of all configured (and succesfully loaded) output modules */
 GHashTable *output_modules;	
-GList *output_modules_list;
+
 /* Table of settings for each active client (=each active socket)*/
 GHashTable *fd_settings;	
 /* Table of default output modules for different languages */
