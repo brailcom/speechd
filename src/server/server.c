@@ -30,6 +30,7 @@
 #include "set.h"
 #include "speaking.h"
 #include "sem_functions.h"
+#include "history.h"
 
 int last_message_id = 0;
 
@@ -68,7 +69,7 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
               SPDMessageType type, int reparted)
 {
     TFDSetElement *settings;
-    TSpeechDMessage *hist_msg, *message_copy;
+    TSpeechDMessage *message_copy;
     int id;
     GList *element;
 
@@ -128,27 +129,8 @@ queue_message(TSpeechDMessage *new, int fd, int history_flag,
      the message before we woud copy it) */
     //    if (history_flag){
     if (0){
-        /* We will make an exact copy of the message for inclusion into history. */
-        hist_msg = (TSpeechDMessage*) spd_message_copy(new); 
-
         pthread_mutex_lock(&element_free_mutex);
-        if(hist_msg != NULL){
-            /* Do the necessary expiration of old messages*/
-            if (g_list_length(message_history) >= SpeechdOptions.max_history_messages){
-                GList *gl;
-                MSG(5, "Discarding older history message, limit reached");
-                gl = g_list_first(message_history);
-                if (gl != NULL){
-                    message_history = g_list_remove_link(message_history, gl);
-                    if (gl->data != NULL)
-                        mem_free_message(gl->data);
-                }
-            }
-            /* Save the message into history */
-            message_history = g_list_append(message_history, hist_msg);
-        }else{
-            if(SPEECHD_DEBUG) FATAL("Can't include message into history\n");
-        }
+	history_add_message(new);
         pthread_mutex_unlock(&element_free_mutex);
     }
 

@@ -33,6 +33,9 @@
 
 #include "history.h"
 
+/* List of messages in history */
+static GList *message_history;
+
 /* Compares TSpeechDMessage data structure elements
    with given ID */
 gint
@@ -302,6 +305,34 @@ history_say_id(int fd, int id)
 	//	queue_message(new, fd, 0, 0);
 
 	return g_strdup(OK_MESSAGE_QUEUED);
+}
+
+int history_add_message(TSpeechDMessage * msg)
+{
+        TSpeechDMessage * hist_msg;
+
+        /* We will make an exact copy of the message for inclusion into history. */
+        hist_msg = (TSpeechDMessage*) spd_message_copy(msg);
+
+        if(hist_msg == NULL){
+            if(SPEECHD_DEBUG) FATAL("Can't include message into history\n");
+            return -1;
+	}
+
+	/* Do the necessary expiration of old messages*/
+        if (g_list_length(message_history) >= SpeechdOptions.max_history_messages){
+            GList *gl;
+            MSG(5, "Discarding older history message, limit reached");
+            gl = g_list_first(message_history);
+            if (gl != NULL){
+                message_history = g_list_remove_link(message_history, gl);
+                if (gl->data != NULL)
+                    mem_free_message(gl->data);
+            }
+        }
+        /* Save the message into history */
+        message_history = g_list_append(message_history, hist_msg);
+        return 0;
 }
 
 GList*

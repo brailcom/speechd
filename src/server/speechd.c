@@ -577,7 +577,6 @@ speechd_init()
 
     /* Initialize lists */
     MessagePausedList = NULL;
-    message_history = NULL;
     output_modules_list = NULL;
 
     /* Initialize hash tables */

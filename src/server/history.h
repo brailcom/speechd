@@ -41,6 +41,7 @@ char* history_cursor_backward(int fd);
 char* history_say_id(int fd, int id);
 char* history_get_client_id(int fd);
 char* history_get_message(int uid);
+int history_add_message(TSpeechDMessage * msg);
 
 /* Internal functions */
 GList* get_messages_by_client(int uid);
