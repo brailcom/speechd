@@ -443,27 +443,27 @@ speechd_client_terminate(gpointer key, gpointer value, gpointer user)
 
 /* --- OUTPUT MODULES MANAGING --- */
 
-gboolean
-speechd_modules_terminate(gpointer key, gpointer value, gpointer user)
+void
+speechd_modules_terminate(gpointer data, gpointer user_data)
 {
     OutputModule *module;
 
-    module = (OutputModule *) value;
+    module = (OutputModule *) data;
     if (module == NULL){
         MSG(2,"Error: Empty module, internal error");
-        return TRUE;
+        return;
     }
     unload_output_module(module);		       
 
-    return TRUE;
+    return;
 }
 
 void
-speechd_modules_reload(gpointer key, gpointer value, gpointer user)
+speechd_modules_reload(gpointer data, gpointer user_data)
 {
     OutputModule *module;
 
-    module = (OutputModule *) value;
+    module = (OutputModule *) data;
     if (module == NULL){
         MSG(2,"Empty module, internal error");
         return;
@@ -475,11 +475,11 @@ speechd_modules_reload(gpointer key, gpointer value, gpointer user)
 }
 
 void
-speechd_module_debug(gpointer key, gpointer value, gpointer user)
+speechd_module_debug(gpointer data, gpointer user_data)
 {
     OutputModule *module;
 
-    module = (OutputModule *) value;
+    module = (OutputModule *) data;
     if (module == NULL){
         MSG(2,"Empty module, internal error");
         return;
@@ -492,11 +492,11 @@ speechd_module_debug(gpointer key, gpointer value, gpointer user)
 
 
 void
-speechd_module_nodebug(gpointer key, gpointer value, gpointer user)
+speechd_module_nodebug(gpointer data, gpointer user_data)
 {
     OutputModule *module;
 
-    module = (OutputModule *) value;
+    module = (OutputModule *) data;
     if (module == NULL){
         MSG(2,"Empty module, internal error");
         return;
@@ -511,7 +511,7 @@ void
 speechd_reload_dead_modules(int sig)
 {
     /* Reload dead modules */
-    g_hash_table_foreach(output_modules, speechd_modules_reload, NULL);
+    g_list_foreach(output_modules, speechd_modules_reload, NULL);
 
     /* Make sure there aren't any more child processes left */
     while(waitpid(-1, NULL, WNOHANG) > 0);    
@@ -521,7 +521,7 @@ void
 speechd_modules_debug(void)
 {
     /* Redirect output to debug for all modules */
-    g_hash_table_foreach(output_modules, speechd_module_debug, NULL);
+    g_list_foreach(output_modules, speechd_module_debug, NULL);
 
 }
 
@@ -529,7 +529,7 @@ void
 speechd_modules_nodebug(void)
 {
     /* Redirect output to normal for all modules */
-    g_hash_table_foreach(output_modules, speechd_module_nodebug, NULL);
+    g_list_foreach(output_modules, speechd_module_nodebug, NULL);
 }
 
 
@@ -592,9 +592,6 @@ speechd_init()
     language_default_modules = g_hash_table_new(g_str_hash, g_str_equal);
     assert(language_default_modules != NULL);
 
-    output_modules = g_hash_table_new(g_str_hash, g_str_equal);
-    assert(output_modules != NULL);
-
     speechd_sockets_status_init();
 
     pause_requested = 0;
@@ -641,12 +638,12 @@ speechd_init()
     logging_init();
 
     /* Check for output modules */
-    if (g_hash_table_size(output_modules) == 0){
+    if (g_list_length(output_modules) == 0){
         DIE("No speech output modules were loaded - aborting...");
     }else{
         MSG(3,"Speech Dispatcher started with %d output module%s",
-            g_hash_table_size(output_modules),
-            g_hash_table_size(output_modules) > 1 ? "s" : "" );
+            g_list_length(output_modules),
+            g_list_length(output_modules) > 1 ? "s" : "" );
     }
 
 
@@ -659,8 +656,11 @@ speechd_load_configuration(int sig)
     configfile_t *configfile = NULL;
 
     /* Clean previous configuration */
-    assert(output_modules != NULL);
-    g_hash_table_foreach_remove(output_modules, speechd_modules_terminate, NULL);
+    if (output_modules != NULL) {
+        g_list_foreach(output_modules, speechd_modules_terminate, NULL);
+        g_list_free(output_modules);
+	output_modules = NULL;
+    }
 
     /* Make sure there aren't any more child processes left */
     while(waitpid(-1, NULL, WNOHANG) > 0);    
@@ -710,8 +710,8 @@ speechd_quit(int sig)
 
     MSG(2,"Closing open output modules...");
     /*  Call the close() function of each registered output module. */
-    g_hash_table_foreach_remove(output_modules, speechd_modules_terminate, NULL);
-    g_hash_table_destroy(output_modules);
+    g_list_foreach(output_modules, speechd_modules_terminate, NULL);
+    g_list_free(output_modules);
     
     MSG(2,"Closing server connection...");
     if(close(server_socket) == -1)

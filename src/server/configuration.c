@@ -298,9 +298,9 @@ DOTCONF_CB(cb_AddModule)
         return NULL;
     }
 
-    MSG(5,"Module name=%s being inserted into hash table", cur_mod->name);
     assert(cur_mod->name != NULL);
-    g_hash_table_insert(output_modules, g_strdup(module_name), cur_mod);
+    output_modules = g_list_append(output_modules, cur_mod);
+    MSG(5,"Module name=%s being inserted into modules list", cur_mod->name);
 
     g_free(module_dbgfile);
     g_free(module_name);

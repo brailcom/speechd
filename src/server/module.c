@@ -276,6 +276,7 @@ int
 reload_output_module(OutputModule *old_module)
 {
     OutputModule *new_module;
+    int pos;
 
     assert(old_module != NULL); assert(old_module->name != NULL);
 
@@ -296,7 +297,9 @@ reload_output_module(OutputModule *old_module)
         return -1;
     }
 
-    g_hash_table_replace(output_modules, new_module->name, new_module);
+    pos = g_list_index(output_modules, old_module);
+    output_modules = g_list_remove(output_modules, old_module);
+    output_modules = g_list_insert(output_modules, new_module, pos);
     destroy_module(old_module);
 
     return 0;

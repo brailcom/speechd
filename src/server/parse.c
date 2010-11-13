@@ -834,13 +834,13 @@ parse_list(const char* buf, const int bytes, const int fd, const TSpeechDSock *s
     }else if(TEST_CMD(list_type, "output_modules")){
         GString *result = g_string_new("");
 	char *helper;
-	GList *gl = g_hash_table_get_keys(output_modules);
+	OutputModule *mod;
 	int i, len;
 
-	len = g_list_length(gl);
+	len = g_list_length(output_modules);
 	for (i = 0; i < len; i++) {
-	    g_string_append_printf(result, C_OK_MODULES "-%s\r\n",
-	    (char *)g_list_nth_data(gl, i));
+	    mod = g_list_nth_data(output_modules, i);
+	    g_string_append_printf(result, C_OK_MODULES "-%s\r\n", mod->name);
 	}
 
 	g_string_append(result, OK_MODULES_LIST_SENT);

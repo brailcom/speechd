@@ -83,10 +83,19 @@ OutputModule*
 get_output_module_by_name(char *name)
 {
   OutputModule *output;
-  output = g_hash_table_lookup(output_modules, name);
-  if (output == NULL || !output->working) output = NULL;
+  int i;
+
+  for (i = 0; i < g_list_length(output_modules); i++) {
+      output = g_list_nth_data(output_modules, i);
+      if(!strcmp(output->name, name)) {
+	  if(output->working)
+	      return output;
+	  else
+	      return NULL;
+      }
+  }
   
-  return output;
+  return NULL;
 }
 
 /* get_output_module tries to return a pointer to the
@@ -106,7 +115,6 @@ OutputModule*
 get_output_module(const TSpeechDMessage *message)
 {
   OutputModule *output = NULL;
-  GList *gl;
   int i, len;
 
   if (message->settings.output_module != NULL){
@@ -126,15 +134,14 @@ get_output_module(const TSpeechDMessage *message)
   MSG(3, "Couldn't load default output module, trying other modules");
 
   /* Try all other output modules other than dummy */
-  gl = g_hash_table_get_values(output_modules);
-  len = g_list_length(gl);
+  len = g_list_length(output_modules);
   for (i = 0; i < len; i++) {
-      output = g_list_nth_data(gl, i);
+      output = g_list_nth_data(output_modules, i);
       if (0 == strcmp(output->name, "dummy"))
            continue;
 
       if (output->working) {
-          MSG(3, "Output module %s seems to be working, using it", gl->data);
+          MSG(3, "Output module %s seems to be working, using it", output->name);
           return output;
       }
   }
