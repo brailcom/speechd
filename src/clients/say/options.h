@@ -65,7 +65,7 @@ static struct option long_options[] = {
     {"connection-name", 1, 0, 'n'},
     {"wait", 0, 0, 'w'},
     {"stop", 1, 0, 'S'},
-    {"cancel", 1, 0, 'C'},
+    {"cancel", no_argument, 0, 'C'},
     {"version", 0, 0, 'v'},
     {"help", 0, 0, 'h'},
     {0, 0, 0, 0}
