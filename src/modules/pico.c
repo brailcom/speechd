@@ -607,9 +607,6 @@ size_t module_pause(void)
 
 void module_close(int status)
 {
-	if (module_audio_id) {
-		spd_audio_close(module_audio_id);
-	}
 
 	g_atomic_int_set(&pico_state, STATE_CLOSE);
 	sem_post(pico_play_semaphore);
@@ -621,6 +618,13 @@ void module_close(int status)
 		picoSystem = NULL;
 	}
 
+	if (module_audio_id) {
+		spd_audio_close(module_audio_id);
+	}
+	module_audio_id = NULL;
+
 	g_free(pico_idle_semaphore);
 	g_free(pico_play_semaphore);
+	pico_idle_semaphore = NULL;
+	pico_play_semaphore = NULL;
 }
