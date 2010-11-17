@@ -300,8 +300,8 @@ module_pause(void)
     return 0;
 }
 
-void
-module_close(int status)
+int
+module_close(void)
 {
   DBG("cicero: close()\n");
   if(cicero_speaking)
@@ -310,10 +310,9 @@ module_close(int status)
     }
 
     if (module_terminate_thread(cicero_speaking_thread) != 0)
-        exit(1);
+        return -1;
 
-    /*    g_free(cicero_voice); */
-    exit(status);
+    return 0;
 }
 
 /* Internal functions */

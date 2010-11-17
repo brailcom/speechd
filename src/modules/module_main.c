@@ -41,7 +41,8 @@ if (!strcmp(cmd_buf, #command"\n")){ \
  pthread_mutex_lock(&module_stdout_mutex); \
  if (printf("%s\n", msg = (char*) function()) < 0){ \
      DBG("Broken pipe, exiting...\n"); \
-     module_close(2); \
+     ret = 2; \
+     break; \
  } \
  fflush(stdout); \
  pthread_mutex_unlock(&module_stdout_mutex);\
@@ -54,7 +55,8 @@ if (!strncmp(cmd_buf, #command, strlen(#command))){	\
  pthread_mutex_lock(&module_stdout_mutex); \
  if (printf("%s\n", msg = (char*) function(cmd_buf)) < 0){ \
      DBG("Broken pipe, exiting...\n"); \
-     module_close(2); \
+     ret = 2; \
+     break; \
  } \
  fflush(stdout); \
  pthread_mutex_unlock(&module_stdout_mutex);\
@@ -71,9 +73,8 @@ main(int argc, char *argv[])
 {
     char *cmd_buf;
     int ret;
-    int ret_init;
     size_t n;
-    char *configfilename;
+    char *configfilename = NULL;
     char *status_info = NULL;
 
     g_thread_init(NULL);
@@ -83,12 +84,13 @@ main(int argc, char *argv[])
 
     if (argc >= 2){
         configfilename = g_strdup(argv[1]);
-    }else{
-        configfilename = NULL;
     }
 
     ret = module_load();
-    if (ret == -1) module_close(1);
+    if (ret == -1) {
+	module_close();
+	exit(1);
+    }
 
     if (configfilename != NULL){
         /* Add the LAST option */
@@ -99,7 +101,8 @@ main(int argc, char *argv[])
         if (configfile){
             if (dotconf_command_loop(configfile) == 0){
                 DBG("Error reading config file\n");
-                module_close(1);
+                module_close();
+		exit(1);
             }
 	    dotconf_cleanup(configfile);
 	    DBG("Configuration (pre) has been read from \"%s\"\n", configfilename);    
@@ -111,40 +114,44 @@ main(int argc, char *argv[])
     }else{
         DBG("No config file specified, using defaults...\n");        
     }
-    
-    ret_init = module_init(&status_info);
-
-    if (status_info == NULL) {
-        status_info = g_strdup("unknown, was not set by module");
-    }
 
     cmd_buf = NULL;  n=0;
     ret = spd_getline(&cmd_buf, &n, stdin);
     if (ret == -1){
 	DBG("Broken pipe when reading INIT, exiting... \n");
-	module_close(2); 
+	module_close();
+	exit(2);
     }
 
-    if (!strcmp(cmd_buf, "INIT\n")){
-	if (ret_init != 0){
-	    printf("399-%s\n", status_info);
-	    ret = printf("%s\n", "399 ERR CANT INIT MODULE");
-	    g_free(status_info);
-	    return -1;
-	}
-
-	printf("299-%s\n", status_info);
-	ret = printf("%s\n", "299 OK LOADED SUCCESSFULLY");
-
-	if (ret < 0){ 
-	    DBG("Broken pipe, exiting...\n");
-            module_close(2); 
-	}
-	fflush(stdout);
-    }else{
+    if (strcmp(cmd_buf, "INIT\n")){
 	DBG("ERROR: Wrong communication from module client: didn't call INIT\n");
-	module_close(3);
+	module_close();
+	exit(3);
     }
+
+    ret = module_init(&status_info);
+
+    if (status_info == NULL) {
+        status_info = g_strdup("unknown, was not set by module");
+    }
+
+    if (ret != 0){
+	printf("399-%s\n", status_info);
+	printf("%s\n", "399 ERR CANT INIT MODULE");
+	g_free(status_info);
+	module_close();
+	exit(1);
+    }
+
+    printf("299-%s\n", status_info);
+    ret = printf("%s\n", "299 OK LOADED SUCCESSFULLY");
+
+    if (ret < 0){
+	DBG("Broken pipe, exiting...\n");
+        module_close();
+        exit(2);
+    }
+    fflush(stdout);
 
     g_free(status_info);
     g_free(cmd_buf);
@@ -154,7 +161,8 @@ main(int argc, char *argv[])
         ret = spd_getline(&cmd_buf, &n, stdin);
         if (ret == -1){
             DBG("Broken pipe, exiting... \n");
-            module_close(2); 
+	    ret = 2;
+            break;
         }
 
 	DBG("CMD: <%s>", cmd_buf);
@@ -170,14 +178,20 @@ main(int argc, char *argv[])
         else PROCESS_CMD(AUDIO, do_audio) 
         else PROCESS_CMD(LOGLEVEL, do_loglevel)
 	else PROCESS_CMD_W_ARGS(DEBUG, do_debug)
-        else PROCESS_CMD_NRP(QUIT, do_quit) 
+        else if (!strcmp(cmd_buf,"QUIT\n")) {
+	     do_quit();
+             exit(0);
+             }
         else{
           printf("300 ERR UNKNOWN COMMAND\n"); 
           fflush(stdout);
         }
 	
 	g_free(cmd_buf);
-    } 
+    }
+
+    module_close();
+    exit(ret);
 }
 
 #undef PROCESS_CMD

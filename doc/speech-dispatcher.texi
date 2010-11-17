@@ -3315,7 +3315,7 @@ and the value returned by @code{module_speaking()}.
 @deffn {Module Utils function} void do_quit()
 @findex do_quit
 Prints the farewell message to the standard output, according
-to the protocol. Then it calls @code{module_close(0)}.
+to the protocol. Then it calls @code{module_close()}.
 @end deffn
 
 @node Functions for use when talking to synthesizer, Multi-process output modules, Functions used by module_main.c, Module Utils Functions and Macros
@@ -3368,8 +3368,8 @@ way to do this is to emit the events from another thread.
 
 @end deffn
 
-@deffn {Output module function}  {int module_close(int status)} (void)
-@findex module_close()
+@deffn {Output module function} int module_close(void)
+@findex module_close
 
 This function is called when Speech Dispatcher terminates.  The output
 module should terminate all threads and processes, free all resources,
@@ -3378,11 +3378,6 @@ Speech Dispatcher terminates and exit(0) will do the work for you.  It's
 perfectly ok for Speech Dispatcher to load, unload or reload output modules
 in the middle of its run.
 
-If the parameter @code{status} is non-zero, the process should
-terminate with this error value.
-
-This function never returns, instead, it should call exit() to terminate
-the whole process.
 @end deffn
 
 @node Multi-process output modules, Memory Handling Functions, Functions for use when talking to synthesizer, Module Utils Functions and Macros

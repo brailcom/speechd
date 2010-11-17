@@ -605,7 +605,7 @@ size_t module_pause(void)
 	return 0;
 }
 
-void module_close(int status)
+int module_close(void)
 {
 
 	g_atomic_int_set(&pico_state, STATE_CLOSE);
@@ -627,4 +627,6 @@ void module_close(int status)
 	g_free(pico_play_semaphore);
 	pico_idle_semaphore = NULL;
 	pico_play_semaphore = NULL;
+
+	return 0;
 }

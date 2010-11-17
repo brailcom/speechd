@@ -450,7 +450,7 @@ do_quit(void)
 {
     printf("210 OK QUIT\n");    
     fflush(stdout);
-    module_close(0);
+    module_close();
     return;
 }
 

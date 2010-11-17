@@ -228,8 +228,8 @@ module_pause(void)
     }
 }
 
-void
-module_close(int status)
+int
+module_close(void)
 {
 
     DBG("flite: close()\n");
@@ -241,14 +241,14 @@ module_close(int status)
 
     DBG("Terminating threads");
     if (module_terminate_thread(flite_speak_thread) != 0)
-        exit(1);
+        return -1;
 
     g_free(flite_voice);
 
     DBG("Closing audio output");
     spd_audio_close(module_audio_id);
 
-    exit(status);
+    return 0;
 }
 
 /* Internal functions */

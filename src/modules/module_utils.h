@@ -130,7 +130,7 @@ int     module_stop         (void);
 SPDVoice**     module_get_voices   (void);
 size_t  module_pause        (void);
 char*     module_is_speaking  (void);
-void    module_close        (int status);
+int    module_close        (void);
 
 #define UPDATE_PARAMETER(value, setter) \
   if (msg_settings_old.value != msg_settings.value) \

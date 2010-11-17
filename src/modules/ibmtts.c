@@ -655,8 +655,8 @@ module_pause(void)
     return OK;
 }
 
-void
-module_close(int status)
+int
+module_close(void)
 {
 
     DBG("Ibmtts: close().");
@@ -687,11 +687,11 @@ module_close(int status)
     sem_post(ibmtts_play_semaphore);
     sem_post(ibmtts_stop_or_pause_semaphore);
     if (0 != pthread_join(ibmtts_synth_thread, NULL))
-        exit(1);
+        return -1;
     if (0 != pthread_join(ibmtts_play_thread, NULL))
-        exit(1);
+        return -1;
     if (0 != pthread_join(ibmtts_stop_or_pause_thread, NULL))
-        exit(1);
+        return -1;
 
     ibmtts_clear_playback_queue();
 
@@ -703,7 +703,7 @@ module_close(int status)
 
     free_voice_list();
     
-    exit(status);
+    return 0;
 }
 
 /* Internal functions */

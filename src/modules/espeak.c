@@ -457,8 +457,8 @@ module_pause(void)
 	return OK;
 }
 
-void
-module_close(int status)
+int
+module_close(void)
 {
 	DBG("Espeak: close().");
 
@@ -504,7 +504,7 @@ module_close(int status)
 	sem_destroy(espeak_play_semaphore);
 	sem_destroy(espeak_stop_or_pause_semaphore);
 
-	exit(status);
+	return 0;
 }
 
 /* > */

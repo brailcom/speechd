@@ -452,8 +452,8 @@ module_pause(void)
     }
 }
 
-void
-module_close(int status)
+int
+module_close(void)
 {
     
     DBG("festival: close()\n");
@@ -481,7 +481,7 @@ module_close(int status)
     if (module_audio_id)
 	spd_audio_close(module_audio_id);
 
-    exit(status);
+    return 0;
 }
 
 

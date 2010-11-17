@@ -157,8 +157,8 @@ module_is_speaking(void)
     return NULL ; 
 }
 
-void
-module_close(int status)
+int
+module_close(void)
 {
     DBG("dummy: close()\n");
 
@@ -167,9 +167,9 @@ module_close(int status)
     }
 
     if (module_terminate_thread(dummy_speak_thread) != 0)
-        exit(1);
+        return -1;
 
-    exit(status);
+    return 0;
 }
 
 
