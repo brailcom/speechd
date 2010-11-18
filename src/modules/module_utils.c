@@ -1029,24 +1029,6 @@ module_get_ht_option(GHashTable *hash_table, const char *key)
     return option;
 }
 
-
-configoption_t *
-add_config_option(configoption_t *options, int *num_config_options, char *name, int type,
-                  dotconf_callback_t callback, info_t *info,
-                  unsigned long context)
-{
-    configoption_t *opts;
-
-    (*num_config_options)++;
-    opts = (configoption_t*) g_realloc(options, (*num_config_options) * sizeof(configoption_t));
-    opts[*num_config_options-1].name = g_strdup(name);
-    opts[*num_config_options-1].type = type;
-    opts[*num_config_options-1].callback = callback;
-    opts[*num_config_options-1].info = info;
-    opts[*num_config_options-1].context = context;
-    return opts;
-}
-
 int
 module_audio_init_spd(char **status_info)
 {
