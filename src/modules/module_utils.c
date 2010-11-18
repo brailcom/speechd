@@ -33,6 +33,8 @@ static char* module_audio_pars[10];
 
 extern char* module_index_mark;
 
+pthread_mutex_t module_stdout_mutex = PTHREAD_MUTEX_INITIALIZER;
+
 char*
 do_message(SPDMessageType msgtype)
 {
@@ -1043,15 +1045,6 @@ add_config_option(configoption_t *options, int *num_config_options, char *name, 
     opts[*num_config_options-1].info = info;
     opts[*num_config_options-1].context = context;
     return opts;
-}
-
-int
-module_utils_init(void)
-{
-    /* Init mutex */
-    pthread_mutex_init(&module_stdout_mutex, NULL);
-
-    return 0;
 }
 
 int

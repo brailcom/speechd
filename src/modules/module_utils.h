@@ -404,7 +404,7 @@ void module_report_event_pause(void);
 
 
 
-pthread_mutex_t module_stdout_mutex;
+extern pthread_mutex_t module_stdout_mutex;
 
 int module_utils_init(void);
 int module_audio_init_spd(char **status_info);
