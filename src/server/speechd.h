@@ -187,7 +187,7 @@ key_t speaking_sem_key;
 int speaking_sem_id;
 
 /* Table of all configured (and succesfully loaded) output modules */
-GList *output_modules;
+extern GList *output_modules;
 
 /* Table of settings for each active client (=each active socket)*/
 GHashTable *fd_settings;	

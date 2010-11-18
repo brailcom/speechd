@@ -48,6 +48,9 @@
 
 #include <i18n.h>
 
+/* list of output modules */
+GList *output_modules;
+
 /* Manipulating pid files */
 int create_pid_file();
 void destroy_pid_file();
