@@ -530,14 +530,6 @@ module_init(char **status_info)
     return OK;
 }
 
-
-int
-module_audio_init(char **status_info){
-  DBG("Opening audio");
-  return module_audio_init_spd(status_info);
-}
-
-
 SPDVoice**
 module_list_voices(void)
 {

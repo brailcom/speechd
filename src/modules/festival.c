@@ -310,11 +310,6 @@ module_init(char **status_info)
 
 #undef ABORT
 
-int
-module_audio_init(char **status_info){
-  return module_audio_init_spd(status_info);
-}
-
 SPDVoice**
 module_list_voices(void)
 {

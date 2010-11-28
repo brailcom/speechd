@@ -123,7 +123,6 @@ int module_num_dc_options;
 
 int     module_load         (void);
 int     module_init         (char **status_info);
-int     module_audio_init_spd     (char **status_info);
 SPDVoice** module_list_voices(void);
 int     module_speak        (char *data, size_t bytes, SPDMessageType msgtype);
 int     module_stop         (void);
@@ -407,7 +406,6 @@ void module_report_event_pause(void);
 extern pthread_mutex_t module_stdout_mutex;
 
 int module_utils_init(void);
-int module_audio_init_spd(char **status_info);
 int module_audio_init(char **status_info);
 
 /* Prototypes from module_utils_addvoice.c */

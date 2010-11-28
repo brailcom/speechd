@@ -92,12 +92,6 @@ module_init(char **status_info)
     return 0;
 }
 
-int
-module_audio_init(char **status_info){
-  status_info = NULL;
-  return 0;
-}
-
 SPDVoice**
 module_list_voices(void)
 {

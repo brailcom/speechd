@@ -167,13 +167,6 @@ module_init(char **status_info)
 }
 #undef ABORT
 
-
-int
-module_audio_init(char **status_info){
-  DBG("Opening audio");
-  return module_audio_init_spd(status_info);
-}
-
 static SPDVoice voice_jacek;
 static SPDVoice *voice_ivona[]={&voice_jacek,NULL};
 SPDVoice**

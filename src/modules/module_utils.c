@@ -248,7 +248,7 @@ do_audio(void)
     int ret;
     size_t n;
     int err = 0;                /* Error status */
-    char *status;
+    char *status = NULL;
     char *msg;
 
     printf("207 OK RECEIVING AUDIO SETTINGS\n");
@@ -288,7 +288,8 @@ do_audio(void)
       msg = g_strdup_printf("203 OK AUDIO INITIALIZED");
     else
       msg = g_strdup_printf("300-%s\n300 UNKNOWN ERROR", status);
-    
+
+    g_free(status);
     return msg;
 }
 
@@ -1030,7 +1031,7 @@ module_get_ht_option(GHashTable *hash_table, const char *key)
 }
 
 int
-module_audio_init_spd(char **status_info)
+module_audio_init(char **status_info)
 {
     char *error=0;
     gchar **outputs;
@@ -1049,6 +1050,7 @@ module_audio_init_spd(char **status_info)
         if (module_audio_id) {
             DBG("Using %s audio output method", outputs[i]);
             g_strfreev (outputs);
+	    *status_info = g_strdup("audio initialized successfully.");
             return 0;
         }
         i++;

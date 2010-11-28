@@ -445,11 +445,6 @@ int module_init(char **status_info)
 	return 0;
 }
 
-int module_audio_init(char **status_info)
-{
-	return module_audio_init_spd(status_info);
-}
-
 SPDVoice **module_list_voices(void)
 {
 	return pico_voices_list;
