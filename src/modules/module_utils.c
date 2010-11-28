@@ -453,6 +453,10 @@ do_quit(void)
 {
     printf("210 OK QUIT\n");    
     fflush(stdout);
+
+    spd_audio_close(module_audio_id);
+    module_audio_id = NULL;
+
     module_close();
     return;
 }

@@ -258,10 +258,6 @@ module_close(void)
     if (module_terminate_thread(ivona_speak_thread) != 0)
         return -1;
 
-
-    DBG("Closing audio output");
-    spd_audio_close(module_audio_id);
-
     return 0;
 }
 

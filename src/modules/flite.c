@@ -237,9 +237,6 @@ module_close(void)
 
     g_free(flite_voice);
 
-    DBG("Closing audio output");
-    spd_audio_close(module_audio_id);
-
     return 0;
 }
 

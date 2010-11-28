@@ -613,11 +613,6 @@ int module_close(void)
 		picoSystem = NULL;
 	}
 
-	if (module_audio_id) {
-		spd_audio_close(module_audio_id);
-	}
-	module_audio_id = NULL;
-
 	g_free(pico_idle_semaphore);
 	g_free(pico_play_semaphore);
 	pico_idle_semaphore = NULL;

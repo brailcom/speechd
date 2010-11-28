@@ -280,9 +280,6 @@ module_close(void)
     if (module_terminate_thread(generic_speak_thread) != 0)
         return -1;
 
-    if (module_audio_id)
-        spd_audio_close(module_audio_id);
-
     return 0;
 }
 

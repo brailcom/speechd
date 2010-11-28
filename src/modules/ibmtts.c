@@ -669,9 +669,6 @@ module_close(void)
     /* Free buffer for ECI audio. */
     g_free(audio_chunk);
 
-    DBG("Ibmtts: Closing audio output");
-    spd_audio_close(module_audio_id);
-
     /* Request each thread exit and wait until it exits. */
     DBG("Ibmtts: Terminating threads");
     ibmtts_thread_exit_requested = IBMTTS_TRUE;

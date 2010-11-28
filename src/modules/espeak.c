@@ -479,11 +479,6 @@ module_close(void)
 	DBG("Espeak: terminating synthesis.");
 	espeak_Terminate();
 
-	DBG("Espeak: Closing audio output");
-	if (module_audio_id) {
-		spd_audio_close(module_audio_id);
-	}
-
 	DBG("Freeing resources.");
 	espeak_clear_playback_queue();
 	espeak_free_voice_list();

@@ -472,10 +472,6 @@ module_close(void)
     //    DBG("Removing junk files in tmp/");
     //    system("rm -f /tmp/est* 2> /dev/null");
 
-    DBG("Closing audio output");
-    if (module_audio_id)
-	spd_audio_close(module_audio_id);
-
     return 0;
 }
 
