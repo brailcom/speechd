@@ -1001,7 +1001,7 @@ espeak_send_to_audio(TPlaybackQueueEntry *playback_queue_entry)
 	track.samples = playback_queue_entry->data.audio.audio_chunk;
 
 	DBG("Espeak: Sending %i samples to audio.", track.num_samples);
-	ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
+	ret = module_tts_output(track, SPD_AUDIO_LE);
 	if (ret < 0) {
 		DBG("ERROR: Can't play track for unknown reason.");
 		return FALSE;

@@ -1073,3 +1073,14 @@ module_audio_init(char **status_info)
     return -1;
 
 }
+
+int
+module_tts_output(AudioTrack track, AudioFormat format)
+{
+
+    if (spd_audio_play(module_audio_id, track, format) < 0) {
+        DBG("Can't play track for unknown reason.");
+	return -1;
+    }
+    return 0;
+}

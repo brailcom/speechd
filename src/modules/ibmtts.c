@@ -31,7 +31,7 @@
             This thread receives audio and index mark callbacks from
             IBM TTS and queues them into a playback queue. See _ibmtts_synth().
         A playback thread that acts on entries in the playback queue,
-            either sending them to the audio output module (spd_audio_play()),
+            either sending them to the audio output module (module_tts_output()),
             or emitting Speech Dispatcher events.  See _ibmtts_play().
         A thread which is used to stop or pause the synthesis and
             playback threads.  See _ibmtts_stop_or_pause().
@@ -1386,22 +1386,30 @@ static TIbmttsBool
 ibmtts_send_to_audio(TPlaybackQueueEntry *playback_queue_entry)
 {
     AudioTrack track;
+#if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
+    AudioFormat format = SPD_AUDIO_BE;
+#else
+    AudioFormat format = SPD_AUDIO_LE;
+#endif
+    int ret;
+
+    if (track.samples == NULL)
+        return IBMTTS_TRUE;
+
     track.num_samples = playback_queue_entry->data.audio.num_samples;
     track.num_channels = 1;
     track.sample_rate = eci_sample_rate;
     track.bits = 16;
     track.samples = playback_queue_entry->data.audio.audio_chunk;
 
-    if (track.samples != NULL){
-        DBG("Ibmtts: Sending %i samples to audio.", track.num_samples);
-        int ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
-        if (ret < 0) {
-            DBG("ERROR: Can't play track for unknown reason.");
-            return IBMTTS_FALSE;
-        }
-        DBG("Ibmtts: Sent to audio.");
-    }
 
+    DBG("Ibmtts: Sending %i samples to audio.", track.num_samples);
+    ret = module_tts_output(track, format);
+    if (ret < 0) {
+        DBG("ERROR: Can't play track for unknown reason.");
+        return IBMTTS_FALSE;
+    }
+    DBG("Ibmtts: Sent to audio.");
     return IBMTTS_TRUE;
 }
 

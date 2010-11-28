@@ -167,6 +167,11 @@ static int pico_process_tts(void)
 	short outbuf[MAX_OUTBUF_SIZE];
 	pico_Retstring outMessage;
 	AudioTrack track;
+#if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
+	AudioFormat format = SPD_AUDIO_BE;
+#else
+	AudioFormat format = SPD_AUDIO_LE;
+#endif
 	pico_Char *buf = picoInp;
 
 	text_remaining = strlen((const char *) buf) + 1;
@@ -210,8 +215,7 @@ static int pico_process_tts(void)
 				DBG(MODULE_NAME
 				        ": Sending %i samples to audio.", track.num_samples);
 
-				if (spd_audio_play(module_audio_id, track,
-				                       module_audio_id->format) < 0) {
+				if (module_tts_output(track, format) < 0) {
 					DBG(MODULE_NAME
 					        "Can't play track for unknown reason.");
 					return -1;

@@ -261,6 +261,11 @@ void*
 _flite_speak(void* nothing)
 {	
     AudioTrack track;
+#if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
+    AudioFormat format = SPD_AUDIO_BE;
+#else
+    AudioFormat format = SPD_AUDIO_LE;
+#endif
     cst_wave *wav;
     unsigned int pos;
     char *buf;
@@ -340,17 +345,8 @@ _flite_speak(void* nothing)
 			break;
 		    }
 		    DBG("Playing part of the message");
-		    switch (module_audio_id->format){
-		        case SPD_AUDIO_LE:
-		            ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
-		            break;
-		        case SPD_AUDIO_BE:
-		            ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_BE);
-		            break;
-                        default:
-                            FATAL("unknown audio format");
-		    }
-		    if (ret < 0) DBG("ERROR: spd_audio failed to play the track");
+		    ret = module_tts_output(track, format);
+		    if (ret < 0) DBG("ERROR: failed to play the track");
 		    if (flite_stop){
 			DBG("Stop in child, terminating (s)");
 			flite_speaking = 0;

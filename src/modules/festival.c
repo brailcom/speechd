@@ -557,27 +557,27 @@ int
 festival_send_to_audio(FT_Wave *fwave)
 {
     AudioTrack track;
+#if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
+    AudioFormat format = SPD_AUDIO_BE;
+#else
+    AudioFormat format = SPD_AUDIO_LE;
+#endif
     int ret = 0;
-    
+
+    if (fwave->samples == NULL)
+	return 0;
+
     track.num_samples = fwave->num_samples;
     track.num_channels = 1;
     track.sample_rate = fwave->sample_rate;
     track.bits = 16;
     track.samples = fwave->samples;
     
-    if (track.samples != NULL){
-	DBG("Sending to audio");
-		switch (module_audio_id->format){
-			case SPD_AUDIO_LE:
-				ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
-				break;
-			case SPD_AUDIO_BE:
-				ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_BE);
-				break;
-		}
-	if (ret < 0) DBG("ERROR: Can't play track for unknown reason.");
-	DBG("Sent to audio.");
-    }
+    DBG("Sending to audio");
+
+    ret = module_tts_output(track, format);
+    if (ret < 0) DBG("ERROR: Can't play track for unknown reason.");
+    DBG("Sent to audio.");
 
     return 0;
 }

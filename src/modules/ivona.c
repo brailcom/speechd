@@ -534,7 +534,7 @@ _ivona_speak(void* nothing)
 		track.bits = 16;
 		track.samples = ((short *)audio)+offset;
 		DBG("Got %d samples", track.num_samples);
-		spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
+                module_tts_output(track, SPD_AUDIO_LE);
 		g_free(audio);
 		audio=NULL;
 	    }
