@@ -685,6 +685,10 @@ speechd_load_configuration(int sig)
       if (dotconf_command_loop(configfile) == 0) DIE("Error reading config file\n");
       dotconf_cleanup(configfile);
       MSG(2,"Configuration has been read from \"%s\"", SpeechdOptions.conf_file);
+
+      /* We need to load modules here, since this is called both by speechd_init
+       * and to handle SIGHUP. */
+      module_load_requested_modules();
     }else{
       MSG(1, "Can't open %s", SpeechdOptions.conf_file);
     }

@@ -339,3 +339,58 @@ output_module_nodebug(OutputModule *module)
     
     return 0;
 }
+
+static GList *requested_modules = NULL;
+
+/*
+ * module_add_load_request - request that a module be loaded.
+ * In other words, add it to the list of modules which will be loaded
+ * by module_load_requested_modules.
+ * Returns: nothing.
+ * Parameters:
+ * module_name: the name of the module.
+ * module_cmd: name of the binary associated with this module.
+ * module_cfgfile: the name of the module's configuration file.
+ * module_dbgfile: name of the file to which the module writes logging
+ * and debugging information.
+ * Note that all parameters are dynamically-allocated strings (char *),
+ * and the caller relinquishes ownership of them when calling this function.
+ */
+void
+module_add_load_request(char *module_name, char *module_cmd,
+			char *module_cfgfile, char *module_dbgfile) {
+    char **module_params = g_malloc(4 * sizeof(char *));
+    module_params[0] = module_name;
+    module_params[1] = module_cmd;
+    module_params[2] = module_cfgfile;
+    module_params[3] = module_dbgfile;
+    requested_modules = g_list_append(requested_modules, module_params);
+    MSG(5,"Module name=%s being inserted into requested_modules list", module_params[0]);
+}
+
+/*
+ * module_load_requested_modules: load all modules requested by calls
+ * to module_add_load_request.
+ * Returns: nothing.
+ * Parameters: none.
+ */
+void
+module_load_requested_modules(void) {
+    while(NULL != requested_modules){
+        OutputModule *new_module;
+        char ** module_params = requested_modules->data;
+
+        new_module = load_output_module(module_params[0], module_params[1],
+                                        module_params[2], module_params[3]);
+
+        if(new_module != NULL)
+            output_modules = g_list_append(output_modules, new_module);
+
+        g_free(module_params[0]);
+        g_free(module_params[1]);
+        g_free(module_params[2]);
+        g_free(module_params[3]);
+        g_free(module_params);
+        requested_modules = g_list_delete_link(requested_modules, requested_modules);
+    }
+}

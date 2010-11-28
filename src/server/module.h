@@ -50,5 +50,9 @@ int output_module_debug(OutputModule *module);
 int output_module_nodebug(OutputModule *module);		       
 void destroy_module(OutputModule *module);
 
+void module_add_load_request(char *module_name, char *module_cmd,
+			 char *module_cfgfile, char *module_dbgfile);
+void module_load_requested_modules(void);
+
 #endif
 

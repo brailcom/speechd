@@ -26,6 +26,8 @@
 #include <config.h>
 #endif
 
+#include <glib.h>
+
 #include <dotconf.h>
 
 #include "speechd.h"
@@ -275,35 +277,16 @@ DOTCONF_CB(cb_CustomLogFile)
 
 DOTCONF_CB(cb_AddModule)
 {
-    char *module_name;
-    char *module_prgname;
-    char *module_cfgfile;
-    char *module_dbgfile;
-
-    OutputModule *cur_mod;
-
-    if (cmd->data.list[0] != NULL) module_name = g_strdup(cmd->data.list[0]);
-    else FATAL("No output module name specified in configuration under AddModule");
-
-    module_prgname = cmd->data.list[1];
-    module_cfgfile = cmd->data.list[2];
-   
-    module_dbgfile = g_strdup_printf("%s/%s.log", SpeechdOptions.log_dir,
-				     module_name);
-
-    cur_mod = load_output_module(module_name, module_prgname, module_cfgfile,
-				 module_dbgfile);
-    if (cur_mod == NULL){
-        MSG(3, "Couldn't load specified output module");
-        return NULL;
+    if (cmd->data.list[0] == NULL) {
+	MSG(3, "No output module name specified in configuration under AddModule");
+	return NULL;
     }
 
-    assert(cur_mod->name != NULL);
-    output_modules = g_list_append(output_modules, cur_mod);
-    MSG(5,"Module name=%s being inserted into modules list", cur_mod->name);
-
-    g_free(module_dbgfile);
-    g_free(module_name);
+    module_add_load_request(g_strdup(cmd->data.list[0]),
+			    g_strdup(cmd->data.list[1]),
+			    g_strdup(cmd->data.list[2]),
+			    g_strdup_printf("%s/%s.log", SpeechdOptions.log_dir,
+					    cmd->data.list[0]));
 
     return NULL;
 }
