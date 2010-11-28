@@ -608,8 +608,6 @@ _festival_speak(void* nothing)
         sem_wait(festival_semaphore);
         DBG("Semaphore on, speaking\n");
 
-	spd_audio_set_volume(module_audio_id, festival_volume);
-
 	festival_stop = 0;	
 	festival_speaking = 1;
 	wave_cached = 0;

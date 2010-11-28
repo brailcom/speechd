@@ -1394,8 +1394,6 @@ ibmtts_send_to_audio(TPlaybackQueueEntry *playback_queue_entry)
 
     if (track.samples != NULL){
         DBG("Ibmtts: Sending %i samples to audio.", track.num_samples);
-        /* Volume is controlled by the synthesizer.  Always play at normal on audio device. */
-        spd_audio_set_volume(module_audio_id, 75);
         int ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
         if (ret < 0) {
             DBG("ERROR: Can't play track for unknown reason.");

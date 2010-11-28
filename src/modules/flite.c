@@ -278,11 +278,6 @@ _flite_speak(void* nothing)
 	flite_stop = 0;
 	flite_speaking = 1;
 
-	if (spd_audio_set_volume(module_audio_id, flite_volume) < 0) {
-	    DBG("Can't set volume. audio not initialized?\n");
-	    continue;
-	}
-
 	/* TODO: free(buf) */
 	buf = (char*) g_malloc((FliteMaxChunkLength+1) * sizeof(char));
 	pos = 0;

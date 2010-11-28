@@ -429,8 +429,6 @@ _ivona_speak(void* nothing)
 	ivona_stop = 0;
 	ivona_speaking = 1;
 
-	spd_audio_set_volume(module_audio_id, ivona_volume);
-
 	module_report_event_begin();
 	msg=*ivona_message;
 	DBG("To say: %s\n",msg);

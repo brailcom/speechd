@@ -93,6 +93,12 @@ do_message(SPDMessageType msgtype)
         /* force to set voice again, since synthesis_voice changed to NULL */
 	msg_settings_old.voice_type = -1;
     }
+
+    /* Volume is controlled by the synthesizer. Always play at normal on audio device. */
+    if (spd_audio_set_volume(module_audio_id, 85) < 0) {
+        DBG("Can't set volume. audio not initialized?");
+    }
+
     ret = module_speak(msg->str, strlen(msg->str), msgtype);
 
     g_string_free(msg,1);
