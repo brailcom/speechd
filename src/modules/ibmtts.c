@@ -523,8 +523,6 @@ module_init(char **status_info)
         return FATAL_ERROR;
     }
 
-    module_audio_id = NULL;
-
     *status_info = g_strdup("Ibmtts: Initialized successfully.");
 
     return OK;

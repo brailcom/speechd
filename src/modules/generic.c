@@ -132,7 +132,6 @@ module_load(void)
 
     module_register_settings_voices();
 
-    module_audio_id = NULL;
     return 0;
 }
 

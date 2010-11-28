@@ -143,8 +143,6 @@ module_init(char **status_info)
         return -1;
     }
 
-    module_audio_id = NULL;
-
     *status_info = g_strdup("Flite initialized successfully.");
 
     return 0;

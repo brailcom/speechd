@@ -288,8 +288,6 @@ int module_load(void)
         MOD_OPTION_1_INT_REG(Debug, 0);
 	MOD_OPTION_1_STR_REG(PicoLingwarePath,PICO_LINGWARE_PATH);
 
-	module_audio_id = NULL;
-
 	return 0;
 }
 

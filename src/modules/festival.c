@@ -226,8 +226,6 @@ module_load(void)
      in Festival is fixed */
     MOD_OPTION_1_INT_REG(FestivalReopenSocket, 0);
 
-    module_audio_id = NULL;
-
     return 0;
 }
 

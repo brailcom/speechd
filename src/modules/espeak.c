@@ -223,8 +223,6 @@ module_load(void)
 	if (EspeakCapitalPitchRise == 1 || EspeakCapitalPitchRise == 2) {
 		EspeakCapitalPitchRise = 0;
 	}
-
-	module_audio_id = NULL;
 	
 	return OK;
 }
