@@ -42,6 +42,7 @@ typedef struct{
     SPDVoice **voices;
 }OutputModule;
 
+GList *detect_output_modules(char *dirname);
 OutputModule* load_output_module(char* mod_name, char* mod_prog,
                                  char* mod_cfgfile, char * mod_dbgfile);
 int unload_output_module(OutputModule *module);

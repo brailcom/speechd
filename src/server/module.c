@@ -26,13 +26,18 @@
 #include <config.h>
 #endif
 
+#include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <sys/unistd.h>
 #include <stdio.h>
+#include <dirent.h>
+#include <glib.h>
+
 #include "speechd.h"
 #include <spd_utils.h>
 #include "output.h"
-
+#include "module.h"
 
 void
 destroy_module(OutputModule *module)
@@ -41,6 +46,70 @@ destroy_module(OutputModule *module)
     g_free(module->filename);
     g_free(module->configfilename);
     g_free(module);
+}
+
+/*
+ * detect_output_modules: automatically discover all available modules.
+ * Parameters:
+ * dirname: name of the directory containing module binaries.
+ * Returns: a list of detected modules.
+ * For each file in the directory containing module binaries,
+ * add an entry to a list of discovered modules.
+ */
+GList *
+detect_output_modules(char *dirname)
+{
+    static const int FNAME_PREFIX_LENGTH = 3;
+    DIR *module_dir = opendir(dirname);
+    struct dirent *entry;
+    char **module_parameters;
+    GList *modules = NULL;
+    char *full_path;
+    struct stat fileinfo;
+    int sys_ret;
+
+    if(module_dir == NULL){
+        MSG(3, "couldn't open directory %s because of error %s\n", dirname, strerror(errno));
+        return NULL;
+    }
+
+    while(NULL != (entry = readdir(module_dir))){
+
+        if (!strcmp(entry->d_name, ".") || !strcmp(entry->d_name, ".."))
+            continue;
+        full_path = spd_get_path(entry->d_name, dirname);
+        sys_ret = stat(full_path, &fileinfo);
+        g_free(full_path);
+        if (sys_ret != 0) {
+            MSG(4, "stat failed on file %s in %s", entry->d_name, dirname);
+            continue;
+        }
+        /* Note: stat(2) dereferences symlinks. */
+        if (!S_ISREG(fileinfo.st_mode)) {
+            MSG(4, "Ignoring %s in %s; not a regular file.", entry->d_name,
+                dirname);
+            continue;
+        }
+
+        if (strncmp(entry->d_name, "sd_", FNAME_PREFIX_LENGTH)
+            || (entry->d_name[FNAME_PREFIX_LENGTH] == '\0')) {
+            MSG(1, "Module discovery ignoring %s: malformed filename.",
+                entry->d_name);
+            continue;
+        }
+
+        module_parameters = g_malloc(4 * sizeof(char *));
+        module_parameters[0] = g_strdup(entry->d_name + FNAME_PREFIX_LENGTH);
+        module_parameters[1] = g_strdup(entry->d_name);
+        module_parameters[2] = g_strdup_printf("%s.conf", module_parameters[0]);
+        module_parameters[3] = g_strdup_printf("%s/%s.log", SpeechdOptions.log_dir, module_parameters[0]);
+        modules = g_list_append(modules, module_parameters);
+
+        MSG(5,"Module name=%s being inserted into detected_modules list", module_parameters[0]);
+    }
+
+    closedir(module_dir);
+    return modules;
 }
 
 OutputModule*
