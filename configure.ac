@@ -203,6 +203,21 @@ AM_CONDITIONAL([pico_support], [test $with_pico = "yes"])
 # clear static audio plugins list
 STATIC_AUDIO_PLUGINS_LIST=""
 
+# check for pulseaudio support
+AC_ARG_WITH([pulse],
+	[AS_HELP_STRING([--with-pulse], [include pulseaudio support])],
+	[],
+	[with_pulse=check])
+AS_IF([test $with_pulse != "no"],
+	[PKG_CHECK_MODULES([PULSE], [libpulse-simple],
+		[with_pulse=yes;
+		STATIC_AUDIO_PLUGINS_LIST="$STATIC_AUDIO_PLUGINS_LIST pulse"],
+		[AS_IF([test $with_pulse = "yes"],
+			[AC_MSG_FAILURE([pulseaudio is not available])])])])
+AM_CONDITIONAL([pulse_support], [test $with_pulse = "yes"])
+AC_SUBST([PULSE_CFLAGS])
+AC_SUBST([PULSE_LIBS])
+
 # check for alsa support
 AC_ARG_WITH([alsa],
 	[AS_HELP_STRING([--with-alsa], [include ALSA support])],
@@ -233,6 +248,19 @@ AM_CONDITIONAL([libao_support], [test $with_libao = "yes"])
 AC_SUBST([LIBAO_CFLAGS])
 AC_SUBST([LIBAO_LIBS])
 
+#check for OSS support
+AC_ARG_WITH([oss],
+	[AS_HELP_STRING([--with-oss], [include oss support])],
+	[],
+	[with_oss=check])
+AS_IF([test $with_oss != "no"],
+	[AC_CHECK_HEADER([sys/soundcard.h],
+		[with_oss=yes;
+		STATIC_AUDIO_PLUGINS_LIST="$STATIC_AUDIO_PLUGINS_LIST oss"],
+		[AS_IF([test $with_oss = "yes"],
+			[AC_MSG_FAILURE([oss is not available])])])])
+AM_CONDITIONAL([oss_support], [test $with_oss = "yes"])
+
 # check for NAS support
 AC_ARG_WITH([nas],
 	[AS_HELP_STRING([--with-nas], [include network audio system (nas) support])],
@@ -249,34 +277,6 @@ AS_IF([test $with_nas != "no"],
 AM_CONDITIONAL([nas_support], [test $with_nas = "yes"])
 AC_SUBST([NAS_LIBS])
 
-#check for OSS support
-AC_ARG_WITH([oss],
-	[AS_HELP_STRING([--with-oss], [include oss support])],
-	[],
-	[with_oss=check])
-AS_IF([test $with_oss != "no"],
-	[AC_CHECK_HEADER([sys/soundcard.h],
-		[with_oss=yes;
-		STATIC_AUDIO_PLUGINS_LIST="$STATIC_AUDIO_PLUGINS_LIST oss"],
-		[AS_IF([test $with_oss = "yes"],
-			[AC_MSG_FAILURE([oss is not available])])])])
-AM_CONDITIONAL([oss_support], [test $with_oss = "yes"])
-
-# check for pulseaudio support
-AC_ARG_WITH([pulse],
-	[AS_HELP_STRING([--with-pulse], [include pulseaudio support])],
-	[],
-	[with_pulse=check])
-AS_IF([test $with_pulse != "no"],
-	[PKG_CHECK_MODULES([PULSE], [libpulse-simple],
-		[with_pulse=yes;
-		STATIC_AUDIO_PLUGINS_LIST="$STATIC_AUDIO_PLUGINS_LIST pulse"],
-		[AS_IF([test $with_pulse = "yes"],
-			[AC_MSG_FAILURE([pulseaudio is not available])])])])
-AM_CONDITIONAL([pulse_support], [test $with_pulse = "yes"])
-AC_SUBST([PULSE_CFLAGS])
-AC_SUBST([PULSE_LIBS])
-
 for name in $STATIC_AUDIO_PLUGINS_LIST; do
 	STATIC_AUDIO_PLUGINS_GET="$STATIC_AUDIO_PLUGINS_GET${name}_plugin_get,";
 	STATIC_AUDIO_PLUGINS_EXTERN="${STATIC_AUDIO_PLUGINS_EXTERN} extern spd_audio_plugin_t const * ${name}_plugin_get (void); "
@@ -285,6 +285,15 @@ done
 # used in src/audio/static_plugins.c.in
 AC_SUBST([STATIC_AUDIO_PLUGINS_EXTERN])
 AC_SUBST([STATIC_AUDIO_PLUGINS_GET])
+
+AC_MSG_CHECKING(for default audio output method)
+AC_ARG_WITH([audio-output-method],
+	[AS_HELP_STRING([--with-audio-output-method=<name>], [defines audio output method (default - first discovered)])],
+	[],
+	[with_audio_output_method=`echo $STATIC_AUDIO_PLUGINS_LIST | cut -d ' ' -f 1`])
+
+AC_SUBST([with_audio_output_method])
+AC_MSG_RESULT($with_audio_output_method)
 
 # current, age and revision values for shared libraries.
 LIB_SDAUDIO_CURRENT=2 # Current main version (increment on every API change -- incompatible AND extensions)

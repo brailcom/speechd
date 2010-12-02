@@ -437,12 +437,8 @@ load_default_global_set_options()
     GlobalFDSet.ssml_mode = SPD_DATA_TEXT;
     GlobalFDSet.notification = 0;
 
-#ifdef __SUNPRO_C
-/* Added by Willie Walker - default to OSS for Solaris */
-    GlobalFDSet.audio_output_method = g_strdup("oss");
-#else
-    GlobalFDSet.audio_output_method = g_strdup("pulse");
-#endif /* __SUNPRO_C */
+
+    GlobalFDSet.audio_output_method = g_strdup(DEFAULT_AUDIO_METHOD);
     GlobalFDSet.audio_oss_device = g_strdup("/dev/dsp");
     GlobalFDSet.audio_alsa_device = g_strdup("default");
     GlobalFDSet.audio_nas_server = g_strdup("tcp/localhost:5450");
