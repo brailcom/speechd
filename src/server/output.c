@@ -282,8 +282,8 @@ output_send_data(char* cmd, OutputModule *output, int wfr)
     return 0;
 }
 
-int
-_output_get_voices(OutputModule *module)
+static SPDVoice**
+output_get_voices(OutputModule *module)
 {
   SPDVoice** voice_dscr;
   GString *reply;
@@ -297,15 +297,14 @@ _output_get_voices(OutputModule *module)
 
   if (module == NULL){
     MSG(1, "ERROR: Can't list voices for broken output module");
-    OL_RET(-1);
+    OL_RET(NULL);
   }
   output_send_data("LIST VOICES\n", module, 0);
   reply = output_read_reply(module);
 
   if (reply == NULL){
       output_unlock();
-      voice_dscr = NULL;
-      return -1;
+      return NULL;
   }
 
   //TODO: only 256 voices supported here
@@ -343,10 +342,8 @@ _output_get_voices(OutputModule *module)
   voice_dscr[i] = NULL;
   g_strfreev(lines);
 
-  module->voices=voice_dscr;
-
   output_unlock();
-  return ret;
+  return voice_dscr;
 }
 
 SPDVoice**
@@ -359,7 +356,7 @@ output_list_voices(char* module_name)
     MSG(1, "ERROR: Can't list voices for module %s", module_name);
     return NULL;
   }
-  return module->voices;
+  return output_get_voices(module);
 }
 
 #define SEND_CMD_N(cmd) \

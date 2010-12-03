@@ -318,9 +318,6 @@ load_output_module(char* mod_name, char* mod_prog, char* mod_cfgfile, char* mod_
 	return NULL;
     }
 
-    /* Get a list of supported voices */
-    _output_get_voices(module);
-
     return module;
 }
 

@@ -48,4 +48,3 @@ int output_module_is_speaking(OutputModule *output, char **index_mark);
 int waitpid_with_timeout(pid_t pid, int *status_ptr, int options, size_t timeout);
 int output_close(OutputModule *module);
 SPDVoice** output_list_voices(char* module_name);
-int _output_get_voices(OutputModule *module);

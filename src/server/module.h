@@ -39,7 +39,6 @@ typedef struct{
     int stderr_redirect;
     pid_t pid;
     int working;
-    SPDVoice **voices;
 }OutputModule;
 
 GList *detect_output_modules(char *dirname);

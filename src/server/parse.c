@@ -870,10 +870,15 @@ parse_list(const char* buf, const int bytes, const int fd, const TSpeechDSock *s
 	if (voices[i] == NULL) break;
 	g_string_append_printf(result, C_OK_VOICES"-%s %s %s\r\n",
 			       voices[i]->name, voices[i]->language, voices[i]->variant);
+        g_free(voices[i]->name);
+        g_free(voices[i]->language);
+        g_free(voices[i]->variant);
+        g_free(voices[i]);
       }
       g_string_append(result, OK_VOICE_LIST_SENT);
       helper = result->str;
       g_string_free(result, 0);	
+      g_free(voices);
       return helper;      
     }else{
       g_free(list_type);
