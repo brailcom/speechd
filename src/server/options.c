@@ -61,33 +61,34 @@ options_print_help(char *argv[])
     assert(argv);
     assert(argv[0]);
 
-    printf(_("Usage: %s [-{d|s}] [-l {1|2|3|4|5}] [-c com_method] [-S socket_path] [-p port] | [-v] | [-h]\n"), argv[0]);
-    printf(_("Speech Dispatcher -- Common interface for Speech Synthesis (GNU GPL)\n\n"));
+    printf(_("Usage: "));
+    printf("%s [-{d|s}] [-l {1|2|3|4|5}] [-c com_method] [-S socket_path] [-p port] | [-v] | [-h]\n", argv[0]);
+    printf(_("%s -- Common interface for Speech Synthesis %s\n\n"), "Speech Dispatcher", "(GNU GPL)");
     printf("-d, --run-daemon\t");
     printf(_("Run as a daemon\n"));
     printf("-s, --run-single\t");
     printf(_("Run as single application\n"));
-    printf("-a, --spawn\t");
+    printf("-a, --spawn\t\t");
     printf(_("Start only if autospawn is not disabled\n"));
-    printf("-l, --log-level\t");
+    printf("-l, --log-level\t\t");
     printf(_("Set log level (1..5)\n"));
-    printf("-L, --log-dir\t");
+    printf("-L, --log-dir\t\t");
     printf(_("Set path to logging\n"));
     printf("-c, --communication-method\t");
-    printf(_("Communication method to use (unix_socket or inet_socket)\n"));
+    printf(_("Communication method to use %s\n"), "(unix_socket or inet_socket)");
     printf("-S, --socket-path\t");
     printf(_("Socket path to use for 'unix_socket' method (filesystem path or 'default')\n"));
-    printf("-p, --port\t");
+    printf("-p, --port\t\t");
     printf(_("Specify a port number for 'inet_socket' method\n"));
-    printf("-P, --pid-file\t");
+    printf("-P, --pid-file\t\t");
     printf(_("Set path to pid file\n"));
     printf(_("-C, --config-dir\t"));
     printf(_("Set path to configuration\n"));
-    printf("-v, --version\t");
+    printf("-v, --version\t\t");
     printf(_("Report version of this program\n"));
-    printf("-D, --debug\t");
-    printf(_("Output debugging information into /tmp/.speech-dispatcher\n"));
-    printf("-h, --help\t");
+    printf("-D, --debug\t\t");
+    printf(_("Output debugging information into %s\n"), "/tmp/.speech-dispatcher");
+    printf("-h, --help\t\t");
     printf(_("Print this info\n"));
     printf("\n");
     printf(_("Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 Brailcom, o.p.s.\n"
@@ -95,7 +96,7 @@ options_print_help(char *argv[])
     "under the terms of the GNU General Public License as published by\n"
     "the Free Software Foundation; either version 2, or (at your option)\n"
     "any later version. Please see COPYING for more details.\n\n"
-    "Please report bugs to <speechd-bugs@freebsoft.org>\n\n"));
+    "Please report bugs to %s\n\n"), PACKAGE_BUGREPORT);
 
 }
 
