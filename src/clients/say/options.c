@@ -33,6 +33,7 @@
 #include <string.h>
 #include <assert.h>
 #include "options.h"
+#include <i18n.h>
 
 void
 options_print_help(char *argv[])
@@ -40,52 +41,100 @@ options_print_help(char *argv[])
     assert(argv);
     assert(argv[0]);
 
-    printf("Usage: %s [options] \"some text\"\n", argv[0]);
-    printf("Speech Dispatcher Say -- a simple client for speech synthesis (GNU GPL)\n\n");
-    printf(
-	   "-r, --rate             -     Set the rate of the speech\n"
-           "                               (between -100 and +100, default: 0)\n"
-	   "-p, --pitch            -     Set the pitch of the speech\n"
-	   "                               (between -100 and +100, default: 0)\n"
-	   "-i, --volume           -     Set the volume (intensity) of the speech\n"
-           "                               (between -100 and +100, default: 0) \n"
-	   "-o, --output-module    -     Set the output module\n"
-           "-O, --list-output-modules    Get the list of output modules\n"
-	   "-l, --language         -     Set the language (iso code)\n"
-	   "-t, --voice-type       -     Set the prefered voice type\n"
-           "                               (male1, male2, male3, female1, female2\n"
-	   "                                female3, child_male, child_female)\n"
-           "-L, --list-synthesis-voices  Get the list of synthesis voices\n"
-           "-y, --synthesis-voice  -     Set the synthesis voice\n"
-	   "-m, --punctuation-mode -     Set the punctuation mode (none, some, all) \n"
-	   "-s, --spelling         -     Spell the message\n"
-           "-x, --ssml             -     Set SSML mode on (default: off)\n"
-           "\n"
-           "-e, --pipe-mode        -     Pipe from stdin to stdout plus Speech Dispatcher\n"
-           "-P, --priority         -     Set priority of the message (important, message,\n"
-           "                                text, notification, progress; default: text)\n"
-           "-N, --application-name -     Set the application name used to estabilish\n"
-           "                                the connection to specified string value\n"
-           "                                (default: spd-say)\n"
-           "-n, --connection-name  -     Set the connection name used to estabilish\n"
-           "                                the connection to specified string value\n"
-	   "                                (default: main)\n"
-           "\n"
-	   "-w, --wait             -     Wait till the message is spoken or discarded\n"
-           "-S, --stop             -     Stop speaking the message being spoken\n"
-           "                                in Speech Dispatcher\n"
-           "-C, --cancel           -     Cancel all messages in Speech Dispatcher\n"
-           "\n"
-	   "-v, --version          -     Print version and copyright info\n"
-	   "-h, --help             -     Print this info\n"
-           "\n"
-	   "Copyright (C) 2003 Brailcom, o.p.s.\n"
-	   "This is free software; you can redistribute it and/or modify it\n"
-	   "under the terms of the GNU General Public License as published by\n"
-	   "the Free Software Foundation; either version 2, or (at your option)\n"
-	   "any later version. Please see COPYING for more details.\n\n"
-	   "Please report bugs to <speechd@bugs.freebsoft.org>\n\n"
-	   );
+    printf(_("Usage: %s [options] \"some text\"\n"), argv[0]);
+    printf(_("%s -- a simple client for speech synthesis %s\n\n"),
+           "Speech Dispatcher Say", "(GNU GPL)");
+
+    printf("-r, --rate\t\t\t");
+    printf(_("Set the rate of the speech\n"));
+    printf("\t\t\t\t");
+    printf(_("(between -100 and +100, default: 0)\n"));
+
+    printf("-p, --pitch\t\t\t");
+    printf(_("Set the pitch of the speech\n"));
+    printf("\t\t\t\t");
+    printf(_("(between -100 and +100, default: 0)\n"));
+
+    printf("-i, --volume\t\t\t");
+    printf(_("Set the volume (intensity) of the speech\n"));
+    printf("\t\t\t\t");
+    printf(_("(between -100 and +100, default: 0) \n"));
+
+    printf("-o, --output-module\t\t");
+    printf(_("Set the output module\n"));
+
+    printf("-O, --list-output-modules\t");
+    printf(_("Get the list of output modules\n"));
+
+    printf("-l, --language\t\t\t");
+    printf(_("Set the language (ISO code)\n"));
+
+    printf("-t, --voice-type\t\t");
+    printf(_("Set the prefered voice type\n"));
+    printf("\t\t\t\t(male1, male2, male3, female1, female2\n"
+           "\t\t\t\tfemale3, child_male, child_female)\n");
+
+    printf("-L, --list-synthesis-voices\t");
+    printf(_("Get the list of synthesis voices\n"));
+
+    printf("-y, --synthesis-voice\t\t");
+    printf(_("Set the synthesis voice\n"));
+
+    printf("-m, --punctuation-mode\t\t");
+    printf(_("Set the punctuation mode %s\n"), "(none, some, all)");
+
+    printf("-s, --spelling\t\t\t");
+    printf(_("Spell the message\n"));
+
+    printf("-x, --ssml\t\t\t");
+    printf(_("Set SSML mode on (default: off)\n"));
+    printf("\n");
+
+    printf("-e, --pipe-mode\t\t\t");
+    printf(_("Pipe from stdin to stdout plus Speech Dispatcher\n"));
+
+    printf("-P, --priority\t\t\t");
+    printf(_("Set priority of the message "));
+    printf("(important, message,\n"
+           "\t\t\t\ttext, notification, progress;");
+    printf(_("default: %s)\n"), "text");
+
+    printf("-N, --application-name\t\t");
+    printf(_("Set the application name used to estabilish\n"
+             "%sthe connection to specified string value\n"), "\t\t\t\t");
+    printf("\t\t\t\t");
+    printf(_("(default: %s)\n"), "spd-say");
+
+    printf("-n, --connection-name\t\t");
+    printf(_("Set the connection name used to estabilish\n"
+           "%sthe connection to specified string value\n"), "\t\t\t\t");
+    printf("\t\t\t\t");
+    printf(_("(default: %s)\n"), "main");
+    printf("\n");
+
+    printf("-w, --wait\t\t\t");
+    printf(_("Wait till the message is spoken or discarded\n"));
+
+    printf("-S, --stop\t\t\t");
+    printf(_("Stop speaking the message being spoken\n"));
+
+    printf("-C, --cancel\t\t\t");
+    printf(_("Cancel all messages\n"));
+    printf("\n");
+
+    printf("-v, --version\t\t\t");
+    printf(_("Print version and copyright info\n"));
+
+    printf("-h, --help\t\t\t");
+    printf(_("Print this info\n"));
+    printf("\n");
+
+    printf(_("Copyright (C) 2002-2010 Brailcom, o.p.s.\n"
+           "This is free software; you can redistribute it and/or modify it\n"
+           "under the terms of the GNU General Public License as published by\n"
+           "the Free Software Foundation; either version 2, or (at your option)\n"
+           "any later version. Please see COPYING for more details.\n\n"
+           "Please report bugs to %s\n\n"), PACKAGE_BUGREPORT);
     
 }
 
@@ -93,12 +142,12 @@ void
 options_print_version()
 {
     printf("spd-say: " VERSION "\n");
-    printf("Copyright (C) 2002-2006 Brailcom, o.p.s.\n"
+    printf(_("Copyright (C) 2002-2010 Brailcom, o.p.s.\n"
            "spd-say comes with ABSOLUTELY NO WARRANTY.\n"
            "You may redistribute copies of spd-say\n"
            "under the terms of the GNU General Public License.\n"
            "For more information about these matters, see the file named COPYING.\n"
-           );
+           ));
 }
 
 #define OPT_SET_INT(param) \
