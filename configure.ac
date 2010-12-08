@@ -199,10 +199,13 @@ AS_IF([test $with_pico != "no"],
 			[AC_MSG_FAILURE([SVOX pico is not available])])])])
 AM_CONDITIONAL([pico_support], [test $with_pico = "yes"])
 
-# checks for audio subsystems
 # clear static audio plugins list
 STATIC_AUDIO_PLUGINS_LIST=""
 
+# clear default audio method
+default_audio_method=""
+
+# checks for audio subsystems
 # check for pulseaudio support
 AC_ARG_WITH([pulse],
 	[AS_HELP_STRING([--with-pulse], [include pulseaudio support])],
@@ -210,7 +213,9 @@ AC_ARG_WITH([pulse],
 	[with_pulse=check])
 AS_IF([test $with_pulse != "no"],
 	[PKG_CHECK_MODULES([PULSE], [libpulse-simple],
-		[with_pulse=yes;
+		[with_pulse=yes
+		AS_IF([test -z "$default_audio_method"],
+			[default_audio_method=pulse])
 		STATIC_AUDIO_PLUGINS_LIST="$STATIC_AUDIO_PLUGINS_LIST pulse"],
 		[AS_IF([test $with_pulse = "yes"],
 			[AC_MSG_FAILURE([pulseaudio is not available])])])])
@@ -225,7 +230,9 @@ AC_ARG_WITH([alsa],
 	[with_alsa=check])
 AS_IF([test $with_alsa != "no"],
 	[PKG_CHECK_MODULES([ALSA], [alsa],
-		[with_alsa=yes;
+		[with_alsa=yes
+		AS_IF([test -z "$default_audio_method"],
+			[default_audio_method=alsa])
 		STATIC_AUDIO_PLUGINS_LIST="$STATIC_AUDIO_PLUGINS_LIST alsa"],
 		[AS_IF([test $with_alsa = "yes"],
 			[AC_MSG_FAILURE([ALSA is not available])])])])
@@ -240,7 +247,9 @@ AC_ARG_WITH([libao],
 	[with_libao=check])
 AS_IF([test $with_libao != "no"],
 	[PKG_CHECK_MODULES([LIBAO], [ao],
-		[with_libao=yes;
+		[with_libao=yes
+		AS_IF([test -z "$default_audio_method"],
+			[default_audio_method=libao])
 		STATIC_AUDIO_PLUGINS_LIST="$STATIC_AUDIO_PLUGINS_LIST libao"],
 		[AS_IF([test $with_libao = yes],
 			[AC_MSG_FAILURE([libao is not available])])])])
@@ -255,7 +264,9 @@ AC_ARG_WITH([oss],
 	[with_oss=check])
 AS_IF([test $with_oss != "no"],
 	[AC_CHECK_HEADER([sys/soundcard.h],
-		[with_oss=yes;
+		[with_oss=yes
+		AS_IF([test -z "$default_audio_method"],
+			[default_audio_method=oss])
 		STATIC_AUDIO_PLUGINS_LIST="$STATIC_AUDIO_PLUGINS_LIST oss"],
 		[AS_IF([test $with_oss = "yes"],
 			[AC_MSG_FAILURE([oss is not available])])])])
@@ -268,7 +279,9 @@ AC_ARG_WITH([nas],
 	[with_nas=check])
 AS_IF([test $with_nas != "no"],
 	[AC_CHECK_LIB([audio], [AuOpenServer],
-		[with_nas=yes;
+		[with_nas=yes
+		AS_IF([test -z "$default_audio_method"],
+			[default_audio_method=nas])
 		STATIC_AUDIO_PLUGINS_LIST="$STATIC_AUDIO_PLUGINS_LIST nas";
 		NAS_LIBS="-L/usr/X11R6/lib -lXau -laudio"],
 		[AS_IF([test $with_nas = "yes"],
@@ -276,6 +289,14 @@ AS_IF([test $with_nas != "no"],
 	[-L/usr/X11R6/lib -lXau])])
 AM_CONDITIONAL([nas_support], [test $with_nas = "yes"])
 AC_SUBST([NAS_LIBS])
+
+AC_ARG_WITH([default-audio-method],
+	[AS_HELP_STRING([--with-default-audio-method=<name>],
+		[defines default audio method (default - first discovered)])],
+	[default_audio_method="$withval"],
+	[])
+AC_MSG_NOTICE([Default audio method is $default_audio_method])
+AC_SUBST([default_audio_method])
 
 for name in $STATIC_AUDIO_PLUGINS_LIST; do
 	STATIC_AUDIO_PLUGINS_GET="$STATIC_AUDIO_PLUGINS_GET${name}_plugin_get,";
@@ -285,15 +306,6 @@ done
 # used in src/audio/static_plugins.c.in
 AC_SUBST([STATIC_AUDIO_PLUGINS_EXTERN])
 AC_SUBST([STATIC_AUDIO_PLUGINS_GET])
-
-AC_MSG_CHECKING(for default audio output method)
-AC_ARG_WITH([audio-output-method],
-	[AS_HELP_STRING([--with-audio-output-method=<name>], [defines audio output method (default - first discovered)])],
-	[],
-	[with_audio_output_method=`echo $STATIC_AUDIO_PLUGINS_LIST | cut -d ' ' -f 1`])
-
-AC_SUBST([with_audio_output_method])
-AC_MSG_RESULT($with_audio_output_method)
 
 # current, age and revision values for shared libraries.
 LIB_SDAUDIO_CURRENT=2 # Current main version (increment on every API change -- incompatible AND extensions)

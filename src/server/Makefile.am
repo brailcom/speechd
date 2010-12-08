@@ -14,7 +14,7 @@ speech_dispatcher_CFLAGS = $(ERROR_CFLAGS)
 speech_dispatcher_CPPFLAGS = $(inc_local) $(DOTCONF_CFLAGS) $(GLIB_CFLAGS) \
 	$(GMODULE_CFLAGS) $(GTHREAD_CFLAGS) -DSYS_CONF=\"$(spdconfdir)\" \
 	-DSND_DATA=\"$(snddatadir)\" -DMODULEBINDIR=\"$(modulebindir)\" \
-	-D_GNU_SOURCE -DDEFAULT_AUDIO_METHOD=\"$(with_audio_output_method)\"
+	-D_GNU_SOURCE -DDEFAULT_AUDIO_METHOD=\"$(default_audio_method)\"
 speech_dispatcher_LDFLAGS = $(RDYNAMIC)
 speech_dispatcher_LDADD = $(lib_common) $(DOTCONF_LIBS) $(GLIB_LIBS) \
 	$(GMODULE_LIBS) $(GTHREAD_LIBS) -lpthread $(EXTRA_SOCKET_LIBS)
