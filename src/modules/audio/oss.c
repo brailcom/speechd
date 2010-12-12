@@ -41,6 +41,7 @@
 
 #include <sys/soundcard.h>
 
+#define SPD_AUDIO_PLUGIN_ENTRY spd_oss_LTX_spd_audio_plugin_get
 #include "spd_audio_plugin.h"
 
 typedef struct {
@@ -501,5 +502,6 @@ static spd_audio_plugin_t oss_functions = {
     oss_get_playcmd
 };
 spd_audio_plugin_t * oss_plugin_get (void) {return &oss_functions;}
+spd_audio_plugin_t * SPD_AUDIO_PLUGIN_ENTRY (void)  __attribute__ ((weak, alias("oss_plugin_get")));
 #undef MSG
 #undef ERR

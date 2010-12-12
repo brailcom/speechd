@@ -31,6 +31,7 @@
 #include <pthread.h>
 #include <glib.h>
 #include <dotconf.h>
+#include <ltdl.h>
 
 #include <spd_utils.h>
 #include "module_utils.h"
@@ -79,6 +80,8 @@ main(int argc, char *argv[])
 
     g_thread_init(NULL);
 
+    /* Initialize ltdl's list of preloaded audio backends. */
+    LTDL_SET_PRELOADED_SYMBOLS();
     module_num_dc_options = 0;
     module_audio_id = 0;
 

@@ -33,6 +33,7 @@
 
 #include <pthread.h>
 
+#define SPD_AUDIO_PLUGIN_ENTRY spd_nas_LTX_spd_audio_plugin_get
 #include "spd_audio_plugin.h"
 
 typedef struct {
@@ -255,3 +256,4 @@ static spd_audio_plugin_t nas_functions = {
 };
 
 spd_audio_plugin_t * nas_plugin_get (void) {return &nas_functions;}
+spd_audio_plugin_t * SPD_AUDIO_PLUGIN_ENTRY (void)  __attribute__ ((weak, alias("nas_plugin_get")));

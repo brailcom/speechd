@@ -27,6 +27,8 @@
 
 #include "spd_audio_plugin.h"
 
+#define SPD_AUDIO_LIB_PREFIX "spd_"
+
 AudioID* spd_audio_open(char *name, void **pars, char **error);
 
 int spd_audio_play(AudioID *id, AudioTrack track, AudioFormat format);

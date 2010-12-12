@@ -48,9 +48,10 @@
 #include <pthread.h>
 
 #include <glib.h>
+#include <ltdl.h>
 
 static int spd_audio_log_level;
-extern  spd_audio_plugin_t * spd_audio_static_plugin_get (char * name);
+static lt_dlhandle lt_h;
 
 /* Open the audio device.
 
@@ -72,20 +73,51 @@ AudioID*
 spd_audio_open(char *name, void **pars, char **error)
 {
     AudioID *id;
-    struct spd_audio_plugin *function;
     spd_audio_plugin_t const *p;
+    spd_audio_plugin_t * (*fn) (void);
+    gchar * libname;
+    int ret;
 
-    /* check whether static plugin is available */
-    p = spd_audio_static_plugin_get (name);
+    /* now check whether dynamic plugin is available */
+    ret = lt_dlinit();
+    if (ret != 0) {
+	*error = (char*) g_strdup_printf("lt_dlinit() failed");
+	return (AudioID *)NULL;
+    }
+
+ret = lt_dlsetsearchpath(PLUGIN_DIR);
+    if (ret != 0) {
+	*error = (char*) g_strdup_printf("lt_dlsetsearchpath() failed");
+	return (AudioID *)NULL;
+    }
+
+    libname = g_strdup_printf(SPD_AUDIO_LIB_PREFIX"%s",name);
+    lt_h = lt_dlopenext (libname);
+    g_free(libname);
+    if (NULL == lt_h) {
+	*error = (char*) g_strdup_printf("Cannot open plugin %s. error: %s",
+                                         name, lt_dlerror());
+	return (AudioID *)NULL;
+    }
+
+    fn = lt_dlsym (lt_h, SPD_AUDIO_PLUGIN_ENTRY_STR);
+    if (NULL == fn) {
+	*error = (char*) g_strdup_printf("Cannot find symbol %s",
+                                         SPD_AUDIO_PLUGIN_ENTRY_STR);
+	return (AudioID *)NULL;
+    }
+
+    p = fn();
     if (p == NULL || p->name == NULL) {
-        *error = (char*)g_strdup_printf("Unknown plugin %s ", name);
-        return (AudioID *)NULL;
+	*error = (char*) g_strdup_printf("plugin %s not found",
+                                         name);
+	return (AudioID *)NULL;
     }
 
     id = p->open (pars);
     if (id == NULL) {
-        *error = (char*) g_strdup_printf("Couldn't open %s plugin", name);
-        return (AudioID *)NULL;
+	*error = (char*) g_strdup_printf("Couldn't open %s plugin", name);
+	return (AudioID *)NULL;
     }
 
     id->function = p;
@@ -205,9 +237,16 @@ spd_audio_close(AudioID *id)
 {
     int ret = 0;
     if (id && id->function->close){
-	return (id->function->close(id));
+	ret =  (id->function->close(id));
     }
-    return -1;
+
+    if (NULL != lt_h){
+        lt_dlclose (lt_h);
+        lt_h = NULL;
+        lt_dlexit ();
+    }
+
+    return ret;
 }
 
 /* Set volume for playing tracks on the device id

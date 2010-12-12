@@ -199,8 +199,7 @@ AS_IF([test $with_pico != "no"],
 			[AC_MSG_FAILURE([SVOX pico is not available])])])])
 AM_CONDITIONAL([pico_support], [test $with_pico = "yes"])
 
-# clear static audio plugins list
-STATIC_AUDIO_PLUGINS_LIST=""
+audio_dlopen_modules='-dlopen force'
 
 # clear default audio method
 default_audio_method=""
@@ -216,7 +215,7 @@ AS_IF([test $with_pulse != "no"],
 		[with_pulse=yes
 		AS_IF([test -z "$default_audio_method"],
 			[default_audio_method=pulse])
-		STATIC_AUDIO_PLUGINS_LIST="$STATIC_AUDIO_PLUGINS_LIST pulse"],
+		audio_dlopen_modules="$audio_dlopen_modules -dlopen audio/spd_pulse.la"],
 		[AS_IF([test $with_pulse = "yes"],
 			[AC_MSG_FAILURE([pulseaudio is not available])])])])
 AM_CONDITIONAL([pulse_support], [test $with_pulse = "yes"])
@@ -233,7 +232,7 @@ AS_IF([test $with_alsa != "no"],
 		[with_alsa=yes
 		AS_IF([test -z "$default_audio_method"],
 			[default_audio_method=alsa])
-		STATIC_AUDIO_PLUGINS_LIST="$STATIC_AUDIO_PLUGINS_LIST alsa"],
+		audio_dlopen_modules="$audio_dlopen_modules -dlopen audio/spd_alsa.la"],
 		[AS_IF([test $with_alsa = "yes"],
 			[AC_MSG_FAILURE([ALSA is not available])])])])
 AM_CONDITIONAL([alsa_support], [test $with_alsa = "yes"])
@@ -250,7 +249,7 @@ AS_IF([test $with_libao != "no"],
 		[with_libao=yes
 		AS_IF([test -z "$default_audio_method"],
 			[default_audio_method=libao])
-		STATIC_AUDIO_PLUGINS_LIST="$STATIC_AUDIO_PLUGINS_LIST libao"],
+		audio_dlopen_modules="$audio_dlopen_modules -dlopen audio/spd_libao.la"],
 		[AS_IF([test $with_libao = yes],
 			[AC_MSG_FAILURE([libao is not available])])])])
 AM_CONDITIONAL([libao_support], [test $with_libao = "yes"])
@@ -267,7 +266,7 @@ AS_IF([test $with_oss != "no"],
 		[with_oss=yes
 		AS_IF([test -z "$default_audio_method"],
 			[default_audio_method=oss])
-		STATIC_AUDIO_PLUGINS_LIST="$STATIC_AUDIO_PLUGINS_LIST oss"],
+		audio_dlopen_modules="$audio_dlopen_modules -dlopen audio/spd_oss.la"],
 		[AS_IF([test $with_oss = "yes"],
 			[AC_MSG_FAILURE([oss is not available])])])])
 AM_CONDITIONAL([oss_support], [test $with_oss = "yes"])
@@ -282,7 +281,7 @@ AS_IF([test $with_nas != "no"],
 		[with_nas=yes
 		AS_IF([test -z "$default_audio_method"],
 			[default_audio_method=nas])
-		STATIC_AUDIO_PLUGINS_LIST="$STATIC_AUDIO_PLUGINS_LIST nas";
+		audio_dlopen_modules="$audio_dlopen_modules -dlopen audio/spd_nas.la";
 		NAS_LIBS="-L/usr/X11R6/lib -lXau -laudio"],
 		[AS_IF([test $with_nas = "yes"],
 			[AC_MSG_FAILURE([nas is not available])])],
@@ -298,14 +297,8 @@ AC_ARG_WITH([default-audio-method],
 AC_MSG_NOTICE([Default audio method is $default_audio_method])
 AC_SUBST([default_audio_method])
 
-for name in $STATIC_AUDIO_PLUGINS_LIST; do
-	STATIC_AUDIO_PLUGINS_GET="$STATIC_AUDIO_PLUGINS_GET${name}_plugin_get,";
-	STATIC_AUDIO_PLUGINS_EXTERN="${STATIC_AUDIO_PLUGINS_EXTERN} extern spd_audio_plugin_t const * ${name}_plugin_get (void); "
-done
-
-# used in src/audio/static_plugins.c.in
-AC_SUBST([STATIC_AUDIO_PLUGINS_EXTERN])
-AC_SUBST([STATIC_AUDIO_PLUGINS_GET])
+# We'll build these modules:
+AC_SUBST([audio_dlopen_modules])
 
 # current, age and revision values for shared libraries.
 LIB_SDAUDIO_CURRENT=2 # Current main version (increment on every API change -- incompatible AND extensions)
@@ -356,6 +349,10 @@ AC_SUBST([modulebindir])
 spdlibdir='${libdir}/speech-dispatcher'
 AC_SUBST([spdlibdir])
 
+# Path for audio libraries and plugins:
+audiodir="$spdlibdir"
+AC_SUBST([audiodir])
+
 # Path for speech-dispatcher include files:
 spdincludedir=${includedir}/speech-dispatcher
 AC_SUBST([spdincludedir])
@@ -380,7 +377,6 @@ AC_CONFIG_FILES([Makefile
                  src/common/Makefile
                  src/modules/Makefile
                  src/modules/audio/Makefile
-                 src/modules/audio/static_plugins.c
                  src/server/Makefile
                  src/tests/Makefile])
 AC_OUTPUT

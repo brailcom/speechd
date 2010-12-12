@@ -23,6 +23,8 @@
 #ifndef __SPD_AUDIO_PLUGIN_H
 #define __SPD_AUDIO_PLUGIN_H
 
+#define SPD_AUDIO_PLUGIN_ENTRY_STR "spd_audio_plugin_get"
+
 #ifdef __cplusplus
 extern "C" {
 #endif

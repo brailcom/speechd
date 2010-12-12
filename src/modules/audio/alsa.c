@@ -37,6 +37,7 @@
 
 #include <alsa/asoundlib.h>
 
+#define SPD_AUDIO_PLUGIN_ENTRY spd_alsa_LTX_spd_audio_plugin_get
 #include "spd_audio_plugin.h"
 
 typedef struct {
@@ -835,5 +836,6 @@ static spd_audio_plugin_t alsa_functions = {
 };
 
 spd_audio_plugin_t * alsa_plugin_get (void) {return &alsa_functions;}
+spd_audio_plugin_t * SPD_AUDIO_PLUGIN_ENTRY (void)  __attribute__ ((weak, alias("alsa_plugin_get")));
 #undef MSG
 #undef ERR

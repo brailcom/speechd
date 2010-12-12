@@ -15,7 +15,8 @@ modulebin_PROGRAMS = sd_dummy sd_generic sd_festival sd_cicero
 
 sd_dummy_SOURCES = dummy.c $(common_SOURCES) module_utils_addvoice.c
 sd_dummy_LDFLAGS = $(RPATH) '$(spdlibdir)' $(lib_audio)
-sd_dummy_LDADD = $(top_builddir)/src/common/libcommon.la -lsdaudio -lpthread \
+sd_dummy_LDADD = $(top_builddir)/src/common/libcommon.la -lsdaudio \
+	$(audio_dlopen_modules) -lpthread \
 	$(SNDFILE_LIBS) $(DOTCONF_LIBS) $(GLIB_LIBS) $(GTHREAD_LIBS)
 dist_snddata_DATA = dummy-message.wav
 
@@ -23,16 +24,19 @@ sd_festival_SOURCES = festival.c festival_client.c festival_client.h \
 	$(common_SOURCES)
 sd_festival_LDFLAGS = $(RPATH) '$(spdlibdir)' $(lib_audio)
 sd_festival_LDADD = $(top_builddir)/src/common/libcommon.la -lsdaudio \
+	$(audio_dlopen_modules) \
 	-lpthread $(DOTCONF_LIBS) $(GLIB_LIBS) $(GTHREAD_LIBS) $(EXTRA_SOCKET_LIBS)
 
 sd_generic_SOURCES = generic.c $(common_SOURCES) module_utils_addvoice.c
 sd_generic_LDFLAGS = $(RPATH) '$(spdlibdir)' $(lib_audio)
 sd_generic_LDADD = $(top_builddir)/src/common/libcommon.la -lsdaudio \
+	$(audio_dlopen_modules) \
 	-lpthread $(DOTCONF_LIBS) $(GLIB_LIBS) $(GTHREAD_LIBS)
 
 sd_cicero_SOURCES = cicero.c $(common_SOURCES)
 sd_cicero_LDFLAGS = $(RPATH) '$(spdlibdir)' $(lib_audio)
 sd_cicero_LDADD = $(top_builddir)/src/common/libcommon.la -lsdaudio \
+	$(audio_dlopen_modules) \
 	-lpthread $(DOTCONF_LIBS) $(GLIB_LIBS) $(GTHREAD_LIBS)
 
 if flite_support
@@ -40,6 +44,7 @@ modulebin_PROGRAMS += sd_flite
 sd_flite_SOURCES = flite.c $(common_SOURCES)
 sd_flite_LDFLAGS = $(RPATH) '$(spdlibdir)' $(lib_audio)
 sd_flite_LDADD = $(top_builddir)/src/common/libcommon.la -lsdaudio \
+	$(audio_dlopen_modules) \
 	$(flite_kal) $(flite_basic) -lpthread $(DOTCONF_LIBS) $(GLIB_LIBS) \
 	$(GTHREAD_LIBS)
 endif
@@ -49,6 +54,7 @@ modulebin_PROGRAMS += sd_ibmtts
 sd_ibmtts_SOURCES = ibmtts.c $(common_SOURCES) module_utils_addvoice.c
 sd_ibmtts_LDFLAGS = $(RPATH) '$(spdlibdir)' $(lib_audio)
 sd_ibmtts_LDADD = $(top_builddir)/src/common/libcommon.la -lsdaudio \
+	$(audio_dlopen_modules) \
 	-lm -lpthread -libmeci $(SNDFILE_LIBS) $(DOTCONF_LIBS) \
 	$(GLIB_LIBS) $(GTHREAD_LIBS)
 endif
@@ -58,6 +64,7 @@ modulebin_PROGRAMS += sd_espeak
 sd_espeak_SOURCES = espeak.c $(common_SOURCES)
 sd_espeak_LDFLAGS = $(RPATH) '$(spdlibdir)' $(lib_audio)
 sd_espeak_LDADD = $(top_builddir)/src/common/libcommon.la -lsdaudio \
+	$(audio_dlopen_modules) \
 	-lespeak $(SNDFILE_LIBS) $(EXTRA_ESPEAK_LIBS) $(DOTCONF_LIBS) \
 	$(GLIB_LIBS) $(GTHREAD_LIBS)
 endif
@@ -67,6 +74,7 @@ modulebin_PROGRAMS += sd_ivona
 sd_ivona_SOURCES = ivona.c ivona_client.c ivona_client.h $(common_SOURCES)
 sd_ivona_LDFLAGS = $(RPATH) '$(spdlibdir)' $(lib_audio)
 sd_ivona_LDADD = $(top_builddir)/src/common/libcommon.la -lsdaudio \
+	$(audio_dlopen_modules) \
 	-ldumbtts -lpthread $(SNDFILE_LIBS) $(DOTCONF_LIBS) $(GLIB_LIBS) \
 	$(GTHREAD_LIBS)
 endif
@@ -75,6 +83,7 @@ if pico_support
 modulebin_PROGRAMS += sd_pico
 sd_pico_SOURCES = pico.c $(common_SOURCES)
 sd_pico_LDFLAGS = $(RPATH) '$(spdlibdir)' $(lib_audio)
-sd_pico_LDADD = $(top_builddir)/src/common/libcommon.la -lsdaudio -lttspico \
+sd_pico_LDADD = $(top_builddir)/src/common/libcommon.la -lsdaudio \
+	$(audio_dlopen_modules) -lttspico \
 	$(DOTCONF_LIBS) $(GLIB_LIBS) $(GTHREAD_LIBS)
 endif

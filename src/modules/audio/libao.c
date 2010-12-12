@@ -31,6 +31,7 @@
 #include <glib.h>
 #include <ao/ao.h>
 
+#define SPD_AUDIO_PLUGIN_ENTRY spd_libao_LTX_spd_audio_plugin_get
 #include "spd_audio_plugin.h"
 
 /* send a packet of XXX bytes to the sound device */
@@ -241,6 +242,6 @@ static spd_audio_plugin_t libao_functions =
     libao_get_playcmd
 };
 spd_audio_plugin_t * libao_plugin_get (void) {return &libao_functions;}
-
+spd_audio_plugin_t * SPD_AUDIO_PLUGIN_ENTRY (void)  __attribute__ ((weak, alias("libao_plugin_get")));
 #undef MSG
 #undef ERR
