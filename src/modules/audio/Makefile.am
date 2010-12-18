@@ -2,14 +2,6 @@
 
 inc_local = -I$(top_srcdir)/include/
 
-spdlib_LTLIBRARIES = libsdaudio.la
-libsdaudio_la_SOURCES = spd_audio.c spd_audio.h
-libsdaudio_la_CPPFLAGS = $(GLIB_CFLAGS) $(inc_local) \
-	-DPLUGIN_DIR="\"$(audiodir)\""
-libsdaudio_la_LDFLAGS = -version-info \
-	$(LIB_SDAUDIO_CURRENT):$(LIB_SDAUDIO_REVISION):$(LIB_SDAUDIO_AGE)
-libsdaudio_la_LIBADD = $(GLIB_LIBS) -lpthread
-
 audio_LTLIBRARIES =
 
 if alsa_support

@@ -78,19 +78,16 @@ AC_CHECK_FUNCS([strerror strncasecmp strndup strstr strtol])
 if test "$GCC" = yes; then
 	EXTRA_SOCKET_LIBS=""
 	ERROR_CFLAGS="-Wall"
-	RPATH="-rpath"
 	RDYNAMIC="-rdynamic"
 else
 	EXTRA_ESPEAK_LIBS="-lCstd -lCrun"
 	EXTRA_SOCKET_LIBS="-lsocket -lnsl"
 	ERROR_CFLAGS="-errwarn=%all -errtags=yes -erroff=E_STATEMENT_NOT_REACHED"
-	RPATH="-R"
 	RDYNAMIC=""
 fi
 AC_SUBST([EXTRA_ESPEAK_LIBS])
 AC_SUBST([EXTRA_SOCKET_LIBS])
 AC_SUBST([ERROR_CFLAGS])
-AC_SUBST([RPATH])
 AC_SUBST([RDYNAMIC])
 
 # Check for python support.
@@ -300,14 +297,7 @@ AC_SUBST([default_audio_method])
 # We'll build these modules:
 AC_SUBST([audio_dlopen_modules])
 
-# current, age and revision values for shared libraries.
-LIB_SDAUDIO_CURRENT=2 # Current main version (increment on every API change -- incompatible AND extensions)
-LIB_SDAUDIO_REVISION=4 # Current minor version (increment on every implementation change)
-LIB_SDAUDIO_AGE=0 # Number of backward compatible main versions (LIB_SDAUDIO_CURRENT incrementations since last incompatible)
-AC_SUBST([LIB_SDAUDIO_CURRENT])
-AC_SUBST([LIB_SDAUDIO_REVISION])
-AC_SUBST([LIB_SDAUDIO_AGE])
-
+# current, age and revision values for libspeechd.
 LIB_SPD_CURRENT=5 # Current main version (increment on every API change -- incompatible AND extensions)
 LIB_SPD_REVISION=0 # Current minor version (increment on every implementation change)
 LIB_SPD_AGE=3 # Number of backward compatible main versions (LIB_SPD_CURRENT incrementations since last incompatible)
