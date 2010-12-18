@@ -44,7 +44,7 @@
 #include <pulse/error.h>
 
 #define SPD_AUDIO_PLUGIN_ENTRY spd_pulse_LTX_spd_audio_plugin_get
-#include "spd_audio_plugin.h"
+#include <spd_audio_plugin.h>
 
 /* Switch this on to debug, see output log location in MSG() */
 //#define DEBUG_PULSE

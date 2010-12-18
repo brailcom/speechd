@@ -32,7 +32,7 @@
 #include <ao/ao.h>
 
 #define SPD_AUDIO_PLUGIN_ENTRY spd_libao_LTX_spd_audio_plugin_get
-#include "spd_audio_plugin.h"
+#include <spd_audio_plugin.h>
 
 /* send a packet of XXX bytes to the sound device */
 #define AO_SEND_BYTES 256

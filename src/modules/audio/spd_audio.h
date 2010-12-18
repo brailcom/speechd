@@ -25,7 +25,7 @@
 #ifndef __SPD_AUDIO_H
 #define __SPD_AUDIO_H
 
-#include "spd_audio_plugin.h"
+#include <spd_audio_plugin.h>
 
 #define SPD_AUDIO_LIB_PREFIX "spd_"
 

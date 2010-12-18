@@ -42,7 +42,7 @@
 #include <sys/soundcard.h>
 
 #define SPD_AUDIO_PLUGIN_ENTRY spd_oss_LTX_spd_audio_plugin_get
-#include "spd_audio_plugin.h"
+#include <spd_audio_plugin.h>
 
 typedef struct {
     AudioID id;
