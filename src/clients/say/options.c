@@ -48,17 +48,17 @@ options_print_help(char *argv[])
     printf("-r, --rate\t\t\t");
     printf(_("Set the rate of the speech\n"));
     printf("\t\t\t\t");
-    printf(_("(between -100 and +100, default: 0)\n"));
+    printf(_("(between %+d and %+d, default: %d)\n"), -100, 100, 0);
 
     printf("-p, --pitch\t\t\t");
     printf(_("Set the pitch of the speech\n"));
     printf("\t\t\t\t");
-    printf(_("(between -100 and +100, default: 0)\n"));
+    printf(_("(between %+d and %+d, default: %d)\n"), -100, 100, 0);
 
     printf("-i, --volume\t\t\t");
     printf(_("Set the volume (intensity) of the speech\n"));
     printf("\t\t\t\t");
-    printf(_("(between -100 and +100, default: 0) \n"));
+    printf(_("(between %+d and %+d, default: %d)\n"), -100, 100, 0);
 
     printf("-o, --output-module\t\t");
     printf(_("Set the output module\n"));
