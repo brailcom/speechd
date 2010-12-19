@@ -390,7 +390,7 @@ offered options or run some of its subsystems manually, type
 
 If you do not want to use this script, it doesn't work in your case
 or it doesn't provide enough configuration flexibility, please
-continue as described bellow and/or in @xref{Running Under Ordinary Users}.
+continue as described below and/or in @xref{Running Under Ordinary Users}.
 
 @item Test Speech Dispatcher
 
@@ -667,7 +667,7 @@ It is possible to use a list of prefered audio output methods,
 in which case each output module attempts to use the first availble
 in the given order.
 
-The example bellow prefers Pulse Audio, but will use ALSA if unable
+The example below prefers Pulse Audio, but will use ALSA if unable
 to connect to Pulse:
 @example
  AudioOutputMethod "pulse,alsa"
@@ -1456,7 +1456,7 @@ closed, threads are terminated and memory is freed.
 Opens a new connection to Speech Dispatcher and returns a socket file
 descriptor. This function is the same as @code{spd_open} except that
 it gives more control of the communication method and autospawn
-functionality as described bellow.
+functionality as described below.
 
 @code{method} is either @code{SPD_METHOD_UNIX_SOCKET} or @code{SPD_METHOD_INET_SOCKET}. By default,
 unix socket communication should be prefered, but inet sockets are necessary for cross-network

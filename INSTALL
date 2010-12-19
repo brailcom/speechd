@@ -42,7 +42,7 @@ These packages are known to work with Speech Dispatcher:
 Building Speech Dispatcher:
 ===========================
 
-(for instructions about how to build from Git or Git snapshot see bellow)
+(for instructions about how to build from Git or Git snapshot see below)
 
 If you want to use Speech Dispatcher with Festival (recommended), you
 also need to install festival-freebsoft-utils version 0.3 or higher!

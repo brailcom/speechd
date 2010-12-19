@@ -146,7 +146,7 @@ ret = lt_dlsetsearchpath(PLUGIN_DIR);
    Comment:
    spd_audio_play() is a blocking function. It returns exactly
    when the given track stopped playing. However, it's possible
-   to safely interrupt it using spd_audio_stop() described bellow.
+   to safely interrupt it using spd_audio_stop() described below.
    (spd_audio_stop() needs to be called from another thread, obviously.)
 
 */
