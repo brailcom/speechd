@@ -35,26 +35,25 @@ check_PROGRAMS = long_message clibrary clibrary2 run_test connection_recovery \
                spd_cancel_long_message spd_set_notifications_all
 
 long_message_SOURCES = long_message.c
-long_message_LDADD = $(c_api)/libspeechd.la -lpthread $(EXTRA_SOCKET_LIBS)
+long_message_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS)
 
 clibrary_SOURCES = clibrary.c
-clibrary_LDADD = $(c_api)/libspeechd.la -lpthread $(EXTRA_SOCKET_LIBS)
+clibrary_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS)
 
 clibrary2_SOURCES = clibrary2.c
-clibrary2_LDADD = $(c_api)/libspeechd.la -lpthread $(EXTRA_SOCKET_LIBS)
+clibrary2_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS)
 
 connection_recovery_SOURCES = connection-recovery.c
-connection_recovery_LDADD = $(c_api)/libspeechd.la \
-	-lpthread $(EXTRA_SOCKET_LIBS)
+connection_recovery_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS)
 
 spd_cancel_long_message_SOURCES = spd_cancel_long_message.c
-spd_cancel_long_message_LDADD = $(c_api)/libspeechd.la -lpthread $(EXTRA_SOCKET_LIBS)
+spd_cancel_long_message_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS)
 
 spd_set_notifications_all_SOURCES = spd_set_notifications_all.c
-spd_set_notifications_all_LDADD = $(c_api)/libspeechd.la -lpthread $(EXTRA_SOCKET_LIBS)
+spd_set_notifications_all_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS)
 
 run_test_SOURCES = run_test.c
-run_test_LDADD = $(c_api)/libspeechd.la -lpthread $(EXTRA_SOCKET_LIBS)
+run_test_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS)
 
 EXTRA_DIST= basic.test general.test keys.test priority_progress.test \
             pronunciation.test punctuation.test sound_icons.test spelling.test \
