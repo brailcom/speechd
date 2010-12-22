@@ -68,7 +68,8 @@ endif
 
 if ivona_support
 modulebin_PROGRAMS += sd_ivona
-sd_ivona_SOURCES = ivona.c ivona_client.c ivona_client.h $(common_SOURCES)
+sd_ivona_SOURCES = ivona.c ivona_client.c ivona_client.h $(audio_SOURCES) \
+	$(common_SOURCES)
 sd_ivona_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	-ldumbtts -lpthread $(SNDFILE_LIBS) $(DOTCONF_LIBS) $(GLIB_LIBS) \
