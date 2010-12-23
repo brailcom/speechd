@@ -82,7 +82,7 @@ options_print_help(char *argv[])
     printf(_("Specify a port number for '%s' method\n"), "inet_socket");
     printf("-P, --pid-file\t\t");
     printf(_("Set path to pid file\n"));
-    printf(_("-C, --config-dir\t"));
+    printf("-C, --config-dir\t");
     printf(_("Set path to configuration\n"));
     printf("-v, --version\t\t");
     printf(_("Report version of this program\n"));
