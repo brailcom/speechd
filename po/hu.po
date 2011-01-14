@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-13 08:18+0100\n"
+"POT-Creation-Date: 2010-12-22 15:04+0100\n"
 "PO-Revision-Date: 2010-12-06 10:07+0100\n"
 "Last-Translator: Attila Hammer <hammera@pickup.hu>\n"
 "Language-Team: Hungarian\n"
@@ -49,8 +49,8 @@ msgstr ""
 
 #: ../src/server/options.c:74
 #, c-format
-msgid "Set log level (1..5)\n"
-msgstr "A naplózás szintjének beállítása (1..5)\n"
+msgid "Set log level (between %d and %d)\n"
+msgstr "A naplózás szintjének beállítása (%d és %d között)\n"
 
 #: ../src/server/options.c:76
 #, c-format
@@ -59,31 +59,27 @@ msgstr "A naplófájlok elérési útjának megadása\n"
 
 #: ../src/server/options.c:78
 #, c-format
-msgid "Communication method to use %s\n"
-msgstr "A kommunikációs mód megadása %s\n"
+msgid "Communication method to use ('%s' or '%s')\n"
+msgstr ""
+"A kommunikációs mód megadása \n"
+"('%s' vagy '%s')\n"
 
 #: ../src/server/options.c:80
 #, c-format
-msgid ""
-"Socket path to use for 'unix_socket' method (filesystem path or 'default')\n"
+msgid "Socket path to use for '%s' method (filesystem path or '%s')\n"
 msgstr ""
-"Használt socket elérési út az unix socket módhoz \n"
-"(fájlrendszer elérési útja, vagy az alapbeállítás használata)\n"
+"Használt socket elérési út az '%s' módhoz \n"
+"(fájlrendszer elérési útja, vagy a '%s' elérési út használata)\n"
 
 #: ../src/server/options.c:82
 #, c-format
-msgid "Specify a port number for 'inet_socket' method\n"
-msgstr "Egy portszám megadása az inet socket módhoz\n"
+msgid "Specify a port number for '%s' method\n"
+msgstr "Egy portszám megadása az '%s' módhoz\n"
 
 #: ../src/server/options.c:84
 #, c-format
 msgid "Set path to pid file\n"
 msgstr "A pid fájl elérési útjának megadása\n"
-
-#: ../src/server/options.c:85
-#, c-format
-msgid "-C, --config-dir\t"
-msgstr "-C, --config-dir\t"
 
 #: ../src/server/options.c:86
 #, c-format
@@ -121,7 +117,7 @@ msgid ""
 msgstr ""
 "Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 Brailcom, o.p.s.\n"
 "Ez egy szabad szoftver, terjesztheti és/vagy módosíthatja a\n"
-"Free Software Foundation által kiadott GNU General Public License második\n"
+"Free Software Foundation által kiadott GNU General Public License második "
 "(vagy bármely későbbi) változatában foglaltak alapján.\n"
 "A részletekért nézze meg a COPYING fájlt.\n"
 "\n"
@@ -165,9 +161,10 @@ msgid "Set the rate of the speech\n"
 msgstr "A beszédsebesség beállítása\n"
 
 #: ../src/clients/say/options.c:51 ../src/clients/say/options.c:56
+#: ../src/clients/say/options.c:61
 #, c-format
-msgid "(between -100 and +100, default: 0)\n"
-msgstr "(-100 és +100 között, az alapértelmezett érték 0)\n"
+msgid "(between %+d and %+d, default: %d)\n"
+msgstr "(%+d és %+d között, az alapértelmezett érték %d)\n"
 
 #: ../src/clients/say/options.c:54
 #, c-format
@@ -178,11 +175,6 @@ msgstr "A hangmagasság beállítása\n"
 #, c-format
 msgid "Set the volume (intensity) of the speech\n"
 msgstr "A hangerő beállítása\n"
-
-#: ../src/clients/say/options.c:61
-#, c-format
-msgid "(between -100 and +100, default: 0) \n"
-msgstr "(-100 és +100 között, az alapértelmezett érték 0)\n"
 
 #: ../src/clients/say/options.c:64
 #, c-format
@@ -245,7 +237,7 @@ msgstr ""
 #: ../src/clients/say/options.c:97
 #, c-format
 msgid "Set priority of the message "
-msgstr "A kimondandó üzenet prioritásának beállítása "
+msgstr "A kimondandó üzenet prioritásának beállítása"
 
 #: ../src/clients/say/options.c:100
 #, c-format
@@ -311,7 +303,7 @@ msgid ""
 msgstr ""
 "Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 Brailcom, o.p.s.\n"
 "Ez egy szabad szoftver, terjesztheti és/vagy módosíthatja a\n"
-"Free Software Foundation által kiadott GNU General Public License második\n"
+"Free Software Foundation által kiadott GNU General Public License második "
 "(vagy bármely későbbi) változatában foglaltak alapján.\n"
 "A részletekért nézze meg a COPYING fájlt.\n"
 "\n"
@@ -333,6 +325,9 @@ msgstr ""
 "Ön terjesztheti az spd-say programot a GNU General Public License "
 "követelményei szerint.\n"
 "Bővebb információkért tanulmányozza a COPYING nevű fájlt.\n"
+
+#~ msgid "(between -100 and +100, default: 0) \n"
+#~ msgstr "(-100 és +100 között, az alapértelmezett érték 0)\n"
 
 #~ msgid ""
 #~ "Usage: %s [-{d|s}] [-l {1|2|3|4|5}] [-c com_method] [-S socket_path] [-p "
