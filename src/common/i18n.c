@@ -29,20 +29,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 void i18n_init(void)
 {
-	if (setlocale(LC_ALL, "") ==  NULL) {
+	if (setlocale(LC_ALL, "") == NULL) {
 		perror("setlocale");
 		exit(1);
 	}
 
-	if(bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR) == NULL) {
+	if (bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR) == NULL) {
 		perror("bindtextdomain");
 		exit(1);
 	}
 
-	if(textdomain(GETTEXT_PACKAGE) == NULL) {
+	if (textdomain(GETTEXT_PACKAGE) == NULL) {
 		perror("textdomain");
 		exit(1);
 	}

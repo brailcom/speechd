@@ -89,7 +89,7 @@
 
 #define ERR_NO_CLIENT				"401 ERR NO CLIENT\r\n"
 #define ERR_NO_SUCH_CLIENT			"402 ERR NO SUCH CLIENT\r\n"
-#define ERR_NO_MESSAGE				"403 ERR NO MESSAGE\r\n"		
+#define ERR_NO_MESSAGE				"403 ERR NO MESSAGE\r\n"
 #define ERR_POS_LOW				"404 ERR POSITION TOO LOW\r\n"
 #define ERR_POS_HIGH				"405 ERR POSITION TOO HIGH\r\n"
 #define ERR_ID_NOT_EXIST			"406 ERR ID DOESNT EXIST\r\n"
@@ -119,7 +119,6 @@
 #define ERR_COULDNT_SET_SSML_MODE               "315 ERR COULDNT SET SSML MODE\r\n"
 #define ERR_COULDNT_SET_NOTIFICATION            "316 ERR COULDNT SET NOTIFICATION\r\n"
 #define ERR_COULDNT_SET_DEBUGGING               "317 ERR COULDNT SET DEBUGGING\r\n"
-
 
 #define ERR_NO_SND_ICONS                        "320 ERR NO SOUND ICONS\r\n"
 #define ERR_CANT_REPORT_VOICES                  "321 ERR MODULE CANT REPORT VOICES\r\n"
@@ -152,4 +151,4 @@
 #define EVENT_RESUMED_C                         "705"
 #define EVENT_RESUMED                           EVENT_RESUMED_C" RESUMED\r\n"
 
-#endif  /* MSG_H */
+#endif /* MSG_H */

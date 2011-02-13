@@ -33,14 +33,14 @@
 #define SD_MARK_TAIL "\"/>"
 
 /* Insert index marks into a message. */
-void insert_index_marks(TSpeechDMessage *msg, SPDDataMode ssml_mode);
+void insert_index_marks(TSpeechDMessage * msg, SPDDataMode ssml_mode);
 
 /* Find the index mark specified as _mark_ and return the
 rest of the text after that index mark. */
-char* find_index_mark(TSpeechDMessage *msg, int mark);
+char *find_index_mark(TSpeechDMessage * msg, int mark);
 
 /* Delete all index marks from _buf_ and return a newly
    allocated string. */
-char* strip_index_marks(char *buf, SPDDataMode ssml_mode);
+char *strip_index_marks(char *buf, SPDDataMode ssml_mode);
 
 #endif /* INDEX_MARKING_H */

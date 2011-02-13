@@ -42,11 +42,10 @@ int resume_requested;
  * queue in right time and saying it loud through corresponding
  * synthetiser. (Note that there can be a big problem with synchronization).
  * This runs in a separate thread. */
-void* speak(void* data);
+void *speak(void *data);
 
 /* Put this message into queue again, stripping index marks etc. */
-int reload_message(TSpeechDMessage *msg);
-
+int reload_message(TSpeechDMessage * msg);
 
 /* Speech flow control functions */
 void speaking_stop(int uid);
@@ -75,7 +74,7 @@ int stop_priority(SPDPriority priority);
 void stop_from_uid(int uid);
 
 /* Decides if the message should (not) be spoken now */
-gint message_nto_speak (gconstpointer, gconstpointer);
+gint message_nto_speak(gconstpointer, gconstpointer);
 
 void set_speak_thread_attributes();
 
@@ -83,10 +82,10 @@ void set_speak_thread_attributes();
 void resolve_priorities(SPDPriority priority);
 
 /* Queue interaction helper functions */
-TSpeechDMessage* get_message_from_queues();
-GList* speaking_get_queue(SPDPriority priority);
-void speaking_set_queue(SPDPriority priority, GList *queue);
-gint sortbyuid (gconstpointer a,  gconstpointer b);
+TSpeechDMessage *get_message_from_queues();
+GList *speaking_get_queue(SPDPriority priority);
+void speaking_set_queue(SPDPriority priority, GList * queue);
+gint sortbyuid(gconstpointer a, gconstpointer b);
 int client_has_messages(int uid);
 
 /* Get the unique id of the client who is speaking
@@ -94,18 +93,18 @@ int client_has_messages(int uid);
 int get_speaking_client_uid();
 
 int socket_send_msg(int fd, char *msg);
-int report_index_mark(TSpeechDMessage *msg, char *index_mark);
-int report_begin (TSpeechDMessage *msg);
-int report_end (TSpeechDMessage *msg);
-int report_pause (TSpeechDMessage *msg);
-int report_resume (TSpeechDMessage *msg);
-int report_cancel (TSpeechDMessage *msg);
+int report_index_mark(TSpeechDMessage * msg, char *index_mark);
+int report_begin(TSpeechDMessage * msg);
+int report_end(TSpeechDMessage * msg);
+int report_pause(TSpeechDMessage * msg);
+int report_resume(TSpeechDMessage * msg);
+int report_cancel(TSpeechDMessage * msg);
 
-GList* empty_queue(GList *queue);
-GList* empty_queue_by_time(GList *queue, unsigned int uid);
+GList *empty_queue(GList * queue);
+GList *empty_queue_by_time(GList * queue, unsigned int uid);
 
 int stop_priority_older_than(SPDPriority priority, unsigned int uid);
-GList* stop_priority_from_uid(GList *queue, const int uid);
+GList *stop_priority_from_uid(GList * queue, const int uid);
 void stop_priority_except_first(SPDPriority priority);
 
 #endif /* SPEAKING_H */

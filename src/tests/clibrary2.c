@@ -33,86 +33,92 @@
 #include "speechd_types.h"
 #include "libspeechd.h"
 
-int main() {
-   SPDConnection* conn;
-   int i, j, ret;
-   char **modules;
-   char **voices;
-   SPDVoice **synth_voices;
+int main()
+{
+	SPDConnection *conn;
+	int i, j, ret;
+	char **modules;
+	char **voices;
+	SPDVoice **synth_voices;
 
-   printf("Start of the test.\n");
-   
-   printf("Trying to initialize Speech Deamon...");
-   conn = spd_open("say", NULL, NULL, SPD_MODE_SINGLE);
-   if (conn == 0){
-     printf("Speech Deamon failed");
-     exit(1);
-   }
-   printf("OK\n");
+	printf("Start of the test.\n");
 
-   modules = spd_list_modules(conn);
-   if (modules == NULL){
-     printf("Can't list modules\n");
-     exit(1);
-   }
+	printf("Trying to initialize Speech Deamon...");
+	conn = spd_open("say", NULL, NULL, SPD_MODE_SINGLE);
+	if (conn == 0) {
+		printf("Speech Deamon failed");
+		exit(1);
+	}
+	printf("OK\n");
 
-   printf("Available output modules:\n");
-   for (i=0;;i++){
-     if (modules[i] == NULL) break;
-     printf("     %s\n", modules[i]);
-   }
+	modules = spd_list_modules(conn);
+	if (modules == NULL) {
+		printf("Can't list modules\n");
+		exit(1);
+	}
 
-   voices = spd_list_voices(conn);
-   if (voices == NULL){
-     printf("Can't list voices\n");
-     exit(1);
-   }
+	printf("Available output modules:\n");
+	for (i = 0;; i++) {
+		if (modules[i] == NULL)
+			break;
+		printf("     %s\n", modules[i]);
+	}
 
-   printf("Available symbolic voices:\n");
-   for (i=0;;i++){
-     if (voices[i] == NULL) break;
-     printf("     %s\n", voices[i]);
-   }
+	voices = spd_list_voices(conn);
+	if (voices == NULL) {
+		printf("Can't list voices\n");
+		exit(1);
+	}
 
-   for (j=0; ;j++){
-     if (modules[j] == NULL) break;
-     ret = spd_set_output_module(conn, modules[j]);
-     if (ret == -1) {
-            printf("spd_set_output_module failed");
-	    exit(1);
-     }
-     printf("\nListing voices for %s\n", modules[j]);
-     synth_voices = spd_list_synthesis_voices(conn);
-     if (synth_voices == NULL){
-       printf("Can't list voices\n");
-       exit(1);
-     }
-     printf("Available synthesis voices:\n");
-     for (i=0;;i++){
-       if (synth_voices[i] == NULL)
-	 break;
-       printf("     name: %s language: %s variant: %s\n", 
-	      synth_voices[i]->name, synth_voices[i]->language,
-	      synth_voices[i]->variant);
-       ret = spd_set_synthesis_voice(conn, synth_voices[i]->name);
-       if (ret == -1) {
-            printf("spd_set_synthesis_voice failed");
-	    exit(1);
-       }
+	printf("Available symbolic voices:\n");
+	for (i = 0;; i++) {
+		if (voices[i] == NULL)
+			break;
+		printf("     %s\n", voices[i]);
+	}
 
-       ret = spd_say(conn, SPD_TEXT, "test");
-       if (ret == -1) {
-            printf("spd_say failed");
-	    exit(1);
-       }
-       sleep(1);
-     }
-   }
+	for (j = 0;; j++) {
+		if (modules[j] == NULL)
+			break;
+		ret = spd_set_output_module(conn, modules[j]);
+		if (ret == -1) {
+			printf("spd_set_output_module failed");
+			exit(1);
+		}
+		printf("\nListing voices for %s\n", modules[j]);
+		synth_voices = spd_list_synthesis_voices(conn);
+		if (synth_voices == NULL) {
+			printf("Can't list voices\n");
+			exit(1);
+		}
+		printf("Available synthesis voices:\n");
+		for (i = 0;; i++) {
+			if (synth_voices[i] == NULL)
+				break;
+			printf("     name: %s language: %s variant: %s\n",
+			       synth_voices[i]->name, synth_voices[i]->language,
+			       synth_voices[i]->variant);
+			ret =
+			    spd_set_synthesis_voice(conn,
+						    synth_voices[i]->name);
+			if (ret == -1) {
+				printf("spd_set_synthesis_voice failed");
+				exit(1);
+			}
 
-   printf("Trying to close Speech Dispatcher connection...");
-   spd_close(conn);
-   printf("OK\n");
+			ret = spd_say(conn, SPD_TEXT, "test");
+			if (ret == -1) {
+				printf("spd_say failed");
+				exit(1);
+			}
+			sleep(1);
+		}
+	}
 
-   printf("End of the test.\n");
-   exit(0);
+	printf("Trying to close Speech Dispatcher connection...");
+	spd_close(conn);
+	printf("OK\n");
+
+	printf("End of the test.\n");
+	exit(0);
 }

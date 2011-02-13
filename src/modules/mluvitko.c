@@ -13,57 +13,61 @@
 
 #include "module.h"
 
-gint       mluvitko_write      (const gchar *data, gint len);
-gint       mluvitko_stop       (void);
-gint       mluvitko_pause      (void);
-gint       mluvitko_release    (void);
+gint mluvitko_write(const gchar * data, gint len);
+gint mluvitko_stop(void);
+gint mluvitko_pause(void);
+gint mluvitko_release(void);
 
 /* fill the module_info structure with pointers to this modules functions */
 OutputModule modinfo = {
-   "mluvitko",
-   "Czech software synthesizer",
-   NULL, /* filename */
-   mluvitko_write,
-   mluvitko_stop,
-   mluvitko_pause,
-   mluvitko_release
+	"mluvitko",
+	"Czech software synthesizer",
+	NULL,			/* filename */
+	mluvitko_write,
+	mluvitko_stop,
+	mluvitko_pause,
+	mluvitko_release
 };
 
 /* entry point of this module */
-OutputModule *module_init(void) {
-   printf("mluvitko: init_module()\n");
+OutputModule *module_init(void)
+{
+	printf("mluvitko: init_module()\n");
 
-   /*modinfo.name = g_strdup("mluvitko"),
-   modinfo.description = g_strdup_printf("Czech software synthesizer, version %s",VERSION);*/
-   return &modinfo;
+	/*modinfo.name = g_strdup("mluvitko"),
+	   modinfo.description = g_strdup_printf("Czech software synthesizer, version %s",VERSION); */
+	return &modinfo;
 }
-
 
 /* module operations */
-gint mluvitko_write(const gchar *data, gint len) {
-   int i;
+gint mluvitko_write(const gchar * data, gint len)
+{
+	int i;
 
-   printf("mluvitko: write()\n");
+	printf("mluvitko: write()\n");
 
-   for (i=0; i<len; i++) {
-      printf("%c ",data[i]);
-   }
-   printf("\n");
+	for (i = 0; i < len; i++) {
+		printf("%c ", data[i]);
+	}
+	printf("\n");
 
-   return len;
+	return len;
 }
 
-gint mluvitko_stop(void) {
-   printf("mluvitko: stop()\n");
-   return 1;
+gint mluvitko_stop(void)
+{
+	printf("mluvitko: stop()\n");
+	return 1;
 }
 
-gint mluvitko_pause(void) {
-   printf("mluvitko: pause()\n");
-   return 1;
+gint mluvitko_pause(void)
+{
+	printf("mluvitko: pause()\n");
+	return 1;
 }
 
-gint mluvitko_release(void) {
-   printf("mluvitko: release()\n");
-   return 1;
+gint mluvitko_release(void)
+{
+	printf("mluvitko: release()\n");
+	return 1;
 }

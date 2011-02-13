@@ -28,31 +28,30 @@
 #include <stdlib.h>
 #include <glib.h>
 
-typedef struct{
-    char* name;
-    char* filename;
-    char* configfilename;
-    char* debugfilename;
-    int pipe_in[2];
-    int pipe_out[2];    
-    FILE *stream_out;
-    int stderr_redirect;
-    pid_t pid;
-    int working;
-}OutputModule;
+typedef struct {
+	char *name;
+	char *filename;
+	char *configfilename;
+	char *debugfilename;
+	int pipe_in[2];
+	int pipe_out[2];
+	FILE *stream_out;
+	int stderr_redirect;
+	pid_t pid;
+	int working;
+} OutputModule;
 
 GList *detect_output_modules(char *dirname);
-OutputModule* load_output_module(char* mod_name, char* mod_prog,
-                                 char* mod_cfgfile, char * mod_dbgfile);
-int unload_output_module(OutputModule *module);
-int reload_output_module(OutputModule *old_module);
-int output_module_debug(OutputModule *module);		       
-int output_module_nodebug(OutputModule *module);		       
-void destroy_module(OutputModule *module);
+OutputModule *load_output_module(char *mod_name, char *mod_prog,
+				 char *mod_cfgfile, char *mod_dbgfile);
+int unload_output_module(OutputModule * module);
+int reload_output_module(OutputModule * old_module);
+int output_module_debug(OutputModule * module);
+int output_module_nodebug(OutputModule * module);
+void destroy_module(OutputModule * module);
 
 void module_add_load_request(char *module_name, char *module_cmd,
-			 char *module_cfgfile, char *module_dbgfile);
+			     char *module_cfgfile, char *module_dbgfile);
 void module_load_requested_modules(void);
 
 #endif
-

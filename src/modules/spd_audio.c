@@ -69,67 +69,67 @@ static lt_dlhandle lt_h;
    all other spd_audio functions, or NULL in case of failure.
 
 */
-AudioID*
-spd_audio_open(char *name, void **pars, char **error)
+AudioID *spd_audio_open(char *name, void **pars, char **error)
 {
-    AudioID *id;
-    spd_audio_plugin_t const *p;
-    spd_audio_plugin_t * (*fn) (void);
-    gchar * libname;
-    int ret;
+	AudioID *id;
+	spd_audio_plugin_t const *p;
+	spd_audio_plugin_t *(*fn) (void);
+	gchar *libname;
+	int ret;
 
-    /* now check whether dynamic plugin is available */
-    ret = lt_dlinit();
-    if (ret != 0) {
-	*error = (char*) g_strdup_printf("lt_dlinit() failed");
-	return (AudioID *)NULL;
-    }
+	/* now check whether dynamic plugin is available */
+	ret = lt_dlinit();
+	if (ret != 0) {
+		*error = (char *)g_strdup_printf("lt_dlinit() failed");
+		return (AudioID *) NULL;
+	}
 
-ret = lt_dlsetsearchpath(PLUGIN_DIR);
-    if (ret != 0) {
-	*error = (char*) g_strdup_printf("lt_dlsetsearchpath() failed");
-	return (AudioID *)NULL;
-    }
+	ret = lt_dlsetsearchpath(PLUGIN_DIR);
+	if (ret != 0) {
+		*error = (char *)g_strdup_printf("lt_dlsetsearchpath() failed");
+		return (AudioID *) NULL;
+	}
 
-    libname = g_strdup_printf(SPD_AUDIO_LIB_PREFIX"%s",name);
-    lt_h = lt_dlopenext (libname);
-    g_free(libname);
-    if (NULL == lt_h) {
-	*error = (char*) g_strdup_printf("Cannot open plugin %s. error: %s",
-                                         name, lt_dlerror());
-	return (AudioID *)NULL;
-    }
+	libname = g_strdup_printf(SPD_AUDIO_LIB_PREFIX "%s", name);
+	lt_h = lt_dlopenext(libname);
+	g_free(libname);
+	if (NULL == lt_h) {
+		*error =
+		    (char *)g_strdup_printf("Cannot open plugin %s. error: %s",
+					    name, lt_dlerror());
+		return (AudioID *) NULL;
+	}
 
-    fn = lt_dlsym (lt_h, SPD_AUDIO_PLUGIN_ENTRY_STR);
-    if (NULL == fn) {
-	*error = (char*) g_strdup_printf("Cannot find symbol %s",
-                                         SPD_AUDIO_PLUGIN_ENTRY_STR);
-	return (AudioID *)NULL;
-    }
+	fn = lt_dlsym(lt_h, SPD_AUDIO_PLUGIN_ENTRY_STR);
+	if (NULL == fn) {
+		*error = (char *)g_strdup_printf("Cannot find symbol %s",
+						 SPD_AUDIO_PLUGIN_ENTRY_STR);
+		return (AudioID *) NULL;
+	}
 
-    p = fn();
-    if (p == NULL || p->name == NULL) {
-	*error = (char*) g_strdup_printf("plugin %s not found",
-                                         name);
-	return (AudioID *)NULL;
-    }
+	p = fn();
+	if (p == NULL || p->name == NULL) {
+		*error = (char *)g_strdup_printf("plugin %s not found", name);
+		return (AudioID *) NULL;
+	}
 
-    id = p->open (pars);
-    if (id == NULL) {
-	*error = (char*) g_strdup_printf("Couldn't open %s plugin", name);
-	return (AudioID *)NULL;
-    }
+	id = p->open(pars);
+	if (id == NULL) {
+		*error =
+		    (char *)g_strdup_printf("Couldn't open %s plugin", name);
+		return (AudioID *) NULL;
+	}
 
-    id->function = p;
+	id->function = p;
 #if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
-    id->format = SPD_AUDIO_BE;
+	id->format = SPD_AUDIO_BE;
 #else
-    id->format = SPD_AUDIO_LE;
+	id->format = SPD_AUDIO_LE;
 #endif
 
-    *error = NULL;
+	*error = NULL;
 
-    return id;
+	return id;
 }
 
 /* Play a track on the audio device (blocking).
@@ -150,33 +150,33 @@ ret = lt_dlsetsearchpath(PLUGIN_DIR);
    (spd_audio_stop() needs to be called from another thread, obviously.)
 
 */
-int
-spd_audio_play(AudioID *id, AudioTrack track, AudioFormat format)
+int spd_audio_play(AudioID * id, AudioTrack track, AudioFormat format)
 {
-    int ret;
+	int ret;
 
-    if (id && id->function->play){
-        /* Only perform byte swapping if the driver in use has given us audio in
-	   an endian format other than what the running CPU supports. */
-        if (format != id->format){
-                unsigned char *out_ptr, *out_end, c;
-                out_ptr = (unsigned char *) track.samples;
-                out_end = out_ptr + track.num_samples*2 * track.num_channels;
-                while(out_ptr < out_end){
-                    c = out_ptr[0];
-                    out_ptr[0] = out_ptr[1];
-                    out_ptr[1] = c;
-                    out_ptr += 2;
-                }
-        }
-	ret = id->function->play(id, track);
-    }
-    else{
-	fprintf(stderr, "Play not supported on this device\n");
-	return -1;
-    }
+	if (id && id->function->play) {
+		/* Only perform byte swapping if the driver in use has given us audio in
+		   an endian format other than what the running CPU supports. */
+		if (format != id->format) {
+			unsigned char *out_ptr, *out_end, c;
+			out_ptr = (unsigned char *)track.samples;
+			out_end =
+			    out_ptr +
+			    track.num_samples * 2 * track.num_channels;
+			while (out_ptr < out_end) {
+				c = out_ptr[0];
+				out_ptr[0] = out_ptr[1];
+				out_ptr[1] = c;
+				out_ptr += 2;
+			}
+		}
+		ret = id->function->play(id, track);
+	} else {
+		fprintf(stderr, "Play not supported on this device\n");
+		return -1;
+	}
 
-    return ret;
+	return ret;
 }
 
 /* Stop playing the current track on device id
@@ -204,18 +204,16 @@ Comment:
    spd_audio_close isn't called before or during spd_audio_stop execution.
 */
 
-int
-spd_audio_stop(AudioID *id)
+int spd_audio_stop(AudioID * id)
 {
-    int ret;
-    if (id && id->function->stop){
-	ret = id->function->stop(id);
-    }
-    else{
-	fprintf(stderr, "Stop not supported on this device\n");
-	return -1;
-    }
-    return ret;
+	int ret;
+	if (id && id->function->stop) {
+		ret = id->function->stop(id);
+	} else {
+		fprintf(stderr, "Stop not supported on this device\n");
+		return -1;
+	}
+	return ret;
 }
 
 /* Close the audio device id
@@ -232,21 +230,20 @@ Comments:
    is running in another threads. See spd_audio_stop() for detailed
    description of possible problems.
 */
-int
-spd_audio_close(AudioID *id)
+int spd_audio_close(AudioID * id)
 {
-    int ret = 0;
-    if (id && id->function->close){
-	ret =  (id->function->close(id));
-    }
+	int ret = 0;
+	if (id && id->function->close) {
+		ret = (id->function->close(id));
+	}
 
-    if (NULL != lt_h){
-        lt_dlclose (lt_h);
-        lt_h = NULL;
-        lt_dlexit ();
-    }
+	if (NULL != lt_h) {
+		lt_dlclose(lt_h);
+		lt_h = NULL;
+		lt_dlexit();
+	}
 
-    return ret;
+	return ret;
 }
 
 /* Set volume for playing tracks on the device id
@@ -271,36 +268,33 @@ Comments:
    means less volume (since this works by deviding the samples
    in the track by a constant).
 */
-int
-spd_audio_set_volume(AudioID *id, int volume)
+int spd_audio_set_volume(AudioID * id, int volume)
 {
-    if ((volume > 100) || (volume < -100)){
-	fprintf(stderr, "Requested volume out of range");
-	return -1;
-    }
-    if(id == NULL){
-        fprintf(stderr, "audio id is NULL in spd_audio_set_volume\n");
-        return -1;
-    }
-    id->volume = volume;
-    return 0;
+	if ((volume > 100) || (volume < -100)) {
+		fprintf(stderr, "Requested volume out of range");
+		return -1;
+	}
+	if (id == NULL) {
+		fprintf(stderr, "audio id is NULL in spd_audio_set_volume\n");
+		return -1;
+	}
+	id->volume = volume;
+	return 0;
 }
 
-void
-spd_audio_set_loglevel(AudioID *id, int level)
+void spd_audio_set_loglevel(AudioID * id, int level)
 {
-    if (level){
-        spd_audio_log_level = level;
-	if (id != 0 && id->function != 0)
-	    id->function->set_loglevel(level);
-    }
+	if (level) {
+		spd_audio_log_level = level;
+		if (id != 0 && id->function != 0)
+			id->function->set_loglevel(level);
+	}
 }
 
-char const *
-spd_audio_get_playcmd(AudioID *id)
+char const *spd_audio_get_playcmd(AudioID * id)
 {
 	if (id != 0 && id->function != 0) {
-	    return id->function->get_playcmd();
-    }
-    return NULL;
+		return id->function->get_playcmd();
+	}
+	return NULL;
 }

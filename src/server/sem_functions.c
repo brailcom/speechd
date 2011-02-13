@@ -29,12 +29,12 @@
 #include "speechd.h"
 #include "sem_functions.h"
 
-void
-speaking_semaphore_post(void)
+void speaking_semaphore_post(void)
 {
-    char buf[1];
-    buf[0] = 42;
-    const ssize_t wr_bytes = TEMP_FAILURE_RETRY(write(speaking_pipe[1], buf, 1));
-    if (wr_bytes != 1)
-        FATAL("write to polled fd: could not write 1 byte");
+	char buf[1];
+	buf[0] = 42;
+	const ssize_t wr_bytes =
+	    TEMP_FAILURE_RETRY(write(speaking_pipe[1], buf, 1));
+	if (wr_bytes != 1)
+		FATAL("write to polled fd: could not write 1 byte");
 }

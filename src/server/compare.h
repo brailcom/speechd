@@ -23,13 +23,14 @@
  */
 
 #ifndef COMPARE_H
- #define COMPARE_H
+#define COMPARE_H
 
-gint compare_message_fd (gconstpointer element, gconstpointer value, gpointer x);
-gint compare_message_uid (gconstpointer element, gconstpointer value, gpointer x);
+gint compare_message_fd(gconstpointer element, gconstpointer value, gpointer x);
+gint compare_message_uid(gconstpointer element, gconstpointer value,
+			 gpointer x);
 
 /* Pointers to functions compare_message_fd and compare_message_uid */
-gint (*p_msg_lc)();
-gint (*p_msg_uid_lc)();
+gint(*p_msg_lc) ();
+gint(*p_msg_uid_lc) ();
 
 #endif /* COMPARE_H */

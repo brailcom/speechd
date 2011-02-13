@@ -1,0 +1,13 @@
+This document describes the coding style used in this repository. All
+patches or changes must follow this style. If you have any questions,
+please contact the speech dispatcher mailing list.
+
+C Code:
+
+The indenting style we use is the same as the linux kernel. If you use
+GNU indent 2.2.10 or later, you should run it as follows:
+
+indent -npro -kr -i8 -ts8 -sob -l80 -ss -ncs -cp1 -il0
+
+For versions of indent earlier than 2.2.10, drop the -il0 from the parameters.
+

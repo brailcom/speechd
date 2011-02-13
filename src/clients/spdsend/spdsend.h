@@ -20,16 +20,13 @@
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 */
 
-
 #ifndef __SPDSEND_H
 
 #define __SPDSEND_H
 
-
 #define _GNU_SOURCE
 
 #include <stddef.h>
-
 
 /* Configuration */
 
@@ -48,9 +45,9 @@ typedef enum { OK, ERROR } Success;
 
 /* common.c */
 
-extern Success write_data (Stream s, const void *buffer, size_t size);
-extern int read_data (Stream s, void *buffer, size_t max_size);
-extern Success forward_data (Stream from, Stream to, bool closep);
+extern Success write_data(Stream s, const void *buffer, size_t size);
+extern int read_data(Stream s, void *buffer, size_t max_size);
+extern Success forward_data(Stream from, Stream to, bool closep);
 
 typedef enum { A_OPEN, A_CLOSE, A_DATA } Action;
 
@@ -64,13 +61,12 @@ extern const int EXIT_ERROR;
 
 /* server.c */
 
-extern Stream open_server ();
+extern Stream open_server();
 
 /* client.c */
 
-extern Success open_connection (Stream server, const char *host, int port);
-extern Success close_connection (Stream server, Connection_Id id);
-extern Success send_command (Stream server, Connection_Id id);
-
+extern Success open_connection(Stream server, const char *host, int port);
+extern Success close_connection(Stream server, Connection_Id id);
+extern Success send_command(Stream server, Connection_Id id);
 
 #endif

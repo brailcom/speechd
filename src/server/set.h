@@ -23,13 +23,13 @@
  */
 
 #ifndef SET_H
- #define SET_H
+#define SET_H
 
 #include "speechd.h"
 #include "history.h"
 
-TFDSetElement* get_client_settings_by_uid(int uid);
-TFDSetElement* get_client_settings_by_fd(int fd);
+TFDSetElement *get_client_settings_by_uid(int uid);
+TFDSetElement *get_client_settings_by_fd(int fd);
 void remove_client_settings_by_uid(int uid);
 int get_client_uid_by_fd(int fd);
 
@@ -46,12 +46,11 @@ int set_voice_uid(int uid, char *voice);
 int set_synthesis_voice_uid(int uid, char *synthesis_voice);
 int set_punctuation_mode_uid(int uid, SPDPunctuation punctuation);
 int set_capital_letter_recognition_uid(int uid, SPDCapitalLetters recogn);
-int set_output_module_uid(int uid, char* output_module);
+int set_output_module_uid(int uid, char *output_module);
 int set_ssml_mode_uid(int uid, SPDDataMode ssml_mode);
 int set_pause_context_uid(int uid, int pause_context);
 int set_debug_uid(int uid, int debug);
 int set_debug_destination_uid(int uid, char *debug_destination);
-
 
 int set_priority_self(int fd, SPDPriority priority);
 int set_language_self(int fd, char *language);
@@ -81,7 +80,7 @@ int set_volume_all(int volume);
 int set_punct_mode_all(int punct);
 int set_cap_let_recog_all(int recog);
 int set_spelling_all(SPDSpelling spelling);
-int set_output_module_all(char* output_module);
+int set_output_module_all(char *output_module);
 int set_voice_all(char *voice);
 int set_synthesis_voice_all(char *synthesis_voice);
 int set_punctuation_mode_all(SPDPunctuation punctuation);
@@ -91,12 +90,12 @@ int set_pause_context_all(int pause_context);
 int set_debug_all(int debug);
 int set_debug_destination_all(char *debug_destination);
 
-TFDSetElement* default_fd_set(void);
+TFDSetElement *default_fd_set(void);
 
-char* set_param_str(char* parameter, char* value);
+char *set_param_str(char *parameter, char *value);
 
 void update_cl_settings(gpointer data, gpointer user_data);
 
 gint spd_str_compare(gconstpointer a, gconstpointer b);
 
-#endif		
+#endif

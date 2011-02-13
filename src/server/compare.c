@@ -31,35 +31,33 @@
 #include "compare.h"
 
 /* Pointers to compare_message_fd and compare_message_uid */
-gint (*p_msg_lc)() = compare_message_fd;
-gint (*p_msg_uid_lc)() = compare_message_uid;
+gint(*p_msg_lc) () = compare_message_fd;
+gint(*p_msg_uid_lc) () = compare_message_uid;
 
-gint
-compare_message_fd (gconstpointer element, gconstpointer value, gpointer x)
+gint compare_message_fd(gconstpointer element, gconstpointer value, gpointer x)
 {
-    int *fd_val;
-    TSpeechDMessage *message;
+	int *fd_val;
+	TSpeechDMessage *message;
 
-    fd_val = (int*) value;
+	fd_val = (int *)value;
 
-    message = ((TSpeechDMessage*) element);
-    assert(message!=NULL);
-    assert(message->settings.fd!=0);
+	message = ((TSpeechDMessage *) element);
+	assert(message != NULL);
+	assert(message->settings.fd != 0);
 
-    return (message->settings.fd - *fd_val);
+	return (message->settings.fd - *fd_val);
 }
 
-gint
-compare_message_uid (gconstpointer element, gconstpointer value, gpointer x)
+gint compare_message_uid(gconstpointer element, gconstpointer value, gpointer x)
 {
-    int *uid_val;
-    TSpeechDMessage *message;
+	int *uid_val;
+	TSpeechDMessage *message;
 
-    uid_val = (int*) value;
+	uid_val = (int *)value;
 
-    message = ((TSpeechDMessage*) element);
-    assert(message!=NULL);    
-    //assert(message->settings.fd!=0);
+	message = ((TSpeechDMessage *) element);
+	assert(message != NULL);
+	//assert(message->settings.fd!=0);
 
-    return (message->settings.uid - *uid_val);
+	return (message->settings.uid - *uid_val);
 }

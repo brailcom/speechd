@@ -24,27 +24,27 @@
 #include "speechd.h"
 #include "speaking.h"
 
-OutputModule* get_output_module(const TSpeechDMessage *message);
+OutputModule *get_output_module(const TSpeechDMessage * message);
 
-int output_speak(TSpeechDMessage *msg);
+int output_speak(TSpeechDMessage * msg);
 int output_stop();
 size_t output_pause();
 int output_is_speaking(char **index_mark);
-int output_send_debug(OutputModule *output, int flag, char *logfile_path);
+int output_send_debug(OutputModule * output, int flag, char *logfile_path);
 
+int output_check_module(OutputModule * output);
 
-int output_check_module(OutputModule* output);
+char *escape_dot(char *otext);
 
-char* escape_dot(char *otext);
-
-void output_set_speaking_monitor(TSpeechDMessage *msg, OutputModule *output);
-GString* output_read_reply(OutputModule *output);
-char* output_read_reply2(OutputModule *output);
-int output_send_data(char* cmd, OutputModule *output, int wfr);
-int output_send_settings(TSpeechDMessage *msg, OutputModule *output);
-int output_send_audio_settings(OutputModule *output);
-int output_send_loglevel_setting(OutputModule *output);
-int output_module_is_speaking(OutputModule *output, char **index_mark);
-int waitpid_with_timeout(pid_t pid, int *status_ptr, int options, size_t timeout);
-int output_close(OutputModule *module);
-SPDVoice** output_list_voices(char* module_name);
+void output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output);
+GString *output_read_reply(OutputModule * output);
+char *output_read_reply2(OutputModule * output);
+int output_send_data(char *cmd, OutputModule * output, int wfr);
+int output_send_settings(TSpeechDMessage * msg, OutputModule * output);
+int output_send_audio_settings(OutputModule * output);
+int output_send_loglevel_setting(OutputModule * output);
+int output_module_is_speaking(OutputModule * output, char **index_mark);
+int waitpid_with_timeout(pid_t pid, int *status_ptr, int options,
+			 size_t timeout);
+int output_close(OutputModule * module);
+SPDVoice **output_list_voices(char *module_name);

@@ -63,7 +63,6 @@ configfile_t *configfile;
 configoption_t *module_dc_options;
 int module_num_dc_options;
 
-
 #define CLEAN_OLD_SETTINGS_TABLE()\
  msg_settings_old.rate = -101;\
  msg_settings_old.pitch = -101;\
@@ -121,16 +120,16 @@ int module_num_dc_options;
      exit(EXIT_FAILURE); \
    }
 
-int     module_load         (void);
-int     module_init         (char **status_info);
-SPDVoice** module_list_voices(void);
-int     module_speak        (char *data, size_t bytes, SPDMessageType msgtype);
-int     module_stop         (void);
-SPDVoice**     module_get_voices   (void);
-int     module_tts_output   (AudioTrack track, AudioFormat format);
-size_t  module_pause        (void);
-char*     module_is_speaking  (void);
-int    module_close        (void);
+int module_load(void);
+int module_init(char **status_info);
+SPDVoice **module_list_voices(void);
+int module_speak(char *data, size_t bytes, SPDMessageType msgtype);
+int module_stop(void);
+SPDVoice **module_get_voices(void);
+int module_tts_output(AudioTrack track, AudioFormat format);
+size_t module_pause(void);
+char *module_is_speaking(void);
+int module_close(void);
 
 #define UPDATE_PARAMETER(value, setter) \
   if (msg_settings_old.value != msg_settings.value) \
@@ -157,15 +156,14 @@ int    module_close        (void);
 
 #define CHILD_SAMPLE_BUF_SIZE 16384
 
-typedef struct{
-    int pc[2];
-    int cp[2];
-}TModuleDoublePipe;
+typedef struct {
+	int pc[2];
+	int cp[2];
+} TModuleDoublePipe;
 
-
-int module_get_message_part(const char* message, char* part,
+int module_get_message_part(const char *message, char *part,
 			    unsigned int *pos, size_t maxlen,
-			    const char* dividers);
+			    const char *dividers);
 
 void set_speaking_thread_parameters();
 
@@ -174,73 +172,76 @@ void module_child_dp_init(TModuleDoublePipe dpipe);
 void module_parent_dp_close(TModuleDoublePipe dpipe);
 void module_child_dp_close(TModuleDoublePipe dpipe);
 
-void module_child_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes);
-int module_parent_dp_write(TModuleDoublePipe dpipe, const char *msg, size_t bytes);
+void module_child_dp_write(TModuleDoublePipe dpipe, const char *msg,
+			   size_t bytes);
+int module_parent_dp_write(TModuleDoublePipe dpipe, const char *msg,
+			   size_t bytes);
 int module_parent_dp_read(TModuleDoublePipe dpipe, char *msg, size_t maxlen);
 int module_child_dp_read(TModuleDoublePipe dpipe, char *msg, size_t maxlen);
 
 void module_signal_end(void);
 
 void module_strip_punctuation_default(char *buf);
-void module_strip_punctuation_some(char *buf, char* punct_some);
-char* module_strip_ssml(char *buf);
+void module_strip_punctuation_some(char *buf, char *punct_some);
+char *module_strip_ssml(char *buf);
 
 void module_sigblockall(void);
-void module_sigblockusr(sigset_t *signal_set);
-void module_sigunblockusr(sigset_t *signal_set);
+void module_sigblockusr(sigset_t * signal_set);
+void module_sigunblockusr(sigset_t * signal_set);
 
-char* do_message(SPDMessageType msgtype);
-char* do_speak(void);
-char* do_sound_icon(void);
-char* do_char(void);
-char* do_key(void);
-void  do_stop(void);
-void  do_pause(void);
-char* do_list_voices(void);
-char* do_set(void);
-char* do_audio(void);
-char* do_loglevel(void);
-char* do_debug(char *cmd_buf);
+char *do_message(SPDMessageType msgtype);
+char *do_speak(void);
+char *do_sound_icon(void);
+char *do_char(void);
+char *do_key(void);
+void do_stop(void);
+void do_pause(void);
+char *do_list_voices(void);
+char *do_set(void);
+char *do_audio(void);
+char *do_loglevel(void);
+char *do_debug(char *cmd_buf);
 void do_quit(void);
 
+typedef void (*TChildFunction) (TModuleDoublePipe dpipe, const size_t maxlen);
+typedef size_t(*TParentFunction) (TModuleDoublePipe dpipe, const char *message,
+				  const SPDMessageType msgtype,
+				  const size_t maxlen, const char *dividers,
+				  int *pause_requested);
 
-typedef void (*TChildFunction)(TModuleDoublePipe dpipe, const size_t maxlen);
-typedef size_t (*TParentFunction)(TModuleDoublePipe dpipe, const char* message,
-                                  const SPDMessageType msgtype, const size_t maxlen,
-                                  const char* dividers, int *pause_requested);
+void module_speak_thread_wfork(sem_t * semaphore, pid_t * process_pid,
+			       TChildFunction child_function,
+			       TParentFunction parent_function,
+			       int *speaking_flag, char **message,
+			       const SPDMessageType * msgtype,
+			       const size_t maxlen, const char *dividers,
+			       size_t * module_position, int *pause_requested);
 
-void module_speak_thread_wfork(sem_t *semaphore, pid_t *process_pid, 
-                          TChildFunction child_function,
-                          TParentFunction parent_function,
-                          int *speaking_flag, char **message, const SPDMessageType *msgtype,
-                          const size_t maxlen, const char *dividers, size_t *module_position,
-                          int *pause_requested);
-
-size_t module_parent_wfork(TModuleDoublePipe dpipe, const char* message, SPDMessageType msgtype,
-                    const size_t maxlen, const char* dividers, int *pause_requested);
+size_t module_parent_wfork(TModuleDoublePipe dpipe, const char *message,
+			   SPDMessageType msgtype, const size_t maxlen,
+			   const char *dividers, int *pause_requested);
 
 int module_parent_wait_continue(TModuleDoublePipe dpipe);
 
 void set_speaking_thread_parameters();
 int module_terminate_thread(pthread_t thread);
-sem_t* module_semaphore_init();
-char * module_recode_to_iso(char *data, int bytes, char *language, char *fallback);
+sem_t *module_semaphore_init();
+char *module_recode_to_iso(char *data, int bytes, char *language,
+			   char *fallback);
 int semaphore_post(int sem_id);
 void module_signal_end(void);
-configoption_t * module_add_config_option(configoption_t *options,
-						 int *num_options, char *name, int type,
-						 dotconf_callback_t callback, info_t *info,
-						 unsigned long context);
+configoption_t *module_add_config_option(configoption_t * options,
+					 int *num_options, char *name, int type,
+					 dotconf_callback_t callback,
+					 info_t * info, unsigned long context);
 
-void* module_get_ht_option(GHashTable *hash_table, const char *key);
+void *module_get_ht_option(GHashTable * hash_table, const char *key);
 
-configoption_t * add_config_option(configoption_t *options, int *num_config_options,
-				   char *name, int type,
-				   dotconf_callback_t callback, info_t *info,
-				   unsigned long context);
+configoption_t *add_config_option(configoption_t * options,
+				  int *num_config_options, char *name, int type,
+				  dotconf_callback_t callback, info_t * info,
+				  unsigned long context);
 
-
-     
 /* --- MODULE DOTCONF OPTIONS DEFINITION AND REGISTRATION --- */
 
 #define MOD_OPTION_1_STR(name) \
@@ -343,13 +344,13 @@ configoption_t * add_config_option(configoption_t *options, int *num_config_opti
     else name = NULL; \
     module_dc_options = module_add_config_option(module_dc_options, \
                                      &module_num_dc_options, #name, \
-                                     ARG_STR, name ## _cb, NULL, 0); 
+                                     ARG_STR, name ## _cb, NULL, 0);
 
 #define MOD_OPTION_1_INT_REG(name, default) \
     name = default; \
     module_dc_options = module_add_config_option(module_dc_options, \
                                      &module_num_dc_options, #name, \
-                                     ARG_INT, name ## _cb, NULL, 0); 
+                                     ARG_INT, name ## _cb, NULL, 0);
 
 /* TODO: Switch this to real float, not /100 integer,
    as soon as DotConf supports floats */
@@ -370,7 +371,6 @@ configoption_t * add_config_option(configoption_t *options, int *num_config_opti
                                      &module_num_dc_options, #name, \
                                      ARG_LIST, name ## _cb, NULL, 0);
 
-
 /* --- DEBUGGING SUPPORT  ---*/
 
 #define DECLARE_DEBUG() \
@@ -379,7 +379,6 @@ configoption_t * add_config_option(configoption_t *options, int *num_config_opti
         Debug = cmd->data.value; \
         return NULL; \
     }
-
 
 #define REGISTER_DEBUG() \
     MOD_OPTION_1_INT_REG(Debug, 0); \
@@ -402,8 +401,6 @@ void module_report_event_end(void);
 void module_report_event_stop(void);
 void module_report_event_pause(void);
 
-
-
 extern pthread_mutex_t module_stdout_mutex;
 
 int module_utils_init(void);
@@ -411,6 +408,6 @@ int module_audio_init(char **status_info);
 
 /* Prototypes from module_utils_addvoice.c */
 void module_register_settings_voices(void);
-char* module_getvoice(char* language, SPDVoiceType voice);
+char *module_getvoice(char *language, SPDVoiceType voice);
 
 #endif /* #ifndef __MODULE_UTILS_H */

@@ -22,4 +22,3 @@
  */
 
 void speaking_semaphore_post(void);
-

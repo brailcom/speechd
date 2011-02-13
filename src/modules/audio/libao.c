@@ -89,159 +89,158 @@ ao_device *device = NULL;
 
 static inline void libao_open_handle(int rate, int channels, int bits)
 {
-  ao_sample_format format = AO_FORMAT_INITIALIZER;
+	ao_sample_format format = AO_FORMAT_INITIALIZER;
 
-  format.channels = channels;
-  format.rate = rate;
-  format.bits = bits;
-  format.byte_format = AO_FMT_NATIVE;
-  device = ao_open_live (default_driver, &format, NULL);
+	format.channels = channels;
+	format.rate = rate;
+	format.bits = bits;
+	format.byte_format = AO_FMT_NATIVE;
+	device = ao_open_live(default_driver, &format, NULL);
 
-  if (device != NULL)
-    current_ao_parameters = format;
+	if (device != NULL)
+		current_ao_parameters = format;
 }
 
 static inline void libao_close_handle(void)
 {
-  if (device != NULL)
-    {
-      ao_close(device);
-      device = NULL;
-    }
+	if (device != NULL) {
+		ao_close(device);
+		device = NULL;
+	}
 }
 
-static AudioID * libao_open (void **pars)
+static AudioID *libao_open(void **pars)
 {
-  AudioID * id;
+	AudioID *id;
 
-  id = (AudioID *) g_malloc(sizeof(AudioID));
+	id = (AudioID *) g_malloc(sizeof(AudioID));
 
-  ao_initialize ();
-  default_driver = ao_default_driver_id ();
-  return id;
+	ao_initialize();
+	default_driver = ao_default_driver_id();
+	return id;
 }
 
-static int libao_play (AudioID * id, AudioTrack track)
+static int libao_play(AudioID * id, AudioTrack track)
 {
-  int bytes_per_sample;
+	int bytes_per_sample;
 
-  int num_bytes;
+	int num_bytes;
 
-  int outcnt = 0;
+	int outcnt = 0;
 
-  signed short *output_samples;
+	signed short *output_samples;
 
-  int i;
+	int i;
 
-  if (id == NULL)
-    return -1;
-  if (track.samples == NULL || track.num_samples <= 0)
-    return 0;
+	if (id == NULL)
+		return -1;
+	if (track.samples == NULL || track.num_samples <= 0)
+		return 0;
 
-  /* Choose the correct format */
-  if (track.bits == 16)
-    bytes_per_sample = 2;
-  else if (track.bits == 8)
-    bytes_per_sample = 1;
-  else
-   {
-     ERR ("Audio: Unrecognized sound data format.\n");
-     return -10;
-   }
-  MSG (3, "Starting playback");
-  output_samples = track.samples;
-  num_bytes = track.num_samples * bytes_per_sample;
+	/* Choose the correct format */
+	if (track.bits == 16)
+		bytes_per_sample = 2;
+	else if (track.bits == 8)
+		bytes_per_sample = 1;
+	else {
+		ERR("Audio: Unrecognized sound data format.\n");
+		return -10;
+	}
+	MSG(3, "Starting playback");
+	output_samples = track.samples;
+	num_bytes = track.num_samples * bytes_per_sample;
 
-  if ((device == NULL)
-      || (track.num_channels != current_ao_parameters.channels)
-      || (track.sample_rate != current_ao_parameters.rate)
-      || (track.bits != current_ao_parameters.bits))
-    {
-      libao_close_handle();
-      libao_open_handle(track.sample_rate, track.num_channels, track.bits);
-    }
+	if ((device == NULL)
+	    || (track.num_channels != current_ao_parameters.channels)
+	    || (track.sample_rate != current_ao_parameters.rate)
+	    || (track.bits != current_ao_parameters.bits)) {
+		libao_close_handle();
+		libao_open_handle(track.sample_rate, track.num_channels,
+				  track.bits);
+	}
 
-  if (device == NULL)
-   {
-     ERR ("error opening libao dev");
-     return -2;
-   }
-  MSG (3, "bytes to play: %d, (%f secs)", num_bytes,
-       (((float) (num_bytes) / 2) / (float) track.sample_rate));
+	if (device == NULL) {
+		ERR("error opening libao dev");
+		return -2;
+	}
+	MSG(3, "bytes to play: %d, (%f secs)", num_bytes,
+	    (((float)(num_bytes) / 2) / (float)track.sample_rate));
 
-  ao_stop_playback = 0;
-  outcnt = 0;
-  i = 0;
+	ao_stop_playback = 0;
+	outcnt = 0;
+	i = 0;
 
-  while ((outcnt < num_bytes) && !ao_stop_playback)
-   {
-     if ((num_bytes - outcnt) > AO_SEND_BYTES)
-       i = AO_SEND_BYTES;
-     else
-       i = (num_bytes - outcnt);
+	while ((outcnt < num_bytes) && !ao_stop_playback) {
+		if ((num_bytes - outcnt) > AO_SEND_BYTES)
+			i = AO_SEND_BYTES;
+		else
+			i = (num_bytes - outcnt);
 
-     if (!ao_play (device, (char *) output_samples + outcnt, i))
-      {
-        libao_close_handle();
-        ERR ("Audio: ao_play() - closing device - re-open it in next run\n");
-        return -1;
-      }
-     outcnt += i;
-   }
+		if (!ao_play(device, (char *)output_samples + outcnt, i)) {
+			libao_close_handle();
+			ERR("Audio: ao_play() - closing device - re-open it in next run\n");
+			return -1;
+		}
+		outcnt += i;
+	}
 
-  return 0;
+	return 0;
 
 }
 
 /* stop the libao_play() loop */
-static int libao_stop (AudioID * id)
+static int libao_stop(AudioID * id)
 {
 
-  ao_stop_playback = 1;
-  return 0;
+	ao_stop_playback = 1;
+	return 0;
 }
 
-static int libao_close (AudioID * id)
+static int libao_close(AudioID * id)
 {
-  libao_close_handle();
-  ao_shutdown ();
+	libao_close_handle();
+	ao_shutdown();
 
-  g_free (id);
-  id = NULL;
-  return 0;
+	g_free(id);
+	id = NULL;
+	return 0;
 }
 
-static int libao_set_volume (AudioID * id, int volume)
+static int libao_set_volume(AudioID * id, int volume)
 {
-  return 0;
+	return 0;
 }
 
-static void libao_set_loglevel (int level)
+static void libao_set_loglevel(int level)
 {
-    if (level){
-        libao_log_level = level;
-    }
+	if (level) {
+		libao_log_level = level;
+	}
 }
 
-static char  const *
-libao_get_playcmd (void)
+static char const *libao_get_playcmd(void)
 {
-    return NULL;
+	return NULL;
 }
 
 /* Provide the libao backend. */
-static spd_audio_plugin_t libao_functions =
-{
-    "libao",
-    libao_open,
-    libao_play,
-    libao_stop,
-    libao_close,
-    libao_set_volume,
-    libao_set_loglevel,
-    libao_get_playcmd
+static spd_audio_plugin_t libao_functions = {
+	"libao",
+	libao_open,
+	libao_play,
+	libao_stop,
+	libao_close,
+	libao_set_volume,
+	libao_set_loglevel,
+	libao_get_playcmd
 };
-spd_audio_plugin_t * libao_plugin_get (void) {return &libao_functions;}
-spd_audio_plugin_t * SPD_AUDIO_PLUGIN_ENTRY (void)  __attribute__ ((weak, alias("libao_plugin_get")));
+
+spd_audio_plugin_t *libao_plugin_get(void)
+{
+	return &libao_functions;
+}
+
+spd_audio_plugin_t *SPD_AUDIO_PLUGIN_ENTRY(void)
+    __attribute__ ((weak, alias("libao_plugin_get")));
 #undef MSG
 #undef ERR

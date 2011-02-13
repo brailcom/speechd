@@ -20,11 +20,10 @@
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 */
 
-
 #ifndef __GSSIP_H
 
 #define __GSSIP_H
 
-void init_gssip ();
+void init_gssip();
 
 #endif

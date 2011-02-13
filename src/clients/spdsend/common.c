@@ -31,60 +31,55 @@
 
 #include "spdsend.h"
 
-
 const long CONNECTION_ID_MIN = 1;
 const long CONNECTION_ID_MAX = 1000;
 
 const int EXIT_OK = 0;
 const int EXIT_ERROR = 1;
 
-
-extern Success write_data (Stream s, const void *buffer, size_t size)
+extern Success write_data(Stream s, const void *buffer, size_t size)
 {
-  int written;
+	int written;
 
-  for ( ; size > 0; size -= written, buffer += written)
-    {
-      written = write (s, buffer, size);
-      if (written < 0)
-        return ERROR;
-    }
-  
-  return OK;
+	for (; size > 0; size -= written, buffer += written) {
+		written = write(s, buffer, size);
+		if (written < 0)
+			return ERROR;
+	}
+
+	return OK;
 }
 
-extern int read_data (Stream s, void *buffer, size_t max_size)
+extern int read_data(Stream s, void *buffer, size_t max_size)
 {
-  size_t nread = 0, n;
+	size_t nread = 0, n;
 
-  while (nread < max_size)
-    {
-      n = read (s, buffer, max_size);
-      if (n < 0)
-        return NONE;
-      if (n == 0)
-        break;
-      nread += n;
-      buffer += n;
-      max_size -= n;
-    }
-  
-  return nread;
+	while (nread < max_size) {
+		n = read(s, buffer, max_size);
+		if (n < 0)
+			return NONE;
+		if (n == 0)
+			break;
+		nread += n;
+		buffer += n;
+		max_size -= n;
+	}
+
+	return nread;
 }
 
-extern Success forward_data (Stream from, Stream to, bool closep)
-{    
-  const size_t buffer_size = 4096;
-  char buffer[buffer_size];
-  ssize_t n;
+extern Success forward_data(Stream from, Stream to, bool closep)
+{
+	const size_t buffer_size = 4096;
+	char buffer[buffer_size];
+	ssize_t n;
 
-  while ((n = read (from, buffer, buffer_size)) > 0)
-    {
-      if (write_data (to, buffer, n) == ERROR)
-        return ERROR;
-    }
-  if (closep)
-    shutdown (to, SHUT_WR);
-  
-  return (n == NONE ? ERROR : OK);
+	while ((n = read(from, buffer, buffer_size)) > 0) {
+		if (write_data(to, buffer, n) == ERROR)
+			return ERROR;
+	}
+	if (closep)
+		shutdown(to, SHUT_WR);
+
+	return (n == NONE ? ERROR : OK);
 }
