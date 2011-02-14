@@ -135,14 +135,9 @@ static int pico_set_volume(signed int value)
 {
 	int volume;
 
-	if (value < 0)
-		volume = PICO_VOICE_VOLUME_MIN + (value - (-100))
-		    * (PICO_VOICE_VOLUME_DEFAULT - PICO_VOICE_VOLUME_MIN)
-		    / (0 - (-100));
-	else
-		volume = PICO_VOICE_VOLUME_DEFAULT + (value - 0)
-		    * (PICO_VOICE_VOLUME_MAX - PICO_VOICE_VOLUME_DEFAULT)
-		    / (100 - 0);
+	volume = PICO_VOICE_VOLUME_MIN + (value - (-100))
+	    * (PICO_VOICE_VOLUME_DEFAULT - PICO_VOICE_VOLUME_MIN)
+	    / (100 - (-100));
 
 	return volume;
 }
