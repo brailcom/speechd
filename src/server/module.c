@@ -437,6 +437,48 @@ int output_module_nodebug(OutputModule * module)
 static GList *requested_modules = NULL;
 
 /*
+ * module_already_requested: determine whether we have already received
+ * a load request for a given module.
+ * Parameters:
+ * module_name: the name of the module.
+ * module_cmd: name of the binary associated with this module.
+ * module_cfgfile: the name of the module's configuration file.
+ *
+ * Returns:
+ * TRUE if the module was previously requested, FALSE otherwise.
+ *
+ * A module is previously requested if:
+ * 1. module_name is the same as some other module in the list of load
+ * requests.  We select a given output module using its name, so names
+ * must be unique.
+ * 2. The name of the executable and the name of the configuration file
+ * are exactly the same as those of another module.
+ * It is acceptable to load the same module binary multiple times, where
+ * each instance uses a different configuration file.  In fact, this is
+ * how sd_generic works.  The instances are differentiated by module_name.
+ * However, it is not reasonable to load multiple instances, all of which
+ * use the same (binary, config file) pair.
+ * These two rules should cover all cases adequately.
+ *
+ */
+gboolean
+module_already_requested(char *module_name, char *module_cmd,
+			 char *module_cfgfile)
+{
+	GList *lp;
+
+	for (lp = requested_modules; lp != NULL; lp = lp->next) {
+		char **params = lp->data;
+		if (strcmp(module_name, params[0]) == 0 ||
+		    (strcmp(module_cmd, params[1]) == 0 &&
+		     strcmp(module_cfgfile, params[2]) == 0))
+			return TRUE;
+	}
+
+	return FALSE;
+}
+
+/*
  * module_add_load_request - request that a module be loaded.
  * In other words, add it to the list of modules which will be loaded
  * by module_load_requested_modules.
@@ -454,7 +496,20 @@ void
 module_add_load_request(char *module_name, char *module_cmd,
 			char *module_cfgfile, char *module_dbgfile)
 {
-	char **module_params = g_malloc(4 * sizeof(char *));
+	char **module_params = NULL;
+
+	if (module_already_requested(module_name, module_cmd, module_cfgfile)) {
+		MSG(1,
+		    "Load request for module %s with command %s and configuration file %s was previously received; ignoring the second one.",
+		    module_name, module_cmd, module_cfgfile);
+		g_free(module_name);
+		g_free(module_cmd);
+		g_free(module_cfgfile);
+		g_free(module_dbgfile);
+		return;
+	}
+
+	module_params = g_malloc(4 * sizeof(char *));
 	module_params[0] = module_name;
 	module_params[1] = module_cmd;
 	module_params[2] = module_cfgfile;
