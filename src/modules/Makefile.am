@@ -1,7 +1,5 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = audio
-
 inc_local = -I$(top_srcdir)/include
 audio_SOURCES = spd_audio.c spd_audio.h
 common_SOURCES = module_main.c module_utils.c module_utils.h

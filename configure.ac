@@ -212,7 +212,7 @@ AS_IF([test $with_pulse != "no"],
 		[with_pulse=yes
 		AS_IF([test -z "$default_audio_method"],
 			[default_audio_method=pulse])
-		audio_dlopen_modules="$audio_dlopen_modules -dlopen audio/spd_pulse.la"],
+		audio_dlopen_modules="$audio_dlopen_modules -dlopen ../audio/spd_pulse.la"],
 		[AS_IF([test $with_pulse = "yes"],
 			[AC_MSG_FAILURE([pulseaudio is not available])])])])
 AM_CONDITIONAL([pulse_support], [test $with_pulse = "yes"])
@@ -229,7 +229,7 @@ AS_IF([test $with_alsa != "no"],
 		[with_alsa=yes
 		AS_IF([test -z "$default_audio_method"],
 			[default_audio_method=alsa])
-		audio_dlopen_modules="$audio_dlopen_modules -dlopen audio/spd_alsa.la"],
+		audio_dlopen_modules="$audio_dlopen_modules -dlopen ../audio/spd_alsa.la"],
 		[AS_IF([test $with_alsa = "yes"],
 			[AC_MSG_FAILURE([ALSA is not available])])])])
 AM_CONDITIONAL([alsa_support], [test $with_alsa = "yes"])
@@ -246,7 +246,7 @@ AS_IF([test $with_libao != "no"],
 		[with_libao=yes
 		AS_IF([test -z "$default_audio_method"],
 			[default_audio_method=libao])
-		audio_dlopen_modules="$audio_dlopen_modules -dlopen audio/spd_libao.la"],
+		audio_dlopen_modules="$audio_dlopen_modules -dlopen ../audio/spd_libao.la"],
 		[AS_IF([test $with_libao = yes],
 			[AC_MSG_FAILURE([libao is not available])])])])
 AM_CONDITIONAL([libao_support], [test $with_libao = "yes"])
@@ -263,7 +263,7 @@ AS_IF([test $with_oss != "no"],
 		[with_oss=yes
 		AS_IF([test -z "$default_audio_method"],
 			[default_audio_method=oss])
-		audio_dlopen_modules="$audio_dlopen_modules -dlopen audio/spd_oss.la"],
+		audio_dlopen_modules="$audio_dlopen_modules -dlopen ../audio/spd_oss.la"],
 		[AS_IF([test $with_oss = "yes"],
 			[AC_MSG_FAILURE([oss is not available])])])])
 AM_CONDITIONAL([oss_support], [test $with_oss = "yes"])
@@ -278,7 +278,7 @@ AS_IF([test $with_nas != "no"],
 		[with_nas=yes
 		AS_IF([test -z "$default_audio_method"],
 			[default_audio_method=nas])
-		audio_dlopen_modules="$audio_dlopen_modules -dlopen audio/spd_nas.la";
+		audio_dlopen_modules="$audio_dlopen_modules -dlopen ../audio/spd_nas.la";
 		NAS_LIBS="-L/usr/X11R6/lib -lXau -laudio"],
 		[AS_IF([test $with_nas = "yes"],
 			[AC_MSG_FAILURE([nas is not available])])],
@@ -361,12 +361,12 @@ AC_CONFIG_FILES([Makefile
                  src/api/python/Makefile
                  src/api/python/speechd/Makefile
                  src/api/python/speechd_config/Makefile
+                 src/audio/Makefile
                  src/clients/Makefile
                  src/clients/say/Makefile
                  src/clients/spdsend/Makefile
                  src/common/Makefile
                  src/modules/Makefile
-                 src/modules/audio/Makefile
                  src/server/Makefile
                  src/tests/Makefile])
 AC_OUTPUT
