@@ -98,16 +98,15 @@ void insert_index_marks(TSpeechDMessage * msg, SPDDataMode ssml_mode)
 			    || (u_char == '&')) {
 				g_string_append_printf(marked_text,
 						       "%s" SD_MARK_HEAD "%d"
-						       SD_MARK_TAIL "%s",
-						       character, n,
-						       character2);
+						       SD_MARK_TAIL,
+						       character, n);
 				n++;
 				MSG2(6, "index_marking", "MSG altering 2: |%s|",
 				     marked_text->str);
+				continue;
 			} else {
 				g_string_append_printf(marked_text, "%s",
 						       character);
-				//              pos = g_utf8_find_prev_char(pos, NULL);
 				MSG2(6, "index_marking", "MSG altering 3: |%s|",
 				     marked_text->str);
 				continue;
