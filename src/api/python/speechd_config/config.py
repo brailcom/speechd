@@ -193,7 +193,7 @@ class Options(object):
             },
         'dont_ask':
             {
-            'descr' : "Do not ask any questions, allways use default values",
+            'descr' : "Do not ask any questions, always use default values",
             'doc' : None,
             'type' : bool,
             'default' : False,
