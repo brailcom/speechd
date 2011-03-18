@@ -216,12 +216,12 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 		}
 
 		if (cfg == 0) {
-			if (execlp(module->filename, "", (char *)0) == -1) {
+			if (execlp(module->filename, module->filename, (char *)0) == -1) {
 				exit(1);
 			}
 		} else {
-			//if (execlp("valgrind", "" ,"--trace-children=yes", module->filename, arg1, arg2, (char *) 0) == -1){
-			if (execlp(module->filename, "", arg1, (char *)0) == -1) {
+			//if (execlp("valgrind", "valgrind" ,"--trace-children=yes", module->filename, arg1, arg2, (char *) 0) == -1){
+			if (execlp(module->filename, module->filename, arg1, (char *)0) == -1) {
 				exit(1);
 			}
 		}
