@@ -141,7 +141,7 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 	module->name = (char *)g_strdup(mod_name);
 	module->filename = (char *)spd_get_path(mod_prog, MODULEBINDIR);
 
-	module_conf_dir = g_strdup_printf("%s/modules/",
+	module_conf_dir = g_strdup_printf("%s/modules",
 					  SpeechdOptions.conf_dir);
 
 	module->configfilename =
