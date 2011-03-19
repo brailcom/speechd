@@ -124,8 +124,7 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 {
 	OutputModule *module;
 	int fr;
-	char *arg1 = NULL;
-	int cfg = 0;
+	char *argv[3] = {0, 0, 0};
 	int ret;
 	char *module_conf_dir;
 	char *rep_line = NULL;
@@ -166,9 +165,9 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 		return NULL;
 	}
 
+	argv[0] = module->filename;
 	if (mod_cfgfile) {
-		arg1 = g_strdup_printf("%s", module->configfilename);
-		cfg = 1;
+		argv[1] = module->configfilename;
 	}
 
 	/* Open the file for child stderr (logging) redirection */
@@ -215,21 +214,12 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 			ret = dup2(module->stderr_redirect, 2);
 		}
 
-		if (cfg == 0) {
-			if (execlp(module->filename, module->filename, (char *)0) == -1) {
-				exit(1);
-			}
-		} else {
-			//if (execlp("valgrind", "valgrind" ,"--trace-children=yes", module->filename, arg1, arg2, (char *) 0) == -1){
-			if (execlp(module->filename, module->filename, arg1, (char *)0) == -1) {
-				exit(1);
-			}
-		}
-		assert(0);
+		execvp(argv[0], argv);
+		MSG(1,
+			"Exec of module \"%s\" with config \"%s\" failed with error %d: %s",
+			argv[0], argv[1] ? argv[1] : "<none>", errno, strerror(errno));
+		exit(1);
 	}
-
-	if (cfg)
-		g_free(arg1);
 
 	module->pid = fr;
 	close(module->pipe_in[0]);
