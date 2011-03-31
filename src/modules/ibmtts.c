@@ -1493,14 +1493,15 @@ ibmtts_send_to_audio(TPlaybackQueueEntry * playback_queue_entry)
 #endif
 	int ret;
 
-	if (track.samples == NULL)
-		return IBMTTS_TRUE;
 
 	track.num_samples = playback_queue_entry->data.audio.num_samples;
 	track.num_channels = 1;
 	track.sample_rate = eci_sample_rate;
 	track.bits = 16;
 	track.samples = playback_queue_entry->data.audio.audio_chunk;
+
+	if (track.samples == NULL)
+		return IBMTTS_TRUE;
 
 	DBG("Ibmtts: Sending %i samples to audio.", track.num_samples);
 	ret = module_tts_output(track, format);
