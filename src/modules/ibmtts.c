@@ -1110,14 +1110,24 @@ static void ibmtts_set_pitch(signed int pitch)
 static void ibmtts_set_punctuation_mode(SPDPunctuation punct_mode)
 {
 	const char *fmt = "`Pf%d%s";
-	size_t len = strlen(fmt) + strlen(IbmttsPunctuationList) + sizeof('\0');
-	char *msg = g_malloc(len);
+	char *msg = NULL;
+	int real_punct_mode = 0;
 
-	if (msg) {
-		snprintf(msg, len, fmt, punct_mode, IbmttsPunctuationList);
-		eciAddText(eciHandle, msg);
-		g_free(msg);
+	switch (punct_mode) {
+	case SPD_PUNCT_NONE:
+		real_punct_mode = 0;
+		break;
+	case SPD_PUNCT_SOME:
+		real_punct_mode = 2;
+		break;
+	case SPD_PUNCT_ALL:
+		real_punct_mode = 1;
+		break;
 	}
+
+	msg = g_strdup_printf(fmt, real_punct_mode, IbmttsPunctuationList);
+	eciAddText(eciHandle, msg);
+	g_free(msg);
 }
 
 static char *ibmtts_voice_enum_to_str(SPDVoiceType voice)
