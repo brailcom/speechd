@@ -103,6 +103,7 @@ AS_IF([test $enable_python != "no"],
 			[AC_MSG_FAILURE([python is not available])])])])
 AM_CONDITIONAL([HAVE_PYTHON], [test $enable_python = "yes"])
 
+output_modules="cicero dummy festival generic"
 # checks for output modules
 # check for espeak support
 AC_ARG_WITH([espeak],
@@ -116,6 +117,7 @@ AS_IF([test $with_espeak != "no"],
 			[AC_MSG_FAILURE([espeak is not available])])],
 		[$EXTRA_ESPEAK_LIBS])])
 AM_CONDITIONAL([espeak_support], [test $with_espeak = "yes"])
+AS_IF([test $with_espeak = "yes"], [output_modules="${output_modules} espeak"])
 
 # check for flite support
 AC_ARG_WITH([flite],
@@ -157,6 +159,7 @@ AS_IF([test $with_flite != "no"],
 AM_CONDITIONAL([flite_support], [test $with_flite = "yes"])
 AC_SUBST([flite_basic])
 AC_SUBST([flite_kal])
+AS_IF([test $with_flite = "yes"], [output_modules="${output_modules} flite"])
 
 # check for IBMTTS support
 AC_ARG_WITH([ibmtts],
@@ -171,6 +174,7 @@ AS_IF([test $with_ibmtts != "no"],
 			[AC_MSG_FAILURE([IBMTTS is not available])])])])
 AM_CONDITIONAL([ibmtts_support], [test $with_ibmtts = "yes"])
 AC_SUBST([ibmtts_include])
+AS_IF([test $with_ibmtts = "yes"], [output_modules="${output_modules} ibmtts"])
 
 # check for ivona support
 AC_ARG_WITH([ivona],
@@ -183,6 +187,7 @@ AS_IF([test $with_ivona != "no"],
 		[AS_IF([test $with_ivona = "yes"],
 			[AC_MSG_FAILURE([ivona is not available])])])])
 AM_CONDITIONAL([ivona_support], [test $with_ivona = "yes"])
+AS_IF([test $with_ivona = "yes"], [output_modules="${output_modules} ivona"])
 
 # check for svox pico support
 AC_ARG_WITH([pico],
@@ -195,11 +200,13 @@ AS_IF([test $with_pico != "no"],
 		[AS_IF([test $with_pico = "yes"],
 			[AC_MSG_FAILURE([SVOX pico is not available])])])])
 AM_CONDITIONAL([pico_support], [test $with_pico = "yes"])
+AS_IF([test $with_pico = "yes"], [output_modules="${output_modules} pico"])
 
 audio_dlopen_modules='-dlopen force'
 
 # clear default audio method
 default_audio_method=""
+audio_methods=""
 
 # checks for audio subsystems
 # check for pulseaudio support
@@ -218,6 +225,7 @@ AS_IF([test $with_pulse != "no"],
 AM_CONDITIONAL([pulse_support], [test $with_pulse = "yes"])
 AC_SUBST([PULSE_CFLAGS])
 AC_SUBST([PULSE_LIBS])
+AS_IF([test $with_pulse = "yes"], [audio_methods="${audio_methods} pulse"])
 
 # check for alsa support
 AC_ARG_WITH([alsa],
@@ -235,6 +243,7 @@ AS_IF([test $with_alsa != "no"],
 AM_CONDITIONAL([alsa_support], [test $with_alsa = "yes"])
 AC_SUBST([ALSA_CFLAGS])
 AC_SUBST([ALSA_LIBS])
+AS_IF([test $with_alsa = "yes"], [audio_methods="${audio_methods} alsa"])
 
 # check for libao support
 AC_ARG_WITH([libao],
@@ -252,6 +261,7 @@ AS_IF([test $with_libao != "no"],
 AM_CONDITIONAL([libao_support], [test $with_libao = "yes"])
 AC_SUBST([LIBAO_CFLAGS])
 AC_SUBST([LIBAO_LIBS])
+AS_IF([test $with_libao = "yes"], [audio_methods="${audio_methods} libao"])
 
 #check for OSS support
 AC_ARG_WITH([oss],
@@ -267,6 +277,7 @@ AS_IF([test $with_oss != "no"],
 		[AS_IF([test $with_oss = "yes"],
 			[AC_MSG_FAILURE([oss is not available])])])])
 AM_CONDITIONAL([oss_support], [test $with_oss = "yes"])
+AS_IF([test $with_oss = "yes"], [audio_methods="${audio_methods} oss"])
 
 # check for NAS support
 AC_ARG_WITH([nas],
@@ -285,13 +296,13 @@ AS_IF([test $with_nas != "no"],
 	[-L/usr/X11R6/lib -lXau])])
 AM_CONDITIONAL([nas_support], [test $with_nas = "yes"])
 AC_SUBST([NAS_LIBS])
+AS_IF([test $with_nas = "yes"], [audio_methods="$audio_methods} nas"])
 
 AC_ARG_WITH([default-audio-method],
 	[AS_HELP_STRING([--with-default-audio-method=<name>],
 		[defines default audio method (default - first discovered)])],
 	[default_audio_method="$withval"],
 	[])
-AC_MSG_NOTICE([Default audio method is $default_audio_method])
 AC_SUBST([default_audio_method])
 
 # We'll build these modules:
@@ -370,3 +381,6 @@ AC_CONFIG_FILES([Makefile
                  src/server/Makefile
                  src/tests/Makefile])
 AC_OUTPUT
+AC_MSG_NOTICE([output modules to be built are $output_modules])
+AC_MSG_NOTICE([audio methods to be built $audio_methods])
+AC_MSG_NOTICE([Default audio method is $default_audio_method])
