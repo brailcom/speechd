@@ -194,6 +194,9 @@ static void *_espeak_stop_or_pause(void *);
 MOD_OPTION_1_INT(EspeakPitchRange)
     MOD_OPTION_1_STR(EspeakPunctuationList)
     MOD_OPTION_1_INT(EspeakCapitalPitchRise)
+    MOD_OPTION_1_INT(EspeakMinRate)
+    MOD_OPTION_1_INT(EspeakNormalRate)
+    MOD_OPTION_1_INT(EspeakMaxRate)
 
     MOD_OPTION_1_INT(EspeakAudioChunkSize)
     MOD_OPTION_1_INT(EspeakAudioQueueMaxSize)
@@ -216,6 +219,9 @@ int module_load(void)
 	MOD_OPTION_1_INT_REG(EspeakSoundIconVolume, 0);
 
 	MOD_OPTION_1_INT_REG(EspeakPitchRange, 0);
+	MOD_OPTION_1_INT_REG(EspeakMinRate, 80);
+	MOD_OPTION_1_INT_REG(EspeakNormalRate, 170);
+	MOD_OPTION_1_INT_REG(EspeakMaxRate, 390);
 	MOD_OPTION_1_STR_REG(EspeakPunctuationList, "@/+-_");
 	MOD_OPTION_1_INT_REG(EspeakCapitalPitchRise, 800);
 	if (EspeakCapitalPitchRise == 1 || EspeakCapitalPitchRise == 2) {
@@ -602,7 +608,7 @@ static void espeak_set_rate(signed int rate)
 {
 	assert(rate >= -100 && rate <= +100);
 	int speed;
-	int normal_rate = 170, max_rate = 390, min_rate = 80;
+	int normal_rate = EspeakNormalRate, max_rate = EspeakMaxRate, min_rate = EspeakMinRate;
 
 	if (rate < 0)
 		speed = normal_rate + (normal_rate - min_rate) * rate / 100;
