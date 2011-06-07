@@ -296,7 +296,7 @@ AS_IF([test $with_nas != "no"],
 	[-L/usr/X11R6/lib -lXau])])
 AM_CONDITIONAL([nas_support], [test $with_nas = "yes"])
 AC_SUBST([NAS_LIBS])
-AS_IF([test $with_nas = "yes"], [audio_methods="$audio_methods} nas"])
+AS_IF([test $with_nas = "yes"], [audio_methods="${audio_methods} nas"])
 
 AC_ARG_WITH([default-audio-method],
 	[AS_HELP_STRING([--with-default-audio-method=<name>],
@@ -382,5 +382,5 @@ AC_CONFIG_FILES([Makefile
                  src/tests/Makefile])
 AC_OUTPUT
 AC_MSG_NOTICE([output modules to be built are $output_modules])
-AC_MSG_NOTICE([audio methods to be built $audio_methods])
+AC_MSG_NOTICE([audio methods to be built are $audio_methods])
 AC_MSG_NOTICE([Default audio method is $default_audio_method])
