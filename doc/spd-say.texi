@@ -77,6 +77,8 @@ Set the volume (intensity) of the speech (between -100 and +100, default see bel
 Set the output module.  Default see below.
 @item -O or --list-output-modules
 List the output modules that are available with the current server.
+@item -I or --sound-icon
+Play the sound icon.
 @item -l or --language
 Set the language. The parameter is an iso language code, like @code{en} or @code{cs}.
 Default see below.

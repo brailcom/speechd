@@ -94,7 +94,7 @@ int main(int argc, char **argv)
 	/* Check if the text to say or options are specified in the argument */
 	msg_arg_required = (pipe_mode != 1) && (stop_previous != 1)
 	    && (cancel_previous != 1) && (list_synthesis_voices != 1)
-	    && (list_output_modules != 1);
+	    && (list_output_modules != 1) && (sound_icon == NULL);
 	if ((optind >= argc) && msg_arg_required) {
 		options_print_help(argv);
 		return 1;
@@ -247,6 +247,10 @@ int main(int argc, char **argv)
 			printf("Invalid priority.\n");
 		}
 	}
+
+	if (sound_icon != NULL)
+		if (spd_sound_icon(conn, spd_priority, sound_icon))
+			printf("Invalid sound_icon!\n");
 
 	if (wait_till_end) {
 		ret = sem_init(&semaphore, 0, 0);

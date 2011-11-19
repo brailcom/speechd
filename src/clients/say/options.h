@@ -30,6 +30,7 @@ signed int volume;
 
 int list_output_modules;
 char *output_module;
+char *sound_icon;
 char *language;
 char *voice_type;
 char *punctuation_mode;
@@ -52,6 +53,7 @@ static struct option long_options[] = {
 	{"volume", 1, 0, 'i'},
 	{"output-module", 1, 0, 'o'},
 	{"list-output-modules", no_argument, 0, 'O'},
+	{"sound-icon", required_argument, 0, 'I'},
 	{"language", 1, 0, 'l'},
 	{"voice-type", 1, 0, 't'},
 	{"list-synthesis-voices", no_argument, 0, 'L'},
@@ -71,7 +73,7 @@ static struct option long_options[] = {
 	{0, 0, 0, 0}
 };
 
-static char *short_options = "r:p:i:l:o:Ot:Ly:m:sxeP:N:n:wSCvh";
+static char *short_options = "r:p:i:l:o:OI:t:Ly:m:sxeP:N:n:wSCvh";
 
 int options_parse(int argc, char *argv[]);
 void options_print_version();

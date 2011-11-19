@@ -65,6 +65,9 @@ void options_print_help(char *argv[])
 	printf("-O, --list-output-modules\t");
 	printf(_("Get the list of output modules\n"));
 
+	printf("-I, --sound-icon\t\t");
+	printf(_("Play the sound icon\n"));
+
 	printf("-l, --language\t\t\t");
 	printf(_("Set the language (ISO code)\n"));
 
@@ -201,6 +204,9 @@ int options_parse(int argc, char *argv[])
 			break;
 		case 'O':
 			list_output_modules = 1;
+			break;
+		case 'I':
+			OPT_SET_STR(sound_icon);
 			break;
 		case 't':
 			OPT_SET_STR(voice_type);
