@@ -127,6 +127,7 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype);
 int module_stop(void);
 SPDVoice **module_get_voices(void);
 int module_tts_output(AudioTrack track, AudioFormat format);
+int module_play_file(const char *filename);
 size_t module_pause(void);
 char *module_is_speaking(void);
 int module_close(void);

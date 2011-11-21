@@ -25,6 +25,10 @@
 #include <config.h>
 #endif
 
+#if HAVE_SNDFILE
+#include <sndfile.h>
+#endif
+
 #include <fdsetconv.h>
 #include <spd_utils.h>
 #include "module_utils.h"
@@ -1084,3 +1088,74 @@ module_tts_output(AudioTrack track, AudioFormat format)
     }
     return 0;
 }
+/* Plays the specified audio file. */
+int
+module_play_file(const char *filename)
+
+{
+	int result = 0;
+#if HAVE_SNDFILE
+	int subformat;
+	sf_count_t items;
+	sf_count_t readcount;
+	SNDFILE *sf;
+	SF_INFO sfinfo;
+
+	DBG("Playing |%s|", filename);
+	memset(&sfinfo, 0, sizeof(sfinfo));
+	sf = sf_open(filename, SFM_READ, &sfinfo);
+	if (NULL == sf) {
+		DBG("%s", sf_strerror(NULL));
+		return -1;
+	}
+	if (sfinfo.channels < 1 || sfinfo.channels > 2) {
+		DBG("ERROR: channels = %d.\n", sfinfo.channels);
+		result = FALSE;
+		goto cleanup1;
+	}
+	if (sfinfo.frames > 0x7FFFFFFF || sfinfo.frames == 0) {
+		DBG("ERROR: Unknown number of frames.");
+		result = FALSE;
+		goto cleanup1;
+	}
+
+	subformat = sfinfo.format & SF_FORMAT_SUBMASK;
+	items = sfinfo.channels * sfinfo.frames;
+	DBG("Frames = %ld, channels = %ld", sfinfo.frames,
+	    (long)sfinfo.channels);
+	DBG("Samplerate = %i, items = %Ld", sfinfo.samplerate,
+	    (long long)items);
+	DBG("Major format = 0x%08X, subformat = 0x%08X, endian = 0x%08X", sfinfo.format & SF_FORMAT_TYPEMASK, subformat, sfinfo.format & SF_FORMAT_ENDMASK);
+
+	if (subformat == SF_FORMAT_FLOAT || subformat == SF_FORMAT_DOUBLE) {
+		/* Set scaling for float to integer conversion. */
+		sf_command(sf, SFC_SET_SCALE_FLOAT_INT_READ, NULL, SF_TRUE);
+	}
+	AudioTrack track;
+	track.num_samples = sfinfo.frames;
+	track.num_channels = sfinfo.channels;
+	track.sample_rate = sfinfo.samplerate;
+	track.bits = 16;
+	track.samples = g_malloc(items * sizeof(short));
+	readcount = sf_read_short(sf, (short *)track.samples, items);
+	DBG("Read %Ld items from audio file.", (long long)readcount);
+
+	if (readcount > 0) {
+		track.num_samples = readcount / sfinfo.channels;
+		DBG("Sending %i samples to audio.", track.num_samples);
+		int ret = module_tts_output(track, SPD_AUDIO_LE);
+		if (ret < 0) {
+			DBG("ERROR: Can't play track for unknown reason.");
+			result = -1;
+			goto cleanup2;
+		}
+		DBG("Sent to audio.");
+	}
+cleanup2:
+	g_free(track.samples);
+cleanup1:
+	sf_close(sf);
+#endif
+	return result;
+}
+

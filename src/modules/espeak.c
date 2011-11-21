@@ -46,9 +46,6 @@
 #include <speechd_types.h>
 #include "module_utils.h"
 
-#if HAVE_SNDFILE
-#include <sndfile.h>
-#endif
 
 /* > */
 /* < Basic definitions*/
@@ -177,7 +174,6 @@ static void espeak_delete_playback_queue_entry(TPlaybackQueueEntry *
 					       playback_queue_entry);
 static gboolean espeak_send_to_audio(TPlaybackQueueEntry *
 				     playback_queue_entry);
-static gboolean espeak_play_file(char *filename);
 
 /* Miscellaneous internal function prototypes. */
 static gboolean is_thread_busy(pthread_mutex_t * suspended_mutex);
@@ -1096,7 +1092,7 @@ static void *_espeak_play(void *nothing)
 				pthread_mutex_unlock(&espeak_state_mutex);
 				break;
 			case ESPEAK_QET_SOUND_ICON:
-				espeak_play_file(playback_queue_entry->data.
+				module_play_file(playback_queue_entry->data.
 						 sound_icon_filename);
 				break;
 			case ESPEAK_QET_BEGIN:
@@ -1141,73 +1137,6 @@ static void *_espeak_play(void *nothing)
 	return 0;
 }
 
-/* Plays the specified audio file. */
-static gboolean espeak_play_file(char *filename)
-{
-	gboolean result = TRUE;
-#if HAVE_SNDFILE
-	int subformat;
-	sf_count_t items;
-	sf_count_t readcount;
-	SNDFILE *sf;
-	SF_INFO sfinfo;
-
-	DBG("Espeak: Playing |%s|", filename);
-	memset(&sfinfo, 0, sizeof(sfinfo));
-	sf = sf_open(filename, SFM_READ, &sfinfo);
-	subformat = sfinfo.format & SF_FORMAT_SUBMASK;
-	items = sfinfo.channels * sfinfo.frames;
-	DBG("Espeak: frames = %ld, channels = %ld", sfinfo.frames,
-	    (long)sfinfo.channels);
-	DBG("Espeak: samplerate = %i, items = %Ld", sfinfo.samplerate,
-	    (long long)items);
-	DBG("Espeak: major format = 0x%08X, subformat = 0x%08X, endian = 0x%08X", sfinfo.format & SF_FORMAT_TYPEMASK, subformat, sfinfo.format & SF_FORMAT_ENDMASK);
-	if (sfinfo.channels < 1 || sfinfo.channels > 2) {
-		DBG("Espeak: ERROR: channels = %d.\n", sfinfo.channels);
-		result = FALSE;
-		goto cleanup1;
-	}
-	if (sfinfo.frames > 0x7FFFFFFF) {
-		DBG("Espeak: ERROR: Unknown number of frames.");
-		result = FALSE;
-		goto cleanup1;
-	}
-	if (subformat == SF_FORMAT_FLOAT || subformat == SF_FORMAT_DOUBLE) {
-		/* Set scaling for float to integer conversion. */
-		sf_command(sf, SFC_SET_SCALE_FLOAT_INT_READ, NULL, SF_TRUE);
-	}
-	AudioTrack track;
-	track.num_samples = sfinfo.frames;
-	track.num_channels = sfinfo.channels;
-	track.sample_rate = sfinfo.samplerate;
-	track.bits = 16;
-	track.samples = g_malloc(items * sizeof(short));
-	if (NULL == track.samples) {
-		DBG("Espeak: ERROR: Cannot allocate audio buffer.");
-		result = FALSE;
-		goto cleanup1;
-	}
-	readcount = sf_read_short(sf, (short *)track.samples, items);
-	DBG("Espeak: read %Ld items from audio file.", (long long)readcount);
-
-	if (readcount > 0) {
-		track.num_samples = readcount / sfinfo.channels;
-		DBG("Espeak: Sending %i samples to audio.", track.num_samples);
-		int ret = module_tts_output(track, SPD_AUDIO_LE);
-		if (ret < 0) {
-			DBG("ERROR: Can't play track for unknown reason.");
-			result = FALSE;
-			goto cleanup2;
-		}
-		DBG("Espeak: Sent to audio.");
-	}
-cleanup2:
-	g_free(track.samples);
-cleanup1:
-	sf_close(sf);
-#endif
-	return result;
-}
 
 static SPDVoice **espeak_list_synthesis_voices()
 {

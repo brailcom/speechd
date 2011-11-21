@@ -38,9 +38,6 @@
 
 #include <glib.h>
 #include <libdumbtts.h>
-#if HAVE_SNDFILE
-#include <sndfile.h>
-#endif
 
 #include "module_utils.h"
 #include "ivona_client.h"
@@ -143,81 +140,10 @@ char *ivona_get_wave(char *to_say,int *nsamples,int *offset)
 
 /* Plays the specified audio file - from ibmtts/espeak module */
 
-static gboolean
-ivona_play_file(char *filename)
-{
-	gboolean result = TRUE;
-#if HAVE_SNDFILE
-	int subformat;
-	sf_count_t items;
-	sf_count_t readcount;
-	SNDFILE* sf;
-	SF_INFO sfinfo;
-
-	DBG("Ivona: Playing |%s|", filename);
-	memset (&sfinfo, 0, sizeof (sfinfo));
-	sf = sf_open(filename, SFM_READ, &sfinfo);
-	subformat = sfinfo.format & SF_FORMAT_SUBMASK ;
-	items = sfinfo.channels * sfinfo.frames;
-	DBG("Ivona: frames = %ld, channels = %d", (long) sfinfo.frames, sfinfo.channels);
-	DBG("Ivona: samplerate = %i, items = %Ld", sfinfo.samplerate, (long long) items);
-	DBG("Ivona: major format = 0x%08X, subformat = 0x%08X, endian = 0x%08X",
-		sfinfo.format & SF_FORMAT_TYPEMASK, subformat, sfinfo.format & SF_FORMAT_ENDMASK);
-	if (sfinfo.channels < 1 || sfinfo.channels > 2) {
-		DBG("Ivona: ERROR: channels = %d.\n", sfinfo.channels);
-		result = FALSE;
-		goto cleanup1;
-	}
-	if (sfinfo.frames > 0x7FFFFFFF) {
-		DBG("Ivona: ERROR: Unknown number of frames.");
-		result = FALSE;
-		goto cleanup1;
-	}
-	if (subformat == SF_FORMAT_FLOAT || subformat == SF_FORMAT_DOUBLE) {
-		/* Set scaling for float to integer conversion. */
-		sf_command (sf, SFC_SET_SCALE_FLOAT_INT_READ, NULL, SF_TRUE);
-	}
-	AudioTrack track;
-	track.num_samples = sfinfo.frames;
-	track.num_channels = sfinfo.channels;
-	track.sample_rate = sfinfo.samplerate;
-	track.bits = 16;
-	track.samples = g_malloc(items * sizeof(short));
-	if (NULL == track.samples) {
-		DBG("Ivona: ERROR: Cannot allocate audio buffer.");
-		result = FALSE;
-		goto cleanup1;
-	}
-	readcount = sf_read_short(sf, (short *) track.samples, items);
-	DBG("Ivona: read %Ld items from audio file.", (long long) readcount);
-
-	if (readcount > 0) {
-		track.num_samples = readcount / sfinfo.channels;
-		DBG("Ivona: Sending %i samples to audio.", track.num_samples);
-		/* Volume is controlled by the synthesizer.  Always play at normal on audio device. */
-		//spd_audio_set_volume(module_audio_id, IvonaSoundIconVolume);
-		int ret = spd_audio_play(module_audio_id, track, SPD_AUDIO_LE);
-		if (ret < 0) {
-			DBG("ERROR: Can't play track for unknown reason.");
-			result = FALSE;
-			goto cleanup2;
-		}
-		DBG("Ivona: Sent to audio.");
-	}
- cleanup2:
-	g_free(track.samples);
- cleanup1:
-	sf_close(sf);
-#endif
-	return result;
-}
-
 void play_icon(char* path, char *name)
 {
-	int len = strlen(path) + strlen(name) + 2;
-	char *buf = g_malloc(len);
-	sprintf(buf, "%s/%s", path, name);
-	ivona_play_file(buf);
+	char *buf = g_strdup_printf("%s/%s", path, name);
+	module_play_file(buf);
 	g_free(buf);
 }
 
