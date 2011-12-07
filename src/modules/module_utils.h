@@ -42,7 +42,6 @@
 
 #include <semaphore.h>
 #include <sys/ipc.h>
-#include <sys/sem.h>
 
 #include <speechd_types.h>
 #include "spd_audio.h"
@@ -229,7 +228,6 @@ int module_terminate_thread(pthread_t thread);
 sem_t *module_semaphore_init();
 char *module_recode_to_iso(char *data, int bytes, char *language,
 			   char *fallback);
-int semaphore_post(int sem_id);
 void module_signal_end(void);
 configoption_t *module_add_config_option(configoption_t * options,
 					 int *num_options, char *name, int type,

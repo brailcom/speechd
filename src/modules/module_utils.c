@@ -945,18 +945,6 @@ module_recode_to_iso(char *data, int bytes, char *language, char *fallback)
     return recoded;
 }
 
-int
-semaphore_post(int sem_id)
-{
-    static struct sembuf sem_b;
-
-    sem_b.sem_num = 0;
-    sem_b.sem_op = 1;          /* V() */
-    sem_b.sem_flg = SEM_UNDO;
-    return semop(sem_id, &sem_b, 1);
-}
-
-
 void
 module_send_asynchronous(char *text)
 {
