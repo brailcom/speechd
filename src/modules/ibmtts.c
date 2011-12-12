@@ -51,6 +51,7 @@
 /* System includes. */
 #include <string.h>
 #include <glib.h>
+#include <semaphore.h>
 
 /* IBM Eloquence Command Interface.
    Won't exist unless IBM TTS or IBM TTS SDK is installed. */
@@ -160,9 +161,9 @@ static pthread_t ibmtts_synth_thread;
 static pthread_t ibmtts_play_thread;
 static pthread_t ibmtts_stop_or_pause_thread;
 
-static sem_t *ibmtts_synth_semaphore;
-static sem_t *ibmtts_play_semaphore;
-static sem_t *ibmtts_stop_or_pause_semaphore;
+static sem_t ibmtts_synth_semaphore;
+static sem_t ibmtts_play_semaphore;
+static sem_t ibmtts_stop_or_pause_semaphore;
 
 static pthread_mutex_t ibmtts_synth_suspended_mutex;
 static pthread_mutex_t ibmtts_play_suspended_mutex;
@@ -493,7 +494,8 @@ int module_init(char **status_info)
 	*ibmtts_message = NULL;
 
 	DBG("Ibmtts: Creating new thread for stop or pause.");
-	ibmtts_stop_or_pause_semaphore = module_semaphore_init();
+	sem_init(&ibmtts_stop_or_pause_semaphore, 0, 0);
+
 	ret =
 	    pthread_create(&ibmtts_stop_or_pause_thread, NULL,
 			   _ibmtts_stop_or_pause, NULL);
@@ -509,7 +511,8 @@ int module_init(char **status_info)
 	}
 
 	DBG("Ibmtts: Creating new thread for playback.");
-	ibmtts_play_semaphore = module_semaphore_init();
+	sem_init(&ibmtts_play_semaphore, 0, 0);
+
 	ret = pthread_create(&ibmtts_play_thread, NULL, _ibmtts_play, NULL);
 	if (0 != ret) {
 		DBG("Ibmtts: play thread creation failed.");
@@ -522,7 +525,8 @@ int module_init(char **status_info)
 	}
 
 	DBG("Ibmtts: Creating new thread for IBM TTS synthesis.");
-	ibmtts_synth_semaphore = module_semaphore_init();
+	sem_init(&ibmtts_synth_semaphore, 0, 0);
+
 	ret = pthread_create(&ibmtts_synth_thread, NULL, _ibmtts_synth, NULL);
 	if (0 != ret) {
 		DBG("Ibmtts: synthesis thread creation failed.");
@@ -611,7 +615,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	}
 
 	/* Send semaphore signal to the synthesis thread */
-	sem_post(ibmtts_synth_semaphore);
+	sem_post(&ibmtts_synth_semaphore);
 
 	DBG("Ibmtts: Leaving module_speak() normally.");
 	return TRUE;
@@ -631,7 +635,7 @@ int module_stop(void)
 		ibmtts_stop_play_requested = IBMTTS_TRUE;
 
 		/* Wake the stop_or_pause thread. */
-		sem_post(ibmtts_stop_or_pause_semaphore);
+		sem_post(&ibmtts_stop_or_pause_semaphore);
 	}
 
 	return OK;
@@ -653,7 +657,7 @@ size_t module_pause(void)
 	ibmtts_pause_requested = IBMTTS_TRUE;
 
 	/* Wake the stop_or_pause thread. */
-	sem_post(ibmtts_stop_or_pause_semaphore);
+	sem_post(&ibmtts_stop_or_pause_semaphore);
 
 	return OK;
 }
@@ -682,9 +686,9 @@ int module_close(void)
 	/* Request each thread exit and wait until it exits. */
 	DBG("Ibmtts: Terminating threads");
 	ibmtts_thread_exit_requested = IBMTTS_TRUE;
-	sem_post(ibmtts_synth_semaphore);
-	sem_post(ibmtts_play_semaphore);
-	sem_post(ibmtts_stop_or_pause_semaphore);
+	sem_post(&ibmtts_synth_semaphore);
+	sem_post(&ibmtts_play_semaphore);
+	sem_post(&ibmtts_stop_or_pause_semaphore);
 	if (0 != pthread_join(ibmtts_synth_thread, NULL))
 		return -1;
 	if (0 != pthread_join(ibmtts_play_thread, NULL))
@@ -701,6 +705,9 @@ int module_close(void)
 	}
 
 	free_voice_list();
+	sem_destroy(&ibmtts_synth_semaphore);
+	sem_destroy(&ibmtts_play_semaphore);
+	sem_destroy(&ibmtts_stop_or_pause_semaphore);
 
 	return 0;
 }
@@ -773,10 +780,10 @@ static void *_ibmtts_stop_or_pause(void *nothing)
 
 	while (!ibmtts_thread_exit_requested) {
 		/* If semaphore not set, set suspended lock and suspend until it is signaled. */
-		if (0 != sem_trywait(ibmtts_stop_or_pause_semaphore)) {
+		if (0 != sem_trywait(&ibmtts_stop_or_pause_semaphore)) {
 			pthread_mutex_lock
 			    (&ibmtts_stop_or_pause_suspended_mutex);
-			sem_wait(ibmtts_stop_or_pause_semaphore);
+			sem_wait(&ibmtts_stop_or_pause_semaphore);
 			pthread_mutex_unlock
 			    (&ibmtts_stop_or_pause_suspended_mutex);
 			if (ibmtts_thread_exit_requested)
@@ -917,9 +924,9 @@ static void *_ibmtts_synth(void *nothing)
 
 	while (!ibmtts_thread_exit_requested) {
 		/* If semaphore not set, set suspended lock and suspend until it is signaled. */
-		if (0 != sem_trywait(ibmtts_synth_semaphore)) {
+		if (0 != sem_trywait(&ibmtts_synth_semaphore)) {
 			pthread_mutex_lock(&ibmtts_synth_suspended_mutex);
-			sem_wait(ibmtts_synth_semaphore);
+			sem_wait(&ibmtts_synth_semaphore);
 			pthread_mutex_unlock(&ibmtts_synth_suspended_mutex);
 			if (ibmtts_thread_exit_requested)
 				break;
@@ -955,7 +962,7 @@ static void *_ibmtts_synth(void *nothing)
 				/* Wake up the audio playback thread, if not already awake. */
 				if (!is_thread_busy
 				    (&ibmtts_play_suspended_mutex))
-					sem_post(ibmtts_play_semaphore);
+					sem_post(&ibmtts_play_semaphore);
 				continue;
 			} else
 				eciSetParam(eciHandle, eciTextMode,
@@ -1367,7 +1374,7 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 		ret = ibmtts_add_audio_to_playback_queue(audio_chunk, lparam);
 		/* Wake up the audio playback thread, if not already awake. */
 		if (!is_thread_busy(&ibmtts_play_suspended_mutex))
-			sem_post(ibmtts_play_semaphore);
+			sem_post(&ibmtts_play_semaphore);
 		return eciDataProcessed;
 		break;
 	case eciIndexReply:
@@ -1380,7 +1387,7 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 		}
 		/* Wake up the audio playback thread, if not already awake. */
 		if (!is_thread_busy(&ibmtts_play_suspended_mutex))
-			sem_post(ibmtts_play_semaphore);
+			sem_post(&ibmtts_play_semaphore);
 		return eciDataProcessed;
 		break;
 	default:
@@ -1532,9 +1539,9 @@ static void *_ibmtts_play(void *nothing)
 
 	while (!ibmtts_thread_exit_requested) {
 		/* If semaphore not set, set suspended lock and suspend until it is signaled. */
-		if (0 != sem_trywait(ibmtts_play_semaphore)) {
+		if (0 != sem_trywait(&ibmtts_play_semaphore)) {
 			pthread_mutex_lock(&ibmtts_play_suspended_mutex);
-			sem_wait(ibmtts_play_semaphore);
+			sem_wait(&ibmtts_play_semaphore);
 			pthread_mutex_unlock(&ibmtts_play_suspended_mutex);
 		}
 		/* DBG("Ibmtts: Playback semaphore on."); */

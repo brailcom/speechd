@@ -30,6 +30,7 @@
 #endif
 
 #include <glib.h>
+#include <semaphore.h>
 
 #include <speechd_types.h>
 
@@ -45,7 +46,7 @@ static int dummy_speaking = 0;
 
 static pthread_t dummy_speak_thread;
 static pid_t dummy_pid;
-static sem_t *dummy_semaphore;
+static sem_t dummy_semaphore;
 
 /* Internal functions prototypes */
 static void *_dummy_speak(void *);
@@ -68,7 +69,7 @@ int module_init(char **status_info)
 
 	*status_info = NULL;
 
-	dummy_semaphore = module_semaphore_init();
+	sem_init(&dummy_semaphore, 0, 0);
 
 	DBG("Dummy: creating new thread for dummy_speak\n");
 	dummy_speaking = 0;
@@ -108,7 +109,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	/* Send semaphore signal to the speaking thread */
 	dummy_speaking = 1;
-	sem_post(dummy_semaphore);
+	sem_post(&dummy_semaphore);
 
 	DBG("Dummy: leaving write() normaly\n\r");
 	return bytes;
@@ -154,6 +155,8 @@ int module_close(void)
 	if (module_terminate_thread(dummy_speak_thread) != 0)
 		return -1;
 
+	sem_destroy(&dummy_semaphore );
+
 	return 0;
 }
 
@@ -168,7 +171,7 @@ void *_dummy_speak(void *nothing)
 	set_speaking_thread_parameters();
 
 	while (1) {
-		sem_wait(dummy_semaphore);
+		sem_wait(&dummy_semaphore);
 		DBG("Semaphore on\n");
 		module_report_event_begin();
 

@@ -26,6 +26,8 @@
 #include <config.h>
 #endif
 
+#include <semaphore.h>
+
 #include <flite/flite.h>
 #include "spd_audio.h"
 
@@ -43,7 +45,7 @@ DECLARE_DEBUG();
 static int flite_speaking = 0;
 
 static pthread_t flite_speak_thread;
-static sem_t *flite_semaphore;
+static sem_t flite_semaphore;
 
 static char **flite_message;
 static SPDMessageType flite_message_type;
@@ -125,7 +127,7 @@ int module_init(char **status_info)
 	flite_message = g_malloc(sizeof(char *));
 	*flite_message = NULL;
 
-	flite_semaphore = module_semaphore_init();
+	sem_init(&flite_semaphore, 0, 0);
 
 	DBG("Flite: creating new thread for flite_speak\n");
 	flite_speaking = 0;
@@ -177,7 +179,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	/* Send semaphore signal to the speaking thread */
 	flite_speaking = 1;
-	sem_post(flite_semaphore);
+	sem_post(&flite_semaphore);
 
 	DBG("Flite: leaving write() normally\n\r");
 	return bytes;
@@ -229,6 +231,7 @@ int module_close(void)
 		return -1;
 
 	g_free(flite_voice);
+	sem_destroy(&flite_semaphore);
 
 	return 0;
 }
@@ -273,7 +276,7 @@ void *_flite_speak(void *nothing)
 	set_speaking_thread_parameters();
 
 	while (1) {
-		sem_wait(flite_semaphore);
+		sem_wait(&flite_semaphore);
 		DBG("Semaphore on\n");
 
 		flite_stop = 0;

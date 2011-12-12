@@ -27,6 +27,7 @@
 #endif
 
 #include <glib.h>
+#include <semaphore.h>
 
 #include <speechd_types.h>
 
@@ -42,7 +43,7 @@ static int generic_speaking = 0;
 
 static pthread_t generic_speak_thread;
 static pid_t generic_pid;
-static sem_t *generic_semaphore;
+static sem_t generic_semaphore;
 
 static char **generic_message;
 static SPDMessageType generic_message_type;
@@ -149,7 +150,8 @@ int module_init(char **status_info)
 	generic_msg_language->name = g_strdup("english");
 
 	generic_message = g_malloc(sizeof(char *));
-	generic_semaphore = module_semaphore_init();
+
+	sem_init(&generic_semaphore, 0, 0);
 
 	DBG("Generic: creating new thread for generic_speak\n");
 	generic_speaking = 0;
@@ -227,7 +229,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	/* Send semaphore signal to the speaking thread */
 	generic_speaking = 1;
-	sem_post(generic_semaphore);
+	sem_post(&generic_semaphore);
 
 	DBG("Generic: leaving write() normaly\n\r");
 	return bytes;
@@ -273,6 +275,8 @@ int module_close(void)
 
 	if (module_terminate_thread(generic_speak_thread) != 0)
 		return -1;
+
+	sem_destroy(&generic_semaphore);
 
 	return 0;
 }
@@ -320,7 +324,7 @@ void *_generic_speak(void *nothing)
 	set_speaking_thread_parameters();
 
 	while (1) {
-		sem_wait(generic_semaphore);
+		sem_wait(&generic_semaphore);
 		DBG("Semaphore on\n");
 
 		ret = pipe(module_pipe.pc);

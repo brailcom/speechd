@@ -106,8 +106,8 @@ static const SPDVoice *pico_voices_list[] = {
 };
 
 static GThread *pico_play_thread;
-static sem_t *pico_play_semaphore;
-static sem_t *pico_idle_semaphore;
+static sem_t pico_play_semaphore;
+static sem_t pico_idle_semaphore;
 
 enum states { STATE_IDLE, STATE_PLAY, STATE_PAUSE, STATE_STOP, STATE_CLOSE };
 static enum states pico_state;
@@ -246,7 +246,7 @@ static gpointer pico_play_func(gpointer nothing)
 
 	while (g_atomic_int_get(&pico_state) != STATE_CLOSE) {
 
-		sem_wait(pico_play_semaphore);
+		sem_wait(&pico_play_semaphore);
 		if (g_atomic_int_get(&pico_state) != STATE_PLAY)
 			continue;
 
@@ -265,14 +265,14 @@ static gpointer pico_play_func(gpointer nothing)
 		if (g_atomic_int_get(&pico_state) == STATE_STOP) {
 			module_report_event_stop();
 			g_atomic_int_set(&pico_state, STATE_IDLE);
-			sem_post(pico_idle_semaphore);
+			sem_post(&pico_idle_semaphore);
 
 		}
 
 		if (g_atomic_int_get(&pico_state) == STATE_PAUSE) {
 			module_report_event_pause();
 			g_atomic_int_set(&pico_state, STATE_IDLE);
-			sem_post(pico_idle_semaphore);
+			sem_post(&pico_idle_semaphore);
 		}
 
 		DBG(MODULE_NAME ": state %d", pico_state);
@@ -397,14 +397,8 @@ int module_init(char **status_info)
 	if (!g_thread_supported())
 		g_thread_init(NULL);
 
-	pico_play_semaphore = module_semaphore_init();
-	pico_idle_semaphore = module_semaphore_init();
-	if (pico_play_semaphore == NULL || pico_idle_semaphore == NULL) {
-		*status_info = g_strdup_printf(MODULE_NAME
-					       "Failed to initialize semaphores!");
-		DBG(MODULE_NAME ": %s", *status_info);
-		return -1;
-	}
+	sem_init(&pico_play_semaphore, 0, 0);
+	sem_init(&pico_idle_semaphore, 0, 0);
 
 	if ((pico_play_thread = g_thread_create((GThreadFunc) pico_play_func,
 						NULL, TRUE, &error)) == NULL) {
@@ -558,7 +552,7 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 	}
 */
 	g_atomic_int_set(&pico_state, STATE_PLAY);
-	sem_post(pico_play_semaphore);
+	sem_post(&pico_play_semaphore);
 	return bytes;
 }
 
@@ -573,7 +567,7 @@ int module_stop(void)
 	}
 
 	g_atomic_int_set(&pico_state, STATE_STOP);
-	sem_wait(pico_idle_semaphore);
+	sem_wait(&pico_idle_semaphore);
 
 	/* reset Pico engine. */
 	if ((ret = pico_resetEngine(picoEngine, PICO_RESET_SOFT))) {
@@ -597,7 +591,7 @@ size_t module_pause(void)
 	}
 
 	g_atomic_int_set(&pico_state, STATE_PAUSE);
-	sem_wait(pico_idle_semaphore);
+	sem_wait(&pico_idle_semaphore);
 
 	/* reset Pico engine. */
 	if ((ret = pico_resetEngine(picoEngine, PICO_RESET_SOFT))) {
@@ -614,7 +608,7 @@ int module_close(void)
 {
 
 	g_atomic_int_set(&pico_state, STATE_CLOSE);
-	sem_post(pico_play_semaphore);
+	sem_post(&pico_play_semaphore);
 
 	g_thread_join(pico_play_thread);
 
@@ -623,10 +617,8 @@ int module_close(void)
 		picoSystem = NULL;
 	}
 
-	g_free(pico_idle_semaphore);
-	g_free(pico_play_semaphore);
-	pico_idle_semaphore = NULL;
-	pico_play_semaphore = NULL;
+	sem_destroy(&pico_idle_semaphore);
+	sem_destroy(&pico_play_semaphore);
 
 	return 0;
 }

@@ -29,6 +29,8 @@
 #include <config.h>
 #endif
 
+#include <semaphore.h>
+
 #include <libdumbtts.h>
 #include "spd_audio.h"
 
@@ -51,7 +53,7 @@ DECLARE_DEBUG();
 static int ivona_speaking = 0;
 
 static pthread_t ivona_speak_thread;
-static sem_t *ivona_semaphore;
+static sem_t ivona_semaphore;
 
 static char **ivona_message;
 static SPDMessageType ivona_message_type;
@@ -145,7 +147,7 @@ module_init(char **status_info)
     ivona_message = g_malloc (sizeof (char*));
     *ivona_message = NULL;
 
-    ivona_semaphore = module_semaphore_init();
+    sem_init(&ivona_semaphore, 0, 0);
 
     DBG("Ivona: creating new thread for ivona_speak\n");
     ivona_speaking = 0;
@@ -204,7 +206,7 @@ module_speak(gchar *data, size_t bytes, SPDMessageType msgtype)
 
     /* Send semaphore signal to the speaking thread */
     ivona_speaking = 1;    
-    sem_post(ivona_semaphore);    
+    sem_post(&ivona_semaphore);
 
     DBG("Ivona: leaving write() normally\n\r");
     return bytes;
@@ -256,6 +258,7 @@ module_close(void)
     if (module_terminate_thread(ivona_speak_thread) != 0)
         return -1;
 
+    sem_destroy(&ivona_semaphore);
     return 0;
 }
 
@@ -423,7 +426,7 @@ _ivona_speak(void* nothing)
     set_speaking_thread_parameters();
 
     while(1){
-        sem_wait(ivona_semaphore);
+        sem_wait(&ivona_semaphore);
         DBG("Semaphore on\n");
 
 	ivona_stop = 0;

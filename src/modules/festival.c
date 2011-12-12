@@ -26,6 +26,7 @@
 #endif
 
 #include <stdio.h>
+#include <semaphore.h>
 
 #include <speechd_types.h>
 #include "fdsetconv.h"
@@ -40,7 +41,7 @@ DECLARE_DEBUG()
 
 /* Thread and process control */
 static pthread_t festival_speak_thread;
-static sem_t *festival_semaphore;
+static sem_t festival_semaphore;
 static int festival_speaking = 0;
 static int festival_pause_requested = 0;
 
@@ -285,9 +286,9 @@ int module_init(char **status_info)
 	/* Initialize festival_speak thread to handle communication
 	   with festival in a separate thread (to be faster in communication
 	   with Speech Dispatcher) */
-	festival_semaphore = module_semaphore_init();
-	if (festival_semaphore == NULL)
-		return -1;
+
+	sem_init(&festival_semaphore, 0, 0);
+
 	DBG("Festival: creating new thread for festival_speak\n");
 	festival_speaking = 0;
 	ret =
@@ -398,7 +399,7 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 
 	/* Send semaphore signal to the speaking thread */
 	festival_speaking = 1;
-	sem_post(festival_semaphore);
+	sem_post(&festival_semaphore);
 
 	DBG("Festival: leaving write() normaly\n\r");
 	return bytes;
@@ -477,6 +478,7 @@ int module_close(void)
 	//    DBG("Removing junk files in tmp/");
 	//    system("rm -f /tmp/est* 2> /dev/null");
 
+	sem_destroy(&festival_semaphore);
 	return 0;
 }
 
@@ -611,7 +613,7 @@ void *_festival_speak(void *nothing)
 
 	while (1) {
 sem_wait:
-		sem_wait(festival_semaphore);
+		sem_wait(&festival_semaphore);
 		DBG("Semaphore on, speaking\n");
 
 		festival_stop = 0;

@@ -909,23 +909,6 @@ module_terminate_thread(pthread_t thread)
     return 0;
 }
 
-sem_t*
-module_semaphore_init()
-{
-    sem_t *semaphore;
-    int ret;
-
-    semaphore = (sem_t *) g_malloc(sizeof(sem_t));
-    if (semaphore == NULL) return NULL;
-    ret = sem_init(semaphore, 0, 0);
-    if (ret != 0){
-        DBG("Semaphore initialization failed");
-        g_free(semaphore);
-        semaphore = NULL;
-    }
-    return semaphore;
-}
-
 char *
 module_recode_to_iso(char *data, int bytes, char *language, char *fallback)
 {

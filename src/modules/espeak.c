@@ -34,6 +34,7 @@
 /* System includes. */
 #include <string.h>
 #include <glib.h>
+#include <semaphore.h>
 
 /* espeak header file */
 #include <espeak/speak_lib.h>
@@ -87,9 +88,9 @@ static pthread_mutex_t espeak_state_mutex;
 static pthread_t espeak_play_thread;
 static pthread_t espeak_stop_or_pause_thread;
 
-static sem_t *espeak_stop_or_pause_semaphore;
+static sem_t espeak_stop_or_pause_semaphore;
 static pthread_mutex_t espeak_stop_or_pause_suspended_mutex;
-static sem_t *espeak_play_semaphore;
+static sem_t espeak_play_semaphore;
 static pthread_mutex_t espeak_play_suspended_mutex;
 
 static gboolean espeak_close_requested = FALSE;
@@ -292,7 +293,8 @@ int module_init(char **status_info)
 	pthread_mutex_init(&espeak_state_mutex, NULL);
 
 	DBG("Espeak: Creating new thread for stop or pause.");
-	espeak_stop_or_pause_semaphore = module_semaphore_init();
+	sem_init(&espeak_stop_or_pause_semaphore, 0, 0);
+
 	ret =
 	    pthread_create(&espeak_stop_or_pause_thread, NULL,
 			   _espeak_stop_or_pause, NULL);
@@ -303,7 +305,8 @@ int module_init(char **status_info)
 		return FATAL_ERROR;
 	}
 
-	espeak_play_semaphore = module_semaphore_init();
+	sem_init(&espeak_play_semaphore, 0, 0);
+
 	DBG("Espeak: Creating new thread for playback.");
 	ret = pthread_create(&espeak_play_thread, NULL, _espeak_play, NULL);
 	if (ret != OK) {
@@ -443,7 +446,7 @@ int module_stop(void)
 		DBG("Espeak: stopping...");
 		espeak_stop_requested = TRUE;
 		/* Wake the stop_or_pause thread. */
-		sem_post(espeak_stop_or_pause_semaphore);
+		sem_post(&espeak_stop_or_pause_semaphore);
 	} else {
 		DBG("Espeak: Cannot stop now.");
 	}
@@ -476,8 +479,8 @@ int module_close(void)
 	pthread_cond_broadcast(&playback_queue_condition);
 	pthread_mutex_unlock(&playback_queue_mutex);
 
-	sem_post(espeak_play_semaphore);
-	sem_post(espeak_stop_or_pause_semaphore);
+	sem_post(&espeak_play_semaphore);
+	sem_post(&espeak_stop_or_pause_semaphore);
 	/* Give threads a chance to quit on their own terms. */
 	g_usleep(25000);
 
@@ -502,8 +505,8 @@ int module_close(void)
 	pthread_mutex_destroy(&espeak_stop_or_pause_suspended_mutex);
 	pthread_mutex_destroy(&playback_queue_mutex);
 	pthread_cond_destroy(&playback_queue_condition);
-	sem_destroy(espeak_play_semaphore);
-	sem_destroy(espeak_stop_or_pause_semaphore);
+	sem_destroy(&espeak_play_semaphore);
+	sem_destroy(&espeak_stop_or_pause_semaphore);
 
 	return 0;
 }
@@ -540,10 +543,10 @@ static void *_espeak_stop_or_pause(void *nothing)
 
 	while (!espeak_close_requested) {
 		/* If semaphore not set, set suspended lock and suspend until it is signaled. */
-		if (0 != sem_trywait(espeak_stop_or_pause_semaphore)) {
+		if (0 != sem_trywait(&espeak_stop_or_pause_semaphore)) {
 			pthread_mutex_lock
 			    (&espeak_stop_or_pause_suspended_mutex);
-			sem_wait(espeak_stop_or_pause_semaphore);
+			sem_wait(&espeak_stop_or_pause_semaphore);
 			pthread_mutex_unlock
 			    (&espeak_stop_or_pause_suspended_mutex);
 		}
@@ -804,7 +807,7 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 		espeak_state = BEFORE_PLAY;
 		espeak_add_flag_to_playback_queue(ESPEAK_QET_BEGIN);
 		/* Wake up playback thread */
-		sem_post(espeak_play_semaphore);
+		sem_post(&espeak_play_semaphore);
 	}
 	pthread_mutex_unlock(&espeak_state_mutex);
 
@@ -1041,9 +1044,9 @@ static void *_espeak_play(void *nothing)
 
 	while (!espeak_close_requested) {
 		/* If semaphore not set, set suspended lock and suspend until it is signaled. */
-		if (0 != sem_trywait(espeak_play_semaphore)) {
+		if (0 != sem_trywait(&espeak_play_semaphore)) {
 			pthread_mutex_lock(&espeak_play_suspended_mutex);
-			sem_wait(espeak_play_semaphore);
+			sem_wait(&espeak_play_semaphore);
 			pthread_mutex_unlock(&espeak_play_suspended_mutex);
 		}
 		DBG("Espeak: Playback semaphore on.");
@@ -1086,7 +1089,7 @@ static void *_espeak_play(void *nothing)
 					espeak_pause_state =
 					    ESPEAK_PAUSE_MARK_REPORTED;
 					sem_post
-					    (espeak_stop_or_pause_semaphore);
+					    (&espeak_stop_or_pause_semaphore);
 					finished = TRUE;
 				}
 				pthread_mutex_unlock(&espeak_state_mutex);
