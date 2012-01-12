@@ -24,7 +24,6 @@
 #ifndef __MODULE_UTILS_H
 #define __MODULE_UTILS_H
 
-#include <semaphore.h>
 #include <dotconf.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -34,13 +33,11 @@
 #include <glib.h>
 #include <pthread.h>
 #include <signal.h>
-#include <semaphore.h>
 #include <sys/wait.h>
 #include <sys/time.h>
 #include <errno.h>
 #include <dotconf.h>
 
-#include <semaphore.h>
 #include <sys/ipc.h>
 
 #include <speechd_types.h>
@@ -202,20 +199,6 @@ char *do_audio(void);
 char *do_loglevel(void);
 char *do_debug(char *cmd_buf);
 void do_quit(void);
-
-typedef void (*TChildFunction) (TModuleDoublePipe dpipe, const size_t maxlen);
-typedef size_t(*TParentFunction) (TModuleDoublePipe dpipe, const char *message,
-				  const SPDMessageType msgtype,
-				  const size_t maxlen, const char *dividers,
-				  int *pause_requested);
-
-void module_speak_thread_wfork(sem_t * semaphore, pid_t * process_pid,
-			       TChildFunction child_function,
-			       TParentFunction parent_function,
-			       int *speaking_flag, char **message,
-			       const SPDMessageType * msgtype,
-			       const size_t maxlen, const char *dividers,
-			       size_t * module_position, int *pause_requested);
 
 size_t module_parent_wfork(TModuleDoublePipe dpipe, const char *message,
 			   SPDMessageType msgtype, const size_t maxlen,

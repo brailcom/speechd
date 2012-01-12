@@ -3383,73 +3383,18 @@ in the middle of its run.
 @node Multi-process output modules, Memory Handling Functions, Functions for use when talking to synthesizer, Module Utils Functions and Macros
 @subsubsection Multi-process output modules
 
-@deffn {Module Utils function} void module_speak_thread_wfork (sem_t *semaphore,pid_t *process_pid, TChildFunction child_function, TParentFunction parent_function, int *speaking_flag, char **message, const size_t maxlen, const char *dividers, size_t *module_position, int *pause_requested)
-@findex module_speak_thread_wfork
+@deffn {Module Utils function} size_t module_parent_wfork ( TModuleDoublePipe dpipe,
+const char* message, SPDMessageType msgtype, const size_t maxlen,
+const char* dividers, int *pause_requested)
+@findex module_parent_wfork
 
-This function waits on the specified @code{semaphore} for activity.
-When the semaphore is on, it forks and creates pipes between the two
-processes in both directions.
+It simply sends the data to the
+child in smaller pieces and waits for confirmation with a single
+@code{C} character on the pipe from child to parent.
 
-In the child, it starts the @code{child_function}. This function
-is supposed to never return. If it returns, exit(0) is called
-immediatelly.
-
-In the parent, it starts the @code{parent_function} and passes the
-parameters. It waits until the function returns and writes its return
-value to the @code{*module_position}. It then cleans the process, logs
-the return values of @code{waitpid()} using DBG, sets *speaking_flag
-to 0 and calls module_signal_end().
-
-It is intended to be run from a separate thread, because it doesn't
-return and it would block the communication on stdin/stdout.
-
-@code{semaphore} is the pthread-type semaphore on which requests
-for @code{child_function()} to run will be posted.
-
-@code{process_pid} is a pointer to an integer where the pid of the
-newly started child process should be stored.
-
-@code{child_function} is the function that should be called in the child.
-
-@code{parent_function} is the function that should be called in the parent.
-
-@code{speaking_flag} is a pointer to an integer where this function
-will write a 0 after the parent function terminates. This would mean
-that the synthesizer stopped speaking.
-
-@code{message} is a pointer to a NULL-terminated string containing the message
-that should be passed to the parent function for synthesis.
-
-@code{maxlen} is the maximum number of bytes that should be transfered from
-parent to child over the pipe.
-
-@code{dividers} is a NULL-terminated string containing the punctuation characters
-at which the parent function should divide the message into smaller pieces.
-
-@code{module_position} is a pointer to an integer for the actual position
-(according to index marks) where the speaking terminated, as returned by
-the parent function, will be stored.
-
-@code{pause_requested} is a pointer to an integer flag, which is either 0 if
-no pause request is pending, or 1 if the parent function should terminate
-at a convenient place in the message because a pause is requested.
-
-The two types of functions @code{child_function} and @code{parent_function}
-are:
-
-@example
-typedef void (*TChildFunction)(TModuleDoublePipe dpipe, const size_t maxlen);
-typedef size_t (*TParentFunction)(TModuleDoublePipe dpipe, const char* message,
-                             const size_t maxlen, const char* dividers,
-                             int *pause_requested);
-@end example
-
-The parameters have the same meaning as stated above. Additionally
-there is the @code{dpipe} parameter which contains the information
+@code{dpipe} is a parameter which contains the information
 necessary for communicating through pipes between the parent and the
-child and vice-versa. Each of these functions should initialize
-the pipes at the beginning and then communicate through them. The
-preferred functions to do that are listed below.
+child and vice-versa.
 
 @example
 typedef struct@{
@@ -3457,15 +3402,21 @@ typedef struct@{
     int cp[2];            /* Child to parent pipe */
 @}TModuleDoublePipe;
 @end example
-@end deffn
 
-@deffn {Module Utils function} size_t module_parent_wfork ( TModuleDoublePipe dpipe, const char* message, const size_t maxlen, const char* dividers, int *pause_requested)
-@findex module_parent_wfork
+@code{message} is a pointer to a NULL-terminated string containing the message
+for synthesis.
 
-This is a generic function that can be used as the @code{parent_function()}
-for @code{module_speak_thread_wfork}. It simply sends the data to the
-child in smaller pieces and waits for confirmation with a single
-@code{C} character on the pipe from child to parent.
+@code{msgtype} is  the type of the message for synthesis.
+
+@code{maxlen} is the maximum number of bytes that should be transfered
+over the pipe.
+
+@code{dividers} is a NULL-terminated string containing the punctuation characters
+at which this function should divide the message into smaller pieces.
+
+@code{pause_requested} is a pointer to an integer flag, which is either 0 if
+no pause request is pending, or 1 if the function should terminate
+at a convenient place in the message because a pause is requested.
 
 In the beginning, it initializes the pipes and then it enters a simple cycle:
 @enumerate
