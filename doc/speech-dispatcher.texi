@@ -490,8 +490,8 @@ between the server and its clients.
 
 For local communication, it's prefered to use @emph{Unix sockets},
 where the communication takes place over a Unix socket with its
-driving file located by default in the users home directory as
-@code{~/.speech-dispatcher/speechd.sock}. In this way, there can be no
+driving file located by default in the user's runtime directory as
+@code{XDG_RUNTIME_DIR/speech-dispatcher/speechd.sock}. In this way, there can be no
 conflict between different user sessions using different Speech
 Dispatchers in the same system. By default, permissions are set in
 such a way, that only the same user who started the server can access
@@ -1166,10 +1166,10 @@ this order of precedence: command-line option, configuration option,
 the default value 'unix-socket'.
 
 @emph{Unix sockets} are associated with a file in the filesystem. By
-default, this file is placed in the users home directory (as
-determined by the value of the HOME environment variable and the
+default, this file is placed in the user's runtime directory (as
+determined by the value of the XDG_RUNTIME_DIR environment variable and the
 system configuration for the given user). It's default name is
-constructed as @code{~/.speech-dispatcher/speechd.sock}. The access
+constructed as @code{XDG_RUNTIME_DIR/speech-dispatcher/speechd.sock}. The access
 permissions for this file are set to 600 so that it's restricted to
 read/write by the current user.
 
@@ -1246,7 +1246,7 @@ environment variable or their specific configuration is set.
 The default communication address currently is:
 
 @example
-unix_socket:/~/.speech-dispatcher/speechd.sock
+unix_socket:/$XDG_RUNTIME_DIR/speech-dispatcher/speechd.sock
 @end example
 
 where `~' stands for the path to the users home directory.

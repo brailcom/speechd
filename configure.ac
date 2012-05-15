@@ -27,7 +27,7 @@ AC_SEARCH_LIBS([pthread_create], [pthread], [],
 AC_SEARCH_LIBS([lt_dlopen], [ltdl], [],
 	[AC_MSG_FAILURE([ltdl library missing])])
 
-PKG_CHECK_MODULES([GLIB], [glib-2.0])
+PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.28])
 AC_SUBST([GLIB_CFLAGS])
 AC_SUBST([GLIB_LIBS])
 

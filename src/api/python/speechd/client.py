@@ -494,7 +494,7 @@ class SSIPClient(object):
     """Default host for server connections."""
     DEFAULT_PORT = 6560
     """Default port number for server connections."""
-    DEFAULT_SOCKET_PATH = "~/.speech-dispatcher/speechd.sock"
+    DEFAULT_SOCKET_PATH = "speech-dispatcher/speechd.sock"
     """Default name of the communication unix socket"""
     
     def __init__(self, name, component='default', user='unknown', address=None,
@@ -510,7 +510,7 @@ class SSIPClient(object):
           user -- user identification string (user name).  When multi-user
             acces is expected, this can be used to identify their connections.
           address -- server address as specified in Speech Dispatcher
-            documentation (e.g. "unix:/home/joe/.speech-dispatcher/speechd.sock"
+            documentation (e.g. "unix:/run/user/joe/speech-dispatcher/speechd.sock"
             or "inet:192.168.0.85:6561")
           autospawn -- a flag to specify whether the library should
             try to start the server if it determines its not already
@@ -520,9 +520,9 @@ class SSIPClient(object):
           method -- communication method to use, one of the constants defined in class
             CommunicationMethod
           socket_path -- for CommunicationMethod.UNIX_SOCKET, socket
-            path in filesystem. By default, this is ~/.speech-dispatcher/speechd.sock
-            where `~' is the users home directory as determined from the system
-            defaults and from the $HOMEDIR environment variable.
+            path in filesystem. By default, this is $XDG_RUNTIME_DIR/speech-dispatcher/speechd.sock
+            where $XDG_RUNTIME_DIR is determined using the XDG Base Directory
+            Specification.
           host -- for CommunicationMethod.INET_SOCKET, server hostname
             or IP address as a string.  If None, the default value is
             taken from SPEECHD_HOST environment variable (if it
@@ -536,9 +536,12 @@ class SSIPClient(object):
         Dispatcher documentation.
         """
 
+        _home = os.path.expanduser("~")
+        _runtime_dir = os.environ.get('XDG_RUNTIME_DIR', os.environ.get('XDG_CACHE_HOME', os.path.join(_home, '.cache')))
+        _sock_path = os.path.join(_runtime_dir, self.DEFAULT_SOCKET_PATH)
         # Resolve connection parameters:
         connection_args = {'communication_method': CommunicationMethod.UNIX_SOCKET,
-                           'socket_path': os.path.expanduser(self.DEFAULT_SOCKET_PATH),
+                           'socket_path': _sock_path,
                            'host': self.DEFAULT_HOST,
                            'port': self.DEFAULT_PORT,
                            }

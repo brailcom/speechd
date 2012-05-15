@@ -538,7 +538,7 @@ void speechd_options_init(void)
 	SpeechdOptions.localhost_access_only_set = 0;
 	SpeechdOptions.pid_file = NULL;
 	SpeechdOptions.conf_file = NULL;
-	SpeechdOptions.home_speechd_dir = NULL;
+	SpeechdOptions.runtime_speechd_dir = NULL;
 	SpeechdOptions.log_dir = NULL;
 	SpeechdOptions.log_dir_set = 0;
 	SpeechdOptions.debug = 0;
@@ -614,12 +614,12 @@ void speechd_init()
 
 	if (SpeechdOptions.log_dir == NULL) {
 		SpeechdOptions.log_dir =
-		    g_strdup_printf("%s/log/", SpeechdOptions.home_speechd_dir);
+		    g_strdup_printf("%s/log/", SpeechdOptions.runtime_speechd_dir);
 		mkdir(SpeechdOptions.log_dir, S_IRWXU);
 		if (!SpeechdOptions.debug_destination) {
 			SpeechdOptions.debug_destination =
 			    g_strdup_printf("%s/log/debug",
-					    SpeechdOptions.home_speechd_dir);
+					    SpeechdOptions.runtime_speechd_dir);
 			mkdir(SpeechdOptions.debug_destination, S_IRWXU);
 		}
 	}
@@ -970,61 +970,39 @@ int main(int argc, char *argv[])
 
 	MSG(1, "Speech Dispatcher " VERSION " starting");
 
-	/* By default, search for configuration options and put everything
-	   in a .speech-dispatcher directory  in user's home directory. */
+	/* By default, search for configuration options in $XDG_CONFIG_HOME/speech-dispatcher
+           and sockets and pid files in $XDG_RUNTIME_DIR/speech-dispatcher */
 	{
-		const char *user_home_dir;
+		const char *user_runtime_dir;
+		const char *user_config_dir;
 
-		/* Get users home dir */
-		user_home_dir = g_getenv("HOME");
-		if (!user_home_dir)
-			user_home_dir = g_get_home_dir();
-		if (user_home_dir) {
-			/* Setup a ~/.speechd-dispatcher/ directory or create a new one */
-			SpeechdOptions.home_speechd_dir =
-			    g_strdup_printf("%s/.speech-dispatcher",
-					    user_home_dir);
-			MSG(4, "Home dir found, trying to find %s",
-			    SpeechdOptions.home_speechd_dir);
-			g_mkdir(SpeechdOptions.home_speechd_dir, S_IRWXU);
-			MSG(4,
-			    "Using home directory: %s for configuration, pidfile and logging",
-			    SpeechdOptions.home_speechd_dir);
-			/* Pidfile */
-			if (SpeechdOptions.pid_file == NULL) {
-				/* If no pidfile path specified on command line, use default local dir */
-				SpeechdOptions.pid_file =
-				    g_strdup_printf
-				    ("%s/pid/speech-dispatcher.pid",
-				     SpeechdOptions.home_speechd_dir);
-				g_mkdir(g_path_get_dirname
-					(SpeechdOptions.pid_file), S_IRWXU);
+		user_runtime_dir = g_get_user_runtime_dir ();
+		user_config_dir = g_get_user_config_dir ();
+
+		/* Setup a speechd-dispatcher directory or create a new one */
+		SpeechdOptions.runtime_speechd_dir = g_strdup_printf("%s/speech-dispatcher",
+								     user_runtime_dir);
+		MSG(4, "Trying to find %s", SpeechdOptions.runtime_speechd_dir);
+		g_mkdir_with_parents(SpeechdOptions.runtime_speechd_dir, S_IRWXU);
+		MSG(4, "Using directory: %s for pidfile and logging", SpeechdOptions.runtime_speechd_dir);
+		/* Pidfile */
+		if (SpeechdOptions.pid_file == NULL) {
+			/* If no pidfile path specified on command line, use default local dir */
+			SpeechdOptions.pid_file = g_strdup_printf ("%s/pid/speech-dispatcher.pid",
+								   SpeechdOptions.runtime_speechd_dir);
+			g_mkdir(g_path_get_dirname (SpeechdOptions.pid_file), S_IRWXU);
+		}
+		/* Config file */
+		if (SpeechdOptions.conf_dir == NULL) {
+			/* If no conf_dir was specified on command line, try default local config dir */
+			SpeechdOptions.conf_dir = g_build_filename(user_config_dir, "speech-dispatcher", "conf", NULL);
+			if (!g_file_test (SpeechdOptions.conf_dir, G_FILE_TEST_IS_DIR)) {
+				/* If the local confiration dir doesn't exist, read the global configuration */
+				if (strcmp(SYS_CONF, ""))
+					SpeechdOptions.conf_dir = g_strdup(SYS_CONF);
+				else
+					SpeechdOptions.conf_dir = g_strdup ("/etc/speech-dispatcher/");
 			}
-			/* Config file */
-			if (SpeechdOptions.conf_dir == NULL) {
-				/* If no conf_dir was specified on command line, try default local config dir */
-				SpeechdOptions.conf_dir =
-				    g_strdup_printf("%s/conf/",
-						    SpeechdOptions.
-						    home_speechd_dir);
-				if (!g_file_test
-				    (SpeechdOptions.conf_dir,
-				     G_FILE_TEST_IS_DIR)) {
-					/* If the local confiration dir doesn't exist, read the global configuration */
-					if (strcmp(SYS_CONF, ""))
-						SpeechdOptions.conf_dir =
-						    g_strdup(SYS_CONF);
-					else
-						SpeechdOptions.conf_dir =
-						    g_strdup
-						    ("/etc/speech-dispatcher/");
-				}
-			}
-		} else {
-			if (SpeechdOptions.pid_file == NULL
-			    || SpeechdOptions.conf_dir == NULL)
-				FATAL
-				    ("Paths to pid file or conf dir not specified and the current user has no HOME directory!");
 		}
 		SpeechdOptions.conf_file =
 		    g_strdup_printf("%s/speechd.conf", SpeechdOptions.conf_dir);
@@ -1087,12 +1065,12 @@ int main(int argc, char *argv[])
 		   we need to also consider the DotConf configuration, which is read in speechd_init() */
 		GString *socket_filename;
 		socket_filename = g_string_new("");
-		if (SpeechdOptions.home_speechd_dir) {
+		if (SpeechdOptions.runtime_speechd_dir) {
 			g_string_printf(socket_filename, "%s/speechd.sock",
-					SpeechdOptions.home_speechd_dir);
+					SpeechdOptions.runtime_speechd_dir);
 		} else {
 			FATAL
-			    ("Socket name file not set and user has no home directory");
+			    ("Socket name file not set and user has no runtime directory");
 		}
 		g_free(SpeechdOptions.socket_path);
 		SpeechdOptions.socket_path = g_strdup(socket_filename->str);

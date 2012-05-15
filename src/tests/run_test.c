@@ -37,6 +37,7 @@
 #include <assert.h>
 #include <ctype.h>
 #include <errno.h>
+#include <glib.h>
 
 #define FATAL(msg) { printf(msg"\n"); exit(1); }
 
@@ -108,50 +109,28 @@ void wait_for(int fd, char *event)
  * set_socket_path: establish the pathname that our Unix socket should
  * have.  If the SPEECHD_SOCKET environment variable is set, then that
  * will be our pathname.  Otherwise, the pathname
- * is ~/.speech-dispatcher/speechd.sock.
+ * is $XDG_RUNTIME_DIR/speech-dispatcher/speechd.sock.
  */
 
 void set_socket_path(struct sockaddr_un *address)
 {
-	const char default_socket_path[] = ".speech-dispatcher/speechd.sock";
-	size_t default_path_length = strlen(default_socket_path);
 	size_t path_max = sizeof(address->sun_path);
-	char *path;
+	const char *path;
 	char *pathcopy = NULL;
-	char *home_dir;
-	size_t home_dir_length;
 
-	path = getenv("SPEECHD_SOCKET");
-	if ((path == NULL) || (strlen(path) == 0)) {
-		home_dir = getenv("HOME");
-		if (home_dir == NULL)
-			FATAL
-			    ("Unable to find your home directory.  Cannot run tests.");
-
-		home_dir_length = strlen(home_dir);
-		if (home_dir_length == 0)
-			FATAL
-			    ("Unable to find your home directory.  Cannot run tests.");
-
-		pathcopy = malloc(default_path_length + home_dir_length + 2);
-		/* The + 2 accounts for an extra slash. */
-		if (pathcopy == NULL)
-			FATAL("Out of memory!");
-
-		strcpy(pathcopy, home_dir);
-		if (pathcopy[home_dir_length - 1] != '/') {
-			pathcopy[home_dir_length] = '/';
-			pathcopy[home_dir_length + 1] = '\0';
-		}
-		strcat(pathcopy, default_socket_path);
+	path = g_getenv("SPEECHD_SOCKET");
+	if (path == NULL || path[0] == '\0') {
+		path_copy = g_build_filename (g_get_user_runtime_dir (),
+					      "speech-dispatcher",
+					      "speechd.sock",
+					      NULL);
 		path = pathcopy;
 	}
 
 	strncpy(address->sun_path, path, path_max - 1);
 	address->sun_path[path_max - 1] = '\0';
 
-	if (pathcopy)
-		free(pathcopy);	/* Don't need it anymore. */
+	g_free (pathcopy);
 }
 
 /*

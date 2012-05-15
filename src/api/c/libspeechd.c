@@ -157,12 +157,10 @@ static char *_get_default_unix_socket_name(void)
 {
 	GString *socket_filename;
 	char *h;
-	const char *homedir = g_getenv("HOME");
-	if (!homedir)
-		homedir = g_get_home_dir();
+	const char *rundir = g_get_user_runtime_dir();
 	socket_filename = g_string_new("");
-	g_string_printf(socket_filename, "%s/.speech-dispatcher/speechd.sock",
-			homedir);
+	g_string_printf(socket_filename, "%s/speech-dispatcher/speechd.sock",
+			rundir);
 	// Do not regurn glib string, but glibc string...
 	h = strdup(socket_filename->str);
 	g_string_free(socket_filename, 1);

@@ -4,7 +4,7 @@ DISTCLEANFILES = atconfig $(TESTSUITE)
 
 c_api = $(top_builddir)/src/api/c
 
-AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/src/api/c
+AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/src/api/c $(GLIB_CFLAGS)
 
 # The `:;' works around a redirected compound command bash exit status bug.
 package.m4: Makefile
@@ -53,7 +53,7 @@ spd_set_notifications_all_SOURCES = spd_set_notifications_all.c
 spd_set_notifications_all_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS)
 
 run_test_SOURCES = run_test.c
-run_test_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS)
+run_test_LDADD = $(c_api)/libspeechd.la $(GLIB_LIBS) $(EXTRA_SOCKET_LIBS)
 
 EXTRA_DIST= basic.test general.test keys.test priority_progress.test \
             pronunciation.test punctuation.test sound_icons.test spelling.test \

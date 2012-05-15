@@ -158,7 +158,7 @@ struct {
 	char *pid_file;
 	char *conf_file;
 	char *conf_dir;
-	char *home_speechd_dir;
+	char *runtime_speechd_dir;
 	char *log_dir;
 	int log_dir_set;
 	int spawn;
