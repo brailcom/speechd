@@ -33,7 +33,7 @@ import paths
 def report(msg):
     """Output information messages for the user on stdout
     and if desired, by espeak synthesis"""
-    print msg
+    print(msg)
     if options.use_espeak_synthesis:
         os.system("espeak \"" + msg + "\"")
 
@@ -57,7 +57,7 @@ def question(text, default):
         input_audio_icon()
 
         if not options.dont_ask:
-            str_inp = raw_input(">") 
+            str_inp = input(">")
 
         # On plain enter, return default
         if options.dont_ask or (len(str_inp) == 0):
@@ -215,17 +215,17 @@ A simple dialog based tool for basic configuration of Speech Dispatcher
 and problem diagnostics."""
         self.cmdline_parser = OptionParser(usage)
 
-        for option, definition in self._conf_options.iteritems():
+        for option, definition in self._conf_options.items():
             # Set object attributes to default values
             def_val = definition.get('default', None)
             setattr(self, option, def_val)
             
             # Fill in the cmdline_parser object
-            if definition.has_key('command_line'):
+            if 'command_line' in definition:
                 descr = definition.get('descr', None)                
                 type = definition.get('type', None)
                 
-                if definition.has_key('arg_map'):
+                if 'arg_map' in definition:
                     type, map = definition['arg_map']
                 if type == str:
                     type_str = 'string'
@@ -250,10 +250,10 @@ and problem diagnostics."""
         # Set options according to command line flags
         (cmdline_options, args) = self.cmdline_parser.parse_args()
 
-        for option, definition in self._conf_options.iteritems():
+        for option, definition in self._conf_options.items():
                 val = getattr(cmdline_options, option, None)
                 if val != None:
-                    if definition.has_key('arg_map'):
+                    if 'arg_map' in definition:
                         former_type, map = definition['arg_map']
                         try:
                             val = map[val]
@@ -300,7 +300,8 @@ class Tests:
         self.festival_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
             self.festival_socket.connect((socket.gethostbyname(host), port))
-        except socket.error, (num, reson):
+        except socket.error as e:
+            (num, reson) = e.args
             report("""ERROR: It was not possible to connect to Festival on the
 given host and port. Connection failed with error %d : %s .""" % (num, reson))
             report("""Hint: Most likely, your Festival server is not running now
@@ -502,18 +503,18 @@ what is wrong)""", True):
         report("""
 
 Diagnostics results:""")
-        if results.has_key('spd_say_working'):
+        if 'spd_say_working' in results:
             if results['spd_say_working']:
                 report("Speech Dispatcher is working")
             else:
                 report("Speech Dispatcher not working through spd-say")
-        if results.has_key('synthesizers'):
+        if 'synthesizers' in results:
             report("Synthesizers that were tested and seem to work: %s" %
                    str(results['synthesizers']))
-        if results.has_key('audio'):
+        if 'audio' in results:
             report("Audio systems that were tested and seem to work: %s" %
                    str(results['audio']))
-        if results.has_key('python_speechd'):
+        if 'python_speechd' in results:
             if(results['python_speechd']):
                 report("Python Speech Dispatcher module is importable")
             else:
@@ -564,7 +565,7 @@ Please make sure your Speech Dispatcher is not running now.""")
         time.sleep(2)
 
         # All debugging files are written to TMPDIR/speech-dispatcher/
-        if os.environ.has_key('TMPDIR'):
+        if 'TMPDIR' in os.environ:
             tmpdir = os.environ['TMPDIR']
         else:
             tmpdir = "/tmp/"
@@ -641,7 +642,7 @@ class Configure:
         # Parse config file in-place and replace the desired options+values
         for line in fileinput.input(configfile, inplace=True, backup=".bak"):
             # Check if the current line contains any of the desired options
-            for opt, value in options.iteritems():
+            for opt, value in options.items():
                 if opt in line:
                     # Now count unknown words and try to judge if this is
                     # real configuration or just a comment
@@ -673,11 +674,11 @@ class Configure:
                         else:
                             spd_val = str(value)
                             
-                        print opt + "   " + spd_val
+                        print(opt + "   " + spd_val)
                         break
             
             else:
-                print line,
+                print(line, end=' ')
                 
     def create_user_configuration(self):
         """Create user configuration in the standard location"""

@@ -19,7 +19,7 @@
 import unittest
 import time
 
-from client import PunctuationMode, CallbackType, SSIPClient, Scope, Speaker
+from .client import PunctuationMode, CallbackType, SSIPClient, Scope, Speaker
 
 
 class _SSIPClientTest(unittest.TestCase):
@@ -124,10 +124,10 @@ class VoiceTest(_SSIPClientTest):
          c = self._client
          for module in  c.list_output_modules():
              c.set_output_module(module)
-             print "**", module
+             print("**", module)
              c.speak(module +"using default voice")
              for name, lang, dialect in c.list_synthesis_voices():
-                 print " -", module, name, lang, dialect
+                 print(" -", module, name, lang, dialect)
                  c.set_synthesis_voice(name)
                  c.speak(module +" using voice "+ name)
         

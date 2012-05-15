@@ -32,7 +32,7 @@ try:
 except:
     import dummy_threading as threading
 
-import paths
+from . import paths
     
 class CallbackType(object):
     """Constants describing the available types of callbacks"""
@@ -151,9 +151,9 @@ class CommunicationMethod(object):
 class _SSIP_Connection(object):
     """Implemantation of low level SSIP communication."""
     
-    _NEWLINE = "\r\n"
-    _END_OF_DATA_MARKER = '.'
-    _END_OF_DATA_MARKER_ESCAPED = '..'
+    _NEWLINE = b"\r\n"
+    _END_OF_DATA_MARKER = b'.'
+    _END_OF_DATA_MARKER_ESCAPED = b'..'
     _END_OF_DATA = _NEWLINE + _END_OF_DATA_MARKER + _NEWLINE
     _END_OF_DATA_ESCAPED = _NEWLINE + _END_OF_DATA_MARKER_ESCAPED + _NEWLINE
     # Constants representing \r\n. and \r\n..
@@ -187,12 +187,12 @@ class _SSIP_Connection(object):
         try:
             self._socket = socket.socket(socket_family, socket.SOCK_STREAM)
             self._socket.connect(socket_connect_args)
-        except socket.error, ex:
+        except socket.error as ex:
             raise SSIPCommunicationError("Can't open socket using method "
                                          + communication_method,
                                          original_exception = ex)
 
-        self._buffer = ""
+        self._buffer = b""
         self._com_buffer = []
         self._callback = None
         self._ssip_reply_semaphore = threading.Semaphore(0)
@@ -232,7 +232,7 @@ class _SSIP_Connection(object):
             except IOError:
                 # If the socket has been closed, exit the thread
                 sys.exit()
-            if code/100 != 7:
+            if code//100 != 7:
                 # This is not an index mark nor an event
                 self._com_buffer.append((code, msg, data))
                 self._ssip_reply_semaphore.release()
@@ -267,7 +267,7 @@ class _SSIP_Connection(object):
             pointer = self._buffer.find(self._NEWLINE)
         line = self._buffer[:pointer]
         self._buffer = self._buffer[pointer+len(self._NEWLINE):]
-        return line
+        return line.decode('utf-8')
 
     def _recv_message(self):
         """Read server response or a callback
@@ -321,11 +321,11 @@ class _SSIP_Connection(object):
                        or isinstance(args[0], int)
         cmd = ' '.join((command,) + tuple(map(str, args)))
         try:
-            self._socket.send(cmd + self._NEWLINE)
+            self._socket.send(cmd.encode('utf-8') + self._NEWLINE)
         except socket.error:
             raise SSIPCommunicationError("Speech Dispatcher connection lost.")
         code, msg, data = self._recv_response()
-        if code/100 != 2:
+        if code//100 != 2:
             raise SSIPCommandError(code, msg, cmd)
         return code, msg, data
         
@@ -340,6 +340,7 @@ class _SSIP_Connection(object):
         'IOError' is raised when the socket was closed by the remote side.
         
         """
+        data = data.encode('utf-8')
         # Escape the end-of-data marker even if present at the beginning
         # The start of the string is also the start of a line.
         if data.startswith(self._END_OF_DATA_MARKER):
@@ -357,7 +358,7 @@ class _SSIP_Connection(object):
         except socket.error:
             raise SSIPCommunicationError("Speech Dispatcher connection lost.")
         code, msg, response_data = self._recv_response()
-        if code/100 != 2:
+        if code//100 != 2:
             raise SSIPDataError(code, msg, data)
         return code, msg, response_data
 
@@ -576,14 +577,14 @@ class SSIPClient(object):
         """Establish new connection (and/or autospawn server)"""
         try:
             self._conn = _SSIP_Connection(**connection_args)
-        except SSIPCommunicationError, ce:
+        except SSIPCommunicationError as ce:
             # Suppose server might not be running, try the autospawn mechanism
             if autospawn != False:
                 # Autospawn is however not guaranteed to start the server. The server
                 # will decide, based on it's configuration, whether to honor the request.
                 try:
                     self._server_spawn(connection_args)
-                except SpawnError, se:
+                except SpawnError as se:
                     ce.set_additional_exception(se)
                     raise ce
                 self._conn = _SSIP_Connection(**connection_args)
@@ -737,8 +738,6 @@ class SSIPClient(object):
 
         """
         self._conn.send_command('SPEAK')
-        if isinstance(text, unicode):
-            text = text.encode('utf-8')
         result = self._conn.send_data(text)
         if callback:
             msg_id = int(result[2][0])
@@ -759,8 +758,6 @@ class SSIPClient(object):
         message is queued on the server and the method returns immediately.
 
         """
-        if isinstance(char, unicode):
-            char = char.encode('utf-8')
         self._conn.send_command('CHAR', char.replace(' ', 'space'))
         
     def key(self, key):
