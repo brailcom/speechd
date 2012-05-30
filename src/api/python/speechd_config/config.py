@@ -28,7 +28,7 @@ import datetime
 from optparse import OptionParser
 
 # Configuration and sound data paths
-import paths
+from . import paths
 
 def report(msg):
     """Output information messages for the user on stdout
