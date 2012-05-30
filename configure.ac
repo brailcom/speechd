@@ -91,16 +91,16 @@ AC_SUBST([ERROR_CFLAGS])
 AC_SUBST([RDYNAMIC])
 
 # Check for python support.
-# Python 2.4 or greater should be acceptable.
+# Python 3 or greater required
 AC_ARG_ENABLE([python],
 	[AS_HELP_STRING([--disable-python], [do not install python bindings])],
 	[],
 	[enable_python=check])
 AS_IF([test $enable_python != "no"],
-	[AM_PATH_PYTHON([2.4],
+	[AM_PATH_PYTHON([3.0],
 		[enable_python=yes],
 		[AS_IF([test $enable_python = "yes"],
-			[AC_MSG_FAILURE([python is not available])])])])
+			[AC_MSG_FAILURE([python 3 or greater is not available])])])])
 AM_CONDITIONAL([HAVE_PYTHON], [test $enable_python = "yes"])
 
 output_modules="cicero dummy festival generic"
