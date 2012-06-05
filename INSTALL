@@ -11,7 +11,7 @@ You will need these components to compile Speech Dispatcher:
 	(http://www.freebsoft.org/festival-freebsoft-utils)
 
 Only if you are building from Git, you also need these:
- - automake 1.7+, autoconf, pkg-config and libtool
+ - automake 1.11+, autoconf, pkg-config and libtool
 
 We recommend to also install these packages:
  - PulseAudio (http://www.pulseaudio.org)
