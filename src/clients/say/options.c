@@ -131,23 +131,24 @@ void options_print_help(char *argv[])
 	printf(_("Print this info\n"));
 	printf("\n");
 
-	printf(_("Copyright (C) 2002-2010 Brailcom, o.p.s.\n"
+	printf(_("Copyright (C) %d-%d Brailcom, o.p.s.\n"
 		 "This is free software; you can redistribute it and/or modify it\n"
 		 "under the terms of the GNU General Public License as published by\n"
 		 "the Free Software Foundation; either version 2, or (at your option)\n"
 		 "any later version. Please see COPYING for more details.\n\n"
-		 "Please report bugs to %s\n\n"), PACKAGE_BUGREPORT);
+		 "Please report bugs to %s\n\n"), 2002, 2012, PACKAGE_BUGREPORT);
 
 }
 
 void options_print_version()
 {
-	printf("spd-say: " VERSION "\n");
-	printf(_("Copyright (C) 2002-2010 Brailcom, o.p.s.\n"
-		 "spd-say comes with ABSOLUTELY NO WARRANTY.\n"
-		 "You may redistribute copies of spd-say\n"
-		 "under the terms of the GNU General Public License.\n"
-		 "For more information about these matters, see the file named COPYING.\n"));
+    printf("spd-say: " VERSION "\n");
+    printf(_("Copyright (C) %d-%d Brailcom, o.p.s.\n"
+	     "%s comes with ABSOLUTELY NO WARRANTY.\n"
+	     "You may redistribute copies of this program\n"
+	     "under the terms of the GNU General Public License.\n"
+	     "For more information about these matters, see the file named COPYING.\n"),
+	   2002, 2012, "spd-say");
 }
 
 #define OPT_SET_INT(param) \
@@ -155,7 +156,7 @@ void options_print_version()
     if(tail_ptr != optarg){ \
         param = val; \
     }else{ \
-        printf("Syntax error or bad parameter!\n"); \
+        printf(_("Syntax error or bad parameter!\n"));	\
         options_print_help(argv); \
         exit(1); \
     }
@@ -164,7 +165,7 @@ void options_print_version()
     if(optarg != NULL){ \
         param = (char*) strdup(optarg); \
     }else{ \
-        printf("Missing argument!\n"); \
+        printf(_("Missing argument!\n"));	\
         options_print_help(argv); \
         exit(1); \
     }
@@ -256,7 +257,7 @@ int options_parse(int argc, char *argv[])
 			exit(0);
 			break;
 		default:
-			printf("Unrecognized option\n");
+			printf(_("Unrecognized option\n"));
 			options_print_help(argv);
 			exit(1);
 		}

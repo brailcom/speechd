@@ -98,12 +98,12 @@ void options_print_help(char *argv[])
 	printf(_("Print this info\n"));
 	printf("\n");
 	printf(_
-	       ("Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 Brailcom, o.p.s.\n"
+	       ("Copyright (C) %d-%d Brailcom, o.p.s.\n"
 		"This is free software; you can redistribute it and/or modify it\n"
 		"under the terms of the GNU General Public License as published by\n"
 		"the Free Software Foundation; either version 2, or (at your option)\n"
 		"any later version. Please see COPYING for more details.\n\n"
-		"Please report bugs to %s\n\n"), PACKAGE_BUGREPORT);
+		"Please report bugs to %s\n\n"), 2002, 2012, PACKAGE_BUGREPORT);
 
 }
 
@@ -111,12 +111,12 @@ void options_print_version(void)
 {
 	printf("%s %s\n", PACKAGE, VERSION);
 	printf(_
-	       ("Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 Brailcom, o.p.s.\n"
-		"Speech Dispatcher comes with ABSOLUTELY NO WARRANTY.\n"
-		"You may redistribute copies of Speech Dispatcher\n"
+	       ("Copyright (C) %d-%d Brailcom, o.p.s.\n"
+		"%s comes with ABSOLUTELY NO WARRANTY.\n"
+		"You may redistribute copies of this program\n"
 		"under the terms of the GNU General Public License.\n"
-		"For more information about these matters, see the file named COPYING.\n")
-	    );
+		"For more information about these matters, see the file named COPYING.\n"),
+	       2002, 2012, "Speech Dispatcher");
 }
 
 #define SPD_OPTION_SET_INT(param) \
