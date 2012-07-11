@@ -1,4 +1,14 @@
 
+Version 0.8
+ * Python 3 compatibility of the Python bindings
+ * User configuration, logs and runtime files are now stored in
+   directories according to the XDG specification
+ * Internationalization of spd-say and translations into Hungarian
+   and Czech languages
+ * Espeak output can now use libsonic for faster speech
+ * Pico output module
+ * Lots of bugfixes, cleanups and fine-tunnings
+
 Version 0.7.1
  * Easy configuration of the client communication method using a
    single environment variable SPEECHD_ADDRESS.
