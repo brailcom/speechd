@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.63])
-AC_INIT([speech-dispatcher], [0.8-dev], [speechd@lists.freebsoft.org])
+AC_INIT([speech-dispatcher], [0.8-beta1], [speechd@lists.freebsoft.org])
 AM_INIT_AUTOMAKE([foreign])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES])
 LT_PREREQ([2.2])
@@ -309,9 +309,9 @@ AC_SUBST([default_audio_method])
 AC_SUBST([audio_dlopen_modules])
 
 # current, age and revision values for libspeechd.
-LIB_SPD_CURRENT=5 # Current main version (increment on every API change -- incompatible AND extensions)
+LIB_SPD_CURRENT=6 # Current main version (increment on every API change -- incompatible AND extensions)
 LIB_SPD_REVISION=0 # Current minor version (increment on every implementation change)
-LIB_SPD_AGE=3 # Number of backward compatible main versions (LIB_SPD_CURRENT incrementations since last incompatible)
+LIB_SPD_AGE=4 # Number of backward compatible main versions (LIB_SPD_CURRENT incrementations since last incompatible)
 AC_SUBST([LIB_SPD_CURRENT])
 AC_SUBST([LIB_SPD_REVISION])
 AC_SUBST([LIB_SPD_AGE])
