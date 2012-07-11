@@ -22,7 +22,7 @@ THANKS
 Thanks to Jacob Schmude for contributing the generic output module
 configuration file for DecTalk software synthesis.
 
-Thanks to Gary Cramblittfor working on the output module for ALSA,
+Thanks to Gary Cramblitt for working on the output module for ALSA,
 contributing the IBM TTS output module and providing valuable
 consultations.
 
@@ -47,5 +47,7 @@ Thanks to Trevor Saunders for various improvements and bugfixes.
 Thanks to Halim Sahin for for fixes in the audio subsystem.
 
 Thanks to Samuel Thibault for various bugfixes.
+
+Thanks to William Jon McCann for XDG Base Dir patches.
 
 ...and to many others who have contributed.
