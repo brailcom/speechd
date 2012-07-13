@@ -310,8 +310,8 @@ Try /etc/init.d/festival start or run 'festival --server' from the command line.
         if not self.festival_socket:
             if not self.festival_connect():
                 return False
-        self.festival_socket.send("(require 'speech-dispatcher)\n")
-        reply = self.festival_socket.recv(1024)
+        self.festival_socket.send(bytes("(require 'speech-dispatcher)\n", "ascii"))
+        reply = str(self.festival_socket.recv(1024))
         if "LP" in reply:
             report("Festival contains freebsoft-utils.")
             return True
