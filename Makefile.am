@@ -5,7 +5,7 @@ pkgconfig_DATA = speech-dispatcher.pc
 
 SUBDIRS= include src config doc po
 
-EXTRA_DIST= ANNOUNCE BUGS FAQ README.packagers README.translators build.sh
+EXTRA_DIST= ANNOUNCE BUGS FAQ README.packagers README.translators README.style build.sh
 
 MAINTAINERCLEANFILES=configure
 
