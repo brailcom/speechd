@@ -26,6 +26,7 @@ import time
 import datetime
 
 from optparse import OptionParser
+from xdg import BaseDirectory
 
 # Configuration and sound data paths
 from . import paths
@@ -272,17 +273,9 @@ class Tests:
     def __init__(self):
         self.festival_socket = None
 
-    def user_speechd_dir(self):
-        """Return user Speech Dispatcher configuration and logging directory"""
-        return os.path.expanduser(os.path.join('~', '.speech-dispatcher'))
-
-    def user_speechd_dir_exists(self):
-        """Determine whether user speechd directory exists"""
-        return os.path.exists(self.user_speechd_dir())
-
     def user_conf_dir(self):
         """Return user configuration directory"""
-        return os.path.join(self.user_speechd_dir(), "conf")
+        return os.path.join(BaseDirectory.xdg_config_home, "speech-dispatcher")
 
     def system_conf_dir(self):
         """Determine system configuration directory"""
@@ -684,32 +677,25 @@ class Configure:
         """Create user configuration in the standard location"""
 
         # Ask before touching things that we do not have to!
-        if test.user_speechd_dir_exists():
-            if test.user_conf_dir_exists():
-                if test.user_configuration_seems_complete():
-                    reply = question(
-                        """User configuration already exists.
-Do you want to rewrite it with a new one?""", False)
-                    if reply == False:
-                        report("Keeping configuration intact and continuing with settings.")
-                        return
-                    else:
-                        self.remove_user_configuration()
+        if test.user_conf_dir_exists():
+            if test.user_configuration_seems_complete():
+                reply = question(
+                    "User configuration already exists."
+                    "Do you want to rewrite it with a new one?", False)
+                if reply == False:
+                    report("Keeping configuration intact and continuing with settings.")
+                    return
                 else:
-                    reply = question(
-                        """User configuration already exists, but it seems to be incomplete.
-Do you want to keep it?""", False)
-                    if reply == False:
-                        self.remove_user_configuration()
-                    else:
-                        report("Keeping configuration intact and aborting.")
-                        return
-
-            # TODO: Check for permissions on logfiles and pid
-        else:
-            report("Creating " + test.user_speechd_dir())
-            os.mkdir(test.user_speechd_dir())
-
+                    self.remove_user_configuration()
+            else:
+                reply = question(
+                    "User configuration already exists, but it seems to be incomplete."
+                    "Do you want to keep it?", False)
+                if reply == False:
+                    self.remove_user_configuration()
+                else:
+                    report("Keeping configuration intact and aborting.")
+                    return
         # Copy the original intact configuration files
         # creating a conf/ subdirectory
         shutil.copytree(paths.SPD_CONF_ORIG_PATH, test.user_conf_dir())

@@ -9,6 +9,8 @@ You will need these components to compile Speech Dispatcher:
  - gcc and GNU make (http://www.gnu.org)
  - festival-freebsoft-utils 0.3+ (optional)
 	(http://www.freebsoft.org/festival-freebsoft-utils)
+ - Python 3, PyXDG (optional)
+        (http://www.python.org)
 
 Only if you are building from Git, you also need these:
  - automake 1.11+, autoconf, pkg-config and libtool
