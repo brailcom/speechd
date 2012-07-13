@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-11 16:16+0200\n"
-"PO-Revision-Date: 2012-07-11 14:47+0100\n"
+"POT-Creation-Date: 2012-07-13 12:43+0200\n"
+"PO-Revision-Date: 2012-07-13 12:45+0100\n"
 "Last-Translator: Hynek Hanke <hanke@brailcom.org>\n"
 "Language-Team: Hungarian\n"
 "Language: \n"
@@ -105,7 +105,7 @@ msgid "Print this info\n"
 msgstr "Megjeleníti az opciók leírását\n"
 
 #: ../src/server/options.c:101 ../src/clients/say/options.c:134
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) %d-%d Brailcom, o.p.s.\n"
 "This is free software; you can redistribute it and/or modify it\n"
@@ -126,7 +126,7 @@ msgstr ""
 "\n"
 
 #: ../src/server/options.c:114 ../src/clients/say/options.c:146
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) %d-%d Brailcom, o.p.s.\n"
 "%s comes with ABSOLUTELY NO WARRANTY.\n"
@@ -135,7 +135,7 @@ msgid ""
 "For more information about these matters, see the file named COPYING.\n"
 msgstr ""
 "Copyright (C) %d-%d Brailcom, o.p.s.\n"
-"Az spd-say programot abban a reményben terjesztjük, hogy hasznos lesz,\n"
+"A(z) %s programot abban a reményben terjesztjük, hogy hasznos lesz,\n"
 "de nem vállalunk SEMMIFÉLE GARANCIÁT.\n"
 "Ön terjesztheti az spd-say programot a GNU General Public License "
 "követelményei szerint.\n"
@@ -189,7 +189,7 @@ msgstr "A kimeneti modulok listájának megjelenítése\n"
 #: ../src/clients/say/options.c:69
 #, c-format
 msgid "Play the sound icon\n"
-msgstr ""
+msgstr "A hangikon lejátszása\n"
 
 #: ../src/clients/say/options.c:72
 #, c-format
@@ -250,13 +250,14 @@ msgid "default: %s)\n"
 msgstr "Alapértelmezett érték: %s)\n"
 
 #: ../src/clients/say/options.c:105
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Set the application name used to establish\n"
 "%sthe connection to specified string value\n"
 msgstr ""
 "Az alkalmazás nevének megadása, mely a\n"
 " kapcsolatot felépíti\n"
+"a(z) %s karakterlánccal.\n"
 
 #: ../src/clients/say/options.c:108 ../src/clients/say/options.c:114
 #, c-format
@@ -264,11 +265,11 @@ msgid "(default: %s)\n"
 msgstr "(Alapértelmezett érték: %s)\n"
 
 #: ../src/clients/say/options.c:111
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Set the connection name used to establish\n"
 "%sthe connection to specified string value\n"
-msgstr "A kapcsolat nevének megadása\n"
+msgstr "A kapcsolat nevének megadása a(z) %s karakterlánccal\n"
 
 #: ../src/clients/say/options.c:118
 #, c-format
@@ -297,17 +298,17 @@ msgstr ""
 #: ../src/clients/say/options.c:159
 #, c-format
 msgid "Syntax error or bad parameter!\n"
-msgstr ""
+msgstr "Szintaktikai hiba, vagy rosszul megadott paraméter!\n"
 
 #: ../src/clients/say/options.c:168
 #, c-format
 msgid "Missing argument!\n"
-msgstr ""
+msgstr "Hiányzó argumentum!\n"
 
 #: ../src/clients/say/options.c:260
 #, c-format
 msgid "Unrecognized option\n"
-msgstr ""
+msgstr "Ismeretlen kapcsoló\n"
 
 #, fuzzy
 #~ msgid ""
