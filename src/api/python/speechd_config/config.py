@@ -547,6 +547,8 @@ Do you want to debug 'system' or  'user' Speech Dispatcher?""",
 processes. Do you want to do it now?""", True)
         if reply:
             os.system("killall speech-dispatcher")
+            # Attempt to workaround the psmisc 22.15 bug with 16 char max process names
+            os.system("killall speech-dispatch")
         else:
             report("""
 You decided not to kill running Speech Dispatcher processes.
@@ -604,6 +606,8 @@ Please start your system Speech Dispatcher now with parameter '-D'""")
         os.system("tar -cz %s %s > %s" % 
                   (debugdir_path, configure_directory, debugarchive_path))   
         os.system("killall speech-dispatcher")
+        # Attempt to workaround the psmisc 22.15 bug with 16 char max process names
+        os.system("killall speech-dispatch")
         os.system("rm -rf %s" % debugdir_path)
 
         report("""
@@ -777,6 +781,8 @@ use special audio settings, non-standard synthesizer ports etc.""" % configfile)
 Do you want to kill all running Speech Dispatchers and try again?""", True)
             if reply:
                 os.system("killall speech-dispatcher")
+                # Attempt to workaround the psmisc 22.15 bug with 16 char max process names
+                os.system("killall speech-dispatch")
                 err = os.system("speech-dispatcher")
                 if err:
                     report("Can't start Speech Dispatcher")
