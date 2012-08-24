@@ -765,6 +765,8 @@ The allowed commands inside a block are:
         @item @code{SET SELF VOLUME}
         @item @code{SET SELF VOICE}
         @item @code{SET SELF LANGUAGE}
+        @item @code{SET SELF PUNCTUATION}
+        @item @code{SET SELF CAP_LET_RECOGN}
         @item @code{QUIT}
         @item @code{BLOCK END}
 @end itemize

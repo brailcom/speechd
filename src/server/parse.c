@@ -516,7 +516,6 @@ parse_set(const char *buf, const int bytes, const int fd, const TSpeechDSock *sp
         char *punct_s;
         SPDPunctuation punctuation_mode;
 
-        NOT_ALLOWED_INSIDE_BLOCK();
         GET_PARAM_STR(punct_s, 3, CONV_DOWN);
 
         if(TEST_CMD(punct_s,"all")) punctuation_mode = SPD_PUNCT_ALL;
@@ -546,7 +545,6 @@ parse_set(const char *buf, const int bytes, const int fd, const TSpeechDSock *sp
     else if (TEST_CMD(set_sub, "cap_let_recogn")){
         int capital_letter_recognition;
         char *recognition;
-        NOT_ALLOWED_INSIDE_BLOCK();
         GET_PARAM_STR(recognition, 3, CONV_DOWN);
 
         if(TEST_CMD(recognition, "none")) capital_letter_recognition = SPD_CAP_NONE;
