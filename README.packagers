@@ -1,7 +1,10 @@
 Notes for packagers of Speech Dispatcher.
 
-The communication mechanism of Speech Dispatcher and the way of starting it has been severely
-reworked in this release.  Some ./configure variables as PIDPATH are no longer relevant. It is
-highly recommended to start Speech Dispatcher per-user in his user session and avoid starting
-it as a system service via /etc/init.d/. Please check the updated documentation, especially the
-part Technical Specification.
+The python bindings distributed in this release in directory
+src/api/python/speechd/ have been ported to Python 3 and are backward
+incompatible with Python 2. For applications relying on the Python
+bindings, such as the Orca screen reader, to be compatible with this
+release, a version must be used which runs on Python 3.
+
+Please make sure to setup the package dependencies correctly
+to avoid possible problems.
