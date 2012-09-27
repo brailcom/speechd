@@ -343,7 +343,10 @@ snddatadir='${datadir}/sounds/speech-dispatcher'
 AC_SUBST([snddatadir])
 
 # Path for module binaries:
-modulebindir='${libdir}/speech-dispatcher-modules'
+AC_ARG_WITH([module-bindir],
+	AS_HELP_STRING([--with-module-bindir],[Directory where to install speech-dispatcher modules (defaults to ${libdir}/speech-dispatcher-modules)]),
+	[modulebindir=$withval], [modulebindir='${libdir}/speech-dispatcher-modules'])
+
 AC_SUBST([modulebindir])
 
 # Path for speech-dispatcher libraries:
