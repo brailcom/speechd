@@ -53,6 +53,27 @@
 static int spd_audio_log_level;
 static lt_dlhandle lt_h;
 
+/* Dynamically load a library with RTLD_GLOBAL set.
+
+   This is needed when a dynamically-loaded library has its own plugins
+   that call into the parent library.
+   Most of the credit for this function goes to Gary Vaughan.
+*/
+static lt_dlhandle my_dlopenextglobal(const char *filename)
+{
+	lt_dlhandle handle = NULL;
+	lt_dladvise advise;
+
+	if (lt_dladvise_init(&advise))
+		return handle;
+
+	if (!lt_dladvise_ext(&advise) && !lt_dladvise_global(&advise))
+		handle = lt_dlopenadvise(filename, advise);
+
+	lt_dladvise_destroy(&advise);
+	return handle;
+}
+
 /* Open the audio device.
 
    Arguments:
@@ -91,7 +112,7 @@ AudioID *spd_audio_open(char *name, void **pars, char **error)
 	}
 
 	libname = g_strdup_printf(SPD_AUDIO_LIB_PREFIX "%s", name);
-	lt_h = lt_dlopenext(libname);
+	lt_h = my_dlopenextglobal(libname);
 	g_free(libname);
 	if (NULL == lt_h) {
 		*error =
