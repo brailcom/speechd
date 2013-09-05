@@ -98,7 +98,11 @@ void *speak(void *data)
 		}
 		if (poll_count > 1) {
 			if ((revents = poll_fds[1].revents)) {
-				if ((revents & POLLIN) || (revents & POLLPRI)) {
+				if (revents & POLLHUP) {
+					// FIXME: We should handle this more gracefully
+					FATAL
+						("wait_for_poll: output_module disconnected");
+				} else if ((revents & POLLIN) || (revents & POLLPRI)) {
 					MSG(5,
 					    "wait_for_poll: activity on output_module");
 					/* Check if sb is speaking or they are all silent. 
