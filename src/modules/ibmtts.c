@@ -1,4 +1,3 @@
-
 /*
  * ibmtts.c - Speech Dispatcher backend for IBM TTS
  *
@@ -254,6 +253,11 @@ static void ibmtts_set_pitch(signed int pitch);
 static void ibmtts_set_punctuation_mode(SPDPunctuation punct_mode);
 static void ibmtts_set_volume(signed int pitch);
 
+/* locale_index_atomic stores the current index of the eciLocales array.
+The main thread writes this information, the synthesis thread reads it.
+*/
+static gint locale_index_atomic;
+
 /* Internal function prototypes for synthesis thread. */
 static char *ibmtts_extract_mark_name(char *mark);
 static char *ibmtts_next_part(char *msg, char **mark_name);
@@ -261,7 +265,8 @@ static int ibmtts_replace(char *from, char *to, GString * msg);
 static void ibmtts_subst_keys_cb(gpointer data, gpointer user_data);
 static char *ibmtts_subst_keys(char *key);
 static char *ibmtts_search_for_sound_icon(const char *icon_name);
-static TIbmttsBool ibmtts_add_sound_icon_to_playback_queue(char *filename);
+static TIbmttsBool ibmtts_add_sound_icon_to_playback_queue(char* filename);
+static void ibmtts_load_user_dictionary();
 
 static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 					  enum ECIMessage msg,
@@ -301,6 +306,7 @@ MOD_OPTION_1_STR(IbmttsDelimiters);
 MOD_OPTION_1_INT(IbmttsUseSSML);
 MOD_OPTION_1_STR(IbmttsPunctuationList);
 MOD_OPTION_1_INT(IbmttsUseAbbreviation);
+MOD_OPTION_1_STR(IbmttsDictionaryFolder);
 MOD_OPTION_1_INT(IbmttsAudioChunkSize);
 MOD_OPTION_1_STR(IbmttsSoundIconFolder);
 MOD_OPTION_6_INT_HT(IbmttsVoiceParameters,
@@ -369,6 +375,15 @@ static eciLocale eciLocales[] = {
 
 #define MAX_NB_OF_LANGUAGES (sizeof(eciLocales)/sizeof(eciLocales[0]) - 1)
 
+/* dictionary_filename: its index corresponds to the ECIDictVolume enumerate */
+static char* dictionary_filenames[] = {
+    "main.dct", 
+    "root.dct", 
+    "abbreviation.dct",
+    "extension.dct"
+};
+#define NB_OF_DICTIONARY_FILENAMES (sizeof(dictionary_filenames)/sizeof(dictionary_filenames[0]))
+
 /* Public functions */
 
 int module_load(void)
@@ -384,6 +399,7 @@ int module_load(void)
 	MOD_OPTION_1_INT_REG(IbmttsUseSSML, 1);
 	MOD_OPTION_1_INT_REG(IbmttsUseAbbreviation, 1);
 	MOD_OPTION_1_STR_REG(IbmttsPunctuationList, "()?");
+	MOD_OPTION_1_STR_REG(IbmttsDictionaryFolder, "/var/opt/IBM/ibmtts/dict");
 
 	MOD_OPTION_1_INT_REG(IbmttsAudioChunkSize, 20000);
 	MOD_OPTION_1_STR_REG(IbmttsSoundIconFolder,
@@ -942,6 +958,7 @@ static void *_ibmtts_synth(void *nothing)
 					  g_free);
 
 		pos = *ibmtts_message;
+		ibmtts_load_user_dictionary();
 
 		switch (ibmtts_message_type) {
 		case SPD_MSGTYPE_TEXT:
@@ -1177,6 +1194,7 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant)
 	int eciVoice;
 	int ret = -1;
 	int i = 0;
+	int j = 0;
 
 	DBG("Ibmtts: %s, lang=%s, voice=%d, dialect=%s",
 	    __FUNCTION__, lang, (int)voice, variant ? variant : NULL);
@@ -1188,7 +1206,7 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant)
 		for (i = 0; v[i]; i++) {
 			DBG("%d. variant=%s", i, v[i]->variant);
 			if (!strcmp(v[i]->variant, variant_name)) {
-				int j = ibmtts_voice_index[i];
+				j = ibmtts_voice_index[i];
 				ret =
 				    eciSetParam(eciHandle, eciLanguageDialect,
 						eciLocales[j].langID);
@@ -1202,7 +1220,7 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant)
 		for (i = 0; v[i]; i++) {
 			DBG("%d. language=%s", i, v[i]->language);
 			if (!strcmp(v[i]->language, lang)) {
-				int j = ibmtts_voice_index[i];
+				j = ibmtts_voice_index[i];
 				variant_name = v[i]->name;
 				ret =
 				    eciSetParam(eciHandle, eciLanguageDialect,
@@ -1218,6 +1236,8 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant)
 	if (-1 == ret) {
 		DBG("Ibmtts: Unable to set language");
 		ibmtts_log_eci_error();
+	} else {
+	  g_atomic_int_set(&locale_index_atomic, j);
 	}
 
 	/* Set voice parameters (if any are defined for this voice.) */
@@ -1764,4 +1784,90 @@ static void free_voice_list()
 
 	g_free(ibmtts_voice_list);
 	ibmtts_voice_list = NULL;
+}
+
+static void ibmtts_load_user_dictionary()
+{
+	GString *dirname = NULL;
+	GString *filename = NULL;
+	int i = 0;
+	int dictionary_is_present = 0;
+	static guint old_index = MAX_NB_OF_LANGUAGES;
+	guint new_index;
+	const char* language = NULL;
+	const char* region = NULL;
+	ECIDictHand eciDict = eciGetDict(eciHandle);
+
+	new_index = g_atomic_int_get(&locale_index_atomic);
+	if (new_index >= MAX_NB_OF_LANGUAGES) {
+		DBG("Ibmtts: %s, unexpected index (0x%x)", __FUNCTION__, new_index);
+		return;
+	}
+
+	if (old_index == new_index) {
+		DBG("Ibmtts: LEAVE %s, no change", __FUNCTION__);
+		return;
+	}
+
+	language = eciLocales[new_index].lang;
+	region = eciLocales[new_index].dialect;
+
+	/* Fix locale name for French Canadian */
+	if (!strcmp(language,"ca") && !strcmp(region,"FR")) {
+		language = "fr";
+		region = "CA";
+	}
+
+	if (eciDict) {
+		DBG("Ibmtts: delete old dictionary");
+		eciDeleteDict(eciHandle, eciDict);	
+	} 
+	eciDict = eciNewDict(eciHandle);
+	if (eciDict) {
+		old_index = new_index;
+	} else {
+		old_index = MAX_NB_OF_LANGUAGES;
+		DBG("Ibmtts: can't create new dictionary");
+		return;
+	}
+	
+	/* Look for the dictionary directory */
+	dirname = g_string_new(NULL);
+	g_string_printf(dirname, "%s/%s_%s", IbmttsDictionaryFolder, language, region);
+	if (!g_file_test(dirname->str, G_FILE_TEST_IS_DIR)) {
+		g_string_printf(dirname, "%s/%s", IbmttsDictionaryFolder, language);
+		if (!g_file_test(dirname->str, G_FILE_TEST_IS_DIR)) {
+			g_string_printf(dirname, "%s", IbmttsDictionaryFolder);
+			if (!g_file_test(dirname->str, G_FILE_TEST_IS_DIR)) {
+				DBG("Ibmtts: %s is not a directory", dirname->str);
+				return;
+			}
+		}
+	}
+
+	DBG("Ibmtts: Looking in dictionary directory %s", dirname->str);
+	filename = g_string_new(NULL);
+	
+	for (i=0; i<NB_OF_DICTIONARY_FILENAMES; i++) 
+	{
+		g_string_printf(filename, "%s/%s", dirname->str, dictionary_filenames[i]);
+		if (g_file_test(filename->str, G_FILE_TEST_EXISTS)) {
+			enum ECIDictError error = eciLoadDict(eciHandle, eciDict, i, filename->str);
+			if (!error) {
+				dictionary_is_present = 1;		
+				DBG("Ibmtts: %s dictionary loaded", filename->str);
+			} else {
+				DBG("Ibmtts: Can't load %s dictionary (%d)", filename->str, error);
+			}
+		} else {
+			DBG("Ibmtts: No %s dictionary", filename->str);
+		}
+	}
+	
+	g_string_free(filename, TRUE);
+	g_string_free(dirname, TRUE);
+	
+	if (dictionary_is_present) {
+		eciSetDict(eciHandle, eciDict);
+	}
 }
