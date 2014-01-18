@@ -195,7 +195,7 @@ msgstr "Nastavit jazyk (ISO kód)\n"
 
 #: ../src/clients/say/options.c:75
 #, c-format
-msgid "Set the prefered voice type\n"
+msgid "Set the preferred voice type\n"
 msgstr "Nastavit preferovaný typ hlasu\n"
 
 #: ../src/clients/say/options.c:80

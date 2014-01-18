@@ -72,7 +72,7 @@ void options_print_help(char *argv[])
 	printf(_("Set the language (ISO code)\n"));
 
 	printf("-t, --voice-type\t\t");
-	printf(_("Set the prefered voice type\n"));
+	printf(_("Set the preferred voice type\n"));
 	printf("\t\t\t\t(male1, male2, male3, female1, female2\n"
 	       "\t\t\t\tfemale3, child_male, child_female)\n");
 

@@ -198,7 +198,7 @@ msgstr "A nyelv beállítása (ISO kód alapján)\n"
 
 #: ../src/clients/say/options.c:75
 #, c-format
-msgid "Set the prefered voice type\n"
+msgid "Set the preferred voice type\n"
 msgstr "a preferált hangkarakter-típus beállítása\n"
 
 #: ../src/clients/say/options.c:80

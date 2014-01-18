@@ -301,7 +301,7 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 	}
 
 	if (s == '2')
-		MSG(2, "Module %s started sucessfully with message: %s",
+		MSG(2, "Module %s started successfully with message: %s",
 		    module->name, reply->str);
 
 	g_string_free(reply, 1);

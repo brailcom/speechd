@@ -275,7 +275,7 @@ static AudioID *alsa_open(void **pars)
 		return NULL;
 	}
 
-	MSG(1, "Device '%s' initialized succesfully.",
+	MSG(1, "Device '%s' initialized successfully.",
 	    alsa_id->alsa_device_name);
 
 	return (AudioID *) alsa_id;

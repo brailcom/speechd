@@ -123,7 +123,7 @@ get_output_module(const TSpeechDMessage *message)
     if((output != NULL) && output->working) return output;
   }
 
-  MSG(3,"Warning: Didn't find prefered output module, using default");                
+  MSG(3,"Warning: Didn't find preferred output module, using default");                
   // If the requested module was not found or is not working,
   // first try to use the default output module
   if (GlobalFDSet.output_module != NULL)
@@ -753,10 +753,10 @@ output_close(OutputModule *module)
     MSG(4, "Waiting for module pid %d", module->pid);
     ret = waitpid_with_timeout(module->pid, NULL, 0, 1000); 
     if (ret > 0){
-	MSG(4, "Ok, module closed succesfully.");
+	MSG(4, "Ok, module closed successfully.");
     }else if (ret == 0){
 	int ret2;
-	MSG(1, "ERROR: Timed out when waiting for child cancelation");
+	MSG(1, "ERROR: Timed out when waiting for child cancellation");
 	MSG(3, "Killing the module");
 	kill(module->pid, SIGKILL);
 	MSG(4, "Waiting until the child terminates.");
@@ -829,7 +829,7 @@ escape_dot(char *otext)
 
     if (otext == NULL) return NULL;
 
-    MSG2(5, "escaping", "Incomming text: |%s|", otext);
+    MSG2(5, "escaping", "Incoming text: |%s|", otext);
 
     ootext = otext;
 

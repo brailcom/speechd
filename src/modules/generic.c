@@ -204,7 +204,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 						    GenericRecodeFallback, NULL,
 						    NULL, NULL);
 	} else {
-		DBG("Warning: Prefered charset not specified, recoding to iso-8859-1");
+		DBG("Warning: Preferred charset not specified, recoding to iso-8859-1");
 		tmp =
 		    (char *)g_convert_with_fallback(data, bytes, "iso-8859-2",
 						    "UTF-8",

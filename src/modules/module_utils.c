@@ -825,7 +825,7 @@ module_terminate_thread(pthread_t thread)
 
     ret = pthread_cancel(thread);
     if (ret != 0){
-        DBG("Cancelation of speak thread failed");
+        DBG("Cancellation of speak thread failed");
         return 1;
     }
     ret = pthread_join(thread, NULL);

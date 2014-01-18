@@ -459,7 +459,7 @@ pidfile).
 
 Optionally, a user can place his own configuration file in
 @file{.speech-dispatcher/conf/speechd.conf} and it will be
-automatically loaded by Speech Dispatcher. The prefered way to do so
+automatically loaded by Speech Dispatcher. The preferred way to do so
 is via the @code{spd-conf} configuration command. If this user
 configuration file is not found, Speech Dispatcher will simply use the
 system wide configuration file (e.g. in
@@ -488,7 +488,7 @@ service from /etc/init.d/ , although this approach is now discouraged.
 Currently, two different methods are supported for communication
 between the server and its clients.
 
-For local communication, it's prefered to use @emph{Unix sockets},
+For local communication, it's preferred to use @emph{Unix sockets},
 where the communication takes place over a Unix socket with its
 driving file located by default in the user's runtime directory as
 @code{XDG_RUNTIME_DIR/speech-dispatcher/speechd.sock}. In this way, there can be no
@@ -663,7 +663,7 @@ from the main configuration file @code{speechd.conf}. The option
 options labeled as @code{AudioALSA...} or @code{AudioPulse...} provide
 a more detailed configuration of the given audio output method.
 
-It is possible to use a list of prefered audio output methods,
+It is possible to use a list of preferred audio output methods,
 in which case each output module attempts to use the first availble
 in the given order.
 
@@ -1010,7 +1010,7 @@ the developers with a request for help.
 
 The available command options are self-documented through
 @code{spd-say -h}. In any working mode, the tool asks the user about
-future actions and prefered configuration of the basic options.
+future actions and preferred configuration of the basic options.
 
 Most useful ways of execution are:
 @itemize @bullet
@@ -1158,7 +1158,7 @@ Speech Dispatcher supports two communicatino mechanisms: UNIX-style
 and Inet sockets, which are refered as 'unix-socket' and 'inet-socket'
 respectively. The communication mechanism is decided on startup and
 cannot be changed at runtime. Unix sockets are now the default and
-prefered variant for local communication, Inet sockets are necessary
+preferred variant for local communication, Inet sockets are necessary
 for communication over network.
 
 The mechanism for the decision of which method to use is as follows in
@@ -1265,7 +1265,7 @@ Set loglevel to 1 and log destination to stderr (logfile is not ready yet).
 
 @item Parse command line options
 
-Read prefered communication method, destinations for logfile and pidfile
+Read preferred communication method, destinations for logfile and pidfile
 
 @item Establish the ~/.speech-dispatcher/ directory
 
@@ -1459,7 +1459,7 @@ it gives more control of the communication method and autospawn
 functionality as described below.
 
 @code{method} is either @code{SPD_METHOD_UNIX_SOCKET} or @code{SPD_METHOD_INET_SOCKET}. By default,
-unix socket communication should be prefered, but inet sockets are necessary for cross-network
+unix socket communication should be preferred, but inet sockets are necessary for cross-network
 communication.
 
 @code{autospawn} is a boolean flag specifying whether the function
