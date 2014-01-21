@@ -454,11 +454,11 @@ this mode of execution is strongly discouraged.
 
 No special provisions need to be done to run Speech Dispatcher under
 the current user. The Speech Dispatcher process will use (or create) a
-@file{~/.speech-dispatcher/} directory for its purposes (logging,
+@file{~/.cache/speech-dispatcher/} directory for its purposes (logging,
 pidfile).
 
 Optionally, a user can place his own configuration file in
-@file{.speech-dispatcher/conf/speechd.conf} and it will be
+@file{~/.config/speech-dispatcher/speechd.conf} and it will be
 automatically loaded by Speech Dispatcher. The preferred way to do so
 is via the @code{spd-conf} configuration command. If this user
 configuration file is not found, Speech Dispatcher will simply use the
@@ -540,7 +540,7 @@ spd-conf -d
 
 @item
 Check the appropriate logfile in
-@file{~/.speech-dispatcher/logs/speech-dispatcher.log} for user Speech
+@file{~/.cache/speech-dispatcher/log/speech-dispatcher.log} for user Speech
 Dispatcher or in @file{/var/log/speech-dispatcher/speech-dispatcher.log}. Look
 for lines containing the string 'ERROR' and their surrounding
 contents. If you hear no speech, restart Speech Dispatcher and look
@@ -595,7 +595,7 @@ Speech Dispatcher can be configured on several different levels.  You
 can configure the global settings through the server configuration
 file, which can be placed either in the Speech Dispatcher default
 configuration system path like /etc/speech-dispatcher/ or in your home
-directory in ~/.speech-dispatcher/conf/ .  There is also support for
+directory in @file{~/.config/speech-dispatcher/}.  There is also support for
 per-client configuration, this is, specifying different default values
 for different client applications.
 
@@ -1267,15 +1267,17 @@ Set loglevel to 1 and log destination to stderr (logfile is not ready yet).
 
 Read preferred communication method, destinations for logfile and pidfile
 
-@item Establish the ~/.speech-dispatcher/ directory
+@item Establish the @file{~/.config/speech-dispatcher/} and
+@file{~/.cache/speech-dispatcher/} directories
 
 If pid and conf paths were not given as command line options, the
-server will place them in ~/.speech-dispatcher/ by default. If they
+server will place them in @file{~/.config/speech-dispatcher/} and
+@file{~/.cache/speech-dispatcher/} by default. If they
 are not specified AND the current user doesn't have a system home directory,
 the server will fail startup.
 
-The configuration file is pointed to ~/.speech-dispatcher/conf/speechd.conf
-if it exists, otherwise to /etc/speech-dispatcher/speechd.conf or a similar
+The configuration file is pointed to @file{~/.config/speech-dispatcher/speechd.conf}
+if it exists, otherwise to @file{/etc/speech-dispatcher/speechd.conf} or a similar
 system location according to compile options. One of these files must
 exists, otherwise Speech Dispatcher will not know where to find its output
 modules.
