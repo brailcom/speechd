@@ -538,3 +538,17 @@ void module_load_requested_modules(void)
 		    g_list_delete_link(requested_modules, requested_modules);
 	}
 }
+
+/*
+ * module_number_of_requested_modules: return the current number of requested modules.
+ * Returns: number of modules.
+ * Parameters: none.
+ */
+guint module_number_of_requested_modules(void)
+{
+	if (requested_modules == NULL) {
+		return 0;
+	}
+	return g_list_length(requested_modules);
+}
+

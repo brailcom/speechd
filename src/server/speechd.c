@@ -683,16 +683,18 @@ void speechd_load_configuration(int sig)
 
 		/* We need to load modules here, since this is called both by speechd_init
 		 * and to handle SIGHUP. */
-		detected_modules = detect_output_modules(MODULEBINDIR);
-		while (detected_modules != NULL) {
-			char **parameters = detected_modules->data;
-			module_add_load_request(parameters[0], parameters[1],
-						parameters[2], parameters[3]);
-			g_free(detected_modules->data);
-			detected_modules->data = NULL;
-			detected_modules =
-			    g_list_delete_link(detected_modules,
-					       detected_modules);
+		if (module_number_of_requested_modules() < 2) {
+			detected_modules = detect_output_modules(MODULEBINDIR);
+			while (detected_modules != NULL) {
+				char **parameters = detected_modules->data;
+				module_add_load_request(parameters[0], parameters[1],
+							parameters[2], parameters[3]);
+				g_free(detected_modules->data);
+				detected_modules->data = NULL;
+				detected_modules =
+					g_list_delete_link(detected_modules,
+							   detected_modules);
+			}
 		}
 
 		module_load_requested_modules();
