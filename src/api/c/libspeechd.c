@@ -77,7 +77,6 @@ static char *get_reply(SPDConnection * connection);
 static int get_err_code(char *reply);
 static char *get_param_str(char *reply, int num, int *err);
 static int get_param_int(char *reply, int num, int *err);
-static void *xmalloc(size_t bytes);
 static int ret_ok(char *reply);
 static void SPD_DBG(char *format, ...);
 static void *spd_events_handler(void *);
@@ -437,7 +436,7 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 	}
 
 	/* Connect to server using the selected method */
-	connection = xmalloc(sizeof(SPDConnection));
+	connection = malloc(sizeof(SPDConnection));
 	if (address->method == SPD_METHOD_INET_SOCKET) {
 		host_ip =
 		    resolve_host(address->inet_socket_host, &is_localhost,
@@ -527,18 +526,18 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 	if (ret)
 		SPD_FATAL("Can't set buffering, setvbuf failed.");
 
-	connection->ssip_mutex = xmalloc(sizeof(pthread_mutex_t));
+	connection->ssip_mutex = malloc(sizeof(pthread_mutex_t));
 	pthread_mutex_init(connection->ssip_mutex, NULL);
 
 	if (mode == SPD_MODE_THREADED) {
 		SPD_DBG
 		    ("Initializing threads, condition variables and mutexes...");
-		connection->events_thread = xmalloc(sizeof(pthread_t));
-		connection->cond_reply_ready = xmalloc(sizeof(pthread_cond_t));
+		connection->events_thread = malloc(sizeof(pthread_t));
+		connection->cond_reply_ready = malloc(sizeof(pthread_cond_t));
 		connection->mutex_reply_ready =
-		    xmalloc(sizeof(pthread_mutex_t));
-		connection->cond_reply_ack = xmalloc(sizeof(pthread_cond_t));
-		connection->mutex_reply_ack = xmalloc(sizeof(pthread_mutex_t));
+		    malloc(sizeof(pthread_mutex_t));
+		connection->cond_reply_ack = malloc(sizeof(pthread_cond_t));
+		connection->mutex_reply_ack = malloc(sizeof(pthread_mutex_t));
 		pthread_cond_init(connection->cond_reply_ready, NULL);
 		pthread_mutex_init(connection->mutex_reply_ready, NULL);
 		pthread_cond_init(connection->cond_reply_ack, NULL);
@@ -1768,19 +1767,6 @@ static int isanum(char *str)
 			return 0;
 	}
 	return 1;
-}
-
-static void *xmalloc(size_t bytes)
-{
-	void *mem;
-
-	mem = malloc(bytes);
-	if (mem == NULL) {
-		SPD_FATAL("Not enough memmory!");
-		exit(1);
-	}
-
-	return mem;
 }
 
 /*
