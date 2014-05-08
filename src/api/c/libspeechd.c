@@ -160,10 +160,20 @@ static char *_get_default_unix_socket_name(void)
 	socket_filename = g_string_new("");
 	g_string_printf(socket_filename, "%s/speech-dispatcher/speechd.sock",
 			rundir);
-	// Do not regurn glib string, but glibc string...
+	// Do not return glib string, but glibc string...
 	h = strdup(socket_filename->str);
 	g_string_free(socket_filename, 1);
 	return h;
+}
+
+void SPDConnectionAddress__free(SPDConnectionAddress *address)
+{
+	if (!address)
+		return;
+	free(address->unix_socket_name);
+	free(address->inet_socket_host);
+	free(address->dbus_bus);
+	free(address);
 }
 
 SPDConnectionAddress *spd_get_default_address(char **error)
@@ -171,6 +181,9 @@ SPDConnectionAddress *spd_get_default_address(char **error)
 	const gchar *env_address = g_getenv("SPEECHD_ADDRESS");
 	gchar **pa;		/* parsed address */
 	SPDConnectionAddress *address = malloc(sizeof(SPDConnectionAddress));
+	address->unix_socket_name = NULL;
+	address->inet_socket_host = NULL;
+	address->dbus_bus = NULL;
 
 	if (env_address == NULL) {	// Default method = unix sockets
 		address->method = SPD_METHOD_UNIX_SOCKET;
@@ -204,7 +217,7 @@ SPDConnectionAddress *spd_get_default_address(char **error)
 			*error =
 			    strdup
 			    ("Unknown or unsupported communication method");
-			free(address);
+			SPDConnectionAddress__free(address);
 			address = NULL;
 		}
 		g_strfreev(pa);
@@ -370,10 +383,11 @@ spawn_server(SPDConnectionAddress * address, int is_localhost,
 
 SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 			 const char *user_name, SPDConnectionMode mode,
-			 SPDConnectionAddress * address, int autospawn,
+			 SPDConnectionAddress *address, int autospawn,
 			 char **error_result)
 {
 	SPDConnection *connection;
+	SPDConnectionAddress *defaultAddress = NULL;
 	char *set_client_name;
 	char *conn_name;
 	char *usr_name;
@@ -412,7 +426,8 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 
 	if (address == NULL) {
 		char *err = NULL;
-		address = spd_get_default_address(&err);
+		defaultAddress = spd_get_default_address(&err);
+		address = defaultAddress;
 		if (!address) {
 			assert(err);
 			*error_result = err;
@@ -430,6 +445,7 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 		if (host_ip == NULL) {
 			*error_result = strdup(resolve_error);
 			g_free(resolve_error);
+			SPDConnectionAddress__free(defaultAddress);
 			return NULL;
 		}
 		address_inet.sin_addr.s_addr = inet_addr(host_ip);
@@ -483,8 +499,10 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 				assert(0);
 			SPD_DBG(*error_result);
 			close(connection->socket);
+			SPDConnectionAddress__free(defaultAddress);
 			return NULL;
 		}
+		g_free(spawn_report);
 	}
 
 	if (address->method == SPD_METHOD_INET_SOCKET)
@@ -531,6 +549,7 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 		if (ret != 0) {
 			*error_result = strdup("Thread initialization failed");
 			SPD_DBG(*error_result);
+			SPDConnectionAddress__free(defaultAddress);
 			return NULL;
 		}
 	}
@@ -543,6 +562,7 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 	free(usr_name);
 	free(conn_name);
 	free(set_client_name);
+	SPDConnectionAddress__free(defaultAddress);
 	return connection;
 }
 
@@ -1200,13 +1220,14 @@ SPDVoice **spd_list_synthesis_voices(SPDConnection * connection)
 char **spd_execute_command_with_list_reply(SPDConnection * connection,
 					   char *command)
 {
-	char *reply = NULL, *line;
+	char *reply = NULL;
+	char *line;
 	int err;
 	int max_items = 50;
 	char **result;
-	int i, ret;
+	int i;
 
-	ret = spd_execute_command_with_reply(connection, command, &reply);
+	spd_execute_command_with_reply(connection, command, &reply);
 	if (!ret_ok(reply)) {
 		if (reply != NULL)
 			free(reply);
@@ -1219,7 +1240,7 @@ char **spd_execute_command_with_list_reply(SPDConnection * connection,
 		line = get_param_str(reply, i + 1, &err);
 		if ((err) || (line == NULL))
 			break;
-		result[i] = strdup(line);
+		result[i] = line;
 		if (i >= max_items - 2) {
 			max_items *= 2;
 			result = realloc(result, max_items * sizeof(char *));
@@ -1533,6 +1554,7 @@ static void *spd_events_handler(void *conn)
 				SPD_DBG
 				    ("Bad reply from Speech Dispatcher: %s (code %d)",
 				     reply, err);
+				free(reply);
 				break;
 			}
 			client_id = get_param_int(reply, 2, &err);
@@ -1540,6 +1562,7 @@ static void *spd_events_handler(void *conn)
 				SPD_DBG
 				    ("Bad reply from Speech Dispatcher: %s (code %d)",
 				     reply, err);
+				free(reply);
 				break;
 			}
 			/*  Decide if we want to call a callback */
@@ -1568,6 +1591,7 @@ static void *spd_events_handler(void *conn)
 					SPD_DBG
 					    ("Broken reply from Speech Dispatcher: %s",
 					     reply);
+					free(reply);
 					break;
 				}
 				/* Call the callback */
@@ -1576,13 +1600,14 @@ static void *spd_events_handler(void *conn)
 							im);
 				free(im);
 			}
+			free(reply);
 
 		} else {
 			/* This is a protocol reply */
 			pthread_mutex_lock(connection->mutex_reply_ready);
 			/* Prepare the reply to the reply buffer in connection */
 			if (reply != NULL) {
-				connection->reply = strdup(reply);
+				connection->reply = reply;
 			} else {
 				SPD_DBG("Connection reply is NULL");
 				connection->reply = NULL;
@@ -1597,7 +1622,6 @@ static void *spd_events_handler(void *conn)
 			pthread_cond_wait(connection->cond_reply_ack,
 					  connection->mutex_reply_ack);
 			pthread_mutex_unlock(connection->mutex_reply_ack);
-			free(reply);
 			/* Continue */
 		}
 	}

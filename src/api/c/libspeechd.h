@@ -68,6 +68,8 @@ typedef struct {
 	char *dbus_bus;
 } SPDConnectionAddress;
 
+void SPDConnectionAddress__free(SPDConnectionAddress *address);
+
 typedef void (*SPDCallback) (size_t msg_id, size_t client_id,
 			     SPDNotificationType state);
 typedef void (*SPDCallbackIM) (size_t msg_id, size_t client_id,
