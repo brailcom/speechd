@@ -78,7 +78,6 @@ static int get_err_code(char *reply);
 static char *get_param_str(char *reply, int num, int *err);
 static int get_param_int(char *reply, int num, int *err);
 static void *xmalloc(size_t bytes);
-static void xfree(void *ptr);
 static int ret_ok(char *reply);
 static void SPD_DBG(char *format, ...);
 static void *spd_events_handler(void *);
@@ -247,7 +246,7 @@ SPDConnection *spd_open(const char *client_name, const char *connection_name,
 		_init_debug();
 		assert(error);
 		SPD_DBG("Could not connect to Speech Dispatcher: %s", error);
-		xfree(error);
+		free(error);
 	}
 	return conn;
 }
@@ -275,7 +274,7 @@ static char *resolve_host(char *host_name_or_ip, int *is_localhost,
 		*error =
 		    g_strdup_printf("Can't resolve address %d due to error %s:",
 				    err, gai_strerror(err));
-		xfree(resolve_buffer);
+		free(resolve_buffer);
 		return NULL;
 	}
 	/* Take the first address returned as we are only interested in host ip */
@@ -289,7 +288,7 @@ static char *resolve_host(char *host_name_or_ip, int *is_localhost,
 		    ("Could not convert address, due to the following error: %s",
 		     strerror(errno));
 		freeaddrinfo(addr_result);
-		xfree(resolve_buffer);
+		free(resolve_buffer);
 		return NULL;
 	}
 
@@ -297,7 +296,7 @@ static char *resolve_host(char *host_name_or_ip, int *is_localhost,
 		*is_localhost = 1;
 		/* In case of local addresses, use 127.0.0.1 which is guaranteed
 		   to be local and the server listens on it */
-		xfree(resolve_buffer);
+		free(resolve_buffer);
 		ip = strdup("127.0.0.1");
 	} else {
 		*is_localhost = 0;
@@ -541,9 +540,9 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 	    g_strdup_printf("SET SELF CLIENT_NAME \"%s:%s:%s\"", usr_name,
 			    client_name, conn_name);
 	ret = spd_execute_command_wo_mutex(connection, set_client_name);
-	xfree(usr_name);
-	xfree(conn_name);
-	xfree(set_client_name);
+	free(usr_name);
+	free(conn_name);
+	free(set_client_name);
 	return connection;
 }
 
@@ -575,7 +574,7 @@ void spd_close(SPDConnection * connection)
 	pthread_mutex_unlock(connection->ssip_mutex);
 
 	pthread_mutex_destroy(connection->ssip_mutex);
-	xfree(connection);
+	free(connection);
 }
 
 /* Helper functions for spd_say. */
@@ -639,8 +638,8 @@ static inline int spd_say_sending(SPDConnection * connection, const char *text)
 		}
 	}
 
-	xfree(reply);
-	xfree(pret);
+	free(reply);
+	free(pret);
 	return msg_id;
 }
 
@@ -660,7 +659,7 @@ int spd_say(SPDConnection * connection, SPDPriority priority, const char *text)
 		if (!prepare_failed)
 			msg_id = spd_say_sending(connection, escaped_text);
 
-		xfree(escaped_text);
+		free(escaped_text);
 		pthread_mutex_unlock(connection->ssip_mutex);
 	} else {
 		SPD_DBG("spd_say called with a NULL argument for <text>");
@@ -689,7 +688,7 @@ spd_sayf(SPDConnection * connection, SPDPriority priority, const char *format,
 
 	/* Send the buffer to Speech Dispatcher */
 	ret = spd_say(connection, priority, buf);
-	xfree(buf);
+	free(buf);
 
 	return ret;
 }
@@ -783,7 +782,7 @@ spd_key(SPDConnection * connection, SPDPriority priority, const char *key_name)
 
 	command_key = g_strdup_printf("KEY %s", key_name);
 	ret = spd_execute_command_wo_mutex(connection, command_key);
-	xfree(command_key);
+	free(command_key);
 	if (ret)
 		RET(-1);
 
@@ -866,7 +865,7 @@ spd_sound_icon(SPDConnection * connection, SPDPriority priority,
 
 	command = g_strdup_printf("SOUND_ICON %s", icon_name);
 	ret = spd_execute_command_wo_mutex(connection, command);
-	xfree(command);
+	free(command);
 	if (ret)
 		RET(-1);
 
@@ -1020,7 +1019,7 @@ spd_w_set_voice_type(SPDConnection * connection, SPDVoiceType type,
         command = g_strdup_printf("SET %s " #param " %s", \
                               who, str); \
         ret = spd_execute_command(connection, command); \
-        xfree(command); \
+        free(command); \
         return ret; \
     } \
     int \
@@ -1281,7 +1280,7 @@ int spd_execute_command(SPDConnection * connection, char *command)
 	if (ret) {
 		SPD_DBG("Can't execute command in spd_execute_command");
 	}
-	xfree(reply);
+	free(reply);
 
 	pthread_mutex_unlock(connection->ssip_mutex);
 
@@ -1299,7 +1298,7 @@ int spd_execute_command_wo_mutex(SPDConnection * connection, char *command)
 		SPD_DBG
 		    ("Can't execute command in spd_execute_command_wo_mutex");
 
-	xfree(reply);
+	free(reply);
 
 	return ret;
 }
@@ -1314,7 +1313,7 @@ spd_execute_command_with_reply(SPDConnection * connection, char *command,
 
 	buf = g_strdup_printf("%s\r\n", command);
 	*reply = spd_send_data_wo_mutex(connection, buf, SPD_WAIT_REPLY);
-	xfree(buf);
+	free(buf);
 	buf = NULL;
 	if (*reply == NULL) {
 		SPD_DBG
@@ -1395,7 +1394,7 @@ char *spd_send_data_wo_mutex(SPDConnection * connection, const char *message,
 				    ("Error: Can't read reply, broken socket in spd_send_data.");
 				return NULL;
 			}
-			xfree(connection->reply);
+			free(connection->reply);
 			bytes = strlen(reply);
 			if (bytes == 0) {
 				SPD_DBG("Error: Empty reply, broken socket.");
@@ -1485,7 +1484,7 @@ static char *get_reply(SPDConnection * connection)
 		/* terminate if we reached the last line (without '-' after numcode) */
 	} while (!errors && !((strlen(line) < 4) || (line[3] == ' ')));
 
-	xfree(line);		/* getline allocates with malloc. */
+	free(line);		/* getline allocates with malloc. */
 
 	if (errors) {
 		/* Free the GString and its character data, and return NULL. */
@@ -1575,7 +1574,7 @@ static void *spd_events_handler(void *conn)
 				connection->callback_im(msg_id, client_id,
 							SPD_EVENT_INDEX_MARK,
 							im);
-				xfree(im);
+				free(im);
 			}
 
 		} else {
@@ -1598,7 +1597,7 @@ static void *spd_events_handler(void *conn)
 			pthread_cond_wait(connection->cond_reply_ack,
 					  connection->mutex_reply_ack);
 			pthread_mutex_unlock(connection->mutex_reply_ack);
-			xfree(reply);
+			free(reply);
 			/* Continue */
 		}
 	}
@@ -1702,7 +1701,7 @@ static int get_param_int(char *reply, int num, int *err)
 		*err = -3;
 		return 0;
 	}
-	xfree(rep_str);
+	free(rep_str);
 
 	return ret;
 }
@@ -1758,12 +1757,6 @@ static void *xmalloc(size_t bytes)
 	}
 
 	return mem;
-}
-
-static void xfree(void *ptr)
-{
-	if (ptr != NULL)
-		free(ptr);
 }
 
 /*
