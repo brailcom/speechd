@@ -285,6 +285,7 @@ Software Foundation, write to the Free Software Foundation; we sometimes
 make exceptions for this.  Our decision will be guided by the two goals
 of preserving the free status of all derivatives of our free software and
 of promoting the sharing and reuse of software generally.
+@end enumerate
 
 @iftex
 @heading NO WARRANTY
@@ -293,6 +294,7 @@ of promoting the sharing and reuse of software generally.
 @center NO WARRANTY
 @end ifinfo
 
+@enumerate a
 @item
 BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY
 FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW@.  EXCEPT WHEN
