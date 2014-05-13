@@ -585,6 +585,10 @@ void spd_close(SPDConnection * connection)
 		pthread_cond_destroy(connection->cond_reply_ack);
 		pthread_join(*connection->events_thread, NULL);
 		connection->mode = SPD_MODE_SINGLE;
+		free(connection->mutex_reply_ready);
+		free(connection->mutex_reply_ack);
+		free(connection->cond_reply_ready);
+		free(connection->cond_reply_ack);
 	}
 
 	/* close the socket */
@@ -593,6 +597,7 @@ void spd_close(SPDConnection * connection)
 	pthread_mutex_unlock(connection->ssip_mutex);
 
 	pthread_mutex_destroy(connection->ssip_mutex);
+	free(connection->ssip_mutex);
 	free(connection);
 }
 
