@@ -155,6 +155,13 @@ void *speak(void *data)
 						MSG(5, "Reloading message");
 						reload_message((TSpeechDMessage
 								*) gl->data);
+/* If this resumed message is the same as current_message, then it gets
+ * another trip through the queue.  However, some code later in this
+ * function will free current_message, even though it is now requeued!
+ * Hence use-after-free.
+ * current_message is pretty useless after the requeue, make it NULL. */
+						if (current_message == gl->data)
+							current_message = NULL;
 					} else
 						break;
 				}
