@@ -558,8 +558,9 @@ int speaking_pause(int fd, int uid)
 		    "Including current message into the message paused list");
 		current_message->settings.paused = 2;
 		current_message->settings.paused_while_speaking = 1;
-		MessagePausedList =
-		    g_list_append(MessagePausedList, current_message);
+		if (g_list_find(MessagePausedList, current_message) == NULL)
+			MessagePausedList =
+			    g_list_append(MessagePausedList, current_message);
 	}
 
 	return 0;
