@@ -227,24 +227,6 @@ AC_SUBST([PULSE_CFLAGS])
 AC_SUBST([PULSE_LIBS])
 AS_IF([test $with_pulse = "yes"], [audio_methods="${audio_methods} pulse"])
 
-# check for alsa support
-AC_ARG_WITH([alsa],
-	[AS_HELP_STRING([--with-alsa], [include ALSA support])],
-	[],
-	[with_alsa=check])
-AS_IF([test $with_alsa != "no"],
-	[PKG_CHECK_MODULES([ALSA], [alsa],
-		[with_alsa=yes
-		AS_IF([test -z "$default_audio_method"],
-			[default_audio_method=alsa])
-		audio_dlopen_modules="$audio_dlopen_modules -dlopen ../audio/spd_alsa.la"],
-		[AS_IF([test $with_alsa = "yes"],
-			[AC_MSG_FAILURE([ALSA is not available])])])])
-AM_CONDITIONAL([alsa_support], [test $with_alsa = "yes"])
-AC_SUBST([ALSA_CFLAGS])
-AC_SUBST([ALSA_LIBS])
-AS_IF([test $with_alsa = "yes"], [audio_methods="${audio_methods} alsa"])
-
 # check for libao support
 AC_ARG_WITH([libao],
 	[AS_HELP_STRING([--with-libao], [include libao support])],
@@ -262,6 +244,24 @@ AM_CONDITIONAL([libao_support], [test $with_libao = "yes"])
 AC_SUBST([LIBAO_CFLAGS])
 AC_SUBST([LIBAO_LIBS])
 AS_IF([test $with_libao = "yes"], [audio_methods="${audio_methods} libao"])
+
+# check for alsa support
+AC_ARG_WITH([alsa],
+	[AS_HELP_STRING([--with-alsa], [include ALSA support])],
+	[],
+	[with_alsa=check])
+AS_IF([test $with_alsa != "no"],
+	[PKG_CHECK_MODULES([ALSA], [alsa],
+		[with_alsa=yes
+		AS_IF([test -z "$default_audio_method"],
+			[default_audio_method=alsa])
+		audio_dlopen_modules="$audio_dlopen_modules -dlopen ../audio/spd_alsa.la"],
+		[AS_IF([test $with_alsa = "yes"],
+			[AC_MSG_FAILURE([ALSA is not available])])])])
+AM_CONDITIONAL([alsa_support], [test $with_alsa = "yes"])
+AC_SUBST([ALSA_CFLAGS])
+AC_SUBST([ALSA_LIBS])
+AS_IF([test $with_alsa = "yes"], [audio_methods="${audio_methods} alsa"])
 
 #check for OSS support
 AC_ARG_WITH([oss],
