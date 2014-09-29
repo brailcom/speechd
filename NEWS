@@ -1,3 +1,9 @@
+Version 0.8.1
+* User dictionaries support added to the IBMTTS driver
+* Added a pico configuration file for use with the generic driver
+* Better support for multi-arch enabled distros to facilitate the use of the
+  i386 only IBMTTS driver being easily installable on an amd64 system
+* Bug fixes, and documentation cleanup
 
 Version 0.8
  * Python 3 compatibility of the Python bindings

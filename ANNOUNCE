@@ -1,33 +1,27 @@
 
-Speech Dispatcher 0.8
+Speech Dispatcher 0.8.1
 =====================
 
-The Brailcom organization is happy to announce the availability of
-Speech Dispatcher 0.8 developed as a part of the Free(b)Soft
-project.
+Announcing the availability of Speech Dispatcher 0.8.1 developed as a part of
+the Free(b)Soft project.
 
-* What is new in 0.8?
+* What is new in 0.8.1?
 
- * Python 3 compatibility of the Python bindings
+ - User dictionaries support added to the IBMTTS driver
 
- * User configuration, logs and runtime files are now stored in
-   directories according to the XDG specification
+ - Added a pico configuration file for use with the generic driver
 
- * Internationalization of spd-say and translations into Hungarian
-   and Czech languages
+ - Better support for multi-arch enabled distros to facilitate the use of the
+   i386 only IBMTTS driver being easily installable on an amd64 system
 
- * Espeak output can now use libsonic for faster speech
-
- * Pico output module
-
- * Lots of bugfixes, cleanups and fine-tunnings
+ * Bug fixes, and documentation cleanup
 
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.8.tar.gz
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.8.1.tar.gz
 
-  We recommend you to fetch the sound icons for use with Speech Dispatcher.
+  We recommend the use of sound icons with Speech Dispatcher.
   They are available at
   http://www.freebsoft.org/pub/projects/sound-icons/sound-icons-0.1.tar.gz
 
