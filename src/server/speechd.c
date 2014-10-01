@@ -58,7 +58,20 @@ void destroy_pid_file();
 /* Server socket file descriptor */
 int server_socket;
 
-void speechd_load_configuration(int sig);
+GMainLoop *main_loop = NULL;
+
+static gboolean speechd_client_terminate(gpointer key, gpointer value, gpointer user);
+static gboolean speechd_reload_dead_modules(gpointer user_data);
+static gboolean speechd_load_configuration(gpointer user_data);
+static gboolean speechd_quit(gpointer user_data);
+
+static gboolean server_process_incoming (gint          fd,
+				  GIOCondition  condition,
+				  gpointer      data);
+
+static gboolean client_process_incoming (gint          fd,
+				  GIOCondition  condition,
+				  gpointer      data);
 
 #ifdef __SUNPRO_C
 /* Added by Willie Walker - daemon is a gcc-ism
@@ -349,7 +362,6 @@ int speechd_connection_new(int server_socket)
 	}
 
 	/* We add the associated client_socket to the descriptor set. */
-	FD_SET(client_socket, &readfds);
 	if (client_socket > SpeechdStatus.max_fd)
 		SpeechdStatus.max_fd = client_socket;
 	MSG(4, "Adding client on fd %d", client_socket);
@@ -363,7 +375,6 @@ int speechd_connection_new(int server_socket)
 		    "Error: Failed to create a record in fd_settings for the new client");
 		if (SpeechdStatus.max_fd == client_socket)
 			SpeechdStatus.max_fd--;
-		FD_CLR(client_socket, &readfds);
 		return -1;
 	}
 	new_fd_set->fd = client_socket;
@@ -378,8 +389,11 @@ int speechd_connection_new(int server_socket)
 	g_hash_table_insert(fd_settings, p_client_uid, new_fd_set);
 	g_hash_table_insert(fd_uid, p_client_socket, p_client_uid2);
 
+	new_fd_set->fd_source = g_unix_fd_add(client_socket, G_IO_IN, client_process_incoming, NULL);
+
 	MSG(4, "Data structures for client on fd %d created", client_socket);
 	return 0;
+
 }
 
 int speechd_connection_destroy(int fd)
@@ -394,6 +408,7 @@ int speechd_connection_destroy(int fd)
 	if (fdset_element != NULL) {
 		fdset_element->fd = -1;
 		fdset_element->active = 0;
+		g_source_remove(fdset_element->fd_source);
 		/* The fdset_element will be freed and removed from the
 		   hash table as soon as the client no longer has any
 		   message in the queues, check out the speak() function */
@@ -413,7 +428,6 @@ int speechd_connection_destroy(int fd)
 		if (SPEECHD_DEBUG)
 			DIE("Can't close file descriptor associated to this client");
 
-	FD_CLR(fd, &readfds);
 	if (fd == SpeechdStatus.max_fd)
 		SpeechdStatus.max_fd--;
 
@@ -422,7 +436,7 @@ int speechd_connection_destroy(int fd)
 	return 0;
 }
 
-gboolean speechd_client_terminate(gpointer key, gpointer value, gpointer user)
+static gboolean speechd_client_terminate(gpointer key, gpointer value, gpointer user)
 {
 	TFDSetElement *set;
 
@@ -504,13 +518,14 @@ void speechd_module_nodebug(gpointer data, gpointer user_data)
 	return;
 }
 
-void speechd_reload_dead_modules(int sig)
+static gboolean speechd_reload_dead_modules(gpointer user_data)
 {
 	/* Reload dead modules */
 	g_list_foreach(output_modules, speechd_modules_reload, NULL);
 
 	/* Make sure there aren't any more child processes left */
 	while (waitpid(-1, NULL, WNOHANG) > 0) ;
+	return TRUE;
 }
 
 void speechd_modules_debug(void)
@@ -628,7 +643,7 @@ void speechd_init()
 	/* Load configuration from the config file */
 	MSG(4, "Reading Speech Dispatcher configuration from %s",
 	    SpeechdOptions.conf_file);
-	speechd_load_configuration(0);
+	speechd_load_configuration(NULL);
 
 	logging_init();
 
@@ -644,7 +659,7 @@ void speechd_init()
 	last_p5_block = NULL;
 }
 
-void speechd_load_configuration(int sig)
+static gboolean speechd_load_configuration(gpointer user_data)
 {
 	configfile_t *configfile = NULL;
 	GList *detected_modules = NULL;
@@ -706,47 +721,14 @@ void speechd_load_configuration(int sig)
 	}
 
 	free_config_options(spd_options, &spd_num_options);
+
+	return TRUE;
 }
 
-void speechd_quit(int sig)
+static gboolean speechd_quit(gpointer user_data)
 {
-	int ret;
-
-	MSG(1, "Terminating...");
-
-	MSG(2, "Closing open connections...");
-	/* We will browse through all the connections and close them. */
-	g_hash_table_foreach_remove(fd_settings, speechd_client_terminate,
-				    NULL);
-	g_hash_table_destroy(fd_settings);
-
-	MSG(4, "Closing speak() thread...");
-	ret = pthread_cancel(speak_thread);
-	if (ret != 0)
-		FATAL("Speak thread failed to cancel!\n");
-
-	ret = pthread_join(speak_thread, NULL);
-	if (ret != 0)
-		FATAL("Speak thread failed to join!\n");
-
-	MSG(2, "Closing open output modules...");
-	/*  Call the close() function of each registered output module. */
-	g_list_foreach(output_modules, speechd_modules_terminate, NULL);
-	g_list_free(output_modules);
-
-	MSG(2, "Closing server connection...");
-	if (close(server_socket) == -1)
-		MSG(2, "close() failed: %s", strerror(errno));
-	FD_CLR(server_socket, &readfds);
-
-	MSG(4, "Removing pid file");
-	destroy_pid_file();
-
-	fflush(NULL);
-
-	MSG(2, "Speech Dispatcher terminated correctly");
-
-	exit(0);
+	g_main_loop_quit(main_loop);
+	return FALSE;
 }
 
 /* --- PID FILES --- */
@@ -920,12 +902,53 @@ int make_inet_socket(const int port)
 	return server_socket;
 }
 
+gboolean server_process_incoming (gint          fd,
+				  GIOCondition  condition,
+				  gpointer      data)
+{
+	int ret;
+
+	ret = speechd_connection_new(fd);
+	if (ret != 0) {
+		MSG(2, "Error: Failed to add new client!");
+		if (SPEECHD_DEBUG) {
+			FATAL("Failed to add new client");
+		}
+	}
+
+	return TRUE;
+}
+
+gboolean client_process_incoming (gint          fd,
+				  GIOCondition  condition,
+				  gpointer      data)
+{
+	int ret;
+	int nread;
+
+	ioctl(fd, FIONREAD, &nread);
+
+	if (nread == 0) {
+		/* client has gone */
+		ret = speechd_connection_destroy(fd);
+		if (ret != 0) {
+			MSG(2, "Error: Failed to close the client!");
+		}
+		return FALSE;
+	}
+
+	/* client sends some commands or data */
+	if (serve(fd) == -1) {
+		MSG(2, "Error: Failed to serve client on fd %d!", fd);
+	}
+
+	return TRUE;
+}
+
 /* --- MAIN --- */
 
 int main(int argc, char *argv[])
 {
-	fd_set testfds;
-	int fd;
 	int ret;
 	/* Autospawn helper variables */
 	char *spawn_communication_method = NULL;
@@ -1066,12 +1089,6 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
-	/* Register signals */
-	(void)signal(SIGINT, speechd_quit);
-	(void)signal(SIGHUP, speechd_load_configuration);
-	(void)signal(SIGPIPE, SIG_IGN);
-	(void)signal(SIGUSR1, speechd_reload_dead_modules);
-
 	speechd_init();
 
 	/* Handle socket_path 'default' */
@@ -1185,70 +1202,66 @@ int main(int argc, char *argv[])
 			return -1;
 	}
 
+	/* Set up the main loop and register signals */
+        main_loop = g_main_loop_new(g_main_context_default(), FALSE);
+	g_unix_signal_add(SIGINT, speechd_quit, NULL);
+	g_unix_signal_add(SIGTERM, speechd_quit, NULL);
+	g_unix_signal_add(SIGHUP, speechd_load_configuration, NULL);
+	g_unix_signal_add(SIGUSR1, speechd_reload_dead_modules, NULL);
+	(void)signal(SIGPIPE, SIG_IGN);
+
 	MSG(4, "Creating new thread for speak()");
 	ret = pthread_create(&speak_thread, NULL, speak, NULL);
 	if (ret != 0)
 		FATAL("Speak thread failed!\n");
 
-	FD_ZERO(&readfds);
-	FD_SET(server_socket, &readfds);
 	SpeechdStatus.max_fd = server_socket;
+
+	g_unix_fd_add(server_socket, G_IO_IN,
+		      server_process_incoming, NULL);
 
 	/* Now wait for clients and requests. */
 	MSG(1, "Speech Dispatcher started and waiting for clients ...");
-	while (1) {
-		testfds = readfds;
 
-		if (select
-		    (FD_SETSIZE, &testfds, (fd_set *) 0, (fd_set *) 0,
-		     NULL) >= 1) {
-			/* Once we know we've got activity,
-			 * we find which descriptor it's on by checking each in turn using FD_ISSET.
-			 TODO: This is a hack. We should not be browsing all possible socket numbers
-			 but only those which are connected.
-			 */
-			for (fd = 0;
-			     fd <= SpeechdStatus.max_fd && fd < FD_SETSIZE;
-			     fd++) {
-				if (FD_ISSET(fd, &testfds)) {
-					MSG(4, "Activity on fd %d ...", fd);
+	g_main_loop_run(main_loop);
 
-					if (fd == server_socket) {
-						/* server activity (new client) */
-						ret =
-						    speechd_connection_new
-						    (server_socket);
-						if (ret != 0) {
-							MSG(2,
-							    "Error: Failed to add new client!");
-							if (SPEECHD_DEBUG)
-								FATAL
-								    ("Failed to add new client");
-						}
-					} else {
-						/* client activity */
-						int nread;
-						ioctl(fd, FIONREAD, &nread);
+	MSG(1, "Terminating...");
 
-						if (nread == 0) {
-							/* client has gone */
-							speechd_connection_destroy
-							    (fd);
-							if (ret != 0)
-								MSG(2,
-								    "Error: Failed to close the client!");
-						} else {
-							/* client sends some commands or data */
-							if (serve(fd) == -1)
-								MSG(2,
-								    "Error: Failed to serve client on fd %d!",
-								    fd);
-						}
-					}
-				}
-			}
-		}
-	}
+	MSG(2, "Closing open connections...");
+	/* We will browse through all the connections and close them. */
+	g_hash_table_foreach_remove(fd_settings, speechd_client_terminate,
+				    NULL);
+	g_hash_table_destroy(fd_settings);
+
+	MSG(4, "Closing speak() thread...");
+	ret = pthread_cancel(speak_thread);
+	if (ret != 0)
+		FATAL("Speak thread failed to cancel!\n");
+
+	ret = pthread_join(speak_thread, NULL);
+	if (ret != 0)
+		FATAL("Speak thread failed to join!\n");
+
+	MSG(2, "Closing open output modules...");
+	/*  Call the close() function of each registered output module. */
+	g_list_foreach(output_modules, speechd_modules_terminate, NULL);
+	g_list_free(output_modules);
+
+	MSG(2, "Closing server connection...");
+	if (close(server_socket) == -1)
+		MSG(2, "close() failed: %s", strerror(errno));
+
+	MSG(4, "Removing pid file");
+	destroy_pid_file();
+
+	fflush(NULL);
+
+	g_main_loop_unref(main_loop);
+	main_loop = NULL;
+
+	MSG(2, "Speech Dispatcher terminated correctly");
+
+	exit(0);
 }
 
 void check_locked(pthread_mutex_t * lock)

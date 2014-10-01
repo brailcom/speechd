@@ -45,6 +45,7 @@
 #include <pthread.h>
 
 #include <glib.h>
+#include <glib-unix.h>
 
 #include <semaphore.h>
 #include <sys/ipc.h>
@@ -75,6 +76,7 @@ union semun {
 typedef struct {
 	unsigned int uid;	/* Unique ID of the client */
 	int fd;			/* File descriptor the client is on. */
+	guint fd_source;	/* Used to store the GSource ID for watching fd activity in the main loop */
 	int active;		/* Is this client still active on socket or gone? */
 	int paused;		/* Internal flag, 1 for paused client or 0 for normal. */
 	int paused_while_speaking;
@@ -210,9 +212,6 @@ GList *last_p5_block;
 /* Global default settings */
 TFDSetElement GlobalFDSet;
 
-/* Variables for socket communication */
-fd_set readfds;
-
 /* Inter thread comm pipe */
 int speaking_pipe[2];
 
@@ -258,17 +257,13 @@ char *spd_get_path(char *filename, char *startdir);
 /* Functions used in speechd.c only */
 int speechd_connection_new(int server_socket);
 int speechd_connection_destroy(int fd);
-gboolean speechd_client_terminate(gpointer key, gpointer value, gpointer user);
 void speechd_modules_terminate(gpointer data, gpointer user_data);
 void speechd_modules_reload(gpointer data, gpointer user_data);
 void speechd_modules_debug(void);
 void speechd_modules_nodebug(void);
 
-void speechd_reload_dead_modules(int sig);
 void speechd_options_init(void);
 void speechd_init(void);
-void speechd_load_configuration(int sig);
-void speechd_quit(int sig);
 int create_pid_file(void);
 void destroy_pid_file(void);
 
