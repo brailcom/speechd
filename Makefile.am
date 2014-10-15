@@ -3,11 +3,20 @@
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = speech-dispatcher.pc
 
+BUILT_SOURCES = $(top_srcdir)/.version
+
 SUBDIRS= include src config doc po
 
-EXTRA_DIST= ANNOUNCE BUGS FAQ README.packagers README.translators README.style build.sh
+EXTRA_DIST= ANNOUNCE BUGS FAQ README.packagers README.translators README.style build.sh git-version-gen
 
 MAINTAINERCLEANFILES=configure
 
 testinstall: install check
 	cd src/tests && $(MAKE) $(AM_MAKEFLAGS) testinstall
+
+$(top_srcdir)/.version:
+	echo $(VERSION) > $@-t && mv $@-t $@
+
+dist-hook:
+	echo $(VERSION) > $(distdir)/.tarball-version
+	echo $(VERSION) > $(distdir)/.version
