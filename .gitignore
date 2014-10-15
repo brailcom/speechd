@@ -1,5 +1,7 @@
 .deps
 .libs
+.version
+.tarball-version
 *.o
 *.la
 *.lo
