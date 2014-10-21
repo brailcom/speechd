@@ -218,6 +218,7 @@ GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module)
 			&& (val <= 5), "Invalid log (verbosity) level!")
     SPEECHD_OPTION_CB_INT(MaxHistoryMessages, max_history_messages, val >= 0,
 		      "Invalid parameter!")
+    SPEECHD_OPTION_CB_INT_M(Timeout, server_timeout, val < 0, "Invalid timeout value!")
 
     DOTCONF_CB(cb_LanguageDefaultModule)
 {
@@ -426,6 +427,7 @@ configoption_t *load_config_options(int *num_options)
 	ADD_CONFIG_OPTION(DefaultSpelling, ARG_TOGGLE);
 	ADD_CONFIG_OPTION(DefaultCapLetRecognition, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultPauseContext, ARG_INT);
+	ADD_CONFIG_OPTION(Timeout, ARG_INT);
 	ADD_CONFIG_OPTION(AddModule, ARG_LIST);
 
 	ADD_CONFIG_OPTION(AudioOutputMethod, ARG_STR);
@@ -483,6 +485,9 @@ void load_default_global_set_options()
 		SpeechdOptions.port = SPEECHD_DEFAULT_PORT;
 	if (!SpeechdOptions.localhost_access_only_set)
 		SpeechdOptions.localhost_access_only = 1;
+	if (!SpeechdOptions.server_timeout_set)
+		SpeechdOptions.server_timeout = 5;
+	
 
 	logfile = stderr;
 	custom_logfile = NULL;
