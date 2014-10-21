@@ -960,14 +960,14 @@ gboolean client_process_incoming (gint          fd,
 void check_client_count(void)
 {
 	if (client_count <= 0
-	    && SpeechdOptions.server_timeout_set) {
-		MSG(3, "Currently no clients connected, enabling shutdown timer.");
+	    && SpeechdOptions.server_timeout > 0) {
+		MSG(4, "Currently no clients connected, enabling shutdown timer.");
 		server_timeout_source = 
 		                        g_timeout_add_seconds(
 		                        SpeechdOptions.server_timeout,
 		                        speechd_quit, NULL);
 	} else {
-	MSG(3, "Clients connected, disabling shutdown timer.");
+	MSG(4, "Clients connected, disabling shutdown timer.");
 		g_source_remove(server_timeout_source);
 	}
 }
