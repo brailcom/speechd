@@ -59,6 +59,9 @@ void destroy_pid_file();
 int server_socket;
 
 GMainLoop *main_loop = NULL;
+gint server_timeout_source = 0;
+
+int client_count = 0;
 
 static gboolean speechd_client_terminate(gpointer key, gpointer value, gpointer user);
 static gboolean speechd_reload_dead_modules(gpointer user_data);
@@ -72,6 +75,8 @@ static gboolean server_process_incoming (gint          fd,
 static gboolean client_process_incoming (gint          fd,
 				  GIOCondition  condition,
 				  gpointer      data);
+
+void check_client_count(void);
 
 #ifdef __SUNPRO_C
 /* Added by Willie Walker - daemon is a gcc-ism
@@ -392,6 +397,10 @@ int speechd_connection_new(int server_socket)
 	new_fd_set->fd_source = g_unix_fd_add(client_socket, G_IO_IN, client_process_incoming, NULL);
 
 	MSG(4, "Data structures for client on fd %d created", client_socket);
+
+	client_count++;
+	check_client_count();
+
 	return 0;
 
 }
@@ -432,6 +441,9 @@ int speechd_connection_destroy(int fd)
 		SpeechdStatus.max_fd--;
 
 	MSG(4, "Connection closed");
+
+	client_count--;
+	check_client_count();
 
 	return 0;
 }
@@ -945,6 +957,21 @@ gboolean client_process_incoming (gint          fd,
 	return TRUE;
 }
 
+void check_client_count(void)
+{
+	if (client_count <= 0
+	    && SpeechdOptions.server_timeout_set) {
+		MSG(3, "Currently no clients connected, enabling shutdown timer.");
+		server_timeout_source = 
+		                        g_timeout_add_seconds(
+		                        SpeechdOptions.server_timeout,
+		                        speechd_quit, NULL);
+	} else {
+	MSG(3, "Clients connected, disabling shutdown timer.");
+		g_source_remove(server_timeout_source);
+	}
+}
+
 /* --- MAIN --- */
 
 int main(int argc, char *argv[])
@@ -1222,6 +1249,8 @@ int main(int argc, char *argv[])
 
 	/* Now wait for clients and requests. */
 	MSG(1, "Speech Dispatcher started and waiting for clients ...");
+
+	check_client_count();
 
 	g_main_loop_run(main_loop);
 

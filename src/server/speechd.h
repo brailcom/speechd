@@ -168,6 +168,8 @@ struct {
 	char *debug_destination;
 	char *debug_logfile;
 	int max_history_messages;	/* Maximum of messages in history before they expire */
+	int server_timeout;
+	int server_timeout_set;
 } SpeechdOptions;
 
 struct {

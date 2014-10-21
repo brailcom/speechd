@@ -50,10 +50,11 @@ static const struct option spd_long_options[] = {
 	{"version", 0, 0, 'v'},
 	{"debug", 0, 0, 'D'},
 	{"help", 0, 0, 'h'},
+	{"timeout", 1, 0, 't'},
 	{0, 0, 0, 0}
 };
 
-static const char *const spd_short_options = "dsal:L:c:S:p:P:C:vDh";
+static const char *const spd_short_options = "dsal:L:c:S:p:P:C:t:vDh";
 
 void options_print_help(char *argv[])
 {
@@ -62,7 +63,7 @@ void options_print_help(char *argv[])
 
 	printf(_("Usage: "));
 	printf
-	    ("%s [-{d|s}] [-l {1|2|3|4|5}] [-c com_method] [-S socket_path] [-p port] | [-v] | [-h]\n",
+	    ("%s [-{d|s}] [-l {1|2|3|4|5}] [-c com_method] [-S socket_path] [-p port] [-t timeout] | [-v] | [-h]\n",
 	     argv[0]);
 	printf(_("%s -- Common interface for Speech Synthesis %s\n\n"),
 	       "Speech Dispatcher", "(GNU GPL)");
@@ -85,6 +86,9 @@ void options_print_help(char *argv[])
 	       "unix_socket", "default");
 	printf("-p, --port\t\t");
 	printf(_("Specify a port number for '%s' method\n"), "inet_socket");
+	printf("-t, --timeout\t\t");
+	printf(_("Set time in seconds for the server to wait before it shuts down,\n\t\t\t"));
+	printf(_("if it has no clients connected\n"));
 	printf("-P, --pid-file\t\t");
 	printf(_("Set path to pid file\n"));
 	printf("-C, --config-dir\t");
@@ -228,6 +232,9 @@ void options_parse(int argc, char *argv[])
 		case 'h':
 			options_print_help(argv);
 			exit(0);
+			break;
+		case 't':
+			SPD_OPTION_SET_INT(server_timeout);
 			break;
 		default:
 			MSG(2, "Unrecognized option\n");
