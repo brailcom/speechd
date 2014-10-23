@@ -394,9 +394,6 @@ int module_init(char **status_info)
 	void *pmem;
 	GError *error = NULL;
 
-	if (!g_thread_supported())
-		g_thread_init(NULL);
-
 	sem_init(&pico_play_semaphore, 0, 0);
 	sem_init(&pico_idle_semaphore, 0, 0);
 

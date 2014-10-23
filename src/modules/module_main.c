@@ -78,8 +78,6 @@ main(int argc, char *argv[])
     char *configfilename = NULL;
     char *status_info = NULL;
 
-    g_thread_init(NULL);
-
     /* Initialize ltdl's list of preloaded audio backends. */
     LTDL_SET_PRELOADED_SYMBOLS();
     module_num_dc_options = 0;

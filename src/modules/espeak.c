@@ -235,9 +235,6 @@ int module_init(char **status_info)
 
 	DBG("Espeak: Module init().");
 	INIT_INDEX_MARKING();
-	/* Make sure the glib functions are thread safe. */
-	if (!g_thread_supported())
-		g_thread_init(NULL);
 
 	*status_info = NULL;
 
