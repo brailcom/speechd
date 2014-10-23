@@ -977,6 +977,7 @@ int main(int argc, char *argv[])
 	{
 		const char *user_runtime_dir;
 		const char *user_config_dir;
+		char* test_speechd_conf_file = NULL;
 
 		user_runtime_dir = g_get_user_runtime_dir ();
 		user_config_dir = g_get_user_config_dir ();
@@ -998,13 +999,15 @@ int main(int argc, char *argv[])
 		if (SpeechdOptions.conf_dir == NULL) {
 			/* If no conf_dir was specified on command line, try default local config dir */
 			SpeechdOptions.conf_dir = g_build_filename(user_config_dir, "speech-dispatcher", NULL);
-			if (!g_file_test (SpeechdOptions.conf_dir, G_FILE_TEST_IS_DIR)) {
-				/* If the local confiration dir doesn't exist, read the global configuration */
+			test_speechd_conf_file = g_build_filename(SpeechdOptions.conf_dir, "speechd.conf", NULL);
+			if (!g_file_test (test_speechd_conf_file, G_FILE_TEST_IS_REGULAR)) {
+				/* If the local configuration file doesn't exist, read the global configuration */
 				if (strcmp(SYS_CONF, ""))
 					SpeechdOptions.conf_dir = g_strdup(SYS_CONF);
 				else
 					SpeechdOptions.conf_dir = g_strdup ("/etc/speech-dispatcher/");
 			}
+			g_free(test_speechd_conf_file);
 		}
 		SpeechdOptions.conf_file =
 		    g_strdup_printf("%s/speechd.conf", SpeechdOptions.conf_dir);
