@@ -1221,6 +1221,17 @@ SPDVoice **spd_list_synthesis_voices(SPDConnection * connection)
 	return svoices;
 }
 
+void free_spd_voices(SPDVoice** voices)
+{
+	int i = 0;
+	while (voices[i] != NULL) {
+		free(voices[i]->name);
+		free(voices[i]);
+		++i;
+	}
+	free(voices);
+}
+
 char **spd_execute_command_with_list_reply(SPDConnection * connection,
 					   char *command)
 {
