@@ -26,6 +26,7 @@
 
 signed int rate;
 signed int pitch;
+signed int pitch_range;
 signed int volume;
 
 int list_output_modules;
@@ -50,6 +51,7 @@ char *connection_name;
 static struct option long_options[] = {
 	{"rate", 1, 0, 'r'},
 	{"pitch", 1, 0, 'p'},
+	{"pitch-range", 1, 0, 'R'},
 	{"volume", 1, 0, 'i'},
 	{"output-module", 1, 0, 'o'},
 	{"list-output-modules", no_argument, 0, 'O'},
@@ -73,7 +75,7 @@ static struct option long_options[] = {
 	{0, 0, 0, 0}
 };
 
-static char *short_options = "r:p:i:l:o:OI:t:Ly:m:sxeP:N:n:wSCvh";
+static char *short_options = "r:p:R:i:l:o:OI:t:Ly:m:sxeP:N:n:wSCvh";
 
 int options_parse(int argc, char *argv[]);
 void options_print_version();

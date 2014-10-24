@@ -54,6 +54,11 @@ void options_print_help(char *argv[])
 	printf("\t\t\t\t");
 	printf(_("(between %+d and %+d, default: %d)\n"), -100, 100, 0);
 
+	printf("-R, --pitch-range\t\t\t");
+	printf(_("Set the pitch range of the speech\n"));
+	printf("\t\t\t\t");
+	printf(_("(between %+d and %+d, default: %d)\n"), -100, 100, 0);
+	
 	printf("-i, --volume\t\t\t");
 	printf(_("Set the volume (intensity) of the speech\n"));
 	printf("\t\t\t\t");
@@ -193,6 +198,9 @@ int options_parse(int argc, char *argv[])
 			break;
 		case 'p':
 			OPT_SET_INT(pitch);
+			break;
+		case 'R':
+			OPT_SET_INT(pitch_range);
 			break;
 		case 'i':
 			OPT_SET_INT(volume);

@@ -72,6 +72,7 @@ int main(int argc, char **argv)
 
 	rate = -101;
 	pitch = -101;
+	pitch_range = -101;
 	volume = -101;
 	language = NULL;
 	voice_type = NULL;
@@ -202,6 +203,10 @@ int main(int argc, char **argv)
 	if (pitch != -101)
 		if (spd_set_voice_pitch(conn, pitch))
 			printf("Invalid pitch!\n");
+
+	if (pitch_range != -101)
+		if (spd_set_voice_pitch_range(conn, pitch_range))
+			printf("Invalid pitch range!\n");
 
 	if (volume != -101)
 		if (spd_set_volume(conn, volume))
