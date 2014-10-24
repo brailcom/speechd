@@ -878,6 +878,8 @@ The language identification string (it's defined by GenericLanguage).
 The voice identification string (it's defined by AddVoice).
 @item @code{$PITCH}
 The desired pitch (a float number defined in GenericPitchAdd and GenericPitchMultiply).
+@item @code{$PITCH_RANGE}
+The desired pitch range (a float number defined in GenericPitchRangeAdd and GenericPitchRangeMultiply).
 @item @code{$RATE}
 The desired rate or speed (a float number defined in GenericRateAdd and GenericRateMultiply)
 @end itemize
@@ -914,8 +916,12 @@ GenericLanguage "sk" "slovak"
 @defvr {GenericModuleConfiguration} GenericPitchAdd @var{num}
 @end defvr
 @defvr {GenericModuleConfiguration} GenericPitchMultiply @var{num}
+@end defvr
+@defvr {GenericModuleConfiguration} GenericPitchRangeAdd @var{num}
+@end defvr
+@defvr {GenericModuleConfiguration} GenericPitchRangeMultiply @var{num}
 These parameters set rate and pitch conversion to compute
-the value of @code{$RATE} and @code{$PITCH}. 
+the value of @code{$RATE}, @code{$PITCH} and @code{$PITCH_RANGE}. 
 
 The resulting rate (or pitch) is calculated using the following formula:
 @example
@@ -1924,6 +1930,18 @@ lowest and the highest pitch respectively.
 
 @end deffn
 
+@deffn {C API function}  int spd_set_voice_pitch_range(SPDConnection* connection, int pitch_range);
+@findex spd_set_voice_pitch()
+
+Set voice pitch range.
+
+@code{connection} is the SPDConnection* connection created by spd_open().
+
+@code{pitch_range} is a number between -100 and +100, which means the
+lowest and the highest pitch range respectively.
+
+@end deffn
+
 @deffn {C API function}  int spd_set_volume(SPDConnection* connection, int volume);
 @findex spd_set_volume()
 
@@ -2654,8 +2672,8 @@ response to the particular lines sent.  The response line is sent only
 immediately after the @code{SET} command and after receiving the
 closing dot line.
 
-The available parameters that accept numerical values are @code{rate}
-and @code{pitch}.
+The available parameters that accept numerical values are @code{rate},
+@code{pitch} and @code{pitch_range}.
 
 The available parameters that accept string values are
 @code{punctuation_mode}, @code{spelling_mode}, @code{cap_let_recogn},
@@ -2679,6 +2697,7 @@ SET
 203 OK RECEIVING SETTINGS
 rate=20
 pitch=-10
+pitch_range=50
 punctuation_mode=all
 spelling_mode=on
 punctuation_some=NULL

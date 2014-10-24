@@ -71,6 +71,8 @@ Usage: @code{spd-say [options] ["some text"]}
 Set the rate of the speech (between -100 and +100, default see below).
 @item -p or --pitch
 Set the pitch of the speech (between -100 and +100, default see below).
+@item -R or --pitch-range
+Set the pitch range of the speech (between -100 and +100, default see below).
 @item -i or --volume
 Set the volume (intensity) of the speech (between -100 and +100, default see below).
 @item -o or --output-module
