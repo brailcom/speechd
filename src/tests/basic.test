@@ -52,6 +52,14 @@ Do not believe in miracles -- rely on them.
 .
 $8
 
+@ We will keep the pitch at this level and try to increase the pitch range.
+$4
+!SET SELF PITCH_RANGE 75
+!SPEAK
+War has always been the grand sagacity of every spirit which has grown too inward and too profound; its curative power lies even in the wounds one receives.
+.
+$8
+
 @ This time, we will return to normal speed, but decrease the pitch.
 @ Some distortion is probably unavoidable.
 $4

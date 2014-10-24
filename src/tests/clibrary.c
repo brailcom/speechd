@@ -81,6 +81,35 @@ int main()
 
 	sleep(4);
 
+	printf("\n");
+	printf("Try to lower pitch and raise pitch range and rate...\n");
+	ret = spd_set_voice_pitch(conn, -20);
+	if (ret == -1) {
+		printf("spd_set_voice_pitch failed");
+		exit(1);
+	}
+
+	ret = spd_set_voice_pitch_range(conn, +20);
+	if (ret == -1) {
+		printf("spd_set_voice_pitch_range failed");
+		exit(1);
+	}
+
+	ret = spd_set_voice_rate(conn, +20);
+	if (ret == -1) {
+		printf("spd_set_voice_rate failed");
+		exit(1);
+	}
+
+	printf("...and say something\n");
+	ret = spd_say(conn, SPD_MESSAGE, "Do you like this voice more?");
+	if (ret == -1) {
+		printf("spd_say failed");
+		exit(1);
+	}
+
+	sleep(4);
+ 
 	printf("Switch punctuation mode to `all'.");
 	printf("\n");
 
