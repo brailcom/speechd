@@ -209,6 +209,10 @@ SSIP_OUTPUT_DECL(text, "text")
     SSIP_SET_DECL(pitch, "pitch")
     SSIP_SET_INT_BODY(voice_pitch)
 #undef FUNC_NAME
+#define FUNC_NAME s_ssip_set_pitch_range
+    SSIP_SET_DECL(pitch_range, "pitch_range")
+    SSIP_SET_INT_BODY(voice_pitch_range)
+#undef FUNC_NAME
 #define FUNC_NAME s_ssip_set_volume
     SSIP_SET_DECL(volume, "volume")
     SSIP_SET_INT_BODY(volume)

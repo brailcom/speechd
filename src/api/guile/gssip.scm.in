@@ -66,6 +66,9 @@
 (define (ssip-set-pitch connection pitch)
   (%ssip-set-pitch connection pitch))
 
+(define (ssip-set-pitch-range connection pitch_range)
+  (%ssip-set-pitch-range connection pitch-range))
+
 (define (ssip-set-volume connection volume)
   (%ssip-set-volume connection volume))
 

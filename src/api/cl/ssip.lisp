@@ -79,6 +79,7 @@ Useful only for diagnosing problems.")
     (voice . "VOICE")
     (rate . "RATE")
     (pitch . "PITCH")
+    (pitch_range . "PITCH_RANGE")
     (spelling-mode . "SPELLING")
     (output-module . "OUTPUT_MODULE")
     ))
@@ -383,7 +384,7 @@ Return the opened connection on success, nil otherwise."
     ("key")
     ("quit")
     ("block" ("end"))
-    ("set" ("self" ("rate" "pitch" "voice" "language")))))
+    ("set" ("self" ("rate" "pitch" "pitch_range" "voice" "language")))))
 
 (defun block-command-p (command &optional allowed)
   (unless allowed

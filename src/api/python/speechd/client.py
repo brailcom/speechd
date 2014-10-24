@@ -890,6 +890,20 @@ class SSIPClient(object):
         assert isinstance(value, int) and -100 <= value <= 100, value
         self._conn.send_command('SET', scope, 'PITCH', value)
 
+    def set_pitch_range(self, value, scope=Scope.SELF):
+        """Set the pitch range for further speech commands.
+
+        Arguments:
+          value -- integer value within the range from -100 to 100, with 0
+            corresponding to the default pitch range of the current speech synthesis
+            output module, lower values meaning lower pitch range and higher values
+            meaning higher pitch range.
+          scope -- see the documentation of this class.
+          
+        """
+        assert isinstance(value, int) and -100 <= value <= 100, value
+        self._conn.send_command('SET', scope, 'PITCH_RANGE', value)
+
     def set_rate(self, value, scope=Scope.SELF):
         """Set the speech rate (speed) for further speech commands.
 

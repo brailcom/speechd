@@ -51,7 +51,7 @@ CONNECTION-NAME is a connection name as expected to be in `speechd-client-name'
 and PARAMETERS is a property list with the pairs of parameter identifiers and
 parameter values.  Valid parameter names are the following symbols:
 language, message-priority, punctuation-mode, capital-character-mode, voice,
-rate, pitch, output-module.  See the corresponding speechd-set-* functions for
+rate, pitch, pitch_range, output-module.  See the corresponding speechd-set-* functions for
 valid parameter values.
 
 If the symbol t is specified as the connection name, the element defines

@@ -740,6 +740,10 @@ class Configure:
             "Default speech pitch (on the scale of -100..100, 0 is default, 50 is higher, -50 is lower)",
             "0")
     
+        self.default_speech_pitch_range = question(
+            "Default speech pitch range (on the scale of -100..100, 0 is default, 50 is higher, -50 is lower)",
+            "0")
+    
         # Substitute given configuration options
         if type == 'user':
             configfile = os.path.join(test.user_conf_dir(), "speechd.conf")
@@ -752,6 +756,7 @@ class Configure:
                                  "AudioOutputMethod": self.default_audio_method,
                                  "DefaultRate": self.default_speech_rate,
                                  "DefaultPitch": self.default_speech_pitch,
+                                 "DefaultPitchRange": self.default_speech_pitch_range,
                                  "DefaultLanguage": self.default_language,
                                  })
         if type == 'user':
