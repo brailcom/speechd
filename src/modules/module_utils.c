@@ -208,6 +208,7 @@ do_set(void)
             
             SET_PARAM_NUM(rate, ((number>=-100) && (number<=100)))
             else SET_PARAM_NUM(pitch, ((number>=-100) && (number<=100)))
+	    else SET_PARAM_NUM(pitch_range, ((number>=-100) && (number<=100)))
 	    else SET_PARAM_NUM(volume, ((number>=-100) && (number<=100)))
             else SET_PARAM_STR_C(punctuation_mode, str2EPunctMode)
             else SET_PARAM_STR_C(spelling_mode, str2ESpellMode)

@@ -61,6 +61,7 @@ static void generic_child_close(TModuleDoublePipe dpipe);
 
 void generic_set_rate(signed int rate);
 void generic_set_pitch(signed int pitch);
+void generic_set_pitch_range(signed int pitch_range);
 void generic_set_voice(SPDVoiceType voice);
 void generic_set_language(char *language);
 void generic_set_volume(signed int volume);
@@ -83,12 +84,16 @@ MOD_OPTION_1_STR(GenericExecuteSynth)
     MOD_OPTION_1_INT(GenericPitchAdd)
     MOD_OPTION_1_FLOAT(GenericPitchMultiply)
     MOD_OPTION_1_INT(GenericPitchForceInteger)
+    MOD_OPTION_1_INT(GenericPitchRangeAdd)
+    MOD_OPTION_1_FLOAT(GenericPitchRangeMultiply)
+    MOD_OPTION_1_INT(GenericPitchRangeForceInteger)
     MOD_OPTION_1_INT(GenericVolumeAdd)
     MOD_OPTION_1_FLOAT(GenericVolumeMultiply)
     MOD_OPTION_1_INT(GenericVolumeForceInteger)
     MOD_OPTION_3_HT(GenericLanguage, code, name, charset)
 
 static char generic_msg_pitch_str[16];
+static char generic_msg_pitch_range_str[16];
 static char generic_msg_rate_str[16];
 static char generic_msg_volume_str[16];
 static char *generic_msg_voice_str = NULL;
@@ -118,6 +123,10 @@ int module_load(void)
 	MOD_OPTION_1_FLOAT_REG(GenericPitchMultiply, 1);
 	MOD_OPTION_1_INT_REG(GenericPitchForceInteger, 0);
 
+	MOD_OPTION_1_INT_REG(GenericPitchRangeAdd, 0);
+	MOD_OPTION_1_FLOAT_REG(GenericPitchRangeMultiply, 1);
+	MOD_OPTION_1_INT_REG(GenericPitchRangeForceInteger, 0);
+	
 	MOD_OPTION_1_INT_REG(GenericVolumeAdd, 0);
 	MOD_OPTION_1_FLOAT_REG(GenericVolumeMultiply, 1);
 	MOD_OPTION_1_INT_REG(GenericVolumeForceInteger, 0);
@@ -189,6 +198,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	UPDATE_PARAMETER(voice_type, generic_set_voice);
 	UPDATE_PARAMETER(punctuation_mode, generic_set_punct);
 	UPDATE_PARAMETER(pitch, generic_set_pitch);
+	UPDATE_PARAMETER(pitch_range, generic_set_pitch_range);
 	UPDATE_PARAMETER(rate, generic_set_rate);
 	UPDATE_PARAMETER(volume, generic_set_volume);
 
@@ -407,6 +417,9 @@ void *_generic_speak(void *nothing)
 				    string_replace(e_string, "$PITCH",
 						   generic_msg_pitch_str);
 				e_string =
+				    string_replace(e_string, "$PITCH_RANGE",
+						   generic_msg_pitch_range_str);
+				e_string =
 				    string_replace(e_string, "$RATE",
 						   generic_msg_rate_str);
 				e_string =
@@ -565,6 +578,18 @@ void generic_set_pitch(int pitch)
 		snprintf(generic_msg_pitch_str, 15, "%.2f", hpitch);
 	} else {
 		snprintf(generic_msg_pitch_str, 15, "%d", (int)hpitch);
+	}
+}
+
+void generic_set_pitch_range(int pitch_range)
+{
+	float hpitch_range;
+
+	hpitch_range = ((float)pitch_range) * GenericPitchRangeMultiply + GenericPitchRangeAdd;
+	if (!GenericPitchRangeForceInteger) {
+		snprintf(generic_msg_pitch_range_str, 15, "%.2f", hpitch_range);
+	} else {
+		snprintf(generic_msg_pitch_range_str, 15, "%d", (int)hpitch_range);
 	}
 }
 

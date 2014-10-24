@@ -135,6 +135,10 @@ pthread_cond_t playback_queue_condition;
    SSIP PITCH commands then adjust relative to this. */
 static int espeak_voice_pitch_baseline = 50;
 
+/* When a voice is set, this is the baseline pitch range of the voice.
+   SSIP PITCH range commands then adjust relative to this. */
+static int espeak_voice_pitch_range_baseline = 50;
+
 /* <Function prototypes*/
 
 static void espeak_state_reset();
@@ -151,13 +155,11 @@ static int uri_callback(int type, const char *uri, const char *base);
 /* Basic parameters */
 static void espeak_set_rate(signed int rate);
 static void espeak_set_pitch(signed int pitch);
+static void espeak_set_pitch_range(signed int pitch_range);
 static void espeak_set_volume(signed int volume);
 static void espeak_set_punctuation_mode(SPDPunctuation punct_mode);
 static void espeak_set_cap_let_recogn(SPDCapitalLetters cap_mode);
 
-#if 0
-static void espeak_set_pitch_range(signed int pitch_range);
-#endif
 
 /* Voices and languages */
 static void espeak_set_language(char *lang);
@@ -188,7 +190,6 @@ static void *_espeak_stop_or_pause(void *);
 /* > */
 /* < Module configuration options*/
 
-MOD_OPTION_1_INT(EspeakPitchRange)
     MOD_OPTION_1_STR(EspeakPunctuationList)
     MOD_OPTION_1_INT(EspeakCapitalPitchRise)
     MOD_OPTION_1_INT(EspeakMinRate)
@@ -215,7 +216,6 @@ int module_load(void)
 			     "/usr/share/sounds/sound-icons/");
 	MOD_OPTION_1_INT_REG(EspeakSoundIconVolume, 0);
 
-	MOD_OPTION_1_INT_REG(EspeakPitchRange, 0);
 	MOD_OPTION_1_INT_REG(EspeakMinRate, 80);
 	MOD_OPTION_1_INT_REG(EspeakNormalRate, 170);
 	MOD_OPTION_1_INT_REG(EspeakMaxRate, 390);
@@ -350,6 +350,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	UPDATE_PARAMETER(rate, espeak_set_rate);
 	UPDATE_PARAMETER(volume, espeak_set_volume);
 	UPDATE_PARAMETER(pitch, espeak_set_pitch);
+	UPDATE_PARAMETER(pitch_range, espeak_set_pitch_range);
 	UPDATE_PARAMETER(punctuation_mode, espeak_set_punctuation_mode);
 	UPDATE_PARAMETER(cap_let_recogn, espeak_set_cap_let_recogn);
 
@@ -652,6 +653,29 @@ static void espeak_set_pitch(signed int pitch)
 		DBG("Espeak: Error setting pitch %i.", pitchBaseline);
 	} else {
 		DBG("Espeak: Pitch set to %i.", pitchBaseline);
+	}
+}
+
+static void espeak_set_pitch_range(signed int pitch_range)
+{
+	assert(pitch_range >= -100 && pitch_range <= +100);
+	int pitchRangeBaseline;
+	/* Possible range 0 to 100. */
+	if (pitch_range < 0) {
+		pitchRangeBaseline =
+		    ((float)(pitch_range + 100) * espeak_voice_pitch_range_baseline) /
+		    (float)100;
+	} else {
+		pitchRangeBaseline =
+		    (((float)pitch_range * (100 - espeak_voice_pitch_range_baseline))
+		     / (float)100) + espeak_voice_pitch_range_baseline;
+	}
+	assert(pitchRangeBaseline >= 0 && pitchRangeBaseline <= 100);
+	espeak_ERROR ret = espeak_SetParameter(espeakRANGE, pitchRangeBaseline, 0);
+	if (ret != EE_OK) {
+		DBG("Espeak: Error setting pitch range %i.", pitchRangeBaseline);
+	} else {
+		DBG("Espeak: Pitch range set to %i.", pitchRangeBaseline);
 	}
 }
 

@@ -62,6 +62,7 @@ int module_num_dc_options;
 #define CLEAN_OLD_SETTINGS_TABLE()\
  msg_settings_old.rate = -101;\
  msg_settings_old.pitch = -101;\
+ msg_settings_old.pitch_range = -101;\
  msg_settings_old.volume = -101;\
  msg_settings_old.punctuation_mode = -1;\
  msg_settings_old.spelling_mode = -1;\
@@ -74,6 +75,7 @@ int module_num_dc_options;
  module_dc_options = NULL;\
  msg_settings.rate = 0;\
  msg_settings.pitch = 0;\
+ msg_settings.pitch_range = 0;\
  msg_settings.volume = 0;\
  msg_settings.punctuation_mode = SPD_PUNCT_NONE;\
  msg_settings.spelling_mode = SPD_SPELL_OFF;\
