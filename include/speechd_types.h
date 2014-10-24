@@ -106,6 +106,7 @@ typedef enum {
 typedef struct {
 	signed int rate;
 	signed int pitch;
+	signed int pitch_range;
 	signed int volume;
 
 	SPDPunctuation punctuation_mode;
