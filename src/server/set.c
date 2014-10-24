@@ -121,6 +121,23 @@ int set_pitch_uid(int uid, int pitch)
 	return 0;
 }
 
+SET_SELF_ALL(int, pitch_range)
+
+int set_pitch_range_uid(int uid, int pitch_range)
+{
+	TFDSetElement *settings;
+
+	if ((pitch_range > 100) || (pitch_range < -100))
+		return 1;
+
+	settings = get_client_settings_by_uid(uid);
+	if (settings == NULL)
+		return 1;
+
+	settings->msg_settings.pitch_range = pitch_range;
+	return 0;
+}
+
 SET_SELF_ALL(int, volume)
 
 int set_volume_uid(int uid, int volume)
@@ -286,6 +303,7 @@ void update_cl_settings(gpointer data, gpointer user_data)
 	/*  Warning: If you modify this, you must also modify cb_BeginClient in config.c ! */
 	CHECK_SET_PAR(msg_settings.rate, -101)
 	    CHECK_SET_PAR(msg_settings.pitch, -101)
+	    CHECK_SET_PAR(msg_settings.pitch_range, -101)
 	    CHECK_SET_PAR(msg_settings.volume, -101)
 	    CHECK_SET_PAR(msg_settings.punctuation_mode, -1)
 	    CHECK_SET_PAR(msg_settings.spelling_mode, -1)
@@ -485,6 +503,7 @@ TFDSetElement *default_fd_set(void)
 	    GlobalFDSet.msg_settings.punctuation_mode;
 	new->msg_settings.rate = GlobalFDSet.msg_settings.rate;
 	new->msg_settings.pitch = GlobalFDSet.msg_settings.pitch;
+	new->msg_settings.pitch_range = GlobalFDSet.msg_settings.pitch_range;
 	new->msg_settings.volume = GlobalFDSet.msg_settings.volume;
 	new->msg_settings.voice.language =
 	    g_strdup(GlobalFDSet.msg_settings.voice.language);

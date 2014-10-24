@@ -405,6 +405,8 @@ output_send_settings(TSpeechDMessage *msg, OutputModule *output)
     set_str = g_string_new("");
     g_string_append_printf(set_str, "pitch=%d\n",
                            msg->settings.msg_settings.pitch);
+    g_string_append_printf(set_str, "pitch_range=%d\n",
+                           msg->settings.msg_settings.pitch_range);
     g_string_append_printf(set_str, "rate=%d\n",
                            msg->settings.msg_settings.rate);
     g_string_append_printf(set_str, "volume=%d\n",

@@ -491,6 +491,17 @@ parse_set(const char *buf, const int bytes, const int fd, const TSpeechDSock *sp
         if (ret) return g_strdup(ERR_COULDNT_SET_PITCH);
         return g_strdup(OK_PITCH_SET);
     }
+    else if (TEST_CMD(set_sub, "pitch_range")){
+        signed int pitch_range;
+        GET_PARAM_INT(pitch_range, 3);
+
+        if(pitch_range < -100) return g_strdup(ERR_PITCH_RANGE_TOO_LOW);
+        if(pitch_range > +100) return g_strdup(ERR_PITCH_RANGE_TOO_HIGH);
+
+        SSIP_SET_COMMAND(pitch_range);
+        if (ret) return g_strdup(ERR_COULDNT_SET_PITCH_RANGE);
+        return g_strdup(OK_PITCH_RANGE_SET);
+    }
     else if (TEST_CMD(set_sub, "volume")){
         signed int volume;
         GET_PARAM_INT(volume, 3);

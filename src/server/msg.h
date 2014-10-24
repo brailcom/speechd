@@ -85,6 +85,8 @@
 
 #define OK_DEBUGGING                            "262 OK DEBUGGING SET\r\n"
 
+#define OK_PITCH_RANGE_SET			"263 OK PITCH RANGE SET\r\n"
+
 #define OK_NOT_IMPLEMENTED                      "299 OK BUT NOT IMPLEMENTED -- DOES NOTHING\r\n"
 
 #define ERR_NO_CLIENT				"401 ERR NO CLIENT\r\n"
@@ -101,6 +103,9 @@
 #define ERR_PITCH_TOO_LOW                       "412 ERR PITCH TOO LOW\r\n"
 #define ERR_VOLUME_TOO_HIGH                      "413 ERR PITCH TOO HIGH\r\n"
 #define ERR_VOLUME_TOO_LOW                       "414 ERR PITCH TOO LOW\r\n"
+
+#define ERR_PITCH_RANGE_TOO_HIGH                "415 ERR PITCH RANGE TOO HIGH\r\n"
+#define ERR_PITCH_RANGE_TOO_LOW                 "416 ERR PITCH RANGE TOO LOW\r\n"
 
 #define ERR_INTERNAL				"300 ERR INTERNAL\r\n"
 #define ERR_COULDNT_SET_PRIORITY                "301 ERR COULDNT SET PRIORITY\r\n"
@@ -127,6 +132,8 @@
 #define ERR_ALREADY_INSIDE_BLOCK                "330 ERR ALREADY INSIDE BLOCK\r\n"
 #define ERR_ALREADY_OUTSIDE_BLOCK               "331 ERR ALREADY OUTSIDE BLOCK\r\n"
 #define ERR_NOT_ALLOWED_INSIDE_BLOCK            "332 ERR NOT ALLOWED INSIDE BLOCK\r\n"
+
+#define ERR_COULDNT_SET_PITCH_RANGE             "340 ERR COULDNT SET PITCH RANGE\r\n"
 
 #define ERR_NOT_IMPLEMENTED                     "380 ERR NOT YET IMPLEMENTED\r\n"
 

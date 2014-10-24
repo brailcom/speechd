@@ -189,6 +189,8 @@ GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module)
 			   && (val <= +100), "Rate out of range.")
     GLOBAL_FDSET_OPTION_CB_INT(DefaultPitch, msg_settings.pitch, (val >= -100)
 			   && (val <= +100), "Pitch out of range.")
+    GLOBAL_FDSET_OPTION_CB_INT(DefaultPitchRange, msg_settings.pitch_range, (val >= -100)
+			   && (val <= +100), "Pitch range out of range.")
     GLOBAL_FDSET_OPTION_CB_INT(DefaultVolume, msg_settings.volume, (val >= -100)
 			   && (val <= +100), "Volume out of range.")
     GLOBAL_FDSET_OPTION_CB_INT(DefaultSpelling, msg_settings.spelling_mode, 1,
@@ -337,6 +339,7 @@ DOTCONF_CB(cb_BeginClient)
 	/*  Warning: If you modify this, you must also modify update_cl_settings() in set.c ! */
 	SET_PAR(msg_settings.rate, -101)
 	    SET_PAR(msg_settings.pitch, -101)
+	    SET_PAR(msg_settings.pitch_range, -101)
 	    SET_PAR(msg_settings.volume, -101)
 	    SET_PAR(msg_settings.punctuation_mode, -1)
 	    SET_PAR(msg_settings.spelling_mode, -1)
@@ -411,6 +414,7 @@ configoption_t *load_config_options(int *num_options)
 	ADD_CONFIG_OPTION(LanguageDefaultModule, ARG_LIST);
 	ADD_CONFIG_OPTION(DefaultRate, ARG_INT);
 	ADD_CONFIG_OPTION(DefaultPitch, ARG_INT);
+	ADD_CONFIG_OPTION(DefaultPitchRange, ARG_INT);
 	ADD_CONFIG_OPTION(DefaultVolume, ARG_INT);
 	ADD_CONFIG_OPTION(DefaultLanguage, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultPriority, ARG_STR);
@@ -445,6 +449,7 @@ void load_default_global_set_options()
 	GlobalFDSet.msg_settings.spelling_mode = 0;
 	GlobalFDSet.msg_settings.rate = 0;
 	GlobalFDSet.msg_settings.pitch = 0;
+	GlobalFDSet.msg_settings.pitch_range = 0;
 	GlobalFDSet.msg_settings.volume = 0;
 	GlobalFDSet.client_name = g_strdup("unknown:unknown:unknown");
 	GlobalFDSet.msg_settings.voice.language = g_strdup("en");
