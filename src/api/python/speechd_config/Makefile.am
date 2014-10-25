@@ -1,6 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 
 dist_snddata_DATA = test.wav
+dist_spddesktopconforig_DATA = speechd.desktop
 
 dist_bin_SCRIPTS = spd-conf
 
