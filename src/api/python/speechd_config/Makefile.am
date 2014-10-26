@@ -1,7 +1,11 @@
 ## Process this file with automake to produce Makefile.in
 
 dist_snddata_DATA = test.wav
-dist_spddesktopconforig_DATA = speechd.desktop
+DESKTOP_FILES = speechd.desktop
+desktop_DATA = $(DESKTOP_FILES:.desktop.in=.desktop)
+desktopdir = $(spddesktopconforigdir)
+
+@INTLTOOL_DESKTOP_RULE@
 
 dist_bin_SCRIPTS = spd-conf
 
