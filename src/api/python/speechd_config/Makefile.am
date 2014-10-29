@@ -27,6 +27,6 @@ paths.py: Makefile
 
 paths.py: $(srcdir)/paths.py.in
 
-CLEANFILES = paths.py
+CLEANFILES = paths.py speechd.desktop
 
 EXTRA_DIST = paths.py.in speechd.desktop.in
