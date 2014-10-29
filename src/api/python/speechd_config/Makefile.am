@@ -1,7 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 
 dist_snddata_DATA = test.wav
-DESKTOP_FILES = speechd.desktop
+DESKTOP_FILES = speechd.desktop.in
 desktop_DATA = $(DESKTOP_FILES:.desktop.in=.desktop)
 desktopdir = $(spddesktopconforigdir)
 
@@ -29,4 +29,4 @@ paths.py: $(srcdir)/paths.py.in
 
 CLEANFILES = paths.py
 
-EXTRA_DIST = paths.py.in
+EXTRA_DIST = paths.py.in speechd.desktop.in
