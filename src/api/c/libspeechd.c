@@ -1177,6 +1177,16 @@ char **spd_list_modules(SPDConnection * connection)
 	return available_modules;
 }
 
+void free_spd_modules(char **modules)
+{
+	int i = 0;
+	while (modules[i] != NULL) {
+		free(modules[i]);
+		++i;
+	}
+	free(modules);
+}
+
 char **spd_list_voices(SPDConnection * connection)
 {
 	char **voices;
