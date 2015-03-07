@@ -219,6 +219,7 @@ int spd_get_message_list_fd(SPDConnection * connection, int target,
 			    int *msg_ids, char **client_names);
 
 char **spd_list_modules(SPDConnection * connection);
+void free_spd_modules(char **);
 char **spd_list_voices(SPDConnection * connection);
 SPDVoice **spd_list_synthesis_voices(SPDConnection * connection);
 void free_spd_voices(SPDVoice ** voices);
