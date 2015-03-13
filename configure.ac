@@ -309,9 +309,9 @@ AC_SUBST([default_audio_method])
 AC_SUBST([audio_dlopen_modules])
 
 # current, age and revision values for libspeechd.
-LIB_SPD_CURRENT=6 # Current main version (increment on every API change -- incompatible AND extensions)
+LIB_SPD_CURRENT=7 # Current main version (increment on every API change -- incompatible AND extensions)
 LIB_SPD_REVISION=0 # Current minor version (increment on every implementation change)
-LIB_SPD_AGE=4 # Number of backward compatible main versions (LIB_SPD_CURRENT incrementations since last incompatible)
+LIB_SPD_AGE=5 # Number of backward compatible main versions (LIB_SPD_CURRENT incrementations since last incompatible)
 AC_SUBST([LIB_SPD_CURRENT])
 AC_SUBST([LIB_SPD_REVISION])
 AC_SUBST([LIB_SPD_AGE])
