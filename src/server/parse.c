@@ -61,7 +61,7 @@
 
 #define ALLOWED_INSIDE_BLOCK() ;
 
-char* 
+char*
 parse(const char *buf, const int bytes, const int fd)
 {
     TSpeechDMessage *new;
@@ -74,14 +74,14 @@ parse(const char *buf, const int bytes, const int fd)
     GString* ok_queued_reply;
     char *reply;
     TSpeechDSock *speechd_socket = speechd_socket_get_by_fd(fd);
-    assert(speechd_socket);       
+    assert(speechd_socket);
 
     end_data = 0;
     if ((buf == NULL) || (bytes == 0)){
         if(SPEECHD_DEBUG) FATAL("invalid buffer for parse()\n");
         return g_strdup(ERR_INTERNAL);
     }
- 
+
     /* First the condition that we are not in data mode and we
      * are awaiting commands */
     if (speechd_socket->awaiting_data == 0){
@@ -96,7 +96,7 @@ parse(const char *buf, const int bytes, const int fd)
         if (command == NULL){
             if(SPEECHD_DEBUG) FATAL("Invalid buffer for parse()\n");
             return g_strdup(ERR_INTERNAL);
-        }		
+        }
 
         CHECK_SSIP_COMMAND("set", parse_set, BLOCK_OK);
         CHECK_SSIP_COMMAND("history", parse_history, BLOCK_NO);
@@ -109,7 +109,7 @@ parse(const char *buf, const int bytes, const int fd)
         CHECK_SSIP_COMMAND("key", parse_key, BLOCK_OK)
         CHECK_SSIP_COMMAND("list", parse_list, BLOCK_NO);
         CHECK_SSIP_COMMAND("get", parse_get, BLOCK_NO);
-        CHECK_SSIP_COMMAND("help", parse_help, BLOCK_NO);		
+        CHECK_SSIP_COMMAND("help", parse_help, BLOCK_NO);
         CHECK_SSIP_COMMAND("block", parse_block, BLOCK_OK);
 
         if (!strcmp(command,"bye") || !strcmp(command,"quit")){
@@ -118,13 +118,13 @@ parse(const char *buf, const int bytes, const int fd)
             if (write(fd, OK_BYE, strlen(OK_BYE))){
 		MSG(2, "ERROR: Can't write OK_BYE message to client socket: %s", strerror(errno));
 	    }
-		
+
             speechd_connection_destroy(fd);
             /* This is internal Speech Dispatcher message, see serve() */
             g_free(command);
             return g_strdup("999 CLIENT GONE"); /* This is an internal message, not part of SSIP */
         }
-	
+
         if (!strcmp(command,"speak")){
 	    g_free(command);
             /* Ckeck if we have enough space in awaiting_data table for
@@ -177,14 +177,14 @@ parse(const char *buf, const int bytes, const int fd)
             new->bytes = speechd_socket->o_bytes;
             assert(speechd_socket->o_buf != NULL);
             new->buf = deescape_dot(speechd_socket->o_buf->str, new->bytes);
-            reparted = speechd_socket->inside_block; 
-            MSG(5, "New buf is now: |%s|", new->buf);		
+            reparted = speechd_socket->inside_block;
+            MSG(5, "New buf is now: |%s|", new->buf);
             if((msg_uid = queue_message(new, fd, 1, SPD_MSGTYPE_TEXT, reparted)) == 0){
                 if(SPEECHD_DEBUG) FATAL("Can't queue message\n");
                 g_free(new->buf);
                 g_free(new);
                 return g_strdup(ERR_INTERNAL);
-            }			       
+            }
 
             /* Clear the counter of bytes in the output buffer. */
             server_data_off(fd);
@@ -198,19 +198,19 @@ parse(const char *buf, const int bytes, const int fd)
         {
             int real_bytes;
             if(bytes>=5){
-	      if ( (pos = strstr(buf,"\r\n.\r\n")) ){	
+	      if ( (pos = strstr(buf,"\r\n.\r\n")) ){
                     real_bytes=pos-buf;
-                    end_data=1;		
+                    end_data=1;
                     MSG(5,"Command in data caught");
                 }else{
                     real_bytes = bytes;
                 }
             }else{
                 real_bytes = bytes;
-            }      
+            }
             /* Get the number of bytes read before, sum it with the number of bytes read
-             * now and store again in the counter */        
-            speechd_socket->o_bytes += real_bytes;       
+             * now and store again in the counter */
+            speechd_socket->o_bytes += real_bytes;
 
             g_string_insert_len(speechd_socket->o_buf, -1, buf, real_bytes);
         }
@@ -228,7 +228,7 @@ parse(const char *buf, const int bytes, const int fd)
     if (param == NULL){ \
        MSG(4, "Missing parameter from client"); \
        return g_strdup(ERR_MISSING_PARAMETER); \
-    } 
+    }
 
 #define GET_PARAM_INT(name, pos) \
    { \
@@ -268,10 +268,10 @@ parse_history(const char *buf, const int bytes, const int fd, const TSpeechDSock
 
         if (TEST_CMD(hist_get_sub, "client_list")){
             return (char*) history_get_client_list();
-        }  
+        }
         else if (TEST_CMD(hist_get_sub, "client_id")){
             return (char*) history_get_client_id(fd);
-        }  
+        }
         else if (TEST_CMD(hist_get_sub, "client_messages")){
             int start, num;
             char *who;
@@ -288,7 +288,7 @@ parse_history(const char *buf, const int bytes, const int fd, const TSpeechDSock
             GET_PARAM_INT(start, 4);
             GET_PARAM_INT(num, 5);
             return (char*) history_get_message_list(who_id, start, num);
-        }  
+        }
         else if (TEST_CMD(hist_get_sub, "last")){
             return (char*) history_get_last(fd);
         }
@@ -300,7 +300,7 @@ parse_history(const char *buf, const int bytes, const int fd, const TSpeechDSock
             return g_strdup(ERR_MISSING_PARAMETER);
         }
     }
-    else if (TEST_CMD(cmd_main, "cursor")){       
+    else if (TEST_CMD(cmd_main, "cursor")){
         char *hist_cur_sub;
         GET_PARAM_STR(hist_cur_sub, 2, CONV_DOWN);
 
@@ -309,7 +309,7 @@ parse_history(const char *buf, const int bytes, const int fd, const TSpeechDSock
             char *location;
 
             GET_PARAM_INT(who, 3);
-            GET_PARAM_STR(location, 4, CONV_DOWN);            
+            GET_PARAM_STR(location, 4, CONV_DOWN);
 
             if (TEST_CMD(location,"last")){
                 return (char*) history_cursor_set_last(fd, who);
@@ -339,7 +339,7 @@ parse_history(const char *buf, const int bytes, const int fd, const TSpeechDSock
             g_free(hist_cur_sub);
             return g_strdup(ERR_MISSING_PARAMETER);
         }
-            
+
     }
     else if (TEST_CMD(cmd_main,"say")){
         int msg_id;
@@ -355,7 +355,7 @@ parse_history(const char *buf, const int bytes, const int fd, const TSpeechDSock
         return g_strdup(ERR_MISSING_PARAMETER);
     }
 
- 
+
     return g_strdup(ERR_INVALID_COMMAND);
 }
 
@@ -390,7 +390,7 @@ parse_set(const char *buf, const int bytes, const int fd, const TSpeechDSock *sp
     int who;                    /* 0 - self, 1 - uid specified, 2 - all */
     int uid = -1;               /* uid of the client (only if who == 1) */
                                 /* uid = -1 avoids gcc warning */
-    int ret = -1; // =-1 has no effect but avoids gcc warning  
+    int ret = -1; // =-1 has no effect but avoids gcc warning
     char *set_sub;
     char *who_s;
 
@@ -413,7 +413,7 @@ parse_set(const char *buf, const int bytes, const int fd, const TSpeechDSock *sp
         char *priority_s;
         SPDPriority priority;
         NOT_ALLOWED_INSIDE_BLOCK();
-        
+
         /* Setting priority only allowed for "self" */
         if (who != 0) return g_strdup(ERR_COULDNT_SET_PRIORITY);
         GET_PARAM_STR(priority_s, 3, CONV_DOWN);
@@ -460,10 +460,10 @@ parse_set(const char *buf, const int bytes, const int fd, const TSpeechDSock *sp
 
         /* Setting client name only allowed for "self" */
         if (who != 0) return g_strdup(ERR_PARAMETER_INVALID);
-      
+
         GET_PARAM_STR(client_name, 3, CONV_DOWN);
 
-        ret = set_client_name_self(fd, client_name);       
+        ret = set_client_name_self(fd, client_name);
         g_free(client_name);
 
         if (ret) return g_strdup(ERR_COULDNT_SET_CLIENT_NAME);
@@ -598,15 +598,15 @@ parse_set(const char *buf, const int bytes, const int fd, const TSpeechDSock *sp
         GET_PARAM_STR(par_s, 4, CONV_DOWN);
 
         if(TEST_CMD(par_s,"on")) par = 1;
-        else if(TEST_CMD(par_s,"off")) par = 0;        
-        else{	    
+        else if(TEST_CMD(par_s,"off")) par = 0;
+        else{
             g_free(par_s);
             return g_strdup(ERR_PARAMETER_INVALID);
         }
 
 	ret = set_notification_self(fd, scope, par);
 	g_free(scope);
-	           
+
         if (ret) return g_strdup(ERR_COULDNT_SET_NOTIFICATION);
         return g_strdup(OK_NOTIFICATION_SET);
     }
@@ -632,23 +632,23 @@ parse_stop(const char *buf, const int bytes, const int fd, const TSpeechDSock *s
     if (TEST_CMD(who_s, "all")){
 	pthread_mutex_lock(&element_free_mutex);
         speaking_stop_all();
-	pthread_mutex_unlock(&element_free_mutex);	
+	pthread_mutex_unlock(&element_free_mutex);
     }
     else if (TEST_CMD(who_s, "self")){
         uid = get_client_uid_by_fd(fd);
         if(uid == 0) return g_strdup(ERR_INTERNAL);
-	pthread_mutex_lock(&element_free_mutex);    
+	pthread_mutex_lock(&element_free_mutex);
         speaking_stop(uid);
-	pthread_mutex_unlock(&element_free_mutex);    
+	pthread_mutex_unlock(&element_free_mutex);
     }
     else if (isanum(who_s)){
         uid = atoi(who_s);
         g_free(who_s);
 
         if (uid <= 0) return g_strdup(ERR_ID_NOT_EXIST);
-	pthread_mutex_lock(&element_free_mutex);    
+	pthread_mutex_lock(&element_free_mutex);
         speaking_stop(uid);
-	pthread_mutex_unlock(&element_free_mutex);    
+	pthread_mutex_unlock(&element_free_mutex);
     }else{
         g_free(who_s);
         return g_strdup(ERR_PARAMETER_INVALID);
@@ -758,7 +758,7 @@ parse_resume(const char *buf, const int bytes, const int fd, const TSpeechDSock 
         g_free(who_s);
         return g_strdup(ERR_PARAMETER_INVALID);
     }
-    
+
     return g_strdup(OK_RESUMED);
 }
 
@@ -771,7 +771,7 @@ parse_general_event(const char *buf, const int bytes, const int fd, const TSpeec
     GET_PARAM_STR(param, 1, NO_CONV);
 
     if (param == NULL)	return g_strdup(ERR_MISSING_PARAMETER);
-    
+
     if (param[0] == 0){
 	g_free(param);
 	return g_strdup(ERR_MISSING_PARAMETER);
@@ -793,8 +793,8 @@ parse_general_event(const char *buf, const int bytes, const int fd, const TSpeec
 
     if(queue_message(msg, fd, 1, type, speechd_socket->inside_block) == 0){
         if (SPEECHD_DEBUG) FATAL("Couldn't queue message\n");
-        MSG(2, "Error: Couldn't queue message!\n");            
-    }   
+        MSG(2, "Error: Couldn't queue message!\n");
+    }
 
     g_free(param);
 
@@ -805,7 +805,7 @@ char*
 parse_snd_icon(const char *buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
 {
     return parse_general_event(buf, bytes, fd, speechd_socket, SPD_MSGTYPE_SOUND_ICON);
-}				 
+}
 
 char*
 parse_char(const char *buf, const int bytes, const int fd, const TSpeechDSock *speechd_socket)
@@ -865,8 +865,8 @@ parse_list(const char* buf, const int bytes, const int fd, const TSpeechDSock *s
       GString *result;
       int i;
       char *helper;
-      
-      uid = get_client_uid_by_fd(fd);		       
+
+      uid = get_client_uid_by_fd(fd);
       settings = get_client_settings_by_uid(uid);
       if (settings == NULL) return g_strdup(ERR_INTERNAL);
       module_name = settings->output_module;
@@ -886,9 +886,9 @@ parse_list(const char* buf, const int bytes, const int fd, const TSpeechDSock *s
       }
       g_string_append(result, OK_VOICE_LIST_SENT);
       helper = result->str;
-      g_string_free(result, 0);	
+      g_string_free(result, 0);
       g_free(voices);
-      return helper;      
+      return helper;
     }else{
       g_free(list_type);
       return g_strdup(ERR_PARAMETER_INVALID);
@@ -905,7 +905,7 @@ parse_get(const char *buf, const int bytes, const int fd, const TSpeechDSock *sp
     TFDSetElement *settings;
 
     settings = get_client_settings_by_fd(fd);
-    if (settings == NULL) 
+    if (settings == NULL)
         return g_strdup(ERR_INTERNAL);
 
     GET_PARAM_STR(get_type, 1, CONV_DOWN);
@@ -942,6 +942,7 @@ parse_get(const char *buf, const int bytes, const int fd, const TSpeechDSock *sp
                 g_string_append_printf(result, C_OK_GET"-NO_VOICE\r\n");
                 break;
         }
+        g_string_append(result, OK_GET);
         helper = result->str;
         g_string_free(result, 0);
         return helper;
@@ -950,9 +951,10 @@ parse_get(const char *buf, const int bytes, const int fd, const TSpeechDSock *sp
         result = g_string_new("");
         g_string_append_printf(result, C_OK_GET"-%s\r\n",
                        settings->output_module);
+        g_string_append(result, OK_GET);
         helper = result->str;
         g_string_free(result, 0);
-        return helper;      
+        return helper;
     }
     else{
       g_free(get_type);
@@ -967,7 +969,7 @@ parse_help(const char* buf, const int bytes, const int fd, const TSpeechDSock *s
 
     help = (char*) g_malloc(1024 * sizeof(char));
 
-    sprintf(help, 
+    sprintf(help,
             C_OK_HELP"-  SPEAK           -- say text \r\n"
             C_OK_HELP"-  KEY             -- say a combination of keys \r\n"
             C_OK_HELP"-  CHAR            -- say a character \r\n"
@@ -995,7 +997,7 @@ parse_block(const char *buf, const int bytes, const int fd, TSpeechDSock* speech
             return g_strdup(OK_INSIDE_BLOCK);
         }else{
             return g_strdup(ERR_ALREADY_INSIDE_BLOCK);
-        }        
+        }
     }
     else if (TEST_CMD(cmd_main, "end")){
         assert(speechd_socket->inside_block >= 0);
@@ -1011,7 +1013,7 @@ parse_block(const char *buf, const int bytes, const int fd, TSpeechDSock* speech
 	return g_strdup(ERR_PARAMETER_INVALID);
     }
 }
-   
+
 /*
      * deescape_dot: Replace .. with . at the start of lines or at the
      * start of the string.
@@ -1091,7 +1093,7 @@ isanum(const char *str){
 /* Gets command parameter _n_ from the text buffer _buf_
  * which has _bytes_ bytes. Note that the parameter with
  * index 0 is the command itself. */
-char* 
+char*
 get_param(const char *buf, const int n, const int bytes, const int lower_case)
 {
     char* param;
@@ -1101,10 +1103,10 @@ get_param(const char *buf, const int n, const int bytes, const int lower_case)
     assert (bytes != 0);
     param = (char*) g_malloc(bytes);
     assert(param != NULL);
-	
+
     strcpy(param,"");
     i = 0;
-        
+
     /* Read all the parameters one by one,
      * but stop after the one with index n,
      * while maintaining it's value in _param_ */
@@ -1120,7 +1122,7 @@ get_param(const char *buf, const int n, const int bytes, const int lower_case)
 
     if(z <= 0){
         g_free(param);
-        return NULL;   
+        return NULL;
     }
 
     /* Write the trailing zero */
@@ -1135,7 +1137,7 @@ get_param(const char *buf, const int n, const int bytes, const int lower_case)
 	g_free(param);
     }else{
 	par = param;
-    }   
+    }
 
     return par;
 }

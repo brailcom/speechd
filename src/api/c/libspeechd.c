@@ -56,18 +56,13 @@
 /* Comment/uncomment to switch debugging on/off */
 // #define LIBSPEECHD_DEBUG 1
 
-#ifdef LIBSPEECHD_DEBUG
-/* Debugging */
-static FILE *spd_debug;
-#endif
-
 /* Unless there is an fatal error, it doesn't print anything */
 #define SPD_FATAL(msg) { printf("Fatal error (libspeechd) [%s:%d]:"msg, __FILE__, __LINE__); fflush(stdout); exit(EXIT_FAILURE); }
 
 /* --------------  Private functions headers ------------------------*/
 
 #ifdef LIBSPEECHD_DEBUG
-FILE *spd_debug = NULL;
+static FILE *spd_debug = NULL;
 #endif
 
 static int spd_set_priority(SPDConnection * connection, SPDPriority priority);
@@ -1064,6 +1059,22 @@ spd_w_set_voice_type(SPDConnection * connection, SPDVoiceType type,
         return spd_w_set_ ## param (connection, str, who); \
     }
 
+#define SPD_GET_COMMAND_STR(param, ssip_name) \
+	char * \
+	spd_get_ ## param (SPDConnection * connection) \
+	{ \
+		char *command; \
+		char *ret = NULL; \
+		int err; \
+		char *reply = NULL; \
+		command = g_strdup_printf("GET " #param); \
+		spd_execute_command_with_reply(connection, command, &reply); \
+		free(command); \
+		ret = get_param_str(reply, 1, &err); \
+		free(reply); \
+		return ret; \
+	}
+
 #define SPD_SET_COMMAND_SPECIAL(param, type) \
     int \
     spd_set_ ## param (SPDConnection *connection, type val) \
@@ -1090,6 +1101,7 @@ SPD_SET_COMMAND_INT(voice_rate, RATE, ((val >= -100) && (val <= +100)))
 
     SPD_SET_COMMAND_STR(language, LANGUAGE)
     SPD_SET_COMMAND_STR(output_module, OUTPUT_MODULE)
+	SPD_GET_COMMAND_STR(output_module, OUTPUT_MODULE)
     SPD_SET_COMMAND_STR(synthesis_voice, SYNTHESIS_VOICE)
 
     SPD_SET_COMMAND_SPECIAL(punctuation, SPDPunctuation)
