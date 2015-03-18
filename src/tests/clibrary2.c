@@ -39,6 +39,7 @@ int main()
 	int i, j, ret;
 	char **modules;
 	char **voices;
+	char *module;
 	SPDVoice **synth_voices;
 
 	printf("Start of the test.\n");
@@ -50,6 +51,14 @@ int main()
 		exit(1);
 	}
 	printf("OK\n");
+
+	printf("Trying to get the current output module...");
+	module = spd_get_output_module(conn);
+	printf("Got module %s\n", module);
+	if (module == NULL) {
+		printf("Can't get current output module\n");
+		exit(1);
+	}
 
 	modules = spd_list_modules(conn);
 	if (modules == NULL) {

@@ -220,6 +220,8 @@ int spd_get_message_list_fd(SPDConnection * connection, int target,
 
 char **spd_list_modules(SPDConnection * connection);
 void free_spd_modules(char **);
+char *spd_get_output_module(SPDConnection * connection);
+
 char **spd_list_voices(SPDConnection * connection);
 SPDVoice **spd_list_synthesis_voices(SPDConnection * connection);
 void free_spd_voices(SPDVoice ** voices);
