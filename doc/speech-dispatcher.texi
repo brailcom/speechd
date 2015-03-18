@@ -96,7 +96,7 @@ General Public License''
 @menu
 * Introduction::                What is Speech Dispatcher.
 * User's Documentation::        Usage, Configuration...
-* Technical Specifications::    
+* Technical Specifications::
 * Client Programming::          Documentation for application developers.
 * Server Programming::          Documentation for project contributors.
 
@@ -104,11 +104,11 @@ General Public License''
 * Reporting Bugs::              How to report a bug
 * How You Can Help::            What is needed
 
-* Appendices::                  
+* Appendices::
 * GNU General Public License::  Copying conditions for Speech Dispatcher
 * GNU Free Documentation License::  Copying conditions for this manual
 
-* Index of Concepts::           
+* Index of Concepts::
 @end menu
 
 @node Introduction, User's Documentation, Top, Top
@@ -163,7 +163,7 @@ the audio subsystem.
 @section Design
 @cindex Design
 
-@heading Current Design        
+@heading Current Design
 The communication between all applications and synthesizers, when
 implemented directly, is a mess. For this purpose, we wanted
 Speech Dispatcher to be a layer separating applications and
@@ -317,7 +317,7 @@ Speech Dispatcher. If you are compiling from source code (distribution
 tarball or git), please refer to the file @file{INSTALL} in your
 source tree.
 
-@subsection The requirements 
+@subsection The requirements
 
 You will need these components to run Speech Dispatcher:
 @itemize
@@ -346,7 +346,7 @@ lightweight multi-lingual feature-complete synthesizer, to get all the
 key components working and perhaps only then switch to
 Festival. Installation of eSpeak should be easier and the default
 configuration of Speech Dispatcher is set up for eSpeak for this
-reason. 
+reason.
 
 You can of course also start with Epos or any other supported synthesizer.
 
@@ -394,7 +394,7 @@ continue as described below and/or in @xref{Running Under Ordinary Users}.
 
 @item Test Speech Dispatcher
 
-The simplest way to test Speech Dispatcher is through 
+The simplest way to test Speech Dispatcher is through
 @code{spd-conf -d} or through the @code{spd-say} tool.
 
 Example:
@@ -444,9 +444,9 @@ service under a special user (and still is, with some limitations), but
 this mode of execution is strongly discouraged.
 
 @menu
-* Running Under Ordinary Users::  
-* Running in a Custom Setup::   
-* Setting Communication Method::  
+* Running Under Ordinary Users::
+* Running in a Custom Setup::
+* Setting Communication Method::
 @end menu
 
 @node Running Under Ordinary Users, Running in a Custom Setup, Running, Running
@@ -570,7 +570,7 @@ Example:
 @end example
 
 @item
-Check if your configuration files (speechd.conf, modules/*.conf) 
+Check if your configuration files (speechd.conf, modules/*.conf)
 are correct (some uninstalled synthesizer specified as the default,
 wrong values for default voice parameters etc.)
 
@@ -729,9 +729,9 @@ can be switched in their own configuration files under
 @code{etc/speech-dispatcher/modules/}.
 
 @menu
-* Loading Modules in speechd.conf::  
-* Configuration files of output modules::  
-* Configuration of the Generic Output Module::  
+* Loading Modules in speechd.conf::
+* Configuration files of output modules::
+* Configuration of the Generic Output Module::
 @end menu
 
 @node Loading Modules in speechd.conf, Configuration files of output modules, Output Modules Configuration, Output Modules Configuration
@@ -801,7 +801,7 @@ this:
 
 @item ModuleDelimiters "@var{delimiters}", ModuleMaxChunkLength @var{length}
 
-Normally, the output module doesn't try to synthesize all 
+Normally, the output module doesn't try to synthesize all
 incoming text at once, but instead it cuts it into smaller
 chunks (sentences, parts of sentences) and then synthesizes
 them one by one. This second approach, used by some output
@@ -921,7 +921,7 @@ GenericLanguage "sk" "slovak"
 @end defvr
 @defvr {GenericModuleConfiguration} GenericPitchRangeMultiply @var{num}
 These parameters set rate and pitch conversion to compute
-the value of @code{$RATE}, @code{$PITCH} and @code{$PITCH_RANGE}. 
+the value of @code{$RATE}, @code{$PITCH} and @code{$PITCH_RANGE}.
 
 The resulting rate (or pitch) is calculated using the following formula:
 @example
@@ -1075,7 +1075,7 @@ Dispatcher and we encourage you to use it. Much progress has also been
 done with eSpeak.
 
 @menu
-* Supported Modules::           
+* Supported Modules::
 @end menu
 
 @node Supported Modules,  , Provided Functionality, Provided Functionality
@@ -1084,7 +1084,7 @@ done with eSpeak.
 @itemize @bullet
 
 @item Festival
-Festival is a free software multi-language Text-to-Speech 
+Festival is a free software multi-language Text-to-Speech
 synthesis system that is very flexible and extensible using the
 Scheme scripting language. Currently, it supports high quality
 synthesis for several languages, and on today's computers it runs
@@ -1097,7 +1097,7 @@ eSpeak is a newer very lightweight free software engine with a broad
 range of supported languages and a good quality of voice at high
 rates. See @uref{http://espeak.sourceforge.net/}.
 
-@item Flite 
+@item Flite
 Flite (Festival Light) is a lightweight free software TTS synthesizer
 intended to run on systems with limited resources. At this time, it
 has only one English voice and porting voices from Festival looks
@@ -1151,10 +1151,10 @@ from the outside network using a firewall or similar mechanism.
 
 
 @menu
-* Communication mechanisms::    
-* Address specification::       
-* Actions performed on startup::  
-* Accepted signals::            
+* Communication mechanisms::
+* Address specification::
+* Actions performed on startup::
+* Accepted signals::
 @end menu
 
 @node Communication mechanisms, Address specification, Technical Specifications, Technical Specifications
@@ -1378,8 +1378,8 @@ about current external client libraries.
 @menu
 * C API::                       Shared library for C/C++
 * Python API::                  Python module.
-* Guile API::                   
-* Common Lisp API::             
+* Guile API::
+* Common Lisp API::
 * Autospawning::                How server is started from clients
 @end menu
 
@@ -1387,17 +1387,17 @@ about current external client libraries.
 @section C API
 
 @menu
-* Initializing and Terminating in C::  
-* Speech Synthesis Commands in C::  
-* Speech output control commands in C::  
-* Characters and Keys in C::    
-* Sound Icons in C::            
-* Parameter Setting Commands in C::  
-* Other Functions in C::        
-* Information Retrieval Commands in C::  
-* Event Notification and Index Marking in C::  
-* History Commands in C::       
-* Direct SSIP Communication in C::  
+* Initializing and Terminating in C::
+* Speech Synthesis Commands in C::
+* Speech output control commands in C::
+* Characters and Keys in C::
+* Sound Icons in C::
+* Parameter Setting Commands in C::
+* Other Functions in C::
+* Information Retrieval Commands in C::
+* Event Notification and Index Marking in C::
+* History Commands in C::
+* Direct SSIP Communication in C::
 @end menu
 
 @node Initializing and Terminating in C, Speech Synthesis Commands in C, C API, C API
@@ -1409,7 +1409,7 @@ about current external client libraries.
 Opens a new connection to Speech Dispatcher and returns a socket file
 descriptor you will use to communicate with Speech Dispatcher. The
 socket file descriptor is a parameter used in all the other
-functions. It now uses local communication via inet sockets. 
+functions. It now uses local communication via inet sockets.
 See @code{spd_open2} for more details.
 
 The three parameters @code{client_name}, @code{connection_name} and
@@ -1694,7 +1694,7 @@ to pause. It can be obtained from spd_history_get_client_list().
 It returns 0 on success, -1 otherwise.
 @end deffn
 
-@subsubheading Resume Commands  
+@subsubheading Resume Commands
 
 @deffn {C API function}  int spd_resume(SPDConnection* connection);
 @findex int spd_resume()
@@ -1754,7 +1754,7 @@ It returns 0 on success, -1 otherwise.
 @deffn {C API function}  int spd_wchar(SPDConnection* connection, SPDPriority priority, wchar_t wcharacter);
 @findex spd_say_wchar()
 
-The same as spd_char(), but it takes a wchar_t variable as its argument. 
+The same as spd_char(), but it takes a wchar_t variable as its argument.
 
 It returns 0 on success, -1 otherwise.
 @end deffn
@@ -1846,6 +1846,19 @@ and their registration names may vary from machine to machine.
 @code{output_module} is the output module name under which the module
 was loaded into Speech Dispatcher in its configuration (``flite'',
 ``festival'', ``epos-generic''... )
+
+@end deffn
+
+@deffn {C API function} char* spd_get_output_module(SPDConnection* connection);
+@findex spd_get_output_module()
+@anchor{spd_get_output_module}
+
+Gets the current output module in use for synthesis.
+
+@code{connection} is the SPDConnection* connection created by spd_open().
+
+It returns the output module name under which the module was loaded into Speech
+Dispatcher in its configuration (``flite'', ``festival'',  ``espeak''... )
 
 @end deffn
 
@@ -2162,22 +2175,22 @@ main(int argc, char **argv)
 
    sem_init(&semaphore, 0, 0);
 
-   /* Open Speech Dispatcher connection in THREADED mode. */ 
+   /* Open Speech Dispatcher connection in THREADED mode. */
    conn = spd_open("say","main", NULL, SPD_MODE_THREADED);
 
-   /* Set callback handler for 'end' and 'cancel' events. */ 
+   /* Set callback handler for 'end' and 'cancel' events. */
    conn->callback_end = con->callback_cancel = end_of_speech;
 
-   /* Ask Speech Dispatcher to notify us about these events. */ 
+   /* Ask Speech Dispatcher to notify us about these events. */
    spd_set_notification_on(conn, SPD_END);
    spd_set_notification_on(conn, SPD_CANCEL);
 
    /* Say our message. */
    spd_sayf(conn, SPD_MESSAGE, (char*) argv[1]);
 
-   /* Wait for 'end' or 'cancel' of the sent message. 
+   /* Wait for 'end' or 'cancel' of the sent message.
       By SSIP specifications, we are guaranteed to get
-      one of these two eventually. */ 
+      one of these two eventually. */
    sem_wait(&semaphore);
 
    return 0;
@@ -2218,7 +2231,7 @@ For example:
 @example
         spd_execute_command(fd, "SET SELF RATE 60");
         spd_execute_command(fd, "SOUND_ICON bell");
-@end example 
+@end example
 
 It's not possible to use this function for compound commands like @code{SPEAK}
 where you are receiving more than one reply. If this is your case, please
@@ -2254,7 +2267,7 @@ For example (simplified by not checking and freeing the returned strings):
         spd_send_data(conn, "Hello world!\n", SPD_NO_REPLY);
         spd_send_data(conn, "How are you today?!", SPD_NO_REPLY);
         spd_send_data(conn, "\r\n.\r\n.", SPD_WAIT_REPLY);
-@end example 
+@end example
 
 @end deffn
 
@@ -2275,7 +2288,7 @@ client.set_language('en')
 client.set_punctuation(speechd.PunctuationMode.SOME)
 client.speak("Hello World!")
 client.close()
-@end example 
+@end example
 
 The Python API respects the environment variables
 @var{SPEECHD_ADDRESS} it the communication address is not specified
@@ -2296,7 +2309,7 @@ client.speak("Hi!", callback=lambda cb_type: called.append(cb_type))
 time.sleep(2) # Wait for the events to happen.
 print "Called callbacks:", called
 client.close()
-@end example 
+@end example
 
 Real-world callback functions will most often need some sort of
 context information to be able to distinguish for which message the
@@ -2330,9 +2343,9 @@ class CallbackExample(object):
         self.speak("How are you?")
         time.sleep(4) # Wait for the events to happen.
         self._client.close()
-        
+
 CallbackExample().go()
-@end example 
+@end example
 
 @emph{Important notice:} The callback is called in Speech Dispatcher
 listener thread.  No subsequent Speech Dispatcher interaction is
@@ -2355,7 +2368,7 @@ the source tree, however it's still considered to be
 at the experimental stage. Please read @file{src/cl/README}.
 
 @node Autospawning,  , Common Lisp API, Client Programming
-@section Autospawning                                                                                                                                   
+@section Autospawning
 
 It is suggested that client libraries offer an autospawn functionality
 to automatically start the server process when connecting locally and if
@@ -2476,12 +2489,12 @@ interface defined in @file{src/server/output.c}.
 
 @menu
 * Basic Structure::             The definition of an output module.
-* Communication Protocol for Output Modules::  
+* Communication Protocol for Output Modules::
 * How to Write New Output Module::  How to include support for new synthesizers
-* The Skeleton of an Output Module::  
-* Output Module Functions::     
-* Module Utils Functions and Macros::  
-* Index Marks in Output Modules::  
+* The Skeleton of an Output Module::
+* Output Module Functions::
+* Module Utils Functions and Macros::
+* Index Marks in Output Modules::
 @end menu
 
 @node Basic Structure, Communication Protocol for Output Modules, Output Modules, Output Modules
@@ -2503,7 +2516,7 @@ input/output/error output is redirected to a pipe to Speech Dispatcher
 and this way both sides can communicate.
 
 When the modules start, they are passed the name of a configuration file
-that should be used for this particular output module. 
+that should be used for this particular output module.
 
 Each output module is started by Speech Dispatcher as:
 
@@ -2863,7 +2876,7 @@ in order for us to be in a better legal position against possible intruders.
 @end itemize
 
 @node The Skeleton of an Output Module, Output Module Functions, How to Write New Output Module, Output Modules
-@subsection The Skeleton of an Output Module 
+@subsection The Skeleton of an Output Module
 
 Each output module should include @file{module_utils.h} where the
 SPDMsgSettings structure is defined to be able to handle the different
@@ -2938,7 +2951,7 @@ files. In the second phase, initialization, all the configuration has
 been read and the output module can accomplish the rest (check if
 the synthesizer works, set up threads etc.).
 
-You should start with the definition of @code{module_load()}. 
+You should start with the definition of @code{module_load()}.
 
 @example
 int
@@ -2951,7 +2964,7 @@ Then you should initialize the settings tables. These are defined in
 by the @code{SET} command.
 @example
     INIT_SETTINGS_TABLES();
-@end example 
+@end example
 
 Also, define the configuration callbacks for debugging if you use
 the @code{DBG()} macro.
@@ -3057,7 +3070,7 @@ do nothing.
 
 Now you have to define all the synthesis control functions
 @code{module_speak}, @code{module_stop} etc.  See @ref{Output Module
-Functions}. 
+Functions}.
 
 At the end, this simple include provides the main() function and all
 the functionality related to being an output module of Speech
@@ -3098,7 +3111,7 @@ Speed and pitch are values between -100 and 100 included. 0 is the default
 value that represents normal speech flow. So -100 is the slowest (or lowest)
 and +100 is the fastest (or highest) speech.
 
-The language parameter is given as a null-terminated string containing 
+The language parameter is given as a null-terminated string containing
 the name of the language according to RFC 1776 (en, cs, fr, ...). If the
 requested language is not supported by this synthesizer, it's ok to abort
 and return 0, because that's an error in user settings.
@@ -3196,12 +3209,12 @@ programmer to reuse existing pieces of code instead of writing
 everything from scratch.
 
 @menu
-* Initialization Macros and Functions::  
-* Generic Macros and Functions::  
-* Functions used by module_main.c::  
-* Functions for use when talking to synthesizer::  
-* Multi-process output modules::  
-* Memory Handling Functions::   
+* Initialization Macros and Functions::
+* Generic Macros and Functions::
+* Functions used by module_main.c::
+* Functions for use when talking to synthesizer::
+* Multi-process output modules::
+* Memory Handling Functions::
 @end menu
 
 @node Initialization Macros and Functions, Generic Macros and Functions, Module Utils Functions and Macros, Module Utils Functions and Macros
@@ -3257,7 +3270,7 @@ void setter_name(type value);
 @end example
 
 Please look at the @code{SET} command in the communication protocol
-for the list of all available parameters. 
+for the list of all available parameters.
 @pxref{Communication Protocol for Output Modules}.
 
 An example from Festival output module:
@@ -3596,7 +3609,7 @@ an rpm-based distribution like RedHat, Mandrake or SuSE Linux, please
 try to look at @uref{http://www.rpmfind.net/}.
 
 If you want to contact us, please look at
-@uref{http://www.freebsoft.org/contact} 
+@uref{http://www.freebsoft.org/contact}
 or use the email @email{users@@lists.freebsoft.org}.
 
 @node Reporting Bugs, How You Can Help, Download and Contact, Top
@@ -3661,7 +3674,7 @@ information instead, please do so.
 @chapter How You Can Help
 
 If you want to contribute to the development of Speech Dispatcher,
-we will be very happy if you do so. Please contact us on 
+we will be very happy if you do so. Please contact us on
 @email{users@@lists.freebsoft.org}.
 
 Here is a short, definitively not exhaustive, list of how you can

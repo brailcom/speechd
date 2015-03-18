@@ -95,23 +95,23 @@ Please contact us on @url{http://www.freebsoft.org}
 @contents
 
 @menu
-* Introduction::                
-* Basic Terminology::           
-* General Rules::               
-* SSIP Commands::               
-* Return Codes::                
-* Appendices::                  
-* GNU Free Documentation License::  
-* GNU General Public Licence::  
+* Introduction::
+* Basic Terminology::
+* General Rules::
+* SSIP Commands::
+* Return Codes::
+* Appendices::
+* GNU Free Documentation License::
+* GNU General Public Licence::
 @end menu
 
 @node Introduction, Basic Terminology, Top, Top
 @chapter Introduction
 
 @menu
-* Purpose::                     
-* Protocol Philosophy::         
-* Higher Level API::            
+* Purpose::
+* Protocol Philosophy::
+* Higher Level API::
 @end menu
 
 @node Purpose, Protocol Philosophy, Introduction, Introduction
@@ -298,7 +298,7 @@ and @ref{Parameter Setting Commands})
 take an argument in the form:
 @example
         @{ @var{id} | all | self @}
-@end example 
+@end example
 
 where the value can be the @code{id} of the connection the command should
 be performed on (a positive number), the string @code{all} to
@@ -349,15 +349,15 @@ repetition (zero or more times) of all the arguments within the
 current brackets.
 
 @menu
-* Speech Synthesis and Sound Output Commands::  
-* Speech Output Control Commands::  
-* Message Priority Commands::   
-* Blocks of Messages Commands::  
-* Parameter Setting Commands::  
-* Information Retrieval Commands::  
-* Message Events Notification and Index Marking::  
-* History Handling Commands::   
-* Other Commands::              
+* Speech Synthesis and Sound Output Commands::
+* Speech Output Control Commands::
+* Message Priority Commands::
+* Blocks of Messages Commands::
+* Parameter Setting Commands::
+* Information Retrieval Commands::
+* Message Events Notification and Index Marking::
+* History Handling Commands::
+* Other Commands::
 @end menu
 
 @node Speech Synthesis and Sound Output Commands, Speech Output Control Commands, SSIP Commands, SSIP Commands
@@ -555,13 +555,13 @@ by applying certain rules based on the priorities.
 @menu
 * Priority Categories::         What are the available priorities.
 * Priority Diagram::            Schematic diagram of used priority model.
-* Priority Setting Commands::   
+* Priority Setting Commands::
 * Examples of Using Priorities::  A few examples of using the priorities.
 @end menu
 
 @node Priority Categories, Priority Diagram, Message Priority Commands, Message Priority Commands
 @subsection Priority Categories
-                     
+
 Speech Synthesis Interface Protocol provides a system of five priorities.  Every
 message will either contain explicit priority information, or the
 default value will be used.
@@ -683,7 +683,7 @@ Only @code{self} is allowed as the `target' argument.
 @subsection Examples of Using Priorities
 
 Example uses for priority @code{important} are:
- 
+
 @itemize
 @item error messages
 @item very important messages
@@ -898,6 +898,15 @@ SET self OUTPUT_MODULE espeak
 216 OK OUTPUT MODULE SET
 @end example
 
+@item GET OUTPUT_MODULE
+Get the output module currently in use. This takes no parameters
+and simply returns the current output module.
+
+@example
+GET OUTPUT_MODULE
+251-espeak
+251 OK GET RETURNED
+@end example
 
 @item SET @{ all | self | @var{id} @} LANGUAGE @var{language-code}
 Set recommended language for this client according to @var{language-code}.
@@ -1108,10 +1117,10 @@ LIST SYNTHESIS_VOICES
 @section Message Events Notification and Index Marking
 
 @menu
-* Why Events Notification::     
-* Types of Events::             
-* Events Notifications in SSIP::  
-* Switching Notifications On and Off::  
+* Why Events Notification::
+* Types of Events::
+* Events Notifications in SSIP::
+* Switching Notifications On and Off::
 @end menu
 
 @node Why Events Notification, Types of Events, Message Events Notification and Index Marking, Message Events Notification and Index Marking
@@ -1348,8 +1357,8 @@ that follow. @xref{Types of Events}.
 @section History Handling
 
 @menu
-* Purpose of Message History::  
-* Message History in SSIP::     
+* Purpose of Message History::
+* Message History in SSIP::
 @end menu
 
 @node Purpose of Message History, Message History in SSIP, History Handling Commands, History Handling Commands
@@ -1712,7 +1721,7 @@ In the future, these return codes should be fixed so that clients can
 rely on them.
 
 @menu
-* Sample SSIP Dialog::          
+* Sample SSIP Dialog::
 @end menu
 
 @node Sample SSIP Dialog,  , Return Codes, Return Codes
@@ -1764,7 +1773,7 @@ QUIT
 @menu
 * Key Names::                   List of the symbolic key names.
 * Standard Sound Icons::        List of the standard sound icon names.
-* Standard Voices::             
+* Standard Voices::
 @end menu
 
 @node Key Names, Standard Sound Icons, Appendices, Appendices
