@@ -1,25 +1,32 @@
 
-Speech Dispatcher 0.8.1
+Speech Dispatcher 0.8.2
 =====================
 
-Announcing the availability of Speech Dispatcher 0.8.1 developed as a part of
+Announcing the availability of Speech Dispatcher 0.8.2 developed as a part of
 the Free(b)Soft project.
 
-* What is new in 0.8.1?
+* What is new in 0.8.2?
 
- - User dictionaries support added to the IBMTTS driver
+ - Add convenience methods to the libspeech API to free module list and voice
+   data structures.
 
- - Added a pico configuration file for use with the generic driver
+ - Add method to the libspeechd API to get the current output module, and
+   update the documentation accordingly.
 
- - Better support for multi-arch enabled distros to facilitate the use of the
-   i386 only IBMTTS driver being easily installable on an amd64 system
+ - The API is now licensed under the GNU Lesser General Public License v2.1
+   or later.
 
- * Bug fixes, and documentation cleanup
+ - The spdconf configuration utility is now translatable.
+
+ - Fixed a bug where speech-dispatcher would fail to start if the user
+   configuration directory existed but did not contain a config file.
+
+ - Install the spdconf desktop file.
 
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.8.1.tar.gz
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.8.2.tar.gz
 
   We recommend the use of sound icons with Speech Dispatcher.
   They are available at
