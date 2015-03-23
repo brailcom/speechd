@@ -26,6 +26,7 @@
 #endif
 
 #include <speechd_types.h>
+#include <safe_io.h>
 #include <errno.h>
 #include <sys/poll.h>
 #include <fcntl.h>
@@ -376,10 +377,7 @@ void *_cicero_speak(void *nothing)
 						cicero_speaking = 0;
 						break;
 					}
-					if (ret > 0)
-						TEMP_FAILURE_RETRY(read
-								   (fd1[0], b,
-								    2));
+					if (ret > 0) safe_read(fd1[0], b, 2);
 					if (cicero_stop) {
 						cicero_speaking = 0;
 						module_report_event_stop();
