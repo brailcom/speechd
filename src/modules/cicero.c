@@ -28,7 +28,7 @@
 #include <speechd_types.h>
 #include <safe_io.h>
 #include <errno.h>
-#include <sys/poll.h>
+#include <poll.h>
 #include <fcntl.h>
 #include <langinfo.h>
 #include <sys/stat.h>

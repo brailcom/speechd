@@ -29,7 +29,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-#include <sys/unistd.h>
+#include <unistd.h>
 #include <stdio.h>
 #include <dirent.h>
 #include <glib.h>
