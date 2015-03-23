@@ -29,6 +29,7 @@
 #include <glib.h>
 #include <poll.h>
 #include <unistd.h>
+#include <safe_io.h>
 #include "speechd.h"
 #include "server.h"
 #include "index_marking.h"
@@ -88,9 +89,7 @@ void *speak(void *data)
 				MSG(5,
 				    "wait_for_poll: activity in Speech Dispatcher");
 				const ssize_t rd_bytes =
-				    TEMP_FAILURE_RETRY(read
-						       (poll_fds[0].fd, buf,
-							1));
+				    safe_read(poll_fds[0].fd, buf, 1);
 				if (rd_bytes != 1)
 					FATAL
 					    ("read from polled fd: could not read 1 byte");

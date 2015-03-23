@@ -26,26 +26,10 @@
 #endif
 
 #include <fdsetconv.h>
+#include <safe_io.h>
 #include <spd_utils.h>
 #include "output.h"
 #include "parse.h"
-
-#ifdef TEMP_FAILURE_RETRY	/* GNU libc */
-#define safe_write(fd, buf, count) TEMP_FAILURE_RETRY(write(fd, buf, count))
-#else /* TEMP_FAILURE_RETRY */
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#endif
-static inline ssize_t
-safe_write(int fd, const void *buf, size_t count) {
-	do {
-		ssize_t w = write(fd, buf, count);
-
-		if (w == -1 && errno == EINTR) continue;
-		return w;
-	} while (1);
-}
-#endif /* TEMP_FAILURE_RETRY */
 
 #if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
 /* Added by Willie Walker - strndup is a gcc-ism
