@@ -40,6 +40,7 @@ int main()
 	char **modules;
 	char **voices;
 	char *module;
+	char *language;
 	SPDVoice **synth_voices;
 
 	printf("Start of the test.\n");
@@ -57,6 +58,14 @@ int main()
 	printf("Got module %s\n", module);
 	if (module == NULL) {
 		printf("Can't get current output module\n");
+		exit(1);
+	}
+
+	printf("Trying to get the language...");
+	language = spd_get_language(conn);
+	printf("Got language %s\n", language);
+	if (language == NULL) {
+		printf("Can't get the language\n");
 		exit(1);
 	}
 

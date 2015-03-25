@@ -205,6 +205,7 @@ int spd_set_language(SPDConnection * connection, const char *language);
 int spd_set_language_all(SPDConnection * connection, const char *language);
 int spd_set_language_uid(SPDConnection * connection, const char *language,
 			 unsigned int uid);
+char * spd_get_language(SPDConnection * connection);
 
 int spd_set_output_module(SPDConnection * connection,
 			  const char *output_module);
