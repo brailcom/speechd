@@ -956,6 +956,15 @@ parse_get(const char *buf, const int bytes, const int fd, const TSpeechDSock *sp
         g_string_free(result, 0);
         return helper;
     }
+    else if (TEST_CMD(get_type, "language")) {
+        result = g_string_new("");
+        g_string_append_printf(result, C_OK_GET"-%s\r\n",
+                               settings->msg_settings.voice.language);
+        g_string_append(result, OK_GET);
+        helper = result->str;
+        g_string_free(result, 0);
+        return helper;
+    }
     else{
       g_free(get_type);
       return g_strdup(ERR_PARAMETER_INVALID);

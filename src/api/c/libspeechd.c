@@ -1100,6 +1100,7 @@ SPD_SET_COMMAND_INT(voice_rate, RATE, ((val >= -100) && (val <= +100)))
     SPD_SET_COMMAND_INT(volume, VOLUME, ((val >= -100) && (val <= +100)))
 
     SPD_SET_COMMAND_STR(language, LANGUAGE)
+    SPD_GET_COMMAND_STR(language, LANGUAGE)
     SPD_SET_COMMAND_STR(output_module, OUTPUT_MODULE)
 	SPD_GET_COMMAND_STR(output_module, OUTPUT_MODULE)
     SPD_SET_COMMAND_STR(synthesis_voice, SYNTHESIS_VOICE)
