@@ -1075,6 +1075,22 @@ spd_w_set_voice_type(SPDConnection * connection, SPDVoiceType type,
 		return ret; \
 	}
 
+#define SPD_GET_COMMAND_INT(param, ssip_name) \
+	int \
+	spd_get_ ## param (SPDConnection *connection) \
+	{ \
+		char *command; \
+		int ret = 0; \
+		int err; \
+		char *reply = NULL; \
+		command = g_strdup_printf("GET " #param); \
+		spd_execute_command_with_reply(connection, command, &reply); \
+		free(command); \
+		ret = get_param_int(reply, 1, &err); \
+		free(reply); \
+		return ret; \
+	}
+
 #define SPD_SET_COMMAND_SPECIAL(param, type) \
     int \
     spd_set_ ## param (SPDConnection *connection, type val) \
@@ -1094,7 +1110,8 @@ spd_w_set_voice_type(SPDConnection * connection, SPDVoiceType type,
         return spd_w_set_ ## param (connection, val, who); \
     }
 
-SPD_SET_COMMAND_INT(voice_rate, RATE, ((val >= -100) && (val <= +100)))
+    SPD_SET_COMMAND_INT(voice_rate, RATE, ((val >= -100) && (val <= +100)))
+    SPD_GET_COMMAND_INT(voice_rate, RATE)
     SPD_SET_COMMAND_INT(voice_pitch, PITCH, ((val >= -100) && (val <= +100)))
     SPD_SET_COMMAND_INT(volume, VOLUME, ((val >= -100) && (val <= +100)))
 
