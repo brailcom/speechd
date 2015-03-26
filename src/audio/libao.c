@@ -38,38 +38,38 @@
 #define AO_SEND_BYTES 256
 /* Put a message into the logfile (stderr) */
 #define MSG(level, arg...) \
- if(level <= libao_log_level){ \
-     time_t t; \
-     struct timeval tv; \
-     char *tstr; \
-     t = time(NULL); \
-     tstr = g_strdup(ctime(&t)); \
-     tstr[strlen(tstr)-1] = 0; \
-     gettimeofday(&tv,NULL); \
-     fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
-     fprintf(stderr," libao:: "); \
-     fprintf(stderr,arg); \
-     fprintf(stderr,"\n"); \
-     fflush(stderr); \
-     g_free(tstr); \
-  }
+	if(level <= libao_log_level){ \
+		time_t t; \
+		struct timeval tv; \
+		char *tstr; \
+		t = time(NULL); \
+		tstr = g_strdup(ctime(&t)); \
+		tstr[strlen(tstr)-1] = 0; \
+		gettimeofday(&tv,NULL); \
+		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
+		fprintf(stderr," libao:: "); \
+		fprintf(stderr,arg); \
+		fprintf(stderr,"\n"); \
+		fflush(stderr); \
+		g_free(tstr); \
+	}
 
 #define ERR(arg...) \
- { \
-     time_t t; \
-     struct timeval tv; \
-     char *tstr; \
-     t = time(NULL); \
-     tstr = g_strdup(ctime(&t)); \
-     tstr[strlen(tstr)-1] = 0; \
-     gettimeofday(&tv,NULL); \
-     fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
-     fprintf(stderr," libao ERROR: "); \
-     fprintf(stderr,arg); \
-     fprintf(stderr,"\n"); \
-     fflush(stderr); \
-     g_free(tstr); \
-  }
+	{ \
+		time_t t; \
+		struct timeval tv; \
+		char *tstr; \
+		t = time(NULL); \
+		tstr = g_strdup(ctime(&t)); \
+		tstr[strlen(tstr)-1] = 0; \
+		gettimeofday(&tv,NULL); \
+		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
+		fprintf(stderr," libao ERROR: "); \
+		fprintf(stderr,arg); \
+		fprintf(stderr,"\n"); \
+		fflush(stderr); \
+		g_free(tstr); \
+	}
 
 /* AO_FORMAT_INITIALIZER is an ao_sample_format structure with zero values
    in all of its fields.  We can guarantee that the fields of a

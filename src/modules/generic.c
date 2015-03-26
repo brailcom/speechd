@@ -126,7 +126,7 @@ int module_load(void)
 	MOD_OPTION_1_INT_REG(GenericPitchRangeAdd, 0);
 	MOD_OPTION_1_FLOAT_REG(GenericPitchRangeMultiply, 1);
 	MOD_OPTION_1_INT_REG(GenericPitchRangeForceInteger, 0);
-	
+
 	MOD_OPTION_1_INT_REG(GenericVolumeAdd, 0);
 	MOD_OPTION_1_FLOAT_REG(GenericVolumeMultiply, 1);
 	MOD_OPTION_1_INT_REG(GenericVolumeForceInteger, 0);
@@ -209,8 +209,8 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 		    generic_msg_language->charset);
 		tmp =
 		    (char *)g_convert_with_fallback(data, bytes,
-						    generic_msg_language->
-						    charset, "UTF-8",
+						    generic_msg_language->charset,
+						    "UTF-8",
 						    GenericRecodeFallback, NULL,
 						    NULL, NULL);
 	} else {
@@ -368,8 +368,7 @@ void *_generic_speak(void *nothing)
 			generic_speaking = 0;
 			continue;
 
-		case 0:
-			{
+		case 0:{
 				char *e_string;
 				char *p;
 				char *tmpdir, *homedir;
@@ -585,11 +584,14 @@ void generic_set_pitch_range(int pitch_range)
 {
 	float hpitch_range;
 
-	hpitch_range = ((float)pitch_range) * GenericPitchRangeMultiply + GenericPitchRangeAdd;
+	hpitch_range =
+	    ((float)pitch_range) * GenericPitchRangeMultiply +
+	    GenericPitchRangeAdd;
 	if (!GenericPitchRangeForceInteger) {
 		snprintf(generic_msg_pitch_range_str, 15, "%.2f", hpitch_range);
 	} else {
-		snprintf(generic_msg_pitch_range_str, 15, "%d", (int)hpitch_range);
+		snprintf(generic_msg_pitch_range_str, 15, "%d",
+			 (int)hpitch_range);
 	}
 }
 

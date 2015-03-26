@@ -47,7 +47,6 @@
 #include <speechd_types.h>
 #include "module_utils.h"
 
-
 /* > */
 /* < Basic definitions*/
 
@@ -160,7 +159,6 @@ static void espeak_set_volume(signed int volume);
 static void espeak_set_punctuation_mode(SPDPunctuation punct_mode);
 static void espeak_set_cap_let_recogn(SPDCapitalLetters cap_mode);
 
-
 /* Voices and languages */
 static void espeak_set_language(char *lang);
 static void espeak_set_voice(SPDVoiceType voice);
@@ -190,7 +188,7 @@ static void *_espeak_stop_or_pause(void *);
 /* > */
 /* < Module configuration options*/
 
-    MOD_OPTION_1_STR(EspeakPunctuationList)
+MOD_OPTION_1_STR(EspeakPunctuationList)
     MOD_OPTION_1_INT(EspeakCapitalPitchRise)
     MOD_OPTION_1_INT(EspeakMinRate)
     MOD_OPTION_1_INT(EspeakNormalRate)
@@ -363,8 +361,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 		result = espeak_Synth(data, bytes + 1, 0, POS_CHARACTER, 0,
 				      flags, NULL, NULL);
 		break;
-	case SPD_MSGTYPE_SOUND_ICON:
-		{
+	case SPD_MSGTYPE_SOUND_ICON:{
 			char *msg =
 			    g_strdup_printf("<audio src=\"%s%s\">%s</audio>",
 					    EspeakSoundIconFolder, data, data);
@@ -374,8 +371,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 			g_free(msg);
 			break;
 		}
-	case SPD_MSGTYPE_CHAR:
-		{
+	case SPD_MSGTYPE_CHAR:{
 			wchar_t wc = 0;
 			if (bytes == 1) {	// ASCII
 				wc = (wchar_t) data[0];
@@ -405,8 +401,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 			g_free(msg);
 			break;
 		}
-	case SPD_MSGTYPE_KEY:
-		{
+	case SPD_MSGTYPE_KEY:{
 			/* TODO: Convert unspeakable keys to speakable form */
 			char *msg =
 			    g_strdup_printf
@@ -605,7 +600,8 @@ static void espeak_set_rate(signed int rate)
 {
 	assert(rate >= -100 && rate <= +100);
 	int speed;
-	int normal_rate = EspeakNormalRate, max_rate = EspeakMaxRate, min_rate = EspeakMinRate;
+	int normal_rate = EspeakNormalRate, max_rate = EspeakMaxRate, min_rate =
+	    EspeakMinRate;
 
 	if (rate < 0)
 		speed = normal_rate + (normal_rate - min_rate) * rate / 100;
@@ -663,17 +659,20 @@ static void espeak_set_pitch_range(signed int pitch_range)
 	/* Possible range 0 to 100. */
 	if (pitch_range < 0) {
 		pitchRangeBaseline =
-		    ((float)(pitch_range + 100) * espeak_voice_pitch_range_baseline) /
-		    (float)100;
+		    ((float)(pitch_range + 100) *
+		     espeak_voice_pitch_range_baseline) / (float)100;
 	} else {
 		pitchRangeBaseline =
-		    (((float)pitch_range * (100 - espeak_voice_pitch_range_baseline))
+		    (((float)pitch_range *
+		      (100 - espeak_voice_pitch_range_baseline))
 		     / (float)100) + espeak_voice_pitch_range_baseline;
 	}
 	assert(pitchRangeBaseline >= 0 && pitchRangeBaseline <= 100);
-	espeak_ERROR ret = espeak_SetParameter(espeakRANGE, pitchRangeBaseline, 0);
+	espeak_ERROR ret =
+	    espeak_SetParameter(espeakRANGE, pitchRangeBaseline, 0);
 	if (ret != EE_OK) {
-		DBG("Espeak: Error setting pitch range %i.", pitchRangeBaseline);
+		DBG("Espeak: Error setting pitch range %i.",
+		    pitchRangeBaseline);
 	} else {
 		DBG("Espeak: Pitch range set to %i.", pitchRangeBaseline);
 	}
@@ -841,8 +840,7 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 		/* Enqueue audio upto event */
 		switch (events->type) {
 		case espeakEVENT_MARK:
-		case espeakEVENT_PLAY:
-			{
+		case espeakEVENT_PLAY:{
 				/* Convert ms position to samples */
 				gint64 pos_msg = events->audio_position;
 				pos_msg = pos_msg * espeak_sample_rate / 1000;
@@ -865,8 +863,8 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 			break;
 		case espeakEVENT_PLAY:
 			result =
-			    espeak_add_sound_icon_to_playback_queue(events->id.
-								    name);
+			    espeak_add_sound_icon_to_playback_queue(events->
+								    id.name);
 			break;
 		case espeakEVENT_MSG_TERMINATED:
 			// This event never has any audio in the same callback
@@ -1116,11 +1114,10 @@ static void *_espeak_play(void *nothing)
 				pthread_mutex_unlock(&espeak_state_mutex);
 				break;
 			case ESPEAK_QET_SOUND_ICON:
-				module_play_file(playback_queue_entry->data.
-						 sound_icon_filename);
+				module_play_file(playback_queue_entry->
+						 data.sound_icon_filename);
 				break;
-			case ESPEAK_QET_BEGIN:
-				{
+			case ESPEAK_QET_BEGIN:{
 					gboolean report_begin = FALSE;
 					pthread_mutex_lock(&espeak_state_mutex);
 					if (espeak_state == BEFORE_PLAY) {
@@ -1160,7 +1157,6 @@ static void *_espeak_play(void *nothing)
 	DBG("Espeak: Playback thread ended.......");
 	return 0;
 }
-
 
 static SPDVoice **espeak_list_synthesis_voices()
 {

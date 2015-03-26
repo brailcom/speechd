@@ -124,7 +124,7 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 {
 	OutputModule *module;
 	int fr;
-	char *argv[3] = {0, 0, 0};
+	char *argv[3] = { 0, 0, 0 };
 	int ret;
 	char *module_conf_dir;
 	char *rep_line = NULL;
@@ -216,8 +216,9 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 
 		execvp(argv[0], argv);
 		MSG(1,
-			"Exec of module \"%s\" with config \"%s\" failed with error %d: %s",
-			argv[0], argv[1] ? argv[1] : "<none>", errno, strerror(errno));
+		    "Exec of module \"%s\" with config \"%s\" failed with error %d: %s",
+		    argv[0], argv[1] ? argv[1] : "<none>", errno,
+		    strerror(errno));
 		exit(1);
 	}
 
@@ -551,4 +552,3 @@ guint module_number_of_requested_modules(void)
 	}
 	return g_list_length(requested_modules);
 }
-

@@ -120,17 +120,16 @@ void set_socket_path(struct sockaddr_un *address)
 
 	path = g_getenv("SPEECHD_SOCKET");
 	if (path == NULL || path[0] == '\0') {
- 		pathcopy = g_build_filename (g_get_user_runtime_dir (),
-					     "speech-dispatcher",
-					     "speechd.sock",
-					     NULL);
+		pathcopy = g_build_filename(g_get_user_runtime_dir(),
+					    "speech-dispatcher",
+					    "speechd.sock", NULL);
 		path = pathcopy;
 	}
 
 	strncpy(address->sun_path, path, path_max - 1);
 	address->sun_path[path_max - 1] = '\0';
 
-	g_free (pathcopy);
+	g_free(pathcopy);
 }
 
 /*

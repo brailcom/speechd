@@ -1,7 +1,7 @@
 
 /*
  * speaking.c - Speech Dispatcher speech output functions
- * 
+ *
  * Copyright (C) 2001,2002,2003, 2006, 2007 Brailcom, o.p.s
  *
  * This is free software; you can redistribute it and/or modify it
@@ -100,11 +100,12 @@ void *speak(void *data)
 				if (revents & POLLHUP) {
 					// FIXME: We should handle this more gracefully
 					FATAL
-						("wait_for_poll: output_module disconnected");
-				} else if ((revents & POLLIN) || (revents & POLLPRI)) {
+					    ("wait_for_poll: output_module disconnected");
+				} else if ((revents & POLLIN)
+					   || (revents & POLLPRI)) {
 					MSG(5,
 					    "wait_for_poll: activity on output_module");
-					/* Check if sb is speaking or they are all silent. 
+					/* Check if sb is speaking or they are all silent.
 					 * If some synthesizer is speaking, we must wait. */
 					is_sb_speaking();
 				}
@@ -154,11 +155,11 @@ void *speak(void *data)
 						MSG(5, "Reloading message");
 						reload_message((TSpeechDMessage
 								*) gl->data);
-/* If this resumed message is the same as current_message, then it gets
- * another trip through the queue.  However, some code later in this
- * function will free current_message, even though it is now requeued!
- * Hence use-after-free.
- * current_message is pretty useless after the requeue, make it NULL. */
+						/* If this resumed message is the same as current_message, then it gets
+						 * another trip through the queue.  However, some code later in this
+						 * function will free current_message, even though it is now requeued!
+						 * Hence use-after-free.
+						 * current_message is pretty useless after the requeue, make it NULL. */
 						if (current_message == gl->data)
 							current_message = NULL;
 					} else
@@ -207,7 +208,7 @@ void *speak(void *data)
 			}
 		}
 
-		/* Isn't the parent client of this message paused? 
+		/* Isn't the parent client of this message paused?
 		 * If it is, insert the message to the MessagePausedList. */
 		if (message_nto_speak(message, NULL)) {
 			MSG(4, "Inserting message to paused list...");
@@ -268,11 +269,11 @@ void *speak(void *data)
 						   no outstanding messages. */
 						MSG(4,
 						    "Removing client settings for uid %d",
-						    current_message->settings.
-						    uid);
+						    current_message->
+						    settings.uid);
 						remove_client_settings_by_uid
-						    (current_message->settings.
-						     uid);
+						    (current_message->
+						     settings.uid);
 					}
 				}
 				mem_free_message(current_message);
@@ -637,21 +638,21 @@ int report_index_mark(TSpeechDMessage * msg, char *index_mark)
 }
 
 #define REPORT_STATE(state, ssip_code, ssip_msg) \
-  int \
-  report_ ## state (TSpeechDMessage *msg) \
-  { \
-    char *cmd; \
-    int ret; \
-    cmd = g_strdup_printf(ssip_code"-%d\r\n"ssip_code"-%d\r\n"ssip_msg, \
-	     msg->id, msg->settings.uid); \
-    ret = socket_send_msg(msg->settings.fd, cmd); \
-    if (ret){ \
-      MSG(2, "ERROR: Can't report index mark!"); \
-      return -1; \
-    } \
-    g_free(cmd); \
-    return 0; \
-  }
+	int \
+	report_ ## state (TSpeechDMessage *msg) \
+	{ \
+		char *cmd; \
+		int ret; \
+		cmd = g_strdup_printf(ssip_code"-%d\r\n"ssip_code"-%d\r\n"ssip_msg, \
+		                      msg->id, msg->settings.uid); \
+		ret = socket_send_msg(msg->settings.fd, cmd); \
+		if (ret){ \
+			MSG(2, "ERROR: Can't report index mark!"); \
+			return -1; \
+		} \
+		g_free(cmd); \
+		return 0; \
+	}
 
 REPORT_STATE(begin, EVENT_BEGIN_C, EVENT_BEGIN)
     REPORT_STATE(end, EVENT_END_C, EVENT_END)
@@ -728,8 +729,8 @@ int is_sb_speaking(void)
 				    index_mark);
 				if (current_message->settings.index_mark !=
 				    NULL)
-					g_free(current_message->settings.
-					       index_mark);
+					g_free(current_message->
+					       settings.index_mark);
 				current_message->settings.index_mark =
 				    g_strdup(index_mark);
 			}

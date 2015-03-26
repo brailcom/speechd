@@ -69,7 +69,7 @@ void delete_FT_Info(FT_Info * info);
                       (((unsigned)x) & 0xff00) >> 8)
 #define SWAPINT(x) ((((unsigned)x) & 0xff) << 24 | \
                     (((unsigned)x) & 0xff00) << 8 | \
-		    (((unsigned)x) & 0xff0000) >> 8 | \
+                    (((unsigned)x) & 0xff0000) >> 8 | \
                     (((unsigned)x) & 0xff000000) >> 24)
 
 /* Sun, HP, SGI Mips, M68000 */
@@ -78,36 +78,36 @@ void delete_FT_Info(FT_Info * info);
 #define FAPI_LITTLE_ENDIAN (((char *)&fapi_endian_loc)[0] != 0)
 
 #define FEST_SEND_CMD(format) \
-    { \
-        FILE *fd; \
-        char *str; \
-        fd = fdopen(dup(info->server_fd),"wb"); \
-        if (fd != NULL){ \
-          str = g_strdup(format"\n"); \
-          fputs(str, fd); \
-          DBG("-> Festival: |%s|", str); \
-          g_free(str); \
-          fclose(fd); \
-        }else{ \
-          DBG("Can't open connection"); \
-        } \
-    }
+	{ \
+		FILE *fd; \
+		char *str; \
+		fd = fdopen(dup(info->server_fd),"wb"); \
+		if (fd != NULL){ \
+			str = g_strdup(format"\n"); \
+			fputs(str, fd); \
+			DBG("-> Festival: |%s|", str); \
+			g_free(str); \
+			fclose(fd); \
+		}else{ \
+			DBG("Can't open connection"); \
+		} \
+	}
 
 #define FEST_SEND_CMDA(format, args...) \
-    { \
-        FILE *fd; \
-        char *str; \
-        fd = fdopen(dup(info->server_fd),"wb"); \
-        if (fd != NULL){ \
-          str = g_strdup_printf(format"\n", args); \
-          fputs(str, fd); \
-          DBG("-> Festival: |%s|", str); \
-          g_free(str); \
-          fclose(fd); \
-        }else{ \
-          DBG("Can't open connection"); \
-        } \
-    }
+	{ \
+		FILE *fd; \
+		char *str; \
+		fd = fdopen(dup(info->server_fd),"wb"); \
+		if (fd != NULL){ \
+			str = g_strdup_printf(format"\n", args); \
+			fputs(str, fd); \
+			DBG("-> Festival: |%s|", str); \
+			g_free(str); \
+			fclose(fd); \
+		}else{ \
+			DBG("Can't open connection"); \
+		} \
+	}
 
 /*****************************************************************/
 /*  Public functions to interface                                */

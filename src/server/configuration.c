@@ -80,98 +80,98 @@ void free_config_options(configoption_t * opts, int *num)
 /* == CALLBACK DEFINITION MACROS == */
 
 #define GLOBAL_FDSET_OPTION_CB_STR(name, arg) \
-   DOTCONF_CB(cb_ ## name) \
-   { \
-       assert(cmd->data.str != NULL); \
-       if (!cl_spec_section) \
-           GlobalFDSet.arg = g_strdup(cmd->data.str); \
-       else \
-           cl_spec_section->val.arg = g_strdup(cmd->data.str); \
-       return NULL; \
-   }
+	DOTCONF_CB(cb_ ## name) \
+	{ \
+		assert(cmd->data.str != NULL); \
+		if (!cl_spec_section) \
+			GlobalFDSet.arg = g_strdup(cmd->data.str); \
+		else \
+			cl_spec_section->val.arg = g_strdup(cmd->data.str); \
+		return NULL; \
+	}
 
 #define GLOBAL_FDSET_OPTION_CB_INT(name, arg, cond, str) \
-   DOTCONF_CB(cb_ ## name) \
-   { \
-       int val = cmd->data.value; \
-       if (!(cond)) FATAL(str); \
-       if (!cl_spec_section) \
-           GlobalFDSet.arg = val; \
-       else \
-           cl_spec_section->val.arg = val; \
-       return NULL; \
-   }
+	DOTCONF_CB(cb_ ## name) \
+	{ \
+		int val = cmd->data.value; \
+		if (!(cond)) FATAL(str); \
+		if (!cl_spec_section) \
+			GlobalFDSet.arg = val; \
+		else \
+			cl_spec_section->val.arg = val; \
+		return NULL; \
+	}
 
 #define GLOBAL_FDSET_OPTION_CB_SPECIAL(name, arg, type, fconv) \
-   DOTCONF_CB(cb_ ## name) \
-   { \
-       char *val_str; \
-       type val; \
-       val_str = g_ascii_strdown(cmd->data.str, strlen(cmd->data.str)); \
-       if (val_str == NULL) FATAL("Invalid parameter in configuration"); \
-       val = fconv(val_str); \
-       g_free(val_str); \
-       if (val == -1) FATAL("Invalid parameter in configuration."); \
-       if (!cl_spec_section) \
-           GlobalFDSet.arg = val; \
-       else \
-           cl_spec_section->val.arg = val; \
-       return NULL; \
-   }
+	DOTCONF_CB(cb_ ## name) \
+	{ \
+		char *val_str; \
+		type val; \
+		val_str = g_ascii_strdown(cmd->data.str, strlen(cmd->data.str)); \
+		if (val_str == NULL) FATAL("Invalid parameter in configuration"); \
+		val = fconv(val_str); \
+		g_free(val_str); \
+		if (val == -1) FATAL("Invalid parameter in configuration."); \
+		if (!cl_spec_section) \
+			GlobalFDSet.arg = val; \
+		else \
+			cl_spec_section->val.arg = val; \
+		return NULL; \
+	}
 
 #define SPEECHD_OPTION_CB_STR_M(name, arg) \
-   DOTCONF_CB(cb_ ## name) \
-   { \
-       if (cl_spec_section) \
-         FATAL("This command isn't allowed in a client specific section!"); \
-       if (!SpeechdOptions.arg ## _set) SpeechdOptions.arg = g_strdup(cmd->data.str); \
-       return NULL; \
-   }
+	DOTCONF_CB(cb_ ## name) \
+	{ \
+		if (cl_spec_section) \
+			FATAL("This command isn't allowed in a client specific section!"); \
+		if (!SpeechdOptions.arg ## _set) SpeechdOptions.arg = g_strdup(cmd->data.str); \
+		return NULL; \
+	}
 
 #define SPEECHD_OPTION_CB_INT_M(name, arg, cond, str) \
-   DOTCONF_CB(cb_ ## name) \
-   { \
-       int val = cmd->data.value; \
-       if (cl_spec_section) \
-         FATAL("This command isn't allowed in a client specific section!"); \
-       if (!(cond)) FATAL(str); \
-       if (!SpeechdOptions.arg ## _set) SpeechdOptions.arg = val; \
-       return NULL; \
-   }
+	DOTCONF_CB(cb_ ## name) \
+	{ \
+		int val = cmd->data.value; \
+		if (cl_spec_section) \
+			FATAL("This command isn't allowed in a client specific section!"); \
+		if (!(cond)) FATAL(str); \
+		if (!SpeechdOptions.arg ## _set) SpeechdOptions.arg = val; \
+		return NULL; \
+	}
 
 #define SPEECHD_OPTION_CB_STR(name, arg) \
-   DOTCONF_CB(cb_ ## name) \
-   { \
-       if (cl_spec_section) \
-         FATAL("This command isn't allowed in a client specific section!"); \
-       SpeechdOptions.arg = g_strdup(cmd->data.str); \
-       return NULL; \
-   }
+	DOTCONF_CB(cb_ ## name) \
+	{ \
+		if (cl_spec_section) \
+			FATAL("This command isn't allowed in a client specific section!"); \
+		SpeechdOptions.arg = g_strdup(cmd->data.str); \
+		return NULL; \
+	}
 
 #define SPEECHD_OPTION_CB_INT(name, arg, cond, str) \
-   DOTCONF_CB(cb_ ## name) \
-   { \
-       int val = cmd->data.value; \
-       if (cl_spec_section) \
-         FATAL("This command isn't allowed in a client specific section!"); \
-       if (!(cond)) FATAL(str); \
-       SpeechdOptions.arg = val; \
-       return NULL; \
-   }
+	DOTCONF_CB(cb_ ## name) \
+	{ \
+		int val = cmd->data.value; \
+		if (cl_spec_section) \
+			FATAL("This command isn't allowed in a client specific section!"); \
+		if (!(cond)) FATAL(str); \
+		SpeechdOptions.arg = val; \
+		return NULL; \
+	}
 
 #define GLOBAL_SET_LOGLEVEL(name, arg, cond, str) \
-   DOTCONF_CB(cb_ ## name) \
-   { \
-       int val = cmd->data.value; \
-       if (cl_spec_section) \
-         FATAL("This command isn't allowed in a client specific section!"); \
-       if (!(cond)) FATAL(str); \
-       if (!SpeechdOptions.arg ## _set){ \
-         SpeechdOptions.arg = val; \
-         GlobalFDSet.arg = val; \
-       } \
-       return NULL; \
-   }
+	DOTCONF_CB(cb_ ## name) \
+	{ \
+		int val = cmd->data.value; \
+		if (cl_spec_section) \
+			FATAL("This command isn't allowed in a client specific section!"); \
+		if (!(cond)) FATAL(str); \
+		if (!SpeechdOptions.arg ## _set){ \
+			SpeechdOptions.arg = val; \
+			GlobalFDSet.arg = val; \
+		} \
+		return NULL; \
+	}
 
 /* == CALLBACK DEFINITIONS == */
 GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module)
@@ -186,13 +186,14 @@ GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module)
     GLOBAL_FDSET_OPTION_CB_INT(AudioPulseMinLength, audio_pulse_min_length, 1, "")
 
     GLOBAL_FDSET_OPTION_CB_INT(DefaultRate, msg_settings.rate, (val >= -100)
-			   && (val <= +100), "Rate out of range.")
+			       && (val <= +100), "Rate out of range.")
     GLOBAL_FDSET_OPTION_CB_INT(DefaultPitch, msg_settings.pitch, (val >= -100)
-			   && (val <= +100), "Pitch out of range.")
-    GLOBAL_FDSET_OPTION_CB_INT(DefaultPitchRange, msg_settings.pitch_range, (val >= -100)
-			   && (val <= +100), "Pitch range out of range.")
+			       && (val <= +100), "Pitch out of range.")
+    GLOBAL_FDSET_OPTION_CB_INT(DefaultPitchRange, msg_settings.pitch_range,
+			   (val >= -100)
+			       && (val <= +100), "Pitch range out of range.")
     GLOBAL_FDSET_OPTION_CB_INT(DefaultVolume, msg_settings.volume, (val >= -100)
-			   && (val <= +100), "Volume out of range.")
+			       && (val <= +100), "Volume out of range.")
     GLOBAL_FDSET_OPTION_CB_INT(DefaultSpelling, msg_settings.spelling_mode, 1,
 			   "Invalid spelling mode")
     GLOBAL_FDSET_OPTION_CB_INT(DefaultPauseContext, pause_context, 1, "")
@@ -214,7 +215,7 @@ GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module)
     SPEECHD_OPTION_CB_INT_M(LocalhostAccessOnly, localhost_access_only, val >= 0,
 			"Invalid access controll mode!")
     GLOBAL_SET_LOGLEVEL(LogLevel, log_level, (val >= 0)
-		    && (val <= 5), "Invalid log (verbosity) level!")
+			&& (val <= 5), "Invalid log (verbosity) level!")
     SPEECHD_OPTION_CB_INT(MaxHistoryMessages, max_history_messages, val >= 0,
 		      "Invalid parameter!")
 
@@ -390,10 +391,10 @@ DOTCONF_CB(cb_DisableAutoSpawn)
 /* == LOAD CALLBACKS == */
 
 #define ADD_CONFIG_OPTION(name, arg_type) \
-   options = add_config_option(options, num_options, #name, arg_type, cb_ ## name, 0, 0);
+	options = add_config_option(options, num_options, #name, arg_type, cb_ ## name, 0, 0);
 
 #define ADD_LAST_OPTION() \
-   options = add_config_option(options, num_options, "", 0, NULL, NULL, 0);
+	options = add_config_option(options, num_options, "", 0, NULL, NULL, 0);
 
 configoption_t *load_config_options(int *num_options)
 {

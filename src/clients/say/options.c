@@ -1,25 +1,25 @@
- /*
-  * options.c - Parse and process possible command line options
-  *
-  * Copyright (C) 2003 Brailcom, o.p.s.
-  *
-  * This is free software; you can redistribute it and/or modify it
-  * under the terms of the GNU General Public License as published by
-  * the Free Software Foundation; either version 2, or (at your option)
-  * any later version.
-  *
-  * This software is distributed in the hope that it will be useful,
-  * but WITHOUT ANY WARRANTY; without even the implied warranty of
-  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  * General Public License for more details.
-  *
-  * You should have received a copy of the GNU General Public License
-  * along with this package; see the file COPYING.  If not, write to
-  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-  * Boston, MA 02110-1301, USA.
-  *
-  * $Id: options.c,v 1.9 2006-07-11 16:12:26 hanke Exp $
-  */
+/*
+ * options.c - Parse and process possible command line options
+ *
+ * Copyright (C) 2003 Brailcom, o.p.s.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2, or (at your option)
+ * any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this package; see the file COPYING.  If not, write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301, USA.
+ *
+ * $Id: options.c,v 1.9 2006-07-11 16:12:26 hanke Exp $
+ */
 
 /* NOTE: Be careful not to include options.h, we would
    get repetitive initializations warnings */
@@ -58,7 +58,7 @@ void options_print_help(char *argv[])
 	printf(_("Set the pitch range of the speech\n"));
 	printf("\t\t\t\t");
 	printf(_("(between %+d and %+d, default: %d)\n"), -100, 100, 0);
-	
+
 	printf("-i, --volume\t\t\t");
 	printf(_("Set the volume (intensity) of the speech\n"));
 	printf("\t\t\t\t");
@@ -141,39 +141,40 @@ void options_print_help(char *argv[])
 		 "under the terms of the GNU General Public License as published by\n"
 		 "the Free Software Foundation; either version 2, or (at your option)\n"
 		 "any later version. Please see COPYING for more details.\n\n"
-		 "Please report bugs to %s\n\n"), 2002, 2012, PACKAGE_BUGREPORT);
+		 "Please report bugs to %s\n\n"), 2002, 2012,
+	       PACKAGE_BUGREPORT);
 
 }
 
 void options_print_version()
 {
-    printf("spd-say: " VERSION "\n");
-    printf(_("Copyright (C) %d-%d Brailcom, o.p.s.\n"
-	     "%s comes with ABSOLUTELY NO WARRANTY.\n"
-	     "You may redistribute copies of this program\n"
-	     "under the terms of the GNU General Public License.\n"
-	     "For more information about these matters, see the file named COPYING.\n"),
-	   2002, 2012, "spd-say");
+	printf("spd-say: " VERSION "\n");
+	printf(_("Copyright (C) %d-%d Brailcom, o.p.s.\n"
+		 "%s comes with ABSOLUTELY NO WARRANTY.\n"
+		 "You may redistribute copies of this program\n"
+		 "under the terms of the GNU General Public License.\n"
+		 "For more information about these matters, see the file named COPYING.\n"),
+	       2002, 2012, "spd-say");
 }
 
 #define OPT_SET_INT(param) \
-    val = strtol(optarg, &tail_ptr, 10); \
-    if(tail_ptr != optarg){ \
-        param = val; \
-    }else{ \
-        printf(_("Syntax error or bad parameter!\n"));	\
-        options_print_help(argv); \
-        exit(1); \
-    }
+	val = strtol(optarg, &tail_ptr, 10); \
+	if(tail_ptr != optarg){ \
+		param = val; \
+	}else{ \
+		printf(_("Syntax error or bad parameter!\n"));	\
+		options_print_help(argv); \
+		exit(1); \
+	}
 
 #define OPT_SET_STR(param) \
-    if(optarg != NULL){ \
-        param = (char*) strdup(optarg); \
-    }else{ \
-        printf(_("Missing argument!\n"));	\
-        options_print_help(argv); \
-        exit(1); \
-    }
+	if(optarg != NULL){ \
+		param = (char*) strdup(optarg); \
+	}else{ \
+		printf(_("Missing argument!\n"));	\
+		options_print_help(argv); \
+		exit(1); \
+	}
 
 int options_parse(int argc, char *argv[])
 {

@@ -348,8 +348,7 @@ int pico_init_voice(int voice_index)
 	}
 
 	/* Create a voice definition.   */
-	if ((ret = pico_createVoiceDefinition(picoSystem,
-					      (const pico_Char *)
+	if ((ret = pico_createVoiceDefinition(picoSystem, (const pico_Char *)
 					      pico_voices[voice_index].name))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
@@ -361,8 +360,8 @@ int pico_init_voice(int voice_index)
 	/* Add the text analysis resource to the voice. */
 	if ((ret = pico_addResourceToVoiceDefinition(picoSystem,
 						     (const pico_Char *)
-						     pico_voices[voice_index].
-						     name,
+						     pico_voices
+						     [voice_index].name,
 						     picoTaResourceName))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
@@ -374,8 +373,8 @@ int pico_init_voice(int voice_index)
 	/* Add the signal generation resource to the voice. */
 	if ((ret = pico_addResourceToVoiceDefinition(picoSystem,
 						     (const pico_Char *)
-						     pico_voices[voice_index].
-						     name,
+						     pico_voices
+						     [voice_index].name,
 						     picoSgResourceName))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
@@ -504,7 +503,7 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 	/* Setting speech parameters. */
 
 	UPDATE_STRING_PARAMETER(voice.name, pico_set_synthesis_voice);
-/*	UPDATE_PARAMETER(voice_type, pico_set_voice);*/
+	/*      UPDATE_PARAMETER(voice_type, pico_set_voice); */
 	UPDATE_STRING_PARAMETER(voice.language, pico_set_language);
 
 	picoInp = (pico_Char *) module_strip_ssml(data);
@@ -512,8 +511,7 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 	value = pico_set_rate(msg_settings.rate);
 	if (PICO_VOICE_SPEED_DEFAULT != value) {
 		tmp = picoInp;
-		picoInp =
-		    (pico_Char *)
+		picoInp = (pico_Char *)
 		    g_strdup_printf("<speed level='%d'>%s</speed>", value, tmp);
 		g_free(tmp);
 	}
@@ -521,8 +519,7 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 	value = pico_set_volume(msg_settings.volume);
 	if (PICO_VOICE_VOLUME_DEFAULT != value) {
 		tmp = picoInp;
-		picoInp =
-		    (pico_Char *)
+		picoInp = (pico_Char *)
 		    g_strdup_printf("<volume level='%d'>%s</volume>", value,
 				    tmp);
 		g_free(tmp);
@@ -531,23 +528,22 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 	value = pico_set_pitch(msg_settings.pitch);
 	if (PICO_VOICE_PITCH_DEFAULT != value) {
 		tmp = picoInp;
-		picoInp =
-		    (pico_Char *)
+		picoInp = (pico_Char *)
 		    g_strdup_printf("<pitch level='%d'>%s</pitch>", value, tmp);
 		g_free(tmp);
 	}
 
-/*	switch (msgtype) {
-		case SPD_MSGTYPE_CHAR:
-		case SPD_MSGTYPE_KEY:
-		case SPD_MSGTYPE_TEXT:
-		case SPD_MSGTYPE_SOUND_ICON:
-		default:
-			DBG(MODULE_NAME
-			        ": msgtype = %d", msgtype);
-			break;
-	}
-*/
+	/*      switch (msgtype) {
+	   case SPD_MSGTYPE_CHAR:
+	   case SPD_MSGTYPE_KEY:
+	   case SPD_MSGTYPE_TEXT:
+	   case SPD_MSGTYPE_SOUND_ICON:
+	   default:
+	   DBG(MODULE_NAME
+	   ": msgtype = %d", msgtype);
+	   break;
+	   }
+	 */
 	g_atomic_int_set(&pico_state, STATE_PLAY);
 	sem_post(&pico_play_semaphore);
 	return bytes;

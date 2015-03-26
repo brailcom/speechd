@@ -90,70 +90,70 @@ DECLARE_DEBUG();
    is 3 strings, where the 1st string is used to access a list
    of the 2nd and 3rd strings. */
 #define MOD_OPTION_3_STR_HT_DLL(name, arg1, arg2, arg3) \
-    typedef struct{ \
-        char* arg2; \
-        char* arg3; \
-    }T ## name; \
-    GHashTable *name; \
-    \
-    DOTCONF_CB(name ## _cb) \
-    { \
-        T ## name *new_item; \
-        char *new_key; \
-        GList *dll = NULL; \
-        new_item = (T ## name *) g_malloc(sizeof(T ## name)); \
-        new_key = g_strdup(cmd->data.list[0]); \
-        if (NULL != cmd->data.list[1]) \
-            new_item->arg2 = g_strdup(cmd->data.list[1]); \
-        else \
-            new_item->arg2 = NULL; \
-        if (NULL != cmd->data.list[2]) \
-            new_item->arg3 = g_strdup(cmd->data.list[2]); \
-        else \
-            new_item->arg3 = NULL; \
-        dll = g_hash_table_lookup(name, new_key); \
-        dll = g_list_append(dll, new_item); \
-        g_hash_table_insert(name, new_key, dll); \
-        return NULL; \
-    }
+	typedef struct{ \
+		char* arg2; \
+		char* arg3; \
+	}T ## name; \
+	GHashTable *name; \
+	\
+	DOTCONF_CB(name ## _cb) \
+	{ \
+		T ## name *new_item; \
+		char *new_key; \
+		GList *dll = NULL; \
+		new_item = (T ## name *) g_malloc(sizeof(T ## name)); \
+		new_key = g_strdup(cmd->data.list[0]); \
+		if (NULL != cmd->data.list[1]) \
+			new_item->arg2 = g_strdup(cmd->data.list[1]); \
+		else \
+			new_item->arg2 = NULL; \
+		if (NULL != cmd->data.list[2]) \
+			new_item->arg3 = g_strdup(cmd->data.list[2]); \
+		else \
+			new_item->arg3 = NULL; \
+		dll = g_hash_table_lookup(name, new_key); \
+		dll = g_list_append(dll, new_item); \
+		g_hash_table_insert(name, new_key, dll); \
+		return NULL; \
+	}
 
 /* Load a double-linked list from config file. */
 #define MOD_OPTION_HT_DLL_REG(name) \
-    name = g_hash_table_new(g_str_hash, g_str_equal); \
-    module_dc_options = module_add_config_option(module_dc_options, \
-                                     &module_num_dc_options, #name, \
-                                     ARG_LIST, name ## _cb, NULL, 0);
+	name = g_hash_table_new(g_str_hash, g_str_equal); \
+	module_dc_options = module_add_config_option(module_dc_options, \
+	                    &module_num_dc_options, #name, \
+	                    ARG_LIST, name ## _cb, NULL, 0);
 
 /* Define a hash table mapping a string to 7 integer values. */
 #define MOD_OPTION_6_INT_HT(name, arg1, arg2, arg3, arg4, arg5, arg6, arg7) \
-    typedef struct{ \
-        int arg1; \
-        int arg2; \
-        int arg3; \
-        int arg4; \
-        int arg5; \
-        int arg6; \
-        int arg7; \
-    }T ## name; \
-    GHashTable *name; \
-    \
-    DOTCONF_CB(name ## _cb) \
-    { \
-        T ## name *new_item; \
-        char* new_key; \
-        new_item = (T ## name *) g_malloc(sizeof(T ## name)); \
-        if (cmd->data.list[0] == NULL) return NULL; \
-        new_key = g_strdup(cmd->data.list[0]); \
-        new_item->arg1 = (int) strtol(cmd->data.list[1], NULL, 10); \
-        new_item->arg2 = (int) strtol(cmd->data.list[2], NULL, 10); \
-        new_item->arg3 = (int) strtol(cmd->data.list[3], NULL, 10); \
-        new_item->arg4 = (int) strtol(cmd->data.list[4], NULL, 10); \
-        new_item->arg5 = (int) strtol(cmd->data.list[5], NULL, 10); \
-        new_item->arg6 = (int) strtol(cmd->data.list[6], NULL, 10); \
-        new_item->arg7 = (int) strtol(cmd->data.list[7], NULL, 10); \
-        g_hash_table_insert(name, new_key, new_item); \
-        return NULL; \
-    }
+	typedef struct{ \
+		int arg1; \
+		int arg2; \
+		int arg3; \
+		int arg4; \
+		int arg5; \
+		int arg6; \
+		int arg7; \
+	}T ## name; \
+	GHashTable *name; \
+	\
+	DOTCONF_CB(name ## _cb) \
+	{ \
+		T ## name *new_item; \
+		char* new_key; \
+		new_item = (T ## name *) g_malloc(sizeof(T ## name)); \
+		if (cmd->data.list[0] == NULL) return NULL; \
+		new_key = g_strdup(cmd->data.list[0]); \
+		new_item->arg1 = (int) strtol(cmd->data.list[1], NULL, 10); \
+		new_item->arg2 = (int) strtol(cmd->data.list[2], NULL, 10); \
+		new_item->arg3 = (int) strtol(cmd->data.list[3], NULL, 10); \
+		new_item->arg4 = (int) strtol(cmd->data.list[4], NULL, 10); \
+		new_item->arg5 = (int) strtol(cmd->data.list[5], NULL, 10); \
+		new_item->arg6 = (int) strtol(cmd->data.list[6], NULL, 10); \
+		new_item->arg7 = (int) strtol(cmd->data.list[7], NULL, 10); \
+		g_hash_table_insert(name, new_key, new_item); \
+		return NULL; \
+	}
 
 /* Thread and process control. */
 static pthread_t ibmtts_synth_thread;
@@ -265,7 +265,7 @@ static int ibmtts_replace(char *from, char *to, GString * msg);
 static void ibmtts_subst_keys_cb(gpointer data, gpointer user_data);
 static char *ibmtts_subst_keys(char *key);
 static char *ibmtts_search_for_sound_icon(const char *icon_name);
-static TIbmttsBool ibmtts_add_sound_icon_to_playback_queue(char* filename);
+static TIbmttsBool ibmtts_add_sound_icon_to_playback_queue(char *filename);
 static void ibmtts_load_user_dictionary();
 
 static enum ECICallbackReturn eciCallback(ECIHand hEngine,
@@ -323,7 +323,8 @@ typedef struct _eciLocale {
 } eciLocale, *eciLocaleList;
 
 static eciLocale eciLocales[] = {
-	{"American_English", "en", "US", eciGeneralAmericanEnglish,
+	{
+	 "American_English", "en", "US", eciGeneralAmericanEnglish,
 	 "ISO-8859-1"},
 	{"British_English", "en", "GB", eciBritishEnglish, "ISO-8859-1"},
 	{"Castilian_Spanish", "es", "ES", eciCastilianSpanish, "ISO-8859-1"},
@@ -334,19 +335,25 @@ static eciLocale eciLocales[] = {
 	{"Italian", "it", "IT", eciStandardItalian, "ISO-8859-1"},
 	{"Mandarin_Chinese", "zh", "CN", eciMandarinChinese, "GBK"},
 	{"Mandarin_Chinese GB", "zh", "CN_GB", eciMandarinChineseGB, "GBK"},
-	{"Mandarin_Chinese PinYin", "zh", "CN_PinYin", eciMandarinChinesePinYin,
+	{
+	 "Mandarin_Chinese PinYin", "zh", "CN_PinYin", eciMandarinChinesePinYin,
 	 "GBK"},
 	{"Mandarin_Chinese UCS", "zh", "CN_UCS", eciMandarinChineseUCS, "UCS2"},
 	{"Taiwanese_Mandarin", "zh", "TW", eciTaiwaneseMandarin, "BIG5"},
-	{"Taiwanese_Mandarin Big 5", "zh", "TW_Big5", eciTaiwaneseMandarinBig5,
+	{
+	 "Taiwanese_Mandarin Big 5", "zh", "TW_Big5", eciTaiwaneseMandarinBig5,
 	 "BIG5"},
-	{"Taiwanese_Mandarin ZhuYin", "zh", "TW_ZhuYin",
+	{
+	 "Taiwanese_Mandarin ZhuYin", "zh", "TW_ZhuYin",
 	 eciTaiwaneseMandarinZhuYin, "BIG5"},
-	{"Taiwanese_Mandarin PinYin", "zh", "TW_PinYin",
+	{
+	 "Taiwanese_Mandarin PinYin", "zh", "TW_PinYin",
 	 eciTaiwaneseMandarinPinYin, "BIG5"},
-	{"Taiwanese_Mandarin UCS", "zh", "TW_UCS", eciTaiwaneseMandarinUCS,
+	{
+	 "Taiwanese_Mandarin UCS", "zh", "TW_UCS", eciTaiwaneseMandarinUCS,
 	 "UCS2"},
-	{"Brazilian_Portuguese", "pt", "BR", eciBrazilianPortuguese,
+	{
+	 "Brazilian_Portuguese", "pt", "BR", eciBrazilianPortuguese,
 	 "ISO-8859-1"},
 	{"Japanese", "ja", "JP", eciStandardJapanese, "SJIS"},
 	{"Japanese_SJIS", "ja", "JP_SJIS", eciStandardJapaneseSJIS, "SJIS"},
@@ -359,9 +366,11 @@ static eciLocale eciLocales[] = {
 	{"Cantonese_GB", "zh", "HK_GB", eciStandardCantoneseGB, "GBK"},
 	{"Cantonese_UCS", "zh", "HK_UCS", eciStandardCantoneseUCS, "UCS2"},
 	{"HongKong_Cantonese", "zh", "HK", eciHongKongCantonese, "BIG5"},
-	{"HongKong_Cantonese Big 5", "zh", "HK_BIG5", eciHongKongCantoneseBig5,
+	{
+	 "HongKong_Cantonese Big 5", "zh", "HK_BIG5", eciHongKongCantoneseBig5,
 	 "BIG5"},
-	{"HongKong_Cantonese UCS", "zh", "HK_UCS", eciHongKongCantoneseUCS,
+	{
+	 "HongKong_Cantonese UCS", "zh", "HK_UCS", eciHongKongCantoneseUCS,
 	 "UCS-2"},
 	{"Dutch", "nl", "BE", eciStandardDutch, "ISO-8859-1"},
 	{"Norwegian", "no", "NO", eciStandardNorwegian, "ISO-8859-1"},
@@ -376,12 +385,13 @@ static eciLocale eciLocales[] = {
 #define MAX_NB_OF_LANGUAGES (sizeof(eciLocales)/sizeof(eciLocales[0]) - 1)
 
 /* dictionary_filename: its index corresponds to the ECIDictVolume enumerate */
-static char* dictionary_filenames[] = {
-    "main.dct", 
-    "root.dct", 
-    "abbreviation.dct",
-    "extension.dct"
+static char *dictionary_filenames[] = {
+	"main.dct",
+	"root.dct",
+	"abbreviation.dct",
+	"extension.dct"
 };
+
 #define NB_OF_DICTIONARY_FILENAMES (sizeof(dictionary_filenames)/sizeof(dictionary_filenames[0]))
 
 /* Public functions */
@@ -399,7 +409,8 @@ int module_load(void)
 	MOD_OPTION_1_INT_REG(IbmttsUseSSML, 1);
 	MOD_OPTION_1_INT_REG(IbmttsUseAbbreviation, 1);
 	MOD_OPTION_1_STR_REG(IbmttsPunctuationList, "()?");
-	MOD_OPTION_1_STR_REG(IbmttsDictionaryFolder, "/var/opt/IBM/ibmtts/dict");
+	MOD_OPTION_1_STR_REG(IbmttsDictionaryFolder,
+			     "/var/opt/IBM/ibmtts/dict");
 
 	MOD_OPTION_1_INT_REG(IbmttsAudioChunkSize, 20000);
 	MOD_OPTION_1_STR_REG(IbmttsSoundIconFolder,
@@ -901,7 +912,7 @@ static int process_text_mark(char *part, int part_len, char *mark_name)
 	DBG("Ibmtts: End of data in synthesis thread.");
 	/*
 	   Add index mark for end of message.
-	   This also makes sure the callback gets called at least once 
+	   This also makes sure the callback gets called at least once
 	 */
 	eciInsertIndex(eciHandle, IBMTTS_MSG_END_MARK);
 	DBG("Ibmtts: Trying to synthesize text.");
@@ -1237,7 +1248,7 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant)
 		DBG("Ibmtts: Unable to set language");
 		ibmtts_log_eci_error();
 	} else {
-	  g_atomic_int_set(&locale_index_atomic, j);
+		g_atomic_int_set(&locale_index_atomic, j);
 	}
 
 	/* Set voice parameters (if any are defined for this voice.) */
@@ -1525,7 +1536,6 @@ ibmtts_send_to_audio(TPlaybackQueueEntry * playback_queue_entry)
 #endif
 	int ret;
 
-
 	track.num_samples = playback_queue_entry->data.audio.num_samples;
 	track.num_channels = 1;
 	track.sample_rate = eci_sample_rate;
@@ -1610,8 +1620,8 @@ static void *_ibmtts_play(void *nothing)
 				}
 				break;
 			case IBMTTS_QET_SOUND_ICON:
-				module_play_file(playback_queue_entry->data.
-						 sound_icon_filename);
+				module_play_file(playback_queue_entry->
+						 data.sound_icon_filename);
 				break;
 			case IBMTTS_QET_BEGIN:
 				module_report_event_begin();
@@ -1670,9 +1680,8 @@ static char *ibmtts_subst_keys(char *key)
 	GString *tmp = g_string_sized_new(30);
 	g_string_append(tmp, key);
 
-	GList *keyTable =
-	    g_hash_table_lookup(IbmttsKeySubstitution,
-				msg_settings.voice.language);
+	GList *keyTable = g_hash_table_lookup(IbmttsKeySubstitution,
+					      msg_settings.voice.language);
 
 	if (keyTable)
 		g_list_foreach(keyTable, ibmtts_subst_keys_cb, tmp);
@@ -1703,13 +1712,13 @@ static char *ibmtts_search_for_sound_icon(const char *icon_name)
 	filename = g_string_append(filename, icon_name);
 	if (g_file_test(filename->str, G_FILE_TEST_EXISTS))
 		fn = filename->str;
-/*
-    else {
-        filename = g_string_assign(filename, g_utf8_strdown(filename->str, -1));
-        if (g_file_test(filename->str, G_FILE_TEST_EXISTS))
-            fn = filename->str;
-    }
-*/
+	/*
+	   else {
+	   filename = g_string_assign(filename, g_utf8_strdown(filename->str, -1));
+	   if (g_file_test(filename->str, G_FILE_TEST_EXISTS))
+	   fn = filename->str;
+	   }
+	 */
 
 	/*
 	 * if the file was found, the pointer *fn  points to the character data
@@ -1794,13 +1803,14 @@ static void ibmtts_load_user_dictionary()
 	int dictionary_is_present = 0;
 	static guint old_index = MAX_NB_OF_LANGUAGES;
 	guint new_index;
-	const char* language = NULL;
-	const char* region = NULL;
+	const char *language = NULL;
+	const char *region = NULL;
 	ECIDictHand eciDict = eciGetDict(eciHandle);
 
 	new_index = g_atomic_int_get(&locale_index_atomic);
 	if (new_index >= MAX_NB_OF_LANGUAGES) {
-		DBG("Ibmtts: %s, unexpected index (0x%x)", __FUNCTION__, new_index);
+		DBG("Ibmtts: %s, unexpected index (0x%x)", __FUNCTION__,
+		    new_index);
 		return;
 	}
 
@@ -1813,15 +1823,15 @@ static void ibmtts_load_user_dictionary()
 	region = eciLocales[new_index].dialect;
 
 	/* Fix locale name for French Canadian */
-	if (!strcmp(language,"ca") && !strcmp(region,"FR")) {
+	if (!strcmp(language, "ca") && !strcmp(region, "FR")) {
 		language = "fr";
 		region = "CA";
 	}
 
 	if (eciDict) {
 		DBG("Ibmtts: delete old dictionary");
-		eciDeleteDict(eciHandle, eciDict);	
-	} 
+		eciDeleteDict(eciHandle, eciDict);
+	}
 	eciDict = eciNewDict(eciHandle);
 	if (eciDict) {
 		old_index = new_index;
@@ -1830,16 +1840,19 @@ static void ibmtts_load_user_dictionary()
 		DBG("Ibmtts: can't create new dictionary");
 		return;
 	}
-	
+
 	/* Look for the dictionary directory */
 	dirname = g_string_new(NULL);
-	g_string_printf(dirname, "%s/%s_%s", IbmttsDictionaryFolder, language, region);
+	g_string_printf(dirname, "%s/%s_%s", IbmttsDictionaryFolder, language,
+			region);
 	if (!g_file_test(dirname->str, G_FILE_TEST_IS_DIR)) {
-		g_string_printf(dirname, "%s/%s", IbmttsDictionaryFolder, language);
+		g_string_printf(dirname, "%s/%s", IbmttsDictionaryFolder,
+				language);
 		if (!g_file_test(dirname->str, G_FILE_TEST_IS_DIR)) {
 			g_string_printf(dirname, "%s", IbmttsDictionaryFolder);
 			if (!g_file_test(dirname->str, G_FILE_TEST_IS_DIR)) {
-				DBG("Ibmtts: %s is not a directory", dirname->str);
+				DBG("Ibmtts: %s is not a directory",
+				    dirname->str);
 				return;
 			}
 		}
@@ -1847,26 +1860,29 @@ static void ibmtts_load_user_dictionary()
 
 	DBG("Ibmtts: Looking in dictionary directory %s", dirname->str);
 	filename = g_string_new(NULL);
-	
-	for (i=0; i<NB_OF_DICTIONARY_FILENAMES; i++) 
-	{
-		g_string_printf(filename, "%s/%s", dirname->str, dictionary_filenames[i]);
+
+	for (i = 0; i < NB_OF_DICTIONARY_FILENAMES; i++) {
+		g_string_printf(filename, "%s/%s", dirname->str,
+				dictionary_filenames[i]);
 		if (g_file_test(filename->str, G_FILE_TEST_EXISTS)) {
-			enum ECIDictError error = eciLoadDict(eciHandle, eciDict, i, filename->str);
+			enum ECIDictError error =
+			    eciLoadDict(eciHandle, eciDict, i, filename->str);
 			if (!error) {
-				dictionary_is_present = 1;		
-				DBG("Ibmtts: %s dictionary loaded", filename->str);
+				dictionary_is_present = 1;
+				DBG("Ibmtts: %s dictionary loaded",
+				    filename->str);
 			} else {
-				DBG("Ibmtts: Can't load %s dictionary (%d)", filename->str, error);
+				DBG("Ibmtts: Can't load %s dictionary (%d)",
+				    filename->str, error);
 			}
 		} else {
 			DBG("Ibmtts: No %s dictionary", filename->str);
 		}
 	}
-	
+
 	g_string_free(filename, TRUE);
 	g_string_free(dirname, TRUE);
-	
+
 	if (dictionary_is_present) {
 		eciSetDict(eciHandle, eciDict);
 	}

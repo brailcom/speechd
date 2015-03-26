@@ -109,7 +109,7 @@ int main()
 	}
 
 	sleep(4);
- 
+
 	printf("Switch punctuation mode to `all'.");
 	printf("\n");
 

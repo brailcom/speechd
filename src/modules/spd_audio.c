@@ -22,11 +22,11 @@
  * $Id: spd_audio.c,v 1.21 2008-06-09 10:29:12 hanke Exp $
  */
 
-/* 
+/*
  * spd_audio is a simple realtime audio output library with the capability of
  * playing 8 or 16 bit data, immediate stop and synchronization. This library
  * currently provides OSS, NAS, ALSA and PulseAudio backend. The available backends are
- * specified at compile-time using the directives WITH_OSS, WITH_NAS, WITH_ALSA, 
+ * specified at compile-time using the directives WITH_OSS, WITH_NAS, WITH_ALSA,
  * WITH_PULSE, WITH_LIBAO but the user program is allowed to switch between them at run-time.
  */
 

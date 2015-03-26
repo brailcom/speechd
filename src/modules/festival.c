@@ -75,51 +75,51 @@ struct {
 /* --- SETTINGS COMMANDS --- */
 
 #define FEST_SET_STR(name, fest_param) \
-    int \
-    name(FT_Info *info, char *param, char **resp) \
-    { \
-        char *r; \
-        int ret; \
-        char *f; \
-        if (festival_check_info(info, #name)) return -1; \
-        if (param == NULL){ \
-	  FEST_SEND_CMD("("fest_param" nil)"); \
-        }else{ \
-          f = g_ascii_strdown(param, -1); \
-	  FEST_SEND_CMDA("("fest_param" \"%s\")", f); \
-          g_free(f); \
-	} \
-        ret = festival_read_response(info, &r); \
-        if (ret != 0) return -1; \
-        if (r != NULL){ \
-          if (resp != NULL) \
-             *resp = r; \
-          else \
-             g_free(r); \
-        } \
-        return ret; \
-    }
+	int \
+	name(FT_Info *info, char *param, char **resp) \
+	{ \
+		char *r; \
+		int ret; \
+		char *f; \
+		if (festival_check_info(info, #name)) return -1; \
+		if (param == NULL){ \
+			FEST_SEND_CMD("("fest_param" nil)"); \
+		}else{ \
+			f = g_ascii_strdown(param, -1); \
+			FEST_SEND_CMDA("("fest_param" \"%s\")", f); \
+			g_free(f); \
+		} \
+		ret = festival_read_response(info, &r); \
+		if (ret != 0) return -1; \
+		if (r != NULL){ \
+			if (resp != NULL) \
+				*resp = r; \
+			else \
+				g_free(r); \
+		} \
+		return ret; \
+	}
 
 #define FEST_SET_SYMB(name, fest_param) \
-    int \
-    name(FT_Info *info, char *param) \
-    { \
-        char *f = NULL; \
-        if (festival_check_info(info, #name)) return -1; \
-        if (param == NULL) return -1; \
-        FEST_SEND_CMDA("("fest_param" '%s)", f = g_ascii_strdown(param, -1)); \
-        g_free(f); \
-        return festival_read_response(info, NULL); \
-    }
+	int \
+	name(FT_Info *info, char *param) \
+	{ \
+		char *f = NULL; \
+		if (festival_check_info(info, #name)) return -1; \
+		if (param == NULL) return -1; \
+		FEST_SEND_CMDA("("fest_param" '%s)", f = g_ascii_strdown(param, -1)); \
+		g_free(f); \
+		return festival_read_response(info, NULL); \
+	}
 
 #define FEST_SET_INT(name, fest_param) \
-    int \
-    name(FT_Info *info, int param) \
-    { \
-        if (festival_check_info(info, #name)) return -1; \
-        FEST_SEND_CMDA("("fest_param" %d)", param); \
-        return festival_read_response(info, NULL); \
-    }
+	int \
+	name(FT_Info *info, int param) \
+	{ \
+		if (festival_check_info(info, #name)) return -1; \
+		FEST_SEND_CMDA("("fest_param" %d)", param); \
+		return festival_read_response(info, NULL); \
+	}
 
 FEST_SET_SYMB(FestivalSetMultiMode, "speechd-enable-multi-mode")
 
@@ -360,7 +360,7 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 	}
 
 	/* If the voice was changed, re-set all the parameters */
-	// TODO: Handle synthesis_voice change too 
+	// TODO: Handle synthesis_voice change too
 	if ((msg_settings.voice_type != msg_settings_old.voice_type)
 	    || ((msg_settings.voice.language != NULL)
 		&& (msg_settings_old.voice.language != NULL)
@@ -485,25 +485,25 @@ int module_close(void)
 /* Internal functions */
 
 #define CLEAN_UP(code, im) \
-        { \
-          if(!wave_cached) if (fwave) delete_FT_Wave(fwave); \
-          pthread_mutex_lock(&sound_output_mutex); \
-          festival_stop = 0; \
-          festival_speaking = 0; \
-          pthread_mutex_unlock(&sound_output_mutex); \
-          im(); \
-          goto sem_wait; \
-        }
+	{ \
+		if(!wave_cached) if (fwave) delete_FT_Wave(fwave); \
+		pthread_mutex_lock(&sound_output_mutex); \
+		festival_stop = 0; \
+		festival_speaking = 0; \
+		pthread_mutex_unlock(&sound_output_mutex); \
+		im(); \
+		goto sem_wait; \
+	}
 
 #define CLP(code, im) \
-        { \
-          pthread_mutex_lock(&sound_output_mutex); \
-          festival_stop = 0; \
-          festival_speaking = 0; \
-          pthread_mutex_unlock(&sound_output_mutex); \
-          im(); \
-          goto sem_wait; \
-        }
+	{ \
+		pthread_mutex_lock(&sound_output_mutex); \
+		festival_stop = 0; \
+		festival_speaking = 0; \
+		pthread_mutex_unlock(&sound_output_mutex); \
+		im(); \
+		goto sem_wait; \
+	}
 
 static SPDVoice **festivalGetVoices(FT_Info * info)
 {
@@ -971,7 +971,7 @@ void cache_debug_foreach_list_score(gpointer a, gpointer user)
 	    (int)(t - A->start));
 }
 
-/* Remove 1/3 of the least used (according to cache_counter_comp) entries 
+/* Remove 1/3 of the least used (according to cache_counter_comp) entries
    (measured by size) */
 int cache_clean(size_t new_element_size)
 {

@@ -1,6 +1,6 @@
 /*
  * speechd.c - Speech Dispatcher server program
- *  
+ *
  * Copyright (C) 2001, 2002, 2003, 2006, 2007 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
@@ -124,7 +124,7 @@ void fatal_error(void)
 	i++;
 }
 
-/* Logging messages, level of verbosity is defined between 1 and 5, 
+/* Logging messages, level of verbosity is defined between 1 and 5,
  * see documentation */
 void MSG2(int level, char *kind, char *format, ...)
 {
@@ -156,7 +156,7 @@ void MSG2(int level, char *kind, char *format, ...)
 					fprintf(logfile, "[%s : %d] speechd: ",
 						tstr, (int)tv.tv_usec);
 					//            fprintf(logfile, "[test : %d] speechd: ",
-					//                     (int) tv.tv_usec); 
+					//                     (int) tv.tv_usec);
 				}
 				if (custom_log) {
 					fprintf(custom_logfile,
@@ -614,7 +614,8 @@ void speechd_init()
 
 	if (SpeechdOptions.log_dir == NULL) {
 		SpeechdOptions.log_dir =
-		    g_strdup_printf("%s/log/", SpeechdOptions.runtime_speechd_dir);
+		    g_strdup_printf("%s/log/",
+				    SpeechdOptions.runtime_speechd_dir);
 		mkdir(SpeechdOptions.log_dir, S_IRWXU);
 		if (!SpeechdOptions.debug_destination) {
 			SpeechdOptions.debug_destination =
@@ -687,13 +688,15 @@ void speechd_load_configuration(int sig)
 			detected_modules = detect_output_modules(MODULEBINDIR);
 			while (detected_modules != NULL) {
 				char **parameters = detected_modules->data;
-				module_add_load_request(parameters[0], parameters[1],
-							parameters[2], parameters[3]);
+				module_add_load_request(parameters[0],
+							parameters[1],
+							parameters[2],
+							parameters[3]);
 				g_free(detected_modules->data);
 				detected_modules->data = NULL;
 				detected_modules =
-					g_list_delete_link(detected_modules,
-							   detected_modules);
+				    g_list_delete_link(detected_modules,
+						       detected_modules);
 			}
 		}
 
@@ -970,39 +973,50 @@ int main(int argc, char *argv[])
 	MSG(1, "Speech Dispatcher " VERSION " starting");
 
 	/* By default, search for configuration options in $XDG_CONFIG_HOME/speech-dispatcher
-           and sockets and pid files in $XDG_RUNTIME_DIR/speech-dispatcher */
+	   and sockets and pid files in $XDG_RUNTIME_DIR/speech-dispatcher */
 	{
 		const char *user_runtime_dir;
 		const char *user_config_dir;
-		char* test_speechd_conf_file = NULL;
+		char *test_speechd_conf_file = NULL;
 
-		user_runtime_dir = g_get_user_runtime_dir ();
-		user_config_dir = g_get_user_config_dir ();
+		user_runtime_dir = g_get_user_runtime_dir();
+		user_config_dir = g_get_user_config_dir();
 
 		/* Setup a speechd-dispatcher directory or create a new one */
-		SpeechdOptions.runtime_speechd_dir = g_strdup_printf("%s/speech-dispatcher",
-								     user_runtime_dir);
+		SpeechdOptions.runtime_speechd_dir =
+		    g_strdup_printf("%s/speech-dispatcher", user_runtime_dir);
 		MSG(4, "Trying to find %s", SpeechdOptions.runtime_speechd_dir);
-		g_mkdir_with_parents(SpeechdOptions.runtime_speechd_dir, S_IRWXU);
-		MSG(4, "Using directory: %s for pidfile and logging", SpeechdOptions.runtime_speechd_dir);
+		g_mkdir_with_parents(SpeechdOptions.runtime_speechd_dir,
+				     S_IRWXU);
+		MSG(4, "Using directory: %s for pidfile and logging",
+		    SpeechdOptions.runtime_speechd_dir);
 		/* Pidfile */
 		if (SpeechdOptions.pid_file == NULL) {
 			/* If no pidfile path specified on command line, use default local dir */
-			SpeechdOptions.pid_file = g_strdup_printf ("%s/pid/speech-dispatcher.pid",
-								   SpeechdOptions.runtime_speechd_dir);
-			g_mkdir(g_path_get_dirname (SpeechdOptions.pid_file), S_IRWXU);
+			SpeechdOptions.pid_file =
+			    g_strdup_printf("%s/pid/speech-dispatcher.pid",
+					    SpeechdOptions.runtime_speechd_dir);
+			g_mkdir(g_path_get_dirname(SpeechdOptions.pid_file),
+				S_IRWXU);
 		}
 		/* Config file */
 		if (SpeechdOptions.conf_dir == NULL) {
 			/* If no conf_dir was specified on command line, try default local config dir */
-			SpeechdOptions.conf_dir = g_build_filename(user_config_dir, "speech-dispatcher", NULL);
-			test_speechd_conf_file = g_build_filename(SpeechdOptions.conf_dir, "speechd.conf", NULL);
-			if (!g_file_test (test_speechd_conf_file, G_FILE_TEST_IS_REGULAR)) {
+			SpeechdOptions.conf_dir =
+			    g_build_filename(user_config_dir,
+					     "speech-dispatcher", NULL);
+			test_speechd_conf_file =
+			    g_build_filename(SpeechdOptions.conf_dir,
+					     "speechd.conf", NULL);
+			if (!g_file_test
+			    (test_speechd_conf_file, G_FILE_TEST_IS_REGULAR)) {
 				/* If the local configuration file doesn't exist, read the global configuration */
 				if (strcmp(SYS_CONF, ""))
-					SpeechdOptions.conf_dir = g_strdup(SYS_CONF);
+					SpeechdOptions.conf_dir =
+					    g_strdup(SYS_CONF);
 				else
-					SpeechdOptions.conf_dir = g_strdup ("/etc/speech-dispatcher/");
+					SpeechdOptions.conf_dir =
+					    g_strdup("/etc/speech-dispatcher/");
 			}
 			g_free(test_speechd_conf_file);
 		}
@@ -1113,24 +1127,22 @@ int main(int argc, char *argv[])
 							    spawn_port);
 							exit(1);
 						}
-				} else
-				    if (!strcmp
-					(SpeechdOptions.communication_method,
-					 "unix_socket")) {
+				} else if (!strcmp
+					   (SpeechdOptions.communication_method,
+					    "unix_socket")) {
 					/* Check socket name */
 					if (spawn_socket_path)
 						if (strcmp
 						    (spawn_socket_path,
-						     SpeechdOptions.
-						     socket_path)) {
+						     SpeechdOptions.socket_path))
+						{
 							MSG(-1,
 							    "Autospawn failed: Mismatch in socket names. The server "
 							    "is configured to provide a socket interface in %s, but the "
 							    "client requests a different path: %s. This is most probably "
 							    "due to the client application configuration or the value of "
 							    "the SPEECHD_ADDRESS environment variable.",
-							    SpeechdOptions.
-							    socket_path,
+							    SpeechdOptions.socket_path,
 							    spawn_socket_path);
 							exit(1);
 						}

@@ -155,7 +155,7 @@ int module_close(void)
 	if (module_terminate_thread(dummy_speak_thread) != 0)
 		return -1;
 
-	sem_destroy(&dummy_semaphore );
+	sem_destroy(&dummy_semaphore);
 
 	return 0;
 }
@@ -184,8 +184,7 @@ void *_dummy_speak(void *nothing)
 			dummy_speaking = 0;
 			continue;
 
-		case 0:
-			{
+		case 0:{
 
 				/* Set this process as a process group leader (so that SIGKILL
 				   is also delivered to the child processes created by system()) */

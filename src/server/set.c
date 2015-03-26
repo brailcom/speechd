@@ -64,28 +64,28 @@ int set_priority_uid(int uid, SPDPriority priority)
 }
 
 #define SET_SELF_ALL(type, param) \
-   int \
-   set_ ## param ## _self(int fd, type param) \
-   { \
-      int uid; \
-      uid = get_client_uid_by_fd(fd); \
-      if (uid == 0) return 1; \
-      return set_ ## param ## _uid(uid, param); \
-   } \
-   int \
-   set_ ## param ## _all(type param) \
-   { \
-      int i; \
-      int uid; \
-      int err = 0; \
-      for(i=1;i<=SpeechdStatus.max_fd;i++){ \
-        uid = get_client_uid_by_fd(i); \
-        if (uid == 0) continue; \
-        err += set_ ## param ## _uid(uid, param); \
-      } \
-      if (err > 0) return 1; \
-      return 0; \
-   }
+	int \
+	set_ ## param ## _self(int fd, type param) \
+	{ \
+		int uid; \
+		uid = get_client_uid_by_fd(fd); \
+		if (uid == 0) return 1; \
+		return set_ ## param ## _uid(uid, param); \
+	} \
+	int \
+	set_ ## param ## _all(type param) \
+	{ \
+		int i; \
+		int uid; \
+		int err = 0; \
+		for(i=1;i<=SpeechdStatus.max_fd;i++){ \
+			uid = get_client_uid_by_fd(i); \
+			if (uid == 0) continue; \
+			err += set_ ## param ## _uid(uid, param); \
+		} \
+		if (err > 0) return 1; \
+		return 0; \
+	}
 
 SET_SELF_ALL(int, rate)
 
@@ -206,7 +206,7 @@ int set_punctuation_mode_uid(int uid, SPDPunctuation punctuation)
 }
 
 #define SET_PARAM_STR(name) \
-     settings->name = set_param_str(settings->name, name);
+	settings->name = set_param_str(settings->name, name);
 
 SET_SELF_ALL(SPDCapitalLetters, capital_letter_recognition)
 
@@ -280,14 +280,14 @@ int set_synthesis_voice_uid(int uid, char *synthesis_voice)
 }
 
 #define CHECK_SET_PAR(name, ival) \
-   if (cl_set->val.name != ival){ set->name = cl_set->val.name; \
-            MSG(4,"parameter " #name " set to %d", cl_set->val.name); }
+	if (cl_set->val.name != ival){ set->name = cl_set->val.name; \
+		MSG(4,"parameter " #name " set to %d", cl_set->val.name); }
 #define CHECK_SET_PAR_STR(name) \
-   if (cl_set->val.name != NULL){ \
-     g_free(set->name); \
-     set->name = g_strdup(cl_set->val.name); \
-            MSG(4,"parameter " #name " set to %s", cl_set->val.name); \
-   }
+	if (cl_set->val.name != NULL){ \
+		g_free(set->name); \
+		set->name = g_strdup(cl_set->val.name); \
+		MSG(4,"parameter " #name " set to %s", cl_set->val.name); \
+	}
 
 void update_cl_settings(gpointer data, gpointer user_data)
 {
@@ -444,9 +444,9 @@ int set_debug_uid(int uid, int debug)
 
 #define SET_NOTIFICATION_STATE(state) \
 	if (val) \
-	    settings->notification = settings->notification | SPD_ ## state; \
-        else \
-	    settings->notification = settings->notification & (! SPD_ ## state);
+		settings->notification = settings->notification | SPD_ ## state; \
+	else \
+		settings->notification = settings->notification & (! SPD_ ## state);
 
 int set_notification_self(int fd, char *type, int val)
 {

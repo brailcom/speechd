@@ -66,50 +66,50 @@ static int wait_for_poll(spd_alsa_id_t * id, struct pollfd *alsa_poll_fds,
 
 #ifndef timersub
 #define	timersub(a, b, result) \
-do { \
-         (result)->tv_sec = (a)->tv_sec - (b)->tv_sec; \
-	 (result)->tv_usec = (a)->tv_usec - (b)->tv_usec; \
-	 if ((result)->tv_usec < 0) { \
-		 --(result)->tv_sec; \
-		 (result)->tv_usec += 1000000; \
-	 } \
- } while (0)
+	do { \
+		(result)->tv_sec = (a)->tv_sec - (b)->tv_sec; \
+		(result)->tv_usec = (a)->tv_usec - (b)->tv_usec; \
+		if ((result)->tv_usec < 0) { \
+			--(result)->tv_sec; \
+			(result)->tv_usec += 1000000; \
+		} \
+	} while (0)
 #endif
 
 /* Put a message into the logfile (stderr) */
 #define MSG(level, arg...) \
- if(level <= alsa_log_level){ \
-     time_t t; \
-     struct timeval tv; \
-     char *tstr; \
-     t = time(NULL); \
-     tstr = g_strdup(ctime(&t)); \
-     tstr[strlen(tstr)-1] = 0; \
-     gettimeofday(&tv,NULL); \
-     fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
-     fprintf(stderr," ALSA: "); \
-     fprintf(stderr,arg); \
-     fprintf(stderr,"\n"); \
-     fflush(stderr); \
-     g_free(tstr); \
-  }
+	if(level <= alsa_log_level){ \
+		time_t t; \
+		struct timeval tv; \
+		char *tstr; \
+		t = time(NULL); \
+		tstr = g_strdup(ctime(&t)); \
+		tstr[strlen(tstr)-1] = 0; \
+		gettimeofday(&tv,NULL); \
+		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
+		fprintf(stderr," ALSA: "); \
+		fprintf(stderr,arg); \
+		fprintf(stderr,"\n"); \
+		fflush(stderr); \
+		g_free(tstr); \
+	}
 
 #define ERR(arg...) \
- { \
-     time_t t; \
-     struct timeval tv; \
-     char *tstr; \
-     t = time(NULL); \
-     tstr = g_strdup(ctime(&t)); \
-     tstr[strlen(tstr)-1] = 0; \
-     gettimeofday(&tv,NULL); \
-     fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
-     fprintf(stderr," ALSA ERROR: "); \
-     fprintf(stderr,arg); \
-     fprintf(stderr,"\n"); \
-     fflush(stderr); \
-     g_free(tstr); \
-  }
+	{ \
+		time_t t; \
+		struct timeval tv; \
+		char *tstr; \
+		t = time(NULL); \
+		tstr = g_strdup(ctime(&t)); \
+		tstr[strlen(tstr)-1] = 0; \
+		gettimeofday(&tv,NULL); \
+		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
+		fprintf(stderr," ALSA ERROR: "); \
+		fprintf(stderr,arg); \
+		fprintf(stderr,"\n"); \
+		fflush(stderr); \
+		g_free(tstr); \
+	}
 
 static int alsa_log_level;
 static char const *alsa_play_cmd = "aplay";
@@ -208,8 +208,8 @@ static int _alsa_open(spd_alsa_id_t * id)
 	return 0;
 }
 
-/* 
-   Close the device. Internal function used by public alsa_close. 
+/*
+   Close the device. Internal function used by public alsa_close.
 */
 
 static int _alsa_close(spd_alsa_id_t * id)
@@ -240,7 +240,7 @@ static int _alsa_close(spd_alsa_id_t * id)
 }
 
 /* Open ALSA for playback.
-  
+
   These parameters are passed in pars:
   (char*) pars[0] ... null-terminated string containing the name
                       of the device to be used for sound output
@@ -373,10 +373,10 @@ int wait_for_poll(spd_alsa_id_t * id, struct pollfd *alsa_poll_fds,
 }
 
 #define ERROR_EXIT()\
-    g_free(track_volume.samples); \
-    ERR("alsa_play() abnormal exit"); \
-    _alsa_close(alsa_id); \
-    return -1;
+	g_free(track_volume.samples); \
+	ERR("alsa_play() abnormal exit"); \
+	_alsa_close(alsa_id); \
+	return -1;
 
 /* Play the track _track_ (see spd_audio.h) using the id->alsa_pcm device and
  id-hw_params parameters. This is a blocking function, however, it's possible
@@ -837,7 +837,7 @@ static int alsa_stop(AudioID * id)
 	return 0;
 }
 
-/* 
+/*
   Set volume
 
   Comments: It's not possible to set individual track volume with Alsa, so we

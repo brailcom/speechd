@@ -174,7 +174,7 @@ static Success do_send_data(Connection_Id id, Stream from, Stream to,
      Else:
        Connection_Id
      Then, if Action is A_DATA, the SSIP lines follow.
-     
+
    Server answer:
      The result code, of the type Result.
      If Result is OK, Connection_Id follows.

@@ -34,21 +34,24 @@
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
 #endif
-static inline ssize_t
-safe_read(int fd, void *buf, size_t count) {
+static inline ssize_t safe_read(int fd, void *buf, size_t count)
+{
 	do {
 		ssize_t w = read(fd, buf, count);
 
-		if (w == -1 && errno == EINTR) continue;
+		if (w == -1 && errno == EINTR)
+			continue;
 		return w;
 	} while (1);
 }
-static inline ssize_t
-safe_write(int fd, const void *buf, size_t count) {
+
+static inline ssize_t safe_write(int fd, const void *buf, size_t count)
+{
 	do {
 		ssize_t w = write(fd, buf, count);
 
-		if (w == -1 && errno == EINTR) continue;
+		if (w == -1 && errno == EINTR)
+			continue;
 		return w;
 	} while (1);
 }

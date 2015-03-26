@@ -1,26 +1,26 @@
 
- /*
-  * server.c - Speech Dispatcher server core
-  * 
-  * Copyright (C) 2001,2002,2003, 2004, 2006, 2007 Brailcom, o.p.s
-  *
-  * This is free software; you can redistribute it and/or modify it
-  * under the terms of the GNU General Public License as published by
-  * the Free Software Foundation; either version 2, or (at your option)
-  * any later version.
-  *
-  * This software is distributed in the hope that it will be useful,
-  * but WITHOUT ANY WARRANTY; without even the implied warranty of
-  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  * General Public License for more details.
-  *
-  * You should have received a copy of the GNU General Public License
-  * along with this package; see the file COPYING.  If not, write to
-  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-  * Boston, MA 02110-1301, USA.
-  *
-  * $Id: server.c,v 1.85 2008-06-27 12:28:58 hanke Exp $
-  */
+/*
+ * server.c - Speech Dispatcher server core
+ *
+ * Copyright (C) 2001,2002,2003, 2004, 2006, 2007 Brailcom, o.p.s
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2, or (at your option)
+ * any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this package; see the file COPYING.  If not, write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301, USA.
+ *
+ * $Id: server.c,v 1.85 2008-06-27 12:28:58 hanke Exp $
+ */
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -39,7 +39,7 @@ int last_message_id = 0;
  * Parameters:
  *   new -- the (allocated) message structure to queue, it must contain
  *          the text to be queued in new->buf
- *   fd  -- file descriptor of the calling client (positive)       
+ *   fd  -- file descriptor of the calling client (positive)
  *          unique id if the client is gone (negative) -- in this
  *          case it means we are reloading the message and the
  *          behavior is slightly different
@@ -51,7 +51,7 @@ int last_message_id = 0;
  */
 
 #define COPY_SET_STR(name) \
-    new->settings.name = (char*) g_strdup(settings->name);
+	new->settings.name = (char*) g_strdup(settings->name);
 
 /* Queue a message _new_. When fd is a positive number,
 it means we have a new message from the client on connection
@@ -162,8 +162,8 @@ queue_message(TSpeechDMessage * new, int fd, int history_flag,
 		//clear last_p5_block if we get new block or no block message
 		element = g_list_last(last_p5_block);
 		if (!element || !element->data
-		    || ((TSpeechDMessage *) (element->data))->settings.
-		    reparted != new->settings.reparted) {
+		    || ((TSpeechDMessage *) (element->data))->
+		    settings.reparted != new->settings.reparted) {
 			g_list_foreach(last_p5_block, (GFunc) mem_free_message,
 				       NULL);
 			g_list_free(last_p5_block);
