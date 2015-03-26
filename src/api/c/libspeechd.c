@@ -1116,6 +1116,7 @@ spd_w_set_voice_type(SPDConnection * connection, SPDVoiceType type,
     SPD_GET_COMMAND_INT(voice_pitch, PITCH)
     SPD_SET_COMMAND_INT(voice_pitch_range, PITCH_RANGE, ((val >= -100) && (val <= +100)))
     SPD_SET_COMMAND_INT(volume, VOLUME, ((val >= -100) && (val <= +100)))
+    SPD_GET_COMMAND_INT(volume, VOLUME)
 
     SPD_SET_COMMAND_STR(language, LANGUAGE)
     SPD_GET_COMMAND_STR(language, LANGUAGE)

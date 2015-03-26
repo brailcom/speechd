@@ -78,6 +78,10 @@ int main()
 	value = spd_get_voice_pitch(conn);
 	printf("Got pitch %d\n", value);
 
+	printf("Trying to get the current volume...");
+	value = spd_get_volume(conn);
+	printf("Got volume %d\n", value);
+
 	modules = spd_list_modules(conn);
 	if (modules == NULL) {
 		printf("Can't list modules\n");
