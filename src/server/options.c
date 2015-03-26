@@ -120,14 +120,14 @@ void options_print_version(void)
 }
 
 #define SPD_OPTION_SET_INT(param) \
-    val = strtol(optarg, &tail_ptr, 10); \
-    if(tail_ptr != optarg){ \
-        SpeechdOptions.param ## _set = 1; \
-        SpeechdOptions.param = val; \
-    }
+	val = strtol(optarg, &tail_ptr, 10); \
+	if(tail_ptr != optarg){ \
+		SpeechdOptions.param ## _set = 1; \
+		SpeechdOptions.param = val; \
+	}
 
 #define SPD_OPTION_SET_STR(param) \
-    SpeechdOptions.param = g_strdup(optarg)
+	SpeechdOptions.param = g_strdup(optarg)
 
 void options_parse(int argc, char *argv[])
 {

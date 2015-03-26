@@ -59,38 +59,38 @@ static int _oss_sync(spd_oss_id_t * id);
 
 /* Put a message into the logfile (stderr) */
 #define MSG(level, arg...) \
- if(level <= oss_log_level){ \
-     time_t t; \
-     struct timeval tv; \
-     char *tstr; \
-     t = time(NULL); \
-     tstr = g_strdup(ctime(&t)); \
-     tstr[strlen(tstr)-1] = 0; \
-     gettimeofday(&tv,NULL); \
-     fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
-     fprintf(stderr," OSS: "); \
-     fprintf(stderr,arg); \
-     fprintf(stderr,"\n"); \
-     fflush(stderr); \
-     g_free(tstr); \
-  }
+	if(level <= oss_log_level){ \
+		time_t t; \
+		struct timeval tv; \
+		char *tstr; \
+		t = time(NULL); \
+		tstr = g_strdup(ctime(&t)); \
+		tstr[strlen(tstr)-1] = 0; \
+		gettimeofday(&tv,NULL); \
+		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
+		fprintf(stderr," OSS: "); \
+		fprintf(stderr,arg); \
+		fprintf(stderr,"\n"); \
+		fflush(stderr); \
+		g_free(tstr); \
+	}
 
 #define ERR(arg...) \
- { \
-     time_t t; \
-     struct timeval tv; \
-     char *tstr; \
-     t = time(NULL); \
-     tstr = g_strdup(ctime(&t)); \
-     tstr[strlen(tstr)-1] = 0; \
-     gettimeofday(&tv,NULL); \
-     fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
-     fprintf(stderr," OSS ERROR: "); \
-     fprintf(stderr,arg); \
-     fprintf(stderr,"\n"); \
-     fflush(stderr); \
-     g_free(tstr); \
-  }
+	{ \
+		time_t t; \
+		struct timeval tv; \
+		char *tstr; \
+		t = time(NULL); \
+		tstr = g_strdup(ctime(&t)); \
+		tstr[strlen(tstr)-1] = 0; \
+		gettimeofday(&tv,NULL); \
+		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
+		fprintf(stderr," OSS ERROR: "); \
+		fprintf(stderr,arg); \
+		fprintf(stderr,"\n"); \
+		fflush(stderr); \
+		g_free(tstr); \
+	}
 
 static int oss_log_level;
 static char const *oss_play_cmd = "play";
@@ -132,7 +132,7 @@ static int _oss_close(spd_oss_id_t * id)
    Arguments:
      **pars:
       (char*) pars[0] -- the name of the device (e.g. "/dev/dsp")
-      (void*) pars[1] = NULL 
+      (void*) pars[1] = NULL
 */
 static AudioID *oss_open(void **pars)
 {
@@ -354,7 +354,7 @@ static int oss_play(AudioID * id, AudioTrack track)
 			return -6;
 		}
 
-		/* Some timing magic... 
+		/* Some timing magic...
 		   We need to wait for the time computed from the number of
 		   samples written. But this wait needs to be interruptible
 		   by oss_stop(). Furthermore, there need to be no buffer
@@ -395,7 +395,7 @@ static int oss_play(AudioID * id, AudioTrack track)
 		}
 	}
 
-	/* ...one more excersise in timing magic. 
+	/* ...one more excersise in timing magic.
 	   Wait for the resting delay secs. */
 
 	/* Ugly hack: correct for the time we spend outside timing segments */

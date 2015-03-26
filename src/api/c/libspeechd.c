@@ -160,7 +160,7 @@ static char *_get_default_unix_socket_name(void)
 	return h;
 }
 
-void SPDConnectionAddress__free(SPDConnectionAddress *address)
+void SPDConnectionAddress__free(SPDConnectionAddress * address)
 {
 	if (!address)
 		return;
@@ -377,7 +377,7 @@ spawn_server(SPDConnectionAddress * address, int is_localhost,
 
 SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 			 const char *user_name, SPDConnectionMode mode,
-			 SPDConnectionAddress *address, int autospawn,
+			 SPDConnectionAddress * address, int autospawn,
 			 char **error_result)
 {
 	SPDConnection *connection;
@@ -529,8 +529,7 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 		    ("Initializing threads, condition variables and mutexes...");
 		connection->events_thread = malloc(sizeof(pthread_t));
 		connection->cond_reply_ready = malloc(sizeof(pthread_cond_t));
-		connection->mutex_reply_ready =
-		    malloc(sizeof(pthread_mutex_t));
+		connection->mutex_reply_ready = malloc(sizeof(pthread_mutex_t));
 		connection->cond_reply_ack = malloc(sizeof(pthread_cond_t));
 		connection->mutex_reply_ack = malloc(sizeof(pthread_mutex_t));
 		pthread_cond_init(connection->cond_reply_ready, NULL);
@@ -561,10 +560,10 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 }
 
 #define RET(r) \
-    { \
-    pthread_mutex_unlock(connection->ssip_mutex); \
-    return r; \
-    }
+	{ \
+		pthread_mutex_unlock(connection->ssip_mutex); \
+		return r; \
+	}
 
 /* Close a Speech Dispatcher connection */
 void spd_close(SPDConnection * connection)
@@ -1002,62 +1001,62 @@ spd_w_set_voice_type(SPDConnection * connection, SPDVoiceType type,
 }
 
 #define SPD_SET_COMMAND_INT(param, ssip_name, condition) \
-    int \
-    spd_w_set_ ## param (SPDConnection *connection, signed int val, const char* who) \
-    { \
-        static char command[64]; \
-        if ((!condition)) return -1; \
-        sprintf(command, "SET %s " #ssip_name " %d", who, val); \
-        return spd_execute_command(connection, command); \
-    } \
-    int \
-    spd_set_ ## param (SPDConnection *connection, signed int val) \
-    { \
-        return spd_w_set_ ## param (connection, val, "SELF"); \
-    } \
-    int \
-    spd_set_ ## param ## _all(SPDConnection *connection, signed int val) \
-    { \
-        return spd_w_set_ ## param (connection, val, "ALL"); \
-    } \
-    int \
-    spd_set_ ## param ## _uid(SPDConnection *connection, signed int val, unsigned int uid) \
-    { \
-        char who[8]; \
-        sprintf(who, "%d", uid); \
-        return spd_w_set_ ## param (connection, val, who); \
-    }
+	int \
+	spd_w_set_ ## param (SPDConnection *connection, signed int val, const char* who) \
+	{ \
+		static char command[64]; \
+		if ((!condition)) return -1; \
+		sprintf(command, "SET %s " #ssip_name " %d", who, val); \
+		return spd_execute_command(connection, command); \
+	} \
+	int \
+	spd_set_ ## param (SPDConnection *connection, signed int val) \
+	{ \
+		return spd_w_set_ ## param (connection, val, "SELF"); \
+	} \
+	int \
+	spd_set_ ## param ## _all(SPDConnection *connection, signed int val) \
+	{ \
+		return spd_w_set_ ## param (connection, val, "ALL"); \
+	} \
+	int \
+	spd_set_ ## param ## _uid(SPDConnection *connection, signed int val, unsigned int uid) \
+	{ \
+		char who[8]; \
+		sprintf(who, "%d", uid); \
+		return spd_w_set_ ## param (connection, val, who); \
+	}
 
 #define SPD_SET_COMMAND_STR(param, ssip_name) \
-    int \
-    spd_w_set_ ## param (SPDConnection *connection, const char *str, const char* who) \
-    { \
-        char *command; \
-        int ret; \
-        if (str == NULL) return -1; \
-        command = g_strdup_printf("SET %s " #param " %s", \
-                              who, str); \
-        ret = spd_execute_command(connection, command); \
-        free(command); \
-        return ret; \
-    } \
-    int \
-    spd_set_ ## param (SPDConnection *connection, const char *str) \
-    { \
-        return spd_w_set_ ## param (connection, str, "SELF"); \
-    } \
-    int \
-    spd_set_ ## param ## _all(SPDConnection *connection, const char *str) \
-    { \
-        return spd_w_set_ ## param (connection, str, "ALL"); \
-    } \
-    int \
-    spd_set_ ## param ## _uid(SPDConnection *connection, const char *str, unsigned int uid) \
-    { \
-        char who[8]; \
-        sprintf(who, "%d", uid); \
-        return spd_w_set_ ## param (connection, str, who); \
-    }
+	int \
+	spd_w_set_ ## param (SPDConnection *connection, const char *str, const char* who) \
+	{ \
+		char *command; \
+		int ret; \
+		if (str == NULL) return -1; \
+		command = g_strdup_printf("SET %s " #param " %s", \
+		                          who, str); \
+		ret = spd_execute_command(connection, command); \
+		free(command); \
+		return ret; \
+	} \
+	int \
+	spd_set_ ## param (SPDConnection *connection, const char *str) \
+	{ \
+		return spd_w_set_ ## param (connection, str, "SELF"); \
+	} \
+	int \
+	spd_set_ ## param ## _all(SPDConnection *connection, const char *str) \
+	{ \
+		return spd_w_set_ ## param (connection, str, "ALL"); \
+	} \
+	int \
+	spd_set_ ## param ## _uid(SPDConnection *connection, const char *str, unsigned int uid) \
+	{ \
+		char who[8]; \
+		sprintf(who, "%d", uid); \
+		return spd_w_set_ ## param (connection, str, who); \
+	}
 
 #define SPD_GET_COMMAND_STR(param, ssip_name) \
 	char * \
@@ -1092,25 +1091,25 @@ spd_w_set_voice_type(SPDConnection * connection, SPDVoiceType type,
 	}
 
 #define SPD_SET_COMMAND_SPECIAL(param, type) \
-    int \
-    spd_set_ ## param (SPDConnection *connection, type val) \
-    { \
-        return spd_w_set_ ## param (connection, val, "SELF"); \
-    } \
-    int \
-    spd_set_ ## param ## _all(SPDConnection *connection, type val) \
-    { \
-        return spd_w_set_ ## param (connection, val, "ALL"); \
-    } \
-    int \
-    spd_set_ ## param ## _uid(SPDConnection *connection, type val, unsigned int uid) \
-    { \
-        char who[8]; \
-        sprintf(who, "%d", uid); \
-        return spd_w_set_ ## param (connection, val, who); \
-    }
+	int \
+	spd_set_ ## param (SPDConnection *connection, type val) \
+	{ \
+		return spd_w_set_ ## param (connection, val, "SELF"); \
+	} \
+	int \
+	spd_set_ ## param ## _all(SPDConnection *connection, type val) \
+	{ \
+		return spd_w_set_ ## param (connection, val, "ALL"); \
+	} \
+	int \
+	spd_set_ ## param ## _uid(SPDConnection *connection, type val, unsigned int uid) \
+	{ \
+		char who[8]; \
+		sprintf(who, "%d", uid); \
+		return spd_w_set_ ## param (connection, val, who); \
+	}
 
-    SPD_SET_COMMAND_INT(voice_rate, RATE, ((val >= -100) && (val <= +100)))
+SPD_SET_COMMAND_INT(voice_rate, RATE, ((val >= -100) && (val <= +100)))
     SPD_GET_COMMAND_INT(voice_rate, RATE)
     SPD_SET_COMMAND_INT(voice_pitch, PITCH, ((val >= -100) && (val <= +100)))
     SPD_GET_COMMAND_INT(voice_pitch, PITCH)
@@ -1120,14 +1119,13 @@ spd_w_set_voice_type(SPDConnection * connection, SPDVoiceType type,
     SPD_SET_COMMAND_STR(language, LANGUAGE)
     SPD_GET_COMMAND_STR(language, LANGUAGE)
     SPD_SET_COMMAND_STR(output_module, OUTPUT_MODULE)
-	SPD_GET_COMMAND_STR(output_module, OUTPUT_MODULE)
+    SPD_GET_COMMAND_STR(output_module, OUTPUT_MODULE)
     SPD_SET_COMMAND_STR(synthesis_voice, SYNTHESIS_VOICE)
 
     SPD_SET_COMMAND_SPECIAL(punctuation, SPDPunctuation)
     SPD_SET_COMMAND_SPECIAL(capital_letters, SPDCapitalLetters)
     SPD_SET_COMMAND_SPECIAL(spelling, SPDSpelling)
     SPD_SET_COMMAND_SPECIAL(voice_type, SPDVoiceType)
-
 #undef SPD_SET_COMMAND_INT
 #undef SPD_SET_COMMAND_STR
 #undef SPD_SET_COMMAND_SPECIAL
@@ -1152,11 +1150,11 @@ spd_set_notification_off(SPDConnection * connection,
 }
 
 #define NOTIFICATION_SET(val, ssip_val) \
-    if (notification & val){ \
-	sprintf(command, "SET SELF NOTIFICATION "ssip_val" %s", state);\
-	ret = spd_execute_command_wo_mutex(connection, command);\
-	if (ret < 0) RET(-1);\
-    }
+	if (notification & val){ \
+		sprintf(command, "SET SELF NOTIFICATION "ssip_val" %s", state);\
+		ret = spd_execute_command_wo_mutex(connection, command);\
+		if (ret < 0) RET(-1);\
+	}
 
 int
 spd_set_notification(SPDConnection * connection, SPDNotification notification,
@@ -1263,7 +1261,7 @@ SPDVoice **spd_list_synthesis_voices(SPDConnection * connection)
 	return svoices;
 }
 
-void free_spd_voices(SPDVoice** voices)
+void free_spd_voices(SPDVoice ** voices)
 {
 	int i = 0;
 	while (voices[i] != NULL) {
@@ -1327,11 +1325,11 @@ spd_get_message_list_fd(SPDConnection * connection, int target, int *msg_ids,
 	sprintf(command, "HISTORY GET MESSAGE_LIST %d 0 20\r\n", target);
 	reply = spd_send_data(fd, command, 1);
 
-/*	header_ok = parse_response_header(reply);
-	if(header_ok != 1){
-		free(reply);
-		return -1;
-	}*/
+	/*      header_ok = parse_response_header(reply);
+	   if(header_ok != 1){
+	   free(reply);
+	   return -1;
+	   } */
 
 	for (count = 0;; count++) {
 		record = (char *)parse_response_data(reply, count + 1);

@@ -199,8 +199,8 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 		    generic_msg_language->charset);
 		tmp =
 		    (char *)g_convert_with_fallback(data, bytes,
-						    generic_msg_language->
-						    charset, "UTF-8",
+						    generic_msg_language->charset,
+						    "UTF-8",
 						    GenericRecodeFallback, NULL,
 						    NULL, NULL);
 	} else {
@@ -358,8 +358,7 @@ void *_generic_speak(void *nothing)
 			generic_speaking = 0;
 			continue;
 
-		case 0:
-			{
+		case 0:{
 				char *e_string;
 				char *p;
 				char *tmpdir, *homedir;

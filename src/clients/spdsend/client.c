@@ -41,8 +41,8 @@ static Success send_header(Stream s, Action action, Connection_Id id)
 }
 
 #define SEND_HEADER(action)                      \
-  if (send_header (s, action, id) == ERROR) \
-    return ERROR
+	if (send_header (s, action, id) == ERROR) \
+		return ERROR
 
 static Success send_open_header(Stream s, const char *host, int port)
 {

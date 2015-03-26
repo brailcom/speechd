@@ -165,13 +165,11 @@ int module_init(char **status_info)
 		    CiceroExecutableLog);
 	}
 	switch (fork()) {
-	case -1:
-		{
+	case -1:{
 			DBG("Error fork()\n");
 			return -1;
 		}
-	case 0:
-		{
+	case 0:{
 			if (dup2(fd2[0], 0) < 0	/* stdin */
 			    || dup2(fd1[1], 1) < 0) {	/* stdout */
 				DBG("Error dup2()\n");
@@ -192,8 +190,7 @@ int module_init(char **status_info)
 			DBG("Error execl()\n");
 			exit(1);
 		}
-	default:
-		{
+	default:{
 			close(fd1[1]);
 			close(fd2[0]);
 			if (fcntl(fd2[1], F_SETFL, O_NDELAY) < 0
@@ -207,7 +204,7 @@ int module_init(char **status_info)
 	cicero_message = g_malloc(sizeof(char *));
 	*cicero_message = NULL;
 
-	sem_init(&cicero_semaphore , 0, 0);
+	sem_init(&cicero_semaphore, 0, 0);
 
 	DBG("Cicero: creating new thread for cicero_tracking\n");
 	cicero_speaking = 0;
@@ -298,7 +295,7 @@ int module_close(void)
 	if (module_terminate_thread(cicero_speaking_thread) != 0)
 		return -1;
 
-	sem_destroy(&cicero_semaphore );
+	sem_destroy(&cicero_semaphore);
 	return 0;
 }
 
@@ -377,7 +374,8 @@ void *_cicero_speak(void *nothing)
 						cicero_speaking = 0;
 						break;
 					}
-					if (ret > 0) safe_read(fd1[0], b, 2);
+					if (ret > 0)
+						safe_read(fd1[0], b, 2);
 					if (cicero_stop) {
 						cicero_speaking = 0;
 						module_report_event_stop();

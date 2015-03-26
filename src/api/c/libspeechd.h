@@ -41,14 +41,14 @@
 extern "C" {
 #endif
 /* *INDENT-ON* */
-/* Speech Dispatcher's default port for inet communication */
+    /* Speech Dispatcher's default port for inet communication */
 #define SPEECHD_DEFAULT_PORT 6560
 
-/* Arguments for spd_send_data() */
+    /* Arguments for spd_send_data() */
 #define SPD_WAIT_REPLY 1	/* Wait for reply */
 #define SPD_NO_REPLY 0		/* No reply requested */
 
-/* --------------------- Public data types ------------------------ */
+    /* --------------------- Public data types ------------------------ */
 
 typedef enum {
 	SPD_MODE_SINGLE = 0,
@@ -68,7 +68,7 @@ typedef struct {
 	char *dbus_bus;
 } SPDConnectionAddress;
 
-void SPDConnectionAddress__free(SPDConnectionAddress *address);
+void SPDConnectionAddress__free(SPDConnectionAddress * address);
 
 typedef void (*SPDCallback) (size_t msg_id, size_t client_id,
 			     SPDNotificationType state);
@@ -180,7 +180,7 @@ int spd_set_voice_pitch(SPDConnection * connection, signed int pitch);
 int spd_set_voice_pitch_all(SPDConnection * connection, signed int pitch);
 int spd_set_voice_pitch_uid(SPDConnection * connection, signed int pitch,
 			    unsigned int uid);
-int spd_get_voice_pitch(SPDConnection *connection);
+int spd_get_voice_pitch(SPDConnection * connection);
 
 int spd_set_volume(SPDConnection * connection, signed int volume);
 int spd_set_volume_all(SPDConnection * connection, signed int volume);
@@ -208,7 +208,7 @@ int spd_set_language(SPDConnection * connection, const char *language);
 int spd_set_language_all(SPDConnection * connection, const char *language);
 int spd_set_language_uid(SPDConnection * connection, const char *language,
 			 unsigned int uid);
-char * spd_get_language(SPDConnection * connection);
+char *spd_get_language(SPDConnection * connection);
 
 int spd_set_output_module(SPDConnection * connection,
 			  const char *output_module);
