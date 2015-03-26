@@ -5,6 +5,7 @@
 *.o
 *.la
 *.lo
+*.gmo
 Makefile.in
 aclocal.m4
 autom4te.cache
@@ -21,3 +22,14 @@ speech-dispatcher.pc
 stamp-h1
 compile
 atconfig
+doc/stamp-1
+doc/version-2.texi
+po/.intltool-merge-cache
+src/api/python/speechd/paths.py
+src/api/python/speechd_config/paths.py
+src/api/python/speechd_config/speechd.desktop
+src/modules/sd_cicero
+src/modules/sd_dummy
+src/modules/sd_espeak
+src/modules/sd_festival
+src/modules/sd_generic
