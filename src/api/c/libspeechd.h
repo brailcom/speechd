@@ -186,6 +186,7 @@ int spd_set_volume(SPDConnection * connection, signed int volume);
 int spd_set_volume_all(SPDConnection * connection, signed int volume);
 int spd_set_volume_uid(SPDConnection * connection, signed int volume,
 		       unsigned int uid);
+int spd_get_volume(SPDConnection * connection);
 
 int spd_set_punctuation(SPDConnection * connection, SPDPunctuation type);
 int spd_set_punctuation_all(SPDConnection * connection, SPDPunctuation type);
