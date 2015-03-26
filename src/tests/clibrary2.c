@@ -41,6 +41,7 @@ int main()
 	char **voices;
 	char *module;
 	char *language;
+	int value;
 	SPDVoice **synth_voices;
 
 	printf("Start of the test.\n");
@@ -68,6 +69,10 @@ int main()
 		printf("Can't get the language\n");
 		exit(1);
 	}
+
+	printf("Trying to get the voice rate...");
+	value = spd_get_voice_rate(conn);
+	printf("Got rate %d\n", value);
 
 	modules = spd_list_modules(conn);
 	if (modules == NULL) {

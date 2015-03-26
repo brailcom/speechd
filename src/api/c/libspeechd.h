@@ -174,6 +174,7 @@ int spd_set_voice_rate(SPDConnection * connection, signed int rate);
 int spd_set_voice_rate_all(SPDConnection * connection, signed int rate);
 int spd_set_voice_rate_uid(SPDConnection * connection, signed int rate,
 			   unsigned int uid);
+int spd_get_voice_rate(SPDConnection * connection);
 
 int spd_set_voice_pitch(SPDConnection * connection, signed int pitch);
 int spd_set_voice_pitch_all(SPDConnection * connection, signed int pitch);
