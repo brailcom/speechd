@@ -180,6 +180,7 @@ int spd_set_voice_pitch(SPDConnection * connection, signed int pitch);
 int spd_set_voice_pitch_all(SPDConnection * connection, signed int pitch);
 int spd_set_voice_pitch_uid(SPDConnection * connection, signed int pitch,
 			    unsigned int uid);
+int spd_get_voice_pitch(SPDConnection *connection);
 
 int spd_set_volume(SPDConnection * connection, signed int volume);
 int spd_set_volume_all(SPDConnection * connection, signed int volume);
