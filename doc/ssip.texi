@@ -1007,6 +1007,15 @@ The default for the Speech Dispatcher implementation of SSIP
 is determined by the @code{DefaultRate} setting in the
 @code{speechd.conf} file.  The factory default is 0.
 
+@item GET RATE
+Get the current rate of speech value.
+
+@example
+GET RATE
+251-10
+251 OK GET RETURNED
+@end example
+
 @item SET @{ all | self | @var{id} @} PITCH @var{n}
 Set the pitch of speech.  @var{n} is an integer value within the range
 from -100 to 100, lower values meaning lower
@@ -1015,6 +1024,15 @@ The default for the Speech Dispatcher implementation of SSIP
 is determined by the @code{DefaultPitch} setting in the
 @code{speechd.conf} file.  The factory default is 0.
 
+@item GET PITCH
+Get the current pitch value.
+
+@example
+GET PITCH
+251-10
+251 OK GET RETURNED
+@end example
+
 @item SET @{ all | self | @var{id} @} VOLUME @var{n}
 Set the volume of speech.  @var{n} is an integer value within the range
 from -100 to 100. lower values meaning lower
@@ -1022,6 +1040,15 @@ volume and higher values meaning higher volume.
 The default for the Speech Dispatcher implementation of SSIP
 is determined by the @code{DefaultVolume} setting in the
 @code{speechd.conf} file.  The factory default is 100.
+
+@item GET VOLUME
+Get the current volume value.
+
+@example
+GET VOLUME
+251-100
+251 OK GET RETURNED
+@end example
 
 @item SET @{ all | self | @var{id} @} PAUSE_CONTEXT @var{n}
 Set the number of (more or less) sentences that should be repeated
