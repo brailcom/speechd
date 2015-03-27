@@ -1925,6 +1925,17 @@ the slowest and the fastest speech rate respectively.
 
 @end deffn
 
+@deffn {C API function}  int spd_get_voice_rate(SPDConnection* connection);
+@findex spd_get_voice_rate()
+
+Get voice speaking rate.
+
+@code{connection} is the SPDConnection* connection created by spd_open().
+
+It returns the current voice rate.
+
+@end deffn
+
 @deffn {C API function}  int spd_set_voice_pitch(SPDConnection* connection, int pitch);
 @findex spd_set_voice_pitch()
 
@@ -1934,6 +1945,17 @@ Set voice pitch.
 
 @code{pitch} is a number between -100 and +100, which means the
 lowest and the highest pitch respectively.
+
+@end deffn
+
+@deffn {C API function}  int spd_get_voice_pitch(SPDConnection* connection);
+@findex spd_get_voice_pitch()
+
+Get voice pitch.
+
+@code{connection} is the SPDConnection* connection created by spd_open().
+
+It returns the current voice pitch.
 
 @end deffn
 
@@ -1947,6 +1969,18 @@ modules.
 
 @code{volume} is a number between -100 and +100 which means
 the lowest and the loudest voice respectively.
+
+@end deffn
+
+@deffn {C API function}  int spd_get_volume(SPDConnection* connection);
+@findex spd_get_volume()
+
+Get the volume of the voice and sounds produced by Speech Dispatcher's output
+modules.
+
+@code{connection} is the SPDConnection* connection created by spd_open().
+
+It returns the current volume.
 
 @end deffn
 
