@@ -967,90 +967,63 @@ char *parse_get(const char *buf, const int bytes, const int fd,
 	if (settings == NULL)
 		return g_strdup(ERR_INTERNAL);
 
+	result = g_string_new("");
 	GET_PARAM_STR(get_type, 1, CONV_DOWN);
 	if (TEST_CMD(get_type, "voice")) {
-		result = g_string_new("");
-
 		switch (settings->msg_settings.voice_type) {
 		case SPD_MALE1:
-			g_string_append_printf(result, C_OK_GET "-MALE1\r\n");
+			g_string_append(result, C_OK_GET "-MALE1\r\n" OK_GET);
 			break;
 		case SPD_MALE2:
-			g_string_append_printf(result, C_OK_GET "-MALE2\r\n");
+			g_string_append(result, C_OK_GET "-MALE2\r\n" OK_GET);
 			break;
 		case SPD_MALE3:
-			g_string_append_printf(result, C_OK_GET "-MALE3\r\n");
+			g_string_append(result, C_OK_GET "-MALE3\r\n" OK_GET);
 			break;
 		case SPD_FEMALE1:
-			g_string_append_printf(result, C_OK_GET "-FEMALE1\r\n");
+			g_string_append(result, C_OK_GET "-FEMALE1\r\n" OK_GET);
 			break;
 		case SPD_FEMALE2:
-			g_string_append_printf(result, C_OK_GET "-FEMALE2\r\n");
+			g_string_append(result, C_OK_GET "-FEMALE2\r\n" OK_GET);
 			break;
 		case SPD_FEMALE3:
-			g_string_append_printf(result, C_OK_GET "-FEMALE3\r\n");
+			g_string_append(result, C_OK_GET "-FEMALE3\r\n" OK_GET);
 			break;
 		case SPD_CHILD_MALE:
-			g_string_append_printf(result,
-					       C_OK_GET "-CHILD_MALE\r\n");
+			g_string_append(result,
+					       C_OK_GET "-CHILD_MALE\r\n" OK_GET);
 			break;
 		case SPD_CHILD_FEMALE:
-			g_string_append_printf(result,
-					       C_OK_GET "-CHILD_FEMALE\r\n");
+			g_string_append(result,
+					       C_OK_GET "-CHILD_FEMALE\r\n" OK_GET);
 			break;
 		default:
-			g_string_append_printf(result,
-					       C_OK_GET "-NO_VOICE\r\n");
+			g_string_append(result,
+					       C_OK_GET "-NO_VOICE\r\n" OK_GET);
 			break;
 		}
-		g_string_append(result, OK_GET);
-		helper = result->str;
-		g_string_free(result, 0);
-		return helper;
 	} else if (TEST_CMD(get_type, "output_module")) {
-		result = g_string_new("");
-		g_string_append_printf(result, C_OK_GET "-%s\r\n",
+		g_string_append_printf(result, C_OK_GET "-%s\r\n" OK_GET,
 				       settings->output_module);
-		g_string_append(result, OK_GET);
-		helper = result->str;
-		g_string_free(result, 0);
-		return helper;
 	} else if (TEST_CMD(get_type, "language")) {
-		result = g_string_new("");
-		g_string_append_printf(result, C_OK_GET "-%s\r\n",
+		g_string_append_printf(result, C_OK_GET "-%s\r\n" OK_GET,
 				       settings->msg_settings.voice.language);
-		g_string_append(result, OK_GET);
-		helper = result->str;
-		g_string_free(result, 0);
-		return helper;
 	} else if (TEST_CMD(get_type, "rate")) {
-		result = g_string_new("");
-		g_string_append_printf(result, C_OK_GET "-%d\r\n",
+		g_string_append_printf(result, C_OK_GET "-%d\r\n" OK_GET,
 				       settings->msg_settings.rate);
-		g_string_append(result, OK_GET);
-		helper = result->str;
-		g_string_free(result, 0);
-		return helper;
 	} else if (TEST_CMD(get_type, "pitch")) {
-		result = g_string_new("");
-		g_string_append_printf(result, C_OK_GET "-%d\r\n",
+		g_string_append_printf(result, C_OK_GET "-%d\r\n" OK_GET,
 				       settings->msg_settings.pitch);
-		g_string_append(result, OK_GET);
-		helper = result->str;
-		g_string_free(result, 0);
-		return helper;
 	} else if (TEST_CMD(get_type, "volume")) {
-		result = g_string_new("");
-		g_string_append_printf(result, C_OK_GET "-%d\r\n",
+		g_string_append_printf(result, C_OK_GET "-%d\r\n" OK_GET,
 				       settings->msg_settings.volume);
-		g_string_append(result, OK_GET);
-		helper = result->str;
-		g_string_free(result, 0);
-		return helper;
 	} else {
 		g_free(get_type);
-		return g_strdup(ERR_PARAMETER_INVALID);
+		g_string_append(result, ERR_PARAMETER_INVALID);
 	}
+	helper = result->str;
+	g_string_free(result, 0);
+	return helper;
 }
 
 char *parse_help(const char *buf, const int bytes, const int fd,
