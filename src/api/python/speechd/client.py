@@ -866,6 +866,13 @@ class SSIPClient(object):
         assert isinstance(language, str) and len(language) == 2
         self._conn.send_command('SET', scope, 'LANGUAGE', language)
 
+    def get_language(self):
+        """Get the current language."""
+        code, msg, data = self._conn.send_command('GET', 'LANGUAGE')
+        if data:
+            return data[0]
+        return None
+
     def set_output_module(self, name, scope=Scope.SELF):
         """Switch to a particular output module.
 
@@ -875,6 +882,13 @@ class SSIPClient(object):
         
         """
         self._conn.send_command('SET', scope, 'OUTPUT_MODULE', name)
+
+    def get_output_module(self):
+        """Get the current output module."""
+        code, msg, data = self._conn.send_command('GET', 'OUTPUT_MODULE')
+        if data:
+            return data[0]
+        return None
 
     def set_pitch(self, value, scope=Scope.SELF):
         """Set the pitch for further speech commands.
@@ -889,6 +903,13 @@ class SSIPClient(object):
         """
         assert isinstance(value, int) and -100 <= value <= 100, value
         self._conn.send_command('SET', scope, 'PITCH', value)
+
+    def get_pitch(self):
+        """Get the current pitch."""
+        code, msg, data = self._conn.send_command('GET', 'PITCH')
+        if data:
+            return data[0]
+        return None
 
     def set_pitch_range(self, value, scope=Scope.SELF):
         """Set the pitch range for further speech commands.
@@ -918,6 +939,13 @@ class SSIPClient(object):
         assert isinstance(value, int) and -100 <= value <= 100
         self._conn.send_command('SET', scope, 'RATE', value)
 
+    def get_rate(self):
+        """Get the current speech rate (speed)."""
+        code, msg, data = self._conn.send_command('GET', 'RATE')
+        if data:
+            return data[0]
+        return None
+
     def set_volume(self, value, scope=Scope.SELF):
         """Set the speech volume for further speech commands.
 
@@ -930,6 +958,13 @@ class SSIPClient(object):
         """
         assert isinstance(value, int) and -100 <= value <= 100
         self._conn.send_command('SET', scope, 'VOLUME', value)
+
+    def get_volume(self):
+        """Get the speech volume."""
+        code, msg, data = self._conn.send_command('GET', 'VOLUME')
+        if data:
+            return data[0]
+        return None
 
     def set_punctuation(self, value, scope=Scope.SELF):
         """Set the punctuation pronounciation level.
