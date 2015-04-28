@@ -42,6 +42,7 @@ int main()
 	char *module;
 	char *language;
 	int value;
+	SPDVoiceType voice_type = SPD_CHILD_MALE;
 	SPDVoice **synth_voices;
 
 	printf("Start of the test.\n");
@@ -81,6 +82,11 @@ int main()
 	printf("Trying to get the current volume...");
 	value = spd_get_volume(conn);
 	printf("Got volume %d\n", value);
+
+	printf("Trying to get the current voice type...");
+	spd_set_voice_type(conn, voice_type);
+	voice_type = spd_get_voice_type(conn);
+	printf("Got voice type %d\n", voice_type);
 
 	modules = spd_list_modules(conn);
 	if (modules == NULL) {
