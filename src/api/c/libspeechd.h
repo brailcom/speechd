@@ -155,6 +155,7 @@ int spd_set_voice_type(SPDConnection *, SPDVoiceType type);
 int spd_set_voice_type_all(SPDConnection *, SPDVoiceType type);
 int spd_set_voice_type_uid(SPDConnection *, SPDVoiceType type,
 			   unsigned int uid);
+SPDVoiceType spd_get_voice_type(SPDConnection *);
 
 int spd_set_synthesis_voice(SPDConnection *, const char *voice_name);
 int spd_set_synthesis_voice_all(SPDConnection *, const char *voice_name);

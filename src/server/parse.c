@@ -1017,6 +1017,9 @@ char *parse_get(const char *buf, const int bytes, const int fd,
 	} else if (TEST_CMD(get_type, "volume")) {
 		g_string_append_printf(result, C_OK_GET "-%d\r\n" OK_GET,
 				       settings->msg_settings.volume);
+	} else if (TEST_CMD(get_type, "voice_type")) {
+		g_string_append_printf(result, C_OK_GET "-%d\r\n" OK_GET,
+				        settings->msg_settings.voice_type);
 	} else {
 		g_free(get_type);
 		g_string_append(result, ERR_PARAMETER_INVALID);
