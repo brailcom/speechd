@@ -148,12 +148,12 @@ char *parse(const char *buf, const int bytes, const int fd)
 		 * we are waiting for text that is comming through the chanel */
 	} else {
 enddata:
-		/* In the end of the data flow we got a "\r\n.\r\n" command. */
+		/* In the end of the data flow we got a "\r\n." NEWLINE command. */
 		MSG(5, "Buffer: |%s| bytes:", buf, bytes);
 
-		if (((bytes >= 5) && ((!strncmp(buf, "\r\n.\r\n", bytes))))
+		if (((bytes >= 5) && ((!strncmp(buf, "\r\n." NEWLINE, bytes))))
 		    || (end_data == 1)
-		    || ((bytes == 3) && (!strncmp(buf, ".\r\n", bytes)))) {
+		    || ((bytes == 3) && (!strncmp(buf, "." NEWLINE, bytes)))) {
 
 			MSG(5, "Finishing data");
 			end_data = 0;
@@ -206,7 +206,7 @@ enddata:
 			server_data_off(fd);
 			ok_queued_reply = g_string_new("");
 			g_string_printf(ok_queued_reply,
-					C_OK_MESSAGE_QUEUED "-%d\r\n"
+					C_OK_MESSAGE_QUEUED "-%d" NEWLINE
 					OK_MESSAGE_QUEUED, msg_uid);
 			reply = ok_queued_reply->str;
 			g_string_free(ok_queued_reply, 0);
@@ -216,7 +216,7 @@ enddata:
 		{
 			int real_bytes;
 			if (bytes >= 5) {
-				if ((pos = strstr(buf, "\r\n.\r\n"))) {
+				if ((pos = strstr(buf, "\r\n." NEWLINE))) {
 					real_bytes = pos - buf;
 					end_data = 1;
 					MSG(5, "Command in data caught");
@@ -624,7 +624,7 @@ char *parse_set(const char *buf, const int bytes, const int fd,
 				  ALLOWED_INSIDE_BLOCK())
 		    else
 		SSIP_ON_OFF_PARAM(debug,
-				  g_strdup_printf("262-%s\r\n" OK_DEBUGGING,
+				  g_strdup_printf("262-%s" NEWLINE OK_DEBUGGING,
 						  SpeechdOptions.
 						  debug_destination),
 				  ERR_COULDNT_SET_DEBUGGING,;
@@ -882,14 +882,14 @@ char *parse_list(const char *buf, const int bytes, const int fd,
 	if (TEST_CMD(list_type, "voices")) {
 		voice_list = (char *)g_malloc(1024);
 		sprintf(voice_list,
-			C_OK_VOICES "-MALE1\r\n"
-			C_OK_VOICES "-MALE2\r\n"
-			C_OK_VOICES "-MALE3\r\n"
-			C_OK_VOICES "-FEMALE1\r\n"
-			C_OK_VOICES "-FEMALE2\r\n"
-			C_OK_VOICES "-FEMALE3\r\n"
-			C_OK_VOICES "-CHILD_MALE\r\n"
-			C_OK_VOICES "-CHILD_FEMALE\r\n" OK_VOICE_LIST_SENT);
+			C_OK_VOICES "-MALE1" NEWLINE
+			C_OK_VOICES "-MALE2" NEWLINE
+			C_OK_VOICES "-MALE3" NEWLINE
+			C_OK_VOICES "-FEMALE1" NEWLINE
+			C_OK_VOICES "-FEMALE2" NEWLINE
+			C_OK_VOICES "-FEMALE3" NEWLINE
+			C_OK_VOICES "-CHILD_MALE" NEWLINE
+			C_OK_VOICES "-CHILD_FEMALE" NEWLINE OK_VOICE_LIST_SENT);
 		return voice_list;
 	} else if (TEST_CMD(list_type, "output_modules")) {
 		GString *result = g_string_new("");
@@ -900,7 +900,7 @@ char *parse_list(const char *buf, const int bytes, const int fd,
 		len = g_list_length(output_modules);
 		for (i = 0; i < len; i++) {
 			mod = g_list_nth_data(output_modules, i);
-			g_string_append_printf(result, C_OK_MODULES "-%s\r\n",
+			g_string_append_printf(result, C_OK_MODULES "-%s" NEWLINE,
 					       mod->name);
 		}
 
@@ -934,7 +934,7 @@ char *parse_list(const char *buf, const int bytes, const int fd,
 			if (voices[i] == NULL)
 				break;
 			g_string_append_printf(result,
-					       C_OK_VOICES "-%s %s %s\r\n",
+					       C_OK_VOICES "-%s %s %s" NEWLINE,
 					       voices[i]->name,
 					       voices[i]->language,
 					       voices[i]->variant);
@@ -972,53 +972,53 @@ char *parse_get(const char *buf, const int bytes, const int fd,
 	if (TEST_CMD(get_type, "voice")) {
 		switch (settings->msg_settings.voice_type) {
 		case SPD_MALE1:
-			g_string_append(result, C_OK_GET "-MALE1\r\n" OK_GET);
+			g_string_append(result, C_OK_GET "-MALE1" NEWLINE OK_GET);
 			break;
 		case SPD_MALE2:
-			g_string_append(result, C_OK_GET "-MALE2\r\n" OK_GET);
+			g_string_append(result, C_OK_GET "-MALE2" NEWLINE OK_GET);
 			break;
 		case SPD_MALE3:
-			g_string_append(result, C_OK_GET "-MALE3\r\n" OK_GET);
+			g_string_append(result, C_OK_GET "-MALE3" NEWLINE OK_GET);
 			break;
 		case SPD_FEMALE1:
-			g_string_append(result, C_OK_GET "-FEMALE1\r\n" OK_GET);
+			g_string_append(result, C_OK_GET "-FEMALE1" NEWLINE OK_GET);
 			break;
 		case SPD_FEMALE2:
-			g_string_append(result, C_OK_GET "-FEMALE2\r\n" OK_GET);
+			g_string_append(result, C_OK_GET "-FEMALE2" NEWLINE OK_GET);
 			break;
 		case SPD_FEMALE3:
-			g_string_append(result, C_OK_GET "-FEMALE3\r\n" OK_GET);
+			g_string_append(result, C_OK_GET "-FEMALE3" NEWLINE OK_GET);
 			break;
 		case SPD_CHILD_MALE:
 			g_string_append(result,
-					       C_OK_GET "-CHILD_MALE\r\n" OK_GET);
+					       C_OK_GET "-CHILD_MALE" NEWLINE OK_GET);
 			break;
 		case SPD_CHILD_FEMALE:
 			g_string_append(result,
-					       C_OK_GET "-CHILD_FEMALE\r\n" OK_GET);
+					       C_OK_GET "-CHILD_FEMALE" NEWLINE OK_GET);
 			break;
 		default:
 			g_string_append(result,
-					       C_OK_GET "-NO_VOICE\r\n" OK_GET);
+					       C_OK_GET "-NO_VOICE" NEWLINE OK_GET);
 			break;
 		}
 	} else if (TEST_CMD(get_type, "output_module")) {
-		g_string_append_printf(result, C_OK_GET "-%s\r\n" OK_GET,
+		g_string_append_printf(result, C_OK_GET "-%s" NEWLINE OK_GET,
 				       settings->output_module);
 	} else if (TEST_CMD(get_type, "language")) {
-		g_string_append_printf(result, C_OK_GET "-%s\r\n" OK_GET,
+		g_string_append_printf(result, C_OK_GET "-%s" NEWLINE OK_GET,
 				       settings->msg_settings.voice.language);
 	} else if (TEST_CMD(get_type, "rate")) {
-		g_string_append_printf(result, C_OK_GET "-%d\r\n" OK_GET,
+		g_string_append_printf(result, C_OK_GET "-%d" NEWLINE OK_GET,
 				       settings->msg_settings.rate);
 	} else if (TEST_CMD(get_type, "pitch")) {
-		g_string_append_printf(result, C_OK_GET "-%d\r\n" OK_GET,
+		g_string_append_printf(result, C_OK_GET "-%d" NEWLINE OK_GET,
 				       settings->msg_settings.pitch);
 	} else if (TEST_CMD(get_type, "volume")) {
-		g_string_append_printf(result, C_OK_GET "-%d\r\n" OK_GET,
+		g_string_append_printf(result, C_OK_GET "-%d" NEWLINE OK_GET,
 				       settings->msg_settings.volume);
 	} else if (TEST_CMD(get_type, "voice_type")) {
-		g_string_append_printf(result, C_OK_GET "-%d\r\n" OK_GET,
+		g_string_append_printf(result, C_OK_GET "-%d" NEWLINE OK_GET,
 				        settings->msg_settings.voice_type);
 	} else {
 		g_free(get_type);
@@ -1037,16 +1037,16 @@ char *parse_help(const char *buf, const int bytes, const int fd,
 	help = (char *)g_malloc(1024 * sizeof(char));
 
 	sprintf(help,
-		C_OK_HELP "-  SPEAK           -- say text \r\n"
-		C_OK_HELP "-  KEY             -- say a combination of keys \r\n"
-		C_OK_HELP "-  CHAR            -- say a character \r\n"
-		C_OK_HELP "-  SOUND_ICON      -- execute a sound icon \r\n"
-		C_OK_HELP "-  SET             -- set a parameter \r\n"
-		C_OK_HELP "-  GET             -- get a current parameter \r\n"
-		C_OK_HELP "-  LIST            -- list available arguments \r\n"
+		C_OK_HELP "-  SPEAK           -- say text " NEWLINE
+		C_OK_HELP "-  KEY             -- say a combination of keys " NEWLINE
+		C_OK_HELP "-  CHAR            -- say a character " NEWLINE
+		C_OK_HELP "-  SOUND_ICON      -- execute a sound icon " NEWLINE
+		C_OK_HELP "-  SET             -- set a parameter " NEWLINE
+		C_OK_HELP "-  GET             -- get a current parameter " NEWLINE
+		C_OK_HELP "-  LIST            -- list available arguments " NEWLINE
 		C_OK_HELP
-		"-  HISTORY         -- commands related to history \r\n"
-		C_OK_HELP "-  QUIT            -- close the connection \r\n"
+		"-  HISTORY         -- commands related to history " NEWLINE
+		C_OK_HELP "-  QUIT            -- close the connection " NEWLINE
 		OK_HELP_SENT);
 
 	return help;
