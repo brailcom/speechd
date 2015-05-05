@@ -1082,7 +1082,7 @@ spd_w_set_voice_type(SPDConnection * connection, SPDVoiceType type,
 		int ret = 0; \
 		int err; \
 		char *reply = NULL; \
-		command = g_strdup_printf("GET " #param); \
+		command = g_strdup_printf("GET " #ssip_name); \
 		spd_execute_command_with_reply(connection, command, &reply); \
 		free(command); \
 		ret = get_param_int(reply, 1, &err); \
