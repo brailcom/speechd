@@ -106,7 +106,7 @@ if test -n "$v"
 then
     : # use $v
 elif test -e .git \
-    && v=`git describe --abbrev=4 --match='[0-9]*' HEAD 2>/dev/null` \
+    && v=`git describe --abbrev=4 --match='[0-9]*' HEAD 2>/dev/null | sed -e 's/_/~/'` \
     && [ -n "$v" ]
 then
     # If we are on a "dev" tag, we need to check that it is not the same
@@ -117,7 +117,7 @@ then
     # of the tag, the $v will be supplimented with the number of commits since
     # that tag and the commit ref of the most recent commit and thus will
     # fail the test below (as intended)
-    v2=`git describe --abbrev=4 --match='[0-9]\.[0-9]' --contains $v 2>/dev/null | cut -d'^' -f1`
+    v2=`git describe --abbrev=4 --match='[0-9]\.[0-9]' --contains $v 2>/dev/null | sed -e 's/_/~/' | cut -d'^' -f1`
     [ -n "$v2" ] && v=$v2
 
     # Is this a new git that lists number of commits since the last
