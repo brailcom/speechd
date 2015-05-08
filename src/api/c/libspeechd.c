@@ -51,6 +51,7 @@
  * installed on the user's system.
  */
 #include <speechd_types.h>
+#include <speechd_defines.h>
 #include "libspeechd.h"
 
 /* Comment/uncomment to switch debugging on/off */
@@ -75,6 +76,9 @@ static int get_param_int(char *reply, int num, int *err);
 static int ret_ok(char *reply);
 static void SPD_DBG(char *format, ...);
 static void *spd_events_handler(void *);
+
+const int range_low = -100;
+const int range_high = 100;
 
 pthread_mutex_t spd_logging_mutex;
 
@@ -892,9 +896,9 @@ spd_sound_icon(SPDConnection * connection, SPDPriority priority,
 	return 0;
 }
 
-int
-spd_w_set_punctuation(SPDConnection * connection, SPDPunctuation type,
-		      const char *who)
+// Set functions for Punctuation
+int spd_w_set_punctuation(SPDConnection * connection, SPDPunctuation type,
+			  const char *who)
 {
 	char command[32];
 	int ret;
@@ -911,9 +915,27 @@ spd_w_set_punctuation(SPDConnection * connection, SPDPunctuation type,
 	return ret;
 }
 
-int
-spd_w_set_capital_letters(SPDConnection * connection, SPDCapitalLetters type,
-			  const char *who)
+int spd_set_punctuation(SPDConnection * connection, SPDPunctuation type)
+{
+	return spd_w_set_punctuation(connection, type, SPD_SELF);
+}
+
+int spd_set_punctuation_all(SPDConnection * connection, SPDPunctuation type)
+{
+	return spd_w_set_punctuation(connection, type, SPD_ALLCLIENTS);
+}
+
+int spd_set_punctuation_uid(SPDConnection * connection, SPDPunctuation type,
+			    unsigned int uid)
+{
+	char who[8];
+	sprintf(who, "%d", uid);
+	return spd_w_set_punctuation(connection, type, who);
+}
+
+// Set functions for Capital Letters
+int spd_w_set_capital_letters(SPDConnection * connection,
+			      SPDCapitalLetters type, const char *who)
 {
 	char command[64];
 	int ret;
@@ -930,9 +952,28 @@ spd_w_set_capital_letters(SPDConnection * connection, SPDCapitalLetters type,
 	return ret;
 }
 
-int
-spd_w_set_spelling(SPDConnection * connection, SPDSpelling type,
-		   const char *who)
+int spd_set_capital_letters(SPDConnection * connection, SPDCapitalLetters type)
+{
+	return spd_w_set_capital_letters(connection, type, SPD_SELF);
+}
+
+int spd_set_capital_letters_all(SPDConnection * connection,
+				SPDCapitalLetters type)
+{
+	return spd_w_set_capital_letters(connection, type, SPD_ALLCLIENTS);
+}
+
+int spd_set_capital_letters_uid(SPDConnection * connection,
+				SPDCapitalLetters type, unsigned int uid)
+{
+	char who[8];
+	sprintf(who, "%d", uid);
+	return spd_w_set_capital_letters(connection, type, who);
+}
+
+// Set functions for Spelling
+int spd_w_set_spelling(SPDConnection * connection, SPDSpelling type,
+		       const char *who)
 {
 	char command[32];
 	int ret;
@@ -945,6 +986,24 @@ spd_w_set_spelling(SPDConnection * connection, SPDSpelling type,
 	ret = spd_execute_command(connection, command);
 
 	return ret;
+}
+
+int spd_set_spelling(SPDConnection * connection, SPDSpelling type)
+{
+	return spd_w_set_spelling(connection, type, SPD_SELF);
+}
+
+int spd_set_spelling_all(SPDConnection * connection, SPDSpelling type)
+{
+	return spd_w_set_spelling(connection, type, SPD_ALLCLIENTS);
+}
+
+int spd_set_spelling_uid(SPDConnection * connection, SPDSpelling type,
+			 unsigned int uid)
+{
+	char who[8];
+	sprintf(who, "%d", uid);
+	return spd_w_set_spelling(connection, type, who);
 }
 
 int spd_set_data_mode(SPDConnection * connection, SPDDataMode mode)
@@ -962,9 +1021,9 @@ int spd_set_data_mode(SPDConnection * connection, SPDDataMode mode)
 	return ret;
 }
 
-int
-spd_w_set_voice_type(SPDConnection * connection, SPDVoiceType type,
-		     const char *who)
+// Set functions for Voice type
+int spd_w_set_voice_type(SPDConnection * connection, SPDVoiceType type,
+			 const char *who)
 {
 	static char command[64];
 
@@ -1000,155 +1059,277 @@ spd_w_set_voice_type(SPDConnection * connection, SPDVoiceType type,
 	return spd_execute_command(connection, command);
 }
 
-#define SPD_SET_COMMAND_INT(param, ssip_name, condition) \
-	int \
-	spd_w_set_ ## param (SPDConnection *connection, signed int val, const char* who) \
-	{ \
-		static char command[64]; \
-		if ((!condition)) return -1; \
-		sprintf(command, "SET %s " #ssip_name " %d", who, val); \
-		return spd_execute_command(connection, command); \
-	} \
-	int \
-	spd_set_ ## param (SPDConnection *connection, signed int val) \
-	{ \
-		return spd_w_set_ ## param (connection, val, "SELF"); \
-	} \
-	int \
-	spd_set_ ## param ## _all(SPDConnection *connection, signed int val) \
-	{ \
-		return spd_w_set_ ## param (connection, val, "ALL"); \
-	} \
-	int \
-	spd_set_ ## param ## _uid(SPDConnection *connection, signed int val, unsigned int uid) \
-	{ \
-		char who[8]; \
-		sprintf(who, "%d", uid); \
-		return spd_w_set_ ## param (connection, val, who); \
-	}
+int spd_set_voice_type(SPDConnection * connection, SPDVoiceType type)
+{
+	return spd_w_set_voice_type(connection, type, SPD_SELF);
+}
 
-#define SPD_SET_COMMAND_STR(param, ssip_name) \
-	int \
-	spd_w_set_ ## param (SPDConnection *connection, const char *str, const char* who) \
-	{ \
-		char *command; \
-		int ret; \
-		if (str == NULL) return -1; \
-		command = g_strdup_printf("SET %s " #param " %s", \
-		                          who, str); \
-		ret = spd_execute_command(connection, command); \
-		free(command); \
-		return ret; \
-	} \
-	int \
-	spd_set_ ## param (SPDConnection *connection, const char *str) \
-	{ \
-		return spd_w_set_ ## param (connection, str, "SELF"); \
-	} \
-	int \
-	spd_set_ ## param ## _all(SPDConnection *connection, const char *str) \
-	{ \
-		return spd_w_set_ ## param (connection, str, "ALL"); \
-	} \
-	int \
-	spd_set_ ## param ## _uid(SPDConnection *connection, const char *str, unsigned int uid) \
-	{ \
-		char who[8]; \
-		sprintf(who, "%d", uid); \
-		return spd_w_set_ ## param (connection, str, who); \
-	}
+int spd_set_voice_type_all(SPDConnection * connection, SPDVoiceType type)
+{
+	return spd_w_set_voice_type(connection, type, SPD_ALLCLIENTS);
+}
 
-#define SPD_GET_COMMAND_STR(param, ssip_name) \
-	char * \
-	spd_get_ ## param (SPDConnection * connection) \
-	{ \
-		char *command; \
-		char *ret = NULL; \
-		int err; \
-		char *reply = NULL; \
-		command = g_strdup_printf("GET " #param); \
-		spd_execute_command_with_reply(connection, command, &reply); \
-		free(command); \
-		ret = get_param_str(reply, 1, &err); \
-		free(reply); \
-		return ret; \
-	}
+int spd_set_voice_type_uid(SPDConnection * connection, SPDVoiceType type,
+			   unsigned int uid)
+{
+	char who[8];
+	sprintf(who, "%d", uid);
+	return spd_w_set_voice_type(connection, type, who);
+}
 
-#define SPD_GET_COMMAND_INT(param, ssip_name) \
-	int \
-	spd_get_ ## param (SPDConnection *connection) \
-	{ \
-		char *command; \
-		int ret = 0; \
-		int err; \
-		char *reply = NULL; \
-		command = g_strdup_printf("GET " #ssip_name); \
-		spd_execute_command_with_reply(connection, command, &reply); \
-		free(command); \
-		ret = get_param_int(reply, 1, &err); \
-		free(reply); \
-		return ret; \
-	}
+// Set function for Voice type
+SPDVoiceType spd_get_voice_type(SPDConnection * connection)
+{
+	char *command;
+	SPDVoiceType ret;
+	int err;
+	char *reply = NULL;
+	command = g_strdup_printf("GET voice_type");
+	spd_execute_command_with_reply(connection, command, &reply);
+	free(command);
+	ret = get_param_int(reply, 1, &err);
+	free(reply);
+	return ret;
+}
 
-#define SPD_SET_COMMAND_SPECIAL(param, type) \
-	int \
-	spd_set_ ## param (SPDConnection *connection, type val) \
-	{ \
-		return spd_w_set_ ## param (connection, val, "SELF"); \
-	} \
-	int \
-	spd_set_ ## param ## _all(SPDConnection *connection, type val) \
-	{ \
-		return spd_w_set_ ## param (connection, val, "ALL"); \
-	} \
-	int \
-	spd_set_ ## param ## _uid(SPDConnection *connection, type val, unsigned int uid) \
-	{ \
-		char who[8]; \
-		sprintf(who, "%d", uid); \
-		return spd_w_set_ ## param (connection, val, who); \
-	}
+static int spd_w_set_command_int(SPDConnection * connection,
+				 const char *ssip_name, signed int val,
+				 const char *who)
+{
+	static char command[64];
+	// NOTE: if any new int ssip_name are added that don't use -100 - 100 as their
+	// range, these values will need to become parameters (or the new ssip_name)
+	// methods will need to call a different helper method.
+	if (val < range_low || val > range_high)
+		return -1;
+	sprintf(command, "SET %s %s %d", who, ssip_name, val);
+	return spd_execute_command(connection, command);
+}
 
-#define SPD_GET_COMMAND_SPECIAL(param, type) \
-	type \
-	spd_get_ ## param (SPDConnection *connection) \
-	{ \
-		char *command; \
-		type ret; \
-		int err; \
-		char *reply = NULL; \
-		command = g_strdup_printf("GET " #param); \
-		spd_execute_command_with_reply(connection, command, &reply); \
-		free(command); \
-		ret = get_param_int(reply, 1, &err); \
-		free(reply); \
-		return ret; \
-	}
+static int spd_get_command_int(SPDConnection * connection,
+			       const char *ssip_name)
+{
+	char *command;
+	int ret = 0;
+	int err;
+	char *reply = NULL;
+	command = g_strdup_printf("GET %s", ssip_name);
+	spd_execute_command_with_reply(connection, command, &reply);
+	free(command);
+	ret = get_param_int(reply, 1, &err);
+	free(reply);
+	return ret;
+}
 
+static int spd_w_set_command_str(SPDConnection * connection,
+				 const char *ssip_name, const char *str,
+				 const char *who)
+{
+	char *command;
+	int ret;
+	if (str == NULL)
+		return -1;
+	command = g_strdup_printf("SET %s %s %s", who, ssip_name, str);
+	ret = spd_execute_command(connection, command);
+	free(command);
+	return ret;
+}
 
-SPD_SET_COMMAND_INT(voice_rate, RATE, ((val >= -100) && (val <= +100)))
-    SPD_GET_COMMAND_INT(voice_rate, RATE)
-    SPD_SET_COMMAND_INT(voice_pitch, PITCH, ((val >= -100) && (val <= +100)))
-    SPD_GET_COMMAND_INT(voice_pitch, PITCH)
-    SPD_SET_COMMAND_INT(voice_pitch_range, PITCH_RANGE,
-		    ((val >= -100) && (val <= +100)))
-    SPD_SET_COMMAND_INT(volume, VOLUME, ((val >= -100) && (val <= +100)))
-    SPD_GET_COMMAND_INT(volume, VOLUME)
+static char *spd_get_command_str(SPDConnection * connection,
+				 const char *ssip_name)
+{
+	char *command;
+	char *ret = NULL;
+	int err;
+	char *reply = NULL;
+	command = g_strdup_printf("GET %s", ssip_name);
+	spd_execute_command_with_reply(connection, command, &reply);
+	free(command);
+	ret = get_param_str(reply, 1, &err);
+	free(reply);
+	return ret;
+}
 
-    SPD_SET_COMMAND_STR(language, LANGUAGE)
-    SPD_GET_COMMAND_STR(language, LANGUAGE)
-    SPD_SET_COMMAND_STR(output_module, OUTPUT_MODULE)
-    SPD_GET_COMMAND_STR(output_module, OUTPUT_MODULE)
-    SPD_SET_COMMAND_STR(synthesis_voice, SYNTHESIS_VOICE)
+// Set functions for rate
+int spd_set_voice_rate(SPDConnection * connection, signed int rate)
+{
+	return spd_w_set_command_int(connection, SPD_RATE, rate, SPD_SELF);
+}
 
-    SPD_SET_COMMAND_SPECIAL(punctuation, SPDPunctuation)
-    SPD_SET_COMMAND_SPECIAL(capital_letters, SPDCapitalLetters)
-    SPD_SET_COMMAND_SPECIAL(spelling, SPDSpelling)
-    SPD_SET_COMMAND_SPECIAL(voice_type, SPDVoiceType)
-    SPD_GET_COMMAND_SPECIAL(voice_type, SPDVoiceType)
-#undef SPD_SET_COMMAND_INT
-#undef SPD_SET_COMMAND_STR
-#undef SPD_SET_COMMAND_SPECIAL
+int spd_set_voice_rate_all(SPDConnection * connection, signed int rate)
+{
+	return spd_w_set_command_int(connection, SPD_RATE, rate,
+				     SPD_ALLCLIENTS);
+}
+
+int spd_set_voice_rate_uid(SPDConnection * connection, signed int rate,
+			   unsigned int uid)
+{
+	char who[8];
+	sprintf(who, "%d", uid);
+	return spd_w_set_command_int(connection, SPD_RATE, rate, who);
+}
+
+// Get function for rate
+int spd_get_voice_rate(SPDConnection * connection)
+{
+	return spd_get_command_int(connection, SPD_RATE);
+}
+
+// Set functions for pitch
+int spd_set_voice_pitch(SPDConnection * connection, signed int pitch)
+{
+	return spd_w_set_command_int(connection, SPD_PITCH, pitch, SPD_SELF);
+}
+
+int spd_set_voice_pitch_all(SPDConnection * connection, signed int pitch)
+{
+	return spd_w_set_command_int(connection, SPD_PITCH, pitch,
+				     SPD_ALLCLIENTS);
+}
+
+int spd_set_voice_pitch_uid(SPDConnection * connection, signed int pitch,
+			    unsigned int uid)
+{
+	char who[8];
+	sprintf(who, "%d", uid);
+	return spd_w_set_command_int(connection, SPD_PITCH, pitch, who);
+}
+
+// Get function for pitch
+int spd_get_voice_pitch(SPDConnection * connection)
+{
+	return spd_get_command_int(connection, SPD_PITCH);
+}
+
+// Set functions for pitch_range
+int spd_set_voice_pitch_range(SPDConnection * connection,
+			      signed int pitch_range)
+{
+	return spd_w_set_command_int(connection, SPD_PITCH_RANGE, pitch_range,
+				     SPD_SELF);
+}
+
+int spd_set_voice_pitch_range_all(SPDConnection * connection,
+				  signed int pitch_range)
+{
+	return spd_w_set_command_int(connection, SPD_PITCH, pitch_range,
+				     SPD_ALLCLIENTS);
+}
+
+int spd_set_voice_pitch_range_uid(SPDConnection * connection,
+				  signed int pitch_range, unsigned int uid)
+{
+	char who[8];
+	sprintf(who, "%d", uid);
+	return spd_w_set_command_int(connection, SPD_PITCH, pitch_range, who);
+}
+
+// Set functions for volume
+int spd_set_volume(SPDConnection * connection, signed int volume)
+{
+	return spd_w_set_command_int(connection, SPD_VOLUME, volume, SPD_SELF);
+}
+
+int spd_set_volume_all(SPDConnection * connection, signed int volume)
+{
+	return spd_w_set_command_int(connection, SPD_VOLUME, volume,
+				     SPD_ALLCLIENTS);
+}
+
+int spd_set_volume_uid(SPDConnection * connection, signed int volume,
+		       unsigned int uid)
+{
+	char who[8];
+	sprintf(who, "%d", uid);
+	return spd_w_set_command_int(connection, SPD_VOLUME, volume, who);
+}
+
+// Get function for volume
+int spd_get_volume(SPDConnection * connection)
+{
+	return spd_get_command_int(connection, SPD_VOLUME);
+}
+
+// Set functions for language
+int spd_set_language(SPDConnection * connection, const char *language)
+{
+	return spd_w_set_command_str(connection, SPD_LANGUAGE, language,
+				     SPD_SELF);
+}
+
+int spd_set_language_all(SPDConnection * connection, const char *language)
+{
+	return spd_w_set_command_str(connection, SPD_LANGUAGE, language,
+				     SPD_ALLCLIENTS);
+}
+
+int spd_set_language_uid(SPDConnection * connection, const char *language,
+			 unsigned int uid)
+{
+	char who[8];
+	sprintf(who, "%d", uid);
+	return spd_w_set_command_str(connection, SPD_LANGUAGE, language, who);
+}
+
+// Get function for language
+char *spd_get_language(SPDConnection * connection)
+{
+	return spd_get_command_str(connection, SPD_LANGUAGE);
+}
+
+// Set functions for output_module
+int spd_set_output_module(SPDConnection * connection, const char *output_module)
+{
+	return spd_w_set_command_str(connection, SPD_OUTPUT_MODULE,
+				     output_module, SPD_SELF);
+}
+
+int spd_set_output_module_all(SPDConnection * connection,
+			      const char *output_module)
+{
+	return spd_w_set_command_str(connection, SPD_OUTPUT_MODULE,
+				     output_module, SPD_ALLCLIENTS);
+}
+
+int spd_set_output_module_uid(SPDConnection * connection,
+			      const char *output_module, unsigned int uid)
+{
+	char who[8];
+	sprintf(who, "%d", uid);
+	return spd_w_set_command_str(connection, SPD_OUTPUT_MODULE,
+				     output_module, who);
+}
+
+// Get function for output_module
+char *spd_get_output_module(SPDConnection * connection)
+{
+	return spd_get_command_str(connection, SPD_OUTPUT_MODULE);
+}
+
+// Set functions for synthesis_voice
+int spd_set_synthesis_voice(SPDConnection * connection, const char *voice_name)
+{
+	return spd_w_set_command_str(connection, SPD_SYNTHESIS_VOICE,
+				     voice_name, SPD_SELF);
+}
+
+int spd_set_synthesis_voice_all(SPDConnection * connection,
+				const char *voice_name)
+{
+	return spd_w_set_command_str(connection, SPD_SYNTHESIS_VOICE,
+				     voice_name, SPD_ALLCLIENTS);
+}
+
+int spd_set_synthesis_voice_uid(SPDConnection * connection,
+				const char *voice_name, unsigned int uid)
+{
+	char who[8];
+	sprintf(who, "%d", uid);
+	return spd_w_set_command_str(connection, SPD_SYNTHESIS_VOICE,
+				     voice_name, who);
+}
+
 int
 spd_set_notification_on(SPDConnection * connection,
 			SPDNotification notification)
