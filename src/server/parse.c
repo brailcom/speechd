@@ -529,12 +529,15 @@ char *parse_set(const char *buf, const int bytes, const int fd,
 		if (ret)
 			return g_strdup(ERR_COULDNT_SET_VOLUME);
 		return g_strdup(OK_VOLUME_SET);
-	} else if (TEST_CMD(set_sub, "voice")) {
+	} else if (TEST_CMD(set_sub, "voice") || TEST_CMD(set_sub, "voice_type")) {
 		char *voice;
 		GET_PARAM_STR(voice, 3, CONV_DOWN);
 
 		SSIP_SET_COMMAND(voice);
 		g_free(voice);
+
+		if (TEST_CMD(set_sub, "voice"))
+			MSG(1, "The SET VOICE command is deprecated since Speech Dispatcher 0.8.3.");
 
 		if (ret)
 			return g_strdup(ERR_COULDNT_SET_VOICE);
@@ -956,7 +959,7 @@ char *parse_get(const char *buf, const int bytes, const int fd,
 
 	result = g_string_new("");
 	GET_PARAM_STR(get_type, 1, CONV_DOWN);
-	if (TEST_CMD(get_type, "voice")) {
+	if (TEST_CMD(get_type, "voice_type")) {
 		switch (settings->msg_settings.voice_type) {
 		case SPD_MALE1:
 			g_string_append(result, C_OK_GET "-MALE1" NEWLINE OK_GET);
@@ -1004,9 +1007,6 @@ char *parse_get(const char *buf, const int bytes, const int fd,
 	} else if (TEST_CMD(get_type, "volume")) {
 		g_string_append_printf(result, C_OK_GET "-%d" NEWLINE OK_GET,
 				       settings->msg_settings.volume);
-	} else if (TEST_CMD(get_type, "voice_type")) {
-		g_string_append_printf(result, C_OK_GET "-%d" NEWLINE OK_GET,
-				        settings->msg_settings.voice_type);
 	} else {
 		g_free(get_type);
 		g_string_append(result, ERR_PARAMETER_INVALID);
