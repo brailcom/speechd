@@ -970,28 +970,28 @@ spd_w_set_voice_type(SPDConnection * connection, SPDVoiceType type,
 
 	switch (type) {
 	case SPD_MALE1:
-		sprintf(command, "SET %s VOICE MALE1", who);
+		sprintf(command, "SET %s VOICE_TYPE MALE1", who);
 		break;
 	case SPD_MALE2:
-		sprintf(command, "SET %s VOICE MALE2", who);
+		sprintf(command, "SET %s VOICE_TYPE MALE2", who);
 		break;
 	case SPD_MALE3:
-		sprintf(command, "SET %s VOICE MALE3", who);
+		sprintf(command, "SET %s VOICE_TYPE MALE3", who);
 		break;
 	case SPD_FEMALE1:
-		sprintf(command, "SET %s VOICE FEMALE1", who);
+		sprintf(command, "SET %s VOICE_TYPE FEMALE1", who);
 		break;
 	case SPD_FEMALE2:
-		sprintf(command, "SET %s VOICE FEMALE2", who);
+		sprintf(command, "SET %s VOICE_TYPE FEMALE2", who);
 		break;
 	case SPD_FEMALE3:
-		sprintf(command, "SET %s VOICE FEMALE3", who);
+		sprintf(command, "SET %s VOICE_TYPE FEMALE3", who);
 		break;
 	case SPD_CHILD_MALE:
-		sprintf(command, "SET %s VOICE CHILD_MALE", who);
+		sprintf(command, "SET %s VOICE_TYPE CHILD_MALE", who);
 		break;
 	case SPD_CHILD_FEMALE:
-		sprintf(command, "SET %s VOICE CHILD_FEMALE", who);
+		sprintf(command, "SET %s VOICE_TYPE CHILD_FEMALE", who);
 		break;
 	default:
 		return -1;

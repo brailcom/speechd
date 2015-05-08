@@ -1025,7 +1025,7 @@ class SSIPClient(object):
                value.lower() in ("male1", "male2", "male3", "female1",
                                  "female2", "female3", "child_male",
                                  "child_female")
-        self._conn.send_command('SET', scope, 'VOICE', value)
+        self._conn.send_command('SET', scope, 'VOICE_TYPE', value)
 
     def set_synthesis_voice(self, value, scope=Scope.SELF):
         """Set voice by its real name.

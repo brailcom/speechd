@@ -977,7 +977,7 @@ The default for the Speech Dispatcher implementation of SSIP
 is determined by the @code{DefaultCapLetRecognition} setting in the
 @code{speechd.conf} file.  The factory default is @code{none}.
 
-@item SET @{ all | self | @var{id} @} VOICE @var{name}
+@item SET @{ all | self | @var{id} @} VOICE_TYPE @var{name}
 Set the voice identified by @var{name}.  @var{name} must be one of the voice
 identifiers returned by the command @code{LIST VOICES} (@pxref{Information
 Retrieval Commands}).
@@ -988,6 +988,17 @@ Voices}.
 The default for the Speech Dispatcher implementation of SSIP
 is determined by the @code{DefaultVoiceType} setting in the
 @code{speechd.conf} file.  The factory default is @code{MALE1}.
+
+@item GET VOICE_TYPE
+Gets the current pre-defined voice. A list of voice identifiers can be
+obtained by the command @code{LIST VOICES} (@pxref{Information
+Retrieval Commands}).
+
+@example
+GET VOICE_TYPE
+251-MALE1
+251 OK GET RETURNED
+@end example
 
 @item SET @{ all | self | @var{id} @} SYNTHESIS_VOICE @var{name}
 Set the voice identified by @var{name}.  @var{name} is a voice name
