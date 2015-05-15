@@ -7,7 +7,7 @@ BUILT_SOURCES = $(top_srcdir)/.version
 
 SUBDIRS= include src config doc po
 
-EXTRA_DIST= ANNOUNCE BUGS FAQ README.packagers README.translators README.style build.sh git-version-gen
+EXTRA_DIST= ANNOUNCE BUGS FAQ README.packagers README.translators README.style build.sh git-version-gen split-version.sh
 
 MAINTAINERCLEANFILES=configure
 

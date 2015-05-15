@@ -12,6 +12,14 @@ AC_CONFIG_HEADERS([config.h])
 IT_PROG_INTLTOOL([0.40.0])
 AM_GLIB_GNU_GETTEXT
 
+# Split version number
+MAJOR_VERSION="$(./split-version.sh -ma)"
+MINOR_VERSION="$(./split-version.sh -mi)"
+MICRO_VERSION="$(./split-version.sh -mc)"
+AC_SUBST([MAJOR_VERSION])
+AC_SUBST([MINOR_VERSION])
+AC_SUBST([MICRO_VERSION])
+
 # Config test suite
 AC_CONFIG_TESTDIR(src/tests)
 
