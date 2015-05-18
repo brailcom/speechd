@@ -1705,7 +1705,6 @@ static char *ibmtts_subst_keys(char *key)
 static char *ibmtts_search_for_sound_icon(const char *icon_name)
 {
 	char *fn = NULL;
-#if HAVE_SNDFILE
 	if (0 == strlen(IbmttsSoundIconFolder))
 		return fn;
 	GString *filename = g_string_new(IbmttsSoundIconFolder);
@@ -1729,7 +1728,6 @@ static char *ibmtts_search_for_sound_icon(const char *icon_name)
 	 * data.
 	 */
 	g_string_free(filename, (fn == NULL));
-#endif
 	return fn;
 }
 

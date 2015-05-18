@@ -5,6 +5,7 @@ The requirements:
 You will need these components to compile Speech Dispatcher:  
  - glib 2.0  (http://www.gtk.org)
  - libdotconf 1.0 (http://www.azzit.de/dotconf/)
+ - libsndfile 1.0.2 (http://www.mega-nerd.com/libsndfile/)
  - pthreads
  - gcc and GNU make (http://www.gnu.org)
  - festival-freebsoft-utils 0.3+ (optional)

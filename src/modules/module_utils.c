@@ -25,9 +25,7 @@
 #include <config.h>
 #endif
 
-#if HAVE_SNDFILE
 #include <sndfile.h>
-#endif
 
 #include <fdsetconv.h>
 #include <spd_utils.h>
@@ -1043,7 +1041,6 @@ int module_tts_output(AudioTrack track, AudioFormat format)
 int module_play_file(const char *filename)
 {
 	int result = 0;
-#if HAVE_SNDFILE
 	int subformat;
 	sf_count_t items;
 	sf_count_t readcount;
@@ -1106,6 +1103,5 @@ cleanup2:
 	g_free(track.samples);
 cleanup1:
 	sf_close(sf);
-#endif
 	return result;
 }
