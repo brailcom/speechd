@@ -51,12 +51,9 @@ PKG_CHECK_MODULES([DOTCONF], [dotconf >= 1.3])
 AC_SUBST([DOTCONF_CFLAGS])
 AC_SUBST([DOTCONF_LIBS])
 
-PKG_CHECK_MODULES([SNDFILE], [sndfile >= 1.0.2],
-	[ac_cv_sndfile=1], [ac_cv_sndfile=0])
+PKG_CHECK_MODULES([SNDFILE], [sndfile >= 1.0.2])
 AC_SUBST([SNDFILE_CFLAGS])
 AC_SUBST([SNDFILE_LIBS])
-AC_DEFINE_UNQUOTED([HAVE_SNDFILE], [${ac_cv_sndfile}],
-	[Set to 1 if you have libsndfile.])
 
 # Checks for header files.
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h langinfo.h limits.h netdb.h])

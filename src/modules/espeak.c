@@ -860,11 +860,9 @@ static int uri_callback(int type, const char *uri, const char *base)
 	int result = 1;
 	if (type == 1) {
 		/* Audio icon */
-#if HAVE_SNDFILE
 		if (g_file_test(uri, G_FILE_TEST_EXISTS)) {
 			result = 0;
 		}
-#endif
 	}
 	return result;
 }
