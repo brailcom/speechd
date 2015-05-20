@@ -469,7 +469,8 @@ int module_close(void)
 	// festivalClose(festival_info);
 
 	DBG("Terminating threads");
-	module_terminate_thread(festival_speak_thread);
+	if (festival_speak_thread)
+		module_terminate_thread(festival_speak_thread);
 
 	if (festival_info)
 		delete_FT_Info(festival_info);
