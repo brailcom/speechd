@@ -193,6 +193,7 @@ MOD_OPTION_1_STR(EspeakPunctuationList)
     MOD_OPTION_1_INT(EspeakMinRate)
     MOD_OPTION_1_INT(EspeakNormalRate)
     MOD_OPTION_1_INT(EspeakMaxRate)
+    MOD_OPTION_1_INT(EspeakListVoiceVariants)
 
     MOD_OPTION_1_INT(EspeakAudioChunkSize)
     MOD_OPTION_1_INT(EspeakAudioQueueMaxSize)
@@ -219,6 +220,7 @@ int module_load(void)
 	MOD_OPTION_1_INT_REG(EspeakMaxRate, 390);
 	MOD_OPTION_1_STR_REG(EspeakPunctuationList, "@/+-_");
 	MOD_OPTION_1_INT_REG(EspeakCapitalPitchRise, 800);
+	MOD_OPTION_1_INT_REG(EspeakListVoiceVariants, 0);
 	if (EspeakCapitalPitchRise == 1 || EspeakCapitalPitchRise == 2) {
 		EspeakCapitalPitchRise = 0;
 	}
@@ -1159,31 +1161,43 @@ static void *_espeak_play(void *nothing)
 static SPDVoice **espeak_list_synthesis_voices()
 {
 	SPDVoice **result = NULL;
-	const espeak_VOICE **espeak_voices = espeak_ListVoices(NULL);
-	int i = 0;
-	int j = 0;
-
-	/* Count number of voices */
+	SPDVoice *voice = NULL;
+	SPDVoice *vo = NULL;
+	const espeak_VOICE **espeak_voices = NULL;
+	const espeak_VOICE **espeak_variants = NULL;
+	espeak_VOICE *variant_spec = NULL;
+	const espeak_VOICE *v = NULL;
+	GQueue *voice_list = NULL;
+	GQueue *variant_list = NULL;
+	GList *voice_list_iter = NULL;
+	GList *variant_list_iter = NULL;
+	const gchar *first_lang = NULL;
+	gchar *lang = NULL;
+	gchar *variant = NULL;
+	gchar *dash = NULL;
+	gchar *vname = NULL;
 	int numvoices = 0;
-	while (espeak_voices[numvoices] != NULL) {
-		numvoices++;
-	}
-	DBG("Espeak: %d voices total.", numvoices);
-	result = g_new0(SPDVoice *, numvoices + 1);
-	for (i = j = 0; espeak_voices[i] != NULL; i++) {
-		const espeak_VOICE *v = espeak_voices[i];
+	int numvariants = 0;
+	int totalvoices = 0;
+	int i = 0;
+
+	espeak_voices = espeak_ListVoices(NULL);
+	voice_list = g_queue_new();
+
+	for (i = 0; espeak_voices[i] != NULL; i++) {
+		v = espeak_voices[i];
 		if (!g_str_has_prefix(v->identifier, "mb/")) {
 			/* Not an mbrola voice */
-			SPDVoice *voice = g_new0(SPDVoice, 1);
+			voice = g_new0(SPDVoice, 1);
 
 			voice->name = g_strdup(v->name);
 
-			const gchar *first_lang = v->languages + 1;
-			gchar *lang = NULL;
-			gchar *variant = NULL;
+			first_lang = v->languages + 1;
+			lang = NULL;
+			variant = NULL;
 			if (g_utf8_validate(first_lang, -1, NULL)) {
-				gchar *dash =
-				    g_utf8_strchr(first_lang, -1, '-');
+				dash =
+				       g_utf8_strchr(first_lang, -1, '-');
 				if (dash != NULL) {
 					/* There is probably a variant string (like en-uk) */
 					lang =
@@ -1201,11 +1215,67 @@ static SPDVoice **espeak_list_synthesis_voices()
 			voice->language = lang;
 			voice->variant = variant;
 
-			result[j++] = voice;
+			g_queue_push_tail(voice_list, voice);
 		}
+
 	}
-	result[j] = NULL;
-	DBG("Espeak: %d usable voices.", j);
+
+	numvoices = g_queue_get_length(voice_list);
+	DBG("Espeak: %d voices total.", numvoices)
+
+	if (EspeakListVoiceVariants) {
+		variant_spec = g_new0(espeak_VOICE, 1);
+		variant_spec->languages = "variant";
+		espeak_variants = espeak_ListVoices(variant_spec);
+		variant_list = g_queue_new();
+
+		for (i = 0; espeak_variants[i] != NULL; i++) {
+			v = espeak_variants[i];
+
+			vname = g_strdup(v->name);
+			g_queue_push_tail(variant_list, vname);
+		}
+
+		numvariants = g_queue_get_length(variant_list);
+		DBG("Espeak: %d variants total.", numvariants)
+	}
+
+	totalvoices = (numvoices * numvariants) + numvoices;
+	result = g_new0(SPDVoice *, totalvoices + 1);
+	voice_list_iter = g_queue_peek_head_link(voice_list);
+
+	for (i = 0; i < totalvoices; i++) {
+		result[i] = voice_list_iter->data;
+
+		if (!g_queue_is_empty(variant_list)) {
+			vo = voice_list_iter->data;
+			variant_list_iter = g_queue_peek_head_link(variant_list);
+
+			while (variant_list_iter != NULL && variant_list_iter->data != NULL) {
+				voice = g_new0(SPDVoice, 1);
+
+				voice->name = g_strdup_printf("%s+%s", vo->name,
+							      variant_list_iter->data);
+				voice->language = g_strdup(vo->language);
+				voice->variant = g_strdup(vo->variant);
+
+				result[++i] = voice;
+				variant_list_iter = variant_list_iter->next;
+			}
+		}
+
+		voice_list_iter = voice_list_iter->next;
+	}
+
+	if (voice_list != NULL)
+		g_queue_free(voice_list);
+	if (variant_list != NULL)
+		g_queue_free_full(variant_list, (GDestroyNotify)g_free);
+	if (variant_spec != NULL)
+		g_free(variant_spec);
+
+	result[i] = NULL;
+	DBG("Espeak: %d usable voices.", totalvoices);
 
 	return result;
 }
