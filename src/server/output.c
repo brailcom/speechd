@@ -275,14 +275,33 @@ int output_send_data(char *cmd, OutputModule * output, int wfr)
 	return 0;
 }
 
+static void free_voice(gpointer data)
+{
+	SPDVoice *voice = (SPDVoice *)data;
+
+	if (voice != NULL) {
+		if (voice->name != NULL)
+			g_free(voice->name);
+		if (voice->language != NULL)
+			g_free(voice->language);
+		if (voice->variant != NULL)
+			g_free(voice->variant);
+
+		g_free(voice);
+	}
+}
+
 static SPDVoice **output_get_voices(OutputModule * module)
 {
 	SPDVoice **voice_dscr;
+	SPDVoice *voice;
 	GString *reply;
 	gchar **lines;
 	gchar **atoms;
+	GQueue *voices;
 	int i;
 	int ret = 0;
+	int numvoices = 0;
 	gboolean errors = FALSE;
 
 	output_lock();
@@ -298,10 +317,10 @@ static SPDVoice **output_get_voices(OutputModule * module)
 		output_unlock();
 		return NULL;
 	}
-	//TODO: only 256 voices supported here
-	lines = g_strsplit(reply->str, "\n", 256);
+
+	lines = g_strsplit(reply->str, "\n", -1);
 	g_string_free(reply, TRUE);
-	voice_dscr = g_malloc(256 * sizeof(SPDVoice *));
+	voices = g_queue_new();
 	for (i = 0; !errors && (lines[i] != NULL); i++) {
 		MSG(1, "LINE here:|%s|", lines[i]);
 		if (strlen(lines[i]) <= 4) {
@@ -320,10 +339,11 @@ static SPDVoice **output_get_voices(OutputModule * module)
 				errors = TRUE;
 			} else {
 				//Fill in VoiceDescription
-				voice_dscr[i] = g_malloc(sizeof(SPDVoice));
-				voice_dscr[i]->name = g_strdup(atoms[0]);
-				voice_dscr[i]->language = g_strdup(atoms[1]);
-				voice_dscr[i]->variant = g_strdup(atoms[2]);
+				voice = g_malloc(sizeof(SPDVoice));
+				voice->name = g_strdup(atoms[0]);
+				voice->language = g_strdup(atoms[1]);
+				voice->variant = g_strdup(atoms[2]);
+				g_queue_push_tail(voices, voice);
 			}
 			if (atoms != NULL)
 				g_strfreev(atoms);
@@ -331,7 +351,24 @@ static SPDVoice **output_get_voices(OutputModule * module)
 		/* Should we do something in a final "else" branch? */
 
 	}
+
+	numvoices = g_queue_get_length(voices);
+
+	if (errors == TRUE) {
+		g_queue_free_full(voices, (GDestroyNotify)free_voice);
+		g_strfreev(lines);
+		output_unlock();
+		return NULL;
+	}
+
+	voice_dscr = g_malloc((numvoices + 1) * sizeof(SPDVoice *));
+
+	for (i = 0; i < numvoices; i++) {
+		voice_dscr[i] = g_queue_pop_head(voices);
+	}
+
 	voice_dscr[i] = NULL;
+	g_queue_free(voices);
 	g_strfreev(lines);
 
 	output_unlock();
