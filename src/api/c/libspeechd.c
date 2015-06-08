@@ -1340,7 +1340,7 @@ char **spd_list_modules(SPDConnection * connection)
 void free_spd_modules(char **modules)
 {
 	int i = 0;
-	while (modules[i] != NULL) {
+	while (modules != NULL && modules[i] != NULL) {
 		free(modules[i]);
 		++i;
 	}
@@ -1395,7 +1395,7 @@ SPDVoice **spd_list_synthesis_voices(SPDConnection * connection)
 void free_spd_voices(SPDVoice ** voices)
 {
 	int i = 0;
-	while (voices[i] != NULL) {
+	while (voices != NULL && voices[i] != NULL) {
 		free(voices[i]->name);
 		free(voices[i]);
 		++i;
