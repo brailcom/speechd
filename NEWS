@@ -1,3 +1,15 @@
+Version 0.8.2
+* Add convenience methods to the libspeech API to free module list and voice
+  data structures.
+* Add method to the libspeechd API to get the current output module, and
+  update the documentation accordingly.
+* The API is now licensed under the GNU Lesser General Public License v2.1
+  or later.
+* The spdconf configuration utility is now translatable.
+* Fixed a bug where speech-dispatcher would fail to start if the user
+  configuration directory existed but did not contain a config file.
+* Install the spdconf desktop file.
+
 Version 0.8.1
 * User dictionaries support added to the IBMTTS driver
 * Added a pico configuration file for use with the generic driver
