@@ -904,8 +904,6 @@ class SSIPClient(object):
         assert isinstance(value, int) and -100 <= value <= 100, value
         self._conn.send_command('SET', scope, 'PITCH', value)
 
-<<<<<<< HEAD
-=======
     def get_pitch(self):
         """Get the current pitch."""
         code, msg, data = self._conn.send_command('GET', 'PITCH')
