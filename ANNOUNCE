@@ -1,32 +1,39 @@
 
-Speech Dispatcher 0.8.2
+Speech Dispatcher 0.8.3
 =====================
 
-Announcing the availability of Speech Dispatcher 0.8.2 developed as a part of
+Announcing the availability of Speech Dispatcher 0.8.3 developed as a part of
 the Free(b)Soft project.
 
-* What is new in 0.8.2?
+* What is new in 0.8.3?
 
- - Add convenience methods to the libspeech API to free module list and voice
-   data structures.
+ - Add API methods to get language, rate, pitch, and volume.
 
- - Add method to the libspeechd API to get the current output module, and
-   update the documentation accordingly.
+ -  A lot of code cleanup, and compatibility improvements.
 
- - The API is now licensed under the GNU Lesser General Public License v2.1
-   or later.
+ - Removed all references to GNOME Speech, since it has long since been
+   deprecated.
 
- - The spdconf configuration utility is now translatable.
+ - Fix some inconsistancy in the SSIP API for voice type.
 
- - Fixed a bug where speech-dispatcher would fail to start if the user
-   configuration directory existed but did not contain a config file.
+ - The SET VOICE SSIP command is now deprecated, and will be removed in 0.9.
 
- - Install the spdconf desktop file.
+ - The C library API now provides macro definitions for major, minor, and micro
+   versions in libspeechd_versions.h.
+
+ - The libsndfile library is now a mandetory dependency to improve the user
+   experience around sound icons.
+
+ - Fix a possible crash in the festival driver.
+
+ - Add a configuration option to the espeak driver to show voice variants in
+   the voice list. This will remain until a proper variants retrieval API is
+   added for compatible synthesizers.
 
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.8.2.tar.gz
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.8.3.tar.gz
 
   We recommend the use of sound icons with Speech Dispatcher.
   They are available at
