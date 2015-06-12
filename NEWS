@@ -1,3 +1,19 @@
+Version 0.8.3
+* Add API methods to get language, rate, pitch, and volume.
+* A lot of code cleanup, and compatibility improvements.
+* Removed all references to GNOME Speech, since it has long since been
+  deprecated.
+* Fix some inconsistancy in the SSIP API for voice type.
+* The SET VOICE SSIP command is now deprecated, and will be removed in 0.9.
+* The C library API now provides macro definitions for major, minor, and micro
+  versions in libspeechd_versions.h.
+* The libsndfile library is now a mandetory dependency to improve the user
+  experience around sound icons.
+* Fix a possible crash in the festival driver.
+* Add a configuration option to the espeak driver to show voice variants in the
+  voice list. This will remain until a proper variants retrieval API is added
+  for compatible synthesizers.
+
 Version 0.8.2
 * Add convenience methods to the libspeech API to free module list and voice
   data structures.
