@@ -92,8 +92,8 @@ void options_print_help(char *argv[])
 	printf("-v, --version\t\t");
 	printf(_("Report version of this program\n"));
 	printf("-D, --debug\t\t");
-	printf(_("Output debugging information into %s\n"),
-	       "/tmp/.speech-dispatcher");
+	printf(_("Output debugging information into $TMPDIR/%s if TMPDIR is exported, otherwise to /tmp/%s\n"),
+	       "speechd-debug", "speechd-debug");
 	printf("-h, --help\t\t");
 	printf(_("Print this info\n"));
 	printf("\n");
