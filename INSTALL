@@ -32,7 +32,6 @@ These packages are known to work with Speech Dispatcher:
      synthesizer with very good support for various Speech Dispatcher
      features.
  - Flite, Cicero, IBM TTS, Dectalk Software, Ivona, SVOX Pico
- - Pulse Audio (http://www.pulseaudio.org/)
 
  User applications:
  - Orca (http://www.gnome.org/projects/orca/) -- AT-SPI screen reader (Gnome)
@@ -60,15 +59,16 @@ speech-dispatcher-<version> directory and run "make all" command as follows:
  $ cd speech-dispatcher-[version]
 
 
-Notes about ALSA, Pulse, OSS and NAS support
+Notes about Pulse, LIBAO, ALSA, OSS and NAS support
 ============================================
 
-Speech Dispatcher's default audio output system is the Pulse Audio
-with an automatic fallback on ALSA if Pulse is not available.
-It's also possible possible to use libao output and to build
-Speech Dispatcher with Network Audio System and/or OSS support
-and then switch between these two audio systems in the configuration
-files (speechd.conf).
+Speech Dispatcher's default audio output system is the first discovered
+during configuration started with the Pulse Audio and followed by libao, ALSA,
+OSS and NAS. It is possible to explicitly setup default audio output system
+while building Speech Dispatcher, see configuration options.
+This value can be redefined during run time in the speechd.conf.
+If multiple audio output systems separated by comma are defined as default
+audio output system e.g. "pulse,alsa" an automatic fallback will be done.
 
 Notes about Espeak support
 ==========================
