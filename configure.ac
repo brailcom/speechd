@@ -365,6 +365,8 @@ AC_SUBST([audiodir])
 # Path for speech-dispatcher include files:
 spdincludedir=${includedir}/speech-dispatcher
 AC_SUBST([spdincludedir])
+includedir=${spdincludedir}
+AC_SUBST([includedir])
 
 AC_CONFIG_FILES([Makefile
                  speech-dispatcher.pc
