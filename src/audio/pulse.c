@@ -46,8 +46,6 @@
 #define SPD_AUDIO_PLUGIN_ENTRY spd_pulse_LTX_spd_audio_plugin_get
 #include <spd_audio_plugin.h>
 
-/* Switch this on to debug, see output log location in MSG() */
-//#define DEBUG_PULSE
 typedef struct {
 	AudioID id;
 	pa_simple *pa_simple;
@@ -64,31 +62,44 @@ typedef struct {
 
 /* This is the smallest audio sound we are expected to play immediately without buffering. */
 /* Changed to define on config file. Default is the same. */
-#define DEFAULT_PA_MIN_AUDIO_LENgTH 100
+#define DEFAULT_PA_MIN_AUDIO_LENGTH 100
 
 static int pulse_log_level;
 static char const *pulse_play_cmd = "paplay";
 
-/* Write to /tmp/speech-dispatcher-pulse.log */
-#ifdef DEBUG_PULSE
-static FILE *pulseDebugFile = NULL;
-static void MSG(char *message, ...)
-{
-	va_list ap;
-
-	if (pulseDebugFile == NULL) {
-		pulseDebugFile = fopen("/tmp/speech-dispatcher-pulse.log", "w");
+#define MSG(level, arg...) \
+	if(level <= pulse_log_level){ \
+		time_t t; \
+		struct timeval tv; \
+		char *tstr; \
+		t = time(NULL); \
+		tstr = g_strdup(ctime(&t)); \
+		tstr[strlen(tstr)-1] = 0; \
+		gettimeofday(&tv,NULL); \
+		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
+		fprintf(stderr," Pulse: "); \
+		fprintf(stderr,arg); \
+		fprintf(stderr,"\n"); \
+		fflush(stderr); \
+		g_free(tstr); \
 	}
-	va_start(ap, message);
-	vfprintf(pulseDebugFile, message, ap);
-	va_end(ap);
-	fflush(pulseDebugFile);
-}
-#else
-static void MSG(char *message, ...)
-{
-}
-#endif
+
+#define ERR(arg...) \
+	{ \
+		time_t t; \
+		struct timeval tv; \
+		char *tstr; \
+		t = time(NULL); \
+		tstr = g_strdup(ctime(&t)); \
+		tstr[strlen(tstr)-1] = 0; \
+		gettimeofday(&tv,NULL); \
+		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
+		fprintf(stderr," Pulse ERROR: "); \
+		fprintf(stderr,arg); \
+		fprintf(stderr,"\n"); \
+		fflush(stderr); \
+		g_free(tstr); \
+	}
 
 static int _pulse_open(spd_pulse_id_t * id, int sample_rate,
 		       int num_channels, int bytes_per_sample)
@@ -158,7 +169,7 @@ static AudioID *pulse_open(void **pars)
 #endif
 	pulse_id->pa_simple = NULL;
 	pulse_id->pa_server = (char *)pars[3];
-	pulse_id->pa_min_audio_length = DEFAULT_PA_MIN_AUDIO_LENgTH;
+	pulse_id->pa_min_audio_length = DEFAULT_PA_MIN_AUDIO_LENGTH;
 
 	pulse_id->pa_current_rate = -1;
 	pulse_id->pa_current_bps = -1;
@@ -198,14 +209,14 @@ static int pulse_play(AudioID * id, AudioTrack track)
 	if (track.samples == NULL || track.num_samples <= 0) {
 		return 0;
 	}
-	MSG("Starting playback\n");
+	MSG(4, "Starting playback\n");
 	/* Choose the correct format */
 	if (track.bits == 16) {
 		bytes_per_sample = 2;
 	} else if (track.bits == 8) {
 		bytes_per_sample = 1;
 	} else {
-		MSG("ERROR: Unsupported sound data format, track.bits = %d\n",
+		ERR("ERROR: Unsupported sound data format, track.bits = %d\n",
 		    track.bits);
 		return -1;
 	}
@@ -216,7 +227,7 @@ static int pulse_play(AudioID * id, AudioTrack track)
 	if (pulse_id->pa_current_rate != track.sample_rate
 	    || pulse_id->pa_current_bps != track.bits
 	    || pulse_id->pa_current_channels != track.num_channels) {
-		MSG("Reopenning connection due to change in track parameters sample_rate:%d bps:%d channels:%d\n", track.sample_rate, track.bits, track.num_channels);
+		MSG(4, "Reopenning connection due to change in track parameters sample_rate:%d bps:%d channels:%d\n", track.sample_rate, track.bits, track.num_channels);
 		/* Close old connection if any */
 		pulse_connection_close(pulse_id);
 		/* Open a new connection */
@@ -227,7 +238,7 @@ static int pulse_play(AudioID * id, AudioTrack track)
 		pulse_id->pa_current_bps = track.bits;
 		pulse_id->pa_current_channels = track.num_channels;
 	}
-	MSG("bytes to play: %d, (%f secs)\n", num_bytes,
+	MSG(4, "bytes to play: %d, (%f secs)\n", num_bytes,
 	    (((float)(num_bytes) / 2) / (float)track.sample_rate));
 	pulse_id->pa_stop_playback = 0;
 	outcnt = 0;
@@ -243,10 +254,10 @@ static int pulse_play(AudioID * id, AudioTrack track)
 		     &error) < 0) {
 			pa_simple_drain(pulse_id->pa_simple, NULL);
 			pulse_connection_close(pulse_id);
-			MSG("ERROR: Audio: pulse_play(): %s - closing device - re-open it in next run\n", pa_strerror(error));
+			MSG(4, "ERROR: Audio: pulse_play(): %s - closing device - re-open it in next run\n", pa_strerror(error));
 			break;
 		} else {
-			MSG("Pulse: wrote %u bytes\n", i);
+			MSG(4, "Pulse: wrote %u bytes\n", i);
 		}
 		outcnt += i;
 	}
@@ -308,3 +319,6 @@ spd_audio_plugin_t *pulse_plugin_get(void)
 
 spd_audio_plugin_t *SPD_AUDIO_PLUGIN_ENTRY(void)
     __attribute__ ((weak, alias("pulse_plugin_get")));
+
+#undef MSG
+#undef ERR
