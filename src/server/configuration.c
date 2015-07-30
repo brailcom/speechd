@@ -218,7 +218,7 @@ GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module)
 			&& (val <= 5), "Invalid log (verbosity) level!")
     SPEECHD_OPTION_CB_INT(MaxHistoryMessages, max_history_messages, val >= 0,
 		      "Invalid parameter!")
-    SPEECHD_OPTION_CB_INT_M(Timeout, server_timeout, val < 0, "Invalid timeout value!")
+    SPEECHD_OPTION_CB_INT_M(Timeout, server_timeout, val >= 0, "Invalid timeout value!")
 
     DOTCONF_CB(cb_LanguageDefaultModule)
 {
