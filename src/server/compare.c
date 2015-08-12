@@ -30,23 +30,8 @@
 #include "speechd.h"
 #include "compare.h"
 
-/* Pointers to compare_message_fd and compare_message_uid */
-gint(*p_msg_lc) () = compare_message_fd;
+/* Pointer to compare_message_uid */
 gint(*p_msg_uid_lc) () = compare_message_uid;
-
-gint compare_message_fd(gconstpointer element, gconstpointer value, gpointer x)
-{
-	int *fd_val;
-	TSpeechDMessage *message;
-
-	fd_val = (int *)value;
-
-	message = ((TSpeechDMessage *) element);
-	assert(message != NULL);
-	assert(message->settings.fd != 0);
-
-	return (message->settings.fd - *fd_val);
-}
 
 gint compare_message_uid(gconstpointer element, gconstpointer value, gpointer x)
 {
