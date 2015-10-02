@@ -28,7 +28,7 @@
 #include <stddef.h>
 #include <pthread.h>
 
-#include <libspeechd_version.h>
+#include <speech-dispatcher/libspeechd_version.h>
 
 /*
  * Since the API includes speechd_types.h directly, we only need this
