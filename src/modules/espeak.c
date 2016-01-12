@@ -1218,7 +1218,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 	for (i = 0; i < totalvoices; i++) {
 		result[i] = voice_list_iter->data;
 
-		if (!g_queue_is_empty(variant_list)) {
+		if (variant_list && !g_queue_is_empty(variant_list)) {
 			vo = voice_list_iter->data;
 			variant_list_iter = g_queue_peek_head_link(variant_list);
 
