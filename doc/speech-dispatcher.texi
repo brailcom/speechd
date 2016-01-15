@@ -1827,7 +1827,7 @@ Sets the language that should be used for synthesis.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 
-@code{language} is the language code as defined in RFC 1776 (``cs'',
+@code{language} is the language code as defined in RFC 1766 (``cs'',
 ``en'', ...).
 
 @end deffn
@@ -3146,7 +3146,7 @@ value that represents normal speech flow. So -100 is the slowest (or lowest)
 and +100 is the fastest (or highest) speech.
 
 The language parameter is given as a null-terminated string containing
-the name of the language according to RFC 1776 (en, cs, fr, ...). If the
+the name of the language according to RFC 1766 (en, cs, fr, ...). If the
 requested language is not supported by this synthesizer, it's ok to abort
 and return 0, because that's an error in user settings.
 

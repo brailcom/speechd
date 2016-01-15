@@ -859,7 +859,7 @@ class SSIPClient(object):
         """Switch to a particular language for further speech commands.
 
         Arguments:
-          language -- two letter language code according to RFC 1776 as string.
+          language -- two letter language code according to RFC 1766 as string.
           scope -- see the documentation of this class.
             
         """
