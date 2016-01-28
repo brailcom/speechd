@@ -29,7 +29,7 @@
 int serve(int fd);
 
 /* Switches `receiving data' mode on and off for specified client */
-int server_data_on(int fd);
+void server_data_on(int fd);
 void server_data_off(int fd);
 
 /* Put a message into Dispatcher's queue */
