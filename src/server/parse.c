@@ -65,7 +65,6 @@ char *parse(const char *buf, const int bytes, const int fd)
 {
 	TSpeechDMessage *new;
 	char *command;
-	int r;
 	int end_data;
 	char *pos;
 	int reparted;
@@ -133,12 +132,7 @@ char *parse(const char *buf, const int bytes, const int fd)
 			/* Ckeck if we have enough space in awaiting_data table for
 			 * this client, that can have higher file descriptor that
 			 * everything we got before */
-			r = server_data_on(fd);
-			if (r != 0) {
-				if (SPEECHD_DEBUG)
-					FATAL("Can't switch to data on mode\n");
-				return g_strdup(ERR_INTERNAL);
-			}
+			server_data_on(fd);
 			return g_strdup(OK_RECEIVE_DATA);
 		}
 		g_free(command);
