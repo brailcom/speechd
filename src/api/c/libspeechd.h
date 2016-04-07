@@ -28,14 +28,14 @@
 #include <stddef.h>
 #include <pthread.h>
 
-#include <libspeechd_version.h>
+#include "libspeechd_version.h"
 
 /*
  * Since the API includes speechd_types.h directly, we only need this
  * include if we are not being included by the API.
  */
 #ifndef SPEECHD_TYPES_H
-#include <speechd_types.h>
+#include "speechd_types.h"
 #endif
 
 /* *INDENT-OFF* */
