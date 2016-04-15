@@ -299,7 +299,7 @@ char *history_cursor_get(int fd)
 
 char *history_say_id(int fd, int id)
 {
-	TSpeechDMessage *msg, *new;
+	TSpeechDMessage *msg;
 	GList *gl;
 
 	gl = g_list_find_custom(message_history, &id, p_msg_comp_id);
@@ -310,7 +310,7 @@ char *history_say_id(int fd, int id)
 		return g_strdup(ERR_INTERNAL);
 
 	MSG(4, "putting history message into queue\n");
-	new = (TSpeechDMessage *) spd_message_copy(msg);
+	// new = (TSpeechDMessage *) spd_message_copy(msg);
 	//      queue_message(new, fd, 0, 0);
 
 	return g_strdup(OK_MESSAGE_QUEUED);

@@ -932,8 +932,12 @@ int main(int argc, char *argv[])
 	int spawn_port = 0;
 	char *spawn_socket_path = NULL;
 
-	/* Initialize threading and thread safety in Glib */
+	/* Initialize threading and thread safety in Glib
+	 * Deprecated in 2.32
+	 */
+#ifndef GLIB_VERSION_2_32
 	g_thread_init(NULL);
+#endif
 
 	/* Strip all permisions for 'others' from the files created */
 	umask(007);
