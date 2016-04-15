@@ -300,7 +300,6 @@ static SPDVoice **output_get_voices(OutputModule * module)
 	gchar **atoms;
 	GQueue *voices;
 	int i;
-	int ret = 0;
 	int numvoices = 0;
 	gboolean errors = FALSE;
 
@@ -326,7 +325,6 @@ static SPDVoice **output_get_voices(OutputModule * module)
 		if (strlen(lines[i]) <= 4) {
 			MSG(1,
 			    "ERROR: Bad communication from driver in synth_voices");
-			ret = -1;
 			errors = TRUE;
 		} else if (lines[i][3] == ' ')
 			break;
@@ -335,7 +333,6 @@ static SPDVoice **output_get_voices(OutputModule * module)
 			// Name, language, dialect
 			if ((atoms[0] == NULL) || (atoms[1] == NULL)
 			    || (atoms[2] == NULL)) {
-				ret = -1;
 				errors = TRUE;
 			} else {
 				//Fill in VoiceDescription

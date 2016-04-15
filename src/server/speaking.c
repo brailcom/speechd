@@ -441,7 +441,6 @@ void speaking_stop_all()
 	TSpeechDMessage *msg;
 	GList *gl;
 	GList *queue;
-	int gid = -1;
 
 	output_stop();
 
@@ -455,9 +454,7 @@ void speaking_stop_all()
 	assert(gl->data != NULL);
 	msg = (TSpeechDMessage *) gl->data;
 
-	if (msg->settings.reparted != 0) {
-		gid = msg->settings.reparted;
-	} else {
+	if (msg->settings.reparted == 0) {
 		return;
 	}
 
@@ -662,7 +659,6 @@ REPORT_STATE(begin, EVENT_BEGIN_C, EVENT_BEGIN)
 
 int is_sb_speaking(void)
 {
-	int ret;
 	char *index_mark;
 	TFDSetElement *settings;
 
@@ -677,7 +673,7 @@ int is_sb_speaking(void)
 		}
 		settings = &(current_message->settings);
 
-		ret = output_is_speaking(&index_mark);
+		output_is_speaking(&index_mark);
 		if (index_mark == NULL)
 			return SPEAKING = 0;
 
