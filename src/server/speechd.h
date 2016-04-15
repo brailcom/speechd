@@ -187,7 +187,6 @@ pthread_mutex_t socket_com_mutex;
 
 /* Activity requests for the speaking thread are
  handled with SYSV/IPC semaphore */
-key_t speaking_sem_key;
 int speaking_sem_id;
 
 /* Table of all configured (and succesfully loaded) output modules */
