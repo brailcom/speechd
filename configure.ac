@@ -4,7 +4,7 @@
 AC_PREREQ([2.63])
 AC_INIT([speech-dispatcher], [m4_esyscmd(./git-version-gen .tarball-version)], [speechd@lists.freebsoft.org])
 AM_INIT_AUTOMAKE([foreign])
-m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES])
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES(yes)])
 LT_PREREQ([2.2])
 LT_INIT([dlopen])
 AC_CONFIG_SRCDIR([src/server/speechd.c])
