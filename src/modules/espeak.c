@@ -792,7 +792,6 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 	static int numsamples_sent_msg = 0;
 	/* Number of samples already sent during this call to the callback. */
 	int numsamples_sent = 0;
-	gboolean result = FALSE;
 
 	pthread_mutex_lock(&espeak_state_mutex);
 	if (espeak_state == BEFORE_SYNTH) {
@@ -831,18 +830,15 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 		/* Process actual event */
 		switch (events->type) {
 		case espeakEVENT_MARK:
-			result =
-			    espeak_add_mark_to_playback_queue(events->id.name);
+			espeak_add_mark_to_playback_queue(events->id.name);
 			break;
 		case espeakEVENT_PLAY:
-			result =
-			    espeak_add_sound_icon_to_playback_queue(events->
+			espeak_add_sound_icon_to_playback_queue(events->
 								    id.name);
 			break;
 		case espeakEVENT_MSG_TERMINATED:
 			// This event never has any audio in the same callback
-			result =
-			    espeak_add_flag_to_playback_queue(ESPEAK_QET_END);
+			espeak_add_flag_to_playback_queue(ESPEAK_QET_END);
 			break;
 		default:
 			break;
@@ -1226,7 +1222,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 				voice = g_new0(SPDVoice, 1);
 
 				voice->name = g_strdup_printf("%s+%s", vo->name,
-							      variant_list_iter->data);
+							      (char *)variant_list_iter->data);
 				voice->language = g_strdup(vo->language);
 				voice->variant = g_strdup(vo->variant);
 

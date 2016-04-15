@@ -94,13 +94,11 @@ int module_load(void)
 int module_init(char **status_info)
 {
 	int ret;
-	GString *info;
 
 	DBG("Module init");
 	INIT_INDEX_MARKING();
 
 	*status_info = NULL;
-	info = g_string_new("");
 
 	/* Init flite and register a new voice */
 	flite_init();

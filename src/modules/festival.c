@@ -964,12 +964,10 @@ gint cache_counter_comp(gconstpointer a, gconstpointer b)
 void cache_debug_foreach_list_score(gpointer a, gpointer user)
 {
 	const TCounterEntry *A = a;
-	time_t t;
 
-	t = time(NULL);
 	DBG("key: %s      -> score %f (count: %d, dtime: %d)", A->key,
-	    ((float)A->count / (float)(t - A->start)), (int)A->count,
-	    (int)(t - A->start));
+	    ((float)A->count / (float)(time(NULL) - A->start)), (int)A->count,
+	    (int)(time(NULL) - A->start));
 }
 
 /* Remove 1/3 of the least used (according to cache_counter_comp) entries
