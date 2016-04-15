@@ -1,3 +1,11 @@
+Version 0.8.4
+* Updated documentation for required dependencies and where to find them.
+* Removed unused code.
+* Fixed compiler and GLib warnings.
+* Cleanup header definitions and inclusions.
+* Enabled silent rules by default
+* Fix language identification references.
+
 Version 0.8.3
 * Add API methods to get language, rate, pitch, and volume.
 * A lot of code cleanup, and compatibility improvements.
