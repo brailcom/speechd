@@ -27,6 +27,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/time.h>
 #include <glib.h>
 #include <audio/audiolib.h>
 #include <audio/soundlib.h>
