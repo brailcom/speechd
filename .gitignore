@@ -32,6 +32,7 @@ src/api/python/speechd_config/speechd.desktop
 src/modules/sd_cicero
 src/modules/sd_dummy
 src/modules/sd_espeak
+src/modules/sd_espeak-ng
 src/modules/sd_festival
 src/modules/sd_flite
 src/modules/sd_generic

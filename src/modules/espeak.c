@@ -37,7 +37,12 @@
 #include <semaphore.h>
 
 /* espeak header file */
+#ifdef ESPEAK_NG_INCLUDE
+#include <espeak-ng/espeak_ng.h>
+#else
 #include <espeak/speak_lib.h>
+#endif
+
 #ifndef ESPEAK_API_REVISION
 #define ESPEAK_API_REVISION 1
 #endif
@@ -50,14 +55,21 @@
 /* > */
 /* < Basic definitions*/
 
+#ifdef ESPEAK_NG_INCLUDE
+#define MODULE_NAME     "espeak-ng"
+#define DBG_MODNAME     "Espeak-ng:"
+#else
 #define MODULE_NAME     "espeak"
+#define DBG_MODNAME     "Espeak:"
+#endif
+
 #define MODULE_VERSION  "0.1"
 
 #define DEBUG_MODULE 1
 DECLARE_DEBUG()
 #define DBG_WARN(e, msg)						\
 	if (Debug && !(e)) {						\
-		DBG("Espeak: Warning:  " msg);			\
+		DBG(DBG_MODNAME " Warning:  " msg);			\
 	}
 typedef enum {
 	FATAL_ERROR = -1,
@@ -233,19 +245,19 @@ int module_init(char **status_info)
 	int ret;
 	const char *espeak_version;
 
-	DBG("Espeak: Module init().");
+	DBG(DBG_MODNAME " Module init().");
 	INIT_INDEX_MARKING();
 
 	*status_info = NULL;
 
 	/* Report versions. */
 	espeak_version = espeak_Info(NULL);
-	DBG("Espeak: espeak Output Module version %s, espeak Engine version %s",
+	DBG(DBG_MODNAME " espeak Output Module version %s, espeak Engine version %s",
 	    MODULE_VERSION, espeak_version);
 
 	/* <Espeak setup */
 
-	DBG("Espeak: Initializing engine with buffer size %d ms.",
+	DBG(DBG_MODNAME " Initializing engine with buffer size %d ms.",
 	    EspeakAudioChunkSize);
 #if ESPEAK_API_REVISION == 1
 	espeak_sample_rate =
@@ -257,19 +269,19 @@ int module_init(char **status_info)
 			      NULL, 0);
 #endif
 	if (espeak_sample_rate == EE_INTERNAL_ERROR) {
-		DBG("Espeak: Could not initialize engine.");
+		DBG(DBG_MODNAME " Could not initialize engine.");
 		*status_info = g_strdup("Could not initialize engine. ");
 		return FATAL_ERROR;
 	}
 
-	DBG("Espeak: Registering callbacks.");
+	DBG(DBG_MODNAME " Registering callbacks.");
 	espeak_SetSynthCallback(synth_callback);
 	espeak_SetUriCallback(uri_callback);
 
 	DBG("Setting up espeak specific configuration settings.");
 	ret = espeak_set_punctuation_list_from_utf8(EspeakPunctuationList);
 	if (ret != OK)
-		DBG("Espeak: Failed to set punctuation list.");
+		DBG(DBG_MODNAME " Failed to set punctuation list.");
 
 	espeak_voice_list = espeak_list_synthesis_voices();
 
@@ -289,7 +301,7 @@ int module_init(char **status_info)
 	/* The following mutex protects access to various flags */
 	pthread_mutex_init(&espeak_state_mutex, NULL);
 
-	DBG("Espeak: Creating new thread for stop or pause.");
+	DBG(DBG_MODNAME " Creating new thread for stop or pause.");
 	sem_init(&espeak_stop_or_pause_semaphore, 0, 0);
 
 	ret =
@@ -304,7 +316,7 @@ int module_init(char **status_info)
 
 	sem_init(&espeak_play_semaphore, 0, 0);
 
-	DBG("Espeak: Creating new thread for playback.");
+	DBG(DBG_MODNAME " Creating new thread for playback.");
 	ret = pthread_create(&espeak_play_thread, NULL, _espeak_play, NULL);
 	if (ret != OK) {
 		DBG("Failed to create playback thread.");
@@ -312,7 +324,7 @@ int module_init(char **status_info)
 		return FATAL_ERROR;
 	}
 
-	*status_info = g_strdup("Espeak: Initialized successfully.");
+	*status_info = g_strdup(DBG_MODNAME " Initialized successfully.");
 
 	return OK;
 }
@@ -327,16 +339,16 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	espeak_ERROR result = EE_INTERNAL_ERROR;
 	int flags = espeakSSML | espeakCHARS_UTF8;
 
-	DBG("Espeak: module_speak().");
+	DBG(DBG_MODNAME " module_speak().");
 
 	pthread_mutex_lock(&espeak_state_mutex);
 	if (espeak_state != IDLE) {
-		DBG("Espeak: Warning, module_speak called when not ready.");
+		DBG(DBG_MODNAME " Warning, module_speak called when not ready.");
 		pthread_mutex_unlock(&espeak_state_mutex);
 		return FALSE;
 	}
 
-	DBG("Espeak: Requested data: |%s| %d %lu", data, msgtype,
+	DBG(DBG_MODNAME " Requested data: |%s| %d %lu", data, msgtype,
 	    (unsigned long)bytes);
 
 	espeak_state_reset();
@@ -389,7 +401,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 					wchar_t *wc_ptr = (wchar_t *) tmp;
 					wc = wc_ptr[0];
 				} else {
-					DBG("Espeak: Failed to convert utf-8 to wchar_t, or not exactly one utf-8 character given.");
+					DBG(DBG_MODNAME " Failed to convert utf-8 to wchar_t, or not exactly one utf-8 character given.");
 				}
 				g_free(tmp);
 			}
@@ -426,24 +438,24 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 		return FALSE;
 	}
 
-	DBG("Espeak: Leaving module_speak() normally.");
+	DBG(DBG_MODNAME " Leaving module_speak() normally.");
 	return bytes;
 }
 
 int module_stop(void)
 {
-	DBG("Espeak: module_stop().");
+	DBG(DBG_MODNAME " module_stop().");
 
 	pthread_mutex_lock(&espeak_state_mutex);
 	if (espeak_state != IDLE &&
 	    !espeak_stop_requested &&
 	    !is_thread_busy(&espeak_stop_or_pause_suspended_mutex)) {
-		DBG("Espeak: stopping...");
+		DBG(DBG_MODNAME " stopping...");
 		espeak_stop_requested = TRUE;
 		/* Wake the stop_or_pause thread. */
 		sem_post(&espeak_stop_or_pause_semaphore);
 	} else {
-		DBG("Espeak: Cannot stop now.");
+		DBG(DBG_MODNAME " Cannot stop now.");
 	}
 	pthread_mutex_unlock(&espeak_state_mutex);
 
@@ -452,7 +464,7 @@ int module_stop(void)
 
 size_t module_pause(void)
 {
-	DBG("Espeak: module_pause().");
+	DBG(DBG_MODNAME " module_pause().");
 	pthread_mutex_lock(&espeak_state_mutex);
 	if (espeak_pause_state == ESPEAK_PAUSE_OFF && !espeak_stop_requested) {
 		espeak_pause_state = ESPEAK_PAUSE_REQUESTED;
@@ -464,9 +476,9 @@ size_t module_pause(void)
 
 int module_close(void)
 {
-	DBG("Espeak: close().");
+	DBG(DBG_MODNAME " close().");
 
-	DBG("Espeak: Terminating threads");
+	DBG(DBG_MODNAME " Terminating threads");
 	espeak_stop_requested = TRUE;
 	espeak_close_requested = TRUE;
 
@@ -488,7 +500,7 @@ int module_close(void)
 	DBG("Joinging stop thread.");
 	pthread_join(espeak_stop_or_pause_thread, NULL);
 
-	DBG("Espeak: terminating synthesis.");
+	DBG(DBG_MODNAME " terminating synthesis.");
 	espeak_Terminate();
 
 	DBG("Freeing resources.");
@@ -531,7 +543,7 @@ static void *_espeak_stop_or_pause(void *nothing)
 {
 	int ret;
 
-	DBG("Espeak: Stop or pause thread starting.......");
+	DBG(DBG_MODNAME " Stop or pause thread starting.......");
 
 	/* Block all signals to this thread. */
 	set_speaking_thread_parameters();
@@ -545,12 +557,12 @@ static void *_espeak_stop_or_pause(void *nothing)
 			pthread_mutex_unlock
 			    (&espeak_stop_or_pause_suspended_mutex);
 		}
-		DBG("Espeak: Stop or pause semaphore on.");
+		DBG(DBG_MODNAME " Stop or pause semaphore on.");
 		if (espeak_close_requested)
 			break;
 		if (!espeak_stop_requested) {
 			/* This sometimes happens after wake-up from suspend-to-disk.  */
-			DBG("Espeak: Warning: spurious wake-up  of stop thread.");
+			DBG(DBG_MODNAME " Warning: spurious wake-up  of stop thread.");
 			continue;
 		}
 
@@ -559,7 +571,7 @@ static void *_espeak_stop_or_pause(void *nothing)
 		pthread_mutex_unlock(&playback_queue_mutex);
 
 		if (module_audio_id) {
-			DBG("Espeak: Stopping audio.");
+			DBG(DBG_MODNAME " Stopping audio.");
 			ret = spd_audio_stop(module_audio_id);
 			DBG_WARN(ret == 0,
 				 "spd_audio_stop returned non-zero value.");
@@ -575,11 +587,11 @@ static void *_espeak_stop_or_pause(void *nothing)
 			}
 		}
 
-		DBG("Espeak: Waiting for synthesis to stop.");
+		DBG(DBG_MODNAME " Waiting for synthesis to stop.");
 		ret = espeak_Cancel();
-		DBG_WARN(ret == EE_OK, "Espeak: error in espeak_Cancel().");
+		DBG_WARN(ret == EE_OK, DBG_MODNAME " error in espeak_Cancel().");
 
-		DBG("Espeak: Clearing playback queue.");
+		DBG(DBG_MODNAME " Clearing playback queue.");
 		espeak_clear_playback_queue();
 
 		int save_pause_state = espeak_pause_state;
@@ -593,7 +605,7 @@ static void *_espeak_stop_or_pause(void *nothing)
 			module_report_event_stop();
 		}
 
-		DBG("Espeak: Stop or pause thread ended.......\n")
+		DBG(DBG_MODNAME " Stop or pause thread ended.......\n")
 	}
 	pthread_exit(NULL);
 }
@@ -612,9 +624,9 @@ static void espeak_set_rate(signed int rate)
 
 	espeak_ERROR ret = espeak_SetParameter(espeakRATE, speed, 0);
 	if (ret != EE_OK) {
-		DBG("Espeak: Error setting rate %i.", speed);
+		DBG(DBG_MODNAME " Error setting rate %i.", speed);
 	} else {
-		DBG("Espeak: Rate set to %i.", speed);
+		DBG(DBG_MODNAME " Rate set to %i.", speed);
 	}
 }
 
@@ -625,9 +637,9 @@ static void espeak_set_volume(signed int volume)
 	vol = volume + 100;
 	espeak_ERROR ret = espeak_SetParameter(espeakVOLUME, vol, 0);
 	if (ret != EE_OK) {
-		DBG("Espeak: Error setting volume %i.", vol);
+		DBG(DBG_MODNAME " Error setting volume %i.", vol);
 	} else {
-		DBG("Espeak: Volume set to %i.", vol);
+		DBG(DBG_MODNAME " Volume set to %i.", vol);
 	}
 }
 
@@ -648,9 +660,9 @@ static void espeak_set_pitch(signed int pitch)
 	assert(pitchBaseline >= 0 && pitchBaseline <= 100);
 	espeak_ERROR ret = espeak_SetParameter(espeakPITCH, pitchBaseline, 0);
 	if (ret != EE_OK) {
-		DBG("Espeak: Error setting pitch %i.", pitchBaseline);
+		DBG(DBG_MODNAME " Error setting pitch %i.", pitchBaseline);
 	} else {
-		DBG("Espeak: Pitch set to %i.", pitchBaseline);
+		DBG(DBG_MODNAME " Pitch set to %i.", pitchBaseline);
 	}
 }
 
@@ -673,10 +685,10 @@ static void espeak_set_pitch_range(signed int pitch_range)
 	espeak_ERROR ret =
 	    espeak_SetParameter(espeakRANGE, pitchRangeBaseline, 0);
 	if (ret != EE_OK) {
-		DBG("Espeak: Error setting pitch range %i.",
+		DBG(DBG_MODNAME " Error setting pitch range %i.",
 		    pitchRangeBaseline);
 	} else {
-		DBG("Espeak: Pitch range set to %i.", pitchRangeBaseline);
+		DBG(DBG_MODNAME " Pitch range set to %i.", pitchRangeBaseline);
 	}
 }
 
@@ -698,7 +710,7 @@ static void espeak_set_punctuation_mode(SPDPunctuation punct_mode)
 	espeak_ERROR ret =
 	    espeak_SetParameter(espeakPUNCTUATION, espeak_punct_mode, 0);
 	if (ret != EE_OK) {
-		DBG("Espeak: Failed to set punctuation mode.");
+		DBG(DBG_MODNAME " Failed to set punctuation mode.");
 	} else {
 		DBG("Set punctuation mode.");
 	}
@@ -722,7 +734,7 @@ static void espeak_set_cap_let_recogn(SPDCapitalLetters cap_mode)
 	espeak_ERROR ret =
 	    espeak_SetParameter(espeakCAPITALS, espeak_cap_mode, 1);
 	if (ret != EE_OK) {
-		DBG("Espeak: Failed to set capitals mode.");
+		DBG(DBG_MODNAME " Failed to set capitals mode.");
 	} else {
 		DBG("Set capitals mode.");
 	}
@@ -731,7 +743,7 @@ static void espeak_set_cap_let_recogn(SPDCapitalLetters cap_mode)
 /* Given a language code and SD voice code, sets the espeak voice. */
 static void espeak_set_language_and_voice(char *lang, SPDVoiceType voice_code)
 {
-	DBG("Espeak: set_language_and_voice %s %d", lang, voice_code);
+	DBG(DBG_MODNAME " set_language_and_voice %s %d", lang, voice_code);
 	espeak_ERROR ret;
 
 	unsigned char overlay = 0;
@@ -766,13 +778,13 @@ static void espeak_set_language_and_voice(char *lang, SPDVoiceType voice_code)
 	}
 
 	char *name = g_strdup_printf("%s+%d", lang, overlay);
-	DBG("Espeak: set_language_and_voice name=%s", name);
+	DBG(DBG_MODNAME " set_language_and_voice name=%s", name);
 	ret = espeak_SetVoiceByName(name);
 
 	if (ret != EE_OK) {
-		DBG("Espeak: Error selecting language %s", name);
+		DBG(DBG_MODNAME " Error selecting language %s", name);
 	} else {
-		DBG("Espeak: Successfully set voice to \"%s\"", name);
+		DBG(DBG_MODNAME " Successfully set voice to \"%s\"", name);
 	}
 	g_free(name);
 }
@@ -793,7 +805,7 @@ static void espeak_set_synthesis_voice(char *synthesis_voice)
 	if (synthesis_voice != NULL) {
 		espeak_ERROR ret = espeak_SetVoiceByName(synthesis_voice);
 		if (ret != EE_OK) {
-			DBG("Espeak: Failed to set synthesis voice to %s.",
+			DBG(DBG_MODNAME " Failed to set synthesis voice to %s.",
 			    synthesis_voice);
 		}
 	}
@@ -1036,13 +1048,13 @@ static gboolean espeak_send_to_audio(TPlaybackQueueEntry * playback_queue_entry)
 	track.bits = 16;
 	track.samples = playback_queue_entry->data.audio.audio_chunk;
 
-	DBG("Espeak: Sending %i samples to audio.", track.num_samples);
+	DBG(DBG_MODNAME " Sending %i samples to audio.", track.num_samples);
 	ret = module_tts_output(track, SPD_AUDIO_LE);
 	if (ret < 0) {
 		DBG("ERROR: Can't play track for unknown reason.");
 		return FALSE;
 	}
-	DBG("Espeak: Sent to audio.");
+	DBG(DBG_MODNAME " Sent to audio.");
 	return TRUE;
 }
 
@@ -1052,7 +1064,7 @@ static void *_espeak_play(void *nothing)
 	char *markId;
 	TPlaybackQueueEntry *playback_queue_entry = NULL;
 
-	DBG("Espeak: Playback thread starting.......");
+	DBG(DBG_MODNAME " Playback thread starting.......");
 
 	/* Block all signals to this thread. */
 	set_speaking_thread_parameters();
@@ -1064,12 +1076,12 @@ static void *_espeak_play(void *nothing)
 			sem_wait(&espeak_play_semaphore);
 			pthread_mutex_unlock(&espeak_play_suspended_mutex);
 		}
-		DBG("Espeak: Playback semaphore on.");
+		DBG(DBG_MODNAME " Playback semaphore on.");
 		if (espeak_close_requested)
 			break;
 		if (espeak_state < BEFORE_PLAY) {
 			/* This can happen after wake-up  from suspend-to-disk */
-			DBG("Espeak: Warning: Spurious wake of of playback thread.");
+			DBG(DBG_MODNAME " Warning: Spurious wake of of playback thread.");
 			continue;
 		}
 
@@ -1077,7 +1089,7 @@ static void *_espeak_play(void *nothing)
 			gboolean finished = FALSE;
 			playback_queue_entry = playback_queue_pop();
 			if (playback_queue_entry == NULL) {
-				DBG("Espeak: playback thread detected stop.");
+				DBG(DBG_MODNAME " playback thread detected stop.");
 				break;
 			}
 
@@ -1087,10 +1099,10 @@ static void *_espeak_play(void *nothing)
 				break;
 			case ESPEAK_QET_INDEX_MARK:
 				markId = playback_queue_entry->data.markId;
-				DBG("Espeak: reporting index mark |%s|.",
+				DBG(DBG_MODNAME " reporting index mark |%s|.",
 				    markId);
 				module_report_index_mark(markId);
-				DBG("Espeak: index mark reported.");
+				DBG(DBG_MODNAME " index mark reported.");
 				pthread_mutex_lock(&espeak_state_mutex);
 				if (espeak_state == SPEAKING
 				    && espeak_pause_state ==
@@ -1099,7 +1111,7 @@ static void *_espeak_play(void *nothing)
 				    !is_thread_busy
 				    (&espeak_stop_or_pause_suspended_mutex)
 				    && g_str_has_prefix(markId, "__spd_")) {
-					DBG("Espeak: Pause requested in playback thread.  Stopping.");
+					DBG(DBG_MODNAME " Pause requested in playback thread.  Stopping.");
 					espeak_stop_requested = TRUE;
 					espeak_pause_state =
 					    ESPEAK_PAUSE_MARK_REPORTED;
@@ -1128,10 +1140,10 @@ static void *_espeak_play(void *nothing)
 				}
 			case ESPEAK_QET_END:
 				pthread_mutex_lock(&espeak_state_mutex);
-				DBG("Espeak: playback thread got END from queue.");
+				DBG(DBG_MODNAME " playback thread got END from queue.");
 				if (espeak_state == SPEAKING) {
 					if (!espeak_stop_requested) {
-						DBG("Espeak: playback thread reporting end.");
+						DBG(DBG_MODNAME " playback thread reporting end.");
 						espeak_state = IDLE;
 						espeak_pause_state =
 						    ESPEAK_PAUSE_OFF;
@@ -1150,7 +1162,7 @@ static void *_espeak_play(void *nothing)
 				break;
 		}
 	}
-	DBG("Espeak: Playback thread ended.......");
+	DBG(DBG_MODNAME " Playback thread ended.......");
 	return 0;
 }
 
@@ -1205,7 +1217,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 					lang = g_strdup(first_lang);
 				}
 			} else {
-				DBG("Espeak: Not a valid utf8 string: %s",
+				DBG(DBG_MODNAME " Not a valid utf8 string: %s",
 				    first_lang);;
 			}
 			voice->language = lang;
@@ -1217,7 +1229,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 	}
 
 	numvoices = g_queue_get_length(voice_list);
-	DBG("Espeak: %d voices total.", numvoices)
+	DBG(DBG_MODNAME " %d voices total.", numvoices)
 
 	if (EspeakListVoiceVariants) {
 		variant_spec = g_new0(espeak_VOICE, 1);
@@ -1233,7 +1245,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 		}
 
 		numvariants = g_queue_get_length(variant_list);
-		DBG("Espeak: %d variants total.", numvariants)
+		DBG(DBG_MODNAME " %d variants total.", numvariants)
 	}
 
 	totalvoices = (numvoices * numvariants) + numvoices;
@@ -1271,7 +1283,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 		g_free(variant_spec);
 
 	result[i] = NULL;
-	DBG("Espeak: %d usable voices.", totalvoices);
+	DBG(DBG_MODNAME " %d usable voices.", totalvoices);
 
 	return result;
 }
