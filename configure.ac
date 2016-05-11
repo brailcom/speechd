@@ -124,6 +124,22 @@ AS_IF([test $with_espeak != "no"],
 AM_CONDITIONAL([espeak_support], [test $with_espeak = "yes"])
 AS_IF([test $with_espeak = "yes"], [output_modules="${output_modules} espeak"])
 
+# check for espeak-ng support
+AC_ARG_WITH([espeak_ng],
+	[AS_HELP_STRING([--with-espeak-ng], [Compile with espeak-ng support])],
+	[],
+	[with_espeak_ng=check])
+AS_IF([test $with_espeak_ng != "no"],
+	[PKG_CHECK_MODULES([ESPEAK_NG], [espeak-ng],
+		[with_espeak_ng="yes"],
+		[AS_IF([test $with_espeak_ng = "yes"],
+			[AC_MSG_FAILURE([espeak-ng is not available])])],
+		[$EXTRA_ESPEAK_LIBS])])
+AM_CONDITIONAL([espeak_ng_support], [test $with_espeak_ng = "yes"])
+AC_SUBST([ESPEAK_NG_CFLAGS])
+AC_SUBST([ESPEAK_NG_LIBS])
+AS_IF([test $with_espeak_ng = "yes"], [output_modules="${output_modules} espeak-ng"])
+
 # check for flite support
 AC_ARG_WITH([flite],
 	[AS_HELP_STRING([--with-flite], [include Festival Lite (Flite) support])],

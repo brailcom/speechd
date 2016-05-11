@@ -65,6 +65,16 @@ sd_espeak_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(common_LDADD)
 endif
 
+if espeak_ng_support
+modulebin_PROGRAMS += sd_espeak-ng
+sd_espeak_ng_SOURCES = espeak.c $(audio_SOURCES) $(common_SOURCES)
+sd_espeak_ng_CFLAGS = -DESPEAK_NG_INCLUDE $(ESPEAK_NG_CFLAGS)
+sd_espeak_ng_LDADD = $(top_builddir)/src/common/libcommon.la \
+	$(audio_dlopen_modules) \
+	$(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) \
+	$(common_LDADD)
+endif
+
 if ivona_support
 modulebin_PROGRAMS += sd_ivona
 sd_ivona_SOURCES = ivona.c ivona_client.c ivona_client.h $(audio_SOURCES) \
