@@ -200,20 +200,6 @@ GString *output_read_reply(OutputModule * output)
 	return rstr;
 }
 
-char *output_read_reply2(OutputModule * output)
-{
-	int bytes;
-	char *reply;
-
-	reply = g_malloc(1024 * sizeof(char));
-
-	bytes = read(output->pipe_out[0], reply, 1024);
-	reply[bytes] = 0;
-	MSG2(1, "output_module", "2Read: %d bytes: <%s>", bytes, reply);
-
-	return reply;
-}
-
 int output_send_data(char *cmd, OutputModule * output, int wfr)
 {
 	int ret;
