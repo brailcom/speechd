@@ -587,8 +587,8 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 		return IBMTTS_FALSE;
 	}
 
-	DBG("Ibmtts: Type: %d, bytes: %d, requested data: |%s|\n", msgtype,
-	    bytes, data);
+	DBG("Ibmtts: Type: %d, bytes: %lu, requested data: |%s|\n", msgtype,
+	    (unsigned long)bytes, data);
 
 	g_free(*ibmtts_message);
 	*ibmtts_message = NULL;
@@ -1390,7 +1390,6 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 					  enum ECIMessage msg,
 					  long lparam, void *data)
 {
-	int ret;
 	/* This callback is running in the same thread as called eciSynchronize(),
 	   i.e., the _ibmtts_synth() thread. */
 
@@ -1402,7 +1401,7 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 	case eciWaveformBuffer:
 		DBG("Ibmtts: %ld audio samples returned from IBM TTS.", lparam);
 		/* Add audio to output queue. */
-		ret = ibmtts_add_audio_to_playback_queue(audio_chunk, lparam);
+		ibmtts_add_audio_to_playback_queue(audio_chunk, lparam);
 		/* Wake up the audio playback thread, if not already awake. */
 		if (!is_thread_busy(&ibmtts_play_suspended_mutex))
 			sem_post(&ibmtts_play_semaphore);
@@ -1414,7 +1413,7 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 			ibmtts_add_flag_to_playback_queue(IBMTTS_QET_END);
 		} else {
 			/* Add index mark to output queue. */
-			ret = ibmtts_add_mark_to_playback_queue(lparam);
+			ibmtts_add_mark_to_playback_queue(lparam);
 		}
 		/* Wake up the audio playback thread, if not already awake. */
 		if (!is_thread_busy(&ibmtts_play_suspended_mutex))
@@ -1745,7 +1744,7 @@ void alloc_voice_list()
 	if (!ibmtts_voice_list)
 		return;
 
-	DBG("Ibmtts: nLanguages=%d/%d", nLanguages, MAX_NB_OF_LANGUAGES);
+	DBG("Ibmtts: nLanguages=%d/%lu", nLanguages, (unsigned long)MAX_NB_OF_LANGUAGES);
 	for (i = 0; i < nLanguages; i++) {
 		/* look for the language name */
 		int j;
