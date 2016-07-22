@@ -299,10 +299,6 @@ static void *_ibmtts_play(void *);
 static void *_ibmtts_stop_or_pause(void *);
 
 /* Module configuration options. */
-/* TODO: Remove these if we decide they aren't needed. */
-MOD_OPTION_1_INT(IbmttsMaxChunkLength);
-MOD_OPTION_1_STR(IbmttsDelimiters);
-
 MOD_OPTION_1_INT(IbmttsUseSSML);
 MOD_OPTION_1_STR(IbmttsPunctuationList);
 MOD_OPTION_1_INT(IbmttsUseAbbreviation);
@@ -401,10 +397,6 @@ int module_load(void)
 	INIT_SETTINGS_TABLES();
 
 	REGISTER_DEBUG();
-
-	/* TODO: Remove these if we decide they aren't needed. */
-	MOD_OPTION_1_INT_REG(IbmttsMaxChunkLength, 3000);
-	MOD_OPTION_1_STR_REG(IbmttsDelimiters, "");
 
 	MOD_OPTION_1_INT_REG(IbmttsUseSSML, 1);
 	MOD_OPTION_1_INT_REG(IbmttsUseAbbreviation, 1);
@@ -511,10 +503,6 @@ int module_init(char **status_info)
 	   playback threads. */
 	pthread_mutex_init(&playback_queue_mutex, NULL);
 
-	/*
-	   DBG("Ibmtts: IbmttsMaxChunkLength = %d", IbmttsMaxChunkLength);
-	   DBG("Ibmtts: IbmttsDelimiters = %s", IbmttsDelimiters);
-	 */
 	DBG("Ibmtts: ImbttsAudioChunkSize = %d", IbmttsAudioChunkSize);
 
 	ibmtts_message = g_malloc(sizeof(char *));
