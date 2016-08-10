@@ -51,10 +51,11 @@ static const struct option spd_long_options[] = {
 	{"debug", 0, 0, 'D'},
 	{"help", 0, 0, 'h'},
 	{"timeout", 1, 0, 't'},
+	{"module-dir", required_argument, 0, 'm'},
 	{0, 0, 0, 0}
 };
 
-static const char *const spd_short_options = "dsal:L:c:S:p:P:C:t:vDh";
+static const char *const spd_short_options = "dsal:L:c:S:p:P:C:t:vDhm:";
 
 void options_print_help(char *argv[])
 {
@@ -93,6 +94,8 @@ void options_print_help(char *argv[])
 	printf(_("Set path to pid file\n"));
 	printf("-C, --config-dir\t");
 	printf(_("Set path to configuration\n"));
+	printf("-m, --module-dir\t");
+	printf(_("Set path to modules\n"));
 	printf("-v, --version\t\t");
 	printf(_("Report version of this program\n"));
 	printf("-D, --debug\t\t");
@@ -188,6 +191,9 @@ void options_parse(int argc, char *argv[])
 			break;
 		case 'C':
 			SPD_OPTION_SET_STR(conf_dir);
+			break;
+		case 'm':
+			SPD_OPTION_SET_STR(module_dir);
 			break;
 		case 'v':
 			options_print_version();

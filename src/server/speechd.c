@@ -565,6 +565,7 @@ void speechd_options_init(void)
 	SpeechdOptions.localhost_access_only_set = 0;
 	SpeechdOptions.pid_file = NULL;
 	SpeechdOptions.conf_file = NULL;
+	SpeechdOptions.module_dir = MODULEBINDIR;
 	SpeechdOptions.runtime_speechd_dir = NULL;
 	SpeechdOptions.log_dir = NULL;
 	SpeechdOptions.log_dir_set = 0;
@@ -712,7 +713,7 @@ static gboolean speechd_load_configuration(gpointer user_data)
 		/* We need to load modules here, since this is called both by speechd_init
 		 * and to handle SIGHUP. */
 		if (module_number_of_requested_modules() < 2) {
-			detected_modules = detect_output_modules(MODULEBINDIR);
+			detected_modules = detect_output_modules(SpeechdOptions.module_dir);
 			while (detected_modules != NULL) {
 				char **parameters = detected_modules->data;
 				module_add_load_request(parameters[0],
