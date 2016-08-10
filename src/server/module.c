@@ -139,7 +139,7 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 	module = (OutputModule *) g_malloc(sizeof(OutputModule));
 
 	module->name = (char *)g_strdup(mod_name);
-	module->filename = (char *)spd_get_path(mod_prog, MODULEBINDIR);
+	module->filename = (char *)spd_get_path(mod_prog, SpeechdOptions.module_dir);
 
 	module_conf_dir = g_strdup_printf("%s/modules",
 					  SpeechdOptions.conf_dir);
