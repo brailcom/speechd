@@ -37,20 +37,20 @@
 #include <i18n.h>
 
 static const struct option spd_long_options[] = {
-	{"run-daemon", 0, 0, 'd'},
-	{"run-single", 0, 0, 's'},
-	{"spawn", 0, 0, 'a'},
-	{"log-level", 1, 0, 'l'},
+	{"run-daemon", no_argument, 0, 'd'},
+	{"run-single", no_argument, 0, 's'},
+	{"spawn", no_argument, 0, 'a'},
+	{"log-level", required_argument, 0, 'l'},
 	{"log-dir", required_argument, 0, 'L'},
-	{"communication-method", 1, 0, 'c'},
-	{"socket-path", 1, 0, 'S'},
-	{"port", 1, 0, 'p'},
-	{"pid-file", 1, 0, 'P'},
+	{"communication-method", required_argument, 0, 'c'},
+	{"socket-path", required_argument, 0, 'S'},
+	{"port", required_argument, 0, 'p'},
+	{"pid-file", required_argument, 0, 'P'},
 	{"config-dir", required_argument, 0, 'C'},
-	{"version", 0, 0, 'v'},
-	{"debug", 0, 0, 'D'},
-	{"help", 0, 0, 'h'},
-	{"timeout", 1, 0, 't'},
+	{"version", no_argument, 0, 'v'},
+	{"debug", no_argument, 0, 'D'},
+	{"help", no_argument, 0, 'h'},
+	{"timeout", required_argument, 0, 't'},
 	{"module-dir", required_argument, 0, 'm'},
 	{0, 0, 0, 0}
 };
