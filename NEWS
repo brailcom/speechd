@@ -1,3 +1,14 @@
+Version 0.8.5
+* More unused code removal.
+* Fix more compiler warnings.
+* Use GLib main loop for the main server thread.
+* Implement a shutdown timer in the server, which activates after 5 seconds
+  with no clients connected.
+* Add support for espeak-ng.
+* Configuration documentation for the ibmtts module.
+* Removal of unused configuration options from the ibmtts module.
+* Add command-line argument to allow for custom modules location
+
 Version 0.8.4
 * Updated documentation for required dependencies and where to find them.
 * Removed unused code.
