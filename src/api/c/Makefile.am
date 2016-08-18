@@ -27,3 +27,5 @@ edit_version = sed \
 		-e 's:[@]LIBSPEECHD_MAJOR_VERSION[@]:$(MAJOR_VERSION):' \
 		-e 's:[@]LIBSPEECHD_MINOR_VERSION[@]:$(MINOR_VERSION):' \
 		-e 's:[@]LIBSPEECHD_MICRO_VERSION[@]:$(MICRO_VERSION):'
+
+-include $(top_srcdir)/git.mk

@@ -40,3 +40,5 @@ paths.py: $(srcdir)/paths.py.in
 CLEANFILES = paths.py config.py speechd.desktop
 
 EXTRA_DIST = paths.py.in speechd.desktop.in config.py.in
+
+-include $(top_srcdir)/git.mk

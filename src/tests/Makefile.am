@@ -70,3 +70,5 @@ testinstall: atconfig $(TESTSUITE)
 	$(SHELL) $(TESTSUITE) AUTOTEST_PATH="$(bindir)" $(TESTSUITEFLAGS)
 
 CLEANFILES = package.m4
+
+-include $(top_srcdir)/git.mk

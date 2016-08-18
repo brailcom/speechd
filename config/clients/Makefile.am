@@ -3,3 +3,5 @@
 dist_clientconf_DATA = emacs.conf
 dist_clientconforig_DATA = emacs.conf
 
+
+-include $(top_srcdir)/git.mk

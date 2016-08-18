@@ -7,3 +7,5 @@ libcommon_la_CPPFLAGS = "-I$(top_srcdir)/include/" $(GLIB_CFLAGS)
 libcommon_la_LIBADD = $(GLIB_LIBS)
 libcommon_la_SOURCES = fdsetconv.c spd_getline.c i18n.c
 
+
+-include $(top_srcdir)/git.mk

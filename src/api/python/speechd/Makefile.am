@@ -19,3 +19,5 @@ paths.py: $(srcdir)/paths.py.in
 CLEANFILES = paths.py
 
 EXTRA_DIST = paths.py.in
+
+-include $(top_srcdir)/git.mk

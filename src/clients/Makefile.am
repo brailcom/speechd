@@ -3,3 +3,5 @@
 SUBDIRS= say spdsend
 
 
+
+-include $(top_srcdir)/git.mk

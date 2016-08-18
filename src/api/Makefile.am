@@ -8,3 +8,5 @@ endif
 
 EXTRA_DIST = cl guile
 
+
+-include $(top_srcdir)/git.mk

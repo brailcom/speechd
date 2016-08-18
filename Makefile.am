@@ -20,3 +20,5 @@ $(top_srcdir)/.version:
 dist-hook:
 	echo $(VERSION) > $(distdir)/.tarball-version
 	echo $(VERSION) > $(distdir)/.version
+
+-include $(top_srcdir)/git.mk

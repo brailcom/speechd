@@ -2,3 +2,5 @@
 
 SUBDIRS=common server audio modules api clients tests
 
+
+-include $(top_srcdir)/git.mk

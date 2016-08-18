@@ -3,3 +3,5 @@
 noinst_HEADERS = fdsetconv.h spd_utils.h i18n.h safe_io.h
 
 spdinclude_HEADERS = spd_audio_plugin.h speechd_types.h speechd_defines.h
+
+-include $(top_srcdir)/git.mk

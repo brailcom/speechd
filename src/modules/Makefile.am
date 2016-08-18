@@ -92,3 +92,5 @@ sd_pico_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) -lttspico \
 	$(common_LDADD)
 endif
+
+-include $(top_srcdir)/git.mk

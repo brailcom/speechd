@@ -16,3 +16,5 @@ if pico_support
 dist_moduleconf_DATA += pico.conf
 dist_moduleconforig_DATA += pico.conf
 endif
+
+-include $(top_srcdir)/git.mk

@@ -43,3 +43,5 @@ spd_pulse_la_CPPFLAGS = $(GLIB_CFLAGS) $(inc_local)  $(PULSE_CFLAGS)
 spd_pulse_la_LIBADD = $(PULSE_LIBS) $(GLIB_LIBS)
 spd_pulse_la_LDFLAGS = -module -avoid-version
 endif
+
+-include $(top_srcdir)/git.mk
