@@ -17,20 +17,22 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import sys
+import gettext
+import locale
+
+import datetime
+import fileinput
 import os
 import shutil
-import fileinput
+import shlex
 import socket
+import sys
 import time
-import datetime
 
 from optparse import OptionParser
 from xdg import BaseDirectory
 
 # Locale/gettext configuration
-import gettext
-import locale
 
 locale.setlocale(locale.LC_ALL, '')
 gettext.bindtextdomain ("@GETTEXT_PACKAGE@", "@localedir@")
@@ -45,7 +47,7 @@ def report(msg):
     and if desired, by espeak synthesis"""
     print(msg)
     if options.use_espeak_synthesis:
-        os.system("espeak \"" + msg + "\"")
+        os.system("espeak %s" % shlex.quote(msg))
 
 def input_audio_icon():
     """Produce a sound for the event 'input requested' used in question()"""
@@ -57,7 +59,7 @@ def question(text, default):
 
     while 1:
         if isinstance(default, bool):
-            if default == True:
+            if default:
                 default_str = "yes"
             else:
                 default_str = "no"
@@ -92,14 +94,14 @@ def question_with_suggested_answers(text, default, suggest):
     """Ask a question with suggested answers. If the answer typed is not
     in 'suggest', the user is notified and given an opportunity to correct
     his choice"""
-    
+
     reply = question(text, default)
     while reply not in suggest:
         report(_("""The value you have chosen is not among the suggested values.
 You have chosen '%s'.""" % reply))
         report(_("The suggested values are " + str(suggest)))
-        correct = question(_("Do you want to correct your answer?", True))
-        if correct == True:
+        correct = question(_("Do you want to correct your answer?"), True)
+        if correct:
             reply = question(text, default)
         else:
             return reply
@@ -107,7 +109,7 @@ You have chosen '%s'.""" % reply))
 
 def question_with_required_answers(text, default, required):
     """Ask a question and repeat it until the answer typed in is in 'required'"""
-    
+
     reply = question(text, default)
     while reply not in required:
         report(_("You have chosen '%s'. Please choose one of %s" % (reply, str(required))))
@@ -229,12 +231,12 @@ and problem diagnostics."""
             # Set object attributes to default values
             def_val = definition.get('default', None)
             setattr(self, option, def_val)
-            
+
             # Fill in the cmdline_parser object
             if 'command_line' in definition:
                 descr = definition.get('descr', None)
                 type = definition.get('type', None)
-                
+
                 if 'arg_map' in definition:
                     type, map = definition['arg_map']
                 if type == str:
@@ -247,7 +249,7 @@ and problem diagnostics."""
                     type_str = None
                 else:
                     raise TypeError("Unknown type")
-                
+
                 if type != bool:
                     self.cmdline_parser.add_option(type=type_str, dest=option,
                                                    help=descr,
@@ -256,9 +258,9 @@ and problem diagnostics."""
                     self.cmdline_parser.add_option(action="store_true", dest=option,
                                                    help=descr,
                                                    *definition['command_line'])
-            
+
         # Set options according to command line flags
-        (cmdline_options, args) = self.cmdline_parser.parse_args()
+        cmdline_options = self.cmdline_parser.parse_args()[0]
 
         for option, definition in self._conf_options.items():
                 val = getattr(cmdline_options, option, None)
@@ -269,9 +271,9 @@ and problem diagnostics."""
                             val = map[val]
                         except KeyError:
                             raise ValueError("Invalid option value: "  + str(val))
-                        
+
                     setattr(self, option, val)
-        
+
         #if len(args) != 0:
            # raise ValueError("This command takes no positional arguments (without - or -- prefix)")
 
@@ -312,7 +314,7 @@ or not at the default port %d.
 Try /etc/init.d/festival start or run 'festival --server' from the command line.""" % port))
             return False
         return True
-        
+
     def festival_with_freebsoft_utils(self):
         """Test whether festival works and contains working festival-freebsoft-utils.
         """
@@ -362,7 +364,7 @@ on your system, but it might also be a false warning. Please make
 sure your audio is working."""))
             reply = question(_("Are you sure that %s audio is working?" % type), False)
             return reply
-    
+
         if ret:
             report(_("Can't play audio via\n     %s" % cmd))
             report(_("""Your audio doesn't seem to work, please fix audio first or choose
@@ -371,7 +373,7 @@ a different method."""))
 
 
         reply = question(_("Did you hear the sound?"), True)
-        
+
         if not reply:
             report(_("""Please examine the above output from the sound playback
 utility. If everything seems right, are you sure your audio is loud enough and
@@ -386,11 +388,13 @@ audio output method in configuration."""))
         """Test Speech Dispatcher using spd_say"""
 
         report(_("Testing Speech Dispatcher using spd_say"))
-        
+
         while True:
             try:
                 ret = os.system("spd-say -P important \"Speech Dispatcher works\"")
-            except:
+                if test:
+                    raise OSError()
+            except OSError:
                 report(_("""Can't execute the spd-say binary,
 it is very likely that Speech Dispatcher is not installed."""))
                 return False
@@ -418,7 +422,7 @@ it is very likely that Speech Dispatcher is not installed."""))
         """Test the espeak utility"""
 
         report(_("Testing whether Espeak works"))
-        
+
         while True:
             try:
                 os.system("espeak \"Espeak seems to work\"")
@@ -475,25 +479,25 @@ what is wrong)"""), True):
             else:
                 return False
 
-        if decide_to_test('festival', "Festival synthesizer", output_modules): 
+        if decide_to_test('festival', "Festival synthesizer", output_modules):
             if self.test_festival():
                 working_modules += ["festival"]
 
-        if decide_to_test('espeak', "Espeak synthesizer", output_modules): 
+        if decide_to_test('espeak', "Espeak synthesizer", output_modules):
             if self.test_espeak():
                 working_modules += ["espeak"]
 
-        if decide_to_test('alsa', "ALSA sound system", audio_output): 
+        if decide_to_test('alsa', "ALSA sound system", audio_output):
             if self.test_alsa():
                 working_audio += ["alsa"]
 
-        if decide_to_test('pulse', "Pulse Audio sound system", audio_output): 
+        if decide_to_test('pulse', "Pulse Audio sound system", audio_output):
             if self.test_pulse():
                 working_audio += ["pulse"]
 
         report(_("Testing whether Python Speech Dispatcher library is in path and importable"))
         python_speechd_working = test.python_speechd_in_path()
-        
+
         return  {'spd_say_working': spd_say_working,
                  'audio': working_audio,
                  'synthesizers': working_modules,
@@ -612,8 +616,8 @@ Please start your system Speech Dispatcher now with parameter '-D'"""))
         report(_("Collecting debugging output and your configuration information") )
 
         os.system("umask 077")
-        os.system("tar -cz %s %s > %s" % 
-                  (debugdir_path, configure_directory, debugarchive_path))   
+        os.system("tar -cz %s %s > %s" %
+                  (debugdir_path, configure_directory, debugarchive_path))
         os.system("killall speech-dispatcher")
         # Attempt to workaround the psmisc 22.15 bug with 16 char max process names
         os.system("killall speech-dispatch")
@@ -623,7 +627,7 @@ Please start your system Speech Dispatcher now with parameter '-D'"""))
 Please send %s to speechd@bugs.freebsoft.org with
 a short description of what you did. We will get in touch with you soon
 and suggest a solution.""" % debugarchive_path))
-        
+
 test = Tests()
 
 class Configure:
@@ -633,7 +637,7 @@ class Configure:
     default_output_module = None
     default_language = None
     default_audio_method = None
-    
+
     def remove_user_configuration(self):
         """Remove user configuration tree"""
         shutil.rmtree(test.user_conf_dir())
@@ -671,21 +675,21 @@ class Configure:
                     if unknown == 1:
                         # Convert value into string representation in spd_val
                         if isinstance(value, bool):
-                            if value == True:
+                            if value:
                                 spd_val = "1"
-                            elif value == False:
+                            elif not value:
                                 spd_val = "2"
                         elif isinstance(value, int):
                             spd_val = str(value)
                         else:
                             spd_val = str(value)
-                            
+
                         print(opt + "   " + spd_val)
                         break
-            
+
             else:
                 print(line, end=' ')
-                
+
     def create_user_configuration(self):
         """Create user configuration in the standard location"""
 
@@ -694,7 +698,7 @@ class Configure:
             if test.user_configuration_seems_complete():
                 reply = question(_("""User configuration already exists.
 Do you want to rewrite it with a new one?"""), False)
-                if reply == False:
+                if not reply:
                     report(_("Keeping configuration intact and continuing with settings."))
                     return
                 else:
@@ -702,7 +706,7 @@ Do you want to rewrite it with a new one?"""), False)
             else:
                 reply = question(_("""User configuration already exists, but it seems to be incomplete.
 Do you want to keep it?"""), False)
-                if reply == False:
+                if not reply:
                     self.remove_user_configuration()
                 else:
                     report(_("Keeping configuration intact and aborting."))
@@ -710,7 +714,7 @@ Do you want to keep it?"""), False)
         # Copy the original intact configuration files
         # creating a conf/ subdirectory
         shutil.copytree(paths.SPD_CONF_ORIG_PATH, test.user_conf_dir())
-        
+
         report(_("User configuration created in %s" % test.user_conf_dir()))
 
     def configure_basic_settings(self, type='user'):
@@ -746,18 +750,18 @@ Do you want to keep it?"""), False)
         self.default_speech_pitch = question(
             _("Default speech pitch (on the scale of -100..100, 0 is default, 50 is higher, -50 is lower)"),
             "0")
-    
+
         self.default_speech_pitch_range = question(
             _("Default speech pitch range (on the scale of -100..100, 0 is default, 50 is higher, -50 is lower)"),
             "0")
-    
+
         # Substitute given configuration options
         if type == 'user':
             configfile = os.path.join(test.user_conf_dir(), "speechd.conf")
         elif type == 'system':
             configfile = os.path.join(test.system_conf_dir(), "speechd.conf")
 
-        self.options_substitute(configfile, 
+        self.options_substitute(configfile,
                                 {"DefaultModule": self.default_output_module,
                                  "DefaultLanguage": self.default_language,
                                  "AudioOutputMethod": self.default_audio_method,
@@ -773,8 +777,8 @@ This is usually not necessary, most applications will start Speech Dispatcher au
                 False)
             if self.setup_autostart:
                 os.system("""cp %s ~/.config/autostart/""" % os.path.join(paths.SPD_DESKTOP_CONF_PATH,
-                                                                          "speechd.desktop")) 
-                         
+                                                                          "speechd.desktop"))
+
                 report(_("""
 Configuration written to %s
 Basic configuration now complete. You might still need to fine tune it by
@@ -808,12 +812,12 @@ Do you want to kill all running Speech Dispatchers and try again?"""), True)
 
         report(_("Warning: You must be root or under sudo to do this.")        )
         report(_("Starting Speech Dispatcher in system-mode"))
-        
+
         reply = question(_("Is your system using an /etc/init.d/speech-dispatcher script?"),
                          True)
         if reply:
             report(_("Stopping Speech Dispatcher in case any is running already"))
-            os.system("/etc/init.d/speech-dispatcher stop") 
+            os.system("/etc/init.d/speech-dispatcher stop")
             report(_("Starting Speech Dispatcher via /etc/init.d/speech-dispatcher"))
             ret = os.system("/etc/init.d/speech-dispatcher start")
             if ret:
@@ -855,7 +859,7 @@ you have to start it manually to continue."""))
 
         if not started:
             report(_("Your Speech Dispatcher is not running"))
-            
+
         result = test.diagnostics(speechd_running = started,
                                   audio_output=[self.default_audio_method],
                                   output_modules=[self.default_output_module])
@@ -877,7 +881,7 @@ test = Tests()
 def main():
 
     report(_("\nSpeech Dispatcher configuration tool\n"))
-    
+
     if options.create_user_configuration:
         # Check for and/or create basic user configuration
         configure.create_user_configuration()
