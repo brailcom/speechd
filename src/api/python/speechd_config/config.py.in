@@ -2,6 +2,7 @@
 #             Speech Dispatcher and problem diagnostics.
 #
 # Copyright (C) 2008, 2010 Brailcom, o.p.s.
+#               2016 Sebastian Humenda
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,11 +18,11 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import gettext
-import locale
-
+import argparse
 import datetime
 import fileinput
+import gettext
+import locale
 import os
 import shutil
 import shlex
@@ -29,7 +30,6 @@ import socket
 import sys
 import time
 
-from optparse import OptionParser
 from xdg import BaseDirectory
 
 # Locale/gettext configuration
@@ -42,16 +42,20 @@ _ = gettext.gettext
 # Configuration and sound data paths
 from . import paths
 
+# two globals
+use_espeak_synthesis = False
+dont_ask = False
+
 def report(msg):
     """Output information messages for the user on stdout
     and if desired, by espeak synthesis"""
     print(msg)
-    if options.use_espeak_synthesis:
+    if use_espeak_synthesis:
         os.system("espeak %s" % shlex.quote(msg))
 
 def input_audio_icon():
     """Produce a sound for the event 'input requested' used in question()"""
-    if options.use_espeak_synthesis:
+    if use_espeak_synthesis:
         os.system("espeak \"Type in\"")
 
 def question(text, default):
@@ -68,11 +72,11 @@ def question(text, default):
         report(text + " ["+default_str+"] :")
         input_audio_icon()
 
-        if not options.dont_ask:
+        if not dont_ask:
             str_inp = input(">")
 
         # On plain enter, return default
-        if options.dont_ask or (len(str_inp) == 0):
+        if dont_ask or (len(str_inp) == 0):
             return default
         # If a value was typed, check it and convert it
         elif isinstance(default, bool):
@@ -116,166 +120,42 @@ def question_with_required_answers(text, default, required):
         reply = question(text, default)
     return reply
 
-class Options(object):
-    """Configuration for spdconf"""
-
-    _conf_options = \
-        {
-        'create_user_configuration':
-            {
-            'descr' : _("Create Speech Dispatcher configuration for the given user"),
-            'doc' : None,
-            'type' : bool,
-            'default' : False,
-            'command_line' : ('-u', '--create-user-conf'),
-            },
-        'config_basic_settings_user':
-            {
-            'descr' : _("Configure basic settings in user configuration"),
-            'doc' : None,
-            'type' : bool,
-            'default' : False,
-            'command_line' : ('-c', '--config-basic-settings-user'),
-            },
-        'config_basic_settings_system':
-            {
-            'descr' : _("Configure basic settings in system-wide configuration"),
-            'doc' : None,
-            'type' : bool,
-            'default' : False,
-            'command_line' : ('-C', '--config-basic-settings-system'),
-            },
-        'diagnostics':
-            {
-            'descr' : _("Diagnose problems with the current setup"),
-            'doc' : None,
-            'type' : bool,
-            'default' : False,
-            'command_line' : ('-d', '--diagnostics'),
-            },
-        'test_spd_say':
-            {
-            'descr' : _("Test connection to Speech Dispatcher using spd-say"),
-            'doc' : None,
-            'type' : bool,
-            'default' : False,
-            'command_line' : ('-s', '--test-spd-say'),
-            },
-        'test_festival':
-            {
-            'descr' : _("Test whether Festival works as a server"),
-            'doc' : None,
-            'type' : bool,
-            'default' : False,
-            'command_line' : ('', '--test-festival'),
-            },
-        'test_espeak':
-            {
-            'descr' : _("Test whether Espeak works as a standalone binary"),
-            'doc' : None,
-            'type' : bool,
-            'default' : False,
-            'command_line' : ('', '--test-espeak'),
-            },
-        'test_alsa':
-            {
-            'descr' : _("Test ALSA audio"),
-            'doc' : None,
-            'type' : bool,
-            'default' : False,
-            'command_line' : ('', '--test-alsa'),
-            },
-
-        'test_pulse':
-            {
-            'descr' : _("Test Pulse Audio"),
-            'doc' : None,
-            'type' : bool,
-            'default' : False,
-            'command_line' : ('', '--test-pulse'),
-            },
-
-        'use_espeak_synthesis':
-            {
-            'descr' : _("Use espeak to synthesize messages"),
-            'doc' : None,
-            'type' : bool,
-            'default' : False,
-            'command_line' : ('-e', '--espeak'),
-            },
-        'dont_ask':
-            {
-            'descr' : _("Do not ask any questions, always use default values"),
-            'doc' : None,
-            'type' : bool,
-            'default' : False,
-            'command_line' : ('-n', '--dont-ask'),
-            },
-        'debug':
-            {
-            'descr' : _("Debug a problem and generate a report"),
-            'doc' : None,
-            'type' : bool,
-            'default' : False,
-            'command_line' : ('-D', '--debug'),
-            },
-        }
-
-    def __init__(self):
-        usage = """%prog [options]
-A simple dialog based tool for basic configuration of Speech Dispatcher
-and problem diagnostics."""
-        self.cmdline_parser = OptionParser(usage)
-
-        for option, definition in self._conf_options.items():
-            # Set object attributes to default values
-            def_val = definition.get('default', None)
-            setattr(self, option, def_val)
-
-            # Fill in the cmdline_parser object
-            if 'command_line' in definition:
-                descr = definition.get('descr', None)
-                type = definition.get('type', None)
-
-                if 'arg_map' in definition:
-                    type, map = definition['arg_map']
-                if type == str:
-                    type_str = 'string'
-                elif type == int:
-                    type_str = 'int'
-                elif type == float:
-                    type_str = 'float'
-                elif type == bool:
-                    type_str = None
-                else:
-                    raise TypeError("Unknown type")
-
-                if type != bool:
-                    self.cmdline_parser.add_option(type=type_str, dest=option,
-                                                   help=descr,
-                                                   *definition['command_line'])
-                else: # type == bool
-                    self.cmdline_parser.add_option(action="store_true", dest=option,
-                                                   help=descr,
-                                                   *definition['command_line'])
-
-        # Set options according to command line flags
-        cmdline_options = self.cmdline_parser.parse_args()[0]
-
-        for option, definition in self._conf_options.items():
-                val = getattr(cmdline_options, option, None)
-                if val != None:
-                    if 'arg_map' in definition:
-                        former_type, map = definition['arg_map']
-                        try:
-                            val = map[val]
-                        except KeyError:
-                            raise ValueError("Invalid option value: "  + str(val))
-
-                    setattr(self, option, val)
-
-        #if len(args) != 0:
-           # raise ValueError("This command takes no positional arguments (without - or -- prefix)")
+def setup_argparse():
+    """Set up an argparser instance with all the options accepted."""
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-u', '--create-user-conf',
+        dest='create_user_configuration', action="store_true", default=False,
+        help=_("Create Speech Dispatcher configuration for the given user"))
+    parser.add_argument('-c', '--config-basic-settings-user',
+        dest='config_basic_settings_user', action="store_true", default=False,
+        help=_("Configure basic settings in user configuration"))
+    parser.add_argument('-C', '--config-basic-settings-system',
+        dest='config_basic_settings_system', action="store_true", default=False,
+        help=_("Configure basic settings in system-wide configuration"))
+    parser.add_argument('-d', '--diagnostics', dest='diagnostics',
+        action="store_true", default=False,
+        help=_("Diagnose problems with the current setup"))
+    parser.add_argument('-s', '--test-spd-say', dest='test_spd_say',
+        action="store_true", default=False,
+        help=_("Test connection to Speech Dispatcher using spd-say"))
+    parser.add_argument('--test-festival', dest='test_festival',
+        action="store_true", default=False,
+        help=_("Test whether Festival works as a server"))
+    parser.add_argument('--test-espeak', dest='test_espeak', action="store_true",
+        default=False, help=_("Test whether Espeak works as a standalone binary"))
+    parser.add_argument('--test-alsa', dest='test_alsa', action="store_true",
+        default=False, help=_("Test ALSA audio output"))
+    parser.add_argument('--test-pulse', dest='test_pulse', action="store_true",
+            default=False, help=_("Test Pulse Audio output"))
+    parser.add_argument('-e', '--espeak', dest='use_espeak_synthesis',
+            action="store_true", default=use_espeak_synthesis,
+            help=_("Use espeak to synthesize messages"))
+    parser.add_argument('-n', '--dont-ask', dest='dont_ask',
+            action="store_true", default=False,
+            help=_("Do not ask any questions, always use default values"))
+    parser.add_argument('-D', '--debug', dest='debug',
+            action="store_true", default=False,
+            help=_("Debug a problem and generate a report"))
 
 class Tests:
     """Tests of functionality of Speech Dispatcher and its dependencies
@@ -333,10 +213,11 @@ to be able to use Festival with Speech Dispatcher."""))
             return False
 
     def python_speechd_in_path(self):
-        """Try whether python speechd library is importable"""
+        """Try whether python speechd library is installed."""
+        import importlib
         try:
-            import speechd
-        except:
+            importlib.import_module('speechd')
+        except ImportError:
             report(_("""Python can't find the Speech Dispatcher library.
 Is it installed? This won't prevent Speech Dispatcher to work, but no
 Python applications like Orca will be able to use it.
@@ -349,23 +230,23 @@ Search for package like python-speechd, download and install it"""))
         given audio method."""
         wavfile = os.path.join(paths.SPD_SOUND_DATA_PATH,"test.wav")
 
+        binary = None
+
         if type == 'alsa':
-            cmd = "aplay" + " " + wavfile
+            binary = 'aplay'
         elif type == 'pulse':
-            cmd = "paplay" + " " + wavfile
+            binary = "paplay"
         else:
             raise NotImplementedError("Test for this audio system is not implemented")
 
-        try:
-            ret = os.system(cmd)
-        except:
-            report(_("""Can't execute the %s command, this audio output might not be available
-on your system, but it might also be a false warning. Please make
-sure your audio is working."""))
+        if not shutil.which(binary):
+            report(_("""%s selected, but %s not installed. This might be a false
+warning, but most likely sound is not working.""" % (type, binary)))
             reply = question(_("Are you sure that %s audio is working?" % type), False)
             return reply
 
-        if ret:
+        cmd = '%s %s' % (binary, wavfile)
+        if os.system(cmd):
             report(_("Can't play audio via\n     %s" % cmd))
             report(_("""Your audio doesn't seem to work, please fix audio first or choose
 a different method."""))
@@ -390,11 +271,7 @@ audio output method in configuration."""))
         report(_("Testing Speech Dispatcher using spd_say"))
 
         while True:
-            try:
-                ret = os.system("spd-say -P important \"Speech Dispatcher works\"")
-                if test:
-                    raise OSError()
-            except OSError:
+            if os.system("spd-say -P important \"Speech Dispatcher works\""):
                 report(_("""Can't execute the spd-say binary,
 it is very likely that Speech Dispatcher is not installed."""))
                 return False
@@ -422,17 +299,13 @@ it is very likely that Speech Dispatcher is not installed."""))
         """Test the espeak utility"""
 
         report(_("Testing whether Espeak works"))
-
-        while True:
-            try:
-                os.system("espeak \"Espeak seems to work\"")
-            except:
-                report(_("""Can't execute the espeak binary, it is likely that espeak
-is not installed."""))
-                return False
-
+        if shutil.which('espeak'):
             report(_("Espeak is installed"))
             return True
+        else:
+            report(_("""Can't execute the espeak binary, it is likely that espeak
+is not installed."""))
+            return False
 
     def test_alsa(self):
         """Test ALSA sound output"""
@@ -444,8 +317,8 @@ is not installed."""))
         report(_("Testing PULSE sound output"))
         return self.audio_try_play(type='pulse')
 
-    def diagnostics(self, speechd_running = True, output_modules=[], audio_output=[]):
-
+    def diagnostics(self, speechd_running = True, output_modules=None,
+            audio_output=None):
         """Perform a complete diagnostics"""
         working_modules = []
         working_audio = []
@@ -471,10 +344,11 @@ what is wrong)"""), True):
                 return {'spd_say_working': False}
 
         def decide_to_test(identifier, name, listing):
-            """"Ask the user whether to test a specific capability"""
-            if ((identifier in listing)
-                or (not len(listing)
-                    and question(_("Do you want to test the %s now?" % name), True))):
+            """Ask the user whether to test a specific capability."""
+            if not listing:
+                return False
+            elif identifier in listing and \
+                    question(_("Do you want to test the %s now?" % name), True):
                 return True
             else:
                 return False
@@ -496,7 +370,7 @@ what is wrong)"""), True):
                 working_audio += ["pulse"]
 
         report(_("Testing whether Python Speech Dispatcher library is in path and importable"))
-        python_speechd_working = test.python_speechd_in_path()
+        python_speechd_working = self.python_speechd_in_path()
 
         return  {'spd_say_working': spd_say_working,
                  'audio': working_audio,
@@ -586,7 +460,7 @@ Please make sure your Speech Dispatcher is not running now."""))
         if type == 'user':
             report(_("Speech Dispatcher will be started now in debugging mode"))
             speechd_started = not os.system("speech-dispatcher -D")
-            configure_directory = test.user_conf_dir()
+            configure_directory = self.user_conf_dir()
         else:
             report(_("Warning: You must be root or under sudo to do this.")        )
             report(_("""
@@ -596,11 +470,12 @@ Please start your system Speech Dispatcher now with parameter '-D'"""))
                 speechd_started = True
             else:
                 report(_("Can't continue"))
-            configure_directory = test.system_conf_dir()
+            configure_directory = self.system_conf_dir()
         time.sleep(2)
 
         if not speechd_started:
-            reply = question("Speech Dispatcher failed to start, continuing anyway")
+            reply = question(_("Speech Dispatcher failed to start, continuing anyway?"),
+                    False)
 
         report(_("Trying to speak some messages"))
         ret = os.system("spd-say \"Speech Dispatcher debugging 1\"")
@@ -628,8 +503,6 @@ Please send %s to speechd@bugs.freebsoft.org with
 a short description of what you did. We will get in touch with you soon
 and suggest a solution.""" % debugarchive_path))
 
-test = Tests()
-
 class Configure:
 
     """Setup user configuration and/or set basic options in user/system configuration"""
@@ -637,10 +510,12 @@ class Configure:
     default_output_module = None
     default_language = None
     default_audio_method = None
+    def __init__(self, test):
+        self.test = test
 
     def remove_user_configuration(self):
         """Remove user configuration tree"""
-        shutil.rmtree(test.user_conf_dir())
+        shutil.rmtree(self.test.user_conf_dir())
 
     def options_substitute(self, configfile, options):
         """Substitute the given options with given values.
@@ -694,8 +569,8 @@ class Configure:
         """Create user configuration in the standard location"""
 
         # Ask before touching things that we do not have to!
-        if test.user_conf_dir_exists():
-            if test.user_configuration_seems_complete():
+        if self.test.user_conf_dir_exists():
+            if self.test.user_configuration_seems_complete():
                 reply = question(_("""User configuration already exists.
 Do you want to rewrite it with a new one?"""), False)
                 if not reply:
@@ -713,9 +588,9 @@ Do you want to keep it?"""), False)
                     return
         # Copy the original intact configuration files
         # creating a conf/ subdirectory
-        shutil.copytree(paths.SPD_CONF_ORIG_PATH, test.user_conf_dir())
+        shutil.copytree(paths.SPD_CONF_ORIG_PATH, self.test.user_conf_dir())
 
-        report(_("User configuration created in %s" % test.user_conf_dir()))
+        report(_("User configuration created in %s" % self.test.user_conf_dir()))
 
     def configure_basic_settings(self, type='user'):
         """Ask for basic settings and rewrite them in the configuration file"""
@@ -743,39 +618,38 @@ Do you want to keep it?"""), False)
             "pulse",
             ["pulse", "libao", "alsa", "oss", "pulse,alsa"])
 
-        self.default_speech_rate = question(
+        default_speech_rate = question(
             _("Default speech rate (on the scale of -100..100, 0 is default, 50 is faster, -50 is slower)"),
             "0")
 
-        self.default_speech_pitch = question(
+        default_speech_pitch = question(
             _("Default speech pitch (on the scale of -100..100, 0 is default, 50 is higher, -50 is lower)"),
             "0")
 
-        self.default_speech_pitch_range = question(
+        default_speech_pitch_range = question(
             _("Default speech pitch range (on the scale of -100..100, 0 is default, 50 is higher, -50 is lower)"),
             "0")
 
         # Substitute given configuration options
         if type == 'user':
-            configfile = os.path.join(test.user_conf_dir(), "speechd.conf")
+            configfile = os.path.join(self.test.user_conf_dir(), "speechd.conf")
         elif type == 'system':
-            configfile = os.path.join(test.system_conf_dir(), "speechd.conf")
+            configfile = os.path.join(self.test.system_conf_dir(), "speechd.conf")
 
         self.options_substitute(configfile,
                                 {"DefaultModule": self.default_output_module,
                                  "DefaultLanguage": self.default_language,
                                  "AudioOutputMethod": self.default_audio_method,
-                                 "DefaultRate": self.default_speech_rate,
-                                 "DefaultPitch": self.default_speech_pitch,
-                                 "DefaultPitchRange": self.default_speech_pitch_range,
-                                 "DefaultLanguage": self.default_language,
+                                 "DefaultRate": default_speech_rate,
+                                 "DefaultPitch": default_speech_pitch,
+                                 "DefaultPitchRange": default_speech_pitch_range,
                                  })
         if type == 'user':
-            self.setup_autostart = question(
+            setup_autostart = question(
                 _("""Do you want to have Speech Dispatcher automatically started from ~/.config/autostart ?
 This is usually not necessary, most applications will start Speech Dispatcher automatically."""),
                 False)
-            if self.setup_autostart:
+            if setup_autostart:
                 os.system("""cp %s ~/.config/autostart/""" % os.path.join(paths.SPD_DESKTOP_CONF_PATH,
                                                                           "speechd.desktop"))
 
@@ -860,25 +734,26 @@ you have to start it manually to continue."""))
         if not started:
             report(_("Your Speech Dispatcher is not running"))
 
-        result = test.diagnostics(speechd_running = started,
+        result = self.test.diagnostics(speechd_running = started,
                                   audio_output=[self.default_audio_method],
                                   output_modules=[self.default_output_module])
-        test.write_diagnostics_results(result)
+        self.test.write_diagnostics_results(result)
 
         if not started:
             reply = question(_("Do you want to run debugging now and send a request for help to the developers?"),
                              False)
             if reply:
-                test.debug_and_report(type=speechd_type)
+                self.test.debug_and_report(type=speechd_type)
 
 
 # Basic objects
-options = Options()
-configure = Configure()
-test = Tests()
-
 
 def main():
+    options = setup_argparse()
+    options.parse()
+    test = Tests()
+    configure = Configure(test) # that should possibly be refactored, test should not be passed
+
 
     report(_("\nSpeech Dispatcher configuration tool\n"))
 
