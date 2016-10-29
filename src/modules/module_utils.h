@@ -216,8 +216,6 @@ configoption_t *module_add_config_option(configoption_t * options,
 					 dotconf_callback_t callback,
 					 info_t * info, unsigned long context);
 
-void *module_get_ht_option(GHashTable * hash_table, const char *key);
-
 configoption_t *add_config_option(configoption_t * options,
 				  int *num_config_options, char *name, int type,
 				  dotconf_callback_t callback, info_t * info,

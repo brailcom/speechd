@@ -972,18 +972,6 @@ configoption_t *module_add_config_option(configoption_t * options,
 	return opts;
 }
 
-void *module_get_ht_option(GHashTable * hash_table, const char *key)
-{
-	void *option;
-	assert(key != NULL);
-
-	option = g_hash_table_lookup(hash_table, key);
-	if (option == NULL)
-		DBG("Requested option by key %s not found.\n", key);
-
-	return option;
-}
-
 int module_audio_init(char **status_info)
 {
 	char *error = 0;

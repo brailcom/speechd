@@ -55,6 +55,7 @@ static char *execute_synth_str1;
 static char *execute_synth_str2;
 
 /* Internal functions prototypes */
+static void *get_ht_option(GHashTable * hash_table, const char *key);
 static void *_generic_speak(void *);
 static void _generic_child(TModuleDoublePipe dpipe, const size_t maxlen);
 static void generic_child_close(TModuleDoublePipe dpipe);
@@ -282,6 +283,18 @@ int module_close(void)
 }
 
 /* Internal functions */
+
+static void *get_ht_option(GHashTable * hash_table, const char *key)
+{
+	void *option;
+	assert(key != NULL);
+
+	option = g_hash_table_lookup(hash_table, key);
+	if (option == NULL)
+		DBG("Requested option by key %s not found.\n", key);
+
+	return option;
+}
 
 /* Replace all occurances of 'token' in 'sting'
    with 'data' */
@@ -598,7 +611,7 @@ void generic_set_language(char *lang)
 {
 
 	generic_msg_language =
-	    (TGenericLanguage *) module_get_ht_option(GenericLanguage, lang);
+	    (TGenericLanguage *) get_ht_option(GenericLanguage, lang);
 	if (generic_msg_language == NULL) {
 		DBG("Language %s not found in the configuration file, using defaults.", lang);
 		generic_msg_language =
