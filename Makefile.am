@@ -22,3 +22,5 @@ dist-hook:
 	echo $(VERSION) > $(distdir)/.version
 
 -include $(top_srcdir)/git.mk
+
+GITIGNOREFILES = $(GITIGNORE_MAINTAINERCLEANFILES_TOPLEVEL) py-compile
