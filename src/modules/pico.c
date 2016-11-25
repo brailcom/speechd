@@ -401,8 +401,13 @@ int module_init(char **status_info)
 	sem_init(&pico_play_semaphore, 0, 0);
 	sem_init(&pico_idle_semaphore, 0, 0);
 
+#ifdef GLIB_VERSION_2_32
+	if ((pico_play_thread = g_thread_try_new(NULL, (GThreadFunc) pico_play_func,
+						NULL, &error)) == NULL) {
+#else
 	if ((pico_play_thread = g_thread_create((GThreadFunc) pico_play_func,
 						NULL, TRUE, &error)) == NULL) {
+#endif
 		*status_info = g_strdup_printf(MODULE_NAME
 					       "Failed to create a play thread : %s\n",
 					       error->message);
@@ -451,7 +456,7 @@ int module_init(char **status_info)
 
 SPDVoice **module_list_voices(void)
 {
-	return pico_voices_list;
+	return (SPDVoice **)pico_voices_list;
 }
 
 void pico_set_synthesis_voice(char *voice_name)
