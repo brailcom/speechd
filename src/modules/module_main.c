@@ -77,7 +77,9 @@ int main(int argc, char *argv[])
 	char *configfilename = NULL;
 	char *status_info = NULL;
 
+#ifndef GLIB_VERSION_2_32
 	g_thread_init(NULL);
+#endif
 
 	/* Initialize ltdl's list of preloaded audio backends. */
 	LTDL_SET_PRELOADED_SYMBOLS();

@@ -242,9 +242,12 @@ int module_init(char **status_info)
 
 	DBG(DBG_MODNAME " Module init().");
 	INIT_INDEX_MARKING();
+
+#ifndef GLIB_VERSION_2_32
 	/* Make sure the glib functions are thread safe. */
 	if (!g_thread_supported())
 		g_thread_init(NULL);
+#endif
 
 	*status_info = NULL;
 
