@@ -1,38 +1,21 @@
-
-Speech Dispatcher 0.8.5
+Speech Dispatcher 0.8.6
 =====================
 
-Announcing the availability of Speech Dispatcher 0.8.5 developed as a part of
+Announcing the availability of Speech Dispatcher 0.8.6 developed as a part of
 the Free(b)Soft project.
 
-* What is new in 0.8.5?
+* What is new in 0.8.6?
 
- - More unused code removal.
+ - Various internal code improvements.
 
  - Fix more compiler warnings.
 
- - Use GLib main loop for the main server thread. This simplifies code alot,
-   and allows for future improvements, particularly related to configuration.
-
- - Implement a shutdown timer in the server. This shuts the server down after
-   5 seconds by default when no clients are connected. The timer is
-   deactivated as soon as a client connects.
-
- - Add support for espeak-ng.
-
- - Document an ibmtts configuration option which was in the code, but not in
-   the config file.
-
- - Removal of configuration options in the code that were not actually being
-   used.
-
- - Added a command-line argument to allow for custom modules location. This
-   may be expanded in the future to allow for multiple paths to be specified.
+ - Python bug fixes with thanks to Sebastian Humenda.
 
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.8.5.tar.gz
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.8.6.tar.gz
 
   We recommend the use of sound icons with Speech Dispatcher.
   They are available at
