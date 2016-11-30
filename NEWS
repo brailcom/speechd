@@ -1,3 +1,8 @@
+Version 0.8.6
+* Various internal code improvements.
+* Fix more compiler warnings.
+* Python bug fixes with thanks to Sebastian Humenda.
+
 Version 0.8.5
 * More unused code removal.
 * Fix more compiler warnings.
