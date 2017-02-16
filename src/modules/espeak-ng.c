@@ -37,7 +37,7 @@
 #include <semaphore.h>
 
 /* espeak header file */
-#include <espeak/speak_lib.h>
+#include <espeak-ng/espeak_ng.h>
 
 #ifndef ESPEAK_API_REVISION
 #define ESPEAK_API_REVISION 1
@@ -51,8 +51,8 @@
 /* > */
 /* < Basic definitions*/
 
-#define MODULE_NAME     "espeak"
-#define DBG_MODNAME     "Espeak:"
+#define MODULE_NAME     "espeak-ng"
+#define DBG_MODNAME     "Espeak-ng:"
 
 #define MODULE_VERSION  "0.1"
 
