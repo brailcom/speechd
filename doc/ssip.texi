@@ -1133,19 +1133,19 @@ All automatic switching of voices (unless user-configurable) should be
 done using the symbolic voice names which can be configured in the synthesizer.
 
 Each voice name is listed on a separate line together with its language
-code and dialect identification string separated by spaces. The dialect
+code and dialect identification string separated by tabs. The dialect
 identification strings do not have well-defined meaning yet. If no dialect
 is specified by the synthesizer, the value @code{none} is used.
 
 Example:
 @example
 LIST SYNTHESIS_VOICES
-249-afrikaans af none
-249-welsh-test cy none
-249-german de none
-249-greek_test el none
-249-en-rhotic en r
-249-lancashire en uk-north
+249-afrikaans	af	none
+249-welsh-test	cy	none
+249-german	de	none
+249-greek_test	el	none
+249-en-rhotic	en	r
+249-lancashire	en	uk-north
 249 OK VOICE LIST SENT
 @end example
 

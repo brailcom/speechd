@@ -851,7 +851,7 @@ class SSIPClient(object):
         except SSIPCommandError:
             return ()
         def split(item):
-            name, lang, dialect = tuple(item.rsplit(' ', 3))
+            name, lang, dialect = tuple(item.rsplit('\t', 3))
             return (name, lang or None, dialect or None)
         return tuple([split(item) for item in data])
 

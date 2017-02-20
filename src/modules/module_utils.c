@@ -488,7 +488,7 @@ char *do_list_voices(void)
 			variant = "none";
 		else
 			variant = voices[i]->variant;
-		g_string_append_printf(voice_list, "200-%s %s %s\n",
+		g_string_append_printf(voice_list, "200-%s\t%s\t%s\n",
 				       voices[i]->name, lang, variant);
 	}
 

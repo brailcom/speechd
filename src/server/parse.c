@@ -928,7 +928,7 @@ char *parse_list(const char *buf, const int bytes, const int fd,
 			if (voices[i] == NULL)
 				break;
 			g_string_append_printf(result,
-					       C_OK_VOICES "-%s %s %s" NEWLINE,
+					       C_OK_VOICES "-%s\t%s\t%s" NEWLINE,
 					       voices[i]->name,
 					       voices[i]->language,
 					       voices[i]->variant);

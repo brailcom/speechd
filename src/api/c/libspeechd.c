@@ -1443,7 +1443,7 @@ SPDVoice **spd_list_synthesis_voices(SPDConnection * connection)
 	svoices = (SPDVoice **) malloc((num_items + 1) * sizeof(SPDVoice *));
 
 	for (i = 0; i <= num_items; i++) {
-		const char delimiters[] = " ";
+		const char delimiters[] = "\t";
 		char *running;
 
 		if (svoices_str[i] == NULL)
