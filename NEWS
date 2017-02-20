@@ -1,3 +1,14 @@
+Version 0.8.7
+* Further fixes to spd-conf, which should now work properly.
+* Split the espeak-ng driver code into its own source file.
+* Add a work-around to the espeak-ng driver to account for spaces in voice
+  names which recently appeared in espeak-ng git master. This will properly
+  be fixed in 0.9.
+* Voice names are not forced to lower case, due to espeak-ng git master now
+  having multi-case voice names.
+* Fix stripped audio output from the flite module, thanks to Samuel Thibault.
+* Further code and build improvements.
+
 Version 0.8.6
 * Various internal code improvements.
 * Fix more compiler warnings.
