@@ -768,6 +768,7 @@ static void espeak_set_language(char *lang)
 static void espeak_set_synthesis_voice(char *synthesis_voice)
 {
 	if (synthesis_voice != NULL) {
+		g_strdelimit(synthesis_voice, "_", ' ');
 		espeak_ERROR ret = espeak_SetVoiceByName(synthesis_voice);
 		if (ret != EE_OK) {
 			DBG(DBG_MODNAME " Failed to set synthesis voice to %s.",
