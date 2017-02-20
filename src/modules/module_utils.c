@@ -1055,7 +1055,7 @@ int module_play_file(const char *filename)
 
 	subformat = sfinfo.format & SF_FORMAT_SUBMASK;
 	items = sfinfo.channels * sfinfo.frames;
-	DBG("Frames = %ld, channels = %ld", sfinfo.frames,
+	DBG("Frames = %jd, channels = %ld", sfinfo.frames,
 	    (long)sfinfo.channels);
 	DBG("Samplerate = %i, items = %Ld", sfinfo.samplerate,
 	    (long long)items);
