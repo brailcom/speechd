@@ -1,21 +1,30 @@
-Speech Dispatcher 0.8.6
+Speech Dispatcher 0.8.7
 =====================
 
-Announcing the availability of Speech Dispatcher 0.8.6 developed as a part of
+Announcing the availability of Speech Dispatcher 0.8.7 developed as a part of
 the Free(b)Soft project.
 
-* What is new in 0.8.6?
+* What is new in 0.8.7?
 
- - Various internal code improvements.
+ - Further fixes to spd-conf, which should now work properly.
 
- - Fix more compiler warnings.
+ - Split the espeak-ng driver code into its own source file.
 
- - Python bug fixes with thanks to Sebastian Humenda.
+ - Add a work-around to the espeak-ng driver to account for spaces in voice 
+   names which recently appeared in espeak-ng git master. This will properly
+   be fixed in 0.9.
+
+ - Voice names are not forced to lower case, due to espeak-ng git master now
+   having multi-case voice names.
+
+ - Fix stripped audio output from the flite module, thanks to Samuel Thibault.
+
+ - Further code and build improvements.
 
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.8.6.tar.gz
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.8.7.tar.gz
 
   We recommend the use of sound icons with Speech Dispatcher.
   They are available at
