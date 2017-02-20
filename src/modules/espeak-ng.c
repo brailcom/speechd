@@ -1164,6 +1164,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 			voice = g_new0(SPDVoice, 1);
 
 			voice->name = g_strdup(v->name);
+			voice->name = g_strdelimit(voice->name, " ", '_');
 
 			first_lang = v->languages + 1;
 			lang = NULL;
