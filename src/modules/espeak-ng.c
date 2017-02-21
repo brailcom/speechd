@@ -781,40 +781,41 @@ static void espeak_set_synthesis_voice(char *synthesis_voice)
 	 * itself is of type espeak_VOICE
 	 */
 	if (synthesis_voice != NULL) {
-		if (EspeakListVoiceVariants) {
-			if (g_strstr_len(synthesis_voice, -1, "+") != NULL) {
-				voice_split = g_strsplit(synthesis_voice, "+", 2);
-				voice_name = voice_split[0];
-				variant_name = voice_split[1];
-				g_free(voice_split);
+		if (g_strstr_len(synthesis_voice, -1, "+") != NULL) {
+			voice_split = g_strsplit(synthesis_voice, "+", 2);
+			voice_name = voice_split[0];
+			variant_name = voice_split[1];
+			g_free(voice_split);
 
-				g_strdelimit(voice_name, "_", ' ');
+			g_strdelimit(voice_name, "_", ' ');
 
-				for (i = 0; espeak_variants[i] != NULL; i++) {
-					identifier = g_strsplit(espeak_variants[i]->identifier, "/", 2);
+			for (i = 0; espeak_variants[i] != NULL; i++) {
+				identifier = g_strsplit(espeak_variants[i]->identifier, "/", 2);
 
-					if (g_strcmp0(espeak_variants[i]->name, variant_name) == 0) {
-						if (identifier[1] != NULL)
-							variant_file = g_strdup(identifier[1]);
-					} else if (g_strcmp0(identifier[1], variant_name) == 0) {
-						variant_file = g_strdup(variant_name);
-					}
-
-					g_strfreev(identifier);
-					identifier = NULL;
+				if (g_strcmp0(espeak_variants[i]->name, variant_name) == 0) {
+					if (identifier[1] != NULL)
+						variant_file = g_strdup(identifier[1]);
+				} else if (g_strcmp0(identifier[1], variant_name) == 0) {
+					variant_file = g_strdup(variant_name);
 				}
 
-				if (variant_file != NULL) {
-					g_free(synthesis_voice);
-					synthesis_voice = g_strdup_printf("%s+%s", voice_name, variant_file);
-					g_free(variant_file);
-				} else {
-					DBG(DBG_MODNAME " Cannot find the variant file name for the given variant.");
-				}
-
-				g_free(voice_name);
-				g_free(variant_name);
+				g_strfreev(identifier);
+				identifier = NULL;
 			}
+
+			g_strfreev(identifier);
+			identifier = NULL;
+
+			if (variant_file != NULL) {
+				g_free(synthesis_voice);
+				synthesis_voice = g_strdup_printf("%s+%s", voice_name, variant_file);
+				g_free(variant_file);
+			} else {
+				DBG(DBG_MODNAME " Cannot find the variant file name for the given variant.");
+			}
+
+			g_free(voice_name);
+			g_free(variant_name);
 		} else {
 			g_strdelimit(synthesis_voice, "_", ' ');
 		}
@@ -1188,8 +1189,8 @@ static SPDVoice **espeak_list_synthesis_voices()
 	SPDVoice *voice = NULL;
 	SPDVoice *vo = NULL;
 	const espeak_VOICE **espeak_voices = NULL;
-	espeak_VOICE *variant_spec = NULL;
 	const espeak_VOICE *v = NULL;
+	espeak_VOICE *variant_spec;
 	GQueue *voice_list = NULL;
 	GQueue *variant_list = NULL;
 	GList *voice_list_iter = NULL;
@@ -1247,10 +1248,12 @@ static SPDVoice **espeak_list_synthesis_voices()
 	numvoices = g_queue_get_length(voice_list);
 	DBG(DBG_MODNAME " %d voices total.", numvoices)
 
+	variant_spec = g_new0(espeak_VOICE, 1);
+	variant_spec->languages = "variant";
+	espeak_variants = espeak_ListVoices(variant_spec);
+	g_free(variant_spec);
+
 	if (EspeakListVoiceVariants) {
-		variant_spec = g_new0(espeak_VOICE, 1);
-		variant_spec->languages = "variant";
-		espeak_variants = espeak_ListVoices(variant_spec);
 		variant_list = g_queue_new();
 
 		for (i = 0; espeak_variants[i] != NULL; i++) {
@@ -1295,8 +1298,6 @@ static SPDVoice **espeak_list_synthesis_voices()
 		g_queue_free(voice_list);
 	if (variant_list != NULL)
 		g_queue_free_full(variant_list, (GDestroyNotify)g_free);
-	if (variant_spec != NULL)
-		g_free(variant_spec);
 
 	result[i] = NULL;
 	DBG(DBG_MODNAME " %d usable voices.", totalvoices);
