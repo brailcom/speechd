@@ -460,7 +460,7 @@ char *parse_set(const char *buf, const int bytes, const int fd,
 	} else if (TEST_CMD(set_sub, "synthesis_voice")) {
 		char *synthesis_voice;
 
-		GET_PARAM_STR(synthesis_voice, 3, CONV_DOWN);
+		GET_PARAM_STR(synthesis_voice, 3, 0);
 
 		SSIP_SET_COMMAND(synthesis_voice);
 		g_free(synthesis_voice);
