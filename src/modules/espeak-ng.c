@@ -103,6 +103,7 @@ static gboolean espeak_stop_requested = FALSE;
 
 static int espeak_sample_rate = 0;
 static SPDVoice **espeak_voice_list = NULL;
+static const espeak_VOICE **espeak_variants = NULL;
 
 /* < The playback queue. */
 
@@ -793,7 +794,53 @@ static void espeak_set_language(char *lang)
 
 static void espeak_set_synthesis_voice(char *synthesis_voice)
 {
+	gchar *voice_name = NULL;
+	gchar *variant_name = NULL;
+	gchar **voice_split = NULL;
+	gchar **identifier = NULL;
+	gchar *variant_file = NULL;
+	int i = 0;
+
+	/* Espeak-ng can accept the full voice name as the voice, but will
+	 * only accept the file name of the variant to use, which can be
+	 * found in the identifier member of the variant list, which
+	 * itself is of type espeak_VOICE
+	 */
 	if (synthesis_voice != NULL) {
+		if (EspeakListVoiceVariants) {
+			if (g_strstr_len(synthesis_voice, -1, "+") != NULL) {
+				voice_split = g_strsplit(synthesis_voice, "+", 2);
+				voice_name = voice_split[0];
+				variant_name = voice_split[1];
+				g_free(voice_split);
+
+				for (i = 0; espeak_variants[i] != NULL; i++) {
+					identifier = g_strsplit(espeak_variants[i]->identifier, "/", 2);
+
+					if (g_strcmp0(espeak_variants[i]->name, variant_name) == 0) {
+						if (identifier[1] != NULL)
+							variant_file = g_strdup(identifier[1]);
+					} else if (g_strcmp0(identifier[1], variant_name) == 0) {
+						variant_file = g_strdup(variant_name);
+					}
+
+					g_strfreev(identifier);
+					identifier = NULL;
+				}
+
+				if (variant_file != NULL) {
+					g_free(synthesis_voice);
+					synthesis_voice = g_strdup_printf("%s+%s", voice_name, variant_file);
+					g_free(variant_file);
+				} else {
+					DBG(DBG_MODNAME " Cannot find the variant file name for the given variant.");
+				}
+
+				g_free(voice_name);
+				g_free(variant_name);
+			}
+		}
+
 		espeak_ERROR ret = espeak_SetVoiceByName(synthesis_voice);
 		if (ret != EE_OK) {
 			DBG(DBG_MODNAME " Failed to set synthesis voice to %s.",
@@ -1163,7 +1210,6 @@ static SPDVoice **espeak_list_synthesis_voices()
 	SPDVoice *voice = NULL;
 	SPDVoice *vo = NULL;
 	const espeak_VOICE **espeak_voices = NULL;
-	const espeak_VOICE **espeak_variants = NULL;
 	espeak_VOICE *variant_spec = NULL;
 	const espeak_VOICE *v = NULL;
 	GQueue *voice_list = NULL;
