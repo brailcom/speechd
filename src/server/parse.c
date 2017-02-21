@@ -464,15 +464,14 @@ char *parse_set(const char *buf, const int bytes, const int fd,
 		int i;
 
 		split_command = g_strsplit(buf, " ", 0);
-		for (i = 0; split_command[i] != NULL; i++) {
-			tmp = NULL;
+		synthesis_voice = g_strdup(split_command[3]);
 
-			if (i == 3) {
-				synthesis_voice = g_strdup(split_command[i]);
-			} else if (i > 3) {
+		if (synthesis_voice != NULL) {
+			for (i = 4; split_command[i] != NULL; i++) {
+				tmp = NULL;
+
 				if (g_str_has_suffix(split_command[i], "\n")) {
 					tmp = g_strndup(split_command[i], strlen(split_command[i]) - 2);
-					g_free(split_command[i]);
 					split_command[i] = tmp;
 					tmp = NULL;
 				}
@@ -481,12 +480,9 @@ char *parse_set(const char *buf, const int bytes, const int fd,
 				g_free(synthesis_voice);
 				synthesis_voice = tmp;
 			}
+
+			g_strfreev(split_command);
 		}
-
-		g_strfreev(split_command);
-
-		if (i < 3)
-			synthesis_voice = NULL;
 
 		SSIP_SET_COMMAND(synthesis_voice);
 		g_free(synthesis_voice);
