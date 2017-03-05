@@ -238,21 +238,29 @@ int module_close(void)
 
 void flite_strip_silence(AudioTrack * track)
 {
-	int playlen, skip;
-
-	float stretch =
-	    get_param_float(flite_voice->features, "duration_stretch", 1.);
-	int speed = (int)(1000. / stretch);
-	skip = (187 * track->sample_rate) / speed;
-	playlen = track->num_samples - skip * 2;
-	if (playlen > 0 && playlen < 500)
-		playlen += (skip * 2) / 3;
-	if (playlen < 0)
-		playlen = 0;
-
-	track->num_samples = playlen;
 	assert(track->bits == 16);
-	track->samples += skip * track->num_channels;
+	unsigned i;
+	float silence_limit = 0.001;
+
+	while (track->num_samples >= track->num_channels) {
+		for (i = 0; i < track->num_channels; i++)
+			if (abs(track->samples[i])
+			    >= silence_limit * (1L<<(track->bits-1)))
+				goto stripped_head;
+		track->samples += track->num_channels;
+		track->num_samples -= track->num_channels;
+	}
+stripped_head:
+
+	while (track->num_samples >= track->num_channels) {
+		for (i = 0; i < track->num_channels; i++)
+			if (abs(track->samples[track->num_samples - i - 1])
+			    >= silence_limit * (1L<<(track->bits-1)))
+			  	goto stripped_tail;
+		track->num_samples -= track->num_channels;
+	}
+stripped_tail:
+	;
 }
 
 void *_flite_speak(void *nothing)
