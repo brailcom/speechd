@@ -6,8 +6,7 @@ speech_dispatcher_TEXINFOS = gpl.texi fdl.texi speech-dispatcher.texi
 speech_dispatcher_cs_TEXINFOS = gpl.texi fdl.texi speech-dispatcher-cs.texi
 ssip_TEXINFOS = gpl.texi fdl.texi
 
-CLEANFILES = mdate-sh \
-	spd-say.info \
+CLEANFILES = spd-say.info \
 	speech-dispatcher-cs.info \
 	speech-dispatcher.info \
 	ssip.info \
