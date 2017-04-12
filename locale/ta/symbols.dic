@@ -1,0 +1,189 @@
+﻿#locale/ta/symbols.dic
+#A part of NonVisual Desktop Access (NVDA)
+#Copyright (c) 2011-2013 NVDA Contributors
+# Thanks: Association for the Rights of the Visually Challenged (ARVIC), Coimbatore, Tamil Nadu, India
+#This file is covered by the GNU General Public License.
+
+complexSymbols:
+# identifier	regexp
+# Sentence endings.
+. sentence ending	(?<=[^\s.])\.(?=[\"'”’)\s]|$)
+! sentence ending	(?<=[^\s!])\!(?=[\"'”’)\s]|$)
+? sentence ending	(?<=[^\s?])\?(?=[\"'”’)\s]|$)
+# Phrase endings.
+; phrase ending	(?<=[^\s;]);(?=\s|$)
+: phrase ending	(?<=[^\s:]):(?=\s|$)
+# Others
+decimal point	(?<=\d)\.(?=\d)
+in-word '	(?<=[^\W_])['’]
+negative number	(?<!\w)-(?=[$£€¥]?\d)
+# Treat dash differently when it is sandwitched between a number and a tamil character.
+# tamil unicode range is U+0B80–U+0BFF according to http://en.wikipedia.org/wiki/Tamil_script  
+tamilNumberDash	(?<=[0-9])\-(?=[஀-௿])
+
+symbols:
+# identifier	replacement[[	level][	preserve]][	# display name]
+
+# Complex symbols
+. sentence ending	முற்றுப் புள்ளி	all	always
+! sentence ending	கூவல்!	all	always
+? sentence ending	கேள்வி?	all	always
+; phrase ending	அரைப் புள்ளி	most	always
+: phrase ending	முக்கால் புள்ளி	most	always
+decimal point	புள்ளி	none	always
+in-word '	ஒற்றை மேற்கோள்	all	norep
+negative number	கழித்தல்	none	norep
+# number dash, tamil letter special case:
+tamilNumberDash	இணைக்கோடு	char	always
+
+# Whitespace
+\0	வெற்றிடம்	char	# null
+\t	தத்தல்
+\n	வரியூட்டம்	char
+\f	பக்க முறிவு	none
+\r	ஏந்தி மீளல்	char
+ 	இடைவெளி	char
+ 	இடைவெளி	char	# no-break space
+
+# Standard punctuation/symbols
+!	கூவல்!	all
+"	மேற்கோள்	most
+\#	எண்	most
+$	டாலர்	all	norep
+£	pound	all	norep
+€	euro	all	norep
+¢	Cents	all	norep
+¥	Yen	all	norep
+₹	ரூபாய்	none	norep
+%	விழுக்காடு	none
+&	மற்றும்	some
+'	ஒற்றை மேற்கோள்	all
+(	இடப்பிறை	most
+)	வலப்பிறை	most
+*	பெருக்கல்	some
++	கூட்டல்	some
+,	கால் புள்ளி	all	always
+-	இணைக்கோடு	most
+.	புள்ளி	some
+/	சாய்வு	some
+:	முக்கால் புள்ளி	most	norep
+;	அரைப் புள்ளி	most
+<	குறைவு	most
+>	மிகுதி	most
+=	சமம்	some
+?	கேள்வி?	all
+@	at	some
+[	இடப்பகரம்	most
+]	வலப்பகரம்	most
+\\	பின்சாய்வு	most
+^	caret	most
+_	அடிக்கோடு	most
+`	graav	most
+{	இடகணம்	most
+}	வலகணம்	most
+|	செங்குத்து	most
+~	tilda	most
+
+# Other characters
+•	தோட்டா	none
+…	விடுநிலை	all	always
+...	விடுநிலை	all	always
+	தோட்டா	none
+“	இட மேற்கோள்	most
+”	வல மேற்கோள்	most
+‘	இட ஒற்றை மேற்கோள்	most
+’	வல ஒற்றை மேற்கோள்	most
+–	சிறுகோடு	most
+—	சிறுகோடு	most
+●	வட்டம்	most
+¨	diaeresis	most
+‎	left to right mark	char
+‏	right to left mark	char
+■	கருஞ்சதுரம்	some
+▪	கருஞ்சதுரம்	some
+◾	கருஞ்சதுரம்	some
+◦	வெள்ளைத் தோட்டா	some
+➔	வலதம்பு	some
+§	பிரிவு	all
+°	பாகை	some
+«	double left pointing angle bracket
+»	double right pointing angle bracket
+µ	micro	some
+¹	மேலெழுத்து 1	some
+²	மேலெழுத்து 2	some
+³	மேலெழுத்து 3	some
+®	பதிவு	none
+™	வணிகம்	some
+©	பதிப்புரிமை	none
+±	கூட்டல் கழித்தல்	most
+×	தடவை	most
+÷	வகுத்தல்	most
+←	இடதம்பு	some
+→	வலதம்பு	some
+✓	தேர்வு	some
+✔	தேர்வு	some
+
+#Mathematical Operators U+2200 to U+220F
+
+∀	For All 	none
+∁	Complement	none
+∂	Partial Derivative	none
+∃	There exists	none
+∄	There Does Not Exist	none
+∅	EMPTY SET	none
+∆	INCREMENT	none
+∇	NABLA	none
+∈	ELEMENT OF	none
+∉	NOT AN ELEMENT OF	none
+∊	SMALL ELEMENT OF	none
+∋	CONTAINS AS MEMBER	none
+∌	DOES NOT CONTAIN AS MEMBER	none
+∍	SMALL CONTAINS AS MEMBER	none
+∎	END OF PROOF	none
+∏	N-ARY PRODUCT	none
+
+# Miscellaneous Mathematical Operators
+
+∑	N-ARY SUMMATION	none
+√	SQUARE ROOT	none
+∛	CUBE ROOT	none
+∜	FOURTH ROOT	none
+∝	PROPORTIONAL TO	none
+∞	INFINITY	none
+∟	RIGHT ANGLE	none
+∠	ANGLE	none
+∥	PARALLEL TO	none
+∦	NOT PARALLEL TO	none
+∧	LOGICAL AND	none
+∨	LOGICAL OR	none
+∩	INTERSECTION	none
+∪	UNION	none
+∫	INTEGRAL	none
+∴	THEREFORE	none
+∵	BECAUSE	none
+∶	RATIO	none
+∷	PROPORTION	none
+≤	LESS-THAN OR EQUAL TO	none
+≥	GREATER-THAN OR EQUAL TO	none
+⊂	SUBSET OF	none
+⊃	SUPERSET OF	none
+⊆	SUBSET OF OR EQUAL TO	none
+⊇	SUPERSET OF OR EQUAL TO	none
+π	பை	none
+
+# Special Tamil Characters
+௰	பத்து	none
+௱	நூறு	none
+௲	ஆயிரம்	none
+௳	நாள்	none
+௴	மாதம்	none
+௵	ஆண்டு	none
+௶	பற்று	none
+௷	வரவு	none
+௸	மேலிருப்பது போல்	none
+௺	எண்ணுரு	none
+ௐ	ஓம்	none
+
+# Other characters
+†	குத்துவாள்	most
+‡	இரட்டைக் குத்துவாள்	most

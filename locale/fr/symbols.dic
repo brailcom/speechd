@@ -1,0 +1,327 @@
+﻿#locale/fr/symbols.dic
+#A part of NonVisual Desktop Access (NVDA)
+#Copyright (c) 2011-2014 NVDA contributors.
+#This file is covered by the GNU General Public License.
+
+complexSymbols:
+# identifier	regexp
+# Sentence endings.
+. sentence ending	((?<=[^\s.])\.(?=[\"'”’);\s]|$)|(?<=[^\s.]\s)\.(?=[\"'”’);\s]|$))
+! sentence ending	((?<=[^\s!])\!(?=[\"'”’);\s]|$)|(?<=[^\s!]\s)\!(?=[\"'”’);\s]|$))
+? sentence ending	((?<=[^\s?])\?(?=[\"'”’);\s]|$)|(?<=[^\s?]\s)\?(?=[\"'”’);\s]|$))
+... sentence ending	((?<=[^\s.])\.\.\.(?=[\"'”’);\s]|$)|(?<=[^\s.]\s)\.\.\.(?=[\"'”’);\s]|$))
+… sentence ending	((?<=[^\s…])\…(?=[\"'”’);\s]|$)|(?<=[^\s…]\s)\…(?=[\"'”’);\s]|$))
+# Phrase endings.
+; phrase ending	((?<=[^\s;]);(?=[\"'”’);\s]|$)|(?<=[^\s;]\s);(?=[\"'”’);\s]|$))
+: phrase ending	((?<=[^\s:]):(?=[\"'”’);\s]|$)|(?<=[^\s:]\s):(?=[\"'”’);\s]|$))
+# Others
+decimal point	(?<![^\d -])\,(?=\d)
+in-word '	(?<=[^\W_])['’]
+in-word -	(?<=[^\W_])[-]
+negative number	(?<!\w)-(?=[$£€¥.]?\d)
+dates .	((?<=\b\d\d)\.(?=\d\d.(\d{2}|\d{4})\b))|((?<=\b\d\d.\d\d)\.(?=(\d{2}|\d{4})\b))
+dates /	((?<=\b\d\d)\/(?=\d\d/(\d{2}|\d{4})\b))|((?<=\b\d\d/\d\d)\/(?=(\d{2}|\d{4})\b))
+
+after-number %	(?<=\d)((\%)|(\s\%))(?=\W|$)
+
+symbols:
+# identifier	replacement[[	level][	preserve]][	# display name]
+
+# Complex symbols
+. sentence ending	point	# . fin de phrase
+! sentence ending	point dexclamation	# ! fin de phrase
+? sentence ending	point dinterrogation	# ? fin de phrase
+... sentence ending	points de suspension	all	always	# ... fin de phrase
+… sentence ending	points de suspension	all	always	# … fin de phrase
+; phrase ending	point virgule	# ; fin de phrase
+: phrase ending	deux points	# : fin de phrase
+
+decimal point		# virgule décimale
+dates .	 	all	always	# point de date
+dates /	 	all	always	# barre oblique de date
+negative number	moins	none	norep	# - devant un nombre
+after-number %	pour cent	none	norep	# % après un nombre
+in-word '	apostrophe	# ' dans un mot
+in-word -	tiret	all	norep	# - dans un mot
+
+# Whitespace
+\0	nul
+\t	tab
+\n	nouvelle ligne
+\f	saut de page
+\r	retour chariot
+ 	espace
+ 	espace insécable	char	# espace insécable
+
+# Standard punctuation/symbols
+!	point dexclamation
+"	guillemet
+\#	dièse
+$	dollar
+£	livre
+€	euro
+¢	Centimes
+¥	Yen
+₹	roupi	some	norep
+%	pour cent
+&	et commercial	some	norep
+'	apostrophe
+(	parenthèse gauche
+)	parenthèse droite
+*	astérisque
++	pluce	some	norep
+,	virgule
+-	tiret
+.	point
+|	bar	most
+·	point médian	most
+/	barre oblique
+:	deux points
+;	point virgule
+<	inférieur
+>	supérieur
+=	égal
+?	point dinterrogation
+¿	point dinterrogation renversé	some
+@	arobase	none
+[	crochet gauche
+]	crochet droit
+"	guillemet
+\\	barre oblique inversée
+^	accent circonflexe
+_	souligné
+`	accent grave
+{	accolade gauche
+}	accolade droite
+|	barre verticale
+~	tilde
+¿	point d'interrogation renversé	all
+¡	point d'exclamation renversé	all
+
+# Other characters
+•	puce
+…	points de suspension
+...	point point point
+	puce
+“	guillemet ouvert
+”	guillemet fermé
+‘	apostrophe gauche
+’	apostrophe droite
+–	tiret demicadratin
+—	tiret cadratin
+●	cercle
+¨	tréma
+‎	gauche à droite
+‏	droite à gauche
+■	carré noir
+▪	carré noir
+◾	carré noir
+◦	puce blanche
+➔	flèche droite
+§	section
+°	degré	some	norep
+«	guillemet ouvert
+»	guillemet fermé
+µ	micro
+¹	puissance 1
+²	puissance 2
+³	puissance 3
+®	marque déposée
+™	marque de fabrique
+©	Copyright
+±	Plus ou Moins
+×	fois
+÷	divisé par
+←	flèche gauche
+→	flèche droite
+✓	coché
+✔	coché
+¶	paragraphe	all
+‰	pour-mille
+„	guillemet vers le bas	none
+↔	guillemet anglais fermé	none
+∞	infini	none
+	flèche gauche	some
+	flèche droite	some
+↑	flèche haut	some
+↓	flèche bas	some
+#Opérateurs Mathématiques U+2200 to U+220F
+
+∀	pour tout 
+∁	complément
+∂	différencielle partielle
+∃	il existe
+∄	il n'existe pas de
+∅	ensemble vide
+∆	incrément
+∇	NABLA
+∈	élément de
+∉	pas un élément de
+∊	petit élément de
+∋	contient comme membre
+∌	ne contient pas comme membre	none
+∍	petit contient comme membre
+∎	fin de preuve
+∏	produit n-aire
+
+# Opérateurs Mathématiques Divers et lettres grecques
+
+∑	somme n-aire
+√	racine carrée
+∛	racine cubique
+∜	racine quatrième
+∝	proportionnel à
+∞	infini
+∟	angle droit
+∠	angle
+∥	parallèle à
+∦	non parallèle à
+∧	et logique
+∨	ou logique
+∩	intersection
+∪	union
+∫	intégrale
+∴	ainsi
+∵	parce que
+∶	RATIO
+∷	PROPORTION
+≤	inférieur ou égal à
+≥	supérieur ou égal à
+⊂	sous-ensemble de
+⊃	sur ensemble de
+⊆	est inclus dans ou est égal à
+⊇	contient ou est égal à
+⃗	vecteur	char	never	# ⃗
+ƒ	florin
+‣	Puce triangulaire
+†	obel
+‡	double obel
+⅛	un huitième
+⅜	Trois huitième
+⅞	Sept huitième
+≠	différent de	none	never	# Δ
+­	Trait d'union conditionnel
+‚	Guillemet simple  en bas
+‹	Simple Guillemet ouvrant
+›	Simple Guillemet fermant
+℅	Attention à
+―	Barre horizontale
+‾	Ligne au dessus
+‼	Double exclamation
+♦	Carreau noir
+Δ	delta	none	never	# Δ
+δ	delta	none	never	# Δ
+τ	tau	none	never
+Τ	tau	none	never
+λ	lambda	none	never
+−	moins	none	never
+Λ	lambda	none	never
+θ	thêta	none	never
+ϑ	thêta	none	never
+Θ	thêta	none	never
+Ι	iota	none	never
+ι	iota	none	never
+κ	kappa	none	never
+ϰ	kappa	none	never
+Κ	kappa	none	never
+π	pi	none	never
+ϖ	pi	none	never
+Π	pi	none	never
+‖	norme vecteur	none	never
+α	alpha	none	never
+Α	alpha	none	never
+⊕	plus encerclé	none	never	# ⊕
+⨁	grand plus encerclé	none	never
+≈	environ égal à	none	never
+≡	identique à	none	never
+∘	rond	none	never
+⋂	grande intersection	none	never
+⋃	grande union	none	never
+⋁	grand ou logique	none	never
+⋀	grand et logique	none	never
+ϕ	phi	none	never
+φ	phi	none	never
+Φ	phi	none	never
+σ	sigma	none	never
+ς	sigma	none	never
+ϲ	sigma lunaire	none	never
+Σ	sigma	none	never
+ÿ	igrec tréma	none	never
+β	bêta	none	never
+ϐ	bêta	none	never
+Β	bêta	none	never
+μ	mu	none	never
+Μ	mu	none	never
+ν	nu	none	never
+Ν	nu	none	never
+Ο	omicron	none	never
+ο	omicron	none	never
+ω	oméga	none	never
+Ω	oméga	none	never
+¤	symbole monétaire	none	never
+	guillemet vers le bas	none	never
+↦	a pour image	none	never
+′	prime	none	never
+η	êta	none	never
+Η	êta	none	never
+ε	epsilon	none	never
+ϵ	epsilon lunaire	none	never
+Ε	epsilon	none	never
+γ	gamma	none	never
+Γ	gamma	none	never
+ζ	zêta	none	never
+Ζ	zêta	none	never
+Ξ	ksi	none	never
+ξ	ksi	none	never
+Ψ	psi	none	never
+ψ	psi	none	never
+Ρ	rhô	none	never
+ϱ	rhô	none	never
+χ	khi	none	never
+Χ	khi	none	never
+υ	upsilon	none	never
+Υ	upsilon	none	never
+ϒ	upsilon	none	never
+Ϛ	stigma	none	never
+ϛ	stigma	none	never
+Ϙ	koppa	none	never
+ϙ	koppa	none	never
+Ϟ	koppa	none	never
+ϟ	koppa	none	never
+Ͳ	sampi	none	never
+ͳ	sampi	none	never
+Ϡ	sampi	none	never
+ϡ	sampi	none	never
+Ϝ	Digamma	none	never
+ϝ	Digamma	none	never
+Ͷ	Digamma	none	never
+ͷ	Digamma	none	never
+Ͱ	hêta	none	never
+ͱ	hêta	none	never
+Ϻ	san	none	never
+ϻ	san	none	never
+Ϸ	sho	none	never
+ϸ	sho	none	never
+῀	tilde	none	never
+ὶ	accent grave	none	never
+ὖ	accent circonflexe	none	never
+⟶	flèche droite	none	never
+⟵	flèche gauche	none	never
+⇒	implication droite	none	never
+⇐	implication gauche	none	never
+⇔	équivalence	none	never
+⊥	perpendiculaire à	none	never
+↗	croissant	none	never
+↘	décroissant	none	never
+∬	intégrale double	none	never
+∭	intégrale triple	none	never
+≪	très inférieur à	none	never
+≫	très supérieur à	none	never
+
+# Fixes for some synthesizers
+ô	o circonflexe	char	norep
+Ô	o circonflexe	char	norep
+y	igrèque	char	norep
+Y	igrèque	char	norep
+À	a accent grave	char	norep
+à	a accent grave	char	norep

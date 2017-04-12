@@ -1,0 +1,589 @@
+﻿#locale/ja/symbols.dic 
+#A part of NonVisual Desktop Access (NVDA)
+#Copyright (C) 1999-2002 Bilingual Emacspeak Project
+#Copyright (c) 2011-2012 NVDA Contributors
+#Copyright (c) 2012 Takuya Nishimoto(nishimotz), Martin (mahoro-ba.net)
+#This file is covered by the GNU General Public License.
+
+complexSymbols:
+# identifier	regexp
+# Sentence endings.
+文末の丸	(?<=[^\s。])\。(?=[\"'”’)\s]|$)
+文中の点	(?<=[^\s、])\、(?=[\"'”’)\s]|$)
+文末の感嘆符	(?<=[^\s！])\！(?=[\"'”’)\s]|$)
+文末の疑問符	(?<=[^\s？])\？(?=[\"'”’)\s]|$)
+
+# Others
+decimal point	(?<=\d)\.(?=\d)
+in-word '	(?<=[^\W_])['’]
+negative number	(?<!\w)-(?=[$＄€£￡¢￠¥\\￥]?\d)
+comma between numbers	(?<=\d)\,(?=\d)
+複数のピリオド	(?<=\.)\.|\.(?=\.)
+単語中のピリオド	(?<=[\w])\.+(?=[\w])
+数字の間の全角ピリオド	(?<=[\d])．(?=[\d])
+数字の間の全角カンマ	(?<=[\d])，(?=[\d])
+
+symbols:
+# identifier	replacement[[	level][	preserve]][	# display name]
+
+# Complex symbols
+. sentence ending	ピリオド	some	never
+! sentence ending	カンタンフ	some	never
+? sentence ending	クエスチョン	some	never
+; phrase ending	セミコロン	some	never
+: phrase ending	コロン	some	never
+decimal point		none	always
+comma between numbers		none	always
+in-word '	アポストロフィ	some
+negative number	マイナス	none	norep
+文末の丸	マル	some
+文中の点	テン	some
+文末の感嘆符	カンタンフ	some
+文末の疑問符	ギモンフ	some
+複数のピリオド	ドット	some
+単語中のピリオド	ドット	some
+数字の間の全角ピリオド		none	always
+数字の間の全角カンマ		none	always
+
+# Other characters
+
+# Whitespace
+\0	ブランク	char
+\t	タブ
+\n	カイギョウ
+\f	カイページ
+\r	フッキ
+ 	スペース
+ 	スペース	# no-break space
+
+# Standard punctuation/symbols	
+!	カンタンフ	some
+"	コーテーション	some
+\#	シャープ
+$	ドル	none
+＄	ドル	none
+€	ユーロ	none
+£	ポンド	none
+￡	ポンド	none
+¢	セント	none
+￠	セント	none
+¥	エン	none
+\\	エン	none
+￥	エン	none
+₹	ルピー	some	norep
+%	パーセント	some
+&	アンド	some
+'	シングル	some
+(	カッコ
+)	カッコトジ
+*	アスタリスク	some
++	プラス
+,	コンマ	-	never
+-	マイナス	some
+.	ピリオド	some
+/	スラッシュ	some
+:	コロン	some	norep
+;	セミコロン	some
+<	ショーナリ
+>	ダイナリ
+=	イコール
+?	クエスチョン	some
+@	アット	some
+[	ダイカッコ	most
+]	ダイカッコトジ	most
+^	ベキジョー	all
+_	アンダーライン	some
+`	アクサングラーブ	some
+{	チューカッコ	most
+}	チューカッコトジ	most
+|	タテセン	some
+~	チルダ	some
+
+# Other characters
+•	ビュレット	most
+...	ドットドットドット
+	ビュレット
+◦	シロビュレット
+▪	ビュレット
+◾	クロシカク
+–	エンダッシュ
+—	エムダッシュ
+‎	ヒダリカラミギマーク	char
+‏	ミギカラヒダリマーク	char
+➔	ミギヤジルシ
+¹	ウワツキイチ	all
+²	ウワツキニ	all
+³	ウワツキサン	all
+®	アール
+™	ティーエム
+©	シー
+✓	チェック
+✔	チェック
+
+«	ヒダリ ダブル ブラケット
+»	ミギ ダブル ブラケット
+µ	マイクロ	some
+
+# Japanese Double Bytes Symbols
+ｰ	チョーオン	char	always
+｡	クテン	some
+｢	カギ	most
+｣	カギトジ	most
+､	トーテン	most
+･	ナカテン	most
+ﾞ	ダクテン	char	always
+ﾟ	ハンダクテン	char	always
+　	ゼンカク スペース	char	always
+ー	チョーオン	char	always
+、	テン	most
+。	マル	some
+，	コンマ	some
+．	ピリオド	some
+・	ナカテン	most
+：	コロン	some
+；	セミコロン	some
+？	ギモンフ	some
+！	カンタンフ	some
+゙	ダクテン	char	always
+゚	ハンダクテン	char	always
+゛	ダクテン	char	always
+゜	ハンダクテン	char	always
+´	アクサンテギュー	most
+｀	アクサングラーブ	most
+¨	ウムラウト	all
+＾	ベキジョー	all
+￣	オーバーライン	most
+＿	アンダーライン	most
+ヽ	クリカエシ	char	always
+ヾ	クリカエシ ダクテン	char	always
+ゝ	クリカエシ	char	always
+ゞ	クリカエシ ダクテン	char	always
+〃	オナジク	all
+仝	ドージョー	all
+々	オドリジ	char	always
+〆	シメ	all	always
+―	ダッシュ	some
+‐	ハイフン	some
+／	スラッシュ	some
+＼	バックスラッシュ	some
+～	ナミセン	some
+∥	タテヘイコー	most
+｜	タテボー	some
+…	サンテン リーダ	some
+‥	ニテン リーダ	some
+‘	シングル	most
+’	シングルトジ	most
+“	コーテイション	most
+”	コーテイショントジ	most
+（	カッコ	most
+）	カッコトジ	most
+〔	キッコー カッコ	most
+〕	キッコートジ	most
+［	ダイ カッコ	most
+］	ダイカッコトジ	most
+｛	チューカッコ	most
+｝	チューカッコトジ	most
+〈	ヤマカッコ	most
+〉	ヤマカッコトジ	most
+《	ニジューヤマカッコ	most
+》	ニジューヤマカッコトジ	most
+「	カギ	most
+」	カギトジ	most
+『	ニジューカギ	most
+』	ニジューカギトジ	most
+【	クロカッコ	most
+】	クロカッコトジ	most
+＋	プラス
+－	マイナス
+±	プラスマイナス
+×	カケル
+÷	ワル
+＝	イコール	some
+≠	ノットイコール	all
+＜	ショーナリ	some
+＞	ダイナリ	some
+≦	ショーナリイコール	all
+≧	ダイナリイコール	all
+∞	ムゲンダイ	all
+∴	ユエニ	all
+♂	オス	all
+♀	メス	all
+°	ド	all
+′	フン	all
+″	ビョー	all
+℃	ドシー	all
+％	パーセント	some
+＃	シャープ	some
+＆	アンド	some
+＊	アスタリスク	some
+＠	アット	some
+§	セクション	all
+☆	ホシ	some
+★	クロボシ	some
+○	マル	some
+●	クロマル	some
+◎	ニジューマル	some
+◇	ヒシガタ	some
+◆	クロヒシガタ	some
+□	シカク	some
+■	クロシカク	some
+△	サンカク	some
+▲	クロ サンカク	some
+▽	ギャク サンカク	some
+▼	クロ ギャク サンカク	some
+※	コメジルシ	some
+〒	ユービン	some
+→	ミギ ヤジルシ	some
+←	ヒダリ ヤジルシ	some
+↑	ウエ ヤジルシ	some
+↓	シタ ヤジルシ	some
+〓	ゲタ	some
+∄	ソンザイノ ヒテイ
+∌	フクムノ ヒテイ
+∎	ショウメイ シュウリョウ
+≤	ショーナリイコール
+∛	3ジョウコン
+∜	4ジョウコン
+∷	プロポーション
+∆	インクリメント
+∊	チイサイ ゾクスル
+∶	レイショ
+∏	エヌコウ プロダクト
+∦	タテヘイコーノ ヒテイ
+∁	コンプリメント
+∅	クウシュウゴウ
+∉	ゾクスルノ ヒテイ
+∍	チイサイ モトトシテ フクム
+≥	ダイナリイコール
+∈	ゾクスル	all
+∋	フクム	all
+⊆	ブブン シューゴー	all
+⊇	ブブンヲ モトトシテ フクム	all
+⊂	シンブブン シューゴー	all
+⊃	シンブヲ モトトシテ フクム	all
+∧	オヨビ	all
+∨	マタワ	all
+￢	ヒテイ	all
+⇒	ゴーイ	some
+⇔	ドーチ	all
+∀	フツー ゲンテイシ	all
+∃	ソンザイ ゲンテイシ	all
+⌒	コキゴー	all
+∂	ラウンドディー	all
+∇	ナブラ	all
+≪	ヒジョーニ チイサイ	all
+≫	ヒジョーニ オーキイ	all
+∽	ソージ	most
+∝	ヒレイ	most
+∫	インテグラル	most
+∬	ダブル インテグラル	most
+Å	オングストローム	all
+‰	パーミル	most
+≒	ニアリーイコール	all
+≡	ゴードー	all
+∮	コンター インテグラル	all
+∑	シグマ	all
+√	コン	all
+⊥	スイチョク	all
+∠	カク	all
+∟	チョッカク	all
+⊿	サンカクケイ	all
+∵	ナゼナラバ	all
+∩	キャップ	all
+∪	カップ	all
+♯	シャープ	some
+♭	フラット	some
+♪	オンプ	some
+†	ダガー	most
+‡	ダブルダガー	most
+¶	ダンラク	most
+Α	アルファ	none
+Β	ベータ	none
+Γ	ガンマ	none
+Δ	デルタ	none
+Ε	イプシロン	none
+Ζ	ツェータ	none
+Η	イータ	none
+Θ	シータ	none
+Ι	イオータ	none
+Κ	カッパ	none
+Λ	ラムダ	none
+Μ	ミュー	none
+Ν	ニュー	none
+Ξ	グサイ	none
+Ο	オミクロン	none
+Π	パイ	none
+Ρ	ロー	none
+Σ	シグマ	none
+Τ	タウ	none
+Υ	ウプシロン	none
+Φ	ファイ	none
+Χ	カイ	none
+Ψ	プサイ	none
+Ω	オメガ	none
+α	アルファ	none
+β	ベータ	none
+γ	ガンマ	none
+δ	デルタ	none
+ε	イプシロン	none
+ζ	ツェータ	none
+η	イータ	none
+θ	シータ	none
+ι	イオータ	none
+κ	カッパ	none
+λ	ラムダ	none
+μ	ミュー	none
+ν	ニュー	none
+ξ	グサイ	none
+ο	オミクロン	none
+π	パイ	none
+ρ	ロー	none
+σ	シグマ	none
+τ	タウ	none
+υ	ウプシロン	none
+φ	ファイ	none
+χ	カイ	none
+ψ	プサイ	none
+ω	オメガ	none
+А	アー	none
+Б	ベー	none
+В	ブエー	none
+Г	ゲー	none
+Д	デー	none
+Е	イエー	none
+Ё	ヨー	none
+Ж	ジェー	none
+З	ゼー	none
+И	イー	none
+Й	イークラトコエ	none
+К	カー	none
+Л	エリ	none
+М	エム	none
+Н	エヌ	none
+О	オー	none
+П	ペー	none
+Р	エル	none
+С	エス	none
+Т	テー	none
+У	ウー	none
+Ф	エフ	none
+Х	ハー	none
+Ц	ツェー	none
+Ч	チェー	none
+Ш	シアー	none
+Щ	シシャー	none
+Ъ	トゥブョールドゥィズナーク	none
+Ы	ウイ	none
+Ь	ミャーフキーズナーク	none
+Э	エー	none
+Ю	ユー	none
+Я	ヤー	none
+а	アー	none
+б	ベー	none
+в	ブエー	none
+г	ゲー	none
+д	デー	none
+е	イエー	none
+ё	ヨー	none
+ж	ジェー	none
+з	ゼー	none
+и	イー	none
+й	イークラトコエ	none
+к	カー	none
+л	エリ	none
+м	エム	none
+н	エヌ	none
+о	オー	none
+п	ペー	none
+р	エル	none
+с	エス	none
+т	テー	none
+у	ウー	none
+ф	エフ	none
+х	ハー	none
+ц	ツェー	none
+ч	チェー	none
+ш	シアー	none
+щ	シシャー	none
+ъ	トゥブョールドゥィズナーク	none
+ы	ウイ	none
+ь	ミャーフキーズナーク	none
+э	エー	none
+ю	ユー	none
+я	ヤー	none
+─	ケイセン	most
+│	ケイセン	most
+┌	ヒダリウエ	most
+┐	ミギウエ	most
+┘	ミギシタ	most
+└	ヒダリシタ	most
+├	タテセンミギ	most
+┬	ヨコセンシタ	most
+┤	タテセンヒダリ	most
+┴	ヨコセンウエ	most
+┼	クロス	most
+┣	タテセンミギ	most
+┳	ヨコセンシタ	most
+┫	タテセンヒダリ	most
+┻	ヨコセンウエ	most
+╋	クロス	most
+┠	タテセンミギ	most
+┯	ヨコセンシタ	most
+┨	タテセンヒダリ	most
+┷	ヨコセンウエ	most
+┿	ヨコフト クロス	most
+┝	タテセンミギ	most
+┰	ヨコセンシタ	most
+┥	タテセンヒダリ	most
+┸	ヨコセンウエ	most
+╂	タテフト クロス	most
+①	マル 1	none
+②	マル 2	none
+③	マル 3	none
+④	マル 4	none
+⑤	マル 5	none
+⑥	マル 6	none
+⑦	マル 7	none
+⑧	マル 8	none
+⑨	マル 9	none
+⑩	マル 10	none
+⑪	マル 11	none
+⑫	マル 12	none
+⑬	マル 13	none
+⑭	マル 14	none
+⑮	マル 15	none
+⑯	マル 16	none
+⑰	マル 17	none
+⑱	マル 18	none
+⑲	マル 19	none
+⑳	マル 20	none
+Ⅰ	ワン	none
+Ⅱ	ツー	none
+Ⅲ	スリー	none
+Ⅳ	フォー	none
+Ⅴ	ファイブ	none
+Ⅵ	シックス	none
+Ⅶ	セブン	none
+Ⅷ	エイト	none
+Ⅸ	ナイン	none
+Ⅹ	テン	none
+㍉	ミリ	none
+㌔	キロ	none
+㌢	センチ	none
+㍍	メートル	none
+㌘	グラム	none
+㌧	トン	none
+㌃	アール	none
+㌶	ヘクタール	none
+㍑	リットル	none
+㍗	ワット	none
+㌍	カロリー	none
+㌦	ドル	none
+㌣	セント	none
+㌫	パーセント	none
+㍊	ミリバール	none
+㌻	ページ	none
+㎜	ミリメートル	none
+㎝	センチメートル	none
+㎞	キロメートル	none
+㎎	ミリグラム	none
+㎏	キログラム	none
+㏄	シーシー	none
+㎡	ヘイホーメートル	none
+㍻	ヘイセイ	none
+№	ナンバー	none
+㏍	ケイケイ	none
+℡	テレフォン	none
+㊤	マル ウエ	none
+㊥	マル ナカ	none
+㊦	マル シタ	none
+㊧	マル ヒダリ	none
+㊨	マル ミギ	none
+㈱	カッコ カブ	none
+㈲	カッコ ユー	none
+㈹	カッコ ダイ	none
+㍾	メイジ	none
+㍽	タイショー	none
+㍼	ショーワ	none
+＇	アポストロフィー	all
+＂	コーテーション	all
+〝	ヒゲヒラキ	all
+〟	ヒゲトジ	all
+♠	スペード	most
+♡	ハート	most
+♢	ダイヤ	most
+♣	クラブ	most
+
+◯	オオキナマル	some
+☓	ナナメジュージ	some
+
+䪼	セツ	none
+䯒	コー	none
+俠	キョー	none
+呃	アク	none
+嘈	ソー	none
+噦	エツ	none
+噯	アイ	none
+嚨	ロー	none
+囊	ノー	none
+搐	チク	none
+攢	サン	none
+暍	エツ	none
+欬	ガイ	none
+涿	タク	none
+滎	エイ	none
+濇	ショク	none
+濼	レキ	none
+瀆	トク	none
+炷	シュ	none
+焠	サイ	none
+燾	トー	none
+牖	ユー	none
+璇	セン	none
+璣	キ	none
+痤	ザ	none
+痹	ヒ	none
+瘀	オ	none
+瘂	ア	none
+瘈	ケイ	none
+瘙	ソー	none
+瘭	ヒョー	none
+癃	リュー	none
+癤	セツ	none
+皶	サ	none
+砭	ヘン	none
+窠	カ	none
+糙	ソー	none
+胦	ヨー	none
+脖	ボツ	none
+脘	カン	none
+腠	ソー	none
+腧	ユ	none
+膻	ダン	none
+臊	ソー	none
+臏	ヒン	none
+芤	コー	none
+芩	キン	none
+薏	ヨク	none
+蟜	キョー	none
+譆	キ	none
+譩	イ	none
+跗	フ	none
+蹻	キョー	none
+軀	ク	none
+邈	バク	none
+郄	ゲキ	none
+鈹	ヒ	none
+鍉	テイ	none
+鑱	ザン	none
+鞕	コウ	none
+頄	キュー	none
+頰	キョー	none
+顖	シン	none
+顙	ソー	none
+飧	ソン	none
+饞	ザン	none
+髁	カ	none
+髃	グー	none
+髆	ハク	none
+髎	リョー	none

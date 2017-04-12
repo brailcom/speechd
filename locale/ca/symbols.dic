@@ -1,0 +1,164 @@
+#locale/ca/symbols.dic
+#Part de NonVisual Desktop Access (NVDA)
+#Copyright (c) 2011-2012 NVDA Contributors
+#Aquest fitxer queda cobert per la llicència GNU General Public License.
+
+complexSymbols:
+# identifier	regexp
+# Sentence endings.
+. sentence ending	(?<=[^\s.])\.(?=[\"'”’)\s]|$)
+! sentence ending	(?<=[^\s!])\!(?=[\"'”’)\s]|$)
+? sentence ending	(?<=[^\s?])\?(?=[\"'”’)\s]|$)
+# Finals de frase
+; phrase ending	(?<=[^\s;]);(?=\s|$)
+: phrase ending	(?<=[^\s:]):(?=\s|$)
+# Altres
+decimal point	(?<![^\d -])\.(?=\d)
+in-word '	(?<=[^\W_])['’]
+negative number	(?<!\w)-(?=[$£€¥.]?\d)
+
+symbols:
+# identifier	replacement[[	level][	preserve]][	# display name]
+
+# Complex symbols
+. sentence ending	punt	all	always
+! sentence ending	signe d'admiració	all	always
+? sentence ending	signe d'interrogació	all	always
+; phrase ending	punt i coma	most	always
+: phrase ending	dos punts	most	always
+signe decimal		none	always
+in-word '	apòstrof	all	norep
+negative number	menys	none	norep
+
+# Espai en blanc
+\0	en blanc	char	# null
+\t	tabulador
+\n	línia nova	char
+\f	salt de pàgina	none
+\r	retorn de carro	char
+ 	espai	char
+ 	espai inseparable	char	# no-break space
+
+# Puntuació estàndard/símbols
+!	signe d'admiració	all
+"	cometes	most
+\#	coixinet	most
+$	dòlar	all	norep
+£	lliura esterlina	all	norep
+€	euro	all	norep
+¢	cèntim	all	norep
+¥	ien	all	norep
+₹	rúpia	some	norep
+%	percentatge	some
+&	i comercial	some
+'	apòstrof	all
+(	parèntesi d'obertura	most
+)	parèntesi de tancament	most
+*	asterisc	some
++	més	some
+,	coma	all	always
+-	guionet	most
+.	punt	some
+/	barra inclinada	some
+:	dos punts	most	norep
+;punt i coma	most
+<	menor que	most
+>	major que	most
+=	igual	some
+?	signe d'interrogació	all
+@	arrova	some
+[	claudàtor d'obertura	most
+]	claudàtor de tancament	most
+\\	barra invertida	most
+^	circumflex	most
+_	guió baix	most
+`	greu	most
+{	obrir clau	most
+}	tancar clau	most
+|	barra pleca	most
+~	titlla	most
+
+# Altres caràcters
+•	pic	some
+…	punts suspensius	all	always
+...	punts suspensius	all	always
+	pic	some
+“	cometes altes d'obertura	most
+”	cometes altes de tancament	most
+‘	cometes simples d'obertura	most
+’	cometes simples de tancament	most
+–	guió	most
+—	guió llarg	most
+●	pic	most
+¨	dièresi	most
+‎	marca d'esquerra a dreta	char
+	marca de dreta a esquerra	char
+■	quadrat negre	some
+▪	quadrat negre	some
+◾	quadrat negre	some
+◦	pic blanc	some
+➔	fletxa dreta	some
+§	secció	all
+°	grau	some
+«	cometes baixes d'obertura
+»	cometes baixes de tancament
+µ	mi	some
+¹	superíndex 1	some
+²	superíndex 2	some
+³	superíndex 3	some
+®	registrada	some
+™	marca registrada	some
+©	copyright	some
+±	Més o menys	most
+×	signe de multiplicar	most
+÷	signe de dividir by	most
+←	fletxa esquerra	some
+→	fletxa dreta	some
+✓	vist	some
+✔	vist	some
+#Operadors matemàtics U+2200 to U+220F
+
+∀	per a tot 	none
+∁	Complement	none
+∂	Derivada parcial	none
+∃	existeix	none
+∄	no existeix	none
+∅	CONJUNT BUIT	none
+∆	INCREMENT	none
+∇	NABLA	none
+∈	PERTANY	none
+∉	NO PERTANY	none
+∊	PERTANY	none
+∋	CONTÉ	none
+∌	NO CONTÉ	none
+∍	CONTÉ	none
+∍	FI DEMOSTRACIÓ	none
+∏	PRODUCTE	none
+
+# Altres operadors matemàtics
+
+∑	SUMATORI	none
+√	ARREL QUADRADA	none
+∛	ARREL CÚBICA	none
+∜	ARREL BIQUADRADA	none
+∝	PROPORCIONAL	none
+∞	INFINIT	none
+∟	ANGLE RECTE	none
+∠	ANGLE	none
+∥	PARAL·LEL	none
+∦	NO PARAL·LEL	none
+∧	I LÒGIC	none
+∨	O LÒGICA	none
+∩	INTERSECCIÓ	none
+∪	UNIÓ	none
+∫	INTEGRAL	none
+∴	PER TANT	none
+∵	JA QUE	none
+∶	RAÓ	none
+∷	PROPORCIÓ	none
+≤	MENOR O IGUAL	none
+≥	MAJOR O IGUAL	none
+⊂	INCLÒS	none
+⊃	INCLOU	none
+⊆	INCLÒS O IGUAL	none
+⊇	INCLOU O IGUAL A	none

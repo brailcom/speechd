@@ -1,0 +1,112 @@
+﻿#locale/nl/symbols.dic
+#A part of NonVisual Desktop Access (NVDA)
+#Copyright (c) 2011-2012 NVDA Contributors
+#This file is covered by the GNU General Public License.
+
+complexSymbols:
+# identifier	regexp
+# Others
+decimal point	(?<=\d)\,(?=\d)
+thousands separator	(?<=\d)\.(?=\d)
+begin-word '	((?<=\s)|(?<=^))'(?=\w(\s|$|[-.,?!]))
+
+symbols:
+# identifier	replacement[[	level][	preserve]][	# display name]
+
+# Complex symbols
+. sentence ending	punt	all	always
+! sentence ending	uitroepteken	all	always
+? sentence ending	vraagteken	all	always
+; phrase ending	puntcomma	most	always
+: phrase ending	dubbele punt	most	always
+decimal point		none	always
+thousands separator	punt	all	norep
+in-word '	apostrofe	all	norep
+begin-word '	apostrofe	all	norep
+negative number	minus	none	norep
+
+# Whitespace
+\0	leeg	char	# null
+\t	tab
+\n	nieuwe regel	char
+\f	pagina-einde	none
+\r	nieuwe regel	char
+ 	spatie	char
+ 	spatie	char	# no-break space
+
+# Standard punctuation/symbols
+!	uitroepteken	all
+"	aanhalingsteken	most
+\#	hekje	most
+$	dollar	all	norep
+£	pond	all	norep
+€	euro	all	norep
+¢	cent	all	norep
+¥	yen	all	norep
+%	procent	some
+&	en	some
+'	apostrofe	all
+(	haakje openen	most
+)	haakje sluiten	most
+*	ster	some
++	plus	some
+,	comma	all	always
+-	min	most
+.	punt	some
+/	slash	some
+:	dubbele punt	most	norep
+;	puntcomma	most
+<	kleiner dan	most
+>	groter dan	most
+=	gelijk aan	some
+?	vraagteken	all
+@	at	some
+[	rechte haak openen	most
+]	rechte haak sluiten	most
+\\	backslash	most
+^	dakje	most
+_	onderstreping	most
+`	accent grave	most
+{	accolade openen	most
+}	accolade sluiten	most
+|	pijp	most
+~	tilde	most
+
+# Other characters
+•	opsommingsteken	some
+…	punt punt punt	all	always
+...	punt punt punt	all	always
+	opsommingsteken	some
+“	aanhalingsteken openen	most
+”	aanhalingsteken sluiten	most
+‘	enkel aanhalingsteken openen	most
+’	enkel aanhalingsteken sluiten	most
+–	en streepje	most
+—	em streepje	most
+●	cirkel	most
+¨	diaeresis	most
+‎	links naar rechts markering	char
+‏	rechts naar links markering	char
+■	zwart vierkant	some
+▪	zwart vierkant	some
+◾	zwart vierkant	some
+◦	wit opsommingsteken	some
+➔	pijl naar rechts	some
+§	sectie	all
+°	graden	some
+«	double left pointing angle bracket
+»	double right pointing angle bracket
+µ	micro	some
+¹	superscript 1	some
+²	superscript 2	some
+³	superscript 3	some
+®	geregistreerd	some
+™	handelsmerk	some
+©	Copyright	some
+±	Plus of Minus	most
+×	maal	most
+÷	delen door	most
+←	pijl naar links	some
+→	pijl naar rechts	some
+✓	vinkje	some
+✔	vinkje	some
