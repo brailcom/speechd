@@ -387,7 +387,9 @@ static void speech_symbols_free(SpeechSymbols *ss)
 	g_free(ss);
 }
 
-static SpeechSymbols *speech_symbols_new(const gchar *locale)
+/* Loads a symbols file for @p locale.
+ * Returns a SpeechSymbols*, or NULL on error. */
+static gpointer speech_symbols_new(const gchar *locale)
 {
 	SpeechSymbols *ss = g_malloc(sizeof *ss);
 	gchar *path = g_build_filename(LOCALE_DATA, locale, "symbols.dic", NULL);
@@ -414,8 +416,7 @@ static SpeechSymbols *get_locale_speech_symbols(const gchar *locale)
 		G_symbols_dicts = locale_map_new((GDestroyNotify) speech_symbols_free);
 	}
 
-	return locale_map_fetch(G_symbols_dicts, locale,
-				(LocaleMapCreateDataFunc) speech_symbols_new);
+	return locale_map_fetch(G_symbols_dicts, locale, speech_symbols_new);
 }
 
 /*------------------ Speech symbol compilation & processing -----------------*/
@@ -436,8 +437,9 @@ static void speech_symbols_processor_free(SpeechSymbolProcessor *ssp)
 	g_free(ssp);
 }
 
-/* Loads and compiles speech symbols conversions */
-static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale)
+/* Loads and compiles speech symbols conversions for @p locale.
+ * Returns a SpeechSymbolProcessor*, or NULL on error */
+static gpointer speech_symbols_processor_new(const char *locale)
 {
 	SpeechSymbolProcessor *ssp = NULL;
 	SpeechSymbols *ss;
@@ -751,8 +753,7 @@ static SpeechSymbolProcessor *get_locale_speech_symbols_processor(const gchar *l
 		G_processors = locale_map_new((GDestroyNotify) speech_symbols_processor_free);
 	}
 
-	return locale_map_fetch(G_processors, locale,
-				(LocaleMapCreateDataFunc) speech_symbols_processor_new);
+	return locale_map_fetch(G_processors, locale, speech_symbols_processor_new);
 }
 
 /*----------------------------------- API -----------------------------------*/
