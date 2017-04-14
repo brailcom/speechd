@@ -130,9 +130,11 @@ static gpointer locale_map_fetch(LocaleMap *map, const gchar *locale,
 
 	for (i = 0; i < 2; i++) {
 		gpointer value;
+		gchar *l;
 
 		if (i == 0) {
 			value = g_hash_table_lookup(map, locale);
+			l = g_strdup(locale);
 		} else {
 			gchar **parts = g_strsplit_set(locale, "_-", 2);
 			if (!parts[0] || !parts[1]) {
@@ -140,17 +142,21 @@ static gpointer locale_map_fetch(LocaleMap *map, const gchar *locale,
 				g_strfreev(parts);
 				continue;
 			}
-			value = g_hash_table_lookup(map, parts[0]);
+			l = g_strdup(parts[0]);
+			value = g_hash_table_lookup(map, l);
 			g_strfreev(parts);
 		}
-		if (value)
-			return value;
-		/* try to create */
-		value = create(locale);
 		if (value) {
-			g_hash_table_insert(map, g_strdup(locale), value);
+			g_free(l);
 			return value;
 		}
+		/* try to create */
+		value = create(l);
+		if (value) {
+			g_hash_table_insert(map, l, value);
+			return value;
+		}
+		g_free(l);
 	}
 
 	return NULL;
