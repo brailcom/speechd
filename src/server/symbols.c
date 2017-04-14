@@ -784,7 +784,7 @@ static gchar *process_speech_symbols(const gchar *locale, const gchar *text, Sym
 void insert_symbols(TSpeechDMessage *msg)
 {
 	gchar *processed;
-	SymLvl level;
+	SymLvl level = SYMLVL_NONE;
 
 	if (msg->settings.ssml_mode == SPD_DATA_SSML) {
 		/* FIXME: we need not ever speak the SSML syntax */
