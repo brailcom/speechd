@@ -69,9 +69,8 @@ typedef struct {
 /* Represents all symbols in a symbols file.
  * This is roughly an internal representation of the symbols files. */
 typedef struct {
-	/* FIXME: should tables be ordered? */
-	/* table of identifier(string):pattern(string) */
-	GHashTable *complex_symbols;
+	/* List of [identifier(string), pattern(string)] */
+	GList *complex_symbols;
 	/* table of identifier(string):symbol(SpeechSymbol) */
 	GHashTable *symbols;
 } SpeechSymbols;
@@ -215,8 +214,7 @@ static int speech_symbols_load_complex_symbol(SpeechSymbols *ss, const char *lin
 		return -1;
 	}
 
-	g_hash_table_insert(ss->complex_symbols, parts[0], parts[1]);
-	g_free(parts);
+	ss->complex_symbols = g_list_append(ss->complex_symbols, parts);
 
 	return 0;
 }
@@ -395,7 +393,7 @@ static int speech_symbols_load(SpeechSymbols *ss, const char *filename, gboolean
 
 static void speech_symbols_free(SpeechSymbols *ss)
 {
-	g_hash_table_destroy(ss->complex_symbols);
+	g_list_free_full(ss->complex_symbols, (GDestroyNotify) g_strfreev);
 	g_hash_table_destroy(ss->symbols);
 	g_free(ss);
 }
@@ -407,8 +405,7 @@ static gpointer speech_symbols_new(const gchar *locale)
 	SpeechSymbols *ss = g_malloc(sizeof *ss);
 	gchar *path = g_build_filename(LOCALE_DATA, locale, "symbols.dic", NULL);
 
-	ss->complex_symbols = g_hash_table_new_full(g_str_hash, g_str_equal,
-						    g_free, g_free);
+	ss->complex_symbols = NULL;
 	ss->symbols = g_hash_table_new_full(g_str_hash, g_str_equal,
 					    NULL /* key is a member of value */,
 					    (GDestroyNotify) speech_symbol_free);
@@ -493,18 +490,18 @@ static gpointer speech_symbols_processor_new(const char *locale)
 	for (GSList *node = sources; node; node = node->next) {
 		SpeechSymbols *syms = node->data;
 
-		g_hash_table_iter_init(&iter, syms->complex_symbols);
-		while (g_hash_table_iter_next(&iter, &key, &value)) {
+		for (GList *node2 = syms->complex_symbols; node2; node2 = node2->next) {
 			SpeechSymbol *sym;
+			gchar **key_val = node2->data;
 
-			if (g_hash_table_contains(ssp->symbols, key)) {
+			if (g_hash_table_contains(ssp->symbols, key_val[0])) {
 				/* Already defined */
 				continue;
 			}
 
 			sym = speech_symbol_new();
-			sym->identifier = g_strdup(key);
-			sym->pattern = g_strdup(value);
+			sym->identifier = g_strdup(key_val[0]);
+			sym->pattern = g_strdup(key_val[1]);
 			g_hash_table_insert(ssp->symbols, sym->identifier, sym);
 			ssp->complex_list = g_list_append(ssp->complex_list, sym);
 		}
