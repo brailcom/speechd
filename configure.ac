@@ -363,6 +363,10 @@ AC_SUBST([moduleconforigdir])
 snddatadir='${datadir}/sounds/speech-dispatcher'
 AC_SUBST([snddatadir])
 
+# Path for locale files:
+localedatadir='${datadir}/speech-dispatcher/locale'
+AC_SUBST([localedatadir])
+
 # Path for module binaries:
 AC_ARG_WITH([module-bindir],
 	AS_HELP_STRING([--with-module-bindir],[Directory where to install speech-dispatcher modules (defaults to ${libdir}/speech-dispatcher-modules)]),
@@ -391,6 +395,7 @@ AC_CONFIG_FILES([Makefile
                  config/modules/Makefile
                  doc/Makefile
                  include/Makefile
+                 locale/Makefile
                  po/Makefile.in
                  src/Makefile
                  src/api/Makefile
