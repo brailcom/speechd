@@ -351,8 +351,10 @@ static int speech_symbols_load(SpeechSymbols *ss, const char *filename, gboolean
 	int (*handler) (SpeechSymbols *, const char *) = NULL;
 
 	fp = fopen(filename, "r");
-	if (!fp)
+	if (!fp) {
+		MSG2(1, "symbols", "Failed to open file '%s': %s", filename, g_strerror(errno));
 		return -1;
+	}
 
 	/* skip UTF-8 BOM if present */
 	if (fread(bom, sizeof *bom, sizeof bom, fp) != sizeof bom ||
