@@ -311,7 +311,12 @@ static int speech_symbols_load_symbol(SpeechSymbols *ss, const char *line)
 	if (parts[0][0] == '\\' && parts[0][1]) {
 		identifier = g_strdup(parts[0] + 1);
 		switch (identifier[0]) {
-		case '0': identifier[0] = '\0'; break; /* FIXME: len */
+		case '0':
+			identifier[0] = '\0';
+			/* FIXME: support this */
+			MSG2(1, "symbols", "Loading NUL byte entry is not yet supported");
+			goto err;
+			break;
 		case 't': identifier[0] = '\t'; break;
 		case 'n': identifier[0] = '\n'; break;
 		case 'r': identifier[0] = '\r'; break;
@@ -516,13 +521,6 @@ static gpointer speech_symbols_processor_new(const char *locale)
 
 			sym = g_hash_table_lookup(ssp->symbols, key);
 			if (!sym) {
-				if (((char *)key)[0] == 0) {
-					/* FIXME: NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-					 * A NULL byte, I'm so fucked up.  TODO: handle length properly. */
-					MSG2(1, "symbols", "WARNING: not including NUL byte, not supported yet");
-					continue;
-				}
-
 				/* This is a new simple symbol.
 				 * (All complex symbols have already been added.) */
 				sym = speech_symbol_new();
