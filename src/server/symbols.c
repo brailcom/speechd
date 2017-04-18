@@ -22,13 +22,53 @@
  */
 
 /* Based off NVDA's symbols replacement code (GPLv2+):
- * https://github.com/nvaccess/nvda/blob/master/source/characterProcessing.py */
+ * https://github.com/nvaccess/nvda/blob/master/source/characterProcessing.py
+ *
+ * OVERVIEW
+ *
+ * This file contains all of the logic related to reading, processing and
+ * using NVDA symbols replacement files.  It should be 100% compatible with
+ * NVDA's equivalent.
+ *
+ * The files are read by the speech_symbols_load() family of functions.
+ * Each symbol is loaded into a SpeechSymbol structure, and the symbols of
+ * a file (both simple and complex) are loaded into a SpeechSymbols (note the
+ * plural form) structure.
+ *
+ * The loaded symbols are compiled into a GLib PCRE regular expression
+ * (originally a Python one, but they are compatible enough) and converted to
+ * a fully usable form into a SpeechSymbolProcessor.  This processor is then
+ * usable to pre-process an input text with
+ * speech_symbols_processor_process_text().
+ *
+ * The loading steps are automatically handled when calling
+ * speech_symbols_processor_new().  To avoid re-processing files more than
+ * once even if they are used by different SpeechSymbolProcessor, the loaded
+ * files are cached as SpeechSymbols into the G_symbols_dicts global variable.
+ * Similarly, SpeechSymbolProcessor are cached into the G_processors global
+ * variable.
+ *
+ * The caches are automatically loaded when looking up an entry with either
+ * get_locale_speech_symbols() (for SpeechSymbols) or
+ * get_locale_speech_symbols_processor() (for SpeechSymbolProcessor).
+ * This loading is aware of locale strings syntax and will fallback on the
+ * language code alone if the language+country combo isn't found.
+ *
+ * WARNING: this module is NOT thread-safe.  Most notably, the caches are not
+ * thread-safe, so the public API insert_symbols() shouldn't be balled from
+ * several threads at once.  This should not be an issue, as it is supposed to
+ * be called from the speak thread only.
+ *
+ * This file is mostly a 1:1 translation of NVDA's python code doing the same
+ * thing, with slight simplifications or adaptations for C, and removal of
+ * unused features like loading user-specific symbols files.
+ */
 
 /*
  * TODO:
  * - play nice with SSML.  That might not be easy.
  * - support NUL byte representation.  However, they aren't properly handled
- *   in the rest of SPD, so it' snot so important.
+ *   in the rest of SPD, so it's not so important.
  */
 
 #ifdef HAVE_CONFIG_H
