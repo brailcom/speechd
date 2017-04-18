@@ -397,6 +397,7 @@ static int speech_symbols_load(SpeechSymbols *ss, const char *filename, gboolean
 	char *line = NULL;
 	size_t n = 0;
 	unsigned char bom[3];
+	/* line parsing callback for the current section */
 	int (*handler) (SpeechSymbols *, const char *) = NULL;
 
 	fp = fopen(filename, "r");
@@ -703,7 +704,7 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 
 	if ((capture = fetch_named_matching(match_info, "rstripSpace"))) {
 		MSG2(5, "symbols", "replacing <rstripSpace>");
-		/* nothing to do */
+		/* nothing to do, just don't add it in the result */
 	} else if ((capture = fetch_named_matching(match_info, "repeated"))) {
 		/* Repeated character. */
 		char ch[2] = { capture[0], 0 };
@@ -784,7 +785,7 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 	}
 }
 
-/* Processes some input and convert symbols in it */
+/* Processes some input and converts symbols in it */
 static gchar *speech_symbols_processor_process_text(SpeechSymbolProcessor *ssp, const gchar *text, SymLvl level)
 {
 	gchar *processed;
