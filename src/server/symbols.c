@@ -462,6 +462,8 @@ static gpointer speech_symbols_processor_new(const char *locale)
 	GString *pattern;
 	GError *error = NULL;
 	GSList *sources = NULL;
+	GSList *slist_node;
+	GList *list_node;
 
 	/* TODO: load user custom symbols? */
 	ss = get_locale_speech_symbols(locale);
@@ -487,12 +489,12 @@ static gpointer speech_symbols_processor_new(const char *locale)
 	ssp->complex_list = NULL;
 
 	/* Add all complex symbols first, as they take priority. */
-	for (GSList *node = sources; node; node = node->next) {
-		SpeechSymbols *syms = node->data;
+	for (slist_node = sources; slist_node; slist_node = slist_node->next) {
+		SpeechSymbols *syms = slist_node->data;
 
-		for (GList *node2 = syms->complex_symbols; node2; node2 = node2->next) {
+		for (list_node = syms->complex_symbols; list_node; list_node = list_node->next) {
 			SpeechSymbol *sym;
-			gchar **key_val = node2->data;
+			gchar **key_val = list_node->data;
 
 			if (g_hash_table_contains(ssp->symbols, key_val[0])) {
 				/* Already defined */
@@ -508,8 +510,8 @@ static gpointer speech_symbols_processor_new(const char *locale)
 	}
 
 	/* Supplement the data for complex symbols and add all simple symbols. */
-	for (GSList *node = sources; node; node = node->next) {
-		SpeechSymbols *syms = node->data;
+	for (slist_node = sources; slist_node; slist_node = slist_node->next) {
+		SpeechSymbols *syms = slist_node->data;
 
 		g_hash_table_iter_init(&iter, syms->symbols);
 		while (g_hash_table_iter_next(&iter, &key, &value)) {
@@ -585,8 +587,8 @@ static gpointer speech_symbols_processor_new(const char *locale)
 	/* Complex symbols.
 	 * Each complex symbol has its own named group so we know which symbol matched. */
 	guint i = 0;
-	for (GList *node = ssp->complex_list; node; node = node->next, i++) {
-		SpeechSymbol *sym = node->data;
+	for (list_node = ssp->complex_list; list_node; list_node = list_node->next, i++) {
+		SpeechSymbol *sym = list_node->data;
 		g_string_append_c(pattern, '|');
 		g_string_append_printf(pattern, "(?P<c%u>%s)", i, sym->pattern);
 	}
@@ -594,8 +596,8 @@ static gpointer speech_symbols_processor_new(const char *locale)
 	 * These are all handled in one named group.
 	 * Because the symbols are just text, we know which symbol matched just by looking at the matched text. */
 	escaped_multi = g_string_new(NULL);
-	for (GList *node = multi_chars_list; node; node = node->next) {
-		escaped = g_regex_escape_string(node->data, -1);
+	for (list_node = multi_chars_list; list_node; list_node = list_node->next) {
+		escaped = g_regex_escape_string(list_node->data, -1);
 		if (escaped_multi->len > 0)
 			g_string_append_c(escaped_multi, '|');
 		g_string_append(escaped_multi, escaped);
@@ -682,8 +684,9 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 		} else {
 			/* Complex symbol. */
 			guint i = 0;
+			GList *node;
 
-			for (GList *node = ssp->complex_list; !sym && node; node = node->next, i++) {
+			for (node = ssp->complex_list; !sym && node; node = node->next, i++) {
 				gchar *group_name = g_strdup_printf("c%u", i);
 
 				if ((capture = fetch_named_matching(match_info, group_name))) {
