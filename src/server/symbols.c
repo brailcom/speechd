@@ -291,7 +291,7 @@ static int speech_symbols_load_symbol(SpeechSymbols *ss, const char *line)
 	SpeechSymbol *sym;
 
 	/* last field, if commented: display name */
-	if (parts[len - 1][0] == '#') {
+	if (len > 0 && parts[len - 1][0] == '#') {
 		/* Regardless of how many fields there are,
 		 * if the last field is a comment, it is the display name. */
 		const char *p;
