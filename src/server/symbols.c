@@ -502,7 +502,7 @@ static gpointer speech_symbols_processor_new(const char *locale)
 	SpeechSymbols *ss;
 	GHashTableIter iter;
 	gpointer key, value;
-	GString *characters = g_string_new(NULL);
+	GString *characters;
 	GSList *multi_chars_list = NULL;
 	gchar *escaped;
 	GString *escaped_multi;
@@ -559,6 +559,7 @@ static gpointer speech_symbols_processor_new(const char *locale)
 	ssp->complex_list = g_slist_reverse(ssp->complex_list);
 
 	/* Supplement the data for complex symbols and add all simple symbols. */
+	characters = g_string_new(NULL);
 	for (node = sources; node; node = node->next) {
 		SpeechSymbols *syms = node->data;
 
