@@ -109,7 +109,7 @@ typedef struct {
 /* Represents all symbols in a symbols file.
  * This is roughly an internal representation of the symbols files. */
 typedef struct {
-	/* List of [identifier(string), pattern(string)] */
+	/* Ordered list of [identifier(string), pattern(string)] */
 	GList *complex_symbols;
 	/* table of identifier(string):symbol(SpeechSymbol) */
 	GHashTable *symbols;
@@ -254,7 +254,7 @@ static int speech_symbols_load_complex_symbol(SpeechSymbols *ss, const char *lin
 		return -1;
 	}
 
-	ss->complex_symbols = g_list_append(ss->complex_symbols, parts);
+	ss->complex_symbols = g_list_prepend(ss->complex_symbols, parts);
 
 	return 0;
 }
@@ -425,6 +425,12 @@ static int speech_symbols_load(SpeechSymbols *ss, const char *filename, gboolean
 		}
 	}
 
+	/* The elements are added to the start of the list in
+	 * speech_symbols_load_complex_symbol() for better speed (as adding to
+	 * the end requires walking the whole list), but we want them in the
+	 * order they are in the file, so reverse the list. */
+	ss->complex_symbols = g_list_reverse(ss->complex_symbols);
+
 	g_free(line);
 	fclose(fp);
 
@@ -545,9 +551,11 @@ static gpointer speech_symbols_processor_new(const char *locale)
 			sym->identifier = g_strdup(key_val[0]);
 			sym->pattern = g_strdup(key_val[1]);
 			g_hash_table_insert(ssp->symbols, sym->identifier, sym);
-			ssp->complex_list = g_list_append(ssp->complex_list, sym);
+			ssp->complex_list = g_list_prepend(ssp->complex_list, sym);
 		}
 	}
+	/* Elements are added at the start for performance, but we want them in the original order */
+	ssp->complex_list = g_list_reverse(ssp->complex_list);
 
 	/* Supplement the data for complex symbols and add all simple symbols. */
 	for (slist_node = sources; slist_node; slist_node = slist_node->next) {
