@@ -205,6 +205,9 @@ GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module)
     GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPunctuationMode,
 			       msg_settings.punctuation_mode, SPDPunctuation,
 			       str2EPunctMode)
+    GLOBAL_FDSET_OPTION_CB_INT(DefaultSymbolsPreprocessing, symbols_preprocessing,
+			       val == FALSE || val == TRUE,
+			       "Whether to use server-side symbols pre-processing")
     GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultCapLetRecognition,
 			       msg_settings.cap_let_recogn, SPDCapitalLetters,
 			       str2ECapLetRecogn)
@@ -349,6 +352,7 @@ DOTCONF_CB(cb_BeginClient)
 	    SET_PAR(msg_settings.cap_let_recogn, -1)
 	    SET_PAR(pause_context, -1);
 	SET_PAR(ssml_mode, -1);
+	SET_PAR(symbols_preprocessing, -1);
 	SET_PAR_STR(msg_settings.voice.language)
 	    SET_PAR_STR(output_module)
 
@@ -422,6 +426,7 @@ configoption_t *load_config_options(int *num_options)
 	ADD_CONFIG_OPTION(DefaultPriority, ARG_STR);
 	ADD_CONFIG_OPTION(MaxHistoryMessages, ARG_INT);
 	ADD_CONFIG_OPTION(DefaultPunctuationMode, ARG_STR);
+	ADD_CONFIG_OPTION(DefaultSymbolsPreprocessing, ARG_INT);
 	ADD_CONFIG_OPTION(DefaultClientName, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultVoiceType, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultSpelling, ARG_TOGGLE);
@@ -449,6 +454,7 @@ void load_default_global_set_options()
 {
 	GlobalFDSet.priority = SPD_MESSAGE;
 	GlobalFDSet.msg_settings.punctuation_mode = SPD_PUNCT_NONE;
+	GlobalFDSet.symbols_preprocessing = FALSE;
 	GlobalFDSet.msg_settings.spelling_mode = 0;
 	GlobalFDSet.msg_settings.rate = 0;
 	GlobalFDSet.msg_settings.pitch = 0;

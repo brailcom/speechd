@@ -82,6 +82,7 @@ typedef struct {
 	int paused_while_speaking;
 	SPDMessageType type;	/* Type of the message (1=text, 2=icon, 3=char, 4=key) */
 	SPDDataMode ssml_mode;	/* SSML mode on (1)/off (0) */
+	gboolean symbols_preprocessing; /* whether to transform symbols/punctuation in the input */
 	SPDPriority priority;	/* Priority between 1 and 5 (1 - highest, 5 - lowest) */
 	SPDMsgSettings msg_settings;
 	char *client_name;	/* Name of the client. */

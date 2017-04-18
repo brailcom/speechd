@@ -311,6 +311,7 @@ void update_cl_settings(gpointer data, gpointer user_data)
 	    CHECK_SET_PAR(msg_settings.cap_let_recogn, -1)
 	    CHECK_SET_PAR(pause_context, -1)
 	    CHECK_SET_PAR(ssml_mode, -1)
+	    CHECK_SET_PAR(symbols_preprocessing, -1)
 	    CHECK_SET_PAR_STR(msg_settings.voice.language)
 	    CHECK_SET_PAR_STR(output_module)
 
@@ -400,6 +401,20 @@ int set_ssml_mode_uid(int uid, SPDDataMode ssml_mode)
 		return 1;
 
 	settings->ssml_mode = ssml_mode;
+	return 0;
+}
+
+SET_SELF_ALL(gboolean, symbols_preprocessing)
+
+int set_symbols_preprocessing_uid(int uid, gboolean symbols_preprocessing)
+{
+	TFDSetElement *settings;
+
+	settings = get_client_settings_by_uid(uid);
+	if (settings == NULL)
+		return 1;
+
+	settings->symbols_preprocessing = symbols_preprocessing;
 	return 0;
 }
 
@@ -525,6 +540,7 @@ TFDSetElement *default_fd_set(void)
 
 	new->pause_context = GlobalFDSet.pause_context;
 	new->ssml_mode = GlobalFDSet.ssml_mode;
+	new->symbols_preprocessing = GlobalFDSet.symbols_preprocessing;
 	new->notification = GlobalFDSet.notification;
 
 	new->active = 1;

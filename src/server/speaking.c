@@ -221,7 +221,8 @@ void *speak(void *data)
 
 		/* Insert index marks into textual messages */
 		if (message->settings.type == SPD_MSGTYPE_TEXT) {
-			insert_symbols(message);
+			if (message->settings.symbols_preprocessing)
+				insert_symbols(message);
 			insert_index_marks(message,
 					   message->settings.ssml_mode);
 		}
