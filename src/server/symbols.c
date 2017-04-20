@@ -154,11 +154,6 @@ static LocaleMap *locale_map_new(GDestroyNotify value_destroy)
 	return g_hash_table_new_full(g_str_hash, g_str_equal, g_free, value_destroy);
 }
 
-static void locale_map_free(LocaleMap *map)
-{
-	g_hash_table_destroy(map);
-}
-
 /* Fetches or creates a locale item for the map.
  * If @c locale contains a country and data for the whole locale is not found,
  * tries to load the data for the language alone. */
