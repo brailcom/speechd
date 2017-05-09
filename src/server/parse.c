@@ -469,13 +469,13 @@ char *parse_set(const char *buf, const int bytes, const int fd,
 
 			if (i == 3) {
 				if (g_str_has_suffix(split_command[i], "\n")) {
-					synthesis_voice = g_strndup(split_command[i], strlen(split_command[i]) - 1);
+					synthesis_voice = g_strndup(split_command[i], strlen(split_command[i]) - 2);
 				} else {
 					synthesis_voice = g_strdup(split_command[i]);
 				}
 			} else if (i > 3) {
 				if (g_str_has_suffix(split_command[i], "\n")) {
-					tmp = g_strndup(split_command[i], strlen(split_command[i]) - 1);
+					tmp = g_strndup(split_command[i], strlen(split_command[i]) - 2);
 					g_free(split_command[i]);
 					split_command[i] = tmp;
 					tmp = NULL;
