@@ -773,6 +773,7 @@ static void espeak_set_synthesis_voice(char *synthesis_voice)
 	gchar **voice_split = NULL;
 	gchar **identifier = NULL;
 	gchar *variant_file = NULL;
+	gboolean exact_voice_match = FALSE;
 	int i = 0;
 
 	/* Espeak-ng can accept the full voice name as the voice, but will
@@ -787,7 +788,13 @@ static void espeak_set_synthesis_voice(char *synthesis_voice)
 			variant_name = voice_split[1];
 			g_free(voice_split);
 
-			g_strdelimit(voice_name, "_", ' ');
+			for (i = 0; espeak_voice_list[i] != NULL; i++) {
+				if (g_strcmp0(espeak_voice_list[i]->name, voice_name) == 0)
+					exact_voice_match = TRUE;
+			}
+
+			if (!exact_voice_match)
+				g_strdelimit(voice_name, "_", ' ');
 
 			for (i = 0; espeak_variants[i] != NULL; i++) {
 				identifier = g_strsplit(espeak_variants[i]->identifier, "/", 2);
@@ -817,7 +824,13 @@ static void espeak_set_synthesis_voice(char *synthesis_voice)
 			g_free(voice_name);
 			g_free(variant_name);
 		} else {
-			g_strdelimit(synthesis_voice, "_", ' ');
+			for (i = 0; espeak_voice_list[i] != NULL; i++) {
+				if (g_strcmp0(espeak_voice_list[i]->name, synthesis_voice) == 0)
+					exact_voice_match = TRUE;
+			}
+
+			if (!exact_voice_match)
+				g_strdelimit(synthesis_voice, "_", ' ');
 		}
 
 		espeak_ERROR ret = espeak_SetVoiceByName(synthesis_voice);
