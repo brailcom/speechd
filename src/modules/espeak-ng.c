@@ -103,6 +103,7 @@ static gboolean espeak_stop_requested = FALSE;
 
 static int espeak_sample_rate = 0;
 static SPDVoice **espeak_voice_list = NULL;
+static SPDVoice **orig_espeak_voice_list = NULL;
 static const espeak_VOICE **espeak_variants = NULL;
 
 /* < The playback queue. */
@@ -766,6 +767,30 @@ static void espeak_set_language(char *lang)
 	espeak_set_language_and_voice(lang, msg_settings.voice_type);
 }
 
+static char *replace_underscores(char *text)
+{
+	gboolean orig_match = FALSE;
+	gboolean altered_match = FALSE;
+	int i = 0;
+
+	if (text != NULL) {
+		for (i = 0; orig_espeak_voice_list[i] != NULL; i++) {
+			if (g_strcmp0(orig_espeak_voice_list[i]->name, text) == 0)
+				orig_match = TRUE;
+		}
+
+		for (i = 0; espeak_voice_list[i] != NULL; i++) {
+			if (g_strcmp0(espeak_voice_list[i]->name, text) == 0)
+				altered_match = TRUE;
+		}
+
+		if (altered_match && !orig_match)
+			text = g_strdelimit(text, "_", ' ');
+	}
+
+	return text;
+}
+
 static void espeak_set_synthesis_voice(char *synthesis_voice)
 {
 	gchar *voice_name = NULL;
@@ -773,7 +798,6 @@ static void espeak_set_synthesis_voice(char *synthesis_voice)
 	gchar **voice_split = NULL;
 	gchar **identifier = NULL;
 	gchar *variant_file = NULL;
-	gboolean exact_voice_match = FALSE;
 	int i = 0;
 
 	/* Espeak-ng can accept the full voice name as the voice, but will
@@ -787,14 +811,7 @@ static void espeak_set_synthesis_voice(char *synthesis_voice)
 			voice_name = voice_split[0];
 			variant_name = voice_split[1];
 			g_free(voice_split);
-
-			for (i = 0; espeak_voice_list[i] != NULL; i++) {
-				if (g_strcmp0(espeak_voice_list[i]->name, voice_name) == 0)
-					exact_voice_match = TRUE;
-			}
-
-			if (!exact_voice_match)
-				g_strdelimit(voice_name, "_", ' ');
+			voice_name = replace_underscores(voice_name);
 
 			for (i = 0; espeak_variants[i] != NULL; i++) {
 				identifier = g_strsplit(espeak_variants[i]->identifier, "/", 2);
@@ -824,13 +841,7 @@ static void espeak_set_synthesis_voice(char *synthesis_voice)
 			g_free(voice_name);
 			g_free(variant_name);
 		} else {
-			for (i = 0; espeak_voice_list[i] != NULL; i++) {
-				if (g_strcmp0(espeak_voice_list[i]->name, synthesis_voice) == 0)
-					exact_voice_match = TRUE;
-			}
-
-			if (!exact_voice_match)
-				g_strdelimit(synthesis_voice, "_", ' ');
+			synthesis_voice = replace_underscores(synthesis_voice);
 		}
 
 		espeak_ERROR ret = espeak_SetVoiceByName(synthesis_voice);
@@ -1228,7 +1239,6 @@ static SPDVoice **espeak_list_synthesis_voices()
 			voice = g_new0(SPDVoice, 1);
 
 			voice->name = g_strdup(v->name);
-			voice->name = g_strdelimit(voice->name, " ", '_');
 
 			first_lang = v->languages + 1;
 			lang = NULL;
@@ -1281,11 +1291,18 @@ static SPDVoice **espeak_list_synthesis_voices()
 	}
 
 	totalvoices = (numvoices * numvariants) + numvoices;
+	orig_espeak_voice_list = g_new0(SPDVoice *, totalvoices + 1);
 	result = g_new0(SPDVoice *, totalvoices + 1);
 	voice_list_iter = g_queue_peek_head_link(voice_list);
 
 	for (i = 0; i < totalvoices; i++) {
-		result[i] = voice_list_iter->data;
+		orig_espeak_voice_list[i] = voice_list_iter->data;
+		result[i] = g_new0(SPDVoice, 1);
+
+		result[i]->name = g_strdup(orig_espeak_voice_list[i]->name);
+		result[i]->name = g_strdelimit(result[i]->name, " ", '_');
+		result[i]->language = g_strdup(orig_espeak_voice_list[i]->language);
+		result[i]->variant = g_strdup(orig_espeak_voice_list[i]->variant);
 
 		if (variant_list && !g_queue_is_empty(variant_list)) {
 			vo = voice_list_iter->data;
@@ -1293,13 +1310,18 @@ static SPDVoice **espeak_list_synthesis_voices()
 
 			while (variant_list_iter != NULL && variant_list_iter->data != NULL) {
 				voice = g_new0(SPDVoice, 1);
+				result[++i] = g_new(SPDVoice, 1);
 
 				voice->name = g_strdup_printf("%s+%s", vo->name,
 							      (char *)variant_list_iter->data);
+				result[i]->name = g_strdup(voice->name);
+				result[i]->name = g_strdelimit(result[i]->name, " ", '_');
 				voice->language = g_strdup(vo->language);
+				result[i]->language = g_strdup(vo->language);
 				voice->variant = g_strdup(vo->variant);
+				result[i]->variant = g_strdup(vo->variant);
 
-				result[++i] = voice;
+				orig_espeak_voice_list[i] = voice;
 				variant_list_iter = variant_list_iter->next;
 			}
 		}
@@ -1312,6 +1334,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 	if (variant_list != NULL)
 		g_queue_free_full(variant_list, (GDestroyNotify)g_free);
 
+	orig_espeak_voice_list[i] = NULL;
 	result[i] = NULL;
 	DBG(DBG_MODNAME " %d usable voices.", totalvoices);
 
@@ -1320,8 +1343,9 @@ static SPDVoice **espeak_list_synthesis_voices()
 
 static void espeak_free_voice_list()
 {
+	int i = 0;
+
 	if (espeak_voice_list != NULL) {
-		int i;
 		for (i = 0; espeak_voice_list[i] != NULL; i++) {
 			g_free(espeak_voice_list[i]->name);
 			g_free(espeak_voice_list[i]->language);
@@ -1330,6 +1354,17 @@ static void espeak_free_voice_list()
 		}
 		g_free(espeak_voice_list);
 		espeak_voice_list = NULL;
+	}
+
+	if (orig_espeak_voice_list != NULL) {
+		for (i = 0; orig_espeak_voice_list[i] != NULL; i++) {
+			g_free(orig_espeak_voice_list[i]->name);
+			g_free(orig_espeak_voice_list[i]->language);
+			g_free(orig_espeak_voice_list[i]->variant);
+			g_free(orig_espeak_voice_list[i]);
+		}
+		g_free(orig_espeak_voice_list);
+		orig_espeak_voice_list = NULL;
 	}
 }
 
