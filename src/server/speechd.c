@@ -117,22 +117,6 @@ static int daemon(int nochdir, int noclose)
 }
 #endif /* __SUNPRO_C */
 
-char *spd_get_path(char *filename, char *startdir)
-{
-	char *ret;
-	if (filename == NULL)
-		return NULL;
-	if (filename[0] != '/') {
-		if (startdir == NULL)
-			ret = g_strdup(filename);
-		else
-			ret = g_strdup_printf("%s/%s", startdir, filename);
-	} else {
-		ret = g_strdup(filename);
-	}
-	return ret;
-}
-
 /* --- DEBUGGING --- */
 
 /* Just to be able to set breakpoints */

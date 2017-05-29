@@ -39,6 +39,22 @@
 #include "output.h"
 #include "module.h"
 
+static char *spd_get_path(char *filename, char *startdir)
+{
+	char *ret;
+	if (filename == NULL)
+		return NULL;
+	if (filename[0] != '/') {
+		if (startdir == NULL)
+			ret = g_strdup(filename);
+		else
+			ret = g_strdup_printf("%s/%s", startdir, filename);
+	} else {
+		ret = g_strdup(filename);
+	}
+	return ret;
+}
+
 void destroy_module(OutputModule * module)
 {
 	g_free(module->name);
