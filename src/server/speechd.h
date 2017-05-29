@@ -247,11 +247,6 @@ void fatal_error(void);
  * returns 1 if yes, 0 otherwise. */
 int isanum(const char *str);
 
-/* Construct a path given a filename and the directory
- where to refer relative paths. filename can be either
- absolute (starting with slash) or relative. */
-char *spd_get_path(char *filename, char *startdir);
-
 /* Functions used in speechd.c only */
 int speechd_connection_new(int server_socket);
 int speechd_connection_destroy(int fd);
