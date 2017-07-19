@@ -457,7 +457,7 @@ FT_Info *festivalOpen(FT_Info * info)
 	char *resp;
 	int ret;
 
-	DBG("Openning socket fo Festival server");
+	DBG("Opening socket fo Festival server");
 
 	festival_connection_crashed = 0;
 

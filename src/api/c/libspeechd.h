@@ -100,7 +100,7 @@ typedef struct {
 
 /* -------------- Public functions --------------------------*/
 
-/* Openning and closing Speech Dispatcher connection */
+/* Opening and closing Speech Dispatcher connection */
 SPDConnectionAddress *spd_get_default_address(char **error);
 SPDConnection *spd_open(const char *client_name, const char *connection_name,
 			const char *user_name, SPDConnectionMode mode);

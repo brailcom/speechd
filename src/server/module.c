@@ -193,7 +193,7 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 					       S_IRUSR | S_IWUSR);
 		if (module->stderr_redirect == -1)
 			MSG(1,
-			    "ERROR: Openning debug file for %s failed: (error=%d) %s",
+			    "ERROR: Opening debug file for %s failed: (error=%d) %s",
 			    module->name, module->stderr_redirect,
 			    strerror(errno));
 	} else {

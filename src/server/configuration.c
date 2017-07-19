@@ -210,7 +210,7 @@ GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module)
     SPEECHD_OPTION_CB_STR_M(SocketPath, socket_path)
     SPEECHD_OPTION_CB_INT_M(Port, port, val >= 0, "Invalid port number!")
     SPEECHD_OPTION_CB_INT_M(LocalhostAccessOnly, localhost_access_only, val >= 0,
-			"Invalid access controll mode!")
+			"Invalid access control mode!")
     GLOBAL_SET_LOGLEVEL(LogLevel, log_level, (val >= 0)
 			&& (val <= 5), "Invalid log (verbosity) level!")
     SPEECHD_OPTION_CB_INT(MaxHistoryMessages, max_history_messages, val >= 0,

@@ -393,7 +393,7 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 	g_free(*festival_message);
 	*festival_message = g_strdup(data);
 	if (*festival_message == NULL) {
-		DBG("Error: Copying data unsuccesful.");
+		DBG("Error: Copying data unsuccessful.");
 		return -1;
 	}
 
@@ -401,7 +401,7 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 	festival_speaking = 1;
 	sem_post(&festival_semaphore);
 
-	DBG("Festival: leaving write() normaly\n\r");
+	DBG("Festival: leaving write() normally\n\r");
 	return bytes;
 }
 
