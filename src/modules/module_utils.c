@@ -982,7 +982,7 @@ int module_audio_init(char **status_info)
 	gchar **outputs;
 	int i = 0;
 
-	DBG("Openning audio output system");
+	DBG("Opening audio output system");
 	if (NULL == module_audio_pars[0]) {
 		*status_info =
 		    g_strdup

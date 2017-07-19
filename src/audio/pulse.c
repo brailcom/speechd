@@ -227,7 +227,7 @@ static int pulse_play(AudioID * id, AudioTrack track)
 	if (pulse_id->pa_current_rate != track.sample_rate
 	    || pulse_id->pa_current_bps != track.bits
 	    || pulse_id->pa_current_channels != track.num_channels) {
-		MSG(4, "Reopenning connection due to change in track parameters sample_rate:%d bps:%d channels:%d\n", track.sample_rate, track.bits, track.num_channels);
+		MSG(4, "Reopening connection due to change in track parameters sample_rate:%d bps:%d channels:%d\n", track.sample_rate, track.bits, track.num_channels);
 		/* Close old connection if any */
 		pulse_connection_close(pulse_id);
 		/* Open a new connection */

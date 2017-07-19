@@ -575,7 +575,7 @@ void speechd_init()
 	/* Initialize Speech Dispatcher priority queue */
 	MessageQueue = g_malloc0(sizeof(TSpeechDQueue));
 	if (MessageQueue == NULL)
-		FATAL("Couldn't alocate memmory for MessageQueue.");
+		FATAL("Couldn't allocate memory for MessageQueue.");
 
 	/* Initialize lists */
 	MessagePausedList = NULL;
@@ -883,7 +883,7 @@ int make_inet_socket(const int port)
 
 	server_address.sin_port = htons(port);
 
-	MSG(4, "Openning inet socket connection");
+	MSG(4, "Opening inet socket connection");
 	if (bind(server_socket, (struct sockaddr *)&server_address,
 		 sizeof(server_address)) == -1) {
 		MSG(-1, "bind() failed: %s", strerror(errno));
@@ -1076,7 +1076,7 @@ int main(int argc, char *argv[])
 		    g_file_get_contents(SpeechdOptions.conf_file,
 					&config_contents, NULL, NULL);
 		if (err == FALSE) {
-			MSG(-1, "Error openning %s", SpeechdOptions.conf_file);
+			MSG(-1, "Error opening %s", SpeechdOptions.conf_file);
 			FATAL("Can't open conf file");
 		}
 		regexp =

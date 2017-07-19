@@ -207,7 +207,7 @@ synchronized with speech messages and there is little reason why the
 accessibility tools should send the same message twice for these two
 different kinds of output used by blind people (often simultaneously).
 Outside the world of accessibility, applications also want to either
-have full controll over the sound (bypass prioritisation) or to only
+have full control over the sound (bypass prioritisation) or to only
 retrieve the synthesized data, but not play them immediatelly.
 
 We want to eventually split Speech Dispatcher into two independent
@@ -3082,7 +3082,7 @@ Example from Flite:
     [...]
 @end example
 
-The third part is openning the audio. This is commanded
+The third part is opening the audio. This is commanded
 by the @code{AUDIO} protocol command. If the synthesizer is able
 to retrieve audio data, it is desirable to open the @code{spd_audio}
 output according to the requested parameters and then use this

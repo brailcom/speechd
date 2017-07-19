@@ -242,7 +242,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	generic_speaking = 1;
 	sem_post(&generic_semaphore);
 
-	DBG("Generic: leaving write() normaly\n\r");
+	DBG("Generic: leaving write() normally\n\r");
 	return bytes;
 }
 

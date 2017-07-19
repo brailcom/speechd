@@ -159,7 +159,7 @@ int module_init(char **status_info)
 	stderr_redirect = open(CiceroExecutableLog,
 			       O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (stderr_redirect == -1) {
-		DBG("ERROR: Openning debug file for Cicero binary failed: (error=%d) %s", stderr_redirect, strerror(errno));
+		DBG("ERROR: Opening debug file for Cicero binary failed: (error=%d) %s", stderr_redirect, strerror(errno));
 	} else {
 		DBG("Cicero synthesizer logging to file %s",
 		    CiceroExecutableLog);
@@ -258,7 +258,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	cicero_speaking = 1;
 	sem_post(&cicero_semaphore);
 
-	DBG("Cicero: leaving module_speak() normaly\n\r");
+	DBG("Cicero: leaving module_speak() normally\n\r");
 	return bytes;
 }
 
