@@ -223,6 +223,19 @@ AS_IF([test $with_pico != "no"],
 AM_CONDITIONAL([pico_support], [test $with_pico = "yes"])
 AS_IF([test $with_pico = "yes"], [output_modules="${output_modules} pico"])
 
+# check for Voxygen Baratinoo support
+AC_ARG_WITH([baratinoo],
+	[AS_HELP_STRING([--with-baratinoo], [include Voxygen Baratinoo support])],
+	[],
+	[with_baratinoo=check])
+AS_IF([! test "$with_baratinoo" = no],
+	[AC_CHECK_LIB([baratinoo], [BCinitlib],
+		[with_baratinoo=yes],
+		[AS_IF([test "$with_baratinoo" = yes],
+			[AC_MSG_FAILURE([Voxygen Baratinoo is not available])])])])
+AM_CONDITIONAL([baratinoo_support], [test "$with_baratinoo" = yes])
+AS_IF([test "$with_baratinoo" = yes], [output_modules="${output_modules} baratinoo"])
+
 audio_dlopen_modules='-dlopen force'
 
 # clear default audio method
