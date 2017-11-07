@@ -1,3 +1,8 @@
+Version 0.8.8
+* Add German translation, thanks to Chris Leick for the patch
+* Fix some spelling mistakes, thanks to Paul Gevers for the patch
+* Some slight code improvements
+
 Version 0.8.7
 * Further fixes to spd-conf, which should now work properly.
 * Split the espeak-ng driver code into its own source file.
