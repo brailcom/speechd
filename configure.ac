@@ -9,8 +9,8 @@ LT_PREREQ([2.2])
 LT_INIT([dlopen])
 AC_CONFIG_SRCDIR([src/server/speechd.c])
 AC_CONFIG_HEADERS([config.h])
-IT_PROG_INTLTOOL([0.40.0])
-AM_GLIB_GNU_GETTEXT
+AM_GNU_GETTEXT_VERSION([0.19.8])
+AM_GNU_GETTEXT([external])
 
 # Split version number
 MAJOR_VERSION="$(./split-version.sh -ma)"
@@ -409,6 +409,7 @@ AC_CONFIG_FILES([Makefile
                  doc/Makefile
                  include/Makefile
                  locale/Makefile
+                 po/Makevars
                  po/Makefile.in
                  src/Makefile
                  src/api/Makefile

@@ -2,8 +2,8 @@
 Type=Application
 Encoding=UTF-8
 Version=1.0
-_Name=Speech Dispatcher
-_Comment=Interface to Text to Speech services
+Name=Speech Dispatcher
+Comment=Interface to Text to Speech services
 TryExec=speech-dispatcher
 Exec=speech-dispatcher
 X-GNOME-Autostart-enabled=true

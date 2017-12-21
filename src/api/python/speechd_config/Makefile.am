@@ -5,7 +5,8 @@ DESKTOP_FILES = speechd.desktop.in
 desktop_DATA = $(DESKTOP_FILES:.desktop.in=.desktop)
 desktopdir = $(spddesktopconforigdir)
 
-@INTLTOOL_DESKTOP_RULE@
+speechd.desktop: speechd.desktop.in
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 dist_bin_SCRIPTS = spd-conf
 

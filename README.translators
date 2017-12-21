@@ -1,9 +1,6 @@
 This file contains instructions for translators to translate Speech
 Dispatcher interface to their languages.  Speech Dispatcher uses
-intltool[1] for its internationalization support.
-
-Intltool is a superset of gettext[2] so any translator used to gettext
-.po files can translate Speech Dispatcher the same way.
+gettext[1] for its internationalization support.
 
 If you're not familiar with gettext po files we recommend that you
 read the Gettext manual[2] before continuing.
@@ -13,7 +10,7 @@ read the Gettext manual[2] before continuing.
 To translate Speech Dispatcher you need a git clone of speech
 dispatcher.  If you are not reading this file from a git checkout
 please check the `INSTALL` file for detailed instructions.  You will
-also need intltool and gettext packages installed, as recommended on
+also need gettext package installed, as recommended on
 the `INSTALL` file.
 
 == Adding a new Language ==
@@ -26,7 +23,7 @@ messages. The following steps explain the process.
 
 2. Create a pot template for Speech Dispatcher running:
 
-$ intltool-update -p
+$ make -C po speech-dispatcher.pot-update
 
 This will create a file called Speech Dispatcher.pot with all
 translatable Speech Dispatcher messages.
@@ -65,9 +62,9 @@ them before continuing.
 When there are new Speech Dispatcher messages for translation or some
 messages are changed, you need to update your <locale.>.po file.
 
-To update an existing po file wit new messages please run
+To update an existing po file with new messages please run
 
-$ intltool-update <locale>
+$ make -C po <locale>.po-update
 
 Where <locale> is the locale po file to update.
 
@@ -91,5 +88,5 @@ speechd@lists.freebsoft.org
 
 == References ==
 
-[1] Intltool: http://freedesktop.org/wiki/Software/intltool
-[2] Gettext Manual: http://www.gnu.org/software/gettext/manual/gettext.html
+[1] Gettext: https://www.gnu.org/software/gettext/
+[2] Gettext Manual: https://www.gnu.org/software/gettext/manual/gettext.html
