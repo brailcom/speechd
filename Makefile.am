@@ -7,7 +7,7 @@ BUILT_SOURCES = $(top_srcdir)/.version
 
 SUBDIRS= include locale src config doc po
 
-EXTRA_DIST= ANNOUNCE BUGS FAQ README.packagers README.translators README.details.md README.style.md build.sh git-version-gen split-version.sh
+EXTRA_DIST= config.rpath ANNOUNCE BUGS FAQ README.packagers README.translators README.details.md README.style.md build.sh git-version-gen split-version.sh
 
 MAINTAINERCLEANFILES=configure
 
@@ -24,3 +24,5 @@ dist-hook:
 -include $(top_srcdir)/git.mk
 
 GITIGNOREFILES = $(GITIGNORE_MAINTAINERCLEANFILES_TOPLEVEL) py-compile
+
+ACLOCAL_AMFLAGS = -I m4
