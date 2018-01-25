@@ -110,7 +110,7 @@ int module_load(void)
 }
 
 #define ABORT(msg) g_string_append(info, msg); \
-        DBG("FATAL ERROR:", info->str); \
+	DBG("FATAL ERROR:", info->str); \
 	*status_info = info->str; \
 	g_string_free(info, 0); \
 	return -1;
@@ -398,15 +398,15 @@ void *_kali_speak(void *nothing)
 
 static void kali_set_rate(signed int rate)
 {
-  short speed;
+	short speed;
 
-  assert(rate >= -100 && rate <= +100);
-  speed = (short)rate + 6;
-  if (speed < GetDebitMinKaliStd())
-    speed = GetDebitMinKaliStd();
-  if (speed > GetDebitMaxKaliStd())
-    speed = GetDebitMaxKaliStd();
-  SetDebitKali(speed);
+	assert(rate >= -100 && rate <= +100);
+	speed = (short)rate + 6;
+	if (speed < GetDebitMinKaliStd())
+		speed = GetDebitMinKaliStd();
+	if (speed > GetDebitMaxKaliStd())
+		speed = GetDebitMaxKaliStd();
+	SetDebitKali(speed);
 }
 
 static void kali_set_volume(signed int volume)
@@ -416,15 +416,15 @@ static void kali_set_volume(signed int volume)
 
 static void kali_set_pitch(signed int pitch)
 {
-  short ptch;
+	short ptch;
 
-  assert(pitch >= -100 && pitch <= +100);
-  ptch = (short)pitch + 6;
-  if (ptch < GetHauteurMinKaliStd())
-    ptch = GetHauteurMinKaliStd();
-  if (ptch > GetHauteurMaxKaliStd())
-    ptch = GetHauteurMaxKaliStd();
-  SetHauteurKali((short)ptch);
+	assert(pitch >= -100 && pitch <= +100);
+	ptch = (short)pitch + 6;
+	if (ptch < GetHauteurMinKaliStd())
+		ptch = GetHauteurMinKaliStd();
+	if (ptch > GetHauteurMaxKaliStd())
+		ptch = GetHauteurMaxKaliStd();
+	SetHauteurKali((short)ptch);
 }
 
 void kali_set_punctuation_mode(SPDPunctuation punct)
