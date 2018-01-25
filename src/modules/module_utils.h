@@ -64,10 +64,10 @@ int module_num_dc_options;
 	msg_settings_old.pitch = -101;\
 	msg_settings_old.pitch_range = -101;\
 	msg_settings_old.volume = -101;\
-	msg_settings_old.punctuation_mode = -1;\
-	msg_settings_old.spelling_mode = -1;\
-	msg_settings_old.cap_let_recogn = -1;\
-	msg_settings_old.voice_type = -1;\
+	msg_settings_old.punctuation_mode = (SPDPunctuation) -1;\
+	msg_settings_old.spelling_mode = (SPDSpelling) -1;\
+	msg_settings_old.cap_let_recogn = (SPDCapitalLetters) -1;\
+	msg_settings_old.voice_type = (SPDVoiceType) -1;\
 	msg_settings_old.voice.name = NULL;\
 	msg_settings_old.voice.language = NULL;
 

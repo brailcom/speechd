@@ -101,4 +101,14 @@ sd_baratinoo_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(common_LDADD)
 endif
 
+if kali_support
+modulebin_PROGRAMS += sd_kali
+KALI_DIR = /usr/lib/kali
+sd_kali_SOURCES = kali.cpp $(audio_SOURCES) $(common_SOURCES)
+sd_kali_LDADD = $(top_builddir)/src/common/libcommon.la \
+	$(audio_dlopen_modules) \
+	-lKali -lKGlobal -lKTrans -lKParle -lKAnalyse \
+	$(common_LDADD)
+endif
+
 -include $(top_srcdir)/git.mk
