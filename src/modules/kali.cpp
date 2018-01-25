@@ -330,7 +330,7 @@ void *_kali_speak(void *nothing)
 				DBG("Trying to synthesize text");
 				MessageKali((unsigned char *)buf);
 				while (QueryIndexKali() > 0)
-					sleep(0);
+					;
 				wav =
 				    (const AudioTrackKali *)
 				    GetBufMultiKaliStd(0);
