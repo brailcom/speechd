@@ -25,6 +25,7 @@ AC_CONFIG_TESTDIR(src/tests)
 
 # Checks for programs.
 AC_PROG_CC
+AC_PROG_CXX
 AC_PROG_INSTALL
 
 # Checks for libraries.
@@ -235,6 +236,19 @@ AS_IF([! test "$with_baratinoo" = no],
 			[AC_MSG_FAILURE([Voxygen Baratinoo is not available])])])])
 AM_CONDITIONAL([baratinoo_support], [test "$with_baratinoo" = yes])
 AS_IF([test "$with_baratinoo" = yes], [output_modules="${output_modules} baratinoo"])
+
+# check for kali support
+AC_ARG_WITH([kali],
+	[AS_HELP_STRING([--with-kali], [include Kali support])],
+	[],
+	[with_kali=yes])
+AS_IF([test $with_kali != "no"],
+	[AC_CHECK_LIB([Kali], [initKali],
+		[with_kali=yes],
+		[AS_IF([test $with_kali = "yes"],
+			[AC_MSG_FAILURE([Kali is not available])])])])
+AM_CONDITIONAL([kali_support], [test $with_kali = "yes"])
+AS_IF([test $with_kali = "yes"], [output_modules="${output_modules} kali"])
 
 audio_dlopen_modules='-dlopen force'
 
