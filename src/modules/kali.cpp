@@ -67,7 +67,6 @@ static void kali_set_volume(signed int volume);
 static void kali_set_punctuation_mode(SPDPunctuation punct);
 static void kali_set_voice(char *voice);
 
-static void kali_strip_silence(AudioTrack *);
 static SPDVoice **kali_get_voices();
 static void *_kali_speak(void *);
 
