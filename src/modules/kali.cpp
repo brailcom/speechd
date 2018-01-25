@@ -447,15 +447,11 @@ void kali_set_punctuation_mode(SPDPunctuation punct)
 static void kali_set_voice(char *voice)
 {
 	short i, nlang;
-	char *v;
+	char *v = voice;
 
-	v = (char *)g_malloc(sizeof(char *));
+	if (v == NULL)
+		v = KaliVoiceParameters;
 
-	if (voice == NULL) {
-		v = g_strdup(KaliVoiceParameters);
-	} else {
-		v = g_strdup(voice);
-	}
 	for (i = 0; kali_voice_list[i] != NULL; i++) {
 		if (strcasecmp(kali_voice_list[i]->name, v) == 0) {
 			nlang = GetNLangueVoixKaliStd(i + 1);
@@ -464,9 +460,6 @@ static void kali_set_voice(char *voice)
 			break;
 		}
 	}
-
-	g_free(v);
-	v = NULL;
 }
 
 static SPDVoice **kali_get_voices()
