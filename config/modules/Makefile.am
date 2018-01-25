@@ -22,4 +22,9 @@ dist_moduleconf_DATA += baratinoo.conf
 dist_moduleconforig_DATA += baratinoo.conf
 endif
 
+if kali_support
+dist_moduleconf_DATA += kali.conf
+dist_moduleconforig_DATA += kali.conf
+endif
+
 -include $(top_srcdir)/git.mk
