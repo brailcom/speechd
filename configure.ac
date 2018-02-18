@@ -241,7 +241,7 @@ AS_IF([test "$with_baratinoo" = yes], [output_modules="${output_modules} baratin
 AC_ARG_WITH([kali],
 	[AS_HELP_STRING([--with-kali], [include Kali support])],
 	[],
-	[with_kali=yes])
+	[with_kali=check])
 AS_IF([test $with_kali != "no"],
 	[AC_CHECK_LIB([Kali], [initKali],
 		[with_kali=yes],
