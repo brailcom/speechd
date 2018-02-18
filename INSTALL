@@ -136,7 +136,16 @@ It includes three manuals:
 - SVOX_Pico_Manual.pdf
 - SVOX_Pico_architecture_and_design.pdf
 
-To build SVOX Pico go to svox/pico subdirectory and type
+To build SVOX Pico, fetch the debian-sid branch with
+
+git checkout debian-sid
+
+then apply Debian patches with
+
+QUILT_PATCHES=debian/patches quilt push -a
+
+then go to the pico subdirectory and type
+chmod +x autogen.sh
 ./autogen.sh
 ./configure
 make install
