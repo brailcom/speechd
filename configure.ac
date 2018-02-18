@@ -134,8 +134,7 @@ AS_IF([test $with_espeak_ng != "no"],
 	[PKG_CHECK_MODULES([ESPEAK_NG], [espeak-ng],
 		[with_espeak_ng="yes"],
 		[AS_IF([test $with_espeak_ng = "yes"],
-			[AC_MSG_FAILURE([espeak-ng is not available])])],
-		[$EXTRA_ESPEAK_LIBS])])
+			[AC_MSG_FAILURE([espeak-ng is not available])])])])
 AM_CONDITIONAL([espeak_ng_support], [test $with_espeak_ng = "yes"])
 AC_SUBST([ESPEAK_NG_CFLAGS])
 AC_SUBST([ESPEAK_NG_LIBS])
