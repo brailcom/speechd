@@ -14,7 +14,7 @@ You will need these components to compile Speech Dispatcher:
         (http://www.python.org)
 
 Only if you are building from Git, you also need these:
- - automake 1.11+, autoconf, pkg-config and libtool
+ - automake 1.11+, autoconf, pkg-config, libtool and gettext
 
 We recommend to also install these packages:
  - PulseAudio (http://www.pulseaudio.org)
