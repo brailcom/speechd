@@ -414,6 +414,15 @@ AC_SUBST([spdincludedir])
 includedir=${spdincludedir}
 AC_SUBST([includedir])
 
+# support for systemd unit files
+AC_ARG_WITH([systemdsystemunitdir],
+        AS_HELP_STRING([--with-systemdsystemunitdir=DIR], [Directory for systemd service files]),
+        [], [with_systemdsystemunitdir=$($PKG_CONFIG --variable=systemdsystemunitdir systemd)])
+if test "x$with_systemdsystemunitdir" != xno; then
+        AC_SUBST([systemdsystemunitdir], [$with_systemdsystemunitdir])
+fi
+AM_CONDITIONAL(HAVE_SYSTEMD, [test -n "$with_systemdsystemunitdir" -a "x$with_systemdsystemunitdir" != xno ])
+
 AC_CONFIG_FILES([Makefile
                  speech-dispatcher.pc
                  config/Makefile
