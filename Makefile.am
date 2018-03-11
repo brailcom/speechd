@@ -11,6 +11,13 @@ EXTRA_DIST= config.rpath ANNOUNCE BUGS FAQ README.packagers README.translators R
 
 MAINTAINERCLEANFILES=configure
 
+nodist_systemdsystemunit_DATA = \
+	speech-dispatcherd.service
+CLEANFILES = \
+	speech-dispatcherd.service
+%.service: %.service.in
+	$(AM_V_GEN)sed -e 's,@bindir\@,$(bindir),g' $< > $@
+
 testinstall: install check
 	cd src/tests && $(MAKE) $(AM_MAKEFLAGS) testinstall
 

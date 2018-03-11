@@ -1,0 +1,11 @@
+[Unit]
+Description=Speech-Dispatcher, common interface to speech synthesizers
+
+[Service]
+Type=forking
+ExecStart=@bindir@/speech-dispatcher -d
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+Alias=speech-dispatcher.service
