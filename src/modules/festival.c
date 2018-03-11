@@ -256,7 +256,7 @@ int module_init(char **status_info)
 		if (ret == -1) {
 			ABORT
 			    ("Can't connect to Festival server. Check your configuration "
-			     "in etc/speechd-modules/festival.conf for the specified host and port "
+			     "in etc/speech-dispatcher/modules/festival.conf for the specified host and port "
 			     "and check if Festival is really running there, e.g. with telnet. "
 			     "Please see documentation for more info.");
 		} else if (ret == -2) {
