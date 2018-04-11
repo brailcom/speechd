@@ -74,15 +74,9 @@ int kali_stop = 0;
 
 MOD_OPTION_1_INT(KaliMaxChunkLength);
 MOD_OPTION_1_STR(KaliDelimiters);
-MOD_OPTION_1_INT(KaliMinRate);
 MOD_OPTION_1_INT(KaliNormalRate);
-MOD_OPTION_1_INT(KaliMaxRate);
-MOD_OPTION_1_INT(KaliMinVolume);
 MOD_OPTION_1_INT(KaliNormalVolume);
-MOD_OPTION_1_INT(KaliMaxVolume);
-MOD_OPTION_1_INT(KaliMinPitch);
 MOD_OPTION_1_INT(KaliNormalPitch);
-MOD_OPTION_1_INT(KaliMaxPitch);
 MOD_OPTION_1_STR(KaliVoiceParameters);
 
 /* Public functions */
@@ -95,15 +89,9 @@ int module_load(void)
 
 	MOD_OPTION_1_INT_REG(KaliMaxChunkLength, 4999);
 	MOD_OPTION_1_STR_REG(KaliDelimiters, ".");
-	MOD_OPTION_1_INT_REG(KaliMinRate, -2);
 	MOD_OPTION_1_INT_REG(KaliNormalRate, 70);
-	MOD_OPTION_1_INT_REG(KaliMaxRate, 6);
-	MOD_OPTION_1_INT_REG(KaliMinVolume, 0);
 	MOD_OPTION_1_INT_REG(KaliNormalVolume, 10);
-	MOD_OPTION_1_INT_REG(KaliMaxVolume, 20);
-	MOD_OPTION_1_INT_REG(KaliMinPitch, 0);
 	MOD_OPTION_1_INT_REG(KaliNormalPitch, 6);
-	MOD_OPTION_1_INT_REG(KaliMaxPitch, 20);
 	MOD_OPTION_1_STR_REG(KaliVoiceParameters, "Patrick");
 
 	return 0;
