@@ -401,17 +401,23 @@ static void kali_set_rate(signed int rate)
 	short speed;
 
 	assert(rate >= -100 && rate <= +100);
-	speed = (short)rate + 6;
-	if (speed < GetDebitMinKaliStd())
-		speed = GetDebitMinKaliStd();
-	if (speed > GetDebitMaxKaliStd())
-		speed = GetDebitMaxKaliStd();
+	if (rate < 0)
+	  speed = GetDebitDefautKaliStd() - rate * (GetDebitMinKaliStd() - GetDebitDefautKaliStd()) / 100;
+	else
+	  speed = GetDebitDefautKaliStd() + rate * (GetDebitMaxKaliStd() - GetDebitDefautKaliStd()) / 100;
 	SetDebitKali(speed);
 }
 
 static void kali_set_volume(signed int volume)
 {
+	short vol;
 
+	assert(volume >= -100 && volume <= +100);
+	if (volume < 0)
+	  vol = GetVolumeDefautKaliStd() - volume * (GetVolumeMinKaliStd() - GetVolumeDefautKaliStd()) / 100;
+	else
+	  vol = GetVolumeDefautKaliStd() + volume * (GetVolumeMaxKaliStd() - GetVolumeDefautKaliStd()) / 100;
+	SetVolumeKali(vol);
 }
 
 static void kali_set_pitch(signed int pitch)
@@ -419,12 +425,11 @@ static void kali_set_pitch(signed int pitch)
 	short ptch;
 
 	assert(pitch >= -100 && pitch <= +100);
-	ptch = (short)pitch + 6;
-	if (ptch < GetHauteurMinKaliStd())
-		ptch = GetHauteurMinKaliStd();
-	if (ptch > GetHauteurMaxKaliStd())
-		ptch = GetHauteurMaxKaliStd();
-	SetHauteurKali((short)ptch);
+	if (pitch < 0)
+	  ptch = GetHauteurDefautKaliStd() - pitch * (GetHauteurMinKaliStd() - GetHauteurDefautKaliStd()) / 100;
+	else
+	  ptch = GetHauteurDefautKaliStd() + pitch * (GetHauteurMaxKaliStd() - GetHauteurDefautKaliStd()) / 100;
+	SetHauteurKali(ptch);
 }
 
 void kali_set_punctuation_mode(SPDPunctuation punct)
