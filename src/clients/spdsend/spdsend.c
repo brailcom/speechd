@@ -39,7 +39,7 @@ const char *const SPDSEND_VERSION = "0.0.0";
 #define BUFFER_LEN 256
 ssize_t getline(char **lineptr, size_t * n, FILE * f)
 {
-	char ch;
+	int ch;
 	size_t m = 0;
 	ssize_t buf_len = 0;
 	char *buf = NULL;
