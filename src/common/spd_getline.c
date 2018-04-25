@@ -46,7 +46,7 @@
 
 ssize_t spd_getline(char **lineptr, size_t * n, FILE * f)
 {
-	char ch;
+	int ch;
 	ssize_t buf_pos = 0;
 	ssize_t needed = 2;	/* Always buf_pos + 2 (see below). */
 	size_t new_length = 0;
