@@ -3,13 +3,15 @@
 dist_moduleconf_DATA = cicero.conf espeak.conf espeak-ng.conf festival.conf \
 		       flite.conf ibmtts.conf ivona.conf dtk-generic.conf \
                        epos-generic.conf espeak-generic.conf \
-                       espeak-mbrola-generic.conf llia_phon-generic.conf \
+                       espeak-ng-mbrola-generic.conf espeak-mbrola-generic.conf \
+                       llia_phon-generic.conf \
                        pico-generic.conf swift-generic.conf
 
 dist_moduleconforig_DATA = cicero.conf espeak.conf festival.conf espeak-ng.conf
 	                   flite.conf ibmtts.conf ivona.conf dtk-generic.conf \
                            epos-generic.conf espeak-generic.conf \
-                           espeak-mbrola-generic.conf llia_phon-generic.conf \
+                           espeak-ng-mbrola-generic.conf espeak-mbrola-generic.conf \
+                           llia_phon-generic.conf \
                            pico-generic.conf swift-generic.conf
 
 if pico_support
