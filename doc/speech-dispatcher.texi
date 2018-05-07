@@ -408,30 +408,41 @@ If you don't hear anything, please @xref{Troubleshooting}.
 
 @end itemize
 
-@subsection How to use eSpeak with MBROLA
+@subsection How to use eSpeak NG or eSpeak with MBROLA
 
-Please follow the guidelines at @url{http://espeak.sourceforge.net/mbrola.html}
-for installing eSpeak with a set of MBROLA voices that you want
-to use.
+Please follow the guidelines at
+@url{https://github.com/espeak-ng/espeak-ng/blob/master/docs/mbrola.md}
+(resp. @url{http://espeak.sourceforge.net/mbrola.html})
+for installing eSpeak NG (resp. eSpeak) with a set of MBROLA voices that you
+want to use.
 
-Check the @file{modules/espeak-mbrola-generic.conf} configuration
-files for the @code{AddVoice} lines. If a line for any of the voices
-you have installed (and it is supported by your version of eSpeak,
-e.g. @code{ls /usr/share/espeak-data/voices/mb/mb-*}) is not contained
-here, please add it. Check if @code{GenericExecuteString} contains the
-correct name of your mbrola binary and correct path to its voice
+Check the @file{modules/espeak-ng-mbrola-generic.conf}
+(resp. @file{modules/espeak-mbrola-generic.conf}) configuration files for the
+@code{AddVoice} lines. If a line for any of the voices you have installed
+(and it is supported by your version of eSpeak NG (resp. eSpeak),
+e.g. @code{ls /usr/share/espeak-ng-data/voices/mb/mb-*}
+(resp. @code{ls /usr/share/espeak-data/voices/mb/mb-*}))
+is not contained here, please add it. Check if @code{GenericExecuteString}
+contains the correct name of your mbrola binary and correct path to its voice
 database.
 
-Uncomment the @code{AddModule} line for @code{espeak-mbrola-generic}
-in @file{speechd.conf} in your configuration for Speech Dispatcher.
+Uncomment the @code{AddModule} line for @code{espeak-ng-mbrola-generic} (resp.
+@code{espeak-mbrola-generic}) in @file{speechd.conf} in your configuration for
+Speech Dispatcher.
 
 Restart speech-dispatcher and in your client, select
-@code{espeak-mbrola-generic} as your output module, or
-test it with the following command
+@code{espeak-ng-mbrola-generic} (resp. @code{espeak-mbrola-generic}) as your
+output module, or test it with the following command
 
+@example
+spd-say -o espeak-ng-mbrola-generic -l cs Testing
+@end example
+
+(resp.
 @example
 spd-say -o espeak-mbrola-generic -l cs Testing
 @end example
+)
 
 @node Running, Troubleshooting, Installation, User's Documentation
 @section Running
