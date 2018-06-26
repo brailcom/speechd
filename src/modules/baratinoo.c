@@ -128,6 +128,7 @@ MOD_OPTION_1_INT(BaratinooNormalRate);
 MOD_OPTION_1_INT(BaratinooMaxRate);
 MOD_OPTION_1_STR(BaratinooPunctuationList);
 MOD_OPTION_1_STR(BaratinooIntonationList);
+MOD_OPTION_1_STR(BaratinooNoIntonationList);
 
 /* Public functions */
 
@@ -163,6 +164,7 @@ int module_load(void)
 	/* Punctuation */
 	MOD_OPTION_1_STR_REG(BaratinooPunctuationList, "@/+-_");
 	MOD_OPTION_1_STR_REG(BaratinooIntonationList, "?!;:,.");
+	MOD_OPTION_1_STR_REG(BaratinooNoIntonationList, "");
 
 	return 0;
 }
@@ -178,6 +180,7 @@ int module_init(char **status_info)
 
 	DBG(DBG_MODNAME "BaratinooPunctuationList = %s", BaratinooPunctuationList);
 	DBG(DBG_MODNAME "BaratinooIntonationList = %s", BaratinooIntonationList);
+	DBG(DBG_MODNAME "BaratinooNoIntonationList = %s", BaratinooNoIntonationList);
 
 	*status_info = NULL;
 
@@ -1065,7 +1068,7 @@ static void ssml2baratinoo_text(GMarkupParseContext *ctx,
 			 * interpreted as a command */
 			g_string_append(state->buffer, "\\\\{}");
 		} else {
-			gboolean say_as_char;
+			gboolean say_as_char, do_not_say;
 			gunichar ch = g_utf8_get_char(p);
 
 			/* if punctuation mode is not NONE and the character
@@ -1074,10 +1077,13 @@ static void ssml2baratinoo_text(GMarkupParseContext *ctx,
 					g_utf8_strchr(BaratinooPunctuationList, -1, ch)) ||
 				       (msg_settings.punctuation_mode == SPD_PUNCT_ALL &&
 					g_unichar_ispunct(ch)));
+			do_not_say = ((msg_settings.punctuation_mode == SPD_PUNCT_NONE &&
+					g_utf8_strchr(BaratinooNoIntonationList, -1, ch)));
 
 			if (say_as_char)
 				g_string_append(state->buffer, "\\sayas<{characters}");
-			g_string_append_unichar(state->buffer, ch);
+			if (!do_not_say)
+				g_string_append_unichar(state->buffer, ch);
 			if (say_as_char) {
 				g_string_append(state->buffer, "\\sayas>{}");
 
