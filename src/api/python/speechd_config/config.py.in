@@ -607,8 +607,11 @@ Do you want to keep it?"""), False)
         # Now determine the most important config option
         self.default_output_module = question_with_suggested_answers(
             "Default output module",
-            "espeak",
-            ["espeak", "flite", "festival", "cicero", "ibmtts"])
+            "espeak-ng",
+            ["espeak-ng", "espeak", "festival", "flite", "ivona", "pico", "espeak-generic",
+             "espeak-ng-mbrola-generic", "espeak-mbrola-generic", "swift-generic",
+             "epos-generic", "dtk-generic", "pico-generic", "ibmtts", "cicero", "kali",
+             "mary-generic", "baratinoo"])
 
         self.default_language = question(
             "Default language (two-letter iso language code like \"en\" or \"cs\")",
