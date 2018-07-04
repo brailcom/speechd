@@ -469,6 +469,17 @@ void pico_set_synthesis_voice(char *voice_name)
 		DBG(MODULE_NAME
 		    "Cannot create a new pico engine (%i): %s\n", ret,
 		    outMessage);
+		/* Try to fallback to english */
+		if ((ret = pico_newEngine(picoSystem,
+					  (const pico_Char *)pico_voices[0].name,
+					  &picoEngine))) {
+			pico_getSystemStatusMessage(picoSystem, ret, outMessage);
+			DBG(MODULE_NAME
+			    "Cannot create default english pico engine (%i): %s\n", ret,
+			    outMessage);
+			return;
+		}
+
 		return;
 	}
 
