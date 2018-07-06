@@ -93,6 +93,8 @@ typedef struct {
 	gboolean pause_requested;
 	gboolean stop_requested;
 	gboolean close_requested;
+
+	SPDMarks marks;
 } Engine;
 
 /* engine and state */
@@ -239,7 +241,7 @@ int module_init(char **status_info)
 	}
 	BCoutputTextBufferSetInEngine(engine->output_signal, engine->engine);
 
-	BCsetWantedEvent(engine->engine, BARATINOO_MARKER_EVENT);
+	BCsetWantedEvent(engine->engine, BARATINOO_WAITMARKER_EVENT);
 
 	/* Setup TTS thread */
 	sem_init(&engine->semaphore, 0, 0);
@@ -255,6 +257,8 @@ int module_init(char **status_info)
 			     "supports threads, please report a bug.");
 		return -1;
 	}
+
+	module_marks_init(&engine->marks);
 
 	DBG(DBG_MODNAME "Initialization successfully.");
 	*status_info = g_strdup("Baratinoo initialized successfully.");
@@ -372,6 +376,7 @@ int module_stop(void)
 
 	DBG(DBG_MODNAME "Stop requested");
 	engine->stop_requested = TRUE;
+	module_marks_stop(&engine->marks);
 	if (module_audio_id) {
 		DBG(DBG_MODNAME "Stopping audio currently playing.");
 		if (spd_audio_stop(module_audio_id) != 0)
@@ -387,6 +392,7 @@ size_t module_pause(void)
 
 	DBG(DBG_MODNAME "Pause requested");
 	engine->pause_requested = TRUE;
+	module_marks_stop(&engine->marks);
 
 	return 0;
 }
@@ -402,6 +408,7 @@ int module_close(void)
 	/* Politely ask the thread to terminate */
 	engine->stop_requested = TRUE;
 	engine->close_requested = TRUE;
+	module_marks_stop(&engine->marks);
 	sem_post(&engine->semaphore);
 	/* ...and give it a chance to actually quit. */
 	g_usleep(25000);
@@ -439,6 +446,8 @@ int module_close(void)
 
 	/* uninitialize */
 	BCterminatelib();
+
+	module_marks_clear(&engine->marks);
 
 	DBG(DBG_MODNAME "Module closed.");
 
@@ -538,12 +547,12 @@ static void *_baratinoo_speak(void *data)
 				state = BCprocessLoop(engine->engine, -1);
 				if (state == BARATINOO_EVENT) {
 					BaratinooEvent event = BCgetEvent(engine->engine);
-					if (event.type == BARATINOO_MARKER_EVENT) {
-						DBG(DBG_MODNAME "Reached mark '%s'", event.data.marker.name);
-						module_report_index_mark((char *) event.data.marker.name);
+					if (event.type == BARATINOO_WAITMARKER_EVENT) {
+						DBG(DBG_MODNAME "Reached wait mark '%s' time %f samples %d", event.data.waitMarker.name, event.data.waitMarker.duration, event.data.waitMarker.samples);
+						module_marks_add(&engine->marks, event.data.waitMarker.samples, event.data.waitMarker.name);
 						/* if reached a spd mark and pausing requested, stop */
 						if (engine->pause_requested &&
-						    g_str_has_prefix(event.data.marker.name, INDEX_MARK_BODY)) {
+						    g_str_has_prefix(event.data.waitMarker.name, INDEX_MARK_BODY)) {
 							DBG(DBG_MODNAME "Pausing in thread");
 							state = BCpurge(engine->engine);
 							engine->pause_requested = FALSE;
@@ -886,8 +895,10 @@ static int baratinoo_output_signal(void *private_data, const void *address, int 
 	track.samples = (short *) address;
 
 	DBG(DBG_MODNAME "Playing part of the message");
-	if (module_tts_output(track, format) < 0)
+	if (module_tts_output_marks(track, format, &engine->marks) < 0)
 		DBG(DBG_MODNAME "ERROR: failed to play the track");
+
+	module_marks_clear(&engine->marks);
 
 	return engine->stop_requested;
 }
@@ -974,9 +985,14 @@ static void ssml2baratinoo_start_element(GMarkupParseContext *ctx,
 
 	/* handle elements */
 	if (strcmp(element, "mark") == 0) {
+		char *wait_mark;
 		int i = attribute_index(attribute_names, "name");
-		g_string_append_printf(state->buffer, "\\mark{%s}",
-				       i < 0 ? "" : attribute_values[i]);
+		const char *mark = i < 0 ? "" : attribute_values[i];
+
+		asprintf(&wait_mark, "\\mark{%s wait}", mark);
+		g_string_prepend(state->buffer, wait_mark);
+		free(wait_mark);
+		g_string_append_printf(state->buffer, "\\mark{%s}", mark);
 	} else if (strcmp(element, "emphasis") == 0) {
 		int i = attribute_index(attribute_names, "level");
 		g_string_append_printf(state->buffer, "\\emph<{%s}",

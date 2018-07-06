@@ -43,6 +43,14 @@
 #include <speechd_types.h>
 #include "spd_audio.h"
 
+typedef struct SPDMarks {
+	unsigned num;
+	unsigned allocated;
+	unsigned *samples;
+	char **names;
+	gboolean stop;
+} SPDMarks;
+
 int log_level;
 
 AudioID *module_audio_id;
@@ -126,6 +134,11 @@ int module_stop(void);
 SPDVoice **module_get_voices(void);
 int module_tts_output(AudioTrack track, AudioFormat format);
 int module_play_file(const char *filename);
+int module_marks_init(SPDMarks *marks);
+int module_marks_add(SPDMarks *marks, unsigned sample, const char *name);
+int module_tts_output_marks(AudioTrack track, AudioFormat format, SPDMarks *marks);
+int module_marks_stop(SPDMarks *marks);
+int module_marks_clear(SPDMarks *marks);
 size_t module_pause(void);
 char *module_is_speaking(void);
 int module_close(void);

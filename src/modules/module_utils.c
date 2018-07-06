@@ -1093,3 +1093,97 @@ cleanup1:
 	sf_close(sf);
 	return result;
 }
+int module_marks_init(SPDMarks *marks)
+{
+	marks->num = 0;
+	marks->allocated = 0;
+	marks->samples = NULL;
+	marks->names = NULL;
+	marks->stop = 0;
+
+	return 0;
+}
+
+int module_marks_add(SPDMarks *marks, unsigned sample, const char *name)
+{
+	marks->num++;
+	if (marks->num >= marks->allocated) {
+		/* Amortized reallocation */
+		marks->allocated = marks->num * 2;
+		marks->samples = g_realloc(marks->samples, marks->allocated * sizeof(marks->samples[0]));
+		marks->names = g_realloc(marks->names, marks->allocated * sizeof(marks->names[0]));
+	}
+	marks->samples[marks->num - 1] = sample;
+	marks->names[marks->num - 1] = g_strdup(name);
+
+	return 0;
+}
+
+int module_marks_clear(SPDMarks *marks)
+{
+	unsigned i;
+
+	for (i = 0; i < marks->num; i++)
+		g_free(marks->names[i]);
+
+	marks->num = 0;
+	marks->allocated = 0;
+	g_free(marks->samples);
+	marks->samples = NULL;
+	g_free(marks->names);
+	marks->names = NULL;
+	marks->stop = 0;
+
+	return 0;
+}
+
+int module_tts_output_marks(AudioTrack track, AudioFormat format, SPDMarks *marks)
+{
+	AudioTrack cur = track;
+	int current_sample = 0;
+
+	/* Loop control */
+	int start = 0;
+	int end = marks->num;
+	int delta = 1;
+	int i;
+	if (marks->num >= 2 && marks->samples[0] > marks->samples[1]) {
+		/* Decreasing mark order */
+		start = marks->num - 1;
+		end = -1;
+		delta = -1;
+	}
+
+	/* Alternate speaking and reporting mark */
+	for (i = start; i != end; i += delta) {
+		unsigned end_sample = marks->samples[i];
+
+		cur.samples = &track.samples[current_sample];
+		cur.num_samples = end_sample - current_sample;
+		current_sample = end_sample;
+
+		if (!cur.num_samples)
+			continue;
+
+		if (module_tts_output(cur, format))
+			return -1;
+		if (marks->stop)
+			return 1;
+		module_report_index_mark(marks->names[i]);
+	}
+
+	/* Finish with remaining bits if any */
+	if (track.num_samples > current_sample) {
+		cur.samples = &track.samples[current_sample];
+		cur.num_samples = track.num_samples - current_sample;
+		module_tts_output(cur, format);
+	}
+
+	return 0;
+}
+
+int module_marks_stop(SPDMarks *marks)
+{
+	marks->stop = 1;
+	return 0;
+}
