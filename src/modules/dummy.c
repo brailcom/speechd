@@ -243,7 +243,7 @@ void _dummy_child()
 	    g_strdup("aplay  " DATADIR
 		     "/dummy-message.wav > /dev/null 2> /dev/null");
 	try3 =
-	    g_strdup("paplay " DATADIR
+	    g_strdup("paplay -n speech-dispatcher " DATADIR
 		     "/dummy-message.wav > /dev/null 2> /dev/null");
 
 	DBG("child: synth commands = |%s|%s|%s|", try1, try2, try3);
