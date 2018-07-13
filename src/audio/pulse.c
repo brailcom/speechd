@@ -66,7 +66,7 @@ typedef struct {
 #define DEFAULT_PA_MIN_AUDIO_LENGTH 100
 
 static int pulse_log_level;
-static char const *pulse_play_cmd = "paplay -n speech-dispatcher";
+static char const *pulse_play_cmd = "paplay -n speech-dispatcher-generic";
 
 #define MSG(level, arg...) \
 	if(level <= pulse_log_level){ \
