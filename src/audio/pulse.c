@@ -108,6 +108,7 @@ static int _pulse_open(spd_pulse_id_t * id, int sample_rate,
 	pa_buffer_attr buffAttr;
 	pa_sample_spec ss;
 	int error;
+	char *client_name;
 
 	ss.rate = sample_rate;
 	ss.channels = num_channels;
@@ -131,17 +132,23 @@ static int _pulse_open(spd_pulse_id_t * id, int sample_rate,
 	buffAttr.prebuf = (uint32_t) - 1;
 	buffAttr.minreq = (uint32_t) - 1;
 	buffAttr.fragsize = (uint32_t) - 1;
+
+	if (!id->pa_name ||
+	    asprintf(&client_name, "speech-dispatcher-%s", id->pa_name) < 0)
+		client_name = strdup("speech-dispatcher");
+
 	/* Open new connection */
 	if (!
 	    (id->pa_simple =
-	     pa_simple_new(id->pa_server, "speech-dispatcher",
-			   PA_STREAM_PLAYBACK, NULL,
-			   id->pa_name ? id->pa_name : "playback",
+	     pa_simple_new(id->pa_server, client_name,
+			   PA_STREAM_PLAYBACK, NULL, "playback",
 			   &ss, NULL, &buffAttr, &error))) {
 		fprintf(stderr, __FILE__ ": pa_simple_new() failed: %s\n",
 			pa_strerror(error));
+		free(client_name);
 		return 1;
 	}
+	free(client_name);
 	return 0;
 }
 
