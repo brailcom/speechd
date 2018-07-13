@@ -50,6 +50,7 @@ typedef struct {
 	AudioID id;
 	pa_simple *pa_simple;
 	char *pa_server;
+	char *pa_name;
 	int pa_min_audio_length;
 	volatile int pa_stop_playback;
 	int pa_current_rate;	// Sample rate for currently PA connection
@@ -134,8 +135,9 @@ static int _pulse_open(spd_pulse_id_t * id, int sample_rate,
 	if (!
 	    (id->pa_simple =
 	     pa_simple_new(id->pa_server, "speech-dispatcher",
-			   PA_STREAM_PLAYBACK, NULL, "playback", &ss, NULL,
-			   &buffAttr, &error))) {
+			   PA_STREAM_PLAYBACK, NULL,
+			   id->pa_name ? id->pa_name : "playback",
+			   &ss, NULL, &buffAttr, &error))) {
 		fprintf(stderr, __FILE__ ": pa_simple_new() failed: %s\n",
 			pa_strerror(error));
 		return 1;
@@ -169,6 +171,7 @@ static AudioID *pulse_open(void **pars)
 #endif
 	pulse_id->pa_simple = NULL;
 	pulse_id->pa_server = (char *)pars[3];
+	pulse_id->pa_name = (char *)pars[5];
 	pulse_id->pa_min_audio_length = DEFAULT_PA_MIN_AUDIO_LENGTH;
 
 	pulse_id->pa_current_rate = -1;

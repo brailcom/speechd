@@ -324,6 +324,7 @@ char *do_audio(void)
 				    else
 				SET_AUDIO_STR(audio_pulse_min_length, 5)
 				    else
+				/* 6 reserved for speech-dispatcher module name */
 				err = 2;	/* Unknown parameter */
 		}
 		g_free(line);
@@ -990,6 +991,9 @@ int module_audio_init(char **status_info)
 		     "Please choose 'oss', 'alsa', 'nas', 'libao' or 'pulse'.");
 		return -1;
 	}
+
+	g_free(module_audio_pars[6]);
+	module_audio_pars[6] = strdup(module_name);
 
 	outputs = g_strsplit(module_audio_pars[0], ",", 0);
 	while (NULL != outputs[i]) {
