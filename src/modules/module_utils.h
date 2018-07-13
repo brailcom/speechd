@@ -67,6 +67,8 @@ configfile_t *configfile;
 configoption_t *module_dc_options;
 int module_num_dc_options;
 
+const char *module_name;
+
 #define CLEAN_OLD_SETTINGS_TABLE()\
 	msg_settings_old.rate = -101;\
 	msg_settings_old.pitch = -101;\
@@ -80,6 +82,7 @@ int module_num_dc_options;
 	msg_settings_old.voice.language = NULL;
 
 #define INIT_SETTINGS_TABLES()\
+	module_name = MODULE_NAME; \
 	module_dc_options = NULL;\
 	msg_settings.rate = 0;\
 	msg_settings.pitch = 0;\
