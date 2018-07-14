@@ -645,6 +645,12 @@ char *module_strip_ssml(char *message)
 		} else if (!strncmp(&(message[i]), "&amp;", 5)) {
 			i += 4;
 			out[n++] = '&';
+		} else if (!strncmp(&(message[i]), "&quot;", 6)) {
+			i += 5;
+			out[n++] = '"';
+		} else if (!strncmp(&(message[i]), "&apos;", 6)) {
+			i += 5;
+			out[n++] = '\'';
 		} else if (!omit || i == len)
 			out[n++] = message[i];
 	}
