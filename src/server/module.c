@@ -39,7 +39,7 @@
 #include "output.h"
 #include "module.h"
 
-static char *spd_get_path(char *filename, char *startdir)
+static char *spd_get_path(const char *filename, const char *startdir)
 {
 	char *ret;
 	if (filename == NULL)
@@ -71,7 +71,7 @@ void destroy_module(OutputModule * module)
  * For each file in the directory containing module binaries,
  * add an entry to a list of discovered modules.
  */
-GList *detect_output_modules(char *dirname)
+GList *detect_output_modules(const char *dirname, const char *config_dirname)
 {
 	static const int FNAME_PREFIX_LENGTH = 3;
 	DIR *module_dir = opendir(dirname);
@@ -129,6 +129,62 @@ GList *detect_output_modules(char *dirname)
 		MSG(5,
 		    "Module name=%s being inserted into detected_modules list",
 		    module_parameters[0]);
+
+                /* Special-case the generic module: autoload for the various
+                 * configurations */
+		if (strcmp(module_parameters[0], "generic") == 0) {
+			full_path = spd_get_path("modules", config_dirname);
+			MSG(5, "Looking for generic variants configurations in %s",
+			    full_path);
+			DIR *config_dir = opendir(full_path);
+			if (config_dir == NULL)
+			{
+				MSG(4, "couldn't open directory %s because of error %s\n",
+				    full_path, strerror(errno));
+				g_free(full_path);
+				continue;
+			}
+			g_free(full_path);
+
+			while (NULL != (entry = readdir(config_dir))) {
+				size_t len;
+
+				if (!strcmp(entry->d_name, ".") || !strcmp(entry->d_name, ".."))
+					continue;
+				full_path = spd_get_path(entry->d_name, config_dirname);
+				sys_ret = stat(full_path, &fileinfo);
+				g_free(full_path);
+
+				/* Note: stat(2) dereferences symlinks. */
+				if (!S_ISREG(fileinfo.st_mode)) {
+					MSG(4, "Ignoring %s in %s; not a regular file.",
+					    entry->d_name, config_dirname);
+					continue;
+				}
+
+				len = strlen(entry->d_name);
+				if (strcmp(entry->d_name + len - strlen("-generic.conf"),
+					   "-generic.conf")) {
+					MSG(5, "Ignoring %s: not named something-generic.conf",
+					    entry->d_name);
+					continue;
+				}
+
+				module_parameters = g_malloc(4 * sizeof(char *));
+				module_parameters[1] = g_strdup("sd_generic");
+				module_parameters[2] = g_strdup(entry->d_name);
+				entry->d_name[len - strlen(".conf")] = '\0';
+				module_parameters[0] = g_strdup(entry->d_name);
+				module_parameters[3] =
+				    g_strdup_printf("%s/%s.log", SpeechdOptions.log_dir,
+						    entry->d_name);
+				modules = g_list_append(modules, module_parameters);
+
+				MSG(5,
+				    "Module name=%s being inserted into detected_modules list",
+				    entry->d_name);
+			}
+		}
 	}
 
 	closedir(module_dir);
