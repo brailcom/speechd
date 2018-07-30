@@ -426,10 +426,6 @@ is not contained here, please add it. Check if @code{GenericExecuteString}
 contains the correct name of your mbrola binary and correct path to its voice
 database.
 
-Uncomment the @code{AddModule} line for @code{espeak-ng-mbrola-generic} (resp.
-@code{espeak-mbrola-generic}) in @file{speechd.conf} in your configuration for
-Speech Dispatcher.
-
 Restart speech-dispatcher and in your client, select
 @code{espeak-ng-mbrola-generic} (resp. @code{espeak-mbrola-generic}) as your
 output module, or test it with the following command

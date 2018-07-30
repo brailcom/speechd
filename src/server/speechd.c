@@ -697,7 +697,8 @@ static gboolean speechd_load_configuration(gpointer user_data)
 		/* We need to load modules here, since this is called both by speechd_init
 		 * and to handle SIGHUP. */
 		if (module_number_of_requested_modules() < 1) {
-			detected_modules = detect_output_modules(SpeechdOptions.module_dir);
+			detected_modules = detect_output_modules(SpeechdOptions.module_dir,
+								 SpeechdOptions.conf_dir);
 			while (detected_modules != NULL) {
 				char **parameters = detected_modules->data;
 				module_add_load_request(parameters[0],
