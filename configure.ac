@@ -58,8 +58,8 @@ AC_SUBST([SNDFILE_LIBS])
 
 # Checks for header files.
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h langinfo.h limits.h netdb.h])
-AC_CHECK_HEADERS([ netinet/in.h stddef.h stdlib.h string.h sys/ioctl.h])
-AC_CHECK_HEADERS([sys/socket.h sys/time.h unistd.h wchar.h wctype.h])
+AC_CHECK_HEADERS([netinet/in.h stddef.h stdlib.h string.h sys/filio.h])
+AC_CHECK_HEADERS([sys/ioctl.h sys/socket.h sys/time.h unistd.h wchar.h wctype.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_HEADER_STDBOOL
