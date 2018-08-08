@@ -32,6 +32,10 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 
+#ifdef HAVE_SYS_FILIO_H
+#include <sys/filio.h>	/* Needed for FIONREAD on Solaris */
+#endif
+
 #include "speechd.h"
 
 /* Declare dotconf functions and data structures*/
@@ -81,7 +85,6 @@ void check_client_count(void);
 #ifdef __SUNPRO_C
 /* Added by Willie Walker - daemon is a gcc-ism
  */
-#include <sys/filio.h>
 static int daemon(int nochdir, int noclose)
 {
 	int fd, i;
