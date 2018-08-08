@@ -48,9 +48,10 @@
 #include <sys/un.h>
 #include <unistd.h>
 
-#if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
-/* Added by Willie Walker - TEMP_FAILURE_RETRY, strndup, and getline
- * are gcc-isms
+#ifndef HAVE_GETLINE
+/*
+ * Added by Willie Walker - getline was a GNU libc extension, later adopted
+ * in the POSIX.1-2008 standard, but not yet found on all systems.
  */
 ssize_t getline(char **lineptr, size_t * n, FILE * f);
 #endif

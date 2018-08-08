@@ -34,8 +34,11 @@
 
 const char *const SPDSEND_VERSION = "0.0.0";
 
-#if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
-/* Added by Willie Walker - getline is a gcc-ism */
+#ifndef HAVE_GETLINE
+/*
+ * Added by Willie Walker - getline was a GNU libc extension, later adopted
+ * in the POSIX.1-2008 standard, but not yet found on all systems.
+ */
 #define BUFFER_LEN 256
 ssize_t getline(char **lineptr, size_t * n, FILE * f)
 {
@@ -73,7 +76,7 @@ ssize_t getline(char **lineptr, size_t * n, FILE * f)
 		return m;
 	}
 }
-#endif /* !(defined(__GLIBC__) && defined(_GNU_SOURCE)) */
+#endif /* HAVE_GETLINE */
 
 static void usage(const char *const message)
 {

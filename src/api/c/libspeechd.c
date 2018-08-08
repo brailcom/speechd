@@ -82,8 +82,12 @@ const int range_high = 100;
 
 pthread_mutex_t spd_logging_mutex;
 
-#if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
-/* Added by Willie Walker - strndup and getline are gcc-isms */
+/*
+ * Added by Willie Walker - strndup and getline were GNU libc extensions
+ * that were adopted in the POSIX.1-2008 standard, but are not yet found
+ * on all systems.
+ */
+#ifndef HAVE_STRNDUP
 char *strndup(const char *s, size_t n)
 {
 	size_t nAvail;
@@ -102,7 +106,9 @@ char *strndup(const char *s, size_t n)
 
 	return p;
 }
+#endif /* HAVE_STRNDUP */
 
+#ifndef HAVE_GETLINE
 #define BUFFER_LEN 256
 ssize_t getline(char **lineptr, size_t * n, FILE * f)
 {
@@ -143,7 +149,7 @@ ssize_t getline(char **lineptr, size_t * n, FILE * f)
 		return m;
 	}
 }
-#endif /* !(defined(__GLIBC__) && defined(_GNU_SOURCE)) */
+#endif /* HAVE_GETLINE */
 
 /* --------------------- Public functions ------------------------- */
 
