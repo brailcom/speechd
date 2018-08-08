@@ -82,8 +82,8 @@ static gboolean client_process_incoming (gint          fd,
 
 void check_client_count(void);
 
-#ifdef __SUNPRO_C
-/* Added by Willie Walker - daemon is a gcc-ism
+#ifndef HAVE_DAEMON
+/* Added by Willie Walker - daemon is a common, but not universal, extension.
  */
 static int daemon(int nochdir, int noclose)
 {
@@ -118,7 +118,7 @@ static int daemon(int nochdir, int noclose)
 	}
 	return 0;
 }
-#endif /* __SUNPRO_C */
+#endif /* HAVE_DAEMON */
 
 /* --- DEBUGGING --- */
 

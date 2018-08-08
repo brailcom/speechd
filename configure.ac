@@ -73,7 +73,7 @@ AC_TYPE_UINT32_T
 AC_FUNC_FORK
 AC_FUNC_MALLOC
 AC_FUNC_REALLOC
-AC_CHECK_FUNCS([dup2 gethostbyname gettimeofday memmove memset mkdir])
+AC_CHECK_FUNCS([daemon dup2 gethostbyname gettimeofday memmove memset mkdir])
 AC_CHECK_FUNCS([select socket strcasecmp strchr strcspn strdup])
 AC_CHECK_FUNCS([strerror strncasecmp strndup strstr strtol])
 
