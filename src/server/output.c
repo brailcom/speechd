@@ -31,8 +31,10 @@
 #include "output.h"
 #include "parse.h"
 
-#if !(defined(__GLIBC__) && defined(_GNU_SOURCE))
-/* Added by Willie Walker - strndup is a gcc-ism
+#ifndef HAVE_STRNDUP
+/*
+ * Added by Willie Walker - strndup was a GNU libc extension, later adopted
+ * in the POSIX.1-2008 standard, but not yet found on all systems.
  */
 char *strndup(const char *s, size_t n)
 {
@@ -52,7 +54,7 @@ char *strndup(const char *s, size_t n)
 
 	return p;
 }
-#endif /* !(defined(__GLIBC__) && defined(_GNU_SOURCE)) */
+#endif /* HAVE_STRNDUP */
 
 void output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output)
 {

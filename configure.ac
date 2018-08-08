@@ -73,8 +73,8 @@ AC_TYPE_UINT32_T
 AC_FUNC_FORK
 AC_FUNC_MALLOC
 AC_FUNC_REALLOC
-AC_CHECK_FUNCS([daemon dup2 gethostbyname gettimeofday memmove memset mkdir])
-AC_CHECK_FUNCS([select socket strcasecmp strcasestr strchr strcspn strdup])
+AC_CHECK_FUNCS([daemon dup2 gethostbyname getline gettimeofday memmove memset])
+AC_CHECK_FUNCS([mkdir select socket strcasecmp strcasestr strchr strcspn strdup])
 AC_CHECK_FUNCS([strerror strncasecmp strndup strstr strtol])
 
 # Extra libraries for sockets and espeak added by Willie Walker
