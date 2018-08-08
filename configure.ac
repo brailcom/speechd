@@ -78,16 +78,22 @@ AC_CHECK_FUNCS([mkdir select socket strcasecmp strcasestr strchr strcspn strdup]
 AC_CHECK_FUNCS([strerror strncasecmp strndup strstr strtol])
 
 # Extra libraries for sockets and espeak added by Willie Walker
-# based upon how SunStudio libraries work.  Also
-# conditionally set other compiler/linker flags.
+# based upon how SunStudio compilers and Solaris libraries work.
+# Also conditionally set other compiler/linker flags.
 #
+
+# SVR4, including Solaris before 11.4, hides these in libraries other than libc
+AC_CHECK_LIB([c], [socket], [],
+	[AC_CHECK_LIB([socket], [socket], [EXTRA_SOCKET_LIBS="-lsocket"])])
+AC_CHECK_LIB([c], [gethostbyname], [],
+	[AC_CHECK_LIB([nsl], [gethostbyname],
+		[EXTRA_SOCKET_LIBS="${EXTRA_SOCKET_LIBS} -lnsl"])])
+
 if test "$GCC" = yes; then
-	EXTRA_SOCKET_LIBS=""
 	ERROR_CFLAGS="-Wall"
 	RDYNAMIC="-rdynamic"
 else
 	EXTRA_ESPEAK_LIBS="-lCstd -lCrun"
-	EXTRA_SOCKET_LIBS="-lsocket -lnsl"
 	ERROR_CFLAGS="-errwarn=%all -errtags=yes -erroff=E_STATEMENT_NOT_REACHED"
 	RDYNAMIC=""
 fi
