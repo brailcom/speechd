@@ -35,6 +35,9 @@
 
 GHashTable *module_voice_table = NULL;
 
+static int nbvoices=0;
+static SPDVoice *generic_voices;
+static SPDVoice **generic_voices_list;
 typedef struct {
 	char *male1;
 	char *male2;
@@ -48,6 +51,7 @@ typedef struct {
 
 DOTCONF_CB(AddVoice_cb)
 {
+	int i=0;
 	SPDVoiceDef *voices;
 	char *language = cmd->data.list[0];
 	char *symbolic;
@@ -115,7 +119,15 @@ DOTCONF_CB(AddVoice_cb)
 		DBG("Unrecognized voice name in configuration\n");
 		return NULL;
 	}
-
+	generic_voices = (SPDVoice *)g_realloc(generic_voices, (nbvoices+1) * sizeof(SPDVoice));
+	generic_voices_list = (SPDVoice **)g_realloc(generic_voices_list, (nbvoices+2) * sizeof(SPDVoice *));
+	generic_voices[nbvoices].name = g_strdup(cmd->data.list[2]);
+	generic_voices[nbvoices].language = g_strdup(cmd->data.list[0]);
+	generic_voices[nbvoices].variant = g_strdup(cmd->data.list[1]);;
+	for (i = 0; i < nbvoices+1; i++)
+		generic_voices_list[i] = &generic_voices[i];
+	generic_voices_list[nbvoices+1] = NULL;
+	++nbvoices;
 	return NULL;
 }
 
@@ -126,6 +138,11 @@ void module_register_settings_voices(void)
 						     &module_num_dc_options,
 						     "AddVoice", ARG_LIST,
 						     AddVoice_cb, NULL, 0);
+}
+
+
+SPDVoice **module_list_registered_voices(void) {
+	return (SPDVoice **)generic_voices_list;
 }
 
 char *module_getvoice(char *language, SPDVoiceType voice)
