@@ -145,6 +145,7 @@ int module_marks_clear(SPDMarks *marks);
 size_t module_pause(void);
 char *module_is_speaking(void);
 int module_close(void);
+SPDVoice **module_list_registered_voices(void);
 
 #define UPDATE_PARAMETER(value, setter) \
 	if (msg_settings_old.value != msg_settings.value) \

@@ -181,7 +181,7 @@ int module_init(char **status_info)
 
 SPDVoice **module_list_voices(void)
 {
-	return NULL;
+	return module_list_registered_voices();
 }
 
 int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
