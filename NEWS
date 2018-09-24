@@ -1,6 +1,11 @@
 Version 0.9
 * Add modules for non-free Baratinoo (VoxyGen) and Kali speech syntheses.
 * Add configuration file for the Mary-TTS system.
+* Add configuration file for espeak-ng + mbrola.
+* Set the pulse client name when using the generic module with paplay.
+* espeak-*-mbrola-generic: Update voice list.
+* Make generic module provide voice list.
+* Add systemd service file.
 
 Version 0.8.8
 * Add German translation, thanks to Chris Leick for the patch
