@@ -138,6 +138,7 @@ int module_load(void)
 	MOD_OPTION_1_STR_REG(GenericPunctSome, "--punct-some");
 	MOD_OPTION_1_STR_REG(GenericPunctAll, "--punct-all");
 
+	module_register_available_voices();
 	module_register_settings_voices();
 
 	return 0;
