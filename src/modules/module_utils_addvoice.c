@@ -36,8 +36,10 @@
 GHashTable *module_voice_table = NULL;
 
 static int nbvoices=0;
+static int nbpaths=0;
 static SPDVoice *generic_voices;
 static SPDVoice **generic_voices_list;
+static char **dependency_paths;
 typedef struct {
 	char *male1;
 	char *male2;
@@ -49,9 +51,20 @@ typedef struct {
 	char *child_female;
 } SPDVoiceDef;
 
+DOTCONF_CB(VoiceFileDependency_cb)
+{
+	dependency_paths = (char **)g_realloc(dependency_paths, strlen(g_strdup(cmd->data.str)));
+	dependency_paths[nbpaths] = g_strdup(cmd->data.str);
+	++nbpaths;
+	return NULL;
+}
+
 DOTCONF_CB(AddVoice_cb)
 {
 	int i=0;
+	int j;
+	char *new_dependency_path;
+	GRegex *regex=g_regex_new ("[$]VOICE", 0, 0, NULL);
 	SPDVoiceDef *voices;
 	char *language = cmd->data.list[0];
 	char *symbolic;
@@ -119,6 +132,15 @@ DOTCONF_CB(AddVoice_cb)
 		DBG("Unrecognized voice name in configuration\n");
 		return NULL;
 	}
+	for (j = 0; j < nbpaths; j++)
+	{
+		new_dependency_path=g_regex_replace_literal(regex,dependency_paths[j],-1,0,g_strdup(cmd->data.list[2]),0,NULL);
+		if (g_file_test (new_dependency_path,G_FILE_TEST_EXISTS) == 0) {
+			g_regex_unref(regex);
+			return NULL;
+		}
+	}
+	g_regex_unref(regex);
 	generic_voices = (SPDVoice *)g_realloc(generic_voices, (nbvoices+1) * sizeof(SPDVoice));
 	generic_voices_list = (SPDVoice **)g_realloc(generic_voices_list, (nbvoices+2) * sizeof(SPDVoice *));
 	generic_voices[nbvoices].name = g_strdup(cmd->data.list[2]);
@@ -129,6 +151,14 @@ DOTCONF_CB(AddVoice_cb)
 	generic_voices_list[nbvoices+1] = NULL;
 	++nbvoices;
 	return NULL;
+}
+
+void module_register_available_voices(void)
+{
+	module_dc_options = module_add_config_option(module_dc_options,
+						     &module_num_dc_options,
+						     "VoiceFileDependency", ARG_STR,
+						     VoiceFileDependency_cb, NULL, 0);
 }
 
 void module_register_settings_voices(void)
