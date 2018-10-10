@@ -53,7 +53,7 @@ typedef struct {
 
 DOTCONF_CB(VoiceFileDependency_cb)
 {
-	dependency_paths = (char **)g_realloc(dependency_paths, strlen(g_strdup(cmd->data.str)));
+	dependency_paths = (char **)g_realloc(dependency_paths, (nbpaths + 1) * sizeof *dependency_paths);
 	dependency_paths[nbpaths] = g_strdup(cmd->data.str);
 	++nbpaths;
 	return NULL;
@@ -62,9 +62,7 @@ DOTCONF_CB(VoiceFileDependency_cb)
 DOTCONF_CB(AddVoice_cb)
 {
 	int i=0;
-	int j;
-	char *new_dependency_path;
-	GRegex *regex=g_regex_new ("[$]VOICE", 0, 0, NULL);
+	GRegex *regex;
 	SPDVoiceDef *voices;
 	char *language = cmd->data.list[0];
 	char *symbolic;
@@ -132,13 +130,16 @@ DOTCONF_CB(AddVoice_cb)
 		DBG("Unrecognized voice name in configuration\n");
 		return NULL;
 	}
-	for (j = 0; j < nbpaths; j++)
+	regex = g_regex_new("[$]VOICE", 0, 0, NULL);
+	for (i = 0; i < nbpaths; i++)
 	{
-		new_dependency_path=g_regex_replace_literal(regex,dependency_paths[j],-1,0,g_strdup(cmd->data.list[2]),0,NULL);
-		if (g_file_test (new_dependency_path,G_FILE_TEST_EXISTS) == 0) {
+		char *new_dependency_path = g_regex_replace_literal(regex, dependency_paths[i], -1, 0, cmd->data.list[2], 0, NULL);
+		if (! g_file_test(new_dependency_path, G_FILE_TEST_EXISTS)) {
+			g_free(new_dependency_path);
 			g_regex_unref(regex);
 			return NULL;
 		}
+		g_free(new_dependency_path);
 	}
 	g_regex_unref(regex);
 	generic_voices = (SPDVoice *)g_realloc(generic_voices, (nbvoices+1) * sizeof(SPDVoice));
