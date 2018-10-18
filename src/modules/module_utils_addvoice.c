@@ -171,6 +171,15 @@ void module_register_settings_voices(void)
 						     AddVoice_cb, NULL, 0);
 }
 
+gboolean module_existsvoice(char *voicename)
+{
+	int i;
+	for (i = 0; generic_voices_list[i] != NULL; i++) {
+	if (strcasecmp(generic_voices[i].name, voicename) == 0)
+		return TRUE;
+	}
+	return FALSE;
+}
 
 SPDVoice **module_list_registered_voices(void) {
 	return (SPDVoice **)generic_voices_list;
