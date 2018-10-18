@@ -64,6 +64,7 @@ void generic_set_rate(signed int rate);
 void generic_set_pitch(signed int pitch);
 void generic_set_pitch_range(signed int pitch_range);
 void generic_set_voice(SPDVoiceType voice);
+void generic_set_synthesis_voice(char *name);
 void generic_set_language(char *language);
 void generic_set_volume(signed int volume);
 void generic_set_punct(SPDPunctuation punct);
@@ -195,7 +196,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 		DBG("Speaking when requested to write");
 		return 0;
 	}
-
+	UPDATE_STRING_PARAMETER(voice.name, generic_set_synthesis_voice);
 	UPDATE_STRING_PARAMETER(voice.language, generic_set_language);
 	UPDATE_PARAMETER(voice_type, generic_set_voice);
 	UPDATE_PARAMETER(punctuation_mode, generic_set_punct);
@@ -665,12 +666,21 @@ void generic_set_language(char *lang)
 
 void generic_set_voice(SPDVoiceType voice)
 {
+	if (generic_msg_voice_str != NULL)
+		return;
 	assert(generic_msg_language);
 	generic_msg_voice_str =
 	    module_getvoice(generic_msg_language->code, voice);
 	if (generic_msg_voice_str == NULL) {
 		DBG("Invalid voice type specified or no voice available!");
 	}
+}
+
+void generic_set_synthesis_voice(char *name)
+{
+	assert(msg_settings.voice.name);
+	if (module_existsvoice(msg_settings.voice.name))
+		generic_msg_voice_str = msg_settings.voice.name;
 }
 
 void generic_set_punct(SPDPunctuation punct)
