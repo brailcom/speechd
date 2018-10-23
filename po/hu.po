@@ -143,8 +143,8 @@ msgstr ""
 
 #: ../src/clients/say/options.c:43
 #, c-format
-msgid "Usage: %s [options] \"some text\"\n"
-msgstr "Használat: %s [opciók] \"kimondandó szöveg\"\n"
+msgid "Usage: %s [options] \"some text\"\n\n"
+msgstr "Használat: %s [opciók] \"kimondandó szöveg\"\n\n"
 
 #: ../src/clients/say/options.c:44
 #, c-format

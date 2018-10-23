@@ -40,99 +40,102 @@ void options_print_help(char *argv[])
 	assert(argv);
 	assert(argv[0]);
 
-	printf(_("Usage: %s [options] \"some text\"\n"), argv[0]);
-	printf(_("%s -- a simple client for speech synthesis %s\n\n"),
-	       "Speech Dispatcher Say", "(GNU GPL)");
+	printf(_("send text-to-speech output request to speech-dispatcher\n\n"));
+	printf(_("Usage: %s [options] \"some text\"\n\n"), argv[0]);
 
-	printf("-r, --rate\t\t\t");
+	printf(_("Options:\n"));
+	printf("  -r, --rate                      ");
 	printf(_("Set the rate of the speech\n"));
-	printf("\t\t\t\t");
+	printf("                                  ");
 	printf(_("(between %+d and %+d, default: %d)\n"), -100, 100, 0);
 
-	printf("-p, --pitch\t\t\t");
+	printf("  -p, --pitch                     ");
 	printf(_("Set the pitch of the speech\n"));
-	printf("\t\t\t\t");
+	printf("                                  ");
 	printf(_("(between %+d and %+d, default: %d)\n"), -100, 100, 0);
 
-	printf("-R, --pitch-range\t\t\t");
+	printf("  -R, --pitch-range               ");
 	printf(_("Set the pitch range of the speech\n"));
-	printf("\t\t\t\t");
+	printf("                                  ");
 	printf(_("(between %+d and %+d, default: %d)\n"), -100, 100, 0);
 
-	printf("-i, --volume\t\t\t");
+	printf("  -i, --volume                    ");
 	printf(_("Set the volume (intensity) of the speech\n"));
-	printf("\t\t\t\t");
+	printf("                                  ");
 	printf(_("(between %+d and %+d, default: %d)\n"), -100, 100, 0);
 
-	printf("-o, --output-module\t\t");
+	printf("  -o, --output-module             ");
 	printf(_("Set the output module\n"));
 
-	printf("-O, --list-output-modules\t");
+	printf("  -O, --list-output-modules       ");
 	printf(_("Get the list of output modules\n"));
 
-	printf("-I, --sound-icon\t\t");
+	printf("  -I, --sound-icon                ");
 	printf(_("Play the sound icon\n"));
 
-	printf("-l, --language\t\t\t");
+	printf("  -l, --language                  ");
 	printf(_("Set the language (ISO code)\n"));
 
-	printf("-t, --voice-type\t\t");
+	printf("  -t, --voice-type                ");
 	printf(_("Set the preferred voice type\n"));
-	printf("\t\t\t\t(male1, male2, male3, female1, female2\n"
-	       "\t\t\t\tfemale3, child_male, child_female)\n");
+	printf("                                  (male1, male2, male3, female1, female2\n"
+	       "                                  female3, child_male, child_female)\n");
 
-	printf("-L, --list-synthesis-voices\t");
+	printf("  -L, --list-synthesis-voices     ");
 	printf(_("Get the list of synthesis voices\n"));
 
-	printf("-y, --synthesis-voice\t\t");
+	printf("  -y, --synthesis-voice           ");
 	printf(_("Set the synthesis voice\n"));
 
-	printf("-m, --punctuation-mode\t\t");
+	printf("  -m, --punctuation-mode          ");
 	printf(_("Set the punctuation mode %s\n"), "(none, some, all)");
 
-	printf("-s, --spelling\t\t\t");
+	printf("  -s, --spelling                  ");
 	printf(_("Spell the message\n"));
 
-	printf("-x, --ssml\t\t\t");
+	printf("  -x, --ssml                      ");
 	printf(_("Set SSML mode on (default: off)\n"));
 	printf("\n");
 
-	printf("-e, --pipe-mode\t\t\t");
+	printf("  -e, --pipe-mode                 ");
 	printf(_("Pipe from stdin to stdout plus Speech Dispatcher\n"));
 
-	printf("-P, --priority\t\t\t");
+	printf("  -P, --priority                  ");
 	printf(_("Set priority of the message "));
 	printf("(important, message,\n"
-	       "\t\t\t\ttext, notification, progress;");
+	       "%stext, notification, progress;",
+	       "                                  ");
 	printf(_("default: %s)\n"), "text");
 
-	printf("-N, --application-name\t\t");
+	printf("  -N, --application-name          ");
 	printf(_("Set the application name used to establish\n"
-		 "%sthe connection to specified string value\n"), "\t\t\t\t");
-	printf("\t\t\t\t");
+		 "%sthe connection to specified string value\n"),
+	       "                                  ");
+	printf("                                  ");
 	printf(_("(default: %s)\n"), "spd-say");
 
-	printf("-n, --connection-name\t\t");
+	printf("  -n, --connection-name           ");
 	printf(_("Set the connection name used to establish\n"
-		 "%sthe connection to specified string value\n"), "\t\t\t\t");
-	printf("\t\t\t\t");
+		 "%sthe connection to specified string value\n"),
+	       "                                  ");
+	printf("                                  ");
 	printf(_("(default: %s)\n"), "main");
 	printf("\n");
 
-	printf("-w, --wait\t\t\t");
+	printf("  -w, --wait                      ");
 	printf(_("Wait till the message is spoken or discarded\n"));
 
-	printf("-S, --stop\t\t\t");
+	printf("  -S, --stop                      ");
 	printf(_("Stop speaking the message being spoken\n"));
 
-	printf("-C, --cancel\t\t\t");
+	printf("  -C, --cancel                    ");
 	printf(_("Cancel all messages\n"));
 	printf("\n");
 
-	printf("-v, --version\t\t\t");
+	printf("  -v, --version                   ");
 	printf(_("Print version and copyright info\n"));
 
-	printf("-h, --help\t\t\t");
+	printf("  -h, --help                      ");
 	printf(_("Print this info\n"));
 	printf("\n");
 
@@ -148,7 +151,7 @@ void options_print_help(char *argv[])
 
 void options_print_version()
 {
-	printf("spd-say: " VERSION "\n");
+	printf("spd-say " VERSION "\n");
 	printf(_("Copyright (C) %d-%d Brailcom, o.p.s.\n"
 		 "%s comes with ABSOLUTELY NO WARRANTY.\n"
 		 "You may redistribute copies of this program\n"

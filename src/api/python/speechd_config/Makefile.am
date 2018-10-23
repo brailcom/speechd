@@ -22,6 +22,7 @@ paths_edit = sed \
 
 config_edit = sed \
 	-e "s:[@]GETTEXT_PACKAGE[@]:$(GETTEXT_PACKAGE):" \
+	-e "s:[@]VERSION[@]:$(VERSION):" \
 	-e "s:[@]localedir[@]:$(localedir):"
 
 paths.py: Makefile
@@ -36,10 +37,21 @@ config.py: Makefile
 	test -f ./$@.in || srcdir=$(srcdir)/; \
 	$(config_edit) $${srcdir}$@.in > $@
 
+$(abs_builddir)/__init__.py:
+	ln -s $(srcdir)/__init__.py .
+
 paths.py: $(srcdir)/paths.py.in
 
 CLEANFILES = paths.py config.py speechd.desktop
 
 EXTRA_DIST = paths.py.in speechd.desktop.in config.py.in
+
+if HAVE_HELP2MAN
+spd-conf.1: config.py paths.py $(abs_builddir)/__init__.py
+	LC_ALL=C PYTHONPATH=$(builddir)/.. help2man -N --output=$@ $(srcdir)/spd-conf
+
+dist_man1_MANS = \
+	spd-conf.1
+endif
 
 -include $(top_srcdir)/git.mk
