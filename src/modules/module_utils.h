@@ -405,6 +405,7 @@ int module_utils_init(void);
 int module_audio_init(char **status_info);
 
 	/* Prototypes from module_utils_addvoice.c */
+void module_register_available_voices(void);
 void module_register_settings_voices(void);
 char *module_getvoice(char *language, SPDVoiceType voice);
 gboolean module_existsvoice(char *voicename);
