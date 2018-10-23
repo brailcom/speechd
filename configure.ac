@@ -27,6 +27,8 @@ AC_CONFIG_TESTDIR(src/tests)
 AC_PROG_CC
 AC_PROG_CXX
 AC_PROG_INSTALL
+AC_CHECK_PROGS([HELP2MAN], [help2man])
+AM_CONDITIONAL([HAVE_HELP2MAN], [test "x$HELP2MAN" != "x"])
 
 # Checks for libraries.
 AC_SEARCH_LIBS([sqrt], [m], [],

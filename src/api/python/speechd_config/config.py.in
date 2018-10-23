@@ -122,7 +122,8 @@ def question_with_required_answers(text, default, required):
 
 def setup_argparse():
     """Set up an argparser instance with all the options accepted."""
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description=_('A simple tool for basic configuration of Speech Dispatcher and problem diagnostics'))
     parser.add_argument('-u', '--create-user-conf',
         dest='create_user_configuration', action="store_true", default=False,
         help=_("Create Speech Dispatcher configuration for the given user"))
@@ -156,6 +157,9 @@ def setup_argparse():
     parser.add_argument('-D', '--debug', dest='debug',
             action="store_true", default=False,
             help=_("Debug a problem and generate a report"))
+    parser.add_argument('--version', dest='version',
+            action="store_true",
+            help=_("Print version and copyright info"))
     return parser
 
 class Tests:
@@ -164,6 +168,16 @@ class Tests:
 
     def __init__(self):
         self.festival_socket = None
+
+    def version(self):
+        """Print version and copyright info"""
+        report("spd-conf @VERSION@\n")
+        report(_("""Copyright (C) %d-%d Brailcom, o.p.s.
+%s comes with ABSOLUTELY NO WARRANTY.
+You may redistribute copies of this program
+under the terms of the GNU General Public License.
+For more information about these matters, see the file named COPYING.\n""") % \
+               (2002, 2012, "spd-conf"))
 
     def user_conf_dir(self):
         """Return user configuration directory"""
@@ -759,7 +773,8 @@ def main():
     configure = Configure(test) # that should possibly be refactored, test should not be passed
 
 
-    report(_("\nSpeech Dispatcher configuration tool\n"))
+    if not options.version:
+        report(_("\nSpeech Dispatcher configuration tool\n"))
 
     if options.create_user_configuration:
         # Check for and/or create basic user configuration
@@ -794,6 +809,9 @@ def main():
 
     elif options.debug:
         test.debug_and_report()
+
+    elif options.version:
+        test.version()
 
     else:
         reply = question(_("Do you want to setup a completely new configuration?"), True)

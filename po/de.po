@@ -164,8 +164,8 @@ msgstr ""
 
 #: ../src/clients/say/options.c:43
 #, c-format
-msgid "Usage: %s [options] \"some text\"\n"
-msgstr "Aufruf: %s [Optionen] \"irgendein Text\"\n"
+msgid "Usage: %s [options] \"some text\"\n\n"
+msgstr "Aufruf: %s [Optionen] \"irgendein Text\"\n\n"
 
 #: ../src/clients/say/options.c:44
 #, c-format

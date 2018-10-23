@@ -62,46 +62,54 @@ void options_print_help(char *argv[])
 	assert(argv);
 	assert(argv[0]);
 
-	printf(_("Usage: "));
-	printf
-	    ("%s [-{d|s}] [-l {1|2|3|4|5}] [-c com_method] [-S socket_path] [-p port] [-t timeout] | [-v] | [-h]\n",
-	     argv[0]);
 	printf(_("%s -- Common interface for Speech Synthesis %s\n\n"),
 	       "Speech Dispatcher", "(GNU GPL)");
-	printf("-d, --run-daemon\t");
+	printf(_("Usage: "));
+	printf
+	    ("%s [-{d|s}] [-l {1|2|3|4|5}] [-c com_method] [-S socket_path] [-p port] [-t timeout] | [-v] | [-h]\n\n",
+	     argv[0]);
+	printf(_("Options: \n"));
+	printf("  -d, --run-daemon      ");
 	printf(_("Run as a daemon\n"));
-	printf("-s, --run-single\t");
+	printf("  -s, --run-single      ");
 	printf(_("Run as single application\n"));
-	printf("-a, --spawn\t\t");
+	printf("  -a, --spawn           ");
 	printf(_("Start only if autospawn is not disabled\n"));
-	printf("-l, --log-level\t\t");
+	printf("  -l, --log-level       ");
 	printf(_("Set log level (between %d and %d)\n"), 1, 5);
-	printf("-L, --log-dir\t\t");
+	printf("  -L, --log-dir         ");
 	printf(_("Set path to logging\n"));
-	printf("-c, --communication-method\t");
-	printf(_("Communication method to use ('%s' or '%s')\n"), "unix_socket",
-	       "inet_socket");
-	printf("-S, --socket-path\t");
+	printf("  -c, --communication-method\n");
+	printf("                        ");
+	printf(_("Communication method to use ('%s'\n"), "unix_socket");
+	printf("                        ");
+	printf(_("or '%s')\n"), "inet_socket");
+	printf("  -S, --socket-path     ");
 	printf(_
-	       ("Socket path to use for '%s' method (filesystem path or '%s')\n"),
-	       "unix_socket", "default");
-	printf("-p, --port\t\t");
+	       ("Socket path to use for '%s' method\n"), "unix_socket");
+	printf("                        ");
+	printf(_("(filesystem path or '%s')\n"), "default");
+	printf("  -p, --port            ");
 	printf(_("Specify a port number for '%s' method\n"), "inet_socket");
-	printf("-t, --timeout\t\t");
-	printf(_("Set time in seconds for the server to wait before it shuts down,\n\t\t\t"));
-	printf(_("if it has no clients connected\n"));
-	printf("-P, --pid-file\t\t");
+	printf("  -t, --timeout         ");
+	printf(_("Set time in seconds for the server to wait before it\n"));
+	printf("                        ");
+	printf(_("shuts down, if it has no clients connected\n"));
+	printf("  -P, --pid-file        ");
 	printf(_("Set path to pid file\n"));
-	printf("-C, --config-dir\t");
+	printf("  -C, --config-dir      ");
 	printf(_("Set path to configuration\n"));
-	printf("-m, --module-dir\t");
+	printf("  -m, --module-dir      ");
 	printf(_("Set path to modules\n"));
-	printf("-v, --version\t\t");
+	printf("  -v, --version         ");
 	printf(_("Report version of this program\n"));
-	printf("-D, --debug\t\t");
-	printf(_("Output debugging information into $TMPDIR/%s if TMPDIR is exported, otherwise to /tmp/%s\n"),
-	       "speechd-debug", "speechd-debug");
-	printf("-h, --help\t\t");
+	printf("  -D, --debug           ");
+	printf(_("Output debugging information into $TMPDIR/%s\n"),
+	       "speechd-debug");
+	printf("                        ");
+	printf(_("if TMPDIR is exported, otherwise to /tmp/%s\n"),
+	       "speechd-debug");
+	printf("  -h, --help            ");
 	printf(_("Print this info\n"));
 	printf("\n");
 	printf(_
