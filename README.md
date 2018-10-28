@@ -3,7 +3,6 @@ speech-dispatcher
 
 *Common interface to speech synthesis*
 
-
 Introduction
 ------------
 
@@ -16,9 +15,6 @@ Speech Dispatcher project provides a high-level *device independent* layer
 for access to speech synthesis through a simple, stable and well documented
 interface.
 
-See [more details about speech-dispatcher](README.details.md).
-
-
 Documentation
 -------------
 
@@ -29,6 +25,10 @@ available online](https://devel.freebsoft.org/doc/speechd/speech-dispatcher.html
 The [SSIP communication protocol is also
 documented](https://devel.freebsoft.org/doc/speechd/ssip.html).
 
+The key features and the supported TTS engines, output subsystems, client
+interfaces and client applications known to work with Speech Dispatcher are
+listed in [overview of speech-dispatcher](README.overview.md) as well as voices
+settings and where to look at in case of a sound or speech issue.
 
 Mailing-lists
 -------------
@@ -39,7 +39,6 @@ This list is for for Speech Dispatcher developers, as well as for users. If you
 want to contribute the development, propose a new feature, get help or just be
 informed about the latest news, don't hesitate to subscribe. The communication
 on this list is held in English.
-
 
 Development
 -----------
@@ -92,7 +91,6 @@ Development team:
 Contributors: Trevor Saunders, Lukas Loehrer,Gary Cramblitt, Olivier Bert, Jacob
 Schmude, Steve Holmes, Gilles Casse, Rui Batista, Marco Skambraks ...and many
 others.
-
 
 License
 -------
