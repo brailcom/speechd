@@ -435,7 +435,7 @@ int module_close(void)
 	}
 
 	/* destroy output signal */
-	BCoutputSignalBufferDeleteSignal(engine->output_signal);
+	BCoutputSignalBufferDelete(engine->output_signal);
 	engine->output_signal = NULL;
 
 	/* destroy engine */
