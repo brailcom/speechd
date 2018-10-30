@@ -1,0 +1,10 @@
+IMPORTANT INFORMATION ON THE BARATINOO MODULE
+---------------------------------------------
+
+The Baratinoo engine library (libbaratinoo) does NOT provide ABI
+stability.  This is mitigated in the baratinoo module code using both
+static and dynamic compatibility strategies.
+
+Before hacking on anything *USING* or *RELATED* to the Baratinoo API,
+carefully read the "Baratinoo API" section in the module source code,
+baratinoo.c.

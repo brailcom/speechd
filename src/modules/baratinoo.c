@@ -54,9 +54,283 @@
 
 #include <semaphore.h>
 
-#define BARATINOO_C_API
-#include "baratinoo.h"
-#include "baratinooio.h"
+#ifdef BARATINOO_ABI_IS_STABLE_ENOUGH_FOR_ME
+/* See below why this is problematic.  It can however be useful to get the
+ * compiler help to check compatibility */
+# define BARATINOO_C_API
+# include "baratinoo.h"
+# include "baratinooio.h"
+
+#define VOICE_INFO_MEMBER(member_type, struct_p, member) \
+	(((BaratinooVoiceInfo *)(struct_p))->member)
+
+#else
+/*------------------------------ Baratinoo API ------------------------------*/
+/*
+ * This file does NOT include baratinoo.h and baratinooio.h on purpose.
+ * The reason is that Baratinoo does not provide ABI stability, and various
+ * things change in minor versions.  This is a problem for this module that
+ * would like to support several versions at once.
+ *
+ * To work around this, we re-define all the API we need from the Baratinoo
+ * headers, and patch compatibility possibly dynamically.
+ *
+ * This has to be done with *EXTREME CARE* not to slip off face-first into the
+ * wall.  What we keep is the lowest common denominator between the supported
+ * versions, and for the incompatible bits we use dynamic mapping and offsets.
+ *
+ * Currently supported versions:
+ * - 8.1
+ * - 8.4
+ *
+ * To add a new version, you need to:
+ * - First, check the diff between the oldest supported version and the new
+ *   version.  Diffing against the newest supported version can be handy but
+ *   is not necessarily enough.
+ * - Once the incompatibilities are identified and they affect us, amend the
+ *   code as necessary, keeping in mind to support older versions.  You'll
+ *   have to add a new `BV_` constant for the new version, and make sure
+ *   everything that uses these constants handles the new value.
+ *   - What to look for:
+ *     - Members of structures that changed offsed (reordered, changed type, etc.)
+ *     - Enumeration values that changed value (order changed, previous member
+ *       getting a different default value, etc.)
+ *     - Union that changed size.
+ *     - Function arguments that changed type or order.
+ * - Update get_baratinoo_supported_version() to return the appropriate
+ *   constant in the appropriate situation.  If the new version did not break
+ *   compatibility with an already supported version, you might just return
+ *   the constant for that other version.
+ *
+ * GOTCHAS
+ * - do NOT access BaratinooVoiceInfo members directly, always use
+ *   VOICE_INFO_MEMBER(type, struct_p, member)
+ * - Make sure the structures allocated on the stack are large enough for all
+ *   versions.
+ */
+
+#include <stdarg.h>
+
+typedef enum {
+    BARATINOO_ALL_PARSING,         /* Proprietary parsing and XML parsing both activated */
+    BARATINOO_NO_PARSING,          /* No parsing at all */
+    BARATINOO_PROPRIETARY_PARSING, /* Proprietary parsing only */
+    BARATINOO_XML_PARSING          /* XML parsing only */
+} BARATINOO_PARSING;
+
+typedef enum {
+    /* Enum changed in 8.4. */
+
+    /* BARATINOO_UTF8 is defined dynamically below, the 2 values below are
+     * just here to be excessively rigorous and make sure possible values are
+     * included in the enumeration */
+    BARATINOO_UTF8__V8_1 = 11,
+    BARATINOO_UTF8__V8_4 = 13,
+} BARATINOO_TEXT_ENCODING;
+
+typedef enum {
+    BARATINOO_MARKER_EVENT = 0,
+} BARATINOO_EVENT_TYPE;
+
+typedef enum {
+    BARATINOO_UNINITIALIZED,
+    BARATINOO_INITIALIZED,
+    BARATINOO_READY,
+    BARATINOO_RUNNING,
+    BARATINOO_EVENT,
+    BARATINOO_INPUT_ERROR,
+    BARATINOO_ENGINE_ERROR
+} BARATINOOC_STATE;
+
+typedef enum
+{
+    BARATINOO_INIT_OK,
+    BARATINOO_INIT_ERROR
+} BARATINOO_INIT_RETURN;
+
+typedef enum {
+    BARATINOO_TRACE_ERROR,
+    BARATINOO_TRACE_INIT,
+    BARATINOO_TRACE_WARNING,
+    BARATINOO_TRACE_INFO,
+    BARATINOO_TRACE_DEBUG
+} BaratinooTraceLevel;
+
+typedef void (*BaratinooTraceCB)(BaratinooTraceLevel level, int engineNumber, const char *source, const void *privatedata, const char *format, va_list args);
+
+typedef void* BCengine;
+typedef void* BCinputTextBuffer;
+typedef void* BCoutputSignalBuffer;
+
+typedef struct
+{
+    int major;
+    int minor;
+    /* we don't care about possible extras */
+} BaratinooVersionStruct;
+
+typedef struct {
+    BARATINOO_EVENT_TYPE type;
+    float         timeStamp;            /* millisecond unit */
+    unsigned long byteStamp;            /* byte unit */
+    unsigned long sampleStamp;          /* sample unit */
+    union   {
+        struct    {
+            const char *name;
+        } marker;
+        struct    {
+            const char *name;
+            float duration;             /* millisecond unit */
+            unsigned int samples;       /* sample unit */
+        } waitMarker;
+        struct    {			/* UTF-8 encoding */
+            const char *tts;
+            const char *input;
+        } word;
+        struct    {			/* UTF-8 encoding */
+            const char *tts;
+            const char *input;
+        } punctuation;
+	struct {			/* UTF-8 encoding */
+	    const char *input;
+	} separator;
+        struct    {
+            const char *symbol;
+            float duration;             /* millisecond unit */
+            unsigned int samples;       /* sample unit */
+        } phoneme;
+        /* viseme field is 8.4 and later, but doesn't affect union size */
+        struct    {
+            const char *name;
+            const char *language;
+        } newVoice;
+        struct    {
+            int type;
+            int size;
+            const char *datas;
+        } raw;
+    } data;
+} BaratinooEvent;
+
+typedef struct {
+    const char *name;
+    const char *language;
+    const char *iso639;
+    const char *iso3166;
+    const char *variant;
+    const char *accent;
+    const char *gender;
+    const char *version;
+    const char *modules;
+    int         age;
+    int         expire_days;
+} BaratinooVoiceInfo__V8_1;
+typedef struct {
+    const char *name;
+    const char *language;
+    const char *iso639;
+    const char *iso3166;
+    const char *variant;
+    const char *accent;
+    const char *gender;
+    const char *version;
+    const char *speech_modes;
+    const char *modules;
+    int         age;
+    int         expire_days;
+} BaratinooVoiceInfo__V8_4;
+/* we use the biggest as default impl as we have to allocate it on the stack */
+typedef BaratinooVoiceInfo__V8_4 BaratinooVoiceInfo;
+
+/* lib and version */
+extern BARATINOO_INIT_RETURN BCinitlib(BaratinooTraceCB traceCB);
+extern void BCterminatelib(void);
+extern const char *BCgetBaratinooVersion(void);
+extern const BaratinooVersionStruct *BCgetBaratinooVersionStruct(void);
+/* engine */
+extern BCengine BCnew(const void *privatedata);
+extern void BCinit(BCengine engine, const char *config);
+extern void BCdelete(BCengine engine);
+extern BARATINOOC_STATE BCgetState(BCengine engine);
+extern BARATINOOC_STATE BCprocessLoop(BCengine engine, int count);
+extern BARATINOOC_STATE BCpurge(BCengine engine);
+extern void BCsetWantedEvent(BCengine engine, BARATINOO_EVENT_TYPE type);
+extern BaratinooEvent BCgetEvent(BCengine engine);
+extern int BCgetNumberOfVoices(BCengine engine);
+extern BaratinooVoiceInfo BCgetVoiceInfo(BCengine engine,int voiceNumber);
+/* I/O */
+typedef enum
+{
+    BARATINOO_PCM = 0,
+} BARATINOO_SIGNAL_CODING;
+
+extern BCinputTextBuffer BCinputTextBufferNew(BARATINOO_PARSING parsing, BARATINOO_TEXT_ENCODING encoding, int voiceIndex, char *voiceModules);
+extern void BCinputTextBufferDelete(BCinputTextBuffer inputTextBuffer);
+extern int BCinputTextBufferInit(BCinputTextBuffer inputTextBuffer, const char *text);
+extern BARATINOOC_STATE BCinputTextBufferSetInEngine(BCinputTextBuffer inputTextBuffer, BCengine engine);
+
+extern BCoutputSignalBuffer BCoutputSignalBufferNew(BARATINOO_SIGNAL_CODING coding, int frequency);
+extern void BCoutputSignalBufferDelete(BCoutputSignalBuffer outputSignalBuffer);
+extern void BCoutputTextBufferSetInEngine(BCoutputSignalBuffer outputSignalBuffer, BCengine engine);
+extern int BCoutputSignalBufferIsError(BCoutputSignalBuffer outputSignalBuffer);
+extern char * BCoutputSignalBufferGetSignalBuffer(BCoutputSignalBuffer outputSignalBuffer);
+extern int BCoutputSignalBufferGetSignalLength(BCoutputSignalBuffer outputSignalBuffer);
+extern void BCoutputSignalBufferResetSignal(BCoutputSignalBuffer outputSignalBuffer);
+
+/* Dynamic compatibility part */
+#include <glib.h>
+
+typedef enum {
+	BV_UNSUPPORTED = -1,
+	BV_8_1,
+	BV_8_4,
+	N_SUPPORTED_BARATINOO_VERSIONS
+} SupportedBaratinooVersion;
+
+/* BARATINOO_UTF8 */
+static const BARATINOO_TEXT_ENCODING bv_BARATINOO_UTF8[N_SUPPORTED_BARATINOO_VERSIONS] = {
+	[BV_8_1] = BARATINOO_UTF8__V8_1,
+	[BV_8_4] = BARATINOO_UTF8__V8_4,
+};
+#define BARATINOO_UTF8 (bv_BARATINOO_UTF8[baratinoo_engine.supported_version])
+
+/* BaratinooVoiceInfo */
+enum {
+	VI_name,
+	VI_language,
+	VI_iso639,
+	VI_iso3166,
+	VI_gender,
+	VI_age,
+	N_VI_MEMBERS
+};
+static const size_t bv_VoiceInfo_offsets[N_SUPPORTED_BARATINOO_VERSIONS][N_VI_MEMBERS] = {
+#define BVIF_MEMBER_DECL(struct, member) [VI_##member] = G_STRUCT_OFFSET(struct, member)
+	[BV_8_1] = {
+		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_1, name),
+		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_1, language),
+		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_1, iso639),
+		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_1, iso3166),
+		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_1, gender),
+		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_1, age),
+	},
+	[BV_8_4] = {
+		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_4, name),
+		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_4, language),
+		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_4, iso639),
+		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_4, iso3166),
+		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_4, gender),
+		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_4, age),
+	},
+#undef BVIF_MEMBER_DECL
+};
+#define VOICE_INFO_MEMBER(member_type, struct_p, member) \
+	G_STRUCT_MEMBER(member_type, struct_p, bv_VoiceInfo_offsets[baratinoo_engine.supported_version][VI_##member])
+
+#endif /* ! BARATINOO_ABI_IS_STABLE_ENOUGH_FOR_ME */
+
+
+/*------------------------ Speech-Dispatcher module ------------------------*/
 
 #include "spd_audio.h"
 
@@ -75,6 +349,10 @@ typedef struct {
 	/* Thread primitives */
 	pthread_t thread;
 	sem_t semaphore;
+
+#ifndef BARATINOO_ABI_IS_STABLE_ENOUGH_FOR_ME
+	SupportedBaratinooVersion supported_version;
+#endif
 
 	BCengine engine;
 	/* The buffer consumed by the TTS engine.  It is NULL when the TTS
@@ -171,6 +449,22 @@ int module_load(void)
 	return 0;
 }
 
+#ifndef BARATINOO_ABI_IS_STABLE_ENOUGH_FOR_ME
+static SupportedBaratinooVersion get_baratinoo_supported_version(void)
+{
+	const BaratinooVersionStruct *version = BCgetBaratinooVersionStruct();
+
+	switch (version->major) {
+		case 8: switch (version->minor) {
+			case 1: return BV_8_1;
+			case 4: return BV_8_4;
+		} break;
+	}
+
+	return BV_UNSUPPORTED;
+}
+#endif
+
 int module_init(char **status_info)
 {
 	Engine *engine = &baratinoo_engine;
@@ -199,6 +493,16 @@ int module_init(char **status_info)
 		return -1;
 	}
 	DBG(DBG_MODNAME "Using Baratinoo %s", BCgetBaratinooVersion());
+
+#ifndef BARATINOO_ABI_IS_STABLE_ENOUGH_FOR_ME
+	engine->supported_version = get_baratinoo_supported_version();
+	if (engine->supported_version == BV_UNSUPPORTED) {
+		DBG(DBG_MODNAME "Unsupported library version");
+		*status_info = g_strdup("Unsupported Baratinoo engine version.");
+		return -1;
+	}
+	DBG(DBG_MODNAME "Using Baratinoo compatibility level %d", engine->supported_version);
+#endif
 
 	engine->engine = BCnew(NULL);
 	if (!engine->engine) {
@@ -475,22 +779,26 @@ static SPDVoice **baratinoo_list_voices(BCengine *engine)
     DBG(DBG_MODNAME "Got %d available voices:", n_voices);
     for (i = 0; i < n_voices; i++) {
 	SPDVoice *voice;
+	const char *language;
 	const char *dash;
-	BaratinooVoiceInfo voice_info = BCgetVoiceInfo(engine, i);
+	BaratinooVoiceInfo voice_info_DO_NO_ACCESS_DIRECTLY = BCgetVoiceInfo(engine, i);
+	void *voice_info = &voice_info_DO_NO_ACCESS_DIRECTLY;
 
 	DBG(DBG_MODNAME "\tVoice #%d: name=%s, language=%s, gender=%s",
-	    i, voice_info.name, voice_info.language, voice_info.gender);
+	    i, VOICE_INFO_MEMBER(char *, voice_info, name),
+	       VOICE_INFO_MEMBER(char *, voice_info, language),
+	       VOICE_INFO_MEMBER(char *, voice_info, gender));
 
 	voice = g_malloc0(sizeof *voice);
-	voice->name = g_strdup(voice_info.name);
+	voice->name = g_strdup(VOICE_INFO_MEMBER(char *, voice_info, name));
 
-	dash = strchr(voice_info.language, '-');
+	language = VOICE_INFO_MEMBER(char *, voice_info, language);
+	dash = strchr(language, '-');
 	if (dash) {
-	    voice->language = g_strndup(voice_info.language,
-					dash - voice_info.language);
+	    voice->language = g_strndup(language, dash - language);
 	    voice->variant = g_ascii_strdown(dash + 1, -1);
 	} else {
-	    voice->language = g_strdup(voice_info.language);
+	    voice->language = g_strdup(language);
 	}
 
 	voices[i] = voice;
@@ -605,27 +913,30 @@ static void *_baratinoo_speak(void *data)
  *
  * Gives a score to a voice based on its compatibility with @p lang.
  */
-static int lang_match_level(const BaratinooVoiceInfo *info, const char *lang)
+static int lang_match_level(const void *vinfo, const char *lang)
 {
 	int level = 0;
+	const char *language = VOICE_INFO_MEMBER(char *, vinfo, language);
+	const char *iso639 = VOICE_INFO_MEMBER(char *, vinfo, iso639);
+	const char *iso3166 = VOICE_INFO_MEMBER(char *, vinfo, iso3166);
 
-	if (g_ascii_strcasecmp(lang, info->language) == 0)
+	if (g_ascii_strcasecmp(lang, language) == 0)
 		level += 10;
 	else {
-		gchar **a = g_strsplit_set(info->language, "-", 2);
+		gchar **a = g_strsplit_set(language, "-", 2);
 		gchar **b = g_strsplit_set(lang, "-", 2);
 
 		/* language */
 		if (g_ascii_strcasecmp(a[0], b[0]) == 0)
 			level += 8;
-		else if (g_ascii_strcasecmp(info->iso639, b[0]) == 0)
+		else if (g_ascii_strcasecmp(iso639, b[0]) == 0)
 			level += 8;
 		else if (g_ascii_strncasecmp(a[0], b[0], 2) == 0)
 			level += 5; /* partial match */
 		/* region */
 		if (a[1] && b[1] && g_ascii_strcasecmp(a[1], b[1]) == 0)
 			level += 2;
-		else if (b[1] && g_ascii_strcasecmp(info->iso3166, b[1]) == 0)
+		else if (b[1] && g_ascii_strcasecmp(iso3166, b[1]) == 0)
 			level += 2;
 		else if (a[1] && b[1] && g_ascii_strncasecmp(a[1], b[1], 2) == 0)
 			level += 1; /* partial match */
@@ -635,7 +946,7 @@ static int lang_match_level(const BaratinooVoiceInfo *info, const char *lang)
 	}
 
 	DBG(DBG_MODNAME "lang_match_level({language=%s, iso639=%s, iso3166=%s}, lang=%s) = %d",
-	    info->language, info->iso639, info->iso3166, lang, level);
+	    language, iso639, iso3166, lang, level);
 
 	return level;
 }
@@ -649,14 +960,18 @@ static int lang_match_level(const BaratinooVoiceInfo *info, const char *lang)
  * @returns < 0 if @p a is best, > 0 if @p b is best, and 0 if they are equally
  *          matching.  Larger divergence from 0 means better match.
  */
-static int sort_voice(const BaratinooVoiceInfo *a, const BaratinooVoiceInfo *b, const char *lang, SPDVoiceType voice_code)
+static int sort_voice(const void *voice_a, const void *voice_b, const char *lang, SPDVoiceType voice_code)
 {
 	int cmp = 0;
+	const char *a_gender = VOICE_INFO_MEMBER(char *, voice_a, gender);
+	const char *b_gender = VOICE_INFO_MEMBER(char *, voice_b, gender);
+	int a_age = VOICE_INFO_MEMBER(int, voice_a, age);
+	int b_age = VOICE_INFO_MEMBER(int, voice_b, age);
 
-	cmp -= lang_match_level(a, lang);
-	cmp += lang_match_level(b, lang);
+	cmp -= lang_match_level(voice_a, lang);
+	cmp += lang_match_level(voice_b, lang);
 
-	if (strcmp(a->gender, b->gender) != 0) {
+	if (strcmp(a_gender, b_gender) != 0) {
 		const char *gender;
 
 		switch (voice_code) {
@@ -676,32 +991,35 @@ static int sort_voice(const BaratinooVoiceInfo *a, const BaratinooVoiceInfo *b, 
 			break;
 		}
 
-		if (strcmp(gender, a->gender) == 0)
+		if (strcmp(gender, a_gender) == 0)
 			cmp--;
-		if (strcmp(gender, b->gender) == 0)
+		if (strcmp(gender, b_gender) == 0)
 			cmp++;
 	}
 
 	switch (voice_code) {
 	case SPD_CHILD_MALE:
 	case SPD_CHILD_FEMALE:
-		if (a->age && a->age <= 15)
+		if (a_age && a_age <= 15)
 			cmp--;
-		if (b->age && b->age <= 15)
+		if (b_age && b_age <= 15)
 			cmp++;
 		break;
 	default:
 		/* we expect mostly adult voices, so only compare if age is set */
-		if (a->age && b->age) {
-			if (a->age > 15)
+		if (a_age && b_age) {
+			if (a_age > 15)
 				cmp--;
-			if (b->age > 15)
+			if (b_age > 15)
 				cmp++;
 		}
 		break;
 	}
 
-	DBG(DBG_MODNAME "Comparing %s <> %s gives %d", a->name, b->name, cmp);
+	DBG(DBG_MODNAME "Comparing %s <> %s gives %d",
+			VOICE_INFO_MEMBER(char*, voice_a, name),
+			VOICE_INFO_MEMBER(char*, voice_b, name),
+			cmp);
 
 	return cmp;
 }
@@ -795,7 +1113,7 @@ static void baratinoo_set_synthesis_voice(char *synthesis_voice)
 	for (i = 0; i < BCgetNumberOfVoices(engine->engine); i++) {
 		BaratinooVoiceInfo info = BCgetVoiceInfo(engine->engine, i);
 
-		if (g_ascii_strcasecmp(synthesis_voice, info.name) == 0) {
+		if (g_ascii_strcasecmp(synthesis_voice, VOICE_INFO_MEMBER(char*, &info, name)) == 0) {
 			engine->voice = i;
 			return;
 		}
