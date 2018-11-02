@@ -713,7 +713,7 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 			goto symbol_error;
 
 		if (ssp->level >= sym->level) {
-			g_string_append_printf(result, " %lu %s ", strlen(capture), sym->replacement);
+			g_string_append_printf(result, " %lu %s ", (unsigned long) strlen(capture), sym->replacement);
 		} else {
 			g_string_append_c(result, ' ');
 		}
