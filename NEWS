@@ -4,6 +4,7 @@ Version 0.9
 * Add configuration file for espeak-ng + mbrola.
 * Set the pulse client name when using the generic module with paplay.
 * espeak-*-mbrola-generic: Update voice list.
+* Auto-detect module availability.
 * Make generic module provide voice list.
 * Add systemd service file.
 

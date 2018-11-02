@@ -1,6 +1,8 @@
 AUTHORS
 =======
 
+Samuel Thibault <samuel point thibault at ens dash lyon point org>
+
 Luke Yelavich <themuso at themuso point com>
 
 Jan Buchal <buchal at brailcom point org>
@@ -43,10 +45,14 @@ work on the internationalization of Speech Dispatcher.
 
 Thanks to Trevor Saunders for various improvements and bugfixes.
 
-Thanks to Halim Sahin for for fixes in the audio subsystem.
-
-Thanks to Samuel Thibault for various bugfixes.
+Thanks to Halim Sahin for fixes in the audio subsystem.
 
 Thanks to William Jon McCann for XDG Base Dir patches.
+
+Thanks to Didier Spaier for cleaning up lists with generic modules.
+
+Thanks to Colomban Wendling for the Baratinoo support.
+
+Thanks to Raphaël Poitevin for the Kali support.
 
 ...and to many others who have contributed.

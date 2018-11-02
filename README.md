@@ -44,7 +44,7 @@ Development
 -----------
 
 Various versions of speech-dispatcher can be downloaded from the [project
-archive](https://devel.freebsoft.org/pub/projects/speechd).
+archive](https://github.com/brailcom/speechd/releases).
 
 Bug reports, issues, and patches can be submitted to [the github
 tracker](https://github.com/brailcom/speechd/issues).
