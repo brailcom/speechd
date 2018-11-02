@@ -95,7 +95,7 @@ endif
 
 if baratinoo_support
 modulebin_PROGRAMS += sd_baratinoo
-sd_baratinoo_SOURCES = baratinoo.c $(audio_SOURCES) $(common_SOURCES)
+sd_baratinoo_SOURCES = baratinoo.c baratinoo_compat.h $(audio_SOURCES) $(common_SOURCES)
 sd_baratinoo_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) -lbaratinoo -lpthread -ldl \
 	$(common_LDADD)
