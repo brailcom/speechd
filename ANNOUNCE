@@ -8,7 +8,7 @@ the Free(b)Soft project.
 
  - Add configuration file for espeak-ng + mbrola
  - Add support for Baratinoo (VoxyGen), Kali, and Mary-TTS
- - Better manage volukme for generic-based modules.
+ - Better manage volume for generic-based modules.
  - Auto-detect module availability.
  - Make generic module provide voice list.
  - Add systemd unit file.
