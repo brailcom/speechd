@@ -684,9 +684,11 @@ static int alsa_play(AudioID * id, AudioTrack track)
 		} else if (ret == -EPIPE) {
 			if (xrun(alsa_id) != 0)
 				ERROR_EXIT();
+#ifdef ESTRPIPE
 		} else if (ret == -ESTRPIPE) {
 			if (suspend(alsa_id) != 0)
 				ERROR_EXIT();
+#endif
 		} else if (ret == -EBUSY) {
 			MSG(4, "WARNING: sleeping while PCM BUSY");
 			usleep(100);
