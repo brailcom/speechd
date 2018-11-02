@@ -959,7 +959,7 @@ void module_report_event_pause(void)
 
 /* --- CONFIGURATION --- */
 configoption_t *module_add_config_option(configoption_t * options,
-					 int *num_options, char *name, int type,
+					 int *num_options, const char *name, int type,
 					 dotconf_callback_t callback,
 					 info_t * info, unsigned long context)
 {

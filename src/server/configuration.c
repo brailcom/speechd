@@ -42,7 +42,7 @@ static TFDSetClientSpecific *cl_spec_section;
 
 /* Add dotconf configuration option */
 configoption_t *add_config_option(configoption_t * options,
-				  int *num_config_options, char *name, int type,
+				  int *num_config_options, const char *name, int type,
 				  dotconf_callback_t callback, info_t * info,
 				  unsigned long context)
 {

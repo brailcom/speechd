@@ -37,7 +37,7 @@ int spd_num_options;
 configoption_t *load_config_options(int *num_options);
 void free_config_options(configoption_t * opts, int *num);
 configoption_t *add_config_option(configoption_t * options,
-				  int *num_config_options, char *name, int type,
+				  int *num_config_options, const char *name, int type,
 				  dotconf_callback_t callback, info_t * info,
 				  unsigned long context);
 
