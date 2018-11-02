@@ -99,6 +99,17 @@ sd_baratinoo_SOURCES = baratinoo.c baratinoo_compat.h $(audio_SOURCES) $(common_
 sd_baratinoo_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) -lbaratinoo -lpthread -ldl \
 	$(common_LDADD)
+
+if baratinoo_shim
+sd_baratinoo_LDADD += -L.
+
+EXTRA_DIST = baratinoo_shim.c
+
+EXTRA_sd_baratinoo_DEPENDENCIES = libbaratinoo.so
+
+libbaratinoo.so: $(srcdir)/baratinoo_shim.c
+	$(CC) -shared $< -o $@
+endif
 endif
 
 if kali_support
