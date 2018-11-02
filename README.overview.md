@@ -35,6 +35,9 @@ Supported TTS engines:
   * Cepstral Swift (through a generic driver)
   * Ivona
   * Pico (possibly through a generic driver)
+  * Espeak NG
+  * Kali TTS
+  * Baratinoo (Voxygen)
 
 Supported sound output subsystems:
 ----------------------------------
