@@ -120,6 +120,20 @@ sd_kali_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	-lKali -lKGlobal -lKTrans -lKParle -lKAnalyse \
 	$(common_LDADD)
+
+if kali_shim
+sd_kali_LDADD += -L.
+sd_kali_CXXFLAGS = -I$(srcdir)/kali_shim
+
+noinst_HEADERs = kali_shim/kali/KAnalyse/kalinoyau.h
+
+EXTRA_DIST = kali_Kali_shim.c kali_KGlobal_shim.c kali_KTrans_shim.c kali_KParle_shim.c kali_KAnalyse_shim.c
+
+EXTRA_sd_kali_DEPENDENCIES = libKali.so libKGlobal.so libKTrans.so libKParle.so libKAnalyse.so
+
+lib%.so: $(srcdir)/kali_%_shim.cpp
+	$(CXX) -shared $< -o $@ -I$(srcdir)/kali_shim
+endif
 endif
 
 -include $(top_srcdir)/git.mk

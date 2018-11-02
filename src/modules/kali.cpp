@@ -26,9 +26,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
-#include <kali/KAnalyse/kalinoyau.h>
 #include <kali/Kali/kali.h>
-#include <kali/KTrans/phonetis.h>
 extern "C" {
 #ifdef HAVE_CONFIG_H
 #include <config.h>

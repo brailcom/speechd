@@ -258,9 +258,14 @@ AS_IF([test $with_kali != "no"],
 	[AC_CHECK_LIB([Kali], [initKali],
 		[with_kali=yes],
 		[AS_IF([test $with_kali = "yes"],
-			[AC_MSG_FAILURE([Kali is not available])])])])
-AM_CONDITIONAL([kali_support], [test $with_kali = "yes"])
-AS_IF([test $with_kali = "yes"], [output_modules="${output_modules} kali"])
+			[AC_MSG_FAILURE([Kali is not available])])
+		 with_kali=shim])])
+if test "$with_kali" = shim -a $enable_shared = no; then
+  with_kali=no
+fi
+AM_CONDITIONAL([kali_support], [test $with_kali != no])
+AM_CONDITIONAL([kali_shim], [test $with_kali = shim])
+AS_IF([test $with_kali != no], [output_modules="${output_modules} kali"])
 
 audio_dlopen_modules='-dlopen force'
 
