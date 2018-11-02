@@ -1,21 +1,22 @@
-Speech Dispatcher 0.8.8
+Speech Dispatcher 0.9
 =====================
 
-Announcing the availability of Speech Dispatcher 0.8.8 developed as a part of
+Announcing the availability of Speech Dispatcher 0.9 developed as a part of
 the Free(b)Soft project.
 
-* What is new in 0.8.8?
+* What is new in 0.9?
 
- - Add German translation, thanks to Chris Leick for the patch
-
- - Fix some spelling mistakes, thanks to Paul Gevers for the patch
-
- - Some slight code improvements.
+ - Add configuration file for espeak-ng + mbrola
+ - Add support for Baratinoo (VoxyGen), Kali, and Mary-TTS
+ - Better manage volukme for generic-based modules.
+ - Auto-detect module availability.
+ - Make generic module provide voice list.
+ - Add systemd unit file.
 
 * Where to get it?
 
   You can get the distribution tarball of the released version from
-  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.8.8.tar.gz
+  https://github.com/brailcom/speechd/archive/0.9.tar.gz
 
   We recommend the use of sound icons with Speech Dispatcher.
   They are available at
@@ -24,7 +25,7 @@ the Free(b)Soft project.
   Corresponding distribution packages should soon be available at
   your distribution mirrors.
 
-  The home page of the project is http://www.freebsoft.org/speechd
+  The home page of the project is https://github.com/brailcom/speechd
 
 * What is Speech Dispatcher?
 
@@ -57,7 +58,7 @@ the Free(b)Soft project.
 
 * How to report bugs?
 
-  Please report bugs at https://its.freebsoft.org/its/issues/project/1876 .
+  Please report bugs at https://github.com/brailcom/speechd/issues .
   For other contact please use either the above link or our mailing list
   <speechd@lists.freebsoft.org> .
 
