@@ -231,12 +231,12 @@ char *module_recode_to_iso(char *data, int bytes, char *language,
 			   char *fallback);
 void module_signal_end(void);
 configoption_t *module_add_config_option(configoption_t * options,
-					 int *num_options, char *name, int type,
+					 int *num_options, const char *name, int type,
 					 dotconf_callback_t callback,
 					 info_t * info, unsigned long context);
 
 configoption_t *add_config_option(configoption_t * options,
-				  int *num_config_options, char *name, int type,
+				  int *num_config_options, const char *name, int type,
 				  dotconf_callback_t callback, info_t * info,
 				  unsigned long context);
 
