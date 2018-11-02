@@ -28,4 +28,6 @@ dist_man1_MANS = \
 	speech-dispatcher.1
 endif
 
+CLEANFILES = $(dist_man1_MANS)
+
 -include $(top_srcdir)/git.mk

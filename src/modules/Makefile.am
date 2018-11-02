@@ -1,5 +1,9 @@
 ## Process this file with automake to produce Makefile.in
 
+EXTRA_DIST = baratinoo_shim.c
+EXTRA_DIST += kali_Kali_shim.cpp kali_KGlobal_shim.cpp kali_KTrans_shim.cpp kali_KParle_shim.cpp kali_KAnalyse_shim.cpp
+CLEANFILES =
+
 inc_local = -I$(top_srcdir)/include
 audio_SOURCES = spd_audio.c spd_audio.h
 common_SOURCES = module_main.c module_utils.c module_utils.h
@@ -103,12 +107,12 @@ sd_baratinoo_LDADD = $(top_builddir)/src/common/libcommon.la \
 if baratinoo_shim
 sd_baratinoo_LDADD += -L.
 
-EXTRA_DIST = baratinoo_shim.c
-
 EXTRA_sd_baratinoo_DEPENDENCIES = libbaratinoo.so
 
 libbaratinoo.so: $(srcdir)/baratinoo_shim.c
 	$(CC) -shared $< -o $@
+
+CLEANFILES += $(EXTRA_sd_baratinoo_DEPENDENCIES)
 endif
 endif
 
@@ -127,12 +131,12 @@ sd_kali_CXXFLAGS = -I$(srcdir)/kali_shim
 
 noinst_HEADERs = kali_shim/kali/KAnalyse/kalinoyau.h
 
-EXTRA_DIST = kali_Kali_shim.cpp kali_KGlobal_shim.cpp kali_KTrans_shim.cpp kali_KParle_shim.cpp kali_KAnalyse_shim.cpp
-
 EXTRA_sd_kali_DEPENDENCIES = libKali.so libKGlobal.so libKTrans.so libKParle.so libKAnalyse.so
 
 lib%.so: $(srcdir)/kali_%_shim.cpp
 	$(CXX) -shared $< -o $@ -I$(srcdir)/kali_shim
+
+CLEANFILES += $(EXTRA_sd_kali_DEPENDENCIES)
 endif
 endif
 
