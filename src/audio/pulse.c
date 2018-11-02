@@ -63,7 +63,8 @@ typedef struct {
 
 /* This is the smallest audio sound we are expected to play immediately without buffering. */
 /* Changed to define on config file. Default is the same. */
-#define DEFAULT_PA_MIN_AUDIO_LENGTH 100
+/* Default to 20 ms of latency (1764 = 44100 * 0.020 * 2) */
+#define DEFAULT_PA_MIN_AUDIO_LENGTH 1764
 
 static int pulse_log_level;
 static char const *pulse_play_cmd = "paplay -n speech-dispatcher-generic";
