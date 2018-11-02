@@ -127,7 +127,7 @@ sd_kali_CXXFLAGS = -I$(srcdir)/kali_shim
 
 noinst_HEADERs = kali_shim/kali/KAnalyse/kalinoyau.h
 
-EXTRA_DIST = kali_Kali_shim.c kali_KGlobal_shim.c kali_KTrans_shim.c kali_KParle_shim.c kali_KAnalyse_shim.c
+EXTRA_DIST = kali_Kali_shim.cpp kali_KGlobal_shim.cpp kali_KTrans_shim.cpp kali_KParle_shim.cpp kali_KAnalyse_shim.cpp
 
 EXTRA_sd_kali_DEPENDENCIES = libKali.so libKGlobal.so libKTrans.so libKParle.so libKAnalyse.so
 
