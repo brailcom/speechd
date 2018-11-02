@@ -240,9 +240,14 @@ AS_IF([! test "$with_baratinoo" = no],
 	[AC_CHECK_LIB([baratinoo], [BCinitlib],
 		[with_baratinoo=yes],
 		[AS_IF([test "$with_baratinoo" = yes],
-			[AC_MSG_FAILURE([Voxygen Baratinoo is not available])])])])
-AM_CONDITIONAL([baratinoo_support], [test "$with_baratinoo" = yes])
-AS_IF([test "$with_baratinoo" = yes], [output_modules="${output_modules} baratinoo"])
+			[AC_MSG_FAILURE([Voxygen Baratinoo is not available])])
+		 with_baratinoo=shim])])
+if test "$with_baratinoo" = shim -a $enable_shared = no; then
+  with_baratinoo=no
+fi
+AM_CONDITIONAL([baratinoo_support], [test "$with_baratinoo" != no])
+AM_CONDITIONAL([baratinoo_shim], [test "$with_baratinoo" = shim])
+AS_IF([test "$with_baratinoo" != no], [output_modules="${output_modules} baratinoo"])
 
 # check for kali support
 AC_ARG_WITH([kali],
