@@ -4,6 +4,7 @@ dist_snddata_DATA = test.wav
 DESKTOP_FILES = speechd.desktop.in
 desktop_DATA = $(DESKTOP_FILES:.desktop.in=.desktop)
 desktopdir = $(spddesktopconforigdir)
+CLEANFILES = $(desktop_DATA)
 
 speechd.desktop: speechd.desktop.in
 	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
@@ -42,16 +43,18 @@ $(abs_builddir)/__init__.py:
 
 paths.py: $(srcdir)/paths.py.in
 
-CLEANFILES = paths.py config.py speechd.desktop
+CLEANFILES += paths.py config.py speechd.desktop
 
 EXTRA_DIST = paths.py.in speechd.desktop.in config.py.in
 
-if HAVE_HELP2MAN
-spd-conf.1: config.py paths.py $(abs_builddir)/__init__.py
-	LC_ALL=C PYTHONPATH=$(builddir)/.. help2man -N --output=$@ $(srcdir)/spd-conf
+#if HAVE_HELP2MAN
+#spd-conf.1: config.py paths.py $(abs_builddir)/__init__.py
+#	LC_ALL=C PYTHONPATH=$(builddir)/.. help2man -N --output=$@ $(srcdir)/spd-conf
+#
+#dist_man1_MANS = \
+#	spd-conf.1
+#endif
 
-dist_man1_MANS = \
-	spd-conf.1
-endif
+CLEANFILES += $(dist_man1_MANS)
 
 -include $(top_srcdir)/git.mk
