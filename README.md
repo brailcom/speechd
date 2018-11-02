@@ -35,7 +35,7 @@ Mailing-lists
 
 There is a public mailing-list speechd@lists.freebsoft.org for this project.
 
-This list is for for Speech Dispatcher developers, as well as for users. If you
+This list is for Speech Dispatcher developers, as well as for users. If you
 want to contribute the development, propose a new feature, get help or just be
 informed about the latest news, don't hesitate to subscribe. The communication
 on this list is held in English.
