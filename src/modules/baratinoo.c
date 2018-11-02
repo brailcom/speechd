@@ -657,7 +657,7 @@ static SPDVoice **baratinoo_list_voices(BCengine *engine)
 static void *_baratinoo_speak(void *data)
 {
 	Engine *engine = data;
-	BARATINOOC_STATE state;
+	BARATINOOC_STATE state = BARATINOO_READY;
 
 	set_speaking_thread_parameters();
 
