@@ -38,6 +38,7 @@ Supported TTS engines:
   * Espeak NG
   * Kali TTS
   * Baratinoo (Voxygen)
+  * Mary-TTS
 
 Supported sound output subsystems:
 ----------------------------------
