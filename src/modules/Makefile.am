@@ -127,9 +127,9 @@ sd_kali_LDADD = $(top_builddir)/src/common/libcommon.la \
 
 if kali_shim
 sd_kali_LDADD += -L.
-sd_kali_CXXFLAGS = -I$(srcdir)/kali_shim
+sd_kali_CPPFLAGS = -I$(srcdir)/kali_shim $(AM_CPPFLAGS)
 
-noinst_HEADERs = kali_shim/kali/KAnalyse/kalinoyau.h
+noinst_HEADERS = kali_shim/kali/Kali/kali.h
 
 EXTRA_sd_kali_DEPENDENCIES = libKali.so libKGlobal.so libKTrans.so libKParle.so libKAnalyse.so
 
