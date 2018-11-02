@@ -47,13 +47,13 @@ CLEANFILES += paths.py config.py speechd.desktop
 
 EXTRA_DIST = paths.py.in speechd.desktop.in config.py.in
 
-#if HAVE_HELP2MAN
-#spd-conf.1: config.py paths.py $(abs_builddir)/__init__.py
-#	LC_ALL=C PYTHONPATH=$(builddir)/.. help2man -N --output=$@ $(srcdir)/spd-conf
-#
-#dist_man1_MANS = \
-#	spd-conf.1
-#endif
+if HAVE_HELP2MAN
+spd-conf.1: config.py paths.py $(abs_builddir)/__init__.py
+	LC_ALL=C PYTHONPATH=$(builddir)/.. PYTHONDONTWRITEBYTECODE=1 help2man -N --output=$@ $(srcdir)/spd-conf
+
+dist_man1_MANS = \
+	spd-conf.1
+endif
 
 CLEANFILES += $(dist_man1_MANS)
 
