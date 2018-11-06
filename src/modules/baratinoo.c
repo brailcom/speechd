@@ -1149,6 +1149,24 @@ static void ssml2baratinoo_start_element(GMarkupParseContext *ctx,
 		int i = attribute_index(attribute_names, "level");
 		g_string_append_printf(state->buffer, "\\emph<{%s}",
 				       i < 0 ? "" : attribute_values[i]);
+	} else if (strcmp(element, "say-as") == 0) {
+		int i_as = attribute_index(attribute_names, "interpret-as");
+		int i_fmt = attribute_index(attribute_names, "format");
+		int i_detail = attribute_index(attribute_names, "detail");
+
+		if (i_as < 0) {
+			DBG(DBG_MODNAME "Missing required 'interpret-as' attribute of '<say-as>' tag");
+			i_fmt = i_detail = -1;
+		} else if (i_fmt < 0 && i_detail >= 0) {
+			DBG(DBG_MODNAME "Ignoring 'detail' attribute of '<say-as>' tag because it is "
+					"not supported without a 'format' attribute");
+			i_detail = -1;
+		}
+
+		g_string_append_printf(state->buffer, "\\sayas<{%s %s %s}",
+				       i_as < 0 ? "" : attribute_values[i_as],
+				       i_fmt < 0 ? "" : attribute_values[i_fmt],
+				       i_detail < 0 ? "" : attribute_values[i_detail]);
 	} else {
 		/* ignore other elements */
 		/* TODO: handle more elements */
@@ -1164,6 +1182,8 @@ static void ssml2baratinoo_end_element(GMarkupParseContext *ctx,
 
 	if (strcmp(element, "emphasis") == 0) {
 		g_string_append(state->buffer, "\\emph>{}");
+	} else if (strcmp(element, "say-as") == 0) {
+		g_string_append(state->buffer, "\\sayas>{}");
 	}
 
 	ssml2baratinoo_pop_lang(state);
