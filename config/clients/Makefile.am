@@ -1,6 +1,4 @@
 #
-# speechd.c - Speech Dispatcher server program
-#
 # Copyright (C) 2002 - 2018 Brailcom, o.p.s.
 #
 # This is free software; you can redistribute it and/or modify it
