@@ -129,7 +129,7 @@ sd_baratinoo_LDADD += -L.
 EXTRA_sd_baratinoo_DEPENDENCIES = libbaratinoo.so
 
 libbaratinoo.so: $(srcdir)/baratinoo_shim.c
-	$(CC) -shared $< -o $@
+	$(CC) -fPIC -shared $< -o $@
 
 CLEANFILES += $(EXTRA_sd_baratinoo_DEPENDENCIES)
 endif
@@ -154,7 +154,7 @@ noinst_HEADERS = kali_shim/kali/Kali/kali.h
 EXTRA_sd_kali_DEPENDENCIES = libKali.so libKGlobal.so libKTrans.so libKParle.so libKAnalyse.so
 
 lib%.so: $(srcdir)/kali_%_shim.cpp
-	$(CXX) -shared $< -o $@ -I$(srcdir)/kali_shim
+	$(CXX) -fPIC -shared $< -o $@ -I$(srcdir)/kali_shim
 
 CLEANFILES += $(EXTRA_sd_kali_DEPENDENCIES)
 endif
