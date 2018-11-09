@@ -246,11 +246,10 @@ configoption_t *add_config_option(configoption_t * options,
 	static char *name = NULL; \
 	DOTCONF_CB(name ## _cb) \
 	{ \
-		g_free(name); \
-		if (cmd->data.str != NULL) \
+		if (cmd->data.str != NULL) { \
+			g_free(name); \
 			name = g_strdup(cmd->data.str); \
-		else \
-			name = NULL; \
+		} \
 		return NULL; \
 	}
 
