@@ -30,7 +30,6 @@ CLEANFILES = spd-say.info \
 	ssip.info \
 	stamp-1 \
 	stamp-vti \
-	texinfo.tex \
 	version-2.texi \
 	version.texi
 
