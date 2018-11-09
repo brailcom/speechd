@@ -249,6 +249,8 @@ configoption_t *add_config_option(configoption_t * options,
 		g_free(name); \
 		if (cmd->data.str != NULL) \
 			name = g_strdup(cmd->data.str); \
+		else \
+			name = NULL; \
 		return NULL; \
 	}
 
