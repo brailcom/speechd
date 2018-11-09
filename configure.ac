@@ -3,6 +3,7 @@
 
 AC_PREREQ([2.63])
 AC_INIT([speech-dispatcher], [m4_esyscmd(./git-version-gen .tarball-version)], [speechd@lists.freebsoft.org])
+AC_CONFIG_MACRO_DIRS([m4])
 AM_INIT_AUTOMAKE([foreign info-in-builddir])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES(yes)])
 LT_PREREQ([2.2])
