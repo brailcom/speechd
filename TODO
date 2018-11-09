@@ -4,18 +4,29 @@ Speech Dispatcher TODO
 The release versions are not final, and could change. Targetted release is 
 based on demand from users, and difficulty of the work involved.
 
- (0.9) Migrate to GSettings.
- (0.9) Synthesizer specific settings API.
+ * Add pitch as an option for capitalization presentation
+   see https://github.com/brailcom/speechd/issues/24
+ * Allow setting a synthesis voice in the user config using spd-conf.
+ * Separate voice variants out of language / country
+   see https://github.com/brailcom/speechd/issues/22
+ * Pronunciation dictionaries
+   see https://github.com/brailcom/speechd/issues/57
+ * Emoji support (from CLDR)
+   see https://github.com/brailcom/speechd/issues/49
+ * Add support for Mimic
+   see https://github.com/brailcom/speechd/issues/19
+ (0.10) Migrate to GSettings.
+ (0.10) Synthesizer specific settings API.
  (0.10) Use more GLib in the server.
  (0.10) Move audio into server.
  (0.10) Client audio retrieval API.
- (0.9) Server to module protocol documentation.
+ (0.10) Server to module protocol documentation.
  (0.11) Server to module protocol improvements.
  * Move synth modules to plugin architecture with plugin host.
  * Synth plugin API.
  * Allow for building synth plugins out of tree.
  (0.10) Integrate with logind/consolekit.
- (0.9) Properly support system-wide mode.
+ (0.10) Properly support system-wide mode.
  * Support spawning the server via Systemd socket activation.
 
 
