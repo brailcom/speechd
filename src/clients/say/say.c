@@ -118,9 +118,18 @@ int main(int argc, char **argv)
 
 	/* Set the desired parameters */
 
-	if (language != NULL)
+	if (language != NULL) {
 		if (spd_set_language(conn, language))
 			printf("Invalid language!\n");
+	} else {
+		char *locale = strdup(setlocale(LC_MESSAGES, NULL));
+		char *underscore = index(locale, '_');
+		if (underscore)
+			*underscore = 0;
+		if (spd_set_language(conn, locale))
+			printf("Invalid language %s!\n", locale);
+		free(locale);
+	}
 
 	if (output_module != NULL)
 		if (spd_set_output_module(conn, output_module))
