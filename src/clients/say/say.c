@@ -45,6 +45,7 @@
 
 #include "options.h"
 #include <i18n.h>
+#include <locale.h>
 
 #define MAX_LINELEN 16384
 
