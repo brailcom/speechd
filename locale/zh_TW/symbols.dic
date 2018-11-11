@@ -1,4 +1,12 @@
-﻿#locale/ZH-TW/symbols.dic
+﻿#locale/zh_TW/symbols.dic
+#A part of NonVisual Desktop Access (NVDA)
+#Copyright (c) 2011 Peter Vágner <peter.v@datagate.sk>
+#Copyright (c) 2011 Michael Curran <mick@kulgan.net>
+#Copyright (c) 2012 Mesar Hameed <mhameed@src.gnome.org>
+#Copyright (c) 2014-2016 wangjanli@gmail.com
+#Copyright (c) 2014-2016 maro.zhang@gmail.com
+#Copyright (c) 2014-2016 Aaron Wu <waaron2000@gmail.com>
+#Copyright (c) 2016 Victor Cai <surfer0627@gmail.com>
 #Edited by NVDA-Taiwan Volunteers Team and reviewed by Dr. Jan Li Wang, 2016/6/1
 # 在本檔案內，當一個符號的解釋出現多音字（或破音字）時，為使其報讀正確，得用另一同音字代替，以避免混淆。
 #
