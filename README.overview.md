@@ -136,3 +136,23 @@ components (or lack of) and their settings:
 How to investigate a specific issue goes far beyond this document, but bear in
 mind that all listed components can be involved, as the audio equipment in use
 and the way it is linked to the computer.
+
+
+Copyright (C) 2001-2009 Brailcom, o.p.s
+Copyright (C) 2018 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018 Didier Spaier <didier@slint.fr>
+Copyright (C) 2018 Alex ARNAUD <alexarnaud@hypra.fr>
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details (file
+COPYING in the root directory).
+
+You should have received a copy of the GNU General Public License along with
+this program; if not, write to the Free Software Foundation, Inc., 675 Mass
+Ave, Cambridge, MA 02139, USA.
