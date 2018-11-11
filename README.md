@@ -95,6 +95,10 @@ others.
 License
 -------
 
+Copyright (C) 2001-2009 Brailcom, o.p.s
+Copyright (C) 2018 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018 Didier Spaier <didier@slint.fr>
+
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
 Foundation; either version 2 of the License, or (at your option) any later

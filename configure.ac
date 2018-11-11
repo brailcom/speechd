@@ -1,5 +1,34 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
+#
+# Copyright (C) 2002-2013 Brailcom, o.p.s
+# Copyright (C) 2009-2017 Luke Yelavich <luke.yelavich@canonical.com>
+# Copyright (C) 2009 Willie Walker <william.walker@sun.com>
+# Copyright (C) 2010-2011 William Hubbs <w.d.hubbs@gmail.com>
+# Copyright (C) 2010-2011 Andrei Kholodnyi <andrei.kholodnyi@gmail.com>
+# Copyright (C) 2010 Boris Dusek <dusek@brailcom.org>
+# Copyright (C) 2010 Christopher Brannon <chris@the-brannons.com>
+# Copyright (C) 2011 Trevor Saunders <trev.saunders@gmail.com>
+# Copyright (C) 2012 William Jon McCann <jmccann@redhat.com>
+# Copyright (C) 2017 Colomban Wendling <cwendling@hypra.fr>
+# Copyright (C) 2017 Jan Tojnar <jtojnar@gmail.com>
+# Copyright (C) 2018 Raphaël POITEVIN <rpoitevin@hypra.fr>
+# Copyright (C) 2018 Samuel Thibault <samuel.thibault@ens-lyon.org>
+# Copyright (C) 2018 Alan Coopersmith <alan.coopersmith@oracle.com>
+#
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free Software
+# Foundation; either version 2 of the License, or (at your option) any later
+# version.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details (file
+# COPYING in the root directory).
+#
+# You should have received a copy of the GNU General Public License along with
+# this program; if not, write to the Free Software Foundation, Inc., 675 Mass
+# Ave, Cambridge, MA 02139, USA.
 
 AC_PREREQ([2.63])
 AC_INIT([speech-dispatcher], [m4_esyscmd(./git-version-gen .tarball-version)], [speechd@lists.freebsoft.org])
