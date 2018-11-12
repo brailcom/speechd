@@ -1,8 +1,11 @@
 /*
  * libao.c -- The libao backend for the spd_audio library.
  *
- * Author: Marco Skambraks <marco@openblinux.de>
- * Date:  2009-12-15
+ * Copyright 2009 Luke Yelavich <luke.yelavich@canonical.com>
+ * Copyright 2010 Andrei Kholodnyi <Andrei.Kholodnyi@gmail.com>
+ * Copyright 2010 Christopher Brannon <cmbrannon79@gmail.com>
+ * Copyright 2010-2011 William Hubbs <w.d.hubbs@gmail.com>
+ * Copyright 2015 Jeremy Whiting <jpwhiting@kde.org>
  *
  * This is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
