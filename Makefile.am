@@ -26,7 +26,7 @@ BUILT_SOURCES = $(top_srcdir)/.version
 
 SUBDIRS= include locale src config doc po
 
-EXTRA_DIST= config.rpath ANNOUNCE BUGS FAQ README.packagers README.translators README.overview.md README.style.md build.sh git-version-gen split-version.sh speech-dispatcherd.service.in po/Makevars.in
+EXTRA_DIST= config.rpath ANNOUNCE BUGS FAQ README.md README.packagers README.translators README.overview.md README.style.md build.sh git-version-gen split-version.sh speech-dispatcherd.service.in po/Makevars.in
 
 CLEANFILES=
 
