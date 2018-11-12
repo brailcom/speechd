@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.8\n"
 "Report-Msgid-Bugs-To: speechd@lists.freebsoft.org\n"
-"POT-Creation-Date: 2018-11-02 18:23+0100\n"
+"POT-Creation-Date: 2018-11-11 22:59+0100\n"
 "PO-Revision-Date: 2012-07-13 12:45+0100\n"
 "Last-Translator: Hynek Hanke <hanke@brailcom.org>\n"
 "Language-Team: Hungarian\n"
@@ -370,11 +370,11 @@ msgstr "Hiányzó argumentum!\n"
 msgid "Unrecognized option\n"
 msgstr "Ismeretlen kapcsoló\n"
 
-#: src/api/python/speechd_config/speechd.desktop.in:6
+#: src/api/python/speechd_config/speechd.desktop.in:22
 msgid "Speech Dispatcher"
 msgstr ""
 
-#: src/api/python/speechd_config/speechd.desktop.in:7
+#: src/api/python/speechd_config/speechd.desktop.in:23
 msgid "Interface to Text to Speech services"
 msgstr ""
 
