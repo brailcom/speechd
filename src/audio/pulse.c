@@ -2,8 +2,16 @@
 /*
  * pulse.c -- The simple pulseaudio backend for the spd_audio library.
  *
- * Based on libao.c from Marco Skambraks <marco@openblinux.de>
- * Date:  2009-12-15
+ * Copyright 2007-2009 Gilles Casse <gcasse@oralux.org>
+ * Copyright 2008-2010 Brailcom, o.p.s
+ * Copyright 2008-2015 Luke Yelavich <luke.yelavich@canonical.com>
+ * Copyright 2009 Rui Batista <ruiandrebatista@gmail.com>
+ * Copyright 2009 Marco Skambraks <marco@openblinux.de>
+ * Copyright 2010 Andrei Kholodnyi <Andrei.Kholodnyi@gmail.com>
+ * Copyright 2010 Christopher Brannon <cmbrannon79@gmail.com>
+ * Copyright 2010-2011 William Hubbs <w.d.hubbs@gmail.com>
+ * Copyright 2015 Jeremy Whiting <jpwhiting@kde.org>
+ * Copyright 2018 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * Copied from Luke Yelavich's libao.c driver, and merged with code from
  * Marco's ao_pulse.c driver, by Bill Cox, Dec 21, 2009.

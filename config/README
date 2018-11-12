@@ -1,0 +1,33 @@
+speechd.conf is licensed as mentioned below:
+
+Copyright (C) 2001-2009 Brailcom, o.p.s
+Copyright (C) 2009 Rui Batista <ruiandrebatista@gmail.com>
+Copyright (C) 2010 Andrei Kholodnyi <Andrei.Kholodnyi@gmail.com>
+Copyright (C) 2010 William Hubbs <w.d.hubbs@gmail.com>
+Copyright (C) 2010 Trevor Saunders <trev.saunders@gmail.com>
+Copyright (C) 2012 William Jon McCann <jmccann@redhat.com>
+Copyright (C) 2014 Rob Whyte <fudge@thefudge.net>
+Copyright (C) 2014-2016 Luke Yelavich <themuso@ubuntu.com>
+Copyright (C) 2014 Hussain Jasim <hussainmkj@gmail.com>
+Copyright (C) 2017 Colomban Wendling <cwendling@hypra.fr>
+Copyright (C) 2018 Raphaël POITEVIN <rpoitevin@hypra.fr>
+Copyright (C) 2018 Florian Steinhardt <no.known.email@example.com>
+Copyright (C) 2018 Samuel Thibault <samuel.thibault@ens-lyon.org>
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details (file
+COPYING in the root directory).
+
+You should have received a copy of the GNU General Public License along with
+this program; if not, write to the Free Software Foundation, Inc., 675 Mass
+Ave, Cambridge, MA 02139, USA.
+
+
+NOTE: speech dispatcher currently depends on dotconf, which is LGPLv2.1-only at
+the time of writing.
