@@ -372,8 +372,10 @@ static void serve()
 			system_error("memory allocation");
 		*s = accept(sock, (struct sockaddr *)&client_address,
 			    &client_address_len);
-		if (*s < 0)
+		if (*s < 0) {
+			free(s);
 			break;
+		}
 		{
 #if USE_THREADS
 			pthread_t tid;
