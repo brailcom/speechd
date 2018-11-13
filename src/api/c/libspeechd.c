@@ -1682,6 +1682,7 @@ char *spd_send_data_wo_mutex(SPDConnection * connection, const char *message,
 			connection->reply = NULL;
 			bytes = strlen(reply);
 			if (bytes == 0) {
+				free(reply);
 				SPD_DBG("Error: Empty reply, broken socket.");
 				return NULL;
 			}
