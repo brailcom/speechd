@@ -842,9 +842,6 @@ char *parse_general_event(const char *buf, const int bytes, const int fd,
 
 	GET_PARAM_STR(param, 1, NO_CONV);
 
-	if (param == NULL)
-		return g_strdup(ERR_MISSING_PARAMETER);
-
 	if (param[0] == 0) {
 		g_free(param);
 		return g_strdup(ERR_MISSING_PARAMETER);
