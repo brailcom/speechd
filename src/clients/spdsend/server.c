@@ -96,7 +96,12 @@ static Connection_Id new_connection(Stream s)
 	for (id = CONNECTION_ID_MIN;
 	     id < CONNECTION_ID_MAX && connections[id] != NONE; id++) ;
 	if (id >= CONNECTION_ID_MAX)
+	{
+#if USE_THREADS
+		pthread_mutex_unlock(&connections_mutex);
+#endif
 		return NONE;
+	}
 	connections[id] = s;
 #if USE_THREADS
 	pthread_mutex_unlock(&connections_mutex);
