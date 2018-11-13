@@ -1875,6 +1875,7 @@ static void *spd_events_handler(void *conn)
 			} else {
 				SPD_DBG("Connection reply is NULL");
 				connection->reply = NULL;
+				pthread_mutex_unlock(connection->mutex_reply_ready);
 				break;
 			}
 			/* Signal the reply is available on the condition variable */
@@ -1892,8 +1893,6 @@ static void *spd_events_handler(void *conn)
 	/* In case of broken socket, we must still signal reply ready */
 	if (connection->reply == NULL) {
 		SPD_DBG("Signalling reply ready after communication failure");
-		pthread_mutex_unlock(connection->mutex_reply_ready);
-		pthread_mutex_unlock(connection->mutex_reply_ack);
 		if (connection->stream != NULL)
 			fclose(connection->stream);
 		connection->stream = NULL;
