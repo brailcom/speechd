@@ -381,7 +381,10 @@ static void serve()
 			pthread_t tid;
 			if (pthread_create(&tid, NULL, &process_request_thread, s))
 #endif
+			{
 				process_request(*s);
+				free(s);
+			}
 		}
 	}
 	close(sock);
