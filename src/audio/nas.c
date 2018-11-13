@@ -157,6 +157,7 @@ static int nas_play(AudioID * id, AudioTrack track)
 					    &nas_id->flow, NULL, NULL, NULL);
 
 	if (event_handler == NULL) {
+		pthread_mutex_unlock(&nas_id->flow_mutex);
 		fprintf(stderr,
 			"AuSoundPlayFromData failed for unknown resons.\n");
 		return -1;
