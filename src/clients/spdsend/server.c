@@ -122,12 +122,16 @@ static Connection_Id do_open_connection(const char *host, int port)
 		{
 			struct hostent *hostinfo;
 			hostinfo = gethostbyname(host);
-			if (hostinfo == NULL)
+			if (hostinfo == NULL) {
+				close(sock);
 				return NONE;
+			}
 			name.sin_addr = *(struct in_addr *)hostinfo->h_addr;
 		}
-		if (connect(sock, (struct sockaddr *)&name, sizeof(name)) < 0)
+		if (connect(sock, (struct sockaddr *)&name, sizeof(name)) < 0) {
+			close(sock);
 			return NONE;
+		}
 		{
 			int arg = 1;
 			setsockopt(sock, IPPROTO_TCP, TCP_NODELAY, &arg,
@@ -381,6 +385,7 @@ static void serve()
 #endif
 		}
 	}
+	close(sock);
 }
 
 static void daemonize()
@@ -450,9 +455,10 @@ static int connect_server()
 	name_size = (offsetof(struct sockaddr_un, sun_path)
 		     + strlen(name.sun_path) + 1);
 
-	if (connect(sock, (struct sockaddr *)&name, name_size) < 0)
+	if (connect(sock, (struct sockaddr *)&name, name_size) < 0) {
+		close(sock);
 		return NONE;
-	else
+	} else
 		return sock;
 }
 
