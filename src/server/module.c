@@ -153,6 +153,11 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 					continue;
 				full_path = spd_get_path(entry->d_name, config_dirname);
 				sys_ret = stat(full_path, &fileinfo);
+				if (sys_ret != 0) {
+					MSG(4, "stat failed on file %s in %s", entry->d_name,
+					    config_dirname);
+					continue;
+				}
 				g_free(full_path);
 
 				/* Note: stat(2) dereferences symlinks. */
