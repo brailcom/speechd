@@ -82,6 +82,14 @@ const int range_high = 100;
 
 pthread_mutex_t spd_logging_mutex;
 
+struct SPDConnection_threaddata {
+	pthread_t events_thread;
+	pthread_cond_t cond_reply_ready;
+	pthread_mutex_t mutex_reply_ready;
+	pthread_cond_t cond_reply_ack;
+	pthread_mutex_t mutex_reply_ack;
+};
+
 /*
  * Added by Willie Walker - strndup and getline were GNU libc extensions
  * that were adopted in the POSIX.1-2008 standard, but are not yet found
@@ -536,17 +544,13 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 	if (mode == SPD_MODE_THREADED) {
 		SPD_DBG
 		    ("Initializing threads, condition variables and mutexes...");
-		connection->events_thread = malloc(sizeof(pthread_t));
-		connection->cond_reply_ready = malloc(sizeof(pthread_cond_t));
-		connection->mutex_reply_ready = malloc(sizeof(pthread_mutex_t));
-		connection->cond_reply_ack = malloc(sizeof(pthread_cond_t));
-		connection->mutex_reply_ack = malloc(sizeof(pthread_mutex_t));
-		pthread_cond_init(connection->cond_reply_ready, NULL);
-		pthread_mutex_init(connection->mutex_reply_ready, NULL);
-		pthread_cond_init(connection->cond_reply_ack, NULL);
-		pthread_mutex_init(connection->mutex_reply_ack, NULL);
+		connection->td = malloc(sizeof(*connection->td));
+		pthread_cond_init(&connection->td->cond_reply_ready, NULL);
+		pthread_mutex_init(&connection->td->mutex_reply_ready, NULL);
+		pthread_cond_init(&connection->td->cond_reply_ack, NULL);
+		pthread_mutex_init(&connection->td->mutex_reply_ack, NULL);
 		ret =
-		    pthread_create(connection->events_thread, NULL,
+		    pthread_create(&connection->td->events_thread, NULL,
 				   spd_events_handler, connection);
 		if (ret != 0) {
 			*error_result = strdup("Thread initialization failed");
@@ -581,17 +585,14 @@ void spd_close(SPDConnection * connection)
 	pthread_mutex_lock(&connection->ssip_mutex);
 
 	if (connection->mode == SPD_MODE_THREADED) {
-		pthread_cancel(*connection->events_thread);
-		pthread_mutex_destroy(connection->mutex_reply_ready);
-		pthread_mutex_destroy(connection->mutex_reply_ack);
-		pthread_cond_destroy(connection->cond_reply_ready);
-		pthread_cond_destroy(connection->cond_reply_ack);
-		pthread_join(*connection->events_thread, NULL);
+		pthread_cancel(connection->td->events_thread);
+		pthread_mutex_destroy(&connection->td->mutex_reply_ready);
+		pthread_mutex_destroy(&connection->td->mutex_reply_ack);
+		pthread_cond_destroy(&connection->td->cond_reply_ready);
+		pthread_cond_destroy(&connection->td->cond_reply_ack);
+		pthread_join(connection->td->events_thread, NULL);
 		connection->mode = SPD_MODE_SINGLE;
-		free(connection->mutex_reply_ready);
-		free(connection->mutex_reply_ack);
-		free(connection->cond_reply_ready);
-		free(connection->cond_reply_ack);
+		free(connection->td);
 	}
 
 	/* close the socket */
@@ -1644,13 +1645,14 @@ char *spd_send_data_wo_mutex(SPDConnection * connection, const char *message,
 	if (connection->mode == SPD_MODE_THREADED) {
 		/* Make sure we don't get the cond_reply_ready signal before we are in
 		   cond_wait() */
-		pthread_mutex_lock(connection->mutex_reply_ready);
+		pthread_mutex_lock(&connection->td->mutex_reply_ready);
 	}
 	/* write message to the socket */
 	SPD_DBG("Writing to socket");
 	if (!write(connection->socket, message, strlen(message))) {
 		SPD_DBG("Can't write to socket: %s", strerror(errno));
-		pthread_mutex_unlock(connection->mutex_reply_ready);
+		if (connection->mode == SPD_MODE_THREADED)
+			pthread_mutex_unlock(&connection->td->mutex_reply_ready);
 		return NULL;
 	}
 	SPD_DBG("Written to socket");
@@ -1662,10 +1664,10 @@ char *spd_send_data_wo_mutex(SPDConnection * connection, const char *message,
 			/* Wait until the reply is ready */
 			SPD_DBG
 			    ("Waiting for cond_reply_ready in spd_send_data_wo_mutex");
-			pthread_cond_wait(connection->cond_reply_ready,
-					  connection->mutex_reply_ready);
+			pthread_cond_wait(&connection->td->cond_reply_ready,
+					  &connection->td->mutex_reply_ready);
 			SPD_DBG("Condition for cond_reply_ready satisfied");
-			pthread_mutex_unlock(connection->mutex_reply_ready);
+			pthread_mutex_unlock(&connection->td->mutex_reply_ready);
 			SPD_DBG
 			    ("Reading the reply in spd_send_data_wo_mutex threaded mode");
 			/* Read the reply */
@@ -1684,9 +1686,9 @@ char *spd_send_data_wo_mutex(SPDConnection * connection, const char *message,
 				return NULL;
 			}
 			/* Signal the reply has been read */
-			pthread_mutex_lock(connection->mutex_reply_ack);
-			pthread_cond_signal(connection->cond_reply_ack);
-			pthread_mutex_unlock(connection->mutex_reply_ack);
+			pthread_mutex_lock(&connection->td->mutex_reply_ack);
+			pthread_cond_signal(&connection->td->cond_reply_ack);
+			pthread_mutex_unlock(&connection->td->mutex_reply_ack);
 		} else {
 			reply = get_reply(connection);
 		}
@@ -1694,7 +1696,7 @@ char *spd_send_data_wo_mutex(SPDConnection * connection, const char *message,
 			SPD_DBG("<< : |%s|\n", reply);
 	} else {
 		if (connection->mode == SPD_MODE_THREADED)
-			pthread_mutex_unlock(connection->mutex_reply_ready);
+			pthread_mutex_unlock(&connection->td->mutex_reply_ready);
 		SPD_DBG("<< : no reply expected");
 		return strdup("NO REPLY");
 	}
@@ -1866,25 +1868,25 @@ static void *spd_events_handler(void *conn)
 
 		} else {
 			/* This is a protocol reply */
-			pthread_mutex_lock(connection->mutex_reply_ready);
+			pthread_mutex_lock(&connection->td->mutex_reply_ready);
 			/* Prepare the reply to the reply buffer in connection */
 			if (reply != NULL) {
 				connection->reply = reply;
 			} else {
 				SPD_DBG("Connection reply is NULL");
 				connection->reply = NULL;
-				pthread_mutex_unlock(connection->mutex_reply_ready);
+				pthread_mutex_unlock(&connection->td->mutex_reply_ready);
 				break;
 			}
 			/* Signal the reply is available on the condition variable */
 			/* this order is correct and necessary */
-			pthread_cond_signal(connection->cond_reply_ready);
-			pthread_mutex_lock(connection->mutex_reply_ack);
-			pthread_mutex_unlock(connection->mutex_reply_ready);
+			pthread_cond_signal(&connection->td->cond_reply_ready);
+			pthread_mutex_lock(&connection->td->mutex_reply_ack);
+			pthread_mutex_unlock(&connection->td->mutex_reply_ready);
 			/* Wait until it has bean read */
-			pthread_cond_wait(connection->cond_reply_ack,
-					  connection->mutex_reply_ack);
-			pthread_mutex_unlock(connection->mutex_reply_ack);
+			pthread_cond_wait(&connection->td->cond_reply_ack,
+					  &connection->td->mutex_reply_ack);
+			pthread_mutex_unlock(&connection->td->mutex_reply_ack);
 			/* Continue */
 		}
 	}
@@ -1894,7 +1896,7 @@ static void *spd_events_handler(void *conn)
 		if (connection->stream != NULL)
 			fclose(connection->stream);
 		connection->stream = NULL;
-		pthread_cond_signal(connection->cond_reply_ready);
+		pthread_cond_signal(&connection->td->cond_reply_ready);
 		pthread_exit(0);
 	}
 	return 0;		/* to please gcc */
