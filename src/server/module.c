@@ -184,6 +184,7 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 				    "Module name=%s being inserted into detected_modules list",
 				    entry->d_name);
 			}
+			closedir(config_dir);
 		}
 	}
 
