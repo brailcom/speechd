@@ -372,11 +372,12 @@ int wait_for_poll(spd_alsa_id_t * id, struct pollfd *alsa_poll_fds,
 	}
 }
 
-#define ERROR_EXIT()\
+#define ERROR_EXIT() do {\
 	g_free(track_volume.samples); \
 	ERR("alsa_play() abnormal exit"); \
 	_alsa_close(alsa_id); \
-	return -1;
+	return -1; \
+} while (0)
 
 /* Play the track _track_ (see spd_audio.h) using the id->alsa_pcm device and
  id-hw_params parameters. This is a blocking function, however, it's possible
