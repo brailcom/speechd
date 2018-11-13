@@ -25,22 +25,22 @@
 
 #include "alloc.h"
 
-TFDSetElement spd_fdset_copy(TFDSetElement old)
+TFDSetElement spd_fdset_copy(TFDSetElement *old)
 {
 	TFDSetElement new;
 
-	new = old;
+	new = *old;
 	new.msg_settings.voice.language =
-	    g_strdup(old.msg_settings.voice.language);
-	new.msg_settings.voice.name = g_strdup(old.msg_settings.voice.name);
-	new.client_name = g_strdup(old.client_name);
-	new.output_module = g_strdup(old.output_module);
-	new.index_mark = g_strdup(old.index_mark);
-	new.audio_output_method = g_strdup(old.audio_output_method);
-	new.audio_oss_device = g_strdup(old.audio_oss_device);
-	new.audio_alsa_device = g_strdup(old.audio_alsa_device);
-	new.audio_nas_server = g_strdup(old.audio_nas_server);
-	new.audio_pulse_server = g_strdup(old.audio_pulse_server);
+	    g_strdup(old->msg_settings.voice.language);
+	new.msg_settings.voice.name = g_strdup(old->msg_settings.voice.name);
+	new.client_name = g_strdup(old->client_name);
+	new.output_module = g_strdup(old->output_module);
+	new.index_mark = g_strdup(old->index_mark);
+	new.audio_output_method = g_strdup(old->audio_output_method);
+	new.audio_oss_device = g_strdup(old->audio_oss_device);
+	new.audio_alsa_device = g_strdup(old->audio_alsa_device);
+	new.audio_nas_server = g_strdup(old->audio_nas_server);
+	new.audio_pulse_server = g_strdup(old->audio_pulse_server);
 
 	return new;
 
@@ -59,7 +59,7 @@ TSpeechDMessage *spd_message_copy(TSpeechDMessage * old)
 	new->buf = g_malloc((old->bytes + 1) * sizeof(char));
 	memcpy(new->buf, old->buf, old->bytes);
 	new->buf[new->bytes] = 0;
-	new->settings = spd_fdset_copy(old->settings);
+	new->settings = spd_fdset_copy(&old->settings);
 
 	return new;
 }
