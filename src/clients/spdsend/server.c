@@ -451,6 +451,8 @@ static int connect_server()
 	struct sockaddr_un name;
 	int sock = socket(AF_LOCAL, SOCK_STREAM, 0);
 	int name_size;
+	if (sock < 0)
+		return NONE;
 	name.sun_family = AF_LOCAL;
 	strncpy(name.sun_path, server_socket_name(), sizeof(name.sun_path));
 	name.sun_path[sizeof(name.sun_path) - 1] = '\0';
