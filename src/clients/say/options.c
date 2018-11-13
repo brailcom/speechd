@@ -172,6 +172,8 @@ void options_print_version()
 
 #define OPT_SET_STR(param) \
 	if(optarg != NULL){ \
+		if (param) \
+			free(param); \
 		param = (char*) strdup(optarg); \
 	}else{ \
 		printf(_("Missing argument!\n"));	\
