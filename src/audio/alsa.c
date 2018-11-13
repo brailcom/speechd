@@ -229,6 +229,7 @@ static int _alsa_close(spd_alsa_id_t * id)
 
 	if ((err = snd_pcm_close(id->alsa_pcm)) < 0) {
 		MSG(2, "Cannot close ALSA device (%s)", snd_strerror(err));
+		pthread_mutex_unlock(&id->alsa_pipe_mutex);
 		return -1;
 	}
 
