@@ -480,6 +480,11 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 	} else
 		SPD_FATAL("Unsupported connection method for spd_open2()");
 
+	if (connection->socket < 0) {
+		free(connection);
+		connection = NULL;
+		goto out;
+	}
 	ret = connect(connection->socket, sock_address, sock_address_len);
 	if (ret == -1) {
 		/* Suppose server might not be running, try to autospawn (autostart) it */
