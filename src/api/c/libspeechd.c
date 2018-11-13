@@ -398,11 +398,11 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 			 SPDConnectionAddress * address, int autospawn,
 			 char **error_result)
 {
-	SPDConnection *connection;
+	SPDConnection *connection = NULL;
 	SPDConnectionAddress *defaultAddress = NULL;
-	char *set_client_name;
-	char *conn_name;
-	char *usr_name;
+	char *set_client_name = NULL;
+	char *conn_name = NULL;
+	char *usr_name = NULL;
 	int ret;
 	char tcp_no_delay = 1;
 
@@ -416,7 +416,6 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 	struct sockaddr_un address_unix;
 	struct sockaddr *sock_address;
 	size_t sock_address_len;
-	gchar *resolve_error;
 
 	_init_debug();
 
@@ -444,21 +443,21 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 			assert(err);
 			*error_result = err;
 			SPD_DBG(*error_result);
-			return NULL;
+			goto out;
 		}
 	}
 
 	/* Connect to server using the selected method */
 	connection = malloc(sizeof(SPDConnection));
 	if (address->method == SPD_METHOD_INET_SOCKET) {
+		gchar *resolve_error;
 		host_ip =
 		    resolve_host(address->inet_socket_host, &is_localhost,
 				 &resolve_error);
 		if (host_ip == NULL) {
 			*error_result = strdup(resolve_error);
 			g_free(resolve_error);
-			SPDConnectionAddress__free(defaultAddress);
-			return NULL;
+			goto out;
 		}
 		address_inet.sin_addr.s_addr = inet_addr(host_ip);
 		free(host_ip);
@@ -512,9 +511,7 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 				assert(0);
 			SPD_DBG(*error_result);
 			close(connection->socket);
-			free(connection);
-			SPDConnectionAddress__free(defaultAddress);
-			return NULL;
+			goto out;
 		}
 		g_free(spawn_report);
 	}
@@ -557,8 +554,9 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 		if (ret != 0) {
 			*error_result = strdup("Thread initialization failed");
 			SPD_DBG(*error_result);
-			SPDConnectionAddress__free(defaultAddress);
-			return NULL;
+			fclose(connection->stream);
+			close(connection->socket);
+			goto out;
 		}
 	}
 
@@ -567,6 +565,8 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 	    g_strdup_printf("SET SELF CLIENT_NAME \"%s:%s:%s\"", usr_name,
 			    client_name, conn_name);
 	ret = spd_execute_command_wo_mutex(connection, set_client_name);
+
+out:
 	free(usr_name);
 	free(conn_name);
 	free(set_client_name);
