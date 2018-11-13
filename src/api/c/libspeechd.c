@@ -327,7 +327,7 @@ static int
 spawn_server(SPDConnectionAddress * address, int is_localhost,
 	     gchar ** spawn_error)
 {
-	gchar **speechd_cmd = malloc(16 * sizeof(char *));
+	gchar *speechd_cmd[16];
 	gchar *stderr_output;
 	gboolean spawn_ok;
 	GError *gerror = NULL;
