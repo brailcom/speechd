@@ -87,11 +87,7 @@ typedef struct {
 
 	pthread_mutex_t ssip_mutex;
 
-	pthread_t *events_thread;
-	pthread_cond_t *cond_reply_ready;
-	pthread_mutex_t *mutex_reply_ready;
-	pthread_cond_t *cond_reply_ack;
-	pthread_mutex_t *mutex_reply_ack;
+	struct SPDConnection_threaddata *td;
 
 	char *reply;
 
