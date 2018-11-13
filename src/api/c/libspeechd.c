@@ -1986,6 +1986,7 @@ static int get_param_int(char *reply, int num, int *err)
 	if (*tptr != '\0') {
 		/* this is not a number */
 		*err = -3;
+		free(rep_str);
 		return 0;
 	}
 	free(rep_str);
