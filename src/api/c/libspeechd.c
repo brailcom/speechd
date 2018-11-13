@@ -1672,14 +1672,13 @@ char *spd_send_data_wo_mutex(SPDConnection * connection, const char *message,
 			    ("Reading the reply in spd_send_data_wo_mutex threaded mode");
 			/* Read the reply */
 			if (connection->reply != NULL) {
-				reply = strdup(connection->reply);
+				reply = connection->reply;
+				connection->reply = NULL;
 			} else {
 				SPD_DBG
 				    ("Error: Can't read reply, broken socket in spd_send_data.");
 				return NULL;
 			}
-			free(connection->reply);
-			connection->reply = NULL;
 			bytes = strlen(reply);
 			if (bytes == 0) {
 				free(reply);
