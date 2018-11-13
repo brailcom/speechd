@@ -73,6 +73,8 @@ pthread_mutex_t connections_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 static Stream get_connection(Connection_Id id)
 {
+	if (id < CONNECTION_ID_MIN || id >= CONNECTION_ID_MAX)
+		return NONE;
 	return connections[id];
 }
 
