@@ -461,7 +461,7 @@ int set_debug_uid(int uid, int debug)
 	if (val) \
 		settings->notification = settings->notification | SPD_ ## state; \
 	else \
-		settings->notification = settings->notification & (! SPD_ ## state);
+		settings->notification = settings->notification & (~ SPD_ ## state);
 
 int set_notification_self(int fd, char *type, int val)
 {
