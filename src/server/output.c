@@ -330,8 +330,7 @@ static SPDVoice **output_get_voices(OutputModule * module)
 				voice->variant = g_strdup(atoms[2]);
 				g_queue_push_tail(voices, voice);
 			}
-			if (atoms != NULL)
-				g_strfreev(atoms);
+			g_strfreev(atoms);
 		}
 		/* Should we do something in a final "else" branch? */
 
