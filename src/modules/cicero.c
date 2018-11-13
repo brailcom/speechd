@@ -191,6 +191,8 @@ int module_init(char **status_info)
 			exit(1);
 		}
 	default:{
+			if (stderr_redirect >= 0)
+				close(stderr_redirect);
 			close(fd1[1]);
 			close(fd2[0]);
 			if (fcntl(fd2[1], F_SETFL, O_NDELAY) < 0
