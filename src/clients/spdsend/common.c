@@ -52,7 +52,8 @@ extern Success write_data(Stream s, const void *buffer, size_t size)
 
 extern int read_data(Stream s, void *buffer, size_t max_size)
 {
-	size_t nread = 0, n;
+	size_t nread = 0;
+	ssize_t n;
 
 	while (nread < max_size) {
 		n = read(s, buffer, max_size);
