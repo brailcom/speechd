@@ -379,12 +379,9 @@ static void serve()
 		{
 #if USE_THREADS
 			pthread_t tid;
+			if (pthread_create(&tid, NULL, &process_request_thread, s))
 #endif
-#if USE_THREADS
-			pthread_create(&tid, NULL, &process_request_thread, s);
-#else
-			process_request(*s);
-#endif
+				process_request(*s);
 		}
 	}
 	close(sock);
