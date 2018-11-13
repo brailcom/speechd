@@ -457,6 +457,8 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 		if (host_ip == NULL) {
 			*error_result = strdup(resolve_error);
 			g_free(resolve_error);
+			free(connection);
+			connection = NULL;
 			goto out;
 		}
 		address_inet.sin_addr.s_addr = inet_addr(host_ip);
@@ -511,6 +513,8 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 				assert(0);
 			SPD_DBG(*error_result);
 			close(connection->socket);
+			free(connection);
+			connection = NULL;
 			goto out;
 		}
 		g_free(spawn_report);
@@ -556,6 +560,8 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 			SPD_DBG(*error_result);
 			fclose(connection->stream);
 			close(connection->socket);
+			free(connection);
+			connection = NULL;
 			goto out;
 		}
 	}
