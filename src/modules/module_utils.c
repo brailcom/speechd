@@ -1185,7 +1185,8 @@ int module_tts_output_marks(AudioTrack track, AudioFormat format, SPDMarks *mark
 	if (track.num_samples > current_sample) {
 		cur.samples = &track.samples[current_sample];
 		cur.num_samples = track.num_samples - current_sample;
-		module_tts_output(cur, format);
+		if (module_tts_output(cur, format))
+			return -1;
 	}
 
 	return 0;
