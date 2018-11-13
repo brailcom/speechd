@@ -115,6 +115,9 @@ static Connection_Id do_open_connection(const char *host, int port)
 {
 	int sock = socket(AF_INET, SOCK_STREAM, 0);
 
+	if (sock < 0)
+		return NONE;
+
 	{
 		struct sockaddr_in name;
 		name.sin_family = AF_INET;
