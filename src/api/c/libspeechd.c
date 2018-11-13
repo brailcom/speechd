@@ -1454,7 +1454,7 @@ SPDVoice **spd_list_synthesis_voices(SPDConnection * connection)
 
 		if (svoices_str[i] == NULL)
 			break;
-		running = strdup(svoices_str[i]);
+		running = svoices_str[i];
 
 		svoices[i] = (SPDVoice *) malloc(sizeof(SPDVoice));
 		svoices[i]->name = strsep(&running, delimiters);
@@ -1462,6 +1462,7 @@ SPDVoice **spd_list_synthesis_voices(SPDConnection * connection)
 		svoices[i]->variant = strsep(&running, delimiters);
 		assert(svoices[i]->name != NULL);
 	}
+	free(svoices_str);
 
 	svoices[num_items] = NULL;
 
