@@ -512,6 +512,7 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 				assert(0);
 			SPD_DBG(*error_result);
 			close(connection->socket);
+			free(connection);
 			SPDConnectionAddress__free(defaultAddress);
 			return NULL;
 		}
