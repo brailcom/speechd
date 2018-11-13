@@ -434,11 +434,14 @@ char *do_debug(char *cmd_buf)
 		filename = cmd[2];
 		DBG("Additional logging into specific path %s requested",
 		    filename);
-		CustomDebugFile = fopen(filename, "w+");
-		if (CustomDebugFile == NULL) {
+		FILE *new_CustomDebugFile = fopen(filename, "w+");
+		if (new_CustomDebugFile == NULL) {
 			DBG("ERROR: Can't open custom debug file for logging: %d (%s)", errno, strerror(errno));
 			return g_strdup("303 CANT OPEN CUSTOM DEBUG FILE");
 		}
+		if (CustomDebugFile != NULL)
+			fclose(CustomDebugFile);
+		CustomDebugFile = new_CustomDebugFile;
 		if (Debug == 1)
 			Debug = 3;
 		else
