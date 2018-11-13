@@ -531,8 +531,7 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 	if (ret)
 		SPD_FATAL("Can't set buffering, setvbuf failed.");
 
-	connection->ssip_mutex = malloc(sizeof(pthread_mutex_t));
-	pthread_mutex_init(connection->ssip_mutex, NULL);
+	pthread_mutex_init(&connection->ssip_mutex, NULL);
 
 	if (mode == SPD_MODE_THREADED) {
 		SPD_DBG
@@ -571,7 +570,7 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 
 #define RET(r) \
 	{ \
-		pthread_mutex_unlock(connection->ssip_mutex); \
+		pthread_mutex_unlock(&connection->ssip_mutex); \
 		return r; \
 	}
 
@@ -579,7 +578,7 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 void spd_close(SPDConnection * connection)
 {
 
-	pthread_mutex_lock(connection->ssip_mutex);
+	pthread_mutex_lock(&connection->ssip_mutex);
 
 	if (connection->mode == SPD_MODE_THREADED) {
 		pthread_cancel(*connection->events_thread);
@@ -598,10 +597,9 @@ void spd_close(SPDConnection * connection)
 	/* close the socket */
 	close(connection->socket);
 
-	pthread_mutex_unlock(connection->ssip_mutex);
+	pthread_mutex_unlock(&connection->ssip_mutex);
 
-	pthread_mutex_destroy(connection->ssip_mutex);
-	free(connection->ssip_mutex);
+	pthread_mutex_destroy(&connection->ssip_mutex);
 	free(connection);
 }
 
@@ -680,7 +678,7 @@ int spd_say(SPDConnection * connection, SPDPriority priority, const char *text)
 	int prepare_failed = 0;
 
 	if (text != NULL) {
-		pthread_mutex_lock(connection->ssip_mutex);
+		pthread_mutex_lock(&connection->ssip_mutex);
 
 		prepare_failed =
 		    spd_say_prepare(connection, priority, text, &escaped_text);
@@ -688,7 +686,7 @@ int spd_say(SPDConnection * connection, SPDPriority priority, const char *text)
 			msg_id = spd_say_sending(connection, escaped_text);
 
 		free(escaped_text);
-		pthread_mutex_unlock(connection->ssip_mutex);
+		pthread_mutex_unlock(&connection->ssip_mutex);
 	} else {
 		SPD_DBG("spd_say called with a NULL argument for <text>");
 	}
@@ -802,7 +800,7 @@ spd_key(SPDConnection * connection, SPDPriority priority, const char *key_name)
 	if (key_name == NULL)
 		return -1;
 
-	pthread_mutex_lock(connection->ssip_mutex);
+	pthread_mutex_lock(&connection->ssip_mutex);
 
 	ret = spd_set_priority(connection, priority);
 	if (ret)
@@ -814,7 +812,7 @@ spd_key(SPDConnection * connection, SPDPriority priority, const char *key_name)
 	if (ret)
 		RET(-1);
 
-	pthread_mutex_unlock(connection->ssip_mutex);
+	pthread_mutex_unlock(&connection->ssip_mutex);
 
 	return 0;
 }
@@ -831,7 +829,7 @@ spd_char(SPDConnection * connection, SPDPriority priority,
 	if (strlen(character) > 6)
 		return -1;
 
-	pthread_mutex_lock(connection->ssip_mutex);
+	pthread_mutex_lock(&connection->ssip_mutex);
 
 	ret = spd_set_priority(connection, priority);
 	if (ret)
@@ -842,7 +840,7 @@ spd_char(SPDConnection * connection, SPDPriority priority,
 	if (ret)
 		RET(-1);
 
-	pthread_mutex_unlock(connection->ssip_mutex);
+	pthread_mutex_unlock(&connection->ssip_mutex);
 
 	return 0;
 }
@@ -854,7 +852,7 @@ spd_wchar(SPDConnection * connection, SPDPriority priority, wchar_t wcharacter)
 	char character[8];
 	int ret;
 
-	pthread_mutex_lock(connection->ssip_mutex);
+	pthread_mutex_lock(&connection->ssip_mutex);
 
 	ret = wcrtomb(character, wcharacter, NULL);
 	if (ret <= 0)
@@ -870,7 +868,7 @@ spd_wchar(SPDConnection * connection, SPDPriority priority, wchar_t wcharacter)
 	if (ret)
 		RET(-1);
 
-	pthread_mutex_unlock(connection->ssip_mutex);
+	pthread_mutex_unlock(&connection->ssip_mutex);
 
 	return 0;
 }
@@ -885,7 +883,7 @@ spd_sound_icon(SPDConnection * connection, SPDPriority priority,
 	if (icon_name == NULL)
 		return -1;
 
-	pthread_mutex_lock(connection->ssip_mutex);
+	pthread_mutex_lock(&connection->ssip_mutex);
 
 	ret = spd_set_priority(connection, priority);
 	if (ret)
@@ -897,7 +895,7 @@ spd_sound_icon(SPDConnection * connection, SPDPriority priority,
 	if (ret)
 		RET(-1);
 
-	pthread_mutex_unlock(connection->ssip_mutex);
+	pthread_mutex_unlock(&connection->ssip_mutex);
 
 	return 0;
 }
@@ -1382,7 +1380,7 @@ spd_set_notification(SPDConnection * connection, SPDNotification notification,
 		return -1;
 	}
 
-	pthread_mutex_lock(connection->ssip_mutex);
+	pthread_mutex_lock(&connection->ssip_mutex);
 
 	NOTIFICATION_SET(SPD_INDEX_MARKS, "index_marks");
 	NOTIFICATION_SET(SPD_BEGIN, "begin");
@@ -1392,7 +1390,7 @@ spd_set_notification(SPDConnection * connection, SPDNotification notification,
 	NOTIFICATION_SET(SPD_RESUME, "resume");
 	NOTIFICATION_SET(SPD_ALL, "all");
 
-	pthread_mutex_unlock(connection->ssip_mutex);
+	pthread_mutex_unlock(&connection->ssip_mutex);
 
 	return 0;
 }
@@ -1558,7 +1556,7 @@ int spd_execute_command(SPDConnection * connection, char *command)
 	char *reply;
 	int ret;
 
-	pthread_mutex_lock(connection->ssip_mutex);
+	pthread_mutex_lock(&connection->ssip_mutex);
 
 	ret = spd_execute_command_with_reply(connection, command, &reply);
 	if (ret) {
@@ -1566,7 +1564,7 @@ int spd_execute_command(SPDConnection * connection, char *command)
 	}
 	free(reply);
 
-	pthread_mutex_unlock(connection->ssip_mutex);
+	pthread_mutex_unlock(&connection->ssip_mutex);
 
 	return ret;
 }
@@ -1616,7 +1614,7 @@ spd_execute_command_with_reply(SPDConnection * connection, char *command,
 char *spd_send_data(SPDConnection * connection, const char *message, int wfr)
 {
 	char *reply;
-	pthread_mutex_lock(connection->ssip_mutex);
+	pthread_mutex_lock(&connection->ssip_mutex);
 
 	if (connection->stream == NULL)
 		RET(NULL);
@@ -1627,7 +1625,7 @@ char *spd_send_data(SPDConnection * connection, const char *message, int wfr)
 		RET(NULL);
 	}
 
-	pthread_mutex_unlock(connection->ssip_mutex);
+	pthread_mutex_unlock(&connection->ssip_mutex);
 	return reply;
 }
 

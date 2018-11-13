@@ -85,7 +85,7 @@ typedef struct {
 	FILE *stream;
 	SPDConnectionMode mode;
 
-	pthread_mutex_t *ssip_mutex;
+	pthread_mutex_t ssip_mutex;
 
 	pthread_t *events_thread;
 	pthread_cond_t *cond_reply_ready;
