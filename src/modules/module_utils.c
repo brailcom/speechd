@@ -895,8 +895,7 @@ char *module_recode_to_iso(char *data, int bytes, char *language,
 
 	if (language == NULL)
 		recoded = g_strdup(data);
-
-	if (!strcmp(language, "cs"))
+	else if (!strcmp(language, "cs"))
 		recoded =
 		    (char *)g_convert_with_fallback(data, bytes, "ISO8859-2",
 						    "UTF-8", fallback, NULL,
