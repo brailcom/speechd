@@ -461,6 +461,7 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 			return NULL;
 		}
 		address_inet.sin_addr.s_addr = inet_addr(host_ip);
+		free(host_ip);
 		address_inet.sin_port = htons(address->inet_socket_port);
 		address_inet.sin_family = AF_INET;
 		connection->socket = socket(AF_INET, SOCK_STREAM, 0);
