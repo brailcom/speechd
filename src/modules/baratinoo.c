@@ -874,9 +874,11 @@ static int baratinoo_find_voice(const Engine *engine, const char *lang, SPDVoice
 	case SPD_MALE3:
 	case SPD_FEMALE3:
 		offset++;
+		/* FALLTHRU */
 	case SPD_MALE2:
 	case SPD_FEMALE2:
 		offset++;
+		/* FALLTHRU */
 	default:
 		break;
 	}
