@@ -77,7 +77,7 @@ run_test_LDADD = $(c_api)/libspeechd.la $(GLIB_LIBS) $(EXTRA_SOCKET_LIBS)
 EXTRA_DIST= basic.test general.test keys.test priority_progress.test \
             pronunciation.test punctuation.test sound_icons.test spelling.test \
             ssml.test stop_and_pause.test voices.test yo.wav \
-            testsuite.at $(TESTSUITE_AT)
+            testsuite.at $(TESTSUITE_AT) sayfortune.sh
 
 clean-local:
 	test ! -f $(TESTSUITE) || $(SHELL) $(TESTSUITE) --clean
