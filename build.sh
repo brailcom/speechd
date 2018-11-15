@@ -22,4 +22,19 @@
 #
 # Just call autoreconf -i.  This script should really go away, but we're
 # keeping it, because people are used to it.
-exec autoreconf -i
+rm -f ABOUT-NLS
+autoreconf -i
+
+# See https://savannah.gnu.org/bugs/index.php?54809
+rm -f \
+./po/remove-potcdate.sin \
+./po/quot.sed \
+./po/boldquot.sed \
+./po/en@quot.header \
+./po/en@boldquot.header \
+./po/insert-header.sin \
+./po/Rules-quot \
+./ABOUT-NLS
+
+touch ABOUT-NLS
+touch po/remove-potcdate.sin
