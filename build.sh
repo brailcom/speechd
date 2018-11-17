@@ -23,6 +23,7 @@
 # Just call autoreconf -i.  This script should really go away, but we're
 # keeping it, because people are used to it.
 rm -f ABOUT-NLS
+rm -f po/remove-potcdate.sin
 autoreconf -i
 
 # See https://savannah.gnu.org/bugs/index.php?54809
