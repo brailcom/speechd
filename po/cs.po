@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Speech Dispatcher\n"
 "Report-Msgid-Bugs-To: speechd@lists.freebsoft.org\n"
-"POT-Creation-Date: 2018-11-11 22:59+0100\n"
+"POT-Creation-Date: 2018-11-17 15:13+0100\n"
 "PO-Revision-Date: 2012-07-11 16:17+0100\n"
 "Last-Translator: Hynek Hanke <hanke@brailcom.org>\n"
 "Language-Team:  <speechd@lists.freebsoft.org>\n"
@@ -349,12 +349,12 @@ msgstr "Vytisknout informace o verzi a autorských právech\n"
 msgid "Syntax error or bad parameter!\n"
 msgstr "Chyba v syntaxi nebo špatný parametr!\n"
 
-#: src/clients/say/options.c:177
+#: src/clients/say/options.c:179
 #, c-format
 msgid "Missing argument!\n"
 msgstr "Chybějící argument\n"
 
-#: src/clients/say/options.c:272
+#: src/clients/say/options.c:274
 #, c-format
 msgid "Unrecognized option\n"
 msgstr "Neznámá volba\n"
