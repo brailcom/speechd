@@ -379,7 +379,7 @@ int module_init(char **status_info)
 	}
 	BCoutputTextBufferSetInEngine(engine->output_signal, engine->engine);
 
-	BCsetWantedEvent(engine->engine, BARATINOO_WAITMARKER_EVENT);
+	BCsetWantedEvent(engine->engine, BARATINOO_MARKER_EVENT);
 
 	/* Setup TTS thread */
 	sem_init(&engine->semaphore, 0, 0);
@@ -689,12 +689,12 @@ static void *_baratinoo_speak(void *data)
 				state = BCprocessLoop(engine->engine, -1);
 				if (state == BARATINOO_EVENT) {
 					BaratinooEvent event = BCgetEvent(engine->engine);
-					if (event.type == BARATINOO_WAITMARKER_EVENT) {
-						DBG(DBG_MODNAME "Reached wait mark '%s' time %f samples %d", event.data.waitMarker.name, event.data.waitMarker.duration, event.data.waitMarker.samples);
-						module_marks_add(&engine->marks, event.data.waitMarker.samples, event.data.waitMarker.name);
+					if (event.type == BARATINOO_MARKER_EVENT) {
+						DBG(DBG_MODNAME "Reached mark '%s' at sample %lu", event.data.marker.name, event.sampleStamp);
+						module_marks_add(&engine->marks, event.sampleStamp, event.data.marker.name);
 						/* if reached a spd mark and pausing requested, stop */
 						if (engine->pause_requested &&
-						    g_str_has_prefix(event.data.waitMarker.name, INDEX_MARK_BODY)) {
+						    g_str_has_prefix(event.data.marker.name, INDEX_MARK_BODY)) {
 							DBG(DBG_MODNAME "Pausing in thread");
 							state = BCpurge(engine->engine);
 							engine->pause_requested = FALSE;
@@ -1139,14 +1139,9 @@ static void ssml2baratinoo_start_element(GMarkupParseContext *ctx,
 
 	/* handle elements */
 	if (strcmp(element, "mark") == 0) {
-		char *wait_mark;
 		int i = attribute_index(attribute_names, "name");
-		const char *mark = i < 0 ? "" : attribute_values[i];
-
-		asprintf(&wait_mark, "\\mark{%s wait}", mark);
-		g_string_prepend(state->buffer, wait_mark);
-		free(wait_mark);
-		g_string_append_printf(state->buffer, "\\mark{%s}", mark);
+		g_string_append_printf(state->buffer, "\\mark{%s}",
+				       i < 0 ? "" : attribute_values[i]);
 	} else if (strcmp(element, "emphasis") == 0) {
 		int i = attribute_index(attribute_names, "level");
 		g_string_append_printf(state->buffer, "\\emph<{%s}",
