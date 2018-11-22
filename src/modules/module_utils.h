@@ -69,7 +69,7 @@ int module_num_dc_options;
 
 const char *module_name;
 
-#define CLEAN_OLD_SETTINGS_TABLE()\
+#define CLEAN_OLD_SETTINGS_TABLE() do { \
 	msg_settings_old.rate = -101;\
 	msg_settings_old.pitch = -101;\
 	msg_settings_old.pitch_range = -101;\
@@ -79,9 +79,10 @@ const char *module_name;
 	msg_settings_old.cap_let_recogn = (SPDCapitalLetters) -1;\
 	msg_settings_old.voice_type = (SPDVoiceType) -1;\
 	msg_settings_old.voice.name = NULL;\
-	msg_settings_old.voice.language = NULL;
+	msg_settings_old.voice.language = NULL; \
+} while (0)
 
-#define INIT_SETTINGS_TABLES()\
+#define INIT_SETTINGS_TABLES() do { \
 	module_name = MODULE_NAME; \
 	module_dc_options = NULL;\
 	msg_settings.rate = 0;\
@@ -94,9 +95,10 @@ const char *module_name;
 	msg_settings.voice_type = SPD_MALE1;\
 	msg_settings.voice.name = NULL;\
 	msg_settings.voice.language = NULL;\
-	CLEAN_OLD_SETTINGS_TABLE()
+	CLEAN_OLD_SETTINGS_TABLE(); \
+} while (0)
 
-#define DBG(arg...) \
+#define DBG(arg...) do { \
 	if (Debug){ \
 		time_t t; \
 		struct timeval tv; \
@@ -118,16 +120,17 @@ const char *module_name;
 			fflush(CustomDebugFile);			\
 		} \
 		g_free(tstr); \
-	}
+	} \
+} while(0)
 
-#define FATAL(msg) { \
+#define FATAL(msg) do { \
 		fprintf(stderr, "FATAL ERROR in output module [%s:%d]:\n   "msg, \
 		        __FILE__, __LINE__); \
 		if (Debug > 1) \
 			fprintf(CustomDebugFile, "FATAL ERROR in output module [%s:%d]:\n   "msg,	\
 			        __FILE__, __LINE__); \
 		exit(EXIT_FAILURE); \
-	}
+} while (0)
 
 int module_load(void);
 int module_init(char **status_info);
@@ -147,14 +150,15 @@ char *module_is_speaking(void);
 int module_close(void);
 SPDVoice **module_list_registered_voices(void);
 
-#define UPDATE_PARAMETER(value, setter) \
+#define UPDATE_PARAMETER(value, setter) do { \
 	if (msg_settings_old.value != msg_settings.value) \
 	{ \
 		msg_settings_old.value = msg_settings.value; \
 		setter (msg_settings.value); \
-	}
+	} \
+} while (0)
 
-#define UPDATE_STRING_PARAMETER(value, setter) \
+#define UPDATE_STRING_PARAMETER(value, setter) do { \
 	if (msg_settings_old.value == NULL || msg_settings.value == NULL \
 	        || strcmp (msg_settings_old.value, msg_settings.value)) \
 	{ \
@@ -168,7 +172,8 @@ SPDVoice **module_list_registered_voices(void);
 			msg_settings_old.value = g_strdup (msg_settings.value); \
 			setter (msg_settings.value); \
 		} \
-	}
+	} \
+} while (0)
 
 #define CHILD_SAMPLE_BUF_SIZE 16384
 
@@ -338,37 +343,42 @@ configoption_t *add_config_option(configoption_t * options,
 		return NULL; \
 	}
 
-#define MOD_OPTION_1_STR_REG(name, default) \
+#define MOD_OPTION_1_STR_REG(name, default) do { \
 	if (default != NULL) name = g_strdup(default); \
 	else name = NULL; \
 	module_dc_options = module_add_config_option(module_dc_options, \
 	                    &module_num_dc_options, #name, \
-	                    ARG_STR, name ## _cb, NULL, 0);
+	                    ARG_STR, name ## _cb, NULL, 0); \
+} while (0)
 
-#define MOD_OPTION_1_INT_REG(name, default) \
+#define MOD_OPTION_1_INT_REG(name, default) do { \
 	name = default; \
 	module_dc_options = module_add_config_option(module_dc_options, \
 	                    &module_num_dc_options, #name, \
-	                    ARG_INT, name ## _cb, NULL, 0);
+	                    ARG_INT, name ## _cb, NULL, 0); \
+} while (0)
 
 /* TODO: Switch this to real float, not /100 integer,
    as soon as DotConf supports floats */
-#define MOD_OPTION_1_FLOAT_REG(name, default) \
+#define MOD_OPTION_1_FLOAT_REG(name, default) do { \
 	name = default; \
 	module_dc_options = module_add_config_option(module_dc_options, \
 	                    &module_num_dc_options, #name, \
-	                    ARG_INT, name ## _cb, NULL, 0);
+	                    ARG_INT, name ## _cb, NULL, 0); \
+} while (0)
 
-#define MOD_OPTION_MORE_REG(name) \
+#define MOD_OPTION_MORE_REG(name) do { \
 	module_dc_options = module_add_config_option(module_dc_options, \
 	                    &module_num_dc_options, #name, \
-	                    ARG_LIST, name ## _cb, NULL, 0);
+	                    ARG_LIST, name ## _cb, NULL, 0); \
+} while (0)
 
-#define MOD_OPTION_HT_REG(name) \
+#define MOD_OPTION_HT_REG(name) do { \
 	name = g_hash_table_new(g_str_hash, g_str_equal); \
 	module_dc_options = module_add_config_option(module_dc_options, \
 	                    &module_num_dc_options, #name, \
-	                    ARG_LIST, name ## _cb, NULL, 0);
+	                    ARG_LIST, name ## _cb, NULL, 0); \
+} while (0)
 
 /* --- DEBUGGING SUPPORT  ---*/
 
