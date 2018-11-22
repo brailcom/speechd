@@ -58,10 +58,11 @@
 
 #define DEBUG_MODULE 1
 DECLARE_DEBUG()
-#define DBG_WARN(e, msg)						\
+#define DBG_WARN(e, msg) do {						\
 	if (Debug && !(e)) {						\
 		DBG(DBG_MODNAME " Warning:  " msg);			\
-	}
+	} \
+} while (0)
 typedef enum {
 	FATAL_ERROR = -1,
 	OK = 0,
@@ -596,7 +597,7 @@ static void *_espeak_stop_or_pause(void *nothing)
 			module_report_event_stop();
 		}
 
-		DBG(DBG_MODNAME " Stop or pause thread ended.......\n")
+		DBG(DBG_MODNAME " Stop or pause thread ended.......\n");
 	}
 	pthread_exit(NULL);
 }
@@ -1220,7 +1221,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 	}
 
 	numvoices = g_queue_get_length(voice_list);
-	DBG(DBG_MODNAME " %d voices total.", numvoices)
+	DBG(DBG_MODNAME " %d voices total.", numvoices);
 
 	if (EspeakListVoiceVariants) {
 		variant_spec = g_new0(espeak_VOICE, 1);
@@ -1236,7 +1237,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 		}
 
 		numvariants = g_queue_get_length(variant_list);
-		DBG(DBG_MODNAME " %d variants total.", numvariants)
+		DBG(DBG_MODNAME " %d variants total.", numvariants);
 	}
 
 	totalvoices = (numvoices * numvariants) + numvoices;

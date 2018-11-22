@@ -78,7 +78,7 @@ void delete_FT_Info(FT_Info * info);
 #define FAPI_LITTLE_ENDIAN (((char *)&fapi_endian_loc)[0] != 0)
 
 #define FEST_SEND_CMD(format) \
-	{ \
+	do { \
 		FILE *fd; \
 		char *str; \
 		fd = fdopen(dup(info->server_fd),"wb"); \
@@ -91,10 +91,10 @@ void delete_FT_Info(FT_Info * info);
 		}else{ \
 			DBG("Can't open connection"); \
 		} \
-	}
+	} while (0)
 
 #define FEST_SEND_CMDA(format, args...) \
-	{ \
+	do { \
 		FILE *fd; \
 		char *str; \
 		fd = fdopen(dup(info->server_fd),"wb"); \
@@ -107,7 +107,7 @@ void delete_FT_Info(FT_Info * info);
 		}else{ \
 			DBG("Can't open connection"); \
 		} \
-	}
+	} while (0)
 
 /*****************************************************************/
 /*  Public functions to interface                                */
