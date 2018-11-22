@@ -1157,13 +1157,30 @@ int module_tts_output_marks(AudioTrack track, AudioFormat format, SPDMarks *mark
 	/* Loop control */
 	int start = 0;
 	int end = marks->num;
-	int delta = 1;
+	int delta = 0; /* loop below figures out the delta */
 	int i;
-	if (marks->num >= 2 && marks->samples[0] > marks->samples[1]) {
-		/* Decreasing mark order */
-		start = marks->num - 1;
-		end = -1;
-		delta = -1;
+	for (i = 1; i < marks->num; i++) {
+		if (marks->samples[i - 1] > marks->samples[i]) {
+			/* Decreasing mark order */
+			if (delta > 0) {
+				DBG("WARNING: Mixed samples order");
+			} else {
+				start = marks->num - 1;
+				end = -1;
+				delta = -1;
+			}
+		} else if (marks->samples[i - 1] < marks->samples[i]) {
+			/* Increasing mark order */
+			if (delta < 0) {
+				DBG("WARNING: Mixed samples order");
+			} else {
+				delta = 1;
+			}
+		}
+	}
+	if (delta == 0) {
+		/* All marks are at the same sample */
+		delta = 1;
 	}
 
 	/* Alternate speaking and reporting mark */
