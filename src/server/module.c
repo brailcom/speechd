@@ -33,6 +33,7 @@
 #include <stdio.h>
 #include <dirent.h>
 #include <glib.h>
+#include <dotconf.h>
 
 #include "speechd.h"
 #include <spd_utils.h>
@@ -61,6 +62,27 @@ void destroy_module(OutputModule * module)
 	g_free(module->filename);
 	g_free(module->configfilename);
 	g_free(module);
+}
+
+/*
+ * Check that we can execute the configured command
+ */
+DOTCONF_CB(GenericCmdDependency_cb)
+{
+	unsigned *missing_paths = ctx;
+	char s[5 + strlen(cmd->data.str) + 17 + 1];
+
+	snprintf(s, sizeof(s), "type %s > /dev/null 2>&1", cmd->data.str);
+	if (system(s) != 0)
+	{
+		MSG(5, "Did not find command %s", cmd->data.str);
+		(*missing_paths)++;
+	}
+	return NULL;
+}
+FUNC_ERRORHANDLER(ignore_errors)
+{
+	return 0;
 }
 
 /*
@@ -149,6 +171,25 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 				size_t len;
 				char *file_path;
 
+				static const configoption_t options[] = {
+					{
+						.name = "GenericCmdDependency",
+						.type = ARG_STR,
+						.callback = GenericCmdDependency_cb,
+						.info = NULL,
+						.context = 0,
+					},
+					{
+						.name = "",
+						.type = 0,
+						.callback = NULL,
+						.info = NULL,
+						.context = 0,
+					}
+				};
+				configfile_t *configfile;
+				unsigned missing_paths = 0;
+
 				if (!strcmp(entry->d_name, ".") || !strcmp(entry->d_name, ".."))
 					continue;
 				file_path = spd_get_path(entry->d_name, full_path);
@@ -158,12 +199,12 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 					    config_dirname);
 					continue;
 				}
-				g_free(file_path);
 
 				/* Note: stat(2) dereferences symlinks. */
 				if (!S_ISREG(fileinfo.st_mode)) {
 					MSG(4, "Ignoring %s in %s; not a regular file.",
 					    entry->d_name, config_dirname);
+					g_free(file_path);
 					continue;
 				}
 
@@ -172,8 +213,36 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 					   "-generic.conf")) {
 					MSG(5, "Ignoring %s: not named something-generic.conf",
 					    entry->d_name);
+					g_free(file_path);
 					continue;
 				}
+
+				/* Check for actual binaries given by GenericCmdDependency */
+
+				configfile = dotconf_create(file_path, options,
+							    &missing_paths, CASE_INSENSITIVE);
+				if (!configfile) {
+					MSG(5, "Ignoring %s: Can not parse config file %s", file_path);
+					g_free(file_path);
+					continue;
+				}
+				configfile->errorhandler = (dotconf_errorhandler_t) ignore_errors;
+
+				if (dotconf_command_loop(configfile) == 0) {
+					MSG(5, "Ignoring %s: Can not parse config file %s", file_path);
+					g_free(file_path);
+					dotconf_cleanup(configfile);
+					continue;
+				}
+				dotconf_cleanup(configfile);
+
+				if (missing_paths != 0) {
+					MSG(5, "Ignoring %s: did not find %d commands",
+					       file_path, missing_paths);
+					g_free(file_path);
+					continue;
+				}
+				g_free(file_path);
 
 				module_parameters = g_malloc(4 * sizeof(char *));
 				module_parameters[1] = g_strdup("sd_generic");
