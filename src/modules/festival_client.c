@@ -1,8 +1,7 @@
 /*************************************************************************/
 /*                                                                       */
 /*                Centre for Speech Technology Research                  */
-/*                     University of Edinburgh, UK                       */
-/*                        Copyright (c) 1999                             */
+/*           Copyright (c) 1999 University of Edinburgh, UK              */
 /*                        All Rights Reserved.                           */
 /*                                                                       */
 /*  Permission is hereby granted, free of charge, to use and distribute  */
