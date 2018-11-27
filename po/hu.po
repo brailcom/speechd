@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.8\n"
 "Report-Msgid-Bugs-To: speechd@lists.freebsoft.org\n"
-"POT-Creation-Date: 2018-11-17 15:13+0100\n"
+"POT-Creation-Date: 2018-11-27 11:44+0100\n"
 "PO-Revision-Date: 2012-07-13 12:45+0100\n"
 "Last-Translator: Hynek Hanke <hanke@brailcom.org>\n"
 "Language-Team: Hungarian\n"
@@ -151,16 +151,24 @@ msgstr ""
 msgid "Print this info\n"
 msgstr "Megjeleníti az opciók leírását\n"
 
-#: src/server/options.c:116 src/clients/say/options.c:142
+#: src/server/options.c:115 src/clients/say/options.c:142
 #, c-format
+msgid ""
+"Please report bugs to %s\n"
+"\n"
+msgstr ""
+"Ha hibát talált, jelezze a következő címen: %s.\n"
+"\n"
+
+#: src/server/options.c:121 src/clients/say/options.c:149
+#: src/api/python/speechd_config/config.py.in:175
+#, c-format, python-format
 msgid ""
 "Copyright (C) %d-%d Brailcom, o.p.s.\n"
 "This is free software; you can redistribute it and/or modify it\n"
 "under the terms of the GNU General Public License as published by\n"
 "the Free Software Foundation; either version 2, or (at your option)\n"
 "any later version. Please see COPYING for more details.\n"
-"\n"
-"Please report bugs to %s\n"
 "\n"
 msgstr ""
 "Copyright (C) %d-%d Brailcom, o.p.s.\n"
@@ -169,25 +177,6 @@ msgstr ""
 "(vagy bármely későbbi) változatában foglaltak alapján.\n"
 "A részletekért nézze meg a COPYING fájlt.\n"
 "\n"
-"Ha hibát talált, jelezze a következő címen: %s.\n"
-"\n"
-
-#: src/server/options.c:129 src/clients/say/options.c:155
-#: src/api/python/speechd_config/config.py.in:175
-#, c-format, python-format
-msgid ""
-"Copyright (C) %d-%d Brailcom, o.p.s.\n"
-"%s comes with ABSOLUTELY NO WARRANTY.\n"
-"You may redistribute copies of this program\n"
-"under the terms of the GNU General Public License.\n"
-"For more information about these matters, see the file named COPYING.\n"
-msgstr ""
-"Copyright (C) %d-%d Brailcom, o.p.s.\n"
-"A(z) %s programot abban a reményben terjesztjük, hogy hasznos lesz,\n"
-"de nem vállalunk SEMMIFÉLE GARANCIÁT.\n"
-"Ön terjesztheti az spd-say programot a GNU General Public License "
-"követelményei szerint.\n"
-"Bővebb információkért tanulmányozza a COPYING nevű fájlt.\n"
 
 #: src/clients/say/options.c:43
 #, c-format
@@ -355,17 +344,17 @@ msgstr ""
 "A verziószám és a szerzői jogi\n"
 "információk kiírása\n"
 
-#: src/clients/say/options.c:168
+#: src/clients/say/options.c:161
 #, c-format
 msgid "Syntax error or bad parameter!\n"
 msgstr "Szintaktikai hiba, vagy rosszul megadott paraméter!\n"
 
-#: src/clients/say/options.c:179
+#: src/clients/say/options.c:172
 #, c-format
 msgid "Missing argument!\n"
 msgstr "Hiányzó argumentum!\n"
 
-#: src/clients/say/options.c:274
+#: src/clients/say/options.c:267
 #, c-format
 msgid "Unrecognized option\n"
 msgstr "Ismeretlen kapcsoló\n"
@@ -906,55 +895,3 @@ msgid ""
 "Please run this command again and select what you want to do\n"
 "or read the quick help available through '-h' or '--help'."
 msgstr ""
-
-#~ msgid ""
-#~ "%s -- a simple client for speech synthesis %s\n"
-#~ "\n"
-#~ msgstr ""
-#~ "%s -- egy egyszerű kliens a beszédszintetizátorokhoz %s\n"
-#~ "\n"
-
-#, fuzzy
-#~ msgid ""
-#~ "Copyright (C) %d-%d Brailcom, o.p.s.\n"
-#~ "%s comes with ABSOLUTELY NO WARRANTY.\n"
-#~ "You may redistribute copies of Speech Dispatcher\n"
-#~ "under the terms of the GNU General Public License.\n"
-#~ "For more information about these matters, see the file named COPYING.\n"
-#~ msgstr ""
-#~ "Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 Brailcom, o.p.s.\n"
-#~ "A Speech Dispatcher programot abban a reményben terjesztjük, hogy hasznos "
-#~ "lesz,\n"
-#~ "de nem vállalunk SEMMIFÉLE GARANCIÁT.\n"
-#~ "Ön terjesztheti a Speech-dispatcher programot a GNU General Public "
-#~ "License követelményei szerint.\n"
-#~ "Bővebb információkért tanulmányozza a COPYING nevű fájlt.\n"
-
-#~ msgid ""
-#~ "Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 Brailcom, o.p.s.\n"
-#~ "This is free software; you can redistribute it and/or modify it\n"
-#~ "under the terms of the GNU General Public License as published by\n"
-#~ "the Free Software Foundation; either version 2, or (at your option)\n"
-#~ "any later version. Please see COPYING for more details.\n"
-#~ "\n"
-#~ "Please report bugs to %s\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 Brailcom, o.p.s.\n"
-#~ "Ez egy szabad szoftver, terjesztheti és/vagy módosíthatja a\n"
-#~ "Free Software Foundation által kiadott GNU General Public License második "
-#~ "(vagy bármely későbbi) változatában foglaltak alapján.\n"
-#~ "A részletekért nézze meg a COPYING fájlt.\n"
-#~ "\n"
-#~ "Ha hibát talált, jelezze a következő címen: %s.\n"
-#~ "\n"
-
-#~ msgid "(between -100 and +100, default: 0) \n"
-#~ msgstr "(-100 és +100 között, az alapértelmezett érték 0)\n"
-
-#~ msgid ""
-#~ "Usage: %s [-{d|s}] [-l {1|2|3|4|5}] [-c com_method] [-S socket_path] [-p "
-#~ "port] | [-v] | [-h]\n"
-#~ msgstr ""
-#~ "Használat: %s [-{d|s}] [-l {1|2|3|4|5}] [-c kommunikáció módja] [-S "
-#~ "socket elérési út] [-p port] | [-v] | [-h]\n"

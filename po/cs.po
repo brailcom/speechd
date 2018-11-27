@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Speech Dispatcher\n"
 "Report-Msgid-Bugs-To: speechd@lists.freebsoft.org\n"
-"POT-Creation-Date: 2018-11-17 15:13+0100\n"
+"POT-Creation-Date: 2018-11-27 11:44+0100\n"
 "PO-Revision-Date: 2012-07-11 16:17+0100\n"
 "Last-Translator: Hynek Hanke <hanke@brailcom.org>\n"
 "Language-Team:  <speechd@lists.freebsoft.org>\n"
@@ -147,16 +147,24 @@ msgstr ""
 msgid "Print this info\n"
 msgstr "Vypsat tyto informace\n"
 
-#: src/server/options.c:116 src/clients/say/options.c:142
+#: src/server/options.c:115 src/clients/say/options.c:142
 #, c-format
+msgid ""
+"Please report bugs to %s\n"
+"\n"
+msgstr ""
+"Chyby v programu oznamujte na %s\n"
+"\n"
+
+#: src/server/options.c:121 src/clients/say/options.c:149
+#: src/api/python/speechd_config/config.py.in:175
+#, c-format, python-format
 msgid ""
 "Copyright (C) %d-%d Brailcom, o.p.s.\n"
 "This is free software; you can redistribute it and/or modify it\n"
 "under the terms of the GNU General Public License as published by\n"
 "the Free Software Foundation; either version 2, or (at your option)\n"
 "any later version. Please see COPYING for more details.\n"
-"\n"
-"Please report bugs to %s\n"
 "\n"
 msgstr ""
 "Copyright (C) %d-%d BRAILCOM, o.p.s.\n"
@@ -168,24 +176,6 @@ msgstr ""
 "hledejte v textu GNU General Public Licence, která je přiložena v souboru "
 "COPYING.\n"
 "\n"
-"Chyby v programu oznamujte na %s\n"
-"\n"
-
-#: src/server/options.c:129 src/clients/say/options.c:155
-#: src/api/python/speechd_config/config.py.in:175
-#, c-format, python-format
-msgid ""
-"Copyright (C) %d-%d Brailcom, o.p.s.\n"
-"%s comes with ABSOLUTELY NO WARRANTY.\n"
-"You may redistribute copies of this program\n"
-"under the terms of the GNU General Public License.\n"
-"For more information about these matters, see the file named COPYING.\n"
-msgstr ""
-"Copyright (C) %d-%d BRAILCOM, o.p.s.\n"
-"%s je ABSOLUTNĚ BEZ ZÁRUKY.\n"
-"Kopie tohoto programu můžete redistribuovat\n"
-"podle podmínek GNU General Public License.\n"
-"Více informací naleznete v přiloženém souboru COPYING.\n"
 
 #: src/clients/say/options.c:43
 #, c-format
@@ -344,17 +334,17 @@ msgstr "Zrušit všechny zprávy\n"
 msgid "Print version and copyright info\n"
 msgstr "Vytisknout informace o verzi a autorských právech\n"
 
-#: src/clients/say/options.c:168
+#: src/clients/say/options.c:161
 #, c-format
 msgid "Syntax error or bad parameter!\n"
 msgstr "Chyba v syntaxi nebo špatný parametr!\n"
 
-#: src/clients/say/options.c:179
+#: src/clients/say/options.c:172
 #, c-format
 msgid "Missing argument!\n"
 msgstr "Chybějící argument\n"
 
-#: src/clients/say/options.c:274
+#: src/clients/say/options.c:267
 #, c-format
 msgid "Unrecognized option\n"
 msgstr "Neznámá volba\n"
@@ -893,45 +883,3 @@ msgid ""
 "Please run this command again and select what you want to do\n"
 "or read the quick help available through '-h' or '--help'."
 msgstr ""
-
-#~ msgid ""
-#~ "%s -- a simple client for speech synthesis %s\n"
-#~ "\n"
-#~ msgstr ""
-#~ "%s -- jednoduchý klient pro řečovou syntézu %s\n"
-#~ "\n"
-
-#~ msgid ""
-#~ "Copyright (C) %d-%d Brailcom, o.p.s.\n"
-#~ "%s comes with ABSOLUTELY NO WARRANTY.\n"
-#~ "You may redistribute copies of Speech Dispatcher\n"
-#~ "under the terms of the GNU General Public License.\n"
-#~ "For more information about these matters, see the file named COPYING.\n"
-#~ msgstr ""
-#~ "Copyright (C) %d-%d BRAILCOM, o.p.s.\n"
-#~ "%s je ABSOLUTNĚ BEZ ZÁRUKY.\n"
-#~ "Kopie Speech Dispatcheru můžete redistribuovat\n"
-#~ "podle podmínek GNU General Public LIcense.\n"
-#~ "Více informací naleznete v přiloženém souboru COPYING.\n"
-
-#~ msgid ""
-#~ "Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 Brailcom, o.p.s.\n"
-#~ "This is free software; you can redistribute it and/or modify it\n"
-#~ "under the terms of the GNU General Public License as published by\n"
-#~ "the Free Software Foundation; either version 2, or (at your option)\n"
-#~ "any later version. Please see COPYING for more details.\n"
-#~ "\n"
-#~ "Please report bugs to %s\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Copyright (C) 2003, 2004, 2006, 2007, 2008, 2010 BRAILCOM, o.p.s.\n"
-#~ "Tento program je svobodný software: můžete jej šířit a upravovat\n"
-#~ "podle ustanovení Obecné veřejné licence GNU (GNU General Public "
-#~ "Licence),\n"
-#~ "vydávané Free Software Foundation a to buď podle 2. verze této Licence,"
-#~ "nebo (podle vašeho uvážení) kterékoli pozdější verze. Další podrobnosti "
-#~ "hledejte\n"
-#~ "v Obecné veřejné licenci GNU, která je přiložena v souboru COPYING.\n"
-#~ "\n"
-#~ "Chyby v programu oznamujte na %s\n"
-#~ "\n"
