@@ -263,7 +263,7 @@ AS_IF([test $with_pico = "yes"], [output_modules="${output_modules} pico"])
 
 # check for Voxygen Baratinoo support
 AC_ARG_WITH([baratinoo],
-	[AS_HELP_STRING([--with-baratinoo], [include Voxygen Baratinoo support])],
+	[AS_HELP_STRING([--with-baratinoo[[=yes|no|shim]]], [include Voxygen Baratinoo support])],
 	[],
 	[with_baratinoo=check])
 AS_IF([! test "$with_baratinoo" = no],
@@ -281,7 +281,7 @@ AS_IF([test "$with_baratinoo" != no], [output_modules="${output_modules} baratin
 
 # check for kali support
 AC_ARG_WITH([kali],
-	[AS_HELP_STRING([--with-kali], [include Kali support])],
+	[AS_HELP_STRING([--with-kali[[=yes|no|shim]]], [include Kali support])],
 	[],
 	[with_kali=check])
 AS_IF([test $with_kali != "no"],
