@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: speech-dispatcher 0.8.6\n"
 "Report-Msgid-Bugs-To: speechd@lists.freebsoft.org\n"
-"POT-Creation-Date: 2018-11-17 15:13+0100\n"
+"POT-Creation-Date: 2018-11-27 11:44+0100\n"
 "PO-Revision-Date: 2017-05-25 11:06+0100\n"
 "Last-Translator: Chris Leick <c.leick@vollbio.de>\n"
 "Language-Team: German\n"
@@ -101,17 +101,16 @@ msgid "Specify a port number for '%s' method\n"
 msgstr "gibt eine Portnummer für die Methode »%s« an.\n"
 
 #: src/server/options.c:95
-#, fuzzy, c-format
+#, c-format
 msgid "Set time in seconds for the server to wait before it\n"
 msgstr ""
 "setzt die Zeit in Sekunden, die der Server vor dem Herunterfahren warten "
 "soll,\n"
-"\t\t\t"
 
 #: src/server/options.c:97
-#, fuzzy, c-format
+#, c-format
 msgid "shuts down, if it has no clients connected\n"
-msgstr "falls er mit keinen Clients verbunden ist.\n"
+msgstr "falls er mit keinen Clients verbunden ist\n"
 
 #: src/server/options.c:99
 #, c-format
@@ -134,36 +133,42 @@ msgid "Report version of this program\n"
 msgstr "gibt die Version dieses Programms aus.\n"
 
 #: src/server/options.c:107
-#, fuzzy, c-format
+#, c-format
 msgid "Output debugging information into $TMPDIR/%s\n"
 msgstr ""
-"gibt Fehlersuchinformationen nach $TMPDIR/%s aus, falls TMPDIR exportiert "
-"wurde, andernfalls nach /tmp/%s.\n"
+"gibt Fehlersuchinformationen nach $TMPDIR/%s aus\n"
 
 #: src/server/options.c:110
-#, fuzzy, c-format
+#, c-format
 msgid "if TMPDIR is exported, otherwise to /tmp/%s\n"
 msgstr ""
-"gibt Fehlersuchinformationen nach $TMPDIR/%s aus, falls TMPDIR exportiert "
-"wurde, andernfalls nach /tmp/%s.\n"
+"falls TMPDIR exportiert wurde, andernfalls nach /tmp/%s\n"
 
 #: src/server/options.c:113 src/clients/say/options.c:139
 #, c-format
 msgid "Print this info\n"
 msgstr "gibt diese Information aus.\n"
 
+#: src/server/options.c:115 src/clients/say/options.c:142
+#, c-format
+msgid ""
+"Please report bugs to %s\n"
+"\n"
+msgstr ""
+"Bitte melden Sie Fehler an %s\n"
+"\n"
+
 # http://www.gnu.de/documents/gpl-2.0.de.html
 # COPYING ist eine Datei
-#: src/server/options.c:116 src/clients/say/options.c:142
-#, c-format
+#: src/server/options.c:121 src/clients/say/options.c:149
+#: src/api/python/speechd_config/config.py.in:175
+#, c-format, python-format
 msgid ""
 "Copyright (C) %d-%d Brailcom, o.p.s.\n"
 "This is free software; you can redistribute it and/or modify it\n"
 "under the terms of the GNU General Public License as published by\n"
 "the Free Software Foundation; either version 2, or (at your option)\n"
 "any later version. Please see COPYING for more details.\n"
-"\n"
-"Please report bugs to %s\n"
 "\n"
 msgstr ""
 "Copyright (C) %d-%d Brailcom, o.p.s.\n"
@@ -174,26 +179,6 @@ msgstr ""
 "Lizenz oder (nach Ihrer Wahl) jeder neueren Version. Weitere Einzelheiten "
 "finden Sie in COPYING.\n"
 "\n"
-"Bitte melden Sie Fehler an %s\n"
-"\n"
-
-#: src/server/options.c:129 src/clients/say/options.c:155
-#: src/api/python/speechd_config/config.py.in:175
-#, c-format, python-format
-msgid ""
-"Copyright (C) %d-%d Brailcom, o.p.s.\n"
-"%s comes with ABSOLUTELY NO WARRANTY.\n"
-"You may redistribute copies of this program\n"
-"under the terms of the GNU General Public License.\n"
-"For more information about these matters, see the file named COPYING.\n"
-msgstr ""
-"Copyright (C) %d-%d Brailcom, o.p.s.\n"
-"Für %s besteht KEINERLEI GARANTIE.\n"
-"Sie können Kopien dieses Programms unter den Bedingungen der\n"
-"GNU General Public License weitergeben.\n"
-"Weitere Informationen über diese Bewandtnisse finden Sie in der Datei "
-"namens\n"
-"COPYING.\n"
 
 #: src/clients/say/options.c:43
 #, c-format
@@ -352,17 +337,17 @@ msgstr "bricht alle Nachrichten ab.\n"
 msgid "Print version and copyright info\n"
 msgstr "gibt Version und Copyright-Informationen aus.\n"
 
-#: src/clients/say/options.c:168
+#: src/clients/say/options.c:161
 #, c-format
 msgid "Syntax error or bad parameter!\n"
 msgstr "Syntaxfehler oder falscher Parameter!\n"
 
-#: src/clients/say/options.c:179
+#: src/clients/say/options.c:172
 #, c-format
 msgid "Missing argument!\n"
 msgstr "fehlendes Argument!\n"
 
-#: src/clients/say/options.c:274
+#: src/clients/say/options.c:267
 #, c-format
 msgid "Unrecognized option\n"
 msgstr "Option nicht erkannt\n"
@@ -453,9 +438,8 @@ msgid "Debug a problem and generate a report"
 msgstr "sucht Fehler eines Problems und erzeugt einen Bericht."
 
 #: src/api/python/speechd_config/config.py.in:162
-#, fuzzy
 msgid "Print version and copyright info"
-msgstr "gibt Version und Copyright-Informationen aus.\n"
+msgstr "gibt Version und Copyright-Informationen aus."
 
 #: src/api/python/speechd_config/config.py.in:204
 #, python-format
@@ -1016,10 +1000,3 @@ msgid ""
 msgstr ""
 "Bitte führen Sie diesen Befehl erneut aus und wählen Sie, was Sie tun\n"
 "möchten oder lesen Sie die per »-h« oder »--help« verfügbare Schnellhilfe."
-
-#~ msgid ""
-#~ "%s -- a simple client for speech synthesis %s\n"
-#~ "\n"
-#~ msgstr ""
-#~ "%s -- ein einfacher Client zur Sprachsynthese %s\n"
-#~ "\n"
