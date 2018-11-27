@@ -286,6 +286,11 @@ int main(int argc, char *argv[])
 			continue;
 		}
 
+		if (line[0] == '#') {
+			/* Comment */
+			continue;
+		}
+
 		send_data(sockk, line, 0);
 		printf("     >> %s", line);
 	}
