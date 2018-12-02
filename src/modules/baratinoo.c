@@ -691,7 +691,8 @@ static void *_baratinoo_speak(void *data)
 					BaratinooEvent event = BCgetEvent(engine->engine);
 					if (event.type == BARATINOO_MARKER_EVENT) {
 						DBG(DBG_MODNAME "Reached mark '%s' at sample %lu", event.data.marker.name, event.sampleStamp);
-						module_marks_add(&engine->marks, event.sampleStamp, event.data.marker.name);
+						/* TODO: re-enable marks once audio glitches of module_tts_output are fixed */
+						/* module_marks_add(&engine->marks, event.sampleStamp, event.data.marker.name); */
 						/* if reached a spd mark and pausing requested, stop */
 						if (engine->pause_requested &&
 						    g_str_has_prefix(event.data.marker.name, INDEX_MARK_BODY)) {
