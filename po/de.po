@@ -135,14 +135,12 @@ msgstr "gibt die Version dieses Programms aus.\n"
 #: src/server/options.c:107
 #, c-format
 msgid "Output debugging information into $TMPDIR/%s\n"
-msgstr ""
-"gibt Fehlersuchinformationen nach $TMPDIR/%s aus\n"
+msgstr "gibt Fehlersuchinformationen nach $TMPDIR/%s aus\n"
 
 #: src/server/options.c:110
 #, c-format
 msgid "if TMPDIR is exported, otherwise to /tmp/%s\n"
-msgstr ""
-"falls TMPDIR exportiert wurde, andernfalls nach /tmp/%s\n"
+msgstr "falls TMPDIR exportiert wurde, andernfalls nach /tmp/%s\n"
 
 #: src/server/options.c:113 src/clients/say/options.c:139
 #, c-format
