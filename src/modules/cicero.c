@@ -147,6 +147,11 @@ int module_init(char **status_info)
 
 	DBG("Module init\n");
 
+	if (access(CiceroExecutable, X_OK) != 0) {
+		DBG("ERROR: can not reach executable %s", CiceroExecutable);
+		return -1;
+	}
+
 	(void)signal(SIGPIPE, SIG_IGN);
 
 	DBG("call the pipe system call\n");
