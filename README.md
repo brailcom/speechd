@@ -113,5 +113,33 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-NOTE: speech dispatcher currently depends on dotconf, which is LGPLv2.1-only at
-the time of writing.
+Note:
+
+- The speech-dispatcher server (src/server/ + src/common/) contains
+GPLv2-or-later and LGPLv2.1-or-later source code, but is linked against
+libdotconf, which is LGPLv2.1-only at the time of writing.
+
+- The speech-dispatcher modules (src/modules/ + src/common/ + src/audio/)
+contain GPLv2-or-later, LGPLv2.1-or-later, and LGPLv2-or-later source code,
+but are also linked against libdotconf, which is LGPLv2.1-only at the time of
+writing.
+
+- The spd-conf tool (src/api/python/speechd_config/) and spd-say tool
+(src/clients/say) are GPLv2-or-later.
+
+- The spdsend tool (src/clients/spdsend/) contains both GPLv2-or-later and
+GPLv2-only source code.
+
+- The C API library (src/api/c/) is LGPLv2.1-or-later
+
+- The Common Lisp API library (src/api/cl/) is LGPLv2.1-or-later.
+
+- The Guile API library (src/api/guile/) contains GPLv2-or-later,
+LGPLv2.1-or-later, and LGPLv2.1-only source code.
+
+- The Python API library (src/api/python/speechd/) is LGPLv2.1-or-later.
+
+- src/tests/spd_cancel_long_message.c and
+src/tests/spd_set_notifications_all.c are GPLv2-only.
+
+- other tests in src/tests/ are GPLv2-or-later.
