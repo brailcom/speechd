@@ -15,9 +15,7 @@
  * General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this package; see the file COPYING.  If not, write to
- * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA 02110-1301, USA.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * $Id: long_message.c,v 1.13 2006-07-11 16:12:28 hanke Exp $
  */
