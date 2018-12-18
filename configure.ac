@@ -26,9 +26,8 @@
 # PARTICULAR PURPOSE.  See the GNU General Public License for more details (file
 # COPYING in the root directory).
 #
-# You should have received a copy of the GNU General Public License along with
-# this program; if not, write to the Free Software Foundation, Inc., 675 Mass
-# Ave, Cambridge, MA 02139, USA.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 AC_PREREQ([2.63])
 AC_INIT([speech-dispatcher], [m4_esyscmd(./git-version-gen .tarball-version)], [speechd@lists.freebsoft.org])
