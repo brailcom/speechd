@@ -197,6 +197,7 @@ MOD_OPTION_1_STR(EspeakPunctuationList)
     MOD_OPTION_1_INT(EspeakNormalRate)
     MOD_OPTION_1_INT(EspeakMaxRate)
     MOD_OPTION_1_INT(EspeakListVoiceVariants)
+    MOD_OPTION_1_INT(EspeakIndexing)
 
     MOD_OPTION_1_INT(EspeakAudioChunkSize)
     MOD_OPTION_1_INT(EspeakAudioQueueMaxSize)
@@ -223,6 +224,7 @@ int module_load(void)
 	MOD_OPTION_1_INT_REG(EspeakMaxRate, 390);
 	MOD_OPTION_1_STR_REG(EspeakPunctuationList, "@/+-_");
 	MOD_OPTION_1_INT_REG(EspeakCapitalPitchRise, 800);
+	MOD_OPTION_1_INT_REG(EspeakIndexing, 1);
 	MOD_OPTION_1_INT_REG(EspeakListVoiceVariants, 0);
 	if (EspeakCapitalPitchRise == 1 || EspeakCapitalPitchRise == 2) {
 		EspeakCapitalPitchRise = 0;
@@ -888,6 +890,8 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 		/* Enqueue audio upto event */
 		switch (events->type) {
 		case espeakEVENT_MARK:
+			if (!EspeakIndexing)
+				break;
 		case espeakEVENT_PLAY:{
 				/* Convert ms position to samples */
 				gint64 pos_msg = events->audio_position;
@@ -906,7 +910,8 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 		/* Process actual event */
 		switch (events->type) {
 		case espeakEVENT_MARK:
-			espeak_add_mark_to_playback_queue(events->id.name);
+			if (EspeakIndexing)
+				espeak_add_mark_to_playback_queue(events->id.name);
 			break;
 		case espeakEVENT_PLAY:
 			espeak_add_sound_icon_to_playback_queue(events->
