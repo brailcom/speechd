@@ -70,6 +70,9 @@ DOTCONF_CB(GenericCmdDependency_cb)
 	unsigned *missing_paths = ctx;
 	char s[5 + strlen(cmd->data.str) + 17 + 1];
 
+	if (!cmd->data.str[0])
+		return NULL;
+
 	snprintf(s, sizeof(s), "type %s > /dev/null 2>&1", cmd->data.str);
 	if (system(s) != 0)
 	{
