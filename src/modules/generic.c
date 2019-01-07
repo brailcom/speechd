@@ -133,9 +133,9 @@ int module_load(void)
 
 	MOD_OPTION_HT_REG(GenericLanguage);
 
-	MOD_OPTION_1_STR_REG(GenericPunctNone, "--punct-none");
-	MOD_OPTION_1_STR_REG(GenericPunctSome, "--punct-some");
-	MOD_OPTION_1_STR_REG(GenericPunctAll, "--punct-all");
+	MOD_OPTION_1_STR_REG(GenericPunctNone, "");
+	MOD_OPTION_1_STR_REG(GenericPunctSome, "");
+	MOD_OPTION_1_STR_REG(GenericPunctAll, "");
 
 	module_register_available_voices();
 	module_register_settings_voices();
