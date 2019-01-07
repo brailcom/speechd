@@ -70,6 +70,8 @@ void generic_set_punct(SPDPunctuation punct);
 /* Fill the module_info structure with pointers to this modules functions */
 
 MOD_OPTION_1_STR(GenericExecuteSynth)
+    MOD_OPTION_1_STR(GenericCmdDependency)
+
     MOD_OPTION_1_INT(GenericMaxChunkLength)
     MOD_OPTION_1_STR(GenericDelimiters)
     MOD_OPTION_1_STR(GenericPunctNone)
@@ -107,6 +109,7 @@ int module_load(void)
 	INIT_SETTINGS_TABLES();
 
 	MOD_OPTION_1_STR_REG(GenericExecuteSynth, "");
+	MOD_OPTION_1_STR_REG(GenericCmdDependency, "");
 
 	REGISTER_DEBUG();
 
@@ -152,6 +155,7 @@ int module_init(char **status_info)
 	DBG("GenericMaxChunkLength = %d\n", GenericMaxChunkLength);
 	DBG("GenericDelimiters = %s\n", GenericDelimiters);
 	DBG("GenericExecuteSynth = %s\n", GenericExecuteSynth);
+	DBG("GenericCmdDependency = %s\n", GenericCmdDependency);
 
 	generic_msg_language =
 	    (TGenericLanguage *) g_malloc(sizeof(TGenericLanguage));
