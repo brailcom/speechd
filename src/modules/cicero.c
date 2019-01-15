@@ -40,6 +40,8 @@
 // #define DEBUG_MODULE 1
 DECLARE_DEBUG()
 
+static int initialized = 0;
+
 /* Thread and process control */
 static int cicero_speaking = 0;
 
@@ -227,6 +229,8 @@ int module_init(char **status_info)
 
 	*status_info = g_strdup("Cicero initialized successfully.");
 
+	initialized = 1;
+
 	return 0;
 }
 
@@ -297,10 +301,15 @@ int module_close(void)
 		module_stop();
 	}
 
+	if (!initialized)
+		return -1;
+
 	if (module_terminate_thread(cicero_speaking_thread) != 0)
 		return -1;
 
 	sem_destroy(&cicero_semaphore);
+
+	initialized = 0;
 	return 0;
 }
 
