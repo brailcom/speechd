@@ -302,7 +302,7 @@ int module_close(void)
 	}
 
 	if (!initialized)
-		return -1;
+		return 0;
 
 	if (module_terminate_thread(cicero_speaking_thread) != 0)
 		return -1;
