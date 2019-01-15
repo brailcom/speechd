@@ -221,6 +221,17 @@ static void libao_set_loglevel(int level)
 
 static char const *libao_get_playcmd(void)
 {
+	int driver_id = ao_default_driver_id();
+	ao_info *driver_info = ao_driver_info(driver_id);
+
+	if (!strcmp(driver_info->short_name, "oss"))
+		return "play";
+	else if (!strcmp(driver_info->short_name, "alsa"))
+		return "aplay";
+	else if (!strcmp(driver_info->short_name, "pulse"))
+		return "paplay";
+
+	/* For others we can not know how we are supposed to play.  */
 	return NULL;
 }
 
