@@ -96,7 +96,7 @@ License
 -------
 
 Copyright (C) 2001-2009 Brailcom, o.p.s
-Copyright (C) 2018 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Didier Spaier <didier@slint.fr>
 
 This program is free software; you can redistribute it and/or modify it under
@@ -124,22 +124,16 @@ contain GPLv2-or-later, LGPLv2.1-or-later, and LGPLv2-or-later source code,
 but are also linked against libdotconf, which is LGPLv2.1-only at the time of
 writing.
 
-- The spd-conf tool (src/api/python/speechd_config/) and spd-say tool
-(src/clients/say) are GPLv2-or-later.
-
-- The spdsend tool (src/clients/spdsend/) contains both GPLv2-or-later and
-GPLv2-only source code.
+- The spd-conf tool (src/api/python/speechd_config/), spd-say tool
+(src/clients/say), and spdsend tool (src/clients/spdsend/) are GPLv2-or-later.
 
 - The C API library (src/api/c/) is LGPLv2.1-or-later
 
 - The Common Lisp API library (src/api/cl/) is LGPLv2.1-or-later.
 
-- The Guile API library (src/api/guile/) contains GPLv2-or-later,
-LGPLv2.1-or-later, and LGPLv2.1-only source code.
+- The Guile API library (src/api/guile/) contains GPLv2-or-later and
+LGPLv2.1-or-later source code.
 
 - The Python API library (src/api/python/speechd/) is LGPLv2.1-or-later.
 
-- src/tests/spd_cancel_long_message.c and
-src/tests/spd_set_notifications_all.c are GPLv2-only.
-
-- other tests in src/tests/ are GPLv2-or-later.
+- All tests in src/tests/ are GPLv2-or-later.
