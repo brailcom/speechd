@@ -73,8 +73,7 @@ modulebin_PROGRAMS += sd_ibmtts
 sd_ibmtts_SOURCES = ibmtts.c $(audio_SOURCES) $(common_SOURCES) \
 	module_utils_addvoice.c
 sd_ibmtts_LDADD = $(top_builddir)/src/common/libcommon.la \
-	$(audio_dlopen_modules) \
-	-libmeci \
+	$(audio_dlopen_modules) -ldl \
 	$(common_LDADD)
 endif
 
