@@ -103,7 +103,7 @@ AudioID *spd_audio_open(char *name, void **pars, char **error)
 		return (AudioID *) NULL;
 	}
 
-	ret = lt_dlsetsearchpath(PLUGIN_DIR);
+	ret = lt_dlsetsearchpath(PLUGIN_DIR":/usr/lib/x86_64-linux-gnu/speech-dispatcher:/usr/lib64/speech-dispatcher");	
 	if (ret != 0) {
 		*error = (char *)g_strdup_printf("lt_dlsetsearchpath() failed");
 		return (AudioID *) NULL;
