@@ -13,7 +13,7 @@
 # Copyright (C) 2017 Colomban Wendling <cwendling@hypra.fr>
 # Copyright (C) 2017 Jan Tojnar <jtojnar@gmail.com>
 # Copyright (C) 2018 Raphaël POITEVIN <rpoitevin@hypra.fr>
-# Copyright (C) 2018 Samuel Thibault <samuel.thibault@ens-lyon.org>
+# Copyright (C) 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
 # Copyright (C) 2018 Alan Coopersmith <alan.coopersmith@oracle.com>
 #
 # This program is free software; you can redistribute it and/or modify it under
@@ -30,7 +30,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 AC_PREREQ([2.63])
-AC_INIT([speech-dispatcher], [m4_esyscmd(./git-version-gen .tarball-version)], [speechd@lists.freebsoft.org])
+AC_INIT([speech-dispatcher], [m4_esyscmd(./git-version-gen .tarball-version)], [speechd-discuss@nongnu.org])
 AC_CONFIG_MACRO_DIRS([m4])
 AM_INIT_AUTOMAKE([foreign info-in-builddir])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES(yes)])
