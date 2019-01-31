@@ -11,7 +11,7 @@ It works with CLisp and SBCL, but it should be easy to port to other systems,
 just add the support to sysdep.lisp.
 
 Feel free to contact us with any questions regarding the Common Lisp interface
-at the Speech Dispatcher mailing list <speechd@lists.freebsoft.org>.
+at the Speech Dispatcher mailing list <speechd-discuss@nongnu.org>.
 
 -- Milan Zamazal <pdm@freebsoft.org>
 

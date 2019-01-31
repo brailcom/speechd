@@ -167,8 +167,7 @@ path by running (as root):
  $ make install
 
 If it doesn't work, please see "Building from Git" if this is your case. If
-not, you can ask us on users@lists.freebsoft.org or report possible bugs on
-speechd@bugs.freebsoft.org .
+not, you can ask us on speechd-discuss@nongnu.org .
 
 Building from Git
 =================
@@ -274,7 +273,7 @@ Copyright (C) 2010 Rui Batista <ruiandrebatista@gmail.com>
 Copyright (C) 2010 William Hubbs <w.d.hubbs@gmail.com>
 Copyright (C) 2010-2016 Andrei Kholodnyi <andrei.kholodnyi@gmail.com>
 Copyright (C) 2015 Luke Yelavich <themuso@themuso.com>
-Copyright (C) 2018 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
