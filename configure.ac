@@ -40,6 +40,10 @@ AC_CONFIG_SRCDIR([src/server/speechd.c])
 AC_CONFIG_HEADERS([config.h])
 AM_GNU_GETTEXT_VERSION([0.19.8])
 AM_GNU_GETTEXT([external])
+if test "$ac_cv_path_MSGFMT" = ":"
+then
+	AC_MSG_FAILURE([msgfmt missing from the gettext package])
+fi
 
 # Split version number
 MAJOR_VERSION="$(./split-version.sh -ma)"
