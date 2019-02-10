@@ -19,6 +19,7 @@
 
 EXTRA_DIST = baratinoo_shim.c README.baratinoo
 EXTRA_DIST += kali_Kali_shim.cpp kali_KGlobal_shim.cpp kali_KTrans_shim.cpp kali_KParle_shim.cpp kali_KAnalyse_shim.cpp
+EXTRA_DIST += ibmtts_shim.c eci.h
 EXTRA_DIST += mluvitko.c
 CLEANFILES =
 
@@ -76,6 +77,17 @@ sd_ibmtts_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	-libmeci \
 	$(common_LDADD)
+
+if ibmtts_shim
+sd_ibmtts_LDADD += -L.
+
+EXTRA_sd_ibmtts_DEPENDENCIES = libibmeci.so
+
+libibmeci.so: $(srcdir)/ibmtts_shim.c
+	$(CC) -fPIC -shared $< -o $@
+
+CLEANFILES += $(EXTRA_sd_ibmtts_DEPENDENCIES)
+endif
 endif
 
 if espeak_support

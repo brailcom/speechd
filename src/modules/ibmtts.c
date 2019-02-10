@@ -51,8 +51,7 @@
 #include <glib.h>
 #include <semaphore.h>
 
-/* IBM Eloquence Command Interface.
-   Won't exist unless IBM TTS or IBM TTS SDK is installed. */
+/* IBM Eloquence Command Interface. */
 #include <eci.h>
 
 /* Speech Dispatcher includes. */
