@@ -225,7 +225,7 @@ AS_IF([test $with_flite = "yes"], [output_modules="${output_modules} flite"])
 
 # check for IBMTTS support
 AC_ARG_WITH([ibmtts],
-	[AS_HELP_STRING([--with-ibmtts], [include IBM TTS support])],
+	[AS_HELP_STRING([--with-ibmtts[[=yes|no|shim]]], [include IBM TTS support])],
 	[],
 	[with_ibmtts=check])
 AS_IF([test $with_ibmtts != "no"],
@@ -233,10 +233,15 @@ AS_IF([test $with_ibmtts != "no"],
 		[with_ibmtts=yes;
 		ibmtts_include="-I/opt/IBM/ibmtts/inc/"],
 		[AS_IF([test $with_ibmtts = "yes"],
-			[AC_MSG_FAILURE([IBMTTS is not available])])])])
-AM_CONDITIONAL([ibmtts_support], [test $with_ibmtts = "yes"])
+			[AC_MSG_FAILURE([IBMTTS is not available])])
+		 with_ibmtts=shim])])
+if test "$with_ibmtts" = shim -a $enabled_shared = no; then
+  with_ibmtts=no
+fi
+AM_CONDITIONAL([ibmtts_support], [test $with_ibmtts != no])
+AM_CONDITIONAL([ibmtts_shim], [test $with_ibmtts = shim])
 AC_SUBST([ibmtts_include])
-AS_IF([test $with_ibmtts = "yes"], [output_modules="${output_modules} ibmtts"])
+AS_IF([test $with_ibmtts != no], [output_modules="${output_modules} ibmtts"])
 
 # check for ivona support
 AC_ARG_WITH([ivona],
