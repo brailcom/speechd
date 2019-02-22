@@ -29,7 +29,7 @@ common_LDADD = $(SNDFILE_LIBS) $(DOTCONF_LIBS) $(GLIB_LIBS) $(GTHREAD_LIBS)
 
 AM_CFLAGS = $(ERROR_CFLAGS)
 AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" -D_GNU_SOURCE \
-	-DPLUGIN_DIR="\"$(audiodir)\"" \
+	-DPLUGIN_DIR="\"$(PLUGIN_DIR)\"" \
 	$(DOTCONF_CFLAGS) $(GLIB_CFLAGS) $(GTHREAD_CFLAGS) \
 	$(ibmtts_include) $(SNDFILE_CFLAGS)
 
