@@ -49,6 +49,7 @@
 /* System includes. */
 #include <string.h>
 #include <glib.h>
+#include <dlfcn.h>
 
 /* IBM Eloquence Command Interface.
    Won't exist unless IBM TTS or IBM TTS SDK is installed. */
@@ -362,6 +363,56 @@ static eciLocale eciLocales[] = {
 
 #define MAX_NB_OF_LANGUAGES (sizeof(eciLocales)/sizeof(eciLocales[0]) - 1)
 
+/* Functions pointers */
+typedef int (*t_eciAddText)(ECIHand hEngine, ECIInputText pText);
+typedef int (*t_eciCopyVoice)(ECIHand hEngine, int iVoiceFrom, int iVoiceTo);
+typedef ECIHand (*t_eciDelete)(ECIHand hEngine);
+typedef ECIDictHand (*t_eciDeleteDict)(ECIHand hEngine, ECIDictHand hDict);
+typedef void (*t_eciErrorMessage)(ECIHand hEngine, void* buffer);
+typedef int (*t_eciGetAvailableLanguages)(enum ECILanguageDialect *aLanguages, int *nLanguages);
+typedef ECIDictHand (*t_eciGetDict)(ECIHand hEngine);
+typedef int (*t_eciGetParam)(ECIHand hEngine, enum ECIParam Param);
+typedef int (*t_eciGetVoiceParam)(ECIHand hEngine, int iVoice, enum ECIVoiceParam Param);
+typedef int (*t_eciInsertIndex)(ECIHand hEngine, int iIndex);
+typedef enum ECIDictError (*t_eciLoadDict)(ECIHand hEngine, ECIDictHand hDict, enum ECIDictVolume DictVol, ECIInputText pFilename);
+typedef ECIHand (*t_eciNew)(void);
+typedef ECIDictHand (*t_eciNewDict)(ECIHand hEngine);
+typedef void (*t_eciRegisterCallback)(ECIHand hEngine, ECICallback Callback, void *pData);
+typedef enum ECIDictError (*t_eciSetDict)(ECIHand hEngine, ECIDictHand hDict);
+typedef int (*t_eciSetOutputBuffer)(ECIHand hEngine, int iSize, short *psBuffer);
+typedef int (*t_eciSetParam)(ECIHand hEngine, enum ECIParam Param, int iValue);
+typedef int (*t_eciSetVoiceParam)(ECIHand hEngine, int iVoice, enum ECIVoiceParam Param, int iValue);
+typedef int (*t_eciStop)(ECIHand hEngine);
+typedef int (*t_eciSynchronize)(ECIHand hEngine);
+typedef int (*t_eciSynthesize)(ECIHand hEngine);
+typedef void (*t_eciVersion)(char *pBuffer);
+
+static t_eciAddText _eciAddText;
+static t_eciCopyVoice _eciCopyVoice;
+static t_eciDelete _eciDelete;
+static t_eciDeleteDict _eciDeleteDict;
+static t_eciErrorMessage _eciErrorMessage;
+static t_eciGetAvailableLanguages _eciGetAvailableLanguages;
+static t_eciGetDict _eciGetDict;
+static t_eciGetParam _eciGetParam;
+static t_eciGetVoiceParam _eciGetVoiceParam;
+static t_eciInsertIndex _eciInsertIndex;
+static t_eciLoadDict _eciLoadDict;
+static t_eciNew _eciNew;
+static t_eciNewDict _eciNewDict;
+static t_eciRegisterCallback _eciRegisterCallback;
+static t_eciSetDict _eciSetDict;
+static t_eciSetOutputBuffer _eciSetOutputBuffer;
+static t_eciSetParam _eciSetParam;
+static t_eciSetVoiceParam _eciSetVoiceParam;
+static t_eciStop _eciStop;
+static t_eciSynchronize _eciSynchronize;
+static t_eciSynthesize _eciSynthesize;
+static t_eciVersion _eciVersion;
+
+#define LIBVOXIN "libvoxin.so"
+#define LIBECI "libibmeci.so"
+
 /* Public functions */
 
 int
@@ -407,22 +458,55 @@ module_init(char **status_info)
     GString *info;
     char ibmVersion[20];
     int ibm_sample_rate;
-
+	void *libHandle;
+	
     DBG("Ibmtts: Module init().");
     INIT_INDEX_MARKING();
 
     *status_info = NULL;
     info = g_string_new("");
     ibmtts_thread_exit_requested = IBMTTS_FALSE;
-
-    /* Report versions. */
-    eciVersion(ibmVersion);
+	
+	libHandle = dlopen(LIBVOXIN, RTLD_NOW);
+	if (libHandle == NULL) {
+			libHandle = dlopen(LIBECI, RTLD_NOW);
+			if (libHandle == NULL) {
+					DBG("Ibmtts: Can't load %s or %s (%s)\n", LIBVOXIN, LIBECI, dlerror());
+					return FATAL_ERROR;
+			}
+	}
+	
+	_eciAddText = (t_eciAddText)dlsym(libHandle, "eciAddText");
+	_eciCopyVoice = (t_eciCopyVoice)dlsym(libHandle, "eciCopyVoice");
+	_eciDelete = (t_eciDelete)dlsym(libHandle, "eciDelete");
+	_eciDeleteDict = (t_eciDeleteDict)dlsym(libHandle, "eciDeleteDict");
+	_eciErrorMessage = (t_eciErrorMessage)dlsym(libHandle, "eciErrorMessage");
+	_eciGetAvailableLanguages = (t_eciGetAvailableLanguages)dlsym(libHandle, "eciGetAvailableLanguages");
+	_eciGetDict = (t_eciGetDict)dlsym(libHandle, "eciGetDict");
+	_eciGetParam = (t_eciGetParam)dlsym(libHandle, "eciGetParam");
+	_eciGetVoiceParam = (t_eciGetVoiceParam)dlsym(libHandle, "eciGetVoiceParam");
+	_eciInsertIndex = (t_eciInsertIndex)dlsym(libHandle, "eciInsertIndex");
+	_eciLoadDict = (t_eciLoadDict)dlsym(libHandle, "eciLoadDict");
+	_eciNew = (t_eciNew)dlsym(libHandle, "eciNew");
+	_eciNewDict = (t_eciNewDict)dlsym(libHandle, "eciNewDict");
+	_eciRegisterCallback = (t_eciRegisterCallback)dlsym(libHandle, "eciRegisterCallback");
+	_eciSetDict = (t_eciSetDict)dlsym(libHandle, "eciSetDict");
+	_eciSetOutputBuffer = (t_eciSetOutputBuffer)dlsym(libHandle, "eciSetOutputBuffer");
+	_eciSetParam = (t_eciSetParam)dlsym(libHandle, "eciSetParam");
+	_eciSetVoiceParam = (t_eciSetVoiceParam)dlsym(libHandle, "eciSetVoiceParam");
+	_eciStop = (t_eciStop)dlsym(libHandle, "eciStop");
+	_eciSynchronize = (t_eciSynchronize)dlsym(libHandle, "eciSynchronize");
+	_eciSynthesize = (t_eciSynthesize)dlsym(libHandle, "eciSynthesize");
+	_eciVersion = (t_eciVersion)dlsym(libHandle, "eciVersion");
+ 	
+	/* Report versions. */
+	_eciVersion(ibmVersion);	
     DBG("Ibmtts: IBM TTS Output Module version %s, IBM TTS Engine version %s",
         MODULE_VERSION, ibmVersion);
 
     /* Setup IBM TTS engine. */
     DBG("Ibmtts: Creating ECI instance.");
-    eciHandle = eciNew();
+    eciHandle = _eciNew();
     if (NULL_ECI_HAND == eciHandle ) {
         DBG("Ibmtts: Could not create ECI instance.\n");
         *status_info = strdup("Could not create ECI instance. "
@@ -431,7 +515,7 @@ module_init(char **status_info)
     }
 
     /* Get ECI audio sample rate. */
-    ibm_sample_rate = eciGetParam(eciHandle, eciSampleRate);
+    ibm_sample_rate = _eciGetParam(eciHandle, eciSampleRate);
     switch (ibm_sample_rate) {
         case 0:
             eci_sample_rate = 8000;
@@ -450,24 +534,24 @@ module_init(char **status_info)
     audio_chunk = (TEciAudioSamples *) xmalloc((IbmttsAudioChunkSize) * sizeof (TEciAudioSamples));
 
     DBG("Ibmtts: Registering ECI callback.");
-    eciRegisterCallback(eciHandle, eciCallback, NULL);
+    _eciRegisterCallback(eciHandle, eciCallback, NULL);
 
     DBG("Ibmtts: Registering an ECI audio buffer.");
-    if (!eciSetOutputBuffer(eciHandle, IbmttsAudioChunkSize, audio_chunk)) {
+    if (!_eciSetOutputBuffer(eciHandle, IbmttsAudioChunkSize, audio_chunk)) {
         DBG("Ibmtts: Error registering ECI audio buffer.");
         ibmtts_log_eci_error();
     }
 
-    eciSetParam (eciHandle, eciDictionary, !IbmttsUseAbbreviation);
+    _eciSetParam (eciHandle, eciDictionary, !IbmttsUseAbbreviation);
 
     /* enable annotations */
-    eciSetParam (eciHandle, eciInputType, 1);
+    _eciSetParam (eciHandle, eciInputType, 1);
 
     /* load possibly the ssml filter */
-    eciAddText(eciHandle, " `gfa1 ");
+    _eciAddText(eciHandle, " `gfa1 ");
 
     /* load possibly the punctuation filter */
-    eciAddText(eciHandle, " `gfa2 ");
+    _eciAddText(eciHandle, " `gfa2 ");
 
     ibmtts_set_punctuation_mode(msg_settings.punctuation_mode);
 
@@ -678,10 +762,10 @@ module_close(int status)
     }
 
     DBG("Ibmtts: De-registering ECI callback.");
-    eciRegisterCallback(eciHandle, NULL, NULL);
+    _eciRegisterCallback(eciHandle, NULL, NULL);
 
     DBG("Ibmtts: Destroying ECI instance.");
-    eciDelete(eciHandle);
+    _eciDelete(eciHandle);
     eciHandle = NULL_ECI_HAND;
 
     /* Free buffer for ECI audio. */
@@ -800,7 +884,7 @@ _ibmtts_stop_or_pause(void* nothing)
             if (eciHandle)
             {
                 DBG("Ibmtts: Stopping synthesis.");
-                eciStop(eciHandle);
+                _eciStop(eciHandle);
             }
 
             /* Stop any audio playback (if in progress). */
@@ -855,7 +939,7 @@ process_text_mark(char *part, int part_len, char *mark_name)
         int *markId = (int *) xmalloc( sizeof (int) );
         *markId = 1 + g_hash_table_size(ibmtts_index_mark_ht);
         g_hash_table_insert(ibmtts_index_mark_ht, markId, mark_name);
-        if (!eciInsertIndex(eciHandle, *markId)) {
+        if (!_eciInsertIndex(eciHandle, *markId)) {
             DBG("Ibmtts: Error sending index mark to synthesizer.");
             ibmtts_log_eci_error();
             /* Try to keep going. */
@@ -875,7 +959,7 @@ process_text_mark(char *part, int part_len, char *mark_name)
         DBG("Ibmtts: Returned %d bytes from get_part.", part_len);
         DBG("Ibmtts: Text to synthesize is |%s|\n", part);
         DBG("Ibmtts: Sending text to synthesizer.");
-        if (!eciAddText(eciHandle, part)) {
+        if (!_eciAddText(eciHandle, part)) {
             DBG("Ibmtts: Error sending text.");
             ibmtts_log_eci_error();
             return 2;
@@ -889,9 +973,9 @@ process_text_mark(char *part, int part_len, char *mark_name)
      Add index mark for end of message.
      This also makes sure the callback gets called at least once 
     */
-    eciInsertIndex(eciHandle, IBMTTS_MSG_END_MARK);
+    _eciInsertIndex(eciHandle, IBMTTS_MSG_END_MARK);
     DBG("Ibmtts: Trying to synthesize text.");
-    if (!eciSynthesize(eciHandle)) {
+    if (!_eciSynthesize(eciHandle)) {
         DBG("Ibmtts: Error synthesizing.");
         ibmtts_log_eci_error();
         return 2;;
@@ -899,7 +983,7 @@ process_text_mark(char *part, int part_len, char *mark_name)
 
     /* Audio and index marks are returned in eciCallback(). */
     DBG("Ibmtts: Waiting for synthesis to complete.");
-    if (!eciSynchronize(eciHandle)) {
+    if (!_eciSynchronize(eciHandle)) {
         DBG("Ibmtts: Error waiting for synthesis to complete.");
         ibmtts_log_eci_error();
         return 2;
@@ -947,7 +1031,7 @@ _ibmtts_synth(void* nothing)
         
         switch (ibmtts_message_type) {
             case MSGTYPE_TEXT:
-                eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
+                _eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
                 break;
             case MSGTYPE_SOUND_ICON:
                 /* IBM TTS does not support sound icons.
@@ -964,10 +1048,10 @@ _ibmtts_synth(void* nothing)
                         sem_post(ibmtts_play_semaphore);
 					continue;
                 } else
-                    eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
+                    _eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
                 break;
             case MSGTYPE_CHAR:
-                eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
+                _eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
                 break;
             case MSGTYPE_KEY:
                 /* Map unspeakable keys to speakable words. */
@@ -976,13 +1060,13 @@ _ibmtts_synth(void* nothing)
                 DBG("Ibmtts: Key to speak: |%s|", pos);
                 xfree(*ibmtts_message);
                 *ibmtts_message = pos;
-                eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
+                _eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
                 break;
             case MSGTYPE_SPELL:
                 if (PUNCT_NONE != msg_settings.punctuation_mode)
-                    eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
+                    _eciSetParam(eciHandle, eciTextMode, eciTextModeAllSpell);
                 else
-                    eciSetParam(eciHandle, eciTextMode, eciTextModeAlphaSpell);
+                    _eciSetParam(eciHandle, eciTextMode, eciTextModeAlphaSpell);
                 break;
         }
 		
@@ -1041,7 +1125,7 @@ ibmtts_set_rate(signed int rate)
         speed = (((float)rate * (140 - ibmtts_voice_speed)) / (float)100)
             + ibmtts_voice_speed;
     assert(speed >= 0 && speed <= 140);
-    int ret = eciSetVoiceParam(eciHandle, 0, eciSpeed, speed);
+    int ret = _eciSetVoiceParam(eciHandle, 0, eciSpeed, speed);
     if (-1 == ret) {
         DBG("Ibmtts: Error setting rate %i.", speed);
         ibmtts_log_eci_error();
@@ -1067,7 +1151,7 @@ ibmtts_set_volume(signed int volume)
         /* Map 0 to 100 onto 90 to 100 */
         vol = ((float)(volume * 10) / (float)100) + 90;
     assert(vol >= 0 && vol <= 100);
-    int ret = eciSetVoiceParam(eciHandle, 0, eciVolume, vol);
+    int ret = _eciSetVoiceParam(eciHandle, 0, eciVolume, vol);
     if (-1 == ret) {
         DBG("Ibmtts: Error setting volume %i.", vol);
         ibmtts_log_eci_error();
@@ -1093,7 +1177,7 @@ ibmtts_set_pitch(signed int pitch)
         pitchBaseline = (((float)pitch * (100 - ibmtts_voice_pitch_baseline)) / (float)100)
             + ibmtts_voice_pitch_baseline;
     assert (pitchBaseline >= 0 && pitchBaseline <= 100);
-    int ret = eciSetVoiceParam(eciHandle, 0, eciPitchBaseline, pitchBaseline);
+    int ret = _eciSetVoiceParam(eciHandle, 0, eciPitchBaseline, pitchBaseline);
     if (-1 == ret) {
         DBG("Ibmtts: Error setting pitch %i.", pitchBaseline);
         ibmtts_log_eci_error();
@@ -1111,7 +1195,7 @@ ibmtts_set_punctuation_mode(EPunctMode punct_mode)
 
     if (msg) {
         snprintf(msg, len, fmt, punct_mode, IbmttsPunctuationList);
-        eciAddText(eciHandle, msg);
+        _eciAddText(eciHandle, msg);
         free(msg);
     }
 }
@@ -1158,7 +1242,7 @@ ibmtts_set_language_and_voice(char *lang, EVoiceType voice, char* dialect)
 	    DBG("%d. dialect=%s", i, v[i]->dialect);
 	    if (!strcmp(v[i]->dialect, dialect_name)) {
 		int j = ibmtts_voice_index[i];
-		ret = eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
+		ret = _eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
 		DBG("Ibmtts: set langID=0x%x (ret=%d)", eciLocales[j].langID, ret);
 		ibmtts_input_encoding = eciLocales[j].charset;
 		break;
@@ -1171,7 +1255,7 @@ ibmtts_set_language_and_voice(char *lang, EVoiceType voice, char* dialect)
 	    if (!strcmp(v[i]->language, lang)) {
 		int j = ibmtts_voice_index[i];
 		dialect_name = v[i]->name;
-		ret = eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
+		ret = _eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
 		DBG("Ibmtts: set langID=0x%x (ret=%d)", eciLocales[j].langID, ret);
 		ibmtts_input_encoding = eciLocales[j].charset;
 		break;
@@ -1199,31 +1283,31 @@ ibmtts_set_language_and_voice(char *lang, EVoiceType voice, char* dialect)
             case CHILD_FEMALE:  eciVoice = 3;   break;  /* Child */
             default:            eciVoice = 1;   break;  /* Adult Male 1 */
         }
-        ret = eciCopyVoice(eciHandle, eciVoice, 0);
+        ret = _eciCopyVoice(eciHandle, eciVoice, 0);
         if (-1 == ret) DBG("Ibmtts: ERROR: Setting default voice parameters (voice %i).",
             eciVoice);
     } else {
         DBG("Ibmtts: Setting custom VoiceParameters for voice %s", voicename);
-        ret = eciSetVoiceParam(eciHandle, 0, eciGender, params->gender);
+        ret = _eciSetVoiceParam(eciHandle, 0, eciGender, params->gender);
         if (-1 == ret) DBG("Ibmtts: ERROR: Setting gender %i", params->gender);
-        ret = eciSetVoiceParam(eciHandle, 0, eciBreathiness, params->breathiness);
+        ret = _eciSetVoiceParam(eciHandle, 0, eciBreathiness, params->breathiness);
         if (-1 == ret) DBG("Ibmtts: ERROR: Setting breathiness %i", params->breathiness);
-        ret = eciSetVoiceParam(eciHandle, 0, eciHeadSize, params->head_size);
+        ret = _eciSetVoiceParam(eciHandle, 0, eciHeadSize, params->head_size);
         if (-1 == ret) DBG("Ibmtts: ERROR: Setting head size %i", params->head_size);
-        ret = eciSetVoiceParam(eciHandle, 0, eciPitchBaseline, params->pitch_baseline);
+        ret = _eciSetVoiceParam(eciHandle, 0, eciPitchBaseline, params->pitch_baseline);
         if (-1 == ret) DBG("Ibmtts: ERROR: Setting pitch baseline %i", params->pitch_baseline);
-        ret = eciSetVoiceParam(eciHandle, 0, eciPitchFluctuation, params->pitch_fluctuation);
+        ret = _eciSetVoiceParam(eciHandle, 0, eciPitchFluctuation, params->pitch_fluctuation);
         if (-1 == ret) DBG("Ibmtts: ERROR: Setting pitch fluctuation %i", params->pitch_fluctuation);
-        ret = eciSetVoiceParam(eciHandle, 0, eciRoughness, params->roughness);
+        ret = _eciSetVoiceParam(eciHandle, 0, eciRoughness, params->roughness);
         if (-1 == ret) DBG("Ibmtts: ERROR: Setting roughness %i", params->roughness);
-        ret = eciSetVoiceParam(eciHandle, 0, eciSpeed, params->speed);
+        ret = _eciSetVoiceParam(eciHandle, 0, eciSpeed, params->speed);
         if (-1 == ret) DBG("Ibmtts: ERROR: Setting speed %i", params->speed);
     }
     xfree(voicename);
     /* Retrieve the baseline pitch and speed of the voice. */
-    ibmtts_voice_pitch_baseline = eciGetVoiceParam(eciHandle, 0, eciPitchBaseline);
+    ibmtts_voice_pitch_baseline = _eciGetVoiceParam(eciHandle, 0, eciPitchBaseline);
     if (-1 == ibmtts_voice_pitch_baseline) DBG("Ibmtts: Cannot get pitch baseline of voice.");
-    ibmtts_voice_speed = eciGetVoiceParam(eciHandle, 0, eciSpeed);
+    ibmtts_voice_speed = _eciGetVoiceParam(eciHandle, 0, eciSpeed);
     if (-1 == ibmtts_voice_speed) DBG("Ibmtts: Cannot get speed of voice.");
 }
 
@@ -1267,7 +1351,7 @@ ibmtts_log_eci_error()
 {
     /* TODO: This routine is not working.  Not sure why. */
     char buf[100];
-    eciErrorMessage(eciHandle, buf);
+    _eciErrorMessage(eciHandle, buf);
     DBG("Ibmtts: ECI Error Message: %s", buf);
 }
 
@@ -1681,7 +1765,7 @@ alloc_voice_list()
     int nLanguages = MAX_NB_OF_LANGUAGES;
     int i = 0;
 
-    if (eciGetAvailableLanguages(aLanguage, &nLanguages))
+    if (_eciGetAvailableLanguages(aLanguage, &nLanguages))
 	return;
 
     ibmtts_voice_list = malloc((nLanguages+1)*sizeof(VoiceDescription*));
