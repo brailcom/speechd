@@ -464,12 +464,6 @@ AC_SUBST([spdlibdir])
 audiodir="$spdlibdir"
 AC_SUBST([audiodir])
 
-# Path for speech-dispatcher include files:
-spdincludedir=${includedir}/speech-dispatcher
-AC_SUBST([spdincludedir])
-includedir=${spdincludedir}
-AC_SUBST([includedir])
-
 # support for systemd unit files
 AC_ARG_WITH([systemdsystemunitdir],
         AS_HELP_STRING([--with-systemdsystemunitdir=DIR], [Directory for systemd service files]),
