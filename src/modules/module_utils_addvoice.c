@@ -108,6 +108,19 @@ DOTCONF_CB(AddVoice_cb)
 		voices = value;
 	}
 
+	regex = g_regex_new("[$]VOICE", 0, 0, NULL);
+	for (i = 0; i < nbpaths; i++)
+	{
+		char *new_dependency_path = g_regex_replace_literal(regex, dependency_paths[i], -1, 0, cmd->data.list[2], 0, NULL);
+		if (! g_file_test(new_dependency_path, G_FILE_TEST_EXISTS)) {
+			g_free(new_dependency_path);
+			g_regex_unref(regex);
+			return NULL;
+		}
+		g_free(new_dependency_path);
+	}
+	g_regex_unref(regex);
+
 	if (!strcmp(symbolic, "MALE1"))
 		voices->male1 = g_strdup(voicename);
 	else if (!strcmp(symbolic, "MALE2"))
@@ -128,18 +141,7 @@ DOTCONF_CB(AddVoice_cb)
 		DBG("Unrecognized voice name in configuration\n");
 		return NULL;
 	}
-	regex = g_regex_new("[$]VOICE", 0, 0, NULL);
-	for (i = 0; i < nbpaths; i++)
-	{
-		char *new_dependency_path = g_regex_replace_literal(regex, dependency_paths[i], -1, 0, cmd->data.list[2], 0, NULL);
-		if (! g_file_test(new_dependency_path, G_FILE_TEST_EXISTS)) {
-			g_free(new_dependency_path);
-			g_regex_unref(regex);
-			return NULL;
-		}
-		g_free(new_dependency_path);
-	}
-	g_regex_unref(regex);
+
 	generic_voices = (SPDVoice *)g_realloc(generic_voices, (nbvoices+1) * sizeof(SPDVoice));
 	generic_voices_list = (SPDVoice **)g_realloc(generic_voices_list, (nbvoices+2) * sizeof(SPDVoice *));
 	generic_voices[nbvoices].name = g_strdup(cmd->data.list[2]);
@@ -232,6 +234,20 @@ char *module_getvoice(char *language, SPDVoiceType voice)
 
 	if (ret == NULL)
 		ret = voices->male1;
+	if (ret == NULL)
+		ret = voices->female1;
+	if (ret == NULL)
+		ret = voices->male2;
+	if (ret == NULL)
+		ret = voices->female2;
+	if (ret == NULL)
+		ret = voices->male3;
+	if (ret == NULL)
+		ret = voices->female3;
+	if (ret == NULL)
+		ret = voices->child_male;
+	if (ret == NULL)
+		ret = voices->child_female;
 	if (ret == NULL)
 		fprintf(stderr, "No voice available for this output module!");
 
