@@ -472,7 +472,7 @@ int module_speak(gchar *data, size_t bytes, SPDMessageType msgtype)
 	case SPD_MSGTYPE_SPELL: /* FIXME: use \spell one day? */
 	case SPD_MSGTYPE_CHAR:
 		g_string_append(buffer, "\\sayas<{characters}");
-		append_ssml_as_proprietary(engine, buffer, data, bytes);
+		g_string_append_len(buffer, data, bytes);
 		g_string_append(buffer, "\\sayas>{}");
 		break;
 	default: /* FIXME: */
