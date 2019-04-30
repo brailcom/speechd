@@ -174,6 +174,8 @@ void module_register_settings_voices(void)
 gboolean module_existsvoice(char *voicename)
 {
 	int i;
+	if (!nbvoice)
+		return FALSE;
 	for (i = 0; generic_voices_list[i] != NULL; i++) {
 	if (strcasecmp(generic_voices[i].name, voicename) == 0)
 		return TRUE;
