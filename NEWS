@@ -1,3 +1,9 @@
+Version 0.9.1
+* Add module for the non-free IBM TTS (voxin) speech synthesis.
+* Extend licence to later versions of GPL and LGPL.
+* Update mailing list address to savannah.
+* Make generic modules fallback to existing voices.
+
 Version 0.9
 * Add modules for non-free Baratinoo (VoxyGen) and Kali speech syntheses.
 * Add configuration file for the Mary-TTS system.
@@ -318,7 +324,7 @@ Version 0.0.1
 
 Copyright (C) 2002-2012 Brailcom, o.p.s
 Copyright (C) 2002-2012 Brailcom, o.p.s
-Copyright (C) 2018 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Florian Steinhardt <no.known.email@example.com>
 
 This program is free software; you can redistribute it and/or modify it under
