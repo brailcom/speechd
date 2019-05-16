@@ -32,7 +32,6 @@
 /* System includes. */
 #include <string.h>
 #include <glib.h>
-#include <semaphore.h>
 
 /* espeak header file */
 #include <espeak/speak_lib.h>
@@ -84,15 +83,21 @@ typedef enum {
 /* < Thread and process control. */
 
 static TEspeakState espeak_state = IDLE;
+/* Note: espeak_state_mutex is always taken before espeak_stop_or_pause_mutex or
+ * espeak_play_mutex */
 static pthread_mutex_t espeak_state_mutex;
 
 static pthread_t espeak_play_thread;
 static pthread_t espeak_stop_or_pause_thread;
 
-static sem_t espeak_stop_or_pause_semaphore;
-static pthread_mutex_t espeak_stop_or_pause_suspended_mutex;
-static sem_t espeak_play_semaphore;
-static pthread_mutex_t espeak_play_suspended_mutex;
+static pthread_cond_t espeak_stop_or_pause_cond;
+static pthread_cond_t espeak_stop_or_pause_sleeping_cond;
+static int espeak_stop_or_pause_sleeping;
+static pthread_mutex_t espeak_stop_or_pause_mutex;
+static pthread_cond_t espeak_play_cond;
+static pthread_cond_t espeak_play_sleeping_cond;
+static int espeak_play_sleeping;
+static pthread_mutex_t espeak_play_mutex;
 
 static gboolean espeak_close_requested = FALSE;
 static TEspeakPauseState espeak_pause_state = ESPEAK_PAUSE_OFF;
@@ -179,7 +184,6 @@ static gboolean espeak_send_to_audio(TPlaybackQueueEntry *
 				     playback_queue_entry);
 
 /* Miscellaneous internal function prototypes. */
-static gboolean is_thread_busy(pthread_mutex_t * suspended_mutex);
 static void espeak_clear_playback_queue();
 
 /* The playback thread start routine. */
@@ -282,10 +286,6 @@ int module_init(char **status_info)
 
 	/* <Threading setup */
 
-	/* These mutexes are locked when the corresponding threads are suspended. */
-	pthread_mutex_init(&espeak_stop_or_pause_suspended_mutex, NULL);
-	pthread_mutex_init(&espeak_play_suspended_mutex, NULL);
-
 	/* This mutex mediates access to the playback queue between the espeak synthesis thread andthe the playback thread. */
 	pthread_mutex_init(&playback_queue_mutex, NULL);
 	pthread_cond_init(&playback_queue_condition, NULL);
@@ -294,7 +294,10 @@ int module_init(char **status_info)
 	pthread_mutex_init(&espeak_state_mutex, NULL);
 
 	DBG(DBG_MODNAME " Creating new thread for stop or pause.");
-	sem_init(&espeak_stop_or_pause_semaphore, 0, 0);
+	pthread_cond_init(&espeak_stop_or_pause_cond, NULL);
+	pthread_cond_init(&espeak_stop_or_pause_sleeping_cond, NULL);
+	pthread_mutex_init(&espeak_stop_or_pause_mutex, NULL);
+	espeak_stop_or_pause_sleeping = 0;
 
 	ret =
 	    pthread_create(&espeak_stop_or_pause_thread, NULL,
@@ -306,7 +309,10 @@ int module_init(char **status_info)
 		return FATAL_ERROR;
 	}
 
-	sem_init(&espeak_play_semaphore, 0, 0);
+	pthread_cond_init(&espeak_play_cond, NULL);
+	pthread_cond_init(&espeak_play_sleeping_cond, NULL);
+	pthread_mutex_init(&espeak_play_mutex, NULL);
+	espeak_play_sleeping = 0;
 
 	DBG(DBG_MODNAME " Creating new thread for playback.");
 	ret = pthread_create(&espeak_play_thread, NULL, _espeak_play, NULL);
@@ -439,16 +445,18 @@ int module_stop(void)
 	DBG(DBG_MODNAME " module_stop().");
 
 	pthread_mutex_lock(&espeak_state_mutex);
+	pthread_mutex_lock(&espeak_stop_or_pause_mutex);
 	if (espeak_state != IDLE &&
 	    !espeak_stop_requested &&
-	    !is_thread_busy(&espeak_stop_or_pause_suspended_mutex)) {
+	    espeak_stop_or_pause_sleeping) {
 		DBG(DBG_MODNAME " stopping...");
 		espeak_stop_requested = TRUE;
 		/* Wake the stop_or_pause thread. */
-		sem_post(&espeak_stop_or_pause_semaphore);
+		pthread_cond_signal(&espeak_stop_or_pause_cond);
 	} else {
 		DBG(DBG_MODNAME " Cannot stop now.");
 	}
+	pthread_mutex_unlock(&espeak_stop_or_pause_mutex);
 	pthread_mutex_unlock(&espeak_state_mutex);
 
 	return OK;
@@ -478,8 +486,8 @@ int module_close(void)
 	pthread_cond_broadcast(&playback_queue_condition);
 	pthread_mutex_unlock(&playback_queue_mutex);
 
-	sem_post(&espeak_play_semaphore);
-	sem_post(&espeak_stop_or_pause_semaphore);
+	pthread_cond_signal(&espeak_play_cond);
+	pthread_cond_signal(&espeak_stop_or_pause_cond);
 	/* Give threads a chance to quit on their own terms. */
 	g_usleep(25000);
 
@@ -500,29 +508,20 @@ int module_close(void)
 	espeak_free_voice_list();
 
 	pthread_mutex_destroy(&espeak_state_mutex);
-	pthread_mutex_destroy(&espeak_play_suspended_mutex);
-	pthread_mutex_destroy(&espeak_stop_or_pause_suspended_mutex);
+	pthread_mutex_destroy(&espeak_play_mutex);
+	pthread_mutex_destroy(&espeak_stop_or_pause_mutex);
 	pthread_mutex_destroy(&playback_queue_mutex);
 	pthread_cond_destroy(&playback_queue_condition);
-	sem_destroy(&espeak_play_semaphore);
-	sem_destroy(&espeak_stop_or_pause_semaphore);
+	pthread_cond_destroy(&espeak_play_cond);
+	pthread_cond_destroy(&espeak_play_sleeping_cond);
+	pthread_cond_destroy(&espeak_stop_or_pause_cond);
+	pthread_cond_destroy(&espeak_stop_or_pause_sleeping_cond);
 
 	return 0;
 }
 
 /* > */
 /* < Internal functions */
-/* Return true if the thread is busy, i.e., suspended mutex is not locked. */
-static gboolean is_thread_busy(pthread_mutex_t * suspended_mutex)
-{
-	if (EBUSY == pthread_mutex_trylock(suspended_mutex))
-		return FALSE;
-	else {
-		pthread_mutex_unlock(suspended_mutex);
-		return TRUE;
-	}
-}
-
 static void espeak_state_reset()
 {
 	espeak_state = IDLE;
@@ -541,42 +540,46 @@ static void *_espeak_stop_or_pause(void *nothing)
 	set_speaking_thread_parameters();
 
 	while (!espeak_close_requested) {
-		/* If semaphore not set, set suspended lock and suspend until it is signaled. */
-		if (0 != sem_trywait(&espeak_stop_or_pause_semaphore)) {
-			pthread_mutex_lock
-			    (&espeak_stop_or_pause_suspended_mutex);
-			sem_wait(&espeak_stop_or_pause_semaphore);
-			pthread_mutex_unlock
-			    (&espeak_stop_or_pause_suspended_mutex);
-		}
-		DBG(DBG_MODNAME " Stop or pause semaphore on.");
+		pthread_mutex_lock(&espeak_stop_or_pause_mutex);
+		espeak_stop_or_pause_sleeping = 1;
+		pthread_cond_signal(&espeak_stop_or_pause_sleeping_cond);
+		while (!espeak_stop_requested)
+			pthread_cond_wait(&espeak_stop_or_pause_cond, &espeak_stop_or_pause_mutex);
+		espeak_stop_or_pause_sleeping = 0;
+		pthread_cond_signal(&espeak_stop_or_pause_sleeping_cond);
+		pthread_mutex_unlock(&espeak_stop_or_pause_mutex);
+
+		DBG(DBG_MODNAME " Stop or pause.");
 		if (espeak_close_requested)
 			break;
-		if (!espeak_stop_requested) {
-			/* This sometimes happens after wake-up from suspend-to-disk.  */
-			DBG(DBG_MODNAME " Warning: spurious wake-up  of stop thread.");
-			continue;
-		}
 
 		pthread_mutex_lock(&playback_queue_mutex);
 		pthread_cond_broadcast(&playback_queue_condition);
 		pthread_mutex_unlock(&playback_queue_mutex);
 
 		if (module_audio_id) {
+			pthread_mutex_lock(&espeak_state_mutex);
+			espeak_state = IDLE;
+			pthread_mutex_unlock(&espeak_state_mutex);
 			DBG(DBG_MODNAME " Stopping audio.");
 			ret = spd_audio_stop(module_audio_id);
 			DBG_WARN(ret == 0,
 				 "spd_audio_stop returned non-zero value.");
-			while (is_thread_busy(&espeak_play_suspended_mutex)) {
+			pthread_mutex_lock(&espeak_play_mutex);
+			while (!espeak_play_sleeping) {
 				ret = spd_audio_stop(module_audio_id);
 				DBG_WARN(ret == 0,
 					 "spd_audio_stop returned non-zero value.");
+				pthread_mutex_unlock(&espeak_play_mutex);
 				g_usleep(5000);
+				pthread_mutex_lock(&espeak_play_mutex);
 			}
+			pthread_mutex_unlock(&espeak_play_mutex);
 		} else {
-			while (is_thread_busy(&espeak_play_suspended_mutex)) {
-				g_usleep(5000);
-			}
+			pthread_mutex_lock(&espeak_play_mutex);
+			while (!espeak_play_sleeping)
+				pthread_cond_wait(&espeak_play_sleeping_cond, &espeak_play_mutex);
+			pthread_mutex_unlock(&espeak_play_mutex);
 		}
 
 		DBG(DBG_MODNAME " Waiting for synthesis to stop.");
@@ -832,7 +835,7 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 		espeak_state = BEFORE_PLAY;
 		espeak_add_flag_to_playback_queue(ESPEAK_QET_BEGIN);
 		/* Wake up playback thread */
-		sem_post(&espeak_play_semaphore);
+		pthread_cond_signal(&espeak_play_cond);
 	}
 	pthread_mutex_unlock(&espeak_state_mutex);
 
@@ -1065,20 +1068,18 @@ static void *_espeak_play(void *nothing)
 	set_speaking_thread_parameters();
 
 	while (!espeak_close_requested) {
-		/* If semaphore not set, set suspended lock and suspend until it is signaled. */
-		if (0 != sem_trywait(&espeak_play_semaphore)) {
-			pthread_mutex_lock(&espeak_play_suspended_mutex);
-			sem_wait(&espeak_play_semaphore);
-			pthread_mutex_unlock(&espeak_play_suspended_mutex);
+		pthread_mutex_lock(&espeak_play_mutex);
+		espeak_play_sleeping = 1;
+		pthread_cond_signal(&espeak_play_sleeping_cond);
+		while (espeak_state < BEFORE_PLAY) {
+			pthread_cond_wait(&espeak_play_cond, &espeak_play_mutex);
 		}
-		DBG(DBG_MODNAME " Playback semaphore on.");
+		espeak_play_sleeping = 0;
+		pthread_cond_signal(&espeak_play_sleeping_cond);
+		pthread_mutex_unlock(&espeak_play_mutex);
+		DBG(DBG_MODNAME " Playback.");
 		if (espeak_close_requested)
 			break;
-		if (espeak_state < BEFORE_PLAY) {
-			/* This can happen after wake-up  from suspend-to-disk */
-			DBG(DBG_MODNAME " Warning: Spurious wake of of playback thread.");
-			continue;
-		}
 
 		while (1) {
 			gboolean finished = FALSE;
@@ -1102,16 +1103,14 @@ static void *_espeak_play(void *nothing)
 				if (espeak_state == SPEAKING
 				    && espeak_pause_state ==
 				    ESPEAK_PAUSE_REQUESTED
-				    &&
-				    !is_thread_busy
-				    (&espeak_stop_or_pause_suspended_mutex)
+				    && espeak_stop_or_pause_sleeping
 				    && g_str_has_prefix(markId, "__spd_")) {
 					DBG(DBG_MODNAME " Pause requested in playback thread.  Stopping.");
 					espeak_stop_requested = TRUE;
 					espeak_pause_state =
 					    ESPEAK_PAUSE_MARK_REPORTED;
-					sem_post
-					    (&espeak_stop_or_pause_semaphore);
+					pthread_cond_signal
+					    (&espeak_stop_or_pause_cond);
 					finished = TRUE;
 				}
 				pthread_mutex_unlock(&espeak_state_mutex);
@@ -1157,6 +1156,9 @@ static void *_espeak_play(void *nothing)
 				break;
 		}
 	}
+	pthread_mutex_lock(&espeak_play_mutex);
+	espeak_play_sleeping = 1;
+	pthread_mutex_unlock(&espeak_play_mutex);
 	DBG(DBG_MODNAME " Playback thread ended.......");
 	return 0;
 }
