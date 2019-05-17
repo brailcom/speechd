@@ -92,7 +92,7 @@ endif
 
 if espeak_support
 modulebin_PROGRAMS += sd_espeak
-sd_espeak_SOURCES = espeak.c $(audio_SOURCES) $(common_SOURCES)
+sd_espeak_SOURCES = espeak.c $(audio_SOURCES) $(common_SOURCES) module_utils_speak_queue.c
 sd_espeak_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	-lespeak $(EXTRA_ESPEAK_LIBS) \
@@ -101,7 +101,7 @@ endif
 
 if espeak_ng_support
 modulebin_PROGRAMS += sd_espeak-ng
-sd_espeak_ng_SOURCES = espeak-ng.c $(audio_SOURCES) $(common_SOURCES)
+sd_espeak_ng_SOURCES = espeak-ng.c $(audio_SOURCES) $(common_SOURCES) module_utils_speak_queue.c
 sd_espeak_ng_CFLAGS = -DESPEAK_NG_INCLUDE $(ESPEAK_NG_CFLAGS)
 sd_espeak_ng_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
