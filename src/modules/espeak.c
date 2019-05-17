@@ -539,19 +539,19 @@ static void *_espeak_stop_or_pause(void *nothing)
 	/* Block all signals to this thread. */
 	set_speaking_thread_parameters();
 
+	pthread_mutex_lock(&espeak_stop_or_pause_mutex);
 	while (!espeak_close_requested) {
-		pthread_mutex_lock(&espeak_stop_or_pause_mutex);
 		espeak_stop_or_pause_sleeping = 1;
 		pthread_cond_signal(&espeak_stop_or_pause_sleeping_cond);
 		while (!espeak_stop_requested)
 			pthread_cond_wait(&espeak_stop_or_pause_cond, &espeak_stop_or_pause_mutex);
 		espeak_stop_or_pause_sleeping = 0;
 		pthread_cond_signal(&espeak_stop_or_pause_sleeping_cond);
-		pthread_mutex_unlock(&espeak_stop_or_pause_mutex);
 
 		DBG(DBG_MODNAME " Stop or pause.");
 		if (espeak_close_requested)
 			break;
+		pthread_mutex_unlock(&espeak_stop_or_pause_mutex);
 
 		pthread_mutex_lock(&playback_queue_mutex);
 		pthread_cond_broadcast(&playback_queue_condition);
@@ -601,7 +601,9 @@ static void *_espeak_stop_or_pause(void *nothing)
 		}
 
 		DBG(DBG_MODNAME " Stop or pause thread ended.......\n");
+		pthread_mutex_lock(&espeak_stop_or_pause_mutex);
 	}
+	pthread_mutex_unlock(&espeak_stop_or_pause_mutex);
 	pthread_exit(NULL);
 }
 
@@ -1067,8 +1069,8 @@ static void *_espeak_play(void *nothing)
 	/* Block all signals to this thread. */
 	set_speaking_thread_parameters();
 
+	pthread_mutex_lock(&espeak_play_mutex);
 	while (!espeak_close_requested) {
-		pthread_mutex_lock(&espeak_play_mutex);
 		espeak_play_sleeping = 1;
 		pthread_cond_signal(&espeak_play_sleeping_cond);
 		while (espeak_state < BEFORE_PLAY) {
@@ -1076,10 +1078,10 @@ static void *_espeak_play(void *nothing)
 		}
 		espeak_play_sleeping = 0;
 		pthread_cond_signal(&espeak_play_sleeping_cond);
-		pthread_mutex_unlock(&espeak_play_mutex);
 		DBG(DBG_MODNAME " Playback.");
 		if (espeak_close_requested)
 			break;
+		pthread_mutex_unlock(&espeak_play_mutex);
 
 		while (1) {
 			gboolean finished = FALSE;
@@ -1156,7 +1158,6 @@ static void *_espeak_play(void *nothing)
 				break;
 		}
 	}
-	pthread_mutex_lock(&espeak_play_mutex);
 	espeak_play_sleeping = 1;
 	pthread_mutex_unlock(&espeak_play_mutex);
 	DBG(DBG_MODNAME " Playback thread ended.......");
