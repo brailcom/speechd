@@ -1794,7 +1794,7 @@ void alloc_voice_list()
 	int nLanguages = MAX_NB_OF_LANGUAGES;
 	int i = 0;
 
-	if (eciGetAvailableLanguages(aLanguage, &nLanguages))
+	if (_eciGetAvailableLanguages(aLanguage, &nLanguages))
 		return;
 
 	ibmtts_voice_list = g_malloc((nLanguages + 1) * sizeof(SPDVoice *));
