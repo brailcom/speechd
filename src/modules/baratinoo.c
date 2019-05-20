@@ -52,6 +52,8 @@
 
 #include <semaphore.h>
 
+#include "module_utils_speak_queue.h"
+
 #ifdef BARATINOO_ABI_IS_STABLE_ENOUGH_FOR_ME
 /* See below why this is problematic.  It can however be useful to get the
  * compiler help to check compatibility */
@@ -203,8 +205,6 @@ typedef struct {
 	gboolean pause_requested;
 	gboolean stop_requested;
 	gboolean close_requested;
-
-	SPDMarks marks;
 } Engine;
 
 /* engine and state */
@@ -235,6 +235,7 @@ static void append_ssml_as_proprietary(const Engine *engine, GString *buf, const
 /* Module configuration options */
 MOD_OPTION_1_STR(BaratinooConfigPath);
 MOD_OPTION_1_INT(BaratinooSampleRate);
+MOD_OPTION_1_INT(BaratinooQueueSize);
 MOD_OPTION_1_INT(BaratinooMinRate);
 MOD_OPTION_1_INT(BaratinooNormalRate);
 MOD_OPTION_1_INT(BaratinooMaxRate);
@@ -267,6 +268,9 @@ int module_load(void)
 
 	/* Sample rate. 16000Hz is the voices default, not requiring resampling */
 	MOD_OPTION_1_INT_REG(BaratinooSampleRate, 16000);
+
+	/* Default to 20s queuing */
+	MOD_OPTION_1_INT_REG(BaratinooQueueSize, 20*BaratinooSampleRate);
 
 	/* Speech rate */
 	MOD_OPTION_1_INT_REG(BaratinooMinRate, -100);
@@ -394,7 +398,10 @@ int module_init(char **status_info)
 		return -1;
 	}
 
-	module_marks_init(&engine->marks);
+	if (module_speak_queue_init(BaratinooQueueSize, status_info)) {
+		DBG(DBG_MODNAME "queue creation failed");
+		return -1;
+	}
 
 	DBG(DBG_MODNAME "Initialization successfully.");
 	*status_info = g_strdup("Baratinoo initialized successfully.");
@@ -512,12 +519,7 @@ int module_stop(void)
 
 	DBG(DBG_MODNAME "Stop requested");
 	engine->stop_requested = TRUE;
-	module_marks_stop(&engine->marks);
-	if (module_audio_id) {
-		DBG(DBG_MODNAME "Stopping audio currently playing.");
-		if (spd_audio_stop(module_audio_id) != 0)
-			DBG(DBG_MODNAME "spd_audio_stop() returned non-zero value.");
-	}
+	module_speak_queue_stop();
 
 	return 0;
 }
@@ -528,7 +530,7 @@ size_t module_pause(void)
 
 	DBG(DBG_MODNAME "Pause requested");
 	engine->pause_requested = TRUE;
-	module_marks_stop(&engine->marks);
+	module_speak_queue_pause();
 
 	return 0;
 }
@@ -541,10 +543,11 @@ int module_close(void)
 
 	DBG(DBG_MODNAME "Terminating threads");
 
+	module_speak_queue_terminate();
+
 	/* Politely ask the thread to terminate */
 	engine->stop_requested = TRUE;
 	engine->close_requested = TRUE;
-	module_marks_stop(&engine->marks);
 	sem_post(&engine->semaphore);
 	/* ...and give it a chance to actually quit. */
 	g_usleep(25000);
@@ -583,7 +586,7 @@ int module_close(void)
 	/* uninitialize */
 	BCterminatelib();
 
-	module_marks_clear(&engine->marks);
+	module_speak_queue_free();
 
 	DBG(DBG_MODNAME "Module closed.");
 
@@ -640,6 +643,11 @@ static SPDVoice **baratinoo_list_voices(BCengine *engine)
     return voices;
 }
 
+void module_speak_queue_cancel(void)
+{
+	/* We will stop the synth from _baratinoo_speak */
+}
+
 /**
  * @brief Internal TTS thread.
  * @param data An Engine structure.
@@ -673,7 +681,9 @@ static void *_baratinoo_speak(void *data)
 			continue;
 		}
 
-		module_report_event_begin();
+		if (!module_speak_queue_before_synth())
+			continue;
+
 		while (1) {
 			if (engine->stop_requested || engine->close_requested) {
 				DBG(DBG_MODNAME "Stop in child, terminating");
@@ -690,21 +700,13 @@ static void *_baratinoo_speak(void *data)
 					if (event.type == BARATINOO_MARKER_EVENT) {
 						DBG(DBG_MODNAME "Reached mark '%s' at sample %lu", event.data.marker.name, event.sampleStamp);
 						/* TODO: re-enable marks once audio glitches of module_tts_output are fixed */
-						/* module_marks_add(&engine->marks, event.sampleStamp, event.data.marker.name); */
-						/* if reached a spd mark and pausing requested, stop */
-						if (engine->pause_requested &&
-						    g_str_has_prefix(event.data.marker.name, INDEX_MARK_BODY)) {
-							DBG(DBG_MODNAME "Pausing in thread");
-							state = BCpurge(engine->engine);
-							engine->pause_requested = FALSE;
-							module_report_event_pause();
-						}
+						/* module_speak_queue_add_mark(event.data.marker.name); */
 					}
 				} else if (state == BARATINOO_INPUT_ERROR ||
 					   state == BARATINOO_ENGINE_ERROR) {
 					/* CANCEL would be better I guess, but
 					 * that's good enough */
-					module_report_event_stop();
+					module_speak_queue_stop();
 				}
 			} while (state == BARATINOO_RUNNING || state == BARATINOO_EVENT);
 
@@ -715,15 +717,14 @@ static void *_baratinoo_speak(void *data)
 			if (BCoutputSignalBufferIsError(engine->output_signal) || engine->close_requested) {
 				DBG(DBG_MODNAME "Error with the output signal");
 				BCoutputSignalBufferResetSignal(engine->output_signal);
-				module_report_event_stop();
+				module_speak_queue_stop();
 			} else {
 				baratinoo_output_signal(engine, BCoutputSignalBufferGetSignalBuffer(engine->output_signal), BCoutputSignalBufferGetSignalLength(engine->output_signal));
 				BCoutputSignalBufferResetSignal(engine->output_signal);
 				if (engine->stop_requested || engine->close_requested) {
 					DBG(DBG_MODNAME "Stop in child, terminating");
-					module_report_event_stop();
 				} else {
-					module_report_event_end();
+					module_speak_queue_add_end();
 				}
 			}
 			break;
@@ -1048,10 +1049,8 @@ static int baratinoo_output_signal(void *private_data, const void *address, int 
 	track.samples = (short *) address;
 
 	DBG(DBG_MODNAME "Playing part of the message");
-	if (module_tts_output_marks(track, format, &engine->marks) < 0)
-		DBG(DBG_MODNAME "ERROR: failed to play the track");
-
-	module_marks_clear(&engine->marks);
+	module_speak_queue_before_play();
+	module_speak_queue_add_audio(&track, format);
 
 	return engine->stop_requested;
 }
