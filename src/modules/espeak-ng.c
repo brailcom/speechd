@@ -197,7 +197,7 @@ int module_init(char **status_info)
 	espeak_voice_list = espeak_list_synthesis_voices();
 
 	/* <Threading setup */
-	ret = module_speak_queue_init(espeak_sample_rate, EspeakAudioQueueMaxSize, status_info);
+	ret = module_speak_queue_init(EspeakAudioQueueMaxSize, status_info);
 	if (ret != OK)
 		return ret;
 
@@ -607,8 +607,14 @@ static gboolean espeak_send_audio_upto(short *wav, int *sent, int upto)
 	if (wav == NULL || numsamples == 0) {
 		return TRUE;
 	}
-	short *start = wav + (*sent);
-	gboolean result = module_speak_queue_add_audio(start, numsamples);
+	AudioTrack track = {
+		.bits = 16,
+		.num_channels = 1,
+		.sample_rate = espeak_sample_rate,
+		.num_samples = numsamples,
+		.samples = wav + (*sent),
+	};
+	gboolean result = module_speak_queue_add_audio(&track, SPD_AUDIO_LE);
 	*sent = upto;
 	return result;
 }
