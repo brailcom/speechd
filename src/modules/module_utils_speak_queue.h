@@ -22,6 +22,87 @@
  * Based on ibmtts.c.
  */
 
+/*
+ * This provides convenience support for pipeline speech synthesis in modules.
+ *
+ *
+ * In summary, a module will look like this:
+ *
+ * int module_init(char **status_info) {
+ * 	if (mysynth_init()) {
+ * 		*status_info = "synth initialization failed";
+ * 		return -1;
+ * 	}
+ * 	mysynth_set_play_callback(mycallback_play);
+ * 	mysynth_set_mark_callback(mycallback_mark);
+ * 	mysynth_set_end_callback(mycallback_end);
+ *
+ * 	if (module_speak_queue_init(sample_rate, queue_size, status_info))
+ * 		return -1;
+ *
+ * 	*status_info = "initialization succeeded";
+ * }
+ *
+ * int module_speak(gchar *data, size_t bytes, SPDMessageType msgtype) {
+ * 	if (!module_speak_queue_before_synth())
+ * 		return 0;
+ *
+ * 	switch (msgtype) {
+ * 	case SPD_MSGTYPE_TEXT:
+ * 		mysynth_synth(data, bytes);
+ * 		break;
+ * 	...
+ * }
+ *
+ * int mycallback_play(short *wav, int samples)
+ * {
+ * 	if (module_speak_queue_stop_requested()) {
+ * 		return STOP;
+ * 	}
+ * 	module_speak_queue_before_play();
+ * 	module_speak_queue_add_audio(wav, samples);
+ * }
+ *
+ * int mycallback_mark(const char *mark)
+ * {
+ * 	if (module_speak_queue_stop_requested()) {
+ * 		return STOP;
+ * 	}
+ * 	module_speak_queue_before_play();
+ * 	module_speak_queue_add_mark(mark);
+ * }
+ *
+ * int mycallback_end(const char *mark)
+ * {
+ * 	if (module_speak_queue_stop_requested()) {
+ * 		return STOP;
+ * 	}
+ * 	module_speak_queue_before_play();
+ * 	module_speak_queue_add_end();
+ * }
+ *
+ * int module_stop(void) {
+ * 	module_speak_queue_stop();
+ * }
+ *
+ * int module_pause(void) {
+ * 	module_speak_queue_pause();
+ * }
+ *
+ * int module_close(void) {
+ * 	module_speak_queue_terminate();
+ * 	mysynth_terminate();
+ * 	module_speak_queue_free();
+ * }
+ *
+ *
+ * The principle is that module_speak_queue_init() starts playback threads which
+ * will handle the audio part. The mysynth_synth() call from module_speak() will
+ * periodically callback into mycallback_*(), which just queues audio to the
+ * playback threads, which can thus start playing immediately, without having to
+ * wait for the whole synth to be completed.
+ */
+
 #ifndef __MODULE_UTILS_SPEAK_QUEUE_H
 #define __MODULE_UTILS_SPEAK_QUEUE_H
 
