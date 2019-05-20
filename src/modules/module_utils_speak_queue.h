@@ -109,9 +109,11 @@
 #include <pthread.h>
 #include <glib.h>
 
+#include "spd_audio_plugin.h"
+
 /* To be called in module_init after synth initialization, to start playback
  * threads.  */
-int module_speak_queue_init(int sample_rate, int maxsize, char **status_info);
+int module_speak_queue_init(int maxsize, char **status_info);
 
 
 /* To be called from module_speak before synthesizing the voice.  */
@@ -122,7 +124,7 @@ int module_speak_queue_before_synth(void);
 int module_speak_queue_before_play(void);
 
 /* To be called from the synth callback to push different types of events.  */
-gboolean module_speak_queue_add_audio(short *audio_chunk, int num_samples);
+gboolean module_speak_queue_add_audio(AudioTrack *track, AudioFormat format);
 gboolean module_speak_queue_add_mark(const char *markId);
 gboolean module_speak_queue_add_sound_icon(const char *filename);
 /* To be called on the last synth callback call.  */

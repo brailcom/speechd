@@ -69,7 +69,6 @@ static void module_speak_queue_reset(void);
 /* The playback queue. */
 
 static int speak_queue_maxsize;
-static int speak_queue_sample_rate;
 
 typedef enum {
 	SPEAK_QUEUE_QET_AUDIO,	/* Chunk of audio. */
@@ -80,8 +79,8 @@ typedef enum {
 } speak_queue_entry_type;
 
 typedef struct {
-	long num_samples;
-	short *audio_chunk;
+	AudioTrack track;
+	AudioFormat format;
 } speak_queue_audio_chunk;
 
 typedef struct {
@@ -113,12 +112,11 @@ static void *speak_queue_play(void *);
 /* The stop_or_pause start routine. */
 static void *speak_queue_stop_or_pause(void *);
 
-int module_speak_queue_init(int sample_rate, int maxsize, char **status_info)
+int module_speak_queue_init(int maxsize, char **status_info)
 {
 	int ret;
 
 	speak_queue_maxsize = maxsize;
-	speak_queue_sample_rate = sample_rate;
 
 	/* Reset global state */
 	module_speak_queue_reset();
@@ -217,7 +215,7 @@ static speak_queue_entry *playback_queue_pop()
 		playback_queue =
 		    g_slist_remove(playback_queue, playback_queue->data);
 		if (result->type == SPEAK_QUEUE_QET_AUDIO) {
-			playback_queue_size -= result->data.audio.num_samples;
+			playback_queue_size -= result->data.audio.track.num_samples;
 			pthread_cond_signal(&playback_queue_condition);
 		}
 	}
@@ -230,7 +228,7 @@ static gboolean playback_queue_push(speak_queue_entry * entry)
 	pthread_mutex_lock(&playback_queue_mutex);
 	playback_queue = g_slist_append(playback_queue, entry);
 	if (entry->type == SPEAK_QUEUE_QET_AUDIO) {
-		playback_queue_size += entry->data.audio.num_samples;
+		playback_queue_size += entry->data.audio.track.num_samples;
 	}
 	pthread_cond_signal(&playback_queue_condition);
 	pthread_mutex_unlock(&playback_queue_mutex);
@@ -240,7 +238,7 @@ static gboolean playback_queue_push(speak_queue_entry * entry)
 /* Adds a chunk of pcm audio to the audio playback queue.
    Waits until there is enough space in the queue. */
 gboolean
-module_speak_queue_add_audio(short *audio_chunk, int num_samples)
+module_speak_queue_add_audio(AudioTrack *track, AudioFormat format)
 {
 	pthread_mutex_lock(&playback_queue_mutex);
 	while (!speak_queue_stop_requested
@@ -257,10 +255,10 @@ module_speak_queue_add_audio(short *audio_chunk, int num_samples)
 	    g_new(speak_queue_entry, 1);
 
 	playback_queue_entry->type = SPEAK_QUEUE_QET_AUDIO;
-	playback_queue_entry->data.audio.num_samples = num_samples;
-	gint nbytes = sizeof(short) * num_samples;
-	playback_queue_entry->data.audio.audio_chunk =
-	    (short *)g_memdup((gconstpointer) audio_chunk, nbytes);
+	playback_queue_entry->data.audio.track = *track;
+	gint nbytes = track->bits / 8 * track->num_samples;
+	playback_queue_entry->data.audio.track.samples = g_memdup(track->samples, nbytes);
+	playback_queue_entry->data.audio.format = format;
 
 	playback_queue_push(playback_queue_entry);
 	return TRUE;
@@ -304,7 +302,7 @@ speak_queue_delete_playback_queue_entry(speak_queue_entry * playback_queue_entry
 {
 	switch (playback_queue_entry->type) {
 	case SPEAK_QUEUE_QET_AUDIO:
-		g_free(playback_queue_entry->data.audio.audio_chunk);
+		g_free(playback_queue_entry->data.audio.track.samples);
 		break;
 	case SPEAK_QUEUE_QET_INDEX_MARK:
 		g_free(playback_queue_entry->data.markId);
@@ -339,15 +337,10 @@ static void speak_queue_clear_playback_queue()
 static gboolean speak_queue_send_to_audio(speak_queue_entry * playback_queue_entry)
 {
 	int ret = 0;
-	AudioTrack track;
-	track.num_samples = playback_queue_entry->data.audio.num_samples;
-	track.num_channels = 1;
-	track.sample_rate = speak_queue_sample_rate;
-	track.bits = 16;
-	track.samples = playback_queue_entry->data.audio.audio_chunk;
-
-	DBG(DBG_MODNAME " Sending %i samples to audio.", track.num_samples);
-	ret = module_tts_output(track, SPD_AUDIO_LE);
+	DBG(DBG_MODNAME " Sending %i samples to audio.",
+	    playback_queue_entry->data.audio.track.num_samples);
+	ret = module_tts_output(playback_queue_entry->data.audio.track,
+				playback_queue_entry->data.audio.format);
 	if (ret < 0) {
 		DBG("ERROR: Can't play track for unknown reason.");
 		return FALSE;
