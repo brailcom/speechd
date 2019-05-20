@@ -647,49 +647,43 @@ static void *_baratinoo_speak(void *data)
 		state = BCinputTextBufferSetInEngine(engine->buffer, engine->engine);
 		if (state != BARATINOO_READY) {
 			DBG(DBG_MODNAME "Failed to set input buffer");
-			continue;
+			goto cont;
 		}
 
 		if (!module_speak_queue_before_synth())
-			continue;
+			goto cont;
 
-		while (1) {
-			if (module_speak_queue_stop_requested() || engine->close_requested) {
-				DBG(DBG_MODNAME "Stop in child, terminating");
-				BCinputTextBufferDelete(engine->buffer);
-				engine->buffer = NULL;
-				module_report_event_stop();
-				break;
-			}
-
-			do {
-				state = BCprocessLoop(engine->engine, -1);
-				if (state == BARATINOO_EVENT) {
-					BaratinooEvent event = BCgetEvent(engine->engine);
-					if (event.type == BARATINOO_MARKER_EVENT) {
-						DBG(DBG_MODNAME "Reached mark '%s' at sample %lu", event.data.marker.name, event.sampleStamp);
-						module_speak_queue_add_mark(event.data.marker.name);
-					}
-				} else if (state == BARATINOO_INPUT_ERROR ||
-					   state == BARATINOO_ENGINE_ERROR) {
-					/* CANCEL would be better I guess, but
-					 * that's good enough */
-					module_speak_queue_stop();
-				}
-			} while (state == BARATINOO_RUNNING || state == BARATINOO_EVENT);
-
-			BCinputTextBufferDelete(engine->buffer);
-			engine->buffer = NULL;
-
-			if (module_speak_queue_stop_requested() || engine->close_requested) {
-				DBG(DBG_MODNAME "Stop in child, terminating");
-			} else {
-				DBG(DBG_MODNAME "Finished synthesizing");
-				module_speak_queue_add_end();
-			}
-			break;
+		if (module_speak_queue_stop_requested() || engine->close_requested) {
+			DBG(DBG_MODNAME "Stop in child, terminating");
+			goto cont;
 		}
+
+		do {
+			state = BCprocessLoop(engine->engine, -1);
+			if (state == BARATINOO_EVENT) {
+				BaratinooEvent event = BCgetEvent(engine->engine);
+				if (event.type == BARATINOO_MARKER_EVENT) {
+					DBG(DBG_MODNAME "Reached mark '%s' at sample %lu", event.data.marker.name, event.sampleStamp);
+					module_speak_queue_add_mark(event.data.marker.name);
+				}
+			} else if (state == BARATINOO_INPUT_ERROR ||
+				   state == BARATINOO_ENGINE_ERROR) {
+				module_speak_queue_stop();
+			}
+		} while (state == BARATINOO_RUNNING || state == BARATINOO_EVENT);
+
+		if (module_speak_queue_stop_requested() || engine->close_requested) {
+			DBG(DBG_MODNAME "Stop in child, terminating");
+		} else {
+			DBG(DBG_MODNAME "Finished synthesizing");
+			module_speak_queue_add_end();
+		}
+
+cont:
+		BCinputTextBufferDelete(engine->buffer);
+		engine->buffer = NULL;
 	}
+
 
 	DBG(DBG_MODNAME "leaving thread with state=%d", state);
 
