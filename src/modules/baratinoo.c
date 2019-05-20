@@ -200,8 +200,6 @@ typedef struct {
 	int voice;
 
 	/* request flags */
-	gboolean pause_requested;
-	gboolean stop_requested;
 	gboolean close_requested;
 } Engine;
 
@@ -211,8 +209,6 @@ static Engine baratinoo_engine = {
 	.buffer = NULL,
 	.voice_list = NULL,
 	.voice = 0,
-	.pause_requested = FALSE,
-	.stop_requested = FALSE,
 	.close_requested = FALSE
 };
 
@@ -313,8 +309,6 @@ int module_init(char **status_info)
 
 	*status_info = NULL;
 
-	engine->pause_requested = FALSE;
-	engine->stop_requested = FALSE;
 	engine->close_requested = FALSE;
 
 	/* Init Baratinoo */
@@ -426,9 +420,6 @@ int module_speak(gchar *data, size_t bytes, SPDMessageType msgtype)
 		return 0;
 	}
 
-	engine->pause_requested = FALSE;
-	engine->stop_requested = FALSE;
-
 	/* select voice following parameters.  we don't use tags for this as
 	 * we need to do some computation on our end anyway and need pass an
 	 * ID when creating the buffer too */
@@ -507,10 +498,7 @@ err:
 
 int module_stop(void)
 {
-	Engine *engine = &baratinoo_engine;
-
 	DBG(DBG_MODNAME "Stop requested");
-	engine->stop_requested = TRUE;
 	module_speak_queue_stop();
 
 	return 0;
@@ -518,10 +506,7 @@ int module_stop(void)
 
 size_t module_pause(void)
 {
-	Engine *engine = &baratinoo_engine;
-
 	DBG(DBG_MODNAME "Pause requested");
-	engine->pause_requested = TRUE;
 	module_speak_queue_pause();
 
 	return 0;
@@ -538,7 +523,6 @@ int module_close(void)
 	module_speak_queue_terminate();
 
 	/* Politely ask the thread to terminate */
-	engine->stop_requested = TRUE;
 	engine->close_requested = TRUE;
 	sem_post(&engine->semaphore);
 	/* ...and give it a chance to actually quit. */
@@ -644,8 +628,6 @@ void module_speak_queue_cancel(void)
  * The TTS thread.  It waits on @c Engine::semaphore to consume input data
  * from @c Engine::buffer.
  *
- * @see Engine::pause_requested
- * @see Engine::stop_requested
  * @see Engine::close_requested
  */
 static void *_baratinoo_speak(void *data)
@@ -658,7 +640,6 @@ static void *_baratinoo_speak(void *data)
 	while (!engine->close_requested) {
 		sem_wait(&engine->semaphore);
 		DBG(DBG_MODNAME "Semaphore on");
-		engine->stop_requested = FALSE;
 
 		if (!engine->buffer)
 			continue;
@@ -673,7 +654,7 @@ static void *_baratinoo_speak(void *data)
 			continue;
 
 		while (1) {
-			if (engine->stop_requested || engine->close_requested) {
+			if (module_speak_queue_stop_requested() || engine->close_requested) {
 				DBG(DBG_MODNAME "Stop in child, terminating");
 				BCinputTextBufferDelete(engine->buffer);
 				engine->buffer = NULL;
@@ -700,9 +681,8 @@ static void *_baratinoo_speak(void *data)
 			BCinputTextBufferDelete(engine->buffer);
 			engine->buffer = NULL;
 
-			if (engine->stop_requested || engine->close_requested) {
+			if (module_speak_queue_stop_requested() || engine->close_requested) {
 				DBG(DBG_MODNAME "Stop in child, terminating");
-				engine->stop_requested = FALSE;
 			} else {
 				DBG(DBG_MODNAME "Finished synthesizing");
 				module_speak_queue_add_end();
