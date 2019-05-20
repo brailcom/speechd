@@ -33,36 +33,36 @@ typedef enum {
 	BEFORE_SYNTH,
 	BEFORE_PLAY,
 	SPEAKING
-} TEspeakState;
+} speak_queue_state_t;
 
 typedef enum {
-	ESPEAK_PAUSE_OFF,
-	ESPEAK_PAUSE_REQUESTED,
-	ESPEAK_PAUSE_MARK_REPORTED
-} TEspeakPauseState;
+	SPEAK_QUEUE_PAUSE_OFF,
+	SPEAK_QUEUE_PAUSE_REQUESTED,
+	SPEAK_QUEUE_PAUSE_MARK_REPORTED
+} speak_queue_pause_state_t;
 
 /* Thread and process control. */
 
-static TEspeakState espeak_state = IDLE;
-/* Note: espeak_state_mutex is always taken before espeak_stop_or_pause_mutex or
- * espeak_play_mutex */
-static pthread_mutex_t espeak_state_mutex;
+static speak_queue_state_t speak_queue_state = IDLE;
+/* Note: speak_queue_state_mutex is always taken before speak_queue_stop_or_pause_mutex or
+ * speak_queue_play_mutex */
+static pthread_mutex_t speak_queue_state_mutex;
 
-static pthread_t espeak_play_thread;
-static pthread_t espeak_stop_or_pause_thread;
+static pthread_t speak_queue_play_thread;
+static pthread_t speak_queue_stop_or_pause_thread;
 
-static pthread_cond_t espeak_stop_or_pause_cond;
-static pthread_cond_t espeak_stop_or_pause_sleeping_cond;
-static int espeak_stop_or_pause_sleeping;
-static pthread_mutex_t espeak_stop_or_pause_mutex;
-static pthread_cond_t espeak_play_cond;
-static pthread_cond_t espeak_play_sleeping_cond;
-static int espeak_play_sleeping;
-static pthread_mutex_t espeak_play_mutex;
+static pthread_cond_t speak_queue_stop_or_pause_cond;
+static pthread_cond_t speak_queue_stop_or_pause_sleeping_cond;
+static int speak_queue_stop_or_pause_sleeping;
+static pthread_mutex_t speak_queue_stop_or_pause_mutex;
+static pthread_cond_t speak_queue_play_cond;
+static pthread_cond_t speak_queue_play_sleeping_cond;
+static int speak_queue_play_sleeping;
+static pthread_mutex_t speak_queue_play_mutex;
 
-static gboolean espeak_close_requested = FALSE;
-static TEspeakPauseState espeak_pause_state = ESPEAK_PAUSE_OFF;
-static gboolean espeak_stop_requested = FALSE;
+static gboolean speak_queue_close_requested = FALSE;
+static speak_queue_pause_state_t speak_queue_pause_state = SPEAK_QUEUE_PAUSE_OFF;
+static gboolean speak_queue_stop_requested = FALSE;
 
 static void module_speak_queue_reset(void);
 
@@ -72,26 +72,26 @@ static int speak_queue_maxsize;
 static int speak_queue_sample_rate;
 
 typedef enum {
-	ESPEAK_QET_AUDIO,	/* Chunk of audio. */
-	ESPEAK_QET_INDEX_MARK,	/* Index mark event. */
-	ESPEAK_QET_SOUND_ICON,	/* A Sound Icon */
-	ESPEAK_QET_BEGIN,	/* Beginning of speech. */
-	ESPEAK_QET_END		/* Speech completed. */
-} EPlaybackQueueEntryType;
+	SPEAK_QUEUE_QET_AUDIO,	/* Chunk of audio. */
+	SPEAK_QUEUE_QET_INDEX_MARK,	/* Index mark event. */
+	SPEAK_QUEUE_QET_SOUND_ICON,	/* A Sound Icon */
+	SPEAK_QUEUE_QET_BEGIN,	/* Beginning of speech. */
+	SPEAK_QUEUE_QET_END		/* Speech completed. */
+} speak_queue_entry_type;
 
 typedef struct {
 	long num_samples;
 	short *audio_chunk;
-} TPlaybackQueueAudioChunk;
+} speak_queue_audio_chunk;
 
 typedef struct {
-	EPlaybackQueueEntryType type;
+	speak_queue_entry_type type;
 	union {
 		char *markId;
-		TPlaybackQueueAudioChunk audio;
+		speak_queue_audio_chunk audio;
 		char *sound_icon_filename;
 	} data;
-} TPlaybackQueueEntry;
+} speak_queue_entry;
 
 static GSList *playback_queue = NULL;
 static int playback_queue_size = 0;	/* Number of audio frames currently in queue */
@@ -99,19 +99,19 @@ static pthread_mutex_t playback_queue_mutex;
 pthread_cond_t playback_queue_condition;
 
 /* Internal function prototypes for playback thread. */
-static gboolean espeak_add_flag_to_playback_queue(EPlaybackQueueEntryType type);
-static void espeak_delete_playback_queue_entry(TPlaybackQueueEntry *
+static gboolean speak_queue_add_flag_to_playback_queue(speak_queue_entry_type type);
+static void speak_queue_delete_playback_queue_entry(speak_queue_entry *
 					       playback_queue_entry);
-static gboolean espeak_send_to_audio(TPlaybackQueueEntry *
+static gboolean speak_queue_send_to_audio(speak_queue_entry *
 				     playback_queue_entry);
 
 /* Miscellaneous internal function prototypes. */
-static void espeak_clear_playback_queue();
+static void speak_queue_clear_playback_queue();
 
 /* The playback thread start routine. */
-static void *_espeak_play(void *);
+static void *speak_queue_play(void *);
 /* The stop_or_pause start routine. */
-static void *_espeak_stop_or_pause(void *);
+static void *speak_queue_stop_or_pause(void *);
 
 int module_speak_queue_init(int sample_rate, int maxsize, char **status_info)
 {
@@ -123,22 +123,22 @@ int module_speak_queue_init(int sample_rate, int maxsize, char **status_info)
 	/* Reset global state */
 	module_speak_queue_reset();
 
-	/* This mutex mediates access to the playback queue between the espeak synthesis thread andthe the playback thread. */
+	/* This mutex mediates access to the playback queue between the speak synthesis thread and the playback thread. */
 	pthread_mutex_init(&playback_queue_mutex, NULL);
 	pthread_cond_init(&playback_queue_condition, NULL);
 
 	/* The following mutex protects access to various flags */
-	pthread_mutex_init(&espeak_state_mutex, NULL);
+	pthread_mutex_init(&speak_queue_state_mutex, NULL);
 
 	DBG(DBG_MODNAME " Creating new thread for stop or pause.");
-	pthread_cond_init(&espeak_stop_or_pause_cond, NULL);
-	pthread_cond_init(&espeak_stop_or_pause_sleeping_cond, NULL);
-	pthread_mutex_init(&espeak_stop_or_pause_mutex, NULL);
-	espeak_stop_or_pause_sleeping = 0;
+	pthread_cond_init(&speak_queue_stop_or_pause_cond, NULL);
+	pthread_cond_init(&speak_queue_stop_or_pause_sleeping_cond, NULL);
+	pthread_mutex_init(&speak_queue_stop_or_pause_mutex, NULL);
+	speak_queue_stop_or_pause_sleeping = 0;
 
 	ret =
-	    pthread_create(&espeak_stop_or_pause_thread, NULL,
-			   _espeak_stop_or_pause, NULL);
+	    pthread_create(&speak_queue_stop_or_pause_thread, NULL,
+			   speak_queue_stop_or_pause, NULL);
 	if (0 != ret) {
 		DBG("Failed to create stop-or-pause thread.");
 		*status_info =
@@ -146,13 +146,13 @@ int module_speak_queue_init(int sample_rate, int maxsize, char **status_info)
 		return -1;
 	}
 
-	pthread_cond_init(&espeak_play_cond, NULL);
-	pthread_cond_init(&espeak_play_sleeping_cond, NULL);
-	pthread_mutex_init(&espeak_play_mutex, NULL);
-	espeak_play_sleeping = 0;
+	pthread_cond_init(&speak_queue_play_cond, NULL);
+	pthread_cond_init(&speak_queue_play_sleeping_cond, NULL);
+	pthread_mutex_init(&speak_queue_play_mutex, NULL);
+	speak_queue_play_sleeping = 0;
 
 	DBG(DBG_MODNAME " Creating new thread for playback.");
-	ret = pthread_create(&espeak_play_thread, NULL, _espeak_play, NULL);
+	ret = pthread_create(&speak_queue_play_thread, NULL, speak_queue_play, NULL);
 	if (ret != 0) {
 		DBG("Failed to create playback thread.");
 		*status_info = g_strdup("Failed to create playback thread.");
@@ -164,59 +164,59 @@ int module_speak_queue_init(int sample_rate, int maxsize, char **status_info)
 
 void module_speak_queue_reset(void)
 {
-	espeak_state = IDLE;
-	espeak_pause_state = ESPEAK_PAUSE_OFF;
-	espeak_stop_requested = FALSE;
+	speak_queue_state = IDLE;
+	speak_queue_pause_state = SPEAK_QUEUE_PAUSE_OFF;
+	speak_queue_stop_requested = FALSE;
 }
 
 int module_speak_queue_before_synth(void)
 {
-	pthread_mutex_lock(&espeak_state_mutex);
-	if (espeak_state != IDLE) {
+	pthread_mutex_lock(&speak_queue_state_mutex);
+	if (speak_queue_state != IDLE) {
 		DBG(DBG_MODNAME " Warning, module_speak called when not ready.");
-		pthread_mutex_unlock(&espeak_state_mutex);
+		pthread_mutex_unlock(&speak_queue_state_mutex);
 		return FALSE;
 	}
 
 	module_speak_queue_reset();
-	espeak_state = BEFORE_SYNTH;
-	pthread_mutex_unlock(&espeak_state_mutex);
+	speak_queue_state = BEFORE_SYNTH;
+	pthread_mutex_unlock(&speak_queue_state_mutex);
 	return TRUE;
 }
 
 int module_speak_queue_before_play(void)
 {
 	int ret = 0;
-	pthread_mutex_lock(&espeak_state_mutex);
-	if (espeak_state == BEFORE_SYNTH) {
+	pthread_mutex_lock(&speak_queue_state_mutex);
+	if (speak_queue_state == BEFORE_SYNTH) {
 		ret = 1;
-		espeak_state = BEFORE_PLAY;
-		espeak_add_flag_to_playback_queue(ESPEAK_QET_BEGIN);
+		speak_queue_state = BEFORE_PLAY;
+		speak_queue_add_flag_to_playback_queue(SPEAK_QUEUE_QET_BEGIN);
 		/* Wake up playback thread */
-		pthread_cond_signal(&espeak_play_cond);
+		pthread_cond_signal(&speak_queue_play_cond);
 	}
-	pthread_mutex_unlock(&espeak_state_mutex);
+	pthread_mutex_unlock(&speak_queue_state_mutex);
 	return ret;
 }
 
 gboolean module_speak_queue_add_end(void)
 {
-	return espeak_add_flag_to_playback_queue(ESPEAK_QET_END);
+	return speak_queue_add_flag_to_playback_queue(SPEAK_QUEUE_QET_END);
 }
 
-static TPlaybackQueueEntry *playback_queue_pop()
+static speak_queue_entry *playback_queue_pop()
 {
-	TPlaybackQueueEntry *result = NULL;
+	speak_queue_entry *result = NULL;
 	pthread_mutex_lock(&playback_queue_mutex);
-	while (!espeak_stop_requested && playback_queue == NULL) {
+	while (!speak_queue_stop_requested && playback_queue == NULL) {
 		pthread_cond_wait(&playback_queue_condition,
 				  &playback_queue_mutex);
 	}
-	if (!espeak_stop_requested) {
-		result = (TPlaybackQueueEntry *) playback_queue->data;
+	if (!speak_queue_stop_requested) {
+		result = (speak_queue_entry *) playback_queue->data;
 		playback_queue =
 		    g_slist_remove(playback_queue, playback_queue->data);
-		if (result->type == ESPEAK_QET_AUDIO) {
+		if (result->type == SPEAK_QUEUE_QET_AUDIO) {
 			playback_queue_size -= result->data.audio.num_samples;
 			pthread_cond_signal(&playback_queue_condition);
 		}
@@ -225,11 +225,11 @@ static TPlaybackQueueEntry *playback_queue_pop()
 	return result;
 }
 
-static gboolean playback_queue_push(TPlaybackQueueEntry * entry)
+static gboolean playback_queue_push(speak_queue_entry * entry)
 {
 	pthread_mutex_lock(&playback_queue_mutex);
 	playback_queue = g_slist_append(playback_queue, entry);
-	if (entry->type == ESPEAK_QET_AUDIO) {
+	if (entry->type == SPEAK_QUEUE_QET_AUDIO) {
 		playback_queue_size += entry->data.audio.num_samples;
 	}
 	pthread_cond_signal(&playback_queue_condition);
@@ -243,20 +243,20 @@ gboolean
 module_speak_queue_add_audio(short *audio_chunk, int num_samples)
 {
 	pthread_mutex_lock(&playback_queue_mutex);
-	while (!espeak_stop_requested
+	while (!speak_queue_stop_requested
 	       && playback_queue_size > speak_queue_maxsize) {
 		pthread_cond_wait(&playback_queue_condition,
 				  &playback_queue_mutex);
 	}
 	pthread_mutex_unlock(&playback_queue_mutex);
-	if (espeak_stop_requested) {
+	if (speak_queue_stop_requested) {
 		return FALSE;
 	}
 
-	TPlaybackQueueEntry *playback_queue_entry =
-	    g_new(TPlaybackQueueEntry, 1);
+	speak_queue_entry *playback_queue_entry =
+	    g_new(speak_queue_entry, 1);
 
-	playback_queue_entry->type = ESPEAK_QET_AUDIO;
+	playback_queue_entry->type = SPEAK_QUEUE_QET_AUDIO;
 	playback_queue_entry->data.audio.num_samples = num_samples;
 	gint nbytes = sizeof(short) * num_samples;
 	playback_queue_entry->data.audio.audio_chunk =
@@ -269,19 +269,19 @@ module_speak_queue_add_audio(short *audio_chunk, int num_samples)
 /* Adds an Index Mark to the audio playback queue. */
 gboolean module_speak_queue_add_mark(const char *markId)
 {
-	TPlaybackQueueEntry *playback_queue_entry =
-	    (TPlaybackQueueEntry *) g_malloc(sizeof(TPlaybackQueueEntry));
+	speak_queue_entry *playback_queue_entry =
+	    (speak_queue_entry *) g_malloc(sizeof(speak_queue_entry));
 
-	playback_queue_entry->type = ESPEAK_QET_INDEX_MARK;
+	playback_queue_entry->type = SPEAK_QUEUE_QET_INDEX_MARK;
 	playback_queue_entry->data.markId = g_strdup(markId);
 	return playback_queue_push(playback_queue_entry);
 }
 
 /* Adds a begin or end flag to the playback queue. */
-static gboolean espeak_add_flag_to_playback_queue(EPlaybackQueueEntryType type)
+static gboolean speak_queue_add_flag_to_playback_queue(speak_queue_entry_type type)
 {
-	TPlaybackQueueEntry *playback_queue_entry =
-	    (TPlaybackQueueEntry *) g_malloc(sizeof(TPlaybackQueueEntry));
+	speak_queue_entry *playback_queue_entry =
+	    (speak_queue_entry *) g_malloc(sizeof(speak_queue_entry));
 
 	playback_queue_entry->type = type;
 	return playback_queue_push(playback_queue_entry);
@@ -290,26 +290,26 @@ static gboolean espeak_add_flag_to_playback_queue(EPlaybackQueueEntryType type)
 /* Add a sound icon to the playback queue. */
 gboolean module_speak_queue_add_sound_icon(const char *filename)
 {
-	TPlaybackQueueEntry *playback_queue_entry =
-	    (TPlaybackQueueEntry *) g_malloc(sizeof(TPlaybackQueueEntry));
+	speak_queue_entry *playback_queue_entry =
+	    (speak_queue_entry *) g_malloc(sizeof(speak_queue_entry));
 
-	playback_queue_entry->type = ESPEAK_QET_SOUND_ICON;
+	playback_queue_entry->type = SPEAK_QUEUE_QET_SOUND_ICON;
 	playback_queue_entry->data.sound_icon_filename = g_strdup(filename);
 	return playback_queue_push(playback_queue_entry);
 }
 
 /* Deletes an entry from the playback audio queue, freeing memory. */
 static void
-espeak_delete_playback_queue_entry(TPlaybackQueueEntry * playback_queue_entry)
+speak_queue_delete_playback_queue_entry(speak_queue_entry * playback_queue_entry)
 {
 	switch (playback_queue_entry->type) {
-	case ESPEAK_QET_AUDIO:
+	case SPEAK_QUEUE_QET_AUDIO:
 		g_free(playback_queue_entry->data.audio.audio_chunk);
 		break;
-	case ESPEAK_QET_INDEX_MARK:
+	case SPEAK_QUEUE_QET_INDEX_MARK:
 		g_free(playback_queue_entry->data.markId);
 		break;
-	case ESPEAK_QET_SOUND_ICON:
+	case SPEAK_QUEUE_QET_SOUND_ICON:
 		g_free(playback_queue_entry->data.sound_icon_filename);
 		break;
 	default:
@@ -319,14 +319,14 @@ espeak_delete_playback_queue_entry(TPlaybackQueueEntry * playback_queue_entry)
 }
 
 /* Erases the entire playback queue, freeing memory. */
-static void espeak_clear_playback_queue()
+static void speak_queue_clear_playback_queue()
 {
 	pthread_mutex_lock(&playback_queue_mutex);
 
 	while (NULL != playback_queue) {
-		TPlaybackQueueEntry *playback_queue_entry =
+		speak_queue_entry *playback_queue_entry =
 		    playback_queue->data;
-		espeak_delete_playback_queue_entry(playback_queue_entry);
+		speak_queue_delete_playback_queue_entry(playback_queue_entry);
 		playback_queue =
 		    g_slist_remove(playback_queue, playback_queue->data);
 	}
@@ -336,7 +336,7 @@ static void espeak_clear_playback_queue()
 }
 
 /* Sends a chunk of audio to the audio player and waits for completion or error. */
-static gboolean espeak_send_to_audio(TPlaybackQueueEntry * playback_queue_entry)
+static gboolean speak_queue_send_to_audio(speak_queue_entry * playback_queue_entry)
 {
 	int ret = 0;
 	AudioTrack track;
@@ -357,29 +357,29 @@ static gboolean espeak_send_to_audio(TPlaybackQueueEntry * playback_queue_entry)
 }
 
 /* Playback thread. */
-static void *_espeak_play(void *nothing)
+static void *speak_queue_play(void *nothing)
 {
 	char *markId;
-	TPlaybackQueueEntry *playback_queue_entry = NULL;
+	speak_queue_entry *playback_queue_entry = NULL;
 
 	DBG(DBG_MODNAME " Playback thread starting.......");
 
 	/* Block all signals to this thread. */
 	set_speaking_thread_parameters();
 
-	pthread_mutex_lock(&espeak_play_mutex);
-	while (!espeak_close_requested) {
-		espeak_play_sleeping = 1;
-		pthread_cond_signal(&espeak_play_sleeping_cond);
-		while (espeak_state < BEFORE_PLAY) {
-			pthread_cond_wait(&espeak_play_cond, &espeak_play_mutex);
+	pthread_mutex_lock(&speak_queue_play_mutex);
+	while (!speak_queue_close_requested) {
+		speak_queue_play_sleeping = 1;
+		pthread_cond_signal(&speak_queue_play_sleeping_cond);
+		while (speak_queue_state < BEFORE_PLAY) {
+			pthread_cond_wait(&speak_queue_play_cond, &speak_queue_play_mutex);
 		}
-		espeak_play_sleeping = 0;
-		pthread_cond_signal(&espeak_play_sleeping_cond);
+		speak_queue_play_sleeping = 0;
+		pthread_cond_signal(&speak_queue_play_sleeping_cond);
 		DBG(DBG_MODNAME " Playback.");
-		if (espeak_close_requested)
+		if (speak_queue_close_requested)
 			break;
-		pthread_mutex_unlock(&espeak_play_mutex);
+		pthread_mutex_unlock(&speak_queue_play_mutex);
 
 		while (1) {
 			gboolean finished = FALSE;
@@ -390,152 +390,152 @@ static void *_espeak_play(void *nothing)
 			}
 
 			switch (playback_queue_entry->type) {
-			case ESPEAK_QET_AUDIO:
-				espeak_send_to_audio(playback_queue_entry);
+			case SPEAK_QUEUE_QET_AUDIO:
+				speak_queue_send_to_audio(playback_queue_entry);
 				break;
-			case ESPEAK_QET_INDEX_MARK:
+			case SPEAK_QUEUE_QET_INDEX_MARK:
 				markId = playback_queue_entry->data.markId;
 				DBG(DBG_MODNAME " reporting index mark |%s|.",
 				    markId);
 				module_report_index_mark(markId);
 				DBG(DBG_MODNAME " index mark reported.");
-				pthread_mutex_lock(&espeak_state_mutex);
-				if (espeak_state == SPEAKING
-				    && espeak_pause_state ==
-				    ESPEAK_PAUSE_REQUESTED
-				    && espeak_stop_or_pause_sleeping
+				pthread_mutex_lock(&speak_queue_state_mutex);
+				if (speak_queue_state == SPEAKING
+				    && speak_queue_pause_state ==
+				    SPEAK_QUEUE_PAUSE_REQUESTED
+				    && speak_queue_stop_or_pause_sleeping
 				    && g_str_has_prefix(markId, "__spd_")) {
 					DBG(DBG_MODNAME " Pause requested in playback thread.  Stopping.");
-					espeak_stop_requested = TRUE;
-					espeak_pause_state =
-					    ESPEAK_PAUSE_MARK_REPORTED;
+					speak_queue_stop_requested = TRUE;
+					speak_queue_pause_state =
+					    SPEAK_QUEUE_PAUSE_MARK_REPORTED;
 					pthread_cond_signal
-					    (&espeak_stop_or_pause_cond);
+					    (&speak_queue_stop_or_pause_cond);
 					finished = TRUE;
 				}
-				pthread_mutex_unlock(&espeak_state_mutex);
+				pthread_mutex_unlock(&speak_queue_state_mutex);
 				break;
-			case ESPEAK_QET_SOUND_ICON:
+			case SPEAK_QUEUE_QET_SOUND_ICON:
 				module_play_file(playback_queue_entry->
 						 data.sound_icon_filename);
 				break;
-			case ESPEAK_QET_BEGIN:{
+			case SPEAK_QUEUE_QET_BEGIN:{
 					gboolean report_begin = FALSE;
-					pthread_mutex_lock(&espeak_state_mutex);
-					if (espeak_state == BEFORE_PLAY) {
-						espeak_state = SPEAKING;
+					pthread_mutex_lock(&speak_queue_state_mutex);
+					if (speak_queue_state == BEFORE_PLAY) {
+						speak_queue_state = SPEAKING;
 						report_begin = TRUE;
 					}
 					pthread_mutex_unlock
-					    (&espeak_state_mutex);
+					    (&speak_queue_state_mutex);
 					if (report_begin)
 						module_report_event_begin();
 					break;
 				}
-			case ESPEAK_QET_END:
-				pthread_mutex_lock(&espeak_state_mutex);
+			case SPEAK_QUEUE_QET_END:
+				pthread_mutex_lock(&speak_queue_state_mutex);
 				DBG(DBG_MODNAME " playback thread got END from queue.");
-				if (espeak_state == SPEAKING) {
-					if (!espeak_stop_requested) {
+				if (speak_queue_state == SPEAKING) {
+					if (!speak_queue_stop_requested) {
 						DBG(DBG_MODNAME " playback thread reporting end.");
-						espeak_state = IDLE;
-						espeak_pause_state =
-						    ESPEAK_PAUSE_OFF;
+						speak_queue_state = IDLE;
+						speak_queue_pause_state =
+						    SPEAK_QUEUE_PAUSE_OFF;
 					}
 					finished = TRUE;
 				}
-				pthread_mutex_unlock(&espeak_state_mutex);
+				pthread_mutex_unlock(&speak_queue_state_mutex);
 				if (finished)
 					module_report_event_end();
 				break;
 			}
 
-			espeak_delete_playback_queue_entry
+			speak_queue_delete_playback_queue_entry
 			    (playback_queue_entry);
 			if (finished)
 				break;
 		}
 	}
-	espeak_play_sleeping = 1;
-	pthread_mutex_unlock(&espeak_play_mutex);
+	speak_queue_play_sleeping = 1;
+	pthread_mutex_unlock(&speak_queue_play_mutex);
 	DBG(DBG_MODNAME " Playback thread ended.......");
 	return 0;
 }
 
 int module_speak_queue_stop_requested(void)
 {
-	return espeak_stop_requested;
+	return speak_queue_stop_requested;
 }
 
 void module_speak_queue_stop(void)
 {
-	pthread_mutex_lock(&espeak_state_mutex);
-	pthread_mutex_lock(&espeak_stop_or_pause_mutex);
-	if (espeak_state != IDLE &&
-	    !espeak_stop_requested &&
-	    espeak_stop_or_pause_sleeping) {
+	pthread_mutex_lock(&speak_queue_state_mutex);
+	pthread_mutex_lock(&speak_queue_stop_or_pause_mutex);
+	if (speak_queue_state != IDLE &&
+	    !speak_queue_stop_requested &&
+	    speak_queue_stop_or_pause_sleeping) {
 		DBG(DBG_MODNAME " stopping...");
-		espeak_stop_requested = TRUE;
+		speak_queue_stop_requested = TRUE;
 		/* Wake the stop_or_pause thread. */
-		pthread_cond_signal(&espeak_stop_or_pause_cond);
+		pthread_cond_signal(&speak_queue_stop_or_pause_cond);
 	} else {
 		DBG(DBG_MODNAME " Cannot stop now.");
 	}
-	pthread_mutex_unlock(&espeak_stop_or_pause_mutex);
-	pthread_mutex_unlock(&espeak_state_mutex);
+	pthread_mutex_unlock(&speak_queue_stop_or_pause_mutex);
+	pthread_mutex_unlock(&speak_queue_state_mutex);
 }
 
 void module_speak_queue_pause(void)
 {
-	pthread_mutex_lock(&espeak_state_mutex);
-	if (espeak_pause_state == ESPEAK_PAUSE_OFF && !espeak_stop_requested) {
-		espeak_pause_state = ESPEAK_PAUSE_REQUESTED;
+	pthread_mutex_lock(&speak_queue_state_mutex);
+	if (speak_queue_pause_state == SPEAK_QUEUE_PAUSE_OFF && !speak_queue_stop_requested) {
+		speak_queue_pause_state = SPEAK_QUEUE_PAUSE_REQUESTED;
 	}
-	pthread_mutex_unlock(&espeak_state_mutex);
+	pthread_mutex_unlock(&speak_queue_state_mutex);
 }
 
 void module_speak_queue_terminate(void)
 {
-	espeak_stop_requested = TRUE;
-	espeak_close_requested = TRUE;
+	speak_queue_stop_requested = TRUE;
+	speak_queue_close_requested = TRUE;
 
 	pthread_mutex_lock(&playback_queue_mutex);
 	pthread_cond_broadcast(&playback_queue_condition);
 	pthread_mutex_unlock(&playback_queue_mutex);
 
-	pthread_cond_signal(&espeak_play_cond);
-	pthread_cond_signal(&espeak_stop_or_pause_cond);
+	pthread_cond_signal(&speak_queue_play_cond);
+	pthread_cond_signal(&speak_queue_stop_or_pause_cond);
 	/* Give threads a chance to quit on their own terms. */
 	g_usleep(25000);
 
 	/* Make sure threads have really exited */
-	pthread_cancel(espeak_play_thread);
-	pthread_cancel(espeak_stop_or_pause_thread);
+	pthread_cancel(speak_queue_play_thread);
+	pthread_cancel(speak_queue_stop_or_pause_thread);
 
 	DBG(DBG_MODNAME " Joining play thread.");
-	pthread_join(espeak_play_thread, NULL);
+	pthread_join(speak_queue_play_thread, NULL);
 	DBG(DBG_MODNAME " Joining stop thread.");
-	pthread_join(espeak_stop_or_pause_thread, NULL);
+	pthread_join(speak_queue_stop_or_pause_thread, NULL);
 }
 
 void module_speak_queue_free(void)
 {
 	DBG(DBG_MODNAME " Freeing resources.");
-	espeak_clear_playback_queue();
+	speak_queue_clear_playback_queue();
 
-	pthread_mutex_destroy(&espeak_state_mutex);
-	pthread_mutex_destroy(&espeak_play_mutex);
-	pthread_mutex_destroy(&espeak_stop_or_pause_mutex);
+	pthread_mutex_destroy(&speak_queue_state_mutex);
+	pthread_mutex_destroy(&speak_queue_play_mutex);
+	pthread_mutex_destroy(&speak_queue_stop_or_pause_mutex);
 	pthread_mutex_destroy(&playback_queue_mutex);
 	pthread_cond_destroy(&playback_queue_condition);
-	pthread_cond_destroy(&espeak_play_cond);
-	pthread_cond_destroy(&espeak_play_sleeping_cond);
-	pthread_cond_destroy(&espeak_stop_or_pause_cond);
-	pthread_cond_destroy(&espeak_stop_or_pause_sleeping_cond);
+	pthread_cond_destroy(&speak_queue_play_cond);
+	pthread_cond_destroy(&speak_queue_play_sleeping_cond);
+	pthread_cond_destroy(&speak_queue_stop_or_pause_cond);
+	pthread_cond_destroy(&speak_queue_stop_or_pause_sleeping_cond);
 }
 
 /* Stop or Pause thread. */
-static void *_espeak_stop_or_pause(void *nothing)
+static void *speak_queue_stop_or_pause(void *nothing)
 {
 	int ret;
 
@@ -544,47 +544,47 @@ static void *_espeak_stop_or_pause(void *nothing)
 	/* Block all signals to this thread. */
 	set_speaking_thread_parameters();
 
-	pthread_mutex_lock(&espeak_stop_or_pause_mutex);
-	while (!espeak_close_requested) {
-		espeak_stop_or_pause_sleeping = 1;
-		pthread_cond_signal(&espeak_stop_or_pause_sleeping_cond);
-		while (!espeak_stop_requested)
-			pthread_cond_wait(&espeak_stop_or_pause_cond, &espeak_stop_or_pause_mutex);
-		espeak_stop_or_pause_sleeping = 0;
-		pthread_cond_signal(&espeak_stop_or_pause_sleeping_cond);
+	pthread_mutex_lock(&speak_queue_stop_or_pause_mutex);
+	while (!speak_queue_close_requested) {
+		speak_queue_stop_or_pause_sleeping = 1;
+		pthread_cond_signal(&speak_queue_stop_or_pause_sleeping_cond);
+		while (!speak_queue_stop_requested)
+			pthread_cond_wait(&speak_queue_stop_or_pause_cond, &speak_queue_stop_or_pause_mutex);
+		speak_queue_stop_or_pause_sleeping = 0;
+		pthread_cond_signal(&speak_queue_stop_or_pause_sleeping_cond);
 
 		DBG(DBG_MODNAME " Stop or pause.");
-		if (espeak_close_requested)
+		if (speak_queue_close_requested)
 			break;
-		pthread_mutex_unlock(&espeak_stop_or_pause_mutex);
+		pthread_mutex_unlock(&speak_queue_stop_or_pause_mutex);
 
 		pthread_mutex_lock(&playback_queue_mutex);
 		pthread_cond_broadcast(&playback_queue_condition);
 		pthread_mutex_unlock(&playback_queue_mutex);
 
 		if (module_audio_id) {
-			pthread_mutex_lock(&espeak_state_mutex);
-			espeak_state = IDLE;
-			pthread_mutex_unlock(&espeak_state_mutex);
+			pthread_mutex_lock(&speak_queue_state_mutex);
+			speak_queue_state = IDLE;
+			pthread_mutex_unlock(&speak_queue_state_mutex);
 			DBG(DBG_MODNAME " Stopping audio.");
 			ret = spd_audio_stop(module_audio_id);
 			if (ret != 0)
 				DBG("spd_audio_stop returned non-zero value.");
-			pthread_mutex_lock(&espeak_play_mutex);
-			while (!espeak_play_sleeping) {
+			pthread_mutex_lock(&speak_queue_play_mutex);
+			while (!speak_queue_play_sleeping) {
 				ret = spd_audio_stop(module_audio_id);
 				if (ret != 0)
 					DBG("spd_audio_stop returned non-zero value.");
-				pthread_mutex_unlock(&espeak_play_mutex);
+				pthread_mutex_unlock(&speak_queue_play_mutex);
 				g_usleep(5000);
-				pthread_mutex_lock(&espeak_play_mutex);
+				pthread_mutex_lock(&speak_queue_play_mutex);
 			}
-			pthread_mutex_unlock(&espeak_play_mutex);
+			pthread_mutex_unlock(&speak_queue_play_mutex);
 		} else {
-			pthread_mutex_lock(&espeak_play_mutex);
-			while (!espeak_play_sleeping)
-				pthread_cond_wait(&espeak_play_sleeping_cond, &espeak_play_mutex);
-			pthread_mutex_unlock(&espeak_play_mutex);
+			pthread_mutex_lock(&speak_queue_play_mutex);
+			while (!speak_queue_play_sleeping)
+				pthread_cond_wait(&speak_queue_play_sleeping_cond, &speak_queue_play_mutex);
+			pthread_mutex_unlock(&speak_queue_play_mutex);
 		}
 
 		DBG(DBG_MODNAME " Waiting for synthesis to stop.");
@@ -592,22 +592,22 @@ static void *_espeak_stop_or_pause(void *nothing)
 		module_speak_queue_cancel();
 
 		DBG(DBG_MODNAME " Clearing playback queue.");
-		espeak_clear_playback_queue();
+		speak_queue_clear_playback_queue();
 
-		int save_pause_state = espeak_pause_state;
-		pthread_mutex_lock(&espeak_state_mutex);
+		int save_pause_state = speak_queue_pause_state;
+		pthread_mutex_lock(&speak_queue_state_mutex);
 		module_speak_queue_reset();
-		pthread_mutex_unlock(&espeak_state_mutex);
+		pthread_mutex_unlock(&speak_queue_state_mutex);
 
-		if (save_pause_state == ESPEAK_PAUSE_MARK_REPORTED) {
+		if (save_pause_state == SPEAK_QUEUE_PAUSE_MARK_REPORTED) {
 			module_report_event_pause();
 		} else {
 			module_report_event_stop();
 		}
 
 		DBG(DBG_MODNAME " Stop or pause thread ended.......\n");
-		pthread_mutex_lock(&espeak_stop_or_pause_mutex);
+		pthread_mutex_lock(&speak_queue_stop_or_pause_mutex);
 	}
-	pthread_mutex_unlock(&espeak_stop_or_pause_mutex);
+	pthread_mutex_unlock(&speak_queue_stop_or_pause_mutex);
 	pthread_exit(NULL);
 }
