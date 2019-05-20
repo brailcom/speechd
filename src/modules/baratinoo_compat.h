@@ -67,6 +67,7 @@ typedef enum {
 } BaratinooTraceLevel;
 
 typedef void (*BaratinooTraceCB)(BaratinooTraceLevel level, int engineNumber, const char *source, const void *privatedata, const char *format, va_list args);
+typedef int (*BaratinooOutputSignalCB)(void *privateData, const void *address, int length);
 
 typedef void* BCengine;
 typedef void* BCinputTextBuffer;
@@ -179,6 +180,7 @@ extern void BCinputTextBufferDelete(BCinputTextBuffer inputTextBuffer);
 extern int BCinputTextBufferInit(BCinputTextBuffer inputTextBuffer, const char *text);
 extern BARATINOOC_STATE BCinputTextBufferSetInEngine(BCinputTextBuffer inputTextBuffer, BCengine engine);
 
+extern void BCsetOutputSignal(BCengine engine, BaratinooOutputSignalCB cb, void *privateData, BARATINOO_SIGNAL_CODING coding, int frequency);
 extern BCoutputSignalBuffer BCoutputSignalBufferNew(BARATINOO_SIGNAL_CODING coding, int frequency);
 extern void BCoutputSignalBufferDelete(BCoutputSignalBuffer outputSignalBuffer);
 extern void BCoutputTextBufferSetInEngine(BCoutputSignalBuffer outputSignalBuffer, BCengine engine);

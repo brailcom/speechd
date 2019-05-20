@@ -193,8 +193,6 @@ typedef struct {
 	 * thread is ready to accept new input.  Otherwise, the thread is in
 	 * the process of synthesizing speech. */
 	BCinputTextBuffer buffer;
-        /* The output signal */
-        BCoutputSignalBuffer output_signal;
 
 	SPDVoice **voice_list;
 
@@ -211,7 +209,6 @@ typedef struct {
 static Engine baratinoo_engine = {
 	.engine = NULL,
 	.buffer = NULL,
-	.output_signal = NULL,
 	.voice_list = NULL,
 	.voice = 0,
 	.pause_requested = FALSE,
@@ -367,11 +364,7 @@ int module_init(char **status_info)
 
 	/* Setup output (audio) signal handling */
 	DBG(DBG_MODNAME "Using PCM output at %dHz", BaratinooSampleRate);
-	engine->output_signal = BCoutputSignalBufferNew(BARATINOO_PCM, BaratinooSampleRate);
-	if (!engine->output_signal) {
-		  DBG(DBG_MODNAME "Cannot allocate BCoutputSignalBufferNew");
-		  return -1;
-	}
+	BCsetOutputSignal(engine->engine, baratinoo_output_signal, engine, BARATINOO_PCM, BaratinooSampleRate);
 	if (BCgetState(engine->engine) != BARATINOO_INITIALIZED) {
 		DBG(DBG_MODNAME "Failed to initialize output signal handler");
 		*status_info = g_strdup("Failed to initialize Baratinoo output "
@@ -379,7 +372,6 @@ int module_init(char **status_info)
 					"sample rate correct?");
 		return -1;
 	}
-	BCoutputTextBufferSetInEngine(engine->output_signal, engine->engine);
 
 	BCsetWantedEvent(engine->engine, BARATINOO_MARKER_EVENT);
 
@@ -573,10 +565,6 @@ int module_close(void)
 		engine->voice_list = NULL;
 	}
 
-	/* destroy output signal */
-	BCoutputSignalBufferDelete(engine->output_signal);
-	engine->output_signal = NULL;
-
 	/* destroy engine */
 	if (engine->engine) {
 	    BCdelete(engine->engine);
@@ -713,23 +701,15 @@ static void *_baratinoo_speak(void *data)
 			BCinputTextBufferDelete(engine->buffer);
 			engine->buffer = NULL;
 
-			DBG(DBG_MODNAME "Trying to synthesize text");
-			if (BCoutputSignalBufferIsError(engine->output_signal) || engine->close_requested) {
-				DBG(DBG_MODNAME "Error with the output signal");
-				BCoutputSignalBufferResetSignal(engine->output_signal);
-				module_speak_queue_stop();
+			if (engine->stop_requested || engine->close_requested) {
+				DBG(DBG_MODNAME "Stop in child, terminating");
+				engine->stop_requested = FALSE;
 			} else {
-				baratinoo_output_signal(engine, BCoutputSignalBufferGetSignalBuffer(engine->output_signal), BCoutputSignalBufferGetSignalLength(engine->output_signal));
-				BCoutputSignalBufferResetSignal(engine->output_signal);
-				if (engine->stop_requested || engine->close_requested) {
-					DBG(DBG_MODNAME "Stop in child, terminating");
-				} else {
-					module_speak_queue_add_end();
-				}
+				DBG(DBG_MODNAME "Finished synthesizing");
+				module_speak_queue_add_end();
 			}
 			break;
 		}
-		engine->stop_requested = FALSE;
 	}
 
 	DBG(DBG_MODNAME "leaving thread with state=%d", state);
@@ -1026,20 +1006,21 @@ static void baratinoo_trace_cb(BaratinooTraceLevel level, int engine_num, const 
  */
 static int baratinoo_output_signal(void *private_data, const void *address, int length)
 {
-	Engine *engine = private_data;
+	/* If stop is requested during synthesis, abort here to stop speech as
+	 * early as possible, even if the engine didn't finish its cycle yet. */
+	if (module_speak_queue_stop_requested())
+	{
+		DBG(DBG_MODNAME "Not playing message because it got stopped");
+		return 1;
+	}
+
+	/* Engine *engine = private_data; */
 	AudioTrack track;
 #if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
 	AudioFormat format = SPD_AUDIO_BE;
 #else
 	AudioFormat format = SPD_AUDIO_LE;
 #endif
-
-	/* If stop is requested during synthesis, abort here to stop speech as
-	 * early as possible, even if the engine didn't finish its cycle yet. */
-	if (engine->stop_requested) {
-		DBG(DBG_MODNAME "Not playing message because it got stopped");
-		return engine->stop_requested;
-	}
 
 	/* We receive 16 bits PCM data */
 	track.num_samples = length / 2; /* 16 bits per sample = 2 bytes */
@@ -1048,11 +1029,11 @@ static int baratinoo_output_signal(void *private_data, const void *address, int 
 	track.bits = 16;
 	track.samples = (short *) address;
 
-	DBG(DBG_MODNAME "Playing part of the message");
+	DBG(DBG_MODNAME "Queueing %d samples", length / 2);
 	module_speak_queue_before_play();
 	module_speak_queue_add_audio(&track, format);
 
-	return engine->stop_requested;
+	return module_speak_queue_stop_requested();
 }
 
 /* SSML conversion functions */

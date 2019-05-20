@@ -82,6 +82,10 @@ BARATINOOC_STATE BCpurge(BCengine engine) {
 
 /* IO */
 
+BCsetOutputSignal(BCengine engine, BaratinooOutputSignalCB cb, void *privateData, BARATINOO_SIGNAL_CODING coding, int frequency) {
+	assert(0);
+}
+
 BCoutputSignalBuffer BCoutputSignalBufferNew(BARATINOO_SIGNAL_CODING coding, int frequency) {
 	assert(0);
 }
