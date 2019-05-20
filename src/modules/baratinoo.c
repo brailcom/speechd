@@ -228,6 +228,7 @@ static void append_ssml_as_proprietary(const Engine *engine, GString *buf, const
 /* Module configuration options */
 MOD_OPTION_1_STR(BaratinooConfigPath);
 MOD_OPTION_1_INT(BaratinooSampleRate);
+MOD_OPTION_1_INT(BaratinooResponsiveness);
 MOD_OPTION_1_INT(BaratinooQueueSize);
 MOD_OPTION_1_INT(BaratinooMinRate);
 MOD_OPTION_1_INT(BaratinooNormalRate);
@@ -261,6 +262,9 @@ int module_load(void)
 
 	/* Sample rate. 16000Hz is the voices default, not requiring resampling */
 	MOD_OPTION_1_INT_REG(BaratinooSampleRate, 16000);
+
+	/* Let Baratinoo handle by default */
+	MOD_OPTION_1_INT_REG(BaratinooResponsiveness, -1);
 
 	/* Default to 20s queuing */
 	MOD_OPTION_1_INT_REG(BaratinooQueueSize, 20*BaratinooSampleRate);
@@ -659,7 +663,7 @@ static void *_baratinoo_speak(void *data)
 		}
 
 		do {
-			state = BCprocessLoop(engine->engine, -1);
+			state = BCprocessLoop(engine->engine, BaratinooResponsiveness);
 			if (state == BARATINOO_EVENT) {
 				BaratinooEvent event = BCgetEvent(engine->engine);
 				if (event.type == BARATINOO_MARKER_EVENT) {
