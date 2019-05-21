@@ -59,8 +59,15 @@
  * 	if (module_speak_queue_stop_requested()) {
  * 		return STOP;
  * 	}
+ * 	AudioTrack track = {
+ * 		.samples = wav,
+ * 		.num_samples = samples,
+ * 		.bits = ...,
+ * 		...
+ * 	};
+ *
  * 	module_speak_queue_before_play();
- * 	module_speak_queue_add_audio(wav, samples);
+ * 	module_speak_queue_add_audio(&track, SPD_AUDIO_LE);
  * }
  *
  * int mycallback_mark(const char *mark)
@@ -81,6 +88,11 @@
  * 	module_speak_queue_add_end();
  * }
  *
+ * void module_speak_queue_cancel(void)
+ * {
+ * 	mysynth_cancel();
+ * }
+ *
  * int module_stop(void) {
  * 	module_speak_queue_stop();
  * }
@@ -95,6 +107,11 @@
  * 	module_speak_queue_free();
  * }
  *
+ *
+ * the module_speak_queue_before_synth() call replaces module_report_event_begin(),
+ * the module_speak_queue_add_end() call replaces module_report_event_end(),
+ * the module_speak_queue_stop() call replaces module_report_event_stop() and spd_audio_stop(),
+ * the module_speak_queue_pause() call replaces module_report_event_pause(),
  *
  * The principle is that module_speak_queue_init() starts playback threads which
  * will handle the audio part. The mysynth_synth() call from module_speak() will
