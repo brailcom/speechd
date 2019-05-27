@@ -381,37 +381,14 @@ int wait_for_poll(spd_alsa_id_t * id, struct pollfd *alsa_poll_fds,
 	return -1; \
 } while (0)
 
-/* Play the track _track_ (see spd_audio.h) using the id->alsa_pcm device and
- id-hw_params parameters. This is a blocking function, however, it's possible
- to interrupt playing from a different thread with alsa_stop(). alsa_play
- returns after and immediatelly after the whole sound was played on the
- speakers.
-
- The idea is that we get the ALSA file descriptors and we will poll() to see
- when alsa is ready for more input while sleeping in the meantime. We will
- additionally poll() for one more descriptor used by alsa_stop() to notify the
- thread with alsa_play() that the stop of the playback is requested. The
- variable can_be_stopped is used for very simple synchronization between the
- two threads. */
-static int alsa_play(AudioID * id, AudioTrack track)
+static int alsa_begin(AudioID * id, AudioTrack track)
 {
 	snd_pcm_format_t format;
-	int bytes_per_sample;
-	int num_bytes;
 	spd_alsa_id_t *alsa_id = (spd_alsa_id_t *) id;
-
-	signed short *output_samples;
-
-	AudioTrack track_volume;
-	float real_volume;
-	int i;
 
 	int err;
 	int ret;
 
-	snd_pcm_uframes_t framecount;
-	snd_pcm_uframes_t period_size;
-	size_t volume_size;
 	unsigned int sr;
 
 	snd_pcm_state_t state;
@@ -511,9 +488,7 @@ static int alsa_play(AudioID * id, AudioTrack track)
 			ERR("unknown audio format (%d)", alsa_id->id.format);
 			return -1;
 		}
-		bytes_per_sample = 2;
 	} else if (track.bits == 8) {
-		bytes_per_sample = 1;
 		format = SND_PCM_FORMAT_S8;
 	} else {
 		ERR("Unsupported sound data format, track.bits = %d",
@@ -604,6 +579,31 @@ static int alsa_play(AudioID * id, AudioTrack track)
 
 		return -1;
 	}
+
+	return 0;
+}
+
+static int alsa_feed(AudioID * id, AudioTrack track)
+{
+	int bytes_per_sample;
+	int num_bytes;
+	spd_alsa_id_t *alsa_id = (spd_alsa_id_t *) id;
+
+	AudioTrack track_volume;
+	float real_volume;
+	int i;
+
+	signed short *output_samples;
+
+	int err;
+	int ret;
+
+	snd_pcm_state_t state;
+
+	snd_pcm_uframes_t framecount;
+	size_t volume_size;
+
+	bytes_per_sample = track.bits / 8;
 
 	/* Calculate space needed to round up to nearest period size. */
 	volume_size = bytes_per_sample * track.num_samples;
@@ -744,6 +744,14 @@ terminate:
 	if (track_volume.samples != NULL)
 		g_free(track_volume.samples);
 
+	return 0;
+}
+
+static int alsa_end(AudioID * id)
+{
+	spd_alsa_id_t *alsa_id = (spd_alsa_id_t *) id;
+	int err;
+
 	err = snd_pcm_drop(alsa_id->alsa_pcm);
 	if (err < 0) {
 		ERR("snd_pcm_drop() failed: %s", snd_strerror(err));
@@ -764,6 +772,33 @@ terminate:
 	MSG(1, "End of playback on ALSA");
 
 	return 0;
+}
+
+/* Play the track _track_ (see spd_audio.h) using the id->alsa_pcm device and
+ id-hw_params parameters. This is a blocking function, however, it's possible
+ to interrupt playing from a different thread with alsa_stop(). alsa_play
+ returns after and immediatelly after the whole sound was played on the
+ speakers.
+
+ The idea is that we get the ALSA file descriptors and we will poll() to see
+ when alsa is ready for more input while sleeping in the meantime. We will
+ additionally poll() for one more descriptor used by alsa_stop() to notify the
+ thread with alsa_play() that the stop of the playback is requested. The
+ variable can_be_stopped is used for very simple synchronization between the
+ two threads. */
+static int alsa_play(AudioID * id, AudioTrack track)
+{
+	int ret;
+
+	ret = alsa_begin(id, track);
+	if (ret)
+		return ret;
+
+	ret = alsa_feed(id, track);
+	if (ret)
+		return ret;
+
+	return alsa_end(id);
 }
 
 #undef ERROR_EXIT
@@ -830,7 +865,10 @@ static spd_audio_plugin_t alsa_functions = {
 	alsa_close,
 	alsa_set_volume,
 	alsa_set_loglevel,
-	alsa_get_playcmd
+	alsa_get_playcmd,
+	alsa_begin,
+	alsa_feed,
+	alsa_end,
 };
 
 spd_audio_plugin_t *alsa_plugin_get(void)
