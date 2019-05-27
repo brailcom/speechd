@@ -411,8 +411,6 @@ static int alsa_play(AudioID * id, AudioTrack track)
 
 	snd_pcm_uframes_t framecount;
 	snd_pcm_uframes_t period_size;
-	size_t samples_per_period;
-	size_t silent_samples;
 	size_t volume_size;
 	unsigned int sr;
 
@@ -599,19 +597,6 @@ static int alsa_play(AudioID * id, AudioTrack track)
 	   return err;
 	   } */
 
-	/* Get period size. */
-	snd_pcm_hw_params_get_period_size(alsa_id->alsa_hw_params, &period_size,
-					  0);
-	MSG(4, "Period size on ALSA device is %lu bytes", (unsigned long) period_size);
-
-	/* Calculate size of silence at end of buffer. */
-	samples_per_period = period_size * track.num_channels;
-	//    MSG("samples per period = %i", samples_per_period);
-	//    MSG("num_samples = %i", track.num_samples);
-	silent_samples =
-	    samples_per_period - (track.num_samples % samples_per_period);
-	//    MSG("silent samples = %i", silent_samples);
-
 	MSG(4, "Preparing device for playback");
 	if ((err = snd_pcm_prepare(alsa_id->alsa_pcm)) < 0) {
 		ERR("Cannot prepare audio interface for playback (%s)",
@@ -621,7 +606,7 @@ static int alsa_play(AudioID * id, AudioTrack track)
 	}
 
 	/* Calculate space needed to round up to nearest period size. */
-	volume_size = bytes_per_sample * (track.num_samples + silent_samples);
+	volume_size = bytes_per_sample * track.num_samples;
 	MSG(4, "volume size = %i", (int)volume_size);
 
 	/* Create a copy of track with adjusted volume. */
@@ -632,25 +617,14 @@ static int alsa_play(AudioID * id, AudioTrack track)
 	for (i = 0; i <= track.num_samples - 1; i++)
 		track_volume.samples[i] = track.samples[i] * real_volume;
 
-	if (silent_samples > 0) {
-		/* Fill remaining space with silence */
-		MSG(4,
-		    "Filling with silence up to the period size, silent_samples=%d",
-		    (int)silent_samples);
-		snd_pcm_format_set_silence(format,
-		   (void*) track_volume.samples + (track.num_samples * bytes_per_sample), silent_samples);
-	}
-
 	/* Loop until all samples are played on the device. */
 	output_samples = track_volume.samples;
-	num_bytes = (track.num_samples + silent_samples) * bytes_per_sample;
+	num_bytes = volume_size;
 	//    MSG("Still %d bytes left to be played", num_bytes);
 	while (num_bytes > 0) {
 
 		/* Write as much samples as possible */
 		framecount = num_bytes / bytes_per_sample / track.num_channels;
-		if (framecount < period_size)
-			framecount = period_size;
 
 		/* Report current state state */
 		state = snd_pcm_state(alsa_id->alsa_pcm);
@@ -661,7 +635,7 @@ static int alsa_play(AudioID * id, AudioTrack track)
 		ret =
 		    snd_pcm_writei(alsa_id->alsa_pcm, output_samples,
 				   framecount);
-		//        MSG("Sent %d of %d remaining bytes", ret*bytes_per_sample, num_bytes);
+		//	MSG(4, "Sent %d of %d remaining bytes", ret*bytes_per_sample*track.num_channels, num_bytes);
 
 		if (ret == -EAGAIN) {
 			MSG(4, "Warning: Forced wait!");
