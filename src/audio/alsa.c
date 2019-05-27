@@ -633,31 +633,12 @@ static int alsa_play(AudioID * id, AudioTrack track)
 		track_volume.samples[i] = track.samples[i] * real_volume;
 
 	if (silent_samples > 0) {
-		u_int16_t silent16;
-		u_int8_t silent8;
-
 		/* Fill remaining space with silence */
 		MSG(4,
 		    "Filling with silence up to the period size, silent_samples=%d",
 		    (int)silent_samples);
-		/* TODO: This hangs.  Why?
-		   snd_pcm_format_set_silence(format,
-		   track_volume.samples + (track.num_samples * bytes_per_sample), silent_samples);
-		 */
-		switch (bytes_per_sample) {
-		case 2:
-			silent16 = snd_pcm_format_silence_16(format);
-			for (i = 0; i < silent_samples; i++)
-				track_volume.samples[track.num_samples + i] =
-				    silent16;
-			break;
-		case 1:
-			silent8 = snd_pcm_format_silence(format);
-			for (i = 0; i < silent_samples; i++)
-				track_volume.samples[track.num_samples + i] =
-				    silent8;
-			break;
-		}
+		snd_pcm_format_set_silence(format,
+		   (void*) track_volume.samples + (track.num_samples * bytes_per_sample), silent_samples);
 	}
 
 	/* Loop until all samples are played on the device. */
