@@ -31,6 +31,10 @@ AudioID *spd_audio_open(char *name, void **pars, char **error);
 
 int spd_audio_play(AudioID * id, AudioTrack track, AudioFormat format);
 
+int spd_audio_begin(AudioID * id, AudioTrack track, AudioFormat format);
+int spd_audio_feed(AudioID * id, AudioTrack track, AudioFormat format);
+int spd_audio_end(AudioID * id);
+
 int spd_audio_stop(AudioID * id);
 
 int spd_audio_close(AudioID * id);

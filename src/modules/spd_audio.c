@@ -151,6 +151,114 @@ AudioID *spd_audio_open(char *name, void **pars, char **error)
 	return id;
 }
 
+/* Initialize for playing a track on the audio device.
+
+   Arguments:
+   id -- the AudioID* of the device returned by spd_audio_open
+   track -- a track to play (see spd_audio.h)
+
+   Return value:
+   0 if everything is ok, a non-zero value in case of failure.
+   See the particular backend documentation or source for the
+   meaning of these non-zero values.
+*/
+int spd_audio_begin(AudioID * id, AudioTrack track, AudioFormat format)
+{
+	if (!id) {
+		fprintf(stderr, "No audio open\n");
+		return -1;
+	}
+
+	if (!id->function->begin) {
+		/* Too bad */
+		return 0;
+	}
+
+	return id->function->begin(id, track);
+}
+
+/* Feed a track to the audio device (blocking).
+
+   This can be called several times to feed more audio samples with the same
+   configuration, but since this version is blocking, the audio card will
+   underrun. Using spd_audio_feed_async is thus preferred in that case.
+
+   Arguments:
+   id -- the AudioID* of the device returned by spd_audio_open
+   track -- a track to play (see spd_audio.h)
+
+   Return value:
+   0 if everything is ok, a non-zero value in case of failure.
+   See the particular backend documentation or source for the
+   meaning of these non-zero values.
+
+   Comment:
+   spd_audio_feed() is a blocking function. It returns exactly
+   when the given piece of track stopped playing. However, it's possible
+   to safely interrupt it using spd_audio_stop() described below.
+   (spd_audio_stop() needs to be called from another thread, obviously.)
+
+*/
+int spd_audio_feed(AudioID * id, AudioTrack track, AudioFormat format)
+{
+	if (!id) {
+		fprintf(stderr, "No audio open\n");
+		return -1;
+	}
+
+	/* Only perform byte swapping if the driver in use has given us audio in
+	   an endian format other than what the running CPU supports. */
+	if (format != id->format && track.bits == 16) {
+		unsigned char *out_ptr, *out_end, c;
+		out_ptr = (unsigned char *)track.samples;
+		out_end =
+		    out_ptr +
+		    track.num_samples * 2 * track.num_channels;
+		while (out_ptr < out_end) {
+			c = out_ptr[0];
+			out_ptr[0] = out_ptr[1];
+			out_ptr[1] = c;
+			out_ptr += 2;
+		}
+	}
+
+	if (id->function->feed) {
+		return id->function->feed(id, track);
+	}
+
+	if (id->function->play) {
+		return id->function->play(id, track);
+	}
+
+	fprintf(stderr,"Play not supported on this device\n");
+	return -1;
+}
+
+/* Finish playing a track on the audio device.
+
+   Arguments:
+   id -- the AudioID* of the device returned by spd_audio_open
+
+   Return value:
+   0 if everything is ok, a non-zero value in case of failure.
+   See the particular backend documentation or source for the
+   meaning of these non-zero values.
+*/
+int spd_audio_end(AudioID * id)
+{
+	if (!id) {
+		fprintf(stderr, "No audio open\n");
+		return -1;
+	}
+
+	if (!id->function->end) {
+		/* Too bad */
+		return 0;
+	}
+
+	return id->function->end(id);
+}
+
 /* Play a track on the audio device (blocking).
 
    Arguments:
@@ -173,29 +281,15 @@ int spd_audio_play(AudioID * id, AudioTrack track, AudioFormat format)
 {
 	int ret;
 
-	if (id && id->function->play) {
-		/* Only perform byte swapping if the driver in use has given us audio in
-		   an endian format other than what the running CPU supports. */
-		if (format != id->format && track.bits == 16) {
-			unsigned char *out_ptr, *out_end, c;
-			out_ptr = (unsigned char *)track.samples;
-			out_end =
-			    out_ptr +
-			    track.num_samples * 2 * track.num_channels;
-			while (out_ptr < out_end) {
-				c = out_ptr[0];
-				out_ptr[0] = out_ptr[1];
-				out_ptr[1] = c;
-				out_ptr += 2;
-			}
-		}
-		ret = id->function->play(id, track);
-	} else {
-		fprintf(stderr, "Play not supported on this device\n");
-		return -1;
-	}
+	ret = spd_audio_begin(id, track, format);
+	if (ret)
+		return ret;
 
-	return ret;
+	ret = spd_audio_feed(id, track, format);
+	if (ret)
+		return ret;
+
+	return spd_audio_end(id);
 }
 
 /* Stop playing the current track on device id
