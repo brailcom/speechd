@@ -176,7 +176,7 @@ int spd_audio_play(AudioID * id, AudioTrack track, AudioFormat format)
 	if (id && id->function->play) {
 		/* Only perform byte swapping if the driver in use has given us audio in
 		   an endian format other than what the running CPU supports. */
-		if (format != id->format) {
+		if (format != id->format && track.bits == 16) {
 			unsigned char *out_ptr, *out_end, c;
 			out_ptr = (unsigned char *)track.samples;
 			out_end =
