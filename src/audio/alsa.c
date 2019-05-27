@@ -602,6 +602,7 @@ static int alsa_play(AudioID * id, AudioTrack track)
 	/* Get period size. */
 	snd_pcm_hw_params_get_period_size(alsa_id->alsa_hw_params, &period_size,
 					  0);
+	MSG(4, "Period size on ALSA device is %lu bytes", (unsigned long) period_size);
 
 	/* Calculate size of silence at end of buffer. */
 	samples_per_period = period_size * track.num_channels;
