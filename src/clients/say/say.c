@@ -55,6 +55,12 @@ void end_of_speech(size_t msg_id, size_t client_id, SPDNotificationType type)
 	sem_post(&semaphore);
 }
 
+void index_mark(size_t msg_id, size_t client_id, SPDNotificationType type, char *index_mark)
+{
+	if (type == SPD_EVENT_INDEX_MARK)
+		fprintf(stderr, "reached mark '%s'\n", index_mark);
+}
+
 int main(int argc, char **argv)
 {
 	SPDConnection *conn;
@@ -276,8 +282,10 @@ int main(int argc, char **argv)
 		/* Notify when the message is canceled or the speech terminates */
 		conn->callback_end = end_of_speech;
 		conn->callback_cancel = end_of_speech;
+		conn->callback_im = index_mark;
 		spd_set_notification_on(conn, SPD_END);
 		spd_set_notification_on(conn, SPD_CANCEL);
+		spd_set_notification_on(conn, SPD_INDEX_MARKS);
 	}
 
 	/* In pipe mode, read from stdin, write to stdout, and also to Speech Dispatcher. */
