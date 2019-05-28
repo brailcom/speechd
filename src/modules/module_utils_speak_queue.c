@@ -45,6 +45,7 @@ typedef enum {
 /* Thread and process control. */
 
 static speak_queue_state_t speak_queue_state = IDLE;
+static gboolean speak_queue_configured = FALSE; /* Whether we have configured audio */
 /* Note: speak_queue_state_mutex is always taken before speak_queue_stop_or_pause_mutex or
  * speak_queue_play_mutex */
 static pthread_mutex_t speak_queue_state_mutex;
@@ -340,8 +341,16 @@ static gboolean speak_queue_send_to_audio(speak_queue_entry * playback_queue_ent
 	int ret = 0;
 	DBG(DBG_MODNAME " Sending %i samples to audio.",
 	    playback_queue_entry->data.audio.track.num_samples);
-	ret = module_tts_output(playback_queue_entry->data.audio.track,
+	if (!speak_queue_configured)
+	{
+		spd_audio_begin(module_audio_id,
+				playback_queue_entry->data.audio.track,
 				playback_queue_entry->data.audio.format);
+		speak_queue_configured = TRUE;
+	}
+	ret = spd_audio_feed_sync_overlap(module_audio_id,
+			     playback_queue_entry->data.audio.track,
+			     playback_queue_entry->data.audio.format);
 	if (ret < 0) {
 		DBG("ERROR: Can't play track for unknown reason.");
 		return FALSE;
@@ -410,6 +419,10 @@ static void *speak_queue_play(void *nothing)
 				pthread_mutex_unlock(&speak_queue_state_mutex);
 				break;
 			case SPEAK_QUEUE_QET_SOUND_ICON:
+				if (speak_queue_configured) {
+					spd_audio_end(module_audio_id);
+					speak_queue_configured = FALSE;
+				}
 				module_play_file(playback_queue_entry->
 						 data.sound_icon_filename);
 				break;
@@ -427,6 +440,8 @@ static void *speak_queue_play(void *nothing)
 					break;
 				}
 			case SPEAK_QUEUE_QET_END:
+				spd_audio_end(module_audio_id);
+				speak_queue_configured = FALSE;
 				pthread_mutex_lock(&speak_queue_state_mutex);
 				DBG(DBG_MODNAME " playback thread got END from queue.");
 				if (speak_queue_state == SPEAKING) {
@@ -448,6 +463,10 @@ static void *speak_queue_play(void *nothing)
 			    (playback_queue_entry);
 			if (finished)
 				break;
+		}
+		if (speak_queue_configured) {
+			spd_audio_end(module_audio_id);
+			speak_queue_configured = FALSE;
 		}
 	}
 	speak_queue_play_sleeping = 1;
