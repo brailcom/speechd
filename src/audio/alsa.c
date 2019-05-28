@@ -583,7 +583,7 @@ static int alsa_begin(AudioID * id, AudioTrack track)
 	return 0;
 }
 
-static int alsa_feed(AudioID * id, AudioTrack track)
+static int alsa_feed_sync(AudioID * id, AudioTrack track)
 {
 	int bytes_per_sample;
 	int num_bytes;
@@ -794,7 +794,7 @@ static int alsa_play(AudioID * id, AudioTrack track)
 	if (ret)
 		return ret;
 
-	ret = alsa_feed(id, track);
+	ret = alsa_feed_sync(id, track);
 	if (ret)
 		return ret;
 
@@ -867,7 +867,7 @@ static spd_audio_plugin_t alsa_functions = {
 	alsa_set_loglevel,
 	alsa_get_playcmd,
 	alsa_begin,
-	alsa_feed,
+	alsa_feed_sync,
 	alsa_end,
 };
 

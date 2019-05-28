@@ -64,7 +64,7 @@ typedef struct spd_audio_plugin {
 
 	/* Optional */
 	int (*begin) (AudioID *id, AudioTrack track); /* Only bits, num_channels, and sample_rate are read */
-	int (*feed) (AudioID *id, AudioTrack track);  /* bits, num_channels, and sample_rate shall be the same as during begin() call */
+	int (*feed_sync) (AudioID *id, AudioTrack track);  /* bits, num_channels, and sample_rate shall be the same as during begin() call */
 	int (*end)  (AudioID *id);
 } spd_audio_plugin_t;
 

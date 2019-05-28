@@ -199,7 +199,7 @@ int spd_audio_begin(AudioID * id, AudioTrack track, AudioFormat format)
    (spd_audio_stop() needs to be called from another thread, obviously.)
 
 */
-int spd_audio_feed(AudioID * id, AudioTrack track, AudioFormat format)
+int spd_audio_feed_sync(AudioID * id, AudioTrack track, AudioFormat format)
 {
 	if (!id) {
 		fprintf(stderr, "No audio open\n");
@@ -222,8 +222,8 @@ int spd_audio_feed(AudioID * id, AudioTrack track, AudioFormat format)
 		}
 	}
 
-	if (id->function->feed) {
-		return id->function->feed(id, track);
+	if (id->function->feed_sync) {
+		return id->function->feed_sync(id, track);
 	}
 
 	if (id->function->play) {
@@ -285,7 +285,7 @@ int spd_audio_play(AudioID * id, AudioTrack track, AudioFormat format)
 	if (ret)
 		return ret;
 
-	ret = spd_audio_feed(id, track, format);
+	ret = spd_audio_feed_sync(id, track, format);
 	if (ret)
 		return ret;
 
