@@ -2,6 +2,7 @@
  * module_utils_speak_queue.c - Speak queue helper for Speech Dispatcher modules
  *
  * Copyright (C) 2007 Brailcom, o.p.s.
+ * Copyright (C) 2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by

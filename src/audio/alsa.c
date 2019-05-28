@@ -3,6 +3,7 @@
  * alsa.c -- The Advanced Linux Sound System backend for Speech Dispatcher
  *
  * Copyright (C) 2005,2006 Brailcom, o.p.s.
+ * Copyright (C) 2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * This is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
