@@ -33,6 +33,7 @@ int spd_audio_play(AudioID * id, AudioTrack track, AudioFormat format);
 
 int spd_audio_begin(AudioID * id, AudioTrack track, AudioFormat format);
 int spd_audio_feed_sync(AudioID * id, AudioTrack track, AudioFormat format);
+int spd_audio_feed_sync_overlap(AudioID * id, AudioTrack track, AudioFormat format);
 int spd_audio_end(AudioID * id);
 
 int spd_audio_stop(AudioID * id);
