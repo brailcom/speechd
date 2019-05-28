@@ -35,6 +35,7 @@
 #include <glib.h>
 
 #include <alsa/asoundlib.h>
+#include <alsa/pcm.h>
 
 #define SPD_AUDIO_PLUGIN_ENTRY spd_alsa_LTX_spd_audio_plugin_get
 #include <spd_audio_plugin.h>
@@ -47,6 +48,7 @@ typedef struct {
 	snd_pcm_uframes_t alsa_buffer_size;
 	pthread_mutex_t alsa_pcm_mutex;	/* mutex to guard the state of the device */
 	pthread_mutex_t alsa_pipe_mutex;	/* mutex to guard the stop pipes */
+	pthread_cond_t alsa_pipe_cond;	/* mutex to guard the stop pipes */
 	int alsa_stop_pipe[2];	/* Pipe for communication about stop requests */
 	int stop_requested;	/* Whether we want to stop */
 	int alsa_fd_count;	/* Counter of descriptors to poll */
@@ -264,6 +266,7 @@ static AudioID *alsa_open(void **pars)
 	alsa_id = (spd_alsa_id_t *) g_malloc(sizeof(spd_alsa_id_t));
 
 	pthread_mutex_init(&alsa_id->alsa_pipe_mutex, NULL);
+	pthread_cond_init(&alsa_id->alsa_pipe_cond, NULL);
 
 	alsa_id->alsa_opened = 0;
 
@@ -330,7 +333,6 @@ int wait_for_poll(spd_alsa_id_t * id, struct pollfd *alsa_poll_fds,
 		if (0 != revents) {
 			if (revents & POLLIN) {
 				MSG(4, "wait_for_poll: stop requested");
-				id->stop_requested = 1;
 				return 1;
 			}
 		}
@@ -766,12 +768,55 @@ static int alsa_drain_left(AudioID * id, snd_pcm_uframes_t left)
 		}
 	}
 
-	/* Pulseaudio buffers more than advertised... Make sure to drain it
-	   (even if setting avail_min above should have made us to wait for the
-	   drain) so people do have audio output, even if they won't be able to
-	   interrupt it :/ */
-	if (left == 0)
-		snd_pcm_drain(alsa_id->alsa_pcm);
+	/* When ALSA is going through Pulseaudio, wait_for_poll returns too
+	   early because the file descriptor is always availble for writing
+	   :/ */
+	while (!alsa_id->stop_requested)
+	{
+		snd_pcm_sframes_t frames;
+		snd_pcm_state_t state;
+		struct timeval tv;
+		struct timespec ts;
+
+		/* Poll server */
+		frames = snd_pcm_avail(alsa_id->alsa_pcm);
+		if (frames < 0) {
+			MSG(4, "Drain: Buffer clear");
+			break;
+		}
+
+		MSG(5, "Drain: %d frames left in buffer",
+			alsa_id->alsa_buffer_size - frames);
+		if (alsa_id->alsa_buffer_size - frames <= left) {
+			MSG(4, "Drain: Buffer clear enough");
+			break;
+		}
+
+		state = snd_pcm_state(alsa_id->alsa_pcm);
+		if (err != 0) {
+			MSG(4, "Drain: Status error %d", err);
+			break;
+		}
+		if (state == SND_PCM_STATE_XRUN) {
+			MSG(4, "Drain: Playback terminated");
+			break;
+		}
+
+		/* Poll every 10ms */
+		gettimeofday(&tv, NULL);
+		ts.tv_sec = tv.tv_sec;
+		ts.tv_nsec = tv.tv_usec * 1000 + 10000000;
+		if (ts.tv_nsec >= 1000000000) {
+			ts.tv_sec += 1;
+			ts.tv_nsec -= 1000000000;
+		}
+
+		pthread_mutex_lock(&alsa_id->alsa_pipe_mutex);
+		if (!alsa_id->stop_requested)
+			pthread_cond_timedwait(&alsa_id->alsa_pipe_cond,
+					       &alsa_id->alsa_pipe_mutex, &ts);
+		pthread_mutex_unlock(&alsa_id->alsa_pipe_mutex);
+	}
 
 	MSG(4, "Draining terminated");
 
@@ -921,6 +966,8 @@ static int alsa_stop(AudioID * id)
 
 	pthread_mutex_lock(&alsa_id->alsa_pipe_mutex);
 	if (alsa_id->alsa_opened) {
+		alsa_id->stop_requested = 1;
+
 		/* This constant is arbitrary */
 		buf = 42;
 
@@ -929,6 +976,7 @@ static int alsa_stop(AudioID * id)
 			ERR("Can't write stop request to pipe, err %d: %s",
 			    errno, strerror(errno));
 		}
+		pthread_cond_broadcast(&alsa_id->alsa_pipe_cond);
 	}
 	pthread_mutex_unlock(&alsa_id->alsa_pipe_mutex);
 
