@@ -764,6 +764,14 @@ static int alsa_drain_left(AudioID * id, snd_pcm_uframes_t left)
 			return -1;
 		}
 	}
+
+	/* Pulseaudio buffers more than advertised... Make sure to drain it
+	   (even if setting avail_min above should have made us to wait for the
+	   drain) so people do have audio output, even if they won't be able to
+	   interrupt it :/ */
+	if (left == 0)
+		snd_pcm_drain(alsa_id->alsa_pcm);
+
 	MSG(4, "Draining terminated");
 
 	return 0;
