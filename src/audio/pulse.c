@@ -11,7 +11,7 @@
  * Copyright 2010 Christopher Brannon <cmbrannon79@gmail.com>
  * Copyright 2010-2011 William Hubbs <w.d.hubbs@gmail.com>
  * Copyright 2015 Jeremy Whiting <jpwhiting@kde.org>
- * Copyright 2018 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * Copied from Luke Yelavich's libao.c driver, and merged with code from
  * Marco's ao_pulse.c driver, by Bill Cox, Dec 21, 2009.
@@ -274,7 +274,7 @@ static int pulse_play(AudioID * id, AudioTrack track)
 			MSG(4, "ERROR: Audio: pulse_play(): %s - closing device - re-open it in next run\n", pa_strerror(error));
 			break;
 		} else {
-			MSG(4, "Pulse: wrote %u bytes\n", i);
+			MSG(5, "Pulse: wrote %u bytes\n", i);
 		}
 		outcnt += i;
 	}
