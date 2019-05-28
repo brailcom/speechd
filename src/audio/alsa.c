@@ -702,10 +702,7 @@ static int alsa_feed(AudioID * id, AudioTrack track)
 			}
 
 			/* Terminating (successfully or after a stop) */
-			if (track_volume.samples != NULL)
-				g_free(track_volume.samples);
-
-			return 0;
+			goto terminate;
 		}
 
 		if (num_bytes <= 0)
@@ -715,8 +712,11 @@ static int alsa_feed(AudioID * id, AudioTrack track)
 		/* Stop requests can be issued again */
 	}
 
+terminate:
 	if (track_volume.samples != NULL)
 		g_free(track_volume.samples);
+
+	return 0;
 }
 
 /* Drain ALSA playback until only `left' samples are left in the buffer */
