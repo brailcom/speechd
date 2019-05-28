@@ -389,6 +389,7 @@ static int alsa_begin(AudioID * id, AudioTrack track)
 	int err;
 	int ret;
 
+	snd_pcm_uframes_t period_size;
 	unsigned int sr;
 
 	snd_pcm_state_t state;
@@ -572,6 +573,11 @@ static int alsa_begin(AudioID * id, AudioTrack track)
 	   return err;
 	   } */
 
+	/* Get period size. */
+	snd_pcm_hw_params_get_period_size(alsa_id->alsa_hw_params, &period_size,
+	                                  0);
+	MSG(4, "Period size on ALSA device is %lu bytes", (unsigned long) period_size);
+
 	MSG(4, "Preparing device for playback");
 	if ((err = snd_pcm_prepare(alsa_id->alsa_pcm)) < 0) {
 		ERR("Cannot prepare audio interface for playback (%s)",
@@ -620,7 +626,7 @@ static int alsa_feed_sync(AudioID * id, AudioTrack track)
 	/* Loop until all samples are played on the device. */
 	output_samples = track_volume.samples;
 	num_bytes = volume_size;
-	//    MSG("Still %d bytes left to be played", num_bytes);
+	MSG(4, "%d bytes to be played", num_bytes);
 	while (num_bytes > 0) {
 
 		/* Write as much samples as possible */
