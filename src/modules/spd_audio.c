@@ -177,11 +177,31 @@ int spd_audio_begin(AudioID * id, AudioTrack track, AudioFormat format)
 	return id->function->begin(id, track);
 }
 
+/* Perform byte-swapping if needed */
+static void spd_audio_convert(AudioID * id, AudioTrack track, AudioFormat format)
+{
+	/* Only perform byte swapping if the driver in use has given us audio in
+	   an endian format other than what the running CPU supports. */
+	if (format != id->format && track.bits == 16) {
+		unsigned char *out_ptr, *out_end, c;
+		out_ptr = (unsigned char *)track.samples;
+		out_end =
+		    out_ptr +
+		    track.num_samples * 2 * track.num_channels;
+		while (out_ptr < out_end) {
+			c = out_ptr[0];
+			out_ptr[0] = out_ptr[1];
+			out_ptr[1] = c;
+			out_ptr += 2;
+		}
+	}
+}
+
 /* Feed a track to the audio device (blocking).
 
    This can be called several times to feed more audio samples with the same
    configuration, but since this version is blocking, the audio card will
-   underrun. Using spd_audio_feed_async is thus preferred in that case.
+   underrun. Using spd_audio_feed_overlap is thus preferred in that case.
 
    Arguments:
    id -- the AudioID* of the device returned by spd_audio_open
@@ -206,20 +226,53 @@ int spd_audio_feed_sync(AudioID * id, AudioTrack track, AudioFormat format)
 		return -1;
 	}
 
-	/* Only perform byte swapping if the driver in use has given us audio in
-	   an endian format other than what the running CPU supports. */
-	if (format != id->format && track.bits == 16) {
-		unsigned char *out_ptr, *out_end, c;
-		out_ptr = (unsigned char *)track.samples;
-		out_end =
-		    out_ptr +
-		    track.num_samples * 2 * track.num_channels;
-		while (out_ptr < out_end) {
-			c = out_ptr[0];
-			out_ptr[0] = out_ptr[1];
-			out_ptr[1] = c;
-			out_ptr += 2;
-		}
+	spd_audio_convert(id, track, format);
+
+	if (id->function->feed_sync) {
+		return id->function->feed_sync(id, track);
+	}
+
+	if (id->function->play) {
+		return id->function->play(id, track);
+	}
+
+	fprintf(stderr,"Play not supported on this device\n");
+	return -1;
+}
+
+/* Feed a track to the audio device (blocking, with overlapping).
+
+   This can be called several times to feed more audio samples with the same
+   configuration, this version is blocking, but with some overlap, so that it
+   can be called within the overlapping period without audio card overrun.
+
+   Arguments:
+   id -- the AudioID* of the device returned by spd_audio_open
+   track -- a track to play (see spd_audio.h)
+
+   Return value:
+   0 if everything is ok, a non-zero value in case of failure.
+   See the particular backend documentation or source for the
+   meaning of these non-zero values.
+
+   Comment:
+   spd_audio_feed() is a blocking function. It returns exactly
+   when the given piece of track stopped playing. However, it's possible
+   to safely interrupt it using spd_audio_stop() described below.
+   (spd_audio_stop() needs to be called from another thread, obviously.)
+
+*/
+int spd_audio_feed_sync_overlap(AudioID * id, AudioTrack track, AudioFormat format)
+{
+	if (!id) {
+		fprintf(stderr, "No audio open\n");
+		return -1;
+	}
+
+	spd_audio_convert(id, track, format);
+
+	if (id->function->feed_sync_overlap) {
+		return id->function->feed_sync_overlap(id, track);
 	}
 
 	if (id->function->feed_sync) {

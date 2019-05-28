@@ -47,6 +47,7 @@ typedef struct {
 	pthread_mutex_t alsa_pcm_mutex;	/* mutex to guard the state of the device */
 	pthread_mutex_t alsa_pipe_mutex;	/* mutex to guard the stop pipes */
 	int alsa_stop_pipe[2];	/* Pipe for communication about stop requests */
+	int stop_requested;	/* Whether we want to stop */
 	int alsa_fd_count;	/* Counter of descriptors to poll */
 	struct pollfd *alsa_poll_fds;	/* Descriptors to poll */
 	int alsa_opened;	/* 1 between snd_pcm_open and _close, 0 otherwise */
@@ -84,7 +85,7 @@ static int wait_for_poll(spd_alsa_id_t * id, struct pollfd *alsa_poll_fds,
 		tstr = g_strdup(ctime(&t)); \
 		tstr[strlen(tstr)-1] = 0; \
 		gettimeofday(&tv,NULL); \
-		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
+		fprintf(stderr," %s [%d.%06d]",tstr, (int)tv.tv_sec % 10, (int) tv.tv_usec); \
 		fprintf(stderr," ALSA: "); \
 		fprintf(stderr,arg); \
 		fprintf(stderr,"\n"); \
@@ -328,6 +329,7 @@ int wait_for_poll(spd_alsa_id_t * id, struct pollfd *alsa_poll_fds,
 		if (0 != revents) {
 			if (revents & POLLIN) {
 				MSG(4, "wait_for_poll: stop requested");
+				id->stop_requested = 1;
 				return 1;
 			}
 		}
@@ -368,7 +370,7 @@ int wait_for_poll(spd_alsa_id_t * id, struct pollfd *alsa_poll_fds,
 
 		/* Is ALSA ready for more input? */
 		if ((revents & POLLOUT)) {
-			// MSG("Poll: Ready for more input");
+			MSG(5, "Poll: Ready for more input");
 			return 0;
 		}
 	}
@@ -381,6 +383,8 @@ int wait_for_poll(spd_alsa_id_t * id, struct pollfd *alsa_poll_fds,
 	return -1; \
 } while (0)
 
+/* Configure ALSA playback for the given configuration of track
+   But do not play anything yet */
 static int alsa_begin(AudioID * id, AudioTrack track)
 {
 	snd_pcm_format_t format;
@@ -436,6 +440,7 @@ static int alsa_begin(AudioID * id, AudioTrack track)
 		pthread_mutex_unlock(&alsa_id->alsa_pipe_mutex);
 		return -1;
 	}
+	alsa_id->stop_requested = 0;
 
 	/* Find how many descriptors we will get for poll() */
 	alsa_id->alsa_fd_count =
@@ -562,7 +567,7 @@ static int alsa_begin(AudioID * id, AudioTrack track)
 		    snd_strerror(err));
 		return -1;
 	}
-	MSG(4, "Buffer size on ALSA device is %d bytes",
+	MSG(4, "Buffer size on ALSA device is %d frames",
 	    (int)alsa_id->alsa_buffer_size);
 
 	/* This is probably better left for the device driver to decide */
@@ -576,7 +581,7 @@ static int alsa_begin(AudioID * id, AudioTrack track)
 	/* Get period size. */
 	snd_pcm_hw_params_get_period_size(alsa_id->alsa_hw_params, &period_size,
 	                                  0);
-	MSG(4, "Period size on ALSA device is %lu bytes", (unsigned long) period_size);
+	MSG(4, "Period size on ALSA device is %lu frames", (unsigned long) period_size);
 
 	MSG(4, "Preparing device for playback");
 	if ((err = snd_pcm_prepare(alsa_id->alsa_pcm)) < 0) {
@@ -589,7 +594,8 @@ static int alsa_begin(AudioID * id, AudioTrack track)
 	return 0;
 }
 
-static int alsa_feed_sync(AudioID * id, AudioTrack track)
+/* Push audio track to ALSA playback */
+static int alsa_feed(AudioID * id, AudioTrack track)
 {
 	int bytes_per_sample;
 	int num_bytes;
@@ -641,7 +647,7 @@ static int alsa_feed_sync(AudioID * id, AudioTrack track)
 		ret =
 		    snd_pcm_writei(alsa_id->alsa_pcm, output_samples,
 				   framecount);
-		//	MSG(4, "Sent %d of %d remaining bytes", ret*bytes_per_sample*track.num_channels, num_bytes);
+		MSG(5, "Sent %d of %d remaining bytes", ret*bytes_per_sample*track.num_channels, num_bytes);
 
 		if (ret == -EAGAIN) {
 			MSG(4, "Warning: Forced wait!");
@@ -695,7 +701,11 @@ static int alsa_feed_sync(AudioID * id, AudioTrack track)
 				return -1;
 			}
 
-			goto terminate;
+			/* Terminating (successfully or after a stop) */
+			if (track_volume.samples != NULL)
+				g_free(track_volume.samples);
+
+			return 0;
 		}
 
 		if (num_bytes <= 0)
@@ -705,14 +715,25 @@ static int alsa_feed_sync(AudioID * id, AudioTrack track)
 		/* Stop requests can be issued again */
 	}
 
-	MSG(4, "Draining...");
+	if (track_volume.samples != NULL)
+		g_free(track_volume.samples);
+}
 
-	/* We want to next "device ready" notification only after the buffer is
-	   already empty */
+/* Drain ALSA playback until only `left' samples are left in the buffer */
+static int alsa_drain_left(AudioID * id, snd_pcm_uframes_t left)
+{
+	spd_alsa_id_t *alsa_id = (spd_alsa_id_t *) id;
+
+	int err;
+
+	MSG(4, "Draining until %lu frames left...", (unsigned long) left);
+
+	/* We want to get next "device ready" notification only after the buffer
+	   is already empty */
 	err =
 	    snd_pcm_sw_params_set_avail_min(alsa_id->alsa_pcm,
 					    alsa_id->alsa_sw_params,
-					    alsa_id->alsa_buffer_size);
+					    alsa_id->alsa_buffer_size - left);
 	if (err < 0) {
 		ERR("Unable to set avail min for playback: %s\n",
 		    snd_strerror(err));
@@ -745,18 +766,84 @@ static int alsa_feed_sync(AudioID * id, AudioTrack track)
 	}
 	MSG(4, "Draining terminated");
 
-terminate:
-	/* Terminating (successfully or after a stop) */
-	if (track_volume.samples != NULL)
-		g_free(track_volume.samples);
-
 	return 0;
+}
+
+/* Drain until the amount of samples left in the buffer is big enough to make
+   sure we will have time to push the rest of the audio */
+static int alsa_drain_overlap(AudioID * id, AudioTrack track)
+{
+	/* We typically want 20ms overlap: usually about a period size, and
+	   small enough to be unnoticeable */
+	unsigned min_ms = 20;
+
+	spd_alsa_id_t *alsa_id = (spd_alsa_id_t *) id;
+	snd_pcm_uframes_t min;
+	snd_pcm_uframes_t period_size;
+	snd_pcm_uframes_t min2;
+	snd_pcm_uframes_t left;
+
+	min = (min_ms * track.sample_rate) / 1000;
+
+	/* Get period size. */
+	snd_pcm_hw_params_get_period_size(alsa_id->alsa_hw_params, &period_size,
+	                                  0);
+
+	/* Round minimum to period size */
+	if (period_size >= min)
+		min2 = period_size;
+	else
+		min2 = (min + period_size - 1) / period_size;
+
+	/* Usually the buffer size will be far enough */
+	if (alsa_id->alsa_buffer_size >= min2)
+		left = min2;
+	else
+		/* That's very odd. Just wait for some room to be available */
+		left = alsa_id->alsa_buffer_size - 1;
+
+	MSG(4, "Draining with at least %ums left, i.e. %lu frames, with period %lu frames, thus %lu frames, i.e. %lu left of %lu",
+		min_ms, (unsigned long) min, (unsigned long) period_size,
+		(unsigned long) min2, (unsigned long) left, (unsigned long)
+		alsa_id->alsa_buffer_size);
+
+	return alsa_drain_left(id, left);
+}
+
+static int alsa_drain(AudioID * id)
+{
+	return alsa_drain_left(id, 0);
+}
+
+static int alsa_feed_sync(AudioID * id, AudioTrack track)
+{
+	int ret;
+
+	ret = alsa_feed(id, track);
+	if (ret)
+		return ret;
+
+	return alsa_drain(id);
+}
+
+static int alsa_feed_sync_overlap(AudioID * id, AudioTrack track)
+{
+	int ret;
+
+	ret = alsa_feed(id, track);
+	if (ret)
+		return ret;
+
+	return alsa_drain_overlap(id, track);
 }
 
 static int alsa_end(AudioID * id)
 {
 	spd_alsa_id_t *alsa_id = (spd_alsa_id_t *) id;
 	int err;
+
+	if (!alsa_id->stop_requested)
+		alsa_drain(id);
 
 	err = snd_pcm_drop(alsa_id->alsa_pcm);
 	if (err < 0) {
@@ -874,6 +961,7 @@ static spd_audio_plugin_t alsa_functions = {
 	alsa_get_playcmd,
 	alsa_begin,
 	alsa_feed_sync,
+	alsa_feed_sync_overlap,
 	alsa_end,
 };
 
