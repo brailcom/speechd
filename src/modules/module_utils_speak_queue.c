@@ -383,7 +383,7 @@ static void *speak_queue_play(void *nothing)
 	while (!speak_queue_close_requested) {
 		speak_queue_play_sleeping = 1;
 		pthread_cond_signal(&speak_queue_play_sleeping_cond);
-		while (speak_queue_state < BEFORE_PLAY) {
+		while (speak_queue_state < BEFORE_PLAY && !speak_queue_close_requested) {
 			pthread_cond_wait(&speak_queue_play_cond, &speak_queue_mutex);
 		}
 		speak_queue_play_sleeping = 0;
@@ -516,6 +516,7 @@ void module_speak_queue_pause(void)
 
 void module_speak_queue_terminate(void)
 {
+	pthread_mutex_lock(&speak_queue_mutex);
 	speak_queue_stop_requested = TRUE;
 	speak_queue_close_requested = TRUE;
 
@@ -523,12 +524,7 @@ void module_speak_queue_terminate(void)
 
 	pthread_cond_signal(&speak_queue_play_cond);
 	pthread_cond_signal(&speak_queue_stop_or_pause_cond);
-	/* Give threads a chance to quit on their own terms. */
-	g_usleep(25000);
-
-	/* Make sure threads have really exited */
-	pthread_cancel(speak_queue_play_thread);
-	pthread_cancel(speak_queue_stop_or_pause_thread);
+	pthread_mutex_unlock(&speak_queue_mutex);
 
 	DBG(DBG_MODNAME " Joining play thread.");
 	pthread_join(speak_queue_play_thread, NULL);
