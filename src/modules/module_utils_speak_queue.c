@@ -574,9 +574,7 @@ static void *speak_queue_stop_or_pause(void *nothing)
 		DBG(DBG_MODNAME " Stop or pause.");
 		if (speak_queue_close_requested)
 			break;
-		pthread_mutex_unlock(&speak_queue_mutex);
 
-		pthread_mutex_lock(&speak_queue_mutex);
 		pthread_cond_signal(&playback_queue_data_condition);
 		pthread_cond_broadcast(&playback_queue_room_condition);
 		pthread_mutex_unlock(&speak_queue_mutex);
