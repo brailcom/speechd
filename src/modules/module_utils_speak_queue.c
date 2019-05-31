@@ -247,14 +247,16 @@ gboolean
 module_speak_queue_add_audio(AudioTrack *track, AudioFormat format)
 {
 	pthread_mutex_lock(&speak_queue_mutex);
-	while (speak_queue_state != IDLE
-	       && !speak_queue_stop_requested
-	       && playback_queue_size > speak_queue_maxsize) {
+	while (playback_queue_size > speak_queue_maxsize) {
+		if (speak_queue_state == IDLE || speak_queue_stop_requested) {
+			pthread_mutex_unlock(&speak_queue_mutex);
+			return FALSE;
+		}
 		pthread_cond_wait(&playback_queue_room_condition,
 				  &speak_queue_mutex);
 	}
-	pthread_mutex_unlock(&speak_queue_mutex);
 	if (speak_queue_state == IDLE || speak_queue_stop_requested) {
+		pthread_mutex_unlock(&speak_queue_mutex);
 		return FALSE;
 	}
 
@@ -267,7 +269,6 @@ module_speak_queue_add_audio(AudioTrack *track, AudioFormat format)
 	playback_queue_entry->data.audio.track.samples = g_memdup(track->samples, nbytes);
 	playback_queue_entry->data.audio.format = format;
 
-	pthread_mutex_lock(&speak_queue_mutex);
 	playback_queue_push(playback_queue_entry);
 	pthread_mutex_unlock(&speak_queue_mutex);
 	return TRUE;
