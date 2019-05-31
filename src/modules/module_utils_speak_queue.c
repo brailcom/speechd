@@ -98,8 +98,12 @@ typedef struct {
 
 static GSList *playback_queue = NULL;
 static int playback_queue_size = 0;	/* Number of audio frames currently in queue */
-/* Use to wait for queue size availability */
-static pthread_cond_t playback_queue_condition;
+
+/* Use to wait for queue room availability. Theoretically several threads might
+ * be wanting to push, so use broadcast. */
+static pthread_cond_t playback_queue_room_condition;
+/* Use to wait for queue data availability */
+static pthread_cond_t playback_queue_data_condition;
 
 /* Internal function prototypes for playback thread. */
 static gboolean speak_queue_add_flag_to_playback_queue(speak_queue_entry_type type);
@@ -128,7 +132,8 @@ int module_speak_queue_init(int maxsize, char **status_info)
 	/* This mutex mediates all accesses */
 	pthread_mutex_init(&speak_queue_mutex, NULL);
 
-	pthread_cond_init(&playback_queue_condition, NULL);
+	pthread_cond_init(&playback_queue_room_condition, NULL);
+	pthread_cond_init(&playback_queue_data_condition, NULL);
 
 	DBG(DBG_MODNAME " Creating new thread for stop or pause.");
 	pthread_cond_init(&speak_queue_stop_or_pause_cond, NULL);
@@ -210,7 +215,7 @@ static speak_queue_entry *playback_queue_pop()
 	speak_queue_entry *result = NULL;
 	pthread_mutex_lock(&speak_queue_mutex);
 	while (!speak_queue_stop_requested && playback_queue == NULL) {
-		pthread_cond_wait(&playback_queue_condition,
+		pthread_cond_wait(&playback_queue_data_condition,
 				  &speak_queue_mutex);
 	}
 	if (!speak_queue_stop_requested) {
@@ -219,7 +224,7 @@ static speak_queue_entry *playback_queue_pop()
 		    g_slist_remove(playback_queue, playback_queue->data);
 		if (result->type == SPEAK_QUEUE_QET_AUDIO) {
 			playback_queue_size -= result->data.audio.track.num_samples;
-			pthread_cond_signal(&playback_queue_condition);
+			pthread_cond_broadcast(&playback_queue_room_condition);
 		}
 	}
 	pthread_mutex_unlock(&speak_queue_mutex);
@@ -232,7 +237,7 @@ static gboolean playback_queue_push(speak_queue_entry * entry)
 	if (entry->type == SPEAK_QUEUE_QET_AUDIO) {
 		playback_queue_size += entry->data.audio.track.num_samples;
 	}
-	pthread_cond_signal(&playback_queue_condition);
+	pthread_cond_signal(&playback_queue_data_condition);
 	return TRUE;
 }
 
@@ -245,7 +250,7 @@ module_speak_queue_add_audio(AudioTrack *track, AudioFormat format)
 	while (speak_queue_state != IDLE
 	       && !speak_queue_stop_requested
 	       && playback_queue_size > speak_queue_maxsize) {
-		pthread_cond_wait(&playback_queue_condition,
+		pthread_cond_wait(&playback_queue_room_condition,
 				  &speak_queue_mutex);
 	}
 	pthread_mutex_unlock(&speak_queue_mutex);
@@ -340,7 +345,7 @@ static void speak_queue_clear_playback_queue()
 	}
 	playback_queue = NULL;
 	playback_queue_size = 0;
-	pthread_cond_broadcast(&playback_queue_condition);
+	pthread_cond_broadcast(&playback_queue_room_condition);
 	pthread_mutex_unlock(&speak_queue_mutex);
 }
 
@@ -520,7 +525,8 @@ void module_speak_queue_terminate(void)
 	speak_queue_stop_requested = TRUE;
 	speak_queue_close_requested = TRUE;
 
-	pthread_cond_broadcast(&playback_queue_condition);
+	pthread_cond_broadcast(&playback_queue_room_condition);
+	pthread_cond_signal(&playback_queue_data_condition);
 
 	pthread_cond_signal(&speak_queue_play_cond);
 	pthread_cond_signal(&speak_queue_stop_or_pause_cond);
@@ -538,7 +544,8 @@ void module_speak_queue_free(void)
 	speak_queue_clear_playback_queue();
 
 	pthread_mutex_destroy(&speak_queue_mutex);
-	pthread_cond_destroy(&playback_queue_condition);
+	pthread_cond_destroy(&playback_queue_room_condition);
+	pthread_cond_destroy(&playback_queue_data_condition);
 	pthread_cond_destroy(&speak_queue_play_cond);
 	pthread_cond_destroy(&speak_queue_play_sleeping_cond);
 	pthread_cond_destroy(&speak_queue_stop_or_pause_cond);
@@ -570,7 +577,8 @@ static void *speak_queue_stop_or_pause(void *nothing)
 		pthread_mutex_unlock(&speak_queue_mutex);
 
 		pthread_mutex_lock(&speak_queue_mutex);
-		pthread_cond_broadcast(&playback_queue_condition);
+		pthread_cond_signal(&playback_queue_data_condition);
+		pthread_cond_broadcast(&playback_queue_room_condition);
 		pthread_mutex_unlock(&speak_queue_mutex);
 
 		if (module_audio_id) {
