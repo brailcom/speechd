@@ -52,10 +52,15 @@ static gboolean speak_queue_configured = FALSE; /* Whether we have configured au
 static pthread_t speak_queue_play_thread;
 static pthread_t speak_queue_stop_or_pause_thread;
 
+/* Used to wake the stop_or_pause thread from main */
 static pthread_cond_t speak_queue_stop_or_pause_cond;
+
 static pthread_cond_t speak_queue_stop_or_pause_sleeping_cond;
 static int speak_queue_stop_or_pause_sleeping;
+
+/* Used to wake the play thread from main */
 static pthread_cond_t speak_queue_play_cond;
+/* Used to wait for the play thread to go sleeping */
 static pthread_cond_t speak_queue_play_sleeping_cond;
 static int speak_queue_play_sleeping;
 
@@ -93,7 +98,8 @@ typedef struct {
 
 static GSList *playback_queue = NULL;
 static int playback_queue_size = 0;	/* Number of audio frames currently in queue */
-pthread_cond_t playback_queue_condition;
+/* Use to wait for queue size availability */
+static pthread_cond_t playback_queue_condition;
 
 /* Internal function prototypes for playback thread. */
 static gboolean speak_queue_add_flag_to_playback_queue(speak_queue_entry_type type);
