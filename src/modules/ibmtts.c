@@ -311,68 +311,50 @@ MOD_OPTION_3_STR_HT_DLL(IbmttsKeySubstitution, lang, key, newkey);
 typedef struct _eciLocale {
 	char *name;
 	char *lang;
-	char *dialect;
+	char *variant;
 	enum ECILanguageDialect langID;
 	char *charset;
 } eciLocale, *eciLocaleList;
 
 static eciLocale eciLocales[] = {
-	{
-	 "American_English", "en", "US", eciGeneralAmericanEnglish,
-	 "ISO-8859-1"},
-	{"British_English", "en", "GB", eciBritishEnglish, "ISO-8859-1"},
-	{"Castilian_Spanish", "es", "ES", eciCastilianSpanish, "ISO-8859-1"},
-	{"Mexican_Spanish", "es", "MX", eciMexicanSpanish, "ISO-8859-1"},
-	{"French", "fr", "FR", eciStandardFrench, "ISO-8859-1"},
-	{"Canadian_French", "ca", "FR", eciCanadianFrench, "ISO-8859-1"},
-	{"German", "de", "DE", eciStandardGerman, "ISO-8859-1"},
-	{"Italian", "it", "IT", eciStandardItalian, "ISO-8859-1"},
-	{"Mandarin_Chinese", "zh", "CN", eciMandarinChinese, "GBK"},
-	{"Mandarin_Chinese GB", "zh", "CN_GB", eciMandarinChineseGB, "GBK"},
-	{
-	 "Mandarin_Chinese PinYin", "zh", "CN_PinYin", eciMandarinChinesePinYin,
-	 "GBK"},
-	{"Mandarin_Chinese UCS", "zh", "CN_UCS", eciMandarinChineseUCS, "UCS2"},
-	{"Taiwanese_Mandarin", "zh", "TW", eciTaiwaneseMandarin, "BIG5"},
-	{
-	 "Taiwanese_Mandarin Big 5", "zh", "TW_Big5", eciTaiwaneseMandarinBig5,
-	 "BIG5"},
-	{
-	 "Taiwanese_Mandarin ZhuYin", "zh", "TW_ZhuYin",
-	 eciTaiwaneseMandarinZhuYin, "BIG5"},
-	{
-	 "Taiwanese_Mandarin PinYin", "zh", "TW_PinYin",
-	 eciTaiwaneseMandarinPinYin, "BIG5"},
-	{
-	 "Taiwanese_Mandarin UCS", "zh", "TW_UCS", eciTaiwaneseMandarinUCS,
-	 "UCS2"},
-	{
-	 "Brazilian_Portuguese", "pt", "BR", eciBrazilianPortuguese,
-	 "ISO-8859-1"},
-	{"Japanese", "ja", "JP", eciStandardJapanese, "SJIS"},
-	{"Japanese_SJIS", "ja", "JP_SJIS", eciStandardJapaneseSJIS, "SJIS"},
-	{"Japanese_UCS", "ja", "JP_UCS", eciStandardJapaneseUCS, "UCS2"},
-	{"Finnish", "fi", "FI", eciStandardFinnish, "ISO-8859-1"},
-	{"Korean", "ko", "KR", eciStandardKorean, "UHC"},
-	{"Korean_UHC", "ko", "KR_UHC", eciStandardKoreanUHC, "UHC"},
-	{"Korean_UCS", "ko", "KR_UCS", eciStandardKoreanUCS, "UCS2"},
-	{"Cantonese", "zh", "HK", eciStandardCantonese, "GBK"},
-	{"Cantonese_GB", "zh", "HK_GB", eciStandardCantoneseGB, "GBK"},
-	{"Cantonese_UCS", "zh", "HK_UCS", eciStandardCantoneseUCS, "UCS2"},
-	{"HongKong_Cantonese", "zh", "HK", eciHongKongCantonese, "BIG5"},
-	{
-	 "HongKong_Cantonese Big 5", "zh", "HK_BIG5", eciHongKongCantoneseBig5,
-	 "BIG5"},
-	{
-	 "HongKong_Cantonese UCS", "zh", "HK_UCS", eciHongKongCantoneseUCS,
-	 "UCS-2"},
-	{"Dutch", "nl", "BE", eciStandardDutch, "ISO-8859-1"},
-	{"Norwegian", "no", "NO", eciStandardNorwegian, "ISO-8859-1"},
-	{"Swedish", "sv", "SE", eciStandardSwedish, "ISO-8859-1"},
-	{"Danish", "da", "DK", eciStandardDanish, "ISO-8859-1"},
-	{"Reserved", "en", "US", eciStandardReserved, "ISO-8859-1"},
-	{"Thai", "th", "TH", eciStandardThai, "TIS-620"},
-	{"ThaiTIS", "th", "TH_TIS", eciStandardThaiTIS, "TIS-620"},
+	{"American_English", "en-US", NULL, eciGeneralAmericanEnglish, "ISO-8859-1"},
+	{"British_English", "en-GB", NULL, eciBritishEnglish, "ISO-8859-1"},
+	{"Castilian_Spanish", "es-ES", NULL, eciCastilianSpanish, "ISO-8859-1"},
+	{"Mexican_Spanish", "es-MX", NULL, eciMexicanSpanish, "ISO-8859-1"},
+	{"French", "fr-FR", NULL, eciStandardFrench, "ISO-8859-1"},
+	{"Canadian_French", "fr-CA", NULL, eciCanadianFrench, "ISO-8859-1"},
+	{"German", "de-DE", NULL, eciStandardGerman, "ISO-8859-1"},
+	{"Italian", "it-IT", NULL, eciStandardItalian, "ISO-8859-1"},
+	{"Mandarin_Chinese", "zh-CN", NULL, eciMandarinChinese, "GBK"},
+	{"Mandarin_Chinese GB", "zh-CN", "GB", eciMandarinChineseGB, "GBK"},
+	{"Mandarin_Chinese PinYin", "zh-CN", "PinYin", eciMandarinChinesePinYin, "GBK"},
+	{"Mandarin_Chinese UCS", "zh-CN", "UCS2", eciMandarinChineseUCS, "UCS2"},
+	{"Taiwanese_Mandarin", "zh-TW", NULL, eciTaiwaneseMandarin, "BIG5"},
+	{"Taiwanese_Mandarin Big 5", "zh-TW", "Big5", eciTaiwaneseMandarinBig5, "BIG5"},
+	{"Taiwanese_Mandarin ZhuYin", "zh-TW", "ZhuYin", eciTaiwaneseMandarinZhuYin, "BIG5"},
+	{"Taiwanese_Mandarin PinYin", "zh-TW", "PinYin", eciTaiwaneseMandarinPinYin, "BIG5"},
+	{"Taiwanese_Mandarin UCS", "zh-TW", "UCS", eciTaiwaneseMandarinUCS, "UCS2"},
+	{"Brazilian_Portuguese", "pt-BR", NULL, eciBrazilianPortuguese, "ISO-8859-1"},
+	{"Japanese", "ja-JP", NULL, eciStandardJapanese, "SJIS"},
+	{"Japanese_SJIS", "ja-JP", "SJIS", eciStandardJapaneseSJIS, "SJIS"},
+	{"Japanese_UCS", "ja-JP", "UCS", eciStandardJapaneseUCS, "UCS2"},
+	{"Finnish", "fi-FI", NULL, eciStandardFinnish, "ISO-8859-1"},
+	{"Korean", "ko-KR", NULL, eciStandardKorean, "UHC"},
+	{"Korean_UHC", "ko-KR", "UHC", eciStandardKoreanUHC, "UHC"},
+	{"Korean_UCS", "ko-KR", "UCS", eciStandardKoreanUCS, "UCS2"},
+	{"Cantonese", "zh-HK", NULL, eciStandardCantonese, "GBK"},
+	{"Cantonese_GB", "zh-HK", "GB", eciStandardCantoneseGB, "GBK"},
+	{"Cantonese_UCS", "zh-HK", "UCS", eciStandardCantoneseUCS, "UCS2"},
+	{"HongKong_Cantonese", "zh-HK", NULL, eciHongKongCantonese, "BIG5"},
+	{"HongKong_Cantonese Big 5", "zh-HK", "BIG5", eciHongKongCantoneseBig5, "BIG5"},
+	{"HongKong_Cantonese UCS", "zh-HK", "UCS", eciHongKongCantoneseUCS, "UCS-2"},
+	{"Dutch", "nl-BE", NULL, eciStandardDutch, "ISO-8859-1"},
+	{"Norwegian", "no-NO", NULL, eciStandardNorwegian, "ISO-8859-1"},
+	{"Swedish", "sv-SE", NULL, eciStandardSwedish, "ISO-8859-1"},
+	{"Danish", "da-DK", NULL, eciStandardDanish, "ISO-8859-1"},
+	{"Reserved", "en-US", NULL, eciStandardReserved, "ISO-8859-1"},
+	{"Thai", "th-TH", NULL, eciStandardThai, "TIS-620"},
+	{"ThaiTIS", "th-TH", "TIS", eciStandardThaiTIS, "TIS-620"},
 	{NULL, 0, NULL}
 };
 
@@ -1354,7 +1336,7 @@ static void ibmtts_set_synthesis_voice(char *synthesis_voice)
 		if (!strcasecmp(eciLocales[i].name, synthesis_voice)) {
 			ibmtts_set_language_and_voice(eciLocales[i].lang,
 						      msg_settings.voice_type,
-						      eciLocales[i].dialect);
+						      eciLocales[i].variant);
 			break;
 		}
 	}
@@ -1745,7 +1727,7 @@ void alloc_voice_list()
 				ibmtts_voice_list[i]->language =
 				    eciLocales[j].lang;
 				ibmtts_voice_list[i]->variant =
-				    eciLocales[j].dialect;
+				    eciLocales[j].variant;
 				ibmtts_voice_index[i] = j;
 				DBG("Ibmtts: alloc_voice_list %s",
 				    ibmtts_voice_list[i]->name);
@@ -1786,8 +1768,7 @@ static void ibmtts_load_user_dictionary()
 	int dictionary_is_present = 0;
 	static guint old_index = MAX_NB_OF_LANGUAGES;
 	guint new_index;
-	const char *language = NULL;
-	const char *region = NULL;
+	char *language = NULL, *dash;
 	ECIDictHand eciDict = eciGetDict(eciHandle);
 
 	new_index = g_atomic_int_get(&locale_index_atomic);
@@ -1802,14 +1783,10 @@ static void ibmtts_load_user_dictionary()
 		return;
 	}
 
-	language = eciLocales[new_index].lang;
-	region = eciLocales[new_index].dialect;
-
-	/* Fix locale name for French Canadian */
-	if (!strcmp(language, "ca") && !strcmp(region, "FR")) {
-		language = "fr";
-		region = "CA";
-	}
+	language = g_strdup(eciLocales[new_index].lang);
+	dash = strchr(language, '-');
+	if (dash)
+		*dash = '_';
 
 	if (eciDict) {
 		DBG("Ibmtts: delete old dictionary");
@@ -1821,25 +1798,27 @@ static void ibmtts_load_user_dictionary()
 	} else {
 		old_index = MAX_NB_OF_LANGUAGES;
 		DBG("Ibmtts: can't create new dictionary");
+		g_free(language);
 		return;
 	}
 
 	/* Look for the dictionary directory */
 	dirname = g_string_new(NULL);
-	g_string_printf(dirname, "%s/%s_%s", IbmttsDictionaryFolder, language,
-			region);
-	if (!g_file_test(dirname->str, G_FILE_TEST_IS_DIR)) {
-		g_string_printf(dirname, "%s/%s", IbmttsDictionaryFolder,
-				language);
+	g_string_printf(dirname, "%s/%s", IbmttsDictionaryFolder, language);
+	if (!g_file_test(dirname->str, G_FILE_TEST_IS_DIR) && dash) {
+		*dash = 0;
+		g_string_printf(dirname, "%s/%s", IbmttsDictionaryFolder, language);
 		if (!g_file_test(dirname->str, G_FILE_TEST_IS_DIR)) {
 			g_string_printf(dirname, "%s", IbmttsDictionaryFolder);
 			if (!g_file_test(dirname->str, G_FILE_TEST_IS_DIR)) {
 				DBG("Ibmtts: %s is not a directory",
 				    dirname->str);
+				g_free(language);
 				return;
 			}
 		}
 	}
+	g_free(language);
 
 	DBG("Ibmtts: Looking in dictionary directory %s", dirname->str);
 	filename = g_string_new(NULL);

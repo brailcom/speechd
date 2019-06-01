@@ -115,7 +115,6 @@ MOD_OPTION_1_STR(EspeakPunctuationList)
     MOD_OPTION_1_INT(EspeakMinRate)
     MOD_OPTION_1_INT(EspeakNormalRate)
     MOD_OPTION_1_INT(EspeakMaxRate)
-    MOD_OPTION_1_INT(EspeakListVoiceVariants)
     MOD_OPTION_1_INT(EspeakIndexing)
 
     MOD_OPTION_1_INT(EspeakAudioChunkSize)
@@ -144,7 +143,6 @@ int module_load(void)
 	MOD_OPTION_1_STR_REG(EspeakPunctuationList, "@/+-_");
 	MOD_OPTION_1_INT_REG(EspeakCapitalPitchRise, 800);
 	MOD_OPTION_1_INT_REG(EspeakIndexing, 1);
-	MOD_OPTION_1_INT_REG(EspeakListVoiceVariants, 0);
 	if (EspeakCapitalPitchRise == 1 || EspeakCapitalPitchRise == 2) {
 		EspeakCapitalPitchRise = 0;
 	}
@@ -708,9 +706,6 @@ static SPDVoice **espeak_list_synthesis_voices()
 	GList *voice_list_iter = NULL;
 	GList *variant_list_iter = NULL;
 	const gchar *first_lang = NULL;
-	gchar *lang = NULL;
-	gchar *variant = NULL;
-	gchar *dash = NULL;
 	gchar *vname = NULL;
 	int numvoices = 0;
 	int numvariants = 0;
@@ -729,27 +724,8 @@ static SPDVoice **espeak_list_synthesis_voices()
 			voice->name = g_strdup(v->name);
 
 			first_lang = v->languages + 1;
-			lang = NULL;
-			variant = NULL;
-			if (g_utf8_validate(first_lang, -1, NULL)) {
-				dash =
-				       g_utf8_strchr(first_lang, -1, '-');
-				if (dash != NULL) {
-					/* There is probably a variant string (like en-uk) */
-					lang =
-					    g_strndup(first_lang,
-						      dash - first_lang);
-					variant =
-					    g_strdup(g_utf8_next_char(dash));
-				} else {
-					lang = g_strdup(first_lang);
-				}
-			} else {
-				DBG(DBG_MODNAME " Not a valid utf8 string: %s",
-				    first_lang);;
-			}
-			voice->language = lang;
-			voice->variant = variant;
+			voice->language = g_strdup(first_lang);
+			voice->variant = NULL;
 
 			g_queue_push_tail(voice_list, voice);
 		}
@@ -764,19 +740,17 @@ static SPDVoice **espeak_list_synthesis_voices()
 	espeak_variants = espeak_ListVoices(variant_spec);
 	g_free(variant_spec);
 
-	if (EspeakListVoiceVariants) {
-		variant_list = g_queue_new();
+	variant_list = g_queue_new();
 
-		for (i = 0; espeak_variants[i] != NULL; i++) {
-			v = espeak_variants[i];
+	for (i = 0; espeak_variants[i] != NULL; i++) {
+		v = espeak_variants[i];
 
-			vname = g_strdup(v->name);
-			g_queue_push_tail(variant_list, vname);
-		}
-
-		numvariants = g_queue_get_length(variant_list);
-		DBG(DBG_MODNAME " %d variants total.", numvariants);
+		vname = g_strdup(v->name);
+		g_queue_push_tail(variant_list, vname);
 	}
+
+	numvariants = g_queue_get_length(variant_list);
+	DBG(DBG_MODNAME " %d variants total.", numvariants);
 
 	totalvoices = (numvoices * numvariants) + numvoices;
 	result = g_new0(SPDVoice *, totalvoices + 1);
@@ -785,7 +759,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 	for (i = 0; i < totalvoices; i++) {
 		result[i] = voice_list_iter->data;
 
-		if (variant_list && !g_queue_is_empty(variant_list)) {
+		if (!g_queue_is_empty(variant_list)) {
 			vo = voice_list_iter->data;
 			variant_list_iter = g_queue_peek_head_link(variant_list);
 

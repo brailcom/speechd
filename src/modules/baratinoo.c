@@ -592,7 +592,6 @@ static SPDVoice **baratinoo_list_voices(BCengine *engine)
     for (i = 0; i < n_voices; i++) {
 	SPDVoice *voice;
 	const char *language;
-	const char *dash;
 	BaratinooVoiceInfo voice_info_DO_NO_ACCESS_DIRECTLY = BCgetVoiceInfo(engine, i);
 	void *voice_info = &voice_info_DO_NO_ACCESS_DIRECTLY;
 
@@ -605,13 +604,7 @@ static SPDVoice **baratinoo_list_voices(BCengine *engine)
 	voice->name = g_strdup(VOICE_INFO_MEMBER(char *, voice_info, name));
 
 	language = VOICE_INFO_MEMBER(char *, voice_info, language);
-	dash = strchr(language, '-');
-	if (dash) {
-	    voice->language = g_strndup(language, dash - language);
-	    voice->variant = g_ascii_strdown(dash + 1, -1);
-	} else {
-	    voice->language = g_strdup(language);
-	}
+	voice->language = g_strdup(language);
 
 	voices[i] = voice;
     }
