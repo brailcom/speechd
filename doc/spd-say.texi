@@ -82,7 +82,8 @@ List the output modules that are available with the current server.
 @item -I or --sound-icon
 Play the sound icon.
 @item -l or --language
-Set the language. The parameter is an iso language code, like @code{en} or @code{cs}.
+Set the language. The parameter is an iso language code, like @code{en} or
+@code{cs}, possibly with a region qualification, like @code{en-US} or @code{en-GB}.
 Default see below.
 @item -t or --voice-type
 Set the preferred voice type (male1, male2, male3, female1, female2,
@@ -126,7 +127,7 @@ Defaults for rate, pitch, and volume are determined by @code{DefaultRate},
 Factory defaults are 0, 0, and 100 respectively.
 
 The default language code is determined by the @code{DefaultLanguage} setting in
-the @code{speechd.conf} file.  Factory default is @code{en} (English).
+the @code{speechd.conf} file.  Factory default is @code{en-US} (American English).
 
 The default output module is determined by the @code{LanguageDefaultModule}
 setting in the @code{speechd.conf} file.  Factory default is @code{flite}.

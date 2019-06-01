@@ -787,7 +787,8 @@ voices is done in the synthesizer itself.
 
 For each voice, there is exactly one @code{AddVoice} line.
 
-@var{language} is the ISO language code of the language of this voice.
+@var{language} is the ISO language code of the language of this voice, possibly
+with a region qualification.
 
 @var{symbolicname} is a symbolic name under which you wish this voice
 to be available. See @ref{Top,,Standard Voices, ssip, SSIP
@@ -910,7 +911,7 @@ given an @code{iso-code} language code.
 
 Another example from Epos generic:
 @example
-GenericLanguage "en" "english"
+GenericLanguage "en-US" "english-US"
 GenericLanguage "cs" "czech"
 GenericLanguage "sk" "slovak"
 @end example
@@ -1835,7 +1836,7 @@ Sets the language that should be used for synthesis.
 @code{connection} is the SPDConnection* connection created by spd_open().
 
 @code{language} is the language code as defined in RFC 1766 (``cs'',
-``en'', ...).
+``en'', ``en-US'', ...).
 
 @end deffn
 
@@ -2062,7 +2063,9 @@ by the synthesizer. You can subsequently set the desired voice with
 @example
 typedef struct@{
   char *name;   /* Name of the voice (id) */
-  char *language;  /* 2-letter ISO language code */
+  char *language;  /* 2/3-letter ISO language code,
+                    * possibly followed by 2/3-letter ISO region code,
+		    * e.g. en-US */
   char *variant;   /* a not-well defined string describing dialect etc. */
 @}SPDVoice;
 @end example
@@ -2325,7 +2328,7 @@ Simple Python client:
 import speechd
 client = speechd.SSIPClient('test')
 client.set_output_module('festival')
-client.set_language('en')
+client.set_language('en-US')
 client.set_punctuation(speechd.PunctuationMode.SOME)
 client.speak("Hello World!")
 client.close()
@@ -3153,7 +3156,7 @@ value that represents normal speech flow. So -100 is the slowest (or lowest)
 and +100 is the fastest (or highest) speech.
 
 The language parameter is given as a null-terminated string containing
-the name of the language according to RFC 1766 (en, cs, fr, ...). If the
+the name of the language according to RFC 1766 (en, cs, fr, en-US, ...). If the
 requested language is not supported by this synthesizer, it's ok to abort
 and return 0, because that's an error in user settings.
 

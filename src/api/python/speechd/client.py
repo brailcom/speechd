@@ -839,10 +839,10 @@ class SSIPClient(object):
     def list_synthesis_voices(self):
         """Return names of all available voices for the current output module.
 
-        Returns a tuple of tripplets (name, language, dialect).
+        Returns a tuple of tripplets (name, language, variant).
 
-        'name' is a string, 'language' is an ISO 639-1 Alpha-2 language code
-        and 'dialect' is a string.  Language and dialect may be None.
+        'name' is a string, 'language' is an ISO 639-1 Alpha-2/3 language code
+        and 'variant' is a string.  Language and variant may be None.
 
         """
         try:
@@ -850,19 +850,19 @@ class SSIPClient(object):
         except SSIPCommandError:
             return ()
         def split(item):
-            name, lang, dialect = tuple(item.rsplit('\t', 3))
-            return (name, lang or None, dialect or None)
+            name, lang, variant = tuple(item.rsplit('\t', 3))
+            return (name, lang or None, variant or None)
         return tuple([split(item) for item in data])
 
     def set_language(self, language, scope=Scope.SELF):
         """Switch to a particular language for further speech commands.
 
         Arguments:
-          language -- two letter language code according to RFC 1766 as string.
+          language -- two/three letter language code according to RFC 1766 as string, possibly with a region qualification.
           scope -- see the documentation of this class.
             
         """
-        assert isinstance(language, str) and len(language) == 2
+        assert isinstance(language, str)
         self._conn.send_command('SET', scope, 'LANGUAGE', language)
 
     def get_language(self):

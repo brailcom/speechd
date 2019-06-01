@@ -925,7 +925,7 @@ so this command may actually override a previous call to @code{SET VOICE} or
 
 The default for the Speech Dispatcher implementation of SSIP
 is determined by the @code{DefaultLanguage} setting in the
-@code{speechd.conf} file.  The factory default is @code{en} (English).
+@code{speechd.conf} file.  The factory default is @code{en-US} (American English).
 
 @item SET @{self@} SSML_MODE  @var{mode}
 Set the mode of the text received in the message body sent by the

@@ -316,7 +316,7 @@ static SPDVoice **output_get_voices(OutputModule * module)
 			break;
 		else if (lines[i][3] == '-') {
 			atoms = g_strsplit(&lines[i][4], "\t", 0);
-			// Name, language, dialect
+			// Name, language, variant
 			if ((atoms[0] == NULL) || (atoms[1] == NULL)
 			    || (atoms[2] == NULL)) {
 				errors = TRUE;

@@ -627,8 +627,8 @@ Do you want to keep it?"""), False)
              "mary-generic", "baratinoo"])
 
         self.default_language = question(
-            "Default language (two-letter iso language code like \"en\" or \"cs\")",
-            "en")
+            "Default language (two/three-letter iso language code like \"en\" or \"cs\", possibly with a region qualification.)",
+            "en-US")
 
         self.default_audio_method = question_with_suggested_answers(
             "Default audio output method",
