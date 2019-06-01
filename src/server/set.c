@@ -252,8 +252,20 @@ int set_language_uid(int uid, char *language)
 
 	/* Check if it is not desired to change output module */
 	output_module = g_hash_table_lookup(language_default_modules, language);
-	if (output_module != NULL)
+	if (output_module != NULL) {
 		set_output_module_uid(uid, output_module);
+	} else {
+		char *dash = strchr(language, '-');
+
+		if (dash) {
+			*dash = 0;
+
+			output_module = g_hash_table_lookup(language_default_modules, language);
+			if (output_module != NULL) {
+				set_output_module_uid(uid, output_module);
+			}
+		}
+	}
 
 	return 0;
 }
