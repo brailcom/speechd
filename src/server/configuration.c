@@ -459,7 +459,7 @@ void load_default_global_set_options()
 	GlobalFDSet.msg_settings.pitch_range = 0;
 	GlobalFDSet.msg_settings.volume = 0;
 	GlobalFDSet.client_name = g_strdup("unknown:unknown:unknown");
-	GlobalFDSet.msg_settings.voice.language = g_strdup("en");
+	GlobalFDSet.msg_settings.voice.language = g_strdup("en-US");
 	GlobalFDSet.output_module = NULL;
 	GlobalFDSet.msg_settings.voice_type = SPD_MALE1;
 	GlobalFDSet.msg_settings.cap_let_recogn = SPD_CAP_NONE;

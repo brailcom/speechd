@@ -118,7 +118,7 @@ The voice name can be a first name like 'bob' or 'viginie", a locale code in the
 form language_COUNTRY or a language code followed by a number, for instance.
 
 The language code associated to each name is listed alongside it between
-parenthesis, like (fr) for French.
+parenthesis, like (fr-FR) for French from France.
 
 Where to look at in case of a sound or speech issue
 ---------------------------------------------------
@@ -139,7 +139,7 @@ and the way it is linked to the computer.
 
 
 Copyright (C) 2001-2009 Brailcom, o.p.s
-Copyright (C) 2018 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Didier Spaier <didier@slint.fr>
 Copyright (C) 2018 Alex ARNAUD <alexarnaud@hypra.fr>
 

@@ -50,7 +50,7 @@
  * get_locale_speech_symbols() (for SpeechSymbols) or
  * get_locale_speech_symbols_processor() (for SpeechSymbolProcessor).
  * This loading is aware of locale strings syntax and will fallback on the
- * language code alone if the language+country combo isn't found.
+ * language code alone if the language-country combo isn't found.
  *
  * WARNING: this module is NOT thread-safe.  Most notably, the caches are not
  * thread-safe, so the public API insert_symbols() shouldn't be balled from

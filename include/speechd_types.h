@@ -51,7 +51,9 @@ typedef enum {
 
 typedef struct {
 	char *name;		/* Name of the voice (id) */
-	char *language;		/* 2-letter ISO language code */
+	char *language;		/* 2/3-letter ISO language code,
+				 * possibly followed by 2/3-letter ISO region code,
+				 * e.g. en-US */
 	char *variant;		/* a not-well defined string describing dialect etc. */
 } SPDVoice;
 

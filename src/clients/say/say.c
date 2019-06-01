@@ -128,9 +128,15 @@ int main(int argc, char **argv)
 			printf("Invalid language!\n");
 	} else {
 		char *locale = strdup(setlocale(LC_MESSAGES, NULL));
+		char *dot = index(locale, '.');
+		if (dot)
+			*dot = 0;
+		char *at = index(locale, '@');
+		if (at)
+			*at = 0;
 		char *underscore = index(locale, '_');
 		if (underscore)
-			*underscore = 0;
+			*underscore = '-';
 		if (spd_set_language(conn, locale))
 			printf("Invalid language %s!\n", locale);
 		free(locale);

@@ -59,6 +59,7 @@ Useful only for diagnosing problems.")
 (defvar *language-codes*
   '(("czech" . "cs")
     ("english" . "en")
+    ("american english" . "en-US")
     ("french" . "fr")
     ("german" . "de"))
   "Mapping of LANG values to language ISO codes.")
