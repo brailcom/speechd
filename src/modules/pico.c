@@ -85,12 +85,12 @@ static const char *picoInternalSgLingware[] = {
 };
 
 static const SPDVoice pico_voices[] = {
-	{"samantha", "en", "en-US"},
-	{"serena", "en", "en-GB"},
-	{"sabrina", "de", "de-DE"},
-	{"isabel", "es", "es-ES"},
-	{"virginie", "fr", "fr-FR"},
-	{"silvia", "it", "it-IT"}
+	{"samantha", "en-US", NULL},
+	{"serena", "en-GB", NULL},
+	{"sabrina", "de-DE", NULL},
+	{"isabel", "es-ES", NULL},
+	{"virginie", "fr-FR", NULL},
+	{"silvia", "it-IT", NULL}
 };
 
 static const SPDVoice *pico_voices_list[] = {

@@ -159,7 +159,7 @@ int module_init(char **status_info)
 
 	generic_msg_language =
 	    (TGenericLanguage *) g_malloc(sizeof(TGenericLanguage));
-	generic_msg_language->code = g_strdup("en");
+	generic_msg_language->code = g_strdup("en-US");
 	generic_msg_language->charset = g_strdup("iso-8859-1");
 	generic_msg_language->name = g_strdup("english");
 
@@ -641,9 +641,16 @@ void generic_set_volume(int volume)
 
 void generic_set_language(char *lang)
 {
-
+	char *dash = strchr(lang, '-');
 	generic_msg_language =
 	    (TGenericLanguage *) get_ht_option(GenericLanguage, lang);
+	if (generic_msg_language == NULL && dash) {
+		char *lang_only = g_strdup(lang);
+		lang_only[dash-lang] = 0;
+		generic_msg_language =
+		    (TGenericLanguage *) get_ht_option(GenericLanguage, lang_only);
+		g_free(lang_only);
+	}
 	if (generic_msg_language == NULL) {
 		DBG("Language %s not found in the configuration file, using defaults.", lang);
 		generic_msg_language =
@@ -658,7 +665,7 @@ void generic_set_language(char *lang)
 		    lang);
 		generic_msg_language =
 		    (TGenericLanguage *) g_malloc(sizeof(TGenericLanguage));
-		generic_msg_language->code = g_strdup("en");
+		generic_msg_language->code = g_strdup("en-US");
 		generic_msg_language->charset = g_strdup("iso-8859-1");
 		generic_msg_language->name = g_strdup("english");
 	}
