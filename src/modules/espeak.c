@@ -724,7 +724,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 				voice->name = g_strdup_printf("%s+%s", vo->name,
 							      (char *)variant_list_iter->data);
 				voice->language = g_strdup(vo->language);
-				voice->variant = g_strdup(vo->variant);
+				voice->variant = g_strdup((char *)variant_list_iter->data);
 
 				result[++i] = voice;
 				variant_list_iter = variant_list_iter->next;
