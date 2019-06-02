@@ -509,7 +509,7 @@ static SPDVoice **festivalGetVoices(FT_Info * info)
 	char *reply;
 	char **voices;
 	char *lang;
-	char *variant;
+	char *region;
 	int i, j;
 	int num_voices = 0;
 	SPDVoice **result;
@@ -546,15 +546,20 @@ static SPDVoice **festivalGetVoices(FT_Info * info)
 			result[j] = g_malloc(sizeof(SPDVoice));
 			result[j]->name = voices[i];
 			lang = voices[i + 1];
-			if ((lang != NULL) && (strcmp(lang, "nil")))
+			if (lang && !strcmp(lang, "nil"))
+				lang = NULL;
+			region = voices[i + 2];
+			if (region && !strcmp(region, "nil"))
+				region = NULL;
+			if (lang && region)
+				result[j]->language = g_strdup_printf("%s-%s", lang, region);
+			else if (lang)
 				result[j]->language = g_strdup(lang);
+			else if (region)
+				result[j]->language = g_strdup(region);
 			else
 				result[j]->language = NULL;
-			variant = voices[i + 2];
-			if ((variant != NULL) && (strcmp(variant, "nil")))
-				result[j]->variant = g_strdup(variant);
-			else
-				result[j]->variant = NULL;
+			result[j]->variant = NULL;
 			i += 3;
 		}
 	}
