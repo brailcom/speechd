@@ -32,6 +32,7 @@
 
 /* System includes. */
 #include <string.h>
+#include <ctype.h>
 #include <glib.h>
 
 /* espeak header file */
@@ -663,6 +664,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 	GList *voice_list_iter = NULL;
 	GList *variant_list_iter = NULL;
 	const gchar *first_lang = NULL;
+	gchar *dash;
 	gchar *vname = NULL;
 	int numvoices = 0;
 	int numvariants = 0;
@@ -682,6 +684,11 @@ static SPDVoice **espeak_list_synthesis_voices()
 
 			first_lang = v->languages + 1;
 			voice->language = g_strdup(first_lang);
+			for (dash = strchr(voice->language, '-');
+			     dash && *dash;
+			     dash++) {
+				*dash = toupper(*dash);
+			}
 			voice->variant = NULL;
 
 			g_queue_push_tail(voice_list, voice);
