@@ -800,6 +800,7 @@ static void espeak_set_synthesis_voice(char *synthesis_voice)
 	gchar **voice_split = NULL;
 	gchar **identifier = NULL;
 	gchar *variant_file = NULL;
+	gchar *voice = NULL;
 	int i = 0;
 
 	/* Espeak-ng can accept the full voice name as the voice, but will
@@ -829,8 +830,7 @@ static void espeak_set_synthesis_voice(char *synthesis_voice)
 			}
 
 			if (variant_file != NULL) {
-				g_free(synthesis_voice);
-				synthesis_voice = g_strdup_printf("%s+%s", voice_name, variant_file);
+				voice = synthesis_voice = g_strdup_printf("%s+%s", voice_name, variant_file);
 				g_free(variant_file);
 			} else {
 				DBG(DBG_MODNAME " Cannot find the variant file name for the given variant.");
@@ -845,6 +845,7 @@ static void espeak_set_synthesis_voice(char *synthesis_voice)
 			DBG(DBG_MODNAME " Failed to set synthesis voice to %s.",
 			    synthesis_voice);
 		}
+		g_free(voice);
 	}
 }
 
