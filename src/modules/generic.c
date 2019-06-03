@@ -641,6 +641,7 @@ void generic_set_volume(int volume)
 
 void generic_set_language(char *lang)
 {
+	DBG("Setting language %s", lang);
 	char *dash = strchr(lang, '-');
 	generic_msg_language =
 	    (TGenericLanguage *) get_ht_option(GenericLanguage, lang);
