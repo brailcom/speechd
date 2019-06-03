@@ -487,10 +487,18 @@ void pico_set_synthesis_voice(char *voice_name)
 static void pico_set_language(char *lang)
 {
 	int i;
+	DBG(MODULE_NAME "setting language %s", lang);
 
 	/* get voice name based on language */
 	for (i = 0; i < sizeof(pico_voices) / sizeof(SPDVoice); i++) {
-		if (!strcmp(pico_voices[i].language, lang)) {
+		if (!strcasecmp(pico_voices[i].language, lang)) {
+			pico_set_synthesis_voice(pico_voices[i].name);
+			return;
+		}
+	}
+	/* get voice name based on main part of language */
+	for (i = 0; i < sizeof(pico_voices) / sizeof(SPDVoice); i++) {
+		if (!strncasecmp(pico_voices[i].language, lang, 2)) {
 			pico_set_synthesis_voice(pico_voices[i].name);
 			return;
 		}
