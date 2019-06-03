@@ -524,6 +524,13 @@ static void espeak_set_language_and_voice(char *lang, SPDVoiceType voice_code)
 	ret = espeak_SetVoiceByName(name);
 
 	if (ret != EE_OK) {
+		espeak_VOICE voice_select;
+		memset(&voice_select, 0, sizeof(voice_select));
+		voice_select.languages = name;
+		ret = espeak_SetVoiceByProperties(&voice_select);
+	}
+
+	if (ret != EE_OK) {
 		DBG(DBG_MODNAME " Error selecting language %s", name);
 	} else {
 		DBG(DBG_MODNAME " Successfully set voice to \"%s\"", name);
