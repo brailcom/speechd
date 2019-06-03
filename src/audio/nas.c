@@ -128,7 +128,6 @@ static int nas_play(AudioID * id, AudioTrack track)
 	char *buf;
 	Sound s;
 	AuEventHandlerRec *event_handler;
-	int ret;
 	float lenght;
 	struct timeval now;
 	struct timespec timeout;
@@ -185,7 +184,6 @@ static int nas_play(AudioID * id, AudioTrack track)
 
 static int nas_stop(AudioID * id)
 {
-	int ret;
 	spd_nas_id_t *nas_id = (spd_nas_id_t *) id;
 
 	if (nas_id == NULL)
