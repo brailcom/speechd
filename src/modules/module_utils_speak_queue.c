@@ -485,6 +485,7 @@ static void *speak_queue_play(void *nothing)
 			spd_audio_end(module_audio_id);
 			speak_queue_configured = FALSE;
 		}
+		pthread_mutex_lock(&speak_queue_mutex);
 	}
 	speak_queue_play_sleeping = 1;
 	pthread_mutex_unlock(&speak_queue_mutex);
