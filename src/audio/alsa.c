@@ -394,7 +394,6 @@ static int alsa_begin(AudioID * id, AudioTrack track)
 	spd_alsa_id_t *alsa_id = (spd_alsa_id_t *) id;
 
 	int err;
-	int ret;
 
 	snd_pcm_uframes_t period_size;
 	unsigned int sr;
@@ -785,8 +784,8 @@ static int alsa_drain_left(AudioID * id, snd_pcm_uframes_t left)
 			break;
 		}
 
-		MSG(5, "Drain: %d frames left in buffer",
-			alsa_id->alsa_buffer_size - frames);
+		MSG(5, "Drain: %lu frames left in buffer",
+			(unsigned long) alsa_id->alsa_buffer_size - frames);
 		if (alsa_id->alsa_buffer_size - frames <= left) {
 			MSG(4, "Drain: Buffer clear enough");
 			break;
