@@ -676,8 +676,6 @@ void generic_set_language(char *lang)
 
 void generic_set_voice(SPDVoiceType voice)
 {
-	if (generic_msg_voice_str != NULL)
-		return;
 	assert(generic_msg_language);
 	generic_msg_voice_str =
 	    module_getvoice(generic_msg_language->code, voice);
