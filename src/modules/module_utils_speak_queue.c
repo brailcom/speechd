@@ -455,8 +455,10 @@ static void *speak_queue_play(void *nothing)
 					break;
 				}
 			case SPEAK_QUEUE_QET_END:
-				spd_audio_end(module_audio_id);
-				speak_queue_configured = FALSE;
+				if (speak_queue_configured) {
+					spd_audio_end(module_audio_id);
+					speak_queue_configured = FALSE;
+				}
 				pthread_mutex_lock(&speak_queue_mutex);
 				DBG(DBG_MODNAME " playback thread got END from queue.");
 				if (speak_queue_state == SPEAKING) {
