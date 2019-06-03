@@ -416,6 +416,7 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 			    module->name);
 			if (rep_line != NULL)
 				g_free(rep_line);
+			fclose(f);
 			return NULL;
 		}
 		assert(rep_line != NULL);
@@ -424,6 +425,7 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 			MSG(1, "ERROR: Bad syntax from output module %s 2",
 			    module->name);
 			g_free(rep_line);
+			fclose(f);
 			return NULL;
 		}
 
