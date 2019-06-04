@@ -656,6 +656,7 @@ static void *_baratinoo_speak(void *data)
 			goto cont;
 		}
 
+		module_speak_queue_before_play();
 		do {
 			state = BCprocessLoop(engine->engine, BaratinooResponsiveness);
 			if (state == BARATINOO_EVENT) {
@@ -1001,7 +1002,6 @@ static int baratinoo_output_signal(void *private_data, const void *address, int 
 	track.samples = (short *) address;
 
 	DBG(DBG_MODNAME "Queueing %d samples", length / 2);
-	module_speak_queue_before_play();
 	module_speak_queue_add_audio(&track, format);
 
 	return module_speak_queue_stop_requested();
