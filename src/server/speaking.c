@@ -224,6 +224,10 @@ void *speak(void *data)
 			insert_index_marks(message,
 					   message->settings.ssml_mode);
 		}
+		else if (message->settings.type == SPD_MSGTYPE_CHAR) {
+			if (message->settings.symbols_preprocessing)
+				insert_symbols(message);
+		}
 
 		/* Write the message to the output layer. */
 		ret = output_speak(message);
