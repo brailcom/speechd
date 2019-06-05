@@ -845,9 +845,9 @@ static int alsa_drain_overlap(AudioID * id, AudioTrack track)
 	snd_pcm_hw_params_get_period_size(alsa_id->alsa_hw_params, &period_size,
 	                                  0);
 
-	/* Round minimum to period size */
-	if (period_size >= min)
-		min2 = period_size;
+	/* Round minimum to two period size */
+	if (2*period_size >= min)
+		min2 = 2*period_size;
 	else
 		min2 = (min + period_size - 1) / period_size;
 
