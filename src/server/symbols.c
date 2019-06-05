@@ -194,6 +194,138 @@ static gpointer locale_map_fetch(LocaleMap *map, const gchar *locale,
 	return NULL;
 }
 
+/*------------------- Conversion between text and ssml text -----------------*/
+
+/*
+ * We need not ever speak the SSML syntax, but skipping the tags would be quite
+ * complex.
+ *
+ * So instead, we always turn text into SSML before applying the symbol
+ * dictionary whose rules have been turned to SSML too, and then we unescape the
+ * text.
+ */
+
+/* Regular expression callback for converting from text to ssml text */
+static gboolean text_to_ssml_text_regex_eval(const GMatchInfo *match_info, GString *result, gpointer user_data)
+{
+	gchar *match;
+	const gchar *replacement = "XXX";
+
+	match = g_match_info_fetch (match_info, 0);
+
+	if (match[1])
+		MSG2(1, "symbols", "Unexpected spurious matched character '%c'", match[1]);
+
+	switch (match[0]) {
+		case '"':
+			replacement = "&quot;";
+			break;
+		case '\'':
+			replacement = "&apos;";
+			break;
+		case '<':
+			replacement = "&lt;";
+			break;
+		case '>':
+			replacement = "&gt;";
+			break;
+		case '&':
+			replacement = "&amp;";
+			break;
+		default:
+			MSG2(1, "symbols", "Unexpected matched character '%c'", match[0]);
+			break;
+	}
+
+	g_string_append (result, replacement);
+
+	return FALSE;
+}
+
+/* Convert from text to text with ssml escape sequences */
+static gchar *convert_text_to_ssml_text(const gchar *text)
+{
+	static GRegex *text_to_ssml_text;
+
+	GError *error = NULL;
+	gchar *ssml_text;
+
+	if (!text_to_ssml_text) {
+		text_to_ssml_text = g_regex_new("['\"<>&]", G_REGEX_OPTIMIZE, 0, &error);
+		if (!text_to_ssml_text) {
+			/* if regex compilation failed, bail out */
+			MSG2(1, "symbols", "ERROR compiling text to ssml text regular expression: %s.",
+					   error->message);
+			g_error_free(error);
+			return NULL;
+		}
+	}
+
+	ssml_text = g_regex_replace_eval(text_to_ssml_text, text, -1, 0, 0, text_to_ssml_text_regex_eval, NULL, &error);
+
+	if (!ssml_text) {
+		MSG2(1, "symbols", "ERROR converting text to ssml text: %s", error->message);
+		g_error_free(error);
+		return NULL;
+	}
+
+	return ssml_text;
+}
+
+/* Regular expression callback for converting from ssml text to text */
+static gboolean ssml_text_to_text_regex_eval(const GMatchInfo *match_info, GString *result, gpointer user_data)
+{
+	gchar *match;
+	const gchar *replacement = "XXX";
+
+	match = g_match_info_fetch (match_info, 0);
+	if (!strcmp(match, "&quot;"))
+		replacement = "\"";
+	else if (!strcmp(match, "&apos;"))
+		replacement = "'";
+	else if (!strcmp(match, "&lt;"))
+		replacement = "<";
+	else if (!strcmp(match, "&gt;"))
+		replacement = ">";
+	else if (!strcmp(match, "&amp;"))
+		replacement = "&";
+	else MSG2(1, "symbols", "Unexpected match '%s'", match);
+
+	g_string_append (result, replacement);
+
+	return FALSE;
+}
+
+/* Convert from text with ssml escape sequences to text */
+static gchar *convert_ssml_text_to_text(const gchar *ssml_text)
+{
+	static GRegex *ssml_text_to_text;
+
+	GError *error = NULL;
+	gchar *text;
+
+	if (!ssml_text_to_text) {
+		ssml_text_to_text = g_regex_new("(&quot;|&apos;|&lt;|&gt;|&amp;)", G_REGEX_OPTIMIZE, 0, &error);
+		if (!ssml_text_to_text) {
+			/* if regex compilation failed, bail out */
+			MSG2(1, "symbols", "ERROR compiling ssml text to text regular expression: %s.",
+					   error->message);
+			g_error_free(error);
+			return NULL;
+		}
+	}
+
+	text = g_regex_replace_eval(ssml_text_to_text, ssml_text, -1, 0, 0, ssml_text_to_text_regex_eval, NULL, &error);
+
+	if (!text) {
+		MSG2(1, "symbols", "ERROR converting ssml text to text: %s", error->message);
+		g_error_free(error);
+		return NULL;
+	}
+
+	return text;
+}
+
 /*----------------- Speech symbol representation and loading ----------------*/
 
 static SpeechSymbol *speech_symbol_new(void)
@@ -335,8 +467,13 @@ static int speech_symbols_load_symbol(SpeechSymbols *ss, const char *line)
 	/* 2nd field: replacement */
 	if (strcmp(parts[1], "-") == 0)
 		replacement = NULL;
-	else
-		replacement = g_strdup(parts[1]);
+	else {
+		gchar *converted = convert_text_to_ssml_text(parts[1]);
+		if (converted)
+			replacement = converted;
+		else
+			replacement = g_strdup(parts[1]);
+	}
 
 	/* 1st field: identifier */
 	if (parts[0][0] == '\\' && parts[0][1]) {
@@ -358,8 +495,13 @@ static int speech_symbols_load_symbol(SpeechSymbols *ss, const char *line)
 			/* nothing to do */
 			break;
 		}
-	} else
-		identifier = g_strdup(parts[0]);
+	} else {
+		gchar *converted = convert_text_to_ssml_text(parts[0]);
+		if (converted)
+			identifier = converted;
+		else
+			identifier = g_strdup(parts[0]);
+	}
 
 	sym = speech_symbol_new();
 	sym->identifier = identifier;
@@ -780,19 +922,39 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 }
 
 /* Processes some input and converts symbols in it */
-static gchar *speech_symbols_processor_process_text(SpeechSymbolProcessor *ssp, const gchar *text, SymLvl level)
+static gchar *speech_symbols_processor_process_text(SpeechSymbolProcessor *ssp, const gchar *text, SymLvl level, SPDDataMode ssml_mode)
 {
-	gchar *processed;
+	const gchar *ssml_text = text;
+	gchar *processed, *result;
 	GError *error = NULL;
 
+	if (ssml_mode == SPD_DATA_TEXT) {
+		/* Turn into SSML */
+		ssml_text = convert_text_to_ssml_text(text);
+		if (!ssml_text)
+			return NULL;
+	}
+
 	ssp->level = level;
-	processed = g_regex_replace_eval(ssp->regex, text, -1, 0, 0, regex_eval, ssp, &error);
+	processed = g_regex_replace_eval(ssp->regex, ssml_text, -1, 0, 0, regex_eval, ssp, &error);
+	if (ssml_text != text)
+		g_free((gchar *) ssml_text);
 	if (!processed) {
 		MSG2(1, "symbols", "ERROR applying regex: %s", error->message);
 		g_error_free(error);
+		return NULL;
 	}
 
-	return processed;
+	if (ssml_mode == SPD_DATA_TEXT) {
+		/* Turn back to text */
+		result = convert_ssml_text_to_text(processed);
+		g_free(processed);
+		if (!result)
+			return NULL;
+	} else
+		result = processed;
+
+	return result;
 }
 
 /* Gets a possibly cached processor for the given locale */
@@ -808,7 +970,7 @@ static SpeechSymbolProcessor *get_locale_speech_symbols_processor(const gchar *l
 /*----------------------------------- API -----------------------------------*/
 
 /* Process some text, converting symbols according to desired pronunciation. */
-static gchar *process_speech_symbols(const gchar *locale, const gchar *text, SymLvl level)
+static gchar *process_speech_symbols(const gchar *locale, const gchar *text, SymLvl level, SPDDataMode ssml_mode)
 {
 	SpeechSymbolProcessor *ssp;
 
@@ -819,19 +981,13 @@ static gchar *process_speech_symbols(const gchar *locale, const gchar *text, Sym
 	if (!ssp)
 		return NULL;
 
-	return speech_symbols_processor_process_text(ssp, text, level);
+	return speech_symbols_processor_process_text(ssp, text, level, ssml_mode);
 }
 
 void insert_symbols(TSpeechDMessage *msg)
 {
 	gchar *processed;
 	SymLvl level = SYMLVL_NONE;
-
-	if (msg->settings.ssml_mode == SPD_DATA_SSML) {
-		/* FIXME: we need not ever speak the SSML syntax */
-		MSG2(2, "symbols", "Converting symbols in SSML is not supported yet");
-		return;
-	}
 
 	switch (msg->settings.msg_settings.punctuation_mode) {
 	case SPD_PUNCT_ALL: level = SYMLVL_ALL; break;
@@ -840,7 +996,7 @@ void insert_symbols(TSpeechDMessage *msg)
 	}
 
 	processed = process_speech_symbols(msg->settings.msg_settings.voice.language,
-					   msg->buf, level);
+					   msg->buf, level, msg->settings.ssml_mode);
 	if (processed) {
 		MSG2(5, "symbols", "before: |%s|", msg->buf);
 		g_free(msg->buf);
