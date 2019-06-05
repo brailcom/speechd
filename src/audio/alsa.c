@@ -649,16 +649,19 @@ static int alsa_feed(AudioID * id, AudioTrack track)
 		ret =
 		    snd_pcm_writei(alsa_id->alsa_pcm, output_samples,
 				   framecount);
-		MSG(5, "Sent %d of %d remaining bytes", ret*bytes_per_sample*track.num_channels, num_bytes);
+		if (ret >= 0)
+			MSG(5, "Sent %d of %d remaining bytes", ret*bytes_per_sample*track.num_channels, num_bytes);
 
 		if (ret == -EAGAIN) {
 			MSG(4, "Warning: Forced wait!");
 			snd_pcm_wait(alsa_id->alsa_pcm, 100);
 		} else if (ret == -EPIPE) {
+			MSG(4, "Warning: returned EPIPE!");
 			if (xrun(alsa_id) != 0)
 				ERROR_EXIT();
 #ifdef ESTRPIPE
 		} else if (ret == -ESTRPIPE) {
+			MSG(4, "Warning: returned ESTRPIPE!");
 			if (suspend(alsa_id) != 0)
 				ERROR_EXIT();
 #endif
