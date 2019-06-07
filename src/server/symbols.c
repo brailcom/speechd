@@ -194,136 +194,137 @@ static gpointer locale_map_fetch(LocaleMap *map, const gchar *locale,
 	return NULL;
 }
 
-/*------------------- Conversion between text and ssml text -----------------*/
+/*--------------------- Escaping xml tags in ssml text ----------------------*/
 
 /*
- * We need not ever speak the SSML syntax, but skipping the tags would be quite
- * complex.
+ * We need not ever speak the SSML syntax, so we need to skip the tags.
  *
- * So instead, we always turn text into SSML before applying the symbol
- * dictionary whose rules have been turned to SSML too, and then we unescape the
- * text.
+ * To easily hide them from the dictionary rules, we turn all bytes xXY of the
+ * tags into the private-use unicode characters U+E0XY, so we can easily turn
+ * them back to xXY after applying the dictionary rules.
  */
 
-/* Regular expression callback for converting from text to ssml text */
-static gboolean text_to_ssml_text_regex_eval(const GMatchInfo *match_info, GString *result, gpointer user_data)
+/* Replace tags with U+E0XY equivalents */
+static gchar *escape_ssml_text(const gchar *text)
 {
-	gchar *match;
-	const gchar *replacement = "XXX";
+	GString *str;
+	const gchar *cur;
+	gchar *result;
+	int in_tag = 0;		/* Whether we are within a tag */
+	int in_apos = 0;	/* Whether we are within a '' string in a tag */
+	int in_quote = 0;	/* Whether we are within a "" string in a tag */
 
-	match = g_match_info_fetch (match_info, 0);
+	str = g_string_sized_new(strlen(text));
 
-	if (match[1])
-		MSG2(1, "symbols", "Unexpected spurious matched character '%c'", match[1]);
+	for (cur = text; *cur; cur++) {
+		guchar c = *cur;
 
-	switch (match[0]) {
-		case '"':
-			replacement = "&quot;";
-			break;
-		case '\'':
-			replacement = "&apos;";
-			break;
-		case '<':
-			replacement = "&lt;";
-			break;
-		case '>':
-			replacement = "&gt;";
-			break;
-		case '&':
-			replacement = "&amp;";
-			break;
-		default:
-			MSG2(1, "symbols", "Unexpected matched character '%c'", match[0]);
-			break;
-	}
+		if (c == 0xee) {
+			/* Already some U+Exxx ?! Drop it off */
+			cur++;
+			if (*cur)
+				cur++;
+			if (*cur)
+				cur++;
+			continue;
+		}
 
-	g_string_append (result, replacement);
+		if (!in_tag) {
+			if (c == '<') {
+				in_tag = 1;
+				/* And translate it */
+			} else if (c == '&') {
+				/* Unescape ssml character sequences */
+				if (!strncmp(cur, "&quot;", 6)) {
+					cur += 5;
+					g_string_append_c(str, '"');
+				} else if (!strncmp(cur, "&apos;", 6)) {
+					cur += 5;
+					g_string_append_c(str, '\'');
+				} else if (!strncmp(cur, "&lt;", 4)) {
+					cur += 3;
+					g_string_append_c(str, '<');
+				} else if (!strncmp(cur, "&gt;", 4)) {
+					cur += 3;
+					g_string_append_c(str, '>');
+				} else if (!strncmp(cur, "&amp;", 5)) {
+					cur += 4;
+					g_string_append_c(str, '&');
+				} else
+					g_string_append_c(str, c);
+			} else {
+				/* Pure text, append as such */
+				g_string_append_c(str, c);
+			}
+		}
+		if (in_tag) {
+			/* Tag bytes, append as U+E0XY */
+			g_string_append_c(str, 0xee);
+			g_string_append_c(str, 0x80 | (c >> 6));
+			g_string_append_c(str, 0x80 | (c & 0x3f));
 
-	return FALSE;
-}
-
-/* Convert from text to text with ssml escape sequences */
-static gchar *convert_text_to_ssml_text(const gchar *text)
-{
-	static GRegex *text_to_ssml_text;
-
-	GError *error = NULL;
-	gchar *ssml_text;
-
-	if (!text_to_ssml_text) {
-		text_to_ssml_text = g_regex_new("['\"<>&]", G_REGEX_OPTIMIZE, 0, &error);
-		if (!text_to_ssml_text) {
-			/* if regex compilation failed, bail out */
-			MSG2(1, "symbols", "ERROR compiling text to ssml text regular expression: %s.",
-					   error->message);
-			g_error_free(error);
-			return NULL;
+			if (in_apos) {
+				if (c == '\'')
+					in_apos = 0;
+			} else if (in_quote) {
+				if (c == '"')
+					in_quote = 0;
+			} else {
+				if (c == '>')
+					in_tag = 0;
+			}
 		}
 	}
 
-	ssml_text = g_regex_replace_eval(text_to_ssml_text, text, -1, 0, 0, text_to_ssml_text_regex_eval, NULL, &error);
+	result = str->str;
+	g_string_free(str, FALSE);
 
-	if (!ssml_text) {
-		MSG2(1, "symbols", "ERROR converting text to ssml text: %s", error->message);
-		g_error_free(error);
-		return NULL;
-	}
-
-	return ssml_text;
+	return result;
 }
 
-/* Regular expression callback for converting from ssml text to text */
-static gboolean ssml_text_to_text_regex_eval(const GMatchInfo *match_info, GString *result, gpointer user_data)
+/* Replace U+E0XY with pure equivalents */
+static gchar *unescape_ssml_text(const gchar *text)
 {
-	gchar *match;
-	const gchar *replacement = "XXX";
+	GString *str;
+	const gchar *cur;
+	gchar *result;
 
-	match = g_match_info_fetch (match_info, 0);
-	if (!strcmp(match, "&quot;"))
-		replacement = "\"";
-	else if (!strcmp(match, "&apos;"))
-		replacement = "'";
-	else if (!strcmp(match, "&lt;"))
-		replacement = "<";
-	else if (!strcmp(match, "&gt;"))
-		replacement = ">";
-	else if (!strcmp(match, "&amp;"))
-		replacement = "&";
-	else MSG2(1, "symbols", "Unexpected match '%s'", match);
+	str = g_string_sized_new(strlen(text));
 
-	g_string_append (result, replacement);
+	for (cur = text; *cur; cur++) {
+		guchar c = *cur;
 
-	return FALSE;
-}
+		if (c == 0xee) {
+			if (!cur[1] || !cur[2]) {
+				/* Uh?! Drop it off */
+				break;
+			}
 
-/* Convert from text with ssml escape sequences to text */
-static gchar *convert_ssml_text_to_text(const gchar *ssml_text)
-{
-	static GRegex *ssml_text_to_text;
-
-	GError *error = NULL;
-	gchar *text;
-
-	if (!ssml_text_to_text) {
-		ssml_text_to_text = g_regex_new("(&quot;|&apos;|&lt;|&gt;|&amp;)", G_REGEX_OPTIMIZE, 0, &error);
-		if (!ssml_text_to_text) {
-			/* if regex compilation failed, bail out */
-			MSG2(1, "symbols", "ERROR compiling ssml text to text regular expression: %s.",
-					   error->message);
-			g_error_free(error);
-			return NULL;
+			/* U+E0XY, append as 0xXY */
+			g_string_append_c(str, (((guchar) (cur[1]) & 0x03) << 6)
+					      | ((guchar) (cur[2]) & 0x3f));
+			cur += 2;
+		} else {
+			/* Re-escape ssml character sequences */
+			if (c == '"')
+				g_string_append(str, "&quot;");
+			else if (c == '\'')
+				g_string_append(str, "&apos;");
+			else if (c == '<')
+				g_string_append(str, "&lt;");
+			else if (c == '>')
+				g_string_append(str, "&gt;");
+			else if (c == '&')
+				g_string_append(str, "&amp;");
+			else
+				g_string_append_c(str, c);
 		}
 	}
 
-	text = g_regex_replace_eval(ssml_text_to_text, ssml_text, -1, 0, 0, ssml_text_to_text_regex_eval, NULL, &error);
+	result = str->str;
+	g_string_free(str, FALSE);
 
-	if (!text) {
-		MSG2(1, "symbols", "ERROR converting ssml text to text: %s", error->message);
-		g_error_free(error);
-		return NULL;
-	}
-
-	return text;
+	return result;
 }
 
 /*----------------- Speech symbol representation and loading ----------------*/
@@ -467,13 +468,8 @@ static int speech_symbols_load_symbol(SpeechSymbols *ss, const char *line)
 	/* 2nd field: replacement */
 	if (strcmp(parts[1], "-") == 0)
 		replacement = NULL;
-	else {
-		gchar *converted = convert_text_to_ssml_text(parts[1]);
-		if (converted)
-			replacement = converted;
-		else
-			replacement = g_strdup(parts[1]);
-	}
+	else
+		replacement = g_strdup(parts[1]);
 
 	/* 1st field: identifier */
 	if (parts[0][0] == '\\' && parts[0][1]) {
@@ -495,13 +491,8 @@ static int speech_symbols_load_symbol(SpeechSymbols *ss, const char *line)
 			/* nothing to do */
 			break;
 		}
-	} else {
-		gchar *converted = convert_text_to_ssml_text(parts[0]);
-		if (converted)
-			identifier = converted;
-		else
-			identifier = g_strdup(parts[0]);
-	}
+	} else
+		identifier = g_strdup(parts[0]);
 
 	sym = speech_symbol_new();
 	sym->identifier = identifier;
@@ -922,35 +913,31 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 }
 
 /* Processes some input and converts symbols in it */
-static gchar *speech_symbols_processor_process_text(SpeechSymbolProcessor *ssp, const gchar *text, SymLvl level, SPDDataMode ssml_mode)
+static gchar *speech_symbols_processor_process_text(SpeechSymbolProcessor *ssp, const gchar *input, SymLvl level, SPDDataMode ssml_mode)
 {
-	const gchar *ssml_text = text;
+	const gchar *text = input;
 	gchar *processed, *result;
 	GError *error = NULL;
 
-	if (ssml_mode == SPD_DATA_TEXT) {
-		/* Turn into SSML */
-		ssml_text = convert_text_to_ssml_text(text);
-		if (!ssml_text)
-			return NULL;
+	if (ssml_mode == SPD_DATA_SSML) {
+		text = escape_ssml_text(input);
+		MSG2(5, "symbols", "escaped ssml '%s' to '%s'", input, text);
 	}
 
 	ssp->level = level;
-	processed = g_regex_replace_eval(ssp->regex, ssml_text, -1, 0, 0, regex_eval, ssp, &error);
-	if (ssml_text != text)
-		g_free((gchar *) ssml_text);
+	processed = g_regex_replace_eval(ssp->regex, text, -1, 0, 0, regex_eval, ssp, &error);
+	if (text != input)
+		g_free((gchar *) text);
 	if (!processed) {
 		MSG2(1, "symbols", "ERROR applying regex: %s", error->message);
 		g_error_free(error);
 		return NULL;
 	}
 
-	if (ssml_mode == SPD_DATA_TEXT) {
-		/* Turn back to text */
-		result = convert_ssml_text_to_text(processed);
+	if (ssml_mode == SPD_DATA_SSML) {
+		result = unescape_ssml_text(processed);
+		MSG2(5, "symbols", "unescaped ssml '%s' to '%s'", processed, result);
 		g_free(processed);
-		if (!result)
-			return NULL;
 	} else
 		result = processed;
 
