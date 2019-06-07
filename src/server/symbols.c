@@ -747,7 +747,8 @@ static gpointer speech_symbols_processor_new(const char *locale)
 	/* Make characters into a regexp character set. */
 	escaped = g_regex_escape_string(characters->str, characters->len);
 	g_string_truncate(characters, 0);
-	g_string_append_printf(characters, "[%s]", escaped);
+	if (*escaped)
+		g_string_append_printf(characters, "[%s]", escaped);
 	g_free(escaped);
 
 	/* The simple symbols must be ordered longest first so that the longer symbols will match.*/
@@ -758,8 +759,10 @@ static gpointer speech_symbols_processor_new(const char *locale)
 	/* Strip repeated spaces from the end of the line to stop them from being picked up by repeated. */
 	g_string_append(pattern, "(?P<rstripSpace>  +$)");
 	/* Repeated characters: more than 3 repeats. */
-	g_string_append_c(pattern, '|');
-	g_string_append_printf(pattern, "(?P<repeated>(?P<repTmp>%s)(?P=repTmp){3,})", characters->str);
+	if (characters->len) {
+		g_string_append_c(pattern, '|');
+		g_string_append_printf(pattern, "(?P<repeated>(?P<repTmp>%s)(?P=repTmp){3,})", characters->str);
+	}
 	/* Complex symbols.
 	 * Each complex symbol has its own named group so we know which symbol matched. */
 	guint i = 0;
@@ -780,8 +783,14 @@ static gpointer speech_symbols_processor_new(const char *locale)
 		g_free(escaped);
 	}
 	g_string_append_c(pattern, '|');
-	g_string_append_printf(pattern, "(?P<simple>%s|%s)",
-			       escaped_multi->str, characters->str);
+	g_string_append_printf(pattern, "(?P<simple>");
+	if (escaped_multi->len)
+		g_string_append_printf(pattern, "%s", escaped_multi->str);
+	if (escaped_multi->len && characters->len)
+		g_string_append_printf(pattern, "|");
+	if (characters->len)
+		g_string_append_printf(pattern, "%s", characters->str);
+	g_string_append_printf(pattern, ")");
 	g_string_free(escaped_multi, TRUE);
 
 	MSG2(5, "symbols", "building regex: %s", pattern->str);
