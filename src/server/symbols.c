@@ -64,7 +64,6 @@
 
 /*
  * TODO:
- * - play nice with SSML.  That might not be easy.
  * - support NUL byte representation.  However, they aren't properly handled
  *   in the rest of SPD, so it's not so important.
  */
@@ -144,6 +143,8 @@ static LocaleMap *G_symbols_dicts = NULL;
 /* Map of SpeechSymbolProcessor, indexed by their locale */
 static LocaleMap *G_processors = NULL;
 
+/* List of files to load */
+static GSList *symbols_files;
 
 /*----------------------------- Locale data map -----------------------------*/
 
@@ -576,19 +577,33 @@ static void speech_symbols_free(SpeechSymbols *ss)
 static gpointer speech_symbols_new(const gchar *locale)
 {
 	SpeechSymbols *ss = g_malloc(sizeof *ss);
-	gchar *path = g_build_filename(LOCALE_DATA, locale, "symbols.dic", NULL);
+	gchar *path;
+	GSList *node;
+	int loaded = 0;
 
 	ss->complex_symbols = NULL;
 	ss->symbols = g_hash_table_new_full(g_str_hash, g_str_equal,
 					    NULL /* key is a member of value */,
 					    (GDestroyNotify) speech_symbol_free);
 
-	MSG2(5, "symbols", "Trying to load symbols.dic for '%s' from '%s'", locale, path);
-	if (speech_symbols_load(ss, path, TRUE) < 0) {
+	for (node = symbols_files; node; node = node->next) {
+		path = g_build_filename(LOCALE_DATA, locale, node->data, NULL);
+		MSG2(5, "symbols", "Trying to load %s for '%s' from '%s'", node->data, locale, path);
+		if (speech_symbols_load(ss, path, TRUE) >= 0) {
+			MSG2(5, "symbols", "Successful");
+			/* At least some symbols could be loaded */
+			loaded = 1;
+		} else {
+			MSG2(5, "symbols", "Failed");
+		}
+		g_free(path);
+	}
+
+	if (!loaded) {
+		/* Nothing loaded in the end */
 		speech_symbols_free(ss);
 		ss = NULL;
 	}
-	g_free(path);
 
 	return ss;
 }
@@ -600,6 +615,12 @@ static SpeechSymbols *get_locale_speech_symbols(const gchar *locale)
 	}
 
 	return locale_map_fetch(G_symbols_dicts, locale, speech_symbols_new);
+}
+
+void symbols_preprocessing_add_file(const char *name)
+{
+	MSG2(5, "symbols", "Will load symbol file %s", name);
+	symbols_files = g_slist_append(symbols_files, g_strdup(name));
 }
 
 /*------------------ Speech symbol compilation & processing -----------------*/

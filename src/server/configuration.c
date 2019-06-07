@@ -30,6 +30,7 @@
 
 #include "speechd.h"
 #include "configuration.h"
+#include "symbols.h"
 #include <fdsetconv.h>
 
 static TFDSetClientSpecific *cl_spec_section;
@@ -298,6 +299,19 @@ DOTCONF_CB(cb_CustomLogFile)
 	return NULL;
 }
 
+DOTCONF_CB(cb_SymbolPreprocessingFile)
+{
+	if (cmd->data.list[0] == NULL) {
+		MSG(3,
+		    "No symbol preprocessing name specified in configuration under SymbolsPreprocessingFile");
+		return NULL;
+	}
+
+	symbols_preprocessing_add_file(cmd->data.list[0]);
+
+	return NULL;
+}
+
 DOTCONF_CB(cb_AddModule)
 {
 	if (cmd->data.list[0] == NULL) {
@@ -425,6 +439,7 @@ configoption_t *load_config_options(int *num_options)
 	ADD_CONFIG_OPTION(MaxHistoryMessages, ARG_INT);
 	ADD_CONFIG_OPTION(DefaultPunctuationMode, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultSymbolsPreprocessing, ARG_INT);
+	ADD_CONFIG_OPTION(SymbolPreprocessingFile, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultClientName, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultVoiceType, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultSpelling, ARG_TOGGLE);
@@ -452,7 +467,7 @@ void load_default_global_set_options()
 {
 	GlobalFDSet.priority = SPD_MESSAGE;
 	GlobalFDSet.msg_settings.punctuation_mode = SPD_PUNCT_NONE;
-	GlobalFDSet.symbols_preprocessing = FALSE;
+	GlobalFDSet.symbols_preprocessing = TRUE;
 	GlobalFDSet.msg_settings.spelling_mode = 0;
 	GlobalFDSet.msg_settings.rate = 0;
 	GlobalFDSet.msg_settings.pitch = 0;

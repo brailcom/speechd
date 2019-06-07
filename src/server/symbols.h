@@ -23,6 +23,9 @@
 #ifndef SYMBOLS_H
 #define SYMBOLS_H
 
+/* Load symbols from this file */
+void symbols_preprocessing_add_file(const char *name);
+
 /* Converts symbols to words corresponding to a level into a message. */
 void insert_symbols(TSpeechDMessage *msg);
 
