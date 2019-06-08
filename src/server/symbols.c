@@ -553,12 +553,6 @@ static int speech_symbols_load(SpeechSymbols *ss, const char *filename, gboolean
 		}
 	}
 
-	/* The elements are added to the start of the list in
-	 * speech_symbols_load_complex_symbol() for better speed (as adding to
-	 * the end requires walking the whole list), but we want them in the
-	 * order they are in the file, so reverse the list. */
-	ss->complex_symbols = g_slist_reverse(ss->complex_symbols);
-
 	g_free(line);
 	fclose(fp);
 
@@ -604,6 +598,12 @@ static gpointer speech_symbols_new(const gchar *locale)
 		speech_symbols_free(ss);
 		ss = NULL;
 	}
+
+	/* The elements are added to the start of the list in
+	 * speech_symbols_load_complex_symbol() for better speed (as adding to
+	 * the end requires walking the whole list), but we want them in the
+	 * order they are in the file, so reverse the list. */
+	ss->complex_symbols = g_slist_reverse(ss->complex_symbols);
 
 	return ss;
 }
