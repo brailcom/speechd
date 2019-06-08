@@ -346,7 +346,7 @@ static SpeechSymbol *speech_symbol_new(void)
 
 static void speech_symbol_free(SpeechSymbol *sym)
 {
-	g_free(sym->identifier);
+	/* sym->identifier is the key, thus freed by hash table */
 	g_free(sym->pattern);
 	g_free(sym->replacement);
 	g_free(sym->display_name);
@@ -583,7 +583,7 @@ static gpointer speech_symbols_new(const gchar *locale)
 
 	ss->complex_symbols = NULL;
 	ss->symbols = g_hash_table_new_full(g_str_hash, g_str_equal,
-					    NULL /* key is a member of value */,
+					    g_free,
 					    (GDestroyNotify) speech_symbol_free);
 
 	for (node = symbols_files; node; node = node->next) {
@@ -676,7 +676,7 @@ static gpointer speech_symbols_processor_new(const char *locale)
 	ssp = g_malloc(sizeof *ssp);
 	/* The computed symbol information from all sources. */
 	ssp->symbols = g_hash_table_new_full(g_str_hash, g_str_equal,
-					     NULL,
+					     g_free,
 					     (GDestroyNotify) speech_symbol_free);
 	/* An indexable list of complex symbols for use in building/executing the regexp. */
 	ssp->complex_list = NULL;
