@@ -1025,5 +1025,9 @@ void insert_symbols(TSpeechDMessage *msg)
 		MSG2(5, "symbols", "after: |%s|", msg->buf);
 		/* if we performed the replacement, don't let the module speak it again */
 		msg->settings.msg_settings.punctuation_mode = SPD_PUNCT_NONE;
+		/* if we provide a description, don't let the module spell it */
+		if (msg->settings.type == SPD_MSGTYPE_CHAR)
+			if (g_utf8_strlen(processed, -1) > 1)
+				msg->settings.type = SPD_MSGTYPE_TEXT;
 	}
 }
