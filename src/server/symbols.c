@@ -597,13 +597,13 @@ static gpointer speech_symbols_new(const gchar *locale)
 		/* Nothing loaded in the end */
 		speech_symbols_free(ss);
 		ss = NULL;
+	} else {
+		/* The elements are added to the start of the list in
+		 * speech_symbols_load_complex_symbol() for better speed (as adding to
+		 * the end requires walking the whole list), but we want them in the
+		 * order they are in the file, so reverse the list. */
+		ss->complex_symbols = g_slist_reverse(ss->complex_symbols);
 	}
-
-	/* The elements are added to the start of the list in
-	 * speech_symbols_load_complex_symbol() for better speed (as adding to
-	 * the end requires walking the whole list), but we want them in the
-	 * order they are in the file, so reverse the list. */
-	ss->complex_symbols = g_slist_reverse(ss->complex_symbols);
 
 	return ss;
 }
