@@ -697,6 +697,10 @@ static gpointer speech_symbols_processor_new(const char *locale)
 
 			sym = speech_symbol_new();
 			sym->identifier = g_strdup(key_val[0]);
+                        /* FIXME: we'd need to mangle the pattern to ignore
+                         * U+E0XY characters for e.g. begin/end of word/line.
+			 * E.g. spd-say -l en -x "<speak>Hello?</speak>"
+			 */
 			sym->pattern = g_strdup(key_val[1]);
 			g_hash_table_insert(ssp->symbols, sym->identifier, sym);
 			ssp->complex_list = g_slist_prepend(ssp->complex_list, sym);
