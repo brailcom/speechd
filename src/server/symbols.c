@@ -88,9 +88,13 @@ typedef enum {
 /* Speech symbol preserve modes */
 typedef enum {
 	SYMPRES_INVALID = -1,
-	SYMPRES_NEVER = 0,
-	SYMPRES_ALWAYS = 1,
-	SYMPRES_NOREP = 2
+	SYMPRES_NEVER = 0,	/* Never preserve the symbol */
+	SYMPRES_ALWAYS = 1,	/* Always preserve the symbol */
+	SYMPRES_NOREP = 2,	/* Only preserve the symbol if it is not being
+				   replaced; i.e. the user has set symbol level
+				   lower than the level of this symbol */
+	SYMPRES_LITERAL = 3	/* Replace literally, without any spacing
+				   addition */
 } SymPresMode;
 
 /* Represents a single symbol, and how it should be handled. */
@@ -439,6 +443,7 @@ static int speech_symbols_load_symbol(SpeechSymbols *ss, const char *line)
 			{ "never",	SYMPRES_NEVER },
 			{ "always",	SYMPRES_ALWAYS },
 			{ "norep",	SYMPRES_NOREP },
+			{ "literal",	SYMPRES_LITERAL },
 		};
 
 		if (speech_symbols_load_int_field(map, G_N_ELEMENTS(map),
@@ -884,7 +889,7 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 		}
 	} else {
 		SpeechSymbol *sym = NULL;
-		const gchar *suffix;
+		const gchar *prefix, *suffix;
 
 		/* One of the defined symbols. **/
 		if ((capture = fetch_named_matching(match_info, "simple"))) {
@@ -914,14 +919,21 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 		MSG2(5, "symbols", "replacing sym |%s| (lvl=%d, preserve=%d)",
 		     sym->identifier, sym->level, sym->preserve);
 
+		if (sym->preserve == SYMPRES_LITERAL)
+			prefix = "";
+		else
+			prefix = " ";
+
 		if (sym->preserve == SYMPRES_ALWAYS ||
 		    (sym->preserve == SYMPRES_NOREP && ssp->level < sym->level))
 			suffix = capture;
+		else if (sym->preserve == SYMPRES_LITERAL)
+			suffix = "";
 		else
 			suffix = " ";
 
 		if (ssp->level >= sym->level && sym->replacement) {
-			g_string_append_printf(result, " %s%s", sym->replacement, suffix);
+			g_string_append_printf(result, "%s%s%s", prefix, sym->replacement, suffix);
 		} else {
 			g_string_append(result, suffix);
 		}
