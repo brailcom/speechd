@@ -1790,8 +1790,11 @@ static void alloc_voice_list()
 				vox_t *vox = voices + i;
 				if (vox->id <= min_id) // id already known?
 					continue;
-				
-				snprintf(extended_voice_name[i], MAX_EXTENDED_NAME_LENGTH, "%s (%s)", vox->name, vox->quality);
+
+				DBG("Ibmtts: vox[%d]=id=0x%x, name=%s, lang=%s, variant=%s, charset=%s", i, vox->id, vox->name, vox->lang, vox->variant, vox->charset);
+
+				//				snprintf(extended_voice_name[i], MAX_EXTENDED_NAME_LENGTH, "%s (%s)", vox->name, vox->quality);
+				snprintf(extended_voice_name[i], MAX_EXTENDED_NAME_LENGTH, "%s-%s", vox->name, vox->quality);
 				extended_voice_name[i][MAX_EXTENDED_NAME_LENGTH-1] = 0;
 				
 				local->name = extended_voice_name[i];
@@ -1799,6 +1802,8 @@ static void alloc_voice_list()
 				local->dialect = vox->variant;
 				local->langID = vox->id;
 				local->charset = vox->charset;
+				DBG("Ibmtts: local[%d]=langID=0x%x, name=%s, lang=%s, dialect=%s, charset=%s",
+					i, local->langID, local->name, local->lang, local->dialect, local->charset);
 				j++;
 			}
 		}
