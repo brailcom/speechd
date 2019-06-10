@@ -84,7 +84,7 @@ int module_num_dc_options;
 	CLEAN_OLD_SETTINGS_TABLE()
 
 #define DBG(arg...) \
-	if (Debug){ \
+	if (1==1){ \
 		time_t t; \
 		struct timeval tv; \
 		char *tstr; \
