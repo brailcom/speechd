@@ -1,24 +1,17 @@
-﻿#locale/de/symbols.dic
+﻿# This file is generated automatically by the script import-symbols.py during make
+# To configure it:
+# Download NVDA sources using this link: https://github.com/nvaccess/nvda/archive/beta.zip
+# Extract the archive in the Speech-Dispatcher source root directory which will create a nvda-beta folder
+# Download the latest unicode CLDR release from this webpage: http://cldr.unicode.org/index/downloads
+# In the table, chose the latest release which has a date specified and click on the "data" link
+# Click on "core.zip and download it, then extract it into a directory named cldr
+# Download UnicodeData.txt: ftp://ftp.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt and pu into the Speech-Dispatcher source root directory
+# During make, import-symbols.py will be called and update the dictionaries
+
+#locale/de/symbols.dic
 #A part of NonVisual Desktop Access (NVDA)
-#Copyright (c) 2011-2017 Bernd Dorer <bernd_dorer@yahoo.de>
-#Copyright (c) 2012-2017 David Parduhn <xkill85@gmx.net>
-#Copyright (c) 2012-2017 Rene Linke <rene.linke@blindzeln.de>
-#Copyright (c) 2013-2014 Mesar Hameed <mhameed@src.gnome.org>
-#Copyright (c) 2015 James Teh <jamie@nvaccess.org>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
+#Copyright (c) 2011-2018 NVDA Contributors
+#This file is covered by the GNU General Public License.
 
 complexSymbols:
 # identifier	regexp
@@ -60,7 +53,7 @@ date separator		none	always
  	Leerzeichen	char
  	Geschütztes Leerzeichen	char
 
-# Standard punctuation/symbols
+# Standard-Satzzeichen/-Symbole
 !	Ausrufezeichen	all
 "	Anführungszeichen	most
 \#	Nummernzeichen	some
@@ -90,7 +83,7 @@ $	Dollar	all	norep
 @	Ät	some
 [	Eckige Klammer auf	most
 ]	Eckige Klammer zu	most
-\\	Bäcksläsch	most
+\	Bäcksläsch	most
 ^	Dach	most
 _	Unterstrich	most
 `	Graav	most
@@ -99,16 +92,15 @@ _	Unterstrich	most
 |	Senkrechter Strich	most
 ~	Tilde	most
 
-# Other characters
+# Andere Zeichen
 •	Aufzählungszeichen	some
 …	Punkt Punkt Punkt	all	always
 ...	Punkt Punkt Punkt	all	always
-	Aufzählungszeichen	some
-“	Typografisches Anführungszeichen nach rechts	most
-”	Anführungszeichen nach rechts	most
-„	Typografisches Anführungszeichen nach links	most
-‘	Apostroph nach links	most
-’	Apostroph nach rechts	most
+“	Typografisches Anführungszeichen rechts	most
+”	Anführungszeichen rechts	most
+„	Typografisches Anführungszeichen links	most
+‘	Apostroph links	most
+’	Apostroph rechts	most
 –	Strich	most	always
 —	Gedankenstrich	most
 ●	Kreis	most
@@ -119,7 +111,13 @@ _	Unterstrich	most
 ▪	Kleines gefülltes, schwarzes Quadrat	some
 ◾	Schwarzes, kleines bis mittelgroßes Quadrat	some
 ◦	Weißes Aufzählungszeichen	some
-➔	Großer rechtsweisender Pfeil	some
+⇒	doppelter rechtsweisender Pfeil	some
+⇨	rechtsweisender weißer Pfeil	some
+➢	rechtsweisende Pfeilspitze	some
+❖	Schwarzer Diamand umschließt weißes X	some
+♣	Spielkarte Schwarzes Kreuz	some
+♦	schwarzer Diamand	some
+
 §	Paragraf	all
 °	Grad	some
 «	Doppelte gewinkelte Klammer auf
@@ -135,12 +133,14 @@ _	Unterstrich	most
 ×	Mal	some
 ÷	Geteilt Durch	some
 ←	Pfeil nach links	some
+↑	Pfeil aufwärts	some
 →	Pfeil nach rechts	some
+↓	Pfeil abwärts	some
 ✓	Häkchen	some
 ✔	Fettes Häkchen	some
 ℃	Grad Celsius	some
 
-# Mathematical Operators U+2200 to U+220F
+# Mathematische Operatoren U+2200 bis U+220F
 ∀	Für Alles	none
 ∁	Komplement	none
 ∂	Partielles Differential	none
@@ -158,7 +158,7 @@ _	Unterstrich	most
 ∎	Ende des Beweises	none
 ∏	Produktzeichen	none
 
-# Verschiedene mathematische Operatoren
+# Übliche mathematische Operatoren
 ∑	Summenzeichen	none
 √	Quadratwurzel	none
 ∛	Kubikwurzel	none
@@ -175,7 +175,7 @@ _	Unterstrich	most
 ∪	Vereinigungsmengenzeichen	none
 ∫	Integralzeichen	none
 ∴	Folglich	none
-∵	Pfeil	none
+∵	Weil	none
 ∶	Verhältniszeichen	none
 ∷	Proportionszeichen	none
 ≤	Kleiner oder gleich	none
@@ -184,3 +184,23 @@ _	Unterstrich	most
 ⊃	Ist Obermenge von	none
 ⊆	Teilmenge oder gleich	none
 ⊇	Obermenge oder gleich	none
+
+# Vulgur-Teilmengen U+2150 bis U+215E
+⅐	Ein Siebtel	none
+⅑	Ein Neuntel	none
+⅒	Ein Zehntel	none
+⅓	Ein Drittel	none
+⅔	Zwei Drittel	none
+⅕	Ein Fünftel	none
+⅖	Zwei Fünftel	none
+⅗	Drei Fünftel	none
+⅘	Vier Fünftel	none
+⅙	Ein Sechstel	none
+⅚	Fünf Sechstel	none
+⅛	Ein Achtel	none
+⅜	Drei Achtel	none
+⅝	Fünf Achtel	none
+⅞	Sieben Achtel	none
+
+# Technisch und verschiedenes
+⌘	Mac-Befehlstaste	none

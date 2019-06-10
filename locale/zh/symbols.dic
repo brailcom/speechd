@@ -1,20 +1,13 @@
-﻿#locale/zh_HK/symbols.dic
-#A part of NonVisual Desktop Access (NVDA)
-#Copyright (c) 2011-2012 Michael Curran <mick@kulgan.net>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
+﻿# This file is generated automatically by the script import-symbols.py during make
+# To configure it:
+# Download NVDA sources using this link: https://github.com/nvaccess/nvda/archive/beta.zip
+# Extract the archive in the Speech-Dispatcher source root directory which will create a nvda-beta folder
+# Download the latest unicode CLDR release from this webpage: http://cldr.unicode.org/index/downloads
+# In the table, chose the latest release which has a date specified and click on the "data" link
+# Click on "core.zip and download it, then extract it into a directory named cldr
+# Download UnicodeData.txt: ftp://ftp.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt and pu into the Speech-Dispatcher source root directory
+# During make, import-symbols.py will be called and update the dictionaries
+
 symbols:
 　	空白	char
 ，	逗號	all

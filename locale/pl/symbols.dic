@@ -1,23 +1,17 @@
-﻿#locale/pl/symbols.dic
+﻿# This file is generated automatically by the script import-symbols.py during make
+# To configure it:
+# Download NVDA sources using this link: https://github.com/nvaccess/nvda/archive/beta.zip
+# Extract the archive in the Speech-Dispatcher source root directory which will create a nvda-beta folder
+# Download the latest unicode CLDR release from this webpage: http://cldr.unicode.org/index/downloads
+# In the table, chose the latest release which has a date specified and click on the "data" link
+# Click on "core.zip and download it, then extract it into a directory named cldr
+# Download UnicodeData.txt: ftp://ftp.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt and pu into the Speech-Dispatcher source root directory
+# During make, import-symbols.py will be called and update the dictionaries
+
+#locale/pl/symbols.dic
 #A part of NonVisual Desktop Access (NVDA)
-#Copyright (c) 2011 Peter Vágner <peter.v@datagate.sk>
-#Copyright (c) 2012-2015 Hubert Meyer <killer@tyflonet.com>
-#Copyright (c) 2013-2014 Mesar Hameed <mhameed@src.gnome.org>
-#Copyright (c) 2015 Grzegorz Zlotowicz <grzezlo@wp.pl>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
+#Copyright (c) 2011-2017 NVDA Contributors
+#This file is covered by the GNU General Public License.
 
 complexSymbols:
 # identifier	regexp
@@ -79,7 +73,7 @@ $	dolar	all	norep
 :	dwukropek	most	norep
 ;	średnik	most
 <	mniejsze	some
->	więkrze	some
+>	większe	some
 =	równe	some
 ?	pytajnik	all
 @	małpa	some
@@ -98,7 +92,6 @@ _	podkreślacz	most
 •	punktor	some
 …	wielokropek	all	always
 ...	kropka kropka kropka	all	always
-	punktor	some
 “	lewy cudzysłów	most
 ”	prawy cudzysłów	most
 ‘	lewy apostrof	most
@@ -113,7 +106,12 @@ _	podkreślacz	most
 ▪	czarny kwadrat	some
 ◾	czarny kwadrat	some
 ◦	biały punktor	some
-➔	strzałka w prawo	some
+⇒	podwójna strzałka w prawo	some
+⇨	biała strzałka w prawo	some
+➢	prawy grot strzałki	some
+❖	czarny diament minus białe X	some
+♣	black club	some
+♦	czarny diament	some
 §	sekcja	all
 °	stopień	some
 «	podwujny cudzysłów otwierający
@@ -129,7 +127,9 @@ _	podkreślacz	most
 ×	razy	some
 ÷	dzielenie	some
 ←	strzałka w lewo	some
+↑	strzałka w górę	some
 →	strzałka w prawo	some
+↓	strzałka w dół	some
 ✓	check	some
 ✔	check	some
 #Mathematical Operators U+2200 to U+220F
@@ -181,3 +181,23 @@ _	podkreślacz	most
 ‰	promil	most
 ó	u kreska	char	always
 Ó	u kreska	char	always
+
+# Vulgur Fractions U+2150 to U+215E
+⅐	jedna siódma	none
+⅑	jedna dziewiąta	none
+⅒	jedna dziesiąta	none
+⅓	jedna trzecia	none
+⅔	dwie trzecie	none
+⅕	jedna piąta	none
+⅖	dwie piąte	none
+⅗	trzy piąte	none
+⅘	cztery piąte	none
+⅙	jedna szósta	none
+⅚	pięć szóstych	none
+⅛	jedna ósma	none
+⅜	trzy ósme	none
+⅝	pięć ósmych	none
+⅞	siedem ósmych	none
+
+# Miscellaneous Technical
+⌘	klawisz komendy Mac	none

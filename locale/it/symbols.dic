@@ -1,31 +1,24 @@
-﻿#locale/it/symbols.dic
+﻿# This file is generated automatically by the script import-symbols.py during make
+# To configure it:
+# Download NVDA sources using this link: https://github.com/nvaccess/nvda/archive/beta.zip
+# Extract the archive in the Speech-Dispatcher source root directory which will create a nvda-beta folder
+# Download the latest unicode CLDR release from this webpage: http://cldr.unicode.org/index/downloads
+# In the table, chose the latest release which has a date specified and click on the "data" link
+# Click on "core.zip and download it, then extract it into a directory named cldr
+# Download UnicodeData.txt: ftp://ftp.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt and pu into the Speech-Dispatcher source root directory
+# During make, import-symbols.py will be called and update the dictionaries
+
+#locale/it/symbols.dic
 #A part of NonVisual Desktop Access (NVDA)
-#Copyright (c) 2011 James Teh <jamie@jantrid.net>
-#Copyright (c) 2011 Peter Vágner <peter.v@datagate.sk>
-#Copyright (c) 2011-2016 Simone Dal Maso <simone.dalmaso@juvox.it>
-#Copyright (c) 2013-2014 Mesar Hameed <mhameed@src.gnome.org>
-#Copyright (c) 2016 Alberto Buffolino <a.buffolino@gmail.com>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
+#Copyright (c) 2011-2017 NVDA contributors.
+#This file is covered by the GNU General Public License.
 
 complexSymbols:
 # identifier	regexp
 # Sentence endings.
 . sentence ending	(?<=[^\s.])\.(?=[\"'”’)\s\],;:»]|$)
-! sentence ending	(?<=[^\s!])\!(?=[\"'”’)\s\]!,;:»]|$)
-? sentence ending	(?<=[^\s?])\?(?=[\"'”’)\s\]\?,;:»]|$)
+! sentence ending	(?<=[^\s!])\!(?=[\"'”’)\s\]!,;:»\.!]|$)
+? sentence ending	(?<=[^\s?])\?(?=[\"'”’)\s\]\?,;:»\.!]|$)
 # Phrase endings.
 ; phrase ending	(?<=[^\s;]);(?=\s|$)
 : phrase ending	(?<=[^\s:]):(?=\s|$)
@@ -101,7 +94,6 @@ _	sottolineato	most
 •	puntato	some
 …	punto punto punto	all	always
 ...	punto punto punto	all	always
-	puntato	some
 “	aperte virgolette	most
 ”	chiuse virgolette	most
 ‘	aperto apostrofo	most
@@ -112,12 +104,19 @@ _	sottolineato	most
 ¨	dieresi	most
 ‎	marcatore da sinistra a destra	char
 ‏	marcatore da destra a sinistra	char
+	puntato	some
 ■	puntato	some
 ▪	puntato	some
 ◾	puntato	some
 ◦	puntato	some
-➔	freccia destra	some
 §	paragrafo	all
+⇒	doppia freccia a destra	some
+⇨	freccia a destra bianca	some
+➢	punta di freccia a destra	some
+❖	puntato	some
+♣	puntato	some
+♦	puntato	some
+§	section	all
 °	gradi	all	always	#per Loquendo
 «	aperte doppie virgolette
 »	chiuse doppie virgolette
@@ -132,11 +131,13 @@ _	sottolineato	most
 ×	per	most
 ÷	diviso per	most
 ←	freccia sinistra	some
+↑	freccia su	some
 →	freccia destra	some
+↓	freccia giù	some
 ✓	segno di spunta	some
 ✔	segno di spunta	some
-#Mathematical Operators U+2200 to U+220F
 
+#Mathematical Operators U+2200 to U+220F
 ∀	per ogni 	none
 ∁	Complemento	none
 ∂	derivata parziale	none
@@ -155,7 +156,6 @@ _	sottolineato	most
 ∏	prodotto n-ario	none
 
 # Miscellaneous Mathematical Operators
-
 ∑	sommatoria n-aria	none
 √	radice quadrata	none
 ∛	RADICE CUBICA	none
@@ -184,3 +184,22 @@ _	sottolineato	most
 ¬	not	none
 ⟺	se e solo se	some
 
+# Vulgur Fractions U+2150 to U+215E
+⅐	un settimo	none
+⅑	un nono	none
+⅒	un decimo	none
+⅓	un terzo	none
+⅔	due terzi	none
+⅕	un quinto	none
+⅖	due quinti	none
+⅗	tre quinti	none
+⅘	quattro quinti	none
+⅙	un sesto	none
+⅚	cinque sesti	none
+⅛	un ottavo	none
+⅜	tre ottavi	none
+⅝	cinque ottavi	none
+⅞	sette ottavi	none
+
+# Miscellaneous Technical
+⌘	tasto Command Mac	none

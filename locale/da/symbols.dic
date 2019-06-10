@@ -1,24 +1,17 @@
-﻿#locale/da/symbols.dic
+﻿# This file is generated automatically by the script import-symbols.py during make
+# To configure it:
+# Download NVDA sources using this link: https://github.com/nvaccess/nvda/archive/beta.zip
+# Extract the archive in the Speech-Dispatcher source root directory which will create a nvda-beta folder
+# Download the latest unicode CLDR release from this webpage: http://cldr.unicode.org/index/downloads
+# In the table, chose the latest release which has a date specified and click on the "data" link
+# Click on "core.zip and download it, then extract it into a directory named cldr
+# Download UnicodeData.txt: ftp://ftp.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt and pu into the Speech-Dispatcher source root directory
+# During make, import-symbols.py will be called and update the dictionaries
+
+#locale/da/symbols.dic
 #A part of NonVisual Desktop Access (NVDA)
-#Copyright (c) 2011 Peter Vágner <peter.v@datagate.sk>
-#Copyright (c) 2012-2015 Daniel K. Gartmann <kontakt@nvda.dk>
-#Copyright (c) 2013-2014 Mesar Hameed <mhameed@src.gnome.org>
-#Copyright (c) 2013-2015 Bue Vester-Andersen <bue@vester-andersen.dk>
-#Copyright (c) 2015 Nicolai Svendsen <chojiro1990@gmail.com>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
+#Copyright (c) 2011-2017 NVDA Contributors
+#This file is covered by the GNU General Public License.
 
 complexSymbols:
 # identifier	regexp
@@ -99,8 +92,7 @@ _	understregning	most
 •	punkttegn	some
 …	prik prik prik	all	always
 ...	prik prik prik	all	always
-	punkttegn	some
-“ anførselstegn begynd	most
+“	anførselstegn begynd	most
 ”	anførselstegn slut	most
 ‘	venstre apostrof	most
 ’	højre apostrof	most
@@ -108,13 +100,18 @@ _	understregning	most
 —	tankestreg	most
 ●	cirkel	most
 ¨	tremmer	most
-‎	venstre mod højre tegn
-‏	højre mod venstre tegn
+‎	venstre mod højre tegn	char
+‏	højre mod venstre tegn	char
 ■	sort firkant	some
 ▪	sort firkant	some
 ◾	sort firkant	some
 ◦	hvidt punkttegn	some
-➔	højre pil	some
+➔	dobbelte højre pil	some
+⇨	hvid højre pil	some
+➢	pilespids til højre	some
+❖	black diamond minus white X	some
+♣	black club	some
+♦	black diamond	some
 §	paragraf	all
 °	grader	some
 «	double left pointing angle bracket
@@ -130,11 +127,13 @@ _	understregning	most
 ×	gange	some
 ÷	divideret med	some
 ←	venstre pil	some
+↑	pil op	some
 →	højre pil	some
+↓	down arrow	some
 ✓	check	some
 ✔	check	some
-#Mathematical Operators U+2200 to U+220F
 
+#Mathematical Operators U+2200 to U+220F
 ∀	For Alle 	none
 ∁	Complementær	none
 ∂	Delvis afledning	none
@@ -153,7 +152,6 @@ _	understregning	most
 ∏	n-ært produkt	none
 
 # Miscellaneous Mathematical Operators
-
 ∑	n-ær summering	none
 √	Kvadratrod	none
 ∛	Kubikrod	none
@@ -179,3 +177,23 @@ _	understregning	most
 ⊃	Indeholder som delmængde	none
 ⊆	Delmængde af eller lig med	none
 ⊇	Indeholder eller er lig med	none
+
+# Vulgur Fractions U+2150 to U+215E
+⅐	en syvendedel	none
+⅑	en niendedel	none
+⅒	en tiendedel	none
+⅓	en tredjedel	none
+⅔	two tredjedele	none
+⅕	en femtedel	none
+⅖	to femtedele	none
+⅗	tre femtedele	none
+⅘	fire femtedele	none
+⅙	en sjettedel	none
+⅚	fem sjettedele	none
+⅛	en ottendedel	none
+⅜	tre ottendedele	none
+⅝	fem ottendedele	none
+⅞	syv ottendedele	none
+
+# Miscellaneous Technical
+⌘	Mac kommandotast	none

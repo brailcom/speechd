@@ -1,21 +1,17 @@
-﻿#locale/lt/symbols.dic
-#A part of NonVisual Desktop Access (NVDA)
-#Copyright (c) 2016 Paulius Leveris <paulius.leveris@gmail.com>
-#Copyright (c) 2016 Rimas Kudelis <rq@akl.lt>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
+﻿# This file is generated automatically by the script import-symbols.py during make
+# To configure it:
+# Download NVDA sources using this link: https://github.com/nvaccess/nvda/archive/beta.zip
+# Extract the archive in the Speech-Dispatcher source root directory which will create a nvda-beta folder
+# Download the latest unicode CLDR release from this webpage: http://cldr.unicode.org/index/downloads
+# In the table, chose the latest release which has a date specified and click on the "data" link
+# Click on "core.zip and download it, then extract it into a directory named cldr
+# Download UnicodeData.txt: ftp://ftp.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt and pu into the Speech-Dispatcher source root directory
+# During make, import-symbols.py will be called and update the dictionaries
+
+# locale/lt/symbols.dic
+# A part of NonVisual Desktop Access (NVDA)
+# Copyright (c) 2011-2012 NVDA Contributors
+# This file is covered by the GNU General Public License.
 
 complexSymbols:
 # identifier	regexp
@@ -64,7 +60,7 @@ $	doleris	all	norep
 ¥	jena	all	norep
 ₹	rupija	some	norep
 %	procentai	some
-&	ir	some
+&	ampersendas	some
 '	apostrofas	all
 (	kairys skliaustas	most	always
 )	dešinys skliaustas	most	always
@@ -81,19 +77,21 @@ $	doleris	all	norep
 >	daugiau	some
 =	lygu	some
 ?	klaustukas	all	norep
-@	et	some
+@	eta	some
 [	kairys laužtinis	most
 ]	dešinys laužtinis	most
 \\	kairinis pasviręs	most
 ^	stogelis	most
 _	pabraukimas	most
-`	kairinis kirtis	most
+`	gravis	most
 {	kairys riestinis	most
 }	dešinys riestinis	most
 |	status brūkšnys	most
-~	riestinis kirtis	most
+~	tildė	most
+´	akūtas	most
 
 # Other characters
+¦	pertrauktas status brūkšnys	most
 •	punktas	some
 …	daugtaškis	all	always
 ...	daugtaškis	all	always
@@ -103,6 +101,7 @@ _	pabraukimas	most
 ’	figūrinis apostrofas	most	norep
 –	brūkšnys	most	always
 —	ilgas brūkšnys	most	always
+¬	neigimas	most
 ●	skritulys	most
 ¨	du taškai viršuje	most
 ‎	žymė iš kairės į dešinę	char
@@ -113,26 +112,41 @@ _	pabraukimas	most
 ◦	tuščiaviduris punktas	some
 ➔	rodyklė dešinėn	some
 §	paragrafas	all
+¶	pastraipos pabaiga	some
 °	laipsniai	some
+′	štrichas	some
+″	dvigubas štrichas	some
 «	dvigubos kairinės laužtinės kabutės
 »	dvigubos dešininės laužtinės kabutės
+‹	kairinė laužtinė kabutė
+›	dešininė laužtinė kabutė
 µ	mikro	some
 ¹	viršutinis indeksas 1	some
 ²	viršutinis indeksas 2	some
 ³	viršutinis indeksas 3	some
+⁴	viršutinis indeksas 4	some
+⁵	viršutinis indeksas 5	some
+⁶	viršutinis indeksas 6	some
+⁷	viršutinis indeksas 7	some
+⁸	viršutinis indeksas 8	some
+⁹	viršutinis indeksas 9	some
+⁰	viršutinis indeksas 0	some
 ®	registruota	some
 ™	prekės ženklas	some
 ©	autoriaus teisės	some
+℗	garso įrašo autoriaus teisės	some
 −	minus	some
 ±	plius-minus	some
 ×	dauginti	some
 ÷	dalinti iš	some
 ←	rodyklė kairėn	some
+↑	rodyklė aukštyn	some
 →	rodyklė dešinėn	some
+↓	rodyklė žemyn	some
 ✓	varnelė	some
 ✔	varnelė	some
-#Mathematical Operators U+2200 to U+220F
 
+#Mathematical Operators U+2200 to U+220F
 ∀	Kiekvienam 	none
 ∁	Papildinys	none
 ∂	dalinė išvestinė	none
@@ -151,7 +165,6 @@ _	pabraukimas	most
 ∏	N-MATĖ SANDAUGA	none
 
 # Miscellaneous Mathematical Operators
-
 ∑	N-MATĖ SUMA	none
 √	KVADRATINĖ ŠAKNIS	none
 ∛	KUBINĖ ŠAKNIS	none
@@ -177,3 +190,24 @@ _	pabraukimas	most
 ⊃	GRIEŽTASIS VIRŠAIBIS	none
 ⊆	POAIBIS	none
 ⊇	VIRŠAIBIS	none
+
+# Vulgar fractions U+00BC to U+00BE and U+2150 to U+215E
+¼	viena ketvirtoji	none
+½	viena antroji	none
+¾	trys ketvirtosios	none
+⅐	viena septintoji	none
+⅑	viena devintoji	none
+⅒	viena dešimtoji	none
+⅓	viena trečioji	none
+⅔	dvi trečiosios	none
+⅕	viena penktoji	none
+⅖	dvi penktosios	none
+⅗	trys penktosios	none
+⅘	keturios penktosios	none
+⅙	viena šeštoji	none
+⅚	penkios šeštosios	none
+⅛	viena aštuntoji	none
+⅜	trys aštuntosios	none
+⅝	penkios aštuntosios	none
+⅞	septynios aštuntosios	none
+

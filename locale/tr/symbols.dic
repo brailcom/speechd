@@ -1,23 +1,17 @@
-﻿#locale/tr/symbols.dic
+﻿# This file is generated automatically by the script import-symbols.py during make
+# To configure it:
+# Download NVDA sources using this link: https://github.com/nvaccess/nvda/archive/beta.zip
+# Extract the archive in the Speech-Dispatcher source root directory which will create a nvda-beta folder
+# Download the latest unicode CLDR release from this webpage: http://cldr.unicode.org/index/downloads
+# In the table, chose the latest release which has a date specified and click on the "data" link
+# Click on "core.zip and download it, then extract it into a directory named cldr
+# Download UnicodeData.txt: ftp://ftp.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt and pu into the Speech-Dispatcher source root directory
+# During make, import-symbols.py will be called and update the dictionaries
+
+#locale/tr/symbols.dic
 #A part of NonVisual Desktop Access (NVDA)
-#Copyright (c) 2011 Peter Vágner <peter.v@datagate.sk>
-#Copyright (c) 2011 James Teh <jamie@jantrid.net>
-#Copyright (c) 2011-2017 Çağrı Doğan <cagrid@hotmail.com>
-#Copyright (c) 2014 Mesar Hameed <mhameed@src.gnome.org>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
+#Copyright (c) 2011-2012 NVDA Contributors
+#This file is covered by the GNU General Public License.
 
 complexSymbols:
 # identifier	regexp
@@ -63,6 +57,8 @@ negative number	eksi	none	norep
 $	dolar	all	norep
 £	paund	all	norep
 €	euro	all	norep
+₹	Rupi	some	norep
+₺	TL	all	norep
 %	yüzde	some
 &	ve	some
 ′	apostrof	all
@@ -100,7 +96,6 @@ $	dolar	all	norep
 ]	kapa köşeli parantez	most
 \\	tersbölü	most
 ^	düzeltme imi	most
-↑	düzeltme imi	most
 ▲	düzeltme imi	most
 _	alt çizgi	most
 `	üst tırnak	most
@@ -114,7 +109,6 @@ _	alt çizgi	most
 •	madde imi	some
 …	üçnokta	all	always
 ...	üçnokta	all	always
-	madde imi	some
 “	tırnakaç	most
 ”	tırnakkapa	most
 ‘	tektırnakaç	most
@@ -131,7 +125,12 @@ _	alt çizgi	most
 ▪	siyah boşluk	some
 ◾	siyah boşluk	some
 ◦	beyaz madde imi	some
-➔	Sağ ok	some
+⇒	sağ çift ok	some
+⇨	sağ beyaz ok	some
+➢	sağ ok ucu	some
+❖	siyah elmas eksi beyaz X	some
+♣	siyah kulüp	some
+♦	siyah elmas	some
 ¡	ters ünlem	most
 ¦	kırık çizgi	most
 «	çift kancalı parantezaç	most
@@ -143,7 +142,7 @@ _	alt çizgi	most
 ³	süperskript 3	some
 ¿	ters soru	most
 ‣	üçgen madde imi	most
-§	paragraf	most
+§	bölüm	all
 ÷	bölü	some
 ×	çarpı	some
 °	derece	some
@@ -160,13 +159,14 @@ _	alt çizgi	most
 ©	kopyahakkı	some
 →	sağ ok	some
 ←	sol ok	some
-
+↑	yukarı ok	some
+↓	aşağı ok	some
 ✓	onay	some
 ✔	onay	some
 
 ¥	yen	some
-√	ve	some
-∞	sekiz	some
+√	karekök	some
+∞	sonsuz	some
 α	alfa	some
 β	beta	some
 γ	gamma	some
@@ -416,3 +416,23 @@ _	alt çizgi	most
 ⊃	Üstkümesi	none
 ⊆	Eşit veya alt kümesi	none
 ⊇	Eşit veya üstkümesi	none
+
+# Vulgur Fractions U+2150 to U+215E
+⅐	yedide bir	none
+⅑	dokuzda bir	none
+⅒	onda bir	none
+⅓	üçte bir	none
+⅔	üçte iki	none
+⅕	beşte bir	none
+⅖	beşte iki	none
+⅗	beşte üç	none
+⅘	beşte dört	none
+⅙	altıda bir	none
+⅚	altıda beş	none
+⅛	sekizde bir	none
+⅜	sekizde üç	none
+⅝	sekizde beş	none
+⅞	sekizde yedi	none
+
+# Miscellaneous Technical
+⌘	Mek Komut tuşu	none

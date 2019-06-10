@@ -1,22 +1,17 @@
+﻿# This file is generated automatically by the script import-symbols.py during make
+# To configure it:
+# Download NVDA sources using this link: https://github.com/nvaccess/nvda/archive/beta.zip
+# Extract the archive in the Speech-Dispatcher source root directory which will create a nvda-beta folder
+# Download the latest unicode CLDR release from this webpage: http://cldr.unicode.org/index/downloads
+# In the table, chose the latest release which has a date specified and click on the "data" link
+# Click on "core.zip and download it, then extract it into a directory named cldr
+# Download UnicodeData.txt: ftp://ftp.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt and pu into the Speech-Dispatcher source root directory
+# During make, import-symbols.py will be called and update the dictionaries
+
 #locale/bg/symbols.dic
 #A part of NonVisual Desktop Access (NVDA)
-#Copyright (c) 2011 Peter Vágner <peter.v@datagate.sk>
-#Copyright (c) 2012-2016 Zahari Yurukov <zahari.yurukov@gmail.com>
-#Copyright (c) 2014-2016 Kostadin Kolev <k_kolev1985@mail.bg>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
+#Copyright (c) 2011-2017 NVDA Contributors
+#This file is covered by the GNU General Public License.
 
 complexSymbols:
 # identifier	regexp
@@ -87,7 +82,7 @@ $	долар
 \\	обратна черта
 ^	колибка
 _	долна черта
-`	граф
+`	тежко ударение
 {	лява вълнообразна скоба
 }	дясна вълнообразна скоба
 |	вертикална черта
@@ -97,7 +92,6 @@ _	долна черта
 •	средна точка
 …	многоточие
 ...	многоточие
-	средна точка
 “	леви кавички
 ”	десни кавички
 ‘	ляво ударение
@@ -112,7 +106,12 @@ _	долна черта
 ▪	малък черен квадрат
 ◾	среден черен квадрат
 ◦	бяла средна точка
-➔	дясна стрелка
+⇒	двойна стрелка надясно
+⇨	бяла стрелка надясно
+➢	сочещ надясно връх на стрела
+❖	черен ромб без бял хикс
+♣	черна трефа
+♦	черен ромб
 §	раздел
 °	градус
 «	лява двойна ъглова скоба
@@ -127,12 +126,14 @@ _	долна черта
 ±	Плюс или Минус
 ×	умножено по
 ÷	делено на
-←	лява стрелка
-→	дясна стрелка
+←	стрелка наляво
+↑	стрелка нагоре
+→	стрелка надясно
+↓	стрелка надолу
 ✓	отметка
 ✔	отметка
-#Mathematical Operators U+2200 to U+220F
 
+#Mathematical Operators U+2200 to U+220F
 ∀	за всички
 ∁	допълнение
 ∂	частен диференциал
@@ -151,7 +152,6 @@ _	долна черта
 ∏	n-кратно произведение
 
 # Miscellaneous Mathematical Operators
-
 ∑	сума
 √	корен квадратен
 ∛	корен кубичен
@@ -177,3 +177,23 @@ _	долна черта
 ⊃	надмножество на
 ⊆	подмножество или равно на
 ⊇	надмножество или равно на
+
+# Vulgur Fractions U+2150 to U+215E
+⅐	една седма
+⅑	една девета
+⅒	една десета
+⅓	една трета
+⅔	две трети
+⅕	една пета
+⅖	две пети
+⅗	три пети
+⅘	четири пети
+⅙	една шеста
+⅚	пет шести
+⅛	една осма
+⅜	три осми
+⅝	пет осми
+⅞	седем осми
+
+# Miscellaneous Technical
+⌘	Команден клавиш на Mac

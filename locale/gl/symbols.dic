@@ -1,23 +1,17 @@
-﻿#locale/gl/symbols.dic
+﻿# This file is generated automatically by the script import-symbols.py during make
+# To configure it:
+# Download NVDA sources using this link: https://github.com/nvaccess/nvda/archive/beta.zip
+# Extract the archive in the Speech-Dispatcher source root directory which will create a nvda-beta folder
+# Download the latest unicode CLDR release from this webpage: http://cldr.unicode.org/index/downloads
+# In the table, chose the latest release which has a date specified and click on the "data" link
+# Click on "core.zip and download it, then extract it into a directory named cldr
+# Download UnicodeData.txt: ftp://ftp.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt and pu into the Speech-Dispatcher source root directory
+# During make, import-symbols.py will be called and update the dictionaries
+
+#locale/gl/symbols.dic
 #A part of NonVisual Desktop Access (NVDA)
-#Copyright (c) 2011 Peter Vágner <peter.v@datagate.sk>
-#Copyright (c) 2011 Quetzatl <quetzatl@eresmas.net>
-#Copyright (c) 2011-2016 Juan C. buno <quetzatl@eresmas.net>
-#Copyright (c) 2014 Mesar Hameed <mhameed@src.gnome.org>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
+#Copyright (c) 2011-2012 contributors.
+#This file is covered by the GNU General Public License.
 
 complexSymbols:
 # identifier	regexp
@@ -108,13 +102,12 @@ _	subliñado	most
 •	viñeta	some
 …	elipse	all	always
 ...	elipse	all	always
-	viñeta	some
 “	abrir comiñas	most
 ”	pechar comiñas	most
 ‘	apóstrofo	most
 ’	apóstrofo	most
 –	guión	most	always
-—	guión	most
+—	raia	most
 ●	círculo	most
 ¨	diérese	most
 ‎	marca de esquerda a dereita	char
@@ -123,7 +116,12 @@ _	subliñado	most
 ▪	Barra vertical cortada	some
 ◾	Barra vertical cortada	some
 ◦	Viñeta branca	some
-➔	flecha á dereita	some
+⇒	frecha dobre á dereita	some
+⇨	frecha branca á dereita	some
+➢	frecha con cabeza á dereita	some
+❖	diamante negro menos X branca	some
+♣	clube negro	some
+♦	diamante negro	some
 §	Sección	most
 °	grados	some
 «	Abrir Comiñas angulares
@@ -138,13 +136,13 @@ _	subliñado	most
 ±	Máis ou menos	some
 ×	multiplicado por	some
 ÷	dividido por	some
-←	Flecha esquerda	some
-→	Flecha dereita	some
+←	Frecha esquerda	some
+↑	Frecha arriba	some
+→	Frecha dereita	some
+↓	frecha abaixo	some
 ✓	marcado	some
 ✔	marcado	some
-
 #Mathematical Operators U+2200 to U+220F
-+
 ∀	Por Todos 	none
 ∁	Complemento	none
 ∂	Derivativa Parcial	none
@@ -161,9 +159,7 @@ _	subliñado	most
 ∍	Contén como Membro Pequeno a	none
 ∎	Fin de Proba	none
 ∏	N-Produto Aritmético	none
-
 # Miscellaneous Mathematical Operators
-
 ∑	N-Suma Aritmética	none
 √	Raíz Cadrada	none
 ∛	Raíz Cúbica	none
@@ -189,3 +185,22 @@ _	subliñado	most
 ⊃	Superconxunto de 	none
 ⊆	Subconxunto de Ou Igual A	none
 ⊇	Superconxunto de Ou Igual A	none
+# Vulgur Fractions U+2150 to U+215E
+⅐	un sétimo	none
+⅑	un noveno	none
+⅒	un décimo	none
+⅓	un tercio	none
+⅔	dos tercios	none
+⅕	un quinto	none
+⅖	dous quintos	none
+⅗	tres quintos	none
+⅘	catro quintos	none
+⅙	un sexto	none
+⅚	cinco sextos	none
+⅛	un octavo	none
+⅜	tres octavos	none
+⅝	cinco octavos	none
+⅞	sete octavos	none
+
+# Miscellaneous Technical
+⌘	Tecla Command do Mac	none

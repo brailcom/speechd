@@ -1,21 +1,17 @@
-﻿#locale/hu/symbols.dic
+﻿# This file is generated automatically by the script import-symbols.py during make
+# To configure it:
+# Download NVDA sources using this link: https://github.com/nvaccess/nvda/archive/beta.zip
+# Extract the archive in the Speech-Dispatcher source root directory which will create a nvda-beta folder
+# Download the latest unicode CLDR release from this webpage: http://cldr.unicode.org/index/downloads
+# In the table, chose the latest release which has a date specified and click on the "data" link
+# Click on "core.zip and download it, then extract it into a directory named cldr
+# Download UnicodeData.txt: ftp://ftp.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt and pu into the Speech-Dispatcher source root directory
+# During make, import-symbols.py will be called and update the dictionaries
+
+#locale/hu/symbols.dic
 #A part of NonVisual Desktop Access (NVDA)
-#Copyright (c) 2011 Peter Vágner <peter.v@datagate.sk>
-#Copyright (c) 2012-2016 Áron Ócsvári <oaron1@gmail.com>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
+#Copyright (c) 2011 NV Access Inc
+#This file is covered by the GNU General Public License.
 
 complexSymbols:
 # identifier	regexp
@@ -127,7 +123,9 @@ _	aláhúzás	most
 ×	szorozva	some
 ÷	osztva	some
 ←	balra nyíl	some
+↑	fel nyíl	some
 →	jobbra nyíl	some
+↓	le nyíl	some
 ✓	jelölés	some
 ✔	jelölés	some
 #Mathematical Operators U+2200 to U+220F
@@ -176,3 +174,20 @@ _	aláhúzás	most
 ⊃	Szuperhalmaza	none
 ⊆	Részhalmaza vagy egyenlő	none
 ⊇	Szuperhalmaza vagy egyenlő	none
+
+# Vulgur Fractions U+2150 to U+215E
+⅐	egyheted	none
+⅑	egykilenced	none
+⅒	egytized	none
+⅓	egyharmad	none
+⅔	kétharmad	none
+⅕	egyötöd	none
+⅖	kétötöd	none
+⅗	háromötöd	none
+⅘	négyötöd	none
+⅙	egyhatod	none
+⅚	öthatod	none
+⅛	egynyolcad	none
+⅜	háromnyolcad	none
+⅝	ötnyolcad	none
+⅞	hétnyolcad	none
