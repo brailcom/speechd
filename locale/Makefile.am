@@ -211,13 +211,13 @@ ES_419_CLDR = \
 import-symbols:
 	./import-symbols.py
 
-install-exec-hook:
+install-data-hook:
 	for lang419 in $(ES_419_CLDR) ; do \
 		$(MKDIR_P) "$(DESTDIR)$(localedatadir)/$$lang419" ;\
 		$(LN_S) "$(DESTDIR)$(localedatadir)/es_419/emojis.dic" "$(DESTDIR)$(localedatadir)/$$lang419/emojis.dic" ;\
 	done
 
-uninstall-exec-hook:
+uninstall-hook:
 	for lang419 in $(ES_419_CLDR) ; do \
 		rm "$(DESTDIR)$(localedatadir)/$$lang419/emojis.dic" ;\
 	done
