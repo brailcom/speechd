@@ -19,104 +19,170 @@
 
 nobase_localedata_DATA = \
 	en/font-variants.dic \
+	af/emojis.dic \
+	am/emojis.dic \
 	an/symbols.dic \
-	ar/symbols.dic \
 	ar/emojis.dic \
-	bg/symbols.dic \
+	ar/symbols.dic \
+	ar_SA/emojis.dic \
+	as/emojis.dic \
+	ast/emojis.dic \
+	az/emojis.dic \
+	be/emojis.dic \
 	bg/emojis.dic \
-	ca/symbols.dic \
+	bg/symbols.dic \
+	bn/emojis.dic \
+	br/emojis.dic \
+	bs/emojis.dic \
 	ca/emojis.dic \
-	cs/symbols.dic \
+	ca/symbols.dic \
+	ccp/emojis.dic \
+	chr/emojis.dic \
+	ckb/symbols.dic \
 	cs/emojis.dic \
-	da/symbols.dic \
+	cs/symbols.dic \
+	cy/emojis.dic \
 	da/emojis.dic \
-	de/symbols.dic \
+	da/symbols.dic \
+	de_CH/emojis.dic \
+	de_CH/symbols.dic \
 	de/emojis.dic \
-	el/symbols.dic \
+	de/symbols.dic \
 	el/emojis.dic \
-	en/symbols.dic \
+	el/symbols.dic \
 	en/emojis.dic \
-	es/symbols.dic \
+	en/symbols.dic \
+	en_AU/emojis.dic \
+	en_CA/emojis.dic \
+	en_GB/emojis.dic \
+	en_IN/emojis.dic \
 	es/emojis.dic \
+	es/symbols.dic \
 	es_CO/symbols.dic \
-	fa/symbols.dic \
+	es_MX/emojis.dic \
+	es_US/emojis.dic \
+	et/emojis.dic \
+	eu/emojis.dic \
 	fa/emojis.dic \
-	fi/symbols.dic \
+	fa/symbols.dic \
 	fi/emojis.dic \
-	fr/symbols.dic \
+	fi/symbols.dic \
+	fil/emojis.dic \
+	fo/emojis.dic \
 	fr/emojis.dic \
-	ga/symbols.dic \
+	fr/symbols.dic \
+	fr_CA/emojis.dic \
 	ga/emojis.dic \
-	gl/symbols.dic \
+	ga/symbols.dic \
+	gd/emojis.dic \
 	gl/emojis.dic \
-	he/symbols.dic \
+	gl/symbols.dic \
+	gu/emojis.dic \
 	he/emojis.dic \
-	hi/symbols.dic \
+	he/symbols.dic \
 	hi/emojis.dic \
-	hr/symbols.dic \
+	hi/symbols.dic \
 	hr/emojis.dic \
-	hu/symbols.dic \
+	hr/symbols.dic \
 	hu/emojis.dic \
-	is/symbols.dic \
+	hu/symbols.dic \
+	hy/emojis.dic \
+	ia/emojis.dic \
+	id/emojis.dic \
 	is/emojis.dic \
-	it/symbols.dic \
+	is/symbols.dic \
 	it/emojis.dic \
-	ja/symbols.dic \
+	it/symbols.dic \
 	ja/emojis.dic \
-	ka/symbols.dic \
+	ja/symbols.dic \
+	jv/emojis.dic \
+	kab/emojis.dic \
 	ka/emojis.dic \
-	kn/symbols.dic \
+	ka/symbols.dic \
+	kk/emojis.dic \
+	km/emojis.dic \
+	kmr/symbols.dic \
 	kn/emojis.dic \
-	ko/symbols.dic \
+	kn/symbols.dic \
 	ko/emojis.dic \
-	lt/symbols.dic \
+	ko/symbols.dic \
+	ku/emojis.dic \
+	ky/emojis.dic \
+	ky/symbols.dic \
+	lo/emojis.dic \
 	lt/emojis.dic \
-	my/symbols.dic \
+	lt/symbols.dic \
+	lv/emojis.dic \
+	mk/emojis.dic \
+	mk/symbols.dic \
+	ml/emojis.dic \
+	mn/emojis.dic \
+	mn/symbols.dic \
+	mr/emojis.dic \
+	ms/emojis.dic \
 	my/emojis.dic \
-	nb_NO/symbols.dic \
+	my/symbols.dic \
 	nb_NO/emojis.dic \
-	nl/symbols.dic \
+	nb_NO/symbols.dic \
+	ne/emojis.dic \
 	nl/emojis.dic \
-	nn_NO/symbols.dic \
+	nl/symbols.dic \
 	nn_NO/emojis.dic \
-	pa/symbols.dic \
+	nn_NO/symbols.dic \
+	or/emojis.dic \
 	pa/emojis.dic \
-	pl/symbols.dic \
+	pa/symbols.dic \
 	pl/emojis.dic \
-	pt_BR/symbols.dic \
+	pl/symbols.dic \
+	ps/emojis.dic \
 	pt_BR/emojis.dic \
-	pt_PT/symbols.dic \
+	pt_BR/symbols.dic \
 	pt_PT/emojis.dic \
-	ro/symbols.dic \
+	pt_PT/symbols.dic \
+	qu/emojis.dic \
 	ro/emojis.dic \
-	ru/symbols.dic \
+	ro/symbols.dic \
 	ru/emojis.dic \
-	sk/symbols.dic \
+	ru/symbols.dic \
+	sd/emojis.dic \
+	si/emojis.dic \
 	sk/emojis.dic \
-	sl/symbols.dic \
+	sk/symbols.dic \
 	sl/emojis.dic \
-	sq/symbols.dic \
+	sl/symbols.dic \
+	so/emojis.dic \
+	so/symbols.dic \
 	sq/emojis.dic \
-	sr/symbols.dic \
+	sq/symbols.dic \
 	sr/emojis.dic \
-	sv/symbols.dic \
+	sr/symbols.dic \
 	sv/emojis.dic \
-	ta/symbols.dic \
+	sv/symbols.dic \
+	sw/emojis.dic \
 	ta/emojis.dic \
-	tr/symbols.dic \
+	ta/symbols.dic \
+	te/emojis.dic \
+	th/emojis.dic \
+	tk/emojis.dic \
+	to/emojis.dic \
 	tr/emojis.dic \
-	uk/symbols.dic \
+	tr/symbols.dic \
 	uk/emojis.dic \
-	vi/symbols.dic \
+	uk/symbols.dic \
+	ur/emojis.dic \
+	uz/emojis.dic \
 	vi/emojis.dic \
-	zh/symbols.dic \
-	zh/emojis.dic \
-	zh_CN/symbols.dic \
+	vi/symbols.dic \
+	yue/emojis.dic \
 	zh_CN/emojis.dic \
-	zh_HK/symbols.dic \
+	zh_CN/symbols.dic \
+	zh/emojis.dic \
 	zh_HK/emojis.dic \
+	zh_HK/symbols.dic \
+	zh/symbols.dic \
+	zh_TW/emojis.dic \
 	zh_TW/symbols.dic \
-	zh_TW/emojis.dic
+	zu/emojis.dic
 
 EXTRA_DIST = ${nobase_localedata_DATA}
 
