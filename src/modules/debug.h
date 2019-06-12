@@ -18,7 +18,7 @@ extern "C" {
 
   enum libvoxinDebugLevel {LV_ERROR_LEVEL=0, LV_INFO_LEVEL=1, LV_DEBUG_LEVEL=2, LV_LOG_DEFAULT=LV_ERROR_LEVEL};
 
-#define log(level,fmt,...) if (libvoxinDebugEnabled(level)) {libvoxinDebugDisplayTime(); fprintf (libvoxinDebugFile, "(voxind-nve) %s: " fmt "\n", __func__, ##__VA_ARGS__);}
+#define log(level,fmt,...) if (libvoxinDebugEnabled(level)) {libvoxinDebugDisplayTime(); fprintf (libvoxinDebugFile, "(sd_voxin) %s: " fmt "\n", __func__, ##__VA_ARGS__);}
 #define log_bytes(level,label,bytes) if (libvoxinDebugEnabled(level) && label && bytes && bytes->b) { \
   libvoxinDebugDisplayTime(); \
   fprintf (libvoxinDebugFile, "%s: %s", __func__, label); /* unbuffered fprintf */ \

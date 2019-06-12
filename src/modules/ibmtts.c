@@ -247,8 +247,7 @@ static int *ibmtts_voice_index = NULL;
 static void ibmtts_set_language(char *lang);
 static void ibmtts_set_voice(SPDVoiceType voice);
 static char *ibmtts_voice_enum_to_str(SPDVoiceType voice);
-static void ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice,
-					  char *dialect);
+static void ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *dialect, char *name);
 static void ibmtts_set_synthesis_voice(char *);
 static void ibmtts_set_rate(signed int rate);
 static void ibmtts_set_pitch(signed int pitch);
@@ -1186,7 +1185,7 @@ static void ibmtts_set_pitch(signed int pitch)
 
 static void ibmtts_set_punctuation_mode(SPDPunctuation punct_mode)
 {
-	const char *fmt = "`Pf%d%s";
+	const char *fmt = "`Pf%d%s ";
 	char *msg = NULL;
 	int real_punct_mode = 0;
 
@@ -1245,7 +1244,7 @@ static char *ibmtts_voice_enum_to_str(SPDVoiceType voice)
 
 /* Given a language, dialect and SD voice codes sets the IBM voice */
 static void
-ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant)
+ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant, char *name)
 {
 	char *variant_name = variant;
 	char *voicename = ibmtts_voice_enum_to_str(voice);
@@ -1254,13 +1253,25 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant)
 	int i = 0;
 	int j = 0;
 
-	DBG("voxin: %s, lang=%s, voice=%d, dialect=%s",
-	    __FUNCTION__, lang, (int)voice, variant ? variant : NULL);
+	DBG("voxin: %s, lang=%s, voice=%d, dialect=%s, name=%s",
+	    __FUNCTION__, lang, (int)voice, variant ? variant : "", name ? name : "");
 
 	SPDVoice **v = ibmtts_voice_list;
 	assert(v);
 
-	if (variant_name) {
+	if (name && *name) {
+		for (i = 0; v[i]; i++) {
+			DBG("%d. name=%s", i, v[i]->name);
+			if (!strcmp(v[i]->name, name)) {
+				j = ibmtts_voice_index[i];
+				ret = _eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
+				DBG("voxin: set langID=0x%x (ret=%d)",
+				    eciLocales[j].langID, ret);
+				ibmtts_input_encoding = eciLocales[j].charset;
+				break;
+			}
+		}
+	} else if (variant_name && *variant_name) {
 		for (i = 0; v[i]; i++) {
 			DBG("%d. variant=%s", i, v[i]->variant);
 			if (!strcmp(v[i]->variant, variant_name)) {
@@ -1386,14 +1397,13 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant)
 static void ibmtts_set_voice(SPDVoiceType voice)
 {
 	if (msg_settings.voice.language) {
-		ibmtts_set_language_and_voice(msg_settings.voice.language,
-					      voice, NULL);
+		ibmtts_set_language_and_voice(msg_settings.voice.language, voice, msg_settings.voice.variant, msg_settings.voice.name);
 	}
 }
 
 static void ibmtts_set_language(char *lang)
 {
-	ibmtts_set_language_and_voice(lang, msg_settings.voice_type, NULL);
+  ibmtts_set_language_and_voice(lang, msg_settings.voice_type, msg_settings.voice.variant, msg_settings.voice.name);
 }
 
 /* sets the IBM voice according to its name. */
@@ -1409,9 +1419,7 @@ static void ibmtts_set_synthesis_voice(char *synthesis_voice)
 
 	for (i = 0; (i < MAX_NB_OF_LANGUAGES) && eciLocales[i].name; i++) {
 		if (!strcasecmp(eciLocales[i].name, synthesis_voice)) {
-			ibmtts_set_language_and_voice(eciLocales[i].lang,
-										  msg_settings.voice_type,
-										  eciLocales[i].dialect);
+			ibmtts_set_language_and_voice(eciLocales[i].lang, msg_settings.voice_type, eciLocales[i].dialect, eciLocales[i].name);
 			break;
 		}
 	}
