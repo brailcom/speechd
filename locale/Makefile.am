@@ -18,6 +18,7 @@
 ## Process this file with automake to produce Makefile.in
 
 nobase_localedata_DATA = \
+	en/font-variants.dic \
 	an/symbols.dic \
 	ar/symbols.dic \
 	ar/emojis.dic \
@@ -35,7 +36,6 @@ nobase_localedata_DATA = \
 	el/emojis.dic \
 	en/symbols.dic \
 	en/emojis.dic \
-	en/font-variants.dic \
 	es/symbols.dic \
 	es/emojis.dic \
 	es_CO/symbols.dic \
