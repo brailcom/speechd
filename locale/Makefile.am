@@ -58,6 +58,7 @@ nobase_localedata_DATA = \
 	en_IN/emojis.dic \
 	es/emojis.dic \
 	es/symbols.dic \
+	es_419/emojis.dic \
 	es_CO/symbols.dic \
 	es_MX/emojis.dic \
 	es_US/emojis.dic \
@@ -122,12 +123,12 @@ nobase_localedata_DATA = \
 	ms/emojis.dic \
 	my/emojis.dic \
 	my/symbols.dic \
-	nb_NO/emojis.dic \
+	nb/emojis.dic \
 	nb_NO/symbols.dic \
 	ne/emojis.dic \
 	nl/emojis.dic \
 	nl/symbols.dic \
-	nn_NO/emojis.dic \
+	nn/emojis.dic \
 	nn_NO/symbols.dic \
 	or/emojis.dic \
 	pa/emojis.dic \
@@ -135,7 +136,7 @@ nobase_localedata_DATA = \
 	pl/emojis.dic \
 	pl/symbols.dic \
 	ps/emojis.dic \
-	pt_BR/emojis.dic \
+	pt/emojis.dic \
 	pt_BR/symbols.dic \
 	pt_PT/emojis.dic \
 	pt_PT/symbols.dic \
@@ -156,6 +157,7 @@ nobase_localedata_DATA = \
 	sq/symbols.dic \
 	sr/emojis.dic \
 	sr/symbols.dic \
+	sr_BA/emojis.dic \
 	sv/emojis.dic \
 	sv/symbols.dic \
 	sw/emojis.dic \
@@ -174,7 +176,6 @@ nobase_localedata_DATA = \
 	vi/emojis.dic \
 	vi/symbols.dic \
 	yue/emojis.dic \
-	zh_CN/emojis.dic \
 	zh_CN/symbols.dic \
 	zh/emojis.dic \
 	zh_HK/emojis.dic \
