@@ -2,105 +2,6 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
-😋	face savoring food	none
-🤕	face with head-bandage	none
-💭	thought balloon	none
-🤙	call me hand	none
-🤱	breast-feeding	none
-🤶	Mrs. Claus	none
-🐓	rooster	none
-🐞	lady beetle	none
-🕸	spider web	none
-🌾	sheaf of rice	none
-🍀	four leaf clover	none
-🍆	eggplant	none
-🌶	hot pepper	none
-🥖	baguette bread	none
-🍔	hamburger	none
-🍟	french fries	none
-🥫	canned food	none
-🍤	fried shrimp	none
-🍪	cookie	none
-🍰	shortcake	none
-🍬	candy	none
-🍮	custard	none
-🍽	fork and knife with plate	none
-🍴	fork and knife	none
-🎢	roller coaster	none
-💈	barber pole	none
-🚃	railway car	none
-🚗	automobile	none
-🚘	oncoming automobile	none
-🚚	delivery truck	none
-⛵	sailboat	none
-✈	airplane	none
-🛩	small airplane	none
-🛫	airplane departure	none
-🛬	airplane arrival	none
-🕧	twelve-thirty	none
-🕜	one-thirty	none
-🕝	two-thirty	none
-🕞	three-thirty	none
-🕟	four-thirty	none
-🕠	five-thirty	none
-🕡	six-thirty	none
-🕢	seven-thirty	none
-🕣	eight-thirty	none
-🕤	nine-thirty	none
-🕥	ten-thirty	none
-🕦	eleven-thirty	none
-🌓	first quarter moon	none
-🌗	last quarter moon	none
-🌛	first quarter moon face	none
-🌜	last quarter moon face	none
-🎃	jack-o-lantern	none
-⚽	soccer ball	none
-🏏	cricket game	none
-🏑	field hockey	none
-🏓	ping pong	none
-🛷	sled	none
-🎯	direct hit	none
-🎲	game die	none
-👕	t-shirt	none
-🎒	backpack	none
-📢	loudspeaker	none
-🎧	headphone	none
-🎥	movie camera	none
-🎬	clapper board	none
-🔦	flashlight	none
-📧	e-mail	none
-📐	triangular ruler	none
-🗑	wastebasket	none
-🛠	hammer and wrench	none
-🔧	wrench	none
-🛋	couch and lamp	none
-🛒	shopping cart	none
-🚰	potable water	none
-🚹	men’s room	none
-🚺	women’s room	none
-🚻	restroom	none
-🚱	non-potable water	none
-🔄	counterclockwise arrows button	none
-⏪	fast reverse button	none
-✅	check mark button	none
-☑	check box with check	none
-✔	check mark	none
-™	trade mark	none
-🤙🏻	call me hand light skin tone	none
-🤙🏼	call me hand medium-light skin tone	none
-🤙🏽	call me hand medium skin tone	none
-🤙🏾	call me hand medium-dark skin tone	none
-🤙🏿	call me hand dark skin tone	none
-🤱🏻	breast-feeding light skin tone	none
-🤱🏼	breast-feeding medium-light skin tone	none
-🤱🏽	breast-feeding medium skin tone	none
-🤱🏾	breast-feeding medium-dark skin tone	none
-🤱🏿	breast-feeding dark skin tone	none
-🤶🏻	Mrs. Claus light skin tone	none
-🤶🏼	Mrs. Claus medium-light skin tone	none
-🤶🏽	Mrs. Claus medium skin tone	none
-🤶🏾	Mrs. Claus medium-dark skin tone	none
-🤶🏿	Mrs. Claus dark skin tone	none
 🏻	light skin tone	none
 🏼	medium-light skin tone	none
 🏽	medium skin tone	none
@@ -128,6 +29,7 @@ symbols:
 ☺	smiling face	none
 😚	kissing face with closed eyes	none
 😙	kissing face with smiling eyes	none
+😋	face savoring food	none
 😛	face with tongue	none
 😜	winking face with tongue	none
 🤪	zany face	none
@@ -154,6 +56,7 @@ symbols:
 😴	sleeping face	none
 😷	face with medical mask	none
 🤒	face with thermometer	none
+🤕	face with head-bandage	none
 🤢	nauseated face	none
 🤮	face vomiting	none
 🤧	sneezing face	none
@@ -249,6 +152,7 @@ symbols:
 👁‍🗨	eye in speech bubble	none
 🗨	left speech bubble	none
 🗯	right anger bubble	none
+💭	thought balloon	none
 💤	zzz	none
 👋	waving hand	none
 🤚	raised back of hand	none
@@ -260,6 +164,7 @@ symbols:
 🤞	crossed fingers	none
 🤟	love-you gesture	none
 🤘	sign of the horns	none
+🤙	call me hand	none
 👈	backhand index pointing left	none
 👉	backhand index pointing right	none
 👆	backhand index pointing up	none
@@ -395,8 +300,10 @@ symbols:
 🤵	man in tuxedo	none
 👰	bride with veil	none
 🤰	pregnant woman	none
+🤱	breast-feeding	none
 👼	baby angel	none
 🎅	Santa Claus	none
+🤶	Mrs. Claus	none
 🦸	superhero	none
 🦸‍♂	man superhero	none
 🦸‍♀	woman superhero	none
@@ -567,6 +474,7 @@ symbols:
 🦡	badger	none
 🦃	turkey	none
 🐔	chicken	none
+🐓	rooster	none
 🐣	hatching chick	none
 🐤	baby chick	none
 🐥	front-facing baby chick	none
@@ -602,8 +510,10 @@ symbols:
 🐛	bug	none
 🐜	ant	none
 🐝	honeybee	none
+🐞	lady beetle	none
 🦗	cricket	none
 🕷	spider	none
+🕸	spider web	none
 🦂	scorpion	none
 🦟	mosquito	none
 🦠	microbe	none
@@ -622,8 +532,10 @@ symbols:
 🌳	deciduous tree	none
 🌴	palm tree	none
 🌵	cactus	none
+🌾	sheaf of rice	none
 🌿	herb	none
 ☘	shamrock	none
+🍀	four leaf clover	none
 🍁	maple leaf	none
 🍂	fallen leaf	none
 🍃	leaf fluttering in wind	none
@@ -645,9 +557,11 @@ symbols:
 🍅	tomato	none
 🥥	coconut	none
 🥑	avocado	none
+🍆	eggplant	none
 🥔	potato	none
 🥕	carrot	none
 🌽	ear of corn	none
+🌶	hot pepper	none
 🥒	cucumber	none
 🥬	leafy green	none
 🥦	broccoli	none
@@ -656,6 +570,7 @@ symbols:
 🌰	chestnut	none
 🍞	bread	none
 🥐	croissant	none
+🥖	baguette bread	none
 🥨	pretzel	none
 🥯	bagel	none
 🥞	pancakes	none
@@ -664,6 +579,8 @@ symbols:
 🍗	poultry leg	none
 🥩	cut of meat	none
 🥓	bacon	none
+🍔	hamburger	none
+🍟	french fries	none
 🍕	pizza	none
 🌭	hot dog	none
 🥪	sandwich	none
@@ -678,6 +595,7 @@ symbols:
 🥗	green salad	none
 🍿	popcorn	none
 🧂	salt	none
+🥫	canned food	none
 🍱	bento box	none
 🍘	rice cracker	none
 🍙	rice ball	none
@@ -688,6 +606,7 @@ symbols:
 🍠	roasted sweet potato	none
 🍢	oden	none
 🍣	sushi	none
+🍤	fried shrimp	none
 🍥	fish cake with swirl	none
 🥮	moon cake	none
 🍡	dango	none
@@ -702,11 +621,15 @@ symbols:
 🍧	shaved ice	none
 🍨	ice cream	none
 🍩	doughnut	none
+🍪	cookie	none
 🎂	birthday cake	none
+🍰	shortcake	none
 🧁	cupcake	none
 🥧	pie	none
 🍫	chocolate bar	none
+🍬	candy	none
 🍭	lollipop	none
+🍮	custard	none
 🍯	honey pot	none
 🍼	baby bottle	none
 🥛	glass of milk	none
@@ -723,6 +646,8 @@ symbols:
 🥃	tumbler glass	none
 🥤	cup with straw	none
 🥢	chopsticks	none
+🍽	fork and knife with plate	none
+🍴	fork and knife	none
 🥄	spoon	none
 🔪	kitchen knife	none
 🏺	amphora	none
@@ -785,8 +710,11 @@ symbols:
 🌌	milky way	none
 🎠	carousel horse	none
 🎡	ferris wheel	none
+🎢	roller coaster	none
+💈	barber pole	none
 🎪	circus tent	none
 🚂	locomotive	none
+🚃	railway car	none
 🚄	high-speed train	none
 🚅	bullet train	none
 🚆	train	none
@@ -807,7 +735,10 @@ symbols:
 🚔	oncoming police car	none
 🚕	taxi	none
 🚖	oncoming taxi	none
+🚗	automobile	none
+🚘	oncoming automobile	none
 🚙	sport utility vehicle	none
+🚚	delivery truck	none
 🚛	articulated lorry	none
 🚜	tractor	none
 🏎	racing car	none
@@ -827,12 +758,17 @@ symbols:
 🛑	stop sign	none
 🚧	construction	none
 ⚓	anchor	none
+⛵	sailboat	none
 🛶	canoe	none
 🚤	speedboat	none
 🛳	passenger ship	none
 ⛴	ferry	none
 🛥	motor boat	none
 🚢	ship	none
+✈	airplane	none
+🛩	small airplane	none
+🛫	airplane departure	none
+🛬	airplane arrival	none
 💺	seat	none
 🚁	helicopter	none
 🚟	suspension railway	none
@@ -851,25 +787,41 @@ symbols:
 ⏲	timer clock	none
 🕰	mantelpiece clock	none
 🕛	twelve o’clock	none
+🕧	twelve-thirty	none
 🕐	one o’clock	none
+🕜	one-thirty	none
 🕑	two o’clock	none
+🕝	two-thirty	none
 🕒	three o’clock	none
+🕞	three-thirty	none
 🕓	four o’clock	none
+🕟	four-thirty	none
 🕔	five o’clock	none
+🕠	five-thirty	none
 🕕	six o’clock	none
+🕡	six-thirty	none
 🕖	seven o’clock	none
+🕢	seven-thirty	none
 🕗	eight o’clock	none
+🕣	eight-thirty	none
 🕘	nine o’clock	none
+🕤	nine-thirty	none
 🕙	ten o’clock	none
+🕥	ten-thirty	none
 🕚	eleven o’clock	none
+🕦	eleven-thirty	none
 🌑	new moon	none
 🌒	waxing crescent moon	none
+🌓	first quarter moon	none
 🌔	waxing gibbous moon	none
 🌕	full moon	none
 🌖	waning gibbous moon	none
+🌗	last quarter moon	none
 🌘	waning crescent moon	none
 🌙	crescent moon	none
 🌚	new moon face	none
+🌛	first quarter moon face	none
+🌜	last quarter moon face	none
 🌡	thermometer	none
 ☀	sun	none
 🌝	full moon face	none
@@ -903,6 +855,7 @@ symbols:
 🔥	fire	none
 💧	droplet	none
 🌊	water wave	none
+🎃	jack-o-lantern	none
 🎄	Christmas tree	none
 🎆	fireworks	none
 🎇	sparkler	none
@@ -929,6 +882,7 @@ symbols:
 🥇	1st place medal	none
 🥈	2nd place medal	none
 🥉	3rd place medal	none
+⚽	soccer ball	none
 ⚾	baseball	none
 🥎	softball	none
 🏀	basketball	none
@@ -938,8 +892,11 @@ symbols:
 🎾	tennis	none
 🥏	flying disc	none
 🎳	bowling	none
+🏏	cricket game	none
+🏑	field hockey	none
 🏒	ice hockey	none
 🥍	lacrosse	none
+🏓	ping pong	none
 🏸	badminton	none
 🥊	boxing glove	none
 🥋	martial arts uniform	none
@@ -949,13 +906,16 @@ symbols:
 🎣	fishing pole	none
 🎽	running shirt	none
 🎿	skis	none
+🛷	sled	none
 🥌	curling stone	none
+🎯	direct hit	none
 🎱	pool 8 ball	none
 🔮	crystal ball	none
 🧿	nazar amulet	none
 🎮	video game	none
 🕹	joystick	none
 🎰	slot machine	none
+🎲	game die	none
 🧩	puzzle piece	none
 🧸	teddy bear	none
 ♠	spade suit	none
@@ -976,6 +936,7 @@ symbols:
 🥽	goggles	none
 🥼	lab coat	none
 👔	necktie	none
+👕	t-shirt	none
 👖	jeans	none
 🧣	scarf	none
 🧤	gloves	none
@@ -989,6 +950,7 @@ symbols:
 👜	handbag	none
 👝	clutch bag	none
 🛍	shopping bags	none
+🎒	backpack	none
 👞	man’s shoe	none
 👟	running shoe	none
 🥾	hiking boot	none
@@ -1010,6 +972,7 @@ symbols:
 🔈	speaker low volume	none
 🔉	speaker medium volume	none
 🔊	speaker high volume	none
+📢	loudspeaker	none
 📣	megaphone	none
 📯	postal horn	none
 🔔	bell	none
@@ -1021,6 +984,7 @@ symbols:
 🎚	level slider	none
 🎛	control knobs	none
 🎤	microphone	none
+🎧	headphone	none
 📻	radio	none
 🎷	saxophone	none
 🎸	guitar	none
@@ -1047,8 +1011,10 @@ symbols:
 💿	optical disk	none
 📀	dvd	none
 🧮	abacus	none
+🎥	movie camera	none
 🎞	film frames	none
 📽	film projector	none
+🎬	clapper board	none
 📺	television	none
 📷	camera	none
 📸	camera with flash	none
@@ -1058,6 +1024,7 @@ symbols:
 🔎	magnifying glass tilted right	none
 🕯	candle	none
 💡	light bulb	none
+🔦	flashlight	none
 🏮	red paper lantern	none
 📔	notebook with decorative cover	none
 📕	closed book	none
@@ -1088,6 +1055,7 @@ symbols:
 💱	currency exchange	none
 💲	heavy dollar sign	none
 ✉	envelope	none
+📧	e-mail	none
 📨	incoming envelope	none
 📩	envelope with arrow	none
 📤	outbox tray	none
@@ -1124,9 +1092,11 @@ symbols:
 📎	paperclip	none
 🖇	linked paperclips	none
 📏	straight ruler	none
+📐	triangular ruler	none
 ✂	scissors	none
 🗃	card file box	none
 🗄	file cabinet	none
+🗑	wastebasket	none
 🔒	locked	none
 🔓	unlocked	none
 🔏	locked with pen	none
@@ -1136,11 +1106,13 @@ symbols:
 🔨	hammer	none
 ⛏	pick	none
 ⚒	hammer and pick	none
+🛠	hammer and wrench	none
 🗡	dagger	none
 ⚔	crossed swords	none
 🔫	pistol	none
 🏹	bow and arrow	none
 🛡	shield	none
+🔧	wrench	none
 🔩	nut and bolt	none
 ⚙	gear	none
 🗜	clamp	none
@@ -1160,6 +1132,7 @@ symbols:
 💊	pill	none
 🚪	door	none
 🛏	bed	none
+🛋	couch and lamp	none
 🚽	toilet	none
 🚿	shower	none
 🛁	bathtub	none
@@ -1171,13 +1144,18 @@ symbols:
 🧼	soap	none
 🧽	sponge	none
 🧯	fire extinguisher	none
+🛒	shopping cart	none
 🚬	cigarette	none
 ⚰	coffin	none
 ⚱	funeral urn	none
 🗿	moai	none
 🏧	ATM sign	none
 🚮	litter in bin sign	none
+🚰	potable water	none
 ♿	wheelchair symbol	none
+🚹	men’s room	none
+🚺	women’s room	none
+🚻	restroom	none
 🚼	baby symbol	none
 🚾	water closet	none
 🛂	passport control	none
@@ -1191,6 +1169,7 @@ symbols:
 🚳	no bicycles	none
 🚭	no smoking	none
 🚯	no littering	none
+🚱	non-potable water	none
 🚷	no pedestrians	none
 📵	no mobile phones	none
 🔞	no one under eighteen	none
@@ -1211,6 +1190,7 @@ symbols:
 ⤴	right arrow curving up	none
 ⤵	right arrow curving down	none
 🔃	clockwise vertical arrows	none
+🔄	counterclockwise arrows button	none
 🔙	BACK arrow	none
 🔚	END arrow	none
 🔛	ON! arrow	none
@@ -1249,6 +1229,7 @@ symbols:
 ⏭	next track button	none
 ⏯	play or pause button	none
 ◀	reverse button	none
+⏪	fast reverse button	none
 ⏮	last track button	none
 🔼	upwards button	none
 ⏫	fast up button	none
@@ -1272,6 +1253,9 @@ symbols:
 📛	name badge	none
 🔰	Japanese symbol for beginner	none
 ⭕	hollow red circle	none
+✅	check mark button	none
+☑	check box with check	none
+✔	check mark	none
 ✖	multiplication sign	none
 ❌	cross mark	none
 ❎	cross mark button	none
@@ -1293,6 +1277,7 @@ symbols:
 〰	wavy dash	none
 ©	copyright	none
 ®	registered	none
+™	trade mark	none
 🔠	input latin uppercase	none
 🔡	input latin lowercase	none
 🔢	input numbers	none
@@ -1533,6 +1518,11 @@ symbols:
 🤘🏽	sign of the horns medium skin tone	none
 🤘🏾	sign of the horns medium-dark skin tone	none
 🤘🏿	sign of the horns dark skin tone	none
+🤙🏻	call me hand light skin tone	none
+🤙🏼	call me hand medium-light skin tone	none
+🤙🏽	call me hand medium skin tone	none
+🤙🏾	call me hand medium-dark skin tone	none
+🤙🏿	call me hand dark skin tone	none
 👈🏻	backhand index pointing left light skin tone	none
 👈🏼	backhand index pointing left medium-light skin tone	none
 👈🏽	backhand index pointing left medium skin tone	none
@@ -2266,6 +2256,11 @@ symbols:
 🤰🏽	pregnant woman medium skin tone	none
 🤰🏾	pregnant woman medium-dark skin tone	none
 🤰🏿	pregnant woman dark skin tone	none
+🤱🏻	breast-feeding light skin tone	none
+🤱🏼	breast-feeding medium-light skin tone	none
+🤱🏽	breast-feeding medium skin tone	none
+🤱🏾	breast-feeding medium-dark skin tone	none
+🤱🏿	breast-feeding dark skin tone	none
 👼🏻	baby angel light skin tone	none
 👼🏼	baby angel medium-light skin tone	none
 👼🏽	baby angel medium skin tone	none
@@ -2276,6 +2271,11 @@ symbols:
 🎅🏽	Santa Claus medium skin tone	none
 🎅🏾	Santa Claus medium-dark skin tone	none
 🎅🏿	Santa Claus dark skin tone	none
+🤶🏻	Mrs. Claus light skin tone	none
+🤶🏼	Mrs. Claus medium-light skin tone	none
+🤶🏽	Mrs. Claus medium skin tone	none
+🤶🏾	Mrs. Claus medium-dark skin tone	none
+🤶🏿	Mrs. Claus dark skin tone	none
 🦸🏻	superhero light skin tone	none
 🦸🏼	superhero medium-light skin tone	none
 🦸🏽	superhero medium skin tone	none
