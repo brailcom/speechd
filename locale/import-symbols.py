@@ -67,17 +67,11 @@ def createCLDRAnnotationsDict(sources):
 
 # List of languages which are non-standard for CLDR files
 CLDRExceptionsList = {
-	"en":("en_001","en"),
-	"es_US":("es_419","es_US"),
-	"nb_NO":("nb",),
-	"nn_NO":("nn",),
-	"pt_BR":("pt",),
-	"pt_PT":("pt","pt_PT"),
-	"sr":("sr","sr_Cyrl","sr_Cyrl_BA","sr_Latn","sr_Latn_BA"),
+	"sr":("sr","sr_Latn"),
+	"sr_BA":("sr_Latn_BA",),
 	"yue": ("yue","yue_Hans"),
-	"zh_CN":("zh",),
-	"zh_HK":("zh","zh_Hant_HK"),
-	"zh_TW":("zh","zh_Hant"),
+	"zh_HK":("zh_Hant_HK",),
+	"zh_TW":("zh_Hant",),
 }
 
 # The NVDA path
@@ -132,8 +126,9 @@ for NVDALang in os.listdir(NVDALocale):
 		dicFile.write(NVDADic)
 
 # Create all emojis dictionaries
-processedFiles = ["root.xml"] # To avoid creating too much directories when we process a file in a non-standard language
+processedFiles = ["root.xml","en_001.xml","sr_Cyrl.xml","sr_Cyrl_BA.xml"] # To avoid creating too much directories when we process a file in a non-standard language
 # root.xml is added because it doesn't contain any language related content
+# SR_CYRL* are also excluded, as en_001
 
 """ Firstly, we process exceptions
 so we can add their files to the processed files """
