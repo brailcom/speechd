@@ -187,7 +187,39 @@ nobase_localedata_DATA = \
 
 EXTRA_DIST = ${nobase_localedata_DATA}
 
+# List of latin American Spanish languages
+ES_419_CLDR = \
+	es_AR \
+	es_BO \
+	es_CL \
+	es_CO \
+	es_CR \
+	es_CU \
+	es_DO \
+	es_EC \
+	es_GT \
+	es_HN \
+	es_NI \
+	es_PA \
+	es_PE \
+	es_PR \
+	es_PY \
+	es_SV \
+	es_UY \
+	es_VE
+
 import-symbols:
 	./import-symbols.py
+
+install:
+	for lang419 in ${ES_419_CLDR} ; do \
+	mkdir -p "$(DESTDIR)$(localedatadir)/$$lang419" ;\
+	ln -s "$(DESTDIR)$(localedatadir)/es_419/emojis.dic" "$(DESTDIR)$(localedatadir)/$$lang419/emojis.dic" ;\
+	done
+
+uninstall:
+	for lang419 in ${ES_419_CLDR} ; do \
+	rm "$(DESTDIR)$(localedatadir)/$$lang419/emojis.dic" ;\
+	done
 
 -include $(top_srcdir)/git.mk
