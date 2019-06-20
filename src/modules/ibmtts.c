@@ -319,12 +319,7 @@ typedef struct _eciLocale {
 	char *charset;
 } eciLocale, *eciLocaleList;
 
-#define IBMTTS_VOICES 22
-#define RESERVED_VOICES 30
-#define FIRST_RESERVED_INDEX IBMTTS_VOICES
-#define MAX_NB_OF_LANGUAGES (IBMTTS_VOICES + RESERVED_VOICES)
-
-static eciLocale eciLocales[MAX_NB_OF_LANGUAGES+1] = { // +1 for a null element
+static eciLocale eciLocales[VOX_MAX_NB_OF_LANGUAGES+1] = { // +1 for a null element
 	{"American_English", "en", "US", eciGeneralAmericanEnglish, "ISO-8859-1"},
 	{"British_English", "en", "GB", eciBritishEnglish, "ISO-8859-1"},
 	{"Castilian_Spanish", "es", "ES", eciCastilianSpanish, "ISO-8859-1"},
@@ -349,8 +344,8 @@ static eciLocale eciLocales[MAX_NB_OF_LANGUAGES+1] = { // +1 for a null element
 	{"Finnish", "fi", "FI", eciStandardFinnish, "ISO-8859-1"},
 };
 
-static vox_t voices[RESERVED_VOICES];
-static unsigned int number_of_voices = RESERVED_VOICES;
+static vox_t voices[VOX_RESERVED_VOICES];
+static unsigned int number_of_voices = VOX_RESERVED_VOICES;
 
 /* dictionary_filename: its index corresponds to the ECIDictVolume enumerate */
 static char *dictionary_filenames[] = {
@@ -1417,7 +1412,7 @@ static void ibmtts_set_synthesis_voice(char *synthesis_voice)
 
 	DBG("voxin: %s, synthesis voice=%s", __FUNCTION__, synthesis_voice);
 
-	for (i = 0; (i < MAX_NB_OF_LANGUAGES) && eciLocales[i].name; i++) {
+	for (i = 0; (i < VOX_MAX_NB_OF_LANGUAGES) && eciLocales[i].name; i++) {
 		if (!strcasecmp(eciLocales[i].name, synthesis_voice)) {
 			ibmtts_set_language_and_voice(eciLocales[i].lang, msg_settings.voice_type, eciLocales[i].dialect, eciLocales[i].name);
 			break;
@@ -1783,17 +1778,17 @@ static char *ibmtts_search_for_sound_icon(const char *icon_name)
 
 static void alloc_voice_list()
 {
-	enum ECILanguageDialect aLanguage[MAX_NB_OF_LANGUAGES];
-	int nLanguages = MAX_NB_OF_LANGUAGES;
+	enum ECILanguageDialect aLanguage[VOX_MAX_NB_OF_LANGUAGES];
+	int nLanguages = VOX_MAX_NB_OF_LANGUAGES;
 	int i = 0;
 
 	// if voxGetVoices available, update the list of installed voices 
 	if (_voxGetVoices) {
-		number_of_voices = RESERVED_VOICES;
-		if (!_voxGetVoices(voices, &number_of_voices) && (number_of_voices <= RESERVED_VOICES)) {
+		number_of_voices = VOX_RESERVED_VOICES;
+		if (!_voxGetVoices(voices, &number_of_voices) && (number_of_voices <= VOX_RESERVED_VOICES)) {
 			int i, j;
-			int min_id = eciLocales[IBMTTS_VOICES-1].langID;			
-			for (i=0, j=IBMTTS_VOICES; i<number_of_voices; i++) {
+			int min_id = eciLocales[VOX_ECI_VOICES-1].langID;			
+			for (i=0, j=VOX_ECI_VOICES; i<number_of_voices; i++) {
 				eciLocale *local = eciLocales + j;
 				vox_t *vox = voices + i;
 				if (vox->id <= min_id) // id already known?
@@ -1821,14 +1816,14 @@ static void alloc_voice_list()
 	if (!ibmtts_voice_list)
 		return;
 
-	DBG("voxin: nLanguages=%d/%lu", nLanguages, (unsigned long)MAX_NB_OF_LANGUAGES);
+	DBG("voxin: nLanguages=%d/%lu", nLanguages, (unsigned long)VOX_MAX_NB_OF_LANGUAGES);
 	for (i = 0; i < nLanguages; i++) {
 		/* look for the language name */
 		int j;
 		ibmtts_voice_list[i] = g_malloc(sizeof(SPDVoice));
 
 		DBG("voxin: aLanguage[%d]=0x%08x", i, aLanguage[i]);
-		for (j = 0; j < MAX_NB_OF_LANGUAGES && eciLocales[j].langID; j++) {
+		for (j = 0; j < VOX_MAX_NB_OF_LANGUAGES && eciLocales[j].langID; j++) {
 			DBG("voxin: eciLocales[%d].langID=0x%08x", j,
 			    eciLocales[j].langID);
 			if (eciLocales[j].langID == aLanguage[i]) {
@@ -1841,7 +1836,7 @@ static void alloc_voice_list()
 				break;
 			}
 		}
-		assert(j < MAX_NB_OF_LANGUAGES);
+		assert(j < VOX_MAX_NB_OF_LANGUAGES);
 	}
 	ibmtts_voice_list[nLanguages] = NULL;
 	DBG("voxin: LEAVE %s", __func__);
@@ -1873,14 +1868,14 @@ static void ibmtts_load_user_dictionary()
 	GString *filename = NULL;
 	int i = 0;
 	int dictionary_is_present = 0;
-	static guint old_index = MAX_NB_OF_LANGUAGES;
+	static guint old_index = VOX_MAX_NB_OF_LANGUAGES;
 	guint new_index;
 	const char *language = NULL;
 	const char *region = NULL;
 	ECIDictHand eciDict = _eciGetDict(eciHandle);
 
 	new_index = g_atomic_int_get(&locale_index_atomic);
-	if (new_index >= MAX_NB_OF_LANGUAGES) {
+	if (new_index >= VOX_MAX_NB_OF_LANGUAGES) {
 		DBG("voxin: %s, unexpected index (0x%x)", __FUNCTION__, new_index);
 		return;
 	}
@@ -1907,7 +1902,7 @@ static void ibmtts_load_user_dictionary()
 	if (eciDict) {
 		old_index = new_index;
 	} else {
-		old_index = MAX_NB_OF_LANGUAGES;
+		old_index = VOX_MAX_NB_OF_LANGUAGES;
 		DBG("voxin: can't create new dictionary");
 		return;
 	}
