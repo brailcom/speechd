@@ -1237,7 +1237,20 @@ static char *ibmtts_voice_enum_to_str(SPDVoiceType voice)
 	return voicename;
 }
 
-/* Given a language, dialect and SD voice codes sets the IBM voice */
+/* 
+   Convert the supplied arguments to the eciLanguageDialect value and
+   sets the eciLanguageDialect parameter.
+
+   The arguments are used in this order:
+   - find a matching voice name, 
+   - or dialect/variant,
+   - or language
+
+   Example, using Orca 3.30.1:
+   lang="en", voice=1, dialect=NULL, name="voxin default voice"
+   language ("en") is used to find the installed voice.
+
+*/
 static void
 ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant, char *name)
 {
@@ -1247,7 +1260,7 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant, cha
 	int ret = -1;
 	int i = 0;
 	int j = 0;
-
+	
 	DBG("voxin: %s, lang=%s, voice=%d, dialect=%s, name=%s",
 	    __FUNCTION__, lang, (int)voice, variant ? variant : "", name ? name : "");
 
@@ -1266,31 +1279,33 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant, cha
 				break;
 			}
 		}
-	} else if (variant_name && *variant_name) {
-		for (i = 0; v[i]; i++) {
-			DBG("%d. variant=%s", i, v[i]->variant);
-			if (!strcmp(v[i]->variant, variant_name)) {
-				j = ibmtts_voice_index[i];
-				ret = _eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
-				DBG("voxin: set langID=0x%x (ret=%d)",
-				    eciLocales[j].langID, ret);
-				ibmtts_input_encoding = eciLocales[j].charset;
-				break;
-			}
+	}
+	if ((ret==-1) && variant_name && *variant_name) {
+	  for (i = 0; v[i]; i++) {
+		DBG("%d. variant=%s", i, v[i]->variant);
+		if (!strcmp(v[i]->variant, variant_name)) {
+		  j = ibmtts_voice_index[i];
+		  ret = _eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
+		  DBG("voxin: set langID=0x%x (ret=%d)",
+			  eciLocales[j].langID, ret);
+		  ibmtts_input_encoding = eciLocales[j].charset;
+		  break;
 		}
-	} else {
-		for (i = 0; v[i]; i++) {
-			DBG("%d. language=%s", i, v[i]->language);
-			if (!strcmp(v[i]->language, lang)) {
-				j = ibmtts_voice_index[i];
-				variant_name = v[i]->name;
-				ret = _eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
-				DBG("voxin: set langID=0x%x (ret=%d)",
-				    eciLocales[j].langID, ret);
-				ibmtts_input_encoding = eciLocales[j].charset;
-				break;
-			}
+	  }
+	}
+	if (ret == -1) {
+	  for (i = 0; v[i]; i++) {
+		DBG("%d. language=%s", i, v[i]->language);
+		if (!strcmp(v[i]->language, lang)) {
+		  j = ibmtts_voice_index[i];
+		  variant_name = v[i]->name;
+		  ret = _eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
+		  DBG("voxin: set langID=0x%x (ret=%d)",
+			  eciLocales[j].langID, ret);
+		  ibmtts_input_encoding = eciLocales[j].charset;
+		  break;
 		}
+	  }
 	}
 
 	if (-1 == ret) {
