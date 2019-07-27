@@ -318,7 +318,7 @@ typedef struct _eciLocale {
 	char *charset;
 } eciLocale, *eciLocaleList;
 
-static eciLocale eciLocales[VOX_MAX_NB_OF_LANGUAGES+1] = { // +1 for a null element
+static eciLocale eciLocales[VOX_MAX_NB_OF_LANGUAGES+1] = { /* +1 for a null element */
 	{"American_English", "en", "US", eciGeneralAmericanEnglish, "ISO-8859-1"},
 	{"British_English", "en", "GB", eciBritishEnglish, "ISO-8859-1"},
 	{"Castilian_Spanish", "es", "ES", eciCastilianSpanish, "ISO-8859-1"},
@@ -343,6 +343,12 @@ static eciLocale eciLocales[VOX_MAX_NB_OF_LANGUAGES+1] = { // +1 for a null elem
 	{"Finnish", "fi", "FI", eciStandardFinnish, "ISO-8859-1"},
 };
 
+/* voices returned by libvoxin, some values (name, quality) can be
+   modified for compatibility with speech-dispatcher):
+   - quality is appended to name to differentiate distinct voices with
+     same name but distinct qualities
+   - if quality is unset (empty), it is set to "none"
+*/
 static vox_t voices[VOX_RESERVED_VOICES];
 static unsigned int number_of_voices = VOX_RESERVED_VOICES;
 
@@ -1246,8 +1252,10 @@ static char *ibmtts_voice_enum_to_str(SPDVoiceType voice)
    - or language
 
    Example, using Orca 3.30.1:
-   lang="en", voice=1, dialect=NULL, name="voxin default voice"
-   language ("en") is used to find the installed voice.
+   - lang="en", voice=1, dialect=NULL, name="voxin default voice"
+    language ("en") is used to find the installed voice.
+   - lang=en, voice=1, dialect=, name=zuzana
+    name ("zuzana") matches Zuzana embedded-compact
 
 */
 static void
@@ -1267,9 +1275,10 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant, cha
 	assert(v);
 
 	if (name && *name) {
+		size_t len = strnlen(name, VOX_STR_MAX-1);
 		for (i = 0; v[i]; i++) {
 			DBG("%d. name=%s", i, v[i]->name);
-			if (!strcmp(v[i]->name, name)) {
+			  if (!strncasecmp(v[i]->name, name, len)) {
 				j = ibmtts_voice_index[i];
 				ret = _eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
 				DBG("voxin: set langID=0x%x (ret=%d)",
@@ -1796,7 +1805,7 @@ static void alloc_voice_list()
 	int nLanguages = VOX_MAX_NB_OF_LANGUAGES;
 	int i = 0;
 
-	// if voxGetVoices available, update the list of installed voices 
+	/* if voxGetVoices available, update the list of installed voices */
 	if (_voxGetVoices) {
 		number_of_voices = VOX_RESERVED_VOICES;
 		if (!_voxGetVoices(voices, &number_of_voices) && (number_of_voices <= VOX_RESERVED_VOICES)) {
@@ -1804,12 +1813,31 @@ static void alloc_voice_list()
 			int min_id = eciLocales[VOX_ECI_VOICES-1].langID;			
 			for (i=0, j=VOX_ECI_VOICES; i<number_of_voices; i++) {
 				eciLocale *local = eciLocales + j;
+				size_t len = 0;
 				vox_t *vox = voices + i;
-				if (vox->id <= min_id) // id already known?
+				if (vox->id <= min_id) /* id already known? */
 					continue;
 
 				DBG("voxin: vox[%d]=id=0x%x, name=%s, lang=%s, variant=%s, charset=%s", i, vox->id, vox->name, vox->lang, vox->variant, vox->charset);
 
+				if (!*vox->variant) {
+					 strcpy(vox->variant, "none");
+				}
+				
+				len = strnlen(vox->name, VOX_STR_MAX-1);
+
+				/* convert the name to lower case and add the quality */
+				{
+					 int k;
+					 for (k=0; k<len; k++) {
+						  vox->name[k] = tolower(vox->name[k]);
+					 }
+					 if (*vox->quality && (len < sizeof(vox->name))) {
+						  snprintf(vox->name+len, sizeof(vox->name)-len, "-%s", vox->quality);
+						  vox->name[sizeof(vox->name)-1] = 0;
+					 }
+				}
+				
 				local->name = vox->name;
 				local->lang = vox->lang;
 				local->dialect = vox->variant;
