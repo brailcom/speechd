@@ -225,12 +225,18 @@ static gchar *escape_ssml_text(const gchar *text)
 		guchar c = *cur;
 
 		if (c == 0xee) {
+			guchar c2 = *(cur+1);
 			/* Already some U+Exxx ?! Drop it off */
-			cur++;
-			if (*cur)
+			if (c2) {
 				cur++;
-			if (*cur)
-				cur++;
+				guchar c3 = *(cur+1);
+				if (c3) {
+					guint uc = 0xe000 | ((c2 & 0x3f) << 6) | (c3 & 0x3f);
+					MSG2(4, "symbols", "Input contains an U+%4x character!", uc);
+					cur++;
+				}
+				else MSG2(4, "symbols", "Input contains an unterminated U+Exxx character!");
+			} else MSG2(4, "symbols", "Input contains an unterminated U+Exxx character!");
 			continue;
 		}
 
