@@ -27,7 +27,7 @@ spd_say_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS) $(top_builddir)/src/
 
 if HAVE_HELP2MAN
 spd-say.1: spd-say$(EXEEXT)
-	LC_ALL=C help2man --output=$@ ./$<
+	LC_ALL=C help2man -n "send text-to-speech output request to speech-dispatcher" --output=$@ ./$<
 
 dist_man1_MANS = \
 	spd-say.1
