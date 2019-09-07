@@ -39,7 +39,7 @@ speech_dispatcher_LDADD = $(lib_common) $(DOTCONF_LIBS) $(GLIB_LIBS) \
 
 if HAVE_HELP2MAN
 speech-dispatcher.1: speech-dispatcher$(EXEEXT)
-	LC_ALL=C help2man --output=$@ ./$<
+	LC_ALL=C help2man -n "speech synthesis daemon" --output=$@ ./$<
 
 dist_man1_MANS = \
 	speech-dispatcher.1
