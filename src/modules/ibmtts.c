@@ -244,6 +244,7 @@ static SPDVoice **ibmtts_voice_list = NULL;
 static int *ibmtts_voice_index = NULL;
 
 /* Internal function prototypes for main thread. */
+static void ibmtts_update_sample_rate();
 static void ibmtts_set_language(char *lang);
 static void ibmtts_set_voice(SPDVoiceType voice);
 static char *ibmtts_voice_enum_to_str(SPDVoiceType voice);
@@ -449,7 +450,6 @@ int module_init(char **status_info)
 {
 	int ret;
 	char ibmVersion[20];
-	int ibm_sample_rate;
 	void *libHandle;
 
 	DBG("voxin: Module init().");
@@ -505,22 +505,7 @@ int module_init(char **status_info)
 		return FATAL_ERROR;
 	}
 
-	/* Get ECI audio sample rate. */
-	ibm_sample_rate = _eciGetParam(eciHandle, eciSampleRate);
-	switch (ibm_sample_rate) {
-	case 0:
-		eci_sample_rate = 8000;
-		break;
-	case 1:
-		eci_sample_rate = 11025;
-		break;
-	case 2:
-		eci_sample_rate = 22050;
-		break;
-	default:
-		DBG("voxin: Invalid audio sample rate returned by ECI = %i",
-		    ibm_sample_rate);
-	}
+	ibmtts_update_sample_rate();
 
 	/* Allocate a chunk for ECI to return audio. */
 	audio_chunk =
@@ -787,6 +772,27 @@ int module_close(void)
 }
 
 /* Internal functions */
+
+static void ibmtts_update_sample_rate() {
+  int ibm_sample_rate;
+  /* Get ECI audio sample rate. */
+  ibm_sample_rate = _eciGetParam(eciHandle, eciSampleRate);
+  switch (ibm_sample_rate) {
+  case 0:
+	eci_sample_rate = 8000;
+	break;
+  case 1:
+	eci_sample_rate = 11025;
+	break;
+  case 2:
+	eci_sample_rate = 22050;
+	break;
+  default:
+	DBG("voxin: Invalid audio sample rate returned by ECI = %i",
+		    ibm_sample_rate);
+  }
+  DBG("voxin: %s, eci_sample_rate=%d",  __FUNCTION__, eci_sample_rate);  
+}
 
 /* Return true if the thread is busy, i.e., suspended mutex is not locked. */
 static TIbmttsBool is_thread_busy(pthread_mutex_t * suspended_mutex)
@@ -1285,6 +1291,7 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant, cha
 				DBG("voxin: set langID=0x%x (ret=%d)",
 				    eciLocales[j].langID, ret);
 				ibmtts_input_encoding = eciLocales[j].charset;
+				ibmtts_update_sample_rate();		  
 				break;
 			}
 		}
@@ -1298,6 +1305,7 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant, cha
 		  DBG("voxin: set langID=0x%x (ret=%d)",
 			  eciLocales[j].langID, ret);
 		  ibmtts_input_encoding = eciLocales[j].charset;
+		  ibmtts_update_sample_rate();		  
 		  break;
 		}
 	  }
@@ -1312,6 +1320,7 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant, cha
 		  DBG("voxin: set langID=0x%x (ret=%d)",
 			  eciLocales[j].langID, ret);
 		  ibmtts_input_encoding = eciLocales[j].charset;
+		  ibmtts_update_sample_rate();		  
 		  break;
 		}
 	  }
@@ -1403,14 +1412,8 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant, cha
 			DBG("voxin: ERROR: Setting speed %i", params->speed);
 	}
 	g_free(voicename);
-	/* Retrieve the baseline pitch and speed of the voice. */
-	ibmtts_voice_pitch_baseline =
-	    _eciGetVoiceParam(eciHandle, 0, eciPitchBaseline);
-	if (-1 == ibmtts_voice_pitch_baseline)
-		DBG("voxin: Cannot get pitch baseline of voice.");
-	ibmtts_voice_speed = _eciGetVoiceParam(eciHandle, 0, eciSpeed);
-	if (-1 == ibmtts_voice_speed)
-		DBG("voxin: Cannot get speed of voice.");
+	ibmtts_voice_pitch_baseline = 65;
+	ibmtts_voice_speed = 50;
 }
 
 static void ibmtts_set_voice(SPDVoiceType voice)
