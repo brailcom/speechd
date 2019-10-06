@@ -1267,6 +1267,7 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant, cha
 	int eciVoice;
 	int ret = -1;
 	int i = 0;
+	int j = 0;
 	
 	DBG("voxin: %s, lang=%s, voice=%d, dialect=%s, name=%s",
 	    __FUNCTION__, lang, (int)voice, variant ? variant : "", name ? name : "");
@@ -1279,11 +1280,7 @@ ibmtts_set_language_and_voice(char *lang, SPDVoiceType voice, char *variant, cha
 		for (i = 0; v[i]; i++) {
 			DBG("%d. name=%s", i, v[i]->name);
 			  if (!strncasecmp(v[i]->name, name, len)) {
-				int j = ibmtts_voice_index[i];
-				ret =
-				    _eciSetParam(eciHandle, eciLanguageDialect,
-						eciLocales[j].langID);
-				DBG("voxin: set langID=0x%x (ret=%d)",
+				j = ibmtts_voice_index[i];				
 				ret = _eciSetParam(eciHandle, eciLanguageDialect, eciLocales[j].langID);
 				DBG("voxin: set langID=0x%x (ret=%d)",
 				    eciLocales[j].langID, ret);
@@ -1458,7 +1455,6 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 					  enum ECIMessage msg,
 					  long lparam, void *data)
 {
-	int ret;
 	/* This callback is running in the same thread as called eciSynchronize(),
 	   i.e., the _ibmtts_synth() thread. */
 
@@ -1470,7 +1466,7 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 	case eciWaveformBuffer:
 		DBG("voxin: %ld audio samples returned from TTS.", lparam);
 		/* Add audio to output queue. */
-		ret = ibmtts_add_audio_to_playback_queue(audio_chunk, lparam);
+		ibmtts_add_audio_to_playback_queue(audio_chunk, lparam);
 		/* Wake up the audio playback thread, if not already awake. */
 		if (!is_thread_busy(&ibmtts_play_suspended_mutex))
 			sem_post(&ibmtts_play_semaphore);
@@ -1482,7 +1478,7 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 			ibmtts_add_flag_to_playback_queue(IBMTTS_QET_END);
 		} else {
 			/* Add index mark to output queue. */
-			ret = ibmtts_add_mark_to_playback_queue(lparam);
+			ibmtts_add_mark_to_playback_queue(lparam);
 		}
 		/* Wake up the audio playback thread, if not already awake. */
 		if (!is_thread_busy(&ibmtts_play_suspended_mutex))
