@@ -33,7 +33,9 @@ settings and where to look at in case of a sound or speech issue.
 Mailing-lists
 -------------
 
-There is a public mailing-list speechd-discuss@nongnu.org for this project.
+There is a public mailing-list
+[speechd-discuss](https://lists.nongnu.org/mailman/listinfo/speechd-discuss)
+for this project.
 
 This list is for Speech Dispatcher developers, as well as for users. If you
 want to contribute the development, propose a new feature, get help or just be
