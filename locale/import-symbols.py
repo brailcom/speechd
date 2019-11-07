@@ -139,10 +139,16 @@ for lang,files in CLDRExceptionsList.items():
 	cldrSources = []
 	for CLDRFile in files:
 		# First add all annotations, then the derived ones.
-		cldrSources.append(path.join(annotationsDir,CLDRFile+".xml"))
-		cldrSources.append(path.join(annotationsDerivedDir,CLDRFile+".xml"))
+		if path.exists(path.join(annotationsDir,CLDRFile+".xml")):
+			cldrSources.append(path.join(annotationsDir,CLDRFile+".xml"))
+		if path.exists(path.join(annotationsDerivedDir,CLDRFile+".xml")):
+			cldrSources.append(path.join(annotationsDerivedDir,CLDRFile+".xml"))
 		processedFiles.append(CLDRFile+".xml")
-	emojiDic = createCLDRAnnotationsDict(cldrSources)
+	# We list emogies and don't continue if there is none
+	try:
+		emojiDic = createCLDRAnnotationsDict(cldrSources)
+	except AssertionError:
+		continue
 	# We write the dictionnary with the doc and the emojies
 	with codecs.open(path.join(lang, "emojis.dic"), "w", "utf_8_sig", errors="replace") as dicFile:
 		dicFile.write(docHeader)
@@ -158,8 +164,13 @@ for CLDRFile in os.listdir(annotationsDir):
 	cldrSources = []
 	# First add all annotations, then the derived ones.
 	cldrSources.append(path.join(annotationsDir,CLDRFile))
-	cldrSources.append(path.join(annotationsDerivedDir,CLDRFile))
-	emojiDic = createCLDRAnnotationsDict(cldrSources)
+	if path.exists(path.join(annotationsDerivedDir,CLDRFile)):
+		cldrSources.append(path.join(annotationsDerivedDir,CLDRFile))
+	# We list emogies and don't continue if there is none
+	try:
+		emojiDic = createCLDRAnnotationsDict(cldrSources)
+	except AssertionError:
+		continue
 	# We write the dictionnary with the doc and the emojies
 	with codecs.open(path.join(CLDRLang, "emojis.dic"), "w", "utf_8_sig", errors="replace") as dicFile:
 		dicFile.write(docHeader)
