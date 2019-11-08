@@ -8,7 +8,7 @@ symbols:
 🏽	mittlere Hautfarbe	none
 🏾	mitteldunkle Hautfarbe	none
 🏿	dunkle Hautfarbe	none
-🐾	Tatzenabdrücke	none
+⚧	Symbol für Transgender	none
 😀	grinsendes Gesicht	none
 😃	grinsendes Gesicht mit großen Augen	none
 😄	grinsendes Gesicht mit lachenden Augen	none
@@ -94,6 +94,7 @@ symbols:
 😓	bedrücktes Gesicht mit Schweiß	none
 😩	erschöpftes Gesicht	none
 😫	müdes Gesicht	none
+🥱	gähnendes Gesicht	none
 😤	schnaubendes Gesicht	none
 😡	schmollendes Gesicht	none
 😠	verärgertes Gesicht	none
@@ -140,7 +141,9 @@ symbols:
 💚	grünes Herz	none
 💙	blaues Herz	none
 💜	lila Herz	none
+🤎	braunes Herz	none
 🖤	schwarzes Herz	none
+🤍	weißes Herz	none
 💯	100 Punkte	none
 💢	Ärger	none
 💥	Zusammenstoß	none
@@ -161,6 +164,7 @@ symbols:
 ✋	erhobene Hand	none
 🖖	vulkanischer Gruß	none
 👌	OK-Zeichen	none
+🤏	Wenig-Geste	none
 ✌	Victory-Geste	none
 🤞	Hand mit gekreuzten Fingern	none
 🤟	ich-liebe-dich-Geste	none
@@ -188,9 +192,12 @@ symbols:
 💅	Nagellack	none
 🤳	Selfie	none
 💪	angespannter Bizeps	none
+🦾	Armprothese	none
+🦿	Beinprothese	none
 🦵	Bein	none
 🦶	Fuß	none
 👂	Ohr	none
+🦻	Ohr mit Hörhilfe	none
 👃	Nase	none
 🧠	Gehirn	none
 🦷	Zahn	none
@@ -205,17 +212,10 @@ symbols:
 👧	Mädchen	none
 🧑	Erwachsener	none
 👱	Person blondes Haar	none
-🧑‍🤝‍🧑	sich an den Händen haltende Personen	none
 👨	Mann	none
-👨‍🦯	Mann mit Gehstock	none
-👨‍🦼	Mann in elektrischem Rollstuhl	none
-👨‍🦽	Mann in manuellem Rollstuhl	none
-👱‍♂	Mann blond	none
 🧔	Mann Bart	none
+👱‍♂	Mann blond	none
 👩	Frau	none
-👩‍🦯	Frau mit Gehstock	none
-👩‍🦼	Frau in elektrischem Rollstuhl	none
-👩‍🦽	Frau in manuellem Rollstuhl	none
 👱‍♀	Frau blond	none
 🧓	älterer Erwachsener	none
 👴	älterer Mann	none
@@ -238,6 +238,9 @@ symbols:
 🙋	Person mit erhobenem Arm	none
 🙋‍♂	Mann mit erhobenem Arm	none
 🙋‍♀	Frau mit erhobenem Arm	none
+🧏	gehörlose Person	none
+🧏‍♂	gehörloser Mann	none
+🧏‍♀	gehörlose Frau	none
 🙇	sich verbeugende Person	none
 🙇‍♂	sich verbeugender Mann	none
 🙇‍♀	sich verbeugende Frau	none
@@ -247,36 +250,52 @@ symbols:
 🤷	schulterzuckende Person	none
 🤷‍♂	schulterzuckender Mann	none
 🤷‍♀	schulterzuckende Frau	none
+🧑‍⚕	Arzt/Ärztin	none
 👨‍⚕	Arzt	none
 👩‍⚕	Ärztin	none
+🧑‍🎓	Student(in)	none
 👨‍🎓	Student	none
 👩‍🎓	Studentin	none
+🧑‍🏫	Lehrer(in)	none
 👨‍🏫	Lehrer	none
 👩‍🏫	Lehrerin	none
+🧑‍⚖	Richter(in)	none
 👨‍⚖	Richter	none
 👩‍⚖	Richterin	none
+🧑‍🌾	Bauer/Bäuerin	none
 👨‍🌾	Bauer	none
 👩‍🌾	Bäuerin	none
+🧑‍🍳	Koch/Köchin	none
 👨‍🍳	Koch	none
 👩‍🍳	Köchin	none
+🧑‍🔧	Mechaniker(in)	none
 👨‍🔧	Mechaniker	none
 👩‍🔧	Mechanikerin	none
+🧑‍🏭	Fabrikarbeiter(in)	none
 👨‍🏭	Fabrikarbeiter	none
 👩‍🏭	Fabrikarbeiterin	none
+🧑‍💼	Büroangestellte(r)	none
 👨‍💼	Büroangestellter	none
 👩‍💼	Büroangestellte	none
+🧑‍🔬	Wissenschaftler(in)	none
 👨‍🔬	Wissenschaftler	none
 👩‍🔬	Wissenschaftlerin	none
+🧑‍💻	IT-Experte/IT-Expertin	none
 👨‍💻	IT-Experte	none
 👩‍💻	IT-Expertin	none
+🧑‍🎤	Sänger(in)	none
 👨‍🎤	Sänger	none
 👩‍🎤	Sängerin	none
+🧑‍🎨	Künstler(in)	none
 👨‍🎨	Künstler	none
 👩‍🎨	Künstlerin	none
+🧑‍✈	Pilot(in)	none
 👨‍✈	Pilot	none
 👩‍✈	Pilotin	none
+🧑‍🚀	Astronaut(in)	none
 👨‍🚀	Astronaut	none
 👩‍🚀	Astronautin	none
+🧑‍🚒	Feuerwehrmann/-frau	none
 👨‍🚒	Feuerwehrmann	none
 👩‍🚒	Feuerwehrfrau	none
 👮	Polizist(in)	none
@@ -341,6 +360,21 @@ symbols:
 🚶	Fußgänger(in)	none
 🚶‍♂	Fußgänger	none
 🚶‍♀	Fußgängerin	none
+🧍	stehende Person	none
+🧍‍♂	stehender Mann	none
+🧍‍♀	stehende Frau	none
+🧎	kniende Person	none
+🧎‍♂	kniender Mann	none
+🧎‍♀	kniende Frau	none
+🧑‍🦯	Person mit Gehstock	none
+👨‍🦯	Mann mit Gehstock	none
+👩‍🦯	Frau mit Gehstock	none
+🧑‍🦼	Person in motorisiertem Rollstuhl	none
+👨‍🦼	Mann in elektrischem Rollstuhl	none
+👩‍🦼	Frau in elektrischem Rollstuhl	none
+🧑‍🦽	Person in manuellem Rollstuhl	none
+👨‍🦽	Mann in manuellem Rollstuhl	none
+👩‍🦽	Frau in manuellem Rollstuhl	none
 🏃	laufende Person	none
 🏃‍♂	laufender Mann	none
 🏃‍♀	laufende Frau	none
@@ -404,9 +438,10 @@ symbols:
 🧘‍♀	Frau im Lotossitz	none
 🛀	badende Person	none
 🛌	im Bett liegende Person	none
+🧑‍🤝‍🧑	sich an den Händen haltende Personen	none
+👭	händchenhaltende Frauen	none
 👫	Mann und Frau halten Hände	none
 👬	händchenhaltende Männer	none
-👭	händchenhaltende Frauen	none
 💏	sich küssendes Paar	none
 💑	Liebespaar	none
 👪	Familie	none
@@ -418,13 +453,13 @@ symbols:
 🦱	lockiges Haar	none
 🦳	weißes Haar	none
 🦲	Glatze	none
-♀	Frauensymbol	none
-♂	Männersymbol	none
 🐵	Affengesicht	none
 🐒	Affe	none
 🦍	Gorilla	none
+🦧	Orang-Utan	none
 🐶	Hundegesicht	none
 🐕	Hund	none
+🦮	Blindenhund	none
 🐕‍🦺	Assistenzhund	none
 🐩	Pudel	none
 🐺	Wolf	none
@@ -471,8 +506,12 @@ symbols:
 🐻	Bär	none
 🐨	Koala	none
 🐼	Panda	none
+🦥	Faultier	none
+🦦	Otter	none
+🦨	Stinktier	none
 🦘	Känguru	none
 🦡	Dachs	none
+🐾	Tatzenabdrücke	none
 🦃	Truthahn	none
 🐔	Huhn	none
 🐓	Hahn	none
@@ -486,6 +525,7 @@ symbols:
 🦆	Ente	none
 🦢	Schwan	none
 🦉	Eule	none
+🦩	Flamingo	none
 🦚	Pfau	none
 🦜	Papagei	none
 🐸	Frosch	none
@@ -566,6 +606,8 @@ symbols:
 🥒	Gurke	none
 🥬	Grünzeug	none
 🥦	Brokkoli	none
+🧄	Knoblauch	none
+🧅	Zwiebel	none
 🍄	Fliegenpilz	none
 🥜	Erdnuss	none
 🌰	Kastanie	none
@@ -575,6 +617,7 @@ symbols:
 🥨	Brezel	none
 🥯	Bagel	none
 🥞	Pfannkuchen	none
+🧇	Waffel	none
 🧀	Käsestück	none
 🍖	Fleischhachse	none
 🍗	Hähnchenschenkel	none
@@ -588,6 +631,7 @@ symbols:
 🌮	Taco	none
 🌯	Burrito	none
 🥙	Döner	none
+🧆	Falafel	none
 🥚	Ei	none
 🍳	Spiegelei in Bratpfanne	none
 🥘	Pfannengericht	none
@@ -595,6 +639,7 @@ symbols:
 🥣	Schüssel mit Löffel	none
 🥗	Salat	none
 🍿	Popcorn	none
+🧈	Butter	none
 🧂	Salz	none
 🥫	Konserve	none
 🍱	Bento-Box	none
@@ -618,6 +663,7 @@ symbols:
 🦞	Hummer	none
 🦐	Garnele	none
 🦑	Tintenfisch	none
+🦪	Auster	none
 🍦	Softeis	none
 🍧	Wassereis	none
 🍨	Eiscreme	none
@@ -646,6 +692,9 @@ symbols:
 🥂	Sektgläser	none
 🥃	Trinkglas	none
 🥤	Becher mit Strohhalm	none
+🧃	Trinkpäckchen	none
+🧉	Mate-Tee	none
+🧊	Eiswürfel	none
 🥢	Essstäbchen	none
 🍽	Teller mit Messer und Gabel	none
 🍴	Gabel und Messer	none
@@ -694,6 +743,7 @@ symbols:
 🗽	Freiheitsstatue	none
 ⛪	Kirche	none
 🕌	Moschee	none
+🛕	Hindutempel	none
 🕍	Synagoge	none
 ⛩	Shinto-Schrein	none
 🕋	Kaaba	none
@@ -708,7 +758,6 @@ symbols:
 🌇	Sonnenuntergang in der Stadt	none
 🌉	Brücke vor Nachthimmel	none
 ♨	heiße Quellen	none
-🌌	Milchstraße	none
 🎠	Karussellpferd	none
 🎡	Riesenrad	none
 🎢	Achterbahn	none
@@ -745,6 +794,9 @@ symbols:
 🏎	Rennauto	none
 🏍	Motorrad	none
 🛵	Motorroller	none
+🦽	manueller Rollstuhl	none
+🦼	elektrischer Rollstuhl	none
+🛺	Autorikscha	none
 🚲	Fahrrad	none
 🛴	Tretroller	none
 🛹	Skateboard	none
@@ -770,6 +822,7 @@ symbols:
 🛩	kleines Flugzeug	none
 🛫	Abflug	none
 🛬	Landung eines Flugzeugs	none
+🪂	Fallschirm	none
 💺	Sitzplatz	none
 🚁	Hubschrauber	none
 🚟	Schwebebahn	none
@@ -827,9 +880,11 @@ symbols:
 ☀	Sonne	none
 🌝	Vollmond mit Gesicht	none
 🌞	Sonne mit Gesicht	none
+🪐	Ringplanet	none
 ⭐	weißer mittelgroßer Stern	none
 🌟	funkelnder Stern	none
 🌠	Sternschnuppe	none
+🌌	Milchstraße	none
 ☁	Wolke	none
 ⛅	Sonne hinter Wolke	none
 ⛈	Wolke mit Blitz und Regen	none
@@ -905,11 +960,14 @@ symbols:
 ⛳	Golffahne	none
 ⛸	Schlittschuh	none
 🎣	Angel mit Fisch	none
+🤿	Tauchmaske	none
 🎽	Laufshirt	none
 🎿	Ski	none
 🛷	Schlitten	none
 🥌	Curlingstein	none
 🎯	Darts	none
+🪀	Jo-Jo	none
+🪁	Drachen	none
 🎱	Billardkugel	none
 🔮	Kristallkugel	none
 🧿	Nazar-Amulett	none
@@ -936,6 +994,7 @@ symbols:
 🕶	Sonnenbrille	none
 🥽	Schutzbrille	none
 🥼	Laborkittel	none
+🦺	Sicherheitsweste	none
 👔	Hemd mit Krawatte	none
 👕	T-Shirt	none
 👖	Jeans	none
@@ -945,6 +1004,10 @@ symbols:
 🧦	Socken	none
 👗	Kleid	none
 👘	Kimono	none
+🥻	Sari	none
+🩱	einteiliger Badeanzug	none
+🩲	Slip	none
+🩳	Shorts	none
 👙	Bikini	none
 👚	Bluse	none
 👛	Geldbörse	none
@@ -958,6 +1021,7 @@ symbols:
 🥿	flacher Schuh	none
 👠	Stöckelschuh	none
 👡	Damensandale	none
+🩰	Ballettschuhe	none
 👢	Damenstiefel	none
 👑	Krone	none
 👒	Damenhut	none
@@ -992,6 +1056,7 @@ symbols:
 🎹	Klaviatur	none
 🎺	Trompete	none
 🎻	Geige	none
+🪕	Banjo	none
 🥁	Trommel	none
 📱	Mobiltelefon	none
 📲	Mobiltelefon mit Pfeil	none
@@ -1027,6 +1092,7 @@ symbols:
 💡	Glühbirne	none
 🔦	Taschenlampe	none
 🏮	rote Papierlaterne	none
+🪔	Öllampe	none
 📔	Notizbuch mit dekorativem Einband	none
 📕	geschlossenes Buch	none
 📖	offenes Buch	none
@@ -1105,6 +1171,7 @@ symbols:
 🔑	Schlüssel	none
 🗝	alter Schlüssel	none
 🔨	Hammer	none
+🪓	Axt	none
 ⛏	Pickel	none
 ⚒	Hammer und Pickel	none
 🛠	Hammer und Schraubenschlüssel	none
@@ -1118,6 +1185,7 @@ symbols:
 ⚙	Zahnrad	none
 🗜	Schraubzwinge	none
 ⚖	Waage	none
+🦯	Gehstock	none
 🔗	Verknüpfungssymbol	none
 ⛓	Ketten	none
 🧰	Werkzeugkasten	none
@@ -1130,13 +1198,18 @@ symbols:
 🔭	Teleskop	none
 📡	Satellitenschüssel	none
 💉	Spritze	none
+🩸	Blutstropfen	none
 💊	Kapsel	none
+🩹	Heftpflaster	none
+🩺	Stethoskop	none
 🚪	Tür	none
 🛏	Bett	none
 🛋	Sofa und Lampe	none
+🪑	Stuhl	none
 🚽	Toilette	none
 🚿	Dusche	none
 🛁	Badewanne	none
+🪒	Rasierer	none
 🧴	Creme	none
 🧷	Sicherheitsnadel	none
 🧹	Besen	none
@@ -1246,6 +1319,8 @@ symbols:
 📶	balkenförmige Signalstärkenanzeige	none
 📳	Vibrationsmodus	none
 📴	Mobiltelefon aus	none
+♀	Frauensymbol	none
+♂	Männersymbol	none
 ⚕	Äskulapstab	none
 ♾	Unendlichkeit	none
 ♻	Recycling-Symbol	none
@@ -1319,17 +1394,29 @@ symbols:
 🈺	Schriftzeichen für „Geöffnet“	none
 🈵	Schriftzeichen für „Kein Zimmer frei“	none
 🔴	roter Kreis	none
+🟠	oranger Kreis	none
+🟡	gelber Kreis	none
+🟢	grüner Kreis	none
 🔵	blauer Kreis	none
-⚪	weißer Kreis	none
+🟣	lila Kreis	none
+🟤	brauner Kreis	none
 ⚫	schwarzer Kreis	none
-⬜	großes weißes Quadrat	none
+⚪	weißer Kreis	none
+🟥	rotes Viereck	none
+🟧	oranges Viereck	none
+🟨	gelbes Viereck	none
+🟩	grünes Viereck	none
+🟦	blaues Viereck	none
+🟪	lila Viereck	none
+🟫	braunes Viereck	none
 ⬛	großes schwarzes Quadrat	none
+⬜	großes weißes Quadrat	none
 ◼	mittelgroßes schwarzes Quadrat	none
 ◻	mittelgroßes weißes Quadrat	none
-◽	mittelkleines weißes Quadrat	none
 ◾	mittelkleines schwarzes Quadrat	none
-▫	kleines weißes Quadrat	none
+◽	mittelkleines weißes Quadrat	none
 ▪	kleines schwarzes Quadrat	none
+▫	kleines weißes Quadrat	none
 🔶	große orangefarbene Raute	none
 🔷	große blaue Raute	none
 🔸	kleine orangefarbene Raute	none
@@ -1338,137 +1425,71 @@ symbols:
 🔻	rotes Dreieck mit der Spitze nach unten	none
 💠	Rautenform mit Punkt	none
 🔘	Optionsfeld	none
-🔲	schwarze quadratische Schaltfläche	none
 🔳	weiße quadratische Schaltfläche	none
+🔲	schwarze quadratische Schaltfläche	none
 🏁	Zielflagge	none
 🚩	Dreiecksflagge	none
 🎌	überkreuzte Flaggen	none
 🏴	schwarze Flagge	none
 🏳	weiße Flagge	none
+🏳‍⚧	Transgender-Flagge	none
 🏳‍🌈	Regenbogenflagge	none
 🏴‍☠	Piratenflagge	none
-🛕	Hindutempel	none
-🛺	Autorikscha	none
-🟠	oranger Kreis	none
-🟡	gelber Kreis	none
-🟢	grüner Kreis	none
-🟣	lila Kreis	none
-🟤	brauner Kreis	none
-🟥	rotes Viereck	none
-🟦	blaues Viereck	none
-🟧	oranges Viereck	none
-🟨	gelbes Viereck	none
-🟩	grünes Viereck	none
-🟪	lila Viereck	none
-🟫	braunes Viereck	none
-🤍	weißes Herz	none
-🤎	braunes Herz	none
-🤏	Wenig-Geste	none
-🤿	Tauchmaske	none
-🥱	gähnendes Gesicht	none
-🥻	Sari	none
-🦥	Faultier	none
-🦦	Otter	none
-🦧	Orang-Utan	none
-🦨	Stinktier	none
-🦩	Flamingo	none
-🦪	Auster	none
-🦮	Blindenhund	none
-🦯	Gehstock	none
-🦺	Sicherheitsweste	none
-🦻	Ohr mit Hörhilfe	none
-🦼	elektrischer Rollstuhl	none
-🦽	manueller Rollstuhl	none
-🦾	Armprothese	none
-🦿	Beinprothese	none
-🧃	Trinkpäckchen	none
-🧄	Knoblauch	none
-🧅	Zwiebel	none
-🧆	Falafel	none
-🧇	Waffel	none
-🧈	Butter	none
-🧉	Mate-Tee	none
-🧊	Eiswürfel	none
-🧍	stehende Person	none
-🧍‍♀	stehende Frau	none
-🧍‍♂	stehender Mann	none
-🧎	kniende Person	none
-🧎‍♀	kniende Frau	none
-🧎‍♂	kniender Mann	none
-🧏	gehörlose Person	none
-🧏‍♀	gehörlose Frau	none
-🧏‍♂	gehörloser Mann	none
-🩰	Ballettschuhe	none
-🩱	einteiliger Badeanzug	none
-🩲	Slip	none
-🩳	Shorts	none
-🩸	Blutstropfen	none
-🩹	Heftpflaster	none
-🩺	Stethoskop	none
-🪀	Jo-Jo	none
-🪁	Drachen	none
-🪂	Fallschirm	none
-🪐	Ringplanet	none
-🪑	Stuhl	none
-🪒	Rasierer	none
-🪓	Axt	none
-🪔	Öllampe	none
-🪕	Banjo	none
-🤏🏻	Wenig-Geste helle Hautfarbe	none
-🤏🏼	Wenig-Geste mittelhelle Hautfarbe	none
-🤏🏽	Wenig-Geste mittlere Hautfarbe	none
-🤏🏾	Wenig-Geste mitteldunkle Hautfarbe	none
-🤏🏿	Wenig-Geste dunkle Hautfarbe	none
-🦻🏻	Ohr mit Hörhilfe helle Hautfarbe	none
-🦻🏼	Ohr mit Hörhilfe mittelhelle Hautfarbe	none
-🦻🏽	Ohr mit Hörhilfe mittlere Hautfarbe	none
-🦻🏾	Ohr mit Hörhilfe mitteldunkle Hautfarbe	none
-🦻🏿	Ohr mit Hörhilfe dunkle Hautfarbe	none
-🧍🏻	stehende Person helle Hautfarbe	none
-🧍🏼	stehende Person mittelhelle Hautfarbe	none
-🧍🏽	stehende Person mittlere Hautfarbe	none
-🧍🏾	stehende Person mitteldunkle Hautfarbe	none
-🧍🏿	stehende Person dunkle Hautfarbe	none
-🧍🏻‍♀	stehende Frau helle Hautfarbe	none
-🧍🏼‍♀	stehende Frau mittelhelle Hautfarbe	none
-🧍🏽‍♀	stehende Frau mittlere Hautfarbe	none
-🧍🏾‍♀	stehende Frau mitteldunkle Hautfarbe	none
-🧍🏿‍♀	stehende Frau dunkle Hautfarbe	none
-🧍🏻‍♂	stehender Mann helle Hautfarbe	none
-🧍🏼‍♂	stehender Mann mittelhelle Hautfarbe	none
-🧍🏽‍♂	stehender Mann mittlere Hautfarbe	none
-🧍🏾‍♂	stehender Mann mitteldunkle Hautfarbe	none
-🧍🏿‍♂	stehender Mann dunkle Hautfarbe	none
-🧎🏻	kniende Person helle Hautfarbe	none
-🧎🏼	kniende Person mittelhelle Hautfarbe	none
-🧎🏽	kniende Person mittlere Hautfarbe	none
-🧎🏾	kniende Person mitteldunkle Hautfarbe	none
-🧎🏿	kniende Person dunkle Hautfarbe	none
-🧎🏻‍♀	kniende Frau helle Hautfarbe	none
-🧎🏼‍♀	kniende Frau mittelhelle Hautfarbe	none
-🧎🏽‍♀	kniende Frau mittlere Hautfarbe	none
-🧎🏾‍♀	kniende Frau mitteldunkle Hautfarbe	none
-🧎🏿‍♀	kniende Frau dunkle Hautfarbe	none
-🧎🏻‍♂	kniender Mann helle Hautfarbe	none
-🧎🏼‍♂	kniender Mann mittelhelle Hautfarbe	none
-🧎🏽‍♂	kniender Mann mittlere Hautfarbe	none
-🧎🏾‍♂	kniender Mann mitteldunkle Hautfarbe	none
-🧎🏿‍♂	kniender Mann dunkle Hautfarbe	none
-🧏🏻	gehörlose Person helle Hautfarbe	none
-🧏🏼	gehörlose Person mittelhelle Hautfarbe	none
-🧏🏽	gehörlose Person mittlere Hautfarbe	none
-🧏🏾	gehörlose Person mitteldunkle Hautfarbe	none
-🧏🏿	gehörlose Person dunkle Hautfarbe	none
-🧏🏻‍♀	gehörlose Frau helle Hautfarbe	none
-🧏🏼‍♀	gehörlose Frau mittelhelle Hautfarbe	none
-🧏🏽‍♀	gehörlose Frau mittlere Hautfarbe	none
-🧏🏾‍♀	gehörlose Frau mitteldunkle Hautfarbe	none
-🧏🏿‍♀	gehörlose Frau dunkle Hautfarbe	none
-🧏🏻‍♂	gehörloser Mann helle Hautfarbe	none
-🧏🏼‍♂	gehörloser Mann mittelhelle Hautfarbe	none
-🧏🏽‍♂	gehörloser Mann mittlere Hautfarbe	none
-🧏🏾‍♂	gehörloser Mann mitteldunkle Hautfarbe	none
-🧏🏿‍♂	gehörloser Mann dunkle Hautfarbe	none
+🛖	Hütte	none
+🛗	Fahrstuhl	none
+🛻	Pick-up	none
+🛼	Rollschuh	none
+🤌	zusammengedrückte Finger	none
+🥲	lachendes Gesicht mit Träne	none
+🥷	Ninja	none
+🥸	verkleidet	none
+🦣	Mammut	none
+🦤	Dodo	none
+🦫	Biber	none
+🦬	Bison	none
+🦭	Seehund	none
+🧋	Bubble Tea	none
+🩴	Zehensandale	none
+🪃	Bumerang	none
+🪄	Zauberstab	none
+🪅	Piñata	none
+🪆	Matroschka	none
+🪖	Militärhelm	none
+🪗	Akkordeon	none
+🪘	afrikanische Trommel	none
+🪙	Münze	none
+🪚	Handsäge	none
+🪛	Schraubenzieher	none
+🪜	Leiter	none
+🪝	Angelhaken	none
+🪞	Spiegel	none
+🪟	Fenster	none
+🪠	Pömpel	none
+🪡	Nähnadel	none
+🪢	Knoten	none
+🪣	Eimer	none
+🪤	Mäusefalle	none
+🪥	Zahnbürste	none
+🪦	Grabstein	none
+🪧	Plakat	none
+🪨	Felsen	none
+🪰	Fliege	none
+🪱	Wurm	none
+🪲	Käfer	none
+🪳	Kakerlake	none
+🪴	Topfpflanze	none
+🪵	Holz	none
+🪶	Feder	none
+🫀	Herz (Organ)	none
+🫁	Lungen	none
+🫂	sich umarmende Personen	none
+🫐	Blaubeeren	none
+🫑	Paprika	none
+🫒	Olive	none
+🫓	Fladenbrot	none
+🫔	Tamale	none
+🫕	Fondue	none
+🫖	Teekanne	none
 👋🏻	winkende Hand helle Hautfarbe	none
 👋🏼	winkende Hand mittelhelle Hautfarbe	none
 👋🏽	winkende Hand mittlere Hautfarbe	none
@@ -1499,6 +1520,11 @@ symbols:
 👌🏽	OK-Zeichen mittlere Hautfarbe	none
 👌🏾	OK-Zeichen mitteldunkle Hautfarbe	none
 👌🏿	OK-Zeichen dunkle Hautfarbe	none
+🤏🏻	Wenig-Geste helle Hautfarbe	none
+🤏🏼	Wenig-Geste mittelhelle Hautfarbe	none
+🤏🏽	Wenig-Geste mittlere Hautfarbe	none
+🤏🏾	Wenig-Geste mitteldunkle Hautfarbe	none
+🤏🏿	Wenig-Geste dunkle Hautfarbe	none
 ✌🏻	Victory-Geste helle Hautfarbe	none
 ✌🏼	Victory-Geste mittelhelle Hautfarbe	none
 ✌🏽	Victory-Geste mittlere Hautfarbe	none
@@ -1644,6 +1670,11 @@ symbols:
 👂🏽	Ohr mittlere Hautfarbe	none
 👂🏾	Ohr mitteldunkle Hautfarbe	none
 👂🏿	Ohr dunkle Hautfarbe	none
+🦻🏻	Ohr mit Hörhilfe helle Hautfarbe	none
+🦻🏼	Ohr mit Hörhilfe mittelhelle Hautfarbe	none
+🦻🏽	Ohr mit Hörhilfe mittlere Hautfarbe	none
+🦻🏾	Ohr mit Hörhilfe mitteldunkle Hautfarbe	none
+🦻🏿	Ohr mit Hörhilfe dunkle Hautfarbe	none
 👃🏻	Nase helle Hautfarbe	none
 👃🏼	Nase mittelhelle Hautfarbe	none
 👃🏽	Nase mittlere Hautfarbe	none
@@ -1679,51 +1710,45 @@ symbols:
 👱🏽	Person mittlere Hautfarbe, blondes Haar	none
 👱🏾	Person mitteldunkle Hautfarbe, blondes Haar	none
 👱🏿	Person dunkle Hautfarbe, blondes Haar	none
-🧑🏻‍🤝‍🧑🏻	sich an den Händen haltende Personen helle Hautfarbe	none
-🧑🏼‍🤝‍🧑🏻	sich an den Händen haltende Personen mittelhelle Hautfarbe, helle Hautfarbe	none
-🧑🏼‍🤝‍🧑🏼	sich an den Händen haltende Personen mittelhelle Hautfarbe	none
-🧑🏽‍🤝‍🧑🏻	sich an den Händen haltende Personen mittlere Hautfarbe, helle Hautfarbe	none
-🧑🏽‍🤝‍🧑🏼	sich an den Händen haltende Personen mittlere Hautfarbe, mittelhelle Hautfarbe	none
-🧑🏽‍🤝‍🧑🏽	sich an den Händen haltende Personen mittlere Hautfarbe	none
-🧑🏾‍🤝‍🧑🏻	sich an den Händen haltende Personen mitteldunkle Hautfarbe, helle Hautfarbe	none
-🧑🏾‍🤝‍🧑🏼	sich an den Händen haltende Personen mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
-🧑🏾‍🤝‍🧑🏽	sich an den Händen haltende Personen mitteldunkle Hautfarbe, mittlere Hautfarbe	none
-🧑🏾‍🤝‍🧑🏾	sich an den Händen haltende Personen mitteldunkle Hautfarbe	none
-🧑🏿‍🤝‍🧑🏻	sich an den Händen haltende Personen dunkle Hautfarbe, helle Hautfarbe	none
-🧑🏿‍🤝‍🧑🏼	sich an den Händen haltende Personen dunkle Hautfarbe, mittelhelle Hautfarbe	none
-🧑🏿‍🤝‍🧑🏽	sich an den Händen haltende Personen dunkle Hautfarbe, mittlere Hautfarbe	none
-🧑🏿‍🤝‍🧑🏾	sich an den Händen haltende Personen dunkle Hautfarbe, mitteldunkle Hautfarbe	none
-🧑🏿‍🤝‍🧑🏿	sich an den Händen haltende Personen dunkle Hautfarbe	none
+🧑‍🦰	Erwachsener rotes Haar	none
+🧑🏻‍🦰	Erwachsener helle Hautfarbe, rotes Haar	none
+🧑🏼‍🦰	Erwachsener mittelhelle Hautfarbe, rotes Haar	none
+🧑🏽‍🦰	Erwachsener mittlere Hautfarbe, rotes Haar	none
+🧑🏾‍🦰	Erwachsener mitteldunkle Hautfarbe, rotes Haar	none
+🧑🏿‍🦰	Erwachsener dunkle Hautfarbe, rotes Haar	none
+🧑‍🦱	Erwachsener lockiges Haar	none
+🧑🏻‍🦱	Erwachsener helle Hautfarbe, lockiges Haar	none
+🧑🏼‍🦱	Erwachsener mittelhelle Hautfarbe, lockiges Haar	none
+🧑🏽‍🦱	Erwachsener mittlere Hautfarbe, lockiges Haar	none
+🧑🏾‍🦱	Erwachsener mitteldunkle Hautfarbe, lockiges Haar	none
+🧑🏿‍🦱	Erwachsener dunkle Hautfarbe, lockiges Haar	none
+🧑‍🦳	Erwachsener weißes Haar	none
+🧑🏻‍🦳	Erwachsener helle Hautfarbe, weißes Haar	none
+🧑🏼‍🦳	Erwachsener mittelhelle Hautfarbe, weißes Haar	none
+🧑🏽‍🦳	Erwachsener mittlere Hautfarbe, weißes Haar	none
+🧑🏾‍🦳	Erwachsener mitteldunkle Hautfarbe, weißes Haar	none
+🧑🏿‍🦳	Erwachsener dunkle Hautfarbe, weißes Haar	none
+🧑‍🦲	Erwachsener Glatze	none
+🧑🏻‍🦲	Erwachsener helle Hautfarbe, Glatze	none
+🧑🏼‍🦲	Erwachsener mittelhelle Hautfarbe, Glatze	none
+🧑🏽‍🦲	Erwachsener mittlere Hautfarbe, Glatze	none
+🧑🏾‍🦲	Erwachsener mitteldunkle Hautfarbe, Glatze	none
+🧑🏿‍🦲	Erwachsener dunkle Hautfarbe, Glatze	none
 👨🏻	Mann helle Hautfarbe	none
 👨🏼	Mann mittelhelle Hautfarbe	none
 👨🏽	Mann mittlere Hautfarbe	none
 👨🏾	Mann mitteldunkle Hautfarbe	none
 👨🏿	Mann dunkle Hautfarbe	none
-👨🏻‍🦯	Mann mit Gehstock helle Hautfarbe	none
-👨🏼‍🦯	Mann mit Gehstock mittelhelle Hautfarbe	none
-👨🏽‍🦯	Mann mit Gehstock mittlere Hautfarbe	none
-👨🏾‍🦯	Mann mit Gehstock mitteldunkle Hautfarbe	none
-👨🏿‍🦯	Mann mit Gehstock dunkle Hautfarbe	none
-👨🏻‍🦼	Mann in elektrischem Rollstuhl helle Hautfarbe	none
-👨🏼‍🦼	Mann in elektrischem Rollstuhl mittelhelle Hautfarbe	none
-👨🏽‍🦼	Mann in elektrischem Rollstuhl mittlere Hautfarbe	none
-👨🏾‍🦼	Mann in elektrischem Rollstuhl mitteldunkle Hautfarbe	none
-👨🏿‍🦼	Mann in elektrischem Rollstuhl dunkle Hautfarbe	none
-👨🏻‍🦽	Mann in manuellem Rollstuhl helle Hautfarbe	none
-👨🏼‍🦽	Mann in manuellem Rollstuhl mittelhelle Hautfarbe	none
-👨🏽‍🦽	Mann in manuellem Rollstuhl mittlere Hautfarbe	none
-👨🏾‍🦽	Mann in manuellem Rollstuhl mitteldunkle Hautfarbe	none
-👨🏿‍🦽	Mann in manuellem Rollstuhl dunkle Hautfarbe	none
-👨🏼‍🤝‍👨🏻	händchenhaltende Männer mittelhelle Hautfarbe, helle Hautfarbe	none
-👨🏽‍🤝‍👨🏻	händchenhaltende Männer mittlere Hautfarbe, helle Hautfarbe	none
-👨🏽‍🤝‍👨🏼	händchenhaltende Männer mittlere Hautfarbe, mittelhelle Hautfarbe	none
-👨🏾‍🤝‍👨🏻	händchenhaltende Männer mitteldunkle Hautfarbe, helle Hautfarbe	none
-👨🏾‍🤝‍👨🏼	händchenhaltende Männer mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
-👨🏾‍🤝‍👨🏽	händchenhaltende Männer mitteldunkle Hautfarbe, mittlere Hautfarbe	none
-👨🏿‍🤝‍👨🏻	händchenhaltende Männer dunkle Hautfarbe, helle Hautfarbe	none
-👨🏿‍🤝‍👨🏼	händchenhaltende Männer dunkle Hautfarbe, mittelhelle Hautfarbe	none
-👨🏿‍🤝‍👨🏽	händchenhaltende Männer dunkle Hautfarbe, mittlere Hautfarbe	none
-👨🏿‍🤝‍👨🏾	händchenhaltende Männer dunkle Hautfarbe, mitteldunkle Hautfarbe	none
+🧔🏻	Mann helle Hautfarbe, Bart	none
+🧔🏼	Mann mittelhelle Hautfarbe, Bart	none
+🧔🏽	Mann mittlere Hautfarbe, Bart	none
+🧔🏾	Mann mitteldunkle Hautfarbe, Bart	none
+🧔🏿	Mann dunkle Hautfarbe, Bart	none
+👱🏻‍♂	Mann helle Hautfarbe, blond	none
+👱🏼‍♂	Mann mittelhelle Hautfarbe, blond	none
+👱🏽‍♂	Mann mittlere Hautfarbe, blond	none
+👱🏾‍♂	Mann mitteldunkle Hautfarbe, blond	none
+👱🏿‍♂	Mann dunkle Hautfarbe, blond	none
 👨‍🦰	Mann rotes Haar	none
 👨🏻‍🦰	Mann helle Hautfarbe, rotes Haar	none
 👨🏼‍🦰	Mann mittelhelle Hautfarbe, rotes Haar	none
@@ -1748,66 +1773,16 @@ symbols:
 👨🏽‍🦲	Mann mittlere Hautfarbe, Glatze	none
 👨🏾‍🦲	Mann mitteldunkle Hautfarbe, Glatze	none
 👨🏿‍🦲	Mann dunkle Hautfarbe, Glatze	none
-👱🏻‍♂	Mann helle Hautfarbe, blond	none
-👱🏼‍♂	Mann mittelhelle Hautfarbe, blond	none
-👱🏽‍♂	Mann mittlere Hautfarbe, blond	none
-👱🏾‍♂	Mann mitteldunkle Hautfarbe, blond	none
-👱🏿‍♂	Mann dunkle Hautfarbe, blond	none
-🧔🏻	Mann helle Hautfarbe, Bart	none
-🧔🏼	Mann mittelhelle Hautfarbe, Bart	none
-🧔🏽	Mann mittlere Hautfarbe, Bart	none
-🧔🏾	Mann mitteldunkle Hautfarbe, Bart	none
-🧔🏿	Mann dunkle Hautfarbe, Bart	none
 👩🏻	Frau helle Hautfarbe	none
 👩🏼	Frau mittelhelle Hautfarbe	none
 👩🏽	Frau mittlere Hautfarbe	none
 👩🏾	Frau mitteldunkle Hautfarbe	none
 👩🏿	Frau dunkle Hautfarbe	none
-👩🏻‍🦯	Frau mit Gehstock helle Hautfarbe	none
-👩🏼‍🦯	Frau mit Gehstock mittelhelle Hautfarbe	none
-👩🏽‍🦯	Frau mit Gehstock mittlere Hautfarbe	none
-👩🏾‍🦯	Frau mit Gehstock mitteldunkle Hautfarbe	none
-👩🏿‍🦯	Frau mit Gehstock dunkle Hautfarbe	none
-👩🏻‍🦼	Frau in elektrischem Rollstuhl helle Hautfarbe	none
-👩🏼‍🦼	Frau in elektrischem Rollstuhl mittelhelle Hautfarbe	none
-👩🏽‍🦼	Frau in elektrischem Rollstuhl mittlere Hautfarbe	none
-👩🏾‍🦼	Frau in elektrischem Rollstuhl mitteldunkle Hautfarbe	none
-👩🏿‍🦼	Frau in elektrischem Rollstuhl dunkle Hautfarbe	none
-👩🏻‍🦽	Frau in manuellem Rollstuhl helle Hautfarbe	none
-👩🏼‍🦽	Frau in manuellem Rollstuhl mittelhelle Hautfarbe	none
-👩🏽‍🦽	Frau in manuellem Rollstuhl mittlere Hautfarbe	none
-👩🏾‍🦽	Frau in manuellem Rollstuhl mitteldunkle Hautfarbe	none
-👩🏿‍🦽	Frau in manuellem Rollstuhl dunkle Hautfarbe	none
-👩🏻‍🤝‍👨🏼	Mann und Frau halten Hände helle Hautfarbe, mittelhelle Hautfarbe	none
-👩🏻‍🤝‍👨🏽	Mann und Frau halten Hände helle Hautfarbe, mittlere Hautfarbe	none
-👩🏻‍🤝‍👨🏾	Mann und Frau halten Hände helle Hautfarbe, mitteldunkle Hautfarbe	none
-👩🏻‍🤝‍👨🏿	Mann und Frau halten Hände helle Hautfarbe, dunkle Hautfarbe	none
-👩🏼‍🤝‍👨🏻	Mann und Frau halten Hände mittelhelle Hautfarbe, helle Hautfarbe	none
-👩🏼‍🤝‍👨🏽	Mann und Frau halten Hände mittelhelle Hautfarbe, mittlere Hautfarbe	none
-👩🏼‍🤝‍👨🏾	Mann und Frau halten Hände mittelhelle Hautfarbe, mitteldunkle Hautfarbe	none
-👩🏼‍🤝‍👨🏿	Mann und Frau halten Hände mittelhelle Hautfarbe, dunkle Hautfarbe	none
-👩🏽‍🤝‍👨🏻	Mann und Frau halten Hände mittlere Hautfarbe, helle Hautfarbe	none
-👩🏽‍🤝‍👨🏼	Mann und Frau halten Hände mittlere Hautfarbe, mittelhelle Hautfarbe	none
-👩🏽‍🤝‍👨🏾	Mann und Frau halten Hände mittlere Hautfarbe, mitteldunkle Hautfarbe	none
-👩🏽‍🤝‍👨🏿	Mann und Frau halten Hände mittlere Hautfarbe, dunkle Hautfarbe	none
-👩🏾‍🤝‍👨🏻	Mann und Frau halten Hände mitteldunkle Hautfarbe, helle Hautfarbe	none
-👩🏾‍🤝‍👨🏼	Mann und Frau halten Hände mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
-👩🏾‍🤝‍👨🏽	Mann und Frau halten Hände mitteldunkle Hautfarbe, mittlere Hautfarbe	none
-👩🏾‍🤝‍👨🏿	Mann und Frau halten Hände mitteldunkle Hautfarbe, dunkle Hautfarbe	none
-👩🏿‍🤝‍👨🏻	Mann und Frau halten Hände dunkle Hautfarbe, helle Hautfarbe	none
-👩🏿‍🤝‍👨🏼	Mann und Frau halten Hände dunkle Hautfarbe, mittelhelle Hautfarbe	none
-👩🏿‍🤝‍👨🏽	Mann und Frau halten Hände dunkle Hautfarbe, mittlere Hautfarbe	none
-👩🏿‍🤝‍👨🏾	Mann und Frau halten Hände dunkle Hautfarbe, mitteldunkle Hautfarbe	none
-👩🏼‍🤝‍👩🏻	händchenhaltende Frauen mittelhelle Hautfarbe, helle Hautfarbe	none
-👩🏽‍🤝‍👩🏻	händchenhaltende Frauen mittlere Hautfarbe, helle Hautfarbe	none
-👩🏽‍🤝‍👩🏼	händchenhaltende Frauen mittlere Hautfarbe, mittelhelle Hautfarbe	none
-👩🏾‍🤝‍👩🏻	händchenhaltende Frauen mitteldunkle Hautfarbe, helle Hautfarbe	none
-👩🏾‍🤝‍👩🏼	händchenhaltende Frauen mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
-👩🏾‍🤝‍👩🏽	händchenhaltende Frauen mitteldunkle Hautfarbe, mittlere Hautfarbe	none
-👩🏿‍🤝‍👩🏻	händchenhaltende Frauen dunkle Hautfarbe, helle Hautfarbe	none
-👩🏿‍🤝‍👩🏼	händchenhaltende Frauen dunkle Hautfarbe, mittelhelle Hautfarbe	none
-👩🏿‍🤝‍👩🏽	händchenhaltende Frauen dunkle Hautfarbe, mittlere Hautfarbe	none
-👩🏿‍🤝‍👩🏾	händchenhaltende Frauen dunkle Hautfarbe, mitteldunkle Hautfarbe	none
+👱🏻‍♀	Frau helle Hautfarbe, blond	none
+👱🏼‍♀	Frau mittelhelle Hautfarbe, blond	none
+👱🏽‍♀	Frau mittlere Hautfarbe, blond	none
+👱🏾‍♀	Frau mitteldunkle Hautfarbe, blond	none
+👱🏿‍♀	Frau dunkle Hautfarbe, blond	none
 👩‍🦰	Frau rotes Haar	none
 👩🏻‍🦰	Frau helle Hautfarbe, rotes Haar	none
 👩🏼‍🦰	Frau mittelhelle Hautfarbe, rotes Haar	none
@@ -1832,11 +1807,6 @@ symbols:
 👩🏽‍🦲	Frau mittlere Hautfarbe, Glatze	none
 👩🏾‍🦲	Frau mitteldunkle Hautfarbe, Glatze	none
 👩🏿‍🦲	Frau dunkle Hautfarbe, Glatze	none
-👱🏻‍♀	Frau helle Hautfarbe, blond	none
-👱🏼‍♀	Frau mittelhelle Hautfarbe, blond	none
-👱🏽‍♀	Frau mittlere Hautfarbe, blond	none
-👱🏾‍♀	Frau mitteldunkle Hautfarbe, blond	none
-👱🏿‍♀	Frau dunkle Hautfarbe, blond	none
 🧓🏻	älterer Erwachsener helle Hautfarbe	none
 🧓🏼	älterer Erwachsener mittelhelle Hautfarbe	none
 🧓🏽	älterer Erwachsener mittlere Hautfarbe	none
@@ -1942,6 +1912,21 @@ symbols:
 🙋🏽‍♀	Frau mit erhobenem Arm mittlere Hautfarbe	none
 🙋🏾‍♀	Frau mit erhobenem Arm mitteldunkle Hautfarbe	none
 🙋🏿‍♀	Frau mit erhobenem Arm dunkle Hautfarbe	none
+🧏🏻	gehörlose Person helle Hautfarbe	none
+🧏🏼	gehörlose Person mittelhelle Hautfarbe	none
+🧏🏽	gehörlose Person mittlere Hautfarbe	none
+🧏🏾	gehörlose Person mitteldunkle Hautfarbe	none
+🧏🏿	gehörlose Person dunkle Hautfarbe	none
+🧏🏻‍♂	gehörloser Mann helle Hautfarbe	none
+🧏🏼‍♂	gehörloser Mann mittelhelle Hautfarbe	none
+🧏🏽‍♂	gehörloser Mann mittlere Hautfarbe	none
+🧏🏾‍♂	gehörloser Mann mitteldunkle Hautfarbe	none
+🧏🏿‍♂	gehörloser Mann dunkle Hautfarbe	none
+🧏🏻‍♀	gehörlose Frau helle Hautfarbe	none
+🧏🏼‍♀	gehörlose Frau mittelhelle Hautfarbe	none
+🧏🏽‍♀	gehörlose Frau mittlere Hautfarbe	none
+🧏🏾‍♀	gehörlose Frau mitteldunkle Hautfarbe	none
+🧏🏿‍♀	gehörlose Frau dunkle Hautfarbe	none
 🙇🏻	sich verbeugende Person helle Hautfarbe	none
 🙇🏼	sich verbeugende Person mittelhelle Hautfarbe	none
 🙇🏽	sich verbeugende Person mittlere Hautfarbe	none
@@ -1987,6 +1972,11 @@ symbols:
 🤷🏽‍♀	schulterzuckende Frau mittlere Hautfarbe	none
 🤷🏾‍♀	schulterzuckende Frau mitteldunkle Hautfarbe	none
 🤷🏿‍♀	schulterzuckende Frau dunkle Hautfarbe	none
+🧑🏻‍⚕	Arzt/Ärztin helle Hautfarbe	none
+🧑🏼‍⚕	Arzt/Ärztin mittelhelle Hautfarbe	none
+🧑🏽‍⚕	Arzt/Ärztin mittlere Hautfarbe	none
+🧑🏾‍⚕	Arzt/Ärztin mitteldunkle Hautfarbe	none
+🧑🏿‍⚕	Arzt/Ärztin dunkle Hautfarbe	none
 👨🏻‍⚕	Arzt helle Hautfarbe	none
 👨🏼‍⚕	Arzt mittelhelle Hautfarbe	none
 👨🏽‍⚕	Arzt mittlere Hautfarbe	none
@@ -1997,6 +1987,11 @@ symbols:
 👩🏽‍⚕	Ärztin mittlere Hautfarbe	none
 👩🏾‍⚕	Ärztin mitteldunkle Hautfarbe	none
 👩🏿‍⚕	Ärztin dunkle Hautfarbe	none
+🧑🏻‍🎓	Student(in) helle Hautfarbe	none
+🧑🏼‍🎓	Student(in) mittelhelle Hautfarbe	none
+🧑🏽‍🎓	Student(in) mittlere Hautfarbe	none
+🧑🏾‍🎓	Student(in) mitteldunkle Hautfarbe	none
+🧑🏿‍🎓	Student(in) dunkle Hautfarbe	none
 👨🏻‍🎓	Student helle Hautfarbe	none
 👨🏼‍🎓	Student mittelhelle Hautfarbe	none
 👨🏽‍🎓	Student mittlere Hautfarbe	none
@@ -2007,6 +2002,11 @@ symbols:
 👩🏽‍🎓	Studentin mittlere Hautfarbe	none
 👩🏾‍🎓	Studentin mitteldunkle Hautfarbe	none
 👩🏿‍🎓	Studentin dunkle Hautfarbe	none
+🧑🏻‍🏫	Lehrer(in) helle Hautfarbe	none
+🧑🏼‍🏫	Lehrer(in) mittelhelle Hautfarbe	none
+🧑🏽‍🏫	Lehrer(in) mittlere Hautfarbe	none
+🧑🏾‍🏫	Lehrer(in) mitteldunkle Hautfarbe	none
+🧑🏿‍🏫	Lehrer(in) dunkle Hautfarbe	none
 👨🏻‍🏫	Lehrer helle Hautfarbe	none
 👨🏼‍🏫	Lehrer mittelhelle Hautfarbe	none
 👨🏽‍🏫	Lehrer mittlere Hautfarbe	none
@@ -2017,6 +2017,11 @@ symbols:
 👩🏽‍🏫	Lehrerin mittlere Hautfarbe	none
 👩🏾‍🏫	Lehrerin mitteldunkle Hautfarbe	none
 👩🏿‍🏫	Lehrerin dunkle Hautfarbe	none
+🧑🏻‍⚖	Richter(in) helle Hautfarbe	none
+🧑🏼‍⚖	Richter(in) mittelhelle Hautfarbe	none
+🧑🏽‍⚖	Richter(in) mittlere Hautfarbe	none
+🧑🏾‍⚖	Richter(in) mitteldunkle Hautfarbe	none
+🧑🏿‍⚖	Richter(in) dunkle Hautfarbe	none
 👨🏻‍⚖	Richter helle Hautfarbe	none
 👨🏼‍⚖	Richter mittelhelle Hautfarbe	none
 👨🏽‍⚖	Richter mittlere Hautfarbe	none
@@ -2027,6 +2032,11 @@ symbols:
 👩🏽‍⚖	Richterin mittlere Hautfarbe	none
 👩🏾‍⚖	Richterin mitteldunkle Hautfarbe	none
 👩🏿‍⚖	Richterin dunkle Hautfarbe	none
+🧑🏻‍🌾	Bauer/Bäuerin helle Hautfarbe	none
+🧑🏼‍🌾	Bauer/Bäuerin mittelhelle Hautfarbe	none
+🧑🏽‍🌾	Bauer/Bäuerin mittlere Hautfarbe	none
+🧑🏾‍🌾	Bauer/Bäuerin mitteldunkle Hautfarbe	none
+🧑🏿‍🌾	Bauer/Bäuerin dunkle Hautfarbe	none
 👨🏻‍🌾	Bauer helle Hautfarbe	none
 👨🏼‍🌾	Bauer mittelhelle Hautfarbe	none
 👨🏽‍🌾	Bauer mittlere Hautfarbe	none
@@ -2037,6 +2047,11 @@ symbols:
 👩🏽‍🌾	Bäuerin mittlere Hautfarbe	none
 👩🏾‍🌾	Bäuerin mitteldunkle Hautfarbe	none
 👩🏿‍🌾	Bäuerin dunkle Hautfarbe	none
+🧑🏻‍🍳	Koch/Köchin helle Hautfarbe	none
+🧑🏼‍🍳	Koch/Köchin mittelhelle Hautfarbe	none
+🧑🏽‍🍳	Koch/Köchin mittlere Hautfarbe	none
+🧑🏾‍🍳	Koch/Köchin mitteldunkle Hautfarbe	none
+🧑🏿‍🍳	Koch/Köchin dunkle Hautfarbe	none
 👨🏻‍🍳	Koch helle Hautfarbe	none
 👨🏼‍🍳	Koch mittelhelle Hautfarbe	none
 👨🏽‍🍳	Koch mittlere Hautfarbe	none
@@ -2047,6 +2062,11 @@ symbols:
 👩🏽‍🍳	Köchin mittlere Hautfarbe	none
 👩🏾‍🍳	Köchin mitteldunkle Hautfarbe	none
 👩🏿‍🍳	Köchin dunkle Hautfarbe	none
+🧑🏻‍🔧	Mechaniker(in) helle Hautfarbe	none
+🧑🏼‍🔧	Mechaniker(in) mittelhelle Hautfarbe	none
+🧑🏽‍🔧	Mechaniker(in) mittlere Hautfarbe	none
+🧑🏾‍🔧	Mechaniker(in) mitteldunkle Hautfarbe	none
+🧑🏿‍🔧	Mechaniker(in) dunkle Hautfarbe	none
 👨🏻‍🔧	Mechaniker helle Hautfarbe	none
 👨🏼‍🔧	Mechaniker mittelhelle Hautfarbe	none
 👨🏽‍🔧	Mechaniker mittlere Hautfarbe	none
@@ -2057,6 +2077,11 @@ symbols:
 👩🏽‍🔧	Mechanikerin mittlere Hautfarbe	none
 👩🏾‍🔧	Mechanikerin mitteldunkle Hautfarbe	none
 👩🏿‍🔧	Mechanikerin dunkle Hautfarbe	none
+🧑🏻‍🏭	Fabrikarbeiter(in) helle Hautfarbe	none
+🧑🏼‍🏭	Fabrikarbeiter(in) mittelhelle Hautfarbe	none
+🧑🏽‍🏭	Fabrikarbeiter(in) mittlere Hautfarbe	none
+🧑🏾‍🏭	Fabrikarbeiter(in) mitteldunkle Hautfarbe	none
+🧑🏿‍🏭	Fabrikarbeiter(in) dunkle Hautfarbe	none
 👨🏻‍🏭	Fabrikarbeiter helle Hautfarbe	none
 👨🏼‍🏭	Fabrikarbeiter mittelhelle Hautfarbe	none
 👨🏽‍🏭	Fabrikarbeiter mittlere Hautfarbe	none
@@ -2067,6 +2092,11 @@ symbols:
 👩🏽‍🏭	Fabrikarbeiterin mittlere Hautfarbe	none
 👩🏾‍🏭	Fabrikarbeiterin mitteldunkle Hautfarbe	none
 👩🏿‍🏭	Fabrikarbeiterin dunkle Hautfarbe	none
+🧑🏻‍💼	Büroangestellte(r) helle Hautfarbe	none
+🧑🏼‍💼	Büroangestellte(r) mittelhelle Hautfarbe	none
+🧑🏽‍💼	Büroangestellte(r) mittlere Hautfarbe	none
+🧑🏾‍💼	Büroangestellte(r) mitteldunkle Hautfarbe	none
+🧑🏿‍💼	Büroangestellte(r) dunkle Hautfarbe	none
 👨🏻‍💼	Büroangestellter helle Hautfarbe	none
 👨🏼‍💼	Büroangestellter mittelhelle Hautfarbe	none
 👨🏽‍💼	Büroangestellter mittlere Hautfarbe	none
@@ -2077,6 +2107,11 @@ symbols:
 👩🏽‍💼	Büroangestellte mittlere Hautfarbe	none
 👩🏾‍💼	Büroangestellte mitteldunkle Hautfarbe	none
 👩🏿‍💼	Büroangestellte dunkle Hautfarbe	none
+🧑🏻‍🔬	Wissenschaftler(in) helle Hautfarbe	none
+🧑🏼‍🔬	Wissenschaftler(in) mittelhelle Hautfarbe	none
+🧑🏽‍🔬	Wissenschaftler(in) mittlere Hautfarbe	none
+🧑🏾‍🔬	Wissenschaftler(in) mitteldunkle Hautfarbe	none
+🧑🏿‍🔬	Wissenschaftler(in) dunkle Hautfarbe	none
 👨🏻‍🔬	Wissenschaftler helle Hautfarbe	none
 👨🏼‍🔬	Wissenschaftler mittelhelle Hautfarbe	none
 👨🏽‍🔬	Wissenschaftler mittlere Hautfarbe	none
@@ -2087,6 +2122,11 @@ symbols:
 👩🏽‍🔬	Wissenschaftlerin mittlere Hautfarbe	none
 👩🏾‍🔬	Wissenschaftlerin mitteldunkle Hautfarbe	none
 👩🏿‍🔬	Wissenschaftlerin dunkle Hautfarbe	none
+🧑🏻‍💻	IT-Experte/IT-Expertin helle Hautfarbe	none
+🧑🏼‍💻	IT-Experte/IT-Expertin mittelhelle Hautfarbe	none
+🧑🏽‍💻	IT-Experte/IT-Expertin mittlere Hautfarbe	none
+🧑🏾‍💻	IT-Experte/IT-Expertin mitteldunkle Hautfarbe	none
+🧑🏿‍💻	IT-Experte/IT-Expertin dunkle Hautfarbe	none
 👨🏻‍💻	IT-Experte helle Hautfarbe	none
 👨🏼‍💻	IT-Experte mittelhelle Hautfarbe	none
 👨🏽‍💻	IT-Experte mittlere Hautfarbe	none
@@ -2097,6 +2137,11 @@ symbols:
 👩🏽‍💻	IT-Expertin mittlere Hautfarbe	none
 👩🏾‍💻	IT-Expertin mitteldunkle Hautfarbe	none
 👩🏿‍💻	IT-Expertin dunkle Hautfarbe	none
+🧑🏻‍🎤	Sänger(in) helle Hautfarbe	none
+🧑🏼‍🎤	Sänger(in) mittelhelle Hautfarbe	none
+🧑🏽‍🎤	Sänger(in) mittlere Hautfarbe	none
+🧑🏾‍🎤	Sänger(in) mitteldunkle Hautfarbe	none
+🧑🏿‍🎤	Sänger(in) dunkle Hautfarbe	none
 👨🏻‍🎤	Sänger helle Hautfarbe	none
 👨🏼‍🎤	Sänger mittelhelle Hautfarbe	none
 👨🏽‍🎤	Sänger mittlere Hautfarbe	none
@@ -2107,6 +2152,11 @@ symbols:
 👩🏽‍🎤	Sängerin mittlere Hautfarbe	none
 👩🏾‍🎤	Sängerin mitteldunkle Hautfarbe	none
 👩🏿‍🎤	Sängerin dunkle Hautfarbe	none
+🧑🏻‍🎨	Künstler(in) helle Hautfarbe	none
+🧑🏼‍🎨	Künstler(in) mittelhelle Hautfarbe	none
+🧑🏽‍🎨	Künstler(in) mittlere Hautfarbe	none
+🧑🏾‍🎨	Künstler(in) mitteldunkle Hautfarbe	none
+🧑🏿‍🎨	Künstler(in) dunkle Hautfarbe	none
 👨🏻‍🎨	Künstler helle Hautfarbe	none
 👨🏼‍🎨	Künstler mittelhelle Hautfarbe	none
 👨🏽‍🎨	Künstler mittlere Hautfarbe	none
@@ -2117,6 +2167,11 @@ symbols:
 👩🏽‍🎨	Künstlerin mittlere Hautfarbe	none
 👩🏾‍🎨	Künstlerin mitteldunkle Hautfarbe	none
 👩🏿‍🎨	Künstlerin dunkle Hautfarbe	none
+🧑🏻‍✈	Pilot(in) helle Hautfarbe	none
+🧑🏼‍✈	Pilot(in) mittelhelle Hautfarbe	none
+🧑🏽‍✈	Pilot(in) mittlere Hautfarbe	none
+🧑🏾‍✈	Pilot(in) mitteldunkle Hautfarbe	none
+🧑🏿‍✈	Pilot(in) dunkle Hautfarbe	none
 👨🏻‍✈	Pilot helle Hautfarbe	none
 👨🏼‍✈	Pilot mittelhelle Hautfarbe	none
 👨🏽‍✈	Pilot mittlere Hautfarbe	none
@@ -2127,6 +2182,11 @@ symbols:
 👩🏽‍✈	Pilotin mittlere Hautfarbe	none
 👩🏾‍✈	Pilotin mitteldunkle Hautfarbe	none
 👩🏿‍✈	Pilotin dunkle Hautfarbe	none
+🧑🏻‍🚀	Astronaut(in) helle Hautfarbe	none
+🧑🏼‍🚀	Astronaut(in) mittelhelle Hautfarbe	none
+🧑🏽‍🚀	Astronaut(in) mittlere Hautfarbe	none
+🧑🏾‍🚀	Astronaut(in) mitteldunkle Hautfarbe	none
+🧑🏿‍🚀	Astronaut(in) dunkle Hautfarbe	none
 👨🏻‍🚀	Astronaut helle Hautfarbe	none
 👨🏼‍🚀	Astronaut mittelhelle Hautfarbe	none
 👨🏽‍🚀	Astronaut mittlere Hautfarbe	none
@@ -2137,6 +2197,11 @@ symbols:
 👩🏽‍🚀	Astronautin mittlere Hautfarbe	none
 👩🏾‍🚀	Astronautin mitteldunkle Hautfarbe	none
 👩🏿‍🚀	Astronautin dunkle Hautfarbe	none
+🧑🏻‍🚒	Feuerwehrmann/-frau helle Hautfarbe	none
+🧑🏼‍🚒	Feuerwehrmann/-frau mittelhelle Hautfarbe	none
+🧑🏽‍🚒	Feuerwehrmann/-frau mittlere Hautfarbe	none
+🧑🏾‍🚒	Feuerwehrmann/-frau mitteldunkle Hautfarbe	none
+🧑🏿‍🚒	Feuerwehrmann/-frau dunkle Hautfarbe	none
 👨🏻‍🚒	Feuerwehrmann helle Hautfarbe	none
 👨🏼‍🚒	Feuerwehrmann mittelhelle Hautfarbe	none
 👨🏽‍🚒	Feuerwehrmann mittlere Hautfarbe	none
@@ -2427,6 +2492,81 @@ symbols:
 🚶🏽‍♀	Fußgängerin mittlere Hautfarbe	none
 🚶🏾‍♀	Fußgängerin mitteldunkle Hautfarbe	none
 🚶🏿‍♀	Fußgängerin dunkle Hautfarbe	none
+🧍🏻	stehende Person helle Hautfarbe	none
+🧍🏼	stehende Person mittelhelle Hautfarbe	none
+🧍🏽	stehende Person mittlere Hautfarbe	none
+🧍🏾	stehende Person mitteldunkle Hautfarbe	none
+🧍🏿	stehende Person dunkle Hautfarbe	none
+🧍🏻‍♂	stehender Mann helle Hautfarbe	none
+🧍🏼‍♂	stehender Mann mittelhelle Hautfarbe	none
+🧍🏽‍♂	stehender Mann mittlere Hautfarbe	none
+🧍🏾‍♂	stehender Mann mitteldunkle Hautfarbe	none
+🧍🏿‍♂	stehender Mann dunkle Hautfarbe	none
+🧍🏻‍♀	stehende Frau helle Hautfarbe	none
+🧍🏼‍♀	stehende Frau mittelhelle Hautfarbe	none
+🧍🏽‍♀	stehende Frau mittlere Hautfarbe	none
+🧍🏾‍♀	stehende Frau mitteldunkle Hautfarbe	none
+🧍🏿‍♀	stehende Frau dunkle Hautfarbe	none
+🧎🏻	kniende Person helle Hautfarbe	none
+🧎🏼	kniende Person mittelhelle Hautfarbe	none
+🧎🏽	kniende Person mittlere Hautfarbe	none
+🧎🏾	kniende Person mitteldunkle Hautfarbe	none
+🧎🏿	kniende Person dunkle Hautfarbe	none
+🧎🏻‍♂	kniender Mann helle Hautfarbe	none
+🧎🏼‍♂	kniender Mann mittelhelle Hautfarbe	none
+🧎🏽‍♂	kniender Mann mittlere Hautfarbe	none
+🧎🏾‍♂	kniender Mann mitteldunkle Hautfarbe	none
+🧎🏿‍♂	kniender Mann dunkle Hautfarbe	none
+🧎🏻‍♀	kniende Frau helle Hautfarbe	none
+🧎🏼‍♀	kniende Frau mittelhelle Hautfarbe	none
+🧎🏽‍♀	kniende Frau mittlere Hautfarbe	none
+🧎🏾‍♀	kniende Frau mitteldunkle Hautfarbe	none
+🧎🏿‍♀	kniende Frau dunkle Hautfarbe	none
+🧑🏻‍🦯	Person mit Gehstock helle Hautfarbe	none
+🧑🏼‍🦯	Person mit Gehstock mittelhelle Hautfarbe	none
+🧑🏽‍🦯	Person mit Gehstock mittlere Hautfarbe	none
+🧑🏾‍🦯	Person mit Gehstock mitteldunkle Hautfarbe	none
+🧑🏿‍🦯	Person mit Gehstock dunkle Hautfarbe	none
+👨🏻‍🦯	Mann mit Gehstock helle Hautfarbe	none
+👨🏼‍🦯	Mann mit Gehstock mittelhelle Hautfarbe	none
+👨🏽‍🦯	Mann mit Gehstock mittlere Hautfarbe	none
+👨🏾‍🦯	Mann mit Gehstock mitteldunkle Hautfarbe	none
+👨🏿‍🦯	Mann mit Gehstock dunkle Hautfarbe	none
+👩🏻‍🦯	Frau mit Gehstock helle Hautfarbe	none
+👩🏼‍🦯	Frau mit Gehstock mittelhelle Hautfarbe	none
+👩🏽‍🦯	Frau mit Gehstock mittlere Hautfarbe	none
+👩🏾‍🦯	Frau mit Gehstock mitteldunkle Hautfarbe	none
+👩🏿‍🦯	Frau mit Gehstock dunkle Hautfarbe	none
+🧑🏻‍🦼	Person in motorisiertem Rollstuhl helle Hautfarbe	none
+🧑🏼‍🦼	Person in motorisiertem Rollstuhl mittelhelle Hautfarbe	none
+🧑🏽‍🦼	Person in motorisiertem Rollstuhl mittlere Hautfarbe	none
+🧑🏾‍🦼	Person in motorisiertem Rollstuhl mitteldunkle Hautfarbe	none
+🧑🏿‍🦼	Person in motorisiertem Rollstuhl dunkle Hautfarbe	none
+👨🏻‍🦼	Mann in elektrischem Rollstuhl helle Hautfarbe	none
+👨🏼‍🦼	Mann in elektrischem Rollstuhl mittelhelle Hautfarbe	none
+👨🏽‍🦼	Mann in elektrischem Rollstuhl mittlere Hautfarbe	none
+👨🏾‍🦼	Mann in elektrischem Rollstuhl mitteldunkle Hautfarbe	none
+👨🏿‍🦼	Mann in elektrischem Rollstuhl dunkle Hautfarbe	none
+👩🏻‍🦼	Frau in elektrischem Rollstuhl helle Hautfarbe	none
+👩🏼‍🦼	Frau in elektrischem Rollstuhl mittelhelle Hautfarbe	none
+👩🏽‍🦼	Frau in elektrischem Rollstuhl mittlere Hautfarbe	none
+👩🏾‍🦼	Frau in elektrischem Rollstuhl mitteldunkle Hautfarbe	none
+👩🏿‍🦼	Frau in elektrischem Rollstuhl dunkle Hautfarbe	none
+🧑🏻‍🦽	Person in manuellem Rollstuhl helle Hautfarbe	none
+🧑🏼‍🦽	Person in manuellem Rollstuhl mittelhelle Hautfarbe	none
+🧑🏽‍🦽	Person in manuellem Rollstuhl mittlere Hautfarbe	none
+🧑🏾‍🦽	Person in manuellem Rollstuhl mitteldunkle Hautfarbe	none
+🧑🏿‍🦽	Person in manuellem Rollstuhl dunkle Hautfarbe	none
+👨🏻‍🦽	Mann in manuellem Rollstuhl helle Hautfarbe	none
+👨🏼‍🦽	Mann in manuellem Rollstuhl mittelhelle Hautfarbe	none
+👨🏽‍🦽	Mann in manuellem Rollstuhl mittlere Hautfarbe	none
+👨🏾‍🦽	Mann in manuellem Rollstuhl mitteldunkle Hautfarbe	none
+👨🏿‍🦽	Mann in manuellem Rollstuhl dunkle Hautfarbe	none
+👩🏻‍🦽	Frau in manuellem Rollstuhl helle Hautfarbe	none
+👩🏼‍🦽	Frau in manuellem Rollstuhl mittelhelle Hautfarbe	none
+👩🏽‍🦽	Frau in manuellem Rollstuhl mittlere Hautfarbe	none
+👩🏾‍🦽	Frau in manuellem Rollstuhl mitteldunkle Hautfarbe	none
+👩🏿‍🦽	Frau in manuellem Rollstuhl dunkle Hautfarbe	none
 🏃🏻	laufende Person helle Hautfarbe	none
 🏃🏼	laufende Person mittelhelle Hautfarbe	none
 🏃🏽	laufende Person mittlere Hautfarbe	none
@@ -2702,21 +2842,76 @@ symbols:
 🛌🏽	im Bett liegende Person mittlere Hautfarbe	none
 🛌🏾	im Bett liegende Person mitteldunkle Hautfarbe	none
 🛌🏿	im Bett liegende Person dunkle Hautfarbe	none
+🧑🏻‍🤝‍🧑🏻	sich an den Händen haltende Personen helle Hautfarbe	none
+🧑🏼‍🤝‍🧑🏻	sich an den Händen haltende Personen mittelhelle Hautfarbe, helle Hautfarbe	none
+🧑🏼‍🤝‍🧑🏼	sich an den Händen haltende Personen mittelhelle Hautfarbe	none
+🧑🏽‍🤝‍🧑🏻	sich an den Händen haltende Personen mittlere Hautfarbe, helle Hautfarbe	none
+🧑🏽‍🤝‍🧑🏼	sich an den Händen haltende Personen mittlere Hautfarbe, mittelhelle Hautfarbe	none
+🧑🏽‍🤝‍🧑🏽	sich an den Händen haltende Personen mittlere Hautfarbe	none
+🧑🏾‍🤝‍🧑🏻	sich an den Händen haltende Personen mitteldunkle Hautfarbe, helle Hautfarbe	none
+🧑🏾‍🤝‍🧑🏼	sich an den Händen haltende Personen mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
+🧑🏾‍🤝‍🧑🏽	sich an den Händen haltende Personen mitteldunkle Hautfarbe, mittlere Hautfarbe	none
+🧑🏾‍🤝‍🧑🏾	sich an den Händen haltende Personen mitteldunkle Hautfarbe	none
+🧑🏿‍🤝‍🧑🏻	sich an den Händen haltende Personen dunkle Hautfarbe, helle Hautfarbe	none
+🧑🏿‍🤝‍🧑🏼	sich an den Händen haltende Personen dunkle Hautfarbe, mittelhelle Hautfarbe	none
+🧑🏿‍🤝‍🧑🏽	sich an den Händen haltende Personen dunkle Hautfarbe, mittlere Hautfarbe	none
+🧑🏿‍🤝‍🧑🏾	sich an den Händen haltende Personen dunkle Hautfarbe, mitteldunkle Hautfarbe	none
+🧑🏿‍🤝‍🧑🏿	sich an den Händen haltende Personen dunkle Hautfarbe	none
+👭🏻	händchenhaltende Frauen helle Hautfarbe	none
+👩🏼‍🤝‍👩🏻	händchenhaltende Frauen mittelhelle Hautfarbe, helle Hautfarbe	none
+👭🏼	händchenhaltende Frauen mittelhelle Hautfarbe	none
+👩🏽‍🤝‍👩🏻	händchenhaltende Frauen mittlere Hautfarbe, helle Hautfarbe	none
+👩🏽‍🤝‍👩🏼	händchenhaltende Frauen mittlere Hautfarbe, mittelhelle Hautfarbe	none
+👭🏽	händchenhaltende Frauen mittlere Hautfarbe	none
+👩🏾‍🤝‍👩🏻	händchenhaltende Frauen mitteldunkle Hautfarbe, helle Hautfarbe	none
+👩🏾‍🤝‍👩🏼	händchenhaltende Frauen mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
+👩🏾‍🤝‍👩🏽	händchenhaltende Frauen mitteldunkle Hautfarbe, mittlere Hautfarbe	none
+👭🏾	händchenhaltende Frauen mitteldunkle Hautfarbe	none
+👩🏿‍🤝‍👩🏻	händchenhaltende Frauen dunkle Hautfarbe, helle Hautfarbe	none
+👩🏿‍🤝‍👩🏼	händchenhaltende Frauen dunkle Hautfarbe, mittelhelle Hautfarbe	none
+👩🏿‍🤝‍👩🏽	händchenhaltende Frauen dunkle Hautfarbe, mittlere Hautfarbe	none
+👩🏿‍🤝‍👩🏾	händchenhaltende Frauen dunkle Hautfarbe, mitteldunkle Hautfarbe	none
+👭🏿	händchenhaltende Frauen dunkle Hautfarbe	none
 👫🏻	Mann und Frau halten Hände helle Hautfarbe	none
+👩🏻‍🤝‍👨🏼	Mann und Frau halten Hände helle Hautfarbe, mittelhelle Hautfarbe	none
+👩🏻‍🤝‍👨🏽	Mann und Frau halten Hände helle Hautfarbe, mittlere Hautfarbe	none
+👩🏻‍🤝‍👨🏾	Mann und Frau halten Hände helle Hautfarbe, mitteldunkle Hautfarbe	none
+👩🏻‍🤝‍👨🏿	Mann und Frau halten Hände helle Hautfarbe, dunkle Hautfarbe	none
+👩🏼‍🤝‍👨🏻	Mann und Frau halten Hände mittelhelle Hautfarbe, helle Hautfarbe	none
 👫🏼	Mann und Frau halten Hände mittelhelle Hautfarbe	none
+👩🏼‍🤝‍👨🏽	Mann und Frau halten Hände mittelhelle Hautfarbe, mittlere Hautfarbe	none
+👩🏼‍🤝‍👨🏾	Mann und Frau halten Hände mittelhelle Hautfarbe, mitteldunkle Hautfarbe	none
+👩🏼‍🤝‍👨🏿	Mann und Frau halten Hände mittelhelle Hautfarbe, dunkle Hautfarbe	none
+👩🏽‍🤝‍👨🏻	Mann und Frau halten Hände mittlere Hautfarbe, helle Hautfarbe	none
+👩🏽‍🤝‍👨🏼	Mann und Frau halten Hände mittlere Hautfarbe, mittelhelle Hautfarbe	none
 👫🏽	Mann und Frau halten Hände mittlere Hautfarbe	none
+👩🏽‍🤝‍👨🏾	Mann und Frau halten Hände mittlere Hautfarbe, mitteldunkle Hautfarbe	none
+👩🏽‍🤝‍👨🏿	Mann und Frau halten Hände mittlere Hautfarbe, dunkle Hautfarbe	none
+👩🏾‍🤝‍👨🏻	Mann und Frau halten Hände mitteldunkle Hautfarbe, helle Hautfarbe	none
+👩🏾‍🤝‍👨🏼	Mann und Frau halten Hände mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
+👩🏾‍🤝‍👨🏽	Mann und Frau halten Hände mitteldunkle Hautfarbe, mittlere Hautfarbe	none
 👫🏾	Mann und Frau halten Hände mitteldunkle Hautfarbe	none
+👩🏾‍🤝‍👨🏿	Mann und Frau halten Hände mitteldunkle Hautfarbe, dunkle Hautfarbe	none
+👩🏿‍🤝‍👨🏻	Mann und Frau halten Hände dunkle Hautfarbe, helle Hautfarbe	none
+👩🏿‍🤝‍👨🏼	Mann und Frau halten Hände dunkle Hautfarbe, mittelhelle Hautfarbe	none
+👩🏿‍🤝‍👨🏽	Mann und Frau halten Hände dunkle Hautfarbe, mittlere Hautfarbe	none
+👩🏿‍🤝‍👨🏾	Mann und Frau halten Hände dunkle Hautfarbe, mitteldunkle Hautfarbe	none
 👫🏿	Mann und Frau halten Hände dunkle Hautfarbe	none
 👬🏻	händchenhaltende Männer helle Hautfarbe	none
+👨🏼‍🤝‍👨🏻	händchenhaltende Männer mittelhelle Hautfarbe, helle Hautfarbe	none
 👬🏼	händchenhaltende Männer mittelhelle Hautfarbe	none
+👨🏽‍🤝‍👨🏻	händchenhaltende Männer mittlere Hautfarbe, helle Hautfarbe	none
+👨🏽‍🤝‍👨🏼	händchenhaltende Männer mittlere Hautfarbe, mittelhelle Hautfarbe	none
 👬🏽	händchenhaltende Männer mittlere Hautfarbe	none
+👨🏾‍🤝‍👨🏻	händchenhaltende Männer mitteldunkle Hautfarbe, helle Hautfarbe	none
+👨🏾‍🤝‍👨🏼	händchenhaltende Männer mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
+👨🏾‍🤝‍👨🏽	händchenhaltende Männer mitteldunkle Hautfarbe, mittlere Hautfarbe	none
 👬🏾	händchenhaltende Männer mitteldunkle Hautfarbe	none
+👨🏿‍🤝‍👨🏻	händchenhaltende Männer dunkle Hautfarbe, helle Hautfarbe	none
+👨🏿‍🤝‍👨🏼	händchenhaltende Männer dunkle Hautfarbe, mittelhelle Hautfarbe	none
+👨🏿‍🤝‍👨🏽	händchenhaltende Männer dunkle Hautfarbe, mittlere Hautfarbe	none
+👨🏿‍🤝‍👨🏾	händchenhaltende Männer dunkle Hautfarbe, mitteldunkle Hautfarbe	none
 👬🏿	händchenhaltende Männer dunkle Hautfarbe	none
-👭🏻	händchenhaltende Frauen helle Hautfarbe	none
-👭🏼	händchenhaltende Frauen mittelhelle Hautfarbe	none
-👭🏽	händchenhaltende Frauen mittlere Hautfarbe	none
-👭🏾	händchenhaltende Frauen mitteldunkle Hautfarbe	none
-👭🏿	händchenhaltende Frauen dunkle Hautfarbe	none
 👩‍❤‍💋‍👨	sich küssendes Paar Frau, Mann	none
 👨‍❤‍💋‍👨	sich küssendes Paar Mann, Mann	none
 👩‍❤‍💋‍👩	sich küssendes Paar Frau, Frau	none
@@ -2969,7 +3164,7 @@ symbols:
 🇸🇻	Flagge El Salvador	none
 🇸🇽	Flagge Sint Maarten	none
 🇸🇾	Flagge Syrien	none
-🇸🇿	Flagge Swasiland	none
+🇸🇿	Flagge Eswatini	none
 🇹🇦	Flagge Tristan da Cunha	none
 🇹🇨	Flagge Turks- und Caicosinseln	none
 🇹🇩	Flagge Tschad	none

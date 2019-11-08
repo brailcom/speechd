@@ -8,7 +8,7 @@ symbols:
 🏽	rusvos odos	none
 🏾	tamsios odos	none
 🏿	itin tamsios odos	none
-🐾	pėdutės	none
+⚧	translyčių simbolis	none
 😀	išsišiepęs veidas	none
 😃	besišypsantis išsižiojęs veidas	none
 😄	besišypsantis išsižiojęs veidas besišypsančiomis akimis	none
@@ -94,6 +94,7 @@ symbols:
 😓	veidas, išpiltas šalto prakaito	none
 😩	nuvargęs veidas	none
 😫	pavargęs veidas	none
+🥱	žiovaujantis veidas	none
 😤	veidas su iš nosies einančiais garais	none
 😡	susiraukęs veidas	none
 😠	piktas veidas	none
@@ -140,7 +141,9 @@ symbols:
 💚	žalia širdelė	none
 💙	mėlyna širdelė	none
 💜	purpurinė širdelė	none
+🤎	ruda širdelė	none
 🖤	juoda širdis	none
+🤍	balta širdelė	none
 💯	šimtas taškų	none
 💢	pykčio simbolis	none
 💥	susidūrimas	none
@@ -161,6 +164,7 @@ symbols:
 ✋	iškelta ranka	none
 🖖	vulkanų rasės pasisveikinimo ženklas	none
 👌	GERAI ženklas rankomis	none
+🤏	žnybianti ranka	none
 ✌	pergalės ženklą rodanti ranka	none
 🤞	sukryžiuoti pirštai	none
 🤟	„myliu tave“ gestas	none
@@ -188,9 +192,12 @@ symbols:
 💅	nagų lakas	none
 🤳	asmenukė	none
 💪	paryškinti bicepsai	none
+🦾	mechaninė ranka	none
+🦿	mechaninė koja	none
 🦵	koja	none
 🦶	pėda	none
 👂	ausis	none
+🦻	ausis su klausos aparatu	none
 👃	nosis	none
 🧠	smegenys	none
 🦷	dantis	none
@@ -205,17 +212,10 @@ symbols:
 👧	mergaitė	none
 🧑	suaugusysis	none
 👱	šviesiaplaukis žmogus	none
-🧑‍🤝‍🧑	rankomis susikibę žmonės	none
 👨	vyras	none
-👨‍🦯	vyras su neregio lazdele	none
-👨‍🦼	vyras motorizuotame vežimėlyje	none
-👨‍🦽	vyras rankomis valdomame vežimėlyje	none
-👱‍♂	blondinas	none
 🧔	barzdotas žmogus	none
+👱‍♂	blondinas	none
 👩	moteris	none
-👩‍🦯	moteris su neregio lazdele	none
-👩‍🦼	moteris motorizuotame vežimėlyje	none
-👩‍🦽	moteris rankomis valdomame vežimėlyje	none
 👱‍♀	blondinė	none
 🧓	kitas suaugusysis	none
 👴	senas vyras	none
@@ -238,6 +238,9 @@ symbols:
 🙋	žmogus, iškėlęs ranką	none
 🙋‍♂	ranką pakėlęs vyras	none
 🙋‍♀	ranką iškėlusi moteris	none
+🧏	kurčias žmogus	none
+🧏‍♂	kurčias vyras	none
+🧏‍♀	kurčia moteris	none
 🙇	nusilenkęs žmogus	none
 🙇‍♂	nusilenkiantis vyras	none
 🙇‍♀	nusilenkianti moteris	none
@@ -247,36 +250,52 @@ symbols:
 🤷	gūžtelėjimas pečiais	none
 🤷‍♂	abejojantis vyras	none
 🤷‍♀	abejojanti moteris	none
+🧑‍⚕	sveikatos darbuotojas	none
 👨‍⚕	medikas	none
 👩‍⚕	medikė	none
+🧑‍🎓	paskutinio kurso studentas	none
 👨‍🎓	studentas	none
 👩‍🎓	studentė	none
+🧑‍🏫	mokantis žmogus	none
 👨‍🏫	mokytojas	none
 👩‍🏫	mokytoja	none
+🧑‍⚖	teisiantis žmogus	none
 👨‍⚖	teisėjas	none
 👩‍⚖	teisėja	none
+🧑‍🌾	ūkininkaujantis žmogus	none
 👨‍🌾	ūkininkas	none
 👩‍🌾	ūkininkė	none
+🧑‍🍳	gaminantis žmogus	none
 👨‍🍳	virėjas	none
 👩‍🍳	virėja	none
+🧑‍🔧	remontuojantis žmogus	none
 👨‍🔧	mechanikas	none
 👩‍🔧	mechanikė	none
+🧑‍🏭	gamyklos darbuotojas	none
 👨‍🏭	fabriko darbininkas	none
 👩‍🏭	fabriko darbininkė	none
+🧑‍💼	dirbantysis biure	none
 👨‍💼	biuro darbuotojas	none
 👩‍💼	biuro darbuotoja	none
+🧑‍🔬	mokslo darbuotojas	none
 👨‍🔬	mokslininkas	none
 👩‍🔬	mokslininkė	none
+🧑‍💻	technikas	none
 👨‍💻	technologas	none
 👩‍💻	technologė	none
+🧑‍🎤	dainuojantis žmogus	none
 👨‍🎤	dainininkas	none
 👩‍🎤	dainininkė	none
+🧑‍🎨	tapytojas	none
 👨‍🎨	dailininkas	none
 👩‍🎨	dailininkė	none
+🧑‍✈	pilotuojantis žmogus	none
 👨‍✈	pilotas	none
 👩‍✈	pilotė	none
+🧑‍🚀	kosmonautas	none
 👨‍🚀	astronautas	none
 👩‍🚀	astronautė	none
+🧑‍🚒	ugniagesys	none
 👨‍🚒	gaisrininkas	none
 👩‍🚒	gaisrininkė	none
 👮	policininkas	none
@@ -341,6 +360,21 @@ symbols:
 🚶	pėstysis	none
 🚶‍♂	einantis vyras	none
 🚶‍♀	einanti moteris	none
+🧍	stovintis žmogus	none
+🧍‍♂	stovintis vyras	none
+🧍‍♀	stovinti moteris	none
+🧎	klūpantis žmogus	none
+🧎‍♂	klūpantis vyras	none
+🧎‍♀	klūpanti moteris	none
+🧑‍🦯	žmogus neregio lazdele	none
+👨‍🦯	vyras su neregio lazdele	none
+👩‍🦯	moteris su neregio lazdele	none
+🧑‍🦼	žmogus motorizuotame vežimėlyje	none
+👨‍🦼	vyras motorizuotame vežimėlyje	none
+👩‍🦼	moteris motorizuotame vežimėlyje	none
+🧑‍🦽	žmogus rankomis valdomame vežimėlyje	none
+👨‍🦽	vyras rankomis valdomame vežimėlyje	none
+👩‍🦽	moteris rankomis valdomame vežimėlyje	none
 🏃	bėgikas	none
 🏃‍♂	bėgantis vyras	none
 🏃‍♀	bėganti moteris	none
@@ -404,9 +438,10 @@ symbols:
 🧘‍♀	moteris lotoso pozoje	none
 🛀	žmogus prausiasi vonioje	none
 🛌	žmogus lovoje	none
+🧑‍🤝‍🧑	rankomis susikibę žmonės	none
+👭	dvi moterys, susikibusios už rankų	none
 👫	vyras ir moteris, susikibę už rankų	none
 👬	du vyrai, susikibę už rankų	none
-👭	dvi moterys, susikibusios už rankų	none
 💏	bučinys	none
 💑	pora su širdele	none
 👪	šeima	none
@@ -418,13 +453,13 @@ symbols:
 🦱	garbanoti plaukai	none
 🦳	žili plaukai	none
 🦲	plikas	none
-♀	moteriškos lyties ženklas	none
-♂	vyriškos lyties ženklas	none
 🐵	beždžionės snukutis	none
 🐒	beždžionė	none
 🦍	gorila	none
+🦧	orangutangas	none
 🐶	šuns snukutis	none
 🐕	šuo	none
+🦮	šuo vedlys	none
 🐕‍🦺	tarnaujantis šuo	none
 🐩	pudelis	none
 🐺	vilko snukis	none
@@ -471,8 +506,12 @@ symbols:
 🐻	meškos snukis	none
 🐨	koala	none
 🐼	pandos snukis	none
+🦥	tinginys	none
+🦦	ūdra	none
+🦨	skunkas	none
 🦘	kengūra	none
 🦡	barsukas	none
+🐾	pėdutės	none
 🦃	kalakutas	none
 🐔	višta	none
 🐓	gaidys	none
@@ -486,6 +525,7 @@ symbols:
 🦆	antis	none
 🦢	gulbė	none
 🦉	pelėda	none
+🦩	flamingas	none
 🦚	povas	none
 🦜	papūga	none
 🐸	varlės snukutis	none
@@ -566,6 +606,8 @@ symbols:
 🥒	agurkas	none
 🥬	lapinė daržovė	none
 🥦	brokolis	none
+🧄	česnakas	none
+🧅	svogūnas	none
 🍄	grybas	none
 🥜	žemės riešutas	none
 🌰	lazdyno riešutas	none
@@ -575,6 +617,7 @@ symbols:
 🥨	riestainis	none
 🥯	apvalus riestainis	none
 🥞	blynai	none
+🧇	vaflis	none
 🧀	sūrio gabaliukas	none
 🍖	mėsa ant kaulo	none
 🍗	paukščio šlaunelė	none
@@ -588,6 +631,7 @@ symbols:
 🌮	meksikietiškas paplotėlis	none
 🌯	buritas	none
 🥙	įdarytas lavašas	none
+🧆	falafelis	none
 🥚	kiaušinis	none
 🍳	valgio gaminimas	none
 🥘	prikaistuvis su maistu	none
@@ -595,6 +639,7 @@ symbols:
 🥣	dubuo su šaukštu	none
 🥗	žalios salotos	none
 🍿	spragėsiai	none
+🧈	sviestas	none
 🧂	druska	none
 🥫	konservai	none
 🍱	bento dėžutė	none
@@ -618,6 +663,7 @@ symbols:
 🦞	omaras	none
 🦐	krevetė	none
 🦑	kalmaras	none
+🦪	austrė	none
 🍦	minkšti ledai	none
 🍧	susmulkintas ledas	none
 🍨	ledai	none
@@ -646,6 +692,9 @@ symbols:
 🥂	sudaužtos taurės	none
 🥃	stiklinė	none
 🥤	puodelis su šiaudeliu	none
+🧃	gėrimo pakelis	none
+🧉	matė	none
+🧊	ledo kubelis	none
 🥢	lazdelės	none
 🍽	šakutė ir peilis su lėkšte	none
 🍴	šakutė ir peilis	none
@@ -694,6 +743,7 @@ symbols:
 🗽	laisvės statula	none
 ⛪	bažnyčia	none
 🕌	mečetė	none
+🛕	induistų šventykla	none
 🕍	sinagoga	none
 ⛩	Šintoizmo šventykla	none
 🕋	kaaba	none
@@ -708,7 +758,6 @@ symbols:
 🌇	saulėlydis	none
 🌉	tiltas naktį	none
 ♨	karštosios versmės	none
-🌌	paukščių takas	none
 🎠	karuselės arkliukas	none
 🎡	apžvalgos ratas	none
 🎢	linksmieji kalneliai	none
@@ -745,6 +794,9 @@ symbols:
 🏎	lenktyninis automobilis	none
 🏍	motociklas	none
 🛵	motoroleris	none
+🦽	rankomis valdomas vežimėlis	none
+🦼	motorizuotas vežimėlis	none
+🛺	autorikša	none
 🚲	dviratis	none
 🛴	paspirtukas	none
 🛹	riedlentė	none
@@ -770,6 +822,7 @@ symbols:
 🛩	mažas lėktuvas	none
 🛫	lėktuvo pakilimas	none
 🛬	lėktuvo nusileidimas	none
+🪂	parašiutas	none
 💺	vieta	none
 🚁	sraigstasparnis	none
 🚟	kabanti geležinkelio linija	none
@@ -827,9 +880,11 @@ symbols:
 ☀	saulė	none
 🌝	pilnatis su veidu	none
 🌞	saulė su veidu	none
+🪐	planeta su žiedu	none
 ⭐	balta vidutinė žvaigždė	none
 🌟	žėrinti žvaigždė	none
 🌠	krintanti žvaigždė	none
+🌌	paukščių takas	none
 ☁	debesis	none
 ⛅	saulė už debesų	none
 ⛈	debesis su žaibu ir lietumi	none
@@ -905,11 +960,14 @@ symbols:
 ⛳	vėliava skylutėje	none
 ⛸	pačiūžos	none
 🎣	meškerė	none
+🤿	nardymo kaukė	none
 🎽	bėgimo marškinėliai	none
 🎿	slidės	none
 🛷	rogės	none
 🥌	akmenslydis	none
 🎯	smūgis tiesiai į taikinį	none
+🪀	jo-jo	none
+🪁	aitvaras	none
 🎱	biliardo kamuoliukas	none
 🔮	krištolinis rutulys	none
 🧿	amuletas akis	none
@@ -936,6 +994,7 @@ symbols:
 🕶	akiniai nuo saulės	none
 🥽	apsauginiai akiniai	none
 🥼	laboratorinis chalatas	none
+🦺	gelbėjimosi liemenė	none
 👔	kaklaraištis	none
 👕	marškinėliai	none
 👖	džinsai	none
@@ -945,6 +1004,10 @@ symbols:
 🧦	kojinės	none
 👗	suknelė	none
 👘	kimono	none
+🥻	saris	none
+🩱	vientisas maudymosi kostiumėlis	none
+🩲	trumpikės	none
+🩳	šortai	none
 👙	bikinis	none
 👚	moteriški drabužiai	none
 👛	piniginė	none
@@ -958,6 +1021,7 @@ symbols:
 🥿	lygiapadis batelis	none
 👠	aukštakulnis batelis	none
 👡	moteriška basutė	none
+🩰	baleto bateliai	none
 👢	moteriškas batas	none
 👑	karūna	none
 👒	moteriška skrybėlė	none
@@ -992,6 +1056,7 @@ symbols:
 🎹	muzikos klaviatūra	none
 🎺	trimitas	none
 🎻	smuikas	none
+🪕	bandža	none
 🥁	būgnas	none
 📱	mobilusis telefonas	none
 📲	mobilusis telefonas su rodykle	none
@@ -1027,6 +1092,7 @@ symbols:
 💡	lemputė	none
 🔦	žibintuvėlis	none
 🏮	raudonas popierinis žibintas	none
+🪔	žibalinė lempa	none
 📔	užrašų knygelė su dekoratyviniu viršeliu	none
 📕	užversta knyga	none
 📖	atversta knyga	none
@@ -1105,6 +1171,7 @@ symbols:
 🔑	raktas	none
 🗝	senas raktas	none
 🔨	plaktukas	none
+🪓	kirvis	none
 ⛏	kirstuvas	none
 ⚒	plaktuvas ir kirstuvas	none
 🛠	plaktukas ir veržliaraktis	none
@@ -1118,6 +1185,7 @@ symbols:
 ⚙	krumpliaratis	none
 🗜	suspaudimas	none
 ⚖	svarstyklės su lėkštėmis	none
+🦯	neregio lazda	none
 🔗	jungtis	none
 ⛓	grandinės	none
 🧰	įrankių rinkinys	none
@@ -1130,13 +1198,18 @@ symbols:
 🔭	teleskopas	none
 📡	palydovinė antena	none
 💉	švirkštas	none
+🩸	kraujo lašas	none
 💊	piliulė	none
+🩹	pleistras	none
+🩺	stetoskopas	none
 🚪	durys	none
 🛏	lova	none
 🛋	sofa ir lempa	none
+🪑	kėdė	none
 🚽	tualetas	none
 🚿	dušas	none
 🛁	vonia	none
+🪒	skustuvas	none
 🧴	losjono buteliukas	none
 🧷	žiogelis	none
 🧹	šluota	none
@@ -1246,6 +1319,8 @@ symbols:
 📶	antenos juostos	none
 📳	vibravimo režimas	none
 📴	išjungti mobilųjį telefoną	none
+♀	moteriškos lyties ženklas	none
+♂	vyriškos lyties ženklas	none
 ⚕	medicinos simbolis	none
 ♾	begalybė	none
 ♻	perdirbimo simbolis	none
@@ -1319,17 +1394,29 @@ symbols:
 🈺	veikimą reiškiantis hieroglifas	none
 🈵	pilnatvę reiškiantis hieroglifas	none
 🔴	raudonas rutulys	none
+🟠	oranžinis apskritimas	none
+🟡	geltonas apskritimas	none
+🟢	žalias apskritimas	none
 🔵	mėlynas rutulys	none
-⚪	baltas rutulys	none
+🟣	violetinis apskritimas	none
+🟤	rudas apskritimas	none
 ⚫	juodas rutulys	none
-⬜	baltas didelis kvadratas	none
+⚪	baltas rutulys	none
+🟥	raudonas kvadratas	none
+🟧	oranžinis kvadratas	none
+🟨	geltonas kvadratas	none
+🟩	žalias kvadratas	none
+🟦	mėlynas kvadratas	none
+🟪	violetinis kvadratas	none
+🟫	rudas kvadratas	none
 ⬛	juodas didelis kvadratas	none
+⬜	baltas didelis kvadratas	none
 ◼	juodas vidutinis kvadratas	none
 ◻	baltas vidutinis kvadratas	none
-◽	baltas vidutiniškai mažas kvadratas	none
 ◾	juodas vidutiniškai mažas kvadratas	none
-▫	baltas mažas kvadratas	none
+◽	baltas vidutiniškai mažas kvadratas	none
 ▪	juodas mažas kvadratas	none
+▫	baltas mažas kvadratas	none
 🔶	didelis oranžinis deimantas	none
 🔷	didelis mėlynas deimantas	none
 🔸	mažas oranžinis deimantas	none
@@ -1338,137 +1425,71 @@ symbols:
 🔻	raudonas į apačią nukreiptas trikampis	none
 💠	deimantas su tašku	none
 🔘	akutė	none
-🔲	juodas kvadratinis mygtukas	none
 🔳	baltas kvadratinis mygtukas	none
+🔲	juodas kvadratinis mygtukas	none
 🏁	vėliava langeliais	none
 🚩	trikampė vėliava	none
 🎌	sukryžiuotos vėliavos	none
 🏴	juoda vėliava	none
 🏳	balta vėliava	none
+🏳‍⚧	žydra, rožinė ir balta vėliava	none
 🏳‍🌈	vaivorykštinė vėliava	none
 🏴‍☠	piratų vėliava	none
-🛕	induistų šventykla	none
-🛺	autorikša	none
-🟠	oranžinis apskritimas	none
-🟡	geltonas apskritimas	none
-🟢	žalias apskritimas	none
-🟣	violetinis apskritimas	none
-🟤	rudas apskritimas	none
-🟥	raudonas kvadratas	none
-🟦	mėlynas kvadratas	none
-🟧	oranžinis kvadratas	none
-🟨	geltonas kvadratas	none
-🟩	žalias kvadratas	none
-🟪	violetinis kvadratas	none
-🟫	rudas kvadratas	none
-🤍	balta širdelė	none
-🤎	ruda širdelė	none
-🤏	žnybianti ranka	none
-🤿	nardymo kaukė	none
-🥱	žiovaujantis veidas	none
-🥻	saris	none
-🦥	tinginys	none
-🦦	ūdra	none
-🦧	orangutangas	none
-🦨	skunkas	none
-🦩	flamingas	none
-🦪	austrė	none
-🦮	šuo vedlys	none
-🦯	neregio lazda	none
-🦺	gelbėjimosi liemenė	none
-🦻	ausis su klausos aparatu	none
-🦼	motorizuotas vežimėlis	none
-🦽	rankomis valdomas vežimėlis	none
-🦾	mechaninė ranka	none
-🦿	mechaninė koja	none
-🧃	gėrimo pakelis	none
-🧄	česnakas	none
-🧅	svogūnas	none
-🧆	falafelis	none
-🧇	vaflis	none
-🧈	sviestas	none
-🧉	matė	none
-🧊	ledo kubelis	none
-🧍	stovintis žmogus	none
-🧍‍♀	stovinti moteris	none
-🧍‍♂	stovintis vyras	none
-🧎	klūpantis žmogus	none
-🧎‍♀	klūpanti moteris	none
-🧎‍♂	klūpantis vyras	none
-🧏	kurčias žmogus	none
-🧏‍♀	kurčia moteris	none
-🧏‍♂	kurčias vyras	none
-🩰	baleto bateliai	none
-🩱	vientisas maudymosi kostiumėlis	none
-🩲	trumpikės	none
-🩳	šortai	none
-🩸	kraujo lašas	none
-🩹	pleistras	none
-🩺	stetoskopas	none
-🪀	jo-jo	none
-🪁	aitvaras	none
-🪂	parašiutas	none
-🪐	planeta su žiedu	none
-🪑	kėdė	none
-🪒	skustuvas	none
-🪓	kirvis	none
-🪔	žibalinė lempa	none
-🪕	bandža	none
-🤏🏻	žnybianti ranka šviesios odos	none
-🤏🏼	žnybianti ranka vidutinio gymio	none
-🤏🏽	žnybianti ranka rusvos odos	none
-🤏🏾	žnybianti ranka tamsios odos	none
-🤏🏿	žnybianti ranka itin tamsios odos	none
-🦻🏻	ausis su klausos aparatu šviesios odos	none
-🦻🏼	ausis su klausos aparatu vidutinio gymio	none
-🦻🏽	ausis su klausos aparatu rusvos odos	none
-🦻🏾	ausis su klausos aparatu tamsios odos	none
-🦻🏿	ausis su klausos aparatu itin tamsios odos	none
-🧍🏻	stovintis žmogus šviesios odos	none
-🧍🏼	stovintis žmogus vidutinio gymio	none
-🧍🏽	stovintis žmogus rusvos odos	none
-🧍🏾	stovintis žmogus tamsios odos	none
-🧍🏿	stovintis žmogus itin tamsios odos	none
-🧍🏻‍♀	stovinti moteris šviesios odos	none
-🧍🏼‍♀	stovinti moteris vidutinio gymio	none
-🧍🏽‍♀	stovinti moteris rusvos odos	none
-🧍🏾‍♀	stovinti moteris tamsios odos	none
-🧍🏿‍♀	stovinti moteris itin tamsios odos	none
-🧍🏻‍♂	stovintis vyras šviesios odos	none
-🧍🏼‍♂	stovintis vyras vidutinio gymio	none
-🧍🏽‍♂	stovintis vyras rusvos odos	none
-🧍🏾‍♂	stovintis vyras tamsios odos	none
-🧍🏿‍♂	stovintis vyras itin tamsios odos	none
-🧎🏻	klūpantis žmogus šviesios odos	none
-🧎🏼	klūpantis žmogus vidutinio gymio	none
-🧎🏽	klūpantis žmogus rusvos odos	none
-🧎🏾	klūpantis žmogus tamsios odos	none
-🧎🏿	klūpantis žmogus itin tamsios odos	none
-🧎🏻‍♀	klūpanti moteris šviesios odos	none
-🧎🏼‍♀	klūpanti moteris vidutinio gymio	none
-🧎🏽‍♀	klūpanti moteris rusvos odos	none
-🧎🏾‍♀	klūpanti moteris tamsios odos	none
-🧎🏿‍♀	klūpanti moteris itin tamsios odos	none
-🧎🏻‍♂	klūpantis vyras šviesios odos	none
-🧎🏼‍♂	klūpantis vyras vidutinio gymio	none
-🧎🏽‍♂	klūpantis vyras rusvos odos	none
-🧎🏾‍♂	klūpantis vyras tamsios odos	none
-🧎🏿‍♂	klūpantis vyras itin tamsios odos	none
-🧏🏻	kurčias žmogus šviesios odos	none
-🧏🏼	kurčias žmogus vidutinio gymio	none
-🧏🏽	kurčias žmogus rusvos odos	none
-🧏🏾	kurčias žmogus tamsios odos	none
-🧏🏿	kurčias žmogus itin tamsios odos	none
-🧏🏻‍♀	kurčia moteris šviesios odos	none
-🧏🏼‍♀	kurčia moteris vidutinio gymio	none
-🧏🏽‍♀	kurčia moteris rusvos odos	none
-🧏🏾‍♀	kurčia moteris tamsios odos	none
-🧏🏿‍♀	kurčia moteris itin tamsios odos	none
-🧏🏻‍♂	kurčias vyras šviesios odos	none
-🧏🏼‍♂	kurčias vyras vidutinio gymio	none
-🧏🏽‍♂	kurčias vyras rusvos odos	none
-🧏🏾‍♂	kurčias vyras tamsios odos	none
-🧏🏿‍♂	kurčias vyras itin tamsios odos	none
+🛖	namelis	none
+🛗	elevatorius	none
+🛻	pikapas	none
+🛼	riedučiai	none
+🤌	suspausti pirštai	none
+🥲	besišypsantis veidas su ašara	none
+🥷	nindzė	none
+🥸	paslėptas veidas	none
+🦣	mamutas	none
+🦤	drontas	none
+🦫	bebras	none
+🦬	bizonas	none
+🦭	ruonis	none
+🧋	burbulinė arbata	none
+🩴	sandalai su dirželiu	none
+🪃	bumerangas	none
+🪄	stebuklinga lazdelė	none
+🪅	pinjata	none
+🪆	matrioškos	none
+🪖	kareiviškas šalmas	none
+🪗	akordeonas	none
+🪘	ilgas būgnas	none
+🪙	moneta	none
+🪚	pjūklas	none
+🪛	atsuktuvas	none
+🪜	kopėčios	none
+🪝	kablys	none
+🪞	veidrodis	none
+🪟	langas	none
+🪠	santechninė pompa	none
+🪡	siuvimo adata	none
+🪢	mazgas	none
+🪣	kibiras	none
+🪤	pelėkautai	none
+🪥	dantų šepetėlis	none
+🪦	paminklas	none
+🪧	plakatas	none
+🪨	uoliena	none
+🪰	musė	none
+🪱	kirmėlė	none
+🪲	vabaliukas	none
+🪳	tarakonas	none
+🪴	pasodintas augalas	none
+🪵	mediena	none
+🪶	plunksna	none
+🫀	širdis	none
+🫁	plaučiai	none
+🫂	apsikabinę žmonės	none
+🫐	mėlynės	none
+🫑	paprika	none
+🫒	alyvuogė	none
+🫓	paplotis	none
+🫔	vyniotinis	none
+🫕	fondiu	none
+🫖	arbatinukas	none
 👋🏻	mojuojanti ranka šviesios odos	none
 👋🏼	mojuojanti ranka vidutinio gymio	none
 👋🏽	mojuojanti ranka rusvos odos	none
@@ -1499,6 +1520,11 @@ symbols:
 👌🏽	GERAI ženklas rankomis rusvos odos	none
 👌🏾	GERAI ženklas rankomis tamsios odos	none
 👌🏿	GERAI ženklas rankomis itin tamsios odos	none
+🤏🏻	žnybianti ranka šviesios odos	none
+🤏🏼	žnybianti ranka vidutinio gymio	none
+🤏🏽	žnybianti ranka rusvos odos	none
+🤏🏾	žnybianti ranka tamsios odos	none
+🤏🏿	žnybianti ranka itin tamsios odos	none
 ✌🏻	pergalės ženklą rodanti ranka šviesios odos	none
 ✌🏼	pergalės ženklą rodanti ranka vidutinio gymio	none
 ✌🏽	pergalės ženklą rodanti ranka rusvos odos	none
@@ -1644,6 +1670,11 @@ symbols:
 👂🏽	ausis rusvos odos	none
 👂🏾	ausis tamsios odos	none
 👂🏿	ausis itin tamsios odos	none
+🦻🏻	ausis su klausos aparatu šviesios odos	none
+🦻🏼	ausis su klausos aparatu vidutinio gymio	none
+🦻🏽	ausis su klausos aparatu rusvos odos	none
+🦻🏾	ausis su klausos aparatu tamsios odos	none
+🦻🏿	ausis su klausos aparatu itin tamsios odos	none
 👃🏻	nosis šviesios odos	none
 👃🏼	nosis vidutinio gymio	none
 👃🏽	nosis rusvos odos	none
@@ -1679,51 +1710,45 @@ symbols:
 👱🏽	šviesiaplaukis žmogus rusvos odos	none
 👱🏾	šviesiaplaukis žmogus tamsios odos	none
 👱🏿	šviesiaplaukis žmogus itin tamsios odos	none
-🧑🏻‍🤝‍🧑🏻	rankomis susikibę žmonės šviesios odos	none
-🧑🏼‍🤝‍🧑🏻	rankomis susikibę žmonės vidutinio gymio šviesios odos	none
-🧑🏼‍🤝‍🧑🏼	rankomis susikibę žmonės vidutinio gymio	none
-🧑🏽‍🤝‍🧑🏻	rankomis susikibę žmonės rusvos odos šviesios odos	none
-🧑🏽‍🤝‍🧑🏼	rankomis susikibę žmonės rusvos odos vidutinio gymio	none
-🧑🏽‍🤝‍🧑🏽	rankomis susikibę žmonės rusvos odos	none
-🧑🏾‍🤝‍🧑🏻	rankomis susikibę žmonės tamsios odos šviesios odos	none
-🧑🏾‍🤝‍🧑🏼	rankomis susikibę žmonės tamsios odos vidutinio gymio	none
-🧑🏾‍🤝‍🧑🏽	rankomis susikibę žmonės tamsios odos rusvos odos	none
-🧑🏾‍🤝‍🧑🏾	rankomis susikibę žmonės tamsios odos	none
-🧑🏿‍🤝‍🧑🏻	rankomis susikibę žmonės itin tamsios odos šviesios odos	none
-🧑🏿‍🤝‍🧑🏼	rankomis susikibę žmonės itin tamsios odos vidutinio gymio	none
-🧑🏿‍🤝‍🧑🏽	rankomis susikibę žmonės itin tamsios odos rusvos odos	none
-🧑🏿‍🤝‍🧑🏾	rankomis susikibę žmonės itin tamsios odos tamsios odos	none
-🧑🏿‍🤝‍🧑🏿	rankomis susikibę žmonės itin tamsios odos	none
+🧑‍🦰	suaugusysis raudoni plaukai	none
+🧑🏻‍🦰	suaugusysis šviesios odos raudoni plaukai	none
+🧑🏼‍🦰	suaugusysis vidutinio gymio raudoni plaukai	none
+🧑🏽‍🦰	suaugusysis rusvos odos raudoni plaukai	none
+🧑🏾‍🦰	suaugusysis tamsios odos raudoni plaukai	none
+🧑🏿‍🦰	suaugusysis itin tamsios odos raudoni plaukai	none
+🧑‍🦱	suaugusysis garbanoti plaukai	none
+🧑🏻‍🦱	suaugusysis šviesios odos garbanoti plaukai	none
+🧑🏼‍🦱	suaugusysis vidutinio gymio garbanoti plaukai	none
+🧑🏽‍🦱	suaugusysis rusvos odos garbanoti plaukai	none
+🧑🏾‍🦱	suaugusysis tamsios odos garbanoti plaukai	none
+🧑🏿‍🦱	suaugusysis itin tamsios odos garbanoti plaukai	none
+🧑‍🦳	suaugusysis žili plaukai	none
+🧑🏻‍🦳	suaugusysis šviesios odos žili plaukai	none
+🧑🏼‍🦳	suaugusysis vidutinio gymio žili plaukai	none
+🧑🏽‍🦳	suaugusysis rusvos odos žili plaukai	none
+🧑🏾‍🦳	suaugusysis tamsios odos žili plaukai	none
+🧑🏿‍🦳	suaugusysis itin tamsios odos žili plaukai	none
+🧑‍🦲	suaugusysis plikas	none
+🧑🏻‍🦲	suaugusysis šviesios odos plikas	none
+🧑🏼‍🦲	suaugusysis vidutinio gymio plikas	none
+🧑🏽‍🦲	suaugusysis rusvos odos plikas	none
+🧑🏾‍🦲	suaugusysis tamsios odos plikas	none
+🧑🏿‍🦲	suaugusysis itin tamsios odos plikas	none
 👨🏻	vyras šviesios odos	none
 👨🏼	vyras vidutinio gymio	none
 👨🏽	vyras rusvos odos	none
 👨🏾	vyras tamsios odos	none
 👨🏿	vyras itin tamsios odos	none
-👨🏻‍🦯	vyras su neregio lazdele šviesios odos	none
-👨🏼‍🦯	vyras su neregio lazdele vidutinio gymio	none
-👨🏽‍🦯	vyras su neregio lazdele rusvos odos	none
-👨🏾‍🦯	vyras su neregio lazdele tamsios odos	none
-👨🏿‍🦯	vyras su neregio lazdele itin tamsios odos	none
-👨🏻‍🦼	vyras motorizuotame vežimėlyje šviesios odos	none
-👨🏼‍🦼	vyras motorizuotame vežimėlyje vidutinio gymio	none
-👨🏽‍🦼	vyras motorizuotame vežimėlyje rusvos odos	none
-👨🏾‍🦼	vyras motorizuotame vežimėlyje tamsios odos	none
-👨🏿‍🦼	vyras motorizuotame vežimėlyje itin tamsios odos	none
-👨🏻‍🦽	vyras rankomis valdomame vežimėlyje šviesios odos	none
-👨🏼‍🦽	vyras rankomis valdomame vežimėlyje vidutinio gymio	none
-👨🏽‍🦽	vyras rankomis valdomame vežimėlyje rusvos odos	none
-👨🏾‍🦽	vyras rankomis valdomame vežimėlyje tamsios odos	none
-👨🏿‍🦽	vyras rankomis valdomame vežimėlyje itin tamsios odos	none
-👨🏼‍🤝‍👨🏻	du vyrai, susikibę už rankų vidutinio gymio šviesios odos	none
-👨🏽‍🤝‍👨🏻	du vyrai, susikibę už rankų rusvos odos šviesios odos	none
-👨🏽‍🤝‍👨🏼	du vyrai, susikibę už rankų rusvos odos vidutinio gymio	none
-👨🏾‍🤝‍👨🏻	du vyrai, susikibę už rankų tamsios odos šviesios odos	none
-👨🏾‍🤝‍👨🏼	du vyrai, susikibę už rankų tamsios odos vidutinio gymio	none
-👨🏾‍🤝‍👨🏽	du vyrai, susikibę už rankų tamsios odos rusvos odos	none
-👨🏿‍🤝‍👨🏻	du vyrai, susikibę už rankų itin tamsios odos šviesios odos	none
-👨🏿‍🤝‍👨🏼	du vyrai, susikibę už rankų itin tamsios odos vidutinio gymio	none
-👨🏿‍🤝‍👨🏽	du vyrai, susikibę už rankų itin tamsios odos rusvos odos	none
-👨🏿‍🤝‍👨🏾	du vyrai, susikibę už rankų itin tamsios odos tamsios odos	none
+🧔🏻	barzdotas žmogus šviesios odos	none
+🧔🏼	barzdotas žmogus vidutinio gymio	none
+🧔🏽	barzdotas žmogus rusvos odos	none
+🧔🏾	barzdotas žmogus tamsios odos	none
+🧔🏿	barzdotas žmogus itin tamsios odos	none
+👱🏻‍♂	blondinas šviesios odos	none
+👱🏼‍♂	blondinas vidutinio gymio	none
+👱🏽‍♂	blondinas rusvos odos	none
+👱🏾‍♂	blondinas tamsios odos	none
+👱🏿‍♂	blondinas itin tamsios odos	none
 👨‍🦰	vyras raudoni plaukai	none
 👨🏻‍🦰	vyras šviesios odos raudoni plaukai	none
 👨🏼‍🦰	vyras vidutinio gymio raudoni plaukai	none
@@ -1748,66 +1773,16 @@ symbols:
 👨🏽‍🦲	vyras rusvos odos plikas	none
 👨🏾‍🦲	vyras tamsios odos plikas	none
 👨🏿‍🦲	vyras itin tamsios odos plikas	none
-👱🏻‍♂	blondinas šviesios odos	none
-👱🏼‍♂	blondinas vidutinio gymio	none
-👱🏽‍♂	blondinas rusvos odos	none
-👱🏾‍♂	blondinas tamsios odos	none
-👱🏿‍♂	blondinas itin tamsios odos	none
-🧔🏻	barzdotas žmogus šviesios odos	none
-🧔🏼	barzdotas žmogus vidutinio gymio	none
-🧔🏽	barzdotas žmogus rusvos odos	none
-🧔🏾	barzdotas žmogus tamsios odos	none
-🧔🏿	barzdotas žmogus itin tamsios odos	none
 👩🏻	moteris šviesios odos	none
 👩🏼	moteris vidutinio gymio	none
 👩🏽	moteris rusvos odos	none
 👩🏾	moteris tamsios odos	none
 👩🏿	moteris itin tamsios odos	none
-👩🏻‍🦯	moteris su neregio lazdele šviesios odos	none
-👩🏼‍🦯	moteris su neregio lazdele vidutinio gymio	none
-👩🏽‍🦯	moteris su neregio lazdele rusvos odos	none
-👩🏾‍🦯	moteris su neregio lazdele tamsios odos	none
-👩🏿‍🦯	moteris su neregio lazdele itin tamsios odos	none
-👩🏻‍🦼	moteris motorizuotame vežimėlyje šviesios odos	none
-👩🏼‍🦼	moteris motorizuotame vežimėlyje vidutinio gymio	none
-👩🏽‍🦼	moteris motorizuotame vežimėlyje rusvos odos	none
-👩🏾‍🦼	moteris motorizuotame vežimėlyje tamsios odos	none
-👩🏿‍🦼	moteris motorizuotame vežimėlyje itin tamsios odos	none
-👩🏻‍🦽	moteris rankomis valdomame vežimėlyje šviesios odos	none
-👩🏼‍🦽	moteris rankomis valdomame vežimėlyje vidutinio gymio	none
-👩🏽‍🦽	moteris rankomis valdomame vežimėlyje rusvos odos	none
-👩🏾‍🦽	moteris rankomis valdomame vežimėlyje tamsios odos	none
-👩🏿‍🦽	moteris rankomis valdomame vežimėlyje itin tamsios odos	none
-👩🏻‍🤝‍👨🏼	vyras ir moteris, susikibę už rankų šviesios odos vidutinio gymio	none
-👩🏻‍🤝‍👨🏽	vyras ir moteris, susikibę už rankų šviesios odos rusvos odos	none
-👩🏻‍🤝‍👨🏾	vyras ir moteris, susikibę už rankų šviesios odos tamsios odos	none
-👩🏻‍🤝‍👨🏿	vyras ir moteris, susikibę už rankų šviesios odos itin tamsios odos	none
-👩🏼‍🤝‍👨🏻	vyras ir moteris, susikibę už rankų vidutinio gymio šviesios odos	none
-👩🏼‍🤝‍👨🏽	vyras ir moteris, susikibę už rankų vidutinio gymio rusvos odos	none
-👩🏼‍🤝‍👨🏾	vyras ir moteris, susikibę už rankų vidutinio gymio tamsios odos	none
-👩🏼‍🤝‍👨🏿	vyras ir moteris, susikibę už rankų vidutinio gymio itin tamsios odos	none
-👩🏽‍🤝‍👨🏻	vyras ir moteris, susikibę už rankų rusvos odos šviesios odos	none
-👩🏽‍🤝‍👨🏼	vyras ir moteris, susikibę už rankų rusvos odos vidutinio gymio	none
-👩🏽‍🤝‍👨🏾	vyras ir moteris, susikibę už rankų rusvos odos tamsios odos	none
-👩🏽‍🤝‍👨🏿	vyras ir moteris, susikibę už rankų rusvos odos itin tamsios odos	none
-👩🏾‍🤝‍👨🏻	vyras ir moteris, susikibę už rankų tamsios odos šviesios odos	none
-👩🏾‍🤝‍👨🏼	vyras ir moteris, susikibę už rankų tamsios odos vidutinio gymio	none
-👩🏾‍🤝‍👨🏽	vyras ir moteris, susikibę už rankų tamsios odos rusvos odos	none
-👩🏾‍🤝‍👨🏿	vyras ir moteris, susikibę už rankų tamsios odos itin tamsios odos	none
-👩🏿‍🤝‍👨🏻	vyras ir moteris, susikibę už rankų itin tamsios odos šviesios odos	none
-👩🏿‍🤝‍👨🏼	vyras ir moteris, susikibę už rankų itin tamsios odos vidutinio gymio	none
-👩🏿‍🤝‍👨🏽	vyras ir moteris, susikibę už rankų itin tamsios odos rusvos odos	none
-👩🏿‍🤝‍👨🏾	vyras ir moteris, susikibę už rankų itin tamsios odos tamsios odos	none
-👩🏼‍🤝‍👩🏻	dvi moterys, susikibusios už rankų vidutinio gymio šviesios odos	none
-👩🏽‍🤝‍👩🏻	dvi moterys, susikibusios už rankų rusvos odos šviesios odos	none
-👩🏽‍🤝‍👩🏼	dvi moterys, susikibusios už rankų rusvos odos vidutinio gymio	none
-👩🏾‍🤝‍👩🏻	dvi moterys, susikibusios už rankų tamsios odos šviesios odos	none
-👩🏾‍🤝‍👩🏼	dvi moterys, susikibusios už rankų tamsios odos vidutinio gymio	none
-👩🏾‍🤝‍👩🏽	dvi moterys, susikibusios už rankų tamsios odos rusvos odos	none
-👩🏿‍🤝‍👩🏻	dvi moterys, susikibusios už rankų itin tamsios odos šviesios odos	none
-👩🏿‍🤝‍👩🏼	dvi moterys, susikibusios už rankų itin tamsios odos vidutinio gymio	none
-👩🏿‍🤝‍👩🏽	dvi moterys, susikibusios už rankų itin tamsios odos rusvos odos	none
-👩🏿‍🤝‍👩🏾	dvi moterys, susikibusios už rankų itin tamsios odos tamsios odos	none
+👱🏻‍♀	blondinė šviesios odos	none
+👱🏼‍♀	blondinė vidutinio gymio	none
+👱🏽‍♀	blondinė rusvos odos	none
+👱🏾‍♀	blondinė tamsios odos	none
+👱🏿‍♀	blondinė itin tamsios odos	none
 👩‍🦰	moteris raudoni plaukai	none
 👩🏻‍🦰	moteris šviesios odos raudoni plaukai	none
 👩🏼‍🦰	moteris vidutinio gymio raudoni plaukai	none
@@ -1832,11 +1807,6 @@ symbols:
 👩🏽‍🦲	moteris rusvos odos plikas	none
 👩🏾‍🦲	moteris tamsios odos plikas	none
 👩🏿‍🦲	moteris itin tamsios odos plikas	none
-👱🏻‍♀	blondinė šviesios odos	none
-👱🏼‍♀	blondinė vidutinio gymio	none
-👱🏽‍♀	blondinė rusvos odos	none
-👱🏾‍♀	blondinė tamsios odos	none
-👱🏿‍♀	blondinė itin tamsios odos	none
 🧓🏻	kitas suaugusysis šviesios odos	none
 🧓🏼	kitas suaugusysis vidutinio gymio	none
 🧓🏽	kitas suaugusysis rusvos odos	none
@@ -1942,6 +1912,21 @@ symbols:
 🙋🏽‍♀	ranką iškėlusi moteris rusvos odos	none
 🙋🏾‍♀	ranką iškėlusi moteris tamsios odos	none
 🙋🏿‍♀	ranką iškėlusi moteris itin tamsios odos	none
+🧏🏻	kurčias žmogus šviesios odos	none
+🧏🏼	kurčias žmogus vidutinio gymio	none
+🧏🏽	kurčias žmogus rusvos odos	none
+🧏🏾	kurčias žmogus tamsios odos	none
+🧏🏿	kurčias žmogus itin tamsios odos	none
+🧏🏻‍♂	kurčias vyras šviesios odos	none
+🧏🏼‍♂	kurčias vyras vidutinio gymio	none
+🧏🏽‍♂	kurčias vyras rusvos odos	none
+🧏🏾‍♂	kurčias vyras tamsios odos	none
+🧏🏿‍♂	kurčias vyras itin tamsios odos	none
+🧏🏻‍♀	kurčia moteris šviesios odos	none
+🧏🏼‍♀	kurčia moteris vidutinio gymio	none
+🧏🏽‍♀	kurčia moteris rusvos odos	none
+🧏🏾‍♀	kurčia moteris tamsios odos	none
+🧏🏿‍♀	kurčia moteris itin tamsios odos	none
 🙇🏻	nusilenkęs žmogus šviesios odos	none
 🙇🏼	nusilenkęs žmogus vidutinio gymio	none
 🙇🏽	nusilenkęs žmogus rusvos odos	none
@@ -1987,6 +1972,11 @@ symbols:
 🤷🏽‍♀	abejojanti moteris rusvos odos	none
 🤷🏾‍♀	abejojanti moteris tamsios odos	none
 🤷🏿‍♀	abejojanti moteris itin tamsios odos	none
+🧑🏻‍⚕	sveikatos darbuotojas šviesios odos	none
+🧑🏼‍⚕	sveikatos darbuotojas vidutinio gymio	none
+🧑🏽‍⚕	sveikatos darbuotojas rusvos odos	none
+🧑🏾‍⚕	sveikatos darbuotojas tamsios odos	none
+🧑🏿‍⚕	sveikatos darbuotojas itin tamsios odos	none
 👨🏻‍⚕	medikas šviesios odos	none
 👨🏼‍⚕	medikas vidutinio gymio	none
 👨🏽‍⚕	medikas rusvos odos	none
@@ -1997,6 +1987,11 @@ symbols:
 👩🏽‍⚕	medikė rusvos odos	none
 👩🏾‍⚕	medikė tamsios odos	none
 👩🏿‍⚕	medikė itin tamsios odos	none
+🧑🏻‍🎓	paskutinio kurso studentas šviesios odos	none
+🧑🏼‍🎓	paskutinio kurso studentas vidutinio gymio	none
+🧑🏽‍🎓	paskutinio kurso studentas rusvos odos	none
+🧑🏾‍🎓	paskutinio kurso studentas tamsios odos	none
+🧑🏿‍🎓	paskutinio kurso studentas itin tamsios odos	none
 👨🏻‍🎓	studentas šviesios odos	none
 👨🏼‍🎓	studentas vidutinio gymio	none
 👨🏽‍🎓	studentas rusvos odos	none
@@ -2007,6 +2002,11 @@ symbols:
 👩🏽‍🎓	studentė rusvos odos	none
 👩🏾‍🎓	studentė tamsios odos	none
 👩🏿‍🎓	studentė itin tamsios odos	none
+🧑🏻‍🏫	mokantis žmogus šviesios odos	none
+🧑🏼‍🏫	mokantis žmogus vidutinio gymio	none
+🧑🏽‍🏫	mokantis žmogus rusvos odos	none
+🧑🏾‍🏫	mokantis žmogus tamsios odos	none
+🧑🏿‍🏫	mokantis žmogus itin tamsios odos	none
 👨🏻‍🏫	mokytojas šviesios odos	none
 👨🏼‍🏫	mokytojas vidutinio gymio	none
 👨🏽‍🏫	mokytojas rusvos odos	none
@@ -2017,6 +2017,11 @@ symbols:
 👩🏽‍🏫	mokytoja rusvos odos	none
 👩🏾‍🏫	mokytoja tamsios odos	none
 👩🏿‍🏫	mokytoja itin tamsios odos	none
+🧑🏻‍⚖	teisiantis žmogus šviesios odos	none
+🧑🏼‍⚖	teisiantis žmogus vidutinio gymio	none
+🧑🏽‍⚖	teisiantis žmogus rusvos odos	none
+🧑🏾‍⚖	teisiantis žmogus tamsios odos	none
+🧑🏿‍⚖	teisiantis žmogus itin tamsios odos	none
 👨🏻‍⚖	teisėjas šviesios odos	none
 👨🏼‍⚖	teisėjas vidutinio gymio	none
 👨🏽‍⚖	teisėjas rusvos odos	none
@@ -2027,6 +2032,11 @@ symbols:
 👩🏽‍⚖	teisėja rusvos odos	none
 👩🏾‍⚖	teisėja tamsios odos	none
 👩🏿‍⚖	teisėja itin tamsios odos	none
+🧑🏻‍🌾	ūkininkaujantis žmogus šviesios odos	none
+🧑🏼‍🌾	ūkininkaujantis žmogus vidutinio gymio	none
+🧑🏽‍🌾	ūkininkaujantis žmogus rusvos odos	none
+🧑🏾‍🌾	ūkininkaujantis žmogus tamsios odos	none
+🧑🏿‍🌾	ūkininkaujantis žmogus itin tamsios odos	none
 👨🏻‍🌾	ūkininkas šviesios odos	none
 👨🏼‍🌾	ūkininkas vidutinio gymio	none
 👨🏽‍🌾	ūkininkas rusvos odos	none
@@ -2037,6 +2047,11 @@ symbols:
 👩🏽‍🌾	ūkininkė rusvos odos	none
 👩🏾‍🌾	ūkininkė tamsios odos	none
 👩🏿‍🌾	ūkininkė itin tamsios odos	none
+🧑🏻‍🍳	gaminantis žmogus šviesios odos	none
+🧑🏼‍🍳	gaminantis žmogus vidutinio gymio	none
+🧑🏽‍🍳	gaminantis žmogus rusvos odos	none
+🧑🏾‍🍳	gaminantis žmogus tamsios odos	none
+🧑🏿‍🍳	gaminantis žmogus itin tamsios odos	none
 👨🏻‍🍳	virėjas šviesios odos	none
 👨🏼‍🍳	virėjas vidutinio gymio	none
 👨🏽‍🍳	virėjas rusvos odos	none
@@ -2047,6 +2062,11 @@ symbols:
 👩🏽‍🍳	virėja rusvos odos	none
 👩🏾‍🍳	virėja tamsios odos	none
 👩🏿‍🍳	virėja itin tamsios odos	none
+🧑🏻‍🔧	remontuojantis žmogus šviesios odos	none
+🧑🏼‍🔧	remontuojantis žmogus vidutinio gymio	none
+🧑🏽‍🔧	remontuojantis žmogus rusvos odos	none
+🧑🏾‍🔧	remontuojantis žmogus tamsios odos	none
+🧑🏿‍🔧	remontuojantis žmogus itin tamsios odos	none
 👨🏻‍🔧	mechanikas šviesios odos	none
 👨🏼‍🔧	mechanikas vidutinio gymio	none
 👨🏽‍🔧	mechanikas rusvos odos	none
@@ -2057,6 +2077,11 @@ symbols:
 👩🏽‍🔧	mechanikė rusvos odos	none
 👩🏾‍🔧	mechanikė tamsios odos	none
 👩🏿‍🔧	mechanikė itin tamsios odos	none
+🧑🏻‍🏭	gamyklos darbuotojas šviesios odos	none
+🧑🏼‍🏭	gamyklos darbuotojas vidutinio gymio	none
+🧑🏽‍🏭	gamyklos darbuotojas rusvos odos	none
+🧑🏾‍🏭	gamyklos darbuotojas tamsios odos	none
+🧑🏿‍🏭	gamyklos darbuotojas itin tamsios odos	none
 👨🏻‍🏭	fabriko darbininkas šviesios odos	none
 👨🏼‍🏭	fabriko darbininkas vidutinio gymio	none
 👨🏽‍🏭	fabriko darbininkas rusvos odos	none
@@ -2067,6 +2092,11 @@ symbols:
 👩🏽‍🏭	fabriko darbininkė rusvos odos	none
 👩🏾‍🏭	fabriko darbininkė tamsios odos	none
 👩🏿‍🏭	fabriko darbininkė itin tamsios odos	none
+🧑🏻‍💼	dirbantysis biure šviesios odos	none
+🧑🏼‍💼	dirbantysis biure vidutinio gymio	none
+🧑🏽‍💼	dirbantysis biure rusvos odos	none
+🧑🏾‍💼	dirbantysis biure tamsios odos	none
+🧑🏿‍💼	dirbantysis biure itin tamsios odos	none
 👨🏻‍💼	biuro darbuotojas šviesios odos	none
 👨🏼‍💼	biuro darbuotojas vidutinio gymio	none
 👨🏽‍💼	biuro darbuotojas rusvos odos	none
@@ -2077,6 +2107,11 @@ symbols:
 👩🏽‍💼	biuro darbuotoja rusvos odos	none
 👩🏾‍💼	biuro darbuotoja tamsios odos	none
 👩🏿‍💼	biuro darbuotoja itin tamsios odos	none
+🧑🏻‍🔬	mokslo darbuotojas šviesios odos	none
+🧑🏼‍🔬	mokslo darbuotojas vidutinio gymio	none
+🧑🏽‍🔬	mokslo darbuotojas rusvos odos	none
+🧑🏾‍🔬	mokslo darbuotojas tamsios odos	none
+🧑🏿‍🔬	mokslo darbuotojas itin tamsios odos	none
 👨🏻‍🔬	mokslininkas šviesios odos	none
 👨🏼‍🔬	mokslininkas vidutinio gymio	none
 👨🏽‍🔬	mokslininkas rusvos odos	none
@@ -2087,6 +2122,11 @@ symbols:
 👩🏽‍🔬	mokslininkė rusvos odos	none
 👩🏾‍🔬	mokslininkė tamsios odos	none
 👩🏿‍🔬	mokslininkė itin tamsios odos	none
+🧑🏻‍💻	technikas šviesios odos	none
+🧑🏼‍💻	technikas vidutinio gymio	none
+🧑🏽‍💻	technikas rusvos odos	none
+🧑🏾‍💻	technikas tamsios odos	none
+🧑🏿‍💻	technikas itin tamsios odos	none
 👨🏻‍💻	technologas šviesios odos	none
 👨🏼‍💻	technologas vidutinio gymio	none
 👨🏽‍💻	technologas rusvos odos	none
@@ -2097,6 +2137,11 @@ symbols:
 👩🏽‍💻	technologė rusvos odos	none
 👩🏾‍💻	technologė tamsios odos	none
 👩🏿‍💻	technologė itin tamsios odos	none
+🧑🏻‍🎤	dainuojantis žmogus šviesios odos	none
+🧑🏼‍🎤	dainuojantis žmogus vidutinio gymio	none
+🧑🏽‍🎤	dainuojantis žmogus rusvos odos	none
+🧑🏾‍🎤	dainuojantis žmogus tamsios odos	none
+🧑🏿‍🎤	dainuojantis žmogus itin tamsios odos	none
 👨🏻‍🎤	dainininkas šviesios odos	none
 👨🏼‍🎤	dainininkas vidutinio gymio	none
 👨🏽‍🎤	dainininkas rusvos odos	none
@@ -2107,6 +2152,11 @@ symbols:
 👩🏽‍🎤	dainininkė rusvos odos	none
 👩🏾‍🎤	dainininkė tamsios odos	none
 👩🏿‍🎤	dainininkė itin tamsios odos	none
+🧑🏻‍🎨	tapytojas šviesios odos	none
+🧑🏼‍🎨	tapytojas vidutinio gymio	none
+🧑🏽‍🎨	tapytojas rusvos odos	none
+🧑🏾‍🎨	tapytojas tamsios odos	none
+🧑🏿‍🎨	tapytojas itin tamsios odos	none
 👨🏻‍🎨	dailininkas šviesios odos	none
 👨🏼‍🎨	dailininkas vidutinio gymio	none
 👨🏽‍🎨	dailininkas rusvos odos	none
@@ -2117,6 +2167,11 @@ symbols:
 👩🏽‍🎨	dailininkė rusvos odos	none
 👩🏾‍🎨	dailininkė tamsios odos	none
 👩🏿‍🎨	dailininkė itin tamsios odos	none
+🧑🏻‍✈	pilotuojantis žmogus šviesios odos	none
+🧑🏼‍✈	pilotuojantis žmogus vidutinio gymio	none
+🧑🏽‍✈	pilotuojantis žmogus rusvos odos	none
+🧑🏾‍✈	pilotuojantis žmogus tamsios odos	none
+🧑🏿‍✈	pilotuojantis žmogus itin tamsios odos	none
 👨🏻‍✈	pilotas šviesios odos	none
 👨🏼‍✈	pilotas vidutinio gymio	none
 👨🏽‍✈	pilotas rusvos odos	none
@@ -2127,6 +2182,11 @@ symbols:
 👩🏽‍✈	pilotė rusvos odos	none
 👩🏾‍✈	pilotė tamsios odos	none
 👩🏿‍✈	pilotė itin tamsios odos	none
+🧑🏻‍🚀	kosmonautas šviesios odos	none
+🧑🏼‍🚀	kosmonautas vidutinio gymio	none
+🧑🏽‍🚀	kosmonautas rusvos odos	none
+🧑🏾‍🚀	kosmonautas tamsios odos	none
+🧑🏿‍🚀	kosmonautas itin tamsios odos	none
 👨🏻‍🚀	astronautas šviesios odos	none
 👨🏼‍🚀	astronautas vidutinio gymio	none
 👨🏽‍🚀	astronautas rusvos odos	none
@@ -2137,6 +2197,11 @@ symbols:
 👩🏽‍🚀	astronautė rusvos odos	none
 👩🏾‍🚀	astronautė tamsios odos	none
 👩🏿‍🚀	astronautė itin tamsios odos	none
+🧑🏻‍🚒	ugniagesys šviesios odos	none
+🧑🏼‍🚒	ugniagesys vidutinio gymio	none
+🧑🏽‍🚒	ugniagesys rusvos odos	none
+🧑🏾‍🚒	ugniagesys tamsios odos	none
+🧑🏿‍🚒	ugniagesys itin tamsios odos	none
 👨🏻‍🚒	gaisrininkas šviesios odos	none
 👨🏼‍🚒	gaisrininkas vidutinio gymio	none
 👨🏽‍🚒	gaisrininkas rusvos odos	none
@@ -2427,6 +2492,81 @@ symbols:
 🚶🏽‍♀	einanti moteris rusvos odos	none
 🚶🏾‍♀	einanti moteris tamsios odos	none
 🚶🏿‍♀	einanti moteris itin tamsios odos	none
+🧍🏻	stovintis žmogus šviesios odos	none
+🧍🏼	stovintis žmogus vidutinio gymio	none
+🧍🏽	stovintis žmogus rusvos odos	none
+🧍🏾	stovintis žmogus tamsios odos	none
+🧍🏿	stovintis žmogus itin tamsios odos	none
+🧍🏻‍♂	stovintis vyras šviesios odos	none
+🧍🏼‍♂	stovintis vyras vidutinio gymio	none
+🧍🏽‍♂	stovintis vyras rusvos odos	none
+🧍🏾‍♂	stovintis vyras tamsios odos	none
+🧍🏿‍♂	stovintis vyras itin tamsios odos	none
+🧍🏻‍♀	stovinti moteris šviesios odos	none
+🧍🏼‍♀	stovinti moteris vidutinio gymio	none
+🧍🏽‍♀	stovinti moteris rusvos odos	none
+🧍🏾‍♀	stovinti moteris tamsios odos	none
+🧍🏿‍♀	stovinti moteris itin tamsios odos	none
+🧎🏻	klūpantis žmogus šviesios odos	none
+🧎🏼	klūpantis žmogus vidutinio gymio	none
+🧎🏽	klūpantis žmogus rusvos odos	none
+🧎🏾	klūpantis žmogus tamsios odos	none
+🧎🏿	klūpantis žmogus itin tamsios odos	none
+🧎🏻‍♂	klūpantis vyras šviesios odos	none
+🧎🏼‍♂	klūpantis vyras vidutinio gymio	none
+🧎🏽‍♂	klūpantis vyras rusvos odos	none
+🧎🏾‍♂	klūpantis vyras tamsios odos	none
+🧎🏿‍♂	klūpantis vyras itin tamsios odos	none
+🧎🏻‍♀	klūpanti moteris šviesios odos	none
+🧎🏼‍♀	klūpanti moteris vidutinio gymio	none
+🧎🏽‍♀	klūpanti moteris rusvos odos	none
+🧎🏾‍♀	klūpanti moteris tamsios odos	none
+🧎🏿‍♀	klūpanti moteris itin tamsios odos	none
+🧑🏻‍🦯	žmogus neregio lazdele šviesios odos	none
+🧑🏼‍🦯	žmogus neregio lazdele vidutinio gymio	none
+🧑🏽‍🦯	žmogus neregio lazdele rusvos odos	none
+🧑🏾‍🦯	žmogus neregio lazdele tamsios odos	none
+🧑🏿‍🦯	žmogus neregio lazdele itin tamsios odos	none
+👨🏻‍🦯	vyras su neregio lazdele šviesios odos	none
+👨🏼‍🦯	vyras su neregio lazdele vidutinio gymio	none
+👨🏽‍🦯	vyras su neregio lazdele rusvos odos	none
+👨🏾‍🦯	vyras su neregio lazdele tamsios odos	none
+👨🏿‍🦯	vyras su neregio lazdele itin tamsios odos	none
+👩🏻‍🦯	moteris su neregio lazdele šviesios odos	none
+👩🏼‍🦯	moteris su neregio lazdele vidutinio gymio	none
+👩🏽‍🦯	moteris su neregio lazdele rusvos odos	none
+👩🏾‍🦯	moteris su neregio lazdele tamsios odos	none
+👩🏿‍🦯	moteris su neregio lazdele itin tamsios odos	none
+🧑🏻‍🦼	žmogus motorizuotame vežimėlyje šviesios odos	none
+🧑🏼‍🦼	žmogus motorizuotame vežimėlyje vidutinio gymio	none
+🧑🏽‍🦼	žmogus motorizuotame vežimėlyje rusvos odos	none
+🧑🏾‍🦼	žmogus motorizuotame vežimėlyje tamsios odos	none
+🧑🏿‍🦼	žmogus motorizuotame vežimėlyje itin tamsios odos	none
+👨🏻‍🦼	vyras motorizuotame vežimėlyje šviesios odos	none
+👨🏼‍🦼	vyras motorizuotame vežimėlyje vidutinio gymio	none
+👨🏽‍🦼	vyras motorizuotame vežimėlyje rusvos odos	none
+👨🏾‍🦼	vyras motorizuotame vežimėlyje tamsios odos	none
+👨🏿‍🦼	vyras motorizuotame vežimėlyje itin tamsios odos	none
+👩🏻‍🦼	moteris motorizuotame vežimėlyje šviesios odos	none
+👩🏼‍🦼	moteris motorizuotame vežimėlyje vidutinio gymio	none
+👩🏽‍🦼	moteris motorizuotame vežimėlyje rusvos odos	none
+👩🏾‍🦼	moteris motorizuotame vežimėlyje tamsios odos	none
+👩🏿‍🦼	moteris motorizuotame vežimėlyje itin tamsios odos	none
+🧑🏻‍🦽	žmogus rankomis valdomame vežimėlyje šviesios odos	none
+🧑🏼‍🦽	žmogus rankomis valdomame vežimėlyje vidutinio gymio	none
+🧑🏽‍🦽	žmogus rankomis valdomame vežimėlyje rusvos odos	none
+🧑🏾‍🦽	žmogus rankomis valdomame vežimėlyje tamsios odos	none
+🧑🏿‍🦽	žmogus rankomis valdomame vežimėlyje itin tamsios odos	none
+👨🏻‍🦽	vyras rankomis valdomame vežimėlyje šviesios odos	none
+👨🏼‍🦽	vyras rankomis valdomame vežimėlyje vidutinio gymio	none
+👨🏽‍🦽	vyras rankomis valdomame vežimėlyje rusvos odos	none
+👨🏾‍🦽	vyras rankomis valdomame vežimėlyje tamsios odos	none
+👨🏿‍🦽	vyras rankomis valdomame vežimėlyje itin tamsios odos	none
+👩🏻‍🦽	moteris rankomis valdomame vežimėlyje šviesios odos	none
+👩🏼‍🦽	moteris rankomis valdomame vežimėlyje vidutinio gymio	none
+👩🏽‍🦽	moteris rankomis valdomame vežimėlyje rusvos odos	none
+👩🏾‍🦽	moteris rankomis valdomame vežimėlyje tamsios odos	none
+👩🏿‍🦽	moteris rankomis valdomame vežimėlyje itin tamsios odos	none
 🏃🏻	bėgikas šviesios odos	none
 🏃🏼	bėgikas vidutinio gymio	none
 🏃🏽	bėgikas rusvos odos	none
@@ -2702,21 +2842,76 @@ symbols:
 🛌🏽	žmogus lovoje rusvos odos	none
 🛌🏾	žmogus lovoje tamsios odos	none
 🛌🏿	žmogus lovoje itin tamsios odos	none
+🧑🏻‍🤝‍🧑🏻	rankomis susikibę žmonės šviesios odos	none
+🧑🏼‍🤝‍🧑🏻	rankomis susikibę žmonės vidutinio gymio šviesios odos	none
+🧑🏼‍🤝‍🧑🏼	rankomis susikibę žmonės vidutinio gymio	none
+🧑🏽‍🤝‍🧑🏻	rankomis susikibę žmonės rusvos odos šviesios odos	none
+🧑🏽‍🤝‍🧑🏼	rankomis susikibę žmonės rusvos odos vidutinio gymio	none
+🧑🏽‍🤝‍🧑🏽	rankomis susikibę žmonės rusvos odos	none
+🧑🏾‍🤝‍🧑🏻	rankomis susikibę žmonės tamsios odos šviesios odos	none
+🧑🏾‍🤝‍🧑🏼	rankomis susikibę žmonės tamsios odos vidutinio gymio	none
+🧑🏾‍🤝‍🧑🏽	rankomis susikibę žmonės tamsios odos rusvos odos	none
+🧑🏾‍🤝‍🧑🏾	rankomis susikibę žmonės tamsios odos	none
+🧑🏿‍🤝‍🧑🏻	rankomis susikibę žmonės itin tamsios odos šviesios odos	none
+🧑🏿‍🤝‍🧑🏼	rankomis susikibę žmonės itin tamsios odos vidutinio gymio	none
+🧑🏿‍🤝‍🧑🏽	rankomis susikibę žmonės itin tamsios odos rusvos odos	none
+🧑🏿‍🤝‍🧑🏾	rankomis susikibę žmonės itin tamsios odos tamsios odos	none
+🧑🏿‍🤝‍🧑🏿	rankomis susikibę žmonės itin tamsios odos	none
+👭🏻	dvi moterys, susikibusios už rankų šviesios odos	none
+👩🏼‍🤝‍👩🏻	dvi moterys, susikibusios už rankų vidutinio gymio šviesios odos	none
+👭🏼	dvi moterys, susikibusios už rankų vidutinio gymio	none
+👩🏽‍🤝‍👩🏻	dvi moterys, susikibusios už rankų rusvos odos šviesios odos	none
+👩🏽‍🤝‍👩🏼	dvi moterys, susikibusios už rankų rusvos odos vidutinio gymio	none
+👭🏽	dvi moterys, susikibusios už rankų rusvos odos	none
+👩🏾‍🤝‍👩🏻	dvi moterys, susikibusios už rankų tamsios odos šviesios odos	none
+👩🏾‍🤝‍👩🏼	dvi moterys, susikibusios už rankų tamsios odos vidutinio gymio	none
+👩🏾‍🤝‍👩🏽	dvi moterys, susikibusios už rankų tamsios odos rusvos odos	none
+👭🏾	dvi moterys, susikibusios už rankų tamsios odos	none
+👩🏿‍🤝‍👩🏻	dvi moterys, susikibusios už rankų itin tamsios odos šviesios odos	none
+👩🏿‍🤝‍👩🏼	dvi moterys, susikibusios už rankų itin tamsios odos vidutinio gymio	none
+👩🏿‍🤝‍👩🏽	dvi moterys, susikibusios už rankų itin tamsios odos rusvos odos	none
+👩🏿‍🤝‍👩🏾	dvi moterys, susikibusios už rankų itin tamsios odos tamsios odos	none
+👭🏿	dvi moterys, susikibusios už rankų itin tamsios odos	none
 👫🏻	vyras ir moteris, susikibę už rankų šviesios odos	none
+👩🏻‍🤝‍👨🏼	vyras ir moteris, susikibę už rankų šviesios odos vidutinio gymio	none
+👩🏻‍🤝‍👨🏽	vyras ir moteris, susikibę už rankų šviesios odos rusvos odos	none
+👩🏻‍🤝‍👨🏾	vyras ir moteris, susikibę už rankų šviesios odos tamsios odos	none
+👩🏻‍🤝‍👨🏿	vyras ir moteris, susikibę už rankų šviesios odos itin tamsios odos	none
+👩🏼‍🤝‍👨🏻	vyras ir moteris, susikibę už rankų vidutinio gymio šviesios odos	none
 👫🏼	vyras ir moteris, susikibę už rankų vidutinio gymio	none
+👩🏼‍🤝‍👨🏽	vyras ir moteris, susikibę už rankų vidutinio gymio rusvos odos	none
+👩🏼‍🤝‍👨🏾	vyras ir moteris, susikibę už rankų vidutinio gymio tamsios odos	none
+👩🏼‍🤝‍👨🏿	vyras ir moteris, susikibę už rankų vidutinio gymio itin tamsios odos	none
+👩🏽‍🤝‍👨🏻	vyras ir moteris, susikibę už rankų rusvos odos šviesios odos	none
+👩🏽‍🤝‍👨🏼	vyras ir moteris, susikibę už rankų rusvos odos vidutinio gymio	none
 👫🏽	vyras ir moteris, susikibę už rankų rusvos odos	none
+👩🏽‍🤝‍👨🏾	vyras ir moteris, susikibę už rankų rusvos odos tamsios odos	none
+👩🏽‍🤝‍👨🏿	vyras ir moteris, susikibę už rankų rusvos odos itin tamsios odos	none
+👩🏾‍🤝‍👨🏻	vyras ir moteris, susikibę už rankų tamsios odos šviesios odos	none
+👩🏾‍🤝‍👨🏼	vyras ir moteris, susikibę už rankų tamsios odos vidutinio gymio	none
+👩🏾‍🤝‍👨🏽	vyras ir moteris, susikibę už rankų tamsios odos rusvos odos	none
 👫🏾	vyras ir moteris, susikibę už rankų tamsios odos	none
+👩🏾‍🤝‍👨🏿	vyras ir moteris, susikibę už rankų tamsios odos itin tamsios odos	none
+👩🏿‍🤝‍👨🏻	vyras ir moteris, susikibę už rankų itin tamsios odos šviesios odos	none
+👩🏿‍🤝‍👨🏼	vyras ir moteris, susikibę už rankų itin tamsios odos vidutinio gymio	none
+👩🏿‍🤝‍👨🏽	vyras ir moteris, susikibę už rankų itin tamsios odos rusvos odos	none
+👩🏿‍🤝‍👨🏾	vyras ir moteris, susikibę už rankų itin tamsios odos tamsios odos	none
 👫🏿	vyras ir moteris, susikibę už rankų itin tamsios odos	none
 👬🏻	du vyrai, susikibę už rankų šviesios odos	none
+👨🏼‍🤝‍👨🏻	du vyrai, susikibę už rankų vidutinio gymio šviesios odos	none
 👬🏼	du vyrai, susikibę už rankų vidutinio gymio	none
+👨🏽‍🤝‍👨🏻	du vyrai, susikibę už rankų rusvos odos šviesios odos	none
+👨🏽‍🤝‍👨🏼	du vyrai, susikibę už rankų rusvos odos vidutinio gymio	none
 👬🏽	du vyrai, susikibę už rankų rusvos odos	none
+👨🏾‍🤝‍👨🏻	du vyrai, susikibę už rankų tamsios odos šviesios odos	none
+👨🏾‍🤝‍👨🏼	du vyrai, susikibę už rankų tamsios odos vidutinio gymio	none
+👨🏾‍🤝‍👨🏽	du vyrai, susikibę už rankų tamsios odos rusvos odos	none
 👬🏾	du vyrai, susikibę už rankų tamsios odos	none
+👨🏿‍🤝‍👨🏻	du vyrai, susikibę už rankų itin tamsios odos šviesios odos	none
+👨🏿‍🤝‍👨🏼	du vyrai, susikibę už rankų itin tamsios odos vidutinio gymio	none
+👨🏿‍🤝‍👨🏽	du vyrai, susikibę už rankų itin tamsios odos rusvos odos	none
+👨🏿‍🤝‍👨🏾	du vyrai, susikibę už rankų itin tamsios odos tamsios odos	none
 👬🏿	du vyrai, susikibę už rankų itin tamsios odos	none
-👭🏻	dvi moterys, susikibusios už rankų šviesios odos	none
-👭🏼	dvi moterys, susikibusios už rankų vidutinio gymio	none
-👭🏽	dvi moterys, susikibusios už rankų rusvos odos	none
-👭🏾	dvi moterys, susikibusios už rankų tamsios odos	none
-👭🏿	dvi moterys, susikibusios už rankų itin tamsios odos	none
 👩‍❤‍💋‍👨	bučinys moteris vyras	none
 👨‍❤‍💋‍👨	bučinys vyras vyras	none
 👩‍❤‍💋‍👩	bučinys moteris moteris	none

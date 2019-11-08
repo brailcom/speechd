@@ -8,7 +8,7 @@ symbols:
 🏽	bitarteko azal-tonua	none
 🏾	5. mota	none
 🏿	6. mota	none
-🐾	atzapar-aztarnak	none
+⚧	transgeneroen ikurra	none
 😀	barre egiten ari den aurpegia	none
 😃	irribarre egiten ari den aurpegia, ahoa irekita	none
 😄	begiez irribarre egiten ari den aurpegia, ahoa irekita	none
@@ -94,6 +94,7 @@ symbols:
 😓	izerdi hotza duen aurpegia	none
 😩	neke-aurpegia	none
 😫	nekatu-aurpegia	none
+🥱	aharrausi egiten ari den aurpegia	none
 😤	sudurretik kea darion aurpegia	none
 😡	aurpegi muturtua	none
 😠	haserre-aurpegia	none
@@ -140,7 +141,9 @@ symbols:
 💚	bihotz berdea	none
 💙	bihotz urdina	none
 💜	bihotz morea	none
+🤎	bihotz marroia	none
 🖤	bihotz beltza	none
+🤍	bihotz zuria	none
 💯	ehun puntu	none
 💢	amorruaren ikurra	none
 💥	eztanda	none
@@ -159,8 +162,9 @@ symbols:
 🤚	esku-azpia altxatuta	none
 🖐	esku altxatua eta hatz hedatuak	none
 ✋	esku altxatua	none
-🖖	vulkaniar agurra	none
+🖖	vulcandar agur	none
 👌	adostasuna adierazten duen eskua	none
+🤏	atximurka egiten ari den eskua	none
 ✌	garaipena adierazten duen eskua	none
 🤞	hatz gurutzatuak	none
 🤟	adarren keinua	none
@@ -188,34 +192,30 @@ symbols:
 💅	azazkaletako esmaltea	none
 🤳	autoargazkia	none
 💪	bizepsak	none
+🦾	beso mekanikoa	none
+🦿	hanka mekanikoa	none
 🦵	hanka	none
-🦶	oina	none
-👂	belarria	none
-👃	sudurra	none
-🧠	burmuina	none
-🦷	hortza	none
-🦴	hezurra	none
+🦶	oin	none
+👂	belarri	none
+🦻	audifonoa duen belarria	none
+👃	sudur	none
+🧠	burmuin	none
+🦷	hortz	none
+🦴	hezur	none
 👀	begiak	none
 👁	begi	none
-👅	mingaina	none
-👄	ahoa	none
+👅	mingain	none
+👄	aho	none
 👶	haurtxoa	none
 🧒	haur	none
 👦	mutila	none
 👧	neska	none
 🧑	heldu	none
 👱	pertsona ilehoria	none
-🧑‍🤝‍🧑	bi pertsona elkarri eskua ematen	none
 👨	gizona	none
-👨‍🦯	itsu-makila daraman gizona	none
-👨‍🦼	gurpil-aulki motordunean doan gizona	none
-👨‍🦽	eskuzko gurpil-aulkian doan gizona	none
-👱‍♂	gizon ilehoria	none
 🧔	pertsona bizarduna	none
+👱‍♂	gizon ilehoria	none
 👩	emakumea	none
-👩‍🦯	itsu-makila daraman emakumea	none
-👩‍🦼	gurpil-aulki motordunean doan emakumea	none
-👩‍🦽	eskuzko gurpil-aulkian doan emakumea	none
 👱‍♀	emakume ilehoria	none
 🧓	agure	none
 👴	aitona	none
@@ -238,6 +238,9 @@ symbols:
 🙋	eskua altxatzen ari den pertsona	none
 🙋‍♂	eskua altxatzen ari den gizona	none
 🙋‍♀	eskua altxatzen ari den emakumea	none
+🧏	gorra	none
+🧏‍♂	gizon gorra	none
+🧏‍♀	emakume gorra	none
 🙇	burua makurtzen ari den pertsona	none
 🙇‍♂	burua makurtzen ari den gizona	none
 🙇‍♀	burua makurtzen ari den emakumea	none
@@ -247,36 +250,52 @@ symbols:
 🤷	sorbaldak altxatu	none
 🤷‍♂	sorbaldak altxatzen ari den gizona	none
 🤷‍♀	sorbaldak altxatzen ari den emakumea	none
+🧑‍⚕	sendagilea	none
 👨‍⚕	gizon sendagilea	none
 👩‍⚕	emakume sendagilea	none
+🧑‍🎓	ikaslea	none
 👨‍🎓	mutil ikaslea	none
 👩‍🎓	neska ikaslea	none
+🧑‍🏫	irakaslea	none
 👨‍🏫	gizon irakaslea	none
 👩‍🏫	emakume irakaslea	none
+🧑‍⚖	epailea	none
 👨‍⚖	gizon epailea	none
 👩‍⚖	emakume epailea	none
+🧑‍🌾	nekazaria	none
 👨‍🌾	gizon nekazaria	none
 👩‍🌾	emakume nekazaria	none
+🧑‍🍳	sukaldaria	none
 👨‍🍳	gizon sukaldaria	none
 👩‍🍳	emakume sukaldaria	none
+🧑‍🔧	mekanikaria	none
 👨‍🔧	gizon mekanikaria	none
 👩‍🔧	emakume mekanikaria	none
+🧑‍🏭	fabrikako langilea	none
 👨‍🏭	fabrikako gizon langilea	none
 👩‍🏭	fabrikako emakume langilea	none
+🧑‍💼	bulegaria	none
 👨‍💼	gizon bulegaria	none
 👩‍💼	emakume bulegaria	none
+🧑‍🔬	zientzialaria	none
 👨‍🔬	gizon zientzialaria	none
 👩‍🔬	emakume zientzialaria	none
+🧑‍💻	teknologialaria	none
 👨‍💻	gizon teknologialaria	none
 👩‍💻	emakume teknologialaria	none
+🧑‍🎤	abeslaria	none
 👨‍🎤	gizon abeslaria	none
 👩‍🎤	emakume abeslaria	none
+🧑‍🎨	artista	none
 👨‍🎨	gizon artista	none
 👩‍🎨	emakume artista	none
+🧑‍✈	pilotua	none
 👨‍✈	gizon pilotua	none
 👩‍✈	emakume pilotua	none
+🧑‍🚀	astronauta	none
 👨‍🚀	gizon astronauta	none
 👩‍🚀	emakume astronauta	none
+🧑‍🚒	suhiltzailea	none
 👨‍🚒	gizon suhiltzailea	none
 👩‍🚒	emakume suhiltzailea	none
 👮	polizia	none
@@ -341,6 +360,21 @@ symbols:
 🚶	oinez ari den pertsona	none
 🚶‍♂	oinez ari den gizona	none
 🚶‍♀	oinez ari den emakumea	none
+🧍	zutik dagoen pertsona	none
+🧍‍♂	zutik dagoen gizona	none
+🧍‍♀	zutik dagoen emakumea	none
+🧎	belauniko dagoen pertsona	none
+🧎‍♂	belauniko dagoen gizona	none
+🧎‍♀	belauniko dagoen emakumea	none
+🧑‍🦯	itsu-makila daraman pertsona	none
+👨‍🦯	itsu-makila daraman gizona	none
+👩‍🦯	itsu-makila daraman emakumea	none
+🧑‍🦼	gurpil-aulki motordunean doan pertsona	none
+👨‍🦼	gurpil-aulki motordunean doan gizona	none
+👩‍🦼	gurpil-aulki motordunean doan emakumea	none
+🧑‍🦽	eskuzko gurpil-aulkian doan pertsona	none
+👨‍🦽	eskuzko gurpil-aulkian doan gizona	none
+👩‍🦽	eskuzko gurpil-aulkian doan emakumea	none
 🏃	korrika ari den pertsona	none
 🏃‍♂	korrika ari den gizona	none
 🏃‍♀	korrika ari den emakumea	none
@@ -404,9 +438,10 @@ symbols:
 🧘‍♀	emakume bat loto-posizioan	none
 🛀	pertsona bat bainatzen	none
 🛌	pertsona bat ohean	none
+🧑‍🤝‍🧑	bi pertsona elkarri eskua ematen	none
+👭	bi emakume elkarri eskua ematen	none
 👫	gizon-emakumeak elkarri eskua ematen	none
 👬	bi gizon elkarri eskua ematen	none
-👭	bi emakume elkarri eskua ematen	none
 💏	musu	none
 💑	bihotza erdian duen bikotea	none
 👪	familia	none
@@ -418,27 +453,27 @@ symbols:
 🦱	ile kizkur	none
 🦳	ilezuri	none
 🦲	burusoil	none
-♀	emakumeen ikurra	none
-♂	gizonen ikurra	none
 🐵	tximu-aurpegia	none
 🐒	tximua	none
 🦍	gorila	none
+🦧	orangutana	none
 🐶	txakur-aurpegia	none
 🐕	txakur	none
+🦮	itsu-txakurra	none
 🐕‍🦺	laguntza-txakurra	none
 🐩	canichea	none
-🐺	otso-aurpegia	none
-🦊	azeri-aurpegia	none
+🐺	otso	none
+🦊	azeria	none
 🦝	mapatxe	none
 🐱	katu-aurpegia	none
 🐈	katua	none
-🦁	lehoi-aurpegia	none
+🦁	lehoi	none
 🐯	tigre-aurpegia	none
 🐅	tigrea	none
 🐆	lehoinabarra	none
 🐴	zaldi-aurpegia	none
 🐎	zaldia	none
-🦄	adarbakar-aurpegia	none
+🦄	adarbakar	none
 🦓	zebra	none
 🦌	oreina	none
 🐮	behi-aurpegi	none
@@ -450,7 +485,7 @@ symbols:
 🐗	basurdea	none
 🐽	txerri-sudurra	none
 🐏	zikiroa	none
-🐑	ardia	none
+🐑	ardi	none
 🐐	ahuntza	none
 🐪	gamelua	none
 🐫	bi tontorreko gamelua	none
@@ -462,17 +497,21 @@ symbols:
 🐭	sagu-aurpegia	none
 🐁	sagua	none
 🐀	arratoia	none
-🐹	hamster-aurpegia	none
+🐹	hamster	none
 🐰	untxi-aurpegia	none
 🐇	untxia	none
 🐿	lurreko urtxintxa	none
 🦔	triku	none
 🦇	saguzarra	none
-🐻	hartz-aurpegia	none
+🐻	hartz	none
 🐨	koala	none
-🐼	panda-aurpegia	none
+🐼	panda	none
+🦥	nagia	none
+🦦	igaraba	none
+🦨	mofeta	none
 🦘	kanguru	none
 🦡	azkonar	none
+🐾	atzapar-aztarnak	none
 🦃	indioilarra	none
 🐔	oiloa	none
 🐓	oilarra	none
@@ -486,6 +525,7 @@ symbols:
 🦆	ahatea	none
 🦢	zisne	none
 🦉	hontza	none
+🦩	flamenkoa	none
 🦚	hegazterren	none
 🦜	loro	none
 🐸	igel-aurpegia	none
@@ -566,6 +606,8 @@ symbols:
 🥒	pepinoa	none
 🥬	barazki hostodun	none
 🥦	brokoli	none
+🧄	baratxuria	none
+🧅	tipula	none
 🍄	barrengorria	none
 🥜	kakahuetea	none
 🌰	gaztaina	none
@@ -575,6 +617,7 @@ symbols:
 🥨	pretzel	none
 🥯	bagel	none
 🥞	opil txikiak	none
+🧇	gofrea	none
 🧀	gazta zatia	none
 🍖	hezurra haragiarekin	none
 🍗	izterra	none
@@ -588,6 +631,7 @@ symbols:
 🌮	takoa	none
 🌯	burritoa	none
 🥙	ogitarteko betea	none
+🧆	falafela	none
 🥚	arrautza	none
 🍳	janaria prestatu	none
 🥘	sakonera txikiko zartagina	none
@@ -595,6 +639,7 @@ symbols:
 🥣	katilua eta koilara	none
 🥗	entsalada berdea	none
 🍿	krispetak	none
+🧈	gurina	none
 🧂	gatz	none
 🥫	janaria latetan	none
 🍱	bento kutxa	none
@@ -618,6 +663,7 @@ symbols:
 🦞	otarrain	none
 🦐	ganba	none
 🦑	txibia	none
+🦪	ostra	none
 🍦	izozki krematsua	none
 🍧	izotz arraspatua	none
 🍨	izozkia	none
@@ -646,6 +692,9 @@ symbols:
 🥂	kopak topa egiten	none
 🥃	edalontzi zabala	none
 🥤	kopa eta lastotxoa	none
+🧃	edari-tetrabrika	none
+🧉	matea	none
+🧊	izotz zatia	none
 🥢	zotzak	none
 🍽	platera, sardeska eta labanarekin	none
 🍴	sardeska eta labana	none
@@ -694,6 +743,7 @@ symbols:
 🗽	askatasunaren estatua	none
 ⛪	eliza	none
 🕌	meskita	none
+🛕	tenplu hindua	none
 🕍	sinagoga	none
 ⛩	shinto santutegia	none
 🕋	kaaba	none
@@ -708,7 +758,6 @@ symbols:
 🌇	ilunabarra	none
 🌉	zubia gauez	none
 ♨	iturri termalak	none
-🌌	esne-bidea	none
 🎠	karrusela	none
 🎡	noria	none
 🎢	errusiar mendia	none
@@ -745,6 +794,9 @@ symbols:
 🏎	lasterketa-autoa	none
 🏍	motozikleta	none
 🛵	motoa	none
+🦽	eskuzko gurpil-aulkia	none
+🦼	gurpil-aulki motorduna	none
+🛺	rickshaw motorduna	none
 🚲	ziklomotorra	none
 🛴	patinetea	none
 🛹	skateboard	none
@@ -770,6 +822,7 @@ symbols:
 🛩	hegazkin txikia	none
 🛫	aireratzen ari den hegazkina	none
 🛬	lur hartzen ari den hegazkina	none
+🪂	paraxuta	none
 💺	eserlekua	none
 🚁	helikopteroa	none
 🚟	monorrail esekia	none
@@ -827,9 +880,11 @@ symbols:
 ☀	eguzkia	none
 🌝	ilargi betea aurpegiarekin	none
 🌞	eguzkia aurpegiarekin	none
+🪐	planeta eraztunduna	none
 ⭐	izar zuri ertaina	none
 🌟	izar distiratsua	none
 🌠	izar-uxoa	none
+🌌	esne-bidea	none
 ☁	hodei	none
 ⛅	eguzkia hodei baten atzean	none
 ⛈	hodeia tximista eta euriarekin	none
@@ -905,11 +960,14 @@ symbols:
 ⛳	bandera zuloan	none
 ⛸	izotz-patinajea	none
 🎣	arrantza egiteko kanabera	none
+🤿	urpekari-maskara	none
 🎽	dortsala	none
 🎿	eskiak	none
 🛷	lera	none
 🥌	curling-eko harri	none
 🎯	itua	none
+🪀	yoyoa	none
+🪁	haize-parpaila	none
 🎱	billarra	none
 🔮	kristalezko bola	none
 🧿	nazar	none
@@ -936,6 +994,7 @@ symbols:
 🕶	eguzkitako betaurrekoak	none
 🥽	igeriketako betaurrekoak	none
 🥼	laborategiko jantzia	none
+🦺	segurtasun-jaka	none
 👔	gorbata	none
 👕	elastikoa	none
 👖	galtza bakeroak	none
@@ -945,6 +1004,10 @@ symbols:
 🧦	galtzerdiak	none
 👗	soinekoa	none
 👘	kimonoa	none
+🥻	saria	none
+🩱	bainujantzi osoa	none
+🩲	galtzontzilloak	none
+🩳	galtzamotzak	none
 👙	bikinia	none
 👚	emakumeentzako arropa	none
 👛	diru-zorroa	none
@@ -958,6 +1021,7 @@ symbols:
 🥿	zapata laua	none
 👠	oinetako takoidunak	none
 👡	emakumeentzako sandalia	none
+🩰	balleteko oin-puntak	none
 👢	emakumeentzako bota	none
 👑	koroa	none
 👒	emakumeentzako kapelua	none
@@ -992,6 +1056,7 @@ symbols:
 🎹	musika-teklatua	none
 🎺	tronpeta	none
 🎻	biolina	none
+🪕	banjoa	none
 🥁	danborra	none
 📱	telefono mugikorra	none
 📲	telefono mugikorra gezi batekin	none
@@ -1027,6 +1092,7 @@ symbols:
 💡	bonbilla	none
 🔦	linterna	none
 🏮	paper gorrizko faroltxoa	none
+🪔	diya lanpara	none
 📔	estalki apaingarria duen koadernoa	none
 📕	liburu itxia	none
 📖	liburu irekia	none
@@ -1105,6 +1171,7 @@ symbols:
 🔑	giltza	none
 🗝	giltza zaharra	none
 🔨	mailua	none
+🪓	aizkora	none
 ⛏	pikotxa	none
 ⚒	mailua eta pikotxa	none
 🛠	mailua eta giltza ingelesa	none
@@ -1118,6 +1185,7 @@ symbols:
 ⚙	engranajea	none
 🗜	konprimatzea	none
 ⚖	balantzak	none
+🦯	makila	none
 🔗	kate-maila	none
 ⛓	kateak	none
 🧰	erreminta-kutxa	none
@@ -1130,13 +1198,18 @@ symbols:
 🔭	teleskopioa	none
 📡	satelite bidezko antena	none
 💉	xiringa	none
+🩸	odol tanta	none
 💊	pilula	none
+🩹	lotura itsaskorra	none
+🩺	estetoskopioa	none
 🚪	atea	none
 🛏	ohea	none
 🛋	sofa eta lanpara	none
+🪑	aulki	none
 🚽	bainugela	none
 🚿	dutxa	none
 🛁	bainuontzia	none
+🪒	bizar-labana	none
 🧴	lozio-botila	none
 🧷	kateorratz	none
 🧹	erratz	none
@@ -1246,6 +1319,8 @@ symbols:
 📶	antenen barrak	none
 📳	bibrazio modua	none
 📴	telefono mugikorra itzalita	none
+♀	emakumeen ikurra	none
+♂	gizonen ikurra	none
 ⚕	ikur medikoa	none
 ♾	infinitu	none
 ♻	birziklatzeko ikurra	none
@@ -1319,17 +1394,29 @@ symbols:
 🈺	zerbait abian dela irudikatzen duen ideograma karratu batean	none
 🈵	osotasuna irudikatzen duen ideograma karratu batean	none
 🔴	zirkulu gorria	none
+🟠	zirkulu laranja	none
+🟡	zirkulu horia	none
+🟢	zirkulu berdea	none
 🔵	zirkulu urdina	none
-⚪	zirkulu zuria	none
+🟣	zirkulu morea	none
+🟤	zirkulu marroia	none
 ⚫	zirkulu beltza	none
-⬜	karratu zuri handia	none
+⚪	zirkulu zuria	none
+🟥	karratu gorria	none
+🟧	karratu laranja	none
+🟨	karratu horia	none
+🟩	karratu berdea	none
+🟦	karratu urdina	none
+🟪	karratu morea	none
+🟫	karratu marroia	none
 ⬛	karratu beltz handia	none
+⬜	karratu zuri handia	none
 ◼	karratu beltz ertaina	none
 ◻	karratu zuri ertaina	none
-◽	karratu zuri ertaina/txikia	none
 ◾	karratu beltz ertaina/txikia	none
-▫	karratu zuri txikia	none
+◽	karratu zuri ertaina/txikia	none
 ▪	karratu beltz txikia	none
+▫	karratu zuri txikia	none
 🔶	diamante laranja handia	none
 🔷	diamante urdin handia	none
 🔸	diamante laranja txikia	none
@@ -1338,137 +1425,71 @@ symbols:
 🔻	punta behera begira duen triangelu gorria	none
 💠	puntu bat duen diamantea	none
 🔘	kontrol-laukia	none
-🔲	karratu beltz itxurako botoia	none
 🔳	karratu zuri itxurako botoia	none
+🔲	karratu beltz itxurako botoia	none
 🏁	bandera laukiduna	none
 🚩	triangelu-itxurako bandera	none
 🎌	bandera gurutzatuak	none
 🏴	dantzatzen ari den bandera beltza	none
 🏳	dantzatzen ari den bandera zuria	none
+🏳‍⚧	bandera transgeneroa	none
 🏳‍🌈	ortzadarraren bandera	none
 🏴‍☠	piraten bandera	none
-🛕	tenplu hindua	none
-🛺	rickshaw motorduna	none
-🟠	zirkulu laranja	none
-🟡	zirkulu horia	none
-🟢	zirkulu berdea	none
-🟣	zirkulu morea	none
-🟤	zirkulu marroia	none
-🟥	karratu gorria	none
-🟦	karratu urdina	none
-🟧	karratu laranja	none
-🟨	karratu horia	none
-🟩	karratu berdea	none
-🟪	karratu morea	none
-🟫	karratu marroia	none
-🤍	bihotz zuria	none
-🤎	bihotz marroia	none
-🤏	atximurka egiten ari den eskua	none
-🤿	urpekari-maskara	none
-🥱	aharrausi egiten ari den aurpegia	none
-🥻	saria	none
-🦥	nagia	none
-🦦	igaraba	none
-🦧	orangutana	none
-🦨	mofeta	none
-🦩	flamenkoa	none
-🦪	ostra	none
-🦮	itsu-txakurra	none
-🦯	makila	none
-🦺	segurtasun-jaka	none
-🦻	audifonoa duen belarria	none
-🦼	gurpil-aulki motorduna	none
-🦽	eskuzko gurpil-aulkia	none
-🦾	beso mekanikoa	none
-🦿	hanka mekanikoa	none
-🧃	edari-tetrabrika	none
-🧄	baratxuria	none
-🧅	tipula	none
-🧆	falafela	none
-🧇	gofrea	none
-🧈	gurina	none
-🧉	matea	none
-🧊	izotz zatia	none
-🧍	zutik dagoen pertsona	none
-🧍‍♀	zutik dagoen emakumea	none
-🧍‍♂	zutik dagoen gizona	none
-🧎	belauniko dagoen pertsona	none
-🧎‍♀	belauniko dagoen emakumea	none
-🧎‍♂	belauniko dagoen gizona	none
-🧏	gorra	none
-🧏‍♀	emakume gorra	none
-🧏‍♂	gizon gorra	none
-🩰	balleteko oin-puntak	none
-🩱	bainujantzi osoa	none
-🩲	galtzontzilloak	none
-🩳	galtzamotzak	none
-🩸	odol tanta	none
-🩹	lotura itsaskorra	none
-🩺	estetoskopioa	none
-🪀	yoyoa	none
-🪁	haize-parpaila	none
-🪂	paraxuta	none
-🪐	planeta eraztunduna	none
-🪑	aulki	none
-🪒	bizar-labana	none
-🪓	aizkora	none
-🪔	diya lanpara	none
-🪕	banjoa	none
-🤏🏻	atximurka egiten ari den eskua 1–2. mota	none
-🤏🏼	atximurka egiten ari den eskua 3. mota	none
-🤏🏽	atximurka egiten ari den eskua bitarteko azal-tonua	none
-🤏🏾	atximurka egiten ari den eskua 5. mota	none
-🤏🏿	atximurka egiten ari den eskua 6. mota	none
-🦻🏻	audifonoa duen belarria 1–2. mota	none
-🦻🏼	audifonoa duen belarria 3. mota	none
-🦻🏽	audifonoa duen belarria bitarteko azal-tonua	none
-🦻🏾	audifonoa duen belarria 5. mota	none
-🦻🏿	audifonoa duen belarria 6. mota	none
-🧍🏻	zutik dagoen pertsona 1–2. mota	none
-🧍🏼	zutik dagoen pertsona 3. mota	none
-🧍🏽	zutik dagoen pertsona bitarteko azal-tonua	none
-🧍🏾	zutik dagoen pertsona 5. mota	none
-🧍🏿	zutik dagoen pertsona 6. mota	none
-🧍🏻‍♀	zutik dagoen emakumea 1–2. mota	none
-🧍🏼‍♀	zutik dagoen emakumea 3. mota	none
-🧍🏽‍♀	zutik dagoen emakumea bitarteko azal-tonua	none
-🧍🏾‍♀	zutik dagoen emakumea 5. mota	none
-🧍🏿‍♀	zutik dagoen emakumea 6. mota	none
-🧍🏻‍♂	zutik dagoen gizona 1–2. mota	none
-🧍🏼‍♂	zutik dagoen gizona 3. mota	none
-🧍🏽‍♂	zutik dagoen gizona bitarteko azal-tonua	none
-🧍🏾‍♂	zutik dagoen gizona 5. mota	none
-🧍🏿‍♂	zutik dagoen gizona 6. mota	none
-🧎🏻	belauniko dagoen pertsona 1–2. mota	none
-🧎🏼	belauniko dagoen pertsona 3. mota	none
-🧎🏽	belauniko dagoen pertsona bitarteko azal-tonua	none
-🧎🏾	belauniko dagoen pertsona 5. mota	none
-🧎🏿	belauniko dagoen pertsona 6. mota	none
-🧎🏻‍♀	belauniko dagoen emakumea 1–2. mota	none
-🧎🏼‍♀	belauniko dagoen emakumea 3. mota	none
-🧎🏽‍♀	belauniko dagoen emakumea bitarteko azal-tonua	none
-🧎🏾‍♀	belauniko dagoen emakumea 5. mota	none
-🧎🏿‍♀	belauniko dagoen emakumea 6. mota	none
-🧎🏻‍♂	belauniko dagoen gizona 1–2. mota	none
-🧎🏼‍♂	belauniko dagoen gizona 3. mota	none
-🧎🏽‍♂	belauniko dagoen gizona bitarteko azal-tonua	none
-🧎🏾‍♂	belauniko dagoen gizona 5. mota	none
-🧎🏿‍♂	belauniko dagoen gizona 6. mota	none
-🧏🏻	gorra 1–2. mota	none
-🧏🏼	gorra 3. mota	none
-🧏🏽	gorra bitarteko azal-tonua	none
-🧏🏾	gorra 5. mota	none
-🧏🏿	gorra 6. mota	none
-🧏🏻‍♀	emakume gorra 1–2. mota	none
-🧏🏼‍♀	emakume gorra 3. mota	none
-🧏🏽‍♀	emakume gorra bitarteko azal-tonua	none
-🧏🏾‍♀	emakume gorra 5. mota	none
-🧏🏿‍♀	emakume gorra 6. mota	none
-🧏🏻‍♂	gizon gorra 1–2. mota	none
-🧏🏼‍♂	gizon gorra 3. mota	none
-🧏🏽‍♂	gizon gorra bitarteko azal-tonua	none
-🧏🏾‍♂	gizon gorra 5. mota	none
-🧏🏿‍♂	gizon gorra 6. mota	none
+🛖	etxola	none
+🛗	igogailua	none
+🛻	kamioneta	none
+🛼	gurpil-lerroko irristailu	none
+🤌	hatz elkartuak	none
+🥲	irribarre egiten ari den aurpegia, malko batekin	none
+🥷	ninja	none
+🥸	mozorrotutako aurpegia	none
+🦣	mamut	none
+🦤	dodo	none
+🦫	kastore	none
+🦬	bisonte	none
+🦭	itsas txakur	none
+🧋	te burbuiladun	none
+🩴	hondartzarako sandalia	none
+🪃	bumeran	none
+🪄	makiltxo magiko	none
+🪅	gozo-eltze	none
+🪆	matrioxka	none
+🪖	kasko militarra	none
+🪗	akordeoi	none
+🪘	danbor luze	none
+🪙	txanpon	none
+🪚	zerra	none
+🪛	bihurkin	none
+🪜	esku-eskailera	none
+🪝	amu	none
+🪞	ispilua	none
+🪟	leihoa	none
+🪠	libragailu	none
+🪡	jostorratz	none
+🪢	korapilo	none
+🪣	perrail	none
+🪤	sagu-arte	none
+🪥	hortzetako eskuila	none
+🪦	hilarri	none
+🪧	idazkun	none
+🪨	harria	none
+🪰	euli	none
+🪱	zizare	none
+🪲	kakalardo	none
+🪳	labezomorro	none
+🪴	loreontziko landare	none
+🪵	egurra	none
+🪶	luma	none
+🫀	bihotza organoa	none
+🫁	birikak	none
+🫂	elkar besarkatzen ari den jendea	none
+🫐	ahabiak	none
+🫑	piper	none
+🫒	oliba	none
+🫓	ogi zapal	none
+🫔	tamal	none
+🫕	fondue	none
+🫖	teontzi	none
 👋🏻	mugitzen ari den eskua 1–2. mota	none
 👋🏼	mugitzen ari den eskua 3. mota	none
 👋🏽	mugitzen ari den eskua bitarteko azal-tonua	none
@@ -1489,16 +1510,21 @@ symbols:
 ✋🏽	esku altxatua bitarteko azal-tonua	none
 ✋🏾	esku altxatua 5. mota	none
 ✋🏿	esku altxatua 6. mota	none
-🖖🏻	vulkaniar agurra 1–2. mota	none
-🖖🏼	vulkaniar agurra 3. mota	none
-🖖🏽	vulkaniar agurra bitarteko azal-tonua	none
-🖖🏾	vulkaniar agurra 5. mota	none
-🖖🏿	vulkaniar agurra 6. mota	none
+🖖🏻	vulcandar agur 1–2. mota	none
+🖖🏼	vulcandar agur 3. mota	none
+🖖🏽	vulcandar agur bitarteko azal-tonua	none
+🖖🏾	vulcandar agur 5. mota	none
+🖖🏿	vulcandar agur 6. mota	none
 👌🏻	adostasuna adierazten duen eskua 1–2. mota	none
 👌🏼	adostasuna adierazten duen eskua 3. mota	none
 👌🏽	adostasuna adierazten duen eskua bitarteko azal-tonua	none
 👌🏾	adostasuna adierazten duen eskua 5. mota	none
 👌🏿	adostasuna adierazten duen eskua 6. mota	none
+🤏🏻	atximurka egiten ari den eskua 1–2. mota	none
+🤏🏼	atximurka egiten ari den eskua 3. mota	none
+🤏🏽	atximurka egiten ari den eskua bitarteko azal-tonua	none
+🤏🏾	atximurka egiten ari den eskua 5. mota	none
+🤏🏿	atximurka egiten ari den eskua 6. mota	none
 ✌🏻	garaipena adierazten duen eskua 1–2. mota	none
 ✌🏼	garaipena adierazten duen eskua 3. mota	none
 ✌🏽	garaipena adierazten duen eskua bitarteko azal-tonua	none
@@ -1634,21 +1660,26 @@ symbols:
 🦵🏽	hanka bitarteko azal-tonua	none
 🦵🏾	hanka 5. mota	none
 🦵🏿	hanka 6. mota	none
-🦶🏻	oina 1–2. mota	none
-🦶🏼	oina 3. mota	none
-🦶🏽	oina bitarteko azal-tonua	none
-🦶🏾	oina 5. mota	none
-🦶🏿	oina 6. mota	none
-👂🏻	belarria 1–2. mota	none
-👂🏼	belarria 3. mota	none
-👂🏽	belarria bitarteko azal-tonua	none
-👂🏾	belarria 5. mota	none
-👂🏿	belarria 6. mota	none
-👃🏻	sudurra 1–2. mota	none
-👃🏼	sudurra 3. mota	none
-👃🏽	sudurra bitarteko azal-tonua	none
-👃🏾	sudurra 5. mota	none
-👃🏿	sudurra 6. mota	none
+🦶🏻	oin 1–2. mota	none
+🦶🏼	oin 3. mota	none
+🦶🏽	oin bitarteko azal-tonua	none
+🦶🏾	oin 5. mota	none
+🦶🏿	oin 6. mota	none
+👂🏻	belarri 1–2. mota	none
+👂🏼	belarri 3. mota	none
+👂🏽	belarri bitarteko azal-tonua	none
+👂🏾	belarri 5. mota	none
+👂🏿	belarri 6. mota	none
+🦻🏻	audifonoa duen belarria 1–2. mota	none
+🦻🏼	audifonoa duen belarria 3. mota	none
+🦻🏽	audifonoa duen belarria bitarteko azal-tonua	none
+🦻🏾	audifonoa duen belarria 5. mota	none
+🦻🏿	audifonoa duen belarria 6. mota	none
+👃🏻	sudur 1–2. mota	none
+👃🏼	sudur 3. mota	none
+👃🏽	sudur bitarteko azal-tonua	none
+👃🏾	sudur 5. mota	none
+👃🏿	sudur 6. mota	none
 👶🏻	haurtxoa 1–2. mota	none
 👶🏼	haurtxoa 3. mota	none
 👶🏽	haurtxoa bitarteko azal-tonua	none
@@ -1679,51 +1710,45 @@ symbols:
 👱🏽	pertsona ilehoria bitarteko azal-tonua	none
 👱🏾	pertsona ilehoria 5. mota	none
 👱🏿	pertsona ilehoria 6. mota	none
-🧑🏻‍🤝‍🧑🏻	bi pertsona elkarri eskua ematen 1–2. mota	none
-🧑🏼‍🤝‍🧑🏻	bi pertsona elkarri eskua ematen 3. mota eta 1–2. mota	none
-🧑🏼‍🤝‍🧑🏼	bi pertsona elkarri eskua ematen 3. mota	none
-🧑🏽‍🤝‍🧑🏻	bi pertsona elkarri eskua ematen bitarteko azal-tonua eta 1–2. mota	none
-🧑🏽‍🤝‍🧑🏼	bi pertsona elkarri eskua ematen bitarteko azal-tonua eta 3. mota	none
-🧑🏽‍🤝‍🧑🏽	bi pertsona elkarri eskua ematen bitarteko azal-tonua	none
-🧑🏾‍🤝‍🧑🏻	bi pertsona elkarri eskua ematen 5. mota eta 1–2. mota	none
-🧑🏾‍🤝‍🧑🏼	bi pertsona elkarri eskua ematen 5. mota eta 3. mota	none
-🧑🏾‍🤝‍🧑🏽	bi pertsona elkarri eskua ematen 5. mota eta bitarteko azal-tonua	none
-🧑🏾‍🤝‍🧑🏾	bi pertsona elkarri eskua ematen 5. mota	none
-🧑🏿‍🤝‍🧑🏻	bi pertsona elkarri eskua ematen 6. mota eta 1–2. mota	none
-🧑🏿‍🤝‍🧑🏼	bi pertsona elkarri eskua ematen 6. mota eta 3. mota	none
-🧑🏿‍🤝‍🧑🏽	bi pertsona elkarri eskua ematen 6. mota eta bitarteko azal-tonua	none
-🧑🏿‍🤝‍🧑🏾	bi pertsona elkarri eskua ematen 6. mota eta 5. mota	none
-🧑🏿‍🤝‍🧑🏿	bi pertsona elkarri eskua ematen 6. mota	none
+🧑‍🦰	heldu ilegorri	none
+🧑🏻‍🦰	heldu 1–2. mota eta ilegorri	none
+🧑🏼‍🦰	heldu 3. mota eta ilegorri	none
+🧑🏽‍🦰	heldu bitarteko azal-tonua eta ilegorri	none
+🧑🏾‍🦰	heldu 5. mota eta ilegorri	none
+🧑🏿‍🦰	heldu 6. mota eta ilegorri	none
+🧑‍🦱	heldu ile kizkur	none
+🧑🏻‍🦱	heldu 1–2. mota eta ile kizkur	none
+🧑🏼‍🦱	heldu 3. mota eta ile kizkur	none
+🧑🏽‍🦱	heldu bitarteko azal-tonua eta ile kizkur	none
+🧑🏾‍🦱	heldu 5. mota eta ile kizkur	none
+🧑🏿‍🦱	heldu 6. mota eta ile kizkur	none
+🧑‍🦳	heldu ilezuri	none
+🧑🏻‍🦳	heldu 1–2. mota eta ilezuri	none
+🧑🏼‍🦳	heldu 3. mota eta ilezuri	none
+🧑🏽‍🦳	heldu bitarteko azal-tonua eta ilezuri	none
+🧑🏾‍🦳	heldu 5. mota eta ilezuri	none
+🧑🏿‍🦳	heldu 6. mota eta ilezuri	none
+🧑‍🦲	heldu burusoil	none
+🧑🏻‍🦲	heldu 1–2. mota eta burusoil	none
+🧑🏼‍🦲	heldu 3. mota eta burusoil	none
+🧑🏽‍🦲	heldu bitarteko azal-tonua eta burusoil	none
+🧑🏾‍🦲	heldu 5. mota eta burusoil	none
+🧑🏿‍🦲	heldu 6. mota eta burusoil	none
 👨🏻	gizona 1–2. mota	none
 👨🏼	gizona 3. mota	none
 👨🏽	gizona bitarteko azal-tonua	none
 👨🏾	gizona 5. mota	none
 👨🏿	gizona 6. mota	none
-👨🏻‍🦯	itsu-makila daraman gizona 1–2. mota	none
-👨🏼‍🦯	itsu-makila daraman gizona 3. mota	none
-👨🏽‍🦯	itsu-makila daraman gizona bitarteko azal-tonua	none
-👨🏾‍🦯	itsu-makila daraman gizona 5. mota	none
-👨🏿‍🦯	itsu-makila daraman gizona 6. mota	none
-👨🏻‍🦼	gurpil-aulki motordunean doan gizona 1–2. mota	none
-👨🏼‍🦼	gurpil-aulki motordunean doan gizona 3. mota	none
-👨🏽‍🦼	gurpil-aulki motordunean doan gizona bitarteko azal-tonua	none
-👨🏾‍🦼	gurpil-aulki motordunean doan gizona 5. mota	none
-👨🏿‍🦼	gurpil-aulki motordunean doan gizona 6. mota	none
-👨🏻‍🦽	eskuzko gurpil-aulkian doan gizona 1–2. mota	none
-👨🏼‍🦽	eskuzko gurpil-aulkian doan gizona 3. mota	none
-👨🏽‍🦽	eskuzko gurpil-aulkian doan gizona bitarteko azal-tonua	none
-👨🏾‍🦽	eskuzko gurpil-aulkian doan gizona 5. mota	none
-👨🏿‍🦽	eskuzko gurpil-aulkian doan gizona 6. mota	none
-👨🏼‍🤝‍👨🏻	bi gizon elkarri eskua ematen 3. mota eta 1–2. mota	none
-👨🏽‍🤝‍👨🏻	bi gizon elkarri eskua ematen bitarteko azal-tonua eta 1–2. mota	none
-👨🏽‍🤝‍👨🏼	bi gizon elkarri eskua ematen bitarteko azal-tonua eta 3. mota	none
-👨🏾‍🤝‍👨🏻	bi gizon elkarri eskua ematen 5. mota eta 1–2. mota	none
-👨🏾‍🤝‍👨🏼	bi gizon elkarri eskua ematen 5. mota eta 3. mota	none
-👨🏾‍🤝‍👨🏽	bi gizon elkarri eskua ematen 5. mota eta bitarteko azal-tonua	none
-👨🏿‍🤝‍👨🏻	bi gizon elkarri eskua ematen 6. mota eta 1–2. mota	none
-👨🏿‍🤝‍👨🏼	bi gizon elkarri eskua ematen 6. mota eta 3. mota	none
-👨🏿‍🤝‍👨🏽	bi gizon elkarri eskua ematen 6. mota eta bitarteko azal-tonua	none
-👨🏿‍🤝‍👨🏾	bi gizon elkarri eskua ematen 6. mota eta 5. mota	none
+🧔🏻	pertsona bizarduna 1–2. mota	none
+🧔🏼	pertsona bizarduna 3. mota	none
+🧔🏽	pertsona bizarduna bitarteko azal-tonua	none
+🧔🏾	pertsona bizarduna 5. mota	none
+🧔🏿	pertsona bizarduna 6. mota	none
+👱🏻‍♂	gizon ilehoria 1–2. mota	none
+👱🏼‍♂	gizon ilehoria 3. mota	none
+👱🏽‍♂	gizon ilehoria bitarteko azal-tonua	none
+👱🏾‍♂	gizon ilehoria 5. mota	none
+👱🏿‍♂	gizon ilehoria 6. mota	none
 👨‍🦰	gizona ilegorri	none
 👨🏻‍🦰	gizona 1–2. mota eta ilegorri	none
 👨🏼‍🦰	gizona 3. mota eta ilegorri	none
@@ -1748,66 +1773,16 @@ symbols:
 👨🏽‍🦲	gizona bitarteko azal-tonua eta burusoil	none
 👨🏾‍🦲	gizona 5. mota eta burusoil	none
 👨🏿‍🦲	gizona 6. mota eta burusoil	none
-👱🏻‍♂	gizon ilehoria 1–2. mota	none
-👱🏼‍♂	gizon ilehoria 3. mota	none
-👱🏽‍♂	gizon ilehoria bitarteko azal-tonua	none
-👱🏾‍♂	gizon ilehoria 5. mota	none
-👱🏿‍♂	gizon ilehoria 6. mota	none
-🧔🏻	pertsona bizarduna 1–2. mota	none
-🧔🏼	pertsona bizarduna 3. mota	none
-🧔🏽	pertsona bizarduna bitarteko azal-tonua	none
-🧔🏾	pertsona bizarduna 5. mota	none
-🧔🏿	pertsona bizarduna 6. mota	none
 👩🏻	emakumea 1–2. mota	none
 👩🏼	emakumea 3. mota	none
 👩🏽	emakumea bitarteko azal-tonua	none
 👩🏾	emakumea 5. mota	none
 👩🏿	emakumea 6. mota	none
-👩🏻‍🦯	itsu-makila daraman emakumea 1–2. mota	none
-👩🏼‍🦯	itsu-makila daraman emakumea 3. mota	none
-👩🏽‍🦯	itsu-makila daraman emakumea bitarteko azal-tonua	none
-👩🏾‍🦯	itsu-makila daraman emakumea 5. mota	none
-👩🏿‍🦯	itsu-makila daraman emakumea 6. mota	none
-👩🏻‍🦼	gurpil-aulki motordunean doan emakumea 1–2. mota	none
-👩🏼‍🦼	gurpil-aulki motordunean doan emakumea 3. mota	none
-👩🏽‍🦼	gurpil-aulki motordunean doan emakumea bitarteko azal-tonua	none
-👩🏾‍🦼	gurpil-aulki motordunean doan emakumea 5. mota	none
-👩🏿‍🦼	gurpil-aulki motordunean doan emakumea 6. mota	none
-👩🏻‍🦽	eskuzko gurpil-aulkian doan emakumea 1–2. mota	none
-👩🏼‍🦽	eskuzko gurpil-aulkian doan emakumea 3. mota	none
-👩🏽‍🦽	eskuzko gurpil-aulkian doan emakumea bitarteko azal-tonua	none
-👩🏾‍🦽	eskuzko gurpil-aulkian doan emakumea 5. mota	none
-👩🏿‍🦽	eskuzko gurpil-aulkian doan emakumea 6. mota	none
-👩🏻‍🤝‍👨🏼	gizon-emakumeak elkarri eskua ematen 1–2. mota eta 3. mota	none
-👩🏻‍🤝‍👨🏽	gizon-emakumeak elkarri eskua ematen 1–2. mota eta bitarteko azal-tonua	none
-👩🏻‍🤝‍👨🏾	gizon-emakumeak elkarri eskua ematen 1–2. mota eta 5. mota	none
-👩🏻‍🤝‍👨🏿	gizon-emakumeak elkarri eskua ematen 1–2. mota eta 6. mota	none
-👩🏼‍🤝‍👨🏻	gizon-emakumeak elkarri eskua ematen 3. mota eta 1–2. mota	none
-👩🏼‍🤝‍👨🏽	gizon-emakumeak elkarri eskua ematen 3. mota eta bitarteko azal-tonua	none
-👩🏼‍🤝‍👨🏾	gizon-emakumeak elkarri eskua ematen 3. mota eta 5. mota	none
-👩🏼‍🤝‍👨🏿	gizon-emakumeak elkarri eskua ematen 3. mota eta 6. mota	none
-👩🏽‍🤝‍👨🏻	gizon-emakumeak elkarri eskua ematen bitarteko azal-tonua eta 1–2. mota	none
-👩🏽‍🤝‍👨🏼	gizon-emakumeak elkarri eskua ematen bitarteko azal-tonua eta 3. mota	none
-👩🏽‍🤝‍👨🏾	gizon-emakumeak elkarri eskua ematen bitarteko azal-tonua eta 5. mota	none
-👩🏽‍🤝‍👨🏿	gizon-emakumeak elkarri eskua ematen bitarteko azal-tonua eta 6. mota	none
-👩🏾‍🤝‍👨🏻	gizon-emakumeak elkarri eskua ematen 5. mota eta 1–2. mota	none
-👩🏾‍🤝‍👨🏼	gizon-emakumeak elkarri eskua ematen 5. mota eta 3. mota	none
-👩🏾‍🤝‍👨🏽	gizon-emakumeak elkarri eskua ematen 5. mota eta bitarteko azal-tonua	none
-👩🏾‍🤝‍👨🏿	gizon-emakumeak elkarri eskua ematen 5. mota eta 6. mota	none
-👩🏿‍🤝‍👨🏻	gizon-emakumeak elkarri eskua ematen 6. mota eta 1–2. mota	none
-👩🏿‍🤝‍👨🏼	gizon-emakumeak elkarri eskua ematen 6. mota eta 3. mota	none
-👩🏿‍🤝‍👨🏽	gizon-emakumeak elkarri eskua ematen 6. mota eta bitarteko azal-tonua	none
-👩🏿‍🤝‍👨🏾	gizon-emakumeak elkarri eskua ematen 6. mota eta 5. mota	none
-👩🏼‍🤝‍👩🏻	bi emakume elkarri eskua ematen 3. mota eta 1–2. mota	none
-👩🏽‍🤝‍👩🏻	bi emakume elkarri eskua ematen bitarteko azal-tonua eta 1–2. mota	none
-👩🏽‍🤝‍👩🏼	bi emakume elkarri eskua ematen bitarteko azal-tonua eta 3. mota	none
-👩🏾‍🤝‍👩🏻	bi emakume elkarri eskua ematen 5. mota eta 1–2. mota	none
-👩🏾‍🤝‍👩🏼	bi emakume elkarri eskua ematen 5. mota eta 3. mota	none
-👩🏾‍🤝‍👩🏽	bi emakume elkarri eskua ematen 5. mota eta bitarteko azal-tonua	none
-👩🏿‍🤝‍👩🏻	bi emakume elkarri eskua ematen 6. mota eta 1–2. mota	none
-👩🏿‍🤝‍👩🏼	bi emakume elkarri eskua ematen 6. mota eta 3. mota	none
-👩🏿‍🤝‍👩🏽	bi emakume elkarri eskua ematen 6. mota eta bitarteko azal-tonua	none
-👩🏿‍🤝‍👩🏾	bi emakume elkarri eskua ematen 6. mota eta 5. mota	none
+👱🏻‍♀	emakume ilehoria 1–2. mota	none
+👱🏼‍♀	emakume ilehoria 3. mota	none
+👱🏽‍♀	emakume ilehoria bitarteko azal-tonua	none
+👱🏾‍♀	emakume ilehoria 5. mota	none
+👱🏿‍♀	emakume ilehoria 6. mota	none
 👩‍🦰	emakumea ilegorri	none
 👩🏻‍🦰	emakumea 1–2. mota eta ilegorri	none
 👩🏼‍🦰	emakumea 3. mota eta ilegorri	none
@@ -1832,11 +1807,6 @@ symbols:
 👩🏽‍🦲	emakumea bitarteko azal-tonua eta burusoil	none
 👩🏾‍🦲	emakumea 5. mota eta burusoil	none
 👩🏿‍🦲	emakumea 6. mota eta burusoil	none
-👱🏻‍♀	emakume ilehoria 1–2. mota	none
-👱🏼‍♀	emakume ilehoria 3. mota	none
-👱🏽‍♀	emakume ilehoria bitarteko azal-tonua	none
-👱🏾‍♀	emakume ilehoria 5. mota	none
-👱🏿‍♀	emakume ilehoria 6. mota	none
 🧓🏻	agure 1–2. mota	none
 🧓🏼	agure 3. mota	none
 🧓🏽	agure bitarteko azal-tonua	none
@@ -1942,6 +1912,21 @@ symbols:
 🙋🏽‍♀	eskua altxatzen ari den emakumea bitarteko azal-tonua	none
 🙋🏾‍♀	eskua altxatzen ari den emakumea 5. mota	none
 🙋🏿‍♀	eskua altxatzen ari den emakumea 6. mota	none
+🧏🏻	gorra 1–2. mota	none
+🧏🏼	gorra 3. mota	none
+🧏🏽	gorra bitarteko azal-tonua	none
+🧏🏾	gorra 5. mota	none
+🧏🏿	gorra 6. mota	none
+🧏🏻‍♂	gizon gorra 1–2. mota	none
+🧏🏼‍♂	gizon gorra 3. mota	none
+🧏🏽‍♂	gizon gorra bitarteko azal-tonua	none
+🧏🏾‍♂	gizon gorra 5. mota	none
+🧏🏿‍♂	gizon gorra 6. mota	none
+🧏🏻‍♀	emakume gorra 1–2. mota	none
+🧏🏼‍♀	emakume gorra 3. mota	none
+🧏🏽‍♀	emakume gorra bitarteko azal-tonua	none
+🧏🏾‍♀	emakume gorra 5. mota	none
+🧏🏿‍♀	emakume gorra 6. mota	none
 🙇🏻	burua makurtzen ari den pertsona 1–2. mota	none
 🙇🏼	burua makurtzen ari den pertsona 3. mota	none
 🙇🏽	burua makurtzen ari den pertsona bitarteko azal-tonua	none
@@ -1987,6 +1972,11 @@ symbols:
 🤷🏽‍♀	sorbaldak altxatzen ari den emakumea bitarteko azal-tonua	none
 🤷🏾‍♀	sorbaldak altxatzen ari den emakumea 5. mota	none
 🤷🏿‍♀	sorbaldak altxatzen ari den emakumea 6. mota	none
+🧑🏻‍⚕	sendagilea 1–2. mota	none
+🧑🏼‍⚕	sendagilea 3. mota	none
+🧑🏽‍⚕	sendagilea bitarteko azal-tonua	none
+🧑🏾‍⚕	sendagilea 5. mota	none
+🧑🏿‍⚕	sendagilea 6. mota	none
 👨🏻‍⚕	gizon sendagilea 1–2. mota	none
 👨🏼‍⚕	gizon sendagilea 3. mota	none
 👨🏽‍⚕	gizon sendagilea bitarteko azal-tonua	none
@@ -1997,6 +1987,11 @@ symbols:
 👩🏽‍⚕	emakume sendagilea bitarteko azal-tonua	none
 👩🏾‍⚕	emakume sendagilea 5. mota	none
 👩🏿‍⚕	emakume sendagilea 6. mota	none
+🧑🏻‍🎓	ikaslea 1–2. mota	none
+🧑🏼‍🎓	ikaslea 3. mota	none
+🧑🏽‍🎓	ikaslea bitarteko azal-tonua	none
+🧑🏾‍🎓	ikaslea 5. mota	none
+🧑🏿‍🎓	ikaslea 6. mota	none
 👨🏻‍🎓	mutil ikaslea 1–2. mota	none
 👨🏼‍🎓	mutil ikaslea 3. mota	none
 👨🏽‍🎓	mutil ikaslea bitarteko azal-tonua	none
@@ -2007,6 +2002,11 @@ symbols:
 👩🏽‍🎓	neska ikaslea bitarteko azal-tonua	none
 👩🏾‍🎓	neska ikaslea 5. mota	none
 👩🏿‍🎓	neska ikaslea 6. mota	none
+🧑🏻‍🏫	irakaslea 1–2. mota	none
+🧑🏼‍🏫	irakaslea 3. mota	none
+🧑🏽‍🏫	irakaslea bitarteko azal-tonua	none
+🧑🏾‍🏫	irakaslea 5. mota	none
+🧑🏿‍🏫	irakaslea 6. mota	none
 👨🏻‍🏫	gizon irakaslea 1–2. mota	none
 👨🏼‍🏫	gizon irakaslea 3. mota	none
 👨🏽‍🏫	gizon irakaslea bitarteko azal-tonua	none
@@ -2017,6 +2017,11 @@ symbols:
 👩🏽‍🏫	emakume irakaslea bitarteko azal-tonua	none
 👩🏾‍🏫	emakume irakaslea 5. mota	none
 👩🏿‍🏫	emakume irakaslea 6. mota	none
+🧑🏻‍⚖	epailea 1–2. mota	none
+🧑🏼‍⚖	epailea 3. mota	none
+🧑🏽‍⚖	epailea bitarteko azal-tonua	none
+🧑🏾‍⚖	epailea 5. mota	none
+🧑🏿‍⚖	epailea 6. mota	none
 👨🏻‍⚖	gizon epailea 1–2. mota	none
 👨🏼‍⚖	gizon epailea 3. mota	none
 👨🏽‍⚖	gizon epailea bitarteko azal-tonua	none
@@ -2027,6 +2032,11 @@ symbols:
 👩🏽‍⚖	emakume epailea bitarteko azal-tonua	none
 👩🏾‍⚖	emakume epailea 5. mota	none
 👩🏿‍⚖	emakume epailea 6. mota	none
+🧑🏻‍🌾	nekazaria 1–2. mota	none
+🧑🏼‍🌾	nekazaria 3. mota	none
+🧑🏽‍🌾	nekazaria bitarteko azal-tonua	none
+🧑🏾‍🌾	nekazaria 5. mota	none
+🧑🏿‍🌾	nekazaria 6. mota	none
 👨🏻‍🌾	gizon nekazaria 1–2. mota	none
 👨🏼‍🌾	gizon nekazaria 3. mota	none
 👨🏽‍🌾	gizon nekazaria bitarteko azal-tonua	none
@@ -2037,6 +2047,11 @@ symbols:
 👩🏽‍🌾	emakume nekazaria bitarteko azal-tonua	none
 👩🏾‍🌾	emakume nekazaria 5. mota	none
 👩🏿‍🌾	emakume nekazaria 6. mota	none
+🧑🏻‍🍳	sukaldaria 1–2. mota	none
+🧑🏼‍🍳	sukaldaria 3. mota	none
+🧑🏽‍🍳	sukaldaria bitarteko azal-tonua	none
+🧑🏾‍🍳	sukaldaria 5. mota	none
+🧑🏿‍🍳	sukaldaria 6. mota	none
 👨🏻‍🍳	gizon sukaldaria 1–2. mota	none
 👨🏼‍🍳	gizon sukaldaria 3. mota	none
 👨🏽‍🍳	gizon sukaldaria bitarteko azal-tonua	none
@@ -2047,6 +2062,11 @@ symbols:
 👩🏽‍🍳	emakume sukaldaria bitarteko azal-tonua	none
 👩🏾‍🍳	emakume sukaldaria 5. mota	none
 👩🏿‍🍳	emakume sukaldaria 6. mota	none
+🧑🏻‍🔧	mekanikaria 1–2. mota	none
+🧑🏼‍🔧	mekanikaria 3. mota	none
+🧑🏽‍🔧	mekanikaria bitarteko azal-tonua	none
+🧑🏾‍🔧	mekanikaria 5. mota	none
+🧑🏿‍🔧	mekanikaria 6. mota	none
 👨🏻‍🔧	gizon mekanikaria 1–2. mota	none
 👨🏼‍🔧	gizon mekanikaria 3. mota	none
 👨🏽‍🔧	gizon mekanikaria bitarteko azal-tonua	none
@@ -2057,6 +2077,11 @@ symbols:
 👩🏽‍🔧	emakume mekanikaria bitarteko azal-tonua	none
 👩🏾‍🔧	emakume mekanikaria 5. mota	none
 👩🏿‍🔧	emakume mekanikaria 6. mota	none
+🧑🏻‍🏭	fabrikako langilea 1–2. mota	none
+🧑🏼‍🏭	fabrikako langilea 3. mota	none
+🧑🏽‍🏭	fabrikako langilea bitarteko azal-tonua	none
+🧑🏾‍🏭	fabrikako langilea 5. mota	none
+🧑🏿‍🏭	fabrikako langilea 6. mota	none
 👨🏻‍🏭	fabrikako gizon langilea 1–2. mota	none
 👨🏼‍🏭	fabrikako gizon langilea 3. mota	none
 👨🏽‍🏭	fabrikako gizon langilea bitarteko azal-tonua	none
@@ -2067,6 +2092,11 @@ symbols:
 👩🏽‍🏭	fabrikako emakume langilea bitarteko azal-tonua	none
 👩🏾‍🏭	fabrikako emakume langilea 5. mota	none
 👩🏿‍🏭	fabrikako emakume langilea 6. mota	none
+🧑🏻‍💼	bulegaria 1–2. mota	none
+🧑🏼‍💼	bulegaria 3. mota	none
+🧑🏽‍💼	bulegaria bitarteko azal-tonua	none
+🧑🏾‍💼	bulegaria 5. mota	none
+🧑🏿‍💼	bulegaria 6. mota	none
 👨🏻‍💼	gizon bulegaria 1–2. mota	none
 👨🏼‍💼	gizon bulegaria 3. mota	none
 👨🏽‍💼	gizon bulegaria bitarteko azal-tonua	none
@@ -2077,6 +2107,11 @@ symbols:
 👩🏽‍💼	emakume bulegaria bitarteko azal-tonua	none
 👩🏾‍💼	emakume bulegaria 5. mota	none
 👩🏿‍💼	emakume bulegaria 6. mota	none
+🧑🏻‍🔬	zientzialaria 1–2. mota	none
+🧑🏼‍🔬	zientzialaria 3. mota	none
+🧑🏽‍🔬	zientzialaria bitarteko azal-tonua	none
+🧑🏾‍🔬	zientzialaria 5. mota	none
+🧑🏿‍🔬	zientzialaria 6. mota	none
 👨🏻‍🔬	gizon zientzialaria 1–2. mota	none
 👨🏼‍🔬	gizon zientzialaria 3. mota	none
 👨🏽‍🔬	gizon zientzialaria bitarteko azal-tonua	none
@@ -2087,6 +2122,11 @@ symbols:
 👩🏽‍🔬	emakume zientzialaria bitarteko azal-tonua	none
 👩🏾‍🔬	emakume zientzialaria 5. mota	none
 👩🏿‍🔬	emakume zientzialaria 6. mota	none
+🧑🏻‍💻	teknologialaria 1–2. mota	none
+🧑🏼‍💻	teknologialaria 3. mota	none
+🧑🏽‍💻	teknologialaria bitarteko azal-tonua	none
+🧑🏾‍💻	teknologialaria 5. mota	none
+🧑🏿‍💻	teknologialaria 6. mota	none
 👨🏻‍💻	gizon teknologialaria 1–2. mota	none
 👨🏼‍💻	gizon teknologialaria 3. mota	none
 👨🏽‍💻	gizon teknologialaria bitarteko azal-tonua	none
@@ -2097,6 +2137,11 @@ symbols:
 👩🏽‍💻	emakume teknologialaria bitarteko azal-tonua	none
 👩🏾‍💻	emakume teknologialaria 5. mota	none
 👩🏿‍💻	emakume teknologialaria 6. mota	none
+🧑🏻‍🎤	abeslaria 1–2. mota	none
+🧑🏼‍🎤	abeslaria 3. mota	none
+🧑🏽‍🎤	abeslaria bitarteko azal-tonua	none
+🧑🏾‍🎤	abeslaria 5. mota	none
+🧑🏿‍🎤	abeslaria 6. mota	none
 👨🏻‍🎤	gizon abeslaria 1–2. mota	none
 👨🏼‍🎤	gizon abeslaria 3. mota	none
 👨🏽‍🎤	gizon abeslaria bitarteko azal-tonua	none
@@ -2107,6 +2152,11 @@ symbols:
 👩🏽‍🎤	emakume abeslaria bitarteko azal-tonua	none
 👩🏾‍🎤	emakume abeslaria 5. mota	none
 👩🏿‍🎤	emakume abeslaria 6. mota	none
+🧑🏻‍🎨	artista 1–2. mota	none
+🧑🏼‍🎨	artista 3. mota	none
+🧑🏽‍🎨	artista bitarteko azal-tonua	none
+🧑🏾‍🎨	artista 5. mota	none
+🧑🏿‍🎨	artista 6. mota	none
 👨🏻‍🎨	gizon artista 1–2. mota	none
 👨🏼‍🎨	gizon artista 3. mota	none
 👨🏽‍🎨	gizon artista bitarteko azal-tonua	none
@@ -2117,6 +2167,11 @@ symbols:
 👩🏽‍🎨	emakume artista bitarteko azal-tonua	none
 👩🏾‍🎨	emakume artista 5. mota	none
 👩🏿‍🎨	emakume artista 6. mota	none
+🧑🏻‍✈	pilotua 1–2. mota	none
+🧑🏼‍✈	pilotua 3. mota	none
+🧑🏽‍✈	pilotua bitarteko azal-tonua	none
+🧑🏾‍✈	pilotua 5. mota	none
+🧑🏿‍✈	pilotua 6. mota	none
 👨🏻‍✈	gizon pilotua 1–2. mota	none
 👨🏼‍✈	gizon pilotua 3. mota	none
 👨🏽‍✈	gizon pilotua bitarteko azal-tonua	none
@@ -2127,6 +2182,11 @@ symbols:
 👩🏽‍✈	emakume pilotua bitarteko azal-tonua	none
 👩🏾‍✈	emakume pilotua 5. mota	none
 👩🏿‍✈	emakume pilotua 6. mota	none
+🧑🏻‍🚀	astronauta 1–2. mota	none
+🧑🏼‍🚀	astronauta 3. mota	none
+🧑🏽‍🚀	astronauta bitarteko azal-tonua	none
+🧑🏾‍🚀	astronauta 5. mota	none
+🧑🏿‍🚀	astronauta 6. mota	none
 👨🏻‍🚀	gizon astronauta 1–2. mota	none
 👨🏼‍🚀	gizon astronauta 3. mota	none
 👨🏽‍🚀	gizon astronauta bitarteko azal-tonua	none
@@ -2137,6 +2197,11 @@ symbols:
 👩🏽‍🚀	emakume astronauta bitarteko azal-tonua	none
 👩🏾‍🚀	emakume astronauta 5. mota	none
 👩🏿‍🚀	emakume astronauta 6. mota	none
+🧑🏻‍🚒	suhiltzailea 1–2. mota	none
+🧑🏼‍🚒	suhiltzailea 3. mota	none
+🧑🏽‍🚒	suhiltzailea bitarteko azal-tonua	none
+🧑🏾‍🚒	suhiltzailea 5. mota	none
+🧑🏿‍🚒	suhiltzailea 6. mota	none
 👨🏻‍🚒	gizon suhiltzailea 1–2. mota	none
 👨🏼‍🚒	gizon suhiltzailea 3. mota	none
 👨🏽‍🚒	gizon suhiltzailea bitarteko azal-tonua	none
@@ -2427,6 +2492,81 @@ symbols:
 🚶🏽‍♀	oinez ari den emakumea bitarteko azal-tonua	none
 🚶🏾‍♀	oinez ari den emakumea 5. mota	none
 🚶🏿‍♀	oinez ari den emakumea 6. mota	none
+🧍🏻	zutik dagoen pertsona 1–2. mota	none
+🧍🏼	zutik dagoen pertsona 3. mota	none
+🧍🏽	zutik dagoen pertsona bitarteko azal-tonua	none
+🧍🏾	zutik dagoen pertsona 5. mota	none
+🧍🏿	zutik dagoen pertsona 6. mota	none
+🧍🏻‍♂	zutik dagoen gizona 1–2. mota	none
+🧍🏼‍♂	zutik dagoen gizona 3. mota	none
+🧍🏽‍♂	zutik dagoen gizona bitarteko azal-tonua	none
+🧍🏾‍♂	zutik dagoen gizona 5. mota	none
+🧍🏿‍♂	zutik dagoen gizona 6. mota	none
+🧍🏻‍♀	zutik dagoen emakumea 1–2. mota	none
+🧍🏼‍♀	zutik dagoen emakumea 3. mota	none
+🧍🏽‍♀	zutik dagoen emakumea bitarteko azal-tonua	none
+🧍🏾‍♀	zutik dagoen emakumea 5. mota	none
+🧍🏿‍♀	zutik dagoen emakumea 6. mota	none
+🧎🏻	belauniko dagoen pertsona 1–2. mota	none
+🧎🏼	belauniko dagoen pertsona 3. mota	none
+🧎🏽	belauniko dagoen pertsona bitarteko azal-tonua	none
+🧎🏾	belauniko dagoen pertsona 5. mota	none
+🧎🏿	belauniko dagoen pertsona 6. mota	none
+🧎🏻‍♂	belauniko dagoen gizona 1–2. mota	none
+🧎🏼‍♂	belauniko dagoen gizona 3. mota	none
+🧎🏽‍♂	belauniko dagoen gizona bitarteko azal-tonua	none
+🧎🏾‍♂	belauniko dagoen gizona 5. mota	none
+🧎🏿‍♂	belauniko dagoen gizona 6. mota	none
+🧎🏻‍♀	belauniko dagoen emakumea 1–2. mota	none
+🧎🏼‍♀	belauniko dagoen emakumea 3. mota	none
+🧎🏽‍♀	belauniko dagoen emakumea bitarteko azal-tonua	none
+🧎🏾‍♀	belauniko dagoen emakumea 5. mota	none
+🧎🏿‍♀	belauniko dagoen emakumea 6. mota	none
+🧑🏻‍🦯	itsu-makila daraman pertsona 1–2. mota	none
+🧑🏼‍🦯	itsu-makila daraman pertsona 3. mota	none
+🧑🏽‍🦯	itsu-makila daraman pertsona bitarteko azal-tonua	none
+🧑🏾‍🦯	itsu-makila daraman pertsona 5. mota	none
+🧑🏿‍🦯	itsu-makila daraman pertsona 6. mota	none
+👨🏻‍🦯	itsu-makila daraman gizona 1–2. mota	none
+👨🏼‍🦯	itsu-makila daraman gizona 3. mota	none
+👨🏽‍🦯	itsu-makila daraman gizona bitarteko azal-tonua	none
+👨🏾‍🦯	itsu-makila daraman gizona 5. mota	none
+👨🏿‍🦯	itsu-makila daraman gizona 6. mota	none
+👩🏻‍🦯	itsu-makila daraman emakumea 1–2. mota	none
+👩🏼‍🦯	itsu-makila daraman emakumea 3. mota	none
+👩🏽‍🦯	itsu-makila daraman emakumea bitarteko azal-tonua	none
+👩🏾‍🦯	itsu-makila daraman emakumea 5. mota	none
+👩🏿‍🦯	itsu-makila daraman emakumea 6. mota	none
+🧑🏻‍🦼	gurpil-aulki motordunean doan pertsona 1–2. mota	none
+🧑🏼‍🦼	gurpil-aulki motordunean doan pertsona 3. mota	none
+🧑🏽‍🦼	gurpil-aulki motordunean doan pertsona bitarteko azal-tonua	none
+🧑🏾‍🦼	gurpil-aulki motordunean doan pertsona 5. mota	none
+🧑🏿‍🦼	gurpil-aulki motordunean doan pertsona 6. mota	none
+👨🏻‍🦼	gurpil-aulki motordunean doan gizona 1–2. mota	none
+👨🏼‍🦼	gurpil-aulki motordunean doan gizona 3. mota	none
+👨🏽‍🦼	gurpil-aulki motordunean doan gizona bitarteko azal-tonua	none
+👨🏾‍🦼	gurpil-aulki motordunean doan gizona 5. mota	none
+👨🏿‍🦼	gurpil-aulki motordunean doan gizona 6. mota	none
+👩🏻‍🦼	gurpil-aulki motordunean doan emakumea 1–2. mota	none
+👩🏼‍🦼	gurpil-aulki motordunean doan emakumea 3. mota	none
+👩🏽‍🦼	gurpil-aulki motordunean doan emakumea bitarteko azal-tonua	none
+👩🏾‍🦼	gurpil-aulki motordunean doan emakumea 5. mota	none
+👩🏿‍🦼	gurpil-aulki motordunean doan emakumea 6. mota	none
+🧑🏻‍🦽	eskuzko gurpil-aulkian doan pertsona 1–2. mota	none
+🧑🏼‍🦽	eskuzko gurpil-aulkian doan pertsona 3. mota	none
+🧑🏽‍🦽	eskuzko gurpil-aulkian doan pertsona bitarteko azal-tonua	none
+🧑🏾‍🦽	eskuzko gurpil-aulkian doan pertsona 5. mota	none
+🧑🏿‍🦽	eskuzko gurpil-aulkian doan pertsona 6. mota	none
+👨🏻‍🦽	eskuzko gurpil-aulkian doan gizona 1–2. mota	none
+👨🏼‍🦽	eskuzko gurpil-aulkian doan gizona 3. mota	none
+👨🏽‍🦽	eskuzko gurpil-aulkian doan gizona bitarteko azal-tonua	none
+👨🏾‍🦽	eskuzko gurpil-aulkian doan gizona 5. mota	none
+👨🏿‍🦽	eskuzko gurpil-aulkian doan gizona 6. mota	none
+👩🏻‍🦽	eskuzko gurpil-aulkian doan emakumea 1–2. mota	none
+👩🏼‍🦽	eskuzko gurpil-aulkian doan emakumea 3. mota	none
+👩🏽‍🦽	eskuzko gurpil-aulkian doan emakumea bitarteko azal-tonua	none
+👩🏾‍🦽	eskuzko gurpil-aulkian doan emakumea 5. mota	none
+👩🏿‍🦽	eskuzko gurpil-aulkian doan emakumea 6. mota	none
 🏃🏻	korrika ari den pertsona 1–2. mota	none
 🏃🏼	korrika ari den pertsona 3. mota	none
 🏃🏽	korrika ari den pertsona bitarteko azal-tonua	none
@@ -2702,21 +2842,76 @@ symbols:
 🛌🏽	pertsona bat ohean bitarteko azal-tonua	none
 🛌🏾	pertsona bat ohean 5. mota	none
 🛌🏿	pertsona bat ohean 6. mota	none
+🧑🏻‍🤝‍🧑🏻	bi pertsona elkarri eskua ematen 1–2. mota	none
+🧑🏼‍🤝‍🧑🏻	bi pertsona elkarri eskua ematen 3. mota eta 1–2. mota	none
+🧑🏼‍🤝‍🧑🏼	bi pertsona elkarri eskua ematen 3. mota	none
+🧑🏽‍🤝‍🧑🏻	bi pertsona elkarri eskua ematen bitarteko azal-tonua eta 1–2. mota	none
+🧑🏽‍🤝‍🧑🏼	bi pertsona elkarri eskua ematen bitarteko azal-tonua eta 3. mota	none
+🧑🏽‍🤝‍🧑🏽	bi pertsona elkarri eskua ematen bitarteko azal-tonua	none
+🧑🏾‍🤝‍🧑🏻	bi pertsona elkarri eskua ematen 5. mota eta 1–2. mota	none
+🧑🏾‍🤝‍🧑🏼	bi pertsona elkarri eskua ematen 5. mota eta 3. mota	none
+🧑🏾‍🤝‍🧑🏽	bi pertsona elkarri eskua ematen 5. mota eta bitarteko azal-tonua	none
+🧑🏾‍🤝‍🧑🏾	bi pertsona elkarri eskua ematen 5. mota	none
+🧑🏿‍🤝‍🧑🏻	bi pertsona elkarri eskua ematen 6. mota eta 1–2. mota	none
+🧑🏿‍🤝‍🧑🏼	bi pertsona elkarri eskua ematen 6. mota eta 3. mota	none
+🧑🏿‍🤝‍🧑🏽	bi pertsona elkarri eskua ematen 6. mota eta bitarteko azal-tonua	none
+🧑🏿‍🤝‍🧑🏾	bi pertsona elkarri eskua ematen 6. mota eta 5. mota	none
+🧑🏿‍🤝‍🧑🏿	bi pertsona elkarri eskua ematen 6. mota	none
+👭🏻	bi emakume elkarri eskua ematen 1–2. mota	none
+👩🏼‍🤝‍👩🏻	bi emakume elkarri eskua ematen 3. mota eta 1–2. mota	none
+👭🏼	bi emakume elkarri eskua ematen 3. mota	none
+👩🏽‍🤝‍👩🏻	bi emakume elkarri eskua ematen bitarteko azal-tonua eta 1–2. mota	none
+👩🏽‍🤝‍👩🏼	bi emakume elkarri eskua ematen bitarteko azal-tonua eta 3. mota	none
+👭🏽	bi emakume elkarri eskua ematen bitarteko azal-tonua	none
+👩🏾‍🤝‍👩🏻	bi emakume elkarri eskua ematen 5. mota eta 1–2. mota	none
+👩🏾‍🤝‍👩🏼	bi emakume elkarri eskua ematen 5. mota eta 3. mota	none
+👩🏾‍🤝‍👩🏽	bi emakume elkarri eskua ematen 5. mota eta bitarteko azal-tonua	none
+👭🏾	bi emakume elkarri eskua ematen 5. mota	none
+👩🏿‍🤝‍👩🏻	bi emakume elkarri eskua ematen 6. mota eta 1–2. mota	none
+👩🏿‍🤝‍👩🏼	bi emakume elkarri eskua ematen 6. mota eta 3. mota	none
+👩🏿‍🤝‍👩🏽	bi emakume elkarri eskua ematen 6. mota eta bitarteko azal-tonua	none
+👩🏿‍🤝‍👩🏾	bi emakume elkarri eskua ematen 6. mota eta 5. mota	none
+👭🏿	bi emakume elkarri eskua ematen 6. mota	none
 👫🏻	gizon-emakumeak elkarri eskua ematen 1–2. mota	none
+👩🏻‍🤝‍👨🏼	gizon-emakumeak elkarri eskua ematen 1–2. mota eta 3. mota	none
+👩🏻‍🤝‍👨🏽	gizon-emakumeak elkarri eskua ematen 1–2. mota eta bitarteko azal-tonua	none
+👩🏻‍🤝‍👨🏾	gizon-emakumeak elkarri eskua ematen 1–2. mota eta 5. mota	none
+👩🏻‍🤝‍👨🏿	gizon-emakumeak elkarri eskua ematen 1–2. mota eta 6. mota	none
+👩🏼‍🤝‍👨🏻	gizon-emakumeak elkarri eskua ematen 3. mota eta 1–2. mota	none
 👫🏼	gizon-emakumeak elkarri eskua ematen 3. mota	none
+👩🏼‍🤝‍👨🏽	gizon-emakumeak elkarri eskua ematen 3. mota eta bitarteko azal-tonua	none
+👩🏼‍🤝‍👨🏾	gizon-emakumeak elkarri eskua ematen 3. mota eta 5. mota	none
+👩🏼‍🤝‍👨🏿	gizon-emakumeak elkarri eskua ematen 3. mota eta 6. mota	none
+👩🏽‍🤝‍👨🏻	gizon-emakumeak elkarri eskua ematen bitarteko azal-tonua eta 1–2. mota	none
+👩🏽‍🤝‍👨🏼	gizon-emakumeak elkarri eskua ematen bitarteko azal-tonua eta 3. mota	none
 👫🏽	gizon-emakumeak elkarri eskua ematen bitarteko azal-tonua	none
+👩🏽‍🤝‍👨🏾	gizon-emakumeak elkarri eskua ematen bitarteko azal-tonua eta 5. mota	none
+👩🏽‍🤝‍👨🏿	gizon-emakumeak elkarri eskua ematen bitarteko azal-tonua eta 6. mota	none
+👩🏾‍🤝‍👨🏻	gizon-emakumeak elkarri eskua ematen 5. mota eta 1–2. mota	none
+👩🏾‍🤝‍👨🏼	gizon-emakumeak elkarri eskua ematen 5. mota eta 3. mota	none
+👩🏾‍🤝‍👨🏽	gizon-emakumeak elkarri eskua ematen 5. mota eta bitarteko azal-tonua	none
 👫🏾	gizon-emakumeak elkarri eskua ematen 5. mota	none
+👩🏾‍🤝‍👨🏿	gizon-emakumeak elkarri eskua ematen 5. mota eta 6. mota	none
+👩🏿‍🤝‍👨🏻	gizon-emakumeak elkarri eskua ematen 6. mota eta 1–2. mota	none
+👩🏿‍🤝‍👨🏼	gizon-emakumeak elkarri eskua ematen 6. mota eta 3. mota	none
+👩🏿‍🤝‍👨🏽	gizon-emakumeak elkarri eskua ematen 6. mota eta bitarteko azal-tonua	none
+👩🏿‍🤝‍👨🏾	gizon-emakumeak elkarri eskua ematen 6. mota eta 5. mota	none
 👫🏿	gizon-emakumeak elkarri eskua ematen 6. mota	none
 👬🏻	bi gizon elkarri eskua ematen 1–2. mota	none
+👨🏼‍🤝‍👨🏻	bi gizon elkarri eskua ematen 3. mota eta 1–2. mota	none
 👬🏼	bi gizon elkarri eskua ematen 3. mota	none
+👨🏽‍🤝‍👨🏻	bi gizon elkarri eskua ematen bitarteko azal-tonua eta 1–2. mota	none
+👨🏽‍🤝‍👨🏼	bi gizon elkarri eskua ematen bitarteko azal-tonua eta 3. mota	none
 👬🏽	bi gizon elkarri eskua ematen bitarteko azal-tonua	none
+👨🏾‍🤝‍👨🏻	bi gizon elkarri eskua ematen 5. mota eta 1–2. mota	none
+👨🏾‍🤝‍👨🏼	bi gizon elkarri eskua ematen 5. mota eta 3. mota	none
+👨🏾‍🤝‍👨🏽	bi gizon elkarri eskua ematen 5. mota eta bitarteko azal-tonua	none
 👬🏾	bi gizon elkarri eskua ematen 5. mota	none
+👨🏿‍🤝‍👨🏻	bi gizon elkarri eskua ematen 6. mota eta 1–2. mota	none
+👨🏿‍🤝‍👨🏼	bi gizon elkarri eskua ematen 6. mota eta 3. mota	none
+👨🏿‍🤝‍👨🏽	bi gizon elkarri eskua ematen 6. mota eta bitarteko azal-tonua	none
+👨🏿‍🤝‍👨🏾	bi gizon elkarri eskua ematen 6. mota eta 5. mota	none
 👬🏿	bi gizon elkarri eskua ematen 6. mota	none
-👭🏻	bi emakume elkarri eskua ematen 1–2. mota	none
-👭🏼	bi emakume elkarri eskua ematen 3. mota	none
-👭🏽	bi emakume elkarri eskua ematen bitarteko azal-tonua	none
-👭🏾	bi emakume elkarri eskua ematen 5. mota	none
-👭🏿	bi emakume elkarri eskua ematen 6. mota	none
 👩‍❤‍💋‍👨	musu emakumea eta gizona	none
 👨‍❤‍💋‍👨	musu gizona eta gizona	none
 👩‍❤‍💋‍👩	musu emakumea eta emakumea	none
@@ -2900,7 +3095,7 @@ symbols:
 🇲🇫	bandera San Martin	none
 🇲🇬	bandera Madagaskar	none
 🇲🇭	bandera Marshall Uharteak	none
-🇲🇰	bandera Mazedonia	none
+🇲🇰	bandera Ipar Mazedonia	none
 🇲🇱	bandera Mali	none
 🇲🇲	bandera Myanmar (Birmania)	none
 🇲🇳	bandera Mongolia	none

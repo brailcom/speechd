@@ -3,7 +3,6 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
-🤍	weisses Herz	none
 😃	grinsendes Gesicht mit grossen Augen	none
 😅	Lachender Smiley mit kaltem Schweiss	none
 🤐	Smiley mit Reissverschlussmund	none
@@ -11,6 +10,7 @@ symbols:
 😰	Smiley mit offenem Mund und kaltem Schweiss	none
 😓	Smiley mit kaltem Schweiss	none
 👽	Ausserirdisches Wesen	none
+🤍	weisses Herz	none
 💥	Zusammenstoss	none
 💦	Schweisstropfen	none
 🖖	Vulkanischer Gruss	none
@@ -20,16 +20,18 @@ symbols:
 🚶	Fussgänger(in)	none
 🚶‍♂	Fussgänger	none
 🚶‍♀	Fussgängerin	none
+🧑‍🦯	Person mit Langstock	none
 👣	Fussabdrücke	none
 🦳	weisses Haar	none
 💐	Blumenstrauss	none
+🌶	Chili	none
 🍠	Geröstete Süsskartoffel	none
 ☕	Heissgetränk	none
 ♨	Heisse Quellen	none
-🌌	Milchstrasse	none
 🚃	Strassenbahnwagen	none
 🚊	Strassenbahn	none
 ⭐	weisser mittelgrosser Stern	none
+🌌	Milchstrasse	none
 🌥	Sonne hinter grosser Wolke	none
 ⚽	Fussball	none
 ⛑	Helm mit weissem Kreuz	none
@@ -56,10 +58,10 @@ symbols:
 🆚	Grossbuchstaben VS in orangefarbenem Quadrat	none
 🔴	Grosser roter Kreis	none
 🔵	Grosser blauer Kreis	none
-⚪	Grosser weisser Kreis	none
 ⚫	Grosser schwarzer Kreis	none
-⬜	Grosses weisses Quadrat	none
+⚪	Grosser weisser Kreis	none
 ⬛	Grosses schwarzes Quadrat	none
+⬜	Grosses weisses Quadrat	none
 ◼	Mittelgrosses schwarzes Quadrat	none
 ◻	Mittelgrosses weisses Quadrat	none
 ◽	Mittelkleines weisses Quadrat	none
@@ -68,6 +70,13 @@ symbols:
 🔷	Grosse blaue Raute	none
 🔳	Weisse quadratische Schaltfläche	none
 🏳	Wehende weisse Fahne	none
+🏳‍⚧	Transgenderflagge	none
+🛗	Lift	none
+🥸	Gesicht mit Maske	none
+🩴	Flipflops	none
+🪝	Haken	none
+🪠	Saugglocke	none
+🫑	Peperoni	none
 🖖🏻	Vulkanischer Gruss helle Hautfarbe	none
 🖖🏼	Vulkanischer Gruss mittelhelle Hautfarbe	none
 🖖🏽	Vulkanischer Gruss mittlere Hautfarbe	none
@@ -83,6 +92,12 @@ symbols:
 🦶🏽	Fuss mittlere Hautfarbe	none
 🦶🏾	Fuss mitteldunkle Hautfarbe	none
 🦶🏿	Fuss dunkle Hautfarbe	none
+🧑‍🦳	Erwachsener weisses Haar	none
+🧑🏻‍🦳	Erwachsener helle Hautfarbe, weisses Haar	none
+🧑🏼‍🦳	Erwachsener mittelhelle Hautfarbe, weisses Haar	none
+🧑🏽‍🦳	Erwachsener mittlere Hautfarbe, weisses Haar	none
+🧑🏾‍🦳	Erwachsener mitteldunkle Hautfarbe, weisses Haar	none
+🧑🏿‍🦳	Erwachsener dunkle Hautfarbe, weisses Haar	none
 👨‍🦳	Mann weisses Haar	none
 👨🏻‍🦳	Mann helle Hautfarbe, weisses Haar	none
 👨🏼‍🦳	Mann mittelhelle Hautfarbe, weisses Haar	none
@@ -110,6 +125,11 @@ symbols:
 🚶🏽‍♀	Fussgängerin mittlere Hautfarbe	none
 🚶🏾‍♀	Fussgängerin mitteldunkle Hautfarbe	none
 🚶🏿‍♀	Fussgängerin dunkle Hautfarbe	none
+🧑🏻‍🦯	Person mit Langstock helle Hautfarbe	none
+🧑🏼‍🦯	Person mit Langstock mittelhelle Hautfarbe	none
+🧑🏽‍🦯	Person mit Langstock mittlere Hautfarbe	none
+🧑🏾‍🦯	Person mit Langstock mitteldunkle Hautfarbe	none
+🧑🏿‍🦯	Person mit Langstock dunkle Hautfarbe	none
 🇧🇳	Flagge Brunei	none
 🇧🇼	Flagge Botswana	none
 🇧🇾	Flagge Weissrussland	none

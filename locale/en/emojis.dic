@@ -8,7 +8,7 @@ symbols:
 🏽	medium skin tone	none
 🏾	medium-dark skin tone	none
 🏿	dark skin tone	none
-🐾	paw prints	none
+⚧	transgender symbol	none
 😀	grinning face	none
 😃	grinning face with big eyes	none
 😄	grinning face with smiling eyes	none
@@ -94,6 +94,7 @@ symbols:
 😓	downcast face with sweat	none
 😩	weary face	none
 😫	tired face	none
+🥱	yawning face	none
 😤	face with steam from nose	none
 😡	pouting face	none
 😠	angry face	none
@@ -140,7 +141,9 @@ symbols:
 💚	green heart	none
 💙	blue heart	none
 💜	purple heart	none
+🤎	brown heart	none
 🖤	black heart	none
+🤍	white heart	none
 💯	hundred points	none
 💢	anger symbol	none
 💥	collision	none
@@ -161,6 +164,7 @@ symbols:
 ✋	raised hand	none
 🖖	vulcan salute	none
 👌	OK hand	none
+🤏	pinching hand	none
 ✌	victory hand	none
 🤞	crossed fingers	none
 🤟	love-you gesture	none
@@ -188,9 +192,12 @@ symbols:
 💅	nail polish	none
 🤳	selfie	none
 💪	flexed biceps	none
+🦾	mechanical arm	none
+🦿	mechanical leg	none
 🦵	leg	none
 🦶	foot	none
 👂	ear	none
+🦻	ear with hearing aid	none
 👃	nose	none
 🧠	brain	none
 🦷	tooth	none
@@ -205,17 +212,10 @@ symbols:
 👧	girl	none
 🧑	person	none
 👱	person blond hair	none
-🧑‍🤝‍🧑	people holding hands	none
 👨	man	none
-👨‍🦯	man with probing cane	none
-👨‍🦼	man in motorized wheelchair	none
-👨‍🦽	man in manual wheelchair	none
-👱‍♂	man blond hair	none
 🧔	man beard	none
+👱‍♂	man blond hair	none
 👩	woman	none
-👩‍🦯	woman with probing cane	none
-👩‍🦼	woman in motorized wheelchair	none
-👩‍🦽	woman in manual wheelchair	none
 👱‍♀	woman blond hair	none
 🧓	older person	none
 👴	old man	none
@@ -238,6 +238,9 @@ symbols:
 🙋	person raising hand	none
 🙋‍♂	man raising hand	none
 🙋‍♀	woman raising hand	none
+🧏	deaf person	none
+🧏‍♂	deaf man	none
+🧏‍♀	deaf woman	none
 🙇	person bowing	none
 🙇‍♂	man bowing	none
 🙇‍♀	woman bowing	none
@@ -247,36 +250,52 @@ symbols:
 🤷	person shrugging	none
 🤷‍♂	man shrugging	none
 🤷‍♀	woman shrugging	none
+🧑‍⚕	health worker	none
 👨‍⚕	man health worker	none
 👩‍⚕	woman health worker	none
+🧑‍🎓	student	none
 👨‍🎓	man student	none
 👩‍🎓	woman student	none
+🧑‍🏫	teacher	none
 👨‍🏫	man teacher	none
 👩‍🏫	woman teacher	none
+🧑‍⚖	judge	none
 👨‍⚖	man judge	none
 👩‍⚖	woman judge	none
+🧑‍🌾	farmer	none
 👨‍🌾	man farmer	none
 👩‍🌾	woman farmer	none
+🧑‍🍳	cook	none
 👨‍🍳	man cook	none
 👩‍🍳	woman cook	none
+🧑‍🔧	mechanic	none
 👨‍🔧	man mechanic	none
 👩‍🔧	woman mechanic	none
+🧑‍🏭	factory worker	none
 👨‍🏭	man factory worker	none
 👩‍🏭	woman factory worker	none
+🧑‍💼	office worker	none
 👨‍💼	man office worker	none
 👩‍💼	woman office worker	none
+🧑‍🔬	scientist	none
 👨‍🔬	man scientist	none
 👩‍🔬	woman scientist	none
+🧑‍💻	technologist	none
 👨‍💻	man technologist	none
 👩‍💻	woman technologist	none
+🧑‍🎤	singer	none
 👨‍🎤	man singer	none
 👩‍🎤	woman singer	none
+🧑‍🎨	artist	none
 👨‍🎨	man artist	none
 👩‍🎨	woman artist	none
+🧑‍✈	pilot	none
 👨‍✈	man pilot	none
 👩‍✈	woman pilot	none
+🧑‍🚀	astronaut	none
 👨‍🚀	man astronaut	none
 👩‍🚀	woman astronaut	none
+🧑‍🚒	firefighter	none
 👨‍🚒	man firefighter	none
 👩‍🚒	woman firefighter	none
 👮	police officer	none
@@ -296,7 +315,7 @@ symbols:
 👳	person wearing turban	none
 👳‍♂	man wearing turban	none
 👳‍♀	woman wearing turban	none
-👲	man with Chinese cap	none
+👲	man with skullcap	none
 🧕	woman with headscarf	none
 🤵	man in tuxedo	none
 👰	bride with veil	none
@@ -341,6 +360,21 @@ symbols:
 🚶	person walking	none
 🚶‍♂	man walking	none
 🚶‍♀	woman walking	none
+🧍	person standing	none
+🧍‍♂	man standing	none
+🧍‍♀	woman standing	none
+🧎	person kneeling	none
+🧎‍♂	man kneeling	none
+🧎‍♀	woman kneeling	none
+🧑‍🦯	person with probing cane	none
+👨‍🦯	man with probing cane	none
+👩‍🦯	woman with probing cane	none
+🧑‍🦼	person in motorized wheelchair	none
+👨‍🦼	man in motorized wheelchair	none
+👩‍🦼	woman in motorized wheelchair	none
+🧑‍🦽	person in manual wheelchair	none
+👨‍🦽	man in manual wheelchair	none
+👩‍🦽	woman in manual wheelchair	none
 🏃	person running	none
 🏃‍♂	man running	none
 🏃‍♀	woman running	none
@@ -404,9 +438,10 @@ symbols:
 🧘‍♀	woman in lotus position	none
 🛀	person taking bath	none
 🛌	person in bed	none
+🧑‍🤝‍🧑	people holding hands	none
+👭	women holding hands	none
 👫	woman and man holding hands	none
 👬	men holding hands	none
-👭	women holding hands	none
 💏	kiss	none
 💑	couple with heart	none
 👪	family	none
@@ -418,13 +453,13 @@ symbols:
 🦱	curly hair	none
 🦳	white hair	none
 🦲	bald	none
-♀	female sign	none
-♂	male sign	none
 🐵	monkey face	none
 🐒	monkey	none
 🦍	gorilla	none
+🦧	orangutan	none
 🐶	dog face	none
 🐕	dog	none
+🦮	guide dog	none
 🐕‍🦺	service dog	none
 🐩	poodle	none
 🐺	wolf	none
@@ -471,8 +506,12 @@ symbols:
 🐻	bear	none
 🐨	koala	none
 🐼	panda	none
+🦥	sloth	none
+🦦	otter	none
+🦨	skunk	none
 🦘	kangaroo	none
 🦡	badger	none
+🐾	paw prints	none
 🦃	turkey	none
 🐔	chicken	none
 🐓	rooster	none
@@ -486,6 +525,7 @@ symbols:
 🦆	duck	none
 🦢	swan	none
 🦉	owl	none
+🦩	flamingo	none
 🦚	peacock	none
 🦜	parrot	none
 🐸	frog	none
@@ -566,6 +606,8 @@ symbols:
 🥒	cucumber	none
 🥬	leafy green	none
 🥦	broccoli	none
+🧄	garlic	none
+🧅	onion	none
 🍄	mushroom	none
 🥜	peanuts	none
 🌰	chestnut	none
@@ -575,6 +617,7 @@ symbols:
 🥨	pretzel	none
 🥯	bagel	none
 🥞	pancakes	none
+🧇	waffle	none
 🧀	cheese wedge	none
 🍖	meat on bone	none
 🍗	poultry leg	none
@@ -588,6 +631,7 @@ symbols:
 🌮	taco	none
 🌯	burrito	none
 🥙	stuffed flatbread	none
+🧆	falafel	none
 🥚	egg	none
 🍳	cooking	none
 🥘	shallow pan of food	none
@@ -595,6 +639,7 @@ symbols:
 🥣	bowl with spoon	none
 🥗	green salad	none
 🍿	popcorn	none
+🧈	butter	none
 🧂	salt	none
 🥫	canned food	none
 🍱	bento box	none
@@ -618,6 +663,7 @@ symbols:
 🦞	lobster	none
 🦐	shrimp	none
 🦑	squid	none
+🦪	oyster	none
 🍦	soft ice cream	none
 🍧	shaved ice	none
 🍨	ice cream	none
@@ -646,6 +692,9 @@ symbols:
 🥂	clinking glasses	none
 🥃	tumbler glass	none
 🥤	cup with straw	none
+🧃	beverage box	none
+🧉	mate	none
+🧊	ice	none
 🥢	chopsticks	none
 🍽	fork and knife with plate	none
 🍴	fork and knife	none
@@ -694,6 +743,7 @@ symbols:
 🗽	Statue of Liberty	none
 ⛪	church	none
 🕌	mosque	none
+🛕	hindu temple	none
 🕍	synagogue	none
 ⛩	shinto shrine	none
 🕋	kaaba	none
@@ -708,7 +758,6 @@ symbols:
 🌇	sunset	none
 🌉	bridge at night	none
 ♨	hot springs	none
-🌌	milky way	none
 🎠	carousel horse	none
 🎡	ferris wheel	none
 🎢	roller coaster	none
@@ -745,6 +794,9 @@ symbols:
 🏎	racing car	none
 🏍	motorcycle	none
 🛵	motor scooter	none
+🦽	manual wheelchair	none
+🦼	motorized wheelchair	none
+🛺	auto rickshaw	none
 🚲	bicycle	none
 🛴	kick scooter	none
 🛹	skateboard	none
@@ -770,6 +822,7 @@ symbols:
 🛩	small airplane	none
 🛫	airplane departure	none
 🛬	airplane arrival	none
+🪂	parachute	none
 💺	seat	none
 🚁	helicopter	none
 🚟	suspension railway	none
@@ -827,9 +880,11 @@ symbols:
 ☀	sun	none
 🌝	full moon face	none
 🌞	sun with face	none
+🪐	ringed planet	none
 ⭐	star	none
 🌟	glowing star	none
 🌠	shooting star	none
+🌌	milky way	none
 ☁	cloud	none
 ⛅	sun behind cloud	none
 ⛈	cloud with lightning and rain	none
@@ -905,11 +960,14 @@ symbols:
 ⛳	flag in hole	none
 ⛸	ice skate	none
 🎣	fishing pole	none
+🤿	diving mask	none
 🎽	running shirt	none
 🎿	skis	none
 🛷	sled	none
 🥌	curling stone	none
 🎯	direct hit	none
+🪀	yo-yo	none
+🪁	kite	none
 🎱	pool 8 ball	none
 🔮	crystal ball	none
 🧿	nazar amulet	none
@@ -936,6 +994,7 @@ symbols:
 🕶	sunglasses	none
 🥽	goggles	none
 🥼	lab coat	none
+🦺	safety vest	none
 👔	necktie	none
 👕	t-shirt	none
 👖	jeans	none
@@ -945,6 +1004,10 @@ symbols:
 🧦	socks	none
 👗	dress	none
 👘	kimono	none
+🥻	sari	none
+🩱	one-piece swimsuit	none
+🩲	briefs	none
+🩳	shorts	none
 👙	bikini	none
 👚	woman’s clothes	none
 👛	purse	none
@@ -958,6 +1021,7 @@ symbols:
 🥿	flat shoe	none
 👠	high-heeled shoe	none
 👡	woman’s sandal	none
+🩰	ballet shoes	none
 👢	woman’s boot	none
 👑	crown	none
 👒	woman’s hat	none
@@ -992,6 +1056,7 @@ symbols:
 🎹	musical keyboard	none
 🎺	trumpet	none
 🎻	violin	none
+🪕	banjo	none
 🥁	drum	none
 📱	mobile phone	none
 📲	mobile phone with arrow	none
@@ -1001,7 +1066,7 @@ symbols:
 📠	fax machine	none
 🔋	battery	none
 🔌	electric plug	none
-💻	laptop computer	none
+💻	laptop	none
 🖥	desktop computer	none
 🖨	printer	none
 ⌨	keyboard	none
@@ -1027,6 +1092,7 @@ symbols:
 💡	light bulb	none
 🔦	flashlight	none
 🏮	red paper lantern	none
+🪔	diya lamp	none
 📔	notebook with decorative cover	none
 📕	closed book	none
 📖	open book	none
@@ -1105,6 +1171,7 @@ symbols:
 🔑	key	none
 🗝	old key	none
 🔨	hammer	none
+🪓	axe	none
 ⛏	pick	none
 ⚒	hammer and pick	none
 🛠	hammer and wrench	none
@@ -1118,6 +1185,7 @@ symbols:
 ⚙	gear	none
 🗜	clamp	none
 ⚖	balance scale	none
+🦯	probing cane	none
 🔗	link	none
 ⛓	chains	none
 🧰	toolbox	none
@@ -1130,13 +1198,18 @@ symbols:
 🔭	telescope	none
 📡	satellite antenna	none
 💉	syringe	none
+🩸	drop of blood	none
 💊	pill	none
+🩹	adhesive bandage	none
+🩺	stethoscope	none
 🚪	door	none
 🛏	bed	none
 🛋	couch and lamp	none
+🪑	chair	none
 🚽	toilet	none
 🚿	shower	none
 🛁	bathtub	none
+🪒	razor	none
 🧴	lotion bottle	none
 🧷	safety pin	none
 🧹	broom	none
@@ -1246,6 +1319,8 @@ symbols:
 📶	antenna bars	none
 📳	vibration mode	none
 📴	mobile phone off	none
+♀	female sign	none
+♂	male sign	none
 ⚕	medical symbol	none
 ♾	infinity	none
 ♻	recycling symbol	none
@@ -1319,17 +1394,29 @@ symbols:
 🈺	Japanese “open for business” button	none
 🈵	Japanese “no vacancy” button	none
 🔴	red circle	none
+🟠	orange circle	none
+🟡	yellow circle	none
+🟢	green circle	none
 🔵	blue circle	none
-⚪	white circle	none
+🟣	purple circle	none
+🟤	brown circle	none
 ⚫	black circle	none
-⬜	white large square	none
+⚪	white circle	none
+🟥	red square	none
+🟧	orange square	none
+🟨	yellow square	none
+🟩	green square	none
+🟦	blue square	none
+🟪	purple square	none
+🟫	brown square	none
 ⬛	black large square	none
+⬜	white large square	none
 ◼	black medium square	none
 ◻	white medium square	none
-◽	white medium-small square	none
 ◾	black medium-small square	none
-▫	white small square	none
+◽	white medium-small square	none
 ▪	black small square	none
+▫	white small square	none
 🔶	large orange diamond	none
 🔷	large blue diamond	none
 🔸	small orange diamond	none
@@ -1338,137 +1425,71 @@ symbols:
 🔻	red triangle pointed down	none
 💠	diamond with a dot	none
 🔘	radio button	none
-🔲	black square button	none
 🔳	white square button	none
+🔲	black square button	none
 🏁	chequered flag	none
 🚩	triangular flag	none
 🎌	crossed flags	none
 🏴	black flag	none
 🏳	white flag	none
+🏳‍⚧	transgender flag	none
 🏳‍🌈	rainbow flag	none
 🏴‍☠	pirate flag	none
-🛕	hindu temple	none
-🛺	auto rickshaw	none
-🟠	orange circle	none
-🟡	yellow circle	none
-🟢	green circle	none
-🟣	purple circle	none
-🟤	brown circle	none
-🟥	red square	none
-🟦	blue square	none
-🟧	orange square	none
-🟨	yellow square	none
-🟩	green square	none
-🟪	purple square	none
-🟫	brown square	none
-🤍	white heart	none
-🤎	brown heart	none
-🤏	pinching hand	none
-🤿	diving mask	none
-🥱	yawning face	none
-🥻	sari	none
-🦥	sloth	none
-🦦	otter	none
-🦧	orangutan	none
-🦨	skunk	none
-🦩	flamingo	none
-🦪	oyster	none
-🦮	guide dog	none
-🦯	probing cane	none
-🦺	safety vest	none
-🦻	ear with hearing aid	none
-🦼	motorized wheelchair	none
-🦽	manual wheelchair	none
-🦾	mechanical arm	none
-🦿	mechanical leg	none
-🧃	beverage box	none
-🧄	garlic	none
-🧅	onion	none
-🧆	falafel	none
-🧇	waffle	none
-🧈	butter	none
-🧉	mate	none
-🧊	ice	none
-🧍	person standing	none
-🧍‍♀	woman standing	none
-🧍‍♂	man standing	none
-🧎	person kneeling	none
-🧎‍♀	woman kneeling	none
-🧎‍♂	man kneeling	none
-🧏	deaf person	none
-🧏‍♀	deaf woman	none
-🧏‍♂	deaf man	none
-🩰	ballet shoes	none
-🩱	one-piece swimsuit	none
-🩲	briefs	none
-🩳	shorts	none
-🩸	drop of blood	none
-🩹	adhesive bandage	none
-🩺	stethoscope	none
-🪀	yo-yo	none
-🪁	kite	none
-🪂	parachute	none
-🪐	ringed planet	none
-🪑	chair	none
-🪒	razor	none
-🪓	axe	none
-🪔	diya lamp	none
-🪕	banjo	none
-🤏🏻	pinching hand light skin tone	none
-🤏🏼	pinching hand medium-light skin tone	none
-🤏🏽	pinching hand medium skin tone	none
-🤏🏾	pinching hand medium-dark skin tone	none
-🤏🏿	pinching hand dark skin tone	none
-🦻🏻	ear with hearing aid light skin tone	none
-🦻🏼	ear with hearing aid medium-light skin tone	none
-🦻🏽	ear with hearing aid medium skin tone	none
-🦻🏾	ear with hearing aid medium-dark skin tone	none
-🦻🏿	ear with hearing aid dark skin tone	none
-🧍🏻	person standing light skin tone	none
-🧍🏼	person standing medium-light skin tone	none
-🧍🏽	person standing medium skin tone	none
-🧍🏾	person standing medium-dark skin tone	none
-🧍🏿	person standing dark skin tone	none
-🧍🏻‍♀	woman standing light skin tone	none
-🧍🏼‍♀	woman standing medium-light skin tone	none
-🧍🏽‍♀	woman standing medium skin tone	none
-🧍🏾‍♀	woman standing medium-dark skin tone	none
-🧍🏿‍♀	woman standing dark skin tone	none
-🧍🏻‍♂	man standing light skin tone	none
-🧍🏼‍♂	man standing medium-light skin tone	none
-🧍🏽‍♂	man standing medium skin tone	none
-🧍🏾‍♂	man standing medium-dark skin tone	none
-🧍🏿‍♂	man standing dark skin tone	none
-🧎🏻	person kneeling light skin tone	none
-🧎🏼	person kneeling medium-light skin tone	none
-🧎🏽	person kneeling medium skin tone	none
-🧎🏾	person kneeling medium-dark skin tone	none
-🧎🏿	person kneeling dark skin tone	none
-🧎🏻‍♀	woman kneeling light skin tone	none
-🧎🏼‍♀	woman kneeling medium-light skin tone	none
-🧎🏽‍♀	woman kneeling medium skin tone	none
-🧎🏾‍♀	woman kneeling medium-dark skin tone	none
-🧎🏿‍♀	woman kneeling dark skin tone	none
-🧎🏻‍♂	man kneeling light skin tone	none
-🧎🏼‍♂	man kneeling medium-light skin tone	none
-🧎🏽‍♂	man kneeling medium skin tone	none
-🧎🏾‍♂	man kneeling medium-dark skin tone	none
-🧎🏿‍♂	man kneeling dark skin tone	none
-🧏🏻	deaf person light skin tone	none
-🧏🏼	deaf person medium-light skin tone	none
-🧏🏽	deaf person medium skin tone	none
-🧏🏾	deaf person medium-dark skin tone	none
-🧏🏿	deaf person dark skin tone	none
-🧏🏻‍♀	deaf woman light skin tone	none
-🧏🏼‍♀	deaf woman medium-light skin tone	none
-🧏🏽‍♀	deaf woman medium skin tone	none
-🧏🏾‍♀	deaf woman medium-dark skin tone	none
-🧏🏿‍♀	deaf woman dark skin tone	none
-🧏🏻‍♂	deaf man light skin tone	none
-🧏🏼‍♂	deaf man medium-light skin tone	none
-🧏🏽‍♂	deaf man medium skin tone	none
-🧏🏾‍♂	deaf man medium-dark skin tone	none
-🧏🏿‍♂	deaf man dark skin tone	none
+🛖	hut	none
+🛗	elevator	none
+🛻	pickup truck	none
+🛼	roller skate	none
+🤌	pinched fingers	none
+🥲	smiling face with tear	none
+🥷	ninja	none
+🥸	disguised face	none
+🦣	mammoth	none
+🦤	dodo	none
+🦫	beaver	none
+🦬	bison	none
+🦭	seal	none
+🧋	bubble tea	none
+🩴	thong sandal	none
+🪃	boomerang	none
+🪄	magic wand	none
+🪅	piñata	none
+🪆	nesting dolls	none
+🪖	military helmet	none
+🪗	accordion	none
+🪘	long drum	none
+🪙	coin	none
+🪚	carpentry saw	none
+🪛	screwdriver	none
+🪜	ladder	none
+🪝	hook	none
+🪞	mirror	none
+🪟	window	none
+🪠	plunger	none
+🪡	sewing needle	none
+🪢	knot	none
+🪣	bucket	none
+🪤	mouse trap	none
+🪥	toothbrush	none
+🪦	headstone	none
+🪧	placard	none
+🪨	rock	none
+🪰	fly	none
+🪱	worm	none
+🪲	beetle	none
+🪳	cockroach	none
+🪴	potted plant	none
+🪵	wood	none
+🪶	feather	none
+🫀	anatomical heart	none
+🫁	lungs	none
+🫂	people hugging	none
+🫐	blueberries	none
+🫑	bell pepper	none
+🫒	olive	none
+🫓	flatbread	none
+🫔	tamale	none
+🫕	fondue	none
+🫖	teapot	none
 👋🏻	waving hand light skin tone	none
 👋🏼	waving hand medium-light skin tone	none
 👋🏽	waving hand medium skin tone	none
@@ -1499,6 +1520,11 @@ symbols:
 👌🏽	OK hand medium skin tone	none
 👌🏾	OK hand medium-dark skin tone	none
 👌🏿	OK hand dark skin tone	none
+🤏🏻	pinching hand light skin tone	none
+🤏🏼	pinching hand medium-light skin tone	none
+🤏🏽	pinching hand medium skin tone	none
+🤏🏾	pinching hand medium-dark skin tone	none
+🤏🏿	pinching hand dark skin tone	none
 ✌🏻	victory hand light skin tone	none
 ✌🏼	victory hand medium-light skin tone	none
 ✌🏽	victory hand medium skin tone	none
@@ -1644,6 +1670,11 @@ symbols:
 👂🏽	ear medium skin tone	none
 👂🏾	ear medium-dark skin tone	none
 👂🏿	ear dark skin tone	none
+🦻🏻	ear with hearing aid light skin tone	none
+🦻🏼	ear with hearing aid medium-light skin tone	none
+🦻🏽	ear with hearing aid medium skin tone	none
+🦻🏾	ear with hearing aid medium-dark skin tone	none
+🦻🏿	ear with hearing aid dark skin tone	none
 👃🏻	nose light skin tone	none
 👃🏼	nose medium-light skin tone	none
 👃🏽	nose medium skin tone	none
@@ -1679,51 +1710,45 @@ symbols:
 👱🏽	person medium skin tone, blond hair	none
 👱🏾	person medium-dark skin tone, blond hair	none
 👱🏿	person dark skin tone, blond hair	none
-🧑🏻‍🤝‍🧑🏻	people holding hands light skin tone	none
-🧑🏼‍🤝‍🧑🏻	people holding hands medium-light skin tone, light skin tone	none
-🧑🏼‍🤝‍🧑🏼	people holding hands medium-light skin tone	none
-🧑🏽‍🤝‍🧑🏻	people holding hands medium skin tone, light skin tone	none
-🧑🏽‍🤝‍🧑🏼	people holding hands medium skin tone, medium-light skin tone	none
-🧑🏽‍🤝‍🧑🏽	people holding hands medium skin tone	none
-🧑🏾‍🤝‍🧑🏻	people holding hands medium-dark skin tone, light skin tone	none
-🧑🏾‍🤝‍🧑🏼	people holding hands medium-dark skin tone, medium-light skin tone	none
-🧑🏾‍🤝‍🧑🏽	people holding hands medium-dark skin tone, medium skin tone	none
-🧑🏾‍🤝‍🧑🏾	people holding hands medium-dark skin tone	none
-🧑🏿‍🤝‍🧑🏻	people holding hands dark skin tone, light skin tone	none
-🧑🏿‍🤝‍🧑🏼	people holding hands dark skin tone, medium-light skin tone	none
-🧑🏿‍🤝‍🧑🏽	people holding hands dark skin tone, medium skin tone	none
-🧑🏿‍🤝‍🧑🏾	people holding hands dark skin tone, medium-dark skin tone	none
-🧑🏿‍🤝‍🧑🏿	people holding hands dark skin tone	none
+🧑‍🦰	person red hair	none
+🧑🏻‍🦰	person light skin tone, red hair	none
+🧑🏼‍🦰	person medium-light skin tone, red hair	none
+🧑🏽‍🦰	person medium skin tone, red hair	none
+🧑🏾‍🦰	person medium-dark skin tone, red hair	none
+🧑🏿‍🦰	person dark skin tone, red hair	none
+🧑‍🦱	person curly hair	none
+🧑🏻‍🦱	person light skin tone, curly hair	none
+🧑🏼‍🦱	person medium-light skin tone, curly hair	none
+🧑🏽‍🦱	person medium skin tone, curly hair	none
+🧑🏾‍🦱	person medium-dark skin tone, curly hair	none
+🧑🏿‍🦱	person dark skin tone, curly hair	none
+🧑‍🦳	person white hair	none
+🧑🏻‍🦳	person light skin tone, white hair	none
+🧑🏼‍🦳	person medium-light skin tone, white hair	none
+🧑🏽‍🦳	person medium skin tone, white hair	none
+🧑🏾‍🦳	person medium-dark skin tone, white hair	none
+🧑🏿‍🦳	person dark skin tone, white hair	none
+🧑‍🦲	person bald	none
+🧑🏻‍🦲	person light skin tone, bald	none
+🧑🏼‍🦲	person medium-light skin tone, bald	none
+🧑🏽‍🦲	person medium skin tone, bald	none
+🧑🏾‍🦲	person medium-dark skin tone, bald	none
+🧑🏿‍🦲	person dark skin tone, bald	none
 👨🏻	man light skin tone	none
 👨🏼	man medium-light skin tone	none
 👨🏽	man medium skin tone	none
 👨🏾	man medium-dark skin tone	none
 👨🏿	man dark skin tone	none
-👨🏻‍🦯	man with probing cane light skin tone	none
-👨🏼‍🦯	man with probing cane medium-light skin tone	none
-👨🏽‍🦯	man with probing cane medium skin tone	none
-👨🏾‍🦯	man with probing cane medium-dark skin tone	none
-👨🏿‍🦯	man with probing cane dark skin tone	none
-👨🏻‍🦼	man in motorized wheelchair light skin tone	none
-👨🏼‍🦼	man in motorized wheelchair medium-light skin tone	none
-👨🏽‍🦼	man in motorized wheelchair medium skin tone	none
-👨🏾‍🦼	man in motorized wheelchair medium-dark skin tone	none
-👨🏿‍🦼	man in motorized wheelchair dark skin tone	none
-👨🏻‍🦽	man in manual wheelchair light skin tone	none
-👨🏼‍🦽	man in manual wheelchair medium-light skin tone	none
-👨🏽‍🦽	man in manual wheelchair medium skin tone	none
-👨🏾‍🦽	man in manual wheelchair medium-dark skin tone	none
-👨🏿‍🦽	man in manual wheelchair dark skin tone	none
-👨🏼‍🤝‍👨🏻	men holding hands medium-light skin tone, light skin tone	none
-👨🏽‍🤝‍👨🏻	men holding hands medium skin tone, light skin tone	none
-👨🏽‍🤝‍👨🏼	men holding hands medium skin tone, medium-light skin tone	none
-👨🏾‍🤝‍👨🏻	men holding hands medium-dark skin tone, light skin tone	none
-👨🏾‍🤝‍👨🏼	men holding hands medium-dark skin tone, medium-light skin tone	none
-👨🏾‍🤝‍👨🏽	men holding hands medium-dark skin tone, medium skin tone	none
-👨🏿‍🤝‍👨🏻	men holding hands dark skin tone, light skin tone	none
-👨🏿‍🤝‍👨🏼	men holding hands dark skin tone, medium-light skin tone	none
-👨🏿‍🤝‍👨🏽	men holding hands dark skin tone, medium skin tone	none
-👨🏿‍🤝‍👨🏾	men holding hands dark skin tone, medium-dark skin tone	none
+🧔🏻	man light skin tone, beard	none
+🧔🏼	man medium-light skin tone, beard	none
+🧔🏽	man medium skin tone, beard	none
+🧔🏾	man medium-dark skin tone, beard	none
+🧔🏿	man dark skin tone, beard	none
+👱🏻‍♂	man light skin tone, blond hair	none
+👱🏼‍♂	man medium-light skin tone, blond hair	none
+👱🏽‍♂	man medium skin tone, blond hair	none
+👱🏾‍♂	man medium-dark skin tone, blond hair	none
+👱🏿‍♂	man dark skin tone, blond hair	none
 👨‍🦰	man red hair	none
 👨🏻‍🦰	man light skin tone, red hair	none
 👨🏼‍🦰	man medium-light skin tone, red hair	none
@@ -1748,66 +1773,16 @@ symbols:
 👨🏽‍🦲	man medium skin tone, bald	none
 👨🏾‍🦲	man medium-dark skin tone, bald	none
 👨🏿‍🦲	man dark skin tone, bald	none
-👱🏻‍♂	man light skin tone, blond hair	none
-👱🏼‍♂	man medium-light skin tone, blond hair	none
-👱🏽‍♂	man medium skin tone, blond hair	none
-👱🏾‍♂	man medium-dark skin tone, blond hair	none
-👱🏿‍♂	man dark skin tone, blond hair	none
-🧔🏻	man light skin tone, beard	none
-🧔🏼	man medium-light skin tone, beard	none
-🧔🏽	man medium skin tone, beard	none
-🧔🏾	man medium-dark skin tone, beard	none
-🧔🏿	man dark skin tone, beard	none
 👩🏻	woman light skin tone	none
 👩🏼	woman medium-light skin tone	none
 👩🏽	woman medium skin tone	none
 👩🏾	woman medium-dark skin tone	none
 👩🏿	woman dark skin tone	none
-👩🏻‍🦯	woman with probing cane light skin tone	none
-👩🏼‍🦯	woman with probing cane medium-light skin tone	none
-👩🏽‍🦯	woman with probing cane medium skin tone	none
-👩🏾‍🦯	woman with probing cane medium-dark skin tone	none
-👩🏿‍🦯	woman with probing cane dark skin tone	none
-👩🏻‍🦼	woman in motorized wheelchair light skin tone	none
-👩🏼‍🦼	woman in motorized wheelchair medium-light skin tone	none
-👩🏽‍🦼	woman in motorized wheelchair medium skin tone	none
-👩🏾‍🦼	woman in motorized wheelchair medium-dark skin tone	none
-👩🏿‍🦼	woman in motorized wheelchair dark skin tone	none
-👩🏻‍🦽	woman in manual wheelchair light skin tone	none
-👩🏼‍🦽	woman in manual wheelchair medium-light skin tone	none
-👩🏽‍🦽	woman in manual wheelchair medium skin tone	none
-👩🏾‍🦽	woman in manual wheelchair medium-dark skin tone	none
-👩🏿‍🦽	woman in manual wheelchair dark skin tone	none
-👩🏻‍🤝‍👨🏼	woman and man holding hands light skin tone, medium-light skin tone	none
-👩🏻‍🤝‍👨🏽	woman and man holding hands light skin tone, medium skin tone	none
-👩🏻‍🤝‍👨🏾	woman and man holding hands light skin tone, medium-dark skin tone	none
-👩🏻‍🤝‍👨🏿	woman and man holding hands light skin tone, dark skin tone	none
-👩🏼‍🤝‍👨🏻	woman and man holding hands medium-light skin tone, light skin tone	none
-👩🏼‍🤝‍👨🏽	woman and man holding hands medium-light skin tone, medium skin tone	none
-👩🏼‍🤝‍👨🏾	woman and man holding hands medium-light skin tone, medium-dark skin tone	none
-👩🏼‍🤝‍👨🏿	woman and man holding hands medium-light skin tone, dark skin tone	none
-👩🏽‍🤝‍👨🏻	woman and man holding hands medium skin tone, light skin tone	none
-👩🏽‍🤝‍👨🏼	woman and man holding hands medium skin tone, medium-light skin tone	none
-👩🏽‍🤝‍👨🏾	woman and man holding hands medium skin tone, medium-dark skin tone	none
-👩🏽‍🤝‍👨🏿	woman and man holding hands medium skin tone, dark skin tone	none
-👩🏾‍🤝‍👨🏻	woman and man holding hands medium-dark skin tone, light skin tone	none
-👩🏾‍🤝‍👨🏼	woman and man holding hands medium-dark skin tone, medium-light skin tone	none
-👩🏾‍🤝‍👨🏽	woman and man holding hands medium-dark skin tone, medium skin tone	none
-👩🏾‍🤝‍👨🏿	woman and man holding hands medium-dark skin tone, dark skin tone	none
-👩🏿‍🤝‍👨🏻	woman and man holding hands dark skin tone, light skin tone	none
-👩🏿‍🤝‍👨🏼	woman and man holding hands dark skin tone, medium-light skin tone	none
-👩🏿‍🤝‍👨🏽	woman and man holding hands dark skin tone, medium skin tone	none
-👩🏿‍🤝‍👨🏾	woman and man holding hands dark skin tone, medium-dark skin tone	none
-👩🏼‍🤝‍👩🏻	women holding hands medium-light skin tone, light skin tone	none
-👩🏽‍🤝‍👩🏻	women holding hands medium skin tone, light skin tone	none
-👩🏽‍🤝‍👩🏼	women holding hands medium skin tone, medium-light skin tone	none
-👩🏾‍🤝‍👩🏻	women holding hands medium-dark skin tone, light skin tone	none
-👩🏾‍🤝‍👩🏼	women holding hands medium-dark skin tone, medium-light skin tone	none
-👩🏾‍🤝‍👩🏽	women holding hands medium-dark skin tone, medium skin tone	none
-👩🏿‍🤝‍👩🏻	women holding hands dark skin tone, light skin tone	none
-👩🏿‍🤝‍👩🏼	women holding hands dark skin tone, medium-light skin tone	none
-👩🏿‍🤝‍👩🏽	women holding hands dark skin tone, medium skin tone	none
-👩🏿‍🤝‍👩🏾	women holding hands dark skin tone, medium-dark skin tone	none
+👱🏻‍♀	woman light skin tone, blond hair	none
+👱🏼‍♀	woman medium-light skin tone, blond hair	none
+👱🏽‍♀	woman medium skin tone, blond hair	none
+👱🏾‍♀	woman medium-dark skin tone, blond hair	none
+👱🏿‍♀	woman dark skin tone, blond hair	none
 👩‍🦰	woman red hair	none
 👩🏻‍🦰	woman light skin tone, red hair	none
 👩🏼‍🦰	woman medium-light skin tone, red hair	none
@@ -1832,11 +1807,6 @@ symbols:
 👩🏽‍🦲	woman medium skin tone, bald	none
 👩🏾‍🦲	woman medium-dark skin tone, bald	none
 👩🏿‍🦲	woman dark skin tone, bald	none
-👱🏻‍♀	woman light skin tone, blond hair	none
-👱🏼‍♀	woman medium-light skin tone, blond hair	none
-👱🏽‍♀	woman medium skin tone, blond hair	none
-👱🏾‍♀	woman medium-dark skin tone, blond hair	none
-👱🏿‍♀	woman dark skin tone, blond hair	none
 🧓🏻	older person light skin tone	none
 🧓🏼	older person medium-light skin tone	none
 🧓🏽	older person medium skin tone	none
@@ -1942,6 +1912,21 @@ symbols:
 🙋🏽‍♀	woman raising hand medium skin tone	none
 🙋🏾‍♀	woman raising hand medium-dark skin tone	none
 🙋🏿‍♀	woman raising hand dark skin tone	none
+🧏🏻	deaf person light skin tone	none
+🧏🏼	deaf person medium-light skin tone	none
+🧏🏽	deaf person medium skin tone	none
+🧏🏾	deaf person medium-dark skin tone	none
+🧏🏿	deaf person dark skin tone	none
+🧏🏻‍♂	deaf man light skin tone	none
+🧏🏼‍♂	deaf man medium-light skin tone	none
+🧏🏽‍♂	deaf man medium skin tone	none
+🧏🏾‍♂	deaf man medium-dark skin tone	none
+🧏🏿‍♂	deaf man dark skin tone	none
+🧏🏻‍♀	deaf woman light skin tone	none
+🧏🏼‍♀	deaf woman medium-light skin tone	none
+🧏🏽‍♀	deaf woman medium skin tone	none
+🧏🏾‍♀	deaf woman medium-dark skin tone	none
+🧏🏿‍♀	deaf woman dark skin tone	none
 🙇🏻	person bowing light skin tone	none
 🙇🏼	person bowing medium-light skin tone	none
 🙇🏽	person bowing medium skin tone	none
@@ -1987,6 +1972,11 @@ symbols:
 🤷🏽‍♀	woman shrugging medium skin tone	none
 🤷🏾‍♀	woman shrugging medium-dark skin tone	none
 🤷🏿‍♀	woman shrugging dark skin tone	none
+🧑🏻‍⚕	health worker light skin tone	none
+🧑🏼‍⚕	health worker medium-light skin tone	none
+🧑🏽‍⚕	health worker medium skin tone	none
+🧑🏾‍⚕	health worker medium-dark skin tone	none
+🧑🏿‍⚕	health worker dark skin tone	none
 👨🏻‍⚕	man health worker light skin tone	none
 👨🏼‍⚕	man health worker medium-light skin tone	none
 👨🏽‍⚕	man health worker medium skin tone	none
@@ -1997,6 +1987,11 @@ symbols:
 👩🏽‍⚕	woman health worker medium skin tone	none
 👩🏾‍⚕	woman health worker medium-dark skin tone	none
 👩🏿‍⚕	woman health worker dark skin tone	none
+🧑🏻‍🎓	student light skin tone	none
+🧑🏼‍🎓	student medium-light skin tone	none
+🧑🏽‍🎓	student medium skin tone	none
+🧑🏾‍🎓	student medium-dark skin tone	none
+🧑🏿‍🎓	student dark skin tone	none
 👨🏻‍🎓	man student light skin tone	none
 👨🏼‍🎓	man student medium-light skin tone	none
 👨🏽‍🎓	man student medium skin tone	none
@@ -2007,6 +2002,11 @@ symbols:
 👩🏽‍🎓	woman student medium skin tone	none
 👩🏾‍🎓	woman student medium-dark skin tone	none
 👩🏿‍🎓	woman student dark skin tone	none
+🧑🏻‍🏫	teacher light skin tone	none
+🧑🏼‍🏫	teacher medium-light skin tone	none
+🧑🏽‍🏫	teacher medium skin tone	none
+🧑🏾‍🏫	teacher medium-dark skin tone	none
+🧑🏿‍🏫	teacher dark skin tone	none
 👨🏻‍🏫	man teacher light skin tone	none
 👨🏼‍🏫	man teacher medium-light skin tone	none
 👨🏽‍🏫	man teacher medium skin tone	none
@@ -2017,6 +2017,11 @@ symbols:
 👩🏽‍🏫	woman teacher medium skin tone	none
 👩🏾‍🏫	woman teacher medium-dark skin tone	none
 👩🏿‍🏫	woman teacher dark skin tone	none
+🧑🏻‍⚖	judge light skin tone	none
+🧑🏼‍⚖	judge medium-light skin tone	none
+🧑🏽‍⚖	judge medium skin tone	none
+🧑🏾‍⚖	judge medium-dark skin tone	none
+🧑🏿‍⚖	judge dark skin tone	none
 👨🏻‍⚖	man judge light skin tone	none
 👨🏼‍⚖	man judge medium-light skin tone	none
 👨🏽‍⚖	man judge medium skin tone	none
@@ -2027,6 +2032,11 @@ symbols:
 👩🏽‍⚖	woman judge medium skin tone	none
 👩🏾‍⚖	woman judge medium-dark skin tone	none
 👩🏿‍⚖	woman judge dark skin tone	none
+🧑🏻‍🌾	farmer light skin tone	none
+🧑🏼‍🌾	farmer medium-light skin tone	none
+🧑🏽‍🌾	farmer medium skin tone	none
+🧑🏾‍🌾	farmer medium-dark skin tone	none
+🧑🏿‍🌾	farmer dark skin tone	none
 👨🏻‍🌾	man farmer light skin tone	none
 👨🏼‍🌾	man farmer medium-light skin tone	none
 👨🏽‍🌾	man farmer medium skin tone	none
@@ -2037,6 +2047,11 @@ symbols:
 👩🏽‍🌾	woman farmer medium skin tone	none
 👩🏾‍🌾	woman farmer medium-dark skin tone	none
 👩🏿‍🌾	woman farmer dark skin tone	none
+🧑🏻‍🍳	cook light skin tone	none
+🧑🏼‍🍳	cook medium-light skin tone	none
+🧑🏽‍🍳	cook medium skin tone	none
+🧑🏾‍🍳	cook medium-dark skin tone	none
+🧑🏿‍🍳	cook dark skin tone	none
 👨🏻‍🍳	man cook light skin tone	none
 👨🏼‍🍳	man cook medium-light skin tone	none
 👨🏽‍🍳	man cook medium skin tone	none
@@ -2047,6 +2062,11 @@ symbols:
 👩🏽‍🍳	woman cook medium skin tone	none
 👩🏾‍🍳	woman cook medium-dark skin tone	none
 👩🏿‍🍳	woman cook dark skin tone	none
+🧑🏻‍🔧	mechanic light skin tone	none
+🧑🏼‍🔧	mechanic medium-light skin tone	none
+🧑🏽‍🔧	mechanic medium skin tone	none
+🧑🏾‍🔧	mechanic medium-dark skin tone	none
+🧑🏿‍🔧	mechanic dark skin tone	none
 👨🏻‍🔧	man mechanic light skin tone	none
 👨🏼‍🔧	man mechanic medium-light skin tone	none
 👨🏽‍🔧	man mechanic medium skin tone	none
@@ -2057,6 +2077,11 @@ symbols:
 👩🏽‍🔧	woman mechanic medium skin tone	none
 👩🏾‍🔧	woman mechanic medium-dark skin tone	none
 👩🏿‍🔧	woman mechanic dark skin tone	none
+🧑🏻‍🏭	factory worker light skin tone	none
+🧑🏼‍🏭	factory worker medium-light skin tone	none
+🧑🏽‍🏭	factory worker medium skin tone	none
+🧑🏾‍🏭	factory worker medium-dark skin tone	none
+🧑🏿‍🏭	factory worker dark skin tone	none
 👨🏻‍🏭	man factory worker light skin tone	none
 👨🏼‍🏭	man factory worker medium-light skin tone	none
 👨🏽‍🏭	man factory worker medium skin tone	none
@@ -2067,6 +2092,11 @@ symbols:
 👩🏽‍🏭	woman factory worker medium skin tone	none
 👩🏾‍🏭	woman factory worker medium-dark skin tone	none
 👩🏿‍🏭	woman factory worker dark skin tone	none
+🧑🏻‍💼	office worker light skin tone	none
+🧑🏼‍💼	office worker medium-light skin tone	none
+🧑🏽‍💼	office worker medium skin tone	none
+🧑🏾‍💼	office worker medium-dark skin tone	none
+🧑🏿‍💼	office worker dark skin tone	none
 👨🏻‍💼	man office worker light skin tone	none
 👨🏼‍💼	man office worker medium-light skin tone	none
 👨🏽‍💼	man office worker medium skin tone	none
@@ -2077,6 +2107,11 @@ symbols:
 👩🏽‍💼	woman office worker medium skin tone	none
 👩🏾‍💼	woman office worker medium-dark skin tone	none
 👩🏿‍💼	woman office worker dark skin tone	none
+🧑🏻‍🔬	scientist light skin tone	none
+🧑🏼‍🔬	scientist medium-light skin tone	none
+🧑🏽‍🔬	scientist medium skin tone	none
+🧑🏾‍🔬	scientist medium-dark skin tone	none
+🧑🏿‍🔬	scientist dark skin tone	none
 👨🏻‍🔬	man scientist light skin tone	none
 👨🏼‍🔬	man scientist medium-light skin tone	none
 👨🏽‍🔬	man scientist medium skin tone	none
@@ -2087,6 +2122,11 @@ symbols:
 👩🏽‍🔬	woman scientist medium skin tone	none
 👩🏾‍🔬	woman scientist medium-dark skin tone	none
 👩🏿‍🔬	woman scientist dark skin tone	none
+🧑🏻‍💻	technologist light skin tone	none
+🧑🏼‍💻	technologist medium-light skin tone	none
+🧑🏽‍💻	technologist medium skin tone	none
+🧑🏾‍💻	technologist medium-dark skin tone	none
+🧑🏿‍💻	technologist dark skin tone	none
 👨🏻‍💻	man technologist light skin tone	none
 👨🏼‍💻	man technologist medium-light skin tone	none
 👨🏽‍💻	man technologist medium skin tone	none
@@ -2097,6 +2137,11 @@ symbols:
 👩🏽‍💻	woman technologist medium skin tone	none
 👩🏾‍💻	woman technologist medium-dark skin tone	none
 👩🏿‍💻	woman technologist dark skin tone	none
+🧑🏻‍🎤	singer light skin tone	none
+🧑🏼‍🎤	singer medium-light skin tone	none
+🧑🏽‍🎤	singer medium skin tone	none
+🧑🏾‍🎤	singer medium-dark skin tone	none
+🧑🏿‍🎤	singer dark skin tone	none
 👨🏻‍🎤	man singer light skin tone	none
 👨🏼‍🎤	man singer medium-light skin tone	none
 👨🏽‍🎤	man singer medium skin tone	none
@@ -2107,6 +2152,11 @@ symbols:
 👩🏽‍🎤	woman singer medium skin tone	none
 👩🏾‍🎤	woman singer medium-dark skin tone	none
 👩🏿‍🎤	woman singer dark skin tone	none
+🧑🏻‍🎨	artist light skin tone	none
+🧑🏼‍🎨	artist medium-light skin tone	none
+🧑🏽‍🎨	artist medium skin tone	none
+🧑🏾‍🎨	artist medium-dark skin tone	none
+🧑🏿‍🎨	artist dark skin tone	none
 👨🏻‍🎨	man artist light skin tone	none
 👨🏼‍🎨	man artist medium-light skin tone	none
 👨🏽‍🎨	man artist medium skin tone	none
@@ -2117,6 +2167,11 @@ symbols:
 👩🏽‍🎨	woman artist medium skin tone	none
 👩🏾‍🎨	woman artist medium-dark skin tone	none
 👩🏿‍🎨	woman artist dark skin tone	none
+🧑🏻‍✈	pilot light skin tone	none
+🧑🏼‍✈	pilot medium-light skin tone	none
+🧑🏽‍✈	pilot medium skin tone	none
+🧑🏾‍✈	pilot medium-dark skin tone	none
+🧑🏿‍✈	pilot dark skin tone	none
 👨🏻‍✈	man pilot light skin tone	none
 👨🏼‍✈	man pilot medium-light skin tone	none
 👨🏽‍✈	man pilot medium skin tone	none
@@ -2127,6 +2182,11 @@ symbols:
 👩🏽‍✈	woman pilot medium skin tone	none
 👩🏾‍✈	woman pilot medium-dark skin tone	none
 👩🏿‍✈	woman pilot dark skin tone	none
+🧑🏻‍🚀	astronaut light skin tone	none
+🧑🏼‍🚀	astronaut medium-light skin tone	none
+🧑🏽‍🚀	astronaut medium skin tone	none
+🧑🏾‍🚀	astronaut medium-dark skin tone	none
+🧑🏿‍🚀	astronaut dark skin tone	none
 👨🏻‍🚀	man astronaut light skin tone	none
 👨🏼‍🚀	man astronaut medium-light skin tone	none
 👨🏽‍🚀	man astronaut medium skin tone	none
@@ -2137,6 +2197,11 @@ symbols:
 👩🏽‍🚀	woman astronaut medium skin tone	none
 👩🏾‍🚀	woman astronaut medium-dark skin tone	none
 👩🏿‍🚀	woman astronaut dark skin tone	none
+🧑🏻‍🚒	firefighter light skin tone	none
+🧑🏼‍🚒	firefighter medium-light skin tone	none
+🧑🏽‍🚒	firefighter medium skin tone	none
+🧑🏾‍🚒	firefighter medium-dark skin tone	none
+🧑🏿‍🚒	firefighter dark skin tone	none
 👨🏻‍🚒	man firefighter light skin tone	none
 👨🏼‍🚒	man firefighter medium-light skin tone	none
 👨🏽‍🚒	man firefighter medium skin tone	none
@@ -2232,11 +2297,11 @@ symbols:
 👳🏽‍♀	woman wearing turban medium skin tone	none
 👳🏾‍♀	woman wearing turban medium-dark skin tone	none
 👳🏿‍♀	woman wearing turban dark skin tone	none
-👲🏻	man with Chinese cap light skin tone	none
-👲🏼	man with Chinese cap medium-light skin tone	none
-👲🏽	man with Chinese cap medium skin tone	none
-👲🏾	man with Chinese cap medium-dark skin tone	none
-👲🏿	man with Chinese cap dark skin tone	none
+👲🏻	man with skullcap light skin tone	none
+👲🏼	man with skullcap medium-light skin tone	none
+👲🏽	man with skullcap medium skin tone	none
+👲🏾	man with skullcap medium-dark skin tone	none
+👲🏿	man with skullcap dark skin tone	none
 🧕🏻	woman with headscarf light skin tone	none
 🧕🏼	woman with headscarf medium-light skin tone	none
 🧕🏽	woman with headscarf medium skin tone	none
@@ -2427,6 +2492,81 @@ symbols:
 🚶🏽‍♀	woman walking medium skin tone	none
 🚶🏾‍♀	woman walking medium-dark skin tone	none
 🚶🏿‍♀	woman walking dark skin tone	none
+🧍🏻	person standing light skin tone	none
+🧍🏼	person standing medium-light skin tone	none
+🧍🏽	person standing medium skin tone	none
+🧍🏾	person standing medium-dark skin tone	none
+🧍🏿	person standing dark skin tone	none
+🧍🏻‍♂	man standing light skin tone	none
+🧍🏼‍♂	man standing medium-light skin tone	none
+🧍🏽‍♂	man standing medium skin tone	none
+🧍🏾‍♂	man standing medium-dark skin tone	none
+🧍🏿‍♂	man standing dark skin tone	none
+🧍🏻‍♀	woman standing light skin tone	none
+🧍🏼‍♀	woman standing medium-light skin tone	none
+🧍🏽‍♀	woman standing medium skin tone	none
+🧍🏾‍♀	woman standing medium-dark skin tone	none
+🧍🏿‍♀	woman standing dark skin tone	none
+🧎🏻	person kneeling light skin tone	none
+🧎🏼	person kneeling medium-light skin tone	none
+🧎🏽	person kneeling medium skin tone	none
+🧎🏾	person kneeling medium-dark skin tone	none
+🧎🏿	person kneeling dark skin tone	none
+🧎🏻‍♂	man kneeling light skin tone	none
+🧎🏼‍♂	man kneeling medium-light skin tone	none
+🧎🏽‍♂	man kneeling medium skin tone	none
+🧎🏾‍♂	man kneeling medium-dark skin tone	none
+🧎🏿‍♂	man kneeling dark skin tone	none
+🧎🏻‍♀	woman kneeling light skin tone	none
+🧎🏼‍♀	woman kneeling medium-light skin tone	none
+🧎🏽‍♀	woman kneeling medium skin tone	none
+🧎🏾‍♀	woman kneeling medium-dark skin tone	none
+🧎🏿‍♀	woman kneeling dark skin tone	none
+🧑🏻‍🦯	person with probing cane light skin tone	none
+🧑🏼‍🦯	person with probing cane medium-light skin tone	none
+🧑🏽‍🦯	person with probing cane medium skin tone	none
+🧑🏾‍🦯	person with probing cane medium-dark skin tone	none
+🧑🏿‍🦯	person with probing cane dark skin tone	none
+👨🏻‍🦯	man with probing cane light skin tone	none
+👨🏼‍🦯	man with probing cane medium-light skin tone	none
+👨🏽‍🦯	man with probing cane medium skin tone	none
+👨🏾‍🦯	man with probing cane medium-dark skin tone	none
+👨🏿‍🦯	man with probing cane dark skin tone	none
+👩🏻‍🦯	woman with probing cane light skin tone	none
+👩🏼‍🦯	woman with probing cane medium-light skin tone	none
+👩🏽‍🦯	woman with probing cane medium skin tone	none
+👩🏾‍🦯	woman with probing cane medium-dark skin tone	none
+👩🏿‍🦯	woman with probing cane dark skin tone	none
+🧑🏻‍🦼	person in motorized wheelchair light skin tone	none
+🧑🏼‍🦼	person in motorized wheelchair medium-light skin tone	none
+🧑🏽‍🦼	person in motorized wheelchair medium skin tone	none
+🧑🏾‍🦼	person in motorized wheelchair medium-dark skin tone	none
+🧑🏿‍🦼	person in motorized wheelchair dark skin tone	none
+👨🏻‍🦼	man in motorized wheelchair light skin tone	none
+👨🏼‍🦼	man in motorized wheelchair medium-light skin tone	none
+👨🏽‍🦼	man in motorized wheelchair medium skin tone	none
+👨🏾‍🦼	man in motorized wheelchair medium-dark skin tone	none
+👨🏿‍🦼	man in motorized wheelchair dark skin tone	none
+👩🏻‍🦼	woman in motorized wheelchair light skin tone	none
+👩🏼‍🦼	woman in motorized wheelchair medium-light skin tone	none
+👩🏽‍🦼	woman in motorized wheelchair medium skin tone	none
+👩🏾‍🦼	woman in motorized wheelchair medium-dark skin tone	none
+👩🏿‍🦼	woman in motorized wheelchair dark skin tone	none
+🧑🏻‍🦽	person in manual wheelchair light skin tone	none
+🧑🏼‍🦽	person in manual wheelchair medium-light skin tone	none
+🧑🏽‍🦽	person in manual wheelchair medium skin tone	none
+🧑🏾‍🦽	person in manual wheelchair medium-dark skin tone	none
+🧑🏿‍🦽	person in manual wheelchair dark skin tone	none
+👨🏻‍🦽	man in manual wheelchair light skin tone	none
+👨🏼‍🦽	man in manual wheelchair medium-light skin tone	none
+👨🏽‍🦽	man in manual wheelchair medium skin tone	none
+👨🏾‍🦽	man in manual wheelchair medium-dark skin tone	none
+👨🏿‍🦽	man in manual wheelchair dark skin tone	none
+👩🏻‍🦽	woman in manual wheelchair light skin tone	none
+👩🏼‍🦽	woman in manual wheelchair medium-light skin tone	none
+👩🏽‍🦽	woman in manual wheelchair medium skin tone	none
+👩🏾‍🦽	woman in manual wheelchair medium-dark skin tone	none
+👩🏿‍🦽	woman in manual wheelchair dark skin tone	none
 🏃🏻	person running light skin tone	none
 🏃🏼	person running medium-light skin tone	none
 🏃🏽	person running medium skin tone	none
@@ -2702,21 +2842,76 @@ symbols:
 🛌🏽	person in bed medium skin tone	none
 🛌🏾	person in bed medium-dark skin tone	none
 🛌🏿	person in bed dark skin tone	none
+🧑🏻‍🤝‍🧑🏻	people holding hands light skin tone	none
+🧑🏼‍🤝‍🧑🏻	people holding hands medium-light skin tone, light skin tone	none
+🧑🏼‍🤝‍🧑🏼	people holding hands medium-light skin tone	none
+🧑🏽‍🤝‍🧑🏻	people holding hands medium skin tone, light skin tone	none
+🧑🏽‍🤝‍🧑🏼	people holding hands medium skin tone, medium-light skin tone	none
+🧑🏽‍🤝‍🧑🏽	people holding hands medium skin tone	none
+🧑🏾‍🤝‍🧑🏻	people holding hands medium-dark skin tone, light skin tone	none
+🧑🏾‍🤝‍🧑🏼	people holding hands medium-dark skin tone, medium-light skin tone	none
+🧑🏾‍🤝‍🧑🏽	people holding hands medium-dark skin tone, medium skin tone	none
+🧑🏾‍🤝‍🧑🏾	people holding hands medium-dark skin tone	none
+🧑🏿‍🤝‍🧑🏻	people holding hands dark skin tone, light skin tone	none
+🧑🏿‍🤝‍🧑🏼	people holding hands dark skin tone, medium-light skin tone	none
+🧑🏿‍🤝‍🧑🏽	people holding hands dark skin tone, medium skin tone	none
+🧑🏿‍🤝‍🧑🏾	people holding hands dark skin tone, medium-dark skin tone	none
+🧑🏿‍🤝‍🧑🏿	people holding hands dark skin tone	none
+👭🏻	women holding hands light skin tone	none
+👩🏼‍🤝‍👩🏻	women holding hands medium-light skin tone, light skin tone	none
+👭🏼	women holding hands medium-light skin tone	none
+👩🏽‍🤝‍👩🏻	women holding hands medium skin tone, light skin tone	none
+👩🏽‍🤝‍👩🏼	women holding hands medium skin tone, medium-light skin tone	none
+👭🏽	women holding hands medium skin tone	none
+👩🏾‍🤝‍👩🏻	women holding hands medium-dark skin tone, light skin tone	none
+👩🏾‍🤝‍👩🏼	women holding hands medium-dark skin tone, medium-light skin tone	none
+👩🏾‍🤝‍👩🏽	women holding hands medium-dark skin tone, medium skin tone	none
+👭🏾	women holding hands medium-dark skin tone	none
+👩🏿‍🤝‍👩🏻	women holding hands dark skin tone, light skin tone	none
+👩🏿‍🤝‍👩🏼	women holding hands dark skin tone, medium-light skin tone	none
+👩🏿‍🤝‍👩🏽	women holding hands dark skin tone, medium skin tone	none
+👩🏿‍🤝‍👩🏾	women holding hands dark skin tone, medium-dark skin tone	none
+👭🏿	women holding hands dark skin tone	none
 👫🏻	woman and man holding hands light skin tone	none
+👩🏻‍🤝‍👨🏼	woman and man holding hands light skin tone, medium-light skin tone	none
+👩🏻‍🤝‍👨🏽	woman and man holding hands light skin tone, medium skin tone	none
+👩🏻‍🤝‍👨🏾	woman and man holding hands light skin tone, medium-dark skin tone	none
+👩🏻‍🤝‍👨🏿	woman and man holding hands light skin tone, dark skin tone	none
+👩🏼‍🤝‍👨🏻	woman and man holding hands medium-light skin tone, light skin tone	none
 👫🏼	woman and man holding hands medium-light skin tone	none
+👩🏼‍🤝‍👨🏽	woman and man holding hands medium-light skin tone, medium skin tone	none
+👩🏼‍🤝‍👨🏾	woman and man holding hands medium-light skin tone, medium-dark skin tone	none
+👩🏼‍🤝‍👨🏿	woman and man holding hands medium-light skin tone, dark skin tone	none
+👩🏽‍🤝‍👨🏻	woman and man holding hands medium skin tone, light skin tone	none
+👩🏽‍🤝‍👨🏼	woman and man holding hands medium skin tone, medium-light skin tone	none
 👫🏽	woman and man holding hands medium skin tone	none
+👩🏽‍🤝‍👨🏾	woman and man holding hands medium skin tone, medium-dark skin tone	none
+👩🏽‍🤝‍👨🏿	woman and man holding hands medium skin tone, dark skin tone	none
+👩🏾‍🤝‍👨🏻	woman and man holding hands medium-dark skin tone, light skin tone	none
+👩🏾‍🤝‍👨🏼	woman and man holding hands medium-dark skin tone, medium-light skin tone	none
+👩🏾‍🤝‍👨🏽	woman and man holding hands medium-dark skin tone, medium skin tone	none
 👫🏾	woman and man holding hands medium-dark skin tone	none
+👩🏾‍🤝‍👨🏿	woman and man holding hands medium-dark skin tone, dark skin tone	none
+👩🏿‍🤝‍👨🏻	woman and man holding hands dark skin tone, light skin tone	none
+👩🏿‍🤝‍👨🏼	woman and man holding hands dark skin tone, medium-light skin tone	none
+👩🏿‍🤝‍👨🏽	woman and man holding hands dark skin tone, medium skin tone	none
+👩🏿‍🤝‍👨🏾	woman and man holding hands dark skin tone, medium-dark skin tone	none
 👫🏿	woman and man holding hands dark skin tone	none
 👬🏻	men holding hands light skin tone	none
+👨🏼‍🤝‍👨🏻	men holding hands medium-light skin tone, light skin tone	none
 👬🏼	men holding hands medium-light skin tone	none
+👨🏽‍🤝‍👨🏻	men holding hands medium skin tone, light skin tone	none
+👨🏽‍🤝‍👨🏼	men holding hands medium skin tone, medium-light skin tone	none
 👬🏽	men holding hands medium skin tone	none
+👨🏾‍🤝‍👨🏻	men holding hands medium-dark skin tone, light skin tone	none
+👨🏾‍🤝‍👨🏼	men holding hands medium-dark skin tone, medium-light skin tone	none
+👨🏾‍🤝‍👨🏽	men holding hands medium-dark skin tone, medium skin tone	none
 👬🏾	men holding hands medium-dark skin tone	none
+👨🏿‍🤝‍👨🏻	men holding hands dark skin tone, light skin tone	none
+👨🏿‍🤝‍👨🏼	men holding hands dark skin tone, medium-light skin tone	none
+👨🏿‍🤝‍👨🏽	men holding hands dark skin tone, medium skin tone	none
+👨🏿‍🤝‍👨🏾	men holding hands dark skin tone, medium-dark skin tone	none
 👬🏿	men holding hands dark skin tone	none
-👭🏻	women holding hands light skin tone	none
-👭🏼	women holding hands medium-light skin tone	none
-👭🏽	women holding hands medium skin tone	none
-👭🏾	women holding hands medium-dark skin tone	none
-👭🏿	women holding hands dark skin tone	none
 👩‍❤‍💋‍👨	kiss woman, man	none
 👨‍❤‍💋‍👨	kiss man, man	none
 👩‍❤‍💋‍👩	kiss woman, woman	none

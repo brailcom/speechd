@@ -8,7 +8,7 @@ symbols:
 🏽	maslinasta boja kože	none
 🏾	smeđa boja kože	none
 🏿	tamno smeđa boja kože	none
-🐾	tragovi šapa	none
+⚧	simbol transrodnosti	none
 😀	nasmijano lice	none
 😃	nasmijano lice s velikim očima	none
 😄	nasmijano lice s nasmiješenim očima	none
@@ -94,6 +94,7 @@ symbols:
 😓	tužno lice s kapljicom znoja	none
 😩	tegobno lice	none
 😫	umorno lice	none
+🥱	zijevajuće lice	none
 😤	lice kojem ide para na nos	none
 😡	lice koje se duri	none
 😠	ljutito lice	none
@@ -109,16 +110,16 @@ symbols:
 👻	duh	none
 👽	izvanzemaljac	none
 👾	izvanzemaljsko čudovište	none
-🤖	robotsko lice	none
-😺	nasmijano lice mačke	none
-😸	nasmijano lice mačke s nasmješenim očima	none
-😹	lice mačke sa suzama radosnicama	none
+🤖	robot	none
+😺	nasmijana mačka	none
+😸	nasmijana mačka s nasmiješenim očima	none
+😹	mačka sa suzama radosnicama	none
 😻	nasmiješena mačka s očima u obliku srca	none
-😼	lice mačke s kiselim osmijehom	none
-😽	lice mačke koja ljubi	none
-🙀	izbezumljeno lice mačke	none
-😿	uplakano lice mačke	none
-😾	lice mačke koja se duri	none
+😼	mačka s kiselim osmijehom	none
+😽	mačka koja ljubi	none
+🙀	izbezumljena mačka	none
+😿	uplakana mačka	none
+😾	mačka koja se duri	none
 🙈	majmun koji ne vidi ništa loše	none
 🙉	majmun koji ne čuje ništa loše	none
 🙊	majmun koji ne govori ništa loše	none
@@ -132,7 +133,7 @@ symbols:
 💞	srca koja se vrte u krug	none
 💕	dva srca	none
 💟	ukras srca	none
-❣	uskličnik u obliku velikog srca	none
+❣	uskličnik u obliku srca	none
 💔	slomljeno srce	none
 ❤	crveno srce	none
 🧡	narančasto srce	none
@@ -140,7 +141,9 @@ symbols:
 💚	zeleno srce	none
 💙	plavo srce	none
 💜	ljubičasto srce	none
+🤎	smeđe srce	none
 🖤	crno srce	none
+🤍	bijelo srce	none
 💯	sto bodova	none
 💢	simbol ljutnje	none
 💥	sudar	none
@@ -161,6 +164,7 @@ symbols:
 ✋	podignuta ruka	none
 🖖	vulkanski pozdrav	none
 👌	znak rukom "u redu"	none
+🤏	ruka koja štipa	none
 ✌	ruka sa znakom pobjede	none
 🤞	prekriženi prsti	none
 🤟	gesta "volim te"	none
@@ -188,9 +192,12 @@ symbols:
 💅	lak za nokte	none
 🤳	selfie	none
 💪	stegnuti biceps	none
+🦾	mehanička ruka	none
+🦿	mehanička noga	none
 🦵	noga	none
 🦶	stopalo	none
 👂	uho	none
+🦻	uho sa slušnim aparatom	none
 👃	nos	none
 🧠	mozak	none
 🦷	zub	none
@@ -205,17 +212,10 @@ symbols:
 👧	djevojčica	none
 🧑	odrasla osoba	none
 👱	plavokosa osoba	none
-🧑‍🤝‍🧑	osobe koje se drže za ruke	none
 👨	muškarac	none
-👨‍🦯	muškarac s bijelim štapom	none
-👨‍🦼	muškarac u motornim invalidskim kolicima	none
-👨‍🦽	muškarac u invalidskim kolicima na ručni pogon	none
-👱‍♂	plavokosi muškarac	none
 🧔	muškarac s bradom	none
+👱‍♂	plavokosi muškarac	none
 👩	žena	none
-👩‍🦯	žena s bijelim štapom	none
-👩‍🦼	žena u motornim invalidskim kolicima	none
-👩‍🦽	žena u invalidskim kolicima na ručni pogon	none
 👱‍♀	plavokosa žena	none
 🧓	starija osoba	none
 👴	starac	none
@@ -238,6 +238,9 @@ symbols:
 🙋	osoba s podignutom rukom	none
 🙋‍♂	muškarac podiže ruku	none
 🙋‍♀	žena podiže ruku	none
+🧏	gluha osoba	none
+🧏‍♂	gluhi muškarac	none
+🧏‍♀	gluha žena	none
 🙇	osoba koja se klanja	none
 🙇‍♂	muškarac u dubokom naklonu	none
 🙇‍♀	žena u dubokom naklonu	none
@@ -247,36 +250,52 @@ symbols:
 🤷	slijeganje ramenima	none
 🤷‍♂	muškarac sliježe ramenima	none
 🤷‍♀	žena sliježe ramenima	none
+🧑‍⚕	zdravstveni djelatnik	none
 👨‍⚕	liječnik	none
 👩‍⚕	liječnica	none
+🧑‍🎓	diplomant	none
 👨‍🎓	student	none
 👩‍🎓	studentica	none
+🧑‍🏫	profesor	none
 👨‍🏫	učitelj	none
 👩‍🏫	učiteljica	none
+🧑‍⚖	arbitar	none
 👨‍⚖	sudac	none
 👩‍⚖	sutkinja	none
+🧑‍🌾	farmer	none
 👨‍🌾	poljoprivrednik	none
 👩‍🌾	poljoprivrednica	none
+🧑‍🍳	šef kuhinje	none
 👨‍🍳	kuhar	none
 👩‍🍳	kuharica	none
+🧑‍🔧	serviser	none
 👨‍🔧	mehaničar	none
 👩‍🔧	mehaničarka	none
+🧑‍🏭	radnik u tvornici	none
 👨‍🏭	tvornički radnik	none
 👩‍🏭	tvornička radnica	none
+🧑‍💼	uredski djelatnik	none
 👨‍💼	službenik	none
 👩‍💼	službenica	none
+🧑‍🔬	biokemičar	none
 👨‍🔬	znanstvenik	none
 👩‍🔬	znanstvenica	none
+🧑‍💻	tehnološki djelatnik	none
 👨‍💻	tehnološki inženjer	none
 👩‍💻	tehnološka inženjerka	none
+🧑‍🎤	izvođač	none
 👨‍🎤	pjevač	none
 👩‍🎤	pjevačica	none
+🧑‍🎨	slikar	none
 👨‍🎨	umjetnik	none
 👩‍🎨	umjetnica	none
+🧑‍✈	pilot zrakoplova	none
 👨‍✈	pilot	none
 👩‍✈	pilotkinja	none
+🧑‍🚀	kozmonaut	none
 👨‍🚀	astronaut	none
 👩‍🚀	astronautkinja	none
+🧑‍🚒	vatrogasni djelatnik	none
 👨‍🚒	vatrogasac	none
 👩‍🚒	vatrogaskinja	none
 👮	policajac	none
@@ -341,6 +360,21 @@ symbols:
 🚶	pješak	none
 🚶‍♂	muškarac hoda	none
 🚶‍♀	žena hoda	none
+🧍	osoba stoji	none
+🧍‍♂	muškarac stoji	none
+🧍‍♀	žena stoji	none
+🧎	osoba kleči	none
+🧎‍♂	muškarac kleči	none
+🧎‍♀	žena kleči	none
+🧑‍🦯	osoba s bijelim štapom	none
+👨‍🦯	muškarac s bijelim štapom	none
+👩‍🦯	žena s bijelim štapom	none
+🧑‍🦼	osoba u invalidskim kolicima na motorni pogon	none
+👨‍🦼	muškarac u motornim invalidskim kolicima	none
+👩‍🦼	žena u motornim invalidskim kolicima	none
+🧑‍🦽	osoba u invalidskim kolicima na ručni pogon	none
+👨‍🦽	muškarac u invalidskim kolicima na ručni pogon	none
+👩‍🦽	žena u invalidskim kolicima na ručni pogon	none
 🏃	osoba trči	none
 🏃‍♂	muškarac trči	none
 🏃‍♀	žena trči	none
@@ -404,9 +438,10 @@ symbols:
 🧘‍♀	žena u položaju lotosa	none
 🛀	osoba koja se kupa u kadi	none
 🛌	osoba u krevetu	none
+🧑‍🤝‍🧑	osobe koje se drže za ruke	none
+👭	žene koje se drže za ruke	none
 👫	muškarac i žena koji se drže za ruke	none
-👬	dva muškarca koji se drže za ruke	none
-👭	dvije žene koje se drže za ruke	none
+👬	muškarci koji se drže za ruke	none
 💏	poljubac	none
 💑	par sa srcem	none
 👪	obitelj	none
@@ -418,13 +453,13 @@ symbols:
 🦱	kovrčava kosa	none
 🦳	sijeda kosa	none
 🦲	bez kose	none
-♀	ženski simbol	none
-♂	muški simbol	none
 🐵	lice majmuna	none
 🐒	majmun	none
 🦍	gorila	none
+🦧	orangutan	none
 🐶	lice psa	none
 🐕	pas	none
+🦮	pas vodič	none
 🐕‍🦺	radni pas	none
 🐩	pudl	none
 🐺	vuk	none
@@ -471,8 +506,12 @@ symbols:
 🐻	medvjed	none
 🐨	koala	none
 🐼	panda	none
+🦥	ljenjivac	none
+🦦	vidra	none
+🦨	tvor	none
 🦘	klokan	none
 🦡	jazavac	none
+🐾	tragovi šapa	none
 🦃	puran	none
 🐔	kokoš	none
 🐓	pijetao	none
@@ -486,6 +525,7 @@ symbols:
 🦆	patka	none
 🦢	labud	none
 🦉	sova	none
+🦩	plamenac	none
 🦚	paun	none
 🦜	papiga	none
 🐸	žaba	none
@@ -566,6 +606,8 @@ symbols:
 🥒	krastavac	none
 🥬	lisnato povrće	none
 🥦	brokula	none
+🧄	češnjak	none
+🧅	luk	none
 🍄	gljiva	none
 🥜	kikiriki	none
 🌰	kesten	none
@@ -575,6 +617,7 @@ symbols:
 🥨	perec	none
 🥯	pecivo	none
 🥞	palačinke	none
+🧇	vafel	none
 🧀	komad sira	none
 🍖	meso na kosti	none
 🍗	batak	none
@@ -588,6 +631,7 @@ symbols:
 🌮	taco	none
 🌯	burrito	none
 🥙	kebab	none
+🧆	falafel	none
 🥚	jaje	none
 🍳	kuhanje	none
 🥘	posuda s hranom	none
@@ -595,6 +639,7 @@ symbols:
 🥣	zdjelica sa žlicom	none
 🥗	zelena salata	none
 🍿	kokice	none
+🧈	maslac	none
 🧂	sol	none
 🥫	konzerva	none
 🍱	bento kutija	none
@@ -618,6 +663,7 @@ symbols:
 🦞	jastog	none
 🦐	škamp	none
 🦑	lignja	none
+🦪	kamenica	none
 🍦	meki sladoled	none
 🍧	sladoled s komadićima leda	none
 🍨	sladoled	none
@@ -646,6 +692,9 @@ symbols:
 🥂	zdravica	none
 🥃	žestoko piće	none
 🥤	čaša sa slamkom	none
+🧃	sok u tetrapaku	none
+🧉	mate	none
+🧊	kocka leda	none
 🥢	štapići	none
 🍽	vilica i nož s tanjurom	none
 🍴	vilica i nož	none
@@ -694,6 +743,7 @@ symbols:
 🗽	kip slobode	none
 ⛪	crkva	none
 🕌	džamija	none
+🛕	hinduski hram	none
 🕍	sinagoga	none
 ⛩	šintoistički hram	none
 🕋	kaba	none
@@ -708,7 +758,6 @@ symbols:
 🌇	zalazak sunca	none
 🌉	most noću	none
 ♨	termalni izvori	none
-🌌	Mliječna staza	none
 🎠	konjić na vrtuljku	none
 🎡	panoramski kotač	none
 🎢	vlak smrti	none
@@ -745,6 +794,9 @@ symbols:
 🏎	trkaći automobil	none
 🏍	motocikl	none
 🛵	skuter	none
+🦽	invalidska kolica na ručni pogon	none
+🦼	invalidska kolica na motorni pogon	none
+🛺	rikša	none
 🚲	bicikl	none
 🛴	romobil	none
 🛹	skateboard	none
@@ -770,6 +822,7 @@ symbols:
 🛩	mali zrakoplov	none
 🛫	polijetanje zrakoplova	none
 🛬	slijetanje zrakoplova	none
+🪂	padobran	none
 💺	sjedalo	none
 🚁	helikopter	none
 🚟	viseća željeznica	none
@@ -827,9 +880,11 @@ symbols:
 ☀	sunce	none
 🌝	puni mjesec s licem	none
 🌞	sunce s licem	none
+🪐	planet s prstenom	none
 ⭐	zvijezda	none
 🌟	zvijezda koja sjaji	none
 🌠	zvijezda padalica	none
+🌌	Mliječna staza	none
 ☁	oblak	none
 ⛅	sunce iza oblaka	none
 ⛈	oblak s grmljavinom i kišom	none
@@ -905,11 +960,14 @@ symbols:
 ⛳	zastavica u rupi	none
 ⛸	klizaljka	none
 🎣	ribički štap	none
+🤿	maska za ronjenje	none
 🎽	majica za trčanje	none
 🎿	skije	none
 🛷	sanjke	none
 🥌	kamen za karling	none
 🎯	pogodak u sredinu	none
+🪀	jo-jo	none
+🪁	papirnati zmaj	none
 🎱	biljarske kugle	none
 🔮	kristalna kugla	none
 🧿	nazar perlica	none
@@ -936,6 +994,7 @@ symbols:
 🕶	sunčane naočale	none
 🥽	zaštitne naočale	none
 🥼	laboratorijska kuta	none
+🦺	sigurnosni prsluk	none
 👔	kravata	none
 👕	majica kratkih rukava	none
 👖	traperice	none
@@ -945,6 +1004,10 @@ symbols:
 🧦	čarape	none
 👗	haljina	none
 👘	kimono	none
+🥻	sari	none
+🩱	jednodijelni kupaći kostim	none
+🩲	gaćice	none
+🩳	kratke hlače	none
 👙	bikini	none
 👚	ženska odjeća	none
 👛	novčanik	none
@@ -958,6 +1021,7 @@ symbols:
 🥿	balerinka	none
 👠	cipela s visokom potpeticom	none
 👡	ženska sandala	none
+🩰	baletne papučice	none
 👢	ženska čizma	none
 👑	kruna	none
 👒	ženski šešir	none
@@ -992,6 +1056,7 @@ symbols:
 🎹	klavijatura	none
 🎺	truba	none
 🎻	violina	none
+🪕	bendžo	none
 🥁	bubanj	none
 📱	mobilni telefon	none
 📲	mobilni telefon sa strelicom	none
@@ -1027,6 +1092,7 @@ symbols:
 💡	žarulja	none
 🔦	ručna svjetiljka	none
 🏮	crveni lampion	none
+🪔	diya lampa	none
 📔	bilježnica s ukrasnim omotom	none
 📕	zatvorena knjiga	none
 📖	otvorena knjiga	none
@@ -1105,6 +1171,7 @@ symbols:
 🔑	ključ	none
 🗝	starinski ključ	none
 🔨	čekić	none
+🪓	sjekira	none
 ⛏	pijuk	none
 ⚒	čekić i pijuk	none
 🛠	čekić i francuski ključ	none
@@ -1118,6 +1185,7 @@ symbols:
 ⚙	zupčanik	none
 🗜	škrip	none
 ⚖	vaga	none
+🦯	bijeli štap	none
 🔗	karika	none
 ⛓	lanci	none
 🧰	kutija za alat	none
@@ -1130,13 +1198,18 @@ symbols:
 🔭	teleskop	none
 📡	satelitska antena	none
 💉	šprica	none
+🩸	kap krvi	none
 💊	pilula	none
+🩹	flaster	none
+🩺	stetoskop	none
 🚪	vrata	none
 🛏	krevet	none
 🛋	kauč i svjetiljka	none
+🪑	stolica	none
 🚽	WC školjka	none
 🚿	tuš	none
 🛁	kada	none
+🪒	britva	none
 🧴	bočica losiona	none
 🧷	sigurnica	none
 🧹	metla	none
@@ -1246,6 +1319,8 @@ symbols:
 📶	trakice jačine signala	none
 📳	način vibracije	none
 📴	isključen mobilni telefon	none
+♀	ženski simbol	none
+♂	muški simbol	none
 ⚕	simbol medicine	none
 ♾	beskonačnost	none
 ♻	simbol recikliranja	none
@@ -1260,9 +1335,9 @@ symbols:
 ✖	znak množenja	none
 ❌	križić	none
 ❎	tipka s oznakom križića	none
-➕	masno otisnuti znak plus	none
-➖	masno otisnuti znak minus	none
-➗	masno otisnuti znak dijeljenja	none
+➕	znak plus	none
+➖	znak minus	none
+➗	znak dijeljenja	none
 ➰	vitičasta petlja	none
 ➿	dvostruka vitičasta petlja	none
 〽	oznaka djelomične alternacije	none
@@ -1319,17 +1394,29 @@ symbols:
 🈺	tipka s ideogramom "otvoreno"	none
 🈵	tipka s ideogramom "popunjeno"	none
 🔴	crveni krug	none
+🟠	narančasti krug	none
+🟡	žuti krug	none
+🟢	zeleni krug	none
 🔵	plavi krug	none
-⚪	bijeli krug	none
+🟣	ljubičasti krug	none
+🟤	smeđi krug	none
 ⚫	crni krug	none
-⬜	veliki bijeli kvadrat	none
+⚪	bijeli krug	none
+🟥	crveni kvadrat	none
+🟧	narančasti kvadrat	none
+🟨	žuti kvadrat	none
+🟩	zeleni kvadrat	none
+🟦	plavi kvadrat	none
+🟪	ljubičasti kvadrat	none
+🟫	smeđi kvadrat	none
 ⬛	veliki crni kvadrat	none
+⬜	veliki bijeli kvadrat	none
 ◼	srednji crni kvadrat	none
 ◻	srednji bijeli kvadrat	none
-◽	srednje mali bijeli kvadrat	none
 ◾	srednje mali crni kvadrat	none
-▫	mali bijeli kvadrat	none
+◽	srednje mali bijeli kvadrat	none
 ▪	mali crni kvadrat	none
+▫	mali bijeli kvadrat	none
 🔶	veliki narančasti romb	none
 🔷	veliki plavi romb	none
 🔸	mali narančasti romb	none
@@ -1338,137 +1425,71 @@ symbols:
 🔻	crveni trokut usmjeren prema dolje	none
 💠	romb s točkom	none
 🔘	kružić za označavanje	none
-🔲	crna uglata tipka	none
 🔳	bijela uglata tipka	none
+🔲	crna uglata tipka	none
 🏁	zastava s crno-bijelom šahovnicom	none
 🚩	trokutasta zastava	none
 🎌	prekrižene zastave	none
 🏴	crna zastava	none
 🏳	bijela zastava	none
+🏳‍⚧	zastava pokreta transrodnih osoba	none
 🏳‍🌈	zastava duginih boja	none
 🏴‍☠	gusarska zastava	none
-🛕	hinduski hram	none
-🛺	rikša	none
-🟠	narančasti krug	none
-🟡	žuti krug	none
-🟢	zeleni krug	none
-🟣	ljubičasti krug	none
-🟤	smeđi krug	none
-🟥	crveni kvadrat	none
-🟦	plavi kvadrat	none
-🟧	narančasti kvadrat	none
-🟨	žuti kvadrat	none
-🟩	zeleni kvadrat	none
-🟪	ljubičasti kvadrat	none
-🟫	smeđi kvadrat	none
-🤍	bijelo srce	none
-🤎	smeđe srce	none
-🤏	ruka koja štipa	none
-🤿	maska za ronjenje	none
-🥱	zijevajuće lice	none
-🥻	sari	none
-🦥	ljenjivac	none
-🦦	vidra	none
-🦧	orangutan	none
-🦨	tvor	none
-🦩	plamenac	none
-🦪	kamenica	none
-🦮	pas vodič	none
-🦯	bijeli štap	none
-🦺	sigurnosni prsluk	none
-🦻	uho sa slušnim aparatom	none
-🦼	invalidska kolica na motorni pogon	none
-🦽	invalidska kolica na ručni pogon	none
-🦾	mehanička ruka	none
-🦿	mehanička noga	none
-🧃	sok u tetrapaku	none
-🧄	češnjak	none
-🧅	luk	none
-🧆	falafel	none
-🧇	vafel	none
-🧈	maslac	none
-🧉	mate	none
-🧊	kocka leda	none
-🧍	osoba stoji	none
-🧍‍♀	žena stoji	none
-🧍‍♂	muškarac stoji	none
-🧎	osoba kleči	none
-🧎‍♀	žena kleči	none
-🧎‍♂	muškarac kleči	none
-🧏	gluha osoba	none
-🧏‍♀	gluha žena	none
-🧏‍♂	gluhi muškarac	none
-🩰	baletne papučice	none
-🩱	jednodijelni kupaći kostim	none
-🩲	gaćice	none
-🩳	kratke hlače	none
-🩸	kap krvi	none
-🩹	flaster	none
-🩺	stetoskop	none
-🪀	jo-jo	none
-🪁	papirnati zmaj	none
-🪂	padobran	none
-🪐	planet s prstenom	none
-🪑	stolica	none
-🪒	britva	none
-🪓	sjekira	none
-🪔	diya lampa	none
-🪕	bendžo	none
-🤏🏻	ruka koja štipa svijetla boja kože	none
-🤏🏼	ruka koja štipa svijetlo maslinasta boja kože	none
-🤏🏽	ruka koja štipa maslinasta boja kože	none
-🤏🏾	ruka koja štipa smeđa boja kože	none
-🤏🏿	ruka koja štipa tamno smeđa boja kože	none
-🦻🏻	uho sa slušnim aparatom svijetla boja kože	none
-🦻🏼	uho sa slušnim aparatom svijetlo maslinasta boja kože	none
-🦻🏽	uho sa slušnim aparatom maslinasta boja kože	none
-🦻🏾	uho sa slušnim aparatom smeđa boja kože	none
-🦻🏿	uho sa slušnim aparatom tamno smeđa boja kože	none
-🧍🏻	osoba stoji svijetla boja kože	none
-🧍🏼	osoba stoji svijetlo maslinasta boja kože	none
-🧍🏽	osoba stoji maslinasta boja kože	none
-🧍🏾	osoba stoji smeđa boja kože	none
-🧍🏿	osoba stoji tamno smeđa boja kože	none
-🧍🏻‍♀	žena stoji svijetla boja kože	none
-🧍🏼‍♀	žena stoji svijetlo maslinasta boja kože	none
-🧍🏽‍♀	žena stoji maslinasta boja kože	none
-🧍🏾‍♀	žena stoji smeđa boja kože	none
-🧍🏿‍♀	žena stoji tamno smeđa boja kože	none
-🧍🏻‍♂	muškarac stoji svijetla boja kože	none
-🧍🏼‍♂	muškarac stoji svijetlo maslinasta boja kože	none
-🧍🏽‍♂	muškarac stoji maslinasta boja kože	none
-🧍🏾‍♂	muškarac stoji smeđa boja kože	none
-🧍🏿‍♂	muškarac stoji tamno smeđa boja kože	none
-🧎🏻	osoba kleči svijetla boja kože	none
-🧎🏼	osoba kleči svijetlo maslinasta boja kože	none
-🧎🏽	osoba kleči maslinasta boja kože	none
-🧎🏾	osoba kleči smeđa boja kože	none
-🧎🏿	osoba kleči tamno smeđa boja kože	none
-🧎🏻‍♀	žena kleči svijetla boja kože	none
-🧎🏼‍♀	žena kleči svijetlo maslinasta boja kože	none
-🧎🏽‍♀	žena kleči maslinasta boja kože	none
-🧎🏾‍♀	žena kleči smeđa boja kože	none
-🧎🏿‍♀	žena kleči tamno smeđa boja kože	none
-🧎🏻‍♂	muškarac kleči svijetla boja kože	none
-🧎🏼‍♂	muškarac kleči svijetlo maslinasta boja kože	none
-🧎🏽‍♂	muškarac kleči maslinasta boja kože	none
-🧎🏾‍♂	muškarac kleči smeđa boja kože	none
-🧎🏿‍♂	muškarac kleči tamno smeđa boja kože	none
-🧏🏻	gluha osoba svijetla boja kože	none
-🧏🏼	gluha osoba svijetlo maslinasta boja kože	none
-🧏🏽	gluha osoba maslinasta boja kože	none
-🧏🏾	gluha osoba smeđa boja kože	none
-🧏🏿	gluha osoba tamno smeđa boja kože	none
-🧏🏻‍♀	gluha žena svijetla boja kože	none
-🧏🏼‍♀	gluha žena svijetlo maslinasta boja kože	none
-🧏🏽‍♀	gluha žena maslinasta boja kože	none
-🧏🏾‍♀	gluha žena smeđa boja kože	none
-🧏🏿‍♀	gluha žena tamno smeđa boja kože	none
-🧏🏻‍♂	gluhi muškarac svijetla boja kože	none
-🧏🏼‍♂	gluhi muškarac svijetlo maslinasta boja kože	none
-🧏🏽‍♂	gluhi muškarac maslinasta boja kože	none
-🧏🏾‍♂	gluhi muškarac smeđa boja kože	none
-🧏🏿‍♂	gluhi muškarac tamno smeđa boja kože	none
+🛖	koliba	none
+🛗	dizalo	none
+🛻	kamionet	none
+🛼	koturaljka	none
+🤌	skupljeni prsti	none
+🥲	nasmiješeno lice sa suzom	none
+🥷	nindža	none
+🥸	prerušeno lice	none
+🦣	mamut	none
+🦤	dodo	none
+🦫	dabar	none
+🦬	bizon	none
+🦭	tuljan	none
+🧋	bubble tea	none
+🩴	japanka	none
+🪃	bumerang	none
+🪄	čarobni štapić	none
+🪅	pinjata	none
+🪆	babuška	none
+🪖	vojni šljem	none
+🪗	harmonika	none
+🪘	visoki bubanj	none
+🪙	kovanica	none
+🪚	ručna pila	none
+🪛	odvijač	none
+🪜	ljestve	none
+🪝	udica	none
+🪞	zrcalo	none
+🪟	prozor	none
+🪠	odčepljivač	none
+🪡	šivaća igla	none
+🪢	čvor	none
+🪣	kanta	none
+🪤	mišolovka	none
+🪥	četkica za zube	none
+🪦	nadgrobni spomenik	none
+🪧	znak	none
+🪨	kamen	none
+🪰	muha	none
+🪱	crv	none
+🪲	buba	none
+🪳	žohar	none
+🪴	biljka u tegli	none
+🪵	drvo	none
+🪶	pero	none
+🫀	srce	none
+🫁	pluća	none
+🫂	osobe koje se grle	none
+🫐	borovnice	none
+🫑	paprika	none
+🫒	maslina	none
+🫓	lepinja	none
+🫔	tamal	none
+🫕	fondi	none
+🫖	čajnik	none
 👋🏻	ruka koja maše svijetla boja kože	none
 👋🏼	ruka koja maše svijetlo maslinasta boja kože	none
 👋🏽	ruka koja maše maslinasta boja kože	none
@@ -1499,6 +1520,11 @@ symbols:
 👌🏽	znak rukom "u redu" maslinasta boja kože	none
 👌🏾	znak rukom "u redu" smeđa boja kože	none
 👌🏿	znak rukom "u redu" tamno smeđa boja kože	none
+🤏🏻	ruka koja štipa svijetla boja kože	none
+🤏🏼	ruka koja štipa svijetlo maslinasta boja kože	none
+🤏🏽	ruka koja štipa maslinasta boja kože	none
+🤏🏾	ruka koja štipa smeđa boja kože	none
+🤏🏿	ruka koja štipa tamno smeđa boja kože	none
 ✌🏻	ruka sa znakom pobjede svijetla boja kože	none
 ✌🏼	ruka sa znakom pobjede svijetlo maslinasta boja kože	none
 ✌🏽	ruka sa znakom pobjede maslinasta boja kože	none
@@ -1644,6 +1670,11 @@ symbols:
 👂🏽	uho maslinasta boja kože	none
 👂🏾	uho smeđa boja kože	none
 👂🏿	uho tamno smeđa boja kože	none
+🦻🏻	uho sa slušnim aparatom svijetla boja kože	none
+🦻🏼	uho sa slušnim aparatom svijetlo maslinasta boja kože	none
+🦻🏽	uho sa slušnim aparatom maslinasta boja kože	none
+🦻🏾	uho sa slušnim aparatom smeđa boja kože	none
+🦻🏿	uho sa slušnim aparatom tamno smeđa boja kože	none
 👃🏻	nos svijetla boja kože	none
 👃🏼	nos svijetlo maslinasta boja kože	none
 👃🏽	nos maslinasta boja kože	none
@@ -1679,51 +1710,45 @@ symbols:
 👱🏽	plavokosa osoba maslinasta boja kože	none
 👱🏾	plavokosa osoba smeđa boja kože	none
 👱🏿	plavokosa osoba tamno smeđa boja kože	none
-🧑🏻‍🤝‍🧑🏻	osobe koje se drže za ruke svijetla boja kože	none
-🧑🏼‍🤝‍🧑🏻	osobe koje se drže za ruke svijetlo maslinasta boja kože i svijetla boja kože	none
-🧑🏼‍🤝‍🧑🏼	osobe koje se drže za ruke svijetlo maslinasta boja kože	none
-🧑🏽‍🤝‍🧑🏻	osobe koje se drže za ruke maslinasta boja kože i svijetla boja kože	none
-🧑🏽‍🤝‍🧑🏼	osobe koje se drže za ruke maslinasta boja kože i svijetlo maslinasta boja kože	none
-🧑🏽‍🤝‍🧑🏽	osobe koje se drže za ruke maslinasta boja kože	none
-🧑🏾‍🤝‍🧑🏻	osobe koje se drže za ruke smeđa boja kože i svijetla boja kože	none
-🧑🏾‍🤝‍🧑🏼	osobe koje se drže za ruke smeđa boja kože i svijetlo maslinasta boja kože	none
-🧑🏾‍🤝‍🧑🏽	osobe koje se drže za ruke smeđa boja kože i maslinasta boja kože	none
-🧑🏾‍🤝‍🧑🏾	osobe koje se drže za ruke smeđa boja kože	none
-🧑🏿‍🤝‍🧑🏻	osobe koje se drže za ruke tamno smeđa boja kože i svijetla boja kože	none
-🧑🏿‍🤝‍🧑🏼	osobe koje se drže za ruke tamno smeđa boja kože i svijetlo maslinasta boja kože	none
-🧑🏿‍🤝‍🧑🏽	osobe koje se drže za ruke tamno smeđa boja kože i maslinasta boja kože	none
-🧑🏿‍🤝‍🧑🏾	osobe koje se drže za ruke tamno smeđa boja kože i smeđa boja kože	none
-🧑🏿‍🤝‍🧑🏿	osobe koje se drže za ruke tamno smeđa boja kože	none
+🧑‍🦰	odrasla osoba crvena kosa	none
+🧑🏻‍🦰	odrasla osoba svijetla boja kože i crvena kosa	none
+🧑🏼‍🦰	odrasla osoba svijetlo maslinasta boja kože i crvena kosa	none
+🧑🏽‍🦰	odrasla osoba maslinasta boja kože i crvena kosa	none
+🧑🏾‍🦰	odrasla osoba smeđa boja kože i crvena kosa	none
+🧑🏿‍🦰	odrasla osoba tamno smeđa boja kože i crvena kosa	none
+🧑‍🦱	odrasla osoba kovrčava kosa	none
+🧑🏻‍🦱	odrasla osoba svijetla boja kože i kovrčava kosa	none
+🧑🏼‍🦱	odrasla osoba svijetlo maslinasta boja kože i kovrčava kosa	none
+🧑🏽‍🦱	odrasla osoba maslinasta boja kože i kovrčava kosa	none
+🧑🏾‍🦱	odrasla osoba smeđa boja kože i kovrčava kosa	none
+🧑🏿‍🦱	odrasla osoba tamno smeđa boja kože i kovrčava kosa	none
+🧑‍🦳	odrasla osoba sijeda kosa	none
+🧑🏻‍🦳	odrasla osoba svijetla boja kože i sijeda kosa	none
+🧑🏼‍🦳	odrasla osoba svijetlo maslinasta boja kože i sijeda kosa	none
+🧑🏽‍🦳	odrasla osoba maslinasta boja kože i sijeda kosa	none
+🧑🏾‍🦳	odrasla osoba smeđa boja kože i sijeda kosa	none
+🧑🏿‍🦳	odrasla osoba tamno smeđa boja kože i sijeda kosa	none
+🧑‍🦲	odrasla osoba bez kose	none
+🧑🏻‍🦲	odrasla osoba svijetla boja kože i bez kose	none
+🧑🏼‍🦲	odrasla osoba svijetlo maslinasta boja kože i bez kose	none
+🧑🏽‍🦲	odrasla osoba maslinasta boja kože i bez kose	none
+🧑🏾‍🦲	odrasla osoba smeđa boja kože i bez kose	none
+🧑🏿‍🦲	odrasla osoba tamno smeđa boja kože i bez kose	none
 👨🏻	muškarac svijetla boja kože	none
 👨🏼	muškarac svijetlo maslinasta boja kože	none
 👨🏽	muškarac maslinasta boja kože	none
 👨🏾	muškarac smeđa boja kože	none
 👨🏿	muškarac tamno smeđa boja kože	none
-👨🏻‍🦯	muškarac s bijelim štapom svijetla boja kože	none
-👨🏼‍🦯	muškarac s bijelim štapom svijetlo maslinasta boja kože	none
-👨🏽‍🦯	muškarac s bijelim štapom maslinasta boja kože	none
-👨🏾‍🦯	muškarac s bijelim štapom smeđa boja kože	none
-👨🏿‍🦯	muškarac s bijelim štapom tamno smeđa boja kože	none
-👨🏻‍🦼	muškarac u motornim invalidskim kolicima svijetla boja kože	none
-👨🏼‍🦼	muškarac u motornim invalidskim kolicima svijetlo maslinasta boja kože	none
-👨🏽‍🦼	muškarac u motornim invalidskim kolicima maslinasta boja kože	none
-👨🏾‍🦼	muškarac u motornim invalidskim kolicima smeđa boja kože	none
-👨🏿‍🦼	muškarac u motornim invalidskim kolicima tamno smeđa boja kože	none
-👨🏻‍🦽	muškarac u invalidskim kolicima na ručni pogon svijetla boja kože	none
-👨🏼‍🦽	muškarac u invalidskim kolicima na ručni pogon svijetlo maslinasta boja kože	none
-👨🏽‍🦽	muškarac u invalidskim kolicima na ručni pogon maslinasta boja kože	none
-👨🏾‍🦽	muškarac u invalidskim kolicima na ručni pogon smeđa boja kože	none
-👨🏿‍🦽	muškarac u invalidskim kolicima na ručni pogon tamno smeđa boja kože	none
-👨🏼‍🤝‍👨🏻	dva muškarca koji se drže za ruke svijetlo maslinasta boja kože i svijetla boja kože	none
-👨🏽‍🤝‍👨🏻	dva muškarca koji se drže za ruke maslinasta boja kože i svijetla boja kože	none
-👨🏽‍🤝‍👨🏼	dva muškarca koji se drže za ruke maslinasta boja kože i svijetlo maslinasta boja kože	none
-👨🏾‍🤝‍👨🏻	dva muškarca koji se drže za ruke smeđa boja kože i svijetla boja kože	none
-👨🏾‍🤝‍👨🏼	dva muškarca koji se drže za ruke smeđa boja kože i svijetlo maslinasta boja kože	none
-👨🏾‍🤝‍👨🏽	dva muškarca koji se drže za ruke smeđa boja kože i maslinasta boja kože	none
-👨🏿‍🤝‍👨🏻	dva muškarca koji se drže za ruke tamno smeđa boja kože i svijetla boja kože	none
-👨🏿‍🤝‍👨🏼	dva muškarca koji se drže za ruke tamno smeđa boja kože i svijetlo maslinasta boja kože	none
-👨🏿‍🤝‍👨🏽	dva muškarca koji se drže za ruke tamno smeđa boja kože i maslinasta boja kože	none
-👨🏿‍🤝‍👨🏾	dva muškarca koji se drže za ruke tamno smeđa boja kože i smeđa boja kože	none
+🧔🏻	muškarac s bradom svijetla boja kože	none
+🧔🏼	muškarac s bradom svijetlo maslinasta boja kože	none
+🧔🏽	muškarac s bradom maslinasta boja kože	none
+🧔🏾	muškarac s bradom smeđa boja kože	none
+🧔🏿	muškarac s bradom tamno smeđa boja kože	none
+👱🏻‍♂	plavokosi muškarac svijetla boja kože	none
+👱🏼‍♂	plavokosi muškarac svijetlo maslinasta boja kože	none
+👱🏽‍♂	plavokosi muškarac maslinasta boja kože	none
+👱🏾‍♂	plavokosi muškarac smeđa boja kože	none
+👱🏿‍♂	plavokosi muškarac tamno smeđa boja kože	none
 👨‍🦰	muškarac crvena kosa	none
 👨🏻‍🦰	muškarac svijetla boja kože i crvena kosa	none
 👨🏼‍🦰	muškarac svijetlo maslinasta boja kože i crvena kosa	none
@@ -1748,66 +1773,16 @@ symbols:
 👨🏽‍🦲	muškarac maslinasta boja kože i bez kose	none
 👨🏾‍🦲	muškarac smeđa boja kože i bez kose	none
 👨🏿‍🦲	muškarac tamno smeđa boja kože i bez kose	none
-👱🏻‍♂	plavokosi muškarac svijetla boja kože	none
-👱🏼‍♂	plavokosi muškarac svijetlo maslinasta boja kože	none
-👱🏽‍♂	plavokosi muškarac maslinasta boja kože	none
-👱🏾‍♂	plavokosi muškarac smeđa boja kože	none
-👱🏿‍♂	plavokosi muškarac tamno smeđa boja kože	none
-🧔🏻	muškarac s bradom svijetla boja kože	none
-🧔🏼	muškarac s bradom svijetlo maslinasta boja kože	none
-🧔🏽	muškarac s bradom maslinasta boja kože	none
-🧔🏾	muškarac s bradom smeđa boja kože	none
-🧔🏿	muškarac s bradom tamno smeđa boja kože	none
 👩🏻	žena svijetla boja kože	none
 👩🏼	žena svijetlo maslinasta boja kože	none
 👩🏽	žena maslinasta boja kože	none
 👩🏾	žena smeđa boja kože	none
 👩🏿	žena tamno smeđa boja kože	none
-👩🏻‍🦯	žena s bijelim štapom svijetla boja kože	none
-👩🏼‍🦯	žena s bijelim štapom svijetlo maslinasta boja kože	none
-👩🏽‍🦯	žena s bijelim štapom maslinasta boja kože	none
-👩🏾‍🦯	žena s bijelim štapom smeđa boja kože	none
-👩🏿‍🦯	žena s bijelim štapom tamno smeđa boja kože	none
-👩🏻‍🦼	žena u motornim invalidskim kolicima svijetla boja kože	none
-👩🏼‍🦼	žena u motornim invalidskim kolicima svijetlo maslinasta boja kože	none
-👩🏽‍🦼	žena u motornim invalidskim kolicima maslinasta boja kože	none
-👩🏾‍🦼	žena u motornim invalidskim kolicima smeđa boja kože	none
-👩🏿‍🦼	žena u motornim invalidskim kolicima tamno smeđa boja kože	none
-👩🏻‍🦽	žena u invalidskim kolicima na ručni pogon svijetla boja kože	none
-👩🏼‍🦽	žena u invalidskim kolicima na ručni pogon svijetlo maslinasta boja kože	none
-👩🏽‍🦽	žena u invalidskim kolicima na ručni pogon maslinasta boja kože	none
-👩🏾‍🦽	žena u invalidskim kolicima na ručni pogon smeđa boja kože	none
-👩🏿‍🦽	žena u invalidskim kolicima na ručni pogon tamno smeđa boja kože	none
-👩🏻‍🤝‍👨🏼	muškarac i žena koji se drže za ruke svijetla boja kože i svijetlo maslinasta boja kože	none
-👩🏻‍🤝‍👨🏽	muškarac i žena koji se drže za ruke svijetla boja kože i maslinasta boja kože	none
-👩🏻‍🤝‍👨🏾	muškarac i žena koji se drže za ruke svijetla boja kože i smeđa boja kože	none
-👩🏻‍🤝‍👨🏿	muškarac i žena koji se drže za ruke svijetla boja kože i tamno smeđa boja kože	none
-👩🏼‍🤝‍👨🏻	muškarac i žena koji se drže za ruke svijetlo maslinasta boja kože i svijetla boja kože	none
-👩🏼‍🤝‍👨🏽	muškarac i žena koji se drže za ruke svijetlo maslinasta boja kože i maslinasta boja kože	none
-👩🏼‍🤝‍👨🏾	muškarac i žena koji se drže za ruke svijetlo maslinasta boja kože i smeđa boja kože	none
-👩🏼‍🤝‍👨🏿	muškarac i žena koji se drže za ruke svijetlo maslinasta boja kože i tamno smeđa boja kože	none
-👩🏽‍🤝‍👨🏻	muškarac i žena koji se drže za ruke maslinasta boja kože i svijetla boja kože	none
-👩🏽‍🤝‍👨🏼	muškarac i žena koji se drže za ruke maslinasta boja kože i svijetlo maslinasta boja kože	none
-👩🏽‍🤝‍👨🏾	muškarac i žena koji se drže za ruke maslinasta boja kože i smeđa boja kože	none
-👩🏽‍🤝‍👨🏿	muškarac i žena koji se drže za ruke maslinasta boja kože i tamno smeđa boja kože	none
-👩🏾‍🤝‍👨🏻	muškarac i žena koji se drže za ruke smeđa boja kože i svijetla boja kože	none
-👩🏾‍🤝‍👨🏼	muškarac i žena koji se drže za ruke smeđa boja kože i svijetlo maslinasta boja kože	none
-👩🏾‍🤝‍👨🏽	muškarac i žena koji se drže za ruke smeđa boja kože i maslinasta boja kože	none
-👩🏾‍🤝‍👨🏿	muškarac i žena koji se drže za ruke smeđa boja kože i tamno smeđa boja kože	none
-👩🏿‍🤝‍👨🏻	muškarac i žena koji se drže za ruke tamno smeđa boja kože i svijetla boja kože	none
-👩🏿‍🤝‍👨🏼	muškarac i žena koji se drže za ruke tamno smeđa boja kože i svijetlo maslinasta boja kože	none
-👩🏿‍🤝‍👨🏽	muškarac i žena koji se drže za ruke tamno smeđa boja kože i maslinasta boja kože	none
-👩🏿‍🤝‍👨🏾	muškarac i žena koji se drže za ruke tamno smeđa boja kože i smeđa boja kože	none
-👩🏼‍🤝‍👩🏻	dvije žene koje se drže za ruke svijetlo maslinasta boja kože i svijetla boja kože	none
-👩🏽‍🤝‍👩🏻	dvije žene koje se drže za ruke maslinasta boja kože i svijetla boja kože	none
-👩🏽‍🤝‍👩🏼	dvije žene koje se drže za ruke maslinasta boja kože i svijetlo maslinasta boja kože	none
-👩🏾‍🤝‍👩🏻	dvije žene koje se drže za ruke smeđa boja kože i svijetla boja kože	none
-👩🏾‍🤝‍👩🏼	dvije žene koje se drže za ruke smeđa boja kože i svijetlo maslinasta boja kože	none
-👩🏾‍🤝‍👩🏽	dvije žene koje se drže za ruke smeđa boja kože i maslinasta boja kože	none
-👩🏿‍🤝‍👩🏻	dvije žene koje se drže za ruke tamno smeđa boja kože i svijetla boja kože	none
-👩🏿‍🤝‍👩🏼	dvije žene koje se drže za ruke tamno smeđa boja kože i svijetlo maslinasta boja kože	none
-👩🏿‍🤝‍👩🏽	dvije žene koje se drže za ruke tamno smeđa boja kože i maslinasta boja kože	none
-👩🏿‍🤝‍👩🏾	dvije žene koje se drže za ruke tamno smeđa boja kože i smeđa boja kože	none
+👱🏻‍♀	plavokosa žena svijetla boja kože	none
+👱🏼‍♀	plavokosa žena svijetlo maslinasta boja kože	none
+👱🏽‍♀	plavokosa žena maslinasta boja kože	none
+👱🏾‍♀	plavokosa žena smeđa boja kože	none
+👱🏿‍♀	plavokosa žena tamno smeđa boja kože	none
 👩‍🦰	žena crvena kosa	none
 👩🏻‍🦰	žena svijetla boja kože i crvena kosa	none
 👩🏼‍🦰	žena svijetlo maslinasta boja kože i crvena kosa	none
@@ -1832,11 +1807,6 @@ symbols:
 👩🏽‍🦲	žena maslinasta boja kože i bez kose	none
 👩🏾‍🦲	žena smeđa boja kože i bez kose	none
 👩🏿‍🦲	žena tamno smeđa boja kože i bez kose	none
-👱🏻‍♀	plavokosa žena svijetla boja kože	none
-👱🏼‍♀	plavokosa žena svijetlo maslinasta boja kože	none
-👱🏽‍♀	plavokosa žena maslinasta boja kože	none
-👱🏾‍♀	plavokosa žena smeđa boja kože	none
-👱🏿‍♀	plavokosa žena tamno smeđa boja kože	none
 🧓🏻	starija osoba svijetla boja kože	none
 🧓🏼	starija osoba svijetlo maslinasta boja kože	none
 🧓🏽	starija osoba maslinasta boja kože	none
@@ -1942,6 +1912,21 @@ symbols:
 🙋🏽‍♀	žena podiže ruku maslinasta boja kože	none
 🙋🏾‍♀	žena podiže ruku smeđa boja kože	none
 🙋🏿‍♀	žena podiže ruku tamno smeđa boja kože	none
+🧏🏻	gluha osoba svijetla boja kože	none
+🧏🏼	gluha osoba svijetlo maslinasta boja kože	none
+🧏🏽	gluha osoba maslinasta boja kože	none
+🧏🏾	gluha osoba smeđa boja kože	none
+🧏🏿	gluha osoba tamno smeđa boja kože	none
+🧏🏻‍♂	gluhi muškarac svijetla boja kože	none
+🧏🏼‍♂	gluhi muškarac svijetlo maslinasta boja kože	none
+🧏🏽‍♂	gluhi muškarac maslinasta boja kože	none
+🧏🏾‍♂	gluhi muškarac smeđa boja kože	none
+🧏🏿‍♂	gluhi muškarac tamno smeđa boja kože	none
+🧏🏻‍♀	gluha žena svijetla boja kože	none
+🧏🏼‍♀	gluha žena svijetlo maslinasta boja kože	none
+🧏🏽‍♀	gluha žena maslinasta boja kože	none
+🧏🏾‍♀	gluha žena smeđa boja kože	none
+🧏🏿‍♀	gluha žena tamno smeđa boja kože	none
 🙇🏻	osoba koja se klanja svijetla boja kože	none
 🙇🏼	osoba koja se klanja svijetlo maslinasta boja kože	none
 🙇🏽	osoba koja se klanja maslinasta boja kože	none
@@ -1987,6 +1972,11 @@ symbols:
 🤷🏽‍♀	žena sliježe ramenima maslinasta boja kože	none
 🤷🏾‍♀	žena sliježe ramenima smeđa boja kože	none
 🤷🏿‍♀	žena sliježe ramenima tamno smeđa boja kože	none
+🧑🏻‍⚕	zdravstveni djelatnik svijetla boja kože	none
+🧑🏼‍⚕	zdravstveni djelatnik svijetlo maslinasta boja kože	none
+🧑🏽‍⚕	zdravstveni djelatnik maslinasta boja kože	none
+🧑🏾‍⚕	zdravstveni djelatnik smeđa boja kože	none
+🧑🏿‍⚕	zdravstveni djelatnik tamno smeđa boja kože	none
 👨🏻‍⚕	liječnik svijetla boja kože	none
 👨🏼‍⚕	liječnik svijetlo maslinasta boja kože	none
 👨🏽‍⚕	liječnik maslinasta boja kože	none
@@ -1997,6 +1987,11 @@ symbols:
 👩🏽‍⚕	liječnica maslinasta boja kože	none
 👩🏾‍⚕	liječnica smeđa boja kože	none
 👩🏿‍⚕	liječnica tamno smeđa boja kože	none
+🧑🏻‍🎓	diplomant svijetla boja kože	none
+🧑🏼‍🎓	diplomant svijetlo maslinasta boja kože	none
+🧑🏽‍🎓	diplomant maslinasta boja kože	none
+🧑🏾‍🎓	diplomant smeđa boja kože	none
+🧑🏿‍🎓	diplomant tamno smeđa boja kože	none
 👨🏻‍🎓	student svijetla boja kože	none
 👨🏼‍🎓	student svijetlo maslinasta boja kože	none
 👨🏽‍🎓	student maslinasta boja kože	none
@@ -2007,6 +2002,11 @@ symbols:
 👩🏽‍🎓	studentica maslinasta boja kože	none
 👩🏾‍🎓	studentica smeđa boja kože	none
 👩🏿‍🎓	studentica tamno smeđa boja kože	none
+🧑🏻‍🏫	profesor svijetla boja kože	none
+🧑🏼‍🏫	profesor svijetlo maslinasta boja kože	none
+🧑🏽‍🏫	profesor maslinasta boja kože	none
+🧑🏾‍🏫	profesor smeđa boja kože	none
+🧑🏿‍🏫	profesor tamno smeđa boja kože	none
 👨🏻‍🏫	učitelj svijetla boja kože	none
 👨🏼‍🏫	učitelj svijetlo maslinasta boja kože	none
 👨🏽‍🏫	učitelj maslinasta boja kože	none
@@ -2017,6 +2017,11 @@ symbols:
 👩🏽‍🏫	učiteljica maslinasta boja kože	none
 👩🏾‍🏫	učiteljica smeđa boja kože	none
 👩🏿‍🏫	učiteljica tamno smeđa boja kože	none
+🧑🏻‍⚖	arbitar svijetla boja kože	none
+🧑🏼‍⚖	arbitar svijetlo maslinasta boja kože	none
+🧑🏽‍⚖	arbitar maslinasta boja kože	none
+🧑🏾‍⚖	arbitar smeđa boja kože	none
+🧑🏿‍⚖	arbitar tamno smeđa boja kože	none
 👨🏻‍⚖	sudac svijetla boja kože	none
 👨🏼‍⚖	sudac svijetlo maslinasta boja kože	none
 👨🏽‍⚖	sudac maslinasta boja kože	none
@@ -2027,6 +2032,11 @@ symbols:
 👩🏽‍⚖	sutkinja maslinasta boja kože	none
 👩🏾‍⚖	sutkinja smeđa boja kože	none
 👩🏿‍⚖	sutkinja tamno smeđa boja kože	none
+🧑🏻‍🌾	farmer svijetla boja kože	none
+🧑🏼‍🌾	farmer svijetlo maslinasta boja kože	none
+🧑🏽‍🌾	farmer maslinasta boja kože	none
+🧑🏾‍🌾	farmer smeđa boja kože	none
+🧑🏿‍🌾	farmer tamno smeđa boja kože	none
 👨🏻‍🌾	poljoprivrednik svijetla boja kože	none
 👨🏼‍🌾	poljoprivrednik svijetlo maslinasta boja kože	none
 👨🏽‍🌾	poljoprivrednik maslinasta boja kože	none
@@ -2037,6 +2047,11 @@ symbols:
 👩🏽‍🌾	poljoprivrednica maslinasta boja kože	none
 👩🏾‍🌾	poljoprivrednica smeđa boja kože	none
 👩🏿‍🌾	poljoprivrednica tamno smeđa boja kože	none
+🧑🏻‍🍳	šef kuhinje svijetla boja kože	none
+🧑🏼‍🍳	šef kuhinje svijetlo maslinasta boja kože	none
+🧑🏽‍🍳	šef kuhinje maslinasta boja kože	none
+🧑🏾‍🍳	šef kuhinje smeđa boja kože	none
+🧑🏿‍🍳	šef kuhinje tamno smeđa boja kože	none
 👨🏻‍🍳	kuhar svijetla boja kože	none
 👨🏼‍🍳	kuhar svijetlo maslinasta boja kože	none
 👨🏽‍🍳	kuhar maslinasta boja kože	none
@@ -2047,6 +2062,11 @@ symbols:
 👩🏽‍🍳	kuharica maslinasta boja kože	none
 👩🏾‍🍳	kuharica smeđa boja kože	none
 👩🏿‍🍳	kuharica tamno smeđa boja kože	none
+🧑🏻‍🔧	serviser svijetla boja kože	none
+🧑🏼‍🔧	serviser svijetlo maslinasta boja kože	none
+🧑🏽‍🔧	serviser maslinasta boja kože	none
+🧑🏾‍🔧	serviser smeđa boja kože	none
+🧑🏿‍🔧	serviser tamno smeđa boja kože	none
 👨🏻‍🔧	mehaničar svijetla boja kože	none
 👨🏼‍🔧	mehaničar svijetlo maslinasta boja kože	none
 👨🏽‍🔧	mehaničar maslinasta boja kože	none
@@ -2057,6 +2077,11 @@ symbols:
 👩🏽‍🔧	mehaničarka maslinasta boja kože	none
 👩🏾‍🔧	mehaničarka smeđa boja kože	none
 👩🏿‍🔧	mehaničarka tamno smeđa boja kože	none
+🧑🏻‍🏭	radnik u tvornici svijetla boja kože	none
+🧑🏼‍🏭	radnik u tvornici svijetlo maslinasta boja kože	none
+🧑🏽‍🏭	radnik u tvornici maslinasta boja kože	none
+🧑🏾‍🏭	radnik u tvornici smeđa boja kože	none
+🧑🏿‍🏭	radnik u tvornici tamno smeđa boja kože	none
 👨🏻‍🏭	tvornički radnik svijetla boja kože	none
 👨🏼‍🏭	tvornički radnik svijetlo maslinasta boja kože	none
 👨🏽‍🏭	tvornički radnik maslinasta boja kože	none
@@ -2067,6 +2092,11 @@ symbols:
 👩🏽‍🏭	tvornička radnica maslinasta boja kože	none
 👩🏾‍🏭	tvornička radnica smeđa boja kože	none
 👩🏿‍🏭	tvornička radnica tamno smeđa boja kože	none
+🧑🏻‍💼	uredski djelatnik svijetla boja kože	none
+🧑🏼‍💼	uredski djelatnik svijetlo maslinasta boja kože	none
+🧑🏽‍💼	uredski djelatnik maslinasta boja kože	none
+🧑🏾‍💼	uredski djelatnik smeđa boja kože	none
+🧑🏿‍💼	uredski djelatnik tamno smeđa boja kože	none
 👨🏻‍💼	službenik svijetla boja kože	none
 👨🏼‍💼	službenik svijetlo maslinasta boja kože	none
 👨🏽‍💼	službenik maslinasta boja kože	none
@@ -2077,6 +2107,11 @@ symbols:
 👩🏽‍💼	službenica maslinasta boja kože	none
 👩🏾‍💼	službenica smeđa boja kože	none
 👩🏿‍💼	službenica tamno smeđa boja kože	none
+🧑🏻‍🔬	biokemičar svijetla boja kože	none
+🧑🏼‍🔬	biokemičar svijetlo maslinasta boja kože	none
+🧑🏽‍🔬	biokemičar maslinasta boja kože	none
+🧑🏾‍🔬	biokemičar smeđa boja kože	none
+🧑🏿‍🔬	biokemičar tamno smeđa boja kože	none
 👨🏻‍🔬	znanstvenik svijetla boja kože	none
 👨🏼‍🔬	znanstvenik svijetlo maslinasta boja kože	none
 👨🏽‍🔬	znanstvenik maslinasta boja kože	none
@@ -2087,6 +2122,11 @@ symbols:
 👩🏽‍🔬	znanstvenica maslinasta boja kože	none
 👩🏾‍🔬	znanstvenica smeđa boja kože	none
 👩🏿‍🔬	znanstvenica tamno smeđa boja kože	none
+🧑🏻‍💻	tehnološki djelatnik svijetla boja kože	none
+🧑🏼‍💻	tehnološki djelatnik svijetlo maslinasta boja kože	none
+🧑🏽‍💻	tehnološki djelatnik maslinasta boja kože	none
+🧑🏾‍💻	tehnološki djelatnik smeđa boja kože	none
+🧑🏿‍💻	tehnološki djelatnik tamno smeđa boja kože	none
 👨🏻‍💻	tehnološki inženjer svijetla boja kože	none
 👨🏼‍💻	tehnološki inženjer svijetlo maslinasta boja kože	none
 👨🏽‍💻	tehnološki inženjer maslinasta boja kože	none
@@ -2097,6 +2137,11 @@ symbols:
 👩🏽‍💻	tehnološka inženjerka maslinasta boja kože	none
 👩🏾‍💻	tehnološka inženjerka smeđa boja kože	none
 👩🏿‍💻	tehnološka inženjerka tamno smeđa boja kože	none
+🧑🏻‍🎤	izvođač svijetla boja kože	none
+🧑🏼‍🎤	izvođač svijetlo maslinasta boja kože	none
+🧑🏽‍🎤	izvođač maslinasta boja kože	none
+🧑🏾‍🎤	izvođač smeđa boja kože	none
+🧑🏿‍🎤	izvođač tamno smeđa boja kože	none
 👨🏻‍🎤	pjevač svijetla boja kože	none
 👨🏼‍🎤	pjevač svijetlo maslinasta boja kože	none
 👨🏽‍🎤	pjevač maslinasta boja kože	none
@@ -2107,6 +2152,11 @@ symbols:
 👩🏽‍🎤	pjevačica maslinasta boja kože	none
 👩🏾‍🎤	pjevačica smeđa boja kože	none
 👩🏿‍🎤	pjevačica tamno smeđa boja kože	none
+🧑🏻‍🎨	slikar svijetla boja kože	none
+🧑🏼‍🎨	slikar svijetlo maslinasta boja kože	none
+🧑🏽‍🎨	slikar maslinasta boja kože	none
+🧑🏾‍🎨	slikar smeđa boja kože	none
+🧑🏿‍🎨	slikar tamno smeđa boja kože	none
 👨🏻‍🎨	umjetnik svijetla boja kože	none
 👨🏼‍🎨	umjetnik svijetlo maslinasta boja kože	none
 👨🏽‍🎨	umjetnik maslinasta boja kože	none
@@ -2117,6 +2167,11 @@ symbols:
 👩🏽‍🎨	umjetnica maslinasta boja kože	none
 👩🏾‍🎨	umjetnica smeđa boja kože	none
 👩🏿‍🎨	umjetnica tamno smeđa boja kože	none
+🧑🏻‍✈	pilot zrakoplova svijetla boja kože	none
+🧑🏼‍✈	pilot zrakoplova svijetlo maslinasta boja kože	none
+🧑🏽‍✈	pilot zrakoplova maslinasta boja kože	none
+🧑🏾‍✈	pilot zrakoplova smeđa boja kože	none
+🧑🏿‍✈	pilot zrakoplova tamno smeđa boja kože	none
 👨🏻‍✈	pilot svijetla boja kože	none
 👨🏼‍✈	pilot svijetlo maslinasta boja kože	none
 👨🏽‍✈	pilot maslinasta boja kože	none
@@ -2127,6 +2182,11 @@ symbols:
 👩🏽‍✈	pilotkinja maslinasta boja kože	none
 👩🏾‍✈	pilotkinja smeđa boja kože	none
 👩🏿‍✈	pilotkinja tamno smeđa boja kože	none
+🧑🏻‍🚀	kozmonaut svijetla boja kože	none
+🧑🏼‍🚀	kozmonaut svijetlo maslinasta boja kože	none
+🧑🏽‍🚀	kozmonaut maslinasta boja kože	none
+🧑🏾‍🚀	kozmonaut smeđa boja kože	none
+🧑🏿‍🚀	kozmonaut tamno smeđa boja kože	none
 👨🏻‍🚀	astronaut svijetla boja kože	none
 👨🏼‍🚀	astronaut svijetlo maslinasta boja kože	none
 👨🏽‍🚀	astronaut maslinasta boja kože	none
@@ -2137,6 +2197,11 @@ symbols:
 👩🏽‍🚀	astronautkinja maslinasta boja kože	none
 👩🏾‍🚀	astronautkinja smeđa boja kože	none
 👩🏿‍🚀	astronautkinja tamno smeđa boja kože	none
+🧑🏻‍🚒	vatrogasni djelatnik svijetla boja kože	none
+🧑🏼‍🚒	vatrogasni djelatnik svijetlo maslinasta boja kože	none
+🧑🏽‍🚒	vatrogasni djelatnik maslinasta boja kože	none
+🧑🏾‍🚒	vatrogasni djelatnik smeđa boja kože	none
+🧑🏿‍🚒	vatrogasni djelatnik tamno smeđa boja kože	none
 👨🏻‍🚒	vatrogasac svijetla boja kože	none
 👨🏼‍🚒	vatrogasac svijetlo maslinasta boja kože	none
 👨🏽‍🚒	vatrogasac maslinasta boja kože	none
@@ -2427,6 +2492,81 @@ symbols:
 🚶🏽‍♀	žena hoda maslinasta boja kože	none
 🚶🏾‍♀	žena hoda smeđa boja kože	none
 🚶🏿‍♀	žena hoda tamno smeđa boja kože	none
+🧍🏻	osoba stoji svijetla boja kože	none
+🧍🏼	osoba stoji svijetlo maslinasta boja kože	none
+🧍🏽	osoba stoji maslinasta boja kože	none
+🧍🏾	osoba stoji smeđa boja kože	none
+🧍🏿	osoba stoji tamno smeđa boja kože	none
+🧍🏻‍♂	muškarac stoji svijetla boja kože	none
+🧍🏼‍♂	muškarac stoji svijetlo maslinasta boja kože	none
+🧍🏽‍♂	muškarac stoji maslinasta boja kože	none
+🧍🏾‍♂	muškarac stoji smeđa boja kože	none
+🧍🏿‍♂	muškarac stoji tamno smeđa boja kože	none
+🧍🏻‍♀	žena stoji svijetla boja kože	none
+🧍🏼‍♀	žena stoji svijetlo maslinasta boja kože	none
+🧍🏽‍♀	žena stoji maslinasta boja kože	none
+🧍🏾‍♀	žena stoji smeđa boja kože	none
+🧍🏿‍♀	žena stoji tamno smeđa boja kože	none
+🧎🏻	osoba kleči svijetla boja kože	none
+🧎🏼	osoba kleči svijetlo maslinasta boja kože	none
+🧎🏽	osoba kleči maslinasta boja kože	none
+🧎🏾	osoba kleči smeđa boja kože	none
+🧎🏿	osoba kleči tamno smeđa boja kože	none
+🧎🏻‍♂	muškarac kleči svijetla boja kože	none
+🧎🏼‍♂	muškarac kleči svijetlo maslinasta boja kože	none
+🧎🏽‍♂	muškarac kleči maslinasta boja kože	none
+🧎🏾‍♂	muškarac kleči smeđa boja kože	none
+🧎🏿‍♂	muškarac kleči tamno smeđa boja kože	none
+🧎🏻‍♀	žena kleči svijetla boja kože	none
+🧎🏼‍♀	žena kleči svijetlo maslinasta boja kože	none
+🧎🏽‍♀	žena kleči maslinasta boja kože	none
+🧎🏾‍♀	žena kleči smeđa boja kože	none
+🧎🏿‍♀	žena kleči tamno smeđa boja kože	none
+🧑🏻‍🦯	osoba s bijelim štapom svijetla boja kože	none
+🧑🏼‍🦯	osoba s bijelim štapom svijetlo maslinasta boja kože	none
+🧑🏽‍🦯	osoba s bijelim štapom maslinasta boja kože	none
+🧑🏾‍🦯	osoba s bijelim štapom smeđa boja kože	none
+🧑🏿‍🦯	osoba s bijelim štapom tamno smeđa boja kože	none
+👨🏻‍🦯	muškarac s bijelim štapom svijetla boja kože	none
+👨🏼‍🦯	muškarac s bijelim štapom svijetlo maslinasta boja kože	none
+👨🏽‍🦯	muškarac s bijelim štapom maslinasta boja kože	none
+👨🏾‍🦯	muškarac s bijelim štapom smeđa boja kože	none
+👨🏿‍🦯	muškarac s bijelim štapom tamno smeđa boja kože	none
+👩🏻‍🦯	žena s bijelim štapom svijetla boja kože	none
+👩🏼‍🦯	žena s bijelim štapom svijetlo maslinasta boja kože	none
+👩🏽‍🦯	žena s bijelim štapom maslinasta boja kože	none
+👩🏾‍🦯	žena s bijelim štapom smeđa boja kože	none
+👩🏿‍🦯	žena s bijelim štapom tamno smeđa boja kože	none
+🧑🏻‍🦼	osoba u invalidskim kolicima na motorni pogon svijetla boja kože	none
+🧑🏼‍🦼	osoba u invalidskim kolicima na motorni pogon svijetlo maslinasta boja kože	none
+🧑🏽‍🦼	osoba u invalidskim kolicima na motorni pogon maslinasta boja kože	none
+🧑🏾‍🦼	osoba u invalidskim kolicima na motorni pogon smeđa boja kože	none
+🧑🏿‍🦼	osoba u invalidskim kolicima na motorni pogon tamno smeđa boja kože	none
+👨🏻‍🦼	muškarac u motornim invalidskim kolicima svijetla boja kože	none
+👨🏼‍🦼	muškarac u motornim invalidskim kolicima svijetlo maslinasta boja kože	none
+👨🏽‍🦼	muškarac u motornim invalidskim kolicima maslinasta boja kože	none
+👨🏾‍🦼	muškarac u motornim invalidskim kolicima smeđa boja kože	none
+👨🏿‍🦼	muškarac u motornim invalidskim kolicima tamno smeđa boja kože	none
+👩🏻‍🦼	žena u motornim invalidskim kolicima svijetla boja kože	none
+👩🏼‍🦼	žena u motornim invalidskim kolicima svijetlo maslinasta boja kože	none
+👩🏽‍🦼	žena u motornim invalidskim kolicima maslinasta boja kože	none
+👩🏾‍🦼	žena u motornim invalidskim kolicima smeđa boja kože	none
+👩🏿‍🦼	žena u motornim invalidskim kolicima tamno smeđa boja kože	none
+🧑🏻‍🦽	osoba u invalidskim kolicima na ručni pogon svijetla boja kože	none
+🧑🏼‍🦽	osoba u invalidskim kolicima na ručni pogon svijetlo maslinasta boja kože	none
+🧑🏽‍🦽	osoba u invalidskim kolicima na ručni pogon maslinasta boja kože	none
+🧑🏾‍🦽	osoba u invalidskim kolicima na ručni pogon smeđa boja kože	none
+🧑🏿‍🦽	osoba u invalidskim kolicima na ručni pogon tamno smeđa boja kože	none
+👨🏻‍🦽	muškarac u invalidskim kolicima na ručni pogon svijetla boja kože	none
+👨🏼‍🦽	muškarac u invalidskim kolicima na ručni pogon svijetlo maslinasta boja kože	none
+👨🏽‍🦽	muškarac u invalidskim kolicima na ručni pogon maslinasta boja kože	none
+👨🏾‍🦽	muškarac u invalidskim kolicima na ručni pogon smeđa boja kože	none
+👨🏿‍🦽	muškarac u invalidskim kolicima na ručni pogon tamno smeđa boja kože	none
+👩🏻‍🦽	žena u invalidskim kolicima na ručni pogon svijetla boja kože	none
+👩🏼‍🦽	žena u invalidskim kolicima na ručni pogon svijetlo maslinasta boja kože	none
+👩🏽‍🦽	žena u invalidskim kolicima na ručni pogon maslinasta boja kože	none
+👩🏾‍🦽	žena u invalidskim kolicima na ručni pogon smeđa boja kože	none
+👩🏿‍🦽	žena u invalidskim kolicima na ručni pogon tamno smeđa boja kože	none
 🏃🏻	osoba trči svijetla boja kože	none
 🏃🏼	osoba trči svijetlo maslinasta boja kože	none
 🏃🏽	osoba trči maslinasta boja kože	none
@@ -2702,21 +2842,76 @@ symbols:
 🛌🏽	osoba u krevetu maslinasta boja kože	none
 🛌🏾	osoba u krevetu smeđa boja kože	none
 🛌🏿	osoba u krevetu tamno smeđa boja kože	none
+🧑🏻‍🤝‍🧑🏻	osobe koje se drže za ruke svijetla boja kože	none
+🧑🏼‍🤝‍🧑🏻	osobe koje se drže za ruke svijetlo maslinasta boja kože i svijetla boja kože	none
+🧑🏼‍🤝‍🧑🏼	osobe koje se drže za ruke svijetlo maslinasta boja kože	none
+🧑🏽‍🤝‍🧑🏻	osobe koje se drže za ruke maslinasta boja kože i svijetla boja kože	none
+🧑🏽‍🤝‍🧑🏼	osobe koje se drže za ruke maslinasta boja kože i svijetlo maslinasta boja kože	none
+🧑🏽‍🤝‍🧑🏽	osobe koje se drže za ruke maslinasta boja kože	none
+🧑🏾‍🤝‍🧑🏻	osobe koje se drže za ruke smeđa boja kože i svijetla boja kože	none
+🧑🏾‍🤝‍🧑🏼	osobe koje se drže za ruke smeđa boja kože i svijetlo maslinasta boja kože	none
+🧑🏾‍🤝‍🧑🏽	osobe koje se drže za ruke smeđa boja kože i maslinasta boja kože	none
+🧑🏾‍🤝‍🧑🏾	osobe koje se drže za ruke smeđa boja kože	none
+🧑🏿‍🤝‍🧑🏻	osobe koje se drže za ruke tamno smeđa boja kože i svijetla boja kože	none
+🧑🏿‍🤝‍🧑🏼	osobe koje se drže za ruke tamno smeđa boja kože i svijetlo maslinasta boja kože	none
+🧑🏿‍🤝‍🧑🏽	osobe koje se drže za ruke tamno smeđa boja kože i maslinasta boja kože	none
+🧑🏿‍🤝‍🧑🏾	osobe koje se drže za ruke tamno smeđa boja kože i smeđa boja kože	none
+🧑🏿‍🤝‍🧑🏿	osobe koje se drže za ruke tamno smeđa boja kože	none
+👭🏻	žene koje se drže za ruke svijetla boja kože	none
+👩🏼‍🤝‍👩🏻	žene koje se drže za ruke svijetlo maslinasta boja kože i svijetla boja kože	none
+👭🏼	žene koje se drže za ruke svijetlo maslinasta boja kože	none
+👩🏽‍🤝‍👩🏻	žene koje se drže za ruke maslinasta boja kože i svijetla boja kože	none
+👩🏽‍🤝‍👩🏼	žene koje se drže za ruke maslinasta boja kože i svijetlo maslinasta boja kože	none
+👭🏽	žene koje se drže za ruke maslinasta boja kože	none
+👩🏾‍🤝‍👩🏻	žene koje se drže za ruke smeđa boja kože i svijetla boja kože	none
+👩🏾‍🤝‍👩🏼	žene koje se drže za ruke smeđa boja kože i svijetlo maslinasta boja kože	none
+👩🏾‍🤝‍👩🏽	žene koje se drže za ruke smeđa boja kože i maslinasta boja kože	none
+👭🏾	žene koje se drže za ruke smeđa boja kože	none
+👩🏿‍🤝‍👩🏻	žene koje se drže za ruke tamno smeđa boja kože i svijetla boja kože	none
+👩🏿‍🤝‍👩🏼	žene koje se drže za ruke tamno smeđa boja kože i svijetlo maslinasta boja kože	none
+👩🏿‍🤝‍👩🏽	žene koje se drže za ruke tamno smeđa boja kože i maslinasta boja kože	none
+👩🏿‍🤝‍👩🏾	žene koje se drže za ruke tamno smeđa boja kože i smeđa boja kože	none
+👭🏿	žene koje se drže za ruke tamno smeđa boja kože	none
 👫🏻	muškarac i žena koji se drže za ruke svijetla boja kože	none
+👩🏻‍🤝‍👨🏼	muškarac i žena koji se drže za ruke svijetla boja kože i svijetlo maslinasta boja kože	none
+👩🏻‍🤝‍👨🏽	muškarac i žena koji se drže za ruke svijetla boja kože i maslinasta boja kože	none
+👩🏻‍🤝‍👨🏾	muškarac i žena koji se drže za ruke svijetla boja kože i smeđa boja kože	none
+👩🏻‍🤝‍👨🏿	muškarac i žena koji se drže za ruke svijetla boja kože i tamno smeđa boja kože	none
+👩🏼‍🤝‍👨🏻	muškarac i žena koji se drže za ruke svijetlo maslinasta boja kože i svijetla boja kože	none
 👫🏼	muškarac i žena koji se drže za ruke svijetlo maslinasta boja kože	none
+👩🏼‍🤝‍👨🏽	muškarac i žena koji se drže za ruke svijetlo maslinasta boja kože i maslinasta boja kože	none
+👩🏼‍🤝‍👨🏾	muškarac i žena koji se drže za ruke svijetlo maslinasta boja kože i smeđa boja kože	none
+👩🏼‍🤝‍👨🏿	muškarac i žena koji se drže za ruke svijetlo maslinasta boja kože i tamno smeđa boja kože	none
+👩🏽‍🤝‍👨🏻	muškarac i žena koji se drže za ruke maslinasta boja kože i svijetla boja kože	none
+👩🏽‍🤝‍👨🏼	muškarac i žena koji se drže za ruke maslinasta boja kože i svijetlo maslinasta boja kože	none
 👫🏽	muškarac i žena koji se drže za ruke maslinasta boja kože	none
+👩🏽‍🤝‍👨🏾	muškarac i žena koji se drže za ruke maslinasta boja kože i smeđa boja kože	none
+👩🏽‍🤝‍👨🏿	muškarac i žena koji se drže za ruke maslinasta boja kože i tamno smeđa boja kože	none
+👩🏾‍🤝‍👨🏻	muškarac i žena koji se drže za ruke smeđa boja kože i svijetla boja kože	none
+👩🏾‍🤝‍👨🏼	muškarac i žena koji se drže za ruke smeđa boja kože i svijetlo maslinasta boja kože	none
+👩🏾‍🤝‍👨🏽	muškarac i žena koji se drže za ruke smeđa boja kože i maslinasta boja kože	none
 👫🏾	muškarac i žena koji se drže za ruke smeđa boja kože	none
+👩🏾‍🤝‍👨🏿	muškarac i žena koji se drže za ruke smeđa boja kože i tamno smeđa boja kože	none
+👩🏿‍🤝‍👨🏻	muškarac i žena koji se drže za ruke tamno smeđa boja kože i svijetla boja kože	none
+👩🏿‍🤝‍👨🏼	muškarac i žena koji se drže za ruke tamno smeđa boja kože i svijetlo maslinasta boja kože	none
+👩🏿‍🤝‍👨🏽	muškarac i žena koji se drže za ruke tamno smeđa boja kože i maslinasta boja kože	none
+👩🏿‍🤝‍👨🏾	muškarac i žena koji se drže za ruke tamno smeđa boja kože i smeđa boja kože	none
 👫🏿	muškarac i žena koji se drže za ruke tamno smeđa boja kože	none
-👬🏻	dva muškarca koji se drže za ruke svijetla boja kože	none
-👬🏼	dva muškarca koji se drže za ruke svijetlo maslinasta boja kože	none
-👬🏽	dva muškarca koji se drže za ruke maslinasta boja kože	none
-👬🏾	dva muškarca koji se drže za ruke smeđa boja kože	none
-👬🏿	dva muškarca koji se drže za ruke tamno smeđa boja kože	none
-👭🏻	dvije žene koje se drže za ruke svijetla boja kože	none
-👭🏼	dvije žene koje se drže za ruke svijetlo maslinasta boja kože	none
-👭🏽	dvije žene koje se drže za ruke maslinasta boja kože	none
-👭🏾	dvije žene koje se drže za ruke smeđa boja kože	none
-👭🏿	dvije žene koje se drže za ruke tamno smeđa boja kože	none
+👬🏻	muškarci koji se drže za ruke svijetla boja kože	none
+👨🏼‍🤝‍👨🏻	muškarci koji se drže za ruke svijetlo maslinasta boja kože i svijetla boja kože	none
+👬🏼	muškarci koji se drže za ruke svijetlo maslinasta boja kože	none
+👨🏽‍🤝‍👨🏻	muškarci koji se drže za ruke maslinasta boja kože i svijetla boja kože	none
+👨🏽‍🤝‍👨🏼	muškarci koji se drže za ruke maslinasta boja kože i svijetlo maslinasta boja kože	none
+👬🏽	muškarci koji se drže za ruke maslinasta boja kože	none
+👨🏾‍🤝‍👨🏻	muškarci koji se drže za ruke smeđa boja kože i svijetla boja kože	none
+👨🏾‍🤝‍👨🏼	muškarci koji se drže za ruke smeđa boja kože i svijetlo maslinasta boja kože	none
+👨🏾‍🤝‍👨🏽	muškarci koji se drže za ruke smeđa boja kože i maslinasta boja kože	none
+👬🏾	muškarci koji se drže za ruke smeđa boja kože	none
+👨🏿‍🤝‍👨🏻	muškarci koji se drže za ruke tamno smeđa boja kože i svijetla boja kože	none
+👨🏿‍🤝‍👨🏼	muškarci koji se drže za ruke tamno smeđa boja kože i svijetlo maslinasta boja kože	none
+👨🏿‍🤝‍👨🏽	muškarci koji se drže za ruke tamno smeđa boja kože i maslinasta boja kože	none
+👨🏿‍🤝‍👨🏾	muškarci koji se drže za ruke tamno smeđa boja kože i smeđa boja kože	none
+👬🏿	muškarci koji se drže za ruke tamno smeđa boja kože	none
 👩‍❤‍💋‍👨	poljubac žena i muškarac	none
 👨‍❤‍💋‍👨	poljubac muškarac i muškarac	none
 👩‍❤‍💋‍👩	poljubac žena i žena	none
@@ -2936,7 +3131,7 @@ symbols:
 🇵🇭	zastava Filipini	none
 🇵🇰	zastava Pakistan	none
 🇵🇱	zastava Poljska	none
-🇵🇲	zastava Sveti Petar i Mikelon	none
+🇵🇲	zastava Saint-Pierre-et-Miquelon	none
 🇵🇳	zastava Otoci Pitcairn	none
 🇵🇷	zastava Portoriko	none
 🇵🇸	zastava Palestinsko područje	none
@@ -2969,7 +3164,7 @@ symbols:
 🇸🇻	zastava Salvador	none
 🇸🇽	zastava Sint Maarten	none
 🇸🇾	zastava Sirija	none
-🇸🇿	zastava Svazi	none
+🇸🇿	zastava Esvatini	none
 🇹🇦	zastava Tristan da Cunha	none
 🇹🇨	zastava Otoci Turks i Caicos	none
 🇹🇩	zastava Čad	none

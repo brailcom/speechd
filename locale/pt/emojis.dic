@@ -8,7 +8,7 @@ symbols:
 🏽	pele morena	none
 🏾	pele morena escura	none
 🏿	pele escura	none
-🐾	patas	none
+⚧	símbolo transgênero	none
 😀	rosto risonho	none
 😃	rosto risonho com olhos bem abertos	none
 😄	rosto risonho com olhos sorridentes	none
@@ -94,6 +94,7 @@ symbols:
 😓	rosto cabisbaixo com gota de suor	none
 😩	rosto desolado	none
 😫	rosto cansado	none
+🥱	rosto bocejando	none
 😤	rosto soltando vapor pelo nariz	none
 😡	rosto furioso	none
 😠	rosto zangado	none
@@ -140,7 +141,9 @@ symbols:
 💚	coração verde	none
 💙	coração azul	none
 💜	coração roxo	none
+🤎	coração marrom	none
 🖤	coração preto	none
+🤍	coração branco	none
 💯	cem pontos	none
 💢	símbolo de raiva	none
 💥	colisão	none
@@ -161,6 +164,7 @@ symbols:
 ✋	mão levantada	none
 🖖	saudação vulcana	none
 👌	sinal de ok	none
+🤏	mão beliscando	none
 ✌	mão em V de vitória	none
 🤞	dedos cruzados	none
 🤟	gesto de "te amo"	none
@@ -188,9 +192,12 @@ symbols:
 💅	esmalte de unha	none
 🤳	selfie	none
 💪	bíceps	none
+🦾	braço mecânico	none
+🦿	perna mecânica	none
 🦵	perna	none
 🦶	pé	none
 👂	orelha	none
+🦻	ouvido com aparelho auditivo	none
 👃	nariz	none
 🧠	cérebro	none
 🦷	dente	none
@@ -205,17 +212,10 @@ symbols:
 👧	menina	none
 🧑	pessoa	none
 👱	pessoa cabelo louro	none
-🧑‍🤝‍🧑	pessoas de mãos dadas	none
 👨	homem	none
-👨‍🦯	homem com bengala para cego	none
-👨‍🦼	homem em cadeira de rodas motorizada	none
-👨‍🦽	homem em cadeira de rodas manual	none
-👱‍♂	homem cabelo loiro	none
 🧔	homem barba	none
+👱‍♂	homem cabelo loiro	none
 👩	mulher	none
-👩‍🦯	mulher com bengala para cego	none
-👩‍🦼	mulher em cadeira de rodas motorizada	none
-👩‍🦽	mulher em cadeira de rodas manual	none
 👱‍♀	mulher cabelo loiro	none
 🧓	idoso	none
 👴	homem idoso	none
@@ -238,6 +238,9 @@ symbols:
 🙋	pessoa levantando a mão	none
 🙋‍♂	homem levantando a mão	none
 🙋‍♀	mulher levantando a mão	none
+🧏	pessoa surda	none
+🧏‍♂	homem surdo	none
+🧏‍♀	mulher surda	none
 🙇	pessoa fazendo reverência	none
 🙇‍♂	homem fazendo reverência	none
 🙇‍♀	mulher fazendo reverência	none
@@ -247,37 +250,53 @@ symbols:
 🤷	pessoa dando de ombros	none
 🤷‍♂	homem dando de ombros	none
 🤷‍♀	mulher dando de ombros	none
+🧑‍⚕	profissional de saúde	none
 👨‍⚕	homem profissional da saúde	none
 👩‍⚕	mulher profissional da saúde	none
+🧑‍🎓	aluno	none
 👨‍🎓	estudante	none
 👩‍🎓	aluna	none
+🧑‍🏫	professora na escola	none
 👨‍🏫	professor	none
 👩‍🏫	professora	none
+🧑‍⚖	juiz no tribunal	none
 👨‍⚖	juiz	none
 👩‍⚖	juíza	none
+🧑‍🌾	agricultor	none
 👨‍🌾	fazendeiro	none
 👩‍🌾	fazendeira	none
+🧑‍🍳	chef de cozinha	none
 👨‍🍳	cozinheiro	none
 👩‍🍳	cozinheira	none
+🧑‍🔧	mecânico trabalhando	none
 👨‍🔧	mecânico	none
 👩‍🔧	mecânica	none
+🧑‍🏭	funcionário de fábrica	none
 👨‍🏭	operário	none
 👩‍🏭	operária	none
+🧑‍💼	trabalhador de escritório	none
 👨‍💼	funcionário de escritório	none
 👩‍💼	funcionária de escritório	none
+🧑‍🔬	cientista	none
 👨‍🔬	cientista homem	none
 👩‍🔬	cientista mulher	none
+🧑‍💻	programador	none
 👨‍💻	tecnólogo	none
 👩‍💻	tecnóloga	none
-👨‍🎤	cantor	none
+🧑‍🎤	cantor	none
+👨‍🎤	cantor homem	none
 👩‍🎤	cantora	none
+🧑‍🎨	artista	none
 👨‍🎨	artista plástico	none
 👩‍🎨	artista plástica	none
+🧑‍✈	piloto	none
 👨‍✈	piloto de avião homem	none
 👩‍✈	piloto de avião mulher	none
+🧑‍🚀	astronauta	none
 👨‍🚀	astronauta homem	none
 👩‍🚀	astronauta mulher	none
-👨‍🚒	bombeiro	none
+🧑‍🚒	bombeiro	none
+👨‍🚒	bombeiro homem	none
 👩‍🚒	bombeira	none
 👮	policial	none
 👮‍♂	policial homem	none
@@ -341,6 +360,21 @@ symbols:
 🚶	pessoa andando	none
 🚶‍♂	homem andando	none
 🚶‍♀	mulher andando	none
+🧍	pessoa em pé	none
+🧍‍♂	homem em pé	none
+🧍‍♀	mulher em pé	none
+🧎	pessoa ajoelhando	none
+🧎‍♂	homem ajoelhando	none
+🧎‍♀	mulher ajoelhando	none
+🧑‍🦯	pessoa com bengala para cego	none
+👨‍🦯	homem com bengala para cego	none
+👩‍🦯	mulher com bengala para cego	none
+🧑‍🦼	pessoa em cadeira de rodas motorizada	none
+👨‍🦼	homem em cadeira de rodas motorizada	none
+👩‍🦼	mulher em cadeira de rodas motorizada	none
+🧑‍🦽	pessoa em cadeira de rodas manual	none
+👨‍🦽	homem em cadeira de rodas manual	none
+👩‍🦽	mulher em cadeira de rodas manual	none
 🏃	pessoa correndo	none
 🏃‍♂	homem correndo	none
 🏃‍♀	mulher correndo	none
@@ -404,9 +438,10 @@ symbols:
 🧘‍♀	mulher na posição de lótus	none
 🛀	pessoa tomando banho	none
 🛌	pessoa deitada na cama	none
+🧑‍🤝‍🧑	pessoas de mãos dadas	none
+👭	duas mulheres de mãos dadas	none
 👫	homem e mulher de mãos dadas	none
 👬	dois homens de mãos dadas	none
-👭	duas mulheres de mãos dadas	none
 💏	beijo	none
 💑	casal apaixonado	none
 👪	família	none
@@ -418,13 +453,13 @@ symbols:
 🦱	cabelo cacheado	none
 🦳	cabelo branco	none
 🦲	careca	none
-♀	símbolo de feminino	none
-♂	símbolo de masculino	none
 🐵	rosto de macaco	none
 🐒	macaco	none
 🦍	gorila	none
+🦧	orangotango	none
 🐶	rosto de cachorro	none
 🐕	cachorro	none
+🦮	cão-guia	none
 🐕‍🦺	cão de serviço	none
 🐩	poodle	none
 🐺	rosto de lobo	none
@@ -471,8 +506,12 @@ symbols:
 🐻	rosto de urso	none
 🐨	coala	none
 🐼	rosto de panda	none
+🦥	preguiça	none
+🦦	lontra	none
+🦨	gambá	none
 🦘	canguru	none
 🦡	texugo	none
+🐾	patas	none
 🦃	peru	none
 🐔	galinha	none
 🐓	galo	none
@@ -486,9 +525,10 @@ symbols:
 🦆	pato	none
 🦢	cisne	none
 🦉	coruja	none
+🦩	flamingo	none
 🦚	pavão	none
 🦜	papagaio	none
-🐸	rosto de sapo	none
+🐸	sapo	none
 🐊	crocodilo	none
 🐢	tartaruga	none
 🦎	lagartixa	none
@@ -566,6 +606,8 @@ symbols:
 🥒	pepino	none
 🥬	verdura	none
 🥦	brócolis	none
+🧄	alho	none
+🧅	cebola	none
 🍄	cogumelo	none
 🥜	amendoim	none
 🌰	castanha	none
@@ -575,6 +617,7 @@ symbols:
 🥨	pretzel	none
 🥯	rosca	none
 🥞	panquecas	none
+🧇	waffle	none
 🧀	queijo	none
 🍖	carne	none
 🍗	coxa de frango	none
@@ -588,6 +631,7 @@ symbols:
 🌮	taco	none
 🌯	burrito	none
 🥙	pão recheado	none
+🧆	falafel	none
 🥚	ovo	none
 🍳	ovo frito	none
 🥘	caçarola com comida	none
@@ -595,6 +639,7 @@ symbols:
 🥣	tigela com colher	none
 🥗	salada verde	none
 🍿	pipoca	none
+🧈	manteiga	none
 🧂	sal	none
 🥫	comida enlatada	none
 🍱	bentô	none
@@ -618,6 +663,7 @@ symbols:
 🦞	lagosta	none
 🦐	camarão	none
 🦑	lula	none
+🦪	ostra	none
 🍦	sorvete italiano	none
 🍧	raspadinha de gelo	none
 🍨	sorvete	none
@@ -646,6 +692,9 @@ symbols:
 🥂	taças brindando	none
 🥃	copo	none
 🥤	copo com canudo	none
+🧃	suco de caixa	none
+🧉	mate	none
+🧊	cubo de gelo	none
 🥢	hashi	none
 🍽	prato com talheres	none
 🍴	garfo e faca	none
@@ -694,6 +743,7 @@ symbols:
 🗽	Estátua da Liberdade	none
 ⛪	igreja	none
 🕌	mesquita	none
+🛕	templo hindu	none
 🕍	sinagoga	none
 ⛩	santuário japonês	none
 🕋	caaba islã	none
@@ -708,7 +758,6 @@ symbols:
 🌇	pôr do sol	none
 🌉	ponte à noite	none
 ♨	chamas	none
-🌌	via láctea	none
 🎠	carrossel	none
 🎡	roda gigante	none
 🎢	montanha russa	none
@@ -738,13 +787,16 @@ symbols:
 🚖	táxi se aproximando	none
 🚗	carro	none
 🚘	carro se aproximando	none
-🚙	trailer	none
+🚙	SUV	none
 🚚	caminhão de entrega	none
 🚛	caminhão	none
 🚜	trator	none
 🏎	carro de corrida	none
 🏍	motocicleta	none
 🛵	scooter	none
+🦽	cadeira de rodas manual	none
+🦼	cadeira de rodas motorizada	none
+🛺	automóvel riquixá	none
 🚲	bicicleta	none
 🛴	patinete	none
 🛹	skate	none
@@ -770,6 +822,7 @@ symbols:
 🛩	avião pequeno	none
 🛫	avião decolando	none
 🛬	avião aterrissando	none
+🪂	paraquedas	none
 💺	assento	none
 🚁	helicóptero	none
 🚟	estrada de ferro suspensa	none
@@ -819,7 +872,7 @@ symbols:
 🌖	lua minguante convexa	none
 🌗	quarto minguante	none
 🌘	lua minguante côncava	none
-🌙	lua	none
+🌙	lua crescente	none
 🌚	rosto da lua nova	none
 🌛	rosto da lua de quarto crescente	none
 🌜	rosto da lua de quarto minguante	none
@@ -827,9 +880,11 @@ symbols:
 ☀	sol	none
 🌝	rosto da lua cheia	none
 🌞	rosto do sol	none
+🪐	planeta com anéis	none
 ⭐	estrela branca média	none
 🌟	estrela brilhante	none
 🌠	estrela cadente	none
+🌌	via láctea	none
 ☁	nuvem	none
 ⛅	sol por trás das nuvens	none
 ⛈	chuva com trovão	none
@@ -844,8 +899,8 @@ symbols:
 🌬	rosto de vento	none
 🌀	ciclone	none
 🌈	arco-íris	none
-🌂	guarda-chuva	none
-☂	sombrinha aberta	none
+🌂	guarda-chuva fechado	none
+☂	guarda-chuva	none
 ☔	sombrinha na chuva	none
 ⛱	guarda-sol	none
 ⚡	alta tensão	none
@@ -905,11 +960,14 @@ symbols:
 ⛳	bandeira no buraco	none
 ⛸	patins de gelo	none
 🎣	pesca	none
+🤿	máscara de mergulho	none
 🎽	camiseta de corrida	none
 🎿	esqui	none
 🛷	trenó	none
 🥌	pedra de curling	none
 🎯	no alvo	none
+🪀	ioiô	none
+🪁	pipa	none
 🎱	bilhar	none
 🔮	bola de cristal	none
 🧿	olho turco	none
@@ -936,6 +994,7 @@ symbols:
 🕶	óculos escuros	none
 🥽	óculos de proteção	none
 🥼	jaleco	none
+🦺	colete salva-vidas	none
 👔	gravata	none
 👕	camiseta	none
 👖	jeans	none
@@ -945,6 +1004,10 @@ symbols:
 🧦	meias	none
 👗	vestido	none
 👘	quimono	none
+🥻	sari	none
+🩱	maiô	none
+🩲	cueca	none
+🩳	shorts	none
 👙	biquíni	none
 👚	roupas femininas	none
 👛	bolsinha	none
@@ -958,6 +1021,7 @@ symbols:
 🥿	sapatilha	none
 👠	sapato de salto alto	none
 👡	sandália feminina	none
+🩰	sapatilha de balé	none
 👢	bota feminina	none
 👑	coroa	none
 👒	chapéu feminino	none
@@ -992,6 +1056,7 @@ symbols:
 🎹	teclado musical	none
 🎺	trompete	none
 🎻	violino	none
+🪕	banjo	none
 🥁	tambor	none
 📱	telefone celular	none
 📲	telefone celular com seta	none
@@ -1027,6 +1092,7 @@ symbols:
 💡	lâmpada	none
 🔦	lanterna	none
 🏮	lanterna vermelha de papel	none
+🪔	lâmpada de óleo	none
 📔	caderno decorado	none
 📕	livro fechado	none
 📖	livro aberto	none
@@ -1105,6 +1171,7 @@ symbols:
 🔑	chave	none
 🗝	chave antiga	none
 🔨	martelo	none
+🪓	machado	none
 ⛏	picareta	none
 ⚒	martelo e picareta	none
 🛠	martelo e chave-inglesa	none
@@ -1118,6 +1185,7 @@ symbols:
 ⚙	engrenagem	none
 🗜	braçadeira	none
 ⚖	balança	none
+🦯	bengala para cegos	none
 🔗	link	none
 ⛓	correntes	none
 🧰	caixa de ferramentas	none
@@ -1130,13 +1198,18 @@ symbols:
 🔭	telescópio	none
 📡	antena parabólica	none
 💉	seringa	none
+🩸	gota de sangue	none
 💊	comprimido	none
+🩹	atadura adesiva	none
+🩺	estetoscópio	none
 🚪	porta	none
 🛏	cama	none
 🛋	sofá e luminária	none
+🪑	cadeira	none
 🚽	vaso sanitário	none
 🚿	chuveiro	none
 🛁	banheira	none
+🪒	lâmina	none
 🧴	frasco de loção	none
 🧷	alfinete de segurança	none
 🧹	vassoura	none
@@ -1246,6 +1319,8 @@ symbols:
 📶	barras de sinal	none
 📳	modo vibratório	none
 📴	telefone celular desligado	none
+♀	símbolo de feminino	none
+♂	símbolo de masculino	none
 ⚕	símbolo da medicina	none
 ♾	infinito	none
 ♻	símbolo de reciclagem	none
@@ -1319,17 +1394,29 @@ symbols:
 🈺	botão japonês de “aberto para negócios”	none
 🈵	botão japonês de “sem vagas”	none
 🔴	círculo vermelho	none
+🟠	círculo laranja	none
+🟡	círculo amarelo	none
+🟢	círculo verde	none
 🔵	círculo azul	none
-⚪	círculo branco	none
+🟣	círculo roxo	none
+🟤	círculo marrom	none
 ⚫	círculo preto	none
-⬜	quadrado branco grande	none
+⚪	círculo branco	none
+🟥	quadrado vermelho	none
+🟧	quadrado laranja	none
+🟨	quadrado amarelo	none
+🟩	quadrado verde	none
+🟦	quadrado azul	none
+🟪	quadrado roxo	none
+🟫	quadrado marrom	none
 ⬛	quadrado preto grande	none
+⬜	quadrado branco grande	none
 ◼	quadrado preto médio	none
 ◻	quadrado branco médio	none
-◽	quadrado branco médio menor	none
 ◾	quadrado preto médio menor	none
-▫	quadrado branco pequeno	none
+◽	quadrado branco médio menor	none
 ▪	quadrado preto pequeno	none
+▫	quadrado branco pequeno	none
 🔶	losango laranja grande	none
 🔷	losango azul grande	none
 🔸	losango laranja pequeno	none
@@ -1338,137 +1425,71 @@ symbols:
 🔻	triângulo vermelho para baixo	none
 💠	diamante com um ponto	none
 🔘	botão de opção	none
-🔲	botão quadrado preto	none
 🔳	botão quadrado branco	none
+🔲	botão quadrado preto	none
 🏁	bandeira quadriculada	none
 🚩	bandeira triangular	none
 🎌	bandeiras cruzadas	none
 🏴	bandeira preta	none
 🏳	bandeira branca	none
+🏳‍⚧	bandeira transgênero	none
 🏳‍🌈	bandeira do arco-íris	none
 🏴‍☠	bandeira de pirata	none
-🛕	templo hindu	none
-🛺	automóvel riquixá	none
-🟠	círculo laranja	none
-🟡	círculo amarelo	none
-🟢	círculo verde	none
-🟣	círculo roxo	none
-🟤	círculo marrom	none
-🟥	quadrado vermelho	none
-🟦	quadrado azul	none
-🟧	quadrado laranja	none
-🟨	quadrado amarelo	none
-🟩	quadrado verde	none
-🟪	quadrado roxo	none
-🟫	quadrado marrom	none
-🤍	coração branco	none
-🤎	coração marrom	none
-🤏	mão beliscando	none
-🤿	máscara de mergulho	none
-🥱	rosto bocejando	none
-🥻	sari	none
-🦥	preguiça	none
-🦦	lontra	none
-🦧	orangotango	none
-🦨	gambá	none
-🦩	flamingo	none
-🦪	ostra	none
-🦮	cão-guia	none
-🦯	bengala para cegos	none
-🦺	colete salva-vidas	none
-🦻	ouvido com aparelho auditivo	none
-🦼	cadeira de rodas motorizada	none
-🦽	cadeira de rodas manual	none
-🦾	braço mecânico	none
-🦿	perna mecânica	none
-🧃	suco de caixa	none
-🧄	alho	none
-🧅	cebola	none
-🧆	falafel	none
-🧇	waffle	none
-🧈	manteiga	none
-🧉	mate	none
-🧊	cubo de gelo	none
-🧍	pessoa em pé	none
-🧍‍♀	mulher em pé	none
-🧍‍♂	homem em pé	none
-🧎	pessoa ajoelhando	none
-🧎‍♀	mulher ajoelhando	none
-🧎‍♂	homem ajoelhando	none
-🧏	pessoa surda	none
-🧏‍♀	mulher surda	none
-🧏‍♂	homem surdo	none
-🩰	sapatilha de balé	none
-🩱	maiô	none
-🩲	cueca	none
-🩳	shorts	none
-🩸	gota de sangue	none
-🩹	atadura adesiva	none
-🩺	estetoscópio	none
-🪀	ioiô	none
-🪁	pipa	none
-🪂	paraquedas	none
-🪐	planeta com anéis	none
-🪑	cadeira	none
-🪒	lâmina	none
-🪓	machado	none
-🪔	lâmpada de óleo	none
-🪕	banjo	none
-🤏🏻	mão beliscando pele clara	none
-🤏🏼	mão beliscando pele morena clara	none
-🤏🏽	mão beliscando pele morena	none
-🤏🏾	mão beliscando pele morena escura	none
-🤏🏿	mão beliscando pele escura	none
-🦻🏻	ouvido com aparelho auditivo pele clara	none
-🦻🏼	ouvido com aparelho auditivo pele morena clara	none
-🦻🏽	ouvido com aparelho auditivo pele morena	none
-🦻🏾	ouvido com aparelho auditivo pele morena escura	none
-🦻🏿	ouvido com aparelho auditivo pele escura	none
-🧍🏻	pessoa em pé pele clara	none
-🧍🏼	pessoa em pé pele morena clara	none
-🧍🏽	pessoa em pé pele morena	none
-🧍🏾	pessoa em pé pele morena escura	none
-🧍🏿	pessoa em pé pele escura	none
-🧍🏻‍♀	mulher em pé pele clara	none
-🧍🏼‍♀	mulher em pé pele morena clara	none
-🧍🏽‍♀	mulher em pé pele morena	none
-🧍🏾‍♀	mulher em pé pele morena escura	none
-🧍🏿‍♀	mulher em pé pele escura	none
-🧍🏻‍♂	homem em pé pele clara	none
-🧍🏼‍♂	homem em pé pele morena clara	none
-🧍🏽‍♂	homem em pé pele morena	none
-🧍🏾‍♂	homem em pé pele morena escura	none
-🧍🏿‍♂	homem em pé pele escura	none
-🧎🏻	pessoa ajoelhando pele clara	none
-🧎🏼	pessoa ajoelhando pele morena clara	none
-🧎🏽	pessoa ajoelhando pele morena	none
-🧎🏾	pessoa ajoelhando pele morena escura	none
-🧎🏿	pessoa ajoelhando pele escura	none
-🧎🏻‍♀	mulher ajoelhando pele clara	none
-🧎🏼‍♀	mulher ajoelhando pele morena clara	none
-🧎🏽‍♀	mulher ajoelhando pele morena	none
-🧎🏾‍♀	mulher ajoelhando pele morena escura	none
-🧎🏿‍♀	mulher ajoelhando pele escura	none
-🧎🏻‍♂	homem ajoelhando pele clara	none
-🧎🏼‍♂	homem ajoelhando pele morena clara	none
-🧎🏽‍♂	homem ajoelhando pele morena	none
-🧎🏾‍♂	homem ajoelhando pele morena escura	none
-🧎🏿‍♂	homem ajoelhando pele escura	none
-🧏🏻	pessoa surda pele clara	none
-🧏🏼	pessoa surda pele morena clara	none
-🧏🏽	pessoa surda pele morena	none
-🧏🏾	pessoa surda pele morena escura	none
-🧏🏿	pessoa surda pele escura	none
-🧏🏻‍♀	mulher surda pele clara	none
-🧏🏼‍♀	mulher surda pele morena clara	none
-🧏🏽‍♀	mulher surda pele morena	none
-🧏🏾‍♀	mulher surda pele morena escura	none
-🧏🏿‍♀	mulher surda pele escura	none
-🧏🏻‍♂	homem surdo pele clara	none
-🧏🏼‍♂	homem surdo pele morena clara	none
-🧏🏽‍♂	homem surdo pele morena	none
-🧏🏾‍♂	homem surdo pele morena escura	none
-🧏🏿‍♂	homem surdo pele escura	none
+🛖	cabana	none
+🛗	elevador	none
+🛻	caminhonete	none
+🛼	patins de rodas	none
+🤌	dedos comprimidos	none
+🥲	rosto sorridente com lágrima	none
+🥷	ninja	none
+🥸	rosto disfarçado	none
+🦣	mamute	none
+🦤	dodô	none
+🦫	castor	none
+🦬	bisão	none
+🦭	foca	none
+🧋	chá perolado	none
+🩴	chinelo	none
+🪃	bumerangue	none
+🪄	varinha mágica	none
+🪅	pinhata	none
+🪆	boneca russa	none
+🪖	capacete militar	none
+🪗	acordeão	none
+🪘	tambor comprido	none
+🪙	moeda	none
+🪚	serrote	none
+🪛	chave de fenda	none
+🪜	escada	none
+🪝	gancho	none
+🪞	espelho	none
+🪟	janela	none
+🪠	desentupidor	none
+🪡	agulha de costura	none
+🪢	nó	none
+🪣	balde	none
+🪤	ratoeira	none
+🪥	escova de dentes	none
+🪦	lápide	none
+🪧	placa	none
+🪨	pedra	none
+🪰	mosca	none
+🪱	minhoca	none
+🪲	besouro	none
+🪳	barata	none
+🪴	vaso com planta	none
+🪵	madeira	none
+🪶	pena	none
+🫀	coração humano	none
+🫁	pulmões	none
+🫂	pessoas se abraçando	none
+🫐	mirtilos	none
+🫑	pimentão	none
+🫒	azeitona	none
+🫓	pão sírio	none
+🫔	tamale	none
+🫕	fondue	none
+🫖	bule	none
 👋🏻	mão acenando pele clara	none
 👋🏼	mão acenando pele morena clara	none
 👋🏽	mão acenando pele morena	none
@@ -1499,6 +1520,11 @@ symbols:
 👌🏽	sinal de ok pele morena	none
 👌🏾	sinal de ok pele morena escura	none
 👌🏿	sinal de ok pele escura	none
+🤏🏻	mão beliscando pele clara	none
+🤏🏼	mão beliscando pele morena clara	none
+🤏🏽	mão beliscando pele morena	none
+🤏🏾	mão beliscando pele morena escura	none
+🤏🏿	mão beliscando pele escura	none
 ✌🏻	mão em V de vitória pele clara	none
 ✌🏼	mão em V de vitória pele morena clara	none
 ✌🏽	mão em V de vitória pele morena	none
@@ -1644,6 +1670,11 @@ symbols:
 👂🏽	orelha pele morena	none
 👂🏾	orelha pele morena escura	none
 👂🏿	orelha pele escura	none
+🦻🏻	ouvido com aparelho auditivo pele clara	none
+🦻🏼	ouvido com aparelho auditivo pele morena clara	none
+🦻🏽	ouvido com aparelho auditivo pele morena	none
+🦻🏾	ouvido com aparelho auditivo pele morena escura	none
+🦻🏿	ouvido com aparelho auditivo pele escura	none
 👃🏻	nariz pele clara	none
 👃🏼	nariz pele morena clara	none
 👃🏽	nariz pele morena	none
@@ -1679,51 +1710,45 @@ symbols:
 👱🏽	pessoa pele morena e cabelo louro	none
 👱🏾	pessoa pele morena escura e cabelo louro	none
 👱🏿	pessoa pele escura e cabelo louro	none
-🧑🏻‍🤝‍🧑🏻	pessoas de mãos dadas pele clara	none
-🧑🏼‍🤝‍🧑🏻	pessoas de mãos dadas pele morena clara e pele clara	none
-🧑🏼‍🤝‍🧑🏼	pessoas de mãos dadas pele morena clara	none
-🧑🏽‍🤝‍🧑🏻	pessoas de mãos dadas pele morena e pele clara	none
-🧑🏽‍🤝‍🧑🏼	pessoas de mãos dadas pele morena e pele morena clara	none
-🧑🏽‍🤝‍🧑🏽	pessoas de mãos dadas pele morena	none
-🧑🏾‍🤝‍🧑🏻	pessoas de mãos dadas pele morena escura e pele clara	none
-🧑🏾‍🤝‍🧑🏼	pessoas de mãos dadas pele morena escura e pele morena clara	none
-🧑🏾‍🤝‍🧑🏽	pessoas de mãos dadas pele morena escura e pele morena	none
-🧑🏾‍🤝‍🧑🏾	pessoas de mãos dadas pele morena escura	none
-🧑🏿‍🤝‍🧑🏻	pessoas de mãos dadas pele escura e pele clara	none
-🧑🏿‍🤝‍🧑🏼	pessoas de mãos dadas pele escura e pele morena clara	none
-🧑🏿‍🤝‍🧑🏽	pessoas de mãos dadas pele escura e pele morena	none
-🧑🏿‍🤝‍🧑🏾	pessoas de mãos dadas pele escura e pele morena escura	none
-🧑🏿‍🤝‍🧑🏿	pessoas de mãos dadas pele escura	none
+🧑‍🦰	pessoa cabelo vermelho	none
+🧑🏻‍🦰	pessoa pele clara e cabelo vermelho	none
+🧑🏼‍🦰	pessoa pele morena clara e cabelo vermelho	none
+🧑🏽‍🦰	pessoa pele morena e cabelo vermelho	none
+🧑🏾‍🦰	pessoa pele morena escura e cabelo vermelho	none
+🧑🏿‍🦰	pessoa pele escura e cabelo vermelho	none
+🧑‍🦱	pessoa cabelo cacheado	none
+🧑🏻‍🦱	pessoa pele clara e cabelo cacheado	none
+🧑🏼‍🦱	pessoa pele morena clara e cabelo cacheado	none
+🧑🏽‍🦱	pessoa pele morena e cabelo cacheado	none
+🧑🏾‍🦱	pessoa pele morena escura e cabelo cacheado	none
+🧑🏿‍🦱	pessoa pele escura e cabelo cacheado	none
+🧑‍🦳	pessoa cabelo branco	none
+🧑🏻‍🦳	pessoa pele clara e cabelo branco	none
+🧑🏼‍🦳	pessoa pele morena clara e cabelo branco	none
+🧑🏽‍🦳	pessoa pele morena e cabelo branco	none
+🧑🏾‍🦳	pessoa pele morena escura e cabelo branco	none
+🧑🏿‍🦳	pessoa pele escura e cabelo branco	none
+🧑‍🦲	pessoa careca	none
+🧑🏻‍🦲	pessoa pele clara e careca	none
+🧑🏼‍🦲	pessoa pele morena clara e careca	none
+🧑🏽‍🦲	pessoa pele morena e careca	none
+🧑🏾‍🦲	pessoa pele morena escura e careca	none
+🧑🏿‍🦲	pessoa pele escura e careca	none
 👨🏻	homem pele clara	none
 👨🏼	homem pele morena clara	none
 👨🏽	homem pele morena	none
 👨🏾	homem pele morena escura	none
 👨🏿	homem pele escura	none
-👨🏻‍🦯	homem com bengala para cego pele clara	none
-👨🏼‍🦯	homem com bengala para cego pele morena clara	none
-👨🏽‍🦯	homem com bengala para cego pele morena	none
-👨🏾‍🦯	homem com bengala para cego pele morena escura	none
-👨🏿‍🦯	homem com bengala para cego pele escura	none
-👨🏻‍🦼	homem em cadeira de rodas motorizada pele clara	none
-👨🏼‍🦼	homem em cadeira de rodas motorizada pele morena clara	none
-👨🏽‍🦼	homem em cadeira de rodas motorizada pele morena	none
-👨🏾‍🦼	homem em cadeira de rodas motorizada pele morena escura	none
-👨🏿‍🦼	homem em cadeira de rodas motorizada pele escura	none
-👨🏻‍🦽	homem em cadeira de rodas manual pele clara	none
-👨🏼‍🦽	homem em cadeira de rodas manual pele morena clara	none
-👨🏽‍🦽	homem em cadeira de rodas manual pele morena	none
-👨🏾‍🦽	homem em cadeira de rodas manual pele morena escura	none
-👨🏿‍🦽	homem em cadeira de rodas manual pele escura	none
-👨🏼‍🤝‍👨🏻	dois homens de mãos dadas pele morena clara e pele clara	none
-👨🏽‍🤝‍👨🏻	dois homens de mãos dadas pele morena e pele clara	none
-👨🏽‍🤝‍👨🏼	dois homens de mãos dadas pele morena e pele morena clara	none
-👨🏾‍🤝‍👨🏻	dois homens de mãos dadas pele morena escura e pele clara	none
-👨🏾‍🤝‍👨🏼	dois homens de mãos dadas pele morena escura e pele morena clara	none
-👨🏾‍🤝‍👨🏽	dois homens de mãos dadas pele morena escura e pele morena	none
-👨🏿‍🤝‍👨🏻	dois homens de mãos dadas pele escura e pele clara	none
-👨🏿‍🤝‍👨🏼	dois homens de mãos dadas pele escura e pele morena clara	none
-👨🏿‍🤝‍👨🏽	dois homens de mãos dadas pele escura e pele morena	none
-👨🏿‍🤝‍👨🏾	dois homens de mãos dadas pele escura e pele morena escura	none
+🧔🏻	homem pele clara e barba	none
+🧔🏼	homem pele morena clara e barba	none
+🧔🏽	homem pele morena e barba	none
+🧔🏾	homem pele morena escura e barba	none
+🧔🏿	homem pele escura e barba	none
+👱🏻‍♂	homem pele clara e cabelo loiro	none
+👱🏼‍♂	homem pele morena clara e cabelo loiro	none
+👱🏽‍♂	homem pele morena e cabelo loiro	none
+👱🏾‍♂	homem pele morena escura e cabelo loiro	none
+👱🏿‍♂	homem pele escura e cabelo loiro	none
 👨‍🦰	homem cabelo vermelho	none
 👨🏻‍🦰	homem pele clara e cabelo vermelho	none
 👨🏼‍🦰	homem pele morena clara e cabelo vermelho	none
@@ -1748,66 +1773,16 @@ symbols:
 👨🏽‍🦲	homem pele morena e careca	none
 👨🏾‍🦲	homem pele morena escura e careca	none
 👨🏿‍🦲	homem pele escura e careca	none
-👱🏻‍♂	homem pele clara e cabelo loiro	none
-👱🏼‍♂	homem pele morena clara e cabelo loiro	none
-👱🏽‍♂	homem pele morena e cabelo loiro	none
-👱🏾‍♂	homem pele morena escura e cabelo loiro	none
-👱🏿‍♂	homem pele escura e cabelo loiro	none
-🧔🏻	homem pele clara e barba	none
-🧔🏼	homem pele morena clara e barba	none
-🧔🏽	homem pele morena e barba	none
-🧔🏾	homem pele morena escura e barba	none
-🧔🏿	homem pele escura e barba	none
 👩🏻	mulher pele clara	none
 👩🏼	mulher pele morena clara	none
 👩🏽	mulher pele morena	none
 👩🏾	mulher pele morena escura	none
 👩🏿	mulher pele escura	none
-👩🏻‍🦯	mulher com bengala para cego pele clara	none
-👩🏼‍🦯	mulher com bengala para cego pele morena clara	none
-👩🏽‍🦯	mulher com bengala para cego pele morena	none
-👩🏾‍🦯	mulher com bengala para cego pele morena escura	none
-👩🏿‍🦯	mulher com bengala para cego pele escura	none
-👩🏻‍🦼	mulher em cadeira de rodas motorizada pele clara	none
-👩🏼‍🦼	mulher em cadeira de rodas motorizada pele morena clara	none
-👩🏽‍🦼	mulher em cadeira de rodas motorizada pele morena	none
-👩🏾‍🦼	mulher em cadeira de rodas motorizada pele morena escura	none
-👩🏿‍🦼	mulher em cadeira de rodas motorizada pele escura	none
-👩🏻‍🦽	mulher em cadeira de rodas manual pele clara	none
-👩🏼‍🦽	mulher em cadeira de rodas manual pele morena clara	none
-👩🏽‍🦽	mulher em cadeira de rodas manual pele morena	none
-👩🏾‍🦽	mulher em cadeira de rodas manual pele morena escura	none
-👩🏿‍🦽	mulher em cadeira de rodas manual pele escura	none
-👩🏻‍🤝‍👨🏼	homem e mulher de mãos dadas pele clara e pele morena clara	none
-👩🏻‍🤝‍👨🏽	homem e mulher de mãos dadas pele clara e pele morena	none
-👩🏻‍🤝‍👨🏾	homem e mulher de mãos dadas pele clara e pele morena escura	none
-👩🏻‍🤝‍👨🏿	homem e mulher de mãos dadas pele clara e pele escura	none
-👩🏼‍🤝‍👨🏻	homem e mulher de mãos dadas pele morena clara e pele clara	none
-👩🏼‍🤝‍👨🏽	homem e mulher de mãos dadas pele morena clara e pele morena	none
-👩🏼‍🤝‍👨🏾	homem e mulher de mãos dadas pele morena clara e pele morena escura	none
-👩🏼‍🤝‍👨🏿	homem e mulher de mãos dadas pele morena clara e pele escura	none
-👩🏽‍🤝‍👨🏻	homem e mulher de mãos dadas pele morena e pele clara	none
-👩🏽‍🤝‍👨🏼	homem e mulher de mãos dadas pele morena e pele morena clara	none
-👩🏽‍🤝‍👨🏾	homem e mulher de mãos dadas pele morena e pele morena escura	none
-👩🏽‍🤝‍👨🏿	homem e mulher de mãos dadas pele morena e pele escura	none
-👩🏾‍🤝‍👨🏻	homem e mulher de mãos dadas pele morena escura e pele clara	none
-👩🏾‍🤝‍👨🏼	homem e mulher de mãos dadas pele morena escura e pele morena clara	none
-👩🏾‍🤝‍👨🏽	homem e mulher de mãos dadas pele morena escura e pele morena	none
-👩🏾‍🤝‍👨🏿	homem e mulher de mãos dadas pele morena escura e pele escura	none
-👩🏿‍🤝‍👨🏻	homem e mulher de mãos dadas pele escura e pele clara	none
-👩🏿‍🤝‍👨🏼	homem e mulher de mãos dadas pele escura e pele morena clara	none
-👩🏿‍🤝‍👨🏽	homem e mulher de mãos dadas pele escura e pele morena	none
-👩🏿‍🤝‍👨🏾	homem e mulher de mãos dadas pele escura e pele morena escura	none
-👩🏼‍🤝‍👩🏻	duas mulheres de mãos dadas pele morena clara e pele clara	none
-👩🏽‍🤝‍👩🏻	duas mulheres de mãos dadas pele morena e pele clara	none
-👩🏽‍🤝‍👩🏼	duas mulheres de mãos dadas pele morena e pele morena clara	none
-👩🏾‍🤝‍👩🏻	duas mulheres de mãos dadas pele morena escura e pele clara	none
-👩🏾‍🤝‍👩🏼	duas mulheres de mãos dadas pele morena escura e pele morena clara	none
-👩🏾‍🤝‍👩🏽	duas mulheres de mãos dadas pele morena escura e pele morena	none
-👩🏿‍🤝‍👩🏻	duas mulheres de mãos dadas pele escura e pele clara	none
-👩🏿‍🤝‍👩🏼	duas mulheres de mãos dadas pele escura e pele morena clara	none
-👩🏿‍🤝‍👩🏽	duas mulheres de mãos dadas pele escura e pele morena	none
-👩🏿‍🤝‍👩🏾	duas mulheres de mãos dadas pele escura e pele morena escura	none
+👱🏻‍♀	mulher pele clara e cabelo loiro	none
+👱🏼‍♀	mulher pele morena clara e cabelo loiro	none
+👱🏽‍♀	mulher pele morena e cabelo loiro	none
+👱🏾‍♀	mulher pele morena escura e cabelo loiro	none
+👱🏿‍♀	mulher pele escura e cabelo loiro	none
 👩‍🦰	mulher cabelo vermelho	none
 👩🏻‍🦰	mulher pele clara e cabelo vermelho	none
 👩🏼‍🦰	mulher pele morena clara e cabelo vermelho	none
@@ -1832,11 +1807,6 @@ symbols:
 👩🏽‍🦲	mulher pele morena e careca	none
 👩🏾‍🦲	mulher pele morena escura e careca	none
 👩🏿‍🦲	mulher pele escura e careca	none
-👱🏻‍♀	mulher pele clara e cabelo loiro	none
-👱🏼‍♀	mulher pele morena clara e cabelo loiro	none
-👱🏽‍♀	mulher pele morena e cabelo loiro	none
-👱🏾‍♀	mulher pele morena escura e cabelo loiro	none
-👱🏿‍♀	mulher pele escura e cabelo loiro	none
 🧓🏻	idoso pele clara	none
 🧓🏼	idoso pele morena clara	none
 🧓🏽	idoso pele morena	none
@@ -1942,6 +1912,21 @@ symbols:
 🙋🏽‍♀	mulher levantando a mão pele morena	none
 🙋🏾‍♀	mulher levantando a mão pele morena escura	none
 🙋🏿‍♀	mulher levantando a mão pele escura	none
+🧏🏻	pessoa surda pele clara	none
+🧏🏼	pessoa surda pele morena clara	none
+🧏🏽	pessoa surda pele morena	none
+🧏🏾	pessoa surda pele morena escura	none
+🧏🏿	pessoa surda pele escura	none
+🧏🏻‍♂	homem surdo pele clara	none
+🧏🏼‍♂	homem surdo pele morena clara	none
+🧏🏽‍♂	homem surdo pele morena	none
+🧏🏾‍♂	homem surdo pele morena escura	none
+🧏🏿‍♂	homem surdo pele escura	none
+🧏🏻‍♀	mulher surda pele clara	none
+🧏🏼‍♀	mulher surda pele morena clara	none
+🧏🏽‍♀	mulher surda pele morena	none
+🧏🏾‍♀	mulher surda pele morena escura	none
+🧏🏿‍♀	mulher surda pele escura	none
 🙇🏻	pessoa fazendo reverência pele clara	none
 🙇🏼	pessoa fazendo reverência pele morena clara	none
 🙇🏽	pessoa fazendo reverência pele morena	none
@@ -1987,6 +1972,11 @@ symbols:
 🤷🏽‍♀	mulher dando de ombros pele morena	none
 🤷🏾‍♀	mulher dando de ombros pele morena escura	none
 🤷🏿‍♀	mulher dando de ombros pele escura	none
+🧑🏻‍⚕	profissional de saúde pele clara	none
+🧑🏼‍⚕	profissional de saúde pele morena clara	none
+🧑🏽‍⚕	profissional de saúde pele morena	none
+🧑🏾‍⚕	profissional de saúde pele morena escura	none
+🧑🏿‍⚕	profissional de saúde pele escura	none
 👨🏻‍⚕	homem profissional da saúde pele clara	none
 👨🏼‍⚕	homem profissional da saúde pele morena clara	none
 👨🏽‍⚕	homem profissional da saúde pele morena	none
@@ -1997,6 +1987,11 @@ symbols:
 👩🏽‍⚕	mulher profissional da saúde pele morena	none
 👩🏾‍⚕	mulher profissional da saúde pele morena escura	none
 👩🏿‍⚕	mulher profissional da saúde pele escura	none
+🧑🏻‍🎓	aluno pele clara	none
+🧑🏼‍🎓	aluno pele morena clara	none
+🧑🏽‍🎓	aluno pele morena	none
+🧑🏾‍🎓	aluno pele morena escura	none
+🧑🏿‍🎓	aluno pele escura	none
 👨🏻‍🎓	estudante pele clara	none
 👨🏼‍🎓	estudante pele morena clara	none
 👨🏽‍🎓	estudante pele morena	none
@@ -2007,6 +2002,11 @@ symbols:
 👩🏽‍🎓	aluna pele morena	none
 👩🏾‍🎓	aluna pele morena escura	none
 👩🏿‍🎓	aluna pele escura	none
+🧑🏻‍🏫	professora na escola pele clara	none
+🧑🏼‍🏫	professora na escola pele morena clara	none
+🧑🏽‍🏫	professora na escola pele morena	none
+🧑🏾‍🏫	professora na escola pele morena escura	none
+🧑🏿‍🏫	professora na escola pele escura	none
 👨🏻‍🏫	professor pele clara	none
 👨🏼‍🏫	professor pele morena clara	none
 👨🏽‍🏫	professor pele morena	none
@@ -2017,6 +2017,11 @@ symbols:
 👩🏽‍🏫	professora pele morena	none
 👩🏾‍🏫	professora pele morena escura	none
 👩🏿‍🏫	professora pele escura	none
+🧑🏻‍⚖	juiz no tribunal pele clara	none
+🧑🏼‍⚖	juiz no tribunal pele morena clara	none
+🧑🏽‍⚖	juiz no tribunal pele morena	none
+🧑🏾‍⚖	juiz no tribunal pele morena escura	none
+🧑🏿‍⚖	juiz no tribunal pele escura	none
 👨🏻‍⚖	juiz pele clara	none
 👨🏼‍⚖	juiz pele morena clara	none
 👨🏽‍⚖	juiz pele morena	none
@@ -2027,6 +2032,11 @@ symbols:
 👩🏽‍⚖	juíza pele morena	none
 👩🏾‍⚖	juíza pele morena escura	none
 👩🏿‍⚖	juíza pele escura	none
+🧑🏻‍🌾	agricultor pele clara	none
+🧑🏼‍🌾	agricultor pele morena clara	none
+🧑🏽‍🌾	agricultor pele morena	none
+🧑🏾‍🌾	agricultor pele morena escura	none
+🧑🏿‍🌾	agricultor pele escura	none
 👨🏻‍🌾	fazendeiro pele clara	none
 👨🏼‍🌾	fazendeiro pele morena clara	none
 👨🏽‍🌾	fazendeiro pele morena	none
@@ -2037,6 +2047,11 @@ symbols:
 👩🏽‍🌾	fazendeira pele morena	none
 👩🏾‍🌾	fazendeira pele morena escura	none
 👩🏿‍🌾	fazendeira pele escura	none
+🧑🏻‍🍳	chef de cozinha pele clara	none
+🧑🏼‍🍳	chef de cozinha pele morena clara	none
+🧑🏽‍🍳	chef de cozinha pele morena	none
+🧑🏾‍🍳	chef de cozinha pele morena escura	none
+🧑🏿‍🍳	chef de cozinha pele escura	none
 👨🏻‍🍳	cozinheiro pele clara	none
 👨🏼‍🍳	cozinheiro pele morena clara	none
 👨🏽‍🍳	cozinheiro pele morena	none
@@ -2047,6 +2062,11 @@ symbols:
 👩🏽‍🍳	cozinheira pele morena	none
 👩🏾‍🍳	cozinheira pele morena escura	none
 👩🏿‍🍳	cozinheira pele escura	none
+🧑🏻‍🔧	mecânico trabalhando pele clara	none
+🧑🏼‍🔧	mecânico trabalhando pele morena clara	none
+🧑🏽‍🔧	mecânico trabalhando pele morena	none
+🧑🏾‍🔧	mecânico trabalhando pele morena escura	none
+🧑🏿‍🔧	mecânico trabalhando pele escura	none
 👨🏻‍🔧	mecânico pele clara	none
 👨🏼‍🔧	mecânico pele morena clara	none
 👨🏽‍🔧	mecânico pele morena	none
@@ -2057,6 +2077,11 @@ symbols:
 👩🏽‍🔧	mecânica pele morena	none
 👩🏾‍🔧	mecânica pele morena escura	none
 👩🏿‍🔧	mecânica pele escura	none
+🧑🏻‍🏭	funcionário de fábrica pele clara	none
+🧑🏼‍🏭	funcionário de fábrica pele morena clara	none
+🧑🏽‍🏭	funcionário de fábrica pele morena	none
+🧑🏾‍🏭	funcionário de fábrica pele morena escura	none
+🧑🏿‍🏭	funcionário de fábrica pele escura	none
 👨🏻‍🏭	operário pele clara	none
 👨🏼‍🏭	operário pele morena clara	none
 👨🏽‍🏭	operário pele morena	none
@@ -2067,6 +2092,11 @@ symbols:
 👩🏽‍🏭	operária pele morena	none
 👩🏾‍🏭	operária pele morena escura	none
 👩🏿‍🏭	operária pele escura	none
+🧑🏻‍💼	trabalhador de escritório pele clara	none
+🧑🏼‍💼	trabalhador de escritório pele morena clara	none
+🧑🏽‍💼	trabalhador de escritório pele morena	none
+🧑🏾‍💼	trabalhador de escritório pele morena escura	none
+🧑🏿‍💼	trabalhador de escritório pele escura	none
 👨🏻‍💼	funcionário de escritório pele clara	none
 👨🏼‍💼	funcionário de escritório pele morena clara	none
 👨🏽‍💼	funcionário de escritório pele morena	none
@@ -2077,6 +2107,11 @@ symbols:
 👩🏽‍💼	funcionária de escritório pele morena	none
 👩🏾‍💼	funcionária de escritório pele morena escura	none
 👩🏿‍💼	funcionária de escritório pele escura	none
+🧑🏻‍🔬	cientista pele clara	none
+🧑🏼‍🔬	cientista pele morena clara	none
+🧑🏽‍🔬	cientista pele morena	none
+🧑🏾‍🔬	cientista pele morena escura	none
+🧑🏿‍🔬	cientista pele escura	none
 👨🏻‍🔬	cientista homem pele clara	none
 👨🏼‍🔬	cientista homem pele morena clara	none
 👨🏽‍🔬	cientista homem pele morena	none
@@ -2087,6 +2122,11 @@ symbols:
 👩🏽‍🔬	cientista mulher pele morena	none
 👩🏾‍🔬	cientista mulher pele morena escura	none
 👩🏿‍🔬	cientista mulher pele escura	none
+🧑🏻‍💻	programador pele clara	none
+🧑🏼‍💻	programador pele morena clara	none
+🧑🏽‍💻	programador pele morena	none
+🧑🏾‍💻	programador pele morena escura	none
+🧑🏿‍💻	programador pele escura	none
 👨🏻‍💻	tecnólogo pele clara	none
 👨🏼‍💻	tecnólogo pele morena clara	none
 👨🏽‍💻	tecnólogo pele morena	none
@@ -2097,16 +2137,26 @@ symbols:
 👩🏽‍💻	tecnóloga pele morena	none
 👩🏾‍💻	tecnóloga pele morena escura	none
 👩🏿‍💻	tecnóloga pele escura	none
-👨🏻‍🎤	cantor pele clara	none
-👨🏼‍🎤	cantor pele morena clara	none
-👨🏽‍🎤	cantor pele morena	none
-👨🏾‍🎤	cantor pele morena escura	none
-👨🏿‍🎤	cantor pele escura	none
+🧑🏻‍🎤	cantor pele clara	none
+🧑🏼‍🎤	cantor pele morena clara	none
+🧑🏽‍🎤	cantor pele morena	none
+🧑🏾‍🎤	cantor pele morena escura	none
+🧑🏿‍🎤	cantor pele escura	none
+👨🏻‍🎤	cantor homem pele clara	none
+👨🏼‍🎤	cantor homem pele morena clara	none
+👨🏽‍🎤	cantor homem pele morena	none
+👨🏾‍🎤	cantor homem pele morena escura	none
+👨🏿‍🎤	cantor homem pele escura	none
 👩🏻‍🎤	cantora pele clara	none
 👩🏼‍🎤	cantora pele morena clara	none
 👩🏽‍🎤	cantora pele morena	none
 👩🏾‍🎤	cantora pele morena escura	none
 👩🏿‍🎤	cantora pele escura	none
+🧑🏻‍🎨	artista pele clara	none
+🧑🏼‍🎨	artista pele morena clara	none
+🧑🏽‍🎨	artista pele morena	none
+🧑🏾‍🎨	artista pele morena escura	none
+🧑🏿‍🎨	artista pele escura	none
 👨🏻‍🎨	artista plástico pele clara	none
 👨🏼‍🎨	artista plástico pele morena clara	none
 👨🏽‍🎨	artista plástico pele morena	none
@@ -2117,6 +2167,11 @@ symbols:
 👩🏽‍🎨	artista plástica pele morena	none
 👩🏾‍🎨	artista plástica pele morena escura	none
 👩🏿‍🎨	artista plástica pele escura	none
+🧑🏻‍✈	piloto pele clara	none
+🧑🏼‍✈	piloto pele morena clara	none
+🧑🏽‍✈	piloto pele morena	none
+🧑🏾‍✈	piloto pele morena escura	none
+🧑🏿‍✈	piloto pele escura	none
 👨🏻‍✈	piloto de avião homem pele clara	none
 👨🏼‍✈	piloto de avião homem pele morena clara	none
 👨🏽‍✈	piloto de avião homem pele morena	none
@@ -2127,6 +2182,11 @@ symbols:
 👩🏽‍✈	piloto de avião mulher pele morena	none
 👩🏾‍✈	piloto de avião mulher pele morena escura	none
 👩🏿‍✈	piloto de avião mulher pele escura	none
+🧑🏻‍🚀	astronauta pele clara	none
+🧑🏼‍🚀	astronauta pele morena clara	none
+🧑🏽‍🚀	astronauta pele morena	none
+🧑🏾‍🚀	astronauta pele morena escura	none
+🧑🏿‍🚀	astronauta pele escura	none
 👨🏻‍🚀	astronauta homem pele clara	none
 👨🏼‍🚀	astronauta homem pele morena clara	none
 👨🏽‍🚀	astronauta homem pele morena	none
@@ -2137,11 +2197,16 @@ symbols:
 👩🏽‍🚀	astronauta mulher pele morena	none
 👩🏾‍🚀	astronauta mulher pele morena escura	none
 👩🏿‍🚀	astronauta mulher pele escura	none
-👨🏻‍🚒	bombeiro pele clara	none
-👨🏼‍🚒	bombeiro pele morena clara	none
-👨🏽‍🚒	bombeiro pele morena	none
-👨🏾‍🚒	bombeiro pele morena escura	none
-👨🏿‍🚒	bombeiro pele escura	none
+🧑🏻‍🚒	bombeiro pele clara	none
+🧑🏼‍🚒	bombeiro pele morena clara	none
+🧑🏽‍🚒	bombeiro pele morena	none
+🧑🏾‍🚒	bombeiro pele morena escura	none
+🧑🏿‍🚒	bombeiro pele escura	none
+👨🏻‍🚒	bombeiro homem pele clara	none
+👨🏼‍🚒	bombeiro homem pele morena clara	none
+👨🏽‍🚒	bombeiro homem pele morena	none
+👨🏾‍🚒	bombeiro homem pele morena escura	none
+👨🏿‍🚒	bombeiro homem pele escura	none
 👩🏻‍🚒	bombeira pele clara	none
 👩🏼‍🚒	bombeira pele morena clara	none
 👩🏽‍🚒	bombeira pele morena	none
@@ -2427,6 +2492,81 @@ symbols:
 🚶🏽‍♀	mulher andando pele morena	none
 🚶🏾‍♀	mulher andando pele morena escura	none
 🚶🏿‍♀	mulher andando pele escura	none
+🧍🏻	pessoa em pé pele clara	none
+🧍🏼	pessoa em pé pele morena clara	none
+🧍🏽	pessoa em pé pele morena	none
+🧍🏾	pessoa em pé pele morena escura	none
+🧍🏿	pessoa em pé pele escura	none
+🧍🏻‍♂	homem em pé pele clara	none
+🧍🏼‍♂	homem em pé pele morena clara	none
+🧍🏽‍♂	homem em pé pele morena	none
+🧍🏾‍♂	homem em pé pele morena escura	none
+🧍🏿‍♂	homem em pé pele escura	none
+🧍🏻‍♀	mulher em pé pele clara	none
+🧍🏼‍♀	mulher em pé pele morena clara	none
+🧍🏽‍♀	mulher em pé pele morena	none
+🧍🏾‍♀	mulher em pé pele morena escura	none
+🧍🏿‍♀	mulher em pé pele escura	none
+🧎🏻	pessoa ajoelhando pele clara	none
+🧎🏼	pessoa ajoelhando pele morena clara	none
+🧎🏽	pessoa ajoelhando pele morena	none
+🧎🏾	pessoa ajoelhando pele morena escura	none
+🧎🏿	pessoa ajoelhando pele escura	none
+🧎🏻‍♂	homem ajoelhando pele clara	none
+🧎🏼‍♂	homem ajoelhando pele morena clara	none
+🧎🏽‍♂	homem ajoelhando pele morena	none
+🧎🏾‍♂	homem ajoelhando pele morena escura	none
+🧎🏿‍♂	homem ajoelhando pele escura	none
+🧎🏻‍♀	mulher ajoelhando pele clara	none
+🧎🏼‍♀	mulher ajoelhando pele morena clara	none
+🧎🏽‍♀	mulher ajoelhando pele morena	none
+🧎🏾‍♀	mulher ajoelhando pele morena escura	none
+🧎🏿‍♀	mulher ajoelhando pele escura	none
+🧑🏻‍🦯	pessoa com bengala para cego pele clara	none
+🧑🏼‍🦯	pessoa com bengala para cego pele morena clara	none
+🧑🏽‍🦯	pessoa com bengala para cego pele morena	none
+🧑🏾‍🦯	pessoa com bengala para cego pele morena escura	none
+🧑🏿‍🦯	pessoa com bengala para cego pele escura	none
+👨🏻‍🦯	homem com bengala para cego pele clara	none
+👨🏼‍🦯	homem com bengala para cego pele morena clara	none
+👨🏽‍🦯	homem com bengala para cego pele morena	none
+👨🏾‍🦯	homem com bengala para cego pele morena escura	none
+👨🏿‍🦯	homem com bengala para cego pele escura	none
+👩🏻‍🦯	mulher com bengala para cego pele clara	none
+👩🏼‍🦯	mulher com bengala para cego pele morena clara	none
+👩🏽‍🦯	mulher com bengala para cego pele morena	none
+👩🏾‍🦯	mulher com bengala para cego pele morena escura	none
+👩🏿‍🦯	mulher com bengala para cego pele escura	none
+🧑🏻‍🦼	pessoa em cadeira de rodas motorizada pele clara	none
+🧑🏼‍🦼	pessoa em cadeira de rodas motorizada pele morena clara	none
+🧑🏽‍🦼	pessoa em cadeira de rodas motorizada pele morena	none
+🧑🏾‍🦼	pessoa em cadeira de rodas motorizada pele morena escura	none
+🧑🏿‍🦼	pessoa em cadeira de rodas motorizada pele escura	none
+👨🏻‍🦼	homem em cadeira de rodas motorizada pele clara	none
+👨🏼‍🦼	homem em cadeira de rodas motorizada pele morena clara	none
+👨🏽‍🦼	homem em cadeira de rodas motorizada pele morena	none
+👨🏾‍🦼	homem em cadeira de rodas motorizada pele morena escura	none
+👨🏿‍🦼	homem em cadeira de rodas motorizada pele escura	none
+👩🏻‍🦼	mulher em cadeira de rodas motorizada pele clara	none
+👩🏼‍🦼	mulher em cadeira de rodas motorizada pele morena clara	none
+👩🏽‍🦼	mulher em cadeira de rodas motorizada pele morena	none
+👩🏾‍🦼	mulher em cadeira de rodas motorizada pele morena escura	none
+👩🏿‍🦼	mulher em cadeira de rodas motorizada pele escura	none
+🧑🏻‍🦽	pessoa em cadeira de rodas manual pele clara	none
+🧑🏼‍🦽	pessoa em cadeira de rodas manual pele morena clara	none
+🧑🏽‍🦽	pessoa em cadeira de rodas manual pele morena	none
+🧑🏾‍🦽	pessoa em cadeira de rodas manual pele morena escura	none
+🧑🏿‍🦽	pessoa em cadeira de rodas manual pele escura	none
+👨🏻‍🦽	homem em cadeira de rodas manual pele clara	none
+👨🏼‍🦽	homem em cadeira de rodas manual pele morena clara	none
+👨🏽‍🦽	homem em cadeira de rodas manual pele morena	none
+👨🏾‍🦽	homem em cadeira de rodas manual pele morena escura	none
+👨🏿‍🦽	homem em cadeira de rodas manual pele escura	none
+👩🏻‍🦽	mulher em cadeira de rodas manual pele clara	none
+👩🏼‍🦽	mulher em cadeira de rodas manual pele morena clara	none
+👩🏽‍🦽	mulher em cadeira de rodas manual pele morena	none
+👩🏾‍🦽	mulher em cadeira de rodas manual pele morena escura	none
+👩🏿‍🦽	mulher em cadeira de rodas manual pele escura	none
 🏃🏻	pessoa correndo pele clara	none
 🏃🏼	pessoa correndo pele morena clara	none
 🏃🏽	pessoa correndo pele morena	none
@@ -2702,21 +2842,76 @@ symbols:
 🛌🏽	pessoa deitada na cama pele morena	none
 🛌🏾	pessoa deitada na cama pele morena escura	none
 🛌🏿	pessoa deitada na cama pele escura	none
+🧑🏻‍🤝‍🧑🏻	pessoas de mãos dadas pele clara	none
+🧑🏼‍🤝‍🧑🏻	pessoas de mãos dadas pele morena clara e pele clara	none
+🧑🏼‍🤝‍🧑🏼	pessoas de mãos dadas pele morena clara	none
+🧑🏽‍🤝‍🧑🏻	pessoas de mãos dadas pele morena e pele clara	none
+🧑🏽‍🤝‍🧑🏼	pessoas de mãos dadas pele morena e pele morena clara	none
+🧑🏽‍🤝‍🧑🏽	pessoas de mãos dadas pele morena	none
+🧑🏾‍🤝‍🧑🏻	pessoas de mãos dadas pele morena escura e pele clara	none
+🧑🏾‍🤝‍🧑🏼	pessoas de mãos dadas pele morena escura e pele morena clara	none
+🧑🏾‍🤝‍🧑🏽	pessoas de mãos dadas pele morena escura e pele morena	none
+🧑🏾‍🤝‍🧑🏾	pessoas de mãos dadas pele morena escura	none
+🧑🏿‍🤝‍🧑🏻	pessoas de mãos dadas pele escura e pele clara	none
+🧑🏿‍🤝‍🧑🏼	pessoas de mãos dadas pele escura e pele morena clara	none
+🧑🏿‍🤝‍🧑🏽	pessoas de mãos dadas pele escura e pele morena	none
+🧑🏿‍🤝‍🧑🏾	pessoas de mãos dadas pele escura e pele morena escura	none
+🧑🏿‍🤝‍🧑🏿	pessoas de mãos dadas pele escura	none
+👭🏻	duas mulheres de mãos dadas pele clara	none
+👩🏼‍🤝‍👩🏻	duas mulheres de mãos dadas pele morena clara e pele clara	none
+👭🏼	duas mulheres de mãos dadas pele morena clara	none
+👩🏽‍🤝‍👩🏻	duas mulheres de mãos dadas pele morena e pele clara	none
+👩🏽‍🤝‍👩🏼	duas mulheres de mãos dadas pele morena e pele morena clara	none
+👭🏽	duas mulheres de mãos dadas pele morena	none
+👩🏾‍🤝‍👩🏻	duas mulheres de mãos dadas pele morena escura e pele clara	none
+👩🏾‍🤝‍👩🏼	duas mulheres de mãos dadas pele morena escura e pele morena clara	none
+👩🏾‍🤝‍👩🏽	duas mulheres de mãos dadas pele morena escura e pele morena	none
+👭🏾	duas mulheres de mãos dadas pele morena escura	none
+👩🏿‍🤝‍👩🏻	duas mulheres de mãos dadas pele escura e pele clara	none
+👩🏿‍🤝‍👩🏼	duas mulheres de mãos dadas pele escura e pele morena clara	none
+👩🏿‍🤝‍👩🏽	duas mulheres de mãos dadas pele escura e pele morena	none
+👩🏿‍🤝‍👩🏾	duas mulheres de mãos dadas pele escura e pele morena escura	none
+👭🏿	duas mulheres de mãos dadas pele escura	none
 👫🏻	homem e mulher de mãos dadas pele clara	none
+👩🏻‍🤝‍👨🏼	homem e mulher de mãos dadas pele clara e pele morena clara	none
+👩🏻‍🤝‍👨🏽	homem e mulher de mãos dadas pele clara e pele morena	none
+👩🏻‍🤝‍👨🏾	homem e mulher de mãos dadas pele clara e pele morena escura	none
+👩🏻‍🤝‍👨🏿	homem e mulher de mãos dadas pele clara e pele escura	none
+👩🏼‍🤝‍👨🏻	homem e mulher de mãos dadas pele morena clara e pele clara	none
 👫🏼	homem e mulher de mãos dadas pele morena clara	none
+👩🏼‍🤝‍👨🏽	homem e mulher de mãos dadas pele morena clara e pele morena	none
+👩🏼‍🤝‍👨🏾	homem e mulher de mãos dadas pele morena clara e pele morena escura	none
+👩🏼‍🤝‍👨🏿	homem e mulher de mãos dadas pele morena clara e pele escura	none
+👩🏽‍🤝‍👨🏻	homem e mulher de mãos dadas pele morena e pele clara	none
+👩🏽‍🤝‍👨🏼	homem e mulher de mãos dadas pele morena e pele morena clara	none
 👫🏽	homem e mulher de mãos dadas pele morena	none
+👩🏽‍🤝‍👨🏾	homem e mulher de mãos dadas pele morena e pele morena escura	none
+👩🏽‍🤝‍👨🏿	homem e mulher de mãos dadas pele morena e pele escura	none
+👩🏾‍🤝‍👨🏻	homem e mulher de mãos dadas pele morena escura e pele clara	none
+👩🏾‍🤝‍👨🏼	homem e mulher de mãos dadas pele morena escura e pele morena clara	none
+👩🏾‍🤝‍👨🏽	homem e mulher de mãos dadas pele morena escura e pele morena	none
 👫🏾	homem e mulher de mãos dadas pele morena escura	none
+👩🏾‍🤝‍👨🏿	homem e mulher de mãos dadas pele morena escura e pele escura	none
+👩🏿‍🤝‍👨🏻	homem e mulher de mãos dadas pele escura e pele clara	none
+👩🏿‍🤝‍👨🏼	homem e mulher de mãos dadas pele escura e pele morena clara	none
+👩🏿‍🤝‍👨🏽	homem e mulher de mãos dadas pele escura e pele morena	none
+👩🏿‍🤝‍👨🏾	homem e mulher de mãos dadas pele escura e pele morena escura	none
 👫🏿	homem e mulher de mãos dadas pele escura	none
 👬🏻	dois homens de mãos dadas pele clara	none
+👨🏼‍🤝‍👨🏻	dois homens de mãos dadas pele morena clara e pele clara	none
 👬🏼	dois homens de mãos dadas pele morena clara	none
+👨🏽‍🤝‍👨🏻	dois homens de mãos dadas pele morena e pele clara	none
+👨🏽‍🤝‍👨🏼	dois homens de mãos dadas pele morena e pele morena clara	none
 👬🏽	dois homens de mãos dadas pele morena	none
+👨🏾‍🤝‍👨🏻	dois homens de mãos dadas pele morena escura e pele clara	none
+👨🏾‍🤝‍👨🏼	dois homens de mãos dadas pele morena escura e pele morena clara	none
+👨🏾‍🤝‍👨🏽	dois homens de mãos dadas pele morena escura e pele morena	none
 👬🏾	dois homens de mãos dadas pele morena escura	none
+👨🏿‍🤝‍👨🏻	dois homens de mãos dadas pele escura e pele clara	none
+👨🏿‍🤝‍👨🏼	dois homens de mãos dadas pele escura e pele morena clara	none
+👨🏿‍🤝‍👨🏽	dois homens de mãos dadas pele escura e pele morena	none
+👨🏿‍🤝‍👨🏾	dois homens de mãos dadas pele escura e pele morena escura	none
 👬🏿	dois homens de mãos dadas pele escura	none
-👭🏻	duas mulheres de mãos dadas pele clara	none
-👭🏼	duas mulheres de mãos dadas pele morena clara	none
-👭🏽	duas mulheres de mãos dadas pele morena	none
-👭🏾	duas mulheres de mãos dadas pele morena escura	none
-👭🏿	duas mulheres de mãos dadas pele escura	none
 👩‍❤‍💋‍👨	beijo mulher e homem	none
 👨‍❤‍💋‍👨	beijo homem e homem	none
 👩‍❤‍💋‍👩	beijo mulher e mulher	none
@@ -2969,7 +3164,7 @@ symbols:
 🇸🇻	bandeira El Salvador	none
 🇸🇽	bandeira Sint Maarten	none
 🇸🇾	bandeira Síria	none
-🇸🇿	bandeira Suazilândia	none
+🇸🇿	bandeira Essuatíni	none
 🇹🇦	bandeira Tristão da Cunha	none
 🇹🇨	bandeira Ilhas Turcas e Caicos	none
 🇹🇩	bandeira Chade	none
