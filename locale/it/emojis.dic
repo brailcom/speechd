@@ -8,7 +8,7 @@ symbols:
 🏽	carnagione olivastra	none
 🏾	carnagione abbastanza scura	none
 🏿	carnagione scura	none
-🐾	impronte di zampe	none
+⚧	simbolo transgender	none
 😀	faccina con un gran sorriso	none
 😃	faccina con un gran sorriso e occhi spalancati	none
 😄	faccina con sorriso e occhi sorridenti	none
@@ -57,7 +57,7 @@ symbols:
 😴	faccina che dorme	none
 😷	faccina con mascherina	none
 🤒	faccina con termometro	none
-🤕	faccina bendata	none
+🤕	faccina con la testa bendata	none
 🤢	faccina nauseata	none
 🤮	faccina che vomita	none
 🤧	faccina che starnutisce	none
@@ -79,11 +79,11 @@ symbols:
 😯	faccina sorpresa	none
 😲	faccina stupita	none
 😳	faccina imbarazzata	none
-🥺	faccina sull’orlo delle lacrime	none
+🥺	faccina supplichevole	none
 😦	faccina imbronciata con bocca aperta	none
 😧	faccina angosciata	none
 😨	faccina impaurita	none
-😰	faccina blu sudata	none
+😰	faccina sudata in ansia	none
 😥	faccina delusa ma sollevata	none
 😢	faccina che piange	none
 😭	faccina disperata	none
@@ -94,8 +94,9 @@ symbols:
 😓	faccina sudata	none
 😩	faccina esausta	none
 😫	faccina stanca	none
+🥱	faccina che sbadiglia	none
 😤	faccina che sbuffa	none
-😡	broncio	none
+😡	faccina accigliata	none
 😠	faccina arrabbiata	none
 🤬	faccina con simboli sulla bocca	none
 😈	faccina con sorriso e corna	none
@@ -140,7 +141,9 @@ symbols:
 💚	cuore verde	none
 💙	cuore azzurro	none
 💜	cuore viola	none
+🤎	cuore marrone	none
 🖤	cuore nero	none
+🤍	cuore bianco	none
 💯	100 punti	none
 💢	rabbia	none
 💥	collisione	none
@@ -161,6 +164,7 @@ symbols:
 ✋	mano alzata	none
 🖖	saluto vulcaniano	none
 👌	mano che fa OK	none
+🤏	mano che fa il gesto del pizzico	none
 ✌	vittoria	none
 🤞	dita incrociate	none
 🤟	gesto ti amo	none
@@ -188,9 +192,12 @@ symbols:
 💅	smalto per unghie	none
 🤳	selfie	none
 💪	bicipite	none
+🦾	protesi robotica per il braccio	none
+🦿	protesi robotica per la gamba	none
 🦵	gamba	none
 🦶	piede	none
 👂	orecchio	none
+🦻	orecchio con apparecchio acustico	none
 👃	naso	none
 🧠	cervello	none
 🦷	dente	none
@@ -205,19 +212,12 @@ symbols:
 👧	bambina	none
 🧑	persona	none
 👱	persona bionda	none
-🧑‍🤝‍🧑	persone che si tengono per mano	none
 👨	uomo	none
-👨‍🦯	uomo con bastone bianco di orientamento	none
-👨‍🦼	uomo su sedia a rotelle motorizzata	none
-👨‍🦽	uomo su sedia a rotelle manuale	none
-👱‍♂	uomo biondo	none
 🧔	uomo con la barba	none
+👱‍♂	uomo biondo	none
 👩	donna	none
-👩‍🦯	donna con bastone bianco di orientamento	none
-👩‍🦼	donna su sedia a rotelle motorizzata	none
-👩‍🦽	donna su sedia a rotelle manuale	none
 👱‍♀	donna bionda	none
-🧓	adulto anziano	none
+🧓	persona anziana	none
 👴	uomo anziano	none
 👵	donna anziana	none
 🙍	persona corrucciata	none
@@ -238,6 +238,9 @@ symbols:
 🙋	persona con mano alzata	none
 🙋‍♂	uomo con mano alzata	none
 🙋‍♀	donna con mano alzata	none
+🧏	persona con problemi di udito	none
+🧏‍♂	uomo con problemi di udito	none
+🧏‍♀	donna con problemi di udito	none
 🙇	persona che fa un inchino profondo	none
 🙇‍♂	uomo che fa inchino profondo	none
 🙇‍♀	donna che fa inchino profondo	none
@@ -247,36 +250,52 @@ symbols:
 🤷	persona che scrolla le spalle	none
 🤷‍♂	uomo che scrolla le spalle	none
 🤷‍♀	donna che scrolla le spalle	none
+🧑‍⚕	persona che lavora nella sanità	none
 👨‍⚕	operatore sanitario	none
 👩‍⚕	operatrice sanitaria	none
-👨‍🎓	studente	none
+🧑‍🎓	studente	none
+👨‍🎓	studente maschio	none
 👩‍🎓	studentessa	none
+🧑‍🏫	insegnante	none
 👨‍🏫	professore	none
 👩‍🏫	professoressa	none
+🧑‍⚖	giudice	none
 👨‍⚖	giudice uomo	none
 👩‍⚖	giudice donna	none
+🧑‍🌾	agricoltore	none
 👨‍🌾	contadino	none
 👩‍🌾	contadina	none
+🧑‍🍳	persona che cucina	none
 👨‍🍳	cuoco	none
 👩‍🍳	cuoca	none
+🧑‍🔧	meccanico	none
 👨‍🔧	meccanico uomo	none
 👩‍🔧	meccanico donna	none
+🧑‍🏭	persona che lavora in fabbrica	none
 👨‍🏭	operaio	none
 👩‍🏭	operaia	none
+🧑‍💼	persona che fa un lavoro d’ufficio	none
 👨‍💼	impiegato	none
 👩‍💼	impiegata	none
+🧑‍🔬	persona che lavora in campo scientifico	none
 👨‍🔬	scienziato	none
 👩‍🔬	scienziata	none
+🧑‍💻	persona esperta di tecnologia	none
 👨‍💻	tecnologo	none
 👩‍💻	tecnologa	none
+🧑‍🎤	cantante	none
 👨‍🎤	cantante uomo	none
 👩‍🎤	cantante donna	none
+🧑‍🎨	artista	none
 👨‍🎨	artista uomo	none
 👩‍🎨	artista donna	none
+🧑‍✈	pilota	none
 👨‍✈	pilota uomo	none
 👩‍✈	pilota donna	none
+🧑‍🚀	astronauta	none
 👨‍🚀	astronauta uomo	none
 👩‍🚀	astronauta donna	none
+🧑‍🚒	pompiere	none
 👨‍🚒	pompiere uomo	none
 👩‍🚒	pompiere donna	none
 👮	agente di polizia	none
@@ -341,6 +360,21 @@ symbols:
 🚶	pedone	none
 🚶‍♂	uomo che cammina	none
 🚶‍♀	donna che cammina	none
+🧍	persona in piedi	none
+🧍‍♂	uomo in piedi	none
+🧍‍♀	donna in piedi	none
+🧎	persona inginocchiata	none
+🧎‍♂	uomo inginocchiato	none
+🧎‍♀	donna inginocchiata	none
+🧑‍🦯	persona con bastone di orientamento	none
+👨‍🦯	uomo con bastone bianco di orientamento	none
+👩‍🦯	donna con bastone bianco di orientamento	none
+🧑‍🦼	persona su sedia a rotelle motorizzata	none
+👨‍🦼	uomo su sedia a rotelle motorizzata	none
+👩‍🦼	donna su sedia a rotelle motorizzata	none
+🧑‍🦽	persona su sedia a rotelle manuale	none
+👨‍🦽	uomo su sedia a rotelle manuale	none
+👩‍🦽	donna su sedia a rotelle manuale	none
 🏃	persona che corre	none
 🏃‍♂	uomo che corre	none
 🏃‍♀	donna che corre	none
@@ -404,9 +438,10 @@ symbols:
 🧘‍♀	donna in posizione del loto	none
 🛀	persona che fa il bagno	none
 🛌	persona a letto	none
+🧑‍🤝‍🧑	persone che si tengono per mano	none
+👭	due donne che si tengono per mano	none
 👫	uomo e donna che si tengono per mano	none
 👬	due uomini che si tengono per mano	none
-👭	due donne che si tengono per mano	none
 💏	bacio tra coppia	none
 💑	coppia con cuore	none
 👪	famiglia	none
@@ -418,13 +453,13 @@ symbols:
 🦱	capelli ricci	none
 🦳	capelli bianchi	none
 🦲	calvo	none
-♀	simbolo genere femminile	none
-♂	simbolo genere maschile	none
 🐵	muso di scimmia	none
 🐒	scimmia	none
 🦍	gorilla	none
+🦧	orangotango	none
 🐶	muso di cane	none
 🐕	cane	none
+🦮	cane guida	none
 🐕‍🦺	cane da assistenza	none
 🐩	barboncino	none
 🐺	lupo	none
@@ -471,8 +506,12 @@ symbols:
 🐻	orso	none
 🐨	koala	none
 🐼	panda	none
+🦥	bradipo	none
+🦦	lontra	none
+🦨	puzzola	none
 🦘	canguro	none
 🦡	tasso	none
+🐾	impronte di zampe	none
 🦃	tacchino	none
 🐔	gallina	none
 🐓	gallo	none
@@ -486,6 +525,7 @@ symbols:
 🦆	anatra	none
 🦢	cigno	none
 🦉	gufo	none
+🦩	fenicottero	none
 🦚	pavone	none
 🦜	pappagallo	none
 🐸	rana	none
@@ -566,6 +606,8 @@ symbols:
 🥒	cetriolo	none
 🥬	verdure a foglia	none
 🥦	broccoli	none
+🧄	aglio	none
+🧅	cipolla	none
 🍄	fungo	none
 🥜	arachidi	none
 🌰	castagna	none
@@ -575,6 +617,7 @@ symbols:
 🥨	pretzel	none
 🥯	bagel	none
 🥞	pancake	none
+🧇	waffle	none
 🧀	fetta di formaggio	none
 🍖	carne	none
 🍗	coscia di pollo	none
@@ -588,6 +631,7 @@ symbols:
 🌮	taco	none
 🌯	burrito	none
 🥙	pita farcita	none
+🧆	falafel	none
 🥚	uovo	none
 🍳	cucinare	none
 🥘	padella con cibo	none
@@ -595,11 +639,12 @@ symbols:
 🥣	ciotola con cucchiaio	none
 🥗	insalata verde	none
 🍿	popcorn	none
+🧈	burro	none
 🧂	sale	none
 🥫	cibo in scatola	none
 🍱	bento box	none
 🍘	galletta di riso	none
-🍙	arancino di riso	none
+🍙	onigiri	none
 🍚	riso bollito	none
 🍛	riso al curry	none
 🍜	ciotola fumante	none
@@ -618,6 +663,7 @@ symbols:
 🦞	aragosta	none
 🦐	gamberetto	none
 🦑	calamaro	none
+🦪	ostrica	none
 🍦	cono gelato	none
 🍧	granita	none
 🍨	coppa di gelato	none
@@ -646,6 +692,9 @@ symbols:
 🥂	brindisi	none
 🥃	bicchiere tumbler	none
 🥤	bicchiere con cannuccia	none
+🧃	bevanda monodose	none
+🧉	mate	none
+🧊	cubetto di ghiaccio	none
 🥢	bacchette	none
 🍽	piatto e posate	none
 🍴	forchetta e coltello	none
@@ -694,6 +743,7 @@ symbols:
 🗽	Statua della Libertà	none
 ⛪	chiesa	none
 🕌	moschea	none
+🛕	tempio indù	none
 🕍	sinagoga	none
 ⛩	santuario shintoista	none
 🕋	Kaaba	none
@@ -708,7 +758,6 @@ symbols:
 🌇	tramonto	none
 🌉	ponte di notte	none
 ♨	sorgenti termali	none
-🌌	Via Lattea	none
 🎠	cavallo da giostra	none
 🎡	ruota panoramica	none
 🎢	montagne russe	none
@@ -745,6 +794,9 @@ symbols:
 🏎	auto da corsa	none
 🏍	motocicletta	none
 🛵	scooter	none
+🦽	sedia a rotelle manuale	none
+🦼	sedia a rotelle motorizzata	none
+🛺	risciò a motore	none
 🚲	bicicletta	none
 🛴	monopattino	none
 🛹	skateboard	none
@@ -762,7 +814,7 @@ symbols:
 ⛵	barca a vela	none
 🛶	canoa	none
 🚤	motoscafo	none
-🛳	crociera	none
+🛳	nave da crociera	none
 ⛴	traghetto	none
 🛥	barca a motore	none
 🚢	nave	none
@@ -770,6 +822,7 @@ symbols:
 🛩	aereo turistico	none
 🛫	decollo	none
 🛬	atterraggio	none
+🪂	paracadute	none
 💺	sedile	none
 🚁	elicottero	none
 🚟	funivia	none
@@ -814,9 +867,9 @@ symbols:
 🌑	luna nuova	none
 🌒	luna crescente	none
 🌓	primo quarto di luna	none
-🌔	gibbosa crescente	none
+🌔	luna gibbosa crescente	none
 🌕	luna piena	none
-🌖	gibbosa calante	none
+🌖	luna gibbosa calante	none
 🌗	ultimo quarto di luna	none
 🌘	luna calante	none
 🌙	spicchio di luna	none
@@ -827,9 +880,11 @@ symbols:
 ☀	sole	none
 🌝	faccina luna piena	none
 🌞	faccina sole	none
+🪐	pianeta con satellite	none
 ⭐	stella	none
 🌟	stella che brilla	none
 🌠	stella cadente	none
+🌌	Via Lattea	none
 ☁	nuvola	none
 ⛅	sole coperto	none
 ⛈	temporale	none
@@ -859,7 +914,7 @@ symbols:
 🎃	zucca di Halloween	none
 🎄	albero di Natale	none
 🎆	fuochi d’artificio	none
-🎇	stella filante	none
+🎇	stellina scintillante	none
 🧨	petardo	none
 ✨	stelline	none
 🎈	palloncino	none
@@ -905,11 +960,14 @@ symbols:
 ⛳	bandiera in buca	none
 ⛸	pattinaggio su ghiaccio	none
 🎣	canna da pesca	none
+🤿	maschera da sub	none
 🎽	maglia da corsa	none
 🎿	sci	none
 🛷	slitta	none
 🥌	stone da curling	none
 🎯	bersaglio	none
+🪀	yo-yo	none
+🪁	aquilone	none
 🎱	palla da biliardo	none
 🔮	sfera di cristallo	none
 🧿	occhio di Allah	none
@@ -929,13 +987,14 @@ symbols:
 🎴	carta da gioco	none
 🎭	maschere	none
 🖼	quadro incorniciato	none
-🎨	tavolozza dei colori	none
+🎨	tavolozza	none
 🧵	filo	none
 🧶	gomitolo	none
 👓	occhiali da vista	none
 🕶	occhiali da sole	none
-🥽	occhialini	none
+🥽	maschera	none
 🥼	camice	none
+🦺	gilet di sicurezza	none
 👔	cravatta	none
 👕	t-shirt	none
 👖	jeans	none
@@ -945,6 +1004,10 @@ symbols:
 🧦	calzini	none
 👗	vestito	none
 👘	kimono	none
+🥻	sari	none
+🩱	costume da bagno intero	none
+🩲	slip	none
+🩳	pantaloncini	none
 👙	bikini	none
 👚	maglietta da donna	none
 👛	borsellino	none
@@ -958,6 +1021,7 @@ symbols:
 🥿	ballerina	none
 👠	scarpa con il tacco	none
 👡	sandalo da donna	none
+🩰	scarpette da ballerina	none
 👢	stivale da donna	none
 👑	corona	none
 👒	cappello da donna	none
@@ -992,6 +1056,7 @@ symbols:
 🎹	piano	none
 🎺	tromba	none
 🎻	violino	none
+🪕	banjo	none
 🥁	tamburo	none
 📱	telefono cellulare	none
 📲	telefono cellulare con freccia	none
@@ -1027,6 +1092,7 @@ symbols:
 💡	lampadina	none
 🔦	torcia	none
 🏮	lanterna rossa	none
+🪔	diya	none
 📔	quaderno con copertina decorata	none
 📕	libro chiuso	none
 📖	libro aperto	none
@@ -1105,6 +1171,7 @@ symbols:
 🔑	chiave	none
 🗝	chiave antica	none
 🔨	martello	none
+🪓	ascia	none
 ⛏	piccone	none
 ⚒	piccone e martello	none
 🛠	martello e chiave inglese	none
@@ -1118,6 +1185,7 @@ symbols:
 ⚙	ingranaggio	none
 🗜	morsetto	none
 ⚖	bilancia a doppio piatto	none
+🦯	bastone per non vedenti	none
 🔗	collegamento	none
 ⛓	catene	none
 🧰	cassetta degli attrezzi	none
@@ -1130,13 +1198,18 @@ symbols:
 🔭	telescopio	none
 📡	antenna satellitare	none
 💉	siringa	none
+🩸	goccia di sangue	none
 💊	pillola	none
+🩹	cerotto	none
+🩺	stetoscopio	none
 🚪	porta	none
 🛏	letto	none
 🛋	divano e lampada	none
+🪑	sedia	none
 🚽	toilette	none
 🚿	doccia	none
 🛁	vasca	none
+🪒	rasoio	none
 🧴	flacone	none
 🧷	spilla da balia	none
 🧹	scopa	none
@@ -1246,6 +1319,8 @@ symbols:
 📶	segnale cellulare	none
 📳	modalità vibrazione	none
 📴	cellulare spento	none
+♀	simbolo genere femminile	none
+♂	simbolo genere maschile	none
 ⚕	simbolo della medicina	none
 ♾	simbolo dell’infinito	none
 ♻	simbolo del riciclaggio	none
@@ -1319,17 +1394,29 @@ symbols:
 🈺	ideogramma giapponese di “Aperto al pubblico”	none
 🈵	ideogramma giapponese di “Nessun posto libero”	none
 🔴	cerchio rosso	none
+🟠	cerchio arancione	none
+🟡	cerchio giallo	none
+🟢	cerchio verde	none
 🔵	cerchio blu	none
-⚪	cerchio bianco	none
+🟣	cerchio viola	none
+🟤	cerchio marrone	none
 ⚫	cerchio nero	none
-⬜	quadrato bianco grande	none
+⚪	cerchio bianco	none
+🟥	quadrato rosso	none
+🟧	quadrato arancione	none
+🟨	quadrato giallo	none
+🟩	quadrato verde	none
+🟦	quadrato blu	none
+🟪	quadrato viola	none
+🟫	quadrato marrone	none
 ⬛	quadrato nero grande	none
+⬜	quadrato bianco grande	none
 ◼	quadrato nero medio	none
 ◻	quadrato bianco medio	none
-◽	quadrato bianco medio-piccolo	none
 ◾	quadrato nero medio-piccolo	none
-▫	quadrato bianco piccolo	none
+◽	quadrato bianco medio-piccolo	none
 ▪	quadrato nero piccolo	none
+▫	quadrato bianco piccolo	none
 🔶	rombo arancione grande	none
 🔷	rombo blu grande	none
 🔸	rombo arancione piccolo	none
@@ -1338,137 +1425,71 @@ symbols:
 🔻	triangolo rosso con punta verso il basso	none
 💠	petalo di fiore	none
 🔘	pulsante rotondo	none
-🔲	tasto quadrato bianco con bordo nero	none
 🔳	tasto quadrato nero con bordo bianco	none
+🔲	tasto quadrato bianco con bordo nero	none
 🏁	bandiera a scacchi	none
 🚩	bandierina rossa	none
 🎌	bandiere del Giappone incrociate	none
 🏴	bandiera nera	none
 🏳	bandiera bianca	none
+🏳‍⚧	bandiera transgender	none
 🏳‍🌈	bandiera arcobaleno	none
 🏴‍☠	bandiera dei pirati	none
-🛕	tempio indù	none
-🛺	risciò a motore	none
-🟠	cerchio arancione	none
-🟡	cerchio giallo	none
-🟢	cerchio verde	none
-🟣	cerchio viola	none
-🟤	cerchio marrone	none
-🟥	quadrato rosso	none
-🟦	quadrato blu	none
-🟧	quadrato arancione	none
-🟨	quadrato giallo	none
-🟩	quadrato verde	none
-🟪	quadrato viola	none
-🟫	quadrato marrone	none
-🤍	cuore bianco	none
-🤎	cuore marrone	none
-🤏	mano che fa il gesto del pizzico	none
-🤿	maschera da sub	none
-🥱	faccina che sbadiglia	none
-🥻	sari	none
-🦥	bradipo	none
-🦦	lontra	none
-🦧	orangotango	none
-🦨	puzzola	none
-🦩	fenicottero	none
-🦪	ostrica	none
-🦮	cane guida	none
-🦯	bastone per non vedenti	none
-🦺	gilet di sicurezza	none
-🦻	orecchio con apparecchio acustico	none
-🦼	sedia a rotelle motorizzata	none
-🦽	sedia a rotelle manuale	none
-🦾	protesi robotica per il braccio	none
-🦿	protesi robotica per la gamba	none
-🧃	bevanda monodose	none
-🧄	aglio	none
-🧅	cipolla	none
-🧆	falafel	none
-🧇	waffle	none
-🧈	burro	none
-🧉	mate	none
-🧊	cubetto di ghiaccio	none
-🧍	persona in piedi	none
-🧍‍♀	donna in piedi	none
-🧍‍♂	uomo in piedi	none
-🧎	persona inginocchiata	none
-🧎‍♀	donna inginocchiata	none
-🧎‍♂	uomo inginocchiato	none
-🧏	persona con problemi di udito	none
-🧏‍♀	donna con problemi di udito	none
-🧏‍♂	uomo con problemi di udito	none
-🩰	scarpette da ballerina	none
-🩱	costume da bagno intero	none
-🩲	slip	none
-🩳	pantaloncini	none
-🩸	goccia di sangue	none
-🩹	cerotto	none
-🩺	stetoscopio	none
-🪀	yo-yo	none
-🪁	aquilone	none
-🪂	paracadute	none
-🪐	pianeta con satellite	none
-🪑	sedia	none
-🪒	rasoio	none
-🪓	ascia	none
-🪔	diya	none
-🪕	banjo	none
-🤏🏻	mano che fa il gesto del pizzico carnagione chiara	none
-🤏🏼	mano che fa il gesto del pizzico carnagione abbastanza chiara	none
-🤏🏽	mano che fa il gesto del pizzico carnagione olivastra	none
-🤏🏾	mano che fa il gesto del pizzico carnagione abbastanza scura	none
-🤏🏿	mano che fa il gesto del pizzico carnagione scura	none
-🦻🏻	orecchio con apparecchio acustico carnagione chiara	none
-🦻🏼	orecchio con apparecchio acustico carnagione abbastanza chiara	none
-🦻🏽	orecchio con apparecchio acustico carnagione olivastra	none
-🦻🏾	orecchio con apparecchio acustico carnagione abbastanza scura	none
-🦻🏿	orecchio con apparecchio acustico carnagione scura	none
-🧍🏻	persona in piedi carnagione chiara	none
-🧍🏼	persona in piedi carnagione abbastanza chiara	none
-🧍🏽	persona in piedi carnagione olivastra	none
-🧍🏾	persona in piedi carnagione abbastanza scura	none
-🧍🏿	persona in piedi carnagione scura	none
-🧍🏻‍♀	donna in piedi carnagione chiara	none
-🧍🏼‍♀	donna in piedi carnagione abbastanza chiara	none
-🧍🏽‍♀	donna in piedi carnagione olivastra	none
-🧍🏾‍♀	donna in piedi carnagione abbastanza scura	none
-🧍🏿‍♀	donna in piedi carnagione scura	none
-🧍🏻‍♂	uomo in piedi carnagione chiara	none
-🧍🏼‍♂	uomo in piedi carnagione abbastanza chiara	none
-🧍🏽‍♂	uomo in piedi carnagione olivastra	none
-🧍🏾‍♂	uomo in piedi carnagione abbastanza scura	none
-🧍🏿‍♂	uomo in piedi carnagione scura	none
-🧎🏻	persona inginocchiata carnagione chiara	none
-🧎🏼	persona inginocchiata carnagione abbastanza chiara	none
-🧎🏽	persona inginocchiata carnagione olivastra	none
-🧎🏾	persona inginocchiata carnagione abbastanza scura	none
-🧎🏿	persona inginocchiata carnagione scura	none
-🧎🏻‍♀	donna inginocchiata carnagione chiara	none
-🧎🏼‍♀	donna inginocchiata carnagione abbastanza chiara	none
-🧎🏽‍♀	donna inginocchiata carnagione olivastra	none
-🧎🏾‍♀	donna inginocchiata carnagione abbastanza scura	none
-🧎🏿‍♀	donna inginocchiata carnagione scura	none
-🧎🏻‍♂	uomo inginocchiato carnagione chiara	none
-🧎🏼‍♂	uomo inginocchiato carnagione abbastanza chiara	none
-🧎🏽‍♂	uomo inginocchiato carnagione olivastra	none
-🧎🏾‍♂	uomo inginocchiato carnagione abbastanza scura	none
-🧎🏿‍♂	uomo inginocchiato carnagione scura	none
-🧏🏻	persona con problemi di udito carnagione chiara	none
-🧏🏼	persona con problemi di udito carnagione abbastanza chiara	none
-🧏🏽	persona con problemi di udito carnagione olivastra	none
-🧏🏾	persona con problemi di udito carnagione abbastanza scura	none
-🧏🏿	persona con problemi di udito carnagione scura	none
-🧏🏻‍♀	donna con problemi di udito carnagione chiara	none
-🧏🏼‍♀	donna con problemi di udito carnagione abbastanza chiara	none
-🧏🏽‍♀	donna con problemi di udito carnagione olivastra	none
-🧏🏾‍♀	donna con problemi di udito carnagione abbastanza scura	none
-🧏🏿‍♀	donna con problemi di udito carnagione scura	none
-🧏🏻‍♂	uomo con problemi di udito carnagione chiara	none
-🧏🏼‍♂	uomo con problemi di udito carnagione abbastanza chiara	none
-🧏🏽‍♂	uomo con problemi di udito carnagione olivastra	none
-🧏🏾‍♂	uomo con problemi di udito carnagione abbastanza scura	none
-🧏🏿‍♂	uomo con problemi di udito carnagione scura	none
+🛖	capanna	none
+🛗	ascensore	none
+🛻	pickup	none
+🛼	pattini a rotelle	none
+🤌	mano a pigna	none
+🥲	faccina sorridente con lacrima	none
+🥷	ninja	none
+🥸	faccina travestita	none
+🦣	mammut	none
+🦤	dodo	none
+🦫	castoro	none
+🦬	bisonte	none
+🦭	foca	none
+🧋	bubble tea	none
+🩴	infradito	none
+🪃	boomerang	none
+🪄	bacchetta magica	none
+🪅	pentolaccia	none
+🪆	matrioska	none
+🪖	elmetto militare	none
+🪗	fisarmonica	none
+🪘	tamburo lungo	none
+🪙	moneta	none
+🪚	sega da falegname	none
+🪛	cacciavite	none
+🪜	scala	none
+🪝	gancio	none
+🪞	specchio	none
+🪟	finestra	none
+🪠	sturalavandini	none
+🪡	ago da cucito	none
+🪢	nodo	none
+🪣	secchio	none
+🪤	trappola per topi	none
+🪥	spazzolino da denti	none
+🪦	lapide	none
+🪧	cartello	none
+🪨	roccia	none
+🪰	mosca	none
+🪱	verme	none
+🪲	coleottero	none
+🪳	scarafaggio	none
+🪴	pianta in vaso	none
+🪵	legna	none
+🪶	piuma	none
+🫀	organo del cuore	none
+🫁	polmoni	none
+🫂	persone che si abbracciano	none
+🫐	mirtilli	none
+🫑	peperone	none
+🫒	oliva	none
+🫓	focaccia	none
+🫔	tamal	none
+🫕	fonduta	none
+🫖	teiera	none
 👋🏻	mano che saluta carnagione chiara	none
 👋🏼	mano che saluta carnagione abbastanza chiara	none
 👋🏽	mano che saluta carnagione olivastra	none
@@ -1499,6 +1520,11 @@ symbols:
 👌🏽	mano che fa OK carnagione olivastra	none
 👌🏾	mano che fa OK carnagione abbastanza scura	none
 👌🏿	mano che fa OK carnagione scura	none
+🤏🏻	mano che fa il gesto del pizzico carnagione chiara	none
+🤏🏼	mano che fa il gesto del pizzico carnagione abbastanza chiara	none
+🤏🏽	mano che fa il gesto del pizzico carnagione olivastra	none
+🤏🏾	mano che fa il gesto del pizzico carnagione abbastanza scura	none
+🤏🏿	mano che fa il gesto del pizzico carnagione scura	none
 ✌🏻	vittoria carnagione chiara	none
 ✌🏼	vittoria carnagione abbastanza chiara	none
 ✌🏽	vittoria carnagione olivastra	none
@@ -1644,6 +1670,11 @@ symbols:
 👂🏽	orecchio carnagione olivastra	none
 👂🏾	orecchio carnagione abbastanza scura	none
 👂🏿	orecchio carnagione scura	none
+🦻🏻	orecchio con apparecchio acustico carnagione chiara	none
+🦻🏼	orecchio con apparecchio acustico carnagione abbastanza chiara	none
+🦻🏽	orecchio con apparecchio acustico carnagione olivastra	none
+🦻🏾	orecchio con apparecchio acustico carnagione abbastanza scura	none
+🦻🏿	orecchio con apparecchio acustico carnagione scura	none
 👃🏻	naso carnagione chiara	none
 👃🏼	naso carnagione abbastanza chiara	none
 👃🏽	naso carnagione olivastra	none
@@ -1679,51 +1710,45 @@ symbols:
 👱🏽	persona bionda carnagione olivastra	none
 👱🏾	persona bionda carnagione abbastanza scura	none
 👱🏿	persona bionda carnagione scura	none
-🧑🏻‍🤝‍🧑🏻	persone che si tengono per mano carnagione chiara	none
-🧑🏼‍🤝‍🧑🏻	persone che si tengono per mano carnagione abbastanza chiara e carnagione chiara	none
-🧑🏼‍🤝‍🧑🏼	persone che si tengono per mano carnagione abbastanza chiara	none
-🧑🏽‍🤝‍🧑🏻	persone che si tengono per mano carnagione olivastra e carnagione chiara	none
-🧑🏽‍🤝‍🧑🏼	persone che si tengono per mano carnagione olivastra e carnagione abbastanza chiara	none
-🧑🏽‍🤝‍🧑🏽	persone che si tengono per mano carnagione olivastra	none
-🧑🏾‍🤝‍🧑🏻	persone che si tengono per mano carnagione abbastanza scura e carnagione chiara	none
-🧑🏾‍🤝‍🧑🏼	persone che si tengono per mano carnagione abbastanza scura e carnagione abbastanza chiara	none
-🧑🏾‍🤝‍🧑🏽	persone che si tengono per mano carnagione abbastanza scura e carnagione olivastra	none
-🧑🏾‍🤝‍🧑🏾	persone che si tengono per mano carnagione abbastanza scura	none
-🧑🏿‍🤝‍🧑🏻	persone che si tengono per mano carnagione scura e carnagione chiara	none
-🧑🏿‍🤝‍🧑🏼	persone che si tengono per mano carnagione scura e carnagione abbastanza chiara	none
-🧑🏿‍🤝‍🧑🏽	persone che si tengono per mano carnagione scura e carnagione olivastra	none
-🧑🏿‍🤝‍🧑🏾	persone che si tengono per mano carnagione scura e carnagione abbastanza scura	none
-🧑🏿‍🤝‍🧑🏿	persone che si tengono per mano carnagione scura	none
+🧑‍🦰	persona capelli rossi	none
+🧑🏻‍🦰	persona carnagione chiara e capelli rossi	none
+🧑🏼‍🦰	persona carnagione abbastanza chiara e capelli rossi	none
+🧑🏽‍🦰	persona carnagione olivastra e capelli rossi	none
+🧑🏾‍🦰	persona carnagione abbastanza scura e capelli rossi	none
+🧑🏿‍🦰	persona carnagione scura e capelli rossi	none
+🧑‍🦱	persona capelli ricci	none
+🧑🏻‍🦱	persona carnagione chiara e capelli ricci	none
+🧑🏼‍🦱	persona carnagione abbastanza chiara e capelli ricci	none
+🧑🏽‍🦱	persona carnagione olivastra e capelli ricci	none
+🧑🏾‍🦱	persona carnagione abbastanza scura e capelli ricci	none
+🧑🏿‍🦱	persona carnagione scura e capelli ricci	none
+🧑‍🦳	persona capelli bianchi	none
+🧑🏻‍🦳	persona carnagione chiara e capelli bianchi	none
+🧑🏼‍🦳	persona carnagione abbastanza chiara e capelli bianchi	none
+🧑🏽‍🦳	persona carnagione olivastra e capelli bianchi	none
+🧑🏾‍🦳	persona carnagione abbastanza scura e capelli bianchi	none
+🧑🏿‍🦳	persona carnagione scura e capelli bianchi	none
+🧑‍🦲	persona calvo	none
+🧑🏻‍🦲	persona carnagione chiara e calvo	none
+🧑🏼‍🦲	persona carnagione abbastanza chiara e calvo	none
+🧑🏽‍🦲	persona carnagione olivastra e calvo	none
+🧑🏾‍🦲	persona carnagione abbastanza scura e calvo	none
+🧑🏿‍🦲	persona carnagione scura e calvo	none
 👨🏻	uomo carnagione chiara	none
 👨🏼	uomo carnagione abbastanza chiara	none
 👨🏽	uomo carnagione olivastra	none
 👨🏾	uomo carnagione abbastanza scura	none
 👨🏿	uomo carnagione scura	none
-👨🏻‍🦯	uomo con bastone bianco di orientamento carnagione chiara	none
-👨🏼‍🦯	uomo con bastone bianco di orientamento carnagione abbastanza chiara	none
-👨🏽‍🦯	uomo con bastone bianco di orientamento carnagione olivastra	none
-👨🏾‍🦯	uomo con bastone bianco di orientamento carnagione abbastanza scura	none
-👨🏿‍🦯	uomo con bastone bianco di orientamento carnagione scura	none
-👨🏻‍🦼	uomo su sedia a rotelle motorizzata carnagione chiara	none
-👨🏼‍🦼	uomo su sedia a rotelle motorizzata carnagione abbastanza chiara	none
-👨🏽‍🦼	uomo su sedia a rotelle motorizzata carnagione olivastra	none
-👨🏾‍🦼	uomo su sedia a rotelle motorizzata carnagione abbastanza scura	none
-👨🏿‍🦼	uomo su sedia a rotelle motorizzata carnagione scura	none
-👨🏻‍🦽	uomo su sedia a rotelle manuale carnagione chiara	none
-👨🏼‍🦽	uomo su sedia a rotelle manuale carnagione abbastanza chiara	none
-👨🏽‍🦽	uomo su sedia a rotelle manuale carnagione olivastra	none
-👨🏾‍🦽	uomo su sedia a rotelle manuale carnagione abbastanza scura	none
-👨🏿‍🦽	uomo su sedia a rotelle manuale carnagione scura	none
-👨🏼‍🤝‍👨🏻	due uomini che si tengono per mano carnagione abbastanza chiara e carnagione chiara	none
-👨🏽‍🤝‍👨🏻	due uomini che si tengono per mano carnagione olivastra e carnagione chiara	none
-👨🏽‍🤝‍👨🏼	due uomini che si tengono per mano carnagione olivastra e carnagione abbastanza chiara	none
-👨🏾‍🤝‍👨🏻	due uomini che si tengono per mano carnagione abbastanza scura e carnagione chiara	none
-👨🏾‍🤝‍👨🏼	due uomini che si tengono per mano carnagione abbastanza scura e carnagione abbastanza chiara	none
-👨🏾‍🤝‍👨🏽	due uomini che si tengono per mano carnagione abbastanza scura e carnagione olivastra	none
-👨🏿‍🤝‍👨🏻	due uomini che si tengono per mano carnagione scura e carnagione chiara	none
-👨🏿‍🤝‍👨🏼	due uomini che si tengono per mano carnagione scura e carnagione abbastanza chiara	none
-👨🏿‍🤝‍👨🏽	due uomini che si tengono per mano carnagione scura e carnagione olivastra	none
-👨🏿‍🤝‍👨🏾	due uomini che si tengono per mano carnagione scura e carnagione abbastanza scura	none
+🧔🏻	uomo con la barba carnagione chiara	none
+🧔🏼	uomo con la barba carnagione abbastanza chiara	none
+🧔🏽	uomo con la barba carnagione olivastra	none
+🧔🏾	uomo con la barba carnagione abbastanza scura	none
+🧔🏿	uomo con la barba carnagione scura	none
+👱🏻‍♂	uomo biondo carnagione chiara	none
+👱🏼‍♂	uomo biondo carnagione abbastanza chiara	none
+👱🏽‍♂	uomo biondo carnagione olivastra	none
+👱🏾‍♂	uomo biondo carnagione abbastanza scura	none
+👱🏿‍♂	uomo biondo carnagione scura	none
 👨‍🦰	uomo capelli rossi	none
 👨🏻‍🦰	uomo carnagione chiara e capelli rossi	none
 👨🏼‍🦰	uomo carnagione abbastanza chiara e capelli rossi	none
@@ -1748,66 +1773,16 @@ symbols:
 👨🏽‍🦲	uomo carnagione olivastra e calvo	none
 👨🏾‍🦲	uomo carnagione abbastanza scura e calvo	none
 👨🏿‍🦲	uomo carnagione scura e calvo	none
-👱🏻‍♂	uomo biondo carnagione chiara	none
-👱🏼‍♂	uomo biondo carnagione abbastanza chiara	none
-👱🏽‍♂	uomo biondo carnagione olivastra	none
-👱🏾‍♂	uomo biondo carnagione abbastanza scura	none
-👱🏿‍♂	uomo biondo carnagione scura	none
-🧔🏻	uomo con la barba carnagione chiara	none
-🧔🏼	uomo con la barba carnagione abbastanza chiara	none
-🧔🏽	uomo con la barba carnagione olivastra	none
-🧔🏾	uomo con la barba carnagione abbastanza scura	none
-🧔🏿	uomo con la barba carnagione scura	none
 👩🏻	donna carnagione chiara	none
 👩🏼	donna carnagione abbastanza chiara	none
 👩🏽	donna carnagione olivastra	none
 👩🏾	donna carnagione abbastanza scura	none
 👩🏿	donna carnagione scura	none
-👩🏻‍🦯	donna con bastone bianco di orientamento carnagione chiara	none
-👩🏼‍🦯	donna con bastone bianco di orientamento carnagione abbastanza chiara	none
-👩🏽‍🦯	donna con bastone bianco di orientamento carnagione olivastra	none
-👩🏾‍🦯	donna con bastone bianco di orientamento carnagione abbastanza scura	none
-👩🏿‍🦯	donna con bastone bianco di orientamento carnagione scura	none
-👩🏻‍🦼	donna su sedia a rotelle motorizzata carnagione chiara	none
-👩🏼‍🦼	donna su sedia a rotelle motorizzata carnagione abbastanza chiara	none
-👩🏽‍🦼	donna su sedia a rotelle motorizzata carnagione olivastra	none
-👩🏾‍🦼	donna su sedia a rotelle motorizzata carnagione abbastanza scura	none
-👩🏿‍🦼	donna su sedia a rotelle motorizzata carnagione scura	none
-👩🏻‍🦽	donna su sedia a rotelle manuale carnagione chiara	none
-👩🏼‍🦽	donna su sedia a rotelle manuale carnagione abbastanza chiara	none
-👩🏽‍🦽	donna su sedia a rotelle manuale carnagione olivastra	none
-👩🏾‍🦽	donna su sedia a rotelle manuale carnagione abbastanza scura	none
-👩🏿‍🦽	donna su sedia a rotelle manuale carnagione scura	none
-👩🏻‍🤝‍👨🏼	uomo e donna che si tengono per mano carnagione chiara e carnagione abbastanza chiara	none
-👩🏻‍🤝‍👨🏽	uomo e donna che si tengono per mano carnagione chiara e carnagione olivastra	none
-👩🏻‍🤝‍👨🏾	uomo e donna che si tengono per mano carnagione chiara e carnagione abbastanza scura	none
-👩🏻‍🤝‍👨🏿	uomo e donna che si tengono per mano carnagione chiara e carnagione scura	none
-👩🏼‍🤝‍👨🏻	uomo e donna che si tengono per mano carnagione abbastanza chiara e carnagione chiara	none
-👩🏼‍🤝‍👨🏽	uomo e donna che si tengono per mano carnagione abbastanza chiara e carnagione olivastra	none
-👩🏼‍🤝‍👨🏾	uomo e donna che si tengono per mano carnagione abbastanza chiara e carnagione abbastanza scura	none
-👩🏼‍🤝‍👨🏿	uomo e donna che si tengono per mano carnagione abbastanza chiara e carnagione scura	none
-👩🏽‍🤝‍👨🏻	uomo e donna che si tengono per mano carnagione olivastra e carnagione chiara	none
-👩🏽‍🤝‍👨🏼	uomo e donna che si tengono per mano carnagione olivastra e carnagione abbastanza chiara	none
-👩🏽‍🤝‍👨🏾	uomo e donna che si tengono per mano carnagione olivastra e carnagione abbastanza scura	none
-👩🏽‍🤝‍👨🏿	uomo e donna che si tengono per mano carnagione olivastra e carnagione scura	none
-👩🏾‍🤝‍👨🏻	uomo e donna che si tengono per mano carnagione abbastanza scura e carnagione chiara	none
-👩🏾‍🤝‍👨🏼	uomo e donna che si tengono per mano carnagione abbastanza scura e carnagione abbastanza chiara	none
-👩🏾‍🤝‍👨🏽	uomo e donna che si tengono per mano carnagione abbastanza scura e carnagione olivastra	none
-👩🏾‍🤝‍👨🏿	uomo e donna che si tengono per mano carnagione abbastanza scura e carnagione scura	none
-👩🏿‍🤝‍👨🏻	uomo e donna che si tengono per mano carnagione scura e carnagione chiara	none
-👩🏿‍🤝‍👨🏼	uomo e donna che si tengono per mano carnagione scura e carnagione abbastanza chiara	none
-👩🏿‍🤝‍👨🏽	uomo e donna che si tengono per mano carnagione scura e carnagione olivastra	none
-👩🏿‍🤝‍👨🏾	uomo e donna che si tengono per mano carnagione scura e carnagione abbastanza scura	none
-👩🏼‍🤝‍👩🏻	due donne che si tengono per mano carnagione abbastanza chiara e carnagione chiara	none
-👩🏽‍🤝‍👩🏻	due donne che si tengono per mano carnagione olivastra e carnagione chiara	none
-👩🏽‍🤝‍👩🏼	due donne che si tengono per mano carnagione olivastra e carnagione abbastanza chiara	none
-👩🏾‍🤝‍👩🏻	due donne che si tengono per mano carnagione abbastanza scura e carnagione chiara	none
-👩🏾‍🤝‍👩🏼	due donne che si tengono per mano carnagione abbastanza scura e carnagione abbastanza chiara	none
-👩🏾‍🤝‍👩🏽	due donne che si tengono per mano carnagione abbastanza scura e carnagione olivastra	none
-👩🏿‍🤝‍👩🏻	due donne che si tengono per mano carnagione scura e carnagione chiara	none
-👩🏿‍🤝‍👩🏼	due donne che si tengono per mano carnagione scura e carnagione abbastanza chiara	none
-👩🏿‍🤝‍👩🏽	due donne che si tengono per mano carnagione scura e carnagione olivastra	none
-👩🏿‍🤝‍👩🏾	due donne che si tengono per mano carnagione scura e carnagione abbastanza scura	none
+👱🏻‍♀	donna bionda carnagione chiara	none
+👱🏼‍♀	donna bionda carnagione abbastanza chiara	none
+👱🏽‍♀	donna bionda carnagione olivastra	none
+👱🏾‍♀	donna bionda carnagione abbastanza scura	none
+👱🏿‍♀	donna bionda carnagione scura	none
 👩‍🦰	donna capelli rossi	none
 👩🏻‍🦰	donna carnagione chiara e capelli rossi	none
 👩🏼‍🦰	donna carnagione abbastanza chiara e capelli rossi	none
@@ -1832,16 +1807,11 @@ symbols:
 👩🏽‍🦲	donna carnagione olivastra e calvo	none
 👩🏾‍🦲	donna carnagione abbastanza scura e calvo	none
 👩🏿‍🦲	donna carnagione scura e calvo	none
-👱🏻‍♀	donna bionda carnagione chiara	none
-👱🏼‍♀	donna bionda carnagione abbastanza chiara	none
-👱🏽‍♀	donna bionda carnagione olivastra	none
-👱🏾‍♀	donna bionda carnagione abbastanza scura	none
-👱🏿‍♀	donna bionda carnagione scura	none
-🧓🏻	adulto anziano carnagione chiara	none
-🧓🏼	adulto anziano carnagione abbastanza chiara	none
-🧓🏽	adulto anziano carnagione olivastra	none
-🧓🏾	adulto anziano carnagione abbastanza scura	none
-🧓🏿	adulto anziano carnagione scura	none
+🧓🏻	persona anziana carnagione chiara	none
+🧓🏼	persona anziana carnagione abbastanza chiara	none
+🧓🏽	persona anziana carnagione olivastra	none
+🧓🏾	persona anziana carnagione abbastanza scura	none
+🧓🏿	persona anziana carnagione scura	none
 👴🏻	uomo anziano carnagione chiara	none
 👴🏼	uomo anziano carnagione abbastanza chiara	none
 👴🏽	uomo anziano carnagione olivastra	none
@@ -1942,6 +1912,21 @@ symbols:
 🙋🏽‍♀	donna con mano alzata carnagione olivastra	none
 🙋🏾‍♀	donna con mano alzata carnagione abbastanza scura	none
 🙋🏿‍♀	donna con mano alzata carnagione scura	none
+🧏🏻	persona con problemi di udito carnagione chiara	none
+🧏🏼	persona con problemi di udito carnagione abbastanza chiara	none
+🧏🏽	persona con problemi di udito carnagione olivastra	none
+🧏🏾	persona con problemi di udito carnagione abbastanza scura	none
+🧏🏿	persona con problemi di udito carnagione scura	none
+🧏🏻‍♂	uomo con problemi di udito carnagione chiara	none
+🧏🏼‍♂	uomo con problemi di udito carnagione abbastanza chiara	none
+🧏🏽‍♂	uomo con problemi di udito carnagione olivastra	none
+🧏🏾‍♂	uomo con problemi di udito carnagione abbastanza scura	none
+🧏🏿‍♂	uomo con problemi di udito carnagione scura	none
+🧏🏻‍♀	donna con problemi di udito carnagione chiara	none
+🧏🏼‍♀	donna con problemi di udito carnagione abbastanza chiara	none
+🧏🏽‍♀	donna con problemi di udito carnagione olivastra	none
+🧏🏾‍♀	donna con problemi di udito carnagione abbastanza scura	none
+🧏🏿‍♀	donna con problemi di udito carnagione scura	none
 🙇🏻	persona che fa un inchino profondo carnagione chiara	none
 🙇🏼	persona che fa un inchino profondo carnagione abbastanza chiara	none
 🙇🏽	persona che fa un inchino profondo carnagione olivastra	none
@@ -1987,6 +1972,11 @@ symbols:
 🤷🏽‍♀	donna che scrolla le spalle carnagione olivastra	none
 🤷🏾‍♀	donna che scrolla le spalle carnagione abbastanza scura	none
 🤷🏿‍♀	donna che scrolla le spalle carnagione scura	none
+🧑🏻‍⚕	persona che lavora nella sanità carnagione chiara	none
+🧑🏼‍⚕	persona che lavora nella sanità carnagione abbastanza chiara	none
+🧑🏽‍⚕	persona che lavora nella sanità carnagione olivastra	none
+🧑🏾‍⚕	persona che lavora nella sanità carnagione abbastanza scura	none
+🧑🏿‍⚕	persona che lavora nella sanità carnagione scura	none
 👨🏻‍⚕	operatore sanitario carnagione chiara	none
 👨🏼‍⚕	operatore sanitario carnagione abbastanza chiara	none
 👨🏽‍⚕	operatore sanitario carnagione olivastra	none
@@ -1997,16 +1987,26 @@ symbols:
 👩🏽‍⚕	operatrice sanitaria carnagione olivastra	none
 👩🏾‍⚕	operatrice sanitaria carnagione abbastanza scura	none
 👩🏿‍⚕	operatrice sanitaria carnagione scura	none
-👨🏻‍🎓	studente carnagione chiara	none
-👨🏼‍🎓	studente carnagione abbastanza chiara	none
-👨🏽‍🎓	studente carnagione olivastra	none
-👨🏾‍🎓	studente carnagione abbastanza scura	none
-👨🏿‍🎓	studente carnagione scura	none
+🧑🏻‍🎓	studente carnagione chiara	none
+🧑🏼‍🎓	studente carnagione abbastanza chiara	none
+🧑🏽‍🎓	studente carnagione olivastra	none
+🧑🏾‍🎓	studente carnagione abbastanza scura	none
+🧑🏿‍🎓	studente carnagione scura	none
+👨🏻‍🎓	studente maschio carnagione chiara	none
+👨🏼‍🎓	studente maschio carnagione abbastanza chiara	none
+👨🏽‍🎓	studente maschio carnagione olivastra	none
+👨🏾‍🎓	studente maschio carnagione abbastanza scura	none
+👨🏿‍🎓	studente maschio carnagione scura	none
 👩🏻‍🎓	studentessa carnagione chiara	none
 👩🏼‍🎓	studentessa carnagione abbastanza chiara	none
 👩🏽‍🎓	studentessa carnagione olivastra	none
 👩🏾‍🎓	studentessa carnagione abbastanza scura	none
 👩🏿‍🎓	studentessa carnagione scura	none
+🧑🏻‍🏫	insegnante carnagione chiara	none
+🧑🏼‍🏫	insegnante carnagione abbastanza chiara	none
+🧑🏽‍🏫	insegnante carnagione olivastra	none
+🧑🏾‍🏫	insegnante carnagione abbastanza scura	none
+🧑🏿‍🏫	insegnante carnagione scura	none
 👨🏻‍🏫	professore carnagione chiara	none
 👨🏼‍🏫	professore carnagione abbastanza chiara	none
 👨🏽‍🏫	professore carnagione olivastra	none
@@ -2017,6 +2017,11 @@ symbols:
 👩🏽‍🏫	professoressa carnagione olivastra	none
 👩🏾‍🏫	professoressa carnagione abbastanza scura	none
 👩🏿‍🏫	professoressa carnagione scura	none
+🧑🏻‍⚖	giudice carnagione chiara	none
+🧑🏼‍⚖	giudice carnagione abbastanza chiara	none
+🧑🏽‍⚖	giudice carnagione olivastra	none
+🧑🏾‍⚖	giudice carnagione abbastanza scura	none
+🧑🏿‍⚖	giudice carnagione scura	none
 👨🏻‍⚖	giudice uomo carnagione chiara	none
 👨🏼‍⚖	giudice uomo carnagione abbastanza chiara	none
 👨🏽‍⚖	giudice uomo carnagione olivastra	none
@@ -2027,6 +2032,11 @@ symbols:
 👩🏽‍⚖	giudice donna carnagione olivastra	none
 👩🏾‍⚖	giudice donna carnagione abbastanza scura	none
 👩🏿‍⚖	giudice donna carnagione scura	none
+🧑🏻‍🌾	agricoltore carnagione chiara	none
+🧑🏼‍🌾	agricoltore carnagione abbastanza chiara	none
+🧑🏽‍🌾	agricoltore carnagione olivastra	none
+🧑🏾‍🌾	agricoltore carnagione abbastanza scura	none
+🧑🏿‍🌾	agricoltore carnagione scura	none
 👨🏻‍🌾	contadino carnagione chiara	none
 👨🏼‍🌾	contadino carnagione abbastanza chiara	none
 👨🏽‍🌾	contadino carnagione olivastra	none
@@ -2037,6 +2047,11 @@ symbols:
 👩🏽‍🌾	contadina carnagione olivastra	none
 👩🏾‍🌾	contadina carnagione abbastanza scura	none
 👩🏿‍🌾	contadina carnagione scura	none
+🧑🏻‍🍳	persona che cucina carnagione chiara	none
+🧑🏼‍🍳	persona che cucina carnagione abbastanza chiara	none
+🧑🏽‍🍳	persona che cucina carnagione olivastra	none
+🧑🏾‍🍳	persona che cucina carnagione abbastanza scura	none
+🧑🏿‍🍳	persona che cucina carnagione scura	none
 👨🏻‍🍳	cuoco carnagione chiara	none
 👨🏼‍🍳	cuoco carnagione abbastanza chiara	none
 👨🏽‍🍳	cuoco carnagione olivastra	none
@@ -2047,6 +2062,11 @@ symbols:
 👩🏽‍🍳	cuoca carnagione olivastra	none
 👩🏾‍🍳	cuoca carnagione abbastanza scura	none
 👩🏿‍🍳	cuoca carnagione scura	none
+🧑🏻‍🔧	meccanico carnagione chiara	none
+🧑🏼‍🔧	meccanico carnagione abbastanza chiara	none
+🧑🏽‍🔧	meccanico carnagione olivastra	none
+🧑🏾‍🔧	meccanico carnagione abbastanza scura	none
+🧑🏿‍🔧	meccanico carnagione scura	none
 👨🏻‍🔧	meccanico uomo carnagione chiara	none
 👨🏼‍🔧	meccanico uomo carnagione abbastanza chiara	none
 👨🏽‍🔧	meccanico uomo carnagione olivastra	none
@@ -2057,6 +2077,11 @@ symbols:
 👩🏽‍🔧	meccanico donna carnagione olivastra	none
 👩🏾‍🔧	meccanico donna carnagione abbastanza scura	none
 👩🏿‍🔧	meccanico donna carnagione scura	none
+🧑🏻‍🏭	persona che lavora in fabbrica carnagione chiara	none
+🧑🏼‍🏭	persona che lavora in fabbrica carnagione abbastanza chiara	none
+🧑🏽‍🏭	persona che lavora in fabbrica carnagione olivastra	none
+🧑🏾‍🏭	persona che lavora in fabbrica carnagione abbastanza scura	none
+🧑🏿‍🏭	persona che lavora in fabbrica carnagione scura	none
 👨🏻‍🏭	operaio carnagione chiara	none
 👨🏼‍🏭	operaio carnagione abbastanza chiara	none
 👨🏽‍🏭	operaio carnagione olivastra	none
@@ -2067,6 +2092,11 @@ symbols:
 👩🏽‍🏭	operaia carnagione olivastra	none
 👩🏾‍🏭	operaia carnagione abbastanza scura	none
 👩🏿‍🏭	operaia carnagione scura	none
+🧑🏻‍💼	persona che fa un lavoro d’ufficio carnagione chiara	none
+🧑🏼‍💼	persona che fa un lavoro d’ufficio carnagione abbastanza chiara	none
+🧑🏽‍💼	persona che fa un lavoro d’ufficio carnagione olivastra	none
+🧑🏾‍💼	persona che fa un lavoro d’ufficio carnagione abbastanza scura	none
+🧑🏿‍💼	persona che fa un lavoro d’ufficio carnagione scura	none
 👨🏻‍💼	impiegato carnagione chiara	none
 👨🏼‍💼	impiegato carnagione abbastanza chiara	none
 👨🏽‍💼	impiegato carnagione olivastra	none
@@ -2077,6 +2107,11 @@ symbols:
 👩🏽‍💼	impiegata carnagione olivastra	none
 👩🏾‍💼	impiegata carnagione abbastanza scura	none
 👩🏿‍💼	impiegata carnagione scura	none
+🧑🏻‍🔬	persona che lavora in campo scientifico carnagione chiara	none
+🧑🏼‍🔬	persona che lavora in campo scientifico carnagione abbastanza chiara	none
+🧑🏽‍🔬	persona che lavora in campo scientifico carnagione olivastra	none
+🧑🏾‍🔬	persona che lavora in campo scientifico carnagione abbastanza scura	none
+🧑🏿‍🔬	persona che lavora in campo scientifico carnagione scura	none
 👨🏻‍🔬	scienziato carnagione chiara	none
 👨🏼‍🔬	scienziato carnagione abbastanza chiara	none
 👨🏽‍🔬	scienziato carnagione olivastra	none
@@ -2087,6 +2122,11 @@ symbols:
 👩🏽‍🔬	scienziata carnagione olivastra	none
 👩🏾‍🔬	scienziata carnagione abbastanza scura	none
 👩🏿‍🔬	scienziata carnagione scura	none
+🧑🏻‍💻	persona esperta di tecnologia carnagione chiara	none
+🧑🏼‍💻	persona esperta di tecnologia carnagione abbastanza chiara	none
+🧑🏽‍💻	persona esperta di tecnologia carnagione olivastra	none
+🧑🏾‍💻	persona esperta di tecnologia carnagione abbastanza scura	none
+🧑🏿‍💻	persona esperta di tecnologia carnagione scura	none
 👨🏻‍💻	tecnologo carnagione chiara	none
 👨🏼‍💻	tecnologo carnagione abbastanza chiara	none
 👨🏽‍💻	tecnologo carnagione olivastra	none
@@ -2097,6 +2137,11 @@ symbols:
 👩🏽‍💻	tecnologa carnagione olivastra	none
 👩🏾‍💻	tecnologa carnagione abbastanza scura	none
 👩🏿‍💻	tecnologa carnagione scura	none
+🧑🏻‍🎤	cantante carnagione chiara	none
+🧑🏼‍🎤	cantante carnagione abbastanza chiara	none
+🧑🏽‍🎤	cantante carnagione olivastra	none
+🧑🏾‍🎤	cantante carnagione abbastanza scura	none
+🧑🏿‍🎤	cantante carnagione scura	none
 👨🏻‍🎤	cantante uomo carnagione chiara	none
 👨🏼‍🎤	cantante uomo carnagione abbastanza chiara	none
 👨🏽‍🎤	cantante uomo carnagione olivastra	none
@@ -2107,6 +2152,11 @@ symbols:
 👩🏽‍🎤	cantante donna carnagione olivastra	none
 👩🏾‍🎤	cantante donna carnagione abbastanza scura	none
 👩🏿‍🎤	cantante donna carnagione scura	none
+🧑🏻‍🎨	artista carnagione chiara	none
+🧑🏼‍🎨	artista carnagione abbastanza chiara	none
+🧑🏽‍🎨	artista carnagione olivastra	none
+🧑🏾‍🎨	artista carnagione abbastanza scura	none
+🧑🏿‍🎨	artista carnagione scura	none
 👨🏻‍🎨	artista uomo carnagione chiara	none
 👨🏼‍🎨	artista uomo carnagione abbastanza chiara	none
 👨🏽‍🎨	artista uomo carnagione olivastra	none
@@ -2117,6 +2167,11 @@ symbols:
 👩🏽‍🎨	artista donna carnagione olivastra	none
 👩🏾‍🎨	artista donna carnagione abbastanza scura	none
 👩🏿‍🎨	artista donna carnagione scura	none
+🧑🏻‍✈	pilota carnagione chiara	none
+🧑🏼‍✈	pilota carnagione abbastanza chiara	none
+🧑🏽‍✈	pilota carnagione olivastra	none
+🧑🏾‍✈	pilota carnagione abbastanza scura	none
+🧑🏿‍✈	pilota carnagione scura	none
 👨🏻‍✈	pilota uomo carnagione chiara	none
 👨🏼‍✈	pilota uomo carnagione abbastanza chiara	none
 👨🏽‍✈	pilota uomo carnagione olivastra	none
@@ -2127,6 +2182,11 @@ symbols:
 👩🏽‍✈	pilota donna carnagione olivastra	none
 👩🏾‍✈	pilota donna carnagione abbastanza scura	none
 👩🏿‍✈	pilota donna carnagione scura	none
+🧑🏻‍🚀	astronauta carnagione chiara	none
+🧑🏼‍🚀	astronauta carnagione abbastanza chiara	none
+🧑🏽‍🚀	astronauta carnagione olivastra	none
+🧑🏾‍🚀	astronauta carnagione abbastanza scura	none
+🧑🏿‍🚀	astronauta carnagione scura	none
 👨🏻‍🚀	astronauta uomo carnagione chiara	none
 👨🏼‍🚀	astronauta uomo carnagione abbastanza chiara	none
 👨🏽‍🚀	astronauta uomo carnagione olivastra	none
@@ -2137,6 +2197,11 @@ symbols:
 👩🏽‍🚀	astronauta donna carnagione olivastra	none
 👩🏾‍🚀	astronauta donna carnagione abbastanza scura	none
 👩🏿‍🚀	astronauta donna carnagione scura	none
+🧑🏻‍🚒	pompiere carnagione chiara	none
+🧑🏼‍🚒	pompiere carnagione abbastanza chiara	none
+🧑🏽‍🚒	pompiere carnagione olivastra	none
+🧑🏾‍🚒	pompiere carnagione abbastanza scura	none
+🧑🏿‍🚒	pompiere carnagione scura	none
 👨🏻‍🚒	pompiere uomo carnagione chiara	none
 👨🏼‍🚒	pompiere uomo carnagione abbastanza chiara	none
 👨🏽‍🚒	pompiere uomo carnagione olivastra	none
@@ -2427,6 +2492,81 @@ symbols:
 🚶🏽‍♀	donna che cammina carnagione olivastra	none
 🚶🏾‍♀	donna che cammina carnagione abbastanza scura	none
 🚶🏿‍♀	donna che cammina carnagione scura	none
+🧍🏻	persona in piedi carnagione chiara	none
+🧍🏼	persona in piedi carnagione abbastanza chiara	none
+🧍🏽	persona in piedi carnagione olivastra	none
+🧍🏾	persona in piedi carnagione abbastanza scura	none
+🧍🏿	persona in piedi carnagione scura	none
+🧍🏻‍♂	uomo in piedi carnagione chiara	none
+🧍🏼‍♂	uomo in piedi carnagione abbastanza chiara	none
+🧍🏽‍♂	uomo in piedi carnagione olivastra	none
+🧍🏾‍♂	uomo in piedi carnagione abbastanza scura	none
+🧍🏿‍♂	uomo in piedi carnagione scura	none
+🧍🏻‍♀	donna in piedi carnagione chiara	none
+🧍🏼‍♀	donna in piedi carnagione abbastanza chiara	none
+🧍🏽‍♀	donna in piedi carnagione olivastra	none
+🧍🏾‍♀	donna in piedi carnagione abbastanza scura	none
+🧍🏿‍♀	donna in piedi carnagione scura	none
+🧎🏻	persona inginocchiata carnagione chiara	none
+🧎🏼	persona inginocchiata carnagione abbastanza chiara	none
+🧎🏽	persona inginocchiata carnagione olivastra	none
+🧎🏾	persona inginocchiata carnagione abbastanza scura	none
+🧎🏿	persona inginocchiata carnagione scura	none
+🧎🏻‍♂	uomo inginocchiato carnagione chiara	none
+🧎🏼‍♂	uomo inginocchiato carnagione abbastanza chiara	none
+🧎🏽‍♂	uomo inginocchiato carnagione olivastra	none
+🧎🏾‍♂	uomo inginocchiato carnagione abbastanza scura	none
+🧎🏿‍♂	uomo inginocchiato carnagione scura	none
+🧎🏻‍♀	donna inginocchiata carnagione chiara	none
+🧎🏼‍♀	donna inginocchiata carnagione abbastanza chiara	none
+🧎🏽‍♀	donna inginocchiata carnagione olivastra	none
+🧎🏾‍♀	donna inginocchiata carnagione abbastanza scura	none
+🧎🏿‍♀	donna inginocchiata carnagione scura	none
+🧑🏻‍🦯	persona con bastone di orientamento carnagione chiara	none
+🧑🏼‍🦯	persona con bastone di orientamento carnagione abbastanza chiara	none
+🧑🏽‍🦯	persona con bastone di orientamento carnagione olivastra	none
+🧑🏾‍🦯	persona con bastone di orientamento carnagione abbastanza scura	none
+🧑🏿‍🦯	persona con bastone di orientamento carnagione scura	none
+👨🏻‍🦯	uomo con bastone bianco di orientamento carnagione chiara	none
+👨🏼‍🦯	uomo con bastone bianco di orientamento carnagione abbastanza chiara	none
+👨🏽‍🦯	uomo con bastone bianco di orientamento carnagione olivastra	none
+👨🏾‍🦯	uomo con bastone bianco di orientamento carnagione abbastanza scura	none
+👨🏿‍🦯	uomo con bastone bianco di orientamento carnagione scura	none
+👩🏻‍🦯	donna con bastone bianco di orientamento carnagione chiara	none
+👩🏼‍🦯	donna con bastone bianco di orientamento carnagione abbastanza chiara	none
+👩🏽‍🦯	donna con bastone bianco di orientamento carnagione olivastra	none
+👩🏾‍🦯	donna con bastone bianco di orientamento carnagione abbastanza scura	none
+👩🏿‍🦯	donna con bastone bianco di orientamento carnagione scura	none
+🧑🏻‍🦼	persona su sedia a rotelle motorizzata carnagione chiara	none
+🧑🏼‍🦼	persona su sedia a rotelle motorizzata carnagione abbastanza chiara	none
+🧑🏽‍🦼	persona su sedia a rotelle motorizzata carnagione olivastra	none
+🧑🏾‍🦼	persona su sedia a rotelle motorizzata carnagione abbastanza scura	none
+🧑🏿‍🦼	persona su sedia a rotelle motorizzata carnagione scura	none
+👨🏻‍🦼	uomo su sedia a rotelle motorizzata carnagione chiara	none
+👨🏼‍🦼	uomo su sedia a rotelle motorizzata carnagione abbastanza chiara	none
+👨🏽‍🦼	uomo su sedia a rotelle motorizzata carnagione olivastra	none
+👨🏾‍🦼	uomo su sedia a rotelle motorizzata carnagione abbastanza scura	none
+👨🏿‍🦼	uomo su sedia a rotelle motorizzata carnagione scura	none
+👩🏻‍🦼	donna su sedia a rotelle motorizzata carnagione chiara	none
+👩🏼‍🦼	donna su sedia a rotelle motorizzata carnagione abbastanza chiara	none
+👩🏽‍🦼	donna su sedia a rotelle motorizzata carnagione olivastra	none
+👩🏾‍🦼	donna su sedia a rotelle motorizzata carnagione abbastanza scura	none
+👩🏿‍🦼	donna su sedia a rotelle motorizzata carnagione scura	none
+🧑🏻‍🦽	persona su sedia a rotelle manuale carnagione chiara	none
+🧑🏼‍🦽	persona su sedia a rotelle manuale carnagione abbastanza chiara	none
+🧑🏽‍🦽	persona su sedia a rotelle manuale carnagione olivastra	none
+🧑🏾‍🦽	persona su sedia a rotelle manuale carnagione abbastanza scura	none
+🧑🏿‍🦽	persona su sedia a rotelle manuale carnagione scura	none
+👨🏻‍🦽	uomo su sedia a rotelle manuale carnagione chiara	none
+👨🏼‍🦽	uomo su sedia a rotelle manuale carnagione abbastanza chiara	none
+👨🏽‍🦽	uomo su sedia a rotelle manuale carnagione olivastra	none
+👨🏾‍🦽	uomo su sedia a rotelle manuale carnagione abbastanza scura	none
+👨🏿‍🦽	uomo su sedia a rotelle manuale carnagione scura	none
+👩🏻‍🦽	donna su sedia a rotelle manuale carnagione chiara	none
+👩🏼‍🦽	donna su sedia a rotelle manuale carnagione abbastanza chiara	none
+👩🏽‍🦽	donna su sedia a rotelle manuale carnagione olivastra	none
+👩🏾‍🦽	donna su sedia a rotelle manuale carnagione abbastanza scura	none
+👩🏿‍🦽	donna su sedia a rotelle manuale carnagione scura	none
 🏃🏻	persona che corre carnagione chiara	none
 🏃🏼	persona che corre carnagione abbastanza chiara	none
 🏃🏽	persona che corre carnagione olivastra	none
@@ -2702,21 +2842,76 @@ symbols:
 🛌🏽	persona a letto carnagione olivastra	none
 🛌🏾	persona a letto carnagione abbastanza scura	none
 🛌🏿	persona a letto carnagione scura	none
+🧑🏻‍🤝‍🧑🏻	persone che si tengono per mano carnagione chiara	none
+🧑🏼‍🤝‍🧑🏻	persone che si tengono per mano carnagione abbastanza chiara e carnagione chiara	none
+🧑🏼‍🤝‍🧑🏼	persone che si tengono per mano carnagione abbastanza chiara	none
+🧑🏽‍🤝‍🧑🏻	persone che si tengono per mano carnagione olivastra e carnagione chiara	none
+🧑🏽‍🤝‍🧑🏼	persone che si tengono per mano carnagione olivastra e carnagione abbastanza chiara	none
+🧑🏽‍🤝‍🧑🏽	persone che si tengono per mano carnagione olivastra	none
+🧑🏾‍🤝‍🧑🏻	persone che si tengono per mano carnagione abbastanza scura e carnagione chiara	none
+🧑🏾‍🤝‍🧑🏼	persone che si tengono per mano carnagione abbastanza scura e carnagione abbastanza chiara	none
+🧑🏾‍🤝‍🧑🏽	persone che si tengono per mano carnagione abbastanza scura e carnagione olivastra	none
+🧑🏾‍🤝‍🧑🏾	persone che si tengono per mano carnagione abbastanza scura	none
+🧑🏿‍🤝‍🧑🏻	persone che si tengono per mano carnagione scura e carnagione chiara	none
+🧑🏿‍🤝‍🧑🏼	persone che si tengono per mano carnagione scura e carnagione abbastanza chiara	none
+🧑🏿‍🤝‍🧑🏽	persone che si tengono per mano carnagione scura e carnagione olivastra	none
+🧑🏿‍🤝‍🧑🏾	persone che si tengono per mano carnagione scura e carnagione abbastanza scura	none
+🧑🏿‍🤝‍🧑🏿	persone che si tengono per mano carnagione scura	none
+👭🏻	due donne che si tengono per mano carnagione chiara	none
+👩🏼‍🤝‍👩🏻	due donne che si tengono per mano carnagione abbastanza chiara e carnagione chiara	none
+👭🏼	due donne che si tengono per mano carnagione abbastanza chiara	none
+👩🏽‍🤝‍👩🏻	due donne che si tengono per mano carnagione olivastra e carnagione chiara	none
+👩🏽‍🤝‍👩🏼	due donne che si tengono per mano carnagione olivastra e carnagione abbastanza chiara	none
+👭🏽	due donne che si tengono per mano carnagione olivastra	none
+👩🏾‍🤝‍👩🏻	due donne che si tengono per mano carnagione abbastanza scura e carnagione chiara	none
+👩🏾‍🤝‍👩🏼	due donne che si tengono per mano carnagione abbastanza scura e carnagione abbastanza chiara	none
+👩🏾‍🤝‍👩🏽	due donne che si tengono per mano carnagione abbastanza scura e carnagione olivastra	none
+👭🏾	due donne che si tengono per mano carnagione abbastanza scura	none
+👩🏿‍🤝‍👩🏻	due donne che si tengono per mano carnagione scura e carnagione chiara	none
+👩🏿‍🤝‍👩🏼	due donne che si tengono per mano carnagione scura e carnagione abbastanza chiara	none
+👩🏿‍🤝‍👩🏽	due donne che si tengono per mano carnagione scura e carnagione olivastra	none
+👩🏿‍🤝‍👩🏾	due donne che si tengono per mano carnagione scura e carnagione abbastanza scura	none
+👭🏿	due donne che si tengono per mano carnagione scura	none
 👫🏻	uomo e donna che si tengono per mano carnagione chiara	none
+👩🏻‍🤝‍👨🏼	uomo e donna che si tengono per mano carnagione chiara e carnagione abbastanza chiara	none
+👩🏻‍🤝‍👨🏽	uomo e donna che si tengono per mano carnagione chiara e carnagione olivastra	none
+👩🏻‍🤝‍👨🏾	uomo e donna che si tengono per mano carnagione chiara e carnagione abbastanza scura	none
+👩🏻‍🤝‍👨🏿	uomo e donna che si tengono per mano carnagione chiara e carnagione scura	none
+👩🏼‍🤝‍👨🏻	uomo e donna che si tengono per mano carnagione abbastanza chiara e carnagione chiara	none
 👫🏼	uomo e donna che si tengono per mano carnagione abbastanza chiara	none
+👩🏼‍🤝‍👨🏽	uomo e donna che si tengono per mano carnagione abbastanza chiara e carnagione olivastra	none
+👩🏼‍🤝‍👨🏾	uomo e donna che si tengono per mano carnagione abbastanza chiara e carnagione abbastanza scura	none
+👩🏼‍🤝‍👨🏿	uomo e donna che si tengono per mano carnagione abbastanza chiara e carnagione scura	none
+👩🏽‍🤝‍👨🏻	uomo e donna che si tengono per mano carnagione olivastra e carnagione chiara	none
+👩🏽‍🤝‍👨🏼	uomo e donna che si tengono per mano carnagione olivastra e carnagione abbastanza chiara	none
 👫🏽	uomo e donna che si tengono per mano carnagione olivastra	none
+👩🏽‍🤝‍👨🏾	uomo e donna che si tengono per mano carnagione olivastra e carnagione abbastanza scura	none
+👩🏽‍🤝‍👨🏿	uomo e donna che si tengono per mano carnagione olivastra e carnagione scura	none
+👩🏾‍🤝‍👨🏻	uomo e donna che si tengono per mano carnagione abbastanza scura e carnagione chiara	none
+👩🏾‍🤝‍👨🏼	uomo e donna che si tengono per mano carnagione abbastanza scura e carnagione abbastanza chiara	none
+👩🏾‍🤝‍👨🏽	uomo e donna che si tengono per mano carnagione abbastanza scura e carnagione olivastra	none
 👫🏾	uomo e donna che si tengono per mano carnagione abbastanza scura	none
+👩🏾‍🤝‍👨🏿	uomo e donna che si tengono per mano carnagione abbastanza scura e carnagione scura	none
+👩🏿‍🤝‍👨🏻	uomo e donna che si tengono per mano carnagione scura e carnagione chiara	none
+👩🏿‍🤝‍👨🏼	uomo e donna che si tengono per mano carnagione scura e carnagione abbastanza chiara	none
+👩🏿‍🤝‍👨🏽	uomo e donna che si tengono per mano carnagione scura e carnagione olivastra	none
+👩🏿‍🤝‍👨🏾	uomo e donna che si tengono per mano carnagione scura e carnagione abbastanza scura	none
 👫🏿	uomo e donna che si tengono per mano carnagione scura	none
 👬🏻	due uomini che si tengono per mano carnagione chiara	none
+👨🏼‍🤝‍👨🏻	due uomini che si tengono per mano carnagione abbastanza chiara e carnagione chiara	none
 👬🏼	due uomini che si tengono per mano carnagione abbastanza chiara	none
+👨🏽‍🤝‍👨🏻	due uomini che si tengono per mano carnagione olivastra e carnagione chiara	none
+👨🏽‍🤝‍👨🏼	due uomini che si tengono per mano carnagione olivastra e carnagione abbastanza chiara	none
 👬🏽	due uomini che si tengono per mano carnagione olivastra	none
+👨🏾‍🤝‍👨🏻	due uomini che si tengono per mano carnagione abbastanza scura e carnagione chiara	none
+👨🏾‍🤝‍👨🏼	due uomini che si tengono per mano carnagione abbastanza scura e carnagione abbastanza chiara	none
+👨🏾‍🤝‍👨🏽	due uomini che si tengono per mano carnagione abbastanza scura e carnagione olivastra	none
 👬🏾	due uomini che si tengono per mano carnagione abbastanza scura	none
+👨🏿‍🤝‍👨🏻	due uomini che si tengono per mano carnagione scura e carnagione chiara	none
+👨🏿‍🤝‍👨🏼	due uomini che si tengono per mano carnagione scura e carnagione abbastanza chiara	none
+👨🏿‍🤝‍👨🏽	due uomini che si tengono per mano carnagione scura e carnagione olivastra	none
+👨🏿‍🤝‍👨🏾	due uomini che si tengono per mano carnagione scura e carnagione abbastanza scura	none
 👬🏿	due uomini che si tengono per mano carnagione scura	none
-👭🏻	due donne che si tengono per mano carnagione chiara	none
-👭🏼	due donne che si tengono per mano carnagione abbastanza chiara	none
-👭🏽	due donne che si tengono per mano carnagione olivastra	none
-👭🏾	due donne che si tengono per mano carnagione abbastanza scura	none
-👭🏿	due donne che si tengono per mano carnagione scura	none
 👩‍❤‍💋‍👨	bacio tra coppia donna e uomo	none
 👨‍❤‍💋‍👨	bacio tra coppia uomo e uomo	none
 👩‍❤‍💋‍👩	bacio tra coppia donna e donna	none

@@ -8,7 +8,7 @@ symbols:
 🏽	medium teint	none
 🏾	medium til mørk teint	none
 🏿	mørk teint	none
-🐾	poteaftryk	none
+⚧	symbol for transkønnethed	none
 😀	grinende ansigt	none
 😃	grinende ansigt med store øjne	none
 😄	grinende ansigt med smilende øjne	none
@@ -94,6 +94,7 @@ symbols:
 😓	ansigt med koldsved	none
 😩	udmattet ansigt	none
 😫	træt ansigt	none
+🥱	gabende ansigt	none
 😤	fnysende ansigt	none
 😡	surt ansigt	none
 😠	vredt ansigt	none
@@ -140,7 +141,9 @@ symbols:
 💚	grønt hjerte	none
 💙	blåt hjerte	none
 💜	violet hjerte	none
+🤎	brunt hjerte	none
 🖤	sort hjerte	none
+🤍	hvidt hjerte	none
 💯	100 point	none
 💢	vrede	none
 💥	kollision	none
@@ -161,6 +164,7 @@ symbols:
 ✋	løftet hånd	none
 🖖	vulcan-hilsen	none
 👌	ok-tegn	none
+🤏	lidt vist med tommel- og pegefinger	none
 ✌	v-tegn	none
 🤞	krydsede fingre	none
 🤟	elsker dig-gestus	none
@@ -188,9 +192,12 @@ symbols:
 💅	neglelak	none
 🤳	selfie	none
 💪	armmuskler	none
+🦾	mekanisk arm	none
+🦿	mekanisk ben	none
 🦵	ben	none
 🦶	fod	none
 👂	øre	none
+🦻	øre med høreapparat	none
 👃	næse	none
 🧠	hjerne	none
 🦷	tand	none
@@ -205,17 +212,10 @@ symbols:
 👧	pige	none
 🧑	voksen	none
 👱	blond person	none
-🧑‍🤝‍🧑	mennesker, der holder hånd	none
 👨	mand	none
-👨‍🦯	mand med blindestok	none
-👨‍🦼	mand i elektrisk kørestol	none
-👨‍🦽	mand i manuel kørestol	none
-👱‍♂	blond mand	none
 🧔	mand med skæg	none
+👱‍♂	blond mand	none
 👩	kvinde	none
-👩‍🦯	kvinde med blindestok	none
-👩‍🦼	kvinde i elektrisk kørestol	none
-👩‍🦽	kvinde i manuel kørestol	none
 👱‍♀	blond kvinde	none
 🧓	gammel person	none
 👴	gammel mand	none
@@ -238,6 +238,9 @@ symbols:
 🙋	person med løftet hånd	none
 🙋‍♂	mand med løftet hånd	none
 🙋‍♀	kvinde med løftet hånd	none
+🧏	døv person	none
+🧏‍♂	døv mand	none
+🧏‍♀	døv kvinde	none
 🙇	bukker	none
 🙇‍♂	mand bukker dybt	none
 🙇‍♀	kvinde bukker dybt	none
@@ -247,36 +250,52 @@ symbols:
 🤷	trækker på skuldrene	none
 🤷‍♂	mand trækker på skuldrene	none
 🤷‍♀	kvinde trækker på skuldrene	none
+🧑‍⚕	sundhedspersonale	none
 👨‍⚕	mandlig sundhedsperson	none
 👩‍⚕	kvindelig sundhedsperson	none
+🧑‍🎓	studerende	none
 👨‍🎓	mandlig studerende	none
 👩‍🎓	kvindelig studerende	none
+🧑‍🏫	lærer	none
 👨‍🏫	mandlig lærer	none
 👩‍🏫	kvindelig lærer	none
+🧑‍⚖	dommer	none
 👨‍⚖	mandlig dommer	none
 👩‍⚖	kvindelig dommer	none
+🧑‍🌾	bonde	none
 👨‍🌾	landmand	none
 👩‍🌾	kvindelig landmand	none
+🧑‍🍳	kok	none
 👨‍🍳	mandlig kok	none
 👩‍🍳	kvindelig kok	none
+🧑‍🔧	mekaniker	none
 👨‍🔧	mandlig mekaniker	none
 👩‍🔧	kvindelig mekaniker	none
+🧑‍🏭	fabriksarbejder	none
 👨‍🏭	mandlig fabriksarbejder	none
 👩‍🏭	kvindelig fabriksarbejder	none
+🧑‍💼	kontormedarbejder	none
 👨‍💼	mandlig kontoransat	none
 👩‍💼	kvindelig kontoransat	none
+🧑‍🔬	videnskabsmand	none
 👨‍🔬	mandlig forsker	none
 👩‍🔬	kvindelig forsker	none
+🧑‍💻	it-medarbejder	none
 👨‍💻	mandlig IT-medarbejder	none
 👩‍💻	kvindelig IT-medarbejder	none
+🧑‍🎤	sangsolist	none
 👨‍🎤	sanger	none
 👩‍🎤	sangerinde	none
+🧑‍🎨	kunstner	none
 👨‍🎨	mandlig kunstner	none
 👩‍🎨	kvindelig kunstner	none
+🧑‍✈	pilot	none
 👨‍✈	mandlig pilot	none
 👩‍✈	kvindelig pilot	none
+🧑‍🚀	astronaut	none
 👨‍🚀	mandlig astronaut	none
 👩‍🚀	kvindelig astronaut	none
+🧑‍🚒	brandfolk	none
 👨‍🚒	brandmand	none
 👩‍🚒	kvindelig brandmand	none
 👮	politibetjent	none
@@ -341,6 +360,21 @@ symbols:
 🚶	fodgænger	none
 🚶‍♂	mand går	none
 🚶‍♀	kvinde går	none
+🧍	stående person	none
+🧍‍♂	stående mand	none
+🧍‍♀	stående kvinde	none
+🧎	knælende person	none
+🧎‍♂	knælende mand	none
+🧎‍♀	knælende kvinde	none
+🧑‍🦯	person med blindestok	none
+👨‍🦯	mand med blindestok	none
+👩‍🦯	kvinde med blindestok	none
+🧑‍🦼	person i elkørestol	none
+👨‍🦼	mand i elektrisk kørestol	none
+👩‍🦼	kvinde i elektrisk kørestol	none
+🧑‍🦽	person i manuel kørestol	none
+👨‍🦽	mand i manuel kørestol	none
+👩‍🦽	kvinde i manuel kørestol	none
 🏃	løber	none
 🏃‍♂	mand løber	none
 🏃‍♀	kvinde løber	none
@@ -404,9 +438,10 @@ symbols:
 🧘‍♀	kvinde i lotusstilling	none
 🛀	bad	none
 🛌	person i seng	none
+🧑‍🤝‍🧑	mennesker, der holder hånd	none
+👭	to kvinder hånd i hånd	none
 👫	mand og kvinde hånd i hånd	none
 👬	to mænd hånd i hånd	none
-👭	to kvinder hånd i hånd	none
 💏	kys	none
 💑	par med hjerte	none
 👪	familie	none
@@ -418,13 +453,13 @@ symbols:
 🦱	krøllet hår	none
 🦳	hvidt hår	none
 🦲	skaldet	none
-♀	kvindesymbol	none
-♂	mandesymbol	none
 🐵	abehoved	none
 🐒	abe	none
 🦍	gorilla	none
+🦧	orangutang	none
 🐶	hundehoved	none
 🐕	hund	none
+🦮	førerhund	none
 🐕‍🦺	servicehund	none
 🐩	puddel	none
 🐺	ulvehoved	none
@@ -471,8 +506,12 @@ symbols:
 🐻	bjørnehoved	none
 🐨	koala	none
 🐼	pandahoved	none
+🦥	dovendyr	none
+🦦	odder	none
+🦨	stinkdyr	none
 🦘	kænguru	none
 🦡	grævling	none
+🐾	poteaftryk	none
 🦃	kalkun	none
 🐔	høne	none
 🐓	hane	none
@@ -486,9 +525,10 @@ symbols:
 🦆	and	none
 🦢	svane	none
 🦉	ugle	none
+🦩	flamingo	none
 🦚	påfugl	none
 🦜	papegøje	none
-🐸	frøhoved	none
+🐸	frø	none
 🐊	krokodille	none
 🐢	skildpadde	none
 🦎	firben	none
@@ -566,6 +606,8 @@ symbols:
 🥒	agurk	none
 🥬	bladgrønt	none
 🥦	broccoli	none
+🧄	hvidløg	none
+🧅	løg	none
 🍄	svamp	none
 🥜	jordnødder	none
 🌰	kastanje	none
@@ -575,6 +617,7 @@ symbols:
 🥨	kringle	none
 🥯	bagel	none
 🥞	pandekager	none
+🧇	vaffel	none
 🧀	et stykke ost	none
 🍖	kød	none
 🍗	kyllingelår	none
@@ -588,6 +631,7 @@ symbols:
 🌮	taco	none
 🌯	burrito	none
 🥙	fyldt pitabrød	none
+🧆	falafel	none
 🥚	æg	none
 🍳	stegepande	none
 🥘	pande med mad	none
@@ -595,6 +639,7 @@ symbols:
 🥣	ske i skål	none
 🥗	grøn salat	none
 🍿	popcorn	none
+🧈	smør	none
 🧂	salt	none
 🥫	konserves	none
 🍱	bento	none
@@ -618,6 +663,7 @@ symbols:
 🦞	hummer	none
 🦐	reje	none
 🦑	sprutte	none
+🦪	østers	none
 🍦	softice	none
 🍧	isdessert	none
 🍨	is	none
@@ -646,6 +692,9 @@ symbols:
 🥂	skål	none
 🥃	fladbundet glas	none
 🥤	bæger med sugerør	none
+🧃	brik	none
+🧉	mate	none
+🧊	isterning	none
 🥢	spisepinde	none
 🍽	kniv og gaffel med tallerken	none
 🍴	kniv og gaffel	none
@@ -694,6 +743,7 @@ symbols:
 🗽	Frihedsgudinden	none
 ⛪	kirke	none
 🕌	moské	none
+🛕	hindutempel	none
 🕍	synagoge	none
 ⛩	Shinto-helligdom	none
 🕋	Kabaen	none
@@ -708,7 +758,6 @@ symbols:
 🌇	solnedgang	none
 🌉	bro i mørke	none
 ♨	varme kilder	none
-🌌	mælkevejen	none
 🎠	karrusel	none
 🎡	pariserhjul	none
 🎢	rutsjebane	none
@@ -745,6 +794,9 @@ symbols:
 🏎	racerbil	none
 🏍	motorcykel	none
 🛵	scooter	none
+🦽	manuel kørestol	none
+🦼	elektrisk kørestol	none
+🛺	motor-rickshaw	none
 🚲	cykel	none
 🛴	løbehjul	none
 🛹	skateboard	none
@@ -770,6 +822,7 @@ symbols:
 🛩	lille fly	none
 🛫	flyafgang	none
 🛬	flyankomst	none
+🪂	faldskærm	none
 💺	sæde	none
 🚁	helikopter	none
 🚟	luftbane	none
@@ -827,9 +880,11 @@ symbols:
 ☀	sol	none
 🌝	fuldmåne med ansigt	none
 🌞	sol med ansigt	none
+🪐	planet med ringe	none
 ⭐	stjerne	none
 🌟	blinkende stjerne	none
 🌠	stjerneskud	none
+🌌	mælkevejen	none
 ☁	sky	none
 ⛅	sol bag sky	none
 ⛈	sky med lyn og regn	none
@@ -905,11 +960,14 @@ symbols:
 ⛳	golfhul med flag	none
 ⛸	skøjte	none
 🎣	fiskestang	none
+🤿	dykkermaske	none
 🎽	løbetrøje	none
 🎿	ski	none
 🛷	kælk	none
 🥌	curlingsten	none
 🎯	pletskud	none
+🪀	yoyo	none
+🪁	legetøjsdrage	none
 🎱	billard	none
 🔮	krystalkugle	none
 🧿	nazaramulet	none
@@ -936,6 +994,7 @@ symbols:
 🕶	solbriller	none
 🥽	sikkerhedsbriller	none
 🥼	kittel	none
+🦺	sikkerhedsvest	none
 👔	slips	none
 👕	T-shirt	none
 👖	bukser	none
@@ -945,6 +1004,10 @@ symbols:
 🧦	sokker	none
 👗	kjole	none
 👘	kimono	none
+🥻	sari	none
+🩱	badedragt	none
+🩲	badebukser	none
+🩳	shorts	none
 👙	bikini	none
 👚	bluse	none
 👛	pung	none
@@ -958,6 +1021,7 @@ symbols:
 🥿	flad sko	none
 👠	høje hæle	none
 👡	damesandal	none
+🩰	balletsko	none
 👢	damestøvle	none
 👑	krone	none
 👒	hat	none
@@ -992,6 +1056,7 @@ symbols:
 🎹	klaver	none
 🎺	trompet	none
 🎻	violin	none
+🪕	banjo	none
 🥁	tromme	none
 📱	mobil	none
 📲	mobil med pil	none
@@ -1027,6 +1092,7 @@ symbols:
 💡	elpære	none
 🔦	lommelygte	none
 🏮	papirlanterne	none
+🪔	diya-lampe	none
 📔	notesbog med udsmykning	none
 📕	lukket bog	none
 📖	åben bog	none
@@ -1105,6 +1171,7 @@ symbols:
 🔑	nøgle	none
 🗝	gammel nøgle	none
 🔨	hammer	none
+🪓	økse	none
 ⛏	hakke	none
 ⚒	hammer og hakke	none
 🛠	hammer og skruenøgle	none
@@ -1118,6 +1185,7 @@ symbols:
 ⚙	tandhjul	none
 🗜	skruetvinge	none
 ⚖	vægt	none
+🦯	blindestok	none
 🔗	link	none
 ⛓	kæder	none
 🧰	værktøjskasse	none
@@ -1130,13 +1198,18 @@ symbols:
 🔭	teleskop	none
 📡	parabolantenne	none
 💉	sprøjte	none
+🩸	bloddråbe	none
 💊	pille	none
+🩹	plaster	none
+🩺	stetoskop	none
 🚪	dør	none
 🛏	seng	none
 🛋	sofa og lampe	none
+🪑	stol	none
 🚽	toilet	none
 🚿	brusebad	none
 🛁	badekar	none
+🪒	ragekniv	none
 🧴	bodylotion	none
 🧷	sikkerhedsnål	none
 🧹	kost	none
@@ -1246,6 +1319,8 @@ symbols:
 📶	mobilsignal	none
 📳	vibration	none
 📴	mobil slået fra	none
+♀	kvindesymbol	none
+♂	mandesymbol	none
 ⚕	medicinsymbol	none
 ♾	uendelig	none
 ♻	genbrug	none
@@ -1253,7 +1328,7 @@ symbols:
 🔱	trefork	none
 📛	navneskilt	none
 🔰	japansk begyndersymbol	none
-⭕	stor kraftig cirkel	none
+⭕	stor rød cirkel	none
 ✅	hvidt flueben	none
 ☑	afkrydsningsfelt med flueben	none
 ✔	flueben	none
@@ -1319,17 +1394,29 @@ symbols:
 🈺	kvadratisk ideogram for åben	none
 🈵	kvadratisk ideogram for optaget	none
 🔴	rød cirkel	none
+🟠	orange cirkel	none
+🟡	gul cirkel	none
+🟢	grøn cirkel	none
 🔵	blå cirkel	none
-⚪	hvid cirkel	none
+🟣	lille cirkel	none
+🟤	brun cirkel	none
 ⚫	sort cirkel	none
-⬜	stort hvidt kvadrat	none
+⚪	hvid cirkel	none
+🟥	rød firkant	none
+🟧	orange firkant	none
+🟨	gul firkant	none
+🟩	grøn firkant	none
+🟦	blå firkant	none
+🟪	lilla firkant	none
+🟫	brun firkant	none
 ⬛	stort sort kvadrat	none
+⬜	stort hvidt kvadrat	none
 ◼	mellemstort sort kvadrat	none
 ◻	mellemstort hvidt kvadrat	none
-◽	halvlille hvidt kvadrat	none
 ◾	halvlille sort kvadrat	none
-▫	lille hvidt kvadrat	none
+◽	halvlille hvidt kvadrat	none
 ▪	lille sort kvadrat	none
+▫	lille hvidt kvadrat	none
 🔶	stor orange ruder	none
 🔷	stor blå ruder	none
 🔸	lille orange ruder	none
@@ -1338,137 +1425,71 @@ symbols:
 🔻	ned-trekant	none
 💠	ruder med prik	none
 🔘	alternativknap	none
-🔲	sort kvadratisk knap	none
 🔳	hvid kvadratisk knap	none
+🔲	sort kvadratisk knap	none
 🏁	ternet flag	none
 🚩	trekantet flag	none
 🎌	to krydsede flag	none
 🏴	sort flag	none
 🏳	hvidt flag	none
+🏳‍⚧	transkønnet flag	none
 🏳‍🌈	regnbueflag	none
 🏴‍☠	piratflag	none
-🛕	hindutempel	none
-🛺	motor-rickshaw	none
-🟠	orange cirkel	none
-🟡	gul cirkel	none
-🟢	grøn cirkel	none
-🟣	lille cirkel	none
-🟤	brun cirkel	none
-🟥	rød firkant	none
-🟦	blå firkant	none
-🟧	orange firkant	none
-🟨	gul firkant	none
-🟩	grøn firkant	none
-🟪	lilla firkant	none
-🟫	brun firkant	none
-🤍	hvidt hjerte	none
-🤎	brunt hjerte	none
-🤏	lidt vist med tommel- og pegefinger	none
-🤿	dykkermaske	none
-🥱	gabende ansigt	none
-🥻	sari	none
-🦥	dovendyr	none
-🦦	odder	none
-🦧	orangutang	none
-🦨	stinkdyr	none
-🦩	flamingo	none
-🦪	østers	none
-🦮	førerhund	none
-🦯	blindestok	none
-🦺	sikkerhedsvest	none
-🦻	øre med høreapparat	none
-🦼	elektrisk kørestol	none
-🦽	manuel kørestol	none
-🦾	mekanisk arm	none
-🦿	mekanisk ben	none
-🧃	brik	none
-🧄	hvidløg	none
-🧅	løg	none
-🧆	falafel	none
-🧇	vaffel	none
-🧈	smør	none
-🧉	mate	none
-🧊	isterning	none
-🧍	stående person	none
-🧍‍♀	stående kvinde	none
-🧍‍♂	stående mand	none
-🧎	knælende person	none
-🧎‍♀	knælende kvinde	none
-🧎‍♂	knælende mand	none
-🧏	døv person	none
-🧏‍♀	døv kvinde	none
-🧏‍♂	døv mand	none
-🩰	balletsko	none
-🩱	badedragt	none
-🩲	badebukser	none
-🩳	shorts	none
-🩸	bloddråbe	none
-🩹	plaster	none
-🩺	stetoskop	none
-🪀	yoyo	none
-🪁	legetøjsdrage	none
-🪂	faldskærm	none
-🪐	planet med ringe	none
-🪑	stol	none
-🪒	ragekniv	none
-🪓	økse	none
-🪔	diya-lampe	none
-🪕	banjo	none
-🤏🏻	lidt vist med tommel- og pegefinger lys teint	none
-🤏🏼	lidt vist med tommel- og pegefinger medium til lys teint	none
-🤏🏽	lidt vist med tommel- og pegefinger medium teint	none
-🤏🏾	lidt vist med tommel- og pegefinger medium til mørk teint	none
-🤏🏿	lidt vist med tommel- og pegefinger mørk teint	none
-🦻🏻	øre med høreapparat lys teint	none
-🦻🏼	øre med høreapparat medium til lys teint	none
-🦻🏽	øre med høreapparat medium teint	none
-🦻🏾	øre med høreapparat medium til mørk teint	none
-🦻🏿	øre med høreapparat mørk teint	none
-🧍🏻	stående person lys teint	none
-🧍🏼	stående person medium til lys teint	none
-🧍🏽	stående person medium teint	none
-🧍🏾	stående person medium til mørk teint	none
-🧍🏿	stående person mørk teint	none
-🧍🏻‍♀	stående kvinde lys teint	none
-🧍🏼‍♀	stående kvinde medium til lys teint	none
-🧍🏽‍♀	stående kvinde medium teint	none
-🧍🏾‍♀	stående kvinde medium til mørk teint	none
-🧍🏿‍♀	stående kvinde mørk teint	none
-🧍🏻‍♂	stående mand lys teint	none
-🧍🏼‍♂	stående mand medium til lys teint	none
-🧍🏽‍♂	stående mand medium teint	none
-🧍🏾‍♂	stående mand medium til mørk teint	none
-🧍🏿‍♂	stående mand mørk teint	none
-🧎🏻	knælende person lys teint	none
-🧎🏼	knælende person medium til lys teint	none
-🧎🏽	knælende person medium teint	none
-🧎🏾	knælende person medium til mørk teint	none
-🧎🏿	knælende person mørk teint	none
-🧎🏻‍♀	knælende kvinde lys teint	none
-🧎🏼‍♀	knælende kvinde medium til lys teint	none
-🧎🏽‍♀	knælende kvinde medium teint	none
-🧎🏾‍♀	knælende kvinde medium til mørk teint	none
-🧎🏿‍♀	knælende kvinde mørk teint	none
-🧎🏻‍♂	knælende mand lys teint	none
-🧎🏼‍♂	knælende mand medium til lys teint	none
-🧎🏽‍♂	knælende mand medium teint	none
-🧎🏾‍♂	knælende mand medium til mørk teint	none
-🧎🏿‍♂	knælende mand mørk teint	none
-🧏🏻	døv person lys teint	none
-🧏🏼	døv person medium til lys teint	none
-🧏🏽	døv person medium teint	none
-🧏🏾	døv person medium til mørk teint	none
-🧏🏿	døv person mørk teint	none
-🧏🏻‍♀	døv kvinde lys teint	none
-🧏🏼‍♀	døv kvinde medium til lys teint	none
-🧏🏽‍♀	døv kvinde medium teint	none
-🧏🏾‍♀	døv kvinde medium til mørk teint	none
-🧏🏿‍♀	døv kvinde mørk teint	none
-🧏🏻‍♂	døv mand lys teint	none
-🧏🏼‍♂	døv mand medium til lys teint	none
-🧏🏽‍♂	døv mand medium teint	none
-🧏🏾‍♂	døv mand medium til mørk teint	none
-🧏🏿‍♂	døv mand mørk teint	none
+🛖	hytte	none
+🛗	elevator	none
+🛻	pickup	none
+🛼	rulleskøjte	none
+🤌	samlede fingre	none
+🥲	smilende ansigt med tåre	none
+🥷	ninja	none
+🥸	maske	none
+🦣	mammut	none
+🦤	dronte	none
+🦫	bæver	none
+🦬	bison	none
+🦭	sæl	none
+🧋	bubble tea	none
+🩴	klipklapper	none
+🪃	boomerang	none
+🪄	tryllestav	none
+🪅	piñata	none
+🪆	russiske dukker	none
+🪖	militærhjelm	none
+🪗	akkordeon	none
+🪘	høj tromme	none
+🪙	mønt	none
+🪚	sav	none
+🪛	skruetrækker	none
+🪜	stige	none
+🪝	krog	none
+🪞	spejl	none
+🪟	vindue	none
+🪠	svupper	none
+🪡	synål	none
+🪢	knude	none
+🪣	spand	none
+🪤	musefælde	none
+🪥	tandbørste	none
+🪦	gravsten	none
+🪧	skilt	none
+🪨	sten	none
+🪰	flue	none
+🪱	orm	none
+🪲	bille	none
+🪳	kakerlak	none
+🪴	potteplante	none
+🪵	træ	none
+🪶	fjer	none
+🫀	hjerte	none
+🫁	lunger	none
+🫂	knus	none
+🫐	blåbær	none
+🫑	peberfrugt	none
+🫒	oliven	none
+🫓	fladbrød	none
+🫔	tamales	none
+🫕	fondue	none
+🫖	tekande	none
 👋🏻	vinker lys teint	none
 👋🏼	vinker medium til lys teint	none
 👋🏽	vinker medium teint	none
@@ -1499,6 +1520,11 @@ symbols:
 👌🏽	ok-tegn medium teint	none
 👌🏾	ok-tegn medium til mørk teint	none
 👌🏿	ok-tegn mørk teint	none
+🤏🏻	lidt vist med tommel- og pegefinger lys teint	none
+🤏🏼	lidt vist med tommel- og pegefinger medium til lys teint	none
+🤏🏽	lidt vist med tommel- og pegefinger medium teint	none
+🤏🏾	lidt vist med tommel- og pegefinger medium til mørk teint	none
+🤏🏿	lidt vist med tommel- og pegefinger mørk teint	none
 ✌🏻	v-tegn lys teint	none
 ✌🏼	v-tegn medium til lys teint	none
 ✌🏽	v-tegn medium teint	none
@@ -1644,6 +1670,11 @@ symbols:
 👂🏽	øre medium teint	none
 👂🏾	øre medium til mørk teint	none
 👂🏿	øre mørk teint	none
+🦻🏻	øre med høreapparat lys teint	none
+🦻🏼	øre med høreapparat medium til lys teint	none
+🦻🏽	øre med høreapparat medium teint	none
+🦻🏾	øre med høreapparat medium til mørk teint	none
+🦻🏿	øre med høreapparat mørk teint	none
 👃🏻	næse lys teint	none
 👃🏼	næse medium til lys teint	none
 👃🏽	næse medium teint	none
@@ -1679,51 +1710,45 @@ symbols:
 👱🏽	blond person medium teint	none
 👱🏾	blond person medium til mørk teint	none
 👱🏿	blond person mørk teint	none
-🧑🏻‍🤝‍🧑🏻	mennesker, der holder hånd lys teint	none
-🧑🏼‍🤝‍🧑🏻	mennesker, der holder hånd medium til lys teint og lys teint	none
-🧑🏼‍🤝‍🧑🏼	mennesker, der holder hånd medium til lys teint	none
-🧑🏽‍🤝‍🧑🏻	mennesker, der holder hånd medium teint og lys teint	none
-🧑🏽‍🤝‍🧑🏼	mennesker, der holder hånd medium teint og medium til lys teint	none
-🧑🏽‍🤝‍🧑🏽	mennesker, der holder hånd medium teint	none
-🧑🏾‍🤝‍🧑🏻	mennesker, der holder hånd medium til mørk teint og lys teint	none
-🧑🏾‍🤝‍🧑🏼	mennesker, der holder hånd medium til mørk teint og medium til lys teint	none
-🧑🏾‍🤝‍🧑🏽	mennesker, der holder hånd medium til mørk teint og medium teint	none
-🧑🏾‍🤝‍🧑🏾	mennesker, der holder hånd medium til mørk teint	none
-🧑🏿‍🤝‍🧑🏻	mennesker, der holder hånd mørk teint og lys teint	none
-🧑🏿‍🤝‍🧑🏼	mennesker, der holder hånd mørk teint og medium til lys teint	none
-🧑🏿‍🤝‍🧑🏽	mennesker, der holder hånd mørk teint og medium teint	none
-🧑🏿‍🤝‍🧑🏾	mennesker, der holder hånd mørk teint og medium til mørk teint	none
-🧑🏿‍🤝‍🧑🏿	mennesker, der holder hånd mørk teint	none
+🧑‍🦰	voksen rødt hår	none
+🧑🏻‍🦰	voksen lys teint og rødt hår	none
+🧑🏼‍🦰	voksen medium til lys teint og rødt hår	none
+🧑🏽‍🦰	voksen medium teint og rødt hår	none
+🧑🏾‍🦰	voksen medium til mørk teint og rødt hår	none
+🧑🏿‍🦰	voksen mørk teint og rødt hår	none
+🧑‍🦱	voksen krøllet hår	none
+🧑🏻‍🦱	voksen lys teint og krøllet hår	none
+🧑🏼‍🦱	voksen medium til lys teint og krøllet hår	none
+🧑🏽‍🦱	voksen medium teint og krøllet hår	none
+🧑🏾‍🦱	voksen medium til mørk teint og krøllet hår	none
+🧑🏿‍🦱	voksen mørk teint og krøllet hår	none
+🧑‍🦳	voksen hvidt hår	none
+🧑🏻‍🦳	voksen lys teint og hvidt hår	none
+🧑🏼‍🦳	voksen medium til lys teint og hvidt hår	none
+🧑🏽‍🦳	voksen medium teint og hvidt hår	none
+🧑🏾‍🦳	voksen medium til mørk teint og hvidt hår	none
+🧑🏿‍🦳	voksen mørk teint og hvidt hår	none
+🧑‍🦲	voksen skaldet	none
+🧑🏻‍🦲	voksen lys teint og skaldet	none
+🧑🏼‍🦲	voksen medium til lys teint og skaldet	none
+🧑🏽‍🦲	voksen medium teint og skaldet	none
+🧑🏾‍🦲	voksen medium til mørk teint og skaldet	none
+🧑🏿‍🦲	voksen mørk teint og skaldet	none
 👨🏻	mand lys teint	none
 👨🏼	mand medium til lys teint	none
 👨🏽	mand medium teint	none
 👨🏾	mand medium til mørk teint	none
 👨🏿	mand mørk teint	none
-👨🏻‍🦯	mand med blindestok lys teint	none
-👨🏼‍🦯	mand med blindestok medium til lys teint	none
-👨🏽‍🦯	mand med blindestok medium teint	none
-👨🏾‍🦯	mand med blindestok medium til mørk teint	none
-👨🏿‍🦯	mand med blindestok mørk teint	none
-👨🏻‍🦼	mand i elektrisk kørestol lys teint	none
-👨🏼‍🦼	mand i elektrisk kørestol medium til lys teint	none
-👨🏽‍🦼	mand i elektrisk kørestol medium teint	none
-👨🏾‍🦼	mand i elektrisk kørestol medium til mørk teint	none
-👨🏿‍🦼	mand i elektrisk kørestol mørk teint	none
-👨🏻‍🦽	mand i manuel kørestol lys teint	none
-👨🏼‍🦽	mand i manuel kørestol medium til lys teint	none
-👨🏽‍🦽	mand i manuel kørestol medium teint	none
-👨🏾‍🦽	mand i manuel kørestol medium til mørk teint	none
-👨🏿‍🦽	mand i manuel kørestol mørk teint	none
-👨🏼‍🤝‍👨🏻	to mænd hånd i hånd medium til lys teint og lys teint	none
-👨🏽‍🤝‍👨🏻	to mænd hånd i hånd medium teint og lys teint	none
-👨🏽‍🤝‍👨🏼	to mænd hånd i hånd medium teint og medium til lys teint	none
-👨🏾‍🤝‍👨🏻	to mænd hånd i hånd medium til mørk teint og lys teint	none
-👨🏾‍🤝‍👨🏼	to mænd hånd i hånd medium til mørk teint og medium til lys teint	none
-👨🏾‍🤝‍👨🏽	to mænd hånd i hånd medium til mørk teint og medium teint	none
-👨🏿‍🤝‍👨🏻	to mænd hånd i hånd mørk teint og lys teint	none
-👨🏿‍🤝‍👨🏼	to mænd hånd i hånd mørk teint og medium til lys teint	none
-👨🏿‍🤝‍👨🏽	to mænd hånd i hånd mørk teint og medium teint	none
-👨🏿‍🤝‍👨🏾	to mænd hånd i hånd mørk teint og medium til mørk teint	none
+🧔🏻	mand med skæg lys teint	none
+🧔🏼	mand med skæg medium til lys teint	none
+🧔🏽	mand med skæg medium teint	none
+🧔🏾	mand med skæg medium til mørk teint	none
+🧔🏿	mand med skæg mørk teint	none
+👱🏻‍♂	blond mand lys teint	none
+👱🏼‍♂	blond mand medium til lys teint	none
+👱🏽‍♂	blond mand medium teint	none
+👱🏾‍♂	blond mand medium til mørk teint	none
+👱🏿‍♂	blond mand mørk teint	none
 👨‍🦰	mand rødt hår	none
 👨🏻‍🦰	mand lys teint og rødt hår	none
 👨🏼‍🦰	mand medium til lys teint og rødt hår	none
@@ -1748,66 +1773,16 @@ symbols:
 👨🏽‍🦲	mand medium teint og skaldet	none
 👨🏾‍🦲	mand medium til mørk teint og skaldet	none
 👨🏿‍🦲	mand mørk teint og skaldet	none
-👱🏻‍♂	blond mand lys teint	none
-👱🏼‍♂	blond mand medium til lys teint	none
-👱🏽‍♂	blond mand medium teint	none
-👱🏾‍♂	blond mand medium til mørk teint	none
-👱🏿‍♂	blond mand mørk teint	none
-🧔🏻	mand med skæg lys teint	none
-🧔🏼	mand med skæg medium til lys teint	none
-🧔🏽	mand med skæg medium teint	none
-🧔🏾	mand med skæg medium til mørk teint	none
-🧔🏿	mand med skæg mørk teint	none
 👩🏻	kvinde lys teint	none
 👩🏼	kvinde medium til lys teint	none
 👩🏽	kvinde medium teint	none
 👩🏾	kvinde medium til mørk teint	none
 👩🏿	kvinde mørk teint	none
-👩🏻‍🦯	kvinde med blindestok lys teint	none
-👩🏼‍🦯	kvinde med blindestok medium til lys teint	none
-👩🏽‍🦯	kvinde med blindestok medium teint	none
-👩🏾‍🦯	kvinde med blindestok medium til mørk teint	none
-👩🏿‍🦯	kvinde med blindestok mørk teint	none
-👩🏻‍🦼	kvinde i elektrisk kørestol lys teint	none
-👩🏼‍🦼	kvinde i elektrisk kørestol medium til lys teint	none
-👩🏽‍🦼	kvinde i elektrisk kørestol medium teint	none
-👩🏾‍🦼	kvinde i elektrisk kørestol medium til mørk teint	none
-👩🏿‍🦼	kvinde i elektrisk kørestol mørk teint	none
-👩🏻‍🦽	kvinde i manuel kørestol lys teint	none
-👩🏼‍🦽	kvinde i manuel kørestol medium til lys teint	none
-👩🏽‍🦽	kvinde i manuel kørestol medium teint	none
-👩🏾‍🦽	kvinde i manuel kørestol medium til mørk teint	none
-👩🏿‍🦽	kvinde i manuel kørestol mørk teint	none
-👩🏻‍🤝‍👨🏼	mand og kvinde hånd i hånd lys teint og medium til lys teint	none
-👩🏻‍🤝‍👨🏽	mand og kvinde hånd i hånd lys teint og medium teint	none
-👩🏻‍🤝‍👨🏾	mand og kvinde hånd i hånd lys teint og medium til mørk teint	none
-👩🏻‍🤝‍👨🏿	mand og kvinde hånd i hånd lys teint og mørk teint	none
-👩🏼‍🤝‍👨🏻	mand og kvinde hånd i hånd medium til lys teint og lys teint	none
-👩🏼‍🤝‍👨🏽	mand og kvinde hånd i hånd medium til lys teint og medium teint	none
-👩🏼‍🤝‍👨🏾	mand og kvinde hånd i hånd medium til lys teint og medium til mørk teint	none
-👩🏼‍🤝‍👨🏿	mand og kvinde hånd i hånd medium til lys teint og mørk teint	none
-👩🏽‍🤝‍👨🏻	mand og kvinde hånd i hånd medium teint og lys teint	none
-👩🏽‍🤝‍👨🏼	mand og kvinde hånd i hånd medium teint og medium til lys teint	none
-👩🏽‍🤝‍👨🏾	mand og kvinde hånd i hånd medium teint og medium til mørk teint	none
-👩🏽‍🤝‍👨🏿	mand og kvinde hånd i hånd medium teint og mørk teint	none
-👩🏾‍🤝‍👨🏻	mand og kvinde hånd i hånd medium til mørk teint og lys teint	none
-👩🏾‍🤝‍👨🏼	mand og kvinde hånd i hånd medium til mørk teint og medium til lys teint	none
-👩🏾‍🤝‍👨🏽	mand og kvinde hånd i hånd medium til mørk teint og medium teint	none
-👩🏾‍🤝‍👨🏿	mand og kvinde hånd i hånd medium til mørk teint og mørk teint	none
-👩🏿‍🤝‍👨🏻	mand og kvinde hånd i hånd mørk teint og lys teint	none
-👩🏿‍🤝‍👨🏼	mand og kvinde hånd i hånd mørk teint og medium til lys teint	none
-👩🏿‍🤝‍👨🏽	mand og kvinde hånd i hånd mørk teint og medium teint	none
-👩🏿‍🤝‍👨🏾	mand og kvinde hånd i hånd mørk teint og medium til mørk teint	none
-👩🏼‍🤝‍👩🏻	to kvinder hånd i hånd medium til lys teint og lys teint	none
-👩🏽‍🤝‍👩🏻	to kvinder hånd i hånd medium teint og lys teint	none
-👩🏽‍🤝‍👩🏼	to kvinder hånd i hånd medium teint og medium til lys teint	none
-👩🏾‍🤝‍👩🏻	to kvinder hånd i hånd medium til mørk teint og lys teint	none
-👩🏾‍🤝‍👩🏼	to kvinder hånd i hånd medium til mørk teint og medium til lys teint	none
-👩🏾‍🤝‍👩🏽	to kvinder hånd i hånd medium til mørk teint og medium teint	none
-👩🏿‍🤝‍👩🏻	to kvinder hånd i hånd mørk teint og lys teint	none
-👩🏿‍🤝‍👩🏼	to kvinder hånd i hånd mørk teint og medium til lys teint	none
-👩🏿‍🤝‍👩🏽	to kvinder hånd i hånd mørk teint og medium teint	none
-👩🏿‍🤝‍👩🏾	to kvinder hånd i hånd mørk teint og medium til mørk teint	none
+👱🏻‍♀	blond kvinde lys teint	none
+👱🏼‍♀	blond kvinde medium til lys teint	none
+👱🏽‍♀	blond kvinde medium teint	none
+👱🏾‍♀	blond kvinde medium til mørk teint	none
+👱🏿‍♀	blond kvinde mørk teint	none
 👩‍🦰	kvinde rødt hår	none
 👩🏻‍🦰	kvinde lys teint og rødt hår	none
 👩🏼‍🦰	kvinde medium til lys teint og rødt hår	none
@@ -1832,11 +1807,6 @@ symbols:
 👩🏽‍🦲	kvinde medium teint og skaldet	none
 👩🏾‍🦲	kvinde medium til mørk teint og skaldet	none
 👩🏿‍🦲	kvinde mørk teint og skaldet	none
-👱🏻‍♀	blond kvinde lys teint	none
-👱🏼‍♀	blond kvinde medium til lys teint	none
-👱🏽‍♀	blond kvinde medium teint	none
-👱🏾‍♀	blond kvinde medium til mørk teint	none
-👱🏿‍♀	blond kvinde mørk teint	none
 🧓🏻	gammel person lys teint	none
 🧓🏼	gammel person medium til lys teint	none
 🧓🏽	gammel person medium teint	none
@@ -1942,6 +1912,21 @@ symbols:
 🙋🏽‍♀	kvinde med løftet hånd medium teint	none
 🙋🏾‍♀	kvinde med løftet hånd medium til mørk teint	none
 🙋🏿‍♀	kvinde med løftet hånd mørk teint	none
+🧏🏻	døv person lys teint	none
+🧏🏼	døv person medium til lys teint	none
+🧏🏽	døv person medium teint	none
+🧏🏾	døv person medium til mørk teint	none
+🧏🏿	døv person mørk teint	none
+🧏🏻‍♂	døv mand lys teint	none
+🧏🏼‍♂	døv mand medium til lys teint	none
+🧏🏽‍♂	døv mand medium teint	none
+🧏🏾‍♂	døv mand medium til mørk teint	none
+🧏🏿‍♂	døv mand mørk teint	none
+🧏🏻‍♀	døv kvinde lys teint	none
+🧏🏼‍♀	døv kvinde medium til lys teint	none
+🧏🏽‍♀	døv kvinde medium teint	none
+🧏🏾‍♀	døv kvinde medium til mørk teint	none
+🧏🏿‍♀	døv kvinde mørk teint	none
 🙇🏻	bukker lys teint	none
 🙇🏼	bukker medium til lys teint	none
 🙇🏽	bukker medium teint	none
@@ -1987,6 +1972,11 @@ symbols:
 🤷🏽‍♀	kvinde trækker på skuldrene medium teint	none
 🤷🏾‍♀	kvinde trækker på skuldrene medium til mørk teint	none
 🤷🏿‍♀	kvinde trækker på skuldrene mørk teint	none
+🧑🏻‍⚕	sundhedspersonale lys teint	none
+🧑🏼‍⚕	sundhedspersonale medium til lys teint	none
+🧑🏽‍⚕	sundhedspersonale medium teint	none
+🧑🏾‍⚕	sundhedspersonale medium til mørk teint	none
+🧑🏿‍⚕	sundhedspersonale mørk teint	none
 👨🏻‍⚕	mandlig sundhedsperson lys teint	none
 👨🏼‍⚕	mandlig sundhedsperson medium til lys teint	none
 👨🏽‍⚕	mandlig sundhedsperson medium teint	none
@@ -1997,6 +1987,11 @@ symbols:
 👩🏽‍⚕	kvindelig sundhedsperson medium teint	none
 👩🏾‍⚕	kvindelig sundhedsperson medium til mørk teint	none
 👩🏿‍⚕	kvindelig sundhedsperson mørk teint	none
+🧑🏻‍🎓	studerende lys teint	none
+🧑🏼‍🎓	studerende medium til lys teint	none
+🧑🏽‍🎓	studerende medium teint	none
+🧑🏾‍🎓	studerende medium til mørk teint	none
+🧑🏿‍🎓	studerende mørk teint	none
 👨🏻‍🎓	mandlig studerende lys teint	none
 👨🏼‍🎓	mandlig studerende medium til lys teint	none
 👨🏽‍🎓	mandlig studerende medium teint	none
@@ -2007,6 +2002,11 @@ symbols:
 👩🏽‍🎓	kvindelig studerende medium teint	none
 👩🏾‍🎓	kvindelig studerende medium til mørk teint	none
 👩🏿‍🎓	kvindelig studerende mørk teint	none
+🧑🏻‍🏫	lærer lys teint	none
+🧑🏼‍🏫	lærer medium til lys teint	none
+🧑🏽‍🏫	lærer medium teint	none
+🧑🏾‍🏫	lærer medium til mørk teint	none
+🧑🏿‍🏫	lærer mørk teint	none
 👨🏻‍🏫	mandlig lærer lys teint	none
 👨🏼‍🏫	mandlig lærer medium til lys teint	none
 👨🏽‍🏫	mandlig lærer medium teint	none
@@ -2017,6 +2017,11 @@ symbols:
 👩🏽‍🏫	kvindelig lærer medium teint	none
 👩🏾‍🏫	kvindelig lærer medium til mørk teint	none
 👩🏿‍🏫	kvindelig lærer mørk teint	none
+🧑🏻‍⚖	dommer lys teint	none
+🧑🏼‍⚖	dommer medium til lys teint	none
+🧑🏽‍⚖	dommer medium teint	none
+🧑🏾‍⚖	dommer medium til mørk teint	none
+🧑🏿‍⚖	dommer mørk teint	none
 👨🏻‍⚖	mandlig dommer lys teint	none
 👨🏼‍⚖	mandlig dommer medium til lys teint	none
 👨🏽‍⚖	mandlig dommer medium teint	none
@@ -2027,6 +2032,11 @@ symbols:
 👩🏽‍⚖	kvindelig dommer medium teint	none
 👩🏾‍⚖	kvindelig dommer medium til mørk teint	none
 👩🏿‍⚖	kvindelig dommer mørk teint	none
+🧑🏻‍🌾	bonde lys teint	none
+🧑🏼‍🌾	bonde medium til lys teint	none
+🧑🏽‍🌾	bonde medium teint	none
+🧑🏾‍🌾	bonde medium til mørk teint	none
+🧑🏿‍🌾	bonde mørk teint	none
 👨🏻‍🌾	landmand lys teint	none
 👨🏼‍🌾	landmand medium til lys teint	none
 👨🏽‍🌾	landmand medium teint	none
@@ -2037,6 +2047,11 @@ symbols:
 👩🏽‍🌾	kvindelig landmand medium teint	none
 👩🏾‍🌾	kvindelig landmand medium til mørk teint	none
 👩🏿‍🌾	kvindelig landmand mørk teint	none
+🧑🏻‍🍳	kok lys teint	none
+🧑🏼‍🍳	kok medium til lys teint	none
+🧑🏽‍🍳	kok medium teint	none
+🧑🏾‍🍳	kok medium til mørk teint	none
+🧑🏿‍🍳	kok mørk teint	none
 👨🏻‍🍳	mandlig kok lys teint	none
 👨🏼‍🍳	mandlig kok medium til lys teint	none
 👨🏽‍🍳	mandlig kok medium teint	none
@@ -2047,6 +2062,11 @@ symbols:
 👩🏽‍🍳	kvindelig kok medium teint	none
 👩🏾‍🍳	kvindelig kok medium til mørk teint	none
 👩🏿‍🍳	kvindelig kok mørk teint	none
+🧑🏻‍🔧	mekaniker lys teint	none
+🧑🏼‍🔧	mekaniker medium til lys teint	none
+🧑🏽‍🔧	mekaniker medium teint	none
+🧑🏾‍🔧	mekaniker medium til mørk teint	none
+🧑🏿‍🔧	mekaniker mørk teint	none
 👨🏻‍🔧	mandlig mekaniker lys teint	none
 👨🏼‍🔧	mandlig mekaniker medium til lys teint	none
 👨🏽‍🔧	mandlig mekaniker medium teint	none
@@ -2057,6 +2077,11 @@ symbols:
 👩🏽‍🔧	kvindelig mekaniker medium teint	none
 👩🏾‍🔧	kvindelig mekaniker medium til mørk teint	none
 👩🏿‍🔧	kvindelig mekaniker mørk teint	none
+🧑🏻‍🏭	fabriksarbejder lys teint	none
+🧑🏼‍🏭	fabriksarbejder medium til lys teint	none
+🧑🏽‍🏭	fabriksarbejder medium teint	none
+🧑🏾‍🏭	fabriksarbejder medium til mørk teint	none
+🧑🏿‍🏭	fabriksarbejder mørk teint	none
 👨🏻‍🏭	mandlig fabriksarbejder lys teint	none
 👨🏼‍🏭	mandlig fabriksarbejder medium til lys teint	none
 👨🏽‍🏭	mandlig fabriksarbejder medium teint	none
@@ -2067,6 +2092,11 @@ symbols:
 👩🏽‍🏭	kvindelig fabriksarbejder medium teint	none
 👩🏾‍🏭	kvindelig fabriksarbejder medium til mørk teint	none
 👩🏿‍🏭	kvindelig fabriksarbejder mørk teint	none
+🧑🏻‍💼	kontormedarbejder lys teint	none
+🧑🏼‍💼	kontormedarbejder medium til lys teint	none
+🧑🏽‍💼	kontormedarbejder medium teint	none
+🧑🏾‍💼	kontormedarbejder medium til mørk teint	none
+🧑🏿‍💼	kontormedarbejder mørk teint	none
 👨🏻‍💼	mandlig kontoransat lys teint	none
 👨🏼‍💼	mandlig kontoransat medium til lys teint	none
 👨🏽‍💼	mandlig kontoransat medium teint	none
@@ -2077,6 +2107,11 @@ symbols:
 👩🏽‍💼	kvindelig kontoransat medium teint	none
 👩🏾‍💼	kvindelig kontoransat medium til mørk teint	none
 👩🏿‍💼	kvindelig kontoransat mørk teint	none
+🧑🏻‍🔬	videnskabsmand lys teint	none
+🧑🏼‍🔬	videnskabsmand medium til lys teint	none
+🧑🏽‍🔬	videnskabsmand medium teint	none
+🧑🏾‍🔬	videnskabsmand medium til mørk teint	none
+🧑🏿‍🔬	videnskabsmand mørk teint	none
 👨🏻‍🔬	mandlig forsker lys teint	none
 👨🏼‍🔬	mandlig forsker medium til lys teint	none
 👨🏽‍🔬	mandlig forsker medium teint	none
@@ -2087,6 +2122,11 @@ symbols:
 👩🏽‍🔬	kvindelig forsker medium teint	none
 👩🏾‍🔬	kvindelig forsker medium til mørk teint	none
 👩🏿‍🔬	kvindelig forsker mørk teint	none
+🧑🏻‍💻	it-medarbejder lys teint	none
+🧑🏼‍💻	it-medarbejder medium til lys teint	none
+🧑🏽‍💻	it-medarbejder medium teint	none
+🧑🏾‍💻	it-medarbejder medium til mørk teint	none
+🧑🏿‍💻	it-medarbejder mørk teint	none
 👨🏻‍💻	mandlig IT-medarbejder lys teint	none
 👨🏼‍💻	mandlig IT-medarbejder medium til lys teint	none
 👨🏽‍💻	mandlig IT-medarbejder medium teint	none
@@ -2097,6 +2137,11 @@ symbols:
 👩🏽‍💻	kvindelig IT-medarbejder medium teint	none
 👩🏾‍💻	kvindelig IT-medarbejder medium til mørk teint	none
 👩🏿‍💻	kvindelig IT-medarbejder mørk teint	none
+🧑🏻‍🎤	sangsolist lys teint	none
+🧑🏼‍🎤	sangsolist medium til lys teint	none
+🧑🏽‍🎤	sangsolist medium teint	none
+🧑🏾‍🎤	sangsolist medium til mørk teint	none
+🧑🏿‍🎤	sangsolist mørk teint	none
 👨🏻‍🎤	sanger lys teint	none
 👨🏼‍🎤	sanger medium til lys teint	none
 👨🏽‍🎤	sanger medium teint	none
@@ -2107,6 +2152,11 @@ symbols:
 👩🏽‍🎤	sangerinde medium teint	none
 👩🏾‍🎤	sangerinde medium til mørk teint	none
 👩🏿‍🎤	sangerinde mørk teint	none
+🧑🏻‍🎨	kunstner lys teint	none
+🧑🏼‍🎨	kunstner medium til lys teint	none
+🧑🏽‍🎨	kunstner medium teint	none
+🧑🏾‍🎨	kunstner medium til mørk teint	none
+🧑🏿‍🎨	kunstner mørk teint	none
 👨🏻‍🎨	mandlig kunstner lys teint	none
 👨🏼‍🎨	mandlig kunstner medium til lys teint	none
 👨🏽‍🎨	mandlig kunstner medium teint	none
@@ -2117,6 +2167,11 @@ symbols:
 👩🏽‍🎨	kvindelig kunstner medium teint	none
 👩🏾‍🎨	kvindelig kunstner medium til mørk teint	none
 👩🏿‍🎨	kvindelig kunstner mørk teint	none
+🧑🏻‍✈	pilot lys teint	none
+🧑🏼‍✈	pilot medium til lys teint	none
+🧑🏽‍✈	pilot medium teint	none
+🧑🏾‍✈	pilot medium til mørk teint	none
+🧑🏿‍✈	pilot mørk teint	none
 👨🏻‍✈	mandlig pilot lys teint	none
 👨🏼‍✈	mandlig pilot medium til lys teint	none
 👨🏽‍✈	mandlig pilot medium teint	none
@@ -2127,6 +2182,11 @@ symbols:
 👩🏽‍✈	kvindelig pilot medium teint	none
 👩🏾‍✈	kvindelig pilot medium til mørk teint	none
 👩🏿‍✈	kvindelig pilot mørk teint	none
+🧑🏻‍🚀	astronaut lys teint	none
+🧑🏼‍🚀	astronaut medium til lys teint	none
+🧑🏽‍🚀	astronaut medium teint	none
+🧑🏾‍🚀	astronaut medium til mørk teint	none
+🧑🏿‍🚀	astronaut mørk teint	none
 👨🏻‍🚀	mandlig astronaut lys teint	none
 👨🏼‍🚀	mandlig astronaut medium til lys teint	none
 👨🏽‍🚀	mandlig astronaut medium teint	none
@@ -2137,6 +2197,11 @@ symbols:
 👩🏽‍🚀	kvindelig astronaut medium teint	none
 👩🏾‍🚀	kvindelig astronaut medium til mørk teint	none
 👩🏿‍🚀	kvindelig astronaut mørk teint	none
+🧑🏻‍🚒	brandfolk lys teint	none
+🧑🏼‍🚒	brandfolk medium til lys teint	none
+🧑🏽‍🚒	brandfolk medium teint	none
+🧑🏾‍🚒	brandfolk medium til mørk teint	none
+🧑🏿‍🚒	brandfolk mørk teint	none
 👨🏻‍🚒	brandmand lys teint	none
 👨🏼‍🚒	brandmand medium til lys teint	none
 👨🏽‍🚒	brandmand medium teint	none
@@ -2427,6 +2492,81 @@ symbols:
 🚶🏽‍♀	kvinde går medium teint	none
 🚶🏾‍♀	kvinde går medium til mørk teint	none
 🚶🏿‍♀	kvinde går mørk teint	none
+🧍🏻	stående person lys teint	none
+🧍🏼	stående person medium til lys teint	none
+🧍🏽	stående person medium teint	none
+🧍🏾	stående person medium til mørk teint	none
+🧍🏿	stående person mørk teint	none
+🧍🏻‍♂	stående mand lys teint	none
+🧍🏼‍♂	stående mand medium til lys teint	none
+🧍🏽‍♂	stående mand medium teint	none
+🧍🏾‍♂	stående mand medium til mørk teint	none
+🧍🏿‍♂	stående mand mørk teint	none
+🧍🏻‍♀	stående kvinde lys teint	none
+🧍🏼‍♀	stående kvinde medium til lys teint	none
+🧍🏽‍♀	stående kvinde medium teint	none
+🧍🏾‍♀	stående kvinde medium til mørk teint	none
+🧍🏿‍♀	stående kvinde mørk teint	none
+🧎🏻	knælende person lys teint	none
+🧎🏼	knælende person medium til lys teint	none
+🧎🏽	knælende person medium teint	none
+🧎🏾	knælende person medium til mørk teint	none
+🧎🏿	knælende person mørk teint	none
+🧎🏻‍♂	knælende mand lys teint	none
+🧎🏼‍♂	knælende mand medium til lys teint	none
+🧎🏽‍♂	knælende mand medium teint	none
+🧎🏾‍♂	knælende mand medium til mørk teint	none
+🧎🏿‍♂	knælende mand mørk teint	none
+🧎🏻‍♀	knælende kvinde lys teint	none
+🧎🏼‍♀	knælende kvinde medium til lys teint	none
+🧎🏽‍♀	knælende kvinde medium teint	none
+🧎🏾‍♀	knælende kvinde medium til mørk teint	none
+🧎🏿‍♀	knælende kvinde mørk teint	none
+🧑🏻‍🦯	person med blindestok lys teint	none
+🧑🏼‍🦯	person med blindestok medium til lys teint	none
+🧑🏽‍🦯	person med blindestok medium teint	none
+🧑🏾‍🦯	person med blindestok medium til mørk teint	none
+🧑🏿‍🦯	person med blindestok mørk teint	none
+👨🏻‍🦯	mand med blindestok lys teint	none
+👨🏼‍🦯	mand med blindestok medium til lys teint	none
+👨🏽‍🦯	mand med blindestok medium teint	none
+👨🏾‍🦯	mand med blindestok medium til mørk teint	none
+👨🏿‍🦯	mand med blindestok mørk teint	none
+👩🏻‍🦯	kvinde med blindestok lys teint	none
+👩🏼‍🦯	kvinde med blindestok medium til lys teint	none
+👩🏽‍🦯	kvinde med blindestok medium teint	none
+👩🏾‍🦯	kvinde med blindestok medium til mørk teint	none
+👩🏿‍🦯	kvinde med blindestok mørk teint	none
+🧑🏻‍🦼	person i elkørestol lys teint	none
+🧑🏼‍🦼	person i elkørestol medium til lys teint	none
+🧑🏽‍🦼	person i elkørestol medium teint	none
+🧑🏾‍🦼	person i elkørestol medium til mørk teint	none
+🧑🏿‍🦼	person i elkørestol mørk teint	none
+👨🏻‍🦼	mand i elektrisk kørestol lys teint	none
+👨🏼‍🦼	mand i elektrisk kørestol medium til lys teint	none
+👨🏽‍🦼	mand i elektrisk kørestol medium teint	none
+👨🏾‍🦼	mand i elektrisk kørestol medium til mørk teint	none
+👨🏿‍🦼	mand i elektrisk kørestol mørk teint	none
+👩🏻‍🦼	kvinde i elektrisk kørestol lys teint	none
+👩🏼‍🦼	kvinde i elektrisk kørestol medium til lys teint	none
+👩🏽‍🦼	kvinde i elektrisk kørestol medium teint	none
+👩🏾‍🦼	kvinde i elektrisk kørestol medium til mørk teint	none
+👩🏿‍🦼	kvinde i elektrisk kørestol mørk teint	none
+🧑🏻‍🦽	person i manuel kørestol lys teint	none
+🧑🏼‍🦽	person i manuel kørestol medium til lys teint	none
+🧑🏽‍🦽	person i manuel kørestol medium teint	none
+🧑🏾‍🦽	person i manuel kørestol medium til mørk teint	none
+🧑🏿‍🦽	person i manuel kørestol mørk teint	none
+👨🏻‍🦽	mand i manuel kørestol lys teint	none
+👨🏼‍🦽	mand i manuel kørestol medium til lys teint	none
+👨🏽‍🦽	mand i manuel kørestol medium teint	none
+👨🏾‍🦽	mand i manuel kørestol medium til mørk teint	none
+👨🏿‍🦽	mand i manuel kørestol mørk teint	none
+👩🏻‍🦽	kvinde i manuel kørestol lys teint	none
+👩🏼‍🦽	kvinde i manuel kørestol medium til lys teint	none
+👩🏽‍🦽	kvinde i manuel kørestol medium teint	none
+👩🏾‍🦽	kvinde i manuel kørestol medium til mørk teint	none
+👩🏿‍🦽	kvinde i manuel kørestol mørk teint	none
 🏃🏻	løber lys teint	none
 🏃🏼	løber medium til lys teint	none
 🏃🏽	løber medium teint	none
@@ -2702,21 +2842,76 @@ symbols:
 🛌🏽	person i seng medium teint	none
 🛌🏾	person i seng medium til mørk teint	none
 🛌🏿	person i seng mørk teint	none
+🧑🏻‍🤝‍🧑🏻	mennesker, der holder hånd lys teint	none
+🧑🏼‍🤝‍🧑🏻	mennesker, der holder hånd medium til lys teint og lys teint	none
+🧑🏼‍🤝‍🧑🏼	mennesker, der holder hånd medium til lys teint	none
+🧑🏽‍🤝‍🧑🏻	mennesker, der holder hånd medium teint og lys teint	none
+🧑🏽‍🤝‍🧑🏼	mennesker, der holder hånd medium teint og medium til lys teint	none
+🧑🏽‍🤝‍🧑🏽	mennesker, der holder hånd medium teint	none
+🧑🏾‍🤝‍🧑🏻	mennesker, der holder hånd medium til mørk teint og lys teint	none
+🧑🏾‍🤝‍🧑🏼	mennesker, der holder hånd medium til mørk teint og medium til lys teint	none
+🧑🏾‍🤝‍🧑🏽	mennesker, der holder hånd medium til mørk teint og medium teint	none
+🧑🏾‍🤝‍🧑🏾	mennesker, der holder hånd medium til mørk teint	none
+🧑🏿‍🤝‍🧑🏻	mennesker, der holder hånd mørk teint og lys teint	none
+🧑🏿‍🤝‍🧑🏼	mennesker, der holder hånd mørk teint og medium til lys teint	none
+🧑🏿‍🤝‍🧑🏽	mennesker, der holder hånd mørk teint og medium teint	none
+🧑🏿‍🤝‍🧑🏾	mennesker, der holder hånd mørk teint og medium til mørk teint	none
+🧑🏿‍🤝‍🧑🏿	mennesker, der holder hånd mørk teint	none
+👭🏻	to kvinder hånd i hånd lys teint	none
+👩🏼‍🤝‍👩🏻	to kvinder hånd i hånd medium til lys teint og lys teint	none
+👭🏼	to kvinder hånd i hånd medium til lys teint	none
+👩🏽‍🤝‍👩🏻	to kvinder hånd i hånd medium teint og lys teint	none
+👩🏽‍🤝‍👩🏼	to kvinder hånd i hånd medium teint og medium til lys teint	none
+👭🏽	to kvinder hånd i hånd medium teint	none
+👩🏾‍🤝‍👩🏻	to kvinder hånd i hånd medium til mørk teint og lys teint	none
+👩🏾‍🤝‍👩🏼	to kvinder hånd i hånd medium til mørk teint og medium til lys teint	none
+👩🏾‍🤝‍👩🏽	to kvinder hånd i hånd medium til mørk teint og medium teint	none
+👭🏾	to kvinder hånd i hånd medium til mørk teint	none
+👩🏿‍🤝‍👩🏻	to kvinder hånd i hånd mørk teint og lys teint	none
+👩🏿‍🤝‍👩🏼	to kvinder hånd i hånd mørk teint og medium til lys teint	none
+👩🏿‍🤝‍👩🏽	to kvinder hånd i hånd mørk teint og medium teint	none
+👩🏿‍🤝‍👩🏾	to kvinder hånd i hånd mørk teint og medium til mørk teint	none
+👭🏿	to kvinder hånd i hånd mørk teint	none
 👫🏻	mand og kvinde hånd i hånd lys teint	none
+👩🏻‍🤝‍👨🏼	mand og kvinde hånd i hånd lys teint og medium til lys teint	none
+👩🏻‍🤝‍👨🏽	mand og kvinde hånd i hånd lys teint og medium teint	none
+👩🏻‍🤝‍👨🏾	mand og kvinde hånd i hånd lys teint og medium til mørk teint	none
+👩🏻‍🤝‍👨🏿	mand og kvinde hånd i hånd lys teint og mørk teint	none
+👩🏼‍🤝‍👨🏻	mand og kvinde hånd i hånd medium til lys teint og lys teint	none
 👫🏼	mand og kvinde hånd i hånd medium til lys teint	none
+👩🏼‍🤝‍👨🏽	mand og kvinde hånd i hånd medium til lys teint og medium teint	none
+👩🏼‍🤝‍👨🏾	mand og kvinde hånd i hånd medium til lys teint og medium til mørk teint	none
+👩🏼‍🤝‍👨🏿	mand og kvinde hånd i hånd medium til lys teint og mørk teint	none
+👩🏽‍🤝‍👨🏻	mand og kvinde hånd i hånd medium teint og lys teint	none
+👩🏽‍🤝‍👨🏼	mand og kvinde hånd i hånd medium teint og medium til lys teint	none
 👫🏽	mand og kvinde hånd i hånd medium teint	none
+👩🏽‍🤝‍👨🏾	mand og kvinde hånd i hånd medium teint og medium til mørk teint	none
+👩🏽‍🤝‍👨🏿	mand og kvinde hånd i hånd medium teint og mørk teint	none
+👩🏾‍🤝‍👨🏻	mand og kvinde hånd i hånd medium til mørk teint og lys teint	none
+👩🏾‍🤝‍👨🏼	mand og kvinde hånd i hånd medium til mørk teint og medium til lys teint	none
+👩🏾‍🤝‍👨🏽	mand og kvinde hånd i hånd medium til mørk teint og medium teint	none
 👫🏾	mand og kvinde hånd i hånd medium til mørk teint	none
+👩🏾‍🤝‍👨🏿	mand og kvinde hånd i hånd medium til mørk teint og mørk teint	none
+👩🏿‍🤝‍👨🏻	mand og kvinde hånd i hånd mørk teint og lys teint	none
+👩🏿‍🤝‍👨🏼	mand og kvinde hånd i hånd mørk teint og medium til lys teint	none
+👩🏿‍🤝‍👨🏽	mand og kvinde hånd i hånd mørk teint og medium teint	none
+👩🏿‍🤝‍👨🏾	mand og kvinde hånd i hånd mørk teint og medium til mørk teint	none
 👫🏿	mand og kvinde hånd i hånd mørk teint	none
 👬🏻	to mænd hånd i hånd lys teint	none
+👨🏼‍🤝‍👨🏻	to mænd hånd i hånd medium til lys teint og lys teint	none
 👬🏼	to mænd hånd i hånd medium til lys teint	none
+👨🏽‍🤝‍👨🏻	to mænd hånd i hånd medium teint og lys teint	none
+👨🏽‍🤝‍👨🏼	to mænd hånd i hånd medium teint og medium til lys teint	none
 👬🏽	to mænd hånd i hånd medium teint	none
+👨🏾‍🤝‍👨🏻	to mænd hånd i hånd medium til mørk teint og lys teint	none
+👨🏾‍🤝‍👨🏼	to mænd hånd i hånd medium til mørk teint og medium til lys teint	none
+👨🏾‍🤝‍👨🏽	to mænd hånd i hånd medium til mørk teint og medium teint	none
 👬🏾	to mænd hånd i hånd medium til mørk teint	none
+👨🏿‍🤝‍👨🏻	to mænd hånd i hånd mørk teint og lys teint	none
+👨🏿‍🤝‍👨🏼	to mænd hånd i hånd mørk teint og medium til lys teint	none
+👨🏿‍🤝‍👨🏽	to mænd hånd i hånd mørk teint og medium teint	none
+👨🏿‍🤝‍👨🏾	to mænd hånd i hånd mørk teint og medium til mørk teint	none
 👬🏿	to mænd hånd i hånd mørk teint	none
-👭🏻	to kvinder hånd i hånd lys teint	none
-👭🏼	to kvinder hånd i hånd medium til lys teint	none
-👭🏽	to kvinder hånd i hånd medium teint	none
-👭🏾	to kvinder hånd i hånd medium til mørk teint	none
-👭🏿	to kvinder hånd i hånd mørk teint	none
 👩‍❤‍💋‍👨	kys kvinde og mand	none
 👨‍❤‍💋‍👨	kys mand og mand	none
 👩‍❤‍💋‍👩	kys kvinde og kvinde	none
@@ -2862,7 +3057,7 @@ symbols:
 🇮🇱	flag Israel	none
 🇮🇲	flag Isle of Man	none
 🇮🇳	flag Indien	none
-🇮🇴	flag Det britiske territorium i Det Indiske Ocean	none
+🇮🇴	flag Det Britiske Territorium i Det Indiske Ocean	none
 🇮🇶	flag Irak	none
 🇮🇷	flag Iran	none
 🇮🇸	flag Island	none
@@ -2900,7 +3095,7 @@ symbols:
 🇲🇫	flag Saint Martin	none
 🇲🇬	flag Madagaskar	none
 🇲🇭	flag Marshalløerne	none
-🇲🇰	flag Makedonien	none
+🇲🇰	flag Nordmakedonien	none
 🇲🇱	flag Mali	none
 🇲🇲	flag Myanmar (Burma)	none
 🇲🇳	flag Mongoliet	none
@@ -2973,7 +3168,7 @@ symbols:
 🇹🇦	flag Tristan da Cunha	none
 🇹🇨	flag Turks- og Caicosøerne	none
 🇹🇩	flag Tchad	none
-🇹🇫	flag De Franske Besiddelser i Det Sydlige Indiske Ocean	none
+🇹🇫	flag De Franske Besiddelser i Det Sydlige Indiske Ocean og Antarktis	none
 🇹🇬	flag Togo	none
 🇹🇭	flag Thailand	none
 🇹🇯	flag Tadsjikistan	none

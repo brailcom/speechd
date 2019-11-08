@@ -8,12 +8,12 @@ symbols:
 🏽	kili melomelo	none
 🏾	kili melomelo-ʻuliʻuli	none
 🏿	kili ʻuliʻuli	none
-🐾	topuvaʻe manu	none
+⚧	ʻilonga fakaleiti moe tomupoi	none
 😀	mata fiefia	none
 😃	mata fiefia moe kanoʻimata lalahi	none
 😄	mata fiefia moe kanoʻimata malimali	none
 😁	mata ina moe kanoʻimata malimali	none
-😆	mata	none
+😆	mata fiefia moe tetepa	none
 😅	mata fiefia moe tautaʻa	none
 🤣	mata kata moe teka faliki	none
 😂	mata moe loʻimata fiefia	none
@@ -34,7 +34,7 @@ symbols:
 😛	mata moe ʻelelo	none
 😜	mata kuitaha moe ʻelelo	none
 🤪	mata masoli	none
-😝	mata kuikui moe ʻelelo	none
+😝	mata tetepa moe ʻelelo	none
 🤑	mata ngutu-paʻanga	none
 🤗	mata fāʻufua	none
 🤭	mata moe nima ʻi muʻa ʻoe ngutu	none
@@ -94,8 +94,9 @@ symbols:
 😓	mata lototaʻotaʻomia moe tautaʻa	none
 😩	mata ongosia	none
 😫	mata helaʻia	none
+🥱	mata mamao	none
 😤	mata moe mao meihe ihu	none
-😡	mata taʻefiemālie	none
+😡	mata ʻita lahi	none
 😠	mata ʻita	none
 🤬	mata kapekape	none
 😈	mata malimali moe meʻatui	none
@@ -104,8 +105,8 @@ symbols:
 ☠	ʻulupoko moe ongo hui fehauaki	none
 💩	tuʻunga meʻakovi	none
 🤡	mata tokotaha-fieoli	none
-👹	pīnōnō	none
-👺	nifoloa	none
+👹	nifoloa	none
+👺	pīnōnō	none
 👻	fakapūloa	none
 👽	meʻamoʻuikehe	none
 👾	meʻamoʻuikehe fakamanavahē	none
@@ -140,7 +141,9 @@ symbols:
 💚	mafu lanumata	none
 💙	mafu lanupulū	none
 💜	mafu lanufesiʻifekika	none
+🤎	mafu melomelo	none
 🖤	mafu ʻuliʻuli	none
+🤍	mafu hinehina	none
 💯	poini ʻe teau	none
 💢	fakaʻilonga ʻita	none
 💥	fepaki	none
@@ -161,6 +164,7 @@ symbols:
 ✋	nima hiki ki ʻolunga	none
 🖖	nima mavaeua	none
 👌	nima fakaʻilonga sai	none
+🤏	nima fakamaʻopoʻopo	none
 ✌	nima ikuna	none
 🤞	louhiʻinima fehauaki	none
 🤟	nima fakaʻilonga mafu	none
@@ -188,9 +192,12 @@ symbols:
 💅	valivali ngeʻesinima	none
 🤳	faitaaʻi pē kita	none
 💪	pāpela ʻoku pelu	none
+🦾	nima ukamea	none
+🦿	vaʻe ukamea	none
 🦵	vaʻe	none
 🦶	lauʻivaʻe	none
 👂	telinga	none
+🦻	telinga moe meʻa fakafanongo	none
 👃	ihu	none
 🧠	ʻuto	none
 🦷	nifo	none
@@ -206,8 +213,8 @@ symbols:
 🧑	kakai lalahi	none
 👱	tokotaha ʻulu kelo	none
 👨	tangata	none
-👱‍♂	tangata ʻulu kelo	none
 🧔	tangata kava	none
+👱‍♂	tangata ʻulu kelo	none
 👩	fefine	none
 👱‍♀	fefine ʻulu kelo	none
 🧓	tokotaha motuʻa	none
@@ -231,6 +238,9 @@ symbols:
 🙋	tokotaha nima ʻi ʻolunga	none
 🙋‍♂	tangata nima ʻi ʻolunga	none
 🙋‍♀	fefine nima ʻi ʻolunga	none
+🧏	tokotaha tuli	none
+🧏‍♂	tangata tuli	none
+🧏‍♀	fefine tuli	none
 🙇	tokotaha punou	none
 🙇‍♂	tangata punou	none
 🙇‍♀	fefine punou	none
@@ -240,36 +250,52 @@ symbols:
 🤷	tokotaha fakamahiki	none
 🤷‍♂	tangata fakamahiki	none
 🤷‍♀	fefine fakamahiki	none
+🧑‍⚕	neesi	none
 👨‍⚕	neesi tangata	none
 👩‍⚕	neesi fefine	none
+🧑‍🎓	tokotaha ako	none
 👨‍🎓	tamasiʻi ako	none
 👩‍🎓	taʻahine ako	none
+🧑‍🏫	faiako	none
 👨‍🏫	faiako tangata	none
 👩‍🏫	faiako fefine	none
+🧑‍⚖	fakamaau	none
 👨‍⚖	fakamaau tangata	none
 👩‍⚖	fakamaau fefine	none
+🧑‍🌾	tokotaha ngoue	none
 👨‍🌾	tangata ngoue	none
 👩‍🌾	fefine ngoue	none
+🧑‍🍳	tokotaha ngaohikai	none
 👨‍🍳	tangata ngaohikai	none
 👩‍🍳	fefine ngaohikai	none
+🧑‍🔧	ʻenisia	none
 👨‍🔧	ʻenisinia tangata	none
 👩‍🔧	ʻenisinia fefine	none
+🧑‍🏭	tokotaha ngāue fale faʻuʻanga	none
 👨‍🏭	tangata ngāue fale faʻuʻanga	none
 👩‍🏭	fefine ngāue fale faʻuʻanga	none
+🧑‍💼	tokotaha ngāue ʻōfisi	none
 👨‍💼	tangata ngāue ʻōfisi	none
 👩‍💼	fefine ngāue ʻōfisi	none
+🧑‍🔬	tokotaha faisaienisi	none
 👨‍🔬	tangata faisaienisi	none
 👩‍🔬	fefine faisaienisi	none
+🧑‍💻	tokotaha fakatekinolosia	none
 👨‍💻	tangata fakatekinolosia	none
 👩‍💻	fefine fakatekinolosia	none
+🧑‍🎤	tokotaha hiva	none
 👨‍🎤	tangata hiva	none
 👩‍🎤	fefine hiva	none
+🧑‍🎨	tokotaha tā-fakatātā	none
 👨‍🎨	tangata tā-fakatātā	none
 👩‍🎨	fefine tā-fakatātā	none
+🧑‍✈	pailate	none
 👨‍✈	pailate tangata	none
 👩‍✈	pailate fefine	none
+🧑‍🚀	tokotaha folaufetuʻu	none
 👨‍🚀	tama folaufetuʻu	none
 👩‍🚀	fefine folaufetuʻu	none
+🧑‍🚒	tokotaha tāmate-afi	none
 👨‍🚒	tangata tāmate-afi	none
 👩‍🚒	fefine tāmate-afi	none
 👮	ʻofisa polisi	none
@@ -292,7 +318,7 @@ symbols:
 👲	tangata tui tatā fakasiaina	none
 🧕	fefine tui sikaafi	none
 🤵	tangata vala kakato	none
-👰	fefine tui veli	none
+👰	fefine tui veili	none
 🤰	feitama	none
 🤱	fakahuhu	none
 👼	ʻangelo valevale	none
@@ -334,6 +360,21 @@ symbols:
 🚶	tokotaha lue	none
 🚶‍♂	tangata lue	none
 🚶‍♀	fefine lue	none
+🧍	tokotaha tuʻu	none
+🧍‍♂	tangata tuʻu	none
+🧍‍♀	fefine tuʻu	none
+🧎	tokotaha tūʻulutui	none
+🧎‍♂	tangata tūʻulutui	none
+🧎‍♀	fefine tūʻulutui	none
+🧑‍🦯	tokotaha moe tokotokokui	none
+👨‍🦯	tangata moe tokotokokui	none
+👩‍🦯	fefine moe tokotokokui	none
+🧑‍🦼	tokotaha ʻihe sāliote falemahaki mīsini	none
+👨‍🦼	tangata ʻihe sāliote falemahaki mīsini	none
+👩‍🦼	fefine ʻihe sāliote falemahaki mīsini	none
+🧑‍🦽	tokotaha ʻihe sāliote falemahaki	none
+👨‍🦽	tangata ʻihe sāliote falemahaki	none
+👩‍🦽	fefine ʻihe sāliote falemahaki	none
 🏃	tokotaha lele	none
 🏃‍♂	tangata lele	none
 🏃‍♀	fefine lele	none
@@ -397,9 +438,10 @@ symbols:
 🧘‍♀	fefine tangutu fehauaki	none
 🛀	tokotaha kaukau	none
 🛌	tokotaha ʻi mohenga	none
+🧑‍🤝‍🧑	kakai fetakinima	none
+👭	ongo fafine fetakinima	none
 👫	tangata mo fefine fetakinima	none
 👬	ongo tangata fetakinima	none
-👭	ongo fafine fetakinima	none
 💏	ʻuma	none
 💑	ongo tokoua moe mafu	none
 👪	fāmili	none
@@ -411,13 +453,14 @@ symbols:
 🦱	ʻulu mingimingi	none
 🦳	ʻulu hinā	none
 🦲	ʻulu tula	none
-♀	ʻilonga fakafefine	none
-♂	ʻilonga fakatangata	none
 🐵	mataʻi-ngeli	none
 🐒	ngeli	none
 🦍	kolila	none
+🦧	ngeli-nofoʻuta	none
 🐶	mataʻi-kulī	none
 🐕	kulī	none
+🦮	kulī tokonikui	none
+🐕‍🦺	kulī tokoni	none
 🐩	kulī pūteli	none
 🐺	mataʻi-ulofi	none
 🦊	mataʻi-fokisi	none
@@ -463,8 +506,12 @@ symbols:
 🐻	mataʻi-pea	none
 🐨	pea-ʻuliʻuli-moe-hinehina	none
 🐼	mataʻi-pea-ʻuliʻuli-moe-hinehina	none
+🦥	pea-fakapikopiko	none
+🦦	ʻotē	none
+🦨	manu fainamukū	none
 🦘	kangikalū	none
 🦡	patisē	none
+🐾	topuvaʻe manu	none
 🦃	pīpī	none
 🐔	moa	none
 🐓	moataʻane	none
@@ -478,6 +525,7 @@ symbols:
 🦆	pato	none
 🦢	patolahi	none
 🦉	lulu	none
+🦩	falamingo	none
 🦚	pīkoka	none
 🦜	kakā	none
 🐸	mataʻi-poto	none
@@ -503,7 +551,7 @@ symbols:
 🐛	kutu	none
 🐜	lō	none
 🐝	hone	none
-🐞	mongomonga	none
+🐞	mongomonga-fineʻeiki	none
 🦗	kālihi	none
 🕷	hina	none
 🕸	matamatakupenga	none
@@ -554,10 +602,12 @@ symbols:
 🥔	pateta	none
 🥕	kāloti	none
 🌽	foʻi koane	none
-🌶	polo	none
+🌶	polo fifisi	none
 🥒	kiukamipa	none
 🥬	lētisi	none
 🥦	kāpisi	none
+🧄	kaliki	none
+🧅	ʻonioni	none
 🍄	fakamalu-ʻa-tēvolo	none
 🥜	pīnati	none
 🌰	ifi	none
@@ -567,6 +617,7 @@ symbols:
 🥨	pani mamio	none
 🥯	pani mama	none
 🥞	pani	none
+🧇	pani manifi	none
 🧀	siisi	none
 🍖	kanomate moe hui	none
 🍗	vaʻeʻi-moa	none
@@ -580,6 +631,7 @@ symbols:
 🌮	mā pelupelu	none
 🌯	polito	none
 🥙	mā falati	none
+🧆	falafeli	none
 🥚	fuaʻimoa	none
 🍳	fakapaku	none
 🥘	fakapaku meʻakai	none
@@ -587,6 +639,7 @@ symbols:
 🥣	poulu moe sepuni	none
 🥗	salati	none
 🍿	koane fakapaku	none
+🧈	pata	none
 🧂	masima	none
 🥫	meʻakai kapa	none
 🍱	puha meʻakai fakasiapani	none
@@ -610,6 +663,7 @@ symbols:
 🦞	ʻuo	none
 🦐	ʻuosiʻisiʻi	none
 🦑	ngūfeke	none
+🦪	tofe	none
 🍦	ʻaisikilimi molū	none
 🍧	ʻaisitele	none
 🍨	ʻaisikilimi	none
@@ -638,6 +692,9 @@ symbols:
 🥂	ipu sioʻata fakapaaki	none
 🥃	ipu sioʻata	none
 🥤	ipu moe vaʻakauinu	none
+🧃	puha inu	none
+🧉	kofi fakaʻamelika-tonga	none
+🧊	puloka ʻaisi	none
 🥢	vaʻakau kai	none
 🍽	huhukai moe helekai moe peleti	none
 🍴	huhukai moe helekai	none
@@ -686,6 +743,7 @@ symbols:
 🗽	maka fakamanatu tauʻatāina	none
 ⛪	falelotu	none
 🕌	falelotu fakaʻisilami	none
+🛕	falelotu fakahinitū	none
 🕍	falelotu fakasiu	none
 ⛩	falelotu fakasiapani	none
 🕋	fale māʻoniʻoni fakaʻisilami	none
@@ -700,7 +758,6 @@ symbols:
 🌇	tō ʻae laʻā	none
 🌉	hala kavakava poʻuli	none
 ♨	vaipuna mao	none
-🌌	kaniva	none
 🎠	hoosi vaʻinga	none
 🎡	veʻeteka vaʻinga	none
 🎢	lola vaʻinga	none
@@ -737,6 +794,9 @@ symbols:
 🏎	meʻalele lova	none
 🏍	motopaiki	none
 🛵	paiki sikuta	none
+🦽	sāliote falemahaki	none
+🦼	sāliote falemahaki mīsini	none
+🛺	loli siʻisiʻi	none
 🚲	pasikala	none
 🛴	sikuta kauleka	none
 🛹	papasikeiti	none
@@ -762,7 +822,8 @@ symbols:
 🛩	vakapuna iiki	none
 🛫	vakapuna puna hake	none
 🛬	vakapuna puna hifo	none
-💺	sea	none
+🪂	fakamalu fakatō	none
+💺	sea vakapuna	none
 🚁	helikopeta	none
 🚟	lēlue tāupe lahi	none
 🚠	lēlue tāupe moʻunga	none
@@ -819,9 +880,11 @@ symbols:
 ☀	laʻā	none
 🌝	mata māhina kātoa	none
 🌞	mata e laʻā	none
+🪐	palanite mama	none
 ⭐	fetuʻu	none
 🌟	fetuʻu ngingila	none
 🌠	fetuʻu ʻesiafi	none
+🌌	kaniva	none
 ☁	ʻao	none
 ⛅	laʻā ʻaoʻaofia	none
 ⛈	ʻao moe ʻuha moe ʻuhila	none
@@ -897,11 +960,14 @@ symbols:
 ⛳	fuka ʻihe luo	none
 ⛸	sū sikeiti ʻaisi	none
 🎣	ʻakau-taumātaʻu	none
+🤿	sioʻata uku	none
 🎽	falani sipoti	none
 🎿	heke sinou	none
 🛷	hekeʻanga	none
 🥌	maka tolo	none
 🎯	lotomālie ʻoe tāketi	none
+🪀	ioio	none
+🪁	lofa	none
 🎱	pulu fika 8	none
 🔮	pulu kalisitala	none
 🧿	mana nasā	none
@@ -928,6 +994,7 @@ symbols:
 🕶	matasioʻatalaʻā	none
 🥽	sioʻata malu	none
 🥼	kote kemi	none
+🦺	vesi	none
 👔	hēkesi	none
 👕	falani	none
 👖	talausese	none
@@ -937,7 +1004,11 @@ symbols:
 🧦	sitōkeni	none
 👗	kofu	none
 👘	kimono	none
-👙	vala matātahi	none
+🥻	sali	none
+🩱	vala matātahi kongataha	none
+🩲	talausese loto	none
+🩳	talausese mutu	none
+👙	vala matātahi kongaua	none
 👚	vala fefine	none
 👛	kato paʻanga	none
 👜	kato	none
@@ -950,6 +1021,7 @@ symbols:
 🥿	sū fakafefine	none
 👠	sū ʻete	none
 👡	saniteli fakafefine	none
+🩰	sū faiva pālangi	none
 👢	sū puti fakafefine	none
 👑	kalauni	none
 👒	tatā fakafefine	none
@@ -965,7 +1037,7 @@ symbols:
 🔈	leʻo siʻi	none
 🔉	leʻo loto	none
 🔊	leʻo lahi	none
-📢	sipika	none
+📢	sipikā	none
 📣	meʻa fakaleʻolahi	none
 📯	meʻa fakakōkō	none
 🔔	fafangu	none
@@ -984,14 +1056,15 @@ symbols:
 🎹	ʻū kī	none
 🎺	meʻaifi	none
 🎻	vaiolini	none
-🥁	nafa	none
+🪕	penisiō	none
+🥁	nafa talamu	none
 📱	foni toʻotoʻo	none
 📲	foni toʻotoʻo moe ngahau	none
 ☎	telefoni	none
-📞	meʻa fakaongo	none
+📞	meʻa fakaongo telefoni	none
 📟	foni kikī	none
 📠	foni tohi	none
-🔋	maka	none
+🔋	maka fakaʻuhila	none
 🔌	ʻumosi ʻuhila	none
 💻	komipiuta fungasino	none
 🖥	komipiuta	none
@@ -1019,6 +1092,7 @@ symbols:
 💡	foʻi ʻuhila	none
 🔦	kasa	none
 🏮	maama matangi kulokula	none
+🪔	maama tia	none
 📔	pepa tohi teuʻi	none
 📕	tohi mapuni	none
 📖	tohi fakaava	none
@@ -1097,6 +1171,7 @@ symbols:
 🔑	kī	none
 🗝	kī motuʻa	none
 🔨	hamala	none
+🪓	toki	none
 ⛏	toki tākelekele	none
 ⚒	hamala moe toki tākelekele	none
 🛠	hamala moe sipana	none
@@ -1110,6 +1185,7 @@ symbols:
 ⚙	veʻeteka	none
 🗜	fakauʻu	none
 ⚖	meʻa fuamamafa	none
+🦯	tokotoko fakaʻeke	none
 🔗	kupu	none
 ⛓	sēini	none
 🧰	puha meʻangāue	none
@@ -1122,13 +1198,18 @@ symbols:
 🔭	meʻa fakaʻatafetuʻu	none
 📡	tisi satelaite	none
 💉	meʻafana faitoʻo	none
+🩸	tulutā toto	none
 💊	foʻiʻakau	none
+🩹	haʻihaʻi fakapipiki	none
+🩺	meʻa fakaongo	none
 🚪	matapā	none
 🛏	mohenga	none
 🛋	sea mālōlōʻanga moe maama	none
+🪑	sea	none
 🚽	po toileti	none
 🚿	meʻa fakapihi kaukau	none
 🛁	topu kaukau	none
+🪒	telekava	none
 🧴	hina kilimi milimili	none
 🧷	pine nāpikeni	none
 🧹	taufale	none
@@ -1238,6 +1319,8 @@ symbols:
 📶	pā lave	none
 📳	foni tetetete	none
 📴	foni toʻotoʻo tāmateʻi	none
+♀	ʻilonga fakafefine	none
+♂	ʻilonga fakatangata	none
 ⚕	ʻilonga tōketā	none
 ♾	taʻengata	none
 ♻	ʻilonga ngāueʻaki foʻou	none
@@ -1311,17 +1394,29 @@ symbols:
 🈺	meʻalolomi «ava he ngāue» (fakasiapani)	none
 🈵	meʻalolomi «hala loki ʻatā» (fakasiapani)	none
 🔴	fuopotopoto kulokula	none
+🟠	fuopotopoto lanumoli	none
+🟡	fuopotopoto engeenga	none
+🟢	fuopotopoto lanumata	none
 🔵	fuopotopoto lanupulū	none
-⚪	fuopotopoto hinehina	none
+🟣	fuopotopoto lanuvaioleti	none
+🟤	fuopotopoto melomelo	none
 ⚫	fuopotopoto ʻuluʻuli	none
-⬜	tapafā lahi mo hinehina	none
+⚪	fuopotopoto hinehina	none
+🟥	tapafā kulokula	none
+🟧	tapafā lanumoli	none
+🟨	tapafā engeenga	none
+🟩	tapafā lanumata	none
+🟦	tapafā lanupulū	none
+🟪	tapafā lanuvaioleti	none
+🟫	tapafā melomelo	none
 ⬛	tapafā lahi mo ʻuliʻuli	none
+⬜	tapafā lahi mo hinehina	none
 ◼	tapafā tauloto mo ʻuliʻuli	none
 ◻	tapafā tauloto mo hinehina	none
-◽	tapafā siʻi mo hinehina	none
 ◾	tapafā siʻi mo ʻuliʻuli	none
-▫	tapafā siʻisiʻi mo hinehina	none
+◽	tapafā siʻi mo hinehina	none
 ▪	tapafā siʻisiʻi mo ʻuliʻuli	none
+▫	tapafā siʻisiʻi mo hinehina	none
 🔶	taiamoni lahi mo lanumoli	none
 🔷	taiamoni lahi mo lanupulū	none
 🔸	taiamoni siʻi mo lanumoli	none
@@ -1330,15 +1425,71 @@ symbols:
 🔻	tapatolu kulokula ki lalo	none
 💠	taiamoni moe ʻila	none
 🔘	meʻalolomi lētio	none
-🔲	meʻalolomi tapafā ʻuliʻuli	none
 🔳	meʻalolomi tapafā hinehina	none
+🔲	meʻalolomi tapafā ʻuliʻuli	none
 🏁	fuka lova	none
 🚩	fuka tapatolu	none
 🎌	fuka fehauaki	none
 🏴	fuka ʻuliʻuli	none
 🏳	fuka hinehina	none
+🏳‍⚧	fuka pulū-pingikē-hinehina	none
 🏳‍🌈	fuka ʻūmata	none
 🏴‍☠	fuka kaihaʻatahi	none
+🛖	fale ʻuta	none
+🛗	lifi	none
+🛻	lolo tapolokepi	none
+🛼	sū sikeiti	none
+🤌	louhiʻinima fakamaʻopoʻopo	none
+🥲	mata malimali moe loʻimata	none
+🥷	mata ninisā	none
+🥸	mata fakapuli	none
+🦣	mamota	none
+🦤	toto	none
+🦫	kumā fai-tāpuni-vai	none
+🦬	pisoni	none
+🦭	kulītahi	none
+🧋	tī maʻupu	none
+🩴	saniteli	none
+🪃	pūmalengi	none
+🪄	vaʻakau fakamēsiki	none
+🪅	tamapua lole	none
+🪆	tamapua fakaʻotu	none
+🪖	helemeti	none
+🪗	puhaleotoho	none
+🪘	nafa	none
+🪙	paʻanga maka	none
+🪚	kili	none
+🪛	vetesikalu	none
+🪜	tuʻunga	none
+🪝	mātaʻu	none
+🪞	sioʻata	none
+🪟	matapā-sioʻata	none
+🪠	meʻapamu toileti	none
+🪡	huituitui	none
+🪢	fakapona	none
+🪣	kane	none
+🪤	tauhele kumā	none
+🪥	fulufulunifo	none
+🪦	maka fakamanatu	none
+🪧	fakaʻilonga sikinali	none
+🪨	maka	none
+🪰	lango	none
+🪱	kelemutu	none
+🪲	mongomonga iiki	none
+🪳	mongomonga	none
+🪴	ʻakau ʻihe kulo	none
+🪵	ʻakau	none
+🪶	fulufulu	none
+🫀	mafu	none
+🫁	maʻamaʻa	none
+🫂	kakai fāʻufua	none
+🫐	pelilanupulū	none
+🫑	polo	none
+🫒	ʻolive kai	none
+🫓	mā lafalafa	none
+🫔	mā pulupulu	none
+🫕	siisi māfana	none
+🫖	tīpota	none
 👋🏻	nima taʻataʻalo kili hinehina	none
 👋🏼	nima taʻataʻalo kili kelokelo	none
 👋🏽	nima taʻataʻalo kili melomelo	none
@@ -1369,6 +1520,11 @@ symbols:
 👌🏽	nima fakaʻilonga sai kili melomelo	none
 👌🏾	nima fakaʻilonga sai kili melomelo-ʻuliʻuli	none
 👌🏿	nima fakaʻilonga sai kili ʻuliʻuli	none
+🤏🏻	nima fakamaʻopoʻopo kili hinehina	none
+🤏🏼	nima fakamaʻopoʻopo kili kelokelo	none
+🤏🏽	nima fakamaʻopoʻopo kili melomelo	none
+🤏🏾	nima fakamaʻopoʻopo kili melomelo-ʻuliʻuli	none
+🤏🏿	nima fakamaʻopoʻopo kili ʻuliʻuli	none
 ✌🏻	nima ikuna kili hinehina	none
 ✌🏼	nima ikuna kili kelokelo	none
 ✌🏽	nima ikuna kili melomelo	none
@@ -1514,6 +1670,11 @@ symbols:
 👂🏽	telinga kili melomelo	none
 👂🏾	telinga kili melomelo-ʻuliʻuli	none
 👂🏿	telinga kili ʻuliʻuli	none
+🦻🏻	telinga moe meʻa fakafanongo kili hinehina	none
+🦻🏼	telinga moe meʻa fakafanongo kili kelokelo	none
+🦻🏽	telinga moe meʻa fakafanongo kili melomelo	none
+🦻🏾	telinga moe meʻa fakafanongo kili melomelo-ʻuliʻuli	none
+🦻🏿	telinga moe meʻa fakafanongo kili ʻuliʻuli	none
 👃🏻	ihu kili hinehina	none
 👃🏼	ihu kili kelokelo	none
 👃🏽	ihu kili melomelo	none
@@ -1549,21 +1710,45 @@ symbols:
 👱🏽	tokotaha ʻulu kelo kili melomelo	none
 👱🏾	tokotaha ʻulu kelo kili melomelo-ʻuliʻuli	none
 👱🏿	tokotaha ʻulu kelo kili ʻuliʻuli	none
+🧑‍🦰	kakai lalahi ʻulu kulokula	none
+🧑🏻‍🦰	kakai lalahi kili hinehina mo e ʻulu kulokula	none
+🧑🏼‍🦰	kakai lalahi kili kelokelo mo e ʻulu kulokula	none
+🧑🏽‍🦰	kakai lalahi kili melomelo mo e ʻulu kulokula	none
+🧑🏾‍🦰	kakai lalahi kili melomelo-ʻuliʻuli mo e ʻulu kulokula	none
+🧑🏿‍🦰	kakai lalahi kili ʻuliʻuli mo e ʻulu kulokula	none
+🧑‍🦱	kakai lalahi ʻulu mingimingi	none
+🧑🏻‍🦱	kakai lalahi kili hinehina mo e ʻulu mingimingi	none
+🧑🏼‍🦱	kakai lalahi kili kelokelo mo e ʻulu mingimingi	none
+🧑🏽‍🦱	kakai lalahi kili melomelo mo e ʻulu mingimingi	none
+🧑🏾‍🦱	kakai lalahi kili melomelo-ʻuliʻuli mo e ʻulu mingimingi	none
+🧑🏿‍🦱	kakai lalahi kili ʻuliʻuli mo e ʻulu mingimingi	none
+🧑‍🦳	kakai lalahi ʻulu hinā	none
+🧑🏻‍🦳	kakai lalahi kili hinehina mo e ʻulu hinā	none
+🧑🏼‍🦳	kakai lalahi kili kelokelo mo e ʻulu hinā	none
+🧑🏽‍🦳	kakai lalahi kili melomelo mo e ʻulu hinā	none
+🧑🏾‍🦳	kakai lalahi kili melomelo-ʻuliʻuli mo e ʻulu hinā	none
+🧑🏿‍🦳	kakai lalahi kili ʻuliʻuli mo e ʻulu hinā	none
+🧑‍🦲	kakai lalahi ʻulu tula	none
+🧑🏻‍🦲	kakai lalahi kili hinehina mo e ʻulu tula	none
+🧑🏼‍🦲	kakai lalahi kili kelokelo mo e ʻulu tula	none
+🧑🏽‍🦲	kakai lalahi kili melomelo mo e ʻulu tula	none
+🧑🏾‍🦲	kakai lalahi kili melomelo-ʻuliʻuli mo e ʻulu tula	none
+🧑🏿‍🦲	kakai lalahi kili ʻuliʻuli mo e ʻulu tula	none
 👨🏻	tangata kili hinehina	none
 👨🏼	tangata kili kelokelo	none
 👨🏽	tangata kili melomelo	none
 👨🏾	tangata kili melomelo-ʻuliʻuli	none
 👨🏿	tangata kili ʻuliʻuli	none
-👨🏼‍🤝‍👨🏻	ongo tangata fetakinima kili kelokelo mo e kili hinehina	none
-👨🏽‍🤝‍👨🏻	ongo tangata fetakinima kili melomelo mo e kili hinehina	none
-👨🏽‍🤝‍👨🏼	ongo tangata fetakinima kili melomelo mo e kili kelokelo	none
-👨🏾‍🤝‍👨🏻	ongo tangata fetakinima kili melomelo-ʻuliʻuli mo e kili hinehina	none
-👨🏾‍🤝‍👨🏼	ongo tangata fetakinima kili melomelo-ʻuliʻuli mo e kili kelokelo	none
-👨🏾‍🤝‍👨🏽	ongo tangata fetakinima kili melomelo-ʻuliʻuli mo e kili melomelo	none
-👨🏿‍🤝‍👨🏻	ongo tangata fetakinima kili ʻuliʻuli mo e kili hinehina	none
-👨🏿‍🤝‍👨🏼	ongo tangata fetakinima kili ʻuliʻuli mo e kili kelokelo	none
-👨🏿‍🤝‍👨🏽	ongo tangata fetakinima kili ʻuliʻuli mo e kili melomelo	none
-👨🏿‍🤝‍👨🏾	ongo tangata fetakinima kili ʻuliʻuli mo e kili melomelo-ʻuliʻuli	none
+🧔🏻	tangata kava kili hinehina	none
+🧔🏼	tangata kava kili kelokelo	none
+🧔🏽	tangata kava kili melomelo	none
+🧔🏾	tangata kava kili melomelo-ʻuliʻuli	none
+🧔🏿	tangata kava kili ʻuliʻuli	none
+👱🏻‍♂	tangata ʻulu kelo kili hinehina	none
+👱🏼‍♂	tangata ʻulu kelo kili kelokelo	none
+👱🏽‍♂	tangata ʻulu kelo kili melomelo	none
+👱🏾‍♂	tangata ʻulu kelo kili melomelo-ʻuliʻuli	none
+👱🏿‍♂	tangata ʻulu kelo kili ʻuliʻuli	none
 👨‍🦰	tangata ʻulu kulokula	none
 👨🏻‍🦰	tangata kili hinehina mo e ʻulu kulokula	none
 👨🏼‍🦰	tangata kili kelokelo mo e ʻulu kulokula	none
@@ -1588,51 +1773,16 @@ symbols:
 👨🏽‍🦲	tangata kili melomelo mo e ʻulu tula	none
 👨🏾‍🦲	tangata kili melomelo-ʻuliʻuli mo e ʻulu tula	none
 👨🏿‍🦲	tangata kili ʻuliʻuli mo e ʻulu tula	none
-👱🏻‍♂	tangata ʻulu kelo kili hinehina	none
-👱🏼‍♂	tangata ʻulu kelo kili kelokelo	none
-👱🏽‍♂	tangata ʻulu kelo kili melomelo	none
-👱🏾‍♂	tangata ʻulu kelo kili melomelo-ʻuliʻuli	none
-👱🏿‍♂	tangata ʻulu kelo kili ʻuliʻuli	none
-🧔🏻	tangata kava kili hinehina	none
-🧔🏼	tangata kava kili kelokelo	none
-🧔🏽	tangata kava kili melomelo	none
-🧔🏾	tangata kava kili melomelo-ʻuliʻuli	none
-🧔🏿	tangata kava kili ʻuliʻuli	none
 👩🏻	fefine kili hinehina	none
 👩🏼	fefine kili kelokelo	none
 👩🏽	fefine kili melomelo	none
 👩🏾	fefine kili melomelo-ʻuliʻuli	none
 👩🏿	fefine kili ʻuliʻuli	none
-👩🏻‍🤝‍👨🏼	tangata mo fefine fetakinima kili hinehina mo e kili kelokelo	none
-👩🏻‍🤝‍👨🏽	tangata mo fefine fetakinima kili hinehina mo e kili melomelo	none
-👩🏻‍🤝‍👨🏾	tangata mo fefine fetakinima kili hinehina mo e kili melomelo-ʻuliʻuli	none
-👩🏻‍🤝‍👨🏿	tangata mo fefine fetakinima kili hinehina mo e kili ʻuliʻuli	none
-👩🏼‍🤝‍👨🏻	tangata mo fefine fetakinima kili kelokelo mo e kili hinehina	none
-👩🏼‍🤝‍👨🏽	tangata mo fefine fetakinima kili kelokelo mo e kili melomelo	none
-👩🏼‍🤝‍👨🏾	tangata mo fefine fetakinima kili kelokelo mo e kili melomelo-ʻuliʻuli	none
-👩🏼‍🤝‍👨🏿	tangata mo fefine fetakinima kili kelokelo mo e kili ʻuliʻuli	none
-👩🏽‍🤝‍👨🏻	tangata mo fefine fetakinima kili melomelo mo e kili hinehina	none
-👩🏽‍🤝‍👨🏼	tangata mo fefine fetakinima kili melomelo mo e kili kelokelo	none
-👩🏽‍🤝‍👨🏾	tangata mo fefine fetakinima kili melomelo mo e kili melomelo-ʻuliʻuli	none
-👩🏽‍🤝‍👨🏿	tangata mo fefine fetakinima kili melomelo mo e kili ʻuliʻuli	none
-👩🏾‍🤝‍👨🏻	tangata mo fefine fetakinima kili melomelo-ʻuliʻuli mo e kili hinehina	none
-👩🏾‍🤝‍👨🏼	tangata mo fefine fetakinima kili melomelo-ʻuliʻuli mo e kili kelokelo	none
-👩🏾‍🤝‍👨🏽	tangata mo fefine fetakinima kili melomelo-ʻuliʻuli mo e kili melomelo	none
-👩🏾‍🤝‍👨🏿	tangata mo fefine fetakinima kili melomelo-ʻuliʻuli mo e kili ʻuliʻuli	none
-👩🏿‍🤝‍👨🏻	tangata mo fefine fetakinima kili ʻuliʻuli mo e kili hinehina	none
-👩🏿‍🤝‍👨🏼	tangata mo fefine fetakinima kili ʻuliʻuli mo e kili kelokelo	none
-👩🏿‍🤝‍👨🏽	tangata mo fefine fetakinima kili ʻuliʻuli mo e kili melomelo	none
-👩🏿‍🤝‍👨🏾	tangata mo fefine fetakinima kili ʻuliʻuli mo e kili melomelo-ʻuliʻuli	none
-👩🏼‍🤝‍👩🏻	ongo fafine fetakinima kili kelokelo mo e kili hinehina	none
-👩🏽‍🤝‍👩🏻	ongo fafine fetakinima kili melomelo mo e kili hinehina	none
-👩🏽‍🤝‍👩🏼	ongo fafine fetakinima kili melomelo mo e kili kelokelo	none
-👩🏾‍🤝‍👩🏻	ongo fafine fetakinima kili melomelo-ʻuliʻuli mo e kili hinehina	none
-👩🏾‍🤝‍👩🏼	ongo fafine fetakinima kili melomelo-ʻuliʻuli mo e kili kelokelo	none
-👩🏾‍🤝‍👩🏽	ongo fafine fetakinima kili melomelo-ʻuliʻuli mo e kili melomelo	none
-👩🏿‍🤝‍👩🏻	ongo fafine fetakinima kili ʻuliʻuli mo e kili hinehina	none
-👩🏿‍🤝‍👩🏼	ongo fafine fetakinima kili ʻuliʻuli mo e kili kelokelo	none
-👩🏿‍🤝‍👩🏽	ongo fafine fetakinima kili ʻuliʻuli mo e kili melomelo	none
-👩🏿‍🤝‍👩🏾	ongo fafine fetakinima kili ʻuliʻuli mo e kili melomelo-ʻuliʻuli	none
+👱🏻‍♀	fefine ʻulu kelo kili hinehina	none
+👱🏼‍♀	fefine ʻulu kelo kili kelokelo	none
+👱🏽‍♀	fefine ʻulu kelo kili melomelo	none
+👱🏾‍♀	fefine ʻulu kelo kili melomelo-ʻuliʻuli	none
+👱🏿‍♀	fefine ʻulu kelo kili ʻuliʻuli	none
 👩‍🦰	fefine ʻulu kulokula	none
 👩🏻‍🦰	fefine kili hinehina mo e ʻulu kulokula	none
 👩🏼‍🦰	fefine kili kelokelo mo e ʻulu kulokula	none
@@ -1657,11 +1807,6 @@ symbols:
 👩🏽‍🦲	fefine kili melomelo mo e ʻulu tula	none
 👩🏾‍🦲	fefine kili melomelo-ʻuliʻuli mo e ʻulu tula	none
 👩🏿‍🦲	fefine kili ʻuliʻuli mo e ʻulu tula	none
-👱🏻‍♀	fefine ʻulu kelo kili hinehina	none
-👱🏼‍♀	fefine ʻulu kelo kili kelokelo	none
-👱🏽‍♀	fefine ʻulu kelo kili melomelo	none
-👱🏾‍♀	fefine ʻulu kelo kili melomelo-ʻuliʻuli	none
-👱🏿‍♀	fefine ʻulu kelo kili ʻuliʻuli	none
 🧓🏻	tokotaha motuʻa kili hinehina	none
 🧓🏼	tokotaha motuʻa kili kelokelo	none
 🧓🏽	tokotaha motuʻa kili melomelo	none
@@ -1767,6 +1912,21 @@ symbols:
 🙋🏽‍♀	fefine nima ʻi ʻolunga kili melomelo	none
 🙋🏾‍♀	fefine nima ʻi ʻolunga kili melomelo-ʻuliʻuli	none
 🙋🏿‍♀	fefine nima ʻi ʻolunga kili ʻuliʻuli	none
+🧏🏻	tokotaha tuli kili hinehina	none
+🧏🏼	tokotaha tuli kili kelokelo	none
+🧏🏽	tokotaha tuli kili melomelo	none
+🧏🏾	tokotaha tuli kili melomelo-ʻuliʻuli	none
+🧏🏿	tokotaha tuli kili ʻuliʻuli	none
+🧏🏻‍♂	tangata tuli kili hinehina	none
+🧏🏼‍♂	tangata tuli kili kelokelo	none
+🧏🏽‍♂	tangata tuli kili melomelo	none
+🧏🏾‍♂	tangata tuli kili melomelo-ʻuliʻuli	none
+🧏🏿‍♂	tangata tuli kili ʻuliʻuli	none
+🧏🏻‍♀	fefine tuli kili hinehina	none
+🧏🏼‍♀	fefine tuli kili kelokelo	none
+🧏🏽‍♀	fefine tuli kili melomelo	none
+🧏🏾‍♀	fefine tuli kili melomelo-ʻuliʻuli	none
+🧏🏿‍♀	fefine tuli kili ʻuliʻuli	none
 🙇🏻	tokotaha punou kili hinehina	none
 🙇🏼	tokotaha punou kili kelokelo	none
 🙇🏽	tokotaha punou kili melomelo	none
@@ -1812,6 +1972,11 @@ symbols:
 🤷🏽‍♀	fefine fakamahiki kili melomelo	none
 🤷🏾‍♀	fefine fakamahiki kili melomelo-ʻuliʻuli	none
 🤷🏿‍♀	fefine fakamahiki kili ʻuliʻuli	none
+🧑🏻‍⚕	neesi kili hinehina	none
+🧑🏼‍⚕	neesi kili kelokelo	none
+🧑🏽‍⚕	neesi kili melomelo	none
+🧑🏾‍⚕	neesi kili melomelo-ʻuliʻuli	none
+🧑🏿‍⚕	neesi kili ʻuliʻuli	none
 👨🏻‍⚕	neesi tangata kili hinehina	none
 👨🏼‍⚕	neesi tangata kili kelokelo	none
 👨🏽‍⚕	neesi tangata kili melomelo	none
@@ -1822,6 +1987,11 @@ symbols:
 👩🏽‍⚕	neesi fefine kili melomelo	none
 👩🏾‍⚕	neesi fefine kili melomelo-ʻuliʻuli	none
 👩🏿‍⚕	neesi fefine kili ʻuliʻuli	none
+🧑🏻‍🎓	tokotaha ako kili hinehina	none
+🧑🏼‍🎓	tokotaha ako kili kelokelo	none
+🧑🏽‍🎓	tokotaha ako kili melomelo	none
+🧑🏾‍🎓	tokotaha ako kili melomelo-ʻuliʻuli	none
+🧑🏿‍🎓	tokotaha ako kili ʻuliʻuli	none
 👨🏻‍🎓	tamasiʻi ako kili hinehina	none
 👨🏼‍🎓	tamasiʻi ako kili kelokelo	none
 👨🏽‍🎓	tamasiʻi ako kili melomelo	none
@@ -1832,6 +2002,11 @@ symbols:
 👩🏽‍🎓	taʻahine ako kili melomelo	none
 👩🏾‍🎓	taʻahine ako kili melomelo-ʻuliʻuli	none
 👩🏿‍🎓	taʻahine ako kili ʻuliʻuli	none
+🧑🏻‍🏫	faiako kili hinehina	none
+🧑🏼‍🏫	faiako kili kelokelo	none
+🧑🏽‍🏫	faiako kili melomelo	none
+🧑🏾‍🏫	faiako kili melomelo-ʻuliʻuli	none
+🧑🏿‍🏫	faiako kili ʻuliʻuli	none
 👨🏻‍🏫	faiako tangata kili hinehina	none
 👨🏼‍🏫	faiako tangata kili kelokelo	none
 👨🏽‍🏫	faiako tangata kili melomelo	none
@@ -1842,6 +2017,11 @@ symbols:
 👩🏽‍🏫	faiako fefine kili melomelo	none
 👩🏾‍🏫	faiako fefine kili melomelo-ʻuliʻuli	none
 👩🏿‍🏫	faiako fefine kili ʻuliʻuli	none
+🧑🏻‍⚖	fakamaau kili hinehina	none
+🧑🏼‍⚖	fakamaau kili kelokelo	none
+🧑🏽‍⚖	fakamaau kili melomelo	none
+🧑🏾‍⚖	fakamaau kili melomelo-ʻuliʻuli	none
+🧑🏿‍⚖	fakamaau kili ʻuliʻuli	none
 👨🏻‍⚖	fakamaau tangata kili hinehina	none
 👨🏼‍⚖	fakamaau tangata kili kelokelo	none
 👨🏽‍⚖	fakamaau tangata kili melomelo	none
@@ -1852,6 +2032,11 @@ symbols:
 👩🏽‍⚖	fakamaau fefine kili melomelo	none
 👩🏾‍⚖	fakamaau fefine kili melomelo-ʻuliʻuli	none
 👩🏿‍⚖	fakamaau fefine kili ʻuliʻuli	none
+🧑🏻‍🌾	tokotaha ngoue kili hinehina	none
+🧑🏼‍🌾	tokotaha ngoue kili kelokelo	none
+🧑🏽‍🌾	tokotaha ngoue kili melomelo	none
+🧑🏾‍🌾	tokotaha ngoue kili melomelo-ʻuliʻuli	none
+🧑🏿‍🌾	tokotaha ngoue kili ʻuliʻuli	none
 👨🏻‍🌾	tangata ngoue kili hinehina	none
 👨🏼‍🌾	tangata ngoue kili kelokelo	none
 👨🏽‍🌾	tangata ngoue kili melomelo	none
@@ -1862,6 +2047,11 @@ symbols:
 👩🏽‍🌾	fefine ngoue kili melomelo	none
 👩🏾‍🌾	fefine ngoue kili melomelo-ʻuliʻuli	none
 👩🏿‍🌾	fefine ngoue kili ʻuliʻuli	none
+🧑🏻‍🍳	tokotaha ngaohikai kili hinehina	none
+🧑🏼‍🍳	tokotaha ngaohikai kili kelokelo	none
+🧑🏽‍🍳	tokotaha ngaohikai kili melomelo	none
+🧑🏾‍🍳	tokotaha ngaohikai kili melomelo-ʻuliʻuli	none
+🧑🏿‍🍳	tokotaha ngaohikai kili ʻuliʻuli	none
 👨🏻‍🍳	tangata ngaohikai kili hinehina	none
 👨🏼‍🍳	tangata ngaohikai kili kelokelo	none
 👨🏽‍🍳	tangata ngaohikai kili melomelo	none
@@ -1872,6 +2062,11 @@ symbols:
 👩🏽‍🍳	fefine ngaohikai kili melomelo	none
 👩🏾‍🍳	fefine ngaohikai kili melomelo-ʻuliʻuli	none
 👩🏿‍🍳	fefine ngaohikai kili ʻuliʻuli	none
+🧑🏻‍🔧	ʻenisia kili hinehina	none
+🧑🏼‍🔧	ʻenisia kili kelokelo	none
+🧑🏽‍🔧	ʻenisia kili melomelo	none
+🧑🏾‍🔧	ʻenisia kili melomelo-ʻuliʻuli	none
+🧑🏿‍🔧	ʻenisia kili ʻuliʻuli	none
 👨🏻‍🔧	ʻenisinia tangata kili hinehina	none
 👨🏼‍🔧	ʻenisinia tangata kili kelokelo	none
 👨🏽‍🔧	ʻenisinia tangata kili melomelo	none
@@ -1882,6 +2077,11 @@ symbols:
 👩🏽‍🔧	ʻenisinia fefine kili melomelo	none
 👩🏾‍🔧	ʻenisinia fefine kili melomelo-ʻuliʻuli	none
 👩🏿‍🔧	ʻenisinia fefine kili ʻuliʻuli	none
+🧑🏻‍🏭	tokotaha ngāue fale faʻuʻanga kili hinehina	none
+🧑🏼‍🏭	tokotaha ngāue fale faʻuʻanga kili kelokelo	none
+🧑🏽‍🏭	tokotaha ngāue fale faʻuʻanga kili melomelo	none
+🧑🏾‍🏭	tokotaha ngāue fale faʻuʻanga kili melomelo-ʻuliʻuli	none
+🧑🏿‍🏭	tokotaha ngāue fale faʻuʻanga kili ʻuliʻuli	none
 👨🏻‍🏭	tangata ngāue fale faʻuʻanga kili hinehina	none
 👨🏼‍🏭	tangata ngāue fale faʻuʻanga kili kelokelo	none
 👨🏽‍🏭	tangata ngāue fale faʻuʻanga kili melomelo	none
@@ -1892,6 +2092,11 @@ symbols:
 👩🏽‍🏭	fefine ngāue fale faʻuʻanga kili melomelo	none
 👩🏾‍🏭	fefine ngāue fale faʻuʻanga kili melomelo-ʻuliʻuli	none
 👩🏿‍🏭	fefine ngāue fale faʻuʻanga kili ʻuliʻuli	none
+🧑🏻‍💼	tokotaha ngāue ʻōfisi kili hinehina	none
+🧑🏼‍💼	tokotaha ngāue ʻōfisi kili kelokelo	none
+🧑🏽‍💼	tokotaha ngāue ʻōfisi kili melomelo	none
+🧑🏾‍💼	tokotaha ngāue ʻōfisi kili melomelo-ʻuliʻuli	none
+🧑🏿‍💼	tokotaha ngāue ʻōfisi kili ʻuliʻuli	none
 👨🏻‍💼	tangata ngāue ʻōfisi kili hinehina	none
 👨🏼‍💼	tangata ngāue ʻōfisi kili kelokelo	none
 👨🏽‍💼	tangata ngāue ʻōfisi kili melomelo	none
@@ -1902,6 +2107,11 @@ symbols:
 👩🏽‍💼	fefine ngāue ʻōfisi kili melomelo	none
 👩🏾‍💼	fefine ngāue ʻōfisi kili melomelo-ʻuliʻuli	none
 👩🏿‍💼	fefine ngāue ʻōfisi kili ʻuliʻuli	none
+🧑🏻‍🔬	tokotaha faisaienisi kili hinehina	none
+🧑🏼‍🔬	tokotaha faisaienisi kili kelokelo	none
+🧑🏽‍🔬	tokotaha faisaienisi kili melomelo	none
+🧑🏾‍🔬	tokotaha faisaienisi kili melomelo-ʻuliʻuli	none
+🧑🏿‍🔬	tokotaha faisaienisi kili ʻuliʻuli	none
 👨🏻‍🔬	tangata faisaienisi kili hinehina	none
 👨🏼‍🔬	tangata faisaienisi kili kelokelo	none
 👨🏽‍🔬	tangata faisaienisi kili melomelo	none
@@ -1912,6 +2122,11 @@ symbols:
 👩🏽‍🔬	fefine faisaienisi kili melomelo	none
 👩🏾‍🔬	fefine faisaienisi kili melomelo-ʻuliʻuli	none
 👩🏿‍🔬	fefine faisaienisi kili ʻuliʻuli	none
+🧑🏻‍💻	tokotaha fakatekinolosia kili hinehina	none
+🧑🏼‍💻	tokotaha fakatekinolosia kili kelokelo	none
+🧑🏽‍💻	tokotaha fakatekinolosia kili melomelo	none
+🧑🏾‍💻	tokotaha fakatekinolosia kili melomelo-ʻuliʻuli	none
+🧑🏿‍💻	tokotaha fakatekinolosia kili ʻuliʻuli	none
 👨🏻‍💻	tangata fakatekinolosia kili hinehina	none
 👨🏼‍💻	tangata fakatekinolosia kili kelokelo	none
 👨🏽‍💻	tangata fakatekinolosia kili melomelo	none
@@ -1922,6 +2137,11 @@ symbols:
 👩🏽‍💻	fefine fakatekinolosia kili melomelo	none
 👩🏾‍💻	fefine fakatekinolosia kili melomelo-ʻuliʻuli	none
 👩🏿‍💻	fefine fakatekinolosia kili ʻuliʻuli	none
+🧑🏻‍🎤	tokotaha hiva kili hinehina	none
+🧑🏼‍🎤	tokotaha hiva kili kelokelo	none
+🧑🏽‍🎤	tokotaha hiva kili melomelo	none
+🧑🏾‍🎤	tokotaha hiva kili melomelo-ʻuliʻuli	none
+🧑🏿‍🎤	tokotaha hiva kili ʻuliʻuli	none
 👨🏻‍🎤	tangata hiva kili hinehina	none
 👨🏼‍🎤	tangata hiva kili kelokelo	none
 👨🏽‍🎤	tangata hiva kili melomelo	none
@@ -1932,6 +2152,11 @@ symbols:
 👩🏽‍🎤	fefine hiva kili melomelo	none
 👩🏾‍🎤	fefine hiva kili melomelo-ʻuliʻuli	none
 👩🏿‍🎤	fefine hiva kili ʻuliʻuli	none
+🧑🏻‍🎨	tokotaha tā-fakatātā kili hinehina	none
+🧑🏼‍🎨	tokotaha tā-fakatātā kili kelokelo	none
+🧑🏽‍🎨	tokotaha tā-fakatātā kili melomelo	none
+🧑🏾‍🎨	tokotaha tā-fakatātā kili melomelo-ʻuliʻuli	none
+🧑🏿‍🎨	tokotaha tā-fakatātā kili ʻuliʻuli	none
 👨🏻‍🎨	tangata tā-fakatātā kili hinehina	none
 👨🏼‍🎨	tangata tā-fakatātā kili kelokelo	none
 👨🏽‍🎨	tangata tā-fakatātā kili melomelo	none
@@ -1942,6 +2167,11 @@ symbols:
 👩🏽‍🎨	fefine tā-fakatātā kili melomelo	none
 👩🏾‍🎨	fefine tā-fakatātā kili melomelo-ʻuliʻuli	none
 👩🏿‍🎨	fefine tā-fakatātā kili ʻuliʻuli	none
+🧑🏻‍✈	pailate kili hinehina	none
+🧑🏼‍✈	pailate kili kelokelo	none
+🧑🏽‍✈	pailate kili melomelo	none
+🧑🏾‍✈	pailate kili melomelo-ʻuliʻuli	none
+🧑🏿‍✈	pailate kili ʻuliʻuli	none
 👨🏻‍✈	pailate tangata kili hinehina	none
 👨🏼‍✈	pailate tangata kili kelokelo	none
 👨🏽‍✈	pailate tangata kili melomelo	none
@@ -1952,6 +2182,11 @@ symbols:
 👩🏽‍✈	pailate fefine kili melomelo	none
 👩🏾‍✈	pailate fefine kili melomelo-ʻuliʻuli	none
 👩🏿‍✈	pailate fefine kili ʻuliʻuli	none
+🧑🏻‍🚀	tokotaha folaufetuʻu kili hinehina	none
+🧑🏼‍🚀	tokotaha folaufetuʻu kili kelokelo	none
+🧑🏽‍🚀	tokotaha folaufetuʻu kili melomelo	none
+🧑🏾‍🚀	tokotaha folaufetuʻu kili melomelo-ʻuliʻuli	none
+🧑🏿‍🚀	tokotaha folaufetuʻu kili ʻuliʻuli	none
 👨🏻‍🚀	tama folaufetuʻu kili hinehina	none
 👨🏼‍🚀	tama folaufetuʻu kili kelokelo	none
 👨🏽‍🚀	tama folaufetuʻu kili melomelo	none
@@ -1962,6 +2197,11 @@ symbols:
 👩🏽‍🚀	fefine folaufetuʻu kili melomelo	none
 👩🏾‍🚀	fefine folaufetuʻu kili melomelo-ʻuliʻuli	none
 👩🏿‍🚀	fefine folaufetuʻu kili ʻuliʻuli	none
+🧑🏻‍🚒	tokotaha tāmate-afi kili hinehina	none
+🧑🏼‍🚒	tokotaha tāmate-afi kili kelokelo	none
+🧑🏽‍🚒	tokotaha tāmate-afi kili melomelo	none
+🧑🏾‍🚒	tokotaha tāmate-afi kili melomelo-ʻuliʻuli	none
+🧑🏿‍🚒	tokotaha tāmate-afi kili ʻuliʻuli	none
 👨🏻‍🚒	tangata tāmate-afi kili hinehina	none
 👨🏼‍🚒	tangata tāmate-afi kili kelokelo	none
 👨🏽‍🚒	tangata tāmate-afi kili melomelo	none
@@ -2072,11 +2312,11 @@ symbols:
 🤵🏽	tangata vala kakato kili melomelo	none
 🤵🏾	tangata vala kakato kili melomelo-ʻuliʻuli	none
 🤵🏿	tangata vala kakato kili ʻuliʻuli	none
-👰🏻	fefine tui veli kili hinehina	none
-👰🏼	fefine tui veli kili kelokelo	none
-👰🏽	fefine tui veli kili melomelo	none
-👰🏾	fefine tui veli kili melomelo-ʻuliʻuli	none
-👰🏿	fefine tui veli kili ʻuliʻuli	none
+👰🏻	fefine tui veili kili hinehina	none
+👰🏼	fefine tui veili kili kelokelo	none
+👰🏽	fefine tui veili kili melomelo	none
+👰🏾	fefine tui veili kili melomelo-ʻuliʻuli	none
+👰🏿	fefine tui veili kili ʻuliʻuli	none
 🤰🏻	feitama kili hinehina	none
 🤰🏼	feitama kili kelokelo	none
 🤰🏽	feitama kili melomelo	none
@@ -2252,6 +2492,81 @@ symbols:
 🚶🏽‍♀	fefine lue kili melomelo	none
 🚶🏾‍♀	fefine lue kili melomelo-ʻuliʻuli	none
 🚶🏿‍♀	fefine lue kili ʻuliʻuli	none
+🧍🏻	tokotaha tuʻu kili hinehina	none
+🧍🏼	tokotaha tuʻu kili kelokelo	none
+🧍🏽	tokotaha tuʻu kili melomelo	none
+🧍🏾	tokotaha tuʻu kili melomelo-ʻuliʻuli	none
+🧍🏿	tokotaha tuʻu kili ʻuliʻuli	none
+🧍🏻‍♂	tangata tuʻu kili hinehina	none
+🧍🏼‍♂	tangata tuʻu kili kelokelo	none
+🧍🏽‍♂	tangata tuʻu kili melomelo	none
+🧍🏾‍♂	tangata tuʻu kili melomelo-ʻuliʻuli	none
+🧍🏿‍♂	tangata tuʻu kili ʻuliʻuli	none
+🧍🏻‍♀	fefine tuʻu kili hinehina	none
+🧍🏼‍♀	fefine tuʻu kili kelokelo	none
+🧍🏽‍♀	fefine tuʻu kili melomelo	none
+🧍🏾‍♀	fefine tuʻu kili melomelo-ʻuliʻuli	none
+🧍🏿‍♀	fefine tuʻu kili ʻuliʻuli	none
+🧎🏻	tokotaha tūʻulutui kili hinehina	none
+🧎🏼	tokotaha tūʻulutui kili kelokelo	none
+🧎🏽	tokotaha tūʻulutui kili melomelo	none
+🧎🏾	tokotaha tūʻulutui kili melomelo-ʻuliʻuli	none
+🧎🏿	tokotaha tūʻulutui kili ʻuliʻuli	none
+🧎🏻‍♂	tangata tūʻulutui kili hinehina	none
+🧎🏼‍♂	tangata tūʻulutui kili kelokelo	none
+🧎🏽‍♂	tangata tūʻulutui kili melomelo	none
+🧎🏾‍♂	tangata tūʻulutui kili melomelo-ʻuliʻuli	none
+🧎🏿‍♂	tangata tūʻulutui kili ʻuliʻuli	none
+🧎🏻‍♀	fefine tūʻulutui kili hinehina	none
+🧎🏼‍♀	fefine tūʻulutui kili kelokelo	none
+🧎🏽‍♀	fefine tūʻulutui kili melomelo	none
+🧎🏾‍♀	fefine tūʻulutui kili melomelo-ʻuliʻuli	none
+🧎🏿‍♀	fefine tūʻulutui kili ʻuliʻuli	none
+🧑🏻‍🦯	tokotaha moe tokotokokui kili hinehina	none
+🧑🏼‍🦯	tokotaha moe tokotokokui kili kelokelo	none
+🧑🏽‍🦯	tokotaha moe tokotokokui kili melomelo	none
+🧑🏾‍🦯	tokotaha moe tokotokokui kili melomelo-ʻuliʻuli	none
+🧑🏿‍🦯	tokotaha moe tokotokokui kili ʻuliʻuli	none
+👨🏻‍🦯	tangata moe tokotokokui kili hinehina	none
+👨🏼‍🦯	tangata moe tokotokokui kili kelokelo	none
+👨🏽‍🦯	tangata moe tokotokokui kili melomelo	none
+👨🏾‍🦯	tangata moe tokotokokui kili melomelo-ʻuliʻuli	none
+👨🏿‍🦯	tangata moe tokotokokui kili ʻuliʻuli	none
+👩🏻‍🦯	fefine moe tokotokokui kili hinehina	none
+👩🏼‍🦯	fefine moe tokotokokui kili kelokelo	none
+👩🏽‍🦯	fefine moe tokotokokui kili melomelo	none
+👩🏾‍🦯	fefine moe tokotokokui kili melomelo-ʻuliʻuli	none
+👩🏿‍🦯	fefine moe tokotokokui kili ʻuliʻuli	none
+🧑🏻‍🦼	tokotaha ʻihe sāliote falemahaki mīsini kili hinehina	none
+🧑🏼‍🦼	tokotaha ʻihe sāliote falemahaki mīsini kili kelokelo	none
+🧑🏽‍🦼	tokotaha ʻihe sāliote falemahaki mīsini kili melomelo	none
+🧑🏾‍🦼	tokotaha ʻihe sāliote falemahaki mīsini kili melomelo-ʻuliʻuli	none
+🧑🏿‍🦼	tokotaha ʻihe sāliote falemahaki mīsini kili ʻuliʻuli	none
+👨🏻‍🦼	tangata ʻihe sāliote falemahaki mīsini kili hinehina	none
+👨🏼‍🦼	tangata ʻihe sāliote falemahaki mīsini kili kelokelo	none
+👨🏽‍🦼	tangata ʻihe sāliote falemahaki mīsini kili melomelo	none
+👨🏾‍🦼	tangata ʻihe sāliote falemahaki mīsini kili melomelo-ʻuliʻuli	none
+👨🏿‍🦼	tangata ʻihe sāliote falemahaki mīsini kili ʻuliʻuli	none
+👩🏻‍🦼	fefine ʻihe sāliote falemahaki mīsini kili hinehina	none
+👩🏼‍🦼	fefine ʻihe sāliote falemahaki mīsini kili kelokelo	none
+👩🏽‍🦼	fefine ʻihe sāliote falemahaki mīsini kili melomelo	none
+👩🏾‍🦼	fefine ʻihe sāliote falemahaki mīsini kili melomelo-ʻuliʻuli	none
+👩🏿‍🦼	fefine ʻihe sāliote falemahaki mīsini kili ʻuliʻuli	none
+🧑🏻‍🦽	tokotaha ʻihe sāliote falemahaki kili hinehina	none
+🧑🏼‍🦽	tokotaha ʻihe sāliote falemahaki kili kelokelo	none
+🧑🏽‍🦽	tokotaha ʻihe sāliote falemahaki kili melomelo	none
+🧑🏾‍🦽	tokotaha ʻihe sāliote falemahaki kili melomelo-ʻuliʻuli	none
+🧑🏿‍🦽	tokotaha ʻihe sāliote falemahaki kili ʻuliʻuli	none
+👨🏻‍🦽	tangata ʻihe sāliote falemahaki kili hinehina	none
+👨🏼‍🦽	tangata ʻihe sāliote falemahaki kili kelokelo	none
+👨🏽‍🦽	tangata ʻihe sāliote falemahaki kili melomelo	none
+👨🏾‍🦽	tangata ʻihe sāliote falemahaki kili melomelo-ʻuliʻuli	none
+👨🏿‍🦽	tangata ʻihe sāliote falemahaki kili ʻuliʻuli	none
+👩🏻‍🦽	fefine ʻihe sāliote falemahaki kili hinehina	none
+👩🏼‍🦽	fefine ʻihe sāliote falemahaki kili kelokelo	none
+👩🏽‍🦽	fefine ʻihe sāliote falemahaki kili melomelo	none
+👩🏾‍🦽	fefine ʻihe sāliote falemahaki kili melomelo-ʻuliʻuli	none
+👩🏿‍🦽	fefine ʻihe sāliote falemahaki kili ʻuliʻuli	none
 🏃🏻	tokotaha lele kili hinehina	none
 🏃🏼	tokotaha lele kili kelokelo	none
 🏃🏽	tokotaha lele kili melomelo	none
@@ -2527,21 +2842,76 @@ symbols:
 🛌🏽	tokotaha ʻi mohenga kili melomelo	none
 🛌🏾	tokotaha ʻi mohenga kili melomelo-ʻuliʻuli	none
 🛌🏿	tokotaha ʻi mohenga kili ʻuliʻuli	none
+🧑🏻‍🤝‍🧑🏻	kakai fetakinima kili hinehina	none
+🧑🏼‍🤝‍🧑🏻	kakai fetakinima kili kelokelo mo e kili hinehina	none
+🧑🏼‍🤝‍🧑🏼	kakai fetakinima kili kelokelo	none
+🧑🏽‍🤝‍🧑🏻	kakai fetakinima kili melomelo mo e kili hinehina	none
+🧑🏽‍🤝‍🧑🏼	kakai fetakinima kili melomelo mo e kili kelokelo	none
+🧑🏽‍🤝‍🧑🏽	kakai fetakinima kili melomelo	none
+🧑🏾‍🤝‍🧑🏻	kakai fetakinima kili melomelo-ʻuliʻuli mo e kili hinehina	none
+🧑🏾‍🤝‍🧑🏼	kakai fetakinima kili melomelo-ʻuliʻuli mo e kili kelokelo	none
+🧑🏾‍🤝‍🧑🏽	kakai fetakinima kili melomelo-ʻuliʻuli mo e kili melomelo	none
+🧑🏾‍🤝‍🧑🏾	kakai fetakinima kili melomelo-ʻuliʻuli	none
+🧑🏿‍🤝‍🧑🏻	kakai fetakinima kili ʻuliʻuli mo e kili hinehina	none
+🧑🏿‍🤝‍🧑🏼	kakai fetakinima kili ʻuliʻuli mo e kili kelokelo	none
+🧑🏿‍🤝‍🧑🏽	kakai fetakinima kili ʻuliʻuli mo e kili melomelo	none
+🧑🏿‍🤝‍🧑🏾	kakai fetakinima kili ʻuliʻuli mo e kili melomelo-ʻuliʻuli	none
+🧑🏿‍🤝‍🧑🏿	kakai fetakinima kili ʻuliʻuli	none
+👭🏻	ongo fafine fetakinima kili hinehina	none
+👩🏼‍🤝‍👩🏻	ongo fafine fetakinima kili kelokelo mo e kili hinehina	none
+👭🏼	ongo fafine fetakinima kili kelokelo	none
+👩🏽‍🤝‍👩🏻	ongo fafine fetakinima kili melomelo mo e kili hinehina	none
+👩🏽‍🤝‍👩🏼	ongo fafine fetakinima kili melomelo mo e kili kelokelo	none
+👭🏽	ongo fafine fetakinima kili melomelo	none
+👩🏾‍🤝‍👩🏻	ongo fafine fetakinima kili melomelo-ʻuliʻuli mo e kili hinehina	none
+👩🏾‍🤝‍👩🏼	ongo fafine fetakinima kili melomelo-ʻuliʻuli mo e kili kelokelo	none
+👩🏾‍🤝‍👩🏽	ongo fafine fetakinima kili melomelo-ʻuliʻuli mo e kili melomelo	none
+👭🏾	ongo fafine fetakinima kili melomelo-ʻuliʻuli	none
+👩🏿‍🤝‍👩🏻	ongo fafine fetakinima kili ʻuliʻuli mo e kili hinehina	none
+👩🏿‍🤝‍👩🏼	ongo fafine fetakinima kili ʻuliʻuli mo e kili kelokelo	none
+👩🏿‍🤝‍👩🏽	ongo fafine fetakinima kili ʻuliʻuli mo e kili melomelo	none
+👩🏿‍🤝‍👩🏾	ongo fafine fetakinima kili ʻuliʻuli mo e kili melomelo-ʻuliʻuli	none
+👭🏿	ongo fafine fetakinima kili ʻuliʻuli	none
 👫🏻	tangata mo fefine fetakinima kili hinehina	none
+👩🏻‍🤝‍👨🏼	tangata mo fefine fetakinima kili hinehina mo e kili kelokelo	none
+👩🏻‍🤝‍👨🏽	tangata mo fefine fetakinima kili hinehina mo e kili melomelo	none
+👩🏻‍🤝‍👨🏾	tangata mo fefine fetakinima kili hinehina mo e kili melomelo-ʻuliʻuli	none
+👩🏻‍🤝‍👨🏿	tangata mo fefine fetakinima kili hinehina mo e kili ʻuliʻuli	none
+👩🏼‍🤝‍👨🏻	tangata mo fefine fetakinima kili kelokelo mo e kili hinehina	none
 👫🏼	tangata mo fefine fetakinima kili kelokelo	none
+👩🏼‍🤝‍👨🏽	tangata mo fefine fetakinima kili kelokelo mo e kili melomelo	none
+👩🏼‍🤝‍👨🏾	tangata mo fefine fetakinima kili kelokelo mo e kili melomelo-ʻuliʻuli	none
+👩🏼‍🤝‍👨🏿	tangata mo fefine fetakinima kili kelokelo mo e kili ʻuliʻuli	none
+👩🏽‍🤝‍👨🏻	tangata mo fefine fetakinima kili melomelo mo e kili hinehina	none
+👩🏽‍🤝‍👨🏼	tangata mo fefine fetakinima kili melomelo mo e kili kelokelo	none
 👫🏽	tangata mo fefine fetakinima kili melomelo	none
+👩🏽‍🤝‍👨🏾	tangata mo fefine fetakinima kili melomelo mo e kili melomelo-ʻuliʻuli	none
+👩🏽‍🤝‍👨🏿	tangata mo fefine fetakinima kili melomelo mo e kili ʻuliʻuli	none
+👩🏾‍🤝‍👨🏻	tangata mo fefine fetakinima kili melomelo-ʻuliʻuli mo e kili hinehina	none
+👩🏾‍🤝‍👨🏼	tangata mo fefine fetakinima kili melomelo-ʻuliʻuli mo e kili kelokelo	none
+👩🏾‍🤝‍👨🏽	tangata mo fefine fetakinima kili melomelo-ʻuliʻuli mo e kili melomelo	none
 👫🏾	tangata mo fefine fetakinima kili melomelo-ʻuliʻuli	none
+👩🏾‍🤝‍👨🏿	tangata mo fefine fetakinima kili melomelo-ʻuliʻuli mo e kili ʻuliʻuli	none
+👩🏿‍🤝‍👨🏻	tangata mo fefine fetakinima kili ʻuliʻuli mo e kili hinehina	none
+👩🏿‍🤝‍👨🏼	tangata mo fefine fetakinima kili ʻuliʻuli mo e kili kelokelo	none
+👩🏿‍🤝‍👨🏽	tangata mo fefine fetakinima kili ʻuliʻuli mo e kili melomelo	none
+👩🏿‍🤝‍👨🏾	tangata mo fefine fetakinima kili ʻuliʻuli mo e kili melomelo-ʻuliʻuli	none
 👫🏿	tangata mo fefine fetakinima kili ʻuliʻuli	none
 👬🏻	ongo tangata fetakinima kili hinehina	none
+👨🏼‍🤝‍👨🏻	ongo tangata fetakinima kili kelokelo mo e kili hinehina	none
 👬🏼	ongo tangata fetakinima kili kelokelo	none
+👨🏽‍🤝‍👨🏻	ongo tangata fetakinima kili melomelo mo e kili hinehina	none
+👨🏽‍🤝‍👨🏼	ongo tangata fetakinima kili melomelo mo e kili kelokelo	none
 👬🏽	ongo tangata fetakinima kili melomelo	none
+👨🏾‍🤝‍👨🏻	ongo tangata fetakinima kili melomelo-ʻuliʻuli mo e kili hinehina	none
+👨🏾‍🤝‍👨🏼	ongo tangata fetakinima kili melomelo-ʻuliʻuli mo e kili kelokelo	none
+👨🏾‍🤝‍👨🏽	ongo tangata fetakinima kili melomelo-ʻuliʻuli mo e kili melomelo	none
 👬🏾	ongo tangata fetakinima kili melomelo-ʻuliʻuli	none
+👨🏿‍🤝‍👨🏻	ongo tangata fetakinima kili ʻuliʻuli mo e kili hinehina	none
+👨🏿‍🤝‍👨🏼	ongo tangata fetakinima kili ʻuliʻuli mo e kili kelokelo	none
+👨🏿‍🤝‍👨🏽	ongo tangata fetakinima kili ʻuliʻuli mo e kili melomelo	none
+👨🏿‍🤝‍👨🏾	ongo tangata fetakinima kili ʻuliʻuli mo e kili melomelo-ʻuliʻuli	none
 👬🏿	ongo tangata fetakinima kili ʻuliʻuli	none
-👭🏻	ongo fafine fetakinima kili hinehina	none
-👭🏼	ongo fafine fetakinima kili kelokelo	none
-👭🏽	ongo fafine fetakinima kili melomelo	none
-👭🏾	ongo fafine fetakinima kili melomelo-ʻuliʻuli	none
-👭🏿	ongo fafine fetakinima kili ʻuliʻuli	none
 👩‍❤‍💋‍👨	ʻuma fefine mo e tangata	none
 👨‍❤‍💋‍👨	ʻuma tangata mo e tangata	none
 👩‍❤‍💋‍👩	ʻuma fefine mo e fefine	none
@@ -2725,7 +3095,7 @@ symbols:
 🇲🇫	fuka Sā Mātini (fakafalanisē)	none
 🇲🇬	fuka Matakasika	none
 🇲🇭	fuka ʻOtumotu Māsolo	none
-🇲🇰	fuka Masetōnia	none
+🇲🇰	fuka Masetōnia fakatokelau	none
 🇲🇱	fuka Māli	none
 🇲🇲	fuka Mianimā (Pema)	none
 🇲🇳	fuka Mongokōlia	none
@@ -2794,7 +3164,7 @@ symbols:
 🇸🇻	fuka ʻEle Salavatoa	none
 🇸🇽	fuka Sā Mātini (fakahōlani)	none
 🇸🇾	fuka Sīlia	none
-🇸🇿	fuka Suasilani	none
+🇸🇿	fuka ʻEsuatini	none
 🇹🇦	fuka Tulisitani ta Kunuha	none
 🇹🇨	fuka ʻOtumotu Tuki mo Kaikosi	none
 🇹🇩	fuka Sāti	none
@@ -2803,7 +3173,7 @@ symbols:
 🇹🇭	fuka Tailani	none
 🇹🇯	fuka Tasikitani	none
 🇹🇰	fuka Tokelau	none
-🇹🇱	fuka Timoa hahake	none
+🇹🇱	fuka Timoa fakahahake	none
 🇹🇲	fuka Tūkimenisitani	none
 🇹🇳	fuka Tunīsia	none
 🇹🇴	fuka Tonga	none

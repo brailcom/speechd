@@ -8,7 +8,7 @@ symbols:
 🏽	ton mediu al pielii	none
 🏾	ton semi‑închis al pielii	none
 🏿	ton închis al pielii	none
-🐾	urme de lăbuțe	none
+⚧	transgender	none
 😀	față încântată	none
 😃	față încântată cu ochii mari	none
 😄	față încântată cu ochi zâmbitori	none
@@ -94,6 +94,7 @@ symbols:
 😓	față abătută cu sudoare rece	none
 😩	față extenuată	none
 😫	față obosită	none
+🥱	față care cască	none
 😤	față care scoate fum pe nări	none
 😡	față îmbufnată	none
 😠	față furioasă	none
@@ -140,7 +141,9 @@ symbols:
 💚	inimă verde	none
 💙	inimă albastră	none
 💜	inimă mov	none
+🤎	inimă maro	none
 🖤	inimă neagră	none
+🤍	inimă albă	none
 💯	o sută de puncte	none
 💢	simbol mânie	none
 💥	coliziune	none
@@ -161,6 +164,7 @@ symbols:
 ✋	mână ridicată	none
 🖖	salut vulcanian	none
 👌	semnul ok	none
+🤏	mână cu două degete apropiate	none
 ✌	semnul victoriei	none
 🤞	degete încrucișate	none
 🤟	gest cu semnificația te iubesc	none
@@ -188,9 +192,12 @@ symbols:
 💅	ojă pe unghii	none
 🤳	selfie	none
 💪	biceps flexat	none
+🦾	braț mecanic	none
+🦿	picior mecanic	none
 🦵	picior	none
 🦶	laba piciorului	none
 👂	ureche	none
+🦻	ureche cu proteză auditivă	none
 👃	nas	none
 🧠	creier	none
 🦷	dinte	none
@@ -205,17 +212,10 @@ symbols:
 👧	fată	none
 🧑	adult	none
 👱	persoană blondă	none
-🧑‍🤝‍🧑	persoane ținându-se de mână	none
 👨	bărbat	none
-👨‍🦯	bărbat cu baston pentru nevăzători	none
-👨‍🦼	bărbat în scaun cu rotile motorizat	none
-👨‍🦽	bărbat în scaun cu rotile manual	none
-👱‍♂	bărbat blond	none
 🧔	bărbat cu barbă	none
+👱‍♂	bărbat blond	none
 👩	femeie	none
-👩‍🦯	femeie cu baston pentru nevăzători	none
-👩‍🦼	femeie în scaun cu rotile motorizat	none
-👩‍🦽	femeie în scaun cu rotile manual	none
 👱‍♀	femeie blondă	none
 🧓	persoană în vârstă	none
 👴	bătrân	none
@@ -238,6 +238,9 @@ symbols:
 🙋	persoană care ridică mâna	none
 🙋‍♂	bărbat care ridică mâna	none
 🙋‍♀	femeie care ridică mâna	none
+🧏	persoană surdă	none
+🧏‍♂	bărbat surd	none
+🧏‍♀	femeie surdă	none
 🙇	persoană care se înclină	none
 🙇‍♂	bărbat care se înclină	none
 🙇‍♀	femeie care se înclină	none
@@ -247,47 +250,63 @@ symbols:
 🤷	persoană care ridică din umeri	none
 🤷‍♂	bărbat care ridică din umeri	none
 🤷‍♀	femeie care ridică din umeri	none
+🧑‍⚕	persoană lucrătoare în domeniul sănătății	none
 👨‍⚕	lucrător în domeniul sănătății	none
 👩‍⚕	lucrătoare în domeniul sănătății	none
+🧑‍🎓	student sau studentă	none
 👨‍🎓	student	none
 👩‍🎓	studentă	none
+🧑‍🏫	profesor sau profesoară	none
 👨‍🏫	profesor	none
 👩‍🏫	profesoară	none
+🧑‍⚖	judecător sau judecătoare	none
 👨‍⚖	judecător	none
 👩‍⚖	judecătoare	none
+🧑‍🌾	fermier sau fermieră	none
 👨‍🌾	fermier	none
 👩‍🌾	fermieră	none
+🧑‍🍳	bucătar sau bucătăreasă	none
 👨‍🍳	bucătar	none
 👩‍🍳	bucătăreasă	none
-👨‍🔧	mecanic	none
-👩‍🔧	femeie mecanic	none
+🧑‍🔧	mecanic	none
+👨‍🔧	mecanic bărbat	none
+👩‍🔧	mecanic femeie	none
+🧑‍🏭	muncitor sau muncitoare în fabrică	none
 👨‍🏭	muncitor în fabrică	none
 👩‍🏭	muncitoare în fabrică	none
+🧑‍💼	funcționar sau funcționară	none
 👨‍💼	funcționar	none
 👩‍💼	funcționară	none
-👨‍🔬	om de știință	none
-👩‍🔬	femeie om de știință	none
+🧑‍🔬	om de știință	none
+👨‍🔬	om de știință bărbat	none
+👩‍🔬	om de știință femeie	none
+🧑‍💻	specialist sau specialistă IT	none
 👨‍💻	specialist IT	none
 👩‍💻	specialistă IT	none
+🧑‍🎤	cântăreț sau cântăreață	none
 👨‍🎤	cântăreț	none
 👩‍🎤	cântăreață	none
+🧑‍🎨	artist sau artistă	none
 👨‍🎨	artist	none
 👩‍🎨	artistă	none
-👨‍✈	pilot	none
-👩‍✈	femeie pilot	none
+🧑‍✈	pilot	none
+👨‍✈	pilot bărbat	none
+👩‍✈	pilot femeie	none
+🧑‍🚀	astronaut sau astronaută	none
 👨‍🚀	astronaut	none
 👩‍🚀	astronaută	none
-👨‍🚒	pompier	none
-👩‍🚒	femeie pompier	none
-👮	polițist	none
-👮‍♂	polițist bărbat	none
+🧑‍🚒	pompier	none
+👨‍🚒	pompier bărbat	none
+👩‍🚒	pompier femeie	none
+👮	polițist sau polițistă	none
+👮‍♂	polițist	none
 👮‍♀	polițistă	none
 🕵	detectiv	none
 🕵‍♂	detectiv bărbat	none
-🕵‍♀	femeie detectiv	none
+🕵‍♀	detectiv femeie	none
 💂	gardian	none
-💂‍♂	bărbat gardian	none
-💂‍♀	femeie gardian	none
+💂‍♂	gardian bărbat	none
+💂‍♀	gardian femeie	none
 👷	constructor	none
 👷‍♂	muncitor în construcții	none
 👷‍♀	muncitoare în construcții	none
@@ -341,6 +360,21 @@ symbols:
 🚶	persoană care merge	none
 🚶‍♂	bărbat care merge	none
 🚶‍♀	femeie care merge	none
+🧍	persoană în picioare	none
+🧍‍♂	bărbat în picioare	none
+🧍‍♀	femeie în picioare	none
+🧎	persoană în genunchi	none
+🧎‍♂	bărbat în genunchi	none
+🧎‍♀	femeie în genunchi	none
+🧑‍🦯	persoană cu baston pentru nevăzători	none
+👨‍🦯	bărbat cu baston pentru nevăzători	none
+👩‍🦯	femeie cu baston pentru nevăzători	none
+🧑‍🦼	persoană în scaun cu rotile motorizat	none
+👨‍🦼	bărbat în scaun cu rotile motorizat	none
+👩‍🦼	femeie în scaun cu rotile motorizat	none
+🧑‍🦽	persoană în scaun cu rotile manual	none
+👨‍🦽	bărbat în scaun cu rotile manual	none
+👩‍🦽	femeie în scaun cu rotile manual	none
 🏃	persoană care aleargă	none
 🏃‍♂	bărbat care aleargă	none
 🏃‍♀	femeie care aleargă	none
@@ -404,9 +438,10 @@ symbols:
 🧘‍♀	femeie în poziția lotus	none
 🛀	persoană care face baie	none
 🛌	persoană în pat	none
+🧑‍🤝‍🧑	persoane ținându-se de mână	none
+👭	femei ținându-se de mână	none
 👫	bărbat și femeie ținându-se de mână	none
 👬	bărbați ținându-se de mână	none
-👭	femei ținându-se de mână	none
 💏	sărut	none
 💑	cuplu cu inimă	none
 👪	familie	none
@@ -418,13 +453,13 @@ symbols:
 🦱	păr creț	none
 🦳	păr alb	none
 🦲	chelie	none
-♀	semn feminin	none
-♂	semn masculin	none
 🐵	față de maimuță	none
 🐒	maimuță	none
 🦍	gorilă	none
+🦧	urangutan	none
 🐶	față de câine	none
 🐕	câine	none
+🦮	câine ghid	none
 🐕‍🦺	câine de asistență	none
 🐩	pudel	none
 🐺	lup	none
@@ -471,8 +506,12 @@ symbols:
 🐻	urs	none
 🐨	koala	none
 🐼	panda	none
+🦥	leneș	none
+🦦	vidră	none
+🦨	sconcs	none
 🦘	cangur	none
 🦡	bursuc	none
+🐾	urme de lăbuțe	none
 🦃	curcan	none
 🐔	găină	none
 🐓	cocoș	none
@@ -486,6 +525,7 @@ symbols:
 🦆	rață	none
 🦢	lebădă	none
 🦉	bufniță	none
+🦩	flamingo	none
 🦚	păun	none
 🦜	papagal mare	none
 🐸	broască	none
@@ -566,6 +606,8 @@ symbols:
 🥒	castravete	none
 🥬	verdețuri	none
 🥦	broccoli	none
+🧄	usturoi	none
+🧅	ceapă	none
 🍄	ciupercă	none
 🥜	arahide	none
 🌰	castană	none
@@ -575,6 +617,7 @@ symbols:
 🥨	covrig	none
 🥯	bagel	none
 🥞	clătite	none
+🧇	gofră	none
 🧀	bucată de brânză	none
 🍖	os cu carne	none
 🍗	pulpă de pasăre	none
@@ -588,6 +631,7 @@ symbols:
 🌮	taco	none
 🌯	burrito	none
 🥙	lipie umplută	none
+🧆	falafel	none
 🥚	ou	none
 🍳	gătit	none
 🥘	cratiță cu mâncare	none
@@ -595,6 +639,7 @@ symbols:
 🥣	castron cu lingură	none
 🥗	salată verde	none
 🍿	floricele de porumb	none
+🧈	unt	none
 🧂	sare	none
 🥫	mâncare la conservă	none
 🍱	mâncare japoneză la pachet	none
@@ -618,6 +663,7 @@ symbols:
 🦞	homar	none
 🦐	crevete	none
 🦑	calmar	none
+🦪	stridie	none
 🍦	înghețată cremă	none
 🍧	desert din fulgi de gheață	none
 🍨	înghețată	none
@@ -646,6 +692,9 @@ symbols:
 🥂	pahare ciocnite	none
 🥃	pahar de whisky	none
 🥤	pahar cu pai	none
+🧃	cutie de băutură	none
+🧉	mate	none
+🧊	cub de gheață	none
 🥢	bețișoare japoneze	none
 🍽	furculiță și cuțit cu farfurie	none
 🍴	furculiță și cuțit	none
@@ -694,6 +743,7 @@ symbols:
 🗽	Statuia Libertății	none
 ⛪	biserică	none
 🕌	moschee	none
+🛕	templu hindus	none
 🕍	sinagogă	none
 ⛩	altar shinto	none
 🕋	lăcaș de cult islamic kaaba	none
@@ -708,7 +758,6 @@ symbols:
 🌇	apus	none
 🌉	pod luminat noaptea	none
 ♨	izvoare termale	none
-🌌	Calea Lactee	none
 🎠	căluț de carusel	none
 🎡	roata mare	none
 🎢	montagne russe	none
@@ -745,6 +794,9 @@ symbols:
 🏎	mașină de curse	none
 🏍	motocicletă	none
 🛵	scuter	none
+🦽	scaun cu rotile manual	none
+🦼	scaun cu rotile motorizat	none
+🛺	autoricșă	none
 🚲	bicicletă	none
 🛴	trotinetă	none
 🛹	skateboard	none
@@ -770,6 +822,7 @@ symbols:
 🛩	aeronavă mică	none
 🛫	plecare avion	none
 🛬	sosire avion	none
+🪂	parașută	none
 💺	loc în mijloc de transport	none
 🚁	elicopter	none
 🚟	cale ferată suspendată	none
@@ -827,9 +880,11 @@ symbols:
 ☀	soare	none
 🌝	lună plină cu față	none
 🌞	soare cu față	none
+🪐	planetă cu inele	none
 ⭐	stea	none
 🌟	stea strălucitoare	none
 🌠	stea căzătoare	none
+🌌	Calea Lactee	none
 ☁	nor	none
 ⛅	soare în nori	none
 ⛈	nor cu fulger și ploaie	none
@@ -905,11 +960,14 @@ symbols:
 ⛳	steag în gaură la golf	none
 ⛸	patină de gheață	none
 🎣	undiță	none
+🤿	mască de scufundări	none
 🎽	tricou de alegare	none
 🎿	schiuri	none
 🛷	sanie	none
 🥌	piatră de curling	none
 🎯	fix la țintă	none
+🪀	yo-yo	none
+🪁	zmeu	none
 🎱	biliard	none
 🔮	glob de cristal	none
 🧿	amuletă nazar	none
@@ -936,6 +994,7 @@ symbols:
 🕶	ochelari de soare	none
 🥽	ochelari de protecție	none
 🥼	halat de laborator	none
+🦺	vestă de siguranță	none
 👔	cravată	none
 👕	tricou	none
 👖	blugi	none
@@ -945,6 +1004,10 @@ symbols:
 🧦	șosete	none
 👗	rochie	none
 👘	chimono	none
+🥻	sari	none
+🩱	costum de înot întreg	none
+🩲	slip	none
+🩳	șort	none
 👙	costum de baie	none
 👚	haine de damă	none
 👛	poșetă	none
@@ -958,6 +1021,7 @@ symbols:
 🥿	pantof fără toc	none
 👠	pantof cu toc	none
 👡	sanda de damă	none
+🩰	pantofi de balet	none
 👢	cizmă de damă	none
 👑	coroană	none
 👒	pălărie de damă	none
@@ -992,6 +1056,7 @@ symbols:
 🎹	claviatură muzicală	none
 🎺	trompetă	none
 🎻	vioară	none
+🪕	banjo	none
 🥁	tobă	none
 📱	telefon mobil	none
 📲	telefon mobil cu săgeată	none
@@ -1027,6 +1092,7 @@ symbols:
 💡	bec	none
 🔦	lanternă	none
 🏮	felinar din hârtie roșie	none
+🪔	lampă diya	none
 📔	caiet cu copertă decorativă	none
 📕	carte închisă	none
 📖	carte deschisă	none
@@ -1105,6 +1171,7 @@ symbols:
 🔑	cheie	none
 🗝	cheie veche	none
 🔨	ciocan	none
+🪓	topor	none
 ⛏	târnăcop	none
 ⚒	ciocan și daltă	none
 🛠	ciocan și cheie fixă	none
@@ -1118,6 +1185,7 @@ symbols:
 ⚙	rotiță zimțată	none
 🗜	menghină	none
 ⚖	balanță	none
+🦯	baston pentru nevăzători	none
 🔗	za	none
 ⛓	lanț	none
 🧰	trusă de scule	none
@@ -1130,13 +1198,18 @@ symbols:
 🔭	telescop	none
 📡	antenă satelit	none
 💉	seringă	none
+🩸	picătură de sânge	none
 💊	pastilă	none
+🩹	leucoplast	none
+🩺	stetoscop	none
 🚪	ușă	none
 🛏	pat	none
 🛋	canapea și lampă	none
+🪑	scaun	none
 🚽	toaletă	none
 🚿	duș	none
 🛁	cadă	none
+🪒	brici	none
 🧴	flacon de loțiune	none
 🧷	ac de siguranță	none
 🧹	mătură	none
@@ -1246,6 +1319,8 @@ symbols:
 📶	bare de semnal	none
 📳	modul vibrare	none
 📴	închidere telefoane mobile	none
+♀	semn feminin	none
+♂	semn masculin	none
 ⚕	simbol medical	none
 ♾	infinit	none
 ♻	simbolul pentru reciclare	none
@@ -1319,17 +1394,29 @@ symbols:
 🈺	buton cu semnificația „deschis pentru afaceri” în japoneză	none
 🈵	buton cu semnificația „fără locuri libere” în japoneză	none
 🔴	cerc roșu	none
+🟠	cerc portocaliu	none
+🟡	cerc galben	none
+🟢	cerc verde	none
 🔵	cerc albastru	none
-⚪	cerc alb	none
+🟣	cerc violet	none
+🟤	cerc maro	none
 ⚫	cerc negru	none
-⬜	pătrat alb mare	none
+⚪	cerc alb	none
+🟥	pătrat roșu	none
+🟧	pătrat portocaliu	none
+🟨	pătrat galben	none
+🟩	pătrat verde	none
+🟦	pătrat albastru	none
+🟪	pătrat violet	none
+🟫	pătrat maro	none
 ⬛	pătrat negru mare	none
+⬜	pătrat alb mare	none
 ◼	pătrat negru mediu	none
 ◻	pătrat alb mediu	none
-◽	pătrat alb mediu spre mic	none
 ◾	pătrat negru mediu spre mic	none
-▫	pătrat alb mic	none
+◽	pătrat alb mediu spre mic	none
 ▪	pătrat negru mic	none
+▫	pătrat alb mic	none
 🔶	romb portocaliu mare	none
 🔷	romb albastru mare	none
 🔸	romb portocaliu mic	none
@@ -1338,137 +1425,71 @@ symbols:
 🔻	triunghi roșu cu vârful în jos	none
 💠	romb cu punct în centru	none
 🔘	buton radio	none
-🔲	buton pătrat negru	none
 🔳	buton pătrat alb	none
+🔲	buton pătrat negru	none
 🏁	steag cu pătrățele	none
 🚩	steag triunghiular	none
 🎌	steaguri încrucișate	none
 🏴	steag negru	none
 🏳	steag alb	none
+🏳‍⚧	steag transgender	none
 🏳‍🌈	steag curcubeu	none
 🏴‍☠	steagul piraților	none
-🛕	templu hindus	none
-🛺	autoricșă	none
-🟠	cerc portocaliu	none
-🟡	cerc galben	none
-🟢	cerc verde	none
-🟣	cerc violet	none
-🟤	cerc maro	none
-🟥	pătrat roșu	none
-🟦	pătrat albastru	none
-🟧	pătrat portocaliu	none
-🟨	pătrat galben	none
-🟩	pătrat verde	none
-🟪	pătrat violet	none
-🟫	pătrat maro	none
-🤍	inimă albă	none
-🤎	inimă maro	none
-🤏	mână cu două degete apropiate	none
-🤿	mască de scufundări	none
-🥱	față care cască	none
-🥻	sari	none
-🦥	leneș	none
-🦦	vidră	none
-🦧	urangutan	none
-🦨	sconcs	none
-🦩	flamingo	none
-🦪	stridie	none
-🦮	câine ghid	none
-🦯	baston pentru nevăzători	none
-🦺	vestă de siguranță	none
-🦻	ureche cu proteză auditivă	none
-🦼	scaun cu rotile motorizat	none
-🦽	scaun cu rotile manual	none
-🦾	braț mecanic	none
-🦿	picior mecanic	none
-🧃	cutie de băutură	none
-🧄	usturoi	none
-🧅	ceapă	none
-🧆	falafel	none
-🧇	gofră	none
-🧈	unt	none
-🧉	mate	none
-🧊	cub de gheață	none
-🧍	persoană în picioare	none
-🧍‍♀	femeie în picioare	none
-🧍‍♂	bărbat în picioare	none
-🧎	persoană în genunchi	none
-🧎‍♀	femeie în genunchi	none
-🧎‍♂	bărbat în genunchi	none
-🧏	persoană surdă	none
-🧏‍♀	femeie surdă	none
-🧏‍♂	bărbat surd	none
-🩰	pantofi de balet	none
-🩱	costum de înot întreg	none
-🩲	slip	none
-🩳	șort	none
-🩸	picătură de sânge	none
-🩹	leucoplast	none
-🩺	stetoscop	none
-🪀	yo-yo	none
-🪁	zmeu	none
-🪂	parașută	none
-🪐	planetă cu inele	none
-🪑	scaun	none
-🪒	brici	none
-🪓	topor	none
-🪔	lampă diya	none
-🪕	banjo	none
-🤏🏻	mână cu două degete apropiate ton deschis al pielii	none
-🤏🏼	mână cu două degete apropiate ton semi‑deschis al pielii	none
-🤏🏽	mână cu două degete apropiate ton mediu al pielii	none
-🤏🏾	mână cu două degete apropiate ton semi‑închis al pielii	none
-🤏🏿	mână cu două degete apropiate ton închis al pielii	none
-🦻🏻	ureche cu proteză auditivă ton deschis al pielii	none
-🦻🏼	ureche cu proteză auditivă ton semi‑deschis al pielii	none
-🦻🏽	ureche cu proteză auditivă ton mediu al pielii	none
-🦻🏾	ureche cu proteză auditivă ton semi‑închis al pielii	none
-🦻🏿	ureche cu proteză auditivă ton închis al pielii	none
-🧍🏻	persoană în picioare ton deschis al pielii	none
-🧍🏼	persoană în picioare ton semi‑deschis al pielii	none
-🧍🏽	persoană în picioare ton mediu al pielii	none
-🧍🏾	persoană în picioare ton semi‑închis al pielii	none
-🧍🏿	persoană în picioare ton închis al pielii	none
-🧍🏻‍♀	femeie în picioare ton deschis al pielii	none
-🧍🏼‍♀	femeie în picioare ton semi‑deschis al pielii	none
-🧍🏽‍♀	femeie în picioare ton mediu al pielii	none
-🧍🏾‍♀	femeie în picioare ton semi‑închis al pielii	none
-🧍🏿‍♀	femeie în picioare ton închis al pielii	none
-🧍🏻‍♂	bărbat în picioare ton deschis al pielii	none
-🧍🏼‍♂	bărbat în picioare ton semi‑deschis al pielii	none
-🧍🏽‍♂	bărbat în picioare ton mediu al pielii	none
-🧍🏾‍♂	bărbat în picioare ton semi‑închis al pielii	none
-🧍🏿‍♂	bărbat în picioare ton închis al pielii	none
-🧎🏻	persoană în genunchi ton deschis al pielii	none
-🧎🏼	persoană în genunchi ton semi‑deschis al pielii	none
-🧎🏽	persoană în genunchi ton mediu al pielii	none
-🧎🏾	persoană în genunchi ton semi‑închis al pielii	none
-🧎🏿	persoană în genunchi ton închis al pielii	none
-🧎🏻‍♀	femeie în genunchi ton deschis al pielii	none
-🧎🏼‍♀	femeie în genunchi ton semi‑deschis al pielii	none
-🧎🏽‍♀	femeie în genunchi ton mediu al pielii	none
-🧎🏾‍♀	femeie în genunchi ton semi‑închis al pielii	none
-🧎🏿‍♀	femeie în genunchi ton închis al pielii	none
-🧎🏻‍♂	bărbat în genunchi ton deschis al pielii	none
-🧎🏼‍♂	bărbat în genunchi ton semi‑deschis al pielii	none
-🧎🏽‍♂	bărbat în genunchi ton mediu al pielii	none
-🧎🏾‍♂	bărbat în genunchi ton semi‑închis al pielii	none
-🧎🏿‍♂	bărbat în genunchi ton închis al pielii	none
-🧏🏻	persoană surdă ton deschis al pielii	none
-🧏🏼	persoană surdă ton semi‑deschis al pielii	none
-🧏🏽	persoană surdă ton mediu al pielii	none
-🧏🏾	persoană surdă ton semi‑închis al pielii	none
-🧏🏿	persoană surdă ton închis al pielii	none
-🧏🏻‍♀	femeie surdă ton deschis al pielii	none
-🧏🏼‍♀	femeie surdă ton semi‑deschis al pielii	none
-🧏🏽‍♀	femeie surdă ton mediu al pielii	none
-🧏🏾‍♀	femeie surdă ton semi‑închis al pielii	none
-🧏🏿‍♀	femeie surdă ton închis al pielii	none
-🧏🏻‍♂	bărbat surd ton deschis al pielii	none
-🧏🏼‍♂	bărbat surd ton semi‑deschis al pielii	none
-🧏🏽‍♂	bărbat surd ton mediu al pielii	none
-🧏🏾‍♂	bărbat surd ton semi‑închis al pielii	none
-🧏🏿‍♂	bărbat surd ton închis al pielii	none
+🛖	colibă	none
+🛗	lift	none
+🛻	camionetă	none
+🛼	patină cu rotile	none
+🤌	degete strânse	none
+🥲	față zâmbind cu lacrimă	none
+🥷	ninja	none
+🥸	față deghizată	none
+🦣	mamut	none
+🦤	dodo	none
+🦫	castor	none
+🦬	bizon	none
+🦭	focă	none
+🧋	ceai cu perle	none
+🩴	șlap	none
+🪃	bumerang	none
+🪄	baghetă magică	none
+🪅	piñata	none
+🪆	matrioșka	none
+🪖	cască militară	none
+🪗	acordeon	none
+🪘	tobă înaltă	none
+🪙	monedă	none
+🪚	fierăstrău pentru tămplărie	none
+🪛	șurubelniță	none
+🪜	scară	none
+🪝	cârlig	none
+🪞	oglindă	none
+🪟	fereastră	none
+🪠	pompă de aspirare	none
+🪡	ac de cusut	none
+🪢	nod	none
+🪣	găleată	none
+🪤	cursă de șoareci	none
+🪥	periuță de dinți	none
+🪦	piatră funerară	none
+🪧	plancardă	none
+🪨	piatră	none
+🪰	muscă	none
+🪱	vierme	none
+🪲	cărăbuș	none
+🪳	gândac de bucătărie	none
+🪴	plantă în ghiveci	none
+🪵	lemn	none
+🪶	pană	none
+🫀	inimă	none
+🫁	plămâni	none
+🫂	persoane îmbrățișate	none
+🫐	afine	none
+🫑	ardei gras	none
+🫒	măslină	none
+🫓	pită	none
+🫔	tamale	none
+🫕	fondue	none
+🫖	ceainic	none
 👋🏻	mână fluturată ton deschis al pielii	none
 👋🏼	mână fluturată ton semi‑deschis al pielii	none
 👋🏽	mână fluturată ton mediu al pielii	none
@@ -1499,6 +1520,11 @@ symbols:
 👌🏽	semnul ok ton mediu al pielii	none
 👌🏾	semnul ok ton semi‑închis al pielii	none
 👌🏿	semnul ok ton închis al pielii	none
+🤏🏻	mână cu două degete apropiate ton deschis al pielii	none
+🤏🏼	mână cu două degete apropiate ton semi‑deschis al pielii	none
+🤏🏽	mână cu două degete apropiate ton mediu al pielii	none
+🤏🏾	mână cu două degete apropiate ton semi‑închis al pielii	none
+🤏🏿	mână cu două degete apropiate ton închis al pielii	none
 ✌🏻	semnul victoriei ton deschis al pielii	none
 ✌🏼	semnul victoriei ton semi‑deschis al pielii	none
 ✌🏽	semnul victoriei ton mediu al pielii	none
@@ -1644,6 +1670,11 @@ symbols:
 👂🏽	ureche ton mediu al pielii	none
 👂🏾	ureche ton semi‑închis al pielii	none
 👂🏿	ureche ton închis al pielii	none
+🦻🏻	ureche cu proteză auditivă ton deschis al pielii	none
+🦻🏼	ureche cu proteză auditivă ton semi‑deschis al pielii	none
+🦻🏽	ureche cu proteză auditivă ton mediu al pielii	none
+🦻🏾	ureche cu proteză auditivă ton semi‑închis al pielii	none
+🦻🏿	ureche cu proteză auditivă ton închis al pielii	none
 👃🏻	nas ton deschis al pielii	none
 👃🏼	nas ton semi‑deschis al pielii	none
 👃🏽	nas ton mediu al pielii	none
@@ -1679,51 +1710,45 @@ symbols:
 👱🏽	persoană blondă ton mediu al pielii	none
 👱🏾	persoană blondă ton semi‑închis al pielii	none
 👱🏿	persoană blondă ton închis al pielii	none
-🧑🏻‍🤝‍🧑🏻	persoane ținându-se de mână ton deschis al pielii	none
-🧑🏼‍🤝‍🧑🏻	persoane ținându-se de mână ton semi‑deschis al pielii, ton deschis al pielii	none
-🧑🏼‍🤝‍🧑🏼	persoane ținându-se de mână ton semi‑deschis al pielii	none
-🧑🏽‍🤝‍🧑🏻	persoane ținându-se de mână ton mediu al pielii, ton deschis al pielii	none
-🧑🏽‍🤝‍🧑🏼	persoane ținându-se de mână ton mediu al pielii, ton semi‑deschis al pielii	none
-🧑🏽‍🤝‍🧑🏽	persoane ținându-se de mână ton mediu al pielii	none
-🧑🏾‍🤝‍🧑🏻	persoane ținându-se de mână ton semi‑închis al pielii, ton deschis al pielii	none
-🧑🏾‍🤝‍🧑🏼	persoane ținându-se de mână ton semi‑închis al pielii, ton semi‑deschis al pielii	none
-🧑🏾‍🤝‍🧑🏽	persoane ținându-se de mână ton semi‑închis al pielii, ton mediu al pielii	none
-🧑🏾‍🤝‍🧑🏾	persoane ținându-se de mână ton semi‑închis al pielii	none
-🧑🏿‍🤝‍🧑🏻	persoane ținându-se de mână ton închis al pielii, ton deschis al pielii	none
-🧑🏿‍🤝‍🧑🏼	persoane ținându-se de mână ton închis al pielii, ton semi‑deschis al pielii	none
-🧑🏿‍🤝‍🧑🏽	persoane ținându-se de mână ton închis al pielii, ton mediu al pielii	none
-🧑🏿‍🤝‍🧑🏾	persoane ținându-se de mână ton închis al pielii, ton semi‑închis al pielii	none
-🧑🏿‍🤝‍🧑🏿	persoane ținându-se de mână ton închis al pielii	none
+🧑‍🦰	adult păr roșcat	none
+🧑🏻‍🦰	adult ton deschis al pielii, păr roșcat	none
+🧑🏼‍🦰	adult ton semi‑deschis al pielii, păr roșcat	none
+🧑🏽‍🦰	adult ton mediu al pielii, păr roșcat	none
+🧑🏾‍🦰	adult ton semi‑închis al pielii, păr roșcat	none
+🧑🏿‍🦰	adult ton închis al pielii, păr roșcat	none
+🧑‍🦱	adult păr creț	none
+🧑🏻‍🦱	adult ton deschis al pielii, păr creț	none
+🧑🏼‍🦱	adult ton semi‑deschis al pielii, păr creț	none
+🧑🏽‍🦱	adult ton mediu al pielii, păr creț	none
+🧑🏾‍🦱	adult ton semi‑închis al pielii, păr creț	none
+🧑🏿‍🦱	adult ton închis al pielii, păr creț	none
+🧑‍🦳	adult păr alb	none
+🧑🏻‍🦳	adult ton deschis al pielii, păr alb	none
+🧑🏼‍🦳	adult ton semi‑deschis al pielii, păr alb	none
+🧑🏽‍🦳	adult ton mediu al pielii, păr alb	none
+🧑🏾‍🦳	adult ton semi‑închis al pielii, păr alb	none
+🧑🏿‍🦳	adult ton închis al pielii, păr alb	none
+🧑‍🦲	adult chelie	none
+🧑🏻‍🦲	adult ton deschis al pielii, chelie	none
+🧑🏼‍🦲	adult ton semi‑deschis al pielii, chelie	none
+🧑🏽‍🦲	adult ton mediu al pielii, chelie	none
+🧑🏾‍🦲	adult ton semi‑închis al pielii, chelie	none
+🧑🏿‍🦲	adult ton închis al pielii, chelie	none
 👨🏻	bărbat ton deschis al pielii	none
 👨🏼	bărbat ton semi‑deschis al pielii	none
 👨🏽	bărbat ton mediu al pielii	none
 👨🏾	bărbat ton semi‑închis al pielii	none
 👨🏿	bărbat ton închis al pielii	none
-👨🏻‍🦯	bărbat cu baston pentru nevăzători ton deschis al pielii	none
-👨🏼‍🦯	bărbat cu baston pentru nevăzători ton semi‑deschis al pielii	none
-👨🏽‍🦯	bărbat cu baston pentru nevăzători ton mediu al pielii	none
-👨🏾‍🦯	bărbat cu baston pentru nevăzători ton semi‑închis al pielii	none
-👨🏿‍🦯	bărbat cu baston pentru nevăzători ton închis al pielii	none
-👨🏻‍🦼	bărbat în scaun cu rotile motorizat ton deschis al pielii	none
-👨🏼‍🦼	bărbat în scaun cu rotile motorizat ton semi‑deschis al pielii	none
-👨🏽‍🦼	bărbat în scaun cu rotile motorizat ton mediu al pielii	none
-👨🏾‍🦼	bărbat în scaun cu rotile motorizat ton semi‑închis al pielii	none
-👨🏿‍🦼	bărbat în scaun cu rotile motorizat ton închis al pielii	none
-👨🏻‍🦽	bărbat în scaun cu rotile manual ton deschis al pielii	none
-👨🏼‍🦽	bărbat în scaun cu rotile manual ton semi‑deschis al pielii	none
-👨🏽‍🦽	bărbat în scaun cu rotile manual ton mediu al pielii	none
-👨🏾‍🦽	bărbat în scaun cu rotile manual ton semi‑închis al pielii	none
-👨🏿‍🦽	bărbat în scaun cu rotile manual ton închis al pielii	none
-👨🏼‍🤝‍👨🏻	bărbați ținându-se de mână ton semi‑deschis al pielii, ton deschis al pielii	none
-👨🏽‍🤝‍👨🏻	bărbați ținându-se de mână ton mediu al pielii, ton deschis al pielii	none
-👨🏽‍🤝‍👨🏼	bărbați ținându-se de mână ton mediu al pielii, ton semi‑deschis al pielii	none
-👨🏾‍🤝‍👨🏻	bărbați ținându-se de mână ton semi‑închis al pielii, ton deschis al pielii	none
-👨🏾‍🤝‍👨🏼	bărbați ținându-se de mână ton semi‑închis al pielii, ton semi‑deschis al pielii	none
-👨🏾‍🤝‍👨🏽	bărbați ținându-se de mână ton semi‑închis al pielii, ton mediu al pielii	none
-👨🏿‍🤝‍👨🏻	bărbați ținându-se de mână ton închis al pielii, ton deschis al pielii	none
-👨🏿‍🤝‍👨🏼	bărbați ținându-se de mână ton închis al pielii, ton semi‑deschis al pielii	none
-👨🏿‍🤝‍👨🏽	bărbați ținându-se de mână ton închis al pielii, ton mediu al pielii	none
-👨🏿‍🤝‍👨🏾	bărbați ținându-se de mână ton închis al pielii, ton semi‑închis al pielii	none
+🧔🏻	bărbat cu barbă ton deschis al pielii	none
+🧔🏼	bărbat cu barbă ton semi‑deschis al pielii	none
+🧔🏽	bărbat cu barbă ton mediu al pielii	none
+🧔🏾	bărbat cu barbă ton semi‑închis al pielii	none
+🧔🏿	bărbat cu barbă ton închis al pielii	none
+👱🏻‍♂	bărbat blond ton deschis al pielii	none
+👱🏼‍♂	bărbat blond ton semi‑deschis al pielii	none
+👱🏽‍♂	bărbat blond ton mediu al pielii	none
+👱🏾‍♂	bărbat blond ton semi‑închis al pielii	none
+👱🏿‍♂	bărbat blond ton închis al pielii	none
 👨‍🦰	bărbat păr roșcat	none
 👨🏻‍🦰	bărbat ton deschis al pielii, păr roșcat	none
 👨🏼‍🦰	bărbat ton semi‑deschis al pielii, păr roșcat	none
@@ -1748,66 +1773,16 @@ symbols:
 👨🏽‍🦲	bărbat ton mediu al pielii, chelie	none
 👨🏾‍🦲	bărbat ton semi‑închis al pielii, chelie	none
 👨🏿‍🦲	bărbat ton închis al pielii, chelie	none
-👱🏻‍♂	bărbat blond ton deschis al pielii	none
-👱🏼‍♂	bărbat blond ton semi‑deschis al pielii	none
-👱🏽‍♂	bărbat blond ton mediu al pielii	none
-👱🏾‍♂	bărbat blond ton semi‑închis al pielii	none
-👱🏿‍♂	bărbat blond ton închis al pielii	none
-🧔🏻	bărbat cu barbă ton deschis al pielii	none
-🧔🏼	bărbat cu barbă ton semi‑deschis al pielii	none
-🧔🏽	bărbat cu barbă ton mediu al pielii	none
-🧔🏾	bărbat cu barbă ton semi‑închis al pielii	none
-🧔🏿	bărbat cu barbă ton închis al pielii	none
 👩🏻	femeie ton deschis al pielii	none
 👩🏼	femeie ton semi‑deschis al pielii	none
 👩🏽	femeie ton mediu al pielii	none
 👩🏾	femeie ton semi‑închis al pielii	none
 👩🏿	femeie ton închis al pielii	none
-👩🏻‍🦯	femeie cu baston pentru nevăzători ton deschis al pielii	none
-👩🏼‍🦯	femeie cu baston pentru nevăzători ton semi‑deschis al pielii	none
-👩🏽‍🦯	femeie cu baston pentru nevăzători ton mediu al pielii	none
-👩🏾‍🦯	femeie cu baston pentru nevăzători ton semi‑închis al pielii	none
-👩🏿‍🦯	femeie cu baston pentru nevăzători ton închis al pielii	none
-👩🏻‍🦼	femeie în scaun cu rotile motorizat ton deschis al pielii	none
-👩🏼‍🦼	femeie în scaun cu rotile motorizat ton semi‑deschis al pielii	none
-👩🏽‍🦼	femeie în scaun cu rotile motorizat ton mediu al pielii	none
-👩🏾‍🦼	femeie în scaun cu rotile motorizat ton semi‑închis al pielii	none
-👩🏿‍🦼	femeie în scaun cu rotile motorizat ton închis al pielii	none
-👩🏻‍🦽	femeie în scaun cu rotile manual ton deschis al pielii	none
-👩🏼‍🦽	femeie în scaun cu rotile manual ton semi‑deschis al pielii	none
-👩🏽‍🦽	femeie în scaun cu rotile manual ton mediu al pielii	none
-👩🏾‍🦽	femeie în scaun cu rotile manual ton semi‑închis al pielii	none
-👩🏿‍🦽	femeie în scaun cu rotile manual ton închis al pielii	none
-👩🏻‍🤝‍👨🏼	bărbat și femeie ținându-se de mână ton deschis al pielii, ton semi‑deschis al pielii	none
-👩🏻‍🤝‍👨🏽	bărbat și femeie ținându-se de mână ton deschis al pielii, ton mediu al pielii	none
-👩🏻‍🤝‍👨🏾	bărbat și femeie ținându-se de mână ton deschis al pielii, ton semi‑închis al pielii	none
-👩🏻‍🤝‍👨🏿	bărbat și femeie ținându-se de mână ton deschis al pielii, ton închis al pielii	none
-👩🏼‍🤝‍👨🏻	bărbat și femeie ținându-se de mână ton semi‑deschis al pielii, ton deschis al pielii	none
-👩🏼‍🤝‍👨🏽	bărbat și femeie ținându-se de mână ton semi‑deschis al pielii, ton mediu al pielii	none
-👩🏼‍🤝‍👨🏾	bărbat și femeie ținându-se de mână ton semi‑deschis al pielii, ton semi‑închis al pielii	none
-👩🏼‍🤝‍👨🏿	bărbat și femeie ținându-se de mână ton semi‑deschis al pielii, ton închis al pielii	none
-👩🏽‍🤝‍👨🏻	bărbat și femeie ținându-se de mână ton mediu al pielii, ton deschis al pielii	none
-👩🏽‍🤝‍👨🏼	bărbat și femeie ținându-se de mână ton mediu al pielii, ton semi‑deschis al pielii	none
-👩🏽‍🤝‍👨🏾	bărbat și femeie ținându-se de mână ton mediu al pielii, ton semi‑închis al pielii	none
-👩🏽‍🤝‍👨🏿	bărbat și femeie ținându-se de mână ton mediu al pielii, ton închis al pielii	none
-👩🏾‍🤝‍👨🏻	bărbat și femeie ținându-se de mână ton semi‑închis al pielii, ton deschis al pielii	none
-👩🏾‍🤝‍👨🏼	bărbat și femeie ținându-se de mână ton semi‑închis al pielii, ton semi‑deschis al pielii	none
-👩🏾‍🤝‍👨🏽	bărbat și femeie ținându-se de mână ton semi‑închis al pielii, ton mediu al pielii	none
-👩🏾‍🤝‍👨🏿	bărbat și femeie ținându-se de mână ton semi‑închis al pielii, ton închis al pielii	none
-👩🏿‍🤝‍👨🏻	bărbat și femeie ținându-se de mână ton închis al pielii, ton deschis al pielii	none
-👩🏿‍🤝‍👨🏼	bărbat și femeie ținându-se de mână ton închis al pielii, ton semi‑deschis al pielii	none
-👩🏿‍🤝‍👨🏽	bărbat și femeie ținându-se de mână ton închis al pielii, ton mediu al pielii	none
-👩🏿‍🤝‍👨🏾	bărbat și femeie ținându-se de mână ton închis al pielii, ton semi‑închis al pielii	none
-👩🏼‍🤝‍👩🏻	femei ținându-se de mână ton semi‑deschis al pielii, ton deschis al pielii	none
-👩🏽‍🤝‍👩🏻	femei ținându-se de mână ton mediu al pielii, ton deschis al pielii	none
-👩🏽‍🤝‍👩🏼	femei ținându-se de mână ton mediu al pielii, ton semi‑deschis al pielii	none
-👩🏾‍🤝‍👩🏻	femei ținându-se de mână ton semi‑închis al pielii, ton deschis al pielii	none
-👩🏾‍🤝‍👩🏼	femei ținându-se de mână ton semi‑închis al pielii, ton semi‑deschis al pielii	none
-👩🏾‍🤝‍👩🏽	femei ținându-se de mână ton semi‑închis al pielii, ton mediu al pielii	none
-👩🏿‍🤝‍👩🏻	femei ținându-se de mână ton închis al pielii, ton deschis al pielii	none
-👩🏿‍🤝‍👩🏼	femei ținându-se de mână ton închis al pielii, ton semi‑deschis al pielii	none
-👩🏿‍🤝‍👩🏽	femei ținându-se de mână ton închis al pielii, ton mediu al pielii	none
-👩🏿‍🤝‍👩🏾	femei ținându-se de mână ton închis al pielii, ton semi‑închis al pielii	none
+👱🏻‍♀	femeie blondă ton deschis al pielii	none
+👱🏼‍♀	femeie blondă ton semi‑deschis al pielii	none
+👱🏽‍♀	femeie blondă ton mediu al pielii	none
+👱🏾‍♀	femeie blondă ton semi‑închis al pielii	none
+👱🏿‍♀	femeie blondă ton închis al pielii	none
 👩‍🦰	femeie păr roșcat	none
 👩🏻‍🦰	femeie ton deschis al pielii, păr roșcat	none
 👩🏼‍🦰	femeie ton semi‑deschis al pielii, păr roșcat	none
@@ -1832,11 +1807,6 @@ symbols:
 👩🏽‍🦲	femeie ton mediu al pielii, chelie	none
 👩🏾‍🦲	femeie ton semi‑închis al pielii, chelie	none
 👩🏿‍🦲	femeie ton închis al pielii, chelie	none
-👱🏻‍♀	femeie blondă ton deschis al pielii	none
-👱🏼‍♀	femeie blondă ton semi‑deschis al pielii	none
-👱🏽‍♀	femeie blondă ton mediu al pielii	none
-👱🏾‍♀	femeie blondă ton semi‑închis al pielii	none
-👱🏿‍♀	femeie blondă ton închis al pielii	none
 🧓🏻	persoană în vârstă ton deschis al pielii	none
 🧓🏼	persoană în vârstă ton semi‑deschis al pielii	none
 🧓🏽	persoană în vârstă ton mediu al pielii	none
@@ -1942,6 +1912,21 @@ symbols:
 🙋🏽‍♀	femeie care ridică mâna ton mediu al pielii	none
 🙋🏾‍♀	femeie care ridică mâna ton semi‑închis al pielii	none
 🙋🏿‍♀	femeie care ridică mâna ton închis al pielii	none
+🧏🏻	persoană surdă ton deschis al pielii	none
+🧏🏼	persoană surdă ton semi‑deschis al pielii	none
+🧏🏽	persoană surdă ton mediu al pielii	none
+🧏🏾	persoană surdă ton semi‑închis al pielii	none
+🧏🏿	persoană surdă ton închis al pielii	none
+🧏🏻‍♂	bărbat surd ton deschis al pielii	none
+🧏🏼‍♂	bărbat surd ton semi‑deschis al pielii	none
+🧏🏽‍♂	bărbat surd ton mediu al pielii	none
+🧏🏾‍♂	bărbat surd ton semi‑închis al pielii	none
+🧏🏿‍♂	bărbat surd ton închis al pielii	none
+🧏🏻‍♀	femeie surdă ton deschis al pielii	none
+🧏🏼‍♀	femeie surdă ton semi‑deschis al pielii	none
+🧏🏽‍♀	femeie surdă ton mediu al pielii	none
+🧏🏾‍♀	femeie surdă ton semi‑închis al pielii	none
+🧏🏿‍♀	femeie surdă ton închis al pielii	none
 🙇🏻	persoană care se înclină ton deschis al pielii	none
 🙇🏼	persoană care se înclină ton semi‑deschis al pielii	none
 🙇🏽	persoană care se înclină ton mediu al pielii	none
@@ -1987,6 +1972,11 @@ symbols:
 🤷🏽‍♀	femeie care ridică din umeri ton mediu al pielii	none
 🤷🏾‍♀	femeie care ridică din umeri ton semi‑închis al pielii	none
 🤷🏿‍♀	femeie care ridică din umeri ton închis al pielii	none
+🧑🏻‍⚕	persoană lucrătoare în domeniul sănătății ton deschis al pielii	none
+🧑🏼‍⚕	persoană lucrătoare în domeniul sănătății ton semi‑deschis al pielii	none
+🧑🏽‍⚕	persoană lucrătoare în domeniul sănătății ton mediu al pielii	none
+🧑🏾‍⚕	persoană lucrătoare în domeniul sănătății ton semi‑închis al pielii	none
+🧑🏿‍⚕	persoană lucrătoare în domeniul sănătății ton închis al pielii	none
 👨🏻‍⚕	lucrător în domeniul sănătății ton deschis al pielii	none
 👨🏼‍⚕	lucrător în domeniul sănătății ton semi‑deschis al pielii	none
 👨🏽‍⚕	lucrător în domeniul sănătății ton mediu al pielii	none
@@ -1997,6 +1987,11 @@ symbols:
 👩🏽‍⚕	lucrătoare în domeniul sănătății ton mediu al pielii	none
 👩🏾‍⚕	lucrătoare în domeniul sănătății ton semi‑închis al pielii	none
 👩🏿‍⚕	lucrătoare în domeniul sănătății ton închis al pielii	none
+🧑🏻‍🎓	student sau studentă ton deschis al pielii	none
+🧑🏼‍🎓	student sau studentă ton semi‑deschis al pielii	none
+🧑🏽‍🎓	student sau studentă ton mediu al pielii	none
+🧑🏾‍🎓	student sau studentă ton semi‑închis al pielii	none
+🧑🏿‍🎓	student sau studentă ton închis al pielii	none
 👨🏻‍🎓	student ton deschis al pielii	none
 👨🏼‍🎓	student ton semi‑deschis al pielii	none
 👨🏽‍🎓	student ton mediu al pielii	none
@@ -2007,6 +2002,11 @@ symbols:
 👩🏽‍🎓	studentă ton mediu al pielii	none
 👩🏾‍🎓	studentă ton semi‑închis al pielii	none
 👩🏿‍🎓	studentă ton închis al pielii	none
+🧑🏻‍🏫	profesor sau profesoară ton deschis al pielii	none
+🧑🏼‍🏫	profesor sau profesoară ton semi‑deschis al pielii	none
+🧑🏽‍🏫	profesor sau profesoară ton mediu al pielii	none
+🧑🏾‍🏫	profesor sau profesoară ton semi‑închis al pielii	none
+🧑🏿‍🏫	profesor sau profesoară ton închis al pielii	none
 👨🏻‍🏫	profesor ton deschis al pielii	none
 👨🏼‍🏫	profesor ton semi‑deschis al pielii	none
 👨🏽‍🏫	profesor ton mediu al pielii	none
@@ -2017,6 +2017,11 @@ symbols:
 👩🏽‍🏫	profesoară ton mediu al pielii	none
 👩🏾‍🏫	profesoară ton semi‑închis al pielii	none
 👩🏿‍🏫	profesoară ton închis al pielii	none
+🧑🏻‍⚖	judecător sau judecătoare ton deschis al pielii	none
+🧑🏼‍⚖	judecător sau judecătoare ton semi‑deschis al pielii	none
+🧑🏽‍⚖	judecător sau judecătoare ton mediu al pielii	none
+🧑🏾‍⚖	judecător sau judecătoare ton semi‑închis al pielii	none
+🧑🏿‍⚖	judecător sau judecătoare ton închis al pielii	none
 👨🏻‍⚖	judecător ton deschis al pielii	none
 👨🏼‍⚖	judecător ton semi‑deschis al pielii	none
 👨🏽‍⚖	judecător ton mediu al pielii	none
@@ -2027,6 +2032,11 @@ symbols:
 👩🏽‍⚖	judecătoare ton mediu al pielii	none
 👩🏾‍⚖	judecătoare ton semi‑închis al pielii	none
 👩🏿‍⚖	judecătoare ton închis al pielii	none
+🧑🏻‍🌾	fermier sau fermieră ton deschis al pielii	none
+🧑🏼‍🌾	fermier sau fermieră ton semi‑deschis al pielii	none
+🧑🏽‍🌾	fermier sau fermieră ton mediu al pielii	none
+🧑🏾‍🌾	fermier sau fermieră ton semi‑închis al pielii	none
+🧑🏿‍🌾	fermier sau fermieră ton închis al pielii	none
 👨🏻‍🌾	fermier ton deschis al pielii	none
 👨🏼‍🌾	fermier ton semi‑deschis al pielii	none
 👨🏽‍🌾	fermier ton mediu al pielii	none
@@ -2037,6 +2047,11 @@ symbols:
 👩🏽‍🌾	fermieră ton mediu al pielii	none
 👩🏾‍🌾	fermieră ton semi‑închis al pielii	none
 👩🏿‍🌾	fermieră ton închis al pielii	none
+🧑🏻‍🍳	bucătar sau bucătăreasă ton deschis al pielii	none
+🧑🏼‍🍳	bucătar sau bucătăreasă ton semi‑deschis al pielii	none
+🧑🏽‍🍳	bucătar sau bucătăreasă ton mediu al pielii	none
+🧑🏾‍🍳	bucătar sau bucătăreasă ton semi‑închis al pielii	none
+🧑🏿‍🍳	bucătar sau bucătăreasă ton închis al pielii	none
 👨🏻‍🍳	bucătar ton deschis al pielii	none
 👨🏼‍🍳	bucătar ton semi‑deschis al pielii	none
 👨🏽‍🍳	bucătar ton mediu al pielii	none
@@ -2047,16 +2062,26 @@ symbols:
 👩🏽‍🍳	bucătăreasă ton mediu al pielii	none
 👩🏾‍🍳	bucătăreasă ton semi‑închis al pielii	none
 👩🏿‍🍳	bucătăreasă ton închis al pielii	none
-👨🏻‍🔧	mecanic ton deschis al pielii	none
-👨🏼‍🔧	mecanic ton semi‑deschis al pielii	none
-👨🏽‍🔧	mecanic ton mediu al pielii	none
-👨🏾‍🔧	mecanic ton semi‑închis al pielii	none
-👨🏿‍🔧	mecanic ton închis al pielii	none
-👩🏻‍🔧	femeie mecanic ton deschis al pielii	none
-👩🏼‍🔧	femeie mecanic ton semi‑deschis al pielii	none
-👩🏽‍🔧	femeie mecanic ton mediu al pielii	none
-👩🏾‍🔧	femeie mecanic ton semi‑închis al pielii	none
-👩🏿‍🔧	femeie mecanic ton închis al pielii	none
+🧑🏻‍🔧	mecanic ton deschis al pielii	none
+🧑🏼‍🔧	mecanic ton semi‑deschis al pielii	none
+🧑🏽‍🔧	mecanic ton mediu al pielii	none
+🧑🏾‍🔧	mecanic ton semi‑închis al pielii	none
+🧑🏿‍🔧	mecanic ton închis al pielii	none
+👨🏻‍🔧	mecanic bărbat ton deschis al pielii	none
+👨🏼‍🔧	mecanic bărbat ton semi‑deschis al pielii	none
+👨🏽‍🔧	mecanic bărbat ton mediu al pielii	none
+👨🏾‍🔧	mecanic bărbat ton semi‑închis al pielii	none
+👨🏿‍🔧	mecanic bărbat ton închis al pielii	none
+👩🏻‍🔧	mecanic femeie ton deschis al pielii	none
+👩🏼‍🔧	mecanic femeie ton semi‑deschis al pielii	none
+👩🏽‍🔧	mecanic femeie ton mediu al pielii	none
+👩🏾‍🔧	mecanic femeie ton semi‑închis al pielii	none
+👩🏿‍🔧	mecanic femeie ton închis al pielii	none
+🧑🏻‍🏭	muncitor sau muncitoare în fabrică ton deschis al pielii	none
+🧑🏼‍🏭	muncitor sau muncitoare în fabrică ton semi‑deschis al pielii	none
+🧑🏽‍🏭	muncitor sau muncitoare în fabrică ton mediu al pielii	none
+🧑🏾‍🏭	muncitor sau muncitoare în fabrică ton semi‑închis al pielii	none
+🧑🏿‍🏭	muncitor sau muncitoare în fabrică ton închis al pielii	none
 👨🏻‍🏭	muncitor în fabrică ton deschis al pielii	none
 👨🏼‍🏭	muncitor în fabrică ton semi‑deschis al pielii	none
 👨🏽‍🏭	muncitor în fabrică ton mediu al pielii	none
@@ -2067,6 +2092,11 @@ symbols:
 👩🏽‍🏭	muncitoare în fabrică ton mediu al pielii	none
 👩🏾‍🏭	muncitoare în fabrică ton semi‑închis al pielii	none
 👩🏿‍🏭	muncitoare în fabrică ton închis al pielii	none
+🧑🏻‍💼	funcționar sau funcționară ton deschis al pielii	none
+🧑🏼‍💼	funcționar sau funcționară ton semi‑deschis al pielii	none
+🧑🏽‍💼	funcționar sau funcționară ton mediu al pielii	none
+🧑🏾‍💼	funcționar sau funcționară ton semi‑închis al pielii	none
+🧑🏿‍💼	funcționar sau funcționară ton închis al pielii	none
 👨🏻‍💼	funcționar ton deschis al pielii	none
 👨🏼‍💼	funcționar ton semi‑deschis al pielii	none
 👨🏽‍💼	funcționar ton mediu al pielii	none
@@ -2077,16 +2107,26 @@ symbols:
 👩🏽‍💼	funcționară ton mediu al pielii	none
 👩🏾‍💼	funcționară ton semi‑închis al pielii	none
 👩🏿‍💼	funcționară ton închis al pielii	none
-👨🏻‍🔬	om de știință ton deschis al pielii	none
-👨🏼‍🔬	om de știință ton semi‑deschis al pielii	none
-👨🏽‍🔬	om de știință ton mediu al pielii	none
-👨🏾‍🔬	om de știință ton semi‑închis al pielii	none
-👨🏿‍🔬	om de știință ton închis al pielii	none
-👩🏻‍🔬	femeie om de știință ton deschis al pielii	none
-👩🏼‍🔬	femeie om de știință ton semi‑deschis al pielii	none
-👩🏽‍🔬	femeie om de știință ton mediu al pielii	none
-👩🏾‍🔬	femeie om de știință ton semi‑închis al pielii	none
-👩🏿‍🔬	femeie om de știință ton închis al pielii	none
+🧑🏻‍🔬	om de știință ton deschis al pielii	none
+🧑🏼‍🔬	om de știință ton semi‑deschis al pielii	none
+🧑🏽‍🔬	om de știință ton mediu al pielii	none
+🧑🏾‍🔬	om de știință ton semi‑închis al pielii	none
+🧑🏿‍🔬	om de știință ton închis al pielii	none
+👨🏻‍🔬	om de știință bărbat ton deschis al pielii	none
+👨🏼‍🔬	om de știință bărbat ton semi‑deschis al pielii	none
+👨🏽‍🔬	om de știință bărbat ton mediu al pielii	none
+👨🏾‍🔬	om de știință bărbat ton semi‑închis al pielii	none
+👨🏿‍🔬	om de știință bărbat ton închis al pielii	none
+👩🏻‍🔬	om de știință femeie ton deschis al pielii	none
+👩🏼‍🔬	om de știință femeie ton semi‑deschis al pielii	none
+👩🏽‍🔬	om de știință femeie ton mediu al pielii	none
+👩🏾‍🔬	om de știință femeie ton semi‑închis al pielii	none
+👩🏿‍🔬	om de știință femeie ton închis al pielii	none
+🧑🏻‍💻	specialist sau specialistă IT ton deschis al pielii	none
+🧑🏼‍💻	specialist sau specialistă IT ton semi‑deschis al pielii	none
+🧑🏽‍💻	specialist sau specialistă IT ton mediu al pielii	none
+🧑🏾‍💻	specialist sau specialistă IT ton semi‑închis al pielii	none
+🧑🏿‍💻	specialist sau specialistă IT ton închis al pielii	none
 👨🏻‍💻	specialist IT ton deschis al pielii	none
 👨🏼‍💻	specialist IT ton semi‑deschis al pielii	none
 👨🏽‍💻	specialist IT ton mediu al pielii	none
@@ -2097,6 +2137,11 @@ symbols:
 👩🏽‍💻	specialistă IT ton mediu al pielii	none
 👩🏾‍💻	specialistă IT ton semi‑închis al pielii	none
 👩🏿‍💻	specialistă IT ton închis al pielii	none
+🧑🏻‍🎤	cântăreț sau cântăreață ton deschis al pielii	none
+🧑🏼‍🎤	cântăreț sau cântăreață ton semi‑deschis al pielii	none
+🧑🏽‍🎤	cântăreț sau cântăreață ton mediu al pielii	none
+🧑🏾‍🎤	cântăreț sau cântăreață ton semi‑închis al pielii	none
+🧑🏿‍🎤	cântăreț sau cântăreață ton închis al pielii	none
 👨🏻‍🎤	cântăreț ton deschis al pielii	none
 👨🏼‍🎤	cântăreț ton semi‑deschis al pielii	none
 👨🏽‍🎤	cântăreț ton mediu al pielii	none
@@ -2107,6 +2152,11 @@ symbols:
 👩🏽‍🎤	cântăreață ton mediu al pielii	none
 👩🏾‍🎤	cântăreață ton semi‑închis al pielii	none
 👩🏿‍🎤	cântăreață ton închis al pielii	none
+🧑🏻‍🎨	artist sau artistă ton deschis al pielii	none
+🧑🏼‍🎨	artist sau artistă ton semi‑deschis al pielii	none
+🧑🏽‍🎨	artist sau artistă ton mediu al pielii	none
+🧑🏾‍🎨	artist sau artistă ton semi‑închis al pielii	none
+🧑🏿‍🎨	artist sau artistă ton închis al pielii	none
 👨🏻‍🎨	artist ton deschis al pielii	none
 👨🏼‍🎨	artist ton semi‑deschis al pielii	none
 👨🏽‍🎨	artist ton mediu al pielii	none
@@ -2117,16 +2167,26 @@ symbols:
 👩🏽‍🎨	artistă ton mediu al pielii	none
 👩🏾‍🎨	artistă ton semi‑închis al pielii	none
 👩🏿‍🎨	artistă ton închis al pielii	none
-👨🏻‍✈	pilot ton deschis al pielii	none
-👨🏼‍✈	pilot ton semi‑deschis al pielii	none
-👨🏽‍✈	pilot ton mediu al pielii	none
-👨🏾‍✈	pilot ton semi‑închis al pielii	none
-👨🏿‍✈	pilot ton închis al pielii	none
-👩🏻‍✈	femeie pilot ton deschis al pielii	none
-👩🏼‍✈	femeie pilot ton semi‑deschis al pielii	none
-👩🏽‍✈	femeie pilot ton mediu al pielii	none
-👩🏾‍✈	femeie pilot ton semi‑închis al pielii	none
-👩🏿‍✈	femeie pilot ton închis al pielii	none
+🧑🏻‍✈	pilot ton deschis al pielii	none
+🧑🏼‍✈	pilot ton semi‑deschis al pielii	none
+🧑🏽‍✈	pilot ton mediu al pielii	none
+🧑🏾‍✈	pilot ton semi‑închis al pielii	none
+🧑🏿‍✈	pilot ton închis al pielii	none
+👨🏻‍✈	pilot bărbat ton deschis al pielii	none
+👨🏼‍✈	pilot bărbat ton semi‑deschis al pielii	none
+👨🏽‍✈	pilot bărbat ton mediu al pielii	none
+👨🏾‍✈	pilot bărbat ton semi‑închis al pielii	none
+👨🏿‍✈	pilot bărbat ton închis al pielii	none
+👩🏻‍✈	pilot femeie ton deschis al pielii	none
+👩🏼‍✈	pilot femeie ton semi‑deschis al pielii	none
+👩🏽‍✈	pilot femeie ton mediu al pielii	none
+👩🏾‍✈	pilot femeie ton semi‑închis al pielii	none
+👩🏿‍✈	pilot femeie ton închis al pielii	none
+🧑🏻‍🚀	astronaut sau astronaută ton deschis al pielii	none
+🧑🏼‍🚀	astronaut sau astronaută ton semi‑deschis al pielii	none
+🧑🏽‍🚀	astronaut sau astronaută ton mediu al pielii	none
+🧑🏾‍🚀	astronaut sau astronaută ton semi‑închis al pielii	none
+🧑🏿‍🚀	astronaut sau astronaută ton închis al pielii	none
 👨🏻‍🚀	astronaut ton deschis al pielii	none
 👨🏼‍🚀	astronaut ton semi‑deschis al pielii	none
 👨🏽‍🚀	astronaut ton mediu al pielii	none
@@ -2137,26 +2197,31 @@ symbols:
 👩🏽‍🚀	astronaută ton mediu al pielii	none
 👩🏾‍🚀	astronaută ton semi‑închis al pielii	none
 👩🏿‍🚀	astronaută ton închis al pielii	none
-👨🏻‍🚒	pompier ton deschis al pielii	none
-👨🏼‍🚒	pompier ton semi‑deschis al pielii	none
-👨🏽‍🚒	pompier ton mediu al pielii	none
-👨🏾‍🚒	pompier ton semi‑închis al pielii	none
-👨🏿‍🚒	pompier ton închis al pielii	none
-👩🏻‍🚒	femeie pompier ton deschis al pielii	none
-👩🏼‍🚒	femeie pompier ton semi‑deschis al pielii	none
-👩🏽‍🚒	femeie pompier ton mediu al pielii	none
-👩🏾‍🚒	femeie pompier ton semi‑închis al pielii	none
-👩🏿‍🚒	femeie pompier ton închis al pielii	none
-👮🏻	polițist ton deschis al pielii	none
-👮🏼	polițist ton semi‑deschis al pielii	none
-👮🏽	polițist ton mediu al pielii	none
-👮🏾	polițist ton semi‑închis al pielii	none
-👮🏿	polițist ton închis al pielii	none
-👮🏻‍♂	polițist bărbat ton deschis al pielii	none
-👮🏼‍♂	polițist bărbat ton semi‑deschis al pielii	none
-👮🏽‍♂	polițist bărbat ton mediu al pielii	none
-👮🏾‍♂	polițist bărbat ton semi‑închis al pielii	none
-👮🏿‍♂	polițist bărbat ton închis al pielii	none
+🧑🏻‍🚒	pompier ton deschis al pielii	none
+🧑🏼‍🚒	pompier ton semi‑deschis al pielii	none
+🧑🏽‍🚒	pompier ton mediu al pielii	none
+🧑🏾‍🚒	pompier ton semi‑închis al pielii	none
+🧑🏿‍🚒	pompier ton închis al pielii	none
+👨🏻‍🚒	pompier bărbat ton deschis al pielii	none
+👨🏼‍🚒	pompier bărbat ton semi‑deschis al pielii	none
+👨🏽‍🚒	pompier bărbat ton mediu al pielii	none
+👨🏾‍🚒	pompier bărbat ton semi‑închis al pielii	none
+👨🏿‍🚒	pompier bărbat ton închis al pielii	none
+👩🏻‍🚒	pompier femeie ton deschis al pielii	none
+👩🏼‍🚒	pompier femeie ton semi‑deschis al pielii	none
+👩🏽‍🚒	pompier femeie ton mediu al pielii	none
+👩🏾‍🚒	pompier femeie ton semi‑închis al pielii	none
+👩🏿‍🚒	pompier femeie ton închis al pielii	none
+👮🏻	polițist sau polițistă ton deschis al pielii	none
+👮🏼	polițist sau polițistă ton semi‑deschis al pielii	none
+👮🏽	polițist sau polițistă ton mediu al pielii	none
+👮🏾	polițist sau polițistă ton semi‑închis al pielii	none
+👮🏿	polițist sau polițistă ton închis al pielii	none
+👮🏻‍♂	polițist ton deschis al pielii	none
+👮🏼‍♂	polițist ton semi‑deschis al pielii	none
+👮🏽‍♂	polițist ton mediu al pielii	none
+👮🏾‍♂	polițist ton semi‑închis al pielii	none
+👮🏿‍♂	polițist ton închis al pielii	none
 👮🏻‍♀	polițistă ton deschis al pielii	none
 👮🏼‍♀	polițistă ton semi‑deschis al pielii	none
 👮🏽‍♀	polițistă ton mediu al pielii	none
@@ -2172,26 +2237,26 @@ symbols:
 🕵🏽‍♂	detectiv bărbat ton mediu al pielii	none
 🕵🏾‍♂	detectiv bărbat ton semi‑închis al pielii	none
 🕵🏿‍♂	detectiv bărbat ton închis al pielii	none
-🕵🏻‍♀	femeie detectiv ton deschis al pielii	none
-🕵🏼‍♀	femeie detectiv ton semi‑deschis al pielii	none
-🕵🏽‍♀	femeie detectiv ton mediu al pielii	none
-🕵🏾‍♀	femeie detectiv ton semi‑închis al pielii	none
-🕵🏿‍♀	femeie detectiv ton închis al pielii	none
+🕵🏻‍♀	detectiv femeie ton deschis al pielii	none
+🕵🏼‍♀	detectiv femeie ton semi‑deschis al pielii	none
+🕵🏽‍♀	detectiv femeie ton mediu al pielii	none
+🕵🏾‍♀	detectiv femeie ton semi‑închis al pielii	none
+🕵🏿‍♀	detectiv femeie ton închis al pielii	none
 💂🏻	gardian ton deschis al pielii	none
 💂🏼	gardian ton semi‑deschis al pielii	none
 💂🏽	gardian ton mediu al pielii	none
 💂🏾	gardian ton semi‑închis al pielii	none
 💂🏿	gardian ton închis al pielii	none
-💂🏻‍♂	bărbat gardian ton deschis al pielii	none
-💂🏼‍♂	bărbat gardian ton semi‑deschis al pielii	none
-💂🏽‍♂	bărbat gardian ton mediu al pielii	none
-💂🏾‍♂	bărbat gardian ton semi‑închis al pielii	none
-💂🏿‍♂	bărbat gardian ton închis al pielii	none
-💂🏻‍♀	femeie gardian ton deschis al pielii	none
-💂🏼‍♀	femeie gardian ton semi‑deschis al pielii	none
-💂🏽‍♀	femeie gardian ton mediu al pielii	none
-💂🏾‍♀	femeie gardian ton semi‑închis al pielii	none
-💂🏿‍♀	femeie gardian ton închis al pielii	none
+💂🏻‍♂	gardian bărbat ton deschis al pielii	none
+💂🏼‍♂	gardian bărbat ton semi‑deschis al pielii	none
+💂🏽‍♂	gardian bărbat ton mediu al pielii	none
+💂🏾‍♂	gardian bărbat ton semi‑închis al pielii	none
+💂🏿‍♂	gardian bărbat ton închis al pielii	none
+💂🏻‍♀	gardian femeie ton deschis al pielii	none
+💂🏼‍♀	gardian femeie ton semi‑deschis al pielii	none
+💂🏽‍♀	gardian femeie ton mediu al pielii	none
+💂🏾‍♀	gardian femeie ton semi‑închis al pielii	none
+💂🏿‍♀	gardian femeie ton închis al pielii	none
 👷🏻	constructor ton deschis al pielii	none
 👷🏼	constructor ton semi‑deschis al pielii	none
 👷🏽	constructor ton mediu al pielii	none
@@ -2427,6 +2492,81 @@ symbols:
 🚶🏽‍♀	femeie care merge ton mediu al pielii	none
 🚶🏾‍♀	femeie care merge ton semi‑închis al pielii	none
 🚶🏿‍♀	femeie care merge ton închis al pielii	none
+🧍🏻	persoană în picioare ton deschis al pielii	none
+🧍🏼	persoană în picioare ton semi‑deschis al pielii	none
+🧍🏽	persoană în picioare ton mediu al pielii	none
+🧍🏾	persoană în picioare ton semi‑închis al pielii	none
+🧍🏿	persoană în picioare ton închis al pielii	none
+🧍🏻‍♂	bărbat în picioare ton deschis al pielii	none
+🧍🏼‍♂	bărbat în picioare ton semi‑deschis al pielii	none
+🧍🏽‍♂	bărbat în picioare ton mediu al pielii	none
+🧍🏾‍♂	bărbat în picioare ton semi‑închis al pielii	none
+🧍🏿‍♂	bărbat în picioare ton închis al pielii	none
+🧍🏻‍♀	femeie în picioare ton deschis al pielii	none
+🧍🏼‍♀	femeie în picioare ton semi‑deschis al pielii	none
+🧍🏽‍♀	femeie în picioare ton mediu al pielii	none
+🧍🏾‍♀	femeie în picioare ton semi‑închis al pielii	none
+🧍🏿‍♀	femeie în picioare ton închis al pielii	none
+🧎🏻	persoană în genunchi ton deschis al pielii	none
+🧎🏼	persoană în genunchi ton semi‑deschis al pielii	none
+🧎🏽	persoană în genunchi ton mediu al pielii	none
+🧎🏾	persoană în genunchi ton semi‑închis al pielii	none
+🧎🏿	persoană în genunchi ton închis al pielii	none
+🧎🏻‍♂	bărbat în genunchi ton deschis al pielii	none
+🧎🏼‍♂	bărbat în genunchi ton semi‑deschis al pielii	none
+🧎🏽‍♂	bărbat în genunchi ton mediu al pielii	none
+🧎🏾‍♂	bărbat în genunchi ton semi‑închis al pielii	none
+🧎🏿‍♂	bărbat în genunchi ton închis al pielii	none
+🧎🏻‍♀	femeie în genunchi ton deschis al pielii	none
+🧎🏼‍♀	femeie în genunchi ton semi‑deschis al pielii	none
+🧎🏽‍♀	femeie în genunchi ton mediu al pielii	none
+🧎🏾‍♀	femeie în genunchi ton semi‑închis al pielii	none
+🧎🏿‍♀	femeie în genunchi ton închis al pielii	none
+🧑🏻‍🦯	persoană cu baston pentru nevăzători ton deschis al pielii	none
+🧑🏼‍🦯	persoană cu baston pentru nevăzători ton semi‑deschis al pielii	none
+🧑🏽‍🦯	persoană cu baston pentru nevăzători ton mediu al pielii	none
+🧑🏾‍🦯	persoană cu baston pentru nevăzători ton semi‑închis al pielii	none
+🧑🏿‍🦯	persoană cu baston pentru nevăzători ton închis al pielii	none
+👨🏻‍🦯	bărbat cu baston pentru nevăzători ton deschis al pielii	none
+👨🏼‍🦯	bărbat cu baston pentru nevăzători ton semi‑deschis al pielii	none
+👨🏽‍🦯	bărbat cu baston pentru nevăzători ton mediu al pielii	none
+👨🏾‍🦯	bărbat cu baston pentru nevăzători ton semi‑închis al pielii	none
+👨🏿‍🦯	bărbat cu baston pentru nevăzători ton închis al pielii	none
+👩🏻‍🦯	femeie cu baston pentru nevăzători ton deschis al pielii	none
+👩🏼‍🦯	femeie cu baston pentru nevăzători ton semi‑deschis al pielii	none
+👩🏽‍🦯	femeie cu baston pentru nevăzători ton mediu al pielii	none
+👩🏾‍🦯	femeie cu baston pentru nevăzători ton semi‑închis al pielii	none
+👩🏿‍🦯	femeie cu baston pentru nevăzători ton închis al pielii	none
+🧑🏻‍🦼	persoană în scaun cu rotile motorizat ton deschis al pielii	none
+🧑🏼‍🦼	persoană în scaun cu rotile motorizat ton semi‑deschis al pielii	none
+🧑🏽‍🦼	persoană în scaun cu rotile motorizat ton mediu al pielii	none
+🧑🏾‍🦼	persoană în scaun cu rotile motorizat ton semi‑închis al pielii	none
+🧑🏿‍🦼	persoană în scaun cu rotile motorizat ton închis al pielii	none
+👨🏻‍🦼	bărbat în scaun cu rotile motorizat ton deschis al pielii	none
+👨🏼‍🦼	bărbat în scaun cu rotile motorizat ton semi‑deschis al pielii	none
+👨🏽‍🦼	bărbat în scaun cu rotile motorizat ton mediu al pielii	none
+👨🏾‍🦼	bărbat în scaun cu rotile motorizat ton semi‑închis al pielii	none
+👨🏿‍🦼	bărbat în scaun cu rotile motorizat ton închis al pielii	none
+👩🏻‍🦼	femeie în scaun cu rotile motorizat ton deschis al pielii	none
+👩🏼‍🦼	femeie în scaun cu rotile motorizat ton semi‑deschis al pielii	none
+👩🏽‍🦼	femeie în scaun cu rotile motorizat ton mediu al pielii	none
+👩🏾‍🦼	femeie în scaun cu rotile motorizat ton semi‑închis al pielii	none
+👩🏿‍🦼	femeie în scaun cu rotile motorizat ton închis al pielii	none
+🧑🏻‍🦽	persoană în scaun cu rotile manual ton deschis al pielii	none
+🧑🏼‍🦽	persoană în scaun cu rotile manual ton semi‑deschis al pielii	none
+🧑🏽‍🦽	persoană în scaun cu rotile manual ton mediu al pielii	none
+🧑🏾‍🦽	persoană în scaun cu rotile manual ton semi‑închis al pielii	none
+🧑🏿‍🦽	persoană în scaun cu rotile manual ton închis al pielii	none
+👨🏻‍🦽	bărbat în scaun cu rotile manual ton deschis al pielii	none
+👨🏼‍🦽	bărbat în scaun cu rotile manual ton semi‑deschis al pielii	none
+👨🏽‍🦽	bărbat în scaun cu rotile manual ton mediu al pielii	none
+👨🏾‍🦽	bărbat în scaun cu rotile manual ton semi‑închis al pielii	none
+👨🏿‍🦽	bărbat în scaun cu rotile manual ton închis al pielii	none
+👩🏻‍🦽	femeie în scaun cu rotile manual ton deschis al pielii	none
+👩🏼‍🦽	femeie în scaun cu rotile manual ton semi‑deschis al pielii	none
+👩🏽‍🦽	femeie în scaun cu rotile manual ton mediu al pielii	none
+👩🏾‍🦽	femeie în scaun cu rotile manual ton semi‑închis al pielii	none
+👩🏿‍🦽	femeie în scaun cu rotile manual ton închis al pielii	none
 🏃🏻	persoană care aleargă ton deschis al pielii	none
 🏃🏼	persoană care aleargă ton semi‑deschis al pielii	none
 🏃🏽	persoană care aleargă ton mediu al pielii	none
@@ -2702,21 +2842,76 @@ symbols:
 🛌🏽	persoană în pat ton mediu al pielii	none
 🛌🏾	persoană în pat ton semi‑închis al pielii	none
 🛌🏿	persoană în pat ton închis al pielii	none
+🧑🏻‍🤝‍🧑🏻	persoane ținându-se de mână ton deschis al pielii	none
+🧑🏼‍🤝‍🧑🏻	persoane ținându-se de mână ton semi‑deschis al pielii, ton deschis al pielii	none
+🧑🏼‍🤝‍🧑🏼	persoane ținându-se de mână ton semi‑deschis al pielii	none
+🧑🏽‍🤝‍🧑🏻	persoane ținându-se de mână ton mediu al pielii, ton deschis al pielii	none
+🧑🏽‍🤝‍🧑🏼	persoane ținându-se de mână ton mediu al pielii, ton semi‑deschis al pielii	none
+🧑🏽‍🤝‍🧑🏽	persoane ținându-se de mână ton mediu al pielii	none
+🧑🏾‍🤝‍🧑🏻	persoane ținându-se de mână ton semi‑închis al pielii, ton deschis al pielii	none
+🧑🏾‍🤝‍🧑🏼	persoane ținându-se de mână ton semi‑închis al pielii, ton semi‑deschis al pielii	none
+🧑🏾‍🤝‍🧑🏽	persoane ținându-se de mână ton semi‑închis al pielii, ton mediu al pielii	none
+🧑🏾‍🤝‍🧑🏾	persoane ținându-se de mână ton semi‑închis al pielii	none
+🧑🏿‍🤝‍🧑🏻	persoane ținându-se de mână ton închis al pielii, ton deschis al pielii	none
+🧑🏿‍🤝‍🧑🏼	persoane ținându-se de mână ton închis al pielii, ton semi‑deschis al pielii	none
+🧑🏿‍🤝‍🧑🏽	persoane ținându-se de mână ton închis al pielii, ton mediu al pielii	none
+🧑🏿‍🤝‍🧑🏾	persoane ținându-se de mână ton închis al pielii, ton semi‑închis al pielii	none
+🧑🏿‍🤝‍🧑🏿	persoane ținându-se de mână ton închis al pielii	none
+👭🏻	femei ținându-se de mână ton deschis al pielii	none
+👩🏼‍🤝‍👩🏻	femei ținându-se de mână ton semi‑deschis al pielii, ton deschis al pielii	none
+👭🏼	femei ținându-se de mână ton semi‑deschis al pielii	none
+👩🏽‍🤝‍👩🏻	femei ținându-se de mână ton mediu al pielii, ton deschis al pielii	none
+👩🏽‍🤝‍👩🏼	femei ținându-se de mână ton mediu al pielii, ton semi‑deschis al pielii	none
+👭🏽	femei ținându-se de mână ton mediu al pielii	none
+👩🏾‍🤝‍👩🏻	femei ținându-se de mână ton semi‑închis al pielii, ton deschis al pielii	none
+👩🏾‍🤝‍👩🏼	femei ținându-se de mână ton semi‑închis al pielii, ton semi‑deschis al pielii	none
+👩🏾‍🤝‍👩🏽	femei ținându-se de mână ton semi‑închis al pielii, ton mediu al pielii	none
+👭🏾	femei ținându-se de mână ton semi‑închis al pielii	none
+👩🏿‍🤝‍👩🏻	femei ținându-se de mână ton închis al pielii, ton deschis al pielii	none
+👩🏿‍🤝‍👩🏼	femei ținându-se de mână ton închis al pielii, ton semi‑deschis al pielii	none
+👩🏿‍🤝‍👩🏽	femei ținându-se de mână ton închis al pielii, ton mediu al pielii	none
+👩🏿‍🤝‍👩🏾	femei ținându-se de mână ton închis al pielii, ton semi‑închis al pielii	none
+👭🏿	femei ținându-se de mână ton închis al pielii	none
 👫🏻	bărbat și femeie ținându-se de mână ton deschis al pielii	none
+👩🏻‍🤝‍👨🏼	bărbat și femeie ținându-se de mână ton deschis al pielii, ton semi‑deschis al pielii	none
+👩🏻‍🤝‍👨🏽	bărbat și femeie ținându-se de mână ton deschis al pielii, ton mediu al pielii	none
+👩🏻‍🤝‍👨🏾	bărbat și femeie ținându-se de mână ton deschis al pielii, ton semi‑închis al pielii	none
+👩🏻‍🤝‍👨🏿	bărbat și femeie ținându-se de mână ton deschis al pielii, ton închis al pielii	none
+👩🏼‍🤝‍👨🏻	bărbat și femeie ținându-se de mână ton semi‑deschis al pielii, ton deschis al pielii	none
 👫🏼	bărbat și femeie ținându-se de mână ton semi‑deschis al pielii	none
+👩🏼‍🤝‍👨🏽	bărbat și femeie ținându-se de mână ton semi‑deschis al pielii, ton mediu al pielii	none
+👩🏼‍🤝‍👨🏾	bărbat și femeie ținându-se de mână ton semi‑deschis al pielii, ton semi‑închis al pielii	none
+👩🏼‍🤝‍👨🏿	bărbat și femeie ținându-se de mână ton semi‑deschis al pielii, ton închis al pielii	none
+👩🏽‍🤝‍👨🏻	bărbat și femeie ținându-se de mână ton mediu al pielii, ton deschis al pielii	none
+👩🏽‍🤝‍👨🏼	bărbat și femeie ținându-se de mână ton mediu al pielii, ton semi‑deschis al pielii	none
 👫🏽	bărbat și femeie ținându-se de mână ton mediu al pielii	none
+👩🏽‍🤝‍👨🏾	bărbat și femeie ținându-se de mână ton mediu al pielii, ton semi‑închis al pielii	none
+👩🏽‍🤝‍👨🏿	bărbat și femeie ținându-se de mână ton mediu al pielii, ton închis al pielii	none
+👩🏾‍🤝‍👨🏻	bărbat și femeie ținându-se de mână ton semi‑închis al pielii, ton deschis al pielii	none
+👩🏾‍🤝‍👨🏼	bărbat și femeie ținându-se de mână ton semi‑închis al pielii, ton semi‑deschis al pielii	none
+👩🏾‍🤝‍👨🏽	bărbat și femeie ținându-se de mână ton semi‑închis al pielii, ton mediu al pielii	none
 👫🏾	bărbat și femeie ținându-se de mână ton semi‑închis al pielii	none
+👩🏾‍🤝‍👨🏿	bărbat și femeie ținându-se de mână ton semi‑închis al pielii, ton închis al pielii	none
+👩🏿‍🤝‍👨🏻	bărbat și femeie ținându-se de mână ton închis al pielii, ton deschis al pielii	none
+👩🏿‍🤝‍👨🏼	bărbat și femeie ținându-se de mână ton închis al pielii, ton semi‑deschis al pielii	none
+👩🏿‍🤝‍👨🏽	bărbat și femeie ținându-se de mână ton închis al pielii, ton mediu al pielii	none
+👩🏿‍🤝‍👨🏾	bărbat și femeie ținându-se de mână ton închis al pielii, ton semi‑închis al pielii	none
 👫🏿	bărbat și femeie ținându-se de mână ton închis al pielii	none
 👬🏻	bărbați ținându-se de mână ton deschis al pielii	none
+👨🏼‍🤝‍👨🏻	bărbați ținându-se de mână ton semi‑deschis al pielii, ton deschis al pielii	none
 👬🏼	bărbați ținându-se de mână ton semi‑deschis al pielii	none
+👨🏽‍🤝‍👨🏻	bărbați ținându-se de mână ton mediu al pielii, ton deschis al pielii	none
+👨🏽‍🤝‍👨🏼	bărbați ținându-se de mână ton mediu al pielii, ton semi‑deschis al pielii	none
 👬🏽	bărbați ținându-se de mână ton mediu al pielii	none
+👨🏾‍🤝‍👨🏻	bărbați ținându-se de mână ton semi‑închis al pielii, ton deschis al pielii	none
+👨🏾‍🤝‍👨🏼	bărbați ținându-se de mână ton semi‑închis al pielii, ton semi‑deschis al pielii	none
+👨🏾‍🤝‍👨🏽	bărbați ținându-se de mână ton semi‑închis al pielii, ton mediu al pielii	none
 👬🏾	bărbați ținându-se de mână ton semi‑închis al pielii	none
+👨🏿‍🤝‍👨🏻	bărbați ținându-se de mână ton închis al pielii, ton deschis al pielii	none
+👨🏿‍🤝‍👨🏼	bărbați ținându-se de mână ton închis al pielii, ton semi‑deschis al pielii	none
+👨🏿‍🤝‍👨🏽	bărbați ținându-se de mână ton închis al pielii, ton mediu al pielii	none
+👨🏿‍🤝‍👨🏾	bărbați ținându-se de mână ton închis al pielii, ton semi‑închis al pielii	none
 👬🏿	bărbați ținându-se de mână ton închis al pielii	none
-👭🏻	femei ținându-se de mână ton deschis al pielii	none
-👭🏼	femei ținându-se de mână ton semi‑deschis al pielii	none
-👭🏽	femei ținându-se de mână ton mediu al pielii	none
-👭🏾	femei ținându-se de mână ton semi‑închis al pielii	none
-👭🏿	femei ținându-se de mână ton închis al pielii	none
 👩‍❤‍💋‍👨	sărut femeie, bărbat	none
 👨‍❤‍💋‍👨	sărut bărbat, bărbat	none
 👩‍❤‍💋‍👩	sărut femeie, femeie	none
@@ -2900,7 +3095,7 @@ symbols:
 🇲🇫	steag Sfântul Martin	none
 🇲🇬	steag Madagascar	none
 🇲🇭	steag Insulele Marshall	none
-🇲🇰	steag Republica Macedonia	none
+🇲🇰	steag Macedonia de Nord	none
 🇲🇱	steag Mali	none
 🇲🇲	steag Myanmar (Birmania)	none
 🇲🇳	steag Mongolia	none
@@ -2965,7 +3160,7 @@ symbols:
 🇸🇴	steag Somalia	none
 🇸🇷	steag Suriname	none
 🇸🇸	steag Sudanul de Sud	none
-🇸🇹	steag Sao Tome și Principe	none
+🇸🇹	steag São Tomé și Príncipe	none
 🇸🇻	steag El Salvador	none
 🇸🇽	steag Sint-Maarten	none
 🇸🇾	steag Siria	none

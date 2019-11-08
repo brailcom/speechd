@@ -3,7 +3,7 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
-🏻	tagwlimt taceɛlalt	none
+🏻	taglimt taceɛlalt	none
 🏼	tagwlimt taceɛlalt talemmast	none
 🏽	taglimt talemmast	none
 🏾	tagwlimt tubrikt talemmast	none
@@ -61,7 +61,10 @@ symbols:
 🧓	amengaḍ meqqren	none
 👴	amɣaṛ	none
 🦰	acekkuḥ azeggaɣ	none
-🐵	taqeṛṛuct n ivki	none
+🦱	acekkuḥ imdewweṛ	none
+🦳	acekkuḥ amellal	none
+🦲	aferḍas	none
+🐵	taqeṛṛuct n ibki	none
 🐒	ivki	none
 🦍	aguril	none
 🐶	taqeṛṛuct n waydi	none
@@ -223,6 +226,7 @@ symbols:
 🎷	asaksufun	none
 🎸	snitra	none
 📱	tiliɣri tazirazt	none
+☎	tiliɣri	none
 🔋	aẓru	none
 💻	aselkim aziraz	none
 🖥	aselkim n tnarit	none
@@ -318,59 +322,119 @@ symbols:
 🏴	anay aberkan	none
 🏳	anay amellal	none
 🏳‍🌈	anay n teslit n unẓar	none
-👶🏻	ṣebyan tagwlimt taceɛlalt	none
+👶🏻	ṣebyan taglimt taceɛlalt	none
 👶🏼	ṣebyan tagwlimt taceɛlalt talemmast	none
 👶🏽	ṣebyan taglimt talemmast	none
 👶🏾	ṣebyan tagwlimt tubrikt talemmast	none
 👶🏿	ṣebyan tagwlimt tubrikt	none
-🧒🏻	agrud tagwlimt taceɛlalt	none
+🧒🏻	agrud taglimt taceɛlalt	none
 🧒🏼	agrud tagwlimt taceɛlalt talemmast	none
 🧒🏽	agrud taglimt talemmast	none
 🧒🏾	agrud tagwlimt tubrikt talemmast	none
 🧒🏿	agrud tagwlimt tubrikt	none
-👦🏻	aqruṛ tagwlimt taceɛlalt	none
+👦🏻	aqruṛ taglimt taceɛlalt	none
 👦🏼	aqruṛ tagwlimt taceɛlalt talemmast	none
 👦🏽	aqruṛ taglimt talemmast	none
 👦🏾	aqruṛ tagwlimt tubrikt talemmast	none
 👦🏿	aqruṛ tagwlimt tubrikt	none
-👧🏻	Taqruṛt tagwlimt taceɛlalt	none
+👧🏻	Taqruṛt taglimt taceɛlalt	none
 👧🏼	Taqruṛt tagwlimt taceɛlalt talemmast	none
 👧🏽	Taqruṛt taglimt talemmast	none
 👧🏾	Taqruṛt tagwlimt tubrikt talemmast	none
 👧🏿	Taqruṛt tagwlimt tubrikt	none
-🧑🏻	amengaḍ tagwlimt taceɛlalt	none
+🧑🏻	amengaḍ taglimt taceɛlalt	none
 🧑🏼	amengaḍ tagwlimt taceɛlalt talemmast	none
 🧑🏽	amengaḍ taglimt talemmast	none
 🧑🏾	amengaḍ tagwlimt tubrikt talemmast	none
 🧑🏿	amengaḍ tagwlimt tubrikt	none
-👨🏻	argaz tagwlimt taceɛlalt	none
+🧑‍🦰	amengaḍ acekkuḥ azeggaɣ	none
+🧑🏻‍🦰	amengaḍ taglimt taceɛlalt, acekkuḥ azeggaɣ	none
+🧑🏼‍🦰	amengaḍ tagwlimt taceɛlalt talemmast, acekkuḥ azeggaɣ	none
+🧑🏽‍🦰	amengaḍ taglimt talemmast, acekkuḥ azeggaɣ	none
+🧑🏾‍🦰	amengaḍ tagwlimt tubrikt talemmast, acekkuḥ azeggaɣ	none
+🧑🏿‍🦰	amengaḍ tagwlimt tubrikt, acekkuḥ azeggaɣ	none
+🧑‍🦱	amengaḍ acekkuḥ imdewweṛ	none
+🧑🏻‍🦱	amengaḍ taglimt taceɛlalt, acekkuḥ imdewweṛ	none
+🧑🏼‍🦱	amengaḍ tagwlimt taceɛlalt talemmast, acekkuḥ imdewweṛ	none
+🧑🏽‍🦱	amengaḍ taglimt talemmast, acekkuḥ imdewweṛ	none
+🧑🏾‍🦱	amengaḍ tagwlimt tubrikt talemmast, acekkuḥ imdewweṛ	none
+🧑🏿‍🦱	amengaḍ tagwlimt tubrikt, acekkuḥ imdewweṛ	none
+🧑‍🦳	amengaḍ acekkuḥ amellal	none
+🧑🏻‍🦳	amengaḍ taglimt taceɛlalt, acekkuḥ amellal	none
+🧑🏼‍🦳	amengaḍ tagwlimt taceɛlalt talemmast, acekkuḥ amellal	none
+🧑🏽‍🦳	amengaḍ taglimt talemmast, acekkuḥ amellal	none
+🧑🏾‍🦳	amengaḍ tagwlimt tubrikt talemmast, acekkuḥ amellal	none
+🧑🏿‍🦳	amengaḍ tagwlimt tubrikt, acekkuḥ amellal	none
+🧑‍🦲	amengaḍ aferḍas	none
+🧑🏻‍🦲	amengaḍ taglimt taceɛlalt, aferḍas	none
+🧑🏼‍🦲	amengaḍ tagwlimt taceɛlalt talemmast, aferḍas	none
+🧑🏽‍🦲	amengaḍ taglimt talemmast, aferḍas	none
+🧑🏾‍🦲	amengaḍ tagwlimt tubrikt talemmast, aferḍas	none
+🧑🏿‍🦲	amengaḍ tagwlimt tubrikt, aferḍas	none
+👨🏻	argaz taglimt taceɛlalt	none
 👨🏼	argaz tagwlimt taceɛlalt talemmast	none
 👨🏽	argaz taglimt talemmast	none
 👨🏾	argaz tagwlimt tubrikt talemmast	none
 👨🏿	argaz tagwlimt tubrikt	none
 👨‍🦰	argaz acekkuḥ azeggaɣ	none
-👨🏻‍🦰	argaz tagwlimt taceɛlalt, acekkuḥ azeggaɣ	none
+👨🏻‍🦰	argaz taglimt taceɛlalt, acekkuḥ azeggaɣ	none
 👨🏼‍🦰	argaz tagwlimt taceɛlalt talemmast, acekkuḥ azeggaɣ	none
 👨🏽‍🦰	argaz taglimt talemmast, acekkuḥ azeggaɣ	none
 👨🏾‍🦰	argaz tagwlimt tubrikt talemmast, acekkuḥ azeggaɣ	none
 👨🏿‍🦰	argaz tagwlimt tubrikt, acekkuḥ azeggaɣ	none
-👩🏻	tameṭṭut tagwlimt taceɛlalt	none
+👨‍🦱	argaz acekkuḥ imdewweṛ	none
+👨🏻‍🦱	argaz taglimt taceɛlalt, acekkuḥ imdewweṛ	none
+👨🏼‍🦱	argaz tagwlimt taceɛlalt talemmast, acekkuḥ imdewweṛ	none
+👨🏽‍🦱	argaz taglimt talemmast, acekkuḥ imdewweṛ	none
+👨🏾‍🦱	argaz tagwlimt tubrikt talemmast, acekkuḥ imdewweṛ	none
+👨🏿‍🦱	argaz tagwlimt tubrikt, acekkuḥ imdewweṛ	none
+👨‍🦳	argaz acekkuḥ amellal	none
+👨🏻‍🦳	argaz taglimt taceɛlalt, acekkuḥ amellal	none
+👨🏼‍🦳	argaz tagwlimt taceɛlalt talemmast, acekkuḥ amellal	none
+👨🏽‍🦳	argaz taglimt talemmast, acekkuḥ amellal	none
+👨🏾‍🦳	argaz tagwlimt tubrikt talemmast, acekkuḥ amellal	none
+👨🏿‍🦳	argaz tagwlimt tubrikt, acekkuḥ amellal	none
+👨‍🦲	argaz aferḍas	none
+👨🏻‍🦲	argaz taglimt taceɛlalt, aferḍas	none
+👨🏼‍🦲	argaz tagwlimt taceɛlalt talemmast, aferḍas	none
+👨🏽‍🦲	argaz taglimt talemmast, aferḍas	none
+👨🏾‍🦲	argaz tagwlimt tubrikt talemmast, aferḍas	none
+👨🏿‍🦲	argaz tagwlimt tubrikt, aferḍas	none
+👩🏻	tameṭṭut taglimt taceɛlalt	none
 👩🏼	tameṭṭut tagwlimt taceɛlalt talemmast	none
 👩🏽	tameṭṭut taglimt talemmast	none
 👩🏾	tameṭṭut tagwlimt tubrikt talemmast	none
 👩🏿	tameṭṭut tagwlimt tubrikt	none
 👩‍🦰	tameṭṭut acekkuḥ azeggaɣ	none
-👩🏻‍🦰	tameṭṭut tagwlimt taceɛlalt, acekkuḥ azeggaɣ	none
+👩🏻‍🦰	tameṭṭut taglimt taceɛlalt, acekkuḥ azeggaɣ	none
 👩🏼‍🦰	tameṭṭut tagwlimt taceɛlalt talemmast, acekkuḥ azeggaɣ	none
 👩🏽‍🦰	tameṭṭut taglimt talemmast, acekkuḥ azeggaɣ	none
 👩🏾‍🦰	tameṭṭut tagwlimt tubrikt talemmast, acekkuḥ azeggaɣ	none
 👩🏿‍🦰	tameṭṭut tagwlimt tubrikt, acekkuḥ azeggaɣ	none
-🧓🏻	amengaḍ meqqren tagwlimt taceɛlalt	none
+👩‍🦱	tameṭṭut acekkuḥ imdewweṛ	none
+👩🏻‍🦱	tameṭṭut taglimt taceɛlalt, acekkuḥ imdewweṛ	none
+👩🏼‍🦱	tameṭṭut tagwlimt taceɛlalt talemmast, acekkuḥ imdewweṛ	none
+👩🏽‍🦱	tameṭṭut taglimt talemmast, acekkuḥ imdewweṛ	none
+👩🏾‍🦱	tameṭṭut tagwlimt tubrikt talemmast, acekkuḥ imdewweṛ	none
+👩🏿‍🦱	tameṭṭut tagwlimt tubrikt, acekkuḥ imdewweṛ	none
+👩‍🦳	tameṭṭut acekkuḥ amellal	none
+👩🏻‍🦳	tameṭṭut taglimt taceɛlalt, acekkuḥ amellal	none
+👩🏼‍🦳	tameṭṭut tagwlimt taceɛlalt talemmast, acekkuḥ amellal	none
+👩🏽‍🦳	tameṭṭut taglimt talemmast, acekkuḥ amellal	none
+👩🏾‍🦳	tameṭṭut tagwlimt tubrikt talemmast, acekkuḥ amellal	none
+👩🏿‍🦳	tameṭṭut tagwlimt tubrikt, acekkuḥ amellal	none
+👩‍🦲	tameṭṭut aferḍas	none
+👩🏻‍🦲	tameṭṭut taglimt taceɛlalt, aferḍas	none
+👩🏼‍🦲	tameṭṭut tagwlimt taceɛlalt talemmast, aferḍas	none
+👩🏽‍🦲	tameṭṭut taglimt talemmast, aferḍas	none
+👩🏾‍🦲	tameṭṭut tagwlimt tubrikt talemmast, aferḍas	none
+👩🏿‍🦲	tameṭṭut tagwlimt tubrikt, aferḍas	none
+🧓🏻	amengaḍ meqqren taglimt taceɛlalt	none
 🧓🏼	amengaḍ meqqren tagwlimt taceɛlalt talemmast	none
 🧓🏽	amengaḍ meqqren taglimt talemmast	none
 🧓🏾	amengaḍ meqqren tagwlimt tubrikt talemmast	none
 🧓🏿	amengaḍ meqqren tagwlimt tubrikt	none
-👴🏻	amɣaṛ tagwlimt taceɛlalt	none
+👴🏻	amɣaṛ taglimt taceɛlalt	none
 👴🏼	amɣaṛ tagwlimt taceɛlalt talemmast	none
 👴🏽	amɣaṛ taglimt talemmast	none
 👴🏾	amɣaṛ tagwlimt tubrikt talemmast	none
@@ -527,7 +591,6 @@ symbols:
 🇲🇫	anay San Maṛtan	none
 🇲🇬	anay Madaɣecqer	none
 🇲🇭	anay Tigzirin n Marcal	none
-🇲🇰	anay Masidwan	none
 🇲🇱	anay Mali	none
 🇲🇲	anay Myanmar	none
 🇲🇳	anay Mungulya	none

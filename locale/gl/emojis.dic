@@ -8,7 +8,7 @@ symbols:
 🏽	ton de pel medio	none
 🏾	ton de pel escuro	none
 🏿	ton de pel moi escuro	none
-🐾	pegadas de patas	none
+⚧	símbolo de transxénero	none
 😀	cara moi riseira	none
 😃	cara moi riseira con ollos grandes	none
 😄	cara moi riseira cos ollos alegres	none
@@ -94,6 +94,7 @@ symbols:
 😓	cara con suor fría	none
 😩	cara de esgotamento	none
 😫	cara de cansazo	none
+🥱	cara bocexando	none
 😤	cara botando fume	none
 😡	cara furiosa	none
 😠	cara de cabreo	none
@@ -140,7 +141,9 @@ symbols:
 💚	corazón verde	none
 💙	corazón azul	none
 💜	corazón violeta	none
+🤎	corazón marrón	none
 🖤	corazón negro	none
+🤍	corazón branco	none
 💯	100 puntos	none
 💢	símbolo de enfado	none
 💥	explosión	none
@@ -161,6 +164,7 @@ symbols:
 ✋	man levantada	none
 🖖	saúdo vulcaniano	none
 👌	xesto de “OK”	none
+🤏	xesto de "un chisco"	none
 ✌	xesto de vitoria	none
 🤞	dedos cruzados	none
 🤟	xesto das iniciais de "I Love You"	none
@@ -188,9 +192,12 @@ symbols:
 💅	pintar as uñas	none
 🤳	autofoto	none
 💪	bíceps	none
+🦾	brazo mecánico	none
+🦿	perna mecánica	none
 🦵	perna	none
 🦶	pé	none
 👂	orella	none
+🦻	orella con audiófono	none
 👃	nariz	none
 🧠	cerebro	none
 🦷	dente	none
@@ -205,17 +212,10 @@ symbols:
 👧	nena	none
 🧑	persoa	none
 👱	persoa loura	none
-🧑‍🤝‍🧑	persoas dándose a man	none
 👨	home	none
-👨‍🦯	home cun bastón guía	none
-👨‍🦼	home en cadeira de rodas motorizada	none
-👨‍🦽	home en cadeira de rodas	none
-👱‍♂	home louro	none
 🧔	home con barba	none
+👱‍♂	home louro	none
 👩	muller	none
-👩‍🦯	muller cun bastón guía	none
-👩‍🦼	muller en cadeira de rodas motorizada	none
-👩‍🦽	muller en cadeira de rodas	none
 👱‍♀	muller loura	none
 🧓	persoa maior	none
 👴	vello	none
@@ -238,6 +238,9 @@ symbols:
 🙋	levantar a man	none
 🙋‍♂	home levantando a man	none
 🙋‍♀	muller levantando a man	none
+🧏	persoa xorda	none
+🧏‍♂	home xordo	none
+🧏‍♀	muller xorda	none
 🙇	reverencia	none
 🙇‍♂	home facendo unha reverencia	none
 🙇‍♀	muller facendo unha reverencia	none
@@ -247,36 +250,52 @@ symbols:
 🤷	xesto de "nin idea"	none
 🤷‍♂	home facendo xesto de “nin idea”	none
 🤷‍♀	muller facendo xesto de “nin idea”	none
+🧑‍⚕	persoa sanitaria	none
 👨‍⚕	traballador sanitario	none
 👩‍⚕	traballadora sanitaria	none
+🧑‍🎓	estudante	none
 👨‍🎓	estudante de sexo masculino	none
 👩‍🎓	estudante de sexo feminino	none
+🧑‍🏫	ensinante	none
 👨‍🏫	profesor	none
 👩‍🏫	profesora	none
+🧑‍⚖	membro da xudicatura	none
 👨‍⚖	xuíz	none
 👩‍⚖	xuíza	none
+🧑‍🌾	persoa dedicada á agricultura	none
 👨‍🌾	agricultor	none
 👩‍🌾	agricultora	none
+🧑‍🍳	profesional da cociña	none
 👨‍🍳	cociñeiro	none
 👩‍🍳	cociñeira	none
+🧑‍🔧	profesional da mecánica	none
 👨‍🔧	mecánico	none
 👩‍🔧	mecánica	none
+🧑‍🏭	traballador de fábrica	none
 👨‍🏭	operario	none
 👩‍🏭	operaria	none
+🧑‍💼	oficinista	none
 👨‍💼	administrativo	none
 👩‍💼	administrativa	none
+🧑‍🔬	especialista en ciencia	none
 👨‍🔬	científico	none
 👩‍🔬	científica	none
+🧑‍💻	persoa experta en programación	none
 👨‍💻	informático	none
 👩‍💻	informática	none
+🧑‍🎤	cantante	none
 👨‍🎤	cantante de sexo masculino	none
 👩‍🎤	cantante de sexo feminino	none
+🧑‍🎨	artista	none
 👨‍🎨	pintor	none
 👩‍🎨	pintora	none
+🧑‍✈	piloto	none
 👨‍✈	piloto de sexo masculino	none
 👩‍✈	piloto de sexo feminino	none
+🧑‍🚀	astronauta	none
 👨‍🚀	astronauta de sexo masculino	none
 👩‍🚀	astronauta de sexo feminino	none
+🧑‍🚒	especialista en apagar incendios	none
 👨‍🚒	bombeiro	none
 👩‍🚒	bombeira	none
 👮	policía	none
@@ -341,6 +360,21 @@ symbols:
 🚶	persoa andando	none
 🚶‍♂	home andando	none
 🚶‍♀	muller andando	none
+🧍	persoa de pé	none
+🧍‍♂	home de pé	none
+🧍‍♀	muller de pé	none
+🧎	persoa axeonllada	none
+🧎‍♂	home axeonllado	none
+🧎‍♀	muller axeonllada	none
+🧑‍🦯	persoa cun bastón guía	none
+👨‍🦯	home cun bastón guía	none
+👩‍🦯	muller cun bastón guía	none
+🧑‍🦼	persoa en cadeira de rodas motorizada	none
+👨‍🦼	home en cadeira de rodas motorizada	none
+👩‍🦼	muller en cadeira de rodas motorizada	none
+🧑‍🦽	persoa en cadeira de rodas	none
+👨‍🦽	home en cadeira de rodas	none
+👩‍🦽	muller en cadeira de rodas	none
 🏃	persoa correndo	none
 🏃‍♂	home correndo	none
 🏃‍♀	muller correndo	none
@@ -404,9 +438,10 @@ symbols:
 🧘‍♀	muller practicando ioga	none
 🛀	persoa bañándose	none
 🛌	persoa durmindo	none
+🧑‍🤝‍🧑	persoas dándose a man	none
+👭	dúas mulleres collidas da man	none
 👫	home e muller collidos da man	none
 👬	dous homes collidos da man	none
-👭	dúas mulleres collidas da man	none
 💏	parella bicándose	none
 💑	parella cun corazón	none
 👪	familia	none
@@ -418,13 +453,13 @@ symbols:
 🦱	pelo rizado	none
 🦳	pelo cano	none
 🦲	sen pelo	none
-♀	símbolo da muller	none
-♂	símbolo do home	none
 🐵	cara de mono	none
 🐒	mono	none
 🦍	gorila	none
+🦧	orangután	none
 🐶	cara de can	none
 🐕	can	none
+🦮	can guía	none
 🐕‍🦺	can de servizo	none
 🐩	caniche	none
 🐺	lobo	none
@@ -448,7 +483,7 @@ symbols:
 🐷	cara de porco	none
 🐖	porco	none
 🐗	xabaril	none
-🐽	nariz de porco	none
+🐽	morro de porco	none
 🐏	carneiro	none
 🐑	ovella	none
 🐐	cabra	none
@@ -471,8 +506,12 @@ symbols:
 🐻	oso	none
 🐨	coala	none
 🐼	oso panda	none
+🦥	preguiceiro	none
+🦦	londra	none
+🦨	mofeta	none
 🦘	canguro	none
 🦡	teixugo	none
+🐾	pegadas de patas	none
 🦃	pavo	none
 🐔	polo	none
 🐓	galo	none
@@ -486,6 +525,7 @@ symbols:
 🦆	pato	none
 🦢	cisne	none
 🦉	moucho	none
+🦩	flamengo	none
 🦚	pavón	none
 🦜	loro	none
 🐸	ra	none
@@ -566,6 +606,8 @@ symbols:
 🥒	cogombro	none
 🥬	verdura de folla	none
 🥦	brócoli	none
+🧄	allo	none
+🧅	cebola	none
 🍄	cogomelo	none
 🥜	cacahuete	none
 🌰	castaña	none
@@ -575,6 +617,7 @@ symbols:
 🥨	pretzel	none
 🥯	bagel	none
 🥞	chulas	none
+🧇	gofre	none
 🧀	queixo	none
 🍖	óso con carne	none
 🍗	zanco de polo	none
@@ -588,6 +631,7 @@ symbols:
 🌮	taco	none
 🌯	burrito	none
 🥙	kebab	none
+🧆	faláfel	none
 🥚	ovo	none
 🍳	tixola	none
 🥘	paella	none
@@ -595,6 +639,7 @@ symbols:
 🥣	cunca con culler	none
 🥗	ensalada	none
 🍿	flocos de millo	none
+🧈	manteiga	none
 🧂	sal	none
 🥫	lata de comida	none
 🍱	caixa de bento	none
@@ -618,6 +663,7 @@ symbols:
 🦞	lagosta	none
 🦐	gamba	none
 🦑	lura	none
+🦪	ostra	none
 🍦	xeado de máquina	none
 🍧	sobremesa de xeo picado	none
 🍨	copa de xeado	none
@@ -646,6 +692,9 @@ symbols:
 🥂	brinde	none
 🥃	vaso con xeo	none
 🥤	vaso con palla	none
+🧃	brik	none
+🧉	mate	none
+🧊	cubo de xeo	none
 🥢	paíños chineses	none
 🍽	prato e cubertos	none
 🍴	garfo e coitelo	none
@@ -694,6 +743,7 @@ symbols:
 🗽	Estatua da liberdade	none
 ⛪	igrexa	none
 🕌	mesquita	none
+🛕	templo hindú	none
 🕍	sinagoga	none
 ⛩	santuario xintoísta	none
 🕋	Kaaba	none
@@ -708,7 +758,6 @@ symbols:
 🌇	solpor	none
 🌉	ponte de noite	none
 ♨	augas termais	none
-🌌	vía láctea	none
 🎠	cabaliño de carrusel	none
 🎡	nora	none
 🎢	montaña rusa	none
@@ -745,6 +794,9 @@ symbols:
 🏎	coche de carreiras	none
 🏍	moto	none
 🛵	motocicleta	none
+🦽	cadeira de rodas	none
+🦼	cadeira de rodas motorizada	none
+🛺	triciclo motorizado	none
 🚲	bicicleta	none
 🛴	patinete	none
 🛹	monopatín	none
@@ -770,6 +822,7 @@ symbols:
 🛩	avioneta	none
 🛫	avión despegando	none
 🛬	avión aterrando	none
+🪂	paracaídas	none
 💺	asento	none
 🚁	helicóptero	none
 🚟	tren colgante	none
@@ -827,9 +880,11 @@ symbols:
 ☀	sol	none
 🌝	lúa chea con cara	none
 🌞	sol con cara	none
+🪐	planeta con aneis	none
 ⭐	estrela	none
 🌟	estrela brillante	none
 🌠	estrela fugaz	none
+🌌	vía láctea	none
 ☁	nube	none
 ⛅	ceo parcialmente cuberto	none
 ⛈	tormenta	none
@@ -905,11 +960,14 @@ symbols:
 ⛳	golf	none
 ⛸	patinaxe sobre xeo	none
 🎣	cana de pescar	none
+🤿	máscara de mergullo	none
 🎽	camiseta de correr	none
 🎿	esquís	none
 🛷	zorra	none
 🥌	pedra de curling	none
 🎯	diana	none
+🪀	ioió	none
+🪁	papaventos	none
 🎱	billar	none
 🔮	bola de cristal	none
 🧿	ollo turco	none
@@ -936,6 +994,7 @@ symbols:
 🕶	lentes de sol	none
 🥽	gafas de protección	none
 🥼	bata branca	none
+🦺	chaleco salvavidas	none
 👔	gravata	none
 👕	camiseta	none
 👖	vaqueiros	none
@@ -945,6 +1004,10 @@ symbols:
 🧦	calcetíns	none
 👗	vestido	none
 👘	quimono	none
+🥻	sari	none
+🩱	traxe de baño	none
+🩲	calzón	none
+🩳	pantalón curto	none
 👙	bikini	none
 👚	roupa de muller	none
 👛	moedeiro	none
@@ -958,6 +1021,7 @@ symbols:
 🥿	zapato baixo	none
 👠	zapato de tacón	none
 👡	sandalia de muller	none
+🩰	bailarinas	none
 👢	botas de muller	none
 👑	coroa	none
 👒	sombreiro de muller	none
@@ -992,6 +1056,7 @@ symbols:
 🎹	teclado musical	none
 🎺	trompeta	none
 🎻	violín	none
+🪕	banxo	none
 🥁	tambor	none
 📱	teléfono móbil	none
 📲	teléfono móbil con frecha	none
@@ -1027,6 +1092,7 @@ symbols:
 💡	lámpada	none
 🔦	lanterna	none
 🏮	lanterna de papel vermella	none
+🪔	lámpada de aceite	none
 📔	caderno de tapas decoradas	none
 📕	libro pechado	none
 📖	libro aberto	none
@@ -1105,6 +1171,7 @@ symbols:
 🔑	chave	none
 🗝	chave antiga	none
 🔨	martelo	none
+🪓	machado	none
 ⛏	pico	none
 ⚒	martelo e pico	none
 🛠	martelo e chave inglesa	none
@@ -1118,6 +1185,7 @@ symbols:
 ⚙	engrenaxe	none
 🗜	ferramenta de compresión	none
 ⚖	balanza	none
+🦯	bastón guía	none
 🔗	elo	none
 ⛓	cadeas	none
 🧰	caixa de ferramentas	none
@@ -1130,13 +1198,18 @@ symbols:
 🔭	telescopio	none
 📡	antena de satélite	none
 💉	xiringa	none
+🩸	pinga de sangue	none
 💊	pílula	none
+🩹	apósito	none
+🩺	estetoscopio	none
 🚪	porta	none
 🛏	cama	none
 🛋	sofá e lámpada	none
+🪑	cadeira	none
 🚽	váter	none
 🚿	ducha	none
 🛁	bañeira	none
+🪒	coitela	none
 🧴	envase cosmético	none
 🧷	imperdible	none
 🧹	vasoira	none
@@ -1246,6 +1319,8 @@ symbols:
 📶	sinal de cobertura	none
 📳	modo vibración	none
 📴	teléfono móbil apagado	none
+♀	símbolo da muller	none
+♂	símbolo do home	none
 ⚕	símbolo da medicina	none
 ♾	símbolo do infinito	none
 ♻	símbolo de reciclaxe	none
@@ -1319,17 +1394,29 @@ symbols:
 🈺	botón "aberto ao público" en xaponés	none
 🈵	botón "non hai vacantes" en xaponés	none
 🔴	círculo vermello	none
+🟠	círculo laranxa	none
+🟡	círculo amarelo	none
+🟢	círculo verde	none
 🔵	círculo azul	none
-⚪	círculo branco	none
+🟣	círculo violeta	none
+🟤	círculo marrón	none
 ⚫	círculo negro	none
-⬜	cadrado grande branco	none
+⚪	círculo branco	none
+🟥	cadrado vermello	none
+🟧	cadrado laranxa	none
+🟨	cadrado amarelo	none
+🟩	cadrado verde	none
+🟦	cadrado azul	none
+🟪	cadrado violeta	none
+🟫	cadrado marrón	none
 ⬛	cadrado grande negro	none
+⬜	cadrado grande branco	none
 ◼	cadrado mediano negro	none
 ◻	cadrado mediano branco	none
-◽	cadrado pequeno-mediano branco	none
 ◾	cadrado pequeno-mediano negro	none
-▫	cadrado pequeno branco	none
+◽	cadrado pequeno-mediano branco	none
 ▪	cadrado pequeno negro	none
+▫	cadrado pequeno branco	none
 🔶	rombo grande laranxa	none
 🔷	rombo grande azul	none
 🔸	rombo pequeno laranxa	none
@@ -1338,137 +1425,71 @@ symbols:
 🔻	triángulo vermello invertido	none
 💠	rombo en forma de flor	none
 🔘	botón de opción	none
-🔲	botón con cadrado negro	none
 🔳	botón con cadrado branco	none
+🔲	botón con cadrado negro	none
 🏁	bandeira de cadros	none
 🚩	bandeira triangular	none
 🎌	bandeiras cruzadas	none
 🏴	bandeira negra ondeando	none
 🏳	bandeira branca ondeando	none
+🏳‍⚧	bandeira transxénero	none
 🏳‍🌈	bandeira do arco da vella	none
 🏴‍☠	bandeira pirata	none
-🛕	templo hindú	none
-🛺	triciclo motorizado	none
-🟠	círculo laranxa	none
-🟡	círculo amarelo	none
-🟢	círculo verde	none
-🟣	círculo violeta	none
-🟤	círculo marrón	none
-🟥	cadrado vermello	none
-🟦	cadrado azul	none
-🟧	cadrado laranxa	none
-🟨	cadrado amarelo	none
-🟩	cadrado verde	none
-🟪	cadrado violeta	none
-🟫	cadrado marrón	none
-🤍	corazón branco	none
-🤎	corazón marrón	none
-🤏	xesto de "un chisco"	none
-🤿	máscara de mergullo	none
-🥱	cara bocexando	none
-🥻	sari	none
-🦥	preguiceiro	none
-🦦	londra	none
-🦧	orangután	none
-🦨	mofeta	none
-🦩	flamengo	none
-🦪	ostra	none
-🦮	can guía	none
-🦯	bastón guía	none
-🦺	chaleco salvavidas	none
-🦻	orella con audiófono	none
-🦼	cadeira de rodas motorizada	none
-🦽	cadeira de rodas	none
-🦾	brazo mecánico	none
-🦿	perna mecánica	none
-🧃	brik	none
-🧄	allo	none
-🧅	cebola	none
-🧆	faláfel	none
-🧇	gofre	none
-🧈	manteiga	none
-🧉	mate	none
-🧊	cubo de xeo	none
-🧍	persoa de pé	none
-🧍‍♀	muller de pé	none
-🧍‍♂	home de pé	none
-🧎	persoa axeonllada	none
-🧎‍♀	muller axeonllada	none
-🧎‍♂	home axeonllado	none
-🧏	persoa xorda	none
-🧏‍♀	muller xorda	none
-🧏‍♂	home xordo	none
-🩰	bailarinas	none
-🩱	traxe de baño	none
-🩲	calzón	none
-🩳	pantalón curto	none
-🩸	pinga de sangue	none
-🩹	apósito	none
-🩺	estetoscopio	none
-🪀	ioió	none
-🪁	papaventos	none
-🪂	paracaídas	none
-🪐	planeta con aneis	none
-🪑	cadeira	none
-🪒	coitela	none
-🪓	machado	none
-🪔	lámpada de aceite	none
-🪕	banxo	none
-🤏🏻	xesto de "un chisco" ton de pel moi claro	none
-🤏🏼	xesto de "un chisco" ton de pel claro	none
-🤏🏽	xesto de "un chisco" ton de pel medio	none
-🤏🏾	xesto de "un chisco" ton de pel escuro	none
-🤏🏿	xesto de "un chisco" ton de pel moi escuro	none
-🦻🏻	orella con audiófono ton de pel moi claro	none
-🦻🏼	orella con audiófono ton de pel claro	none
-🦻🏽	orella con audiófono ton de pel medio	none
-🦻🏾	orella con audiófono ton de pel escuro	none
-🦻🏿	orella con audiófono ton de pel moi escuro	none
-🧍🏻	persoa de pé ton de pel moi claro	none
-🧍🏼	persoa de pé ton de pel claro	none
-🧍🏽	persoa de pé ton de pel medio	none
-🧍🏾	persoa de pé ton de pel escuro	none
-🧍🏿	persoa de pé ton de pel moi escuro	none
-🧍🏻‍♀	muller de pé ton de pel moi claro	none
-🧍🏼‍♀	muller de pé ton de pel claro	none
-🧍🏽‍♀	muller de pé ton de pel medio	none
-🧍🏾‍♀	muller de pé ton de pel escuro	none
-🧍🏿‍♀	muller de pé ton de pel moi escuro	none
-🧍🏻‍♂	home de pé ton de pel moi claro	none
-🧍🏼‍♂	home de pé ton de pel claro	none
-🧍🏽‍♂	home de pé ton de pel medio	none
-🧍🏾‍♂	home de pé ton de pel escuro	none
-🧍🏿‍♂	home de pé ton de pel moi escuro	none
-🧎🏻	persoa axeonllada ton de pel moi claro	none
-🧎🏼	persoa axeonllada ton de pel claro	none
-🧎🏽	persoa axeonllada ton de pel medio	none
-🧎🏾	persoa axeonllada ton de pel escuro	none
-🧎🏿	persoa axeonllada ton de pel moi escuro	none
-🧎🏻‍♀	muller axeonllada ton de pel moi claro	none
-🧎🏼‍♀	muller axeonllada ton de pel claro	none
-🧎🏽‍♀	muller axeonllada ton de pel medio	none
-🧎🏾‍♀	muller axeonllada ton de pel escuro	none
-🧎🏿‍♀	muller axeonllada ton de pel moi escuro	none
-🧎🏻‍♂	home axeonllado ton de pel moi claro	none
-🧎🏼‍♂	home axeonllado ton de pel claro	none
-🧎🏽‍♂	home axeonllado ton de pel medio	none
-🧎🏾‍♂	home axeonllado ton de pel escuro	none
-🧎🏿‍♂	home axeonllado ton de pel moi escuro	none
-🧏🏻	persoa xorda ton de pel moi claro	none
-🧏🏼	persoa xorda ton de pel claro	none
-🧏🏽	persoa xorda ton de pel medio	none
-🧏🏾	persoa xorda ton de pel escuro	none
-🧏🏿	persoa xorda ton de pel moi escuro	none
-🧏🏻‍♀	muller xorda ton de pel moi claro	none
-🧏🏼‍♀	muller xorda ton de pel claro	none
-🧏🏽‍♀	muller xorda ton de pel medio	none
-🧏🏾‍♀	muller xorda ton de pel escuro	none
-🧏🏿‍♀	muller xorda ton de pel moi escuro	none
-🧏🏻‍♂	home xordo ton de pel moi claro	none
-🧏🏼‍♂	home xordo ton de pel claro	none
-🧏🏽‍♂	home xordo ton de pel medio	none
-🧏🏾‍♂	home xordo ton de pel escuro	none
-🧏🏿‍♂	home xordo ton de pel moi escuro	none
+🛖	palloza	none
+🛗	ascensor	none
+🛻	camioneta	none
+🛼	patín	none
+🤌	xesto de "ateigado"	none
+🥲	cara riseira con bágoa	none
+🥷	ninja	none
+🥸	cara disfrazada	none
+🦣	mamut	none
+🦤	dodo	none
+🦫	castor	none
+🦬	bisonte	none
+🦭	foca	none
+🧋	té de burbullas	none
+🩴	chancleta	none
+🪃	búmerang	none
+🪄	variña máxica	none
+🪅	piñata	none
+🪆	bonecas rusas	none
+🪖	casco militar	none
+🪗	acordeón	none
+🪘	tambor alto	none
+🪙	moeda	none
+🪚	serra	none
+🪛	desaparafusador	none
+🪜	escada	none
+🪝	gancho	none
+🪞	espello	none
+🪟	fiestra	none
+🪠	desatascador	none
+🪡	agulla de coser	none
+🪢	nó	none
+🪣	caldeiro	none
+🪤	trampa para ratos	none
+🪥	cepillo de dentes	none
+🪦	lápida	none
+🪧	pancarta	none
+🪨	pedra	none
+🪰	mosca	none
+🪱	verme	none
+🪲	escaravello	none
+🪳	cascuda	none
+🪴	planta en testo	none
+🪵	madeira	none
+🪶	pluma	none
+🫀	órgano corazón	none
+🫁	pulmóns	none
+🫂	persoas abrazándose	none
+🫐	arando	none
+🫑	pemento	none
+🫒	oliva	none
+🫓	pan plano	none
+🫔	tamal	none
+🫕	fondue	none
+🫖	teteira	none
 👋🏻	man saudando ton de pel moi claro	none
 👋🏼	man saudando ton de pel claro	none
 👋🏽	man saudando ton de pel medio	none
@@ -1499,6 +1520,11 @@ symbols:
 👌🏽	xesto de “OK” ton de pel medio	none
 👌🏾	xesto de “OK” ton de pel escuro	none
 👌🏿	xesto de “OK” ton de pel moi escuro	none
+🤏🏻	xesto de "un chisco" ton de pel moi claro	none
+🤏🏼	xesto de "un chisco" ton de pel claro	none
+🤏🏽	xesto de "un chisco" ton de pel medio	none
+🤏🏾	xesto de "un chisco" ton de pel escuro	none
+🤏🏿	xesto de "un chisco" ton de pel moi escuro	none
 ✌🏻	xesto de vitoria ton de pel moi claro	none
 ✌🏼	xesto de vitoria ton de pel claro	none
 ✌🏽	xesto de vitoria ton de pel medio	none
@@ -1644,6 +1670,11 @@ symbols:
 👂🏽	orella ton de pel medio	none
 👂🏾	orella ton de pel escuro	none
 👂🏿	orella ton de pel moi escuro	none
+🦻🏻	orella con audiófono ton de pel moi claro	none
+🦻🏼	orella con audiófono ton de pel claro	none
+🦻🏽	orella con audiófono ton de pel medio	none
+🦻🏾	orella con audiófono ton de pel escuro	none
+🦻🏿	orella con audiófono ton de pel moi escuro	none
 👃🏻	nariz ton de pel moi claro	none
 👃🏼	nariz ton de pel claro	none
 👃🏽	nariz ton de pel medio	none
@@ -1679,51 +1710,45 @@ symbols:
 👱🏽	persoa loura ton de pel medio	none
 👱🏾	persoa loura ton de pel escuro	none
 👱🏿	persoa loura ton de pel moi escuro	none
-🧑🏻‍🤝‍🧑🏻	persoas dándose a man ton de pel moi claro	none
-🧑🏼‍🤝‍🧑🏻	persoas dándose a man ton de pel claro, ton de pel moi claro	none
-🧑🏼‍🤝‍🧑🏼	persoas dándose a man ton de pel claro	none
-🧑🏽‍🤝‍🧑🏻	persoas dándose a man ton de pel medio, ton de pel moi claro	none
-🧑🏽‍🤝‍🧑🏼	persoas dándose a man ton de pel medio, ton de pel claro	none
-🧑🏽‍🤝‍🧑🏽	persoas dándose a man ton de pel medio	none
-🧑🏾‍🤝‍🧑🏻	persoas dándose a man ton de pel escuro, ton de pel moi claro	none
-🧑🏾‍🤝‍🧑🏼	persoas dándose a man ton de pel escuro, ton de pel claro	none
-🧑🏾‍🤝‍🧑🏽	persoas dándose a man ton de pel escuro, ton de pel medio	none
-🧑🏾‍🤝‍🧑🏾	persoas dándose a man ton de pel escuro	none
-🧑🏿‍🤝‍🧑🏻	persoas dándose a man ton de pel moi escuro, ton de pel moi claro	none
-🧑🏿‍🤝‍🧑🏼	persoas dándose a man ton de pel moi escuro, ton de pel claro	none
-🧑🏿‍🤝‍🧑🏽	persoas dándose a man ton de pel moi escuro, ton de pel medio	none
-🧑🏿‍🤝‍🧑🏾	persoas dándose a man ton de pel moi escuro, ton de pel escuro	none
-🧑🏿‍🤝‍🧑🏿	persoas dándose a man ton de pel moi escuro	none
+🧑‍🦰	persoa pelo roxo	none
+🧑🏻‍🦰	persoa ton de pel moi claro, pelo roxo	none
+🧑🏼‍🦰	persoa ton de pel claro, pelo roxo	none
+🧑🏽‍🦰	persoa ton de pel medio, pelo roxo	none
+🧑🏾‍🦰	persoa ton de pel escuro, pelo roxo	none
+🧑🏿‍🦰	persoa ton de pel moi escuro, pelo roxo	none
+🧑‍🦱	persoa pelo rizado	none
+🧑🏻‍🦱	persoa ton de pel moi claro, pelo rizado	none
+🧑🏼‍🦱	persoa ton de pel claro, pelo rizado	none
+🧑🏽‍🦱	persoa ton de pel medio, pelo rizado	none
+🧑🏾‍🦱	persoa ton de pel escuro, pelo rizado	none
+🧑🏿‍🦱	persoa ton de pel moi escuro, pelo rizado	none
+🧑‍🦳	persoa pelo cano	none
+🧑🏻‍🦳	persoa ton de pel moi claro, pelo cano	none
+🧑🏼‍🦳	persoa ton de pel claro, pelo cano	none
+🧑🏽‍🦳	persoa ton de pel medio, pelo cano	none
+🧑🏾‍🦳	persoa ton de pel escuro, pelo cano	none
+🧑🏿‍🦳	persoa ton de pel moi escuro, pelo cano	none
+🧑‍🦲	persoa sen pelo	none
+🧑🏻‍🦲	persoa ton de pel moi claro, sen pelo	none
+🧑🏼‍🦲	persoa ton de pel claro, sen pelo	none
+🧑🏽‍🦲	persoa ton de pel medio, sen pelo	none
+🧑🏾‍🦲	persoa ton de pel escuro, sen pelo	none
+🧑🏿‍🦲	persoa ton de pel moi escuro, sen pelo	none
 👨🏻	home ton de pel moi claro	none
 👨🏼	home ton de pel claro	none
 👨🏽	home ton de pel medio	none
 👨🏾	home ton de pel escuro	none
 👨🏿	home ton de pel moi escuro	none
-👨🏻‍🦯	home cun bastón guía ton de pel moi claro	none
-👨🏼‍🦯	home cun bastón guía ton de pel claro	none
-👨🏽‍🦯	home cun bastón guía ton de pel medio	none
-👨🏾‍🦯	home cun bastón guía ton de pel escuro	none
-👨🏿‍🦯	home cun bastón guía ton de pel moi escuro	none
-👨🏻‍🦼	home en cadeira de rodas motorizada ton de pel moi claro	none
-👨🏼‍🦼	home en cadeira de rodas motorizada ton de pel claro	none
-👨🏽‍🦼	home en cadeira de rodas motorizada ton de pel medio	none
-👨🏾‍🦼	home en cadeira de rodas motorizada ton de pel escuro	none
-👨🏿‍🦼	home en cadeira de rodas motorizada ton de pel moi escuro	none
-👨🏻‍🦽	home en cadeira de rodas ton de pel moi claro	none
-👨🏼‍🦽	home en cadeira de rodas ton de pel claro	none
-👨🏽‍🦽	home en cadeira de rodas ton de pel medio	none
-👨🏾‍🦽	home en cadeira de rodas ton de pel escuro	none
-👨🏿‍🦽	home en cadeira de rodas ton de pel moi escuro	none
-👨🏼‍🤝‍👨🏻	dous homes collidos da man ton de pel claro, ton de pel moi claro	none
-👨🏽‍🤝‍👨🏻	dous homes collidos da man ton de pel medio, ton de pel moi claro	none
-👨🏽‍🤝‍👨🏼	dous homes collidos da man ton de pel medio, ton de pel claro	none
-👨🏾‍🤝‍👨🏻	dous homes collidos da man ton de pel escuro, ton de pel moi claro	none
-👨🏾‍🤝‍👨🏼	dous homes collidos da man ton de pel escuro, ton de pel claro	none
-👨🏾‍🤝‍👨🏽	dous homes collidos da man ton de pel escuro, ton de pel medio	none
-👨🏿‍🤝‍👨🏻	dous homes collidos da man ton de pel moi escuro, ton de pel moi claro	none
-👨🏿‍🤝‍👨🏼	dous homes collidos da man ton de pel moi escuro, ton de pel claro	none
-👨🏿‍🤝‍👨🏽	dous homes collidos da man ton de pel moi escuro, ton de pel medio	none
-👨🏿‍🤝‍👨🏾	dous homes collidos da man ton de pel moi escuro, ton de pel escuro	none
+🧔🏻	home con barba ton de pel moi claro	none
+🧔🏼	home con barba ton de pel claro	none
+🧔🏽	home con barba ton de pel medio	none
+🧔🏾	home con barba ton de pel escuro	none
+🧔🏿	home con barba ton de pel moi escuro	none
+👱🏻‍♂	home louro ton de pel moi claro	none
+👱🏼‍♂	home louro ton de pel claro	none
+👱🏽‍♂	home louro ton de pel medio	none
+👱🏾‍♂	home louro ton de pel escuro	none
+👱🏿‍♂	home louro ton de pel moi escuro	none
 👨‍🦰	home pelo roxo	none
 👨🏻‍🦰	home ton de pel moi claro, pelo roxo	none
 👨🏼‍🦰	home ton de pel claro, pelo roxo	none
@@ -1748,66 +1773,16 @@ symbols:
 👨🏽‍🦲	home ton de pel medio, sen pelo	none
 👨🏾‍🦲	home ton de pel escuro, sen pelo	none
 👨🏿‍🦲	home ton de pel moi escuro, sen pelo	none
-👱🏻‍♂	home louro ton de pel moi claro	none
-👱🏼‍♂	home louro ton de pel claro	none
-👱🏽‍♂	home louro ton de pel medio	none
-👱🏾‍♂	home louro ton de pel escuro	none
-👱🏿‍♂	home louro ton de pel moi escuro	none
-🧔🏻	home con barba ton de pel moi claro	none
-🧔🏼	home con barba ton de pel claro	none
-🧔🏽	home con barba ton de pel medio	none
-🧔🏾	home con barba ton de pel escuro	none
-🧔🏿	home con barba ton de pel moi escuro	none
 👩🏻	muller ton de pel moi claro	none
 👩🏼	muller ton de pel claro	none
 👩🏽	muller ton de pel medio	none
 👩🏾	muller ton de pel escuro	none
 👩🏿	muller ton de pel moi escuro	none
-👩🏻‍🦯	muller cun bastón guía ton de pel moi claro	none
-👩🏼‍🦯	muller cun bastón guía ton de pel claro	none
-👩🏽‍🦯	muller cun bastón guía ton de pel medio	none
-👩🏾‍🦯	muller cun bastón guía ton de pel escuro	none
-👩🏿‍🦯	muller cun bastón guía ton de pel moi escuro	none
-👩🏻‍🦼	muller en cadeira de rodas motorizada ton de pel moi claro	none
-👩🏼‍🦼	muller en cadeira de rodas motorizada ton de pel claro	none
-👩🏽‍🦼	muller en cadeira de rodas motorizada ton de pel medio	none
-👩🏾‍🦼	muller en cadeira de rodas motorizada ton de pel escuro	none
-👩🏿‍🦼	muller en cadeira de rodas motorizada ton de pel moi escuro	none
-👩🏻‍🦽	muller en cadeira de rodas ton de pel moi claro	none
-👩🏼‍🦽	muller en cadeira de rodas ton de pel claro	none
-👩🏽‍🦽	muller en cadeira de rodas ton de pel medio	none
-👩🏾‍🦽	muller en cadeira de rodas ton de pel escuro	none
-👩🏿‍🦽	muller en cadeira de rodas ton de pel moi escuro	none
-👩🏻‍🤝‍👨🏼	home e muller collidos da man ton de pel moi claro, ton de pel claro	none
-👩🏻‍🤝‍👨🏽	home e muller collidos da man ton de pel moi claro, ton de pel medio	none
-👩🏻‍🤝‍👨🏾	home e muller collidos da man ton de pel moi claro, ton de pel escuro	none
-👩🏻‍🤝‍👨🏿	home e muller collidos da man ton de pel moi claro, ton de pel moi escuro	none
-👩🏼‍🤝‍👨🏻	home e muller collidos da man ton de pel claro, ton de pel moi claro	none
-👩🏼‍🤝‍👨🏽	home e muller collidos da man ton de pel claro, ton de pel medio	none
-👩🏼‍🤝‍👨🏾	home e muller collidos da man ton de pel claro, ton de pel escuro	none
-👩🏼‍🤝‍👨🏿	home e muller collidos da man ton de pel claro, ton de pel moi escuro	none
-👩🏽‍🤝‍👨🏻	home e muller collidos da man ton de pel medio, ton de pel moi claro	none
-👩🏽‍🤝‍👨🏼	home e muller collidos da man ton de pel medio, ton de pel claro	none
-👩🏽‍🤝‍👨🏾	home e muller collidos da man ton de pel medio, ton de pel escuro	none
-👩🏽‍🤝‍👨🏿	home e muller collidos da man ton de pel medio, ton de pel moi escuro	none
-👩🏾‍🤝‍👨🏻	home e muller collidos da man ton de pel escuro, ton de pel moi claro	none
-👩🏾‍🤝‍👨🏼	home e muller collidos da man ton de pel escuro, ton de pel claro	none
-👩🏾‍🤝‍👨🏽	home e muller collidos da man ton de pel escuro, ton de pel medio	none
-👩🏾‍🤝‍👨🏿	home e muller collidos da man ton de pel escuro, ton de pel moi escuro	none
-👩🏿‍🤝‍👨🏻	home e muller collidos da man ton de pel moi escuro, ton de pel moi claro	none
-👩🏿‍🤝‍👨🏼	home e muller collidos da man ton de pel moi escuro, ton de pel claro	none
-👩🏿‍🤝‍👨🏽	home e muller collidos da man ton de pel moi escuro, ton de pel medio	none
-👩🏿‍🤝‍👨🏾	home e muller collidos da man ton de pel moi escuro, ton de pel escuro	none
-👩🏼‍🤝‍👩🏻	dúas mulleres collidas da man ton de pel claro, ton de pel moi claro	none
-👩🏽‍🤝‍👩🏻	dúas mulleres collidas da man ton de pel medio, ton de pel moi claro	none
-👩🏽‍🤝‍👩🏼	dúas mulleres collidas da man ton de pel medio, ton de pel claro	none
-👩🏾‍🤝‍👩🏻	dúas mulleres collidas da man ton de pel escuro, ton de pel moi claro	none
-👩🏾‍🤝‍👩🏼	dúas mulleres collidas da man ton de pel escuro, ton de pel claro	none
-👩🏾‍🤝‍👩🏽	dúas mulleres collidas da man ton de pel escuro, ton de pel medio	none
-👩🏿‍🤝‍👩🏻	dúas mulleres collidas da man ton de pel moi escuro, ton de pel moi claro	none
-👩🏿‍🤝‍👩🏼	dúas mulleres collidas da man ton de pel moi escuro, ton de pel claro	none
-👩🏿‍🤝‍👩🏽	dúas mulleres collidas da man ton de pel moi escuro, ton de pel medio	none
-👩🏿‍🤝‍👩🏾	dúas mulleres collidas da man ton de pel moi escuro, ton de pel escuro	none
+👱🏻‍♀	muller loura ton de pel moi claro	none
+👱🏼‍♀	muller loura ton de pel claro	none
+👱🏽‍♀	muller loura ton de pel medio	none
+👱🏾‍♀	muller loura ton de pel escuro	none
+👱🏿‍♀	muller loura ton de pel moi escuro	none
 👩‍🦰	muller pelo roxo	none
 👩🏻‍🦰	muller ton de pel moi claro, pelo roxo	none
 👩🏼‍🦰	muller ton de pel claro, pelo roxo	none
@@ -1832,11 +1807,6 @@ symbols:
 👩🏽‍🦲	muller ton de pel medio, sen pelo	none
 👩🏾‍🦲	muller ton de pel escuro, sen pelo	none
 👩🏿‍🦲	muller ton de pel moi escuro, sen pelo	none
-👱🏻‍♀	muller loura ton de pel moi claro	none
-👱🏼‍♀	muller loura ton de pel claro	none
-👱🏽‍♀	muller loura ton de pel medio	none
-👱🏾‍♀	muller loura ton de pel escuro	none
-👱🏿‍♀	muller loura ton de pel moi escuro	none
 🧓🏻	persoa maior ton de pel moi claro	none
 🧓🏼	persoa maior ton de pel claro	none
 🧓🏽	persoa maior ton de pel medio	none
@@ -1942,6 +1912,21 @@ symbols:
 🙋🏽‍♀	muller levantando a man ton de pel medio	none
 🙋🏾‍♀	muller levantando a man ton de pel escuro	none
 🙋🏿‍♀	muller levantando a man ton de pel moi escuro	none
+🧏🏻	persoa xorda ton de pel moi claro	none
+🧏🏼	persoa xorda ton de pel claro	none
+🧏🏽	persoa xorda ton de pel medio	none
+🧏🏾	persoa xorda ton de pel escuro	none
+🧏🏿	persoa xorda ton de pel moi escuro	none
+🧏🏻‍♂	home xordo ton de pel moi claro	none
+🧏🏼‍♂	home xordo ton de pel claro	none
+🧏🏽‍♂	home xordo ton de pel medio	none
+🧏🏾‍♂	home xordo ton de pel escuro	none
+🧏🏿‍♂	home xordo ton de pel moi escuro	none
+🧏🏻‍♀	muller xorda ton de pel moi claro	none
+🧏🏼‍♀	muller xorda ton de pel claro	none
+🧏🏽‍♀	muller xorda ton de pel medio	none
+🧏🏾‍♀	muller xorda ton de pel escuro	none
+🧏🏿‍♀	muller xorda ton de pel moi escuro	none
 🙇🏻	reverencia ton de pel moi claro	none
 🙇🏼	reverencia ton de pel claro	none
 🙇🏽	reverencia ton de pel medio	none
@@ -1987,6 +1972,11 @@ symbols:
 🤷🏽‍♀	muller facendo xesto de “nin idea” ton de pel medio	none
 🤷🏾‍♀	muller facendo xesto de “nin idea” ton de pel escuro	none
 🤷🏿‍♀	muller facendo xesto de “nin idea” ton de pel moi escuro	none
+🧑🏻‍⚕	persoa sanitaria ton de pel moi claro	none
+🧑🏼‍⚕	persoa sanitaria ton de pel claro	none
+🧑🏽‍⚕	persoa sanitaria ton de pel medio	none
+🧑🏾‍⚕	persoa sanitaria ton de pel escuro	none
+🧑🏿‍⚕	persoa sanitaria ton de pel moi escuro	none
 👨🏻‍⚕	traballador sanitario ton de pel moi claro	none
 👨🏼‍⚕	traballador sanitario ton de pel claro	none
 👨🏽‍⚕	traballador sanitario ton de pel medio	none
@@ -1997,6 +1987,11 @@ symbols:
 👩🏽‍⚕	traballadora sanitaria ton de pel medio	none
 👩🏾‍⚕	traballadora sanitaria ton de pel escuro	none
 👩🏿‍⚕	traballadora sanitaria ton de pel moi escuro	none
+🧑🏻‍🎓	estudante ton de pel moi claro	none
+🧑🏼‍🎓	estudante ton de pel claro	none
+🧑🏽‍🎓	estudante ton de pel medio	none
+🧑🏾‍🎓	estudante ton de pel escuro	none
+🧑🏿‍🎓	estudante ton de pel moi escuro	none
 👨🏻‍🎓	estudante de sexo masculino ton de pel moi claro	none
 👨🏼‍🎓	estudante de sexo masculino ton de pel claro	none
 👨🏽‍🎓	estudante de sexo masculino ton de pel medio	none
@@ -2007,6 +2002,11 @@ symbols:
 👩🏽‍🎓	estudante de sexo feminino ton de pel medio	none
 👩🏾‍🎓	estudante de sexo feminino ton de pel escuro	none
 👩🏿‍🎓	estudante de sexo feminino ton de pel moi escuro	none
+🧑🏻‍🏫	ensinante ton de pel moi claro	none
+🧑🏼‍🏫	ensinante ton de pel claro	none
+🧑🏽‍🏫	ensinante ton de pel medio	none
+🧑🏾‍🏫	ensinante ton de pel escuro	none
+🧑🏿‍🏫	ensinante ton de pel moi escuro	none
 👨🏻‍🏫	profesor ton de pel moi claro	none
 👨🏼‍🏫	profesor ton de pel claro	none
 👨🏽‍🏫	profesor ton de pel medio	none
@@ -2017,6 +2017,11 @@ symbols:
 👩🏽‍🏫	profesora ton de pel medio	none
 👩🏾‍🏫	profesora ton de pel escuro	none
 👩🏿‍🏫	profesora ton de pel moi escuro	none
+🧑🏻‍⚖	membro da xudicatura ton de pel moi claro	none
+🧑🏼‍⚖	membro da xudicatura ton de pel claro	none
+🧑🏽‍⚖	membro da xudicatura ton de pel medio	none
+🧑🏾‍⚖	membro da xudicatura ton de pel escuro	none
+🧑🏿‍⚖	membro da xudicatura ton de pel moi escuro	none
 👨🏻‍⚖	xuíz ton de pel moi claro	none
 👨🏼‍⚖	xuíz ton de pel claro	none
 👨🏽‍⚖	xuíz ton de pel medio	none
@@ -2027,6 +2032,11 @@ symbols:
 👩🏽‍⚖	xuíza ton de pel medio	none
 👩🏾‍⚖	xuíza ton de pel escuro	none
 👩🏿‍⚖	xuíza ton de pel moi escuro	none
+🧑🏻‍🌾	persoa dedicada á agricultura ton de pel moi claro	none
+🧑🏼‍🌾	persoa dedicada á agricultura ton de pel claro	none
+🧑🏽‍🌾	persoa dedicada á agricultura ton de pel medio	none
+🧑🏾‍🌾	persoa dedicada á agricultura ton de pel escuro	none
+🧑🏿‍🌾	persoa dedicada á agricultura ton de pel moi escuro	none
 👨🏻‍🌾	agricultor ton de pel moi claro	none
 👨🏼‍🌾	agricultor ton de pel claro	none
 👨🏽‍🌾	agricultor ton de pel medio	none
@@ -2037,6 +2047,11 @@ symbols:
 👩🏽‍🌾	agricultora ton de pel medio	none
 👩🏾‍🌾	agricultora ton de pel escuro	none
 👩🏿‍🌾	agricultora ton de pel moi escuro	none
+🧑🏻‍🍳	profesional da cociña ton de pel moi claro	none
+🧑🏼‍🍳	profesional da cociña ton de pel claro	none
+🧑🏽‍🍳	profesional da cociña ton de pel medio	none
+🧑🏾‍🍳	profesional da cociña ton de pel escuro	none
+🧑🏿‍🍳	profesional da cociña ton de pel moi escuro	none
 👨🏻‍🍳	cociñeiro ton de pel moi claro	none
 👨🏼‍🍳	cociñeiro ton de pel claro	none
 👨🏽‍🍳	cociñeiro ton de pel medio	none
@@ -2047,6 +2062,11 @@ symbols:
 👩🏽‍🍳	cociñeira ton de pel medio	none
 👩🏾‍🍳	cociñeira ton de pel escuro	none
 👩🏿‍🍳	cociñeira ton de pel moi escuro	none
+🧑🏻‍🔧	profesional da mecánica ton de pel moi claro	none
+🧑🏼‍🔧	profesional da mecánica ton de pel claro	none
+🧑🏽‍🔧	profesional da mecánica ton de pel medio	none
+🧑🏾‍🔧	profesional da mecánica ton de pel escuro	none
+🧑🏿‍🔧	profesional da mecánica ton de pel moi escuro	none
 👨🏻‍🔧	mecánico ton de pel moi claro	none
 👨🏼‍🔧	mecánico ton de pel claro	none
 👨🏽‍🔧	mecánico ton de pel medio	none
@@ -2057,6 +2077,11 @@ symbols:
 👩🏽‍🔧	mecánica ton de pel medio	none
 👩🏾‍🔧	mecánica ton de pel escuro	none
 👩🏿‍🔧	mecánica ton de pel moi escuro	none
+🧑🏻‍🏭	traballador de fábrica ton de pel moi claro	none
+🧑🏼‍🏭	traballador de fábrica ton de pel claro	none
+🧑🏽‍🏭	traballador de fábrica ton de pel medio	none
+🧑🏾‍🏭	traballador de fábrica ton de pel escuro	none
+🧑🏿‍🏭	traballador de fábrica ton de pel moi escuro	none
 👨🏻‍🏭	operario ton de pel moi claro	none
 👨🏼‍🏭	operario ton de pel claro	none
 👨🏽‍🏭	operario ton de pel medio	none
@@ -2067,6 +2092,11 @@ symbols:
 👩🏽‍🏭	operaria ton de pel medio	none
 👩🏾‍🏭	operaria ton de pel escuro	none
 👩🏿‍🏭	operaria ton de pel moi escuro	none
+🧑🏻‍💼	oficinista ton de pel moi claro	none
+🧑🏼‍💼	oficinista ton de pel claro	none
+🧑🏽‍💼	oficinista ton de pel medio	none
+🧑🏾‍💼	oficinista ton de pel escuro	none
+🧑🏿‍💼	oficinista ton de pel moi escuro	none
 👨🏻‍💼	administrativo ton de pel moi claro	none
 👨🏼‍💼	administrativo ton de pel claro	none
 👨🏽‍💼	administrativo ton de pel medio	none
@@ -2077,6 +2107,11 @@ symbols:
 👩🏽‍💼	administrativa ton de pel medio	none
 👩🏾‍💼	administrativa ton de pel escuro	none
 👩🏿‍💼	administrativa ton de pel moi escuro	none
+🧑🏻‍🔬	especialista en ciencia ton de pel moi claro	none
+🧑🏼‍🔬	especialista en ciencia ton de pel claro	none
+🧑🏽‍🔬	especialista en ciencia ton de pel medio	none
+🧑🏾‍🔬	especialista en ciencia ton de pel escuro	none
+🧑🏿‍🔬	especialista en ciencia ton de pel moi escuro	none
 👨🏻‍🔬	científico ton de pel moi claro	none
 👨🏼‍🔬	científico ton de pel claro	none
 👨🏽‍🔬	científico ton de pel medio	none
@@ -2087,6 +2122,11 @@ symbols:
 👩🏽‍🔬	científica ton de pel medio	none
 👩🏾‍🔬	científica ton de pel escuro	none
 👩🏿‍🔬	científica ton de pel moi escuro	none
+🧑🏻‍💻	persoa experta en programación ton de pel moi claro	none
+🧑🏼‍💻	persoa experta en programación ton de pel claro	none
+🧑🏽‍💻	persoa experta en programación ton de pel medio	none
+🧑🏾‍💻	persoa experta en programación ton de pel escuro	none
+🧑🏿‍💻	persoa experta en programación ton de pel moi escuro	none
 👨🏻‍💻	informático ton de pel moi claro	none
 👨🏼‍💻	informático ton de pel claro	none
 👨🏽‍💻	informático ton de pel medio	none
@@ -2097,6 +2137,11 @@ symbols:
 👩🏽‍💻	informática ton de pel medio	none
 👩🏾‍💻	informática ton de pel escuro	none
 👩🏿‍💻	informática ton de pel moi escuro	none
+🧑🏻‍🎤	cantante ton de pel moi claro	none
+🧑🏼‍🎤	cantante ton de pel claro	none
+🧑🏽‍🎤	cantante ton de pel medio	none
+🧑🏾‍🎤	cantante ton de pel escuro	none
+🧑🏿‍🎤	cantante ton de pel moi escuro	none
 👨🏻‍🎤	cantante de sexo masculino ton de pel moi claro	none
 👨🏼‍🎤	cantante de sexo masculino ton de pel claro	none
 👨🏽‍🎤	cantante de sexo masculino ton de pel medio	none
@@ -2107,6 +2152,11 @@ symbols:
 👩🏽‍🎤	cantante de sexo feminino ton de pel medio	none
 👩🏾‍🎤	cantante de sexo feminino ton de pel escuro	none
 👩🏿‍🎤	cantante de sexo feminino ton de pel moi escuro	none
+🧑🏻‍🎨	artista ton de pel moi claro	none
+🧑🏼‍🎨	artista ton de pel claro	none
+🧑🏽‍🎨	artista ton de pel medio	none
+🧑🏾‍🎨	artista ton de pel escuro	none
+🧑🏿‍🎨	artista ton de pel moi escuro	none
 👨🏻‍🎨	pintor ton de pel moi claro	none
 👨🏼‍🎨	pintor ton de pel claro	none
 👨🏽‍🎨	pintor ton de pel medio	none
@@ -2117,6 +2167,11 @@ symbols:
 👩🏽‍🎨	pintora ton de pel medio	none
 👩🏾‍🎨	pintora ton de pel escuro	none
 👩🏿‍🎨	pintora ton de pel moi escuro	none
+🧑🏻‍✈	piloto ton de pel moi claro	none
+🧑🏼‍✈	piloto ton de pel claro	none
+🧑🏽‍✈	piloto ton de pel medio	none
+🧑🏾‍✈	piloto ton de pel escuro	none
+🧑🏿‍✈	piloto ton de pel moi escuro	none
 👨🏻‍✈	piloto de sexo masculino ton de pel moi claro	none
 👨🏼‍✈	piloto de sexo masculino ton de pel claro	none
 👨🏽‍✈	piloto de sexo masculino ton de pel medio	none
@@ -2127,6 +2182,11 @@ symbols:
 👩🏽‍✈	piloto de sexo feminino ton de pel medio	none
 👩🏾‍✈	piloto de sexo feminino ton de pel escuro	none
 👩🏿‍✈	piloto de sexo feminino ton de pel moi escuro	none
+🧑🏻‍🚀	astronauta ton de pel moi claro	none
+🧑🏼‍🚀	astronauta ton de pel claro	none
+🧑🏽‍🚀	astronauta ton de pel medio	none
+🧑🏾‍🚀	astronauta ton de pel escuro	none
+🧑🏿‍🚀	astronauta ton de pel moi escuro	none
 👨🏻‍🚀	astronauta de sexo masculino ton de pel moi claro	none
 👨🏼‍🚀	astronauta de sexo masculino ton de pel claro	none
 👨🏽‍🚀	astronauta de sexo masculino ton de pel medio	none
@@ -2137,6 +2197,11 @@ symbols:
 👩🏽‍🚀	astronauta de sexo feminino ton de pel medio	none
 👩🏾‍🚀	astronauta de sexo feminino ton de pel escuro	none
 👩🏿‍🚀	astronauta de sexo feminino ton de pel moi escuro	none
+🧑🏻‍🚒	especialista en apagar incendios ton de pel moi claro	none
+🧑🏼‍🚒	especialista en apagar incendios ton de pel claro	none
+🧑🏽‍🚒	especialista en apagar incendios ton de pel medio	none
+🧑🏾‍🚒	especialista en apagar incendios ton de pel escuro	none
+🧑🏿‍🚒	especialista en apagar incendios ton de pel moi escuro	none
 👨🏻‍🚒	bombeiro ton de pel moi claro	none
 👨🏼‍🚒	bombeiro ton de pel claro	none
 👨🏽‍🚒	bombeiro ton de pel medio	none
@@ -2427,6 +2492,81 @@ symbols:
 🚶🏽‍♀	muller andando ton de pel medio	none
 🚶🏾‍♀	muller andando ton de pel escuro	none
 🚶🏿‍♀	muller andando ton de pel moi escuro	none
+🧍🏻	persoa de pé ton de pel moi claro	none
+🧍🏼	persoa de pé ton de pel claro	none
+🧍🏽	persoa de pé ton de pel medio	none
+🧍🏾	persoa de pé ton de pel escuro	none
+🧍🏿	persoa de pé ton de pel moi escuro	none
+🧍🏻‍♂	home de pé ton de pel moi claro	none
+🧍🏼‍♂	home de pé ton de pel claro	none
+🧍🏽‍♂	home de pé ton de pel medio	none
+🧍🏾‍♂	home de pé ton de pel escuro	none
+🧍🏿‍♂	home de pé ton de pel moi escuro	none
+🧍🏻‍♀	muller de pé ton de pel moi claro	none
+🧍🏼‍♀	muller de pé ton de pel claro	none
+🧍🏽‍♀	muller de pé ton de pel medio	none
+🧍🏾‍♀	muller de pé ton de pel escuro	none
+🧍🏿‍♀	muller de pé ton de pel moi escuro	none
+🧎🏻	persoa axeonllada ton de pel moi claro	none
+🧎🏼	persoa axeonllada ton de pel claro	none
+🧎🏽	persoa axeonllada ton de pel medio	none
+🧎🏾	persoa axeonllada ton de pel escuro	none
+🧎🏿	persoa axeonllada ton de pel moi escuro	none
+🧎🏻‍♂	home axeonllado ton de pel moi claro	none
+🧎🏼‍♂	home axeonllado ton de pel claro	none
+🧎🏽‍♂	home axeonllado ton de pel medio	none
+🧎🏾‍♂	home axeonllado ton de pel escuro	none
+🧎🏿‍♂	home axeonllado ton de pel moi escuro	none
+🧎🏻‍♀	muller axeonllada ton de pel moi claro	none
+🧎🏼‍♀	muller axeonllada ton de pel claro	none
+🧎🏽‍♀	muller axeonllada ton de pel medio	none
+🧎🏾‍♀	muller axeonllada ton de pel escuro	none
+🧎🏿‍♀	muller axeonllada ton de pel moi escuro	none
+🧑🏻‍🦯	persoa cun bastón guía ton de pel moi claro	none
+🧑🏼‍🦯	persoa cun bastón guía ton de pel claro	none
+🧑🏽‍🦯	persoa cun bastón guía ton de pel medio	none
+🧑🏾‍🦯	persoa cun bastón guía ton de pel escuro	none
+🧑🏿‍🦯	persoa cun bastón guía ton de pel moi escuro	none
+👨🏻‍🦯	home cun bastón guía ton de pel moi claro	none
+👨🏼‍🦯	home cun bastón guía ton de pel claro	none
+👨🏽‍🦯	home cun bastón guía ton de pel medio	none
+👨🏾‍🦯	home cun bastón guía ton de pel escuro	none
+👨🏿‍🦯	home cun bastón guía ton de pel moi escuro	none
+👩🏻‍🦯	muller cun bastón guía ton de pel moi claro	none
+👩🏼‍🦯	muller cun bastón guía ton de pel claro	none
+👩🏽‍🦯	muller cun bastón guía ton de pel medio	none
+👩🏾‍🦯	muller cun bastón guía ton de pel escuro	none
+👩🏿‍🦯	muller cun bastón guía ton de pel moi escuro	none
+🧑🏻‍🦼	persoa en cadeira de rodas motorizada ton de pel moi claro	none
+🧑🏼‍🦼	persoa en cadeira de rodas motorizada ton de pel claro	none
+🧑🏽‍🦼	persoa en cadeira de rodas motorizada ton de pel medio	none
+🧑🏾‍🦼	persoa en cadeira de rodas motorizada ton de pel escuro	none
+🧑🏿‍🦼	persoa en cadeira de rodas motorizada ton de pel moi escuro	none
+👨🏻‍🦼	home en cadeira de rodas motorizada ton de pel moi claro	none
+👨🏼‍🦼	home en cadeira de rodas motorizada ton de pel claro	none
+👨🏽‍🦼	home en cadeira de rodas motorizada ton de pel medio	none
+👨🏾‍🦼	home en cadeira de rodas motorizada ton de pel escuro	none
+👨🏿‍🦼	home en cadeira de rodas motorizada ton de pel moi escuro	none
+👩🏻‍🦼	muller en cadeira de rodas motorizada ton de pel moi claro	none
+👩🏼‍🦼	muller en cadeira de rodas motorizada ton de pel claro	none
+👩🏽‍🦼	muller en cadeira de rodas motorizada ton de pel medio	none
+👩🏾‍🦼	muller en cadeira de rodas motorizada ton de pel escuro	none
+👩🏿‍🦼	muller en cadeira de rodas motorizada ton de pel moi escuro	none
+🧑🏻‍🦽	persoa en cadeira de rodas ton de pel moi claro	none
+🧑🏼‍🦽	persoa en cadeira de rodas ton de pel claro	none
+🧑🏽‍🦽	persoa en cadeira de rodas ton de pel medio	none
+🧑🏾‍🦽	persoa en cadeira de rodas ton de pel escuro	none
+🧑🏿‍🦽	persoa en cadeira de rodas ton de pel moi escuro	none
+👨🏻‍🦽	home en cadeira de rodas ton de pel moi claro	none
+👨🏼‍🦽	home en cadeira de rodas ton de pel claro	none
+👨🏽‍🦽	home en cadeira de rodas ton de pel medio	none
+👨🏾‍🦽	home en cadeira de rodas ton de pel escuro	none
+👨🏿‍🦽	home en cadeira de rodas ton de pel moi escuro	none
+👩🏻‍🦽	muller en cadeira de rodas ton de pel moi claro	none
+👩🏼‍🦽	muller en cadeira de rodas ton de pel claro	none
+👩🏽‍🦽	muller en cadeira de rodas ton de pel medio	none
+👩🏾‍🦽	muller en cadeira de rodas ton de pel escuro	none
+👩🏿‍🦽	muller en cadeira de rodas ton de pel moi escuro	none
 🏃🏻	persoa correndo ton de pel moi claro	none
 🏃🏼	persoa correndo ton de pel claro	none
 🏃🏽	persoa correndo ton de pel medio	none
@@ -2702,21 +2842,76 @@ symbols:
 🛌🏽	persoa durmindo ton de pel medio	none
 🛌🏾	persoa durmindo ton de pel escuro	none
 🛌🏿	persoa durmindo ton de pel moi escuro	none
+🧑🏻‍🤝‍🧑🏻	persoas dándose a man ton de pel moi claro	none
+🧑🏼‍🤝‍🧑🏻	persoas dándose a man ton de pel claro, ton de pel moi claro	none
+🧑🏼‍🤝‍🧑🏼	persoas dándose a man ton de pel claro	none
+🧑🏽‍🤝‍🧑🏻	persoas dándose a man ton de pel medio, ton de pel moi claro	none
+🧑🏽‍🤝‍🧑🏼	persoas dándose a man ton de pel medio, ton de pel claro	none
+🧑🏽‍🤝‍🧑🏽	persoas dándose a man ton de pel medio	none
+🧑🏾‍🤝‍🧑🏻	persoas dándose a man ton de pel escuro, ton de pel moi claro	none
+🧑🏾‍🤝‍🧑🏼	persoas dándose a man ton de pel escuro, ton de pel claro	none
+🧑🏾‍🤝‍🧑🏽	persoas dándose a man ton de pel escuro, ton de pel medio	none
+🧑🏾‍🤝‍🧑🏾	persoas dándose a man ton de pel escuro	none
+🧑🏿‍🤝‍🧑🏻	persoas dándose a man ton de pel moi escuro, ton de pel moi claro	none
+🧑🏿‍🤝‍🧑🏼	persoas dándose a man ton de pel moi escuro, ton de pel claro	none
+🧑🏿‍🤝‍🧑🏽	persoas dándose a man ton de pel moi escuro, ton de pel medio	none
+🧑🏿‍🤝‍🧑🏾	persoas dándose a man ton de pel moi escuro, ton de pel escuro	none
+🧑🏿‍🤝‍🧑🏿	persoas dándose a man ton de pel moi escuro	none
+👭🏻	dúas mulleres collidas da man ton de pel moi claro	none
+👩🏼‍🤝‍👩🏻	dúas mulleres collidas da man ton de pel claro, ton de pel moi claro	none
+👭🏼	dúas mulleres collidas da man ton de pel claro	none
+👩🏽‍🤝‍👩🏻	dúas mulleres collidas da man ton de pel medio, ton de pel moi claro	none
+👩🏽‍🤝‍👩🏼	dúas mulleres collidas da man ton de pel medio, ton de pel claro	none
+👭🏽	dúas mulleres collidas da man ton de pel medio	none
+👩🏾‍🤝‍👩🏻	dúas mulleres collidas da man ton de pel escuro, ton de pel moi claro	none
+👩🏾‍🤝‍👩🏼	dúas mulleres collidas da man ton de pel escuro, ton de pel claro	none
+👩🏾‍🤝‍👩🏽	dúas mulleres collidas da man ton de pel escuro, ton de pel medio	none
+👭🏾	dúas mulleres collidas da man ton de pel escuro	none
+👩🏿‍🤝‍👩🏻	dúas mulleres collidas da man ton de pel moi escuro, ton de pel moi claro	none
+👩🏿‍🤝‍👩🏼	dúas mulleres collidas da man ton de pel moi escuro, ton de pel claro	none
+👩🏿‍🤝‍👩🏽	dúas mulleres collidas da man ton de pel moi escuro, ton de pel medio	none
+👩🏿‍🤝‍👩🏾	dúas mulleres collidas da man ton de pel moi escuro, ton de pel escuro	none
+👭🏿	dúas mulleres collidas da man ton de pel moi escuro	none
 👫🏻	home e muller collidos da man ton de pel moi claro	none
+👩🏻‍🤝‍👨🏼	home e muller collidos da man ton de pel moi claro, ton de pel claro	none
+👩🏻‍🤝‍👨🏽	home e muller collidos da man ton de pel moi claro, ton de pel medio	none
+👩🏻‍🤝‍👨🏾	home e muller collidos da man ton de pel moi claro, ton de pel escuro	none
+👩🏻‍🤝‍👨🏿	home e muller collidos da man ton de pel moi claro, ton de pel moi escuro	none
+👩🏼‍🤝‍👨🏻	home e muller collidos da man ton de pel claro, ton de pel moi claro	none
 👫🏼	home e muller collidos da man ton de pel claro	none
+👩🏼‍🤝‍👨🏽	home e muller collidos da man ton de pel claro, ton de pel medio	none
+👩🏼‍🤝‍👨🏾	home e muller collidos da man ton de pel claro, ton de pel escuro	none
+👩🏼‍🤝‍👨🏿	home e muller collidos da man ton de pel claro, ton de pel moi escuro	none
+👩🏽‍🤝‍👨🏻	home e muller collidos da man ton de pel medio, ton de pel moi claro	none
+👩🏽‍🤝‍👨🏼	home e muller collidos da man ton de pel medio, ton de pel claro	none
 👫🏽	home e muller collidos da man ton de pel medio	none
+👩🏽‍🤝‍👨🏾	home e muller collidos da man ton de pel medio, ton de pel escuro	none
+👩🏽‍🤝‍👨🏿	home e muller collidos da man ton de pel medio, ton de pel moi escuro	none
+👩🏾‍🤝‍👨🏻	home e muller collidos da man ton de pel escuro, ton de pel moi claro	none
+👩🏾‍🤝‍👨🏼	home e muller collidos da man ton de pel escuro, ton de pel claro	none
+👩🏾‍🤝‍👨🏽	home e muller collidos da man ton de pel escuro, ton de pel medio	none
 👫🏾	home e muller collidos da man ton de pel escuro	none
+👩🏾‍🤝‍👨🏿	home e muller collidos da man ton de pel escuro, ton de pel moi escuro	none
+👩🏿‍🤝‍👨🏻	home e muller collidos da man ton de pel moi escuro, ton de pel moi claro	none
+👩🏿‍🤝‍👨🏼	home e muller collidos da man ton de pel moi escuro, ton de pel claro	none
+👩🏿‍🤝‍👨🏽	home e muller collidos da man ton de pel moi escuro, ton de pel medio	none
+👩🏿‍🤝‍👨🏾	home e muller collidos da man ton de pel moi escuro, ton de pel escuro	none
 👫🏿	home e muller collidos da man ton de pel moi escuro	none
 👬🏻	dous homes collidos da man ton de pel moi claro	none
+👨🏼‍🤝‍👨🏻	dous homes collidos da man ton de pel claro, ton de pel moi claro	none
 👬🏼	dous homes collidos da man ton de pel claro	none
+👨🏽‍🤝‍👨🏻	dous homes collidos da man ton de pel medio, ton de pel moi claro	none
+👨🏽‍🤝‍👨🏼	dous homes collidos da man ton de pel medio, ton de pel claro	none
 👬🏽	dous homes collidos da man ton de pel medio	none
+👨🏾‍🤝‍👨🏻	dous homes collidos da man ton de pel escuro, ton de pel moi claro	none
+👨🏾‍🤝‍👨🏼	dous homes collidos da man ton de pel escuro, ton de pel claro	none
+👨🏾‍🤝‍👨🏽	dous homes collidos da man ton de pel escuro, ton de pel medio	none
 👬🏾	dous homes collidos da man ton de pel escuro	none
+👨🏿‍🤝‍👨🏻	dous homes collidos da man ton de pel moi escuro, ton de pel moi claro	none
+👨🏿‍🤝‍👨🏼	dous homes collidos da man ton de pel moi escuro, ton de pel claro	none
+👨🏿‍🤝‍👨🏽	dous homes collidos da man ton de pel moi escuro, ton de pel medio	none
+👨🏿‍🤝‍👨🏾	dous homes collidos da man ton de pel moi escuro, ton de pel escuro	none
 👬🏿	dous homes collidos da man ton de pel moi escuro	none
-👭🏻	dúas mulleres collidas da man ton de pel moi claro	none
-👭🏼	dúas mulleres collidas da man ton de pel claro	none
-👭🏽	dúas mulleres collidas da man ton de pel medio	none
-👭🏾	dúas mulleres collidas da man ton de pel escuro	none
-👭🏿	dúas mulleres collidas da man ton de pel moi escuro	none
 👩‍❤‍💋‍👨	parella bicándose muller, home	none
 👨‍❤‍💋‍👨	parella bicándose home, home	none
 👩‍❤‍💋‍👩	parella bicándose muller, muller	none
@@ -2795,7 +2990,7 @@ symbols:
 🇨🇫	bandeira República Centroafricana	none
 🇨🇬	bandeira República do Congo	none
 🇨🇭	bandeira Suíza	none
-🇨🇮	bandeira Costa do Marfil	none
+🇨🇮	bandeira Côte d’Ivoire	none
 🇨🇰	bandeira Illas Cook	none
 🇨🇱	bandeira Chile	none
 🇨🇲	bandeira Camerún	none
@@ -2881,7 +3076,7 @@ symbols:
 🇰🇷	bandeira Corea do Sur	none
 🇰🇼	bandeira Kuwait	none
 🇰🇾	bandeira Illas Caimán	none
-🇰🇿	bandeira Casaquistán	none
+🇰🇿	bandeira Kazakistán	none
 🇱🇦	bandeira Laos	none
 🇱🇧	bandeira O Líbano	none
 🇱🇨	bandeira Santa Lucía	none
@@ -2900,7 +3095,7 @@ symbols:
 🇲🇫	bandeira Saint Martin	none
 🇲🇬	bandeira Madagascar	none
 🇲🇭	bandeira Illas Marshall	none
-🇲🇰	bandeira Macedonia	none
+🇲🇰	bandeira Macedonia do Norte	none
 🇲🇱	bandeira Malí	none
 🇲🇲	bandeira Myanmar (Birmania)	none
 🇲🇳	bandeira Mongolia	none
@@ -2969,7 +3164,7 @@ symbols:
 🇸🇻	bandeira O Salvador	none
 🇸🇽	bandeira Sint Maarten	none
 🇸🇾	bandeira Siria	none
-🇸🇿	bandeira Suazilandia	none
+🇸🇿	bandeira Eswatini	none
 🇹🇦	bandeira Tristán da Cunha	none
 🇹🇨	bandeira Illas Turks e Caicos	none
 🇹🇩	bandeira Chad	none
@@ -2993,7 +3188,7 @@ symbols:
 🇺🇳	bandeira Nacións Unidas	none
 🇺🇸	bandeira Os Estados Unidos	none
 🇺🇾	bandeira O Uruguai	none
-🇺🇿	bandeira Uzbequistán	none
+🇺🇿	bandeira Uzbekistán	none
 🇻🇦	bandeira Cidade do Vaticano	none
 🇻🇨	bandeira San Vicente e As Granadinas	none
 🇻🇪	bandeira Venezuela	none

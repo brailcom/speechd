@@ -4,9 +4,10 @@
 
 symbols:
 🖖	Vulcan salute	none
+🎅	Santa	none
+🧑‍🦼	person in motorised wheelchair	none
 👨‍🦼	man in motorised wheelchair	none
 👩‍🦼	woman in motorised wheelchair	none
-🎅	Santa	none
 🧖‍♂	man in steam room	none
 🧖‍♀	woman in steam room	none
 🚴	person riding a bike	none
@@ -26,10 +27,10 @@ symbols:
 🍧	granita	none
 🍪	cookie	none
 🍮	baked custard	none
+🧃	drink carton	none
 🗻	mount Fuji	none
 ⛩	Shinto shrine	none
 🕋	Kaaba	none
-🌌	Milky Way	none
 🎠	merry-go-round	none
 🎪	big top	none
 🚃	tram	none
@@ -38,6 +39,7 @@ symbols:
 🚒	fire truck	none
 🚙	four-wheel drive	none
 🚛	articulated truck	none
+🦼	mobility scooter	none
 🛣	freeway	none
 ⛽	petrol pump	none
 🚥	horizontal traffic lights	none
@@ -48,6 +50,7 @@ symbols:
 🛎	porter bell	none
 ⏲	timer	none
 🕰	clock	none
+🌌	Milky Way	none
 ⛱	beach umbrella	none
 🎍	bamboo decoration	none
 🎁	gift	none
@@ -91,18 +94,22 @@ symbols:
 🔠	input Latin uppercase	none
 🔡	input Latin lowercase	none
 🔤	input Latin letters	none
-🦼	mobility scooter	none
-🧃	drink carton	none
+🪡	needle and thread	none
 🖖🏻	Vulcan salute light skin tone	none
 🖖🏼	Vulcan salute medium-light skin tone	none
 🖖🏽	Vulcan salute medium skin tone	none
 🖖🏾	Vulcan salute medium-dark skin tone	none
 🖖🏿	Vulcan salute dark skin tone	none
-🤙🏻	call me hand light skin tone	none
-🤙🏼	call me hand medium-light skin tone	none
-🤙🏽	call me hand medium skin tone	none
-🤙🏾	call me hand medium-dark skin tone	none
-🤙🏿	call me hand dark skin tone	none
+🎅🏻	Santa light skin tone	none
+🎅🏼	Santa medium-light skin tone	none
+🎅🏽	Santa medium skin tone	none
+🎅🏾	Santa medium-dark skin tone	none
+🎅🏿	Santa dark skin tone	none
+🧑🏻‍🦼	person in motorised wheelchair light skin tone	none
+🧑🏼‍🦼	person in motorised wheelchair medium-light skin tone	none
+🧑🏽‍🦼	person in motorised wheelchair medium skin tone	none
+🧑🏾‍🦼	person in motorised wheelchair medium-dark skin tone	none
+🧑🏿‍🦼	person in motorised wheelchair dark skin tone	none
 👨🏻‍🦼	man in motorised wheelchair light skin tone	none
 👨🏼‍🦼	man in motorised wheelchair medium-light skin tone	none
 👨🏽‍🦼	man in motorised wheelchair medium skin tone	none
@@ -113,21 +120,6 @@ symbols:
 👩🏽‍🦼	woman in motorised wheelchair medium skin tone	none
 👩🏾‍🦼	woman in motorised wheelchair medium-dark skin tone	none
 👩🏿‍🦼	woman in motorised wheelchair dark skin tone	none
-🤱🏻	breast-feeding light skin tone	none
-🤱🏼	breast-feeding medium-light skin tone	none
-🤱🏽	breast-feeding medium skin tone	none
-🤱🏾	breast-feeding medium-dark skin tone	none
-🤱🏿	breast-feeding dark skin tone	none
-🎅🏻	Santa light skin tone	none
-🎅🏼	Santa medium-light skin tone	none
-🎅🏽	Santa medium skin tone	none
-🎅🏾	Santa medium-dark skin tone	none
-🎅🏿	Santa dark skin tone	none
-🤶🏻	Mrs. Claus light skin tone	none
-🤶🏼	Mrs. Claus medium-light skin tone	none
-🤶🏽	Mrs. Claus medium skin tone	none
-🤶🏾	Mrs. Claus medium-dark skin tone	none
-🤶🏿	Mrs. Claus dark skin tone	none
 🧖🏻‍♂	man in steam room light skin tone	none
 🧖🏼‍♂	man in steam room medium-light skin tone	none
 🧖🏽‍♂	man in steam room medium skin tone	none
@@ -153,3 +145,8 @@ symbols:
 🚴🏽‍♀	woman riding a bike medium skin tone	none
 🚴🏾‍♀	woman riding a bike medium-dark skin tone	none
 🚴🏿‍♀	woman riding a bike dark skin tone	none
+🇧🇱	flag St. Barthélemy	none
+🇰🇳	flag St. Kitts & Nevis	none
+🇱🇨	flag St. Lucia	none
+🇲🇫	flag St. Martin	none
+🇻🇨	flag St. Vincent & Grenadines	none

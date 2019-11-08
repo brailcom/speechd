@@ -8,7 +8,7 @@ symbols:
 🏽	淺褐皮膚	none
 🏾	褐皮膚	none
 🏿	黑皮膚	none
-🐾	動物腳印	none
+⚧	變性符號	none
 😀	笑臉	none
 😃	大笑	none
 😄	呵呵	none
@@ -94,6 +94,7 @@ symbols:
 😓	冷汗	none
 😩	唉!	none
 😫	累	none
+🥱	呵欠	none
 😤	傲慢	none
 😡	生氣	none
 😠	不爽	none
@@ -140,7 +141,9 @@ symbols:
 💚	綠心	none
 💙	藍心	none
 💜	紫心	none
+🤎	褐心	none
 🖤	黑心	none
+🤍	白心	none
 💯	滿分	none
 💢	怒	none
 💥	碰撞	none
@@ -161,6 +164,7 @@ symbols:
 ✋	舉手	none
 🖖	你好	none
 👌	OK 手勢	none
+🤏	捏	none
 ✌	勝利	none
 🤞	祝好運	none
 🤟	愛你手勢	none
@@ -188,9 +192,12 @@ symbols:
 💅	指甲油	none
 🤳	自拍	none
 💪	肌肉	none
+🦾	機械手臂	none
+🦿	機械腳	none
 🦵	腿	none
 🦶	腳	none
 👂	耳朵	none
+🦻	戴助聽器的耳朵	none
 👃	鼻子	none
 🧠	腦	none
 🦷	牙齒	none
@@ -205,17 +212,10 @@ symbols:
 👧	女孩	none
 🧑	大人	none
 👱	金髮人	none
-🧑‍🤝‍🧑	握手的人	none
 👨	男人	none
-👨‍🦯	拿導盲手杖的男子	none
-👨‍🦼	坐電動輪椅的男子	none
-👨‍🦽	坐輪椅的男子	none
-👱‍♂	金髮男	none
 🧔	蓄鬍的人	none
+👱‍♂	金髮男	none
 👩	女人	none
-👩‍🦯	拿導盲手杖的女子	none
-👩‍🦼	坐電動輪椅的女子	none
-👩‍🦽	坐輪椅的女子	none
 👱‍♀	金髮女	none
 🧓	長者	none
 👴	老爺爺	none
@@ -238,6 +238,9 @@ symbols:
 🙋	嗨	none
 🙋‍♂	男生舉手	none
 🙋‍♀	女生舉手	none
+🧏	聽障人士	none
+🧏‍♂	聽障男子	none
+🧏‍♀	聽障女子	none
 🙇	鞠躬	none
 🙇‍♂	男生鞠躬	none
 🙇‍♀	女生鞠躬	none
@@ -247,36 +250,52 @@ symbols:
 🤷	聳肩	none
 🤷‍♂	男生聳肩	none
 🤷‍♀	女生聳肩	none
+🧑‍⚕	醫護人員	none
 👨‍⚕	男醫生	none
 👩‍⚕	女醫生	none
+🧑‍🎓	學生	none
 👨‍🎓	男畢業生	none
 👩‍🎓	女畢業生	none
+🧑‍🏫	老師	none
 👨‍🏫	男老師	none
 👩‍🏫	女老師	none
+🧑‍⚖	法官	none
 👨‍⚖	男法官	none
 👩‍⚖	女法官	none
+🧑‍🌾	農民	none
 👨‍🌾	農夫	none
 👩‍🌾	農婦	none
+🧑‍🍳	廚師	none
 👨‍🍳	男廚師	none
 👩‍🍳	女廚師	none
+🧑‍🔧	技工	none
 👨‍🔧	男技工	none
 👩‍🔧	女技工	none
+🧑‍🏭	工廠作業員	none
 👨‍🏭	工廠男作業員	none
 👩‍🏭	工廠女作業員	none
+🧑‍💼	上班族	none
 👨‍💼	男性上班族	none
 👩‍💼	女性上班族	none
+🧑‍🔬	科學家	none
 👨‍🔬	男科學家	none
 👩‍🔬	女科學家	none
+🧑‍💻	工程師	none
 👨‍💻	男工程師	none
 👩‍💻	女工程師	none
+🧑‍🎤	歌手	none
 👨‍🎤	男歌手	none
 👩‍🎤	女歌手	none
+🧑‍🎨	藝術家	none
 👨‍🎨	男藝術家	none
 👩‍🎨	女藝術家	none
+🧑‍✈	機長	none
 👨‍✈	男機長	none
 👩‍✈	女機長	none
+🧑‍🚀	太空人	none
 👨‍🚀	男太空人	none
 👩‍🚀	女太空人	none
+🧑‍🚒	消防員	none
 👨‍🚒	男消防員	none
 👩‍🚒	女消防員	none
 👮	警察	none
@@ -341,6 +360,21 @@ symbols:
 🚶	行人	none
 🚶‍♂	男行人	none
 🚶‍♀	女行人	none
+🧍	站著的人	none
+🧍‍♂	站著的男子	none
+🧍‍♀	站著的女子	none
+🧎	跪著的人	none
+🧎‍♂	跪著的男子	none
+🧎‍♀	跪著的女子	none
+🧑‍🦯	拿導盲手杖的人	none
+👨‍🦯	拿導盲手杖的男子	none
+👩‍🦯	拿導盲手杖的女子	none
+🧑‍🦼	坐電動輪椅的人	none
+👨‍🦼	坐電動輪椅的男子	none
+👩‍🦼	坐電動輪椅的女子	none
+🧑‍🦽	坐輪椅的人	none
+👨‍🦽	坐輪椅的男子	none
+👩‍🦽	坐輪椅的女子	none
 🏃	跑者	none
 🏃‍♂	男跑者	none
 🏃‍♀	女跑者	none
@@ -404,9 +438,10 @@ symbols:
 🧘‍♀	盤坐女子	none
 🛀	盆浴	none
 🛌	睡覺	none
+🧑‍🤝‍🧑	握手的人	none
+👭	兩個女人	none
 👫	一男一女	none
 👬	兩個男人	none
-👭	兩個女人	none
 💏	親	none
 💑	相愛	none
 👪	家庭	none
@@ -418,13 +453,13 @@ symbols:
 🦱	卷髮	none
 🦳	白髮	none
 🦲	禿頭	none
-♀	女	none
-♂	男	none
 🐵	猴子頭	none
 🐒	猴子	none
 🦍	大猩猩	none
+🦧	猩猩	none
 🐶	狗頭	none
 🐕	狗	none
+🦮	導盲犬	none
 🐕‍🦺	服務犬	none
 🐩	貴賓犬	none
 🐺	狼	none
@@ -471,8 +506,12 @@ symbols:
 🐻	熊	none
 🐨	無尾熊	none
 🐼	熊貓	none
+🦥	樹懶	none
+🦦	水獺	none
+🦨	臭鼬	none
 🦘	袋鼠	none
 🦡	獾	none
+🐾	動物腳印	none
 🦃	火雞	none
 🐔	雞	none
 🐓	公雞	none
@@ -486,6 +525,7 @@ symbols:
 🦆	鴨子	none
 🦢	天鵝	none
 🦉	貓頭鷹	none
+🦩	紅鶴	none
 🦚	孔雀	none
 🦜	鸚鵡	none
 🐸	青蛙	none
@@ -566,6 +606,8 @@ symbols:
 🥒	小黃瓜	none
 🥬	綠葉蔬菜	none
 🥦	花椰菜	none
+🧄	大蒜	none
+🧅	洋蔥	none
 🍄	蘑菇	none
 🥜	花生	none
 🌰	栗子	none
@@ -575,6 +617,7 @@ symbols:
 🥨	蝴蝶餅	none
 🥯	貝果	none
 🥞	鬆餅	none
+🧇	格子鬆餅	none
 🧀	起士	none
 🍖	排骨	none
 🍗	雞腿	none
@@ -588,6 +631,7 @@ symbols:
 🌮	夾餅	none
 🌯	捲餅	none
 🥙	薄捲餅	none
+🧆	油炸鷹嘴豆餅	none
 🥚	蛋	none
 🍳	煎蛋	none
 🥘	淺鍋料理	none
@@ -595,6 +639,7 @@ symbols:
 🥣	碗和湯匙	none
 🥗	生菜沙拉	none
 🍿	爆米花	none
+🧈	奶油	none
 🧂	鹽	none
 🥫	罐頭食品	none
 🍱	便當	none
@@ -618,6 +663,7 @@ symbols:
 🦞	龍蝦	none
 🦐	蝦子	none
 🦑	魷魚	none
+🦪	牡蠣	none
 🍦	霜淇淋	none
 🍧	刨冰	none
 🍨	冰淇淋	none
@@ -646,6 +692,9 @@ symbols:
 🥂	乾杯	none
 🥃	威士忌杯	none
 🥤	杯子和吸管	none
+🧃	鋁箔包	none
+🧉	瑪黛茶	none
+🧊	冰塊	none
 🥢	筷子	none
 🍽	餐具	none
 🍴	刀叉	none
@@ -694,6 +743,7 @@ symbols:
 🗽	自由女神	none
 ⛪	教堂	none
 🕌	清真寺	none
+🛕	印度廟	none
 🕍	猶太教堂	none
 ⛩	神社	none
 🕋	天房	none
@@ -708,7 +758,6 @@ symbols:
 🌇	夕陽	none
 🌉	夜橋	none
 ♨	溫泉	none
-🌌	銀河	none
 🎠	旋轉木馬	none
 🎡	摩天輪	none
 🎢	雲霄飛車	none
@@ -745,6 +794,9 @@ symbols:
 🏎	賽車	none
 🏍	機車	none
 🛵	摩托車	none
+🦽	輪椅	none
+🦼	電動輪椅	none
+🛺	嘟嘟車	none
 🚲	自行車	none
 🛴	滑板車	none
 🛹	滑板	none
@@ -770,6 +822,7 @@ symbols:
 🛩	小飛機	none
 🛫	飛機起飛	none
 🛬	飛機著陸	none
+🪂	降落傘	none
 💺	座位	none
 🚁	直升機	none
 🚟	懸索鐵路	none
@@ -827,9 +880,11 @@ symbols:
 ☀	太陽	none
 🌝	微笑的滿月	none
 🌞	微笑的太陽	none
+🪐	帶行星環的行星	none
 ⭐	星星	none
 🌟	閃爍的星星	none
 🌠	流星	none
+🌌	銀河	none
 ☁	雲	none
 ⛅	陰天	none
 ⛈	雷雨	none
@@ -905,11 +960,14 @@ symbols:
 ⛳	高爾夫	none
 ⛸	溜冰鞋	none
 🎣	釣魚	none
+🤿	潛水面罩	none
 🎽	運動服	none
 🎿	滑雪	none
 🛷	雪橇	none
 🥌	石壺	none
 🎯	命中	none
+🪀	溜溜球	none
+🪁	風箏	none
 🎱	撞球	none
 🔮	水晶球	none
 🧿	邪眼	none
@@ -936,6 +994,7 @@ symbols:
 🕶	太陽眼鏡	none
 🥽	蛙鏡	none
 🥼	實驗袍	none
+🦺	救生衣	none
 👔	領帶	none
 👕	T卹	none
 👖	牛仔褲	none
@@ -945,6 +1004,10 @@ symbols:
 🧦	襪子	none
 👗	洋裝	none
 👘	和服	none
+🥻	莎麗服	none
+🩱	一件式泳裝	none
+🩲	泳褲	none
+🩳	短泳褲	none
 👙	比基尼	none
 👚	女裝	none
 👛	錢包	none
@@ -958,6 +1021,7 @@ symbols:
 🥿	平底鞋	none
 👠	高跟鞋	none
 👡	涼鞋	none
+🩰	芭蕾舞鞋	none
 👢	靴子	none
 👑	皇冠	none
 👒	帽子	none
@@ -992,6 +1056,7 @@ symbols:
 🎹	鋼琴	none
 🎺	小號	none
 🎻	小提琴	none
+🪕	斑鳩琴	none
 🥁	鼓	none
 📱	手機	none
 📲	接電話	none
@@ -1027,6 +1092,7 @@ symbols:
 💡	燈泡	none
 🔦	手電筒	none
 🏮	燈籠	none
+🪔	陶碗油燈	none
 📔	彩色封面的筆記本	none
 📕	合起來的書本	none
 📖	打開來的書本	none
@@ -1105,6 +1171,7 @@ symbols:
 🔑	鑰匙	none
 🗝	老鑰匙	none
 🔨	鎚子	none
+🪓	斧頭	none
 ⛏	十字鎬	none
 ⚒	鎚子和十字鎬	none
 🛠	鎚子和扳手	none
@@ -1118,6 +1185,7 @@ symbols:
 ⚙	齒輪	none
 🗜	壓縮機	none
 ⚖	天平	none
+🦯	導盲手杖	none
 🔗	連結	none
 ⛓	鍊條	none
 🧰	工具箱	none
@@ -1130,13 +1198,18 @@ symbols:
 🔭	望遠鏡	none
 📡	衛星天線	none
 💉	針筒	none
+🩸	血滴	none
 💊	藥丸	none
+🩹	OK 繃	none
+🩺	聽診器	none
 🚪	門	none
 🛏	床	none
 🛋	沙發和立燈	none
+🪑	椅子	none
 🚽	馬桶	none
 🚿	淋浴	none
 🛁	澡盆	none
+🪒	剃刀	none
 🧴	乳液瓶	none
 🧷	安全別針	none
 🧹	掃帚	none
@@ -1246,6 +1319,8 @@ symbols:
 📶	訊號強弱	none
 📳	震動模式	none
 📴	手機關機	none
+♀	女	none
+♂	男	none
 ⚕	醫療符號	none
 ♾	無限大	none
 ♻	回收	none
@@ -1319,17 +1394,29 @@ symbols:
 🈺	營	none
 🈵	滿	none
 🔴	大紅色圓形	none
+🟠	橘色圓形	none
+🟡	黃色圓形	none
+🟢	綠色圓形	none
 🔵	大藍色圓形	none
-⚪	白色圓形	none
+🟣	紫色圓形	none
+🟤	褐色圓形	none
 ⚫	黑色圓形	none
-⬜	白色大方塊	none
+⚪	白色圓形	none
+🟥	紅色方形	none
+🟧	橘色方形	none
+🟨	黃色方形	none
+🟩	綠色方形	none
+🟦	藍色方形	none
+🟪	紫色方形	none
+🟫	褐色方形	none
 ⬛	黑色大方塊	none
+⬜	白色大方塊	none
 ◼	黑色中方塊	none
 ◻	白色中方塊	none
-◽	白色中小型方塊	none
 ◾	黑色中小型方塊	none
-▫	白色小方塊	none
+◽	白色中小型方塊	none
 ▪	黑色小方塊	none
+▫	白色小方塊	none
 🔶	大橙色菱形	none
 🔷	大藍色菱形	none
 🔸	小橙色菱形	none
@@ -1338,137 +1425,71 @@ symbols:
 🔻	向下紅色三角	none
 💠	菱形加圓點	none
 🔘	按鈕	none
-🔲	黑色方按鈕	none
 🔳	白色方按鈕	none
+🔲	黑色方按鈕	none
 🏁	終點旗	none
 🚩	三角旗	none
 🎌	紀念日	none
 🏴	黑旗	none
 🏳	白旗	none
+🏳‍⚧	跨性別旗	none
 🏳‍🌈	彩虹旗	none
 🏴‍☠	海盜旗	none
-🛕	印度廟	none
-🛺	嘟嘟車	none
-🟠	橘色圓形	none
-🟡	黃色圓形	none
-🟢	綠色圓形	none
-🟣	紫色圓形	none
-🟤	褐色圓形	none
-🟥	紅色方形	none
-🟦	藍色方形	none
-🟧	橘色方形	none
-🟨	黃色方形	none
-🟩	綠色方形	none
-🟪	紫色方形	none
-🟫	褐色方形	none
-🤍	白心	none
-🤎	褐心	none
-🤏	捏	none
-🤿	潛水面罩	none
-🥱	呵欠	none
-🥻	莎麗服	none
-🦥	樹懶	none
-🦦	水獺	none
-🦧	猩猩	none
-🦨	臭鼬	none
-🦩	紅鶴	none
-🦪	牡蠣	none
-🦮	導盲犬	none
-🦯	導盲手杖	none
-🦺	救生衣	none
-🦻	戴助聽器的耳朵	none
-🦼	電動輪椅	none
-🦽	輪椅	none
-🦾	機械手臂	none
-🦿	機械腳	none
-🧃	鋁箔包	none
-🧄	大蒜	none
-🧅	洋蔥	none
-🧆	油炸鷹嘴豆餅	none
-🧇	格子鬆餅	none
-🧈	奶油	none
-🧉	瑪黛茶	none
-🧊	冰塊	none
-🧍	站著的人	none
-🧍‍♀	站著的女子	none
-🧍‍♂	站著的男子	none
-🧎	跪著的人	none
-🧎‍♀	跪著的女子	none
-🧎‍♂	跪著的男子	none
-🧏	聽障人士	none
-🧏‍♀	聽障女子	none
-🧏‍♂	聽障男子	none
-🩰	芭蕾舞鞋	none
-🩱	一件式泳裝	none
-🩲	泳褲	none
-🩳	短泳褲	none
-🩸	血滴	none
-🩹	OK 繃	none
-🩺	聽診器	none
-🪀	溜溜球	none
-🪁	風箏	none
-🪂	降落傘	none
-🪐	帶行星環的行星	none
-🪑	椅子	none
-🪒	剃刀	none
-🪓	斧頭	none
-🪔	陶碗油燈	none
-🪕	斑鳩琴	none
-🤏🏻	捏 白皮膚	none
-🤏🏼	捏 黃皮膚	none
-🤏🏽	捏 淺褐皮膚	none
-🤏🏾	捏 褐皮膚	none
-🤏🏿	捏 黑皮膚	none
-🦻🏻	戴助聽器的耳朵 白皮膚	none
-🦻🏼	戴助聽器的耳朵 黃皮膚	none
-🦻🏽	戴助聽器的耳朵 淺褐皮膚	none
-🦻🏾	戴助聽器的耳朵 褐皮膚	none
-🦻🏿	戴助聽器的耳朵 黑皮膚	none
-🧍🏻	站著的人 白皮膚	none
-🧍🏼	站著的人 黃皮膚	none
-🧍🏽	站著的人 淺褐皮膚	none
-🧍🏾	站著的人 褐皮膚	none
-🧍🏿	站著的人 黑皮膚	none
-🧍🏻‍♀	站著的女子 白皮膚	none
-🧍🏼‍♀	站著的女子 黃皮膚	none
-🧍🏽‍♀	站著的女子 淺褐皮膚	none
-🧍🏾‍♀	站著的女子 褐皮膚	none
-🧍🏿‍♀	站著的女子 黑皮膚	none
-🧍🏻‍♂	站著的男子 白皮膚	none
-🧍🏼‍♂	站著的男子 黃皮膚	none
-🧍🏽‍♂	站著的男子 淺褐皮膚	none
-🧍🏾‍♂	站著的男子 褐皮膚	none
-🧍🏿‍♂	站著的男子 黑皮膚	none
-🧎🏻	跪著的人 白皮膚	none
-🧎🏼	跪著的人 黃皮膚	none
-🧎🏽	跪著的人 淺褐皮膚	none
-🧎🏾	跪著的人 褐皮膚	none
-🧎🏿	跪著的人 黑皮膚	none
-🧎🏻‍♀	跪著的女子 白皮膚	none
-🧎🏼‍♀	跪著的女子 黃皮膚	none
-🧎🏽‍♀	跪著的女子 淺褐皮膚	none
-🧎🏾‍♀	跪著的女子 褐皮膚	none
-🧎🏿‍♀	跪著的女子 黑皮膚	none
-🧎🏻‍♂	跪著的男子 白皮膚	none
-🧎🏼‍♂	跪著的男子 黃皮膚	none
-🧎🏽‍♂	跪著的男子 淺褐皮膚	none
-🧎🏾‍♂	跪著的男子 褐皮膚	none
-🧎🏿‍♂	跪著的男子 黑皮膚	none
-🧏🏻	聽障人士 白皮膚	none
-🧏🏼	聽障人士 黃皮膚	none
-🧏🏽	聽障人士 淺褐皮膚	none
-🧏🏾	聽障人士 褐皮膚	none
-🧏🏿	聽障人士 黑皮膚	none
-🧏🏻‍♀	聽障女子 白皮膚	none
-🧏🏼‍♀	聽障女子 黃皮膚	none
-🧏🏽‍♀	聽障女子 淺褐皮膚	none
-🧏🏾‍♀	聽障女子 褐皮膚	none
-🧏🏿‍♀	聽障女子 黑皮膚	none
-🧏🏻‍♂	聽障男子 白皮膚	none
-🧏🏼‍♂	聽障男子 黃皮膚	none
-🧏🏽‍♂	聽障男子 淺褐皮膚	none
-🧏🏾‍♂	聽障男子 褐皮膚	none
-🧏🏿‍♂	聽障男子 黑皮膚	none
+🛖	小屋	none
+🛗	電梯	none
+🛻	皮卡車	none
+🛼	輪式溜冰鞋	none
+🤌	捏手指	none
+🥲	微笑帶淚	none
+🥷	忍者	none
+🥸	假扮的臉	none
+🦣	毛象	none
+🦤	渡渡鳥	none
+🦫	海狸	none
+🦬	野牛	none
+🦭	海豹	none
+🧋	珍珠奶茶	none
+🩴	人字拖	none
+🪃	迴力鏢	none
+🪄	魔杖	none
+🪅	皮納塔	none
+🪆	俄羅斯娃娃	none
+🪖	頭盔	none
+🪗	手風琴	none
+🪘	長鼓	none
+🪙	硬幣	none
+🪚	木工鉅	none
+🪛	螺絲起子	none
+🪜	梯子	none
+🪝	鉤子	none
+🪞	鏡子	none
+🪟	窗戶	none
+🪠	吸把	none
+🪡	裁縫針	none
+🪢	繩結	none
+🪣	水桶	none
+🪤	捕鼠器	none
+🪥	牙刷	none
+🪦	墓石	none
+🪧	告示牌	none
+🪨	石頭	none
+🪰	蒼蠅	none
+🪱	蠕蟲	none
+🪲	甲蟲	none
+🪳	蟑螂	none
+🪴	盆景	none
+🪵	木頭	none
+🪶	羽毛	none
+🫀	心臟	none
+🫁	肺	none
+🫂	擁抱的人	none
+🫐	藍莓	none
+🫑	甜椒	none
+🫒	橄欖	none
+🫓	麵餅	none
+🫔	玉米粉蒸肉	none
+🫕	涮製菜餚	none
+🫖	茶壺	none
 👋🏻	揮手 白皮膚	none
 👋🏼	揮手 黃皮膚	none
 👋🏽	揮手 淺褐皮膚	none
@@ -1499,6 +1520,11 @@ symbols:
 👌🏽	OK 手勢 淺褐皮膚	none
 👌🏾	OK 手勢 褐皮膚	none
 👌🏿	OK 手勢 黑皮膚	none
+🤏🏻	捏 白皮膚	none
+🤏🏼	捏 黃皮膚	none
+🤏🏽	捏 淺褐皮膚	none
+🤏🏾	捏 褐皮膚	none
+🤏🏿	捏 黑皮膚	none
 ✌🏻	勝利 白皮膚	none
 ✌🏼	勝利 黃皮膚	none
 ✌🏽	勝利 淺褐皮膚	none
@@ -1644,6 +1670,11 @@ symbols:
 👂🏽	耳朵 淺褐皮膚	none
 👂🏾	耳朵 褐皮膚	none
 👂🏿	耳朵 黑皮膚	none
+🦻🏻	戴助聽器的耳朵 白皮膚	none
+🦻🏼	戴助聽器的耳朵 黃皮膚	none
+🦻🏽	戴助聽器的耳朵 淺褐皮膚	none
+🦻🏾	戴助聽器的耳朵 褐皮膚	none
+🦻🏿	戴助聽器的耳朵 黑皮膚	none
 👃🏻	鼻子 白皮膚	none
 👃🏼	鼻子 黃皮膚	none
 👃🏽	鼻子 淺褐皮膚	none
@@ -1679,51 +1710,45 @@ symbols:
 👱🏽	金髮人 淺褐皮膚	none
 👱🏾	金髮人 褐皮膚	none
 👱🏿	金髮人 黑皮膚	none
-🧑🏻‍🤝‍🧑🏻	握手的人 白皮膚	none
-🧑🏼‍🤝‍🧑🏻	握手的人 黃皮膚 白皮膚	none
-🧑🏼‍🤝‍🧑🏼	握手的人 黃皮膚	none
-🧑🏽‍🤝‍🧑🏻	握手的人 淺褐皮膚 白皮膚	none
-🧑🏽‍🤝‍🧑🏼	握手的人 淺褐皮膚 黃皮膚	none
-🧑🏽‍🤝‍🧑🏽	握手的人 淺褐皮膚	none
-🧑🏾‍🤝‍🧑🏻	握手的人 褐皮膚 白皮膚	none
-🧑🏾‍🤝‍🧑🏼	握手的人 褐皮膚 黃皮膚	none
-🧑🏾‍🤝‍🧑🏽	握手的人 褐皮膚 淺褐皮膚	none
-🧑🏾‍🤝‍🧑🏾	握手的人 褐皮膚	none
-🧑🏿‍🤝‍🧑🏻	握手的人 黑皮膚 白皮膚	none
-🧑🏿‍🤝‍🧑🏼	握手的人 黑皮膚 黃皮膚	none
-🧑🏿‍🤝‍🧑🏽	握手的人 黑皮膚 淺褐皮膚	none
-🧑🏿‍🤝‍🧑🏾	握手的人 黑皮膚 褐皮膚	none
-🧑🏿‍🤝‍🧑🏿	握手的人 黑皮膚	none
+🧑‍🦰	大人 紅髮	none
+🧑🏻‍🦰	大人 白皮膚 紅髮	none
+🧑🏼‍🦰	大人 黃皮膚 紅髮	none
+🧑🏽‍🦰	大人 淺褐皮膚 紅髮	none
+🧑🏾‍🦰	大人 褐皮膚 紅髮	none
+🧑🏿‍🦰	大人 黑皮膚 紅髮	none
+🧑‍🦱	大人 卷髮	none
+🧑🏻‍🦱	大人 白皮膚 卷髮	none
+🧑🏼‍🦱	大人 黃皮膚 卷髮	none
+🧑🏽‍🦱	大人 淺褐皮膚 卷髮	none
+🧑🏾‍🦱	大人 褐皮膚 卷髮	none
+🧑🏿‍🦱	大人 黑皮膚 卷髮	none
+🧑‍🦳	大人 白髮	none
+🧑🏻‍🦳	大人 白皮膚 白髮	none
+🧑🏼‍🦳	大人 黃皮膚 白髮	none
+🧑🏽‍🦳	大人 淺褐皮膚 白髮	none
+🧑🏾‍🦳	大人 褐皮膚 白髮	none
+🧑🏿‍🦳	大人 黑皮膚 白髮	none
+🧑‍🦲	大人 禿頭	none
+🧑🏻‍🦲	大人 白皮膚 禿頭	none
+🧑🏼‍🦲	大人 黃皮膚 禿頭	none
+🧑🏽‍🦲	大人 淺褐皮膚 禿頭	none
+🧑🏾‍🦲	大人 褐皮膚 禿頭	none
+🧑🏿‍🦲	大人 黑皮膚 禿頭	none
 👨🏻	男人 白皮膚	none
 👨🏼	男人 黃皮膚	none
 👨🏽	男人 淺褐皮膚	none
 👨🏾	男人 褐皮膚	none
 👨🏿	男人 黑皮膚	none
-👨🏻‍🦯	拿導盲手杖的男子 白皮膚	none
-👨🏼‍🦯	拿導盲手杖的男子 黃皮膚	none
-👨🏽‍🦯	拿導盲手杖的男子 淺褐皮膚	none
-👨🏾‍🦯	拿導盲手杖的男子 褐皮膚	none
-👨🏿‍🦯	拿導盲手杖的男子 黑皮膚	none
-👨🏻‍🦼	坐電動輪椅的男子 白皮膚	none
-👨🏼‍🦼	坐電動輪椅的男子 黃皮膚	none
-👨🏽‍🦼	坐電動輪椅的男子 淺褐皮膚	none
-👨🏾‍🦼	坐電動輪椅的男子 褐皮膚	none
-👨🏿‍🦼	坐電動輪椅的男子 黑皮膚	none
-👨🏻‍🦽	坐輪椅的男子 白皮膚	none
-👨🏼‍🦽	坐輪椅的男子 黃皮膚	none
-👨🏽‍🦽	坐輪椅的男子 淺褐皮膚	none
-👨🏾‍🦽	坐輪椅的男子 褐皮膚	none
-👨🏿‍🦽	坐輪椅的男子 黑皮膚	none
-👨🏼‍🤝‍👨🏻	兩個男人 黃皮膚 白皮膚	none
-👨🏽‍🤝‍👨🏻	兩個男人 淺褐皮膚 白皮膚	none
-👨🏽‍🤝‍👨🏼	兩個男人 淺褐皮膚 黃皮膚	none
-👨🏾‍🤝‍👨🏻	兩個男人 褐皮膚 白皮膚	none
-👨🏾‍🤝‍👨🏼	兩個男人 褐皮膚 黃皮膚	none
-👨🏾‍🤝‍👨🏽	兩個男人 褐皮膚 淺褐皮膚	none
-👨🏿‍🤝‍👨🏻	兩個男人 黑皮膚 白皮膚	none
-👨🏿‍🤝‍👨🏼	兩個男人 黑皮膚 黃皮膚	none
-👨🏿‍🤝‍👨🏽	兩個男人 黑皮膚 淺褐皮膚	none
-👨🏿‍🤝‍👨🏾	兩個男人 黑皮膚 褐皮膚	none
+🧔🏻	蓄鬍的人 白皮膚	none
+🧔🏼	蓄鬍的人 黃皮膚	none
+🧔🏽	蓄鬍的人 淺褐皮膚	none
+🧔🏾	蓄鬍的人 褐皮膚	none
+🧔🏿	蓄鬍的人 黑皮膚	none
+👱🏻‍♂	金髮男 白皮膚	none
+👱🏼‍♂	金髮男 黃皮膚	none
+👱🏽‍♂	金髮男 淺褐皮膚	none
+👱🏾‍♂	金髮男 褐皮膚	none
+👱🏿‍♂	金髮男 黑皮膚	none
 👨‍🦰	男人 紅髮	none
 👨🏻‍🦰	男人 白皮膚 紅髮	none
 👨🏼‍🦰	男人 黃皮膚 紅髮	none
@@ -1748,66 +1773,16 @@ symbols:
 👨🏽‍🦲	男人 淺褐皮膚 禿頭	none
 👨🏾‍🦲	男人 褐皮膚 禿頭	none
 👨🏿‍🦲	男人 黑皮膚 禿頭	none
-👱🏻‍♂	金髮男 白皮膚	none
-👱🏼‍♂	金髮男 黃皮膚	none
-👱🏽‍♂	金髮男 淺褐皮膚	none
-👱🏾‍♂	金髮男 褐皮膚	none
-👱🏿‍♂	金髮男 黑皮膚	none
-🧔🏻	蓄鬍的人 白皮膚	none
-🧔🏼	蓄鬍的人 黃皮膚	none
-🧔🏽	蓄鬍的人 淺褐皮膚	none
-🧔🏾	蓄鬍的人 褐皮膚	none
-🧔🏿	蓄鬍的人 黑皮膚	none
 👩🏻	女人 白皮膚	none
 👩🏼	女人 黃皮膚	none
 👩🏽	女人 淺褐皮膚	none
 👩🏾	女人 褐皮膚	none
 👩🏿	女人 黑皮膚	none
-👩🏻‍🦯	拿導盲手杖的女子 白皮膚	none
-👩🏼‍🦯	拿導盲手杖的女子 黃皮膚	none
-👩🏽‍🦯	拿導盲手杖的女子 淺褐皮膚	none
-👩🏾‍🦯	拿導盲手杖的女子 褐皮膚	none
-👩🏿‍🦯	拿導盲手杖的女子 黑皮膚	none
-👩🏻‍🦼	坐電動輪椅的女子 白皮膚	none
-👩🏼‍🦼	坐電動輪椅的女子 黃皮膚	none
-👩🏽‍🦼	坐電動輪椅的女子 淺褐皮膚	none
-👩🏾‍🦼	坐電動輪椅的女子 褐皮膚	none
-👩🏿‍🦼	坐電動輪椅的女子 黑皮膚	none
-👩🏻‍🦽	坐輪椅的女子 白皮膚	none
-👩🏼‍🦽	坐輪椅的女子 黃皮膚	none
-👩🏽‍🦽	坐輪椅的女子 淺褐皮膚	none
-👩🏾‍🦽	坐輪椅的女子 褐皮膚	none
-👩🏿‍🦽	坐輪椅的女子 黑皮膚	none
-👩🏻‍🤝‍👨🏼	一男一女 白皮膚 黃皮膚	none
-👩🏻‍🤝‍👨🏽	一男一女 白皮膚 淺褐皮膚	none
-👩🏻‍🤝‍👨🏾	一男一女 白皮膚 褐皮膚	none
-👩🏻‍🤝‍👨🏿	一男一女 白皮膚 黑皮膚	none
-👩🏼‍🤝‍👨🏻	一男一女 黃皮膚 白皮膚	none
-👩🏼‍🤝‍👨🏽	一男一女 黃皮膚 淺褐皮膚	none
-👩🏼‍🤝‍👨🏾	一男一女 黃皮膚 褐皮膚	none
-👩🏼‍🤝‍👨🏿	一男一女 黃皮膚 黑皮膚	none
-👩🏽‍🤝‍👨🏻	一男一女 淺褐皮膚 白皮膚	none
-👩🏽‍🤝‍👨🏼	一男一女 淺褐皮膚 黃皮膚	none
-👩🏽‍🤝‍👨🏾	一男一女 淺褐皮膚 褐皮膚	none
-👩🏽‍🤝‍👨🏿	一男一女 淺褐皮膚 黑皮膚	none
-👩🏾‍🤝‍👨🏻	一男一女 褐皮膚 白皮膚	none
-👩🏾‍🤝‍👨🏼	一男一女 褐皮膚 黃皮膚	none
-👩🏾‍🤝‍👨🏽	一男一女 褐皮膚 淺褐皮膚	none
-👩🏾‍🤝‍👨🏿	一男一女 褐皮膚 黑皮膚	none
-👩🏿‍🤝‍👨🏻	一男一女 黑皮膚 白皮膚	none
-👩🏿‍🤝‍👨🏼	一男一女 黑皮膚 黃皮膚	none
-👩🏿‍🤝‍👨🏽	一男一女 黑皮膚 淺褐皮膚	none
-👩🏿‍🤝‍👨🏾	一男一女 黑皮膚 褐皮膚	none
-👩🏼‍🤝‍👩🏻	兩個女人 黃皮膚 白皮膚	none
-👩🏽‍🤝‍👩🏻	兩個女人 淺褐皮膚 白皮膚	none
-👩🏽‍🤝‍👩🏼	兩個女人 淺褐皮膚 黃皮膚	none
-👩🏾‍🤝‍👩🏻	兩個女人 褐皮膚 白皮膚	none
-👩🏾‍🤝‍👩🏼	兩個女人 褐皮膚 黃皮膚	none
-👩🏾‍🤝‍👩🏽	兩個女人 褐皮膚 淺褐皮膚	none
-👩🏿‍🤝‍👩🏻	兩個女人 黑皮膚 白皮膚	none
-👩🏿‍🤝‍👩🏼	兩個女人 黑皮膚 黃皮膚	none
-👩🏿‍🤝‍👩🏽	兩個女人 黑皮膚 淺褐皮膚	none
-👩🏿‍🤝‍👩🏾	兩個女人 黑皮膚 褐皮膚	none
+👱🏻‍♀	金髮女 白皮膚	none
+👱🏼‍♀	金髮女 黃皮膚	none
+👱🏽‍♀	金髮女 淺褐皮膚	none
+👱🏾‍♀	金髮女 褐皮膚	none
+👱🏿‍♀	金髮女 黑皮膚	none
 👩‍🦰	女人 紅髮	none
 👩🏻‍🦰	女人 白皮膚 紅髮	none
 👩🏼‍🦰	女人 黃皮膚 紅髮	none
@@ -1832,11 +1807,6 @@ symbols:
 👩🏽‍🦲	女人 淺褐皮膚 禿頭	none
 👩🏾‍🦲	女人 褐皮膚 禿頭	none
 👩🏿‍🦲	女人 黑皮膚 禿頭	none
-👱🏻‍♀	金髮女 白皮膚	none
-👱🏼‍♀	金髮女 黃皮膚	none
-👱🏽‍♀	金髮女 淺褐皮膚	none
-👱🏾‍♀	金髮女 褐皮膚	none
-👱🏿‍♀	金髮女 黑皮膚	none
 🧓🏻	長者 白皮膚	none
 🧓🏼	長者 黃皮膚	none
 🧓🏽	長者 淺褐皮膚	none
@@ -1942,6 +1912,21 @@ symbols:
 🙋🏽‍♀	女生舉手 淺褐皮膚	none
 🙋🏾‍♀	女生舉手 褐皮膚	none
 🙋🏿‍♀	女生舉手 黑皮膚	none
+🧏🏻	聽障人士 白皮膚	none
+🧏🏼	聽障人士 黃皮膚	none
+🧏🏽	聽障人士 淺褐皮膚	none
+🧏🏾	聽障人士 褐皮膚	none
+🧏🏿	聽障人士 黑皮膚	none
+🧏🏻‍♂	聽障男子 白皮膚	none
+🧏🏼‍♂	聽障男子 黃皮膚	none
+🧏🏽‍♂	聽障男子 淺褐皮膚	none
+🧏🏾‍♂	聽障男子 褐皮膚	none
+🧏🏿‍♂	聽障男子 黑皮膚	none
+🧏🏻‍♀	聽障女子 白皮膚	none
+🧏🏼‍♀	聽障女子 黃皮膚	none
+🧏🏽‍♀	聽障女子 淺褐皮膚	none
+🧏🏾‍♀	聽障女子 褐皮膚	none
+🧏🏿‍♀	聽障女子 黑皮膚	none
 🙇🏻	鞠躬 白皮膚	none
 🙇🏼	鞠躬 黃皮膚	none
 🙇🏽	鞠躬 淺褐皮膚	none
@@ -1987,6 +1972,11 @@ symbols:
 🤷🏽‍♀	女生聳肩 淺褐皮膚	none
 🤷🏾‍♀	女生聳肩 褐皮膚	none
 🤷🏿‍♀	女生聳肩 黑皮膚	none
+🧑🏻‍⚕	醫護人員 白皮膚	none
+🧑🏼‍⚕	醫護人員 黃皮膚	none
+🧑🏽‍⚕	醫護人員 淺褐皮膚	none
+🧑🏾‍⚕	醫護人員 褐皮膚	none
+🧑🏿‍⚕	醫護人員 黑皮膚	none
 👨🏻‍⚕	男醫生 白皮膚	none
 👨🏼‍⚕	男醫生 黃皮膚	none
 👨🏽‍⚕	男醫生 淺褐皮膚	none
@@ -1997,6 +1987,11 @@ symbols:
 👩🏽‍⚕	女醫生 淺褐皮膚	none
 👩🏾‍⚕	女醫生 褐皮膚	none
 👩🏿‍⚕	女醫生 黑皮膚	none
+🧑🏻‍🎓	學生 白皮膚	none
+🧑🏼‍🎓	學生 黃皮膚	none
+🧑🏽‍🎓	學生 淺褐皮膚	none
+🧑🏾‍🎓	學生 褐皮膚	none
+🧑🏿‍🎓	學生 黑皮膚	none
 👨🏻‍🎓	男畢業生 白皮膚	none
 👨🏼‍🎓	男畢業生 黃皮膚	none
 👨🏽‍🎓	男畢業生 淺褐皮膚	none
@@ -2007,6 +2002,11 @@ symbols:
 👩🏽‍🎓	女畢業生 淺褐皮膚	none
 👩🏾‍🎓	女畢業生 褐皮膚	none
 👩🏿‍🎓	女畢業生 黑皮膚	none
+🧑🏻‍🏫	老師 白皮膚	none
+🧑🏼‍🏫	老師 黃皮膚	none
+🧑🏽‍🏫	老師 淺褐皮膚	none
+🧑🏾‍🏫	老師 褐皮膚	none
+🧑🏿‍🏫	老師 黑皮膚	none
 👨🏻‍🏫	男老師 白皮膚	none
 👨🏼‍🏫	男老師 黃皮膚	none
 👨🏽‍🏫	男老師 淺褐皮膚	none
@@ -2017,6 +2017,11 @@ symbols:
 👩🏽‍🏫	女老師 淺褐皮膚	none
 👩🏾‍🏫	女老師 褐皮膚	none
 👩🏿‍🏫	女老師 黑皮膚	none
+🧑🏻‍⚖	法官 白皮膚	none
+🧑🏼‍⚖	法官 黃皮膚	none
+🧑🏽‍⚖	法官 淺褐皮膚	none
+🧑🏾‍⚖	法官 褐皮膚	none
+🧑🏿‍⚖	法官 黑皮膚	none
 👨🏻‍⚖	男法官 白皮膚	none
 👨🏼‍⚖	男法官 黃皮膚	none
 👨🏽‍⚖	男法官 淺褐皮膚	none
@@ -2027,6 +2032,11 @@ symbols:
 👩🏽‍⚖	女法官 淺褐皮膚	none
 👩🏾‍⚖	女法官 褐皮膚	none
 👩🏿‍⚖	女法官 黑皮膚	none
+🧑🏻‍🌾	農民 白皮膚	none
+🧑🏼‍🌾	農民 黃皮膚	none
+🧑🏽‍🌾	農民 淺褐皮膚	none
+🧑🏾‍🌾	農民 褐皮膚	none
+🧑🏿‍🌾	農民 黑皮膚	none
 👨🏻‍🌾	農夫 白皮膚	none
 👨🏼‍🌾	農夫 黃皮膚	none
 👨🏽‍🌾	農夫 淺褐皮膚	none
@@ -2037,6 +2047,11 @@ symbols:
 👩🏽‍🌾	農婦 淺褐皮膚	none
 👩🏾‍🌾	農婦 褐皮膚	none
 👩🏿‍🌾	農婦 黑皮膚	none
+🧑🏻‍🍳	廚師 白皮膚	none
+🧑🏼‍🍳	廚師 黃皮膚	none
+🧑🏽‍🍳	廚師 淺褐皮膚	none
+🧑🏾‍🍳	廚師 褐皮膚	none
+🧑🏿‍🍳	廚師 黑皮膚	none
 👨🏻‍🍳	男廚師 白皮膚	none
 👨🏼‍🍳	男廚師 黃皮膚	none
 👨🏽‍🍳	男廚師 淺褐皮膚	none
@@ -2047,6 +2062,11 @@ symbols:
 👩🏽‍🍳	女廚師 淺褐皮膚	none
 👩🏾‍🍳	女廚師 褐皮膚	none
 👩🏿‍🍳	女廚師 黑皮膚	none
+🧑🏻‍🔧	技工 白皮膚	none
+🧑🏼‍🔧	技工 黃皮膚	none
+🧑🏽‍🔧	技工 淺褐皮膚	none
+🧑🏾‍🔧	技工 褐皮膚	none
+🧑🏿‍🔧	技工 黑皮膚	none
 👨🏻‍🔧	男技工 白皮膚	none
 👨🏼‍🔧	男技工 黃皮膚	none
 👨🏽‍🔧	男技工 淺褐皮膚	none
@@ -2057,6 +2077,11 @@ symbols:
 👩🏽‍🔧	女技工 淺褐皮膚	none
 👩🏾‍🔧	女技工 褐皮膚	none
 👩🏿‍🔧	女技工 黑皮膚	none
+🧑🏻‍🏭	工廠作業員 白皮膚	none
+🧑🏼‍🏭	工廠作業員 黃皮膚	none
+🧑🏽‍🏭	工廠作業員 淺褐皮膚	none
+🧑🏾‍🏭	工廠作業員 褐皮膚	none
+🧑🏿‍🏭	工廠作業員 黑皮膚	none
 👨🏻‍🏭	工廠男作業員 白皮膚	none
 👨🏼‍🏭	工廠男作業員 黃皮膚	none
 👨🏽‍🏭	工廠男作業員 淺褐皮膚	none
@@ -2067,6 +2092,11 @@ symbols:
 👩🏽‍🏭	工廠女作業員 淺褐皮膚	none
 👩🏾‍🏭	工廠女作業員 褐皮膚	none
 👩🏿‍🏭	工廠女作業員 黑皮膚	none
+🧑🏻‍💼	上班族 白皮膚	none
+🧑🏼‍💼	上班族 黃皮膚	none
+🧑🏽‍💼	上班族 淺褐皮膚	none
+🧑🏾‍💼	上班族 褐皮膚	none
+🧑🏿‍💼	上班族 黑皮膚	none
 👨🏻‍💼	男性上班族 白皮膚	none
 👨🏼‍💼	男性上班族 黃皮膚	none
 👨🏽‍💼	男性上班族 淺褐皮膚	none
@@ -2077,6 +2107,11 @@ symbols:
 👩🏽‍💼	女性上班族 淺褐皮膚	none
 👩🏾‍💼	女性上班族 褐皮膚	none
 👩🏿‍💼	女性上班族 黑皮膚	none
+🧑🏻‍🔬	科學家 白皮膚	none
+🧑🏼‍🔬	科學家 黃皮膚	none
+🧑🏽‍🔬	科學家 淺褐皮膚	none
+🧑🏾‍🔬	科學家 褐皮膚	none
+🧑🏿‍🔬	科學家 黑皮膚	none
 👨🏻‍🔬	男科學家 白皮膚	none
 👨🏼‍🔬	男科學家 黃皮膚	none
 👨🏽‍🔬	男科學家 淺褐皮膚	none
@@ -2087,6 +2122,11 @@ symbols:
 👩🏽‍🔬	女科學家 淺褐皮膚	none
 👩🏾‍🔬	女科學家 褐皮膚	none
 👩🏿‍🔬	女科學家 黑皮膚	none
+🧑🏻‍💻	工程師 白皮膚	none
+🧑🏼‍💻	工程師 黃皮膚	none
+🧑🏽‍💻	工程師 淺褐皮膚	none
+🧑🏾‍💻	工程師 褐皮膚	none
+🧑🏿‍💻	工程師 黑皮膚	none
 👨🏻‍💻	男工程師 白皮膚	none
 👨🏼‍💻	男工程師 黃皮膚	none
 👨🏽‍💻	男工程師 淺褐皮膚	none
@@ -2097,6 +2137,11 @@ symbols:
 👩🏽‍💻	女工程師 淺褐皮膚	none
 👩🏾‍💻	女工程師 褐皮膚	none
 👩🏿‍💻	女工程師 黑皮膚	none
+🧑🏻‍🎤	歌手 白皮膚	none
+🧑🏼‍🎤	歌手 黃皮膚	none
+🧑🏽‍🎤	歌手 淺褐皮膚	none
+🧑🏾‍🎤	歌手 褐皮膚	none
+🧑🏿‍🎤	歌手 黑皮膚	none
 👨🏻‍🎤	男歌手 白皮膚	none
 👨🏼‍🎤	男歌手 黃皮膚	none
 👨🏽‍🎤	男歌手 淺褐皮膚	none
@@ -2107,6 +2152,11 @@ symbols:
 👩🏽‍🎤	女歌手 淺褐皮膚	none
 👩🏾‍🎤	女歌手 褐皮膚	none
 👩🏿‍🎤	女歌手 黑皮膚	none
+🧑🏻‍🎨	藝術家 白皮膚	none
+🧑🏼‍🎨	藝術家 黃皮膚	none
+🧑🏽‍🎨	藝術家 淺褐皮膚	none
+🧑🏾‍🎨	藝術家 褐皮膚	none
+🧑🏿‍🎨	藝術家 黑皮膚	none
 👨🏻‍🎨	男藝術家 白皮膚	none
 👨🏼‍🎨	男藝術家 黃皮膚	none
 👨🏽‍🎨	男藝術家 淺褐皮膚	none
@@ -2117,6 +2167,11 @@ symbols:
 👩🏽‍🎨	女藝術家 淺褐皮膚	none
 👩🏾‍🎨	女藝術家 褐皮膚	none
 👩🏿‍🎨	女藝術家 黑皮膚	none
+🧑🏻‍✈	機長 白皮膚	none
+🧑🏼‍✈	機長 黃皮膚	none
+🧑🏽‍✈	機長 淺褐皮膚	none
+🧑🏾‍✈	機長 褐皮膚	none
+🧑🏿‍✈	機長 黑皮膚	none
 👨🏻‍✈	男機長 白皮膚	none
 👨🏼‍✈	男機長 黃皮膚	none
 👨🏽‍✈	男機長 淺褐皮膚	none
@@ -2127,6 +2182,11 @@ symbols:
 👩🏽‍✈	女機長 淺褐皮膚	none
 👩🏾‍✈	女機長 褐皮膚	none
 👩🏿‍✈	女機長 黑皮膚	none
+🧑🏻‍🚀	太空人 白皮膚	none
+🧑🏼‍🚀	太空人 黃皮膚	none
+🧑🏽‍🚀	太空人 淺褐皮膚	none
+🧑🏾‍🚀	太空人 褐皮膚	none
+🧑🏿‍🚀	太空人 黑皮膚	none
 👨🏻‍🚀	男太空人 白皮膚	none
 👨🏼‍🚀	男太空人 黃皮膚	none
 👨🏽‍🚀	男太空人 淺褐皮膚	none
@@ -2137,6 +2197,11 @@ symbols:
 👩🏽‍🚀	女太空人 淺褐皮膚	none
 👩🏾‍🚀	女太空人 褐皮膚	none
 👩🏿‍🚀	女太空人 黑皮膚	none
+🧑🏻‍🚒	消防員 白皮膚	none
+🧑🏼‍🚒	消防員 黃皮膚	none
+🧑🏽‍🚒	消防員 淺褐皮膚	none
+🧑🏾‍🚒	消防員 褐皮膚	none
+🧑🏿‍🚒	消防員 黑皮膚	none
 👨🏻‍🚒	男消防員 白皮膚	none
 👨🏼‍🚒	男消防員 黃皮膚	none
 👨🏽‍🚒	男消防員 淺褐皮膚	none
@@ -2427,6 +2492,81 @@ symbols:
 🚶🏽‍♀	女行人 淺褐皮膚	none
 🚶🏾‍♀	女行人 褐皮膚	none
 🚶🏿‍♀	女行人 黑皮膚	none
+🧍🏻	站著的人 白皮膚	none
+🧍🏼	站著的人 黃皮膚	none
+🧍🏽	站著的人 淺褐皮膚	none
+🧍🏾	站著的人 褐皮膚	none
+🧍🏿	站著的人 黑皮膚	none
+🧍🏻‍♂	站著的男子 白皮膚	none
+🧍🏼‍♂	站著的男子 黃皮膚	none
+🧍🏽‍♂	站著的男子 淺褐皮膚	none
+🧍🏾‍♂	站著的男子 褐皮膚	none
+🧍🏿‍♂	站著的男子 黑皮膚	none
+🧍🏻‍♀	站著的女子 白皮膚	none
+🧍🏼‍♀	站著的女子 黃皮膚	none
+🧍🏽‍♀	站著的女子 淺褐皮膚	none
+🧍🏾‍♀	站著的女子 褐皮膚	none
+🧍🏿‍♀	站著的女子 黑皮膚	none
+🧎🏻	跪著的人 白皮膚	none
+🧎🏼	跪著的人 黃皮膚	none
+🧎🏽	跪著的人 淺褐皮膚	none
+🧎🏾	跪著的人 褐皮膚	none
+🧎🏿	跪著的人 黑皮膚	none
+🧎🏻‍♂	跪著的男子 白皮膚	none
+🧎🏼‍♂	跪著的男子 黃皮膚	none
+🧎🏽‍♂	跪著的男子 淺褐皮膚	none
+🧎🏾‍♂	跪著的男子 褐皮膚	none
+🧎🏿‍♂	跪著的男子 黑皮膚	none
+🧎🏻‍♀	跪著的女子 白皮膚	none
+🧎🏼‍♀	跪著的女子 黃皮膚	none
+🧎🏽‍♀	跪著的女子 淺褐皮膚	none
+🧎🏾‍♀	跪著的女子 褐皮膚	none
+🧎🏿‍♀	跪著的女子 黑皮膚	none
+🧑🏻‍🦯	拿導盲手杖的人 白皮膚	none
+🧑🏼‍🦯	拿導盲手杖的人 黃皮膚	none
+🧑🏽‍🦯	拿導盲手杖的人 淺褐皮膚	none
+🧑🏾‍🦯	拿導盲手杖的人 褐皮膚	none
+🧑🏿‍🦯	拿導盲手杖的人 黑皮膚	none
+👨🏻‍🦯	拿導盲手杖的男子 白皮膚	none
+👨🏼‍🦯	拿導盲手杖的男子 黃皮膚	none
+👨🏽‍🦯	拿導盲手杖的男子 淺褐皮膚	none
+👨🏾‍🦯	拿導盲手杖的男子 褐皮膚	none
+👨🏿‍🦯	拿導盲手杖的男子 黑皮膚	none
+👩🏻‍🦯	拿導盲手杖的女子 白皮膚	none
+👩🏼‍🦯	拿導盲手杖的女子 黃皮膚	none
+👩🏽‍🦯	拿導盲手杖的女子 淺褐皮膚	none
+👩🏾‍🦯	拿導盲手杖的女子 褐皮膚	none
+👩🏿‍🦯	拿導盲手杖的女子 黑皮膚	none
+🧑🏻‍🦼	坐電動輪椅的人 白皮膚	none
+🧑🏼‍🦼	坐電動輪椅的人 黃皮膚	none
+🧑🏽‍🦼	坐電動輪椅的人 淺褐皮膚	none
+🧑🏾‍🦼	坐電動輪椅的人 褐皮膚	none
+🧑🏿‍🦼	坐電動輪椅的人 黑皮膚	none
+👨🏻‍🦼	坐電動輪椅的男子 白皮膚	none
+👨🏼‍🦼	坐電動輪椅的男子 黃皮膚	none
+👨🏽‍🦼	坐電動輪椅的男子 淺褐皮膚	none
+👨🏾‍🦼	坐電動輪椅的男子 褐皮膚	none
+👨🏿‍🦼	坐電動輪椅的男子 黑皮膚	none
+👩🏻‍🦼	坐電動輪椅的女子 白皮膚	none
+👩🏼‍🦼	坐電動輪椅的女子 黃皮膚	none
+👩🏽‍🦼	坐電動輪椅的女子 淺褐皮膚	none
+👩🏾‍🦼	坐電動輪椅的女子 褐皮膚	none
+👩🏿‍🦼	坐電動輪椅的女子 黑皮膚	none
+🧑🏻‍🦽	坐輪椅的人 白皮膚	none
+🧑🏼‍🦽	坐輪椅的人 黃皮膚	none
+🧑🏽‍🦽	坐輪椅的人 淺褐皮膚	none
+🧑🏾‍🦽	坐輪椅的人 褐皮膚	none
+🧑🏿‍🦽	坐輪椅的人 黑皮膚	none
+👨🏻‍🦽	坐輪椅的男子 白皮膚	none
+👨🏼‍🦽	坐輪椅的男子 黃皮膚	none
+👨🏽‍🦽	坐輪椅的男子 淺褐皮膚	none
+👨🏾‍🦽	坐輪椅的男子 褐皮膚	none
+👨🏿‍🦽	坐輪椅的男子 黑皮膚	none
+👩🏻‍🦽	坐輪椅的女子 白皮膚	none
+👩🏼‍🦽	坐輪椅的女子 黃皮膚	none
+👩🏽‍🦽	坐輪椅的女子 淺褐皮膚	none
+👩🏾‍🦽	坐輪椅的女子 褐皮膚	none
+👩🏿‍🦽	坐輪椅的女子 黑皮膚	none
 🏃🏻	跑者 白皮膚	none
 🏃🏼	跑者 黃皮膚	none
 🏃🏽	跑者 淺褐皮膚	none
@@ -2702,21 +2842,76 @@ symbols:
 🛌🏽	睡覺 淺褐皮膚	none
 🛌🏾	睡覺 褐皮膚	none
 🛌🏿	睡覺 黑皮膚	none
+🧑🏻‍🤝‍🧑🏻	握手的人 白皮膚	none
+🧑🏼‍🤝‍🧑🏻	握手的人 黃皮膚 白皮膚	none
+🧑🏼‍🤝‍🧑🏼	握手的人 黃皮膚	none
+🧑🏽‍🤝‍🧑🏻	握手的人 淺褐皮膚 白皮膚	none
+🧑🏽‍🤝‍🧑🏼	握手的人 淺褐皮膚 黃皮膚	none
+🧑🏽‍🤝‍🧑🏽	握手的人 淺褐皮膚	none
+🧑🏾‍🤝‍🧑🏻	握手的人 褐皮膚 白皮膚	none
+🧑🏾‍🤝‍🧑🏼	握手的人 褐皮膚 黃皮膚	none
+🧑🏾‍🤝‍🧑🏽	握手的人 褐皮膚 淺褐皮膚	none
+🧑🏾‍🤝‍🧑🏾	握手的人 褐皮膚	none
+🧑🏿‍🤝‍🧑🏻	握手的人 黑皮膚 白皮膚	none
+🧑🏿‍🤝‍🧑🏼	握手的人 黑皮膚 黃皮膚	none
+🧑🏿‍🤝‍🧑🏽	握手的人 黑皮膚 淺褐皮膚	none
+🧑🏿‍🤝‍🧑🏾	握手的人 黑皮膚 褐皮膚	none
+🧑🏿‍🤝‍🧑🏿	握手的人 黑皮膚	none
+👭🏻	兩個女人 白皮膚	none
+👩🏼‍🤝‍👩🏻	兩個女人 黃皮膚 白皮膚	none
+👭🏼	兩個女人 黃皮膚	none
+👩🏽‍🤝‍👩🏻	兩個女人 淺褐皮膚 白皮膚	none
+👩🏽‍🤝‍👩🏼	兩個女人 淺褐皮膚 黃皮膚	none
+👭🏽	兩個女人 淺褐皮膚	none
+👩🏾‍🤝‍👩🏻	兩個女人 褐皮膚 白皮膚	none
+👩🏾‍🤝‍👩🏼	兩個女人 褐皮膚 黃皮膚	none
+👩🏾‍🤝‍👩🏽	兩個女人 褐皮膚 淺褐皮膚	none
+👭🏾	兩個女人 褐皮膚	none
+👩🏿‍🤝‍👩🏻	兩個女人 黑皮膚 白皮膚	none
+👩🏿‍🤝‍👩🏼	兩個女人 黑皮膚 黃皮膚	none
+👩🏿‍🤝‍👩🏽	兩個女人 黑皮膚 淺褐皮膚	none
+👩🏿‍🤝‍👩🏾	兩個女人 黑皮膚 褐皮膚	none
+👭🏿	兩個女人 黑皮膚	none
 👫🏻	一男一女 白皮膚	none
+👩🏻‍🤝‍👨🏼	一男一女 白皮膚 黃皮膚	none
+👩🏻‍🤝‍👨🏽	一男一女 白皮膚 淺褐皮膚	none
+👩🏻‍🤝‍👨🏾	一男一女 白皮膚 褐皮膚	none
+👩🏻‍🤝‍👨🏿	一男一女 白皮膚 黑皮膚	none
+👩🏼‍🤝‍👨🏻	一男一女 黃皮膚 白皮膚	none
 👫🏼	一男一女 黃皮膚	none
+👩🏼‍🤝‍👨🏽	一男一女 黃皮膚 淺褐皮膚	none
+👩🏼‍🤝‍👨🏾	一男一女 黃皮膚 褐皮膚	none
+👩🏼‍🤝‍👨🏿	一男一女 黃皮膚 黑皮膚	none
+👩🏽‍🤝‍👨🏻	一男一女 淺褐皮膚 白皮膚	none
+👩🏽‍🤝‍👨🏼	一男一女 淺褐皮膚 黃皮膚	none
 👫🏽	一男一女 淺褐皮膚	none
+👩🏽‍🤝‍👨🏾	一男一女 淺褐皮膚 褐皮膚	none
+👩🏽‍🤝‍👨🏿	一男一女 淺褐皮膚 黑皮膚	none
+👩🏾‍🤝‍👨🏻	一男一女 褐皮膚 白皮膚	none
+👩🏾‍🤝‍👨🏼	一男一女 褐皮膚 黃皮膚	none
+👩🏾‍🤝‍👨🏽	一男一女 褐皮膚 淺褐皮膚	none
 👫🏾	一男一女 褐皮膚	none
+👩🏾‍🤝‍👨🏿	一男一女 褐皮膚 黑皮膚	none
+👩🏿‍🤝‍👨🏻	一男一女 黑皮膚 白皮膚	none
+👩🏿‍🤝‍👨🏼	一男一女 黑皮膚 黃皮膚	none
+👩🏿‍🤝‍👨🏽	一男一女 黑皮膚 淺褐皮膚	none
+👩🏿‍🤝‍👨🏾	一男一女 黑皮膚 褐皮膚	none
 👫🏿	一男一女 黑皮膚	none
 👬🏻	兩個男人 白皮膚	none
+👨🏼‍🤝‍👨🏻	兩個男人 黃皮膚 白皮膚	none
 👬🏼	兩個男人 黃皮膚	none
+👨🏽‍🤝‍👨🏻	兩個男人 淺褐皮膚 白皮膚	none
+👨🏽‍🤝‍👨🏼	兩個男人 淺褐皮膚 黃皮膚	none
 👬🏽	兩個男人 淺褐皮膚	none
+👨🏾‍🤝‍👨🏻	兩個男人 褐皮膚 白皮膚	none
+👨🏾‍🤝‍👨🏼	兩個男人 褐皮膚 黃皮膚	none
+👨🏾‍🤝‍👨🏽	兩個男人 褐皮膚 淺褐皮膚	none
 👬🏾	兩個男人 褐皮膚	none
+👨🏿‍🤝‍👨🏻	兩個男人 黑皮膚 白皮膚	none
+👨🏿‍🤝‍👨🏼	兩個男人 黑皮膚 黃皮膚	none
+👨🏿‍🤝‍👨🏽	兩個男人 黑皮膚 淺褐皮膚	none
+👨🏿‍🤝‍👨🏾	兩個男人 黑皮膚 褐皮膚	none
 👬🏿	兩個男人 黑皮膚	none
-👭🏻	兩個女人 白皮膚	none
-👭🏼	兩個女人 黃皮膚	none
-👭🏽	兩個女人 淺褐皮膚	none
-👭🏾	兩個女人 褐皮膚	none
-👭🏿	兩個女人 黑皮膚	none
 👩‍❤‍💋‍👨	親 女人 男人	none
 👨‍❤‍💋‍👨	親 男人 男人	none
 👩‍❤‍💋‍👩	親 女人 女人	none
@@ -2969,7 +3164,7 @@ symbols:
 🇸🇻	旗子 薩爾瓦多	none
 🇸🇽	旗子 荷屬聖馬丁	none
 🇸🇾	旗子 敘利亞	none
-🇸🇿	旗子 史瓦濟蘭	none
+🇸🇿	旗子 史瓦帝尼	none
 🇹🇦	旗子 特里斯坦達庫尼亞群島	none
 🇹🇨	旗子 土克斯及開科斯群島	none
 🇹🇩	旗子 查德	none

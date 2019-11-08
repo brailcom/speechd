@@ -48,7 +48,8 @@ negative number	minus	none	norep	# - înaintea unei cifre
 # Standard punctuation/symbols
 !	semnul exclamării
 "	ghilimele
-\#	diez
+#	diez
+№	număr
 $	dolar
 £	liră sterlină
 €	euro
@@ -57,7 +58,7 @@ $	dolar
 ₹	rupie
 ₽	rublă
 %	procent
-&	și
+&	ampersand
 '	apostrof
 (	paranteză rotundă deschisă
 )	paranteză rotundă închisă

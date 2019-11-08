@@ -5,6 +5,7 @@
 symbols:
 🏼	peau modérément claire	none
 🏾	peau modérément foncée	none
+⚧	symbole transgenre	none
 😀	visage avec large sourire	none
 😃	visage souriant les yeux grands ouverts	none
 😄	visage avec large sourire et yeux rieurs	none
@@ -22,7 +23,7 @@ symbols:
 😘	visage envoyant un baiser	none
 😗	visage donnant un baiser	none
 😚	visage faisant un baiser les yeux fermés	none
-😙	visage donnant un baiser avec les yeux plissés	none
+😙	visage faisant un baiser les yeux rieurs	none
 😋	visage savourant	none
 🤗	visage heureux et câlin	none
 😏	visage au sourire malin	none
@@ -35,21 +36,16 @@ symbols:
 🤓	visage de tronche	none
 😮	visage épaté	none
 😰	visage inquiet et en sueur	none
-😢	visage en pleure	none
 😓	visage triste et en sueur	none
 👺	gobelin	none
 👽	extraterrestre	none
+🤎	cœur brun	none
 👁‍🗨	œil dans une bulle de parole	none
 🗨	bulle de parole à gauche	none
 🗯	bulle de colère à droite	none
 🖐	main aux doigts écartés	none
 🤙	appelle-moi	none
-👈	dos de la main avec index pointant vers la gauche	none
-👉	dos de la main avec index pointant vers la droite	none
-👆	dos de la main avec index pointant vers le haut	none
-👇	dos de la main avec index pointant vers le bas	none
 🤳	autophoto	none
-🧑‍🤝‍🧑	personnes se tenant par la main	none
 🙍	personne mécontente	none
 🙅	Geste de négation	none
 🙅‍♂	homme faisant un geste de négation	none
@@ -63,11 +59,30 @@ symbols:
 🤦	personne avec paume de la main sur le visage	none
 🤦‍♂	homme avec paume de la main sur le visage	none
 🤦‍♀	femme avec paume de la main sur le visage	none
-👮	agent de la paix	none
+🧑‍⚕	professionnel de la santé	none
+👨‍⚕	professionnel de la santé homme	none
+🧑‍🎓	étudiant universitaire	none
+🧑‍🏫	professeur	none
+🧑‍🌾	fermier	none
+👨‍🌾	fermier homme	none
+🧑‍🍳	chef	none
+🧑‍🔧	mécanicien	none
+👨‍🔧	mécanicien homme	none
+🧑‍🏭	travailleur d’usine	none
+🧑‍💼	employé de bureau	none
+👨‍💼	employé de bureau homme	none
+🧑‍💻	informaticien	none
+👨‍💻	informaticien homme	none
+🧑‍🎤	chanteur	none
+👨‍🎤	chanteur homme	none
+👮	policier	none
+👮‍♂	policier homme	none
 👲	homme coiffé d’une calotte chinoise	none
 🤵	homme portant un complet	none
 🦸	superhéros	none
 🦸‍♂	super-héros	none
+🧑‍🦯	aveugle avec canne	none
+🧑‍🦼	personne en fauteuil roulant	none
 👯	personnes qui portent des oreilles de lapin	none
 👯‍♂	hommes qui portent des oreilles de lapin	none
 👯‍♀	femmes qui portent des oreilles de lapin	none
@@ -86,12 +101,13 @@ symbols:
 🚵‍♀	femme en vélo de montagne	none
 🤽	personne qui joue au water-polo	none
 🤾	personne qui joue au handball	none
+🧑‍🤝‍🧑	personnes se tenant par la main	none
+👭	deux femmes se tenant par la main	none
 👫	homme et femme se tenant par la main	none
 👬	deux hommes se tenant par la main	none
-👭	deux femmes se tenant par la main	none
+🦮	chien-guide	none
 🐽	nez de cochon	none
 🐑	brebis	none
-🐿	tamia	none
 🐼	tête de panda	none
 🦃	dinde	none
 🦖	T. rex	none
@@ -191,11 +207,11 @@ symbols:
 🎿	skis	none
 🎲	dé	none
 🧩	casse-tête	none
-♥	cœur	none
 ♣	trèfle	none
 ♟	pion	none
 🃏	joker	none
 🎭	arts du spectacle	none
+🦺	veste de sécurité	none
 🛍	sacs de magasinage	none
 🎒	sac d’école	none
 👡	sandale à talon	none
@@ -209,6 +225,7 @@ symbols:
 🔊	volume élevé	none
 🔕	cloche barrée	none
 🎧	casque d’écoute	none
+🥁	tambour	none
 📱	téléphone cellulaire	none
 📲	téléphone cellulaire précédé par une flèche	none
 📞	récepteur téléphonique	none
@@ -343,81 +360,37 @@ symbols:
 ㊙	symbole japonais signifiant « secret »	none
 🈺	symbole japonais signifiant « ouvert »	none
 🈵	symbole japonais signifiant « complet »	none
-🔵	rond bleu	none
-⚪	rond blanc	none
-⚫	rond noir	none
-◼	carré noir de taille moyenne	none
-◻	carré blanc de taille moyenne	none
-◽	carré blanc de taille intermédiaire	none
-◾	carré noir de taille intermédiaire	none
-🔺	triangle rouge qui pointe vers le haut	none
-🔻	triangle rouge qui pointe vers le bas	none
-🔲	bouton représentant un carré noir	none
-🔳	bouton représentant un carré blanc	none
 🟠	cercle orange	none
 🟡	cercle jaune	none
 🟢	cercle vert	none
+🔵	rond bleu	none
 🟣	cercle violet	none
 🟤	cercle brun	none
+⚫	rond noir	none
+⚪	rond blanc	none
 🟫	carré brun	none
-🤎	cœur brun	none
-🦮	chien-guide	none
-🦺	veste de sécurité	none
-🤏🏻	pouce et index rapprochés  peau claire	none
-🤏🏼	pouce et index rapprochés  peau modérément claire	none
-🤏🏽	pouce et index rapprochés  peau légèrement mate	none
-🤏🏾	pouce et index rapprochés  peau modérément foncée	none
-🤏🏿	pouce et index rapprochés  peau foncée	none
-🦻🏻	oreille appareillée  peau claire	none
-🦻🏼	oreille appareillée  peau modérément claire	none
-🦻🏽	oreille appareillée  peau légèrement mate	none
-🦻🏾	oreille appareillée  peau modérément foncée	none
-🦻🏿	oreille appareillée  peau foncée	none
-🧍🏻	personne debout  peau claire	none
-🧍🏼	personne debout  peau modérément claire	none
-🧍🏽	personne debout  peau légèrement mate	none
-🧍🏾	personne debout  peau modérément foncée	none
-🧍🏿	personne debout  peau foncée	none
-🧍🏻‍♀	femme debout  peau claire	none
-🧍🏼‍♀	femme debout  peau modérément claire	none
-🧍🏽‍♀	femme debout  peau légèrement mate	none
-🧍🏾‍♀	femme debout  peau modérément foncée	none
-🧍🏿‍♀	femme debout  peau foncée	none
-🧍🏻‍♂	homme debout  peau claire	none
-🧍🏼‍♂	homme debout  peau modérément claire	none
-🧍🏽‍♂	homme debout  peau légèrement mate	none
-🧍🏾‍♂	homme debout  peau modérément foncée	none
-🧍🏿‍♂	homme debout  peau foncée	none
-🧎🏻	personne à genoux  peau claire	none
-🧎🏼	personne à genoux  peau modérément claire	none
-🧎🏽	personne à genoux  peau légèrement mate	none
-🧎🏾	personne à genoux  peau modérément foncée	none
-🧎🏿	personne à genoux  peau foncée	none
-🧎🏻‍♀	femme à genoux  peau claire	none
-🧎🏼‍♀	femme à genoux  peau modérément claire	none
-🧎🏽‍♀	femme à genoux  peau légèrement mate	none
-🧎🏾‍♀	femme à genoux  peau modérément foncée	none
-🧎🏿‍♀	femme à genoux  peau foncée	none
-🧎🏻‍♂	homme à genoux  peau claire	none
-🧎🏼‍♂	homme à genoux  peau modérément claire	none
-🧎🏽‍♂	homme à genoux  peau légèrement mate	none
-🧎🏾‍♂	homme à genoux  peau modérément foncée	none
-🧎🏿‍♂	homme à genoux  peau foncée	none
-🧏🏻	personne sourde  peau claire	none
-🧏🏼	personne sourde  peau modérément claire	none
-🧏🏽	personne sourde  peau légèrement mate	none
-🧏🏾	personne sourde  peau modérément foncée	none
-🧏🏿	personne sourde  peau foncée	none
-🧏🏻‍♀	femme sourde  peau claire	none
-🧏🏼‍♀	femme sourde  peau modérément claire	none
-🧏🏽‍♀	femme sourde  peau légèrement mate	none
-🧏🏾‍♀	femme sourde  peau modérément foncée	none
-🧏🏿‍♀	femme sourde  peau foncée	none
-🧏🏻‍♂	homme sourd  peau claire	none
-🧏🏼‍♂	homme sourd  peau modérément claire	none
-🧏🏽‍♂	homme sourd  peau légèrement mate	none
-🧏🏾‍♂	homme sourd  peau modérément foncée	none
-🧏🏿‍♂	homme sourd  peau foncée	none
+◼	carré noir de taille moyenne	none
+◻	carré blanc de taille moyenne	none
+◾	carré noir de taille intermédiaire	none
+◽	carré blanc de taille intermédiaire	none
+🔺	triangle rouge qui pointe vers le haut	none
+🔻	triangle rouge qui pointe vers le bas	none
+🔳	bouton représentant un carré blanc	none
+🔲	bouton représentant un carré noir	none
+🛻	camionnette	none
+🤌	main qui interroge	none
+🥲	visage souriant avec larme	none
+🩴	gougoune	none
+🪙	pièce de monnaie	none
+🪚	scie à bois	none
+🪤	piège à souris	none
+🪨	roche	none
+🪱	ver	none
+🪳	coquerelle	none
+🫂	personnes qui s’étreignent	none
+🫐	bleuets	none
+🫑	poivron rouge	none
+🫓	pain plat	none
 👋🏻	signe de la main  peau claire	none
 👋🏼	signe de la main  peau modérément claire	none
 👋🏽	signe de la main  peau légèrement mate	none
@@ -448,6 +421,11 @@ symbols:
 👌🏽	ok  peau légèrement mate	none
 👌🏾	ok  peau modérément foncée	none
 👌🏿	ok  peau foncée	none
+🤏🏻	pouce et index rapprochés  peau claire	none
+🤏🏼	pouce et index rapprochés  peau modérément claire	none
+🤏🏽	pouce et index rapprochés  peau légèrement mate	none
+🤏🏾	pouce et index rapprochés  peau modérément foncée	none
+🤏🏿	pouce et index rapprochés  peau foncée	none
 ✌🏻	V de la victoire  peau claire	none
 ✌🏼	V de la victoire  peau modérément claire	none
 ✌🏽	V de la victoire  peau légèrement mate	none
@@ -473,31 +451,31 @@ symbols:
 🤙🏽	appelle-moi  peau légèrement mate	none
 🤙🏾	appelle-moi  peau modérément foncée	none
 🤙🏿	appelle-moi  peau foncée	none
-👈🏻	dos de la main avec index pointant vers la gauche  peau claire	none
-👈🏼	dos de la main avec index pointant vers la gauche  peau modérément claire	none
-👈🏽	dos de la main avec index pointant vers la gauche  peau légèrement mate	none
-👈🏾	dos de la main avec index pointant vers la gauche  peau modérément foncée	none
-👈🏿	dos de la main avec index pointant vers la gauche  peau foncée	none
-👉🏻	dos de la main avec index pointant vers la droite  peau claire	none
-👉🏼	dos de la main avec index pointant vers la droite  peau modérément claire	none
-👉🏽	dos de la main avec index pointant vers la droite  peau légèrement mate	none
-👉🏾	dos de la main avec index pointant vers la droite  peau modérément foncée	none
-👉🏿	dos de la main avec index pointant vers la droite  peau foncée	none
-👆🏻	dos de la main avec index pointant vers le haut  peau claire	none
-👆🏼	dos de la main avec index pointant vers le haut  peau modérément claire	none
-👆🏽	dos de la main avec index pointant vers le haut  peau légèrement mate	none
-👆🏾	dos de la main avec index pointant vers le haut  peau modérément foncée	none
-👆🏿	dos de la main avec index pointant vers le haut  peau foncée	none
+👈🏻	main avec index pointant à gauche  peau claire	none
+👈🏼	main avec index pointant à gauche  peau modérément claire	none
+👈🏽	main avec index pointant à gauche  peau légèrement mate	none
+👈🏾	main avec index pointant à gauche  peau modérément foncée	none
+👈🏿	main avec index pointant à gauche  peau foncée	none
+👉🏻	main avec index pointant à droite  peau claire	none
+👉🏼	main avec index pointant à droite  peau modérément claire	none
+👉🏽	main avec index pointant à droite  peau légèrement mate	none
+👉🏾	main avec index pointant à droite  peau modérément foncée	none
+👉🏿	main avec index pointant à droite  peau foncée	none
+👆🏻	main avec index pointant vers le haut  peau claire	none
+👆🏼	main avec index pointant vers le haut  peau modérément claire	none
+👆🏽	main avec index pointant vers le haut  peau légèrement mate	none
+👆🏾	main avec index pointant vers le haut  peau modérément foncée	none
+👆🏿	main avec index pointant vers le haut  peau foncée	none
 🖕🏻	doigt d’honneur  peau claire	none
 🖕🏼	doigt d’honneur  peau modérément claire	none
 🖕🏽	doigt d’honneur  peau légèrement mate	none
 🖕🏾	doigt d’honneur  peau modérément foncée	none
 🖕🏿	doigt d’honneur  peau foncée	none
-👇🏻	dos de la main avec index pointant vers le bas  peau claire	none
-👇🏼	dos de la main avec index pointant vers le bas  peau modérément claire	none
-👇🏽	dos de la main avec index pointant vers le bas  peau légèrement mate	none
-👇🏾	dos de la main avec index pointant vers le bas  peau modérément foncée	none
-👇🏿	dos de la main avec index pointant vers le bas  peau foncée	none
+👇🏻	main avec index pointant vers le bas  peau claire	none
+👇🏼	main avec index pointant vers le bas  peau modérément claire	none
+👇🏽	main avec index pointant vers le bas  peau légèrement mate	none
+👇🏾	main avec index pointant vers le bas  peau modérément foncée	none
+👇🏿	main avec index pointant vers le bas  peau foncée	none
 ☝🏻	index pointant vers le haut  peau claire	none
 ☝🏼	index pointant vers le haut  peau modérément claire	none
 ☝🏽	index pointant vers le haut  peau légèrement mate	none
@@ -593,6 +571,11 @@ symbols:
 👂🏽	oreille  peau légèrement mate	none
 👂🏾	oreille  peau modérément foncée	none
 👂🏿	oreille  peau foncée	none
+🦻🏻	oreille appareillée  peau claire	none
+🦻🏼	oreille appareillée  peau modérément claire	none
+🦻🏽	oreille appareillée  peau légèrement mate	none
+🦻🏾	oreille appareillée  peau modérément foncée	none
+🦻🏿	oreille appareillée  peau foncée	none
 👃🏻	nez  peau claire	none
 👃🏼	nez  peau modérément claire	none
 👃🏽	nez  peau légèrement mate	none
@@ -628,51 +611,45 @@ symbols:
 👱🏽	personne blonde  peau légèrement mate	none
 👱🏾	personne blonde  peau modérément foncée	none
 👱🏿	personne blonde  peau foncée	none
-🧑🏻‍🤝‍🧑🏻	personnes se tenant par la main  peau claire	none
-🧑🏼‍🤝‍🧑🏻	personnes se tenant par la main  peau modérément claire et peau claire	none
-🧑🏼‍🤝‍🧑🏼	personnes se tenant par la main  peau modérément claire	none
-🧑🏽‍🤝‍🧑🏻	personnes se tenant par la main  peau légèrement mate et peau claire	none
-🧑🏽‍🤝‍🧑🏼	personnes se tenant par la main  peau légèrement mate et peau modérément claire	none
-🧑🏽‍🤝‍🧑🏽	personnes se tenant par la main  peau légèrement mate	none
-🧑🏾‍🤝‍🧑🏻	personnes se tenant par la main  peau modérément foncée et peau claire	none
-🧑🏾‍🤝‍🧑🏼	personnes se tenant par la main  peau modérément foncée et peau modérément claire	none
-🧑🏾‍🤝‍🧑🏽	personnes se tenant par la main  peau modérément foncée et peau légèrement mate	none
-🧑🏾‍🤝‍🧑🏾	personnes se tenant par la main  peau modérément foncée	none
-🧑🏿‍🤝‍🧑🏻	personnes se tenant par la main  peau foncée et peau claire	none
-🧑🏿‍🤝‍🧑🏼	personnes se tenant par la main  peau foncée et peau modérément claire	none
-🧑🏿‍🤝‍🧑🏽	personnes se tenant par la main  peau foncée et peau légèrement mate	none
-🧑🏿‍🤝‍🧑🏾	personnes se tenant par la main  peau foncée et peau modérément foncée	none
-🧑🏿‍🤝‍🧑🏿	personnes se tenant par la main  peau foncée	none
+🧑‍🦰	adulte  cheveux roux	none
+🧑🏻‍🦰	adulte  peau claire et cheveux roux	none
+🧑🏼‍🦰	adulte  peau modérément claire et cheveux roux	none
+🧑🏽‍🦰	adulte  peau légèrement mate et cheveux roux	none
+🧑🏾‍🦰	adulte  peau modérément foncée et cheveux roux	none
+🧑🏿‍🦰	adulte  peau foncée et cheveux roux	none
+🧑‍🦱	adulte  cheveux bouclés	none
+🧑🏻‍🦱	adulte  peau claire et cheveux bouclés	none
+🧑🏼‍🦱	adulte  peau modérément claire et cheveux bouclés	none
+🧑🏽‍🦱	adulte  peau légèrement mate et cheveux bouclés	none
+🧑🏾‍🦱	adulte  peau modérément foncée et cheveux bouclés	none
+🧑🏿‍🦱	adulte  peau foncée et cheveux bouclés	none
+🧑‍🦳	adulte  cheveux blancs	none
+🧑🏻‍🦳	adulte  peau claire et cheveux blancs	none
+🧑🏼‍🦳	adulte  peau modérément claire et cheveux blancs	none
+🧑🏽‍🦳	adulte  peau légèrement mate et cheveux blancs	none
+🧑🏾‍🦳	adulte  peau modérément foncée et cheveux blancs	none
+🧑🏿‍🦳	adulte  peau foncée et cheveux blancs	none
+🧑‍🦲	adulte  chauve	none
+🧑🏻‍🦲	adulte  peau claire et chauve	none
+🧑🏼‍🦲	adulte  peau modérément claire et chauve	none
+🧑🏽‍🦲	adulte  peau légèrement mate et chauve	none
+🧑🏾‍🦲	adulte  peau modérément foncée et chauve	none
+🧑🏿‍🦲	adulte  peau foncée et chauve	none
 👨🏻	homme  peau claire	none
 👨🏼	homme  peau modérément claire	none
 👨🏽	homme  peau légèrement mate	none
 👨🏾	homme  peau modérément foncée	none
 👨🏿	homme  peau foncée	none
-👨🏻‍🦯	homme avec canne blanche  peau claire	none
-👨🏼‍🦯	homme avec canne blanche  peau modérément claire	none
-👨🏽‍🦯	homme avec canne blanche  peau légèrement mate	none
-👨🏾‍🦯	homme avec canne blanche  peau modérément foncée	none
-👨🏿‍🦯	homme avec canne blanche  peau foncée	none
-👨🏻‍🦼	homme en fauteuil motorisé  peau claire	none
-👨🏼‍🦼	homme en fauteuil motorisé  peau modérément claire	none
-👨🏽‍🦼	homme en fauteuil motorisé  peau légèrement mate	none
-👨🏾‍🦼	homme en fauteuil motorisé  peau modérément foncée	none
-👨🏿‍🦼	homme en fauteuil motorisé  peau foncée	none
-👨🏻‍🦽	homme en fauteuil roulant manuel  peau claire	none
-👨🏼‍🦽	homme en fauteuil roulant manuel  peau modérément claire	none
-👨🏽‍🦽	homme en fauteuil roulant manuel  peau légèrement mate	none
-👨🏾‍🦽	homme en fauteuil roulant manuel  peau modérément foncée	none
-👨🏿‍🦽	homme en fauteuil roulant manuel  peau foncée	none
-👨🏼‍🤝‍👨🏻	deux hommes se tenant par la main  peau modérément claire et peau claire	none
-👨🏽‍🤝‍👨🏻	deux hommes se tenant par la main  peau légèrement mate et peau claire	none
-👨🏽‍🤝‍👨🏼	deux hommes se tenant par la main  peau légèrement mate et peau modérément claire	none
-👨🏾‍🤝‍👨🏻	deux hommes se tenant par la main  peau modérément foncée et peau claire	none
-👨🏾‍🤝‍👨🏼	deux hommes se tenant par la main  peau modérément foncée et peau modérément claire	none
-👨🏾‍🤝‍👨🏽	deux hommes se tenant par la main  peau modérément foncée et peau légèrement mate	none
-👨🏿‍🤝‍👨🏻	deux hommes se tenant par la main  peau foncée et peau claire	none
-👨🏿‍🤝‍👨🏼	deux hommes se tenant par la main  peau foncée et peau modérément claire	none
-👨🏿‍🤝‍👨🏽	deux hommes se tenant par la main  peau foncée et peau légèrement mate	none
-👨🏿‍🤝‍👨🏾	deux hommes se tenant par la main  peau foncée et peau modérément foncée	none
+🧔🏻	homme barbu  peau claire	none
+🧔🏼	homme barbu  peau modérément claire	none
+🧔🏽	homme barbu  peau légèrement mate	none
+🧔🏾	homme barbu  peau modérément foncée	none
+🧔🏿	homme barbu  peau foncée	none
+👱🏻‍♂	homme blond  peau claire	none
+👱🏼‍♂	homme blond  peau modérément claire	none
+👱🏽‍♂	homme blond  peau légèrement mate	none
+👱🏾‍♂	homme blond  peau modérément foncée	none
+👱🏿‍♂	homme blond  peau foncée	none
 👨‍🦰	homme  cheveux roux	none
 👨🏻‍🦰	homme  peau claire et cheveux roux	none
 👨🏼‍🦰	homme  peau modérément claire et cheveux roux	none
@@ -697,66 +674,16 @@ symbols:
 👨🏽‍🦲	homme  peau légèrement mate et chauve	none
 👨🏾‍🦲	homme  peau modérément foncée et chauve	none
 👨🏿‍🦲	homme  peau foncée et chauve	none
-👱🏻‍♂	homme blond  peau claire	none
-👱🏼‍♂	homme blond  peau modérément claire	none
-👱🏽‍♂	homme blond  peau légèrement mate	none
-👱🏾‍♂	homme blond  peau modérément foncée	none
-👱🏿‍♂	homme blond  peau foncée	none
-🧔🏻	homme barbu  peau claire	none
-🧔🏼	homme barbu  peau modérément claire	none
-🧔🏽	homme barbu  peau légèrement mate	none
-🧔🏾	homme barbu  peau modérément foncée	none
-🧔🏿	homme barbu  peau foncée	none
 👩🏻	femme  peau claire	none
 👩🏼	femme  peau modérément claire	none
 👩🏽	femme  peau légèrement mate	none
 👩🏾	femme  peau modérément foncée	none
 👩🏿	femme  peau foncée	none
-👩🏻‍🦯	femme avec canne blanche  peau claire	none
-👩🏼‍🦯	femme avec canne blanche  peau modérément claire	none
-👩🏽‍🦯	femme avec canne blanche  peau légèrement mate	none
-👩🏾‍🦯	femme avec canne blanche  peau modérément foncée	none
-👩🏿‍🦯	femme avec canne blanche  peau foncée	none
-👩🏻‍🦼	femme en fauteuil motorisé  peau claire	none
-👩🏼‍🦼	femme en fauteuil motorisé  peau modérément claire	none
-👩🏽‍🦼	femme en fauteuil motorisé  peau légèrement mate	none
-👩🏾‍🦼	femme en fauteuil motorisé  peau modérément foncée	none
-👩🏿‍🦼	femme en fauteuil motorisé  peau foncée	none
-👩🏻‍🦽	femme en fauteuil roulant manuel  peau claire	none
-👩🏼‍🦽	femme en fauteuil roulant manuel  peau modérément claire	none
-👩🏽‍🦽	femme en fauteuil roulant manuel  peau légèrement mate	none
-👩🏾‍🦽	femme en fauteuil roulant manuel  peau modérément foncée	none
-👩🏿‍🦽	femme en fauteuil roulant manuel  peau foncée	none
-👩🏻‍🤝‍👨🏼	homme et femme se tenant par la main  peau claire et peau modérément claire	none
-👩🏻‍🤝‍👨🏽	homme et femme se tenant par la main  peau claire et peau légèrement mate	none
-👩🏻‍🤝‍👨🏾	homme et femme se tenant par la main  peau claire et peau modérément foncée	none
-👩🏻‍🤝‍👨🏿	homme et femme se tenant par la main  peau claire et peau foncée	none
-👩🏼‍🤝‍👨🏻	homme et femme se tenant par la main  peau modérément claire et peau claire	none
-👩🏼‍🤝‍👨🏽	homme et femme se tenant par la main  peau modérément claire et peau légèrement mate	none
-👩🏼‍🤝‍👨🏾	homme et femme se tenant par la main  peau modérément claire et peau modérément foncée	none
-👩🏼‍🤝‍👨🏿	homme et femme se tenant par la main  peau modérément claire et peau foncée	none
-👩🏽‍🤝‍👨🏻	homme et femme se tenant par la main  peau légèrement mate et peau claire	none
-👩🏽‍🤝‍👨🏼	homme et femme se tenant par la main  peau légèrement mate et peau modérément claire	none
-👩🏽‍🤝‍👨🏾	homme et femme se tenant par la main  peau légèrement mate et peau modérément foncée	none
-👩🏽‍🤝‍👨🏿	homme et femme se tenant par la main  peau légèrement mate et peau foncée	none
-👩🏾‍🤝‍👨🏻	homme et femme se tenant par la main  peau modérément foncée et peau claire	none
-👩🏾‍🤝‍👨🏼	homme et femme se tenant par la main  peau modérément foncée et peau modérément claire	none
-👩🏾‍🤝‍👨🏽	homme et femme se tenant par la main  peau modérément foncée et peau légèrement mate	none
-👩🏾‍🤝‍👨🏿	homme et femme se tenant par la main  peau modérément foncée et peau foncée	none
-👩🏿‍🤝‍👨🏻	homme et femme se tenant par la main  peau foncée et peau claire	none
-👩🏿‍🤝‍👨🏼	homme et femme se tenant par la main  peau foncée et peau modérément claire	none
-👩🏿‍🤝‍👨🏽	homme et femme se tenant par la main  peau foncée et peau légèrement mate	none
-👩🏿‍🤝‍👨🏾	homme et femme se tenant par la main  peau foncée et peau modérément foncée	none
-👩🏼‍🤝‍👩🏻	deux femmes se tenant par la main  peau modérément claire et peau claire	none
-👩🏽‍🤝‍👩🏻	deux femmes se tenant par la main  peau légèrement mate et peau claire	none
-👩🏽‍🤝‍👩🏼	deux femmes se tenant par la main  peau légèrement mate et peau modérément claire	none
-👩🏾‍🤝‍👩🏻	deux femmes se tenant par la main  peau modérément foncée et peau claire	none
-👩🏾‍🤝‍👩🏼	deux femmes se tenant par la main  peau modérément foncée et peau modérément claire	none
-👩🏾‍🤝‍👩🏽	deux femmes se tenant par la main  peau modérément foncée et peau légèrement mate	none
-👩🏿‍🤝‍👩🏻	deux femmes se tenant par la main  peau foncée et peau claire	none
-👩🏿‍🤝‍👩🏼	deux femmes se tenant par la main  peau foncée et peau modérément claire	none
-👩🏿‍🤝‍👩🏽	deux femmes se tenant par la main  peau foncée et peau légèrement mate	none
-👩🏿‍🤝‍👩🏾	deux femmes se tenant par la main  peau foncée et peau modérément foncée	none
+👱🏻‍♀	femme blonde  peau claire	none
+👱🏼‍♀	femme blonde  peau modérément claire	none
+👱🏽‍♀	femme blonde  peau légèrement mate	none
+👱🏾‍♀	femme blonde  peau modérément foncée	none
+👱🏿‍♀	femme blonde  peau foncée	none
 👩‍🦰	femme  cheveux roux	none
 👩🏻‍🦰	femme  peau claire et cheveux roux	none
 👩🏼‍🦰	femme  peau modérément claire et cheveux roux	none
@@ -781,11 +708,6 @@ symbols:
 👩🏽‍🦲	femme  peau légèrement mate et chauve	none
 👩🏾‍🦲	femme  peau modérément foncée et chauve	none
 👩🏿‍🦲	femme  peau foncée et chauve	none
-👱🏻‍♀	femme blonde  peau claire	none
-👱🏼‍♀	femme blonde  peau modérément claire	none
-👱🏽‍♀	femme blonde  peau légèrement mate	none
-👱🏾‍♀	femme blonde  peau modérément foncée	none
-👱🏿‍♀	femme blonde  peau foncée	none
 🧓🏻	personne âgée  peau claire	none
 🧓🏼	personne âgée  peau modérément claire	none
 🧓🏽	personne âgée  peau légèrement mate	none
@@ -891,6 +813,21 @@ symbols:
 🙋🏽‍♀	femme qui lève la main  peau légèrement mate	none
 🙋🏾‍♀	femme qui lève la main  peau modérément foncée	none
 🙋🏿‍♀	femme qui lève la main  peau foncée	none
+🧏🏻	personne sourde  peau claire	none
+🧏🏼	personne sourde  peau modérément claire	none
+🧏🏽	personne sourde  peau légèrement mate	none
+🧏🏾	personne sourde  peau modérément foncée	none
+🧏🏿	personne sourde  peau foncée	none
+🧏🏻‍♂	homme sourd  peau claire	none
+🧏🏼‍♂	homme sourd  peau modérément claire	none
+🧏🏽‍♂	homme sourd  peau légèrement mate	none
+🧏🏾‍♂	homme sourd  peau modérément foncée	none
+🧏🏿‍♂	homme sourd  peau foncée	none
+🧏🏻‍♀	femme sourde  peau claire	none
+🧏🏼‍♀	femme sourde  peau modérément claire	none
+🧏🏽‍♀	femme sourde  peau légèrement mate	none
+🧏🏾‍♀	femme sourde  peau modérément foncée	none
+🧏🏿‍♀	femme sourde  peau foncée	none
 🙇🏻	personne qui s’incline  peau claire	none
 🙇🏼	personne qui s’incline  peau modérément claire	none
 🙇🏽	personne qui s’incline  peau légèrement mate	none
@@ -936,16 +873,26 @@ symbols:
 🤷🏽‍♀	femme qui hausse les épaules  peau légèrement mate	none
 🤷🏾‍♀	femme qui hausse les épaules  peau modérément foncée	none
 🤷🏿‍♀	femme qui hausse les épaules  peau foncée	none
-👨🏻‍⚕	professionnel de la santé  peau claire	none
-👨🏼‍⚕	professionnel de la santé  peau modérément claire	none
-👨🏽‍⚕	professionnel de la santé  peau légèrement mate	none
-👨🏾‍⚕	professionnel de la santé  peau modérément foncée	none
-👨🏿‍⚕	professionnel de la santé  peau foncée	none
+🧑🏻‍⚕	professionnel de la santé  peau claire	none
+🧑🏼‍⚕	professionnel de la santé  peau modérément claire	none
+🧑🏽‍⚕	professionnel de la santé  peau légèrement mate	none
+🧑🏾‍⚕	professionnel de la santé  peau modérément foncée	none
+🧑🏿‍⚕	professionnel de la santé  peau foncée	none
+👨🏻‍⚕	professionnel de la santé homme  peau claire	none
+👨🏼‍⚕	professionnel de la santé homme  peau modérément claire	none
+👨🏽‍⚕	professionnel de la santé homme  peau légèrement mate	none
+👨🏾‍⚕	professionnel de la santé homme  peau modérément foncée	none
+👨🏿‍⚕	professionnel de la santé homme  peau foncée	none
 👩🏻‍⚕	professionnelle de la santé  peau claire	none
 👩🏼‍⚕	professionnelle de la santé  peau modérément claire	none
 👩🏽‍⚕	professionnelle de la santé  peau légèrement mate	none
 👩🏾‍⚕	professionnelle de la santé  peau modérément foncée	none
 👩🏿‍⚕	professionnelle de la santé  peau foncée	none
+🧑🏻‍🎓	étudiant universitaire  peau claire	none
+🧑🏼‍🎓	étudiant universitaire  peau modérément claire	none
+🧑🏽‍🎓	étudiant universitaire  peau légèrement mate	none
+🧑🏾‍🎓	étudiant universitaire  peau modérément foncée	none
+🧑🏿‍🎓	étudiant universitaire  peau foncée	none
 👨🏻‍🎓	étudiant  peau claire	none
 👨🏼‍🎓	étudiant  peau modérément claire	none
 👨🏽‍🎓	étudiant  peau légèrement mate	none
@@ -956,6 +903,11 @@ symbols:
 👩🏽‍🎓	étudiante  peau légèrement mate	none
 👩🏾‍🎓	étudiante  peau modérément foncée	none
 👩🏿‍🎓	étudiante  peau foncée	none
+🧑🏻‍🏫	professeur  peau claire	none
+🧑🏼‍🏫	professeur  peau modérément claire	none
+🧑🏽‍🏫	professeur  peau légèrement mate	none
+🧑🏾‍🏫	professeur  peau modérément foncée	none
+🧑🏿‍🏫	professeur  peau foncée	none
 👨🏻‍🏫	enseignant  peau claire	none
 👨🏼‍🏫	enseignant  peau modérément claire	none
 👨🏽‍🏫	enseignant  peau légèrement mate	none
@@ -966,6 +918,11 @@ symbols:
 👩🏽‍🏫	enseignante  peau légèrement mate	none
 👩🏾‍🏫	enseignante  peau modérément foncée	none
 👩🏿‍🏫	enseignante  peau foncée	none
+🧑🏻‍⚖	juge  peau claire	none
+🧑🏼‍⚖	juge  peau modérément claire	none
+🧑🏽‍⚖	juge  peau légèrement mate	none
+🧑🏾‍⚖	juge  peau modérément foncée	none
+🧑🏿‍⚖	juge  peau foncée	none
 👨🏻‍⚖	juge homme  peau claire	none
 👨🏼‍⚖	juge homme  peau modérément claire	none
 👨🏽‍⚖	juge homme  peau légèrement mate	none
@@ -976,16 +933,26 @@ symbols:
 👩🏽‍⚖	juge femme  peau légèrement mate	none
 👩🏾‍⚖	juge femme  peau modérément foncée	none
 👩🏿‍⚖	juge femme  peau foncée	none
-👨🏻‍🌾	fermier  peau claire	none
-👨🏼‍🌾	fermier  peau modérément claire	none
-👨🏽‍🌾	fermier  peau légèrement mate	none
-👨🏾‍🌾	fermier  peau modérément foncée	none
-👨🏿‍🌾	fermier  peau foncée	none
+🧑🏻‍🌾	fermier  peau claire	none
+🧑🏼‍🌾	fermier  peau modérément claire	none
+🧑🏽‍🌾	fermier  peau légèrement mate	none
+🧑🏾‍🌾	fermier  peau modérément foncée	none
+🧑🏿‍🌾	fermier  peau foncée	none
+👨🏻‍🌾	fermier homme  peau claire	none
+👨🏼‍🌾	fermier homme  peau modérément claire	none
+👨🏽‍🌾	fermier homme  peau légèrement mate	none
+👨🏾‍🌾	fermier homme  peau modérément foncée	none
+👨🏿‍🌾	fermier homme  peau foncée	none
 👩🏻‍🌾	fermière  peau claire	none
 👩🏼‍🌾	fermière  peau modérément claire	none
 👩🏽‍🌾	fermière  peau légèrement mate	none
 👩🏾‍🌾	fermière  peau modérément foncée	none
 👩🏿‍🌾	fermière  peau foncée	none
+🧑🏻‍🍳	chef  peau claire	none
+🧑🏼‍🍳	chef  peau modérément claire	none
+🧑🏽‍🍳	chef  peau légèrement mate	none
+🧑🏾‍🍳	chef  peau modérément foncée	none
+🧑🏿‍🍳	chef  peau foncée	none
 👨🏻‍🍳	cuisinier  peau claire	none
 👨🏼‍🍳	cuisinier  peau modérément claire	none
 👨🏽‍🍳	cuisinier  peau légèrement mate	none
@@ -996,16 +963,26 @@ symbols:
 👩🏽‍🍳	cuisinière  peau légèrement mate	none
 👩🏾‍🍳	cuisinière  peau modérément foncée	none
 👩🏿‍🍳	cuisinière  peau foncée	none
-👨🏻‍🔧	mécanicien  peau claire	none
-👨🏼‍🔧	mécanicien  peau modérément claire	none
-👨🏽‍🔧	mécanicien  peau légèrement mate	none
-👨🏾‍🔧	mécanicien  peau modérément foncée	none
-👨🏿‍🔧	mécanicien  peau foncée	none
+🧑🏻‍🔧	mécanicien  peau claire	none
+🧑🏼‍🔧	mécanicien  peau modérément claire	none
+🧑🏽‍🔧	mécanicien  peau légèrement mate	none
+🧑🏾‍🔧	mécanicien  peau modérément foncée	none
+🧑🏿‍🔧	mécanicien  peau foncée	none
+👨🏻‍🔧	mécanicien homme  peau claire	none
+👨🏼‍🔧	mécanicien homme  peau modérément claire	none
+👨🏽‍🔧	mécanicien homme  peau légèrement mate	none
+👨🏾‍🔧	mécanicien homme  peau modérément foncée	none
+👨🏿‍🔧	mécanicien homme  peau foncée	none
 👩🏻‍🔧	mécanicienne  peau claire	none
 👩🏼‍🔧	mécanicienne  peau modérément claire	none
 👩🏽‍🔧	mécanicienne  peau légèrement mate	none
 👩🏾‍🔧	mécanicienne  peau modérément foncée	none
 👩🏿‍🔧	mécanicienne  peau foncée	none
+🧑🏻‍🏭	travailleur d’usine  peau claire	none
+🧑🏼‍🏭	travailleur d’usine  peau modérément claire	none
+🧑🏽‍🏭	travailleur d’usine  peau légèrement mate	none
+🧑🏾‍🏭	travailleur d’usine  peau modérément foncée	none
+🧑🏿‍🏭	travailleur d’usine  peau foncée	none
 👨🏻‍🏭	ouvrier  peau claire	none
 👨🏼‍🏭	ouvrier  peau modérément claire	none
 👨🏽‍🏭	ouvrier  peau légèrement mate	none
@@ -1016,16 +993,26 @@ symbols:
 👩🏽‍🏭	ouvrière  peau légèrement mate	none
 👩🏾‍🏭	ouvrière  peau modérément foncée	none
 👩🏿‍🏭	ouvrière  peau foncée	none
-👨🏻‍💼	employé de bureau  peau claire	none
-👨🏼‍💼	employé de bureau  peau modérément claire	none
-👨🏽‍💼	employé de bureau  peau légèrement mate	none
-👨🏾‍💼	employé de bureau  peau modérément foncée	none
-👨🏿‍💼	employé de bureau  peau foncée	none
+🧑🏻‍💼	employé de bureau  peau claire	none
+🧑🏼‍💼	employé de bureau  peau modérément claire	none
+🧑🏽‍💼	employé de bureau  peau légèrement mate	none
+🧑🏾‍💼	employé de bureau  peau modérément foncée	none
+🧑🏿‍💼	employé de bureau  peau foncée	none
+👨🏻‍💼	employé de bureau homme  peau claire	none
+👨🏼‍💼	employé de bureau homme  peau modérément claire	none
+👨🏽‍💼	employé de bureau homme  peau légèrement mate	none
+👨🏾‍💼	employé de bureau homme  peau modérément foncée	none
+👨🏿‍💼	employé de bureau homme  peau foncée	none
 👩🏻‍💼	employée de bureau  peau claire	none
 👩🏼‍💼	employée de bureau  peau modérément claire	none
 👩🏽‍💼	employée de bureau  peau légèrement mate	none
 👩🏾‍💼	employée de bureau  peau modérément foncée	none
 👩🏿‍💼	employée de bureau  peau foncée	none
+🧑🏻‍🔬	scientifique  peau claire	none
+🧑🏼‍🔬	scientifique  peau modérément claire	none
+🧑🏽‍🔬	scientifique  peau légèrement mate	none
+🧑🏾‍🔬	scientifique  peau modérément foncée	none
+🧑🏿‍🔬	scientifique  peau foncée	none
 👨🏻‍🔬	scientifique homme  peau claire	none
 👨🏼‍🔬	scientifique homme  peau modérément claire	none
 👨🏽‍🔬	scientifique homme  peau légèrement mate	none
@@ -1036,26 +1023,41 @@ symbols:
 👩🏽‍🔬	scientifique femme  peau légèrement mate	none
 👩🏾‍🔬	scientifique femme  peau modérément foncée	none
 👩🏿‍🔬	scientifique femme  peau foncée	none
-👨🏻‍💻	informaticien  peau claire	none
-👨🏼‍💻	informaticien  peau modérément claire	none
-👨🏽‍💻	informaticien  peau légèrement mate	none
-👨🏾‍💻	informaticien  peau modérément foncée	none
-👨🏿‍💻	informaticien  peau foncée	none
+🧑🏻‍💻	informaticien  peau claire	none
+🧑🏼‍💻	informaticien  peau modérément claire	none
+🧑🏽‍💻	informaticien  peau légèrement mate	none
+🧑🏾‍💻	informaticien  peau modérément foncée	none
+🧑🏿‍💻	informaticien  peau foncée	none
+👨🏻‍💻	informaticien homme  peau claire	none
+👨🏼‍💻	informaticien homme  peau modérément claire	none
+👨🏽‍💻	informaticien homme  peau légèrement mate	none
+👨🏾‍💻	informaticien homme  peau modérément foncée	none
+👨🏿‍💻	informaticien homme  peau foncée	none
 👩🏻‍💻	informaticienne  peau claire	none
 👩🏼‍💻	informaticienne  peau modérément claire	none
 👩🏽‍💻	informaticienne  peau légèrement mate	none
 👩🏾‍💻	informaticienne  peau modérément foncée	none
 👩🏿‍💻	informaticienne  peau foncée	none
-👨🏻‍🎤	chanteur  peau claire	none
-👨🏼‍🎤	chanteur  peau modérément claire	none
-👨🏽‍🎤	chanteur  peau légèrement mate	none
-👨🏾‍🎤	chanteur  peau modérément foncée	none
-👨🏿‍🎤	chanteur  peau foncée	none
+🧑🏻‍🎤	chanteur  peau claire	none
+🧑🏼‍🎤	chanteur  peau modérément claire	none
+🧑🏽‍🎤	chanteur  peau légèrement mate	none
+🧑🏾‍🎤	chanteur  peau modérément foncée	none
+🧑🏿‍🎤	chanteur  peau foncée	none
+👨🏻‍🎤	chanteur homme  peau claire	none
+👨🏼‍🎤	chanteur homme  peau modérément claire	none
+👨🏽‍🎤	chanteur homme  peau légèrement mate	none
+👨🏾‍🎤	chanteur homme  peau modérément foncée	none
+👨🏿‍🎤	chanteur homme  peau foncée	none
 👩🏻‍🎤	chanteuse  peau claire	none
 👩🏼‍🎤	chanteuse  peau modérément claire	none
 👩🏽‍🎤	chanteuse  peau légèrement mate	none
 👩🏾‍🎤	chanteuse  peau modérément foncée	none
 👩🏿‍🎤	chanteuse  peau foncée	none
+🧑🏻‍🎨	artiste  peau claire	none
+🧑🏼‍🎨	artiste  peau modérément claire	none
+🧑🏽‍🎨	artiste  peau légèrement mate	none
+🧑🏾‍🎨	artiste  peau modérément foncée	none
+🧑🏿‍🎨	artiste  peau foncée	none
 👨🏻‍🎨	artiste homme  peau claire	none
 👨🏼‍🎨	artiste homme  peau modérément claire	none
 👨🏽‍🎨	artiste homme  peau légèrement mate	none
@@ -1066,6 +1068,11 @@ symbols:
 👩🏽‍🎨	artiste femme  peau légèrement mate	none
 👩🏾‍🎨	artiste femme  peau modérément foncée	none
 👩🏿‍🎨	artiste femme  peau foncée	none
+🧑🏻‍✈	pilote  peau claire	none
+🧑🏼‍✈	pilote  peau modérément claire	none
+🧑🏽‍✈	pilote  peau légèrement mate	none
+🧑🏾‍✈	pilote  peau modérément foncée	none
+🧑🏿‍✈	pilote  peau foncée	none
 👨🏻‍✈	pilote homme  peau claire	none
 👨🏼‍✈	pilote homme  peau modérément claire	none
 👨🏽‍✈	pilote homme  peau légèrement mate	none
@@ -1076,6 +1083,11 @@ symbols:
 👩🏽‍✈	pilote femme  peau légèrement mate	none
 👩🏾‍✈	pilote femme  peau modérément foncée	none
 👩🏿‍✈	pilote femme  peau foncée	none
+🧑🏻‍🚀	astronaute  peau claire	none
+🧑🏼‍🚀	astronaute  peau modérément claire	none
+🧑🏽‍🚀	astronaute  peau légèrement mate	none
+🧑🏾‍🚀	astronaute  peau modérément foncée	none
+🧑🏿‍🚀	astronaute  peau foncée	none
 👨🏻‍🚀	astronaute homme  peau claire	none
 👨🏼‍🚀	astronaute homme  peau modérément claire	none
 👨🏽‍🚀	astronaute homme  peau légèrement mate	none
@@ -1086,6 +1098,11 @@ symbols:
 👩🏽‍🚀	astronaute femme  peau légèrement mate	none
 👩🏾‍🚀	astronaute femme  peau modérément foncée	none
 👩🏿‍🚀	astronaute femme  peau foncée	none
+🧑🏻‍🚒	pompier  peau claire	none
+🧑🏼‍🚒	pompier  peau modérément claire	none
+🧑🏽‍🚒	pompier  peau légèrement mate	none
+🧑🏾‍🚒	pompier  peau modérément foncée	none
+🧑🏿‍🚒	pompier  peau foncée	none
 👨🏻‍🚒	pompier homme  peau claire	none
 👨🏼‍🚒	pompier homme  peau modérément claire	none
 👨🏽‍🚒	pompier homme  peau légèrement mate	none
@@ -1096,16 +1113,16 @@ symbols:
 👩🏽‍🚒	pompier femme  peau légèrement mate	none
 👩🏾‍🚒	pompier femme  peau modérément foncée	none
 👩🏿‍🚒	pompier femme  peau foncée	none
-👮🏻	agent de la paix  peau claire	none
-👮🏼	agent de la paix  peau modérément claire	none
-👮🏽	agent de la paix  peau légèrement mate	none
-👮🏾	agent de la paix  peau modérément foncée	none
-👮🏿	agent de la paix  peau foncée	none
-👮🏻‍♂	policier  peau claire	none
-👮🏼‍♂	policier  peau modérément claire	none
-👮🏽‍♂	policier  peau légèrement mate	none
-👮🏾‍♂	policier  peau modérément foncée	none
-👮🏿‍♂	policier  peau foncée	none
+👮🏻	policier  peau claire	none
+👮🏼	policier  peau modérément claire	none
+👮🏽	policier  peau légèrement mate	none
+👮🏾	policier  peau modérément foncée	none
+👮🏿	policier  peau foncée	none
+👮🏻‍♂	policier homme  peau claire	none
+👮🏼‍♂	policier homme  peau modérément claire	none
+👮🏽‍♂	policier homme  peau légèrement mate	none
+👮🏾‍♂	policier homme  peau modérément foncée	none
+👮🏿‍♂	policier homme  peau foncée	none
 👮🏻‍♀	policière  peau claire	none
 👮🏼‍♀	policière  peau modérément claire	none
 👮🏽‍♀	policière  peau légèrement mate	none
@@ -1376,6 +1393,81 @@ symbols:
 🚶🏽‍♀	femme qui marche  peau légèrement mate	none
 🚶🏾‍♀	femme qui marche  peau modérément foncée	none
 🚶🏿‍♀	femme qui marche  peau foncée	none
+🧍🏻	personne debout  peau claire	none
+🧍🏼	personne debout  peau modérément claire	none
+🧍🏽	personne debout  peau légèrement mate	none
+🧍🏾	personne debout  peau modérément foncée	none
+🧍🏿	personne debout  peau foncée	none
+🧍🏻‍♂	homme debout  peau claire	none
+🧍🏼‍♂	homme debout  peau modérément claire	none
+🧍🏽‍♂	homme debout  peau légèrement mate	none
+🧍🏾‍♂	homme debout  peau modérément foncée	none
+🧍🏿‍♂	homme debout  peau foncée	none
+🧍🏻‍♀	femme debout  peau claire	none
+🧍🏼‍♀	femme debout  peau modérément claire	none
+🧍🏽‍♀	femme debout  peau légèrement mate	none
+🧍🏾‍♀	femme debout  peau modérément foncée	none
+🧍🏿‍♀	femme debout  peau foncée	none
+🧎🏻	personne à genoux  peau claire	none
+🧎🏼	personne à genoux  peau modérément claire	none
+🧎🏽	personne à genoux  peau légèrement mate	none
+🧎🏾	personne à genoux  peau modérément foncée	none
+🧎🏿	personne à genoux  peau foncée	none
+🧎🏻‍♂	homme à genoux  peau claire	none
+🧎🏼‍♂	homme à genoux  peau modérément claire	none
+🧎🏽‍♂	homme à genoux  peau légèrement mate	none
+🧎🏾‍♂	homme à genoux  peau modérément foncée	none
+🧎🏿‍♂	homme à genoux  peau foncée	none
+🧎🏻‍♀	femme à genoux  peau claire	none
+🧎🏼‍♀	femme à genoux  peau modérément claire	none
+🧎🏽‍♀	femme à genoux  peau légèrement mate	none
+🧎🏾‍♀	femme à genoux  peau modérément foncée	none
+🧎🏿‍♀	femme à genoux  peau foncée	none
+🧑🏻‍🦯	aveugle avec canne  peau claire	none
+🧑🏼‍🦯	aveugle avec canne  peau modérément claire	none
+🧑🏽‍🦯	aveugle avec canne  peau légèrement mate	none
+🧑🏾‍🦯	aveugle avec canne  peau modérément foncée	none
+🧑🏿‍🦯	aveugle avec canne  peau foncée	none
+👨🏻‍🦯	homme avec canne blanche  peau claire	none
+👨🏼‍🦯	homme avec canne blanche  peau modérément claire	none
+👨🏽‍🦯	homme avec canne blanche  peau légèrement mate	none
+👨🏾‍🦯	homme avec canne blanche  peau modérément foncée	none
+👨🏿‍🦯	homme avec canne blanche  peau foncée	none
+👩🏻‍🦯	femme avec canne blanche  peau claire	none
+👩🏼‍🦯	femme avec canne blanche  peau modérément claire	none
+👩🏽‍🦯	femme avec canne blanche  peau légèrement mate	none
+👩🏾‍🦯	femme avec canne blanche  peau modérément foncée	none
+👩🏿‍🦯	femme avec canne blanche  peau foncée	none
+🧑🏻‍🦼	personne en fauteuil roulant  peau claire	none
+🧑🏼‍🦼	personne en fauteuil roulant  peau modérément claire	none
+🧑🏽‍🦼	personne en fauteuil roulant  peau légèrement mate	none
+🧑🏾‍🦼	personne en fauteuil roulant  peau modérément foncée	none
+🧑🏿‍🦼	personne en fauteuil roulant  peau foncée	none
+👨🏻‍🦼	homme en fauteuil motorisé  peau claire	none
+👨🏼‍🦼	homme en fauteuil motorisé  peau modérément claire	none
+👨🏽‍🦼	homme en fauteuil motorisé  peau légèrement mate	none
+👨🏾‍🦼	homme en fauteuil motorisé  peau modérément foncée	none
+👨🏿‍🦼	homme en fauteuil motorisé  peau foncée	none
+👩🏻‍🦼	femme en fauteuil motorisé  peau claire	none
+👩🏼‍🦼	femme en fauteuil motorisé  peau modérément claire	none
+👩🏽‍🦼	femme en fauteuil motorisé  peau légèrement mate	none
+👩🏾‍🦼	femme en fauteuil motorisé  peau modérément foncée	none
+👩🏿‍🦼	femme en fauteuil motorisé  peau foncée	none
+🧑🏻‍🦽	personne en fauteuil roulant manuel  peau claire	none
+🧑🏼‍🦽	personne en fauteuil roulant manuel  peau modérément claire	none
+🧑🏽‍🦽	personne en fauteuil roulant manuel  peau légèrement mate	none
+🧑🏾‍🦽	personne en fauteuil roulant manuel  peau modérément foncée	none
+🧑🏿‍🦽	personne en fauteuil roulant manuel  peau foncée	none
+👨🏻‍🦽	homme en fauteuil roulant manuel  peau claire	none
+👨🏼‍🦽	homme en fauteuil roulant manuel  peau modérément claire	none
+👨🏽‍🦽	homme en fauteuil roulant manuel  peau légèrement mate	none
+👨🏾‍🦽	homme en fauteuil roulant manuel  peau modérément foncée	none
+👨🏿‍🦽	homme en fauteuil roulant manuel  peau foncée	none
+👩🏻‍🦽	femme en fauteuil roulant manuel  peau claire	none
+👩🏼‍🦽	femme en fauteuil roulant manuel  peau modérément claire	none
+👩🏽‍🦽	femme en fauteuil roulant manuel  peau légèrement mate	none
+👩🏾‍🦽	femme en fauteuil roulant manuel  peau modérément foncée	none
+👩🏿‍🦽	femme en fauteuil roulant manuel  peau foncée	none
 🏃🏻	personne qui court  peau claire	none
 🏃🏼	personne qui court  peau modérément claire	none
 🏃🏽	personne qui court  peau légèrement mate	none
@@ -1651,21 +1743,76 @@ symbols:
 🛌🏽	personne au lit  peau légèrement mate	none
 🛌🏾	personne au lit  peau modérément foncée	none
 🛌🏿	personne au lit  peau foncée	none
+🧑🏻‍🤝‍🧑🏻	personnes se tenant par la main  peau claire	none
+🧑🏼‍🤝‍🧑🏻	personnes se tenant par la main  peau modérément claire et peau claire	none
+🧑🏼‍🤝‍🧑🏼	personnes se tenant par la main  peau modérément claire	none
+🧑🏽‍🤝‍🧑🏻	personnes se tenant par la main  peau légèrement mate et peau claire	none
+🧑🏽‍🤝‍🧑🏼	personnes se tenant par la main  peau légèrement mate et peau modérément claire	none
+🧑🏽‍🤝‍🧑🏽	personnes se tenant par la main  peau légèrement mate	none
+🧑🏾‍🤝‍🧑🏻	personnes se tenant par la main  peau modérément foncée et peau claire	none
+🧑🏾‍🤝‍🧑🏼	personnes se tenant par la main  peau modérément foncée et peau modérément claire	none
+🧑🏾‍🤝‍🧑🏽	personnes se tenant par la main  peau modérément foncée et peau légèrement mate	none
+🧑🏾‍🤝‍🧑🏾	personnes se tenant par la main  peau modérément foncée	none
+🧑🏿‍🤝‍🧑🏻	personnes se tenant par la main  peau foncée et peau claire	none
+🧑🏿‍🤝‍🧑🏼	personnes se tenant par la main  peau foncée et peau modérément claire	none
+🧑🏿‍🤝‍🧑🏽	personnes se tenant par la main  peau foncée et peau légèrement mate	none
+🧑🏿‍🤝‍🧑🏾	personnes se tenant par la main  peau foncée et peau modérément foncée	none
+🧑🏿‍🤝‍🧑🏿	personnes se tenant par la main  peau foncée	none
+👭🏻	deux femmes se tenant par la main  peau claire	none
+👩🏼‍🤝‍👩🏻	deux femmes se tenant par la main  peau modérément claire et peau claire	none
+👭🏼	deux femmes se tenant par la main  peau modérément claire	none
+👩🏽‍🤝‍👩🏻	deux femmes se tenant par la main  peau légèrement mate et peau claire	none
+👩🏽‍🤝‍👩🏼	deux femmes se tenant par la main  peau légèrement mate et peau modérément claire	none
+👭🏽	deux femmes se tenant par la main  peau légèrement mate	none
+👩🏾‍🤝‍👩🏻	deux femmes se tenant par la main  peau modérément foncée et peau claire	none
+👩🏾‍🤝‍👩🏼	deux femmes se tenant par la main  peau modérément foncée et peau modérément claire	none
+👩🏾‍🤝‍👩🏽	deux femmes se tenant par la main  peau modérément foncée et peau légèrement mate	none
+👭🏾	deux femmes se tenant par la main  peau modérément foncée	none
+👩🏿‍🤝‍👩🏻	deux femmes se tenant par la main  peau foncée et peau claire	none
+👩🏿‍🤝‍👩🏼	deux femmes se tenant par la main  peau foncée et peau modérément claire	none
+👩🏿‍🤝‍👩🏽	deux femmes se tenant par la main  peau foncée et peau légèrement mate	none
+👩🏿‍🤝‍👩🏾	deux femmes se tenant par la main  peau foncée et peau modérément foncée	none
+👭🏿	deux femmes se tenant par la main  peau foncée	none
 👫🏻	homme et femme se tenant par la main  peau claire	none
+👩🏻‍🤝‍👨🏼	homme et femme se tenant par la main  peau claire et peau modérément claire	none
+👩🏻‍🤝‍👨🏽	homme et femme se tenant par la main  peau claire et peau légèrement mate	none
+👩🏻‍🤝‍👨🏾	homme et femme se tenant par la main  peau claire et peau modérément foncée	none
+👩🏻‍🤝‍👨🏿	homme et femme se tenant par la main  peau claire et peau foncée	none
+👩🏼‍🤝‍👨🏻	homme et femme se tenant par la main  peau modérément claire et peau claire	none
 👫🏼	homme et femme se tenant par la main  peau modérément claire	none
+👩🏼‍🤝‍👨🏽	homme et femme se tenant par la main  peau modérément claire et peau légèrement mate	none
+👩🏼‍🤝‍👨🏾	homme et femme se tenant par la main  peau modérément claire et peau modérément foncée	none
+👩🏼‍🤝‍👨🏿	homme et femme se tenant par la main  peau modérément claire et peau foncée	none
+👩🏽‍🤝‍👨🏻	homme et femme se tenant par la main  peau légèrement mate et peau claire	none
+👩🏽‍🤝‍👨🏼	homme et femme se tenant par la main  peau légèrement mate et peau modérément claire	none
 👫🏽	homme et femme se tenant par la main  peau légèrement mate	none
+👩🏽‍🤝‍👨🏾	homme et femme se tenant par la main  peau légèrement mate et peau modérément foncée	none
+👩🏽‍🤝‍👨🏿	homme et femme se tenant par la main  peau légèrement mate et peau foncée	none
+👩🏾‍🤝‍👨🏻	homme et femme se tenant par la main  peau modérément foncée et peau claire	none
+👩🏾‍🤝‍👨🏼	homme et femme se tenant par la main  peau modérément foncée et peau modérément claire	none
+👩🏾‍🤝‍👨🏽	homme et femme se tenant par la main  peau modérément foncée et peau légèrement mate	none
 👫🏾	homme et femme se tenant par la main  peau modérément foncée	none
+👩🏾‍🤝‍👨🏿	homme et femme se tenant par la main  peau modérément foncée et peau foncée	none
+👩🏿‍🤝‍👨🏻	homme et femme se tenant par la main  peau foncée et peau claire	none
+👩🏿‍🤝‍👨🏼	homme et femme se tenant par la main  peau foncée et peau modérément claire	none
+👩🏿‍🤝‍👨🏽	homme et femme se tenant par la main  peau foncée et peau légèrement mate	none
+👩🏿‍🤝‍👨🏾	homme et femme se tenant par la main  peau foncée et peau modérément foncée	none
 👫🏿	homme et femme se tenant par la main  peau foncée	none
 👬🏻	deux hommes se tenant par la main  peau claire	none
+👨🏼‍🤝‍👨🏻	deux hommes se tenant par la main  peau modérément claire et peau claire	none
 👬🏼	deux hommes se tenant par la main  peau modérément claire	none
+👨🏽‍🤝‍👨🏻	deux hommes se tenant par la main  peau légèrement mate et peau claire	none
+👨🏽‍🤝‍👨🏼	deux hommes se tenant par la main  peau légèrement mate et peau modérément claire	none
 👬🏽	deux hommes se tenant par la main  peau légèrement mate	none
+👨🏾‍🤝‍👨🏻	deux hommes se tenant par la main  peau modérément foncée et peau claire	none
+👨🏾‍🤝‍👨🏼	deux hommes se tenant par la main  peau modérément foncée et peau modérément claire	none
+👨🏾‍🤝‍👨🏽	deux hommes se tenant par la main  peau modérément foncée et peau légèrement mate	none
 👬🏾	deux hommes se tenant par la main  peau modérément foncée	none
+👨🏿‍🤝‍👨🏻	deux hommes se tenant par la main  peau foncée et peau claire	none
+👨🏿‍🤝‍👨🏼	deux hommes se tenant par la main  peau foncée et peau modérément claire	none
+👨🏿‍🤝‍👨🏽	deux hommes se tenant par la main  peau foncée et peau légèrement mate	none
+👨🏿‍🤝‍👨🏾	deux hommes se tenant par la main  peau foncée et peau modérément foncée	none
 👬🏿	deux hommes se tenant par la main  peau foncée	none
-👭🏻	deux femmes se tenant par la main  peau claire	none
-👭🏼	deux femmes se tenant par la main  peau modérément claire	none
-👭🏽	deux femmes se tenant par la main  peau légèrement mate	none
-👭🏾	deux femmes se tenant par la main  peau modérément foncée	none
-👭🏿	deux femmes se tenant par la main  peau foncée	none
 👩‍❤‍💋‍👨	bisou  femme et homme	none
 👨‍❤‍💋‍👨	bisou  homme et homme	none
 👩‍❤‍💋‍👩	bisou  femme et femme	none
@@ -1849,7 +1996,7 @@ symbols:
 🇲🇫	drapeau  Saint-Martin (France)	none
 🇲🇬	drapeau  Madagascar	none
 🇲🇭	drapeau  Îles Marshall	none
-🇲🇰	drapeau  Macédoine	none
+🇲🇰	drapeau  Macédoine du Nord	none
 🇲🇱	drapeau  Mali	none
 🇲🇲	drapeau  Myanmar	none
 🇲🇳	drapeau  Mongolie	none
