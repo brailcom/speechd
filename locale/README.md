@@ -11,4 +11,7 @@
 ```
 make import-symbols
 ```
+* When some dictionaries are added, add them to the variable nobase_localedata_DATA in the file Makefile.am located in the "locale" directory.
+Use the following syntax to list the new file : `lang/file.dic \` with a tab character before.
+Please keep the alphabetical order.
 
