@@ -37,6 +37,7 @@ nobase_localedata_DATA = \
 	ca/emojis.dic \
 	ca/symbols.dic \
 	ccp/emojis.dic \
+	ceb/emojis.dic \
 	chr/emojis.dic \
 	ckb/symbols.dic \
 	cs/emojis.dic \
@@ -107,6 +108,7 @@ nobase_localedata_DATA = \
 	kn/symbols.dic \
 	ko/emojis.dic \
 	ko/symbols.dic \
+	kok/emojis.dic \
 	ku/emojis.dic \
 	ky/emojis.dic \
 	ky/symbols.dic \
@@ -161,6 +163,7 @@ nobase_localedata_DATA = \
 	sv/emojis.dic \
 	sv/symbols.dic \
 	sw/emojis.dic \
+	sw_KE/emojis.dic \
 	ta/emojis.dic \
 	ta/symbols.dic \
 	te/emojis.dic \
