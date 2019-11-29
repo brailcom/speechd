@@ -223,14 +223,14 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 				configfile = dotconf_create(file_path, options,
 							    &missing_paths, CASE_INSENSITIVE);
 				if (!configfile) {
-					MSG(5, "Ignoring %s: Can not parse config file %s", file_path);
+					MSG(5, "Ignoring %s: Can not parse config file", file_path);
 					g_free(file_path);
 					continue;
 				}
 				configfile->errorhandler = (dotconf_errorhandler_t) ignore_errors;
 
 				if (dotconf_command_loop(configfile) == 0) {
-					MSG(5, "Ignoring %s: Can not parse config file %s", file_path);
+					MSG(5, "Ignoring %s: Can not parse config file", file_path);
 					g_free(file_path);
 					dotconf_cleanup(configfile);
 					continue;
