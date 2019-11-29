@@ -258,7 +258,7 @@ int serve(int fd)
 		}
 
 		/* Parse the data and read the reply */
-		MSG2(5, "protocol", "%d:DATA:|%s| (%d)", fd, buf, bytes);
+		MSG2(5, "protocol", "%d:DATA:|%s| (%lu)", fd, buf, (unsigned long) bytes);
 		reply = parse(buf, bytes, fd);
 		g_free(buf);
 	}
