@@ -1,3 +1,17 @@
+Version 0.10
+* Rework thread synchronization.
+* Move espeak/espeak-ng audio queuing to shared file, rework it.
+* Make baratinoo use this audio queueing, enable marks, and support
+responsiveness parameter.
+* Show mark progression in spd-say.
+* Put country/region in language instead of variant.
+* pico, generic: fix setting voice by language.
+* generic: Add fallback voices for generic languages.
+* symbols: Add support for SSML.
+* symbols: Add SymbolPreprocessingFile directive.
+* symbols: Import emojis and unicode font variants support from NVDA and Unicode
+CLDR and UnicodeData.
+
 Version 0.9.1
 * Add module for the non-free IBM TTS (voxin) speech synthesis.
 * Extend licence to later versions of GPL and LGPL.
