@@ -1067,7 +1067,7 @@ int module_play_file(const char *filename)
 	items = sfinfo.channels * sfinfo.frames;
 	DBG("Frames = %jd, channels = %ld", sfinfo.frames,
 	    (long)sfinfo.channels);
-	DBG("Samplerate = %i, items = %Ld", sfinfo.samplerate,
+	DBG("Samplerate = %i, items = %lld", sfinfo.samplerate,
 	    (long long)items);
 	DBG("Major format = 0x%08X, subformat = 0x%08X, endian = 0x%08X",
 	    sfinfo.format & SF_FORMAT_TYPEMASK, subformat,
@@ -1084,7 +1084,7 @@ int module_play_file(const char *filename)
 	track.bits = 16;
 	track.samples = g_malloc(items * sizeof(short));
 	readcount = sf_read_short(sf, (short *)track.samples, items);
-	DBG("Read %Ld items from audio file.", (long long)readcount);
+	DBG("Read %lld items from audio file.", (long long)readcount);
 
 	if (readcount > 0) {
 		track.num_samples = readcount / sfinfo.channels;
