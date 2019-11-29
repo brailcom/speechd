@@ -129,8 +129,11 @@ int save_FT_Wave_snd(FT_Wave * wave, const char *filename)
 	}
 
 	/* write header */
-	if (fwrite(&header, sizeof(header), 1, fd) != 1)
+	if (fwrite(&header, sizeof(header), 1, fd) != 1) {
+		if (fd != stdout)
+			fclose(fd);
 		return -1;
+	}
 	if (FAPI_BIG_ENDIAN)
 		fwrite(wave->samples, sizeof(short), wave->num_samples, fd);
 	else {
