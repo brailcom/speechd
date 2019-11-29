@@ -341,7 +341,7 @@ int reload_message(TSpeechDMessage * msg)
 		im += client_settings->pause_context;
 
 		MSG2(5, "index_marking",
-		     "Requested index mark (with context) is %d (%d+%d)", im,
+		     "Requested index mark (with context) is %d (%s+%d)", im,
 		     msg->settings.index_mark, client_settings->pause_context);
 		if (im < 0) {
 			im = 0;
