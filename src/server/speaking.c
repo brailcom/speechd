@@ -540,7 +540,7 @@ int speaking_pause(int fd, int uid)
 	settings->paused = 1;
 
 	if (speaking_uid != uid) {
-		MSG(5, "given uid %d not speaking_uid", speaking_uid, uid);
+		MSG(5, "given uid %d not speaking_uid %d", uid, speaking_uid);
 		return 0;
 	}
 
