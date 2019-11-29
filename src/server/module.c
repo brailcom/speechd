@@ -420,7 +420,7 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 			return NULL;
 		}
 		assert(rep_line != NULL);
-		MSG(5, "Reply from output module: %d %s", n, rep_line);
+		MSG(5, "Reply from output module: %ld %s", (long) n, rep_line);
 		if (ret <= 4) {
 			MSG(1, "ERROR: Bad syntax from output module %s 2",
 			    module->name);
