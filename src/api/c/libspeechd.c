@@ -402,7 +402,7 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 	char *conn_name = NULL;
 	char *usr_name = NULL;
 	int ret;
-	char tcp_no_delay = 1;
+	int tcp_no_delay = 1;
 
 	/* Autospawn related */
 	int spawn_err;
