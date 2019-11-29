@@ -141,7 +141,7 @@ char *parse(const char *buf, const int bytes, const int fd)
 	} else {
 enddata:
 		/* In the end of the data flow we got a "\r\n." NEWLINE command. */
-		MSG(5, "Buffer: |%s| bytes:", buf, bytes);
+		MSG(5, "Buffer: |%s| %d bytes:", buf, bytes);
 
 		if (((bytes >= 5) && ((!strncmp(buf, "\r\n." NEWLINE, bytes))))
 		    || (end_data == 1)
