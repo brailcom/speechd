@@ -206,6 +206,7 @@ static int festival_socket_open(const char *host, int port)
 		if (serverhost == (struct hostent *)0) {
 			fprintf(stderr,
 				"festival_client: gethostbyname failed\n");
+			close(fd);
 			return -1;
 		}
 		memmove(&serv_addr.sin_addr, serverhost->h_addr,
