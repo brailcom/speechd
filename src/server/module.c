@@ -569,7 +569,7 @@ int output_module_nodebug(OutputModule * module)
 	if (!module->working)
 		return -1;
 
-	MSG(4, "Output module debug logging off for", module->name);
+	MSG(4, "Output module debug logging off for %s", module->name);
 
 	output_send_debug(module, 0, NULL);
 
