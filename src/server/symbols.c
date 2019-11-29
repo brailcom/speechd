@@ -280,6 +280,10 @@ static gchar *escape_ssml_text(const gchar *text)
 			} else if (in_quote) {
 				if (c == '"')
 					in_quote = 0;
+			} else if (c == '\'') {
+				in_apos = 1;
+			} else if (c == '"') {
+				in_quote = 1;
 			} else {
 				if (c == '>')
 					in_tag = 0;
