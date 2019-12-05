@@ -74,6 +74,7 @@ MOD_OPTION_1_INT(KaliNormalRate);
 MOD_OPTION_1_INT(KaliNormalVolume);
 MOD_OPTION_1_INT(KaliNormalPitch);
 MOD_OPTION_1_STR(KaliVoiceParameters);
+MOD_OPTION_1_INT(KaliExpandAbbreviations);
 
 /* Public functions */
 
@@ -89,6 +90,7 @@ int module_load(void)
 	MOD_OPTION_1_INT_REG(KaliNormalVolume, 10);
 	MOD_OPTION_1_INT_REG(KaliNormalPitch, 6);
 	MOD_OPTION_1_STR_REG(KaliVoiceParameters, "Patrick");
+	MOD_OPTION_1_INT_REG(KaliExpandAbbreviations, 1);
 
 	return 0;
 }
@@ -126,6 +128,7 @@ int module_init(char **status_info)
 
 	DBG("KaliMaxChunkLength = %d\n", KaliMaxChunkLength);
 	DBG("KaliDelimiters = %s\n", KaliDelimiters);
+	DBG("KaliExpandAbbreviations = %d\n", KaliExpandAbbreviations);
 
 	kali_message = (char **)g_malloc(sizeof(char *));
 	*kali_message = NULL;
@@ -420,7 +423,10 @@ void kali_set_punctuation_mode(SPDPunctuation punct)
 {
 	switch (punct) {
 	case SPD_PUNCT_NONE:
-		SetModeLectureKali(0);
+		if (KaliExpandAbbreviations)
+			SetModeLectureKali(0);
+		else
+			SetModeLectureKali(1);
 		break;
 	case SPD_PUNCT_SOME:
 		SetModeLectureKali(2);
