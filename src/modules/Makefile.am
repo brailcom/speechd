@@ -154,7 +154,7 @@ sd_kali_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	-lKali -lKGlobal -lKTrans -lKParle -lKAnalyse \
 	$(common_LDADD)
-sd_kali_CPPFLAGS = $(AM_CPPFLAGS)
+sd_kali_CPPFLAGS = -DLINUX $(AM_CPPFLAGS)
 
 if kali_shim
 sd_kali_LDADD += -L.

@@ -297,7 +297,8 @@ AS_IF([test $with_kali != "no"],
 		[with_kali=yes],
 		[AS_IF([test $with_kali = "yes"],
 			[AC_MSG_FAILURE([Kali is not available])])
-		 with_kali=shim])])
+		 with_kali=shim],
+		[-lKGlobal -lKTrans -lKParle -lKAnalyse])])
 if test "$with_kali" = shim -a $enable_shared = no; then
   with_kali=no
 fi
