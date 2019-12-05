@@ -235,7 +235,7 @@ AS_IF([test $with_ibmtts != "no"],
 		[AS_IF([test $with_ibmtts = "yes"],
 			[AC_MSG_FAILURE([IBMTTS is not available])])
 		 with_ibmtts=shim])])
-if test "$with_ibmtts" = shim -a $enabled_shared = no; then
+if test "$with_ibmtts" = shim -a $enable_shared = no; then
   with_ibmtts=no
 fi
 AM_CONDITIONAL([ibmtts_support], [test $with_ibmtts != no])
