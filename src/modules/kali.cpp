@@ -423,10 +423,10 @@ void kali_set_punctuation_mode(SPDPunctuation punct)
 		SetModeLectureKali(0);
 		break;
 	case SPD_PUNCT_SOME:
-		SetModeLectureKali(1);
+		SetModeLectureKali(2);
 		break;
 	case SPD_PUNCT_ALL:
-		SetModeLectureKali(2);
+		SetModeLectureKali(3);
 		break;
 	default:
 		break;
