@@ -49,23 +49,23 @@ typedef struct SPDMarks {
 	gboolean stop;
 } SPDMarks;
 
-int log_level;
+extern int log_level;
 
-AudioID *module_audio_id;
+extern AudioID *module_audio_id;
 
-SPDMsgSettings msg_settings;
-SPDMsgSettings msg_settings_old;
+extern SPDMsgSettings msg_settings;
+extern SPDMsgSettings msg_settings_old;
 
-int current_index_mark;
+extern int current_index_mark;
 
-int Debug;
-FILE *CustomDebugFile;
+extern int Debug;
+extern FILE *CustomDebugFile;
 
-configfile_t *configfile;
-configoption_t *module_dc_options;
-int module_num_dc_options;
+extern configfile_t *configfile;
+extern configoption_t *module_dc_options;
+extern int module_num_dc_options;
 
-const char *module_name;
+extern const char *module_name;
 
 #define CLEAN_OLD_SETTINGS_TABLE() do { \
 	msg_settings_old.rate = -101;\
@@ -395,7 +395,7 @@ configoption_t *add_config_option(configoption_t * options,
 #define INDEX_MARK_BODY_LEN 6
 #define INDEX_MARK_BODY "__spd_"
 
-char *module_index_mark;
+extern char *module_index_mark;
 
 	/* This macro must be placed at the initialization of the module so that the
 	   later functions are possible to use */

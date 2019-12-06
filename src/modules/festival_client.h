@@ -44,7 +44,7 @@
 #define FESTIVAL_DEFAULT_SERVER_PORT 1314
 #define FESTIVAL_DEFAULT_TEXT_MODE "fundamental"
 
-int festival_connection_crashed;
+extern int festival_connection_crashed;
 
 typedef struct FT_Info {
 	int encoding;

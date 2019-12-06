@@ -123,7 +123,7 @@ typedef enum {
 	SPD_MODE_SINGLE		/*  */
 } TSpeechDMode;
 
-TSpeechDMode spd_mode;
+extern TSpeechDMode spd_mode;
 
 /*  TSpeechDQueue is a queue for messages. */
 typedef struct {
@@ -148,7 +148,7 @@ typedef struct {
 #include "alloc.h"
 #include "speaking.h"
 
-struct {
+extern struct SpeechdOptions {
 	char *communication_method;
 	int communication_method_set;
 	char *socket_path;
@@ -172,48 +172,48 @@ struct {
 	int server_timeout_set;
 } SpeechdOptions;
 
-struct {
+extern struct SpeechdStatus {
 	int max_uid;		/* The largest assigned uid + 1 */
 	int max_gid;		/* The largest assigned gid + 1 */
 	int max_fd;
 } SpeechdStatus;
 
 /* speak() thread defined in speaking.c */
-pthread_t speak_thread;
-pthread_mutex_t logging_mutex;
-pthread_mutex_t element_free_mutex;
-pthread_mutex_t output_layer_mutex;
-pthread_mutex_t socket_com_mutex;
+extern pthread_t speak_thread;
+extern pthread_mutex_t logging_mutex;
+extern pthread_mutex_t element_free_mutex;
+extern pthread_mutex_t output_layer_mutex;
+extern pthread_mutex_t socket_com_mutex;
 
 /* Table of all configured (and succesfully loaded) output modules */
 extern GList *output_modules;
 
 /* Table of settings for each active client (=each active socket)*/
-GHashTable *fd_settings;
+extern GHashTable *fd_settings;
 /* Table of default output modules for different languages */
-GHashTable *language_default_modules;
+extern GHashTable *language_default_modules;
 /* Table of relations between client file descriptors and their uids */
-GHashTable *fd_uid;
+extern GHashTable *fd_uid;
 
 /* Speech Dispatcher main priority queue for messages */
-TSpeechDQueue *MessageQueue;
+extern TSpeechDQueue *MessageQueue;
 /* List of messages from paused clients waiting for resume */
-GList *MessagePausedList;
+extern GList *MessagePausedList;
 
 /* List of different entries of client-specific configuration */
-GList *client_specific_settings;
+extern GList *client_specific_settings;
 
 /* Saves the last received priority progress message */
-GList *last_p5_block;
+extern GList *last_p5_block;
 
 /* Global default settings */
-TFDSetElement GlobalFDSet;
+extern TFDSetElement GlobalFDSet;
 
 /* Inter thread comm pipe */
-int speaking_pipe[2];
+extern int speaking_pipe[2];
 
 /* Managing sockets communication */
-GHashTable *speechd_sockets_status;
+extern GHashTable *speechd_sockets_status;
 typedef struct {
 	int awaiting_data;
 	int inside_block;
@@ -234,10 +234,10 @@ void MSG2(int level, char *kind, char *format, ...);
 #define FATAL(msg) do { fatal_error(); MSG(-1,"Fatal error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); } while (0)
 #define DIE(msg) do { MSG(0,"Error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); } while (0)
 
-FILE *logfile;
-FILE *custom_logfile;
-char *custom_log_kind;
-FILE *debug_logfile;
+extern FILE *logfile;
+extern FILE *custom_logfile;
+extern char *custom_log_kind;
+extern FILE *debug_logfile;
 
 /* For debugging purposes, does nothing */
 void fatal_error(void);

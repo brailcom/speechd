@@ -33,6 +33,30 @@
 #include "options.h"
 #include <i18n.h>
 
+signed int rate;
+signed int pitch;
+signed int pitch_range;
+signed int volume;
+
+int list_output_modules;
+char *output_module;
+char *sound_icon;
+char *language;
+char *voice_type;
+char *punctuation_mode;
+char *priority;
+int pipe_mode;
+SPDDataMode ssml_mode;
+int spelling;
+int wait_till_end;
+int stop_previous;
+int cancel_previous;
+int list_synthesis_voices;
+char *synthesis_voice;
+
+char *application_name;
+char *connection_name;
+
 void options_print_help(char *argv[])
 {
 	assert(argv);

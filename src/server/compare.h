@@ -27,7 +27,7 @@ gint compare_message_uid(gconstpointer element, gconstpointer value,
 			 gpointer x);
 
 /* Pointer to function compare_message_uid */
-gint(*p_msg_lc) ();
-gint(*p_msg_uid_lc) ();
+extern gint(*p_msg_lc) ();
+extern gint(*p_msg_uid_lc) ();
 
 #endif /* COMPARE_H */
