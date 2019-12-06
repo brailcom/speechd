@@ -65,6 +65,39 @@ gint server_timeout_source = 0;
 
 int client_count = 0;
 
+struct SpeechdOptions SpeechdOptions;
+struct SpeechdStatus SpeechdStatus;
+
+pthread_t speak_thread;
+pthread_mutex_t logging_mutex;
+pthread_mutex_t element_free_mutex;
+pthread_mutex_t output_layer_mutex;
+pthread_mutex_t socket_com_mutex;
+
+GHashTable *fd_settings;
+GHashTable *language_default_modules;
+GHashTable *fd_uid;
+
+TSpeechDQueue *MessageQueue;
+GList *MessagePausedList;
+
+GList *client_specific_settings;
+
+GList *last_p5_block;
+
+TFDSetElement GlobalFDSet;
+
+int speaking_pipe[2];
+
+GHashTable *speechd_sockets_status;
+
+FILE *logfile;
+FILE *custom_logfile;
+char *custom_log_kind;
+FILE *debug_logfile;
+
+TSpeechDMode spd_mode;
+
 static gboolean speechd_client_terminate(gpointer key, gpointer value, gpointer user);
 static gboolean speechd_reload_dead_modules(gpointer user_data);
 static gboolean speechd_load_configuration(gpointer user_data);

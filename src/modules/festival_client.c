@@ -75,6 +75,8 @@
 /* For testing endianness */
 int fapi_endian_loc = 1;
 
+int festival_connection_crashed;
+
 static char *socket_receive_file_to_buff(int fd, int *size);
 
 /* --- MANAGING FT STRUCTURES --- */

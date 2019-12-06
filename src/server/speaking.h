@@ -26,15 +26,15 @@
 
 #include <speechd_types.h>
 
-OutputModule *speaking_module;
-int speaking_uid;
-int speaking_gid;
+extern OutputModule *speaking_module;
+extern int speaking_uid;
+extern int speaking_gid;
 
 /* Pause and resume handling */
-int pause_requested;
-int pause_requested_fd;
-int pause_requested_uid;
-int resume_requested;
+extern int pause_requested;
+extern int pause_requested_fd;
+extern int pause_requested_uid;
+extern int resume_requested;
 
 /* Speak() is responsible for getting right text from right
  * queue in right time and saying it loud through corresponding

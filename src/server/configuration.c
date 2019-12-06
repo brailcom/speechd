@@ -33,6 +33,9 @@
 #include "symbols.h"
 #include <fdsetconv.h>
 
+configoption_t *spd_options;
+int spd_num_options;
+
 static TFDSetClientSpecific *cl_spec_section;
 
 /* So that gcc doesn't comply about casts to char* */

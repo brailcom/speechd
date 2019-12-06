@@ -35,6 +35,26 @@ extern char *module_index_mark;
 
 pthread_mutex_t module_stdout_mutex = PTHREAD_MUTEX_INITIALIZER;
 
+int log_level;
+
+AudioID *module_audio_id;
+
+SPDMsgSettings msg_settings;
+SPDMsgSettings msg_settings_old;
+
+int current_index_mark;
+
+int Debug;
+FILE *CustomDebugFile;
+
+configfile_t *configfile;
+configoption_t *module_dc_options;
+int module_num_dc_options;
+
+const char *module_name;
+
+char *module_index_mark;
+
 char *do_message(SPDMessageType msgtype)
 {
 	int ret;

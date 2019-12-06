@@ -46,6 +46,16 @@ static SPDPriority highest_priority = 0;
 int SPEAKING = 0;
 int poll_count;
 
+OutputModule *speaking_module;
+int speaking_uid;
+int speaking_gid;
+
+/* Pause and resume handling */
+int pause_requested;
+int pause_requested_fd;
+int pause_requested_uid;
+int resume_requested;
+
 /*
   Speak() is responsible for getting right text from right
   queue in right time and saying it loud through the corresponding

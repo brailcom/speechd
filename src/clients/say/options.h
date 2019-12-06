@@ -22,29 +22,29 @@
 #include <getopt.h>
 #include "speechd_types.h"
 
-signed int rate;
-signed int pitch;
-signed int pitch_range;
-signed int volume;
+extern signed int rate;
+extern signed int pitch;
+extern signed int pitch_range;
+extern signed int volume;
 
-int list_output_modules;
-char *output_module;
-char *sound_icon;
-char *language;
-char *voice_type;
-char *punctuation_mode;
-char *priority;
-int pipe_mode;
-SPDDataMode ssml_mode;
-int spelling;
-int wait_till_end;
-int stop_previous;
-int cancel_previous;
-int list_synthesis_voices;
-char *synthesis_voice;
+extern int list_output_modules;
+extern char *output_module;
+extern char *sound_icon;
+extern char *language;
+extern char *voice_type;
+extern char *punctuation_mode;
+extern char *priority;
+extern int pipe_mode;
+extern SPDDataMode ssml_mode;
+extern int spelling;
+extern int wait_till_end;
+extern int stop_previous;
+extern int cancel_previous;
+extern int list_synthesis_voices;
+extern char *synthesis_voice;
 
-char *application_name;
-char *connection_name;
+extern char *application_name;
+extern char *connection_name;
 
 static struct option long_options[] = {
 	{"rate", 1, 0, 'r'},

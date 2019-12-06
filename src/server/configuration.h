@@ -29,8 +29,8 @@
 #define SPEECHD_DEFAULT_PORT 6560
 
 /* Loading options from DotConf */
-configoption_t *spd_options;
-int spd_num_options;
+extern configoption_t *spd_options;
+extern int spd_num_options;
 
 configoption_t *load_config_options(int *num_options);
 void free_config_options(configoption_t * opts, int *num);
