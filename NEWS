@@ -11,6 +11,7 @@ responsiveness parameter.
 * symbols: Add SymbolPreprocessingFile directive.
 * symbols: Import emojis and unicode font variants support from NVDA and Unicode
 CLDR and UnicodeData.
+* Disable Mary-TTS module by default.
 
 Version 0.9.1
 * Add module for the non-free IBM TTS (voxin) speech synthesis.
@@ -338,7 +339,7 @@ Version 0.0.1
 
 Copyright (C) 2002-2012 Brailcom, o.p.s
 Copyright (C) 2002-2012 Brailcom, o.p.s
-Copyright (C) 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2020 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Florian Steinhardt <no.known.email@example.com>
 
 This program is free software; you can redistribute it and/or modify it under
