@@ -96,9 +96,11 @@ FUNC_ERRORHANDLER(ignore_errors)
  */
 GList *detect_output_modules(const char *dirname, const char *config_dirname)
 {
-	static const int FNAME_PREFIX_LENGTH = 3;
+#define FNAME_PREFIX "sd_"
+	static const int FNAME_PREFIX_LENGTH = strlen(FNAME_PREFIX);
 	DIR *module_dir = opendir(dirname);
 	struct dirent *entry;
+	char *module_name;
 	char **module_parameters;
 	GList *modules = NULL;
 	char *full_path;
@@ -130,7 +132,7 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 			continue;
 		}
 
-		if (strncmp(entry->d_name, "sd_", FNAME_PREFIX_LENGTH)
+		if (strncmp(entry->d_name, FNAME_PREFIX, FNAME_PREFIX_LENGTH)
 		    || (entry->d_name[FNAME_PREFIX_LENGTH] == '\0')) {
 			MSG(1,
 			    "Module discovery ignoring %s: malformed filename.",
@@ -138,24 +140,24 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 			continue;
 		}
 
-		module_parameters = g_malloc(4 * sizeof(char *));
-		module_parameters[0] =
-		    g_strdup(entry->d_name + FNAME_PREFIX_LENGTH);
-		module_parameters[1] = g_strdup(entry->d_name);
-		module_parameters[2] =
-		    g_strdup_printf("%s.conf", module_parameters[0]);
-		module_parameters[3] =
-		    g_strdup_printf("%s/%s.log", SpeechdOptions.log_dir,
-				    module_parameters[0]);
-		modules = g_list_append(modules, module_parameters);
+		module_name = entry->d_name + FNAME_PREFIX_LENGTH;
+		if (strcmp(module_name, "generic") != 0) {
+			module_parameters = g_malloc(4 * sizeof(char *));
+			module_parameters[0] = g_strdup(module_name);
+			module_parameters[1] = g_strdup(entry->d_name);
+			module_parameters[2] =
+			    g_strdup_printf("%s.conf", module_parameters[0]);
+			module_parameters[3] =
+			    g_strdup_printf("%s/%s.log", SpeechdOptions.log_dir,
+					    module_parameters[0]);
+			modules = g_list_append(modules, module_parameters);
 
-		MSG(5,
-		    "Module name=%s being inserted into detected_modules list",
-		    module_parameters[0]);
-
-                /* Special-case the generic module: autoload for the various
-                 * configurations */
-		if (strcmp(module_parameters[0], "generic") == 0) {
+			MSG(5,
+			    "Module name=%s being inserted into detected_modules list",
+			    module_parameters[0]);
+		} else {
+			/* Special-case the generic module: autoload for the various
+			 * configurations */
 			full_path = spd_get_path("modules", config_dirname);
 			MSG(5, "Looking for generic variants configurations in %s",
 			    full_path);
@@ -246,7 +248,7 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 				g_free(file_path);
 
 				module_parameters = g_malloc(4 * sizeof(char *));
-				module_parameters[1] = g_strdup("sd_generic");
+				module_parameters[1] = g_strdup(FNAME_PREFIX "generic");
 				module_parameters[2] = g_strdup(entry->d_name);
 				entry->d_name[len - strlen(".conf")] = '\0';
 				module_parameters[0] = g_strdup(entry->d_name);
