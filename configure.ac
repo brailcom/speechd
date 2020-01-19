@@ -230,8 +230,7 @@ AC_ARG_WITH([ibmtts],
 	[with_ibmtts=check])
 AS_IF([test $with_ibmtts != "no"],
 	[AC_CHECK_LIB([ibmeci], [eciStop],
-		[with_ibmtts=yes;
-		ibmtts_include="-I/opt/IBM/ibmtts/inc/"],
+		[with_ibmtts=yes],
 		[AS_IF([test $with_ibmtts = "yes"],
 			[AC_MSG_FAILURE([IBMTTS is not available])])
 		 with_ibmtts=shim])])
@@ -240,7 +239,6 @@ if test "$with_ibmtts" = shim -a $enable_shared = no; then
 fi
 AM_CONDITIONAL([ibmtts_support], [test $with_ibmtts != no])
 AM_CONDITIONAL([ibmtts_shim], [test $with_ibmtts = shim])
-AC_SUBST([ibmtts_include])
 AS_IF([test $with_ibmtts != no], [output_modules="${output_modules} ibmtts"])
 
 # check for ivona support
