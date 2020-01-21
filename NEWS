@@ -8,7 +8,7 @@ responsiveness parameter.
 * pico, generic: fix setting voice by language.
 * generic: Add fallback voices for generic languages.
 * symbols: Add support for SSML.
-* symbols: Add SymbolPreprocessingFile directive.
+* symbols: Add SymbolPreproc directive.
 * symbols: Import emojis and unicode font variants support from NVDA and Unicode
 CLDR and UnicodeData.
 * Disable Mary-TTS module by default.

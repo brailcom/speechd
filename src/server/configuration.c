@@ -207,7 +207,7 @@ GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module)
     GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPunctuationMode,
 			       msg_settings.punctuation_mode, SPDPunctuation,
 			       str2EPunctMode)
-    GLOBAL_FDSET_OPTION_CB_INT(DefaultSymbolsPreprocessing, symbols_preprocessing,
+    GLOBAL_FDSET_OPTION_CB_INT(DefaultSymbolsPreproc, symbols_preprocessing,
 			       val == FALSE || val == TRUE,
 			       "Whether to use server-side symbols pre-processing")
     GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultCapLetRecognition,
@@ -302,11 +302,11 @@ DOTCONF_CB(cb_CustomLogFile)
 	return NULL;
 }
 
-DOTCONF_CB(cb_SymbolPreprocessingFile)
+DOTCONF_CB(cb_SymbolPreprocFile)
 {
 	if (cmd->data.list[0] == NULL) {
 		MSG(3,
-		    "No symbol preprocessing name specified in configuration under SymbolsPreprocessingFile");
+		    "No symbol preprocessing name specified in configuration under SymbolsPreprocFile");
 		return NULL;
 	}
 
@@ -441,8 +441,8 @@ configoption_t *load_config_options(int *num_options)
 	ADD_CONFIG_OPTION(DefaultPriority, ARG_STR);
 	ADD_CONFIG_OPTION(MaxHistoryMessages, ARG_INT);
 	ADD_CONFIG_OPTION(DefaultPunctuationMode, ARG_STR);
-	ADD_CONFIG_OPTION(DefaultSymbolsPreprocessing, ARG_INT);
-	ADD_CONFIG_OPTION(SymbolPreprocessingFile, ARG_STR);
+	ADD_CONFIG_OPTION(DefaultSymbolsPreproc, ARG_INT);
+	ADD_CONFIG_OPTION(SymbolPreprocFile, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultClientName, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultVoiceType, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultSpelling, ARG_TOGGLE);
