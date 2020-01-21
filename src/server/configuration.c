@@ -315,6 +315,19 @@ DOTCONF_CB(cb_SymbolPreprocFile)
 	return NULL;
 }
 
+DOTCONF_CB(cb_PunctuationSymbolPreprocFile)
+{
+	if (cmd->data.list[0] == NULL) {
+		MSG(3,
+		    "No punctuation symbol preprocessing name specified in configuration under PunctuationSymbolsPreprocFile");
+		return NULL;
+	}
+
+	symbols_punctuation_preprocessing_add_file(cmd->data.list[0]);
+
+	return NULL;
+}
+
 DOTCONF_CB(cb_AddModule)
 {
 	if (cmd->data.list[0] == NULL) {
@@ -443,6 +456,7 @@ configoption_t *load_config_options(int *num_options)
 	ADD_CONFIG_OPTION(DefaultPunctuationMode, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultSymbolsPreproc, ARG_INT);
 	ADD_CONFIG_OPTION(SymbolPreprocFile, ARG_STR);
+	ADD_CONFIG_OPTION(PunctuationSymbolPreprocFile, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultClientName, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultVoiceType, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultSpelling, ARG_TOGGLE);
