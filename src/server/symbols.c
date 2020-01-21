@@ -150,6 +150,13 @@ static LocaleMap *G_processors = NULL;
 /* List of files to load */
 static GSList *symbols_files;
 
+static int symbols_loaded = 0;
+
+/* List of punctuation files to load */
+static GSList *punctuation_symbols_files;
+
+static int punctuation_symbols_loaded = 0;
+
 /*----------------------------- Locale data map -----------------------------*/
 
 static LocaleMap *locale_map_new(GDestroyNotify value_destroy)
@@ -602,6 +609,21 @@ static gpointer speech_symbols_new(const gchar *locale)
 			MSG2(5, "symbols", "Successful");
 			/* At least some symbols could be loaded */
 			loaded = 1;
+			symbols_loaded = 1;
+		} else {
+			MSG2(5, "symbols", "Failed");
+		}
+		g_free(path);
+	}
+
+	for (node = punctuation_symbols_files; node; node = node->next) {
+		path = g_build_filename(LOCALE_DATA, locale, node->data, NULL);
+		MSG2(5, "symbols", "Trying to load punctuation %s for '%s' from '%s'", (char*) node->data, locale, path);
+		if (speech_symbols_load(ss, path, TRUE) >= 0) {
+			MSG2(5, "symbols", "Successful");
+			/* At least some symbols could be loaded */
+			loaded = 1;
+			punctuation_symbols_loaded = 1;
 		} else {
 			MSG2(5, "symbols", "Failed");
 		}
@@ -636,6 +658,12 @@ void symbols_preprocessing_add_file(const char *name)
 {
 	MSG2(5, "symbols", "Will load symbol file %s", name);
 	symbols_files = g_slist_append(symbols_files, g_strdup(name));
+}
+
+void symbols_punctuation_preprocessing_add_file(const char *name)
+{
+	MSG2(5, "symbols", "Will load punctuation symbol file %s", name);
+	punctuation_symbols_files = g_slist_append(punctuation_symbols_files, g_strdup(name));
 }
 
 /*------------------ Speech symbol compilation & processing -----------------*/
@@ -1045,11 +1073,13 @@ void insert_symbols(TSpeechDMessage *msg)
 		g_free(msg->buf);
 		msg->buf = processed;
 		MSG2(5, "symbols", "after: |%s|", msg->buf);
-		/* if we performed the replacement, don't let the module speak it again */
-		msg->settings.msg_settings.punctuation_mode = SPD_PUNCT_NONE;
-		/* if we provide a description, don't let the module spell it */
-		if (msg->settings.type == SPD_MSGTYPE_CHAR)
-			if (g_utf8_strlen(processed, -1) > 1)
-				msg->settings.type = SPD_MSGTYPE_TEXT;
+		if (punctuation_symbols_loaded)
+			/* if we performed the replacement, don't let the module speak it again */
+			msg->settings.msg_settings.punctuation_mode = SPD_PUNCT_NONE;
+		if (symbols_loaded)
+			/* if we provide a description, don't let the module spell it */
+			if (msg->settings.type == SPD_MSGTYPE_CHAR)
+				if (g_utf8_strlen(processed, -1) > 1)
+					msg->settings.type = SPD_MSGTYPE_TEXT;
 	}
 }
