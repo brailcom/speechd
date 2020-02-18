@@ -119,6 +119,7 @@ typedef enum {
 	BV_UNSUPPORTED = -1,
 	BV_8_1,
 	BV_8_4,
+	BV_8_6,
 	N_SUPPORTED_BARATINOO_VERSIONS
 } SupportedBaratinooVersion;
 
@@ -126,6 +127,7 @@ typedef enum {
 static const BARATINOO_TEXT_ENCODING bv_BARATINOO_UTF8[N_SUPPORTED_BARATINOO_VERSIONS] = {
 	[BV_8_1] = BARATINOO_UTF8__V8_1,
 	[BV_8_4] = BARATINOO_UTF8__V8_4,
+	[BV_8_6] = BARATINOO_UTF8__V8_4,
 };
 #define BARATINOO_UTF8 (bv_BARATINOO_UTF8[baratinoo_engine.supported_version])
 
@@ -141,26 +143,36 @@ enum {
 };
 static const size_t bv_VoiceInfo_offsets[N_SUPPORTED_BARATINOO_VERSIONS][N_VI_MEMBERS] = {
 #define BVIF_MEMBER_DECL(struct, member) [VI_##member] = G_STRUCT_OFFSET(struct, member)
-	[BV_8_1] = {
-		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_1, name),
-		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_1, language),
-		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_1, iso639),
-		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_1, iso3166),
-		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_1, gender),
-		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_1, age),
-	},
-	[BV_8_4] = {
-		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_4, name),
-		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_4, language),
-		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_4, iso639),
-		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_4, iso3166),
-		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_4, gender),
-		BVIF_MEMBER_DECL(BaratinooVoiceInfo__V8_4, age),
-	},
+#define BVIF_ENTRY(struct) {	BVIF_MEMBER_DECL(struct, name),		\
+				BVIF_MEMBER_DECL(struct, language),	\
+				BVIF_MEMBER_DECL(struct, iso639),	\
+				BVIF_MEMBER_DECL(struct, iso3166),	\
+				BVIF_MEMBER_DECL(struct, gender),	\
+				BVIF_MEMBER_DECL(struct, age),		}
+	[BV_8_1] = BVIF_ENTRY(BaratinooVoiceInfo__V8_1),
+	[BV_8_4] = BVIF_ENTRY(BaratinooVoiceInfo__V8_4),
+	[BV_8_6] = BVIF_ENTRY(BaratinooVoiceInfo__V8_4),
+#undef BVIF_ENTRY
 #undef BVIF_MEMBER_DECL
 };
 #define VOICE_INFO_MEMBER(member_type, struct_p, member) \
 	G_STRUCT_MEMBER(member_type, struct_p, bv_VoiceInfo_offsets[baratinoo_engine.supported_version][VI_##member])
+
+/* BCinputTextBufferNew() gained an additional "uri" parameter in 8.6 */
+typedef BCinputTextBuffer (*bv_BCinputTextBufferNew_t)(BARATINOO_PARSING parsing, BARATINOO_TEXT_ENCODING encoding, int voiceIndex, char *voiceModules);
+typedef BCinputTextBuffer (*bv_BCinputTextBufferNew__V8_6_t)(BARATINOO_PARSING parsing, BARATINOO_TEXT_ENCODING encoding, int voiceIndex, char *voiceModules, const char *uri);
+#define BCinputTextBufferNew__V8_1 BCinputTextBufferNew
+static BCinputTextBuffer BCinputTextBufferNew__V8_6(BARATINOO_PARSING parsing, BARATINOO_TEXT_ENCODING encoding, int voiceIndex, char *voiceModules)
+{
+	bv_BCinputTextBufferNew__V8_6_t func = (bv_BCinputTextBufferNew__V8_6_t) BCinputTextBufferNew;
+	return func(parsing, encoding, voiceIndex, voiceModules, NULL);
+}
+static const bv_BCinputTextBufferNew_t bv_BCinputTextBufferNew[] = {
+	[BV_8_1] = BCinputTextBufferNew__V8_1,
+	[BV_8_4] = BCinputTextBufferNew__V8_1,
+	[BV_8_6] = BCinputTextBufferNew__V8_6,
+};
+#define BCinputTextBufferNew (bv_BCinputTextBufferNew[baratinoo_engine.supported_version])
 
 #endif /* ! BARATINOO_ABI_IS_STABLE_ENOUGH_FOR_ME */
 
@@ -292,6 +304,7 @@ static SupportedBaratinooVersion get_baratinoo_supported_version(void)
 		case 8: switch (version->minor) {
 			case 1: return BV_8_1;
 			case 4: return BV_8_4;
+			case 6: return BV_8_6;
 		} break;
 	}
 
