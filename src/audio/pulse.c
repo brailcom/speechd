@@ -56,6 +56,7 @@ typedef struct {
 	AudioID id;
 	pa_simple *pa_simple;
 	char *pa_server;
+	char *pa_device;
 	char *pa_name;
 	int pa_min_audio_length;
 	volatile int pa_stop_playback;
@@ -148,7 +149,7 @@ static int _pulse_open(spd_pulse_id_t * id, int sample_rate,
 	if (!
 	    (id->pa_simple =
 	     pa_simple_new(id->pa_server, client_name,
-			   PA_STREAM_PLAYBACK, NULL, "playback",
+			   PA_STREAM_PLAYBACK, id->pa_device, "playback",
 			   &ss, NULL, &buffAttr, &error))) {
 		fprintf(stderr, __FILE__ ": pa_simple_new() failed: %s\n",
 			pa_strerror(error));
@@ -184,7 +185,8 @@ static AudioID *pulse_open(void **pars)
 	pulse_id->id.format = SPD_AUDIO_LE;
 #endif
 	pulse_id->pa_simple = NULL;
-	pulse_id->pa_server = (char *)pars[3];
+	pulse_id->pa_server = NULL;
+	pulse_id->pa_device = (char *)pars[3];
 	pulse_id->pa_name = (char *)pars[5];
 	pulse_id->pa_min_audio_length = DEFAULT_PA_MIN_AUDIO_LENGTH;
 
@@ -194,6 +196,10 @@ static AudioID *pulse_open(void **pars)
 
 	if (!strcmp(pulse_id->pa_server, "default")) {
 		pulse_id->pa_server = NULL;
+	}
+
+	if (!strcmp(pulse_id->pa_device, "default")) {
+		pulse_id->pa_device = NULL;
 	}
 
 	if (pars[4] != NULL && atoi(pars[4]) != 0)

@@ -540,6 +540,7 @@ TFDSetElement *default_fd_set(void)
 	new->audio_alsa_device = g_strdup(GlobalFDSet.audio_alsa_device);
 	new->audio_nas_server = g_strdup(GlobalFDSet.audio_nas_server);
 	new->audio_pulse_server = g_strdup(GlobalFDSet.audio_pulse_server);
+	new->audio_pulse_device = g_strdup(GlobalFDSet.audio_pulse_device);
 
 	new->msg_settings.voice_type = GlobalFDSet.msg_settings.voice_type;
 	new->msg_settings.voice.name = NULL;

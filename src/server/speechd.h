@@ -99,6 +99,7 @@ typedef struct {
 	char *audio_alsa_device;
 	char *audio_nas_server;
 	char *audio_pulse_server;
+	char *audio_pulse_device;
 	int audio_pulse_min_length;
 	int log_level;
 

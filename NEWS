@@ -12,6 +12,7 @@ responsiveness parameter.
 * symbols: Import emojis and unicode font variants support from NVDA and Unicode
 CLDR and UnicodeData.
 * Disable Mary-TTS module by default.
+* Replace AudioPulseServer option with AudioPulseDevice
 
 Version 0.9.1
 * Add module for the non-free IBM TTS (voxin) speech synthesis.

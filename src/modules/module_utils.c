@@ -338,7 +338,11 @@ char *do_audio(void)
 				    else
 				SET_AUDIO_STR(audio_nas_server, 3)
 				    else
+				      /* TODO: restore AudioPulseServer option
 				SET_AUDIO_STR(audio_pulse_server, 4)
+				    else
+				    */
+				SET_AUDIO_STR(audio_pulse_device, 4)
 				    else
 				SET_AUDIO_STR(audio_pulse_min_length, 5)
 				    else
