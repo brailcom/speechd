@@ -185,6 +185,7 @@ GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module)
     GLOBAL_FDSET_OPTION_CB_STR(AudioALSADevice, audio_alsa_device)
     GLOBAL_FDSET_OPTION_CB_STR(AudioNASServer, audio_nas_server)
     GLOBAL_FDSET_OPTION_CB_STR(AudioPulseServer, audio_pulse_server)
+    GLOBAL_FDSET_OPTION_CB_STR(AudioPulseDevice, audio_pulse_device)
     GLOBAL_FDSET_OPTION_CB_INT(AudioPulseMinLength, audio_pulse_min_length, 1, "")
 
     GLOBAL_FDSET_OPTION_CB_INT(DefaultRate, msg_settings.rate, (val >= -100)
@@ -470,6 +471,7 @@ configoption_t *load_config_options(int *num_options)
 	ADD_CONFIG_OPTION(AudioALSADevice, ARG_STR);
 	ADD_CONFIG_OPTION(AudioNASServer, ARG_STR);
 	ADD_CONFIG_OPTION(AudioPulseServer, ARG_STR);
+	ADD_CONFIG_OPTION(AudioPulseDevice, ARG_STR);
 	ADD_CONFIG_OPTION(AudioPulseMinLength, ARG_INT);
 
 	ADD_CONFIG_OPTION(BeginClient, ARG_STR);
@@ -505,6 +507,7 @@ void load_default_global_set_options()
 	GlobalFDSet.audio_alsa_device = g_strdup("default");
 	GlobalFDSet.audio_nas_server = g_strdup("tcp/localhost:5450");
 	GlobalFDSet.audio_pulse_server = g_strdup("default");
+	GlobalFDSet.audio_pulse_device = g_strdup("default");
 	GlobalFDSet.audio_pulse_min_length = 100;
 
 	SpeechdOptions.max_history_messages = 10000;

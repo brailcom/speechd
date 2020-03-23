@@ -475,7 +475,9 @@ int output_send_audio_settings(OutputModule * output)
 	ADD_SET_STR(audio_oss_device);
 	ADD_SET_STR(audio_alsa_device);
 	ADD_SET_STR(audio_nas_server);
-	ADD_SET_STR(audio_pulse_server);
+	// TODO: restore AudioPulseServer option
+	//ADD_SET_STR(audio_pulse_server);
+	ADD_SET_STR(audio_pulse_device);
 	ADD_SET_INT(audio_pulse_min_length);
 
 	SEND_CMD_N("AUDIO");
