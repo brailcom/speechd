@@ -207,9 +207,7 @@ static int pico_process_tts(void)
 
 			if (bytes_recv) {
 				track.num_samples = bytes_recv / 2;
-				track.samples =
-				    (short *)g_memdup((gconstpointer) outbuf,
-						      bytes_recv);
+				track.samples = outbuf;
 				track.num_channels = 1;
 				track.sample_rate = PICO_SAMPLE_RATE;
 				track.bits = 16;
