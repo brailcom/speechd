@@ -185,6 +185,7 @@ static int pico_process_tts(void)
 			    outMessage);
 			return -1;
 		}
+		DBG(MODULE_NAME " Sent %d bytes\n", bytes_sent);
 
 		text_remaining -= bytes_sent;
 		buf += bytes_sent;
