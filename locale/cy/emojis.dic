@@ -9,6 +9,61 @@ symbols:
 🏾	arlliw croen canolig-tywyll	none
 🏿	arlliw croen tywyll	none
 ⚧	symbol trawsryweddol	none
+🤌	bysedd wedi’u pinsio	none
+🥲	wyneb yn gwenu gyda deugryn	none
+🥷	ninja	none
+🥸	wyneb mewn cuddwisg	none
+🦣	mamoth	none
+🦤	dodo	none
+🦫	afanc	none
+🦬	bual	none
+🦭	morlo	none
+🧋	te swigod	none
+🩴	sandal thong	none
+🪃	bwmerang	none
+🪄	ffon hud	none
+🪅	piñata	none
+🪆	doliau sy’n nythu	none
+🪖	helmed filitaraidd	none
+🪗	acordion	none
+🪘	drwm hir	none
+🪙	darn arian	none
+🪚	llif gwaith coed	none
+🪛	sgriwdreifar	none
+🪜	ysgol ddringo	none
+🪝	bachyn	none
+🪞	drych	none
+🪟	ffenestr	none
+🪠	offeryn sugno	none
+🪡	nodwydd wnïo	none
+🪢	cwlwm	none
+🪣	bwced	none
+🪤	trap llygod	none
+🪥	brwsh dannedd	none
+🪦	carreg fedd	none
+🪧	placard	none
+🪨	carreg	none
+🪰	pry	none
+🪱	mwydyn	none
+🪲	chwilen	none
+🪳	chwilen ddu	none
+🪴	planhigyn mewn pot	none
+🪵	pren	none
+🪶	pluen	none
+🫀	Y galon	none
+🫁	Yr ysgyfaint	none
+🫂	pobl yn cofleidio	none
+🫐	llus	none
+🫑	pupryn	none
+🫒	olewydd	none
+🫓	Bara fflat	none
+🫔	tamale	none
+🫕	fondue	none
+🫖	tebot	none
+🛖	cwt	none
+🛗	lifft	none
+🛻	lori pickup	none
+🛼	esgid sglefrio	none
 😀	wyneb yn gwenu â cheg agored	none
 😃	wyneb yn gwenu â cheg agored a llygaid mawr	none
 😄	wyneb yn gwenu â cheg agored a gwên yn y llygaid	none
@@ -212,11 +267,15 @@ symbols:
 👧	merch	none
 🧑	oedolyn	none
 👱	person â gwallt golau	none
+🧑‍🍼	person yn bwydo babi	none
+🧑‍🎄	mx claus	none
 👨	dyn	none
 🧔	dyn â barf	none
 👱‍♂	dyn â gwallt golau	none
+👨‍🍼	dyn yn bwydo babi	none
 👩	menyw	none
 👱‍♀	menyw â gwallt golau	none
+👩‍🍼	menyw yn bwydo babi	none
 🧓	oedolyn oedranus	none
 👴	hen ddyn	none
 👵	hen fenyw	none
@@ -317,8 +376,12 @@ symbols:
 👳‍♀	menyw â thwrban	none
 👲	dyn â chap Tsieineaidd	none
 🧕	menyw â phensgarff	none
-🤵	dyn mewn tycs	none
-👰	priodferch â fêl	none
+🤵	person mewn siaced ginio	none
+🤵‍♀	menyw mewn siaced ginio	none
+🤵‍♂	dyn mewn siaced ginio	none
+👰	person yn gwisgo llen	none
+👰‍♀	menyw yn gwisgo llen	none
+👰‍♂	dyn yn gwisgo llen	none
 🤰	menyw feichiog	none
 🤱	bwydo o’r fron	none
 👼	babi angel	none
@@ -467,6 +530,7 @@ symbols:
 🦝	racŵn	none
 🐱	wyneb cath	none
 🐈	cath	none
+🐈‍⬛	cath ddu	none
 🦁	wyneb llew	none
 🐯	wyneb teigr	none
 🐅	teigr	none
@@ -504,6 +568,7 @@ symbols:
 🦔	draenog	none
 🦇	ystlum	none
 🐻	wyneb arth	none
+🐻‍❄	arth wen	none
 🐨	coala	none
 🐼	wyneb panda	none
 🦥	diogyn	none
@@ -1332,12 +1397,12 @@ symbols:
 ✅	marc tic gwyn trwm	none
 ☑	blwch pleidlais gyda thic	none
 ✔	marc tic trwm	none
-✖	lluosi x trwm	none
+✖	lluosi	none
 ❌	marc croes	none
 ❎	botwm croes	none
-➕	arwydd adio trwm	none
-➖	arwydd tynnu trwm	none
-➗	arwydd rhannu trwm	none
+➕	adio	none
+➖	tynnu	none
+➗	rhannu	none
 ➰	dolen gyrliog	none
 ➿	dolen gyrliog ddwbl	none
 〽	marc aryneilio rhannol	none
@@ -1435,60 +1500,11 @@ symbols:
 🏳‍⚧	baner las, pinc a gwyn	none
 🏳‍🌈	baner enfys	none
 🏴‍☠	baner môr-leidr	none
-🛖	cwt	none
-🛗	lifft	none
-🛻	lori pickup	none
-🛼	esgid sglefrio	none
-🤌	bysedd wedi’u pinsio	none
-🥲	wyneb yn gwenu gyda deugryn	none
-🥷	ninja	none
-🥸	wyneb mewn cuddwisg	none
-🦣	mamoth	none
-🦤	dodo	none
-🦫	afanc	none
-🦬	bual	none
-🦭	morlo	none
-🧋	te swigod	none
-🩴	sandal thong	none
-🪃	bwmerang	none
-🪄	ffon hud	none
-🪅	piñata	none
-🪆	doliau sy’n nythu	none
-🪖	helmed filitaraidd	none
-🪗	acordion	none
-🪘	drwm hir	none
-🪙	darn arian	none
-🪚	llif gwaith coed	none
-🪛	sgriwdreifar	none
-🪜	ysgol ddringo	none
-🪝	bachyn	none
-🪞	drych	none
-🪟	ffenestr	none
-🪠	offeryn sugno	none
-🪡	nodwydd wnïo	none
-🪣	bwced	none
-🪤	trap llygod	none
-🪥	brwsh dannedd	none
-🪦	carreg fedd	none
-🪧	placard	none
-🪨	carreg	none
-🪰	pry	none
-🪱	mwydyn	none
-🪲	chwilen	none
-🪳	chwilen ddu	none
-🪴	planhigyn mewn pot	none
-🪵	pren	none
-🪶	pluen	none
-🫀	Y galon	none
-🫁	Yr ysgyfaint	none
-🫂	pobl yn cofleidio	none
-🫐	llus	none
-🫑	pupryn	none
-🫒	olewydd	none
-🫓	Bara fflat	none
-🫔	tamale	none
-🫕	fondue	none
-🫖	tebot	none
+🤌🏻	bysedd wedi’u pinsio arlliw croen golau	none
+🤌🏼	bysedd wedi’u pinsio arlliw croen canolig-golau	none
+🤌🏽	bysedd wedi’u pinsio arlliw croen canolog	none
+🤌🏾	bysedd wedi’u pinsio arlliw croen canolig-tywyll	none
+🤌🏿	bysedd wedi’u pinsio arlliw croen tywyll	none
 👋🏻	llaw yn chwifio arlliw croen golau	none
 👋🏼	llaw yn chwifio arlliw croen canolig-golau	none
 👋🏽	llaw yn chwifio arlliw croen canolog	none
@@ -1733,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	oedolyn arlliw croen canolog, moel	none
 🧑🏾‍🦲	oedolyn arlliw croen canolig-tywyll, moel	none
 🧑🏿‍🦲	oedolyn arlliw croen tywyll, moel	none
+🧑🏻‍🍼	person yn bwydo babi arlliw croen golau	none
+🧑🏼‍🍼	person yn bwydo babi arlliw croen canolig-golau	none
+🧑🏽‍🍼	person yn bwydo babi arlliw croen canolog	none
+🧑🏾‍🍼	person yn bwydo babi arlliw croen canolig-tywyll	none
+🧑🏿‍🍼	person yn bwydo babi arlliw croen tywyll	none
+🧑🏻‍🎄	mx claus arlliw croen golau	none
+🧑🏼‍🎄	mx claus arlliw croen canolig-golau	none
+🧑🏽‍🎄	mx claus arlliw croen canolog	none
+🧑🏾‍🎄	mx claus arlliw croen canolig-tywyll	none
+🧑🏿‍🎄	mx claus arlliw croen tywyll	none
 👨🏻	dyn arlliw croen golau	none
 👨🏼	dyn arlliw croen canolig-golau	none
 👨🏽	dyn arlliw croen canolog	none
@@ -1772,6 +1798,11 @@ symbols:
 👨🏽‍🦲	dyn arlliw croen canolog, moel	none
 👨🏾‍🦲	dyn arlliw croen canolig-tywyll, moel	none
 👨🏿‍🦲	dyn arlliw croen tywyll, moel	none
+👨🏻‍🍼	dyn yn bwydo babi arlliw croen golau	none
+👨🏼‍🍼	dyn yn bwydo babi arlliw croen canolig-golau	none
+👨🏽‍🍼	dyn yn bwydo babi arlliw croen canolog	none
+👨🏾‍🍼	dyn yn bwydo babi arlliw croen canolig-tywyll	none
+👨🏿‍🍼	dyn yn bwydo babi arlliw croen tywyll	none
 👩🏻	menyw arlliw croen golau	none
 👩🏼	menyw arlliw croen canolig-golau	none
 👩🏽	menyw arlliw croen canolog	none
@@ -1806,6 +1837,11 @@ symbols:
 👩🏽‍🦲	menyw arlliw croen canolog, moel	none
 👩🏾‍🦲	menyw arlliw croen canolig-tywyll, moel	none
 👩🏿‍🦲	menyw arlliw croen tywyll, moel	none
+👩🏻‍🍼	menyw yn bwydo babi arlliw croen golau	none
+👩🏼‍🍼	menyw yn bwydo babi arlliw croen canolig-golau	none
+👩🏽‍🍼	menyw yn bwydo babi arlliw croen canolog	none
+👩🏾‍🍼	menyw yn bwydo babi arlliw croen canolig-tywyll	none
+👩🏿‍🍼	menyw yn bwydo babi arlliw croen tywyll	none
 🧓🏻	oedolyn oedranus arlliw croen golau	none
 🧓🏼	oedolyn oedranus arlliw croen canolig-golau	none
 🧓🏽	oedolyn oedranus arlliw croen canolog	none
@@ -2306,16 +2342,36 @@ symbols:
 🧕🏽	menyw â phensgarff arlliw croen canolog	none
 🧕🏾	menyw â phensgarff arlliw croen canolig-tywyll	none
 🧕🏿	menyw â phensgarff arlliw croen tywyll	none
-🤵🏻	dyn mewn tycs arlliw croen golau	none
-🤵🏼	dyn mewn tycs arlliw croen canolig-golau	none
-🤵🏽	dyn mewn tycs arlliw croen canolog	none
-🤵🏾	dyn mewn tycs arlliw croen canolig-tywyll	none
-🤵🏿	dyn mewn tycs arlliw croen tywyll	none
-👰🏻	priodferch â fêl arlliw croen golau	none
-👰🏼	priodferch â fêl arlliw croen canolig-golau	none
-👰🏽	priodferch â fêl arlliw croen canolog	none
-👰🏾	priodferch â fêl arlliw croen canolig-tywyll	none
-👰🏿	priodferch â fêl arlliw croen tywyll	none
+🤵🏻	person mewn siaced ginio arlliw croen golau	none
+🤵🏼	person mewn siaced ginio arlliw croen canolig-golau	none
+🤵🏽	person mewn siaced ginio arlliw croen canolog	none
+🤵🏾	person mewn siaced ginio arlliw croen canolig-tywyll	none
+🤵🏿	person mewn siaced ginio arlliw croen tywyll	none
+🤵🏻‍♀	menyw mewn siaced ginio arlliw croen golau	none
+🤵🏼‍♀	menyw mewn siaced ginio arlliw croen canolig-golau	none
+🤵🏽‍♀	menyw mewn siaced ginio arlliw croen canolog	none
+🤵🏾‍♀	menyw mewn siaced ginio arlliw croen canolig-tywyll	none
+🤵🏿‍♀	menyw mewn siaced ginio arlliw croen tywyll	none
+🤵🏻‍♂	dyn mewn siaced ginio arlliw croen golau	none
+🤵🏼‍♂	dyn mewn siaced ginio arlliw croen canolig-golau	none
+🤵🏽‍♂	dyn mewn siaced ginio arlliw croen canolog	none
+🤵🏾‍♂	dyn mewn siaced ginio arlliw croen canolig-tywyll	none
+🤵🏿‍♂	dyn mewn siaced ginio arlliw croen tywyll	none
+👰🏻	person yn gwisgo llen arlliw croen golau	none
+👰🏼	person yn gwisgo llen arlliw croen canolig-golau	none
+👰🏽	person yn gwisgo llen arlliw croen canolog	none
+👰🏾	person yn gwisgo llen arlliw croen canolig-tywyll	none
+👰🏿	person yn gwisgo llen arlliw croen tywyll	none
+👰🏻‍♀	menyw yn gwisgo llen arlliw croen golau	none
+👰🏼‍♀	menyw yn gwisgo llen arlliw croen canolig-golau	none
+👰🏽‍♀	menyw yn gwisgo llen arlliw croen canolog	none
+👰🏾‍♀	menyw yn gwisgo llen arlliw croen canolig-tywyll	none
+👰🏿‍♀	menyw yn gwisgo llen arlliw croen tywyll	none
+👰🏻‍♂	dyn yn gwisgo llen arlliw croen golau	none
+👰🏼‍♂	dyn yn gwisgo llen arlliw croen canolig-golau	none
+👰🏽‍♂	dyn yn gwisgo llen arlliw croen canolog	none
+👰🏾‍♂	dyn yn gwisgo llen arlliw croen canolig-tywyll	none
+👰🏿‍♂	dyn yn gwisgo llen arlliw croen tywyll	none
 🤰🏻	menyw feichiog arlliw croen golau	none
 🤰🏼	menyw feichiog arlliw croen canolig-golau	none
 🤰🏽	menyw feichiog arlliw croen canolog	none
@@ -2842,30 +2898,50 @@ symbols:
 🛌🏾	person mewn gwely arlliw croen canolig-tywyll	none
 🛌🏿	person mewn gwely arlliw croen tywyll	none
 🧑🏻‍🤝‍🧑🏻	pobl yn dal dwylo arlliw croen golau	none
+🧑🏻‍🤝‍🧑🏼	pobl yn dal dwylo arlliw croen golau, arlliw croen canolig-golau	none
+🧑🏻‍🤝‍🧑🏽	pobl yn dal dwylo arlliw croen golau, arlliw croen canolog	none
+🧑🏻‍🤝‍🧑🏾	pobl yn dal dwylo arlliw croen golau, arlliw croen canolig-tywyll	none
+🧑🏻‍🤝‍🧑🏿	pobl yn dal dwylo arlliw croen golau, arlliw croen tywyll	none
 🧑🏼‍🤝‍🧑🏻	pobl yn dal dwylo arlliw croen canolig-golau, arlliw croen golau	none
 🧑🏼‍🤝‍🧑🏼	pobl yn dal dwylo arlliw croen canolig-golau	none
+🧑🏼‍🤝‍🧑🏽	pobl yn dal dwylo arlliw croen canolig-golau, arlliw croen canolog	none
+🧑🏼‍🤝‍🧑🏾	pobl yn dal dwylo arlliw croen canolig-golau, arlliw croen canolig-tywyll	none
+🧑🏼‍🤝‍🧑🏿	pobl yn dal dwylo arlliw croen canolig-golau, arlliw croen tywyll	none
 🧑🏽‍🤝‍🧑🏻	pobl yn dal dwylo arlliw croen canolog, arlliw croen golau	none
 🧑🏽‍🤝‍🧑🏼	pobl yn dal dwylo arlliw croen canolog, arlliw croen canolig-golau	none
 🧑🏽‍🤝‍🧑🏽	pobl yn dal dwylo arlliw croen canolog	none
+🧑🏽‍🤝‍🧑🏾	pobl yn dal dwylo arlliw croen canolog, arlliw croen canolig-tywyll	none
+🧑🏽‍🤝‍🧑🏿	pobl yn dal dwylo arlliw croen canolog, arlliw croen tywyll	none
 🧑🏾‍🤝‍🧑🏻	pobl yn dal dwylo arlliw croen canolig-tywyll, arlliw croen golau	none
 🧑🏾‍🤝‍🧑🏼	pobl yn dal dwylo arlliw croen canolig-tywyll, arlliw croen canolig-golau	none
 🧑🏾‍🤝‍🧑🏽	pobl yn dal dwylo arlliw croen canolig-tywyll, arlliw croen canolog	none
 🧑🏾‍🤝‍🧑🏾	pobl yn dal dwylo arlliw croen canolig-tywyll	none
+🧑🏾‍🤝‍🧑🏿	pobl yn dal dwylo arlliw croen canolig-tywyll, arlliw croen tywyll	none
 🧑🏿‍🤝‍🧑🏻	pobl yn dal dwylo arlliw croen tywyll, arlliw croen golau	none
 🧑🏿‍🤝‍🧑🏼	pobl yn dal dwylo arlliw croen tywyll, arlliw croen canolig-golau	none
 🧑🏿‍🤝‍🧑🏽	pobl yn dal dwylo arlliw croen tywyll, arlliw croen canolog	none
 🧑🏿‍🤝‍🧑🏾	pobl yn dal dwylo arlliw croen tywyll, arlliw croen canolig-tywyll	none
 🧑🏿‍🤝‍🧑🏿	pobl yn dal dwylo arlliw croen tywyll	none
 👭🏻	dwy fenyw yn dal dwylo arlliw croen golau	none
+👩🏻‍🤝‍👩🏼	dwy fenyw yn dal dwylo arlliw croen golau, arlliw croen canolig-golau	none
+👩🏻‍🤝‍👩🏽	dwy fenyw yn dal dwylo arlliw croen golau, arlliw croen canolog	none
+👩🏻‍🤝‍👩🏾	dwy fenyw yn dal dwylo arlliw croen golau, arlliw croen canolig-tywyll	none
+👩🏻‍🤝‍👩🏿	dwy fenyw yn dal dwylo arlliw croen golau, arlliw croen tywyll	none
 👩🏼‍🤝‍👩🏻	dwy fenyw yn dal dwylo arlliw croen canolig-golau, arlliw croen golau	none
 👭🏼	dwy fenyw yn dal dwylo arlliw croen canolig-golau	none
+👩🏼‍🤝‍👩🏽	dwy fenyw yn dal dwylo arlliw croen canolig-golau, arlliw croen canolog	none
+👩🏼‍🤝‍👩🏾	dwy fenyw yn dal dwylo arlliw croen canolig-golau, arlliw croen canolig-tywyll	none
+👩🏼‍🤝‍👩🏿	dwy fenyw yn dal dwylo arlliw croen canolig-golau, arlliw croen tywyll	none
 👩🏽‍🤝‍👩🏻	dwy fenyw yn dal dwylo arlliw croen canolog, arlliw croen golau	none
 👩🏽‍🤝‍👩🏼	dwy fenyw yn dal dwylo arlliw croen canolog, arlliw croen canolig-golau	none
 👭🏽	dwy fenyw yn dal dwylo arlliw croen canolog	none
+👩🏽‍🤝‍👩🏾	dwy fenyw yn dal dwylo arlliw croen canolog, arlliw croen canolig-tywyll	none
+👩🏽‍🤝‍👩🏿	dwy fenyw yn dal dwylo arlliw croen canolog, arlliw croen tywyll	none
 👩🏾‍🤝‍👩🏻	dwy fenyw yn dal dwylo arlliw croen canolig-tywyll, arlliw croen golau	none
 👩🏾‍🤝‍👩🏼	dwy fenyw yn dal dwylo arlliw croen canolig-tywyll, arlliw croen canolig-golau	none
 👩🏾‍🤝‍👩🏽	dwy fenyw yn dal dwylo arlliw croen canolig-tywyll, arlliw croen canolog	none
 👭🏾	dwy fenyw yn dal dwylo arlliw croen canolig-tywyll	none
+👩🏾‍🤝‍👩🏿	dwy fenyw yn dal dwylo arlliw croen canolig-tywyll, arlliw croen tywyll	none
 👩🏿‍🤝‍👩🏻	dwy fenyw yn dal dwylo arlliw croen tywyll, arlliw croen golau	none
 👩🏿‍🤝‍👩🏼	dwy fenyw yn dal dwylo arlliw croen tywyll, arlliw croen canolig-golau	none
 👩🏿‍🤝‍👩🏽	dwy fenyw yn dal dwylo arlliw croen tywyll, arlliw croen canolog	none
@@ -2897,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	dyn a menyw yn dal dwylo arlliw croen tywyll, arlliw croen canolig-tywyll	none
 👫🏿	dyn a menyw yn dal dwylo arlliw croen tywyll	none
 👬🏻	dau ddyn yn dal dwylo arlliw croen golau	none
+👨🏻‍🤝‍👨🏼	dau ddyn yn dal dwylo arlliw croen golau, arlliw croen canolig-golau	none
+👨🏻‍🤝‍👨🏽	dau ddyn yn dal dwylo arlliw croen golau, arlliw croen canolog	none
+👨🏻‍🤝‍👨🏾	dau ddyn yn dal dwylo arlliw croen golau, arlliw croen canolig-tywyll	none
+👨🏻‍🤝‍👨🏿	dau ddyn yn dal dwylo arlliw croen golau, arlliw croen tywyll	none
 👨🏼‍🤝‍👨🏻	dau ddyn yn dal dwylo arlliw croen canolig-golau, arlliw croen golau	none
 👬🏼	dau ddyn yn dal dwylo arlliw croen canolig-golau	none
+👨🏼‍🤝‍👨🏽	dau ddyn yn dal dwylo arlliw croen canolig-golau, arlliw croen canolog	none
+👨🏼‍🤝‍👨🏾	dau ddyn yn dal dwylo arlliw croen canolig-golau, arlliw croen canolig-tywyll	none
+👨🏼‍🤝‍👨🏿	dau ddyn yn dal dwylo arlliw croen canolig-golau, arlliw croen tywyll	none
 👨🏽‍🤝‍👨🏻	dau ddyn yn dal dwylo arlliw croen canolog, arlliw croen golau	none
 👨🏽‍🤝‍👨🏼	dau ddyn yn dal dwylo arlliw croen canolog, arlliw croen canolig-golau	none
 👬🏽	dau ddyn yn dal dwylo arlliw croen canolog	none
+👨🏽‍🤝‍👨🏾	dau ddyn yn dal dwylo arlliw croen canolog, arlliw croen canolig-tywyll	none
+👨🏽‍🤝‍👨🏿	dau ddyn yn dal dwylo arlliw croen canolog, arlliw croen tywyll	none
 👨🏾‍🤝‍👨🏻	dau ddyn yn dal dwylo arlliw croen canolig-tywyll, arlliw croen golau	none
 👨🏾‍🤝‍👨🏼	dau ddyn yn dal dwylo arlliw croen canolig-tywyll, arlliw croen canolig-golau	none
 👨🏾‍🤝‍👨🏽	dau ddyn yn dal dwylo arlliw croen canolig-tywyll, arlliw croen canolog	none
 👬🏾	dau ddyn yn dal dwylo arlliw croen canolig-tywyll	none
+👨🏾‍🤝‍👨🏿	dau ddyn yn dal dwylo arlliw croen canolig-tywyll, arlliw croen tywyll	none
 👨🏿‍🤝‍👨🏻	dau ddyn yn dal dwylo arlliw croen tywyll, arlliw croen golau	none
 👨🏿‍🤝‍👨🏼	dau ddyn yn dal dwylo arlliw croen tywyll, arlliw croen canolig-golau	none
 👨🏿‍🤝‍👨🏽	dau ddyn yn dal dwylo arlliw croen tywyll, arlliw croen canolog	none

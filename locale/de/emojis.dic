@@ -9,6 +9,61 @@ symbols:
 🏾	mitteldunkle Hautfarbe	none
 🏿	dunkle Hautfarbe	none
 ⚧	Symbol für Transgender	none
+🤌	zusammengedrückte Finger	none
+🥲	lachendes Gesicht mit Träne	none
+🥷	Ninja	none
+🥸	verkleidet	none
+🦣	Mammut	none
+🦤	Dodo	none
+🦫	Biber	none
+🦬	Bison	none
+🦭	Seehund	none
+🧋	Bubble Tea	none
+🩴	Zehensandale	none
+🪃	Bumerang	none
+🪄	Zauberstab	none
+🪅	Piñata	none
+🪆	Matroschka	none
+🪖	Militärhelm	none
+🪗	Akkordeon	none
+🪘	afrikanische Trommel	none
+🪙	Münze	none
+🪚	Handsäge	none
+🪛	Schraubenzieher	none
+🪜	Leiter	none
+🪝	Angelhaken	none
+🪞	Spiegel	none
+🪟	Fenster	none
+🪠	Pömpel	none
+🪡	Nähnadel	none
+🪢	Knoten	none
+🪣	Eimer	none
+🪤	Mäusefalle	none
+🪥	Zahnbürste	none
+🪦	Grabstein	none
+🪧	Plakat	none
+🪨	Felsen	none
+🪰	Fliege	none
+🪱	Wurm	none
+🪲	Käfer	none
+🪳	Kakerlake	none
+🪴	Topfpflanze	none
+🪵	Holz	none
+🪶	Feder	none
+🫀	Herz (Organ)	none
+🫁	Lungen	none
+🫂	sich umarmende Personen	none
+🫐	Blaubeeren	none
+🫑	Paprika	none
+🫒	Olive	none
+🫓	Fladenbrot	none
+🫔	Tamale	none
+🫕	Fondue	none
+🫖	Teekanne	none
+🛖	Hütte	none
+🛗	Fahrstuhl	none
+🛻	Pick-up	none
+🛼	Rollschuh	none
 😀	grinsendes Gesicht	none
 😃	grinsendes Gesicht mit großen Augen	none
 😄	grinsendes Gesicht mit lachenden Augen	none
@@ -212,11 +267,15 @@ symbols:
 👧	Mädchen	none
 🧑	Erwachsener	none
 👱	Person blondes Haar	none
+🧑‍🍼	stillende Person	none
+🧑‍🎄	Weihnachtsperson	none
 👨	Mann	none
 🧔	Mann Bart	none
 👱‍♂	Mann blond	none
+👨‍🍼	stillender Mann	none
 👩	Frau	none
 👱‍♀	Frau blond	none
+👩‍🍼	stillende Frau	none
 🧓	älterer Erwachsener	none
 👴	älterer Mann	none
 👵	ältere Frau	none
@@ -317,8 +376,12 @@ symbols:
 👳‍♀	Frau mit Turban	none
 👲	Mann mit chinesischem Hut	none
 🧕	Frau mit Kopftuch	none
-🤵	Mann im Anzug	none
-👰	Braut mit Schleier	none
+🤵	Person im Smoking	none
+🤵‍♀	Frau im Smoking	none
+🤵‍♂	Mann im Smoking	none
+👰	Person mit Schleier	none
+👰‍♀	Frau mit Schleier	none
+👰‍♂	Mann mit Schleier	none
 🤰	schwangere Frau	none
 🤱	Stillen	none
 👼	Putte	none
@@ -467,6 +530,7 @@ symbols:
 🦝	Waschbär	none
 🐱	Katzengesicht	none
 🐈	Katze	none
+🐈‍⬛	schwarze Katze	none
 🦁	Löwe	none
 🐯	Tigergesicht	none
 🐅	Tiger	none
@@ -504,6 +568,7 @@ symbols:
 🦔	Igel	none
 🦇	Fledermaus	none
 🐻	Bär	none
+🐻‍❄	Eisbär	none
 🐨	Koala	none
 🐼	Panda	none
 🦥	Faultier	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	Transgender-Flagge	none
 🏳‍🌈	Regenbogenflagge	none
 🏴‍☠	Piratenflagge	none
-🛖	Hütte	none
-🛗	Fahrstuhl	none
-🛻	Pick-up	none
-🛼	Rollschuh	none
-🤌	zusammengedrückte Finger	none
-🥲	lachendes Gesicht mit Träne	none
-🥷	Ninja	none
-🥸	verkleidet	none
-🦣	Mammut	none
-🦤	Dodo	none
-🦫	Biber	none
-🦬	Bison	none
-🦭	Seehund	none
-🧋	Bubble Tea	none
-🩴	Zehensandale	none
-🪃	Bumerang	none
-🪄	Zauberstab	none
-🪅	Piñata	none
-🪆	Matroschka	none
-🪖	Militärhelm	none
-🪗	Akkordeon	none
-🪘	afrikanische Trommel	none
-🪙	Münze	none
-🪚	Handsäge	none
-🪛	Schraubenzieher	none
-🪜	Leiter	none
-🪝	Angelhaken	none
-🪞	Spiegel	none
-🪟	Fenster	none
-🪠	Pömpel	none
-🪡	Nähnadel	none
-🪢	Knoten	none
-🪣	Eimer	none
-🪤	Mäusefalle	none
-🪥	Zahnbürste	none
-🪦	Grabstein	none
-🪧	Plakat	none
-🪨	Felsen	none
-🪰	Fliege	none
-🪱	Wurm	none
-🪲	Käfer	none
-🪳	Kakerlake	none
-🪴	Topfpflanze	none
-🪵	Holz	none
-🪶	Feder	none
-🫀	Herz (Organ)	none
-🫁	Lungen	none
-🫂	sich umarmende Personen	none
-🫐	Blaubeeren	none
-🫑	Paprika	none
-🫒	Olive	none
-🫓	Fladenbrot	none
-🫔	Tamale	none
-🫕	Fondue	none
-🫖	Teekanne	none
+🤌🏻	zusammengedrückte Finger helle Hautfarbe	none
+🤌🏼	zusammengedrückte Finger mittelhelle Hautfarbe	none
+🤌🏽	zusammengedrückte Finger mittlere Hautfarbe	none
+🤌🏾	zusammengedrückte Finger mitteldunkle Hautfarbe	none
+🤌🏿	zusammengedrückte Finger dunkle Hautfarbe	none
 👋🏻	winkende Hand helle Hautfarbe	none
 👋🏼	winkende Hand mittelhelle Hautfarbe	none
 👋🏽	winkende Hand mittlere Hautfarbe	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	Erwachsener mittlere Hautfarbe, Glatze	none
 🧑🏾‍🦲	Erwachsener mitteldunkle Hautfarbe, Glatze	none
 🧑🏿‍🦲	Erwachsener dunkle Hautfarbe, Glatze	none
+🧑🏻‍🍼	stillende Person helle Hautfarbe	none
+🧑🏼‍🍼	stillende Person mittelhelle Hautfarbe	none
+🧑🏽‍🍼	stillende Person mittlere Hautfarbe	none
+🧑🏾‍🍼	stillende Person mitteldunkle Hautfarbe	none
+🧑🏿‍🍼	stillende Person dunkle Hautfarbe	none
+🧑🏻‍🎄	Weihnachtsperson helle Hautfarbe	none
+🧑🏼‍🎄	Weihnachtsperson mittelhelle Hautfarbe	none
+🧑🏽‍🎄	Weihnachtsperson mittlere Hautfarbe	none
+🧑🏾‍🎄	Weihnachtsperson mitteldunkle Hautfarbe	none
+🧑🏿‍🎄	Weihnachtsperson dunkle Hautfarbe	none
 👨🏻	Mann helle Hautfarbe	none
 👨🏼	Mann mittelhelle Hautfarbe	none
 👨🏽	Mann mittlere Hautfarbe	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	Mann mittlere Hautfarbe, Glatze	none
 👨🏾‍🦲	Mann mitteldunkle Hautfarbe, Glatze	none
 👨🏿‍🦲	Mann dunkle Hautfarbe, Glatze	none
+👨🏻‍🍼	stillender Mann helle Hautfarbe	none
+👨🏼‍🍼	stillender Mann mittelhelle Hautfarbe	none
+👨🏽‍🍼	stillender Mann mittlere Hautfarbe	none
+👨🏾‍🍼	stillender Mann mitteldunkle Hautfarbe	none
+👨🏿‍🍼	stillender Mann dunkle Hautfarbe	none
 👩🏻	Frau helle Hautfarbe	none
 👩🏼	Frau mittelhelle Hautfarbe	none
 👩🏽	Frau mittlere Hautfarbe	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	Frau mittlere Hautfarbe, Glatze	none
 👩🏾‍🦲	Frau mitteldunkle Hautfarbe, Glatze	none
 👩🏿‍🦲	Frau dunkle Hautfarbe, Glatze	none
+👩🏻‍🍼	stillende Frau helle Hautfarbe	none
+👩🏼‍🍼	stillende Frau mittelhelle Hautfarbe	none
+👩🏽‍🍼	stillende Frau mittlere Hautfarbe	none
+👩🏾‍🍼	stillende Frau mitteldunkle Hautfarbe	none
+👩🏿‍🍼	stillende Frau dunkle Hautfarbe	none
 🧓🏻	älterer Erwachsener helle Hautfarbe	none
 🧓🏼	älterer Erwachsener mittelhelle Hautfarbe	none
 🧓🏽	älterer Erwachsener mittlere Hautfarbe	none
@@ -2307,16 +2342,36 @@ symbols:
 🧕🏽	Frau mit Kopftuch mittlere Hautfarbe	none
 🧕🏾	Frau mit Kopftuch mitteldunkle Hautfarbe	none
 🧕🏿	Frau mit Kopftuch dunkle Hautfarbe	none
-🤵🏻	Mann im Anzug helle Hautfarbe	none
-🤵🏼	Mann im Anzug mittelhelle Hautfarbe	none
-🤵🏽	Mann im Anzug mittlere Hautfarbe	none
-🤵🏾	Mann im Anzug mitteldunkle Hautfarbe	none
-🤵🏿	Mann im Anzug dunkle Hautfarbe	none
-👰🏻	Braut mit Schleier helle Hautfarbe	none
-👰🏼	Braut mit Schleier mittelhelle Hautfarbe	none
-👰🏽	Braut mit Schleier mittlere Hautfarbe	none
-👰🏾	Braut mit Schleier mitteldunkle Hautfarbe	none
-👰🏿	Braut mit Schleier dunkle Hautfarbe	none
+🤵🏻	Person im Smoking helle Hautfarbe	none
+🤵🏼	Person im Smoking mittelhelle Hautfarbe	none
+🤵🏽	Person im Smoking mittlere Hautfarbe	none
+🤵🏾	Person im Smoking mitteldunkle Hautfarbe	none
+🤵🏿	Person im Smoking dunkle Hautfarbe	none
+🤵🏻‍♀	Frau im Smoking helle Hautfarbe	none
+🤵🏼‍♀	Frau im Smoking mittelhelle Hautfarbe	none
+🤵🏽‍♀	Frau im Smoking mittlere Hautfarbe	none
+🤵🏾‍♀	Frau im Smoking mitteldunkle Hautfarbe	none
+🤵🏿‍♀	Frau im Smoking dunkle Hautfarbe	none
+🤵🏻‍♂	Mann im Smoking helle Hautfarbe	none
+🤵🏼‍♂	Mann im Smoking mittelhelle Hautfarbe	none
+🤵🏽‍♂	Mann im Smoking mittlere Hautfarbe	none
+🤵🏾‍♂	Mann im Smoking mitteldunkle Hautfarbe	none
+🤵🏿‍♂	Mann im Smoking dunkle Hautfarbe	none
+👰🏻	Person mit Schleier helle Hautfarbe	none
+👰🏼	Person mit Schleier mittelhelle Hautfarbe	none
+👰🏽	Person mit Schleier mittlere Hautfarbe	none
+👰🏾	Person mit Schleier mitteldunkle Hautfarbe	none
+👰🏿	Person mit Schleier dunkle Hautfarbe	none
+👰🏻‍♀	Frau mit Schleier helle Hautfarbe	none
+👰🏼‍♀	Frau mit Schleier mittelhelle Hautfarbe	none
+👰🏽‍♀	Frau mit Schleier mittlere Hautfarbe	none
+👰🏾‍♀	Frau mit Schleier mitteldunkle Hautfarbe	none
+👰🏿‍♀	Frau mit Schleier dunkle Hautfarbe	none
+👰🏻‍♂	Mann mit Schleier helle Hautfarbe	none
+👰🏼‍♂	Mann mit Schleier mittelhelle Hautfarbe	none
+👰🏽‍♂	Mann mit Schleier mittlere Hautfarbe	none
+👰🏾‍♂	Mann mit Schleier mitteldunkle Hautfarbe	none
+👰🏿‍♂	Mann mit Schleier dunkle Hautfarbe	none
 🤰🏻	schwangere Frau helle Hautfarbe	none
 🤰🏼	schwangere Frau mittelhelle Hautfarbe	none
 🤰🏽	schwangere Frau mittlere Hautfarbe	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	im Bett liegende Person mitteldunkle Hautfarbe	none
 🛌🏿	im Bett liegende Person dunkle Hautfarbe	none
 🧑🏻‍🤝‍🧑🏻	sich an den Händen haltende Personen helle Hautfarbe	none
+🧑🏻‍🤝‍🧑🏼	sich an den Händen haltende Personen helle Hautfarbe, mittelhelle Hautfarbe	none
+🧑🏻‍🤝‍🧑🏽	sich an den Händen haltende Personen helle Hautfarbe, mittlere Hautfarbe	none
+🧑🏻‍🤝‍🧑🏾	sich an den Händen haltende Personen helle Hautfarbe, mitteldunkle Hautfarbe	none
+🧑🏻‍🤝‍🧑🏿	sich an den Händen haltende Personen helle Hautfarbe, dunkle Hautfarbe	none
 🧑🏼‍🤝‍🧑🏻	sich an den Händen haltende Personen mittelhelle Hautfarbe, helle Hautfarbe	none
 🧑🏼‍🤝‍🧑🏼	sich an den Händen haltende Personen mittelhelle Hautfarbe	none
+🧑🏼‍🤝‍🧑🏽	sich an den Händen haltende Personen mittelhelle Hautfarbe, mittlere Hautfarbe	none
+🧑🏼‍🤝‍🧑🏾	sich an den Händen haltende Personen mittelhelle Hautfarbe, mitteldunkle Hautfarbe	none
+🧑🏼‍🤝‍🧑🏿	sich an den Händen haltende Personen mittelhelle Hautfarbe, dunkle Hautfarbe	none
 🧑🏽‍🤝‍🧑🏻	sich an den Händen haltende Personen mittlere Hautfarbe, helle Hautfarbe	none
 🧑🏽‍🤝‍🧑🏼	sich an den Händen haltende Personen mittlere Hautfarbe, mittelhelle Hautfarbe	none
 🧑🏽‍🤝‍🧑🏽	sich an den Händen haltende Personen mittlere Hautfarbe	none
+🧑🏽‍🤝‍🧑🏾	sich an den Händen haltende Personen mittlere Hautfarbe, mitteldunkle Hautfarbe	none
+🧑🏽‍🤝‍🧑🏿	sich an den Händen haltende Personen mittlere Hautfarbe, dunkle Hautfarbe	none
 🧑🏾‍🤝‍🧑🏻	sich an den Händen haltende Personen mitteldunkle Hautfarbe, helle Hautfarbe	none
 🧑🏾‍🤝‍🧑🏼	sich an den Händen haltende Personen mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
 🧑🏾‍🤝‍🧑🏽	sich an den Händen haltende Personen mitteldunkle Hautfarbe, mittlere Hautfarbe	none
 🧑🏾‍🤝‍🧑🏾	sich an den Händen haltende Personen mitteldunkle Hautfarbe	none
+🧑🏾‍🤝‍🧑🏿	sich an den Händen haltende Personen mitteldunkle Hautfarbe, dunkle Hautfarbe	none
 🧑🏿‍🤝‍🧑🏻	sich an den Händen haltende Personen dunkle Hautfarbe, helle Hautfarbe	none
 🧑🏿‍🤝‍🧑🏼	sich an den Händen haltende Personen dunkle Hautfarbe, mittelhelle Hautfarbe	none
 🧑🏿‍🤝‍🧑🏽	sich an den Händen haltende Personen dunkle Hautfarbe, mittlere Hautfarbe	none
 🧑🏿‍🤝‍🧑🏾	sich an den Händen haltende Personen dunkle Hautfarbe, mitteldunkle Hautfarbe	none
 🧑🏿‍🤝‍🧑🏿	sich an den Händen haltende Personen dunkle Hautfarbe	none
 👭🏻	händchenhaltende Frauen helle Hautfarbe	none
+👩🏻‍🤝‍👩🏼	händchenhaltende Frauen helle Hautfarbe, mittelhelle Hautfarbe	none
+👩🏻‍🤝‍👩🏽	händchenhaltende Frauen helle Hautfarbe, mittlere Hautfarbe	none
+👩🏻‍🤝‍👩🏾	händchenhaltende Frauen helle Hautfarbe, mitteldunkle Hautfarbe	none
+👩🏻‍🤝‍👩🏿	händchenhaltende Frauen helle Hautfarbe, dunkle Hautfarbe	none
 👩🏼‍🤝‍👩🏻	händchenhaltende Frauen mittelhelle Hautfarbe, helle Hautfarbe	none
 👭🏼	händchenhaltende Frauen mittelhelle Hautfarbe	none
+👩🏼‍🤝‍👩🏽	händchenhaltende Frauen mittelhelle Hautfarbe, mittlere Hautfarbe	none
+👩🏼‍🤝‍👩🏾	händchenhaltende Frauen mittelhelle Hautfarbe, mitteldunkle Hautfarbe	none
+👩🏼‍🤝‍👩🏿	händchenhaltende Frauen mittelhelle Hautfarbe, dunkle Hautfarbe	none
 👩🏽‍🤝‍👩🏻	händchenhaltende Frauen mittlere Hautfarbe, helle Hautfarbe	none
 👩🏽‍🤝‍👩🏼	händchenhaltende Frauen mittlere Hautfarbe, mittelhelle Hautfarbe	none
 👭🏽	händchenhaltende Frauen mittlere Hautfarbe	none
+👩🏽‍🤝‍👩🏾	händchenhaltende Frauen mittlere Hautfarbe, mitteldunkle Hautfarbe	none
+👩🏽‍🤝‍👩🏿	händchenhaltende Frauen mittlere Hautfarbe, dunkle Hautfarbe	none
 👩🏾‍🤝‍👩🏻	händchenhaltende Frauen mitteldunkle Hautfarbe, helle Hautfarbe	none
 👩🏾‍🤝‍👩🏼	händchenhaltende Frauen mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
 👩🏾‍🤝‍👩🏽	händchenhaltende Frauen mitteldunkle Hautfarbe, mittlere Hautfarbe	none
 👭🏾	händchenhaltende Frauen mitteldunkle Hautfarbe	none
+👩🏾‍🤝‍👩🏿	händchenhaltende Frauen mitteldunkle Hautfarbe, dunkle Hautfarbe	none
 👩🏿‍🤝‍👩🏻	händchenhaltende Frauen dunkle Hautfarbe, helle Hautfarbe	none
 👩🏿‍🤝‍👩🏼	händchenhaltende Frauen dunkle Hautfarbe, mittelhelle Hautfarbe	none
 👩🏿‍🤝‍👩🏽	händchenhaltende Frauen dunkle Hautfarbe, mittlere Hautfarbe	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	Mann und Frau halten Hände dunkle Hautfarbe, mitteldunkle Hautfarbe	none
 👫🏿	Mann und Frau halten Hände dunkle Hautfarbe	none
 👬🏻	händchenhaltende Männer helle Hautfarbe	none
+👨🏻‍🤝‍👨🏼	händchenhaltende Männer helle Hautfarbe, mittelhelle Hautfarbe	none
+👨🏻‍🤝‍👨🏽	händchenhaltende Männer helle Hautfarbe, mittlere Hautfarbe	none
+👨🏻‍🤝‍👨🏾	händchenhaltende Männer helle Hautfarbe, mitteldunkle Hautfarbe	none
+👨🏻‍🤝‍👨🏿	händchenhaltende Männer helle Hautfarbe, dunkle Hautfarbe	none
 👨🏼‍🤝‍👨🏻	händchenhaltende Männer mittelhelle Hautfarbe, helle Hautfarbe	none
 👬🏼	händchenhaltende Männer mittelhelle Hautfarbe	none
+👨🏼‍🤝‍👨🏽	händchenhaltende Männer mittelhelle Hautfarbe, mittlere Hautfarbe	none
+👨🏼‍🤝‍👨🏾	händchenhaltende Männer mittelhelle Hautfarbe, mitteldunkle Hautfarbe	none
+👨🏼‍🤝‍👨🏿	händchenhaltende Männer mittelhelle Hautfarbe, dunkle Hautfarbe	none
 👨🏽‍🤝‍👨🏻	händchenhaltende Männer mittlere Hautfarbe, helle Hautfarbe	none
 👨🏽‍🤝‍👨🏼	händchenhaltende Männer mittlere Hautfarbe, mittelhelle Hautfarbe	none
 👬🏽	händchenhaltende Männer mittlere Hautfarbe	none
+👨🏽‍🤝‍👨🏾	händchenhaltende Männer mittlere Hautfarbe, mitteldunkle Hautfarbe	none
+👨🏽‍🤝‍👨🏿	händchenhaltende Männer mittlere Hautfarbe, dunkle Hautfarbe	none
 👨🏾‍🤝‍👨🏻	händchenhaltende Männer mitteldunkle Hautfarbe, helle Hautfarbe	none
 👨🏾‍🤝‍👨🏼	händchenhaltende Männer mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
 👨🏾‍🤝‍👨🏽	händchenhaltende Männer mitteldunkle Hautfarbe, mittlere Hautfarbe	none
 👬🏾	händchenhaltende Männer mitteldunkle Hautfarbe	none
+👨🏾‍🤝‍👨🏿	händchenhaltende Männer mitteldunkle Hautfarbe, dunkle Hautfarbe	none
 👨🏿‍🤝‍👨🏻	händchenhaltende Männer dunkle Hautfarbe, helle Hautfarbe	none
 👨🏿‍🤝‍👨🏼	händchenhaltende Männer dunkle Hautfarbe, mittelhelle Hautfarbe	none
 👨🏿‍🤝‍👨🏽	händchenhaltende Männer dunkle Hautfarbe, mittlere Hautfarbe	none

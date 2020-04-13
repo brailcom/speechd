@@ -9,6 +9,61 @@ symbols:
 🏾	hudtype 5	none
 🏿	hudtype 6	none
 ⚧	transperson-symbol	none
+🤌	hånd med fingertuppene sammen	none
+🥲	smilefjes med tåre	none
+🥷	ninja	none
+🥸	fjes med forkledning	none
+🦣	mammut	none
+🦤	dronte	none
+🦫	bever	none
+🦬	bison	none
+🦭	sel	none
+🧋	boble-te	none
+🩴	flippflopp	none
+🪃	bumerang	none
+🪄	tryllestav	none
+🪅	piñata	none
+🪆	matrjosjka	none
+🪖	militærhjelm	none
+🪗	trekkspill	none
+🪘	langtromme	none
+🪙	mynt	none
+🪚	håndsag	none
+🪛	skrutrekker	none
+🪜	stige	none
+🪝	krok	none
+🪞	speil	none
+🪟	vindu	none
+🪠	avløpsåpner	none
+🪡	synål	none
+🪢	knute	none
+🪣	bøtte	none
+🪤	musefelle	none
+🪥	tannbørste	none
+🪦	gravstein	none
+🪧	plakat	none
+🪨	stein	none
+🪰	flue	none
+🪱	mark	none
+🪲	bille	none
+🪳	kakerlakk	none
+🪴	potteplante	none
+🪵	tre	none
+🪶	fjær	none
+🫀	hjertemuskel	none
+🫁	lunger	none
+🫂	klem	none
+🫐	blåbær	none
+🫑	paprika	none
+🫒	oliven	none
+🫓	pitabrød	none
+🫔	tamal	none
+🫕	fondy	none
+🫖	tekanne	none
+🛖	hytte	none
+🛗	heis	none
+🛻	pickup	none
+🛼	rulleskøyter	none
 😀	glisefjes	none
 😃	glisende fjes med vidåpne øyne	none
 😄	smilefjes med åpen munn og smilende øyne	none
@@ -212,11 +267,15 @@ symbols:
 👧	jente	none
 🧑	voksen	none
 👱	Person blond	none
+🧑‍🍼	person som mater baby	none
+🧑‍🎄	julenisse	none
 👨	mann	none
 🧔	mann skjegg	none
 👱‍♂	mann blond	none
+👨‍🍼	mann som mater baby	none
 👩	kvinne	none
 👱‍♀	kvinne blond	none
+👩‍🍼	kvinne som mater baby	none
 🧓	eldre voksen	none
 👴	eldre mann	none
 👵	eldre kvinne	none
@@ -317,8 +376,12 @@ symbols:
 👳‍♀	turbankledd kvinne	none
 👲	mann med kinesisk lue	none
 🧕	kvinne med hodeslør	none
-🤵	mann i smoking	none
-👰	brud	none
+🤵	person i smoking	none
+🤵‍♀	kvinne i smoking	none
+🤵‍♂	mann i smoking	none
+👰	person med slør	none
+👰‍♀	kvinne med slør	none
+👰‍♂	mann med slør	none
 🤰	gravid kvinne	none
 🤱	ammer	none
 👼	babyengel	none
@@ -467,6 +530,7 @@ symbols:
 🦝	vaskebjørn	none
 🐱	kattefjes	none
 🐈	katt	none
+🐈‍⬛	svart katt	none
 🦁	løve	none
 🐯	tigerfjes	none
 🐅	tiger	none
@@ -504,6 +568,7 @@ symbols:
 🦔	pinnsvin	none
 🦇	flaggermus	none
 🐻	bjørn	none
+🐻‍❄	isbjørn	none
 🐨	koala	none
 🐼	panda	none
 🦥	dovendyr	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	transpersonflagg	none
 🏳‍🌈	regnbueflagg	none
 🏴‍☠	sjørøverflagg	none
-🛖	hytte	none
-🛗	heis	none
-🛻	pickup	none
-🛼	rulleskøyter	none
-🤌	hånd med fingertuppene sammen	none
-🥲	smilefjes med tåre	none
-🥷	ninja	none
-🥸	fjes med forkledning	none
-🦣	mammut	none
-🦤	dronte	none
-🦫	bever	none
-🦬	bison	none
-🦭	sel	none
-🧋	boble-te	none
-🩴	flippflopp	none
-🪃	bumerang	none
-🪄	tryllestav	none
-🪅	piñata	none
-🪆	matrjosjka	none
-🪖	militærhjelm	none
-🪗	trekkspill	none
-🪘	langtromme	none
-🪙	mynt	none
-🪚	håndsag	none
-🪛	skrutrekker	none
-🪜	stige	none
-🪝	krok	none
-🪞	speil	none
-🪟	vindu	none
-🪠	avløpsåpner	none
-🪡	synål	none
-🪢	knute	none
-🪣	bøtte	none
-🪤	musefelle	none
-🪥	tannbørste	none
-🪦	gravstein	none
-🪧	plakat	none
-🪨	stein	none
-🪰	flue	none
-🪱	mark	none
-🪲	bille	none
-🪳	kakerlakk	none
-🪴	potteplante	none
-🪵	tre	none
-🪶	fjær	none
-🫀	hjertemuskel	none
-🫁	lunger	none
-🫂	klem	none
-🫐	blåbær	none
-🫑	paprika	none
-🫒	oliven	none
-🫓	pitabrød	none
-🫔	tamal	none
-🫕	fondy	none
-🫖	tekanne	none
+🤌🏻	hånd med fingertuppene sammen hudtype 1–2	none
+🤌🏼	hånd med fingertuppene sammen hudtype 3	none
+🤌🏽	hånd med fingertuppene sammen hudtype 4	none
+🤌🏾	hånd med fingertuppene sammen hudtype 5	none
+🤌🏿	hånd med fingertuppene sammen hudtype 6	none
 👋🏻	vinkende hånd hudtype 1–2	none
 👋🏼	vinkende hånd hudtype 3	none
 👋🏽	vinkende hånd hudtype 4	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	voksen hudtype 4, skallet	none
 🧑🏾‍🦲	voksen hudtype 5, skallet	none
 🧑🏿‍🦲	voksen hudtype 6, skallet	none
+🧑🏻‍🍼	person som mater baby hudtype 1–2	none
+🧑🏼‍🍼	person som mater baby hudtype 3	none
+🧑🏽‍🍼	person som mater baby hudtype 4	none
+🧑🏾‍🍼	person som mater baby hudtype 5	none
+🧑🏿‍🍼	person som mater baby hudtype 6	none
+🧑🏻‍🎄	julenisse hudtype 1–2	none
+🧑🏼‍🎄	julenisse hudtype 3	none
+🧑🏽‍🎄	julenisse hudtype 4	none
+🧑🏾‍🎄	julenisse hudtype 5	none
+🧑🏿‍🎄	julenisse hudtype 6	none
 👨🏻	mann hudtype 1–2	none
 👨🏼	mann hudtype 3	none
 👨🏽	mann hudtype 4	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	mann hudtype 4, skallet	none
 👨🏾‍🦲	mann hudtype 5, skallet	none
 👨🏿‍🦲	mann hudtype 6, skallet	none
+👨🏻‍🍼	mann som mater baby hudtype 1–2	none
+👨🏼‍🍼	mann som mater baby hudtype 3	none
+👨🏽‍🍼	mann som mater baby hudtype 4	none
+👨🏾‍🍼	mann som mater baby hudtype 5	none
+👨🏿‍🍼	mann som mater baby hudtype 6	none
 👩🏻	kvinne hudtype 1–2	none
 👩🏼	kvinne hudtype 3	none
 👩🏽	kvinne hudtype 4	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	kvinne hudtype 4, skallet	none
 👩🏾‍🦲	kvinne hudtype 5, skallet	none
 👩🏿‍🦲	kvinne hudtype 6, skallet	none
+👩🏻‍🍼	kvinne som mater baby hudtype 1–2	none
+👩🏼‍🍼	kvinne som mater baby hudtype 3	none
+👩🏽‍🍼	kvinne som mater baby hudtype 4	none
+👩🏾‍🍼	kvinne som mater baby hudtype 5	none
+👩🏿‍🍼	kvinne som mater baby hudtype 6	none
 🧓🏻	eldre voksen hudtype 1–2	none
 🧓🏼	eldre voksen hudtype 3	none
 🧓🏽	eldre voksen hudtype 4	none
@@ -2307,16 +2342,36 @@ symbols:
 🧕🏽	kvinne med hodeslør hudtype 4	none
 🧕🏾	kvinne med hodeslør hudtype 5	none
 🧕🏿	kvinne med hodeslør hudtype 6	none
-🤵🏻	mann i smoking hudtype 1–2	none
-🤵🏼	mann i smoking hudtype 3	none
-🤵🏽	mann i smoking hudtype 4	none
-🤵🏾	mann i smoking hudtype 5	none
-🤵🏿	mann i smoking hudtype 6	none
-👰🏻	brud hudtype 1–2	none
-👰🏼	brud hudtype 3	none
-👰🏽	brud hudtype 4	none
-👰🏾	brud hudtype 5	none
-👰🏿	brud hudtype 6	none
+🤵🏻	person i smoking hudtype 1–2	none
+🤵🏼	person i smoking hudtype 3	none
+🤵🏽	person i smoking hudtype 4	none
+🤵🏾	person i smoking hudtype 5	none
+🤵🏿	person i smoking hudtype 6	none
+🤵🏻‍♀	kvinne i smoking hudtype 1–2	none
+🤵🏼‍♀	kvinne i smoking hudtype 3	none
+🤵🏽‍♀	kvinne i smoking hudtype 4	none
+🤵🏾‍♀	kvinne i smoking hudtype 5	none
+🤵🏿‍♀	kvinne i smoking hudtype 6	none
+🤵🏻‍♂	mann i smoking hudtype 1–2	none
+🤵🏼‍♂	mann i smoking hudtype 3	none
+🤵🏽‍♂	mann i smoking hudtype 4	none
+🤵🏾‍♂	mann i smoking hudtype 5	none
+🤵🏿‍♂	mann i smoking hudtype 6	none
+👰🏻	person med slør hudtype 1–2	none
+👰🏼	person med slør hudtype 3	none
+👰🏽	person med slør hudtype 4	none
+👰🏾	person med slør hudtype 5	none
+👰🏿	person med slør hudtype 6	none
+👰🏻‍♀	kvinne med slør hudtype 1–2	none
+👰🏼‍♀	kvinne med slør hudtype 3	none
+👰🏽‍♀	kvinne med slør hudtype 4	none
+👰🏾‍♀	kvinne med slør hudtype 5	none
+👰🏿‍♀	kvinne med slør hudtype 6	none
+👰🏻‍♂	mann med slør hudtype 1–2	none
+👰🏼‍♂	mann med slør hudtype 3	none
+👰🏽‍♂	mann med slør hudtype 4	none
+👰🏾‍♂	mann med slør hudtype 5	none
+👰🏿‍♂	mann med slør hudtype 6	none
 🤰🏻	gravid kvinne hudtype 1–2	none
 🤰🏼	gravid kvinne hudtype 3	none
 🤰🏽	gravid kvinne hudtype 4	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	person i seng hudtype 5	none
 🛌🏿	person i seng hudtype 6	none
 🧑🏻‍🤝‍🧑🏻	personer som leier hudtype 1–2	none
+🧑🏻‍🤝‍🧑🏼	personer som leier hudtype 1–2, hudtype 3	none
+🧑🏻‍🤝‍🧑🏽	personer som leier hudtype 1–2, hudtype 4	none
+🧑🏻‍🤝‍🧑🏾	personer som leier hudtype 1–2, hudtype 5	none
+🧑🏻‍🤝‍🧑🏿	personer som leier hudtype 1–2, hudtype 6	none
 🧑🏼‍🤝‍🧑🏻	personer som leier hudtype 3, hudtype 1–2	none
 🧑🏼‍🤝‍🧑🏼	personer som leier hudtype 3	none
+🧑🏼‍🤝‍🧑🏽	personer som leier hudtype 3, hudtype 4	none
+🧑🏼‍🤝‍🧑🏾	personer som leier hudtype 3, hudtype 5	none
+🧑🏼‍🤝‍🧑🏿	personer som leier hudtype 3, hudtype 6	none
 🧑🏽‍🤝‍🧑🏻	personer som leier hudtype 4, hudtype 1–2	none
 🧑🏽‍🤝‍🧑🏼	personer som leier hudtype 4, hudtype 3	none
 🧑🏽‍🤝‍🧑🏽	personer som leier hudtype 4	none
+🧑🏽‍🤝‍🧑🏾	personer som leier hudtype 4, hudtype 5	none
+🧑🏽‍🤝‍🧑🏿	personer som leier hudtype 4, hudtype 6	none
 🧑🏾‍🤝‍🧑🏻	personer som leier hudtype 5, hudtype 1–2	none
 🧑🏾‍🤝‍🧑🏼	personer som leier hudtype 5, hudtype 3	none
 🧑🏾‍🤝‍🧑🏽	personer som leier hudtype 5, hudtype 4	none
 🧑🏾‍🤝‍🧑🏾	personer som leier hudtype 5	none
+🧑🏾‍🤝‍🧑🏿	personer som leier hudtype 5, hudtype 6	none
 🧑🏿‍🤝‍🧑🏻	personer som leier hudtype 6, hudtype 1–2	none
 🧑🏿‍🤝‍🧑🏼	personer som leier hudtype 6, hudtype 3	none
 🧑🏿‍🤝‍🧑🏽	personer som leier hudtype 6, hudtype 4	none
 🧑🏿‍🤝‍🧑🏾	personer som leier hudtype 6, hudtype 5	none
 🧑🏿‍🤝‍🧑🏿	personer som leier hudtype 6	none
 👭🏻	kvinner som leier hudtype 1–2	none
+👩🏻‍🤝‍👩🏼	kvinner som leier hudtype 1–2, hudtype 3	none
+👩🏻‍🤝‍👩🏽	kvinner som leier hudtype 1–2, hudtype 4	none
+👩🏻‍🤝‍👩🏾	kvinner som leier hudtype 1–2, hudtype 5	none
+👩🏻‍🤝‍👩🏿	kvinner som leier hudtype 1–2, hudtype 6	none
 👩🏼‍🤝‍👩🏻	kvinner som leier hudtype 3, hudtype 1–2	none
 👭🏼	kvinner som leier hudtype 3	none
+👩🏼‍🤝‍👩🏽	kvinner som leier hudtype 3, hudtype 4	none
+👩🏼‍🤝‍👩🏾	kvinner som leier hudtype 3, hudtype 5	none
+👩🏼‍🤝‍👩🏿	kvinner som leier hudtype 3, hudtype 6	none
 👩🏽‍🤝‍👩🏻	kvinner som leier hudtype 4, hudtype 1–2	none
 👩🏽‍🤝‍👩🏼	kvinner som leier hudtype 4, hudtype 3	none
 👭🏽	kvinner som leier hudtype 4	none
+👩🏽‍🤝‍👩🏾	kvinner som leier hudtype 4, hudtype 5	none
+👩🏽‍🤝‍👩🏿	kvinner som leier hudtype 4, hudtype 6	none
 👩🏾‍🤝‍👩🏻	kvinner som leier hudtype 5, hudtype 1–2	none
 👩🏾‍🤝‍👩🏼	kvinner som leier hudtype 5, hudtype 3	none
 👩🏾‍🤝‍👩🏽	kvinner som leier hudtype 5, hudtype 4	none
 👭🏾	kvinner som leier hudtype 5	none
+👩🏾‍🤝‍👩🏿	kvinner som leier hudtype 5, hudtype 6	none
 👩🏿‍🤝‍👩🏻	kvinner som leier hudtype 6, hudtype 1–2	none
 👩🏿‍🤝‍👩🏼	kvinner som leier hudtype 6, hudtype 3	none
 👩🏿‍🤝‍👩🏽	kvinner som leier hudtype 6, hudtype 4	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	mann og kvinne som leier hudtype 6, hudtype 5	none
 👫🏿	mann og kvinne som leier hudtype 6	none
 👬🏻	menn som leier hudtype 1–2	none
+👨🏻‍🤝‍👨🏼	menn som leier hudtype 1–2, hudtype 3	none
+👨🏻‍🤝‍👨🏽	menn som leier hudtype 1–2, hudtype 4	none
+👨🏻‍🤝‍👨🏾	menn som leier hudtype 1–2, hudtype 5	none
+👨🏻‍🤝‍👨🏿	menn som leier hudtype 1–2, hudtype 6	none
 👨🏼‍🤝‍👨🏻	menn som leier hudtype 3, hudtype 1–2	none
 👬🏼	menn som leier hudtype 3	none
+👨🏼‍🤝‍👨🏽	menn som leier hudtype 3, hudtype 4	none
+👨🏼‍🤝‍👨🏾	menn som leier hudtype 3, hudtype 5	none
+👨🏼‍🤝‍👨🏿	menn som leier hudtype 3, hudtype 6	none
 👨🏽‍🤝‍👨🏻	menn som leier hudtype 4, hudtype 1–2	none
 👨🏽‍🤝‍👨🏼	menn som leier hudtype 4, hudtype 3	none
 👬🏽	menn som leier hudtype 4	none
+👨🏽‍🤝‍👨🏾	menn som leier hudtype 4, hudtype 5	none
+👨🏽‍🤝‍👨🏿	menn som leier hudtype 4, hudtype 6	none
 👨🏾‍🤝‍👨🏻	menn som leier hudtype 5, hudtype 1–2	none
 👨🏾‍🤝‍👨🏼	menn som leier hudtype 5, hudtype 3	none
 👨🏾‍🤝‍👨🏽	menn som leier hudtype 5, hudtype 4	none
 👬🏾	menn som leier hudtype 5	none
+👨🏾‍🤝‍👨🏿	menn som leier hudtype 5, hudtype 6	none
 👨🏿‍🤝‍👨🏻	menn som leier hudtype 6, hudtype 1–2	none
 👨🏿‍🤝‍👨🏼	menn som leier hudtype 6, hudtype 3	none
 👨🏿‍🤝‍👨🏽	menn som leier hudtype 6, hudtype 4	none
@@ -3019,7 +3104,7 @@ symbols:
 🇪🇷	flagg Eritrea	none
 🇪🇸	flagg Spania	none
 🇪🇹	flagg Etiopia	none
-🇪🇺	flagg EU	none
+🇪🇺	flagg Den europeiske union	none
 🇫🇮	flagg Finland	none
 🇫🇯	flagg Fiji	none
 🇫🇰	flagg Falklandsøyene	none

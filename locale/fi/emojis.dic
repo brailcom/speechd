@@ -9,6 +9,61 @@ symbols:
 🏾	keskitumma iho	none
 🏿	tumma iho	none
 ⚧	transsymboli	none
+🤌	käsi supussa	none
+🥲	hymyilevät kasvot ja kyynel	none
+🥷	ninja	none
+🥸	naamioitunut	none
+🦣	mammutti	none
+🦤	dodo	none
+🦫	majava	none
+🦬	biisoni	none
+🦭	hylje	none
+🧋	kuplatee	none
+🩴	varvassandaali	none
+🪃	bumerangi	none
+🪄	taikasauva	none
+🪅	piñata	none
+🪆	maatuskanuket	none
+🪖	sotilaskypärä	none
+🪗	harmonikka	none
+🪘	congarumpu	none
+🪙	kolikko	none
+🪚	käsisaha	none
+🪛	ruuvimeisseli	none
+🪜	tikkaat	none
+🪝	koukku	none
+🪞	peili	none
+🪟	ikkuna	none
+🪠	viemäripumppu	none
+🪡	ompeluneula	none
+🪢	solmu	none
+🪣	ämpäri	none
+🪤	hiirenloukku	none
+🪥	hammasharja	none
+🪦	hautakivi	none
+🪧	kyltti	none
+🪨	kivi	none
+🪰	kärpänen	none
+🪱	mato	none
+🪲	kuoriainen	none
+🪳	torakka	none
+🪴	ruukkukasvi	none
+🪵	halko	none
+🪶	höyhen	none
+🫀	sydän	none
+🫁	keuhkot	none
+🫂	halaus	none
+🫐	mustikat	none
+🫑	paprika	none
+🫒	oliivi	none
+🫓	rieska	none
+🫔	tamal	none
+🫕	fondue	none
+🫖	teepannu	none
+🛖	maja	none
+🛗	hissi	none
+🛻	lava-auto	none
+🛼	rullaluistin	none
 😀	leveä hymy	none
 😃	hymy suu auki	none
 😄	hymyilevät silmät ja suu	none
@@ -212,11 +267,15 @@ symbols:
 👧	tyttö	none
 🧑	aikuinen	none
 👱	vaaleatukkainen henkilö	none
+🧑‍🍼	vauvaa syöttävä henkilö	none
+🧑‍🎄	tonttu	none
 👨	mies	none
 🧔	parrakas henkilö	none
 👱‍♂	vaaleatukkainen mies	none
+👨‍🍼	vauvaa syöttävä mies	none
 👩	nainen	none
 👱‍♀	vaaleatukkainen nainen	none
+👩‍🍼	vauvaa syöttävä nainen	none
 🧓	vanhus	none
 👴	vanha mies	none
 👵	vanha nainen	none
@@ -317,8 +376,12 @@ symbols:
 👳‍♀	turbaanipäinen nainen	none
 👲	mies ja kiinalainen hattu	none
 🧕	huivipäinen nainen	none
-🤵	smokkipukuinen mies	none
+🤵	henkilö smokissa	none
+🤵‍♀	nainen smokissa	none
+🤵‍♂	mies smokissa	none
 👰	huntupäinen morsian	none
+👰‍♀	huntupäinen nainen	none
+👰‍♂	huntupäinen mies	none
 🤰	raskaana oleva nainen	none
 🤱	imetys	none
 👼	enkelivauva	none
@@ -467,6 +530,7 @@ symbols:
 🦝	pesukarhu	none
 🐱	kissan naama	none
 🐈	kissa	none
+🐈‍⬛	musta kissa	none
 🦁	leijona	none
 🐯	tiikerin naama	none
 🐅	tiikeri	none
@@ -504,6 +568,7 @@ symbols:
 🦔	siili	none
 🦇	lepakko	none
 🐻	karhu	none
+🐻‍❄	jääkarhu	none
 🐨	koala	none
 🐼	panda	none
 🦥	laiskiainen	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	translippu	none
 🏳‍🌈	sateenkaarilippu	none
 🏴‍☠	merirosvolippu	none
-🛖	maja	none
-🛗	hissi	none
-🛻	lava-auto	none
-🛼	rullaluistin	none
-🤌	käsi supussa	none
-🥲	hymyilevät kasvot ja kyynel	none
-🥷	ninja	none
-🥸	naamioitunut	none
-🦣	mammutti	none
-🦤	dodo	none
-🦫	majava	none
-🦬	biisoni	none
-🦭	hylje	none
-🧋	kuplatee	none
-🩴	varvassandaali	none
-🪃	bumerangi	none
-🪄	taikasauva	none
-🪅	piñata	none
-🪆	maatuskanuket	none
-🪖	sotilaskypärä	none
-🪗	harmonikka	none
-🪘	congarumpu	none
-🪙	kolikko	none
-🪚	käsisaha	none
-🪛	ruuvimeisseli	none
-🪜	tikkaat	none
-🪝	koukku	none
-🪞	peili	none
-🪟	ikkuna	none
-🪠	viemäripumppu	none
-🪡	ompeluneula	none
-🪢	solmu	none
-🪣	ämpäri	none
-🪤	hiirenloukku	none
-🪥	hammasharja	none
-🪦	hautakivi	none
-🪧	kyltti	none
-🪨	kivi	none
-🪰	kärpänen	none
-🪱	mato	none
-🪲	kuoriainen	none
-🪳	torakka	none
-🪴	ruukkukasvi	none
-🪵	halko	none
-🪶	höyhen	none
-🫀	sydän	none
-🫁	keuhkot	none
-🫂	halaus	none
-🫐	mustikat	none
-🫑	paprika	none
-🫒	oliivi	none
-🫓	rieska	none
-🫔	tamal	none
-🫕	fondue	none
-🫖	teepannu	none
+🤌🏻	käsi supussa vaalea iho	none
+🤌🏼	käsi supussa keskivaalea iho	none
+🤌🏽	käsi supussa tummanvaalea iho	none
+🤌🏾	käsi supussa keskitumma iho	none
+🤌🏿	käsi supussa tumma iho	none
 👋🏻	käden heilautus vaalea iho	none
 👋🏼	käden heilautus keskivaalea iho	none
 👋🏽	käden heilautus tummanvaalea iho	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	aikuinen tummanvaalea iho, kalju	none
 🧑🏾‍🦲	aikuinen keskitumma iho, kalju	none
 🧑🏿‍🦲	aikuinen tumma iho, kalju	none
+🧑🏻‍🍼	vauvaa syöttävä henkilö vaalea iho	none
+🧑🏼‍🍼	vauvaa syöttävä henkilö keskivaalea iho	none
+🧑🏽‍🍼	vauvaa syöttävä henkilö tummanvaalea iho	none
+🧑🏾‍🍼	vauvaa syöttävä henkilö keskitumma iho	none
+🧑🏿‍🍼	vauvaa syöttävä henkilö tumma iho	none
+🧑🏻‍🎄	tonttu vaalea iho	none
+🧑🏼‍🎄	tonttu keskivaalea iho	none
+🧑🏽‍🎄	tonttu tummanvaalea iho	none
+🧑🏾‍🎄	tonttu keskitumma iho	none
+🧑🏿‍🎄	tonttu tumma iho	none
 👨🏻	mies vaalea iho	none
 👨🏼	mies keskivaalea iho	none
 👨🏽	mies tummanvaalea iho	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	mies tummanvaalea iho, kalju	none
 👨🏾‍🦲	mies keskitumma iho, kalju	none
 👨🏿‍🦲	mies tumma iho, kalju	none
+👨🏻‍🍼	vauvaa syöttävä mies vaalea iho	none
+👨🏼‍🍼	vauvaa syöttävä mies keskivaalea iho	none
+👨🏽‍🍼	vauvaa syöttävä mies tummanvaalea iho	none
+👨🏾‍🍼	vauvaa syöttävä mies keskitumma iho	none
+👨🏿‍🍼	vauvaa syöttävä mies tumma iho	none
 👩🏻	nainen vaalea iho	none
 👩🏼	nainen keskivaalea iho	none
 👩🏽	nainen tummanvaalea iho	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	nainen tummanvaalea iho, kalju	none
 👩🏾‍🦲	nainen keskitumma iho, kalju	none
 👩🏿‍🦲	nainen tumma iho, kalju	none
+👩🏻‍🍼	vauvaa syöttävä nainen vaalea iho	none
+👩🏼‍🍼	vauvaa syöttävä nainen keskivaalea iho	none
+👩🏽‍🍼	vauvaa syöttävä nainen tummanvaalea iho	none
+👩🏾‍🍼	vauvaa syöttävä nainen keskitumma iho	none
+👩🏿‍🍼	vauvaa syöttävä nainen tumma iho	none
 🧓🏻	vanhus vaalea iho	none
 🧓🏼	vanhus keskivaalea iho	none
 🧓🏽	vanhus tummanvaalea iho	none
@@ -2307,16 +2342,36 @@ symbols:
 🧕🏽	huivipäinen nainen tummanvaalea iho	none
 🧕🏾	huivipäinen nainen keskitumma iho	none
 🧕🏿	huivipäinen nainen tumma iho	none
-🤵🏻	smokkipukuinen mies vaalea iho	none
-🤵🏼	smokkipukuinen mies keskivaalea iho	none
-🤵🏽	smokkipukuinen mies tummanvaalea iho	none
-🤵🏾	smokkipukuinen mies keskitumma iho	none
-🤵🏿	smokkipukuinen mies tumma iho	none
+🤵🏻	henkilö smokissa vaalea iho	none
+🤵🏼	henkilö smokissa keskivaalea iho	none
+🤵🏽	henkilö smokissa tummanvaalea iho	none
+🤵🏾	henkilö smokissa keskitumma iho	none
+🤵🏿	henkilö smokissa tumma iho	none
+🤵🏻‍♀	nainen smokissa vaalea iho	none
+🤵🏼‍♀	nainen smokissa keskivaalea iho	none
+🤵🏽‍♀	nainen smokissa tummanvaalea iho	none
+🤵🏾‍♀	nainen smokissa keskitumma iho	none
+🤵🏿‍♀	nainen smokissa tumma iho	none
+🤵🏻‍♂	mies smokissa vaalea iho	none
+🤵🏼‍♂	mies smokissa keskivaalea iho	none
+🤵🏽‍♂	mies smokissa tummanvaalea iho	none
+🤵🏾‍♂	mies smokissa keskitumma iho	none
+🤵🏿‍♂	mies smokissa tumma iho	none
 👰🏻	huntupäinen morsian vaalea iho	none
 👰🏼	huntupäinen morsian keskivaalea iho	none
 👰🏽	huntupäinen morsian tummanvaalea iho	none
 👰🏾	huntupäinen morsian keskitumma iho	none
 👰🏿	huntupäinen morsian tumma iho	none
+👰🏻‍♀	huntupäinen nainen vaalea iho	none
+👰🏼‍♀	huntupäinen nainen keskivaalea iho	none
+👰🏽‍♀	huntupäinen nainen tummanvaalea iho	none
+👰🏾‍♀	huntupäinen nainen keskitumma iho	none
+👰🏿‍♀	huntupäinen nainen tumma iho	none
+👰🏻‍♂	huntupäinen mies vaalea iho	none
+👰🏼‍♂	huntupäinen mies keskivaalea iho	none
+👰🏽‍♂	huntupäinen mies tummanvaalea iho	none
+👰🏾‍♂	huntupäinen mies keskitumma iho	none
+👰🏿‍♂	huntupäinen mies tumma iho	none
 🤰🏻	raskaana oleva nainen vaalea iho	none
 🤰🏼	raskaana oleva nainen keskivaalea iho	none
 🤰🏽	raskaana oleva nainen tummanvaalea iho	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	nukkuja keskitumma iho	none
 🛌🏿	nukkuja tumma iho	none
 🧑🏻‍🤝‍🧑🏻	ihmiset käsi kädessä vaalea iho	none
+🧑🏻‍🤝‍🧑🏼	ihmiset käsi kädessä vaalea iho, keskivaalea iho	none
+🧑🏻‍🤝‍🧑🏽	ihmiset käsi kädessä vaalea iho, tummanvaalea iho	none
+🧑🏻‍🤝‍🧑🏾	ihmiset käsi kädessä vaalea iho, keskitumma iho	none
+🧑🏻‍🤝‍🧑🏿	ihmiset käsi kädessä vaalea iho, tumma iho	none
 🧑🏼‍🤝‍🧑🏻	ihmiset käsi kädessä keskivaalea iho, vaalea iho	none
 🧑🏼‍🤝‍🧑🏼	ihmiset käsi kädessä keskivaalea iho	none
+🧑🏼‍🤝‍🧑🏽	ihmiset käsi kädessä keskivaalea iho, tummanvaalea iho	none
+🧑🏼‍🤝‍🧑🏾	ihmiset käsi kädessä keskivaalea iho, keskitumma iho	none
+🧑🏼‍🤝‍🧑🏿	ihmiset käsi kädessä keskivaalea iho, tumma iho	none
 🧑🏽‍🤝‍🧑🏻	ihmiset käsi kädessä tummanvaalea iho, vaalea iho	none
 🧑🏽‍🤝‍🧑🏼	ihmiset käsi kädessä tummanvaalea iho, keskivaalea iho	none
 🧑🏽‍🤝‍🧑🏽	ihmiset käsi kädessä tummanvaalea iho	none
+🧑🏽‍🤝‍🧑🏾	ihmiset käsi kädessä tummanvaalea iho, keskitumma iho	none
+🧑🏽‍🤝‍🧑🏿	ihmiset käsi kädessä tummanvaalea iho, tumma iho	none
 🧑🏾‍🤝‍🧑🏻	ihmiset käsi kädessä keskitumma iho, vaalea iho	none
 🧑🏾‍🤝‍🧑🏼	ihmiset käsi kädessä keskitumma iho, keskivaalea iho	none
 🧑🏾‍🤝‍🧑🏽	ihmiset käsi kädessä keskitumma iho, tummanvaalea iho	none
 🧑🏾‍🤝‍🧑🏾	ihmiset käsi kädessä keskitumma iho	none
+🧑🏾‍🤝‍🧑🏿	ihmiset käsi kädessä keskitumma iho, tumma iho	none
 🧑🏿‍🤝‍🧑🏻	ihmiset käsi kädessä tumma iho, vaalea iho	none
 🧑🏿‍🤝‍🧑🏼	ihmiset käsi kädessä tumma iho, keskivaalea iho	none
 🧑🏿‍🤝‍🧑🏽	ihmiset käsi kädessä tumma iho, tummanvaalea iho	none
 🧑🏿‍🤝‍🧑🏾	ihmiset käsi kädessä tumma iho, keskitumma iho	none
 🧑🏿‍🤝‍🧑🏿	ihmiset käsi kädessä tumma iho	none
 👭🏻	kaksi naista käsi kädessä vaalea iho	none
+👩🏻‍🤝‍👩🏼	kaksi naista käsi kädessä vaalea iho, keskivaalea iho	none
+👩🏻‍🤝‍👩🏽	kaksi naista käsi kädessä vaalea iho, tummanvaalea iho	none
+👩🏻‍🤝‍👩🏾	kaksi naista käsi kädessä vaalea iho, keskitumma iho	none
+👩🏻‍🤝‍👩🏿	kaksi naista käsi kädessä vaalea iho, tumma iho	none
 👩🏼‍🤝‍👩🏻	kaksi naista käsi kädessä keskivaalea iho, vaalea iho	none
 👭🏼	kaksi naista käsi kädessä keskivaalea iho	none
+👩🏼‍🤝‍👩🏽	kaksi naista käsi kädessä keskivaalea iho, tummanvaalea iho	none
+👩🏼‍🤝‍👩🏾	kaksi naista käsi kädessä keskivaalea iho, keskitumma iho	none
+👩🏼‍🤝‍👩🏿	kaksi naista käsi kädessä keskivaalea iho, tumma iho	none
 👩🏽‍🤝‍👩🏻	kaksi naista käsi kädessä tummanvaalea iho, vaalea iho	none
 👩🏽‍🤝‍👩🏼	kaksi naista käsi kädessä tummanvaalea iho, keskivaalea iho	none
 👭🏽	kaksi naista käsi kädessä tummanvaalea iho	none
+👩🏽‍🤝‍👩🏾	kaksi naista käsi kädessä tummanvaalea iho, keskitumma iho	none
+👩🏽‍🤝‍👩🏿	kaksi naista käsi kädessä tummanvaalea iho, tumma iho	none
 👩🏾‍🤝‍👩🏻	kaksi naista käsi kädessä keskitumma iho, vaalea iho	none
 👩🏾‍🤝‍👩🏼	kaksi naista käsi kädessä keskitumma iho, keskivaalea iho	none
 👩🏾‍🤝‍👩🏽	kaksi naista käsi kädessä keskitumma iho, tummanvaalea iho	none
 👭🏾	kaksi naista käsi kädessä keskitumma iho	none
+👩🏾‍🤝‍👩🏿	kaksi naista käsi kädessä keskitumma iho, tumma iho	none
 👩🏿‍🤝‍👩🏻	kaksi naista käsi kädessä tumma iho, vaalea iho	none
 👩🏿‍🤝‍👩🏼	kaksi naista käsi kädessä tumma iho, keskivaalea iho	none
 👩🏿‍🤝‍👩🏽	kaksi naista käsi kädessä tumma iho, tummanvaalea iho	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	mies ja nainen käsi kädessä tumma iho, keskitumma iho	none
 👫🏿	mies ja nainen käsi kädessä tumma iho	none
 👬🏻	kaksi miestä käsi kädessä vaalea iho	none
+👨🏻‍🤝‍👨🏼	kaksi miestä käsi kädessä vaalea iho, keskivaalea iho	none
+👨🏻‍🤝‍👨🏽	kaksi miestä käsi kädessä vaalea iho, tummanvaalea iho	none
+👨🏻‍🤝‍👨🏾	kaksi miestä käsi kädessä vaalea iho, keskitumma iho	none
+👨🏻‍🤝‍👨🏿	kaksi miestä käsi kädessä vaalea iho, tumma iho	none
 👨🏼‍🤝‍👨🏻	kaksi miestä käsi kädessä keskivaalea iho, vaalea iho	none
 👬🏼	kaksi miestä käsi kädessä keskivaalea iho	none
+👨🏼‍🤝‍👨🏽	kaksi miestä käsi kädessä keskivaalea iho, tummanvaalea iho	none
+👨🏼‍🤝‍👨🏾	kaksi miestä käsi kädessä keskivaalea iho, keskitumma iho	none
+👨🏼‍🤝‍👨🏿	kaksi miestä käsi kädessä keskivaalea iho, tumma iho	none
 👨🏽‍🤝‍👨🏻	kaksi miestä käsi kädessä tummanvaalea iho, vaalea iho	none
 👨🏽‍🤝‍👨🏼	kaksi miestä käsi kädessä tummanvaalea iho, keskivaalea iho	none
 👬🏽	kaksi miestä käsi kädessä tummanvaalea iho	none
+👨🏽‍🤝‍👨🏾	kaksi miestä käsi kädessä tummanvaalea iho, keskitumma iho	none
+👨🏽‍🤝‍👨🏿	kaksi miestä käsi kädessä tummanvaalea iho, tumma iho	none
 👨🏾‍🤝‍👨🏻	kaksi miestä käsi kädessä keskitumma iho, vaalea iho	none
 👨🏾‍🤝‍👨🏼	kaksi miestä käsi kädessä keskitumma iho, keskivaalea iho	none
 👨🏾‍🤝‍👨🏽	kaksi miestä käsi kädessä keskitumma iho, tummanvaalea iho	none
 👬🏾	kaksi miestä käsi kädessä keskitumma iho	none
+👨🏾‍🤝‍👨🏿	kaksi miestä käsi kädessä keskitumma iho, tumma iho	none
 👨🏿‍🤝‍👨🏻	kaksi miestä käsi kädessä tumma iho, vaalea iho	none
 👨🏿‍🤝‍👨🏼	kaksi miestä käsi kädessä tumma iho, keskivaalea iho	none
 👨🏿‍🤝‍👨🏽	kaksi miestä käsi kädessä tumma iho, tummanvaalea iho	none

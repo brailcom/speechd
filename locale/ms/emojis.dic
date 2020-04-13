@@ -9,6 +9,61 @@ symbols:
 🏾	ton kulit sederhana gelap	none
 🏿	ton kulit gelap	none
 ⚧	simbol transgender	none
+🤌	jari mencubit	none
+🥲	muka tersenyum dengan airmata	none
+🥷	ninja	none
+🥸	muka samaran	none
+🦣	mamot	none
+🦤	dodo	none
+🦫	beaver	none
+🦬	bison	none
+🦭	anjing laut	none
+🧋	teh buih	none
+🩴	sandal tali kulit	none
+🪃	bumerang	none
+🪄	tongkat sakti	none
+🪅	pinata	none
+🪆	anak potong sekelompok	none
+🪖	helmet tentera	none
+🪗	akordion	none
+🪘	karatung	none
+🪙	syiling	none
+🪚	gergaji kayu	none
+🪛	pemutar skru	none
+🪜	tangga	none
+🪝	cangkuk	none
+🪞	cermin	none
+🪟	tingkap	none
+🪠	pelocok	none
+🪡	jarum menjahit	none
+🪢	simpul	none
+🪣	timba	none
+🪤	perangkap tikus	none
+🪥	berus gigi	none
+🪦	nisan	none
+🪧	plakad	none
+🪨	batuan	none
+🪰	lalat	none
+🪱	cacing	none
+🪲	kumbang	none
+🪳	lipas	none
+🪴	pokok dalam pasu	none
+🪵	kayu	none
+🪶	bulu pelepah	none
+🫀	organ jantung	none
+🫁	paru-paru	none
+🫂	orang berpelukan	none
+🫐	beri biru	none
+🫑	cili kembung	none
+🫒	buah zaitun	none
+🫓	roti leper	none
+🫔	tamale	none
+🫕	fondue	none
+🫖	teko teh	none
+🛖	pondok	none
+🛗	elevator	none
+🛻	trak pikap	none
+🛼	kasut roda	none
 😀	muka tersengih	none
 😃	muka tersengih dengan mata besar	none
 😄	muka tersengih dan mata tersenyum	none
@@ -212,11 +267,15 @@ symbols:
 👧	budak perempuan	none
 🧑	dewasa	none
 👱	orang rambut perang	none
+🧑‍🍼	orang menyusui bayi	none
+🧑‍🎄	orang claus	none
 👨	lelaki	none
 🧔	lelaki janggut	none
 👱‍♂	lelaki rambut perang	none
+👨‍🍼	lelaki menyusui bayi	none
 👩	perempuan	none
 👱‍♀	perempuan rambut perang	none
+👩‍🍼	wanita menyusui bayi	none
 🧓	dewasa lebih tua	none
 👴	lelaki tua	none
 👵	wanita tua	none
@@ -317,8 +376,12 @@ symbols:
 👳‍♀	wanita berserban	none
 👲	lelaki bertopi cina	none
 🧕	wanita bertudung	none
-🤵	lelaki bertuksedo	none
-👰	pengantin perempuan memakai vel	none
+🤵	orang bertuksedo	none
+🤵‍♀	wanita berpakaian tuksedo	none
+🤵‍♂	lelaki berpakaian tuksedo	none
+👰	orang memakai vel	none
+👰‍♀	wanita memakai vel	none
+👰‍♂	lelaki memakai vel	none
 🤰	wanita hamil	none
 🤱	menyusu badan	none
 👼	pari-pari bayi	none
@@ -467,6 +530,7 @@ symbols:
 🦝	rakun	none
 🐱	muka kucing	none
 🐈	kucing	none
+🐈‍⬛	kucing hitam	none
 🦁	singa	none
 🐯	muka harimau	none
 🐅	harimau	none
@@ -504,6 +568,7 @@ symbols:
 🦔	landak kecil	none
 🦇	kelawar	none
 🐻	beruang	none
+🐻‍❄	beruang kutub	none
 🐨	koala	none
 🐼	panda	none
 🦥	sloth	none
@@ -1332,12 +1397,12 @@ symbols:
 ✅	butang tanda rait	none
 ☑	peti undi dengan tanda semak	none
 ✔	tanda rait	none
-✖	tanda darab	none
+✖	darab	none
 ❌	tanda pangkah	none
 ❎	butang tanda pangkah	none
-➕	tanda campur	none
-➖	tanda tolak	none
-➗	tanda bahagi	none
+➕	tambah	none
+➖	tolak	none
+➗	bahagi	none
 ➰	gelung ikal	none
 ➿	gelung ikal berganda	none
 〽	tanda penyelingan bahagian	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	bendera biru,merah jambu, dan putih	none
 🏳‍🌈	bendera pelangi	none
 🏴‍☠	bendera lanun	none
-🛖	pondok	none
-🛗	elevator	none
-🛻	trak pikap	none
-🛼	kasut roda	none
-🤌	jari mencubit	none
-🥲	muka tersenyum dengan airmata	none
-🥷	ninja	none
-🥸	muka samaran	none
-🦣	mamot	none
-🦤	dodo	none
-🦫	beaver	none
-🦬	bison	none
-🦭	anjing laut	none
-🧋	teh buih	none
-🩴	sandal tali kulit	none
-🪃	bumerang	none
-🪄	tongkat sakti	none
-🪅	pinata	none
-🪆	anak potong sekelompok	none
-🪖	helmet tentera	none
-🪗	akordion	none
-🪘	karatung	none
-🪙	syiling	none
-🪚	gergaji kayu	none
-🪛	pemutar skru	none
-🪜	tangga	none
-🪝	cangkuk	none
-🪞	cermin	none
-🪟	tingkap	none
-🪠	pelocok	none
-🪡	jarum menjahit	none
-🪢	simpul	none
-🪣	timba	none
-🪤	perangkap tikus	none
-🪥	berus gigi	none
-🪦	nisan	none
-🪧	plakad	none
-🪨	batuan	none
-🪰	lalat	none
-🪱	cacing	none
-🪲	kumbang	none
-🪳	lipas	none
-🪴	pokok dalam pasu	none
-🪵	kayu	none
-🪶	bulu pelepah	none
-🫀	organ jantung	none
-🫁	paru-paru	none
-🫂	orang berpelukan	none
-🫐	beri biru	none
-🫑	cili kembung	none
-🫒	buah zaitun	none
-🫓	roti leper	none
-🫔	tamale	none
-🫕	fondue	none
-🫖	teko teh	none
+🤌🏻	jari mencubit ton kulit cerah	none
+🤌🏼	jari mencubit ton kulit sederhana cerah	none
+🤌🏽	jari mencubit ton kulit sederhana	none
+🤌🏾	jari mencubit ton kulit sederhana gelap	none
+🤌🏿	jari mencubit ton kulit gelap	none
 👋🏻	lambai tangan ton kulit cerah	none
 👋🏼	lambai tangan ton kulit sederhana cerah	none
 👋🏽	lambai tangan ton kulit sederhana	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	dewasa ton kulit sederhana dan botak	none
 🧑🏾‍🦲	dewasa ton kulit sederhana gelap dan botak	none
 🧑🏿‍🦲	dewasa ton kulit gelap dan botak	none
+🧑🏻‍🍼	orang menyusui bayi ton kulit cerah	none
+🧑🏼‍🍼	orang menyusui bayi ton kulit sederhana cerah	none
+🧑🏽‍🍼	orang menyusui bayi ton kulit sederhana	none
+🧑🏾‍🍼	orang menyusui bayi ton kulit sederhana gelap	none
+🧑🏿‍🍼	orang menyusui bayi ton kulit gelap	none
+🧑🏻‍🎄	orang claus ton kulit cerah	none
+🧑🏼‍🎄	orang claus ton kulit sederhana cerah	none
+🧑🏽‍🎄	orang claus ton kulit sederhana	none
+🧑🏾‍🎄	orang claus ton kulit sederhana gelap	none
+🧑🏿‍🎄	orang claus ton kulit gelap	none
 👨🏻	lelaki ton kulit cerah	none
 👨🏼	lelaki ton kulit sederhana cerah	none
 👨🏽	lelaki ton kulit sederhana	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	lelaki ton kulit sederhana dan botak	none
 👨🏾‍🦲	lelaki ton kulit sederhana gelap dan botak	none
 👨🏿‍🦲	lelaki ton kulit gelap dan botak	none
+👨🏻‍🍼	lelaki menyusui bayi ton kulit cerah	none
+👨🏼‍🍼	lelaki menyusui bayi ton kulit sederhana cerah	none
+👨🏽‍🍼	lelaki menyusui bayi ton kulit sederhana	none
+👨🏾‍🍼	lelaki menyusui bayi ton kulit sederhana gelap	none
+👨🏿‍🍼	lelaki menyusui bayi ton kulit gelap	none
 👩🏻	perempuan ton kulit cerah	none
 👩🏼	perempuan ton kulit sederhana cerah	none
 👩🏽	perempuan ton kulit sederhana	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	perempuan ton kulit sederhana dan botak	none
 👩🏾‍🦲	perempuan ton kulit sederhana gelap dan botak	none
 👩🏿‍🦲	perempuan ton kulit gelap dan botak	none
+👩🏻‍🍼	wanita menyusui bayi ton kulit cerah	none
+👩🏼‍🍼	wanita menyusui bayi ton kulit sederhana cerah	none
+👩🏽‍🍼	wanita menyusui bayi ton kulit sederhana	none
+👩🏾‍🍼	wanita menyusui bayi ton kulit sederhana gelap	none
+👩🏿‍🍼	wanita menyusui bayi ton kulit gelap	none
 🧓🏻	dewasa lebih tua ton kulit cerah	none
 🧓🏼	dewasa lebih tua ton kulit sederhana cerah	none
 🧓🏽	dewasa lebih tua ton kulit sederhana	none
@@ -2307,16 +2342,36 @@ symbols:
 🧕🏽	wanita bertudung ton kulit sederhana	none
 🧕🏾	wanita bertudung ton kulit sederhana gelap	none
 🧕🏿	wanita bertudung ton kulit gelap	none
-🤵🏻	lelaki bertuksedo ton kulit cerah	none
-🤵🏼	lelaki bertuksedo ton kulit sederhana cerah	none
-🤵🏽	lelaki bertuksedo ton kulit sederhana	none
-🤵🏾	lelaki bertuksedo ton kulit sederhana gelap	none
-🤵🏿	lelaki bertuksedo ton kulit gelap	none
-👰🏻	pengantin perempuan memakai vel ton kulit cerah	none
-👰🏼	pengantin perempuan memakai vel ton kulit sederhana cerah	none
-👰🏽	pengantin perempuan memakai vel ton kulit sederhana	none
-👰🏾	pengantin perempuan memakai vel ton kulit sederhana gelap	none
-👰🏿	pengantin perempuan memakai vel ton kulit gelap	none
+🤵🏻	orang bertuksedo ton kulit cerah	none
+🤵🏼	orang bertuksedo ton kulit sederhana cerah	none
+🤵🏽	orang bertuksedo ton kulit sederhana	none
+🤵🏾	orang bertuksedo ton kulit sederhana gelap	none
+🤵🏿	orang bertuksedo ton kulit gelap	none
+🤵🏻‍♀	wanita berpakaian tuksedo ton kulit cerah	none
+🤵🏼‍♀	wanita berpakaian tuksedo ton kulit sederhana cerah	none
+🤵🏽‍♀	wanita berpakaian tuksedo ton kulit sederhana	none
+🤵🏾‍♀	wanita berpakaian tuksedo ton kulit sederhana gelap	none
+🤵🏿‍♀	wanita berpakaian tuksedo ton kulit gelap	none
+🤵🏻‍♂	lelaki berpakaian tuksedo ton kulit cerah	none
+🤵🏼‍♂	lelaki berpakaian tuksedo ton kulit sederhana cerah	none
+🤵🏽‍♂	lelaki berpakaian tuksedo ton kulit sederhana	none
+🤵🏾‍♂	lelaki berpakaian tuksedo ton kulit sederhana gelap	none
+🤵🏿‍♂	lelaki berpakaian tuksedo ton kulit gelap	none
+👰🏻	orang memakai vel ton kulit cerah	none
+👰🏼	orang memakai vel ton kulit sederhana cerah	none
+👰🏽	orang memakai vel ton kulit sederhana	none
+👰🏾	orang memakai vel ton kulit sederhana gelap	none
+👰🏿	orang memakai vel ton kulit gelap	none
+👰🏻‍♀	wanita memakai vel ton kulit cerah	none
+👰🏼‍♀	wanita memakai vel ton kulit sederhana cerah	none
+👰🏽‍♀	wanita memakai vel ton kulit sederhana	none
+👰🏾‍♀	wanita memakai vel ton kulit sederhana gelap	none
+👰🏿‍♀	wanita memakai vel ton kulit gelap	none
+👰🏻‍♂	lelaki memakai vel ton kulit cerah	none
+👰🏼‍♂	lelaki memakai vel ton kulit sederhana cerah	none
+👰🏽‍♂	lelaki memakai vel ton kulit sederhana	none
+👰🏾‍♂	lelaki memakai vel ton kulit sederhana gelap	none
+👰🏿‍♂	lelaki memakai vel ton kulit gelap	none
 🤰🏻	wanita hamil ton kulit cerah	none
 🤰🏼	wanita hamil ton kulit sederhana cerah	none
 🤰🏽	wanita hamil ton kulit sederhana	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	orang tidur atas katil ton kulit sederhana gelap	none
 🛌🏿	orang tidur atas katil ton kulit gelap	none
 🧑🏻‍🤝‍🧑🏻	orang berpegangan tangan ton kulit cerah	none
+🧑🏻‍🤝‍🧑🏼	orang berpegangan tangan ton kulit cerah dan ton kulit sederhana cerah	none
+🧑🏻‍🤝‍🧑🏽	orang berpegangan tangan ton kulit cerah dan ton kulit sederhana	none
+🧑🏻‍🤝‍🧑🏾	orang berpegangan tangan ton kulit cerah dan ton kulit sederhana gelap	none
+🧑🏻‍🤝‍🧑🏿	orang berpegangan tangan ton kulit cerah dan ton kulit gelap	none
 🧑🏼‍🤝‍🧑🏻	orang berpegangan tangan ton kulit sederhana cerah dan ton kulit cerah	none
 🧑🏼‍🤝‍🧑🏼	orang berpegangan tangan ton kulit sederhana cerah	none
+🧑🏼‍🤝‍🧑🏽	orang berpegangan tangan ton kulit sederhana cerah dan ton kulit sederhana	none
+🧑🏼‍🤝‍🧑🏾	orang berpegangan tangan ton kulit sederhana cerah dan ton kulit sederhana gelap	none
+🧑🏼‍🤝‍🧑🏿	orang berpegangan tangan ton kulit sederhana cerah dan ton kulit gelap	none
 🧑🏽‍🤝‍🧑🏻	orang berpegangan tangan ton kulit sederhana dan ton kulit cerah	none
 🧑🏽‍🤝‍🧑🏼	orang berpegangan tangan ton kulit sederhana dan ton kulit sederhana cerah	none
 🧑🏽‍🤝‍🧑🏽	orang berpegangan tangan ton kulit sederhana	none
+🧑🏽‍🤝‍🧑🏾	orang berpegangan tangan ton kulit sederhana dan ton kulit sederhana gelap	none
+🧑🏽‍🤝‍🧑🏿	orang berpegangan tangan ton kulit sederhana dan ton kulit gelap	none
 🧑🏾‍🤝‍🧑🏻	orang berpegangan tangan ton kulit sederhana gelap dan ton kulit cerah	none
 🧑🏾‍🤝‍🧑🏼	orang berpegangan tangan ton kulit sederhana gelap dan ton kulit sederhana cerah	none
 🧑🏾‍🤝‍🧑🏽	orang berpegangan tangan ton kulit sederhana gelap dan ton kulit sederhana	none
 🧑🏾‍🤝‍🧑🏾	orang berpegangan tangan ton kulit sederhana gelap	none
+🧑🏾‍🤝‍🧑🏿	orang berpegangan tangan ton kulit sederhana gelap dan ton kulit gelap	none
 🧑🏿‍🤝‍🧑🏻	orang berpegangan tangan ton kulit gelap dan ton kulit cerah	none
 🧑🏿‍🤝‍🧑🏼	orang berpegangan tangan ton kulit gelap dan ton kulit sederhana cerah	none
 🧑🏿‍🤝‍🧑🏽	orang berpegangan tangan ton kulit gelap dan ton kulit sederhana	none
 🧑🏿‍🤝‍🧑🏾	orang berpegangan tangan ton kulit gelap dan ton kulit sederhana gelap	none
 🧑🏿‍🤝‍🧑🏿	orang berpegangan tangan ton kulit gelap	none
 👭🏻	dua wanita berpegangan tangan ton kulit cerah	none
+👩🏻‍🤝‍👩🏼	dua wanita berpegangan tangan ton kulit cerah dan ton kulit sederhana cerah	none
+👩🏻‍🤝‍👩🏽	dua wanita berpegangan tangan ton kulit cerah dan ton kulit sederhana	none
+👩🏻‍🤝‍👩🏾	dua wanita berpegangan tangan ton kulit cerah dan ton kulit sederhana gelap	none
+👩🏻‍🤝‍👩🏿	dua wanita berpegangan tangan ton kulit cerah dan ton kulit gelap	none
 👩🏼‍🤝‍👩🏻	dua wanita berpegangan tangan ton kulit sederhana cerah dan ton kulit cerah	none
 👭🏼	dua wanita berpegangan tangan ton kulit sederhana cerah	none
+👩🏼‍🤝‍👩🏽	dua wanita berpegangan tangan ton kulit sederhana cerah dan ton kulit sederhana	none
+👩🏼‍🤝‍👩🏾	dua wanita berpegangan tangan ton kulit sederhana cerah dan ton kulit sederhana gelap	none
+👩🏼‍🤝‍👩🏿	dua wanita berpegangan tangan ton kulit sederhana cerah dan ton kulit gelap	none
 👩🏽‍🤝‍👩🏻	dua wanita berpegangan tangan ton kulit sederhana dan ton kulit cerah	none
 👩🏽‍🤝‍👩🏼	dua wanita berpegangan tangan ton kulit sederhana dan ton kulit sederhana cerah	none
 👭🏽	dua wanita berpegangan tangan ton kulit sederhana	none
+👩🏽‍🤝‍👩🏾	dua wanita berpegangan tangan ton kulit sederhana dan ton kulit sederhana gelap	none
+👩🏽‍🤝‍👩🏿	dua wanita berpegangan tangan ton kulit sederhana dan ton kulit gelap	none
 👩🏾‍🤝‍👩🏻	dua wanita berpegangan tangan ton kulit sederhana gelap dan ton kulit cerah	none
 👩🏾‍🤝‍👩🏼	dua wanita berpegangan tangan ton kulit sederhana gelap dan ton kulit sederhana cerah	none
 👩🏾‍🤝‍👩🏽	dua wanita berpegangan tangan ton kulit sederhana gelap dan ton kulit sederhana	none
 👭🏾	dua wanita berpegangan tangan ton kulit sederhana gelap	none
+👩🏾‍🤝‍👩🏿	dua wanita berpegangan tangan ton kulit sederhana gelap dan ton kulit gelap	none
 👩🏿‍🤝‍👩🏻	dua wanita berpegangan tangan ton kulit gelap dan ton kulit cerah	none
 👩🏿‍🤝‍👩🏼	dua wanita berpegangan tangan ton kulit gelap dan ton kulit sederhana cerah	none
 👩🏿‍🤝‍👩🏽	dua wanita berpegangan tangan ton kulit gelap dan ton kulit sederhana	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	lelaki dan wanita berpegangan tangan ton kulit gelap dan ton kulit sederhana gelap	none
 👫🏿	lelaki dan wanita berpegangan tangan ton kulit gelap	none
 👬🏻	dua lelaki berpegangan tangan ton kulit cerah	none
+👨🏻‍🤝‍👨🏼	dua lelaki berpegangan tangan ton kulit cerah dan ton kulit sederhana cerah	none
+👨🏻‍🤝‍👨🏽	dua lelaki berpegangan tangan ton kulit cerah dan ton kulit sederhana	none
+👨🏻‍🤝‍👨🏾	dua lelaki berpegangan tangan ton kulit cerah dan ton kulit sederhana gelap	none
+👨🏻‍🤝‍👨🏿	dua lelaki berpegangan tangan ton kulit cerah dan ton kulit gelap	none
 👨🏼‍🤝‍👨🏻	dua lelaki berpegangan tangan ton kulit sederhana cerah dan ton kulit cerah	none
 👬🏼	dua lelaki berpegangan tangan ton kulit sederhana cerah	none
+👨🏼‍🤝‍👨🏽	dua lelaki berpegangan tangan ton kulit sederhana cerah dan ton kulit sederhana	none
+👨🏼‍🤝‍👨🏾	dua lelaki berpegangan tangan ton kulit sederhana cerah dan ton kulit sederhana gelap	none
+👨🏼‍🤝‍👨🏿	dua lelaki berpegangan tangan ton kulit sederhana cerah dan ton kulit gelap	none
 👨🏽‍🤝‍👨🏻	dua lelaki berpegangan tangan ton kulit sederhana dan ton kulit cerah	none
 👨🏽‍🤝‍👨🏼	dua lelaki berpegangan tangan ton kulit sederhana dan ton kulit sederhana cerah	none
 👬🏽	dua lelaki berpegangan tangan ton kulit sederhana	none
+👨🏽‍🤝‍👨🏾	dua lelaki berpegangan tangan ton kulit sederhana dan ton kulit sederhana gelap	none
+👨🏽‍🤝‍👨🏿	dua lelaki berpegangan tangan ton kulit sederhana dan ton kulit gelap	none
 👨🏾‍🤝‍👨🏻	dua lelaki berpegangan tangan ton kulit sederhana gelap dan ton kulit cerah	none
 👨🏾‍🤝‍👨🏼	dua lelaki berpegangan tangan ton kulit sederhana gelap dan ton kulit sederhana cerah	none
 👨🏾‍🤝‍👨🏽	dua lelaki berpegangan tangan ton kulit sederhana gelap dan ton kulit sederhana	none
 👬🏾	dua lelaki berpegangan tangan ton kulit sederhana gelap	none
+👨🏾‍🤝‍👨🏿	dua lelaki berpegangan tangan ton kulit sederhana gelap dan ton kulit gelap	none
 👨🏿‍🤝‍👨🏻	dua lelaki berpegangan tangan ton kulit gelap dan ton kulit cerah	none
 👨🏿‍🤝‍👨🏼	dua lelaki berpegangan tangan ton kulit gelap dan ton kulit sederhana cerah	none
 👨🏿‍🤝‍👨🏽	dua lelaki berpegangan tangan ton kulit gelap dan ton kulit sederhana	none

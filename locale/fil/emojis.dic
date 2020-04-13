@@ -9,6 +9,61 @@ symbols:
 🏾	katamtamang dark na kulay ng balat	none
 🏿	dark na kulay ng balat	none
 ⚧	simbolo ng transgender	none
+🤌	pakurot na daliri	none
+🥲	mukhang nakangiti na may luha	none
+🥷	ninja	none
+🥸	nakatagong mukha	none
+🦣	mammoth	none
+🦤	dodo	none
+🦫	beaver	none
+🦬	bison	none
+🦭	seal	none
+🧋	bubble tea	none
+🩴	tsinelas	none
+🪃	boomerang	none
+🪄	magic wand	none
+🪅	piñata	none
+🪆	manikang matryoshka	none
+🪖	helmet pang-militar	none
+🪗	accordion	none
+🪘	mahabang drum	none
+🪙	barya	none
+🪚	lagari	none
+🪛	screwdriver	none
+🪜	hagdan	none
+🪝	kawit	none
+🪞	salamin	none
+🪟	bintana	none
+🪠	plunger	none
+🪡	karayom	none
+🪢	buhol	none
+🪣	timba	none
+🪤	panghuli ng daga	none
+🪥	sipilyo	none
+🪦	lapida	none
+🪧	karatula	none
+🪨	bato	none
+🪰	langaw	none
+🪱	uod	none
+🪲	salaginto	none
+🪳	ipis	none
+🪴	nakapasong halaman	none
+🪵	kahoy	none
+🪶	balahibo	none
+🫀	puso	none
+🫁	baga	none
+🫂	tao na magkayakap	none
+🫐	blueberries	none
+🫑	bell pepper	none
+🫒	olive	none
+🫓	flatbread	none
+🫔	tamale	none
+🫕	fondue	none
+🫖	teapot	none
+🛖	kubo	none
+🛗	elevator	none
+🛻	pickup truck	none
+🛼	roller skate	none
 😀	mukhang nakangiti	none
 😃	nakangisi na may malaking mga mata	none
 😄	nakangisi kasama ang mga nakangiting mata	none
@@ -212,11 +267,15 @@ symbols:
 👧	batang babae	none
 🧑	tao	none
 👱	taong may blond na buhok	none
+🧑‍🍼	taong nagpapadede ng sanggol	none
+🧑‍🎄	mx claus	none
 👨	lalaki	none
 🧔	taong may balbas	none
 👱‍♂	lalaking blonde	none
+👨‍🍼	lalaking nagpapadede ng sanggol	none
 👩	babae	none
 👱‍♀	babae blond na buhok	none
+👩‍🍼	babaeng nagpapadede ng sanggol	none
 🧓	mas matandang tao	none
 👴	matandang lalaki	none
 👵	matandang babae	none
@@ -318,7 +377,11 @@ symbols:
 👲	lalaking may suot na sombrerong chinese	none
 🧕	babae na may headscarf	none
 🤵	naka-tuxedo	none
-👰	babaeng ikakasal na may suot na belo	none
+🤵‍♀	babaeng naka-tuxedo	none
+🤵‍♂	lalaking naka-tuxedo	none
+👰	taong may suot na belo	none
+👰‍♀	babaeng nakabelo	none
+👰‍♂	lalaking nakabelo	none
 🤰	buntis	none
 🤱	breast-feeding	none
 👼	sanggol na anghel	none
@@ -467,6 +530,7 @@ symbols:
 🦝	raccoon	none
 🐱	mukha ng pusa	none
 🐈	pusa	none
+🐈‍⬛	itim na pusa	none
 🦁	mukha ng leon	none
 🐯	mukha ng tigre	none
 🐅	tigre	none
@@ -504,6 +568,7 @@ symbols:
 🦔	hedgehog	none
 🦇	paniki	none
 🐻	oso	none
+🐻‍❄	polar bear	none
 🐨	koala	none
 🐼	panda	none
 🦥	Sloth	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	bandila ng transgender	none
 🏳‍🌈	bahagharing bandila	none
 🏴‍☠	bandila ng pirata	none
-🛖	kubo	none
-🛗	elevator	none
-🛻	pickup truck	none
-🛼	roller skate	none
-🤌	pakurot na daliri	none
-🥲	mukhang nakangiti na may luha	none
-🥷	ninja	none
-🥸	nakatagong mukha	none
-🦣	mammoth	none
-🦤	dodo	none
-🦫	beaver	none
-🦬	bison	none
-🦭	seal	none
-🧋	bubble tea	none
-🩴	tsinelas	none
-🪃	boomerang	none
-🪄	magic wand	none
-🪅	piñata	none
-🪆	manikang matryoshka	none
-🪖	helmet pang-militar	none
-🪗	accordion	none
-🪘	mahabang drum	none
-🪙	barya	none
-🪚	lagari	none
-🪛	screwdriver	none
-🪜	hagdan	none
-🪝	kawit	none
-🪞	salamin	none
-🪟	bintana	none
-🪠	plunger	none
-🪡	karayom	none
-🪢	buhol	none
-🪣	timba	none
-🪤	panghuli ng daga	none
-🪥	sipilyo	none
-🪦	lapida	none
-🪧	karatula	none
-🪨	bato	none
-🪰	langaw	none
-🪱	uod	none
-🪲	salaginto	none
-🪳	ipis	none
-🪴	nakapasong halaman	none
-🪵	kahoy	none
-🪶	balahibo	none
-🫀	puso	none
-🫁	baga	none
-🫂	tao na magkayakap	none
-🫐	blueberries	none
-🫑	bell pepper	none
-🫒	olive	none
-🫓	flatbread	none
-🫔	tamale	none
-🫕	fondue	none
-🫖	teapot	none
+🤌🏻	pakurot na daliri light na kulay ng balat	none
+🤌🏼	pakurot na daliri katamtamang light na kulay ng balat	none
+🤌🏽	pakurot na daliri katamtamang kulay ng balat	none
+🤌🏾	pakurot na daliri katamtamang dark na kulay ng balat	none
+🤌🏿	pakurot na daliri dark na kulay ng balat	none
 👋🏻	kumakaway na kamay light na kulay ng balat	none
 👋🏼	kumakaway na kamay katamtamang light na kulay ng balat	none
 👋🏽	kumakaway na kamay katamtamang kulay ng balat	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	tao katamtamang kulay ng balat, kalbo	none
 🧑🏾‍🦲	tao katamtamang dark na kulay ng balat, kalbo	none
 🧑🏿‍🦲	tao dark na kulay ng balat, kalbo	none
+🧑🏻‍🍼	taong nagpapadede ng sanggol light na kulay ng balat	none
+🧑🏼‍🍼	taong nagpapadede ng sanggol katamtamang light na kulay ng balat	none
+🧑🏽‍🍼	taong nagpapadede ng sanggol katamtamang kulay ng balat	none
+🧑🏾‍🍼	taong nagpapadede ng sanggol katamtamang dark na kulay ng balat	none
+🧑🏿‍🍼	taong nagpapadede ng sanggol dark na kulay ng balat	none
+🧑🏻‍🎄	mx claus light na kulay ng balat	none
+🧑🏼‍🎄	mx claus katamtamang light na kulay ng balat	none
+🧑🏽‍🎄	mx claus katamtamang kulay ng balat	none
+🧑🏾‍🎄	mx claus katamtamang dark na kulay ng balat	none
+🧑🏿‍🎄	mx claus dark na kulay ng balat	none
 👨🏻	lalaki light na kulay ng balat	none
 👨🏼	lalaki katamtamang light na kulay ng balat	none
 👨🏽	lalaki katamtamang kulay ng balat	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	lalaki katamtamang kulay ng balat, kalbo	none
 👨🏾‍🦲	lalaki katamtamang dark na kulay ng balat, kalbo	none
 👨🏿‍🦲	lalaki dark na kulay ng balat, kalbo	none
+👨🏻‍🍼	lalaking nagpapadede ng sanggol light na kulay ng balat	none
+👨🏼‍🍼	lalaking nagpapadede ng sanggol katamtamang light na kulay ng balat	none
+👨🏽‍🍼	lalaking nagpapadede ng sanggol katamtamang kulay ng balat	none
+👨🏾‍🍼	lalaking nagpapadede ng sanggol katamtamang dark na kulay ng balat	none
+👨🏿‍🍼	lalaking nagpapadede ng sanggol dark na kulay ng balat	none
 👩🏻	babae light na kulay ng balat	none
 👩🏼	babae katamtamang light na kulay ng balat	none
 👩🏽	babae katamtamang kulay ng balat	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	babae katamtamang kulay ng balat, kalbo	none
 👩🏾‍🦲	babae katamtamang dark na kulay ng balat, kalbo	none
 👩🏿‍🦲	babae dark na kulay ng balat, kalbo	none
+👩🏻‍🍼	babaeng nagpapadede ng sanggol light na kulay ng balat	none
+👩🏼‍🍼	babaeng nagpapadede ng sanggol katamtamang light na kulay ng balat	none
+👩🏽‍🍼	babaeng nagpapadede ng sanggol katamtamang kulay ng balat	none
+👩🏾‍🍼	babaeng nagpapadede ng sanggol katamtamang dark na kulay ng balat	none
+👩🏿‍🍼	babaeng nagpapadede ng sanggol dark na kulay ng balat	none
 🧓🏻	mas matandang tao light na kulay ng balat	none
 🧓🏼	mas matandang tao katamtamang light na kulay ng balat	none
 🧓🏽	mas matandang tao katamtamang kulay ng balat	none
@@ -2312,11 +2347,31 @@ symbols:
 🤵🏽	naka-tuxedo katamtamang kulay ng balat	none
 🤵🏾	naka-tuxedo katamtamang dark na kulay ng balat	none
 🤵🏿	naka-tuxedo dark na kulay ng balat	none
-👰🏻	babaeng ikakasal na may suot na belo light na kulay ng balat	none
-👰🏼	babaeng ikakasal na may suot na belo katamtamang light na kulay ng balat	none
-👰🏽	babaeng ikakasal na may suot na belo katamtamang kulay ng balat	none
-👰🏾	babaeng ikakasal na may suot na belo katamtamang dark na kulay ng balat	none
-👰🏿	babaeng ikakasal na may suot na belo dark na kulay ng balat	none
+🤵🏻‍♀	babaeng naka-tuxedo light na kulay ng balat	none
+🤵🏼‍♀	babaeng naka-tuxedo katamtamang light na kulay ng balat	none
+🤵🏽‍♀	babaeng naka-tuxedo katamtamang kulay ng balat	none
+🤵🏾‍♀	babaeng naka-tuxedo katamtamang dark na kulay ng balat	none
+🤵🏿‍♀	babaeng naka-tuxedo dark na kulay ng balat	none
+🤵🏻‍♂	lalaking naka-tuxedo light na kulay ng balat	none
+🤵🏼‍♂	lalaking naka-tuxedo katamtamang light na kulay ng balat	none
+🤵🏽‍♂	lalaking naka-tuxedo katamtamang kulay ng balat	none
+🤵🏾‍♂	lalaking naka-tuxedo katamtamang dark na kulay ng balat	none
+🤵🏿‍♂	lalaking naka-tuxedo dark na kulay ng balat	none
+👰🏻	taong may suot na belo light na kulay ng balat	none
+👰🏼	taong may suot na belo katamtamang light na kulay ng balat	none
+👰🏽	taong may suot na belo katamtamang kulay ng balat	none
+👰🏾	taong may suot na belo katamtamang dark na kulay ng balat	none
+👰🏿	taong may suot na belo dark na kulay ng balat	none
+👰🏻‍♀	babaeng nakabelo light na kulay ng balat	none
+👰🏼‍♀	babaeng nakabelo katamtamang light na kulay ng balat	none
+👰🏽‍♀	babaeng nakabelo katamtamang kulay ng balat	none
+👰🏾‍♀	babaeng nakabelo katamtamang dark na kulay ng balat	none
+👰🏿‍♀	babaeng nakabelo dark na kulay ng balat	none
+👰🏻‍♂	lalaking nakabelo light na kulay ng balat	none
+👰🏼‍♂	lalaking nakabelo katamtamang light na kulay ng balat	none
+👰🏽‍♂	lalaking nakabelo katamtamang kulay ng balat	none
+👰🏾‍♂	lalaking nakabelo katamtamang dark na kulay ng balat	none
+👰🏿‍♂	lalaking nakabelo dark na kulay ng balat	none
 🤰🏻	buntis light na kulay ng balat	none
 🤰🏼	buntis katamtamang light na kulay ng balat	none
 🤰🏽	buntis katamtamang kulay ng balat	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	taong nakahiga katamtamang dark na kulay ng balat	none
 🛌🏿	taong nakahiga dark na kulay ng balat	none
 🧑🏻‍🤝‍🧑🏻	mga taong magkahawak-kamay light na kulay ng balat	none
+🧑🏻‍🤝‍🧑🏼	mga taong magkahawak-kamay light na kulay ng balat, katamtamang light na kulay ng balat	none
+🧑🏻‍🤝‍🧑🏽	mga taong magkahawak-kamay light na kulay ng balat, katamtamang kulay ng balat	none
+🧑🏻‍🤝‍🧑🏾	mga taong magkahawak-kamay light na kulay ng balat, katamtamang dark na kulay ng balat	none
+🧑🏻‍🤝‍🧑🏿	mga taong magkahawak-kamay light na kulay ng balat, dark na kulay ng balat	none
 🧑🏼‍🤝‍🧑🏻	mga taong magkahawak-kamay katamtamang light na kulay ng balat, light na kulay ng balat	none
 🧑🏼‍🤝‍🧑🏼	mga taong magkahawak-kamay katamtamang light na kulay ng balat	none
+🧑🏼‍🤝‍🧑🏽	mga taong magkahawak-kamay katamtamang light na kulay ng balat, katamtamang kulay ng balat	none
+🧑🏼‍🤝‍🧑🏾	mga taong magkahawak-kamay katamtamang light na kulay ng balat, katamtamang dark na kulay ng balat	none
+🧑🏼‍🤝‍🧑🏿	mga taong magkahawak-kamay katamtamang light na kulay ng balat, dark na kulay ng balat	none
 🧑🏽‍🤝‍🧑🏻	mga taong magkahawak-kamay katamtamang kulay ng balat, light na kulay ng balat	none
 🧑🏽‍🤝‍🧑🏼	mga taong magkahawak-kamay katamtamang kulay ng balat, katamtamang light na kulay ng balat	none
 🧑🏽‍🤝‍🧑🏽	mga taong magkahawak-kamay katamtamang kulay ng balat	none
+🧑🏽‍🤝‍🧑🏾	mga taong magkahawak-kamay katamtamang kulay ng balat, katamtamang dark na kulay ng balat	none
+🧑🏽‍🤝‍🧑🏿	mga taong magkahawak-kamay katamtamang kulay ng balat, dark na kulay ng balat	none
 🧑🏾‍🤝‍🧑🏻	mga taong magkahawak-kamay katamtamang dark na kulay ng balat, light na kulay ng balat	none
 🧑🏾‍🤝‍🧑🏼	mga taong magkahawak-kamay katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat	none
 🧑🏾‍🤝‍🧑🏽	mga taong magkahawak-kamay katamtamang dark na kulay ng balat, katamtamang kulay ng balat	none
 🧑🏾‍🤝‍🧑🏾	mga taong magkahawak-kamay katamtamang dark na kulay ng balat	none
+🧑🏾‍🤝‍🧑🏿	mga taong magkahawak-kamay katamtamang dark na kulay ng balat, dark na kulay ng balat	none
 🧑🏿‍🤝‍🧑🏻	mga taong magkahawak-kamay dark na kulay ng balat, light na kulay ng balat	none
 🧑🏿‍🤝‍🧑🏼	mga taong magkahawak-kamay dark na kulay ng balat, katamtamang light na kulay ng balat	none
 🧑🏿‍🤝‍🧑🏽	mga taong magkahawak-kamay dark na kulay ng balat, katamtamang kulay ng balat	none
 🧑🏿‍🤝‍🧑🏾	mga taong magkahawak-kamay dark na kulay ng balat, katamtamang dark na kulay ng balat	none
 🧑🏿‍🤝‍🧑🏿	mga taong magkahawak-kamay dark na kulay ng balat	none
 👭🏻	dalawang babaeng magkahawak-kamay light na kulay ng balat	none
+👩🏻‍🤝‍👩🏼	dalawang babaeng magkahawak-kamay light na kulay ng balat, katamtamang light na kulay ng balat	none
+👩🏻‍🤝‍👩🏽	dalawang babaeng magkahawak-kamay light na kulay ng balat, katamtamang kulay ng balat	none
+👩🏻‍🤝‍👩🏾	dalawang babaeng magkahawak-kamay light na kulay ng balat, katamtamang dark na kulay ng balat	none
+👩🏻‍🤝‍👩🏿	dalawang babaeng magkahawak-kamay light na kulay ng balat, dark na kulay ng balat	none
 👩🏼‍🤝‍👩🏻	dalawang babaeng magkahawak-kamay katamtamang light na kulay ng balat, light na kulay ng balat	none
 👭🏼	dalawang babaeng magkahawak-kamay katamtamang light na kulay ng balat	none
+👩🏼‍🤝‍👩🏽	dalawang babaeng magkahawak-kamay katamtamang light na kulay ng balat, katamtamang kulay ng balat	none
+👩🏼‍🤝‍👩🏾	dalawang babaeng magkahawak-kamay katamtamang light na kulay ng balat, katamtamang dark na kulay ng balat	none
+👩🏼‍🤝‍👩🏿	dalawang babaeng magkahawak-kamay katamtamang light na kulay ng balat, dark na kulay ng balat	none
 👩🏽‍🤝‍👩🏻	dalawang babaeng magkahawak-kamay katamtamang kulay ng balat, light na kulay ng balat	none
 👩🏽‍🤝‍👩🏼	dalawang babaeng magkahawak-kamay katamtamang kulay ng balat, katamtamang light na kulay ng balat	none
 👭🏽	dalawang babaeng magkahawak-kamay katamtamang kulay ng balat	none
+👩🏽‍🤝‍👩🏾	dalawang babaeng magkahawak-kamay katamtamang kulay ng balat, katamtamang dark na kulay ng balat	none
+👩🏽‍🤝‍👩🏿	dalawang babaeng magkahawak-kamay katamtamang kulay ng balat, dark na kulay ng balat	none
 👩🏾‍🤝‍👩🏻	dalawang babaeng magkahawak-kamay katamtamang dark na kulay ng balat, light na kulay ng balat	none
 👩🏾‍🤝‍👩🏼	dalawang babaeng magkahawak-kamay katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat	none
 👩🏾‍🤝‍👩🏽	dalawang babaeng magkahawak-kamay katamtamang dark na kulay ng balat, katamtamang kulay ng balat	none
 👭🏾	dalawang babaeng magkahawak-kamay katamtamang dark na kulay ng balat	none
+👩🏾‍🤝‍👩🏿	dalawang babaeng magkahawak-kamay katamtamang dark na kulay ng balat, dark na kulay ng balat	none
 👩🏿‍🤝‍👩🏻	dalawang babaeng magkahawak-kamay dark na kulay ng balat, light na kulay ng balat	none
 👩🏿‍🤝‍👩🏼	dalawang babaeng magkahawak-kamay dark na kulay ng balat, katamtamang light na kulay ng balat	none
 👩🏿‍🤝‍👩🏽	dalawang babaeng magkahawak-kamay dark na kulay ng balat, katamtamang kulay ng balat	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	lalaki at babaeng magkahawak-kamay dark na kulay ng balat, katamtamang dark na kulay ng balat	none
 👫🏿	lalaki at babaeng magkahawak-kamay dark na kulay ng balat	none
 👬🏻	dalawang lalaking magkahawak-kamay light na kulay ng balat	none
+👨🏻‍🤝‍👨🏼	dalawang lalaking magkahawak-kamay light na kulay ng balat, katamtamang light na kulay ng balat	none
+👨🏻‍🤝‍👨🏽	dalawang lalaking magkahawak-kamay light na kulay ng balat, katamtamang kulay ng balat	none
+👨🏻‍🤝‍👨🏾	dalawang lalaking magkahawak-kamay light na kulay ng balat, katamtamang dark na kulay ng balat	none
+👨🏻‍🤝‍👨🏿	dalawang lalaking magkahawak-kamay light na kulay ng balat, dark na kulay ng balat	none
 👨🏼‍🤝‍👨🏻	dalawang lalaking magkahawak-kamay katamtamang light na kulay ng balat, light na kulay ng balat	none
 👬🏼	dalawang lalaking magkahawak-kamay katamtamang light na kulay ng balat	none
+👨🏼‍🤝‍👨🏽	dalawang lalaking magkahawak-kamay katamtamang light na kulay ng balat, katamtamang kulay ng balat	none
+👨🏼‍🤝‍👨🏾	dalawang lalaking magkahawak-kamay katamtamang light na kulay ng balat, katamtamang dark na kulay ng balat	none
+👨🏼‍🤝‍👨🏿	dalawang lalaking magkahawak-kamay katamtamang light na kulay ng balat, dark na kulay ng balat	none
 👨🏽‍🤝‍👨🏻	dalawang lalaking magkahawak-kamay katamtamang kulay ng balat, light na kulay ng balat	none
 👨🏽‍🤝‍👨🏼	dalawang lalaking magkahawak-kamay katamtamang kulay ng balat, katamtamang light na kulay ng balat	none
 👬🏽	dalawang lalaking magkahawak-kamay katamtamang kulay ng balat	none
+👨🏽‍🤝‍👨🏾	dalawang lalaking magkahawak-kamay katamtamang kulay ng balat, katamtamang dark na kulay ng balat	none
+👨🏽‍🤝‍👨🏿	dalawang lalaking magkahawak-kamay katamtamang kulay ng balat, dark na kulay ng balat	none
 👨🏾‍🤝‍👨🏻	dalawang lalaking magkahawak-kamay katamtamang dark na kulay ng balat, light na kulay ng balat	none
 👨🏾‍🤝‍👨🏼	dalawang lalaking magkahawak-kamay katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat	none
 👨🏾‍🤝‍👨🏽	dalawang lalaking magkahawak-kamay katamtamang dark na kulay ng balat, katamtamang kulay ng balat	none
 👬🏾	dalawang lalaking magkahawak-kamay katamtamang dark na kulay ng balat	none
+👨🏾‍🤝‍👨🏿	dalawang lalaking magkahawak-kamay katamtamang dark na kulay ng balat, dark na kulay ng balat	none
 👨🏿‍🤝‍👨🏻	dalawang lalaking magkahawak-kamay dark na kulay ng balat, light na kulay ng balat	none
 👨🏿‍🤝‍👨🏼	dalawang lalaking magkahawak-kamay dark na kulay ng balat, katamtamang light na kulay ng balat	none
 👨🏿‍🤝‍👨🏽	dalawang lalaking magkahawak-kamay dark na kulay ng balat, katamtamang kulay ng balat	none

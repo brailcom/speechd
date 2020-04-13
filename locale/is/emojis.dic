@@ -9,6 +9,61 @@ symbols:
 🏾	meðaldökkur húðlitur	none
 🏿	dökkur húðlitur	none
 ⚧	transmerki	none
+🤌	klípandi fingur	none
+🥲	brosandi andlit með tár	none
+🥷	ninja	none
+🥸	dulargervi	none
+🦣	loðfíll	none
+🦤	dúdúfugl	none
+🦫	bifur	none
+🦬	vísundur	none
+🦭	selur	none
+🧋	kúlute	none
+🩴	sandali með ól	none
+🪃	búmerang	none
+🪄	töfrasproti	none
+🪅	piñata	none
+🪆	babúskur	none
+🪖	hermannahjálmur	none
+🪗	harmonika	none
+🪘	handtromma	none
+🪙	mynt	none
+🪚	sög	none
+🪛	skrúfjárn	none
+🪜	stigi	none
+🪝	krókur	none
+🪞	spegill	none
+🪟	gluggi	none
+🪠	drullusokkur	none
+🪡	saumnál	none
+🪢	hnútur	none
+🪣	fata	none
+🪤	músagildra	none
+🪥	tannbursti	none
+🪦	legsteinn	none
+🪧	skilti	none
+🪨	steinn	none
+🪰	fluga	none
+🪱	ormur	none
+🪲	bjölludýr	none
+🪳	kakkalakki	none
+🪴	pottaplanta	none
+🪵	timbur	none
+🪶	fjöður	none
+🫀	hjartavöðvi	none
+🫁	lungu	none
+🫂	fólk að faðmast	none
+🫐	bláber	none
+🫑	paprika	none
+🫒	ólífa	none
+🫓	flakaka	none
+🫔	tamale	none
+🫕	fondú	none
+🫖	tekanna	none
+🛖	kofi	none
+🛗	lyfta	none
+🛻	pallbíll	none
+🛼	hjólaskautar	none
 😀	glottandi andlit	none
 😃	brosandi andlit með opinn munn	none
 😄	hlæjandi andlit	none
@@ -212,11 +267,15 @@ symbols:
 👧	stúlka	none
 🧑	manneskja	none
 👱	ljóshærð manneskja	none
+🧑‍🍼	manneskja að gefa barni	none
+🧑‍🎄	frú sveinki	none
 👨	karl	none
 🧔	maður með skegg	none
 👱‍♂	ljóshærður maður	none
+👨‍🍼	karl að gefa barni	none
 👩	kona	none
 👱‍♀	ljóshærð kona	none
+👩‍🍼	kona að gefa barni	none
 🧓	eldri fullorðinn	none
 👴	eldri maður	none
 👵	eldri kona	none
@@ -318,7 +377,11 @@ symbols:
 👲	maður með kínverska húfu	none
 🧕	kona með höfuðklút	none
 🤵	smóking	none
+🤵‍♀	kona í smóking	none
+🤵‍♂	karl í smóking	none
 👰	brúður	none
+👰‍♀	kona með slör	none
+👰‍♂	karl með slör	none
 🤰	ólétt kona	none
 🤱	brjóstagjöf	none
 👼	barnsengill	none
@@ -467,6 +530,7 @@ symbols:
 🦝	þvottabjörn	none
 🐱	kattarhöfuð	none
 🐈	köttur	none
+🐈‍⬛	svartur köttur	none
 🦁	ljón	none
 🐯	tígrisdýrshöfuð	none
 🐅	tígrisdýr	none
@@ -504,6 +568,7 @@ symbols:
 🦔	broddgöltur	none
 🦇	leðurblaka	none
 🐻	björn	none
+🐻‍❄	ísbjörn	none
 🐨	kóalabjörn	none
 🐼	panda	none
 🦥	letidýr	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	transfáni	none
 🏳‍🌈	regnbogafáni	none
 🏴‍☠	sjóræningjafáni	none
-🛖	kofi	none
-🛗	lyfta	none
-🛻	pallbíll	none
-🛼	hjólaskautar	none
-🤌	klípandi fingur	none
-🥲	brosandi andlit með tár	none
-🥷	ninja	none
-🥸	dulargervi	none
-🦣	loðfíll	none
-🦤	dúdúfugl	none
-🦫	bifur	none
-🦬	vísundur	none
-🦭	selur	none
-🧋	kúlute	none
-🩴	sandali með ól	none
-🪃	búmerang	none
-🪄	töfrasproti	none
-🪅	piñata	none
-🪆	babúskur	none
-🪖	hermannahjálmur	none
-🪗	harmonika	none
-🪘	handtromma	none
-🪙	mynt	none
-🪚	sög	none
-🪛	skrúfjárn	none
-🪜	stigi	none
-🪝	krókur	none
-🪞	spegill	none
-🪟	gluggi	none
-🪠	drullusokkur	none
-🪡	saumnál	none
-🪢	hnútur	none
-🪣	fata	none
-🪤	músagildra	none
-🪥	tannbursti	none
-🪦	legsteinn	none
-🪧	skilti	none
-🪨	steinn	none
-🪰	fluga	none
-🪱	ormur	none
-🪲	bjölludýr	none
-🪳	kakkalakki	none
-🪴	pottaplanta	none
-🪵	timbur	none
-🪶	fjöður	none
-🫀	hjartavöðvi	none
-🫁	lungu	none
-🫂	fólk að faðmast	none
-🫐	bláber	none
-🫑	paprika	none
-🫒	ólífa	none
-🫓	flakaka	none
-🫔	tamale	none
-🫕	fondú	none
-🫖	tekanna	none
+🤌🏻	klípandi fingur ljós húðlitur	none
+🤌🏼	klípandi fingur meðalljós húðlitur	none
+🤌🏽	klípandi fingur millihúðlitur	none
+🤌🏾	klípandi fingur meðaldökkur húðlitur	none
+🤌🏿	klípandi fingur dökkur húðlitur	none
 👋🏻	hönd veifar ljós húðlitur	none
 👋🏼	hönd veifar meðalljós húðlitur	none
 👋🏽	hönd veifar millihúðlitur	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	manneskja millihúðlitur og skalli	none
 🧑🏾‍🦲	manneskja meðaldökkur húðlitur og skalli	none
 🧑🏿‍🦲	manneskja dökkur húðlitur og skalli	none
+🧑🏻‍🍼	manneskja að gefa barni ljós húðlitur	none
+🧑🏼‍🍼	manneskja að gefa barni meðalljós húðlitur	none
+🧑🏽‍🍼	manneskja að gefa barni millihúðlitur	none
+🧑🏾‍🍼	manneskja að gefa barni meðaldökkur húðlitur	none
+🧑🏿‍🍼	manneskja að gefa barni dökkur húðlitur	none
+🧑🏻‍🎄	frú sveinki ljós húðlitur	none
+🧑🏼‍🎄	frú sveinki meðalljós húðlitur	none
+🧑🏽‍🎄	frú sveinki millihúðlitur	none
+🧑🏾‍🎄	frú sveinki meðaldökkur húðlitur	none
+🧑🏿‍🎄	frú sveinki dökkur húðlitur	none
 👨🏻	karl ljós húðlitur	none
 👨🏼	karl meðalljós húðlitur	none
 👨🏽	karl millihúðlitur	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	karl millihúðlitur og skalli	none
 👨🏾‍🦲	karl meðaldökkur húðlitur og skalli	none
 👨🏿‍🦲	karl dökkur húðlitur og skalli	none
+👨🏻‍🍼	karl að gefa barni ljós húðlitur	none
+👨🏼‍🍼	karl að gefa barni meðalljós húðlitur	none
+👨🏽‍🍼	karl að gefa barni millihúðlitur	none
+👨🏾‍🍼	karl að gefa barni meðaldökkur húðlitur	none
+👨🏿‍🍼	karl að gefa barni dökkur húðlitur	none
 👩🏻	kona ljós húðlitur	none
 👩🏼	kona meðalljós húðlitur	none
 👩🏽	kona millihúðlitur	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	kona millihúðlitur og skalli	none
 👩🏾‍🦲	kona meðaldökkur húðlitur og skalli	none
 👩🏿‍🦲	kona dökkur húðlitur og skalli	none
+👩🏻‍🍼	kona að gefa barni ljós húðlitur	none
+👩🏼‍🍼	kona að gefa barni meðalljós húðlitur	none
+👩🏽‍🍼	kona að gefa barni millihúðlitur	none
+👩🏾‍🍼	kona að gefa barni meðaldökkur húðlitur	none
+👩🏿‍🍼	kona að gefa barni dökkur húðlitur	none
 🧓🏻	eldri fullorðinn ljós húðlitur	none
 🧓🏼	eldri fullorðinn meðalljós húðlitur	none
 🧓🏽	eldri fullorðinn millihúðlitur	none
@@ -2312,11 +2347,31 @@ symbols:
 🤵🏽	smóking millihúðlitur	none
 🤵🏾	smóking meðaldökkur húðlitur	none
 🤵🏿	smóking dökkur húðlitur	none
+🤵🏻‍♀	kona í smóking ljós húðlitur	none
+🤵🏼‍♀	kona í smóking meðalljós húðlitur	none
+🤵🏽‍♀	kona í smóking millihúðlitur	none
+🤵🏾‍♀	kona í smóking meðaldökkur húðlitur	none
+🤵🏿‍♀	kona í smóking dökkur húðlitur	none
+🤵🏻‍♂	karl í smóking ljós húðlitur	none
+🤵🏼‍♂	karl í smóking meðalljós húðlitur	none
+🤵🏽‍♂	karl í smóking millihúðlitur	none
+🤵🏾‍♂	karl í smóking meðaldökkur húðlitur	none
+🤵🏿‍♂	karl í smóking dökkur húðlitur	none
 👰🏻	brúður ljós húðlitur	none
 👰🏼	brúður meðalljós húðlitur	none
 👰🏽	brúður millihúðlitur	none
 👰🏾	brúður meðaldökkur húðlitur	none
 👰🏿	brúður dökkur húðlitur	none
+👰🏻‍♀	kona með slör ljós húðlitur	none
+👰🏼‍♀	kona með slör meðalljós húðlitur	none
+👰🏽‍♀	kona með slör millihúðlitur	none
+👰🏾‍♀	kona með slör meðaldökkur húðlitur	none
+👰🏿‍♀	kona með slör dökkur húðlitur	none
+👰🏻‍♂	karl með slör ljós húðlitur	none
+👰🏼‍♂	karl með slör meðalljós húðlitur	none
+👰🏽‍♂	karl með slör millihúðlitur	none
+👰🏾‍♂	karl með slör meðaldökkur húðlitur	none
+👰🏿‍♂	karl með slör dökkur húðlitur	none
 🤰🏻	ólétt kona ljós húðlitur	none
 🤰🏼	ólétt kona meðalljós húðlitur	none
 🤰🏽	ólétt kona millihúðlitur	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	manneskja í rúmi meðaldökkur húðlitur	none
 🛌🏿	manneskja í rúmi dökkur húðlitur	none
 🧑🏻‍🤝‍🧑🏻	fólk að leiðast ljós húðlitur	none
+🧑🏻‍🤝‍🧑🏼	fólk að leiðast ljós húðlitur og meðalljós húðlitur	none
+🧑🏻‍🤝‍🧑🏽	fólk að leiðast ljós húðlitur og millihúðlitur	none
+🧑🏻‍🤝‍🧑🏾	fólk að leiðast ljós húðlitur og meðaldökkur húðlitur	none
+🧑🏻‍🤝‍🧑🏿	fólk að leiðast ljós húðlitur og dökkur húðlitur	none
 🧑🏼‍🤝‍🧑🏻	fólk að leiðast meðalljós húðlitur og ljós húðlitur	none
 🧑🏼‍🤝‍🧑🏼	fólk að leiðast meðalljós húðlitur	none
+🧑🏼‍🤝‍🧑🏽	fólk að leiðast meðalljós húðlitur og millihúðlitur	none
+🧑🏼‍🤝‍🧑🏾	fólk að leiðast meðalljós húðlitur og meðaldökkur húðlitur	none
+🧑🏼‍🤝‍🧑🏿	fólk að leiðast meðalljós húðlitur og dökkur húðlitur	none
 🧑🏽‍🤝‍🧑🏻	fólk að leiðast millihúðlitur og ljós húðlitur	none
 🧑🏽‍🤝‍🧑🏼	fólk að leiðast millihúðlitur og meðalljós húðlitur	none
 🧑🏽‍🤝‍🧑🏽	fólk að leiðast millihúðlitur	none
+🧑🏽‍🤝‍🧑🏾	fólk að leiðast millihúðlitur og meðaldökkur húðlitur	none
+🧑🏽‍🤝‍🧑🏿	fólk að leiðast millihúðlitur og dökkur húðlitur	none
 🧑🏾‍🤝‍🧑🏻	fólk að leiðast meðaldökkur húðlitur og ljós húðlitur	none
 🧑🏾‍🤝‍🧑🏼	fólk að leiðast meðaldökkur húðlitur og meðalljós húðlitur	none
 🧑🏾‍🤝‍🧑🏽	fólk að leiðast meðaldökkur húðlitur og millihúðlitur	none
 🧑🏾‍🤝‍🧑🏾	fólk að leiðast meðaldökkur húðlitur	none
+🧑🏾‍🤝‍🧑🏿	fólk að leiðast meðaldökkur húðlitur og dökkur húðlitur	none
 🧑🏿‍🤝‍🧑🏻	fólk að leiðast dökkur húðlitur og ljós húðlitur	none
 🧑🏿‍🤝‍🧑🏼	fólk að leiðast dökkur húðlitur og meðalljós húðlitur	none
 🧑🏿‍🤝‍🧑🏽	fólk að leiðast dökkur húðlitur og millihúðlitur	none
 🧑🏿‍🤝‍🧑🏾	fólk að leiðast dökkur húðlitur og meðaldökkur húðlitur	none
 🧑🏿‍🤝‍🧑🏿	fólk að leiðast dökkur húðlitur	none
 👭🏻	konur sem leiðast ljós húðlitur	none
+👩🏻‍🤝‍👩🏼	konur sem leiðast ljós húðlitur og meðalljós húðlitur	none
+👩🏻‍🤝‍👩🏽	konur sem leiðast ljós húðlitur og millihúðlitur	none
+👩🏻‍🤝‍👩🏾	konur sem leiðast ljós húðlitur og meðaldökkur húðlitur	none
+👩🏻‍🤝‍👩🏿	konur sem leiðast ljós húðlitur og dökkur húðlitur	none
 👩🏼‍🤝‍👩🏻	konur sem leiðast meðalljós húðlitur og ljós húðlitur	none
 👭🏼	konur sem leiðast meðalljós húðlitur	none
+👩🏼‍🤝‍👩🏽	konur sem leiðast meðalljós húðlitur og millihúðlitur	none
+👩🏼‍🤝‍👩🏾	konur sem leiðast meðalljós húðlitur og meðaldökkur húðlitur	none
+👩🏼‍🤝‍👩🏿	konur sem leiðast meðalljós húðlitur og dökkur húðlitur	none
 👩🏽‍🤝‍👩🏻	konur sem leiðast millihúðlitur og ljós húðlitur	none
 👩🏽‍🤝‍👩🏼	konur sem leiðast millihúðlitur og meðalljós húðlitur	none
 👭🏽	konur sem leiðast millihúðlitur	none
+👩🏽‍🤝‍👩🏾	konur sem leiðast millihúðlitur og meðaldökkur húðlitur	none
+👩🏽‍🤝‍👩🏿	konur sem leiðast millihúðlitur og dökkur húðlitur	none
 👩🏾‍🤝‍👩🏻	konur sem leiðast meðaldökkur húðlitur og ljós húðlitur	none
 👩🏾‍🤝‍👩🏼	konur sem leiðast meðaldökkur húðlitur og meðalljós húðlitur	none
 👩🏾‍🤝‍👩🏽	konur sem leiðast meðaldökkur húðlitur og millihúðlitur	none
 👭🏾	konur sem leiðast meðaldökkur húðlitur	none
+👩🏾‍🤝‍👩🏿	konur sem leiðast meðaldökkur húðlitur og dökkur húðlitur	none
 👩🏿‍🤝‍👩🏻	konur sem leiðast dökkur húðlitur og ljós húðlitur	none
 👩🏿‍🤝‍👩🏼	konur sem leiðast dökkur húðlitur og meðalljós húðlitur	none
 👩🏿‍🤝‍👩🏽	konur sem leiðast dökkur húðlitur og millihúðlitur	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	karl og kona sem leiðast dökkur húðlitur og meðaldökkur húðlitur	none
 👫🏿	karl og kona sem leiðast dökkur húðlitur	none
 👬🏻	karlar sem leiðast ljós húðlitur	none
+👨🏻‍🤝‍👨🏼	karlar sem leiðast ljós húðlitur og meðalljós húðlitur	none
+👨🏻‍🤝‍👨🏽	karlar sem leiðast ljós húðlitur og millihúðlitur	none
+👨🏻‍🤝‍👨🏾	karlar sem leiðast ljós húðlitur og meðaldökkur húðlitur	none
+👨🏻‍🤝‍👨🏿	karlar sem leiðast ljós húðlitur og dökkur húðlitur	none
 👨🏼‍🤝‍👨🏻	karlar sem leiðast meðalljós húðlitur og ljós húðlitur	none
 👬🏼	karlar sem leiðast meðalljós húðlitur	none
+👨🏼‍🤝‍👨🏽	karlar sem leiðast meðalljós húðlitur og millihúðlitur	none
+👨🏼‍🤝‍👨🏾	karlar sem leiðast meðalljós húðlitur og meðaldökkur húðlitur	none
+👨🏼‍🤝‍👨🏿	karlar sem leiðast meðalljós húðlitur og dökkur húðlitur	none
 👨🏽‍🤝‍👨🏻	karlar sem leiðast millihúðlitur og ljós húðlitur	none
 👨🏽‍🤝‍👨🏼	karlar sem leiðast millihúðlitur og meðalljós húðlitur	none
 👬🏽	karlar sem leiðast millihúðlitur	none
+👨🏽‍🤝‍👨🏾	karlar sem leiðast millihúðlitur og meðaldökkur húðlitur	none
+👨🏽‍🤝‍👨🏿	karlar sem leiðast millihúðlitur og dökkur húðlitur	none
 👨🏾‍🤝‍👨🏻	karlar sem leiðast meðaldökkur húðlitur og ljós húðlitur	none
 👨🏾‍🤝‍👨🏼	karlar sem leiðast meðaldökkur húðlitur og meðalljós húðlitur	none
 👨🏾‍🤝‍👨🏽	karlar sem leiðast meðaldökkur húðlitur og millihúðlitur	none
 👬🏾	karlar sem leiðast meðaldökkur húðlitur	none
+👨🏾‍🤝‍👨🏿	karlar sem leiðast meðaldökkur húðlitur og dökkur húðlitur	none
 👨🏿‍🤝‍👨🏻	karlar sem leiðast dökkur húðlitur og ljós húðlitur	none
 👨🏿‍🤝‍👨🏼	karlar sem leiðast dökkur húðlitur og meðalljós húðlitur	none
 👨🏿‍🤝‍👨🏽	karlar sem leiðast dökkur húðlitur og millihúðlitur	none

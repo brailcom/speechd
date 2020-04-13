@@ -9,6 +9,61 @@ symbols:
 🏾	stredne tmavý tón pleti	none
 🏿	tmavý tón pleti	none
 ⚧	transgenderový symbol	none
+🤌	štipka	none
+🥲	smejúca sa tvár so slzou	none
+🥷	nindža	none
+🥸	maskovaná tvár	none
+🦣	mamut	none
+🦤	dront	none
+🦫	bobor	none
+🦬	zubor	none
+🦭	uškatec	none
+🧋	perlivý čaj	none
+🩴	žabky	none
+🪃	bumerang	none
+🪄	kúzelná palička	none
+🪅	piñata	none
+🪆	matriošky	none
+🪖	vojenská helma	none
+🪗	akordeón	none
+🪘	kongo	none
+🪙	minca	none
+🪚	tesárska píla	none
+🪛	skrutkovač	none
+🪜	rebrík	none
+🪝	hák	none
+🪞	zrkadlo	none
+🪟	okno	none
+🪠	čistiaci zvon	none
+🪡	ihla	none
+🪢	uzol	none
+🪣	vedro	none
+🪤	pasca na myši	none
+🪥	zubná kefka	none
+🪦	náhrobok	none
+🪧	transparent	none
+🪨	kameň	none
+🪰	mucha	none
+🪱	dážďovka	none
+🪲	chrobák	none
+🪳	šváb	none
+🪴	kvetináč	none
+🪵	drevo	none
+🪶	pierko	none
+🫀	orgán srdca	none
+🫁	pľúca	none
+🫂	objímajúci sa ľudia	none
+🫐	čučoriedky	none
+🫑	kapia	none
+🫒	oliva	none
+🫓	chlebová placka	none
+🫔	tamal	none
+🫕	fondue	none
+🫖	čajová kanvica	none
+🛖	chatrč	none
+🛗	výťah	none
+🛻	pikap	none
+🛼	koliesková korčuľa	none
 😀	škeriaca sa tvár	none
 😃	škeriaca sa tvár s veľkými očami	none
 😄	škeriaca sa tvár s prižmúrenými očami	none
@@ -212,11 +267,15 @@ symbols:
 👧	dievča	none
 🧑	dospelý	none
 👱	svetlovlasý človek	none
+🧑‍🍼	človek kŕmiaci bábätko	none
+🧑‍🎄	Mx Claus	none
 👨	muž	none
 🧔	bradáč	none
 👱‍♂	blondín	none
+👨‍🍼	muž kŕmiaci bábätko	none
 👩	žena	none
 👱‍♀	blondína	none
+👩‍🍼	žena kŕmiaca bábätko	none
 🧓	starší človek	none
 👴	starší muž	none
 👵	staršia žena	none
@@ -317,8 +376,12 @@ symbols:
 👳‍♀	žena s turbanom	none
 👲	muž s čínskou čapicou	none
 🧕	žena so šatkou	none
-🤵	muž v smokingu	none
+🤵	človek v smokingu	none
+🤵‍♀	žena v smokingu	none
+🤵‍♂	muž v smokingu	none
 👰	nevesta so závojom	none
+👰‍♀	žena so závojom	none
+👰‍♂	muž so závojom	none
 🤰	tehotná žena	none
 🤱	dojčenie	none
 👼	anjelik	none
@@ -467,6 +530,7 @@ symbols:
 🦝	medviedik čistotný	none
 🐱	hlava mačky	none
 🐈	mačka	none
+🐈‍⬛	čierna mačka	none
 🦁	lev	none
 🐯	hlava tigra	none
 🐅	tiger	none
@@ -504,6 +568,7 @@ symbols:
 🦔	jež	none
 🦇	netopier	none
 🐻	medveď	none
+🐻‍❄	ľadový medveď	none
 🐨	koala	none
 🐼	panda	none
 🦥	leňoch	none
@@ -1332,12 +1397,12 @@ symbols:
 ✅	začiarkavacie políčko	none
 ☑	začiarknuté políčko	none
 ✔	znak začiarknutia	none
-✖	znak násobenia	none
+✖	krát	none
 ❌	krížik	none
 ❎	tlačidlo s krížikom	none
-➕	znak sčítania	none
-➖	znak odčítania	none
-➗	znak delenia	none
+➕	plus	none
+➖	mínus	none
+➗	deleno	none
 ➰	slučka	none
 ➿	dvojitá slučka	none
 〽	znak začiatku partu	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	transgenderová zástava	none
 🏳‍🌈	dúhová zástava	none
 🏴‍☠	pirátska zástava	none
-🛖	chatrč	none
-🛗	výťah	none
-🛻	pikap	none
-🛼	koliesková korčuľa	none
-🤌	štipka	none
-🥲	smejúca sa tvár so slzou	none
-🥷	nindža	none
-🥸	maskovaná tvár	none
-🦣	mamut	none
-🦤	dront	none
-🦫	bobor	none
-🦬	zubor	none
-🦭	uškatec	none
-🧋	perlivý čaj	none
-🩴	žabky	none
-🪃	bumerang	none
-🪄	kúzelná palička	none
-🪅	piñata	none
-🪆	matriošky	none
-🪖	vojenská helma	none
-🪗	akordeón	none
-🪘	kongo	none
-🪙	minca	none
-🪚	tesárska píla	none
-🪛	skrutkovač	none
-🪜	rebrík	none
-🪝	hák	none
-🪞	zrkadlo	none
-🪟	okno	none
-🪠	čistiaci zvon	none
-🪡	ihla	none
-🪢	uzol	none
-🪣	vedro	none
-🪤	pasca na myši	none
-🪥	zubná kefka	none
-🪦	náhrobok	none
-🪧	transparent	none
-🪨	kameň	none
-🪰	mucha	none
-🪱	dážďovka	none
-🪲	chrobák	none
-🪳	šváb	none
-🪴	kvetináč	none
-🪵	drevo	none
-🪶	pierko	none
-🫀	orgán srdca	none
-🫁	pľúca	none
-🫂	objímajúci sa ľudia	none
-🫐	čučoriedky	none
-🫑	kapia	none
-🫒	oliva	none
-🫓	chlebová placka	none
-🫔	tamal	none
-🫕	fondue	none
-🫖	čajová kanvica	none
+🤌🏻	štipka svetlý tón pleti	none
+🤌🏼	štipka stredne svetlý tón pleti	none
+🤌🏽	štipka stredný tón pleti	none
+🤌🏾	štipka stredne tmavý tón pleti	none
+🤌🏿	štipka tmavý tón pleti	none
 👋🏻	mávajúca ruka svetlý tón pleti	none
 👋🏼	mávajúca ruka stredne svetlý tón pleti	none
 👋🏽	mávajúca ruka stredný tón pleti	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	dospelý stredný tón pleti, holá hlava	none
 🧑🏾‍🦲	dospelý stredne tmavý tón pleti, holá hlava	none
 🧑🏿‍🦲	dospelý tmavý tón pleti, holá hlava	none
+🧑🏻‍🍼	človek kŕmiaci bábätko svetlý tón pleti	none
+🧑🏼‍🍼	človek kŕmiaci bábätko stredne svetlý tón pleti	none
+🧑🏽‍🍼	človek kŕmiaci bábätko stredný tón pleti	none
+🧑🏾‍🍼	človek kŕmiaci bábätko stredne tmavý tón pleti	none
+🧑🏿‍🍼	človek kŕmiaci bábätko tmavý tón pleti	none
+🧑🏻‍🎄	Mx Claus svetlý tón pleti	none
+🧑🏼‍🎄	Mx Claus stredne svetlý tón pleti	none
+🧑🏽‍🎄	Mx Claus stredný tón pleti	none
+🧑🏾‍🎄	Mx Claus stredne tmavý tón pleti	none
+🧑🏿‍🎄	Mx Claus tmavý tón pleti	none
 👨🏻	muž svetlý tón pleti	none
 👨🏼	muž stredne svetlý tón pleti	none
 👨🏽	muž stredný tón pleti	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	muž stredný tón pleti, holá hlava	none
 👨🏾‍🦲	muž stredne tmavý tón pleti, holá hlava	none
 👨🏿‍🦲	muž tmavý tón pleti, holá hlava	none
+👨🏻‍🍼	muž kŕmiaci bábätko svetlý tón pleti	none
+👨🏼‍🍼	muž kŕmiaci bábätko stredne svetlý tón pleti	none
+👨🏽‍🍼	muž kŕmiaci bábätko stredný tón pleti	none
+👨🏾‍🍼	muž kŕmiaci bábätko stredne tmavý tón pleti	none
+👨🏿‍🍼	muž kŕmiaci bábätko tmavý tón pleti	none
 👩🏻	žena svetlý tón pleti	none
 👩🏼	žena stredne svetlý tón pleti	none
 👩🏽	žena stredný tón pleti	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	žena stredný tón pleti, holá hlava	none
 👩🏾‍🦲	žena stredne tmavý tón pleti, holá hlava	none
 👩🏿‍🦲	žena tmavý tón pleti, holá hlava	none
+👩🏻‍🍼	žena kŕmiaca bábätko svetlý tón pleti	none
+👩🏼‍🍼	žena kŕmiaca bábätko stredne svetlý tón pleti	none
+👩🏽‍🍼	žena kŕmiaca bábätko stredný tón pleti	none
+👩🏾‍🍼	žena kŕmiaca bábätko stredne tmavý tón pleti	none
+👩🏿‍🍼	žena kŕmiaca bábätko tmavý tón pleti	none
 🧓🏻	starší človek svetlý tón pleti	none
 🧓🏼	starší človek stredne svetlý tón pleti	none
 🧓🏽	starší človek stredný tón pleti	none
@@ -2307,16 +2342,36 @@ symbols:
 🧕🏽	žena so šatkou stredný tón pleti	none
 🧕🏾	žena so šatkou stredne tmavý tón pleti	none
 🧕🏿	žena so šatkou tmavý tón pleti	none
-🤵🏻	muž v smokingu svetlý tón pleti	none
-🤵🏼	muž v smokingu stredne svetlý tón pleti	none
-🤵🏽	muž v smokingu stredný tón pleti	none
-🤵🏾	muž v smokingu stredne tmavý tón pleti	none
-🤵🏿	muž v smokingu tmavý tón pleti	none
+🤵🏻	človek v smokingu svetlý tón pleti	none
+🤵🏼	človek v smokingu stredne svetlý tón pleti	none
+🤵🏽	človek v smokingu stredný tón pleti	none
+🤵🏾	človek v smokingu stredne tmavý tón pleti	none
+🤵🏿	človek v smokingu tmavý tón pleti	none
+🤵🏻‍♀	žena v smokingu svetlý tón pleti	none
+🤵🏼‍♀	žena v smokingu stredne svetlý tón pleti	none
+🤵🏽‍♀	žena v smokingu stredný tón pleti	none
+🤵🏾‍♀	žena v smokingu stredne tmavý tón pleti	none
+🤵🏿‍♀	žena v smokingu tmavý tón pleti	none
+🤵🏻‍♂	muž v smokingu svetlý tón pleti	none
+🤵🏼‍♂	muž v smokingu stredne svetlý tón pleti	none
+🤵🏽‍♂	muž v smokingu stredný tón pleti	none
+🤵🏾‍♂	muž v smokingu stredne tmavý tón pleti	none
+🤵🏿‍♂	muž v smokingu tmavý tón pleti	none
 👰🏻	nevesta so závojom svetlý tón pleti	none
 👰🏼	nevesta so závojom stredne svetlý tón pleti	none
 👰🏽	nevesta so závojom stredný tón pleti	none
 👰🏾	nevesta so závojom stredne tmavý tón pleti	none
 👰🏿	nevesta so závojom tmavý tón pleti	none
+👰🏻‍♀	žena so závojom svetlý tón pleti	none
+👰🏼‍♀	žena so závojom stredne svetlý tón pleti	none
+👰🏽‍♀	žena so závojom stredný tón pleti	none
+👰🏾‍♀	žena so závojom stredne tmavý tón pleti	none
+👰🏿‍♀	žena so závojom tmavý tón pleti	none
+👰🏻‍♂	muž so závojom svetlý tón pleti	none
+👰🏼‍♂	muž so závojom stredne svetlý tón pleti	none
+👰🏽‍♂	muž so závojom stredný tón pleti	none
+👰🏾‍♂	muž so závojom stredne tmavý tón pleti	none
+👰🏿‍♂	muž so závojom tmavý tón pleti	none
 🤰🏻	tehotná žena svetlý tón pleti	none
 🤰🏼	tehotná žena stredne svetlý tón pleti	none
 🤰🏽	tehotná žena stredný tón pleti	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	človek v posteli stredne tmavý tón pleti	none
 🛌🏿	človek v posteli tmavý tón pleti	none
 🧑🏻‍🤝‍🧑🏻	ľudia držiaci sa za ruky svetlý tón pleti	none
+🧑🏻‍🤝‍🧑🏼	ľudia držiaci sa za ruky svetlý tón pleti, stredne svetlý tón pleti	none
+🧑🏻‍🤝‍🧑🏽	ľudia držiaci sa za ruky svetlý tón pleti, stredný tón pleti	none
+🧑🏻‍🤝‍🧑🏾	ľudia držiaci sa za ruky svetlý tón pleti, stredne tmavý tón pleti	none
+🧑🏻‍🤝‍🧑🏿	ľudia držiaci sa za ruky svetlý tón pleti, tmavý tón pleti	none
 🧑🏼‍🤝‍🧑🏻	ľudia držiaci sa za ruky stredne svetlý tón pleti, svetlý tón pleti	none
 🧑🏼‍🤝‍🧑🏼	ľudia držiaci sa za ruky stredne svetlý tón pleti	none
+🧑🏼‍🤝‍🧑🏽	ľudia držiaci sa za ruky stredne svetlý tón pleti, stredný tón pleti	none
+🧑🏼‍🤝‍🧑🏾	ľudia držiaci sa za ruky stredne svetlý tón pleti, stredne tmavý tón pleti	none
+🧑🏼‍🤝‍🧑🏿	ľudia držiaci sa za ruky stredne svetlý tón pleti, tmavý tón pleti	none
 🧑🏽‍🤝‍🧑🏻	ľudia držiaci sa za ruky stredný tón pleti, svetlý tón pleti	none
 🧑🏽‍🤝‍🧑🏼	ľudia držiaci sa za ruky stredný tón pleti, stredne svetlý tón pleti	none
 🧑🏽‍🤝‍🧑🏽	ľudia držiaci sa za ruky stredný tón pleti	none
+🧑🏽‍🤝‍🧑🏾	ľudia držiaci sa za ruky stredný tón pleti, stredne tmavý tón pleti	none
+🧑🏽‍🤝‍🧑🏿	ľudia držiaci sa za ruky stredný tón pleti, tmavý tón pleti	none
 🧑🏾‍🤝‍🧑🏻	ľudia držiaci sa za ruky stredne tmavý tón pleti, svetlý tón pleti	none
 🧑🏾‍🤝‍🧑🏼	ľudia držiaci sa za ruky stredne tmavý tón pleti, stredne svetlý tón pleti	none
 🧑🏾‍🤝‍🧑🏽	ľudia držiaci sa za ruky stredne tmavý tón pleti, stredný tón pleti	none
 🧑🏾‍🤝‍🧑🏾	ľudia držiaci sa za ruky stredne tmavý tón pleti	none
+🧑🏾‍🤝‍🧑🏿	ľudia držiaci sa za ruky stredne tmavý tón pleti, tmavý tón pleti	none
 🧑🏿‍🤝‍🧑🏻	ľudia držiaci sa za ruky tmavý tón pleti, svetlý tón pleti	none
 🧑🏿‍🤝‍🧑🏼	ľudia držiaci sa za ruky tmavý tón pleti, stredne svetlý tón pleti	none
 🧑🏿‍🤝‍🧑🏽	ľudia držiaci sa za ruky tmavý tón pleti, stredný tón pleti	none
 🧑🏿‍🤝‍🧑🏾	ľudia držiaci sa za ruky tmavý tón pleti, stredne tmavý tón pleti	none
 🧑🏿‍🤝‍🧑🏿	ľudia držiaci sa za ruky tmavý tón pleti	none
 👭🏻	ženy držiace sa za ruky svetlý tón pleti	none
+👩🏻‍🤝‍👩🏼	ženy držiace sa za ruky svetlý tón pleti, stredne svetlý tón pleti	none
+👩🏻‍🤝‍👩🏽	ženy držiace sa za ruky svetlý tón pleti, stredný tón pleti	none
+👩🏻‍🤝‍👩🏾	ženy držiace sa za ruky svetlý tón pleti, stredne tmavý tón pleti	none
+👩🏻‍🤝‍👩🏿	ženy držiace sa za ruky svetlý tón pleti, tmavý tón pleti	none
 👩🏼‍🤝‍👩🏻	ženy držiace sa za ruky stredne svetlý tón pleti, svetlý tón pleti	none
 👭🏼	ženy držiace sa za ruky stredne svetlý tón pleti	none
+👩🏼‍🤝‍👩🏽	ženy držiace sa za ruky stredne svetlý tón pleti, stredný tón pleti	none
+👩🏼‍🤝‍👩🏾	ženy držiace sa za ruky stredne svetlý tón pleti, stredne tmavý tón pleti	none
+👩🏼‍🤝‍👩🏿	ženy držiace sa za ruky stredne svetlý tón pleti, tmavý tón pleti	none
 👩🏽‍🤝‍👩🏻	ženy držiace sa za ruky stredný tón pleti, svetlý tón pleti	none
 👩🏽‍🤝‍👩🏼	ženy držiace sa za ruky stredný tón pleti, stredne svetlý tón pleti	none
 👭🏽	ženy držiace sa za ruky stredný tón pleti	none
+👩🏽‍🤝‍👩🏾	ženy držiace sa za ruky stredný tón pleti, stredne tmavý tón pleti	none
+👩🏽‍🤝‍👩🏿	ženy držiace sa za ruky stredný tón pleti, tmavý tón pleti	none
 👩🏾‍🤝‍👩🏻	ženy držiace sa za ruky stredne tmavý tón pleti, svetlý tón pleti	none
 👩🏾‍🤝‍👩🏼	ženy držiace sa za ruky stredne tmavý tón pleti, stredne svetlý tón pleti	none
 👩🏾‍🤝‍👩🏽	ženy držiace sa za ruky stredne tmavý tón pleti, stredný tón pleti	none
 👭🏾	ženy držiace sa za ruky stredne tmavý tón pleti	none
+👩🏾‍🤝‍👩🏿	ženy držiace sa za ruky stredne tmavý tón pleti, tmavý tón pleti	none
 👩🏿‍🤝‍👩🏻	ženy držiace sa za ruky tmavý tón pleti, svetlý tón pleti	none
 👩🏿‍🤝‍👩🏼	ženy držiace sa za ruky tmavý tón pleti, stredne svetlý tón pleti	none
 👩🏿‍🤝‍👩🏽	ženy držiace sa za ruky tmavý tón pleti, stredný tón pleti	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	žena a muž držiaci sa za ruky tmavý tón pleti, stredne tmavý tón pleti	none
 👫🏿	žena a muž držiaci sa za ruky tmavý tón pleti	none
 👬🏻	muži držiaci sa za ruky svetlý tón pleti	none
+👨🏻‍🤝‍👨🏼	muži držiaci sa za ruky svetlý tón pleti, stredne svetlý tón pleti	none
+👨🏻‍🤝‍👨🏽	muži držiaci sa za ruky svetlý tón pleti, stredný tón pleti	none
+👨🏻‍🤝‍👨🏾	muži držiaci sa za ruky svetlý tón pleti, stredne tmavý tón pleti	none
+👨🏻‍🤝‍👨🏿	muži držiaci sa za ruky svetlý tón pleti, tmavý tón pleti	none
 👨🏼‍🤝‍👨🏻	muži držiaci sa za ruky stredne svetlý tón pleti, svetlý tón pleti	none
 👬🏼	muži držiaci sa za ruky stredne svetlý tón pleti	none
+👨🏼‍🤝‍👨🏽	muži držiaci sa za ruky stredne svetlý tón pleti, stredný tón pleti	none
+👨🏼‍🤝‍👨🏾	muži držiaci sa za ruky stredne svetlý tón pleti, stredne tmavý tón pleti	none
+👨🏼‍🤝‍👨🏿	muži držiaci sa za ruky stredne svetlý tón pleti, tmavý tón pleti	none
 👨🏽‍🤝‍👨🏻	muži držiaci sa za ruky stredný tón pleti, svetlý tón pleti	none
 👨🏽‍🤝‍👨🏼	muži držiaci sa za ruky stredný tón pleti, stredne svetlý tón pleti	none
 👬🏽	muži držiaci sa za ruky stredný tón pleti	none
+👨🏽‍🤝‍👨🏾	muži držiaci sa za ruky stredný tón pleti, stredne tmavý tón pleti	none
+👨🏽‍🤝‍👨🏿	muži držiaci sa za ruky stredný tón pleti, tmavý tón pleti	none
 👨🏾‍🤝‍👨🏻	muži držiaci sa za ruky stredne tmavý tón pleti, svetlý tón pleti	none
 👨🏾‍🤝‍👨🏼	muži držiaci sa za ruky stredne tmavý tón pleti, stredne svetlý tón pleti	none
 👨🏾‍🤝‍👨🏽	muži držiaci sa za ruky stredne tmavý tón pleti, stredný tón pleti	none
 👬🏾	muži držiaci sa za ruky stredne tmavý tón pleti	none
+👨🏾‍🤝‍👨🏿	muži držiaci sa za ruky stredne tmavý tón pleti, tmavý tón pleti	none
 👨🏿‍🤝‍👨🏻	muži držiaci sa za ruky tmavý tón pleti, svetlý tón pleti	none
 👨🏿‍🤝‍👨🏼	muži držiaci sa za ruky tmavý tón pleti, stredne svetlý tón pleti	none
 👨🏿‍🤝‍👨🏽	muži držiaci sa za ruky tmavý tón pleti, stredný tón pleti	none

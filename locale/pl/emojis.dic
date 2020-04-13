@@ -9,6 +9,61 @@ symbols:
 🏾	karnacja średnio ciemna	none
 🏿	karnacja ciemna	none
 ⚧	symbol transpłciowości	none
+🤌	złączone palce	none
+🥲	uśmiechnięta buźka ze łzą	none
+🥷	ninja	none
+🥸	buźka w przebraniu	none
+🦣	mamut	none
+🦤	dodo	none
+🦫	bóbr	none
+🦬	żubr	none
+🦭	foka	none
+🧋	napój bubble tea	none
+🩴	japonka	none
+🪃	bumerang	none
+🪄	czarodziejska różdżka	none
+🪅	piniata	none
+🪆	matrioszki	none
+🪖	hełm wojskowy	none
+🪗	akordeon	none
+🪘	konga	none
+🪙	moneta	none
+🪚	piła do drewna	none
+🪛	śrubokręt	none
+🪜	drabina	none
+🪝	hak	none
+🪞	lustro	none
+🪟	okno	none
+🪠	przepychacz	none
+🪡	igła krawiecka	none
+🪢	węzeł	none
+🪣	wiadro	none
+🪤	pułapka na myszy	none
+🪥	szczoteczka do zębów	none
+🪦	nagrobek	none
+🪧	tabliczka	none
+🪨	skała	none
+🪰	mucha	none
+🪱	robak	none
+🪲	chrząszcz	none
+🪳	karaluch	none
+🪴	roślina doniczkowa	none
+🪵	drewno	none
+🪶	pióro	none
+🫀	serce	none
+🫁	płuca	none
+🫂	obejmujące się osoby	none
+🫐	borówka amerykańska	none
+🫑	papryka	none
+🫒	oliwka	none
+🫓	pita	none
+🫔	tamales	none
+🫕	fondue	none
+🫖	czajniczek	none
+🛖	chata	none
+🛗	winda	none
+🛻	pick-up	none
+🛼	wrotka	none
 😀	szeroko uśmiechnięta twarz	none
 😃	uśmiechnięta twarz z otwartymi ustami	none
 😄	uśmiechnięta twarz z otwartymi ustami i roześmianymi oczami	none
@@ -212,11 +267,15 @@ symbols:
 👧	dziewczynka	none
 🧑	dorosły	none
 👱	osoba z włosami blond	none
+🧑‍🍼	osoba karmiąca niemowlę	none
+🧑‍🎄	Mikołajka	none
 👨	mężczyzna	none
 🧔	mężczyzna z brodą	none
 👱‍♂	blondyn	none
+👨‍🍼	mężczyzna karmiący niemowlę	none
 👩	kobieta	none
 👱‍♀	blondynka	none
+👩‍🍼	kobieta karmiąca niemowlę	none
 🧓	starszy dorosły	none
 👴	starszy mężczyzna	none
 👵	starsza kobieta	none
@@ -317,8 +376,12 @@ symbols:
 👳‍♀	kobieta w turbanie	none
 👲	mężczyzna w chińskiej czapce	none
 🧕	kobieta w chuście	none
-🤵	mężczyzna w smokingu	none
-👰	panna młoda w welonie	none
+🤵	osoba w smokingu	none
+🤵‍♀	kobieta w smokingu	none
+🤵‍♂	mężczyzna w smokingu	none
+👰	osoba w welonie	none
+👰‍♀	kobieta w welonie	none
+👰‍♂	mężczyzna w welonie	none
 🤰	kobieta w ciąży	none
 🤱	karmienie piersią	none
 👼	aniołek	none
@@ -467,6 +530,7 @@ symbols:
 🦝	szop	none
 🐱	głowa kota	none
 🐈	kot	none
+🐈‍⬛	czarny kot	none
 🦁	głowa lwa	none
 🐯	głowa tygrysa	none
 🐅	tygrys	none
@@ -504,6 +568,7 @@ symbols:
 🦔	jeż	none
 🦇	nietoperz	none
 🐻	głowa niedźwiedzia	none
+🐻‍❄	niedźwiedź polarny	none
 🐨	koala	none
 🐼	głowa pandy	none
 🦥	leniwiec	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	flaga osób transpłciowych	none
 🏳‍🌈	tęczowa flaga	none
 🏴‍☠	piracka flaga	none
-🛖	chata	none
-🛗	winda	none
-🛻	pick-up	none
-🛼	wrotka	none
-🤌	złączone palce	none
-🥲	uśmiechnięta buźka ze łzą	none
-🥷	ninja	none
-🥸	buźka w przebraniu	none
-🦣	mamut	none
-🦤	dodo	none
-🦫	bóbr	none
-🦬	żubr	none
-🦭	foka	none
-🧋	napój bubble tea	none
-🩴	japonka	none
-🪃	bumerang	none
-🪄	czarodziejska różdżka	none
-🪅	piniata	none
-🪆	matrioszki	none
-🪖	hełm wojskowy	none
-🪗	akordeon	none
-🪘	konga	none
-🪙	moneta	none
-🪚	piła do drewna	none
-🪛	śrubokręt	none
-🪜	drabina	none
-🪝	hak	none
-🪞	lustro	none
-🪟	okno	none
-🪠	przepychacz	none
-🪡	igła krawiecka	none
-🪢	węzeł	none
-🪣	wiadro	none
-🪤	pułapka na myszy	none
-🪥	szczoteczka do zębów	none
-🪦	nagrobek	none
-🪧	tabliczka	none
-🪨	skała	none
-🪰	mucha	none
-🪱	robak	none
-🪲	chrząszcz	none
-🪳	karaluch	none
-🪴	roślina doniczkowa	none
-🪵	drewno	none
-🪶	pióro	none
-🫀	serce	none
-🫁	płuca	none
-🫂	obejmujące się osoby	none
-🫐	borówka amerykańska	none
-🫑	papryka	none
-🫒	oliwka	none
-🫓	pita	none
-🫔	tamales	none
-🫕	fondue	none
-🫖	czajniczek	none
+🤌🏻	złączone palce karnacja jasna	none
+🤌🏼	złączone palce karnacja średnio jasna	none
+🤌🏽	złączone palce karnacja średnia	none
+🤌🏾	złączone palce karnacja średnio ciemna	none
+🤌🏿	złączone palce karnacja ciemna	none
 👋🏻	machająca dłoń karnacja jasna	none
 👋🏼	machająca dłoń karnacja średnio jasna	none
 👋🏽	machająca dłoń karnacja średnia	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	dorosły karnacja średnia i łysy	none
 🧑🏾‍🦲	dorosły karnacja średnio ciemna i łysy	none
 🧑🏿‍🦲	dorosły karnacja ciemna i łysy	none
+🧑🏻‍🍼	osoba karmiąca niemowlę karnacja jasna	none
+🧑🏼‍🍼	osoba karmiąca niemowlę karnacja średnio jasna	none
+🧑🏽‍🍼	osoba karmiąca niemowlę karnacja średnia	none
+🧑🏾‍🍼	osoba karmiąca niemowlę karnacja średnio ciemna	none
+🧑🏿‍🍼	osoba karmiąca niemowlę karnacja ciemna	none
+🧑🏻‍🎄	Mikołajka karnacja jasna	none
+🧑🏼‍🎄	Mikołajka karnacja średnio jasna	none
+🧑🏽‍🎄	Mikołajka karnacja średnia	none
+🧑🏾‍🎄	Mikołajka karnacja średnio ciemna	none
+🧑🏿‍🎄	Mikołajka karnacja ciemna	none
 👨🏻	mężczyzna karnacja jasna	none
 👨🏼	mężczyzna karnacja średnio jasna	none
 👨🏽	mężczyzna karnacja średnia	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	mężczyzna karnacja średnia i łysy	none
 👨🏾‍🦲	mężczyzna karnacja średnio ciemna i łysy	none
 👨🏿‍🦲	mężczyzna karnacja ciemna i łysy	none
+👨🏻‍🍼	mężczyzna karmiący niemowlę karnacja jasna	none
+👨🏼‍🍼	mężczyzna karmiący niemowlę karnacja średnio jasna	none
+👨🏽‍🍼	mężczyzna karmiący niemowlę karnacja średnia	none
+👨🏾‍🍼	mężczyzna karmiący niemowlę karnacja średnio ciemna	none
+👨🏿‍🍼	mężczyzna karmiący niemowlę karnacja ciemna	none
 👩🏻	kobieta karnacja jasna	none
 👩🏼	kobieta karnacja średnio jasna	none
 👩🏽	kobieta karnacja średnia	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	kobieta karnacja średnia i łysy	none
 👩🏾‍🦲	kobieta karnacja średnio ciemna i łysy	none
 👩🏿‍🦲	kobieta karnacja ciemna i łysy	none
+👩🏻‍🍼	kobieta karmiąca niemowlę karnacja jasna	none
+👩🏼‍🍼	kobieta karmiąca niemowlę karnacja średnio jasna	none
+👩🏽‍🍼	kobieta karmiąca niemowlę karnacja średnia	none
+👩🏾‍🍼	kobieta karmiąca niemowlę karnacja średnio ciemna	none
+👩🏿‍🍼	kobieta karmiąca niemowlę karnacja ciemna	none
 🧓🏻	starszy dorosły karnacja jasna	none
 🧓🏼	starszy dorosły karnacja średnio jasna	none
 🧓🏽	starszy dorosły karnacja średnia	none
@@ -2307,16 +2342,36 @@ symbols:
 🧕🏽	kobieta w chuście karnacja średnia	none
 🧕🏾	kobieta w chuście karnacja średnio ciemna	none
 🧕🏿	kobieta w chuście karnacja ciemna	none
-🤵🏻	mężczyzna w smokingu karnacja jasna	none
-🤵🏼	mężczyzna w smokingu karnacja średnio jasna	none
-🤵🏽	mężczyzna w smokingu karnacja średnia	none
-🤵🏾	mężczyzna w smokingu karnacja średnio ciemna	none
-🤵🏿	mężczyzna w smokingu karnacja ciemna	none
-👰🏻	panna młoda w welonie karnacja jasna	none
-👰🏼	panna młoda w welonie karnacja średnio jasna	none
-👰🏽	panna młoda w welonie karnacja średnia	none
-👰🏾	panna młoda w welonie karnacja średnio ciemna	none
-👰🏿	panna młoda w welonie karnacja ciemna	none
+🤵🏻	osoba w smokingu karnacja jasna	none
+🤵🏼	osoba w smokingu karnacja średnio jasna	none
+🤵🏽	osoba w smokingu karnacja średnia	none
+🤵🏾	osoba w smokingu karnacja średnio ciemna	none
+🤵🏿	osoba w smokingu karnacja ciemna	none
+🤵🏻‍♀	kobieta w smokingu karnacja jasna	none
+🤵🏼‍♀	kobieta w smokingu karnacja średnio jasna	none
+🤵🏽‍♀	kobieta w smokingu karnacja średnia	none
+🤵🏾‍♀	kobieta w smokingu karnacja średnio ciemna	none
+🤵🏿‍♀	kobieta w smokingu karnacja ciemna	none
+🤵🏻‍♂	mężczyzna w smokingu karnacja jasna	none
+🤵🏼‍♂	mężczyzna w smokingu karnacja średnio jasna	none
+🤵🏽‍♂	mężczyzna w smokingu karnacja średnia	none
+🤵🏾‍♂	mężczyzna w smokingu karnacja średnio ciemna	none
+🤵🏿‍♂	mężczyzna w smokingu karnacja ciemna	none
+👰🏻	osoba w welonie karnacja jasna	none
+👰🏼	osoba w welonie karnacja średnio jasna	none
+👰🏽	osoba w welonie karnacja średnia	none
+👰🏾	osoba w welonie karnacja średnio ciemna	none
+👰🏿	osoba w welonie karnacja ciemna	none
+👰🏻‍♀	kobieta w welonie karnacja jasna	none
+👰🏼‍♀	kobieta w welonie karnacja średnio jasna	none
+👰🏽‍♀	kobieta w welonie karnacja średnia	none
+👰🏾‍♀	kobieta w welonie karnacja średnio ciemna	none
+👰🏿‍♀	kobieta w welonie karnacja ciemna	none
+👰🏻‍♂	mężczyzna w welonie karnacja jasna	none
+👰🏼‍♂	mężczyzna w welonie karnacja średnio jasna	none
+👰🏽‍♂	mężczyzna w welonie karnacja średnia	none
+👰🏾‍♂	mężczyzna w welonie karnacja średnio ciemna	none
+👰🏿‍♂	mężczyzna w welonie karnacja ciemna	none
 🤰🏻	kobieta w ciąży karnacja jasna	none
 🤰🏼	kobieta w ciąży karnacja średnio jasna	none
 🤰🏽	kobieta w ciąży karnacja średnia	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	osoba w łóżku karnacja średnio ciemna	none
 🛌🏿	osoba w łóżku karnacja ciemna	none
 🧑🏻‍🤝‍🧑🏻	osoby trzymające się za ręce karnacja jasna	none
+🧑🏻‍🤝‍🧑🏼	osoby trzymające się za ręce karnacja jasna i karnacja średnio jasna	none
+🧑🏻‍🤝‍🧑🏽	osoby trzymające się za ręce karnacja jasna i karnacja średnia	none
+🧑🏻‍🤝‍🧑🏾	osoby trzymające się za ręce karnacja jasna i karnacja średnio ciemna	none
+🧑🏻‍🤝‍🧑🏿	osoby trzymające się za ręce karnacja jasna i karnacja ciemna	none
 🧑🏼‍🤝‍🧑🏻	osoby trzymające się za ręce karnacja średnio jasna i karnacja jasna	none
 🧑🏼‍🤝‍🧑🏼	osoby trzymające się za ręce karnacja średnio jasna	none
+🧑🏼‍🤝‍🧑🏽	osoby trzymające się za ręce karnacja średnio jasna i karnacja średnia	none
+🧑🏼‍🤝‍🧑🏾	osoby trzymające się za ręce karnacja średnio jasna i karnacja średnio ciemna	none
+🧑🏼‍🤝‍🧑🏿	osoby trzymające się za ręce karnacja średnio jasna i karnacja ciemna	none
 🧑🏽‍🤝‍🧑🏻	osoby trzymające się za ręce karnacja średnia i karnacja jasna	none
 🧑🏽‍🤝‍🧑🏼	osoby trzymające się za ręce karnacja średnia i karnacja średnio jasna	none
 🧑🏽‍🤝‍🧑🏽	osoby trzymające się za ręce karnacja średnia	none
+🧑🏽‍🤝‍🧑🏾	osoby trzymające się za ręce karnacja średnia i karnacja średnio ciemna	none
+🧑🏽‍🤝‍🧑🏿	osoby trzymające się za ręce karnacja średnia i karnacja ciemna	none
 🧑🏾‍🤝‍🧑🏻	osoby trzymające się za ręce karnacja średnio ciemna i karnacja jasna	none
 🧑🏾‍🤝‍🧑🏼	osoby trzymające się za ręce karnacja średnio ciemna i karnacja średnio jasna	none
 🧑🏾‍🤝‍🧑🏽	osoby trzymające się za ręce karnacja średnio ciemna i karnacja średnia	none
 🧑🏾‍🤝‍🧑🏾	osoby trzymające się za ręce karnacja średnio ciemna	none
+🧑🏾‍🤝‍🧑🏿	osoby trzymające się za ręce karnacja średnio ciemna i karnacja ciemna	none
 🧑🏿‍🤝‍🧑🏻	osoby trzymające się za ręce karnacja ciemna i karnacja jasna	none
 🧑🏿‍🤝‍🧑🏼	osoby trzymające się za ręce karnacja ciemna i karnacja średnio jasna	none
 🧑🏿‍🤝‍🧑🏽	osoby trzymające się za ręce karnacja ciemna i karnacja średnia	none
 🧑🏿‍🤝‍🧑🏾	osoby trzymające się za ręce karnacja ciemna i karnacja średnio ciemna	none
 🧑🏿‍🤝‍🧑🏿	osoby trzymające się za ręce karnacja ciemna	none
 👭🏻	kobiety trzymające się za ręce karnacja jasna	none
+👩🏻‍🤝‍👩🏼	kobiety trzymające się za ręce karnacja jasna i karnacja średnio jasna	none
+👩🏻‍🤝‍👩🏽	kobiety trzymające się za ręce karnacja jasna i karnacja średnia	none
+👩🏻‍🤝‍👩🏾	kobiety trzymające się za ręce karnacja jasna i karnacja średnio ciemna	none
+👩🏻‍🤝‍👩🏿	kobiety trzymające się za ręce karnacja jasna i karnacja ciemna	none
 👩🏼‍🤝‍👩🏻	kobiety trzymające się za ręce karnacja średnio jasna i karnacja jasna	none
 👭🏼	kobiety trzymające się za ręce karnacja średnio jasna	none
+👩🏼‍🤝‍👩🏽	kobiety trzymające się za ręce karnacja średnio jasna i karnacja średnia	none
+👩🏼‍🤝‍👩🏾	kobiety trzymające się za ręce karnacja średnio jasna i karnacja średnio ciemna	none
+👩🏼‍🤝‍👩🏿	kobiety trzymające się za ręce karnacja średnio jasna i karnacja ciemna	none
 👩🏽‍🤝‍👩🏻	kobiety trzymające się za ręce karnacja średnia i karnacja jasna	none
 👩🏽‍🤝‍👩🏼	kobiety trzymające się za ręce karnacja średnia i karnacja średnio jasna	none
 👭🏽	kobiety trzymające się za ręce karnacja średnia	none
+👩🏽‍🤝‍👩🏾	kobiety trzymające się za ręce karnacja średnia i karnacja średnio ciemna	none
+👩🏽‍🤝‍👩🏿	kobiety trzymające się za ręce karnacja średnia i karnacja ciemna	none
 👩🏾‍🤝‍👩🏻	kobiety trzymające się za ręce karnacja średnio ciemna i karnacja jasna	none
 👩🏾‍🤝‍👩🏼	kobiety trzymające się za ręce karnacja średnio ciemna i karnacja średnio jasna	none
 👩🏾‍🤝‍👩🏽	kobiety trzymające się za ręce karnacja średnio ciemna i karnacja średnia	none
 👭🏾	kobiety trzymające się za ręce karnacja średnio ciemna	none
+👩🏾‍🤝‍👩🏿	kobiety trzymające się za ręce karnacja średnio ciemna i karnacja ciemna	none
 👩🏿‍🤝‍👩🏻	kobiety trzymające się za ręce karnacja ciemna i karnacja jasna	none
 👩🏿‍🤝‍👩🏼	kobiety trzymające się za ręce karnacja ciemna i karnacja średnio jasna	none
 👩🏿‍🤝‍👩🏽	kobiety trzymające się za ręce karnacja ciemna i karnacja średnia	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	mężczyzna i kobieta trzymający się za ręce karnacja ciemna i karnacja średnio ciemna	none
 👫🏿	mężczyzna i kobieta trzymający się za ręce karnacja ciemna	none
 👬🏻	dwóch mężczyzn trzymających się za ręce karnacja jasna	none
+👨🏻‍🤝‍👨🏼	dwóch mężczyzn trzymających się za ręce karnacja jasna i karnacja średnio jasna	none
+👨🏻‍🤝‍👨🏽	dwóch mężczyzn trzymających się za ręce karnacja jasna i karnacja średnia	none
+👨🏻‍🤝‍👨🏾	dwóch mężczyzn trzymających się za ręce karnacja jasna i karnacja średnio ciemna	none
+👨🏻‍🤝‍👨🏿	dwóch mężczyzn trzymających się za ręce karnacja jasna i karnacja ciemna	none
 👨🏼‍🤝‍👨🏻	dwóch mężczyzn trzymających się za ręce karnacja średnio jasna i karnacja jasna	none
 👬🏼	dwóch mężczyzn trzymających się za ręce karnacja średnio jasna	none
+👨🏼‍🤝‍👨🏽	dwóch mężczyzn trzymających się za ręce karnacja średnio jasna i karnacja średnia	none
+👨🏼‍🤝‍👨🏾	dwóch mężczyzn trzymających się za ręce karnacja średnio jasna i karnacja średnio ciemna	none
+👨🏼‍🤝‍👨🏿	dwóch mężczyzn trzymających się za ręce karnacja średnio jasna i karnacja ciemna	none
 👨🏽‍🤝‍👨🏻	dwóch mężczyzn trzymających się za ręce karnacja średnia i karnacja jasna	none
 👨🏽‍🤝‍👨🏼	dwóch mężczyzn trzymających się za ręce karnacja średnia i karnacja średnio jasna	none
 👬🏽	dwóch mężczyzn trzymających się za ręce karnacja średnia	none
+👨🏽‍🤝‍👨🏾	dwóch mężczyzn trzymających się za ręce karnacja średnia i karnacja średnio ciemna	none
+👨🏽‍🤝‍👨🏿	dwóch mężczyzn trzymających się za ręce karnacja średnia i karnacja ciemna	none
 👨🏾‍🤝‍👨🏻	dwóch mężczyzn trzymających się za ręce karnacja średnio ciemna i karnacja jasna	none
 👨🏾‍🤝‍👨🏼	dwóch mężczyzn trzymających się za ręce karnacja średnio ciemna i karnacja średnio jasna	none
 👨🏾‍🤝‍👨🏽	dwóch mężczyzn trzymających się za ręce karnacja średnio ciemna i karnacja średnia	none
 👬🏾	dwóch mężczyzn trzymających się za ręce karnacja średnio ciemna	none
+👨🏾‍🤝‍👨🏿	dwóch mężczyzn trzymających się za ręce karnacja średnio ciemna i karnacja ciemna	none
 👨🏿‍🤝‍👨🏻	dwóch mężczyzn trzymających się za ręce karnacja ciemna i karnacja jasna	none
 👨🏿‍🤝‍👨🏼	dwóch mężczyzn trzymających się za ręce karnacja ciemna i karnacja średnio jasna	none
 👨🏿‍🤝‍👨🏽	dwóch mężczyzn trzymających się za ręce karnacja ciemna i karnacja średnia	none
