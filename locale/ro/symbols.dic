@@ -48,8 +48,7 @@ negative number	minus	none	norep	# - înaintea unei cifre
 # Standard punctuation/symbols
 !	semnul exclamării
 "	ghilimele
-#	diez
-№	număr
+\#	diez
 $	dolar
 £	liră sterlină
 €	euro
@@ -66,6 +65,7 @@ $	dolar
 +	plus
 ,	virgulă
 -	cratimă
+‑	cratimă de unire
 .	punct
 ·	punct central
 /	bară oblică
@@ -132,6 +132,8 @@ _	liniuță joasă
 ✓	bifat
 ✔	bifat
 „	ghilimele deschise	some
+🡺	săgeată dreapta
+
 #Mathematical Operators U+2200 to U+220F
 
 ∀	oricare ar fi

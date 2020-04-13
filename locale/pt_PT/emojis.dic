@@ -9,6 +9,14 @@ symbols:
 🏾	tipo de pele 5	none
 🏿	tipo de pele 6	none
 ⚧	símbolo transgénero	none
+🥲	cara sorridente com lágrima	none
+🦤	dodó	none
+🪘	tambor alto	none
+🪛	chave de fendas	none
+🪧	placard	none
+🫂	pessoas abraçadas	none
+🫑	pimento	none
+🛻	carrinha	none
 😀	cara sorridente	none
 😃	cara sorridente com olhos bem abertos	none
 😄	cara a sorrir com boca aberta e olhos sorridentes	none
@@ -164,6 +172,10 @@ symbols:
 👶	bebé	none
 👦	rapaz	none
 👧	rapariga	none
+🧑‍🍼	pessoa a alimentar bebé	none
+🧑‍🎄	Sra. Natal	none
+👨‍🍼	homem a alimentar bebé	none
+👩‍🍼	mulher a alimentar bebé	none
 🧓	pessoa idosa	none
 👴	idoso	none
 🙍	pessoa de sobrolho franzido	none
@@ -237,7 +249,9 @@ symbols:
 👷‍♀	operária da construção civil	none
 👲	homem com chapéu chinês	none
 🧕	mulher com lenço na cabeça	none
-👰	noiva com véu	none
+👰	pessoa com véu	none
+👰‍♀	mulher com véu	none
+👰‍♂	homem com véu	none
 🤱	amamentar	none
 👼	anjo bebé	none
 🎅	pai natal	none
@@ -810,11 +824,12 @@ symbols:
 ✅	botão de visto	none
 ☑	caixa com visto	none
 ✔	visto	none
+✖	multiplicação	none
 ❌	cruz	none
 ❎	botão com cruz	none
-➕	sinal de adição	none
-➖	sinal de subtração	none
-➗	sinal de divisão	none
+➕	adição	none
+➖	subtração	none
+➗	divisão	none
 ➿	laço encaracolado duplo	none
 〽	marca de alternância parcial	none
 ✳	asterisco com oito raios	none
@@ -873,14 +888,11 @@ symbols:
 🏳‍⚧	bandeira transgénero	none
 🏳‍🌈	bandeira arco-íris	none
 🏴‍☠	bandeira pirata	none
-🛻	carrinha	none
-🥲	cara sorridente com lágrima	none
-🦤	dodó	none
-🪘	tambor alto	none
-🪛	chave de fendas	none
-🪧	placard	none
-🫂	pessoas abraçadas	none
-🫑	pimento	none
+🤌🏻	dedos comprimidos tipo de pele 1–2	none
+🤌🏼	dedos comprimidos tipo de pele 3	none
+🤌🏽	dedos comprimidos tipo de pele 4	none
+🤌🏾	dedos comprimidos tipo de pele 5	none
+🤌🏿	dedos comprimidos tipo de pele 6	none
 👋🏻	mão a acenar tipo de pele 1–2	none
 👋🏼	mão a acenar tipo de pele 3	none
 👋🏽	mão a acenar tipo de pele 4	none
@@ -1123,6 +1135,16 @@ symbols:
 🧑🏽‍🦲	pessoa tipo de pele 4 e careca	none
 🧑🏾‍🦲	pessoa tipo de pele 5 e careca	none
 🧑🏿‍🦲	pessoa tipo de pele 6 e careca	none
+🧑🏻‍🍼	pessoa a alimentar bebé tipo de pele 1–2	none
+🧑🏼‍🍼	pessoa a alimentar bebé tipo de pele 3	none
+🧑🏽‍🍼	pessoa a alimentar bebé tipo de pele 4	none
+🧑🏾‍🍼	pessoa a alimentar bebé tipo de pele 5	none
+🧑🏿‍🍼	pessoa a alimentar bebé tipo de pele 6	none
+🧑🏻‍🎄	Sra. Natal tipo de pele 1–2	none
+🧑🏼‍🎄	Sra. Natal tipo de pele 3	none
+🧑🏽‍🎄	Sra. Natal tipo de pele 4	none
+🧑🏾‍🎄	Sra. Natal tipo de pele 5	none
+🧑🏿‍🎄	Sra. Natal tipo de pele 6	none
 👨🏻	homem tipo de pele 1–2	none
 👨🏼	homem tipo de pele 3	none
 👨🏽	homem tipo de pele 4	none
@@ -1160,6 +1182,11 @@ symbols:
 👨🏽‍🦲	homem tipo de pele 4 e careca	none
 👨🏾‍🦲	homem tipo de pele 5 e careca	none
 👨🏿‍🦲	homem tipo de pele 6 e careca	none
+👨🏻‍🍼	homem a alimentar bebé tipo de pele 1–2	none
+👨🏼‍🍼	homem a alimentar bebé tipo de pele 3	none
+👨🏽‍🍼	homem a alimentar bebé tipo de pele 4	none
+👨🏾‍🍼	homem a alimentar bebé tipo de pele 5	none
+👨🏿‍🍼	homem a alimentar bebé tipo de pele 6	none
 👩🏻	mulher tipo de pele 1–2	none
 👩🏼	mulher tipo de pele 3	none
 👩🏽	mulher tipo de pele 4	none
@@ -1192,6 +1219,11 @@ symbols:
 👩🏽‍🦲	mulher tipo de pele 4 e careca	none
 👩🏾‍🦲	mulher tipo de pele 5 e careca	none
 👩🏿‍🦲	mulher tipo de pele 6 e careca	none
+👩🏻‍🍼	mulher a alimentar bebé tipo de pele 1–2	none
+👩🏼‍🍼	mulher a alimentar bebé tipo de pele 3	none
+👩🏽‍🍼	mulher a alimentar bebé tipo de pele 4	none
+👩🏾‍🍼	mulher a alimentar bebé tipo de pele 5	none
+👩🏿‍🍼	mulher a alimentar bebé tipo de pele 6	none
 🧓🏻	pessoa idosa tipo de pele 1–2	none
 🧓🏼	pessoa idosa tipo de pele 3	none
 🧓🏽	pessoa idosa tipo de pele 4	none
@@ -1692,16 +1724,36 @@ symbols:
 🧕🏽	mulher com lenço na cabeça tipo de pele 4	none
 🧕🏾	mulher com lenço na cabeça tipo de pele 5	none
 🧕🏿	mulher com lenço na cabeça tipo de pele 6	none
-🤵🏻	homem de smoking tipo de pele 1–2	none
-🤵🏼	homem de smoking tipo de pele 3	none
-🤵🏽	homem de smoking tipo de pele 4	none
-🤵🏾	homem de smoking tipo de pele 5	none
-🤵🏿	homem de smoking tipo de pele 6	none
-👰🏻	noiva com véu tipo de pele 1–2	none
-👰🏼	noiva com véu tipo de pele 3	none
-👰🏽	noiva com véu tipo de pele 4	none
-👰🏾	noiva com véu tipo de pele 5	none
-👰🏿	noiva com véu tipo de pele 6	none
+🤵🏻	pessoa de smoking tipo de pele 1–2	none
+🤵🏼	pessoa de smoking tipo de pele 3	none
+🤵🏽	pessoa de smoking tipo de pele 4	none
+🤵🏾	pessoa de smoking tipo de pele 5	none
+🤵🏿	pessoa de smoking tipo de pele 6	none
+🤵🏻‍♀	mulher de smoking tipo de pele 1–2	none
+🤵🏼‍♀	mulher de smoking tipo de pele 3	none
+🤵🏽‍♀	mulher de smoking tipo de pele 4	none
+🤵🏾‍♀	mulher de smoking tipo de pele 5	none
+🤵🏿‍♀	mulher de smoking tipo de pele 6	none
+🤵🏻‍♂	homem de smoking tipo de pele 1–2	none
+🤵🏼‍♂	homem de smoking tipo de pele 3	none
+🤵🏽‍♂	homem de smoking tipo de pele 4	none
+🤵🏾‍♂	homem de smoking tipo de pele 5	none
+🤵🏿‍♂	homem de smoking tipo de pele 6	none
+👰🏻	pessoa com véu tipo de pele 1–2	none
+👰🏼	pessoa com véu tipo de pele 3	none
+👰🏽	pessoa com véu tipo de pele 4	none
+👰🏾	pessoa com véu tipo de pele 5	none
+👰🏿	pessoa com véu tipo de pele 6	none
+👰🏻‍♀	mulher com véu tipo de pele 1–2	none
+👰🏼‍♀	mulher com véu tipo de pele 3	none
+👰🏽‍♀	mulher com véu tipo de pele 4	none
+👰🏾‍♀	mulher com véu tipo de pele 5	none
+👰🏿‍♀	mulher com véu tipo de pele 6	none
+👰🏻‍♂	homem com véu tipo de pele 1–2	none
+👰🏼‍♂	homem com véu tipo de pele 3	none
+👰🏽‍♂	homem com véu tipo de pele 4	none
+👰🏾‍♂	homem com véu tipo de pele 5	none
+👰🏿‍♂	homem com véu tipo de pele 6	none
 🤰🏻	grávida tipo de pele 1–2	none
 🤰🏼	grávida tipo de pele 3	none
 🤰🏽	grávida tipo de pele 4	none
@@ -2228,30 +2280,50 @@ symbols:
 🛌🏾	pessoa na cama tipo de pele 5	none
 🛌🏿	pessoa na cama tipo de pele 6	none
 🧑🏻‍🤝‍🧑🏻	pessoas de mãos dadas tipo de pele 1–2	none
+🧑🏻‍🤝‍🧑🏼	pessoas de mãos dadas tipo de pele 1–2 e tipo de pele 3	none
+🧑🏻‍🤝‍🧑🏽	pessoas de mãos dadas tipo de pele 1–2 e tipo de pele 4	none
+🧑🏻‍🤝‍🧑🏾	pessoas de mãos dadas tipo de pele 1–2 e tipo de pele 5	none
+🧑🏻‍🤝‍🧑🏿	pessoas de mãos dadas tipo de pele 1–2 e tipo de pele 6	none
 🧑🏼‍🤝‍🧑🏻	pessoas de mãos dadas tipo de pele 3 e tipo de pele 1–2	none
 🧑🏼‍🤝‍🧑🏼	pessoas de mãos dadas tipo de pele 3	none
+🧑🏼‍🤝‍🧑🏽	pessoas de mãos dadas tipo de pele 3 e tipo de pele 4	none
+🧑🏼‍🤝‍🧑🏾	pessoas de mãos dadas tipo de pele 3 e tipo de pele 5	none
+🧑🏼‍🤝‍🧑🏿	pessoas de mãos dadas tipo de pele 3 e tipo de pele 6	none
 🧑🏽‍🤝‍🧑🏻	pessoas de mãos dadas tipo de pele 4 e tipo de pele 1–2	none
 🧑🏽‍🤝‍🧑🏼	pessoas de mãos dadas tipo de pele 4 e tipo de pele 3	none
 🧑🏽‍🤝‍🧑🏽	pessoas de mãos dadas tipo de pele 4	none
+🧑🏽‍🤝‍🧑🏾	pessoas de mãos dadas tipo de pele 4 e tipo de pele 5	none
+🧑🏽‍🤝‍🧑🏿	pessoas de mãos dadas tipo de pele 4 e tipo de pele 6	none
 🧑🏾‍🤝‍🧑🏻	pessoas de mãos dadas tipo de pele 5 e tipo de pele 1–2	none
 🧑🏾‍🤝‍🧑🏼	pessoas de mãos dadas tipo de pele 5 e tipo de pele 3	none
 🧑🏾‍🤝‍🧑🏽	pessoas de mãos dadas tipo de pele 5 e tipo de pele 4	none
 🧑🏾‍🤝‍🧑🏾	pessoas de mãos dadas tipo de pele 5	none
+🧑🏾‍🤝‍🧑🏿	pessoas de mãos dadas tipo de pele 5 e tipo de pele 6	none
 🧑🏿‍🤝‍🧑🏻	pessoas de mãos dadas tipo de pele 6 e tipo de pele 1–2	none
 🧑🏿‍🤝‍🧑🏼	pessoas de mãos dadas tipo de pele 6 e tipo de pele 3	none
 🧑🏿‍🤝‍🧑🏽	pessoas de mãos dadas tipo de pele 6 e tipo de pele 4	none
 🧑🏿‍🤝‍🧑🏾	pessoas de mãos dadas tipo de pele 6 e tipo de pele 5	none
 🧑🏿‍🤝‍🧑🏿	pessoas de mãos dadas tipo de pele 6	none
 👭🏻	mulheres de mãos dadas tipo de pele 1–2	none
+👩🏻‍🤝‍👩🏼	mulheres de mãos dadas tipo de pele 1–2 e tipo de pele 3	none
+👩🏻‍🤝‍👩🏽	mulheres de mãos dadas tipo de pele 1–2 e tipo de pele 4	none
+👩🏻‍🤝‍👩🏾	mulheres de mãos dadas tipo de pele 1–2 e tipo de pele 5	none
+👩🏻‍🤝‍👩🏿	mulheres de mãos dadas tipo de pele 1–2 e tipo de pele 6	none
 👩🏼‍🤝‍👩🏻	mulheres de mãos dadas tipo de pele 3 e tipo de pele 1–2	none
 👭🏼	mulheres de mãos dadas tipo de pele 3	none
+👩🏼‍🤝‍👩🏽	mulheres de mãos dadas tipo de pele 3 e tipo de pele 4	none
+👩🏼‍🤝‍👩🏾	mulheres de mãos dadas tipo de pele 3 e tipo de pele 5	none
+👩🏼‍🤝‍👩🏿	mulheres de mãos dadas tipo de pele 3 e tipo de pele 6	none
 👩🏽‍🤝‍👩🏻	mulheres de mãos dadas tipo de pele 4 e tipo de pele 1–2	none
 👩🏽‍🤝‍👩🏼	mulheres de mãos dadas tipo de pele 4 e tipo de pele 3	none
 👭🏽	mulheres de mãos dadas tipo de pele 4	none
+👩🏽‍🤝‍👩🏾	mulheres de mãos dadas tipo de pele 4 e tipo de pele 5	none
+👩🏽‍🤝‍👩🏿	mulheres de mãos dadas tipo de pele 4 e tipo de pele 6	none
 👩🏾‍🤝‍👩🏻	mulheres de mãos dadas tipo de pele 5 e tipo de pele 1–2	none
 👩🏾‍🤝‍👩🏼	mulheres de mãos dadas tipo de pele 5 e tipo de pele 3	none
 👩🏾‍🤝‍👩🏽	mulheres de mãos dadas tipo de pele 5 e tipo de pele 4	none
 👭🏾	mulheres de mãos dadas tipo de pele 5	none
+👩🏾‍🤝‍👩🏿	mulheres de mãos dadas tipo de pele 5 e tipo de pele 6	none
 👩🏿‍🤝‍👩🏻	mulheres de mãos dadas tipo de pele 6 e tipo de pele 1–2	none
 👩🏿‍🤝‍👩🏼	mulheres de mãos dadas tipo de pele 6 e tipo de pele 3	none
 👩🏿‍🤝‍👩🏽	mulheres de mãos dadas tipo de pele 6 e tipo de pele 4	none
@@ -2283,15 +2355,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	mulher e homem de mãos dadas tipo de pele 6 e tipo de pele 5	none
 👫🏿	mulher e homem de mãos dadas tipo de pele 6	none
 👬🏻	homens de mãos dadas tipo de pele 1–2	none
+👨🏻‍🤝‍👨🏼	homens de mãos dadas tipo de pele 1–2 e tipo de pele 3	none
+👨🏻‍🤝‍👨🏽	homens de mãos dadas tipo de pele 1–2 e tipo de pele 4	none
+👨🏻‍🤝‍👨🏾	homens de mãos dadas tipo de pele 1–2 e tipo de pele 5	none
+👨🏻‍🤝‍👨🏿	homens de mãos dadas tipo de pele 1–2 e tipo de pele 6	none
 👨🏼‍🤝‍👨🏻	homens de mãos dadas tipo de pele 3 e tipo de pele 1–2	none
 👬🏼	homens de mãos dadas tipo de pele 3	none
+👨🏼‍🤝‍👨🏽	homens de mãos dadas tipo de pele 3 e tipo de pele 4	none
+👨🏼‍🤝‍👨🏾	homens de mãos dadas tipo de pele 3 e tipo de pele 5	none
+👨🏼‍🤝‍👨🏿	homens de mãos dadas tipo de pele 3 e tipo de pele 6	none
 👨🏽‍🤝‍👨🏻	homens de mãos dadas tipo de pele 4 e tipo de pele 1–2	none
 👨🏽‍🤝‍👨🏼	homens de mãos dadas tipo de pele 4 e tipo de pele 3	none
 👬🏽	homens de mãos dadas tipo de pele 4	none
+👨🏽‍🤝‍👨🏾	homens de mãos dadas tipo de pele 4 e tipo de pele 5	none
+👨🏽‍🤝‍👨🏿	homens de mãos dadas tipo de pele 4 e tipo de pele 6	none
 👨🏾‍🤝‍👨🏻	homens de mãos dadas tipo de pele 5 e tipo de pele 1–2	none
 👨🏾‍🤝‍👨🏼	homens de mãos dadas tipo de pele 5 e tipo de pele 3	none
 👨🏾‍🤝‍👨🏽	homens de mãos dadas tipo de pele 5 e tipo de pele 4	none
 👬🏾	homens de mãos dadas tipo de pele 5	none
+👨🏾‍🤝‍👨🏿	homens de mãos dadas tipo de pele 5 e tipo de pele 6	none
 👨🏿‍🤝‍👨🏻	homens de mãos dadas tipo de pele 6 e tipo de pele 1–2	none
 👨🏿‍🤝‍👨🏼	homens de mãos dadas tipo de pele 6 e tipo de pele 3	none
 👨🏿‍🤝‍👨🏽	homens de mãos dadas tipo de pele 6 e tipo de pele 4	none

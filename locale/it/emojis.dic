@@ -9,6 +9,61 @@ symbols:
 🏾	carnagione abbastanza scura	none
 🏿	carnagione scura	none
 ⚧	simbolo transgender	none
+🤌	mano a pigna	none
+🥲	faccina sorridente con lacrima	none
+🥷	ninja	none
+🥸	faccina travestita	none
+🦣	mammut	none
+🦤	dodo	none
+🦫	castoro	none
+🦬	bisonte	none
+🦭	foca	none
+🧋	bubble tea	none
+🩴	infradito	none
+🪃	boomerang	none
+🪄	bacchetta magica	none
+🪅	pentolaccia	none
+🪆	matrioska	none
+🪖	elmetto militare	none
+🪗	fisarmonica	none
+🪘	tamburo lungo	none
+🪙	moneta	none
+🪚	sega da falegname	none
+🪛	cacciavite	none
+🪜	scala	none
+🪝	gancio	none
+🪞	specchio	none
+🪟	finestra	none
+🪠	sturalavandini	none
+🪡	ago da cucito	none
+🪢	nodo	none
+🪣	secchio	none
+🪤	trappola per topi	none
+🪥	spazzolino da denti	none
+🪦	lapide	none
+🪧	cartello	none
+🪨	roccia	none
+🪰	mosca	none
+🪱	verme	none
+🪲	coleottero	none
+🪳	scarafaggio	none
+🪴	pianta in vaso	none
+🪵	legna	none
+🪶	piuma	none
+🫀	organo del cuore	none
+🫁	polmoni	none
+🫂	persone che si abbracciano	none
+🫐	mirtilli	none
+🫑	peperone	none
+🫒	oliva	none
+🫓	focaccia	none
+🫔	tamal	none
+🫕	fonduta	none
+🫖	teiera	none
+🛖	capanna	none
+🛗	ascensore	none
+🛻	pickup	none
+🛼	pattini a rotelle	none
 😀	faccina con un gran sorriso	none
 😃	faccina con un gran sorriso e occhi spalancati	none
 😄	faccina con sorriso e occhi sorridenti	none
@@ -212,11 +267,15 @@ symbols:
 👧	bambina	none
 🧑	persona	none
 👱	persona bionda	none
+🧑‍🍼	persona che allatta	none
+🧑‍🎄	Santa Claus	none
 👨	uomo	none
 🧔	uomo con la barba	none
 👱‍♂	uomo biondo	none
+👨‍🍼	uomo che allatta	none
 👩	donna	none
 👱‍♀	donna bionda	none
+👩‍🍼	donna che allatta	none
 🧓	persona anziana	none
 👴	uomo anziano	none
 👵	donna anziana	none
@@ -317,8 +376,12 @@ symbols:
 👳‍♀	donna con turbante	none
 👲	uomo con zucchetto cinese	none
 🧕	donna con velo	none
-🤵	uomo in smoking	none
-👰	sposa	none
+🤵	persona in smoking	none
+🤵‍♀	donna in smoking	none
+🤵‍♂	uomo in smoking	none
+👰	persona con velo	none
+👰‍♀	sposa con velo	none
+👰‍♂	sposo con velo	none
 🤰	donna incinta	none
 🤱	allattare	none
 👼	angioletto	none
@@ -467,6 +530,7 @@ symbols:
 🦝	procione	none
 🐱	muso di gatto	none
 🐈	gatto	none
+🐈‍⬛	gatto nero	none
 🦁	leone	none
 🐯	muso di tigre	none
 🐅	tigre	none
@@ -504,6 +568,7 @@ symbols:
 🦔	riccio	none
 🦇	pipistrello	none
 🐻	orso	none
+🐻‍❄	orso polare	none
 🐨	koala	none
 🐼	panda	none
 🦥	bradipo	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	bandiera transgender	none
 🏳‍🌈	bandiera arcobaleno	none
 🏴‍☠	bandiera dei pirati	none
-🛖	capanna	none
-🛗	ascensore	none
-🛻	pickup	none
-🛼	pattini a rotelle	none
-🤌	mano a pigna	none
-🥲	faccina sorridente con lacrima	none
-🥷	ninja	none
-🥸	faccina travestita	none
-🦣	mammut	none
-🦤	dodo	none
-🦫	castoro	none
-🦬	bisonte	none
-🦭	foca	none
-🧋	bubble tea	none
-🩴	infradito	none
-🪃	boomerang	none
-🪄	bacchetta magica	none
-🪅	pentolaccia	none
-🪆	matrioska	none
-🪖	elmetto militare	none
-🪗	fisarmonica	none
-🪘	tamburo lungo	none
-🪙	moneta	none
-🪚	sega da falegname	none
-🪛	cacciavite	none
-🪜	scala	none
-🪝	gancio	none
-🪞	specchio	none
-🪟	finestra	none
-🪠	sturalavandini	none
-🪡	ago da cucito	none
-🪢	nodo	none
-🪣	secchio	none
-🪤	trappola per topi	none
-🪥	spazzolino da denti	none
-🪦	lapide	none
-🪧	cartello	none
-🪨	roccia	none
-🪰	mosca	none
-🪱	verme	none
-🪲	coleottero	none
-🪳	scarafaggio	none
-🪴	pianta in vaso	none
-🪵	legna	none
-🪶	piuma	none
-🫀	organo del cuore	none
-🫁	polmoni	none
-🫂	persone che si abbracciano	none
-🫐	mirtilli	none
-🫑	peperone	none
-🫒	oliva	none
-🫓	focaccia	none
-🫔	tamal	none
-🫕	fonduta	none
-🫖	teiera	none
+🤌🏻	mano a pigna carnagione chiara	none
+🤌🏼	mano a pigna carnagione abbastanza chiara	none
+🤌🏽	mano a pigna carnagione olivastra	none
+🤌🏾	mano a pigna carnagione abbastanza scura	none
+🤌🏿	mano a pigna carnagione scura	none
 👋🏻	mano che saluta carnagione chiara	none
 👋🏼	mano che saluta carnagione abbastanza chiara	none
 👋🏽	mano che saluta carnagione olivastra	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	persona carnagione olivastra e calvo	none
 🧑🏾‍🦲	persona carnagione abbastanza scura e calvo	none
 🧑🏿‍🦲	persona carnagione scura e calvo	none
+🧑🏻‍🍼	persona che allatta carnagione chiara	none
+🧑🏼‍🍼	persona che allatta carnagione abbastanza chiara	none
+🧑🏽‍🍼	persona che allatta carnagione olivastra	none
+🧑🏾‍🍼	persona che allatta carnagione abbastanza scura	none
+🧑🏿‍🍼	persona che allatta carnagione scura	none
+🧑🏻‍🎄	Santa Claus carnagione chiara	none
+🧑🏼‍🎄	Santa Claus carnagione abbastanza chiara	none
+🧑🏽‍🎄	Santa Claus carnagione olivastra	none
+🧑🏾‍🎄	Santa Claus carnagione abbastanza scura	none
+🧑🏿‍🎄	Santa Claus carnagione scura	none
 👨🏻	uomo carnagione chiara	none
 👨🏼	uomo carnagione abbastanza chiara	none
 👨🏽	uomo carnagione olivastra	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	uomo carnagione olivastra e calvo	none
 👨🏾‍🦲	uomo carnagione abbastanza scura e calvo	none
 👨🏿‍🦲	uomo carnagione scura e calvo	none
+👨🏻‍🍼	uomo che allatta carnagione chiara	none
+👨🏼‍🍼	uomo che allatta carnagione abbastanza chiara	none
+👨🏽‍🍼	uomo che allatta carnagione olivastra	none
+👨🏾‍🍼	uomo che allatta carnagione abbastanza scura	none
+👨🏿‍🍼	uomo che allatta carnagione scura	none
 👩🏻	donna carnagione chiara	none
 👩🏼	donna carnagione abbastanza chiara	none
 👩🏽	donna carnagione olivastra	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	donna carnagione olivastra e calvo	none
 👩🏾‍🦲	donna carnagione abbastanza scura e calvo	none
 👩🏿‍🦲	donna carnagione scura e calvo	none
+👩🏻‍🍼	donna che allatta carnagione chiara	none
+👩🏼‍🍼	donna che allatta carnagione abbastanza chiara	none
+👩🏽‍🍼	donna che allatta carnagione olivastra	none
+👩🏾‍🍼	donna che allatta carnagione abbastanza scura	none
+👩🏿‍🍼	donna che allatta carnagione scura	none
 🧓🏻	persona anziana carnagione chiara	none
 🧓🏼	persona anziana carnagione abbastanza chiara	none
 🧓🏽	persona anziana carnagione olivastra	none
@@ -2307,16 +2342,36 @@ symbols:
 🧕🏽	donna con velo carnagione olivastra	none
 🧕🏾	donna con velo carnagione abbastanza scura	none
 🧕🏿	donna con velo carnagione scura	none
-🤵🏻	uomo in smoking carnagione chiara	none
-🤵🏼	uomo in smoking carnagione abbastanza chiara	none
-🤵🏽	uomo in smoking carnagione olivastra	none
-🤵🏾	uomo in smoking carnagione abbastanza scura	none
-🤵🏿	uomo in smoking carnagione scura	none
-👰🏻	sposa carnagione chiara	none
-👰🏼	sposa carnagione abbastanza chiara	none
-👰🏽	sposa carnagione olivastra	none
-👰🏾	sposa carnagione abbastanza scura	none
-👰🏿	sposa carnagione scura	none
+🤵🏻	persona in smoking carnagione chiara	none
+🤵🏼	persona in smoking carnagione abbastanza chiara	none
+🤵🏽	persona in smoking carnagione olivastra	none
+🤵🏾	persona in smoking carnagione abbastanza scura	none
+🤵🏿	persona in smoking carnagione scura	none
+🤵🏻‍♀	donna in smoking carnagione chiara	none
+🤵🏼‍♀	donna in smoking carnagione abbastanza chiara	none
+🤵🏽‍♀	donna in smoking carnagione olivastra	none
+🤵🏾‍♀	donna in smoking carnagione abbastanza scura	none
+🤵🏿‍♀	donna in smoking carnagione scura	none
+🤵🏻‍♂	uomo in smoking carnagione chiara	none
+🤵🏼‍♂	uomo in smoking carnagione abbastanza chiara	none
+🤵🏽‍♂	uomo in smoking carnagione olivastra	none
+🤵🏾‍♂	uomo in smoking carnagione abbastanza scura	none
+🤵🏿‍♂	uomo in smoking carnagione scura	none
+👰🏻	persona con velo carnagione chiara	none
+👰🏼	persona con velo carnagione abbastanza chiara	none
+👰🏽	persona con velo carnagione olivastra	none
+👰🏾	persona con velo carnagione abbastanza scura	none
+👰🏿	persona con velo carnagione scura	none
+👰🏻‍♀	sposa con velo carnagione chiara	none
+👰🏼‍♀	sposa con velo carnagione abbastanza chiara	none
+👰🏽‍♀	sposa con velo carnagione olivastra	none
+👰🏾‍♀	sposa con velo carnagione abbastanza scura	none
+👰🏿‍♀	sposa con velo carnagione scura	none
+👰🏻‍♂	sposo con velo carnagione chiara	none
+👰🏼‍♂	sposo con velo carnagione abbastanza chiara	none
+👰🏽‍♂	sposo con velo carnagione olivastra	none
+👰🏾‍♂	sposo con velo carnagione abbastanza scura	none
+👰🏿‍♂	sposo con velo carnagione scura	none
 🤰🏻	donna incinta carnagione chiara	none
 🤰🏼	donna incinta carnagione abbastanza chiara	none
 🤰🏽	donna incinta carnagione olivastra	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	persona a letto carnagione abbastanza scura	none
 🛌🏿	persona a letto carnagione scura	none
 🧑🏻‍🤝‍🧑🏻	persone che si tengono per mano carnagione chiara	none
+🧑🏻‍🤝‍🧑🏼	persone che si tengono per mano carnagione chiara e carnagione abbastanza chiara	none
+🧑🏻‍🤝‍🧑🏽	persone che si tengono per mano carnagione chiara e carnagione olivastra	none
+🧑🏻‍🤝‍🧑🏾	persone che si tengono per mano carnagione chiara e carnagione abbastanza scura	none
+🧑🏻‍🤝‍🧑🏿	persone che si tengono per mano carnagione chiara e carnagione scura	none
 🧑🏼‍🤝‍🧑🏻	persone che si tengono per mano carnagione abbastanza chiara e carnagione chiara	none
 🧑🏼‍🤝‍🧑🏼	persone che si tengono per mano carnagione abbastanza chiara	none
+🧑🏼‍🤝‍🧑🏽	persone che si tengono per mano carnagione abbastanza chiara e carnagione olivastra	none
+🧑🏼‍🤝‍🧑🏾	persone che si tengono per mano carnagione abbastanza chiara e carnagione abbastanza scura	none
+🧑🏼‍🤝‍🧑🏿	persone che si tengono per mano carnagione abbastanza chiara e carnagione scura	none
 🧑🏽‍🤝‍🧑🏻	persone che si tengono per mano carnagione olivastra e carnagione chiara	none
 🧑🏽‍🤝‍🧑🏼	persone che si tengono per mano carnagione olivastra e carnagione abbastanza chiara	none
 🧑🏽‍🤝‍🧑🏽	persone che si tengono per mano carnagione olivastra	none
+🧑🏽‍🤝‍🧑🏾	persone che si tengono per mano carnagione olivastra e carnagione abbastanza scura	none
+🧑🏽‍🤝‍🧑🏿	persone che si tengono per mano carnagione olivastra e carnagione scura	none
 🧑🏾‍🤝‍🧑🏻	persone che si tengono per mano carnagione abbastanza scura e carnagione chiara	none
 🧑🏾‍🤝‍🧑🏼	persone che si tengono per mano carnagione abbastanza scura e carnagione abbastanza chiara	none
 🧑🏾‍🤝‍🧑🏽	persone che si tengono per mano carnagione abbastanza scura e carnagione olivastra	none
 🧑🏾‍🤝‍🧑🏾	persone che si tengono per mano carnagione abbastanza scura	none
+🧑🏾‍🤝‍🧑🏿	persone che si tengono per mano carnagione abbastanza scura e carnagione scura	none
 🧑🏿‍🤝‍🧑🏻	persone che si tengono per mano carnagione scura e carnagione chiara	none
 🧑🏿‍🤝‍🧑🏼	persone che si tengono per mano carnagione scura e carnagione abbastanza chiara	none
 🧑🏿‍🤝‍🧑🏽	persone che si tengono per mano carnagione scura e carnagione olivastra	none
 🧑🏿‍🤝‍🧑🏾	persone che si tengono per mano carnagione scura e carnagione abbastanza scura	none
 🧑🏿‍🤝‍🧑🏿	persone che si tengono per mano carnagione scura	none
 👭🏻	due donne che si tengono per mano carnagione chiara	none
+👩🏻‍🤝‍👩🏼	due donne che si tengono per mano carnagione chiara e carnagione abbastanza chiara	none
+👩🏻‍🤝‍👩🏽	due donne che si tengono per mano carnagione chiara e carnagione olivastra	none
+👩🏻‍🤝‍👩🏾	due donne che si tengono per mano carnagione chiara e carnagione abbastanza scura	none
+👩🏻‍🤝‍👩🏿	due donne che si tengono per mano carnagione chiara e carnagione scura	none
 👩🏼‍🤝‍👩🏻	due donne che si tengono per mano carnagione abbastanza chiara e carnagione chiara	none
 👭🏼	due donne che si tengono per mano carnagione abbastanza chiara	none
+👩🏼‍🤝‍👩🏽	due donne che si tengono per mano carnagione abbastanza chiara e carnagione olivastra	none
+👩🏼‍🤝‍👩🏾	due donne che si tengono per mano carnagione abbastanza chiara e carnagione abbastanza scura	none
+👩🏼‍🤝‍👩🏿	due donne che si tengono per mano carnagione abbastanza chiara e carnagione scura	none
 👩🏽‍🤝‍👩🏻	due donne che si tengono per mano carnagione olivastra e carnagione chiara	none
 👩🏽‍🤝‍👩🏼	due donne che si tengono per mano carnagione olivastra e carnagione abbastanza chiara	none
 👭🏽	due donne che si tengono per mano carnagione olivastra	none
+👩🏽‍🤝‍👩🏾	due donne che si tengono per mano carnagione olivastra e carnagione abbastanza scura	none
+👩🏽‍🤝‍👩🏿	due donne che si tengono per mano carnagione olivastra e carnagione scura	none
 👩🏾‍🤝‍👩🏻	due donne che si tengono per mano carnagione abbastanza scura e carnagione chiara	none
 👩🏾‍🤝‍👩🏼	due donne che si tengono per mano carnagione abbastanza scura e carnagione abbastanza chiara	none
 👩🏾‍🤝‍👩🏽	due donne che si tengono per mano carnagione abbastanza scura e carnagione olivastra	none
 👭🏾	due donne che si tengono per mano carnagione abbastanza scura	none
+👩🏾‍🤝‍👩🏿	due donne che si tengono per mano carnagione abbastanza scura e carnagione scura	none
 👩🏿‍🤝‍👩🏻	due donne che si tengono per mano carnagione scura e carnagione chiara	none
 👩🏿‍🤝‍👩🏼	due donne che si tengono per mano carnagione scura e carnagione abbastanza chiara	none
 👩🏿‍🤝‍👩🏽	due donne che si tengono per mano carnagione scura e carnagione olivastra	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	uomo e donna che si tengono per mano carnagione scura e carnagione abbastanza scura	none
 👫🏿	uomo e donna che si tengono per mano carnagione scura	none
 👬🏻	due uomini che si tengono per mano carnagione chiara	none
+👨🏻‍🤝‍👨🏼	due uomini che si tengono per mano carnagione chiara e carnagione abbastanza chiara	none
+👨🏻‍🤝‍👨🏽	due uomini che si tengono per mano carnagione chiara e carnagione olivastra	none
+👨🏻‍🤝‍👨🏾	due uomini che si tengono per mano carnagione chiara e carnagione abbastanza scura	none
+👨🏻‍🤝‍👨🏿	due uomini che si tengono per mano carnagione chiara e carnagione scura	none
 👨🏼‍🤝‍👨🏻	due uomini che si tengono per mano carnagione abbastanza chiara e carnagione chiara	none
 👬🏼	due uomini che si tengono per mano carnagione abbastanza chiara	none
+👨🏼‍🤝‍👨🏽	due uomini che si tengono per mano carnagione abbastanza chiara e carnagione olivastra	none
+👨🏼‍🤝‍👨🏾	due uomini che si tengono per mano carnagione abbastanza chiara e carnagione abbastanza scura	none
+👨🏼‍🤝‍👨🏿	due uomini che si tengono per mano carnagione abbastanza chiara e carnagione scura	none
 👨🏽‍🤝‍👨🏻	due uomini che si tengono per mano carnagione olivastra e carnagione chiara	none
 👨🏽‍🤝‍👨🏼	due uomini che si tengono per mano carnagione olivastra e carnagione abbastanza chiara	none
 👬🏽	due uomini che si tengono per mano carnagione olivastra	none
+👨🏽‍🤝‍👨🏾	due uomini che si tengono per mano carnagione olivastra e carnagione abbastanza scura	none
+👨🏽‍🤝‍👨🏿	due uomini che si tengono per mano carnagione olivastra e carnagione scura	none
 👨🏾‍🤝‍👨🏻	due uomini che si tengono per mano carnagione abbastanza scura e carnagione chiara	none
 👨🏾‍🤝‍👨🏼	due uomini che si tengono per mano carnagione abbastanza scura e carnagione abbastanza chiara	none
 👨🏾‍🤝‍👨🏽	due uomini che si tengono per mano carnagione abbastanza scura e carnagione olivastra	none
 👬🏾	due uomini che si tengono per mano carnagione abbastanza scura	none
+👨🏾‍🤝‍👨🏿	due uomini che si tengono per mano carnagione abbastanza scura e carnagione scura	none
 👨🏿‍🤝‍👨🏻	due uomini che si tengono per mano carnagione scura e carnagione chiara	none
 👨🏿‍🤝‍👨🏼	due uomini che si tengono per mano carnagione scura e carnagione abbastanza chiara	none
 👨🏿‍🤝‍👨🏽	due uomini che si tengono per mano carnagione scura e carnagione olivastra	none

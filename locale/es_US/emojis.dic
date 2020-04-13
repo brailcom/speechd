@@ -3,6 +3,17 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+🪆	muñecas rusas	none
+🪣	balde	none
+🪤	trampa para ratones	none
+🪧	cartel	none
+🪴	planta en una maceta	none
+🫀	órgano cardíaco	none
+🫂	personas que se abrazan	none
+🫑	pimiento morrón	none
+🫓	pan plano	none
+🛖	choza	none
+🛼	patín	none
 😀	cara sonriendo	none
 😃	cara sonriendo con ojos grandes	none
 😄	cara sonriendo con ojos sonrientes	none
@@ -86,6 +97,7 @@ symbols:
 🧑‍🏭	obrero de fábrica	none
 🧑‍🔬	científico	none
 🧑‍💻	tecnólogo	none
+🤵‍♂	hombre con esmoquín	none
 🦸	superheroína	none
 🦸‍♀	mujer superheroína	none
 🦹	supervillano	none
@@ -129,17 +141,6 @@ symbols:
 🧷	broche de seguridad	none
 🧺	canasta	none
 🈷	"cantidad mensual" en japonés	none
-🛖	choza	none
-🛼	patín	none
-🪆	muñecas rusas	none
-🪣	balde	none
-🪤	trampa para ratones	none
-🪧	cartel	none
-🪴	planta en una maceta	none
-🫀	órgano cardíaco	none
-🫂	personas que se abrazan	none
-🫑	pimiento morrón	none
-🫓	pan plano	none
 👌🏻	señal de aprobación con la mano tono de piel claro	none
 👌🏼	señal de aprobación con la mano tono de piel claro medio	none
 👌🏽	señal de aprobación con la mano tono de piel medio	none
@@ -317,6 +318,11 @@ symbols:
 🧑🏽‍💻	tecnólogo tono de piel medio	none
 🧑🏾‍💻	tecnólogo tono de piel oscuro medio	none
 🧑🏿‍💻	tecnólogo tono de piel oscuro	none
+🤵🏻‍♂	hombre con esmoquín tono de piel claro	none
+🤵🏼‍♂	hombre con esmoquín tono de piel claro medio	none
+🤵🏽‍♂	hombre con esmoquín tono de piel medio	none
+🤵🏾‍♂	hombre con esmoquín tono de piel oscuro medio	none
+🤵🏿‍♂	hombre con esmoquín tono de piel oscuro	none
 🦸🏻	superheroína tono de piel claro	none
 🦸🏼	superheroína tono de piel claro medio	none
 🦸🏽	superheroína tono de piel medio	none
@@ -348,15 +354,25 @@ symbols:
 🧑🏾‍🦼	Persona en silla de ruedas motorizada tono de piel oscuro medio	none
 🧑🏿‍🦼	Persona en silla de ruedas motorizada tono de piel oscuro	none
 🧑🏻‍🤝‍🧑🏻	personas que se toman de la mano tono de piel claro	none
+🧑🏻‍🤝‍🧑🏼	personas que se toman de la mano tono de piel claro y tono de piel claro medio	none
+🧑🏻‍🤝‍🧑🏽	personas que se toman de la mano tono de piel claro y tono de piel medio	none
+🧑🏻‍🤝‍🧑🏾	personas que se toman de la mano tono de piel claro y tono de piel oscuro medio	none
+🧑🏻‍🤝‍🧑🏿	personas que se toman de la mano tono de piel claro y tono de piel oscuro	none
 🧑🏼‍🤝‍🧑🏻	personas que se toman de la mano tono de piel claro medio y tono de piel claro	none
 🧑🏼‍🤝‍🧑🏼	personas que se toman de la mano tono de piel claro medio	none
+🧑🏼‍🤝‍🧑🏽	personas que se toman de la mano tono de piel claro medio y tono de piel medio	none
+🧑🏼‍🤝‍🧑🏾	personas que se toman de la mano tono de piel claro medio y tono de piel oscuro medio	none
+🧑🏼‍🤝‍🧑🏿	personas que se toman de la mano tono de piel claro medio y tono de piel oscuro	none
 🧑🏽‍🤝‍🧑🏻	personas que se toman de la mano tono de piel medio y tono de piel claro	none
 🧑🏽‍🤝‍🧑🏼	personas que se toman de la mano tono de piel medio y tono de piel claro medio	none
 🧑🏽‍🤝‍🧑🏽	personas que se toman de la mano tono de piel medio	none
+🧑🏽‍🤝‍🧑🏾	personas que se toman de la mano tono de piel medio y tono de piel oscuro medio	none
+🧑🏽‍🤝‍🧑🏿	personas que se toman de la mano tono de piel medio y tono de piel oscuro	none
 🧑🏾‍🤝‍🧑🏻	personas que se toman de la mano tono de piel oscuro medio y tono de piel claro	none
 🧑🏾‍🤝‍🧑🏼	personas que se toman de la mano tono de piel oscuro medio y tono de piel claro medio	none
 🧑🏾‍🤝‍🧑🏽	personas que se toman de la mano tono de piel oscuro medio y tono de piel medio	none
 🧑🏾‍🤝‍🧑🏾	personas que se toman de la mano tono de piel oscuro medio	none
+🧑🏾‍🤝‍🧑🏿	personas que se toman de la mano tono de piel oscuro medio y tono de piel oscuro	none
 🧑🏿‍🤝‍🧑🏻	personas que se toman de la mano tono de piel oscuro y tono de piel claro	none
 🧑🏿‍🤝‍🧑🏼	personas que se toman de la mano tono de piel oscuro y tono de piel claro medio	none
 🧑🏿‍🤝‍🧑🏽	personas que se toman de la mano tono de piel oscuro y tono de piel medio	none
@@ -402,7 +418,6 @@ symbols:
 🇬🇬	bandera Guernsey	none
 🇹🇦	bandera Tristán de Acuña	none
 🇺🇲	bandera Islas menores alejadas de EE. UU.	none
-🇺🇳	bandera UN	none
 0⃣	tecla 0	none
 1⃣	tecla 1	none
 2⃣	tecla 2	none

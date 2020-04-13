@@ -9,6 +9,61 @@ symbols:
 🏾	srednje temen ten kože	none
 🏿	temen ten kože	none
 ⚧	simbol za transseksualnost	none
+🤌	prsti, stisnjeni skupaj	none
+🥲	smejoči obraz s solzo	none
+🥷	nindža	none
+🥸	maska	none
+🦣	mamut	none
+🦤	dodo	none
+🦫	bober	none
+🦬	bizon	none
+🦭	tjulenj	none
+🧋	čaj s kroglicami	none
+🩴	japonke	none
+🪃	bumerang	none
+🪄	čarobna palica	none
+🪅	pinjata	none
+🪆	babuška	none
+🪖	vojaška čelada	none
+🪗	harmonika	none
+🪘	visok boben	none
+🪙	kovanec	none
+🪚	lisičja žaga	none
+🪛	izvijač	none
+🪜	lestev	none
+🪝	kljuka	none
+🪞	zrcalo	none
+🪟	okno	none
+🪠	odmaševalnik	none
+🪡	šivanka	none
+🪢	vozel	none
+🪣	vedro	none
+🪤	mišolovka	none
+🪥	zobna ščetka	none
+🪦	nagrobnik	none
+🪧	plakat	none
+🪨	skala	none
+🪰	muha	none
+🪱	črv	none
+🪲	hrošč	none
+🪳	ščurek	none
+🪴	lončnica	none
+🪵	les	none
+🪶	pero	none
+🫀	človeško srce	none
+🫁	pljuča	none
+🫂	osebi, ki se objemata	none
+🫐	borovnice	none
+🫑	paprika	none
+🫒	oliva	none
+🫓	indijski kruh	none
+🫔	tamale	none
+🫕	fondi	none
+🫖	čajnik	none
+🛖	koča	none
+🛗	dvigalo	none
+🛻	poltovornjak	none
+🛼	kotalke	none
 😀	režeči obraz	none
 😃	smejoči obraz z odprtimi usti	none
 😄	smejoči obraz z odprtimi usti in smejočimi očmi	none
@@ -212,11 +267,15 @@ symbols:
 👧	dekle	none
 🧑	odrasla oseba	none
 👱	oseba svetli lasje	none
+🧑‍🍼	oseba, ki hrani dojenčka	none
+🧑‍🎄	mx božiček	none
 👨	moški	none
 🧔	moški brada	none
 👱‍♂	moški blondinec	none
+👨‍🍼	moški, ki hrani dojenčka	none
 👩	ženska	none
 👱‍♀	ženska blondinka	none
+👩‍🍼	ženska, ki doji dojenčka	none
 🧓	starejši odrasli	none
 👴	starec	none
 👵	starka	none
@@ -317,8 +376,12 @@ symbols:
 👳‍♀	ženska s turbanom	none
 👲	moški s kitajsko čepico	none
 🧕	ženska z naglavno ruto	none
-🤵	moški v smokingu	none
-👰	nevesta s pajčolanom	none
+🤵	oseba v smokingu	none
+🤵‍♀	ženska v smokingu	none
+🤵‍♂	moški v smokingu	none
+👰	oseba s pajčolanom	none
+👰‍♀	ženska s pajčolanom	none
+👰‍♂	moški s pajčolanom	none
 🤰	nosečnica	none
 🤱	dojenje	none
 👼	angelček	none
@@ -467,6 +530,7 @@ symbols:
 🦝	rakun	none
 🐱	mačji obraz	none
 🐈	mačka	none
+🐈‍⬛	črna mačka	none
 🦁	lev	none
 🐯	tigrov obraz	none
 🐅	tiger	none
@@ -504,6 +568,7 @@ symbols:
 🦔	jež	none
 🦇	netopir	none
 🐻	medved	none
+🐻‍❄	severni medved	none
 🐨	koala	none
 🐼	panda	none
 🦥	lenivec	none
@@ -1332,12 +1397,12 @@ symbols:
 ✅	gumb s kljukico	none
 ☑	potrditveno polje s kljukico	none
 ✔	kljukica	none
-✖	znak za množenje	none
+✖	množi	none
 ❌	križec	none
 ❎	gumb s križcem	none
-➕	znak za plus	none
-➖	znak za minus	none
-➗	znak za deljenje	none
+➕	plus	none
+➖	minus	none
+➗	deli	none
 ➰	zavita pentlja	none
 ➿	dvojna zavita pentlja	none
 〽	znak za part	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	transspolna zastava	none
 🏳‍🌈	mavrična zastava	none
 🏴‍☠	piratska zastava	none
-🛖	koča	none
-🛗	dvigalo	none
-🛻	poltovornjak	none
-🛼	kotalke	none
-🤌	prsti, stisnjeni skupaj	none
-🥲	smejoči obraz s solzo	none
-🥷	nindža	none
-🥸	maska	none
-🦣	mamut	none
-🦤	dodo	none
-🦫	bober	none
-🦬	bizon	none
-🦭	tjulenj	none
-🧋	čaj s kroglicami	none
-🩴	japonke	none
-🪃	bumerang	none
-🪄	čarobna palica	none
-🪅	pinjata	none
-🪆	babuška	none
-🪖	vojaška čelada	none
-🪗	harmonika	none
-🪘	visok boben	none
-🪙	kovanec	none
-🪚	lisičja žaga	none
-🪛	izvijač	none
-🪜	lestev	none
-🪝	kljuka	none
-🪞	zrcalo	none
-🪟	okno	none
-🪠	odmaševalnik	none
-🪡	šivanka	none
-🪢	vozel	none
-🪣	vedro	none
-🪤	mišolovka	none
-🪥	zobna ščetka	none
-🪦	nagrobnik	none
-🪧	plakat	none
-🪨	skala	none
-🪰	muha	none
-🪱	črv	none
-🪲	hrošč	none
-🪳	ščurek	none
-🪴	lončnica	none
-🪵	les	none
-🪶	pero	none
-🫀	človeško srce	none
-🫁	pljuča	none
-🫂	osebi, ki se objemata	none
-🫐	borovnice	none
-🫑	paprika	none
-🫒	oliva	none
-🫓	indijski kruh	none
-🫔	tamale	none
-🫕	fondi	none
-🫖	čajnik	none
+🤌🏻	prsti, stisnjeni skupaj svetel ten kože	none
+🤌🏼	prsti, stisnjeni skupaj srednje svetel ten kože	none
+🤌🏽	prsti, stisnjeni skupaj srednji ten kože	none
+🤌🏾	prsti, stisnjeni skupaj srednje temen ten kože	none
+🤌🏿	prsti, stisnjeni skupaj temen ten kože	none
 👋🏻	mahajoča dlan svetel ten kože	none
 👋🏼	mahajoča dlan srednje svetel ten kože	none
 👋🏽	mahajoča dlan srednji ten kože	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	odrasla oseba srednji ten kože in plešast	none
 🧑🏾‍🦲	odrasla oseba srednje temen ten kože in plešast	none
 🧑🏿‍🦲	odrasla oseba temen ten kože in plešast	none
+🧑🏻‍🍼	oseba, ki hrani dojenčka svetel ten kože	none
+🧑🏼‍🍼	oseba, ki hrani dojenčka srednje svetel ten kože	none
+🧑🏽‍🍼	oseba, ki hrani dojenčka srednji ten kože	none
+🧑🏾‍🍼	oseba, ki hrani dojenčka srednje temen ten kože	none
+🧑🏿‍🍼	oseba, ki hrani dojenčka temen ten kože	none
+🧑🏻‍🎄	mx božiček svetel ten kože	none
+🧑🏼‍🎄	mx božiček srednje svetel ten kože	none
+🧑🏽‍🎄	mx božiček srednji ten kože	none
+🧑🏾‍🎄	mx božiček srednje temen ten kože	none
+🧑🏿‍🎄	mx božiček temen ten kože	none
 👨🏻	moški svetel ten kože	none
 👨🏼	moški srednje svetel ten kože	none
 👨🏽	moški srednji ten kože	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	moški srednji ten kože in plešast	none
 👨🏾‍🦲	moški srednje temen ten kože in plešast	none
 👨🏿‍🦲	moški temen ten kože in plešast	none
+👨🏻‍🍼	moški, ki hrani dojenčka svetel ten kože	none
+👨🏼‍🍼	moški, ki hrani dojenčka srednje svetel ten kože	none
+👨🏽‍🍼	moški, ki hrani dojenčka srednji ten kože	none
+👨🏾‍🍼	moški, ki hrani dojenčka srednje temen ten kože	none
+👨🏿‍🍼	moški, ki hrani dojenčka temen ten kože	none
 👩🏻	ženska svetel ten kože	none
 👩🏼	ženska srednje svetel ten kože	none
 👩🏽	ženska srednji ten kože	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	ženska srednji ten kože in plešast	none
 👩🏾‍🦲	ženska srednje temen ten kože in plešast	none
 👩🏿‍🦲	ženska temen ten kože in plešast	none
+👩🏻‍🍼	ženska, ki doji dojenčka svetel ten kože	none
+👩🏼‍🍼	ženska, ki doji dojenčka srednje svetel ten kože	none
+👩🏽‍🍼	ženska, ki doji dojenčka srednji ten kože	none
+👩🏾‍🍼	ženska, ki doji dojenčka srednje temen ten kože	none
+👩🏿‍🍼	ženska, ki doji dojenčka temen ten kože	none
 🧓🏻	starejši odrasli svetel ten kože	none
 🧓🏼	starejši odrasli srednje svetel ten kože	none
 🧓🏽	starejši odrasli srednji ten kože	none
@@ -2307,16 +2342,36 @@ symbols:
 🧕🏽	ženska z naglavno ruto srednji ten kože	none
 🧕🏾	ženska z naglavno ruto srednje temen ten kože	none
 🧕🏿	ženska z naglavno ruto temen ten kože	none
-🤵🏻	moški v smokingu svetel ten kože	none
-🤵🏼	moški v smokingu srednje svetel ten kože	none
-🤵🏽	moški v smokingu srednji ten kože	none
-🤵🏾	moški v smokingu srednje temen ten kože	none
-🤵🏿	moški v smokingu temen ten kože	none
-👰🏻	nevesta s pajčolanom svetel ten kože	none
-👰🏼	nevesta s pajčolanom srednje svetel ten kože	none
-👰🏽	nevesta s pajčolanom srednji ten kože	none
-👰🏾	nevesta s pajčolanom srednje temen ten kože	none
-👰🏿	nevesta s pajčolanom temen ten kože	none
+🤵🏻	oseba v smokingu svetel ten kože	none
+🤵🏼	oseba v smokingu srednje svetel ten kože	none
+🤵🏽	oseba v smokingu srednji ten kože	none
+🤵🏾	oseba v smokingu srednje temen ten kože	none
+🤵🏿	oseba v smokingu temen ten kože	none
+🤵🏻‍♀	ženska v smokingu svetel ten kože	none
+🤵🏼‍♀	ženska v smokingu srednje svetel ten kože	none
+🤵🏽‍♀	ženska v smokingu srednji ten kože	none
+🤵🏾‍♀	ženska v smokingu srednje temen ten kože	none
+🤵🏿‍♀	ženska v smokingu temen ten kože	none
+🤵🏻‍♂	moški v smokingu svetel ten kože	none
+🤵🏼‍♂	moški v smokingu srednje svetel ten kože	none
+🤵🏽‍♂	moški v smokingu srednji ten kože	none
+🤵🏾‍♂	moški v smokingu srednje temen ten kože	none
+🤵🏿‍♂	moški v smokingu temen ten kože	none
+👰🏻	oseba s pajčolanom svetel ten kože	none
+👰🏼	oseba s pajčolanom srednje svetel ten kože	none
+👰🏽	oseba s pajčolanom srednji ten kože	none
+👰🏾	oseba s pajčolanom srednje temen ten kože	none
+👰🏿	oseba s pajčolanom temen ten kože	none
+👰🏻‍♀	ženska s pajčolanom svetel ten kože	none
+👰🏼‍♀	ženska s pajčolanom srednje svetel ten kože	none
+👰🏽‍♀	ženska s pajčolanom srednji ten kože	none
+👰🏾‍♀	ženska s pajčolanom srednje temen ten kože	none
+👰🏿‍♀	ženska s pajčolanom temen ten kože	none
+👰🏻‍♂	moški s pajčolanom svetel ten kože	none
+👰🏼‍♂	moški s pajčolanom srednje svetel ten kože	none
+👰🏽‍♂	moški s pajčolanom srednji ten kože	none
+👰🏾‍♂	moški s pajčolanom srednje temen ten kože	none
+👰🏿‍♂	moški s pajčolanom temen ten kože	none
 🤰🏻	nosečnica svetel ten kože	none
 🤰🏼	nosečnica srednje svetel ten kože	none
 🤰🏽	nosečnica srednji ten kože	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	oseba v postelji srednje temen ten kože	none
 🛌🏿	oseba v postelji temen ten kože	none
 🧑🏻‍🤝‍🧑🏻	osebi se držita za roke svetel ten kože	none
+🧑🏻‍🤝‍🧑🏼	osebi se držita za roke svetel ten kože in srednje svetel ten kože	none
+🧑🏻‍🤝‍🧑🏽	osebi se držita za roke svetel ten kože in srednji ten kože	none
+🧑🏻‍🤝‍🧑🏾	osebi se držita za roke svetel ten kože in srednje temen ten kože	none
+🧑🏻‍🤝‍🧑🏿	osebi se držita za roke svetel ten kože in temen ten kože	none
 🧑🏼‍🤝‍🧑🏻	osebi se držita za roke srednje svetel ten kože in svetel ten kože	none
 🧑🏼‍🤝‍🧑🏼	osebi se držita za roke srednje svetel ten kože	none
+🧑🏼‍🤝‍🧑🏽	osebi se držita za roke srednje svetel ten kože in srednji ten kože	none
+🧑🏼‍🤝‍🧑🏾	osebi se držita za roke srednje svetel ten kože in srednje temen ten kože	none
+🧑🏼‍🤝‍🧑🏿	osebi se držita za roke srednje svetel ten kože in temen ten kože	none
 🧑🏽‍🤝‍🧑🏻	osebi se držita za roke srednji ten kože in svetel ten kože	none
 🧑🏽‍🤝‍🧑🏼	osebi se držita za roke srednji ten kože in srednje svetel ten kože	none
 🧑🏽‍🤝‍🧑🏽	osebi se držita za roke srednji ten kože	none
+🧑🏽‍🤝‍🧑🏾	osebi se držita za roke srednji ten kože in srednje temen ten kože	none
+🧑🏽‍🤝‍🧑🏿	osebi se držita za roke srednji ten kože in temen ten kože	none
 🧑🏾‍🤝‍🧑🏻	osebi se držita za roke srednje temen ten kože in svetel ten kože	none
 🧑🏾‍🤝‍🧑🏼	osebi se držita za roke srednje temen ten kože in srednje svetel ten kože	none
 🧑🏾‍🤝‍🧑🏽	osebi se držita za roke srednje temen ten kože in srednji ten kože	none
 🧑🏾‍🤝‍🧑🏾	osebi se držita za roke srednje temen ten kože	none
+🧑🏾‍🤝‍🧑🏿	osebi se držita za roke srednje temen ten kože in temen ten kože	none
 🧑🏿‍🤝‍🧑🏻	osebi se držita za roke temen ten kože in svetel ten kože	none
 🧑🏿‍🤝‍🧑🏼	osebi se držita za roke temen ten kože in srednje svetel ten kože	none
 🧑🏿‍🤝‍🧑🏽	osebi se držita za roke temen ten kože in srednji ten kože	none
 🧑🏿‍🤝‍🧑🏾	osebi se držita za roke temen ten kože in srednje temen ten kože	none
 🧑🏿‍🤝‍🧑🏿	osebi se držita za roke temen ten kože	none
 👭🏻	ženski se držita za roke svetel ten kože	none
+👩🏻‍🤝‍👩🏼	ženski se držita za roke svetel ten kože in srednje svetel ten kože	none
+👩🏻‍🤝‍👩🏽	ženski se držita za roke svetel ten kože in srednji ten kože	none
+👩🏻‍🤝‍👩🏾	ženski se držita za roke svetel ten kože in srednje temen ten kože	none
+👩🏻‍🤝‍👩🏿	ženski se držita za roke svetel ten kože in temen ten kože	none
 👩🏼‍🤝‍👩🏻	ženski se držita za roke srednje svetel ten kože in svetel ten kože	none
 👭🏼	ženski se držita za roke srednje svetel ten kože	none
+👩🏼‍🤝‍👩🏽	ženski se držita za roke srednje svetel ten kože in srednji ten kože	none
+👩🏼‍🤝‍👩🏾	ženski se držita za roke srednje svetel ten kože in srednje temen ten kože	none
+👩🏼‍🤝‍👩🏿	ženski se držita za roke srednje svetel ten kože in temen ten kože	none
 👩🏽‍🤝‍👩🏻	ženski se držita za roke srednji ten kože in svetel ten kože	none
 👩🏽‍🤝‍👩🏼	ženski se držita za roke srednji ten kože in srednje svetel ten kože	none
 👭🏽	ženski se držita za roke srednji ten kože	none
+👩🏽‍🤝‍👩🏾	ženski se držita za roke srednji ten kože in srednje temen ten kože	none
+👩🏽‍🤝‍👩🏿	ženski se držita za roke srednji ten kože in temen ten kože	none
 👩🏾‍🤝‍👩🏻	ženski se držita za roke srednje temen ten kože in svetel ten kože	none
 👩🏾‍🤝‍👩🏼	ženski se držita za roke srednje temen ten kože in srednje svetel ten kože	none
 👩🏾‍🤝‍👩🏽	ženski se držita za roke srednje temen ten kože in srednji ten kože	none
 👭🏾	ženski se držita za roke srednje temen ten kože	none
+👩🏾‍🤝‍👩🏿	ženski se držita za roke srednje temen ten kože in temen ten kože	none
 👩🏿‍🤝‍👩🏻	ženski se držita za roke temen ten kože in svetel ten kože	none
 👩🏿‍🤝‍👩🏼	ženski se držita za roke temen ten kože in srednje svetel ten kože	none
 👩🏿‍🤝‍👩🏽	ženski se držita za roke temen ten kože in srednji ten kože	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	moški in ženska se držita za roke temen ten kože in srednje temen ten kože	none
 👫🏿	moški in ženska se držita za roke temen ten kože	none
 👬🏻	moška se držita za roke svetel ten kože	none
+👨🏻‍🤝‍👨🏼	moška se držita za roke svetel ten kože in srednje svetel ten kože	none
+👨🏻‍🤝‍👨🏽	moška se držita za roke svetel ten kože in srednji ten kože	none
+👨🏻‍🤝‍👨🏾	moška se držita za roke svetel ten kože in srednje temen ten kože	none
+👨🏻‍🤝‍👨🏿	moška se držita za roke svetel ten kože in temen ten kože	none
 👨🏼‍🤝‍👨🏻	moška se držita za roke srednje svetel ten kože in svetel ten kože	none
 👬🏼	moška se držita za roke srednje svetel ten kože	none
+👨🏼‍🤝‍👨🏽	moška se držita za roke srednje svetel ten kože in srednji ten kože	none
+👨🏼‍🤝‍👨🏾	moška se držita za roke srednje svetel ten kože in srednje temen ten kože	none
+👨🏼‍🤝‍👨🏿	moška se držita za roke srednje svetel ten kože in temen ten kože	none
 👨🏽‍🤝‍👨🏻	moška se držita za roke srednji ten kože in svetel ten kože	none
 👨🏽‍🤝‍👨🏼	moška se držita za roke srednji ten kože in srednje svetel ten kože	none
 👬🏽	moška se držita za roke srednji ten kože	none
+👨🏽‍🤝‍👨🏾	moška se držita za roke srednji ten kože in srednje temen ten kože	none
+👨🏽‍🤝‍👨🏿	moška se držita za roke srednji ten kože in temen ten kože	none
 👨🏾‍🤝‍👨🏻	moška se držita za roke srednje temen ten kože in svetel ten kože	none
 👨🏾‍🤝‍👨🏼	moška se držita za roke srednje temen ten kože in srednje svetel ten kože	none
 👨🏾‍🤝‍👨🏽	moška se držita za roke srednje temen ten kože in srednji ten kože	none
 👬🏾	moška se držita za roke srednje temen ten kože	none
+👨🏾‍🤝‍👨🏿	moška se držita za roke srednje temen ten kože in temen ten kože	none
 👨🏿‍🤝‍👨🏻	moška se držita za roke temen ten kože in svetel ten kože	none
 👨🏿‍🤝‍👨🏼	moška se držita za roke temen ten kože in srednje svetel ten kože	none
 👨🏿‍🤝‍👨🏽	moška se držita za roke temen ten kože in srednji ten kože	none

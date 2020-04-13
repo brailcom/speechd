@@ -9,6 +9,61 @@ symbols:
 🏾	ngozi nyeusi kiasi	none
 🏿	ngozi nyeusi	none
 ⚧	ishara ya wabadili jinsia	none
+🤌	mkono wenye vidole vinavyobana	none
+🥲	uso unaotabasamu na wenye chozi	none
+🥷	ninja	none
+🥸	uso uliogeuzwa ili kuficha	none
+🦣	tembo wa kale	none
+🦤	dodo	none
+🦫	buku	none
+🦬	baisani	none
+🦭	sili	none
+🧋	chai ya maziwa ya boba	none
+🩴	ndara	none
+🪃	bumerangi	none
+🪄	kifimbo cha mazingaombwe	none
+🪅	pinata	none
+🪆	mwanaserere wa kirusi	none
+🪖	kofia ya wanajeshi	none
+🪗	kodiani	none
+🪘	ngoma refu	none
+🪙	sarafu	none
+🪚	msumeno	none
+🪛	bisibisi	none
+🪜	ngazi	none
+🪝	ndoano	none
+🪞	kioo	none
+🪟	dirisha	none
+🪠	kizibuo	none
+🪡	sindano ya kushona	none
+🪢	fundo	none
+🪣	ndoo	none
+🪤	mtego wa panya	none
+🪥	mswaki	none
+🪦	jiwe la kaburi	none
+🪧	bango	none
+🪨	mwamba	none
+🪰	nzi	none
+🪱	mnyoo	none
+🪲	mende	none
+🪳	kombamwiko	none
+🪴	mmea ndani ya mkebe	none
+🪵	kuni	none
+🪶	unyoya	none
+🫀	moyo	none
+🫁	mapafu	none
+🫂	watu wanaokumbatiana	none
+🫐	forosadi	none
+🫑	pilipili boga	none
+🫒	zeituni	none
+🫓	chapati ya maji	none
+🫔	tamale	none
+🫕	jibini iliyoyeyushwa	none
+🫖	birika la chai	none
+🛖	kibanda cha mviringo	none
+🛗	kambarau	none
+🛻	gari la mizigo	none
+🛼	rolasketi	none
 😀	sura inayokenua	none
 😃	uso unaotabasamu wenye macho makubwa	none
 😄	uso unaotabasamu wenye macho ya tabasamu	none
@@ -212,11 +267,15 @@ symbols:
 👧	msichana	none
 🧑	mtu mzima	none
 👱	mtu mwenye nywele za shaba	none
+🧑‍🍼	mtu anamyelisha mtoto	none
+🧑‍🎄	kichimbakazi yeyote	none
 👨	mwanamume	none
 🧔	mtu mwenye ndevu	none
 👱‍♂	mwanamume mwenye nywele ya kimanjano	none
+👨‍🍼	mwanamume anayemlisha mtoto	none
 👩	mwanamke	none
 👱‍♀	mwanamke mwenye nywele ya kimanjano	none
+👩‍🍼	mwanamke anayemlisha mtoto	none
 🧓	mzee	none
 👴	babu	none
 👵	bibi	none
@@ -318,7 +377,11 @@ symbols:
 👲	mwanamume aliyevaa kofia ya kichina	none
 🧕	mwanamke aliyejifunga kitambaa kichwani	none
 🤵	mwanamume mwenye tuxedo	none
+🤵‍♀	mwanamke aliyevalia tuxedo	none
+🤵‍♂	mwanamume aliyevalia tuxedo	none
 👰	bi harusi aliyevaa shela	none
+👰‍♀	mwanamke aliyevalia shela	none
+👰‍♂	mwanamume aliyevalia shela	none
 🤰	mwanamke mjamzito	none
 🤱	kunyonyesha mtoto	none
 👼	mtoto malaika	none
@@ -467,6 +530,7 @@ symbols:
 🦝	rakuni	none
 🐱	uso wa paka	none
 🐈	paka	none
+🐈‍⬛	paka mweusi	none
 🦁	simba	none
 🐯	uso wa chui milia	none
 🐅	chui mkubwa mwenye milia	none
@@ -504,6 +568,7 @@ symbols:
 🦔	nungunungu	none
 🦇	popo	none
 🐻	dubu	none
+🐻‍❄	dubu barafu	none
 🐨	koala	none
 🐼	panda	none
 🦥	slothi	none
@@ -1253,7 +1318,7 @@ symbols:
 ↗	mshale unaoelekeza juu kulia	none
 ➡	mshale unaoelekeza kulia	none
 ↘	mshale unaoelekeza chini kulia	none
-⬇	mshale unaoelekea chini	none
+⬇	mshale unaoangalia chini	none
 ↙	mshale unaoelekeza chini kushoto	none
 ⬅	mshale unaoelekeza kushoto	none
 ↖	mshale unaoelekeza juu kushoto	none
@@ -1269,7 +1334,7 @@ symbols:
 🔚	mshale wa mwisho	none
 🔛	mshale wa hewani!	none
 🔜	mshale unaoashiria hivi karibuni	none
-🔝	mshale unaoelekea juu	none
+🔝	mshale unaoangalia juu	none
 🛐	mahali pa kuabudu	none
 ⚛	alama ya atomu	none
 🕉	omu	none
@@ -1332,12 +1397,12 @@ symbols:
 ✅	alama nyeupe ya tiki	none
 ☑	sanduku la kuteua lenye tiki	none
 ✔	alama ya tiki	none
-✖	alama ya kuzidisha	none
+✖	zidisha	none
 ❌	alama ya X	none
 ❎	kitufe cha alama ya kuzidisha	none
 ➕	alama ya kuongeza	none
 ➖	alama ya kutoa	none
-➗	alama ya kugawanya	none
+➗	gawanya	none
 ➰	kitanzi kilichopinda	none
 ➿	kitanzi kilichopinda mara mbili	none
 〽	alama ya mbadala ya sehemu	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	bendera ya wageuza jinsia	none
 🏳‍🌈	bendera ya upinde wa mvua	none
 🏴‍☠	bendera ya maharamia	none
-🛖	kibanda cha mviringo	none
-🛗	kambarau	none
-🛻	gari la mizigo	none
-🛼	rolasketi	none
-🤌	mkono wenye vidole vinavyobana	none
-🥲	uso unaotabasamu na wenye chozi	none
-🥷	ninja	none
-🥸	uso uliogeuzwa ili kuficha	none
-🦣	tembo wa kale	none
-🦤	dodo	none
-🦫	buku	none
-🦬	baisani	none
-🦭	sili	none
-🧋	chai ya maziwa ya boba	none
-🩴	ndara	none
-🪃	bumerangi	none
-🪄	kifimbo cha mazingaombwe	none
-🪅	pinata	none
-🪆	mwanaserere wa kirusi	none
-🪖	kofia ya wanajeshi	none
-🪗	kodiani	none
-🪘	ngoma refu	none
-🪙	sarafu	none
-🪚	msumeno	none
-🪛	bisibisi	none
-🪜	ngazi	none
-🪝	ndoano	none
-🪞	kioo	none
-🪟	dirisha	none
-🪠	kizibuo	none
-🪡	sindano ya kushona	none
-🪢	fundo	none
-🪣	ndoo	none
-🪤	mtego wa panya	none
-🪥	mswaki	none
-🪦	jiwe la kaburi	none
-🪧	bango	none
-🪨	mwamba	none
-🪰	nzi	none
-🪱	mnyoo	none
-🪲	mende	none
-🪳	kombamwiko	none
-🪴	mmea ndani ya mkebe	none
-🪵	kuni	none
-🪶	unyoya	none
-🫀	moyo	none
-🫁	mapafu	none
-🫂	watu wanaokumbatiana	none
-🫐	forosadi	none
-🫑	pilipili boga	none
-🫒	zeituni	none
-🫓	chapati ya maji	none
-🫔	tamale	none
-🫕	jibini iliyoyeyushwa	none
-🫖	birika la chai	none
+🤌🏻	mkono wenye vidole vinavyobana ngozi nyeupe	none
+🤌🏼	mkono wenye vidole vinavyobana ngozi nyeupe kiasi	none
+🤌🏽	mkono wenye vidole vinavyobana ngozi ya kahawia	none
+🤌🏾	mkono wenye vidole vinavyobana ngozi nyeusi kiasi	none
+🤌🏿	mkono wenye vidole vinavyobana ngozi nyeusi	none
 👋🏻	mkono unaopunga ngozi nyeupe	none
 👋🏼	mkono unaopunga ngozi nyeupe kiasi	none
 👋🏽	mkono unaopunga ngozi ya kahawia	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	mtu mzima ngozi ya kahawia na upara	none
 🧑🏾‍🦲	mtu mzima ngozi nyeusi kiasi na upara	none
 🧑🏿‍🦲	mtu mzima ngozi nyeusi na upara	none
+🧑🏻‍🍼	mtu anamyelisha mtoto ngozi nyeupe	none
+🧑🏼‍🍼	mtu anamyelisha mtoto ngozi nyeupe kiasi	none
+🧑🏽‍🍼	mtu anamyelisha mtoto ngozi ya kahawia	none
+🧑🏾‍🍼	mtu anamyelisha mtoto ngozi nyeusi kiasi	none
+🧑🏿‍🍼	mtu anamyelisha mtoto ngozi nyeusi	none
+🧑🏻‍🎄	kichimbakazi yeyote ngozi nyeupe	none
+🧑🏼‍🎄	kichimbakazi yeyote ngozi nyeupe kiasi	none
+🧑🏽‍🎄	kichimbakazi yeyote ngozi ya kahawia	none
+🧑🏾‍🎄	kichimbakazi yeyote ngozi nyeusi kiasi	none
+🧑🏿‍🎄	kichimbakazi yeyote ngozi nyeusi	none
 👨🏻	mwanamume ngozi nyeupe	none
 👨🏼	mwanamume ngozi nyeupe kiasi	none
 👨🏽	mwanamume ngozi ya kahawia	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	mwanamume ngozi ya kahawia na upara	none
 👨🏾‍🦲	mwanamume ngozi nyeusi kiasi na upara	none
 👨🏿‍🦲	mwanamume ngozi nyeusi na upara	none
+👨🏻‍🍼	mwanamume anayemlisha mtoto ngozi nyeupe	none
+👨🏼‍🍼	mwanamume anayemlisha mtoto ngozi nyeupe kiasi	none
+👨🏽‍🍼	mwanamume anayemlisha mtoto ngozi ya kahawia	none
+👨🏾‍🍼	mwanamume anayemlisha mtoto ngozi nyeusi kiasi	none
+👨🏿‍🍼	mwanamume anayemlisha mtoto ngozi nyeusi	none
 👩🏻	mwanamke ngozi nyeupe	none
 👩🏼	mwanamke ngozi nyeupe kiasi	none
 👩🏽	mwanamke ngozi ya kahawia	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	mwanamke ngozi ya kahawia na upara	none
 👩🏾‍🦲	mwanamke ngozi nyeusi kiasi na upara	none
 👩🏿‍🦲	mwanamke ngozi nyeusi na upara	none
+👩🏻‍🍼	mwanamke anayemlisha mtoto ngozi nyeupe	none
+👩🏼‍🍼	mwanamke anayemlisha mtoto ngozi nyeupe kiasi	none
+👩🏽‍🍼	mwanamke anayemlisha mtoto ngozi ya kahawia	none
+👩🏾‍🍼	mwanamke anayemlisha mtoto ngozi nyeusi kiasi	none
+👩🏿‍🍼	mwanamke anayemlisha mtoto ngozi nyeusi	none
 🧓🏻	mzee ngozi nyeupe	none
 🧓🏼	mzee ngozi nyeupe kiasi	none
 🧓🏽	mzee ngozi ya kahawia	none
@@ -2312,11 +2347,31 @@ symbols:
 🤵🏽	mwanamume mwenye tuxedo ngozi ya kahawia	none
 🤵🏾	mwanamume mwenye tuxedo ngozi nyeusi kiasi	none
 🤵🏿	mwanamume mwenye tuxedo ngozi nyeusi	none
+🤵🏻‍♀	mwanamke aliyevalia tuxedo ngozi nyeupe	none
+🤵🏼‍♀	mwanamke aliyevalia tuxedo ngozi nyeupe kiasi	none
+🤵🏽‍♀	mwanamke aliyevalia tuxedo ngozi ya kahawia	none
+🤵🏾‍♀	mwanamke aliyevalia tuxedo ngozi nyeusi kiasi	none
+🤵🏿‍♀	mwanamke aliyevalia tuxedo ngozi nyeusi	none
+🤵🏻‍♂	mwanamume aliyevalia tuxedo ngozi nyeupe	none
+🤵🏼‍♂	mwanamume aliyevalia tuxedo ngozi nyeupe kiasi	none
+🤵🏽‍♂	mwanamume aliyevalia tuxedo ngozi ya kahawia	none
+🤵🏾‍♂	mwanamume aliyevalia tuxedo ngozi nyeusi kiasi	none
+🤵🏿‍♂	mwanamume aliyevalia tuxedo ngozi nyeusi	none
 👰🏻	bi harusi aliyevaa shela ngozi nyeupe	none
 👰🏼	bi harusi aliyevaa shela ngozi nyeupe kiasi	none
 👰🏽	bi harusi aliyevaa shela ngozi ya kahawia	none
 👰🏾	bi harusi aliyevaa shela ngozi nyeusi kiasi	none
 👰🏿	bi harusi aliyevaa shela ngozi nyeusi	none
+👰🏻‍♀	mwanamke aliyevalia shela ngozi nyeupe	none
+👰🏼‍♀	mwanamke aliyevalia shela ngozi nyeupe kiasi	none
+👰🏽‍♀	mwanamke aliyevalia shela ngozi ya kahawia	none
+👰🏾‍♀	mwanamke aliyevalia shela ngozi nyeusi kiasi	none
+👰🏿‍♀	mwanamke aliyevalia shela ngozi nyeusi	none
+👰🏻‍♂	mwanamume aliyevalia shela ngozi nyeupe	none
+👰🏼‍♂	mwanamume aliyevalia shela ngozi nyeupe kiasi	none
+👰🏽‍♂	mwanamume aliyevalia shela ngozi ya kahawia	none
+👰🏾‍♂	mwanamume aliyevalia shela ngozi nyeusi kiasi	none
+👰🏿‍♂	mwanamume aliyevalia shela ngozi nyeusi	none
 🤰🏻	mwanamke mjamzito ngozi nyeupe	none
 🤰🏼	mwanamke mjamzito ngozi nyeupe kiasi	none
 🤰🏽	mwanamke mjamzito ngozi ya kahawia	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	mtu aliyelala kitandani ngozi nyeusi kiasi	none
 🛌🏿	mtu aliyelala kitandani ngozi nyeusi	none
 🧑🏻‍🤝‍🧑🏻	watu walioshikana mikono ngozi nyeupe	none
+🧑🏻‍🤝‍🧑🏼	watu walioshikana mikono ngozi nyeupe na ngozi nyeupe kiasi	none
+🧑🏻‍🤝‍🧑🏽	watu walioshikana mikono ngozi nyeupe na ngozi ya kahawia	none
+🧑🏻‍🤝‍🧑🏾	watu walioshikana mikono ngozi nyeupe na ngozi nyeusi kiasi	none
+🧑🏻‍🤝‍🧑🏿	watu walioshikana mikono ngozi nyeupe na ngozi nyeusi	none
 🧑🏼‍🤝‍🧑🏻	watu walioshikana mikono ngozi nyeupe kiasi na ngozi nyeupe	none
 🧑🏼‍🤝‍🧑🏼	watu walioshikana mikono ngozi nyeupe kiasi	none
+🧑🏼‍🤝‍🧑🏽	watu walioshikana mikono ngozi nyeupe kiasi na ngozi ya kahawia	none
+🧑🏼‍🤝‍🧑🏾	watu walioshikana mikono ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+🧑🏼‍🤝‍🧑🏿	watu walioshikana mikono ngozi nyeupe kiasi na ngozi nyeusi	none
 🧑🏽‍🤝‍🧑🏻	watu walioshikana mikono ngozi ya kahawia na ngozi nyeupe	none
 🧑🏽‍🤝‍🧑🏼	watu walioshikana mikono ngozi ya kahawia na ngozi nyeupe kiasi	none
 🧑🏽‍🤝‍🧑🏽	watu walioshikana mikono ngozi ya kahawia	none
+🧑🏽‍🤝‍🧑🏾	watu walioshikana mikono ngozi ya kahawia na ngozi nyeusi kiasi	none
+🧑🏽‍🤝‍🧑🏿	watu walioshikana mikono ngozi ya kahawia na ngozi nyeusi	none
 🧑🏾‍🤝‍🧑🏻	watu walioshikana mikono ngozi nyeusi kiasi na ngozi nyeupe	none
 🧑🏾‍🤝‍🧑🏼	watu walioshikana mikono ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
 🧑🏾‍🤝‍🧑🏽	watu walioshikana mikono ngozi nyeusi kiasi na ngozi ya kahawia	none
 🧑🏾‍🤝‍🧑🏾	watu walioshikana mikono ngozi nyeusi kiasi	none
+🧑🏾‍🤝‍🧑🏿	watu walioshikana mikono ngozi nyeusi kiasi na ngozi nyeusi	none
 🧑🏿‍🤝‍🧑🏻	watu walioshikana mikono ngozi nyeusi na ngozi nyeupe	none
 🧑🏿‍🤝‍🧑🏼	watu walioshikana mikono ngozi nyeusi na ngozi nyeupe kiasi	none
 🧑🏿‍🤝‍🧑🏽	watu walioshikana mikono ngozi nyeusi na ngozi ya kahawia	none
 🧑🏿‍🤝‍🧑🏾	watu walioshikana mikono ngozi nyeusi na ngozi nyeusi kiasi	none
 🧑🏿‍🤝‍🧑🏿	watu walioshikana mikono ngozi nyeusi	none
 👭🏻	wanawake walioshikana mikono ngozi nyeupe	none
+👩🏻‍🤝‍👩🏼	wanawake walioshikana mikono ngozi nyeupe na ngozi nyeupe kiasi	none
+👩🏻‍🤝‍👩🏽	wanawake walioshikana mikono ngozi nyeupe na ngozi ya kahawia	none
+👩🏻‍🤝‍👩🏾	wanawake walioshikana mikono ngozi nyeupe na ngozi nyeusi kiasi	none
+👩🏻‍🤝‍👩🏿	wanawake walioshikana mikono ngozi nyeupe na ngozi nyeusi	none
 👩🏼‍🤝‍👩🏻	wanawake walioshikana mikono ngozi nyeupe kiasi na ngozi nyeupe	none
 👭🏼	wanawake walioshikana mikono ngozi nyeupe kiasi	none
+👩🏼‍🤝‍👩🏽	wanawake walioshikana mikono ngozi nyeupe kiasi na ngozi ya kahawia	none
+👩🏼‍🤝‍👩🏾	wanawake walioshikana mikono ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+👩🏼‍🤝‍👩🏿	wanawake walioshikana mikono ngozi nyeupe kiasi na ngozi nyeusi	none
 👩🏽‍🤝‍👩🏻	wanawake walioshikana mikono ngozi ya kahawia na ngozi nyeupe	none
 👩🏽‍🤝‍👩🏼	wanawake walioshikana mikono ngozi ya kahawia na ngozi nyeupe kiasi	none
 👭🏽	wanawake walioshikana mikono ngozi ya kahawia	none
+👩🏽‍🤝‍👩🏾	wanawake walioshikana mikono ngozi ya kahawia na ngozi nyeusi kiasi	none
+👩🏽‍🤝‍👩🏿	wanawake walioshikana mikono ngozi ya kahawia na ngozi nyeusi	none
 👩🏾‍🤝‍👩🏻	wanawake walioshikana mikono ngozi nyeusi kiasi na ngozi nyeupe	none
 👩🏾‍🤝‍👩🏼	wanawake walioshikana mikono ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
 👩🏾‍🤝‍👩🏽	wanawake walioshikana mikono ngozi nyeusi kiasi na ngozi ya kahawia	none
 👭🏾	wanawake walioshikana mikono ngozi nyeusi kiasi	none
+👩🏾‍🤝‍👩🏿	wanawake walioshikana mikono ngozi nyeusi kiasi na ngozi nyeusi	none
 👩🏿‍🤝‍👩🏻	wanawake walioshikana mikono ngozi nyeusi na ngozi nyeupe	none
 👩🏿‍🤝‍👩🏼	wanawake walioshikana mikono ngozi nyeusi na ngozi nyeupe kiasi	none
 👩🏿‍🤝‍👩🏽	wanawake walioshikana mikono ngozi nyeusi na ngozi ya kahawia	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	mwanamke na mwanamume walioshikana mikono ngozi nyeusi na ngozi nyeusi kiasi	none
 👫🏿	mwanamke na mwanamume walioshikana mikono ngozi nyeusi	none
 👬🏻	wanaume walioshikana mikono ngozi nyeupe	none
+👨🏻‍🤝‍👨🏼	wanaume walioshikana mikono ngozi nyeupe na ngozi nyeupe kiasi	none
+👨🏻‍🤝‍👨🏽	wanaume walioshikana mikono ngozi nyeupe na ngozi ya kahawia	none
+👨🏻‍🤝‍👨🏾	wanaume walioshikana mikono ngozi nyeupe na ngozi nyeusi kiasi	none
+👨🏻‍🤝‍👨🏿	wanaume walioshikana mikono ngozi nyeupe na ngozi nyeusi	none
 👨🏼‍🤝‍👨🏻	wanaume walioshikana mikono ngozi nyeupe kiasi na ngozi nyeupe	none
 👬🏼	wanaume walioshikana mikono ngozi nyeupe kiasi	none
+👨🏼‍🤝‍👨🏽	wanaume walioshikana mikono ngozi nyeupe kiasi na ngozi ya kahawia	none
+👨🏼‍🤝‍👨🏾	wanaume walioshikana mikono ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+👨🏼‍🤝‍👨🏿	wanaume walioshikana mikono ngozi nyeupe kiasi na ngozi nyeusi	none
 👨🏽‍🤝‍👨🏻	wanaume walioshikana mikono ngozi ya kahawia na ngozi nyeupe	none
 👨🏽‍🤝‍👨🏼	wanaume walioshikana mikono ngozi ya kahawia na ngozi nyeupe kiasi	none
 👬🏽	wanaume walioshikana mikono ngozi ya kahawia	none
+👨🏽‍🤝‍👨🏾	wanaume walioshikana mikono ngozi ya kahawia na ngozi nyeusi kiasi	none
+👨🏽‍🤝‍👨🏿	wanaume walioshikana mikono ngozi ya kahawia na ngozi nyeusi	none
 👨🏾‍🤝‍👨🏻	wanaume walioshikana mikono ngozi nyeusi kiasi na ngozi nyeupe	none
 👨🏾‍🤝‍👨🏼	wanaume walioshikana mikono ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
 👨🏾‍🤝‍👨🏽	wanaume walioshikana mikono ngozi nyeusi kiasi na ngozi ya kahawia	none
 👬🏾	wanaume walioshikana mikono ngozi nyeusi kiasi	none
+👨🏾‍🤝‍👨🏿	wanaume walioshikana mikono ngozi nyeusi kiasi na ngozi nyeusi	none
 👨🏿‍🤝‍👨🏻	wanaume walioshikana mikono ngozi nyeusi na ngozi nyeupe	none
 👨🏿‍🤝‍👨🏼	wanaume walioshikana mikono ngozi nyeusi na ngozi nyeupe kiasi	none
 👨🏿‍🤝‍👨🏽	wanaume walioshikana mikono ngozi nyeusi na ngozi ya kahawia	none

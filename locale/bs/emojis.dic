@@ -9,6 +9,61 @@ symbols:
 🏾	umjereno tamna boja kože	none
 🏿	tamna boja kože	none
 ⚧	simbol transrodnih osoba	none
+🤌	skupljeni prsti	none
+🥲	nasmijano lice sa suzom	none
+🥷	nindža	none
+🥸	prerušeno lice	none
+🦣	mamut	none
+🦤	dodo	none
+🦫	dabar	none
+🦬	bizon	none
+🦭	foka	none
+🧋	boba čaj	none
+🩴	japanke	none
+🪃	bumerang	none
+🪄	čarobni štapić	none
+🪅	pinjata	none
+🪆	babuške	none
+🪖	vojna kaciga	none
+🪗	harmonika	none
+🪘	kongo bubnjevo	none
+🪙	novčić	none
+🪚	stolaraska pila	none
+🪛	šrafciger	none
+🪜	ljestve	none
+🪝	udica	none
+🪞	ogledalo	none
+🪟	prozor	none
+🪠	pumpa za odčepljivanje odvoda	none
+🪡	igla za šivenje	none
+🪢	čvor	none
+🪣	kanta	none
+🪤	klopka za miševe	none
+🪥	četkica za zube	none
+🪦	nadgrobni spomenik	none
+🪧	natpis	none
+🪨	kamen	none
+🪰	muha	none
+🪱	crv	none
+🪲	tvrdokrilac	none
+🪳	žohar	none
+🪴	biljka u saksiji	none
+🪵	drvo	none
+🪶	pero	none
+🫀	srce organ	none
+🫁	pluća	none
+🫂	ljudi se grle	none
+🫐	borovnice	none
+🫑	paprika babura	none
+🫒	maslina	none
+🫓	lepinica	none
+🫔	tamale	none
+🫕	fondue	none
+🫖	čajnik	none
+🛖	koliba	none
+🛗	lift	none
+🛻	kamionet	none
+🛼	rolšue	none
 😀	cerenje	none
 😃	kez	none
 😄	kez sa škiljenjem	none
@@ -212,11 +267,15 @@ symbols:
 👧	djevojčica	none
 🧑	odrasla osoba	none
 👱	osoba s plavom kosom	none
+🧑‍🍼	osoba doji bebu	none
+🧑‍🎄	g. Mraz	none
 👨	muškarac	none
 🧔	muškarac s bradom	none
 👱‍♂	muškarac s plavom kosom	none
+👨‍🍼	muškarac doji bebu	none
 👩	žena	none
 👱‍♀	žena s plavom kosom	none
+👩‍🍼	žena doji bebu	none
 🧓	starija odrasla osoba	none
 👴	starac	none
 👵	starica	none
@@ -317,8 +376,12 @@ symbols:
 👳‍♀	žena sa turbanom	none
 👲	muškarac s kineskom kapom	none
 🧕	pokrivena žena	none
-🤵	odijelo	none
-👰	mlada s velom	none
+🤵	osoba u smokingu	none
+🤵‍♀	žena u smokingu	none
+🤵‍♂	muškarac u smokingu	none
+👰	osoba s velom	none
+👰‍♀	žena s velom	none
+👰‍♂	muškarac s velom	none
 🤰	trudnica	none
 🤱	dojenje	none
 👼	anđelak	none
@@ -467,6 +530,7 @@ symbols:
 🦝	rakun	none
 🐱	glava mačke	none
 🐈	mačka	none
+🐈‍⬛	crna mačka	none
 🦁	glava lava	none
 🐯	glava tigra	none
 🐅	tigar	none
@@ -504,6 +568,7 @@ symbols:
 🦔	jež	none
 🦇	šišmiš	none
 🐻	glava medvjeda	none
+🐻‍❄	polarni medvjed	none
 🐨	koala	none
 🐼	glava pande	none
 🦥	ljenivac	none
@@ -1249,13 +1314,13 @@ symbols:
 🔞	zabranjen pristup maloljetnima	none
 ☢	radioaktivno	none
 ☣	biološka opasnost	none
-⬆	strjelica gore	none
+⬆	strelica nagore	none
 ↗	strjelica gore-desno	none
-➡	strjelica desno	none
+➡	strelica nadesno	none
 ↘	strjelica dolje-desno	none
-⬇	strjelica dolje	none
+⬇	strelica nadolje	none
 ↙	strjelica dolje-lijevo	none
-⬅	strjelica lijevo	none
+⬅	strelica nalijevo	none
 ↖	strjelica gore-lijevo	none
 ↕	strjelica gore-dolje	none
 ↔	strjelica lijevo-desno	none
@@ -1322,7 +1387,7 @@ symbols:
 ♀	žensko	none
 ♂	muško	none
 ⚕	medicinski simbol	none
-♾	beskonačno	none
+♾	beskonačnost	none
 ♻	simbol za reciklažu	none
 ⚜	ljiljan	none
 🔱	trozubac amblem	none
@@ -1332,12 +1397,12 @@ symbols:
 ✅	podebljana bijela kvačica	none
 ☑	polje za potvrdu s kvačicom	none
 ✔	kvačica	none
-✖	podebljan križić	none
+✖	znak množenja	none
 ❌	križić	none
 ❎	dugme križić	none
 ➕	znak plus	none
 ➖	znak minus	none
-➗	podebljani znak dijeljenja	none
+➗	znak dijeljenja	none
 ➰	uvrnuta petlja	none
 ➿	dupla uvrnuta petlja	none
 〽	oznaka djelimične alteracije	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	zastava pokreta transrodnih osoba	none
 🏳‍🌈	zastava duginih boja	none
 🏴‍☠	piratska zastava	none
-🛖	koliba	none
-🛗	lift	none
-🛻	kamionet	none
-🛼	rolšue	none
-🤌	skupljeni prsti	none
-🥲	nasmijano lice sa suzom	none
-🥷	nindža	none
-🥸	prerušeno lice	none
-🦣	mamut	none
-🦤	dodo	none
-🦫	dabar	none
-🦬	bizon	none
-🦭	foka	none
-🧋	boba čaj	none
-🩴	japanke	none
-🪃	bumerang	none
-🪄	čarobni štapić	none
-🪅	pinjata	none
-🪆	babuške	none
-🪖	vojna kaciga	none
-🪗	harmonika	none
-🪘	kongo bubnjevo	none
-🪙	novčić	none
-🪚	stolaraska pila	none
-🪛	šrafciger	none
-🪜	ljestve	none
-🪝	udica	none
-🪞	ogledalo	none
-🪟	prozor	none
-🪠	pumpa za odčepljivanje odvoda	none
-🪡	igla za šivenje	none
-🪢	čvor	none
-🪣	kanta	none
-🪤	klopka za miševe	none
-🪥	četkica za zube	none
-🪦	nadgrobni spomenik	none
-🪧	natpis	none
-🪨	kamen	none
-🪰	muha	none
-🪱	crv	none
-🪲	tvrdokrilac	none
-🪳	žohar	none
-🪴	biljka u saksiji	none
-🪵	drvo	none
-🪶	pero	none
-🫀	srce organ	none
-🫁	pluća	none
-🫂	ljudi se grle	none
-🫐	borovnice	none
-🫑	paprika babura	none
-🫒	maslina	none
-🫓	lepinica	none
-🫔	tamale	none
-🫕	fondue	none
-🫖	čajnik	none
+🤌🏻	skupljeni prsti svijetla boja kože	none
+🤌🏼	skupljeni prsti umjereno svijetla boja kože	none
+🤌🏽	skupljeni prsti umjerena boja kože	none
+🤌🏾	skupljeni prsti umjereno tamna boja kože	none
+🤌🏿	skupljeni prsti tamna boja kože	none
 👋🏻	mahanje rukom svijetla boja kože	none
 👋🏼	mahanje rukom umjereno svijetla boja kože	none
 👋🏽	mahanje rukom umjerena boja kože	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	odrasla osoba umjerena boja kože i ćelavo	none
 🧑🏾‍🦲	odrasla osoba umjereno tamna boja kože i ćelavo	none
 🧑🏿‍🦲	odrasla osoba tamna boja kože i ćelavo	none
+🧑🏻‍🍼	osoba doji bebu svijetla boja kože	none
+🧑🏼‍🍼	osoba doji bebu umjereno svijetla boja kože	none
+🧑🏽‍🍼	osoba doji bebu umjerena boja kože	none
+🧑🏾‍🍼	osoba doji bebu umjereno tamna boja kože	none
+🧑🏿‍🍼	osoba doji bebu tamna boja kože	none
+🧑🏻‍🎄	g. Mraz svijetla boja kože	none
+🧑🏼‍🎄	g. Mraz umjereno svijetla boja kože	none
+🧑🏽‍🎄	g. Mraz umjerena boja kože	none
+🧑🏾‍🎄	g. Mraz umjereno tamna boja kože	none
+🧑🏿‍🎄	g. Mraz tamna boja kože	none
 👨🏻	muškarac svijetla boja kože	none
 👨🏼	muškarac umjereno svijetla boja kože	none
 👨🏽	muškarac umjerena boja kože	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	muškarac umjerena boja kože i ćelavo	none
 👨🏾‍🦲	muškarac umjereno tamna boja kože i ćelavo	none
 👨🏿‍🦲	muškarac tamna boja kože i ćelavo	none
+👨🏻‍🍼	muškarac doji bebu svijetla boja kože	none
+👨🏼‍🍼	muškarac doji bebu umjereno svijetla boja kože	none
+👨🏽‍🍼	muškarac doji bebu umjerena boja kože	none
+👨🏾‍🍼	muškarac doji bebu umjereno tamna boja kože	none
+👨🏿‍🍼	muškarac doji bebu tamna boja kože	none
 👩🏻	žena svijetla boja kože	none
 👩🏼	žena umjereno svijetla boja kože	none
 👩🏽	žena umjerena boja kože	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	žena umjerena boja kože i ćelavo	none
 👩🏾‍🦲	žena umjereno tamna boja kože i ćelavo	none
 👩🏿‍🦲	žena tamna boja kože i ćelavo	none
+👩🏻‍🍼	žena doji bebu svijetla boja kože	none
+👩🏼‍🍼	žena doji bebu umjereno svijetla boja kože	none
+👩🏽‍🍼	žena doji bebu umjerena boja kože	none
+👩🏾‍🍼	žena doji bebu umjereno tamna boja kože	none
+👩🏿‍🍼	žena doji bebu tamna boja kože	none
 🧓🏻	starija odrasla osoba svijetla boja kože	none
 🧓🏼	starija odrasla osoba umjereno svijetla boja kože	none
 🧓🏽	starija odrasla osoba umjerena boja kože	none
@@ -2307,16 +2342,36 @@ symbols:
 🧕🏽	pokrivena žena umjerena boja kože	none
 🧕🏾	pokrivena žena umjereno tamna boja kože	none
 🧕🏿	pokrivena žena tamna boja kože	none
-🤵🏻	odijelo svijetla boja kože	none
-🤵🏼	odijelo umjereno svijetla boja kože	none
-🤵🏽	odijelo umjerena boja kože	none
-🤵🏾	odijelo umjereno tamna boja kože	none
-🤵🏿	odijelo tamna boja kože	none
-👰🏻	mlada s velom svijetla boja kože	none
-👰🏼	mlada s velom umjereno svijetla boja kože	none
-👰🏽	mlada s velom umjerena boja kože	none
-👰🏾	mlada s velom umjereno tamna boja kože	none
-👰🏿	mlada s velom tamna boja kože	none
+🤵🏻	osoba u smokingu svijetla boja kože	none
+🤵🏼	osoba u smokingu umjereno svijetla boja kože	none
+🤵🏽	osoba u smokingu umjerena boja kože	none
+🤵🏾	osoba u smokingu umjereno tamna boja kože	none
+🤵🏿	osoba u smokingu tamna boja kože	none
+🤵🏻‍♀	žena u smokingu svijetla boja kože	none
+🤵🏼‍♀	žena u smokingu umjereno svijetla boja kože	none
+🤵🏽‍♀	žena u smokingu umjerena boja kože	none
+🤵🏾‍♀	žena u smokingu umjereno tamna boja kože	none
+🤵🏿‍♀	žena u smokingu tamna boja kože	none
+🤵🏻‍♂	muškarac u smokingu svijetla boja kože	none
+🤵🏼‍♂	muškarac u smokingu umjereno svijetla boja kože	none
+🤵🏽‍♂	muškarac u smokingu umjerena boja kože	none
+🤵🏾‍♂	muškarac u smokingu umjereno tamna boja kože	none
+🤵🏿‍♂	muškarac u smokingu tamna boja kože	none
+👰🏻	osoba s velom svijetla boja kože	none
+👰🏼	osoba s velom umjereno svijetla boja kože	none
+👰🏽	osoba s velom umjerena boja kože	none
+👰🏾	osoba s velom umjereno tamna boja kože	none
+👰🏿	osoba s velom tamna boja kože	none
+👰🏻‍♀	žena s velom svijetla boja kože	none
+👰🏼‍♀	žena s velom umjereno svijetla boja kože	none
+👰🏽‍♀	žena s velom umjerena boja kože	none
+👰🏾‍♀	žena s velom umjereno tamna boja kože	none
+👰🏿‍♀	žena s velom tamna boja kože	none
+👰🏻‍♂	muškarac s velom svijetla boja kože	none
+👰🏼‍♂	muškarac s velom umjereno svijetla boja kože	none
+👰🏽‍♂	muškarac s velom umjerena boja kože	none
+👰🏾‍♂	muškarac s velom umjereno tamna boja kože	none
+👰🏿‍♂	muškarac s velom tamna boja kože	none
 🤰🏻	trudnica svijetla boja kože	none
 🤰🏼	trudnica umjereno svijetla boja kože	none
 🤰🏽	trudnica umjerena boja kože	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	osoba u krevetu umjereno tamna boja kože	none
 🛌🏿	osoba u krevetu tamna boja kože	none
 🧑🏻‍🤝‍🧑🏻	ljudi se drže za ruke svijetla boja kože	none
+🧑🏻‍🤝‍🧑🏼	ljudi se drže za ruke svijetla boja kože i umjereno svijetla boja kože	none
+🧑🏻‍🤝‍🧑🏽	ljudi se drže za ruke svijetla boja kože i umjerena boja kože	none
+🧑🏻‍🤝‍🧑🏾	ljudi se drže za ruke svijetla boja kože i umjereno tamna boja kože	none
+🧑🏻‍🤝‍🧑🏿	ljudi se drže za ruke svijetla boja kože i tamna boja kože	none
 🧑🏼‍🤝‍🧑🏻	ljudi se drže za ruke umjereno svijetla boja kože i svijetla boja kože	none
 🧑🏼‍🤝‍🧑🏼	ljudi se drže za ruke umjereno svijetla boja kože	none
+🧑🏼‍🤝‍🧑🏽	ljudi se drže za ruke umjereno svijetla boja kože i umjerena boja kože	none
+🧑🏼‍🤝‍🧑🏾	ljudi se drže za ruke umjereno svijetla boja kože i umjereno tamna boja kože	none
+🧑🏼‍🤝‍🧑🏿	ljudi se drže za ruke umjereno svijetla boja kože i tamna boja kože	none
 🧑🏽‍🤝‍🧑🏻	ljudi se drže za ruke umjerena boja kože i svijetla boja kože	none
 🧑🏽‍🤝‍🧑🏼	ljudi se drže za ruke umjerena boja kože i umjereno svijetla boja kože	none
 🧑🏽‍🤝‍🧑🏽	ljudi se drže za ruke umjerena boja kože	none
+🧑🏽‍🤝‍🧑🏾	ljudi se drže za ruke umjerena boja kože i umjereno tamna boja kože	none
+🧑🏽‍🤝‍🧑🏿	ljudi se drže za ruke umjerena boja kože i tamna boja kože	none
 🧑🏾‍🤝‍🧑🏻	ljudi se drže za ruke umjereno tamna boja kože i svijetla boja kože	none
 🧑🏾‍🤝‍🧑🏼	ljudi se drže za ruke umjereno tamna boja kože i umjereno svijetla boja kože	none
 🧑🏾‍🤝‍🧑🏽	ljudi se drže za ruke umjereno tamna boja kože i umjerena boja kože	none
 🧑🏾‍🤝‍🧑🏾	ljudi se drže za ruke umjereno tamna boja kože	none
+🧑🏾‍🤝‍🧑🏿	ljudi se drže za ruke umjereno tamna boja kože i tamna boja kože	none
 🧑🏿‍🤝‍🧑🏻	ljudi se drže za ruke tamna boja kože i svijetla boja kože	none
 🧑🏿‍🤝‍🧑🏼	ljudi se drže za ruke tamna boja kože i umjereno svijetla boja kože	none
 🧑🏿‍🤝‍🧑🏽	ljudi se drže za ruke tamna boja kože i umjerena boja kože	none
 🧑🏿‍🤝‍🧑🏾	ljudi se drže za ruke tamna boja kože i umjereno tamna boja kože	none
 🧑🏿‍🤝‍🧑🏿	ljudi se drže za ruke tamna boja kože	none
 👭🏻	dvije žene se drže za ruke svijetla boja kože	none
+👩🏻‍🤝‍👩🏼	dvije žene se drže za ruke svijetla boja kože i umjereno svijetla boja kože	none
+👩🏻‍🤝‍👩🏽	dvije žene se drže za ruke svijetla boja kože i umjerena boja kože	none
+👩🏻‍🤝‍👩🏾	dvije žene se drže za ruke svijetla boja kože i umjereno tamna boja kože	none
+👩🏻‍🤝‍👩🏿	dvije žene se drže za ruke svijetla boja kože i tamna boja kože	none
 👩🏼‍🤝‍👩🏻	dvije žene se drže za ruke umjereno svijetla boja kože i svijetla boja kože	none
 👭🏼	dvije žene se drže za ruke umjereno svijetla boja kože	none
+👩🏼‍🤝‍👩🏽	dvije žene se drže za ruke umjereno svijetla boja kože i umjerena boja kože	none
+👩🏼‍🤝‍👩🏾	dvije žene se drže za ruke umjereno svijetla boja kože i umjereno tamna boja kože	none
+👩🏼‍🤝‍👩🏿	dvije žene se drže za ruke umjereno svijetla boja kože i tamna boja kože	none
 👩🏽‍🤝‍👩🏻	dvije žene se drže za ruke umjerena boja kože i svijetla boja kože	none
 👩🏽‍🤝‍👩🏼	dvije žene se drže za ruke umjerena boja kože i umjereno svijetla boja kože	none
 👭🏽	dvije žene se drže za ruke umjerena boja kože	none
+👩🏽‍🤝‍👩🏾	dvije žene se drže za ruke umjerena boja kože i umjereno tamna boja kože	none
+👩🏽‍🤝‍👩🏿	dvije žene se drže za ruke umjerena boja kože i tamna boja kože	none
 👩🏾‍🤝‍👩🏻	dvije žene se drže za ruke umjereno tamna boja kože i svijetla boja kože	none
 👩🏾‍🤝‍👩🏼	dvije žene se drže za ruke umjereno tamna boja kože i umjereno svijetla boja kože	none
 👩🏾‍🤝‍👩🏽	dvije žene se drže za ruke umjereno tamna boja kože i umjerena boja kože	none
 👭🏾	dvije žene se drže za ruke umjereno tamna boja kože	none
+👩🏾‍🤝‍👩🏿	dvije žene se drže za ruke umjereno tamna boja kože i tamna boja kože	none
 👩🏿‍🤝‍👩🏻	dvije žene se drže za ruke tamna boja kože i svijetla boja kože	none
 👩🏿‍🤝‍👩🏼	dvije žene se drže za ruke tamna boja kože i umjereno svijetla boja kože	none
 👩🏿‍🤝‍👩🏽	dvije žene se drže za ruke tamna boja kože i umjerena boja kože	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	muškarac i žena se drže za ruke tamna boja kože i umjereno tamna boja kože	none
 👫🏿	muškarac i žena se drže za ruke tamna boja kože	none
 👬🏻	dva muškarca se drže za ruke svijetla boja kože	none
+👨🏻‍🤝‍👨🏼	dva muškarca se drže za ruke svijetla boja kože i umjereno svijetla boja kože	none
+👨🏻‍🤝‍👨🏽	dva muškarca se drže za ruke svijetla boja kože i umjerena boja kože	none
+👨🏻‍🤝‍👨🏾	dva muškarca se drže za ruke svijetla boja kože i umjereno tamna boja kože	none
+👨🏻‍🤝‍👨🏿	dva muškarca se drže za ruke svijetla boja kože i tamna boja kože	none
 👨🏼‍🤝‍👨🏻	dva muškarca se drže za ruke umjereno svijetla boja kože i svijetla boja kože	none
 👬🏼	dva muškarca se drže za ruke umjereno svijetla boja kože	none
+👨🏼‍🤝‍👨🏽	dva muškarca se drže za ruke umjereno svijetla boja kože i umjerena boja kože	none
+👨🏼‍🤝‍👨🏾	dva muškarca se drže za ruke umjereno svijetla boja kože i umjereno tamna boja kože	none
+👨🏼‍🤝‍👨🏿	dva muškarca se drže za ruke umjereno svijetla boja kože i tamna boja kože	none
 👨🏽‍🤝‍👨🏻	dva muškarca se drže za ruke umjerena boja kože i svijetla boja kože	none
 👨🏽‍🤝‍👨🏼	dva muškarca se drže za ruke umjerena boja kože i umjereno svijetla boja kože	none
 👬🏽	dva muškarca se drže za ruke umjerena boja kože	none
+👨🏽‍🤝‍👨🏾	dva muškarca se drže za ruke umjerena boja kože i umjereno tamna boja kože	none
+👨🏽‍🤝‍👨🏿	dva muškarca se drže za ruke umjerena boja kože i tamna boja kože	none
 👨🏾‍🤝‍👨🏻	dva muškarca se drže za ruke umjereno tamna boja kože i svijetla boja kože	none
 👨🏾‍🤝‍👨🏼	dva muškarca se drže za ruke umjereno tamna boja kože i umjereno svijetla boja kože	none
 👨🏾‍🤝‍👨🏽	dva muškarca se drže za ruke umjereno tamna boja kože i umjerena boja kože	none
 👬🏾	dva muškarca se drže za ruke umjereno tamna boja kože	none
+👨🏾‍🤝‍👨🏿	dva muškarca se drže za ruke umjereno tamna boja kože i tamna boja kože	none
 👨🏿‍🤝‍👨🏻	dva muškarca se drže za ruke tamna boja kože i svijetla boja kože	none
 👨🏿‍🤝‍👨🏼	dva muškarca se drže za ruke tamna boja kože i umjereno svijetla boja kože	none
 👨🏿‍🤝‍👨🏽	dva muškarca se drže za ruke tamna boja kože i umjerena boja kože	none

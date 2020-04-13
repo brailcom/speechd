@@ -84,6 +84,7 @@ symbols:
 🤜	puño a la derecha	none
 🙌	chocar las manos	none
 🤳	selfie	none
+🧑‍🎄	papá noel	none
 🧓	adulto mayor	none
 👴	hombre mayor	none
 👵	mujer mayor	none
@@ -96,6 +97,7 @@ symbols:
 🙋	persona levantando la mano	none
 👷	obrero de construcción	none
 👼	cara de ángel bebé	none
+🎅	Santa Claus	none
 🧜‍♂	sireno	none
 💆	masaje facial	none
 💇	corte de pelo	none
@@ -371,10 +373,10 @@ symbols:
 🔰	símbolo japonés de principiante	none
 ☑	casilla seleccionada	none
 ✔	marca de verificación grande	none
-✖	multiplicación	none
 ❌	cruz	none
 ❎	cruz con recuadro	none
-➗	signo división	none
+➕	suma	none
+➖	resta	none
 〽	alternancia	none
 ❔	signo de interrogación gris	none
 ❕	signo de exclamación gris	none
@@ -458,6 +460,11 @@ symbols:
 🤳🏽	selfie tono de piel medio	none
 🤳🏾	selfie tono de piel oscuro medio	none
 🤳🏿	selfie tono de piel oscuro	none
+🧑🏻‍🎄	papá noel tono de piel claro	none
+🧑🏼‍🎄	papá noel tono de piel claro medio	none
+🧑🏽‍🎄	papá noel tono de piel medio	none
+🧑🏾‍🎄	papá noel tono de piel oscuro medio	none
+🧑🏿‍🎄	papá noel tono de piel oscuro	none
 🧓🏻	adulto mayor tono de piel claro	none
 🧓🏼	adulto mayor tono de piel claro medio	none
 🧓🏽	adulto mayor tono de piel medio	none
@@ -518,6 +525,11 @@ symbols:
 👼🏽	cara de ángel bebé tono de piel medio	none
 👼🏾	cara de ángel bebé tono de piel oscuro medio	none
 👼🏿	cara de ángel bebé tono de piel oscuro	none
+🎅🏻	Santa Claus tono de piel claro	none
+🎅🏼	Santa Claus tono de piel claro medio	none
+🎅🏽	Santa Claus tono de piel medio	none
+🎅🏾	Santa Claus tono de piel oscuro medio	none
+🎅🏿	Santa Claus tono de piel oscuro	none
 🧜🏻‍♂	sireno tono de piel claro	none
 🧜🏼‍♂	sireno tono de piel claro medio	none
 🧜🏽‍♂	sireno tono de piel medio	none
@@ -584,15 +596,25 @@ symbols:
 🛌🏾	persona durmiendo tono de piel oscuro medio	none
 🛌🏿	persona durmiendo tono de piel oscuro	none
 👬🏻	dos hombres de la mano tono de piel claro	none
+👨🏻‍🤝‍👨🏼	dos hombres de la mano tono de piel claro y tono de piel claro medio	none
+👨🏻‍🤝‍👨🏽	dos hombres de la mano tono de piel claro y tono de piel medio	none
+👨🏻‍🤝‍👨🏾	dos hombres de la mano tono de piel claro y tono de piel oscuro medio	none
+👨🏻‍🤝‍👨🏿	dos hombres de la mano tono de piel claro y tono de piel oscuro	none
 👨🏼‍🤝‍👨🏻	dos hombres de la mano tono de piel claro medio y tono de piel claro	none
 👬🏼	dos hombres de la mano tono de piel claro medio	none
+👨🏼‍🤝‍👨🏽	dos hombres de la mano tono de piel claro medio y tono de piel medio	none
+👨🏼‍🤝‍👨🏾	dos hombres de la mano tono de piel claro medio y tono de piel oscuro medio	none
+👨🏼‍🤝‍👨🏿	dos hombres de la mano tono de piel claro medio y tono de piel oscuro	none
 👨🏽‍🤝‍👨🏻	dos hombres de la mano tono de piel medio y tono de piel claro	none
 👨🏽‍🤝‍👨🏼	dos hombres de la mano tono de piel medio y tono de piel claro medio	none
 👬🏽	dos hombres de la mano tono de piel medio	none
+👨🏽‍🤝‍👨🏾	dos hombres de la mano tono de piel medio y tono de piel oscuro medio	none
+👨🏽‍🤝‍👨🏿	dos hombres de la mano tono de piel medio y tono de piel oscuro	none
 👨🏾‍🤝‍👨🏻	dos hombres de la mano tono de piel oscuro medio y tono de piel claro	none
 👨🏾‍🤝‍👨🏼	dos hombres de la mano tono de piel oscuro medio y tono de piel claro medio	none
 👨🏾‍🤝‍👨🏽	dos hombres de la mano tono de piel oscuro medio y tono de piel medio	none
 👬🏾	dos hombres de la mano tono de piel oscuro medio	none
+👨🏾‍🤝‍👨🏿	dos hombres de la mano tono de piel oscuro medio y tono de piel oscuro	none
 👨🏿‍🤝‍👨🏻	dos hombres de la mano tono de piel oscuro y tono de piel claro	none
 👨🏿‍🤝‍👨🏼	dos hombres de la mano tono de piel oscuro y tono de piel claro medio	none
 👨🏿‍🤝‍👨🏽	dos hombres de la mano tono de piel oscuro y tono de piel medio	none

@@ -9,6 +9,61 @@ symbols:
 🏾	mellanmörk hy	none
 🏿	mörk hy	none
 ⚧	transgendersymbol	none
+🤌	fingerportmonnä	none
+🥲	tårögt leende ansikte	none
+🥷	ninja	none
+🥸	maskerat ansikte	none
+🦣	mammut	none
+🦤	dront	none
+🦫	bäver	none
+🦬	bisonoxe	none
+🦭	säl	none
+🧋	bubbelte	none
+🩴	flip-flops	none
+🪃	boomerang	none
+🪄	trollspö	none
+🪅	piñata	none
+🪆	ryska dockor	none
+🪖	militärhjälm	none
+🪗	dragspel	none
+🪘	congatrumma	none
+🪙	mynt	none
+🪚	fogsvans	none
+🪛	skruvmejsel	none
+🪜	stege	none
+🪝	krok	none
+🪞	spegel	none
+🪟	fönster	none
+🪠	vaskrensare	none
+🪡	synål	none
+🪢	knut	none
+🪣	spann	none
+🪤	musfälla	none
+🪥	tandborste	none
+🪦	gravsten	none
+🪧	plakat	none
+🪨	sten	none
+🪰	fluga	none
+🪱	mask	none
+🪲	skalbagge	none
+🪳	kackerlacka	none
+🪴	krukväxt	none
+🪵	trästockar	none
+🪶	fågelfjäder	none
+🫀	hjärta	none
+🫁	lungor	none
+🫂	personer kramas	none
+🫐	blåbär	none
+🫑	paprika	none
+🫒	oliv	none
+🫓	tunnbröd	none
+🫔	tamale	none
+🫕	fondue	none
+🫖	tekanna	none
+🛖	koja	none
+🛗	hiss	none
+🛻	pickup	none
+🛼	rullskridsko	none
 😀	ansikte med stort leende	none
 😃	flinande ansikte med stora ögon	none
 😄	flinande ansikte med leende ögon	none
@@ -212,11 +267,15 @@ symbols:
 👧	flicka	none
 🧑	person	none
 👱	blond person	none
+🧑‍🍼	person ammar spädbarn	none
+🧑‍🎄	könsneutral tomte	none
 👨	man	none
 🧔	man med skägg	none
 👱‍♂	blond man	none
+👨‍🍼	man matar spädbarn	none
 👩	kvinna	none
 👱‍♀	blond kvinna	none
+👩‍🍼	kvinna matar spädbarn	none
 🧓	äldre person	none
 👴	gammal man	none
 👵	gammal kvinna	none
@@ -317,8 +376,12 @@ symbols:
 👳‍♀	kvinna i turban	none
 👲	man med kinesisk hatt	none
 🧕	kvinna i sjal	none
-🤵	man i smoking	none
-👰	brud med slöja	none
+🤵	person i smoking	none
+🤵‍♀	kvinna i smoking	none
+🤵‍♂	man i smoking	none
+👰	person i brudslöja	none
+👰‍♀	kvinna i brudslöja	none
+👰‍♂	man i brudslöja	none
 🤰	gravid kvinna	none
 🤱	amning	none
 👼	bebisängel	none
@@ -467,6 +530,7 @@ symbols:
 🦝	tvättbjörn	none
 🐱	kattansikte	none
 🐈	katt	none
+🐈‍⬛	svart katt	none
 🦁	lejonansikte	none
 🐯	tigeransikte	none
 🐅	tiger	none
@@ -504,6 +568,7 @@ symbols:
 🦔	igelkott	none
 🦇	fladdermus	none
 🐻	björnansikte	none
+🐻‍❄	isbjörn	none
 🐨	koala	none
 🐼	pandaansikte	none
 🦥	sengångare	none
@@ -1332,12 +1397,12 @@ symbols:
 ✅	vit bockmarkering	none
 ☑	kryssruta med bockmarkering	none
 ✔	bockmarkering	none
-✖	multiplikationstecken	none
+✖	multiplicera	none
 ❌	rött kryss	none
 ❎	vitt kryss i ruta	none
-➕	plustecken	none
+➕	addera	none
 ➖	minustecken	none
-➗	divisionstecken	none
+➗	dividera	none
 ➰	ögla	none
 ➿	dubbel ögla	none
 〽	japansk kommatering	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	transflagga	none
 🏳‍🌈	regnbågsflagga	none
 🏴‍☠	sjörövarflagga	none
-🛖	koja	none
-🛗	hiss	none
-🛻	pickup	none
-🛼	rullskridsko	none
-🤌	fingerportmonnä	none
-🥲	tårögt leende ansikte	none
-🥷	ninja	none
-🥸	maskerat ansikte	none
-🦣	mammut	none
-🦤	dront	none
-🦫	bäver	none
-🦬	bisonoxe	none
-🦭	säl	none
-🧋	bubbelte	none
-🩴	flip-flops	none
-🪃	boomerang	none
-🪄	trollspö	none
-🪅	piñata	none
-🪆	ryska dockor	none
-🪖	militärhjälm	none
-🪗	dragspel	none
-🪘	congatrumma	none
-🪙	mynt	none
-🪚	fogsvans	none
-🪛	skruvmejsel	none
-🪜	stege	none
-🪝	krok	none
-🪞	spegel	none
-🪟	fönster	none
-🪠	vaskrensare	none
-🪡	synål	none
-🪢	knut	none
-🪣	spann	none
-🪤	musfälla	none
-🪥	tandborste	none
-🪦	gravsten	none
-🪧	plakat	none
-🪨	sten	none
-🪰	fluga	none
-🪱	mask	none
-🪲	skalbagge	none
-🪳	kackerlacka	none
-🪴	krukväxt	none
-🪵	trästockar	none
-🪶	fågelfjäder	none
-🫀	hjärta	none
-🫁	lungor	none
-🫂	personer kramas	none
-🫐	blåbär	none
-🫑	paprika	none
-🫒	oliv	none
-🫓	tunnbröd	none
-🫔	tamale	none
-🫕	fondue	none
-🫖	tekanna	none
+🤌🏻	fingerportmonnä ljus hy	none
+🤌🏼	fingerportmonnä mellanljus hy	none
+🤌🏽	fingerportmonnä mellanfärgad hy	none
+🤌🏾	fingerportmonnä mellanmörk hy	none
+🤌🏿	fingerportmonnä mörk hy	none
 👋🏻	vinkande hand ljus hy	none
 👋🏼	vinkande hand mellanljus hy	none
 👋🏽	vinkande hand mellanfärgad hy	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	person mellanfärgad hy, skallig	none
 🧑🏾‍🦲	person mellanmörk hy, skallig	none
 🧑🏿‍🦲	person mörk hy, skallig	none
+🧑🏻‍🍼	person ammar spädbarn ljus hy	none
+🧑🏼‍🍼	person ammar spädbarn mellanljus hy	none
+🧑🏽‍🍼	person ammar spädbarn mellanfärgad hy	none
+🧑🏾‍🍼	person ammar spädbarn mellanmörk hy	none
+🧑🏿‍🍼	person ammar spädbarn mörk hy	none
+🧑🏻‍🎄	könsneutral tomte ljus hy	none
+🧑🏼‍🎄	könsneutral tomte mellanljus hy	none
+🧑🏽‍🎄	könsneutral tomte mellanfärgad hy	none
+🧑🏾‍🎄	könsneutral tomte mellanmörk hy	none
+🧑🏿‍🎄	könsneutral tomte mörk hy	none
 👨🏻	man ljus hy	none
 👨🏼	man mellanljus hy	none
 👨🏽	man mellanfärgad hy	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	man mellanfärgad hy, skallig	none
 👨🏾‍🦲	man mellanmörk hy, skallig	none
 👨🏿‍🦲	man mörk hy, skallig	none
+👨🏻‍🍼	man matar spädbarn ljus hy	none
+👨🏼‍🍼	man matar spädbarn mellanljus hy	none
+👨🏽‍🍼	man matar spädbarn mellanfärgad hy	none
+👨🏾‍🍼	man matar spädbarn mellanmörk hy	none
+👨🏿‍🍼	man matar spädbarn mörk hy	none
 👩🏻	kvinna ljus hy	none
 👩🏼	kvinna mellanljus hy	none
 👩🏽	kvinna mellanfärgad hy	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	kvinna mellanfärgad hy, skallig	none
 👩🏾‍🦲	kvinna mellanmörk hy, skallig	none
 👩🏿‍🦲	kvinna mörk hy, skallig	none
+👩🏻‍🍼	kvinna matar spädbarn ljus hy	none
+👩🏼‍🍼	kvinna matar spädbarn mellanljus hy	none
+👩🏽‍🍼	kvinna matar spädbarn mellanfärgad hy	none
+👩🏾‍🍼	kvinna matar spädbarn mellanmörk hy	none
+👩🏿‍🍼	kvinna matar spädbarn mörk hy	none
 🧓🏻	äldre person ljus hy	none
 🧓🏼	äldre person mellanljus hy	none
 🧓🏽	äldre person mellanfärgad hy	none
@@ -2307,16 +2342,36 @@ symbols:
 🧕🏽	kvinna i sjal mellanfärgad hy	none
 🧕🏾	kvinna i sjal mellanmörk hy	none
 🧕🏿	kvinna i sjal mörk hy	none
-🤵🏻	man i smoking ljus hy	none
-🤵🏼	man i smoking mellanljus hy	none
-🤵🏽	man i smoking mellanfärgad hy	none
-🤵🏾	man i smoking mellanmörk hy	none
-🤵🏿	man i smoking mörk hy	none
-👰🏻	brud med slöja ljus hy	none
-👰🏼	brud med slöja mellanljus hy	none
-👰🏽	brud med slöja mellanfärgad hy	none
-👰🏾	brud med slöja mellanmörk hy	none
-👰🏿	brud med slöja mörk hy	none
+🤵🏻	person i smoking ljus hy	none
+🤵🏼	person i smoking mellanljus hy	none
+🤵🏽	person i smoking mellanfärgad hy	none
+🤵🏾	person i smoking mellanmörk hy	none
+🤵🏿	person i smoking mörk hy	none
+🤵🏻‍♀	kvinna i smoking ljus hy	none
+🤵🏼‍♀	kvinna i smoking mellanljus hy	none
+🤵🏽‍♀	kvinna i smoking mellanfärgad hy	none
+🤵🏾‍♀	kvinna i smoking mellanmörk hy	none
+🤵🏿‍♀	kvinna i smoking mörk hy	none
+🤵🏻‍♂	man i smoking ljus hy	none
+🤵🏼‍♂	man i smoking mellanljus hy	none
+🤵🏽‍♂	man i smoking mellanfärgad hy	none
+🤵🏾‍♂	man i smoking mellanmörk hy	none
+🤵🏿‍♂	man i smoking mörk hy	none
+👰🏻	person i brudslöja ljus hy	none
+👰🏼	person i brudslöja mellanljus hy	none
+👰🏽	person i brudslöja mellanfärgad hy	none
+👰🏾	person i brudslöja mellanmörk hy	none
+👰🏿	person i brudslöja mörk hy	none
+👰🏻‍♀	kvinna i brudslöja ljus hy	none
+👰🏼‍♀	kvinna i brudslöja mellanljus hy	none
+👰🏽‍♀	kvinna i brudslöja mellanfärgad hy	none
+👰🏾‍♀	kvinna i brudslöja mellanmörk hy	none
+👰🏿‍♀	kvinna i brudslöja mörk hy	none
+👰🏻‍♂	man i brudslöja ljus hy	none
+👰🏼‍♂	man i brudslöja mellanljus hy	none
+👰🏽‍♂	man i brudslöja mellanfärgad hy	none
+👰🏾‍♂	man i brudslöja mellanmörk hy	none
+👰🏿‍♂	man i brudslöja mörk hy	none
 🤰🏻	gravid kvinna ljus hy	none
 🤰🏼	gravid kvinna mellanljus hy	none
 🤰🏽	gravid kvinna mellanfärgad hy	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	person i en säng mellanmörk hy	none
 🛌🏿	person i en säng mörk hy	none
 🧑🏻‍🤝‍🧑🏻	personer som håller hand ljus hy	none
+🧑🏻‍🤝‍🧑🏼	personer som håller hand ljus hy, mellanljus hy	none
+🧑🏻‍🤝‍🧑🏽	personer som håller hand ljus hy, mellanfärgad hy	none
+🧑🏻‍🤝‍🧑🏾	personer som håller hand ljus hy, mellanmörk hy	none
+🧑🏻‍🤝‍🧑🏿	personer som håller hand ljus hy, mörk hy	none
 🧑🏼‍🤝‍🧑🏻	personer som håller hand mellanljus hy, ljus hy	none
 🧑🏼‍🤝‍🧑🏼	personer som håller hand mellanljus hy	none
+🧑🏼‍🤝‍🧑🏽	personer som håller hand mellanljus hy, mellanfärgad hy	none
+🧑🏼‍🤝‍🧑🏾	personer som håller hand mellanljus hy, mellanmörk hy	none
+🧑🏼‍🤝‍🧑🏿	personer som håller hand mellanljus hy, mörk hy	none
 🧑🏽‍🤝‍🧑🏻	personer som håller hand mellanfärgad hy, ljus hy	none
 🧑🏽‍🤝‍🧑🏼	personer som håller hand mellanfärgad hy, mellanljus hy	none
 🧑🏽‍🤝‍🧑🏽	personer som håller hand mellanfärgad hy	none
+🧑🏽‍🤝‍🧑🏾	personer som håller hand mellanfärgad hy, mellanmörk hy	none
+🧑🏽‍🤝‍🧑🏿	personer som håller hand mellanfärgad hy, mörk hy	none
 🧑🏾‍🤝‍🧑🏻	personer som håller hand mellanmörk hy, ljus hy	none
 🧑🏾‍🤝‍🧑🏼	personer som håller hand mellanmörk hy, mellanljus hy	none
 🧑🏾‍🤝‍🧑🏽	personer som håller hand mellanmörk hy, mellanfärgad hy	none
 🧑🏾‍🤝‍🧑🏾	personer som håller hand mellanmörk hy	none
+🧑🏾‍🤝‍🧑🏿	personer som håller hand mellanmörk hy, mörk hy	none
 🧑🏿‍🤝‍🧑🏻	personer som håller hand mörk hy, ljus hy	none
 🧑🏿‍🤝‍🧑🏼	personer som håller hand mörk hy, mellanljus hy	none
 🧑🏿‍🤝‍🧑🏽	personer som håller hand mörk hy, mellanfärgad hy	none
 🧑🏿‍🤝‍🧑🏾	personer som håller hand mörk hy, mellanmörk hy	none
 🧑🏿‍🤝‍🧑🏿	personer som håller hand mörk hy	none
 👭🏻	två kvinnor håller hand ljus hy	none
+👩🏻‍🤝‍👩🏼	två kvinnor håller hand ljus hy, mellanljus hy	none
+👩🏻‍🤝‍👩🏽	två kvinnor håller hand ljus hy, mellanfärgad hy	none
+👩🏻‍🤝‍👩🏾	två kvinnor håller hand ljus hy, mellanmörk hy	none
+👩🏻‍🤝‍👩🏿	två kvinnor håller hand ljus hy, mörk hy	none
 👩🏼‍🤝‍👩🏻	två kvinnor håller hand mellanljus hy, ljus hy	none
 👭🏼	två kvinnor håller hand mellanljus hy	none
+👩🏼‍🤝‍👩🏽	två kvinnor håller hand mellanljus hy, mellanfärgad hy	none
+👩🏼‍🤝‍👩🏾	två kvinnor håller hand mellanljus hy, mellanmörk hy	none
+👩🏼‍🤝‍👩🏿	två kvinnor håller hand mellanljus hy, mörk hy	none
 👩🏽‍🤝‍👩🏻	två kvinnor håller hand mellanfärgad hy, ljus hy	none
 👩🏽‍🤝‍👩🏼	två kvinnor håller hand mellanfärgad hy, mellanljus hy	none
 👭🏽	två kvinnor håller hand mellanfärgad hy	none
+👩🏽‍🤝‍👩🏾	två kvinnor håller hand mellanfärgad hy, mellanmörk hy	none
+👩🏽‍🤝‍👩🏿	två kvinnor håller hand mellanfärgad hy, mörk hy	none
 👩🏾‍🤝‍👩🏻	två kvinnor håller hand mellanmörk hy, ljus hy	none
 👩🏾‍🤝‍👩🏼	två kvinnor håller hand mellanmörk hy, mellanljus hy	none
 👩🏾‍🤝‍👩🏽	två kvinnor håller hand mellanmörk hy, mellanfärgad hy	none
 👭🏾	två kvinnor håller hand mellanmörk hy	none
+👩🏾‍🤝‍👩🏿	två kvinnor håller hand mellanmörk hy, mörk hy	none
 👩🏿‍🤝‍👩🏻	två kvinnor håller hand mörk hy, ljus hy	none
 👩🏿‍🤝‍👩🏼	två kvinnor håller hand mörk hy, mellanljus hy	none
 👩🏿‍🤝‍👩🏽	två kvinnor håller hand mörk hy, mellanfärgad hy	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	man och kvinna håller hand mörk hy, mellanmörk hy	none
 👫🏿	man och kvinna håller hand mörk hy	none
 👬🏻	två män håller hand ljus hy	none
+👨🏻‍🤝‍👨🏼	två män håller hand ljus hy, mellanljus hy	none
+👨🏻‍🤝‍👨🏽	två män håller hand ljus hy, mellanfärgad hy	none
+👨🏻‍🤝‍👨🏾	två män håller hand ljus hy, mellanmörk hy	none
+👨🏻‍🤝‍👨🏿	två män håller hand ljus hy, mörk hy	none
 👨🏼‍🤝‍👨🏻	två män håller hand mellanljus hy, ljus hy	none
 👬🏼	två män håller hand mellanljus hy	none
+👨🏼‍🤝‍👨🏽	två män håller hand mellanljus hy, mellanfärgad hy	none
+👨🏼‍🤝‍👨🏾	två män håller hand mellanljus hy, mellanmörk hy	none
+👨🏼‍🤝‍👨🏿	två män håller hand mellanljus hy, mörk hy	none
 👨🏽‍🤝‍👨🏻	två män håller hand mellanfärgad hy, ljus hy	none
 👨🏽‍🤝‍👨🏼	två män håller hand mellanfärgad hy, mellanljus hy	none
 👬🏽	två män håller hand mellanfärgad hy	none
+👨🏽‍🤝‍👨🏾	två män håller hand mellanfärgad hy, mellanmörk hy	none
+👨🏽‍🤝‍👨🏿	två män håller hand mellanfärgad hy, mörk hy	none
 👨🏾‍🤝‍👨🏻	två män håller hand mellanmörk hy, ljus hy	none
 👨🏾‍🤝‍👨🏼	två män håller hand mellanmörk hy, mellanljus hy	none
 👨🏾‍🤝‍👨🏽	två män håller hand mellanmörk hy, mellanfärgad hy	none
 👬🏾	två män håller hand mellanmörk hy	none
+👨🏾‍🤝‍👨🏿	två män håller hand mellanmörk hy, mörk hy	none
 👨🏿‍🤝‍👨🏻	två män håller hand mörk hy, ljus hy	none
 👨🏿‍🤝‍👨🏼	två män håller hand mörk hy, mellanljus hy	none
 👨🏿‍🤝‍👨🏽	två män håller hand mörk hy, mellanfärgad hy	none

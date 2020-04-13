@@ -9,6 +9,61 @@ symbols:
 🏾	pell fosca	none
 🏿	pell molt fosca	none
 ⚧	símbol transgènere	none
+🤌	dits junts	none
+🥲	cara somrient amb una llàgrima	none
+🥷	ninja	none
+🥸	cara disfressada	none
+🦣	mamut	none
+🦤	dodo	none
+🦫	castor	none
+🦬	bisó	none
+🦭	foca	none
+🧋	te amb bombolles	none
+🩴	xancleta de dit	none
+🪃	bumerang	none
+🪄	vareta màgica	none
+🪅	pinyata	none
+🪆	nines russes	none
+🪖	casc militar	none
+🪗	acordió	none
+🪘	conga	none
+🪙	moneda	none
+🪚	xerrac	none
+🪛	tornavís	none
+🪜	escala de mà	none
+🪝	ham	none
+🪞	mirall	none
+🪟	finestra	none
+🪠	desembossador	none
+🪡	agulla de cosir	none
+🪢	nus	none
+🪣	cubell	none
+🪤	ratera	none
+🪥	raspall de dents	none
+🪦	làpida	none
+🪧	pancarta	none
+🪨	roca	none
+🪰	mosca	none
+🪱	cuc	none
+🪲	escarabat	none
+🪳	panerola	none
+🪴	planta amb test	none
+🪵	llenya	none
+🪶	ploma	none
+🫀	cor	none
+🫁	pulmons	none
+🫂	persones que s’abracen	none
+🫐	nabius	none
+🫑	pebrot vermell	none
+🫒	oliva	none
+🫓	pa de coca	none
+🫔	tamal	none
+🫕	fondue	none
+🫖	tetera	none
+🛖	cabana	none
+🛗	ascensor	none
+🛻	camioneta descoberta	none
+🛼	patí de rodes	none
 😀	cara molt somrient	none
 😃	cara molt somrient amb els ulls ben oberts	none
 😄	cara amb rialla i els ulls somrients	none
@@ -212,11 +267,15 @@ symbols:
 👧	noia	none
 🧑	persona	none
 👱	persona cabells rossos	none
+🧑‍🍼	persona que alleta un bebè	none
+🧑‍🎄	Noel	none
 👨	home	none
 🧔	home barba	none
 👱‍♂	home cabell ros	none
+👨‍🍼	home que alleta un bebè	none
 👩	dona	none
 👱‍♀	dona cabell ros	none
+👩‍🍼	dona que alleta un bebè	none
 🧓	persona gran	none
 👴	home gran	none
 👵	dona gran	none
@@ -317,8 +376,12 @@ symbols:
 👳‍♀	dona amb turbant	none
 👲	home amb barret xinès	none
 🧕	dona amb el cap cobert	none
-🤵	home elegant	none
-👰	núvia amb vel	none
+🤵	persona amb esmòquing	none
+🤵‍♀	dona amb esmòquing	none
+🤵‍♂	home amb esmòquing	none
+👰	persona amb vel	none
+👰‍♀	dona amb vel	none
+👰‍♂	home amb vel	none
 🤰	embarassada	none
 🤱	dona que alleta	none
 👼	angelet	none
@@ -467,6 +530,7 @@ symbols:
 🦝	os rentador	none
 🐱	cara de gat	none
 🐈	gat	none
+🐈‍⬛	gat negre	none
 🦁	cara de lleó	none
 🐯	cara de tigre	none
 🐅	tigre	none
@@ -504,6 +568,7 @@ symbols:
 🦔	eriçó	none
 🦇	ratapinyada	none
 🐻	cara d’os	none
+🐻‍❄	os polar	none
 🐨	coala	none
 🐼	panda	none
 🦥	peresós	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	bandera transgènere	none
 🏳‍🌈	bandera de l’arc de Sant Martí	none
 🏴‍☠	bandera pirata	none
-🛖	cabana	none
-🛗	ascensor	none
-🛻	camioneta descoberta	none
-🛼	patí de rodes	none
-🤌	dits junts	none
-🥲	cara somrient amb una llàgrima	none
-🥷	ninja	none
-🥸	cara disfressada	none
-🦣	mamut	none
-🦤	dodo	none
-🦫	castor	none
-🦬	bisó	none
-🦭	foca	none
-🧋	te amb bombolles	none
-🩴	xancleta de dit	none
-🪃	bumerang	none
-🪄	vareta màgica	none
-🪅	pinyata	none
-🪆	nines russes	none
-🪖	casc militar	none
-🪗	acordió	none
-🪘	conga	none
-🪙	moneda	none
-🪚	xerrac	none
-🪛	tornavís	none
-🪜	escala de mà	none
-🪝	ham	none
-🪞	mirall	none
-🪟	finestra	none
-🪠	desembossador	none
-🪡	agulla de cosir	none
-🪢	nus	none
-🪣	cubell	none
-🪤	ratera	none
-🪥	raspall de dents	none
-🪦	làpida	none
-🪧	pancarta	none
-🪨	roca	none
-🪰	mosca	none
-🪱	cuc	none
-🪲	escarabat	none
-🪳	panerola	none
-🪴	planta amb test	none
-🪵	llenya	none
-🪶	ploma	none
-🫀	cor	none
-🫁	pulmons	none
-🫂	persones que s’abracen	none
-🫐	nabius	none
-🫑	pebrot vermell	none
-🫒	oliva	none
-🫓	pa de coca	none
-🫔	tamal	none
-🫕	fondue	none
-🫖	tetera	none
+🤌🏻	dits junts pell molt clara	none
+🤌🏼	dits junts pell bastant clara	none
+🤌🏽	dits junts pell morena	none
+🤌🏾	dits junts pell fosca	none
+🤌🏿	dits junts pell molt fosca	none
 👋🏻	mà que saluda pell molt clara	none
 👋🏼	mà que saluda pell bastant clara	none
 👋🏽	mà que saluda pell morena	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	persona pell morena i calvície	none
 🧑🏾‍🦲	persona pell fosca i calvície	none
 🧑🏿‍🦲	persona pell molt fosca i calvície	none
+🧑🏻‍🍼	persona que alleta un bebè pell molt clara	none
+🧑🏼‍🍼	persona que alleta un bebè pell bastant clara	none
+🧑🏽‍🍼	persona que alleta un bebè pell morena	none
+🧑🏾‍🍼	persona que alleta un bebè pell fosca	none
+🧑🏿‍🍼	persona que alleta un bebè pell molt fosca	none
+🧑🏻‍🎄	Noel pell molt clara	none
+🧑🏼‍🎄	Noel pell bastant clara	none
+🧑🏽‍🎄	Noel pell morena	none
+🧑🏾‍🎄	Noel pell fosca	none
+🧑🏿‍🎄	Noel pell molt fosca	none
 👨🏻	home pell molt clara	none
 👨🏼	home pell bastant clara	none
 👨🏽	home pell morena	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	home pell morena i calvície	none
 👨🏾‍🦲	home pell fosca i calvície	none
 👨🏿‍🦲	home pell molt fosca i calvície	none
+👨🏻‍🍼	home que alleta un bebè pell molt clara	none
+👨🏼‍🍼	home que alleta un bebè pell bastant clara	none
+👨🏽‍🍼	home que alleta un bebè pell morena	none
+👨🏾‍🍼	home que alleta un bebè pell fosca	none
+👨🏿‍🍼	home que alleta un bebè pell molt fosca	none
 👩🏻	dona pell molt clara	none
 👩🏼	dona pell bastant clara	none
 👩🏽	dona pell morena	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	dona pell morena i calvície	none
 👩🏾‍🦲	dona pell fosca i calvície	none
 👩🏿‍🦲	dona pell molt fosca i calvície	none
+👩🏻‍🍼	dona que alleta un bebè pell molt clara	none
+👩🏼‍🍼	dona que alleta un bebè pell bastant clara	none
+👩🏽‍🍼	dona que alleta un bebè pell morena	none
+👩🏾‍🍼	dona que alleta un bebè pell fosca	none
+👩🏿‍🍼	dona que alleta un bebè pell molt fosca	none
 🧓🏻	persona gran pell molt clara	none
 🧓🏼	persona gran pell bastant clara	none
 🧓🏽	persona gran pell morena	none
@@ -2307,16 +2342,36 @@ symbols:
 🧕🏽	dona amb el cap cobert pell morena	none
 🧕🏾	dona amb el cap cobert pell fosca	none
 🧕🏿	dona amb el cap cobert pell molt fosca	none
-🤵🏻	home elegant pell molt clara	none
-🤵🏼	home elegant pell bastant clara	none
-🤵🏽	home elegant pell morena	none
-🤵🏾	home elegant pell fosca	none
-🤵🏿	home elegant pell molt fosca	none
-👰🏻	núvia amb vel pell molt clara	none
-👰🏼	núvia amb vel pell bastant clara	none
-👰🏽	núvia amb vel pell morena	none
-👰🏾	núvia amb vel pell fosca	none
-👰🏿	núvia amb vel pell molt fosca	none
+🤵🏻	persona amb esmòquing pell molt clara	none
+🤵🏼	persona amb esmòquing pell bastant clara	none
+🤵🏽	persona amb esmòquing pell morena	none
+🤵🏾	persona amb esmòquing pell fosca	none
+🤵🏿	persona amb esmòquing pell molt fosca	none
+🤵🏻‍♀	dona amb esmòquing pell molt clara	none
+🤵🏼‍♀	dona amb esmòquing pell bastant clara	none
+🤵🏽‍♀	dona amb esmòquing pell morena	none
+🤵🏾‍♀	dona amb esmòquing pell fosca	none
+🤵🏿‍♀	dona amb esmòquing pell molt fosca	none
+🤵🏻‍♂	home amb esmòquing pell molt clara	none
+🤵🏼‍♂	home amb esmòquing pell bastant clara	none
+🤵🏽‍♂	home amb esmòquing pell morena	none
+🤵🏾‍♂	home amb esmòquing pell fosca	none
+🤵🏿‍♂	home amb esmòquing pell molt fosca	none
+👰🏻	persona amb vel pell molt clara	none
+👰🏼	persona amb vel pell bastant clara	none
+👰🏽	persona amb vel pell morena	none
+👰🏾	persona amb vel pell fosca	none
+👰🏿	persona amb vel pell molt fosca	none
+👰🏻‍♀	dona amb vel pell molt clara	none
+👰🏼‍♀	dona amb vel pell bastant clara	none
+👰🏽‍♀	dona amb vel pell morena	none
+👰🏾‍♀	dona amb vel pell fosca	none
+👰🏿‍♀	dona amb vel pell molt fosca	none
+👰🏻‍♂	home amb vel pell molt clara	none
+👰🏼‍♂	home amb vel pell bastant clara	none
+👰🏽‍♂	home amb vel pell morena	none
+👰🏾‍♂	home amb vel pell fosca	none
+👰🏿‍♂	home amb vel pell molt fosca	none
 🤰🏻	embarassada pell molt clara	none
 🤰🏼	embarassada pell bastant clara	none
 🤰🏽	embarassada pell morena	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	persona al llit pell fosca	none
 🛌🏿	persona al llit pell molt fosca	none
 🧑🏻‍🤝‍🧑🏻	persones que s’agafen de la mà pell molt clara	none
+🧑🏻‍🤝‍🧑🏼	persones que s’agafen de la mà pell molt clara i pell bastant clara	none
+🧑🏻‍🤝‍🧑🏽	persones que s’agafen de la mà pell molt clara i pell morena	none
+🧑🏻‍🤝‍🧑🏾	persones que s’agafen de la mà pell molt clara i pell fosca	none
+🧑🏻‍🤝‍🧑🏿	persones que s’agafen de la mà pell molt clara i pell molt fosca	none
 🧑🏼‍🤝‍🧑🏻	persones que s’agafen de la mà pell bastant clara i pell molt clara	none
 🧑🏼‍🤝‍🧑🏼	persones que s’agafen de la mà pell bastant clara	none
+🧑🏼‍🤝‍🧑🏽	persones que s’agafen de la mà pell bastant clara i pell morena	none
+🧑🏼‍🤝‍🧑🏾	persones que s’agafen de la mà pell bastant clara i pell fosca	none
+🧑🏼‍🤝‍🧑🏿	persones que s’agafen de la mà pell bastant clara i pell molt fosca	none
 🧑🏽‍🤝‍🧑🏻	persones que s’agafen de la mà pell morena i pell molt clara	none
 🧑🏽‍🤝‍🧑🏼	persones que s’agafen de la mà pell morena i pell bastant clara	none
 🧑🏽‍🤝‍🧑🏽	persones que s’agafen de la mà pell morena	none
+🧑🏽‍🤝‍🧑🏾	persones que s’agafen de la mà pell morena i pell fosca	none
+🧑🏽‍🤝‍🧑🏿	persones que s’agafen de la mà pell morena i pell molt fosca	none
 🧑🏾‍🤝‍🧑🏻	persones que s’agafen de la mà pell fosca i pell molt clara	none
 🧑🏾‍🤝‍🧑🏼	persones que s’agafen de la mà pell fosca i pell bastant clara	none
 🧑🏾‍🤝‍🧑🏽	persones que s’agafen de la mà pell fosca i pell morena	none
 🧑🏾‍🤝‍🧑🏾	persones que s’agafen de la mà pell fosca	none
+🧑🏾‍🤝‍🧑🏿	persones que s’agafen de la mà pell fosca i pell molt fosca	none
 🧑🏿‍🤝‍🧑🏻	persones que s’agafen de la mà pell molt fosca i pell molt clara	none
 🧑🏿‍🤝‍🧑🏼	persones que s’agafen de la mà pell molt fosca i pell bastant clara	none
 🧑🏿‍🤝‍🧑🏽	persones que s’agafen de la mà pell molt fosca i pell morena	none
 🧑🏿‍🤝‍🧑🏾	persones que s’agafen de la mà pell molt fosca i pell fosca	none
 🧑🏿‍🤝‍🧑🏿	persones que s’agafen de la mà pell molt fosca	none
 👭🏻	dones que s’agafen de la mà pell molt clara	none
+👩🏻‍🤝‍👩🏼	dones que s’agafen de la mà pell molt clara i pell bastant clara	none
+👩🏻‍🤝‍👩🏽	dones que s’agafen de la mà pell molt clara i pell morena	none
+👩🏻‍🤝‍👩🏾	dones que s’agafen de la mà pell molt clara i pell fosca	none
+👩🏻‍🤝‍👩🏿	dones que s’agafen de la mà pell molt clara i pell molt fosca	none
 👩🏼‍🤝‍👩🏻	dones que s’agafen de la mà pell bastant clara i pell molt clara	none
 👭🏼	dones que s’agafen de la mà pell bastant clara	none
+👩🏼‍🤝‍👩🏽	dones que s’agafen de la mà pell bastant clara i pell morena	none
+👩🏼‍🤝‍👩🏾	dones que s’agafen de la mà pell bastant clara i pell fosca	none
+👩🏼‍🤝‍👩🏿	dones que s’agafen de la mà pell bastant clara i pell molt fosca	none
 👩🏽‍🤝‍👩🏻	dones que s’agafen de la mà pell morena i pell molt clara	none
 👩🏽‍🤝‍👩🏼	dones que s’agafen de la mà pell morena i pell bastant clara	none
 👭🏽	dones que s’agafen de la mà pell morena	none
+👩🏽‍🤝‍👩🏾	dones que s’agafen de la mà pell morena i pell fosca	none
+👩🏽‍🤝‍👩🏿	dones que s’agafen de la mà pell morena i pell molt fosca	none
 👩🏾‍🤝‍👩🏻	dones que s’agafen de la mà pell fosca i pell molt clara	none
 👩🏾‍🤝‍👩🏼	dones que s’agafen de la mà pell fosca i pell bastant clara	none
 👩🏾‍🤝‍👩🏽	dones que s’agafen de la mà pell fosca i pell morena	none
 👭🏾	dones que s’agafen de la mà pell fosca	none
+👩🏾‍🤝‍👩🏿	dones que s’agafen de la mà pell fosca i pell molt fosca	none
 👩🏿‍🤝‍👩🏻	dones que s’agafen de la mà pell molt fosca i pell molt clara	none
 👩🏿‍🤝‍👩🏼	dones que s’agafen de la mà pell molt fosca i pell bastant clara	none
 👩🏿‍🤝‍👩🏽	dones que s’agafen de la mà pell molt fosca i pell morena	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	home i dona que s’agafen de la mà pell molt fosca i pell fosca	none
 👫🏿	home i dona que s’agafen de la mà pell molt fosca	none
 👬🏻	homes que s’agafen de la mà pell molt clara	none
+👨🏻‍🤝‍👨🏼	homes que s’agafen de la mà pell molt clara i pell bastant clara	none
+👨🏻‍🤝‍👨🏽	homes que s’agafen de la mà pell molt clara i pell morena	none
+👨🏻‍🤝‍👨🏾	homes que s’agafen de la mà pell molt clara i pell fosca	none
+👨🏻‍🤝‍👨🏿	homes que s’agafen de la mà pell molt clara i pell molt fosca	none
 👨🏼‍🤝‍👨🏻	homes que s’agafen de la mà pell bastant clara i pell molt clara	none
 👬🏼	homes que s’agafen de la mà pell bastant clara	none
+👨🏼‍🤝‍👨🏽	homes que s’agafen de la mà pell bastant clara i pell morena	none
+👨🏼‍🤝‍👨🏾	homes que s’agafen de la mà pell bastant clara i pell fosca	none
+👨🏼‍🤝‍👨🏿	homes que s’agafen de la mà pell bastant clara i pell molt fosca	none
 👨🏽‍🤝‍👨🏻	homes que s’agafen de la mà pell morena i pell molt clara	none
 👨🏽‍🤝‍👨🏼	homes que s’agafen de la mà pell morena i pell bastant clara	none
 👬🏽	homes que s’agafen de la mà pell morena	none
+👨🏽‍🤝‍👨🏾	homes que s’agafen de la mà pell morena i pell fosca	none
+👨🏽‍🤝‍👨🏿	homes que s’agafen de la mà pell morena i pell molt fosca	none
 👨🏾‍🤝‍👨🏻	homes que s’agafen de la mà pell fosca i pell molt clara	none
 👨🏾‍🤝‍👨🏼	homes que s’agafen de la mà pell fosca i pell bastant clara	none
 👨🏾‍🤝‍👨🏽	homes que s’agafen de la mà pell fosca i pell morena	none
 👬🏾	homes que s’agafen de la mà pell fosca	none
+👨🏾‍🤝‍👨🏿	homes que s’agafen de la mà pell fosca i pell molt fosca	none
 👨🏿‍🤝‍👨🏻	homes que s’agafen de la mà pell molt fosca i pell molt clara	none
 👨🏿‍🤝‍👨🏼	homes que s’agafen de la mà pell molt fosca i pell bastant clara	none
 👨🏿‍🤝‍👨🏽	homes que s’agafen de la mà pell molt fosca i pell morena	none

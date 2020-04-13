@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/env python3
 # coding: utf-8
 # NVDA symbols and cldr import
 # Import NVDA symbols dictionaries then emojies from CLDR database

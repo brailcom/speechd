@@ -9,6 +9,61 @@ symbols:
 🏾	smeđa boja kože	none
 🏿	tamno smeđa boja kože	none
 ⚧	simbol transrodnosti	none
+🤌	skupljeni prsti	none
+🥲	nasmiješeno lice sa suzom	none
+🥷	nindža	none
+🥸	prerušeno lice	none
+🦣	mamut	none
+🦤	dodo	none
+🦫	dabar	none
+🦬	bizon	none
+🦭	tuljan	none
+🧋	bubble tea	none
+🩴	japanka	none
+🪃	bumerang	none
+🪄	čarobni štapić	none
+🪅	pinjata	none
+🪆	babuška	none
+🪖	vojni šljem	none
+🪗	harmonika	none
+🪘	visoki bubanj	none
+🪙	kovanica	none
+🪚	ručna pila	none
+🪛	odvijač	none
+🪜	ljestve	none
+🪝	udica	none
+🪞	zrcalo	none
+🪟	prozor	none
+🪠	odčepljivač	none
+🪡	šivaća igla	none
+🪢	čvor	none
+🪣	kanta	none
+🪤	mišolovka	none
+🪥	četkica za zube	none
+🪦	nadgrobni spomenik	none
+🪧	znak	none
+🪨	kamen	none
+🪰	muha	none
+🪱	crv	none
+🪲	buba	none
+🪳	žohar	none
+🪴	biljka u tegli	none
+🪵	drvo	none
+🪶	pero	none
+🫀	srce	none
+🫁	pluća	none
+🫂	osobe koje se grle	none
+🫐	borovnice	none
+🫑	paprika	none
+🫒	maslina	none
+🫓	lepinja	none
+🫔	tamal	none
+🫕	fondi	none
+🫖	čajnik	none
+🛖	koliba	none
+🛗	dizalo	none
+🛻	kamionet	none
+🛼	koturaljka	none
 😀	nasmijano lice	none
 😃	nasmijano lice s velikim očima	none
 😄	nasmijano lice s nasmiješenim očima	none
@@ -212,11 +267,15 @@ symbols:
 👧	djevojčica	none
 🧑	odrasla osoba	none
 👱	plavokosa osoba	none
+🧑‍🍼	osoba hrani bebu	none
+🧑‍🎄	osoba Mraz	none
 👨	muškarac	none
 🧔	muškarac s bradom	none
 👱‍♂	plavokosi muškarac	none
+👨‍🍼	muškarac hrani bebu	none
 👩	žena	none
 👱‍♀	plavokosa žena	none
+👩‍🍼	žena hrani bebu	none
 🧓	starija osoba	none
 👴	starac	none
 👵	starica	none
@@ -317,8 +376,12 @@ symbols:
 👳‍♀	žena s turbanom	none
 👲	muškarac s kineskom kapom	none
 🧕	žena s maramom	none
-🤵	muškarac u smokingu	none
+🤵	osoba u smokingu	none
+🤵‍♀	žena u smokingu	none
+🤵‍♂	muškarac u smokingu	none
 👰	nevjesta s velom	none
+👰‍♀	žena s velom	none
+👰‍♂	muškarac s velom	none
 🤰	trudnica	none
 🤱	dojenje	none
 👼	beba anđeo	none
@@ -467,6 +530,7 @@ symbols:
 🦝	rakun	none
 🐱	lice mačke	none
 🐈	mačka	none
+🐈‍⬛	crna mačka	none
 🦁	lav	none
 🐯	lice tigra	none
 🐅	tigar	none
@@ -504,6 +568,7 @@ symbols:
 🦔	jež	none
 🦇	šišmiš	none
 🐻	medvjed	none
+🐻‍❄	polarni medvjed	none
 🐨	koala	none
 🐼	panda	none
 🦥	ljenjivac	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	zastava pokreta transrodnih osoba	none
 🏳‍🌈	zastava duginih boja	none
 🏴‍☠	gusarska zastava	none
-🛖	koliba	none
-🛗	dizalo	none
-🛻	kamionet	none
-🛼	koturaljka	none
-🤌	skupljeni prsti	none
-🥲	nasmiješeno lice sa suzom	none
-🥷	nindža	none
-🥸	prerušeno lice	none
-🦣	mamut	none
-🦤	dodo	none
-🦫	dabar	none
-🦬	bizon	none
-🦭	tuljan	none
-🧋	bubble tea	none
-🩴	japanka	none
-🪃	bumerang	none
-🪄	čarobni štapić	none
-🪅	pinjata	none
-🪆	babuška	none
-🪖	vojni šljem	none
-🪗	harmonika	none
-🪘	visoki bubanj	none
-🪙	kovanica	none
-🪚	ručna pila	none
-🪛	odvijač	none
-🪜	ljestve	none
-🪝	udica	none
-🪞	zrcalo	none
-🪟	prozor	none
-🪠	odčepljivač	none
-🪡	šivaća igla	none
-🪢	čvor	none
-🪣	kanta	none
-🪤	mišolovka	none
-🪥	četkica za zube	none
-🪦	nadgrobni spomenik	none
-🪧	znak	none
-🪨	kamen	none
-🪰	muha	none
-🪱	crv	none
-🪲	buba	none
-🪳	žohar	none
-🪴	biljka u tegli	none
-🪵	drvo	none
-🪶	pero	none
-🫀	srce	none
-🫁	pluća	none
-🫂	osobe koje se grle	none
-🫐	borovnice	none
-🫑	paprika	none
-🫒	maslina	none
-🫓	lepinja	none
-🫔	tamal	none
-🫕	fondi	none
-🫖	čajnik	none
+🤌🏻	skupljeni prsti svijetla boja kože	none
+🤌🏼	skupljeni prsti svijetlo maslinasta boja kože	none
+🤌🏽	skupljeni prsti maslinasta boja kože	none
+🤌🏾	skupljeni prsti smeđa boja kože	none
+🤌🏿	skupljeni prsti tamno smeđa boja kože	none
 👋🏻	ruka koja maše svijetla boja kože	none
 👋🏼	ruka koja maše svijetlo maslinasta boja kože	none
 👋🏽	ruka koja maše maslinasta boja kože	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	odrasla osoba maslinasta boja kože i bez kose	none
 🧑🏾‍🦲	odrasla osoba smeđa boja kože i bez kose	none
 🧑🏿‍🦲	odrasla osoba tamno smeđa boja kože i bez kose	none
+🧑🏻‍🍼	osoba hrani bebu svijetla boja kože	none
+🧑🏼‍🍼	osoba hrani bebu svijetlo maslinasta boja kože	none
+🧑🏽‍🍼	osoba hrani bebu maslinasta boja kože	none
+🧑🏾‍🍼	osoba hrani bebu smeđa boja kože	none
+🧑🏿‍🍼	osoba hrani bebu tamno smeđa boja kože	none
+🧑🏻‍🎄	osoba Mraz svijetla boja kože	none
+🧑🏼‍🎄	osoba Mraz svijetlo maslinasta boja kože	none
+🧑🏽‍🎄	osoba Mraz maslinasta boja kože	none
+🧑🏾‍🎄	osoba Mraz smeđa boja kože	none
+🧑🏿‍🎄	osoba Mraz tamno smeđa boja kože	none
 👨🏻	muškarac svijetla boja kože	none
 👨🏼	muškarac svijetlo maslinasta boja kože	none
 👨🏽	muškarac maslinasta boja kože	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	muškarac maslinasta boja kože i bez kose	none
 👨🏾‍🦲	muškarac smeđa boja kože i bez kose	none
 👨🏿‍🦲	muškarac tamno smeđa boja kože i bez kose	none
+👨🏻‍🍼	muškarac hrani bebu svijetla boja kože	none
+👨🏼‍🍼	muškarac hrani bebu svijetlo maslinasta boja kože	none
+👨🏽‍🍼	muškarac hrani bebu maslinasta boja kože	none
+👨🏾‍🍼	muškarac hrani bebu smeđa boja kože	none
+👨🏿‍🍼	muškarac hrani bebu tamno smeđa boja kože	none
 👩🏻	žena svijetla boja kože	none
 👩🏼	žena svijetlo maslinasta boja kože	none
 👩🏽	žena maslinasta boja kože	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	žena maslinasta boja kože i bez kose	none
 👩🏾‍🦲	žena smeđa boja kože i bez kose	none
 👩🏿‍🦲	žena tamno smeđa boja kože i bez kose	none
+👩🏻‍🍼	žena hrani bebu svijetla boja kože	none
+👩🏼‍🍼	žena hrani bebu svijetlo maslinasta boja kože	none
+👩🏽‍🍼	žena hrani bebu maslinasta boja kože	none
+👩🏾‍🍼	žena hrani bebu smeđa boja kože	none
+👩🏿‍🍼	žena hrani bebu tamno smeđa boja kože	none
 🧓🏻	starija osoba svijetla boja kože	none
 🧓🏼	starija osoba svijetlo maslinasta boja kože	none
 🧓🏽	starija osoba maslinasta boja kože	none
@@ -2307,16 +2342,36 @@ symbols:
 🧕🏽	žena s maramom maslinasta boja kože	none
 🧕🏾	žena s maramom smeđa boja kože	none
 🧕🏿	žena s maramom tamno smeđa boja kože	none
-🤵🏻	muškarac u smokingu svijetla boja kože	none
-🤵🏼	muškarac u smokingu svijetlo maslinasta boja kože	none
-🤵🏽	muškarac u smokingu maslinasta boja kože	none
-🤵🏾	muškarac u smokingu smeđa boja kože	none
-🤵🏿	muškarac u smokingu tamno smeđa boja kože	none
+🤵🏻	osoba u smokingu svijetla boja kože	none
+🤵🏼	osoba u smokingu svijetlo maslinasta boja kože	none
+🤵🏽	osoba u smokingu maslinasta boja kože	none
+🤵🏾	osoba u smokingu smeđa boja kože	none
+🤵🏿	osoba u smokingu tamno smeđa boja kože	none
+🤵🏻‍♀	žena u smokingu svijetla boja kože	none
+🤵🏼‍♀	žena u smokingu svijetlo maslinasta boja kože	none
+🤵🏽‍♀	žena u smokingu maslinasta boja kože	none
+🤵🏾‍♀	žena u smokingu smeđa boja kože	none
+🤵🏿‍♀	žena u smokingu tamno smeđa boja kože	none
+🤵🏻‍♂	muškarac u smokingu svijetla boja kože	none
+🤵🏼‍♂	muškarac u smokingu svijetlo maslinasta boja kože	none
+🤵🏽‍♂	muškarac u smokingu maslinasta boja kože	none
+🤵🏾‍♂	muškarac u smokingu smeđa boja kože	none
+🤵🏿‍♂	muškarac u smokingu tamno smeđa boja kože	none
 👰🏻	nevjesta s velom svijetla boja kože	none
 👰🏼	nevjesta s velom svijetlo maslinasta boja kože	none
 👰🏽	nevjesta s velom maslinasta boja kože	none
 👰🏾	nevjesta s velom smeđa boja kože	none
 👰🏿	nevjesta s velom tamno smeđa boja kože	none
+👰🏻‍♀	žena s velom svijetla boja kože	none
+👰🏼‍♀	žena s velom svijetlo maslinasta boja kože	none
+👰🏽‍♀	žena s velom maslinasta boja kože	none
+👰🏾‍♀	žena s velom smeđa boja kože	none
+👰🏿‍♀	žena s velom tamno smeđa boja kože	none
+👰🏻‍♂	muškarac s velom svijetla boja kože	none
+👰🏼‍♂	muškarac s velom svijetlo maslinasta boja kože	none
+👰🏽‍♂	muškarac s velom maslinasta boja kože	none
+👰🏾‍♂	muškarac s velom smeđa boja kože	none
+👰🏿‍♂	muškarac s velom tamno smeđa boja kože	none
 🤰🏻	trudnica svijetla boja kože	none
 🤰🏼	trudnica svijetlo maslinasta boja kože	none
 🤰🏽	trudnica maslinasta boja kože	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	osoba u krevetu smeđa boja kože	none
 🛌🏿	osoba u krevetu tamno smeđa boja kože	none
 🧑🏻‍🤝‍🧑🏻	osobe koje se drže za ruke svijetla boja kože	none
+🧑🏻‍🤝‍🧑🏼	osobe koje se drže za ruke svijetla boja kože i svijetlo maslinasta boja kože	none
+🧑🏻‍🤝‍🧑🏽	osobe koje se drže za ruke svijetla boja kože i maslinasta boja kože	none
+🧑🏻‍🤝‍🧑🏾	osobe koje se drže za ruke svijetla boja kože i smeđa boja kože	none
+🧑🏻‍🤝‍🧑🏿	osobe koje se drže za ruke svijetla boja kože i tamno smeđa boja kože	none
 🧑🏼‍🤝‍🧑🏻	osobe koje se drže za ruke svijetlo maslinasta boja kože i svijetla boja kože	none
 🧑🏼‍🤝‍🧑🏼	osobe koje se drže za ruke svijetlo maslinasta boja kože	none
+🧑🏼‍🤝‍🧑🏽	osobe koje se drže za ruke svijetlo maslinasta boja kože i maslinasta boja kože	none
+🧑🏼‍🤝‍🧑🏾	osobe koje se drže za ruke svijetlo maslinasta boja kože i smeđa boja kože	none
+🧑🏼‍🤝‍🧑🏿	osobe koje se drže za ruke svijetlo maslinasta boja kože i tamno smeđa boja kože	none
 🧑🏽‍🤝‍🧑🏻	osobe koje se drže za ruke maslinasta boja kože i svijetla boja kože	none
 🧑🏽‍🤝‍🧑🏼	osobe koje se drže za ruke maslinasta boja kože i svijetlo maslinasta boja kože	none
 🧑🏽‍🤝‍🧑🏽	osobe koje se drže za ruke maslinasta boja kože	none
+🧑🏽‍🤝‍🧑🏾	osobe koje se drže za ruke maslinasta boja kože i smeđa boja kože	none
+🧑🏽‍🤝‍🧑🏿	osobe koje se drže za ruke maslinasta boja kože i tamno smeđa boja kože	none
 🧑🏾‍🤝‍🧑🏻	osobe koje se drže za ruke smeđa boja kože i svijetla boja kože	none
 🧑🏾‍🤝‍🧑🏼	osobe koje se drže za ruke smeđa boja kože i svijetlo maslinasta boja kože	none
 🧑🏾‍🤝‍🧑🏽	osobe koje se drže za ruke smeđa boja kože i maslinasta boja kože	none
 🧑🏾‍🤝‍🧑🏾	osobe koje se drže za ruke smeđa boja kože	none
+🧑🏾‍🤝‍🧑🏿	osobe koje se drže za ruke smeđa boja kože i tamno smeđa boja kože	none
 🧑🏿‍🤝‍🧑🏻	osobe koje se drže za ruke tamno smeđa boja kože i svijetla boja kože	none
 🧑🏿‍🤝‍🧑🏼	osobe koje se drže za ruke tamno smeđa boja kože i svijetlo maslinasta boja kože	none
 🧑🏿‍🤝‍🧑🏽	osobe koje se drže za ruke tamno smeđa boja kože i maslinasta boja kože	none
 🧑🏿‍🤝‍🧑🏾	osobe koje se drže za ruke tamno smeđa boja kože i smeđa boja kože	none
 🧑🏿‍🤝‍🧑🏿	osobe koje se drže za ruke tamno smeđa boja kože	none
 👭🏻	žene koje se drže za ruke svijetla boja kože	none
+👩🏻‍🤝‍👩🏼	žene koje se drže za ruke svijetla boja kože i svijetlo maslinasta boja kože	none
+👩🏻‍🤝‍👩🏽	žene koje se drže za ruke svijetla boja kože i maslinasta boja kože	none
+👩🏻‍🤝‍👩🏾	žene koje se drže za ruke svijetla boja kože i smeđa boja kože	none
+👩🏻‍🤝‍👩🏿	žene koje se drže za ruke svijetla boja kože i tamno smeđa boja kože	none
 👩🏼‍🤝‍👩🏻	žene koje se drže za ruke svijetlo maslinasta boja kože i svijetla boja kože	none
 👭🏼	žene koje se drže za ruke svijetlo maslinasta boja kože	none
+👩🏼‍🤝‍👩🏽	žene koje se drže za ruke svijetlo maslinasta boja kože i maslinasta boja kože	none
+👩🏼‍🤝‍👩🏾	žene koje se drže za ruke svijetlo maslinasta boja kože i smeđa boja kože	none
+👩🏼‍🤝‍👩🏿	žene koje se drže za ruke svijetlo maslinasta boja kože i tamno smeđa boja kože	none
 👩🏽‍🤝‍👩🏻	žene koje se drže za ruke maslinasta boja kože i svijetla boja kože	none
 👩🏽‍🤝‍👩🏼	žene koje se drže za ruke maslinasta boja kože i svijetlo maslinasta boja kože	none
 👭🏽	žene koje se drže za ruke maslinasta boja kože	none
+👩🏽‍🤝‍👩🏾	žene koje se drže za ruke maslinasta boja kože i smeđa boja kože	none
+👩🏽‍🤝‍👩🏿	žene koje se drže za ruke maslinasta boja kože i tamno smeđa boja kože	none
 👩🏾‍🤝‍👩🏻	žene koje se drže za ruke smeđa boja kože i svijetla boja kože	none
 👩🏾‍🤝‍👩🏼	žene koje se drže za ruke smeđa boja kože i svijetlo maslinasta boja kože	none
 👩🏾‍🤝‍👩🏽	žene koje se drže za ruke smeđa boja kože i maslinasta boja kože	none
 👭🏾	žene koje se drže za ruke smeđa boja kože	none
+👩🏾‍🤝‍👩🏿	žene koje se drže za ruke smeđa boja kože i tamno smeđa boja kože	none
 👩🏿‍🤝‍👩🏻	žene koje se drže za ruke tamno smeđa boja kože i svijetla boja kože	none
 👩🏿‍🤝‍👩🏼	žene koje se drže za ruke tamno smeđa boja kože i svijetlo maslinasta boja kože	none
 👩🏿‍🤝‍👩🏽	žene koje se drže za ruke tamno smeđa boja kože i maslinasta boja kože	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	muškarac i žena koji se drže za ruke tamno smeđa boja kože i smeđa boja kože	none
 👫🏿	muškarac i žena koji se drže za ruke tamno smeđa boja kože	none
 👬🏻	muškarci koji se drže za ruke svijetla boja kože	none
+👨🏻‍🤝‍👨🏼	muškarci koji se drže za ruke svijetla boja kože i svijetlo maslinasta boja kože	none
+👨🏻‍🤝‍👨🏽	muškarci koji se drže za ruke svijetla boja kože i maslinasta boja kože	none
+👨🏻‍🤝‍👨🏾	muškarci koji se drže za ruke svijetla boja kože i smeđa boja kože	none
+👨🏻‍🤝‍👨🏿	muškarci koji se drže za ruke svijetla boja kože i tamno smeđa boja kože	none
 👨🏼‍🤝‍👨🏻	muškarci koji se drže za ruke svijetlo maslinasta boja kože i svijetla boja kože	none
 👬🏼	muškarci koji se drže za ruke svijetlo maslinasta boja kože	none
+👨🏼‍🤝‍👨🏽	muškarci koji se drže za ruke svijetlo maslinasta boja kože i maslinasta boja kože	none
+👨🏼‍🤝‍👨🏾	muškarci koji se drže za ruke svijetlo maslinasta boja kože i smeđa boja kože	none
+👨🏼‍🤝‍👨🏿	muškarci koji se drže za ruke svijetlo maslinasta boja kože i tamno smeđa boja kože	none
 👨🏽‍🤝‍👨🏻	muškarci koji se drže za ruke maslinasta boja kože i svijetla boja kože	none
 👨🏽‍🤝‍👨🏼	muškarci koji se drže za ruke maslinasta boja kože i svijetlo maslinasta boja kože	none
 👬🏽	muškarci koji se drže za ruke maslinasta boja kože	none
+👨🏽‍🤝‍👨🏾	muškarci koji se drže za ruke maslinasta boja kože i smeđa boja kože	none
+👨🏽‍🤝‍👨🏿	muškarci koji se drže za ruke maslinasta boja kože i tamno smeđa boja kože	none
 👨🏾‍🤝‍👨🏻	muškarci koji se drže za ruke smeđa boja kože i svijetla boja kože	none
 👨🏾‍🤝‍👨🏼	muškarci koji se drže za ruke smeđa boja kože i svijetlo maslinasta boja kože	none
 👨🏾‍🤝‍👨🏽	muškarci koji se drže za ruke smeđa boja kože i maslinasta boja kože	none
 👬🏾	muškarci koji se drže za ruke smeđa boja kože	none
+👨🏾‍🤝‍👨🏿	muškarci koji se drže za ruke smeđa boja kože i tamno smeđa boja kože	none
 👨🏿‍🤝‍👨🏻	muškarci koji se drže za ruke tamno smeđa boja kože i svijetla boja kože	none
 👨🏿‍🤝‍👨🏼	muškarci koji se drže za ruke tamno smeđa boja kože i svijetlo maslinasta boja kože	none
 👨🏿‍🤝‍👨🏽	muškarci koji se drže za ruke tamno smeđa boja kože i maslinasta boja kože	none

@@ -9,6 +9,61 @@ symbols:
 🏾	tono de piel oscuro medio	none
 🏿	tono de piel oscuro	none
 ⚧	símbolo de transgénero	none
+🤌	dedos juntos apuntando hacia arriba	none
+🥲	cara sonriente con lágrima	none
+🥷	ninja	none
+🥸	cara disfrazada	none
+🦣	mamut	none
+🦤	dodo	none
+🦫	castor	none
+🦬	bisonte	none
+🦭	foca	none
+🧋	té de burbujas	none
+🩴	chancla	none
+🪃	bumerán	none
+🪄	varita mágica	none
+🪅	piñata	none
+🪆	muñeca rusa	none
+🪖	casco militar	none
+🪗	acordeón	none
+🪘	tamboril	none
+🪙	moneda	none
+🪚	sierra de carpintería	none
+🪛	destornillador	none
+🪜	escalera	none
+🪝	gancho	none
+🪞	espejo	none
+🪟	ventana	none
+🪠	desatascador	none
+🪡	aguja de coser	none
+🪢	nudo	none
+🪣	cubo	none
+🪤	trampa de ratones	none
+🪥	cepillo de dientes	none
+🪦	lápida	none
+🪧	letrero	none
+🪨	piedra	none
+🪰	mosca	none
+🪱	gusano	none
+🪲	escarabajo	none
+🪳	cucaracha	none
+🪴	planta de maceta	none
+🪵	madera	none
+🪶	pluma	none
+🫀	corazón humano	none
+🫁	pulmones	none
+🫂	personas abrazándose	none
+🫐	arándanos	none
+🫑	pimiento	none
+🫒	aceituna	none
+🫓	pan sin levadura	none
+🫔	tamal	none
+🫕	fondue	none
+🫖	tetera	none
+🛖	cabaña	none
+🛗	ascensor	none
+🛻	camioneta	none
+🛼	patines	none
 😀	cara sonriendo	none
 😃	cara sonriendo con ojos grandes	none
 😄	cara sonriendo con ojos sonrientes	none
@@ -212,11 +267,15 @@ symbols:
 👧	niña	none
 🧑	persona adulta	none
 👱	persona adulta rubia	none
+🧑‍🍼	persona alimentando a bebé	none
+🧑‍🎄	Noel	none
 👨	hombre	none
 🧔	hombre con barba	none
 👱‍♂	hombre rubio	none
+👨‍🍼	hombre alimentando a bebé	none
 👩	mujer	none
 👱‍♀	mujer rubia	none
+👩‍🍼	mujer alimentando a bebé	none
 🧓	persona adulta madura	none
 👴	anciano	none
 👵	anciana	none
@@ -317,8 +376,12 @@ symbols:
 👳‍♀	mujer con turbante	none
 👲	hombre con gorro chino	none
 🧕	mujer con hiyab	none
-🤵	hombre con esmoquin	none
-👰	novia con velo	none
+🤵	persona con esmoquin	none
+🤵‍♀	mujer con esmoquin	none
+🤵‍♂	hombre con esmoquin	none
+👰	persona con velo	none
+👰‍♀	mujer con velo	none
+👰‍♂	hombre con velo	none
 🤰	mujer embarazada	none
 🤱	lactancia materna	none
 👼	bebé ángel	none
@@ -467,6 +530,7 @@ symbols:
 🦝	mapache	none
 🐱	cara de gato	none
 🐈	gato	none
+🐈‍⬛	gato negro	none
 🦁	león	none
 🐯	cara de tigre	none
 🐅	tigre	none
@@ -504,6 +568,7 @@ symbols:
 🦔	erizo	none
 🦇	murciélago	none
 🐻	oso	none
+🐻‍❄	oso polar	none
 🐨	koala	none
 🐼	panda	none
 🦥	perezoso	none
@@ -1332,12 +1397,12 @@ symbols:
 ✅	botón de marca de verificación	none
 ☑	casilla con marca de verificación	none
 ✔	marca de verificación	none
-✖	signo de multiplicación	none
+✖	multiplicación	none
 ❌	marca de cruz	none
 ❎	botón con marca de cruz	none
-➕	signo más	none
-➖	signo menos	none
-➗	signo de división	none
+➕	más	none
+➖	menos	none
+➗	división	none
 ➰	bucle	none
 ➿	bucle doble	none
 〽	marca de alternancia	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	bandera transgénero	none
 🏳‍🌈	bandera del arcoíris	none
 🏴‍☠	bandera pirata	none
-🛖	cabaña	none
-🛗	ascensor	none
-🛻	camioneta	none
-🛼	patines	none
-🤌	dedos juntos apuntando hacia arriba	none
-🥲	cara sonriente con lágrima	none
-🥷	ninja	none
-🥸	cara disfrazada	none
-🦣	mamut	none
-🦤	dodo	none
-🦫	castor	none
-🦬	bisonte	none
-🦭	foca	none
-🧋	té de burbujas	none
-🩴	chancla	none
-🪃	bumerán	none
-🪄	varita mágica	none
-🪅	piñata	none
-🪆	muñeca rusa	none
-🪖	casco militar	none
-🪗	acordeón	none
-🪘	tamboril	none
-🪙	moneda	none
-🪚	sierra de carpintería	none
-🪛	destornillador	none
-🪜	escalera	none
-🪝	gancho	none
-🪞	espejo	none
-🪟	ventana	none
-🪠	desatascador	none
-🪡	aguja de coser	none
-🪢	nudo	none
-🪣	cubo	none
-🪤	trampa de ratones	none
-🪥	cepillo de dientes	none
-🪦	lápida	none
-🪧	letrero	none
-🪨	piedra	none
-🪰	mosca	none
-🪱	gusano	none
-🪲	escarabajo	none
-🪳	cucaracha	none
-🪴	planta de maceta	none
-🪵	madera	none
-🪶	pluma	none
-🫀	corazón humano	none
-🫁	pulmones	none
-🫂	personas abrazándose	none
-🫐	arándanos	none
-🫑	pimiento	none
-🫒	aceituna	none
-🫓	pan sin levadura	none
-🫔	tamal	none
-🫕	fondue	none
-🫖	tetera	none
+🤌🏻	dedos juntos apuntando hacia arriba tono de piel claro	none
+🤌🏼	dedos juntos apuntando hacia arriba tono de piel claro medio	none
+🤌🏽	dedos juntos apuntando hacia arriba tono de piel medio	none
+🤌🏾	dedos juntos apuntando hacia arriba tono de piel oscuro medio	none
+🤌🏿	dedos juntos apuntando hacia arriba tono de piel oscuro	none
 👋🏻	mano saludando tono de piel claro	none
 👋🏼	mano saludando tono de piel claro medio	none
 👋🏽	mano saludando tono de piel medio	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	persona adulta tono de piel medio y sin pelo	none
 🧑🏾‍🦲	persona adulta tono de piel oscuro medio y sin pelo	none
 🧑🏿‍🦲	persona adulta tono de piel oscuro y sin pelo	none
+🧑🏻‍🍼	persona alimentando a bebé tono de piel claro	none
+🧑🏼‍🍼	persona alimentando a bebé tono de piel claro medio	none
+🧑🏽‍🍼	persona alimentando a bebé tono de piel medio	none
+🧑🏾‍🍼	persona alimentando a bebé tono de piel oscuro medio	none
+🧑🏿‍🍼	persona alimentando a bebé tono de piel oscuro	none
+🧑🏻‍🎄	Noel tono de piel claro	none
+🧑🏼‍🎄	Noel tono de piel claro medio	none
+🧑🏽‍🎄	Noel tono de piel medio	none
+🧑🏾‍🎄	Noel tono de piel oscuro medio	none
+🧑🏿‍🎄	Noel tono de piel oscuro	none
 👨🏻	hombre tono de piel claro	none
 👨🏼	hombre tono de piel claro medio	none
 👨🏽	hombre tono de piel medio	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	hombre tono de piel medio y sin pelo	none
 👨🏾‍🦲	hombre tono de piel oscuro medio y sin pelo	none
 👨🏿‍🦲	hombre tono de piel oscuro y sin pelo	none
+👨🏻‍🍼	hombre alimentando a bebé tono de piel claro	none
+👨🏼‍🍼	hombre alimentando a bebé tono de piel claro medio	none
+👨🏽‍🍼	hombre alimentando a bebé tono de piel medio	none
+👨🏾‍🍼	hombre alimentando a bebé tono de piel oscuro medio	none
+👨🏿‍🍼	hombre alimentando a bebé tono de piel oscuro	none
 👩🏻	mujer tono de piel claro	none
 👩🏼	mujer tono de piel claro medio	none
 👩🏽	mujer tono de piel medio	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	mujer tono de piel medio y sin pelo	none
 👩🏾‍🦲	mujer tono de piel oscuro medio y sin pelo	none
 👩🏿‍🦲	mujer tono de piel oscuro y sin pelo	none
+👩🏻‍🍼	mujer alimentando a bebé tono de piel claro	none
+👩🏼‍🍼	mujer alimentando a bebé tono de piel claro medio	none
+👩🏽‍🍼	mujer alimentando a bebé tono de piel medio	none
+👩🏾‍🍼	mujer alimentando a bebé tono de piel oscuro medio	none
+👩🏿‍🍼	mujer alimentando a bebé tono de piel oscuro	none
 🧓🏻	persona adulta madura tono de piel claro	none
 🧓🏼	persona adulta madura tono de piel claro medio	none
 🧓🏽	persona adulta madura tono de piel medio	none
@@ -2307,16 +2342,36 @@ symbols:
 🧕🏽	mujer con hiyab tono de piel medio	none
 🧕🏾	mujer con hiyab tono de piel oscuro medio	none
 🧕🏿	mujer con hiyab tono de piel oscuro	none
-🤵🏻	hombre con esmoquin tono de piel claro	none
-🤵🏼	hombre con esmoquin tono de piel claro medio	none
-🤵🏽	hombre con esmoquin tono de piel medio	none
-🤵🏾	hombre con esmoquin tono de piel oscuro medio	none
-🤵🏿	hombre con esmoquin tono de piel oscuro	none
-👰🏻	novia con velo tono de piel claro	none
-👰🏼	novia con velo tono de piel claro medio	none
-👰🏽	novia con velo tono de piel medio	none
-👰🏾	novia con velo tono de piel oscuro medio	none
-👰🏿	novia con velo tono de piel oscuro	none
+🤵🏻	persona con esmoquin tono de piel claro	none
+🤵🏼	persona con esmoquin tono de piel claro medio	none
+🤵🏽	persona con esmoquin tono de piel medio	none
+🤵🏾	persona con esmoquin tono de piel oscuro medio	none
+🤵🏿	persona con esmoquin tono de piel oscuro	none
+🤵🏻‍♀	mujer con esmoquin tono de piel claro	none
+🤵🏼‍♀	mujer con esmoquin tono de piel claro medio	none
+🤵🏽‍♀	mujer con esmoquin tono de piel medio	none
+🤵🏾‍♀	mujer con esmoquin tono de piel oscuro medio	none
+🤵🏿‍♀	mujer con esmoquin tono de piel oscuro	none
+🤵🏻‍♂	hombre con esmoquin tono de piel claro	none
+🤵🏼‍♂	hombre con esmoquin tono de piel claro medio	none
+🤵🏽‍♂	hombre con esmoquin tono de piel medio	none
+🤵🏾‍♂	hombre con esmoquin tono de piel oscuro medio	none
+🤵🏿‍♂	hombre con esmoquin tono de piel oscuro	none
+👰🏻	persona con velo tono de piel claro	none
+👰🏼	persona con velo tono de piel claro medio	none
+👰🏽	persona con velo tono de piel medio	none
+👰🏾	persona con velo tono de piel oscuro medio	none
+👰🏿	persona con velo tono de piel oscuro	none
+👰🏻‍♀	mujer con velo tono de piel claro	none
+👰🏼‍♀	mujer con velo tono de piel claro medio	none
+👰🏽‍♀	mujer con velo tono de piel medio	none
+👰🏾‍♀	mujer con velo tono de piel oscuro medio	none
+👰🏿‍♀	mujer con velo tono de piel oscuro	none
+👰🏻‍♂	hombre con velo tono de piel claro	none
+👰🏼‍♂	hombre con velo tono de piel claro medio	none
+👰🏽‍♂	hombre con velo tono de piel medio	none
+👰🏾‍♂	hombre con velo tono de piel oscuro medio	none
+👰🏿‍♂	hombre con velo tono de piel oscuro	none
 🤰🏻	mujer embarazada tono de piel claro	none
 🤰🏼	mujer embarazada tono de piel claro medio	none
 🤰🏽	mujer embarazada tono de piel medio	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	persona en la cama tono de piel oscuro medio	none
 🛌🏿	persona en la cama tono de piel oscuro	none
 🧑🏻‍🤝‍🧑🏻	dos personas dándose la mano tono de piel claro	none
+🧑🏻‍🤝‍🧑🏼	dos personas dándose la mano tono de piel claro y tono de piel claro medio	none
+🧑🏻‍🤝‍🧑🏽	dos personas dándose la mano tono de piel claro y tono de piel medio	none
+🧑🏻‍🤝‍🧑🏾	dos personas dándose la mano tono de piel claro y tono de piel oscuro medio	none
+🧑🏻‍🤝‍🧑🏿	dos personas dándose la mano tono de piel claro y tono de piel oscuro	none
 🧑🏼‍🤝‍🧑🏻	dos personas dándose la mano tono de piel claro medio y tono de piel claro	none
 🧑🏼‍🤝‍🧑🏼	dos personas dándose la mano tono de piel claro medio	none
+🧑🏼‍🤝‍🧑🏽	dos personas dándose la mano tono de piel claro medio y tono de piel medio	none
+🧑🏼‍🤝‍🧑🏾	dos personas dándose la mano tono de piel claro medio y tono de piel oscuro medio	none
+🧑🏼‍🤝‍🧑🏿	dos personas dándose la mano tono de piel claro medio y tono de piel oscuro	none
 🧑🏽‍🤝‍🧑🏻	dos personas dándose la mano tono de piel medio y tono de piel claro	none
 🧑🏽‍🤝‍🧑🏼	dos personas dándose la mano tono de piel medio y tono de piel claro medio	none
 🧑🏽‍🤝‍🧑🏽	dos personas dándose la mano tono de piel medio	none
+🧑🏽‍🤝‍🧑🏾	dos personas dándose la mano tono de piel medio y tono de piel oscuro medio	none
+🧑🏽‍🤝‍🧑🏿	dos personas dándose la mano tono de piel medio y tono de piel oscuro	none
 🧑🏾‍🤝‍🧑🏻	dos personas dándose la mano tono de piel oscuro medio y tono de piel claro	none
 🧑🏾‍🤝‍🧑🏼	dos personas dándose la mano tono de piel oscuro medio y tono de piel claro medio	none
 🧑🏾‍🤝‍🧑🏽	dos personas dándose la mano tono de piel oscuro medio y tono de piel medio	none
 🧑🏾‍🤝‍🧑🏾	dos personas dándose la mano tono de piel oscuro medio	none
+🧑🏾‍🤝‍🧑🏿	dos personas dándose la mano tono de piel oscuro medio y tono de piel oscuro	none
 🧑🏿‍🤝‍🧑🏻	dos personas dándose la mano tono de piel oscuro y tono de piel claro	none
 🧑🏿‍🤝‍🧑🏼	dos personas dándose la mano tono de piel oscuro y tono de piel claro medio	none
 🧑🏿‍🤝‍🧑🏽	dos personas dándose la mano tono de piel oscuro y tono de piel medio	none
 🧑🏿‍🤝‍🧑🏾	dos personas dándose la mano tono de piel oscuro y tono de piel oscuro medio	none
 🧑🏿‍🤝‍🧑🏿	dos personas dándose la mano tono de piel oscuro	none
 👭🏻	mujeres de la mano tono de piel claro	none
+👩🏻‍🤝‍👩🏼	mujeres de la mano tono de piel claro y tono de piel claro medio	none
+👩🏻‍🤝‍👩🏽	mujeres de la mano tono de piel claro y tono de piel medio	none
+👩🏻‍🤝‍👩🏾	mujeres de la mano tono de piel claro y tono de piel oscuro medio	none
+👩🏻‍🤝‍👩🏿	mujeres de la mano tono de piel claro y tono de piel oscuro	none
 👩🏼‍🤝‍👩🏻	mujeres de la mano tono de piel claro medio y tono de piel claro	none
 👭🏼	mujeres de la mano tono de piel claro medio	none
+👩🏼‍🤝‍👩🏽	mujeres de la mano tono de piel claro medio y tono de piel medio	none
+👩🏼‍🤝‍👩🏾	mujeres de la mano tono de piel claro medio y tono de piel oscuro medio	none
+👩🏼‍🤝‍👩🏿	mujeres de la mano tono de piel claro medio y tono de piel oscuro	none
 👩🏽‍🤝‍👩🏻	mujeres de la mano tono de piel medio y tono de piel claro	none
 👩🏽‍🤝‍👩🏼	mujeres de la mano tono de piel medio y tono de piel claro medio	none
 👭🏽	mujeres de la mano tono de piel medio	none
+👩🏽‍🤝‍👩🏾	mujeres de la mano tono de piel medio y tono de piel oscuro medio	none
+👩🏽‍🤝‍👩🏿	mujeres de la mano tono de piel medio y tono de piel oscuro	none
 👩🏾‍🤝‍👩🏻	mujeres de la mano tono de piel oscuro medio y tono de piel claro	none
 👩🏾‍🤝‍👩🏼	mujeres de la mano tono de piel oscuro medio y tono de piel claro medio	none
 👩🏾‍🤝‍👩🏽	mujeres de la mano tono de piel oscuro medio y tono de piel medio	none
 👭🏾	mujeres de la mano tono de piel oscuro medio	none
+👩🏾‍🤝‍👩🏿	mujeres de la mano tono de piel oscuro medio y tono de piel oscuro	none
 👩🏿‍🤝‍👩🏻	mujeres de la mano tono de piel oscuro y tono de piel claro	none
 👩🏿‍🤝‍👩🏼	mujeres de la mano tono de piel oscuro y tono de piel claro medio	none
 👩🏿‍🤝‍👩🏽	mujeres de la mano tono de piel oscuro y tono de piel medio	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	mujer y hombre de la mano tono de piel oscuro y tono de piel oscuro medio	none
 👫🏿	mujer y hombre de la mano tono de piel oscuro	none
 👬🏻	hombres de la mano tono de piel claro	none
+👨🏻‍🤝‍👨🏼	hombres de la mano tono de piel claro y tono de piel claro medio	none
+👨🏻‍🤝‍👨🏽	hombres de la mano tono de piel claro y tono de piel medio	none
+👨🏻‍🤝‍👨🏾	hombres de la mano tono de piel claro y tono de piel oscuro medio	none
+👨🏻‍🤝‍👨🏿	hombres de la mano tono de piel claro y tono de piel oscuro	none
 👨🏼‍🤝‍👨🏻	hombres de la mano tono de piel claro medio y tono de piel claro	none
 👬🏼	hombres de la mano tono de piel claro medio	none
+👨🏼‍🤝‍👨🏽	hombres de la mano tono de piel claro medio y tono de piel medio	none
+👨🏼‍🤝‍👨🏾	hombres de la mano tono de piel claro medio y tono de piel oscuro medio	none
+👨🏼‍🤝‍👨🏿	hombres de la mano tono de piel claro medio y tono de piel oscuro	none
 👨🏽‍🤝‍👨🏻	hombres de la mano tono de piel medio y tono de piel claro	none
 👨🏽‍🤝‍👨🏼	hombres de la mano tono de piel medio y tono de piel claro medio	none
 👬🏽	hombres de la mano tono de piel medio	none
+👨🏽‍🤝‍👨🏾	hombres de la mano tono de piel medio y tono de piel oscuro medio	none
+👨🏽‍🤝‍👨🏿	hombres de la mano tono de piel medio y tono de piel oscuro	none
 👨🏾‍🤝‍👨🏻	hombres de la mano tono de piel oscuro medio y tono de piel claro	none
 👨🏾‍🤝‍👨🏼	hombres de la mano tono de piel oscuro medio y tono de piel claro medio	none
 👨🏾‍🤝‍👨🏽	hombres de la mano tono de piel oscuro medio y tono de piel medio	none
 👬🏾	hombres de la mano tono de piel oscuro medio	none
+👨🏾‍🤝‍👨🏿	hombres de la mano tono de piel oscuro medio y tono de piel oscuro	none
 👨🏿‍🤝‍👨🏻	hombres de la mano tono de piel oscuro y tono de piel claro	none
 👨🏿‍🤝‍👨🏼	hombres de la mano tono de piel oscuro y tono de piel claro medio	none
 👨🏿‍🤝‍👨🏽	hombres de la mano tono de piel oscuro y tono de piel medio	none

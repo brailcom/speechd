@@ -9,6 +9,61 @@ symbols:
 🏾	srednje tamna koža	none
 🏿	tamna koža	none
 ⚧	transrodni simbol	none
+🤌	skupljeni prsti	none
+🥲	nasmejano lice sa suzom	none
+🥷	nindža	none
+🥸	prerušeno lice	none
+🦣	mamut	none
+🦤	dodo	none
+🦫	dabar	none
+🦬	bizon	none
+🦭	foka	none
+🧋	čaj sa bobicama	none
+🩴	japanka	none
+🪃	bumerang	none
+🪄	čarobni štapić	none
+🪅	pinjata	none
+🪆	lutka u lutki	none
+🪖	šlem	none
+🪗	harmonika	none
+🪘	timpan	none
+🪙	novčić	none
+🪚	testera	none
+🪛	šrafciger	none
+🪜	merdevine	none
+🪝	kuka	none
+🪞	ogledalo	none
+🪟	prozor	none
+🪠	otpušivač	none
+🪡	igla za šivenje	none
+🪢	čvor	none
+🪣	kofa	none
+🪤	mišolovka	none
+🪥	četkica za zube	none
+🪦	nadgrobni spomenik	none
+🪧	plakat	none
+🪨	kamen	none
+🪰	muva	none
+🪱	crv	none
+🪲	buba	none
+🪳	bubašvaba	none
+🪴	biljka u saksiji	none
+🪵	drvo	none
+🪶	pero	none
+🫀	srce	none
+🫁	pluća	none
+🫂	ljudi se grle	none
+🫐	borovnice	none
+🫑	babura	none
+🫒	maslina	none
+🫓	pljosnat hleb	none
+🫔	tamale	none
+🫕	fondu	none
+🫖	čajnik	none
+🛖	koliba	none
+🛗	lift	none
+🛻	pikap vozilo	none
+🛼	rolšua	none
 😀	lice sa širokim osmehom	none
 😃	lice sa oduševljenim osmehom	none
 😄	lice koje se slatko smeje	none
@@ -212,11 +267,15 @@ symbols:
 👧	devojčica	none
 🧑	odrasla osoba	none
 👱	osoba sa plavom kosom	none
+🧑‍🍼	osoba hrani bebu	none
+🧑‍🎄	osoba Mraz	none
 👨	muškarac	none
 🧔	osoba sa bradom	none
 👱‍♂	plav muškarac	none
+👨‍🍼	muškarac hrani bebu	none
 👩	žena	none
 👱‍♀	plavuša	none
+👩‍🍼	žena hrani bebu	none
 🧓	starija odrasla osoba	none
 👴	starac	none
 👵	starica	none
@@ -318,7 +377,11 @@ symbols:
 👲	čovek sa kineskom kapom	none
 🧕	žena sa maramom na glavi	none
 🤵	čovek u smokingu	none
+🤵‍♀	žena u smokingu	none
+🤵‍♂	muškarac u smokingu	none
 👰	nevesta sa velom	none
+👰‍♀	žena sa velom	none
+👰‍♂	muškarac sa velom	none
 🤰	trudnica	none
 🤱	dojenje	none
 👼	beba anđeo	none
@@ -467,6 +530,7 @@ symbols:
 🦝	rakun	none
 🐱	lice mačke	none
 🐈	mačka	none
+🐈‍⬛	crna mačka	none
 🦁	lav	none
 🐯	lice tigra	none
 🐅	tigar	none
@@ -504,6 +568,7 @@ symbols:
 🦔	jež	none
 🦇	šišmiš	none
 🐻	medved	none
+🐻‍❄	polarni medved	none
 🐨	koala	none
 🐼	panda	none
 🦥	lenjivac	none
@@ -1435,61 +1500,11 @@ symbols:
 🏳‍⚧	transrodna zazstava	none
 🏳‍🌈	dugina zastava	none
 🏴‍☠	piratska zastava	none
-🛖	koliba	none
-🛗	lift	none
-🛻	pikap vozilo	none
-🛼	rolšua	none
-🤌	skupljeni prsti	none
-🥲	nasmejano lice sa suzom	none
-🥷	nindža	none
-🥸	prerušeno lice	none
-🦣	mamut	none
-🦤	dodo	none
-🦫	dabar	none
-🦬	bizon	none
-🦭	foka	none
-🧋	čaj sa bobicama	none
-🩴	japanka	none
-🪃	bumerang	none
-🪄	čarobni štapić	none
-🪅	pinjata	none
-🪆	lutka u lutki	none
-🪖	šlem	none
-🪗	harmonika	none
-🪘	timpan	none
-🪙	novčić	none
-🪚	testera	none
-🪛	šrafciger	none
-🪜	merdevine	none
-🪝	kuka	none
-🪞	ogledalo	none
-🪟	prozor	none
-🪠	otpušivač	none
-🪡	igla za šivenje	none
-🪢	čvor	none
-🪣	kofa	none
-🪤	mišolovka	none
-🪥	četkica za zube	none
-🪦	nadgrobni spomenik	none
-🪧	plakat	none
-🪨	kamen	none
-🪰	muva	none
-🪱	crv	none
-🪲	buba	none
-🪳	bubašvaba	none
-🪴	biljka u saksiji	none
-🪵	drvo	none
-🪶	pero	none
-🫀	srce	none
-🫁	pluća	none
-🫂	ljudi se grle	none
-🫐	borovnice	none
-🫑	babura	none
-🫒	maslina	none
-🫓	pljosnat hleb	none
-🫔	tamale	none
-🫕	fondu	none
-🫖	čajnik	none
+🤌🏻	skupljeni prsti svetla koža	none
+🤌🏼	skupljeni prsti srednje svetla koža	none
+🤌🏽	skupljeni prsti ni svetla ni tamna koža	none
+🤌🏾	skupljeni prsti srednje tamna koža	none
+🤌🏿	skupljeni prsti tamna koža	none
 👋🏻	ruka koja maše svetla koža	none
 👋🏼	ruka koja maše srednje svetla koža	none
 👋🏽	ruka koja maše ni svetla ni tamna koža	none
@@ -1734,6 +1749,16 @@ symbols:
 🧑🏽‍🦲	odrasla osoba ni svetla ni tamna koža i ćelav	none
 🧑🏾‍🦲	odrasla osoba srednje tamna koža i ćelav	none
 🧑🏿‍🦲	odrasla osoba tamna koža i ćelav	none
+🧑🏻‍🍼	osoba hrani bebu svetla koža	none
+🧑🏼‍🍼	osoba hrani bebu srednje svetla koža	none
+🧑🏽‍🍼	osoba hrani bebu ni svetla ni tamna koža	none
+🧑🏾‍🍼	osoba hrani bebu srednje tamna koža	none
+🧑🏿‍🍼	osoba hrani bebu tamna koža	none
+🧑🏻‍🎄	osoba Mraz svetla koža	none
+🧑🏼‍🎄	osoba Mraz srednje svetla koža	none
+🧑🏽‍🎄	osoba Mraz ni svetla ni tamna koža	none
+🧑🏾‍🎄	osoba Mraz srednje tamna koža	none
+🧑🏿‍🎄	osoba Mraz tamna koža	none
 👨🏻	muškarac svetla koža	none
 👨🏼	muškarac srednje svetla koža	none
 👨🏽	muškarac ni svetla ni tamna koža	none
@@ -1773,6 +1798,11 @@ symbols:
 👨🏽‍🦲	muškarac ni svetla ni tamna koža i ćelav	none
 👨🏾‍🦲	muškarac srednje tamna koža i ćelav	none
 👨🏿‍🦲	muškarac tamna koža i ćelav	none
+👨🏻‍🍼	muškarac hrani bebu svetla koža	none
+👨🏼‍🍼	muškarac hrani bebu srednje svetla koža	none
+👨🏽‍🍼	muškarac hrani bebu ni svetla ni tamna koža	none
+👨🏾‍🍼	muškarac hrani bebu srednje tamna koža	none
+👨🏿‍🍼	muškarac hrani bebu tamna koža	none
 👩🏻	žena svetla koža	none
 👩🏼	žena srednje svetla koža	none
 👩🏽	žena ni svetla ni tamna koža	none
@@ -1807,6 +1837,11 @@ symbols:
 👩🏽‍🦲	žena ni svetla ni tamna koža i ćelav	none
 👩🏾‍🦲	žena srednje tamna koža i ćelav	none
 👩🏿‍🦲	žena tamna koža i ćelav	none
+👩🏻‍🍼	žena hrani bebu svetla koža	none
+👩🏼‍🍼	žena hrani bebu srednje svetla koža	none
+👩🏽‍🍼	žena hrani bebu ni svetla ni tamna koža	none
+👩🏾‍🍼	žena hrani bebu srednje tamna koža	none
+👩🏿‍🍼	žena hrani bebu tamna koža	none
 🧓🏻	starija odrasla osoba svetla koža	none
 🧓🏼	starija odrasla osoba srednje svetla koža	none
 🧓🏽	starija odrasla osoba ni svetla ni tamna koža	none
@@ -2312,11 +2347,31 @@ symbols:
 🤵🏽	čovek u smokingu ni svetla ni tamna koža	none
 🤵🏾	čovek u smokingu srednje tamna koža	none
 🤵🏿	čovek u smokingu tamna koža	none
+🤵🏻‍♀	žena u smokingu svetla koža	none
+🤵🏼‍♀	žena u smokingu srednje svetla koža	none
+🤵🏽‍♀	žena u smokingu ni svetla ni tamna koža	none
+🤵🏾‍♀	žena u smokingu srednje tamna koža	none
+🤵🏿‍♀	žena u smokingu tamna koža	none
+🤵🏻‍♂	muškarac u smokingu svetla koža	none
+🤵🏼‍♂	muškarac u smokingu srednje svetla koža	none
+🤵🏽‍♂	muškarac u smokingu ni svetla ni tamna koža	none
+🤵🏾‍♂	muškarac u smokingu srednje tamna koža	none
+🤵🏿‍♂	muškarac u smokingu tamna koža	none
 👰🏻	nevesta sa velom svetla koža	none
 👰🏼	nevesta sa velom srednje svetla koža	none
 👰🏽	nevesta sa velom ni svetla ni tamna koža	none
 👰🏾	nevesta sa velom srednje tamna koža	none
 👰🏿	nevesta sa velom tamna koža	none
+👰🏻‍♀	žena sa velom svetla koža	none
+👰🏼‍♀	žena sa velom srednje svetla koža	none
+👰🏽‍♀	žena sa velom ni svetla ni tamna koža	none
+👰🏾‍♀	žena sa velom srednje tamna koža	none
+👰🏿‍♀	žena sa velom tamna koža	none
+👰🏻‍♂	muškarac sa velom svetla koža	none
+👰🏼‍♂	muškarac sa velom srednje svetla koža	none
+👰🏽‍♂	muškarac sa velom ni svetla ni tamna koža	none
+👰🏾‍♂	muškarac sa velom srednje tamna koža	none
+👰🏿‍♂	muškarac sa velom tamna koža	none
 🤰🏻	trudnica svetla koža	none
 🤰🏼	trudnica srednje svetla koža	none
 🤰🏽	trudnica ni svetla ni tamna koža	none
@@ -2843,30 +2898,50 @@ symbols:
 🛌🏾	osoba u krevetu srednje tamna koža	none
 🛌🏿	osoba u krevetu tamna koža	none
 🧑🏻‍🤝‍🧑🏻	osobe se drže za ruke svetla koža	none
+🧑🏻‍🤝‍🧑🏼	osobe se drže za ruke svetla koža i srednje svetla koža	none
+🧑🏻‍🤝‍🧑🏽	osobe se drže za ruke svetla koža i ni svetla ni tamna koža	none
+🧑🏻‍🤝‍🧑🏾	osobe se drže za ruke svetla koža i srednje tamna koža	none
+🧑🏻‍🤝‍🧑🏿	osobe se drže za ruke svetla koža i tamna koža	none
 🧑🏼‍🤝‍🧑🏻	osobe se drže za ruke srednje svetla koža i svetla koža	none
 🧑🏼‍🤝‍🧑🏼	osobe se drže za ruke srednje svetla koža	none
+🧑🏼‍🤝‍🧑🏽	osobe se drže za ruke srednje svetla koža i ni svetla ni tamna koža	none
+🧑🏼‍🤝‍🧑🏾	osobe se drže za ruke srednje svetla koža i srednje tamna koža	none
+🧑🏼‍🤝‍🧑🏿	osobe se drže za ruke srednje svetla koža i tamna koža	none
 🧑🏽‍🤝‍🧑🏻	osobe se drže za ruke ni svetla ni tamna koža i svetla koža	none
 🧑🏽‍🤝‍🧑🏼	osobe se drže za ruke ni svetla ni tamna koža i srednje svetla koža	none
 🧑🏽‍🤝‍🧑🏽	osobe se drže za ruke ni svetla ni tamna koža	none
+🧑🏽‍🤝‍🧑🏾	osobe se drže za ruke ni svetla ni tamna koža i srednje tamna koža	none
+🧑🏽‍🤝‍🧑🏿	osobe se drže za ruke ni svetla ni tamna koža i tamna koža	none
 🧑🏾‍🤝‍🧑🏻	osobe se drže za ruke srednje tamna koža i svetla koža	none
 🧑🏾‍🤝‍🧑🏼	osobe se drže za ruke srednje tamna koža i srednje svetla koža	none
 🧑🏾‍🤝‍🧑🏽	osobe se drže za ruke srednje tamna koža i ni svetla ni tamna koža	none
 🧑🏾‍🤝‍🧑🏾	osobe se drže za ruke srednje tamna koža	none
+🧑🏾‍🤝‍🧑🏿	osobe se drže za ruke srednje tamna koža i tamna koža	none
 🧑🏿‍🤝‍🧑🏻	osobe se drže za ruke tamna koža i svetla koža	none
 🧑🏿‍🤝‍🧑🏼	osobe se drže za ruke tamna koža i srednje svetla koža	none
 🧑🏿‍🤝‍🧑🏽	osobe se drže za ruke tamna koža i ni svetla ni tamna koža	none
 🧑🏿‍🤝‍🧑🏾	osobe se drže za ruke tamna koža i srednje tamna koža	none
 🧑🏿‍🤝‍🧑🏿	osobe se drže za ruke tamna koža	none
 👭🏻	žene se drže za ruke svetla koža	none
+👩🏻‍🤝‍👩🏼	žene se drže za ruke svetla koža i srednje svetla koža	none
+👩🏻‍🤝‍👩🏽	žene se drže za ruke svetla koža i ni svetla ni tamna koža	none
+👩🏻‍🤝‍👩🏾	žene se drže za ruke svetla koža i srednje tamna koža	none
+👩🏻‍🤝‍👩🏿	žene se drže za ruke svetla koža i tamna koža	none
 👩🏼‍🤝‍👩🏻	žene se drže za ruke srednje svetla koža i svetla koža	none
 👭🏼	žene se drže za ruke srednje svetla koža	none
+👩🏼‍🤝‍👩🏽	žene se drže za ruke srednje svetla koža i ni svetla ni tamna koža	none
+👩🏼‍🤝‍👩🏾	žene se drže za ruke srednje svetla koža i srednje tamna koža	none
+👩🏼‍🤝‍👩🏿	žene se drže za ruke srednje svetla koža i tamna koža	none
 👩🏽‍🤝‍👩🏻	žene se drže za ruke ni svetla ni tamna koža i svetla koža	none
 👩🏽‍🤝‍👩🏼	žene se drže za ruke ni svetla ni tamna koža i srednje svetla koža	none
 👭🏽	žene se drže za ruke ni svetla ni tamna koža	none
+👩🏽‍🤝‍👩🏾	žene se drže za ruke ni svetla ni tamna koža i srednje tamna koža	none
+👩🏽‍🤝‍👩🏿	žene se drže za ruke ni svetla ni tamna koža i tamna koža	none
 👩🏾‍🤝‍👩🏻	žene se drže za ruke srednje tamna koža i svetla koža	none
 👩🏾‍🤝‍👩🏼	žene se drže za ruke srednje tamna koža i srednje svetla koža	none
 👩🏾‍🤝‍👩🏽	žene se drže za ruke srednje tamna koža i ni svetla ni tamna koža	none
 👭🏾	žene se drže za ruke srednje tamna koža	none
+👩🏾‍🤝‍👩🏿	žene se drže za ruke srednje tamna koža i tamna koža	none
 👩🏿‍🤝‍👩🏻	žene se drže za ruke tamna koža i svetla koža	none
 👩🏿‍🤝‍👩🏼	žene se drže za ruke tamna koža i srednje svetla koža	none
 👩🏿‍🤝‍👩🏽	žene se drže za ruke tamna koža i ni svetla ni tamna koža	none
@@ -2898,15 +2973,25 @@ symbols:
 👩🏿‍🤝‍👨🏾	žena i muškarac se drže za ruke tamna koža i srednje tamna koža	none
 👫🏿	žena i muškarac se drže za ruke tamna koža	none
 👬🏻	muškarci se drže za ruke svetla koža	none
+👨🏻‍🤝‍👨🏼	muškarci se drže za ruke svetla koža i srednje svetla koža	none
+👨🏻‍🤝‍👨🏽	muškarci se drže za ruke svetla koža i ni svetla ni tamna koža	none
+👨🏻‍🤝‍👨🏾	muškarci se drže za ruke svetla koža i srednje tamna koža	none
+👨🏻‍🤝‍👨🏿	muškarci se drže za ruke svetla koža i tamna koža	none
 👨🏼‍🤝‍👨🏻	muškarci se drže za ruke srednje svetla koža i svetla koža	none
 👬🏼	muškarci se drže za ruke srednje svetla koža	none
+👨🏼‍🤝‍👨🏽	muškarci se drže za ruke srednje svetla koža i ni svetla ni tamna koža	none
+👨🏼‍🤝‍👨🏾	muškarci se drže za ruke srednje svetla koža i srednje tamna koža	none
+👨🏼‍🤝‍👨🏿	muškarci se drže za ruke srednje svetla koža i tamna koža	none
 👨🏽‍🤝‍👨🏻	muškarci se drže za ruke ni svetla ni tamna koža i svetla koža	none
 👨🏽‍🤝‍👨🏼	muškarci se drže za ruke ni svetla ni tamna koža i srednje svetla koža	none
 👬🏽	muškarci se drže za ruke ni svetla ni tamna koža	none
+👨🏽‍🤝‍👨🏾	muškarci se drže za ruke ni svetla ni tamna koža i srednje tamna koža	none
+👨🏽‍🤝‍👨🏿	muškarci se drže za ruke ni svetla ni tamna koža i tamna koža	none
 👨🏾‍🤝‍👨🏻	muškarci se drže za ruke srednje tamna koža i svetla koža	none
 👨🏾‍🤝‍👨🏼	muškarci se drže za ruke srednje tamna koža i srednje svetla koža	none
 👨🏾‍🤝‍👨🏽	muškarci se drže za ruke srednje tamna koža i ni svetla ni tamna koža	none
 👬🏾	muškarci se drže za ruke srednje tamna koža	none
+👨🏾‍🤝‍👨🏿	muškarci se drže za ruke srednje tamna koža i tamna koža	none
 👨🏿‍🤝‍👨🏻	muškarci se drže za ruke tamna koža i svetla koža	none
 👨🏿‍🤝‍👨🏼	muškarci se drže za ruke tamna koža i srednje svetla koža	none
 👨🏿‍🤝‍👨🏽	muškarci se drže za ruke tamna koža i ni svetla ni tamna koža	none
