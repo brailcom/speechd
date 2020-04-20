@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Say client to Speech Dispatcher</title>
+
+<meta name="description" content="Say client to Speech Dispatcher">
+<meta name="keywords" content="Say client to Speech Dispatcher">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="#Top" rel="start" title="Top">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<h1 class="settitle" align="center">Say client to Speech Dispatcher</h1>
+
+
+
+
+
+<span id="Top"></span>
+<p>This manual documents Say for Speech Dispatcher, version 0.4.
+</p>
+<p>Copyright &copy; 2001, 2002, 2003, 2006 Brailcom, o.p.s.
+</p>
+<blockquote>
+<p>Permission is granted to copy, distribute and/or modify this document under the
+terms of the GNU Free Documentation License, Version 1.2 or any later version
+published by the Free Software Foundation; with no Invariant Sections, no
+Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included
+in the section entitled &quot;GNU Free Documentation License&quot;.
+</p></blockquote>
+
+<span id="Say-for-Speech-Dispatcher"></span><h3 class="heading">Say for Speech Dispatcher</h3>
+
+<span id="General"></span><h2 class="chapter">1 General</h2>
+
+<p><code>spd-say</code> is a very simple client for Speech Dispatcher that takes some text from the
+command line and some simple parameters and passes them to Speech Dispatcher
+for synthesis. The resulting synthesized speech is then played on your speakers.
+It can also be used for stopping and cancelling speech on Speech Dispatcher.
+</p>
+<p>Usage: <code>spd-say [options] [&quot;some text&quot;]</code>
+</p>
+
+<dl compact="compact">
+<dt><code>-r or --rate</code></dt>
+<dd><p>Set the rate of the speech (between -100 and +100, default see below).
+</p></dd>
+<dt><code>-p or --pitch</code></dt>
+<dd><p>Set the pitch of the speech (between -100 and +100, default see below).
+</p></dd>
+<dt><code>-R or --pitch-range</code></dt>
+<dd><p>Set the pitch range of the speech (between -100 and +100, default see below).
+</p></dd>
+<dt><code>-i or --volume</code></dt>
+<dd><p>Set the volume (intensity) of the speech (between -100 and +100, default see below).
+</p></dd>
+<dt><code>-o or --output-module</code></dt>
+<dd><p>Set the output module.  Default see below.
+</p></dd>
+<dt><code>-O or --list-output-modules</code></dt>
+<dd><p>List the output modules that are available with the current server.
+</p></dd>
+<dt><code>-I or --sound-icon</code></dt>
+<dd><p>Play the sound icon.
+</p></dd>
+<dt><code>-l or --language</code></dt>
+<dd><p>Set the language. The parameter is an iso language code, like <code>en</code> or
+<code>cs</code>, possibly with a region qualification, like <code>en-US</code> or <code>en-GB</code>.
+Default see below.
+</p></dd>
+<dt><code>-t or --voice-type</code></dt>
+<dd><p>Set the preferred voice type (male1, male2, male3, female1, female2,
+female3, child_male, child_female).
+</p></dd>
+<dt><code>-L or --list-synthesis-voices</code></dt>
+<dd><p>List the &rdquo;synthesis voices&rdquo; supported by an output module.
+If no -o option is supplied, -L displays
+the synthesis voices provided by the default output module.  Otherwise,
+it displays the synthesis voices provided by the chosen module.
+</p></dd>
+<dt><code>-y or --synthesis-voice</code></dt>
+<dd><p>Set the synthesis voice.  The synthesis voice is an attribute of the
+chosen synthesizer.  Most users will probably not wish to set it, but
+this setting is provided for completeness.
+</p></dd>
+<dt><code>-m or --punctuation-mode</code></dt>
+<dd><p>Set the punctuation mode (none, some, all).  Default see below.
+</p></dd>
+<dt><code>-s or --spelling</code></dt>
+<dd><p>Spell the message.
+</p></dd>
+<dt><code>-x or --ssml</code></dt>
+<dd><p>Set SSML mode on (default: off).  The text contains SSML markup.
+</p></dd>
+<dt><code>-e or --pipe-mode</code></dt>
+<dd><p>Set pipe mode on (default: off).  Reads text from stdin, writes to stdout, and also
+sends to Speech Dispatcher.
+</p></dd>
+<dt><code>-w or --wait</code></dt>
+<dd><p>Wait till the end of speaking the message. In this mode, spd-say returns only after
+the message is fully spoken on the speakers or after it gets discarded.
+</p></dd>
+<dt><code>-S or --stop</code></dt>
+<dd><p>Stop the previous message in Speech Dispatcher (regardless of the client who sent
+it and it&rsquo;s priority) before saying the specified message. If no message is specified,
+it just performs the stop function.
+</p></dd>
+<dt><code>-C or --cancel</code></dt>
+<dd><p>Similar to <code>-S</code>, but it stops (cancels) all the messages in all the queues in
+Speech Dispatcher. Use this for total stop of speech.
+</p></dd>
+<dt><code>-v or --version</code></dt>
+<dd><p>Print version and copyright info.
+</p></dd>
+<dt><code>-h or --help</code></dt>
+<dd><p>Print a short help message.
+</p></dd>
+</dl>
+
+<p>Defaults for rate, pitch, and volume are determined by <code>DefaultRate</code>,
+<code>DefaultPitch</code>, and <code>DefaultVolume</code> settings in the <code>speechd.conf</code> file.
+Factory defaults are 0, 0, and 100 respectively.
+</p>
+<p>The default language code is determined by the <code>DefaultLanguage</code> setting in
+the <code>speechd.conf</code> file.  Factory default is <code>en-US</code> (American English).
+</p>
+<p>The default output module is determined by the <code>LanguageDefaultModule</code>
+setting in the <code>speechd.conf</code> file.  Factory default is <code>flite</code>.
+</p>
+<p>The default punctuation mode is determined by the <code>DefaultPunctuationMode</code>
+setting in the <code>speechd.conf</code> file.  Factory default is <code>none</code>.
+</p>
+<span id="Pipe-Mode"></span><h2 class="chapter">2 Pipe Mode</h2>
+
+<p>In pipe mode (option <code>--pipe-mode</code> or <code>-e</code>), spd-say reads text from stdin, writes to stdout,
+and also sends the text to Speech Dispatcher.  Example:
+</p>
+<div class="example">
+<pre class="example"> $ cat README | spd-say -e
+</pre></div>
+
+<p>If a line begins with the characters
+<em>!-!</em>, the line is sent to Speech Dispatcher as a SSIP command.  Example:
+</p>
+<div class="example">
+<pre class="example"> $ spd-say --pipe-mode
+ The quality of mercy is not strained.
+ !-!SET SELF VOICE FEMALE1
+ It droppeth as the gentle rain from heaven
+ Upon the place beneath: it is twice blest;
+ !-!SET SELF RATE 50
+ It blesseth him that gives and him that takes.
+ ^D
+</pre></div>
+
+<p>Note that each line of input is individually sent to Speech Dispatcher, therefore
+in the example above, the word <em>heaven</em> is taken as the end of a sentence.
+It should be possible to use other text filtering utilities, such as <code>tr</code>
+or <code>fmt</code> to compensate.  For example, the following command would clean
+up most cases:
+</p>
+<div class="example">
+<pre class="example"> $ cat INSTALL | fmt -u -w 1500 | spd-say -e
+</pre></div>
+
+<p>If the text itself contains <em>!-!</em>, just make sure it is not at the start
+of the line to prevent it from being interpreted as a SSIP command.  The following
+sed command will do the job:
+</p>
+<div class="example">
+<pre class="example"> $ cat myfile | sed -e 's/^!-!/ !-!/g' - | spd-say -e
+</pre></div>
+
+<p>The input is sent to Speech Dispatcher as fast as it will accept and queue it.
+To wait for each line to be spoken, use the <code>--wait</code> or <code>-w</code> option.  Example:
+</p>
+<div class="example">
+<pre class="example"> $ spd-say --pipe-mode -w
+ This line is spoken and processing waits for speaking to finish
+ before this line is sent to Speech Dispatcher.
+ ^D
+</pre></div>
+
+<p>You can abort a long speech narative with the <code>--cancel</code> or <code>-C</code> option.
+</p>
+<div class="example">
+<pre class="example"> $ spd-say -C
+</pre></div>
+
+<hr>
+
+
+
+</body>
+</html>

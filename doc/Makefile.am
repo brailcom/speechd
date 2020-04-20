@@ -15,6 +15,10 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
+all: html
+
+MAKEINFOHTML = $(MAKEINFO) --html --no-split
+
 info_TEXINFOS = ssip.texi speech-dispatcher.texi spd-say.texi speech-dispatcher-cs.texi
 EXTRA_DIST = figures
 
