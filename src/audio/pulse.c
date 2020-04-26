@@ -11,7 +11,7 @@
  * Copyright 2010 Christopher Brannon <cmbrannon79@gmail.com>
  * Copyright 2010-2011 William Hubbs <w.d.hubbs@gmail.com>
  * Copyright 2015 Jeremy Whiting <jpwhiting@kde.org>
- * Copyright 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright 2018-2020 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * Copied from Luke Yelavich's libao.c driver, and merged with code from
  * Marco's ao_pulse.c driver, by Bill Cox, Dec 21, 2009.
@@ -58,7 +58,7 @@ typedef struct {
 	char *pa_server;
 	char *pa_device;
 	char *pa_name;
-	int pa_min_audio_length;
+	int pa_min_audio_length;	// in ms
 	volatile int pa_stop_playback;
 	int pa_current_rate;	// Sample rate for currently PA connection
 	int pa_current_bps;	// Bits per sample rate for currently PA connection
@@ -75,8 +75,8 @@ typedef struct {
 
 /* This is the smallest audio sound we are expected to play immediately without buffering. */
 /* Changed to define on config file. Default is the same. */
-/* Default to 20 ms of latency (1764 = 44100 * 0.020 * 2) */
-#define DEFAULT_PA_MIN_AUDIO_LENGTH 1764
+/* Default to 10 ms of latency */
+#define DEFAULT_PA_MIN_AUDIO_LENGTH 10
 
 static int pulse_log_level;
 static char const *pulse_play_cmd = "paplay -n speech-dispatcher-generic";
@@ -141,7 +141,7 @@ static int _pulse_open(spd_pulse_id_t * id, int sample_rate,
 	/* Set prebuf to one sample so that keys are spoken as soon as typed rather than delayed until the next key pressed */
 	buffAttr.maxlength = (uint32_t) - 1;
 	//buffAttr.tlength = (uint32_t)-1; - this is the default, which causes key echo to not work properly.
-	buffAttr.tlength = id->pa_min_audio_length;
+	buffAttr.tlength = id->pa_min_audio_length * sample_rate * num_channels * bytes_per_sample / 1000;
 	buffAttr.prebuf = (uint32_t) - 1;
 	buffAttr.minreq = (uint32_t) - 1;
 	buffAttr.fragsize = (uint32_t) - 1;
