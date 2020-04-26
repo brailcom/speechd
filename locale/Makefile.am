@@ -188,6 +188,11 @@ nobase_localedata_DATA = \
 	zh_TW/symbols.dic \
 	zu/emojis.dic
 
+nobase_localedata_DATA += \
+	de/gender-neutral.dic \
+	es/gender-neutral.dic \
+	fr/gender-neutral.dic
+
 EXTRA_DIST = ${nobase_localedata_DATA}
 
 # List of latin American Spanish languages
