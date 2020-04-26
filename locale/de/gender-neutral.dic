@@ -14,7 +14,17 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 complexSymbols:
+# Pattern matching first:
+# match name\tperl regexp to be matched
+
 end-words Leser innen	(?<=\b)[L][e][s][e][r][*_][iI][n][n][e][n](?=\b)
 
+
 symbols:
+# Replacement:
+# match name\treplacement\tnone\tliteral
+#
+# none makes the rule always apply independently of the punctuation level
+# literal avoids introducing spurious spaces
+
 end-words Leser innen	 Leser Innen	none	literal

@@ -14,6 +14,8 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 complexSymbols:
+# Pattern matching first:
+# match name\tperl regexp to be matched
 
 # Note: we separate out the plural case because we want to catch all of its
 # marks, and keep one only
@@ -126,6 +128,11 @@ end-words cette	(?<=\b[cC][eE][tT]?)[.·•‧⋅‐‑-][cC]?[eE]?[tT][tT][eE](
 dot-fallback	(?<=[^\W_])[·⋅‧‐‑](?=[^\W_])
 
 symbols:
+# Replacement:
+# match name\treplacement\tnone\tliteral
+#
+# none makes the rule always apply independently of the punctuation level
+# literal avoids introducing spurious spaces
 
 end-words (e)		none	literal
 end-words es	s	none	literal
