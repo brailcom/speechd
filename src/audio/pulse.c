@@ -68,6 +68,11 @@ typedef struct {
 /* send a packet of XXX bytes to the sound device */
 #define PULSE_SEND_BYTES 256
 
+/* Initial values, most often what synths will requests */
+#define DEF_RATE 44100
+#define DEF_CHANNELS 1
+#define DEF_BYTES_PER_SAMPLE 2
+
 /* This is the smallest audio sound we are expected to play immediately without buffering. */
 /* Changed to define on config file. Default is the same. */
 /* Default to 20 ms of latency (1764 = 44100 * 0.020 * 2) */
@@ -207,7 +212,7 @@ static AudioID *pulse_open(void **pars)
 
 	pulse_id->pa_stop_playback = 0;
 
-	ret = _pulse_open(pulse_id, 44100, 1, 2);
+	ret = _pulse_open(pulse_id, DEF_RATE, DEF_CHANNELS, DEF_BYTES_PER_SAMPLE);
 	if (ret) {
 		g_free(pulse_id);
 		pulse_id = NULL;
