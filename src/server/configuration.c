@@ -508,7 +508,7 @@ void load_default_global_set_options()
 	GlobalFDSet.audio_nas_server = g_strdup("tcp/localhost:5450");
 	GlobalFDSet.audio_pulse_server = g_strdup("default");
 	GlobalFDSet.audio_pulse_device = g_strdup("default");
-	GlobalFDSet.audio_pulse_min_length = 100;
+	GlobalFDSet.audio_pulse_min_length = 10;
 
 	SpeechdOptions.max_history_messages = 10000;
 
