@@ -201,10 +201,6 @@ static AudioID *pulse_open(void **pars)
 	pulse_id->pa_current_bps = -1;
 	pulse_id->pa_current_channels = -1;
 
-	if (!strcmp(pulse_id->pa_server, "default")) {
-		pulse_id->pa_server = NULL;
-	}
-
 	if (!strcmp(pulse_id->pa_device, "default")) {
 		pulse_id->pa_device = NULL;
 	}
