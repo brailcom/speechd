@@ -737,6 +737,9 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 	GString *pattern;
 	GError *error = NULL;
 	GSList *node;
+	int has_dash = 0;
+	int has_rbracket = 0;
+	int has_circum = 0;
 
 	ssp = g_malloc(sizeof *ssp);
 	ssp->source = g_strdup(syms->source);
@@ -787,7 +790,19 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 			g_hash_table_insert(ssp->symbols, sym->identifier, sym);
 			/* FIXME: should we use Unicode characters? */
 			if (strlen(sym->identifier) == 1) {
-				g_string_append_c(characters, sym->identifier[0]);
+				switch (sym->identifier[0]) {
+					case '-':
+						has_dash = 1;
+						break;
+					case ']':
+						has_rbracket = 1;
+						break;
+					case '^':
+						has_circum = 1;
+						break;
+					default:
+					g_string_append_c(characters, sym->identifier[0]);
+				}
 			} else {
 				multi_chars_list = g_slist_prepend(multi_chars_list, sym->identifier);
 			}
@@ -830,8 +845,16 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 	/* Make characters into a regexp character set. */
 	escaped = g_regex_escape_string(characters->str, characters->len);
 	g_string_truncate(characters, 0);
-	if (*escaped)
-		g_string_append_printf(characters, "[%s]", escaped);
+	if (*escaped || has_dash || has_rbracket || has_circum) {
+		g_string_append_printf(characters, "[%s", escaped);
+		if (has_dash)
+			g_string_append_printf(characters, "\\-");
+		if (has_rbracket)
+			g_string_append_printf(characters, "\\]");
+		if (has_circum)
+			g_string_append_printf(characters, "\\^");
+		g_string_append_c(characters, ']');
+	}
 	g_free(escaped);
 
 	/* The simple symbols must be ordered longest first so that the longer symbols will match.*/
