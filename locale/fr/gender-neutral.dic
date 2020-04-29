@@ -120,7 +120,8 @@ end-words fe	(?<=[^\W_]f)[.·•‧⋅‐‑-][f][e](?=\b)
 end-words stes	(?<=[^\W_]s)[.·•‧⋅‐‑-][t][e][.·•‧⋅‐‑-]?[s](?=\b)
 
 # ce·cette
-end-words cette	(?<=\b[cC][eE][tT]?)[.·•‧⋅‐‑-][cC]?[eE]?[tT][tT][eE](?=\b)
+end-words cette1	(?<=\b[cC][eE])[.·•‧⋅‐‑-][cC]?[eE]?[tT][tT][eE](?=\b)
+end-words cette2	(?<=\b[cC][eE][tT])[.·•‧⋅‐‑-][cC]?[eE]?[tT][tT][eE](?=\b)
 
 
 # As last resort, when it's inside a word just drop it and hope for the best
@@ -189,6 +190,7 @@ end-words fe		none	literal
 
 end-words stes		none	literal
 
-end-words cette		none	literal
+end-words cette1		none	literal
+end-words cette2		none	literal
 
 dot-fallback		none	literal
