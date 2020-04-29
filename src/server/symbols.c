@@ -920,7 +920,8 @@ static gpointer speech_symbols_processor_list_new(const char *locale)
 	}
 
 	/* Always use English as a base. */
-	if (strcmp(locale, "en") != 0) {
+	if (locale[0] != 'e' || locale[1] != 'n' ||
+	    (locale[2] != '_' && locale[2] != '-' && locale[2] != 0)) {
 		ssl = get_locale_speech_symbols("en");
 
 		for ( ; ssl; ssl = ssl->next) {
