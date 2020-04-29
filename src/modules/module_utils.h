@@ -122,10 +122,10 @@ extern const char *module_name;
 } while(0)
 
 #define FATAL(msg) do { \
-		fprintf(stderr, "FATAL ERROR in output module [%s:%d]:\n   "msg, \
+		fprintf(stderr, "FATAL ERROR in output module [%s:%d]:\n   " msg, \
 		        __FILE__, __LINE__); \
 		if (Debug > 1) \
-			fprintf(CustomDebugFile, "FATAL ERROR in output module [%s:%d]:\n   "msg,	\
+			fprintf(CustomDebugFile, "FATAL ERROR in output module [%s:%d]:\n   " msg,	\
 			        __FILE__, __LINE__); \
 		exit(EXIT_FAILURE); \
 } while (0)
