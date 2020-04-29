@@ -26,6 +26,9 @@
 /* Load symbols from this file */
 void symbols_preprocessing_add_file(const char *name);
 
+/* Load character symbols from this file */
+void symbols_char_preprocessing_add_file(const char *name);
+
 /* Load punctuation symbols from this file */
 void symbols_punctuation_preprocessing_add_file(const char *name);
 

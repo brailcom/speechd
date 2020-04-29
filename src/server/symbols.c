@@ -150,7 +150,10 @@ static LocaleMap *G_processors = NULL;
 /* List of files to load */
 static GSList *symbols_files;
 
-static int symbols_loaded = 0;
+/* List of character files to load */
+static GSList *char_symbols_files;
+
+static int char_symbols_loaded = 0;
 
 /* List of punctuation files to load */
 static GSList *punctuation_symbols_files;
@@ -609,7 +612,20 @@ static gpointer speech_symbols_new(const gchar *locale)
 			MSG2(5, "symbols", "Successful");
 			/* At least some symbols could be loaded */
 			loaded = 1;
-			symbols_loaded = 1;
+		} else {
+			MSG2(5, "symbols", "Failed");
+		}
+		g_free(path);
+	}
+
+	for (node = char_symbols_files; node; node = node->next) {
+		path = g_build_filename(LOCALE_DATA, locale, node->data, NULL);
+		MSG2(5, "symbols", "Trying to load char %s for '%s' from '%s'", (char*) node->data, locale, path);
+		if (speech_symbols_load(ss, path, TRUE) >= 0) {
+			MSG2(5, "symbols", "Successful");
+			/* At least some symbols could be loaded */
+			loaded = 1;
+			char_symbols_loaded = 1;
 		} else {
 			MSG2(5, "symbols", "Failed");
 		}
@@ -658,6 +674,12 @@ void symbols_preprocessing_add_file(const char *name)
 {
 	MSG2(5, "symbols", "Will load symbol file %s", name);
 	symbols_files = g_slist_append(symbols_files, g_strdup(name));
+}
+
+void symbols_char_preprocessing_add_file(const char *name)
+{
+	MSG2(5, "symbols", "Will load char symbol file %s", name);
+	char_symbols_files = g_slist_append(char_symbols_files, g_strdup(name));
 }
 
 void symbols_punctuation_preprocessing_add_file(const char *name)
@@ -1076,8 +1098,8 @@ void insert_symbols(TSpeechDMessage *msg)
 		if (punctuation_symbols_loaded)
 			/* if we performed the replacement, don't let the module speak it again */
 			msg->settings.msg_settings.punctuation_mode = SPD_PUNCT_NONE;
-		if (symbols_loaded)
-			/* if we provide a description, don't let the module spell it */
+		if (char_symbols_loaded)
+			/* if we provide a character description file, don't let the module spell it */
 			if (msg->settings.type == SPD_MSGTYPE_CHAR)
 				if (g_utf8_strlen(processed, -1) > 1)
 					msg->settings.type = SPD_MSGTYPE_TEXT;
