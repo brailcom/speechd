@@ -278,7 +278,7 @@ int options_parse(int argc, char *argv[])
 			cancel_previous = 1;
 			break;
 		case 'v':
-			options_print_version(argv);
+			options_print_version();
 			exit(0);
 			break;
 		case 'h':
