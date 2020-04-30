@@ -61,7 +61,7 @@ void destroy_pid_file();
 int server_socket;
 
 GMainLoop *main_loop = NULL;
-gint server_timeout_source = 0;
+gint server_timeout_source = -1;
 
 int client_count = 0;
 
@@ -982,13 +982,15 @@ void check_client_count(void)
 	if (client_count <= 0
 	    && SpeechdOptions.server_timeout > 0) {
 		MSG(4, "Currently no clients connected, enabling shutdown timer.");
-		server_timeout_source = 
-		                        g_timeout_add_seconds(
+		server_timeout_source = g_timeout_add_seconds(
 		                        SpeechdOptions.server_timeout,
 		                        speechd_quit, NULL);
 	} else {
-	MSG(4, "Clients connected, disabling shutdown timer.");
-		g_source_remove(server_timeout_source);
+		if (server_timeout_source >= 0) {
+			MSG(4, "Clients connected, disabling shutdown timer.");
+			g_source_remove(server_timeout_source);
+			server_timeout_source = -1;
+		}
 	}
 }
 
