@@ -109,6 +109,9 @@ void options_print_help(char *argv[])
 	printf("  -y, --synthesis-voice           ");
 	printf(_("Set the synthesis voice\n"));
 
+	printf("  -c, --character                 ");
+	printf(_("Speak the character\n"));
+
 	printf("  -m, --punctuation-mode          ");
 	printf(_("Set the punctuation mode %s\n"), "(none, some, all)");
 
@@ -246,6 +249,9 @@ int options_parse(int argc, char *argv[])
 			break;
 		case 'y':
 			OPT_SET_STR(synthesis_voice);
+			break;
+		case 'c':
+			character = 1;
 			break;
 		case 'm':
 			OPT_SET_STR(punctuation_mode);

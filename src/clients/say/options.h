@@ -35,6 +35,7 @@ extern char *voice_type;
 extern char *punctuation_mode;
 extern char *priority;
 extern int pipe_mode;
+int character;
 extern SPDDataMode ssml_mode;
 extern int spelling;
 extern int wait_till_end;
@@ -58,6 +59,7 @@ static struct option long_options[] = {
 	{"voice-type", 1, 0, 't'},
 	{"list-synthesis-voices", no_argument, 0, 'L'},
 	{"synthesis-voice", required_argument, 0, 'y'},
+	{"character", 0, 0, 'c'},
 	{"punctuation-mode", 1, 0, 'm'},
 	{"spelling", 0, 0, 's'},
 	{"ssml", 0, 0, 'x'},
@@ -73,7 +75,7 @@ static struct option long_options[] = {
 	{0, 0, 0, 0}
 };
 
-static char *short_options = "r:p:R:i:l:o:OI:t:Ly:m:sxeP:N:n:wSCvh";
+static char *short_options = "r:p:R:i:l:o:OI:t:Ly:cm:sxeP:N:n:wSCvh";
 
 int options_parse(int argc, char *argv[]);
 void options_print_version();
