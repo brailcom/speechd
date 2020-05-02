@@ -542,9 +542,8 @@ int output_send_debug(OutputModule * output, int flag, char *log_path)
 	OL_RET(0);
 }
 
-int output_speak(TSpeechDMessage * msg)
+int output_speak(TSpeechDMessage * msg, OutputModule *output)
 {
-	OutputModule *output;
 	int err;
 	int ret;
 
@@ -552,13 +551,6 @@ int output_speak(TSpeechDMessage * msg)
 		return -1;
 
 	output_lock();
-
-	/* Determine which output module should be used */
-	output = get_output_module(msg);
-	if (output == NULL) {
-		MSG(3, "Output module doesn't work...");
-		OL_RET(-1)
-	}
 
 	msg->buf = escape_dot(msg->buf);
 	msg->bytes = -1;

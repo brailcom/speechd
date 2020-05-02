@@ -26,13 +26,20 @@
 /* Load symbols from this file */
 void symbols_preprocessing_add_file(const char *name);
 
-/* Load character symbols from this file */
-void symbols_char_preprocessing_add_file(const char *name);
-
-/* Load punctuation symbols from this file */
-void symbols_punctuation_preprocessing_add_file(const char *name);
-
 /* Converts symbols to words corresponding to a level into a message. */
-void insert_symbols(TSpeechDMessage *msg);
+void insert_symbols(TSpeechDMessage *msg, int punct_missing);
+
+/* Speech symbols punctuation levels */
+typedef enum {
+	SYMLVL_INVALID = -1,
+	SYMLVL_NONE = 0,
+	SYMLVL_SOME = 100,
+	SYMLVL_MOST = 200,
+	SYMLVL_ALL = 300,
+	SYMLVL_CHAR = 1000
+} SymLvl;
+
+/* Convert a string to a symbol level */
+extern SymLvl str2SymLvl(char *str);
 
 #endif /* SYMBOLS_H */

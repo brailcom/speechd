@@ -9,7 +9,9 @@ responsiveness parameter.
 * pico, generic: fix setting voice by language.
 * generic: Add fallback voices for generic languages.
 * symbols: Add support for SSML.
-* symbols: Add SymbolPreprocFile and PunctuationSymbolPreprocFile directives.
+* symbols: Add SymbolPreprocFile directive to load several symbol files.
+* symbols: Replace DefaultSymbolsPreproc directive with SymbolsPreproc directive
+to have more fine-grained control over server preprocessing.
 * symbols: Import emojis and unicode font variants support from NVDA and Unicode
 CLDR and UnicodeData.
 * symbols: Add rules to drop gender-neutral forms.

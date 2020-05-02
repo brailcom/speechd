@@ -208,9 +208,8 @@ GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module)
     GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPunctuationMode,
 			       msg_settings.punctuation_mode, SPDPunctuation,
 			       str2EPunctMode)
-    GLOBAL_FDSET_OPTION_CB_INT(DefaultSymbolsPreproc, symbols_preprocessing,
-			       val == FALSE || val == TRUE,
-			       "Whether to use server-side symbols pre-processing")
+    GLOBAL_FDSET_OPTION_CB_SPECIAL(SymbolsPreproc, symbols_preprocessing,
+			       SymLvl,str2SymLvl)
     GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultCapLetRecognition,
 			       msg_settings.cap_let_recogn, SPDCapitalLetters,
 			       str2ECapLetRecogn)
@@ -303,7 +302,7 @@ DOTCONF_CB(cb_CustomLogFile)
 	return NULL;
 }
 
-DOTCONF_CB(cb_SymbolPreprocFile)
+DOTCONF_CB(cb_SymbolsPreprocFile)
 {
 	if (cmd->data.list[0] == NULL) {
 		MSG(3,
@@ -312,32 +311,6 @@ DOTCONF_CB(cb_SymbolPreprocFile)
 	}
 
 	symbols_preprocessing_add_file(cmd->data.list[0]);
-
-	return NULL;
-}
-
-DOTCONF_CB(cb_CharSymbolPreprocFile)
-{
-	if (cmd->data.list[0] == NULL) {
-		MSG(3,
-		    "No char symbol preprocessing name specified in configuration under CharSymbolsPreprocFile");
-		return NULL;
-	}
-
-	symbols_char_preprocessing_add_file(cmd->data.list[0]);
-
-	return NULL;
-}
-
-DOTCONF_CB(cb_PunctuationSymbolPreprocFile)
-{
-	if (cmd->data.list[0] == NULL) {
-		MSG(3,
-		    "No punctuation symbol preprocessing name specified in configuration under PunctuationSymbolsPreprocFile");
-		return NULL;
-	}
-
-	symbols_punctuation_preprocessing_add_file(cmd->data.list[0]);
 
 	return NULL;
 }
@@ -468,10 +441,8 @@ configoption_t *load_config_options(int *num_options)
 	ADD_CONFIG_OPTION(DefaultPriority, ARG_STR);
 	ADD_CONFIG_OPTION(MaxHistoryMessages, ARG_INT);
 	ADD_CONFIG_OPTION(DefaultPunctuationMode, ARG_STR);
-	ADD_CONFIG_OPTION(DefaultSymbolsPreproc, ARG_INT);
-	ADD_CONFIG_OPTION(SymbolPreprocFile, ARG_STR);
-	ADD_CONFIG_OPTION(CharSymbolPreprocFile, ARG_STR);
-	ADD_CONFIG_OPTION(PunctuationSymbolPreprocFile, ARG_STR);
+	ADD_CONFIG_OPTION(SymbolsPreproc, ARG_STR);
+	ADD_CONFIG_OPTION(SymbolsPreprocFile, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultClientName, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultVoiceType, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultSpelling, ARG_TOGGLE);
@@ -500,7 +471,7 @@ void load_default_global_set_options()
 {
 	GlobalFDSet.priority = SPD_MESSAGE;
 	GlobalFDSet.msg_settings.punctuation_mode = SPD_PUNCT_NONE;
-	GlobalFDSet.symbols_preprocessing = TRUE;
+	GlobalFDSet.symbols_preprocessing = SYMLVL_CHAR;
 	GlobalFDSet.msg_settings.spelling_mode = 0;
 	GlobalFDSet.msg_settings.rate = 0;
 	GlobalFDSet.msg_settings.pitch = 0;
