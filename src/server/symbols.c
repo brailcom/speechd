@@ -1173,7 +1173,7 @@ void insert_symbols(TSpeechDMessage *msg, int punct_missing)
 	if (msg->settings.type == SPD_MSGTYPE_CHAR)
 		level = SYMLVL_CHAR;
 
-	MSG2(5, "symbols", "processing at level %d", level);
+	MSG2(5, "symbols", "processing at level %d, supporting level %d", level, support_level);
 	processed = process_speech_symbols(msg->settings.msg_settings.voice.language,
 		msg->buf, level, support_level, msg->settings.ssml_mode);
 	if (processed) {
