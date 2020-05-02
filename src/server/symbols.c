@@ -321,6 +321,48 @@ static gchar *escape_ssml_text(const gchar *text)
 	return result;
 }
 
+/* To make matching ^ and $ easier, just split string into the heading XML tags,
+ * content, and trailing XML tags.  */
+static void split_ssml_text(gchar **text, gchar **prefix, gchar **suffix)
+{
+	gchar *begin = *text;
+	gchar *end = begin + strlen(begin);
+	gchar *start, *stop, *prev;
+
+	for (start = begin; ; start = g_utf8_next_char(start)) {
+		gunichar c = g_utf8_get_char(start);
+		if (c < 0xe000 || c > 0xe0ff)
+			/* start of content */
+			break;
+	}
+
+	for (stop = end; ; stop = prev) {
+		gunichar c;
+		prev = g_utf8_prev_char(stop);
+		c = g_utf8_get_char(prev);
+		if (c < 0xe000 || c > 0xe0ff)
+			/* stop of content */
+			break;
+	}
+
+	*prefix = g_strndup(begin, start - begin);
+	*text = g_strndup(start, stop - start);
+	*suffix = g_strndup(stop, end - stop);
+	g_free(begin);
+}
+
+/* Gather pieces back together.  */
+static void gather_ssml_text(gchar **text, gchar *prefix, gchar *suffix)
+{
+	gchar *ret = g_strdup_printf("%s%s%s", prefix, *text, suffix);
+
+	g_free(prefix);
+	g_free(*text);
+	g_free(suffix);
+
+	*text = ret;
+}
+
 /* Replace U+E0XY with pure equivalents */
 static gchar *unescape_ssml_text(const gchar *text)
 {
@@ -1043,13 +1085,14 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 /* Processes some input and converts symbols in it */
 static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *input, SymLvl level, SymLvl support_level, SPDDataMode ssml_mode)
 {
-	gchar *text;
+	gchar *text, *prefix = NULL, *suffix = NULL;
 	gchar *processed;
 	GError *error = NULL;
 
 	if (ssml_mode == SPD_DATA_SSML) {
 		text = escape_ssml_text(input);
-		MSG2(5, "symbols", "escaped ssml '%s' to '%s'", input, text);
+		split_ssml_text(&text, &prefix, &suffix);
+		MSG2(5, "symbols", "escaped ssml '%s' to '%s' '%s' '%s'", input, prefix, text, suffix );
 	} else {
 		text = g_strdup(input);
 	}
@@ -1071,6 +1114,7 @@ static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *i
 
 	if (ssml_mode == SPD_DATA_SSML) {
 		processed = unescape_ssml_text(text);
+		gather_ssml_text(&processed, prefix, suffix);
 		MSG2(5, "symbols", "unescaped ssml '%s' to '%s'", text, processed);
 		g_free(text);
 	} else
