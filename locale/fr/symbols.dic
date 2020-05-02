@@ -60,7 +60,7 @@ n°	numéro	none	norep	# numéro
 \n	nouvelle ligne
 \f	saut de page
 \r	retour chariot
- 	espace
+ 	espace	char
  	espace insécable	char	# espace insécable
 
 # Standard punctuation/symbols
