@@ -32,10 +32,11 @@ void insert_symbols(TSpeechDMessage *msg, int punct_missing);
 /* Speech symbols punctuation levels */
 typedef enum {
 	SYMLVL_INVALID = -1,
-	SYMLVL_NONE = 0,
-	SYMLVL_SOME = 100,
-	SYMLVL_MOST = 200,
-	SYMLVL_ALL = 300,
+	SYMLVL_NO = 0,
+	SYMLVL_NONE = 100,
+	SYMLVL_SOME = 200,
+	SYMLVL_MOST = 300,
+	SYMLVL_ALL = 500,
 	SYMLVL_CHAR = 1000
 } SymLvl;
 
