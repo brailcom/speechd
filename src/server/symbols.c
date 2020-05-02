@@ -1116,8 +1116,8 @@ static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *i
 	}
 
 	if (ssml_mode == SPD_DATA_SSML) {
+		gather_ssml_text(&text, prefix, suffix);
 		processed = unescape_ssml_text(text);
-		gather_ssml_text(&processed, prefix, suffix);
 		MSG2(5, "symbols", "unescaped ssml '%s' to '%s'", text, processed);
 		g_free(text);
 	} else
