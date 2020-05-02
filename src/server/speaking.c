@@ -69,6 +69,7 @@ void *speak(void *data)
 	struct pollfd main_pfd;
 	struct pollfd helper_pfd;
 	int revents;
+	OutputModule *output;
 
 	/* Block all signals and set thread states */
 	set_speak_thread_attributes();
@@ -227,24 +228,45 @@ void *speak(void *data)
 			continue;
 		}
 
+		/* Choose the output module */
+		output = get_output_module(message);
+		if (output == NULL) {
+			MSG(3, "Output module doesn't work...");
+			output_check_module(output);
+			pthread_mutex_unlock(&element_free_mutex);
+			continue;
+		}
+
+		int punct_missing = 0;
+		if (strcmp(output->name, "flite") == 0 ||
+		    strcmp(output->name, "dtk-generic") == 0 ||
+		    strcmp(output->name, "epos-generic") == 0 ||
+		    strcmp(output->name, "llia_phon-generic") == 0 ||
+		    strcmp(output->name, "mary-generic") == 0 ||
+		    strcmp(output->name, "pico-generic") == 0 ||
+		    strcmp(output->name, "swift-generic") == 0 ||
+		    strcmp(output->name, "pico") == 0)
+			/* These don't support punctuation */
+			/* FIXME: rather make them express it */
+			punct_missing = 1;
+
 		/* Insert index marks into textual messages */
 		if (message->settings.type == SPD_MSGTYPE_TEXT) {
-			if (message->settings.symbols_preprocessing)
-				insert_symbols(message);
+			insert_symbols(message, punct_missing);
 			insert_index_marks(message,
 					   message->settings.ssml_mode);
 		}
 		else if (message->settings.type == SPD_MSGTYPE_CHAR) {
-			if (message->settings.symbols_preprocessing)
-				insert_symbols(message);
+			insert_symbols(message, punct_missing);
 		}
 
 		/* Write the message to the output layer. */
-		ret = output_speak(message);
+		ret = output_speak(message, output);
+
 		MSG(4, "Message sent to output module");
 		if (ret == -1) {
 			MSG(2, "Error: Output module failed");
-			output_check_module(get_output_module(message));
+			output_check_module(output);
 			pthread_mutex_unlock(&element_free_mutex);
 			continue;
 		}

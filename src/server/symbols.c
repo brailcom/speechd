@@ -42,8 +42,8 @@
  * The loading steps are automatically handled when calling
  * speech_symbols_processor_new().  To avoid re-processing files more than
  * once even if they are used by different SpeechSymbolProcessor, the loaded
- * files are cached as lists of SpeechSymbols into the G_symbols_dicts global
- * variable.  Similarly, lists of SpeechSymbolProcessor are cached into the
+ * files are cached as SpeechSymbols into the G_symbols_dicts global variable.
+ * Similarly, lists of SpeechSymbolProcessor are cached into the
  * G_processors global variable.
  *
  * The caches are automatically loaded when looking up an entry with either
@@ -74,16 +74,6 @@
 
 #include <spd_utils.h>
 #include "symbols.h"
-
-/* Speech symbols levels */
-typedef enum {
-	SYMLVL_INVALID = -1,
-	SYMLVL_NONE = 0,
-	SYMLVL_SOME = 100,
-	SYMLVL_MOST = 200,
-	SYMLVL_ALL = 300,
-	SYMLVL_CHAR = 1000
-} SymLvl;
 
 /* Speech symbol preserve modes */
 typedef enum {
@@ -134,17 +124,19 @@ typedef struct {
 	/* list of SpeechSymbol (weak pointers to entries in @c symbols) */
 	GSList *complex_list;
 
-	/* State */
+	/* Level requested by user */
 	SymLvl level;
+	/* Level to be supported */
+	SymLvl support_level;
 } SpeechSymbolProcessor;
 
 /* Map of locale code to arbitrary data. */
 typedef GHashTable LocaleMap;
-typedef gpointer (*LocaleMapCreateDataFunc) (const gchar *locale);
+typedef gpointer (*LocaleMapCreateDataFunc) (const gchar *locale, const gchar *file);
 
 /* globals for caching */
 
-/* Map of SpeechSymbols lists, indexed by their locale */
+/* Map of SpeechSymbols, indexed by their locale and file */
 static LocaleMap *G_symbols_dicts = NULL;
 /* Map of SpeechSymbolProcessor lists, indexed by their locale */
 static LocaleMap *G_processors = NULL;
@@ -152,15 +144,23 @@ static LocaleMap *G_processors = NULL;
 /* List of files to load */
 static GSList *symbols_files;
 
-/* List of character files to load */
-static GSList *char_symbols_files;
+SymLvl str2SymLvl(char *str)
+{
+	SymLvl punct;
 
-static int char_symbols_loaded = 0;
+	if (!strcmp(str, "no"))
+		punct = SYMLVL_INVALID;
+	else if (!strcmp(str, "none"))
+		punct = SYMLVL_NONE;
+	else if (!strcmp(str, "all"))
+		punct = SYMLVL_ALL;
+	else if (!strcmp(str, "char"))
+		punct = SYMLVL_CHAR;
+	else
+		punct = SYMLVL_INVALID;
 
-/* List of punctuation files to load */
-static GSList *punctuation_symbols_files;
-
-static int punctuation_symbols_loaded = 0;
+	return punct;
+}
 
 /*----------------------------- Locale data map -----------------------------*/
 
@@ -169,10 +169,22 @@ static LocaleMap *locale_map_new(GDestroyNotify value_destroy)
 	return g_hash_table_new_full(g_str_hash, g_str_equal, g_free, value_destroy);
 }
 
+static gpointer locale_map_lookup(LocaleMap *map, const gchar *locale, const gchar *file)
+{
+	if (file) {
+		gchar *str = g_strdup_printf("%s %s", locale, file);
+		gpointer res = g_hash_table_lookup(map, str);
+		g_free(str);
+		return res;
+	} else {
+		return g_hash_table_lookup(map, locale);
+	}
+}
+
 /* Fetches or creates a locale item for the map.
  * If @c locale contains a country and data for the whole locale is not found,
  * tries to load the data for the language alone. */
-static gpointer locale_map_fetch(LocaleMap *map, const gchar *locale,
+static gpointer locale_map_fetch(LocaleMap *map, const gchar *locale, const gchar *file,
 				 LocaleMapCreateDataFunc create)
 {
 	guint i;
@@ -182,7 +194,7 @@ static gpointer locale_map_fetch(LocaleMap *map, const gchar *locale,
 		gchar *l;
 
 		if (i == 0) {
-			value = g_hash_table_lookup(map, locale);
+			value = locale_map_lookup(map, locale, file);
 			l = g_strdup(locale);
 		} else {
 			gchar **parts = g_strsplit_set(locale, "_-", 2);
@@ -192,7 +204,7 @@ static gpointer locale_map_fetch(LocaleMap *map, const gchar *locale,
 				continue;
 			}
 			l = g_strdup(parts[0]);
-			value = g_hash_table_lookup(map, l);
+			value = locale_map_lookup(map, l, file);
 			g_strfreev(parts);
 		}
 		if (value) {
@@ -200,7 +212,7 @@ static gpointer locale_map_fetch(LocaleMap *map, const gchar *locale,
 			return value;
 		}
 		/* try to create */
-		value = create(l);
+		value = create(l, file);
 		if (value) {
 			g_hash_table_insert(map, l, value);
 			return value;
@@ -593,18 +605,10 @@ static void speech_symbols_free(SpeechSymbols *ss)
 	g_free(ss);
 }
 
-static void speech_symbols_list_free(GSList *ssl)
-{
-	GSList *e;
-	for (e = ssl; e; e = e->next)
-		speech_symbols_free(e->data);
-}
-
 /* Loads a symbols file for @p locale.
  * Returns a SpeechSymbols*, or NULL on error. */
-static SpeechSymbols *speech_symbols_new(const gchar *name, const gchar *locale)
+static gpointer speech_symbols_new(const gchar *locale, const gchar *file)
 {
-	/* FIXME: return list */
 	SpeechSymbols *ss = g_malloc(sizeof *ss);
 	gchar *path;
 
@@ -613,8 +617,8 @@ static SpeechSymbols *speech_symbols_new(const gchar *name, const gchar *locale)
 					    g_free,
 					    (GDestroyNotify) speech_symbol_free);
 
-	path = g_build_filename(LOCALE_DATA, locale, name, NULL);
-	MSG2(5, "symbols", "Trying to load %s for '%s' from '%s'", name, locale, path);
+	path = g_build_filename(LOCALE_DATA, locale, file, NULL);
+	MSG2(5, "symbols", "Trying to load %s for '%s' from '%s'", file, locale, path);
 	if (speech_symbols_load(ss, path, TRUE) >= 0) {
 		MSG2(5, "symbols", "Successful");
 		/* The elements are added to the start of the list in
@@ -622,7 +626,7 @@ static SpeechSymbols *speech_symbols_new(const gchar *name, const gchar *locale)
 		 * the end requires walking the whole list), but we want them in the
 		 * order they are in the file, so reverse the list. */
 		ss->complex_symbols = g_slist_reverse(ss->complex_symbols);
-		ss->source = path;
+		ss->source = g_strdup(file);
 	} else {
 		/* Nothing loaded in the end */
 		MSG2(5, "symbols", "Failed");
@@ -633,69 +637,19 @@ static SpeechSymbols *speech_symbols_new(const gchar *name, const gchar *locale)
 	return ss;
 }
 
-static gpointer speech_symbols_list_new(const gchar *locale)
-{
-	GSList *ssl = NULL;
-	SpeechSymbols *ss;
-	GSList *node;
-
-	for (node = symbols_files; node; node = node->next) {
-		ss = speech_symbols_new(node->data, locale);
-		if (ss)
-			ssl = g_slist_prepend(ssl, ss);
-	}
-
-	for (node = char_symbols_files; node; node = node->next) {
-		ss = speech_symbols_new(node->data, locale);
-		if (ss) {
-			/* At least some symbols could be loaded */
-			char_symbols_loaded = 1;
-			ssl = g_slist_prepend(ssl, ss);
-		}
-	}
-
-	for (node = punctuation_symbols_files; node; node = node->next) {
-		ss = speech_symbols_new(node->data, locale);
-		if (ss) {
-			/* At least some symbols could be loaded */
-			punctuation_symbols_loaded = 1;
-			ssl = g_slist_prepend(ssl, ss);
-		}
-	}
-
-	/* The elements are added to the start of the list for better speed (as
-	 * adding to the end requires walking the whole list), but we want them
-	 * in the order they are in the config, so reverse the list. */
-	ssl = g_slist_reverse(ssl);
-
-	return ssl;
-}
-
-static GSList *get_locale_speech_symbols(const gchar *locale)
+static SpeechSymbols *get_locale_speech_symbols(const gchar *locale, const gchar *file)
 {
 	if (!G_symbols_dicts) {
-		G_symbols_dicts = locale_map_new((GDestroyNotify) speech_symbols_list_free);
+		G_symbols_dicts = locale_map_new((GDestroyNotify) speech_symbols_free);
 	}
 
-	return locale_map_fetch(G_symbols_dicts, locale, speech_symbols_list_new);
+	return locale_map_fetch(G_symbols_dicts, locale, file, speech_symbols_new);
 }
 
 void symbols_preprocessing_add_file(const char *name)
 {
 	MSG2(5, "symbols", "Will load symbol file %s", name);
 	symbols_files = g_slist_append(symbols_files, g_strdup(name));
-}
-
-void symbols_char_preprocessing_add_file(const char *name)
-{
-	MSG2(5, "symbols", "Will load char symbol file %s", name);
-	char_symbols_files = g_slist_append(char_symbols_files, g_strdup(name));
-}
-
-void symbols_punctuation_preprocessing_add_file(const char *name)
-{
-	MSG2(5, "symbols", "Will load punctuation symbol file %s", name);
-	punctuation_symbols_files = g_slist_append(punctuation_symbols_files, g_strdup(name));
 }
 
 /*------------------ Speech symbol compilation & processing -----------------*/
@@ -728,6 +682,7 @@ static void speech_symbols_processor_list_free(GSList *sspl)
 static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, SpeechSymbols *syms)
 {
 	SpeechSymbolProcessor *ssp = NULL;
+	SpeechSymbols *ssbase;
 	GHashTableIter iter;
 	gpointer key, value;
 	GString *characters;
@@ -736,10 +691,17 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 	GString *escaped_multi;
 	GString *pattern;
 	GError *error = NULL;
+	GSList *sources = NULL;
 	GSList *node;
 	int has_dash = 0;
 	int has_rbracket = 0;
 	int has_circum = 0;
+
+	sources = g_slist_append(sources, syms);
+	/* Always use the base. */
+	ssbase = get_locale_speech_symbols("base", syms->source);
+	if (ssbase)
+		sources = g_slist_append(sources, ssbase);
 
 	ssp = g_malloc(sizeof *ssp);
 	ssp->source = g_strdup(syms->source);
@@ -751,71 +713,79 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 	ssp->complex_list = NULL;
 
 	/* Add all complex symbols first, as they take priority. */
-	for (node = syms->complex_symbols; node; node = node->next) {
-		SpeechSymbol *sym;
-		gchar **key_val = node->data;
+	for (node = sources; node; node = node->next) {
+		SpeechSymbols *syms = node->data;
+		GSList *node2;
 
-		if (g_hash_table_contains(ssp->symbols, key_val[0])) {
-			/* Already defined */
-			continue;
+		for (node2 = syms->complex_symbols; node2; node2 = node2->next) {
+			SpeechSymbol *sym;
+			gchar **key_val = node2->data;
+
+			if (g_hash_table_contains(ssp->symbols, key_val[0])) {
+				/* Already defined */
+				continue;
+			}
+
+			sym = speech_symbol_new();
+			sym->identifier = g_strdup(key_val[0]);
+			/* FIXME: we'd need to mangle the pattern to ignore
+			 * U+E0XY characters for e.g. begin/end of word/line.
+			 * E.g. spd-say -l en -x "<speak>Hello?</speak>"
+			 */
+			sym->pattern = g_strdup(key_val[1]);
+			g_hash_table_insert(ssp->symbols, sym->identifier, sym);
+			ssp->complex_list = g_slist_prepend(ssp->complex_list, sym);
 		}
-
-		sym = speech_symbol_new();
-		sym->identifier = g_strdup(key_val[0]);
-		/* FIXME: we'd need to mangle the pattern to ignore
-		 * U+E0XY characters for e.g. begin/end of word/line.
-		 * E.g. spd-say -l en -x "<speak>Hello?</speak>"
-		 */
-		sym->pattern = g_strdup(key_val[1]);
-		g_hash_table_insert(ssp->symbols, sym->identifier, sym);
-		ssp->complex_list = g_slist_prepend(ssp->complex_list, sym);
 	}
 	/* Elements are added at the start for performance, but we want them in the original order */
 	ssp->complex_list = g_slist_reverse(ssp->complex_list);
 
 	/* Supplement the data for complex symbols and add all simple symbols. */
 	characters = g_string_new(NULL);
+	for (node = sources; node; node = node->next) {
+		SpeechSymbols *syms = node->data;
 
-	g_hash_table_iter_init(&iter, syms->symbols);
-	while (g_hash_table_iter_next(&iter, &key, &value)) {
-		const SpeechSymbol *source_sym = value;
-		SpeechSymbol *sym;
+		g_hash_table_iter_init(&iter, syms->symbols);
+		while (g_hash_table_iter_next(&iter, &key, &value)) {
+			const SpeechSymbol *source_sym = value;
+			SpeechSymbol *sym;
 
-		sym = g_hash_table_lookup(ssp->symbols, key);
-		if (!sym) {
-			/* This is a new simple symbol.
-			 * (All complex symbols have already been added.) */
-			sym = speech_symbol_new();
-			sym->identifier = g_strdup(key);
-			g_hash_table_insert(ssp->symbols, sym->identifier, sym);
-			/* FIXME: should we use Unicode characters? */
-			if (strlen(sym->identifier) == 1) {
-				switch (sym->identifier[0]) {
-					case '-':
-						has_dash = 1;
-						break;
-					case ']':
-						has_rbracket = 1;
-						break;
-					case '^':
-						has_circum = 1;
-						break;
-					default:
-					g_string_append_c(characters, sym->identifier[0]);
+			sym = g_hash_table_lookup(ssp->symbols, key);
+			if (!sym) {
+				/* This is a new simple symbol.
+				 * (All complex symbols have already been added.) */
+				sym = speech_symbol_new();
+				sym->identifier = g_strdup(key);
+				g_hash_table_insert(ssp->symbols, sym->identifier, sym);
+				/* FIXME: should we use Unicode characters? */
+				if (strlen(sym->identifier) == 1) {
+					switch (sym->identifier[0]) {
+						case '-':
+							has_dash = 1;
+							break;
+						case ']':
+							has_rbracket = 1;
+							break;
+						case '^':
+							has_circum = 1;
+							break;
+						default:
+						g_string_append_c(characters, sym->identifier[0]);
+					}
+				} else {
+					multi_chars_list = g_slist_prepend(multi_chars_list, sym->identifier);
 				}
-			} else {
-				multi_chars_list = g_slist_prepend(multi_chars_list, sym->identifier);
 			}
+			/* If fields weren't explicitly specified, inherit the value from later sources. */
+			if (sym->replacement == NULL)
+				sym->replacement = g_strdup(source_sym->replacement);
+			if (sym->level == SYMLVL_INVALID)
+				sym->level = source_sym->level;
+			if (sym->preserve == SYMPRES_INVALID)
+				sym->preserve = source_sym->preserve;
+			if (sym->display_name == NULL)
+				sym->display_name = g_strdup(source_sym->display_name);
 		}
-		/* If fields weren't explicitly specified, inherit the value from later sources. */
-		if (sym->replacement == NULL)
-			sym->replacement = g_strdup(source_sym->replacement);
-		if (sym->level == SYMLVL_INVALID)
-			sym->level = source_sym->level;
-		if (sym->preserve == SYMPRES_INVALID)
-			sym->preserve = source_sym->preserve;
-		if (sym->display_name == NULL)
-			sym->display_name = g_strdup(source_sym->display_name);
 	}
 
 	/* Set defaults for any fields not explicitly set. */
@@ -923,32 +893,25 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 
 /* Loads and compiles speech symbols conversions for @p locale.
  * Returns a SpeechSymbolProcessor*, or NULL on error */
-static gpointer speech_symbols_processor_list_new(const char *locale)
+static gpointer speech_symbols_processor_list_new(const char *locale, const char *file)
 {
 	SpeechSymbolProcessor *ssp;
+	SpeechSymbols *ss;
 	GSList *sspl = NULL;
-	GSList *ssl;
+	GSList *node;
 
 	/* TODO: load user custom symbols? */
 
-	ssl = get_locale_speech_symbols(locale);
-	if (!ssl)
-		MSG2(1, "symbols", "Failed to load symbols for locale '%s'",
-				   locale);
-
-	for ( ; ssl; ssl = ssl->next) {
-		ssp = speech_symbols_processor_new(locale, ssl->data);
-		if (ssp)
-			sspl = g_slist_prepend(sspl, ssp);
-	}
-
-	/* Always use the base. */
-	ssl = get_locale_speech_symbols("base");
-
-	for ( ; ssl; ssl = ssl->next) {
-		ssp = speech_symbols_processor_new("base", ssl->data);
-		if (ssp)
-			sspl = g_slist_prepend(sspl, ssp);
+	for (node = symbols_files; node; node = node->next) {
+		ss = get_locale_speech_symbols(locale, node->data);
+		if (!ss) {
+			MSG2(1, "symbols", "Failed to load symbols '%s' for locale '%s'",
+					   node->data, locale);
+		} else {
+			ssp = speech_symbols_processor_new(locale, ss);
+			if (ssp)
+				sspl = g_slist_prepend(sspl, ssp);
+		}
 	}
 
 	/* The elements are added to the start of the list for better speed (as
@@ -1048,7 +1011,10 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 		else
 			suffix = " ";
 
-		if (ssp->level >= sym->level && sym->replacement) {
+		if (sym->level > ssp->support_level) {
+			/* Leave it to the module */
+			g_string_append(result, capture);
+		} else if (ssp->level >= sym->level && sym->replacement) {
 			g_string_append_printf(result, "%s%s%s", prefix, sym->replacement, suffix);
 		} else {
 			g_string_append(result, suffix);
@@ -1075,7 +1041,7 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 }
 
 /* Processes some input and converts symbols in it */
-static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *input, SymLvl level, SPDDataMode ssml_mode)
+static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *input, SymLvl level, SymLvl support_level, SPDDataMode ssml_mode)
 {
 	gchar *text;
 	gchar *processed;
@@ -1091,6 +1057,7 @@ static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *i
 	for ( ; sspl; sspl = sspl->next) {
 		SpeechSymbolProcessor *ssp = sspl->data;
 		ssp->level = level;
+		ssp->support_level = support_level;
 		processed = g_regex_replace_eval(ssp->regex, text, -1, 0, 0, regex_eval, ssp, &error);
 		if (!processed) {
 			MSG2(1, "symbols", "ERROR applying regex: %s", error->message);
@@ -1119,13 +1086,13 @@ static GSList *get_locale_speech_symbols_processor(const gchar *locale)
 		G_processors = locale_map_new((GDestroyNotify) speech_symbols_processor_list_free);
 	}
 
-	return locale_map_fetch(G_processors, locale, speech_symbols_processor_list_new);
+	return locale_map_fetch(G_processors, locale, NULL, speech_symbols_processor_list_new);
 }
 
 /*----------------------------------- API -----------------------------------*/
 
 /* Process some text, converting symbols according to desired pronunciation. */
-static gchar *process_speech_symbols(const gchar *locale, const gchar *text, SymLvl level, SPDDataMode ssml_mode)
+static gchar *process_speech_symbols(const gchar *locale, const gchar *text, SymLvl level, SymLvl support_level, SPDDataMode ssml_mode)
 {
 	GSList *sspl;
 
@@ -1136,13 +1103,19 @@ static gchar *process_speech_symbols(const gchar *locale, const gchar *text, Sym
 	if (!sspl)
 		return NULL;
 
-	return speech_symbols_processor_process_text(sspl, text, level, ssml_mode);
+	return speech_symbols_processor_process_text(sspl, text, level, support_level, ssml_mode);
 }
 
-void insert_symbols(TSpeechDMessage *msg)
+void insert_symbols(TSpeechDMessage *msg, int punct_missing)
 {
 	gchar *processed;
 	SymLvl level = SYMLVL_NONE;
+	SymLvl support_level = msg->settings.symbols_preprocessing;
+
+	if (punct_missing && support_level < SYMLVL_ALL)
+		/* The user preferred to let some modules handle some punctuation,
+		 * but this module doesn't support it, so force handling it ourself. */
+		support_level = SYMLVL_ALL;
 
 	switch (msg->settings.msg_settings.punctuation_mode) {
 	case SPD_PUNCT_ALL: level = SYMLVL_ALL; break;
@@ -1150,20 +1123,23 @@ void insert_symbols(TSpeechDMessage *msg)
 	case SPD_PUNCT_SOME: level = SYMLVL_SOME; break;
 	}
 
+	if (msg->settings.type == SPD_MSGTYPE_CHAR)
+		level = SYMLVL_CHAR;
+
 	processed = process_speech_symbols(msg->settings.msg_settings.voice.language,
-					   msg->buf, level, msg->settings.ssml_mode);
+		msg->buf, level, support_level, msg->settings.ssml_mode);
 	if (processed) {
 		MSG2(5, "symbols", "before: |%s|", msg->buf);
 		g_free(msg->buf);
 		msg->buf = processed;
 		MSG2(5, "symbols", "after: |%s|", msg->buf);
-		if (punctuation_symbols_loaded)
+		if (support_level >= level)
 			/* if we performed the replacement, don't let the module speak it again */
 			msg->settings.msg_settings.punctuation_mode = SPD_PUNCT_NONE;
-		if (char_symbols_loaded)
-			/* if we provide a character description file, don't let the module spell it */
-			if (msg->settings.type == SPD_MSGTYPE_CHAR)
-				if (g_utf8_strlen(processed, -1) > 1)
-					msg->settings.type = SPD_MSGTYPE_TEXT;
+
+		/* if we provide a character description file, don't let the module spell it */
+		if (msg->settings.type == SPD_MSGTYPE_CHAR)
+			if (g_utf8_strlen(processed, -1) > 1)
+				msg->settings.type = SPD_MSGTYPE_TEXT;
 	}
 }
