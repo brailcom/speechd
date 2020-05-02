@@ -799,7 +799,6 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 				sym = speech_symbol_new();
 				sym->identifier = g_strdup(key);
 				g_hash_table_insert(ssp->symbols, sym->identifier, sym);
-				/* FIXME: should we use Unicode characters? */
 				if (strlen(sym->identifier) == 1) {
 					switch (sym->identifier[0]) {
 						case '-':
@@ -1109,6 +1108,10 @@ static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *i
 			MSG2(5, "symbols", "'%s' translated '%s' to '%s'", ssp->source, text, processed);
 			g_free(text);
 			text = processed;
+
+			if (level == SYMLVL_CHAR && g_utf8_strlen(processed, -1) > 1)
+				/* This translated it, avoid letting other rules continue expanding! */
+				break;
 		}
 	}
 
@@ -1170,6 +1173,7 @@ void insert_symbols(TSpeechDMessage *msg, int punct_missing)
 	if (msg->settings.type == SPD_MSGTYPE_CHAR)
 		level = SYMLVL_CHAR;
 
+	MSG2(5, "symbols", "processing at level %d", level);
 	processed = process_speech_symbols(msg->settings.msg_settings.voice.language,
 		msg->buf, level, support_level, msg->settings.ssml_mode);
 	if (processed) {
