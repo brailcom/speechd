@@ -80,6 +80,7 @@ sd_ibmtts_LDADD = $(top_builddir)/src/common/libcommon.la \
 
 if ibmtts_shim
 sd_ibmtts_LDADD += -L.
+sd_ibmtts_LDFLAGS = -Wl,-rpath=/opt/IBM/ibmtts/lib
 
 EXTRA_sd_ibmtts_DEPENDENCIES = libibmeci.so
 
