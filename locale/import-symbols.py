@@ -24,6 +24,7 @@
 from os import path
 import codecs
 from collections import OrderedDict
+from shutil import copy
 import csv
 import os
 
@@ -104,7 +105,7 @@ with open(unicodeDataPath, "r", newline='') as uDataFile:
 			fontVariantsDict[fontVariant] = pronouncedCharacter
 
 # Write the dictionary to en/font-variants.dic with documentation at the top
-with codecs.open("en/font-variants.dic", "w", "utf_8_sig", errors="replace") as dicFile:
+with codecs.open("base/font-variants.dic", "w", "utf_8_sig", errors="replace") as dicFile:
 	dicFile.write(docHeader)
 	dicFile.write(str(fontVariantsDict))
 
@@ -125,6 +126,7 @@ for NVDALang in os.listdir(NVDALocale):
 	with codecs.open(path.join(NVDALang, "symbols.dic"), "w", "utf_8_sig", errors="replace") as dicFile:
 		dicFile.write(docHeader)
 		dicFile.write(NVDADic)
+copy("en/symbols.dic", "base/symbols.dic")
 
 # Create all emojis dictionaries
 processedFiles = ["root.xml","en_001.xml","sr_Cyrl.xml","sr_Cyrl_BA.xml"] # To avoid creating too much directories when we process a file in a non-standard language

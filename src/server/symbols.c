@@ -942,16 +942,13 @@ static gpointer speech_symbols_processor_list_new(const char *locale)
 			sspl = g_slist_prepend(sspl, ssp);
 	}
 
-	/* Always use English as a base. */
-	if (locale[0] != 'e' || locale[1] != 'n' ||
-	    (locale[2] != '_' && locale[2] != '-' && locale[2] != 0)) {
-		ssl = get_locale_speech_symbols("en");
+	/* Always use the base. */
+	ssl = get_locale_speech_symbols("base");
 
-		for ( ; ssl; ssl = ssl->next) {
-			ssp = speech_symbols_processor_new("end", ssl->data);
-			if (ssp)
-				sspl = g_slist_prepend(sspl, ssp);
-		}
+	for ( ; ssl; ssl = ssl->next) {
+		ssp = speech_symbols_processor_new("base", ssl->data);
+		if (ssp)
+			sspl = g_slist_prepend(sspl, ssp);
 	}
 
 	/* The elements are added to the start of the list for better speed (as
