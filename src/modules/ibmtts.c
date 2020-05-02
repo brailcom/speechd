@@ -1107,7 +1107,7 @@ static void ibmtts_set_pitch(signed int pitch)
 
 static void ibmtts_set_punctuation_mode(SPDPunctuation punct_mode)
 {
-	const char *fmt = "`Pf%d%s";
+	const char *fmt = " `Pf%d%s ";
 	char *msg = NULL;
 	int real_punct_mode = 0;
 
