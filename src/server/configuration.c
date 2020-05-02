@@ -471,7 +471,7 @@ void load_default_global_set_options()
 {
 	GlobalFDSet.priority = SPD_MESSAGE;
 	GlobalFDSet.msg_settings.punctuation_mode = SPD_PUNCT_NONE;
-	GlobalFDSet.symbols_preprocessing = SYMLVL_CHAR;
+	GlobalFDSet.symbols_preprocessing = SYMLVL_NONE;
 	GlobalFDSet.msg_settings.spelling_mode = 0;
 	GlobalFDSet.msg_settings.rate = 0;
 	GlobalFDSet.msg_settings.pitch = 0;
