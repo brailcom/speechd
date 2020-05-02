@@ -18,7 +18,9 @@
 ## Process this file with automake to produce Makefile.in
 
 nobase_localedata_DATA = \
-	en/font-variants.dic \
+	base/font-variants.dic \
+	base/symbols.dic \
+	\
 	af/emojis.dic \
 	am/emojis.dic \
 	an/symbols.dic \
