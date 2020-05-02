@@ -149,7 +149,7 @@ SymLvl str2SymLvl(char *str)
 	SymLvl punct;
 
 	if (!strcmp(str, "no"))
-		punct = SYMLVL_INVALID;
+		punct = SYMLVL_NO;
 	else if (!strcmp(str, "none"))
 		punct = SYMLVL_NONE;
 	else if (!strcmp(str, "all"))
