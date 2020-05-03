@@ -78,7 +78,7 @@
 /* This denotes the position of some SSML tags */
 struct tags {
 	gsize pos;
-	gsize newpos;
+	gssize shift;
 	gchar *tags;
 };
 
@@ -320,7 +320,6 @@ static gchar *escape_ssml_text(const gchar *text, struct tags **tags_ret, gint *
 				if (!filling_tag) {
 					/* Note the tags position in the text */
 					tags[ntags].pos = str->len;
-					tags[ntags].newpos = str->len;
 					curtag = cur;
 					filling_tag = 1;
 				}
@@ -1175,11 +1174,8 @@ out:
 	/* content has grown (or shrunk) by this amount */
 	shift = (result->len - prevlen) - strlen(capture);
 
-	/* Update tags positions */
-	/* FIXME: only add up the shift, and apply them all inside speech_symbols_processor_process_text */
-	for ( ; nexttag < ssp->ntags; nexttag++) {
-		ssp->tags[nexttag].newpos = ssp->tags[nexttag].newpos + shift;
-	}
+	/* Update positions of tags beyond this */
+	ssp->tags[nexttag].shift += shift;
 
 	g_free(capture);
 
@@ -1207,7 +1203,7 @@ static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *i
 
 		if (ssml_mode == SPD_DATA_SSML) {
 			for (i = 0; i < ntags; i++)
-				tags[i].newpos = tags[i].pos;
+				tags[i].shift = 0;
 			ssp->tags = tags;
 			ssp->ntags = ntags;
 		}
@@ -1224,9 +1220,14 @@ static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *i
 			text = processed;
 
 			if (ssml_mode == SPD_DATA_SSML) {
+				/* This accumulates the shifts of all previous replacements */
+				gssize shift = 0;
+
 				/* Apply new tags positions */
-				for (i = 0; i < ntags; i++)
-					tags[i].pos = tags[i].newpos;
+				for (i = 0; i < ntags; i++) {
+					shift += tags[i].shift;
+					tags[i].pos += shift;
+				}
 			}
 
 			if (level == SYMLVL_CHAR && g_utf8_strlen(processed, -1) > 1)
