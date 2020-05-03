@@ -7,46 +7,32 @@
 # This file is distributed under the same license as the orca package.
 
 
-¢	เซ็นต์	none
-£	ปอนด์	none
-¥	เยน	none
-§	หัวข้อ	none
-©	ลิขสิทธิ์	none
+←	left arrow	none
+→	right arrow	none
 «	วงเล็บแหลมคู่เปิด	none
-¬	นิเสธ	none
-®	จดทะเบียน	none
-°	องศา	none
-±	บวกลบ	none
 »	วงเล็บแหลมคู่ปิด	none
+·	จุดกลาง	none
+•	bullet	none
+‣	bullet สามเหลี่ยม	none
+⁃	bullet ยัติภังค์	none
+■	สี่เหลี่ยมทึบ	none
+□	white square	none
+◦	white bullet	none
+○	white circle	none
+◆	ข้าวหลามตัดทึบ	none
+●	black circle	none
+✓	ถูก	none
+✔	ถูกหนา	none
+✗	bullet รูปกากบาท	none
+➔	right-pointing arrow	none
+➢	right-pointing arrowhead	none
+
+	สี่เหลี่ยมทึบ	none
+	ข้าวหลามตัดทึบ	none
+
 ¼	หนึ่งในสี่	none
 ½	ครึ่งหนึ่ง	none
 ¾	สามในสี่	none
-×	คูณ	none
-÷	หาร	none
-–	en dash	none
-‘	อัญประกาศเดี่ยวเปิด	none
-’	อัญประกาศเดี่ยวปิด	none
-‚	อัญประกาศเดี่ยวล่าง	none
-“	อัญประกาศเปิด	none
-”	อัญประกาศปิด	none
-„	อัญประกาศล่าง	none
-†	dagger	none
-‡	double dagger	none
-‰	เปอร์มิลล์	none
-′	ไพรม์	none
-″	ดับเบิลไพรม์	none
-€	ยูโร	none
-™	เครื่องหมายการค้า	none
-
-←	left arrow	none
-→	right arrow	none
-∞	อนันต์	none
-≈	ประมาณ	none
-≠	ไม่เท่ากับ	none
-≤	น้อยกว่าหรือเท่ากับ	none
-≥	มากกว่าหรือเท่ากับ	none
-√	รากที่สอง	none
-∛	รากที่สาม	none
 
 ⁰	superscript 0	none
 ¹	ยกกำลังหนึ่ง	none

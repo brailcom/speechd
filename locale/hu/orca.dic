@@ -7,46 +7,32 @@
 # This file is distributed under the same license as the orca package.
 
 
-¢	cent	none
-£	font	none
-¥	jen	none
-§	szakasz	none
-©	copyright-jel	none
+←	balra nyíl	none
+→	jobbra nyíl	none
 «	belső bal idézőjel	none
-¬	logikai nem	none
-®	bejegyzettvédjegy-jel	none
-°	fok	none
-±	pluszminusz	none
 »	belső jobb idézőjel	none
+·	középső pont	none
+•	listajel	none
+‣	háromszög listajel	none
+⁃	kötőjel listajel	none
+■	fekete négyzet	none
+□	üres négyzet	none
+◦	üres listajel	none
+○	üres kör	none
+◆	fekete káró	none
+●	fekete kör	none
+✓	pipa	none
+✔	vastag pipa	none
+✗	x formájú listajel	none
+➔	jobbra mutató nyíl	none
+➢	jobbra mutató nyílhegy	none
+
+	fekete négyzet	none
+	fekete káró	none
+
 ¼	negyed	none
 ½	fél	none
 ¾	háromnegyed	none
-×	szor	none
-÷	osztva	none
-–	Gondolatjel	none
-‘	bal oldali idézőjel	none
-’	jobb oldali idézőjel	none
-‚	idézőjel	none
-“	idézőjel	none
-”	idézőjel	none
-„	idézőjel	none
-†	kereszt	none
-‡	kettős kereszt	none
-‰	ezrelék	none
-′	aposztróf	none
-″	dupla aposztróf	none
-€	euró	none
-™	védjegy	none
-
-←	left arrow	none
-→	right arrow	none
-∞	infinity	none
-≈	almost equal to	none
-≠	not equal to	none
-≤	less than or equal to	none
-≥	greater than or equal to	none
-√	square root	none
-∛	cube root	none
 
 ⁰	felső index 0	none
 ¹	felső index 1	none

@@ -4,51 +4,38 @@
 #
 # We here list them with the 'C' translation, as seen in ./src/orca/chnames.py
 # or .src/orca/mathsymbols.py, which allows to fetch the translations in all
-# languages with gettext
+# languages with gettext.
 # 
 # Format:
 # character\ttranslation
 
-¢	cents
-£	pounds
-¥	yen
-§	section
-©	copyright
+←	math symbol left arrow
+→	math symbol right arrow
 «	left double angle bracket
-¬	logical not
-®	registered
-°	degrees
-±	plus or minus
 »	right double angle bracket
+·	middle dot
+•	bullet
+‣	triangular bullet
+⁃	hyphen bullet
+■	black square
+□	math symbol white square
+◦	math symbol white bullet
+○	math symbol white circle
+◆	black diamond
+●	math symbol black circle
+✓	check mark
+✔	heavy check mark
+✗	x-shaped bullet
+➔	math symbol right-pointing arrow
+➢	math symbol right-pointing arrowhead
+
+# Libreoffice private-use characters
+	black square
+	black diamond
+
 ¼	one fourth
 ½	one half
 ¾	three fourths
-×	times
-÷	divided by
-–	en dash
-‘	left single quote
-’	right single quote
-‚	single low quote
-“	left double quote
-”	right double quote
-„	double low quote
-†	dagger
-‡	double dagger
-‰	per mille
-′	prime
-″	double prime
-€	euro
-™	trademark
-
-←	left arrow
-→	right arrow
-∞	infinity
-≈	almost equal to
-≠	not equal to
-≤	less than or equal to
-≥	greater than or equal to
-√	square root
-∛	cube root
 
 ⁰	superscript 0
 ¹	superscript 1

@@ -7,46 +7,32 @@
 # This file is distributed under the same license as the orca package.
 
 
-¢	centavos	none
-£	libras	none
-¥	yen	none
-§	sección	none
-©	copyright	none
+←	flecha izquierda	none
+→	flecha derecha	none
 «	abre comillas angulares	none
-¬	no lógico	none
-®	registrado	none
-°	grados	none
-±	más o menos	none
 »	cierra comillas angulares	none
+·	punto centrado	none
+•	viñeta	none
+‣	viñeta triangular	none
+⁃	guión de viñeta	none
+■	cuadrado tachado	none
+□	cuadrado en blanco	none
+◦	viñeta blanca	none
+○	círculo en blanco	none
+◆	rombo	none
+●	círculo negro	none
+✓	marca	none
+✔	marca fuerte	none
+✗	viñeta marcada con x	none
+➔	flecha apuntando a la derecha	none
+➢	flecha apuntando hacia la derecha	none
+
+	cuadrado tachado	none
+	rombo	none
+
 ¼	un cuarto	none
 ½	un medio	none
 ¾	tres cuartos	none
-×	por	none
-÷	dividido por	none
-–	guión alto	none
-‘	abre comilla simple	none
-’	abre comilla simple	none
-‚	comilla inferior simple	none
-“	abre comilla doble	none
-”	cierra comilla doble	none
-„	doble comilla inferior	none
-†	cruz	none
-‡	DOBLE CRUZ	none
-‰	por milla	none
-′	primo	none
-″	primo doble	none
-€	euro	none
-™	marca registrada	none
-
-←	left arrow	none
-→	right arrow	none
-∞	infinity	none
-≈	almost equal to	none
-≠	not equal to	none
-≤	less than or equal to	none
-≥	greater than or equal to	none
-√	square root	none
-∛	cube root	none
 
 ⁰	0 superíndice	none
 ¹	1 superíndice	none

@@ -7,46 +7,32 @@
 # This file is distributed under the same license as the orca package.
 
 
-¢	cents	none
-£	livre	none
-¥	yen	none
-§	paragraphe	none
-©	copyright	none
+←	flèche vers la gauche	none
+→	flèche vers la droite	none
 «	guillemet français ouvrant	none
-¬	négation logique	none
-®	marque déposée	none
-°	degrés	none
-±	plus ou moins	none
 »	guillemet français fermant	none
+·	point médian	none
+•	puce	none
+‣	puce triangulaire	none
+⁃	tiret	none
+■	carré noir	none
+□	carré blanc	none
+◦	petit cercle blanc	none
+○	cercle blanc	none
+◆	losange noir	none
+●	cercle noir	none
+✓	signe de vérification	none
+✔	gros signe de vérification	none
+✗	puce en forme de x	none
+➔	flèche vers la droite	none
+➢	pointe de flèche vers la droite	none
+
+	carré noir	none
+	losange noir	none
+
 ¼	un quart	none
 ½	un demi	none
 ¾	trois quarts	none
-×	fois	none
-÷	divisé par	none
-–	tiret cadratin	none
-‘	guillemet simple ouvrant	none
-’	guillemet simple fermant	none
-‚	guillemet bas simple	none
-“	guillemet double ouvrant	none
-”	guillemet double fermant	none
-„	guillemet bas double	none
-†	obèle	none
-‡	double obèle	none
-‰	pour mille	none
-′	prime	none
-″	double prime	none
-€	euro	none
-™	marque déposée	none
-
-←	left arrow	none
-→	right arrow	none
-∞	infinity	none
-≈	almost equal to	none
-≠	not equal to	none
-≤	less than or equal to	none
-≥	greater than or equal to	none
-√	square root	none
-∛	cube root	none
 
 ⁰	exposant 0	none
 ¹	exposant 1	none
