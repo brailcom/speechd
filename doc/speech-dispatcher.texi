@@ -1874,9 +1874,9 @@ Dispatcher in its configuration (``flite'', ``festival'',  ``espeak''... )
 @findex spd_set_punctuation()
 
 Set punctuation mode to the given value.  `all' means speak all
-punctuation characters, `none' menas speak no punctuation characters,
-`some' means speak only punctuation characters given in the server
-configuration or defined by the client's last spd_set_punctuation_important().
+punctuation characters, `none' means speak no punctuation characters,
+`some' and `most' mean speak intermediate sets of punctuation characters as
+set in symbols tables or output modules.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 

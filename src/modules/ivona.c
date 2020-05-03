@@ -611,6 +611,10 @@ static void ivona_set_punctuation_mode(SPDPunctuation punct_mode)
 	case SPD_PUNCT_ALL:
 		ivona_punct_mode = 2;
 		break;
+	case SPD_PUNCT_MOST:
+		/* XXX approximation */
+		ivona_punct_mode = 1;
+		break;
 	case SPD_PUNCT_SOME:
 		ivona_punct_mode = 1;
 		break;

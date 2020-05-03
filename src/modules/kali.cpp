@@ -431,6 +431,10 @@ void kali_set_punctuation_mode(SPDPunctuation punct)
 	case SPD_PUNCT_SOME:
 		SetModeLectureKali(2);
 		break;
+	case SPD_PUNCT_MOST:
+		/* XXX approximation */
+		SetModeLectureKali(2);
+		break;
 	case SPD_PUNCT_ALL:
 		SetModeLectureKali(3);
 		break;

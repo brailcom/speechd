@@ -949,11 +949,11 @@ Hello world!
 .
 @end example
 
-@item SET @{ all | self | @var{id} @} PUNCTUATION @{ all | some | none @}
+@item SET @{ all | self | @var{id} @} PUNCTUATION @{ all | most | some | none @}
 Set punctuation mode to the given value.  @code{all} means speak all
 punctuation characters, @code{none} means speak no punctuation characters,
-@code{some} means speak only punctuation characters set in the synthesizer's
-configuration.
+@code{some} and @code{most} mean speak only intermediate sets of punctuation
+characters defined in the synthesizer's configuration or symbols files.
 The default for the Speech Dispatcher implementation of SSIP
 is determined by the @code{DefaultPunctuationMode} setting in the
 @code{speechd.conf} file.  The factory default is @code{none}.

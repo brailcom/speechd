@@ -1089,11 +1089,11 @@ Hello world!
 </pre></div>
 
 </dd>
-<dt><code>SET { all | self | <var>id</var> } PUNCTUATION { all | some | none }</code></dt>
+<dt><code>SET { all | self | <var>id</var> } PUNCTUATION { all | most | some | none }</code></dt>
 <dd><p>Set punctuation mode to the given value.  <code>all</code> means speak all
 punctuation characters, <code>none</code> means speak no punctuation characters,
-<code>some</code> means speak only punctuation characters set in the synthesizer&rsquo;s
-configuration.
+<code>some</code> and <code>most</code> mean speak only intermediate sets of punctuation
+characters defined in the synthesizer&rsquo;s configuration or symbols files.
 The default for the Speech Dispatcher implementation of SSIP
 is determined by the <code>DefaultPunctuationMode</code> setting in the
 <code>speechd.conf</code> file.  The factory default is <code>none</code>.

@@ -1118,6 +1118,10 @@ static void ibmtts_set_punctuation_mode(SPDPunctuation punct_mode)
 	case SPD_PUNCT_SOME:
 		real_punct_mode = 2;
 		break;
+	case SPD_PUNCT_MOST:
+		/* XXX approximation */
+		real_punct_mode = 2;
+		break;
 	case SPD_PUNCT_ALL:
 		real_punct_mode = 1;
 		break;

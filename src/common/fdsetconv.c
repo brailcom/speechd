@@ -103,6 +103,9 @@ char *EPunctMode2str(SPDPunctuation punct)
 	case SPD_PUNCT_SOME:
 		str = g_strdup("some");
 		break;
+	case SPD_PUNCT_MOST:
+		str = g_strdup("most");
+		break;
 	default:
 		str = NULL;
 	}
@@ -120,6 +123,8 @@ SPDPunctuation str2EPunctMode(char *str)
 		punct = SPD_PUNCT_ALL;
 	else if (!strcmp(str, "some"))
 		punct = SPD_PUNCT_SOME;
+	else if (!strcmp(str, "most"))
+		punct = SPD_PUNCT_MOST;
 	else
 		punct = -1;
 

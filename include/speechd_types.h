@@ -24,7 +24,8 @@
 typedef enum {
 	SPD_PUNCT_ALL = 0,
 	SPD_PUNCT_NONE = 1,
-	SPD_PUNCT_SOME = 2
+	SPD_PUNCT_SOME = 2,
+	SPD_PUNCT_MOST = 3
 } SPDPunctuation;
 
 typedef enum {
