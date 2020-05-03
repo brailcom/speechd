@@ -35,14 +35,21 @@ EOF
 		IFS=$'\t'
 		( while read sym C_version
 		do
+			CTX=""
 			case "$sym" in
 				\#*) continue ;;
 			esac
 			case "$C_version" in
 				'') echo ; continue ;;
 			esac
+			case "$C_version" in
+				math\ symbol*)
+					CTX="--context=math symbol"
+					C_version=${C_version#math symbol }
+					;;
+			esac
 
-			translation=`LANGUAGE="$lang" gettext -d orca "$C_version"`
+			translation=`LANGUAGE="$lang" gettext -d orca $CTX "$C_version"`
 
 			printf "%s\t%s\tnone\n" "$sym" "$translation"
 		done ) < orca.sym

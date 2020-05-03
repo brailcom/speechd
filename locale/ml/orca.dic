@@ -7,46 +7,32 @@
 # This file is distributed under the same license as the orca package.
 
 
-¢	സെന്റ്സ് (¢)	none
-£	പൊണ്ട്സ് (£)	none
-¥	യെന്‍	none
-§	വിഭാഗം	none
-©	പകര്‍പ്പവകാശം	none
+←	left arrow	none
+→	right arrow	none
 «	ഇടത് ഡബിള്‍ ആങ്കിള്‍ ബ്രാക്കെറ്റ് (<< (U+00ab) എന്ന അക്ഷരം)	none
-¬	ലോജിക്കല്‍ നോട്ട് ('¬' (U+00ac) എന്ന അക്ഷരം)	none
-®	രജിസ്ടേര്‍ഡ് (® എന്ന ചിഹ്നം)	none
-°	ഡിഗ്രീസ്	none
-±	പ്ലസ് അല്ലെങ്കില്‍ മൈനസ്	none
 »	വലത് ഡബിള്‍ ആങ്കിള്‍ ബ്രാക്കെറ്റ് (>> (U+00bb) എന്ന അക്ഷരം)	none
+·	നടുക്കുള്ള കുത്ത്	none
+•	•	none
+‣	ത്രികോണ ബുള്ളറ്റ് ('‣' (U+2023) എന്ന അക്ഷരം)	none
+⁃	ഹൈഫെന്‍ ബുള്ളെറ്റ് ( '⁃' (U+2043) എന്ന അക്ഷരം)	none
+■	കറുത്ത സമചതുരം ( '■' (U+25a0) എന്ന അക്ഷരം)	none
+□	white square	none
+◦	white bullet	none
+○	white circle	none
+◆	കറുത്ത ഡയമണ്ഡ് ( '◆' (U+25c6) എന്ന അക്ഷരം)	none
+●	black circle	none
+✓	ചെക്ക് മാര്‍ക്ക് (✓)	none
+✔	 ('✔' (U+2714) എന്ന അക്ഷരം)	none
+✗	x-രീതിയിലുള്ള ബുള്ളെറ്റ് ( 'x' (U+2717) എന്ന അക്ഷരം)	none
+➔	right-pointing arrow	none
+➢	right-pointing arrowhead	none
+
+	കറുത്ത സമചതുരം ( '■' (U+25a0) എന്ന അക്ഷരം)	none
+	കറുത്ത ഡയമണ്ഡ് ( '◆' (U+25c6) എന്ന അക്ഷരം)	none
+
 ¼	കാല്‍ഭാഗം	none
 ½	പകുതിഭാഗം	none
 ¾	മൂന്നില്‍ ഒന്നു്	none
-×	എത്ര തവണ 	none
-÷	÷	none
-–	en dash	none
-‘	'	none
-’	'	none
-‚	,	none
-“	ഇടത് ഡബിള്‍ ക്വോട്ട് ( '“' (U+201c) എന്ന അക്ഷരം)	none
-”	വലത് ഡബിള്‍ ക്വോട്ട് ( '”' (U+201d) എന്ന അക്ഷരം)	none
-„	„	none
-†	ഡാഗ്ഗര്‍ (†)	none
-‡	‡	none
-‰	പെര്‍ മില്ലി ( '‰' (U+2030) എന്ന അക്ഷരം)	none
-′	പ്രൈം (′)	none
-″	ഡബിള്‍ പ്രൈം ( '″' (U+2033) എന്ന അക്ഷരം)	none
-€	 യൂറോ (  '€' (U+20ac) എന്ന അക്ഷരം)	none
-™	ട്രേഡ്മാര്‍ക്ക് ( '™' (U+2122) എന്ന അക്ഷരം)	none
-
-←	left arrow	none
-→	right arrow	none
-∞	infinity	none
-≈	almost equal to	none
-≠	not equal to	none
-≤	less than or equal to	none
-≥	greater than or equal to	none
-√	square root	none
-∛	cube root	none
 
 ⁰	സൂപര്‍സ്ക്രിപ്ട് 0	none
 ¹	സൂപ്പര്‍സ്ക്രിപ്റ്റ് 1	none

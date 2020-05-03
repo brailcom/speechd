@@ -7,46 +7,32 @@
 # This file is distributed under the same license as the orca package.
 
 
-¢	cent	none
-£	pund	none
-¥	yen	none
-§	sektion	none
-©	copyright	none
+←	pil venstre	none
+→	pil højre	none
 «	dobbelt mindre end tegn	none
-¬	logisk ikke	none
-®	registreret	none
-°	grader	none
-±	plus minus	none
 »	dobbelt større end tegn	none
+·	prik	none
+•	punkt	none
+‣	trekantet punkt	none
+⁃	bindestregspunkt	none
+■	sort firkant	none
+□	hvid firkant	none
+◦	hvidt punkt	none
+○	hvid cirkel	none
+◆	sort diamand	none
+●	sort cirkel	none
+✓	afkrydsnings v	none
+✔	fedt afkrydsnings v	none
+✗	krydsformet punkt	none
+➔	højrepegende pil	none
+➢	højrepegende pilehoved	none
+
+	sort firkant	none
+	sort diamand	none
+
 ¼	en fjerdedel	none
 ½	en halv	none
 ¾	tre fjerdedele	none
-×	gange	none
-÷	divideret med	none
-–	N tankestreg	none
-‘	venstre enkelt citationstegn	none
-’	højre enkelt citationstegn	none
-‚	enkelt lavt citationstegn	none
-“	venstre dobbelt citationstegn	none
-”	højre dobbelt citationstegn	none
-„	dobbelt lavt citationstegn	none
-†	daggert	none
-‡	dobbelt daggert	none
-‰	promille	none
-′	mærke	none
-″	dobbeltmærke	none
-€	euro	none
-™	varemærke	none
-
-←	left arrow	none
-→	right arrow	none
-∞	infinity	none
-≈	almost equal to	none
-≠	not equal to	none
-≤	less than or equal to	none
-≥	greater than or equal to	none
-√	square root	none
-∛	cube root	none
 
 ⁰	hævet 0	none
 ¹	hævet 1	none

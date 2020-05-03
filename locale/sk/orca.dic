@@ -7,46 +7,32 @@
 # This file is distributed under the same license as the orca package.
 
 
-¢	cent	none
-£	libra	none
-¥	jen	none
-§	paragraf	none
-©	kopirajt	none
+←	šípka doľava	none
+→	šípka doprava	none
 «	dvojitá lomená zátvorka	none
-¬	logický zápor	none
-®	registrované	none
-°	stupňov	none
-±	plus mínus	none
 »	dvojitá lomená zatvoriť	none
+·	bodka v prostriedku	none
+•	odrážka	none
+‣	trojuhoľníková odrážka	none
+⁃	odrážka v tvare pomlčky	none
+■	čierny štvorec	none
+□	biely štvorec	none
+◦	odrážka v tvare bielej bodky	none
+○	biely kruh	none
+◆	čierny diamant	none
+●	čierny kruh	none
+✓	zaškrtnutie	none
+✔	tučné zaškrtnutie	none
+✗	odrážka v tvare x	none
+➔	šípka ukazujúca doprava	none
+➢	hrot šípky ukazujúcej vpravo	none
+
+	čierny štvorec	none
+	čierny diamant	none
+
 ¼	štvrtina	none
 ½	polovica	none
 ¾	tri štvrtiny	none
-×	krát	none
-÷	deleno	none
-–	pomlčka	none
-‘	horné jednoduché úvodzovky	none
-’	odsuvník	none
-‚	dolné jednoduché úvodzovky	none
-“	horné úvodzovky	none
-”	dvojitá horná opačná úvodzovka	none
-„	dolné úvodzovky	none
-†	kríž	none
-‡	dvojkríž	none
-‰	promile	none
-′	prime	none
-″	double prime	none
-€	euro	none
-™	ochranná známka	none
-
-←	left arrow	none
-→	right arrow	none
-∞	infinity	none
-≈	almost equal to	none
-≠	not equal to	none
-≤	less than or equal to	none
-≥	greater than or equal to	none
-√	square root	none
-∛	cube root	none
 
 ⁰	horný index 0	none
 ¹	horný index 1	none
