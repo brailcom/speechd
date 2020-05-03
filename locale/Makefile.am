@@ -133,6 +133,85 @@ nobase_localedata_DATA = \
 	zh_TW/emojis.dic \
 	zu/emojis.dic \
 	\
+	an/orca.dic \
+	ar/orca.dic \
+	ast/orca.dic \
+	base/orca.dic \
+	be/orca.dic \
+	bg/orca.dic \
+	bn/orca.dic \
+	bn_IN/orca.dic \
+	bs/orca.dic \
+	ca/orca.dic \
+	ca@valencia/orca.dic \
+	cs/orca.dic \
+	cy/orca.dic \
+	da/orca.dic \
+	de/orca.dic \
+	dz/orca.dic \
+	el/orca.dic \
+	en_CA/orca.dic \
+	en_GB/orca.dic \
+	eo/orca.dic \
+	es/orca.dic \
+	et/orca.dic \
+	eu/orca.dic \
+	fi/orca.dic \
+	fr/orca.dic \
+	fur/orca.dic \
+	ga/orca.dic \
+	gl/orca.dic \
+	gu/orca.dic \
+	he/orca.dic \
+	hi/orca.dic \
+	hr/orca.dic \
+	hu/orca.dic \
+	id/orca.dic \
+	is/orca.dic \
+	it/orca.dic \
+	ja/orca.dic \
+	kk/orca.dic \
+	kn/orca.dic \
+	ko/orca.dic \
+	lt/orca.dic \
+	lv/orca.dic \
+	mai/orca.dic \
+	mk/orca.dic \
+	ml/orca.dic \
+	mr/orca.dic \
+	ms/orca.dic \
+	nb/orca.dic \
+	ne/orca.dic \
+	nl/orca.dic \
+	nn/orca.dic \
+	oc/orca.dic \
+	or/orca.dic \
+	pa/orca.dic \
+	pl/orca.dic \
+	pt/orca.dic \
+	pt_BR/orca.dic \
+	ro/orca.dic \
+	ru/orca.dic \
+	rw/orca.dic \
+	si/orca.dic \
+	sk/orca.dic \
+	sl/orca.dic \
+	sq/orca.dic \
+	sr/orca.dic \
+	sr@latin/orca.dic \
+	sv/orca.dic \
+	ta/orca.dic \
+	te/orca.dic \
+	tg/orca.dic \
+	th/orca.dic \
+	tr/orca.dic \
+	ug/orca.dic \
+	uk/orca.dic \
+	vi/orca.dic \
+	zh_CN/orca.dic \
+	zh_HK/orca.dic \
+	zh_TW/orca.dic \
+	\
 	an/symbols.dic \
 	ar/symbols.dic \
 	bg/symbols.dic \
@@ -221,6 +300,7 @@ ES_419_CLDR = \
 
 import-symbols:
 	./import-symbols.py
+	./import-orca
 
 install-data-hook:
 	for lang419 in $(ES_419_CLDR) ; do \
