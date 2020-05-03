@@ -1011,6 +1011,30 @@ enum group {
 	COMPLEX,
 };
 
+/* Look for the first block of tags strictly after pos, among tags between firsttag and lasttag */
+static gint find_nexttag(struct tags *tags, gint pos, gint firsttag, gint endtag)
+{
+	gint middletag;
+
+	if (endtag == firsttag)
+		/* None here */
+		return endtag;
+
+	if (tags[firsttag].pos > pos)
+		/* That's it already */
+		return firsttag;
+
+	middletag = (firsttag + 1 + endtag) / 2;
+	if (middletag == endtag)
+		/* None */
+		return endtag;
+
+	if (tags[middletag].pos > pos)
+		return find_nexttag(tags, pos, firsttag, middletag);
+	else
+		return find_nexttag(tags, pos, middletag, endtag);
+}
+
 /* Regular expression callback for applying replacements */
 static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpointer user_data)
 {
@@ -1057,8 +1081,9 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 
 	g_match_info_fetch_pos(match_info, 0, &start, &end);
 
-	/* FIXME: use bsearch */
-	for (nexttag = 0; nexttag < ssp->ntags; nexttag++) {
+	nexttag = find_nexttag(ssp->tags, start, 0, ssp->ntags);
+
+	if (nexttag < ssp->ntags) {
 		gint pos = ssp->tags[nexttag].pos;
 		if (start < pos && pos < end) {
 			group_0 = g_match_info_fetch(match_info, 0);
@@ -1072,10 +1097,6 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 
 			return FALSE;
 		}
-
-		if (pos >= end)
-			/* tags after this will get shifted */
-			break;
 	}
 
 	/* Ok, now replace */
