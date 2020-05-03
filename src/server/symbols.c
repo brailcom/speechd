@@ -1221,8 +1221,9 @@ out:
 	/* content has grown (or shrunk) by this amount */
 	shift = (result->len - prevlen) - strlen(capture);
 
-	/* Update positions of tags beyond this */
-	ssp->tags[nexttag].shift += shift;
+	if (nexttag < ssp->ntags)
+		/* Update positions of tags beyond this */
+		ssp->tags[nexttag].shift += shift;
 
 	g_free(capture);
 
@@ -1253,7 +1254,8 @@ static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *i
 				tags[i].shift = 0;
 			ssp->tags = tags;
 			ssp->ntags = ntags;
-		}
+		} else
+			ssp->ntags = 0;
 
 		ssp->level = level;
 		ssp->support_level = support_level;
