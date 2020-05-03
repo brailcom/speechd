@@ -75,6 +75,13 @@
 #include <spd_utils.h>
 #include "symbols.h"
 
+/* This denotes the position of some SSML tags */
+struct tags {
+	gsize pos;
+	gsize newpos;
+	gchar *tags;
+};
+
 /* Speech symbol preserve modes */
 typedef enum {
 	SYMPRES_INVALID = -1,
@@ -117,6 +124,10 @@ typedef struct {
 /* Represents a loaded and cached set of symbols in a usable form */
 typedef struct {
 	gchar *source;
+
+	struct tags *tags; /* tags attached to the text */
+	gint ntags; /* number of elements in tags array */
+
 	GRegex *regex; /* compiled regular expression for parsing input */
 	/* Table of identifier(string):symbol(SpeechSymbol).
 	 * Indexes are pointers to symbol->identifier. */
@@ -228,76 +239,51 @@ static gpointer locale_map_fetch(LocaleMap *map, const gchar *locale, const gcha
 /*
  * We need not ever speak the SSML syntax, so we need to skip the tags.
  *
- * To easily hide them from the dictionary rules, we turn all bytes xXY of the
- * tags into the private-use unicode characters U+E0XY, so we can easily turn
- * them back to xXY after applying the dictionary rules.
+ * For lookbehind and lookahead rules to be able to run, we have to really
+ * remove the tags from the text, but we want to remember where they were.
+ *
+ * We thus build an array of the positions of the tags, that the replacement
+ * function will update, so we know where to put back the tags.
+ *
+ * Alongside, we also have to untranslate/translate the xml entities for tag characters.
  */
 
-/* Replace tags with U+E0XY equivalents */
-static gchar *escape_ssml_text(const gchar *text)
+/* Move tags off from the text */
+static gchar *escape_ssml_text(const gchar *text, struct tags **tags_ret, gint *ntags_ret)
 {
+	const gchar *cur, *curtag;
+	struct tags *tags;
 	GString *str;
-	const gchar *cur;
 	gchar *result;
-	int in_tag = 0;		/* Whether we are within a tag */
-	int in_apos = 0;	/* Whether we are within a '' string in a tag */
-	int in_quote = 0;	/* Whether we are within a "" string in a tag */
 
-	str = g_string_sized_new(strlen(text));
+	int filling_tag;	/* Whether we are stack tags, or text */
+	int in_tag;		/* Whether we are within a tag */
+	int in_apos;		/* Whether we are within a '' string in a tag */
+	int in_quote;		/* Whether we are within a "" string in a tag */
+	gint ntags;
+
+	/* First count how many blocks of tags we will have */
+	filling_tag = 0;
+	in_tag = 0;
+	in_apos = 0;
+	in_quote = 0;
+	ntags = 0;
 
 	for (cur = text; *cur; cur++) {
 		guchar c = *cur;
-
-		if (c == 0xee) {
-			guchar c2 = *(cur+1);
-			/* Already some U+Exxx ?! Drop it off */
-			if (c2) {
-				cur++;
-				guchar c3 = *(cur+1);
-				if (c3) {
-					guint uc = 0xe000 | ((c2 & 0x3f) << 6) | (c3 & 0x3f);
-					MSG2(4, "symbols", "Input contains an U+%4x character!", uc);
-					cur++;
-				}
-				else MSG2(4, "symbols", "Input contains an unterminated U+Exxx character!");
-			} else MSG2(4, "symbols", "Input contains an unterminated U+Exxx character!");
-			continue;
-		}
-
+	
 		if (!in_tag) {
 			if (c == '<') {
 				in_tag = 1;
-				/* And translate it */
-			} else if (c == '&') {
-				/* Unescape ssml character sequences */
-				if (!strncmp(cur, "&quot;", 6)) {
-					cur += 5;
-					g_string_append_c(str, '"');
-				} else if (!strncmp(cur, "&apos;", 6)) {
-					cur += 5;
-					g_string_append_c(str, '\'');
-				} else if (!strncmp(cur, "&lt;", 4)) {
-					cur += 3;
-					g_string_append_c(str, '<');
-				} else if (!strncmp(cur, "&gt;", 4)) {
-					cur += 3;
-					g_string_append_c(str, '>');
-				} else if (!strncmp(cur, "&amp;", 5)) {
-					cur += 4;
-					g_string_append_c(str, '&');
-				} else
-					g_string_append_c(str, c);
+				if (!filling_tag) {
+					ntags++;
+					filling_tag = 1;
+				}
 			} else {
-				/* Pure text, append as such */
-				g_string_append_c(str, c);
+				/* Some text, switch to text */
+				filling_tag = 0;
 			}
-		}
-		if (in_tag) {
-			/* Tag bytes, append as U+E0XY */
-			g_string_append_c(str, 0xee);
-			g_string_append_c(str, 0x80 | (c >> 6));
-			g_string_append_c(str, 0x80 | (c & 0x3f));
-
+		} else {
 			if (in_apos) {
 				if (c == '\'')
 					in_apos = 0;
@@ -308,12 +294,92 @@ static gchar *escape_ssml_text(const gchar *text)
 				in_apos = 1;
 			} else if (c == '"') {
 				in_quote = 1;
-			} else {
-				if (c == '>')
-					in_tag = 0;
+			} else if (c == '>') {
+				in_tag = 0;
 			}
 		}
 	}
+
+	/* We can now allocate the array of blocks of tags and restart over, this time filling text and tags */
+	tags = malloc(ntags * sizeof(*tags));
+
+	filling_tag = 0;
+	in_tag = 0;
+	in_apos = 0;
+	in_quote = 0;
+	ntags = 0;
+
+	str = g_string_sized_new(strlen(text));
+
+	for (cur = text; *cur; cur++) {
+		guchar c = *cur;
+
+		if (!in_tag) {
+			if (c == '<') {
+				in_tag = 1;
+				if (!filling_tag) {
+					/* Note the tags position in the text */
+					tags[ntags].pos = str->len;
+					tags[ntags].newpos = str->len;
+					curtag = cur;
+					filling_tag = 1;
+				}
+			} else {
+				if (filling_tag) {
+					/* Some text, dump the tags and switch to text */
+					tags[ntags].tags = g_strndup(curtag, cur - curtag);
+					ntags++;
+					filling_tag = 0;
+				}
+
+				if (c == '&') {
+					/* Unescape ssml character sequences */
+					if (!strncmp(cur, "&quot;", 6)) {
+						cur += 5;
+						g_string_append_c(str, '"');
+					} else if (!strncmp(cur, "&apos;", 6)) {
+						cur += 5;
+						g_string_append_c(str, '\'');
+					} else if (!strncmp(cur, "&lt;", 4)) {
+						cur += 3;
+						g_string_append_c(str, '<');
+					} else if (!strncmp(cur, "&gt;", 4)) {
+						cur += 3;
+						g_string_append_c(str, '>');
+					} else if (!strncmp(cur, "&amp;", 5)) {
+						cur += 4;
+						g_string_append_c(str, '&');
+					} else
+						g_string_append_c(str, c);
+				} else {
+					/* Pure text, append as such */
+					g_string_append_c(str, c);
+				}
+			}
+		} else {
+			if (in_apos) {
+				if (c == '\'')
+					in_apos = 0;
+			} else if (in_quote) {
+				if (c == '"')
+					in_quote = 0;
+			} else if (c == '\'') {
+				in_apos = 1;
+			} else if (c == '"') {
+				in_quote = 1;
+			} else if (c == '>') {
+				in_tag = 0;
+			}
+		}
+	}
+	/* Trailing tags content */
+	if (filling_tag) {
+		tags[ntags].tags = g_strndup(curtag, cur - curtag);
+		ntags++;
+	}
+
+	*tags_ret = tags;
+	*ntags_ret = ntags;
 
 	result = str->str;
 	g_string_free(str, FALSE);
@@ -321,86 +387,51 @@ static gchar *escape_ssml_text(const gchar *text)
 	return result;
 }
 
-/* To make matching ^ and $ easier, just split string into the heading XML tags,
- * content, and trailing XML tags.  */
-static void split_ssml_text(gchar **text, gchar **prefix, gchar **suffix)
-{
-	gchar *begin = *text;
-	gchar *end = begin + strlen(begin);
-	gchar *start, *stop, *prev;
-
-	for (start = begin; ; start = g_utf8_next_char(start)) {
-		gunichar c = g_utf8_get_char(start);
-		if (c < 0xe000 || c > 0xe0ff)
-			/* start of content */
-			break;
-	}
-
-	for (stop = end; ; stop = prev) {
-		gunichar c;
-		prev = g_utf8_prev_char(stop);
-		c = g_utf8_get_char(prev);
-		if (c < 0xe000 || c > 0xe0ff)
-			/* stop of content */
-			break;
-	}
-
-	*prefix = g_strndup(begin, start - begin);
-	*text = g_strndup(start, stop - start);
-	*suffix = g_strndup(stop, end - stop);
-	g_free(begin);
-}
-
-/* Gather pieces back together.  */
-static void gather_ssml_text(gchar **text, gchar *prefix, gchar *suffix)
-{
-	gchar *ret = g_strdup_printf("%s%s%s", prefix, *text, suffix);
-
-	g_free(prefix);
-	g_free(*text);
-	g_free(suffix);
-
-	*text = ret;
-}
-
-/* Replace U+E0XY with pure equivalents */
-static gchar *unescape_ssml_text(const gchar *text)
+/* Put back tags into the text */
+static gchar *unescape_ssml_text(const gchar *text, struct tags *tags, gint ntags)
 {
 	GString *str;
 	const gchar *cur;
 	gchar *result;
+	struct tags *curtags = tags;
 
 	str = g_string_sized_new(strlen(text));
 
 	for (cur = text; *cur; cur++) {
-		guchar c = *cur;
+		guchar c;
 
-		if (c == 0xee) {
-			if (!cur[1] || !cur[2]) {
-				/* Uh?! Drop it off */
-				break;
-			}
-
-			/* U+E0XY, append as 0xXY */
-			g_string_append_c(str, (((guchar) (cur[1]) & 0x03) << 6)
-					      | ((guchar) (cur[2]) & 0x3f));
-			cur += 2;
-		} else {
-			/* Re-escape ssml character sequences */
-			if (c == '"')
-				g_string_append(str, "&quot;");
-			else if (c == '\'')
-				g_string_append(str, "&apos;");
-			else if (c == '<')
-				g_string_append(str, "&lt;");
-			else if (c == '>')
-				g_string_append(str, "&gt;");
-			else if (c == '&')
-				g_string_append(str, "&amp;");
-			else
-				g_string_append_c(str, c);
+		while (ntags && cur - text == curtags->pos) {
+			/* We reached the position of a block of tags, put them back */
+			g_string_append(str, curtags->tags);
+			curtags++;
+			ntags--;
 		}
+
+		c = *cur;
+
+		/* Re-escape ssml character sequences */
+		if (c == '"')
+			g_string_append(str, "&quot;");
+		else if (c == '\'')
+			g_string_append(str, "&apos;");
+		else if (c == '<')
+			g_string_append(str, "&lt;");
+		else if (c == '>')
+			g_string_append(str, "&gt;");
+		else if (c == '&')
+			g_string_append(str, "&amp;");
+		else
+			g_string_append_c(str, c);
 	}
+
+	while (ntags) {
+		/* Trailing tags */
+		g_string_append(str, curtags->tags);
+		curtags++;
+		ntags--;
+	}
+
+	free(tags);
 
 	result = str->str;
 	g_string_free(str, FALSE);
@@ -770,10 +801,6 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 
 			sym = speech_symbol_new();
 			sym->identifier = g_strdup(key_val[0]);
-			/* FIXME: we'd need to mangle the pattern to ignore
-			 * U+E0XY characters for e.g. begin/end of word/line.
-			 * E.g. spd-say -l en -x "<speak>Hello?</speak>"
-			 */
 			sym->pattern = g_strdup(key_val[1]);
 			g_hash_table_insert(ssp->symbols, sym->identifier, sym);
 			ssp->complex_list = g_slist_prepend(ssp->complex_list, sym);
@@ -977,11 +1004,27 @@ static gchar *fetch_named_matching(const GMatchInfo *match_info, const gchar *na
 	return capture;
 }
 
+enum group {
+	RSTRIPSPACE,
+	REPEATED,
+	SIMPLE,
+	COMPLEX,
+};
+
 /* Regular expression callback for applying replacements */
 static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpointer user_data)
 {
 	SpeechSymbolProcessor *ssp = user_data;
 	gchar *capture;
+	enum group captured_group;
+	gchar *group_0;
+	gint start = -1, end = -1;
+	gint prevlen = result->len, shift;
+	gint nexttag;
+	guint i = 0;
+	SpeechSymbol *sym = NULL;
+
+	/* First see what we captured */
 
 	/* FIXME: Python regex API allows to find the name of the group that
 	 *        matched.  As GRegex doesn't have that, what we do here is try
@@ -989,9 +1032,57 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 	 *        This is not very optimal, but how can we avoid that? */
 
 	if ((capture = fetch_named_matching(match_info, "rstripSpace"))) {
+		captured_group = RSTRIPSPACE;
+	} else if ((capture = fetch_named_matching(match_info, "repeated"))) {
+		captured_group = REPEATED;
+	} else if ((capture = fetch_named_matching(match_info, "simple"))) {
+		captured_group = SIMPLE;
+	} else {
+		/* Complex symbol. */
+		GSList *node;
+
+		for (node = ssp->complex_list; !sym && node; node = node->next, i++) {
+			gchar *group_name = g_strdup_printf("c%u", i);
+
+			if ((capture = fetch_named_matching(match_info, group_name))) {
+				sym = node->data;
+			}
+			g_free(group_name);
+		}
+
+		captured_group = COMPLEX;
+	}
+
+	/* Now check where that lies among tags */
+
+	g_match_info_fetch_pos(match_info, 0, &start, &end);
+
+	/* FIXME: use bsearch */
+	for (nexttag = 0; nexttag < ssp->ntags; nexttag++) {
+		gint pos = ssp->tags[nexttag].pos;
+		if (start < pos && pos < end) {
+			group_0 = g_match_info_fetch(match_info, 0);
+			/* FIXME: if it's only a mark, just delay it instead */
+			MSG2(1, "symbols", "tags '%s' within group |%s| (at %d..%d), not replacing group :/",
+					   ssp->tags[nexttag].tags, group_0, start, end);
+			g_free(group_0);
+
+			g_string_append(result, capture);
+			g_free(capture);
+
+			return FALSE;
+		}
+
+		if (pos >= end)
+			/* tags after this will get shifted */
+			break;
+	}
+
+	/* Ok, now replace */
+	if (captured_group == RSTRIPSPACE) {
 		MSG2(5, "symbols", "replacing <rstripSpace>");
 		/* nothing to do, just don't add it in the result */
-	} else if ((capture = fetch_named_matching(match_info, "repeated"))) {
+	} else if (captured_group == REPEATED) {
 		/* Repeated character. */
 		char ch[2] = { capture[0], 0 };
 		SpeechSymbol *sym = g_hash_table_lookup(ssp->symbols, ch);
@@ -1008,28 +1099,17 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 			g_string_append_c(result, ' ');
 		}
 	} else {
-		SpeechSymbol *sym = NULL;
 		const gchar *prefix, *suffix;
 
 		/* One of the defined symbols. **/
-		if ((capture = fetch_named_matching(match_info, "simple"))) {
+		if (captured_group == SIMPLE) {
 			/* Simple symbol. */
 			sym = g_hash_table_lookup(ssp->symbols, capture);
 			MSG2(5, "symbols", "replacing <simple>");
 		} else {
-			/* Complex symbol. */
-			guint i = 0;
-			GSList *node;
-
-			for (node = ssp->complex_list; !sym && node; node = node->next, i++) {
-				gchar *group_name = g_strdup_printf("c%u", i);
-
-				if ((capture = fetch_named_matching(match_info, group_name))) {
-					sym = node->data;
-					MSG2(5, "symbols", "replacing <%s> (complex symbol)", group_name);
-				}
-				g_free(group_name);
-			}
+			g_assert(captured_group == COMPLEX);
+			/* Complex symbol, sym and i already set */
+			MSG2(5, "symbols", "replacing <c%u> (complex symbol)", i);
 		}
 
 		/* this should never happen, but be on the safe side and check it */
@@ -1062,42 +1142,55 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 		}
 	}
 
+	goto out;
+
+symbol_error:
+	group_0 = g_match_info_fetch(match_info, 0);
+	MSG2(1, "symbols", "WARNING: no symbol for match |%s| (at %d..%d), this shouldn't happen.",
+	     group_0, start, end);
+	g_free(group_0);
+
+out:
+	/* content has grown (or shrunk) by this amount */
+	shift = (result->len - prevlen) - strlen(capture);
+
+	/* Update tags positions */
+	/* FIXME: only add up the shift, and apply them all inside speech_symbols_processor_process_text */
+	for ( ; nexttag < ssp->ntags; nexttag++) {
+		ssp->tags[nexttag].newpos = ssp->tags[nexttag].newpos + shift;
+	}
+
 	g_free(capture);
 
 	return FALSE;
-
-	symbol_error: {
-		gint start = -1, end = -1;
-		gchar *group_0;
-
-		g_match_info_fetch_pos(match_info, 0, &start, &end);
-		group_0 = g_match_info_fetch(match_info, 0);
-		MSG2(1, "symbols", "WARNING: no symbol for match |%s| (at %d..%d), this shouldn't happen.",
-		     group_0, start, end);
-
-		g_free(group_0);
-		g_free(capture);
-		return FALSE;
-	}
 }
 
 /* Processes some input and converts symbols in it */
 static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *input, SymLvl level, SymLvl support_level, SPDDataMode ssml_mode)
 {
-	gchar *text, *prefix = NULL, *suffix = NULL;
+	gchar *text;
 	gchar *processed;
+	struct tags *tags;
+	gint ntags, i;
 	GError *error = NULL;
 
 	if (ssml_mode == SPD_DATA_SSML) {
-		text = escape_ssml_text(input);
-		split_ssml_text(&text, &prefix, &suffix);
-		MSG2(5, "symbols", "escaped ssml '%s' to '%s' '%s' '%s'", input, prefix, text, suffix );
+		text = escape_ssml_text(input, &tags, &ntags);
+		MSG2(5, "symbols", "escaped ssml '%s' to '%s'", input, text);
 	} else {
 		text = g_strdup(input);
 	}
 
 	for ( ; sspl; sspl = sspl->next) {
 		SpeechSymbolProcessor *ssp = sspl->data;
+
+		if (ssml_mode == SPD_DATA_SSML) {
+			for (i = 0; i < ntags; i++)
+				tags[i].newpos = tags[i].pos;
+			ssp->tags = tags;
+			ssp->ntags = ntags;
+		}
+
 		ssp->level = level;
 		ssp->support_level = support_level;
 		processed = g_regex_replace_eval(ssp->regex, text, -1, 0, 0, regex_eval, ssp, &error);
@@ -1109,6 +1202,12 @@ static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *i
 			g_free(text);
 			text = processed;
 
+			if (ssml_mode == SPD_DATA_SSML) {
+				/* Apply new tags positions */
+				for (i = 0; i < ntags; i++)
+					tags[i].pos = tags[i].newpos;
+			}
+
 			if (level == SYMLVL_CHAR && g_utf8_strlen(processed, -1) > 1)
 				/* This translated it, avoid letting other rules continue expanding! */
 				break;
@@ -1116,8 +1215,7 @@ static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *i
 	}
 
 	if (ssml_mode == SPD_DATA_SSML) {
-		gather_ssml_text(&text, prefix, suffix);
-		processed = unescape_ssml_text(text);
+		processed = unescape_ssml_text(text, tags, ntags);
 		MSG2(5, "symbols", "unescaped ssml '%s' to '%s'", text, processed);
 		g_free(text);
 	} else
