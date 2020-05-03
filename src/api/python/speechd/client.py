@@ -975,8 +975,8 @@ class SSIPClient(object):
           scope -- see the documentation of this class.
             
         """
-        assert value in (PunctuationMode.ALL, PunctuationMode.SOME,
-                         PunctuationMode.NONE), value
+        assert value in (PunctuationMode.ALL, PunctuationMode.MOST,
+                         PunctuationMode.SOME, PunctuationMode.NONE), value
         self._conn.send_command('SET', scope, 'PUNCTUATION', value)
 
     def set_spelling(self, value, scope=Scope.SELF):
