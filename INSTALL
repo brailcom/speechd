@@ -215,6 +215,7 @@ You can try to execute Speech Dispatcher by
 If Speech Dispatcher is running, you can test if it's working by:
  (on some other console)
  $ cd speech-dispatcher-[version]/src/tests
+ $ make check
  $ ./run_test basic.test
 (You can also try other tests, if you like.)
 
