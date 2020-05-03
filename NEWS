@@ -1,4 +1,5 @@
 Version 0.10
+* Add punctuation level "most".
 * Rework thread synchronization.
 * Move espeak/espeak-ng audio queuing to shared file, rework it.
 * Make baratinoo use this audio queueing, enable marks, and support

@@ -76,6 +76,7 @@ MOD_OPTION_1_STR(GenericExecuteSynth)
     MOD_OPTION_1_STR(GenericDelimiters)
     MOD_OPTION_1_STR(GenericPunctNone)
     MOD_OPTION_1_STR(GenericPunctSome)
+    MOD_OPTION_1_STR(GenericPunctMost)
     MOD_OPTION_1_STR(GenericPunctAll)
     MOD_OPTION_1_STR(GenericStripPunctChars)
     MOD_OPTION_1_STR(GenericRecodeFallback)
@@ -138,6 +139,7 @@ int module_load(void)
 
 	MOD_OPTION_1_STR_REG(GenericPunctNone, "");
 	MOD_OPTION_1_STR_REG(GenericPunctSome, "");
+	MOD_OPTION_1_STR_REG(GenericPunctMost, "");
 	MOD_OPTION_1_STR_REG(GenericPunctAll, "");
 
 	module_register_available_voices();
@@ -698,6 +700,13 @@ void generic_set_punct(SPDPunctuation punct)
 		return;
 	} else if (punct == SPD_PUNCT_SOME) {
 		generic_msg_punct_str = g_strdup((char *)GenericPunctSome);
+		return;
+	} else if (punct == SPD_PUNCT_MOST) {
+		if (GenericPunctMost[0] == '\0' && GenericPunctSome[0] != '\0')
+			/* Compatibility with old configuration files */
+			generic_msg_punct_str = g_strdup((char *)GenericPunctSome);
+		else
+			generic_msg_punct_str = g_strdup((char *)GenericPunctMost);
 		return;
 	} else if (punct == SPD_PUNCT_ALL) {
 		generic_msg_punct_str = g_strdup((char *)GenericPunctAll);

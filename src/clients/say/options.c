@@ -113,7 +113,7 @@ void options_print_help(char *argv[])
 	printf(_("Speak the character\n"));
 
 	printf("  -m, --punctuation-mode          ");
-	printf(_("Set the punctuation mode %s\n"), "(none, some, all)");
+	printf(_("Set the punctuation mode %s\n"), "(none, some, most, all)");
 
 	printf("  -s, --spelling                  ");
 	printf(_("Spell the message\n"));

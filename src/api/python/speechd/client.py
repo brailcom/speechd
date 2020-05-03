@@ -455,7 +455,9 @@ class PunctuationMode(object):
     NONE = 'none'
     """Don't read any punctuation character at all."""
     SOME = 'some'
-    """Only the user-defined punctuation characters are read.
+    """Only some of the user-defined punctuation characters are read."""
+    MOST = 'most'
+    """Only most of the user-defined punctuation characters are read.
 
     The set of characters is specified in Speech Dispatcher configuration.
 

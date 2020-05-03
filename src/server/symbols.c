@@ -1335,8 +1335,9 @@ void insert_symbols(TSpeechDMessage *msg, int punct_missing)
 
 	switch (msg->settings.msg_settings.punctuation_mode) {
 	case SPD_PUNCT_ALL: level = SYMLVL_ALL; break;
-	case SPD_PUNCT_NONE: level = SYMLVL_NONE; break;
+	case SPD_PUNCT_MOST: level = SYMLVL_MOST; break;
 	case SPD_PUNCT_SOME: level = SYMLVL_SOME; break;
+	case SPD_PUNCT_NONE: level = SYMLVL_NONE; break;
 	}
 
 	if (msg->settings.type == SPD_MSGTYPE_CHAR)

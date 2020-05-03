@@ -243,6 +243,9 @@ int main(int argc, char **argv)
 		} else if (!strcmp(punctuation_mode, "some")) {
 			if (spd_set_punctuation(conn, SPD_PUNCT_SOME))
 				printf("Can't set this punctuation mode!\n");
+		} else if (!strcmp(punctuation_mode, "most")) {
+			if (spd_set_punctuation(conn, SPD_PUNCT_MOST))
+				printf("Can't set this punctuation mode!\n");
 		} else if (!strcmp(punctuation_mode, "all")) {
 			if (spd_set_punctuation(conn, SPD_PUNCT_ALL))
 				printf("Can't set this punctuation mode!\n");

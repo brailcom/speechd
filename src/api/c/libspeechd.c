@@ -925,6 +925,8 @@ int spd_w_set_punctuation(SPDConnection * connection, SPDPunctuation type,
 		sprintf(command, "SET %s PUNCTUATION none", who);
 	if (type == SPD_PUNCT_SOME)
 		sprintf(command, "SET %s PUNCTUATION some", who);
+	if (type == SPD_PUNCT_MOST)
+		sprintf(command, "SET %s PUNCTUATION most", who);
 
 	ret = spd_execute_command(connection, command);
 

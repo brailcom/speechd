@@ -582,6 +582,8 @@ char *parse_set(const char *buf, const int bytes, const int fd,
 
 		if (TEST_CMD(punct_s, "all"))
 			punctuation_mode = SPD_PUNCT_ALL;
+		else if (TEST_CMD(punct_s, "most"))
+			punctuation_mode = SPD_PUNCT_MOST;
 		else if (TEST_CMD(punct_s, "some"))
 			punctuation_mode = SPD_PUNCT_SOME;
 		else if (TEST_CMD(punct_s, "none"))
