@@ -77,9 +77,10 @@
 
 /* This denotes the position of some SSML tags */
 struct tags {
-	gsize pos;
-	gssize shift;
-	gchar *tags;
+	gsize pos;		/* Its position in the text */
+	gssize shift;		/* How much its position is shifted by the current replacements */
+	gint deferrable;	/* Whether it is fine to defer the tag (e.g. a mark or comment) */
+	gchar *tags;		/* The content of the tags */
 };
 
 /* Speech symbol preserve modes */
@@ -255,9 +256,12 @@ static gchar *escape_ssml_text(const gchar *text, struct tags **tags_ret, gint *
 	struct tags *tags;
 	GString *str;
 	gchar *result;
+	gchar name[7];		/* Current tag name, only need to recognize against "mark", "/mark", "!--" for now */
+	gsize namepos;
 
 	int filling_tag;	/* Whether we are stack tags, or text */
 	int in_tag;		/* Whether we are within a tag */
+	int in_tag_name;	/* Whether we are within the name part of a tag */
 	int in_apos;		/* Whether we are within a '' string in a tag */
 	int in_quote;		/* Whether we are within a "" string in a tag */
 	gint ntags;
@@ -265,6 +269,7 @@ static gchar *escape_ssml_text(const gchar *text, struct tags **tags_ret, gint *
 	/* First count how many blocks of tags we will have */
 	filling_tag = 0;
 	in_tag = 0;
+	in_tag_name = 0;
 	in_apos = 0;
 	in_quote = 0;
 	ntags = 0;
@@ -317,9 +322,13 @@ static gchar *escape_ssml_text(const gchar *text, struct tags **tags_ret, gint *
 		if (!in_tag) {
 			if (c == '<') {
 				in_tag = 1;
+				in_tag_name = 1;
+				namepos = 0;
 				if (!filling_tag) {
 					/* Note the tags position in the text */
 					tags[ntags].pos = str->len;
+					/* A priori only deferrable tags */
+					tags[ntags].deferrable = 1;
 					curtag = cur;
 					filling_tag = 1;
 				}
@@ -366,8 +375,26 @@ static gchar *escape_ssml_text(const gchar *text, struct tags **tags_ret, gint *
 				in_apos = 1;
 			} else if (c == '"') {
 				in_quote = 1;
-			} else if (c == '>') {
-				in_tag = 0;
+			} else {
+				if (in_tag_name) {
+					if (c == '>' || c == ' ' || c == '\t' || c == '\r' || c == '\n') {
+						in_tag_name = 0;
+						name[namepos] = '\0';
+						if (strcmp(name, "mark")
+						 && strcmp(name, "/mark")
+						 && strcmp(name, "mark/")
+						 && strcmp(name, "!--")) {
+							/* This is a non-deferrable tag */
+							tags[ntags].deferrable = 0;
+						}
+					} else {
+						if (namepos < sizeof(name) - 1) {
+							name[namepos++] = c;
+						}
+					}
+				}
+				if (c == '>')
+					in_tag = 0;
 			}
 		}
 	}
@@ -1043,7 +1070,7 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 	gchar *group_0;
 	gint start = -1, end = -1;
 	gint prevlen = result->len, shift;
-	gint nexttag;
+	gint nexttag, curtag, deferrable;
 	guint i = 0;
 	SpeechSymbol *sym = NULL;
 
@@ -1082,20 +1109,40 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 
 	nexttag = find_nexttag(ssp->tags, start, 0, ssp->ntags);
 
-	if (nexttag < ssp->ntags) {
-		gint pos = ssp->tags[nexttag].pos;
-		if (start < pos && pos < end) {
-			group_0 = g_match_info_fetch(match_info, 0);
-			/* FIXME: if it's only a mark, just delay it instead */
-			MSG2(1, "symbols", "tags '%s' within group |%s| (at %d..%d), not replacing group :/",
-					   ssp->tags[nexttag].tags, group_0, start, end);
-			g_free(group_0);
-
-			g_string_append(result, capture);
-			g_free(capture);
-
-			return FALSE;
+	/* Check whether the contained tags are deferrable */
+	deferrable = 1;
+	for (curtag = nexttag; curtag < ssp->ntags; curtag++) {
+		if (ssp->tags[curtag].pos >= end)
+			/* Don't care about the rest */
+			break;
+		/* This block of tags is within the group */
+		if (!ssp->tags[curtag].deferrable) {
+			/* Oops, these tags can't be deferred */
+			deferrable = 0;
+			break;
 		}
+	}
+
+	if (!deferrable) {
+		group_0 = g_match_info_fetch(match_info, 0);
+		MSG2(1, "symbols", "tags '%s' within group |%s| (at %d..%d), not replacing group :/",
+				   ssp->tags[curtag].tags, group_0, start, end);
+		g_free(group_0);
+
+		g_string_append(result, capture);
+		g_free(capture);
+
+		return FALSE;
+	}
+
+	/* Defer these tags */
+	for (curtag = nexttag; curtag < ssp->ntags; curtag++) {
+		if (ssp->tags[curtag].pos >= end)
+			/* Don't care about the rest */
+			break;
+		/* This block of tags is within the group, defer it after the group */
+		MSG2(5, "symbols", "deferring tags '%s' to %d", ssp->tags[curtag].tags, end);
+		ssp->tags[curtag].pos = end;
 	}
 
 	/* Ok, now replace */
