@@ -8,25 +8,14 @@
 
 symbols:
 
-←	freccia a sinistra	none
-→	freccia a destra	none
-«	virgolette doppie sinistre	none
-»	virgolette doppie destre	none
 ·	punto centrale	none
-•	bullet	none
 ‣	bullet triangolare	none
 ⁃	bullet trattino	none
-■	quadrato nero	none
 □	quadrato bianco	none
-◦	bullet bianco	none
 ○	cerchio bianco	none
 ◆	rombo nero	none
-●	cerchio nero	none
-✓	segno di spunta	none
-✔	segno di spunta pesante	none
 ✗	bullet a forma di x	none
 ➔	freccia che punta a destra	none
-➢	punta di freccia che punta a destra	none
 
 	quadrato nero	none
 	rombo nero	none
@@ -36,9 +25,6 @@ symbols:
 ¾	frazione tre quarti	none
 
 ⁰	esponente 0	none
-¹	esponente 1	none
-²	esponente 2	none
-³	esponente 3	none
 ⁴	esponente 4	none
 ⁵	esponente 5	none
 ⁶	esponente 6	none

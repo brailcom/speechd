@@ -8,24 +8,13 @@
 
 symbols:
 
-←	balra nyíl	none
-→	jobbra nyíl	none
-«	belső bal idézőjel	none
-»	belső jobb idézőjel	none
 ·	középső pont	none
-•	listajel	none
 ‣	háromszög listajel	none
 ⁃	kötőjel listajel	none
-■	fekete négyzet	none
 □	üres négyzet	none
-◦	üres listajel	none
 ○	üres kör	none
 ◆	fekete káró	none
-●	fekete kör	none
-✓	pipa	none
-✔	vastag pipa	none
 ✗	x formájú listajel	none
-➔	jobbra mutató nyíl	none
 ➢	jobbra mutató nyílhegy	none
 
 	fekete négyzet	none
@@ -36,9 +25,6 @@ symbols:
 ¾	háromnegyed	none
 
 ⁰	felső index 0	none
-¹	felső index 1	none
-²	felső index 2	none
-³	felső index 3	none
 ⁴	felső index 4	none
 ⁵	felső index 5	none
 ⁶	felső index 6	none

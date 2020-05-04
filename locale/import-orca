@@ -50,9 +50,12 @@ EOF
 					;;
 			esac
 
-			translation=`LANGUAGE="$lang" gettext -d orca $CTX "$C_version"`
+			if ! grep "^$sym	" $lang/symbols.dic > /dev/null 2>&1
+			then
+				translation=`LANGUAGE="$lang" gettext -d orca $CTX "$C_version"`
 
-			printf "%s\t%s\tnone\n" "$sym" "$translation"
+				printf "%s\t%s\tnone\n" "$sym" "$translation"
+			fi
 		done ) < orca.sym
 	) > $lang/orca.dic
 done
