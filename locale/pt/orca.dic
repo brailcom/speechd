@@ -7,38 +7,33 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	seta esquerda	none
-→	seta direita	none
-«	menor duplo	none
-»	maior duplo	none
+¡	ponto de exclamação invertido	none
+¤	sinal de moeda	none
+¦	barra vertical quebrada	none
+ª	a elevado	none
+¬	negação lógica	some
+­	hifen pequeno	none
+´	agudo	none
+¶	marca de parágrafo	none
 ·	ponto centrado	none
-•	ponto de item redondo	none
-‣	ponto de item triangular	none
-⁃	ponto de item em hífen	none
-■	quadrado preto	none
-□	quadrado em branco	none
-◦	marca branca	none
-○	círculo em branco	none
-◆	losango preto	none
-●	círculo preto	none
-✓	sinal de visto	none
-✔	sinal de visto negrito	none
-✗	ponto de item em x	none
-➔	seta apontando à direita	none
-➢	cabeça de seta à direita	none
-
-	quadrado preto	none
-	losango preto	none
-
+¸	cedilha	none
+º	o elevado	none
 ¼	um quarto	none
 ½	um meio	none
 ¾	três quartos	none
-
+¿	ponto de interrogação invertido	none
+‚	plica esquerda em baixo	most
+„	aspas em baixo	most
+†	punhal	some
+‡	punhal duplo	some
+‣	ponto de item triangular	none
+‰	permilagem	some
+′	plica	some
+″	plica dupla	some
+‴	til triplo	none
+⁃	ponto de item em hífen	none
+✗	ponto de item em x	none
 ⁰	elevado a 0	none
-¹	elevado a 1	none
-²	elevado a 2	none
-³	elevado a 3	none
 ⁴	elevado a 4	none
 ⁵	elevado a 5	none
 ⁶	elevado a 6	none
@@ -66,3 +61,8 @@ symbols:
 ₌	subscrito igual	none
 ₍	subscrito parênteses esquerdo	none
 ₎	subscrito parênteses direito	none
+￼	carácter de substituição	none
+□	quadrado em branco	none
+○	círculo em branco	none
+◆	losango preto	none
+➔	seta apontando à direita	none

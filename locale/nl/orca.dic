@@ -7,48 +7,41 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+¡	omgekeerd uitroepteken	none
+¤	valutasymbool	none
+¦	verticaal streepje	none
+¬	logische niet	some
+­	koppelteken	none
+´	nadruk	none
+¶	alineamarkering	none
 ·	gecentreerde punt	none
-‣	driehoekig opsommingsteken	none
-⁃	streepjesopsommingsteken	none
-□	wit vierkantje	none
-○	witte cirkel	none
-◆	zwarte ruit	none
-✗	x-vormig opsommingsteken	none
-➢	pijlpunt naar rechts	none
-
-	zwart vierkantje	none
-	zwarte ruit	none
-
+¸	cedille	none
+º	mannelijke rangtelwoord (Spaans)	none
 ¼	kwart	none
 ½	half	none
 ¾	driekwart	none
-
-⁰	superscript 0	none
-⁴	superscript 4	none
-⁵	superscript 5	none
-⁶	superscript 6	none
-⁷	superscript 7	none
-⁸	superscript 8	none
-⁹	superscript 9	none
-⁺	superscript plus	none
+¿	omgekeerd vraagteken	none
+ƒ	gulden	none
+‚	apostrof	most
+„	dubbele apostrof	most
+†	obelisk	some
+‡	dubbele obelisk	some
+‣	driehoekig opsommingsteken	none
+‰	promille	some
+′	priem	some
+″	dubbele priem	some
+‴	drievoudige tilde	none
+⁃	streepjesopsommingsteken	none
+✗	x-vormig opsommingsteken	none
 ⁻	superscript min	none
 ⁼	superscript is-teken	none
 ⁽	superscript haakje openen	none
 ⁾	superscript haakje sluiten	none
-ⁿ	superscript n	none
-₀	subscript 0	none
-₁	subscript 1	none
-₂	subscript 2	none
-₃	subscript 3	none
-₄	subscript 4	none
-₅	subscript 5	none
-₆	subscript 6	none
-₇	subscript 7	none
-₈	subscript 8	none
-₉	subscript 9	none
-₊	subscript plus	none
 ₋	subscript min	none
 ₌	subscript is-teken	none
 ₍	subscript haakje openen	none
 ₎	subscript haakje sluiten	none
+￼	objectvervangingsteken	none
+□	wit vierkantje	none
+○	witte cirkel	none
+◆	zwarte ruit	none

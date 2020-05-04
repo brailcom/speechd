@@ -7,38 +7,34 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	left arrow	none
-→	right arrow	none
-«	левае вуглавое двукоссе	none
-»	правае вуглавое двукоссе	none
+¡	перакулены клічнік	none
+¤	знак валюты	none
+¦	разарваная вертыкальная лінія	none
+ª	верхні індэкс лацінскай а	none
+¬	лагічнае адмаўленне	some
+­	злучок	none
+¯	рыска над	none
+´	націск	none
+¶	знак абзаца	none
 ·	кропка ў цэнтры	none
-•	гузік	none
-‣	трохвугольны гузік	none
-⁃	гузік у форме рыскі	none
-■	чорны квадрат	none
-□	white square	none
-◦	white bullet	none
-○	white circle	none
-◆	чорны ромб	none
-●	black circle	none
-✓	птушка	none
-✔	тоўстая птушка	none
-✗	пазнака-крыжык	none
-➔	right-pointing arrow	none
-➢	right-pointing arrowhead	none
-
-	чорны квадрат	none
-	чорны ромб	none
-
+¸	седыль	none
+º	парадкавы лічэбнік	none
 ¼	адна чацьвёртая	none
 ½	адна другая	none
 ¾	тры чацьвёртыя	none
-
+¿	перакулены пытальнік	none
+ƒ	флорын	none
+‚	ніжняе адзінкавае двукоссе	most
+„	ніжняе двукоссе	most
+†	крыж	some
+‡	падвоены крыж	some
+‣	трохвугольны гузік	none
+‰	праміля	some
+′	пункт	some
+″	падвойны пункт	some
+⁃	гузік у форме рыскі	none
+✗	пазнака-крыжык	none
 ⁰	верхні індэкс 0	none
-¹	верхні індэкс 1	none
-²	верхні індэкс 2	none
-³	верхні індэкс 3	none
 ⁴	верхні індэкс 4	none
 ⁵	верхні індэкс 5	none
 ⁶	верхні індэкс 6	none

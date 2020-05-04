@@ -7,38 +7,29 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	panah ke kiri	none
-→	panah ke kanan	none
-«	tanda kurang dari berganda	none
-»	tanda lebih dari berganda	none
+¡	tanda seru terbalik	none
+¤	tanda mata uang	none
+¦	pipa	none
+ª	a superskrip	none
+¬	tanda not lojik	some
+­	tanda pisah	none
+¶	penanda paragraf	none
 ·	titik di tengah	none
-•	bulet	none
-‣	bulet segi tiga	none
-⁃	bulet penyambung	none
-■	bujur sangkar hitam	none
-□	bujur sangkar putih	none
-◦	bulet putih	none
-○	lingkaran putih	none
-◆	berlian hitam	none
-●	lingkaran hitam	none
-✓	tanda contreng	none
-✔	contreng tebal	none
-✗	bulet bentuk x	none
-➔	panah ke kanan	none
-➢	kepala panah arah kanan	none
-
-	bujur sangkar hitam	none
-	berlian hitam	none
-
 ¼	seperempat	none
 ½	setengah	none
 ¾	tiga perempat	none
-
+¿	tanda tanya terjungkir	none
+‚	tanda petik ganda bawah	most
+„	tanda petik ganda bawah	most
+†	simbol belati	some
+‡	simbol belati ganda	some
+‣	bulet segi tiga	none
+‰	per mil	some
+″	prime ganda	some
+‴	prime triple	none
+⁃	bulet penyambung	none
+✗	bulet bentuk x	none
 ⁰	0 superskrip	none
-¹	1 superskrip	none
-²	2 superskrip	none
-³	3 superskrip	none
 ⁴	4 superskrip	none
 ⁵	5 superskrip	none
 ⁶	6 superskrip	none
@@ -66,3 +57,8 @@ symbols:
 ₌	sama dengan subskrip	none
 ₍	kurung kiri subskrip	none
 ₎	kurung kanan subskrip	none
+￼	karakter penggantian objek	none
+□	bujur sangkar putih	none
+○	lingkaran putih	none
+◆	berlian hitam	none
+➔	panah ke kanan	none

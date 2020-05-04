@@ -7,38 +7,32 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	left arrow	none
-→	right arrow	none
-«	abre comines angulares	none
-»	zarra comines angulares	none
+¡	abre esclamación	none
+¤	señal de moneda	none
+¦	barra cortada	none
+ª	a superíndiz	none
+¬	non lóxicu	some
+­	guión	none
+¯	sobrolliñáu	none
+´	acentu	none
+¶	marca de párrafu	none
 ·	puntu centráu	none
-•	asteriscu	none
-‣	viñeta triangular	none
-⁃	guión de viñeta	none
-■	cuadru prietu	none
-□	white square	none
-◦	white bullet	none
-○	white circle	none
-◆	rombu	none
-●	black circle	none
-✓	marca	none
-✔	marca fuerte	none
-✗	viñeta marcada con x	none
-➔	right-pointing arrow	none
-➢	right-pointing arrowhead	none
-
-	cuadru prietu	none
-	rombu	none
-
 ¼	un cuartu	none
 ½	un mediu	none
 ¾	tres cuartos	none
-
+¿	abre interrogación	none
+ƒ	florín	none
+‚	comina inferior simple	most
+„	duble comina inferior	most
+†	cruz	some
+‡	DUBLE CRUZ	some
+‣	viñeta triangular	none
+‰	por mil	some
+′	prima	some
+″	doble prima	some
+⁃	guión de viñeta	none
+✗	viñeta marcada con x	none
 ⁰	0 superíndiz	none
-¹	1 superíndiz	none
-²	2 superíndiz	none
-³	3 superíndiz	none
 ⁴	4 superíndiz	none
 ⁵	5 superíndiz	none
 ⁶	6 superíndiz	none

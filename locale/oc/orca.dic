@@ -7,38 +7,31 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	sageta esquèrra	none
-→	sageta dreita	none
-«	vergueta francesa dobrissenta	none
-»	vergueta francesa tampanta	none
+¡	punt d'exclamacion inversat	none
+¤	signe monetari	none
+¦	barra verticala discontinua	none
+ª	ordinal femenin	none
+¬	negacion logica	some
+­	jonhent condicional	none
+´	accent agut	none
+¶	pè de mosca	none
 ·	punt median	none
-•	piuse	none
-‣	piuse triangulara	none
-⁃	jonhent	none
-■	carrat negre	none
-□	carrat blanc	none
-◦	pichon cercle blanc	none
-○	cercle blanc	none
-◆	lausange negre	none
-●	cercle negre	none
-✓	signe de verificacion	none
-✔	gròs signe de verificacion	none
-✗	piuse en forma de x	none
-➔	sageta cap a dreita	none
-➢	punta de sageta cap a dreita	none
-
-	carrat negre	none
-	lausange negre	none
-
+¸	cedilha	none
 ¼	un quart	none
 ½	una mitat	none
 ¾	tres quarts	none
-
+¿	punt d'interrogacion inversat	none
+‚	vergueta bassa simpla	most
+„	vergueta bassa dobla	most
+†	obèla	some
+‡	obèla dobla	some
+‣	piuse triangulara	none
+‰	per mila	some
+″	prime doble	some
+‴	prima dobla	none
+⁃	jonhent	none
+✗	piuse en forma de x	none
 ⁰	exponent 0	none
-¹	exponent 1	none
-²	carrat	none
-³	cub	none
 ⁴	exponent 4	none
 ⁵	exponent 5	none
 ⁶	exponent 6	none
@@ -66,3 +59,8 @@ symbols:
 ₌	egal en indici	none
 ₍	parentèsi esquèrra en indici	none
 ₎	parentèsi dreita en indici	none
+￼	caractèr de remplaçament d'objècte	none
+□	carrat blanc	none
+○	cercle blanc	none
+◆	lausange negre	none
+➔	sageta cap a dreita	none

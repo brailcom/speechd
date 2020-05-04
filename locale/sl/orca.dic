@@ -7,23 +7,32 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+¡	obrnjeni klicaj	none
+¤	znak valute	none
+¦	presledna navpičnica	none
+ª	nadpisani a	none
+¬	logični ne	some
+­	vezaj	none
+¯	makron	none
+´	ostrivec	none
+¶	znak za odstavek	none
 ·	sredinska pika	none
-‣	trikotna vrstična oznaka	none
-⁃	pomišljaj vrstična oznaka	none
-□	beli kvadrat	none
-○	white circle	none
-◆	črni karo	none
-✗	vrstična oznaka v obliki črke x	none
-➢	desna glava puščice	none
-
-	črni kvadrat	none
-	črni karo	none
-
+¸	sedij	none
 ¼	četrtina	none
 ½	polovica	none
 ¾	tri četrtine	none
-
+¿	obrnjeni vprašaj	none
+‚	levi spodnji enojni narekovaj	most
+„	levi spodnji dvojni narekovaj	most
+†	konjugirano transponirana	some
+‡	obelisk	some
+‣	trikotna vrstična oznaka	none
+‰	promil	some
+′	znak za minuto, odvod	some
+″	znak za sekundo, drugi odvod	some
+‴	znak za stotinko, trojni odvod	none
+⁃	pomišljaj vrstična oznaka	none
+✗	vrstična oznaka v obliki črke x	none
 ⁰	nadpisana številka 0	none
 ⁴	nadpisana številka 4	none
 ⁵	nadpisana številka 5	none
@@ -52,3 +61,5 @@ symbols:
 ₌	podpisani enačaj	none
 ₍	podpisani uklepaj	none
 ₎	podpisani zaklepaj	none
+￼	znak vsebnik za zamenjavo predmeta	none
+□	beli kvadrat	none

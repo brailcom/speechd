@@ -7,62 +7,11 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	left arrow	none
-→	right arrow	none
-«	left double angle bracket	none
-»	right double angle bracket	none
-·	middle dot	none
-•	bullet	none
-‣	triangular bullet	none
-⁃	hyphen bullet	none
-■	persegi hitam	none
-□	white square	none
-◦	white bullet	none
-○	white circle	none
-◆	berlian hitam	none
-●	black circle	none
-✓	check mark	none
-✔	heavy check mark	none
-✗	x-shaped bullet	none
-➔	right-pointing arrow	none
-➢	right-pointing arrowhead	none
-
-	persegi hitam	none
-	berlian hitam	none
-
-¼	one fourth	none
+¤	tanda mata wang	none
+¬	logikal not	some
 ½	setengah	none
 ¾	tiga suku	none
-
-⁰	superscript 0	none
-¹	superscript 1	none
-²	superscript 2	none
-³	superscript 3	none
-⁴	superscript 4	none
-⁵	superscript 5	none
-⁶	superscript 6	none
-⁷	superscript 7	none
-⁸	superscript 8	none
-⁹	superscript 9	none
-⁺	superscript plus	none
-⁻	superscript minus	none
-⁼	superscript equals	none
-⁽	superscript left paren	none
-⁾	superscript right paren	none
-ⁿ	superscript n	none
-₀	subscript 0	none
-₁	subscript 1	none
-₂	subscript 2	none
-₃	subscript 3	none
-₄	subscript 4	none
-₅	subscript 5	none
-₆	subscript 6	none
-₇	subscript 7	none
-₈	subscript 8	none
-₉	subscript 9	none
-₊	subscript plus	none
-₋	subscript minus	none
-₌	subscript equals	none
-₍	subscript left paren	none
-₎	subscript right paren	none
+‚	tunggal rendah kutipan	most
+„	ganda rendah kutipan	most
+†	pisau belati	some
+‡	belati ganda	some

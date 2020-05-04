@@ -7,20 +7,24 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+¡	apverstas šauktukas	none
+¤	valiutos simbolis	none
+ª	viršutinis indeksas	none
+­	kėlimo brūkšnelis	none
+¯	brūkšnelis	none
 ·	vidurinis taškas	none
+¸	sedilė	none
+º	laipsnio simbolis	none
+¿	apverstas klaustukas	none
+ƒ	florinas	none
+‚	kairioji vienguba kabutė	most
+†	durklas	some
+‡	dvigubas durklas	some
 ‣	trikampio formos ženklelis	none
+‰	promilė	some
+‴	triguba štrich	none
 ⁃	brūkšnelio formos ženklelis	none
-□	baltas kvadratas	none
-○	baltas skritulys	none
-◆	užpildytas rombo formos ženklelis	none
 ✗	kryželio formos ženklelis	none
-➢	trikampės dešininė rodyklė	none
-
-	užpildytas kvadratinis ženklelis	none
-	užpildytas rombo formos ženklelis	none
-
-
 ⁺	viršutinis indeksas pliusas	none
 ⁻	viršutinis indeksas minusas	none
 ⁼	viršutinis indeksas lygybė	none
@@ -42,3 +46,7 @@ symbols:
 ₌	apatinis indeksas lygybė	none
 ₍	apatinis indeksas skliaustų pradžia	none
 ₎	apatinis indeksas skliaustų pabaiga	none
+￼	objekto pakaitinis simbolis	none
+□	baltas kvadratas	none
+○	baltas skritulys	none
+◆	juodas rombas	none

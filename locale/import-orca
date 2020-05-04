@@ -18,7 +18,75 @@
 
 export TEXTDOMAINDIR=/usr/local/share/locale
 
-for lang in $(cat orca.polist) base
+num=$1
+
+LANG=C python3 > orca$num.autosym << EOF
+from orca.chnames import chnames
+from orca.punctuation_settings import punctuation, LEVEL_ALL, LEVEL_MOST, LEVEL_SOME, LEVEL_NONE, PUNCTUATION_REPLACE, PUNCTUATION_INSERT
+
+LEVEL_CHAR = -1
+l = {
+  LEVEL_CHAR: 'char',
+  LEVEL_ALL: 'all',
+  LEVEL_MOST: 'most',
+  LEVEL_SOME: 'some',
+  LEVEL_NONE: 'none',
+}
+
+mypunctuation = {
+  ' ': [ LEVEL_CHAR, PUNCTUATION_REPLACE ],
+  '\\n': [ LEVEL_CHAR, PUNCTUATION_REPLACE ],
+  '\\t': [ LEVEL_CHAR, PUNCTUATION_REPLACE ],
+  '\\\\': [ LEVEL_MOST, PUNCTUATION_REPLACE ],
+  '\\u00a0': [ LEVEL_CHAR, PUNCTUATION_REPLACE ],
+}
+
+for sym,name in chnames.items():
+    c = ord(sym[0])
+    if ('$num' != '_chars') == \
+        (c >= 0xc0 and c <= 0xff
+         or c == 0x178
+         or c == 0xe00a
+         or c == 0xe00c):
+        continue
+
+    level = 'none'
+    keep = ''
+
+    if sym in punctuation:
+        level, flag = punctuation[sym]
+    elif sym in mypunctuation:
+        level, flag = mypunctuation[sym]
+    else:
+        print("# %s not in punctuation" % sym)
+        if '$num' == '_chars':
+            level, flag = LEVEL_CHAR, PUNCTUATION_REPLACE
+        else:
+            level, flag = LEVEL_NONE, PUNCTUATION_REPLACE
+
+    if flag == PUNCTUATION_INSERT:
+        keep = '\talways'
+    if level not in l:
+        print("oops, %s not in l!?" % level)
+
+    if sym == '\\t':
+        sym = "\\\\t"
+    elif sym == '\\n':
+        sym = "\\\\n"
+    elif sym == '\\\\':
+        sym = "\\\\\\\\"
+    elif sym == '#':
+        sym = "\\\\#"
+
+    print("%s\\t%s\\t%s%s" % (sym, name, l[level], keep))
+EOF
+
+if [ "$num" == "" ]
+then
+    cat orca.sym >> orca$num.autosym
+fi
+
+for lang in base $(cat orca.polist)
 do
 	mkdir -p $lang
 	(
@@ -34,7 +102,7 @@ do
 symbols:
 EOF
 		IFS=$'\t'
-		( while read sym C_version
+		cat orca$num.autosym | ( while read -r sym C_version level keep
 		do
 			CTX=""
 			case "$sym" in
@@ -50,12 +118,23 @@ EOF
 					;;
 			esac
 
-			if ! grep "^$sym	" $lang/symbols.dic > /dev/null 2>&1
+			sym="${sym//\\/\\\\}"
+			sym="${sym//[/\\[}"
+			if [ -n "$keep" ]
+			then
+				keep=$'\t'"$keep"
+			fi
+
+			if ! grep "^$sym	" base/symbols.dic > /dev/null 2>&1 && \
+			   ! grep "^$sym	" $lang/symbols.dic > /dev/null 2>&1
 			then
 				translation=`LANGUAGE="$lang" gettext -d orca $CTX "$C_version"`
 
-				printf "%s\t%s\tnone\n" "$sym" "$translation"
+				if [ "$lang" == base -o "$translation" != "$C_version" ]
+				then
+					printf "%s\t%s\t$level$keep\n" "$sym" "$translation"
+				fi
 			fi
-		done ) < orca.sym
-	) > $lang/orca.dic
+		done )
+	) > $lang/orca$num.dic
 done

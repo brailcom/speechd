@@ -2,69 +2,20 @@
 # level, which we'd rather do ourself, and until NVDA includes them all we'd
 # rather fallback to the orca translations.
 #
-# We here list them with the 'C' translation, as seen in ./src/orca/chnames.py
-# or .src/orca/mathsymbols.py, which allows to fetch the translations in all
+# We here list them with the 'C' translation, as seen in
+# .src/orca/mathsymbols.py, which allows to fetch the translations in all
 # languages with gettext.
 # 
 # Format:
 # character\ttranslation
-
-←	math symbol left arrow
-→	math symbol right arrow
-«	left double angle bracket
-»	right double angle bracket
-·	middle dot
-•	bullet
-‣	triangular bullet
-⁃	hyphen bullet
-■	black square
-□	math symbol white square
-◦	math symbol white bullet
-○	math symbol white circle
-◆	black diamond
-●	math symbol black circle
-✓	check mark
-✔	heavy check mark
-✗	x-shaped bullet
-➔	math symbol right-pointing arrow
-➢	math symbol right-pointing arrowhead
-
-# Libreoffice private-use characters
-	black square
-	black diamond
-
-¼	one fourth
-½	one half
-¾	three fourths
-
-⁰	superscript 0
-¹	superscript 1
-²	superscript 2
-³	superscript 3
-⁴	superscript 4
-⁵	superscript 5
-⁶	superscript 6
-⁷	superscript 7
-⁸	superscript 8
-⁹	superscript 9
-⁺	superscript plus
-⁻	superscript minus
-⁼	superscript equals
-⁽	superscript left paren
-⁾	superscript right paren
-ⁿ	superscript n
-₀	subscript 0
-₁	subscript 1
-₂	subscript 2
-₃	subscript 3
-₄	subscript 4
-₅	subscript 5
-₆	subscript 6
-₇	subscript 7
-₈	subscript 8
-₉	subscript 9
-₊	subscript plus
-₋	subscript minus
-₌	subscript equals
-₍	subscript left paren
-₎	subscript right paren
+#
+←	math symbol left arrow	none
+→	math symbol right arrow	none
+■	math symbol black square	none
+□	math symbol white square	none
+◦	math symbol white bullet	none
+○	math symbol white circle	none
+◆	math symbol black diamond	none
+●	math symbol black circle	none
+➔	math symbol right-pointing arrow	none
+➢	math symbol right-pointing arrowhead	none

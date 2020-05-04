@@ -7,22 +7,30 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-‣	bulină triunghiulară	none
-⁃	bulină cratimă	none
-□	pătrat alb	none
-○	cerc alb	none
-◆	diamant negru	none
-✗	bulină sub formă de x	none
-➔	săgeată spre dreapta	none
-
-	pătrat negru	none
-	diamant negru	none
-
+¡	semnul exclamării inversat	none
+¤	simbol monetar	none
+¦	bară verticală întreruptă	none
+ª	a ca exponent	none
+¬	negațit logică	some
+­	cratimă	none
+´	ascuțit	none
+¶	marcaj paragraf	none
+¸	sedilă	none
 ¼	o pătrime	none
 ½	o jumătate	none
 ¾	trei pătrimi	none
-
+¿	semnul întrebării inversat	none
+ƒ	f cu cârlig	none
+‚	ghilimele simple deschise	most
+†	pumnal	some
+‡	pumnal dublu	some
+‣	bulină triunghiulară	none
+‰	la mie	some
+′	prim	some
+″	secund	some
+‴	triplu prim	none
+⁃	bulină cratimă	none
+✗	bulină sub formă de x	none
 ⁰	0 ca exponent	none
 ⁴	4 ca exponent	none
 ⁵	5 ca exponent	none
@@ -51,3 +59,8 @@ symbols:
 ₌	egal ca indice	none
 ₍	paranteză deschisă ca indice	none
 ₎	paranteză închisă ca indice	none
+￼	caracter de înlocuire obiect	none
+□	pătrat alb	none
+○	cerc alb	none
+◆	romb negru	none
+➔	săgeată spre dreapta	none

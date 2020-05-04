@@ -7,23 +7,29 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+¡	obrátený výkričník	none
+¤	mena	none
+¦	prerušená zvislá čiara	none
+ª	horný index a	none
+¬	logický zápor	some
+­	rozdeľovník	none
+¯	pruh nad	none
+´	dĺžeň	none
+¶	označenie odseku	none
 ·	bodka v prostriedku	none
-‣	trojuhoľníková odrážka	none
-⁃	odrážka v tvare pomlčky	none
-□	biely štvorec	none
-○	biely kruh	none
-◆	čierny diamant	none
-✗	odrážka v tvare x	none
-➔	šípka ukazujúca doprava	none
-
-	čierny štvorec	none
-	čierny diamant	none
-
+¸	sédij	none
+º	horný index o	none
 ¼	štvrtina	none
 ½	polovica	none
 ¾	tri štvrtiny	none
-
+¿	obrátený otáznik	none
+ƒ	florén	none
+†	kríž	some
+‡	dvojkríž	some
+‣	trojuhoľníková odrážka	none
+‰	promile	some
+⁃	odrážka v tvare pomlčky	none
+✗	odrážka v tvare x	none
 ⁰	horný index 0	none
 ⁴	horný index 4	none
 ⁵	horný index 5	none
@@ -52,3 +58,8 @@ symbols:
 ₌	dolný index rovná sa	none
 ₍	dolný index zátvorka	none
 ₎	dolný index zátvorka zatvoriť	none
+￼	znak zastupuje objekt	none
+□	biely štvorec	none
+○	biely kruh	none
+◆	čierny diamant	none
+➔	šípka ukazujúca doprava	none

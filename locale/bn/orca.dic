@@ -7,62 +7,28 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	left arrow	none
-→	right arrow	none
-«	বামের দ্বিগুন কৌনিক বন্ধনী	none
-»	ডানের দ্বিগুন কৌনিক বন্ধনী	none
+¡	উলটানো বিস্ময় পয়েন্ট	none
+¤	মুদ্রা চীহ্ন	none
+¦	বিকৃত বার	none
+ª	ঊর্ধ্বলিপি a	none
+¬	যৌক্তিক না	some
+­	সফ্ট হাইফেন	none
+´	সূক্ষ্ম	none
+¶	অনুচ্ছেদ মার্কার	none
 ·	মধ্য বিন্দু	none
-•	বুলেট	none
-‣	ত্রিকোনোমিতিক বুলেট	none
-⁃	হাইফেন বুলেট	none
-■	কালো বর্গ	none
-□	white square	none
-◦	white bullet	none
-○	white circle	none
-◆	কালো ডায়মন্ড	none
-●	black circle	none
-✓	পরীক্ষণ চীহ্ন	none
-✔	ভারী পরীক্ষণ চীহ্ন	none
-✗	x-আকৃতির বুলেট	none
-➔	right-pointing arrow	none
-➢	right-pointing arrowhead	none
-
-	কালো বর্গ	none
-	কালো ডায়মন্ড	none
-
+º	অবস্থানসূচক সংখ্যা	none
 ¼	এক চতুর্থাংশ	none
 ½	অর্ধেক	none
 ¾	তিন চতুর্থাংশ	none
-
-⁰	superscript 0	none
-¹	ঊর্ধ্বলিপি ১	none
-²	ঊর্ধ্বলিপি ২	none
-³	ঊর্ধ্বলিপি ৩	none
-⁴	superscript 4	none
-⁵	superscript 5	none
-⁶	superscript 6	none
-⁷	superscript 7	none
-⁸	superscript 8	none
-⁹	superscript 9	none
-⁺	superscript plus	none
-⁻	superscript minus	none
-⁼	superscript equals	none
-⁽	superscript left paren	none
-⁾	superscript right paren	none
-ⁿ	superscript n	none
-₀	subscript 0	none
-₁	subscript 1	none
-₂	subscript 2	none
-₃	subscript 3	none
-₄	subscript 4	none
-₅	subscript 5	none
-₆	subscript 6	none
-₇	subscript 7	none
-₈	subscript 8	none
-₉	subscript 9	none
-₊	subscript plus	none
-₋	subscript minus	none
-₌	subscript equals	none
-₍	subscript left paren	none
-₎	subscript right paren	none
+¿	উল্টানো প্রশ্নবোধক চীহ্ন	none
+ƒ	ফ্লোরিন	none
+‚	একক নিম্ন উদ্ধৃতি	most
+„	দ্বিগুন নিম্ন উদ্ধৃতি	most
+†	ড্যাগার	some
+‡	ডবল ড্যাগার	some
+‣	ত্রিকোনোমিতিক বুলেট	none
+‰	প্রতি মাইল	some
+′	প্রাইম	some
+″	ডবল প্রাইম	some
+⁃	হাইফেন বুলেট	none
+✗	x-আকৃতির বুলেট	none

@@ -7,23 +7,30 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+¡	obrnuti uskličnik	none
+¤	znak za valutu	none
+¦	isprekidana crta	none
+ª	eksponent a	none
+¬	logično ne	some
+­	meka crtica	none
+¯	makron	none
+´	akut	none
+¶	oznaka odlomka	none
 ·	srednja točka	none
-‣	trokutasti kružić	none
-⁃	Crtica kružić	none
-□	bijeli kvadrat	none
-○	bijeli krug	none
-◆	crni dijamant	none
-✗	x-uobličeni kružić	none
-➔	strelica pokazuje u desno	none
-
-	crni kvadrat	none
-	crni dijamant	none
-
+¸	cedila	none
+º	redni broj	none
 ¼	jedna četvrtina	none
 ½	jedna polovina	none
 ¾	tri četvrtine	none
-
+¿	obrnuti upitnik	none
+†	bodež	some
+‡	dvostruki bodež	some
+‣	trokutasti kružić	none
+‰	promili	some
+′	glavni	some
+″	dvostruki glavni	some
+⁃	Crtica kružić	none
+✗	x-uobličeni kružić	none
 ⁰	eksponent 0	none
 ⁴	eksponent 4	none
 ⁵	eksponent 5	none
@@ -52,3 +59,8 @@ symbols:
 ₌	indeks jednako	none
 ₍	indeks lijeva zagrada	none
 ₎	indeks desna zagrada	none
+￼	znak zamjene objekta	none
+□	bijeli kvadrat	none
+○	bijeli krug	none
+◆	crni dijamant	none
+➔	strelica pokazuje u desno	none

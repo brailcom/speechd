@@ -7,26 +7,12 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-«	left double angle bracket	none
-»	right double angle bracket	none
-•	項目符號	none
+¶	段落標記	none
+¿	倒問號	none
+‚	下單引號	most
+„	下雙引號	most
 ‣	三角項目符號	none
-⁃	hyphen bullet	none
-◦	white bullet	none
-✓	check mark	none
-✔	heavy check mark	none
 ✗	x型項目符號	none
-➔	right-pointing arrow	none
-➢	right-pointing arrowhead	none
-
-	實心方框	none
-	實心菱形	none
-
-¼	one fourth	none
-½	one half	none
-¾	three fourths	none
-
 ⁰	上標 0	none
 ⁴	上標 4	none
 ⁵	上標 5	none
@@ -53,3 +39,4 @@ symbols:
 ₌	下標等號	none
 ₍	下標左括號	none
 ₎	下標右括號	none
+￼	物件置換字符	none

@@ -7,19 +7,32 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-‣	三角项目符号	none
-⁃	连字符	none
-◦	空心项目符号	none
-✗	x 形符号	none
-
-	实心方框	none
-	实心菱形	none
-
+¡	倒感叹号	none
+¤	货币符号	none
+¦	竖杠	none
+ª	上标 a	none
+¬	逻辑非符号	some
+­	软连字符	none
+¯	长音符号	none
+´	高音	none
+¶	段落标记	none
+¸	变音符号	none
+º	序数	none
 ¼	四分之一	none
 ½	二分之一	none
 ¾	四分之三	none
-
+¿	倒问号	none
+‚	单下引号	most
+„	双下引号	most
+†	剑号	some
+‡	双剑号	some
+‣	三角项目符号	none
+‰	千分号	some
+′	撇号	some
+″	双撇号	some
+‴	三撇号	none
+⁃	连字符	none
+✗	x 形符号	none
 ⁰	上标 0	none
 ⁴	上标 4	none
 ⁵	上标 5	none
@@ -46,3 +59,4 @@ symbols:
 ₌	下标等号	none
 ₍	下标左圆括号	none
 ₎	下标右圆括号	none
+￼	对象替换字符	none

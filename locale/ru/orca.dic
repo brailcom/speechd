@@ -7,19 +7,16 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+ª	верхний индекс а	none
+¯	черта над	none
+´	ударение	none
+¸	седиль	none
+º	порядковое	none
+ƒ	флорин	none
+‚	одиночная нижняя кавычка	most
 ‣	треугольная точка	none
 ⁃	отметка-тире	none
-□	white square	none
-○	white circle	none
-◆	ромб	none
 ✗	отметка в форме икс	none
-➔	right-pointing arrow	none
-
-	квадрат	none
-	ромб	none
-
-
 ⁰	верхний индекс 0	none
 ⁴	верхний индекс 4	none
 ⁵	верхний индекс 5	none
@@ -48,3 +45,4 @@ symbols:
 ₌	нижний индекс равно	none
 ₍	нижний индекс открывающая скобка	none
 ₎	нижний индекс закрывающая скобка	none
+￼	символ замещения объекта	none
