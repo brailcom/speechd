@@ -7,23 +7,32 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+¡	Einleitendes Ausrufezeichen	none
+¤	Währungssymbol	none
+¦	Unterbrochene vertikale Linie	none
+ª	hochgestelltes a	none
+¬	Logische Negation	some
+­	Silbentrennungsstrich	none
+¯	Macron	none
+´	Akut	none
+¶	Absatzzeichen	none
 ·	Mittelpunkt	none
-‣	Aufzählungspfeil	none
-⁃	Aufzählungstrennstich	none
-□	Weißes Quadrat	none
-○	Weißer Kreis	none
-◆	Schwarze Raute	none
-✗	X-Aufzählungszeichen	none
-➔	Dicker Pfeil nach rechts mit breiter Spitze	none
-
-	Schwarzes Quadrat	none
-	Schwarze Raute	none
-
+¸	Zedilla	none
 ¼	ein Viertel	none
 ½	ein Halb	none
 ¾	Drei Viertel	none
-
+¿	Einleitendes Fragezeichen	none
+ƒ	Florinzeichen	none
+‚	einfaches Anführungszeichen	most
+†	Kreuz	some
+‡	Doppelkreuz	some
+‣	Aufzählungspfeil	none
+‰	Promille	some
+′	Minute	some
+″	Sekunde	some
+‴	Dreistrich	none
+⁃	Aufzählungstrennstich	none
+✗	X-Aufzählungszeichen	none
 ⁰	hoch 0	none
 ⁴	hoch 4	none
 ⁵	hoch 5	none
@@ -52,3 +61,8 @@ symbols:
 ₌	tief Gleichheitszeichen	none
 ₍	tief runde Klammer auf	none
 ₎	tief runde Klammer zu	none
+￼	Objektersetzungszeichen	none
+□	Weißes Quadrat	none
+○	Weißer Kreis	none
+◆	Schwarze Raute	none
+➔	Dicker Pfeil nach rechts mit breiter Spitze	none

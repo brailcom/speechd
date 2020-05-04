@@ -7,62 +7,17 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	left arrow	none
-→	right arrow	none
-«	left double angle bracket	none
-»	right double angle bracket	none
-·	middle dot	none
-•	bulmarko	none
-‣	triangula bulmarko	none
-⁃	steketa bulmarko	none
-■	black square	none
-□	white square	none
-◦	white bullet	none
-○	white circle	none
-◆	black diamond	none
-●	black circle	none
-✓	check mark	none
-✔	heavy check mark	none
-✗	x-shaped bullet	none
-➔	right-pointing arrow	none
-➢	right-pointing arrowhead	none
-
-	black square	none
-	black diamond	none
-
+¡	inversa krisigno	none
+¤	valutsigno	none
+¬	logika neo	some
+¯	makrono	none
+´	dekstra korno	none
+¸	subhoko	none
 ¼	kvarono	none
 ½	duono	none
 ¾	tri kvaronoj	none
-
-⁰	superscript 0	none
-¹	superscript 1	none
-²	superscript 2	none
-³	superscript 3	none
-⁴	superscript 4	none
-⁵	superscript 5	none
-⁶	superscript 6	none
-⁷	superscript 7	none
-⁸	superscript 8	none
-⁹	superscript 9	none
-⁺	superscript plus	none
-⁻	superscript minus	none
-⁼	superscript equals	none
-⁽	superscript left paren	none
-⁾	superscript right paren	none
-ⁿ	superscript n	none
-₀	subscript 0	none
-₁	subscript 1	none
-₂	subscript 2	none
-₃	subscript 3	none
-₄	subscript 4	none
-₅	subscript 5	none
-₆	subscript 6	none
-₇	subscript 7	none
-₈	subscript 8	none
-₉	subscript 9	none
-₊	subscript plus	none
-₋	subscript minus	none
-₌	subscript equals	none
-₍	subscript left paren	none
-₎	subscript right paren	none
+ƒ	florino	none
+‡	duobla obeluso	some
+‣	triangula bulmarko	none
+‰	elmilo	some
+⁃	steketa bulmarko	none

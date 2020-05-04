@@ -7,23 +7,33 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+¡	odwrócony wykrzyknik	none
+¤	znak waluty	none
+¦	pionowa kreska przerywana	none
+ª	a w indeksie górnym	none
+¬	znak zaprzeczenia	some
+­	łącznik opcjonalny	none
+¯	nadkreślenie	none
+´	kreska	none
+¶	znak akapitu	none
 ·	punkt środkowy	none
-‣	znak wyliczenia w formie trójkąta	none
-⁃	znak wyliczenia w formie kreski	none
-□	biały kwadrat	none
-○	białe kółko	none
-◆	czarny romb	none
-✗	znak wyliczenia w formie iksa	none
-➔	strzałka zwrócona w prawo	none
-
-	czarny kwadrat	none
-	czarny romb	none
-
+¸	haczyk	none
+º	liczebnik porządkowy	none
 ¼	jedna czwarta	none
 ½	jedna druga	none
 ¾	trzy czwarte	none
-
+¿	odwrócony znak zapytania	none
+ƒ	floren	none
+‚	dolny apostrofowy cudzysłów pojedynczy	most
+„	dolny apostrofowy cudzysłów podwójny	most
+†	krzyż	some
+‡	podwójny krzyż	some
+‣	znak wyliczenia w formie trójkąta	none
+′	prim	some
+″	bis	some
+‴	ter	none
+⁃	znak wyliczenia w formie kreski	none
+✗	znak wyliczenia w formie iksa	none
 ⁰	0 w indeksie górnym	none
 ⁴	4 w indeksie górnym	none
 ⁵	5 w indeksie górnym	none
@@ -52,3 +62,8 @@ symbols:
 ₌	znak równości w indeksie dolnym	none
 ₍	lewy nawias w indeksie dolnym	none
 ₎	prawy nawias w indeksie dolnym	none
+￼	znak zastąpienia obiektu	none
+□	biały kwadrat	none
+○	białe kółko	none
+◆	czarny romb	none
+➔	strzałka zwrócona w prawo	none

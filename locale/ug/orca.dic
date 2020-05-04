@@ -7,38 +7,34 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	left arrow	none
-→	right arrow	none
-«	سول قوش تىرناق	none
-»	ئوڭ قوش تىرناق	none
+¡	تەتۈر ئۈندەش	none
+¤	پۇل بەلگىسى	none
+¦	تىك سىزىق	none
+ª	ئۈستىدىكى a	none
+¬	لوگىكىلىق ياق بەلگىسى	some
+­	يۇمشاق سىزىقچە	none
+¯	سوزۇق تاۋۇش بەلگىسى	none
+´	ئۇرغۇلۇق	none
+¶	پاراگراف بەلگىسى	none
 ·	ئوتتۇرا نۇقتا	none
-•	تۈر بەلگىسى	none
-‣	ئۈچبۇلۇڭ تۈر بەلگىسى	none
-⁃	سىزىقچە تۈرى	none
-■	ئىچى پۈتەي كۋادرات	none
-□	white square	none
-◦	white bullet	none
-○	white circle	none
-◆	ئىچى پۈتەي رومبا	none
-●	black circle	none
-✓	توغرا بەلگىسى	none
-✔	توم توغرا بەلگىسى	none
-✗	x شەكىللىك تۈر بەلگىسى	none
-➔	right-pointing arrow	none
-➢	right-pointing arrowhead	none
-
-	ئىچى پۈتەي كۋادرات	none
-	ئىچى پۈتەي رومبا	none
-
+¸	ئاۋاز ئۆزگەرتىش بەلگىسى	none
+º	تەرتىپ	none
 ¼	چارەك	none
 ½	يېرىم	none
 ¾	ئۈچ چارەك	none
-
+¿	تەتۈر سوئال بەلگىسى	none
+ƒ	ƒ	none
+‚	تۆۋەنكى تاق پەش	most
+„	تۆۋەنكى قوش پەش	most
+†	ئىسترېلكا	some
+‡	قوش ئىسترېلكا	some
+‣	ئۈچبۇلۇڭ تۈر بەلگىسى	none
+‰	مىڭدىن بىر	some
+′	تاق پەش	some
+″	قوش پەش	some
+⁃	سىزىقچە تۈرى	none
+✗	x شەكىللىك تۈر بەلگىسى	none
 ⁰	يۇقىرىقى 0	none
-¹	ئۈستۈنكى 1	none
-²	يۇقىرىقى 6	none
-³	يۇقىرىقى 3	none
 ⁴	يۇقىرىقى 4	none
 ⁵	يۇقىرىقى 5	none
 ⁶	يۇقىرىقى 6	none

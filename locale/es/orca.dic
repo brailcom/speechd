@@ -7,23 +7,30 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+¤	símbolo de moneda	none
+¦	barra vertical cortada	none
+ª	a sobrescrita	none
+¬	no lógico	some
+­	guión	none
+¯	sobrerayado	none
+´	acento	none
+¶	marca de párrafo	none
 ·	punto centrado	none
-‣	viñeta triangular	none
-⁃	guión de viñeta	none
-□	cuadrado en blanco	none
-○	círculo en blanco	none
-◆	rombo	none
-✗	viñeta marcada con x	none
-➔	flecha apuntando a la derecha	none
-
-	cuadrado tachado	none
-	rombo	none
-
 ¼	un cuarto	none
 ½	un medio	none
 ¾	tres cuartos	none
-
+ƒ	florín	none
+‚	comilla inferior simple	most
+„	doble comilla inferior	most
+†	cruz	some
+‡	DOBLE CRUZ	some
+‣	viñeta triangular	none
+‰	por milla	some
+′	primo	some
+″	primo doble	some
+‴	triple primo	none
+⁃	guión de viñeta	none
+✗	viñeta marcada con x	none
 ⁰	0 superíndice	none
 ⁴	4 superíndice	none
 ⁵	5 superíndice	none
@@ -52,3 +59,8 @@ symbols:
 ₌	igual subíndice	none
 ₍	abre paréntesis subíndice	none
 ₎	cierra paréntesis subíndice	none
+￼	carácter de reemplazo de objeto	none
+□	cuadrado en blanco	none
+○	círculo en blanco	none
+◆	rombo negro	none
+➔	flecha apuntando a la derecha	none

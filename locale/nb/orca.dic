@@ -7,38 +7,32 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	venstre pil	none
-→	høyre pil	none
-«	venstre dobbel hakeparentes	none
-»	høyre dobbel hakeparentes	none
+¡	omvendt utropstegn	none
+¤	valutategn	none
+¦	brutt stolpe	none
+ª	superskript a	none
+¬	logisk ikke	some
+­	myk bindestrek	none
+´	akutt	none
+¶	avsnittsmarkør	none
 ·	midtstilt punkt	none
-•	kulepunkt	none
-‣	trekantet kulepunkt	none
-⁃	bindestrekkulepunkt	none
-■	sort firkant	none
-□	white square	none
-◦	white bullet	none
-○	white circle	none
-◆	sort diamant	none
-●	black circle	none
-✓	avkrysningsmerke	none
-✔	tungt avkryssingsmerke	none
-✗	x-formet kulepunkt	none
-➔	pil som peker til høyre	none
-➢	høyrepekende pilhode	none
-
-	sort firkant	none
-	sort diamant	none
-
+¸	cedille	none
 ¼	en fjerdedel	none
 ½	en halv	none
 ¾	tre fjerdedeler	none
-
+¿	omvendt spørsmålstegn	none
+‚	enkelt lavt sitattegn	most
+„	dobbelt lavt sitattegn	most
+†	kors	some
+‡	dobbeltkors	some
+‣	trekantet kulepunkt	none
+‰	promille	some
+′	primtall	some
+″	dobbelt primtall	some
+‴	trippelt primtall	none
+⁃	bindestrekkulepunkt	none
+✗	x-formet kulepunkt	none
 ⁰	superskript 0	none
-¹	superskript 1	none
-²	superskript 2	none
-³	superskript 3	none
 ⁴	superskript 4	none
 ⁵	superskript 5	none
 ⁶	superskript 6	none
@@ -66,3 +60,5 @@ symbols:
 ₌	subskript er lik	none
 ₍	subskript venstre parantes	none
 ₎	subskript høyre parantes	none
+￼	tegn for erstatning av objekt	none
+➔	pil som peker til høyre	none

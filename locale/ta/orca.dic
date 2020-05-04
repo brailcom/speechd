@@ -7,23 +7,29 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+¡	தலைகீழ் வியப்பு குறி	none
+¤	பண குறி	none
+¦	உடைந்த கோல்	none
+ª	மேலெழுத்து எ	none
+¬	தருக்கரீதியாக இல்லை	some
+­	மெது ஹைபன்	none
+¯	மேக்ரான்	none
+´	அக்யூட்	none
+¶	பத்தி அடையாளம்	none
 ·	நடு புள்ளி	none
-‣	முக்கோண புல்லட்	none
-⁃	ஹைபன் புல்லட்	none
-□	white square	none
-○	white circle	none
-◆	கருப்பு வைரம்	none
-✗	X வடிவ புல்லட்	none
-➔	right-pointing arrow	none
-
-	கருப்பு சதுரம்	none
-	கருப்பு வைரம்	none
-
+¸	செடில்லா	none
+º	அழை	none
 ¼	கால் பாகம்	none
 ½	அரை பாகம்	none
 ¾	முக்கால் பாகம்	none
-
+¿	தலைகீழ் கேள்விக்குறி	none
+ƒ	ஃப்லோரிங்	none
+‣	முக்கோண புல்லட்	none
+‰	ஆயிரத்தில்	some
+′	முதன்மை	some
+″	இரட்டை முதன்மை	some
+⁃	ஹைபன் புல்லட்	none
+✗	X வடிவ புல்லட்	none
 ⁰	மேலெழுத்து 0	none
 ⁴	மேலெழுத்து 4	none
 ⁵	மேலெழுத்து 5	none

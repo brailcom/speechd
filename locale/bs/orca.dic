@@ -7,38 +7,34 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	left arrow	none
-→	right arrow	none
-«	duplo manje	none
-»	duplo veće	none
+¡	naopaki uzvičnik	none
+¤	znak valute	none
+¦	slomljena vertikalna crta	none
+ª	superskript a	none
+¬	logičko ne	some
+­	meko hyphen	none
+¯	makron	none
+´	akcentovan	none
+¶	paragraf	none
 ·	srednja tačka	none
-•	metak	none
-‣	trokutasti metak	none
-⁃	hyphen metak	none
-■	crni kvadrat	none
-□	white square	none
-◦	white bullet	none
-○	white circle	none
-◆	crni dijamant	none
-●	black circle	none
-✓	znak tačno	none
-✔	podebljani znak tačno	none
-✗	metak oblika x	none
-➔	right-pointing arrow	none
-➢	right-pointing arrowhead	none
-
-	crni kvadrat	none
-	crni dijamant	none
-
+¸	sjedila	none
+º	oridinal	none
 ¼	jedna četvrtina	none
 ½	jedna polovina	none
 ¾	tri četvrtine	none
-
+¿	naopaki upitnik	none
+ƒ	ef	none
+‚	jednostruki donji navodnik	most
+„	donji dupli navodnik	most
+†	bodež	some
+‡	dupli bodež	some
+‣	trokutasti metak	none
+‰	promil	some
+′	prim	some
+″	sekundum	some
+⁃	hyphen metak	none
+✗	metak oblika x	none
 ⁰	superskript 0	none
-¹	superskript 1	none
-²	superskript 2	none
-³	superskript 3	none
 ⁴	superskript 4	none
 ⁵	superskript 5	none
 ⁶	superskript 6	none
@@ -66,3 +62,4 @@ symbols:
 ₌	superskript jednako	none
 ₍	superskript lijeva zagrada	none
 ₎	superskript desna zagrada	none
+￼	karakter za promjenu objekta	none

@@ -7,23 +7,33 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+¡	обратен извичник	none
+¤	знак за валута	none
+¦	прекината црта	none
+ª	а во горен индекс	none
+¬	логичко не	some
+­	а со капа	none
+¯	макрон	none
+´	со акутен акцент	none
+¶	ознака за параграф	none
 ·	средна точка	none
-‣	тројна точка	none
-⁃	точка-цртичка	none
-□	white square	none
-○	white circle	none
-◆	црн дијамант	none
-✗	x точка за набројување	none
-➔	right-pointing arrow	none
-
-	црн квадрат	none
-	црн дијамант	none
-
+¸	цедила	none
+º	реден број	none
 ¼	една четвртина	none
 ½	една половина	none
 ¾	три четвртини	none
-
+¿	превртен прашалник	none
+ƒ	флорин	none
+‚	еден долен наводник	most
+„	двоен долен наводник	most
+†	обелос	some
+‡	двоен обелос	some
+‣	тројна точка	none
+‰	на милја	some
+′	прост	some
+″	двоен прост	some
+⁃	точка-цртичка	none
+✗	x точка за набројување	none
 ⁰	0 во горен индекс	none
 ⁴	4 во горен индекс	none
 ⁵	5 во горен индекс	none

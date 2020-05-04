@@ -7,22 +7,31 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+¡	omvendt udråbstegn	none
+¤	valutasymbol	none
+¦	brudt streg	none
+ª	hævet a	none
+¬	logisk ikke	some
+­	blød bindestreg	none
+´	accent aigu	none
+¶	afsnitstegn	none
 ·	prik	none
-‣	trekantet punkt	none
-⁃	bindestregspunkt	none
-□	hvid firkant	none
-○	hvid cirkel	none
-◆	sort diamand	none
-✗	krydsformet punkt	none
-
-	sort firkant	none
-	sort diamand	none
-
+¸	cedille	none
 ¼	en fjerdedel	none
 ½	en halv	none
 ¾	tre fjerdedele	none
-
+¿	omvendt spørgsmålstegn	none
+‚	enkelt lavt citationstegn	most
+„	dobbelt lavt citationstegn	most
+†	daggert	some
+‡	dobbelt daggert	some
+‣	trekantet punkt	none
+‰	promille	some
+′	mærke	some
+″	dobbeltmærke	some
+‴	tredobbeltmærke	none
+⁃	bindestregspunkt	none
+✗	krydsformet punkt	none
 ⁰	hævet 0	none
 ⁴	hævet 4	none
 ⁵	hævet 5	none
@@ -51,3 +60,7 @@ symbols:
 ₌	sænket lighedstegn	none
 ₍	sænket venstre parentes	none
 ₎	sænket højre parentes	none
+￼	objekterstatningstegn	none
+□	hvid firkant	none
+○	hvid cirkel	none
+◆	sort diamant	none

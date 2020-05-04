@@ -7,18 +7,21 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+ª	üstsimge a	none
+¬	mantıksal değil işareti	some
+­	koşullu kesme işareti	none
+¯	uzatma işareti	none
+¶	paragraf işaretçisi	none
+º	sırasal	none
+‚	tek alt tırnak	most
+„	çift alt tırnak	most
+†	kama	some
+‡	çift kama	some
+‰	mil başına	some
+″	çift asal	some
+‴	üçlü asal	none
 ⁃	çizgi madde imi	none
-□	beyaz kare	none
-○	beyaz daire	none
-◆	siyah baklava dilimi	none
 ✗	x şeklinde madde imi	none
-➔	sağ yönlü ok	none
-
-	içi dolu kare	none
-	siyah baklava dilimi	none
-
-
 ⁰	üstsimge 0	none
 ⁴	üstsimge 4	none
 ⁵	üstsimge 5	none
@@ -47,3 +50,8 @@ symbols:
 ₌	altsimge eşittir	none
 ₍	altsimge sol tek tırnak	none
 ₎	altsimge sağ tek tırnak	none
+￼	nesne değiştirme karakteri	none
+□	beyaz kare	none
+○	beyaz daire	none
+◆	siyah karo	none
+➔	sağ yönlü ok	none

@@ -7,24 +7,33 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+¡	ਉੱਲਟ ਹੈਰਾਨੀਜਨਕ ਪੁੰਆਇੰਟ।	none
+¤	ਕਰੰਸੀ ਸਾਈਨ	none
+¦	ਟੁੱਟੀ ਪੱਟੀ	none
+ª	ਘਾਤ	none
+¬	ਲਾਜੀਕਲ NOT	some
+­	  ਸੌਫਟ ਹਾਈਫਨ	none
+¯	ਮਾਈਕਰੋਨ	none
+´	ਏਕਿਊਟ	none
+¶	ਪ੍ਹੈਰਾਗਰਾਫ ਮੇਕਰ	none
 ·	ਵਿਚਕਾਰ ਬਿਂਦੀ	none
-‣	ਤਿੰਨ-ਐਂਗਲ ਬੁਲਿੱਟ	none
-⁃	ਹਾਏਫਨ ਬੁਲਿੱਟ	none
-□	white square	none
-◦	white bullet	none
-○	white circle	none
-◆	ਕਾਲਾ ਡਾਇਮੰਡ	none
-✗	ਐਕਸ-ਸੇਪਡ ਬੁਲਿੱਟ	none
-➢	right-pointing arrowhead	none
-
-	ਕਾਲਾ ਵਰਗ	none
-	ਕਾਲਾ ਡਾਇਮੰਡ	none
-
+¸	ਸੈਡੀਲਾ	none
+º	ਆਰਡੀਨਲ	none
 ¼	ਇੱਕ ਚੌਥਾਈ	none
 ½	ਅੱਧਾ	none
 ¾	ਤਿੰਨ ਚੌਥਾਈ	none
-
+¿	ਉਲਟ ਸਵਾਲੀਆ ਚਿੰਨ	none
+ƒ	ਫਲੋਰਿਨ	none
+‚	ਇੱਕਲਾ ਘੱਟ ਕੋਟ	most
+„	ਡਬਲ ਘੱਟ ਕੋਟ	most
+†	ਡੱਜਰ	some
+‡	ਡਬਲ ਡੱਜਰ	some
+‣	ਤਿੰਨ-ਐਂਗਲ ਬੁਲਿੱਟ	none
+‰	ਪਰ ਮੀਲ	some
+′	ਪਰਾਈਮ	some
+″	ਡਬਲ ਪਰਾਈਮ	some
+⁃	ਹਾਏਫਨ ਬੁਲਿੱਟ	none
+✗	ਐਕਸ-ਸੇਪਡ ਬੁਲਿੱਟ	none
 ⁰	ਘਾਤ 0	none
 ⁴	ਘਾਤ 4	none
 ⁵	ਘਾਤ 5	none

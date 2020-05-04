@@ -7,26 +7,21 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	šipka vlevo	none
-→	šipka vpravo	none
+ª	horní index a	none
+¬	logická negace	some
+¯	vodorovná čárka	none
+¶	znak odstavce	none
 ·	tečka uprostřed	none
+¸	sedil	none
+º	pořadový indikátor	none
+‚	jednoduché uvozovky dole	most
+„	dvojité uvozovky dole	most
+†	kříž	some
+′	minuta nebo stopa	some
+″	sekunda nebo palec	some
+‴	tercie	none
 ⁃	odrážka s pomlčkou	none
-■	čtvereček	none
-□	bílý čtvereček	none
-◦	bílá odrážka	none
-○	bílý kruh	none
-◆	kosočtverec	none
-✓	zatržítko	none
-✔	silné zatržítko	none
 ✗	odrážka s křížkem	none
-➔	šipka ukazující vpravo	none
-➢	hrot šipky ukazující vpravo	none
-
-	čtvereček	none
-	kosočtverec	none
-
-
 ⁰	horní index 0	none
 ⁴	horní index 4	none
 ⁵	horní index 5	none
@@ -55,3 +50,8 @@ symbols:
 ₌	dolní index rovná se	none
 ₍	dolní index levá závorka	none
 ₎	dolní index pravá závorka	none
+￼	znak nahrazující objekt	none
+□	bílý čtvereček	none
+○	bílý kruh	none
+◆	černý kosočtverec	none
+➔	šipka ukazující vpravo	none

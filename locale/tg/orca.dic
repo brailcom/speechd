@@ -7,38 +7,33 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	left arrow	none
-→	right arrow	none
-«	қавси дукунҷаи чап	none
-»	қавси дукунҷаи рост	none
+¡	нуқтаи хитоби баръакс	none
+¤	аломати асъор	none
+¦	навори шикаста	none
+ª	абарнигошт а	none
+¬	не-и мантиқӣ	some
+­	тиреи нозук	none
+¯	зада	none
+¶	нишонагузори банд	none
 ·	нуқтаи миёна	none
-•	нишон	none
-‣	нишони секунҷа	none
-⁃	нишонаи тире	none
-■	чоркунҷаи сиёҳ	none
-□	white square	none
-◦	white bullet	none
-○	white circle	none
-◆	алмоси сиёҳ	none
-●	black circle	none
-✓	аломати тасдиқ	none
-✔	аломати тасдиқи пурранг	none
-✗	нишрна дар шакли x	none
-➔	right-pointing arrow	none
-➢	right-pointing arrowhead	none
-
-	чоркунҷаи сиёҳ	none
-	алмоси сиёҳ	none
-
+¸	думча	none
+º	тартибӣ	none
 ¼	чоряк	none
 ½	нисф	none
 ¾	аз чор се ҳисса	none
-
+¿	аломати саволи баръакс	none
+ƒ	флорин	none
+‚	нохунаки яктогии поён	most
+„	нохунаки дутогии поён	most
+†	салибча	some
+‡	салибчаи дугона	some
+‣	нишони секунҷа	none
+‰	промил	some
+′	нохунаки асосӣ	some
+″	нохунаки асосии дутогӣ	some
+⁃	нишонаи тире	none
+✗	нишрна дар шакли x	none
 ⁰	абарнигошт 0	none
-¹	абарнигошт 1	none
-²	абарнигошт 2	none
-³	абарнигошт 3	none
 ⁴	абарнигошт 4	none
 ⁵	абарнигошт 5	none
 ⁶	абарнигошт 6	none

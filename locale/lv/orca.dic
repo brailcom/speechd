@@ -7,38 +7,34 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	bulta pa kreisi	none
-→	bulta pa labi	none
-«	stūrainās atvērējpēdiņas	none
-»	stūrainās aizvērējpēdiņas	none
+¡	apgriezta izsaukuma zīme	none
+¤	valūtas zīme	none
+¦	pārlauzta svītra	none
+ª	augšraksts	none
+¬	loģiskais nē	some
+­	nosacījuma pārnesumzīme	none
+¯	garumzīme	none
+´	akūts	none
+¶	paragrāfa simbols	none
 ·	punkts pa vidu	none
-•	aizzīme	none
-‣	trīsstūrveida aizzīme	none
-⁃	savienojuma aizzīme	none
-■	melns kvadrāts	none
-□	balts kvadrāts	none
-◦	balta aizzīme	none
-○	balts aplis	none
-◆	melns rombs	none
-●	melns aplis	none
-✓	atzīmēt rūtiņu	none
-✔	pārbaudīt atzīmēto rūtiņu	none
-✗	x-veida aizzīme	none
-➔	pa labi vērsta bulta	none
-➢	pa labi vērsts bultas uzgalis	none
-
-	melns kvadrāts	none
-	melns rombs	none
-
+¸	sediļa	none
+º	kārtas simbols	none
 ¼	viena ceturdaļa	none
 ½	viena puse	none
 ¾	trīs ceturdaļas	none
-
+¿	apgriezta jautājuma zīme	none
+‚	atverošās vienpēdiņas	most
+„	atverošās pēdiņas	most
+†	Duncis	some
+‡	dubult duncis	some
+‣	trīsstūrveida aizzīme	none
+‰	per mile	some
+′	prim	some
+″	dubults prim	some
+‴	trīskāršs prim	none
+⁃	savienojuma aizzīme	none
+✗	x-veida aizzīme	none
 ⁰	augšraksts 0	none
-¹	augšraksts 1	none
-²	augšraksts 2	none
-³	augšraksts 3	none
 ⁴	augšraksts 4	none
 ⁵	augšraksts 5	none
 ⁶	augšraksts 6	none
@@ -66,3 +62,8 @@ symbols:
 ₌	apakšraksts vienāds ar	none
 ₍	apakšraksts atverošā iekava	none
 ₎	apakšraksts aizverošā iekava	none
+￼	objekta aizvietošanas rakstzīme	none
+□	balts kvadrāts	none
+○	balts aplis	none
+◆	melns rombs	none
+➔	pa labi vērsta bulta	none

@@ -7,21 +7,16 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-⁃	tiret	none
-□	carré blanc	none
-○	cercle blanc	none
-◆	losange noir	none
-✗	puce en forme de x	none
-➢	pointe de flèche vers la droite	none
-
-	carré noir	none
-	losange noir	none
-
+¦	barre verticale discontinue	none
+ª	ordinal féminin	none
+¬	négation logique	some
+´	accent aigu	none
+º	ordinal masculin	none
 ¼	un quart	none
 ½	un demi	none
 ¾	trois quarts	none
-
+⁃	tiret	none
+✗	puce en forme de x	none
 ⁰	exposant 0	none
 ⁴	exposant 4	none
 ⁵	exposant 5	none
@@ -50,3 +45,7 @@ symbols:
 ₌	égal en indice	none
 ₍	parenthèse gauche en indice	none
 ₎	parenthèse droite en indice	none
+￼	caractère de remplacement d’objet	none
+□	carré blanc	none
+○	cercle blanc	none
+◆	losange noir	none

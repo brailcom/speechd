@@ -7,38 +7,32 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	left arrow	none
-→	right arrow	none
-«	बायाँ दोहरा कोण कोष्ठक	none
-»	दायाँ दोहरा कोण कोष्ठक	none
+¡	उल्टा विस्मयादिबोधक बिंदु	none
+¤	मुद्रा चिह्न	none
+¦	टूटी पट्टी	none
+ª	सुपरस्क्रिप्ट a	none
+¬	तार्किक नहीं	some
+­	सॉफ्ट योजक	none
+¯	मैक्रोन	none
+´	अधि	none
+¶	अनुच्छेद चिह्नक	none
 ·	बिचला डॉट	none
-•	बुलेट	none
-‣	त्रिभुज बुलेट	none
-⁃	योजन बुलेट	none
-■	काला वर्ग	none
-□	white square	none
-◦	white bullet	none
-○	white circle	none
-◆	काला हीरक	none
-●	black circle	none
-✓	जाँच चिह्न	none
-✔	भारी जाँच चिह्न	none
-✗	x-आकार के बुलेट	none
-➔	right-pointing arrow	none
-➢	right-pointing arrowhead	none
-
-	काला वर्ग	none
-	काला हीरक	none
-
+¸	सेडिला	none
+º	आर्डिनल	none
 ¼	एक चौथाई	none
 ½	आधा	none
 ¾	तीन चौथाई	none
-
+¿	उल्टा प्रश्न चिह्न	none
+‚	एकल निम्न उद्धरण	most
+„	दोहरा निम्न उद्धरण	most
+†	डैगर	some
+‡	दोहरा डैगर	some
+‣	त्रिभुज बुलेट	none
+′	प्राइम	some
+″	दोहरा प्राइम	some
+⁃	योजन बुलेट	none
+✗	x-आकार के बुलेट	none
 ⁰	सुपरस्क्रिप्ट 0	none
-¹	सुपरस्क्रिप्ट 1	none
-²	सुपरस्क्रिप्ट 2	none
-³	सुपरस्क्रिप्ट 3	none
 ⁴	सुपरस्क्रिप्ट 4	none
 ⁵	सुपरस्क्रिप्ट 5	none
 ⁶	सुपरस्क्रिप्ट 6	none

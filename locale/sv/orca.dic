@@ -7,22 +7,33 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+¡	uppochnedvänt utropstecken	none
+¤	valutasymbol	none
+¦	brutet rör-tecken	none
+ª	feminin-ordinal	none
+¬	logiskt inte	some
+­	mjuk interpunkt	none
+¯	makron	none
+´	akut	none
+¶	paragraftecken	none
 ·	mittenpunkt	none
-‣	triangulär listpunkt	none
-⁃	interpunkt	none
-□	vit kvadrat	none
-○	vit cirkel	none
-◆	svart diamant	none
-✗	x-formad interpunkt	none
-
-	svart kvadrat	none
-	svart diamant	none
-
+¸	cedilj	none
+º	ordningstecken	none
 ¼	en kvarts	none
 ½	en halv	none
 ¾	trekvarts	none
-
+¿	uppochnedvänt frågetecken	none
+‚	enkelt lågt citattecken	most
+„	dubbelt lågt citattecken	most
+†	kors	some
+‡	dubbelkors	some
+‣	triangulär listpunkt	none
+‰	promille	some
+′	primtecken	some
+″	dubbelprimtecken	some
+‴	trippelprimtecken	none
+⁃	interpunkt	none
+✗	x-formad interpunkt	none
 ⁰	upphöjd 0	none
 ⁴	upphöjd 4	none
 ⁵	upphöjd 5	none
@@ -51,3 +62,7 @@ symbols:
 ₌	nedsänkt lika med-tecken	none
 ₍	nedsänkt vänsterparentes	none
 ₎	nedsänkt högerparentes	none
+￼	objektersättningstecken	none
+□	vit kvadrat	none
+○	vit cirkel	none
+◆	svart diamant	none

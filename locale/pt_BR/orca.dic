@@ -7,23 +7,33 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
+¡	ponto de exclamação invertido	none
+¤	símbolo monetário	none
+¦	barra vertical separada	none
+ª	ordinal feminino	none
+¬	não lógico	some
+­	hífen opcional	none
+¯	mácron	none
+´	agudo	none
+¶	marcador de parágrafo	none
 ·	ponto mediano	none
-‣	marcador triangular	none
-⁃	marcador traço	none
-□	quadrado branco	none
-○	círculo branco	none
-◆	losango negro	none
-✗	marcador x	none
-➔	seta apontando para direita	none
-
-	quadrado negro	none
-	losango negro	none
-
+¸	cedilha	none
 ¼	um quarto	none
 ½	um meio	none
 ¾	três quartos	none
-
+¿	interrogação invertida	none
+ƒ	florim	none
+‚	aspas simples de citação	most
+„	aspa dupla de citação	most
+†	cruz	some
+‡	cruz dupla	some
+‣	marcador triangular	none
+‰	por mil	some
+′	plica	some
+″	plica dupla	some
+‴	plica triplo	none
+⁃	marcador traço	none
+✗	marcador x	none
 ⁰	0 sobrescrito	none
 ⁴	4 sobrescrito	none
 ⁵	5 sobrescrito	none
@@ -52,3 +62,8 @@ symbols:
 ₌	igual subscrito	none
 ₍	parêntese esquerdo subscrito	none
 ₎	parêntese direito subscrito	none
+￼	objeto de caractere de substituição	none
+□	quadrado branco	none
+○	círculo branco	none
+◆	diamante negro	none
+➔	seta apontando para direita	none

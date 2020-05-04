@@ -7,62 +7,15 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	left arrow	none
-→	right arrow	none
-«	virgulutis doplis a çampe	none
-»	virgulutis doplis a diestre	none
+¡	pont esclamatîf invertît	none
+¤	segn di valude	none
+¬	no logjic	some
+´	acût	none
+¶	simbul di paragraf	none
 ·	pont centrâl	none
-•	bullet	none
-‣	triangular bullet	none
-⁃	hyphen bullet	none
-■	black square	none
-□	white square	none
-◦	white bullet	none
-○	white circle	none
-◆	black diamond	none
-●	black circle	none
-✓	check mark	none
-✔	heavy check mark	none
-✗	x-shaped bullet	none
-➔	right-pointing arrow	none
-➢	right-pointing arrowhead	none
-
-	black square	none
-	black diamond	none
-
+¸	cedilie	none
+º	ordenâl	none
 ¼	un cuart	none
 ½	un mieç	none
 ¾	trê cuarts	none
-
-⁰	superscript 0	none
-¹	superscript 1	none
-²	superscript 2	none
-³	superscript 3	none
-⁴	superscript 4	none
-⁵	superscript 5	none
-⁶	superscript 6	none
-⁷	superscript 7	none
-⁸	superscript 8	none
-⁹	superscript 9	none
-⁺	superscript plus	none
-⁻	superscript minus	none
-⁼	superscript equals	none
-⁽	superscript left paren	none
-⁾	superscript right paren	none
-ⁿ	superscript n	none
-₀	subscript 0	none
-₁	subscript 1	none
-₂	subscript 2	none
-₃	subscript 3	none
-₄	subscript 4	none
-₅	subscript 5	none
-₆	subscript 6	none
-₇	subscript 7	none
-₈	subscript 8	none
-₉	subscript 9	none
-₊	subscript plus	none
-₋	subscript minus	none
-₌	subscript equals	none
-₍	subscript left paren	none
-₎	subscript right paren	none
+¿	pont interogatîf invertît	none

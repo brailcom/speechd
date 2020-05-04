@@ -7,38 +7,35 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	ezkerrerako gezia	none
-→	eskuinerako gezia	none
-«	ezkerreko komatxo angeluarrak	none
-»	eskuineko komatxo angeluarrak	none
+¡	hasierako harridura-marka	none
+¤	monetaren ikurra	none
+¦	barra bertikal etena	none
+ª	a goi-indizea	none
+¬	ez logikoaren ikurra	some
+­	marratxoa	none
+¯	goi-marra	none
+´	zorrotza	none
+¶	paragrafo-marka	none
 ·	erdiko puntua	none
-•	buleta	none
-‣	bulet triangeluarra	none
-⁃	marratxo-buleta	none
-■	karratu beltza	none
-□	karratu zuria	none
-◦	bulet zuria	none
-○	zirkulu zuria	none
-◆	erronbo beltza	none
-●	zirkulu beltza	none
-✓	kontrol-marka	none
-✔	kontrol-marka lodia	none
-✗	x-formako buleta	none
-➔	eskuinerantz zuzendutako gezia	none
-➢	eskuinerantz zuzendutako geziburua	none
-
-	karratu beltza	none
-	erronbo beltza	none
-
+¸	zedila	none
+º	ordinala	none
 ¼	laurden bat	none
 ½	erdi bat	none
 ¾	hiru laurden	none
-
+¿	hasierako galdera-marka	none
+ƒ	florinaren ikurra	none
+‚	komatxo bakun baxua	most
+„	komatxo bikoitz baxua	most
+†	gurutzea	some
+‡	gurutze bikoitza	some
+‣	bulet triangeluarra	none
+‰	milakoaren ikurra	some
+′	lehena ikurra	some
+″	bigarrena ikurra	some
+‴	hirugarrena ikurra	none
+⁃	marratxo-buleta	none
+✗	x-formako buleta	none
 ⁰	0 goi-indizea	none
-¹	1 goi-indizea	none
-²	2 goi-indizea	none
-³	3 goi-indizea	none
 ⁴	4 goi-indizea	none
 ⁵	5 goi-indizea	none
 ⁶	6 goi-indizea	none
@@ -66,3 +63,8 @@ symbols:
 ₌	azpi-indizeko berdin	none
 ₍	azpi-indizeko ezker-parentesia	none
 ₎	azpi-indizeko eskuin-parentesia	none
+￼	objektuaren ordezko karakterea	none
+□	karratu zuria	none
+○	zirkulu zuria	none
+◆	erronbo beltza	none
+➔	eskuinerantz zuzendutako gezia	none

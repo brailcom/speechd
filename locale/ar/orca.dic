@@ -7,51 +7,27 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-«	قوس مزدوج أيسر	none
-»	قوس مزدوج أيمن	none
+¡	علامة تعجب مقلوبة	none
+¤	علامة عملة	none
+¦	خط عمودي منكسر	none
+ª	a علوي	none
+¬	'لا' منطقي	some
+­	بداية اقتباس	none
+¯	خط افقي علوي	none
+¶	علامة فقرة	none
 ·	نقطة وسطية	none
-‣	علامة مثلثية	none
-⁃	خط	none
-□	white square	none
-◦	white bullet	none
-○	white circle	none
-◆	معين أسود	none
-✗	علامة x	none
-➢	right-pointing arrowhead	none
-
-	مربع أسود	none
-	معين أسود	none
-
+¸	فاصلة	none
+º	العدد الترتيبي	none
 ¼	ربع	none
 ½	نص	none
 ¾	ثلاثة أرباع	none
-
-⁰	superscript 0	none
-⁴	superscript 4	none
-⁵	superscript 5	none
-⁶	superscript 6	none
-⁷	superscript 7	none
-⁸	superscript 8	none
-⁹	superscript 9	none
-⁺	superscript plus	none
-⁻	superscript minus	none
-⁼	superscript equals	none
-⁽	superscript left paren	none
-⁾	superscript right paren	none
-ⁿ	superscript n	none
-₀	subscript 0	none
-₁	subscript 1	none
-₂	subscript 2	none
-₃	subscript 3	none
-₄	subscript 4	none
-₅	subscript 5	none
-₆	subscript 6	none
-₇	subscript 7	none
-₈	subscript 8	none
-₉	subscript 9	none
-₊	subscript plus	none
-₋	subscript minus	none
-₌	subscript equals	none
-₍	subscript left paren	none
-₎	subscript right paren	none
+¿	علامة استفهام مقلوبة	none
+ƒ	فلورين	none
+†	علامة الصليب	some
+‡	رمز صليب مزدوج	some
+‣	علامة مثلثية	none
+‰	في الألف	some
+′	فتحة	some
+″	فتحتين	some
+⁃	خط	none
+✗	علامة x	none

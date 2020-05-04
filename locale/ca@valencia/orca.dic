@@ -7,38 +7,33 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-
-←	fletxa esquerra	none
-→	fletxa dreta	none
-«	cometes baixes esquerres	none
-»	cometes baixes dretes	none
+¡	exclamació invertida	none
+¤	signe de moneda	none
+¦	barra trencada	none
+ª	superíndex a	none
+¬	no lògic	some
+­	guionet	none
+¯	guionet alt	none
+´	accent agut	none
+¶	marcador de paràgraf	none
 ·	punt volat	none
-•	pic	none
-‣	pic triangular	none
-⁃	guió petit	none
-■	quadrat negre	none
-□	quadrat blanc	none
-◦	bala blanca	none
-○	cercle blanc	none
-◆	diamant negre	none
-●	cercle negre	none
-✓	marca de verificació	none
-✔	marca de verificació gruixuda	none
-✗	pic en forma de x	none
-➔	fletxa que apunta cap a la dreta	none
-➢	punta de fletxa que apunta cap a la dreta	none
-
-	quadrat negre	none
-	diamant negre	none
-
+º	o elevada	none
 ¼	un quart	none
 ½	un mig	none
 ¾	tres quartes parts	none
-
+¿	signe d'interrogació invertit	none
+‚	marca de citació baixa	most
+„	cometes baixes dobles	most
+†	creu	some
+‡	creu doble	some
+‣	pic triangular	none
+‰	tant per mil	some
+′	prima	some
+″	prima doble	some
+‴	prima triple	none
+⁃	guió petit	none
+✗	pic en forma de x	none
 ⁰	superíndex 0	none
-¹	superíndex 1	none
-²	superíndex 2	none
-³	superíndex 3	none
 ⁴	superíndex 4	none
 ⁵	superíndex 5	none
 ⁶	superíndex 6	none
@@ -66,3 +61,8 @@ symbols:
 ₌	subíndex signe igual	none
 ₍	subíndex parèntesi esquerre	none
 ₎	subíndex parèntesi dret	none
+￼	caràcter de substitució d'objecte	none
+□	quadrat blanc	none
+○	cercle blanc	none
+◆	diamant negre	none
+➔	fletxa que apunta cap a la dreta	none
