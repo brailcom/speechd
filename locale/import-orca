@@ -138,3 +138,5 @@ EOF
 		done )
 	) > $lang/orca$num.dic
 done
+
+rm -f orca$num.autosym
