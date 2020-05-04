@@ -8,25 +8,14 @@
 
 symbols:
 
-←	frecha á esquerda	none
-→	frecha á dereita	none
-«	comiñas compostas angulares á esquerda	none
-»	comiñas compostas angulares á dereita	none
 ·	punto centrado	none
-•	signo de viñeta	none
 ‣	signo de viñeta triangular	none
 ⁃	signo de viñeta con raia	none
-■	cadrado negro	none
 □	cadrado branco	none
-◦	viñeta branca	none
 ○	círculo branco	none
 ◆	diamante negro	none
-●	círculo negro	none
-✓	marca de verificación	none
-✔	marca de verificación forte	none
 ✗	signo de viñeta con forma de x 	none
 ➔	frecha apuntando á dereita	none
-➢	frecha apuntando á dereita	none
 
 	cadrado negro	none
 	diamante negro	none
@@ -36,9 +25,6 @@ symbols:
 ¾	tres cuartos	none
 
 ⁰	superíndice 0	none
-¹	1 superíndice	none
-²	2 superíndice	none
-³	3 superíndice	none
 ⁴	superíndice 4	none
 ⁵	superíndice 5	none
 ⁶	superíndice 6	none

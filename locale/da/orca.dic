@@ -8,25 +8,13 @@
 
 symbols:
 
-←	pil venstre	none
-→	pil højre	none
-«	dobbelt mindre end tegn	none
-»	dobbelt større end tegn	none
 ·	prik	none
-•	punkt	none
 ‣	trekantet punkt	none
 ⁃	bindestregspunkt	none
-■	sort firkant	none
 □	hvid firkant	none
-◦	hvidt punkt	none
 ○	hvid cirkel	none
 ◆	sort diamand	none
-●	sort cirkel	none
-✓	afkrydsnings v	none
-✔	fedt afkrydsnings v	none
 ✗	krydsformet punkt	none
-➔	højrepegende pil	none
-➢	højrepegende pilehoved	none
 
 	sort firkant	none
 	sort diamand	none
@@ -36,9 +24,6 @@ symbols:
 ¾	tre fjerdedele	none
 
 ⁰	hævet 0	none
-¹	hævet 1	none
-²	hævet 2	none
-³	hævet 3	none
 ⁴	hævet 4	none
 ⁵	hævet 5	none
 ⁶	hævet 6	none

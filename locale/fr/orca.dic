@@ -8,24 +8,11 @@
 
 symbols:
 
-←	flèche vers la gauche	none
-→	flèche vers la droite	none
-«	guillemet français ouvrant	none
-»	guillemet français fermant	none
-·	point médian	none
-•	puce	none
-‣	puce triangulaire	none
 ⁃	tiret	none
-■	carré noir	none
 □	carré blanc	none
-◦	petit cercle blanc	none
 ○	cercle blanc	none
 ◆	losange noir	none
-●	cercle noir	none
-✓	signe de vérification	none
-✔	gros signe de vérification	none
 ✗	puce en forme de x	none
-➔	flèche vers la droite	none
 ➢	pointe de flèche vers la droite	none
 
 	carré noir	none
@@ -36,9 +23,6 @@ symbols:
 ¾	trois quarts	none
 
 ⁰	exposant 0	none
-¹	exposant 1	none
-²	carré	none
-³	cube	none
 ⁴	exposant 4	none
 ⁵	exposant 5	none
 ⁶	exposant 6	none

@@ -8,25 +8,14 @@
 
 symbols:
 
-←	strelica lijevo	none
-→	strelica desno	none
-«	otvoreni navodnici	none
-»	zatvoreni navodnici	none
 ·	srednja točka	none
-•	kružić	none
 ‣	trokutasti kružić	none
 ⁃	Crtica kružić	none
-■	crni kvadrat	none
 □	bijeli kvadrat	none
-◦	bijeli kružić	none
 ○	bijeli krug	none
 ◆	crni dijamant	none
-●	crni krug	none
-✓	kvačica	none
-✔	teška kvačica	none
 ✗	x-uobličeni kružić	none
 ➔	strelica pokazuje u desno	none
-➢	vrh strelice pokazuje u desno	none
 
 	crni kvadrat	none
 	crni dijamant	none
@@ -36,9 +25,6 @@ symbols:
 ¾	tri četvrtine	none
 
 ⁰	eksponent 0	none
-¹	eksponent 1	none
-²	eksponent 2	none
-³	eksponent 3	none
 ⁴	eksponent 4	none
 ⁵	eksponent 5	none
 ⁶	eksponent 6	none

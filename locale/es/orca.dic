@@ -8,25 +8,14 @@
 
 symbols:
 
-←	flecha izquierda	none
-→	flecha derecha	none
-«	abre comillas angulares	none
-»	cierra comillas angulares	none
 ·	punto centrado	none
-•	viñeta	none
 ‣	viñeta triangular	none
 ⁃	guión de viñeta	none
-■	cuadrado tachado	none
 □	cuadrado en blanco	none
-◦	viñeta blanca	none
 ○	círculo en blanco	none
 ◆	rombo	none
-●	círculo negro	none
-✓	marca	none
-✔	marca fuerte	none
 ✗	viñeta marcada con x	none
 ➔	flecha apuntando a la derecha	none
-➢	flecha apuntando hacia la derecha	none
 
 	cuadrado tachado	none
 	rombo	none
@@ -36,9 +25,6 @@ symbols:
 ¾	tres cuartos	none
 
 ⁰	0 superíndice	none
-¹	1 superíndice	none
-²	2 superíndice	none
-³	3 superíndice	none
 ⁴	4 superíndice	none
 ⁵	5 superíndice	none
 ⁶	6 superíndice	none
