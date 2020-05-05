@@ -979,6 +979,13 @@ class SSIPClient(object):
                          PunctuationMode.SOME, PunctuationMode.NONE), value
         self._conn.send_command('SET', scope, 'PUNCTUATION', value)
 
+    def get_punctuation(self):
+        """Get the punctuation pronounciation level."""
+        code, msg, data = self._conn.send_command('GET', 'PUNCTUATION')
+        if data:
+            return data[0]
+        return None
+
     def set_spelling(self, value, scope=Scope.SELF):
         """Toogle the spelling mode or on off.
 
