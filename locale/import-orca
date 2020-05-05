@@ -59,7 +59,7 @@ mypunctuation = {
 
 for sym,name in chnames.items():
     c = ord(sym[0])
-    if ('$num' != '_chars') == \
+    if ('$num' != '-chars') == \
         (c >= 0xc0 and c <= 0xff
          or c == 0x178
          or c == 0xe00a
@@ -75,7 +75,7 @@ for sym,name in chnames.items():
         level, flag = mypunctuation[sym]
     else:
         print("# %s not in punctuation" % sym)
-        if '$num' == '_chars':
+        if '$num' == '-chars':
             level, flag = LEVEL_CHAR, PUNCTUATION_REPLACE
         else:
             level, flag = LEVEL_NONE, PUNCTUATION_REPLACE
