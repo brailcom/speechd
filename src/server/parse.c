@@ -33,6 +33,7 @@
 #include "server.h"
 #include "sem_functions.h"
 #include "output.h"
+#include "fdsetconv.h"
 
 /*
   Parse() receives input data and parses them. It can
@@ -1041,6 +1042,11 @@ char *parse_get(const char *buf, const int bytes, const int fd,
 	} else if (TEST_CMD(get_type, "volume")) {
 		g_string_append_printf(result, C_OK_GET "-%d" NEWLINE OK_GET,
 				       settings->msg_settings.volume);
+	} else if (TEST_CMD(get_type, "punctuation")) {
+		char *punct = EPunctMode2str(settings->msg_settings.punctuation_mode);
+		g_string_append_printf(result, C_OK_GET "-%s" NEWLINE OK_GET,
+				       punct);
+		g_free(punct);
 	} else {
 		g_free(get_type);
 		g_string_append(result, ERR_PARAMETER_INVALID);
