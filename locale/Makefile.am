@@ -198,65 +198,65 @@ nobase_localedata_DATA = \
 	zh_HK/orca.dic \
 	zh_TW/orca.dic \
 	\
-	an/orca_chars.dic \
-	ar/orca_chars.dic \
-	ast/orca_chars.dic \
-	base/orca_chars.dic \
-	be/orca_chars.dic \
-	bg/orca_chars.dic \
-	bn_IN/orca_chars.dic \
-	bn/orca_chars.dic \
-	bs/orca_chars.dic \
-	ca/orca_chars.dic \
-	ca@valencia/orca_chars.dic \
-	cs/orca_chars.dic \
-	da/orca_chars.dic \
-	de/orca_chars.dic \
-	el/orca_chars.dic \
-	eo/orca_chars.dic \
-	es/orca_chars.dic \
-	eu/orca_chars.dic \
-	fi/orca_chars.dic \
-	fr/orca_chars.dic \
-	gl/orca_chars.dic \
-	hi/orca_chars.dic \
-	hr/orca_chars.dic \
-	hu/orca_chars.dic \
-	id/orca_chars.dic \
-	it/orca_chars.dic \
-	lt/orca_chars.dic \
-	lv/orca_chars.dic \
-	mk/orca_chars.dic \
-	ml/orca_chars.dic \
-	ms/orca_chars.dic \
-	nb/orca_chars.dic \
-	ne/orca_chars.dic \
-	nl/orca_chars.dic \
-	nn/orca_chars.dic \
-	oc/orca_chars.dic \
-	pa/orca_chars.dic \
-	pl/orca_chars.dic \
-	pt_BR/orca_chars.dic \
-	pt/orca_chars.dic \
-	ro/orca_chars.dic \
-	ru/orca_chars.dic \
-	sk/orca_chars.dic \
-	sl/orca_chars.dic \
-	sq/orca_chars.dic \
-	sr@latin/orca_chars.dic \
-	sr/orca_chars.dic \
-	sv/orca_chars.dic \
-	ta/orca_chars.dic \
-	te/orca_chars.dic \
-	tg/orca_chars.dic \
-	th/orca_chars.dic \
-	tr/orca_chars.dic \
-	ug/orca_chars.dic \
-	uk/orca_chars.dic \
-	vi/orca_chars.dic \
-	zh_CN/orca_chars.dic \
-	zh_HK/orca_chars.dic \
-	zh_TW/orca_chars.dic \
+	an/orca-chars.dic \
+	ar/orca-chars.dic \
+	ast/orca-chars.dic \
+	base/orca-chars.dic \
+	be/orca-chars.dic \
+	bg/orca-chars.dic \
+	bn_IN/orca-chars.dic \
+	bn/orca-chars.dic \
+	bs/orca-chars.dic \
+	ca/orca-chars.dic \
+	ca@valencia/orca-chars.dic \
+	cs/orca-chars.dic \
+	da/orca-chars.dic \
+	de/orca-chars.dic \
+	el/orca-chars.dic \
+	eo/orca-chars.dic \
+	es/orca-chars.dic \
+	eu/orca-chars.dic \
+	fi/orca-chars.dic \
+	fr/orca-chars.dic \
+	gl/orca-chars.dic \
+	hi/orca-chars.dic \
+	hr/orca-chars.dic \
+	hu/orca-chars.dic \
+	id/orca-chars.dic \
+	it/orca-chars.dic \
+	lt/orca-chars.dic \
+	lv/orca-chars.dic \
+	mk/orca-chars.dic \
+	ml/orca-chars.dic \
+	ms/orca-chars.dic \
+	nb/orca-chars.dic \
+	ne/orca-chars.dic \
+	nl/orca-chars.dic \
+	nn/orca-chars.dic \
+	oc/orca-chars.dic \
+	pa/orca-chars.dic \
+	pl/orca-chars.dic \
+	pt_BR/orca-chars.dic \
+	pt/orca-chars.dic \
+	ro/orca-chars.dic \
+	ru/orca-chars.dic \
+	sk/orca-chars.dic \
+	sl/orca-chars.dic \
+	sq/orca-chars.dic \
+	sr@latin/orca-chars.dic \
+	sr/orca-chars.dic \
+	sv/orca-chars.dic \
+	ta/orca-chars.dic \
+	te/orca-chars.dic \
+	tg/orca-chars.dic \
+	th/orca-chars.dic \
+	tr/orca-chars.dic \
+	ug/orca-chars.dic \
+	uk/orca-chars.dic \
+	vi/orca-chars.dic \
+	zh_CN/orca-chars.dic \
+	zh_HK/orca-chars.dic \
+	zh_TW/orca-chars.dic \
 	\
 	an/symbols.dic \
 	ar/symbols.dic \
@@ -347,7 +347,7 @@ ES_419_CLDR = \
 import-symbols:
 	./import-symbols.py
 	./import-orca
-	./import-orca _chars
+	./import-orca -chars
 
 install-data-hook:
 	for lang419 in $(ES_419_CLDR) ; do \
