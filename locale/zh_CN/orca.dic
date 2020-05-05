@@ -7,21 +7,21 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	倒感叹号	none
-¤	货币符号	none
-¦	竖杠	none
-ª	上标 a	none
+¡	倒感叹号	some
+¤	货币符号	all
+¦	竖杠	most
+ª	上标 a	some
 ¬	逻辑非符号	some
-­	软连字符	none
-¯	长音符号	none
-´	高音	none
-¶	段落标记	none
-¸	变音符号	none
-º	序数	none
+­	软连字符	most
+¯	长音符号	most
+´	高音	most
+¶	段落标记	most
+¸	变音符号	most
+º	序数	some
 ¼	四分之一	none
 ½	二分之一	none
 ¾	四分之三	none
-¿	倒问号	none
+¿	倒问号	some
 ‚	单下引号	most
 „	双下引号	most
 †	剑号	some
@@ -30,7 +30,7 @@ symbols:
 ‰	千分号	some
 ′	撇号	some
 ″	双撇号	some
-‴	三撇号	none
+‴	三撇号	some
 ⁃	连字符	none
 ✗	x 形符号	none
 ⁰	上标 0	none

@@ -7,20 +7,20 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	omvendt udråbstegn	none
-¤	valutasymbol	none
-¦	brudt streg	none
-ª	hævet a	none
+¡	omvendt udråbstegn	some
+¤	valutasymbol	all
+¦	brudt streg	most
+ª	hævet a	some
 ¬	logisk ikke	some
-­	blød bindestreg	none
-´	accent aigu	none
-¶	afsnitstegn	none
+­	blød bindestreg	most
+´	accent aigu	most
+¶	afsnitstegn	most
 ·	prik	none
-¸	cedille	none
+¸	cedille	most
 ¼	en fjerdedel	none
 ½	en halv	none
 ¾	tre fjerdedele	none
-¿	omvendt spørgsmålstegn	none
+¿	omvendt spørgsmålstegn	some
 ‚	enkelt lavt citationstegn	most
 „	dobbelt lavt citationstegn	most
 †	daggert	some
@@ -29,7 +29,7 @@ symbols:
 ‰	promille	some
 ′	mærke	some
 ″	dobbeltmærke	some
-‴	tredobbeltmærke	none
+‴	tredobbeltmærke	some
 ⁃	bindestregspunkt	none
 ✗	krydsformet punkt	none
 ⁰	hævet 0	none

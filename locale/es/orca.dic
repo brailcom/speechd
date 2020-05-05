@@ -7,19 +7,19 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¤	símbolo de moneda	none
-¦	barra vertical cortada	none
-ª	a sobrescrita	none
+¤	símbolo de moneda	all
+¦	barra vertical cortada	most
+ª	a sobrescrita	some
 ¬	no lógico	some
-­	guión	none
-¯	sobrerayado	none
-´	acento	none
-¶	marca de párrafo	none
+­	guión	most
+¯	sobrerayado	most
+´	acento	most
+¶	marca de párrafo	most
 ·	punto centrado	none
 ¼	un cuarto	none
 ½	un medio	none
 ¾	tres cuartos	none
-ƒ	florín	none
+ƒ	florín	all
 ‚	comilla inferior simple	most
 „	doble comilla inferior	most
 †	cruz	some
@@ -28,7 +28,7 @@ symbols:
 ‰	por milla	some
 ′	primo	some
 ″	primo doble	some
-‴	triple primo	none
+‴	triple primo	some
 ⁃	guión de viñeta	none
 ✗	viñeta marcada con x	none
 ⁰	0 superíndice	none

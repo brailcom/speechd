@@ -7,21 +7,21 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	ponto de exclamação invertido	none
-¤	sinal de moeda	none
-¦	barra vertical quebrada	none
-ª	a elevado	none
+¡	ponto de exclamação invertido	some
+¤	sinal de moeda	all
+¦	barra vertical quebrada	most
+ª	a elevado	some
 ¬	negação lógica	some
-­	hifen pequeno	none
-´	agudo	none
-¶	marca de parágrafo	none
+­	hifen pequeno	most
+´	agudo	most
+¶	marca de parágrafo	most
 ·	ponto centrado	none
-¸	cedilha	none
-º	o elevado	none
+¸	cedilha	most
+º	o elevado	some
 ¼	um quarto	none
 ½	um meio	none
 ¾	três quartos	none
-¿	ponto de interrogação invertido	none
+¿	ponto de interrogação invertido	some
 ‚	plica esquerda em baixo	most
 „	aspas em baixo	most
 †	punhal	some
@@ -30,7 +30,7 @@ symbols:
 ‰	permilagem	some
 ′	plica	some
 ″	plica dupla	some
-‴	til triplo	none
+‴	til triplo	some
 ⁃	ponto de item em hífen	none
 ✗	ponto de item em x	none
 ⁰	elevado a 0	none

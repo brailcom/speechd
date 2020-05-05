@@ -7,11 +7,11 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¦	barra vertical tallada	none
-ª	a superindiz	none
-¯	sobrerayau	none
-¶	Paragrafo	none
-¸	Apostrofo	none
+¦	barra vertical tallada	most
+ª	a superindiz	some
+¯	sobrerayau	most
+¶	Paragrafo	most
+¸	Apostrofo	most
 ‰	por milla	some
 ✗	viñeta marcada con x	none
 ⁰	0 superindiz	none

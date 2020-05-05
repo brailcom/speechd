@@ -7,22 +7,22 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	uppochnedvänt utropstecken	none
-¤	valutasymbol	none
-¦	brutet rör-tecken	none
-ª	feminin-ordinal	none
+¡	uppochnedvänt utropstecken	some
+¤	valutasymbol	all
+¦	brutet rör-tecken	most
+ª	feminin-ordinal	some
 ¬	logiskt inte	some
-­	mjuk interpunkt	none
-¯	makron	none
-´	akut	none
-¶	paragraftecken	none
+­	mjuk interpunkt	most
+¯	makron	most
+´	akut	most
+¶	paragraftecken	most
 ·	mittenpunkt	none
-¸	cedilj	none
-º	ordningstecken	none
+¸	cedilj	most
+º	ordningstecken	some
 ¼	en kvarts	none
 ½	en halv	none
 ¾	trekvarts	none
-¿	uppochnedvänt frågetecken	none
+¿	uppochnedvänt frågetecken	some
 ‚	enkelt lågt citattecken	most
 „	dubbelt lågt citattecken	most
 †	kors	some
@@ -31,7 +31,7 @@ symbols:
 ‰	promille	some
 ′	primtecken	some
 ″	dubbelprimtecken	some
-‴	trippelprimtecken	none
+‴	trippelprimtecken	some
 ⁃	interpunkt	none
 ✗	x-formad interpunkt	none
 ⁰	upphöjd 0	none

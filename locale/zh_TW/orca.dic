@@ -7,8 +7,8 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¶	段落標記	none
-¿	倒問號	none
+¶	段落標記	most
+¿	倒問號	some
 ‚	下單引號	most
 „	下雙引號	most
 ‣	三角項目符號	none

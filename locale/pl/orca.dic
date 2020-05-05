@@ -7,23 +7,23 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	odwrócony wykrzyknik	none
-¤	znak waluty	none
-¦	pionowa kreska przerywana	none
-ª	a w indeksie górnym	none
+¡	odwrócony wykrzyknik	some
+¤	znak waluty	all
+¦	pionowa kreska przerywana	most
+ª	a w indeksie górnym	some
 ¬	znak zaprzeczenia	some
-­	łącznik opcjonalny	none
-¯	nadkreślenie	none
-´	kreska	none
-¶	znak akapitu	none
+­	łącznik opcjonalny	most
+¯	nadkreślenie	most
+´	kreska	most
+¶	znak akapitu	most
 ·	punkt środkowy	none
-¸	haczyk	none
-º	liczebnik porządkowy	none
+¸	haczyk	most
+º	liczebnik porządkowy	some
 ¼	jedna czwarta	none
 ½	jedna druga	none
 ¾	trzy czwarte	none
-¿	odwrócony znak zapytania	none
-ƒ	floren	none
+¿	odwrócony znak zapytania	some
+ƒ	floren	all
 ‚	dolny apostrofowy cudzysłów pojedynczy	most
 „	dolny apostrofowy cudzysłów podwójny	most
 †	krzyż	some
@@ -31,7 +31,7 @@ symbols:
 ‣	znak wyliczenia w formie trójkąta	none
 ′	prim	some
 ″	bis	some
-‴	ter	none
+‴	ter	some
 ⁃	znak wyliczenia w formie kreski	none
 ✗	znak wyliczenia w formie iksa	none
 ⁰	0 w indeksie górnym	none

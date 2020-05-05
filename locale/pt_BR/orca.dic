@@ -7,22 +7,22 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	ponto de exclamação invertido	none
-¤	símbolo monetário	none
-¦	barra vertical separada	none
-ª	ordinal feminino	none
+¡	ponto de exclamação invertido	some
+¤	símbolo monetário	all
+¦	barra vertical separada	most
+ª	ordinal feminino	some
 ¬	não lógico	some
-­	hífen opcional	none
-¯	mácron	none
-´	agudo	none
-¶	marcador de parágrafo	none
+­	hífen opcional	most
+¯	mácron	most
+´	agudo	most
+¶	marcador de parágrafo	most
 ·	ponto mediano	none
-¸	cedilha	none
+¸	cedilha	most
 ¼	um quarto	none
 ½	um meio	none
 ¾	três quartos	none
-¿	interrogação invertida	none
-ƒ	florim	none
+¿	interrogação invertida	some
+ƒ	florim	all
 ‚	aspas simples de citação	most
 „	aspa dupla de citação	most
 †	cruz	some
@@ -31,7 +31,7 @@ symbols:
 ‰	por mil	some
 ′	plica	some
 ″	plica dupla	some
-‴	plica triplo	none
+‴	plica triplo	some
 ⁃	marcador traço	none
 ✗	marcador x	none
 ⁰	0 sobrescrito	none

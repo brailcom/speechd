@@ -7,23 +7,23 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	ਉੱਲਟ ਹੈਰਾਨੀਜਨਕ ਪੁੰਆਇੰਟ।	none
-¤	ਕਰੰਸੀ ਸਾਈਨ	none
-¦	ਟੁੱਟੀ ਪੱਟੀ	none
-ª	ਘਾਤ	none
+¡	ਉੱਲਟ ਹੈਰਾਨੀਜਨਕ ਪੁੰਆਇੰਟ।	some
+¤	ਕਰੰਸੀ ਸਾਈਨ	all
+¦	ਟੁੱਟੀ ਪੱਟੀ	most
+ª	ਘਾਤ	some
 ¬	ਲਾਜੀਕਲ NOT	some
-­	  ਸੌਫਟ ਹਾਈਫਨ	none
-¯	ਮਾਈਕਰੋਨ	none
-´	ਏਕਿਊਟ	none
-¶	ਪ੍ਹੈਰਾਗਰਾਫ ਮੇਕਰ	none
+­	  ਸੌਫਟ ਹਾਈਫਨ	most
+¯	ਮਾਈਕਰੋਨ	most
+´	ਏਕਿਊਟ	most
+¶	ਪ੍ਹੈਰਾਗਰਾਫ ਮੇਕਰ	most
 ·	ਵਿਚਕਾਰ ਬਿਂਦੀ	none
-¸	ਸੈਡੀਲਾ	none
-º	ਆਰਡੀਨਲ	none
+¸	ਸੈਡੀਲਾ	most
+º	ਆਰਡੀਨਲ	some
 ¼	ਇੱਕ ਚੌਥਾਈ	none
 ½	ਅੱਧਾ	none
 ¾	ਤਿੰਨ ਚੌਥਾਈ	none
-¿	ਉਲਟ ਸਵਾਲੀਆ ਚਿੰਨ	none
-ƒ	ਫਲੋਰਿਨ	none
+¿	ਉਲਟ ਸਵਾਲੀਆ ਚਿੰਨ	some
+ƒ	ਫਲੋਰਿਨ	all
 ‚	ਇੱਕਲਾ ਘੱਟ ਕੋਟ	most
 „	ਡਬਲ ਘੱਟ ਕੋਟ	most
 †	ਡੱਜਰ	some

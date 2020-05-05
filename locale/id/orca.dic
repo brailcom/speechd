@@ -7,18 +7,18 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	tanda seru terbalik	none
-¤	tanda mata uang	none
-¦	pipa	none
-ª	a superskrip	none
+¡	tanda seru terbalik	some
+¤	tanda mata uang	all
+¦	pipa	most
+ª	a superskrip	some
 ¬	tanda not lojik	some
-­	tanda pisah	none
-¶	penanda paragraf	none
+­	tanda pisah	most
+¶	penanda paragraf	most
 ·	titik di tengah	none
 ¼	seperempat	none
 ½	setengah	none
 ¾	tiga perempat	none
-¿	tanda tanya terjungkir	none
+¿	tanda tanya terjungkir	some
 ‚	tanda petik ganda bawah	most
 „	tanda petik ganda bawah	most
 †	simbol belati	some
@@ -26,7 +26,7 @@ symbols:
 ‣	bulet segi tiga	none
 ‰	per mil	some
 ″	prime ganda	some
-‴	prime triple	none
+‴	prime triple	some
 ⁃	bulet penyambung	none
 ✗	bulet bentuk x	none
 ⁰	0 superskrip	none

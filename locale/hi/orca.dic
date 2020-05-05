@@ -7,22 +7,22 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	उल्टा विस्मयादिबोधक बिंदु	none
-¤	मुद्रा चिह्न	none
-¦	टूटी पट्टी	none
-ª	सुपरस्क्रिप्ट a	none
+¡	उल्टा विस्मयादिबोधक बिंदु	some
+¤	मुद्रा चिह्न	all
+¦	टूटी पट्टी	most
+ª	सुपरस्क्रिप्ट a	some
 ¬	तार्किक नहीं	some
-­	सॉफ्ट योजक	none
-¯	मैक्रोन	none
-´	अधि	none
-¶	अनुच्छेद चिह्नक	none
+­	सॉफ्ट योजक	most
+¯	मैक्रोन	most
+´	अधि	most
+¶	अनुच्छेद चिह्नक	most
 ·	बिचला डॉट	none
-¸	सेडिला	none
-º	आर्डिनल	none
+¸	सेडिला	most
+º	आर्डिनल	some
 ¼	एक चौथाई	none
 ½	आधा	none
 ¾	तीन चौथाई	none
-¿	उल्टा प्रश्न चिह्न	none
+¿	उल्टा प्रश्न चिह्न	some
 ‚	एकल निम्न उद्धरण	most
 „	दोहरा निम्न उद्धरण	most
 †	डैगर	some

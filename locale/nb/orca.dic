@@ -7,20 +7,20 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	omvendt utropstegn	none
-¤	valutategn	none
-¦	brutt stolpe	none
-ª	superskript a	none
+¡	omvendt utropstegn	some
+¤	valutategn	all
+¦	brutt stolpe	most
+ª	superskript a	some
 ¬	logisk ikke	some
-­	myk bindestrek	none
-´	akutt	none
-¶	avsnittsmarkør	none
+­	myk bindestrek	most
+´	akutt	most
+¶	avsnittsmarkør	most
 ·	midtstilt punkt	none
-¸	cedille	none
+¸	cedille	most
 ¼	en fjerdedel	none
 ½	en halv	none
 ¾	tre fjerdedeler	none
-¿	omvendt spørsmålstegn	none
+¿	omvendt spørsmålstegn	some
 ‚	enkelt lavt sitattegn	most
 „	dobbelt lavt sitattegn	most
 †	kors	some
@@ -29,7 +29,7 @@ symbols:
 ‰	promille	some
 ′	primtall	some
 ″	dobbelt primtall	some
-‴	trippelt primtall	none
+‴	trippelt primtall	some
 ⁃	bindestrekkulepunkt	none
 ✗	x-formet kulepunkt	none
 ⁰	superskript 0	none

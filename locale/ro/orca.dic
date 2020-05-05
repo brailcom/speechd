@@ -7,20 +7,20 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	semnul exclamării inversat	none
-¤	simbol monetar	none
-¦	bară verticală întreruptă	none
-ª	a ca exponent	none
+¡	semnul exclamării inversat	some
+¤	simbol monetar	all
+¦	bară verticală întreruptă	most
+ª	a ca exponent	some
 ¬	negațit logică	some
-­	cratimă	none
-´	ascuțit	none
-¶	marcaj paragraf	none
-¸	sedilă	none
+­	cratimă	most
+´	ascuțit	most
+¶	marcaj paragraf	most
+¸	sedilă	most
 ¼	o pătrime	none
 ½	o jumătate	none
 ¾	trei pătrimi	none
-¿	semnul întrebării inversat	none
-ƒ	f cu cârlig	none
+¿	semnul întrebării inversat	some
+ƒ	f cu cârlig	all
 ‚	ghilimele simple deschise	most
 †	pumnal	some
 ‡	pumnal dublu	some
@@ -28,7 +28,7 @@ symbols:
 ‰	la mie	some
 ′	prim	some
 ″	secund	some
-‴	triplu prim	none
+‴	triplu prim	some
 ⁃	bulină cratimă	none
 ✗	bulină sub formă de x	none
 ⁰	0 ca exponent	none

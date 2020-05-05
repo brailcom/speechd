@@ -7,22 +7,22 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	нуқтаи хитоби баръакс	none
-¤	аломати асъор	none
-¦	навори шикаста	none
-ª	абарнигошт а	none
+¡	нуқтаи хитоби баръакс	some
+¤	аломати асъор	all
+¦	навори шикаста	most
+ª	абарнигошт а	some
 ¬	не-и мантиқӣ	some
-­	тиреи нозук	none
-¯	зада	none
-¶	нишонагузори банд	none
+­	тиреи нозук	most
+¯	зада	most
+¶	нишонагузори банд	most
 ·	нуқтаи миёна	none
-¸	думча	none
-º	тартибӣ	none
+¸	думча	most
+º	тартибӣ	some
 ¼	чоряк	none
 ½	нисф	none
 ¾	аз чор се ҳисса	none
-¿	аломати саволи баръакс	none
-ƒ	флорин	none
+¿	аломати саволи баръакс	some
+ƒ	флорин	all
 ‚	нохунаки яктогии поён	most
 „	нохунаки дутогии поён	most
 †	салибча	some

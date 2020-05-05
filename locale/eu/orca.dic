@@ -7,23 +7,23 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	hasierako harridura-marka	none
-¤	monetaren ikurra	none
-¦	barra bertikal etena	none
-ª	a goi-indizea	none
+¡	hasierako harridura-marka	some
+¤	monetaren ikurra	all
+¦	barra bertikal etena	most
+ª	a goi-indizea	some
 ¬	ez logikoaren ikurra	some
-­	marratxoa	none
-¯	goi-marra	none
-´	zorrotza	none
-¶	paragrafo-marka	none
+­	marratxoa	most
+¯	goi-marra	most
+´	zorrotza	most
+¶	paragrafo-marka	most
 ·	erdiko puntua	none
-¸	zedila	none
-º	ordinala	none
+¸	zedila	most
+º	ordinala	some
 ¼	laurden bat	none
 ½	erdi bat	none
 ¾	hiru laurden	none
-¿	hasierako galdera-marka	none
-ƒ	florinaren ikurra	none
+¿	hasierako galdera-marka	some
+ƒ	florinaren ikurra	all
 ‚	komatxo bakun baxua	most
 „	komatxo bikoitz baxua	most
 †	gurutzea	some
@@ -32,7 +32,7 @@ symbols:
 ‰	milakoaren ikurra	some
 ′	lehena ikurra	some
 ″	bigarrena ikurra	some
-‴	hirugarrena ikurra	none
+‴	hirugarrena ikurra	some
 ⁃	marratxo-buleta	none
 ✗	x-formako buleta	none
 ⁰	0 goi-indizea	none
