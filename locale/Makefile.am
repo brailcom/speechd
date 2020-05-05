@@ -145,12 +145,9 @@ nobase_localedata_DATA = \
 	ca/orca.dic \
 	ca@valencia/orca.dic \
 	cs/orca.dic \
-	cy/orca.dic \
 	da/orca.dic \
 	de/orca.dic \
-	dz/orca.dic \
 	el/orca.dic \
-	en_CA/orca.dic \
 	en_GB/orca.dic \
 	eo/orca.dic \
 	es/orca.dic \
@@ -159,40 +156,29 @@ nobase_localedata_DATA = \
 	fi/orca.dic \
 	fr/orca.dic \
 	fur/orca.dic \
-	ga/orca.dic \
 	gl/orca.dic \
-	gu/orca.dic \
-	he/orca.dic \
 	hi/orca.dic \
 	hr/orca.dic \
 	hu/orca.dic \
 	id/orca.dic \
 	is/orca.dic \
 	it/orca.dic \
-	ja/orca.dic \
-	kk/orca.dic \
-	kn/orca.dic \
-	ko/orca.dic \
 	lt/orca.dic \
 	lv/orca.dic \
-	mai/orca.dic \
 	mk/orca.dic \
 	ml/orca.dic \
-	mr/orca.dic \
 	ms/orca.dic \
 	nb/orca.dic \
 	ne/orca.dic \
 	nl/orca.dic \
 	nn/orca.dic \
 	oc/orca.dic \
-	or/orca.dic \
 	pa/orca.dic \
 	pl/orca.dic \
 	pt_BR/orca.dic \
 	pt/orca.dic \
 	ro/orca.dic \
 	ru/orca.dic \
-	rw/orca.dic \
 	si/orca.dic \
 	sk/orca.dic \
 	sl/orca.dic \
@@ -224,55 +210,36 @@ nobase_localedata_DATA = \
 	ca/orca_chars.dic \
 	ca@valencia/orca_chars.dic \
 	cs/orca_chars.dic \
-	cy/orca_chars.dic \
 	da/orca_chars.dic \
 	de/orca_chars.dic \
-	dz/orca_chars.dic \
 	el/orca_chars.dic \
-	en_CA/orca_chars.dic \
-	en_GB/orca_chars.dic \
 	eo/orca_chars.dic \
 	es/orca_chars.dic \
-	et/orca_chars.dic \
 	eu/orca_chars.dic \
 	fi/orca_chars.dic \
 	fr/orca_chars.dic \
-	fur/orca_chars.dic \
-	ga/orca_chars.dic \
 	gl/orca_chars.dic \
-	gu/orca_chars.dic \
-	he/orca_chars.dic \
 	hi/orca_chars.dic \
 	hr/orca_chars.dic \
 	hu/orca_chars.dic \
 	id/orca_chars.dic \
-	is/orca_chars.dic \
 	it/orca_chars.dic \
-	ja/orca_chars.dic \
-	kk/orca_chars.dic \
-	kn/orca_chars.dic \
-	ko/orca_chars.dic \
 	lt/orca_chars.dic \
 	lv/orca_chars.dic \
-	mai/orca_chars.dic \
 	mk/orca_chars.dic \
 	ml/orca_chars.dic \
-	mr/orca_chars.dic \
 	ms/orca_chars.dic \
 	nb/orca_chars.dic \
 	ne/orca_chars.dic \
 	nl/orca_chars.dic \
 	nn/orca_chars.dic \
 	oc/orca_chars.dic \
-	or/orca_chars.dic \
 	pa/orca_chars.dic \
 	pl/orca_chars.dic \
 	pt_BR/orca_chars.dic \
 	pt/orca_chars.dic \
 	ro/orca_chars.dic \
 	ru/orca_chars.dic \
-	rw/orca_chars.dic \
-	si/orca_chars.dic \
 	sk/orca_chars.dic \
 	sl/orca_chars.dic \
 	sq/orca_chars.dic \
