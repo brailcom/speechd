@@ -7,16 +7,16 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	inversa krisigno	none
-¤	valutsigno	none
+¡	inversa krisigno	some
+¤	valutsigno	all
 ¬	logika neo	some
-¯	makrono	none
-´	dekstra korno	none
-¸	subhoko	none
+¯	makrono	most
+´	dekstra korno	most
+¸	subhoko	most
 ¼	kvarono	none
 ½	duono	none
 ¾	tri kvaronoj	none
-ƒ	florino	none
+ƒ	florino	all
 ‡	duobla obeluso	some
 ‣	triangula bulmarko	none
 ‰	elmilo	some

@@ -7,22 +7,22 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	Einleitendes Ausrufezeichen	none
-¤	Währungssymbol	none
-¦	Unterbrochene vertikale Linie	none
-ª	hochgestelltes a	none
+¡	Einleitendes Ausrufezeichen	some
+¤	Währungssymbol	all
+¦	Unterbrochene vertikale Linie	most
+ª	hochgestelltes a	some
 ¬	Logische Negation	some
-­	Silbentrennungsstrich	none
-¯	Macron	none
-´	Akut	none
-¶	Absatzzeichen	none
+­	Silbentrennungsstrich	most
+¯	Macron	most
+´	Akut	most
+¶	Absatzzeichen	most
 ·	Mittelpunkt	none
-¸	Zedilla	none
+¸	Zedilla	most
 ¼	ein Viertel	none
 ½	ein Halb	none
 ¾	Drei Viertel	none
-¿	Einleitendes Fragezeichen	none
-ƒ	Florinzeichen	none
+¿	Einleitendes Fragezeichen	some
+ƒ	Florinzeichen	all
 ‚	einfaches Anführungszeichen	most
 †	Kreuz	some
 ‡	Doppelkreuz	some
@@ -30,7 +30,7 @@ symbols:
 ‰	Promille	some
 ′	Minute	some
 ″	Sekunde	some
-‴	Dreistrich	none
+‴	Dreistrich	some
 ⁃	Aufzählungstrennstich	none
 ✗	X-Aufzählungszeichen	none
 ⁰	hoch 0	none

@@ -7,21 +7,21 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	abre esclamación	none
-¤	señal de moneda	none
-¦	barra cortada	none
-ª	a superíndiz	none
+¡	abre esclamación	some
+¤	señal de moneda	all
+¦	barra cortada	most
+ª	a superíndiz	some
 ¬	non lóxicu	some
-­	guión	none
-¯	sobrolliñáu	none
-´	acentu	none
-¶	marca de párrafu	none
+­	guión	most
+¯	sobrolliñáu	most
+´	acentu	most
+¶	marca de párrafu	most
 ·	puntu centráu	none
 ¼	un cuartu	none
 ½	un mediu	none
 ¾	tres cuartos	none
-¿	abre interrogación	none
-ƒ	florín	none
+¿	abre interrogación	some
+ƒ	florín	all
 ‚	comina inferior simple	most
 „	duble comina inferior	most
 †	cruz	some

@@ -7,23 +7,23 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	தலைகீழ் வியப்பு குறி	none
-¤	பண குறி	none
-¦	உடைந்த கோல்	none
-ª	மேலெழுத்து எ	none
+¡	தலைகீழ் வியப்பு குறி	some
+¤	பண குறி	all
+¦	உடைந்த கோல்	most
+ª	மேலெழுத்து எ	some
 ¬	தருக்கரீதியாக இல்லை	some
-­	மெது ஹைபன்	none
-¯	மேக்ரான்	none
-´	அக்யூட்	none
-¶	பத்தி அடையாளம்	none
+­	மெது ஹைபன்	most
+¯	மேக்ரான்	most
+´	அக்யூட்	most
+¶	பத்தி அடையாளம்	most
 ·	நடு புள்ளி	none
-¸	செடில்லா	none
-º	அழை	none
+¸	செடில்லா	most
+º	அழை	some
 ¼	கால் பாகம்	none
 ½	அரை பாகம்	none
 ¾	முக்கால் பாகம்	none
-¿	தலைகீழ் கேள்விக்குறி	none
-ƒ	ஃப்லோரிங்	none
+¿	தலைகீழ் கேள்விக்குறி	some
+ƒ	ஃப்லோரிங்	all
 ‣	முக்கோண புல்லட்	none
 ‰	ஆயிரத்தில்	some
 ′	முதன்மை	some

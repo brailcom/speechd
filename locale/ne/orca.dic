@@ -7,18 +7,18 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	उल्टो विस्मय चिन्ह	none
-¤	मुद्रा चिन्ह	none
-¦	विच्छेद पट्टी	none
+¡	उल्टो विस्मय चिन्ह	some
+¤	मुद्रा चिन्ह	all
+¦	विच्छेद पट्टी	most
 ¬	तार्किक छैन	some
-­	सानो हाईफन	none
-´	न्यून	none
-¶	अनुच्छेद चिनो	none
+­	सानो हाईफन	most
+´	न्यून	most
+¶	अनुच्छेद चिनो	most
 ·	माझको थोप्लो	none
 ¼	एक चौथाइ	none
 ½	आधा	none
 ¾	तीन चोथाई	none
-¿	उल्टो प्रश्न चिन्ह	none
+¿	उल्टो प्रश्न चिन्ह	some
 ‚	एकल उद्धरण	most
 „	जोडी उद्धरण	most
 †	भाला	some

@@ -7,19 +7,19 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-ª	horní index a	none
+ª	horní index a	some
 ¬	logická negace	some
-¯	vodorovná čárka	none
-¶	znak odstavce	none
+¯	vodorovná čárka	most
+¶	znak odstavce	most
 ·	tečka uprostřed	none
-¸	sedil	none
-º	pořadový indikátor	none
+¸	sedil	most
+º	pořadový indikátor	some
 ‚	jednoduché uvozovky dole	most
 „	dvojité uvozovky dole	most
 †	kříž	some
 ′	minuta nebo stopa	some
 ″	sekunda nebo palec	some
-‴	tercie	none
+‴	tercie	some
 ⁃	odrážka s pomlčkou	none
 ✗	odrážka s křížkem	none
 ⁰	horní index 0	none

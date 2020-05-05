@@ -7,23 +7,23 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	naopaki uzvičnik	none
-¤	znak valute	none
-¦	slomljena vertikalna crta	none
-ª	superskript a	none
+¡	naopaki uzvičnik	some
+¤	znak valute	all
+¦	slomljena vertikalna crta	most
+ª	superskript a	some
 ¬	logičko ne	some
-­	meko hyphen	none
-¯	makron	none
-´	akcentovan	none
-¶	paragraf	none
+­	meko hyphen	most
+¯	makron	most
+´	akcentovan	most
+¶	paragraf	most
 ·	srednja tačka	none
-¸	sjedila	none
-º	oridinal	none
+¸	sjedila	most
+º	oridinal	some
 ¼	jedna četvrtina	none
 ½	jedna polovina	none
 ¾	tri četvrtine	none
-¿	naopaki upitnik	none
-ƒ	ef	none
+¿	naopaki upitnik	some
+ƒ	ef	all
 ‚	jednostruki donji navodnik	most
 „	donji dupli navodnik	most
 †	bodež	some

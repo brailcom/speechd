@@ -7,22 +7,22 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	علامة تعجب مقلوبة	none
-¤	علامة عملة	none
-¦	خط عمودي منكسر	none
-ª	a علوي	none
+¡	علامة تعجب مقلوبة	some
+¤	علامة عملة	all
+¦	خط عمودي منكسر	most
+ª	a علوي	some
 ¬	'لا' منطقي	some
-­	بداية اقتباس	none
-¯	خط افقي علوي	none
-¶	علامة فقرة	none
+­	بداية اقتباس	most
+¯	خط افقي علوي	most
+¶	علامة فقرة	most
 ·	نقطة وسطية	none
-¸	فاصلة	none
-º	العدد الترتيبي	none
+¸	فاصلة	most
+º	العدد الترتيبي	some
 ¼	ربع	none
 ½	نص	none
 ¾	ثلاثة أرباع	none
-¿	علامة استفهام مقلوبة	none
-ƒ	فلورين	none
+¿	علامة استفهام مقلوبة	some
+ƒ	فلورين	all
 †	علامة الصليب	some
 ‡	رمز صليب مزدوج	some
 ‣	علامة مثلثية	none

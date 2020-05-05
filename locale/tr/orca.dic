@@ -7,19 +7,19 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-ª	üstsimge a	none
+ª	üstsimge a	some
 ¬	mantıksal değil işareti	some
-­	koşullu kesme işareti	none
-¯	uzatma işareti	none
-¶	paragraf işaretçisi	none
-º	sırasal	none
+­	koşullu kesme işareti	most
+¯	uzatma işareti	most
+¶	paragraf işaretçisi	most
+º	sırasal	some
 ‚	tek alt tırnak	most
 „	çift alt tırnak	most
 †	kama	some
 ‡	çift kama	some
 ‰	mil başına	some
 ″	çift asal	some
-‴	üçlü asal	none
+‴	üçlü asal	some
 ⁃	çizgi madde imi	none
 ✗	x şeklinde madde imi	none
 ⁰	üstsimge 0	none

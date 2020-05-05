@@ -7,22 +7,22 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	obrnuti uskličnik	none
-¤	znak za valutu	none
-¦	isprekidana crta	none
-ª	eksponent a	none
+¡	obrnuti uskličnik	some
+¤	znak za valutu	all
+¦	isprekidana crta	most
+ª	eksponent a	some
 ¬	logično ne	some
-­	meka crtica	none
-¯	makron	none
-´	akut	none
-¶	oznaka odlomka	none
+­	meka crtica	most
+¯	makron	most
+´	akut	most
+¶	oznaka odlomka	most
 ·	srednja točka	none
-¸	cedila	none
-º	redni broj	none
+¸	cedila	most
+º	redni broj	some
 ¼	jedna četvrtina	none
 ½	jedna polovina	none
 ¾	tri četvrtine	none
-¿	obrnuti upitnik	none
+¿	obrnuti upitnik	some
 †	bodež	some
 ‡	dvostruki bodež	some
 ‣	trokutasti kružić	none

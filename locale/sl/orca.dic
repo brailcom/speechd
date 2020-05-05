@@ -7,21 +7,21 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	obrnjeni klicaj	none
-¤	znak valute	none
-¦	presledna navpičnica	none
-ª	nadpisani a	none
+¡	obrnjeni klicaj	some
+¤	znak valute	all
+¦	presledna navpičnica	most
+ª	nadpisani a	some
 ¬	logični ne	some
-­	vezaj	none
-¯	makron	none
-´	ostrivec	none
-¶	znak za odstavek	none
+­	vezaj	most
+¯	makron	most
+´	ostrivec	most
+¶	znak za odstavek	most
 ·	sredinska pika	none
-¸	sedij	none
+¸	sedij	most
 ¼	četrtina	none
 ½	polovica	none
 ¾	tri četrtine	none
-¿	obrnjeni vprašaj	none
+¿	obrnjeni vprašaj	some
 ‚	levi spodnji enojni narekovaj	most
 „	levi spodnji dvojni narekovaj	most
 †	konjugirano transponirana	some
@@ -30,7 +30,7 @@ symbols:
 ‰	promil	some
 ′	znak za minuto, odvod	some
 ″	znak za sekundo, drugi odvod	some
-‴	znak za stotinko, trojni odvod	none
+‴	znak za stotinko, trojni odvod	some
 ⁃	pomišljaj vrstična oznaka	none
 ✗	vrstična oznaka v obliki črke x	none
 ⁰	nadpisana številka 0	none

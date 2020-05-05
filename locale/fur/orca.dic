@@ -7,15 +7,15 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	pont esclamatîf invertît	none
-¤	segn di valude	none
+¡	pont esclamatîf invertît	some
+¤	segn di valude	all
 ¬	no logjic	some
-´	acût	none
-¶	simbul di paragraf	none
+´	acût	most
+¶	simbul di paragraf	most
 ·	pont centrâl	none
-¸	cedilie	none
-º	ordenâl	none
+¸	cedilie	most
+º	ordenâl	some
 ¼	un cuart	none
 ½	un mieç	none
 ¾	trê cuarts	none
-¿	pont interogatîf invertît	none
+¿	pont interogatîf invertît	some

@@ -7,21 +7,21 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	omgekeerd uitroepteken	none
-¤	valutasymbool	none
-¦	verticaal streepje	none
+¡	omgekeerd uitroepteken	some
+¤	valutasymbool	all
+¦	verticaal streepje	most
 ¬	logische niet	some
-­	koppelteken	none
-´	nadruk	none
-¶	alineamarkering	none
+­	koppelteken	most
+´	nadruk	most
+¶	alineamarkering	most
 ·	gecentreerde punt	none
-¸	cedille	none
-º	mannelijke rangtelwoord (Spaans)	none
+¸	cedille	most
+º	mannelijke rangtelwoord (Spaans)	some
 ¼	kwart	none
 ½	half	none
 ¾	driekwart	none
-¿	omgekeerd vraagteken	none
-ƒ	gulden	none
+¿	omgekeerd vraagteken	some
+ƒ	gulden	all
 ‚	apostrof	most
 „	dubbele apostrof	most
 †	obelisk	some
@@ -30,7 +30,7 @@ symbols:
 ‰	promille	some
 ′	priem	some
 ″	dubbele priem	some
-‴	drievoudige tilde	none
+‴	drievoudige tilde	some
 ⁃	streepjesopsommingsteken	none
 ✗	x-vormig opsommingsteken	none
 ⁻	superscript min	none

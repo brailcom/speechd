@@ -7,21 +7,21 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	উলটানো বিস্ময় পয়েন্ট	none
-¤	মুদ্রা চীহ্ন	none
-¦	বিকৃত বার	none
-ª	ঊর্ধ্বলিপি a	none
+¡	উলটানো বিস্ময় পয়েন্ট	some
+¤	মুদ্রা চীহ্ন	all
+¦	বিকৃত বার	most
+ª	ঊর্ধ্বলিপি a	some
 ¬	যৌক্তিক না	some
-­	সফ্ট হাইফেন	none
-´	সূক্ষ্ম	none
-¶	অনুচ্ছেদ মার্কার	none
+­	সফ্ট হাইফেন	most
+´	সূক্ষ্ম	most
+¶	অনুচ্ছেদ মার্কার	most
 ·	মধ্য বিন্দু	none
-º	অবস্থানসূচক সংখ্যা	none
+º	অবস্থানসূচক সংখ্যা	some
 ¼	এক চতুর্থাংশ	none
 ½	অর্ধেক	none
 ¾	তিন চতুর্থাংশ	none
-¿	উল্টানো প্রশ্নবোধক চীহ্ন	none
-ƒ	ফ্লোরিন	none
+¿	উল্টানো প্রশ্নবোধক চীহ্ন	some
+ƒ	ফ্লোরিন	all
 ‚	একক নিম্ন উদ্ধৃতি	most
 „	দ্বিগুন নিম্ন উদ্ধৃতি	most
 †	ড্যাগার	some

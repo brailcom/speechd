@@ -7,22 +7,22 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	apgriezta izsaukuma zīme	none
-¤	valūtas zīme	none
-¦	pārlauzta svītra	none
-ª	augšraksts	none
+¡	apgriezta izsaukuma zīme	some
+¤	valūtas zīme	all
+¦	pārlauzta svītra	most
+ª	augšraksts	some
 ¬	loģiskais nē	some
-­	nosacījuma pārnesumzīme	none
-¯	garumzīme	none
-´	akūts	none
-¶	paragrāfa simbols	none
+­	nosacījuma pārnesumzīme	most
+¯	garumzīme	most
+´	akūts	most
+¶	paragrāfa simbols	most
 ·	punkts pa vidu	none
-¸	sediļa	none
-º	kārtas simbols	none
+¸	sediļa	most
+º	kārtas simbols	some
 ¼	viena ceturdaļa	none
 ½	viena puse	none
 ¾	trīs ceturdaļas	none
-¿	apgriezta jautājuma zīme	none
+¿	apgriezta jautājuma zīme	some
 ‚	atverošās vienpēdiņas	most
 „	atverošās pēdiņas	most
 †	Duncis	some
@@ -31,7 +31,7 @@ symbols:
 ‰	per mile	some
 ′	prim	some
 ″	dubults prim	some
-‴	trīskāršs prim	none
+‴	trīskāršs prim	some
 ⁃	savienojuma aizzīme	none
 ✗	x-veida aizzīme	none
 ⁰	augšraksts 0	none

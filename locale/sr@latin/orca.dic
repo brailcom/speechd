@@ -7,23 +7,23 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	obrnuti znak uzvika	none
-¤	znak valute	none
-¦	prekinuta uspravna crta	none
-ª	izložilac a	none
+¡	obrnuti znak uzvika	some
+¤	znak valute	all
+¦	prekinuta uspravna crta	most
+ª	izložilac a	some
 ¬	logično ne	some
-­	kratkosilazni naglasak	none
-¯	makron	none
-´	dugouzlazno	none
-¶	obeleživač pasusa	none
+­	kratkosilazni naglasak	most
+¯	makron	most
+´	dugouzlazno	most
+¶	obeleživač pasusa	most
 ·	srednja tačka	none
-¸	sedilja	none
-º	redni broj	none
+¸	sedilja	most
+º	redni broj	some
 ¼	jedna četvrtina	none
 ½	polovina	none
 ¾	tri četvrtine	none
-¿	obrnuti znak pitanja	none
-ƒ	malo florin	none
+¿	obrnuti znak pitanja	some
+ƒ	malo florin	all
 ‚	samostalni donji navodnik	most
 „	dvostruki donji navodnik	most
 †	dager	some
@@ -32,7 +32,7 @@ symbols:
 ‰	promil	some
 ′	primus	some
 ″	sekundum	some
-‴	trostruki	none
+‴	trostruki	some
 ⁃	metak crtica	none
 ✗	iks metak	none
 ⁰	izložilac 0	none

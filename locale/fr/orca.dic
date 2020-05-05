@@ -7,11 +7,11 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¦	barre verticale discontinue	none
-ª	ordinal féminin	none
+¦	barre verticale discontinue	most
+ª	ordinal féminin	some
 ¬	négation logique	some
-´	accent aigu	none
-º	ordinal masculin	none
+´	accent aigu	most
+º	ordinal masculin	some
 ¼	un quart	none
 ½	un demi	none
 ¾	trois quarts	none

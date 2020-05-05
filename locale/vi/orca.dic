@@ -7,23 +7,23 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	dấu chấm than ngược	none
-¤	dấu tiền tệ	none
-¦	thanh bị ngắt	none
-ª	chữ a cao	none
+¡	dấu chấm than ngược	some
+¤	dấu tiền tệ	all
+¦	thanh bị ngắt	most
+ª	chữ a cao	some
 ¬	phủ định	some
-­	dấu nối mềm	none
-¯	dấu nối ở trên	none
-´	dấu sắc	none
-¶	dấu đoạn văn	none
+­	dấu nối mềm	most
+¯	dấu nối ở trên	most
+´	dấu sắc	most
+¶	dấu đoạn văn	most
 ·	chấm giữa	none
-¸	dấu móc dưới	none
-º	ký hiệu độ	none
+¸	dấu móc dưới	most
+º	ký hiệu độ	some
 ¼	một phần tư	none
 ½	một phần hai	none
 ¾	ba phần tư	none
-¿	dấu chấm than đảo	none
-ƒ	ƒ	none
+¿	dấu chấm than đảo	some
+ƒ	ƒ	all
 ‚	dấu trích dẫn dưới đơn	most
 „	dấu trích dẫn dưới đôi	most
 †	†	some

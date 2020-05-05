@@ -7,20 +7,20 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	punt d'exclamacion inversat	none
-¤	signe monetari	none
-¦	barra verticala discontinua	none
-ª	ordinal femenin	none
+¡	punt d'exclamacion inversat	some
+¤	signe monetari	all
+¦	barra verticala discontinua	most
+ª	ordinal femenin	some
 ¬	negacion logica	some
-­	jonhent condicional	none
-´	accent agut	none
-¶	pè de mosca	none
+­	jonhent condicional	most
+´	accent agut	most
+¶	pè de mosca	most
 ·	punt median	none
-¸	cedilha	none
+¸	cedilha	most
 ¼	un quart	none
 ½	una mitat	none
 ¾	tres quarts	none
-¿	punt d'interrogacion inversat	none
+¿	punt d'interrogacion inversat	some
 ‚	vergueta bassa simpla	most
 „	vergueta bassa dobla	most
 †	obèla	some
@@ -28,7 +28,7 @@ symbols:
 ‣	piuse triangulara	none
 ‰	per mila	some
 ″	prime doble	some
-‴	prima dobla	none
+‴	prima dobla	some
 ⁃	jonhent	none
 ✗	piuse en forma de x	none
 ⁰	exponent 0	none

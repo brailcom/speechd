@@ -7,23 +7,23 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	obrátený výkričník	none
-¤	mena	none
-¦	prerušená zvislá čiara	none
-ª	horný index a	none
+¡	obrátený výkričník	some
+¤	mena	all
+¦	prerušená zvislá čiara	most
+ª	horný index a	some
 ¬	logický zápor	some
-­	rozdeľovník	none
-¯	pruh nad	none
-´	dĺžeň	none
-¶	označenie odseku	none
+­	rozdeľovník	most
+¯	pruh nad	most
+´	dĺžeň	most
+¶	označenie odseku	most
 ·	bodka v prostriedku	none
-¸	sédij	none
-º	horný index o	none
+¸	sédij	most
+º	horný index o	some
 ¼	štvrtina	none
 ½	polovica	none
 ¾	tri štvrtiny	none
-¿	obrátený otáznik	none
-ƒ	florén	none
+¿	obrátený otáznik	some
+ƒ	florén	all
 †	kríž	some
 ‡	dvojkríž	some
 ‣	trojuhoľníková odrážka	none

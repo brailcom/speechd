@@ -7,10 +7,10 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	viðsnúið upphrópunarmerki	none
-¤	gjaldmiðilstákn	none
-¶	málsgreinarmerki	none
+¡	viðsnúið upphrópunarmerki	some
+¤	gjaldmiðilstákn	all
+¶	málsgreinarmerki	most
 ¼	einn fjórði	none
 ½	helmingur	none
 ¾	þrír fjórðu	none
-¿	spurningamerki á hvolfi	none
+¿	spurningamerki á hvolfi	some

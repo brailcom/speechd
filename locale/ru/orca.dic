@@ -7,12 +7,12 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-ª	верхний индекс а	none
-¯	черта над	none
-´	ударение	none
-¸	седиль	none
-º	порядковое	none
-ƒ	флорин	none
+ª	верхний индекс а	some
+¯	черта над	most
+´	ударение	most
+¸	седиль	most
+º	порядковое	some
+ƒ	флорин	all
 ‚	одиночная нижняя кавычка	most
 ‣	треугольная точка	none
 ⁃	отметка-тире	none

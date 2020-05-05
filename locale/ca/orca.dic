@@ -7,21 +7,21 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	exclamació invertida	none
-¤	signe de moneda	none
-¦	barra trencada	none
-ª	superíndex a	none
+¡	exclamació invertida	some
+¤	signe de moneda	all
+¦	barra trencada	most
+ª	superíndex a	some
 ¬	no lògic	some
-­	guionet	none
-¯	guionet alt	none
-´	accent agut	none
-¶	marcador de paràgraf	none
+­	guionet	most
+¯	guionet alt	most
+´	accent agut	most
+¶	marcador de paràgraf	most
 ·	punt volat	none
-º	o elevada	none
+º	o elevada	some
 ¼	un quart	none
 ½	un mig	none
 ¾	tres quartes parts	none
-¿	signe d'interrogació invertit	none
+¿	signe d'interrogació invertit	some
 ‚	marca de citació baixa	most
 „	cometes baixes dobles	most
 †	creu	some
@@ -30,7 +30,7 @@ symbols:
 ‰	tant per mil	some
 ′	prima	some
 ″	prima doble	some
-‴	prima triple	none
+‴	prima triple	some
 ⁃	guió petit	none
 ✗	pic en forma de x	none
 ⁰	superíndex 0	none
