@@ -153,6 +153,7 @@ EOF
 			fi
 		done )
 	) > $lang/orca$num.dic
+	grep $'\t' $lang/orca$num.dic > /dev/null || rm -f $lang/orca$num.dic
 done
 
 rm -f orca$num.autosym
