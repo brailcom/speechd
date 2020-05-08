@@ -25,6 +25,8 @@ from os import path
 import codecs
 from collections import OrderedDict
 from shutil import copy
+import gi
+from gi.repository import GLib
 import csv
 import os
 
@@ -102,7 +104,8 @@ with open(unicodeDataPath, "r", newline='') as uDataFile:
 		if uCharacter[5].startswith("<font>"):
 			fontVariant = chr(int("0x"+uCharacter[0], 16))
 			pronouncedCharacter = chr(int("0x"+uCharacter[5][7:], 16))
-			fontVariantsDict[fontVariant] = pronouncedCharacter
+			if pronouncedCharacter != GLib.utf8_normalize(fontVariant, -1, GLib.NormalizeMode.ALL_COMPOSE):
+			    fontVariantsDict[fontVariant] = pronouncedCharacter
 
 # Write the dictionary to en/font-variants.dic with documentation at the top
 with codecs.open("base/font-variants.dic", "w", "utf_8_sig", errors="replace") as dicFile:
