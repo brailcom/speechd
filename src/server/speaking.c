@@ -250,14 +250,26 @@ void *speak(void *data)
 			/* FIXME: rather make them express it */
 			punct_missing = 1;
 
+		if (message->settings.type == SPD_MSGTYPE_TEXT ||
+		    message->settings.type == SPD_MSGTYPE_CHAR) {
+			gchar *normalized = g_utf8_normalize(message->buf, -1,
+					G_NORMALIZE_ALL_COMPOSE);
+			if (!normalized) {
+				MSG(2, "Error: Not UTF-8 valid");
+				pthread_mutex_unlock(&element_free_mutex);
+				continue;
+			}
+			if (strcmp(message->buf, normalized)) {
+				MSG(5, "text: Normalized '%s' to '%s'", message->buf, normalized);
+			}
+			message->buf = normalized;
+			insert_symbols(message, punct_missing);
+		}
+
 		/* Insert index marks into textual messages */
 		if (message->settings.type == SPD_MSGTYPE_TEXT) {
-			insert_symbols(message, punct_missing);
 			insert_index_marks(message,
 					   message->settings.ssml_mode);
-		}
-		else if (message->settings.type == SPD_MSGTYPE_CHAR) {
-			insert_symbols(message, punct_missing);
 		}
 
 		/* Write the message to the output layer. */
