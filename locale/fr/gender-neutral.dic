@@ -123,6 +123,9 @@ end-words stes	(?<=[^\W_]s)[.·•‧⋅‐‑-][t][e][.·•‧⋅‐‑-]?[s](
 end-words cette1	(?<=\b[cC][eE])[.·•‧⋅‐‑-][cC]?[eE]?[tT][tT][eE](?=\b)
 end-words cette2	(?<=\b[cC][eE][tT])[.·•‧⋅‐‑-][cC]?[eE]?[tT][tT][eE](?=\b)
 
+# le·la
+word le	(?<=\b)le[.·•‧⋅‐‑-]l?a(?=\b)
+
 
 # As last resort, when it's inside a word just drop it and hope for the best
 # Intentionally *not* putting . and - here of course :)
@@ -192,5 +195,7 @@ end-words stes		none	literal
 
 end-words cette1		none	literal
 end-words cette2		none	literal
+
+word le	le	none	literal
 
 dot-fallback		none	literal
