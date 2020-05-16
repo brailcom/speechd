@@ -273,6 +273,9 @@ enddata:
 char *parse_history(const char *buf, const int bytes, const int fd,
 		    const TSpeechDSock * speechd_socket)
 {
+	return g_strdup(ERR_NOT_IMPLEMENTED);
+
+#if 0
 	char *cmd_main;
 	GET_PARAM_STR(cmd_main, 1, CONV_DOWN);
 
@@ -362,6 +365,7 @@ char *parse_history(const char *buf, const int bytes, const int fd,
 	}
 
 	return g_strdup(ERR_INVALID_COMMAND);
+#endif
 }
 
 #define SSIP_SET_COMMAND(param) \
