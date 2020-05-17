@@ -281,24 +281,34 @@ char *parse_history(const char *buf, const int bytes, const int fd,
 		GET_PARAM_STR(hist_get_sub, 2, CONV_DOWN);
 
 		if (TEST_CMD(hist_get_sub, "client_list")) {
-			return (char *)history_get_client_list();
+			/* No longer able to get client list */
+			return g_strdup(ERR_NOT_IMPLEMENTED);
 		} else if (TEST_CMD(hist_get_sub, "client_id")) {
+			/* Can still get your client id */
 			return (char *)history_get_client_id(fd);
 		} else if (TEST_CMD(hist_get_sub, "client_messages")) {
 			int start, num;
 			char *who;
 			int who_id;
+			int client_id = get_client_uid_by_fd(fd);
 
 			/* TODO: This needs to be (sim || am)-plified */
 			who = get_param(buf, 3, bytes, 1);
 			CHECK_PARAM(who);
 			if (!strcmp(who, "self"))
+				/* TODO: Get all our messages, that should be allowed but how many to get... */
 				return g_strdup(ERR_NOT_IMPLEMENTED);
 			if (!strcmp(who, "all"))
+				/* No longer allowed, security hole here */
 				return g_strdup(ERR_NOT_IMPLEMENTED);
 			if (!isanum(who))
 				return g_strdup(ERR_NOT_A_NUMBER);
 			who_id = atoi(who);
+
+			/* Check if the id is the client */
+			if (who_id != client_id)
+				return g_strdup(ERR_NOT_IMPLEMENTED);
+
 			g_free(who);
 			GET_PARAM_INT(start, 4);
 			GET_PARAM_INT(num, 5);
