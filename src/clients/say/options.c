@@ -46,6 +46,8 @@ char *voice_type;
 char *punctuation_mode;
 char *priority;
 int pipe_mode;
+int character;
+int key;
 SPDDataMode ssml_mode;
 int spelling;
 int wait_till_end;
@@ -111,6 +113,9 @@ void options_print_help(char *argv[])
 
 	printf("  -c, --character                 ");
 	printf(_("Speak the character\n"));
+
+	printf("  -k, --key                       ");
+	printf(_("Speak the key\n"));
 
 	printf("  -m, --punctuation-mode          ");
 	printf(_("Set the punctuation mode %s\n"), "(none, some, most, all)");
@@ -252,6 +257,9 @@ int options_parse(int argc, char *argv[])
 			break;
 		case 'c':
 			character = 1;
+			break;
+		case 'k':
+			key = 1;
 			break;
 		case 'm':
 			OPT_SET_STR(punctuation_mode);
