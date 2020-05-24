@@ -298,7 +298,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 			break;
 		}
 	case SPD_MSGTYPE_SPELL:
-		/* TODO: Not sure what to do here... */
+		/* TODO: use a generic engine */
 		break;
 	}
 

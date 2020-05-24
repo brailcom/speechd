@@ -558,6 +558,7 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 		g_free(tmp);
 	}
 
+	/* TODO: use a generic engine for SPELL, CHAR, KEY */
 	/*      switch (msgtype) {
 	   case SPD_MSGTYPE_CHAR:
 	   case SPD_MSGTYPE_KEY:

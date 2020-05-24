@@ -477,11 +477,25 @@ int module_speak(gchar *data, size_t bytes, SPDMessageType msgtype)
 	}
 
 	switch (msgtype) {
-	case SPD_MSGTYPE_SPELL: /* FIXME: use \spell one day? */
+	case SPD_MSGTYPE_SPELL:	/* FIXME: use \spell when Voxygen actuall implements it */
+				/* TODO: in the meanwhile use a generic engine */
 	case SPD_MSGTYPE_CHAR:
 		g_string_append(buffer, "\\sayas<{characters}");
 		g_string_append_len(buffer, data, bytes);
 		g_string_append(buffer, "\\sayas>{}");
+		break;
+	case SPD_MSGTYPE_KEY:	/* TODO: use a generic engine */
+		if (g_utf8_strlen(data, bytes) == 1) {
+			g_string_append(buffer, "\\sayas<{characters}");
+			g_string_append_len(buffer, data, bytes);
+			g_string_append(buffer, "\\sayas>{}");
+		} else {
+			gchar *c;
+			g_string_append_len(buffer, data, bytes);
+			for (c = buffer->str; *c; c++)
+				if (*c == '_')
+					*c = ' ';
+		}
 		break;
 	default: /* FIXME: */
 	case SPD_MSGTYPE_TEXT:

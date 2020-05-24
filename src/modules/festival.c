@@ -694,6 +694,7 @@ sem_wait:
 						      *festival_message);
 				break;
 			case SPD_MSGTYPE_KEY:
+				/* TODO: make sure all SSIP cases are supported */
 				r = festivalKey(festival_info,
 						*festival_message);
 				break;
