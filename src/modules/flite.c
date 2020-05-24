@@ -166,6 +166,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 		*flite_message = NULL;
 	}
 	*flite_message = module_strip_ssml(data);
+	/* TODO: use a generic engine for SPELL, CHAR, KEY */
 	flite_message_type = SPD_MSGTYPE_TEXT;
 
 	/* Setting voice */

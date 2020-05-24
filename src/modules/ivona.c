@@ -345,6 +345,7 @@ static int ivona_get_msgpart(struct dumbtts_conf *conf, SPDMessageType type,
 	case SPD_MSGTYPE_CHAR:
 
 		if (type == SPD_MSGTYPE_KEY) {
+			/* TODO: make sure all SSIP cases are supported */
 			n = dumbtts_KeyString(conf, *msg, *buf, *len, cap_mode,
 					      &isicon);
 		} else {

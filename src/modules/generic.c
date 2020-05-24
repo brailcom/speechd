@@ -232,6 +232,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	if (tmp == NULL)
 		return -1;
 
+	/* TODO: use a generic engine for SPELL, CHAR, KEY */
 	if (msgtype == SPD_MSGTYPE_TEXT)
 		*generic_message = module_strip_ssml(tmp);
 	else

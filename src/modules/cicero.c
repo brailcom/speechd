@@ -256,6 +256,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 		*cicero_message = NULL;
 	}
 	*cicero_message = module_strip_ssml(data);
+	/* TODO: use a generic engine for SPELL, CHAR, KEY */
 	cicero_message_type = SPD_MSGTYPE_TEXT;
 
 	/* Setting voice */

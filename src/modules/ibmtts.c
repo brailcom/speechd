@@ -969,6 +969,7 @@ static void *_ibmtts_synth(void *nothing)
 				    eciTextModeAllSpell);
 			break;
 		case SPD_MSGTYPE_KEY:
+			/* TODO: make sure all SSIP cases are supported */
 			/* Map unspeakable keys to speakable words. */
 			DBG("Ibmtts: Key from Speech Dispatcher: |%s|", pos);
 			pos = ibmtts_subst_keys(pos);
