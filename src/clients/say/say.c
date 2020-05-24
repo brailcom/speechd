@@ -314,6 +314,23 @@ int main(int argc, char **argv)
 				sem_wait(&semaphore);
 		}
 	}
+	else if (key) {
+		/* Speak just keys */
+		if (optind < argc) {
+			err =
+			    spd_key(conn, spd_priority, argv[optind]);
+
+			if (err == -1) {
+				fprintf(stderr,
+					"Speech Dispatcher failed to say key");
+				exit(1);
+			}
+
+			/* Wait till the callback is called */
+			if (wait_till_end)
+				sem_wait(&semaphore);
+		}
+	}
 	else if (pipe_mode == 1) {
 		/* In pipe mode, read from stdin, write to stdout, and also to Speech Dispatcher. */
 		line = (char *)malloc(MAX_LINELEN);
