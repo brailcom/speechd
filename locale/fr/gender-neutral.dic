@@ -54,9 +54,13 @@ end-words ses	(?<=[^\W_][sS])[.·•‧⋅‐‑-][sS]?[sS][eE][.·•‧⋅‐�
 end-words se	(?<=[^\W_][sS])[.·•‧⋅‐‑-][sS]?[sS][eE](?=\b)
 
 # nerveux·ses
-end-words se	(?<=[^\W_][xX])[.·•‧⋅‐‑-][sS][eE][sS]?(?=\b)
+end-words uxses	(?<=[^\W_][uU])[xX]?[.·•‧⋅‐‑-][sS][eE][.·•‧⋅‐‑-]?[sS](?=\b)
+# nerveux·se
+end-words uxse	(?<=[^\W_][uU])[xX]?[.·•‧⋅‐‑-][sS][eE](?=\b)
 # doux·ces
-end-words ce	(?<=[^\W_][xX])[.·•‧⋅‐‑-][cC][eE][sS]?(?=\b)
+end-words xces	(?<=[^\W_][uU])[xX]?[.·•‧⋅‐‑-][cC][eE][.·•‧⋅‐‑-]?[sS](?=\b)
+# doux·ce
+end-words xce	(?<=[^\W_][uU])[xX]?[.·•‧⋅‐‑-][cC][eE](?=\b)
 
 # légers·ères
 end-words ères	(?<=[^\W_][eE][rR])[sS]?[.·•‧⋅‐‑-][èÈE][rR][eE][.·•‧⋅‐‑-]?[sS](?=\b)
@@ -154,8 +158,10 @@ end-words te		none	literal
 end-words ses	s	none	literal
 end-words se		none	literal
 
-end-words se		none	literal
-end-words ce		none	literal
+end-words uxses	x	none	literal
+end-words uxse	x	none	literal
+end-words xces	x	none	literal
+end-words xce	x	none	literal
 
 end-words ères	s	none	literal
 end-words ère		none	literal
