@@ -1061,6 +1061,39 @@ static gint find_nexttag(struct tags *tags, gint pos, gint firsttag, gint endtag
 		return find_nexttag(tags, pos, middletag, endtag);
 }
 
+static int replace_groups(const GMatchInfo *match_info, GString *result, char *replacement, gint pos)
+{
+	int in_escape = 0;
+	char c;
+
+	while ((c = *replacement++)) {
+		if (!in_escape) {
+			if (c == '\\')
+				in_escape = 1;
+			else
+				g_string_append_c(result, c);
+		} else {
+			if (c == '\\')
+				g_string_append_c(result, '\\');
+			else if (c >= '0' && c <= '9') {
+				gchar *res = g_match_info_fetch(match_info, pos + (c - '0'));
+				if (res)
+					g_string_append(result, res);
+				else
+					MSG2(1, "symbols", "Unmatched reference \\%c", c);
+			} else {
+				MSG2(1, "symbols", "Invalid reference \\%c", c);
+				g_string_append_c(result, c);
+			}
+			in_escape = 0;
+		}
+	}
+	if (in_escape)
+		MSG2(1, "symbols", "Unterminated backslash");
+
+	return 1;
+}
+
 /* Regular expression callback for applying replacements */
 static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpointer user_data)
 {
@@ -1073,6 +1106,7 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 	gint nexttag, curtag, deferrable;
 	guint i = 0;
 	SpeechSymbol *sym = NULL;
+	gint pos;
 
 	/* First see what we captured */
 
@@ -1095,9 +1129,26 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 			gchar *group_name = g_strdup_printf("c%u", i);
 
 			if ((capture = fetch_named_matching(match_info, group_name))) {
-				sym = node->data;
+				gchar **all = g_match_info_fetch_all(match_info);
+				gint i;
+
+				pos = -1;
+				/* Find out the index of the match */
+				for (i = 1; all[i]; i++) {
+					if (all[i][0]) {
+						pos = i;
+						break;
+					}
+				}
+				g_strfreev(all);
+
+				if (pos != -1)
+					sym = node->data;
 			}
 			g_free(group_name);
+
+			if (sym)
+				break;
 		}
 
 		captured_group = COMPLEX;
@@ -1203,7 +1254,10 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 			/* Leave it to the module */
 			g_string_append(result, capture);
 		} else if (ssp->level >= sym->level && sym->replacement) {
-			g_string_append_printf(result, "%s%s%s", prefix, sym->replacement, suffix);
+			g_string_append(result, prefix);
+			MSG2(5, "symbols", "replacing with %s", sym->replacement);
+			replace_groups(match_info, result, sym->replacement, pos);
+			g_string_append(result, suffix);
 		} else {
 			g_string_append(result, suffix);
 		}
