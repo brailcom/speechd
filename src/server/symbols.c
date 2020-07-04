@@ -252,12 +252,12 @@ static gpointer locale_map_fetch(LocaleMap *map, const gchar *locale, const gcha
 /* Move tags off from the text */
 static gchar *escape_ssml_text(const gchar *text, struct tags **tags_ret, gint *ntags_ret)
 {
-	const gchar *cur, *curtag;
+	const gchar *cur, *curtag = NULL;
 	struct tags *tags;
 	GString *str;
 	gchar *result;
 	gchar name[7];		/* Current tag name, only need to recognize against "mark", "/mark", "!--" for now */
-	gsize namepos;
+	gsize namepos = 0;
 
 	int filling_tag;	/* Whether we are stack tags, or text */
 	int in_tag;		/* Whether we are within a tag */
@@ -1106,7 +1106,7 @@ static gboolean regex_eval(const GMatchInfo *match_info, GString *result, gpoint
 	gint nexttag, curtag, deferrable;
 	guint i = 0;
 	SpeechSymbol *sym = NULL;
-	gint pos;
+	gint pos = 0;
 
 	/* First see what we captured */
 
@@ -1289,8 +1289,8 @@ static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *i
 {
 	gchar *text;
 	gchar *processed;
-	struct tags *tags;
-	gint ntags, i;
+	struct tags *tags = NULL;
+	gint ntags = 0, i;
 	GError *error = NULL;
 
 	if (ssml_mode == SPD_DATA_SSML) {
