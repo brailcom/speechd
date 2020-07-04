@@ -18,6 +18,7 @@ to have more fine-grained control over server preprocessing.
 CLDR and UnicodeData.
 * symbols: Import some symbols from Orca.
 * symbols: Add rules to drop gender-neutral forms.
+* symbols: Add support for group references.
 * Disable Mary-TTS module by default.
 * Replace AudioPulseServer option with AudioPulseDevice.
 * Fix default pulse latency to 10ms to avoid pulseaudio distorted output.
