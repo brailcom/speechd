@@ -1626,9 +1626,9 @@ methods.
 </p>
 <p>On the other hand, this may cause security issues as several
 clients may connect to Speech Server and they might originate
-from different users. For this reason, only those messages
-that come from the same user should be accessible by default
-(if not overridden in server configuration).
+from different users. Because of flatpak and other technologies
+checking the user id isn&rsquo;t enough. So now, only those messages
+that come from the same client connection are accessible.
 </p>
 <hr>
 <span id="Message-History-in-SSIP"></span><div class="header">
