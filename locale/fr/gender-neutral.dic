@@ -128,7 +128,7 @@ end-words cette1	(?<=\b[cC][eE])[.·•‧⋅‐‑-][cC]?[eE]?[tT][tT][eE](?=\b
 end-words cette2	(?<=\b[cC][eE][tT])[.·•‧⋅‐‑-][cC]?[eE]?[tT][tT][eE](?=\b)
 
 # le·la
-word le	(?<=\b)le[.·•‧⋅‐‑-]l?a(?=\b)
+word le	(?<=\b)le[.·•‧⋅‐‑-/]l?a(?=\b)
 
 
 # As last resort, when it's inside a word just drop it and hope for the best
