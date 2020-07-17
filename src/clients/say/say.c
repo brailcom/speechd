@@ -353,7 +353,7 @@ int main(int argc, char **argv)
 		/* Or do nothing in case of -C or -S with no message. */
 		if (optind < argc) {
 			err =
-			    spd_sayf(conn, spd_priority, (char *)argv[optind]);
+			    spd_sayf(conn, spd_priority, "%s", (char *)argv[optind]);
 			if (err == -1) {
 				fprintf(stderr,
 					"Speech Dispatcher failed to say message");
