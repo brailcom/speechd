@@ -259,8 +259,12 @@ static int pulse_play(AudioID * id, AudioTrack track)
 		/* Open a new connection */
 		error = _pulse_open(pulse_id, track.sample_rate, track.num_channels,
 			    bytes_per_sample);
-		if (error)
+		if (error) {
+			pulse_id->pa_current_rate = -1;
+			pulse_id->pa_current_bps = -1;
+			pulse_id->pa_current_channels = -1;
 			return -1;
+		}
 		/* Keep track of current connection parameters */
 		pulse_id->pa_current_rate = track.sample_rate;
 		pulse_id->pa_current_bps = track.bits;
