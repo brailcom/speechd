@@ -8,62 +8,41 @@ symbols:
 🏽	carnagione olivastra	none
 🏾	carnagione abbastanza scura	none
 🏿	carnagione scura	none
-⚧	simbolo transgender	none
-🤌	mano a pigna	none
-🥲	faccina sorridente con lacrima	none
-🥷	ninja	none
-🥸	faccina travestita	none
-🦣	mammut	none
-🦤	dodo	none
-🦫	castoro	none
-🦬	bisonte	none
-🦭	foca	none
-🧋	bubble tea	none
-🩴	infradito	none
-🪃	boomerang	none
-🪄	bacchetta magica	none
-🪅	pentolaccia	none
-🪆	matrioska	none
-🪖	elmetto militare	none
-🪗	fisarmonica	none
-🪘	tamburo lungo	none
-🪙	moneta	none
-🪚	sega da falegname	none
-🪛	cacciavite	none
-🪜	scala	none
-🪝	gancio	none
-🪞	specchio	none
-🪟	finestra	none
-🪠	sturalavandini	none
-🪡	ago da cucito	none
-🪢	nodo	none
-🪣	secchio	none
-🪤	trappola per topi	none
-🪥	spazzolino da denti	none
-🪦	lapide	none
-🪧	cartello	none
-🪨	roccia	none
-🪰	mosca	none
-🪱	verme	none
-🪲	coleottero	none
-🪳	scarafaggio	none
-🪴	pianta in vaso	none
-🪵	legna	none
-🪶	piuma	none
-🫀	organo del cuore	none
-🫁	polmoni	none
-🫂	persone che si abbracciano	none
-🫐	mirtilli	none
-🫑	peperone	none
-🫒	oliva	none
-🫓	focaccia	none
-🫔	tamal	none
-🫕	fonduta	none
-🫖	teiera	none
-🛖	capanna	none
-🛗	ascensore	none
-🛻	pickup	none
-🛼	pattini a rotelle	none
+–	trattino corto	none
+—	trattino lungo	none
+·	punto mediano	none
+«	virgolette basse doppie aperte	none
+»	virgolette basse doppie chiuse	none
+§	simbolo di sezione	none
+†	simbolo dell’obelisco	none
+‡	simbolo del doppio obelisco	none
+•	punto elenco	none
+°	simbolo di grado	none
+℗	simbolo di copyright della registrazione sonora	none
+←	freccia verso sinistra	none
+→	freccia verso destra	none
+↑	freccia verso l’alto	none
+↓	freccia verso il basso	none
+⇅	freccia verso l’alto e freccia verso il basso	none
+⇆	freccia verso sinistra su freccia verso destra	none
+∆	simbolo di incremento	none
+∇	nabla	none
+∈	simbolo di appartenenza	none
+÷	segno di divisione	none
+×	segno di moltiplicazione	none
+⁻	segno meno in apice	none
+√	radice quadrata	none
+∞	simbolo di infinito	none
+∩	simbolo di intersezione	none
+∪	simbolo di unione	none
+≡	simbolo di coincidenza	none
+⊂	simbolo di sottoinsieme	none
+▲	triangolo pieno rivolto verso l’alto	none
+▼	triangolo pieno capovolto	none
+◊	losanga	none
+○	cerchio vuoto	none
+●	cerchio pieno	none
+◯	cerchio vuoto grande	none
 😀	faccina con un gran sorriso	none
 😃	faccina con un gran sorriso e occhi spalancati	none
 😄	faccina con sorriso e occhi sorridenti	none
@@ -85,6 +64,7 @@ symbols:
 ☺	faccina sorridente	none
 😚	faccina che bacia con occhi chiusi	none
 😙	faccina che bacia con occhi sorridenti	none
+🥲	faccina sorridente con lacrima	none
 😋	faccina che si lecca i baffi	none
 😛	faccina che mostra la lingua	none
 😜	faccina che fa l’occhiolino e mostra la lingua	none
@@ -123,6 +103,7 @@ symbols:
 🤯	testa che esplode	none
 🤠	faccina con cappello da cowboy	none
 🥳	faccina che festeggia	none
+🥸	faccina travestita	none
 😎	faccina con sorriso e occhiali da sole	none
 🤓	faccina nerd	none
 🧐	faccina con monocolo	none
@@ -219,6 +200,7 @@ symbols:
 ✋	mano alzata	none
 🖖	saluto vulcaniano	none
 👌	mano che fa OK	none
+🤌	mano a pigna	none
 🤏	mano che fa il gesto del pizzico	none
 ✌	vittoria	none
 🤞	dita incrociate	none
@@ -255,6 +237,8 @@ symbols:
 🦻	orecchio con apparecchio acustico	none
 👃	naso	none
 🧠	cervello	none
+🫀	organo del cuore	none
+🫁	polmoni	none
 🦷	dente	none
 🦴	osso	none
 👀	occhi	none
@@ -267,15 +251,11 @@ symbols:
 👧	bambina	none
 🧑	persona	none
 👱	persona bionda	none
-🧑‍🍼	persona che allatta	none
-🧑‍🎄	Santa Claus	none
 👨	uomo	none
 🧔	uomo con la barba	none
 👱‍♂	uomo biondo	none
-👨‍🍼	uomo che allatta	none
 👩	donna	none
 👱‍♀	donna bionda	none
-👩‍🍼	donna che allatta	none
 🧓	persona anziana	none
 👴	uomo anziano	none
 👵	donna anziana	none
@@ -366,6 +346,7 @@ symbols:
 💂	guardia	none
 💂‍♂	guardia uomo	none
 💂‍♀	guardia donna	none
+🥷	ninja	none
 👷	operaio edile	none
 👷‍♂	operaio edile uomo	none
 👷‍♀	operaia edile	none
@@ -377,16 +358,20 @@ symbols:
 👲	uomo con zucchetto cinese	none
 🧕	donna con velo	none
 🤵	persona in smoking	none
-🤵‍♀	donna in smoking	none
 🤵‍♂	uomo in smoking	none
+🤵‍♀	donna in smoking	none
 👰	persona con velo	none
-👰‍♀	sposa con velo	none
 👰‍♂	sposo con velo	none
+👰‍♀	sposa con velo	none
 🤰	donna incinta	none
 🤱	allattare	none
+👩‍🍼	donna che allatta	none
+👨‍🍼	uomo che allatta	none
+🧑‍🍼	persona che allatta	none
 👼	angioletto	none
 🎅	Babbo Natale	none
 🤶	Mamma Natale	none
+🧑‍🎄	Santa Claus	none
 🦸	supereroe	none
 🦸‍♂	supereroe uomo	none
 🦸‍♀	supereroina	none
@@ -511,6 +496,7 @@ symbols:
 🗣	persona che parla	none
 👤	profilo di persona	none
 👥	profilo di due persone	none
+🫂	persone che si abbracciano	none
 👣	impronta di piedi	none
 🦰	capelli rossi	none
 🦱	capelli ricci	none
@@ -540,6 +526,7 @@ symbols:
 🦄	unicorno	none
 🦓	zebra	none
 🦌	cervo	none
+🦬	bisonte	none
 🐮	muso di mucca	none
 🐂	bue	none
 🐃	bufalo d’acqua	none
@@ -556,6 +543,7 @@ symbols:
 🦙	lama	none
 🦒	giraffa	none
 🐘	elefante	none
+🦣	mammut	none
 🦏	rinoceronte	none
 🦛	ippopotamo	none
 🐭	muso di topo	none
@@ -565,6 +553,7 @@ symbols:
 🐰	muso di coniglio	none
 🐇	coniglio	none
 🐿	scoiattolo	none
+🦫	castoro	none
 🦔	riccio	none
 🦇	pipistrello	none
 🐻	orso	none
@@ -590,6 +579,8 @@ symbols:
 🦆	anatra	none
 🦢	cigno	none
 🦉	gufo	none
+🦤	dodo	none
+🪶	piuma	none
 🦩	fenicottero	none
 🦚	pavone	none
 🦜	pappagallo	none
@@ -605,6 +596,7 @@ symbols:
 🐳	balena che spruzza acqua	none
 🐋	balena	none
 🐬	delfino	none
+🦭	foca	none
 🐟	pesce	none
 🐠	pesce tropicale	none
 🐡	pesce palla	none
@@ -616,12 +608,16 @@ symbols:
 🐛	insetto	none
 🐜	formica	none
 🐝	ape	none
+🪲	coleottero	none
 🐞	coccinella	none
 🦗	grillo	none
+🪳	scarafaggio	none
 🕷	ragno	none
 🕸	ragnatela	none
 🦂	scorpione	none
 🦟	zanzara	none
+🪰	mosca	none
+🪱	verme	none
 🦠	microbo	none
 💐	mazzo di fiori	none
 🌸	fiore di ciliegio	none
@@ -634,6 +630,7 @@ symbols:
 🌼	fiore	none
 🌷	tulipano	none
 🌱	germoglio	none
+🪴	pianta in vaso	none
 🌲	albero sempreverde	none
 🌳	albero deciduo	none
 🌴	palma	none
@@ -659,8 +656,10 @@ symbols:
 🍑	pesca	none
 🍒	ciliegie	none
 🍓	fragola	none
+🫐	mirtilli	none
 🥝	kiwi	none
 🍅	pomodoro	none
+🫒	oliva	none
 🥥	cocco	none
 🥑	avocado	none
 🍆	melanzana	none
@@ -668,6 +667,7 @@ symbols:
 🥕	carota	none
 🌽	pannocchia	none
 🌶	peperoncino	none
+🫑	peperone	none
 🥒	cetriolo	none
 🥬	verdure a foglia	none
 🥦	broccoli	none
@@ -679,6 +679,7 @@ symbols:
 🍞	pane in cassetta	none
 🥐	croissant	none
 🥖	baguette	none
+🫓	focaccia	none
 🥨	pretzel	none
 🥯	bagel	none
 🥞	pancake	none
@@ -695,12 +696,14 @@ symbols:
 🥪	sandwich	none
 🌮	taco	none
 🌯	burrito	none
+🫔	tamal	none
 🥙	pita farcita	none
 🧆	falafel	none
 🥚	uovo	none
 🍳	cucinare	none
 🥘	padella con cibo	none
 🍲	ciotola di cibo	none
+🫕	fonduta	none
 🥣	ciotola con cucchiaio	none
 🥗	insalata verde	none
 🍿	popcorn	none
@@ -746,6 +749,7 @@ symbols:
 🍼	biberon	none
 🥛	bicchiere di latte	none
 ☕	bevanda calda	none
+🫖	teiera	none
 🍵	tazza da tè senza manico	none
 🍶	sake	none
 🍾	bottiglia stappata	none
@@ -757,6 +761,7 @@ symbols:
 🥂	brindisi	none
 🥃	bicchiere tumbler	none
 🥤	bicchiere con cannuccia	none
+🧋	bubble tea	none
 🧃	bevanda monodose	none
 🧉	mate	none
 🧊	cubetto di ghiaccio	none
@@ -786,6 +791,9 @@ symbols:
 🏛	edificio classico	none
 🏗	edificio in costruzione	none
 🧱	mattoni	none
+🪨	roccia	none
+🪵	legna	none
+🛖	capanna	none
 🏘	case	none
 🏚	casa in rovina	none
 🏠	casa	none
@@ -853,6 +861,7 @@ symbols:
 🚗	auto	none
 🚘	auto in arrivo	none
 🚙	SUV	none
+🛻	pickup	none
 🚚	camion	none
 🚛	autoarticolato	none
 🚜	trattore	none
@@ -865,6 +874,7 @@ symbols:
 🚲	bicicletta	none
 🛴	monopattino	none
 🛹	skateboard	none
+🛼	pattini a rotelle	none
 🚏	fermata dell’autobus	none
 🛣	autostrada	none
 🛤	binari	none
@@ -1035,6 +1045,7 @@ symbols:
 🪁	aquilone	none
 🎱	palla da biliardo	none
 🔮	sfera di cristallo	none
+🪄	bacchetta magica	none
 🧿	occhio di Allah	none
 🎮	gamepad	none
 🕹	joystick	none
@@ -1042,6 +1053,8 @@ symbols:
 🎲	dado	none
 🧩	pezzo di puzzle	none
 🧸	orsetto	none
+🪅	pentolaccia	none
+🪆	matrioska	none
 ♠	picche	none
 ♥	cuori	none
 ♦	quadri	none
@@ -1054,7 +1067,9 @@ symbols:
 🖼	quadro incorniciato	none
 🎨	tavolozza	none
 🧵	filo	none
+🪡	ago da cucito	none
 🧶	gomitolo	none
+🪢	nodo	none
 👓	occhiali da vista	none
 🕶	occhiali da sole	none
 🥽	maschera	none
@@ -1080,6 +1095,7 @@ symbols:
 👝	pochette	none
 🛍	borse della spesa	none
 🎒	zaino	none
+🩴	infradito	none
 👞	scarpa da uomo	none
 👟	scarpa sportiva	none
 🥾	stivale da trekking	none
@@ -1093,6 +1109,7 @@ symbols:
 🎩	cilindro	none
 🎓	cappello da laureato	none
 🧢	cappello con visiera	none
+🪖	elmetto militare	none
 ⛑	elmetto con croce bianca	none
 📿	rosario	none
 💄	rossetto	none
@@ -1117,12 +1134,14 @@ symbols:
 🎧	cuffie	none
 📻	radio	none
 🎷	sassofono	none
+🪗	fisarmonica	none
 🎸	chitarra	none
 🎹	piano	none
 🎺	tromba	none
 🎻	violino	none
 🪕	banjo	none
 🥁	tamburo	none
+🪘	tamburo lungo	none
 📱	telefono cellulare	none
 📲	telefono cellulare con freccia	none
 ☎	telefono fisso	none
@@ -1176,6 +1195,7 @@ symbols:
 🔖	segnalibro	none
 🏷	etichetta	none
 💰	sacco di soldi	none
+🪙	moneta	none
 💴	banconota Yen	none
 💵	banconota Dollaro	none
 💶	banconota Euro	none
@@ -1184,8 +1204,6 @@ symbols:
 💳	carta di credito	none
 🧾	scontrino	none
 💹	grafico ascendente	none
-💱	cambio valuta	none
-💲	Dollaro	none
 ✉	busta	none
 📧	e-mail	none
 📨	posta in arrivo	none
@@ -1243,9 +1261,12 @@ symbols:
 🗡	pugnale	none
 ⚔	spade incrociate	none
 🔫	pistola	none
+🪃	boomerang	none
 🏹	arco e freccia	none
 🛡	scudo	none
+🪚	sega da falegname	none
 🔧	chiave inglese	none
+🪛	cacciavite	none
 🔩	vite e bullone	none
 ⚙	ingranaggio	none
 🗜	morsetto	none
@@ -1253,8 +1274,10 @@ symbols:
 🦯	bastone per non vedenti	none
 🔗	collegamento	none
 ⛓	catene	none
+🪝	gancio	none
 🧰	cassetta degli attrezzi	none
 🧲	calamita	none
+🪜	scala	none
 ⚗	alambicco	none
 🧪	provetta	none
 🧫	piastra di Petri	none
@@ -1268,26 +1291,35 @@ symbols:
 🩹	cerotto	none
 🩺	stetoscopio	none
 🚪	porta	none
+🛗	ascensore	none
+🪞	specchio	none
+🪟	finestra	none
 🛏	letto	none
 🛋	divano e lampada	none
 🪑	sedia	none
 🚽	toilette	none
+🪠	sturalavandini	none
 🚿	doccia	none
 🛁	vasca	none
+🪤	trappola per topi	none
 🪒	rasoio	none
 🧴	flacone	none
 🧷	spilla da balia	none
 🧹	scopa	none
 🧺	cesto	none
 🧻	rotolo di carta igienica	none
+🪣	secchio	none
 🧼	sapone	none
+🪥	spazzolino da denti	none
 🧽	spugna	none
 🧯	estintore	none
 🛒	carrello	none
 🚬	sigaretta	none
 ⚰	bara	none
+🪦	lapide	none
 ⚱	urna funeraria	none
 🗿	Moai	none
+🪧	cartello	none
 🏧	simbolo dello sportello bancomat	none
 🚮	simbolo per la raccolta dei rifiuti	none
 🚰	acqua potabile	none
@@ -1386,8 +1418,22 @@ symbols:
 📴	cellulare spento	none
 ♀	simbolo genere femminile	none
 ♂	simbolo genere maschile	none
-⚕	simbolo della medicina	none
+⚧	simbolo transgender	none
+✖	segno moltiplicazione	none
+➕	simbolo dell’addizione	none
+➖	simbolo della sottrazione	none
+➗	simbolo della divisione	none
 ♾	simbolo dell’infinito	none
+‼	doppio punto esclamativo	none
+⁉	punto esclamativo e interrogativo	none
+❓	punto interrogativo rosso	none
+❔	punto interrogativo bianco	none
+❕	punto esclamativo bianco	none
+❗	punto esclamativo rosso	none
+〰	trattino ondulato	none
+💱	cambio valuta	none
+💲	Dollaro	none
+⚕	simbolo della medicina	none
 ♻	simbolo del riciclaggio	none
 ⚜	giglio araldico	none
 🔱	tridente	none
@@ -1397,25 +1443,14 @@ symbols:
 ✅	segno di spunta	none
 ☑	riquadro con spunta	none
 ✔	segno di spunta nero	none
-✖	segno moltiplicazione	none
 ❌	croce	none
 ❎	croce con quadrato	none
-➕	simbolo dell’addizione	none
-➖	simbolo della sottrazione	none
-➗	simbolo della divisione	none
 ➰	occhiello	none
 ➿	doppio occhiello	none
 〽	simbolo di alternanza delle parti	none
 ✳	asterisco	none
 ✴	stella stilizzata	none
 ❇	scintilla stilizzata	none
-‼	doppio punto esclamativo	none
-⁉	punto esclamativo e interrogativo	none
-❓	punto interrogativo rosso	none
-❔	punto interrogativo bianco	none
-❕	punto esclamativo bianco	none
-❗	punto esclamativo rosso	none
-〰	trattino ondulato	none
 ©	copyright	none
 ®	marchio registrato	none
 ™	marchio	none
@@ -1497,14 +1532,18 @@ symbols:
 🎌	bandiere del Giappone incrociate	none
 🏴	bandiera nera	none
 🏳	bandiera bianca	none
-🏳‍⚧	bandiera transgender	none
 🏳‍🌈	bandiera arcobaleno	none
+🏳‍⚧	bandiera transgender	none
 🏴‍☠	bandiera dei pirati	none
-🤌🏻	mano a pigna carnagione chiara	none
-🤌🏼	mano a pigna carnagione abbastanza chiara	none
-🤌🏽	mano a pigna carnagione olivastra	none
-🤌🏾	mano a pigna carnagione abbastanza scura	none
-🤌🏿	mano a pigna carnagione scura	none
+£	simbolo della sterlina	none
+¥	simbolo dello yen	none
+€	simbolo dell’euro	none
+₹	simbolo della rupia indiana	none
+₽	simbolo del rublo	none
+¹	numero uno in apice	none
+²	numero due in apice	none
+³	numero tre in apice	none
+µ	simbolo del micron	none
 👋🏻	mano che saluta carnagione chiara	none
 👋🏼	mano che saluta carnagione abbastanza chiara	none
 👋🏽	mano che saluta carnagione olivastra	none
@@ -1535,6 +1574,11 @@ symbols:
 👌🏽	mano che fa OK carnagione olivastra	none
 👌🏾	mano che fa OK carnagione abbastanza scura	none
 👌🏿	mano che fa OK carnagione scura	none
+🤌🏻	mano a pigna carnagione chiara	none
+🤌🏼	mano a pigna carnagione abbastanza chiara	none
+🤌🏽	mano a pigna carnagione olivastra	none
+🤌🏾	mano a pigna carnagione abbastanza scura	none
+🤌🏿	mano a pigna carnagione scura	none
 🤏🏻	mano che fa il gesto del pizzico carnagione chiara	none
 🤏🏼	mano che fa il gesto del pizzico carnagione abbastanza chiara	none
 🤏🏽	mano che fa il gesto del pizzico carnagione olivastra	none
@@ -1749,16 +1793,6 @@ symbols:
 🧑🏽‍🦲	persona carnagione olivastra e calvo	none
 🧑🏾‍🦲	persona carnagione abbastanza scura e calvo	none
 🧑🏿‍🦲	persona carnagione scura e calvo	none
-🧑🏻‍🍼	persona che allatta carnagione chiara	none
-🧑🏼‍🍼	persona che allatta carnagione abbastanza chiara	none
-🧑🏽‍🍼	persona che allatta carnagione olivastra	none
-🧑🏾‍🍼	persona che allatta carnagione abbastanza scura	none
-🧑🏿‍🍼	persona che allatta carnagione scura	none
-🧑🏻‍🎄	Santa Claus carnagione chiara	none
-🧑🏼‍🎄	Santa Claus carnagione abbastanza chiara	none
-🧑🏽‍🎄	Santa Claus carnagione olivastra	none
-🧑🏾‍🎄	Santa Claus carnagione abbastanza scura	none
-🧑🏿‍🎄	Santa Claus carnagione scura	none
 👨🏻	uomo carnagione chiara	none
 👨🏼	uomo carnagione abbastanza chiara	none
 👨🏽	uomo carnagione olivastra	none
@@ -1798,11 +1832,6 @@ symbols:
 👨🏽‍🦲	uomo carnagione olivastra e calvo	none
 👨🏾‍🦲	uomo carnagione abbastanza scura e calvo	none
 👨🏿‍🦲	uomo carnagione scura e calvo	none
-👨🏻‍🍼	uomo che allatta carnagione chiara	none
-👨🏼‍🍼	uomo che allatta carnagione abbastanza chiara	none
-👨🏽‍🍼	uomo che allatta carnagione olivastra	none
-👨🏾‍🍼	uomo che allatta carnagione abbastanza scura	none
-👨🏿‍🍼	uomo che allatta carnagione scura	none
 👩🏻	donna carnagione chiara	none
 👩🏼	donna carnagione abbastanza chiara	none
 👩🏽	donna carnagione olivastra	none
@@ -1837,11 +1866,6 @@ symbols:
 👩🏽‍🦲	donna carnagione olivastra e calvo	none
 👩🏾‍🦲	donna carnagione abbastanza scura e calvo	none
 👩🏿‍🦲	donna carnagione scura e calvo	none
-👩🏻‍🍼	donna che allatta carnagione chiara	none
-👩🏼‍🍼	donna che allatta carnagione abbastanza chiara	none
-👩🏽‍🍼	donna che allatta carnagione olivastra	none
-👩🏾‍🍼	donna che allatta carnagione abbastanza scura	none
-👩🏿‍🍼	donna che allatta carnagione scura	none
 🧓🏻	persona anziana carnagione chiara	none
 🧓🏼	persona anziana carnagione abbastanza chiara	none
 🧓🏽	persona anziana carnagione olivastra	none
@@ -2292,6 +2316,11 @@ symbols:
 💂🏽‍♀	guardia donna carnagione olivastra	none
 💂🏾‍♀	guardia donna carnagione abbastanza scura	none
 💂🏿‍♀	guardia donna carnagione scura	none
+🥷🏻	ninja carnagione chiara	none
+🥷🏼	ninja carnagione abbastanza chiara	none
+🥷🏽	ninja carnagione olivastra	none
+🥷🏾	ninja carnagione abbastanza scura	none
+🥷🏿	ninja carnagione scura	none
 👷🏻	operaio edile carnagione chiara	none
 👷🏼	operaio edile carnagione abbastanza chiara	none
 👷🏽	operaio edile carnagione olivastra	none
@@ -2347,31 +2376,31 @@ symbols:
 🤵🏽	persona in smoking carnagione olivastra	none
 🤵🏾	persona in smoking carnagione abbastanza scura	none
 🤵🏿	persona in smoking carnagione scura	none
-🤵🏻‍♀	donna in smoking carnagione chiara	none
-🤵🏼‍♀	donna in smoking carnagione abbastanza chiara	none
-🤵🏽‍♀	donna in smoking carnagione olivastra	none
-🤵🏾‍♀	donna in smoking carnagione abbastanza scura	none
-🤵🏿‍♀	donna in smoking carnagione scura	none
 🤵🏻‍♂	uomo in smoking carnagione chiara	none
 🤵🏼‍♂	uomo in smoking carnagione abbastanza chiara	none
 🤵🏽‍♂	uomo in smoking carnagione olivastra	none
 🤵🏾‍♂	uomo in smoking carnagione abbastanza scura	none
 🤵🏿‍♂	uomo in smoking carnagione scura	none
+🤵🏻‍♀	donna in smoking carnagione chiara	none
+🤵🏼‍♀	donna in smoking carnagione abbastanza chiara	none
+🤵🏽‍♀	donna in smoking carnagione olivastra	none
+🤵🏾‍♀	donna in smoking carnagione abbastanza scura	none
+🤵🏿‍♀	donna in smoking carnagione scura	none
 👰🏻	persona con velo carnagione chiara	none
 👰🏼	persona con velo carnagione abbastanza chiara	none
 👰🏽	persona con velo carnagione olivastra	none
 👰🏾	persona con velo carnagione abbastanza scura	none
 👰🏿	persona con velo carnagione scura	none
-👰🏻‍♀	sposa con velo carnagione chiara	none
-👰🏼‍♀	sposa con velo carnagione abbastanza chiara	none
-👰🏽‍♀	sposa con velo carnagione olivastra	none
-👰🏾‍♀	sposa con velo carnagione abbastanza scura	none
-👰🏿‍♀	sposa con velo carnagione scura	none
 👰🏻‍♂	sposo con velo carnagione chiara	none
 👰🏼‍♂	sposo con velo carnagione abbastanza chiara	none
 👰🏽‍♂	sposo con velo carnagione olivastra	none
 👰🏾‍♂	sposo con velo carnagione abbastanza scura	none
 👰🏿‍♂	sposo con velo carnagione scura	none
+👰🏻‍♀	sposa con velo carnagione chiara	none
+👰🏼‍♀	sposa con velo carnagione abbastanza chiara	none
+👰🏽‍♀	sposa con velo carnagione olivastra	none
+👰🏾‍♀	sposa con velo carnagione abbastanza scura	none
+👰🏿‍♀	sposa con velo carnagione scura	none
 🤰🏻	donna incinta carnagione chiara	none
 🤰🏼	donna incinta carnagione abbastanza chiara	none
 🤰🏽	donna incinta carnagione olivastra	none
@@ -2382,6 +2411,21 @@ symbols:
 🤱🏽	allattare carnagione olivastra	none
 🤱🏾	allattare carnagione abbastanza scura	none
 🤱🏿	allattare carnagione scura	none
+👩🏻‍🍼	donna che allatta carnagione chiara	none
+👩🏼‍🍼	donna che allatta carnagione abbastanza chiara	none
+👩🏽‍🍼	donna che allatta carnagione olivastra	none
+👩🏾‍🍼	donna che allatta carnagione abbastanza scura	none
+👩🏿‍🍼	donna che allatta carnagione scura	none
+👨🏻‍🍼	uomo che allatta carnagione chiara	none
+👨🏼‍🍼	uomo che allatta carnagione abbastanza chiara	none
+👨🏽‍🍼	uomo che allatta carnagione olivastra	none
+👨🏾‍🍼	uomo che allatta carnagione abbastanza scura	none
+👨🏿‍🍼	uomo che allatta carnagione scura	none
+🧑🏻‍🍼	persona che allatta carnagione chiara	none
+🧑🏼‍🍼	persona che allatta carnagione abbastanza chiara	none
+🧑🏽‍🍼	persona che allatta carnagione olivastra	none
+🧑🏾‍🍼	persona che allatta carnagione abbastanza scura	none
+🧑🏿‍🍼	persona che allatta carnagione scura	none
 👼🏻	angioletto carnagione chiara	none
 👼🏼	angioletto carnagione abbastanza chiara	none
 👼🏽	angioletto carnagione olivastra	none
@@ -2397,6 +2441,11 @@ symbols:
 🤶🏽	Mamma Natale carnagione olivastra	none
 🤶🏾	Mamma Natale carnagione abbastanza scura	none
 🤶🏿	Mamma Natale carnagione scura	none
+🧑🏻‍🎄	Santa Claus carnagione chiara	none
+🧑🏼‍🎄	Santa Claus carnagione abbastanza chiara	none
+🧑🏽‍🎄	Santa Claus carnagione olivastra	none
+🧑🏾‍🎄	Santa Claus carnagione abbastanza scura	none
+🧑🏿‍🎄	Santa Claus carnagione scura	none
 🦸🏻	supereroe carnagione chiara	none
 🦸🏼	supereroe carnagione abbastanza chiara	none
 🦸🏽	supereroe carnagione olivastra	none

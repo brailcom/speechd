@@ -8,62 +8,41 @@ symbols:
 🏽	vidējs ādas tonis	none
 🏾	vidēji tumšs ādas tonis	none
 🏿	tumšs ādas tonis	none
-⚧	transdzimuma simbols	none
-🤌	pastiepti pirksti	none
-🥲	smaidoša seja ar asaru	none
-🥷	nindzja	none
-🥸	paslēpta seja	none
-🦣	mamuts	none
-🦤	dodo	none
-🦫	bebrs	none
-🦬	bizons	none
-🦭	ronis	none
-🧋	burbuļtēja	none
-🩴	siksniņsandale	none
-🪃	bumerangs	none
-🪄	burvju nūjiņa	none
-🪅	pinjata	none
-🪆	matrjoškas	none
-🪖	militārā ķivere	none
-🪗	akordeons	none
-🪘	garās bungas	none
-🪙	monēta	none
-🪚	vienrokas zāģis	none
-🪛	skrūvgriezis	none
-🪜	kāpnes	none
-🪝	āķis	none
-🪞	spogulis	none
-🪟	logs	none
-🪠	vantūzs	none
-🪡	šujamadata	none
-🪢	mezgls	none
-🪣	spainis	none
-🪤	peļu slazds	none
-🪥	zobu suka	none
-🪦	kapakmens	none
-🪧	plakāts	none
-🪨	akmens	none
-🪰	muša	none
-🪱	tārps	none
-🪲	vabole	none
-🪳	tarakāns	none
-🪴	augs podiņā	none
-🪵	koks	none
-🪶	spalva	none
-🫀	cilvēka sirds	none
-🫁	plaušas	none
-🫂	cilvēki apkampjas	none
-🫐	mellenes	none
-🫑	paprika	none
-🫒	olīva	none
-🫓	plācenis	none
-🫔	tamale	none
-🫕	fondī	none
-🫖	tējkanna	none
-🛖	būda	none
-🛗	lifts	none
-🛻	piegādes auto	none
-🛼	skrituļslida	none
+–	vienotājzīme	none
+—	domuzīme	none
+·	viduspunkts	none
+«	kreisās stūra pēdiņas	none
+»	labās stūra pēdiņas	none
+§	sadaļa	none
+†	dunča zīme	none
+‡	divu dunču zīme	none
+•	aizzīme	none
+°	pakāpe	none
+℗	skaņu ieraksta autortiesības	none
+←	pa kreisi vērsta bultiņa	none
+→	pa labi vērsta bultiņa	none
+↑	augšupvērsta bultiņa	none
+↓	lejupvērsta bultiņa	none
+⇅	augšupvērsta bultiņa un lejupvērsta bultiņa	none
+⇆	kreisā bultiņa virs labās bultiņas	none
+∆	pieaugums	none
+∇	nabla	none
+∈	elements no	none
+÷	dalīšanas zīme	none
+×	reizināšanas zīme	none
+⁻	mīnus augšrakstā	none
+√	kvadrātsakne	none
+∞	bezgalības zīme	none
+∩	šķēlums	none
+∪	kopums	none
+≡	vienāds ar	none
+⊂	apakškopa no	none
+▲	pilns augšupvērsts trīsstūris	none
+▼	pilns lejupvērsts trīsstūris	none
+◊	rombs	none
+○	tukšs riņķis	none
+●	pilns riņķis	none
+◯	liels tukšs riņķis	none
 😀	smiekli	none
 😃	plats smaids un lielas acis	none
 😄	smaidoša seja ar atvērtu muti un smaidošām acīm	none
@@ -85,6 +64,7 @@ symbols:
 ☺	smaidoša seja	none
 😚	seja ar aizvērtām acīm sniedz skūpstu	none
 😙	seja ar smaidošām acīm sniedz skūpstu	none
+🥲	smaidoša seja ar asaru	none
 😋	ēdienu baudoša seja	none
 😛	seja ar izbāztu mēli	none
 😜	seja ar izbāztu mēli un piemiegtu aci	none
@@ -123,6 +103,7 @@ symbols:
 🤯	eksplodējoša galva	none
 🤠	seja kovboja cepurē	none
 🥳	ballīšu seja	none
+🥸	paslēpta seja	none
 😎	smaidoša seja ar saulesbrillēm	none
 🤓	gudrītis	none
 🧐	seja ar monokli	none
@@ -219,6 +200,7 @@ symbols:
 ✋	pacelta roka	none
 🖖	vulkāniešu sveiciens	none
 👌	simbols OK	none
+🤌	pastiepti pirksti	none
 🤏	roka rāda drusciņu	none
 ✌	uzvaras simbols	none
 🤞	sakrustoti pirksti	none
@@ -255,6 +237,8 @@ symbols:
 🦻	auss ar dzirdes aparātu	none
 👃	deguns	none
 🧠	smadzenes	none
+🫀	cilvēka sirds	none
+🫁	plaušas	none
 🦷	zobs	none
 🦴	kauls	none
 👀	acis	none
@@ -267,15 +251,11 @@ symbols:
 👧	meitene	none
 🧑	pieaugušais	none
 👱	blonds cilvēks	none
-🧑‍🍼	persona baro bērnu	none
-🧑‍🎄	dzimumneitrāls santaklauss	none
 👨	vīrietis	none
 🧔	bārdains vīrietis	none
 👱‍♂	blondīns	none
-👨‍🍼	bērnu barojošs cilvēks	none
 👩	sieviete	none
 👱‍♀	blondīne	none
-👩‍🍼	sieviete baro bērnu	none
 🧓	vecāks pieaugušais	none
 👴	vecs vīrietis	none
 👵	veca sieviete	none
@@ -366,6 +346,7 @@ symbols:
 💂	sargs	none
 💂‍♂	apsargs	none
 💂‍♀	sardze	none
+🥷	nindzja	none
 👷	celtnieks	none
 👷‍♂	būvstrādnieks	none
 👷‍♀	būvstrādniece	none
@@ -377,16 +358,20 @@ symbols:
 👲	vīrietis ar ķīniešu cepuri	none
 🧕	sieviete ar lakatu	none
 🤵	cilvēks smokingā	none
-🤵‍♀	sieviete smokingā	none
 🤵‍♂	vīrietis smokingā	none
+🤵‍♀	sieviete smokingā	none
 👰	cilvēks ar plīvuru	none
-👰‍♀	sieviete ar plīvuru	none
 👰‍♂	vīrietis ar plīvuru	none
+👰‍♀	sieviete ar plīvuru	none
 🤰	sieviete stāvoklī	none
 🤱	barošana ar krūti	none
+👩‍🍼	sieviete baro bērnu	none
+👨‍🍼	bērnu barojošs cilvēks	none
+🧑‍🍼	persona baro bērnu	none
 👼	mazs eņģelītis	none
 🎅	Ziemassvētku vecītis	none
 🤶	Ziemassvētku omīte	none
+🧑‍🎄	dzimumneitrāls santaklauss	none
 🦸	supervaronis	none
 🦸‍♂	vīrietis supervaronis	none
 🦸‍♀	sieviete supervarone	none
@@ -511,6 +496,7 @@ symbols:
 🗣	runājoša galva	none
 👤	krūšutēla siluets	none
 👥	divu krūšutēlu silueti	none
+🫂	cilvēki apkampjas	none
 👣	pēdu nospiedumi	none
 🦰	sarkani mati	none
 🦱	sprogaini mati	none
@@ -540,6 +526,7 @@ symbols:
 🦄	vienradzis	none
 🦓	zebra	none
 🦌	briedis	none
+🦬	bizons	none
 🐮	govs galva	none
 🐂	vērsis	none
 🐃	bifelis	none
@@ -556,6 +543,7 @@ symbols:
 🦙	lama	none
 🦒	žirafe	none
 🐘	zilonis	none
+🦣	mamuts	none
 🦏	degunradzis	none
 🦛	nīlzirgs	none
 🐭	peles galva	none
@@ -565,6 +553,7 @@ symbols:
 🐰	truša galva	none
 🐇	trusis	none
 🐿	burunduks	none
+🦫	bebrs	none
 🦔	ezis	none
 🦇	sikspārnis	none
 🐻	lācis	none
@@ -590,6 +579,8 @@ symbols:
 🦆	pīle	none
 🦢	gulbis	none
 🦉	pūce	none
+🦤	dodo	none
+🪶	spalva	none
 🦩	flamingo	none
 🦚	pāvs	none
 🦜	papagailis	none
@@ -605,6 +596,7 @@ symbols:
 🐳	valis šļāc ūdeni	none
 🐋	valis	none
 🐬	delfīns	none
+🦭	ronis	none
 🐟	zivs	none
 🐠	tropu zivs	none
 🐡	balonzivs	none
@@ -616,12 +608,16 @@ symbols:
 🐛	kukainis	none
 🐜	skudra	none
 🐝	bite	none
+🪲	vabole	none
 🐞	mārīte	none
 🦗	circenis	none
+🪳	tarakāns	none
 🕷	zirneklis	none
 🕸	zirnekļa tīkls	none
 🦂	skorpions	none
 🦟	ods	none
+🪰	muša	none
+🪱	tārps	none
 🦠	mikrobs	none
 💐	pušķis	none
 🌸	ķiršu zieds	none
@@ -634,6 +630,7 @@ symbols:
 🌼	zieds	none
 🌷	tulpe	none
 🌱	asns	none
+🪴	augs podiņā	none
 🌲	skujkoks	none
 🌳	lapu koks	none
 🌴	palma	none
@@ -659,8 +656,10 @@ symbols:
 🍑	persiks	none
 🍒	ķirši	none
 🍓	zemene	none
+🫐	mellenes	none
 🥝	kivi auglis	none
 🍅	tomāts	none
+🫒	olīva	none
 🥥	kokosrieksts	none
 🥑	avokado	none
 🍆	baklažāns	none
@@ -668,6 +667,7 @@ symbols:
 🥕	burkāns	none
 🌽	kukurūzas vālīte	none
 🌶	asais pipars	none
+🫑	paprika	none
 🥒	gurķis	none
 🥬	lapu dārzenis	none
 🥦	brokoļi	none
@@ -679,6 +679,7 @@ symbols:
 🍞	maize	none
 🥐	kruasāns	none
 🥖	bagete	none
+🫓	plācenis	none
 🥨	kliņģeris	none
 🥯	beigelis	none
 🥞	pankūkas	none
@@ -695,12 +696,14 @@ symbols:
 🥪	sendvičs	none
 🌮	tako	none
 🌯	burito	none
+🫔	tamale	none
 🥙	pildīts lavašs	none
 🧆	felāfels	none
 🥚	ola	none
 🍳	ēdiena gatavošana	none
 🥘	sautējums pannā	none
 🍲	ēdiena bļodiņa	none
+🫕	fondī	none
 🥣	bļoda ar karoti	none
 🥗	zaļie salāti	none
 🍿	popkorns	none
@@ -746,6 +749,7 @@ symbols:
 🍼	bērna pudelīte	none
 🥛	piena glāze	none
 ☕	karsts dzēriens	none
+🫖	tējkanna	none
 🍵	tējas tase bez osiņas	none
 🍶	sakē	none
 🍾	pudele ar izšautu korķi	none
@@ -757,6 +761,7 @@ symbols:
 🥂	glāžu skandināšana	none
 🥃	viskija glāze	none
 🥤	dzēriens ar salmiņu	none
+🧋	burbuļtēja	none
 🧃	dzēriena kārba	none
 🧉	mate	none
 🧊	ledus gabaliņš	none
@@ -786,6 +791,9 @@ symbols:
 🏛	klasicisma stila ēka	none
 🏗	būvlaukums	none
 🧱	ķieģelis	none
+🪨	akmens	none
+🪵	koks	none
+🛖	būda	none
 🏘	ēkas	none
 🏚	pamesta ēka	none
 🏠	ēka	none
@@ -853,6 +861,7 @@ symbols:
 🚗	automašīna	none
 🚘	pretī braucoša automašīna	none
 🚙	kemperis	none
+🛻	piegādes auto	none
 🚚	kravas automašīna	none
 🚛	smagā automašīna	none
 🚜	traktors	none
@@ -865,6 +874,7 @@ symbols:
 🚲	velosipēds	none
 🛴	skuteris	none
 🛹	skrituļdēlis	none
+🛼	skrituļslida	none
 🚏	autobusa pietura	none
 🛣	automaģistrāle	none
 🛤	dzelzceļa sliedes	none
@@ -1035,6 +1045,7 @@ symbols:
 🪁	gaisa pūķis	none
 🎱	biljarda bumbiņa	none
 🔮	kristāla lode	none
+🪄	burvju nūjiņa	none
 🧿	amulets pret ļaunu aci	none
 🎮	videospēle	none
 🕹	kursorsvira	none
@@ -1042,6 +1053,8 @@ symbols:
 🎲	metamais kauliņš	none
 🧩	attēlu mīkla	none
 🧸	lāčuks	none
+🪅	pinjata	none
+🪆	matrjoškas	none
 ♠	pīķis	none
 ♥	ercens	none
 ♦	kāravs	none
@@ -1054,7 +1067,9 @@ symbols:
 🖼	ierāmēta glezna	none
 🎨	gleznotāja palete	none
 🧵	pavediens	none
+🪡	šujamadata	none
 🧶	dzija	none
+🪢	mezgls	none
 👓	brilles	none
 🕶	saulesbrilles	none
 🥽	aizsargbrilles	none
@@ -1080,6 +1095,7 @@ symbols:
 👝	kosmētikas maciņš	none
 🛍	iepirkumu maisiņi	none
 🎒	mugursoma	none
+🩴	siksniņsandale	none
 👞	vīriešu kurpe	none
 👟	skriešanas apavi	none
 🥾	pārgājienu zābaks	none
@@ -1093,6 +1109,7 @@ symbols:
 🎩	cilindrs	none
 🎓	izlaiduma cepure	none
 🧢	cepure ar nagu	none
+🪖	militārā ķivere	none
 ⛑	glābēja ķivere	none
 📿	lūgšanu krelles	none
 💄	lūpukrāsa	none
@@ -1117,12 +1134,14 @@ symbols:
 🎧	austiņas	none
 📻	radio	none
 🎷	saksofons	none
+🪗	akordeons	none
 🎸	ģitāra	none
 🎹	klavieru taustiņi	none
 🎺	trompete	none
 🎻	vijole	none
 🪕	bandžo	none
 🥁	bungas	none
+🪘	garās bungas	none
 📱	mobilais tālrunis	none
 📲	mobilais tālrunis ar bultiņu	none
 ☎	tālrunis	none
@@ -1176,6 +1195,7 @@ symbols:
 🔖	grāmatzīme	none
 🏷	atzīme	none
 💰	naudas maiss	none
+🪙	monēta	none
 💴	jenas banknote	none
 💵	dolāra banknote	none
 💶	eiro banknote	none
@@ -1184,8 +1204,6 @@ symbols:
 💳	kredītkarte	none
 🧾	kvīts	none
 💹	augšupejoša diagrammas līkne ar jenas simbolu	none
-💱	valūtas maiņa	none
-💲	dolāra zīme	none
 ✉	aploksne	none
 📧	e-pasts	none
 📨	ienākoša aploksne	none
@@ -1243,9 +1261,12 @@ symbols:
 🗡	duncis	none
 ⚔	sakrustoti zobeni	none
 🔫	pistole	none
+🪃	bumerangs	none
 🏹	loks un bulta	none
 🛡	vairogs	none
+🪚	vienrokas zāģis	none
 🔧	uzgriežņu atslēga	none
+🪛	skrūvgriezis	none
 🔩	skrūve un uzgrieznis	none
 ⚙	zobrats	none
 🗜	skrūvspīles	none
@@ -1253,8 +1274,10 @@ symbols:
 🦯	baltais atbalsta spieķis	none
 🔗	ķēdes posms	none
 ⛓	ķēdes	none
+🪝	āķis	none
 🧰	darbarīku kaste	none
 🧲	magnēts	none
+🪜	kāpnes	none
 ⚗	destilēšanas aparāts	none
 🧪	mēģene	none
 🧫	Petri trauks	none
@@ -1268,26 +1291,35 @@ symbols:
 🩹	plāksteris	none
 🩺	stetoskops	none
 🚪	durvis	none
+🛗	lifts	none
+🪞	spogulis	none
+🪟	logs	none
 🛏	gulta	none
 🛋	dīvāns un lampa	none
 🪑	krēsls	none
 🚽	tualetes pods	none
+🪠	vantūzs	none
 🚿	duša	none
 🛁	vanna	none
+🪤	peļu slazds	none
 🪒	bārdas nazis	none
 🧴	losjona pudele	none
 🧷	saspraude	none
 🧹	slota	none
 🧺	grozs	none
 🧻	papīra rullis	none
+🪣	spainis	none
 🧼	ziepes	none
+🪥	zobu suka	none
 🧽	sūklis	none
 🧯	ugunsdzēsības aparāts	none
 🛒	iepirkumu ratiņi	none
 🚬	aizdegta cigarete	none
 ⚰	zārks	none
+🪦	kapakmens	none
 ⚱	pelnu urna	none
 🗿	Lieldienu salu statuja	none
+🪧	plakāts	none
 🏧	bankomāta zīme	none
 🚮	atkritumu urnas zīme	none
 🚰	dzeramais ūdens	none
@@ -1386,8 +1418,22 @@ symbols:
 📴	izslēgts mobilais tālrunis	none
 ♀	sieviešu simbols	none
 ♂	vīriešu simbols	none
-⚕	medicīnas simbols	none
+⚧	transdzimuma simbols	none
+✖	reizināt	none
+➕	pluszīme	none
+➖	mīnuss	none
+➗	dalīt	none
 ♾	bezgalība	none
+‼	divas izsaukuma zīmes	none
+⁉	izsaukuma un jautājuma zīme	none
+❓	jautājuma zīme	none
+❔	balta jautājuma zīme	none
+❕	balta izsaukuma zīme	none
+❗	izsaukuma zīme	none
+〰	viļņota domuzīme	none
+💱	valūtas maiņa	none
+💲	dolāra zīme	none
+⚕	medicīnas simbols	none
 ♻	atkritumu pārstrādes simbols	none
 ⚜	lilijas simbols	none
 🔱	trijzaris	none
@@ -1397,25 +1443,14 @@ symbols:
 ✅	balta kontrolzīme	none
 ☑	atzīmēta izvēles rūtiņa	none
 ✔	kontrolzīme	none
-✖	reizināt	none
 ❌	krustiņš	none
 ❎	krustiņa poga	none
-➕	pluszīme	none
-➖	mīnuss	none
-➗	dalīt	none
 ➰	cilpiņa	none
 ➿	dubulta cilpa	none
 〽	partijas sākuma zīme	none
 ✳	astoņstaru zvaigznīte	none
 ✴	četrstaru zvaigzne	none
 ❇	dzirkstis	none
-‼	divas izsaukuma zīmes	none
-⁉	izsaukuma un jautājuma zīme	none
-❓	jautājuma zīme	none
-❔	balta jautājuma zīme	none
-❕	balta izsaukuma zīme	none
-❗	izsaukuma zīme	none
-〰	viļņota domuzīme	none
 ©	autortiesības	none
 ®	reģistrēta preču zīme	none
 ™	preču zīme	none
@@ -1497,14 +1532,18 @@ symbols:
 🎌	sakrustoti karogi	none
 🏴	melns karogs	none
 🏳	balts karogs	none
-🏳‍⚧	zils, rozā un balts karogs	none
 🏳‍🌈	varavīksnes karogs	none
+🏳‍⚧	zils, rozā un balts karogs	none
 🏴‍☠	pirātu karogs	none
-🤌🏻	pastiepti pirksti gaišs ādas tonis	none
-🤌🏼	pastiepti pirksti vidēji gaišs ādas tonis	none
-🤌🏽	pastiepti pirksti vidējs ādas tonis	none
-🤌🏾	pastiepti pirksti vidēji tumšs ādas tonis	none
-🤌🏿	pastiepti pirksti tumšs ādas tonis	none
+£	mārciņa	none
+¥	jena	none
+€	eiro	none
+₹	Indijas rūpija	none
+₽	rublis	none
+¹	viens augšrakstā	none
+²	divi augšrakstā	none
+³	trīs augšrakstā	none
+µ	mikrozīme	none
 👋🏻	mājoša roka gaišs ādas tonis	none
 👋🏼	mājoša roka vidēji gaišs ādas tonis	none
 👋🏽	mājoša roka vidējs ādas tonis	none
@@ -1535,6 +1574,11 @@ symbols:
 👌🏽	simbols OK vidējs ādas tonis	none
 👌🏾	simbols OK vidēji tumšs ādas tonis	none
 👌🏿	simbols OK tumšs ādas tonis	none
+🤌🏻	pastiepti pirksti gaišs ādas tonis	none
+🤌🏼	pastiepti pirksti vidēji gaišs ādas tonis	none
+🤌🏽	pastiepti pirksti vidējs ādas tonis	none
+🤌🏾	pastiepti pirksti vidēji tumšs ādas tonis	none
+🤌🏿	pastiepti pirksti tumšs ādas tonis	none
 🤏🏻	roka rāda drusciņu gaišs ādas tonis	none
 🤏🏼	roka rāda drusciņu vidēji gaišs ādas tonis	none
 🤏🏽	roka rāda drusciņu vidējs ādas tonis	none
@@ -1749,16 +1793,6 @@ symbols:
 🧑🏽‍🦲	pieaugušais vidējs ādas tonis un bez matiem	none
 🧑🏾‍🦲	pieaugušais vidēji tumšs ādas tonis un bez matiem	none
 🧑🏿‍🦲	pieaugušais tumšs ādas tonis un bez matiem	none
-🧑🏻‍🍼	persona baro bērnu gaišs ādas tonis	none
-🧑🏼‍🍼	persona baro bērnu vidēji gaišs ādas tonis	none
-🧑🏽‍🍼	persona baro bērnu vidējs ādas tonis	none
-🧑🏾‍🍼	persona baro bērnu vidēji tumšs ādas tonis	none
-🧑🏿‍🍼	persona baro bērnu tumšs ādas tonis	none
-🧑🏻‍🎄	dzimumneitrāls santaklauss gaišs ādas tonis	none
-🧑🏼‍🎄	dzimumneitrāls santaklauss vidēji gaišs ādas tonis	none
-🧑🏽‍🎄	dzimumneitrāls santaklauss vidējs ādas tonis	none
-🧑🏾‍🎄	dzimumneitrāls santaklauss vidēji tumšs ādas tonis	none
-🧑🏿‍🎄	dzimumneitrāls santaklauss tumšs ādas tonis	none
 👨🏻	vīrietis gaišs ādas tonis	none
 👨🏼	vīrietis vidēji gaišs ādas tonis	none
 👨🏽	vīrietis vidējs ādas tonis	none
@@ -1798,11 +1832,6 @@ symbols:
 👨🏽‍🦲	vīrietis vidējs ādas tonis un bez matiem	none
 👨🏾‍🦲	vīrietis vidēji tumšs ādas tonis un bez matiem	none
 👨🏿‍🦲	vīrietis tumšs ādas tonis un bez matiem	none
-👨🏻‍🍼	bērnu barojošs cilvēks gaišs ādas tonis	none
-👨🏼‍🍼	bērnu barojošs cilvēks vidēji gaišs ādas tonis	none
-👨🏽‍🍼	bērnu barojošs cilvēks vidējs ādas tonis	none
-👨🏾‍🍼	bērnu barojošs cilvēks vidēji tumšs ādas tonis	none
-👨🏿‍🍼	bērnu barojošs cilvēks tumšs ādas tonis	none
 👩🏻	sieviete gaišs ādas tonis	none
 👩🏼	sieviete vidēji gaišs ādas tonis	none
 👩🏽	sieviete vidējs ādas tonis	none
@@ -1837,11 +1866,6 @@ symbols:
 👩🏽‍🦲	sieviete vidējs ādas tonis un bez matiem	none
 👩🏾‍🦲	sieviete vidēji tumšs ādas tonis un bez matiem	none
 👩🏿‍🦲	sieviete tumšs ādas tonis un bez matiem	none
-👩🏻‍🍼	sieviete baro bērnu gaišs ādas tonis	none
-👩🏼‍🍼	sieviete baro bērnu vidēji gaišs ādas tonis	none
-👩🏽‍🍼	sieviete baro bērnu vidējs ādas tonis	none
-👩🏾‍🍼	sieviete baro bērnu vidēji tumšs ādas tonis	none
-👩🏿‍🍼	sieviete baro bērnu tumšs ādas tonis	none
 🧓🏻	vecāks pieaugušais gaišs ādas tonis	none
 🧓🏼	vecāks pieaugušais vidēji gaišs ādas tonis	none
 🧓🏽	vecāks pieaugušais vidējs ādas tonis	none
@@ -2292,6 +2316,11 @@ symbols:
 💂🏽‍♀	sardze vidējs ādas tonis	none
 💂🏾‍♀	sardze vidēji tumšs ādas tonis	none
 💂🏿‍♀	sardze tumšs ādas tonis	none
+🥷🏻	nindzja gaišs ādas tonis	none
+🥷🏼	nindzja vidēji gaišs ādas tonis	none
+🥷🏽	nindzja vidējs ādas tonis	none
+🥷🏾	nindzja vidēji tumšs ādas tonis	none
+🥷🏿	nindzja tumšs ādas tonis	none
 👷🏻	celtnieks gaišs ādas tonis	none
 👷🏼	celtnieks vidēji gaišs ādas tonis	none
 👷🏽	celtnieks vidējs ādas tonis	none
@@ -2347,31 +2376,31 @@ symbols:
 🤵🏽	cilvēks smokingā vidējs ādas tonis	none
 🤵🏾	cilvēks smokingā vidēji tumšs ādas tonis	none
 🤵🏿	cilvēks smokingā tumšs ādas tonis	none
-🤵🏻‍♀	sieviete smokingā gaišs ādas tonis	none
-🤵🏼‍♀	sieviete smokingā vidēji gaišs ādas tonis	none
-🤵🏽‍♀	sieviete smokingā vidējs ādas tonis	none
-🤵🏾‍♀	sieviete smokingā vidēji tumšs ādas tonis	none
-🤵🏿‍♀	sieviete smokingā tumšs ādas tonis	none
 🤵🏻‍♂	vīrietis smokingā gaišs ādas tonis	none
 🤵🏼‍♂	vīrietis smokingā vidēji gaišs ādas tonis	none
 🤵🏽‍♂	vīrietis smokingā vidējs ādas tonis	none
 🤵🏾‍♂	vīrietis smokingā vidēji tumšs ādas tonis	none
 🤵🏿‍♂	vīrietis smokingā tumšs ādas tonis	none
+🤵🏻‍♀	sieviete smokingā gaišs ādas tonis	none
+🤵🏼‍♀	sieviete smokingā vidēji gaišs ādas tonis	none
+🤵🏽‍♀	sieviete smokingā vidējs ādas tonis	none
+🤵🏾‍♀	sieviete smokingā vidēji tumšs ādas tonis	none
+🤵🏿‍♀	sieviete smokingā tumšs ādas tonis	none
 👰🏻	cilvēks ar plīvuru gaišs ādas tonis	none
 👰🏼	cilvēks ar plīvuru vidēji gaišs ādas tonis	none
 👰🏽	cilvēks ar plīvuru vidējs ādas tonis	none
 👰🏾	cilvēks ar plīvuru vidēji tumšs ādas tonis	none
 👰🏿	cilvēks ar plīvuru tumšs ādas tonis	none
-👰🏻‍♀	sieviete ar plīvuru gaišs ādas tonis	none
-👰🏼‍♀	sieviete ar plīvuru vidēji gaišs ādas tonis	none
-👰🏽‍♀	sieviete ar plīvuru vidējs ādas tonis	none
-👰🏾‍♀	sieviete ar plīvuru vidēji tumšs ādas tonis	none
-👰🏿‍♀	sieviete ar plīvuru tumšs ādas tonis	none
 👰🏻‍♂	vīrietis ar plīvuru gaišs ādas tonis	none
 👰🏼‍♂	vīrietis ar plīvuru vidēji gaišs ādas tonis	none
 👰🏽‍♂	vīrietis ar plīvuru vidējs ādas tonis	none
 👰🏾‍♂	vīrietis ar plīvuru vidēji tumšs ādas tonis	none
 👰🏿‍♂	vīrietis ar plīvuru tumšs ādas tonis	none
+👰🏻‍♀	sieviete ar plīvuru gaišs ādas tonis	none
+👰🏼‍♀	sieviete ar plīvuru vidēji gaišs ādas tonis	none
+👰🏽‍♀	sieviete ar plīvuru vidējs ādas tonis	none
+👰🏾‍♀	sieviete ar plīvuru vidēji tumšs ādas tonis	none
+👰🏿‍♀	sieviete ar plīvuru tumšs ādas tonis	none
 🤰🏻	sieviete stāvoklī gaišs ādas tonis	none
 🤰🏼	sieviete stāvoklī vidēji gaišs ādas tonis	none
 🤰🏽	sieviete stāvoklī vidējs ādas tonis	none
@@ -2382,6 +2411,21 @@ symbols:
 🤱🏽	barošana ar krūti vidējs ādas tonis	none
 🤱🏾	barošana ar krūti vidēji tumšs ādas tonis	none
 🤱🏿	barošana ar krūti tumšs ādas tonis	none
+👩🏻‍🍼	sieviete baro bērnu gaišs ādas tonis	none
+👩🏼‍🍼	sieviete baro bērnu vidēji gaišs ādas tonis	none
+👩🏽‍🍼	sieviete baro bērnu vidējs ādas tonis	none
+👩🏾‍🍼	sieviete baro bērnu vidēji tumšs ādas tonis	none
+👩🏿‍🍼	sieviete baro bērnu tumšs ādas tonis	none
+👨🏻‍🍼	bērnu barojošs cilvēks gaišs ādas tonis	none
+👨🏼‍🍼	bērnu barojošs cilvēks vidēji gaišs ādas tonis	none
+👨🏽‍🍼	bērnu barojošs cilvēks vidējs ādas tonis	none
+👨🏾‍🍼	bērnu barojošs cilvēks vidēji tumšs ādas tonis	none
+👨🏿‍🍼	bērnu barojošs cilvēks tumšs ādas tonis	none
+🧑🏻‍🍼	persona baro bērnu gaišs ādas tonis	none
+🧑🏼‍🍼	persona baro bērnu vidēji gaišs ādas tonis	none
+🧑🏽‍🍼	persona baro bērnu vidējs ādas tonis	none
+🧑🏾‍🍼	persona baro bērnu vidēji tumšs ādas tonis	none
+🧑🏿‍🍼	persona baro bērnu tumšs ādas tonis	none
 👼🏻	mazs eņģelītis gaišs ādas tonis	none
 👼🏼	mazs eņģelītis vidēji gaišs ādas tonis	none
 👼🏽	mazs eņģelītis vidējs ādas tonis	none
@@ -2397,6 +2441,11 @@ symbols:
 🤶🏽	Ziemassvētku omīte vidējs ādas tonis	none
 🤶🏾	Ziemassvētku omīte vidēji tumšs ādas tonis	none
 🤶🏿	Ziemassvētku omīte tumšs ādas tonis	none
+🧑🏻‍🎄	dzimumneitrāls santaklauss gaišs ādas tonis	none
+🧑🏼‍🎄	dzimumneitrāls santaklauss vidēji gaišs ādas tonis	none
+🧑🏽‍🎄	dzimumneitrāls santaklauss vidējs ādas tonis	none
+🧑🏾‍🎄	dzimumneitrāls santaklauss vidēji tumšs ādas tonis	none
+🧑🏿‍🎄	dzimumneitrāls santaklauss tumšs ādas tonis	none
 🦸🏻	supervaronis gaišs ādas tonis	none
 🦸🏼	supervaronis vidēji gaišs ādas tonis	none
 🦸🏽	supervaronis vidējs ādas tonis	none

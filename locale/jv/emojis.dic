@@ -8,62 +8,41 @@ symbols:
 🏽	kulit kuning	none
 🏾	kulit sawo mateng	none
 🏿	kulit ireng	none
-⚧	tandha wariya	none
-🤌	driji digatukake	none
-🥲	rai mesem nanging mripat luhen	none
-🥷	ninja	none
-🥸	rai disamarno	none
-🦣	mamot	none
-🦤	manuk dodo	none
-🦫	singing	none
-🦬	bison	none
-🦭	seal	none
-🧋	teh kocok	none
-🩴	sandal japit	none
-🪃	bumerang	none
-🪄	tongkat sihir	none
-🪅	pinata	none
-🪆	boneka rusia	none
-🪖	helm militer	none
-🪗	akordion	none
-🪘	kendhang	none
-🪙	koin	none
-🪚	graji kayu	none
-🪛	obeng	none
-🪜	ondo	none
-🪝	pancing	none
-🪞	kaca pangilon	none
-🪟	cendela	none
-🪠	panyedot kakus	none
-🪡	jarum jait	none
-🪢	simpul	none
-🪣	ember	none
-🪤	panjebak tikus	none
-🪥	sikat untu	none
-🪦	kijeng	none
-🪧	plakat	none
-🪨	watu	none
-🪰	laler	none
-🪱	cacing	none
-🪲	kumbang	none
-🪳	coro	none
-🪴	tanduran njero adah	none
-🪵	kayu	none
-🪶	wulu	none
-🫀	jantung	none
-🫁	paru	none
-🫂	wong rangkulan	none
-🫐	beri biru	none
-🫑	paprika	none
-🫒	zaitun	none
-🫓	roti warata	none
-🫔	tamale	none
-🫕	pondue	none
-🫖	ceret	none
-🛖	pondhok	none
-🛗	ondo mlaku	none
-🛻	trek pikep	none
-🛼	sepatu rodha	none
+–	en setrip	none
+—	em setrip	none
+·	titik cilek	none
+«	kurung lancip kiwa	none
+»	kurung lancip tengen	none
+§	bagean	none
+†	tanda lading	none
+‡	tanda lading pindo	none
+•	pluru	none
+°	drajat	none
+℗	hak cipta rekaman swara	none
+←	panah nuding ngiwo	none
+→	panah nuding nengen	none
+↑	panah nuding ndhuwur	none
+↓	panah nuding ngisor	none
+⇅	panah nuding ndhuwur lan nuding ngisor	none
+⇆	panah nuding ngiwo lewat sisih tengen	none
+∆	mundhak	none
+∇	mlorot	none
+∈	unsur saka	none
+÷	para	none
+×	ping-pingan	none
+⁻	tandha kurang ing dhuwur	none
+√	oyod peng loro	none
+∞	tandha tanpa wates	none
+∩	simpangan	none
+∪	sarekat	none
+≡	podho karo	none
+⊂	subset saka	none
+▲	pesagi telu kapenuhan pucuke ing ndhuwur	none
+▼	pesagi telu kapenuhan pucuke ing ngisor	none
+◊	pesagi papat kupatan	none
+○	bunderan kothong	none
+●	bundera kapenuhan	none
+◯	bunderan kothong gedhe	none
 😀	rai ngguyu	none
 😃	rai ngguyu matane mblalak	none
 😄	rai ngguyu nganti merem-merem	none
@@ -85,6 +64,7 @@ symbols:
 ☺	rai lagi mesem	none
 😚	rai ngambung karo matane merem	none
 😙	rai ngambung matane merem bungah	none
+🥲	rai mesem nanging mripat luhen	none
 😋	rai themal-themel mangan	none
 😛	rai melet	none
 😜	rai kedhep karo melet	none
@@ -123,6 +103,7 @@ symbols:
 🤯	rai ndhase njeblug	none
 🤠	rai nganggo topi koboi	none
 🥳	rai pista	none
+🥸	rai disamarno	none
 😎	rai mesem nganggo kacamata ireng	none
 🤓	rai kutu buku	none
 🧐	rai nganggo kacamata lensa tunggal	none
@@ -219,6 +200,7 @@ symbols:
 ✋	tangan diangkat	none
 🖖	ngurmat cara bangsa vulcan	none
 👌	tangan nuduhake tandha OK	none
+🤌	driji digatukake	none
 🤏	tangan njiwit	none
 ✌	tangan nuduhake tandha kamenangan	none
 🤞	driji loro tetalenan	none
@@ -255,6 +237,8 @@ symbols:
 🦻	kuping sarwa piranti pangrungon	none
 👃	irung	none
 🧠	utek	none
+🫀	jantung	none
+🫁	paru	none
 🦷	untu	none
 🦴	balung	none
 👀	mata sakloron	none
@@ -267,15 +251,11 @@ symbols:
 👧	bocah wadon	none
 🧑	wong	none
 👱	wong rambute pirang	none
-🧑‍🍼	wong nyusoni bayi	none
-🧑‍🎄	bapa/ibu klas	none
 👨	wong lanang	none
 🧔	wong lanang jenggot	none
 👱‍♂	wong lanang rambut pirang	none
-👨‍🍼	wong lanang nyusoni bayi	none
 👩	wong wadon	none
 👱‍♀	wong wadon rambut pirang	none
-👩‍🍼	wong wadon nyusoni bayi	none
 🧓	wong tuwa	none
 👴	wong tuwa lanang	none
 👵	wong wadon tuwa	none
@@ -366,6 +346,7 @@ symbols:
 💂	prejurit	none
 💂‍♂	prejurit lanang	none
 💂‍♀	prejurit wadon	none
+🥷	ninja	none
 👷	buruh bangunan	none
 👷‍♂	buruh bangunan lanang	none
 👷‍♀	buruh bangunan wadon	none
@@ -377,16 +358,20 @@ symbols:
 👲	wong lanang nganggo kethu Cina	none
 🧕	wong wadon jilbaban	none
 🤵	wong lanang anganggo jas tuksedo	none
-🤵‍♀	wong wadon anganggo jas tuksedo	none
 🤵‍♂	wong lanang anganggo tuksedo	none
+🤵‍♀	wong wadon anganggo jas tuksedo	none
 👰	wong nganggo kudhung manten	none
-👰‍♀	wong wadon nganggo kudhung manten	none
 👰‍♂	wong lanang nganggo kudhung manten	none
+👰‍♀	wong wadon nganggo kudhung manten	none
 🤰	wong wadon ngandhut	none
 🤱	menthili	none
+👩‍🍼	wong wadon nyusoni bayi	none
+👨‍🍼	wong lanang nyusoni bayi	none
+🧑‍🍼	wong nyusoni bayi	none
 👼	malaékat bayi	none
 🎅	Sinter Klas	none
 🤶	Ibu Klas	none
+🧑‍🎄	bapa/ibu klas	none
 🦸	satriya mandraguna	none
 🦸‍♂	satriya mandraguna lanang	none
 🦸‍♀	srikandhi	none
@@ -511,6 +496,7 @@ symbols:
 🗣	sirah omong	none
 👤	bayangan patung sirah tekan dhadha	none
 👥	bayangan patung sirah tekan dhadha loro	none
+🫂	wong rangkulan	none
 👣	tipak sikil	none
 🦰	rambut abang	none
 🦱	rambut brintik	none
@@ -540,6 +526,7 @@ symbols:
 🦄	unicorn	none
 🦓	zebra	none
 🦌	kidang	none
+🦬	bison	none
 🐮	rai sapi wadon	none
 🐂	sapi lanang	none
 🐃	kebo	none
@@ -556,6 +543,7 @@ symbols:
 🦙	llama	none
 🦒	jerapah	none
 🐘	gajah	none
+🦣	mamot	none
 🦏	badhak	none
 🦛	kuda nil	none
 🐭	rai tikus	none
@@ -565,6 +553,7 @@ symbols:
 🐰	rai terwelu	none
 🐇	terwelu	none
 🐿	bajing	none
+🦫	singing	none
 🦔	landhak	none
 🦇	kalong	none
 🐻	beruang	none
@@ -590,6 +579,8 @@ symbols:
 🦆	bebek	none
 🦢	banyak	none
 🦉	guwek	none
+🦤	manuk dodo	none
+🪶	wulu	none
 🦩	flamingo	none
 🦚	merak	none
 🦜	beo	none
@@ -605,6 +596,7 @@ symbols:
 🐳	paus nyembur	none
 🐋	paus	none
 🐬	lumba-lumba	none
+🦭	seal	none
 🐟	iwak	none
 🐠	iwak tropis	none
 🐡	iwak buntal	none
@@ -616,12 +608,16 @@ symbols:
 🐛	uler	none
 🐜	semut	none
 🐝	lebah madu	none
+🪲	kumbang	none
 🐞	kepik	none
 🦗	jangkrik	none
+🪳	coro	none
 🕷	angga-angga	none
 🕸	jaring angga-angga	none
 🦂	kalajengking	none
 🦟	lemut	none
+🪰	laler	none
+🪱	cacing	none
 🦠	mikroba	none
 💐	buket	none
 🌸	sakura	none
@@ -634,6 +630,7 @@ symbols:
 🌼	sekar	none
 🌷	tulip	none
 🌱	pembibitan	none
+🪴	tanduran njero adah	none
 🌲	wit cemara	none
 🌳	wit godhonge rontok	none
 🌴	wit kambil	none
@@ -659,8 +656,10 @@ symbols:
 🍑	persik	none
 🍒	ceri	none
 🍓	stroberi	none
+🫐	beri biru	none
 🥝	woh kiwi	none
 🍅	tomat	none
+🫒	zaitun	none
 🥥	kambil	none
 🥑	avokad	none
 🍆	terong	none
@@ -668,6 +667,7 @@ symbols:
 🥕	wortel	none
 🌽	tongkol jagung	none
 🌶	lombok	none
+🫑	paprika	none
 🥒	timun	none
 🥬	selada ijo	none
 🥦	brokoli	none
@@ -679,6 +679,7 @@ symbols:
 🍞	roti	none
 🥐	kroasang	none
 🥖	roti baget	none
+🫓	roti warata	none
 🥨	pretsel	none
 🥯	roti bagel	none
 🥞	panekuk	none
@@ -695,12 +696,14 @@ symbols:
 🥪	sendwich	none
 🌮	tako	none
 🌯	burito	none
+🫔	tamale	none
 🥙	roti pita gulung	none
 🧆	bakwan falafel	none
 🥚	ndhog	none
 🍳	masak	none
 🥘	jangan sawajan cethek	none
 🍲	jangan sapanci	none
+🫕	pondue	none
 🥣	mangkok karo sendhok	none
 🥗	urap-urap sayur	none
 🍿	brondong jagung	none
@@ -746,6 +749,7 @@ symbols:
 🍼	botol kempong	none
 🥛	sagelas susu	none
 ☕	wedang panas	none
+🫖	ceret	none
 🍵	cangkir teh tanpa kuping	none
 🍶	sabotol sake	none
 🍾	botol mencelat subale	none
@@ -757,6 +761,7 @@ symbols:
 🥂	gelas-gelas ditutulke	none
 🥃	gelas sloki	none
 🥤	gelas mawa sedhotan	none
+🧋	teh kocok	none
 🧃	wedang kothakan	none
 🧉	teh mate	none
 🧊	es batu	none
@@ -786,6 +791,9 @@ symbols:
 🏛	wewangunan kuna	none
 🏗	konstruksi wewangunan	none
 🧱	bata	none
+🪨	watu	none
+🪵	kayu	none
+🛖	pondhok	none
 🏘	omah-omah	none
 🏚	omah bobrok	none
 🏠	omah	none
@@ -853,6 +861,7 @@ symbols:
 🚗	montor otomatis	none
 🚘	montor otomatis mara	none
 🚙	tetumpakan srana ulah raga	none
+🛻	trek pikep	none
 🚚	prahoto pangiriman	none
 🚛	lori gandheng	none
 🚜	traktor	none
@@ -865,6 +874,7 @@ symbols:
 🚲	sepedha	none
 🛴	otopet jejek	none
 🛹	papan skate	none
+🛼	sepatu rodha	none
 🚏	halte bis	none
 🛣	dalan gedhe	none
 🛤	jalur ril	none
@@ -1035,6 +1045,7 @@ symbols:
 🪁	layangan	none
 🎱	pool bal 8	none
 🔮	bal kristal	none
+🪄	tongkat sihir	none
 🧿	jimat nazar	none
 🎮	game video	none
 🕹	tuas kontrol	none
@@ -1042,6 +1053,8 @@ symbols:
 🎲	dhadhu game	none
 🧩	cuwilan teka-teki	none
 🧸	beruang teddy	none
+🪅	pinata	none
+🪆	boneka rusia	none
 ♠	kertu sekop	none
 ♥	kertu ati	none
 ♦	kertu berlian	none
@@ -1054,7 +1067,9 @@ symbols:
 🖼	gambar nganggo pigura	none
 🎨	palet pelukis	none
 🧵	benang	none
+🪡	jarum jait	none
 🧶	bolah	none
+🪢	simpul	none
 👓	kacamata	none
 🕶	kacamata ireng	none
 🥽	gogel	none
@@ -1080,6 +1095,7 @@ symbols:
 👝	tas jinjing	none
 🛍	tas blanja	none
 🎒	ransel	none
+🩴	sandal japit	none
 👞	sepatu lanang	none
 👟	sepatu mlayu	none
 🥾	sepatu bot hiking	none
@@ -1093,6 +1109,7 @@ symbols:
 🎩	topi dhuwur	none
 🎓	topi wisuda	none
 🧢	topi pet	none
+🪖	helm militer	none
 ⛑	helm tim SAR	none
 📿	tesbih	none
 💄	lipstik	none
@@ -1117,12 +1134,14 @@ symbols:
 🎧	headphone	none
 📻	radio	none
 🎷	saksofon	none
+🪗	akordion	none
 🎸	gitar	none
 🎹	kibor musik	none
 🎺	trompet	none
 🎻	biola	none
 🪕	gitar banjo	none
 🥁	dram	none
+🪘	kendhang	none
 📱	telepon seluler	none
 📲	telepon seluler nganggo panah	none
 ☎	telepon	none
@@ -1176,6 +1195,7 @@ symbols:
 🔖	tenger	none
 🏷	label tenger	none
 💰	kanthong dhuwit	none
+🪙	koin	none
 💴	dhuwit kertas yen	none
 💵	dhuwit kertas dolar	none
 💶	dhuwit kertas euro	none
@@ -1184,8 +1204,6 @@ symbols:
 💳	kertu kredhit	none
 🧾	struk tetukon	none
 💹	grafik mata uang yen mundhak	none
-💱	rega ijol mata uang	none
-💲	tandha dolar kandel	none
 ✉	amplop	none
 📧	email	none
 📨	amplop layang teka	none
@@ -1243,9 +1261,12 @@ symbols:
 🗡	pedhang endhek	none
 ⚔	pedhang loro timpuk	none
 🔫	bedhil	none
+🪃	bumerang	none
 🏹	gendewa lan panah	none
 🛡	tameng	none
+🪚	graji kayu	none
 🔧	kunci pas	none
+🪛	obeng	none
 🔩	mur lan baut	none
 ⚙	gir	none
 🗜	cathok	none
@@ -1253,8 +1274,10 @@ symbols:
 🦯	teken	none
 🔗	sambungan rante	none
 ⛓	rante	none
+🪝	pancing	none
 🧰	kothak bekakas	none
 🧲	wesi magnet	none
+🪜	ondo	none
 ⚗	pranti suling alembik	none
 🧪	tabung reaksi	none
 🧫	cawan petri	none
@@ -1268,26 +1291,35 @@ symbols:
 🩹	plester	none
 🩺	stetoskop	none
 🚪	lawang	none
+🛗	ondo mlaku	none
+🪞	kaca pangilon	none
+🪟	cendela	none
 🛏	amben	none
 🛋	sofa lan lampu	none
 🪑	kursi	none
 🚽	kakus	none
+🪠	panyedot kakus	none
 🚿	pancuran	none
 🛁	bak kungkum	none
+🪤	panjebak tikus	none
 🪒	peso cukur	none
 🧴	botol losion	none
 🧷	peniti	none
 🧹	sapu	none
 🧺	kranjang	none
 🧻	tisu gulung	none
+🪣	ember	none
 🧼	sabun	none
+🪥	sikat untu	none
 🧽	sepon	none
 🧯	pambasmi geni	none
 🛒	troli blanja	none
 🚬	rokok	none
 ⚰	pethi mati	none
+🪦	kijeng	none
 ⚱	guci awu	none
 🗿	patung moai	none
+🪧	plakat	none
 🏧	tandha ATM	none
 🚮	tandha mbuwang rereged ing wadhahe	none
 🚰	banyu kran kena diombe	none
@@ -1386,8 +1418,22 @@ symbols:
 📴	hp mati	none
 ♀	tandha wanita	none
 ♂	tandha priya	none
-⚕	tandha medhis	none
+⚧	tandha wariya	none
+✖	tandha ping-pingan	none
+➕	tandha tambah	none
+➖	tandha kurang	none
+➗	tandha para	none
 ♾	tanpa wates	none
+‼	tandha penthung dhobel	none
+⁉	tandha penthung lan pitakon	none
+❓	tandha pitakon	none
+❔	tandha pitakon putih	none
+❕	tandha penthung putih	none
+❗	tandha penthung	none
+〰	setrip ngeluk	none
+💱	rega ijol mata uang	none
+💲	tandha dolar kandel	none
+⚕	tandha medhis	none
 ♻	tandha dhaur ulang	none
 ⚜	lambang fleur-de-lis [kembang Lili]	none
 🔱	lambang trisula	none
@@ -1397,25 +1443,14 @@ symbols:
 ✅	tombol tenger centhang	none
 ☑	kothak centhang ana centhange	none
 ✔	tenger centhang	none
-✖	tandha ping-pingan	none
 ❌	tenger ping	none
 ❎	tombol tenger ping	none
-➕	tandha tambah	none
-➖	tandha kurang	none
-➗	tandha para	none
 ➰	garis cunthel	none
 ➿	garis cunthel dhobel	none
 〽	tandha rikala sindhen wiwit nyanyi	none
 ✳	asterisk kembang wolu	none
 ✴	lintang mata wolu	none
 ❇	kelip-kelip	none
-‼	tandha penthung dhobel	none
-⁉	tandha penthung lan pitakon	none
-❓	tandha pitakon	none
-❔	tandha pitakon putih	none
-❕	tandha penthung putih	none
-❗	tandha penthung	none
-〰	setrip ngeluk	none
 ©	hak cipta	none
 ®	kadhaptar	none
 ™	merek dagang	none
@@ -1497,6 +1532,15 @@ symbols:
 🎌	gendera loro ditempuk	none
 🏴	gendera ireng	none
 🏳	gendera putih	none
-🏳‍⚧	gendera wariya	none
 🏳‍🌈	gendera plangi	none
+🏳‍⚧	gendera wariya	none
 🏴‍☠	gendera begal segara	none
+£	pound	none
+¥	yen	none
+€	euro	none
+₹	rupee india	none
+₽	ruble	none
+¹	tandha siji ing dhuwur	none
+²	tandha loro ing dhuwur	none
+³	tandha telu ing dhuwur	none
+µ	tandha mikro	none

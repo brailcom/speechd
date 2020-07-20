@@ -3,19 +3,10 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
-🤌	dedos unidos	none
-🪆	muñecas rusas	none
-🪠	destapacaños	none
-🪣	balde	none
-🪤	trampa para ratones	none
-🪧	cartel	none
-🪴	planta en una maceta	none
-🫀	órgano cardíaco	none
-🫂	personas que se abrazan	none
-🫑	pimiento morrón	none
-🫓	pan plano	none
-🛖	choza	none
-🛼	patín	none
+«	comilla angular de apertura	none
+»	comilla angular de cierre	none
+÷	división	none
+×	multiplicación	none
 😀	cara sonriendo	none
 😃	cara sonriendo con ojos grandes	none
 😄	cara sonriendo con ojos sonrientes	none
@@ -80,6 +71,7 @@ symbols:
 👁‍🗨	ojo en un globo de texto	none
 🤚	dorso de la mano	none
 👌	señal de aprobación con la mano	none
+🤌	dedos unidos	none
 ✌	mano con señal de victoria	none
 🤘	mano haciendo los cuernos	none
 🤙	mano haciendo el gesto de llamar	none
@@ -91,6 +83,7 @@ symbols:
 🤜	puño hacia la derecha	none
 🙌	manos levantadas celebrando	none
 🤳	selfi	none
+🫀	órgano cardíaco	none
 🧒	joven	none
 🧑	persona	none
 🧓	persona mayor	none
@@ -137,6 +130,7 @@ symbols:
 🛀	persona en tina	none
 💏	beso	none
 💑	hombre y mujer enamorados	none
+🫂	personas que se abrazan	none
 👣	huellas de pies	none
 🦰	pelirrojo	none
 🦱	pelo enrulado	none
@@ -144,12 +138,15 @@ symbols:
 🦲	calvo	none
 🦨	zorrillo	none
 🐚	caracol marino	none
+🪴	planta en una maceta	none
 🍌	plátano	none
 🍓	fresa	none
 🥑	aguacate	none
 🌶	chile picante	none
+🫑	pimiento morrón	none
 🥬	verdura de hoja	none
 🥜	cacahuate	none
+🫓	pan plano	none
 🧇	waffle	none
 🌭	perro caliente	none
 🥣	tazón con cuchara	none
@@ -162,6 +159,7 @@ symbols:
 🥧	pay	none
 🧊	hielo	none
 🧱	ladrillos	none
+🛖	choza	none
 🏬	tienda departamental	none
 💒	boda religiosa	none
 ⛺	casa de campaña	none
@@ -175,6 +173,7 @@ symbols:
 🛵	motoneta	none
 🛴	patín del diablo	none
 🛹	patineta	none
+🛼	patín	none
 🛢	barril de petróleo	none
 🚨	sirena de patrulla	none
 🛑	señal de alto	none
@@ -187,6 +186,7 @@ symbols:
 🪀	yoyo	none
 🧿	nazar	none
 🧸	oso de peluche	none
+🪆	muñecas rusas	none
 ♟	peón (ajedrez)	none
 🕶	lentes de sol	none
 🥽	goggles	none
@@ -222,13 +222,17 @@ symbols:
 🧫	placa de Petri	none
 🧬	ADN	none
 🩹	curita	none
+🪠	destapacaños	none
 🚿	regadera	none
 🛁	tina	none
+🪤	trampa para ratones	none
 🪒	navaja de afeitar	none
 🧴	botella de loción	none
 🧷	broche de seguridad	none
 🧺	canasta	none
+🪣	balde	none
 🗿	estatua de Isla de Pascua	none
+🪧	cartel	none
 🏧	cartel de cajero automático	none
 ♿	señal de acceso para silla de ruedas	none
 🚹	señal del baño de los hombres	none
@@ -242,12 +246,12 @@ symbols:
 ☸	rueda del dharma	none
 🔅	reducir brillo	none
 🔆	aumentar brillo	none
-📛	gafete	none
-✔	marca de verificación	none
 ✖	signo de multiplicación	none
 ➕	signo de suma	none
 ➖	signo de resta	none
 ➗	signo de división	none
+📛	gafete	none
+✔	marca de verificación	none
 ©	símbolo de derechos de autor	none
 ®	símbolo de marca registrada	none
 ™	marca registrada	none
@@ -255,11 +259,6 @@ symbols:
 🟤	círculo café	none
 🟫	cuadrado café	none
 🚩	banderín triangular	none
-🤌🏻	dedos unidos tono de piel claro	none
-🤌🏼	dedos unidos tono de piel claro medio	none
-🤌🏽	dedos unidos tono de piel medio	none
-🤌🏾	dedos unidos tono de piel oscuro medio	none
-🤌🏿	dedos unidos tono de piel oscuro	none
 🤚🏻	dorso de la mano tono de piel claro	none
 🤚🏼	dorso de la mano tono de piel claro medio	none
 🤚🏽	dorso de la mano tono de piel medio	none
@@ -270,6 +269,11 @@ symbols:
 👌🏽	señal de aprobación con la mano tono de piel medio	none
 👌🏾	señal de aprobación con la mano tono de piel oscuro medio	none
 👌🏿	señal de aprobación con la mano tono de piel oscuro	none
+🤌🏻	dedos unidos tono de piel claro	none
+🤌🏼	dedos unidos tono de piel claro medio	none
+🤌🏽	dedos unidos tono de piel medio	none
+🤌🏾	dedos unidos tono de piel oscuro medio	none
+🤌🏿	dedos unidos tono de piel oscuro	none
 ✌🏻	mano con señal de victoria tono de piel claro	none
 ✌🏼	mano con señal de victoria tono de piel claro medio	none
 ✌🏽	mano con señal de victoria tono de piel medio	none

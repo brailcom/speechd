@@ -8,62 +8,41 @@ symbols:
 🏽	中間の肌色	none
 🏾	やや濃い肌色	none
 🏿	濃い肌色	none
-⚧	トランスジェンダーのマーク	none
-🤌	上向きにすぼめた手	none
-🥲	嬉し涙の顔	none
-🥷	忍者	none
-🥸	変装した顔	none
-🦣	マンモス	none
-🦤	ドードー	none
-🦫	ビーバー	none
-🦬	バイソン	none
-🦭	アザラシ	none
-🧋	タピオカドリンク	none
-🩴	ビーチサンダル	none
-🪃	ブーメラン	none
-🪄	魔法の杖	none
-🪅	ピニャータ	none
-🪆	マトリョーシカ	none
-🪖	軍用ヘルメット	none
-🪗	アコーディオン	none
-🪘	コンガ	none
-🪙	コイン	none
-🪚	のこぎり	none
-🪛	ねじ回し	none
-🪜	はしご	none
-🪝	フック	none
-🪞	鏡	none
-🪟	窓	none
-🪠	ラバーカップ	none
-🪡	縫い針	none
-🪢	結び目	none
-🪣	バケツ	none
-🪤	ねずみ捕り	none
-🪥	歯ブラシ	none
-🪦	墓石	none
-🪧	プラカード	none
-🪨	岩石	none
-🪰	ハエ	none
-🪱	ミミズ	none
-🪲	カブトムシ	none
-🪳	ゴキブリ	none
-🪴	鉢植え	none
-🪵	丸太	none
-🪶	羽	none
-🫀	心臓	none
-🫁	肺	none
-🫂	ハグする人	none
-🫐	ブルーベリー	none
-🫑	赤ピーマン	none
-🫒	オリーブ	none
-🫓	フラットブレッド	none
-🫔	タマル	none
-🫕	フォンデュ	none
-🫖	ティーポット	none
-🛖	わらぶき小屋	none
-🛗	エレベーター	none
-🛻	軽トラック	none
-🛼	ローラースケート	none
+–	enダッシュ	none
+—	emダッシュ	none
+·	中点	none
+«	左山括弧	none
+»	右山括弧	none
+§	節記号	none
+†	短剣符	none
+‡	二重短剣符	none
+•	ビュレット	none
+°	度	none
+℗	原盤権マーク	none
+←	左向矢印	none
+→	右向矢印	none
+↑	上向矢印	none
+↓	下向矢印	none
+⇅	上向矢印下向矢印	none
+⇆	左向矢印右向矢印	none
+∆	増分	none
+∇	ナブラ	none
+∈	属する	none
+÷	除算記号	none
+×	乗算記号	none
+⁻	上付きマイナス	none
+√	平方根	none
+∞	無限大記号	none
+∩	積集合	none
+∪	和集合	none
+≡	常に等しい	none
+⊂	真部分集合	none
+▲	上向黒三角	none
+▼	下向黒三角	none
+◊	ひし形	none
+○	白丸	none
+●	黒丸	none
+◯	白丸大	none
 😀	にっこり笑う	none
 😃	わーい	none
 😄	笑顔	none
@@ -85,6 +64,7 @@ symbols:
 ☺	スマイリー	none
 😚	ちゅっ	none
 😙	にっこりキス	none
+🥲	嬉し涙の顔	none
 😋	にこにこぺろり	none
 😛	舌を出した顔	none
 😜	あっかんべー	none
@@ -123,6 +103,7 @@ symbols:
 🤯	頭爆発	none
 🤠	カウボーイの顔	none
 🥳	パーティーの顔	none
+🥸	変装した顔	none
 😎	サングラスで笑顔	none
 🤓	オタク	none
 🧐	モノクルを付けた顔	none
@@ -219,6 +200,7 @@ symbols:
 ✋	挙手	none
 🖖	バルカンの挨拶	none
 👌	OKの手	none
+🤌	上向きにすぼめた手	none
 🤏	つまんでいる指	none
 ✌	Vサイン	none
 🤞	指をクロス	none
@@ -255,6 +237,8 @@ symbols:
 🦻	補聴器を付けた耳	none
 👃	鼻	none
 🧠	脳	none
+🫀	心臓	none
+🫁	肺	none
 🦷	歯	none
 🦴	骨	none
 👀	目	none
@@ -267,15 +251,11 @@ symbols:
 👧	女の子	none
 🧑	大人	none
 👱	金髪の人	none
-🧑‍🍼	授乳する人	none
-🧑‍🎄	サンタさん	none
 👨	男性	none
 🧔	あごひげの男性	none
 👱‍♂	金髪の男性	none
-👨‍🍼	授乳する男性	none
 👩	女性	none
 👱‍♀	金髪の女性	none
-👩‍🍼	授乳する女性	none
 🧓	お年寄り	none
 👴	おじいさん	none
 👵	おばあさん	none
@@ -366,6 +346,7 @@ symbols:
 💂	衛兵	none
 💂‍♂	男性の衛兵	none
 💂‍♀	女性の衛兵	none
+🥷	忍者	none
 👷	建設作業員	none
 👷‍♂	男性の建設作業員	none
 👷‍♀	女性の建設作業員	none
@@ -377,16 +358,20 @@ symbols:
 👲	中華帽の男性	none
 🧕	スカーフの女性	none
 🤵	タキシードの人	none
-🤵‍♀	タキシードの女性	none
 🤵‍♂	タキシードの男性	none
+🤵‍♀	タキシードの女性	none
 👰	ベールの人	none
-👰‍♀	ベールの女性	none
 👰‍♂	ベールの男性	none
+👰‍♀	ベールの女性	none
 🤰	妊婦	none
 🤱	授乳	none
+👩‍🍼	授乳する女性	none
+👨‍🍼	授乳する男性	none
+🧑‍🍼	授乳する人	none
 👼	天使	none
 🎅	サンタ	none
 🤶	女性のサンタ	none
+🧑‍🎄	サンタさん	none
 🦸	スーパーヒーロー	none
 🦸‍♂	男性のスーパーヒーロー	none
 🦸‍♀	女性のスーパーヒーロー	none
@@ -511,6 +496,7 @@ symbols:
 🗣	話す人のシルエット	none
 👤	人のシルエット	none
 👥	2人のシルエット	none
+🫂	ハグする人	none
 👣	足あと	none
 🦰	赤毛	none
 🦱	巻き毛	none
@@ -540,6 +526,7 @@ symbols:
 🦄	ユニコーンの顔	none
 🦓	シマウマ	none
 🦌	シカ	none
+🦬	バイソン	none
 🐮	牛の顔	none
 🐂	牡牛	none
 🐃	水牛	none
@@ -556,6 +543,7 @@ symbols:
 🦙	ラマ	none
 🦒	キリン	none
 🐘	ゾウ	none
+🦣	マンモス	none
 🦏	サイ	none
 🦛	カバ	none
 🐭	ネズミの顔	none
@@ -565,6 +553,7 @@ symbols:
 🐰	ウサギの顔	none
 🐇	ウサギ	none
 🐿	リス	none
+🦫	ビーバー	none
 🦔	ハリネズミ	none
 🦇	コウモリ	none
 🐻	クマの顔	none
@@ -590,6 +579,8 @@ symbols:
 🦆	カモ	none
 🦢	白鳥	none
 🦉	フクロウ	none
+🦤	ドードー	none
+🪶	羽	none
 🦩	フラミンゴ	none
 🦚	クジャク	none
 🦜	オウム	none
@@ -605,6 +596,7 @@ symbols:
 🐳	潮吹きクジラ	none
 🐋	クジラ	none
 🐬	イルカ	none
+🦭	アザラシ	none
 🐟	魚	none
 🐠	熱帯魚	none
 🐡	フグ	none
@@ -616,12 +608,16 @@ symbols:
 🐛	毛虫	none
 🐜	アリ	none
 🐝	ミツバチ	none
+🪲	カブトムシ	none
 🐞	テントウムシ	none
 🦗	バッタ	none
+🪳	ゴキブリ	none
 🕷	クモ	none
 🕸	クモの巣	none
 🦂	サソリ	none
 🦟	蚊	none
+🪰	ハエ	none
+🪱	ミミズ	none
 🦠	微生物	none
 💐	花束	none
 🌸	桜	none
@@ -634,6 +630,7 @@ symbols:
 🌼	開花	none
 🌷	チューリップ	none
 🌱	新芽	none
+🪴	鉢植え	none
 🌲	常緑樹	none
 🌳	落葉樹	none
 🌴	ヤシの木	none
@@ -659,8 +656,10 @@ symbols:
 🍑	桃	none
 🍒	さくらんぼ	none
 🍓	いちご	none
+🫐	ブルーベリー	none
 🥝	キウイフルーツ	none
 🍅	トマト	none
+🫒	オリーブ	none
 🥥	ココナツ	none
 🥑	アボカド	none
 🍆	ナス	none
@@ -668,6 +667,7 @@ symbols:
 🥕	人参	none
 🌽	とうもろこし	none
 🌶	とうがらし	none
+🫑	赤ピーマン	none
 🥒	キュウリ	none
 🥬	葉野菜	none
 🥦	ブロッコリー	none
@@ -679,6 +679,7 @@ symbols:
 🍞	食パン	none
 🥐	クロワッサン	none
 🥖	バゲット	none
+🫓	フラットブレッド	none
 🥨	プレッツェル	none
 🥯	ベーグル	none
 🥞	パンケーキ	none
@@ -695,12 +696,14 @@ symbols:
 🥪	サンドイッチ	none
 🌮	タコス	none
 🌯	ブリトー	none
+🫔	タマル	none
 🥙	ケバブサンド	none
 🧆	ファラフェル	none
 🥚	卵	none
 🍳	料理	none
 🥘	パエリア	none
 🍲	なべ	none
+🫕	フォンデュ	none
 🥣	ボウルとスプーン	none
 🥗	グリーンサラダ	none
 🍿	ポップコーン	none
@@ -746,6 +749,7 @@ symbols:
 🍼	ほにゅう瓶	none
 🥛	牛乳入りのコップ	none
 ☕	温かい飲み物	none
+🫖	ティーポット	none
 🍵	湯飲み	none
 🍶	徳利	none
 🍾	シャンパン	none
@@ -757,6 +761,7 @@ symbols:
 🥂	グラスで乾杯	none
 🥃	タンブラーグラス	none
 🥤	ストローカップ	none
+🧋	タピオカドリンク	none
 🧃	紙パック飲料	none
 🧉	マテ茶	none
 🧊	角氷	none
@@ -786,6 +791,9 @@ symbols:
 🏛	歴史的な建物	none
 🏗	建設中	none
 🧱	れんが	none
+🪨	岩石	none
+🪵	丸太	none
+🛖	わらぶき小屋	none
 🏘	住宅街	none
 🏚	廃屋	none
 🏠	家	none
@@ -853,6 +861,7 @@ symbols:
 🚗	自動車	none
 🚘	自動車正面	none
 🚙	アールブイ車	none
+🛻	軽トラック	none
 🚚	トラック	none
 🚛	トレーラー	none
 🚜	トラクター	none
@@ -865,6 +874,7 @@ symbols:
 🚲	自転車	none
 🛴	キックボード	none
 🛹	スケートボード	none
+🛼	ローラースケート	none
 🚏	バス停	none
 🛣	高速道路	none
 🛤	線路	none
@@ -1035,6 +1045,7 @@ symbols:
 🪁	たこ	none
 🎱	ビリヤード	none
 🔮	水晶玉	none
+🪄	魔法の杖	none
 🧿	ナザール・ボンジュウ	none
 🎮	テレビゲーム	none
 🕹	ジョイスティック	none
@@ -1042,6 +1053,8 @@ symbols:
 🎲	サイコロ	none
 🧩	ジグソーパズル	none
 🧸	テディベア	none
+🪅	ピニャータ	none
+🪆	マトリョーシカ	none
 ♠	スペード	none
 ♥	ハート	none
 ♦	ダイヤ	none
@@ -1054,7 +1067,9 @@ symbols:
 🖼	絵画	none
 🎨	絵の具パレット	none
 🧵	糸	none
+🪡	縫い針	none
 🧶	毛糸	none
+🪢	結び目	none
 👓	メガネ	none
 🕶	サングラス	none
 🥽	ゴーグル	none
@@ -1080,6 +1095,7 @@ symbols:
 👝	ポーチ	none
 🛍	紙袋	none
 🎒	バックパック	none
+🩴	ビーチサンダル	none
 👞	紳士靴	none
 👟	スニーカー	none
 🥾	ハイキングシューズ	none
@@ -1093,6 +1109,7 @@ symbols:
 🎩	シルクハット	none
 🎓	角帽	none
 🧢	キャップ	none
+🪖	軍用ヘルメット	none
 ⛑	白十字ヘルメット	none
 📿	数珠	none
 💄	口紅	none
@@ -1117,12 +1134,14 @@ symbols:
 🎧	ヘッドホン	none
 📻	ラジオ	none
 🎷	サックス	none
+🪗	アコーディオン	none
 🎸	ギター	none
 🎹	鍵盤	none
 🎺	トランペット	none
 🎻	バイオリン	none
 🪕	バンジョー	none
 🥁	ドラム	none
+🪘	コンガ	none
 📱	携帯電話	none
 📲	着信中	none
 ☎	固定電話	none
@@ -1176,6 +1195,7 @@ symbols:
 🔖	しおり	none
 🏷	荷札	none
 💰	ドル袋	none
+🪙	コイン	none
 💴	円札	none
 💵	ドル札	none
 💶	ユーロ札	none
@@ -1184,8 +1204,6 @@ symbols:
 💳	クレジットカード	none
 🧾	レシート	none
 💹	為替	none
-💱	外貨両替	none
-💲	ドル記号	none
 ✉	封筒	none
 📧	Eメール	none
 📨	メール受信中	none
@@ -1243,9 +1261,12 @@ symbols:
 🗡	短刀	none
 ⚔	クロスした剣	none
 🔫	ピストル	none
+🪃	ブーメラン	none
 🏹	弓矢	none
 🛡	盾	none
+🪚	のこぎり	none
 🔧	レンチ	none
+🪛	ねじ回し	none
 🔩	ボルトとナット	none
 ⚙	歯車	none
 🗜	万力	none
@@ -1253,8 +1274,10 @@ symbols:
 🦯	白杖	none
 🔗	リンクシンボル	none
 ⛓	鎖	none
+🪝	フック	none
 🧰	工具箱	none
 🧲	U字型磁石	none
+🪜	はしご	none
 ⚗	蒸留器	none
 🧪	試験管	none
 🧫	ペトリ皿	none
@@ -1268,26 +1291,35 @@ symbols:
 🩹	絆創膏	none
 🩺	聴診器	none
 🚪	ドア	none
+🛗	エレベーター	none
+🪞	鏡	none
+🪟	窓	none
 🛏	ベッド	none
 🛋	ソファとランプ	none
 🪑	椅子	none
 🚽	便器	none
+🪠	ラバーカップ	none
 🚿	シャワー	none
 🛁	バスタブ	none
+🪤	ねずみ捕り	none
 🪒	剃刀	none
 🧴	ローション	none
 🧷	安全ピン	none
 🧹	ほうき	none
 🧺	かご	none
 🧻	トイレットペーパー	none
+🪣	バケツ	none
 🧼	石けん	none
+🪥	歯ブラシ	none
 🧽	スポンジ	none
 🧯	消火器	none
 🛒	ショッピングカート	none
 🚬	煙草	none
 ⚰	棺桶	none
+🪦	墓石	none
 ⚱	骨壺	none
 🗿	モアイ	none
+🪧	プラカード	none
 🏧	ATM	none
 🚮	ゴミ箱	none
 🚰	飲料水	none
@@ -1386,8 +1418,22 @@ symbols:
 📴	携帯電話電源オフ	none
 ♀	女性のマーク	none
 ♂	男性のマーク	none
-⚕	医療のシンボル	none
+⚧	トランスジェンダーのマーク	none
+✖	掛け算	none
+➕	プラス	none
+➖	マイナス	none
+➗	割り算	none
 ♾	無限大	none
+‼	二重感嘆符	none
+⁉	感嘆符疑問符	none
+❓	疑問符	none
+❔	白い疑問符	none
+❕	白い感嘆符	none
+❗	感嘆符	none
+〰	波線	none
+💱	外貨両替	none
+💲	ドル記号	none
+⚕	医療のシンボル	none
 ♻	リサイクルマーク	none
 ⚜	フルール・ド・リス	none
 🔱	トライデント	none
@@ -1397,25 +1443,14 @@ symbols:
 ✅	白抜きのチェック	none
 ☑	チェックボックス	none
 ✔	太字のチェック	none
-✖	掛け算	none
 ❌	バツ	none
 ❎	白抜きのバツ	none
-➕	プラス	none
-➖	マイナス	none
-➗	割り算	none
 ➰	ループ	none
 ➿	ダブルループ	none
 〽	いおりてん	none
 ✳	八角アスタリスク	none
 ✴	八角星	none
 ❇	スパークル	none
-‼	二重感嘆符	none
-⁉	感嘆符疑問符	none
-❓	疑問符	none
-❔	白い疑問符	none
-❕	白い感嘆符	none
-❗	感嘆符	none
-〰	波線	none
 ©	著作権マーク	none
 ®	登録商標マーク	none
 ™	商標マーク	none
@@ -1497,14 +1532,18 @@ symbols:
 🎌	祝日の旗	none
 🏴	黒旗	none
 🏳	白旗	none
-🏳‍⚧	トランスジェンダーフラッグ	none
 🏳‍🌈	レインボーフラッグ	none
+🏳‍⚧	トランスジェンダーフラッグ	none
 🏴‍☠	海賊旗	none
-🤌🏻	上向きにすぼめた手 薄い肌色	none
-🤌🏼	上向きにすぼめた手 やや薄い肌色	none
-🤌🏽	上向きにすぼめた手 中間の肌色	none
-🤌🏾	上向きにすぼめた手 やや濃い肌色	none
-🤌🏿	上向きにすぼめた手 濃い肌色	none
+£	ポンド	none
+¥	円	none
+€	ユーロ	none
+₹	インドルピー	none
+₽	ルーブル	none
+¹	上付き1	none
+²	上付き2	none
+³	上付き3	none
+µ	マイクロ記号	none
 👋🏻	手を振る 薄い肌色	none
 👋🏼	手を振る やや薄い肌色	none
 👋🏽	手を振る 中間の肌色	none
@@ -1535,6 +1574,11 @@ symbols:
 👌🏽	OKの手 中間の肌色	none
 👌🏾	OKの手 やや濃い肌色	none
 👌🏿	OKの手 濃い肌色	none
+🤌🏻	上向きにすぼめた手 薄い肌色	none
+🤌🏼	上向きにすぼめた手 やや薄い肌色	none
+🤌🏽	上向きにすぼめた手 中間の肌色	none
+🤌🏾	上向きにすぼめた手 やや濃い肌色	none
+🤌🏿	上向きにすぼめた手 濃い肌色	none
 🤏🏻	つまんでいる指 薄い肌色	none
 🤏🏼	つまんでいる指 やや薄い肌色	none
 🤏🏽	つまんでいる指 中間の肌色	none
@@ -1749,16 +1793,6 @@ symbols:
 🧑🏽‍🦲	大人 中間の肌色 はげ頭	none
 🧑🏾‍🦲	大人 やや濃い肌色 はげ頭	none
 🧑🏿‍🦲	大人 濃い肌色 はげ頭	none
-🧑🏻‍🍼	授乳する人 薄い肌色	none
-🧑🏼‍🍼	授乳する人 やや薄い肌色	none
-🧑🏽‍🍼	授乳する人 中間の肌色	none
-🧑🏾‍🍼	授乳する人 やや濃い肌色	none
-🧑🏿‍🍼	授乳する人 濃い肌色	none
-🧑🏻‍🎄	サンタさん 薄い肌色	none
-🧑🏼‍🎄	サンタさん やや薄い肌色	none
-🧑🏽‍🎄	サンタさん 中間の肌色	none
-🧑🏾‍🎄	サンタさん やや濃い肌色	none
-🧑🏿‍🎄	サンタさん 濃い肌色	none
 👨🏻	男性 薄い肌色	none
 👨🏼	男性 やや薄い肌色	none
 👨🏽	男性 中間の肌色	none
@@ -1798,11 +1832,6 @@ symbols:
 👨🏽‍🦲	男性 中間の肌色 はげ頭	none
 👨🏾‍🦲	男性 やや濃い肌色 はげ頭	none
 👨🏿‍🦲	男性 濃い肌色 はげ頭	none
-👨🏻‍🍼	授乳する男性 薄い肌色	none
-👨🏼‍🍼	授乳する男性 やや薄い肌色	none
-👨🏽‍🍼	授乳する男性 中間の肌色	none
-👨🏾‍🍼	授乳する男性 やや濃い肌色	none
-👨🏿‍🍼	授乳する男性 濃い肌色	none
 👩🏻	女性 薄い肌色	none
 👩🏼	女性 やや薄い肌色	none
 👩🏽	女性 中間の肌色	none
@@ -1837,11 +1866,6 @@ symbols:
 👩🏽‍🦲	女性 中間の肌色 はげ頭	none
 👩🏾‍🦲	女性 やや濃い肌色 はげ頭	none
 👩🏿‍🦲	女性 濃い肌色 はげ頭	none
-👩🏻‍🍼	授乳する女性 薄い肌色	none
-👩🏼‍🍼	授乳する女性 やや薄い肌色	none
-👩🏽‍🍼	授乳する女性 中間の肌色	none
-👩🏾‍🍼	授乳する女性 やや濃い肌色	none
-👩🏿‍🍼	授乳する女性 濃い肌色	none
 🧓🏻	お年寄り 薄い肌色	none
 🧓🏼	お年寄り やや薄い肌色	none
 🧓🏽	お年寄り 中間の肌色	none
@@ -2292,6 +2316,11 @@ symbols:
 💂🏽‍♀	女性の衛兵 中間の肌色	none
 💂🏾‍♀	女性の衛兵 やや濃い肌色	none
 💂🏿‍♀	女性の衛兵 濃い肌色	none
+🥷🏻	忍者 薄い肌色	none
+🥷🏼	忍者 やや薄い肌色	none
+🥷🏽	忍者 中間の肌色	none
+🥷🏾	忍者 やや濃い肌色	none
+🥷🏿	忍者 濃い肌色	none
 👷🏻	建設作業員 薄い肌色	none
 👷🏼	建設作業員 やや薄い肌色	none
 👷🏽	建設作業員 中間の肌色	none
@@ -2347,31 +2376,31 @@ symbols:
 🤵🏽	タキシードの人 中間の肌色	none
 🤵🏾	タキシードの人 やや濃い肌色	none
 🤵🏿	タキシードの人 濃い肌色	none
-🤵🏻‍♀	タキシードの女性 薄い肌色	none
-🤵🏼‍♀	タキシードの女性 やや薄い肌色	none
-🤵🏽‍♀	タキシードの女性 中間の肌色	none
-🤵🏾‍♀	タキシードの女性 やや濃い肌色	none
-🤵🏿‍♀	タキシードの女性 濃い肌色	none
 🤵🏻‍♂	タキシードの男性 薄い肌色	none
 🤵🏼‍♂	タキシードの男性 やや薄い肌色	none
 🤵🏽‍♂	タキシードの男性 中間の肌色	none
 🤵🏾‍♂	タキシードの男性 やや濃い肌色	none
 🤵🏿‍♂	タキシードの男性 濃い肌色	none
+🤵🏻‍♀	タキシードの女性 薄い肌色	none
+🤵🏼‍♀	タキシードの女性 やや薄い肌色	none
+🤵🏽‍♀	タキシードの女性 中間の肌色	none
+🤵🏾‍♀	タキシードの女性 やや濃い肌色	none
+🤵🏿‍♀	タキシードの女性 濃い肌色	none
 👰🏻	ベールの人 薄い肌色	none
 👰🏼	ベールの人 やや薄い肌色	none
 👰🏽	ベールの人 中間の肌色	none
 👰🏾	ベールの人 やや濃い肌色	none
 👰🏿	ベールの人 濃い肌色	none
-👰🏻‍♀	ベールの女性 薄い肌色	none
-👰🏼‍♀	ベールの女性 やや薄い肌色	none
-👰🏽‍♀	ベールの女性 中間の肌色	none
-👰🏾‍♀	ベールの女性 やや濃い肌色	none
-👰🏿‍♀	ベールの女性 濃い肌色	none
 👰🏻‍♂	ベールの男性 薄い肌色	none
 👰🏼‍♂	ベールの男性 やや薄い肌色	none
 👰🏽‍♂	ベールの男性 中間の肌色	none
 👰🏾‍♂	ベールの男性 やや濃い肌色	none
 👰🏿‍♂	ベールの男性 濃い肌色	none
+👰🏻‍♀	ベールの女性 薄い肌色	none
+👰🏼‍♀	ベールの女性 やや薄い肌色	none
+👰🏽‍♀	ベールの女性 中間の肌色	none
+👰🏾‍♀	ベールの女性 やや濃い肌色	none
+👰🏿‍♀	ベールの女性 濃い肌色	none
 🤰🏻	妊婦 薄い肌色	none
 🤰🏼	妊婦 やや薄い肌色	none
 🤰🏽	妊婦 中間の肌色	none
@@ -2382,6 +2411,21 @@ symbols:
 🤱🏽	授乳 中間の肌色	none
 🤱🏾	授乳 やや濃い肌色	none
 🤱🏿	授乳 濃い肌色	none
+👩🏻‍🍼	授乳する女性 薄い肌色	none
+👩🏼‍🍼	授乳する女性 やや薄い肌色	none
+👩🏽‍🍼	授乳する女性 中間の肌色	none
+👩🏾‍🍼	授乳する女性 やや濃い肌色	none
+👩🏿‍🍼	授乳する女性 濃い肌色	none
+👨🏻‍🍼	授乳する男性 薄い肌色	none
+👨🏼‍🍼	授乳する男性 やや薄い肌色	none
+👨🏽‍🍼	授乳する男性 中間の肌色	none
+👨🏾‍🍼	授乳する男性 やや濃い肌色	none
+👨🏿‍🍼	授乳する男性 濃い肌色	none
+🧑🏻‍🍼	授乳する人 薄い肌色	none
+🧑🏼‍🍼	授乳する人 やや薄い肌色	none
+🧑🏽‍🍼	授乳する人 中間の肌色	none
+🧑🏾‍🍼	授乳する人 やや濃い肌色	none
+🧑🏿‍🍼	授乳する人 濃い肌色	none
 👼🏻	天使 薄い肌色	none
 👼🏼	天使 やや薄い肌色	none
 👼🏽	天使 中間の肌色	none
@@ -2397,6 +2441,11 @@ symbols:
 🤶🏽	女性のサンタ 中間の肌色	none
 🤶🏾	女性のサンタ やや濃い肌色	none
 🤶🏿	女性のサンタ 濃い肌色	none
+🧑🏻‍🎄	サンタさん 薄い肌色	none
+🧑🏼‍🎄	サンタさん やや薄い肌色	none
+🧑🏽‍🎄	サンタさん 中間の肌色	none
+🧑🏾‍🎄	サンタさん やや濃い肌色	none
+🧑🏿‍🎄	サンタさん 濃い肌色	none
 🦸🏻	スーパーヒーロー 薄い肌色	none
 🦸🏼	スーパーヒーロー やや薄い肌色	none
 🦸🏽	スーパーヒーロー 中間の肌色	none

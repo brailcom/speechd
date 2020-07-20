@@ -8,62 +8,41 @@ symbols:
 🏽	umjerena boja kože	none
 🏾	umjereno tamna boja kože	none
 🏿	tamna boja kože	none
-⚧	simbol transrodnih osoba	none
-🤌	skupljeni prsti	none
-🥲	nasmijano lice sa suzom	none
-🥷	nindža	none
-🥸	prerušeno lice	none
-🦣	mamut	none
-🦤	dodo	none
-🦫	dabar	none
-🦬	bizon	none
-🦭	foka	none
-🧋	boba čaj	none
-🩴	japanke	none
-🪃	bumerang	none
-🪄	čarobni štapić	none
-🪅	pinjata	none
-🪆	babuške	none
-🪖	vojna kaciga	none
-🪗	harmonika	none
-🪘	kongo bubnjevo	none
-🪙	novčić	none
-🪚	stolaraska pila	none
-🪛	šrafciger	none
-🪜	ljestve	none
-🪝	udica	none
-🪞	ogledalo	none
-🪟	prozor	none
-🪠	pumpa za odčepljivanje odvoda	none
-🪡	igla za šivenje	none
-🪢	čvor	none
-🪣	kanta	none
-🪤	klopka za miševe	none
-🪥	četkica za zube	none
-🪦	nadgrobni spomenik	none
-🪧	natpis	none
-🪨	kamen	none
-🪰	muha	none
-🪱	crv	none
-🪲	tvrdokrilac	none
-🪳	žohar	none
-🪴	biljka u saksiji	none
-🪵	drvo	none
-🪶	pero	none
-🫀	srce organ	none
-🫁	pluća	none
-🫂	ljudi se grle	none
-🫐	borovnice	none
-🫑	paprika babura	none
-🫒	maslina	none
-🫓	lepinica	none
-🫔	tamale	none
-🫕	fondue	none
-🫖	čajnik	none
-🛖	koliba	none
-🛗	lift	none
-🛻	kamionet	none
-🛼	rolšue	none
+–	crtica	none
+—	crta	none
+·	srednja tačka	none
+«	lijevi uglasti navodnik	none
+»	desni uglasti navodnik	none
+§	odlomak	none
+†	znak za bodež	none
+‡	dvostruki znak za bodež	none
+•	znak za isticanje	none
+°	stepen	none
+℗	autorsko pravo za zvučni snimak	none
+←	strelica prema lijevo	none
+→	strelica prema desno	none
+↑	strelica prema gore	none
+↓	strelica prema dolje	none
+⇅	strelice prema gore i prema dolje	none
+⇆	strelica gore preko strelice dolje	none
+∆	inkrement	none
+∇	nabla	none
+∈	element od	none
+÷	znak za dijeljenje	none
+×	znak za množenje	none
+⁻	eksponentni minus	none
+√	kvadratni korijen	none
+∞	znak za beskonačnost	none
+∩	presjek	none
+∪	unija	none
+≡	identično	none
+⊂	podskup	none
+▲	ispunjeni trougao prema gore	none
+▼	ispunjeni trougao prema dolje	none
+◊	romb	none
+○	prazni krug	none
+●	ispunjeni krug	none
+◯	veliki prazni krug	none
 😀	cerenje	none
 😃	kez	none
 😄	kez sa škiljenjem	none
@@ -85,6 +64,7 @@ symbols:
 ☺	osmijeh	none
 😚	poljubac žmireći	none
 😙	poljubac sa škiljenjem	none
+🥲	nasmijano lice sa suzom	none
 😋	oblizivanje	none
 😛	ruganje	none
 😜	ruganje sa namigivanjem	none
@@ -123,6 +103,7 @@ symbols:
 🤯	eksplodirajuća glava	none
 🤠	kauboj	none
 🥳	lice koje se zabavlja	none
+🥸	prerušeno lice	none
 😎	osmijeh sa sunčanim naočalama	none
 🤓	štreber	none
 🧐	monokl	none
@@ -219,6 +200,7 @@ symbols:
 ✋	podignuta šaka	none
 🖖	vulkanski pozdrav	none
 👌	prsti pokazuju ok	none
+🤌	skupljeni prsti	none
 🤏	ruka koja štipa	none
 ✌	dva prsta u znaku pobjede	none
 🤞	držanje palčeva	none
@@ -255,6 +237,8 @@ symbols:
 🦻	uho sa slušnim aparatom	none
 👃	nos	none
 🧠	mozak	none
+🫀	srce organ	none
+🫁	pluća	none
 🦷	zub	none
 🦴	kost	none
 👀	oči	none
@@ -267,15 +251,11 @@ symbols:
 👧	djevojčica	none
 🧑	odrasla osoba	none
 👱	osoba s plavom kosom	none
-🧑‍🍼	osoba doji bebu	none
-🧑‍🎄	g. Mraz	none
 👨	muškarac	none
 🧔	muškarac s bradom	none
 👱‍♂	muškarac s plavom kosom	none
-👨‍🍼	muškarac doji bebu	none
 👩	žena	none
 👱‍♀	žena s plavom kosom	none
-👩‍🍼	žena doji bebu	none
 🧓	starija odrasla osoba	none
 👴	starac	none
 👵	starica	none
@@ -366,6 +346,7 @@ symbols:
 💂	stražar	none
 💂‍♂	muškarac stražar	none
 💂‍♀	stražarka	none
+🥷	nindža	none
 👷	građevinski radnik	none
 👷‍♂	građevinski radnik muško	none
 👷‍♀	građevinska radnica	none
@@ -377,16 +358,20 @@ symbols:
 👲	muškarac s kineskom kapom	none
 🧕	pokrivena žena	none
 🤵	osoba u smokingu	none
-🤵‍♀	žena u smokingu	none
 🤵‍♂	muškarac u smokingu	none
+🤵‍♀	žena u smokingu	none
 👰	osoba s velom	none
-👰‍♀	žena s velom	none
 👰‍♂	muškarac s velom	none
+👰‍♀	žena s velom	none
 🤰	trudnica	none
 🤱	dojenje	none
+👩‍🍼	žena doji bebu	none
+👨‍🍼	muškarac doji bebu	none
+🧑‍🍼	osoba doji bebu	none
 👼	anđelak	none
 🎅	djed mraz	none
 🤶	Baka Mraz	none
+🧑‍🎄	g. Mraz	none
 🦸	superheroj	none
 🦸‍♂	superheroj muškarac	none
 🦸‍♀	superheroj žena	none
@@ -511,6 +496,7 @@ symbols:
 🗣	silueta glave koja govori	none
 👤	silueta glave s ramenima	none
 👥	siluete glave s ramenima	none
+🫂	ljudi se grle	none
 👣	otisci stopala	none
 🦰	crvena kosa	none
 🦱	kovrdžava kosa	none
@@ -540,6 +526,7 @@ symbols:
 🦄	glava jednoroga	none
 🦓	zebra	none
 🦌	jelen	none
+🦬	bizon	none
 🐮	glava krave	none
 🐂	vo	none
 🐃	bivo	none
@@ -556,6 +543,7 @@ symbols:
 🦙	lama	none
 🦒	žirafa	none
 🐘	slon	none
+🦣	mamut	none
 🦏	nosorog	none
 🦛	hippopotamus	none
 🐭	glava miša	none
@@ -565,6 +553,7 @@ symbols:
 🐰	glava zeca	none
 🐇	zec	none
 🐿	vjeverica	none
+🦫	dabar	none
 🦔	jež	none
 🦇	šišmiš	none
 🐻	glava medvjeda	none
@@ -590,6 +579,8 @@ symbols:
 🦆	patka	none
 🦢	labud	none
 🦉	sova	none
+🦤	dodo	none
+🪶	pero	none
 🦩	flamingo	none
 🦚	paun	none
 🦜	papagaj	none
@@ -605,6 +596,7 @@ symbols:
 🐳	kit koji izdiše	none
 🐋	kit	none
 🐬	delfin	none
+🦭	foka	none
 🐟	riba	none
 🐠	tropska riba	none
 🐡	napuhača	none
@@ -616,12 +608,16 @@ symbols:
 🐛	buba	none
 🐜	mrav	none
 🐝	pčela	none
+🪲	tvrdokrilac	none
 🐞	bubamara	none
 🦗	cvrčak	none
+🪳	žohar	none
 🕷	pauk	none
 🕸	paukova mreža	none
 🦂	škorpion	none
 🦟	komarac	none
+🪰	muha	none
+🪱	crv	none
 🦠	mikrob	none
 💐	buket	none
 🌸	cvijet višnje	none
@@ -634,6 +630,7 @@ symbols:
 🌼	procvjetati	none
 🌷	tulipan	none
 🌱	rasad	none
+🪴	biljka u saksiji	none
 🌲	zimzelen	none
 🌳	bjelogorično drvo	none
 🌴	palma	none
@@ -659,8 +656,10 @@ symbols:
 🍑	breskva	none
 🍒	trešnje	none
 🍓	jagoda	none
+🫐	borovnice	none
 🥝	kivi	none
 🍅	paradajz	none
+🫒	maslina	none
 🥥	kokos	none
 🥑	avokado	none
 🍆	patlidžan	none
@@ -668,6 +667,7 @@ symbols:
 🥕	mrkva	none
 🌽	klas	none
 🌶	ljuti feferon	none
+🫑	paprika babura	none
 🥒	krastavac	none
 🥬	lisnato povrće	none
 🥦	brokoli	none
@@ -679,6 +679,7 @@ symbols:
 🍞	hljeb	none
 🥐	kroasan	none
 🥖	francuski hljeb	none
+🫓	lepinica	none
 🥨	perec	none
 🥯	đevrek	none
 🥞	palačinke	none
@@ -695,12 +696,14 @@ symbols:
 🥪	sendvič	none
 🌮	tortilja	none
 🌯	burito	none
+🫔	tamale	none
 🥙	kebab	none
 🧆	falafel	none
 🥚	jaje	none
 🍳	kuhanje	none
 🥘	tava s hranom	none
 🍲	lonac hrane	none
+🫕	fondue	none
 🥣	zdjela s kašikom	none
 🥗	zelena salata	none
 🍿	kokice	none
@@ -746,6 +749,7 @@ symbols:
 🍼	flašica za bebu	none
 🥛	mlijeko	none
 ☕	topli napitak	none
+🫖	čajnik	none
 🍵	šolja za čaj bez drške	none
 🍶	sake	none
 🍾	boca sa plutanim čepom koji iskače	none
@@ -757,6 +761,7 @@ symbols:
 🥂	uzdravlje	none
 🥃	čašica za žestoko piće	none
 🥤	čaša sa slamkom	none
+🧋	boba čaj	none
 🧃	sok u tetrapaku	none
 🧉	mate čaj	none
 🧊	kocka leda	none
@@ -786,6 +791,9 @@ symbols:
 🏛	klasična zgrada	none
 🏗	građevina	none
 🧱	cigla	none
+🪨	kamen	none
+🪵	drvo	none
+🛖	koliba	none
 🏘	kuće	none
 🏚	napuštena kuća	none
 🏠	kuća	none
@@ -853,6 +861,7 @@ symbols:
 🚗	automobil	none
 🚘	dolazeći automobil	none
 🚙	terensko vozilo	none
+🛻	kamionet	none
 🚚	dostavno vozilo	none
 🚛	teretni kamion	none
 🚜	traktor	none
@@ -865,6 +874,7 @@ symbols:
 🚲	biciklo	none
 🛴	romobil	none
 🛹	skateboard	none
+🛼	rolšue	none
 🚏	autobuska stanica	none
 🛣	autoput	none
 🛤	pruga	none
@@ -1035,6 +1045,7 @@ symbols:
 🪁	zmaj od papira	none
 🎱	bilijar	none
 🔮	kristalna kugla	none
+🪄	čarobni štapić	none
 🧿	Fatimino oko	none
 🎮	video igre	none
 🕹	džojstik	none
@@ -1042,6 +1053,8 @@ symbols:
 🎲	kockica za igru	none
 🧩	slagalica	none
 🧸	medo	none
+🪅	pinjata	none
+🪆	babuške	none
 ♠	pik	none
 ♥	srce	none
 ♦	karo	none
@@ -1054,7 +1067,9 @@ symbols:
 🖼	uramljena slika	none
 🎨	slikarska paleta	none
 🧵	konac	none
+🪡	igla za šivenje	none
 🧶	predivo	none
+🪢	čvor	none
 👓	naočale	none
 🕶	sunčane naočale	none
 🥽	zaštitne naočale	none
@@ -1080,6 +1095,7 @@ symbols:
 👝	neseser	none
 🛍	vrećice za kupovinu	none
 🎒	ruksak	none
+🩴	japanke	none
 👞	muška cipela	none
 👟	patika	none
 🥾	gojzerica	none
@@ -1093,6 +1109,7 @@ symbols:
 🎩	cilindar	none
 🎓	maturska kapa	none
 🧢	kačket	none
+🪖	vojna kaciga	none
 ⛑	šljem s bijelim krstom	none
 📿	brojanica	none
 💄	karmin	none
@@ -1117,12 +1134,14 @@ symbols:
 🎧	slušalice	none
 📻	radio	none
 🎷	saksofon	none
+🪗	harmonika	none
 🎸	gitara	none
 🎹	klavijature	none
 🎺	truba	none
 🎻	violina	none
 🪕	bendžo	none
 🥁	bubanj	none
+🪘	kongo bubnjevo	none
 📱	mobitel	none
 📲	strjelica pokazuje mobitel	none
 ☎	telefon	none
@@ -1176,6 +1195,7 @@ symbols:
 🔖	marker	none
 🏷	etiketa	none
 💰	vreća novca	none
+🪙	novčić	none
 💴	novčanica jena	none
 💵	novčanica dolara	none
 💶	novčanica eura	none
@@ -1184,8 +1204,6 @@ symbols:
 💳	kreditna kartica	none
 🧾	račun	none
 💹	grafikon sa jenom koji prikazuje rast	none
-💱	mjenjačnica	none
-💲	podebljani znak dolara	none
 ✉	koverta	none
 📧	e-pošta	none
 📨	pristigla koverta	none
@@ -1243,9 +1261,12 @@ symbols:
 🗡	bodež	none
 ⚔	ukršteni mačevi	none
 🔫	pištolj	none
+🪃	bumerang	none
 🏹	luk i strijela	none
 🛡	štit	none
+🪚	stolaraska pila	none
 🔧	ključ viljuškasti	none
+🪛	šrafciger	none
 🔩	šaraf i matica	none
 ⚙	zupčanik	none
 🗜	kompresija	none
@@ -1253,8 +1274,10 @@ symbols:
 🦯	štap za slabovidne i slijepe	none
 🔗	karika	none
 ⛓	lanci	none
+🪝	udica	none
 🧰	kutija za alat	none
 🧲	magnet	none
+🪜	ljestve	none
 ⚗	alembik	none
 🧪	epruveta	none
 🧫	petri jelo	none
@@ -1268,26 +1291,35 @@ symbols:
 🩹	adhezivni flaster	none
 🩺	stetoskop	none
 🚪	vrata	none
+🛗	lift	none
+🪞	ogledalo	none
+🪟	prozor	none
 🛏	krevet	none
 🛋	kauč i lampa	none
 🪑	stolica	none
 🚽	wc šolja	none
+🪠	pumpa za odčepljivanje odvoda	none
 🚿	tuš	none
 🛁	kada	none
+🪤	klopka za miševe	none
 🪒	čakija	none
 🧴	losion	none
 🧷	bašlija	none
 🧹	metla	none
 🧺	korpa	none
 🧻	papirni ubrusi	none
+🪣	kanta	none
 🧼	sapun	none
+🪥	četkica za zube	none
 🧽	spužva	none
 🧯	aparat za gašenje požara	none
 🛒	šoping	none
 🚬	pušenje	none
 ⚰	tabut	none
+🪦	nadgrobni spomenik	none
 ⚱	urna	none
 🗿	moai	none
+🪧	natpis	none
 🏧	oznaka bankomata	none
 🚮	znak za odlaganje otpada	none
 🚰	pitka voda	none
@@ -1386,8 +1418,22 @@ symbols:
 📴	mobilni isključen	none
 ♀	žensko	none
 ♂	muško	none
-⚕	medicinski simbol	none
+⚧	simbol transrodnih osoba	none
+✖	znak množenja	none
+➕	znak plus	none
+➖	znak minus	none
+➗	znak dijeljenja	none
 ♾	beskonačnost	none
+‼	dupli uzvičnik	none
+⁉	uzvičnik upitnik	none
+❓	upitnik	none
+❔	bijeli upitnik	none
+❕	bijeli uzvičnik	none
+❗	uzvičnik	none
+〰	talasasta crta	none
+💱	mjenjačnica	none
+💲	podebljani znak dolara	none
+⚕	medicinski simbol	none
 ♻	simbol za reciklažu	none
 ⚜	ljiljan	none
 🔱	trozubac amblem	none
@@ -1397,25 +1443,14 @@ symbols:
 ✅	podebljana bijela kvačica	none
 ☑	polje za potvrdu s kvačicom	none
 ✔	kvačica	none
-✖	znak množenja	none
 ❌	križić	none
 ❎	dugme križić	none
-➕	znak plus	none
-➖	znak minus	none
-➗	znak dijeljenja	none
 ➰	uvrnuta petlja	none
 ➿	dupla uvrnuta petlja	none
 〽	oznaka djelimične alteracije	none
 ✳	osmerokraka zvjezdica	none
 ✴	osmerokraka zvijezda	none
 ❇	iskra	none
-‼	dupli uzvičnik	none
-⁉	uzvičnik upitnik	none
-❓	upitnik	none
-❔	bijeli upitnik	none
-❕	bijeli uzvičnik	none
-❗	uzvičnik	none
-〰	talasasta crta	none
 ©	autorsko pravo	none
 ®	registriran	none
 ™	zaštitni znak	none
@@ -1497,14 +1532,18 @@ symbols:
 🎌	ukrštene zastave	none
 🏴	crna zastava	none
 🏳	bijela zastava	none
-🏳‍⚧	zastava pokreta transrodnih osoba	none
 🏳‍🌈	zastava duginih boja	none
+🏳‍⚧	zastava pokreta transrodnih osoba	none
 🏴‍☠	piratska zastava	none
-🤌🏻	skupljeni prsti svijetla boja kože	none
-🤌🏼	skupljeni prsti umjereno svijetla boja kože	none
-🤌🏽	skupljeni prsti umjerena boja kože	none
-🤌🏾	skupljeni prsti umjereno tamna boja kože	none
-🤌🏿	skupljeni prsti tamna boja kože	none
+£	funta	none
+¥	jen	none
+€	euro	none
+₹	Indijska rupija	none
+₽	rublja	none
+¹	jedan eksponentno	none
+²	dva eksponentno	none
+³	tri eksponentno	none
+µ	znak za mikro	none
 👋🏻	mahanje rukom svijetla boja kože	none
 👋🏼	mahanje rukom umjereno svijetla boja kože	none
 👋🏽	mahanje rukom umjerena boja kože	none
@@ -1535,6 +1574,11 @@ symbols:
 👌🏽	prsti pokazuju ok umjerena boja kože	none
 👌🏾	prsti pokazuju ok umjereno tamna boja kože	none
 👌🏿	prsti pokazuju ok tamna boja kože	none
+🤌🏻	skupljeni prsti svijetla boja kože	none
+🤌🏼	skupljeni prsti umjereno svijetla boja kože	none
+🤌🏽	skupljeni prsti umjerena boja kože	none
+🤌🏾	skupljeni prsti umjereno tamna boja kože	none
+🤌🏿	skupljeni prsti tamna boja kože	none
 🤏🏻	ruka koja štipa svijetla boja kože	none
 🤏🏼	ruka koja štipa umjereno svijetla boja kože	none
 🤏🏽	ruka koja štipa umjerena boja kože	none
@@ -1749,16 +1793,6 @@ symbols:
 🧑🏽‍🦲	odrasla osoba umjerena boja kože i ćelavo	none
 🧑🏾‍🦲	odrasla osoba umjereno tamna boja kože i ćelavo	none
 🧑🏿‍🦲	odrasla osoba tamna boja kože i ćelavo	none
-🧑🏻‍🍼	osoba doji bebu svijetla boja kože	none
-🧑🏼‍🍼	osoba doji bebu umjereno svijetla boja kože	none
-🧑🏽‍🍼	osoba doji bebu umjerena boja kože	none
-🧑🏾‍🍼	osoba doji bebu umjereno tamna boja kože	none
-🧑🏿‍🍼	osoba doji bebu tamna boja kože	none
-🧑🏻‍🎄	g. Mraz svijetla boja kože	none
-🧑🏼‍🎄	g. Mraz umjereno svijetla boja kože	none
-🧑🏽‍🎄	g. Mraz umjerena boja kože	none
-🧑🏾‍🎄	g. Mraz umjereno tamna boja kože	none
-🧑🏿‍🎄	g. Mraz tamna boja kože	none
 👨🏻	muškarac svijetla boja kože	none
 👨🏼	muškarac umjereno svijetla boja kože	none
 👨🏽	muškarac umjerena boja kože	none
@@ -1798,11 +1832,6 @@ symbols:
 👨🏽‍🦲	muškarac umjerena boja kože i ćelavo	none
 👨🏾‍🦲	muškarac umjereno tamna boja kože i ćelavo	none
 👨🏿‍🦲	muškarac tamna boja kože i ćelavo	none
-👨🏻‍🍼	muškarac doji bebu svijetla boja kože	none
-👨🏼‍🍼	muškarac doji bebu umjereno svijetla boja kože	none
-👨🏽‍🍼	muškarac doji bebu umjerena boja kože	none
-👨🏾‍🍼	muškarac doji bebu umjereno tamna boja kože	none
-👨🏿‍🍼	muškarac doji bebu tamna boja kože	none
 👩🏻	žena svijetla boja kože	none
 👩🏼	žena umjereno svijetla boja kože	none
 👩🏽	žena umjerena boja kože	none
@@ -1837,11 +1866,6 @@ symbols:
 👩🏽‍🦲	žena umjerena boja kože i ćelavo	none
 👩🏾‍🦲	žena umjereno tamna boja kože i ćelavo	none
 👩🏿‍🦲	žena tamna boja kože i ćelavo	none
-👩🏻‍🍼	žena doji bebu svijetla boja kože	none
-👩🏼‍🍼	žena doji bebu umjereno svijetla boja kože	none
-👩🏽‍🍼	žena doji bebu umjerena boja kože	none
-👩🏾‍🍼	žena doji bebu umjereno tamna boja kože	none
-👩🏿‍🍼	žena doji bebu tamna boja kože	none
 🧓🏻	starija odrasla osoba svijetla boja kože	none
 🧓🏼	starija odrasla osoba umjereno svijetla boja kože	none
 🧓🏽	starija odrasla osoba umjerena boja kože	none
@@ -2292,6 +2316,11 @@ symbols:
 💂🏽‍♀	stražarka umjerena boja kože	none
 💂🏾‍♀	stražarka umjereno tamna boja kože	none
 💂🏿‍♀	stražarka tamna boja kože	none
+🥷🏻	nindža svijetla boja kože	none
+🥷🏼	nindža umjereno svijetla boja kože	none
+🥷🏽	nindža umjerena boja kože	none
+🥷🏾	nindža umjereno tamna boja kože	none
+🥷🏿	nindža tamna boja kože	none
 👷🏻	građevinski radnik svijetla boja kože	none
 👷🏼	građevinski radnik umjereno svijetla boja kože	none
 👷🏽	građevinski radnik umjerena boja kože	none
@@ -2347,31 +2376,31 @@ symbols:
 🤵🏽	osoba u smokingu umjerena boja kože	none
 🤵🏾	osoba u smokingu umjereno tamna boja kože	none
 🤵🏿	osoba u smokingu tamna boja kože	none
-🤵🏻‍♀	žena u smokingu svijetla boja kože	none
-🤵🏼‍♀	žena u smokingu umjereno svijetla boja kože	none
-🤵🏽‍♀	žena u smokingu umjerena boja kože	none
-🤵🏾‍♀	žena u smokingu umjereno tamna boja kože	none
-🤵🏿‍♀	žena u smokingu tamna boja kože	none
 🤵🏻‍♂	muškarac u smokingu svijetla boja kože	none
 🤵🏼‍♂	muškarac u smokingu umjereno svijetla boja kože	none
 🤵🏽‍♂	muškarac u smokingu umjerena boja kože	none
 🤵🏾‍♂	muškarac u smokingu umjereno tamna boja kože	none
 🤵🏿‍♂	muškarac u smokingu tamna boja kože	none
+🤵🏻‍♀	žena u smokingu svijetla boja kože	none
+🤵🏼‍♀	žena u smokingu umjereno svijetla boja kože	none
+🤵🏽‍♀	žena u smokingu umjerena boja kože	none
+🤵🏾‍♀	žena u smokingu umjereno tamna boja kože	none
+🤵🏿‍♀	žena u smokingu tamna boja kože	none
 👰🏻	osoba s velom svijetla boja kože	none
 👰🏼	osoba s velom umjereno svijetla boja kože	none
 👰🏽	osoba s velom umjerena boja kože	none
 👰🏾	osoba s velom umjereno tamna boja kože	none
 👰🏿	osoba s velom tamna boja kože	none
-👰🏻‍♀	žena s velom svijetla boja kože	none
-👰🏼‍♀	žena s velom umjereno svijetla boja kože	none
-👰🏽‍♀	žena s velom umjerena boja kože	none
-👰🏾‍♀	žena s velom umjereno tamna boja kože	none
-👰🏿‍♀	žena s velom tamna boja kože	none
 👰🏻‍♂	muškarac s velom svijetla boja kože	none
 👰🏼‍♂	muškarac s velom umjereno svijetla boja kože	none
 👰🏽‍♂	muškarac s velom umjerena boja kože	none
 👰🏾‍♂	muškarac s velom umjereno tamna boja kože	none
 👰🏿‍♂	muškarac s velom tamna boja kože	none
+👰🏻‍♀	žena s velom svijetla boja kože	none
+👰🏼‍♀	žena s velom umjereno svijetla boja kože	none
+👰🏽‍♀	žena s velom umjerena boja kože	none
+👰🏾‍♀	žena s velom umjereno tamna boja kože	none
+👰🏿‍♀	žena s velom tamna boja kože	none
 🤰🏻	trudnica svijetla boja kože	none
 🤰🏼	trudnica umjereno svijetla boja kože	none
 🤰🏽	trudnica umjerena boja kože	none
@@ -2382,6 +2411,21 @@ symbols:
 🤱🏽	dojenje umjerena boja kože	none
 🤱🏾	dojenje umjereno tamna boja kože	none
 🤱🏿	dojenje tamna boja kože	none
+👩🏻‍🍼	žena doji bebu svijetla boja kože	none
+👩🏼‍🍼	žena doji bebu umjereno svijetla boja kože	none
+👩🏽‍🍼	žena doji bebu umjerena boja kože	none
+👩🏾‍🍼	žena doji bebu umjereno tamna boja kože	none
+👩🏿‍🍼	žena doji bebu tamna boja kože	none
+👨🏻‍🍼	muškarac doji bebu svijetla boja kože	none
+👨🏼‍🍼	muškarac doji bebu umjereno svijetla boja kože	none
+👨🏽‍🍼	muškarac doji bebu umjerena boja kože	none
+👨🏾‍🍼	muškarac doji bebu umjereno tamna boja kože	none
+👨🏿‍🍼	muškarac doji bebu tamna boja kože	none
+🧑🏻‍🍼	osoba doji bebu svijetla boja kože	none
+🧑🏼‍🍼	osoba doji bebu umjereno svijetla boja kože	none
+🧑🏽‍🍼	osoba doji bebu umjerena boja kože	none
+🧑🏾‍🍼	osoba doji bebu umjereno tamna boja kože	none
+🧑🏿‍🍼	osoba doji bebu tamna boja kože	none
 👼🏻	anđelak svijetla boja kože	none
 👼🏼	anđelak umjereno svijetla boja kože	none
 👼🏽	anđelak umjerena boja kože	none
@@ -2397,6 +2441,11 @@ symbols:
 🤶🏽	Baka Mraz umjerena boja kože	none
 🤶🏾	Baka Mraz umjereno tamna boja kože	none
 🤶🏿	Baka Mraz tamna boja kože	none
+🧑🏻‍🎄	g. Mraz svijetla boja kože	none
+🧑🏼‍🎄	g. Mraz umjereno svijetla boja kože	none
+🧑🏽‍🎄	g. Mraz umjerena boja kože	none
+🧑🏾‍🎄	g. Mraz umjereno tamna boja kože	none
+🧑🏿‍🎄	g. Mraz tamna boja kože	none
 🦸🏻	superheroj svijetla boja kože	none
 🦸🏼	superheroj umjereno svijetla boja kože	none
 🦸🏽	superheroj umjerena boja kože	none

@@ -8,62 +8,41 @@ symbols:
 🏽	medium teint	none
 🏾	medium til mørk teint	none
 🏿	mørk teint	none
-⚧	symbol for transkønnethed	none
-🤌	samlede fingre	none
-🥲	smilende ansigt med tåre	none
-🥷	ninja	none
-🥸	maske	none
-🦣	mammut	none
-🦤	dronte	none
-🦫	bæver	none
-🦬	bison	none
-🦭	sæl	none
-🧋	bubble tea	none
-🩴	klipklapper	none
-🪃	boomerang	none
-🪄	tryllestav	none
-🪅	piñata	none
-🪆	russiske dukker	none
-🪖	militærhjelm	none
-🪗	akkordeon	none
-🪘	høj tromme	none
-🪙	mønt	none
-🪚	sav	none
-🪛	skruetrækker	none
-🪜	stige	none
-🪝	krog	none
-🪞	spejl	none
-🪟	vindue	none
-🪠	svupper	none
-🪡	synål	none
-🪢	knude	none
-🪣	spand	none
-🪤	musefælde	none
-🪥	tandbørste	none
-🪦	gravsten	none
-🪧	skilt	none
-🪨	sten	none
-🪰	flue	none
-🪱	orm	none
-🪲	bille	none
-🪳	kakerlak	none
-🪴	potteplante	none
-🪵	træ	none
-🪶	fjer	none
-🫀	hjerte	none
-🫁	lunger	none
-🫂	knus	none
-🫐	blåbær	none
-🫑	peberfrugt	none
-🫒	oliven	none
-🫓	fladbrød	none
-🫔	tamales	none
-🫕	fondue	none
-🫖	tekande	none
-🛖	hytte	none
-🛗	elevator	none
-🛻	pickup	none
-🛼	rulleskøjte	none
+–	tankestreg	none
+—	lang tankestreg	none
+·	underordnet punkttegn	none
+«	venstre fransk anførselstegn	none
+»	højre fransk anførselstegn	none
+§	paragraf	none
+†	kors	none
+‡	dobbelt kors	none
+•	punkttegn	none
+°	gradtegn	none
+℗	copyright på lydoptagelse	none
+←	venstrepil	none
+→	højrepil	none
+↑	pil op	none
+↓	pil ned	none
+⇅	pil op og pil ned	none
+⇆	venstrepil over højrepil	none
+∆	optælling	none
+∇	nabla	none
+∈	element i	none
+÷	division	none
+×	gangetegn	none
+⁻	hævet minus	none
+√	kvadratrod	none
+∞	uendelighedstegn	none
+∩	fællesmængde	none
+∪	foreningsmængde	none
+≡	identisk med	none
+⊂	delmængde af	none
+▲	udfyldt opadvendt trekant	none
+▼	udfyldt nedadvendt trekant	none
+◊	rombe	none
+○	hul cirkel	none
+●	udfyldt cirkel	none
+◯	stor hul cirkel	none
 😀	grinende ansigt	none
 😃	grinende ansigt med store øjne	none
 😄	grinende ansigt med smilende øjne	none
@@ -85,6 +64,7 @@ symbols:
 ☺	smilende ansigt	none
 😚	kysseansigt med lukkede øjne	none
 😙	kysseansigt med smilende øjne	none
+🥲	smilende ansigt med tåre	none
 😋	nydende ansigt	none
 😛	ansigt med tungen ude	none
 😜	ansigt med tungen ude og blinkende øje	none
@@ -123,6 +103,7 @@ symbols:
 🤯	hoved, der eksploderer	none
 🤠	ansigt med cowboyhat	none
 🥳	festansigt	none
+🥸	maske	none
 😎	smilende ansigt med solbriller	none
 🤓	nørdansigt	none
 🧐	ansigt med monokel	none
@@ -219,6 +200,7 @@ symbols:
 ✋	løftet hånd	none
 🖖	vulcan-hilsen	none
 👌	ok-tegn	none
+🤌	samlede fingre	none
 🤏	lidt vist med tommel- og pegefinger	none
 ✌	v-tegn	none
 🤞	krydsede fingre	none
@@ -255,6 +237,8 @@ symbols:
 🦻	øre med høreapparat	none
 👃	næse	none
 🧠	hjerne	none
+🫀	hjerte	none
+🫁	lunger	none
 🦷	tand	none
 🦴	knogle	none
 👀	øjne	none
@@ -267,15 +251,11 @@ symbols:
 👧	pige	none
 🧑	voksen	none
 👱	blond person	none
-🧑‍🍼	person, der mader baby	none
-🧑‍🎄	julenisse	none
 👨	mand	none
 🧔	mand med skæg	none
 👱‍♂	blond mand	none
-👨‍🍼	mand, der mader baby	none
 👩	kvinde	none
 👱‍♀	blond kvinde	none
-👩‍🍼	kvinde, der mader baby	none
 🧓	gammel person	none
 👴	gammel mand	none
 👵	gammel kvinde	none
@@ -366,6 +346,7 @@ symbols:
 💂	garder	none
 💂‍♂	mandlig garder	none
 💂‍♀	kvindelig garder	none
+🥷	ninja	none
 👷	bygningsarbejder	none
 👷‍♂	mandlig bygningsarbejder	none
 👷‍♀	kvindelig bygningsarbejder	none
@@ -377,16 +358,20 @@ symbols:
 👲	mand med kinesisk hat	none
 🧕	kvinde med tørklæde	none
 🤵	person i smoking	none
-🤵‍♀	kvinde i smoking	none
 🤵‍♂	mand i smoking	none
+🤵‍♀	kvinde i smoking	none
 👰	person med brudeslør	none
-👰‍♀	kvinde med brudeslør	none
 👰‍♂	mand med brudeslør	none
+👰‍♀	kvinde med brudeslør	none
 🤰	gravid kvinde	none
 🤱	kvinde, der ammer	none
+👩‍🍼	kvinde, der mader baby	none
+👨‍🍼	mand, der mader baby	none
+🧑‍🍼	person, der mader baby	none
 👼	babyengel	none
 🎅	julemand	none
 🤶	julemandens kone	none
+🧑‍🎄	julenisse	none
 🦸	superhelt	none
 🦸‍♂	mandlig superhelt	none
 🦸‍♀	kvindelig superhelt	none
@@ -511,6 +496,7 @@ symbols:
 🗣	talende hoved	none
 👤	buste i silhuet	none
 👥	buster i silhuet	none
+🫂	knus	none
 👣	fodspor	none
 🦰	rødt hår	none
 🦱	krøllet hår	none
@@ -540,6 +526,7 @@ symbols:
 🦄	enhjørningehoved	none
 🦓	zebra	none
 🦌	hjort	none
+🦬	bison	none
 🐮	kohoved	none
 🐂	okse	none
 🐃	vandbøffel	none
@@ -556,6 +543,7 @@ symbols:
 🦙	lama	none
 🦒	giraf	none
 🐘	elefant	none
+🦣	mammut	none
 🦏	næsehorn	none
 🦛	flodhest	none
 🐭	musehoved	none
@@ -565,6 +553,7 @@ symbols:
 🐰	kaninhoved	none
 🐇	kanin	none
 🐿	jordegern	none
+🦫	bæver	none
 🦔	pindsvin	none
 🦇	flagermus	none
 🐻	bjørnehoved	none
@@ -590,6 +579,8 @@ symbols:
 🦆	and	none
 🦢	svane	none
 🦉	ugle	none
+🦤	dronte	none
+🪶	fjer	none
 🦩	flamingo	none
 🦚	påfugl	none
 🦜	papegøje	none
@@ -605,6 +596,7 @@ symbols:
 🐳	hval med vandsprøjt	none
 🐋	hval	none
 🐬	delfin	none
+🦭	sæl	none
 🐟	fisk	none
 🐠	tropisk fisk	none
 🐡	kuglefisk	none
@@ -616,12 +608,16 @@ symbols:
 🐛	larve	none
 🐜	myre	none
 🐝	honningbi	none
+🪲	bille	none
 🐞	mariehøne	none
 🦗	fårekylling	none
+🪳	kakerlak	none
 🕷	edderkop	none
 🕸	edderkoppespind	none
 🦂	skorpion	none
 🦟	myg	none
+🪰	flue	none
+🪱	orm	none
 🦠	mikrobe	none
 💐	blomsterbuket	none
 🌸	kirsebærblomst	none
@@ -634,6 +630,7 @@ symbols:
 🌼	blomst	none
 🌷	tulipan	none
 🌱	spire	none
+🪴	potteplante	none
 🌲	nåletræ	none
 🌳	løvtræ	none
 🌴	palme	none
@@ -659,8 +656,10 @@ symbols:
 🍑	fersken	none
 🍒	kirsebær	none
 🍓	jordbær	none
+🫐	blåbær	none
 🥝	kiwifrugt	none
 🍅	tomat	none
+🫒	oliven	none
 🥥	kokosnød	none
 🥑	avokado	none
 🍆	aubergine	none
@@ -668,6 +667,7 @@ symbols:
 🥕	gulerod	none
 🌽	majs	none
 🌶	chili	none
+🫑	peberfrugt	none
 🥒	agurk	none
 🥬	bladgrønt	none
 🥦	broccoli	none
@@ -679,6 +679,7 @@ symbols:
 🍞	brød	none
 🥐	croissant	none
 🥖	flute	none
+🫓	fladbrød	none
 🥨	kringle	none
 🥯	bagel	none
 🥞	pandekager	none
@@ -695,12 +696,14 @@ symbols:
 🥪	sandwich	none
 🌮	taco	none
 🌯	burrito	none
+🫔	tamales	none
 🥙	fyldt pitabrød	none
 🧆	falafel	none
 🥚	æg	none
 🍳	stegepande	none
 🥘	pande med mad	none
 🍲	gryde med mad	none
+🫕	fondue	none
 🥣	ske i skål	none
 🥗	grøn salat	none
 🍿	popcorn	none
@@ -746,6 +749,7 @@ symbols:
 🍼	sutteflaske	none
 🥛	glas mælk	none
 ☕	varm drik	none
+🫖	tekande	none
 🍵	tekrus	none
 🍶	sake	none
 🍾	flaske med flyvende prop	none
@@ -757,6 +761,7 @@ symbols:
 🥂	skål	none
 🥃	fladbundet glas	none
 🥤	bæger med sugerør	none
+🧋	bubble tea	none
 🧃	brik	none
 🧉	mate	none
 🧊	isterning	none
@@ -786,6 +791,9 @@ symbols:
 🏛	klassisk bygning	none
 🏗	byggeplads	none
 🧱	mursten	none
+🪨	sten	none
+🪵	træ	none
+🛖	hytte	none
 🏘	huse	none
 🏚	faldefærdigt hus	none
 🏠	hus	none
@@ -853,6 +861,7 @@ symbols:
 🚗	bil	none
 🚘	bil forfra	none
 🚙	firehjulstrækker	none
+🛻	pickup	none
 🚚	lastbil	none
 🚛	lastvogn	none
 🚜	traktor	none
@@ -865,6 +874,7 @@ symbols:
 🚲	cykel	none
 🛴	løbehjul	none
 🛹	skateboard	none
+🛼	rulleskøjte	none
 🚏	busstoppested	none
 🛣	motorvej	none
 🛤	jernbane	none
@@ -1035,6 +1045,7 @@ symbols:
 🪁	legetøjsdrage	none
 🎱	billard	none
 🔮	krystalkugle	none
+🪄	tryllestav	none
 🧿	nazaramulet	none
 🎮	videospil	none
 🕹	joystick	none
@@ -1042,6 +1053,8 @@ symbols:
 🎲	terning	none
 🧩	brik til puslespil	none
 🧸	bamse	none
+🪅	piñata	none
+🪆	russiske dukker	none
 ♠	spar	none
 ♥	hjerter	none
 ♦	ruder	none
@@ -1054,7 +1067,9 @@ symbols:
 🖼	ramme med billede	none
 🎨	palet	none
 🧵	tråd	none
+🪡	synål	none
 🧶	garn	none
+🪢	knude	none
 👓	briller	none
 🕶	solbriller	none
 🥽	sikkerhedsbriller	none
@@ -1080,6 +1095,7 @@ symbols:
 👝	clutch	none
 🛍	indkøbsposer	none
 🎒	rygsæk	none
+🩴	klipklapper	none
 👞	herresko	none
 👟	løbesko	none
 🥾	vandrestøvle	none
@@ -1093,6 +1109,7 @@ symbols:
 🎩	høj hat	none
 🎓	eksamenshat	none
 🧢	kasket	none
+🪖	militærhjelm	none
 ⛑	hjelm med hvidt kors	none
 📿	bedekrans	none
 💄	læbestift	none
@@ -1117,12 +1134,14 @@ symbols:
 🎧	hovedtelefon	none
 📻	radio	none
 🎷	saxofon	none
+🪗	akkordeon	none
 🎸	guitar	none
 🎹	klaver	none
 🎺	trompet	none
 🎻	violin	none
 🪕	banjo	none
 🥁	tromme	none
+🪘	høj tromme	none
 📱	mobil	none
 📲	mobil med pil	none
 ☎	telefon	none
@@ -1176,6 +1195,7 @@ symbols:
 🔖	bogmærke	none
 🏷	mærkat	none
 💰	pengepose	none
+🪙	mønt	none
 💴	yenseddel	none
 💵	dollarseddel	none
 💶	euroseddel	none
@@ -1184,8 +1204,6 @@ symbols:
 💳	kreditkort	none
 🧾	kvittering	none
 💹	stigende marked	none
-💱	valutaveksling	none
-💲	dollartegn	none
 ✉	konvolut	none
 📧	mail	none
 📨	indgående post	none
@@ -1243,9 +1261,12 @@ symbols:
 🗡	dolk	none
 ⚔	korslagte sværd	none
 🔫	pistol	none
+🪃	boomerang	none
 🏹	bue og pil	none
 🛡	skjold	none
+🪚	sav	none
 🔧	skruenøgle	none
+🪛	skruetrækker	none
 🔩	møtrik og bolt	none
 ⚙	tandhjul	none
 🗜	skruetvinge	none
@@ -1253,8 +1274,10 @@ symbols:
 🦯	blindestok	none
 🔗	link	none
 ⛓	kæder	none
+🪝	krog	none
 🧰	værktøjskasse	none
 🧲	magnet	none
+🪜	stige	none
 ⚗	kolbe	none
 🧪	reagensglas	none
 🧫	petriskål	none
@@ -1268,26 +1291,35 @@ symbols:
 🩹	plaster	none
 🩺	stetoskop	none
 🚪	dør	none
+🛗	elevator	none
+🪞	spejl	none
+🪟	vindue	none
 🛏	seng	none
 🛋	sofa og lampe	none
 🪑	stol	none
 🚽	toilet	none
+🪠	svupper	none
 🚿	brusebad	none
 🛁	badekar	none
+🪤	musefælde	none
 🪒	ragekniv	none
 🧴	bodylotion	none
 🧷	sikkerhedsnål	none
 🧹	kost	none
 🧺	kurv	none
 🧻	papirrulle	none
+🪣	spand	none
 🧼	sæbe	none
+🪥	tandbørste	none
 🧽	vaskesvamp	none
 🧯	brandslukker	none
 🛒	indkøbsvogn	none
 🚬	cigaret	none
 ⚰	kiste	none
+🪦	gravsten	none
 ⚱	urne	none
 🗿	statue	none
+🪧	skilt	none
 🏧	hæveautomat	none
 🚮	brug affaldsspanden	none
 🚰	drikkevand	none
@@ -1386,8 +1418,22 @@ symbols:
 📴	mobil slået fra	none
 ♀	kvindesymbol	none
 ♂	mandesymbol	none
-⚕	medicinsymbol	none
+⚧	symbol for transkønnethed	none
+✖	multiplikationstegn	none
+➕	plustegn	none
+➖	minustegn	none
+➗	divisionstegn	none
 ♾	uendelig	none
+‼	dobbelt udråbstegn	none
+⁉	udråbstegn og spørgsmålstegn	none
+❓	spørgsmålstegn	none
+❔	hvidt spørgsmålstegn	none
+❕	hvidt udråbstegn	none
+❗	udråbstegn	none
+〰	bølgestreg	none
+💱	valutaveksling	none
+💲	dollartegn	none
+⚕	medicinsymbol	none
 ♻	genbrug	none
 ⚜	fransk lilje	none
 🔱	trefork	none
@@ -1397,25 +1443,14 @@ symbols:
 ✅	hvidt flueben	none
 ☑	afkrydsningsfelt med flueben	none
 ✔	flueben	none
-✖	multiplikationstegn	none
 ❌	kryds	none
 ❎	krydsknap	none
-➕	plustegn	none
-➖	minustegn	none
-➗	divisionstegn	none
 ➰	krølle	none
 ➿	dobbelt krølle	none
 〽	japansk kommatering	none
 ✳	ottetakket spids stjerne	none
 ✴	ottetakket stjerne	none
 ❇	funkle	none
-‼	dobbelt udråbstegn	none
-⁉	udråbstegn og spørgsmålstegn	none
-❓	spørgsmålstegn	none
-❔	hvidt spørgsmålstegn	none
-❕	hvidt udråbstegn	none
-❗	udråbstegn	none
-〰	bølgestreg	none
 ©	copyright	none
 ®	registreret varemærke	none
 ™	varemærke	none
@@ -1497,14 +1532,18 @@ symbols:
 🎌	to krydsede flag	none
 🏴	sort flag	none
 🏳	hvidt flag	none
-🏳‍⚧	transkønnet flag	none
 🏳‍🌈	regnbueflag	none
+🏳‍⚧	transkønnet flag	none
 🏴‍☠	piratflag	none
-🤌🏻	samlede fingre lys teint	none
-🤌🏼	samlede fingre medium til lys teint	none
-🤌🏽	samlede fingre medium teint	none
-🤌🏾	samlede fingre medium til mørk teint	none
-🤌🏿	samlede fingre mørk teint	none
+£	pund	none
+¥	yen	none
+€	euro	none
+₹	indisk rupee	none
+₽	rubel	none
+¹	hævet ettal	none
+²	hævet total	none
+³	hævet tretal	none
+µ	mikrotegn	none
 👋🏻	vinker lys teint	none
 👋🏼	vinker medium til lys teint	none
 👋🏽	vinker medium teint	none
@@ -1535,6 +1574,11 @@ symbols:
 👌🏽	ok-tegn medium teint	none
 👌🏾	ok-tegn medium til mørk teint	none
 👌🏿	ok-tegn mørk teint	none
+🤌🏻	samlede fingre lys teint	none
+🤌🏼	samlede fingre medium til lys teint	none
+🤌🏽	samlede fingre medium teint	none
+🤌🏾	samlede fingre medium til mørk teint	none
+🤌🏿	samlede fingre mørk teint	none
 🤏🏻	lidt vist med tommel- og pegefinger lys teint	none
 🤏🏼	lidt vist med tommel- og pegefinger medium til lys teint	none
 🤏🏽	lidt vist med tommel- og pegefinger medium teint	none
@@ -1749,16 +1793,6 @@ symbols:
 🧑🏽‍🦲	voksen medium teint og skaldet	none
 🧑🏾‍🦲	voksen medium til mørk teint og skaldet	none
 🧑🏿‍🦲	voksen mørk teint og skaldet	none
-🧑🏻‍🍼	person, der mader baby lys teint	none
-🧑🏼‍🍼	person, der mader baby medium til lys teint	none
-🧑🏽‍🍼	person, der mader baby medium teint	none
-🧑🏾‍🍼	person, der mader baby medium til mørk teint	none
-🧑🏿‍🍼	person, der mader baby mørk teint	none
-🧑🏻‍🎄	julenisse lys teint	none
-🧑🏼‍🎄	julenisse medium til lys teint	none
-🧑🏽‍🎄	julenisse medium teint	none
-🧑🏾‍🎄	julenisse medium til mørk teint	none
-🧑🏿‍🎄	julenisse mørk teint	none
 👨🏻	mand lys teint	none
 👨🏼	mand medium til lys teint	none
 👨🏽	mand medium teint	none
@@ -1798,11 +1832,6 @@ symbols:
 👨🏽‍🦲	mand medium teint og skaldet	none
 👨🏾‍🦲	mand medium til mørk teint og skaldet	none
 👨🏿‍🦲	mand mørk teint og skaldet	none
-👨🏻‍🍼	mand, der mader baby lys teint	none
-👨🏼‍🍼	mand, der mader baby medium til lys teint	none
-👨🏽‍🍼	mand, der mader baby medium teint	none
-👨🏾‍🍼	mand, der mader baby medium til mørk teint	none
-👨🏿‍🍼	mand, der mader baby mørk teint	none
 👩🏻	kvinde lys teint	none
 👩🏼	kvinde medium til lys teint	none
 👩🏽	kvinde medium teint	none
@@ -1837,11 +1866,6 @@ symbols:
 👩🏽‍🦲	kvinde medium teint og skaldet	none
 👩🏾‍🦲	kvinde medium til mørk teint og skaldet	none
 👩🏿‍🦲	kvinde mørk teint og skaldet	none
-👩🏻‍🍼	kvinde, der mader baby lys teint	none
-👩🏼‍🍼	kvinde, der mader baby medium til lys teint	none
-👩🏽‍🍼	kvinde, der mader baby medium teint	none
-👩🏾‍🍼	kvinde, der mader baby medium til mørk teint	none
-👩🏿‍🍼	kvinde, der mader baby mørk teint	none
 🧓🏻	gammel person lys teint	none
 🧓🏼	gammel person medium til lys teint	none
 🧓🏽	gammel person medium teint	none
@@ -2292,6 +2316,11 @@ symbols:
 💂🏽‍♀	kvindelig garder medium teint	none
 💂🏾‍♀	kvindelig garder medium til mørk teint	none
 💂🏿‍♀	kvindelig garder mørk teint	none
+🥷🏻	ninja lys teint	none
+🥷🏼	ninja medium til lys teint	none
+🥷🏽	ninja medium teint	none
+🥷🏾	ninja medium til mørk teint	none
+🥷🏿	ninja mørk teint	none
 👷🏻	bygningsarbejder lys teint	none
 👷🏼	bygningsarbejder medium til lys teint	none
 👷🏽	bygningsarbejder medium teint	none
@@ -2347,31 +2376,31 @@ symbols:
 🤵🏽	person i smoking medium teint	none
 🤵🏾	person i smoking medium til mørk teint	none
 🤵🏿	person i smoking mørk teint	none
-🤵🏻‍♀	kvinde i smoking lys teint	none
-🤵🏼‍♀	kvinde i smoking medium til lys teint	none
-🤵🏽‍♀	kvinde i smoking medium teint	none
-🤵🏾‍♀	kvinde i smoking medium til mørk teint	none
-🤵🏿‍♀	kvinde i smoking mørk teint	none
 🤵🏻‍♂	mand i smoking lys teint	none
 🤵🏼‍♂	mand i smoking medium til lys teint	none
 🤵🏽‍♂	mand i smoking medium teint	none
 🤵🏾‍♂	mand i smoking medium til mørk teint	none
 🤵🏿‍♂	mand i smoking mørk teint	none
+🤵🏻‍♀	kvinde i smoking lys teint	none
+🤵🏼‍♀	kvinde i smoking medium til lys teint	none
+🤵🏽‍♀	kvinde i smoking medium teint	none
+🤵🏾‍♀	kvinde i smoking medium til mørk teint	none
+🤵🏿‍♀	kvinde i smoking mørk teint	none
 👰🏻	person med brudeslør lys teint	none
 👰🏼	person med brudeslør medium til lys teint	none
 👰🏽	person med brudeslør medium teint	none
 👰🏾	person med brudeslør medium til mørk teint	none
 👰🏿	person med brudeslør mørk teint	none
-👰🏻‍♀	kvinde med brudeslør lys teint	none
-👰🏼‍♀	kvinde med brudeslør medium til lys teint	none
-👰🏽‍♀	kvinde med brudeslør medium teint	none
-👰🏾‍♀	kvinde med brudeslør medium til mørk teint	none
-👰🏿‍♀	kvinde med brudeslør mørk teint	none
 👰🏻‍♂	mand med brudeslør lys teint	none
 👰🏼‍♂	mand med brudeslør medium til lys teint	none
 👰🏽‍♂	mand med brudeslør medium teint	none
 👰🏾‍♂	mand med brudeslør medium til mørk teint	none
 👰🏿‍♂	mand med brudeslør mørk teint	none
+👰🏻‍♀	kvinde med brudeslør lys teint	none
+👰🏼‍♀	kvinde med brudeslør medium til lys teint	none
+👰🏽‍♀	kvinde med brudeslør medium teint	none
+👰🏾‍♀	kvinde med brudeslør medium til mørk teint	none
+👰🏿‍♀	kvinde med brudeslør mørk teint	none
 🤰🏻	gravid kvinde lys teint	none
 🤰🏼	gravid kvinde medium til lys teint	none
 🤰🏽	gravid kvinde medium teint	none
@@ -2382,6 +2411,21 @@ symbols:
 🤱🏽	kvinde, der ammer medium teint	none
 🤱🏾	kvinde, der ammer medium til mørk teint	none
 🤱🏿	kvinde, der ammer mørk teint	none
+👩🏻‍🍼	kvinde, der mader baby lys teint	none
+👩🏼‍🍼	kvinde, der mader baby medium til lys teint	none
+👩🏽‍🍼	kvinde, der mader baby medium teint	none
+👩🏾‍🍼	kvinde, der mader baby medium til mørk teint	none
+👩🏿‍🍼	kvinde, der mader baby mørk teint	none
+👨🏻‍🍼	mand, der mader baby lys teint	none
+👨🏼‍🍼	mand, der mader baby medium til lys teint	none
+👨🏽‍🍼	mand, der mader baby medium teint	none
+👨🏾‍🍼	mand, der mader baby medium til mørk teint	none
+👨🏿‍🍼	mand, der mader baby mørk teint	none
+🧑🏻‍🍼	person, der mader baby lys teint	none
+🧑🏼‍🍼	person, der mader baby medium til lys teint	none
+🧑🏽‍🍼	person, der mader baby medium teint	none
+🧑🏾‍🍼	person, der mader baby medium til mørk teint	none
+🧑🏿‍🍼	person, der mader baby mørk teint	none
 👼🏻	babyengel lys teint	none
 👼🏼	babyengel medium til lys teint	none
 👼🏽	babyengel medium teint	none
@@ -2397,6 +2441,11 @@ symbols:
 🤶🏽	julemandens kone medium teint	none
 🤶🏾	julemandens kone medium til mørk teint	none
 🤶🏿	julemandens kone mørk teint	none
+🧑🏻‍🎄	julenisse lys teint	none
+🧑🏼‍🎄	julenisse medium til lys teint	none
+🧑🏽‍🎄	julenisse medium teint	none
+🧑🏾‍🎄	julenisse medium til mørk teint	none
+🧑🏿‍🎄	julenisse mørk teint	none
 🦸🏻	superhelt lys teint	none
 🦸🏼	superhelt medium til lys teint	none
 🦸🏽	superhelt medium teint	none
