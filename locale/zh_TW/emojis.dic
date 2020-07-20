@@ -8,62 +8,41 @@ symbols:
 🏽	淺褐皮膚	none
 🏾	褐皮膚	none
 🏿	黑皮膚	none
-⚧	變性符號	none
-🤌	捏手指	none
-🥲	微笑帶淚	none
-🥷	忍者	none
-🥸	假扮的臉	none
-🦣	毛象	none
-🦤	渡渡鳥	none
-🦫	海狸	none
-🦬	野牛	none
-🦭	海豹	none
-🧋	珍珠奶茶	none
-🩴	人字拖	none
-🪃	迴力鏢	none
-🪄	魔杖	none
-🪅	皮納塔	none
-🪆	俄羅斯娃娃	none
-🪖	頭盔	none
-🪗	手風琴	none
-🪘	長鼓	none
-🪙	硬幣	none
-🪚	木工鉅	none
-🪛	螺絲起子	none
-🪜	梯子	none
-🪝	鉤子	none
-🪞	鏡子	none
-🪟	窗戶	none
-🪠	吸把	none
-🪡	裁縫針	none
-🪢	繩結	none
-🪣	水桶	none
-🪤	捕鼠器	none
-🪥	牙刷	none
-🪦	墓石	none
-🪧	告示牌	none
-🪨	石頭	none
-🪰	蒼蠅	none
-🪱	蠕蟲	none
-🪲	甲蟲	none
-🪳	蟑螂	none
-🪴	盆景	none
-🪵	木頭	none
-🪶	羽毛	none
-🫀	心臟	none
-🫁	肺	none
-🫂	擁抱的人	none
-🫐	藍莓	none
-🫑	甜椒	none
-🫒	橄欖	none
-🫓	麵餅	none
-🫔	玉米粉蒸肉	none
-🫕	涮製菜餚	none
-🫖	茶壺	none
-🛖	小屋	none
-🛗	電梯	none
-🛻	皮卡車	none
-🛼	輪式溜冰鞋	none
+–	連接號	none
+—	破折號	none
+·	間隔號	none
+«	左書名號	none
+»	右書名號	none
+§	分節符號	none
+†	劍標	none
+‡	雙劍標	none
+•	項目號	none
+°	度	none
+℗	錄音著作權	none
+←	朝左箭頭	none
+→	朝右箭頭	none
+↑	朝上箭頭	none
+↓	朝下箭頭	none
+⇅	上下並列箭頭	none
+⇆	左右相疊箭頭	none
+∆	遞增	none
+∇	遞減	none
+∈	屬於	none
+÷	除法符號	none
+×	乘號	none
+⁻	上標負數	none
+√	平方根	none
+∞	無限符號	none
+∩	交集	none
+∪	聯集	none
+≡	全等	none
+⊂	子集	none
+▲	實心正三角形	none
+▼	實心倒三角形	none
+◊	菱形	none
+○	空心圓	none
+●	實心圓	none
+◯	大空心圓	none
 😀	笑臉	none
 😃	大笑	none
 😄	呵呵	none
@@ -85,6 +64,7 @@ symbols:
 ☺	輕鬆笑臉	none
 😚	瞇眼親親	none
 😙	笑臉親親	none
+🥲	微笑帶淚	none
 😋	口水	none
 😛	嘿嘿	none
 😜	吐舌頭	none
@@ -123,6 +103,7 @@ symbols:
 🤯	一個頭兩個大	none
 🤠	牛仔	none
 🥳	慶祝的表情	none
+🥸	假扮的臉	none
 😎	墨鏡	none
 🤓	搞怪	none
 🧐	單片眼鏡	none
@@ -219,6 +200,7 @@ symbols:
 ✋	舉手	none
 🖖	你好	none
 👌	OK 手勢	none
+🤌	捏手指	none
 🤏	捏	none
 ✌	勝利	none
 🤞	祝好運	none
@@ -255,6 +237,8 @@ symbols:
 🦻	戴助聽器的耳朵	none
 👃	鼻子	none
 🧠	腦	none
+🫀	心臟	none
+🫁	肺	none
 🦷	牙齒	none
 🦴	骨頭	none
 👀	雙眼	none
@@ -267,15 +251,11 @@ symbols:
 👧	女孩	none
 🧑	大人	none
 👱	金髮人	none
-🧑‍🍼	正在哺乳的人	none
-🧑‍🎄	跨性別聖誕老人	none
 👨	男人	none
 🧔	蓄鬍的人	none
 👱‍♂	金髮男	none
-👨‍🍼	正在餵奶的爸爸	none
 👩	女人	none
 👱‍♀	金髮女	none
-👩‍🍼	正在哺乳的媽媽	none
 🧓	長者	none
 👴	老爺爺	none
 👵	老奶奶	none
@@ -366,6 +346,7 @@ symbols:
 💂	衛兵	none
 💂‍♂	男衛兵	none
 💂‍♀	女衛兵	none
+🥷	忍者	none
 👷	建築工人	none
 👷‍♂	男建築工人	none
 👷‍♀	女建築工人	none
@@ -377,16 +358,20 @@ symbols:
 👲	戴瓜皮帽的人	none
 🧕	包頭巾的女子	none
 🤵	穿燕尾服的人	none
-🤵‍♀	穿燕尾服的女子	none
 🤵‍♂	穿燕尾服的男人	none
+🤵‍♀	穿燕尾服的女子	none
 👰	披著頭紗的人	none
-👰‍♀	披著頭紗的女子	none
 👰‍♂	披著頭紗的男人	none
+👰‍♀	披著頭紗的女子	none
 🤰	孕婦	none
 🤱	哺乳	none
+👩‍🍼	正在哺乳的媽媽	none
+👨‍🍼	正在餵奶的爸爸	none
+🧑‍🍼	正在哺乳的人	none
 👼	天使	none
 🎅	聖誕老人	none
 🤶	聖誕老奶奶	none
+🧑‍🎄	跨性別聖誕老人	none
 🦸	超級英雄	none
 🦸‍♂	超人	none
 🦸‍♀	女超人	none
@@ -511,6 +496,7 @@ symbols:
 🗣	說話的人影	none
 👤	肖像剪影	none
 👥	雙人肖像剪影	none
+🫂	擁抱的人	none
 👣	腳印	none
 🦰	紅髮	none
 🦱	卷髮	none
@@ -540,6 +526,7 @@ symbols:
 🦄	獨角獸	none
 🦓	斑馬	none
 🦌	鹿	none
+🦬	野牛	none
 🐮	牛頭	none
 🐂	公牛	none
 🐃	水牛	none
@@ -556,6 +543,7 @@ symbols:
 🦙	羊駝	none
 🦒	長頸鹿	none
 🐘	大象	none
+🦣	毛象	none
 🦏	犀牛	none
 🦛	河馬	none
 🐭	老鼠頭	none
@@ -565,6 +553,7 @@ symbols:
 🐰	兔子頭	none
 🐇	兔子	none
 🐿	松鼠	none
+🦫	海狸	none
 🦔	刺蝟	none
 🦇	蝙蝠	none
 🐻	熊	none
@@ -590,6 +579,8 @@ symbols:
 🦆	鴨子	none
 🦢	天鵝	none
 🦉	貓頭鷹	none
+🦤	渡渡鳥	none
+🪶	羽毛	none
 🦩	紅鶴	none
 🦚	孔雀	none
 🦜	鸚鵡	none
@@ -605,6 +596,7 @@ symbols:
 🐳	鯨魚	none
 🐋	藍鯨	none
 🐬	海豚	none
+🦭	海豹	none
 🐟	魚	none
 🐠	熱帶魚	none
 🐡	河豚	none
@@ -616,12 +608,16 @@ symbols:
 🐛	毛毛蟲	none
 🐜	螞蟻	none
 🐝	蜜蜂	none
+🪲	甲蟲	none
 🐞	瓢蟲	none
 🦗	蟋蟀	none
+🪳	蟑螂	none
 🕷	蜘蛛	none
 🕸	蜘蛛網	none
 🦂	蠍子	none
 🦟	蚊子	none
+🪰	蒼蠅	none
+🪱	蠕蟲	none
 🦠	微生物	none
 💐	花束	none
 🌸	櫻花	none
@@ -634,6 +630,7 @@ symbols:
 🌼	開花	none
 🌷	鬱金香	none
 🌱	苗	none
+🪴	盆景	none
 🌲	常青樹	none
 🌳	落葉樹	none
 🌴	棕櫚樹	none
@@ -659,8 +656,10 @@ symbols:
 🍑	桃子	none
 🍒	櫻桃	none
 🍓	草莓	none
+🫐	藍莓	none
 🥝	奇異果	none
 🍅	番茄	none
+🫒	橄欖	none
 🥥	椰子	none
 🥑	酪梨	none
 🍆	茄子	none
@@ -668,6 +667,7 @@ symbols:
 🥕	胡蘿蔔	none
 🌽	玉米	none
 🌶	辣椒	none
+🫑	甜椒	none
 🥒	小黃瓜	none
 🥬	綠葉蔬菜	none
 🥦	花椰菜	none
@@ -679,6 +679,7 @@ symbols:
 🍞	吐司	none
 🥐	可頌	none
 🥖	法國麵包	none
+🫓	麵餅	none
 🥨	蝴蝶餅	none
 🥯	貝果	none
 🥞	鬆餅	none
@@ -695,12 +696,14 @@ symbols:
 🥪	三明治	none
 🌮	夾餅	none
 🌯	捲餅	none
+🫔	玉米粉蒸肉	none
 🥙	薄捲餅	none
 🧆	油炸鷹嘴豆餅	none
 🥚	蛋	none
 🍳	煎蛋	none
 🥘	淺鍋料理	none
 🍲	火鍋	none
+🫕	涮製菜餚	none
 🥣	碗和湯匙	none
 🥗	生菜沙拉	none
 🍿	爆米花	none
@@ -746,6 +749,7 @@ symbols:
 🍼	奶瓶	none
 🥛	一杯牛奶	none
 ☕	熱飲	none
+🫖	茶壺	none
 🍵	熱茶	none
 🍶	清酒	none
 🍾	洋酒	none
@@ -757,6 +761,7 @@ symbols:
 🥂	乾杯	none
 🥃	威士忌杯	none
 🥤	杯子和吸管	none
+🧋	珍珠奶茶	none
 🧃	鋁箔包	none
 🧉	瑪黛茶	none
 🧊	冰塊	none
@@ -786,6 +791,9 @@ symbols:
 🏛	古典建築	none
 🏗	施工中	none
 🧱	磚塊	none
+🪨	石頭	none
+🪵	木頭	none
+🛖	小屋	none
 🏘	房屋建築	none
 🏚	廢墟	none
 🏠	房子	none
@@ -853,6 +861,7 @@ symbols:
 🚗	汽車	none
 🚘	轎車	none
 🚙	休旅車	none
+🛻	皮卡車	none
 🚚	貨車	none
 🚛	卡車	none
 🚜	拖弋機	none
@@ -865,6 +874,7 @@ symbols:
 🚲	自行車	none
 🛴	滑板車	none
 🛹	滑板	none
+🛼	輪式溜冰鞋	none
 🚏	公車站	none
 🛣	高速公路	none
 🛤	鐵軌	none
@@ -1035,6 +1045,7 @@ symbols:
 🪁	風箏	none
 🎱	撞球	none
 🔮	水晶球	none
+🪄	魔杖	none
 🧿	邪眼	none
 🎮	電玩	none
 🕹	搖桿	none
@@ -1042,6 +1053,8 @@ symbols:
 🎲	骰子	none
 🧩	拼圖	none
 🧸	泰迪熊	none
+🪅	皮納塔	none
+🪆	俄羅斯娃娃	none
 ♠	黑桃	none
 ♥	紅心	none
 ♦	方塊	none
@@ -1054,7 +1067,9 @@ symbols:
 🖼	裱框畫	none
 🎨	調色板	none
 🧵	線	none
+🪡	裁縫針	none
 🧶	毛線球	none
+🪢	繩結	none
 👓	眼鏡	none
 🕶	太陽眼鏡	none
 🥽	蛙鏡	none
@@ -1080,6 +1095,7 @@ symbols:
 👝	手拿包	none
 🛍	紙袋	none
 🎒	書包	none
+🩴	人字拖	none
 👞	皮鞋	none
 👟	運動鞋	none
 🥾	登山靴	none
@@ -1093,6 +1109,7 @@ symbols:
 🎩	禮帽	none
 🎓	畢業帽	none
 🧢	鴨舌帽	none
+🪖	頭盔	none
 ⛑	工程安全帽	none
 📿	項鍊	none
 💄	口紅	none
@@ -1117,12 +1134,14 @@ symbols:
 🎧	耳機	none
 📻	收音機	none
 🎷	薩克斯風	none
+🪗	手風琴	none
 🎸	吉他	none
 🎹	鋼琴	none
 🎺	小號	none
 🎻	小提琴	none
 🪕	斑鳩琴	none
 🥁	鼓	none
+🪘	長鼓	none
 📱	手機	none
 📲	接電話	none
 ☎	電話	none
@@ -1176,6 +1195,7 @@ symbols:
 🔖	書籤	none
 🏷	吊牌	none
 💰	錢袋	none
+🪙	硬幣	none
 💴	日幣	none
 💵	美金	none
 💶	歐元	none
@@ -1184,8 +1204,6 @@ symbols:
 💳	信用卡	none
 🧾	收據	none
 💹	貨幣升值	none
-💱	貨幣兌換	none
-💲	貨幣符號	none
 ✉	郵件	none
 📧	電子郵件	none
 📨	收到郵件	none
@@ -1243,9 +1261,12 @@ symbols:
 🗡	匕首	none
 ⚔	劍	none
 🔫	槍	none
+🪃	迴力鏢	none
 🏹	弓箭	none
 🛡	盾牌	none
+🪚	木工鉅	none
 🔧	扳手	none
+🪛	螺絲起子	none
 🔩	螺絲	none
 ⚙	齒輪	none
 🗜	壓縮機	none
@@ -1253,8 +1274,10 @@ symbols:
 🦯	導盲手杖	none
 🔗	連結	none
 ⛓	鍊條	none
+🪝	鉤子	none
 🧰	工具箱	none
 🧲	磁鐵	none
+🪜	梯子	none
 ⚗	蒸餾器	none
 🧪	試管	none
 🧫	培養皿	none
@@ -1268,26 +1291,35 @@ symbols:
 🩹	OK 繃	none
 🩺	聽診器	none
 🚪	門	none
+🛗	電梯	none
+🪞	鏡子	none
+🪟	窗戶	none
 🛏	床	none
 🛋	沙發和立燈	none
 🪑	椅子	none
 🚽	馬桶	none
+🪠	吸把	none
 🚿	淋浴	none
 🛁	澡盆	none
+🪤	捕鼠器	none
 🪒	剃刀	none
 🧴	乳液瓶	none
 🧷	安全別針	none
 🧹	掃帚	none
 🧺	籃子	none
 🧻	捲筒衛生紙	none
+🪣	水桶	none
 🧼	肥皂	none
+🪥	牙刷	none
 🧽	海綿	none
 🧯	滅火器	none
 🛒	購物車	none
 🚬	吸煙	none
 ⚰	棺木	none
+🪦	墓石	none
 ⚱	骨灰罈	none
 🗿	復活節島	none
+🪧	告示牌	none
 🏧	提款機	none
 🚮	垃圾桶	none
 🚰	飲用水	none
@@ -1386,8 +1418,22 @@ symbols:
 📴	手機關機	none
 ♀	女	none
 ♂	男	none
-⚕	醫療符號	none
+⚧	變性符號	none
+✖	乘法號	none
+➕	加號	none
+➖	減號	none
+➗	除號	none
 ♾	無限大	none
+‼	雙驚嘆號	none
+⁉	驚嘆號加問號	none
+❓	問號	none
+❔	白色問號	none
+❕	白色驚嘆號	none
+❗	驚嘆號	none
+〰	波浪線	none
+💱	貨幣兌換	none
+💲	貨幣符號	none
+⚕	醫療符號	none
 ♻	回收	none
 ⚜	鳶尾花	none
 🔱	三叉戟	none
@@ -1397,25 +1443,14 @@ symbols:
 ✅	白色勾勾	none
 ☑	勾選	none
 ✔	打勾	none
-✖	乘法號	none
 ❌	叉	none
 ❎	叉叉	none
-➕	加號	none
-➖	減號	none
-➗	除號	none
 ➰	日本單環標誌	none
 ➿	日本免費電話標誌	none
 〽	歌唱	none
 ✳	八芒星	none
 ✴	八角星	none
 ❇	火花	none
-‼	雙驚嘆號	none
-⁉	驚嘆號加問號	none
-❓	問號	none
-❔	白色問號	none
-❕	白色驚嘆號	none
-❗	驚嘆號	none
-〰	波浪線	none
 ©	版權	none
 ®	註冊	none
 ™	商標	none
@@ -1497,14 +1532,18 @@ symbols:
 🎌	紀念日	none
 🏴	黑旗	none
 🏳	白旗	none
-🏳‍⚧	跨性別旗	none
 🏳‍🌈	彩虹旗	none
+🏳‍⚧	跨性別旗	none
 🏴‍☠	海盜旗	none
-🤌🏻	捏手指 白皮膚	none
-🤌🏼	捏手指 黃皮膚	none
-🤌🏽	捏手指 淺褐皮膚	none
-🤌🏾	捏手指 褐皮膚	none
-🤌🏿	捏手指 黑皮膚	none
+£	英鎊符號	none
+¥	日幣符號	none
+€	歐元符號	none
+₹	印度盧比	none
+₽	盧布	none
+¹	上標數字 1	none
+²	上標數字 2	none
+³	上標數字 3	none
+µ	微米符號	none
 👋🏻	揮手 白皮膚	none
 👋🏼	揮手 黃皮膚	none
 👋🏽	揮手 淺褐皮膚	none
@@ -1535,6 +1574,11 @@ symbols:
 👌🏽	OK 手勢 淺褐皮膚	none
 👌🏾	OK 手勢 褐皮膚	none
 👌🏿	OK 手勢 黑皮膚	none
+🤌🏻	捏手指 白皮膚	none
+🤌🏼	捏手指 黃皮膚	none
+🤌🏽	捏手指 淺褐皮膚	none
+🤌🏾	捏手指 褐皮膚	none
+🤌🏿	捏手指 黑皮膚	none
 🤏🏻	捏 白皮膚	none
 🤏🏼	捏 黃皮膚	none
 🤏🏽	捏 淺褐皮膚	none
@@ -1749,16 +1793,6 @@ symbols:
 🧑🏽‍🦲	大人 淺褐皮膚 禿頭	none
 🧑🏾‍🦲	大人 褐皮膚 禿頭	none
 🧑🏿‍🦲	大人 黑皮膚 禿頭	none
-🧑🏻‍🍼	正在哺乳的人 白皮膚	none
-🧑🏼‍🍼	正在哺乳的人 黃皮膚	none
-🧑🏽‍🍼	正在哺乳的人 淺褐皮膚	none
-🧑🏾‍🍼	正在哺乳的人 褐皮膚	none
-🧑🏿‍🍼	正在哺乳的人 黑皮膚	none
-🧑🏻‍🎄	跨性別聖誕老人 白皮膚	none
-🧑🏼‍🎄	跨性別聖誕老人 黃皮膚	none
-🧑🏽‍🎄	跨性別聖誕老人 淺褐皮膚	none
-🧑🏾‍🎄	跨性別聖誕老人 褐皮膚	none
-🧑🏿‍🎄	跨性別聖誕老人 黑皮膚	none
 👨🏻	男人 白皮膚	none
 👨🏼	男人 黃皮膚	none
 👨🏽	男人 淺褐皮膚	none
@@ -1798,11 +1832,6 @@ symbols:
 👨🏽‍🦲	男人 淺褐皮膚 禿頭	none
 👨🏾‍🦲	男人 褐皮膚 禿頭	none
 👨🏿‍🦲	男人 黑皮膚 禿頭	none
-👨🏻‍🍼	正在餵奶的爸爸 白皮膚	none
-👨🏼‍🍼	正在餵奶的爸爸 黃皮膚	none
-👨🏽‍🍼	正在餵奶的爸爸 淺褐皮膚	none
-👨🏾‍🍼	正在餵奶的爸爸 褐皮膚	none
-👨🏿‍🍼	正在餵奶的爸爸 黑皮膚	none
 👩🏻	女人 白皮膚	none
 👩🏼	女人 黃皮膚	none
 👩🏽	女人 淺褐皮膚	none
@@ -1837,11 +1866,6 @@ symbols:
 👩🏽‍🦲	女人 淺褐皮膚 禿頭	none
 👩🏾‍🦲	女人 褐皮膚 禿頭	none
 👩🏿‍🦲	女人 黑皮膚 禿頭	none
-👩🏻‍🍼	正在哺乳的媽媽 白皮膚	none
-👩🏼‍🍼	正在哺乳的媽媽 黃皮膚	none
-👩🏽‍🍼	正在哺乳的媽媽 淺褐皮膚	none
-👩🏾‍🍼	正在哺乳的媽媽 褐皮膚	none
-👩🏿‍🍼	正在哺乳的媽媽 黑皮膚	none
 🧓🏻	長者 白皮膚	none
 🧓🏼	長者 黃皮膚	none
 🧓🏽	長者 淺褐皮膚	none
@@ -2292,6 +2316,11 @@ symbols:
 💂🏽‍♀	女衛兵 淺褐皮膚	none
 💂🏾‍♀	女衛兵 褐皮膚	none
 💂🏿‍♀	女衛兵 黑皮膚	none
+🥷🏻	忍者 白皮膚	none
+🥷🏼	忍者 黃皮膚	none
+🥷🏽	忍者 淺褐皮膚	none
+🥷🏾	忍者 褐皮膚	none
+🥷🏿	忍者 黑皮膚	none
 👷🏻	建築工人 白皮膚	none
 👷🏼	建築工人 黃皮膚	none
 👷🏽	建築工人 淺褐皮膚	none
@@ -2347,31 +2376,31 @@ symbols:
 🤵🏽	穿燕尾服的人 淺褐皮膚	none
 🤵🏾	穿燕尾服的人 褐皮膚	none
 🤵🏿	穿燕尾服的人 黑皮膚	none
-🤵🏻‍♀	穿燕尾服的女子 白皮膚	none
-🤵🏼‍♀	穿燕尾服的女子 黃皮膚	none
-🤵🏽‍♀	穿燕尾服的女子 淺褐皮膚	none
-🤵🏾‍♀	穿燕尾服的女子 褐皮膚	none
-🤵🏿‍♀	穿燕尾服的女子 黑皮膚	none
 🤵🏻‍♂	穿燕尾服的男人 白皮膚	none
 🤵🏼‍♂	穿燕尾服的男人 黃皮膚	none
 🤵🏽‍♂	穿燕尾服的男人 淺褐皮膚	none
 🤵🏾‍♂	穿燕尾服的男人 褐皮膚	none
 🤵🏿‍♂	穿燕尾服的男人 黑皮膚	none
+🤵🏻‍♀	穿燕尾服的女子 白皮膚	none
+🤵🏼‍♀	穿燕尾服的女子 黃皮膚	none
+🤵🏽‍♀	穿燕尾服的女子 淺褐皮膚	none
+🤵🏾‍♀	穿燕尾服的女子 褐皮膚	none
+🤵🏿‍♀	穿燕尾服的女子 黑皮膚	none
 👰🏻	披著頭紗的人 白皮膚	none
 👰🏼	披著頭紗的人 黃皮膚	none
 👰🏽	披著頭紗的人 淺褐皮膚	none
 👰🏾	披著頭紗的人 褐皮膚	none
 👰🏿	披著頭紗的人 黑皮膚	none
-👰🏻‍♀	披著頭紗的女子 白皮膚	none
-👰🏼‍♀	披著頭紗的女子 黃皮膚	none
-👰🏽‍♀	披著頭紗的女子 淺褐皮膚	none
-👰🏾‍♀	披著頭紗的女子 褐皮膚	none
-👰🏿‍♀	披著頭紗的女子 黑皮膚	none
 👰🏻‍♂	披著頭紗的男人 白皮膚	none
 👰🏼‍♂	披著頭紗的男人 黃皮膚	none
 👰🏽‍♂	披著頭紗的男人 淺褐皮膚	none
 👰🏾‍♂	披著頭紗的男人 褐皮膚	none
 👰🏿‍♂	披著頭紗的男人 黑皮膚	none
+👰🏻‍♀	披著頭紗的女子 白皮膚	none
+👰🏼‍♀	披著頭紗的女子 黃皮膚	none
+👰🏽‍♀	披著頭紗的女子 淺褐皮膚	none
+👰🏾‍♀	披著頭紗的女子 褐皮膚	none
+👰🏿‍♀	披著頭紗的女子 黑皮膚	none
 🤰🏻	孕婦 白皮膚	none
 🤰🏼	孕婦 黃皮膚	none
 🤰🏽	孕婦 淺褐皮膚	none
@@ -2382,6 +2411,21 @@ symbols:
 🤱🏽	哺乳 淺褐皮膚	none
 🤱🏾	哺乳 褐皮膚	none
 🤱🏿	哺乳 黑皮膚	none
+👩🏻‍🍼	正在哺乳的媽媽 白皮膚	none
+👩🏼‍🍼	正在哺乳的媽媽 黃皮膚	none
+👩🏽‍🍼	正在哺乳的媽媽 淺褐皮膚	none
+👩🏾‍🍼	正在哺乳的媽媽 褐皮膚	none
+👩🏿‍🍼	正在哺乳的媽媽 黑皮膚	none
+👨🏻‍🍼	正在餵奶的爸爸 白皮膚	none
+👨🏼‍🍼	正在餵奶的爸爸 黃皮膚	none
+👨🏽‍🍼	正在餵奶的爸爸 淺褐皮膚	none
+👨🏾‍🍼	正在餵奶的爸爸 褐皮膚	none
+👨🏿‍🍼	正在餵奶的爸爸 黑皮膚	none
+🧑🏻‍🍼	正在哺乳的人 白皮膚	none
+🧑🏼‍🍼	正在哺乳的人 黃皮膚	none
+🧑🏽‍🍼	正在哺乳的人 淺褐皮膚	none
+🧑🏾‍🍼	正在哺乳的人 褐皮膚	none
+🧑🏿‍🍼	正在哺乳的人 黑皮膚	none
 👼🏻	天使 白皮膚	none
 👼🏼	天使 黃皮膚	none
 👼🏽	天使 淺褐皮膚	none
@@ -2397,6 +2441,11 @@ symbols:
 🤶🏽	聖誕老奶奶 淺褐皮膚	none
 🤶🏾	聖誕老奶奶 褐皮膚	none
 🤶🏿	聖誕老奶奶 黑皮膚	none
+🧑🏻‍🎄	跨性別聖誕老人 白皮膚	none
+🧑🏼‍🎄	跨性別聖誕老人 黃皮膚	none
+🧑🏽‍🎄	跨性別聖誕老人 淺褐皮膚	none
+🧑🏾‍🎄	跨性別聖誕老人 褐皮膚	none
+🧑🏿‍🎄	跨性別聖誕老人 黑皮膚	none
 🦸🏻	超級英雄 白皮膚	none
 🦸🏼	超級英雄 黃皮膚	none
 🦸🏽	超級英雄 淺褐皮膚	none

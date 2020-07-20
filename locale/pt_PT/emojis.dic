@@ -8,15 +8,19 @@ symbols:
 🏽	tipo de pele 4	none
 🏾	tipo de pele 5	none
 🏿	tipo de pele 6	none
-⚧	símbolo transgénero	none
-🥲	cara sorridente com lágrima	none
-🦤	dodó	none
-🪘	tambor alto	none
-🪛	chave de fendas	none
-🪧	placard	none
-🫂	pessoas abraçadas	none
-🫑	pimento	none
-🛻	carrinha	none
+§	secção	none
+•	marca de lista	none
+℗	símbolo de direitos de autor de fonograma	none
+←	seta a apontar para a esquerda	none
+→	seta a apontar para a direita	none
+↑	seta a apontar para cima	none
+↓	seta a apontar para baixo	none
+⇅	setas a apontar para cima e para baixo	none
+⇆	setas a apontar para a esquerda e para a direita	none
+÷	símbolo de divisão	none
+∞	símbolo de infinito	none
+▲	triângulo preenchido a apontar para cima	none
+▼	triângulo preenchido a apontar para baixo	none
 😀	cara sorridente	none
 😃	cara sorridente com olhos bem abertos	none
 😄	cara a sorrir com boca aberta e olhos sorridentes	none
@@ -38,6 +42,7 @@ symbols:
 ☺	cara a sorrir	none
 😚	cara a dar um beijo com olhos fechados	none
 😙	cara a dar um beijo com olhos sorridentes	none
+🥲	cara sorridente com lágrima	none
 😋	cara a saborear uma refeição deliciosa	none
 😛	cara com língua de fora	none
 😜	cara com língua de fora e olho a piscar	none
@@ -172,10 +177,6 @@ symbols:
 👶	bebé	none
 👦	rapaz	none
 👧	rapariga	none
-🧑‍🍼	pessoa a alimentar bebé	none
-🧑‍🎄	Sra. Natal	none
-👨‍🍼	homem a alimentar bebé	none
-👩‍🍼	mulher a alimentar bebé	none
 🧓	pessoa idosa	none
 👴	idoso	none
 🙍	pessoa de sobrolho franzido	none
@@ -250,12 +251,16 @@ symbols:
 👲	homem com chapéu chinês	none
 🧕	mulher com lenço na cabeça	none
 👰	pessoa com véu	none
-👰‍♀	mulher com véu	none
 👰‍♂	homem com véu	none
+👰‍♀	mulher com véu	none
 🤱	amamentar	none
+👩‍🍼	mulher a alimentar bebé	none
+👨‍🍼	homem a alimentar bebé	none
+🧑‍🍼	pessoa a alimentar bebé	none
 👼	anjo bebé	none
 🎅	pai natal	none
 🤶	mãe natal	none
+🧑‍🎄	Sra. Natal	none
 🦹‍♀	mulher supervilã	none
 🧛‍♀	vampira	none
 🧜	tritão	none
@@ -338,6 +343,7 @@ symbols:
 👬	homens de mãos dadas	none
 💑	casal com coração	none
 🗣	cabeça a falar	none
+🫂	pessoas abraçadas	none
 🦰	cabelo ruivo	none
 🦱	cabelo encaracolado	none
 🐵	cara de macaco	none
@@ -375,6 +381,7 @@ symbols:
 🐥	pintainho a olhar para a frente	none
 🕊	pomba	none
 🦉	mocho	none
+🦤	dodó	none
 🦎	lagarto	none
 🐲	cara de dragão	none
 🐳	baleia com esguicho de água	none
@@ -403,6 +410,7 @@ symbols:
 🍆	beringela	none
 🌽	espiga de milho	none
 🌶	malagueta	none
+🫑	pimento	none
 🥦	brócolos	none
 🥜	amendoins	none
 🥯	bagel	none
@@ -513,6 +521,7 @@ symbols:
 🚖	táxi a aproximar-se	none
 🚗	automóvel	none
 🚘	automóvel a aproximar-se	none
+🛻	carrinha	none
 🚚	camião de entregas	none
 🚛	camião articulado	none
 🏍	mota	none
@@ -664,6 +673,7 @@ symbols:
 🎛	botões de controlo	none
 🎧	auscultador	none
 🎸	guitarra elétrica	none
+🪘	tambor alto	none
 📱	telemóvel	none
 📲	telemóvel com seta	none
 ☎	telefone	none
@@ -696,7 +706,6 @@ symbols:
 🔖	marcador de livros	none
 💸	dinheiro com asas	none
 💹	gráfico a subir com iene	none
-💲	símbolo de dólar	none
 📨	envelope a chegar	none
 📤	bandeja de correio a enviar	none
 📥	bandeja de correio recebido	none
@@ -730,6 +739,7 @@ symbols:
 🗑	cesto do lixo	none
 🛠	martelo e chave inglesa	none
 🗡	punhal	none
+🪛	chave de fendas	none
 ⚙	roda dentada	none
 🗜	grampo	none
 ⚖	balança (objeto)	none
@@ -747,6 +757,7 @@ symbols:
 🧻	rolo de cozinha	none
 🧯	extintor	none
 ⚱	urna	none
+🪧	placard	none
 🏧	sinal de caixa automática	none
 🚮	sinal de lixo no caixote do lixo	none
 🚹	casa de banho para homens	none
@@ -817,6 +828,15 @@ symbols:
 📴	telemóvel desligado	none
 ♀	símbolo feminino	none
 ♂	símbolo masculino	none
+⚧	símbolo transgénero	none
+✖	multiplicação	none
+➕	adição	none
+➖	subtração	none
+➗	divisão	none
+‼	ponto de exclamação duplo	none
+⁉	pontos de exclamação e de interrogação	none
+〰	traço ondulado	none
+💲	símbolo de dólar	none
 ⚕	símbolo médico	none
 📛	dístico	none
 🔰	símbolo japonês para principiante	none
@@ -824,19 +844,12 @@ symbols:
 ✅	botão de visto	none
 ☑	caixa com visto	none
 ✔	visto	none
-✖	multiplicação	none
 ❌	cruz	none
 ❎	botão com cruz	none
-➕	adição	none
-➖	subtração	none
-➗	divisão	none
 ➿	laço encaracolado duplo	none
 〽	marca de alternância parcial	none
 ✳	asterisco com oito raios	none
 ✴	estrela com oito pontas	none
-‼	ponto de exclamação duplo	none
-⁉	pontos de exclamação e de interrogação	none
-〰	traço ondulado	none
 ©	direitos de autor	none
 ®	marca registada	none
 ™	marca comercial	none
@@ -885,14 +898,9 @@ symbols:
 💠	losango com um ponto	none
 🏁	bandeira axadrezada	none
 🎌	bandeiras do Japão cruzadas	none
-🏳‍⚧	bandeira transgénero	none
 🏳‍🌈	bandeira arco-íris	none
+🏳‍⚧	bandeira transgénero	none
 🏴‍☠	bandeira pirata	none
-🤌🏻	dedos comprimidos tipo de pele 1–2	none
-🤌🏼	dedos comprimidos tipo de pele 3	none
-🤌🏽	dedos comprimidos tipo de pele 4	none
-🤌🏾	dedos comprimidos tipo de pele 5	none
-🤌🏿	dedos comprimidos tipo de pele 6	none
 👋🏻	mão a acenar tipo de pele 1–2	none
 👋🏼	mão a acenar tipo de pele 3	none
 👋🏽	mão a acenar tipo de pele 4	none
@@ -923,6 +931,11 @@ symbols:
 👌🏽	gesto de OK tipo de pele 4	none
 👌🏾	gesto de OK tipo de pele 5	none
 👌🏿	gesto de OK tipo de pele 6	none
+🤌🏻	dedos comprimidos tipo de pele 1–2	none
+🤌🏼	dedos comprimidos tipo de pele 3	none
+🤌🏽	dedos comprimidos tipo de pele 4	none
+🤌🏾	dedos comprimidos tipo de pele 5	none
+🤌🏿	dedos comprimidos tipo de pele 6	none
 🤏🏻	mão a dar um beliscão tipo de pele 1–2	none
 🤏🏼	mão a dar um beliscão tipo de pele 3	none
 🤏🏽	mão a dar um beliscão tipo de pele 4	none
@@ -1135,16 +1148,6 @@ symbols:
 🧑🏽‍🦲	pessoa tipo de pele 4 e careca	none
 🧑🏾‍🦲	pessoa tipo de pele 5 e careca	none
 🧑🏿‍🦲	pessoa tipo de pele 6 e careca	none
-🧑🏻‍🍼	pessoa a alimentar bebé tipo de pele 1–2	none
-🧑🏼‍🍼	pessoa a alimentar bebé tipo de pele 3	none
-🧑🏽‍🍼	pessoa a alimentar bebé tipo de pele 4	none
-🧑🏾‍🍼	pessoa a alimentar bebé tipo de pele 5	none
-🧑🏿‍🍼	pessoa a alimentar bebé tipo de pele 6	none
-🧑🏻‍🎄	Sra. Natal tipo de pele 1–2	none
-🧑🏼‍🎄	Sra. Natal tipo de pele 3	none
-🧑🏽‍🎄	Sra. Natal tipo de pele 4	none
-🧑🏾‍🎄	Sra. Natal tipo de pele 5	none
-🧑🏿‍🎄	Sra. Natal tipo de pele 6	none
 👨🏻	homem tipo de pele 1–2	none
 👨🏼	homem tipo de pele 3	none
 👨🏽	homem tipo de pele 4	none
@@ -1182,11 +1185,6 @@ symbols:
 👨🏽‍🦲	homem tipo de pele 4 e careca	none
 👨🏾‍🦲	homem tipo de pele 5 e careca	none
 👨🏿‍🦲	homem tipo de pele 6 e careca	none
-👨🏻‍🍼	homem a alimentar bebé tipo de pele 1–2	none
-👨🏼‍🍼	homem a alimentar bebé tipo de pele 3	none
-👨🏽‍🍼	homem a alimentar bebé tipo de pele 4	none
-👨🏾‍🍼	homem a alimentar bebé tipo de pele 5	none
-👨🏿‍🍼	homem a alimentar bebé tipo de pele 6	none
 👩🏻	mulher tipo de pele 1–2	none
 👩🏼	mulher tipo de pele 3	none
 👩🏽	mulher tipo de pele 4	none
@@ -1219,11 +1217,6 @@ symbols:
 👩🏽‍🦲	mulher tipo de pele 4 e careca	none
 👩🏾‍🦲	mulher tipo de pele 5 e careca	none
 👩🏿‍🦲	mulher tipo de pele 6 e careca	none
-👩🏻‍🍼	mulher a alimentar bebé tipo de pele 1–2	none
-👩🏼‍🍼	mulher a alimentar bebé tipo de pele 3	none
-👩🏽‍🍼	mulher a alimentar bebé tipo de pele 4	none
-👩🏾‍🍼	mulher a alimentar bebé tipo de pele 5	none
-👩🏿‍🍼	mulher a alimentar bebé tipo de pele 6	none
 🧓🏻	pessoa idosa tipo de pele 1–2	none
 🧓🏼	pessoa idosa tipo de pele 3	none
 🧓🏽	pessoa idosa tipo de pele 4	none
@@ -1674,6 +1667,11 @@ symbols:
 💂🏽‍♀	segurança (mulher) tipo de pele 4	none
 💂🏾‍♀	segurança (mulher) tipo de pele 5	none
 💂🏿‍♀	segurança (mulher) tipo de pele 6	none
+🥷🏻	ninja tipo de pele 1–2	none
+🥷🏼	ninja tipo de pele 3	none
+🥷🏽	ninja tipo de pele 4	none
+🥷🏾	ninja tipo de pele 5	none
+🥷🏿	ninja tipo de pele 6	none
 👷🏻	pedreiro tipo de pele 1–2	none
 👷🏼	pedreiro tipo de pele 3	none
 👷🏽	pedreiro tipo de pele 4	none
@@ -1729,31 +1727,31 @@ symbols:
 🤵🏽	pessoa de smoking tipo de pele 4	none
 🤵🏾	pessoa de smoking tipo de pele 5	none
 🤵🏿	pessoa de smoking tipo de pele 6	none
-🤵🏻‍♀	mulher de smoking tipo de pele 1–2	none
-🤵🏼‍♀	mulher de smoking tipo de pele 3	none
-🤵🏽‍♀	mulher de smoking tipo de pele 4	none
-🤵🏾‍♀	mulher de smoking tipo de pele 5	none
-🤵🏿‍♀	mulher de smoking tipo de pele 6	none
 🤵🏻‍♂	homem de smoking tipo de pele 1–2	none
 🤵🏼‍♂	homem de smoking tipo de pele 3	none
 🤵🏽‍♂	homem de smoking tipo de pele 4	none
 🤵🏾‍♂	homem de smoking tipo de pele 5	none
 🤵🏿‍♂	homem de smoking tipo de pele 6	none
+🤵🏻‍♀	mulher de smoking tipo de pele 1–2	none
+🤵🏼‍♀	mulher de smoking tipo de pele 3	none
+🤵🏽‍♀	mulher de smoking tipo de pele 4	none
+🤵🏾‍♀	mulher de smoking tipo de pele 5	none
+🤵🏿‍♀	mulher de smoking tipo de pele 6	none
 👰🏻	pessoa com véu tipo de pele 1–2	none
 👰🏼	pessoa com véu tipo de pele 3	none
 👰🏽	pessoa com véu tipo de pele 4	none
 👰🏾	pessoa com véu tipo de pele 5	none
 👰🏿	pessoa com véu tipo de pele 6	none
-👰🏻‍♀	mulher com véu tipo de pele 1–2	none
-👰🏼‍♀	mulher com véu tipo de pele 3	none
-👰🏽‍♀	mulher com véu tipo de pele 4	none
-👰🏾‍♀	mulher com véu tipo de pele 5	none
-👰🏿‍♀	mulher com véu tipo de pele 6	none
 👰🏻‍♂	homem com véu tipo de pele 1–2	none
 👰🏼‍♂	homem com véu tipo de pele 3	none
 👰🏽‍♂	homem com véu tipo de pele 4	none
 👰🏾‍♂	homem com véu tipo de pele 5	none
 👰🏿‍♂	homem com véu tipo de pele 6	none
+👰🏻‍♀	mulher com véu tipo de pele 1–2	none
+👰🏼‍♀	mulher com véu tipo de pele 3	none
+👰🏽‍♀	mulher com véu tipo de pele 4	none
+👰🏾‍♀	mulher com véu tipo de pele 5	none
+👰🏿‍♀	mulher com véu tipo de pele 6	none
 🤰🏻	grávida tipo de pele 1–2	none
 🤰🏼	grávida tipo de pele 3	none
 🤰🏽	grávida tipo de pele 4	none
@@ -1764,6 +1762,21 @@ symbols:
 🤱🏽	amamentar tipo de pele 4	none
 🤱🏾	amamentar tipo de pele 5	none
 🤱🏿	amamentar tipo de pele 6	none
+👩🏻‍🍼	mulher a alimentar bebé tipo de pele 1–2	none
+👩🏼‍🍼	mulher a alimentar bebé tipo de pele 3	none
+👩🏽‍🍼	mulher a alimentar bebé tipo de pele 4	none
+👩🏾‍🍼	mulher a alimentar bebé tipo de pele 5	none
+👩🏿‍🍼	mulher a alimentar bebé tipo de pele 6	none
+👨🏻‍🍼	homem a alimentar bebé tipo de pele 1–2	none
+👨🏼‍🍼	homem a alimentar bebé tipo de pele 3	none
+👨🏽‍🍼	homem a alimentar bebé tipo de pele 4	none
+👨🏾‍🍼	homem a alimentar bebé tipo de pele 5	none
+👨🏿‍🍼	homem a alimentar bebé tipo de pele 6	none
+🧑🏻‍🍼	pessoa a alimentar bebé tipo de pele 1–2	none
+🧑🏼‍🍼	pessoa a alimentar bebé tipo de pele 3	none
+🧑🏽‍🍼	pessoa a alimentar bebé tipo de pele 4	none
+🧑🏾‍🍼	pessoa a alimentar bebé tipo de pele 5	none
+🧑🏿‍🍼	pessoa a alimentar bebé tipo de pele 6	none
 👼🏻	anjo bebé tipo de pele 1–2	none
 👼🏼	anjo bebé tipo de pele 3	none
 👼🏽	anjo bebé tipo de pele 4	none
@@ -1779,6 +1792,11 @@ symbols:
 🤶🏽	mãe natal tipo de pele 4	none
 🤶🏾	mãe natal tipo de pele 5	none
 🤶🏿	mãe natal tipo de pele 6	none
+🧑🏻‍🎄	Sra. Natal tipo de pele 1–2	none
+🧑🏼‍🎄	Sra. Natal tipo de pele 3	none
+🧑🏽‍🎄	Sra. Natal tipo de pele 4	none
+🧑🏾‍🎄	Sra. Natal tipo de pele 5	none
+🧑🏿‍🎄	Sra. Natal tipo de pele 6	none
 🦸🏻	super-herói tipo de pele 1–2	none
 🦸🏼	super-herói tipo de pele 3	none
 🦸🏽	super-herói tipo de pele 4	none

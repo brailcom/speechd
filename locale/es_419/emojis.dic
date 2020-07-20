@@ -3,6 +3,17 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+–	guion	none
+«	diple de apertura	none
+»	diple de cierre	none
+§	sección	none
+†	signo de daga	none
+‡	signo de daga doble	none
+•	viñeta	none
+⇅	flecha doble hacia arriba y abajo	none
+⇆	flecha doble hacia la izquierda y derecha	none
+○	círculo vacío	none
+◯	círculo vacío grande	none
 😀	cara feliz	none
 😃	sonrisa con boca abierta	none
 😄	boca y ojos sonrientes	none
@@ -84,7 +95,6 @@ symbols:
 🤜	puño a la derecha	none
 🙌	chocar las manos	none
 🤳	selfie	none
-🧑‍🎄	papá noel	none
 🧓	adulto mayor	none
 👴	hombre mayor	none
 👵	mujer mayor	none
@@ -98,6 +108,7 @@ symbols:
 👷	obrero de construcción	none
 👼	cara de ángel bebé	none
 🎅	Santa Claus	none
+🧑‍🎄	papá noel	none
 🧜‍♂	sireno	none
 💆	masaje facial	none
 💇	corte de pelo	none
@@ -369,18 +380,18 @@ symbols:
 🔽	botón hacia abajo	none
 🎦	filmar	none
 📴	celular apagado	none
+➕	suma	none
+➖	resta	none
+❔	signo de interrogación gris	none
+❕	signo de exclamación gris	none
+〰	línea ondulada	none
 📛	identificación con nombre	none
 🔰	símbolo japonés de principiante	none
 ☑	casilla seleccionada	none
 ✔	marca de verificación grande	none
 ❌	cruz	none
 ❎	cruz con recuadro	none
-➕	suma	none
-➖	resta	none
 〽	alternancia	none
-❔	signo de interrogación gris	none
-❕	signo de exclamación gris	none
-〰	línea ondulada	none
 ©	signo de derechos autor	none
 ®	signo de marca registrada	none
 🆑	botón CL	none
@@ -395,6 +406,7 @@ symbols:
 🔸	diamante naranja pequeño	none
 🔳	cuadrado negro con borde blanco	none
 🔲	cuadrado blanco con borde negro	none
+µ	signo micro	none
 🤚🏻	palma de la mano tono de piel claro	none
 🤚🏼	palma de la mano tono de piel claro medio	none
 🤚🏽	palma de la mano tono de piel medio	none
@@ -460,11 +472,6 @@ symbols:
 🤳🏽	selfie tono de piel medio	none
 🤳🏾	selfie tono de piel oscuro medio	none
 🤳🏿	selfie tono de piel oscuro	none
-🧑🏻‍🎄	papá noel tono de piel claro	none
-🧑🏼‍🎄	papá noel tono de piel claro medio	none
-🧑🏽‍🎄	papá noel tono de piel medio	none
-🧑🏾‍🎄	papá noel tono de piel oscuro medio	none
-🧑🏿‍🎄	papá noel tono de piel oscuro	none
 🧓🏻	adulto mayor tono de piel claro	none
 🧓🏼	adulto mayor tono de piel claro medio	none
 🧓🏽	adulto mayor tono de piel medio	none
@@ -530,6 +537,11 @@ symbols:
 🎅🏽	Santa Claus tono de piel medio	none
 🎅🏾	Santa Claus tono de piel oscuro medio	none
 🎅🏿	Santa Claus tono de piel oscuro	none
+🧑🏻‍🎄	papá noel tono de piel claro	none
+🧑🏼‍🎄	papá noel tono de piel claro medio	none
+🧑🏽‍🎄	papá noel tono de piel medio	none
+🧑🏾‍🎄	papá noel tono de piel oscuro medio	none
+🧑🏿‍🎄	papá noel tono de piel oscuro	none
 🧜🏻‍♂	sireno tono de piel claro	none
 🧜🏼‍♂	sireno tono de piel claro medio	none
 🧜🏽‍♂	sireno tono de piel medio	none

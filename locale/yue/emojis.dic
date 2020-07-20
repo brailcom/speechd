@@ -8,62 +8,41 @@ symbols:
 🏽	中肤色	none
 🏾	中深肤色	none
 🏿	深肤色	none
-⚧	跨性别人士符号	none
-🤌	卒手指	none
-🥲	流眼泪嘅笑脸	none
-🥷	忍者	none
-🥸	面具	none
-🦣	长毛象	none
-🦤	嘟嘟鸟	none
-🦫	水狸	none
-🦬	野牛	none
-🦭	海豹	none
-🧋	珍珠奶茶	none
-🩴	人字拖鞋	none
-🪃	回力镖	none
-🪄	魔法棒	none
-🪅	皮纳塔	none
-🪆	俄罗斯木公仔	none
-🪖	军用头盔	none
-🪗	手风琴	none
-🪘	长鼓	none
-🪙	硬币	none
-🪚	木锯	none
-🪛	螺丝批	none
-🪜	梯	none
-🪝	勾	none
-🪞	镜	none
-🪟	窗	none
-🪠	厕所泵	none
-🪡	缝纫针	none
-🪢	结	none
-🪣	水桶	none
-🪤	老鼠夹	none
-🪥	牙刷	none
-🪦	墓碑	none
-🪧	标语	none
-🪨	石头	none
-🪰	乌蝇	none
-🪱	蟲	none
-🪲	甲壳虫	none
-🪳	曱甴	none
-🪴	盆栽	none
-🪵	木头	none
-🪶	羽毛	none
-🫀	心脏	none
-🫁	肺	none
-🫂	拥抱	none
-🫐	蓝莓	none
-🫑	灯笼椒	none
-🫒	橄榄	none
-🫓	印度薄饼	none
-🫔	墨西哥粽	none
-🫕	芝士火锅	none
-🫖	茶壶	none
-🛖	小屋	none
-🛗	升降机	none
-🛻	农夫车	none
-🛼	滚轴溜冰鞋	none
+–	破折号	none
+—	长破折号	none
+·	中点	none
+«	左双书名号	none
+»	右双书名号	none
+§	部分	none
+†	剑标	none
+‡	双剑标	none
+•	要点	none
+°	度	none
+℗	录音版权	none
+←	指向左嘅箭咀	none
+→	指向右嘅箭咀	none
+↑	指向上嘅箭咀	none
+↓	指向下嘅箭咀	none
+⇅	向左箭咀在向右箭咀上面	none
+⇆	向左箭咀喺向右箭咀上面	none
+∆	递增	none
+∇	拉普拉斯算子	none
+∈	元素	none
+÷	除号	none
+×	乘号	none
+⁻	上标减号	none
+√	平方根	none
+∞	无限符号	none
+∩	交集	none
+∪	合集	none
+≡	完全相同	none
+⊂	子集	none
+▲	实心向上三角形	none
+▼	实心向下三角形	none
+◊	菱形	none
+○	空心圆形	none
+●	实心圆形	none
+◯	大空心圆形	none
 😀	笑脸	none
 😃	大眼睛笑脸	none
 😄	笑脸同微笑眼睛	none
@@ -85,6 +64,7 @@ symbols:
 ☺	微笑嘅脸	none
 😚	亲吻嘅脸同合埋嘅眼	none
 😙	亲吻嘅脸同微笑嘅眼	none
+🥲	流眼泪嘅笑脸	none
 😋	为食嘅脸	none
 😛	伸痢嘅脸	none
 😜	眨眼同伸痢嘅脸	none
@@ -123,6 +103,7 @@ symbols:
 🤯	爆炸头	none
 🤠	戴牛仔帽嘅脸	none
 🥳	开派对嘅脸	none
+🥸	面具	none
 😎	微笑嘅脸同太阳眼镜	none
 🤓	书呆子嘅脸	none
 🧐	戴单片眼镜嘅脸	none
@@ -219,6 +200,7 @@ symbols:
 ✋	举手	none
 🖖	瓦肯式敬礼手势	none
 👌	OK 手势	none
+🤌	卒手指	none
 🤏	捏手	none
 ✌	胜利手势	none
 🤞	交叉手指	none
@@ -255,6 +237,8 @@ symbols:
 🦻	戴助听器嘅耳仔	none
 👃	鼻	none
 🧠	脑	none
+🫀	心脏	none
+🫁	肺	none
 🦷	牙齿	none
 🦴	骨头	none
 👀	双眼	none
@@ -267,15 +251,11 @@ symbols:
 👧	女仔	none
 🧑	成人	none
 👱	金色头发嘅人	none
-🧑‍🍼	哺乳嘅人	none
-🧑‍🎄	圣诞打扮	none
 👨	男人	none
 🧔	留须嘅人	none
 👱‍♂	金色头发嘅男人	none
-👨‍🍼	哺乳嘅男人	none
 👩	女人	none
 👱‍♀	金色头发嘅女人	none
-👩‍🍼	哺乳妈妈	none
 🧓	老人	none
 👴	老伯伯	none
 👵	老婆婆	none
@@ -366,6 +346,7 @@ symbols:
 💂	守卫员	none
 💂‍♂	男守卫员	none
 💂‍♀	女守卫员	none
+🥷	忍者	none
 👷	建筑工人	none
 👷‍♂	男建筑工人	none
 👷‍♀	女建筑工人	none
@@ -377,16 +358,20 @@ symbols:
 👲	戴中国帽嘅男人	none
 🧕	戴住头巾嘅女人	none
 🤵	着晚礼服嘅男人	none
-🤵‍♀	着燕尾服嘅女人	none
 🤵‍♂	着燕尾服嘅男人	none
+🤵‍♀	着燕尾服嘅女人	none
 👰	戴面纱嘅新娘	none
-👰‍♀	戴面纱嘅女人	none
 👰‍♂	戴面纱嘅男人	none
+👰‍♀	戴面纱嘅女人	none
 🤰	孕妇	none
 🤱	哺乳	none
+👩‍🍼	哺乳妈妈	none
+👨‍🍼	哺乳嘅男人	none
+🧑‍🍼	哺乳嘅人	none
 👼	宝贝天使	none
 🎅	圣诞老人	none
 🤶	女圣诞老人	none
+🧑‍🎄	圣诞打扮	none
 🦸	超人	none
 🦸‍♂	男超人	none
 🦸‍♀	女超人	none
@@ -511,6 +496,7 @@ symbols:
 🗣	讲野嘅头	none
 👤	胸像剪影	none
 👥	两个胸像嘅剪影	none
+🫂	拥抱	none
 👣	脚印	none
 🦰	红色头发	none
 🦱	曲发	none
@@ -540,6 +526,7 @@ symbols:
 🦄	独角兽脸	none
 🦓	斑马	none
 🦌	鹿	none
+🦬	野牛	none
 🐮	牛脸	none
 🐂	公牛	none
 🐃	水牛	none
@@ -556,6 +543,7 @@ symbols:
 🦙	大羊驼	none
 🦒	长颈鹿	none
 🐘	大象	none
+🦣	长毛象	none
 🦏	犀牛	none
 🦛	河马	none
 🐭	老鼠脸	none
@@ -565,6 +553,7 @@ symbols:
 🐰	兔脸	none
 🐇	兔	none
 🐿	花栗鼠	none
+🦫	水狸	none
 🦔	刺猬	none
 🦇	蝙蝠	none
 🐻	熊脸	none
@@ -590,6 +579,8 @@ symbols:
 🦆	鸭	none
 🦢	天鹅	none
 🦉	猫头鹰	none
+🦤	嘟嘟鸟	none
+🪶	羽毛	none
 🦩	红鹤	none
 🦚	孔雀	none
 🦜	啄木鸟	none
@@ -605,6 +596,7 @@ symbols:
 🐳	喷紧水嘅鲸鱼	none
 🐋	鲸鱼	none
 🐬	海豚	none
+🦭	海豹	none
 🐟	鱼	none
 🐠	热带鱼	none
 🐡	鸡泡鱼	none
@@ -616,12 +608,16 @@ symbols:
 🐛	虫	none
 🐜	蚂蚁	none
 🐝	蜜蜂	none
+🪲	甲壳虫	none
 🐞	甲虫	none
 🦗	草蜢	none
+🪳	曱甴	none
 🕷	蜘蛛	none
 🕸	蜘蛛网	none
 🦂	蝎子	none
 🦟	蚊	none
+🪰	乌蝇	none
+🪱	蟲	none
 🦠	微生物	none
 💐	花束	none
 🌸	樱花	none
@@ -634,6 +630,7 @@ symbols:
 🌼	开花	none
 🌷	郁金香	none
 🌱	幼苗	none
+🪴	盆栽	none
 🌲	常青树	none
 🌳	落叶树	none
 🌴	棕榈树	none
@@ -659,8 +656,10 @@ symbols:
 🍑	桃	none
 🍒	车厘子	none
 🍓	士多啤梨	none
+🫐	蓝莓	none
 🥝	奇异果	none
 🍅	番茄	none
+🫒	橄榄	none
 🥥	椰子	none
 🥑	牛油果	none
 🍆	茄子	none
@@ -668,6 +667,7 @@ symbols:
 🥕	红萝卜	none
 🌽	粟米	none
 🌶	辣椒	none
+🫑	灯笼椒	none
 🥒	青瓜	none
 🥬	菜	none
 🥦	西兰花	none
@@ -679,6 +679,7 @@ symbols:
 🍞	面包	none
 🥐	牛角包	none
 🥖	法式面包	none
+🫓	印度薄饼	none
 🥨	蝴蝶酥	none
 🥯	比高包	none
 🥞	班戟	none
@@ -695,12 +696,14 @@ symbols:
 🥪	三文治	none
 🌮	墨西哥馅饼	none
 🌯	卷饼	none
+🫔	墨西哥粽	none
 🥙	馅饼	none
 🧆	中东蔬菜球	none
 🥚	蛋	none
 🍳	煮食	none
 🥘	一盘食物	none
 🍲	一碗食物	none
+🫕	芝士火锅	none
 🥣	碗同匙羮	none
 🥗	蔬菜沙律	none
 🍿	爆谷	none
@@ -746,6 +749,7 @@ symbols:
 🍼	婴儿奶樽	none
 🥛	一杯奶	none
 ☕	热饮	none
+🫖	茶壶	none
 🍵	无柄嘅茶杯	none
 🍶	清酒	none
 🍾	开酒塞嘅酒樽	none
@@ -757,6 +761,7 @@ symbols:
 🥂	踫杯	none
 🥃	烈酒㷴	none
 🥤	饮管杯	none
+🧋	珍珠奶茶	none
 🧃	纸包饮品	none
 🧉	玛黛茶	none
 🧊	冰块	none
@@ -786,6 +791,9 @@ symbols:
 🏛	古典建筑	none
 🏗	建筑物建造	none
 🧱	砖	none
+🪨	石头	none
+🪵	木头	none
+🛖	小屋	none
 🏘	屋	none
 🏚	荒废嘅房屋	none
 🏠	房屋	none
@@ -853,6 +861,7 @@ symbols:
 🚗	汽车	none
 🚘	快到嘅汽车	none
 🚙	运动型多功能车	none
+🛻	农夫车	none
 🚚	送货车	none
 🚛	拖头车	none
 🚜	拖拉机	none
@@ -865,6 +874,7 @@ symbols:
 🚲	单车	none
 🛴	滑板车	none
 🛹	滑板	none
+🛼	滚轴溜冰鞋	none
 🚏	巴士站	none
 🛣	公路	none
 🛤	铁路轨道	none
@@ -1035,6 +1045,7 @@ symbols:
 🪁	风筝	none
 🎱	8 号桌球	none
 🔮	水晶球	none
+🪄	魔法棒	none
 🧿	纳扎尔护身符	none
 🎮	电视游戏	none
 🕹	游戏杆	none
@@ -1042,6 +1053,8 @@ symbols:
 🎲	游戏骰子	none
 🧩	砌图	none
 🧸	熊仔	none
+🪅	皮纳塔	none
+🪆	俄罗斯木公仔	none
 ♠	葵扇	none
 ♥	红心	none
 ♦	阶砖	none
@@ -1054,7 +1067,9 @@ symbols:
 🖼	框画	none
 🎨	调色板	none
 🧵	绳	none
+🪡	缝纫针	none
 🧶	冷球	none
+🪢	结	none
 👓	眼镜	none
 🕶	太阳眼镜	none
 🥽	护镜	none
@@ -1080,6 +1095,7 @@ symbols:
 👝	手提袋	none
 🛍	购物袋	none
 🎒	学校背囊	none
+🩴	人字拖鞋	none
 👞	男装鞋	none
 👟	跑鞋	none
 🥾	行山鞋	none
@@ -1093,6 +1109,7 @@ symbols:
 🎩	顶帽	none
 🎓	毕业帽	none
 🧢	帽	none
+🪖	军用头盔	none
 ⛑	救援人员嘅头盔	none
 📿	念珠	none
 💄	唇膏	none
@@ -1117,12 +1134,14 @@ symbols:
 🎧	耳机	none
 📻	收音机	none
 🎷	色士风	none
+🪗	手风琴	none
 🎸	结他	none
 🎹	音乐键盘	none
 🎺	喇叭	none
 🎻	小提琴	none
 🪕	班卓琴	none
 🥁	鼓	none
+🪘	长鼓	none
 📱	手提电话	none
 📲	有箭咀嘅手提电话	none
 ☎	电话	none
@@ -1176,6 +1195,7 @@ symbols:
 🔖	书签	none
 🏷	标签	none
 💰	钱袋	none
+🪙	硬币	none
 💴	日圆纸币	none
 💵	美元纸币	none
 💶	欧元纸币	none
@@ -1184,8 +1204,6 @@ symbols:
 💳	信用卡	none
 🧾	收据	none
 💹	日元升值	none
-💱	货币兑换	none
-💲	粗美元符号	none
 ✉	信封	none
 📧	电邮	none
 📨	收到嘅信封	none
@@ -1243,9 +1261,12 @@ symbols:
 🗡	匕首	none
 ⚔	交叉嘅剑	none
 🔫	手枪	none
+🪃	回力镖	none
 🏹	弓箭	none
 🛡	盾	none
+🪚	木锯	none
 🔧	士巴拿	none
+🪛	螺丝批	none
 🔩	螺母同螺栓	none
 ⚙	齿轮	none
 🗜	钳	none
@@ -1253,8 +1274,10 @@ symbols:
 🦯	探测拐杖	none
 🔗	连结	none
 ⛓	链	none
+🪝	勾	none
 🧰	工具箱	none
 🧲	磁石	none
+🪜	梯	none
 ⚗	蒸馏器	none
 🧪	试管	none
 🧫	培养皿	none
@@ -1268,26 +1291,35 @@ symbols:
 🩹	胶布	none
 🩺	听筒	none
 🚪	门	none
+🛗	升降机	none
+🪞	镜	none
+🪟	窗	none
 🛏	床	none
 🛋	沙发和座灯	none
 🪑	櫈	none
 🚽	厕所	none
+🪠	厕所泵	none
 🚿	花洒	none
 🛁	浴缸	none
+🪤	老鼠夹	none
 🪒	剃刀	none
 🧴	乳液樽	none
 🧷	扣针	none
 🧹	扫把	none
 🧺	篮	none
 🧻	卷纸	none
+🪣	水桶	none
 🧼	番枧	none
+🪥	牙刷	none
 🧽	海绵	none
 🧯	㵴火筒	none
 🛒	购物车	none
 🚬	香烟	none
 ⚰	棺材	none
+🪦	墓碑	none
 ⚱	殡仪馆	none
 🗿	摩艾	none
+🪧	标语	none
 🏧	自动柜员机标志	none
 🚮	垃圾桶标志	none
 🚰	自来水	none
@@ -1386,8 +1418,22 @@ symbols:
 📴	手机关闭	none
 ♀	女性标志	none
 ♂	男性标志	none
-⚕	医疗符号	none
+⚧	跨性别人士符号	none
+✖	粗乘号	none
+➕	粗加号	none
+➖	粗减号	none
+➗	粗除号	none
 ♾	无限	none
+‼	双感叹号	none
+⁉	感叹问号	none
+❓	问号	none
+❔	白色问号	none
+❕	白色感叹号	none
+❗	感叹号	none
+〰	波浪破折号	none
+💱	货币兑换	none
+💲	粗美元符号	none
+⚕	医疗符号	none
 ♻	循环再造符号	none
 ⚜	鸢尾花	none
 🔱	三叉戟徽章	none
@@ -1397,25 +1443,14 @@ symbols:
 ✅	白色粗剔号	none
 ☑	有剔嘅选框	none
 ✔	粗剔号	none
-✖	粗乘号	none
 ❌	交叉	none
 ❎	交叉按钮	none
-➕	粗加号	none
-➖	粗减号	none
-➗	粗除号	none
 ➰	卷曲圈	none
 ➿	双卷曲圈	none
 〽	歌记号	none
 ✳	八角星	none
 ✴	八角星星	none
 ❇	闪闪	none
-‼	双感叹号	none
-⁉	感叹问号	none
-❓	问号	none
-❔	白色问号	none
-❕	白色感叹号	none
-❗	感叹号	none
-〰	波浪破折号	none
 ©	版权	none
 ®	注册	none
 ™	商标	none
@@ -1497,14 +1532,18 @@ symbols:
 🎌	交叉旗	none
 🏴	黑色旗	none
 🏳	白色旗	none
-🏳‍⚧	蓝色、粉红色同白色嘅旗	none
 🏳‍🌈	彩虹旗	none
+🏳‍⚧	蓝色、粉红色同白色嘅旗	none
 🏴‍☠	海盗旗	none
-🤌🏻	卒手指 浅肤色	none
-🤌🏼	卒手指 中浅肤色	none
-🤌🏽	卒手指 中肤色	none
-🤌🏾	卒手指 中深肤色	none
-🤌🏿	卒手指 深肤色	none
+£	英镑	none
+¥	日圆	none
+€	欧罗	none
+₹	印度卢比	none
+₽	卢布	none
+¹	上标一	none
+²	上标二	none
+³	上标三	none
+µ	微单位标志	none
 👋🏻	挥手 浅肤色	none
 👋🏼	挥手 中浅肤色	none
 👋🏽	挥手 中肤色	none
@@ -1535,6 +1574,11 @@ symbols:
 👌🏽	OK 手势 中肤色	none
 👌🏾	OK 手势 中深肤色	none
 👌🏿	OK 手势 深肤色	none
+🤌🏻	卒手指 浅肤色	none
+🤌🏼	卒手指 中浅肤色	none
+🤌🏽	卒手指 中肤色	none
+🤌🏾	卒手指 中深肤色	none
+🤌🏿	卒手指 深肤色	none
 🤏🏻	捏手 浅肤色	none
 🤏🏼	捏手 中浅肤色	none
 🤏🏽	捏手 中肤色	none
@@ -1749,16 +1793,6 @@ symbols:
 🧑🏽‍🦲	成人 中肤色 光头	none
 🧑🏾‍🦲	成人 中深肤色 光头	none
 🧑🏿‍🦲	成人 深肤色 光头	none
-🧑🏻‍🍼	哺乳嘅人 浅肤色	none
-🧑🏼‍🍼	哺乳嘅人 中浅肤色	none
-🧑🏽‍🍼	哺乳嘅人 中肤色	none
-🧑🏾‍🍼	哺乳嘅人 中深肤色	none
-🧑🏿‍🍼	哺乳嘅人 深肤色	none
-🧑🏻‍🎄	圣诞打扮 浅肤色	none
-🧑🏼‍🎄	圣诞打扮 中浅肤色	none
-🧑🏽‍🎄	圣诞打扮 中肤色	none
-🧑🏾‍🎄	圣诞打扮 中深肤色	none
-🧑🏿‍🎄	圣诞打扮 深肤色	none
 👨🏻	男人 浅肤色	none
 👨🏼	男人 中浅肤色	none
 👨🏽	男人 中肤色	none
@@ -1798,11 +1832,6 @@ symbols:
 👨🏽‍🦲	男人 中肤色 光头	none
 👨🏾‍🦲	男人 中深肤色 光头	none
 👨🏿‍🦲	男人 深肤色 光头	none
-👨🏻‍🍼	哺乳嘅男人 浅肤色	none
-👨🏼‍🍼	哺乳嘅男人 中浅肤色	none
-👨🏽‍🍼	哺乳嘅男人 中肤色	none
-👨🏾‍🍼	哺乳嘅男人 中深肤色	none
-👨🏿‍🍼	哺乳嘅男人 深肤色	none
 👩🏻	女人 浅肤色	none
 👩🏼	女人 中浅肤色	none
 👩🏽	女人 中肤色	none
@@ -1837,11 +1866,6 @@ symbols:
 👩🏽‍🦲	女人 中肤色 光头	none
 👩🏾‍🦲	女人 中深肤色 光头	none
 👩🏿‍🦲	女人 深肤色 光头	none
-👩🏻‍🍼	哺乳妈妈 浅肤色	none
-👩🏼‍🍼	哺乳妈妈 中浅肤色	none
-👩🏽‍🍼	哺乳妈妈 中肤色	none
-👩🏾‍🍼	哺乳妈妈 中深肤色	none
-👩🏿‍🍼	哺乳妈妈 深肤色	none
 🧓🏻	老人 浅肤色	none
 🧓🏼	老人 中浅肤色	none
 🧓🏽	老人 中肤色	none
@@ -2292,6 +2316,11 @@ symbols:
 💂🏽‍♀	女守卫员 中肤色	none
 💂🏾‍♀	女守卫员 中深肤色	none
 💂🏿‍♀	女守卫员 深肤色	none
+🥷🏻	忍者 浅肤色	none
+🥷🏼	忍者 中浅肤色	none
+🥷🏽	忍者 中肤色	none
+🥷🏾	忍者 中深肤色	none
+🥷🏿	忍者 深肤色	none
 👷🏻	建筑工人 浅肤色	none
 👷🏼	建筑工人 中浅肤色	none
 👷🏽	建筑工人 中肤色	none
@@ -2347,31 +2376,31 @@ symbols:
 🤵🏽	着晚礼服嘅男人 中肤色	none
 🤵🏾	着晚礼服嘅男人 中深肤色	none
 🤵🏿	着晚礼服嘅男人 深肤色	none
-🤵🏻‍♀	着燕尾服嘅女人 浅肤色	none
-🤵🏼‍♀	着燕尾服嘅女人 中浅肤色	none
-🤵🏽‍♀	着燕尾服嘅女人 中肤色	none
-🤵🏾‍♀	着燕尾服嘅女人 中深肤色	none
-🤵🏿‍♀	着燕尾服嘅女人 深肤色	none
 🤵🏻‍♂	着燕尾服嘅男人 浅肤色	none
 🤵🏼‍♂	着燕尾服嘅男人 中浅肤色	none
 🤵🏽‍♂	着燕尾服嘅男人 中肤色	none
 🤵🏾‍♂	着燕尾服嘅男人 中深肤色	none
 🤵🏿‍♂	着燕尾服嘅男人 深肤色	none
+🤵🏻‍♀	着燕尾服嘅女人 浅肤色	none
+🤵🏼‍♀	着燕尾服嘅女人 中浅肤色	none
+🤵🏽‍♀	着燕尾服嘅女人 中肤色	none
+🤵🏾‍♀	着燕尾服嘅女人 中深肤色	none
+🤵🏿‍♀	着燕尾服嘅女人 深肤色	none
 👰🏻	戴面纱嘅新娘 浅肤色	none
 👰🏼	戴面纱嘅新娘 中浅肤色	none
 👰🏽	戴面纱嘅新娘 中肤色	none
 👰🏾	戴面纱嘅新娘 中深肤色	none
 👰🏿	戴面纱嘅新娘 深肤色	none
-👰🏻‍♀	戴面纱嘅女人 浅肤色	none
-👰🏼‍♀	戴面纱嘅女人 中浅肤色	none
-👰🏽‍♀	戴面纱嘅女人 中肤色	none
-👰🏾‍♀	戴面纱嘅女人 中深肤色	none
-👰🏿‍♀	戴面纱嘅女人 深肤色	none
 👰🏻‍♂	戴面纱嘅男人 浅肤色	none
 👰🏼‍♂	戴面纱嘅男人 中浅肤色	none
 👰🏽‍♂	戴面纱嘅男人 中肤色	none
 👰🏾‍♂	戴面纱嘅男人 中深肤色	none
 👰🏿‍♂	戴面纱嘅男人 深肤色	none
+👰🏻‍♀	戴面纱嘅女人 浅肤色	none
+👰🏼‍♀	戴面纱嘅女人 中浅肤色	none
+👰🏽‍♀	戴面纱嘅女人 中肤色	none
+👰🏾‍♀	戴面纱嘅女人 中深肤色	none
+👰🏿‍♀	戴面纱嘅女人 深肤色	none
 🤰🏻	孕妇 浅肤色	none
 🤰🏼	孕妇 中浅肤色	none
 🤰🏽	孕妇 中肤色	none
@@ -2382,6 +2411,21 @@ symbols:
 🤱🏽	哺乳 中肤色	none
 🤱🏾	哺乳 中深肤色	none
 🤱🏿	哺乳 深肤色	none
+👩🏻‍🍼	哺乳妈妈 浅肤色	none
+👩🏼‍🍼	哺乳妈妈 中浅肤色	none
+👩🏽‍🍼	哺乳妈妈 中肤色	none
+👩🏾‍🍼	哺乳妈妈 中深肤色	none
+👩🏿‍🍼	哺乳妈妈 深肤色	none
+👨🏻‍🍼	哺乳嘅男人 浅肤色	none
+👨🏼‍🍼	哺乳嘅男人 中浅肤色	none
+👨🏽‍🍼	哺乳嘅男人 中肤色	none
+👨🏾‍🍼	哺乳嘅男人 中深肤色	none
+👨🏿‍🍼	哺乳嘅男人 深肤色	none
+🧑🏻‍🍼	哺乳嘅人 浅肤色	none
+🧑🏼‍🍼	哺乳嘅人 中浅肤色	none
+🧑🏽‍🍼	哺乳嘅人 中肤色	none
+🧑🏾‍🍼	哺乳嘅人 中深肤色	none
+🧑🏿‍🍼	哺乳嘅人 深肤色	none
 👼🏻	宝贝天使 浅肤色	none
 👼🏼	宝贝天使 中浅肤色	none
 👼🏽	宝贝天使 中肤色	none
@@ -2397,6 +2441,11 @@ symbols:
 🤶🏽	女圣诞老人 中肤色	none
 🤶🏾	女圣诞老人 中深肤色	none
 🤶🏿	女圣诞老人 深肤色	none
+🧑🏻‍🎄	圣诞打扮 浅肤色	none
+🧑🏼‍🎄	圣诞打扮 中浅肤色	none
+🧑🏽‍🎄	圣诞打扮 中肤色	none
+🧑🏾‍🎄	圣诞打扮 中深肤色	none
+🧑🏿‍🎄	圣诞打扮 深肤色	none
 🦸🏻	超人 浅肤色	none
 🦸🏼	超人 中浅肤色	none
 🦸🏽	超人 中肤色	none

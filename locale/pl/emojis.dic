@@ -8,62 +8,41 @@ symbols:
 🏽	karnacja średnia	none
 🏾	karnacja średnio ciemna	none
 🏿	karnacja ciemna	none
-⚧	symbol transpłciowości	none
-🤌	złączone palce	none
-🥲	uśmiechnięta buźka ze łzą	none
-🥷	ninja	none
-🥸	buźka w przebraniu	none
-🦣	mamut	none
-🦤	dodo	none
-🦫	bóbr	none
-🦬	żubr	none
-🦭	foka	none
-🧋	napój bubble tea	none
-🩴	japonka	none
-🪃	bumerang	none
-🪄	czarodziejska różdżka	none
-🪅	piniata	none
-🪆	matrioszki	none
-🪖	hełm wojskowy	none
-🪗	akordeon	none
-🪘	konga	none
-🪙	moneta	none
-🪚	piła do drewna	none
-🪛	śrubokręt	none
-🪜	drabina	none
-🪝	hak	none
-🪞	lustro	none
-🪟	okno	none
-🪠	przepychacz	none
-🪡	igła krawiecka	none
-🪢	węzeł	none
-🪣	wiadro	none
-🪤	pułapka na myszy	none
-🪥	szczoteczka do zębów	none
-🪦	nagrobek	none
-🪧	tabliczka	none
-🪨	skała	none
-🪰	mucha	none
-🪱	robak	none
-🪲	chrząszcz	none
-🪳	karaluch	none
-🪴	roślina doniczkowa	none
-🪵	drewno	none
-🪶	pióro	none
-🫀	serce	none
-🫁	płuca	none
-🫂	obejmujące się osoby	none
-🫐	borówka amerykańska	none
-🫑	papryka	none
-🫒	oliwka	none
-🫓	pita	none
-🫔	tamales	none
-🫕	fondue	none
-🫖	czajniczek	none
-🛖	chata	none
-🛗	winda	none
-🛻	pick-up	none
-🛼	wrotka	none
+–	znak półpauzy	none
+—	znak pauzy	none
+·	kropka środkowa	none
+«	lewy cudzysłów ostrokątny	none
+»	prawy cudzysłów ostrokątny	none
+§	paragraf	none
+†	znak sztyletu	none
+‡	znak podwójnego sztyletu	none
+•	punktor	none
+°	stopień	none
+℗	znak praw autorskich do nagrań muzycznych	none
+←	strzałka skierowana w lewo	none
+→	strzałka skierowana w prawo	none
+↑	strzałka skierowana w górę	none
+↓	strzałka skierowana w dół	none
+⇅	strzałki skierowane w górę i w dół	none
+⇆	strzałka w lewo nad strzałką w prawo	none
+∆	delta	none
+∇	nabla	none
+∈	należy do	none
+÷	znak ilorazu	none
+×	znak iloczynu	none
+⁻	minus w indeksie górnym	none
+√	pierwiastek kwadratowy	none
+∞	znak nieskończoności	none
+∩	iloczyn zbiorów	none
+∪	suma zbiorów	none
+≡	tożsamy z	none
+⊂	jest zawarty w	none
+▲	wypełniony trójkąt skierowany w górę	none
+▼	wypełniony trójkąt skierowany w dół	none
+◊	romb	none
+○	okrąg	none
+●	koło	none
+◯	duży okrąg	none
 😀	szeroko uśmiechnięta twarz	none
 😃	uśmiechnięta twarz z otwartymi ustami	none
 😄	uśmiechnięta twarz z otwartymi ustami i roześmianymi oczami	none
@@ -85,6 +64,7 @@ symbols:
 ☺	uśmiechnięta twarz	none
 😚	całująca twarz z zamkniętymi oczami	none
 😙	całująca twarz o roześmianych oczach	none
+🥲	uśmiechnięta buźka ze łzą	none
 😋	twarz delektująca się pysznym jedzeniem	none
 😛	twarz wystawiająca język	none
 😜	twarz wystawiająca język i puszczająca oko	none
@@ -123,6 +103,7 @@ symbols:
 🤯	eksplodująca głowa	none
 🤠	głowa w kapeluszu kowbojskim	none
 🥳	świętująca twarz	none
+🥸	buźka w przebraniu	none
 😎	uśmiechnięta twarz w okularach przeciwsłonecznych	none
 🤓	kujon	none
 🧐	twarz z monoklem	none
@@ -219,6 +200,7 @@ symbols:
 ✋	wzniesiona dłoń	none
 🖖	salut wolkański	none
 👌	dłoń z gestem OK	none
+🤌	złączone palce	none
 🤏	dłoń z gestem „trochę”	none
 ✌	gest V	none
 🤞	skrzyżowane palce	none
@@ -255,6 +237,8 @@ symbols:
 🦻	ucho z aparatem słuchowym	none
 👃	nos	none
 🧠	mózg	none
+🫀	serce	none
+🫁	płuca	none
 🦷	ząb	none
 🦴	kość	none
 👀	oczy	none
@@ -267,15 +251,11 @@ symbols:
 👧	dziewczynka	none
 🧑	dorosły	none
 👱	osoba z włosami blond	none
-🧑‍🍼	osoba karmiąca niemowlę	none
-🧑‍🎄	Mikołajka	none
 👨	mężczyzna	none
 🧔	mężczyzna z brodą	none
 👱‍♂	blondyn	none
-👨‍🍼	mężczyzna karmiący niemowlę	none
 👩	kobieta	none
 👱‍♀	blondynka	none
-👩‍🍼	kobieta karmiąca niemowlę	none
 🧓	starszy dorosły	none
 👴	starszy mężczyzna	none
 👵	starsza kobieta	none
@@ -366,6 +346,7 @@ symbols:
 💂	gwardzista	none
 💂‍♂	mężczyzna gwardzista	none
 💂‍♀	kobieta gwardzista	none
+🥷	ninja	none
 👷	budowlaniec	none
 👷‍♂	mężczyzna budowlaniec	none
 👷‍♀	kobieta budowlaniec	none
@@ -377,16 +358,20 @@ symbols:
 👲	mężczyzna w chińskiej czapce	none
 🧕	kobieta w chuście	none
 🤵	osoba w smokingu	none
-🤵‍♀	kobieta w smokingu	none
 🤵‍♂	mężczyzna w smokingu	none
+🤵‍♀	kobieta w smokingu	none
 👰	osoba w welonie	none
-👰‍♀	kobieta w welonie	none
 👰‍♂	mężczyzna w welonie	none
+👰‍♀	kobieta w welonie	none
 🤰	kobieta w ciąży	none
 🤱	karmienie piersią	none
+👩‍🍼	kobieta karmiąca niemowlę	none
+👨‍🍼	mężczyzna karmiący niemowlę	none
+🧑‍🍼	osoba karmiąca niemowlę	none
 👼	aniołek	none
 🎅	Święty Mikołaj	none
 🤶	żona św. Mikołaja	none
+🧑‍🎄	Mikołajka	none
 🦸	superbohater	none
 🦸‍♂	mężczyzna superbohater	none
 🦸‍♀	kobieta superbohater	none
@@ -511,6 +496,7 @@ symbols:
 🗣	mówiąca głowa	none
 👤	sylwetka popiersia	none
 👥	sylwetki popiersi	none
+🫂	obejmujące się osoby	none
 👣	ślady stóp	none
 🦰	rude włosy	none
 🦱	kręcone włosy	none
@@ -540,6 +526,7 @@ symbols:
 🦄	głowa jednorożca	none
 🦓	zebra	none
 🦌	jeleń	none
+🦬	żubr	none
 🐮	głowa krowy	none
 🐂	wół	none
 🐃	wół domowy	none
@@ -556,6 +543,7 @@ symbols:
 🦙	lama	none
 🦒	żyrafa	none
 🐘	słoń	none
+🦣	mamut	none
 🦏	nosorożec	none
 🦛	hipopotam	none
 🐭	głowa myszy	none
@@ -565,6 +553,7 @@ symbols:
 🐰	głowa królika	none
 🐇	królik	none
 🐿	pręgowiec	none
+🦫	bóbr	none
 🦔	jeż	none
 🦇	nietoperz	none
 🐻	głowa niedźwiedzia	none
@@ -590,6 +579,8 @@ symbols:
 🦆	kaczka	none
 🦢	łabędź	none
 🦉	sowa	none
+🦤	dodo	none
+🪶	pióro	none
 🦩	flaming	none
 🦚	paw	none
 🦜	papuga	none
@@ -605,6 +596,7 @@ symbols:
 🐳	wieloryb tryskający wodą	none
 🐋	wieloryb	none
 🐬	delfin	none
+🦭	foka	none
 🐟	ryba	none
 🐠	ryba tropikalna	none
 🐡	ryba rozdymka	none
@@ -616,12 +608,16 @@ symbols:
 🐛	gąsienica	none
 🐜	mrówka	none
 🐝	pszczoła	none
+🪲	chrząszcz	none
 🐞	biedronka	none
 🦗	świerszcz	none
+🪳	karaluch	none
 🕷	pająk	none
 🕸	pajęczyna	none
 🦂	brązowy skorpion	none
 🦟	komar	none
+🪰	mucha	none
+🪱	robak	none
 🦠	zarazek	none
 💐	bukiet kwiatów	none
 🌸	kwiat wiśni	none
@@ -634,6 +630,7 @@ symbols:
 🌼	kwiat	none
 🌷	tulipan	none
 🌱	sadzonka	none
+🪴	roślina doniczkowa	none
 🌲	wiecznie zielone drzewo	none
 🌳	drzewo liściaste	none
 🌴	palma	none
@@ -659,8 +656,10 @@ symbols:
 🍑	brzoskwinia	none
 🍒	wiśnie	none
 🍓	truskawka	none
+🫐	borówka amerykańska	none
 🥝	owoc kiwi	none
 🍅	pomidor	none
+🫒	oliwka	none
 🥥	kokos	none
 🥑	awokado	none
 🍆	bakłażan	none
@@ -668,6 +667,7 @@ symbols:
 🥕	marchew	none
 🌽	kolba kukurydzy	none
 🌶	ostra papryka	none
+🫑	papryka	none
 🥒	ogórek	none
 🥬	zielenina liściasta	none
 🥦	brokuł	none
@@ -679,6 +679,7 @@ symbols:
 🍞	chleb	none
 🥐	rogalik	none
 🥖	bagietka	none
+🫓	pita	none
 🥨	precel	none
 🥯	bajgiel	none
 🥞	naleśniki	none
@@ -695,12 +696,14 @@ symbols:
 🥪	kanapka	none
 🌮	taco	none
 🌯	burrito	none
+🫔	tamales	none
 🥙	wrap	none
 🧆	falafel	none
 🥚	jajko	none
 🍳	gotowanie	none
 🥘	danie z patelni	none
 🍲	garnek z jedzeniem	none
+🫕	fondue	none
 🥣	miska z łyżką	none
 🥗	sałatka	none
 🍿	popcorn	none
@@ -746,6 +749,7 @@ symbols:
 🍼	butelka ze smoczkiem	none
 🥛	szklanka mleka	none
 ☕	gorący napój	none
+🫖	czajniczek	none
 🍵	filiżanka bez uszka	none
 🍶	sake	none
 🍾	butelka z wystrzelającym korkiem	none
@@ -757,6 +761,7 @@ symbols:
 🥂	stukające się kieliszki	none
 🥃	szklanka z grubym dnem	none
 🥤	szklanka ze słomką	none
+🧋	napój bubble tea	none
 🧃	napój w kartoniku	none
 🧉	yerba mate	none
 🧊	kostka lodu	none
@@ -786,6 +791,9 @@ symbols:
 🏛	klasyczna budowla	none
 🏗	dźwig budowlany	none
 🧱	cegła	none
+🪨	skała	none
+🪵	drewno	none
+🛖	chata	none
 🏘	domki	none
 🏚	stary dom	none
 🏠	dom	none
@@ -853,6 +861,7 @@ symbols:
 🚗	samochód	none
 🚘	nadjeżdżający samochód	none
 🚙	samochód SUV	none
+🛻	pick-up	none
 🚚	samochód dostawczy	none
 🚛	samochód ciężarowy	none
 🚜	ciągnik	none
@@ -865,6 +874,7 @@ symbols:
 🚲	rower	none
 🛴	hulajnoga	none
 🛹	deskorolka	none
+🛼	wrotka	none
 🚏	przystanek autobusowy	none
 🛣	autostrada	none
 🛤	tor kolejowy	none
@@ -1035,6 +1045,7 @@ symbols:
 🪁	latawiec	none
 🎱	bila 8	none
 🔮	kryształowa kula	none
+🪄	czarodziejska różdżka	none
 🧿	amulet nazar	none
 🎮	gra wideo	none
 🕹	dżojstik	none
@@ -1042,6 +1053,8 @@ symbols:
 🎲	kostka do gry	none
 🧩	element układanki	none
 🧸	miś pluszowy	none
+🪅	piniata	none
+🪆	matrioszki	none
 ♠	pik	none
 ♥	kier	none
 ♦	karo	none
@@ -1054,7 +1067,9 @@ symbols:
 🖼	obrazek w ramce	none
 🎨	paleta malarska	none
 🧵	nić	none
+🪡	igła krawiecka	none
 🧶	włóczka	none
+🪢	węzeł	none
 👓	okulary	none
 🕶	okulary słoneczne	none
 🥽	okulary ochronne	none
@@ -1080,6 +1095,7 @@ symbols:
 👝	saszetka	none
 🛍	torby na zakupy	none
 🎒	tornister	none
+🩴	japonka	none
 👞	but męski	none
 👟	but do biegania	none
 🥾	but turystyczny	none
@@ -1093,6 +1109,7 @@ symbols:
 🎩	cylinder	none
 🎓	biret	none
 🧢	bejsbolówka	none
+🪖	hełm wojskowy	none
 ⛑	kask z krzyżykiem	none
 📿	sznur modlitewny	none
 💄	szminka	none
@@ -1117,12 +1134,14 @@ symbols:
 🎧	słuchawki	none
 📻	radio	none
 🎷	saksofon	none
+🪗	akordeon	none
 🎸	gitara	none
 🎹	klawisze	none
 🎺	trąbka	none
 🎻	skrzypce	none
 🪕	banjo	none
 🥁	bęben	none
+🪘	konga	none
 📱	telefon komórkowy	none
 📲	telefon komórkowy ze strzałką	none
 ☎	telefon	none
@@ -1176,6 +1195,7 @@ symbols:
 🔖	zakładka	none
 🏷	przywieszka do kluczy	none
 💰	worek z pieniędzmi	none
+🪙	moneta	none
 💴	banknot jena	none
 💵	banknot dolara	none
 💶	banknot euro	none
@@ -1184,8 +1204,6 @@ symbols:
 💳	karta kredytowa	none
 🧾	paragon	none
 💹	wykres wzrostu z symbolem jena	none
-💱	wymiana walut	none
-💲	gruby symbol dolara	none
 ✉	koperta	none
 📧	e-mail	none
 📨	koperta przychodząca	none
@@ -1243,9 +1261,12 @@ symbols:
 🗡	sztylet	none
 ⚔	skrzyżowane miecze	none
 🔫	pistolet	none
+🪃	bumerang	none
 🏹	łuk i strzała	none
 🛡	tarcza	none
+🪚	piła do drewna	none
 🔧	klucz warsztatowy	none
+🪛	śrubokręt	none
 🔩	śruba i nakrętka	none
 ⚙	koło zębate	none
 🗜	ścisk	none
@@ -1253,8 +1274,10 @@ symbols:
 🦯	biała laska	none
 🔗	ogniwa	none
 ⛓	łańcuchy	none
+🪝	hak	none
 🧰	skrzynka na narzędzia	none
 🧲	magnes	none
+🪜	drabina	none
 ⚗	alembik	none
 🧪	probówka	none
 🧫	płytka Petriego	none
@@ -1268,26 +1291,35 @@ symbols:
 🩹	plaster	none
 🩺	stetoskop	none
 🚪	drzwi	none
+🛗	winda	none
+🪞	lustro	none
+🪟	okno	none
 🛏	łóżko	none
 🛋	kanapa i lampa	none
 🪑	krzesło	none
 🚽	muszla klozetowa	none
+🪠	przepychacz	none
 🚿	prysznic	none
 🛁	wanna	none
+🪤	pułapka na myszy	none
 🪒	brzytwa	none
 🧴	butelka z płynem	none
 🧷	agrafka	none
 🧹	miotła	none
 🧺	kosz	none
 🧻	rolka papieru	none
+🪣	wiadro	none
 🧼	mydło	none
+🪥	szczoteczka do zębów	none
 🧽	gąbka	none
 🧯	gaśnica	none
 🛒	wózek sklepowy	none
 🚬	papieros	none
 ⚰	trumna	none
+🪦	nagrobek	none
 ⚱	urna na prochy	none
 🗿	moai	none
+🪧	tabliczka	none
 🏧	znak bankomatu	none
 🚮	znak kosza na śmieci	none
 🚰	woda pitna	none
@@ -1386,8 +1418,22 @@ symbols:
 📴	wyłączony telefon komórkowy	none
 ♀	znak kobiety	none
 ♂	znak mężczyzny	none
-⚕	symbol medycyny	none
+⚧	symbol transpłciowości	none
+✖	znak mnożenia	none
+➕	znak plus	none
+➖	znak minus	none
+➗	znak dzielenia	none
 ♾	nieskończoność	none
+‼	podwójny wykrzyknik	none
+⁉	wykrzyknik ze znakiem zapytania	none
+❓	znak zapytania	none
+❔	biały znak zapytania	none
+❕	biały wykrzyknik	none
+❗	wykrzyknik	none
+〰	falista kreska	none
+💱	wymiana walut	none
+💲	gruby symbol dolara	none
+⚕	symbol medycyny	none
 ♻	recykling	none
 ⚜	lilijka	none
 🔱	emblemat z trójzębem	none
@@ -1397,25 +1443,14 @@ symbols:
 ✅	przycisk ze znacznikiem wyboru	none
 ☑	pole ze znacznikiem wyboru	none
 ✔	znacznik wyboru	none
-✖	znak mnożenia	none
 ❌	znak krzyżyka	none
 ❎	przycisk z krzyżykiem	none
-➕	znak plus	none
-➖	znak minus	none
-➗	znak dzielenia	none
 ➰	pętla	none
 ➿	podwójna pętla	none
 〽	początek partii wokalnej	none
 ✳	gwiazdka ośmioramienna	none
 ✴	gwiazda ośmioramienna	none
 ❇	iskra	none
-‼	podwójny wykrzyknik	none
-⁉	wykrzyknik ze znakiem zapytania	none
-❓	znak zapytania	none
-❔	biały znak zapytania	none
-❕	biały wykrzyknik	none
-❗	wykrzyknik	none
-〰	falista kreska	none
 ©	znak praw autorskich	none
 ®	zarejestrowany znak towarowy	none
 ™	znak towarowy	none
@@ -1497,14 +1532,18 @@ symbols:
 🎌	skrzyżowane flagi	none
 🏴	czarna flaga	none
 🏳	biała flaga	none
-🏳‍⚧	flaga osób transpłciowych	none
 🏳‍🌈	tęczowa flaga	none
+🏳‍⚧	flaga osób transpłciowych	none
 🏴‍☠	piracka flaga	none
-🤌🏻	złączone palce karnacja jasna	none
-🤌🏼	złączone palce karnacja średnio jasna	none
-🤌🏽	złączone palce karnacja średnia	none
-🤌🏾	złączone palce karnacja średnio ciemna	none
-🤌🏿	złączone palce karnacja ciemna	none
+£	funt	none
+¥	jen	none
+€	euro	none
+₹	rupia indyjska	none
+₽	rubel	none
+¹	jeden w indeksie górnym	none
+²	dwa w indeksie górnym	none
+³	trzy w indeksie górnym	none
+µ	znak mikro	none
 👋🏻	machająca dłoń karnacja jasna	none
 👋🏼	machająca dłoń karnacja średnio jasna	none
 👋🏽	machająca dłoń karnacja średnia	none
@@ -1535,6 +1574,11 @@ symbols:
 👌🏽	dłoń z gestem OK karnacja średnia	none
 👌🏾	dłoń z gestem OK karnacja średnio ciemna	none
 👌🏿	dłoń z gestem OK karnacja ciemna	none
+🤌🏻	złączone palce karnacja jasna	none
+🤌🏼	złączone palce karnacja średnio jasna	none
+🤌🏽	złączone palce karnacja średnia	none
+🤌🏾	złączone palce karnacja średnio ciemna	none
+🤌🏿	złączone palce karnacja ciemna	none
 🤏🏻	dłoń z gestem „trochę” karnacja jasna	none
 🤏🏼	dłoń z gestem „trochę” karnacja średnio jasna	none
 🤏🏽	dłoń z gestem „trochę” karnacja średnia	none
@@ -1749,16 +1793,6 @@ symbols:
 🧑🏽‍🦲	dorosły karnacja średnia i łysy	none
 🧑🏾‍🦲	dorosły karnacja średnio ciemna i łysy	none
 🧑🏿‍🦲	dorosły karnacja ciemna i łysy	none
-🧑🏻‍🍼	osoba karmiąca niemowlę karnacja jasna	none
-🧑🏼‍🍼	osoba karmiąca niemowlę karnacja średnio jasna	none
-🧑🏽‍🍼	osoba karmiąca niemowlę karnacja średnia	none
-🧑🏾‍🍼	osoba karmiąca niemowlę karnacja średnio ciemna	none
-🧑🏿‍🍼	osoba karmiąca niemowlę karnacja ciemna	none
-🧑🏻‍🎄	Mikołajka karnacja jasna	none
-🧑🏼‍🎄	Mikołajka karnacja średnio jasna	none
-🧑🏽‍🎄	Mikołajka karnacja średnia	none
-🧑🏾‍🎄	Mikołajka karnacja średnio ciemna	none
-🧑🏿‍🎄	Mikołajka karnacja ciemna	none
 👨🏻	mężczyzna karnacja jasna	none
 👨🏼	mężczyzna karnacja średnio jasna	none
 👨🏽	mężczyzna karnacja średnia	none
@@ -1798,11 +1832,6 @@ symbols:
 👨🏽‍🦲	mężczyzna karnacja średnia i łysy	none
 👨🏾‍🦲	mężczyzna karnacja średnio ciemna i łysy	none
 👨🏿‍🦲	mężczyzna karnacja ciemna i łysy	none
-👨🏻‍🍼	mężczyzna karmiący niemowlę karnacja jasna	none
-👨🏼‍🍼	mężczyzna karmiący niemowlę karnacja średnio jasna	none
-👨🏽‍🍼	mężczyzna karmiący niemowlę karnacja średnia	none
-👨🏾‍🍼	mężczyzna karmiący niemowlę karnacja średnio ciemna	none
-👨🏿‍🍼	mężczyzna karmiący niemowlę karnacja ciemna	none
 👩🏻	kobieta karnacja jasna	none
 👩🏼	kobieta karnacja średnio jasna	none
 👩🏽	kobieta karnacja średnia	none
@@ -1837,11 +1866,6 @@ symbols:
 👩🏽‍🦲	kobieta karnacja średnia i łysy	none
 👩🏾‍🦲	kobieta karnacja średnio ciemna i łysy	none
 👩🏿‍🦲	kobieta karnacja ciemna i łysy	none
-👩🏻‍🍼	kobieta karmiąca niemowlę karnacja jasna	none
-👩🏼‍🍼	kobieta karmiąca niemowlę karnacja średnio jasna	none
-👩🏽‍🍼	kobieta karmiąca niemowlę karnacja średnia	none
-👩🏾‍🍼	kobieta karmiąca niemowlę karnacja średnio ciemna	none
-👩🏿‍🍼	kobieta karmiąca niemowlę karnacja ciemna	none
 🧓🏻	starszy dorosły karnacja jasna	none
 🧓🏼	starszy dorosły karnacja średnio jasna	none
 🧓🏽	starszy dorosły karnacja średnia	none
@@ -2292,6 +2316,11 @@ symbols:
 💂🏽‍♀	kobieta gwardzista karnacja średnia	none
 💂🏾‍♀	kobieta gwardzista karnacja średnio ciemna	none
 💂🏿‍♀	kobieta gwardzista karnacja ciemna	none
+🥷🏻	ninja karnacja jasna	none
+🥷🏼	ninja karnacja średnio jasna	none
+🥷🏽	ninja karnacja średnia	none
+🥷🏾	ninja karnacja średnio ciemna	none
+🥷🏿	ninja karnacja ciemna	none
 👷🏻	budowlaniec karnacja jasna	none
 👷🏼	budowlaniec karnacja średnio jasna	none
 👷🏽	budowlaniec karnacja średnia	none
@@ -2347,31 +2376,31 @@ symbols:
 🤵🏽	osoba w smokingu karnacja średnia	none
 🤵🏾	osoba w smokingu karnacja średnio ciemna	none
 🤵🏿	osoba w smokingu karnacja ciemna	none
-🤵🏻‍♀	kobieta w smokingu karnacja jasna	none
-🤵🏼‍♀	kobieta w smokingu karnacja średnio jasna	none
-🤵🏽‍♀	kobieta w smokingu karnacja średnia	none
-🤵🏾‍♀	kobieta w smokingu karnacja średnio ciemna	none
-🤵🏿‍♀	kobieta w smokingu karnacja ciemna	none
 🤵🏻‍♂	mężczyzna w smokingu karnacja jasna	none
 🤵🏼‍♂	mężczyzna w smokingu karnacja średnio jasna	none
 🤵🏽‍♂	mężczyzna w smokingu karnacja średnia	none
 🤵🏾‍♂	mężczyzna w smokingu karnacja średnio ciemna	none
 🤵🏿‍♂	mężczyzna w smokingu karnacja ciemna	none
+🤵🏻‍♀	kobieta w smokingu karnacja jasna	none
+🤵🏼‍♀	kobieta w smokingu karnacja średnio jasna	none
+🤵🏽‍♀	kobieta w smokingu karnacja średnia	none
+🤵🏾‍♀	kobieta w smokingu karnacja średnio ciemna	none
+🤵🏿‍♀	kobieta w smokingu karnacja ciemna	none
 👰🏻	osoba w welonie karnacja jasna	none
 👰🏼	osoba w welonie karnacja średnio jasna	none
 👰🏽	osoba w welonie karnacja średnia	none
 👰🏾	osoba w welonie karnacja średnio ciemna	none
 👰🏿	osoba w welonie karnacja ciemna	none
-👰🏻‍♀	kobieta w welonie karnacja jasna	none
-👰🏼‍♀	kobieta w welonie karnacja średnio jasna	none
-👰🏽‍♀	kobieta w welonie karnacja średnia	none
-👰🏾‍♀	kobieta w welonie karnacja średnio ciemna	none
-👰🏿‍♀	kobieta w welonie karnacja ciemna	none
 👰🏻‍♂	mężczyzna w welonie karnacja jasna	none
 👰🏼‍♂	mężczyzna w welonie karnacja średnio jasna	none
 👰🏽‍♂	mężczyzna w welonie karnacja średnia	none
 👰🏾‍♂	mężczyzna w welonie karnacja średnio ciemna	none
 👰🏿‍♂	mężczyzna w welonie karnacja ciemna	none
+👰🏻‍♀	kobieta w welonie karnacja jasna	none
+👰🏼‍♀	kobieta w welonie karnacja średnio jasna	none
+👰🏽‍♀	kobieta w welonie karnacja średnia	none
+👰🏾‍♀	kobieta w welonie karnacja średnio ciemna	none
+👰🏿‍♀	kobieta w welonie karnacja ciemna	none
 🤰🏻	kobieta w ciąży karnacja jasna	none
 🤰🏼	kobieta w ciąży karnacja średnio jasna	none
 🤰🏽	kobieta w ciąży karnacja średnia	none
@@ -2382,6 +2411,21 @@ symbols:
 🤱🏽	karmienie piersią karnacja średnia	none
 🤱🏾	karmienie piersią karnacja średnio ciemna	none
 🤱🏿	karmienie piersią karnacja ciemna	none
+👩🏻‍🍼	kobieta karmiąca niemowlę karnacja jasna	none
+👩🏼‍🍼	kobieta karmiąca niemowlę karnacja średnio jasna	none
+👩🏽‍🍼	kobieta karmiąca niemowlę karnacja średnia	none
+👩🏾‍🍼	kobieta karmiąca niemowlę karnacja średnio ciemna	none
+👩🏿‍🍼	kobieta karmiąca niemowlę karnacja ciemna	none
+👨🏻‍🍼	mężczyzna karmiący niemowlę karnacja jasna	none
+👨🏼‍🍼	mężczyzna karmiący niemowlę karnacja średnio jasna	none
+👨🏽‍🍼	mężczyzna karmiący niemowlę karnacja średnia	none
+👨🏾‍🍼	mężczyzna karmiący niemowlę karnacja średnio ciemna	none
+👨🏿‍🍼	mężczyzna karmiący niemowlę karnacja ciemna	none
+🧑🏻‍🍼	osoba karmiąca niemowlę karnacja jasna	none
+🧑🏼‍🍼	osoba karmiąca niemowlę karnacja średnio jasna	none
+🧑🏽‍🍼	osoba karmiąca niemowlę karnacja średnia	none
+🧑🏾‍🍼	osoba karmiąca niemowlę karnacja średnio ciemna	none
+🧑🏿‍🍼	osoba karmiąca niemowlę karnacja ciemna	none
 👼🏻	aniołek karnacja jasna	none
 👼🏼	aniołek karnacja średnio jasna	none
 👼🏽	aniołek karnacja średnia	none
@@ -2397,6 +2441,11 @@ symbols:
 🤶🏽	żona św. Mikołaja karnacja średnia	none
 🤶🏾	żona św. Mikołaja karnacja średnio ciemna	none
 🤶🏿	żona św. Mikołaja karnacja ciemna	none
+🧑🏻‍🎄	Mikołajka karnacja jasna	none
+🧑🏼‍🎄	Mikołajka karnacja średnio jasna	none
+🧑🏽‍🎄	Mikołajka karnacja średnia	none
+🧑🏾‍🎄	Mikołajka karnacja średnio ciemna	none
+🧑🏿‍🎄	Mikołajka karnacja ciemna	none
 🦸🏻	superbohater karnacja jasna	none
 🦸🏼	superbohater karnacja średnio jasna	none
 🦸🏽	superbohater karnacja średnia	none

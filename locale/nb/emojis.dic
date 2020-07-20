@@ -8,62 +8,41 @@ symbols:
 🏽	hudtype 4	none
 🏾	hudtype 5	none
 🏿	hudtype 6	none
-⚧	transperson-symbol	none
-🤌	hånd med fingertuppene sammen	none
-🥲	smilefjes med tåre	none
-🥷	ninja	none
-🥸	fjes med forkledning	none
-🦣	mammut	none
-🦤	dronte	none
-🦫	bever	none
-🦬	bison	none
-🦭	sel	none
-🧋	boble-te	none
-🩴	flippflopp	none
-🪃	bumerang	none
-🪄	tryllestav	none
-🪅	piñata	none
-🪆	matrjosjka	none
-🪖	militærhjelm	none
-🪗	trekkspill	none
-🪘	langtromme	none
-🪙	mynt	none
-🪚	håndsag	none
-🪛	skrutrekker	none
-🪜	stige	none
-🪝	krok	none
-🪞	speil	none
-🪟	vindu	none
-🪠	avløpsåpner	none
-🪡	synål	none
-🪢	knute	none
-🪣	bøtte	none
-🪤	musefelle	none
-🪥	tannbørste	none
-🪦	gravstein	none
-🪧	plakat	none
-🪨	stein	none
-🪰	flue	none
-🪱	mark	none
-🪲	bille	none
-🪳	kakerlakk	none
-🪴	potteplante	none
-🪵	tre	none
-🪶	fjær	none
-🫀	hjertemuskel	none
-🫁	lunger	none
-🫂	klem	none
-🫐	blåbær	none
-🫑	paprika	none
-🫒	oliven	none
-🫓	pitabrød	none
-🫔	tamal	none
-🫕	fondy	none
-🫖	tekanne	none
-🛖	hytte	none
-🛗	heis	none
-🛻	pickup	none
-🛼	rulleskøyter	none
+–	tankestrek	none
+—	lang tankestrek	none
+·	midtstilt punkt	none
+«	venstre anførselstegn	none
+»	høyre anførselstegn	none
+§	paragraftegn	none
+†	korstegn	none
+‡	dobbeltkorstegn	none
+•	punkttegn	none
+°	gradetegn	none
+℗	opphavsrett for lydopptak	none
+←	pil mot venstre	none
+→	pil mot høyre	none
+↑	pil oppover	none
+↓	pil nedover	none
+⇅	pil oppover foran pil nedover	none
+⇆	pil mot venstre over pil mot høyre	none
+∆	matematisk endring	none
+∇	nabla	none
+∈	element i	none
+÷	divisjonstegn	none
+×	multiplikasjonstegn	none
+⁻	hevet minustegn	none
+√	kvadratrot	none
+∞	uendelighetstegn	none
+∩	snitt	none
+∪	union	none
+≡	identisk lik	none
+⊂	delmengde av	none
+▲	fylt trekant som peker opp	none
+▼	fylt trekant som peker ned	none
+◊	hult rutersymbol	none
+○	hul sirkel	none
+●	fylt sirkel	none
+◯	stor hul sirkel	none
 😀	glisefjes	none
 😃	glisende fjes med vidåpne øyne	none
 😄	smilefjes med åpen munn og smilende øyne	none
@@ -85,6 +64,7 @@ symbols:
 ☺	smilefjes	none
 😚	kyss med lukkede øyne	none
 😙	kyss med smilende øyne	none
+🥲	smilefjes med tåre	none
 😋	nam-nam	none
 😛	rekker tunge	none
 😜	blunker og rekker tunge	none
@@ -123,6 +103,7 @@ symbols:
 🤯	eksploderende hode	none
 🤠	fjes med cowboyhatt	none
 🥳	partyfjes	none
+🥸	fjes med forkledning	none
 😎	smilefjes med solbriller	none
 🤓	nerdefjes	none
 🧐	fjes med monokkel	none
@@ -219,6 +200,7 @@ symbols:
 ✋	hevet hånd	none
 🖖	Vulcan-hilsen	none
 👌	OK-hånd	none
+🤌	hånd med fingertuppene sammen	none
 🤏	hånd som klyper	none
 ✌	seierstegn	none
 🤞	kryssede fingre	none
@@ -255,6 +237,8 @@ symbols:
 🦻	øre med høreapparat	none
 👃	nese	none
 🧠	hjerne	none
+🫀	hjertemuskel	none
+🫁	lunger	none
 🦷	tann	none
 🦴	knokkel	none
 👀	øyne	none
@@ -267,15 +251,11 @@ symbols:
 👧	jente	none
 🧑	voksen	none
 👱	Person blond	none
-🧑‍🍼	person som mater baby	none
-🧑‍🎄	julenisse	none
 👨	mann	none
 🧔	mann skjegg	none
 👱‍♂	mann blond	none
-👨‍🍼	mann som mater baby	none
 👩	kvinne	none
 👱‍♀	kvinne blond	none
-👩‍🍼	kvinne som mater baby	none
 🧓	eldre voksen	none
 👴	eldre mann	none
 👵	eldre kvinne	none
@@ -366,6 +346,7 @@ symbols:
 💂	gardist	none
 💂‍♂	mannlig gardist	none
 💂‍♀	kvinnelig gardist	none
+🥷	ninja	none
 👷	anleggsarbeider	none
 👷‍♂	mannlig anleggsarbeider	none
 👷‍♀	kvinnelig anleggsarbeider	none
@@ -377,16 +358,20 @@ symbols:
 👲	mann med kinesisk lue	none
 🧕	kvinne med hodeslør	none
 🤵	person i smoking	none
-🤵‍♀	kvinne i smoking	none
 🤵‍♂	mann i smoking	none
+🤵‍♀	kvinne i smoking	none
 👰	person med slør	none
-👰‍♀	kvinne med slør	none
 👰‍♂	mann med slør	none
+👰‍♀	kvinne med slør	none
 🤰	gravid kvinne	none
 🤱	ammer	none
+👩‍🍼	kvinne som mater baby	none
+👨‍🍼	mann som mater baby	none
+🧑‍🍼	person som mater baby	none
 👼	babyengel	none
 🎅	julenissen	none
 🤶	julenissemor	none
+🧑‍🎄	julenisse	none
 🦸	superhelt	none
 🦸‍♂	mannlig superhelt	none
 🦸‍♀	kvinnelig superhelt	none
@@ -511,6 +496,7 @@ symbols:
 🗣	snakkende hode i profil	none
 👤	silhuett av byste	none
 👥	silhuett av byster	none
+🫂	klem	none
 👣	fotavtrykk	none
 🦰	rødt hår	none
 🦱	kruset hår	none
@@ -540,6 +526,7 @@ symbols:
 🦄	enhjørning	none
 🦓	sebra	none
 🦌	hjort	none
+🦬	bison	none
 🐮	kufjes	none
 🐂	okse	none
 🐃	vannbøffel	none
@@ -556,6 +543,7 @@ symbols:
 🦙	lama	none
 🦒	sjiraff	none
 🐘	elefant	none
+🦣	mammut	none
 🦏	neshorn	none
 🦛	flodhest	none
 🐭	musefjes	none
@@ -565,6 +553,7 @@ symbols:
 🐰	kaninfjes	none
 🐇	kanin	none
 🐿	ekorn	none
+🦫	bever	none
 🦔	pinnsvin	none
 🦇	flaggermus	none
 🐻	bjørn	none
@@ -590,6 +579,8 @@ symbols:
 🦆	and	none
 🦢	svane	none
 🦉	ugle	none
+🦤	dronte	none
+🪶	fjær	none
 🦩	flamingo	none
 🦚	påfugl	none
 🦜	papegøye	none
@@ -605,6 +596,7 @@ symbols:
 🐳	sprutende hval	none
 🐋	hval	none
 🐬	delfin	none
+🦭	sel	none
 🐟	fisk	none
 🐠	tropisk fisk	none
 🐡	kulefisk	none
@@ -616,12 +608,16 @@ symbols:
 🐛	insekt	none
 🐜	maur	none
 🐝	honningbie	none
+🪲	bille	none
 🐞	marihøne	none
 🦗	gresshoppe	none
+🪳	kakerlakk	none
 🕷	edderkopp	none
 🕸	spindelvev	none
 🦂	skorpion	none
 🦟	mygg	none
+🪰	flue	none
+🪱	mark	none
 🦠	mikrobe	none
 💐	bukett	none
 🌸	kirsebærblomst	none
@@ -634,6 +630,7 @@ symbols:
 🌼	blomst	none
 🌷	tulipan	none
 🌱	spire	none
+🪴	potteplante	none
 🌲	bartre	none
 🌳	løvtre	none
 🌴	palme	none
@@ -659,8 +656,10 @@ symbols:
 🍑	fersken	none
 🍒	kirsebær	none
 🍓	jordbær	none
+🫐	blåbær	none
 🥝	kiwi	none
 🍅	tomat	none
+🫒	oliven	none
 🥥	kokosnøtt	none
 🥑	avokado	none
 🍆	aubergine	none
@@ -668,6 +667,7 @@ symbols:
 🥕	gulrot	none
 🌽	maiskolbe	none
 🌶	rød chili	none
+🫑	paprika	none
 🥒	agurk	none
 🥬	bladgrønnsaker	none
 🥦	brokkoli	none
@@ -679,6 +679,7 @@ symbols:
 🍞	brød	none
 🥐	croissant	none
 🥖	bagett	none
+🫓	pitabrød	none
 🥨	saltkringle	none
 🥯	bagel	none
 🥞	pannekaker	none
@@ -695,12 +696,14 @@ symbols:
 🥪	sandwich	none
 🌮	taco	none
 🌯	burrito	none
+🫔	tamal	none
 🥙	fylt pitabrød	none
 🧆	falafel	none
 🥚	egg	none
 🍳	matlaging	none
 🥘	lav gryte med mat	none
 🍲	gryterett	none
+🫕	fondy	none
 🥣	bolle med skje	none
 🥗	grønn salat	none
 🍿	popkorn	none
@@ -746,6 +749,7 @@ symbols:
 🍼	tåteflaske	none
 🥛	melkeglass	none
 ☕	varm drikke	none
+🫖	tekanne	none
 🍵	tekopp	none
 🍶	sake	none
 🍾	flaske med sprettkork	none
@@ -757,6 +761,7 @@ symbols:
 🥂	glass som skåler	none
 🥃	whiskyglass	none
 🥤	kopp med sugerør	none
+🧋	boble-te	none
 🧃	drikkekartong	none
 🧉	mate	none
 🧊	isterning	none
@@ -786,6 +791,9 @@ symbols:
 🏛	klassisk bygning	none
 🏗	bygning under konstruksjon	none
 🧱	murstein	none
+🪨	stein	none
+🪵	tre	none
+🛖	hytte	none
 🏘	boliger	none
 🏚	falleferdig hus	none
 🏠	hus	none
@@ -853,6 +861,7 @@ symbols:
 🚗	bil	none
 🚘	motgående bil	none
 🚙	SUV	none
+🛻	pickup	none
 🚚	varebil	none
 🚛	lastebil	none
 🚜	traktor	none
@@ -865,6 +874,7 @@ symbols:
 🚲	sykkel	none
 🛴	sparkesykkel	none
 🛹	skateboard	none
+🛼	rulleskøyter	none
 🚏	busstopp	none
 🛣	motorvei	none
 🛤	jernbanespor	none
@@ -1035,6 +1045,7 @@ symbols:
 🪁	papirdrage	none
 🎱	biljard	none
 🔮	krystallkule	none
+🪄	tryllestav	none
 🧿	nazar	none
 🎮	videospill	none
 🕹	joystick	none
@@ -1042,6 +1053,8 @@ symbols:
 🎲	terning	none
 🧩	puslespillbrikke	none
 🧸	teddybjørn	none
+🪅	piñata	none
+🪆	matrjosjka	none
 ♠	spar	none
 ♥	hjerter	none
 ♦	ruter	none
@@ -1054,7 +1067,9 @@ symbols:
 🖼	innrammet bilde	none
 🎨	malerpalett	none
 🧵	tråd	none
+🪡	synål	none
 🧶	garn	none
+🪢	knute	none
 👓	briller	none
 🕶	solbriller	none
 🥽	beskyttelsesbriller	none
@@ -1080,6 +1095,7 @@ symbols:
 👝	clutch-veske	none
 🛍	handleposer	none
 🎒	skolesekk	none
+🩴	flippflopp	none
 👞	herresko	none
 👟	joggesko	none
 🥾	turstøvel	none
@@ -1093,6 +1109,7 @@ symbols:
 🎩	flosshatt	none
 🎓	studentlue	none
 🧢	caps	none
+🪖	militærhjelm	none
 ⛑	hjelm med hvitt kors	none
 📿	bønnekrans	none
 💄	leppestift	none
@@ -1117,12 +1134,14 @@ symbols:
 🎧	hodetelefoner	none
 📻	radio	none
 🎷	saksofon	none
+🪗	trekkspill	none
 🎸	gitar	none
 🎹	piano	none
 🎺	trompet	none
 🎻	fiolin	none
 🪕	banjo	none
 🥁	tromme	none
+🪘	langtromme	none
 📱	mobiltelefon	none
 📲	mobiltelefon med pil	none
 ☎	telefon	none
@@ -1176,6 +1195,7 @@ symbols:
 🔖	bokmerke	none
 🏷	etikett	none
 💰	pengesekk	none
+🪙	mynt	none
 💴	yenseddel	none
 💵	dollarseddel	none
 💶	euroseddel	none
@@ -1184,8 +1204,6 @@ symbols:
 💳	kredittkort	none
 🧾	kvittering	none
 💹	stigende diagram med yen	none
-💱	valutaveksling	none
-💲	dollartegn	none
 ✉	konvolutt	none
 📧	e-post	none
 📨	innkommende konvolutt	none
@@ -1243,9 +1261,12 @@ symbols:
 🗡	dolk	none
 ⚔	sverd i kryss	none
 🔫	pistol	none
+🪃	bumerang	none
 🏹	pil og bue	none
 🛡	skjold	none
+🪚	håndsag	none
 🔧	fastnøkkel	none
+🪛	skrutrekker	none
 🔩	mutter og skrue	none
 ⚙	tannhjul	none
 🗜	skrutvinge	none
@@ -1253,8 +1274,10 @@ symbols:
 🦯	blindestokk	none
 🔗	lenke	none
 ⛓	kjetting	none
+🪝	krok	none
 🧰	verktøykasse	none
 🧲	magnet	none
+🪜	stige	none
 ⚗	destillerkolbe	none
 🧪	prøverør	none
 🧫	petriskål	none
@@ -1268,26 +1291,35 @@ symbols:
 🩹	plaster	none
 🩺	stetoskop	none
 🚪	dør	none
+🛗	heis	none
+🪞	speil	none
+🪟	vindu	none
 🛏	seng	none
 🛋	sofa og lampe	none
 🪑	stol	none
 🚽	toalett	none
+🪠	avløpsåpner	none
 🚿	dusj	none
 🛁	badekar	none
+🪤	musefelle	none
 🪒	barberkniv	none
 🧴	lotionflaske	none
 🧷	sikkerhetsnål	none
 🧹	feiekost	none
 🧺	kurv	none
 🧻	rull med papir	none
+🪣	bøtte	none
 🧼	såpe	none
+🪥	tannbørste	none
 🧽	svamp	none
 🧯	brannslukningsapparat	none
 🛒	handlevogn	none
 🚬	sigarett	none
 ⚰	kiste	none
+🪦	gravstein	none
 ⚱	urne	none
 🗿	moai-statue	none
+🪧	plakat	none
 🏧	minibankskilt	none
 🚮	avfallsskilt	none
 🚰	drikkevann	none
@@ -1386,8 +1418,22 @@ symbols:
 📴	mobiltelefon av	none
 ♀	kvinnesymbol	none
 ♂	mannssymbol	none
-⚕	legesymbol	none
+⚧	transperson-symbol	none
+✖	gangetegn	none
+➕	plusstegn	none
+➖	minustegn	none
+➗	deletegn	none
 ♾	uendelig	none
+‼	dobbelt utropstegn	none
+⁉	utropstegn og spørsmålstegn	none
+❓	spørsmålstegn	none
+❔	hvitt spørsmålstegn	none
+❕	hvitt utropstegn	none
+❗	utropstegn	none
+〰	bølgestrek	none
+💱	valutaveksling	none
+💲	dollartegn	none
+⚕	legesymbol	none
 ♻	resirkuleringssymbol	none
 ⚜	fransk lilje	none
 🔱	treforkemblem	none
@@ -1397,25 +1443,14 @@ symbols:
 ✅	hakemerke i firkant	none
 ☑	boks med hakemerke	none
 ✔	hakemerke	none
-✖	gangetegn	none
 ❌	kryss	none
 ❎	kryss i firkant	none
-➕	plusstegn	none
-➖	minustegn	none
-➗	deletegn	none
 ➰	løkke	none
 ➿	dobbel løkke	none
 〽	merke for nytt parti	none
 ✳	asterisk med åtte spisser	none
 ✴	åttetagget stjerne	none
 ❇	gnist	none
-‼	dobbelt utropstegn	none
-⁉	utropstegn og spørsmålstegn	none
-❓	spørsmålstegn	none
-❔	hvitt spørsmålstegn	none
-❕	hvitt utropstegn	none
-❗	utropstegn	none
-〰	bølgestrek	none
 ©	opphavsrett	none
 ®	registrert varemerke	none
 ™	varemerke	none
@@ -1497,14 +1532,18 @@ symbols:
 🎌	kryssede flagg	none
 🏴	svart flagg	none
 🏳	hvitt flagg	none
-🏳‍⚧	transpersonflagg	none
 🏳‍🌈	regnbueflagg	none
+🏳‍⚧	transpersonflagg	none
 🏴‍☠	sjørøverflagg	none
-🤌🏻	hånd med fingertuppene sammen hudtype 1–2	none
-🤌🏼	hånd med fingertuppene sammen hudtype 3	none
-🤌🏽	hånd med fingertuppene sammen hudtype 4	none
-🤌🏾	hånd med fingertuppene sammen hudtype 5	none
-🤌🏿	hånd med fingertuppene sammen hudtype 6	none
+£	pund	none
+¥	yen	none
+€	euro	none
+₹	indiske rupi	none
+₽	rubler	none
+¹	hevet ettall	none
+²	hevet totall	none
+³	hevet tretall	none
+µ	mikrotegn	none
 👋🏻	vinkende hånd hudtype 1–2	none
 👋🏼	vinkende hånd hudtype 3	none
 👋🏽	vinkende hånd hudtype 4	none
@@ -1535,6 +1574,11 @@ symbols:
 👌🏽	OK-hånd hudtype 4	none
 👌🏾	OK-hånd hudtype 5	none
 👌🏿	OK-hånd hudtype 6	none
+🤌🏻	hånd med fingertuppene sammen hudtype 1–2	none
+🤌🏼	hånd med fingertuppene sammen hudtype 3	none
+🤌🏽	hånd med fingertuppene sammen hudtype 4	none
+🤌🏾	hånd med fingertuppene sammen hudtype 5	none
+🤌🏿	hånd med fingertuppene sammen hudtype 6	none
 🤏🏻	hånd som klyper hudtype 1–2	none
 🤏🏼	hånd som klyper hudtype 3	none
 🤏🏽	hånd som klyper hudtype 4	none
@@ -1749,16 +1793,6 @@ symbols:
 🧑🏽‍🦲	voksen hudtype 4, skallet	none
 🧑🏾‍🦲	voksen hudtype 5, skallet	none
 🧑🏿‍🦲	voksen hudtype 6, skallet	none
-🧑🏻‍🍼	person som mater baby hudtype 1–2	none
-🧑🏼‍🍼	person som mater baby hudtype 3	none
-🧑🏽‍🍼	person som mater baby hudtype 4	none
-🧑🏾‍🍼	person som mater baby hudtype 5	none
-🧑🏿‍🍼	person som mater baby hudtype 6	none
-🧑🏻‍🎄	julenisse hudtype 1–2	none
-🧑🏼‍🎄	julenisse hudtype 3	none
-🧑🏽‍🎄	julenisse hudtype 4	none
-🧑🏾‍🎄	julenisse hudtype 5	none
-🧑🏿‍🎄	julenisse hudtype 6	none
 👨🏻	mann hudtype 1–2	none
 👨🏼	mann hudtype 3	none
 👨🏽	mann hudtype 4	none
@@ -1798,11 +1832,6 @@ symbols:
 👨🏽‍🦲	mann hudtype 4, skallet	none
 👨🏾‍🦲	mann hudtype 5, skallet	none
 👨🏿‍🦲	mann hudtype 6, skallet	none
-👨🏻‍🍼	mann som mater baby hudtype 1–2	none
-👨🏼‍🍼	mann som mater baby hudtype 3	none
-👨🏽‍🍼	mann som mater baby hudtype 4	none
-👨🏾‍🍼	mann som mater baby hudtype 5	none
-👨🏿‍🍼	mann som mater baby hudtype 6	none
 👩🏻	kvinne hudtype 1–2	none
 👩🏼	kvinne hudtype 3	none
 👩🏽	kvinne hudtype 4	none
@@ -1837,11 +1866,6 @@ symbols:
 👩🏽‍🦲	kvinne hudtype 4, skallet	none
 👩🏾‍🦲	kvinne hudtype 5, skallet	none
 👩🏿‍🦲	kvinne hudtype 6, skallet	none
-👩🏻‍🍼	kvinne som mater baby hudtype 1–2	none
-👩🏼‍🍼	kvinne som mater baby hudtype 3	none
-👩🏽‍🍼	kvinne som mater baby hudtype 4	none
-👩🏾‍🍼	kvinne som mater baby hudtype 5	none
-👩🏿‍🍼	kvinne som mater baby hudtype 6	none
 🧓🏻	eldre voksen hudtype 1–2	none
 🧓🏼	eldre voksen hudtype 3	none
 🧓🏽	eldre voksen hudtype 4	none
@@ -2292,6 +2316,11 @@ symbols:
 💂🏽‍♀	kvinnelig gardist hudtype 4	none
 💂🏾‍♀	kvinnelig gardist hudtype 5	none
 💂🏿‍♀	kvinnelig gardist hudtype 6	none
+🥷🏻	ninja hudtype 1–2	none
+🥷🏼	ninja hudtype 3	none
+🥷🏽	ninja hudtype 4	none
+🥷🏾	ninja hudtype 5	none
+🥷🏿	ninja hudtype 6	none
 👷🏻	anleggsarbeider hudtype 1–2	none
 👷🏼	anleggsarbeider hudtype 3	none
 👷🏽	anleggsarbeider hudtype 4	none
@@ -2347,31 +2376,31 @@ symbols:
 🤵🏽	person i smoking hudtype 4	none
 🤵🏾	person i smoking hudtype 5	none
 🤵🏿	person i smoking hudtype 6	none
-🤵🏻‍♀	kvinne i smoking hudtype 1–2	none
-🤵🏼‍♀	kvinne i smoking hudtype 3	none
-🤵🏽‍♀	kvinne i smoking hudtype 4	none
-🤵🏾‍♀	kvinne i smoking hudtype 5	none
-🤵🏿‍♀	kvinne i smoking hudtype 6	none
 🤵🏻‍♂	mann i smoking hudtype 1–2	none
 🤵🏼‍♂	mann i smoking hudtype 3	none
 🤵🏽‍♂	mann i smoking hudtype 4	none
 🤵🏾‍♂	mann i smoking hudtype 5	none
 🤵🏿‍♂	mann i smoking hudtype 6	none
+🤵🏻‍♀	kvinne i smoking hudtype 1–2	none
+🤵🏼‍♀	kvinne i smoking hudtype 3	none
+🤵🏽‍♀	kvinne i smoking hudtype 4	none
+🤵🏾‍♀	kvinne i smoking hudtype 5	none
+🤵🏿‍♀	kvinne i smoking hudtype 6	none
 👰🏻	person med slør hudtype 1–2	none
 👰🏼	person med slør hudtype 3	none
 👰🏽	person med slør hudtype 4	none
 👰🏾	person med slør hudtype 5	none
 👰🏿	person med slør hudtype 6	none
-👰🏻‍♀	kvinne med slør hudtype 1–2	none
-👰🏼‍♀	kvinne med slør hudtype 3	none
-👰🏽‍♀	kvinne med slør hudtype 4	none
-👰🏾‍♀	kvinne med slør hudtype 5	none
-👰🏿‍♀	kvinne med slør hudtype 6	none
 👰🏻‍♂	mann med slør hudtype 1–2	none
 👰🏼‍♂	mann med slør hudtype 3	none
 👰🏽‍♂	mann med slør hudtype 4	none
 👰🏾‍♂	mann med slør hudtype 5	none
 👰🏿‍♂	mann med slør hudtype 6	none
+👰🏻‍♀	kvinne med slør hudtype 1–2	none
+👰🏼‍♀	kvinne med slør hudtype 3	none
+👰🏽‍♀	kvinne med slør hudtype 4	none
+👰🏾‍♀	kvinne med slør hudtype 5	none
+👰🏿‍♀	kvinne med slør hudtype 6	none
 🤰🏻	gravid kvinne hudtype 1–2	none
 🤰🏼	gravid kvinne hudtype 3	none
 🤰🏽	gravid kvinne hudtype 4	none
@@ -2382,6 +2411,21 @@ symbols:
 🤱🏽	ammer hudtype 4	none
 🤱🏾	ammer hudtype 5	none
 🤱🏿	ammer hudtype 6	none
+👩🏻‍🍼	kvinne som mater baby hudtype 1–2	none
+👩🏼‍🍼	kvinne som mater baby hudtype 3	none
+👩🏽‍🍼	kvinne som mater baby hudtype 4	none
+👩🏾‍🍼	kvinne som mater baby hudtype 5	none
+👩🏿‍🍼	kvinne som mater baby hudtype 6	none
+👨🏻‍🍼	mann som mater baby hudtype 1–2	none
+👨🏼‍🍼	mann som mater baby hudtype 3	none
+👨🏽‍🍼	mann som mater baby hudtype 4	none
+👨🏾‍🍼	mann som mater baby hudtype 5	none
+👨🏿‍🍼	mann som mater baby hudtype 6	none
+🧑🏻‍🍼	person som mater baby hudtype 1–2	none
+🧑🏼‍🍼	person som mater baby hudtype 3	none
+🧑🏽‍🍼	person som mater baby hudtype 4	none
+🧑🏾‍🍼	person som mater baby hudtype 5	none
+🧑🏿‍🍼	person som mater baby hudtype 6	none
 👼🏻	babyengel hudtype 1–2	none
 👼🏼	babyengel hudtype 3	none
 👼🏽	babyengel hudtype 4	none
@@ -2397,6 +2441,11 @@ symbols:
 🤶🏽	julenissemor hudtype 4	none
 🤶🏾	julenissemor hudtype 5	none
 🤶🏿	julenissemor hudtype 6	none
+🧑🏻‍🎄	julenisse hudtype 1–2	none
+🧑🏼‍🎄	julenisse hudtype 3	none
+🧑🏽‍🎄	julenisse hudtype 4	none
+🧑🏾‍🎄	julenisse hudtype 5	none
+🧑🏿‍🎄	julenisse hudtype 6	none
 🦸🏻	superhelt hudtype 1–2	none
 🦸🏼	superhelt hudtype 3	none
 🦸🏽	superhelt hudtype 4	none

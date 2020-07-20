@@ -5,21 +5,8 @@
 symbols:
 🏼	peau modérément claire	none
 🏾	peau modérément foncée	none
-⚧	symbole transgenre	none
-🤌	main qui interroge	none
-🥲	visage souriant avec larme	none
-🩴	gougoune	none
-🪙	pièce de monnaie	none
-🪚	scie à bois	none
-🪤	piège à souris	none
-🪨	roche	none
-🪱	ver	none
-🪳	coquerelle	none
-🫂	personnes qui s’étreignent	none
-🫐	bleuets	none
-🫑	poivron rouge	none
-🫓	pain plat	none
-🛻	camionnette	none
+÷	division	none
+×	multiplication	none
 😀	visage avec large sourire	none
 😃	visage souriant les yeux grands ouverts	none
 😄	visage avec large sourire et yeux rieurs	none
@@ -38,6 +25,7 @@ symbols:
 😗	visage donnant un baiser	none
 😚	visage faisant un baiser les yeux fermés	none
 😙	visage faisant un baiser les yeux rieurs	none
+🥲	visage souriant avec larme	none
 😋	visage savourant	none
 🤗	visage heureux et câlin	none
 😏	visage au sourire malin	none
@@ -58,9 +46,9 @@ symbols:
 🗨	bulle de parole à gauche	none
 🗯	bulle de colère à droite	none
 🖐	main aux doigts écartés	none
+🤌	main qui interroge	none
 🤙	appelle-moi	none
 🤳	autophoto	none
-🧑‍🎄	personnage de Noël	none
 🙍	personne mécontente	none
 🙅	Geste de négation	none
 🙅‍♂	homme faisant un geste de négation	none
@@ -94,6 +82,7 @@ symbols:
 👮‍♂	policier homme	none
 👲	homme coiffé d’une calotte chinoise	none
 👰	personne avec voile	none
+🧑‍🎄	personnage de Noël	none
 🦸	superhéros	none
 🦸‍♂	super-héros	none
 🧑‍🦯	aveugle avec canne	none
@@ -120,6 +109,7 @@ symbols:
 👭	deux femmes se tenant par la main	none
 👫	homme et femme se tenant par la main	none
 👬	deux hommes se tenant par la main	none
+🫂	personnes qui s’étreignent	none
 🦮	chien-guide	none
 🐽	nez de cochon	none
 🐑	brebis	none
@@ -128,11 +118,16 @@ symbols:
 🦖	T. rex	none
 🐳	baleine qui expulse de l’eau	none
 🐡	poisson-globe	none
+🪳	coquerelle	none
+🪱	ver	none
 ☘	trèfle à trois feuilles	none
 🍉	melon d’eau	none
 🍊	tangerine	none
+🫐	bleuets	none
+🫑	poivron rouge	none
 🥦	brocoli	none
 🥜	arachides	none
+🫓	pain plat	none
 🥞	crêpes	none
 🧀	morceau de fromage	none
 🍖	viande sur son os	none
@@ -169,6 +164,7 @@ symbols:
 🌏	globe qui montre l’Asie et l’Australie	none
 🌐	globe qui montre les méridiens	none
 🏖	plage et parasol	none
+🪨	roche	none
 🏩	hôtel pour couples	none
 🏪	épicerie	none
 🏙	paysage urbain	none
@@ -178,6 +174,7 @@ symbols:
 🚄	train à grande vitesse	none
 🚅	train superexpress	none
 🚈	train de banlieue	none
+🛻	camionnette	none
 🚛	camion semi-remorque	none
 🚥	feu de circulation horizontal	none
 🚦	feu de circulation vertical	none
@@ -229,6 +226,7 @@ symbols:
 🦺	veste de sécurité	none
 🛍	sacs de magasinage	none
 🎒	sac d’école	none
+🩴	gougoune	none
 👡	sandale à talon	none
 🎩	haut-de-forme	none
 🎓	chapeau de diplômé	none
@@ -252,10 +250,9 @@ symbols:
 🏮	lanterne d’izakaya	none
 📔	carnet avec couverture décorative	none
 📑	onglets	none
+🪙	pièce de monnaie	none
 💳	carte de crédit	none
 💹	courbe croissante précédée du symbole du yen	none
-💱	change	none
-💲	symbole du dollar en gras	none
 📧	courriel	none
 📫	boîte aux lettres fermée avec drapeau levé	none
 📪	boîte aux lettres fermée avec drapeau baissé	none
@@ -275,9 +272,11 @@ symbols:
 🔐	cadenas avec clé	none
 ⛏	pic	none
 ⚒	marteau et pic	none
+🪚	scie à bois	none
 ⚙	engrenage	none
 🛋	sofa et lampe	none
 🚽	siège de toilette	none
+🪤	piège à souris	none
 🛒	panier d’épicerie	none
 🗿	moaï	none
 🏧	guichet automatique bancaire	none
@@ -343,13 +342,16 @@ symbols:
 📶	barres de signal	none
 📳	mode vibration	none
 📴	téléphone cellulaire éteint	none
-⚕	symbole la médecine	none
-♻	symbole de recyclage	none
-🔰	symbole japonais du débutant	none
+⚧	symbole transgenre	none
 ✖	signe de multiplication	none
 ➕	signe d’addition	none
 ➖	signe de soustraction	none
 ➗	signe de division	none
+💱	change	none
+💲	symbole du dollar en gras	none
+⚕	symbole la médecine	none
+♻	symbole de recyclage	none
+🔰	symbole japonais du débutant	none
 〽	symbole japonais indiquant le début de la musique	none
 ✳	astérique à huit branches	none
 ✴	étoile à huit branches	none
@@ -392,11 +394,6 @@ symbols:
 🔻	triangle rouge qui pointe vers le bas	none
 🔳	bouton représentant un carré blanc	none
 🔲	bouton représentant un carré noir	none
-🤌🏻	main qui interroge  peau claire	none
-🤌🏼	main qui interroge  peau modérément claire	none
-🤌🏽	main qui interroge  peau légèrement mate	none
-🤌🏾	main qui interroge  peau modérément foncée	none
-🤌🏿	main qui interroge  peau foncée	none
 👋🏻	signe de la main  peau claire	none
 👋🏼	signe de la main  peau modérément claire	none
 👋🏽	signe de la main  peau légèrement mate	none
@@ -427,6 +424,11 @@ symbols:
 👌🏽	ok  peau légèrement mate	none
 👌🏾	ok  peau modérément foncée	none
 👌🏿	ok  peau foncée	none
+🤌🏻	main qui interroge  peau claire	none
+🤌🏼	main qui interroge  peau modérément claire	none
+🤌🏽	main qui interroge  peau légèrement mate	none
+🤌🏾	main qui interroge  peau modérément foncée	none
+🤌🏿	main qui interroge  peau foncée	none
 🤏🏻	pouce et index rapprochés  peau claire	none
 🤏🏼	pouce et index rapprochés  peau modérément claire	none
 🤏🏽	pouce et index rapprochés  peau légèrement mate	none
@@ -641,16 +643,6 @@ symbols:
 🧑🏽‍🦲	adulte  peau légèrement mate et chauve	none
 🧑🏾‍🦲	adulte  peau modérément foncée et chauve	none
 🧑🏿‍🦲	adulte  peau foncée et chauve	none
-🧑🏻‍🍼	personne allaitant un bébé  peau claire	none
-🧑🏼‍🍼	personne allaitant un bébé  peau modérément claire	none
-🧑🏽‍🍼	personne allaitant un bébé  peau légèrement mate	none
-🧑🏾‍🍼	personne allaitant un bébé  peau modérément foncée	none
-🧑🏿‍🍼	personne allaitant un bébé  peau foncée	none
-🧑🏻‍🎄	personnage de Noël  peau claire	none
-🧑🏼‍🎄	personnage de Noël  peau modérément claire	none
-🧑🏽‍🎄	personnage de Noël  peau légèrement mate	none
-🧑🏾‍🎄	personnage de Noël  peau modérément foncée	none
-🧑🏿‍🎄	personnage de Noël  peau foncée	none
 👨🏻	homme  peau claire	none
 👨🏼	homme  peau modérément claire	none
 👨🏽	homme  peau légèrement mate	none
@@ -690,11 +682,6 @@ symbols:
 👨🏽‍🦲	homme  peau légèrement mate et chauve	none
 👨🏾‍🦲	homme  peau modérément foncée et chauve	none
 👨🏿‍🦲	homme  peau foncée et chauve	none
-👨🏻‍🍼	homme allaitant un bébé  peau claire	none
-👨🏼‍🍼	homme allaitant un bébé  peau modérément claire	none
-👨🏽‍🍼	homme allaitant un bébé  peau légèrement mate	none
-👨🏾‍🍼	homme allaitant un bébé  peau modérément foncée	none
-👨🏿‍🍼	homme allaitant un bébé  peau foncée	none
 👩🏻	femme  peau claire	none
 👩🏼	femme  peau modérément claire	none
 👩🏽	femme  peau légèrement mate	none
@@ -729,11 +716,6 @@ symbols:
 👩🏽‍🦲	femme  peau légèrement mate et chauve	none
 👩🏾‍🦲	femme  peau modérément foncée et chauve	none
 👩🏿‍🦲	femme  peau foncée et chauve	none
-👩🏻‍🍼	femme allaitant un bébé  peau claire	none
-👩🏼‍🍼	femme allaitant un bébé  peau modérément claire	none
-👩🏽‍🍼	femme allaitant un bébé  peau légèrement mate	none
-👩🏾‍🍼	femme allaitant un bébé  peau modérément foncée	none
-👩🏿‍🍼	femme allaitant un bébé  peau foncée	none
 🧓🏻	personne âgée  peau claire	none
 🧓🏼	personne âgée  peau modérément claire	none
 🧓🏽	personne âgée  peau légèrement mate	none
@@ -1184,6 +1166,11 @@ symbols:
 💂🏽‍♀	garde femme  peau légèrement mate	none
 💂🏾‍♀	garde femme  peau modérément foncée	none
 💂🏿‍♀	garde femme  peau foncée	none
+🥷🏻	ninja  peau claire	none
+🥷🏼	ninja  peau modérément claire	none
+🥷🏽	ninja  peau légèrement mate	none
+🥷🏾	ninja  peau modérément foncée	none
+🥷🏿	ninja  peau foncée	none
 👷🏻	personnel du bâtiment  peau claire	none
 👷🏼	personnel du bâtiment  peau modérément claire	none
 👷🏽	personnel du bâtiment  peau légèrement mate	none
@@ -1239,31 +1226,31 @@ symbols:
 🤵🏽	personne en smoking  peau légèrement mate	none
 🤵🏾	personne en smoking  peau modérément foncée	none
 🤵🏿	personne en smoking  peau foncée	none
-🤵🏻‍♀	femme en smoking  peau claire	none
-🤵🏼‍♀	femme en smoking  peau modérément claire	none
-🤵🏽‍♀	femme en smoking  peau légèrement mate	none
-🤵🏾‍♀	femme en smoking  peau modérément foncée	none
-🤵🏿‍♀	femme en smoking  peau foncée	none
 🤵🏻‍♂	homme en smoking  peau claire	none
 🤵🏼‍♂	homme en smoking  peau modérément claire	none
 🤵🏽‍♂	homme en smoking  peau légèrement mate	none
 🤵🏾‍♂	homme en smoking  peau modérément foncée	none
 🤵🏿‍♂	homme en smoking  peau foncée	none
+🤵🏻‍♀	femme en smoking  peau claire	none
+🤵🏼‍♀	femme en smoking  peau modérément claire	none
+🤵🏽‍♀	femme en smoking  peau légèrement mate	none
+🤵🏾‍♀	femme en smoking  peau modérément foncée	none
+🤵🏿‍♀	femme en smoking  peau foncée	none
 👰🏻	personne avec voile  peau claire	none
 👰🏼	personne avec voile  peau modérément claire	none
 👰🏽	personne avec voile  peau légèrement mate	none
 👰🏾	personne avec voile  peau modérément foncée	none
 👰🏿	personne avec voile  peau foncée	none
-👰🏻‍♀	femme avec voile  peau claire	none
-👰🏼‍♀	femme avec voile  peau modérément claire	none
-👰🏽‍♀	femme avec voile  peau légèrement mate	none
-👰🏾‍♀	femme avec voile  peau modérément foncée	none
-👰🏿‍♀	femme avec voile  peau foncée	none
 👰🏻‍♂	homme avec voile  peau claire	none
 👰🏼‍♂	homme avec voile  peau modérément claire	none
 👰🏽‍♂	homme avec voile  peau légèrement mate	none
 👰🏾‍♂	homme avec voile  peau modérément foncée	none
 👰🏿‍♂	homme avec voile  peau foncée	none
+👰🏻‍♀	femme avec voile  peau claire	none
+👰🏼‍♀	femme avec voile  peau modérément claire	none
+👰🏽‍♀	femme avec voile  peau légèrement mate	none
+👰🏾‍♀	femme avec voile  peau modérément foncée	none
+👰🏿‍♀	femme avec voile  peau foncée	none
 🤰🏻	femme enceinte  peau claire	none
 🤰🏼	femme enceinte  peau modérément claire	none
 🤰🏽	femme enceinte  peau légèrement mate	none
@@ -1274,6 +1261,21 @@ symbols:
 🤱🏽	allaitement  peau légèrement mate	none
 🤱🏾	allaitement  peau modérément foncée	none
 🤱🏿	allaitement  peau foncée	none
+👩🏻‍🍼	femme allaitant un bébé  peau claire	none
+👩🏼‍🍼	femme allaitant un bébé  peau modérément claire	none
+👩🏽‍🍼	femme allaitant un bébé  peau légèrement mate	none
+👩🏾‍🍼	femme allaitant un bébé  peau modérément foncée	none
+👩🏿‍🍼	femme allaitant un bébé  peau foncée	none
+👨🏻‍🍼	homme allaitant un bébé  peau claire	none
+👨🏼‍🍼	homme allaitant un bébé  peau modérément claire	none
+👨🏽‍🍼	homme allaitant un bébé  peau légèrement mate	none
+👨🏾‍🍼	homme allaitant un bébé  peau modérément foncée	none
+👨🏿‍🍼	homme allaitant un bébé  peau foncée	none
+🧑🏻‍🍼	personne allaitant un bébé  peau claire	none
+🧑🏼‍🍼	personne allaitant un bébé  peau modérément claire	none
+🧑🏽‍🍼	personne allaitant un bébé  peau légèrement mate	none
+🧑🏾‍🍼	personne allaitant un bébé  peau modérément foncée	none
+🧑🏿‍🍼	personne allaitant un bébé  peau foncée	none
 👼🏻	bébé ange  peau claire	none
 👼🏼	bébé ange  peau modérément claire	none
 👼🏽	bébé ange  peau légèrement mate	none
@@ -1289,6 +1291,11 @@ symbols:
 🤶🏽	mère Noël  peau légèrement mate	none
 🤶🏾	mère Noël  peau modérément foncée	none
 🤶🏿	mère Noël  peau foncée	none
+🧑🏻‍🎄	personnage de Noël  peau claire	none
+🧑🏼‍🎄	personnage de Noël  peau modérément claire	none
+🧑🏽‍🎄	personnage de Noël  peau légèrement mate	none
+🧑🏾‍🎄	personnage de Noël  peau modérément foncée	none
+🧑🏿‍🎄	personnage de Noël  peau foncée	none
 🦸🏻	superhéros  peau claire	none
 🦸🏼	superhéros  peau modérément claire	none
 🦸🏽	superhéros  peau légèrement mate	none

@@ -8,62 +8,41 @@ symbols:
 🏽	ton mediu al pielii	none
 🏾	ton semi‑închis al pielii	none
 🏿	ton închis al pielii	none
-⚧	transgender	none
-🤌	degete strânse	none
-🥲	față zâmbind cu lacrimă	none
-🥷	ninja	none
-🥸	față deghizată	none
-🦣	mamut	none
-🦤	dodo	none
-🦫	castor	none
-🦬	bizon	none
-🦭	focă	none
-🧋	ceai cu perle	none
-🩴	șlap	none
-🪃	bumerang	none
-🪄	baghetă magică	none
-🪅	piñata	none
-🪆	matrioșka	none
-🪖	cască militară	none
-🪗	acordeon	none
-🪘	tobă înaltă	none
-🪙	monedă	none
-🪚	fierăstrău pentru tămplărie	none
-🪛	șurubelniță	none
-🪜	scară	none
-🪝	cârlig	none
-🪞	oglindă	none
-🪟	fereastră	none
-🪠	pompă de aspirare	none
-🪡	ac de cusut	none
-🪢	nod	none
-🪣	găleată	none
-🪤	cursă de șoareci	none
-🪥	periuță de dinți	none
-🪦	piatră funerară	none
-🪧	plancardă	none
-🪨	piatră	none
-🪰	muscă	none
-🪱	vierme	none
-🪲	cărăbuș	none
-🪳	gândac de bucătărie	none
-🪴	plantă în ghiveci	none
-🪵	lemn	none
-🪶	pană	none
-🫀	inimă	none
-🫁	plămâni	none
-🫂	persoane îmbrățișate	none
-🫐	afine	none
-🫑	ardei gras	none
-🫒	măslină	none
-🫓	pită	none
-🫔	tamale	none
-🫕	fondue	none
-🫖	ceainic	none
-🛖	colibă	none
-🛗	lift	none
-🛻	camionetă	none
-🛼	patină cu rotile	none
+–	linie de pauză	none
+—	linie de dialog	none
+·	punct la mijloc	none
+«	ghilimele ascuțite stânga	none
+»	ghilimele ascuțite dreapta	none
+§	secțiune	none
+†	semn cruciuliță	none
+‡	semn cruciuliță dublă	none
+•	marcator	none
+°	grad	none
+℗	drepturi de autor pentru înregistrare audio	none
+←	săgeată spre stânga	none
+→	săgeată spre dreapta	none
+↑	săgeată în sus	none
+↓	săgeată în jos	none
+⇅	săgeată în sus și săgeată în jos	none
+⇆	săgeată la stânga pe săgeată la dreapta	none
+∆	creștere	none
+∇	nabla	none
+∈	element al	none
+÷	semnul împărțirii	none
+×	semnul înmulțirii	none
+⁻	exponent minus	none
+√	rădăcină pătrată	none
+∞	semnul infinit	none
+∩	intersecție	none
+∪	reuniune	none
+≡	identic cu	none
+⊂	submulțime a	none
+▲	triunghi plin cu vârful în sus	none
+▼	triunghi plin cu vârful în jos	none
+◊	romb	none
+○	cerc gol	none
+●	cerc plin	none
+◯	cerc gol mare	none
 😀	față încântată	none
 😃	față încântată cu ochii mari	none
 😄	față încântată cu ochi zâmbitori	none
@@ -85,6 +64,7 @@ symbols:
 ☺	față zâmbitoare	none
 😚	față pupăcioasă cu ochi închiși	none
 😙	față pupăcioasă cu ochi zâmbitori	none
+🥲	față zâmbind cu lacrimă	none
 😋	față savurând mâncare delicioasă	none
 😛	față cu limba scoasă	none
 😜	față cu limba scoasă, făcând cu ochiul	none
@@ -123,6 +103,7 @@ symbols:
 🤯	cap care explodează	none
 🤠	față cu pălărie de cowboy	none
 🥳	față de petrecere	none
+🥸	față deghizată	none
 😎	față zâmbitoare cu ochelari de soare	none
 🤓	față de tocilar	none
 🧐	față cu monoclu	none
@@ -219,6 +200,7 @@ symbols:
 ✋	mână ridicată	none
 🖖	salut vulcanian	none
 👌	semnul ok	none
+🤌	degete strânse	none
 🤏	mână cu două degete apropiate	none
 ✌	semnul victoriei	none
 🤞	degete încrucișate	none
@@ -255,6 +237,8 @@ symbols:
 🦻	ureche cu proteză auditivă	none
 👃	nas	none
 🧠	creier	none
+🫀	inimă	none
+🫁	plămâni	none
 🦷	dinte	none
 🦴	os	none
 👀	doi ochi	none
@@ -267,15 +251,11 @@ symbols:
 👧	fată	none
 🧑	adult	none
 👱	persoană blondă	none
-🧑‍🍼	persoană hrănind un bebeluș	none
-🧑‍🎄	Crăciun	none
 👨	bărbat	none
 🧔	bărbat cu barbă	none
 👱‍♂	bărbat blond	none
-👨‍🍼	bărbat hrănind un bebeluș	none
 👩	femeie	none
 👱‍♀	femeie blondă	none
-👩‍🍼	femeie hrănind un bebeluș	none
 🧓	persoană în vârstă	none
 👴	bătrân	none
 👵	bătrână	none
@@ -366,6 +346,7 @@ symbols:
 💂	gardian	none
 💂‍♂	gardian bărbat	none
 💂‍♀	gardian femeie	none
+🥷	ninja	none
 👷	constructor	none
 👷‍♂	muncitor în construcții	none
 👷‍♀	muncitoare în construcții	none
@@ -377,16 +358,20 @@ symbols:
 👲	bărbat cu bonetă chinezească	none
 🧕	femeie cu năframă	none
 🤵	persoană în smoching	none
-🤵‍♀	femeie în smoching	none
 🤵‍♂	bărbat în smoching	none
+🤵‍♀	femeie în smoching	none
 👰	persoană cu voal	none
-👰‍♀	femeie cu voal	none
 👰‍♂	bărbat cu voal	none
+👰‍♀	femeie cu voal	none
 🤰	femeie însărcinată	none
 🤱	alăptare la sân	none
+👩‍🍼	femeie hrănind un bebeluș	none
+👨‍🍼	bărbat hrănind un bebeluș	none
+🧑‍🍼	persoană hrănind un bebeluș	none
 👼	bebeluș îngeraș	none
 🎅	Moș Crăciun	none
 🤶	Doamna Crăciun	none
+🧑‍🎄	Crăciun	none
 🦸	supererou	none
 🦸‍♂	supererou bărbat	none
 🦸‍♀	supererou femeie	none
@@ -511,6 +496,7 @@ symbols:
 🗣	cap vorbitor	none
 👤	siluetă bust	none
 👥	siluete busturi	none
+🫂	persoane îmbrățișate	none
 👣	urme de pași	none
 🦰	păr roșcat	none
 🦱	păr creț	none
@@ -540,6 +526,7 @@ symbols:
 🦄	unicorn	none
 🦓	zebră	none
 🦌	cerb	none
+🦬	bizon	none
 🐮	cap de vacă	none
 🐂	bou	none
 🐃	bivol	none
@@ -556,6 +543,7 @@ symbols:
 🦙	lamă	none
 🦒	girafă	none
 🐘	elefant	none
+🦣	mamut	none
 🦏	rinocer	none
 🦛	hipopotam	none
 🐭	față de șoarece	none
@@ -565,6 +553,7 @@ symbols:
 🐰	față de iepure	none
 🐇	iepure	none
 🐿	veveriță	none
+🦫	castor	none
 🦔	arici	none
 🦇	liliac	none
 🐻	urs	none
@@ -590,6 +579,8 @@ symbols:
 🦆	rață	none
 🦢	lebădă	none
 🦉	bufniță	none
+🦤	dodo	none
+🪶	pană	none
 🦩	flamingo	none
 🦚	păun	none
 🦜	papagal mare	none
@@ -605,6 +596,7 @@ symbols:
 🐳	balenă împroșcând apă	none
 🐋	balenă	none
 🐬	delfin	none
+🦭	focă	none
 🐟	pește	none
 🐠	pește tropical	none
 🐡	pește balon	none
@@ -616,12 +608,16 @@ symbols:
 🐛	gândac	none
 🐜	furnică	none
 🐝	albină	none
+🪲	cărăbuș	none
 🐞	buburuză	none
 🦗	greier	none
+🪳	gândac de bucătărie	none
 🕷	păianjen	none
 🕸	pânză de păianjen	none
 🦂	scorpion	none
 🦟	țânțar	none
+🪰	muscă	none
+🪱	vierme	none
 🦠	microb	none
 💐	buchet de flori	none
 🌸	floare de cireș	none
@@ -634,6 +630,7 @@ symbols:
 🌼	boboc	none
 🌷	lalea	none
 🌱	răsad	none
+🪴	plantă în ghiveci	none
 🌲	arbore conifer	none
 🌳	arbore foios	none
 🌴	palmier	none
@@ -659,8 +656,10 @@ symbols:
 🍑	piersică	none
 🍒	cireșe	none
 🍓	căpșună	none
+🫐	afine	none
 🥝	kiwi	none
 🍅	roșie	none
+🫒	măslină	none
 🥥	nucă de cocos	none
 🥑	avocado	none
 🍆	vânătă	none
@@ -668,6 +667,7 @@ symbols:
 🥕	morcov	none
 🌽	știulete de porumb	none
 🌶	ardei iute	none
+🫑	ardei gras	none
 🥒	castravete	none
 🥬	verdețuri	none
 🥦	broccoli	none
@@ -679,6 +679,7 @@ symbols:
 🍞	pâine	none
 🥐	croasant	none
 🥖	baghetă de pâine	none
+🫓	pită	none
 🥨	covrig	none
 🥯	bagel	none
 🥞	clătite	none
@@ -695,12 +696,14 @@ symbols:
 🥪	sandvici	none
 🌮	taco	none
 🌯	burrito	none
+🫔	tamale	none
 🥙	lipie umplută	none
 🧆	falafel	none
 🥚	ou	none
 🍳	gătit	none
 🥘	cratiță cu mâncare	none
 🍲	oală cu mâncare	none
+🫕	fondue	none
 🥣	castron cu lingură	none
 🥗	salată verde	none
 🍿	floricele de porumb	none
@@ -746,6 +749,7 @@ symbols:
 🍼	biberon	none
 🥛	pahar cu lapte	none
 ☕	băutură fierbinte	none
+🫖	ceainic	none
 🍵	ceașcă fără mâner	none
 🍶	sake	none
 🍾	sticlă căreia îi sare dopul	none
@@ -757,6 +761,7 @@ symbols:
 🥂	pahare ciocnite	none
 🥃	pahar de whisky	none
 🥤	pahar cu pai	none
+🧋	ceai cu perle	none
 🧃	cutie de băutură	none
 🧉	mate	none
 🧊	cub de gheață	none
@@ -786,6 +791,9 @@ symbols:
 🏛	clădire clasică	none
 🏗	clădire în construcție	none
 🧱	cărămidă	none
+🪨	piatră	none
+🪵	lemn	none
+🛖	colibă	none
 🏘	case	none
 🏚	casă părăsită	none
 🏠	casă	none
@@ -853,6 +861,7 @@ symbols:
 🚗	automobil	none
 🚘	automobil care se apropie	none
 🚙	vehicul recreațional	none
+🛻	camionetă	none
 🚚	camion de marfă	none
 🚛	camion articulat	none
 🚜	tractor	none
@@ -865,6 +874,7 @@ symbols:
 🚲	bicicletă	none
 🛴	trotinetă	none
 🛹	skateboard	none
+🛼	patină cu rotile	none
 🚏	stație de autobuz	none
 🛣	autostradă	none
 🛤	cale ferată	none
@@ -1035,6 +1045,7 @@ symbols:
 🪁	zmeu	none
 🎱	biliard	none
 🔮	glob de cristal	none
+🪄	baghetă magică	none
 🧿	amuletă nazar	none
 🎮	joc video	none
 🕹	joystick	none
@@ -1042,6 +1053,8 @@ symbols:
 🎲	zar	none
 🧩	piesă de puzzle	none
 🧸	ursuleț de pluș	none
+🪅	piñata	none
+🪆	matrioșka	none
 ♠	pică	none
 ♥	cupă	none
 ♦	caro	none
@@ -1054,7 +1067,9 @@ symbols:
 🖼	tablou înrămat	none
 🎨	paletă de pictor	none
 🧵	ață	none
+🪡	ac de cusut	none
 🧶	fir textil	none
+🪢	nod	none
 👓	ochelari	none
 🕶	ochelari de soare	none
 🥽	ochelari de protecție	none
@@ -1080,6 +1095,7 @@ symbols:
 👝	gentuță	none
 🛍	sacoșe de cumpărături	none
 🎒	rucsac	none
+🩴	șlap	none
 👞	pantof bărbătesc	none
 👟	pantof sport	none
 🥾	bocanc	none
@@ -1093,6 +1109,7 @@ symbols:
 🎩	joben	none
 🎓	tichie de absolvent	none
 🧢	șapcă	none
+🪖	cască militară	none
 ⛑	cască de pompier salvator	none
 📿	mătănii	none
 💄	ruj	none
@@ -1117,12 +1134,14 @@ symbols:
 🎧	cască audio	none
 📻	radio	none
 🎷	saxofon	none
+🪗	acordeon	none
 🎸	chitară	none
 🎹	claviatură muzicală	none
 🎺	trompetă	none
 🎻	vioară	none
 🪕	banjo	none
 🥁	tobă	none
+🪘	tobă înaltă	none
 📱	telefon mobil	none
 📲	telefon mobil cu săgeată	none
 ☎	telefon	none
@@ -1176,6 +1195,7 @@ symbols:
 🔖	semn de carte	none
 🏷	etichetă	none
 💰	sac cu bani	none
+🪙	monedă	none
 💴	bancnotă yen	none
 💵	bancnotă dolar	none
 💶	bancnotă euro	none
@@ -1184,8 +1204,6 @@ symbols:
 💳	card de credit	none
 🧾	chitanță	none
 💹	grafic ascendent cu yen	none
-💱	schimb valutar	none
-💲	semnul dolar îngroșat	none
 ✉	plic	none
 📧	e-mail	none
 📨	sosire plic	none
@@ -1243,9 +1261,12 @@ symbols:
 🗡	pumnal	none
 ⚔	săbii încrucișate	none
 🔫	pistol	none
+🪃	bumerang	none
 🏹	arc și săgeată	none
 🛡	scut	none
+🪚	fierăstrău pentru tămplărie	none
 🔧	cheie fixă	none
+🪛	șurubelniță	none
 🔩	șurub și piuliță	none
 ⚙	rotiță zimțată	none
 🗜	menghină	none
@@ -1253,8 +1274,10 @@ symbols:
 🦯	baston pentru nevăzători	none
 🔗	za	none
 ⛓	lanț	none
+🪝	cârlig	none
 🧰	trusă de scule	none
 🧲	magnet	none
+🪜	scară	none
 ⚗	alambic	none
 🧪	eprubetă	none
 🧫	vas Petri	none
@@ -1268,26 +1291,35 @@ symbols:
 🩹	leucoplast	none
 🩺	stetoscop	none
 🚪	ușă	none
+🛗	lift	none
+🪞	oglindă	none
+🪟	fereastră	none
 🛏	pat	none
 🛋	canapea și lampă	none
 🪑	scaun	none
 🚽	toaletă	none
+🪠	pompă de aspirare	none
 🚿	duș	none
 🛁	cadă	none
+🪤	cursă de șoareci	none
 🪒	brici	none
 🧴	flacon de loțiune	none
 🧷	ac de siguranță	none
 🧹	mătură	none
 🧺	coș	none
 🧻	sul de hârtie	none
+🪣	găleată	none
 🧼	săpun	none
+🪥	periuță de dinți	none
 🧽	burete	none
 🧯	stingător de incendiu	none
 🛒	cărucior de cumpărături	none
 🚬	țigară	none
 ⚰	coșciug	none
+🪦	piatră funerară	none
 ⚱	urnă funerară	none
 🗿	statuie moai	none
+🪧	plancardă	none
 🏧	simbol pentru bancomat	none
 🚮	simbol pentru folosiți coșul de gunoi	none
 🚰	apă potabilă	none
@@ -1386,8 +1418,22 @@ symbols:
 📴	închidere telefoane mobile	none
 ♀	semn feminin	none
 ♂	semn masculin	none
-⚕	simbol medical	none
+⚧	transgender	none
+✖	înmulțire	none
+➕	plus	none
+➖	minus	none
+➗	împărțire	none
 ♾	infinit	none
+‼	semn dublu de exclamare	none
+⁉	semn de exclamare și întrebare	none
+❓	semnul întrebării	none
+❔	semnul întrebării alb	none
+❕	semnul exclamării alb	none
+❗	semnul exclamării	none
+〰	liniuță ondulată	none
+💱	schimb valutar	none
+💲	semnul dolar îngroșat	none
+⚕	simbol medical	none
 ♻	simbolul pentru reciclare	none
 ⚜	floare de crin stilizată	none
 🔱	emblemă trident	none
@@ -1397,25 +1443,14 @@ symbols:
 ✅	buton de bifă	none
 ☑	casetă de votare bifată	none
 ✔	bifă îngroșată	none
-✖	înmulțire	none
 ❌	semnul x	none
 ❎	buton x	none
-➕	plus	none
-➖	minus	none
-➗	împărțire	none
 ➰	buclă ondulată	none
 ➿	buclă ondulată dublă	none
 〽	alternare cântăreț	none
 ✳	asterisc cu opt colțuri	none
 ✴	stea cu opt colțuri	none
 ❇	strălucire	none
-‼	semn dublu de exclamare	none
-⁉	semn de exclamare și întrebare	none
-❓	semnul întrebării	none
-❔	semnul întrebării alb	none
-❕	semnul exclamării alb	none
-❗	semnul exclamării	none
-〰	liniuță ondulată	none
 ©	drepturi de autor	none
 ®	marcă înregistrată	none
 ™	marcă comercială	none
@@ -1497,14 +1532,18 @@ symbols:
 🎌	steaguri încrucișate	none
 🏴	steag negru	none
 🏳	steag alb	none
-🏳‍⚧	steag transgender	none
 🏳‍🌈	steag curcubeu	none
+🏳‍⚧	steag transgender	none
 🏴‍☠	steagul piraților	none
-🤌🏻	degete strânse ton deschis al pielii	none
-🤌🏼	degete strânse ton semi‑deschis al pielii	none
-🤌🏽	degete strânse ton mediu al pielii	none
-🤌🏾	degete strânse ton semi‑închis al pielii	none
-🤌🏿	degete strânse ton închis al pielii	none
+£	liră	none
+¥	yen	none
+€	euro	none
+₹	rupie indiană	none
+₽	rublă	none
+¹	exponent unu	none
+²	exponent doi	none
+³	exponent trei	none
+µ	semnul micro	none
 👋🏻	mână fluturată ton deschis al pielii	none
 👋🏼	mână fluturată ton semi‑deschis al pielii	none
 👋🏽	mână fluturată ton mediu al pielii	none
@@ -1535,6 +1574,11 @@ symbols:
 👌🏽	semnul ok ton mediu al pielii	none
 👌🏾	semnul ok ton semi‑închis al pielii	none
 👌🏿	semnul ok ton închis al pielii	none
+🤌🏻	degete strânse ton deschis al pielii	none
+🤌🏼	degete strânse ton semi‑deschis al pielii	none
+🤌🏽	degete strânse ton mediu al pielii	none
+🤌🏾	degete strânse ton semi‑închis al pielii	none
+🤌🏿	degete strânse ton închis al pielii	none
 🤏🏻	mână cu două degete apropiate ton deschis al pielii	none
 🤏🏼	mână cu două degete apropiate ton semi‑deschis al pielii	none
 🤏🏽	mână cu două degete apropiate ton mediu al pielii	none
@@ -1749,16 +1793,6 @@ symbols:
 🧑🏽‍🦲	adult ton mediu al pielii, chelie	none
 🧑🏾‍🦲	adult ton semi‑închis al pielii, chelie	none
 🧑🏿‍🦲	adult ton închis al pielii, chelie	none
-🧑🏻‍🍼	persoană hrănind un bebeluș ton deschis al pielii	none
-🧑🏼‍🍼	persoană hrănind un bebeluș ton semi‑deschis al pielii	none
-🧑🏽‍🍼	persoană hrănind un bebeluș ton mediu al pielii	none
-🧑🏾‍🍼	persoană hrănind un bebeluș ton semi‑închis al pielii	none
-🧑🏿‍🍼	persoană hrănind un bebeluș ton închis al pielii	none
-🧑🏻‍🎄	Crăciun ton deschis al pielii	none
-🧑🏼‍🎄	Crăciun ton semi‑deschis al pielii	none
-🧑🏽‍🎄	Crăciun ton mediu al pielii	none
-🧑🏾‍🎄	Crăciun ton semi‑închis al pielii	none
-🧑🏿‍🎄	Crăciun ton închis al pielii	none
 👨🏻	bărbat ton deschis al pielii	none
 👨🏼	bărbat ton semi‑deschis al pielii	none
 👨🏽	bărbat ton mediu al pielii	none
@@ -1798,11 +1832,6 @@ symbols:
 👨🏽‍🦲	bărbat ton mediu al pielii, chelie	none
 👨🏾‍🦲	bărbat ton semi‑închis al pielii, chelie	none
 👨🏿‍🦲	bărbat ton închis al pielii, chelie	none
-👨🏻‍🍼	bărbat hrănind un bebeluș ton deschis al pielii	none
-👨🏼‍🍼	bărbat hrănind un bebeluș ton semi‑deschis al pielii	none
-👨🏽‍🍼	bărbat hrănind un bebeluș ton mediu al pielii	none
-👨🏾‍🍼	bărbat hrănind un bebeluș ton semi‑închis al pielii	none
-👨🏿‍🍼	bărbat hrănind un bebeluș ton închis al pielii	none
 👩🏻	femeie ton deschis al pielii	none
 👩🏼	femeie ton semi‑deschis al pielii	none
 👩🏽	femeie ton mediu al pielii	none
@@ -1837,11 +1866,6 @@ symbols:
 👩🏽‍🦲	femeie ton mediu al pielii, chelie	none
 👩🏾‍🦲	femeie ton semi‑închis al pielii, chelie	none
 👩🏿‍🦲	femeie ton închis al pielii, chelie	none
-👩🏻‍🍼	femeie hrănind un bebeluș ton deschis al pielii	none
-👩🏼‍🍼	femeie hrănind un bebeluș ton semi‑deschis al pielii	none
-👩🏽‍🍼	femeie hrănind un bebeluș ton mediu al pielii	none
-👩🏾‍🍼	femeie hrănind un bebeluș ton semi‑închis al pielii	none
-👩🏿‍🍼	femeie hrănind un bebeluș ton închis al pielii	none
 🧓🏻	persoană în vârstă ton deschis al pielii	none
 🧓🏼	persoană în vârstă ton semi‑deschis al pielii	none
 🧓🏽	persoană în vârstă ton mediu al pielii	none
@@ -2292,6 +2316,11 @@ symbols:
 💂🏽‍♀	gardian femeie ton mediu al pielii	none
 💂🏾‍♀	gardian femeie ton semi‑închis al pielii	none
 💂🏿‍♀	gardian femeie ton închis al pielii	none
+🥷🏻	ninja ton deschis al pielii	none
+🥷🏼	ninja ton semi‑deschis al pielii	none
+🥷🏽	ninja ton mediu al pielii	none
+🥷🏾	ninja ton semi‑închis al pielii	none
+🥷🏿	ninja ton închis al pielii	none
 👷🏻	constructor ton deschis al pielii	none
 👷🏼	constructor ton semi‑deschis al pielii	none
 👷🏽	constructor ton mediu al pielii	none
@@ -2347,31 +2376,31 @@ symbols:
 🤵🏽	persoană în smoching ton mediu al pielii	none
 🤵🏾	persoană în smoching ton semi‑închis al pielii	none
 🤵🏿	persoană în smoching ton închis al pielii	none
-🤵🏻‍♀	femeie în smoching ton deschis al pielii	none
-🤵🏼‍♀	femeie în smoching ton semi‑deschis al pielii	none
-🤵🏽‍♀	femeie în smoching ton mediu al pielii	none
-🤵🏾‍♀	femeie în smoching ton semi‑închis al pielii	none
-🤵🏿‍♀	femeie în smoching ton închis al pielii	none
 🤵🏻‍♂	bărbat în smoching ton deschis al pielii	none
 🤵🏼‍♂	bărbat în smoching ton semi‑deschis al pielii	none
 🤵🏽‍♂	bărbat în smoching ton mediu al pielii	none
 🤵🏾‍♂	bărbat în smoching ton semi‑închis al pielii	none
 🤵🏿‍♂	bărbat în smoching ton închis al pielii	none
+🤵🏻‍♀	femeie în smoching ton deschis al pielii	none
+🤵🏼‍♀	femeie în smoching ton semi‑deschis al pielii	none
+🤵🏽‍♀	femeie în smoching ton mediu al pielii	none
+🤵🏾‍♀	femeie în smoching ton semi‑închis al pielii	none
+🤵🏿‍♀	femeie în smoching ton închis al pielii	none
 👰🏻	persoană cu voal ton deschis al pielii	none
 👰🏼	persoană cu voal ton semi‑deschis al pielii	none
 👰🏽	persoană cu voal ton mediu al pielii	none
 👰🏾	persoană cu voal ton semi‑închis al pielii	none
 👰🏿	persoană cu voal ton închis al pielii	none
-👰🏻‍♀	femeie cu voal ton deschis al pielii	none
-👰🏼‍♀	femeie cu voal ton semi‑deschis al pielii	none
-👰🏽‍♀	femeie cu voal ton mediu al pielii	none
-👰🏾‍♀	femeie cu voal ton semi‑închis al pielii	none
-👰🏿‍♀	femeie cu voal ton închis al pielii	none
 👰🏻‍♂	bărbat cu voal ton deschis al pielii	none
 👰🏼‍♂	bărbat cu voal ton semi‑deschis al pielii	none
 👰🏽‍♂	bărbat cu voal ton mediu al pielii	none
 👰🏾‍♂	bărbat cu voal ton semi‑închis al pielii	none
 👰🏿‍♂	bărbat cu voal ton închis al pielii	none
+👰🏻‍♀	femeie cu voal ton deschis al pielii	none
+👰🏼‍♀	femeie cu voal ton semi‑deschis al pielii	none
+👰🏽‍♀	femeie cu voal ton mediu al pielii	none
+👰🏾‍♀	femeie cu voal ton semi‑închis al pielii	none
+👰🏿‍♀	femeie cu voal ton închis al pielii	none
 🤰🏻	femeie însărcinată ton deschis al pielii	none
 🤰🏼	femeie însărcinată ton semi‑deschis al pielii	none
 🤰🏽	femeie însărcinată ton mediu al pielii	none
@@ -2382,6 +2411,21 @@ symbols:
 🤱🏽	alăptare la sân ton mediu al pielii	none
 🤱🏾	alăptare la sân ton semi‑închis al pielii	none
 🤱🏿	alăptare la sân ton închis al pielii	none
+👩🏻‍🍼	femeie hrănind un bebeluș ton deschis al pielii	none
+👩🏼‍🍼	femeie hrănind un bebeluș ton semi‑deschis al pielii	none
+👩🏽‍🍼	femeie hrănind un bebeluș ton mediu al pielii	none
+👩🏾‍🍼	femeie hrănind un bebeluș ton semi‑închis al pielii	none
+👩🏿‍🍼	femeie hrănind un bebeluș ton închis al pielii	none
+👨🏻‍🍼	bărbat hrănind un bebeluș ton deschis al pielii	none
+👨🏼‍🍼	bărbat hrănind un bebeluș ton semi‑deschis al pielii	none
+👨🏽‍🍼	bărbat hrănind un bebeluș ton mediu al pielii	none
+👨🏾‍🍼	bărbat hrănind un bebeluș ton semi‑închis al pielii	none
+👨🏿‍🍼	bărbat hrănind un bebeluș ton închis al pielii	none
+🧑🏻‍🍼	persoană hrănind un bebeluș ton deschis al pielii	none
+🧑🏼‍🍼	persoană hrănind un bebeluș ton semi‑deschis al pielii	none
+🧑🏽‍🍼	persoană hrănind un bebeluș ton mediu al pielii	none
+🧑🏾‍🍼	persoană hrănind un bebeluș ton semi‑închis al pielii	none
+🧑🏿‍🍼	persoană hrănind un bebeluș ton închis al pielii	none
 👼🏻	bebeluș îngeraș ton deschis al pielii	none
 👼🏼	bebeluș îngeraș ton semi‑deschis al pielii	none
 👼🏽	bebeluș îngeraș ton mediu al pielii	none
@@ -2397,6 +2441,11 @@ symbols:
 🤶🏽	Doamna Crăciun ton mediu al pielii	none
 🤶🏾	Doamna Crăciun ton semi‑închis al pielii	none
 🤶🏿	Doamna Crăciun ton închis al pielii	none
+🧑🏻‍🎄	Crăciun ton deschis al pielii	none
+🧑🏼‍🎄	Crăciun ton semi‑deschis al pielii	none
+🧑🏽‍🎄	Crăciun ton mediu al pielii	none
+🧑🏾‍🎄	Crăciun ton semi‑închis al pielii	none
+🧑🏿‍🎄	Crăciun ton închis al pielii	none
 🦸🏻	supererou ton deschis al pielii	none
 🦸🏼	supererou ton semi‑deschis al pielii	none
 🦸🏽	supererou ton mediu al pielii	none

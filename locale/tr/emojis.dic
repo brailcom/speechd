@@ -8,62 +8,41 @@ symbols:
 🏽	orta cilt tonu	none
 🏾	orta koyu cilt tonu	none
 🏿	koyu cilt tonu	none
-⚧	transgender sembolü	none
-🤌	kıstırma hareketi yapan parmaklar	none
-🥲	gözü yaşlı gülümseyen yüz	none
-🥷	ninja	none
-🥸	gizlenmiş yüz	none
-🦣	mamut	none
-🦤	dodo kuşu	none
-🦫	kunduz	none
-🦬	bizon	none
-🦭	fok	none
-🧋	bubble tea	none
-🩴	parmak arası terlik	none
-🪃	bumerang	none
-🪄	sihirli asa	none
-🪅	pinyata	none
-🪆	matruşka	none
-🪖	asker kaskı	none
-🪗	akordiyon	none
-🪘	uzun davul	none
-🪙	bozuk para	none
-🪚	testere	none
-🪛	tornavida	none
-🪜	merdiven	none
-🪝	çengel	none
-🪞	ayna	none
-🪟	pencere	none
-🪠	lavabo pompası	none
-🪡	dikiş iğnesi	none
-🪢	denizci düğümü	none
-🪣	kova	none
-🪤	fare kapanı	none
-🪥	diş fırçası	none
-🪦	mezar taşı	none
-🪧	tabela	none
-🪨	kaya	none
-🪰	karasinek	none
-🪱	solucan	none
-🪲	böcek	none
-🪳	hamam böceği	none
-🪴	saksı bitkisi	none
-🪵	kütük	none
-🪶	kuş tüyü	none
-🫀	kalp	none
-🫁	akciğer	none
-🫂	kucaklaşan insanlar	none
-🫐	yaban mersini	none
-🫑	dolma biber	none
-🫒	zeytin	none
-🫓	yassı ekmek	none
-🫔	tamale	none
-🫕	fondü	none
-🫖	demlik	none
-🛖	kulübe	none
-🛗	asansör	none
-🛻	pikap	none
-🛼	paten	none
+–	tire	none
+—	uzun tire	none
+·	orta nokta	none
+«	sola bakan köşeli tırnak işareti	none
+»	sağa bakan köşeli tırnak işareti	none
+§	bölüm	none
+†	kama işareti	none
+‡	çift kama işareti	none
+•	madde imi	none
+°	derece	none
+℗	ses kaydı telif hakkı	none
+←	solu gösteren ok	none
+→	sağı gösteren ok	none
+↑	yukarı gösteren ok	none
+↓	aşağı gösteren ok	none
+⇅	yukarı ve aşağı bakan oklar	none
+⇆	altta sağa üstte sola bakan oklar	none
+∆	artım	none
+∇	nabla	none
+∈	elemanıdır	none
+÷	bölme işareti	none
+×	çarpma işareti	none
+⁻	üst eksi simgesi	none
+√	karekök	none
+∞	sonsuzluk işareti	none
+∩	kesişim	none
+∪	birleşim	none
+≡	denktir	none
+⊂	alt kümesidir	none
+▲	yukarı bakan içi dolu üçgen	none
+▼	aşağı bakan içi dolu üçgen	none
+◊	eşkenar dörtgen	none
+○	boş daire	none
+●	içi dolu çember	none
+◯	büyük boş daire	none
 😀	sırıtan yüz	none
 😃	ağzı açık sırıtma	none
 😄	gülen gözlerle ağzı açık sırıtma	none
@@ -85,6 +64,7 @@ symbols:
 ☺	gülen yüz	none
 😚	kapalı gözlerle öpen yüz	none
 😙	gülen gözlerle öpen yüz	none
+🥲	gözü yaşlı gülümseyen yüz	none
 😋	lezzetli yiyecek beğenen yüz	none
 😛	dil dışarıda	none
 😜	dili dışarda göz kırpma	none
@@ -123,6 +103,7 @@ symbols:
 🤯	patlayan kafa	none
 🤠	kovboy şapkalı yüz	none
 🥳	partide eğlenen yüz	none
+🥸	gizlenmiş yüz	none
 😎	güneş gözlüklü gülümseme	none
 🤓	ukala yüz	none
 🧐	tek cam gözlüklü yüz	none
@@ -219,6 +200,7 @@ symbols:
 ✋	el kaldırma	none
 🖖	Vulkan selamı	none
 👌	tamam işareti	none
+🤌	kıstırma hareketi yapan parmaklar	none
 🤏	kıstırma hareketi yapan el	none
 ✌	zafer işareti	none
 🤞	şans dileme	none
@@ -255,6 +237,8 @@ symbols:
 🦻	işitme cihazı olan kulak	none
 👃	burun	none
 🧠	beyin	none
+🫀	kalp	none
+🫁	akciğer	none
 🦷	diş	none
 🦴	kemik	none
 👀	gözler	none
@@ -267,15 +251,11 @@ symbols:
 👧	kız çocuk	none
 🧑	yetişkin	none
 👱	sarışın kişi	none
-🧑‍🍼	bebek emziren kişi	none
-🧑‍🎄	cinsiyet belirtmeyen noel karakteri	none
 👨	erkek	none
 🧔	sakallı kişi	none
 👱‍♂	sarışın erkek	none
-👨‍🍼	bebek emziren erkek	none
 👩	kadın	none
 👱‍♀	sarışın kadın	none
-👩‍🍼	bebek emziren kadın	none
 🧓	yaşlı yetişkin	none
 👴	yaşlı erkek	none
 👵	yaşlı kadın	none
@@ -366,6 +346,7 @@ symbols:
 💂	muhafız	none
 💂‍♂	erkek muhafız	none
 💂‍♀	kadın muhafız	none
+🥷	ninja	none
 👷	inşaat işçisi	none
 👷‍♂	erkek inşaat işçisi	none
 👷‍♀	kadın inşaat işçisi	none
@@ -377,16 +358,20 @@ symbols:
 👲	çin şapkalı erkek	none
 🧕	başörtülü kadın	none
 🤵	smokinli kişi	none
-🤵‍♀	smokinli kadın	none
 🤵‍♂	smokinli erkek	none
+🤵‍♀	smokinli kadın	none
 👰	duvaklı gelin	none
-👰‍♀	duvaklı kadın	none
 👰‍♂	duvaklı erkek	none
+👰‍♀	duvaklı kadın	none
 🤰	hamile kadın	none
 🤱	emziren kadın	none
+👩‍🍼	bebek emziren kadın	none
+👨‍🍼	bebek emziren erkek	none
+🧑‍🍼	bebek emziren kişi	none
 👼	bebek melek	none
 🎅	Noel Baba	none
 🤶	Noel Anne	none
+🧑‍🎄	cinsiyet belirtmeyen noel karakteri	none
 🦸	süper kahraman	none
 🦸‍♂	erkek süper kahraman	none
 🦸‍♀	kadın süper kahraman	none
@@ -511,6 +496,7 @@ symbols:
 🗣	konuşan kişi	none
 👤	siluet büst	none
 👥	siluet büstler	none
+🫂	kucaklaşan insanlar	none
 👣	ayak izi	none
 🦰	kızıl saç	none
 🦱	kıvırcık saç	none
@@ -540,6 +526,7 @@ symbols:
 🦄	tek boynuzlu at	none
 🦓	zebra	none
 🦌	geyik	none
+🦬	bizon	none
 🐮	inek yüzü	none
 🐂	öküz	none
 🐃	manda	none
@@ -556,6 +543,7 @@ symbols:
 🦙	lama	none
 🦒	zürafa	none
 🐘	fil	none
+🦣	mamut	none
 🦏	gergedan	none
 🦛	hipopotam	none
 🐭	fare yüzü	none
@@ -565,6 +553,7 @@ symbols:
 🐰	tavşan yüzü	none
 🐇	tavşan	none
 🐿	sincap	none
+🦫	kunduz	none
 🦔	kirpi	none
 🦇	yarasa	none
 🐻	ayı	none
@@ -590,6 +579,8 @@ symbols:
 🦆	ördek	none
 🦢	kuğu	none
 🦉	baykuş	none
+🦤	dodo kuşu	none
+🪶	kuş tüyü	none
 🦩	flamingo	none
 🦚	tavus kuşu	none
 🦜	papağan	none
@@ -605,6 +596,7 @@ symbols:
 🐳	su püskürten balina	none
 🐋	balina	none
 🐬	yunus	none
+🦭	fok	none
 🐟	balık	none
 🐠	tropikal balık	none
 🐡	balon balığı	none
@@ -616,12 +608,16 @@ symbols:
 🐛	tırtıl	none
 🐜	karınca	none
 🐝	bal arısı	none
+🪲	böcek	none
 🐞	uğur böceği	none
 🦗	cırcır böceği	none
+🪳	hamam böceği	none
 🕷	örümcek	none
 🕸	örümcek ağı	none
 🦂	akrep	none
 🦟	sivrisinek	none
+🪰	karasinek	none
+🪱	solucan	none
 🦠	mikrop	none
 💐	buket	none
 🌸	kiraz çiçeği	none
@@ -634,6 +630,7 @@ symbols:
 🌼	çiçek açma	none
 🌷	lale	none
 🌱	filizlenme	none
+🪴	saksı bitkisi	none
 🌲	yaprak dökmeyen ağaç	none
 🌳	yaprak döken ağaç	none
 🌴	palmiye ağacı	none
@@ -659,8 +656,10 @@ symbols:
 🍑	şeftali	none
 🍒	kiraz	none
 🍓	çilek	none
+🫐	yaban mersini	none
 🥝	kivi	none
 🍅	domates	none
+🫒	zeytin	none
 🥥	Hindistan cevizi	none
 🥑	avokado	none
 🍆	patlıcan	none
@@ -668,6 +667,7 @@ symbols:
 🥕	havuç	none
 🌽	mısır koçanı	none
 🌶	acı biber	none
+🫑	dolma biber	none
 🥒	salatalık	none
 🥬	yeşil yapraklı sebze	none
 🥦	brokoli	none
@@ -679,6 +679,7 @@ symbols:
 🍞	ekmek	none
 🥐	kruvasan	none
 🥖	baget ekmek	none
+🫓	yassı ekmek	none
 🥨	pretzel	none
 🥯	simit	none
 🥞	krep	none
@@ -695,12 +696,14 @@ symbols:
 🥪	sandviç	none
 🌮	tako	none
 🌯	burito	none
+🫔	tamale	none
 🥙	dürüm	none
 🧆	falafel	none
 🥚	yumurta	none
 🍳	yemek pişirme	none
 🥘	sahanda yemek	none
 🍲	yemek tenceresi	none
+🫕	fondü	none
 🥣	kaşıklı kase	none
 🥗	yeşil salata	none
 🍿	patlamış mısır	none
@@ -746,6 +749,7 @@ symbols:
 🍼	biberon	none
 🥛	süt bardağı	none
 ☕	sıcak içecek	none
+🫖	demlik	none
 🍵	çay fincanı	none
 🍶	sake	none
 🍾	patlayan mantarlı şişe	none
@@ -757,6 +761,7 @@ symbols:
 🥂	kadeh tokuşturma	none
 🥃	kısa ve geniş bardak	none
 🥤	pipetli bardak	none
+🧋	bubble tea	none
 🧃	içecek kutusu	none
 🧉	mate çayı	none
 🧊	buz küpü	none
@@ -786,6 +791,9 @@ symbols:
 🏛	tarihi yapı	none
 🏗	bina inşaatı	none
 🧱	tuğla	none
+🪨	kaya	none
+🪵	kütük	none
+🛖	kulübe	none
 🏘	evler	none
 🏚	terkedilmiş ev	none
 🏠	ev	none
@@ -853,6 +861,7 @@ symbols:
 🚗	araba	none
 🚘	yaklaşan araba	none
 🚙	cip	none
+🛻	pikap	none
 🚚	nakliye kamyonu	none
 🚛	tır	none
 🚜	traktör	none
@@ -865,6 +874,7 @@ symbols:
 🚲	bisiklet	none
 🛴	ayakla sürülen skuter	none
 🛹	kaykay	none
+🛼	paten	none
 🚏	otobüs durağı	none
 🛣	otoban	none
 🛤	tren yolu	none
@@ -1035,6 +1045,7 @@ symbols:
 🪁	uçurtma	none
 🎱	bilardo	none
 🔮	kristal küre	none
+🪄	sihirli asa	none
 🧿	nazarlık	none
 🎮	video oyunu	none
 🕹	oyun çubuğu	none
@@ -1042,6 +1053,8 @@ symbols:
 🎲	oyun zarı	none
 🧩	yapboz parçası	none
 🧸	oyuncak ayı	none
+🪅	pinyata	none
+🪆	matruşka	none
 ♠	maça	none
 ♥	kupa	none
 ♦	karo	none
@@ -1054,7 +1067,9 @@ symbols:
 🖼	resimli çerçeve	none
 🎨	boya paleti	none
 🧵	iplik	none
+🪡	dikiş iğnesi	none
 🧶	iplik yumağı	none
+🪢	denizci düğümü	none
 👓	gözlük	none
 🕶	güneş gözlüğü	none
 🥽	koruyucu gözlük	none
@@ -1080,6 +1095,7 @@ symbols:
 👝	para kesesi	none
 🛍	alışveriş çantası	none
 🎒	okul çantası	none
+🩴	parmak arası terlik	none
 👞	erkek ayakkabısı	none
 👟	koşu ayakkabısı	none
 🥾	yürüyüş botu	none
@@ -1093,6 +1109,7 @@ symbols:
 🎩	silindir şapka	none
 🎓	mezuniyet kepi	none
 🧢	siperli şapka	none
+🪖	asker kaskı	none
 ⛑	yardım ekibi kaskı	none
 📿	tespih	none
 💄	ruj	none
@@ -1117,12 +1134,14 @@ symbols:
 🎧	kulaklık	none
 📻	radyo	none
 🎷	saksafon	none
+🪗	akordiyon	none
 🎸	gitar	none
 🎹	müzik klavyesi	none
 🎺	trompet	none
 🎻	keman	none
 🪕	banjo	none
 🥁	davul	none
+🪘	uzun davul	none
 📱	cep telefonu	none
 📲	ok işaretli cep telefonu	none
 ☎	telefon	none
@@ -1176,6 +1195,7 @@ symbols:
 🔖	yer işareti	none
 🏷	etiket	none
 💰	para torbası	none
+🪙	bozuk para	none
 💴	yen banknot	none
 💵	dolar banknot	none
 💶	euro banknot	none
@@ -1184,8 +1204,6 @@ symbols:
 💳	kredi kartı	none
 🧾	makbuz	none
 💹	yen simgeli artış grafiği	none
-💱	kambiyo	none
-💲	dolar işareti	none
 ✉	zarf	none
 📧	e-posta	none
 📨	gelen zarf	none
@@ -1243,9 +1261,12 @@ symbols:
 🗡	hançer	none
 ⚔	çapraz kılıçlar	none
 🔫	tabanca	none
+🪃	bumerang	none
 🏹	ok ve yay	none
 🛡	kalkan	none
+🪚	testere	none
 🔧	somun anahtarı	none
+🪛	tornavida	none
 🔩	somun ve vida	none
 ⚙	dişli	none
 🗜	mengene	none
@@ -1253,8 +1274,10 @@ symbols:
 🦯	görme engelli bastonu	none
 🔗	bağlantı işareti	none
 ⛓	zincir	none
+🪝	çengel	none
 🧰	alet çantası	none
 🧲	mıknatıs	none
+🪜	merdiven	none
 ⚗	imbik	none
 🧪	deney tüpü	none
 🧫	petri kabı	none
@@ -1268,26 +1291,35 @@ symbols:
 🩹	yara bandı	none
 🩺	stetoskop	none
 🚪	kapı	none
+🛗	asansör	none
+🪞	ayna	none
+🪟	pencere	none
 🛏	yatak	none
 🛋	kanepe ve lamba	none
 🪑	sandalye	none
 🚽	klozet	none
+🪠	lavabo pompası	none
 🚿	duş	none
 🛁	banyo küveti	none
+🪤	fare kapanı	none
 🪒	ustura	none
 🧴	losyon şişesi	none
 🧷	çengelli iğne	none
 🧹	süpürge	none
 🧺	sepet	none
 🧻	kağıt rulosu	none
+🪣	kova	none
 🧼	sabun	none
+🪥	diş fırçası	none
 🧽	sünger	none
 🧯	yangın söndürücü	none
 🛒	alışveriş arabası	none
 🚬	sigara	none
 ⚰	tabut	none
+🪦	mezar taşı	none
 ⚱	kül kavanozu	none
 🗿	moyai heykeli	none
+🪧	tabela	none
 🏧	ATM işareti	none
 🚮	çöp kutusu işareti	none
 🚰	içilebilir su	none
@@ -1386,8 +1418,22 @@ symbols:
 📴	cep telefonu kapalı	none
 ♀	kadın sembolü	none
 ♂	erkek sembolü	none
-⚕	tıp sembolü	none
+⚧	transgender sembolü	none
+✖	çarpım işareti	none
+➕	artı işareti	none
+➖	eksi işareti	none
+➗	bölü işareti	none
 ♾	sonsuz	none
+‼	çift ünlem	none
+⁉	ünlemli soru işareti	none
+❓	soru işareti	none
+❔	beyaz soru işareti	none
+❕	beyaz ünlem işareti	none
+❗	ünlem işareti	none
+〰	dalgalı çizgi	none
+💱	kambiyo	none
+💲	dolar işareti	none
+⚕	tıp sembolü	none
 ♻	geri dönüşüm simgesi	none
 ⚜	zambak	none
 🔱	üçlü çatal işareti	none
@@ -1397,25 +1443,14 @@ symbols:
 ✅	onay işareti düğmesi	none
 ☑	seçilmiş onay kutusu	none
 ✔	onay işareti	none
-✖	çarpım işareti	none
 ❌	çarpı işareti	none
 ❎	çarpı işareti düğmesi	none
-➕	artı işareti	none
-➖	eksi işareti	none
-➗	bölü işareti	none
 ➰	kıvrık döngü	none
 ➿	çift kıvrık döngü	none
 〽	parça değiştirme işareti	none
 ✳	sekiz uçlu yıldız	none
 ✴	sekiz noktalı yıldız	none
 ❇	parlama	none
-‼	çift ünlem	none
-⁉	ünlemli soru işareti	none
-❓	soru işareti	none
-❔	beyaz soru işareti	none
-❕	beyaz ünlem işareti	none
-❗	ünlem işareti	none
-〰	dalgalı çizgi	none
 ©	telif hakkı işareti	none
 ®	tescil işareti	none
 ™	ticari marka işareti	none
@@ -1497,14 +1532,18 @@ symbols:
 🎌	çapraz bayraklar	none
 🏴	siyah bayrak	none
 🏳	beyaz bayrak	none
-🏳‍⚧	transgender bayrağı	none
 🏳‍🌈	gökkuşağı bayrağı	none
+🏳‍⚧	transgender bayrağı	none
 🏴‍☠	korsan bayrağı	none
-🤌🏻	kıstırma hareketi yapan parmaklar açık cilt tonu	none
-🤌🏼	kıstırma hareketi yapan parmaklar orta açık cilt tonu	none
-🤌🏽	kıstırma hareketi yapan parmaklar orta cilt tonu	none
-🤌🏾	kıstırma hareketi yapan parmaklar orta koyu cilt tonu	none
-🤌🏿	kıstırma hareketi yapan parmaklar koyu cilt tonu	none
+£	sterlin	none
+¥	yen	none
+€	avro	none
+₹	hint rupisi	none
+₽	ruble	none
+¹	üst bir simgesi	none
+²	üst iki simgesi	none
+³	üst üç simgesi	none
+µ	mikro işareti	none
 👋🏻	el sallama açık cilt tonu	none
 👋🏼	el sallama orta açık cilt tonu	none
 👋🏽	el sallama orta cilt tonu	none
@@ -1535,6 +1574,11 @@ symbols:
 👌🏽	tamam işareti orta cilt tonu	none
 👌🏾	tamam işareti orta koyu cilt tonu	none
 👌🏿	tamam işareti koyu cilt tonu	none
+🤌🏻	kıstırma hareketi yapan parmaklar açık cilt tonu	none
+🤌🏼	kıstırma hareketi yapan parmaklar orta açık cilt tonu	none
+🤌🏽	kıstırma hareketi yapan parmaklar orta cilt tonu	none
+🤌🏾	kıstırma hareketi yapan parmaklar orta koyu cilt tonu	none
+🤌🏿	kıstırma hareketi yapan parmaklar koyu cilt tonu	none
 🤏🏻	kıstırma hareketi yapan el açık cilt tonu	none
 🤏🏼	kıstırma hareketi yapan el orta açık cilt tonu	none
 🤏🏽	kıstırma hareketi yapan el orta cilt tonu	none
@@ -1749,16 +1793,6 @@ symbols:
 🧑🏽‍🦲	yetişkin orta cilt tonu kel	none
 🧑🏾‍🦲	yetişkin orta koyu cilt tonu kel	none
 🧑🏿‍🦲	yetişkin koyu cilt tonu kel	none
-🧑🏻‍🍼	bebek emziren kişi açık cilt tonu	none
-🧑🏼‍🍼	bebek emziren kişi orta açık cilt tonu	none
-🧑🏽‍🍼	bebek emziren kişi orta cilt tonu	none
-🧑🏾‍🍼	bebek emziren kişi orta koyu cilt tonu	none
-🧑🏿‍🍼	bebek emziren kişi koyu cilt tonu	none
-🧑🏻‍🎄	cinsiyet belirtmeyen noel karakteri açık cilt tonu	none
-🧑🏼‍🎄	cinsiyet belirtmeyen noel karakteri orta açık cilt tonu	none
-🧑🏽‍🎄	cinsiyet belirtmeyen noel karakteri orta cilt tonu	none
-🧑🏾‍🎄	cinsiyet belirtmeyen noel karakteri orta koyu cilt tonu	none
-🧑🏿‍🎄	cinsiyet belirtmeyen noel karakteri koyu cilt tonu	none
 👨🏻	erkek açık cilt tonu	none
 👨🏼	erkek orta açık cilt tonu	none
 👨🏽	erkek orta cilt tonu	none
@@ -1798,11 +1832,6 @@ symbols:
 👨🏽‍🦲	erkek orta cilt tonu kel	none
 👨🏾‍🦲	erkek orta koyu cilt tonu kel	none
 👨🏿‍🦲	erkek koyu cilt tonu kel	none
-👨🏻‍🍼	bebek emziren erkek açık cilt tonu	none
-👨🏼‍🍼	bebek emziren erkek orta açık cilt tonu	none
-👨🏽‍🍼	bebek emziren erkek orta cilt tonu	none
-👨🏾‍🍼	bebek emziren erkek orta koyu cilt tonu	none
-👨🏿‍🍼	bebek emziren erkek koyu cilt tonu	none
 👩🏻	kadın açık cilt tonu	none
 👩🏼	kadın orta açık cilt tonu	none
 👩🏽	kadın orta cilt tonu	none
@@ -1837,11 +1866,6 @@ symbols:
 👩🏽‍🦲	kadın orta cilt tonu kel	none
 👩🏾‍🦲	kadın orta koyu cilt tonu kel	none
 👩🏿‍🦲	kadın koyu cilt tonu kel	none
-👩🏻‍🍼	bebek emziren kadın açık cilt tonu	none
-👩🏼‍🍼	bebek emziren kadın orta açık cilt tonu	none
-👩🏽‍🍼	bebek emziren kadın orta cilt tonu	none
-👩🏾‍🍼	bebek emziren kadın orta koyu cilt tonu	none
-👩🏿‍🍼	bebek emziren kadın koyu cilt tonu	none
 🧓🏻	yaşlı yetişkin açık cilt tonu	none
 🧓🏼	yaşlı yetişkin orta açık cilt tonu	none
 🧓🏽	yaşlı yetişkin orta cilt tonu	none
@@ -2292,6 +2316,11 @@ symbols:
 💂🏽‍♀	kadın muhafız orta cilt tonu	none
 💂🏾‍♀	kadın muhafız orta koyu cilt tonu	none
 💂🏿‍♀	kadın muhafız koyu cilt tonu	none
+🥷🏻	ninja açık cilt tonu	none
+🥷🏼	ninja orta açık cilt tonu	none
+🥷🏽	ninja orta cilt tonu	none
+🥷🏾	ninja orta koyu cilt tonu	none
+🥷🏿	ninja koyu cilt tonu	none
 👷🏻	inşaat işçisi açık cilt tonu	none
 👷🏼	inşaat işçisi orta açık cilt tonu	none
 👷🏽	inşaat işçisi orta cilt tonu	none
@@ -2347,31 +2376,31 @@ symbols:
 🤵🏽	smokinli kişi orta cilt tonu	none
 🤵🏾	smokinli kişi orta koyu cilt tonu	none
 🤵🏿	smokinli kişi koyu cilt tonu	none
-🤵🏻‍♀	smokinli kadın açık cilt tonu	none
-🤵🏼‍♀	smokinli kadın orta açık cilt tonu	none
-🤵🏽‍♀	smokinli kadın orta cilt tonu	none
-🤵🏾‍♀	smokinli kadın orta koyu cilt tonu	none
-🤵🏿‍♀	smokinli kadın koyu cilt tonu	none
 🤵🏻‍♂	smokinli erkek açık cilt tonu	none
 🤵🏼‍♂	smokinli erkek orta açık cilt tonu	none
 🤵🏽‍♂	smokinli erkek orta cilt tonu	none
 🤵🏾‍♂	smokinli erkek orta koyu cilt tonu	none
 🤵🏿‍♂	smokinli erkek koyu cilt tonu	none
+🤵🏻‍♀	smokinli kadın açık cilt tonu	none
+🤵🏼‍♀	smokinli kadın orta açık cilt tonu	none
+🤵🏽‍♀	smokinli kadın orta cilt tonu	none
+🤵🏾‍♀	smokinli kadın orta koyu cilt tonu	none
+🤵🏿‍♀	smokinli kadın koyu cilt tonu	none
 👰🏻	duvaklı gelin açık cilt tonu	none
 👰🏼	duvaklı gelin orta açık cilt tonu	none
 👰🏽	duvaklı gelin orta cilt tonu	none
 👰🏾	duvaklı gelin orta koyu cilt tonu	none
 👰🏿	duvaklı gelin koyu cilt tonu	none
-👰🏻‍♀	duvaklı kadın açık cilt tonu	none
-👰🏼‍♀	duvaklı kadın orta açık cilt tonu	none
-👰🏽‍♀	duvaklı kadın orta cilt tonu	none
-👰🏾‍♀	duvaklı kadın orta koyu cilt tonu	none
-👰🏿‍♀	duvaklı kadın koyu cilt tonu	none
 👰🏻‍♂	duvaklı erkek açık cilt tonu	none
 👰🏼‍♂	duvaklı erkek orta açık cilt tonu	none
 👰🏽‍♂	duvaklı erkek orta cilt tonu	none
 👰🏾‍♂	duvaklı erkek orta koyu cilt tonu	none
 👰🏿‍♂	duvaklı erkek koyu cilt tonu	none
+👰🏻‍♀	duvaklı kadın açık cilt tonu	none
+👰🏼‍♀	duvaklı kadın orta açık cilt tonu	none
+👰🏽‍♀	duvaklı kadın orta cilt tonu	none
+👰🏾‍♀	duvaklı kadın orta koyu cilt tonu	none
+👰🏿‍♀	duvaklı kadın koyu cilt tonu	none
 🤰🏻	hamile kadın açık cilt tonu	none
 🤰🏼	hamile kadın orta açık cilt tonu	none
 🤰🏽	hamile kadın orta cilt tonu	none
@@ -2382,6 +2411,21 @@ symbols:
 🤱🏽	emziren kadın orta cilt tonu	none
 🤱🏾	emziren kadın orta koyu cilt tonu	none
 🤱🏿	emziren kadın koyu cilt tonu	none
+👩🏻‍🍼	bebek emziren kadın açık cilt tonu	none
+👩🏼‍🍼	bebek emziren kadın orta açık cilt tonu	none
+👩🏽‍🍼	bebek emziren kadın orta cilt tonu	none
+👩🏾‍🍼	bebek emziren kadın orta koyu cilt tonu	none
+👩🏿‍🍼	bebek emziren kadın koyu cilt tonu	none
+👨🏻‍🍼	bebek emziren erkek açık cilt tonu	none
+👨🏼‍🍼	bebek emziren erkek orta açık cilt tonu	none
+👨🏽‍🍼	bebek emziren erkek orta cilt tonu	none
+👨🏾‍🍼	bebek emziren erkek orta koyu cilt tonu	none
+👨🏿‍🍼	bebek emziren erkek koyu cilt tonu	none
+🧑🏻‍🍼	bebek emziren kişi açık cilt tonu	none
+🧑🏼‍🍼	bebek emziren kişi orta açık cilt tonu	none
+🧑🏽‍🍼	bebek emziren kişi orta cilt tonu	none
+🧑🏾‍🍼	bebek emziren kişi orta koyu cilt tonu	none
+🧑🏿‍🍼	bebek emziren kişi koyu cilt tonu	none
 👼🏻	bebek melek açık cilt tonu	none
 👼🏼	bebek melek orta açık cilt tonu	none
 👼🏽	bebek melek orta cilt tonu	none
@@ -2397,6 +2441,11 @@ symbols:
 🤶🏽	Noel Anne orta cilt tonu	none
 🤶🏾	Noel Anne orta koyu cilt tonu	none
 🤶🏿	Noel Anne koyu cilt tonu	none
+🧑🏻‍🎄	cinsiyet belirtmeyen noel karakteri açık cilt tonu	none
+🧑🏼‍🎄	cinsiyet belirtmeyen noel karakteri orta açık cilt tonu	none
+🧑🏽‍🎄	cinsiyet belirtmeyen noel karakteri orta cilt tonu	none
+🧑🏾‍🎄	cinsiyet belirtmeyen noel karakteri orta koyu cilt tonu	none
+🧑🏿‍🎄	cinsiyet belirtmeyen noel karakteri koyu cilt tonu	none
 🦸🏻	süper kahraman açık cilt tonu	none
 🦸🏼	süper kahraman orta açık cilt tonu	none
 🦸🏽	süper kahraman orta cilt tonu	none

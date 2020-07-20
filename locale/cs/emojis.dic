@@ -8,62 +8,41 @@ symbols:
 🏽	střední odstín pleti	none
 🏾	středně tmavý odstín pleti	none
 🏿	tmavý odstín pleti	none
-⚧	symbol pro transgender osoby	none
-🤌	špetka z pěti prstů	none
-🥲	usmívající se obličej se slzou	none
-🥷	nindža	none
-🥸	obličej v přestrojení	none
-🦣	mamut	none
-🦤	dodo	none
-🦫	bobr	none
-🦬	bizon	none
-🦭	tuleň	none
-🧋	bublinkový čaj	none
-🩴	žabka	none
-🪃	bumerang	none
-🪄	kouzelná hůlka	none
-🪅	piñata	none
-🪆	matrjoška	none
-🪖	vojenská přilba	none
-🪗	akordeon	none
-🪘	protáhlý buben	none
-🪙	mince	none
-🪚	ruční pila	none
-🪛	šroubovák	none
-🪜	žebřík	none
-🪝	hák	none
-🪞	zrcadlo	none
-🪟	okno	none
-🪠	zvon na WC	none
-🪡	šicí jehla	none
-🪢	uzel	none
-🪣	kbelík	none
-🪤	pastička na myši	none
-🪥	zubní kartáček	none
-🪦	náhrobek	none
-🪧	cedule	none
-🪨	kámen	none
-🪰	moucha	none
-🪱	červ	none
-🪲	brouk	none
-🪳	šváb	none
-🪴	květina v květináči	none
-🪵	dřevo	none
-🪶	pírko	none
-🫀	srdeční orgán	none
-🫁	plíce	none
-🫂	objímající se lidé	none
-🫐	borůvky	none
-🫑	paprika	none
-🫒	oliva	none
-🫓	chlebová placka	none
-🫔	tamale	none
-🫕	fondue	none
-🫖	čajová konvice	none
-🛖	chýše	none
-🛗	výtah	none
-🛻	pickup	none
-🛼	kolečková brusle	none
+–	krátká pomlčka	none
+—	dlouhá pomlčka	none
+·	střední puntík	none
+«	boční uvozovky mířící doleva	none
+»	boční uvozovky mířící doprava	none
+§	paragraf	none
+†	znak křížku	none
+‡	znak dvojitého křížku	none
+•	puntík	none
+°	stupeň	none
+℗	znak práv ke zvukovému záznamu	none
+←	šipka ukazující doleva	none
+→	šipka ukazující doprava	none
+↑	šipka ukazující nahoru	none
+↓	šipka ukazující dolů	none
+⇅	šipky nahoru a dolů	none
+⇆	šipka doleva nad šipkou doprava	none
+∆	delta	none
+∇	nabla	none
+∈	prvek množiny	none
+÷	symbol dělení	none
+×	symbol násobení	none
+⁻	minus jako horní index	none
+√	druhá odmocnina	none
+∞	znak nekonečna	none
+∩	průnik	none
+∪	sjednocení	none
+≡	shoduje se	none
+⊂	podmnožina	none
+▲	vyplněný trojúhelník směřující nahoru	none
+▼	vyplněný trojúhelník směřující dolů	none
+◊	kosočtverec	none
+○	prázdný kroužek	none
+●	plný kroužek	none
+◯	prázdný kruh	none
 😀	zubící se obličej	none
 😃	zubící se obličej s velkýma očima	none
 😄	zubící se obličej s usměvavýma očima	none
@@ -85,6 +64,7 @@ symbols:
 ☺	usmívající se obličej	none
 😚	líbající obličej se zavřenýma očima	none
 😙	líbající obličej s usměvavýma očima	none
+🥲	usmívající se obličej se slzou	none
 😋	olizující se obličej	none
 😛	obličej s vyplazeným jazykem	none
 😜	mrkající obličej s vypláznutým jazykem	none
@@ -123,6 +103,7 @@ symbols:
 🤯	explodující hlava	none
 🤠	obličej s kovbojským kloboukem	none
 🥳	oslavující obličej	none
+🥸	obličej v přestrojení	none
 😎	usmívající se obličej s brýlemi	none
 🤓	obličej šprta	none
 🧐	obličej s brýlovým monoklem	none
@@ -219,6 +200,7 @@ symbols:
 ✋	zvednutá ruka	none
 🖖	vulkánský pozdrav	none
 👌	gesto OK	none
+🤌	špetka z pěti prstů	none
 🤏	gesto „málo“	none
 ✌	gesto vítězství	none
 🤞	zkřížené prsty	none
@@ -255,6 +237,8 @@ symbols:
 🦻	ucho s naslouchátkem	none
 👃	nos	none
 🧠	mozek	none
+🫀	srdeční orgán	none
+🫁	plíce	none
 🦷	zub	none
 🦴	kost	none
 👀	oči	none
@@ -267,15 +251,11 @@ symbols:
 👧	dívka	none
 🧑	dospělý člověk	none
 👱	člověk s blond vlasy	none
-🧑‍🍼	osoba krmící dítě z lahve	none
-🧑‍🎄	Santa	none
 👨	muž	none
 🧔	muž s plnovousem	none
 👱‍♂	blonďák	none
-👨‍🍼	muž krmící dítě z lahve	none
 👩	žena	none
 👱‍♀	blondýna	none
-👩‍🍼	žena krmící dítě z lahve	none
 🧓	starší dospělý člověk	none
 👴	starý muž	none
 👵	stará žena	none
@@ -366,6 +346,7 @@ symbols:
 💂	gardista	none
 💂‍♂	strážce	none
 💂‍♀	strážkyně	none
+🥷	nindža	none
 👷	dělník na stavbě	none
 👷‍♂	stavební dělník	none
 👷‍♀	stavební dělnice	none
@@ -377,16 +358,20 @@ symbols:
 👲	muž s čínskou čepicí	none
 🧕	žena v šátku	none
 🤵	osoba ve smokingu	none
-🤵‍♀	žena ve smokingu	none
 🤵‍♂	muž ve smokingu	none
+🤵‍♀	žena ve smokingu	none
 👰	osoba se závojem	none
-👰‍♀	žena se závojem	none
 👰‍♂	muž se závojem	none
+👰‍♀	žena se závojem	none
 🤰	těhotná žena	none
 🤱	kojení	none
+👩‍🍼	žena krmící dítě z lahve	none
+👨‍🍼	muž krmící dítě z lahve	none
+🧑‍🍼	osoba krmící dítě z lahve	none
 👼	andílek	none
 🎅	Santa Claus	none
 🤶	Santa Clausová	none
+🧑‍🎄	Santa	none
 🦸	superhrdinská postava	none
 🦸‍♂	superhrdina	none
 🦸‍♀	superhrdinka	none
@@ -511,6 +496,7 @@ symbols:
 🗣	mluvící hlava	none
 👤	silueta busty	none
 👥	silueta dvojice bust	none
+🫂	objímající se lidé	none
 👣	stopy	none
 🦰	zrzavé vlasy	none
 🦱	kudrnaté vlasy	none
@@ -540,6 +526,7 @@ symbols:
 🦄	hlava jednorožce	none
 🦓	zebra	none
 🦌	jelen	none
+🦬	bizon	none
 🐮	hlava krávy	none
 🐂	vůl	none
 🐃	buvol domácí	none
@@ -556,6 +543,7 @@ symbols:
 🦙	lama	none
 🦒	žirafa	none
 🐘	slon	none
+🦣	mamut	none
 🦏	nosorožec	none
 🦛	hroch	none
 🐭	hlava myši	none
@@ -565,6 +553,7 @@ symbols:
 🐰	hlava králíka	none
 🐇	králík	none
 🐿	veverka	none
+🦫	bobr	none
 🦔	ježek	none
 🦇	netopýr	none
 🐻	hlava medvěda	none
@@ -590,6 +579,8 @@ symbols:
 🦆	kachna	none
 🦢	labuť	none
 🦉	sova	none
+🦤	dodo	none
+🪶	pírko	none
 🦩	plameňák	none
 🦚	páv	none
 🦜	papoušek	none
@@ -605,6 +596,7 @@ symbols:
 🐳	velryba stříkající vodu	none
 🐋	velryba	none
 🐬	delfín	none
+🦭	tuleň	none
 🐟	ryba	none
 🐠	tropická ryba	none
 🐡	ježík	none
@@ -616,12 +608,16 @@ symbols:
 🐛	housenka	none
 🐜	mravenec	none
 🐝	včela	none
+🪲	brouk	none
 🐞	beruška	none
 🦗	cvrček	none
+🪳	šváb	none
 🕷	pavouk	none
 🕸	pavučina	none
 🦂	škorpion	none
 🦟	komár	none
+🪰	moucha	none
+🪱	červ	none
 🦠	mikrob	none
 💐	kytice	none
 🌸	třešňový květ	none
@@ -634,6 +630,7 @@ symbols:
 🌼	květ	none
 🌷	tulipán	none
 🌱	výhonek	none
+🪴	květina v květináči	none
 🌲	jehličnatý strom	none
 🌳	listnatý strom	none
 🌴	palma	none
@@ -659,8 +656,10 @@ symbols:
 🍑	broskev	none
 🍒	třešně	none
 🍓	jahoda	none
+🫐	borůvky	none
 🥝	kiwi	none
 🍅	rajče	none
+🫒	oliva	none
 🥥	kokos	none
 🥑	avokádo	none
 🍆	lilek	none
@@ -668,6 +667,7 @@ symbols:
 🥕	mrkev	none
 🌽	kukuřičný klas	none
 🌶	feferonka	none
+🫑	paprika	none
 🥒	okurka	none
 🥬	salátové listy	none
 🥦	brokolice	none
@@ -679,6 +679,7 @@ symbols:
 🍞	chleba	none
 🥐	croissant	none
 🥖	bageta	none
+🫓	chlebová placka	none
 🥨	preclík	none
 🥯	bagel	none
 🥞	palačinky	none
@@ -695,12 +696,14 @@ symbols:
 🥪	sendvič	none
 🌮	taco	none
 🌯	burrito	none
+🫔	tamale	none
 🥙	plněná pita	none
 🧆	falafel	none
 🥚	vejce	none
 🍳	vejce na pánvi	none
 🥘	mělký rendlík s jídlem	none
 🍲	hrnec jídla	none
+🫕	fondue	none
 🥣	miska se lžící	none
 🥗	salát	none
 🍿	popcorn	none
@@ -746,6 +749,7 @@ symbols:
 🍼	kojenecká láhev	none
 🥛	sklenice mléka	none
 ☕	teplý nápoj	none
+🫖	čajová konvice	none
 🍵	šálek bez ouška	none
 🍶	saké	none
 🍾	láhev sektu	none
@@ -757,6 +761,7 @@ symbols:
 🥂	cinkající sklenice	none
 🥃	sklenice whisky	none
 🥤	pohárek s brčkem	none
+🧋	bublinkový čaj	none
 🧃	nápoj v krabičce	none
 🧉	maté	none
 🧊	kostka ledu	none
@@ -786,6 +791,9 @@ symbols:
 🏛	antická budova	none
 🏗	staveniště	none
 🧱	cihly	none
+🪨	kámen	none
+🪵	dřevo	none
+🛖	chýše	none
 🏘	domky	none
 🏚	opuštěný dům	none
 🏠	domek	none
@@ -853,6 +861,7 @@ symbols:
 🚗	auto	none
 🚘	přijíždějící auto	none
 🚙	SUV	none
+🛻	pickup	none
 🚚	dodávka	none
 🚛	kamion	none
 🚜	traktor	none
@@ -865,6 +874,7 @@ symbols:
 🚲	kolo	none
 🛴	koloběžka	none
 🛹	skateboard	none
+🛼	kolečková brusle	none
 🚏	zastávka autobusu	none
 🛣	dálnice	none
 🛤	železniční trať	none
@@ -1035,6 +1045,7 @@ symbols:
 🪁	papírový drak	none
 🎱	kulečníková koule 8	none
 🔮	křišťálová koule	none
+🪄	kouzelná hůlka	none
 🧿	amulet nazar	none
 🎮	videohra	none
 🕹	joystick	none
@@ -1042,6 +1053,8 @@ symbols:
 🎲	hrací kostka	none
 🧩	puzzle	none
 🧸	medvídek	none
+🪅	piñata	none
+🪆	matrjoška	none
 ♠	piky	none
 ♥	srdce	none
 ♦	káry	none
@@ -1054,7 +1067,9 @@ symbols:
 🖼	obraz v rámu	none
 🎨	malířská paleta	none
 🧵	cívka nití	none
+🪡	šicí jehla	none
 🧶	klubíčko	none
+🪢	uzel	none
 👓	brýle	none
 🕶	sluneční brýle	none
 🥽	ochranné brýle	none
@@ -1080,6 +1095,7 @@ symbols:
 👝	kosmetická taška	none
 🛍	nákupní tašky	none
 🎒	školní batoh	none
+🩴	žabka	none
 👞	pánská bota	none
 👟	běžecká bota	none
 🥾	pohorka	none
@@ -1093,6 +1109,7 @@ symbols:
 🎩	cylindr	none
 🎓	promoční čepice	none
 🧢	kšiltovka	none
+🪖	vojenská přilba	none
 ⛑	záchranářská helma	none
 📿	růženec	none
 💄	rtěnka	none
@@ -1117,12 +1134,14 @@ symbols:
 🎧	sluchátka	none
 📻	rádio	none
 🎷	saxofon	none
+🪗	akordeon	none
 🎸	kytara	none
 🎹	klávesy	none
 🎺	trubka	none
 🎻	housle	none
 🪕	banjo	none
 🥁	buben	none
+🪘	protáhlý buben	none
 📱	mobil	none
 📲	mobil se šipkou	none
 ☎	telefon	none
@@ -1176,6 +1195,7 @@ symbols:
 🔖	záložka	none
 🏷	visačka	none
 💰	pytel peněz	none
+🪙	mince	none
 💴	jenová bankovka	none
 💵	dolarová bankovka	none
 💶	eurobankovka	none
@@ -1184,8 +1204,6 @@ symbols:
 💳	platební karta	none
 🧾	účtenka	none
 💹	rostoucí graf se znakem jenu	none
-💱	směna peněz	none
-💲	znak dolaru	none
 ✉	obálka	none
 📧	e-mail	none
 📨	příchozí obálka	none
@@ -1243,9 +1261,12 @@ symbols:
 🗡	dýka	none
 ⚔	zkřížené meče	none
 🔫	pistole	none
+🪃	bumerang	none
 🏹	luk a šíp	none
 🛡	štít	none
+🪚	ruční pila	none
 🔧	maticový klíč	none
+🪛	šroubovák	none
 🔩	šroub a matice	none
 ⚙	ozubené kolo	none
 🗜	svěrka	none
@@ -1253,8 +1274,10 @@ symbols:
 🦯	slepecká hůl	none
 🔗	články řetězu	none
 ⛓	řetězy	none
+🪝	hák	none
 🧰	box na nářadí	none
 🧲	magnet	none
+🪜	žebřík	none
 ⚗	křivule	none
 🧪	zkumavka	none
 🧫	Petriho miska	none
@@ -1268,26 +1291,35 @@ symbols:
 🩹	náplast	none
 🩺	stetoskop	none
 🚪	dveře	none
+🛗	výtah	none
+🪞	zrcadlo	none
+🪟	okno	none
 🛏	postel	none
 🛋	gauč a lampa	none
 🪑	židle	none
 🚽	toaletní mísa	none
+🪠	zvon na WC	none
 🚿	sprcha	none
 🛁	vana	none
+🪤	pastička na myši	none
 🪒	břitva	none
 🧴	láhev na kosmetiku	none
 🧷	spínací špendlík	none
 🧹	koště	none
 🧺	koš	none
 🧻	role papíru	none
+🪣	kbelík	none
 🧼	mýdlo	none
+🪥	zubní kartáček	none
 🧽	mycí houba	none
 🧯	hasicí přístroj	none
 🛒	nákupní vozík	none
 🚬	cigareta	none
 ⚰	rakev	none
+🪦	náhrobek	none
 ⚱	pohřební urna	none
 🗿	socha moai	none
+🪧	cedule	none
 🏧	značka bankomatu	none
 🚮	značka odpadkového koše	none
 🚰	pitná voda	none
@@ -1386,8 +1418,22 @@ symbols:
 📴	vypnutý mobilní telefon	none
 ♀	symbol ženského pohlaví	none
 ♂	symbol mužského pohlaví	none
-⚕	znak medicíny	none
+⚧	symbol pro transgender osoby	none
+✖	znak násobení	none
+➕	znak plus	none
+➖	znak minus	none
+➗	znak dělení	none
 ♾	nekonečno	none
+‼	dvojitý vykřičník	none
+⁉	vykřičník a otazník	none
+❓	otazník	none
+❔	bílý otazník	none
+❕	bílý vykřičník	none
+❗	vykřičník	none
+〰	dlouhá vlnovka	none
+💱	směna peněz	none
+💲	znak dolaru	none
+⚕	znak medicíny	none
 ♻	symbol recyklace	none
 ⚜	heraldická lilie	none
 🔱	emblém trojzubce	none
@@ -1397,25 +1443,14 @@ symbols:
 ✅	tlačítko se značkou zaškrtnutí	none
 ☑	zaškrtnuté políčko	none
 ✔	značka zaškrtnutí	none
-✖	znak násobení	none
 ❌	křížek	none
 ❎	tlačítko s křížkem	none
-➕	znak plus	none
-➖	znak minus	none
-➗	znak dělení	none
 ➰	smyčka	none
 ➿	dvojitá smyčka	none
 〽	značka přechodu mezi částmi skladby	none
 ✳	osmicípá hvězdička	none
 ✴	osmicípá hvězda	none
 ❇	jiskra	none
-‼	dvojitý vykřičník	none
-⁉	vykřičník a otazník	none
-❓	otazník	none
-❔	bílý otazník	none
-❕	bílý vykřičník	none
-❗	vykřičník	none
-〰	dlouhá vlnovka	none
 ©	znak ochrany autorského práva	none
 ®	znak registrované ochranné známky	none
 ™	znak ochranné známky	none
@@ -1497,14 +1532,18 @@ symbols:
 🎌	zkřížené vlajky	none
 🏴	černá vlajka	none
 🏳	bílá vlajka	none
-🏳‍⚧	vlajka trans hrdosti	none
 🏳‍🌈	duhová vlajka	none
+🏳‍⚧	vlajka trans hrdosti	none
 🏴‍☠	pirátská vlajka	none
-🤌🏻	špetka z pěti prstů světlý odstín pleti	none
-🤌🏼	špetka z pěti prstů středně světlý odstín pleti	none
-🤌🏽	špetka z pěti prstů střední odstín pleti	none
-🤌🏾	špetka z pěti prstů středně tmavý odstín pleti	none
-🤌🏿	špetka z pěti prstů tmavý odstín pleti	none
+£	libra	none
+¥	jen	none
+€	euro	none
+₹	indická rupie	none
+₽	rubl	none
+¹	číslice jedna jako horní index	none
+²	číslice dvě jako horní index	none
+³	číslice tři jako horní index	none
+µ	znak mikro	none
 👋🏻	mávající ruka světlý odstín pleti	none
 👋🏼	mávající ruka středně světlý odstín pleti	none
 👋🏽	mávající ruka střední odstín pleti	none
@@ -1535,6 +1574,11 @@ symbols:
 👌🏽	gesto OK střední odstín pleti	none
 👌🏾	gesto OK středně tmavý odstín pleti	none
 👌🏿	gesto OK tmavý odstín pleti	none
+🤌🏻	špetka z pěti prstů světlý odstín pleti	none
+🤌🏼	špetka z pěti prstů středně světlý odstín pleti	none
+🤌🏽	špetka z pěti prstů střední odstín pleti	none
+🤌🏾	špetka z pěti prstů středně tmavý odstín pleti	none
+🤌🏿	špetka z pěti prstů tmavý odstín pleti	none
 🤏🏻	gesto „málo“ světlý odstín pleti	none
 🤏🏼	gesto „málo“ středně světlý odstín pleti	none
 🤏🏽	gesto „málo“ střední odstín pleti	none
@@ -1749,16 +1793,6 @@ symbols:
 🧑🏽‍🦲	dospělý člověk střední odstín pleti, bez vlasů	none
 🧑🏾‍🦲	dospělý člověk středně tmavý odstín pleti, bez vlasů	none
 🧑🏿‍🦲	dospělý člověk tmavý odstín pleti, bez vlasů	none
-🧑🏻‍🍼	osoba krmící dítě z lahve světlý odstín pleti	none
-🧑🏼‍🍼	osoba krmící dítě z lahve středně světlý odstín pleti	none
-🧑🏽‍🍼	osoba krmící dítě z lahve střední odstín pleti	none
-🧑🏾‍🍼	osoba krmící dítě z lahve středně tmavý odstín pleti	none
-🧑🏿‍🍼	osoba krmící dítě z lahve tmavý odstín pleti	none
-🧑🏻‍🎄	Santa světlý odstín pleti	none
-🧑🏼‍🎄	Santa středně světlý odstín pleti	none
-🧑🏽‍🎄	Santa střední odstín pleti	none
-🧑🏾‍🎄	Santa středně tmavý odstín pleti	none
-🧑🏿‍🎄	Santa tmavý odstín pleti	none
 👨🏻	muž světlý odstín pleti	none
 👨🏼	muž středně světlý odstín pleti	none
 👨🏽	muž střední odstín pleti	none
@@ -1798,11 +1832,6 @@ symbols:
 👨🏽‍🦲	muž střední odstín pleti, bez vlasů	none
 👨🏾‍🦲	muž středně tmavý odstín pleti, bez vlasů	none
 👨🏿‍🦲	muž tmavý odstín pleti, bez vlasů	none
-👨🏻‍🍼	muž krmící dítě z lahve světlý odstín pleti	none
-👨🏼‍🍼	muž krmící dítě z lahve středně světlý odstín pleti	none
-👨🏽‍🍼	muž krmící dítě z lahve střední odstín pleti	none
-👨🏾‍🍼	muž krmící dítě z lahve středně tmavý odstín pleti	none
-👨🏿‍🍼	muž krmící dítě z lahve tmavý odstín pleti	none
 👩🏻	žena světlý odstín pleti	none
 👩🏼	žena středně světlý odstín pleti	none
 👩🏽	žena střední odstín pleti	none
@@ -1837,11 +1866,6 @@ symbols:
 👩🏽‍🦲	žena střední odstín pleti, bez vlasů	none
 👩🏾‍🦲	žena středně tmavý odstín pleti, bez vlasů	none
 👩🏿‍🦲	žena tmavý odstín pleti, bez vlasů	none
-👩🏻‍🍼	žena krmící dítě z lahve světlý odstín pleti	none
-👩🏼‍🍼	žena krmící dítě z lahve středně světlý odstín pleti	none
-👩🏽‍🍼	žena krmící dítě z lahve střední odstín pleti	none
-👩🏾‍🍼	žena krmící dítě z lahve středně tmavý odstín pleti	none
-👩🏿‍🍼	žena krmící dítě z lahve tmavý odstín pleti	none
 🧓🏻	starší dospělý člověk světlý odstín pleti	none
 🧓🏼	starší dospělý člověk středně světlý odstín pleti	none
 🧓🏽	starší dospělý člověk střední odstín pleti	none
@@ -2292,6 +2316,11 @@ symbols:
 💂🏽‍♀	strážkyně střední odstín pleti	none
 💂🏾‍♀	strážkyně středně tmavý odstín pleti	none
 💂🏿‍♀	strážkyně tmavý odstín pleti	none
+🥷🏻	nindža světlý odstín pleti	none
+🥷🏼	nindža středně světlý odstín pleti	none
+🥷🏽	nindža střední odstín pleti	none
+🥷🏾	nindža středně tmavý odstín pleti	none
+🥷🏿	nindža tmavý odstín pleti	none
 👷🏻	dělník na stavbě světlý odstín pleti	none
 👷🏼	dělník na stavbě středně světlý odstín pleti	none
 👷🏽	dělník na stavbě střední odstín pleti	none
@@ -2347,31 +2376,31 @@ symbols:
 🤵🏽	osoba ve smokingu střední odstín pleti	none
 🤵🏾	osoba ve smokingu středně tmavý odstín pleti	none
 🤵🏿	osoba ve smokingu tmavý odstín pleti	none
-🤵🏻‍♀	žena ve smokingu světlý odstín pleti	none
-🤵🏼‍♀	žena ve smokingu středně světlý odstín pleti	none
-🤵🏽‍♀	žena ve smokingu střední odstín pleti	none
-🤵🏾‍♀	žena ve smokingu středně tmavý odstín pleti	none
-🤵🏿‍♀	žena ve smokingu tmavý odstín pleti	none
 🤵🏻‍♂	muž ve smokingu světlý odstín pleti	none
 🤵🏼‍♂	muž ve smokingu středně světlý odstín pleti	none
 🤵🏽‍♂	muž ve smokingu střední odstín pleti	none
 🤵🏾‍♂	muž ve smokingu středně tmavý odstín pleti	none
 🤵🏿‍♂	muž ve smokingu tmavý odstín pleti	none
+🤵🏻‍♀	žena ve smokingu světlý odstín pleti	none
+🤵🏼‍♀	žena ve smokingu středně světlý odstín pleti	none
+🤵🏽‍♀	žena ve smokingu střední odstín pleti	none
+🤵🏾‍♀	žena ve smokingu středně tmavý odstín pleti	none
+🤵🏿‍♀	žena ve smokingu tmavý odstín pleti	none
 👰🏻	osoba se závojem světlý odstín pleti	none
 👰🏼	osoba se závojem středně světlý odstín pleti	none
 👰🏽	osoba se závojem střední odstín pleti	none
 👰🏾	osoba se závojem středně tmavý odstín pleti	none
 👰🏿	osoba se závojem tmavý odstín pleti	none
-👰🏻‍♀	žena se závojem světlý odstín pleti	none
-👰🏼‍♀	žena se závojem středně světlý odstín pleti	none
-👰🏽‍♀	žena se závojem střední odstín pleti	none
-👰🏾‍♀	žena se závojem středně tmavý odstín pleti	none
-👰🏿‍♀	žena se závojem tmavý odstín pleti	none
 👰🏻‍♂	muž se závojem světlý odstín pleti	none
 👰🏼‍♂	muž se závojem středně světlý odstín pleti	none
 👰🏽‍♂	muž se závojem střední odstín pleti	none
 👰🏾‍♂	muž se závojem středně tmavý odstín pleti	none
 👰🏿‍♂	muž se závojem tmavý odstín pleti	none
+👰🏻‍♀	žena se závojem světlý odstín pleti	none
+👰🏼‍♀	žena se závojem středně světlý odstín pleti	none
+👰🏽‍♀	žena se závojem střední odstín pleti	none
+👰🏾‍♀	žena se závojem středně tmavý odstín pleti	none
+👰🏿‍♀	žena se závojem tmavý odstín pleti	none
 🤰🏻	těhotná žena světlý odstín pleti	none
 🤰🏼	těhotná žena středně světlý odstín pleti	none
 🤰🏽	těhotná žena střední odstín pleti	none
@@ -2382,6 +2411,21 @@ symbols:
 🤱🏽	kojení střední odstín pleti	none
 🤱🏾	kojení středně tmavý odstín pleti	none
 🤱🏿	kojení tmavý odstín pleti	none
+👩🏻‍🍼	žena krmící dítě z lahve světlý odstín pleti	none
+👩🏼‍🍼	žena krmící dítě z lahve středně světlý odstín pleti	none
+👩🏽‍🍼	žena krmící dítě z lahve střední odstín pleti	none
+👩🏾‍🍼	žena krmící dítě z lahve středně tmavý odstín pleti	none
+👩🏿‍🍼	žena krmící dítě z lahve tmavý odstín pleti	none
+👨🏻‍🍼	muž krmící dítě z lahve světlý odstín pleti	none
+👨🏼‍🍼	muž krmící dítě z lahve středně světlý odstín pleti	none
+👨🏽‍🍼	muž krmící dítě z lahve střední odstín pleti	none
+👨🏾‍🍼	muž krmící dítě z lahve středně tmavý odstín pleti	none
+👨🏿‍🍼	muž krmící dítě z lahve tmavý odstín pleti	none
+🧑🏻‍🍼	osoba krmící dítě z lahve světlý odstín pleti	none
+🧑🏼‍🍼	osoba krmící dítě z lahve středně světlý odstín pleti	none
+🧑🏽‍🍼	osoba krmící dítě z lahve střední odstín pleti	none
+🧑🏾‍🍼	osoba krmící dítě z lahve středně tmavý odstín pleti	none
+🧑🏿‍🍼	osoba krmící dítě z lahve tmavý odstín pleti	none
 👼🏻	andílek světlý odstín pleti	none
 👼🏼	andílek středně světlý odstín pleti	none
 👼🏽	andílek střední odstín pleti	none
@@ -2397,6 +2441,11 @@ symbols:
 🤶🏽	Santa Clausová střední odstín pleti	none
 🤶🏾	Santa Clausová středně tmavý odstín pleti	none
 🤶🏿	Santa Clausová tmavý odstín pleti	none
+🧑🏻‍🎄	Santa světlý odstín pleti	none
+🧑🏼‍🎄	Santa středně světlý odstín pleti	none
+🧑🏽‍🎄	Santa střední odstín pleti	none
+🧑🏾‍🎄	Santa středně tmavý odstín pleti	none
+🧑🏿‍🎄	Santa tmavý odstín pleti	none
 🦸🏻	superhrdinská postava světlý odstín pleti	none
 🦸🏼	superhrdinská postava středně světlý odstín pleti	none
 🦸🏽	superhrdinská postava střední odstín pleti	none

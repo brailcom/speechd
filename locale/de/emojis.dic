@@ -8,62 +8,41 @@ symbols:
 🏽	mittlere Hautfarbe	none
 🏾	mitteldunkle Hautfarbe	none
 🏿	dunkle Hautfarbe	none
-⚧	Symbol für Transgender	none
-🤌	zusammengedrückte Finger	none
-🥲	lachendes Gesicht mit Träne	none
-🥷	Ninja	none
-🥸	verkleidet	none
-🦣	Mammut	none
-🦤	Dodo	none
-🦫	Biber	none
-🦬	Bison	none
-🦭	Seehund	none
-🧋	Bubble Tea	none
-🩴	Zehensandale	none
-🪃	Bumerang	none
-🪄	Zauberstab	none
-🪅	Piñata	none
-🪆	Matroschka	none
-🪖	Militärhelm	none
-🪗	Akkordeon	none
-🪘	afrikanische Trommel	none
-🪙	Münze	none
-🪚	Handsäge	none
-🪛	Schraubenzieher	none
-🪜	Leiter	none
-🪝	Angelhaken	none
-🪞	Spiegel	none
-🪟	Fenster	none
-🪠	Pömpel	none
-🪡	Nähnadel	none
-🪢	Knoten	none
-🪣	Eimer	none
-🪤	Mäusefalle	none
-🪥	Zahnbürste	none
-🪦	Grabstein	none
-🪧	Plakat	none
-🪨	Felsen	none
-🪰	Fliege	none
-🪱	Wurm	none
-🪲	Käfer	none
-🪳	Kakerlake	none
-🪴	Topfpflanze	none
-🪵	Holz	none
-🪶	Feder	none
-🫀	Herz (Organ)	none
-🫁	Lungen	none
-🫂	sich umarmende Personen	none
-🫐	Blaubeeren	none
-🫑	Paprika	none
-🫒	Olive	none
-🫓	Fladenbrot	none
-🫔	Tamale	none
-🫕	Fondue	none
-🫖	Teekanne	none
-🛖	Hütte	none
-🛗	Fahrstuhl	none
-🛻	Pick-up	none
-🛼	Rollschuh	none
+–	Halbgeviertstrich	none
+—	Geviertstrich	none
+·	Mittelpunkt	none
+«	nach links weisendes Guillemet	none
+»	nach rechts weisendes Guillemet	none
+§	Paragraph	none
+†	Langkreuz	none
+‡	Zweibalkenkreuz	none
+•	Aufzählungspunkt	none
+°	Grad Alkohol	none
+℗	Copyrightzeichen für Audioaufnahme	none
+←	nach links weisender Pfeil	none
+→	nach rechts weisender Pfeil	none
+↑	nach oben weisender Pfeil	none
+↓	nach unten weisender Pfeil	none
+⇅	nach oben und nach unten weisende Pfeile	none
+⇆	Linkspfeil über Rechtspfeil	none
+∆	Inkrement	none
+∇	Nabla	none
+∈	Element	none
+÷	Division	none
+×	Multiplikation	none
+⁻	hochgestelltes Minuszeichen	none
+√	Quadratwurzel	none
+∞	Unendlichkeitszeichen	none
+∩	Schnittmenge	none
+∪	Vereinigungsmenge	none
+≡	identisch	none
+⊂	Teilmenge	none
+▲	gefülltes nach oben weisendes Dreieck	none
+▼	gefülltes nach unten weisendes Dreieck	none
+◊	Raute	none
+○	hohler Kreis	none
+●	gefüllter Kreis	none
+◯	großer hohler Kreis	none
 😀	grinsendes Gesicht	none
 😃	grinsendes Gesicht mit großen Augen	none
 😄	grinsendes Gesicht mit lachenden Augen	none
@@ -85,6 +64,7 @@ symbols:
 ☺	lächelndes Gesicht	none
 😚	küssendes Gesicht mit geschlossenen Augen	none
 😙	küssendes Gesicht mit lächelnden Augen	none
+🥲	lachendes Gesicht mit Träne	none
 😋	sich die Lippen leckendes Gesicht	none
 😛	Gesicht mit herausgestreckter Zunge	none
 😜	zwinkerndes Gesicht mit herausgestreckter Zunge	none
@@ -123,6 +103,7 @@ symbols:
 🤯	explodierender Kopf	none
 🤠	Gesicht mit Cowboyhut	none
 🥳	Partygesicht	none
+🥸	verkleidet	none
 😎	lächelndes Gesicht mit Sonnenbrille	none
 🤓	Strebergesicht	none
 🧐	Gesicht mit Monokel	none
@@ -219,6 +200,7 @@ symbols:
 ✋	erhobene Hand	none
 🖖	vulkanischer Gruß	none
 👌	OK-Zeichen	none
+🤌	zusammengedrückte Finger	none
 🤏	Wenig-Geste	none
 ✌	Victory-Geste	none
 🤞	Hand mit gekreuzten Fingern	none
@@ -255,6 +237,8 @@ symbols:
 🦻	Ohr mit Hörhilfe	none
 👃	Nase	none
 🧠	Gehirn	none
+🫀	Herz (Organ)	none
+🫁	Lungen	none
 🦷	Zahn	none
 🦴	Knochen	none
 👀	Augen	none
@@ -267,15 +251,11 @@ symbols:
 👧	Mädchen	none
 🧑	Erwachsener	none
 👱	Person blondes Haar	none
-🧑‍🍼	stillende Person	none
-🧑‍🎄	Weihnachtsperson	none
 👨	Mann	none
 🧔	Mann Bart	none
 👱‍♂	Mann blond	none
-👨‍🍼	stillender Mann	none
 👩	Frau	none
 👱‍♀	Frau blond	none
-👩‍🍼	stillende Frau	none
 🧓	älterer Erwachsener	none
 👴	älterer Mann	none
 👵	ältere Frau	none
@@ -366,6 +346,7 @@ symbols:
 💂	Wachmann/Wachfrau	none
 💂‍♂	Wachmann	none
 💂‍♀	Wachfrau	none
+🥷	Ninja	none
 👷	Bauarbeiter(in)	none
 👷‍♂	Bauarbeiter	none
 👷‍♀	Bauarbeiterin	none
@@ -377,16 +358,20 @@ symbols:
 👲	Mann mit chinesischem Hut	none
 🧕	Frau mit Kopftuch	none
 🤵	Person im Smoking	none
-🤵‍♀	Frau im Smoking	none
 🤵‍♂	Mann im Smoking	none
+🤵‍♀	Frau im Smoking	none
 👰	Person mit Schleier	none
-👰‍♀	Frau mit Schleier	none
 👰‍♂	Mann mit Schleier	none
+👰‍♀	Frau mit Schleier	none
 🤰	schwangere Frau	none
 🤱	Stillen	none
+👩‍🍼	stillende Frau	none
+👨‍🍼	stillender Mann	none
+🧑‍🍼	stillende Person	none
 👼	Putte	none
 🎅	Weihnachtsmann	none
 🤶	Weihnachtsfrau	none
+🧑‍🎄	Weihnachtsperson	none
 🦸	Held	none
 🦸‍♂	Superheld	none
 🦸‍♀	Heldin	none
@@ -511,6 +496,7 @@ symbols:
 🗣	sprechender Kopf	none
 👤	Silhouette einer Büste	none
 👥	Silhouette mehrerer Büsten	none
+🫂	sich umarmende Personen	none
 👣	Fußabdrücke	none
 🦰	rotes Haar	none
 🦱	lockiges Haar	none
@@ -540,6 +526,7 @@ symbols:
 🦄	Einhorn	none
 🦓	Zebra	none
 🦌	Hirsch	none
+🦬	Bison	none
 🐮	Kuhgesicht	none
 🐂	Ochse	none
 🐃	Wasserbüffel	none
@@ -556,6 +543,7 @@ symbols:
 🦙	Lama	none
 🦒	Giraffe	none
 🐘	Elefant	none
+🦣	Mammut	none
 🦏	Nashorn	none
 🦛	Nilpferd	none
 🐭	Mäusegesicht	none
@@ -565,6 +553,7 @@ symbols:
 🐰	Hasengesicht	none
 🐇	Hase	none
 🐿	Streifenhörnchen	none
+🦫	Biber	none
 🦔	Igel	none
 🦇	Fledermaus	none
 🐻	Bär	none
@@ -590,6 +579,8 @@ symbols:
 🦆	Ente	none
 🦢	Schwan	none
 🦉	Eule	none
+🦤	Dodo	none
+🪶	Feder	none
 🦩	Flamingo	none
 🦚	Pfau	none
 🦜	Papagei	none
@@ -605,6 +596,7 @@ symbols:
 🐳	blasender Wal	none
 🐋	Wal	none
 🐬	Delfin	none
+🦭	Seehund	none
 🐟	Fisch	none
 🐠	Tropenfisch	none
 🐡	Kugelfisch	none
@@ -616,12 +608,16 @@ symbols:
 🐛	Raupe	none
 🐜	Ameise	none
 🐝	Biene	none
+🪲	Käfer	none
 🐞	Marienkäfer	none
 🦗	Grille	none
+🪳	Kakerlake	none
 🕷	Spinne	none
 🕸	Spinnennetz	none
 🦂	Skorpion	none
 🦟	Moskito	none
+🪰	Fliege	none
+🪱	Wurm	none
 🦠	Mikrobe	none
 💐	Blumenstrauß	none
 🌸	Kirschblüte	none
@@ -634,6 +630,7 @@ symbols:
 🌼	gelbe Blüte	none
 🌷	Tulpe	none
 🌱	Spross	none
+🪴	Topfpflanze	none
 🌲	Nadelbaum	none
 🌳	Laubbaum	none
 🌴	Palme	none
@@ -659,8 +656,10 @@ symbols:
 🍑	Pfirsich	none
 🍒	Kirschen	none
 🍓	Erdbeere	none
+🫐	Blaubeeren	none
 🥝	Kiwi	none
 🍅	Tomate	none
+🫒	Olive	none
 🥥	Kokosnuss	none
 🥑	Avocado	none
 🍆	Aubergine	none
@@ -668,6 +667,7 @@ symbols:
 🥕	Karotte	none
 🌽	Maiskolben	none
 🌶	Peperoni	none
+🫑	Paprika	none
 🥒	Gurke	none
 🥬	Grünzeug	none
 🥦	Brokkoli	none
@@ -679,6 +679,7 @@ symbols:
 🍞	Brot	none
 🥐	Croissant	none
 🥖	Baguette	none
+🫓	Fladenbrot	none
 🥨	Brezel	none
 🥯	Bagel	none
 🥞	Pfannkuchen	none
@@ -695,12 +696,14 @@ symbols:
 🥪	Sandwich	none
 🌮	Taco	none
 🌯	Burrito	none
+🫔	Tamale	none
 🥙	Döner	none
 🧆	Falafel	none
 🥚	Ei	none
 🍳	Spiegelei in Bratpfanne	none
 🥘	Pfannengericht	none
 🍲	Topf mit Essen	none
+🫕	Fondue	none
 🥣	Schüssel mit Löffel	none
 🥗	Salat	none
 🍿	Popcorn	none
@@ -746,6 +749,7 @@ symbols:
 🍼	Babyflasche	none
 🥛	Glas Milch	none
 ☕	Heißgetränk	none
+🫖	Teekanne	none
 🍵	Teetasse ohne Henkel	none
 🍶	Sake-Flasche und -tasse	none
 🍾	Flasche mit knallendem Korken	none
@@ -757,6 +761,7 @@ symbols:
 🥂	Sektgläser	none
 🥃	Trinkglas	none
 🥤	Becher mit Strohhalm	none
+🧋	Bubble Tea	none
 🧃	Trinkpäckchen	none
 🧉	Mate-Tee	none
 🧊	Eiswürfel	none
@@ -786,6 +791,9 @@ symbols:
 🏛	antikes Gebäude	none
 🏗	Kran	none
 🧱	Ziegelstein	none
+🪨	Felsen	none
+🪵	Holz	none
+🛖	Hütte	none
 🏘	Wohnhäuser	none
 🏚	verfallenes Haus	none
 🏠	Haus	none
@@ -853,6 +861,7 @@ symbols:
 🚗	Auto	none
 🚘	Vorderansicht Auto	none
 🚙	Wohnmobil	none
+🛻	Pick-up	none
 🚚	Lieferwagen	none
 🚛	Sattelzug	none
 🚜	Traktor	none
@@ -865,6 +874,7 @@ symbols:
 🚲	Fahrrad	none
 🛴	Tretroller	none
 🛹	Skateboard	none
+🛼	Rollschuh	none
 🚏	Bushaltestelle	none
 🛣	Autobahn	none
 🛤	Bahngleis	none
@@ -1035,6 +1045,7 @@ symbols:
 🪁	Drachen	none
 🎱	Billardkugel	none
 🔮	Kristallkugel	none
+🪄	Zauberstab	none
 🧿	Nazar-Amulett	none
 🎮	Gamepad	none
 🕹	Joystick	none
@@ -1042,6 +1053,8 @@ symbols:
 🎲	Spielwürfel	none
 🧩	Puzzleteil	none
 🧸	Teddybär	none
+🪅	Piñata	none
+🪆	Matroschka	none
 ♠	Pik	none
 ♥	Herz	none
 ♦	Karo	none
@@ -1054,7 +1067,9 @@ symbols:
 🖼	gerahmtes Bild	none
 🎨	Mischpalette	none
 🧵	Faden	none
+🪡	Nähnadel	none
 🧶	Wollknäuel	none
+🪢	Knoten	none
 👓	Brille	none
 🕶	Sonnenbrille	none
 🥽	Schutzbrille	none
@@ -1080,6 +1095,7 @@ symbols:
 👝	Clutch	none
 🛍	Einkaufstüten	none
 🎒	Schulranzen	none
+🩴	Zehensandale	none
 👞	Herrenschuh	none
 👟	Sportschuh	none
 🥾	Wanderstiefel	none
@@ -1093,6 +1109,7 @@ symbols:
 🎩	Zylinder	none
 🎓	Doktorhut	none
 🧢	Baseballmütze	none
+🪖	Militärhelm	none
 ⛑	Rettungshelm	none
 📿	Gebetskette	none
 💄	Lippenstift	none
@@ -1117,12 +1134,14 @@ symbols:
 🎧	Kopfhörer	none
 📻	Radio	none
 🎷	Saxofon	none
+🪗	Akkordeon	none
 🎸	Gitarre	none
 🎹	Klaviatur	none
 🎺	Trompete	none
 🎻	Geige	none
 🪕	Banjo	none
 🥁	Trommel	none
+🪘	afrikanische Trommel	none
 📱	Mobiltelefon	none
 📲	Mobiltelefon mit Pfeil	none
 ☎	Telefon	none
@@ -1176,6 +1195,7 @@ symbols:
 🔖	Lesezeichen	none
 🏷	Etikett	none
 💰	Geldsack	none
+🪙	Münze	none
 💴	Yen-Banknote	none
 💵	Dollar-Banknote	none
 💶	Euro-Banknote	none
@@ -1184,8 +1204,6 @@ symbols:
 💳	Kreditkarte	none
 🧾	Beleg	none
 💹	steigender Trend mit Yen-Zeichen	none
-💱	Geldwechsel	none
-💲	Dollarzeichen	none
 ✉	Briefumschlag	none
 📧	E-Mail	none
 📨	eingehender Briefumschlag	none
@@ -1243,9 +1261,12 @@ symbols:
 🗡	Dolch	none
 ⚔	gekreuzte Schwerter	none
 🔫	Pistole	none
+🪃	Bumerang	none
 🏹	Pfeil und Bogen	none
 🛡	Schutzschild	none
+🪚	Handsäge	none
 🔧	Schraubenschlüssel	none
+🪛	Schraubenzieher	none
 🔩	Mutter und Schraube	none
 ⚙	Zahnrad	none
 🗜	Schraubzwinge	none
@@ -1253,8 +1274,10 @@ symbols:
 🦯	Gehstock	none
 🔗	Verknüpfungssymbol	none
 ⛓	Ketten	none
+🪝	Angelhaken	none
 🧰	Werkzeugkasten	none
 🧲	Magnet	none
+🪜	Leiter	none
 ⚗	Destillierapparat	none
 🧪	Reagenzglas	none
 🧫	Petrischale	none
@@ -1268,26 +1291,35 @@ symbols:
 🩹	Heftpflaster	none
 🩺	Stethoskop	none
 🚪	Tür	none
+🛗	Fahrstuhl	none
+🪞	Spiegel	none
+🪟	Fenster	none
 🛏	Bett	none
 🛋	Sofa und Lampe	none
 🪑	Stuhl	none
 🚽	Toilette	none
+🪠	Pömpel	none
 🚿	Dusche	none
 🛁	Badewanne	none
+🪤	Mäusefalle	none
 🪒	Rasierer	none
 🧴	Creme	none
 🧷	Sicherheitsnadel	none
 🧹	Besen	none
 🧺	Korb	none
 🧻	Küchenrolle	none
+🪣	Eimer	none
 🧼	Seife	none
+🪥	Zahnbürste	none
 🧽	Schwamm	none
 🧯	Feuerlöscher	none
 🛒	Einkaufswagen	none
 🚬	Zigarette	none
 ⚰	Sarg	none
+🪦	Grabstein	none
 ⚱	Urne	none
 🗿	Statue	none
+🪧	Plakat	none
 🏧	Symbol „Geldautomat“	none
 🚮	Symbol „Papierkorb“	none
 🚰	Trinkwasser	none
@@ -1386,8 +1418,22 @@ symbols:
 📴	Mobiltelefon aus	none
 ♀	Frauensymbol	none
 ♂	Männersymbol	none
-⚕	Äskulapstab	none
+⚧	Symbol für Transgender	none
+✖	Multiplikationszeichen	none
+➕	Pluszeichen	none
+➖	Minuszeichen	none
+➗	Divisionszeichen	none
 ♾	Unendlichkeit	none
+‼	doppeltes Ausrufezeichen	none
+⁉	Ausrufe- und Fragezeichen	none
+❓	rotes Fragezeichen	none
+❔	weißes Fragezeichen	none
+❕	weißes Ausrufezeichen	none
+❗	rotes Ausrufezeichen	none
+〰	Wellenlinie	none
+💱	Geldwechsel	none
+💲	Dollarzeichen	none
+⚕	Äskulapstab	none
 ♻	Recycling-Symbol	none
 ⚜	Lilie	none
 🔱	Dreizack	none
@@ -1397,25 +1443,14 @@ symbols:
 ✅	weißes Häkchen	none
 ☑	Abstimmungsfeld mit Häkchen	none
 ✔	kräftiges Häkchen	none
-✖	Multiplikationszeichen	none
 ❌	Kreuzzeichen	none
 ❎	Kreuzsymbol im Quadrat	none
-➕	Pluszeichen	none
-➖	Minuszeichen	none
-➗	Divisionszeichen	none
 ➰	Schleife	none
 ➿	Doppelschleife	none
 〽	Teilalternationszeichen	none
 ✳	achtzackiger Stern	none
 ✴	Stern mit acht Zacken	none
 ❇	Funkeln	none
-‼	doppeltes Ausrufezeichen	none
-⁉	Ausrufe- und Fragezeichen	none
-❓	rotes Fragezeichen	none
-❔	weißes Fragezeichen	none
-❕	weißes Ausrufezeichen	none
-❗	rotes Ausrufezeichen	none
-〰	Wellenlinie	none
 ©	Copyright	none
 ®	Registered-Trademark	none
 ™	Markenzeichen	none
@@ -1497,14 +1532,18 @@ symbols:
 🎌	überkreuzte Flaggen	none
 🏴	schwarze Flagge	none
 🏳	weiße Flagge	none
-🏳‍⚧	Transgender-Flagge	none
 🏳‍🌈	Regenbogenflagge	none
+🏳‍⚧	Transgender-Flagge	none
 🏴‍☠	Piratenflagge	none
-🤌🏻	zusammengedrückte Finger helle Hautfarbe	none
-🤌🏼	zusammengedrückte Finger mittelhelle Hautfarbe	none
-🤌🏽	zusammengedrückte Finger mittlere Hautfarbe	none
-🤌🏾	zusammengedrückte Finger mitteldunkle Hautfarbe	none
-🤌🏿	zusammengedrückte Finger dunkle Hautfarbe	none
+£	Pfund Sterling	none
+¥	Yen	none
+€	Euro	none
+₹	Indische Rupie	none
+₽	Rubel	none
+¹	hochgestellte Eins	none
+²	hochgestellte Zwei	none
+³	hochgestellte Drei	none
+µ	Mikro-Zeichen	none
 👋🏻	winkende Hand helle Hautfarbe	none
 👋🏼	winkende Hand mittelhelle Hautfarbe	none
 👋🏽	winkende Hand mittlere Hautfarbe	none
@@ -1535,6 +1574,11 @@ symbols:
 👌🏽	OK-Zeichen mittlere Hautfarbe	none
 👌🏾	OK-Zeichen mitteldunkle Hautfarbe	none
 👌🏿	OK-Zeichen dunkle Hautfarbe	none
+🤌🏻	zusammengedrückte Finger helle Hautfarbe	none
+🤌🏼	zusammengedrückte Finger mittelhelle Hautfarbe	none
+🤌🏽	zusammengedrückte Finger mittlere Hautfarbe	none
+🤌🏾	zusammengedrückte Finger mitteldunkle Hautfarbe	none
+🤌🏿	zusammengedrückte Finger dunkle Hautfarbe	none
 🤏🏻	Wenig-Geste helle Hautfarbe	none
 🤏🏼	Wenig-Geste mittelhelle Hautfarbe	none
 🤏🏽	Wenig-Geste mittlere Hautfarbe	none
@@ -1749,16 +1793,6 @@ symbols:
 🧑🏽‍🦲	Erwachsener mittlere Hautfarbe, Glatze	none
 🧑🏾‍🦲	Erwachsener mitteldunkle Hautfarbe, Glatze	none
 🧑🏿‍🦲	Erwachsener dunkle Hautfarbe, Glatze	none
-🧑🏻‍🍼	stillende Person helle Hautfarbe	none
-🧑🏼‍🍼	stillende Person mittelhelle Hautfarbe	none
-🧑🏽‍🍼	stillende Person mittlere Hautfarbe	none
-🧑🏾‍🍼	stillende Person mitteldunkle Hautfarbe	none
-🧑🏿‍🍼	stillende Person dunkle Hautfarbe	none
-🧑🏻‍🎄	Weihnachtsperson helle Hautfarbe	none
-🧑🏼‍🎄	Weihnachtsperson mittelhelle Hautfarbe	none
-🧑🏽‍🎄	Weihnachtsperson mittlere Hautfarbe	none
-🧑🏾‍🎄	Weihnachtsperson mitteldunkle Hautfarbe	none
-🧑🏿‍🎄	Weihnachtsperson dunkle Hautfarbe	none
 👨🏻	Mann helle Hautfarbe	none
 👨🏼	Mann mittelhelle Hautfarbe	none
 👨🏽	Mann mittlere Hautfarbe	none
@@ -1798,11 +1832,6 @@ symbols:
 👨🏽‍🦲	Mann mittlere Hautfarbe, Glatze	none
 👨🏾‍🦲	Mann mitteldunkle Hautfarbe, Glatze	none
 👨🏿‍🦲	Mann dunkle Hautfarbe, Glatze	none
-👨🏻‍🍼	stillender Mann helle Hautfarbe	none
-👨🏼‍🍼	stillender Mann mittelhelle Hautfarbe	none
-👨🏽‍🍼	stillender Mann mittlere Hautfarbe	none
-👨🏾‍🍼	stillender Mann mitteldunkle Hautfarbe	none
-👨🏿‍🍼	stillender Mann dunkle Hautfarbe	none
 👩🏻	Frau helle Hautfarbe	none
 👩🏼	Frau mittelhelle Hautfarbe	none
 👩🏽	Frau mittlere Hautfarbe	none
@@ -1837,11 +1866,6 @@ symbols:
 👩🏽‍🦲	Frau mittlere Hautfarbe, Glatze	none
 👩🏾‍🦲	Frau mitteldunkle Hautfarbe, Glatze	none
 👩🏿‍🦲	Frau dunkle Hautfarbe, Glatze	none
-👩🏻‍🍼	stillende Frau helle Hautfarbe	none
-👩🏼‍🍼	stillende Frau mittelhelle Hautfarbe	none
-👩🏽‍🍼	stillende Frau mittlere Hautfarbe	none
-👩🏾‍🍼	stillende Frau mitteldunkle Hautfarbe	none
-👩🏿‍🍼	stillende Frau dunkle Hautfarbe	none
 🧓🏻	älterer Erwachsener helle Hautfarbe	none
 🧓🏼	älterer Erwachsener mittelhelle Hautfarbe	none
 🧓🏽	älterer Erwachsener mittlere Hautfarbe	none
@@ -2292,6 +2316,11 @@ symbols:
 💂🏽‍♀	Wachfrau mittlere Hautfarbe	none
 💂🏾‍♀	Wachfrau mitteldunkle Hautfarbe	none
 💂🏿‍♀	Wachfrau dunkle Hautfarbe	none
+🥷🏻	Ninja helle Hautfarbe	none
+🥷🏼	Ninja mittelhelle Hautfarbe	none
+🥷🏽	Ninja mittlere Hautfarbe	none
+🥷🏾	Ninja mitteldunkle Hautfarbe	none
+🥷🏿	Ninja dunkle Hautfarbe	none
 👷🏻	Bauarbeiter(in) helle Hautfarbe	none
 👷🏼	Bauarbeiter(in) mittelhelle Hautfarbe	none
 👷🏽	Bauarbeiter(in) mittlere Hautfarbe	none
@@ -2347,31 +2376,31 @@ symbols:
 🤵🏽	Person im Smoking mittlere Hautfarbe	none
 🤵🏾	Person im Smoking mitteldunkle Hautfarbe	none
 🤵🏿	Person im Smoking dunkle Hautfarbe	none
-🤵🏻‍♀	Frau im Smoking helle Hautfarbe	none
-🤵🏼‍♀	Frau im Smoking mittelhelle Hautfarbe	none
-🤵🏽‍♀	Frau im Smoking mittlere Hautfarbe	none
-🤵🏾‍♀	Frau im Smoking mitteldunkle Hautfarbe	none
-🤵🏿‍♀	Frau im Smoking dunkle Hautfarbe	none
 🤵🏻‍♂	Mann im Smoking helle Hautfarbe	none
 🤵🏼‍♂	Mann im Smoking mittelhelle Hautfarbe	none
 🤵🏽‍♂	Mann im Smoking mittlere Hautfarbe	none
 🤵🏾‍♂	Mann im Smoking mitteldunkle Hautfarbe	none
 🤵🏿‍♂	Mann im Smoking dunkle Hautfarbe	none
+🤵🏻‍♀	Frau im Smoking helle Hautfarbe	none
+🤵🏼‍♀	Frau im Smoking mittelhelle Hautfarbe	none
+🤵🏽‍♀	Frau im Smoking mittlere Hautfarbe	none
+🤵🏾‍♀	Frau im Smoking mitteldunkle Hautfarbe	none
+🤵🏿‍♀	Frau im Smoking dunkle Hautfarbe	none
 👰🏻	Person mit Schleier helle Hautfarbe	none
 👰🏼	Person mit Schleier mittelhelle Hautfarbe	none
 👰🏽	Person mit Schleier mittlere Hautfarbe	none
 👰🏾	Person mit Schleier mitteldunkle Hautfarbe	none
 👰🏿	Person mit Schleier dunkle Hautfarbe	none
-👰🏻‍♀	Frau mit Schleier helle Hautfarbe	none
-👰🏼‍♀	Frau mit Schleier mittelhelle Hautfarbe	none
-👰🏽‍♀	Frau mit Schleier mittlere Hautfarbe	none
-👰🏾‍♀	Frau mit Schleier mitteldunkle Hautfarbe	none
-👰🏿‍♀	Frau mit Schleier dunkle Hautfarbe	none
 👰🏻‍♂	Mann mit Schleier helle Hautfarbe	none
 👰🏼‍♂	Mann mit Schleier mittelhelle Hautfarbe	none
 👰🏽‍♂	Mann mit Schleier mittlere Hautfarbe	none
 👰🏾‍♂	Mann mit Schleier mitteldunkle Hautfarbe	none
 👰🏿‍♂	Mann mit Schleier dunkle Hautfarbe	none
+👰🏻‍♀	Frau mit Schleier helle Hautfarbe	none
+👰🏼‍♀	Frau mit Schleier mittelhelle Hautfarbe	none
+👰🏽‍♀	Frau mit Schleier mittlere Hautfarbe	none
+👰🏾‍♀	Frau mit Schleier mitteldunkle Hautfarbe	none
+👰🏿‍♀	Frau mit Schleier dunkle Hautfarbe	none
 🤰🏻	schwangere Frau helle Hautfarbe	none
 🤰🏼	schwangere Frau mittelhelle Hautfarbe	none
 🤰🏽	schwangere Frau mittlere Hautfarbe	none
@@ -2382,6 +2411,21 @@ symbols:
 🤱🏽	Stillen mittlere Hautfarbe	none
 🤱🏾	Stillen mitteldunkle Hautfarbe	none
 🤱🏿	Stillen dunkle Hautfarbe	none
+👩🏻‍🍼	stillende Frau helle Hautfarbe	none
+👩🏼‍🍼	stillende Frau mittelhelle Hautfarbe	none
+👩🏽‍🍼	stillende Frau mittlere Hautfarbe	none
+👩🏾‍🍼	stillende Frau mitteldunkle Hautfarbe	none
+👩🏿‍🍼	stillende Frau dunkle Hautfarbe	none
+👨🏻‍🍼	stillender Mann helle Hautfarbe	none
+👨🏼‍🍼	stillender Mann mittelhelle Hautfarbe	none
+👨🏽‍🍼	stillender Mann mittlere Hautfarbe	none
+👨🏾‍🍼	stillender Mann mitteldunkle Hautfarbe	none
+👨🏿‍🍼	stillender Mann dunkle Hautfarbe	none
+🧑🏻‍🍼	stillende Person helle Hautfarbe	none
+🧑🏼‍🍼	stillende Person mittelhelle Hautfarbe	none
+🧑🏽‍🍼	stillende Person mittlere Hautfarbe	none
+🧑🏾‍🍼	stillende Person mitteldunkle Hautfarbe	none
+🧑🏿‍🍼	stillende Person dunkle Hautfarbe	none
 👼🏻	Putte helle Hautfarbe	none
 👼🏼	Putte mittelhelle Hautfarbe	none
 👼🏽	Putte mittlere Hautfarbe	none
@@ -2397,6 +2441,11 @@ symbols:
 🤶🏽	Weihnachtsfrau mittlere Hautfarbe	none
 🤶🏾	Weihnachtsfrau mitteldunkle Hautfarbe	none
 🤶🏿	Weihnachtsfrau dunkle Hautfarbe	none
+🧑🏻‍🎄	Weihnachtsperson helle Hautfarbe	none
+🧑🏼‍🎄	Weihnachtsperson mittelhelle Hautfarbe	none
+🧑🏽‍🎄	Weihnachtsperson mittlere Hautfarbe	none
+🧑🏾‍🎄	Weihnachtsperson mitteldunkle Hautfarbe	none
+🧑🏿‍🎄	Weihnachtsperson dunkle Hautfarbe	none
 🦸🏻	Held helle Hautfarbe	none
 🦸🏼	Held mittelhelle Hautfarbe	none
 🦸🏽	Held mittlere Hautfarbe	none
