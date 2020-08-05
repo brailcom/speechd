@@ -243,6 +243,24 @@ AM_CONDITIONAL([ibmtts_shim], [test $with_ibmtts = shim])
 AC_SUBST([ibmtts_include])
 AS_IF([test $with_ibmtts != no], [output_modules="${output_modules} ibmtts"])
 
+# check for Voxin support
+AC_ARG_WITH([voxin],
+	[AS_HELP_STRING([--with-voxin[[=yes|no|shim]]], [include Voxin support])],
+	[],
+	[with_voxin=check])
+AS_IF([test $with_voxin != "no"],
+	[AC_CHECK_LIB([voxin], [eciStop],
+		[with_voxin=yes],
+		[AS_IF([test "$with_voxin" = yes],
+			[AC_MSG_FAILURE([Voxin is not available])])
+		 with_voxin=shim])])
+if test "$with_voxin" = shim -a $enable_shared = no; then
+  with_voxin=no
+fi
+AM_CONDITIONAL([voxin_support], [test "$with_voxin" != no])
+AM_CONDITIONAL([voxin_shim], [test "$with_voxin" = shim])
+AS_IF([test "$with_voxin" != no], [output_modules="${output_modules} voxin"])
+
 # check for ivona support
 AC_ARG_WITH([ivona],
 	[AS_HELP_STRING([--with-ivona], [include ivona support])],
