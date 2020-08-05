@@ -34,13 +34,13 @@ symbols:
 # identifier	replacement[[	level][	preserve]][	# display name]
 
 # Complex symbols
-. sentence ending	point	all	always	# . fin de phrase
-! sentence ending	point d'exclamation	all	always	# ! fin de phrase
-? sentence ending	point d'interrogation	all	always	# ? fin de phrase
+. sentence ending	point	# . fin de phrase
+! sentence ending	point d'exclamation	# ! fin de phrase
+? sentence ending	point d'interrogation	# ? fin de phrase
 ... sentence ending	points de suspension	all	always	# ... fin de phrase
 … sentence ending	points de suspension	all	always	# … fin de phrase
-; phrase ending	point virgule	all	always	# ; fin de phrase
-: phrase ending	deux points	all	always	# : fin de phrase
+; phrase ending	point virgule	# ; fin de phrase
+: phrase ending	deux points	# : fin de phrase
 
 decimal point		# virgule décimale
 thousands separator		# point des mille
@@ -74,11 +74,11 @@ $	dollar
 %	pour cent
 &	et commercial	some	norep
 '	apostrophe
-(	parenthèse gauche	all	always
-)	parenthèse droit	all	always
+(	parenthèse gauche
+)	parenthèse droite
 *	astérisque
 +	pluce	some	norep
-,	virgule	all	always
+,	virgule
 -	tiret
 .	point
 |	bar	most
@@ -108,8 +108,8 @@ _	souligné
 
 # Other characters
 •	puce
-…	points de suspension	all	always
-...	point point point	all	always
+…	points de suspension
+...	point point point
 	puce
 “	guillemet ouvert
 ”	guillemet fermé
