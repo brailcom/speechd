@@ -19,6 +19,7 @@
 
 EXTRA_DIST = baratinoo_shim.c README.baratinoo
 EXTRA_DIST += kali_Kali_shim.cpp kali_KGlobal_shim.cpp kali_KTrans_shim.cpp kali_KParle_shim.cpp kali_KAnalyse_shim.cpp
+EXTRA_DIST += voxin_shim.c voxin.h
 EXTRA_DIST += mluvitko.c
 CLEANFILES =
 
@@ -156,6 +157,27 @@ lib%.so: $(srcdir)/kali_%_shim.cpp
 	$(CXX) -fPIC -shared $< -o $@ -I$(srcdir)/kali_shim
 
 CLEANFILES += $(EXTRA_sd_kali_DEPENDENCIES)
+endif
+endif
+
+if voxin_support
+modulebin_PROGRAMS += sd_voxin
+sd_voxin_SOURCES = voxin.c $(audio_SOURCES) $(common_SOURCES) \
+	module_utils_addvoice.c
+sd_voxin_LDADD = $(top_builddir)/src/common/libcommon.la \
+	$(audio_dlopen_modules) \
+	-lvoxin \
+	$(common_LDADD)
+
+if voxin_shim
+sd_voxin_LDADD += -L.
+
+EXTRA_sd_voxin_DEPENDENCIES = libvoxin.so
+
+libvoxin.so: $(srcdir)/voxin_shim.c
+	$(CC) -fPIC -shared $< -o $@
+
+CLEANFILES += $(EXTRA_sd_voxin_DEPENDENCIES)
 endif
 endif
 
