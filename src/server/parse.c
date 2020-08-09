@@ -850,6 +850,7 @@ char *parse_general_event(const char *buf, const int bytes, const int fd,
 {
 	char *param;
 	TSpeechDMessage *msg;
+	int msg_uid;
 
 	GET_PARAM_STR(param, 1, NO_CONV);
 
@@ -871,7 +872,8 @@ char *parse_general_event(const char *buf, const int bytes, const int fd,
 	msg->bytes = strlen(param);
 	msg->buf = g_strdup(param);
 
-	if (queue_message(msg, fd, 1, type, speechd_socket->inside_block) == 0) {
+	msg_uid = queue_message(msg, fd, 1, type, speechd_socket->inside_block);
+	if (msg_uid == 0) {
 		if (SPEECHD_DEBUG)
 			FATAL("Couldn't queue message\n");
 		MSG(2, "Error: Couldn't queue message!\n");
@@ -879,7 +881,8 @@ char *parse_general_event(const char *buf, const int bytes, const int fd,
 
 	g_free(param);
 
-	return g_strdup(OK_MESSAGE_QUEUED);
+	return g_strdup_printf(C_OK_MESSAGE_QUEUED "-%d" NEWLINE
+			       OK_MESSAGE_QUEUED, msg_uid);
 }
 
 char *parse_snd_icon(const char *buf, const int bytes, const int fd,
