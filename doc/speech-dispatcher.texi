@@ -2230,7 +2230,7 @@ main(int argc, char **argv)
    spd_set_notification_on(conn, SPD_CANCEL);
 
    /* Say our message. */
-   spd_sayf(conn, SPD_MESSAGE, (char*) argv[1]);
+   spd_sayf(conn, SPD_MESSAGE, "%s", argv[1]);
 
    /* Wait for 'end' or 'cancel' of the sent message.
       By SSIP specifications, we are guaranteed to get
