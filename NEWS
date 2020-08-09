@@ -1,3 +1,6 @@
+Version 0.11
+* Moved speech dispatcher modules to /usr/libexec
+
 Version 0.10
 * Add punctuation level "most".
 * Rework thread synchronization.
