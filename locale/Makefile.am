@@ -99,7 +99,7 @@ nobase_localedata_DATA = \
 	nn/emojis.dic \
 	or/emojis.dic \
 	pa/emojis.dic \
-	pcm/emojis.dic
+	pcm/emojis.dic \
 	pl/emojis.dic \
 	ps/emojis.dic \
 	pt/emojis.dic \
