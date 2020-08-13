@@ -416,6 +416,9 @@ int module_init(char **status_info)
 	eciVersion(ibmVersion);
 	DBG("Ibmtts: IBM TTS Output Module version %s, IBM TTS Engine version %s", MODULE_VERSION, ibmVersion);
 
+	/* TODO: according to version, enable SSML and punct by default or not
+	 */
+
 	/* Setup IBM TTS engine. */
 	DBG("Ibmtts: Creating ECI instance.");
 	eciHandle = eciNew();
@@ -463,7 +466,8 @@ int module_init(char **status_info)
 	eciSetParam(eciHandle, eciInputType, 1);
 
 	/* load possibly the ssml filter */
-	eciAddText(eciHandle, " `gfa1 ");
+	if (IbmttsUseSSML)
+		eciAddText(eciHandle, " `gfa1 ");
 
 	/* load possibly the punctuation filter */
 	eciAddText(eciHandle, " `gfa2 ");
