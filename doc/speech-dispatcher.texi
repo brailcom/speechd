@@ -2303,7 +2303,7 @@ terminating sequence @code{\r\n}.
 This specifies if you expect to get a reply on the sent data according to SSIP.
 For example, if you are sending ordinary text inside a @code{SPEAK} command,
 you don't expect to get a reply, but you expect a reply after sending the final
-sequence @code{\r\n.\r\n}.
+sequence @code{\r\n.\r\n} of the multi-line command.
 
 For example (simplified by not checking and freeing the returned strings):
 @example
