@@ -1486,6 +1486,17 @@ running.
 
 @end deffn
 
+@deffn {C API function}  int spd_get_client_id(SPDConnection *connection)
+@findex spd_get_client_id()
+
+Get the client ID.
+
+@code{connection} is the SPDConnection* connection created by spd_open().
+
+It returns the client ID of the connection.
+
+@end deffn
+
 @deffn {C API function}  void spd_close(SPDConnection *connection)
 @findex spd_close()
 
