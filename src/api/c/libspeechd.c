@@ -589,6 +589,18 @@ out:
 		return r; \
 	}
 
+/* Get the client id of the connection */
+int spd_get_client_id(SPDConnection * connection)
+{
+	int ret;
+	int err;
+	char *reply = NULL;
+	spd_execute_command_with_reply(connection, "HISTORY GET CLIENT_ID", &reply);
+	ret = get_param_int(reply, 1, &err);
+	free(reply);
+	return ret;
+}
+
 /* Close a Speech Dispatcher connection */
 void spd_close(SPDConnection * connection)
 {
