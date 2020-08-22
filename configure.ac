@@ -486,8 +486,10 @@ AC_SUBST([audiodir])
 # customize PLUGIN_DIR to include the directories where the audio
 # plugins are stored by several distributions
 case $host in
-  x86_64-*linux*) plugin_dir=/usr/lib/speech-dispatcher:/usr/lib/x86_64-linux-gnu/speech-dispatcher:/usr/lib64/speech-dispatcher;;
-  arm*linux-gnueabihf) plugin_dir=/usr/lib/speech-dispatcher:/usr/lib/arm-linux-gnueabihf/speech-dispatcher;;
+  x86_64-linux-gnu) plugin_dir=/usr/lib/speech-dispatcher:/usr/lib/x86_64-linux-gnu/speech-dispatcher:/usr/lib64/speech-dispatcher;;
+  aarch64-linux-gnu) plugin_dir=/usr/lib/speech-dispatcher:/usr/lib/aarch64-linux-gnu/speech-dispatcher;;
+  arm-linux-gnueabihf) plugin_dir=/usr/lib/speech-dispatcher:/usr/lib/arm-linux-gnueabihf/speech-dispatcher;;
+  arm-linux-gnueabi) plugin_dir=/usr/lib/speech-dispatcher:/usr/lib/arm-linux-gnueabi/speech-dispatcher;;
 *) plugin_dir=$audiodir;
 esac
 AC_SUBST([plugin_dir])
