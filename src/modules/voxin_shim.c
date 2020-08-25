@@ -1,6 +1,5 @@
 /*
- * ibmtts_shim.c - Shim for IBM TTS (Voxin, version < 3)
- * to be able to build the ibmtts module without the IBM TTS SDK.
+ * voxin_shim.c - Shim for Voxin (version >= 3)
  *
  * Copyright (C) 2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
@@ -18,7 +17,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "eci.h"
+#include "voxin.h"
 #include <assert.h>
 
 ECIHand ECIFNDECLARE eciNew(void) {
@@ -110,5 +109,21 @@ ECIDictHand ECIFNDECLARE eciDeleteDict(ECIHand hEngine, ECIDictHand hDict) {
 }
 
 enum ECIDictError ECIFNDECLARE eciLoadDict(ECIHand hEngine, ECIDictHand hDict, enum ECIDictVolume DictVol, ECIInputText pFilename) {
+	assert(0);
+}
+
+int voxGetVoices(vox_t *list, unsigned int *nbVoices) {
+	assert(0);
+}
+
+int voxSetParam(void *handle, voxParam param, int value) {
+	assert(0);
+}
+
+int voxToString(vox_t *data, char *string, size_t *size) {
+	assert(0);
+}
+
+int voxString(vox_t *v, char *s, size_t len) {
 	assert(0);
 }
