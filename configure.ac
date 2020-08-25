@@ -479,9 +479,28 @@ AC_SUBST([modulebindir])
 spdlibdir='${libdir}/speech-dispatcher'
 AC_SUBST([spdlibdir])
 
-# Path for audio libraries and plugins:
+# Path for audio libraries:
 audiodir="$spdlibdir"
 AC_SUBST([audiodir])
+
+# Path for plugins:
+# customize PLUGIN_DIR to include the directories where the audio
+# plugins are stored by several distributions
+case $host in
+  x86_64-*linux*) # x86_64-pc-linux-gnu (U1804)
+    plugin_dir=/usr/lib/speech-dispatcher:/usr/lib/x86_64-linux-gnu/speech-dispatcher:/usr/lib64/speech-dispatcher;;
+  i386-*linux*)
+    plugin_dir=/usr/lib/speech-dispatcher:/usr/lib/i386-linux-gnu/speech-dispatcher;;
+  aarch64-*linux*)
+    plugin_dir=/usr/lib/speech-dispatcher:/usr/lib/aarch64-linux-gnu/speech-dispatcher;;
+  armv7l-*linux-gnueabihf) # armv7l-unknown-linux-gnueabihf  (U2004)
+    plugin_dir=/usr/lib/speech-dispatcher:/usr/lib/arm-linux-gnueabihf/speech-dispatcher;;
+  arm*linux-gnueabi)
+    plugin_dir=/usr/lib/speech-dispatcher:/usr/lib/arm-linux-gnueabi/speech-dispatcher;;
+  *)
+    plugin_dir=$audiodir;;
+esac
+AC_SUBST([plugin_dir])
 
 # Path for speech-dispatcher include files:
 spdincludedir=${includedir}/speech-dispatcher
