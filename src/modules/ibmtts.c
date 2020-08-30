@@ -1274,8 +1274,7 @@ static void set_language_and_voice(char *lang, SPDVoiceType voice_type, char *va
 	DBG(DBG_MODNAME "ENTER %s", __func__);
 	char *variant_name = variant;
 	int ret = -1;
-	int i = 0;
-	int j = 0;
+	int i = 0, index = -1;
 
 	DBG(DBG_MODNAME "%s, lang=%s, voice_type=%d, dialect=%s",
 	    __FUNCTION__, lang, (int)voice_type, variant ? variant : NULL);
@@ -1287,39 +1286,41 @@ static void set_language_and_voice(char *lang, SPDVoiceType voice_type, char *va
 		for (i = 0; v[i]; i++) {
 			DBG("%d. variant=%s", i, v[i]->variant);
 			if (!strcmp(v[i]->variant, variant_name)) {
-				j = speechd_voice_index[i];
-				ret =
-				    eciSetParam(eciHandle, eciLanguageDialect,
-						eciLocales[j].langID);
-				DBG(DBG_MODNAME "set langID=0x%x (ret=%d)",
-				    eciLocales[j].langID, ret);
-				input_encoding = eciLocales[j].charset;
-				break;
-			}
-		}
-	} else {
-		for (i = 0; v[i]; i++) {
-			DBG("%d. language=%s", i, v[i]->language);
-			if (!strcmp(v[i]->language, lang)) {
-				j = speechd_voice_index[i];
-				variant_name = v[i]->name;
-				ret =
-				    eciSetParam(eciHandle, eciLanguageDialect,
-						eciLocales[j].langID);
-				DBG(DBG_MODNAME "set langID=0x%x (ret=%d)",
-				    eciLocales[j].langID, ret);
-				input_encoding = eciLocales[j].charset;
+				index = speechd_voice_index[i];
 				break;
 			}
 		}
 	}
 
-	if (-1 == ret) {
+	if ((index == -1) && lang) {
+		for (i = 0; v[i]; i++) {
+			DBG("%d. language=%s", i, v[i]->language);
+			if (!strcmp(v[i]->language, lang)) {
+				index = speechd_voice_index[i];
+				break;
+			}
+		}
+	}
+
+	if (index == -1) { // no matching voice: choose the first available voice 
+		if (!speechd_voice[0])
+			return;
+		index = 0;
+	}
+
+	ret = eciSetParam(eciHandle, eciLanguageDialect, eciLocales[index].langID);
+	if (ret == -1) {
 		DBG(DBG_MODNAME "Unable to set language");
 		log_eci_error();
-	} else {
-		g_atomic_int_set(&locale_index_atomic, j);
+		return;
 	}
+
+	DBG(DBG_MODNAME "set langID=0x%x (ret=%d)",
+	    eciLocales[index].langID, ret);
+
+	input_encoding = eciLocales[index].charset;
+	update_sample_rate();		  	
+	g_atomic_int_set(&locale_index_atomic, index);
 
 	set_voice_parameters(voice_type);
 
