@@ -413,18 +413,18 @@ int module_init(char **status_info)
 
 	/* Report versions. */
 	eciVersion(version);
-	DBG(DBG_MODNAME "IBM TTS Output Module version %s, IBM TTS Engine version %s", MODULE_VERSION, version);
+	DBG(DBG_MODNAME "output module version %s, engine version %s", MODULE_VERSION, version);
 
 	/* TODO: according to version, enable SSML and punct by default or not
 	 */
 
-	/* Setup IBM TTS engine. */
-	DBG(DBG_MODNAME "Creating ECI instance.");
+	/* Setup TTS engine. */
+	DBG(DBG_MODNAME "Creating an engine instance.");
 	eciHandle = eciNew();
 	if (NULL_ECI_HAND == eciHandle) {
-		DBG(DBG_MODNAME "Could not create ECI instance.\n");
-		*status_info = g_strdup("Could not create ECI instance. "
-					"Is the IBM TTS engine installed?");
+		DBG(DBG_MODNAME "Could not create an engine instance.\n");
+		*status_info = g_strdup("Could not create an engine instance. "
+					"Is the TTS engine installed?");
 		return MODULE_FATAL_ERROR;
 	}
 
@@ -1240,8 +1240,7 @@ set_language_and_voice(char *lang, SPDVoiceType voice_type, char *variant)
 	}
 
 	/* Set voice parameters (if any are defined for this voice.) */
-	TIbmttsVoiceParameters *params =
-	    g_hash_table_lookup(IbmttsVoiceParameters, voicename);
+	TIbmttsVoiceParameters *params = g_hash_table_lookup(IbmttsVoiceParameters, voicename);
 	if (NULL == params) {
 		DBG(DBG_MODNAME "Setting default VoiceParameters for voice %s", voicename);
 
@@ -1278,41 +1277,32 @@ set_language_and_voice(char *lang, SPDVoiceType voice_type, char *variant)
 		if (-1 == ret)
 			DBG(DBG_MODNAME "ERROR: Setting default voice parameters (voice %i).", eciVoice);
 	} else {
-		DBG(DBG_MODNAME "Setting custom VoiceParameters for voice %s",
-		    voicename);
+		DBG(DBG_MODNAME "Setting custom VoiceParameters for voice %s", voicename);
+
 		ret = eciSetVoiceParam(eciHandle, 0, eciGender, params->gender);
 		if (-1 == ret)
 			DBG(DBG_MODNAME "ERROR: Setting gender %i", params->gender);
-		ret =
-		    eciSetVoiceParam(eciHandle, 0, eciBreathiness,
-				     params->breathiness);
+
+		ret = eciSetVoiceParam(eciHandle, 0, eciBreathiness, params->breathiness);
 		if (-1 == ret)
-			DBG(DBG_MODNAME "ERROR: Setting breathiness %i",
-			    params->breathiness);
-		ret =
-		    eciSetVoiceParam(eciHandle, 0, eciHeadSize,
-				     params->head_size);
+			DBG(DBG_MODNAME "ERROR: Setting breathiness %i", params->breathiness);
+
+		ret = eciSetVoiceParam(eciHandle, 0, eciHeadSize, params->head_size);
 		if (-1 == ret)
-			DBG(DBG_MODNAME "ERROR: Setting head size %i",
-			    params->head_size);
-		ret =
-		    eciSetVoiceParam(eciHandle, 0, eciPitchBaseline,
-				     params->pitch_baseline);
+			DBG(DBG_MODNAME "ERROR: Setting head size %i", params->head_size);
+
+		ret = eciSetVoiceParam(eciHandle, 0, eciPitchBaseline, params->pitch_baseline);
 		if (-1 == ret)
-			DBG(DBG_MODNAME "ERROR: Setting pitch baseline %i",
-			    params->pitch_baseline);
-		ret =
-		    eciSetVoiceParam(eciHandle, 0, eciPitchFluctuation,
-				     params->pitch_fluctuation);
+			DBG(DBG_MODNAME "ERROR: Setting pitch baseline %i", params->pitch_baseline);
+
+		ret = eciSetVoiceParam(eciHandle, 0, eciPitchFluctuation, params->pitch_fluctuation);
 		if (-1 == ret)
-			DBG(DBG_MODNAME "ERROR: Setting pitch fluctuation %i",
-			    params->pitch_fluctuation);
-		ret =
-		    eciSetVoiceParam(eciHandle, 0, eciRoughness,
-				     params->roughness);
+			DBG(DBG_MODNAME "ERROR: Setting pitch fluctuation %i", params->pitch_fluctuation);
+
+		ret = eciSetVoiceParam(eciHandle, 0, eciRoughness, params->roughness);
 		if (-1 == ret)
-			DBG(DBG_MODNAME "ERROR: Setting roughness %i",
-			    params->roughness);
+			DBG(DBG_MODNAME "ERROR: Setting roughness %i", params->roughness);
+
 		ret = eciSetVoiceParam(eciHandle, 0, eciSpeed, params->speed);
 		if (-1 == ret)
 			DBG(DBG_MODNAME "ERROR: Setting speed %i", params->speed);
@@ -1342,7 +1332,7 @@ static void set_language(char *lang)
 	set_language_and_voice(lang, msg_settings.voice_type, NULL);
 }
 
-/* sets the IBM voice according to its name. */
+/* sets the voice according to its name. */
 static void set_synthesis_voice(char *synthesis_voice)
 {
 	int i = 0;
