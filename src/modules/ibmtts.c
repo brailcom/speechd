@@ -1347,7 +1347,11 @@ static void set_language(char *lang)
 	set_language_and_voice(lang, msg_settings.voice_type, NULL);
 }
 
-/* sets the voice according to its name. */
+/* sets the voice according to its name. 
+
+   If the voice name is not found, try to select the first available
+   voice for the current language.
+*/
 static void set_synthesis_voice(char *synthesis_voice)
 {
 	int i = 0;
@@ -1365,6 +1369,10 @@ static void set_synthesis_voice(char *synthesis_voice)
 						      eciLocales[i].variant);
 			break;
 		}
+	}
+
+	if (i == MAX_NB_OF_LANGUAGES) {
+		set_language_and_voice(msg_settings.voice.language, msg_settings.voice_type, NULL);
 	}
 
 }
