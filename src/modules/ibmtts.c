@@ -1184,62 +1184,13 @@ static char *voice_enum_to_str(SPDVoiceType voice_type)
 	return voicename;
 }
 
-/* Given a language, dialect and SD voice codes sets the IBM voice */
-static void
-set_language_and_voice(char *lang, SPDVoiceType voice_type, char *variant)
+/** Set voice parameters (if any are defined for this voice) */
+static void set_voice_parameters(SPDVoiceType voice_type)
 {
-	char *variant_name = variant;
 	char *voicename = voice_enum_to_str(voice_type);
 	int eciVoice;
 	int ret = -1;
-	int i = 0;
-	int j = 0;
 
-	DBG(DBG_MODNAME "%s, lang=%s, voice_type=%d, dialect=%s",
-	    __FUNCTION__, lang, (int)voice_type, variant ? variant : NULL);
-
-	SPDVoice **v = speechd_voice;
-	assert(v);
-
-	if (variant_name) {
-		for (i = 0; v[i]; i++) {
-			DBG("%d. variant=%s", i, v[i]->variant);
-			if (!strcmp(v[i]->variant, variant_name)) {
-				j = speechd_voice_index[i];
-				ret =
-				    eciSetParam(eciHandle, eciLanguageDialect,
-						eciLocales[j].langID);
-				DBG(DBG_MODNAME "set langID=0x%x (ret=%d)",
-				    eciLocales[j].langID, ret);
-				input_encoding = eciLocales[j].charset;
-				break;
-			}
-		}
-	} else {
-		for (i = 0; v[i]; i++) {
-			DBG("%d. language=%s", i, v[i]->language);
-			if (!strcmp(v[i]->language, lang)) {
-				j = speechd_voice_index[i];
-				variant_name = v[i]->name;
-				ret =
-				    eciSetParam(eciHandle, eciLanguageDialect,
-						eciLocales[j].langID);
-				DBG(DBG_MODNAME "set langID=0x%x (ret=%d)",
-				    eciLocales[j].langID, ret);
-				input_encoding = eciLocales[j].charset;
-				break;
-			}
-		}
-	}
-
-	if (-1 == ret) {
-		DBG(DBG_MODNAME "Unable to set language");
-		log_eci_error();
-	} else {
-		g_atomic_int_set(&locale_index_atomic, j);
-	}
-
-	/* Set voice parameters (if any are defined for this voice.) */
 	TIbmttsVoiceParameters *params = g_hash_table_lookup(IbmttsVoiceParameters, voicename);
 	if (NULL == params) {
 		DBG(DBG_MODNAME "Setting default VoiceParameters for voice %s", voicename);
@@ -1307,7 +1258,65 @@ set_language_and_voice(char *lang, SPDVoiceType voice_type, char *variant)
 		if (-1 == ret)
 			DBG(DBG_MODNAME "ERROR: Setting speed %i", params->speed);
 	}
+
 	g_free(voicename);
+}
+
+/* Given a language, dialect and SD voice codes sets the IBM voice */
+static void set_language_and_voice(char *lang, SPDVoiceType voice_type, char *variant)
+{
+	DBG(DBG_MODNAME "ENTER %s", __func__);
+	char *variant_name = variant;
+	int ret = -1;
+	int i = 0;
+	int j = 0;
+
+	DBG(DBG_MODNAME "%s, lang=%s, voice_type=%d, dialect=%s",
+	    __FUNCTION__, lang, (int)voice_type, variant ? variant : NULL);
+
+	SPDVoice **v = speechd_voice;
+	assert(v);
+
+	if (variant_name) {
+		for (i = 0; v[i]; i++) {
+			DBG("%d. variant=%s", i, v[i]->variant);
+			if (!strcmp(v[i]->variant, variant_name)) {
+				j = speechd_voice_index[i];
+				ret =
+				    eciSetParam(eciHandle, eciLanguageDialect,
+						eciLocales[j].langID);
+				DBG(DBG_MODNAME "set langID=0x%x (ret=%d)",
+				    eciLocales[j].langID, ret);
+				input_encoding = eciLocales[j].charset;
+				break;
+			}
+		}
+	} else {
+		for (i = 0; v[i]; i++) {
+			DBG("%d. language=%s", i, v[i]->language);
+			if (!strcmp(v[i]->language, lang)) {
+				j = speechd_voice_index[i];
+				variant_name = v[i]->name;
+				ret =
+				    eciSetParam(eciHandle, eciLanguageDialect,
+						eciLocales[j].langID);
+				DBG(DBG_MODNAME "set langID=0x%x (ret=%d)",
+				    eciLocales[j].langID, ret);
+				input_encoding = eciLocales[j].charset;
+				break;
+			}
+		}
+	}
+
+	if (-1 == ret) {
+		DBG(DBG_MODNAME "Unable to set language");
+		log_eci_error();
+	} else {
+		g_atomic_int_set(&locale_index_atomic, j);
+	}
+
+	set_voice_parameters(voice_type);
+
 	/* Retrieve the baseline pitch and speed of the voice. */
 	voice_pitch_baseline = eciGetVoiceParam(eciHandle, 0, eciPitchBaseline);
 	if (-1 == voice_pitch_baseline)
