@@ -1291,13 +1291,29 @@ static void set_language_and_voice(char *lang, SPDVoiceType voice_type, char *na
 	}
 
 	if ((index == -1) && lang) {
+		char *langbase = NULL;	// requested base language + '-'
+		char *dash = strchr(lang, '-');
+		if (dash)
+			langbase = g_strndup(lang, dash-lang+1);
+		else
+			langbase = g_strdup_printf("%s-", lang);
+
 		for (i = 0; speechd_voice[i]; i++) {
 			DBG("%d. language=%s", i, speechd_voice[i]->language);
 			if (!strcmp(speechd_voice[i]->language, lang)) {
+				DBG("strong match!");
 				index = speechd_voice_index[i];
 				break;
 			}
+			if (index == -1 && langbase) {
+				/* Try base language matching as fallback */
+				if (!strncmp(speechd_voice[i]->language, langbase, strlen(langbase))) {
+					DBG("match!");
+					index = speechd_voice_index[i];
+				}
+			}
 		}
+		g_free(langbase);
 	}
 
 	if (index == -1) { // no matching voice: choose the first available voice 
