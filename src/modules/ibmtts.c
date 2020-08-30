@@ -1221,8 +1221,6 @@ static void set_voice_parameters(SPDVoiceType voice_type)
 			eciVoice = 7;
 			break;	/* Elderly Female 1 */
 		case SPD_CHILD_MALE:
-			eciVoice = 3;
-			break;	/* Child */
 		case SPD_CHILD_FEMALE:
 			eciVoice = 3;
 			break;	/* Child */
