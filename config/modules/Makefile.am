@@ -46,4 +46,9 @@ dist_moduleconf_DATA += kali.conf
 dist_moduleconforig_DATA += kali.conf
 endif
 
+if voxin_support
+dist_moduleconf_DATA += voxin.conf
+dist_moduleconforig_DATA += voxin.conf
+endif
+
 -include $(top_srcdir)/git.mk
