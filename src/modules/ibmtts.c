@@ -1279,13 +1279,12 @@ static void set_language_and_voice(char *lang, SPDVoiceType voice_type, char *va
 	DBG(DBG_MODNAME "%s, lang=%s, voice_type=%d, dialect=%s",
 	    __FUNCTION__, lang, (int)voice_type, variant ? variant : NULL);
 
-	SPDVoice **v = speechd_voice;
-	assert(v);
+	assert(speechd_voice);
 
 	if (variant_name) {
-		for (i = 0; v[i]; i++) {
-			DBG("%d. variant=%s", i, v[i]->variant);
-			if (!strcmp(v[i]->variant, variant_name)) {
+		for (i = 0; speechd_voice[i]; i++) {
+			DBG("%d. variant=%s", i, speechd_voice[i]->variant);
+			if (!strcmp(speechd_voice[i]->variant, variant_name)) {
 				index = speechd_voice_index[i];
 				break;
 			}
@@ -1293,9 +1292,9 @@ static void set_language_and_voice(char *lang, SPDVoiceType voice_type, char *va
 	}
 
 	if ((index == -1) && lang) {
-		for (i = 0; v[i]; i++) {
-			DBG("%d. language=%s", i, v[i]->language);
-			if (!strcmp(v[i]->language, lang)) {
+		for (i = 0; speechd_voice[i]; i++) {
+			DBG("%d. language=%s", i, speechd_voice[i]->language);
+			if (!strcmp(speechd_voice[i]->language, lang)) {
 				index = speechd_voice_index[i];
 				break;
 			}
