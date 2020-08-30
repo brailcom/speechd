@@ -244,7 +244,7 @@ static void update_sample_rate();
 static void set_language(char *lang);
 static void set_voice_type(SPDVoiceType voice_type);
 static char *voice_enum_to_str(SPDVoiceType voice);
-static void set_language_and_voice(char *lang, SPDVoiceType voice_type, char *dialect);
+static void set_language_and_voice(char *lang, SPDVoiceType voice_type, char *name);
 static void set_synthesis_voice(char *);
 static void set_rate(signed int rate);
 static void set_pitch(signed int pitch);
@@ -1269,22 +1269,21 @@ static void set_voice_parameters(SPDVoiceType voice_type)
 }
 
 /* Given a language, dialect and SD voice codes sets the IBM voice */
-static void set_language_and_voice(char *lang, SPDVoiceType voice_type, char *variant)
+static void set_language_and_voice(char *lang, SPDVoiceType voice_type, char *name)
 {
 	DBG(DBG_MODNAME "ENTER %s", __func__);
-	char *variant_name = variant;
 	int ret = -1;
 	int i = 0, index = -1;
 
-	DBG(DBG_MODNAME "%s, lang=%s, voice_type=%d, dialect=%s",
-	    __FUNCTION__, lang, (int)voice_type, variant ? variant : NULL);
+	DBG(DBG_MODNAME "%s, lang=%s, voice_type=%d, name=%s",
+	    __FUNCTION__, lang, (int)voice_type, name ? name : "");
 
 	assert(speechd_voice);
 
-	if (variant_name) {
+	if (name && *name) {
 		for (i = 0; speechd_voice[i]; i++) {
-			DBG("%d. variant=%s", i, speechd_voice[i]->variant);
-			if (!strcmp(speechd_voice[i]->variant, variant_name)) {
+			DBG("%d. name=%s", i, speechd_voice[i]->name);
+			if (!strcasecmp(speechd_voice[i]->name, name)) {
 				index = speechd_voice_index[i];
 				break;
 			}
@@ -1337,14 +1336,14 @@ static void set_voice_type(SPDVoiceType voice_type)
 {
 	DBG(DBG_MODNAME "ENTER %s", __func__);
 	if (msg_settings.voice.language) {
-		set_language_and_voice(msg_settings.voice.language, voice_type, NULL);
+		set_language_and_voice(msg_settings.voice.language, voice_type, msg_settings.voice.name);
 	}
 }
 
 static void set_language(char *lang)
 {
 	DBG(DBG_MODNAME "ENTER %s", __func__);
-	set_language_and_voice(lang, msg_settings.voice_type, NULL);
+	set_language_and_voice(lang, msg_settings.voice_type, msg_settings.voice.name);
 }
 
 /* sets the voice according to its name. 
@@ -1354,27 +1353,13 @@ static void set_language(char *lang)
 */
 static void set_synthesis_voice(char *synthesis_voice)
 {
-	int i = 0;
-
 	if (synthesis_voice == NULL) {
 		return;
 	}
 
 	DBG(DBG_MODNAME "ENTER %s(%s)", __FUNCTION__, synthesis_voice);
 
-	for (i = 0; i < MAX_NB_OF_LANGUAGES; i++) {
-		if (!strcasecmp(eciLocales[i].name, synthesis_voice)) {
-			set_language_and_voice(eciLocales[i].lang,
-						      msg_settings.voice_type,
-						      eciLocales[i].variant);
-			break;
-		}
-	}
-
-	if (i == MAX_NB_OF_LANGUAGES) {
-		set_language_and_voice(msg_settings.voice.language, msg_settings.voice_type, NULL);
-	}
-
+	set_language_and_voice(msg_settings.voice.language, msg_settings.voice_type, synthesis_voice);
 }
 
 static void log_eci_error()
