@@ -286,7 +286,7 @@ static gboolean send_to_audio(TPlaybackQueueEntry *
 static gboolean is_thread_busy(pthread_mutex_t * suspended_mutex);
 static void log_eci_error();
 static void clear_playback_queue();
-static void alloc_voice_list();
+static gboolean alloc_voice_list();
 static void free_voice_list();
 
 /* The synthesis thread start routine. */
@@ -458,7 +458,13 @@ int module_init(char **status_info)
 
 	set_punctuation_mode(msg_settings.punctuation_mode);
 
-	alloc_voice_list();
+	if (!alloc_voice_list()) {
+		DBG(DBG_MODNAME "voice list allocation failed.");
+		*status_info =
+			g_strdup
+			("The module can't build the list of installed voices.");
+		return MODULE_FATAL_ERROR;
+	}
 
 	/* These mutexes are locked when the corresponding threads are suspended. */
 	pthread_mutex_init(&synth_suspended_mutex, NULL);
@@ -1726,19 +1732,19 @@ static char *search_for_sound_icon(const char *icon_name)
 	return fn;
 }
 
-void alloc_voice_list()
+gboolean alloc_voice_list()
 {
 	enum ECILanguageDialect aLanguage[MAX_NB_OF_LANGUAGES];
 	int nLanguages = MAX_NB_OF_LANGUAGES;
 	int i = 0;
 
 	if (eciGetAvailableLanguages(aLanguage, &nLanguages))
-		return;
+		return FALSE;
 
 	speechd_voice = g_malloc((nLanguages + 1) * sizeof(SPDVoice *));
 	speechd_voice_index = g_malloc((nLanguages + 1) * sizeof(SPDVoice *));
 	if (!speechd_voice)
-		return;
+		return FALSE;
 
 	DBG(DBG_MODNAME "nLanguages=%d/%lu", nLanguages, (unsigned long)MAX_NB_OF_LANGUAGES);
 	for (i = 0; i < nLanguages; i++) {
@@ -1766,6 +1772,8 @@ void alloc_voice_list()
 	}
 	speechd_voice[nLanguages] = NULL;
 	DBG(DBG_MODNAME "LEAVE %s", __func__);
+
+	return TRUE;
 }
 
 static void free_voice_list()
