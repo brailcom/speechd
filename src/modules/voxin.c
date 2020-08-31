@@ -1883,12 +1883,6 @@ static void load_user_dictionary()
 	language = voices[new_index].lang;
 	region = voices[new_index].variant;
 
-	/* Fix locale name for French Canadian */
-	if (!strcmp(language, "ca") && !strcmp(region, "FR")) {
-		language = "fr";
-		region = "CA";
-	}
-
 	if (eciDict) {
 		DBG(DBG_MODNAME "delete old dictionary");
 		eciDeleteDict(eciHandle, eciDict);
