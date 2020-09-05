@@ -49,7 +49,7 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previou
 </div>
 <h1 class="node-heading">Top</h1>
 
-<p>This manual documents Speech Dispatcher, version 0.10.0.
+<p>This manual documents Speech Dispatcher, version 0.10.1.
 </p>
 <p>Copyright &copy; 2001, 2002, 2003, 2006 Brailcom, o.p.s.
 </p>
@@ -1683,6 +1683,18 @@ running.
 </dd></dl>
 
 <dl>
+<dt id="index-int">C API function: <strong>int</strong> <em>spd_get_client_id(SPDConnection *connection)</em></dt>
+<dd><span id="index-spd_005fget_005fclient_005fid_0028_0029"></span>
+
+<p>Get the client ID.
+</p>
+<p><code>connection</code> is the SPDConnection* connection created by spd_open().
+</p>
+<p>It returns the client ID of the connection.
+</p>
+</dd></dl>
+
+<dl>
 <dt id="index-void">C API function: <strong>void</strong> <em>spd_close(SPDConnection *connection)</em></dt>
 <dd><span id="index-spd_005fclose_0028_0029"></span>
 
@@ -1723,7 +1735,7 @@ can be assigned to a message.
 </dd></dl>
 
 <dl>
-<dt id="index-int">C API function: <strong>int</strong> <em>spd_say(SPDConnection* connection, SPDPriority priority, char* text);</em></dt>
+<dt id="index-int-1">C API function: <strong>int</strong> <em>spd_say(SPDConnection* connection, SPDPriority priority, char* text);</em></dt>
 <dd><span id="index-spd_005fsay_0028_0029"></span>
 
 <p>Sends a message to Speech Dispatcher. If this message isn&rsquo;t blocked by
@@ -1748,7 +1760,7 @@ handling.
 </dd></dl>
 
 <dl>
-<dt id="index-int-1">C API function: <strong>int</strong> <em>spd_sayf(SPDConnection* connection, SPDPriority priority, char* format, ...);</em></dt>
+<dt id="index-int-2">C API function: <strong>int</strong> <em>spd_sayf(SPDConnection* connection, SPDPriority priority, char* format, ...);</em></dt>
 <dd><span id="index-spd_005fsayf_0028_0029"></span>
 
 <p>Similar to <code>spd_say()</code>, simulates the behavior of printf().
@@ -1796,7 +1808,7 @@ Next: <a href="#Characters-and-Keys-in-C" accesskey="n" rel="next">Characters an
 <span id="Stop-Commands"></span><h4 class="subsubheading">Stop Commands</h4>
 
 <dl>
-<dt id="index-int-2">C API function: <strong>int</strong> <em>spd_stop(SPDConnection* connection);</em></dt>
+<dt id="index-int-3">C API function: <strong>int</strong> <em>spd_stop(SPDConnection* connection);</em></dt>
 <dd><span id="index-spd_005fstop_0028_0029"></span>
 
 <p>Stops the message currently being spoken on a given connection. If there
@@ -1811,7 +1823,7 @@ how many messages are still waiting in queues on the server).
 </p></dd></dl>
 
 <dl>
-<dt id="index-int-3">C API function: <strong>int</strong> <em>spd_stop_all(SPDConnection* connection);</em></dt>
+<dt id="index-int-4">C API function: <strong>int</strong> <em>spd_stop_all(SPDConnection* connection);</em></dt>
 <dd><span id="index-spd_005fstop_005fall_0028_0029"></span>
 
 <p>The same as spd_stop(), but it stops every message being said,
@@ -1821,7 +1833,7 @@ without distinguishing where it came from.
 </p></dd></dl>
 
 <dl>
-<dt id="index-int-4">C API function: <strong>int</strong> <em>spd_stop_uid(SPDConnection* connection, int target_uid);</em></dt>
+<dt id="index-int-5">C API function: <strong>int</strong> <em>spd_stop_uid(SPDConnection* connection, int target_uid);</em></dt>
 <dd><span id="index-spd_005fstop_005fuid_0028_0029"></span>
 
 <p>The same as spd_stop() except that it stops a client client different from
@@ -1838,7 +1850,7 @@ See <a href="#History-Commands-in-C">History Commands in C</a>.
 <span id="Cancel-Commands"></span><h4 class="subsubheading">Cancel Commands</h4>
 
 <dl>
-<dt id="index-int-5">C API function: <strong>int</strong> <em>spd_cancel(SPDConnection* connection);</em></dt>
+<dt id="index-int-6">C API function: <strong>int</strong> <em>spd_cancel(SPDConnection* connection);</em></dt>
 <dd>
 <p>Stops the currently spoken message from this connection
 (if there is any) and discards all the queued messages
@@ -1848,7 +1860,7 @@ your program.
 </p></dd></dl>
 
 <dl>
-<dt id="index-int-6">C API function: <strong>int</strong> <em>spd_cancel_all(SPDConnection* connection);</em></dt>
+<dt id="index-int-7">C API function: <strong>int</strong> <em>spd_cancel_all(SPDConnection* connection);</em></dt>
 <dd><span id="index-spd_005fcancel_005fall_0028_0029"></span>
 
 <p>The same as spd_cancel(), but it cancels every message
@@ -1858,7 +1870,7 @@ without distinguishing where it came from.
 </p></dd></dl>
 
 <dl>
-<dt id="index-int-7">C API function: <strong>int</strong> <em>spd_cancel_uid(SPDConnection* connection, int target_uid);</em></dt>
+<dt id="index-int-8">C API function: <strong>int</strong> <em>spd_cancel_uid(SPDConnection* connection, int target_uid);</em></dt>
 <dd><span id="index-spd_005fcancel_005fuid_0028_0029"></span>
 
 <p>The same as spd_cancel() except that it executes cancel for some other client
@@ -1874,7 +1886,7 @@ spd_history_get_client_list().  See <a href="#History-Commands-in-C">History Com
 <span id="Pause-Commands"></span><h4 class="subsubheading">Pause Commands</h4>
 
 <dl>
-<dt id="index-int-8">C API function: <strong>int</strong> <em>spd_pause(SPDConnection* connection);</em></dt>
+<dt id="index-int-9">C API function: <strong>int</strong> <em>spd_pause(SPDConnection* connection);</em></dt>
 <dd><span id="index-int-spd_005fpause_0028_0029"></span>
 
 <p>Pauses all messages received from the given connection. No messages
@@ -1896,7 +1908,7 @@ messages are also queued and waiting for resume().
 </p></dd></dl>
 
 <dl>
-<dt id="index-int-9">C API function: <strong>int</strong> <em>spd_pause_all(SPDConnection* connection);</em></dt>
+<dt id="index-int-10">C API function: <strong>int</strong> <em>spd_pause_all(SPDConnection* connection);</em></dt>
 <dd><span id="index-spd_005fpause_005fall_0028_0029"></span>
 
 <p>The same as spd_pause(), but it pauses every message,
@@ -1906,7 +1918,7 @@ without distinguishing where it came from.
 </p></dd></dl>
 
 <dl>
-<dt id="index-int-10">C API function: <strong>int</strong> <em>spd_pause_uid(SPDConnection* connection, int target_uid);</em></dt>
+<dt id="index-int-11">C API function: <strong>int</strong> <em>spd_pause_uid(SPDConnection* connection, int target_uid);</em></dt>
 <dd><span id="index-spd_005fpause_005fuid_0028_0029"></span>
 
 <p>The same as spd_pause() except that it executes pause for a client different from
@@ -1922,7 +1934,7 @@ See <a href="#History-Commands-in-C">History Commands in C</a>.
 <span id="Resume-Commands"></span><h4 class="subsubheading">Resume Commands</h4>
 
 <dl>
-<dt id="index-int-11">C API function: <strong>int</strong> <em>spd_resume(SPDConnection* connection);</em></dt>
+<dt id="index-int-12">C API function: <strong>int</strong> <em>spd_resume(SPDConnection* connection);</em></dt>
 <dd><span id="index-int-spd_005fresume_0028_0029"></span>
 
 <p>Resumes all paused messages from the given connection. The rest
@@ -1936,7 +1948,7 @@ for synthesis again.
 </p></dd></dl>
 
 <dl>
-<dt id="index-int-12">C API function: <strong>int</strong> <em>spd_resume_all(SPDConnection* connection);</em></dt>
+<dt id="index-int-13">C API function: <strong>int</strong> <em>spd_resume_all(SPDConnection* connection);</em></dt>
 <dd><span id="index-spd_005fresume_005fall_0028_0029"></span>
 
 <p>The same as spd_resume(), but it resumes every paused message,
@@ -1946,7 +1958,7 @@ without distinguishing where it came from.
 </p></dd></dl>
 
 <dl>
-<dt id="index-int-13">C API function: <strong>int</strong> <em>spd_resume_uid(SPDConnection* connection, int target_uid);</em></dt>
+<dt id="index-int-14">C API function: <strong>int</strong> <em>spd_resume_uid(SPDConnection* connection, int target_uid);</em></dt>
 <dd><span id="index-spd_005fresume_005fuid_0028_0029"></span>
 
 <p>The same as spd_resume() except that it executes resume for a client different from
@@ -1967,7 +1979,7 @@ Next: <a href="#Sound-Icons-in-C" accesskey="n" rel="next">Sound Icons in C</a>,
 <span id="Characters-and-Keys"></span><h4 class="subsection">4.1.4 Characters and Keys</h4>
 
 <dl>
-<dt id="index-int-14">C API function: <strong>int</strong> <em>spd_char(SPDConnection* connection, SPDPriority priority, char* character);</em></dt>
+<dt id="index-int-15">C API function: <strong>int</strong> <em>spd_char(SPDConnection* connection, SPDPriority priority, char* character);</em></dt>
 <dd><span id="index-spd_005fchar_0028_0029"></span>
 
 <p>Says a character according to user settings for characters. For example, this can be
@@ -1985,7 +1997,7 @@ character. If it contains more characters, only the first one is processed.
 </p></dd></dl>
 
 <dl>
-<dt id="index-int-15">C API function: <strong>int</strong> <em>spd_wchar(SPDConnection* connection, SPDPriority priority, wchar_t wcharacter);</em></dt>
+<dt id="index-int-16">C API function: <strong>int</strong> <em>spd_wchar(SPDConnection* connection, SPDPriority priority, wchar_t wcharacter);</em></dt>
 <dd><span id="index-spd_005fsay_005fwchar_0028_0029"></span>
 
 <p>The same as spd_char(), but it takes a wchar_t variable as its argument.
@@ -1994,7 +2006,7 @@ character. If it contains more characters, only the first one is processed.
 </p></dd></dl>
 
 <dl>
-<dt id="index-int-16">C API function: <strong>int</strong> <em>spd_key(SPDConnection* connection, SPDPriority priority, char* key_name);</em></dt>
+<dt id="index-int-17">C API function: <strong>int</strong> <em>spd_key(SPDConnection* connection, SPDPriority priority, char* key_name);</em></dt>
 <dd><span id="index-spd_005fkey_0028_0029"></span>
 
 <p>Says a key according to user settings for keys.
@@ -2020,7 +2032,7 @@ Next: <a href="#Parameter-Setting-Commands-in-C" accesskey="n" rel="next">Parame
 <span id="Sound-Icons"></span><h4 class="subsection">4.1.5 Sound Icons</h4>
 
 <dl>
-<dt id="index-int-17">C API function: <strong>int</strong> <em>spd_sound_icon(SPDConnection* connection, SPDPriority priority, char* icon_name);</em></dt>
+<dt id="index-int-18">C API function: <strong>int</strong> <em>spd_sound_icon(SPDConnection* connection, SPDPriority priority, char* icon_name);</em></dt>
 <dd><span id="index-spd_005fsound_005ficon_0028_0029"></span>
 
 <p>Sends a sound icon ICON_NAME. These are symbolic names that are mapped
@@ -2053,7 +2065,7 @@ some other connection and for all connections. They are listed separately below.
 Documentation</cite> for a general description of what they mean.
 </p>
 <dl>
-<dt id="index-int-18">C API function: <strong>int</strong> <em>spd_set_data_mode(SPDConnection *connection, SPDDataMode mode)</em></dt>
+<dt id="index-int-19">C API function: <strong>int</strong> <em>spd_set_data_mode(SPDConnection *connection, SPDDataMode mode)</em></dt>
 <dd><span id="index-spd_005fset_005fdata_005fmode_0028_0029"></span>
 
 <p>Set Speech Dispatcher data mode. Currently, plain text and SSML are
@@ -2066,7 +2078,7 @@ or include changes of voice parameters in the text.
 </dd></dl>
 
 <dl>
-<dt id="index-int-19">C API function: <strong>int</strong> <em>spd_set_language(SPDConnection* connection, char* language);</em></dt>
+<dt id="index-int-20">C API function: <strong>int</strong> <em>spd_set_language(SPDConnection* connection, char* language);</em></dt>
 <dd><span id="index-spd_005fset_005flanguage_0028_0029"></span>
 
 <p>Sets the language that should be used for synthesis.
@@ -2079,7 +2091,7 @@ or include changes of voice parameters in the text.
 </dd></dl>
 
 <dl>
-<dt id="index-int-20">C API function: <strong>int</strong> <em>spd_set_output_module(SPDConnection* connection, char* output_module);</em></dt>
+<dt id="index-int-21">C API function: <strong>int</strong> <em>spd_set_output_module(SPDConnection* connection, char* output_module);</em></dt>
 <dd><span id="index-spd_005fset_005foutput_005fmodule_0028_0029"></span>
 <span id="spd_005fset_005foutput_005fmodule"></span>
 <p>Sets the output module that should be used for synthesis. The parameter
@@ -2109,7 +2121,7 @@ Dispatcher in its configuration (&ldquo;flite&rdquo;, &ldquo;festival&rdquo;,  &
 </dd></dl>
 
 <dl>
-<dt id="index-int-21">C API function: <strong>int</strong> <em>spd_set_punctuation(SPDConnection* connection, SPDPunctuation type);</em></dt>
+<dt id="index-int-22">C API function: <strong>int</strong> <em>spd_set_punctuation(SPDConnection* connection, SPDPunctuation type);</em></dt>
 <dd><span id="index-spd_005fset_005fpunctuation_0028_0029"></span>
 
 <p>Set punctuation mode to the given value.  &lsquo;all&rsquo; means speak all
@@ -2126,7 +2138,7 @@ set in symbols tables or output modules.
 </p></dd></dl>
 
 <dl>
-<dt id="index-int-22">C API function: <strong>int</strong> <em>spd_set_spelling(SPDConnection* connection, SPDSpelling type);</em></dt>
+<dt id="index-int-23">C API function: <strong>int</strong> <em>spd_set_spelling(SPDConnection* connection, SPDSpelling type);</em></dt>
 <dd><span id="index-spd_005fset_005fspelling_0028_0029"></span>
 
 <p>Switches spelling mode on and off. If set to on, all incoming messages
@@ -2139,7 +2151,7 @@ spelling tables (see spd_set_spelling_table()).
 </p></dd></dl>
 
 <dl>
-<dt id="index-int-23">C API function: <strong>int</strong> <em>spd_set_voice_type(SPDConnection* connection, SPDVoiceType voice);</em></dt>
+<dt id="index-int-24">C API function: <strong>int</strong> <em>spd_set_voice_type(SPDConnection* connection, SPDVoiceType voice);</em></dt>
 <dd><span id="index-spd_005fset_005fvoice_005ftype_0028_0029"></span>
 <span id="spd_005fset_005fvoice_005ftype"></span>
 <p>Set a preferred symbolic voice.
@@ -2153,7 +2165,7 @@ spelling tables (see spd_set_spelling_table()).
 </dd></dl>
 
 <dl>
-<dt id="index-int-24">C API function: <strong>int</strong> <em>spd_set_synthesis_voice(SPDConnection* connection, char* voice_name);</em></dt>
+<dt id="index-int-25">C API function: <strong>int</strong> <em>spd_set_synthesis_voice(SPDConnection* connection, char* voice_name);</em></dt>
 <dd><span id="index-spd_005fset_005fvoice_005ftype_0028_0029-1"></span>
 <span id="spd_005fset_005fsynthesis_005fvoice"></span>
 <p>Set the speech synthesizer voice to use. Please note that synthesis
@@ -2168,7 +2180,7 @@ effect until the output module in use is changed (via
 </dd></dl>
 
 <dl>
-<dt id="index-int-25">C API function: <strong>int</strong> <em>spd_set_voice_rate(SPDConnection* connection, int rate);</em></dt>
+<dt id="index-int-26">C API function: <strong>int</strong> <em>spd_set_voice_rate(SPDConnection* connection, int rate);</em></dt>
 <dd><span id="index-spd_005fset_005fvoice_005frate_0028_0029"></span>
 
 <p>Set voice speaking rate.
@@ -2181,7 +2193,7 @@ the slowest and the fastest speech rate respectively.
 </dd></dl>
 
 <dl>
-<dt id="index-int-26">C API function: <strong>int</strong> <em>spd_get_voice_rate(SPDConnection* connection);</em></dt>
+<dt id="index-int-27">C API function: <strong>int</strong> <em>spd_get_voice_rate(SPDConnection* connection);</em></dt>
 <dd><span id="index-spd_005fget_005fvoice_005frate_0028_0029"></span>
 
 <p>Get voice speaking rate.
@@ -2193,7 +2205,7 @@ the slowest and the fastest speech rate respectively.
 </dd></dl>
 
 <dl>
-<dt id="index-int-27">C API function: <strong>int</strong> <em>spd_set_voice_pitch(SPDConnection* connection, int pitch);</em></dt>
+<dt id="index-int-28">C API function: <strong>int</strong> <em>spd_set_voice_pitch(SPDConnection* connection, int pitch);</em></dt>
 <dd><span id="index-spd_005fset_005fvoice_005fpitch_0028_0029"></span>
 
 <p>Set voice pitch.
@@ -2206,7 +2218,7 @@ lowest and the highest pitch respectively.
 </dd></dl>
 
 <dl>
-<dt id="index-int-28">C API function: <strong>int</strong> <em>spd_get_voice_pitch(SPDConnection* connection);</em></dt>
+<dt id="index-int-29">C API function: <strong>int</strong> <em>spd_get_voice_pitch(SPDConnection* connection);</em></dt>
 <dd><span id="index-spd_005fget_005fvoice_005fpitch_0028_0029"></span>
 
 <p>Get voice pitch.
@@ -2218,7 +2230,7 @@ lowest and the highest pitch respectively.
 </dd></dl>
 
 <dl>
-<dt id="index-int-29">C API function: <strong>int</strong> <em>spd_set_voice_pitch_range(SPDConnection* connection, int pitch_range);</em></dt>
+<dt id="index-int-30">C API function: <strong>int</strong> <em>spd_set_voice_pitch_range(SPDConnection* connection, int pitch_range);</em></dt>
 <dd><span id="index-spd_005fset_005fvoice_005fpitch_0028_0029-1"></span>
 
 <p>Set voice pitch range.
@@ -2231,7 +2243,7 @@ lowest and the highest pitch range respectively.
 </dd></dl>
 
 <dl>
-<dt id="index-int-30">C API function: <strong>int</strong> <em>spd_set_volume(SPDConnection* connection, int volume);</em></dt>
+<dt id="index-int-31">C API function: <strong>int</strong> <em>spd_set_volume(SPDConnection* connection, int volume);</em></dt>
 <dd><span id="index-spd_005fset_005fvolume_0028_0029"></span>
 
 <p>Set the volume of the voice and sounds produced by Speech Dispatcher&rsquo;s output
@@ -2245,7 +2257,7 @@ the lowest and the loudest voice respectively.
 </dd></dl>
 
 <dl>
-<dt id="index-int-31">C API function: <strong>int</strong> <em>spd_get_volume(SPDConnection* connection);</em></dt>
+<dt id="index-int-32">C API function: <strong>int</strong> <em>spd_get_volume(SPDConnection* connection);</em></dt>
 <dd><span id="index-spd_005fget_005fvolume_0028_0029"></span>
 
 <p>Get the volume of the voice and sounds produced by Speech Dispatcher&rsquo;s output
@@ -2424,15 +2436,15 @@ off for the current SSIP connection and cause the callbacks to be called
 when the event is registered by Speech Dispatcher.
 </p>
 <dl>
-<dt id="index-int-32">C API function: <strong>int</strong> <em>spd_set_notification_on(SPDConnection* connection, SPDNotification notification);</em></dt>
+<dt id="index-int-33">C API function: <strong>int</strong> <em>spd_set_notification_on(SPDConnection* connection, SPDNotification notification);</em></dt>
 <dd><span id="index-spd_005fset_005fnotification_005fon"></span>
 </dd></dl>
 <dl>
-<dt id="index-int-33">C API function: <strong>int</strong> <em>spd_set_notification_off(SPDConnection* connection, SPDNotification notification);</em></dt>
+<dt id="index-int-34">C API function: <strong>int</strong> <em>spd_set_notification_off(SPDConnection* connection, SPDNotification notification);</em></dt>
 <dd><span id="index-spd_005fset_005fnotification_005foff"></span>
 </dd></dl>
 <dl>
-<dt id="index-int-34">C API function: <strong>int</strong> <em>spd_set_notification(SPDConnection* connection, SPDNotification notification, const char* state);</em></dt>
+<dt id="index-int-35">C API function: <strong>int</strong> <em>spd_set_notification(SPDConnection* connection, SPDNotification notification, const char* state);</em></dt>
 <dd><span id="index-spd_005fset_005fnotification"></span>
 
 <p>These functions will set the notification specified by the parameter
@@ -2530,7 +2542,7 @@ a few functions that will allow you to send arbitrary SSIP commands on
 your connection and read the replies.
 </p>
 <dl>
-<dt id="index-int-35">C API function: <strong>int</strong> <em>spd_execute_command(SPDConnection* connection, char *command);</em></dt>
+<dt id="index-int-36">C API function: <strong>int</strong> <em>spd_execute_command(SPDConnection* connection, char *command);</em></dt>
 <dd><span id="index-spd_005fexecute_005fcommand_0028_0029"></span>
 
 <p>You can send an arbitrary SSIP command specified in the parameter <code>command</code>.
@@ -2576,7 +2588,7 @@ terminating sequence <code>\r\n</code>.
 This specifies if you expect to get a reply on the sent data according to SSIP.
 For example, if you are sending ordinary text inside a <code>SPEAK</code> command,
 you don&rsquo;t expect to get a reply, but you expect a reply after sending the final
-sequence <code>\r\n.\r\n</code>.
+sequence <code>\r\n.\r\n</code> of the multi-line command.
 </p>
 <p>For example (simplified by not checking and freeing the returned strings):
 </p><div class="example">
@@ -3469,7 +3481,7 @@ Next: <a href="#Module-Utils-Functions-and-Macros" accesskey="n" rel="next">Modu
 <span id="Output-Module-Functions-1"></span><h4 class="subsection">5.2.5 Output Module Functions</h4>
 
 <dl>
-<dt id="index-int-36">Output Module Functions: <strong>int</strong> <em>module_speak (char *data, size_t bytes, EMessageType msgtype)</em></dt>
+<dt id="index-int-37">Output Module Functions: <strong>int</strong> <em>module_speak (char *data, size_t bytes, EMessageType msgtype)</em></dt>
 <dd><span id="index-module_005fspeak_0028_0029"></span>
 
 <p>This is the function where the actual speech output is produced. It is
@@ -3820,7 +3832,7 @@ way to do this is to emit the events from another thread.
 </dd></dl>
 
 <dl>
-<dt id="index-int-37">Output module function: <strong>int</strong> <em>module_close(void)</em></dt>
+<dt id="index-int-38">Output module function: <strong>int</strong> <em>module_close(void)</em></dt>
 <dd><span id="index-module_005fclose"></span>
 
 <p>This function is called when Speech Dispatcher terminates.  The output
@@ -3890,7 +3902,7 @@ using <code>module_parent_dp_read()</code>.
 </dd></dl>
 
 <dl>
-<dt id="index-int-38">Module Utils function: <strong>int</strong> <em>module_parent_wait_continue(TModuleDoublePipe dpipe)</em></dt>
+<dt id="index-int-39">Module Utils function: <strong>int</strong> <em>module_parent_wait_continue(TModuleDoublePipe dpipe)</em></dt>
 <dd><span id="index-module_005fparent_005fwait_005fcontinue"></span>
 <p>Waits until the character <code>C</code> (continue) is read from the pipe from child.
 This function is intended to be run from the parent.
@@ -3930,7 +3942,7 @@ Uses the pipes defined in <code>dpipe</code>.
 </p></dd></dl>
 
 <dl>
-<dt id="index-int-39">Module Utils function: <strong>int</strong> <em>module_child_dp_read(TModuleDoublePipe dpipe  char *msg, size_t maxlen)</em></dt>
+<dt id="index-int-40">Module Utils function: <strong>int</strong> <em>module_child_dp_read(TModuleDoublePipe dpipe  char *msg, size_t maxlen)</em></dt>
 <dd><span id="index-module_005fchild_005fdp_005fread"></span>
 <p>Reads up to <code>maxlen</code> bytes from the pipe from parent into the buffer <code>msg</code>.
 This function is intended, as the prefix says, to be run from the child.
@@ -3938,7 +3950,7 @@ Uses the pipes defined in <code>dpipe</code>.
 </p></dd></dl>
 
 <dl>
-<dt id="index-int-40">Module Utils function: <strong>int</strong> <em>module_parent_dp_read(TModuleDoublePipe dpipe,  char *msg, size_t maxlen)</em></dt>
+<dt id="index-int-41">Module Utils function: <strong>int</strong> <em>module_parent_dp_read(TModuleDoublePipe dpipe,  char *msg, size_t maxlen)</em></dt>
 <dd><span id="index-module_005fparent_005fdp_005fread"></span>
 <p>Reads up to <code>maxlen</code> bytes from the pipe from child into the buffer <code>msg</code>.
 This function is intended, as the prefix says, to be run from the parent.
@@ -5078,9 +5090,9 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <tr><th id="Index-of-Concepts_cp_letter-I">I</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-INIT_005fSETTINGS_005fTABLES"><code>INIT_SETTINGS_TABLES</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Initialization-Macros-and-Functions">Initialization Macros and Functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-INIT_005fSETTINGS_005fTABLES-1"><code>INIT_SETTINGS_TABLES</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Initialization-Macros-and-Functions">Initialization Macros and Functions</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-int"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Speech-Synthesis-Commands-in-C">Speech Synthesis Commands in C</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-int"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Initializing-and-Terminating-in-C">Initializing and Terminating in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-1"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Speech-Synthesis-Commands-in-C">Speech Synthesis Commands in C</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-int-2"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Speech-output-control-commands-in-C">Speech output control commands in C</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-int-2"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Speech-Synthesis-Commands-in-C">Speech Synthesis Commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-3"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Speech-output-control-commands-in-C">Speech output control commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-4"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Speech-output-control-commands-in-C">Speech output control commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-5"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Speech-output-control-commands-in-C">Speech output control commands in C</a></td></tr>
@@ -5092,11 +5104,11 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <tr><td></td><td valign="top"><a href="#index-int-11"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Speech-output-control-commands-in-C">Speech output control commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-12"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Speech-output-control-commands-in-C">Speech output control commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-13"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Speech-output-control-commands-in-C">Speech output control commands in C</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-int-14"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Characters-and-Keys-in-C">Characters and Keys in C</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-int-14"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Speech-output-control-commands-in-C">Speech output control commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-15"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Characters-and-Keys-in-C">Characters and Keys in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-16"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Characters-and-Keys-in-C">Characters and Keys in C</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-int-17"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Sound-Icons-in-C">Sound Icons in C</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-int-18"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Parameter-Setting-Commands-in-C">Parameter Setting Commands in C</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-int-17"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Characters-and-Keys-in-C">Characters and Keys in C</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-int-18"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Sound-Icons-in-C">Sound Icons in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-19"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Parameter-Setting-Commands-in-C">Parameter Setting Commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-20"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Parameter-Setting-Commands-in-C">Parameter Setting Commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-21"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Parameter-Setting-Commands-in-C">Parameter Setting Commands in C</a></td></tr>
@@ -5110,15 +5122,16 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <tr><td></td><td valign="top"><a href="#index-int-29"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Parameter-Setting-Commands-in-C">Parameter Setting Commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-30"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Parameter-Setting-Commands-in-C">Parameter Setting Commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-31"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Parameter-Setting-Commands-in-C">Parameter Setting Commands in C</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-int-32"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Event-Notification-and-Index-Marking-in-C">Event Notification and Index Marking in C</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-int-32"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Parameter-Setting-Commands-in-C">Parameter Setting Commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-33"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Event-Notification-and-Index-Marking-in-C">Event Notification and Index Marking in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-34"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Event-Notification-and-Index-Marking-in-C">Event Notification and Index Marking in C</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-int-35"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Direct-SSIP-Communication-in-C">Direct SSIP Communication in C</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-int-36"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Output-Module-Functions">Output Module Functions</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-int-37"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Functions-for-use-when-talking-to-synthesizer">Functions for use when talking to synthesizer</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-int-38"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi_002dprocess-output-modules">Multi-process output modules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-int-35"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Event-Notification-and-Index-Marking-in-C">Event Notification and Index Marking in C</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-int-36"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Direct-SSIP-Communication-in-C">Direct SSIP Communication in C</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-int-37"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Output-Module-Functions">Output Module Functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-int-38"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Functions-for-use-when-talking-to-synthesizer">Functions for use when talking to synthesizer</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-39"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi_002dprocess-output-modules">Multi-process output modules</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-40"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi_002dprocess-output-modules">Multi-process output modules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-int-41"><code>int</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi_002dprocess-output-modules">Multi-process output modules</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-module_005fstop"><code>int module_stop</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Output-Module-Functions">Output Module Functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-spd_005fpause_0028_0029"><code>int spd_pause()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Speech-output-control-commands-in-C">Speech output control commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-int-spd_005fresume_0028_0029"><code>int spd_resume()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Speech-output-control-commands-in-C">Speech output control commands in C</a></td></tr>
@@ -5164,6 +5177,7 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <tr><td></td><td valign="top"><a href="#index-spd_005fchar_0028_0029"><code>spd_char()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Characters-and-Keys-in-C">Characters and Keys in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-spd_005fclose_0028_0029"><code>spd_close()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Initializing-and-Terminating-in-C">Initializing and Terminating in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-spd_005fexecute_005fcommand_0028_0029"><code>spd_execute_command()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Direct-SSIP-Communication-in-C">Direct SSIP Communication in C</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-spd_005fget_005fclient_005fid_0028_0029"><code>spd_get_client_id()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Initializing-and-Terminating-in-C">Initializing and Terminating in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-spd_005fget_005fclient_005flist_0028_0029"><code>spd_get_client_list()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Commands-in-C">History Commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-spd_005fget_005fmessage_005flist_005ffd_0028_0029"><code>spd_get_message_list_fd()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Commands-in-C">History Commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-spd_005fget_005foutput_005fmodule_0028_0029"><code>spd_get_output_module()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Parameter-Setting-Commands-in-C">Parameter Setting Commands in C</a></td></tr>
