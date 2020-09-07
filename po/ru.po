@@ -6,15 +6,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
-"Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
+"Report-Msgid-Bugs-To: samuel.thibault@ens-lyon.org\n"
 "POT-Creation-Date: 2020-09-05 19:01+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-09-07 19:02+0000\n"
+"Last-Translator: Artem <KovalevArtem.ru@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/"
+"speech-dispatcher/po/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: src/server/options.c:63
 #, c-format
@@ -31,7 +35,7 @@ msgstr ""
 #: src/server/options.c:69
 #, c-format
 msgid "Options: \n"
-msgstr ""
+msgstr "Параметры: \n"
 
 #: src/server/options.c:71
 #, c-format
@@ -66,7 +70,7 @@ msgstr ""
 #: src/server/options.c:84
 #, c-format
 msgid "or '%s')\n"
-msgstr ""
+msgstr "или '%s')\n"
 
 #: src/server/options.c:87
 #, c-format
@@ -116,7 +120,7 @@ msgstr ""
 #: src/server/options.c:105
 #, c-format
 msgid "Report version of this program\n"
-msgstr ""
+msgstr "Сообщить о версии этой программы\n"
 
 #: src/server/options.c:107
 #, c-format
@@ -131,7 +135,7 @@ msgstr ""
 #: src/server/options.c:113 src/clients/say/options.c:169
 #, c-format
 msgid "Print this info\n"
-msgstr ""
+msgstr "Распечатать эту информацию\n"
 
 #: src/server/options.c:115 src/clients/say/options.c:172
 #, c-format
@@ -139,6 +143,8 @@ msgid ""
 "Please report bugs to %s\n"
 "\n"
 msgstr ""
+"Пожалуйста, сообщайте об ошибках в %s\n"
+"\n"
 
 #: src/server/options.c:121 src/clients/say/options.c:179
 #: src/api/python/speechd_config/config.py.in:174
@@ -169,7 +175,7 @@ msgstr ""
 #: src/clients/say/options.c:70
 #, c-format
 msgid "Options:\n"
-msgstr ""
+msgstr "Параметры:\n"
 
 #: src/clients/say/options.c:72
 #, c-format
