@@ -912,7 +912,8 @@ msgid "Have you started Speech Dispatcher now?"
 msgstr "Você já iniciou o Speech Dispatcher agora?"
 
 #: src/api/python/speechd_config/config.py.in:730
-msgid "Do you want to create/setup a 'user' or 'system' configuration"
+#, fuzzy
+msgid "Do you want to create/setup a 'user' or 'system' configuration?"
 msgstr "Você deseja criar/definir uma configuração de “usuário” ou “sistema\""
 
 #: src/api/python/speechd_config/config.py.in:741
