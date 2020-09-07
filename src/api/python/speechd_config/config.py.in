@@ -235,7 +235,7 @@ to be able to use Festival with Speech Dispatcher."""))
             report(_("""Python can't find the Speech Dispatcher library.
 Is it installed? This won't prevent Speech Dispatcher to work, but no
 Python applications like Orca will be able to use it.
-Search for package like python-speechd, download and install it"""))
+Search for package like python-speechd, download and install it."""))
             return False
         return True
 
