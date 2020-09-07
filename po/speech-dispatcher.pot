@@ -447,7 +447,7 @@ msgid ""
 "Python can't find the Speech Dispatcher library.\n"
 "Is it installed? This won't prevent Speech Dispatcher to work, but no\n"
 "Python applications like Orca will be able to use it.\n"
-"Search for package like python-speechd, download and install it"
+"Search for package like python-speechd, download and install it."
 msgstr ""
 
 #: src/api/python/speechd_config/config.py.in:257
@@ -812,7 +812,7 @@ msgid "Have you started Speech Dispatcher now?"
 msgstr ""
 
 #: src/api/python/speechd_config/config.py.in:730
-msgid "Do you want to create/setup a 'user' or 'system' configuration"
+msgid "Do you want to create/setup a 'user' or 'system' configuration?"
 msgstr ""
 
 #: src/api/python/speechd_config/config.py.in:741
