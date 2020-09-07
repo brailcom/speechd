@@ -7,17 +7,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-18-g840e\n"
-"Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
+"Report-Msgid-Bugs-To: samuel.thibault@ens-lyon.org\n"
 "POT-Creation-Date: 2020-09-03 17:17-0300\n"
-"PO-Revision-Date: 2020-09-04 07:52-0300\n"
+"PO-Revision-Date: 2020-09-08 07:42+0000\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
-"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"speech-dispatcher/po/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Gtranslator 3.36.0\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: src/server/options.c:63
 #, c-format
@@ -143,7 +144,9 @@ msgstr "Exibe estas informações\n"
 msgid ""
 "Please report bugs to %s\n"
 "\n"
-msgstr "Relate erros para %s\n"
+msgstr ""
+"Relate erros para %s\n"
+"\n"
 
 #: src/server/options.c:121 src/clients/say/options.c:179
 #: src/api/python/speechd_config/config.py.in:174
@@ -157,10 +160,10 @@ msgid ""
 "\n"
 msgstr ""
 "Copyright (C) %d-%d Brailcom, o.p.s.\n"
-"Este programa é um software livre: você pode redistribuí-lo e/ou\n"
-"modificá-lo sob os termos da Licença Pública Geral GNU, conforme\n"
-"publicado pela Free Software Foundation, seja a versão 3 da Licença\n"
-"ou (a seu critério) qualquer versão posterior. Veja COPYING para\n"
+"Este é um software livre: você pode redistribuí-lo e/ou modificá-lo\n"
+"sob os termos da Licença Pública Geral GNU, conforme publicado\n"
+"pela Free Software Foundation, seja a versão 2 da Licença ou\n"
+"(a seu critério) qualquer versão posterior. Veja COPYING para\n"
 "mais detalhes.\n"
 "\n"
 
@@ -171,13 +174,16 @@ msgid ""
 "\n"
 msgstr ""
 "Envia a solicitação de saída de texto para fala para o speech-dispatcher\n"
+"\n"
 
 #: src/clients/say/options.c:68
 #, c-format
 msgid ""
 "Usage: %s [options] \"some text\"\n"
 "\n"
-msgstr "Uso: %s [opções] “algum texto”\n"
+msgstr ""
+"Uso: %s [opções] “algum texto”\n"
+"\n"
 
 #: src/clients/say/options.c:70
 #, c-format
