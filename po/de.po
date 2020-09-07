@@ -957,9 +957,8 @@ msgstr ""
 msgid "Have you started Speech Dispatcher now?"
 msgstr "Haben Sie Speech Dispatcher jetzt gestartet?"
 
-# FIXME: missing '?'
 #: src/api/python/speechd_config/config.py.in:730
-msgid "Do you want to create/setup a 'user' or 'system' configuration"
+msgid "Do you want to create/setup a 'user' or 'system' configuration?"
 msgstr ""
 "Möchten Sie eine »user«- oder »system«-Konfiguration erstellen/einrichten?"
 

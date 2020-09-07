@@ -727,7 +727,7 @@ you have to start it manually to continue."""))
         """Create a complete configuration, run diagnosis and if necessary, debugging"""
 
         speechd_type = question_with_required_answers(
-            _("Do you want to create/setup a 'user' or 'system' configuration"),
+            _("Do you want to create/setup a 'user' or 'system' configuration?"),
             'user', ['user', 'system'])
 
         if speechd_type == 'user':
