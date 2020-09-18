@@ -8,13 +8,16 @@ msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
 "POT-Creation-Date: 2020-09-05 19:01+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-09-18 15:23+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
+"speech-dispatcher/po/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: src/server/options.c:63
 #, c-format
@@ -26,7 +29,7 @@ msgstr ""
 #: src/server/options.c:65
 #, c-format
 msgid "Usage: "
-msgstr ""
+msgstr "Bruk: "
 
 #: src/server/options.c:69
 #, c-format
@@ -36,12 +39,12 @@ msgstr ""
 #: src/server/options.c:71
 #, c-format
 msgid "Run as a daemon\n"
-msgstr ""
+msgstr "Kjør som nisse\n"
 
 #: src/server/options.c:73
 #, c-format
 msgid "Run as single application\n"
-msgstr ""
+msgstr "Kjør som enkeltstående program\n"
 
 #: src/server/options.c:75
 #, c-format
@@ -304,27 +307,27 @@ msgstr ""
 #: src/clients/say/options.c:162
 #, c-format
 msgid "Cancel all messages\n"
-msgstr ""
+msgstr "Kanseller alle meldinger\n"
 
 #: src/clients/say/options.c:166
 #, c-format
 msgid "Print version and copyright info\n"
-msgstr ""
+msgstr "Skriv ut versjon- og opphavsrettinfo\n"
 
 #: src/clients/say/options.c:191
 #, c-format
 msgid "Syntax error or bad parameter!\n"
-msgstr ""
+msgstr "Syntaksfeil eller feilaktig parameter!\n"
 
 #: src/clients/say/options.c:202
 #, c-format
 msgid "Missing argument!\n"
-msgstr ""
+msgstr "Manglende argument!\n"
 
 #: src/clients/say/options.c:303
 #, c-format
 msgid "Unrecognized option\n"
-msgstr ""
+msgstr "Ugjenkjent alternativ\n"
 
 #: src/api/python/speechd_config/speechd.desktop.in:21
 msgid "Speech Dispatcher"
@@ -332,7 +335,7 @@ msgstr ""
 
 #: src/api/python/speechd_config/speechd.desktop.in:22
 msgid "Interface to Text to Speech services"
-msgstr ""
+msgstr "Grensesnitt for talesyntese-tjenester"
 
 #: src/api/python/speechd_config/config.py.in:103
 #, python-format
@@ -533,7 +536,7 @@ msgstr ""
 
 #: src/api/python/speechd_config/config.py.in:317
 msgid "Espeak is installed"
-msgstr ""
+msgstr "Espeak er installert"
 
 #: src/api/python/speechd_config/config.py.in:320
 msgid ""
