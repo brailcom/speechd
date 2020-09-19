@@ -197,7 +197,8 @@ class _SSIP_Connection(object):
         self._ssip_reply_semaphore = threading.Semaphore(0)
         self._communication_thread = \
                 threading.Thread(target=self._communication, kwargs={},
-                                 name="SSIP client communication thread")
+                                 name="SSIP client communication thread",
+                                 daemon=True)
         self._communication_thread.start()
     
     def close(self):
