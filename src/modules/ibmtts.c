@@ -817,6 +817,14 @@ static void *_synth(void *nothing)
 		}
 
 		module_speak_queue_before_play();
+
+		if (!IbmttsUseSSML)
+		{
+			process_text_mark(pos, strlen(pos), NULL);
+			process_text_mark(NULL, 0, NULL);
+			continue;
+		}
+
 		while (TRUE) {
 			if (module_speak_queue_stop_requested()) {
 				DBG(DBG_MODNAME "Stop in synthesis thread, terminating.");
