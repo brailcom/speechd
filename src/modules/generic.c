@@ -43,7 +43,7 @@ static pthread_t generic_speak_thread;
 static pid_t generic_pid;
 static sem_t generic_semaphore;
 
-static char **generic_message;
+static char *generic_message;
 static SPDMessageType generic_message_type;
 
 static int generic_position = 0;
@@ -165,7 +165,7 @@ int module_init(char **status_info)
 	generic_msg_language->charset = g_strdup("iso-8859-1");
 	generic_msg_language->name = g_strdup("english");
 
-	generic_message = g_malloc(sizeof(char *));
+	generic_message = NULL;
 
 	sem_init(&generic_semaphore, 0, 0);
 
@@ -234,12 +234,12 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	/* TODO: use a generic engine for SPELL, CHAR, KEY */
 	if (msgtype == SPD_MSGTYPE_TEXT)
-		*generic_message = module_strip_ssml(tmp);
+		generic_message = module_strip_ssml(tmp);
 	else
-		*generic_message = g_strdup(tmp);
+		generic_message = g_strdup(tmp);
 	g_free(tmp);
 
-	module_strip_punctuation_some(*generic_message, GenericStripPunctChars);
+	module_strip_punctuation_some(generic_message, GenericStripPunctChars);
 
 	generic_message_type = SPD_MSGTYPE_TEXT;
 
@@ -481,7 +481,7 @@ void *_generic_speak(void *nothing)
 			/* This is the parent. Send data to the child. */
 
 			generic_position =
-			    module_parent_wfork(module_pipe, *generic_message,
+			    module_parent_wfork(module_pipe, generic_message,
 						generic_message_type,
 						GenericMaxChunkLength,
 						GenericDelimiters,

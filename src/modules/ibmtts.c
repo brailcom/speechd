@@ -174,7 +174,7 @@ static gboolean stop_synth_requested = FALSE;
 static gboolean pause_requested = FALSE;
 
 /* Current message from Speech Dispatcher. */
-static char **message;
+static char *message;
 static SPDMessageType message_type;
 
 /* ECI */
@@ -451,8 +451,7 @@ int module_init(char **status_info)
 
 	DBG(DBG_MODNAME "IbmttsAudioChunkSize = %d", IbmttsAudioChunkSize);
 
-	message = g_malloc(sizeof(char *));
-	*message = NULL;
+	message = NULL;
 
 	DBG(DBG_MODNAME "Creating playback queue.");
 	if (module_speak_queue_init(IbmttsAudioChunkSize, status_info)) {
@@ -492,21 +491,21 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	DBG(DBG_MODNAME "Type: %d, bytes: %lu, requested data: |%s|\n", msgtype,
 	    (unsigned long)bytes, data);
 
-	g_free(*message);
-	*message = NULL;
+	g_free(message);
+	message = NULL;
 
 	if (!g_utf8_validate(data, bytes, NULL)) {
 		DBG(DBG_MODNAME "Input is not valid utf-8.");
 		/* Actually, we should just fail here, but let's assume input is latin-1 */
-		*message =
+		message =
 		    g_convert(data, bytes, "utf-8", "iso-8859-1", NULL, NULL,
 			      NULL);
-		if (*message == NULL) {
+		if (message == NULL) {
 			DBG(DBG_MODNAME "Fallback conversion to utf-8 failed.");
 			return FALSE;
 		}
 	} else {
-		*message = g_strndup(data, bytes);
+		message = g_strndup(data, bytes);
 	}
 
 	message_type = msgtype;
@@ -529,17 +528,17 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	if (!IbmttsUseSSML) {
 		/* Strip all SSML */
-		char *tmp = *message;
-		*message = module_strip_ssml(*message);
+		char *tmp = message;
+		message = module_strip_ssml(message);
 		g_free(tmp);
 		/* Convert input to suitable encoding for current language dialect */
 		tmp =
-		    g_convert_with_fallback(*message, -1,
+		    g_convert_with_fallback(message, -1,
 					    input_encoding, "utf-8", "?",
 					    NULL, &bytes, NULL);
 		if (tmp != NULL) {
-			g_free(*message);
-			*message = tmp;
+			g_free(message);
+			message = tmp;
 		}
 	}
 
@@ -797,7 +796,7 @@ static void *_synth(void *nothing)
 		    g_hash_table_new_full(g_int_hash, g_int_equal, g_free,
 					  g_free);
 
-		pos = *message;
+		pos = message;
 		load_user_dictionary();
 
 		module_speak_queue_before_synth();
@@ -810,7 +809,7 @@ static void *_synth(void *nothing)
 			/* IBM TTS does not support sound icons.
 			   If we can find a sound icon file, play that,
 			   otherwise speak the name of the sound icon. */
-			part = search_for_sound_icon(*message);
+			part = search_for_sound_icon(message);
 			if (NULL != part) {
 				add_sound_icon_to_playback_queue(part);
 				continue;
@@ -828,8 +827,8 @@ static void *_synth(void *nothing)
 			DBG(DBG_MODNAME "Key from Speech Dispatcher: |%s|", pos);
 			pos = subst_keys(pos);
 			DBG(DBG_MODNAME "Key to speak: |%s|", pos);
-			g_free(*message);
-			*message = pos;
+			g_free(message);
+			message = pos;
 			eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
 			break;
 		case SPD_MSGTYPE_SPELL:

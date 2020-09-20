@@ -45,7 +45,7 @@ static int flite_speaking = 0;
 static pthread_t flite_speak_thread;
 static sem_t flite_semaphore;
 
-static char **flite_message;
+static char *flite_message;
 static SPDMessageType flite_message_type;
 
 static int flite_position = 0;
@@ -120,8 +120,7 @@ int module_init(char **status_info)
 	DBG("FliteMaxChunkLength = %d\n", FliteMaxChunkLength);
 	DBG("FliteDelimiters = %s\n", FliteDelimiters);
 
-	flite_message = g_malloc(sizeof(char *));
-	*flite_message = NULL;
+	flite_message = NULL;
 
 	sem_init(&flite_semaphore, 0, 0);
 
@@ -161,11 +160,11 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	DBG("Requested data: |%s|\n", data);
 
-	if (*flite_message != NULL) {
-		g_free(*flite_message);
-		*flite_message = NULL;
+	if (flite_message != NULL) {
+		g_free(flite_message);
+		flite_message = NULL;
 	}
-	*flite_message = module_strip_ssml(data);
+	flite_message = module_strip_ssml(data);
 	/* TODO: use a generic engine for SPELL, CHAR, KEY */
 	flite_message_type = SPD_MSGTYPE_TEXT;
 
@@ -300,7 +299,7 @@ void *_flite_speak(void *nothing)
 				break;
 			}
 			bytes =
-			    module_get_message_part(*flite_message, buf, &pos,
+			    module_get_message_part(flite_message, buf, &pos,
 						    FliteMaxChunkLength,
 						    FliteDelimiters);
 
