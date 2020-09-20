@@ -175,7 +175,7 @@ endif
 
 if voxin_support
 modulebin_PROGRAMS += sd_voxin
-sd_voxin_SOURCES = voxin.c $(audio_SOURCES) $(common_SOURCES) \
+sd_voxin_SOURCES = ibmtts.c $(audio_SOURCES) $(common_SOURCES) \
 	module_utils_addvoice.c
 sd_voxin_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \

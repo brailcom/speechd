@@ -51,6 +51,7 @@
 #include <string.h>
 #include <glib.h>
 #include <semaphore.h>
+#include <ctype.h>
 
 #ifdef VOXIN
 /* Voxin include */
@@ -2001,9 +2002,14 @@ static void load_user_dictionary()
 	GString *filename = NULL;
 	int i = 0;
 	int dictionary_is_present = 0;
-	static guint old_index = MAX_NB_OF_LANGUAGES;
+	static guint old_index = G_MAXUINT;
 	guint new_index;
-	char *language = NULL, *dash;
+	char *language = NULL;
+#ifdef VOXIN
+	char *region = NULL;
+#else
+	char *dash;
+#endif
 	ECIDictHand eciDict = eciGetDict(eciHandle);
 
 	new_index = g_atomic_int_get(&locale_index_atomic);
