@@ -36,7 +36,11 @@
 #include <glib.h>
 
 /* espeak header file */
+#ifdef ESPEAK_NG_INCLUDE
+#include <espeak-ng/espeak_ng.h>
+#else
 #include <espeak/speak_lib.h>
+#endif
 
 #ifndef ESPEAK_API_REVISION
 #define ESPEAK_API_REVISION 1
@@ -52,8 +56,13 @@
 /* > */
 /* < Basic definitions*/
 
+#ifdef ESPEAK_NG_INCLUDE
+#define MODULE_NAME     "espeak-ng"
+#define DBG_MODNAME     "Espeak-ng:"
+#else
 #define MODULE_NAME     "espeak"
 #define DBG_MODNAME     "Espeak:"
+#endif
 
 #define MODULE_VERSION  "0.1"
 
@@ -72,7 +81,9 @@ typedef enum {
 
 static int espeak_sample_rate = 0;
 static SPDVoice **espeak_voice_list = NULL;
-
+#ifdef ESPEAK_NG_INCLUDE
+static const espeak_VOICE **espeak_variants = NULL;
+#endif
 
 /* When a voice is set, this is the baseline pitch of the voice.
    SSIP PITCH commands then adjust relative to this. */
@@ -556,11 +567,61 @@ static void espeak_set_language(char *lang)
 static void espeak_set_synthesis_voice(char *synthesis_voice)
 {
 	if (synthesis_voice != NULL) {
+#ifdef ESPEAK_NG_INCLUDE
+		gchar *voice_name = NULL;
+		gchar *variant_name = NULL;
+		gchar **voice_split = NULL;
+		gchar **identifier = NULL;
+		gchar *variant_file = NULL;
+		gchar *voice = NULL;
+		int i = 0;
+
+		/* Espeak-ng can accept the full voice name as the voice, but will
+		 * only accept the file name of the variant to use, which can be
+		 * found in the identifier member of the variant list, which
+		 * itself is of type espeak_VOICE
+		 */
+		if (g_strstr_len(synthesis_voice, -1, "+") != NULL) {
+			voice_split = g_strsplit(synthesis_voice, "+", 2);
+			voice_name = voice_split[0];
+			variant_name = voice_split[1];
+			g_free(voice_split);
+
+			for (i = 0; espeak_variants[i] != NULL; i++) {
+				identifier = g_strsplit(espeak_variants[i]->identifier, "/", 2);
+
+				if (g_strcmp0(espeak_variants[i]->name, variant_name) == 0) {
+					if (identifier[1] != NULL)
+						variant_file = g_strdup(identifier[1]);
+				} else if (g_strcmp0(identifier[1], variant_name) == 0) {
+					variant_file = g_strdup(variant_name);
+				}
+
+				g_strfreev(identifier);
+				identifier = NULL;
+			}
+
+			if (variant_file != NULL) {
+				voice = synthesis_voice = g_strdup_printf("%s+%s", voice_name, variant_file);
+				g_free(variant_file);
+			} else {
+				DBG(DBG_MODNAME " Cannot find the variant file name for the given variant.");
+			}
+
+			g_free(voice_name);
+			g_free(variant_name);
+		}
+#endif
+
 		espeak_ERROR ret = espeak_SetVoiceByName(synthesis_voice);
 		if (ret != EE_OK) {
 			DBG(DBG_MODNAME " Failed to set synthesis voice to %s.",
 			    synthesis_voice);
 		}
+
+#ifdef ESPEAK_NG_INCLUDE
+		g_free(voice);
+#endif
 	}
 }
 
@@ -667,8 +728,10 @@ static SPDVoice **espeak_list_synthesis_voices()
 	SPDVoice *voice = NULL;
 	SPDVoice *vo = NULL;
 	const espeak_VOICE **espeak_voices = NULL;
+#ifndef ESPEAK_NG_INCLUDE
 	const espeak_VOICE **espeak_variants = NULL;
-	espeak_VOICE *variant_spec = NULL;
+#endif
+	espeak_VOICE *variant_spec;
 	const espeak_VOICE *v = NULL;
 	GQueue *voice_list = NULL;
 	GQueue *variant_list = NULL;
@@ -713,6 +776,8 @@ static SPDVoice **espeak_list_synthesis_voices()
 	variant_spec = g_new0(espeak_VOICE, 1);
 	variant_spec->languages = "variant";
 	espeak_variants = espeak_ListVoices(variant_spec);
+	g_free(variant_spec);
+
 	variant_list = g_queue_new();
 
 	for (i = 0; espeak_variants[i] != NULL; i++) {
@@ -756,8 +821,6 @@ static SPDVoice **espeak_list_synthesis_voices()
 		g_queue_free(voice_list);
 	if (variant_list != NULL)
 		g_queue_free_full(variant_list, (GDestroyNotify)g_free);
-	if (variant_spec != NULL)
-		g_free(variant_spec);
 
 	result[i] = NULL;
 	DBG(DBG_MODNAME " %d usable voices.", totalvoices);
