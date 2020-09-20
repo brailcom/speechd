@@ -1,3 +1,12 @@
+Version 0.10.1
+* Add French, Norwegian Bokmål, Brazilian Portuguese, and Russian translations.
+* Add voxin module variant.
+* Make ibmtts and voxin use the common queue helpers.
+* Fix python bindings against python 3.9.
+* Reference the golang bindings.
+* Add spd_get_client_id.
+* Make key, char and sound_icon commands return message id.
+
 Version 0.10
 * Add punctuation level "most".
 * Rework thread synchronization.
