@@ -2,7 +2,7 @@
  * module_utils_speak_queue.c - Speak queue helper for Speech Dispatcher modules
  *
  * Copyright (C) 2007 Brailcom, o.p.s.
- * Copyright (C) 2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2019-2020 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -244,7 +244,7 @@ static gboolean playback_queue_push(speak_queue_entry * entry)
 /* Adds a chunk of pcm audio to the audio playback queue.
    Waits until there is enough space in the queue. */
 gboolean
-module_speak_queue_add_audio(AudioTrack *track, AudioFormat format)
+module_speak_queue_add_audio(const AudioTrack *track, AudioFormat format)
 {
 	pthread_mutex_lock(&speak_queue_mutex);
 	while (playback_queue_size > speak_queue_maxsize) {
