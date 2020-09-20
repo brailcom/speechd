@@ -395,7 +395,8 @@ msgstr "Configure les paramètres de base dans la configuration utilisateur"
 
 #: src/api/python/speechd_config/config.py.in:134
 msgid "Configure basic settings in system-wide configuration"
-msgstr "Configure les paramètres de base de la configuration globale du système"
+msgstr ""
+"Configure les paramètres de base de la configuration globale du système"
 
 #: src/api/python/speechd_config/config.py.in:137
 msgid "Diagnose problems with the current setup"
@@ -481,13 +482,13 @@ msgid ""
 "Python can't find the Speech Dispatcher library.\n"
 "Is it installed? This won't prevent Speech Dispatcher to work, but no\n"
 "Python applications like Orca will be able to use it.\n"
-"Search for package like python-speechd, download and install it"
+"Search for package like python-speechd, download and install it."
 msgstr ""
 "Python ne trouve pas la bibliothèque Speech Dispatcher.\n"
 "Est-elle installée ? Cela n'empêchera pas Speech Dispatcher de fonctionner, "
 "mais\n"
 "Les applications Python telle qu'Orca ne pourront l'utiliser.\n"
-"Recherchez un paquet tel que python-speechd, téléchargez-le et installez-le"
+"Recherchez un paquet tel que python-speechd, téléchargez-le et installez-le."
 
 #: src/api/python/speechd_config/config.py.in:257
 #, python-format
@@ -617,8 +618,8 @@ msgid ""
 "what is wrong)"
 msgstr ""
 "\n"
-"Speech Dispatcher ne fonctionne pas ou il est impossible de s'y connecter ("
-"voir ci-dessus),\n"
+"Speech Dispatcher ne fonctionne pas ou il est impossible de s'y connecter "
+"(voir ci-dessus),\n"
 "voulez-vous procéder à d'autres tests ? (Ils peuvent aider à déterminer\n"
 "ce qui ne va pas)"
 
@@ -893,8 +894,8 @@ msgid ""
 "Perhaps this is because your Speech Dispatcher is already running.\n"
 "Do you want to kill all running Speech Dispatchers and try again?"
 msgstr ""
-"C'est probablement parce que Speech Dispatcher est déjà en cours d'exécution."
-"\n"
+"C'est probablement parce que Speech Dispatcher est déjà en cours "
+"d'exécution.\n"
 "Voulez-vous interrompre tous les Speech Dispatchers en cours d'exécution et "
 "réessayer ?"
 
@@ -932,8 +933,8 @@ msgid "Have you started Speech Dispatcher now?"
 msgstr "Avez-vous démarré Speech Dispatcher ?"
 
 #: src/api/python/speechd_config/config.py.in:730
-msgid "Do you want to create/setup a 'user' or 'system' configuration"
-msgstr "Voulez-vous créer/définir une configuration ‹utilisateur› ou ‹système›"
+msgid "Do you want to create/setup a 'user' or 'system' configuration?"
+msgstr "Voulez-vous créer/définir une configuration ‹utilisateur› ou ‹système› ?"
 
 #: src/api/python/speechd_config/config.py.in:741
 msgid "Do you want to start/restart Speech Dispatcher now and run some tests?"
