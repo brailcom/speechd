@@ -304,7 +304,7 @@ AC_ARG_WITH([kali],
 	[AS_HELP_STRING([--with-kali[[=yes|no|shim]]], [include Kali support])],
 	[],
 	[with_kali=check])
-AS_IF([test $with_kali != "no"],
+AS_IF([test "$with_kali" = yes],
 	[AC_CHECK_LIB([Kali], [initKali],
 		[with_kali=yes],
 		[AC_MSG_FAILURE([Kali is not available])],
