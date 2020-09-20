@@ -30,11 +30,12 @@
             This thread receives audio and index mark callbacks from
             IBM TTS and queues them into a playback queue. See _synth().
 
-   Semaphores and mutexes are used to mediate between the 4 threads.
+   A semaphore is used between the main thread and the synthesis thread as a
+   producer/consumer relation.
 
    TODO:
    - Support list_synthesis_voices()
-   - Limit amout of waveform data synthesised in advance.
+   - Limit amount of waveform data synthesised in advance.
    - Use SSML mark feature of ibmtts instead of handcrafted parsing.
 */
 
@@ -167,10 +168,7 @@ static pthread_t synth_thread;
 
 static sem_t synth_semaphore;
 
-static pthread_mutex_t synth_suspended_mutex;
-
 static gboolean thread_exit_requested = FALSE;
-static gboolean stop_synth_requested = FALSE;
 static gboolean pause_requested = FALSE;
 
 /* Current message from Speech Dispatcher. */
@@ -261,7 +259,6 @@ static void add_mark_to_playback_queue(long markId);
 static void add_end_to_playback_queue(void);
 
 /* Miscellaneous internal function prototypes. */
-static gboolean is_thread_busy(pthread_mutex_t * suspended_mutex);
 static void log_eci_error();
 static gboolean alloc_voice_list();
 static void free_voice_list();
@@ -446,9 +443,6 @@ int module_init(char **status_info)
 		return MODULE_FATAL_ERROR;
 	}
 
-	/* These mutexes are locked when the corresponding threads are suspended. */
-	pthread_mutex_init(&synth_suspended_mutex, NULL);
-
 	DBG(DBG_MODNAME "IbmttsAudioChunkSize = %d", IbmttsAudioChunkSize);
 
 	message = NULL;
@@ -553,7 +547,6 @@ int module_stop(void)
 {
 	DBG(DBG_MODNAME "module_stop().");
 
-	stop_synth_requested = TRUE;
 	module_speak_queue_stop();
 
 	return MODULE_OK;
@@ -583,10 +576,8 @@ int module_close(void)
 
 	module_speak_queue_terminate();
 
-	if (is_thread_busy(&synth_suspended_mutex)) {
-		DBG(DBG_MODNAME "Stopping speech");
-		module_stop();
-	}
+	DBG(DBG_MODNAME "Stopping speech");
+	module_stop();
 
 	DBG(DBG_MODNAME "De-registering ECI callback.");
 	eciRegisterCallback(eciHandle, NULL, NULL);
@@ -642,17 +633,6 @@ static void update_sample_rate()
 		    sample_rate);
 	}
 	DBG(DBG_MODNAME "LEAVE %s, eci_sample_rate=%d",  __FUNCTION__, eci_sample_rate);  
-}
-
-/* Return TRUE if the thread is busy, i.e., suspended mutex is not locked. */
-static gboolean is_thread_busy(pthread_mutex_t * suspended_mutex)
-{
-	if (EBUSY == pthread_mutex_trylock(suspended_mutex))
-		return FALSE;
-	else {
-		pthread_mutex_unlock(suspended_mutex);
-		return TRUE;
-	}
 }
 
 /* Given a string containing an index mark in the form
@@ -778,14 +758,9 @@ static void *_synth(void *nothing)
 	char *mark_name = NULL;
 
 	while (!thread_exit_requested) {
-		/* If semaphore not set, set suspended lock and suspend until it is signaled. */
-		if (0 != sem_trywait(&synth_semaphore)) {
-			pthread_mutex_lock(&synth_suspended_mutex);
-			sem_wait(&synth_semaphore);
-			pthread_mutex_unlock(&synth_suspended_mutex);
-			if (thread_exit_requested)
-				break;
-		}
+		sem_wait(&synth_semaphore);
+		if (thread_exit_requested)
+			break;
 		DBG(DBG_MODNAME "Synthesis semaphore on.");
 
 		/* This table assigns each index mark name an integer id for fast lookup when
@@ -1369,7 +1344,6 @@ static void add_end_to_playback_queue(void)
 void module_speak_queue_cancel(void)
 {
 	/* TODO */
-	stop_synth_requested = TRUE;
 }
 
 /* Add a sound icon to the playback queue. */
