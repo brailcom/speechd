@@ -71,12 +71,12 @@ typedef enum {
 
 /* TODO: These defines are in src/server/index_marking.h, but including that
          file here causes a redefinition error on FATAL macro in speechd.h. */
-#define SD_MARK_BODY_LEN 6
-#define SD_MARK_BODY "__spd_"
-#define SD_MARK_HEAD "<mark name=\""SD_MARK_BODY
-#define SD_MARK_TAIL "\"/>"
+
+#define SD_SPEAK "<speak>"
+#define SD_ENDSPEAK "</speak>"
 
 #define SD_MARK_HEAD_ONLY "<mark name=\""
+#define SD_MARK_TAIL "\"/>"
 #define SD_MARK_HEAD_ONLY_LEN 12
 #define SD_MARK_TAIL_LEN 3
 
@@ -771,7 +771,7 @@ static void *_synth(void *nothing)
 {
 	char *pos = NULL;
 	char *part = NULL;
-	int part_len = 0;
+	int part_skip_end, part_len;
 	int ret;
 
 	DBG(DBG_MODNAME "Synthesis thread starting.......\n");
@@ -859,6 +859,11 @@ static void *_synth(void *nothing)
 			   RECOGN_ICON = 2
 			 */
 
+			if (!strncmp(pos, SD_SPEAK, strlen(SD_SPEAK))) {
+				DBG(DBG_MODNAME "Drop heading "SD_SPEAK".");
+				pos += strlen(SD_SPEAK);
+			}
+
 			part = next_part(pos, &mark_name);
 			if (NULL == part) {
 				DBG(DBG_MODNAME "Error getting next part of message.");
@@ -866,8 +871,17 @@ static void *_synth(void *nothing)
 				break;
 			}
 			part_len = strlen(part);
+			if (!strncmp(part + part_len - strlen(SD_ENDSPEAK), SD_ENDSPEAK, strlen(SD_ENDSPEAK))) {
+				DBG(DBG_MODNAME "Drop trailing "SD_ENDSPEAK".");
+				part_skip_end = strlen(SD_ENDSPEAK);
+				part[part_len - part_skip_end] = 0;
+			} else {
+				part_skip_end = 0;
+			}
 			pos += part_len;
-			ret = process_text_mark(part, part_len, mark_name);
+			ret = process_text_mark(part,
+					part_len - part_skip_end,
+					mark_name);
 			g_free(part);
 			part = NULL;
 			mark_name = NULL;
