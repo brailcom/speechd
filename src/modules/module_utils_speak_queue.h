@@ -142,7 +142,7 @@ int module_speak_queue_before_synth(void);
 int module_speak_queue_before_play(void);
 
 /* To be called from the synth callback to push different types of events.  */
-gboolean module_speak_queue_add_audio(AudioTrack *track, AudioFormat format);
+gboolean module_speak_queue_add_audio(const AudioTrack *track, AudioFormat format);
 gboolean module_speak_queue_add_mark(const char *markId);
 gboolean module_speak_queue_add_sound_icon(const char *filename);
 /* To be called on the last synth callback call.  */
