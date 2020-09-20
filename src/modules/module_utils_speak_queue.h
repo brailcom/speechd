@@ -2,7 +2,7 @@
  * module_utils_speak_queue.h - Speak queue helper for Speech Dispatcher modules
  *
  * Copyright (C) 2007 Brailcom, o.p.s.
- * Copyright (C) 2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2019-2020 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@
  * 	mysynth_set_mark_callback(mycallback_mark);
  * 	mysynth_set_end_callback(mycallback_end);
  *
- * 	if (module_speak_queue_init(sample_rate, queue_size, status_info))
+ * 	if (module_speak_queue_init(queue_size, status_info))
  * 		return -1;
  *
  * 	*status_info = "initialization succeeded";
