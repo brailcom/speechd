@@ -73,6 +73,7 @@ endif
 if ibmtts_support
 modulebin_PROGRAMS += sd_ibmtts
 sd_ibmtts_SOURCES = ibmtts.c $(audio_SOURCES) $(common_SOURCES) \
+	module_utils_speak_queue.c \
 	module_utils_addvoice.c
 sd_ibmtts_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
@@ -176,6 +177,7 @@ endif
 if voxin_support
 modulebin_PROGRAMS += sd_voxin
 sd_voxin_SOURCES = ibmtts.c $(audio_SOURCES) $(common_SOURCES) \
+	module_utils_speak_queue.c \
 	module_utils_addvoice.c
 sd_voxin_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
