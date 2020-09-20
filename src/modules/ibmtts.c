@@ -1,7 +1,8 @@
 /*
- * ibmtts.c - Speech Dispatcher backend for IBM TTS
+ * ibmtts.c - Speech Dispatcher backend for IBM TTS / Voxin
  *
  * Copyright (C) 2006, 2007 Brailcom, o.p.s.
+ * Copyright (C) 2020 Gilles Casse <gcasse@oralux.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -51,8 +52,13 @@
 #include <glib.h>
 #include <semaphore.h>
 
+#ifdef VOXIN
+/* Voxin include */
+#include "voxin.h"
+#else
 /* IBM Eloquence Command Interface. */
 #include <eci.h>
+#endif
 
 /* Speech Dispatcher includes. */
 #include "spd_audio.h"
@@ -76,8 +82,13 @@ typedef enum {
 #define SD_MARK_HEAD_ONLY_LEN 12
 #define SD_MARK_TAIL_LEN 3
 
+#ifdef VOXIN
+#define MODULE_NAME     "voxin"
+#define DBG_MODNAME     "Voxin: "
+#else
 #define MODULE_NAME     "ibmtts"
 #define DBG_MODNAME     "Ibmtts: "
+#endif
 #define MODULE_VERSION  "0.1"
 
 #define DEBUG_MODULE 1
@@ -233,11 +244,20 @@ static int voice_pitch_baseline;
 static int voice_speed;
 
 /* Expected input encoding for current language dialect. */
+#ifdef VOXIN
+static char *input_encoding = "utf-8";
+#else
 static char *input_encoding = "cp1252";
+#endif
 
 /* list of speechd voices */
 static SPDVoice **speechd_voice = NULL;
+#ifdef VOXIN
+#define voice_index(i) i
+#else
 static int *speechd_voice_index = NULL;
+#define voice_index(i) speechd_voice_index[i]
+#endif
 
 /* Internal function prototypes for main thread. */
 static void update_sample_rate();
@@ -251,7 +271,7 @@ static void set_pitch(signed int pitch);
 static void set_punctuation_mode(SPDPunctuation punct_mode);
 static void set_volume(signed int pitch);
 
-/* locale_index_atomic stores the current index of the eciLocales array.
+/* locale_index_atomic stores the current index of the voices or eciLocales array.
    The main thread writes this information, the synthesis thread reads it.
 */
 static gint locale_index_atomic;
@@ -308,6 +328,12 @@ MOD_OPTION_6_INT_HT(IbmttsVoiceParameters,
 		    pitch_fluctuation, roughness, speed);
 MOD_OPTION_3_STR_HT_DLL(IbmttsKeySubstitution, lang, key, newkey);
 
+#ifdef VOXIN
+/* Array of installed voices returned by voxGetVoices() */
+static vox_t *voices;
+static unsigned int number_of_voices;
+#define MAX_NB_OF_LANGUAGES number_of_voices
+#else
 typedef struct _eciLocale {
 	char *name;
 	char *lang;
@@ -359,6 +385,7 @@ static eciLocale eciLocales[] = {
 };
 
 #define MAX_NB_OF_LANGUAGES (sizeof(eciLocales)/sizeof(eciLocales[0]) - 1)
+#endif
 
 /* dictionary_filename: its index corresponds to the ECIDictVolume enumerate */
 static char *dictionary_filenames[] = {
@@ -1266,7 +1293,42 @@ static void set_voice_parameters(SPDVoiceType voice_type)
 	g_free(voicename);
 }
 
+#ifdef VOXIN
+/*
+   Convert the supplied arguments to the eciLanguageDialect value and
+   sets the eciLanguageDialect parameter.
+
+   The arguments are used in this order:
+   - find a matching voice name,
+   - otherwise find the first matching language
+
+   EXAMPLES
+   1. Using Orca 3.30.1:
+   - lang="en", voice=1, name="zuzana"
+   name ("zuzana") matches the installed voice Zuzana embedded-compact
+
+   - lang="en", voice=1, name="voxin default voice"
+   name does not match any installed voice.
+   The first English voice present is returned.
+
+
+   2. Using spd-say (LC_ALL=C)
+   - lang="c", voice=1, name="nathan-embedded-compact"
+   name matches the installed voice Nathan embedded-compact
+
+   spd-say command:
+   spd-say -o voxin -y nathan-embedded-compact hello
+
+   - lang="en-us", voice=1, name=
+   The first American English voice present is returned.
+
+   spd-say command:
+   spd-say -o voxin -l en-US hello
+
+*/
+#else
 /* Given a language, dialect and SD voice codes sets the IBM voice */
+#endif
 static void set_language_and_voice(char *lang, SPDVoiceType voice_type, char *name)
 {
 	DBG(DBG_MODNAME "ENTER %s", __func__);
@@ -1282,14 +1344,14 @@ static void set_language_and_voice(char *lang, SPDVoiceType voice_type, char *na
 		for (i = 0; speechd_voice[i]; i++) {
 			DBG("%d. name=%s", i, speechd_voice[i]->name);
 			if (!strcasecmp(speechd_voice[i]->name, name)) {
-				index = speechd_voice_index[i];
+				index = voice_index(i);
 				break;
 			}
 		}
 	}
 
 	if ((index == -1) && lang) {
-		char *langbase = NULL;	// requested base language + '-'
+		char *langbase;	// requested base language + '-'
 		char *dash = strchr(lang, '-');
 		if (dash)
 			langbase = g_strndup(lang, dash-lang+1);
@@ -1300,14 +1362,14 @@ static void set_language_and_voice(char *lang, SPDVoiceType voice_type, char *na
 			DBG("%d. language=%s", i, speechd_voice[i]->language);
 			if (!strcmp(speechd_voice[i]->language, lang)) {
 				DBG("strong match!");
-				index = speechd_voice_index[i];
+				index = voice_index(i);
 				break;
 			}
-			if (index == -1 && langbase) {
+			if (index == -1) {
 				/* Try base language matching as fallback */
 				if (!strncmp(speechd_voice[i]->language, langbase, strlen(langbase))) {
 					DBG("match!");
-					index = speechd_voice_index[i];
+					index = voice_index(i);
 				}
 			}
 		}
@@ -1320,17 +1382,28 @@ static void set_language_and_voice(char *lang, SPDVoiceType voice_type, char *na
 		index = 0;
 	}
 
+#ifdef VOXIN
+	ret = eciSetParam(eciHandle, eciLanguageDialect, voices[index].id);
+#else
 	ret = eciSetParam(eciHandle, eciLanguageDialect, eciLocales[index].langID);
+#endif
 	if (ret == -1) {
 		DBG(DBG_MODNAME "Unable to set language");
 		log_eci_error();
 		return;
 	}
 
+#ifdef VOXIN
+	DBG(DBG_MODNAME "select speechd_voice[%d]: id=0x%x, name=%s (ret=%d)",
+	    index, voices[index].id, voices[index].name, ret);
+
+	input_encoding = voices[index].charset;
+#else
 	DBG(DBG_MODNAME "set langID=0x%x (ret=%d)",
 	    eciLocales[index].langID, ret);
 
 	input_encoding = eciLocales[index].charset;
+#endif
 	update_sample_rate();		  	
 	g_atomic_int_set(&locale_index_atomic, index);
 
@@ -1385,9 +1458,10 @@ static void log_eci_error()
 	DBG(DBG_MODNAME "ECI Error Message: %s", buf);
 }
 
-/* IBM TTS calls back here when a chunk of audio is ready or an index mark
-   has been reached.  The good news is that it returns the audio up to
-   each index mark or when the audio buffer is full. */
+/* The text-to-speech calls back here when a chunk of audio is ready
+   or an index mark has been reached.  The good news is that it
+   returns the audio up to each index mark or when the audio buffer is
+   full. */
 static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 					  enum ECIMessage msg,
 					  long lparam, void *data)
@@ -1739,6 +1813,104 @@ static char *search_for_sound_icon(const char *icon_name)
 	return fn;
 }
 
+#ifdef VOXIN
+static gboolean vox_to_spd_voice(vox_t *from, SPDVoice *to)
+{
+	DBG(DBG_MODNAME "ENTER %s", __func__);
+	if (!from
+	    || !to
+	    || to->name || to->language || to->variant
+	    || from->name[sizeof(from->name)-1]
+	    || from->lang[sizeof(from->lang)-1]
+	    || from->variant[sizeof(from->variant)-1]
+	    ) {
+		DBG(DBG_MODNAME "args error");
+		return FALSE;
+	}
+
+	{ /* set name */
+		int i;
+		to->name = *from->quality ?
+			g_strdup_printf("%s-%s", from->name, from->quality) :
+			g_strdup(from->name);
+		for (i=0; to->name[i]; i++) {
+			to->name[i] = tolower(to->name[i]);
+		}
+	}
+	{ /* set language: language identifier (lower case) + variant/dialect (all caps) */
+		if (*from->variant) {
+			size_t len = strlen(from->lang);
+			int i;
+			to->language = g_strdup_printf("%s-%s", from->lang, from->variant);
+			for (i=len; to->language[i]; i++) {
+				to->language[i] = toupper(to->language[i]);
+			}
+		} else {
+			to->language = g_strdup(from->lang);
+		}
+	}
+	to->variant = g_strdup("none");
+
+	{ /* log the 'from' argument */
+		size_t size = 0;
+		if (!voxToString(from, NULL, &size)) {
+			gchar *str = g_malloc0(size);
+			if (!voxToString(from, str, &size)) {
+				DBG(DBG_MODNAME "from: %s", str);
+			}
+			g_free(str);
+		}
+	}
+	DBG(DBG_MODNAME "to: name=%s, variant=%s, language=%s", to->name, to->variant, to->language);
+	return TRUE;
+}
+
+static gboolean alloc_voice_list()
+{
+	DBG(DBG_MODNAME "ENTER %s", __func__);
+	int i = 0;
+
+	/* obtain the list of installed voices */
+	number_of_voices = 0;
+	if (voxGetVoices(NULL, &number_of_voices) || !number_of_voices) {
+		return FALSE;
+	}
+
+	voices = g_new0(vox_t, number_of_voices);
+	if (voxGetVoices(voices, &number_of_voices) || !number_of_voices)
+		goto exit0;
+
+	DBG(DBG_MODNAME "number_of_voices=%u", number_of_voices);
+
+	/* build speechd_voice */
+	speechd_voice = g_new0(SPDVoice*, number_of_voices + 1);
+	for (i = 0; i < number_of_voices; i++) {
+		speechd_voice[i] = g_malloc0(sizeof(SPDVoice));
+		if (!vox_to_spd_voice(voices+i, speechd_voice[i]))
+			goto exit0;
+	}
+	speechd_voice[number_of_voices] = NULL;
+
+	for (i = 0; speechd_voice[i]; i++) {
+		DBG(DBG_MODNAME "speechd_voice[%d]:name=%s, language=%s, variant=%s",
+		    i,
+		    speechd_voice[i]->name ? speechd_voice[i]->name : "null",
+		    speechd_voice[i]->language ? speechd_voice[i]->language : "null",
+		    speechd_voice[i]->variant ? speechd_voice[i]->variant : "null");
+	}
+
+	DBG(DBG_MODNAME "LEAVE %s", __func__);
+	return TRUE;
+
+ exit0:
+	if (voices) {
+		g_free(voices);
+		voices = NULL;
+	}
+	free_voice_list();
+	return FALSE;
+}
+#else
 gboolean alloc_voice_list()
 {
 	enum ECILanguageDialect aLanguage[MAX_NB_OF_LANGUAGES];
@@ -1782,21 +1954,40 @@ gboolean alloc_voice_list()
 
 	return TRUE;
 }
+#endif
 
 static void free_voice_list()
 {
+	DBG(DBG_MODNAME "ENTER %s", __func__);
 	int i = 0;
 
+#ifndef VOXIN
 	if (speechd_voice_index) {
 		g_free(speechd_voice_index);
 		speechd_voice_index = NULL;
 	}
+#endif
 
 	if (!speechd_voice)
 		return;
 
 	for (i = 0; speechd_voice[i]; i++) {
+#ifdef VOXIN
+		if (speechd_voice[i]->name) {
+			g_free(speechd_voice[i]->name);
+			speechd_voice[i]->name = NULL;
+		}
+		if (speechd_voice[i]->language) {
+			g_free(speechd_voice[i]->language);
+			speechd_voice[i]->language = NULL;
+		}
+		if (speechd_voice[i]->variant) {
+			g_free(speechd_voice[i]->variant);
+			speechd_voice[i]->variant = NULL;
+		}
+#endif
 		g_free(speechd_voice[i]);
+		speechd_voice[i] = NULL;
 	}
 
 	g_free(speechd_voice);
@@ -1827,10 +2018,15 @@ static void load_user_dictionary()
 		return;
 	}
 
+#ifdef VOXIN
+	language = g_strdup(voices[new_index].lang);
+	region = voices[new_index].variant;
+#else
 	language = g_strdup(eciLocales[new_index].lang);
 	dash = strchr(language, '-');
 	if (dash)
 		*dash = '_';
+#endif
 
 	if (eciDict) {
 		DBG(DBG_MODNAME "delete old dictionary");
@@ -1848,10 +2044,20 @@ static void load_user_dictionary()
 
 	/* Look for the dictionary directory */
 	dirname = g_string_new(NULL);
+#ifdef VOXIN
+	g_string_printf(dirname, "%s/%s_%s", IbmttsDictionaryFolder, language,
+			region);
+	if (!g_file_test(dirname->str, G_FILE_TEST_IS_DIR)) {
+		DBG(DBG_MODNAME "%s is not a directory",
+		    dirname->str);
+		g_string_printf(dirname, "%s/%s", IbmttsDictionaryFolder,
+				language);
+#else
 	g_string_printf(dirname, "%s/%s", IbmttsDictionaryFolder, language);
 	if (!g_file_test(dirname->str, G_FILE_TEST_IS_DIR) && dash) {
 		*dash = 0;
 		g_string_printf(dirname, "%s/%s", IbmttsDictionaryFolder, language);
+#endif
 		if (!g_file_test(dirname->str, G_FILE_TEST_IS_DIR)) {
 			g_string_printf(dirname, "%s", IbmttsDictionaryFolder);
 			if (!g_file_test(dirname->str, G_FILE_TEST_IS_DIR)) {
