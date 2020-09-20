@@ -1361,14 +1361,14 @@ static void set_language_and_voice(char *lang, SPDVoiceType voice_type, char *na
 
 		for (i = 0; speechd_voice[i]; i++) {
 			DBG("%d. language=%s", i, speechd_voice[i]->language);
-			if (!strcmp(speechd_voice[i]->language, lang)) {
+			if (!strcasecmp(speechd_voice[i]->language, lang)) {
 				DBG("strong match!");
 				index = voice_index(i);
 				break;
 			}
 			if (index == -1) {
 				/* Try base language matching as fallback */
-				if (!strncmp(speechd_voice[i]->language, langbase, strlen(langbase))) {
+				if (!strncasecmp(speechd_voice[i]->language, langbase, strlen(langbase))) {
 					DBG("match!");
 					index = voice_index(i);
 				}
