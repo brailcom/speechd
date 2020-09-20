@@ -22,18 +22,13 @@
  * $Id: ibmtts.c,v 1.30 2008-06-30 14:34:02 gcasse Exp $
  */
 
-/* This output module operates with four threads:
+/* This output module operates with two threads:
 
         The main thread called from Speech Dispatcher (module_*()).
         A synthesis thread that accepts messages, parses them, and forwards
             them to the IBM TTS via the Eloquence Command Interface (ECI).
             This thread receives audio and index mark callbacks from
             IBM TTS and queues them into a playback queue. See _synth().
-        A playback thread that acts on entries in the playback queue,
-            either sending them to the audio output module (module_tts_output()),
-            or emitting Speech Dispatcher events.  See _play().
-        A thread which is used to stop or pause the synthesis and
-            playback threads.  See _stop_or_pause().
 
    Semaphores and mutexes are used to mediate between the 4 threads.
 
@@ -65,6 +60,8 @@
 #include "spd_audio.h"
 #include <speechd_types.h>
 #include "module_utils.h"
+
+#include "module_utils_speak_queue.h"
 
 typedef enum {
 	MODULE_FATAL_ERROR = -1,
@@ -167,20 +164,13 @@ DECLARE_DEBUG();
 
 /* Thread and process control. */
 static pthread_t synth_thread;
-static pthread_t play_thread;
-static pthread_t stop_or_pause_thread;
 
 static sem_t synth_semaphore;
-static sem_t play_semaphore;
-static sem_t stop_or_pause_semaphore;
 
 static pthread_mutex_t synth_suspended_mutex;
-static pthread_mutex_t play_suspended_mutex;
-static pthread_mutex_t stop_or_pause_suspended_mutex;
 
 static gboolean thread_exit_requested = FALSE;
 static gboolean stop_synth_requested = FALSE;
-static gboolean stop_play_requested = FALSE;
 static gboolean pause_requested = FALSE;
 
 /* Current message from Speech Dispatcher. */
@@ -205,37 +195,9 @@ typedef enum {
 	eciIRCSpell = 3
 } ECITextMode;
 
-/* The playback queue. */
-typedef enum {
-	QET_AUDIO,	/* Chunk of audio. */
-	QET_INDEX_MARK,	/* Index mark event. */
-	QET_SOUND_ICON,	/* A Sound Icon */
-	QET_BEGIN,	/* Beginning of speech. */
-	QET_END		/* Speech completed. */
-} EPlaybackQueueEntryType;
-
-typedef struct {
-	long num_samples;
-	TEciAudioSamples *audio_chunk;
-} TPlaybackQueueAudioChunk;
-
-typedef struct {
-	EPlaybackQueueEntryType type;
-	union {
-		long markId;
-		TPlaybackQueueAudioChunk audio;
-		char *sound_icon_filename;
-	} data;
-} TPlaybackQueueEntry;
-
-static GSList *playback_queue = NULL;
-static pthread_mutex_t playback_queue_mutex;
-
 /* A lookup table for index mark name given integer id. */
 static GHashTable *index_mark_ht = NULL;
 #define MSG_END_MARK 0
-
-static pthread_mutex_t sound_stop_mutex;
 
 /* When a voice is set, this is the baseline pitch of the voice.
    SSIP PITCH commands then adjust relative to this. */
@@ -295,27 +257,17 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 static gboolean add_audio_to_playback_queue(TEciAudioSamples *
 						      audio_chunk,
 						      long num_samples);
-static gboolean add_mark_to_playback_queue(long markId);
-static gboolean add_flag_to_playback_queue(EPlaybackQueueEntryType
-						     type);
-static void delete_playback_queue_entry(TPlaybackQueueEntry *
-					       playback_queue_entry);
-static gboolean send_to_audio(TPlaybackQueueEntry *
-					playback_queue_entry);
+static void add_mark_to_playback_queue(long markId);
+static void add_end_to_playback_queue(void);
 
 /* Miscellaneous internal function prototypes. */
 static gboolean is_thread_busy(pthread_mutex_t * suspended_mutex);
 static void log_eci_error();
-static void clear_playback_queue();
 static gboolean alloc_voice_list();
 static void free_voice_list();
 
 /* The synthesis thread start routine. */
 static void *_synth(void *);
-/* The playback thread start routine. */
-static void *_play(void *);
-/* The stop_or_pause start routine. */
-static void *_stop_or_pause(void *);
 
 /* Module configuration options. */
 MOD_OPTION_1_INT(IbmttsUseSSML);
@@ -496,47 +448,15 @@ int module_init(char **status_info)
 
 	/* These mutexes are locked when the corresponding threads are suspended. */
 	pthread_mutex_init(&synth_suspended_mutex, NULL);
-	pthread_mutex_init(&play_suspended_mutex, NULL);
-
-	/* This mutex is used to hold a stop request until audio actually stops. */
-	pthread_mutex_init(&sound_stop_mutex, NULL);
-
-	/* This mutex mediates access to the playback queue between the synthesis and
-	   playback threads. */
-	pthread_mutex_init(&playback_queue_mutex, NULL);
 
 	DBG(DBG_MODNAME "IbmttsAudioChunkSize = %d", IbmttsAudioChunkSize);
 
 	message = g_malloc(sizeof(char *));
 	*message = NULL;
 
-	DBG(DBG_MODNAME "Creating new thread for stop or pause.");
-	sem_init(&stop_or_pause_semaphore, 0, 0);
-
-	ret = pthread_create(&stop_or_pause_thread, NULL,
-			   _stop_or_pause, NULL);
-	if (0 != ret) {
-		DBG(DBG_MODNAME "stop or pause thread creation failed.");
-		*status_info =
-		    g_strdup
-		    ("The module couldn't initialize stop or pause thread. "
-		     "This could be either an internal problem or an "
-		     "architecture problem. If you are sure your architecture "
-		     "supports threads, please report a bug.");
-		return MODULE_FATAL_ERROR;
-	}
-
-	DBG(DBG_MODNAME "Creating new thread for playback.");
-	sem_init(&play_semaphore, 0, 0);
-
-	ret = pthread_create(&play_thread, NULL, _play, NULL);
-	if (0 != ret) {
-		DBG(DBG_MODNAME "play thread creation failed.");
-		*status_info =
-		    g_strdup("The module couldn't initialize play thread. "
-			     "This could be either an internal problem or an "
-			     "architecture problem. If you are sure your architecture "
-			     "supports threads, please report a bug.");
+	DBG(DBG_MODNAME "Creating playback queue.");
+	if (module_speak_queue_init(IbmttsAudioChunkSize, status_info)) {
+		DBG(DBG_MODNAME "queue initialization failed.");
 		return MODULE_FATAL_ERROR;
 	}
 
@@ -569,10 +489,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 {
 	DBG(DBG_MODNAME "module_speak().");
 
-	if (is_thread_busy(&synth_suspended_mutex) ||
-	    is_thread_busy(&play_suspended_mutex) ||
-	    is_thread_busy(&stop_or_pause_suspended_mutex)) {
-		DBG(DBG_MODNAME "Already synthesizing when requested to synthesize (module_speak).");
+	if (!module_speak_queue_before_synth()) {
 		return FALSE;
 	}
 
@@ -641,18 +558,8 @@ int module_stop(void)
 {
 	DBG(DBG_MODNAME "module_stop().");
 
-	if ((is_thread_busy(&synth_suspended_mutex) ||
-	     is_thread_busy(&play_suspended_mutex)) &&
-	    !is_thread_busy(&stop_or_pause_suspended_mutex)) {
-
-		/* Request both synth and playback threads to stop what they are doing
-		   (if anything). */
-		stop_synth_requested = TRUE;
-		stop_play_requested = TRUE;
-
-		/* Wake the stop_or_pause thread. */
-		sem_post(&stop_or_pause_semaphore);
-	}
+	stop_synth_requested = TRUE;
+	module_speak_queue_stop();
 
 	return MODULE_OK;
 }
@@ -668,12 +575,8 @@ size_t module_pause(void)
 	   from the last index mark reported in the text. */
 	DBG(DBG_MODNAME "module_pause().");
 
-	/* Request playback thread to pause.  Note we cannot stop synthesis or
-	   playback until end of sentence or end of message is played. */
 	pause_requested = TRUE;
-
-	/* Wake the stop_or_pause thread. */
-	sem_post(&stop_or_pause_semaphore);
+	module_speak_queue_pause();
 
 	return MODULE_OK;
 }
@@ -683,8 +586,9 @@ int module_close(void)
 
 	DBG(DBG_MODNAME "close().");
 
-	if (is_thread_busy(&synth_suspended_mutex) ||
-	    is_thread_busy(&play_suspended_mutex)) {
+	module_speak_queue_terminate();
+
+	if (is_thread_busy(&synth_suspended_mutex)) {
 		DBG(DBG_MODNAME "Stopping speech");
 		module_stop();
 	}
@@ -703,16 +607,10 @@ int module_close(void)
 	DBG(DBG_MODNAME "Terminating threads");
 	thread_exit_requested = TRUE;
 	sem_post(&synth_semaphore);
-	sem_post(&play_semaphore);
-	sem_post(&stop_or_pause_semaphore);
 	if (0 != pthread_join(synth_thread, NULL))
 		return -1;
-	if (0 != pthread_join(play_thread, NULL))
-		return -1;
-	if (0 != pthread_join(stop_or_pause_thread, NULL))
-		return -1;
 
-	clear_playback_queue();
+	module_speak_queue_free();
 
 	/* Free index mark lookup table. */
 	if (index_mark_ht) {
@@ -722,8 +620,6 @@ int module_close(void)
 
 	free_voice_list();
 	sem_destroy(&synth_semaphore);
-	sem_destroy(&play_semaphore);
-	sem_destroy(&stop_or_pause_semaphore);
 
 	return 0;
 }
@@ -809,81 +705,6 @@ static char *next_part(char *msg, char **mark_name)
 		return (char *)g_strndup(msg, mark_head - msg);
 }
 
-/* Stop or Pause thread. */
-static void *_stop_or_pause(void *nothing)
-{
-	DBG(DBG_MODNAME "Stop or pause thread starting.......\n");
-
-	/* Block all signals to this thread. */
-	set_speaking_thread_parameters();
-
-	while (!thread_exit_requested) {
-		/* If semaphore not set, set suspended lock and suspend until it is signaled. */
-		if (0 != sem_trywait(&stop_or_pause_semaphore)) {
-			pthread_mutex_lock
-			    (&stop_or_pause_suspended_mutex);
-			sem_wait(&stop_or_pause_semaphore);
-			pthread_mutex_unlock
-			    (&stop_or_pause_suspended_mutex);
-			if (thread_exit_requested)
-				break;
-		}
-		DBG(DBG_MODNAME "Stop or pause semaphore on.");
-		/* The following is a hack. The condition should never
-		   be true, but sometimes it is true for unclear reasons. */
-		if (!(stop_synth_requested || pause_requested))
-			continue;
-
-		if (stop_synth_requested) {
-			/* Stop synthesis (if in progress). */
-			if (eciHandle) {
-				DBG(DBG_MODNAME "Stopping synthesis.");
-				eciStop(eciHandle);
-			}
-
-			/* Stop any audio playback (if in progress). */
-			if (module_audio_id) {
-				pthread_mutex_lock(&sound_stop_mutex);
-				DBG(DBG_MODNAME "Stopping audio.");
-				int ret = spd_audio_stop(module_audio_id);
-				if (0 != ret)
-					DBG(DBG_MODNAME "WARNING: Non 0 value from spd_audio_stop: %d", ret);
-				pthread_mutex_unlock(&sound_stop_mutex);
-			}
-		}
-
-		DBG(DBG_MODNAME "Waiting for synthesis thread to suspend.");
-		while (is_thread_busy(&synth_suspended_mutex))
-			g_usleep(100);
-		DBG(DBG_MODNAME "Waiting for playback thread to suspend.");
-		while (is_thread_busy(&play_suspended_mutex))
-			g_usleep(100);
-
-		DBG(DBG_MODNAME "Clearing playback queue.");
-		clear_playback_queue();
-
-		DBG(DBG_MODNAME "Clearing index mark lookup table.");
-		if (index_mark_ht) {
-			g_hash_table_destroy(index_mark_ht);
-			index_mark_ht = NULL;
-		}
-
-		if (stop_synth_requested)
-			module_report_event_stop();
-		else
-			module_report_event_pause();
-
-		stop_synth_requested = FALSE;
-		stop_play_requested = FALSE;
-		pause_requested = FALSE;
-
-		DBG(DBG_MODNAME "Stop or pause completed.");
-	}
-	DBG(DBG_MODNAME "Stop or pause thread ended.......\n");
-
-	pthread_exit(NULL);
-}
-
 static int process_text_mark(char *part, int part_len, char *mark_name)
 {
 	/* Handle index marks. */
@@ -910,7 +731,7 @@ static int process_text_mark(char *part, int part_len, char *mark_name)
 	/* Handle normal text. */
 	if (part_len > 0) {
 		DBG(DBG_MODNAME "Returned %d bytes from get_part.", part_len);
-		DBG(DBG_MODNAME "Text to synthesize is |%s|\n", part);
+		DBG(DBG_MODNAME "Text to synthesize is |%s|", part);
 		DBG(DBG_MODNAME "Sending text to synthesizer.");
 		if (!eciAddText(eciHandle, part)) {
 			DBG(DBG_MODNAME "Error sending text.");
@@ -993,16 +814,7 @@ static void *_synth(void *nothing)
 			   otherwise speak the name of the sound icon. */
 			part = search_for_sound_icon(*message);
 			if (NULL != part) {
-				add_flag_to_playback_queue
-				    (QET_BEGIN);
 				add_sound_icon_to_playback_queue(part);
-				part = NULL;
-				add_flag_to_playback_queue
-				    (QET_END);
-				/* Wake up the audio playback thread, if not already awake. */
-				if (!is_thread_busy
-				    (&play_suspended_mutex))
-					sem_post(&play_semaphore);
 				continue;
 			} else
 				eciSetParam(eciHandle, eciTextMode,
@@ -1032,7 +844,6 @@ static void *_synth(void *nothing)
 			break;
 		}
 
-		add_flag_to_playback_queue(QET_BEGIN);
 		while (TRUE) {
 			if (stop_synth_requested) {
 				DBG(DBG_MODNAME "Stop in synthesis thread, terminating.");
@@ -1471,32 +1282,28 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 	   i.e., the _synth() thread. */
 
 	/* If module_stop was called, discard any further callbacks until module_speak is called. */
-	if (stop_synth_requested || stop_play_requested)
+	if (module_speak_queue_stop_requested()) {
 		return eciDataProcessed;
+		// TODO: try to use eciDataAbort to avoid continuing computing the synth?
+	}
 
 	switch (msg) {
 	case eciWaveformBuffer:
 		DBG(DBG_MODNAME "%ld audio samples returned from TTS.", lparam);
 		/* Add audio to output queue. */
 		add_audio_to_playback_queue(audio_chunk, lparam);
-		/* Wake up the audio playback thread, if not already awake. */
-		if (!is_thread_busy(&play_suspended_mutex))
-			sem_post(&play_semaphore);
 		return eciDataProcessed;
-		break;
+
 	case eciIndexReply:
 		DBG(DBG_MODNAME "Index mark id %ld returned from TTS.", lparam);
 		if (lparam == MSG_END_MARK) {
-			add_flag_to_playback_queue(QET_END);
+			add_end_to_playback_queue();
 		} else {
 			/* Add index mark to output queue. */
 			add_mark_to_playback_queue(lparam);
 		}
-		/* Wake up the audio playback thread, if not already awake. */
-		if (!is_thread_busy(&play_suspended_mutex))
-			sem_post(&play_semaphore);
 		return eciDataProcessed;
-		break;
+
 	default:
 		return eciDataProcessed;
 	}
@@ -1506,221 +1313,57 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 static gboolean add_audio_to_playback_queue(TEciAudioSamples * audio_chunk, long num_samples)
 {
 	DBG(DBG_MODNAME "ENTER %s", __func__);
-	TPlaybackQueueEntry *playback_queue_entry =
-	    (TPlaybackQueueEntry *) g_malloc(sizeof(TPlaybackQueueEntry));
-	if (NULL == playback_queue_entry)
-		return FALSE;
-	playback_queue_entry->type = QET_AUDIO;
-	playback_queue_entry->data.audio.num_samples = (int)num_samples;
-	int wlen = sizeof(TEciAudioSamples) * num_samples;
-	playback_queue_entry->data.audio.audio_chunk =
-	    (TEciAudioSamples *) g_malloc(wlen);
-	memcpy(playback_queue_entry->data.audio.audio_chunk, audio_chunk, wlen);
-	pthread_mutex_lock(&playback_queue_mutex);
-	playback_queue = g_slist_append(playback_queue, playback_queue_entry);
-	pthread_mutex_unlock(&playback_queue_mutex);
-	return TRUE;
-}
-
-/* Adds an Index Mark to the audio playback queue. */
-static gboolean add_mark_to_playback_queue(long markId)
-{
-	DBG(DBG_MODNAME "ENTER %s", __func__);
-	TPlaybackQueueEntry *playback_queue_entry =
-	    (TPlaybackQueueEntry *) g_malloc(sizeof(TPlaybackQueueEntry));
-	if (NULL == playback_queue_entry)
-		return FALSE;
-	playback_queue_entry->type = QET_INDEX_MARK;
-	playback_queue_entry->data.markId = markId;
-	pthread_mutex_lock(&playback_queue_mutex);
-	playback_queue = g_slist_append(playback_queue, playback_queue_entry);
-	pthread_mutex_unlock(&playback_queue_mutex);
-	return TRUE;
-}
-
-/* Adds a begin or end flag to the playback queue. */
-static gboolean add_flag_to_playback_queue(EPlaybackQueueEntryType type)
-{
-	DBG(DBG_MODNAME "ENTER %s", __func__);
-	TPlaybackQueueEntry *playback_queue_entry =
-	    (TPlaybackQueueEntry *) g_malloc(sizeof(TPlaybackQueueEntry));
-	if (NULL == playback_queue_entry)
-		return FALSE;
-	playback_queue_entry->type = type;
-	pthread_mutex_lock(&playback_queue_mutex);
-	playback_queue = g_slist_append(playback_queue, playback_queue_entry);
-	pthread_mutex_unlock(&playback_queue_mutex);
-	return TRUE;
-}
-
-/* Add a sound icon to the playback queue. */
-static gboolean add_sound_icon_to_playback_queue(char *filename)
-{
-	DBG(DBG_MODNAME "ENTER %s", __func__);
-	TPlaybackQueueEntry *playback_queue_entry =
-	    (TPlaybackQueueEntry *) g_malloc(sizeof(TPlaybackQueueEntry));
-	if (NULL == playback_queue_entry)
-		return FALSE;
-	playback_queue_entry->type = QET_SOUND_ICON;
-	playback_queue_entry->data.sound_icon_filename = filename;
-	pthread_mutex_lock(&playback_queue_mutex);
-	playback_queue = g_slist_append(playback_queue, playback_queue_entry);
-	pthread_mutex_unlock(&playback_queue_mutex);
-	return TRUE;
-}
-
-/* Deletes an entry from the playback audio queue, freeing memory. */
-static void delete_playback_queue_entry(TPlaybackQueueEntry * playback_queue_entry)
-{
-	DBG(DBG_MODNAME "ENTER %s", __func__);
-	switch (playback_queue_entry->type) {
-	case QET_AUDIO:
-		g_free(playback_queue_entry->data.audio.audio_chunk);
-		break;
-	case QET_SOUND_ICON:
-		g_free(playback_queue_entry->data.sound_icon_filename);
-		break;
-	default:
-		break;
-	}
-	g_free(playback_queue_entry);
-}
-
-/* Erases the entire playback queue, freeing memory. */
-static void clear_playback_queue()
-{
-	DBG(DBG_MODNAME "ENTER %s", __func__);
-	pthread_mutex_lock(&playback_queue_mutex);
-	while (NULL != playback_queue) {
-		TPlaybackQueueEntry *playback_queue_entry =
-		    playback_queue->data;
-		delete_playback_queue_entry(playback_queue_entry);
-		playback_queue =
-		    g_slist_remove(playback_queue, playback_queue->data);
-	}
-	playback_queue = NULL;
-	pthread_mutex_unlock(&playback_queue_mutex);
-}
-
-/* Sends a chunk of audio to the audio player and waits for completion or error. */
-static gboolean send_to_audio(TPlaybackQueueEntry * playback_queue_entry)
-{
-	DBG(DBG_MODNAME "ENTER %s", __func__);
-	AudioTrack track;
+	AudioTrack track = {
+		.bits = 16,
+		.num_channels = 1,
+		.sample_rate = eci_sample_rate,
+		.num_samples = num_samples,
+		.samples = audio_chunk,
+	};
 #if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
 	AudioFormat format = SPD_AUDIO_BE;
 #else
 	AudioFormat format = SPD_AUDIO_LE;
 #endif
-	int ret;
 
-	track.num_samples = playback_queue_entry->data.audio.num_samples;
-	track.num_channels = 1;
-	track.sample_rate = eci_sample_rate;
-	track.bits = 16;
-	track.samples = playback_queue_entry->data.audio.audio_chunk;
-
-	if (track.samples == NULL)
-		return TRUE;
-
-	DBG(DBG_MODNAME "Sending %i samples to audio.", track.num_samples);
-	ret = module_tts_output(track, format);
-	if (ret < 0) {
-		DBG("ERROR: Can't play track for unknown reason.");
-		return FALSE;
-	}
-	DBG(DBG_MODNAME "Sent to audio.");
-	return TRUE;
+	return module_speak_queue_add_audio(&track, format);
 }
 
-/* Playback thread. */
-static void *_play(void *nothing)
+/* Adds an Index Mark to the audio playback queue. */
+static void add_mark_to_playback_queue(long markId)
 {
 	DBG(DBG_MODNAME "ENTER %s", __func__);
-	int markId;
-	char *mark_name;
-	TPlaybackQueueEntry *playback_queue_entry = NULL;
-
-	DBG(DBG_MODNAME "Playback thread starting.......\n");
-
-	/* Block all signals to this thread. */
-	set_speaking_thread_parameters();
-
-	while (!thread_exit_requested) {
-		/* If semaphore not set, set suspended lock and suspend until it is signaled. */
-		if (0 != sem_trywait(&play_semaphore)) {
-			pthread_mutex_lock(&play_suspended_mutex);
-			sem_wait(&play_semaphore);
-			pthread_mutex_unlock(&play_suspended_mutex);
-		}
-		/* DBG(DBG_MODNAME "Playback semaphore on."); */
-
-		while (!stop_play_requested
-		       && !thread_exit_requested) {
-			pthread_mutex_lock(&playback_queue_mutex);
-			if (NULL != playback_queue) {
-				playback_queue_entry = playback_queue->data;
-				playback_queue =
-				    g_slist_remove(playback_queue,
-						   playback_queue->data);
-			}
-			pthread_mutex_unlock(&playback_queue_mutex);
-			if (NULL == playback_queue_entry)
-				break;
-
-			switch (playback_queue_entry->type) {
-			case QET_AUDIO:
-				send_to_audio(playback_queue_entry);
-				break;
-			case QET_INDEX_MARK:
-				/* Look up the index mark integer id in lookup table to
-				   find string name and emit that name. */
-				markId = playback_queue_entry->data.markId;
-				mark_name =
-				    g_hash_table_lookup(index_mark_ht,
-							&markId);
-				if (NULL == mark_name) {
-					DBG(DBG_MODNAME "markId %d returned by TTS not found in lookup table.", markId);
-				} else {
-					DBG(DBG_MODNAME "reporting index mark |%s|.", mark_name);
-					module_report_index_mark(mark_name);
-					DBG(DBG_MODNAME "index mark reported.");
-					/* If pause requested, wait for an end-of-sentence index mark. */
-					if (pause_requested) {
-						if (0 ==
-						    strncmp(mark_name,
-							    SD_MARK_BODY,
-							    SD_MARK_BODY_LEN)) {
-							DBG(DBG_MODNAME "Pause requested in playback thread.  Stopping.");
-							stop_play_requested
-							    = TRUE;
-						}
-					}
-				}
-				break;
-			case QET_SOUND_ICON:
-				module_play_file(playback_queue_entry->
-						 data.sound_icon_filename);
-				break;
-			case QET_BEGIN:
-				module_report_event_begin();
-				break;
-			case QET_END:
-				module_report_event_end();
-				break;
-			}
-
-			delete_playback_queue_entry
-			    (playback_queue_entry);
-			playback_queue_entry = NULL;
-		}
-		if (stop_play_requested)
-			DBG(DBG_MODNAME "Stop or pause in playback thread.");
+	/* Look up the index mark integer id in lookup table to
+	   find string name and emit that name. */
+	char *mark_name = g_hash_table_lookup(index_mark_ht, &markId);
+	if (NULL == mark_name) {
+		DBG(DBG_MODNAME "markId %ld returned by TTS not found in lookup table.", markId);
+		return;
 	}
+	DBG(DBG_MODNAME "reporting index mark |%s|.", mark_name);
+	module_speak_queue_before_play();
+	module_speak_queue_add_mark(mark_name);
+	DBG(DBG_MODNAME "index mark reported.");
+}
 
-	DBG(DBG_MODNAME "Playback thread ended.......\n");
+/* Adds a begin or end flag to the playback queue. */
+static void add_end_to_playback_queue(void)
+{
+	module_speak_queue_before_play();
+	module_speak_queue_add_end();
+}
 
-	pthread_exit(NULL);
+/* Try to stop the synth. */
+void module_speak_queue_cancel(void)
+{
+	/* TODO */
+	stop_synth_requested = TRUE;
+}
+
+/* Add a sound icon to the playback queue. */
+static gboolean add_sound_icon_to_playback_queue(char *filename)
+{
+	return module_speak_queue_add_sound_icon(filename);
 }
 
 /* Replaces all occurrences of "from" with "to" in msg.
