@@ -50,7 +50,7 @@ static int ivona_speaking = 0;
 static pthread_t ivona_speak_thread;
 static sem_t ivona_semaphore;
 
-static char **ivona_message;
+static char *ivona_message;
 static SPDMessageType ivona_message_type;
 
 signed int ivona_volume = 0;
@@ -136,8 +136,7 @@ int module_init(char **status_info)
 
 	DBG("IvonaDelimiters = %s\n", IvonaDelimiters);
 
-	ivona_message = g_malloc(sizeof(char *));
-	*ivona_message = NULL;
+	ivona_message = NULL;
 
 	sem_init(&ivona_semaphore, 0, 0);
 
@@ -182,11 +181,11 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	DBG("Requested data: |%s|\n", data);
 
-	if (*ivona_message != NULL) {
-		g_free(*ivona_message);
-		*ivona_message = NULL;
+	if (ivona_message != NULL) {
+		g_free(ivona_message);
+		ivona_message = NULL;
 	}
-	*ivona_message = module_strip_ssml(data);
+	ivona_message = module_strip_ssml(data);
 	ivona_message_type = msgtype;
 	if ((msgtype == SPD_MSGTYPE_TEXT)
 	    && (msg_settings.spelling_mode == SPD_SPELL_ON))
@@ -432,7 +431,7 @@ void *_ivona_speak(void *nothing)
 		ivona_speaking = 1;
 
 		module_report_event_begin();
-		msg = *ivona_message;
+		msg = ivona_message;
 		DBG("To say: %s\n", msg);
 		buf = NULL;
 		len = 0;

@@ -48,7 +48,7 @@ static int cicero_speaking = 0;
 static pthread_t cicero_speaking_thread;
 static sem_t cicero_semaphore;
 
-static char **cicero_message;
+static char *cicero_message;
 static SPDMessageType cicero_message_type;
 
 static int cicero_position = 0;
@@ -208,8 +208,7 @@ int module_init(char **status_info)
 		}
 	}
 
-	cicero_message = g_malloc(sizeof(char *));
-	*cicero_message = NULL;
+	cicero_message = NULL;
 
 	sem_init(&cicero_semaphore, 0, 0);
 
@@ -251,11 +250,11 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	DBG("Requested data: |%s|\n", data);
 
-	if (*cicero_message != NULL) {
-		g_free(*cicero_message);
-		*cicero_message = NULL;
+	if (cicero_message != NULL) {
+		g_free(cicero_message);
+		cicero_message = NULL;
 	}
-	*cicero_message = module_strip_ssml(data);
+	cicero_message = module_strip_ssml(data);
 	/* TODO: use a generic engine for SPELL, CHAR, KEY */
 	cicero_message_type = SPD_MSGTYPE_TEXT;
 
@@ -331,7 +330,7 @@ void *_cicero_speak(void *nothing)
 	while (1) {
 		sem_wait(&cicero_semaphore);
 		DBG("Semaphore on\n");
-		len = strlen(*cicero_message);
+		len = strlen(cicero_message);
 		cicero_stop = 0;
 		cicero_speaking = 1;
 		cicero_position = 0;
@@ -352,9 +351,9 @@ void *_cicero_speak(void *nothing)
 				break;
 			}
 			DBG("Call get_parts: pos=%d, msg=\"%s\" \n", pos,
-			    *cicero_message);
+			    cicero_message);
 			bytes =
-			    module_get_message_part(*cicero_message, buf, &pos,
+			    module_get_message_part(cicero_message, buf, &pos,
 						    CiceroMaxChunkLength,
 						    ".;?!");
 			DBG("Returned %d bytes from get_part\n", bytes);
