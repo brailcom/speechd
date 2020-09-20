@@ -489,10 +489,6 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 {
 	DBG(DBG_MODNAME "module_speak().");
 
-	if (!module_speak_queue_before_synth()) {
-		return FALSE;
-	}
-
 	DBG(DBG_MODNAME "Type: %d, bytes: %lu, requested data: |%s|\n", msgtype,
 	    (unsigned long)bytes, data);
 
@@ -804,6 +800,8 @@ static void *_synth(void *nothing)
 		pos = *message;
 		load_user_dictionary();
 
+		module_speak_queue_before_synth();
+
 		switch (message_type) {
 		case SPD_MSGTYPE_TEXT:
 			eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
@@ -844,8 +842,9 @@ static void *_synth(void *nothing)
 			break;
 		}
 
+		module_speak_queue_before_play();
 		while (TRUE) {
-			if (stop_synth_requested) {
+			if (module_speak_queue_stop_requested()) {
 				DBG(DBG_MODNAME "Stop in synthesis thread, terminating.");
 				break;
 			}
