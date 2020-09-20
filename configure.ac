@@ -228,11 +228,13 @@ AC_ARG_WITH([ibmtts],
 	[AS_HELP_STRING([--with-ibmtts[[=yes|no|shim]]], [include IBM TTS support])],
 	[],
 	[with_ibmtts=check])
-AS_IF([test $with_ibmtts = "yes"],
+AS_IF([test $with_ibmtts = yes -o $with_ibmtts = check],
 	[AC_CHECK_LIB([ibmeci], [eciStop],
 		[with_ibmtts=yes;
 		ibmtts_include="-I/opt/IBM/ibmtts/inc/"],
-		[AC_MSG_FAILURE([IBMTTS is not available])])])
+		[AS_IF([test $with_ibmtts = "yes"],
+			[AC_MSG_FAILURE([IBMTTS is not available])])
+		 with_ibmtts=shim])])
 if test "$with_ibmtts" = shim -a $enable_shared = no; then
   with_ibmtts=no
 fi
@@ -246,10 +248,12 @@ AC_ARG_WITH([voxin],
 	[AS_HELP_STRING([--with-voxin[[=yes|no|shim]]], [include Voxin support])],
 	[],
 	[with_voxin=check])
-AS_IF([test $with_voxin = "yes"],
+AS_IF([test $with_voxin = yes -o $with_voxin = check],
 	[AC_CHECK_LIB([voxin], [eciStop],
 		[with_voxin=yes],
-		[AC_MSG_FAILURE([Voxin is not available])])])
+		[AS_IF([test "$with_voxin" = yes],
+			[AC_MSG_FAILURE([Voxin is not available])])
+		 with_voxin=shim])])
 if test "$with_voxin" = shim -a $enable_shared = no; then
   with_voxin=no
 fi
@@ -288,10 +292,12 @@ AC_ARG_WITH([baratinoo],
 	[AS_HELP_STRING([--with-baratinoo[[=yes|no|shim]]], [include Voxygen Baratinoo support])],
 	[],
 	[with_baratinoo=check])
-AS_IF([test "$with_baratinoo" = yes],
+AS_IF([test "$with_baratinoo" = yes -o "$with_baratinoo" = check],
 	[AC_CHECK_LIB([baratinoo], [BCinitlib],
 		[with_baratinoo=yes],
-		[AC_MSG_FAILURE([Voxygen Baratinoo is not available])])])
+		[AS_IF([test "$with_baratinoo" = yes],
+			[AC_MSG_FAILURE([Voxygen Baratinoo is not available])])
+		 with_baratinoo=shim])])
 if test "$with_baratinoo" = shim -a $enable_shared = no; then
   with_baratinoo=no
 fi
@@ -304,10 +310,12 @@ AC_ARG_WITH([kali],
 	[AS_HELP_STRING([--with-kali[[=yes|no|shim]]], [include Kali support])],
 	[],
 	[with_kali=check])
-AS_IF([test "$with_kali" = yes],
+AS_IF([test $with_kali = yes -o $with_kali = check],
 	[AC_CHECK_LIB([Kali], [initKali],
 		[with_kali=yes],
-		[AC_MSG_FAILURE([Kali is not available])],
+		[AS_IF([test $with_kali = "yes"],
+			[AC_MSG_FAILURE([Kali is not available])])
+		 with_kali=shim],
 		[-lKGlobal -lKTrans -lKParle -lKAnalyse])])
 if test "$with_kali" = shim -a $enable_shared = no; then
   with_kali=no
