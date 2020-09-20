@@ -78,6 +78,7 @@ typedef enum {
 
 #define SD_MARK_HEAD_ONLY "<mark name=\""
 #define SD_MARK_TAIL "\"/>"
+#define SD_MARK_TAILTAIL ">"
 #define SD_MARK_HEAD_ONLY_LEN 12
 #define SD_MARK_TAIL_LEN 3
 
@@ -662,15 +663,24 @@ static char *next_part(char *msg, char **mark_name)
 {
 	char *mark_head = strstr(msg, SD_MARK_HEAD_ONLY);
 	if (NULL == mark_head)
-		return (char *)g_strndup(msg, strlen(msg));
+		return (char *)g_strdup(msg);
 	else if (mark_head == msg) {
 		*mark_name = extract_mark_name(mark_head);
-		if (NULL == *mark_name)
-			return strcat((char *)
-				      g_strndup(msg, SD_MARK_HEAD_ONLY_LEN),
-				      next_part(msg +
-						       SD_MARK_HEAD_ONLY_LEN,
-						       mark_name));
+		if (NULL == *mark_name) {
+			/* ill-formed, ignore the mark */
+			DBG(DBG_MODNAME "Note: ill-formed mark %s", msg);
+			char *tail = strstr(msg + SD_MARK_HEAD_ONLY_LEN, SD_MARK_TAILTAIL);
+			if (!tail) {
+				/* Uh, not even the tail... */
+				return (char *)g_strdup(msg);
+			}
+			tail += strlen(SD_MARK_TAILTAIL);
+			char *remainder = next_part(tail, mark_name);
+			char *ret = g_strdup_printf("%.*s%s",
+					(int) (tail - msg), msg, remainder);
+			g_free(remainder);
+			return ret;
+		}
 		else
 			return (char *)g_strndup(msg,
 						 SD_MARK_HEAD_ONLY_LEN +
