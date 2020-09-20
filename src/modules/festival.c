@@ -43,7 +43,7 @@ static sem_t festival_semaphore;
 static int festival_speaking = 0;
 static int festival_pause_requested = 0;
 
-static char **festival_message;
+static char *festival_message;
 static SPDMessageType festival_message_type;
 signed int festival_volume = 0;
 
@@ -278,8 +278,7 @@ int module_init(char **status_info)
 	festival_voice_list = festivalGetVoices(festival_info);
 
 	/* Initialize global variables */
-	festival_message = (char **)g_malloc(sizeof(char *));
-	*festival_message = NULL;
+	festival_message = NULL;
 
 	/* Initialize festival_speak thread to handle communication
 	   with festival in a separate thread (to be faster in communication
@@ -388,9 +387,9 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 
 	DBG("Requested data: |%s| \n", data);
 
-	g_free(*festival_message);
-	*festival_message = g_strdup(data);
-	if (*festival_message == NULL) {
+	g_free(festival_message);
+	festival_message = g_strdup(data);
+	if (festival_message == NULL) {
 		DBG("Error: Copying data unsuccessful.");
 		return -1;
 	}
@@ -627,16 +626,16 @@ sem_wait:
 
 		terminate = 0;
 
-		bytes = strlen(*festival_message);
+		bytes = strlen(festival_message);
 
 		module_report_event_begin();
 
-		DBG("Going to synthesize: |%s|", *festival_message);
+		DBG("Going to synthesize: |%s|", festival_message);
 		if (bytes > 0) {
 			if (!is_text(festival_message_type)) {	/* it is a raw text */
 				DBG("Cache mechanisms...");
 				fwave =
-				    cache_lookup(*festival_message,
+				    cache_lookup(festival_message,
 						 festival_message_type, 1);
 				if (fwave != NULL) {
 					wave_cached = 1;
@@ -683,24 +682,24 @@ sem_wait:
 			switch (festival_message_type) {
 			case SPD_MSGTYPE_TEXT:
 				r = festivalStringToWaveRequest(festival_info,
-								*festival_message);
+								festival_message);
 				break;
 			case SPD_MSGTYPE_SOUND_ICON:
 				r = festivalSoundIcon(festival_info,
-						      *festival_message);
+						      festival_message);
 				break;
 			case SPD_MSGTYPE_CHAR:
 				r = festivalCharacter(festival_info,
-						      *festival_message);
+						      festival_message);
 				break;
 			case SPD_MSGTYPE_KEY:
 				/* TODO: make sure all SSIP cases are supported */
 				r = festivalKey(festival_info,
-						*festival_message);
+						festival_message);
 				break;
 			case SPD_MSGTYPE_SPELL:
 				r = festivalSpell(festival_info,
-						  *festival_message);
+						  festival_message);
 				break;
 			default:
 				r = -1;
@@ -769,10 +768,10 @@ sem_wait:
 			    || festival_message_type ==
 			    SPD_MSGTYPE_SOUND_ICON) {
 				DBG("Storing record for %s in cache\n",
-				    *festival_message);
+				    festival_message);
 				/* cache_insert takes care of not inserting the same
 				   message again */
-				cache_insert(g_strdup(*festival_message),
+				cache_insert(g_strdup(festival_message),
 					     festival_message_type, fwave);
 				wave_cached = 1;
 			}
