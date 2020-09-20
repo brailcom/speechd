@@ -852,7 +852,9 @@ static void *_synth(void *nothing)
 				break;
 			}
 			part_len = strlen(part);
-			if (!strncmp(part + part_len - strlen(SD_ENDSPEAK), SD_ENDSPEAK, strlen(SD_ENDSPEAK))) {
+			if (part_len >= strlen(SD_ENDSPEAK) &&
+				!strncmp(part + part_len - strlen(SD_ENDSPEAK),
+					 SD_ENDSPEAK, strlen(SD_ENDSPEAK))) {
 				DBG(DBG_MODNAME "Drop trailing "SD_ENDSPEAK".");
 				part_skip_end = strlen(SD_ENDSPEAK);
 				part[part_len - part_skip_end] = 0;
