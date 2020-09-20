@@ -181,6 +181,7 @@ sd_voxin_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	-lvoxin \
 	$(common_LDADD)
+sd_voxin_CPPFLAGS = -DVOXIN $(AM_CPPFLAGS)
 
 if voxin_shim
 sd_voxin_LDADD += -L.
