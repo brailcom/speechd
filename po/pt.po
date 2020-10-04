@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
 "POT-Creation-Date: 2020-09-05 19:01+0200\n"
-"PO-Revision-Date: 2020-09-28 13:30+0000\n"
+"PO-Revision-Date: 2020-10-04 15:08+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "speech-dispatcher/po/pt/>\n"
@@ -874,7 +874,7 @@ msgstr "A iniciar o Speech Dispatcher no modo de utilizador"
 #: src/api/python/speechd_config/config.py.in:715
 #, python-format
 msgid "Can't start Speech Dispatcher. Exited with status %d"
-msgstr "Não foi possível iniciar o Speech Dispatcher. Saiu com status %d"
+msgstr "Não foi possível iniciar o Speech Dispatcher. Saiu com o estado %d"
 
 #: src/api/python/speechd_config/config.py.in:687
 msgid ""
