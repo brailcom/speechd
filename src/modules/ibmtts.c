@@ -232,6 +232,7 @@ static void set_rate(signed int rate);
 static void set_pitch(signed int pitch);
 static void set_punctuation_mode(SPDPunctuation punct_mode);
 static void set_volume(signed int pitch);
+static void set_capital_mode(SPDCapitalLetters cap_mode);
 
 /* locale_index_atomic stores the current index of the voices or eciLocales array.
    The main thread writes this information, the synthesis thread reads it.
@@ -516,11 +517,8 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	UPDATE_PARAMETER(volume, set_volume);
 	UPDATE_PARAMETER(pitch, set_pitch);
 	UPDATE_PARAMETER(punctuation_mode, set_punctuation_mode);
-
-	/* TODO: Handle these in _synth() ?
-	   UPDATE_PARAMETER(cap_let_recogn, festival_set_cap_let_recogn);
-	 */
-
+	UPDATE_PARAMETER(cap_let_recogn, set_capital_mode);
+	
 	if (!IbmttsUseSSML) {
 		/* Strip all SSML */
 		char *tmp = message;
@@ -998,6 +996,30 @@ static void set_punctuation_mode(SPDPunctuation punct_mode)
 	eciAddText(eciHandle, msg);
 	g_free(msg);
 }
+
+#ifdef VOXIN
+static void set_capital_mode(SPDCapitalLetters cap_mode)
+{
+	DBG(DBG_MODNAME "ENTER %s", __func__);
+	voxCapitalMode mode = voxCapitalNone;
+
+	switch (cap_mode) {
+	case SPD_CAP_NONE:
+		mode = voxCapitalNone;
+		break;
+	case SPD_CAP_SPELL:
+		mode = voxCapitalSpell;
+		break;
+	case SPD_CAP_ICON:
+		mode = voxCapitalSoundIcon;
+		break;
+	}
+
+	voxSetParam(eciHandle, VOX_CAPITALS, mode);
+}
+#else
+static void set_capital_mode(SPDCapitalLetters cap_mode){}
+#endif
 
 static char *voice_enum_to_str(SPDVoiceType voice_type)
 {
