@@ -1,15 +1,15 @@
 /*
   Copyright 2016-2020, Gilles Casse <gcasse@oralux.org>
 
-  This is free software; you can redistribute it and/or modify it under the
-  terms of the GNU Lesser General Public License as published by the Free
-  Software Foundation; either version 2.1, or (at your option) any later
-  version.
+  This is free software; you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License as
+  published by the Free Software Foundation; either version 2.1, or
+  (at your option) any later version.
 
-  This software is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  General Public License for more details.
+  This software is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  Lesser General Public License for more details.
 
 */
 
@@ -22,9 +22,8 @@
    Voxin offers the following features:
    
    - a choice of voices among IBM TTS and Vocalizer Embedded,    
-   - complementary features added to the original proprietary text-to-speech. 
-   - compatibility of the legacy x86 IBM TTS binaries in an x86_64
-   environment,
+   - complementary features added to the original proprietary text-to-speech,
+   - compatibility of the legacy x86 IBM TTS binaries in an x86_64 environment.
    
    Links:
    - Libvoxin sources: https://github.com/Oralux/libvoxin 
@@ -41,7 +40,7 @@
 
 #define LIBVOXIN_VERSION_MAJOR 1
 #define LIBVOXIN_VERSION_MINOR 5
-#define LIBVOXIN_VERSION_PATCH 0
+#define LIBVOXIN_VERSION_PATCH 2
 
 /**
    @brief Extends ECIParam (eci.h)
@@ -62,9 +61,12 @@ typedef enum {
 
 typedef enum {voxFemale, voxMale} voxGender;
 typedef enum {voxAdult, voxChild, voxSenior} voxAge;
+typedef enum {voxCapitalNone=0, voxCapitalSoundIcon=1, voxCapitalSpell=2, voxCapitalPitch=3} voxCapitalMode;
 
 #define VOX_STR_MAX 128
+
 #define VOX_OK 0
+#define VOX_PARAM_OUT_OF_RANGE -1
 
 /**
    @brief Describe a voice.
@@ -129,19 +131,13 @@ int voxGetVoices(vox_t *list, unsigned int *nbVoices);
    * VOX_CAPITALS: define the action to execute with capital
    letters. Similar to espeakCAPITALS in the eSpeak API.
 
-   Expected value for VOX_CAPITALS:
-   0 = no action
-   1 = play a sound icon 
-   2 = spell the capital letter
-   3 or higher: raise pitch
-
-   By default the sound icon is /usr/share/sounds/sound-icons/capital
-   (provided by the sounds-icon package of your distribution).
+   Expected value for VOX_CAPITALS: see enum voxCapitalMode.
+   Value greater than voxCapitalPitch should be accepted and raise pitch.
 
    @param handle  instance created by eciNew() or eciNewEx()
    @param param
    @param value
-   @return int  VOX_OK on success
+   @return int  previous voxParam value on success, VOX_PARAM_OUT_OF_RANGE otherwise 
 */
 int voxSetParam(void *handle, voxParam param, int value);
 
