@@ -1,4 +1,5 @@
 Version 0.10.1
+* generic: Add support for sound icons
 * Add French, Norwegian Bokmål, Portuguese, Brazilian Portuguese, and Russian translations.
 * Add voxin module variant.
 * Make ibmtts and voxin use the common queue helpers.

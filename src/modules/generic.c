@@ -71,6 +71,7 @@ void generic_set_punct(SPDPunctuation punct);
 
 MOD_OPTION_1_STR(GenericExecuteSynth)
     MOD_OPTION_1_STR(GenericCmdDependency)
+    MOD_OPTION_1_STR(GenericSoundIconFolder)
 
     MOD_OPTION_1_INT(GenericMaxChunkLength)
     MOD_OPTION_1_STR(GenericDelimiters)
@@ -111,6 +112,7 @@ int module_load(void)
 
 	MOD_OPTION_1_STR_REG(GenericExecuteSynth, "");
 	MOD_OPTION_1_STR_REG(GenericCmdDependency, "");
+	MOD_OPTION_1_STR_REG(GenericSoundIconFolder, "/usr/share/sounds/sound-icons/");
 
 	REGISTER_DEBUG();
 
@@ -241,9 +243,9 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	module_strip_punctuation_some(generic_message, GenericStripPunctChars);
 
-	generic_message_type = SPD_MSGTYPE_TEXT;
+	generic_message_type = msgtype;
 
-	DBG("Requested data: |%s|\n", data);
+	DBG("Requested data (%d): |%s|\n", msgtype, data);
 
 	/* Send semaphore signal to the speaking thread */
 	generic_speaking = 1;
@@ -357,6 +359,28 @@ void *_generic_speak(void *nothing)
 		sem_wait(&generic_semaphore);
 		DBG("Semaphore on\n");
 
+		const char *play_command = NULL;
+		play_command = spd_audio_get_playcmd(module_audio_id);
+
+		if (play_command == NULL) {
+			DBG("This audio backend has no default play command; using \"play\"\n");
+			play_command = "play";
+		}
+
+		if (generic_message_type == SPD_MSGTYPE_SOUND_ICON) {
+			if (strchr(generic_message, '\\') ||
+			    strchr(generic_message, '\'') ||
+			    strchr(generic_message, '/')) {
+				DBG("Warning: bad icon name %s\n", generic_message);
+			}
+			char *cmd = g_strdup_printf("%s '%s/%s'", play_command, GenericSoundIconFolder, generic_message);
+			system(cmd);
+			DBG("icon command = |%s|\n", cmd);
+			free(cmd);
+			generic_speaking = 0;
+			continue;
+		}
+
 		ret = pipe(module_pipe.pc);
 		if (ret != 0) {
 			DBG("Can't create pipe pc\n");
@@ -393,7 +417,6 @@ void *_generic_speak(void *nothing)
 				char *p;
 				char *tmpdir, *homedir;
 				const char *helper;
-				const char *play_command = NULL;
 
 				helper = getenv("TMPDIR");
 				if (helper)
@@ -407,13 +430,6 @@ void *_generic_speak(void *nothing)
 				else
 					homedir =
 					    g_strdup("UNKNOWN_HOME_DIRECTORY");
-
-				play_command =
-				    spd_audio_get_playcmd(module_audio_id);
-				if (play_command == NULL) {
-					DBG("This audio backend has no default play command; using \"play\"\n");
-					play_command = "play";
-				}
 
 				/* Set this process as a process group leader (so that SIGKILL
 				   is also delivered to the child processes created by system()) */
