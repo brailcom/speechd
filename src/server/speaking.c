@@ -243,7 +243,6 @@ void *speak(void *data)
 		    strcmp(output->name, "epos-generic") == 0 ||
 		    strcmp(output->name, "llia_phon-generic") == 0 ||
 		    strcmp(output->name, "mary-generic") == 0 ||
-		    strcmp(output->name, "pico-generic") == 0 ||
 		    strcmp(output->name, "swift-generic") == 0 ||
 		    strcmp(output->name, "pico") == 0)
 			/* These don't support punctuation */
