@@ -17,6 +17,8 @@ prefix=@prefix@
 exec_prefix=@prefix@
 libdir=@libdir@
 includedir=@includedir@
+libexecdir=@libexecdir@
+modulebindir=@modulebindir@
 
 Name: @PACKAGE_NAME@
 Description: @PACKAGE_NAME@ provides a device independent layer for speech synthesis
