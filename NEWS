@@ -1,9 +1,9 @@
 Version 0.11
 * Moved speech dispatcher modules to /usr/libexec
-* generic: Add support for sound icons
 
 Version 0.10.1
-* Add French, Norwegian Bokmål, Brazilian Portuguese, and Russian translations.
+* generic: Add support for sound icons
+* Add French, Norwegian Bokmål, Portuguese, Brazilian Portuguese, and Russian translations.
 * Add voxin module variant.
 * Make ibmtts and voxin use the common queue helpers.
 * Fix python bindings against python 3.9.
