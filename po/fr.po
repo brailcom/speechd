@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
-"POT-Creation-Date: 2020-09-05 19:01+0200\n"
+"POT-Creation-Date: 2020-11-25 00:36+0100\n"
 "PO-Revision-Date: 2020-10-26 17:17+0000\n"
 "Last-Translator: Samuel Thibault <samuel.thibault@ens-lyon.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/speech-dispatcher/"
@@ -934,7 +934,8 @@ msgstr "Avez-vous démarré Speech Dispatcher ?"
 
 #: src/api/python/speechd_config/config.py.in:730
 msgid "Do you want to create/setup a 'user' or 'system' configuration?"
-msgstr "Voulez-vous créer/définir une configuration ‹utilisateur› ou ‹système› ?"
+msgstr ""
+"Voulez-vous créer/définir une configuration ‹utilisateur› ou ‹système› ?"
 
 #: src/api/python/speechd_config/config.py.in:741
 msgid "Do you want to start/restart Speech Dispatcher now and run some tests?"

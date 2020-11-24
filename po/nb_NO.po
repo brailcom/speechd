@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
-"POT-Creation-Date: 2020-09-05 19:01+0200\n"
+"POT-Creation-Date: 2020-11-25 00:36+0100\n"
 "PO-Revision-Date: 2020-09-20 07:39+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
-"speech-dispatcher/po/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/speech-"
+"dispatcher/po/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Weblate 4.3-dev\n"
 
 #: src/server/options.c:63
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "%s -- Common interface for Speech Synthesis %s\n"
 "\n"
@@ -49,7 +49,7 @@ msgid "Run as single application\n"
 msgstr "Kjør som enkeltstående program\n"
 
 #: src/server/options.c:75
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Start only if autospawn is not disabled\n"
 msgstr "Start kun hvis autostart ikke er avskrudd\n"
 
@@ -89,7 +89,7 @@ msgid "Specify a port number for '%s' method\n"
 msgstr "Angi et portnummer for «%s»-metoden\n"
 
 #: src/server/options.c:93
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Set time in seconds for the server to wait before it\n"
 msgstr "Sett antall sekunder tjeneren skal vente før den\n"
 
@@ -105,7 +105,7 @@ msgid "0 disables such shutdown\n"
 msgstr "0 skrur av slik avstengning\n"
 
 #: src/server/options.c:99
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Set path to pid file\n"
 msgstr "Sett sti til PID-fil\n"
 
@@ -120,7 +120,7 @@ msgid "Set path to modules\n"
 msgstr "Sett sti til moduler\n"
 
 #: src/server/options.c:105
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Report version of this program\n"
 msgstr "Rapporter versjonen av dette programmet\n"
 
@@ -130,7 +130,7 @@ msgid "Output debugging information into $TMPDIR/%s\n"
 msgstr "Send feilsporingsinformasjon til TMPDIR/%s\n"
 
 #: src/server/options.c:110
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "if TMPDIR is exported, otherwise to /tmp/%s\n"
 msgstr "Hvis TMPDIR eksporteres, ellers til /tmp/%s\n"
 
@@ -150,7 +150,7 @@ msgstr ""
 
 #: src/server/options.c:121 src/clients/say/options.c:179
 #: src/api/python/speechd_config/config.py.in:174
-#, c-format, fuzzy, python-format
+#, fuzzy, c-format, python-format
 msgid ""
 "Copyright (C) %d-%d Brailcom, o.p.s.\n"
 "This is free software; you can redistribute it and/or modify it\n"
@@ -167,7 +167,7 @@ msgstr ""
 "\n"
 
 #: src/clients/say/options.c:67
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "send text-to-speech output request to speech-dispatcher\n"
 "\n"
@@ -201,12 +201,12 @@ msgid "(between %+d and %+d, default: %d)\n"
 msgstr "(mellom %+d og %+d, forvalg: %d)\n"
 
 #: src/clients/say/options.c:77
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Set the pitch of the speech\n"
 msgstr "Angi tonehøyde for tale\n"
 
 #: src/clients/say/options.c:82
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Set the pitch range of the speech\n"
 msgstr "Angi bredden av stemmeregisteret\n"
 
@@ -251,12 +251,12 @@ msgid "Set the synthesis voice\n"
 msgstr "Sett talesyntese-stemme\n"
 
 #: src/clients/say/options.c:115
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Speak the character\n"
 msgstr "Uttal tegnet\n"
 
 #: src/clients/say/options.c:118
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Speak the key\n"
 msgstr "Uttal nøkkelen\n"
 
@@ -276,7 +276,7 @@ msgid "Set SSML mode on (default: off)\n"
 msgstr "Sett SSML-modus på (forvalg: av)\n"
 
 #: src/clients/say/options.c:131
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Pipe from stdin to stdout plus Speech Dispatcher\n"
 msgstr "Kanaliser fra stdin til stdout pluss Speech Dispatcher\n"
 
@@ -291,7 +291,7 @@ msgid "default: %s)\n"
 msgstr "forvalg: %s)\n"
 
 #: src/clients/say/options.c:141
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Set the application name used to establish\n"
 "%sthe connection to specified string value\n"
@@ -305,7 +305,7 @@ msgid "(default: %s)\n"
 msgstr "(forvalg: %s)\n"
 
 #: src/clients/say/options.c:148
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Set the connection name used to establish\n"
 "%sthe connection to specified string value\n"
@@ -319,7 +319,7 @@ msgid "Wait till the message is spoken or discarded\n"
 msgstr "Vent til meldingen er sagt eller avslått\n"
 
 #: src/clients/say/options.c:159
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Stop speaking the message being spoken\n"
 msgstr "Stopp den meldingen som blir sagt\n"
 
@@ -626,8 +626,8 @@ msgid ""
 "what is wrong)"
 msgstr ""
 "\n"
-"Speech Dispatcher kjører ikke, eller så kan ikke tilkobling til den utføres,"
-"\n"
+"Speech Dispatcher kjører ikke, eller så kan ikke tilkobling til den "
+"utføres,\n"
 "(sjekk info ovenfor). Ønsker du å fortsette med andre tester? (De kan "
 "hjelpe\n"
 "deg å fastsette hva som er galt.)"
