@@ -1,15 +1,18 @@
 Version 0.11
 * Moved speech dispatcher modules to /usr/libexec
 
-Version 0.10.1
+Version 0.10.2
 * generic: Add support for sound icons
 * Add French, Norwegian Bokmål, Portuguese, Brazilian Portuguese, and Russian translations.
 * Add voxin module variant.
+* Factorize espeak module with espeak-ng module.
 * Make ibmtts and voxin use the common queue helpers.
 * Fix python bindings against python 3.9.
 * Reference the golang bindings.
 * Add spd_get_client_id.
 * Make key, char and sound_icon commands return message id.
+* Expose modulebindir in speech-dispatcher.pc.
+* Remove generic modules for synths that have a non-generic module.
 
 Version 0.10
 * Add punctuation level "most".
