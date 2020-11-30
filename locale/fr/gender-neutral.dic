@@ -24,7 +24,7 @@ complexSymbols:
 # end of sentences.
 
 
-# Référence: Bescherelle Hatier 1997, article 50
+# Référence: Bescherelle Hatier 1997, Grammaire, article 50
 
 # petit(e)s
 end-words (e)	(?<=[^\W_])[(][eE][)]?(?=\b)
