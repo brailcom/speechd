@@ -10,8 +10,8 @@ msgstr ""
 "POT-Creation-Date: 2020-09-05 19:01+0200\n"
 "PO-Revision-Date: 2020-09-07 19:02+0000\n"
 "Last-Translator: Artem <KovalevArtem.ru@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/"
-"speech-dispatcher/po/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/speech-"
+"dispatcher/po/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -452,7 +452,7 @@ msgid ""
 "Python can't find the Speech Dispatcher library.\n"
 "Is it installed? This won't prevent Speech Dispatcher to work, but no\n"
 "Python applications like Orca will be able to use it.\n"
-"Search for package like python-speechd, download and install it"
+"Search for package like python-speechd, download and install it."
 msgstr ""
 
 #: src/api/python/speechd_config/config.py.in:257
@@ -817,7 +817,7 @@ msgid "Have you started Speech Dispatcher now?"
 msgstr ""
 
 #: src/api/python/speechd_config/config.py.in:730
-msgid "Do you want to create/setup a 'user' or 'system' configuration"
+msgid "Do you want to create/setup a 'user' or 'system' configuration?"
 msgstr ""
 
 #: src/api/python/speechd_config/config.py.in:741

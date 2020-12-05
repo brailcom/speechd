@@ -306,7 +306,8 @@ information.
 </p>
 <p>We also provide a shared C library, a Python library, a Java, Guile
 and a Common Lisp libraries that implement the SSIP functions of
-Speech Dispatcher in higher level interfaces. Writing client
+Speech Dispatcher in higher level interfaces. A golang interface is also
+available on <a href="https://github.com/ilyapashuk/go-speechd">https://github.com/ilyapashuk/go-speechd</a>. Writing client
 applications in these languages should be quite easy.
 </p>
 <p>On the synthesis side, there is good support for Festival, eSpeak,
@@ -1562,7 +1563,9 @@ about current external client libraries.
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Common-Lisp-API" accesskey="4">Common Lisp API</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Autospawning" accesskey="5">Autospawning</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How server is started from clients
+<tr><td align="left" valign="top">&bull; <a href="#Golang-API" accesskey="5">Golang API</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Autospawning" accesskey="6">Autospawning</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How server is started from clients
 </td></tr>
 </table>
 
@@ -2700,7 +2703,7 @@ at the experimental stage. Please read <samp>src/guile/README</samp>.
 <hr>
 <span id="Common-Lisp-API"></span><div class="header">
 <p>
-Next: <a href="#Autospawning" accesskey="n" rel="next">Autospawning</a>, Previous: <a href="#Guile-API" accesskey="p" rel="prev">Guile API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Golang-API" accesskey="n" rel="next">Golang API</a>, Previous: <a href="#Guile-API" accesskey="p" rel="prev">Guile API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Common-Lisp-API-1"></span><h3 class="section">4.4 Common Lisp API</h3>
 
@@ -2709,11 +2712,21 @@ the source tree, however it&rsquo;s still considered to be
 at the experimental stage. Please read <samp>src/cl/README</samp>.
 </p>
 <hr>
+<span id="Golang-API"></span><div class="header">
+<p>
+Next: <a href="#Autospawning" accesskey="n" rel="next">Autospawning</a>, Previous: <a href="#Common-Lisp-API" accesskey="p" rel="prev">Common Lisp API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Golang-API-1"></span><h3 class="section">4.5 Golang API</h3>
+
+<p>A golang interface is also available on
+<a href="https://github.com/ilyapashuk/go-speechd">https://github.com/ilyapashuk/go-speechd</a>.
+</p>
+<hr>
 <span id="Autospawning"></span><div class="header">
 <p>
 Previous: <a href="#Common-Lisp-API" accesskey="p" rel="prev">Common Lisp API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Autospawning-1"></span><h3 class="section">4.5 Autospawning</h3>
+<span id="Autospawning-1"></span><h3 class="section">4.6 Autospawning</h3>
 
 <p>It is suggested that client libraries offer an autospawn functionality
 to automatically start the server process when connecting locally and if
