@@ -229,26 +229,26 @@ char *do_set(void)
 			SET_PARAM_NUM(rate,
 				      ((number >= -100) && (number <= 100)))
 			    else
-				SET_PARAM_NUM(pitch,
-					      ((number >= -100)
-					       && (number <= 100)))
-				    else
-				SET_PARAM_NUM(pitch_range,
-					      ((number >= -100)
-					       && (number <= 100)))
-				    else
-				SET_PARAM_NUM(volume,
-					      ((number >= -100)
-					       && (number <= 100)))
-				    else
-				SET_PARAM_STR_C(punctuation_mode,
-						str2EPunctMode)
-				    else
-				SET_PARAM_STR_C(spelling_mode, str2ESpellMode)
-				    else
-				SET_PARAM_STR_C(cap_let_recogn,
-						str2ECapLetRecogn)
-				    else
+			SET_PARAM_NUM(pitch,
+				      ((number >= -100)
+				       && (number <= 100)))
+			    else
+			SET_PARAM_NUM(pitch_range,
+				      ((number >= -100)
+				       && (number <= 100)))
+			    else
+			SET_PARAM_NUM(volume,
+				      ((number >= -100)
+				       && (number <= 100)))
+			    else
+			SET_PARAM_STR_C(punctuation_mode,
+					str2EPunctMode)
+			    else
+			SET_PARAM_STR_C(spelling_mode, str2ESpellMode)
+			    else
+			SET_PARAM_STR_C(cap_let_recogn,
+					str2ECapLetRecogn)
+			    else
 			if (!strcmp(cur_item, "voice")) {
 				ret = str2EVoice(cur_value);
 				if (ret != -1)
@@ -332,22 +332,22 @@ char *do_audio(void)
 
 			SET_AUDIO_STR(audio_output_method, 0)
 			    else
-				SET_AUDIO_STR(audio_oss_device, 1)
-				    else
-				SET_AUDIO_STR(audio_alsa_device, 2)
-				    else
-				SET_AUDIO_STR(audio_nas_server, 3)
-				    else
-				      /* TODO: restore AudioPulseServer option
-				SET_AUDIO_STR(audio_pulse_server, 4)
-				    else
-				    */
-				SET_AUDIO_STR(audio_pulse_device, 4)
-				    else
-				SET_AUDIO_STR(audio_pulse_min_length, 5)
-				    else
-				/* 6 reserved for speech-dispatcher module name */
-				err = 2;	/* Unknown parameter */
+			SET_AUDIO_STR(audio_oss_device, 1)
+			    else
+			SET_AUDIO_STR(audio_alsa_device, 2)
+			    else
+			SET_AUDIO_STR(audio_nas_server, 3)
+			    else
+			      /* TODO: restore AudioPulseServer option
+			SET_AUDIO_STR(audio_pulse_server, 4)
+			    else
+			    */
+			SET_AUDIO_STR(audio_pulse_device, 4)
+			    else
+			SET_AUDIO_STR(audio_pulse_min_length, 5)
+			    else
+			/* 6 reserved for speech-dispatcher module name */
+			err = 2;	/* Unknown parameter */
 		}
 		g_free(line);
 	}
