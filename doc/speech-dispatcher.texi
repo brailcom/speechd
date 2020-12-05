@@ -282,7 +282,8 @@ information.
 
 We also provide a shared C library, a Python library, a Java, Guile
 and a Common Lisp libraries that implement the SSIP functions of
-Speech Dispatcher in higher level interfaces. Writing client
+Speech Dispatcher in higher level interfaces. A golang interface is also
+available on @uref{https://github.com/ilyapashuk/go-speechd}. Writing client
 applications in these languages should be quite easy.
 
 On the synthesis side, there is good support for Festival, eSpeak,
@@ -1388,6 +1389,7 @@ about current external client libraries.
 * Python API::                  Python module.
 * Guile API::
 * Common Lisp API::
+* Golang API::
 * Autospawning::                How server is started from clients
 @end menu
 
@@ -2415,12 +2417,18 @@ The Guile API can be found @file{src/guile/} in
 the source tree, however it's still considered to be
 at the experimental stage. Please read @file{src/guile/README}.
 
-@node Common Lisp API, Autospawning, Guile API, Client Programming
+@node Common Lisp API, Golang API, Guile API, Client Programming
 @section Common Lisp API
 
 The Common Lisp API can be found @file{src/cl/} in
 the source tree, however it's still considered to be
 at the experimental stage. Please read @file{src/cl/README}.
+
+@node Golang API, Autospawning, Common Lisp API, Client Programming
+@section Golang API
+
+A golang interface is also available on
+@uref{https://github.com/ilyapashuk/go-speechd}.
 
 @node Autospawning,  , Common Lisp API, Client Programming
 @section Autospawning
