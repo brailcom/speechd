@@ -109,8 +109,6 @@ int main(int argc, char *argv[])
 			dotconf_cleanup(configfile);
 			DBG("Configuration (pre) has been read from \"%s\"\n",
 			    configfilename);
-
-			g_free(configfilename);
 		} else {
 			DBG("Can't read specified config file!\n");
 		}
