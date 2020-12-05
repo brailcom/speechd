@@ -47,7 +47,7 @@ static int kali_speaking = 0;
 static pthread_t kali_speak_thread;
 static sem_t kali_semaphore;
 
-static char **kali_message;
+static char *kali_message;
 static SPDMessageType kali_message_type;
 
 static int kali_position = 0;
@@ -130,8 +130,7 @@ int module_init(char **status_info)
 	DBG("KaliDelimiters = %s\n", KaliDelimiters);
 	DBG("KaliExpandAbbreviations = %d\n", KaliExpandAbbreviations);
 
-	kali_message = (char **)g_malloc(sizeof(char *));
-	*kali_message = NULL;
+	kali_message = NULL;
 
 	sem_init(&kali_semaphore, 0, 0);
 
@@ -171,11 +170,11 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	DBG("Requested data: |%s|\n", data);
 
-	if (*kali_message != NULL) {
-		g_free(*kali_message);
-		*kali_message = NULL;
+	if (kali_message != NULL) {
+		g_free(kali_message);
+		kali_message = NULL;
 	}
-	*kali_message = module_strip_ssml(data);
+	kali_message = module_strip_ssml(data);
 	kali_message_type = SPD_MSGTYPE_TEXT;
 
 	/* Setting voice */
@@ -288,7 +287,7 @@ void *_kali_speak(void *nothing)
 				break;
 			}
 			bytes =
-			    module_get_message_part(*kali_message, buf, &pos,
+			    module_get_message_part(kali_message, buf, &pos,
 						    KaliMaxChunkLength,
 						    KaliDelimiters);
 
