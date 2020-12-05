@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
 	module_audio_id = 0;
 
 	if (argc >= 2) {
-		configfilename = g_strdup(argv[1]);
+		configfilename = argv[1];
 	}
 
 	ret = module_load();
