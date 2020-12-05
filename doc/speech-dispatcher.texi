@@ -2569,6 +2569,7 @@ interface defined in @file{src/server/output.c}.
 * Basic Structure::             The definition of an output module.
 * Communication Protocol for Output Modules::
 * How to Write New Output Module::  How to include support for new synthesizers
+* The Skeleton of a Bare Output Module::
 * The Skeleton of an Output Module::
 * Output Module Functions::
 * Module Utils Functions and Macros::
@@ -2919,15 +2920,24 @@ the tag @code{<mark/>}.
 @node How to Write New Output Module, The Skeleton of an Output Module, Communication Protocol for Output Modules, Output Modules
 @subsection How to Write New Output Module
 
-If you want to write your own output module, there are basically two
-ways to do it. Either you can program it all yourself, which is fine
-as long as you stick to the definition of an output module and its
-communication protocol, or you can use our @file{module_*.c} tools.
-If you use these tools, you will only have to write the core functions
-like module_speak() and module_stop etc. and you will not have to
-worry about the communication protocol and other formal things that
-are common for all modules. Here is how you can do it using the
-provided tools.
+If you want to write your own output module, there are basically three
+ways to do it.
+
+Either you can program it all yourself, which is fine as long as you stick to
+the definition of an output module and its communication protocol.
+
+You can also use our @file{module_main.c}, @file{module_readline.c},
+@file{module_process.c}, and @file{module_main.h}, which deal with the
+communication protocol and other formal things that are common for all modules.
+They are provided under a BSD licence and thus allow to integrate them along
+proprietary software. You will have to provide a series of functions, an example
+is provided in @code{src/modules/skeleton0.c}, which can freely serve as a basic
+for your module.
+
+The nicest way, recommended for all modules shipped along speech-dispatcher, is
+to make use of all of our our @file{module_*.c} tools. This will handle for you
+all configuration file parsing, option setting etc. Here is how you can do it
+using the provided tools.
 
 We will recommend here a basic structure of the code for an output
 module you should follow, although it's perfectly ok to establish your
@@ -2952,6 +2962,58 @@ and the sources will be freed automatically.
 We will be happy if all the copyrights are assigned to Brailcom, o.p.s.
 in order for us to be in a better legal position against possible intruders.
 @end itemize
+
+@node The Skeleton of a Bare Output Module
+@subsection The Skeleton of a Bare Output Module
+
+If you go for the BSD-provided skeleton way, you can start
+with @code{skeleton0.c}. Add the synthesis initialization call
+with default parameters to @code{module_init}, the synchronous
+synthesizing call to @code{module_speak_sync}, and the synthesis
+shutdown call to @code{module_close}. Compile this along
+@file{module_main.c}, @file{module_readline.c}, @file{module_process.c}, and
+@file{module_main.h}. Install this along other modules, and create an empty
+configuration file for it. This should already provide you with a working
+module, though with very limited support.
+
+The next step would be to add support for selecting the voice. Fix
+@code{module_list_voices} to return a proper list of voices. In
+@code{module_set}, when @code{var} is @code{voice}, @code{synthesis_voice}, or
+@code{language}, select a voice according to @code{val}.
+
+This stage of development is examplified in @file{src/modules/skeleton0_espeak-ng0.c}.
+
+A most useful next step is to support stopping the synthesis. This
+however requires calling the synthesis asynchronously. You need to use
+@code{module_speak} instead of @code{module_speak_sync}: it should return
+immediately after starting the production of synthesis (done another way, e.g.
+through a thread). @code{module_speak_begin()} should be called when it actually
+starts emitting audio, and @code{module_speak_end()} should be called when it is
+finished emitting audio. If @code{module_pause} or @code{module_stop} is called
+in between, the synthesis should stop as soon as possible, and respectively
+@code{module_speak_pause()} or @code{module_speak_stop()} be called instead of
+@code{module_speak_end()}.  As a first step, @code{module_pause} can be made to
+just call @code{module_stop}.
+
+This asynchronous support is examplified in
+@file{src/modules/skeleton0_espeak-ng1.c}. It is already quite nice for a lot of
+use cases: the user is now able to interrupt the synthesis e.g. through a screen
+reader action.
+
+It is then useful to make @code{module_set} recognize other useful
+voice parameters to improve the synthesis: @code{rate}, @code{pitch},
+@code{pitch_range}, @code{volume}, @code{punctuation_mode},
+@code{spelling_mode}, @code{cap_let_recogn}.
+
+Optionally, @code{module_audio_set} can be made to recognize precise audio
+settings.
+
+For easier debugging, @code{module_loglevel_set} and @code{module_debug} can be
+implemented.
+
+A useful step is probably to add support for the configuration file, by making
+@code{module_config} parse the configuration file and set synthesis parameters
+accordingly.
 
 @node The Skeleton of an Output Module, Output Module Functions, How to Write New Output Module, Output Modules
 @subsection The Skeleton of an Output Module

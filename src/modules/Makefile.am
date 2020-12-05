@@ -26,7 +26,7 @@ CLEANFILES =
 
 inc_local = -I$(top_srcdir)/include
 audio_SOURCES = spd_audio.c spd_audio.h
-common_SOURCES = module_main.c module_utils.c module_utils.h
+common_SOURCES = module_main.c module_readline.c module_process.c module_config.c module_utils.c module_utils.h
 common_LDADD = $(SNDFILE_LIBS) $(DOTCONF_LIBS) $(GLIB_LIBS) $(GTHREAD_LIBS)
 
 AM_CFLAGS = $(ERROR_CFLAGS)
@@ -34,6 +34,15 @@ AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" -D_GNU_SOURCE \
 	-DPLUGIN_DIR="\"$(audiodir)\"" \
 	$(DOTCONF_CFLAGS) $(GLIB_CFLAGS) $(GTHREAD_CFLAGS) \
 	$(ibmtts_include) $(SNDFILE_CFLAGS)
+
+noinst_PROGRAMS = sd_skeleton0 sd_skeleton_config
+
+sd_skeleton0_SOURCES = skeleton0.c module_main.c module_readline.c module_process.c
+
+sd_skeleton_config_SOURCES = skeleton_config.c $(audio_SOURCES) $(common_SOURCES)
+sd_skeleton_config_LDADD = $(top_builddir)/src/common/libcommon.la \
+	$(audio_dlopen_modules) \
+	$(common_LDADD)
 
 modulebin_PROGRAMS = sd_dummy sd_generic sd_festival sd_cicero
 
@@ -110,6 +119,16 @@ sd_espeak_ng_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	$(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) \
 	$(common_LDADD)
+
+noinst_PROGRAMS += sd_skeleton0_espeak-ng0
+sd_skeleton0_espeak_ng0_SOURCES = skeleton0_espeak-ng0.c module_main.c module_readline.c module_process.c
+sd_skeleton0_espeak_ng0_CFLAGS = $(ESPEAK_NG_CFLAGS)
+sd_skeleton0_espeak_ng0_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
+
+noinst_PROGRAMS += sd_skeleton0_espeak-ng1
+sd_skeleton0_espeak_ng1_SOURCES = skeleton0_espeak-ng1.c module_main.c module_readline.c module_process.c
+sd_skeleton0_espeak_ng1_CFLAGS = $(ESPEAK_NG_CFLAGS)
+sd_skeleton0_espeak_ng1_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 endif
 
 if ivona_support

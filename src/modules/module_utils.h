@@ -40,6 +40,7 @@
 
 #include <speechd_types.h>
 #include "spd_audio.h"
+#include "module_main.h"
 
 G_BEGIN_DECLS
 
@@ -133,10 +134,6 @@ extern const char *module_name;
 } while (0)
 
 int module_load(void);
-int module_init(char **status_info);
-SPDVoice **module_list_voices(void);
-int module_speak(char *data, size_t bytes, SPDMessageType msgtype);
-int module_stop(void);
 SPDVoice **module_get_voices(void);
 int module_tts_output(AudioTrack track, AudioFormat format);
 int module_play_file(const char *filename);
@@ -145,9 +142,7 @@ int module_marks_add(SPDMarks *marks, unsigned sample, const char *name);
 int module_tts_output_marks(AudioTrack track, AudioFormat format, SPDMarks *marks);
 int module_marks_stop(SPDMarks *marks);
 int module_marks_clear(SPDMarks *marks);
-size_t module_pause(void);
 char *module_is_speaking(void);
-int module_close(void);
 SPDVoice **module_list_registered_voices(void);
 
 #define UPDATE_PARAMETER(value, setter) do { \
@@ -221,7 +216,6 @@ char *do_list_voices(void);
 char *do_set(void);
 char *do_audio(void);
 char *do_loglevel(void);
-char *do_debug(char *cmd_buf);
 void do_quit(void);
 
 size_t module_parent_wfork(TModuleDoublePipe dpipe, const char *message,
@@ -396,17 +390,6 @@ configoption_t *add_config_option(configoption_t * options,
 
 #define INDEX_MARK_BODY_LEN 6
 #define INDEX_MARK_BODY "__spd_"
-
-void module_report_index_mark(char *mark);
-void module_report_event_begin(void);
-void module_report_event_end(void);
-void module_report_event_stop(void);
-void module_report_event_pause(void);
-
-extern pthread_mutex_t module_stdout_mutex;
-
-int module_utils_init(void);
-int module_audio_init(char **status_info);
 
 	/* Prototypes from module_utils_addvoice.c */
 void module_register_available_voices(void);
