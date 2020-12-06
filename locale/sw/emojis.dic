@@ -3,20 +3,83 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+{	fungua mabano yaliyokunjwa	none
 🏻	ngozi nyeupe	none
 🏼	ngozi nyeupe kiasi	none
 🏽	ngozi ya kahawia	none
 🏾	ngozi nyeusi kiasi	none
 🏿	ngozi nyeusi	none
+_	mstari wa chini	none
+-	kistariungio-alama ya kutoa	none
+‐	kistariungio	none
 –	kistari kirefu	none
 —	kistari kirefu zaidi	none
+―	upau mlalo	none
+・	nukta ya kati ya katakana	none
+,	koma	none
+،	koma ya kiarabu	none
+、	koma ya idiografia	none
+;	nuktamkato	none
+؛	nuktamkato ya kiarabu	none
+:	nuktapacha	none
+!	alama ya mshangao	none
+¡	alama ya mshangao iliyopinduliwa	none
+?	alama ya kuuliza	none
+¿	alama ya kuuliza iliyopinduliwa	none
+؟	alama ya kuuliza ya kiarabu	none
+.	kikomo	none
+…	alama ya dukuduku	none
+。	kikomo cha idiografia	none
 ·	kitone cha kati	none
+'	apostrofi ya taipureta	none
+‘	apostrofi ya kushoto	none
+’	apostrofi ya kulia	none
+‚	apostrofi ya chini kulia	none
+“	alama ya kunukuu ya kushoto	none
+”	alama ya kunukuu ya kulia	none
+„	alama ya kunukuu ya chini kushoto	none
 «	vishale viwili vinavyoelekea kushoto	none
 »	vishale viwili vinavyoelekea kulia	none
+)	funga mabano	none
+[	fungua mabano ya mraba	none
+]	funga mabano mraba	none
+}	funga mabano yaliyokujwa	none
+〈	fungua mabano ya pembe	none
+〉	funga mabano ya pembe	none
+《	fungua mabano ya pembe mbili	none
+》	funga mabano ya pembe mbili	none
+「	fungua mabano ya kona	none
+」	funga mabano ya kona	none
+『	fungua mabano ya kona wazi	none
+』	funga mabano ya kona wazi	none
+【	fungua mabano ya lenzi nyeusi	none
+】	funga mabano ya lenzi nyeusi	none
+〔	fungua mabano ya kombe	none
+〕	funga mabano ya kombe	none
+〖	fungua mabano ya lenzi wazi	none
+〗	funga mabano ya lenzi wazi	none
 §	kifungu	none
+¶	alama ya aya	none
+@	alama ya ‘kwa’	none
+*	kinyota	none
+/	mkwaju	none
+\	mkwaju nyuma	none
+&	alama ya na	none
+#	alama ya reli	none
+%	asilimia	none
+‰	kwa elfu	none
 †	alama ya kurejea	none
 ‡	alama mbili za kurejea	none
 •	tobo	none
+‧	sehemu ya kistariungio	none
+′	tasa	none
+″	tasa mbili	none
+‴	tasa tatu	none
+※	alama ya kurejelea	none
+`	lafudhi ya kuu	none
+´	lafudhi kali	none
+^	lafudhi ya juu na kali	none
+¨	alama ya kutofautisha irabu mbili	none
 °	digrii	none
 ℗	hakimiliki ya rekodi ya sauti	none
 ←	mshale unaoelekea kushoto	none
@@ -28,14 +91,27 @@ symbols:
 ∆	nyongeza	none
 ∇	nabla	none
 ∈	memba ya	none
++	alama ya kujumlisha	none
+±	jumlisha-toa	none
 ÷	alama ya kugawanya	none
 ×	alama ya kuzidisha	none
+<	chini ya	none
+=	lingana	none
+≠	hailingani	none
+>	zaidi ya	none
+¬	uhasi	none
+|	mstari wima	none
+~	kiwimbi	none
+−	alama ya kutoa	none
 ⁻	alama ya kutoa ya juu	none
 √	kipeo cha pili	none
 ∞	alama ya isiyokoma	none
 ∩	ungano	none
 ∪	muungano	none
+≈	karibu inalingana	none
 ≡	inafanana na	none
+≤	chini ya au lingana	none
+≥	zaidi ya au lingana	none
 ⊂	seti ndogo ya	none
 ▲	pembetatu iliyojazwa inayoelekea juu	none
 ▼	pembetatu iliyojazwa inayoelekea chini	none
@@ -43,12 +119,15 @@ symbols:
 ○	mduara wazi	none
 ●	mduara uliojazwa	none
 ◯	mduara mkubwa wazi	none
-😀	sura inayokenua	none
+♪	noti ya nane	none
+♭	kishukisho	none
+♯	kipandisho	none
+😀	uso unaokenua	none
 😃	uso unaotabasamu wenye macho makubwa	none
 😄	uso unaotabasamu wenye macho ya tabasamu	none
 😁	uso uliokenua na macho yanayotabasamu	none
 😆	uso unaotabasamu wenye mdomo wazi na macho yaliyofungwa	none
-😅	uso unaotabasamu wenye tone la jasho na mdomo uliofunguliwa	none
+😅	uso unaotabasamu wenye tone la jasho	none
 🤣	angua kicheko	none
 😂	uso wenye machozi ya furaha	none
 🙂	uso unaotabasamu kwa mbali	none
@@ -80,11 +159,13 @@ symbols:
 😐	uso uliotulia	none
 😑	uso uliojikausha	none
 😶	uso bila mdomo	none
+😶‍🌫	uso kwenye mawingu	none
 😏	uso unaobeza	none
 😒	uso usio na furaha	none
 🙄	usio wenye macho yanayorembua	none
 😬	uso uliokunjwa	none
-🤥	kudanganya	none
+😮‍💨	uso unaopumua	none
+🤥	uso unaodanganya	none
 😌	uso uliofarijika	none
 😔	uso uliozama katika mawazo	none
 😪	uso unaosinzia	none
@@ -100,6 +181,7 @@ symbols:
 🥶	uso wenye baridi	none
 🥴	uso uliolewa	none
 😵	uso unaoonyesha kuwa na kizunguzungu	none
+😵‍💫	uso wenye macho yanayozunguka	none
 🤯	kichwa kinacholipuka	none
 🤠	uso wenye kofia	none
 🥳	uso wenye kofia ya karamu	none
@@ -171,6 +253,8 @@ symbols:
 💟	mapambo ya moyo	none
 ❣	umbo la moyo lenye alama ya mshangao	none
 💔	moyo uliovunjika	none
+❤‍🔥	moyo unaochomeka	none
+❤‍🩹	kurekebisha moyo	none
 ❤	moyo mwekundu	none
 🧡	moyo wa rangi ya chungwa	none
 💛	moyo wa manjano	none
@@ -227,7 +311,7 @@ symbols:
 🙏	mikono iliyokunjwa	none
 ✍	mkono unaoandika	none
 💅	rangi ya kupaka kwenye kucha	none
-🤳	selfie	none
+🤳	selfi	none
 💪	misuli iliyotunishwa	none
 🦾	mkono bandia	none
 🦿	mguu bandia	none
@@ -253,8 +337,10 @@ symbols:
 👱	mtu mwenye nywele za shaba	none
 👨	mwanamume	none
 🧔	mtu mwenye ndevu	none
+🧔‍♂	mwanamume ndevu	none
 👱‍♂	mwanamume mwenye nywele ya kimanjano	none
 👩	mwanamke	none
+🧔‍♀	mwanamke ndevu	none
 👱‍♀	mwanamke mwenye nywele ya kimanjano	none
 🧓	mzee	none
 👴	babu	none
@@ -357,10 +443,10 @@ symbols:
 👳‍♀	mwanamke aliyefunga kilemba	none
 👲	mwanamume aliyevaa kofia ya kichina	none
 🧕	mwanamke aliyejifunga kitambaa kichwani	none
-🤵	mwanamume mwenye tuxedo	none
+🤵	mtu aliyevaa tuxedo	none
 🤵‍♂	mwanamume aliyevalia tuxedo	none
 🤵‍♀	mwanamke aliyevalia tuxedo	none
-👰	bi harusi aliyevaa shela	none
+👰	mtu aliyevaa shela	none
 👰‍♂	mwanamume aliyevalia shela	none
 👰‍♀	mwanamke aliyevalia shela	none
 🤰	mwanamke mjamzito	none
@@ -539,7 +625,7 @@ symbols:
 🐑	kondoo	none
 🐐	mbuzi	none
 🐪	ngamia	none
-🐫	ngamia mwenye vibyongo viwili	none
+🐫	ngamia mwenye nundu mbili	none
 🦙	ilama	none
 🦒	twiga	none
 🐘	ndovu	none
@@ -711,7 +797,7 @@ symbols:
 🧂	chumvi	none
 🥫	chakula kilicho koponi	none
 🍱	boksi ya kuweka chakula	none
-🍘	chakula kilichotengenezwa kutoka kwa mchele	none
+🍘	biskuti za mchele	none
 🍙	mchele uliotengenezwa kwa mtindo wa tufe	none
 🍚	wali	none
 🍛	wali ulio na mchuzi wa viungo	none
@@ -1035,9 +1121,9 @@ symbols:
 ⛳	bendera katika shimo	none
 ⛸	viatu vya kuteleza kwenye theluji	none
 🎣	ndoano ya uvuvi	none
-🤿	barakoa la kupiga mbizi	none
-🎽	shati ya kukimbia	none
-🎿	ski	none
+🤿	barakoa ya kupiga mbizi	none
+🎽	shati la kukimbia	none
+🎿	skii	none
 🛷	sleji	none
 🥌	mpira wa kutelezesha	none
 🎯	kulenga shabaha	none
@@ -1093,7 +1179,7 @@ symbols:
 👛	kibeti	none
 👜	mfuko	none
 👝	kipochi	none
-🛍	mifuko ya kubeba bidhaa baada ya kununua	none
+🛍	mifuko ya kubebea bidhaa	none
 🎒	mfuko wa shuleni	none
 🩴	ndara	none
 👞	kiatu cha wanaume	none
@@ -1107,8 +1193,8 @@ symbols:
 👑	taji	none
 👒	kofia ya mwanamke	none
 🎩	kofia ya mwanamume	none
-🎓	kofia inayovaliwa kwenye sherehe za kuhitimu masomo	none
-🧢	kofia iliyochorwa emoji	none
+🎓	kofia ya mahafali	none
+🧢	chepeo	none
 🪖	kofia ya wanajeshi	none
 ⛑	helmeti iliyo na msalaba mweupe	none
 📿	shanga za maombi	none
@@ -1203,7 +1289,7 @@ symbols:
 💸	pesa za noti zenye mabawa	none
 💳	kadi ya mkopo	none
 🧾	risiti	none
-💹	chayi inayopanda yenye yeni	none
+💹	chati inayopanda yenye yeni	none
 ✉	bahasha	none
 📧	barua pepe	none
 📨	bahasha inayoingia	none
@@ -1260,7 +1346,7 @@ symbols:
 🛠	nyundo na spana malaya	none
 🗡	sime	none
 ⚔	panga zilizopishanishwa	none
-🔫	bastola	none
+🔫	bastola ya maji	none
 🪃	bumerangi	none
 🏹	upinde na mshale	none
 🛡	ngao	none
@@ -1420,16 +1506,16 @@ symbols:
 ♂	ishara ya jinsia ya kiume	none
 ⚧	ishara ya wabadili jinsia	none
 ✖	zidisha	none
-➕	alama ya kuongeza	none
-➖	alama ya kutoa	none
+➕	kuongeza	none
+➖	kutoa	none
 ➗	gawanya	none
 ♾	milele	none
 ‼	alama mbili za mshangao	none
 ⁉	alama ya mshangao na kuuliza	none
-❓	alama ya kuuliza	none
+❓	alama nyekundu ya kuuliza	none
 ❔	alama nyeupe ya kuuliza	none
 ❕	alama nyeupe ya mshangao	none
-❗	alama ya mshangao	none
+❗	alama nyekundu ya mshangao	none
 〰	dashi iliyopinda	none
 💱	sarafu mbalimbali	none
 💲	alama ya dola	none
@@ -1535,11 +1621,17 @@ symbols:
 🏳‍🌈	bendera ya upinde wa mvua	none
 🏳‍⚧	bendera ya wageuza jinsia	none
 🏴‍☠	bendera ya maharamia	none
+¢	senti	none
+$	dola	none
 £	pauni	none
 ¥	yeni	none
+₥	mill	none
+₩	won	none
 €	yuro	none
+₱	peso	none
 ₹	rupia ya india	none
 ₽	rubo	none
+₿	bitcoin	none
 ¹	weka moja juu	none
 ²	weka mbili juu	none
 ³	weka tatu juu	none
@@ -1704,11 +1796,11 @@ symbols:
 💅🏽	rangi ya kupaka kwenye kucha ngozi ya kahawia	none
 💅🏾	rangi ya kupaka kwenye kucha ngozi nyeusi kiasi	none
 💅🏿	rangi ya kupaka kwenye kucha ngozi nyeusi	none
-🤳🏻	selfie ngozi nyeupe	none
-🤳🏼	selfie ngozi nyeupe kiasi	none
-🤳🏽	selfie ngozi ya kahawia	none
-🤳🏾	selfie ngozi nyeusi kiasi	none
-🤳🏿	selfie ngozi nyeusi	none
+🤳🏻	selfi ngozi nyeupe	none
+🤳🏼	selfi ngozi nyeupe kiasi	none
+🤳🏽	selfi ngozi ya kahawia	none
+🤳🏾	selfi ngozi nyeusi kiasi	none
+🤳🏿	selfi ngozi nyeusi	none
 💪🏻	misuli iliyotunishwa ngozi nyeupe	none
 💪🏼	misuli iliyotunishwa ngozi nyeupe kiasi	none
 💪🏽	misuli iliyotunishwa ngozi ya kahawia	none
@@ -1769,6 +1861,46 @@ symbols:
 👱🏽	mtu mwenye nywele za shaba ngozi ya kahawia	none
 👱🏾	mtu mwenye nywele za shaba ngozi nyeusi kiasi	none
 👱🏿	mtu mwenye nywele za shaba ngozi nyeusi	none
+🧑🏻‍❤‍💋‍🧑🏼	busu mtu mzima, mtu mzima, ngozi nyeupe na ngozi nyeupe kiasi	none
+🧑🏻‍❤‍💋‍🧑🏽	busu mtu mzima, mtu mzima, ngozi nyeupe na ngozi ya kahawia	none
+🧑🏻‍❤‍💋‍🧑🏾	busu mtu mzima, mtu mzima, ngozi nyeupe na ngozi nyeusi kiasi	none
+🧑🏻‍❤‍💋‍🧑🏿	busu mtu mzima, mtu mzima, ngozi nyeupe na ngozi nyeusi	none
+🧑🏼‍❤‍💋‍🧑🏻	busu mtu mzima, mtu mzima, ngozi nyeupe kiasi na ngozi nyeupe	none
+🧑🏼‍❤‍💋‍🧑🏽	busu mtu mzima, mtu mzima, ngozi nyeupe kiasi na ngozi ya kahawia	none
+🧑🏼‍❤‍💋‍🧑🏾	busu mtu mzima, mtu mzima, ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+🧑🏼‍❤‍💋‍🧑🏿	busu mtu mzima, mtu mzima, ngozi nyeupe kiasi na ngozi nyeusi	none
+🧑🏽‍❤‍💋‍🧑🏻	busu mtu mzima, mtu mzima, ngozi ya kahawia na ngozi nyeupe	none
+🧑🏽‍❤‍💋‍🧑🏼	busu mtu mzima, mtu mzima, ngozi ya kahawia na ngozi nyeupe kiasi	none
+🧑🏽‍❤‍💋‍🧑🏾	busu mtu mzima, mtu mzima, ngozi ya kahawia na ngozi nyeusi kiasi	none
+🧑🏽‍❤‍💋‍🧑🏿	busu mtu mzima, mtu mzima, ngozi ya kahawia na ngozi nyeusi	none
+🧑🏾‍❤‍💋‍🧑🏻	busu mtu mzima, mtu mzima, ngozi nyeusi kiasi na ngozi nyeupe	none
+🧑🏾‍❤‍💋‍🧑🏼	busu mtu mzima, mtu mzima, ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
+🧑🏾‍❤‍💋‍🧑🏽	busu mtu mzima, mtu mzima, ngozi nyeusi kiasi na ngozi ya kahawia	none
+🧑🏾‍❤‍💋‍🧑🏿	busu mtu mzima, mtu mzima, ngozi nyeusi kiasi na ngozi nyeusi	none
+🧑🏿‍❤‍💋‍🧑🏻	busu mtu mzima, mtu mzima, ngozi nyeusi na ngozi nyeupe	none
+🧑🏿‍❤‍💋‍🧑🏼	busu mtu mzima, mtu mzima, ngozi nyeusi na ngozi nyeupe kiasi	none
+🧑🏿‍❤‍💋‍🧑🏽	busu mtu mzima, mtu mzima, ngozi nyeusi na ngozi ya kahawia	none
+🧑🏿‍❤‍💋‍🧑🏾	busu mtu mzima, mtu mzima, ngozi nyeusi na ngozi nyeusi kiasi	none
+🧑🏻‍❤‍🧑🏼	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeupe na ngozi nyeupe kiasi	none
+🧑🏻‍❤‍🧑🏽	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeupe na ngozi ya kahawia	none
+🧑🏻‍❤‍🧑🏾	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeupe na ngozi nyeusi kiasi	none
+🧑🏻‍❤‍🧑🏿	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeupe na ngozi nyeusi	none
+🧑🏼‍❤‍🧑🏻	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeupe kiasi na ngozi nyeupe	none
+🧑🏼‍❤‍🧑🏽	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeupe kiasi na ngozi ya kahawia	none
+🧑🏼‍❤‍🧑🏾	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+🧑🏼‍❤‍🧑🏿	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeupe kiasi na ngozi nyeusi	none
+🧑🏽‍❤‍🧑🏻	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi ya kahawia na ngozi nyeupe	none
+🧑🏽‍❤‍🧑🏼	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi ya kahawia na ngozi nyeupe kiasi	none
+🧑🏽‍❤‍🧑🏾	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi ya kahawia na ngozi nyeusi kiasi	none
+🧑🏽‍❤‍🧑🏿	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi ya kahawia na ngozi nyeusi	none
+🧑🏾‍❤‍🧑🏻	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeusi kiasi na ngozi nyeupe	none
+🧑🏾‍❤‍🧑🏼	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
+🧑🏾‍❤‍🧑🏽	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeusi kiasi na ngozi ya kahawia	none
+🧑🏾‍❤‍🧑🏿	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeusi kiasi na ngozi nyeusi	none
+🧑🏿‍❤‍🧑🏻	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeusi na ngozi nyeupe	none
+🧑🏿‍❤‍🧑🏼	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeusi na ngozi nyeupe kiasi	none
+🧑🏿‍❤‍🧑🏽	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeusi na ngozi ya kahawia	none
+🧑🏿‍❤‍🧑🏾	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeusi na ngozi nyeusi kiasi	none
 🧑‍🦰	mtu mzima nywele nyekundu	none
 🧑🏻‍🦰	mtu mzima ngozi nyeupe na nywele nyekundu	none
 🧑🏼‍🦰	mtu mzima ngozi nyeupe kiasi na nywele nyekundu	none
@@ -1803,11 +1935,66 @@ symbols:
 🧔🏽	mtu mwenye ndevu ngozi ya kahawia	none
 🧔🏾	mtu mwenye ndevu ngozi nyeusi kiasi	none
 🧔🏿	mtu mwenye ndevu ngozi nyeusi	none
+🧔🏻‍♂	mwanamume ngozi nyeupe na ndevu	none
+🧔🏼‍♂	mwanamume ngozi nyeupe kiasi na ndevu	none
+🧔🏽‍♂	mwanamume ngozi ya kahawia na ndevu	none
+🧔🏾‍♂	mwanamume ngozi nyeusi kiasi na ndevu	none
+🧔🏿‍♂	mwanamume ngozi nyeusi na ndevu	none
 👱🏻‍♂	mwanamume mwenye nywele ya kimanjano ngozi nyeupe	none
 👱🏼‍♂	mwanamume mwenye nywele ya kimanjano ngozi nyeupe kiasi	none
 👱🏽‍♂	mwanamume mwenye nywele ya kimanjano ngozi ya kahawia	none
 👱🏾‍♂	mwanamume mwenye nywele ya kimanjano ngozi nyeusi kiasi	none
 👱🏿‍♂	mwanamume mwenye nywele ya kimanjano ngozi nyeusi	none
+👨🏻‍❤‍💋‍👨🏻	busu mwanamume, mwanamume na ngozi nyeupe	none
+👨🏻‍❤‍💋‍👨🏼	busu mwanamume, mwanamume, ngozi nyeupe na ngozi nyeupe kiasi	none
+👨🏻‍❤‍💋‍👨🏽	busu mwanamume, mwanamume, ngozi nyeupe na ngozi ya kahawia	none
+👨🏻‍❤‍💋‍👨🏾	busu mwanamume, mwanamume, ngozi nyeupe na ngozi nyeusi kiasi	none
+👨🏻‍❤‍💋‍👨🏿	busu mwanamume, mwanamume, ngozi nyeupe na ngozi nyeusi	none
+👨🏼‍❤‍💋‍👨🏻	busu mwanamume, mwanamume, ngozi nyeupe kiasi na ngozi nyeupe	none
+👨🏼‍❤‍💋‍👨🏼	busu mwanamume, mwanamume na ngozi nyeupe kiasi	none
+👨🏼‍❤‍💋‍👨🏽	busu mwanamume, mwanamume, ngozi nyeupe kiasi na ngozi ya kahawia	none
+👨🏼‍❤‍💋‍👨🏾	busu mwanamume, mwanamume, ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+👨🏼‍❤‍💋‍👨🏿	busu mwanamume, mwanamume, ngozi nyeupe kiasi na ngozi nyeusi	none
+👨🏽‍❤‍💋‍👨🏻	busu mwanamume, mwanamume, ngozi ya kahawia na ngozi nyeupe	none
+👨🏽‍❤‍💋‍👨🏼	busu mwanamume, mwanamume, ngozi ya kahawia na ngozi nyeupe kiasi	none
+👨🏽‍❤‍💋‍👨🏽	busu mwanamume, mwanamume na ngozi ya kahawia	none
+👨🏽‍❤‍💋‍👨🏾	busu mwanamume, mwanamume, ngozi ya kahawia na ngozi nyeusi kiasi	none
+👨🏽‍❤‍💋‍👨🏿	busu mwanamume, mwanamume, ngozi ya kahawia na ngozi nyeusi	none
+👨🏾‍❤‍💋‍👨🏻	busu mwanamume, mwanamume, ngozi nyeusi kiasi na ngozi nyeupe	none
+👨🏾‍❤‍💋‍👨🏼	busu mwanamume, mwanamume, ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
+👨🏾‍❤‍💋‍👨🏽	busu mwanamume, mwanamume, ngozi nyeusi kiasi na ngozi ya kahawia	none
+👨🏾‍❤‍💋‍👨🏾	busu mwanamume, mwanamume na ngozi nyeusi kiasi	none
+👨🏾‍❤‍💋‍👨🏿	busu mwanamume, mwanamume, ngozi nyeusi kiasi na ngozi nyeusi	none
+👨🏿‍❤‍💋‍👨🏻	busu mwanamume, mwanamume, ngozi nyeusi na ngozi nyeupe	none
+👨🏿‍❤‍💋‍👨🏼	busu mwanamume, mwanamume, ngozi nyeusi na ngozi nyeupe kiasi	none
+👨🏿‍❤‍💋‍👨🏽	busu mwanamume, mwanamume, ngozi nyeusi na ngozi ya kahawia	none
+👨🏿‍❤‍💋‍👨🏾	busu mwanamume, mwanamume, ngozi nyeusi na ngozi nyeusi kiasi	none
+👨🏿‍❤‍💋‍👨🏿	busu mwanamume, mwanamume na ngozi nyeusi	none
+👨🏻‍❤‍👨🏻	mume na mke na ishara ya moyo mwanamume, mwanamume na ngozi nyeupe	none
+👨🏻‍❤‍👨🏼	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeupe na ngozi nyeupe kiasi	none
+👨🏻‍❤‍👨🏽	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeupe na ngozi ya kahawia	none
+👨🏻‍❤‍👨🏾	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeupe na ngozi nyeusi kiasi	none
+👨🏻‍❤‍👨🏿	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeupe na ngozi nyeusi	none
+👨🏼‍❤‍👨🏻	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeupe kiasi na ngozi nyeupe	none
+👨🏼‍❤‍👨🏼	mume na mke na ishara ya moyo mwanamume, mwanamume na ngozi nyeupe kiasi	none
+👨🏼‍❤‍👨🏽	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeupe kiasi na ngozi ya kahawia	none
+👨🏼‍❤‍👨🏾	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+👨🏼‍❤‍👨🏿	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeupe kiasi na ngozi nyeusi	none
+👨🏽‍❤‍👨🏻	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi ya kahawia na ngozi nyeupe	none
+👨🏽‍❤‍👨🏼	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi ya kahawia na ngozi nyeupe kiasi	none
+👨🏽‍❤‍👨🏽	mume na mke na ishara ya moyo mwanamume, mwanamume na ngozi ya kahawia	none
+👨🏽‍❤‍👨🏾	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi ya kahawia na ngozi nyeusi kiasi	none
+👨🏽‍❤‍👨🏿	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi ya kahawia na ngozi nyeusi	none
+👨🏾‍❤‍👨🏻	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeusi kiasi na ngozi nyeupe	none
+👨🏾‍❤‍👨🏼	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
+👨🏾‍❤‍👨🏽	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeusi kiasi na ngozi ya kahawia	none
+👨🏾‍❤‍👨🏾	mume na mke na ishara ya moyo mwanamume, mwanamume na ngozi nyeusi kiasi	none
+👨🏾‍❤‍👨🏿	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeusi kiasi na ngozi nyeusi	none
+👨🏿‍❤‍👨🏻	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeusi na ngozi nyeupe	none
+👨🏿‍❤‍👨🏼	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeusi na ngozi nyeupe kiasi	none
+👨🏿‍❤‍👨🏽	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeusi na ngozi ya kahawia	none
+👨🏿‍❤‍👨🏾	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeusi na ngozi nyeusi kiasi	none
+👨🏿‍❤‍👨🏿	mume na mke na ishara ya moyo mwanamume, mwanamume na ngozi nyeusi	none
 👨‍🦰	mwanamume nywele nyekundu	none
 👨🏻‍🦰	mwanamume ngozi nyeupe na nywele nyekundu	none
 👨🏼‍🦰	mwanamume ngozi nyeupe kiasi na nywele nyekundu	none
@@ -1837,11 +2024,116 @@ symbols:
 👩🏽	mwanamke ngozi ya kahawia	none
 👩🏾	mwanamke ngozi nyeusi kiasi	none
 👩🏿	mwanamke ngozi nyeusi	none
+🧔🏻‍♀	mwanamke ngozi nyeupe na ndevu	none
+🧔🏼‍♀	mwanamke ngozi nyeupe kiasi na ndevu	none
+🧔🏽‍♀	mwanamke ngozi ya kahawia na ndevu	none
+🧔🏾‍♀	mwanamke ngozi nyeusi kiasi na ndevu	none
+🧔🏿‍♀	mwanamke ngozi nyeusi na ndevu	none
 👱🏻‍♀	mwanamke mwenye nywele ya kimanjano ngozi nyeupe	none
 👱🏼‍♀	mwanamke mwenye nywele ya kimanjano ngozi nyeupe kiasi	none
 👱🏽‍♀	mwanamke mwenye nywele ya kimanjano ngozi ya kahawia	none
 👱🏾‍♀	mwanamke mwenye nywele ya kimanjano ngozi nyeusi kiasi	none
 👱🏿‍♀	mwanamke mwenye nywele ya kimanjano ngozi nyeusi	none
+👩🏻‍❤‍💋‍👨🏻	busu mwanamke, mwanamume na ngozi nyeupe	none
+👩🏻‍❤‍💋‍👨🏼	busu mwanamke, mwanamume, ngozi nyeupe na ngozi nyeupe kiasi	none
+👩🏻‍❤‍💋‍👨🏽	busu mwanamke, mwanamume, ngozi nyeupe na ngozi ya kahawia	none
+👩🏻‍❤‍💋‍👨🏾	busu mwanamke, mwanamume, ngozi nyeupe na ngozi nyeusi kiasi	none
+👩🏻‍❤‍💋‍👨🏿	busu mwanamke, mwanamume, ngozi nyeupe na ngozi nyeusi	none
+👩🏼‍❤‍💋‍👨🏻	busu mwanamke, mwanamume, ngozi nyeupe kiasi na ngozi nyeupe	none
+👩🏼‍❤‍💋‍👨🏼	busu mwanamke, mwanamume na ngozi nyeupe kiasi	none
+👩🏼‍❤‍💋‍👨🏽	busu mwanamke, mwanamume, ngozi nyeupe kiasi na ngozi ya kahawia	none
+👩🏼‍❤‍💋‍👨🏾	busu mwanamke, mwanamume, ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+👩🏼‍❤‍💋‍👨🏿	busu mwanamke, mwanamume, ngozi nyeupe kiasi na ngozi nyeusi	none
+👩🏽‍❤‍💋‍👨🏻	busu mwanamke, mwanamume, ngozi ya kahawia na ngozi nyeupe	none
+👩🏽‍❤‍💋‍👨🏼	busu mwanamke, mwanamume, ngozi ya kahawia na ngozi nyeupe kiasi	none
+👩🏽‍❤‍💋‍👨🏽	busu mwanamke, mwanamume na ngozi ya kahawia	none
+👩🏽‍❤‍💋‍👨🏾	busu mwanamke, mwanamume, ngozi ya kahawia na ngozi nyeusi kiasi	none
+👩🏽‍❤‍💋‍👨🏿	busu mwanamke, mwanamume, ngozi ya kahawia na ngozi nyeusi	none
+👩🏾‍❤‍💋‍👨🏻	busu mwanamke, mwanamume, ngozi nyeusi kiasi na ngozi nyeupe	none
+👩🏾‍❤‍💋‍👨🏼	busu mwanamke, mwanamume, ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
+👩🏾‍❤‍💋‍👨🏽	busu mwanamke, mwanamume, ngozi nyeusi kiasi na ngozi ya kahawia	none
+👩🏾‍❤‍💋‍👨🏾	busu mwanamke, mwanamume na ngozi nyeusi kiasi	none
+👩🏾‍❤‍💋‍👨🏿	busu mwanamke, mwanamume, ngozi nyeusi kiasi na ngozi nyeusi	none
+👩🏿‍❤‍💋‍👨🏻	busu mwanamke, mwanamume, ngozi nyeusi na ngozi nyeupe	none
+👩🏿‍❤‍💋‍👨🏼	busu mwanamke, mwanamume, ngozi nyeusi na ngozi nyeupe kiasi	none
+👩🏿‍❤‍💋‍👨🏽	busu mwanamke, mwanamume, ngozi nyeusi na ngozi ya kahawia	none
+👩🏿‍❤‍💋‍👨🏾	busu mwanamke, mwanamume, ngozi nyeusi na ngozi nyeusi kiasi	none
+👩🏿‍❤‍💋‍👨🏿	busu mwanamke, mwanamume na ngozi nyeusi	none
+👩🏻‍❤‍💋‍👩🏻	busu mwanamke, mwanamke na ngozi nyeupe	none
+👩🏻‍❤‍💋‍👩🏼	busu mwanamke, mwanamke, ngozi nyeupe na ngozi nyeupe kiasi	none
+👩🏻‍❤‍💋‍👩🏽	busu mwanamke, mwanamke, ngozi nyeupe na ngozi ya kahawia	none
+👩🏻‍❤‍💋‍👩🏾	busu mwanamke, mwanamke, ngozi nyeupe na ngozi nyeusi kiasi	none
+👩🏻‍❤‍💋‍👩🏿	busu mwanamke, mwanamke, ngozi nyeupe na ngozi nyeusi	none
+👩🏼‍❤‍💋‍👩🏻	busu mwanamke, mwanamke, ngozi nyeupe kiasi na ngozi nyeupe	none
+👩🏼‍❤‍💋‍👩🏼	busu mwanamke, mwanamke na ngozi nyeupe kiasi	none
+👩🏼‍❤‍💋‍👩🏽	busu mwanamke, mwanamke, ngozi nyeupe kiasi na ngozi ya kahawia	none
+👩🏼‍❤‍💋‍👩🏾	busu mwanamke, mwanamke, ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+👩🏼‍❤‍💋‍👩🏿	busu mwanamke, mwanamke, ngozi nyeupe kiasi na ngozi nyeusi	none
+👩🏽‍❤‍💋‍👩🏻	busu mwanamke, mwanamke, ngozi ya kahawia na ngozi nyeupe	none
+👩🏽‍❤‍💋‍👩🏼	busu mwanamke, mwanamke, ngozi ya kahawia na ngozi nyeupe kiasi	none
+👩🏽‍❤‍💋‍👩🏽	busu mwanamke, mwanamke na ngozi ya kahawia	none
+👩🏽‍❤‍💋‍👩🏾	busu mwanamke, mwanamke, ngozi ya kahawia na ngozi nyeusi kiasi	none
+👩🏽‍❤‍💋‍👩🏿	busu mwanamke, mwanamke, ngozi ya kahawia na ngozi nyeusi	none
+👩🏾‍❤‍💋‍👩🏻	busu mwanamke, mwanamke, ngozi nyeusi kiasi na ngozi nyeupe	none
+👩🏾‍❤‍💋‍👩🏼	busu mwanamke, mwanamke, ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
+👩🏾‍❤‍💋‍👩🏽	busu mwanamke, mwanamke, ngozi nyeusi kiasi na ngozi ya kahawia	none
+👩🏾‍❤‍💋‍👩🏾	busu mwanamke, mwanamke na ngozi nyeusi kiasi	none
+👩🏾‍❤‍💋‍👩🏿	busu mwanamke, mwanamke, ngozi nyeusi kiasi na ngozi nyeusi	none
+👩🏿‍❤‍💋‍👩🏻	busu mwanamke, mwanamke, ngozi nyeusi na ngozi nyeupe	none
+👩🏿‍❤‍💋‍👩🏼	busu mwanamke, mwanamke, ngozi nyeusi na ngozi nyeupe kiasi	none
+👩🏿‍❤‍💋‍👩🏽	busu mwanamke, mwanamke, ngozi nyeusi na ngozi ya kahawia	none
+👩🏿‍❤‍💋‍👩🏾	busu mwanamke, mwanamke, ngozi nyeusi na ngozi nyeusi kiasi	none
+👩🏿‍❤‍💋‍👩🏿	busu mwanamke, mwanamke na ngozi nyeusi	none
+👩🏻‍❤‍👨🏻	mume na mke na ishara ya moyo mwanamke, mwanamume na ngozi nyeupe	none
+👩🏻‍❤‍👨🏼	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeupe na ngozi nyeupe kiasi	none
+👩🏻‍❤‍👨🏽	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeupe na ngozi ya kahawia	none
+👩🏻‍❤‍👨🏾	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeupe na ngozi nyeusi kiasi	none
+👩🏻‍❤‍👨🏿	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeupe na ngozi nyeusi	none
+👩🏼‍❤‍👨🏻	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeupe kiasi na ngozi nyeupe	none
+👩🏼‍❤‍👨🏼	mume na mke na ishara ya moyo mwanamke, mwanamume na ngozi nyeupe kiasi	none
+👩🏼‍❤‍👨🏽	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeupe kiasi na ngozi ya kahawia	none
+👩🏼‍❤‍👨🏾	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+👩🏼‍❤‍👨🏿	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeupe kiasi na ngozi nyeusi	none
+👩🏽‍❤‍👨🏻	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi ya kahawia na ngozi nyeupe	none
+👩🏽‍❤‍👨🏼	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi ya kahawia na ngozi nyeupe kiasi	none
+👩🏽‍❤‍👨🏽	mume na mke na ishara ya moyo mwanamke, mwanamume na ngozi ya kahawia	none
+👩🏽‍❤‍👨🏾	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi ya kahawia na ngozi nyeusi kiasi	none
+👩🏽‍❤‍👨🏿	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi ya kahawia na ngozi nyeusi	none
+👩🏾‍❤‍👨🏻	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeusi kiasi na ngozi nyeupe	none
+👩🏾‍❤‍👨🏼	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
+👩🏾‍❤‍👨🏽	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeusi kiasi na ngozi ya kahawia	none
+👩🏾‍❤‍👨🏾	mume na mke na ishara ya moyo mwanamke, mwanamume na ngozi nyeusi kiasi	none
+👩🏾‍❤‍👨🏿	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeusi kiasi na ngozi nyeusi	none
+👩🏿‍❤‍👨🏻	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeusi na ngozi nyeupe	none
+👩🏿‍❤‍👨🏼	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeusi na ngozi nyeupe kiasi	none
+👩🏿‍❤‍👨🏽	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeusi na ngozi ya kahawia	none
+👩🏿‍❤‍👨🏾	mume na mke na ishara ya moyo mwanamke, mwanamume, ngozi nyeusi na ngozi nyeusi kiasi	none
+👩🏿‍❤‍👨🏿	mume na mke na ishara ya moyo mwanamke, mwanamume na ngozi nyeusi	none
+👩🏻‍❤‍👩🏻	mume na mke na ishara ya moyo mwanamke, mwanamke na ngozi nyeupe	none
+👩🏻‍❤‍👩🏼	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeupe na ngozi nyeupe kiasi	none
+👩🏻‍❤‍👩🏽	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeupe na ngozi ya kahawia	none
+👩🏻‍❤‍👩🏾	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeupe na ngozi nyeusi kiasi	none
+👩🏻‍❤‍👩🏿	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeupe na ngozi nyeusi	none
+👩🏼‍❤‍👩🏻	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeupe kiasi na ngozi nyeupe	none
+👩🏼‍❤‍👩🏼	mume na mke na ishara ya moyo mwanamke, mwanamke na ngozi nyeupe kiasi	none
+👩🏼‍❤‍👩🏽	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeupe kiasi na ngozi ya kahawia	none
+👩🏼‍❤‍👩🏾	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+👩🏼‍❤‍👩🏿	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeupe kiasi na ngozi nyeusi	none
+👩🏽‍❤‍👩🏻	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi ya kahawia na ngozi nyeupe	none
+👩🏽‍❤‍👩🏼	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi ya kahawia na ngozi nyeupe kiasi	none
+👩🏽‍❤‍👩🏽	mume na mke na ishara ya moyo mwanamke, mwanamke na ngozi ya kahawia	none
+👩🏽‍❤‍👩🏾	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi ya kahawia na ngozi nyeusi kiasi	none
+👩🏽‍❤‍👩🏿	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi ya kahawia na ngozi nyeusi	none
+👩🏾‍❤‍👩🏻	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeusi kiasi na ngozi nyeupe	none
+👩🏾‍❤‍👩🏼	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
+👩🏾‍❤‍👩🏽	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeusi kiasi na ngozi ya kahawia	none
+👩🏾‍❤‍👩🏾	mume na mke na ishara ya moyo mwanamke, mwanamke na ngozi nyeusi kiasi	none
+👩🏾‍❤‍👩🏿	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeusi kiasi na ngozi nyeusi	none
+👩🏿‍❤‍👩🏻	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeusi na ngozi nyeupe	none
+👩🏿‍❤‍👩🏼	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeusi na ngozi nyeupe kiasi	none
+👩🏿‍❤‍👩🏽	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeusi na ngozi ya kahawia	none
+👩🏿‍❤‍👩🏾	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeusi na ngozi nyeusi kiasi	none
+👩🏿‍❤‍👩🏿	mume na mke na ishara ya moyo mwanamke, mwanamke na ngozi nyeusi	none
 👩‍🦰	mwanamke nywele nyekundu	none
 👩🏻‍🦰	mwanamke ngozi nyeupe na nywele nyekundu	none
 👩🏼‍🦰	mwanamke ngozi nyeupe kiasi na nywele nyekundu	none
@@ -2371,11 +2663,11 @@ symbols:
 🧕🏽	mwanamke aliyejifunga kitambaa kichwani ngozi ya kahawia	none
 🧕🏾	mwanamke aliyejifunga kitambaa kichwani ngozi nyeusi kiasi	none
 🧕🏿	mwanamke aliyejifunga kitambaa kichwani ngozi nyeusi	none
-🤵🏻	mwanamume mwenye tuxedo ngozi nyeupe	none
-🤵🏼	mwanamume mwenye tuxedo ngozi nyeupe kiasi	none
-🤵🏽	mwanamume mwenye tuxedo ngozi ya kahawia	none
-🤵🏾	mwanamume mwenye tuxedo ngozi nyeusi kiasi	none
-🤵🏿	mwanamume mwenye tuxedo ngozi nyeusi	none
+🤵🏻	mtu aliyevaa tuxedo ngozi nyeupe	none
+🤵🏼	mtu aliyevaa tuxedo ngozi nyeupe kiasi	none
+🤵🏽	mtu aliyevaa tuxedo ngozi ya kahawia	none
+🤵🏾	mtu aliyevaa tuxedo ngozi nyeusi kiasi	none
+🤵🏿	mtu aliyevaa tuxedo ngozi nyeusi	none
 🤵🏻‍♂	mwanamume aliyevalia tuxedo ngozi nyeupe	none
 🤵🏼‍♂	mwanamume aliyevalia tuxedo ngozi nyeupe kiasi	none
 🤵🏽‍♂	mwanamume aliyevalia tuxedo ngozi ya kahawia	none
@@ -2386,11 +2678,11 @@ symbols:
 🤵🏽‍♀	mwanamke aliyevalia tuxedo ngozi ya kahawia	none
 🤵🏾‍♀	mwanamke aliyevalia tuxedo ngozi nyeusi kiasi	none
 🤵🏿‍♀	mwanamke aliyevalia tuxedo ngozi nyeusi	none
-👰🏻	bi harusi aliyevaa shela ngozi nyeupe	none
-👰🏼	bi harusi aliyevaa shela ngozi nyeupe kiasi	none
-👰🏽	bi harusi aliyevaa shela ngozi ya kahawia	none
-👰🏾	bi harusi aliyevaa shela ngozi nyeusi kiasi	none
-👰🏿	bi harusi aliyevaa shela ngozi nyeusi	none
+👰🏻	mtu aliyevaa shela ngozi nyeupe	none
+👰🏼	mtu aliyevaa shela ngozi nyeupe kiasi	none
+👰🏽	mtu aliyevaa shela ngozi ya kahawia	none
+👰🏾	mtu aliyevaa shela ngozi nyeusi kiasi	none
+👰🏿	mtu aliyevaa shela ngozi nyeusi	none
 👰🏻‍♂	mwanamume aliyevalia shela ngozi nyeupe	none
 👰🏼‍♂	mwanamume aliyevalia shela ngozi nyeupe kiasi	none
 👰🏽‍♂	mwanamume aliyevalia shela ngozi ya kahawia	none
@@ -3132,16 +3424,16 @@ symbols:
 🇨🇴	bendera Kolombia	none
 🇨🇵	bendera Kisiwa cha Clipperton	none
 🇨🇷	bendera Kostarika	none
-🇨🇺	bendera Cuba	none
+🇨🇺	bendera Kuba	none
 🇨🇻	bendera Cape Verde	none
 🇨🇼	bendera Curacao	none
 🇨🇽	bendera Kisiwa cha Krismasi	none
-🇨🇾	bendera Cyprus	none
+🇨🇾	bendera Saiprasi	none
 🇨🇿	bendera Chechia	none
 🇩🇪	bendera Ujerumani	none
 🇩🇬	bendera Diego Garcia	none
 🇩🇯	bendera Jibuti	none
-🇩🇰	bendera Denmark	none
+🇩🇰	bendera Denmaki	none
 🇩🇲	bendera Dominika	none
 🇩🇴	bendera Jamhuri ya Dominika	none
 🇩🇿	bendera Aljeria	none
@@ -3157,7 +3449,7 @@ symbols:
 🇫🇮	bendera Ufini	none
 🇫🇯	bendera Fiji	none
 🇫🇰	bendera Visiwa vya Falkland	none
-🇫🇲	bendera Micronesia	none
+🇫🇲	bendera Mikronesia	none
 🇫🇴	bendera Visiwa vya Faroe	none
 🇫🇷	bendera Ufaransa	none
 🇬🇦	bendera Gabon	none
@@ -3240,7 +3532,7 @@ symbols:
 🇲🇸	bendera Montserrat	none
 🇲🇹	bendera Malta	none
 🇲🇺	bendera Morisi	none
-🇲🇻	bendera Maldives	none
+🇲🇻	bendera Maldivi	none
 🇲🇼	bendera Malawi	none
 🇲🇽	bendera Meksiko	none
 🇲🇾	bendera Malesia	none
@@ -3294,11 +3586,11 @@ symbols:
 🇸🇴	bendera Somalia	none
 🇸🇷	bendera Suriname	none
 🇸🇸	bendera Sudan Kusini	none
-🇸🇹	bendera São Tomé na Príncipe	none
+🇸🇹	bendera Sao Tome na Principe	none
 🇸🇻	bendera El Salvador	none
 🇸🇽	bendera Sint Maarten	none
 🇸🇾	bendera Syria	none
-🇸🇿	bendera Uswazi	none
+🇸🇿	bendera Eswatini	none
 🇹🇦	bendera Tristan da Cunha	none
 🇹🇨	bendera Visiwa vya Turks na Caicos	none
 🇹🇩	bendera Chad	none
@@ -3328,7 +3620,7 @@ symbols:
 🇻🇪	bendera Venezuela	none
 🇻🇬	bendera Visiwa vya Virgin, Uingereza	none
 🇻🇮	bendera Visiwa vya Virgin, Marekani	none
-🇻🇳	bendera Vietnam	none
+🇻🇳	bendera Vietnamu	none
 🇻🇺	bendera Vanuatu	none
 🇼🇫	bendera Wallis na Futuna	none
 🇼🇸	bendera Samoa	none
@@ -3341,6 +3633,25 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	bendera Uingereza	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	bendera Uskoti	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bendera Welisi	none
+¤	Sarafu isiyojulikana	none
+֏	Dram ya Armenia	none
+؋	Afghani ya Afghanistan	none
+৳	Taka ya Bangladesh	none
+฿	Baht ya Tailandi	none
+៛	Riel ya Kambodia	none
+₡	Colon ya Kostarika	none
+₦	Naira ya Nigeria	none
+₪	Shekeli Mpya ya Israel	none
+₫	Dong ya Vietnam	none
+₭	Kip ya Laosi	none
+₮	Tugrik ya Mongolia	none
+₲	Guarani ya Paragwai	none
+₴	Hryvnia ya Ukraine	none
+₵	Cedi ya Ghana	none
+₸	Tenge ya Kazakhstan	none
+₺	Lira ya Uturuki	none
+₼	Manat ya Azerbaijan	none
+₾	Lari ya Jojia	none
 0⃣	kitufe 0	none
 1⃣	kitufe 1	none
 2⃣	kitufe 2	none

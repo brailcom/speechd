@@ -3,39 +3,171 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+{	ľavá zložená zátvorka	none
 🏻	svetlý tón pleti	none
 🏼	stredne svetlý tón pleti	none
 🏽	stredný tón pleti	none
 🏾	stredne tmavý tón pleti	none
 🏿	tmavý tón pleti	none
+‾	horná čiara	none
+_	podčiarkovník	none
+-	mínusový spojovník	none
+‐	spojovník	none
 –	pomlčka	none
 —	dlhá pomlčka	none
+―	vodorovná čiara	none
+・	katakanová stredná bodka	none
+,	čiarka	none
+،	arabská čiarka	none
+、	ideografická čiarka	none
+;	bodkočiarka	none
+؛	arabská bodkočiarka	none
+:	dvojbodka	none
+!	výkričník	none
+¡	obrátený výkričník	none
+?	otáznik	none
+¿	obrátený otáznik	none
+؟	arabský otáznik	none
+‽	interrobang	none
+.	bodka	none
+…	tri bodky	none
+。	ideografická bodka	none
 ·	stredná bodka	none
-«	ľavé bočné úvodzovky	none
-»	pravé bočné úvodzovky	none
+'	rovný apostrof	none
+‘	ľavý apostrof	none
+’	pravý apostrof	none
+‚	pravý dolný apostrof	none
+“	úvodzovka vľavo hore	none
+”	úvodzovka vpravo hore	none
+„	úvodzovka vpravo dole	none
+«	ľavá bočná úvodzovka	none
+»	pravá bočná úvodzovka	none
+)	pravá zátvorka	none
+[	ľavá hranatá zátvorka	none
+]	pravá hranatá zátvorka	none
+}	pravá zložená zátvorka	none
+〈	ľavá lomená zátvorka	none
+〉	pravá lomená zátvorka	none
+《	dvojitá ľavá lomená zátvorka	none
+》	dvojitá pravá lomená zátvorka	none
+「	ľavá rohová zátvorka	none
+」	pravá rohová zátvorka	none
+『	dutá ľavá rohová zátvorka	none
+』	dutá pravá rohová zátvorka	none
+【	plná ľavá šošovková zátvorka	none
+】	plná pravá šošovková zátvorka	none
+〔	ľavá ázijská komentárová zátvorka	none
+〕	pravá ázijská komentárová zátvorka	none
+〖	dutá ľavá šošovková zátvorka	none
+〗	dutá pravá šošovková zátvorka	none
 §	odsek	none
+¶	znak odseku	none
+@	zavináč	none
+*	hviezdička	none
+/	lomka	none
+\	opačná lomka	none
+&	ampersand	none
+#	znak čísla	none
+%	percento	none
+‰	promile	none
 †	znak krížika	none
 ‡	znak dvojitého kríža	none
 •	odrážka	none
+‧	spojovacia bodka	none
+′	indexová čiarka	none
+″	dvojitá indexová čiarka	none
+‴	trojitá indexová čiarka	none
+‸	vsuvka	none
+※	komedžiruši	none
+⁂	asterizmus	none
+`	obrátený dĺžeň	none
+´	dĺžeň	none
+^	vokáň	none
+¨	dve bodky	none
 °	stupeň	none
 ℗	autorské práva na nahrávku	none
 ←	šípka smerujúca doľava	none
+↚	šípka doľava s prečiarknutím	none
 →	šípka smerujúca doprava	none
+↛	šípka doprava s prečiarknutím	none
 ↑	šípka smerujúca nahor	none
 ↓	šípka smerujúca nadol	none
+↜	vlnitá šípka doľava	none
+↝	vlnitá šípka doprava	none
+↞	šípka doľava s dvomi hlavami	none
+↟	šípka nahor s dvomi hlavami	none
+↠	šípka doprava s dvomi hlavami	none
+↡	šípka nadol s dvomi hlavami	none
+↢	šípka doľava s chvostom	none
+↣	šípka doprava s chvostom	none
+↤	šípka doľava od zvislej čiary	none
+↥	šípka nahor od zvislej čiary	none
+↦	šípka doprava od zvislej čiary	none
+↧	šípka nadol od zvislej čiary	none
+↨	šípka nahor a nadol so základňou	none
+↫	šípka doľava so slučkou	none
+↬	šípka doprava so slučkou	none
+↭	vlnitá šípka doľava a doprava	none
+↯	cik-cak šípka nadol	none
+↰	šípka nahor so špičkou doľava	none
+↱	šípka nahor so špičkou doprava	none
+↲	šípka nadol so špičkou doľava	none
+↳	šípka nadol so špičkou doprava	none
+↴	šípka doprava a nadol	none
+↵	šípka nadol a doľava	none
+↶	horná polkruhová šípka doľava	none
+↷	horná polkruhová šípka doprava	none
+↸	šípka na severozápad s čiarou nad	none
+↹	šípka doľava s čiarou nad šípkou doprava s čiarou	none
+↺	otvorená kruhová šípka doľava	none
+↻	otvorená kruhová šípka doprava	none
+↼	harpúna vľavo s hrotom nahor	none
+↽	harpúna vľavo s hrotom nadol	none
+↾	harpúna nahor s hrotom vpravo	none
+↿	harpúna nahor s hrotom vľavo	none
+⇀	harpúna vpravo s hrotom nahor	none
+⇁	harpúna vpravo s hrotom nadol	none
+⇂	harpúna nadol s hrotom vpravo	none
+⇃	harpúna nadol s hrotom vľavo	none
+⇄	šípka doprava nad šípkou doľava	none
 ⇅	šípka nahor a šípka nadol	none
 ⇆	šípka vľavo nad šípkou vpravo	none
+⇇	dvojica šípok doľava	none
+⇈	dvojica šípok nahor	none
+⇉	dvojica šípok doprava	none
+⇊	dvojica šípok nadol	none
+⇋	harpúna doľava nad harpúnou doprava	none
+⇌	harpúna doprava nad harpúnou doľava	none
+⇐	dvojitá šípka doľava	none
+⇍	dvojitá prečiarknutá šípka doľava	none
+⇑	dvojitá šípka nahor	none
+⇒	dvojitá šípka doprava	none
+⇏	dvojitá prečiarknutá šípka doprava	none
+⇓	dvojitá šípka nadol	none
 ∆	delta	none
 ∇	nabla	none
 ∈	je prvkom	none
++	znak plus	none
+±	plus-mínus	none
 ÷	znak delenia	none
 ×	znak násobenia	none
+<	je menšie než	none
+=	rovná sa	none
+≠	nerovná sa	none
+>	je väčšie než	none
+¬	negácia	none
+|	zvislá čiara	none
+~	tilda	none
+−	znak mínus	none
 ⁻	mínus horný index	none
 √	druhá odmocnina	none
 ∞	znak nekonečna	none
 ∩	prienik	none
 ∪	zjednotenie	none
+≈	je približne rovné	none
 ≡	totožné s	none
+≤	je menšie alebo rovné	none
+≥	je väčšie alebo rovné	none
 ⊂	podmnožina	none
 ▲	plný trojuholník smerujúci nahor	none
 ▼	plný trojuholník smerujúci nadol	none
@@ -43,6 +175,9 @@ symbols:
 ○	prázdny kruh	none
 ●	plný kruh	none
 ◯	veľký prázdny kruh	none
+♪	osminová nota	none
+♭	zníženie tónu	none
+♯	zvýšenie tónu	none
 😀	škeriaca sa tvár	none
 😃	škeriaca sa tvár s veľkými očami	none
 😄	škeriaca sa tvár s prižmúrenými očami	none
@@ -69,7 +204,7 @@ symbols:
 😛	tvár s vyplazeným jazykom	none
 😜	žmurkajúca tvár s vyplazeným jazykom	none
 🤪	bláznivá tvár	none
-😝	tvár s vyplazeným jazykom a privretými očami	none
+😝	škúliaca tvár s jazykom	none
 🤑	tvár s peniazmi na jazyku	none
 🤗	objímajúca tvár	none
 🤭	tvár s rukou na ústach	none
@@ -80,10 +215,12 @@ symbols:
 😐	neutrálna tvár	none
 😑	bezvýrazná tvár	none
 😶	tvár bez úst	none
+😶‍🌫	tvár v oblakoch	none
 😏	samoľúba tvár	none
 😒	znudená tvár	none
 🙄	tvár prevracajúca oči	none
 😬	vyškerená tvár	none
+😮‍💨	vydychujúca tvár	none
 🤥	tvár s dlhým nosom	none
 😌	tvár vyjadrujúca úľavu	none
 😔	zamyslená tvár	none
@@ -100,6 +237,7 @@ symbols:
 🥶	mrznúca tvár	none
 🥴	malátna tvár	none
 😵	tvár so závratom	none
+😵‍💫	tvár so špirálovými očami	none
 🤯	vybuchujúca hlava	none
 🤠	tvár s kovbojským klobúkom	none
 🥳	oslavujúca tvár	none
@@ -171,6 +309,8 @@ symbols:
 💟	ozdoba v tvare srdca	none
 ❣	výkričník v tvare srdca	none
 💔	zlomené srdce	none
+❤‍🔥	horiace srdce	none
+❤‍🩹	srdce s obväzom	none
 ❤	červené srdce	none
 🧡	oranžové srdce	none
 💛	žlté srdce	none
@@ -253,8 +393,10 @@ symbols:
 👱	svetlovlasý človek	none
 👨	muž	none
 🧔	bradáč	none
+🧔‍♂	bradatý muž	none
 👱‍♂	blondín	none
 👩	žena	none
+🧔‍♀	bradatá žena	none
 👱‍♀	blondína	none
 🧓	starší človek	none
 👴	starší muž	none
@@ -360,7 +502,7 @@ symbols:
 🤵	človek v smokingu	none
 🤵‍♂	muž v smokingu	none
 🤵‍♀	žena v smokingu	none
-👰	nevesta so závojom	none
+👰	človek so závojom	none
 👰‍♂	muž so závojom	none
 👰‍♀	žena so závojom	none
 🤰	tehotná žena	none
@@ -369,10 +511,10 @@ symbols:
 👨‍🍼	muž kŕmiaci bábätko	none
 🧑‍🍼	človek kŕmiaci bábätko	none
 👼	anjelik	none
-🎅	Santa Claus	none
-🤶	pani Clausová	none
-🧑‍🎄	Mx Claus	none
-🦸	superčlovek	none
+🎅	Santa	none
+🤶	pani Santová	none
+🧑‍🎄	Mx Santa	none
+🦸	superhrdina	none
 🦸‍♂	supermuž	none
 🦸‍♀	superžena	none
 🦹	superdarebácka bytosť	none
@@ -414,8 +556,8 @@ symbols:
 🧎	kľačiaci človek	none
 🧎‍♂	kľačiaci muž	none
 🧎‍♀	kľačiaca žena	none
-🧑‍🦯	človek so slepeckou palicou	none
-👨‍🦯	muž so slepeckou palicou	none
+🧑‍🦯	človek s bielou palicou	none
+👨‍🦯	muž s bielou palicou	none
 👩‍🦯	žena so slepeckou palicou	none
 🧑‍🦼	človek na elektrickom invalidnom vozíku	none
 👨‍🦼	muž na elektrickom invalidnom vozíku	none
@@ -834,7 +976,7 @@ symbols:
 🎠	kolotočový kôň	none
 🎡	ruské koleso	none
 🎢	horská dráha	none
-💈	stĺp v tvare špirály	none
+💈	pútač holičstva	none
 🎪	šapito	none
 🚂	rušeň	none
 🚃	vozeň	none
@@ -860,7 +1002,7 @@ symbols:
 🚖	prichádzajúci taxík	none
 🚗	auto	none
 🚘	prichádzajúce auto	none
-🚙	výletné auto	none
+🚙	SUV	none
 🛻	pikap	none
 🚚	zásobovacie auto	none
 🚛	ťahač s návesom	none
@@ -888,10 +1030,10 @@ symbols:
 ⚓	kotva	none
 ⛵	plachetnica	none
 🛶	kanoe	none
-🚤	motorový čln	none
+🚤	rýchly čln	none
 🛳	zaoceánska loď	none
 ⛴	trajekt	none
-🛥	motorová jachta	none
+🛥	motorový čln	none
 🚢	loď	none
 ✈	lietadlo	none
 🛩	malé lietadlo	none
@@ -956,7 +1098,7 @@ symbols:
 🌝	spln s tvárou	none
 🌞	slnko s tvárou	none
 🪐	planéta s prstencom	none
-⭐	biela stredná hviezda	none
+⭐	hviezda	none
 🌟	žiariaca hviezda	none
 🌠	padajúca hviezda	none
 🌌	mliečna dráha	none
@@ -996,7 +1138,7 @@ symbols:
 🎉	konfety	none
 🎊	konfetová guľa	none
 🎋	stromček tanabata	none
-🎍	bambusová dekorácia	none
+🎍	borovicová dekorácia	none
 🎎	japonské bábiky	none
 🎏	koinobori	none
 🎐	veterná zvonkohra	none
@@ -1260,7 +1402,7 @@ symbols:
 🛠	kladivo a kľúč	none
 🗡	dýka	none
 ⚔	prekrížené meče	none
-🔫	pištoľ	none
+🔫	vodná pištoľ	none
 🪃	bumerang	none
 🏹	luk a šíp	none
 🛡	štít	none
@@ -1356,6 +1498,7 @@ symbols:
 ↖	šípka doľava nahor	none
 ↕	šípka nahor aj nadol	none
 ↔	šípka doprava aj doľava	none
+↮	šípka doľava a doprava s prečiarknutím	none
 ↩	šípka doprava zakrivená doľava	none
 ↪	šípka doľava zakrivená doprava	none
 ⤴	šípka doprava zakrivená nahor	none
@@ -1426,10 +1569,10 @@ symbols:
 ♾	nekonečno	none
 ‼	dvojitý výkričník	none
 ⁉	výkričník s otáznikom	none
-❓	otáznik	none
+❓	červený otáznik	none
 ❔	biely otáznik	none
 ❕	biely výkričník	none
-❗	výkričník	none
+❗	červený výkričník	none
 〰	vlnovková pomlčka	none
 💱	zmenáreň	none
 💲	znak dolára	none
@@ -1535,11 +1678,17 @@ symbols:
 🏳‍🌈	dúhová zástava	none
 🏳‍⚧	transgenderová zástava	none
 🏴‍☠	pirátska zástava	none
+¢	cent	none
+$	dolár	none
 £	libra	none
 ¥	jen	none
+₥	mill	none
+₩	won	none
 €	euro	none
+₱	peso	none
 ₹	indická rupia	none
 ₽	rubeľ	none
+₿	bitcoin	none
 ¹	jedna horný index	none
 ²	dva horný index	none
 ³	tri horný index	none
@@ -1769,6 +1918,46 @@ symbols:
 👱🏽	svetlovlasý človek stredný tón pleti	none
 👱🏾	svetlovlasý človek stredne tmavý tón pleti	none
 👱🏿	svetlovlasý človek tmavý tón pleti	none
+🧑🏻‍❤‍💋‍🧑🏼	bozk dospelý, dospelý, svetlý tón pleti, stredne svetlý tón pleti	none
+🧑🏻‍❤‍💋‍🧑🏽	bozk dospelý, dospelý, svetlý tón pleti, stredný tón pleti	none
+🧑🏻‍❤‍💋‍🧑🏾	bozk dospelý, dospelý, svetlý tón pleti, stredne tmavý tón pleti	none
+🧑🏻‍❤‍💋‍🧑🏿	bozk dospelý, dospelý, svetlý tón pleti, tmavý tón pleti	none
+🧑🏼‍❤‍💋‍🧑🏻	bozk dospelý, dospelý, stredne svetlý tón pleti, svetlý tón pleti	none
+🧑🏼‍❤‍💋‍🧑🏽	bozk dospelý, dospelý, stredne svetlý tón pleti, stredný tón pleti	none
+🧑🏼‍❤‍💋‍🧑🏾	bozk dospelý, dospelý, stredne svetlý tón pleti, stredne tmavý tón pleti	none
+🧑🏼‍❤‍💋‍🧑🏿	bozk dospelý, dospelý, stredne svetlý tón pleti, tmavý tón pleti	none
+🧑🏽‍❤‍💋‍🧑🏻	bozk dospelý, dospelý, stredný tón pleti, svetlý tón pleti	none
+🧑🏽‍❤‍💋‍🧑🏼	bozk dospelý, dospelý, stredný tón pleti, stredne svetlý tón pleti	none
+🧑🏽‍❤‍💋‍🧑🏾	bozk dospelý, dospelý, stredný tón pleti, stredne tmavý tón pleti	none
+🧑🏽‍❤‍💋‍🧑🏿	bozk dospelý, dospelý, stredný tón pleti, tmavý tón pleti	none
+🧑🏾‍❤‍💋‍🧑🏻	bozk dospelý, dospelý, stredne tmavý tón pleti, svetlý tón pleti	none
+🧑🏾‍❤‍💋‍🧑🏼	bozk dospelý, dospelý, stredne tmavý tón pleti, stredne svetlý tón pleti	none
+🧑🏾‍❤‍💋‍🧑🏽	bozk dospelý, dospelý, stredne tmavý tón pleti, stredný tón pleti	none
+🧑🏾‍❤‍💋‍🧑🏿	bozk dospelý, dospelý, stredne tmavý tón pleti, tmavý tón pleti	none
+🧑🏿‍❤‍💋‍🧑🏻	bozk dospelý, dospelý, tmavý tón pleti, svetlý tón pleti	none
+🧑🏿‍❤‍💋‍🧑🏼	bozk dospelý, dospelý, tmavý tón pleti, stredne svetlý tón pleti	none
+🧑🏿‍❤‍💋‍🧑🏽	bozk dospelý, dospelý, tmavý tón pleti, stredný tón pleti	none
+🧑🏿‍❤‍💋‍🧑🏾	bozk dospelý, dospelý, tmavý tón pleti, stredne tmavý tón pleti	none
+🧑🏻‍❤‍🧑🏼	pár so srdcom dospelý, dospelý, svetlý tón pleti, stredne svetlý tón pleti	none
+🧑🏻‍❤‍🧑🏽	pár so srdcom dospelý, dospelý, svetlý tón pleti, stredný tón pleti	none
+🧑🏻‍❤‍🧑🏾	pár so srdcom dospelý, dospelý, svetlý tón pleti, stredne tmavý tón pleti	none
+🧑🏻‍❤‍🧑🏿	pár so srdcom dospelý, dospelý, svetlý tón pleti, tmavý tón pleti	none
+🧑🏼‍❤‍🧑🏻	pár so srdcom dospelý, dospelý, stredne svetlý tón pleti, svetlý tón pleti	none
+🧑🏼‍❤‍🧑🏽	pár so srdcom dospelý, dospelý, stredne svetlý tón pleti, stredný tón pleti	none
+🧑🏼‍❤‍🧑🏾	pár so srdcom dospelý, dospelý, stredne svetlý tón pleti, stredne tmavý tón pleti	none
+🧑🏼‍❤‍🧑🏿	pár so srdcom dospelý, dospelý, stredne svetlý tón pleti, tmavý tón pleti	none
+🧑🏽‍❤‍🧑🏻	pár so srdcom dospelý, dospelý, stredný tón pleti, svetlý tón pleti	none
+🧑🏽‍❤‍🧑🏼	pár so srdcom dospelý, dospelý, stredný tón pleti, stredne svetlý tón pleti	none
+🧑🏽‍❤‍🧑🏾	pár so srdcom dospelý, dospelý, stredný tón pleti, stredne tmavý tón pleti	none
+🧑🏽‍❤‍🧑🏿	pár so srdcom dospelý, dospelý, stredný tón pleti, tmavý tón pleti	none
+🧑🏾‍❤‍🧑🏻	pár so srdcom dospelý, dospelý, stredne tmavý tón pleti, svetlý tón pleti	none
+🧑🏾‍❤‍🧑🏼	pár so srdcom dospelý, dospelý, stredne tmavý tón pleti, stredne svetlý tón pleti	none
+🧑🏾‍❤‍🧑🏽	pár so srdcom dospelý, dospelý, stredne tmavý tón pleti, stredný tón pleti	none
+🧑🏾‍❤‍🧑🏿	pár so srdcom dospelý, dospelý, stredne tmavý tón pleti, tmavý tón pleti	none
+🧑🏿‍❤‍🧑🏻	pár so srdcom dospelý, dospelý, tmavý tón pleti, svetlý tón pleti	none
+🧑🏿‍❤‍🧑🏼	pár so srdcom dospelý, dospelý, tmavý tón pleti, stredne svetlý tón pleti	none
+🧑🏿‍❤‍🧑🏽	pár so srdcom dospelý, dospelý, tmavý tón pleti, stredný tón pleti	none
+🧑🏿‍❤‍🧑🏾	pár so srdcom dospelý, dospelý, tmavý tón pleti, stredne tmavý tón pleti	none
 🧑‍🦰	dospelý ryšavé vlasy	none
 🧑🏻‍🦰	dospelý svetlý tón pleti, ryšavé vlasy	none
 🧑🏼‍🦰	dospelý stredne svetlý tón pleti, ryšavé vlasy	none
@@ -1803,11 +1992,66 @@ symbols:
 🧔🏽	bradáč stredný tón pleti	none
 🧔🏾	bradáč stredne tmavý tón pleti	none
 🧔🏿	bradáč tmavý tón pleti	none
+🧔🏻‍♂	bradatý muž svetlý tón pleti	none
+🧔🏼‍♂	bradatý muž stredne svetlý tón pleti	none
+🧔🏽‍♂	bradatý muž stredný tón pleti	none
+🧔🏾‍♂	bradatý muž stredne tmavý tón pleti	none
+🧔🏿‍♂	bradatý muž tmavý tón pleti	none
 👱🏻‍♂	blondín svetlý tón pleti	none
 👱🏼‍♂	blondín stredne svetlý tón pleti	none
 👱🏽‍♂	blondín stredný tón pleti	none
 👱🏾‍♂	blondín stredne tmavý tón pleti	none
 👱🏿‍♂	blondín tmavý tón pleti	none
+👨🏻‍❤‍💋‍👨🏻	bozk muž, muž, svetlý tón pleti	none
+👨🏻‍❤‍💋‍👨🏼	bozk muž, muž, svetlý tón pleti, stredne svetlý tón pleti	none
+👨🏻‍❤‍💋‍👨🏽	bozk muž, muž, svetlý tón pleti, stredný tón pleti	none
+👨🏻‍❤‍💋‍👨🏾	bozk muž, muž, svetlý tón pleti, stredne tmavý tón pleti	none
+👨🏻‍❤‍💋‍👨🏿	bozk muž, muž, svetlý tón pleti, tmavý tón pleti	none
+👨🏼‍❤‍💋‍👨🏻	bozk muž, muž, stredne svetlý tón pleti, svetlý tón pleti	none
+👨🏼‍❤‍💋‍👨🏼	bozk muž, muž, stredne svetlý tón pleti	none
+👨🏼‍❤‍💋‍👨🏽	bozk muž, muž, stredne svetlý tón pleti, stredný tón pleti	none
+👨🏼‍❤‍💋‍👨🏾	bozk muž, muž, stredne svetlý tón pleti, stredne tmavý tón pleti	none
+👨🏼‍❤‍💋‍👨🏿	bozk muž, muž, stredne svetlý tón pleti, tmavý tón pleti	none
+👨🏽‍❤‍💋‍👨🏻	bozk muž, muž, stredný tón pleti, svetlý tón pleti	none
+👨🏽‍❤‍💋‍👨🏼	bozk muž, muž, stredný tón pleti, stredne svetlý tón pleti	none
+👨🏽‍❤‍💋‍👨🏽	bozk muž, muž, stredný tón pleti	none
+👨🏽‍❤‍💋‍👨🏾	bozk muž, muž, stredný tón pleti, stredne tmavý tón pleti	none
+👨🏽‍❤‍💋‍👨🏿	bozk muž, muž, stredný tón pleti, tmavý tón pleti	none
+👨🏾‍❤‍💋‍👨🏻	bozk muž, muž, stredne tmavý tón pleti, svetlý tón pleti	none
+👨🏾‍❤‍💋‍👨🏼	bozk muž, muž, stredne tmavý tón pleti, stredne svetlý tón pleti	none
+👨🏾‍❤‍💋‍👨🏽	bozk muž, muž, stredne tmavý tón pleti, stredný tón pleti	none
+👨🏾‍❤‍💋‍👨🏾	bozk muž, muž, stredne tmavý tón pleti	none
+👨🏾‍❤‍💋‍👨🏿	bozk muž, muž, stredne tmavý tón pleti, tmavý tón pleti	none
+👨🏿‍❤‍💋‍👨🏻	bozk muž, muž, tmavý tón pleti, svetlý tón pleti	none
+👨🏿‍❤‍💋‍👨🏼	bozk muž, muž, tmavý tón pleti, stredne svetlý tón pleti	none
+👨🏿‍❤‍💋‍👨🏽	bozk muž, muž, tmavý tón pleti, stredný tón pleti	none
+👨🏿‍❤‍💋‍👨🏾	bozk muž, muž, tmavý tón pleti, stredne tmavý tón pleti	none
+👨🏿‍❤‍💋‍👨🏿	bozk muž, muž, tmavý tón pleti	none
+👨🏻‍❤‍👨🏻	pár so srdcom muž, muž, svetlý tón pleti	none
+👨🏻‍❤‍👨🏼	pár so srdcom muž, muž, svetlý tón pleti, stredne svetlý tón pleti	none
+👨🏻‍❤‍👨🏽	pár so srdcom muž, muž, svetlý tón pleti, stredný tón pleti	none
+👨🏻‍❤‍👨🏾	pár so srdcom muž, muž, svetlý tón pleti, stredne tmavý tón pleti	none
+👨🏻‍❤‍👨🏿	pár so srdcom muž, muž, svetlý tón pleti, tmavý tón pleti	none
+👨🏼‍❤‍👨🏻	pár so srdcom muž, muž, stredne svetlý tón pleti, svetlý tón pleti	none
+👨🏼‍❤‍👨🏼	pár so srdcom muž, muž, stredne svetlý tón pleti	none
+👨🏼‍❤‍👨🏽	pár so srdcom muž, muž, stredne svetlý tón pleti, stredný tón pleti	none
+👨🏼‍❤‍👨🏾	pár so srdcom muž, muž, stredne svetlý tón pleti, stredne tmavý tón pleti	none
+👨🏼‍❤‍👨🏿	pár so srdcom muž, muž, stredne svetlý tón pleti, tmavý tón pleti	none
+👨🏽‍❤‍👨🏻	pár so srdcom muž, muž, stredný tón pleti, svetlý tón pleti	none
+👨🏽‍❤‍👨🏼	pár so srdcom muž, muž, stredný tón pleti, stredne svetlý tón pleti	none
+👨🏽‍❤‍👨🏽	pár so srdcom muž, muž, stredný tón pleti	none
+👨🏽‍❤‍👨🏾	pár so srdcom muž, muž, stredný tón pleti, stredne tmavý tón pleti	none
+👨🏽‍❤‍👨🏿	pár so srdcom muž, muž, stredný tón pleti, tmavý tón pleti	none
+👨🏾‍❤‍👨🏻	pár so srdcom muž, muž, stredne tmavý tón pleti, svetlý tón pleti	none
+👨🏾‍❤‍👨🏼	pár so srdcom muž, muž, stredne tmavý tón pleti, stredne svetlý tón pleti	none
+👨🏾‍❤‍👨🏽	pár so srdcom muž, muž, stredne tmavý tón pleti, stredný tón pleti	none
+👨🏾‍❤‍👨🏾	pár so srdcom muž, muž, stredne tmavý tón pleti	none
+👨🏾‍❤‍👨🏿	pár so srdcom muž, muž, stredne tmavý tón pleti, tmavý tón pleti	none
+👨🏿‍❤‍👨🏻	pár so srdcom muž, muž, tmavý tón pleti, svetlý tón pleti	none
+👨🏿‍❤‍👨🏼	pár so srdcom muž, muž, tmavý tón pleti, stredne svetlý tón pleti	none
+👨🏿‍❤‍👨🏽	pár so srdcom muž, muž, tmavý tón pleti, stredný tón pleti	none
+👨🏿‍❤‍👨🏾	pár so srdcom muž, muž, tmavý tón pleti, stredne tmavý tón pleti	none
+👨🏿‍❤‍👨🏿	pár so srdcom muž, muž, tmavý tón pleti	none
 👨‍🦰	muž ryšavé vlasy	none
 👨🏻‍🦰	muž svetlý tón pleti, ryšavé vlasy	none
 👨🏼‍🦰	muž stredne svetlý tón pleti, ryšavé vlasy	none
@@ -1837,11 +2081,116 @@ symbols:
 👩🏽	žena stredný tón pleti	none
 👩🏾	žena stredne tmavý tón pleti	none
 👩🏿	žena tmavý tón pleti	none
+🧔🏻‍♀	bradatá žena svetlý tón pleti	none
+🧔🏼‍♀	bradatá žena stredne svetlý tón pleti	none
+🧔🏽‍♀	bradatá žena stredný tón pleti	none
+🧔🏾‍♀	bradatá žena stredne tmavý tón pleti	none
+🧔🏿‍♀	bradatá žena tmavý tón pleti	none
 👱🏻‍♀	blondína svetlý tón pleti	none
 👱🏼‍♀	blondína stredne svetlý tón pleti	none
 👱🏽‍♀	blondína stredný tón pleti	none
 👱🏾‍♀	blondína stredne tmavý tón pleti	none
 👱🏿‍♀	blondína tmavý tón pleti	none
+👩🏻‍❤‍💋‍👨🏻	bozk žena, muž, svetlý tón pleti	none
+👩🏻‍❤‍💋‍👨🏼	bozk žena, muž, svetlý tón pleti, stredne svetlý tón pleti	none
+👩🏻‍❤‍💋‍👨🏽	bozk žena, muž, svetlý tón pleti, stredný tón pleti	none
+👩🏻‍❤‍💋‍👨🏾	bozk žena, muž, svetlý tón pleti, stredne tmavý tón pleti	none
+👩🏻‍❤‍💋‍👨🏿	bozk žena, muž, svetlý tón pleti, tmavý tón pleti	none
+👩🏼‍❤‍💋‍👨🏻	bozk žena, muž, stredne svetlý tón pleti, svetlý tón pleti	none
+👩🏼‍❤‍💋‍👨🏼	bozk žena, muž, stredne svetlý tón pleti	none
+👩🏼‍❤‍💋‍👨🏽	bozk žena, muž, stredne svetlý tón pleti, stredný tón pleti	none
+👩🏼‍❤‍💋‍👨🏾	bozk žena, muž, stredne svetlý tón pleti, stredne tmavý tón pleti	none
+👩🏼‍❤‍💋‍👨🏿	bozk žena, muž, stredne svetlý tón pleti, tmavý tón pleti	none
+👩🏽‍❤‍💋‍👨🏻	bozk žena, muž, stredný tón pleti, svetlý tón pleti	none
+👩🏽‍❤‍💋‍👨🏼	bozk žena, muž, stredný tón pleti, stredne svetlý tón pleti	none
+👩🏽‍❤‍💋‍👨🏽	bozk žena, muž, stredný tón pleti	none
+👩🏽‍❤‍💋‍👨🏾	bozk žena, muž, stredný tón pleti, stredne tmavý tón pleti	none
+👩🏽‍❤‍💋‍👨🏿	bozk žena, muž, stredný tón pleti, tmavý tón pleti	none
+👩🏾‍❤‍💋‍👨🏻	bozk žena, muž, stredne tmavý tón pleti, svetlý tón pleti	none
+👩🏾‍❤‍💋‍👨🏼	bozk žena, muž, stredne tmavý tón pleti, stredne svetlý tón pleti	none
+👩🏾‍❤‍💋‍👨🏽	bozk žena, muž, stredne tmavý tón pleti, stredný tón pleti	none
+👩🏾‍❤‍💋‍👨🏾	bozk žena, muž, stredne tmavý tón pleti	none
+👩🏾‍❤‍💋‍👨🏿	bozk žena, muž, stredne tmavý tón pleti, tmavý tón pleti	none
+👩🏿‍❤‍💋‍👨🏻	bozk žena, muž, tmavý tón pleti, svetlý tón pleti	none
+👩🏿‍❤‍💋‍👨🏼	bozk žena, muž, tmavý tón pleti, stredne svetlý tón pleti	none
+👩🏿‍❤‍💋‍👨🏽	bozk žena, muž, tmavý tón pleti, stredný tón pleti	none
+👩🏿‍❤‍💋‍👨🏾	bozk žena, muž, tmavý tón pleti, stredne tmavý tón pleti	none
+👩🏿‍❤‍💋‍👨🏿	bozk žena, muž, tmavý tón pleti	none
+👩🏻‍❤‍💋‍👩🏻	bozk žena, žena, svetlý tón pleti	none
+👩🏻‍❤‍💋‍👩🏼	bozk žena, žena, svetlý tón pleti, stredne svetlý tón pleti	none
+👩🏻‍❤‍💋‍👩🏽	bozk žena, žena, svetlý tón pleti, stredný tón pleti	none
+👩🏻‍❤‍💋‍👩🏾	bozk žena, žena, svetlý tón pleti, stredne tmavý tón pleti	none
+👩🏻‍❤‍💋‍👩🏿	bozk žena, žena, svetlý tón pleti, tmavý tón pleti	none
+👩🏼‍❤‍💋‍👩🏻	bozk žena, žena, stredne svetlý tón pleti, svetlý tón pleti	none
+👩🏼‍❤‍💋‍👩🏼	bozk žena, žena, stredne svetlý tón pleti	none
+👩🏼‍❤‍💋‍👩🏽	bozk žena, žena, stredne svetlý tón pleti, stredný tón pleti	none
+👩🏼‍❤‍💋‍👩🏾	bozk žena, žena, stredne svetlý tón pleti, stredne tmavý tón pleti	none
+👩🏼‍❤‍💋‍👩🏿	bozk žena, žena, stredne svetlý tón pleti, tmavý tón pleti	none
+👩🏽‍❤‍💋‍👩🏻	bozk žena, žena, stredný tón pleti, svetlý tón pleti	none
+👩🏽‍❤‍💋‍👩🏼	bozk žena, žena, stredný tón pleti, stredne svetlý tón pleti	none
+👩🏽‍❤‍💋‍👩🏽	bozk žena, žena, stredný tón pleti	none
+👩🏽‍❤‍💋‍👩🏾	bozk žena, žena, stredný tón pleti, stredne tmavý tón pleti	none
+👩🏽‍❤‍💋‍👩🏿	bozk žena, žena, stredný tón pleti, tmavý tón pleti	none
+👩🏾‍❤‍💋‍👩🏻	bozk žena, žena, stredne tmavý tón pleti, svetlý tón pleti	none
+👩🏾‍❤‍💋‍👩🏼	bozk žena, žena, stredne tmavý tón pleti, stredne svetlý tón pleti	none
+👩🏾‍❤‍💋‍👩🏽	bozk žena, žena, stredne tmavý tón pleti, stredný tón pleti	none
+👩🏾‍❤‍💋‍👩🏾	bozk žena, žena, stredne tmavý tón pleti	none
+👩🏾‍❤‍💋‍👩🏿	bozk žena, žena, stredne tmavý tón pleti, tmavý tón pleti	none
+👩🏿‍❤‍💋‍👩🏻	bozk žena, žena, tmavý tón pleti, svetlý tón pleti	none
+👩🏿‍❤‍💋‍👩🏼	bozk žena, žena, tmavý tón pleti, stredne svetlý tón pleti	none
+👩🏿‍❤‍💋‍👩🏽	bozk žena, žena, tmavý tón pleti, stredný tón pleti	none
+👩🏿‍❤‍💋‍👩🏾	bozk žena, žena, tmavý tón pleti, stredne tmavý tón pleti	none
+👩🏿‍❤‍💋‍👩🏿	bozk žena, žena, tmavý tón pleti	none
+👩🏻‍❤‍👨🏻	pár so srdcom žena, muž, svetlý tón pleti	none
+👩🏻‍❤‍👨🏼	pár so srdcom žena, muž, svetlý tón pleti, stredne svetlý tón pleti	none
+👩🏻‍❤‍👨🏽	pár so srdcom žena, muž, svetlý tón pleti, stredný tón pleti	none
+👩🏻‍❤‍👨🏾	pár so srdcom žena, muž, svetlý tón pleti, stredne tmavý tón pleti	none
+👩🏻‍❤‍👨🏿	pár so srdcom žena, muž, svetlý tón pleti, tmavý tón pleti	none
+👩🏼‍❤‍👨🏻	pár so srdcom žena, muž, stredne svetlý tón pleti, svetlý tón pleti	none
+👩🏼‍❤‍👨🏼	pár so srdcom žena, muž, stredne svetlý tón pleti	none
+👩🏼‍❤‍👨🏽	pár so srdcom žena, muž, stredne svetlý tón pleti, stredný tón pleti	none
+👩🏼‍❤‍👨🏾	pár so srdcom žena, muž, stredne svetlý tón pleti, stredne tmavý tón pleti	none
+👩🏼‍❤‍👨🏿	pár so srdcom žena, muž, stredne svetlý tón pleti, tmavý tón pleti	none
+👩🏽‍❤‍👨🏻	pár so srdcom žena, muž, stredný tón pleti, svetlý tón pleti	none
+👩🏽‍❤‍👨🏼	pár so srdcom žena, muž, stredný tón pleti, stredne svetlý tón pleti	none
+👩🏽‍❤‍👨🏽	pár so srdcom žena, muž, stredný tón pleti	none
+👩🏽‍❤‍👨🏾	pár so srdcom žena, muž, stredný tón pleti, stredne tmavý tón pleti	none
+👩🏽‍❤‍👨🏿	pár so srdcom žena, muž, stredný tón pleti, tmavý tón pleti	none
+👩🏾‍❤‍👨🏻	pár so srdcom žena, muž, stredne tmavý tón pleti, svetlý tón pleti	none
+👩🏾‍❤‍👨🏼	pár so srdcom žena, muž, stredne tmavý tón pleti, stredne svetlý tón pleti	none
+👩🏾‍❤‍👨🏽	pár so srdcom žena, muž, stredne tmavý tón pleti, stredný tón pleti	none
+👩🏾‍❤‍👨🏾	pár so srdcom žena, muž, stredne tmavý tón pleti	none
+👩🏾‍❤‍👨🏿	pár so srdcom žena, muž, stredne tmavý tón pleti, tmavý tón pleti	none
+👩🏿‍❤‍👨🏻	pár so srdcom žena, muž, tmavý tón pleti, svetlý tón pleti	none
+👩🏿‍❤‍👨🏼	pár so srdcom žena, muž, tmavý tón pleti, stredne svetlý tón pleti	none
+👩🏿‍❤‍👨🏽	pár so srdcom žena, muž, tmavý tón pleti, stredný tón pleti	none
+👩🏿‍❤‍👨🏾	pár so srdcom žena, muž, tmavý tón pleti, stredne tmavý tón pleti	none
+👩🏿‍❤‍👨🏿	pár so srdcom žena, muž, tmavý tón pleti	none
+👩🏻‍❤‍👩🏻	pár so srdcom žena, žena, svetlý tón pleti	none
+👩🏻‍❤‍👩🏼	pár so srdcom žena, žena, svetlý tón pleti, stredne svetlý tón pleti	none
+👩🏻‍❤‍👩🏽	pár so srdcom žena, žena, svetlý tón pleti, stredný tón pleti	none
+👩🏻‍❤‍👩🏾	pár so srdcom žena, žena, svetlý tón pleti, stredne tmavý tón pleti	none
+👩🏻‍❤‍👩🏿	pár so srdcom žena, žena, svetlý tón pleti, tmavý tón pleti	none
+👩🏼‍❤‍👩🏻	pár so srdcom žena, žena, stredne svetlý tón pleti, svetlý tón pleti	none
+👩🏼‍❤‍👩🏼	pár so srdcom žena, žena, stredne svetlý tón pleti	none
+👩🏼‍❤‍👩🏽	pár so srdcom žena, žena, stredne svetlý tón pleti, stredný tón pleti	none
+👩🏼‍❤‍👩🏾	pár so srdcom žena, žena, stredne svetlý tón pleti, stredne tmavý tón pleti	none
+👩🏼‍❤‍👩🏿	pár so srdcom žena, žena, stredne svetlý tón pleti, tmavý tón pleti	none
+👩🏽‍❤‍👩🏻	pár so srdcom žena, žena, stredný tón pleti, svetlý tón pleti	none
+👩🏽‍❤‍👩🏼	pár so srdcom žena, žena, stredný tón pleti, stredne svetlý tón pleti	none
+👩🏽‍❤‍👩🏽	pár so srdcom žena, žena, stredný tón pleti	none
+👩🏽‍❤‍👩🏾	pár so srdcom žena, žena, stredný tón pleti, stredne tmavý tón pleti	none
+👩🏽‍❤‍👩🏿	pár so srdcom žena, žena, stredný tón pleti, tmavý tón pleti	none
+👩🏾‍❤‍👩🏻	pár so srdcom žena, žena, stredne tmavý tón pleti, svetlý tón pleti	none
+👩🏾‍❤‍👩🏼	pár so srdcom žena, žena, stredne tmavý tón pleti, stredne svetlý tón pleti	none
+👩🏾‍❤‍👩🏽	pár so srdcom žena, žena, stredne tmavý tón pleti, stredný tón pleti	none
+👩🏾‍❤‍👩🏾	pár so srdcom žena, žena, stredne tmavý tón pleti	none
+👩🏾‍❤‍👩🏿	pár so srdcom žena, žena, stredne tmavý tón pleti, tmavý tón pleti	none
+👩🏿‍❤‍👩🏻	pár so srdcom žena, žena, tmavý tón pleti, svetlý tón pleti	none
+👩🏿‍❤‍👩🏼	pár so srdcom žena, žena, tmavý tón pleti, stredne svetlý tón pleti	none
+👩🏿‍❤‍👩🏽	pár so srdcom žena, žena, tmavý tón pleti, stredný tón pleti	none
+👩🏿‍❤‍👩🏾	pár so srdcom žena, žena, tmavý tón pleti, stredne tmavý tón pleti	none
+👩🏿‍❤‍👩🏿	pár so srdcom žena, žena, tmavý tón pleti	none
 👩‍🦰	žena ryšavé vlasy	none
 👩🏻‍🦰	žena svetlý tón pleti, ryšavé vlasy	none
 👩🏼‍🦰	žena stredne svetlý tón pleti, ryšavé vlasy	none
@@ -2386,11 +2735,11 @@ symbols:
 🤵🏽‍♀	žena v smokingu stredný tón pleti	none
 🤵🏾‍♀	žena v smokingu stredne tmavý tón pleti	none
 🤵🏿‍♀	žena v smokingu tmavý tón pleti	none
-👰🏻	nevesta so závojom svetlý tón pleti	none
-👰🏼	nevesta so závojom stredne svetlý tón pleti	none
-👰🏽	nevesta so závojom stredný tón pleti	none
-👰🏾	nevesta so závojom stredne tmavý tón pleti	none
-👰🏿	nevesta so závojom tmavý tón pleti	none
+👰🏻	človek so závojom svetlý tón pleti	none
+👰🏼	človek so závojom stredne svetlý tón pleti	none
+👰🏽	človek so závojom stredný tón pleti	none
+👰🏾	človek so závojom stredne tmavý tón pleti	none
+👰🏿	človek so závojom tmavý tón pleti	none
 👰🏻‍♂	muž so závojom svetlý tón pleti	none
 👰🏼‍♂	muž so závojom stredne svetlý tón pleti	none
 👰🏽‍♂	muž so závojom stredný tón pleti	none
@@ -2431,26 +2780,26 @@ symbols:
 👼🏽	anjelik stredný tón pleti	none
 👼🏾	anjelik stredne tmavý tón pleti	none
 👼🏿	anjelik tmavý tón pleti	none
-🎅🏻	Santa Claus svetlý tón pleti	none
-🎅🏼	Santa Claus stredne svetlý tón pleti	none
-🎅🏽	Santa Claus stredný tón pleti	none
-🎅🏾	Santa Claus stredne tmavý tón pleti	none
-🎅🏿	Santa Claus tmavý tón pleti	none
-🤶🏻	pani Clausová svetlý tón pleti	none
-🤶🏼	pani Clausová stredne svetlý tón pleti	none
-🤶🏽	pani Clausová stredný tón pleti	none
-🤶🏾	pani Clausová stredne tmavý tón pleti	none
-🤶🏿	pani Clausová tmavý tón pleti	none
-🧑🏻‍🎄	Mx Claus svetlý tón pleti	none
-🧑🏼‍🎄	Mx Claus stredne svetlý tón pleti	none
-🧑🏽‍🎄	Mx Claus stredný tón pleti	none
-🧑🏾‍🎄	Mx Claus stredne tmavý tón pleti	none
-🧑🏿‍🎄	Mx Claus tmavý tón pleti	none
-🦸🏻	superčlovek svetlý tón pleti	none
-🦸🏼	superčlovek stredne svetlý tón pleti	none
-🦸🏽	superčlovek stredný tón pleti	none
-🦸🏾	superčlovek stredne tmavý tón pleti	none
-🦸🏿	superčlovek tmavý tón pleti	none
+🎅🏻	Santa svetlý tón pleti	none
+🎅🏼	Santa stredne svetlý tón pleti	none
+🎅🏽	Santa stredný tón pleti	none
+🎅🏾	Santa stredne tmavý tón pleti	none
+🎅🏿	Santa tmavý tón pleti	none
+🤶🏻	pani Santová svetlý tón pleti	none
+🤶🏼	pani Santová stredne svetlý tón pleti	none
+🤶🏽	pani Santová stredný tón pleti	none
+🤶🏾	pani Santová stredne tmavý tón pleti	none
+🤶🏿	pani Santová tmavý tón pleti	none
+🧑🏻‍🎄	Mx Santa svetlý tón pleti	none
+🧑🏼‍🎄	Mx Santa stredne svetlý tón pleti	none
+🧑🏽‍🎄	Mx Santa stredný tón pleti	none
+🧑🏾‍🎄	Mx Santa stredne tmavý tón pleti	none
+🧑🏿‍🎄	Mx Santa tmavý tón pleti	none
+🦸🏻	superhrdina svetlý tón pleti	none
+🦸🏼	superhrdina stredne svetlý tón pleti	none
+🦸🏽	superhrdina stredný tón pleti	none
+🦸🏾	superhrdina stredne tmavý tón pleti	none
+🦸🏿	superhrdina tmavý tón pleti	none
 🦸🏻‍♂	supermuž svetlý tón pleti	none
 🦸🏼‍♂	supermuž stredne svetlý tón pleti	none
 🦸🏽‍♂	supermuž stredný tón pleti	none
@@ -2626,16 +2975,16 @@ symbols:
 🧎🏽‍♀	kľačiaca žena stredný tón pleti	none
 🧎🏾‍♀	kľačiaca žena stredne tmavý tón pleti	none
 🧎🏿‍♀	kľačiaca žena tmavý tón pleti	none
-🧑🏻‍🦯	človek so slepeckou palicou svetlý tón pleti	none
-🧑🏼‍🦯	človek so slepeckou palicou stredne svetlý tón pleti	none
-🧑🏽‍🦯	človek so slepeckou palicou stredný tón pleti	none
-🧑🏾‍🦯	človek so slepeckou palicou stredne tmavý tón pleti	none
-🧑🏿‍🦯	človek so slepeckou palicou tmavý tón pleti	none
-👨🏻‍🦯	muž so slepeckou palicou svetlý tón pleti	none
-👨🏼‍🦯	muž so slepeckou palicou stredne svetlý tón pleti	none
-👨🏽‍🦯	muž so slepeckou palicou stredný tón pleti	none
-👨🏾‍🦯	muž so slepeckou palicou stredne tmavý tón pleti	none
-👨🏿‍🦯	muž so slepeckou palicou tmavý tón pleti	none
+🧑🏻‍🦯	človek s bielou palicou svetlý tón pleti	none
+🧑🏼‍🦯	človek s bielou palicou stredne svetlý tón pleti	none
+🧑🏽‍🦯	človek s bielou palicou stredný tón pleti	none
+🧑🏾‍🦯	človek s bielou palicou stredne tmavý tón pleti	none
+🧑🏿‍🦯	človek s bielou palicou tmavý tón pleti	none
+👨🏻‍🦯	muž s bielou palicou svetlý tón pleti	none
+👨🏼‍🦯	muž s bielou palicou stredne svetlý tón pleti	none
+👨🏽‍🦯	muž s bielou palicou stredný tón pleti	none
+👨🏾‍🦯	muž s bielou palicou stredne tmavý tón pleti	none
+👨🏿‍🦯	muž s bielou palicou tmavý tón pleti	none
 👩🏻‍🦯	žena so slepeckou palicou svetlý tón pleti	none
 👩🏼‍🦯	žena so slepeckou palicou stredne svetlý tón pleti	none
 👩🏽‍🦯	žena so slepeckou palicou stredný tón pleti	none
@@ -3341,6 +3690,26 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	zástava Anglicko	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	zástava Škótsko	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	zástava Wales	none
+¤	neznáma mena	none
+֏	arménsky dram	none
+؋	afganský afgání	none
+৳	bangladéšska taka	none
+฿	thajský baht	none
+៛	kambodžský riel	none
+₡	kostarický colón	none
+₦	nigérijská naira	none
+₧	španielska peseta	none
+₪	izraelský šekel	none
+₫	vietnamský dong	none
+₭	laoský kip	none
+₮	mongolský tugrik	none
+₲	paraguajské guaraní	none
+₴	ukrajinská hrivna	none
+₵	ghanské cedi	none
+₸	kazašské tenge	none
+₺	turecká líra	none
+₼	azerbajdžanský manat	none
+₾	gruzínske lari	none
 0⃣	kláves 0	none
 1⃣	kláves 1	none
 2⃣	kláves 2	none

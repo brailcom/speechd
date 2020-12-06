@@ -3,39 +3,131 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+{	chave de abertura	none
 🏻	pele clara	none
 🏼	pele morena clara	none
 🏽	pele morena	none
 🏾	pele morena escura	none
 🏿	pele escura	none
+‾	linha superior	none
+_	traço baixo	none
+-	hífen	none
+‐	h´ífen	none
 –	meia-risca	none
 —	travessão	none
+―	barra horizontal	none
+・	ponto mediano katakana	none
+,	vírgula	none
+،	vírgula árabe	none
+、	vírgula ideográfica	none
+;	ponto e vírgula	none
+؛	ponto e vírgula árabe	none
+:	dois pontos	none
+!	ponto de exclamação	none
+¡	ponto de exclamação invertido	none
+?	ponto de interrogação	none
+¿	ponto de interrogação invertido	none
+؟	ponto de interrogação árabe	none
+.	ponto final	none
+…	reticências	none
+。	ponto ideográfico	none
 ·	ponto mediano	none
+'	apóstrofo da máquina de escrever	none
+‘	apóstrofo esquerdo	none
+’	apóstrofo direito	none
+‚	apóstrofo inferior direito	none
+“	aspas esquerdas	none
+”	aspas direitas	none
+„	aspas inferiores direitas	none
 «	aspas em linha para a esquerda	none
 »	aspas em linha para a direita	none
+)	parêntese de fechamento	none
+[	colchete quadrado de abertura	none
+]	colchete quadrado de fechamento	none
+}	chave de fechamento	none
+〈	colchete angular de abertura	none
+〉	colchete angular de fechamento	none
+《	colchete angular duplo de abertura	none
+》	colchete angular duplo de fechamento	none
+「	parêntese japonês kagikakko de abertura	none
+」	parêntese japonês kagikakko de fechamento	none
+『	parêntese kagikakko duplo de abertura	none
+』	parêntese kagikakko duplo de fechamento	none
+【	colchete lenticular preto de abertura	none
+】	colchete lenticular preto de fechamento	none
+〔	colchete casco de tartaruga de abertura	none
+〕	colchete casco de tartaruga de fechamento	none
+〖	colchete lenticular branco de abertura	none
+〗	colchete lenticular branco de fechamento	none
 §	seção	none
+¶	pé de mosca	none
+@	arroba	none
+*	asterisco	none
+/	barra	none
+\	barra inversa	none
+&	ampersand	none
+#	cerquilha	none
+%	porcentagem	none
+‰	por mil	none
 †	obelisco	none
 ‡	obelisco duplo	none
 •	ponto lista	none
+‧	ponto de hifenização	none
+′	plica	none
+″	plica dupla	none
+‴	plica tripla	none
+※	marca de referência	none
+⁂	asterismo	none
+`	acento grave	none
+´	acento agudo	none
+^	acento circunflexo	none
+¨	trema	none
 °	grau	none
 ℗	símbolo de direitos autorais de fonograma	none
 ←	seta apontando para a esquerda	none
+↚	traçado de seta para a esquerda	none
 →	seta apontando para a direita	none
+↛	traçado de seta para a direita	none
 ↑	seta apontando para cima	none
 ↓	seta apontando para baixo	none
+↜	seta ondulada para a esquerda	none
+↝	seta ondulada para a direita	none
+↞	seta de duas pontas para a esquerda	none
+↟	seta de duas pontas para cima	none
+↠	seta de duas pontas para a direita	none
+↡	seta de duas pontas para baixo	none
+↢	flecha com cauda para a esquerda	none
+↣	flecha com cauda para a direita	none
+↤	flecha com barra para a esquerda	none
+↥	flecha com barra para cima	none
+↦	flecha com barra para a direita	none
+↧	flecha com barra para baixo	none
 ⇅	setas apontando para cima e para baixo	none
 ⇆	setas apontando para a esquerda e para a direita	none
 ∆	delta	none
 ∇	nabla	none
 ∈	elemento de	none
++	sinal de mais	none
+±	mais ou menos	none
 ÷	sinal de divisão	none
 ×	símbolo de multiplicação	none
+<	menor que	none
+=	igual	none
+≠	desigual	none
+>	maior que	none
+¬	negação	none
+|	linha vertical	none
+~	til	none
+−	sinal de menos	none
 ⁻	menos sobrescrito	none
 √	raiz quadrada	none
 ∞	sinal de infinito	none
 ∩	interseção	none
 ∪	união	none
+≈	quase igual	none
 ≡	igual a	none
+≤	menor que ou igual a	none
+≥	maior que ou igual	none
 ⊂	subconjunto de	none
 ▲	triângulo preenchido apontando para cima	none
 ▼	triângulo preenchido apontando para baixo	none
@@ -43,6 +135,9 @@ symbols:
 ○	círculo vazio	none
 ●	círculo preenchido	none
 ◯	círculo vazio grande	none
+♪	colcheia	none
+♭	bemol	none
+♯	sustenido	none
 😀	rosto risonho	none
 😃	rosto risonho com olhos bem abertos	none
 😄	rosto risonho com olhos sorridentes	none
@@ -80,10 +175,12 @@ symbols:
 😐	rosto neutro	none
 😑	rosto inexpressivo	none
 😶	rosto sem boca	none
+😶‍🌫	rosto nas nuvens	none
 😏	rosto com sorriso maroto	none
 😒	rosto aborrecido	none
 🙄	rosto com olhos revirados	none
 😬	rosto expressando desagrado	none
+😮‍💨	rosto exalando	none
 🤥	rosto de mentiroso	none
 😌	rosto aliviado	none
 😔	rosto deprimido	none
@@ -100,6 +197,7 @@ symbols:
 🥶	rosto gelado	none
 🥴	rosto embriagado	none
 😵	rosto atordoado	none
+😵‍💫	rosto com olhos em espiral	none
 🤯	cabeça explodindo	none
 🤠	rosto com chapéu de caubói	none
 🥳	rosto festivo	none
@@ -171,6 +269,8 @@ symbols:
 💟	coração decorativo	none
 ❣	exclamação de coração	none
 💔	coração partido	none
+❤‍🔥	coração em chamas	none
+❤‍🩹	coração remendado	none
 ❤	coração vermelho	none
 🧡	coração laranja	none
 💛	coração amarelo	none
@@ -253,8 +353,10 @@ symbols:
 👱	pessoa cabelo louro	none
 👨	homem	none
 🧔	homem barba	none
+🧔‍♂	homem barbudo	none
 👱‍♂	homem cabelo loiro	none
 👩	mulher	none
+🧔‍♀	mulher barba	none
 👱‍♀	mulher cabelo loiro	none
 🧓	idoso	none
 👴	homem idoso	none
@@ -850,7 +952,7 @@ symbols:
 🚋	bonde	none
 🚌	ônibus	none
 🚍	ônibus se aproximando	none
-🚎	ônibus movido a eletricidade	none
+🚎	trólebus	none
 🚐	van	none
 🚑	ambulância	none
 🚒	carro do corpo de bombeiros	none
@@ -909,7 +1011,7 @@ symbols:
 🛎	sineta	none
 🧳	mala	none
 ⌛	ampulheta	none
-⏳	ampulheta cheia em cima	none
+⏳	ampulheta contando o tempo	none
 ⌚	relógio de pulso	none
 ⏰	despertador	none
 ⏱	cronômetro	none
@@ -970,7 +1072,7 @@ symbols:
 🌨	nuvem com neve	none
 🌩	nuvem com trovão	none
 🌪	tornado	none
-🌫	neblina	none
+🌫	nevoeiro	none
 🌬	rosto de vento	none
 🌀	ciclone	none
 🌈	arco-íris	none
@@ -1002,7 +1104,7 @@ symbols:
 🎐	carrilhão de vento	none
 🎑	contemplação da lua	none
 🧧	envelope vermelho	none
-🎀	fita	none
+🎀	laço de fita	none
 🎁	presente	none
 🎗	fita de lembrete	none
 🎟	ingresso de cinema	none
@@ -1046,7 +1148,7 @@ symbols:
 🎱	bilhar	none
 🔮	bola de cristal	none
 🪄	varinha mágica	none
-🧿	olho turco	none
+🧿	olho grego	none
 🎮	videogame	none
 🕹	joystick	none
 🎰	caça-níquel	none
@@ -1260,7 +1362,7 @@ symbols:
 🛠	martelo e chave-inglesa	none
 🗡	adaga	none
 ⚔	espadas cruzadas	none
-🔫	pistola	none
+🔫	pistola d’água	none
 🪃	bumerangue	none
 🏹	arco e flecha	none
 🛡	escudo	none
@@ -1356,6 +1458,7 @@ symbols:
 ↖	seta para cima e para a esquerda	none
 ↕	seta para cima e para baixo	none
 ↔	seta para esquerda e direita	none
+↮	traçado da seta para direita e esquerda	none
 ↩	seta curva da direita para a esquerda	none
 ↪	seta curva da esquerda para a direita	none
 ⤴	seta para a direita curvada para cima	none
@@ -1426,10 +1529,10 @@ symbols:
 ♾	infinito	none
 ‼	dupla exclamação	none
 ⁉	exclamação com interrogação	none
-❓	ponto de interrogação	none
+❓	ponto de interrogação vermelho	none
 ❔	ponto de interrogação branco	none
 ❕	ponto de exclamação branco	none
-❗	ponto de exclamação	none
+❗	ponto de exclamação vermelho	none
 〰	travessão ondulado	none
 💱	câmbio de moeda	none
 💲	cifrão	none
@@ -1535,11 +1638,17 @@ symbols:
 🏳‍🌈	bandeira do arco-íris	none
 🏳‍⚧	bandeira transgênero	none
 🏴‍☠	bandeira de pirata	none
+¢	centavo	none
+$	dólar	none
 £	libra	none
 ¥	iene	none
+₥	mill	none
+₩	won	none
 €	euro	none
+₱	peso	none
 ₹	rupia indiana	none
 ₽	rublo	none
+₿	bitcoin	none
 ¹	número um sobrescrito	none
 ²	número dois sobrescrito	none
 ³	número três sobrescrito	none
@@ -1769,6 +1878,46 @@ symbols:
 👱🏽	pessoa pele morena e cabelo louro	none
 👱🏾	pessoa pele morena escura e cabelo louro	none
 👱🏿	pessoa pele escura e cabelo louro	none
+🧑🏻‍❤‍💋‍🧑🏼	beijo pessoa, pessoa, pele clara e pele morena clara	none
+🧑🏻‍❤‍💋‍🧑🏽	beijo pessoa, pessoa, pele clara e pele morena	none
+🧑🏻‍❤‍💋‍🧑🏾	beijo pessoa, pessoa, pele clara e pele morena escura	none
+🧑🏻‍❤‍💋‍🧑🏿	beijo pessoa, pessoa, pele clara e pele escura	none
+🧑🏼‍❤‍💋‍🧑🏻	beijo pessoa, pessoa, pele morena clara e pele clara	none
+🧑🏼‍❤‍💋‍🧑🏽	beijo pessoa, pessoa, pele morena clara e pele morena	none
+🧑🏼‍❤‍💋‍🧑🏾	beijo pessoa, pessoa, pele morena clara e pele morena escura	none
+🧑🏼‍❤‍💋‍🧑🏿	beijo pessoa, pessoa, pele morena clara e pele escura	none
+🧑🏽‍❤‍💋‍🧑🏻	beijo pessoa, pessoa, pele morena e pele clara	none
+🧑🏽‍❤‍💋‍🧑🏼	beijo pessoa, pessoa, pele morena e pele morena clara	none
+🧑🏽‍❤‍💋‍🧑🏾	beijo pessoa, pessoa, pele morena e pele morena escura	none
+🧑🏽‍❤‍💋‍🧑🏿	beijo pessoa, pessoa, pele morena e pele escura	none
+🧑🏾‍❤‍💋‍🧑🏻	beijo pessoa, pessoa, pele morena escura e pele clara	none
+🧑🏾‍❤‍💋‍🧑🏼	beijo pessoa, pessoa, pele morena escura e pele morena clara	none
+🧑🏾‍❤‍💋‍🧑🏽	beijo pessoa, pessoa, pele morena escura e pele morena	none
+🧑🏾‍❤‍💋‍🧑🏿	beijo pessoa, pessoa, pele morena escura e pele escura	none
+🧑🏿‍❤‍💋‍🧑🏻	beijo pessoa, pessoa, pele escura e pele clara	none
+🧑🏿‍❤‍💋‍🧑🏼	beijo pessoa, pessoa, pele escura e pele morena clara	none
+🧑🏿‍❤‍💋‍🧑🏽	beijo pessoa, pessoa, pele escura e pele morena	none
+🧑🏿‍❤‍💋‍🧑🏾	beijo pessoa, pessoa, pele escura e pele morena escura	none
+🧑🏻‍❤‍🧑🏼	casal apaixonado pessoa, pessoa, pele clara e pele morena clara	none
+🧑🏻‍❤‍🧑🏽	casal apaixonado pessoa, pessoa, pele clara e pele morena	none
+🧑🏻‍❤‍🧑🏾	casal apaixonado pessoa, pessoa, pele clara e pele morena escura	none
+🧑🏻‍❤‍🧑🏿	casal apaixonado pessoa, pessoa, pele clara e pele escura	none
+🧑🏼‍❤‍🧑🏻	casal apaixonado pessoa, pessoa, pele morena clara e pele clara	none
+🧑🏼‍❤‍🧑🏽	casal apaixonado pessoa, pessoa, pele morena clara e pele morena	none
+🧑🏼‍❤‍🧑🏾	casal apaixonado pessoa, pessoa, pele morena clara e pele morena escura	none
+🧑🏼‍❤‍🧑🏿	casal apaixonado pessoa, pessoa, pele morena clara e pele escura	none
+🧑🏽‍❤‍🧑🏻	casal apaixonado pessoa, pessoa, pele morena e pele clara	none
+🧑🏽‍❤‍🧑🏼	casal apaixonado pessoa, pessoa, pele morena e pele morena clara	none
+🧑🏽‍❤‍🧑🏾	casal apaixonado pessoa, pessoa, pele morena e pele morena escura	none
+🧑🏽‍❤‍🧑🏿	casal apaixonado pessoa, pessoa, pele morena e pele escura	none
+🧑🏾‍❤‍🧑🏻	casal apaixonado pessoa, pessoa, pele morena escura e pele clara	none
+🧑🏾‍❤‍🧑🏼	casal apaixonado pessoa, pessoa, pele morena escura e pele morena clara	none
+🧑🏾‍❤‍🧑🏽	casal apaixonado pessoa, pessoa, pele morena escura e pele morena	none
+🧑🏾‍❤‍🧑🏿	casal apaixonado pessoa, pessoa, pele morena escura e pele escura	none
+🧑🏿‍❤‍🧑🏻	casal apaixonado pessoa, pessoa, pele escura e pele clara	none
+🧑🏿‍❤‍🧑🏼	casal apaixonado pessoa, pessoa, pele escura e pele morena clara	none
+🧑🏿‍❤‍🧑🏽	casal apaixonado pessoa, pessoa, pele escura e pele morena	none
+🧑🏿‍❤‍🧑🏾	casal apaixonado pessoa, pessoa, pele escura e pele morena escura	none
 🧑‍🦰	pessoa cabelo vermelho	none
 🧑🏻‍🦰	pessoa pele clara e cabelo vermelho	none
 🧑🏼‍🦰	pessoa pele morena clara e cabelo vermelho	none
@@ -1803,11 +1952,66 @@ symbols:
 🧔🏽	homem pele morena e barba	none
 🧔🏾	homem pele morena escura e barba	none
 🧔🏿	homem pele escura e barba	none
+🧔🏻‍♂	homem pele clara e barbudo	none
+🧔🏼‍♂	homem pele morena clara e barbudo	none
+🧔🏽‍♂	homem pele morena e barbudo	none
+🧔🏾‍♂	homem pele morena escura e barbudo	none
+🧔🏿‍♂	homem pele escura e barbudo	none
 👱🏻‍♂	homem pele clara e cabelo loiro	none
 👱🏼‍♂	homem pele morena clara e cabelo loiro	none
 👱🏽‍♂	homem pele morena e cabelo loiro	none
 👱🏾‍♂	homem pele morena escura e cabelo loiro	none
 👱🏿‍♂	homem pele escura e cabelo loiro	none
+👨🏻‍❤‍💋‍👨🏻	beijo homem, homem e pele clara	none
+👨🏻‍❤‍💋‍👨🏼	beijo homem, homem, pele clara e pele morena clara	none
+👨🏻‍❤‍💋‍👨🏽	beijo homem, homem, pele clara e pele morena	none
+👨🏻‍❤‍💋‍👨🏾	beijo homem, homem, pele clara e pele morena escura	none
+👨🏻‍❤‍💋‍👨🏿	beijo homem, homem, pele clara e pele escura	none
+👨🏼‍❤‍💋‍👨🏻	beijo homem, homem, pele morena clara e pele clara	none
+👨🏼‍❤‍💋‍👨🏼	beijo homem, homem e pele morena clara	none
+👨🏼‍❤‍💋‍👨🏽	beijo homem, homem, pele morena clara e pele morena	none
+👨🏼‍❤‍💋‍👨🏾	beijo homem, homem, pele morena clara e pele morena escura	none
+👨🏼‍❤‍💋‍👨🏿	beijo homem, homem, pele morena clara e pele escura	none
+👨🏽‍❤‍💋‍👨🏻	beijo homem, homem, pele morena e pele clara	none
+👨🏽‍❤‍💋‍👨🏼	beijo homem, homem, pele morena e pele morena clara	none
+👨🏽‍❤‍💋‍👨🏽	beijo homem, homem e pele morena	none
+👨🏽‍❤‍💋‍👨🏾	beijo homem, homem, pele morena e pele morena escura	none
+👨🏽‍❤‍💋‍👨🏿	beijo homem, homem, pele morena e pele escura	none
+👨🏾‍❤‍💋‍👨🏻	beijo homem, homem, pele morena escura e pele clara	none
+👨🏾‍❤‍💋‍👨🏼	beijo homem, homem, pele morena escura e pele morena clara	none
+👨🏾‍❤‍💋‍👨🏽	beijo homem, homem, pele morena escura e pele morena	none
+👨🏾‍❤‍💋‍👨🏾	beijo homem, homem e pele morena escura	none
+👨🏾‍❤‍💋‍👨🏿	beijo homem, homem, pele morena escura e pele escura	none
+👨🏿‍❤‍💋‍👨🏻	beijo homem, homem, pele escura e pele clara	none
+👨🏿‍❤‍💋‍👨🏼	beijo homem, homem, pele escura e pele morena clara	none
+👨🏿‍❤‍💋‍👨🏽	beijo homem, homem, pele escura e pele morena	none
+👨🏿‍❤‍💋‍👨🏾	beijo homem, homem, pele escura e pele morena escura	none
+👨🏿‍❤‍💋‍👨🏿	beijo homem, homem e pele escura	none
+👨🏻‍❤‍👨🏻	casal apaixonado homem, homem e pele clara	none
+👨🏻‍❤‍👨🏼	casal apaixonado homem, homem, pele clara e pele morena clara	none
+👨🏻‍❤‍👨🏽	casal apaixonado homem, homem, pele clara e pele morena	none
+👨🏻‍❤‍👨🏾	casal apaixonado homem, homem, pele clara e pele morena escura	none
+👨🏻‍❤‍👨🏿	casal apaixonado homem, homem, pele clara e pele escura	none
+👨🏼‍❤‍👨🏻	casal apaixonado homem, homem, pele morena clara e pele clara	none
+👨🏼‍❤‍👨🏼	casal apaixonado homem, homem e pele morena clara	none
+👨🏼‍❤‍👨🏽	casal apaixonado homem, homem, pele morena clara e pele morena	none
+👨🏼‍❤‍👨🏾	casal apaixonado homem, homem, pele morena clara e pele morena escura	none
+👨🏼‍❤‍👨🏿	casal apaixonado homem, homem, pele morena clara e pele escura	none
+👨🏽‍❤‍👨🏻	casal apaixonado homem, homem, pele morena e pele clara	none
+👨🏽‍❤‍👨🏼	casal apaixonado homem, homem, pele morena e pele morena clara	none
+👨🏽‍❤‍👨🏽	casal apaixonado homem, homem e pele morena	none
+👨🏽‍❤‍👨🏾	casal apaixonado homem, homem, pele morena e pele morena escura	none
+👨🏽‍❤‍👨🏿	casal apaixonado homem, homem, pele morena e pele escura	none
+👨🏾‍❤‍👨🏻	casal apaixonado homem, homem, pele morena escura e pele clara	none
+👨🏾‍❤‍👨🏼	casal apaixonado homem, homem, pele morena escura e pele morena clara	none
+👨🏾‍❤‍👨🏽	casal apaixonado homem, homem, pele morena escura e pele morena	none
+👨🏾‍❤‍👨🏾	casal apaixonado homem, homem e pele morena escura	none
+👨🏾‍❤‍👨🏿	casal apaixonado homem, homem, pele morena escura e pele escura	none
+👨🏿‍❤‍👨🏻	casal apaixonado homem, homem, pele escura e pele clara	none
+👨🏿‍❤‍👨🏼	casal apaixonado homem, homem, pele escura e pele morena clara	none
+👨🏿‍❤‍👨🏽	casal apaixonado homem, homem, pele escura e pele morena	none
+👨🏿‍❤‍👨🏾	casal apaixonado homem, homem, pele escura e pele morena escura	none
+👨🏿‍❤‍👨🏿	casal apaixonado homem, homem e pele escura	none
 👨‍🦰	homem cabelo vermelho	none
 👨🏻‍🦰	homem pele clara e cabelo vermelho	none
 👨🏼‍🦰	homem pele morena clara e cabelo vermelho	none
@@ -1837,11 +2041,116 @@ symbols:
 👩🏽	mulher pele morena	none
 👩🏾	mulher pele morena escura	none
 👩🏿	mulher pele escura	none
+🧔🏻‍♀	mulher pele clara e barba	none
+🧔🏼‍♀	mulher pele morena clara e barba	none
+🧔🏽‍♀	mulher pele morena e barba	none
+🧔🏾‍♀	mulher pele morena escura e barba	none
+🧔🏿‍♀	mulher pele escura e barba	none
 👱🏻‍♀	mulher pele clara e cabelo loiro	none
 👱🏼‍♀	mulher pele morena clara e cabelo loiro	none
 👱🏽‍♀	mulher pele morena e cabelo loiro	none
 👱🏾‍♀	mulher pele morena escura e cabelo loiro	none
 👱🏿‍♀	mulher pele escura e cabelo loiro	none
+👩🏻‍❤‍💋‍👨🏻	beijo mulher, homem e pele clara	none
+👩🏻‍❤‍💋‍👨🏼	beijo mulher, homem, pele clara e pele morena clara	none
+👩🏻‍❤‍💋‍👨🏽	beijo mulher, homem, pele clara e pele morena	none
+👩🏻‍❤‍💋‍👨🏾	beijo mulher, homem, pele clara e pele morena escura	none
+👩🏻‍❤‍💋‍👨🏿	beijo mulher, homem, pele clara e pele escura	none
+👩🏼‍❤‍💋‍👨🏻	beijo mulher, homem, pele morena clara e pele clara	none
+👩🏼‍❤‍💋‍👨🏼	beijo mulher, homem e pele morena clara	none
+👩🏼‍❤‍💋‍👨🏽	beijo mulher, homem, pele morena clara e pele morena	none
+👩🏼‍❤‍💋‍👨🏾	beijo mulher, homem, pele morena clara e pele morena escura	none
+👩🏼‍❤‍💋‍👨🏿	beijo mulher, homem, pele morena clara e pele escura	none
+👩🏽‍❤‍💋‍👨🏻	beijo mulher, homem, pele morena e pele clara	none
+👩🏽‍❤‍💋‍👨🏼	beijo mulher, homem, pele morena e pele morena clara	none
+👩🏽‍❤‍💋‍👨🏽	beijo mulher, homem e pele morena	none
+👩🏽‍❤‍💋‍👨🏾	beijo mulher, homem, pele morena e pele morena escura	none
+👩🏽‍❤‍💋‍👨🏿	beijo mulher, homem, pele morena e pele escura	none
+👩🏾‍❤‍💋‍👨🏻	beijo mulher, homem, pele morena escura e pele clara	none
+👩🏾‍❤‍💋‍👨🏼	beijo mulher, homem, pele morena escura e pele morena clara	none
+👩🏾‍❤‍💋‍👨🏽	beijo mulher, homem, pele morena escura e pele morena	none
+👩🏾‍❤‍💋‍👨🏾	beijo mulher, homem e pele morena escura	none
+👩🏾‍❤‍💋‍👨🏿	beijo mulher, homem, pele morena escura e pele escura	none
+👩🏿‍❤‍💋‍👨🏻	beijo mulher, homem, pele escura e pele clara	none
+👩🏿‍❤‍💋‍👨🏼	beijo mulher, homem, pele escura e pele morena clara	none
+👩🏿‍❤‍💋‍👨🏽	beijo mulher, homem, pele escura e pele morena	none
+👩🏿‍❤‍💋‍👨🏾	beijo mulher, homem, pele escura e pele morena escura	none
+👩🏿‍❤‍💋‍👨🏿	beijo mulher, homem e pele escura	none
+👩🏻‍❤‍💋‍👩🏻	beijo mulher, mulher e pele clara	none
+👩🏻‍❤‍💋‍👩🏼	beijo mulher, mulher, pele clara e pele morena clara	none
+👩🏻‍❤‍💋‍👩🏽	beijo mulher, mulher, pele clara e pele morena	none
+👩🏻‍❤‍💋‍👩🏾	beijo mulher, mulher, pele clara e pele morena escura	none
+👩🏻‍❤‍💋‍👩🏿	beijo mulher, mulher, pele clara e pele escura	none
+👩🏼‍❤‍💋‍👩🏻	beijo mulher, mulher, pele morena clara e pele clara	none
+👩🏼‍❤‍💋‍👩🏼	beijo mulher, mulher e pele morena clara	none
+👩🏼‍❤‍💋‍👩🏽	beijo mulher, mulher, pele morena clara e pele morena	none
+👩🏼‍❤‍💋‍👩🏾	beijo mulher, mulher, pele morena clara e pele morena escura	none
+👩🏼‍❤‍💋‍👩🏿	beijo mulher, mulher, pele morena clara e pele escura	none
+👩🏽‍❤‍💋‍👩🏻	beijo mulher, mulher, pele morena e pele clara	none
+👩🏽‍❤‍💋‍👩🏼	beijo mulher, mulher, pele morena e pele morena clara	none
+👩🏽‍❤‍💋‍👩🏽	beijo mulher, mulher e pele morena	none
+👩🏽‍❤‍💋‍👩🏾	beijo mulher, mulher, pele morena e pele morena escura	none
+👩🏽‍❤‍💋‍👩🏿	beijo mulher, mulher, pele morena e pele escura	none
+👩🏾‍❤‍💋‍👩🏻	beijo mulher, mulher, pele morena escura e pele clara	none
+👩🏾‍❤‍💋‍👩🏼	beijo mulher, mulher, pele morena escura e pele morena clara	none
+👩🏾‍❤‍💋‍👩🏽	beijo mulher, mulher, pele morena escura e pele morena	none
+👩🏾‍❤‍💋‍👩🏾	beijo mulher, mulher e pele morena escura	none
+👩🏾‍❤‍💋‍👩🏿	beijo mulher, mulher, pele morena escura e pele escura	none
+👩🏿‍❤‍💋‍👩🏻	beijo mulher, mulher, pele escura e pele clara	none
+👩🏿‍❤‍💋‍👩🏼	beijo mulher, mulher, pele escura e pele morena clara	none
+👩🏿‍❤‍💋‍👩🏽	beijo mulher, mulher, pele escura e pele morena	none
+👩🏿‍❤‍💋‍👩🏾	beijo mulher, mulher, pele escura e pele morena escura	none
+👩🏿‍❤‍💋‍👩🏿	beijo mulher, mulher e pele escura	none
+👩🏻‍❤‍👨🏻	casal apaixonado mulher, homem e pele clara	none
+👩🏻‍❤‍👨🏼	casal apaixonado mulher, homem, pele clara e pele morena clara	none
+👩🏻‍❤‍👨🏽	casal apaixonado mulher, homem, pele clara e pele morena	none
+👩🏻‍❤‍👨🏾	casal apaixonado mulher, homem, pele clara e pele morena escura	none
+👩🏻‍❤‍👨🏿	casal apaixonado mulher, homem, pele clara e pele escura	none
+👩🏼‍❤‍👨🏻	casal apaixonado mulher, homem, pele morena clara e pele clara	none
+👩🏼‍❤‍👨🏼	casal apaixonado mulher, homem e pele morena clara	none
+👩🏼‍❤‍👨🏽	casal apaixonado mulher, homem, pele morena clara e pele morena	none
+👩🏼‍❤‍👨🏾	casal apaixonado mulher, homem, pele morena clara e pele morena escura	none
+👩🏼‍❤‍👨🏿	casal apaixonado mulher, homem, pele morena clara e pele escura	none
+👩🏽‍❤‍👨🏻	casal apaixonado mulher, homem, pele morena e pele clara	none
+👩🏽‍❤‍👨🏼	casal apaixonado mulher, homem, pele morena e pele morena clara	none
+👩🏽‍❤‍👨🏽	casal apaixonado mulher, homem e pele morena	none
+👩🏽‍❤‍👨🏾	casal apaixonado mulher, homem, pele morena e pele morena escura	none
+👩🏽‍❤‍👨🏿	casal apaixonado mulher, homem, pele morena e pele escura	none
+👩🏾‍❤‍👨🏻	casal apaixonado mulher, homem, pele morena escura e pele clara	none
+👩🏾‍❤‍👨🏼	casal apaixonado mulher, homem, pele morena escura e pele morena clara	none
+👩🏾‍❤‍👨🏽	casal apaixonado mulher, homem, pele morena escura e pele morena	none
+👩🏾‍❤‍👨🏾	casal apaixonado mulher, homem e pele morena escura	none
+👩🏾‍❤‍👨🏿	casal apaixonado mulher, homem, pele morena escura e pele escura	none
+👩🏿‍❤‍👨🏻	casal apaixonado mulher, homem, pele escura e pele clara	none
+👩🏿‍❤‍👨🏼	casal apaixonado mulher, homem, pele escura e pele morena clara	none
+👩🏿‍❤‍👨🏽	casal apaixonado mulher, homem, pele escura e pele morena	none
+👩🏿‍❤‍👨🏾	casal apaixonado mulher, homem, pele escura e pele morena escura	none
+👩🏿‍❤‍👨🏿	casal apaixonado mulher, homem e pele escura	none
+👩🏻‍❤‍👩🏻	casal apaixonado mulher, mulher e pele clara	none
+👩🏻‍❤‍👩🏼	casal apaixonado mulher, mulher, pele clara e pele morena clara	none
+👩🏻‍❤‍👩🏽	casal apaixonado mulher, mulher, pele clara e pele morena	none
+👩🏻‍❤‍👩🏾	casal apaixonado mulher, mulher, pele clara e pele morena escura	none
+👩🏻‍❤‍👩🏿	casal apaixonado mulher, mulher, pele clara e pele escura	none
+👩🏼‍❤‍👩🏻	casal apaixonado mulher, mulher, pele morena clara e pele clara	none
+👩🏼‍❤‍👩🏼	casal apaixonado mulher, mulher e pele morena clara	none
+👩🏼‍❤‍👩🏽	casal apaixonado mulher, mulher, pele morena clara e pele morena	none
+👩🏼‍❤‍👩🏾	casal apaixonado mulher, mulher, pele morena clara e pele morena escura	none
+👩🏼‍❤‍👩🏿	casal apaixonado mulher, mulher, pele morena clara e pele escura	none
+👩🏽‍❤‍👩🏻	casal apaixonado mulher, mulher, pele morena e pele clara	none
+👩🏽‍❤‍👩🏼	casal apaixonado mulher, mulher, pele morena e pele morena clara	none
+👩🏽‍❤‍👩🏽	casal apaixonado mulher, mulher e pele morena	none
+👩🏽‍❤‍👩🏾	casal apaixonado mulher, mulher, pele morena e pele morena escura	none
+👩🏽‍❤‍👩🏿	casal apaixonado mulher, mulher, pele morena e pele escura	none
+👩🏾‍❤‍👩🏻	casal apaixonado mulher, mulher, pele morena escura e pele clara	none
+👩🏾‍❤‍👩🏼	casal apaixonado mulher, mulher, pele morena escura e pele morena clara	none
+👩🏾‍❤‍👩🏽	casal apaixonado mulher, mulher, pele morena escura e pele morena	none
+👩🏾‍❤‍👩🏾	casal apaixonado mulher, mulher e pele morena escura	none
+👩🏾‍❤‍👩🏿	casal apaixonado mulher, mulher, pele morena escura e pele escura	none
+👩🏿‍❤‍👩🏻	casal apaixonado mulher, mulher, pele escura e pele clara	none
+👩🏿‍❤‍👩🏼	casal apaixonado mulher, mulher, pele escura e pele morena clara	none
+👩🏿‍❤‍👩🏽	casal apaixonado mulher, mulher, pele escura e pele morena	none
+👩🏿‍❤‍👩🏾	casal apaixonado mulher, mulher, pele escura e pele morena escura	none
+👩🏿‍❤‍👩🏿	casal apaixonado mulher, mulher e pele escura	none
 👩‍🦰	mulher cabelo vermelho	none
 👩🏻‍🦰	mulher pele clara e cabelo vermelho	none
 👩🏼‍🦰	mulher pele morena clara e cabelo vermelho	none
@@ -3103,7 +3412,7 @@ symbols:
 🇧🇪	bandeira Bélgica	none
 🇧🇫	bandeira Burquina Faso	none
 🇧🇬	bandeira Bulgária	none
-🇧🇭	bandeira Bahrein	none
+🇧🇭	bandeira Barein	none
 🇧🇮	bandeira Burundi	none
 🇧🇯	bandeira Benin	none
 🇧🇱	bandeira São Bartolomeu	none
@@ -3158,7 +3467,7 @@ symbols:
 🇫🇯	bandeira Fiji	none
 🇫🇰	bandeira Ilhas Malvinas	none
 🇫🇲	bandeira Micronésia	none
-🇫🇴	bandeira Ilhas Faroe	none
+🇫🇴	bandeira Ilhas Faroé	none
 🇫🇷	bandeira França	none
 🇬🇦	bandeira Gabão	none
 🇬🇧	bandeira Reino Unido	none
@@ -3224,7 +3533,7 @@ symbols:
 🇱🇾	bandeira Líbia	none
 🇲🇦	bandeira Marrocos	none
 🇲🇨	bandeira Mônaco	none
-🇲🇩	bandeira Moldova	none
+🇲🇩	bandeira Moldávia	none
 🇲🇪	bandeira Montenegro	none
 🇲🇫	bandeira São Martinho	none
 🇲🇬	bandeira Madagascar	none
@@ -3341,6 +3650,26 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	bandeira Inglaterra	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	bandeira Escócia	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bandeira País de Gales	none
+¤	Moeda desconhecida	none
+֏	Dram armênio	none
+؋	Afegane afegão	none
+৳	Taka bengali	none
+฿	Baht tailandês	none
+៛	Riel cambojano	none
+₡	Colón costarriquenho	none
+₦	Naira nigeriana	none
+₧	Peseta espanhola	none
+₪	Novo shekel israelense	none
+₫	Dong vietnamita	none
+₭	Kip laosiano	none
+₮	Tugrik mongol	none
+₲	Guarani paraguaio	none
+₴	Hryvnia ucraniano	none
+₵	Cedi ganês	none
+₸	Tenge cazaque	none
+₺	Lira turca	none
+₼	Manat azeri	none
+₾	Lari georgiano	none
 0⃣	tecla 0	none
 1⃣	tecla 1	none
 2⃣	tecla 2	none
