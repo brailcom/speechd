@@ -3,39 +3,197 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+{	venstre krøllparentes	none
 🏻	hudtype 1–2	none
 🏼	hudtype 3	none
 🏽	hudtype 4	none
 🏾	hudtype 5	none
 🏿	hudtype 6	none
+‾	overstrek	none
+_	understrek	none
+-	bindestrek-minus-tegn	none
+‐	bindestrek	none
 –	tankestrek	none
 —	lang tankestrek	none
+―	vannrett strek	none
+・	midtstilt prikk i katakana	none
+,	komma	none
+،	arabisk komma	none
+、	ideografisk komma	none
+;	semikolon	none
+؛	arabisk semikolon	none
+:	kolon	none
+!	utropstegn	none
+¡	opp-ned utropstegn	none
+?	spørsmålstegn	none
+¿	opp-ned spørsmålstegn	none
+؟	arabisk spørsmålstegn	none
+‽	interrobang	none
+.	punktum	none
+…	ellipse	none
+。	ideografisk punktum	none
 ·	midtstilt punkt	none
+'	rett apostrof	none
+‘	enkelt krøllet venstre anførselstegn	none
+’	enkelt krøllet høyre anførselstegn	none
+‚	enkelt krøllet lavt venstre anførselstegn	none
+“	dobbelt krøllet venstre anførselstegn	none
+”	dobbelt krøllet høyre anførselstegn	none
+„	dobbelt krøllet lavt venstre anførselstegn	none
 «	venstre anførselstegn	none
 »	høyre anførselstegn	none
+)	høyre parentes	none
+[	venstre hakeparentes	none
+]	høyre hakeparentes	none
+}	høyre krøllparentes	none
+〈	venstre vinkelparentes	none
+〉	høyre vinkelparentes	none
+《	venstre dobbel vinkelparentes	none
+》	høyre dobbel vinkelparentes	none
+「	venstre hjørneparentes	none
+」	høyre hjørneparentes	none
+『	venstre hul hjørneparentes	none
+』	høyre hul hjørneparentes	none
+【	venstre fylt linseparentes	none
+】	høyre fylt linseparentes	none
+〔	venstre skilpaddeparentes	none
+〕	høyre skilpaddeparentes	none
+〖	venstre hul linseparentes	none
+〗	høyre hul linseparentes	none
 §	paragraftegn	none
+¶	avsnittstegn	none
+@	krøllalfa	none
+*	asterisk	none
+/	skråstrek	none
+\	omvendt skråstrek	none
+&	og-tegn	none
+#	nummertegn	none
+%	prosent	none
+‰	promille	none
 †	korstegn	none
 ‡	dobbeltkorstegn	none
 •	punkttegn	none
+‧	stavelsesmerke	none
+′	primtegn	none
+″	dobbelt primtegn	none
+‴	trippelt primtegn	none
+‸	innsettingstegn	none
+※	referansemerke	none
+⁂	asterisme	none
+`	gravis	none
+´	akutt aksent	none
+^	circumfleks	none
+¨	trema	none
 °	gradetegn	none
 ℗	opphavsrett for lydopptak	none
 ←	pil mot venstre	none
+↚	pil venstre med strek	none
 →	pil mot høyre	none
+↛	pil høyre med strek	none
 ↑	pil oppover	none
 ↓	pil nedover	none
+↜	bølgepil mot venstre med strek	none
+↝	bølgepil mot høyre med strek	none
+↞	pil venstre med to mothaker	none
+↟	pil opp med to mothaker	none
+↠	pil høyre med to mothaker	none
+↡	pil ned med to mothaker	none
+↢	pil venstre med styrefjær	none
+↣	pil høyre med styrefjær	none
+↤	pil venstre fra loddrett strek	none
+↥	pil opp fra vannrett strek	none
+↦	pil høyre fra loddrett strek	none
+↧	pil ned fra vannrett strek	none
+↨	pil opp og ned med underlag	none
+↫	pil venstre med løkke	none
+↬	pil høyre med løkke	none
+↭	bølgepil mot høyre og venstre	none
+↯	sikksakkpil nedover	none
+↰	pil opp med spiss mot venstre	none
+↱	pil opp med spiss mot høyre	none
+↲	pil ned med spiss mot venstre	none
+↳	pil ned med spiss mot høyre	none
+↴	pil høyre som snur ned	none
+↵	pil ned som snur mot venstre	none
+↶	halvsirkelpil mot klokken	none
+↷	halvsirkelpil med klokken	none
+↸	pil mot nordvest med strek over	none
+↹	pil venstre mot loddrett strek over pil høyre mot loddrett strek	none
+↺	pil åpen sirkel mot klokken	none
+↻	pil åpen sirkel med klokken	none
+↼	harpunpil venstre med mothake opp	none
+↽	harpunpil venstre med mothake ned	none
+↾	harpunpil opp med mothake mot høyre	none
+↿	harpunpil opp med mothake mot venstre	none
+⇀	harpunpil høyre med mothake opp	none
+⇁	harpunpil høyre med mothake ned	none
+⇂	harpunpil ned med mothake mot høyre	none
+⇃	harpunpil ned med mothake mot venstre	none
+⇄	pil høyre over pil venstre	none
 ⇅	pil oppover foran pil nedover	none
 ⇆	pil mot venstre over pil mot høyre	none
+⇇	parallelle piler mot venstre	none
+⇈	parallelle piler opp	none
+⇉	parallelle piler mot høyre	none
+⇊	parallelle piler ned	none
+⇋	harpunpil mot venstre over harpunpil mot høyre	none
+⇌	harpunpil mot høyre over harpunpil mot venstre	none
+⇐	dobbeltpil venstre	none
+⇍	dobbeltpil venstre med strek	none
+⇑	dobbeltpil opp	none
+⇒	dobbeltpil høyre	none
+⇏	dobbeltpil høyre med strek	none
+⇓	dobbeltpil ned	none
+⇔	dobbeltpil begge veier	none
+⇎	dobbeltpil med strek begge veier	none
+⇖	dobbeltpil nordvest	none
+⇗	dobbeltpil nordøst	none
+⇘	dobbeltpil sørøst	none
+⇙	dobbeltpil sørvest	none
+⇚	trippelpil venstre	none
+⇛	trippelpil høyre	none
+⇜	snirkelpil venstre	none
+⇝	snirkelpil høyre	none
+⇞	pil opp med to streker	none
+⇟	pil ned med to streker	none
+⇠	stiplet pil venstre	none
+⇡	stiplet pil opp	none
+⇢	stiplet pil høyre	none
+⇣	stiplet pil ned	none
+⇤	pil venstre mot loddrett strek	none
+⇥	pil høyre mot loddrett strek	none
+⇦	hul pil venstre	none
+⇧	hul pil opp	none
+⇨	hul pil høyre	none
+⇩	hul pil ned	none
+⇪	hul pil opp fra vannrett strek	none
+⇵	pil ned til høyre for pil opp	none
+∀	allkvantor	none
+∂	partielt derivert	none
 ∆	matematisk endring	none
 ∇	nabla	none
 ∈	element i	none
-÷	divisjonstegn	none
-×	multiplikasjonstegn	none
++	plusstegn	none
+±	pluss/minus	none
+÷	deletegn	none
+×	gangetegn	none
+<	er mindre enn	none
+=	er lik	none
+≠	er ikke lik	none
+>	er større enn	none
+¬	negasjon	none
+|	loddrett strek	none
+~	tilde	none
+−	minustegn	none
 ⁻	hevet minustegn	none
 √	kvadratrot	none
 ∞	uendelighetstegn	none
 ∩	snitt	none
 ∪	union	none
+≈	er tilnærmet lik	none
 ≡	identisk lik	none
+≤	er mindre enn eller lik	none
+≥	er større enn eller lik	none
 ⊂	delmengde av	none
 ▲	fylt trekant som peker opp	none
 ▼	fylt trekant som peker ned	none
@@ -43,6 +201,9 @@ symbols:
 ○	hul sirkel	none
 ●	fylt sirkel	none
 ◯	stor hul sirkel	none
+♪	åttendelsnote	none
+♭	note-b	none
+♯	note-kryss	none
 😀	glisefjes	none
 😃	glisende fjes med vidåpne øyne	none
 😄	smilefjes med åpen munn og smilende øyne	none
@@ -80,10 +241,12 @@ symbols:
 😐	nøytral	none
 😑	uttrykksløs	none
 😶	uten munn	none
+😶‍🌫	fjes i skyer	none
 😏	lurt smil	none
 😒	misfornøyd	none
 🙄	himler med øynene	none
 😬	grimase	none
+😮‍💨	puster ut	none
 🤥	lyver	none
 😌	lettet	none
 😔	tankefull	none
@@ -100,6 +263,7 @@ symbols:
 🥶	kaldt fjes	none
 🥴	svimmelt fjes	none
 😵	ør	none
+😵‍💫	fjes med spiraløyne	none
 🤯	eksploderende hode	none
 🤠	fjes med cowboyhatt	none
 🥳	partyfjes	none
@@ -171,6 +335,8 @@ symbols:
 💟	hjertedekorasjon	none
 ❣	utropstegn med hjerte	none
 💔	knust hjerte	none
+❤‍🔥	hjerte i brann	none
+❤‍🩹	lindret hjerte	none
 ❤	rødt hjerte	none
 🧡	oransje hjerte	none
 💛	gult hjerte	none
@@ -252,9 +418,11 @@ symbols:
 🧑	voksen	none
 👱	Person blond	none
 👨	mann	none
-🧔	mann skjegg	none
+🧔	person skjegg	none
+🧔‍♂	mann skjegg	none
 👱‍♂	mann blond	none
 👩	kvinne	none
+🧔‍♀	kvinne skjegg	none
 👱‍♀	kvinne blond	none
 🧓	eldre voksen	none
 👴	eldre mann	none
@@ -1260,7 +1428,7 @@ symbols:
 🛠	hammer og fastnøkkel	none
 🗡	dolk	none
 ⚔	sverd i kryss	none
-🔫	pistol	none
+🔫	vannpistol	none
 🪃	bumerang	none
 🏹	pil og bue	none
 🛡	skjold	none
@@ -1356,6 +1524,7 @@ symbols:
 ↖	pil opp-venstre	none
 ↕	pil opp og ned	none
 ↔	pil venstre-høyre	none
+↮	pil begge veier med strek	none
 ↩	pil som bøyer mot venstre	none
 ↪	pil som bøyer mot høyre	none
 ⤴	pil som bøyer opp	none
@@ -1419,17 +1588,17 @@ symbols:
 ♀	kvinnesymbol	none
 ♂	mannssymbol	none
 ⚧	transperson-symbol	none
-✖	gangetegn	none
-➕	plusstegn	none
-➖	minustegn	none
-➗	deletegn	none
+✖	gange	none
+➕	pluss	none
+➖	minus	none
+➗	dele	none
 ♾	uendelig	none
 ‼	dobbelt utropstegn	none
 ⁉	utropstegn og spørsmålstegn	none
-❓	spørsmålstegn	none
+❓	rødt spørsmålstegn	none
 ❔	hvitt spørsmålstegn	none
 ❕	hvitt utropstegn	none
-❗	utropstegn	none
+❗	rødt utropstegn	none
 〰	bølgestrek	none
 💱	valutaveksling	none
 💲	dollartegn	none
@@ -1535,11 +1704,17 @@ symbols:
 🏳‍🌈	regnbueflagg	none
 🏳‍⚧	transpersonflagg	none
 🏴‍☠	sjørøverflagg	none
+¢	cent	none
+$	dollar	none
 £	pund	none
 ¥	yen	none
+₥	mill	none
+₩	won	none
 €	euro	none
+₱	peso	none
 ₹	indiske rupi	none
 ₽	rubler	none
+₿	bitcoin	none
 ¹	hevet ettall	none
 ²	hevet totall	none
 ³	hevet tretall	none
@@ -1769,6 +1944,46 @@ symbols:
 👱🏽	Person hudtype 4, blond	none
 👱🏾	Person hudtype 5, blond	none
 👱🏿	Person hudtype 6, blond	none
+🧑🏻‍❤‍💋‍🧑🏼	kyss voksen, voksen, hudtype 1–2, hudtype 3	none
+🧑🏻‍❤‍💋‍🧑🏽	kyss voksen, voksen, hudtype 1–2, hudtype 4	none
+🧑🏻‍❤‍💋‍🧑🏾	kyss voksen, voksen, hudtype 1–2, hudtype 5	none
+🧑🏻‍❤‍💋‍🧑🏿	kyss voksen, voksen, hudtype 1–2, hudtype 6	none
+🧑🏼‍❤‍💋‍🧑🏻	kyss voksen, voksen, hudtype 3, hudtype 1–2	none
+🧑🏼‍❤‍💋‍🧑🏽	kyss voksen, voksen, hudtype 3, hudtype 4	none
+🧑🏼‍❤‍💋‍🧑🏾	kyss voksen, voksen, hudtype 3, hudtype 5	none
+🧑🏼‍❤‍💋‍🧑🏿	kyss voksen, voksen, hudtype 3, hudtype 6	none
+🧑🏽‍❤‍💋‍🧑🏻	kyss voksen, voksen, hudtype 4, hudtype 1–2	none
+🧑🏽‍❤‍💋‍🧑🏼	kyss voksen, voksen, hudtype 4, hudtype 3	none
+🧑🏽‍❤‍💋‍🧑🏾	kyss voksen, voksen, hudtype 4, hudtype 5	none
+🧑🏽‍❤‍💋‍🧑🏿	kyss voksen, voksen, hudtype 4, hudtype 6	none
+🧑🏾‍❤‍💋‍🧑🏻	kyss voksen, voksen, hudtype 5, hudtype 1–2	none
+🧑🏾‍❤‍💋‍🧑🏼	kyss voksen, voksen, hudtype 5, hudtype 3	none
+🧑🏾‍❤‍💋‍🧑🏽	kyss voksen, voksen, hudtype 5, hudtype 4	none
+🧑🏾‍❤‍💋‍🧑🏿	kyss voksen, voksen, hudtype 5, hudtype 6	none
+🧑🏿‍❤‍💋‍🧑🏻	kyss voksen, voksen, hudtype 6, hudtype 1–2	none
+🧑🏿‍❤‍💋‍🧑🏼	kyss voksen, voksen, hudtype 6, hudtype 3	none
+🧑🏿‍❤‍💋‍🧑🏽	kyss voksen, voksen, hudtype 6, hudtype 4	none
+🧑🏿‍❤‍💋‍🧑🏾	kyss voksen, voksen, hudtype 6, hudtype 5	none
+🧑🏻‍❤‍🧑🏼	par med hjerte voksen, voksen, hudtype 1–2, hudtype 3	none
+🧑🏻‍❤‍🧑🏽	par med hjerte voksen, voksen, hudtype 1–2, hudtype 4	none
+🧑🏻‍❤‍🧑🏾	par med hjerte voksen, voksen, hudtype 1–2, hudtype 5	none
+🧑🏻‍❤‍🧑🏿	par med hjerte voksen, voksen, hudtype 1–2, hudtype 6	none
+🧑🏼‍❤‍🧑🏻	par med hjerte voksen, voksen, hudtype 3, hudtype 1–2	none
+🧑🏼‍❤‍🧑🏽	par med hjerte voksen, voksen, hudtype 3, hudtype 4	none
+🧑🏼‍❤‍🧑🏾	par med hjerte voksen, voksen, hudtype 3, hudtype 5	none
+🧑🏼‍❤‍🧑🏿	par med hjerte voksen, voksen, hudtype 3, hudtype 6	none
+🧑🏽‍❤‍🧑🏻	par med hjerte voksen, voksen, hudtype 4, hudtype 1–2	none
+🧑🏽‍❤‍🧑🏼	par med hjerte voksen, voksen, hudtype 4, hudtype 3	none
+🧑🏽‍❤‍🧑🏾	par med hjerte voksen, voksen, hudtype 4, hudtype 5	none
+🧑🏽‍❤‍🧑🏿	par med hjerte voksen, voksen, hudtype 4, hudtype 6	none
+🧑🏾‍❤‍🧑🏻	par med hjerte voksen, voksen, hudtype 5, hudtype 1–2	none
+🧑🏾‍❤‍🧑🏼	par med hjerte voksen, voksen, hudtype 5, hudtype 3	none
+🧑🏾‍❤‍🧑🏽	par med hjerte voksen, voksen, hudtype 5, hudtype 4	none
+🧑🏾‍❤‍🧑🏿	par med hjerte voksen, voksen, hudtype 5, hudtype 6	none
+🧑🏿‍❤‍🧑🏻	par med hjerte voksen, voksen, hudtype 6, hudtype 1–2	none
+🧑🏿‍❤‍🧑🏼	par med hjerte voksen, voksen, hudtype 6, hudtype 3	none
+🧑🏿‍❤‍🧑🏽	par med hjerte voksen, voksen, hudtype 6, hudtype 4	none
+🧑🏿‍❤‍🧑🏾	par med hjerte voksen, voksen, hudtype 6, hudtype 5	none
 🧑‍🦰	voksen rødt hår	none
 🧑🏻‍🦰	voksen hudtype 1–2, rødt hår	none
 🧑🏼‍🦰	voksen hudtype 3, rødt hår	none
@@ -1798,16 +2013,71 @@ symbols:
 👨🏽	mann hudtype 4	none
 👨🏾	mann hudtype 5	none
 👨🏿	mann hudtype 6	none
-🧔🏻	mann hudtype 1–2, skjegg	none
-🧔🏼	mann hudtype 3, skjegg	none
-🧔🏽	mann hudtype 4, skjegg	none
-🧔🏾	mann hudtype 5, skjegg	none
-🧔🏿	mann hudtype 6, skjegg	none
+🧔🏻	person hudtype 1–2, skjegg	none
+🧔🏼	person hudtype 3, skjegg	none
+🧔🏽	person hudtype 4, skjegg	none
+🧔🏾	person hudtype 5, skjegg	none
+🧔🏿	person hudtype 6, skjegg	none
+🧔🏻‍♂	mann hudtype 1–2, skjegg	none
+🧔🏼‍♂	mann hudtype 3, skjegg	none
+🧔🏽‍♂	mann hudtype 4, skjegg	none
+🧔🏾‍♂	mann hudtype 5, skjegg	none
+🧔🏿‍♂	mann hudtype 6, skjegg	none
 👱🏻‍♂	mann hudtype 1–2, blond	none
 👱🏼‍♂	mann hudtype 3, blond	none
 👱🏽‍♂	mann hudtype 4, blond	none
 👱🏾‍♂	mann hudtype 5, blond	none
 👱🏿‍♂	mann hudtype 6, blond	none
+👨🏻‍❤‍💋‍👨🏻	kyss mann, mann, hudtype 1–2	none
+👨🏻‍❤‍💋‍👨🏼	kyss mann, mann, hudtype 1–2, hudtype 3	none
+👨🏻‍❤‍💋‍👨🏽	kyss mann, mann, hudtype 1–2, hudtype 4	none
+👨🏻‍❤‍💋‍👨🏾	kyss mann, mann, hudtype 1–2, hudtype 5	none
+👨🏻‍❤‍💋‍👨🏿	kyss mann, mann, hudtype 1–2, hudtype 6	none
+👨🏼‍❤‍💋‍👨🏻	kyss mann, mann, hudtype 3, hudtype 1–2	none
+👨🏼‍❤‍💋‍👨🏼	kyss mann, mann, hudtype 3	none
+👨🏼‍❤‍💋‍👨🏽	kyss mann, mann, hudtype 3, hudtype 4	none
+👨🏼‍❤‍💋‍👨🏾	kyss mann, mann, hudtype 3, hudtype 5	none
+👨🏼‍❤‍💋‍👨🏿	kyss mann, mann, hudtype 3, hudtype 6	none
+👨🏽‍❤‍💋‍👨🏻	kyss mann, mann, hudtype 4, hudtype 1–2	none
+👨🏽‍❤‍💋‍👨🏼	kyss mann, mann, hudtype 4, hudtype 3	none
+👨🏽‍❤‍💋‍👨🏽	kyss mann, mann, hudtype 4	none
+👨🏽‍❤‍💋‍👨🏾	kyss mann, mann, hudtype 4, hudtype 5	none
+👨🏽‍❤‍💋‍👨🏿	kyss mann, mann, hudtype 4, hudtype 6	none
+👨🏾‍❤‍💋‍👨🏻	kyss mann, mann, hudtype 5, hudtype 1–2	none
+👨🏾‍❤‍💋‍👨🏼	kyss mann, mann, hudtype 5, hudtype 3	none
+👨🏾‍❤‍💋‍👨🏽	kyss mann, mann, hudtype 5, hudtype 4	none
+👨🏾‍❤‍💋‍👨🏾	kyss mann, mann, hudtype 5	none
+👨🏾‍❤‍💋‍👨🏿	kyss mann, mann, hudtype 5, hudtype 6	none
+👨🏿‍❤‍💋‍👨🏻	kyss mann, mann, hudtype 6, hudtype 1–2	none
+👨🏿‍❤‍💋‍👨🏼	kyss mann, mann, hudtype 6, hudtype 3	none
+👨🏿‍❤‍💋‍👨🏽	kyss mann, mann, hudtype 6, hudtype 4	none
+👨🏿‍❤‍💋‍👨🏾	kyss mann, mann, hudtype 6, hudtype 5	none
+👨🏿‍❤‍💋‍👨🏿	kyss mann, mann, hudtype 6	none
+👨🏻‍❤‍👨🏻	par med hjerte mann, mann, hudtype 1–2	none
+👨🏻‍❤‍👨🏼	par med hjerte mann, mann, hudtype 1–2, hudtype 3	none
+👨🏻‍❤‍👨🏽	par med hjerte mann, mann, hudtype 1–2, hudtype 4	none
+👨🏻‍❤‍👨🏾	par med hjerte mann, mann, hudtype 1–2, hudtype 5	none
+👨🏻‍❤‍👨🏿	par med hjerte mann, mann, hudtype 1–2, hudtype 6	none
+👨🏼‍❤‍👨🏻	par med hjerte mann, mann, hudtype 3, hudtype 1–2	none
+👨🏼‍❤‍👨🏼	par med hjerte mann, mann, hudtype 3	none
+👨🏼‍❤‍👨🏽	par med hjerte mann, mann, hudtype 3, hudtype 4	none
+👨🏼‍❤‍👨🏾	par med hjerte mann, mann, hudtype 3, hudtype 5	none
+👨🏼‍❤‍👨🏿	par med hjerte mann, mann, hudtype 3, hudtype 6	none
+👨🏽‍❤‍👨🏻	par med hjerte mann, mann, hudtype 4, hudtype 1–2	none
+👨🏽‍❤‍👨🏼	par med hjerte mann, mann, hudtype 4, hudtype 3	none
+👨🏽‍❤‍👨🏽	par med hjerte mann, mann, hudtype 4	none
+👨🏽‍❤‍👨🏾	par med hjerte mann, mann, hudtype 4, hudtype 5	none
+👨🏽‍❤‍👨🏿	par med hjerte mann, mann, hudtype 4, hudtype 6	none
+👨🏾‍❤‍👨🏻	par med hjerte mann, mann, hudtype 5, hudtype 1–2	none
+👨🏾‍❤‍👨🏼	par med hjerte mann, mann, hudtype 5, hudtype 3	none
+👨🏾‍❤‍👨🏽	par med hjerte mann, mann, hudtype 5, hudtype 4	none
+👨🏾‍❤‍👨🏾	par med hjerte mann, mann, hudtype 5	none
+👨🏾‍❤‍👨🏿	par med hjerte mann, mann, hudtype 5, hudtype 6	none
+👨🏿‍❤‍👨🏻	par med hjerte mann, mann, hudtype 6, hudtype 1–2	none
+👨🏿‍❤‍👨🏼	par med hjerte mann, mann, hudtype 6, hudtype 3	none
+👨🏿‍❤‍👨🏽	par med hjerte mann, mann, hudtype 6, hudtype 4	none
+👨🏿‍❤‍👨🏾	par med hjerte mann, mann, hudtype 6, hudtype 5	none
+👨🏿‍❤‍👨🏿	par med hjerte mann, mann, hudtype 6	none
 👨‍🦰	mann rødt hår	none
 👨🏻‍🦰	mann hudtype 1–2, rødt hår	none
 👨🏼‍🦰	mann hudtype 3, rødt hår	none
@@ -1837,11 +2107,116 @@ symbols:
 👩🏽	kvinne hudtype 4	none
 👩🏾	kvinne hudtype 5	none
 👩🏿	kvinne hudtype 6	none
+🧔🏻‍♀	kvinne hudtype 1–2, skjegg	none
+🧔🏼‍♀	kvinne hudtype 3, skjegg	none
+🧔🏽‍♀	kvinne hudtype 4, skjegg	none
+🧔🏾‍♀	kvinne hudtype 5, skjegg	none
+🧔🏿‍♀	kvinne hudtype 6, skjegg	none
 👱🏻‍♀	kvinne hudtype 1–2, blond	none
 👱🏼‍♀	kvinne hudtype 3, blond	none
 👱🏽‍♀	kvinne hudtype 4, blond	none
 👱🏾‍♀	kvinne hudtype 5, blond	none
 👱🏿‍♀	kvinne hudtype 6, blond	none
+👩🏻‍❤‍💋‍👨🏻	kyss kvinne, mann, hudtype 1–2	none
+👩🏻‍❤‍💋‍👨🏼	kyss kvinne, mann, hudtype 1–2, hudtype 3	none
+👩🏻‍❤‍💋‍👨🏽	kyss kvinne, mann, hudtype 1–2, hudtype 4	none
+👩🏻‍❤‍💋‍👨🏾	kyss kvinne, mann, hudtype 1–2, hudtype 5	none
+👩🏻‍❤‍💋‍👨🏿	kyss kvinne, mann, hudtype 1–2, hudtype 6	none
+👩🏼‍❤‍💋‍👨🏻	kyss kvinne, mann, hudtype 3, hudtype 1–2	none
+👩🏼‍❤‍💋‍👨🏼	kyss kvinne, mann, hudtype 3	none
+👩🏼‍❤‍💋‍👨🏽	kyss kvinne, mann, hudtype 3, hudtype 4	none
+👩🏼‍❤‍💋‍👨🏾	kyss kvinne, mann, hudtype 3, hudtype 5	none
+👩🏼‍❤‍💋‍👨🏿	kyss kvinne, mann, hudtype 3, hudtype 6	none
+👩🏽‍❤‍💋‍👨🏻	kyss kvinne, mann, hudtype 4, hudtype 1–2	none
+👩🏽‍❤‍💋‍👨🏼	kyss kvinne, mann, hudtype 4, hudtype 3	none
+👩🏽‍❤‍💋‍👨🏽	kyss kvinne, mann, hudtype 4	none
+👩🏽‍❤‍💋‍👨🏾	kyss kvinne, mann, hudtype 4, hudtype 5	none
+👩🏽‍❤‍💋‍👨🏿	kyss kvinne, mann, hudtype 4, hudtype 6	none
+👩🏾‍❤‍💋‍👨🏻	kyss kvinne, mann, hudtype 5, hudtype 1–2	none
+👩🏾‍❤‍💋‍👨🏼	kyss kvinne, mann, hudtype 5, hudtype 3	none
+👩🏾‍❤‍💋‍👨🏽	kyss kvinne, mann, hudtype 5, hudtype 4	none
+👩🏾‍❤‍💋‍👨🏾	kyss kvinne, mann, hudtype 5	none
+👩🏾‍❤‍💋‍👨🏿	kyss kvinne, mann, hudtype 5, hudtype 6	none
+👩🏿‍❤‍💋‍👨🏻	kyss kvinne, mann, hudtype 6, hudtype 1–2	none
+👩🏿‍❤‍💋‍👨🏼	kyss kvinne, mann, hudtype 6, hudtype 3	none
+👩🏿‍❤‍💋‍👨🏽	kyss kvinne, mann, hudtype 6, hudtype 4	none
+👩🏿‍❤‍💋‍👨🏾	kyss kvinne, mann, hudtype 6, hudtype 5	none
+👩🏿‍❤‍💋‍👨🏿	kyss kvinne, mann, hudtype 6	none
+👩🏻‍❤‍💋‍👩🏻	kyss kvinne, kvinne, hudtype 1–2	none
+👩🏻‍❤‍💋‍👩🏼	kyss kvinne, kvinne, hudtype 1–2, hudtype 3	none
+👩🏻‍❤‍💋‍👩🏽	kyss kvinne, kvinne, hudtype 1–2, hudtype 4	none
+👩🏻‍❤‍💋‍👩🏾	kyss kvinne, kvinne, hudtype 1–2, hudtype 5	none
+👩🏻‍❤‍💋‍👩🏿	kyss kvinne, kvinne, hudtype 1–2, hudtype 6	none
+👩🏼‍❤‍💋‍👩🏻	kyss kvinne, kvinne, hudtype 3, hudtype 1–2	none
+👩🏼‍❤‍💋‍👩🏼	kyss kvinne, kvinne, hudtype 3	none
+👩🏼‍❤‍💋‍👩🏽	kyss kvinne, kvinne, hudtype 3, hudtype 4	none
+👩🏼‍❤‍💋‍👩🏾	kyss kvinne, kvinne, hudtype 3, hudtype 5	none
+👩🏼‍❤‍💋‍👩🏿	kyss kvinne, kvinne, hudtype 3, hudtype 6	none
+👩🏽‍❤‍💋‍👩🏻	kyss kvinne, kvinne, hudtype 4, hudtype 1–2	none
+👩🏽‍❤‍💋‍👩🏼	kyss kvinne, kvinne, hudtype 4, hudtype 3	none
+👩🏽‍❤‍💋‍👩🏽	kyss kvinne, kvinne, hudtype 4	none
+👩🏽‍❤‍💋‍👩🏾	kyss kvinne, kvinne, hudtype 4, hudtype 5	none
+👩🏽‍❤‍💋‍👩🏿	kyss kvinne, kvinne, hudtype 4, hudtype 6	none
+👩🏾‍❤‍💋‍👩🏻	kyss kvinne, kvinne, hudtype 5, hudtype 1–2	none
+👩🏾‍❤‍💋‍👩🏼	kyss kvinne, kvinne, hudtype 5, hudtype 3	none
+👩🏾‍❤‍💋‍👩🏽	kyss kvinne, kvinne, hudtype 5, hudtype 4	none
+👩🏾‍❤‍💋‍👩🏾	kyss kvinne, kvinne, hudtype 5	none
+👩🏾‍❤‍💋‍👩🏿	kyss kvinne, kvinne, hudtype 5, hudtype 6	none
+👩🏿‍❤‍💋‍👩🏻	kyss kvinne, kvinne, hudtype 6, hudtype 1–2	none
+👩🏿‍❤‍💋‍👩🏼	kyss kvinne, kvinne, hudtype 6, hudtype 3	none
+👩🏿‍❤‍💋‍👩🏽	kyss kvinne, kvinne, hudtype 6, hudtype 4	none
+👩🏿‍❤‍💋‍👩🏾	kyss kvinne, kvinne, hudtype 6, hudtype 5	none
+👩🏿‍❤‍💋‍👩🏿	kyss kvinne, kvinne, hudtype 6	none
+👩🏻‍❤‍👨🏻	par med hjerte kvinne, mann, hudtype 1–2	none
+👩🏻‍❤‍👨🏼	par med hjerte kvinne, mann, hudtype 1–2, hudtype 3	none
+👩🏻‍❤‍👨🏽	par med hjerte kvinne, mann, hudtype 1–2, hudtype 4	none
+👩🏻‍❤‍👨🏾	par med hjerte kvinne, mann, hudtype 1–2, hudtype 5	none
+👩🏻‍❤‍👨🏿	par med hjerte kvinne, mann, hudtype 1–2, hudtype 6	none
+👩🏼‍❤‍👨🏻	par med hjerte kvinne, mann, hudtype 3, hudtype 1–2	none
+👩🏼‍❤‍👨🏼	par med hjerte kvinne, mann, hudtype 3	none
+👩🏼‍❤‍👨🏽	par med hjerte kvinne, mann, hudtype 3, hudtype 4	none
+👩🏼‍❤‍👨🏾	par med hjerte kvinne, mann, hudtype 3, hudtype 5	none
+👩🏼‍❤‍👨🏿	par med hjerte kvinne, mann, hudtype 3, hudtype 6	none
+👩🏽‍❤‍👨🏻	par med hjerte kvinne, mann, hudtype 4, hudtype 1–2	none
+👩🏽‍❤‍👨🏼	par med hjerte kvinne, mann, hudtype 4, hudtype 3	none
+👩🏽‍❤‍👨🏽	par med hjerte kvinne, mann, hudtype 4	none
+👩🏽‍❤‍👨🏾	par med hjerte kvinne, mann, hudtype 4, hudtype 5	none
+👩🏽‍❤‍👨🏿	par med hjerte kvinne, mann, hudtype 4, hudtype 6	none
+👩🏾‍❤‍👨🏻	par med hjerte kvinne, mann, hudtype 5, hudtype 1–2	none
+👩🏾‍❤‍👨🏼	par med hjerte kvinne, mann, hudtype 5, hudtype 3	none
+👩🏾‍❤‍👨🏽	par med hjerte kvinne, mann, hudtype 5, hudtype 4	none
+👩🏾‍❤‍👨🏾	par med hjerte kvinne, mann, hudtype 5	none
+👩🏾‍❤‍👨🏿	par med hjerte kvinne, mann, hudtype 5, hudtype 6	none
+👩🏿‍❤‍👨🏻	par med hjerte kvinne, mann, hudtype 6, hudtype 1–2	none
+👩🏿‍❤‍👨🏼	par med hjerte kvinne, mann, hudtype 6, hudtype 3	none
+👩🏿‍❤‍👨🏽	par med hjerte kvinne, mann, hudtype 6, hudtype 4	none
+👩🏿‍❤‍👨🏾	par med hjerte kvinne, mann, hudtype 6, hudtype 5	none
+👩🏿‍❤‍👨🏿	par med hjerte kvinne, mann, hudtype 6	none
+👩🏻‍❤‍👩🏻	par med hjerte kvinne, kvinne, hudtype 1–2	none
+👩🏻‍❤‍👩🏼	par med hjerte kvinne, kvinne, hudtype 1–2, hudtype 3	none
+👩🏻‍❤‍👩🏽	par med hjerte kvinne, kvinne, hudtype 1–2, hudtype 4	none
+👩🏻‍❤‍👩🏾	par med hjerte kvinne, kvinne, hudtype 1–2, hudtype 5	none
+👩🏻‍❤‍👩🏿	par med hjerte kvinne, kvinne, hudtype 1–2, hudtype 6	none
+👩🏼‍❤‍👩🏻	par med hjerte kvinne, kvinne, hudtype 3, hudtype 1–2	none
+👩🏼‍❤‍👩🏼	par med hjerte kvinne, kvinne, hudtype 3	none
+👩🏼‍❤‍👩🏽	par med hjerte kvinne, kvinne, hudtype 3, hudtype 4	none
+👩🏼‍❤‍👩🏾	par med hjerte kvinne, kvinne, hudtype 3, hudtype 5	none
+👩🏼‍❤‍👩🏿	par med hjerte kvinne, kvinne, hudtype 3, hudtype 6	none
+👩🏽‍❤‍👩🏻	par med hjerte kvinne, kvinne, hudtype 4, hudtype 1–2	none
+👩🏽‍❤‍👩🏼	par med hjerte kvinne, kvinne, hudtype 4, hudtype 3	none
+👩🏽‍❤‍👩🏽	par med hjerte kvinne, kvinne, hudtype 4	none
+👩🏽‍❤‍👩🏾	par med hjerte kvinne, kvinne, hudtype 4, hudtype 5	none
+👩🏽‍❤‍👩🏿	par med hjerte kvinne, kvinne, hudtype 4, hudtype 6	none
+👩🏾‍❤‍👩🏻	par med hjerte kvinne, kvinne, hudtype 5, hudtype 1–2	none
+👩🏾‍❤‍👩🏼	par med hjerte kvinne, kvinne, hudtype 5, hudtype 3	none
+👩🏾‍❤‍👩🏽	par med hjerte kvinne, kvinne, hudtype 5, hudtype 4	none
+👩🏾‍❤‍👩🏾	par med hjerte kvinne, kvinne, hudtype 5	none
+👩🏾‍❤‍👩🏿	par med hjerte kvinne, kvinne, hudtype 5, hudtype 6	none
+👩🏿‍❤‍👩🏻	par med hjerte kvinne, kvinne, hudtype 6, hudtype 1–2	none
+👩🏿‍❤‍👩🏼	par med hjerte kvinne, kvinne, hudtype 6, hudtype 3	none
+👩🏿‍❤‍👩🏽	par med hjerte kvinne, kvinne, hudtype 6, hudtype 4	none
+👩🏿‍❤‍👩🏾	par med hjerte kvinne, kvinne, hudtype 6, hudtype 5	none
+👩🏿‍❤‍👩🏿	par med hjerte kvinne, kvinne, hudtype 6	none
 👩‍🦰	kvinne rødt hår	none
 👩🏻‍🦰	kvinne hudtype 1–2, rødt hår	none
 👩🏼‍🦰	kvinne hudtype 3, rødt hår	none
@@ -3120,7 +3495,7 @@ symbols:
 🇧🇿	flagg Belize	none
 🇨🇦	flagg Canada	none
 🇨🇨	flagg Kokosøyene	none
-🇨🇩	flagg Kongo-Kinshasa	none
+🇨🇩	flagg Kongo	none
 🇨🇫	flagg Den sentralafrikanske republikk	none
 🇨🇬	flagg Kongo-Brazzaville	none
 🇨🇭	flagg Sveits	none
@@ -3179,7 +3554,7 @@ symbols:
 🇬🇺	flagg Guam	none
 🇬🇼	flagg Guinea-Bissau	none
 🇬🇾	flagg Guyana	none
-🇭🇰	flagg Hongkong S.A.R. Kina	none
+🇭🇰	flagg Hongkong SAR Kina	none
 🇭🇲	flagg Heard- og McDonaldøyene	none
 🇭🇳	flagg Honduras	none
 🇭🇷	flagg Kroatia	none
@@ -3233,7 +3608,7 @@ symbols:
 🇲🇱	flagg Mali	none
 🇲🇲	flagg Myanmar (Burma)	none
 🇲🇳	flagg Mongolia	none
-🇲🇴	flagg Macao S.A.R. Kina	none
+🇲🇴	flagg Macao SAR Kina	none
 🇲🇵	flagg Nord-Marianene	none
 🇲🇶	flagg Martinique	none
 🇲🇷	flagg Mauritania	none
@@ -3341,6 +3716,26 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	flagg England	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	flagg Skottland	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	flagg Wales	none
+¤	ukjent valuta	none
+֏	armenske dram	none
+؋	afghanske afghani	none
+৳	bangladeshiske taka	none
+฿	thailandske baht	none
+៛	kambodsjanske riel	none
+₡	costaricanske colón	none
+₦	nigerianske naira	none
+₧	spanske peseta	none
+₪	nye israelske shekler	none
+₫	vietnamesiske dong	none
+₭	laotiske kip	none
+₮	mongolske tugrik	none
+₲	paraguayanske guarani	none
+₴	ukrainske hryvnia	none
+₵	ghanesiske cedi	none
+₸	kasakhstanske tenge	none
+₺	tyrkiske lire	none
+₼	aserbajdsjanske manat	none
+₾	georgiske lari	none
 0⃣	taster 0	none
 1⃣	taster 1	none
 2⃣	taster 2	none

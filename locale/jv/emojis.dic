@@ -3,20 +3,83 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+{	kurung kriwil mbukak	none
 🏻	kulit putih	none
 🏼	kulit putih langsep	none
 🏽	kulit kuning	none
 🏾	kulit sawo mateng	none
 🏿	kulit ireng	none
+_	garis ngisor	none
+-	tandha sambung-minus	none
+‐	tandha sambung	none
 –	en setrip	none
 —	em setrip	none
+―	palang mlumah	none
+・	titik tengah katakana	none
+,	pada lingsa	none
+،	pada lingsa arab	none
+、	pada lingsa nduweni sifat gambar	none
+;	pada lungsi pada lingsa	none
+؛	pada lingsa pada lungsi arab	none
+:	pada lungsi loro	none
+!	tandha penthung	none
+¡	tandha sero kewalik	none
+?	tandha pitakon	none
+¿	tandha pitakon kewalik	none
+؟	tandha pitakon arab	none
+.	titik	none
+…	tandha ganti	none
+。	titik nduweni sifat gambar	none
 ·	titik cilek	none
+'	apostrof mesin tik	none
+‘	apostrof kiwa	none
+’	apostrof tengen	none
+‚	apostrof tengen ngisor	none
+“	tandha kutipan kiwo	none
+”	tandha kutipan tengen	none
+„	tandha kutipan tengen ngisor	none
 «	kurung lancip kiwa	none
 »	kurung lancip tengen	none
+)	tandha kurung	none
+[	kurung kothak mbukak	none
+]	kurung kothak nutup	none
+}	kurung kriwil nutup	none
+〈	kurung sudut mbukak	none
+〉	kurung sudut nutup	none
+《	kurung sudut loro mbukak	none
+》	kurung sudut loro nutup	none
+「	kurung panjuru mbukak	none
+」	kurung panjuru nutup	none
+『	kurung panjuru bolong mbukak	none
+』	kurung panjuru bolong nutup	none
+【	kurung kantha ireng mbukak	none
+】	kurung kantha ireng nutup	none
+〔	kurung tempurung bulus mbukak	none
+〕	kurung tempurung bulus nutup	none
+〖	kurung kantha bolong mbukak	none
+〗	kurung kantha bolong nutup	none
 §	bagean	none
+¶	tandha ukara	none
+@	tandha at	none
+*	tandha lintang	none
+/	garis mireng	none
+\	tandha mireng kewalik	none
+&	tandha lan	none
+#	tandha pager	none
+%	persen	none
+‰	per mil	none
 †	tanda lading	none
 ‡	tanda lading pindo	none
 •	pluru	none
+‧	titik tandha sambung	none
+′	tandha kuthip	none
+″	tandha kuthip loro	none
+‴	tandha kutip telu	none
+※	tandha referensi	none
+`	aksen abot	none
+´	aksen alus	none
+^	aksen sirkomflek	none
+¨	diaeresis	none
 °	drajat	none
 ℗	hak cipta rekaman swara	none
 ←	panah nuding ngiwo	none
@@ -28,14 +91,27 @@ symbols:
 ∆	mundhak	none
 ∇	mlorot	none
 ∈	unsur saka	none
++	tandha tambah	none
+±	kurang luwih	none
 ÷	para	none
 ×	ping-pingan	none
+<	luwih cilik	none
+=	pada karo	none
+≠	ora podho	none
+>	luwih gedhe	none
+¬	nolak	none
+|	garis tegak lurus	none
+~	garis kriwil	none
+−	tandha kurang	none
 ⁻	tandha kurang ing dhuwur	none
 √	oyod peng loro	none
 ∞	tandha tanpa wates	none
 ∩	simpangan	none
 ∪	sarekat	none
+≈	meh pada	none
 ≡	podho karo	none
+≤	luwih cilik utowo podho	none
+≥	luwih gedhe utowo podho	none
 ⊂	subset saka	none
 ▲	pesagi telu kapenuhan pucuke ing ndhuwur	none
 ▼	pesagi telu kapenuhan pucuke ing ngisor	none
@@ -43,6 +119,9 @@ symbols:
 ○	bunderan kothong	none
 ●	bundera kapenuhan	none
 ◯	bunderan kothong gedhe	none
+♪	gendhing wolu	none
+♭	warata	none
+♯	landep	none
 😀	rai ngguyu	none
 😃	rai ngguyu matane mblalak	none
 😄	rai ngguyu nganti merem-merem	none
@@ -80,10 +159,12 @@ symbols:
 😐	rai anteng	none
 😑	rai tanpa ekspresi	none
 😶	rai tanpa cangkem	none
+😶‍🌫	rai ora dong	none
 😏	rai mesem ngenyek	none
 😒	rai wegah ngguyu	none
 🙄	rai matane mlerok	none
 😬	rai mringis mbatek	none
+😮‍💨	rai ambegan lego	none
 🤥	rai ngapusi	none
 😌	rai lega	none
 😔	rai sedhih anggone mikir	none
@@ -100,6 +181,7 @@ symbols:
 🥶	rai katisen	none
 🥴	rai mendem	none
 😵	rai mumet	none
+😵‍💫	rai ngelu	none
 🤯	rai ndhase njeblug	none
 🤠	rai nganggo topi koboi	none
 🥳	rai pista	none
@@ -171,6 +253,8 @@ symbols:
 💟	dhekorasi ati	none
 ❣	tandha penthung wujude ati	none
 💔	lara ati	none
+❤‍🔥	ati kasmaran	none
+❤‍🩹	ndandani ati	none
 ❤	ati abang	none
 🧡	ati kunir	none
 💛	ati kuning	none
@@ -252,9 +336,11 @@ symbols:
 🧑	wong	none
 👱	wong rambute pirang	none
 👨	wong lanang	none
-🧔	wong lanang jenggot	none
+🧔	wong jenggot	none
+🧔‍♂	wong lanang jenggot	none
 👱‍♂	wong lanang rambut pirang	none
 👩	wong wadon	none
+🧔‍♀	wong wadon jenggot	none
 👱‍♀	wong wadon rambut pirang	none
 🧓	wong tuwa	none
 👴	wong tuwa lanang	none
@@ -357,9 +443,9 @@ symbols:
 👳‍♀	wong wadon serbanan	none
 👲	wong lanang nganggo kethu Cina	none
 🧕	wong wadon jilbaban	none
-🤵	wong lanang anganggo jas tuksedo	none
-🤵‍♂	wong lanang anganggo tuksedo	none
-🤵‍♀	wong wadon anganggo jas tuksedo	none
+🤵	wong anganggo jas tuksedo	none
+🤵‍♂	wong lanang anganggo jas tuksedo	none
+🤵‍♀	wong wadon anganggo tuksedo	none
 👰	wong nganggo kudhung manten	none
 👰‍♂	wong lanang nganggo kudhung manten	none
 👰‍♀	wong wadon nganggo kudhung manten	none
@@ -488,7 +574,7 @@ symbols:
 🛌	wong turu	none
 🧑‍🤝‍🧑	wong gandhengan tangan	none
 👭	wong wadon loro gandhengan tangan	none
-👫	wong lanang lan wadon gandhengan tangan	none
+👫	wong lanang lan wadon gandhengan	none
 👬	wong lanang loro gandhengan tangan	none
 💏	ambung	none
 💑	pasangan lan tandha ati	none
@@ -1420,16 +1506,16 @@ symbols:
 ♂	tandha priya	none
 ⚧	tandha wariya	none
 ✖	tandha ping-pingan	none
-➕	tandha tambah	none
-➖	tandha kurang	none
+➕	tambah	none
+➖	kurang	none
 ➗	tandha para	none
 ♾	tanpa wates	none
 ‼	tandha penthung dhobel	none
 ⁉	tandha penthung lan pitakon	none
-❓	tandha pitakon	none
+❓	tandha pitakon abang	none
 ❔	tandha pitakon putih	none
 ❕	tandha penthung putih	none
-❗	tandha penthung	none
+❗	tandha penthung abang	none
 〰	setrip ngeluk	none
 💱	rega ijol mata uang	none
 💲	tandha dolar kandel	none
@@ -1535,12 +1621,37 @@ symbols:
 🏳‍🌈	gendera plangi	none
 🏳‍⚧	gendera wariya	none
 🏴‍☠	gendera begal segara	none
+¢	sen	none
+$	dolar	none
 £	pound	none
 ¥	yen	none
+₥	mill	none
+₩	won	none
 €	euro	none
+₱	peso	none
 ₹	rupee india	none
 ₽	ruble	none
+₿	bitcoin	none
 ¹	tandha siji ing dhuwur	none
 ²	tandha loro ing dhuwur	none
 ³	tandha telu ing dhuwur	none
 µ	tandha mikro	none
+¤	Dhuwit Ora Dikenali	none
+֏	Dram Armenia	none
+؋	Afghani Afganistan	none
+৳	Taka Bangladesh	none
+฿	Baht Thai	none
+៛	Riel Kamboja	none
+₡	Colon Kosta Rika	none
+₦	Naira Nigeria	none
+₪	Shekel Anyar Israel	none
+₫	Dong Vietnam	none
+₭	Kip Laos	none
+₮	Tugrik Mongol	none
+₲	Guarani Paraguay	none
+₴	Hryvnia Ukrania	none
+₵	Cedi Ghana	none
+₸	Tenge Kasakhstan	none
+₺	Lira Turki	none
+₼	Manat Azerbaijan	none
+₾	Lari Georgia	none
