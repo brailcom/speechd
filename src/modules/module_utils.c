@@ -57,7 +57,7 @@ char *module_index_mark;
 
 char *do_message(SPDMessageType msgtype)
 {
-	int ret;
+	int ret, offset;
 	char *cur_line;
 	GString *msg;
 	size_t n;
@@ -70,23 +70,27 @@ char *do_message(SPDMessageType msgtype)
 
 	while (1) {
 		cur_line = NULL;
+		offset = 0;
 		n = 0;
 		ret = spd_getline(&cur_line, &n, stdin);
 		nlines++;
 		if (ret == -1)
 			return g_strdup("401 ERROR INTERNAL");
 
-		if (!strcmp(cur_line, "..\n")) {
-			g_free(cur_line);
-			cur_line = g_strdup(".\n");
-		} else if (!strcmp(cur_line, ".\n")) {
+		if (!strcmp(cur_line, ".\n")) {
 			/* Strip the trailing \n */
 			msg->str[strlen(msg->str) - 1] = 0;
 			g_free(cur_line);
 			break;
 		}
+
+		if (cur_line[0] == '.') {
+			offset++;
+			cur_line++;
+		}
+
 		g_string_append(msg, cur_line);
-		g_free(cur_line);
+		g_free(cur_line - offset);
 	}
 
 	if ((msgtype != SPD_MSGTYPE_TEXT) && (nlines > 2)) {

@@ -860,7 +860,6 @@ char *escape_dot(char *otext)
 	GString *ntext;
 	char *ootext;
 	char *ret = NULL;
-	int len;
 
 	if (otext == NULL)
 		return NULL;
@@ -871,41 +870,21 @@ char *escape_dot(char *otext)
 
 	ntext = g_string_new("");
 
-	if (strlen(otext) == 1) {
-		if (!strcmp(otext, ".")) {
-			g_string_append(ntext, "..");
-			otext += 1;
-		}
-	}
-
-	if (strlen(otext) >= 2) {
-		if ((otext[0] == '.') && (otext[1] == '\n')) {
-			g_string_append(ntext, "..\n");
-			otext = otext + 2;
-		}
+	if (otext[0] == '.') {
+		g_string_append(ntext, "..");
+		otext += 1;
 	}
 
 	MSG2(6, "escaping", "Altering text (I): |%s|", ntext->str);
 
-	while ((seq = strstr(otext, "\n.\n"))) {
+	while ((seq = strstr(otext, "\n."))) {
 		*seq = 0;
 		g_string_append(ntext, otext);
-		g_string_append(ntext, "\n..\n");
-		otext = seq + 3;
+		g_string_append(ntext, "\n..");
+		otext = seq + 2;
 	}
 
 	MSG2(6, "escaping", "Altering text (II): |%s|", ntext->str);
-
-	len = strlen(otext);
-	if (len >= 2) {
-		if ((otext[len - 2] == '\n') && (otext[len - 1] == '.')) {
-			g_string_append(ntext, otext);
-			g_string_append(ntext, ".");
-			otext = otext + len;
-			MSG2(6, "escaping", "Altering text (II-b): |%s|",
-			     ntext->str);
-		}
-	}
 
 	if (otext == ootext) {
 		g_string_free(ntext, 1);
