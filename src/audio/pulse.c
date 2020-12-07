@@ -183,6 +183,11 @@ static AudioID *pulse_open(void **pars)
 	spd_pulse_id_t *pulse_id;
 	int ret;
 
+	if (pars[3] == NULL) {
+		ERR("Can't open Pulse sound output, missing parameters in argument.");
+		return NULL;
+	}
+
 	pulse_id = (spd_pulse_id_t *) g_malloc(sizeof(spd_pulse_id_t));
 
 	/* Select an Endianness for the initial connection. */
