@@ -27,6 +27,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <netinet/in.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <dirent.h>
@@ -67,7 +68,7 @@ void destroy_module(OutputModule * module)
  */
 DOTCONF_CB(GenericCmdDependency_cb)
 {
-	unsigned *missing_paths = ctx;
+	unsigned *missing_dep = ctx;
 	char s[5 + strlen(cmd->data.str) + 17 + 1];
 
 	if (!cmd->data.str[0])
@@ -77,10 +78,42 @@ DOTCONF_CB(GenericCmdDependency_cb)
 	if (system(s) != 0)
 	{
 		MSG(5, "Did not find command %s", cmd->data.str);
-		(*missing_paths)++;
+		(*missing_dep)++;
 	}
 	return NULL;
 }
+
+/*
+ * Check that we can connect to the configured local port
+ */
+DOTCONF_CB(GenericPortDependency_cb)
+{
+	unsigned *missing_dep = ctx;
+	int s = socket(PF_INET, SOCK_STREAM, 0);
+	struct sockaddr_in sin;
+
+	if (s < 0)
+	{
+		MSG(5, "Could not establish IPv4 socket: %s", strerror(errno));
+		(*missing_dep)++;
+		return NULL;
+	}
+
+	memset(&sin, 0, sizeof(sin));
+	sin.sin_family = AF_INET;
+	sin.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+	sin.sin_port = htons(cmd->data.value);
+
+	if (connect(s, (struct sockaddr *) &sin, sizeof(sin)) < 0)
+	{
+		MSG(5, "Could not connect to IPv4 socket: %s", strerror(errno));
+		(*missing_dep)++;
+	}
+	close(s);
+
+	return NULL;
+}
+
 FUNC_ERRORHANDLER(ignore_errors)
 {
 	return 0;
@@ -183,6 +216,13 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 						.context = 0,
 					},
 					{
+						.name = "GenericPortDependency",
+						.type = ARG_INT,
+						.callback = GenericPortDependency_cb,
+						.info = NULL,
+						.context = 0,
+					},
+					{
 						.name = "",
 						.type = 0,
 						.callback = NULL,
@@ -191,7 +231,7 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 					}
 				};
 				configfile_t *configfile;
-				unsigned missing_paths = 0;
+				unsigned missing_dep = 0;
 
 				if (!strcmp(entry->d_name, ".") || !strcmp(entry->d_name, ".."))
 					continue;
@@ -220,10 +260,10 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 					continue;
 				}
 
-				/* Check for actual binaries given by GenericCmdDependency */
+				/* Check for actual binaries and ports given by GenericCmdDependency and GenericPortDependency */
 
 				configfile = dotconf_create(file_path, options,
-							    &missing_paths, CASE_INSENSITIVE);
+							    &missing_dep, CASE_INSENSITIVE);
 				if (!configfile) {
 					MSG(5, "Ignoring %s: Can not parse config file", file_path);
 					g_free(file_path);
@@ -239,9 +279,9 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 				}
 				dotconf_cleanup(configfile);
 
-				if (missing_paths != 0) {
-					MSG(5, "Ignoring %s: did not find %d commands",
-					       file_path, missing_paths);
+				if (missing_dep != 0) {
+					MSG(5, "Ignoring %s: did not find %d dependency",
+					       file_path, missing_dep);
 					g_free(file_path);
 					continue;
 				}

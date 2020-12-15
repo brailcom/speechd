@@ -71,6 +71,7 @@ void generic_set_punct(SPDPunctuation punct);
 
 MOD_OPTION_1_STR(GenericExecuteSynth)
     MOD_OPTION_1_STR(GenericCmdDependency)
+    MOD_OPTION_1_INT(GenericPortDependency)
     MOD_OPTION_1_STR(GenericSoundIconFolder)
 
     MOD_OPTION_1_INT(GenericMaxChunkLength)
@@ -112,6 +113,7 @@ int module_load(void)
 
 	MOD_OPTION_1_STR_REG(GenericExecuteSynth, "");
 	MOD_OPTION_1_STR_REG(GenericCmdDependency, "");
+	MOD_OPTION_1_INT_REG(GenericPortDependency, 0);
 	MOD_OPTION_1_STR_REG(GenericSoundIconFolder, "/usr/share/sounds/sound-icons/");
 
 	REGISTER_DEBUG();
@@ -160,6 +162,7 @@ int module_init(char **status_info)
 	DBG("GenericDelimiters = %s\n", GenericDelimiters);
 	DBG("GenericExecuteSynth = %s\n", GenericExecuteSynth);
 	DBG("GenericCmdDependency = %s\n", GenericCmdDependency);
+	DBG("GenericPortDependency = %u\n", GenericPortDependency);
 
 	generic_msg_language =
 	    (TGenericLanguage *) g_malloc(sizeof(TGenericLanguage));
