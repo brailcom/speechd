@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
 "POT-Creation-Date: 2020-09-05 19:01+0200\n"
-"PO-Revision-Date: 2020-09-20 07:39+0000\n"
+"PO-Revision-Date: 2021-01-10 01:32+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "speech-dispatcher/po/nb_NO/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3-dev\n"
+"X-Generator: Weblate 4.4.1-dev\n"
 
 #: src/server/options.c:63
 #, c-format, fuzzy
@@ -869,7 +869,7 @@ msgstr ""
 "Dispatcher automatisk."
 
 #: src/api/python/speechd_config/config.py.in:673
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "Configuration written to %s\n"
@@ -881,7 +881,7 @@ msgstr ""
 "Oppsett skrevet til %s\n"
 "Grunnleggende oppsett er nå fullført. Det kan hende du vil trenge å\n"
 "finjustere det manuelt ved å redigere oppsettsfilen ovenfor. Spesielt\n"
-"hvis du må bruke spesielle lydinstillinger, ikke-forvalgt "
+"hvis du må bruke spesielle lydinnstillinger, ikke-forvalgte "
 "talesyntesestemmeporter,\n"
 "osv."
 
