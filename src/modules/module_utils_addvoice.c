@@ -37,6 +37,7 @@ static int nbvoices=0;
 static int nbpaths=0;
 static SPDVoice *generic_voices;
 static SPDVoice **generic_voices_list;
+static char *default_voice;
 static char **dependency_paths;
 typedef struct {
 	char *male1;
@@ -154,6 +155,21 @@ DOTCONF_CB(AddVoice_cb)
 	return NULL;
 }
 
+DOTCONF_CB(DefaultVoice_cb)
+{
+	char *voicename = cmd->data.list[0];
+	if (voicename == NULL) {
+		DBG("Missing default voice name\n");
+		return NULL;
+	}
+
+	if (default_voice)
+		free(default_voice);
+	default_voice = strdup(voicename);
+
+	return NULL;
+}
+
 void module_register_available_voices(void)
 {
 	module_dc_options = module_add_config_option(module_dc_options,
@@ -169,6 +185,10 @@ void module_register_settings_voices(void)
 						     &module_num_dc_options,
 						     "AddVoice", ARG_LIST,
 						     AddVoice_cb, NULL, 0);
+	module_dc_options = module_add_config_option(module_dc_options,
+						     &module_num_dc_options,
+						     "DefaultVoice", ARG_STR,
+						     DefaultVoice_cb, NULL, 0);
 }
 
 gboolean module_existsvoice(char *voicename)
@@ -254,4 +274,9 @@ char *module_getvoice(char *language, SPDVoiceType voice)
 		fprintf(stderr, "No voice available for this output module!");
 
 	return ret;
+}
+
+char *module_getdefaultvoice(void)
+{
+	return default_voice;
 }

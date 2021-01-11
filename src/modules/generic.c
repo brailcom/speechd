@@ -473,10 +473,14 @@ void *_generic_speak(void *nothing)
 					e_string =
 					    string_replace(e_string, "$VOICE",
 							   generic_msg_voice_str);
-				else
+				else {
+					char *default_voice = module_getdefaultvoice();
+					if (!default_voice)
+						default_voice = "no_voice";
 					e_string =
 					    string_replace(e_string, "$VOICE",
-							   "no_voice");
+							    default_voice);
+				}
 
 				/* Cut it into two strings */
 				p = strstr(e_string, "$DATA");

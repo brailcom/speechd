@@ -808,6 +808,16 @@ this:
         AddVoice        "sk"  "male1"   "bob"
 @end example
 
+@item DefaultVoice "@var{name}"
+@anchor{DefaultVoice}
+
+If the client does not request for a particular voice, we should be still using
+some voice so that the user at least gets some feedback, even if in the wrong
+language. @code{DefaultVoice} can be used to specify which voice should be used
+in such a case. If not specified, the @code{no_voice} string is passed instead.
+
+@var{name} is a name specific for the given output module.
+
 @item ModuleDelimiters "@var{delimiters}", ModuleMaxChunkLength @var{length}
 
 Normally, the output module doesn't try to synthesize all
