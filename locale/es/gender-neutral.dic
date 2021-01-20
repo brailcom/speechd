@@ -18,6 +18,53 @@ complexSymbols:
 # match name\tperl regexp to be matched
 
 end-words nosotrxs	(?<=\b)[n][o][s][o][t][r][xe][s](?=\b)
+end-words vosotrxs	(?<=\b)[v][o][s][o][t][r][xe][s](?=\b)
+end-words ellx	(?<=\b)[e][l][l][xe](?=\b)
+end-words ellxs	(?<=\b)[e][l][l][xe][s](?=\b)
+
+end-words míx	(?<=\b)[m][í][xe](?=\b)
+end-words míxs	(?<=\b)[m][í][xe][s](?=\b)
+end-words tuyx	(?<=\b)[t][u][y][xe](?=\b)
+end-words tuyxs	(?<=\b)[t][u][y][xe][s](?=\b)
+end-words suyx	(?<=\b)[s][u][y][xe](?=\b)
+end-words suyxs	(?<=\b)[s][u][y][xe][s](?=\b)
+end-words nuestrx	(?<=\b)[n][u][e][s][t][r][xe](?=\b)
+end-words nuestrxs	(?<=\b)[n][u][e][s][t][r][xe][s](?=\b)
+end-words vuestrx	(?<=\b)[v][u][e][s][t][r][xe](?=\b)
+end-words vuestrxs	(?<=\b)[v][u][e][s][t][r][xe][s](?=\b)
+end-words cuyx	(?<=\b)[c][u][xe](?=\b)
+end-words cuyxs	(?<=\b)[c][u][xe][s](?=\b)
+
+end-words estx	(?<=\b)[e][s][t][xe](?=\b)
+end-words estxs	(?<=\b)[e][s][t][xe][s](?=\b)
+end-words esx	(?<=\b)[e][s][xe](?=\b)
+end-words esxs	(?<=\b)[e][s][xe][s](?=\b)
+end-words aquellx	(?<=\b)[a][q][u][e][l][l][xe](?=\b)
+end-words aquellxs	(?<=\b)[a][q][u][e][l][l][xe][s](?=\b)
+
+end-words unx	(?<=\b)[u][n][xe](?=\b)
+end-words unxs	(?<=\b)[u][n][xe][s](?=\b)
+end-words algunx	(?<=\b)[a][l][g][u][n][xe](?=\b)
+end-words algunxs	(?<=\b)[a][l][g][u][n][xe][s](?=\b)
+end-words ningunx	(?<=\b)[n][i][n][g][u][n][xe](?=\b)
+end-words ningunxs	(?<=\b)[n][i][n][g][u][n][xe][s](?=\b)
+end-words pocx	(?<=\b)[p][o][c][x](?=\b)
+end-words pocxs	(?<=\b)[p][o][c][x][s](?=\b)
+end-words poque	(?<=\b)[p][o][q][u][e](?=\b)
+end-words poques	(?<=\b)[p][o][q][u][e][s](?=\b)
+end-words muchx	(?<=\b)[m][u][c][h][xe](?=\b)
+end-words muchxs	(?<=\b)[m][u][c][h][xe][s](?=\b)
+end-words todx	(?<=\b)[t][o][d][xe](?=\b)
+end-words todxs	(?<=\b)[t][o][d][xe][s](?=\b)
+end-words tantx	(?<=\b)[t][a][n][t][xe](?=\b)
+end-words tantxs	(?<=\b)[t][a][n][t][xe][s](?=\b)
+end-words otrx	(?<=\b)[o][t][r][xe](?=\b)
+end-words otrxs	(?<=\b)[o][t][r][xe][s](?=\b)
+end-words mismx	(?<=\b)[m][i][s][m][xe](?=\b)
+end-words mismxs	(?<=\b)[m][i][s][m][xe][s](?=\b)
+
+end-words ambxs	(?<=\b)[a][m][b][xe][s](?=\b)
+end-words sendxs	(?<=\b)[s][e][n][d][xe][s](?=\b)
 
 symbols:
 # Replacement:
@@ -27,3 +74,50 @@ symbols:
 # literal avoids introducing spurious spaces
 
 end-words nosotrxs	nosotros	none	literal
+end-words vosotrxs	vosotros	none	literal
+end-words ellx	él	none	literal
+end-words ellxs	ellos	none	literal
+
+end-words míx	mío	none	literal
+end-words míxs	míos	none	literal
+end-words tuyx	tuyo	none	literal
+end-words tuyxs	tuyos	none	literal
+end-words suyx	suyo	none	literal
+end-words suyxs suyos	none	literal
+end-words nuestrx	nuestro	none	literal
+end-words nuestrxs	nuestros	none	literal
+end-words vuestrx	vuestro	none	literal
+end-words vuestrxs	vuestros	none	literal
+end-words cuyx	cuyo	none	literal
+end-words cuyxs	cuyos	none	literal
+
+end-words estx	este	none	literal
+end-words estxs	estos	none	literal
+end-words esx	ese	none	literal
+end-words esxs	esos	none	literal
+end-words aquellx	aquél	none	literal
+end-words aquellxs	aquellos	none	literal
+
+end-words unx	un	none	literal
+end-words unxs	unos	none	literal
+end-words algunx	algún	none	literal
+end-words algunxs	algunos	none	literal
+end-words ningunx	ningún	none	literal
+end-words ningunxs	ningunos	none	literal
+end-words pocx	poco	none	literal
+end-words pocxs	pocos	none	literal
+end-words poque	poco	none	literal
+end-words poques	pocos	none	literal
+end-words muchx	mucho	none	literal
+end-words muchxs	muchos	none	literal
+end-words todx	todo	none	literal
+end-words todxs	todos	none	literal
+end-words tantx	tanto	none	literal
+end-words tantxs	tantos	none	literal
+end-words otrx	otro	none	literal
+end-words otrxs	otros	none	literal
+end-words mismx	mismo	none	literal
+end-words mismxs    mismos	none	literal
+
+end-words ambxs	ambos	none	literal
+end-words sendxs	sendos	none	literal
