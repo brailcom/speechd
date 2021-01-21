@@ -35,6 +35,7 @@ end-words vuestrxs	(?<=\b)[vV][uU][eE][sS][tT][rR][xXeE][sS](?=\b)
 end-words cuyx	(?<=\b)[cC][uU][xXeE](?=\b)
 end-words cuyxs	(?<=\b)[cC][uU][xXeE][sS](?=\b)
 
+end-words lxs	(?<=\b)[lL][xXeE][sS](?=\b)
 end-words estx	(?<=\b)[eE][sS][tT][xXeE](?=\b)
 end-words estxs	(?<=\b)[eE][sS][tT][xXeE][sX](?=\b)
 end-words esx	(?<=\b)[eE][sS][xXeE](?=\b)
@@ -91,6 +92,7 @@ end-words vuestrxs	vuestros	none	literal
 end-words cuyx	cuyo	none	literal
 end-words cuyxs	cuyos	none	literal
 
+end-words lxs	los	none	literal
 end-words estx	este	none	literal
 end-words estxs	estos	none	literal
 end-words esx	ese	none	literal
