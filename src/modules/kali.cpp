@@ -21,21 +21,21 @@
  * $Id: kali.c,v 1.59 2008-06-09 10:38:02 hanke Exp $
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
 #include <kali/Kali/kali.h>
-extern "C" {
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+
 #include <semaphore.h>
 #include "spd_audio.h"
 
 #include <speechd_types.h>
 
 #include "module_utils.h"
-}
 #define MODULE_NAME     "kali"
 #define MODULE_VERSION  "0.0"
 #define DEBUG_MODULE 1

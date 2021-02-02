@@ -41,6 +41,8 @@
 #include <speechd_types.h>
 #include "spd_audio.h"
 
+G_BEGIN_DECLS
+
 typedef struct SPDMarks {
 	unsigned num;
 	unsigned allocated;
@@ -419,5 +421,7 @@ void module_register_settings_voices(void);
 char *module_getvoice(char *language, SPDVoiceType voice);
 gboolean module_existsvoice(char *voicename);
 char *module_getdefaultvoice(void);
+
+G_END_DECLS
 
 #endif /* #ifndef __MODULE_UTILS_H */
