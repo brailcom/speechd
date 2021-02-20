@@ -339,6 +339,7 @@ spawn_server(SPDConnectionAddress * address, int is_localhost,
 	GError *gerror = NULL;
 	int exit_status;
 	int i;
+	const char *cmd;
 
 	if ((address->method == SPD_METHOD_INET_SOCKET) && (!is_localhost)) {
 		*spawn_error =
@@ -347,7 +348,10 @@ spawn_server(SPDConnectionAddress * address, int is_localhost,
 		return 1;
 	}
 
-	speechd_cmd[0] = g_strdup(SPD_SPAWN_CMD);
+	cmd = getenv("SPEECHD_CMD");
+	if (!cmd)
+		cmd = SPD_SPAWN_CMD;
+	speechd_cmd[0] = g_strdup(cmd);
 	speechd_cmd[1] = g_strdup("--spawn");
 	speechd_cmd[2] = g_strdup("--communication-method");
 	if (address->method == SPD_METHOD_INET_SOCKET) {

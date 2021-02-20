@@ -667,13 +667,16 @@ class SSIPClient(object):
                     "resolves on %s which seems to be a remote host. You must start the "
                     "server manually or choose another connection address." % (connection_args['host'],
                                                                                str(ip_addresses),))
-        if os.path.exists(paths.SPD_SPAWN_CMD):
+        cmd = os.getenv("SPEECHD_CMD")
+        if not cmd:
+            cmd = paths.SPD_SPAWN_CMD
+        if os.path.exists(cmd):
             connection_params = []
             for param, value in connection_args.items():
                 if param not in ["host",]:
                     connection_params += ["--"+param.replace("_","-"), str(value)]
 
-            server = subprocess.Popen([paths.SPD_SPAWN_CMD, "--spawn"]+connection_params,
+            server = subprocess.Popen([cmd, "--spawn"]+connection_params,
                                       stdin=None, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             stdout_reply, stderr_reply = server.communicate()
             retcode = server.wait()
@@ -682,7 +685,7 @@ class SSIPClient(object):
             return server.pid
         else:
             raise SpawnError("Can't find Speech Dispatcher spawn command %s"
-                                         % (paths.SPD_SPAWN_CMD,))
+                                         % (cmd))
 
     def set_priority(self, priority):
         """Set the priority category for the following messages.
