@@ -2467,6 +2467,11 @@ configuration c) no other error preventing the start
 occurs. Otherwise, Speech Dispatcher is not started and the error code
 of 1 is returned.
 
+The location of the @code{speech-dispatcher} command should be obtained
+from the @code{SPEECHD_CMD} environment variable if defined, and otherwise
+fallback to the @code{SPD_SPAWN_CMD} compile-time constant, i.e.
+@code{$bindir/speech-dispatcher}.
+
 The client library should redirect its stdout and stderr outputs
 either to nowhere or to its logging system. It should subsequently
 completely detach from the newly spawned process.
