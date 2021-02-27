@@ -397,13 +397,6 @@ configoption_t *add_config_option(configoption_t * options,
 #define INDEX_MARK_BODY_LEN 6
 #define INDEX_MARK_BODY "__spd_"
 
-extern char *module_index_mark;
-
-	/* This macro must be placed at the initialization of the module so that the
-	   later functions are possible to use */
-
-#define INIT_INDEX_MARKING() module_index_mark = NULL;
-
 void module_report_index_mark(char *mark);
 void module_report_event_begin(void);
 void module_report_event_end(void);

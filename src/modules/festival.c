@@ -243,8 +243,6 @@ int module_init(char **status_info)
 
 	DBG("module_init()");
 
-	INIT_INDEX_MARKING();
-
 	/* Initialize appropriate communication mechanism */
 	FestivalComType = FestivalComunicationType;
 	if (COM_SOCKET) {

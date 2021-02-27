@@ -385,7 +385,6 @@ int module_init(char **status_info)
 	char version[20];
 
 	DBG(DBG_MODNAME "Module init().");
-	INIT_INDEX_MARKING();
 
 	*status_info = NULL;
 	thread_exit_requested = FALSE;
