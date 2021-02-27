@@ -94,7 +94,6 @@ int module_init(char **status_info)
 	int ret;
 
 	DBG("Module init");
-	INIT_INDEX_MARKING();
 
 	*status_info = NULL;
 

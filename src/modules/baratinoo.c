@@ -2,7 +2,7 @@
  * baratinoo.c - Speech Dispatcher backend for Baratinoo (VoxyGen)
  *
  * Copyright (C) 2016 Brailcom, o.p.s.
- * Copyright (C) 2019-2020 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2019-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -319,7 +319,6 @@ int module_init(char **status_info)
 	BARATINOOC_STATE state;
 
 	DBG(DBG_MODNAME "Module init");
-	INIT_INDEX_MARKING();
 
 	DBG(DBG_MODNAME "BaratinooPunctuationList = %s", BaratinooPunctuationList);
 	DBG(DBG_MODNAME "BaratinooIntonationList = %s", BaratinooIntonationList);

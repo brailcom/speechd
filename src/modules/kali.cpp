@@ -107,7 +107,6 @@ int module_init(char **status_info)
 	GString *info;
 
 	DBG("Module init");
-	INIT_INDEX_MARKING();
 
 	*status_info = NULL;
 	info = g_string_new("");
