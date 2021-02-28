@@ -103,6 +103,9 @@ int module_speak_sync(char *data, size_t bytes, SPDMessageType msgtype)
 	/* TODO: Speak the provided data synchronously */
 	fprintf(stderr, "speaking '%s'\n", data);
 
+	/* Update synth parameters according to message parameters */
+	UPDATE_PARAMETER(rate, skeleton_set_rate);
+	UPDATE_PARAMETER(pitch, skeleton_set_pitch);
 	return 1;
 }
 #else
