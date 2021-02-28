@@ -152,9 +152,7 @@ static void cmd_speak(int fd, SPDMessageType msgtype)
 #pragma weak module_speak
 	if (module_speak_sync) {
 		print("200 OK SPEAKING");
-		module_report_event_begin();
 		ret = module_speak_sync(text, text_len, msgtype);
-		module_report_event_end();
 	} else {
 		ret = module_speak(text, text_len, msgtype);
 		if (ret > 0)
