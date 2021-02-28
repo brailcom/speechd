@@ -58,7 +58,6 @@ static void flite_set_rate(signed int rate);
 static void flite_set_pitch(signed int pitch);
 static void flite_set_volume(signed int pitch);
 
-static void flite_strip_silence(AudioTrack *);
 static void *_flite_speak(void *);
 
 /* Voice */
@@ -233,33 +232,6 @@ int module_close(void)
 
 /* Internal functions */
 
-void flite_strip_silence(AudioTrack * track)
-{
-	assert(track->bits == 16);
-	unsigned i;
-	float silence_limit = 0.001;
-
-	while (track->num_samples >= track->num_channels) {
-		for (i = 0; i < track->num_channels; i++)
-			if (abs(track->samples[i])
-			    >= silence_limit * (1L<<(track->bits-1)))
-				goto stripped_head;
-		track->samples += track->num_channels;
-		track->num_samples -= track->num_channels;
-	}
-stripped_head:
-
-	while (track->num_samples >= track->num_channels) {
-		for (i = 0; i < track->num_channels; i++)
-			if (abs(track->samples[track->num_samples - i - 1])
-			    >= silence_limit * (1L<<(track->bits-1)))
-			  	goto stripped_tail;
-		track->num_samples -= track->num_channels;
-	}
-stripped_tail:
-	;
-}
-
 void *_flite_speak(void *nothing)
 {
 	AudioTrack track;
@@ -339,7 +311,7 @@ void *_flite_speak(void *nothing)
 				track.sample_rate = wav->sample_rate;
 				track.bits = 16;
 				track.samples = wav->samples;
-				flite_strip_silence(&track);
+				module_strip_silence(&track);
 
 				DBG("Got %d samples", track.num_samples);
 				if (track.samples != NULL) {

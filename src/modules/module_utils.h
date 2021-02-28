@@ -135,6 +135,7 @@ extern const char *module_name;
 
 int module_load(void);
 SPDVoice **module_get_voices(void);
+void module_strip_silence(AudioTrack * track);
 int module_tts_output(AudioTrack track, AudioFormat format);
 int module_play_file(const char *filename);
 int module_marks_init(SPDMarks *marks);
