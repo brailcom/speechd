@@ -901,6 +901,15 @@ this:
         AddVoice        &quot;sk&quot;  &quot;male1&quot;   &quot;bob&quot;
 </pre></div>
 
+</li><li> DefaultVoice &quot;<var>name</var>&quot;
+<span id="DefaultVoice"></span>
+<p>If the client does not request for a particular voice, we should be still using
+some voice so that the user at least gets some feedback, even if in the wrong
+language. <code>DefaultVoice</code> can be used to specify which voice should be used
+in such a case. If not specified, the <code>no_voice</code> string is passed instead.
+</p>
+<p><var>name</var> is a name specific for the given output module.
+</p>
 </li><li> ModuleDelimiters &quot;<var>delimiters</var>&quot;, ModuleMaxChunkLength <var>length</var>
 
 <p>Normally, the output module doesn&rsquo;t try to synthesize all
@@ -2752,6 +2761,11 @@ configuration c) no other error preventing the start
 occurs. Otherwise, Speech Dispatcher is not started and the error code
 of 1 is returned.
 </p>
+<p>The location of the <code>speech-dispatcher</code> command should be obtained
+from the <code>SPEECHD_CMD</code> environment variable if defined, and otherwise
+fallback to the <code>SPD_SPAWN_CMD</code> compile-time constant, i.e.
+<code>$bindir/speech-dispatcher</code>.
+</p>
 <p>The client library should redirect its stdout and stderr outputs
 either to nowhere or to its logging system. It should subsequently
 completely detach from the newly spawned process.
@@ -2863,13 +2877,15 @@ Previous: <a href="#Server-Core" accesskey="p" rel="prev">Server Core</a>, Up: <
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#How-to-Write-New-Output-Module" accesskey="3">How to Write New Output Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to include support for new synthesizers
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#The-Skeleton-of-an-Output-Module" accesskey="4">The Skeleton of an Output Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#The-Skeleton-of-a-Bare-Output-Module" accesskey="4">The Skeleton of a Bare Output Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Output-Module-Functions" accesskey="5">Output Module Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#The-Skeleton-of-an-Output-Module" accesskey="5">The Skeleton of an Output Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Module-Utils-Functions-and-Macros" accesskey="6">Module Utils Functions and Macros</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Output-Module-Functions" accesskey="6">Output Module Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Index-Marks-in-Output-Modules" accesskey="7">Index Marks in Output Modules</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Module-Utils-Functions-and-Macros" accesskey="7">Module Utils Functions and Macros</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Index-Marks-in-Output-Modules" accesskey="8">Index Marks in Output Modules</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -3240,15 +3256,24 @@ Next: <a href="#The-Skeleton-of-an-Output-Module" accesskey="n" rel="next">The S
 </div>
 <span id="How-to-Write-New-Output-Module-1"></span><h4 class="subsection">5.2.3 How to Write New Output Module</h4>
 
-<p>If you want to write your own output module, there are basically two
-ways to do it. Either you can program it all yourself, which is fine
-as long as you stick to the definition of an output module and its
-communication protocol, or you can use our <samp>module_*.c</samp> tools.
-If you use these tools, you will only have to write the core functions
-like module_speak() and module_stop etc. and you will not have to
-worry about the communication protocol and other formal things that
-are common for all modules. Here is how you can do it using the
-provided tools.
+<p>If you want to write your own output module, there are basically three
+ways to do it.
+</p>
+<p>Either you can program it all yourself, which is fine as long as you stick to
+the definition of an output module and its communication protocol.
+</p>
+<p>You can also use our <samp>module_main.c</samp>, <samp>module_readline.c</samp>,
+<samp>module_process.c</samp>, and <samp>module_main.h</samp>, which deal with the
+communication protocol and other formal things that are common for all modules.
+They are provided under a BSD licence and thus allow to integrate them along
+proprietary software. You will have to provide a series of functions, an example
+is provided in <code>src/modules/skeleton0.c</code>, which can freely serve as a basic
+for your module.
+</p>
+<p>The nicest way, recommended for all modules shipped along speech-dispatcher, is
+to make use of all of our our <samp>module_*.c</samp> tools. This will handle for you
+all configuration file parsing, option setting etc. Here is how you can do it
+using the provided tools.
 </p>
 <p>We will recommend here a basic structure of the code for an output
 module you should follow, although it&rsquo;s perfectly ok to establish your
@@ -3271,11 +3296,67 @@ in order for us to be in a better legal position against possible intruders.
 </li></ul>
 
 <hr>
+<span id="The-Skeleton-of-a-Bare-Output-Module"></span><div class="header">
+<p>
+Next: <a href="#The-Skeleton-of-an-Output-Module" accesskey="n" rel="next">The Skeleton of an Output Module</a>, Previous: <a href="#How-to-Write-New-Output-Module" accesskey="p" rel="prev">How to Write New Output Module</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="The-Skeleton-of-a-Bare-Output-Module-1"></span><h4 class="subsection">5.2.4 The Skeleton of a Bare Output Module</h4>
+
+<p>If you go for the BSD-provided skeleton way, you can start
+with <code>skeleton0.c</code>. Add the synthesis initialization call
+with default parameters to <code>module_init</code>, the synchronous
+synthesizing call to <code>module_speak_sync</code>, and the synthesis
+shutdown call to <code>module_close</code>. Compile this along
+<samp>module_main.c</samp>, <samp>module_readline.c</samp>, <samp>module_process.c</samp>, and
+<samp>module_main.h</samp>. Install this along other modules, and create an empty
+configuration file for it. This should already provide you with a working
+module, though with very limited support.
+</p>
+<p>The next step would be to add support for selecting the voice. Fix
+<code>module_list_voices</code> to return a proper list of voices. In
+<code>module_set</code>, when <code>var</code> is <code>voice</code>, <code>synthesis_voice</code>, or
+<code>language</code>, select a voice according to <code>val</code>.
+</p>
+<p>This stage of development is examplified in <samp>src/modules/skeleton0_espeak-ng0.c</samp>.
+</p>
+<p>A most useful next step is to support stopping the synthesis. This
+however requires calling the synthesis asynchronously. You need to use
+<code>module_speak</code> instead of <code>module_speak_sync</code>: it should return
+immediately after starting the production of synthesis (done another way, e.g.
+through a thread). <code>module_speak_begin()</code> should be called when it actually
+starts emitting audio, and <code>module_speak_end()</code> should be called when it is
+finished emitting audio. If <code>module_pause</code> or <code>module_stop</code> is called
+in between, the synthesis should stop as soon as possible, and respectively
+<code>module_speak_pause()</code> or <code>module_speak_stop()</code> be called instead of
+<code>module_speak_end()</code>.  As a first step, <code>module_pause</code> can be made to
+just call <code>module_stop</code>.
+</p>
+<p>This asynchronous support is examplified in
+<samp>src/modules/skeleton0_espeak-ng1.c</samp>. It is already quite nice for a lot of
+use cases: the user is now able to interrupt the synthesis e.g. through a screen
+reader action.
+</p>
+<p>It is then useful to make <code>module_set</code> recognize other useful
+voice parameters to improve the synthesis: <code>rate</code>, <code>pitch</code>,
+<code>pitch_range</code>, <code>volume</code>, <code>punctuation_mode</code>,
+<code>spelling_mode</code>, <code>cap_let_recogn</code>.
+</p>
+<p>Optionally, <code>module_audio_set</code> can be made to recognize precise audio
+settings.
+</p>
+<p>For easier debugging, <code>module_loglevel_set</code> and <code>module_debug</code> can be
+implemented.
+</p>
+<p>A useful step is probably to add support for the configuration file, by making
+<code>module_config</code> parse the configuration file and set synthesis parameters
+accordingly.
+</p>
+<hr>
 <span id="The-Skeleton-of-an-Output-Module"></span><div class="header">
 <p>
 Next: <a href="#Output-Module-Functions" accesskey="n" rel="next">Output Module Functions</a>, Previous: <a href="#How-to-Write-New-Output-Module" accesskey="p" rel="prev">How to Write New Output Module</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="The-Skeleton-of-an-Output-Module-1"></span><h4 class="subsection">5.2.4 The Skeleton of an Output Module</h4>
+<span id="The-Skeleton-of-an-Output-Module-1"></span><h4 class="subsection">5.2.5 The Skeleton of an Output Module</h4>
 
 <p>Each output module should include <samp>module_utils.h</samp> where the
 SPDMsgSettings structure is defined to be able to handle the different
@@ -3491,7 +3572,7 @@ wrong, fix it and then warn others in this manual.
 <p>
 Next: <a href="#Module-Utils-Functions-and-Macros" accesskey="n" rel="next">Module Utils Functions and Macros</a>, Previous: <a href="#The-Skeleton-of-an-Output-Module" accesskey="p" rel="prev">The Skeleton of an Output Module</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Output-Module-Functions-1"></span><h4 class="subsection">5.2.5 Output Module Functions</h4>
+<span id="Output-Module-Functions-1"></span><h4 class="subsection">5.2.6 Output Module Functions</h4>
 
 <dl>
 <dt id="index-int-37">Output Module Functions: <strong>int</strong> <em>module_speak (char *data, size_t bytes, EMessageType msgtype)</em></dt>
@@ -3608,7 +3689,7 @@ index mark.
 <p>
 Next: <a href="#Index-Marks-in-Output-Modules" accesskey="n" rel="next">Index Marks in Output Modules</a>, Previous: <a href="#Output-Module-Functions" accesskey="p" rel="prev">Output Module Functions</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Module-Utils-Functions-and-Macros-1"></span><h4 class="subsection">5.2.6 Module Utils Functions and Macros</h4>
+<span id="Module-Utils-Functions-and-Macros-1"></span><h4 class="subsection">5.2.7 Module Utils Functions and Macros</h4>
 
 <p>This section describes the various variables, functions and macros
 that are available in the <samp>module_utils.h</samp> file. They are
@@ -3636,7 +3717,7 @@ everything from scratch.
 <p>
 Next: <a href="#Generic-Macros-and-Functions" accesskey="n" rel="next">Generic Macros and Functions</a>, Previous: <a href="#Module-Utils-Functions-and-Macros" accesskey="p" rel="prev">Module Utils Functions and Macros</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Initialization-Macros-and-Functions-1"></span><h4 class="subsubsection">5.2.6.1 Initialization Macros and Functions</h4>
+<span id="Initialization-Macros-and-Functions-1"></span><h4 class="subsubsection">5.2.7.1 Initialization Macros and Functions</h4>
 
 <dl>
 <dt id="index-INIT_005fSETTINGS_005fTABLES">Module Utils macro: <strong>INIT_SETTINGS_TABLES</strong> <em>()</em></dt>
@@ -3650,7 +3731,7 @@ and <code>UPDATE_STRING_PARAMETER()</code> macros.
 after the output module starts.
 </p></dd></dl>
 
-<span id="Debugging-Macros"></span><h4 class="subsubsection">5.2.6.2 Debugging Macros</h4>
+<span id="Debugging-Macros"></span><h4 class="subsubsection">5.2.7.2 Debugging Macros</h4>
 <dl>
 <dt id="index-DBG">Module Utils macro: <strong>DBG</strong> <em>(format, ...)</em></dt>
 <dd><span id="index-DBG-1"></span>
@@ -3676,7 +3757,7 @@ resources other than those that will be freed by the system.
 <p>
 Next: <a href="#Functions-used-by-module_005fmain_002ec" accesskey="n" rel="next">Functions used by module_main.c</a>, Previous: <a href="#Initialization-Macros-and-Functions" accesskey="p" rel="prev">Initialization Macros and Functions</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Generic-Macros-and-Functions-1"></span><h4 class="subsubsection">5.2.6.3 Generic Macros and Functions</h4>
+<span id="Generic-Macros-and-Functions-1"></span><h4 class="subsubsection">5.2.7.3 Generic Macros and Functions</h4>
 
 <dl>
 <dt id="index-UPDATE_005fPARAMETER">Module Utils macro: <strong>UPDATE_PARAMETER</strong> <em>(param, setter)</em></dt>
@@ -3729,7 +3810,7 @@ parameters with a string value.
 <p>
 Next: <a href="#Functions-for-use-when-talking-to-synthesizer" accesskey="n" rel="next">Functions for use when talking to synthesizer</a>, Previous: <a href="#Generic-Macros-and-Functions" accesskey="p" rel="prev">Generic Macros and Functions</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Functions-used-by-module_005fmain_002ec-1"></span><h4 class="subsubsection">5.2.6.4 Functions used by <samp>module_main.c</samp></h4>
+<span id="Functions-used-by-module_005fmain_002ec-1"></span><h4 class="subsubsection">5.2.7.4 Functions used by <samp>module_main.c</samp></h4>
 
 <dl>
 <dt id="index-char_002a-2">Module Utils function: <strong>char*</strong> <em>do_speak(void)</em></dt>
@@ -3792,7 +3873,7 @@ to the protocol. Then it calls <code>module_close()</code>.
 <p>
 Next: <a href="#Multi_002dprocess-output-modules" accesskey="n" rel="next">Multi-process output modules</a>, Previous: <a href="#Functions-used-by-module_005fmain_002ec" accesskey="p" rel="prev">Functions used by module_main.c</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Functions-for-use-when-talking-to-synthesizer-1"></span><h4 class="subsubsection">5.2.6.5 Functions for use when talking to synthesizer</h4>
+<span id="Functions-for-use-when-talking-to-synthesizer-1"></span><h4 class="subsubsection">5.2.7.5 Functions for use when talking to synthesizer</h4>
 
 <dl>
 <dt id="index-static">Module Utils function: <strong>static</strong> <em>int module_get_message_part ( const char* message, char* part, unsigned int *pos, size_t maxlen, const char* dividers)</em></dt>
@@ -3862,7 +3943,7 @@ in the middle of its run.
 <p>
 Next: <a href="#Memory-Handling-Functions" accesskey="n" rel="next">Memory Handling Functions</a>, Previous: <a href="#Functions-for-use-when-talking-to-synthesizer" accesskey="p" rel="prev">Functions for use when talking to synthesizer</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Multi_002dprocess-output-modules-1"></span><h4 class="subsubsection">5.2.6.6 Multi-process output modules</h4>
+<span id="Multi_002dprocess-output-modules-1"></span><h4 class="subsubsection">5.2.7.6 Multi-process output modules</h4>
 
 <dl>
 <dt id="index-size_005ft">Module Utils function: <strong>size_t</strong> <em>module_parent_wfork ( TModuleDoublePipe dpipe,</em></dt>
@@ -3995,7 +4076,7 @@ parent.
 <p>
 Previous: <a href="#Multi_002dprocess-output-modules" accesskey="p" rel="prev">Multi-process output modules</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Memory-Handling-Functions-1"></span><h4 class="subsubsection">5.2.6.7 Memory Handling Functions</h4>
+<span id="Memory-Handling-Functions-1"></span><h4 class="subsubsection">5.2.7.7 Memory Handling Functions</h4>
 
 <dl>
 <dt id="index-static-1">Module Utils function: <strong>static</strong> <em>void* xmalloc (size_t size)</em></dt>
@@ -4023,7 +4104,7 @@ if data isn&rsquo;t NULL before calling <code>free()</code>.
 <p>
 Previous: <a href="#Module-Utils-Functions-and-Macros" accesskey="p" rel="prev">Module Utils Functions and Macros</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Index-Marks-in-Output-Modules-1"></span><h4 class="subsection">5.2.7 Index Marks in Output Modules</h4>
+<span id="Index-Marks-in-Output-Modules-1"></span><h4 class="subsection">5.2.8 Index Marks in Output Modules</h4>
 
 <p>Output modules need to provide some kind of synchronization and they have to
 give Speech Dispatcher back some information about what part of the message
