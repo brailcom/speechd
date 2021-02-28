@@ -221,6 +221,8 @@ int module_loop(void)
 
 int module_speak_sync(char *data, size_t bytes, SPDMessageType msgtype)
 {
+	module_report_event_begin();
+
 	/* TODO: Speak the provided data synchronously */
 	fprintf(stderr, "speaking '%s'\n", data);
 
@@ -229,6 +231,7 @@ int module_speak_sync(char *data, size_t bytes, SPDMessageType msgtype)
 		     NULL, NULL);
 	espeak_Synchronize();
 
+	module_report_event_end();
 	return 1;
 }
 

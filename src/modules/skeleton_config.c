@@ -100,17 +100,23 @@ static void skeleton_set_pitch(signed int pitch)
 #if 1
 int module_speak_sync(char *data, size_t bytes, SPDMessageType msgtype)
 {
+	module_report_event_begin();
+
 	/* TODO: Speak the provided data synchronously */
 	fprintf(stderr, "speaking '%s'\n", data);
 
 	/* Update synth parameters according to message parameters */
 	UPDATE_PARAMETER(rate, skeleton_set_rate);
 	UPDATE_PARAMETER(pitch, skeleton_set_pitch);
+
+	module_report_event_end();
 	return 1;
 }
 #else
 int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 {
+	module_report_event_begin();
+
 	/* TODO: Speak the provided data asynchronously */
 	fprintf(stderr, "speaking '%s'\n", data);
 
@@ -118,6 +124,7 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 	UPDATE_PARAMETER(rate, skeleton_set_rate);
 	UPDATE_PARAMETER(pitch, skeleton_set_pitch);
 
+	module_report_event_end();
 	return 1;
 }
 #endif
