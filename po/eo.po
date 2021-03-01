@@ -8,13 +8,16 @@ msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
 "POT-Creation-Date: 2020-09-05 19:01+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-03-01 02:03+0000\n"
+"Last-Translator: phlostically <phlostically@mailinator.com>\n"
+"Language-Team: Esperanto <https://hosted.weblate.org/projects/"
+"speech-dispatcher/po/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.5\n"
 
 #: src/server/options.c:63
 #, c-format
@@ -22,26 +25,28 @@ msgid ""
 "%s -- Common interface for Speech Synthesis %s\n"
 "\n"
 msgstr ""
+"%s -- Komuna interfaco pri Parolsintezo %s\n"
+"\n"
 
 #: src/server/options.c:65
 #, c-format
 msgid "Usage: "
-msgstr ""
+msgstr "Uzado: "
 
 #: src/server/options.c:69
 #, c-format
 msgid "Options: \n"
-msgstr ""
+msgstr "Opcioj: \n"
 
 #: src/server/options.c:71
 #, c-format
 msgid "Run as a daemon\n"
-msgstr ""
+msgstr "Ruli kiel demonon\n"
 
 #: src/server/options.c:73
 #, c-format
 msgid "Run as single application\n"
-msgstr ""
+msgstr "Ruli kiel unu aplikaĵon\n"
 
 #: src/server/options.c:75
 #, c-format
@@ -51,22 +56,22 @@ msgstr ""
 #: src/server/options.c:77
 #, c-format
 msgid "Set log level (between %d and %d)\n"
-msgstr ""
+msgstr "Agordi nivelon de protokoloj (inter %d kaj %d)\n"
 
 #: src/server/options.c:79
 #, c-format
 msgid "Set path to logging\n"
-msgstr ""
+msgstr "Agordi lokon de protokoloj\n"
 
 #: src/server/options.c:82
 #, c-format
 msgid "Communication method to use ('%s'\n"
-msgstr ""
+msgstr "Uzota metodo de komunikado ('%s'\n"
 
 #: src/server/options.c:84
 #, c-format
 msgid "or '%s')\n"
-msgstr ""
+msgstr "aŭ '%s')\n"
 
 #: src/server/options.c:87
 #, c-format
@@ -81,7 +86,7 @@ msgstr ""
 #: src/server/options.c:91
 #, c-format
 msgid "Specify a port number for '%s' method\n"
-msgstr ""
+msgstr "Specifu pordan numeron por metodo \"%s\"\n"
 
 #: src/server/options.c:93
 #, c-format
@@ -101,22 +106,22 @@ msgstr ""
 #: src/server/options.c:99
 #, c-format
 msgid "Set path to pid file\n"
-msgstr ""
+msgstr "Agordi lokon de PID-dosiero\n"
 
 #: src/server/options.c:101
 #, c-format
 msgid "Set path to configuration\n"
-msgstr ""
+msgstr "Agordi lokon de agordodosiero\n"
 
 #: src/server/options.c:103
 #, c-format
 msgid "Set path to modules\n"
-msgstr ""
+msgstr "Agordi lokon de moduloj\n"
 
 #: src/server/options.c:105
 #, c-format
 msgid "Report version of this program\n"
-msgstr ""
+msgstr "Raporti la version de ĉi tiu programo\n"
 
 #: src/server/options.c:107
 #, c-format
@@ -131,7 +136,7 @@ msgstr ""
 #: src/server/options.c:113 src/clients/say/options.c:169
 #, c-format
 msgid "Print this info\n"
-msgstr ""
+msgstr "Montri ĉi tiun informon\n"
 
 #: src/server/options.c:115 src/clients/say/options.c:172
 #, c-format
@@ -139,6 +144,8 @@ msgid ""
 "Please report bugs to %s\n"
 "\n"
 msgstr ""
+"Bonvolu raporti cimojn ĉe %s\n"
+"\n"
 
 #: src/server/options.c:121 src/clients/say/options.c:179
 #: src/api/python/speechd_config/config.py.in:174
@@ -151,6 +158,12 @@ msgid ""
 "any later version. Please see COPYING for more details.\n"
 "\n"
 msgstr ""
+"Kopirajto (C) %d - %d Brailcom, o.p.s.\n"
+"Ĉi tio estas libera programaro; vi rajtas redistribui ĝin kaj/aŭ modifi ĝin\n"
+"laŭ la kondiĉoj de la Ĝenerala Publika Permesilo GNU eldonita de\n"
+"Free Software Foundation; aŭ versio 2, aŭ (laŭ via elekto)\n"
+"ajna posta versio. Bonvolu vidi la dosieron COPYING por pliaj detaloj.\n"
+"\n"
 
 #: src/clients/say/options.c:67
 #, c-format
@@ -165,11 +178,13 @@ msgid ""
 "Usage: %s [options] \"some text\"\n"
 "\n"
 msgstr ""
+"Uzado: %s [opcioj] \"iu teksto\"\n"
+"\n"
 
 #: src/clients/say/options.c:70
 #, c-format
 msgid "Options:\n"
-msgstr ""
+msgstr "Opcioj:\n"
 
 #: src/clients/say/options.c:72
 #, c-format
@@ -180,7 +195,7 @@ msgstr ""
 #: src/clients/say/options.c:84 src/clients/say/options.c:89
 #, c-format
 msgid "(between %+d and %+d, default: %d)\n"
-msgstr ""
+msgstr "(inter %+d kaj %+d, apriore: %d)\n"
 
 #: src/clients/say/options.c:77
 #, c-format
