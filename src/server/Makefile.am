@@ -17,7 +17,7 @@
 
 ## Process this file with automake to produce Makefile.in
 
-inc_local = -I$(top_srcdir)/include/
+inc_local = -I$(top_srcdir)/include/ -I$(top_srcdir)/src/common
 lib_common = $(top_builddir)/src/common/libcommon.la
 
 bin_PROGRAMS = speech-dispatcher

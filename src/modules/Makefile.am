@@ -24,14 +24,12 @@ EXTRA_DIST += voxin_shim.c voxin.h
 EXTRA_DIST += mluvitko.c
 CLEANFILES =
 
-inc_local = -I$(top_srcdir)/include
-audio_SOURCES = spd_audio.c spd_audio.h
+inc_local = -I$(top_srcdir)/include -I$(top_srcdir)/src/common
 common_SOURCES = module_main.c module_readline.c module_process.c module_config.c module_utils.c module_utils.h
 common_LDADD = $(SNDFILE_LIBS) $(DOTCONF_LIBS) $(GLIB_LIBS) $(GTHREAD_LIBS)
 
 AM_CFLAGS = $(ERROR_CFLAGS)
 AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" -D_GNU_SOURCE \
-	-DPLUGIN_DIR="\"$(audiodir)\"" \
 	$(DOTCONF_CFLAGS) $(GLIB_CFLAGS) $(GTHREAD_CFLAGS) \
 	$(ibmtts_include) $(SNDFILE_CFLAGS)
 
