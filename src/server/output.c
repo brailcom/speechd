@@ -145,9 +145,11 @@ OutputModule *get_output_module(const TSpeechDMessage * message)
 	return output;
 }
 
+static int oldstate;
 void
 static output_lock(void)
 {
+	pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, &oldstate);
 	pthread_mutex_lock(&output_layer_mutex);
 }
 
@@ -155,6 +157,7 @@ void
 static output_unlock(void)
 {
 	pthread_mutex_unlock(&output_layer_mutex);
+	pthread_setcancelstate(oldstate, NULL);
 }
 
 #define OL_RET(value) \
