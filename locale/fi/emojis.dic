@@ -3,87 +3,20 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
-{	vasen aaltosulje	none
 🏻	vaalea iho	none
 🏼	keskivaalea iho	none
 🏽	tummanvaalea iho	none
 🏾	keskitumma iho	none
 🏿	tumma iho	none
-‾	ylleviivaus	none
-_	alaviiva	none
--	miinusviiva	none
-‐	yhdysviiva	none
 –	lyhyt ajatusviiva	none
 —	pitkä ajatusviiva	none
-―	vaakaviiva	none
-・	katakana keskipiste	none
-,	pilkku	none
-،	arabialainen pilkku	none
-、	ideografinen pilkku	none
-;	puolipiste	none
-؛	arabialainen puolipiste	none
-:	kaksoispiste	none
-!	huudahdus	none
-¡	käänteinen huutomerkki	none
-?	kysymys	none
-¿	käänteinen kysymysmerkki	none
-؟	arabialainen kysymysmerkki	none
-‽	kysymys-huutomerkki	none
-.	piste	none
-…	kolme pistettä	none
-。	ideografinen piste	none
 ·	rivinkeskinen piste	none
-'	koneheittomerkki	none
-‘	vasen heittomerkki	none
-’	oikea heittomerkki	none
-‚	oikea alaheittomerkki	none
-“	vasen lainausmerkki	none
-”	oikea lainausmerkki	none
-„	oikea alalainausmerkki	none
 «	vasen kulmalainausmerkki	none
 »	oikea kulmalainausmerkki	none
-)	oikea kaarisulje	none
-[	vasen hakasulje	none
-]	oikea hakasulje	none
-}	oikea aaltosulje	none
-〈	vasen kulmasulje	none
-〉	oikea kulmasulje	none
-《	vasen kaksoiskulmasulje	none
-》	oikea kaksoiskulmasulje	none
-「	vasen nurkkasulje	none
-」	oikea nurkkasulje	none
-『	vasen ontto nurkkasulje	none
-』	oikea ontto nurkkasulje	none
-【	vasen musta linssisulje	none
-】	oikea musta linssisulje	none
-〔	vasen tylppäkulmainen hakasulje	none
-〕	oikea tylppäkulmainen hakasulje	none
-〖	vasen ontto linssisulje	none
-〗	oikea ontto linssisulje	none
 §	pykälämerkki	none
-¶	kappalemerkki	none
-@	ät-merkki	none
-*	asteriski	none
-/	kauttaviiva	none
-\	kenoviiva	none
-&	et-merkki	none
-#	ristikkomerkki	none
-%	prosentti	none
-‰	promille	none
 †	ristimerkki	none
 ‡	kaksoisristimerkki	none
 •	luettelomerkki	none
-‧	tavupiste	none
-′	yläpuolinen indeksointipilkku	none
-″	kaksinkertainen yläpuolinen indeksointipilkku	none
-‴	kolminkertainen yläpuolinen indeksointipilkku	none
-‸	poisjääntimerkki	none
-※	viitemerkki	none
-⁂	asterismi	none
-`	gravis	none
-´	akuutti	none
-^	sirkumfleksi	none
-¨	treema	none
 °	aste	none
 ℗	äänitteen tekijänoikeus	none
 ←	vasemmalle osoittava nuoli	none
@@ -92,60 +25,24 @@ _	alaviiva	none
 ↓	alas osoittava nuoli	none
 ⇅	ylös ja alas osoittavat nuolet	none
 ⇆	nuolet vasemmalle ja oikealle päällekkäin	none
-∂	osittaisderivaatta	none
-∃	eksistenssikvanttori	none
-∅	tyhjä joukko	none
 ∆	lisäys	none
 ∇	nabla	none
 ∈	kuuluu joukkoon	none
-∉	ei kuulu joukkoon	none
-∑	summa	none
-+	plus	none
-±	plus-miinus	none
 ÷	jakolaskumerkki	none
-×	kertolaskumerkki	none
-<	pienempi kuin	none
-=	yhtä suuri kuin	none
-≠	eri suuri kuin	none
->	suurempi kuin	none
-¬	negaatio	none
-|	pystyviiva	none
-~	tilde	none
-−	miinus	none
+×	kertomerkki	none
 ⁻	yläindeksi miinus	none
-∓	miinus tai plus	none
-∗	asteriski­operaat­to­ri	none
 √	neliöjuuri	none
 ∞	äärettömän merkki	none
 ∩	leikkaus	none
 ∪	yhdiste	none
-∫	integraali	none
-∼	tildeoperaattori	none
-∽	käänteinen tilde	none
-≈	likimäärin yhtä suuri kuin	none
 ≡	sama kuin	none
-≤	pienempi tai yhtä suuri kuin	none
-≥	suurempi tai yhtä suuri kuin	none
 ⊂	on osajoukko	none
-⊆	osajoukko	none
-⊇	yläjoukko	none
-⊕	ympyröity plus	none
-⊖	ympyröity miinus	none
-⊛	ympyröity asteriskioperaattori	none
 ▲	musta ylös osoittava kolmio	none
 ▼	musta alas osoittava kolmio	none
 ◊	vinoneliö	none
 ○	tyhjä ympyrä	none
 ●	täytetty ympyrä	none
-◖	täytetyn ympyrän vasen puolisko	none
-◗	täytetyn ympyrän oikea puolisko	none
-◠	ylempi puoliympyrä	none
-◡	alempi puoliympyrä	none
-◦	ontto luetelmapallo	none
 ◯	suuri tyhjä ympyrä	none
-♪	kahdeksasosanuotti	none
-♭	alennusmerkki	none
-♯	ylennysmerkki	none
 😀	leveä hymy	none
 😃	hymy suu auki	none
 😄	hymyilevät silmät ja suu	none
@@ -183,12 +80,10 @@ _	alaviiva	none
 😐	naama peruslukemilla	none
 😑	ilmeetön	none
 😶	naama ilman suuta	none
-😶‍🌫	naama pilvissä	none
 😏	virnistys	none
 😒	ei naurata	none
 🙄	silmien pyöritys	none
 😬	irvistävä	none
-😮‍💨	hämmästynyt	none
 🤥	valehteleva	none
 😌	helpottunut	none
 😔	pohdiskeleva	none
@@ -204,8 +99,7 @@ _	alaviiva	none
 🥵	kuumottava	none
 🥶	paleleva	none
 🥴	tokkurainen naama	none
-😵	tajuton	none
-😵‍💫	naama jolla spiraalisilmät	none
+😵	pyörtyvä	none
 🤯	räjähdys päässä	none
 🤠	cowboy-hattu	none
 🥳	juhliva	none
@@ -277,8 +171,6 @@ _	alaviiva	none
 💟	sydänkoriste	none
 ❣	sydänhuutomerkki	none
 💔	särkynyt sydän	none
-❤‍🔥	palava sydän	none
-❤‍🩹	parantuva sydän	none
 ❤	punainen sydän	none
 🧡	oranssi sydän	none
 💛	keltainen sydän	none
@@ -361,10 +253,8 @@ _	alaviiva	none
 👱	vaaleatukkainen henkilö	none
 👨	mies	none
 🧔	parrakas henkilö	none
-🧔‍♂	parrakas mies	none
 👱‍♂	vaaleatukkainen mies	none
 👩	nainen	none
-🧔‍♀	parrakas nainen	none
 👱‍♀	vaaleatukkainen nainen	none
 🧓	vanhus	none
 👴	vanha mies	none
@@ -436,8 +326,8 @@ _	alaviiva	none
 👨‍🎤	mieslaulaja	none
 👩‍🎤	naislaulaja	none
 🧑‍🎨	artisti	none
-👨‍🎨	miestaiteilija	none
-👩‍🎨	naistaiteilija	none
+👨‍🎨	miesartisti	none
+👩‍🎨	naisartisti	none
 🧑‍✈	pilotti	none
 👨‍✈	miespilotti	none
 👩‍✈	naispilotti	none
@@ -470,7 +360,7 @@ _	alaviiva	none
 🤵	henkilö smokissa	none
 🤵‍♂	mies smokissa	none
 🤵‍♀	nainen smokissa	none
-👰	huntupäinen henkilö	none
+👰	huntupäinen morsian	none
 👰‍♂	huntupäinen mies	none
 👰‍♀	huntupäinen nainen	none
 🤰	raskaana oleva nainen	none
@@ -1447,7 +1337,7 @@ _	alaviiva	none
 🚸	lapsia liikenteessä	none
 ⛔	kielletty ajosuunta	none
 🚫	pääsy kielletty	none
-🚳	polkupyörällä ajo kielletty	none
+🚳	ei polkupyörille	none
 🚭	tupakointi kielletty	none
 🚯	roskaaminen kielletty	none
 🚱	vesi ei juomakelpoista	none
@@ -1529,7 +1419,7 @@ _	alaviiva	none
 ♀	Venus-symboli	none
 ♂	Mars-symboli	none
 ⚧	transsymboli	none
-✖	kertomerkki	none
+✖	paksu kertomerkki	none
 ➕	plusmerkki	none
 ➖	miinusmerkki	none
 ➗	jakomerkki	none
@@ -1645,24 +1535,11 @@ _	alaviiva	none
 🏳‍🌈	sateenkaarilippu	none
 🏳‍⚧	translippu	none
 🏴‍☠	merirosvolippu	none
-¢	sentti	none
-$	dollari	none
 £	punta	none
 ¥	jeni	none
-₢	cruzeiro	none
-₣	Ranskan frangi	none
-₤	liira	none
-₥	milli	none
-₩	won	none
 €	euro	none
-₱	peso	none
-₳	austral	none
-₷	spesmilo	none
 ₹	Intian rupia	none
 ₽	rupla	none
-₿	bitcoin	none
-₨	rupia	none
-﷼	rial	none
 ¹	yläindeksi yksi	none
 ²	yläindeksi kaksi	none
 ³	yläindeksi kolme	none
@@ -1892,46 +1769,6 @@ $	dollari	none
 👱🏽	vaaleatukkainen henkilö tummanvaalea iho	none
 👱🏾	vaaleatukkainen henkilö keskitumma iho	none
 👱🏿	vaaleatukkainen henkilö tumma iho	none
-🧑🏻‍❤‍💋‍🧑🏼	pusu aikuinen, aikuinen, vaalea iho, keskivaalea iho	none
-🧑🏻‍❤‍💋‍🧑🏽	pusu aikuinen, aikuinen, vaalea iho, tummanvaalea iho	none
-🧑🏻‍❤‍💋‍🧑🏾	pusu aikuinen, aikuinen, vaalea iho, keskitumma iho	none
-🧑🏻‍❤‍💋‍🧑🏿	pusu aikuinen, aikuinen, vaalea iho, tumma iho	none
-🧑🏼‍❤‍💋‍🧑🏻	pusu aikuinen, aikuinen, keskivaalea iho, vaalea iho	none
-🧑🏼‍❤‍💋‍🧑🏽	pusu aikuinen, aikuinen, keskivaalea iho, tummanvaalea iho	none
-🧑🏼‍❤‍💋‍🧑🏾	pusu aikuinen, aikuinen, keskivaalea iho, keskitumma iho	none
-🧑🏼‍❤‍💋‍🧑🏿	pusu aikuinen, aikuinen, keskivaalea iho, tumma iho	none
-🧑🏽‍❤‍💋‍🧑🏻	pusu aikuinen, aikuinen, tummanvaalea iho, vaalea iho	none
-🧑🏽‍❤‍💋‍🧑🏼	pusu aikuinen, aikuinen, tummanvaalea iho, keskivaalea iho	none
-🧑🏽‍❤‍💋‍🧑🏾	pusu aikuinen, aikuinen, tummanvaalea iho, keskitumma iho	none
-🧑🏽‍❤‍💋‍🧑🏿	pusu aikuinen, aikuinen, tummanvaalea iho, tumma iho	none
-🧑🏾‍❤‍💋‍🧑🏻	pusu aikuinen, aikuinen, keskitumma iho, vaalea iho	none
-🧑🏾‍❤‍💋‍🧑🏼	pusu aikuinen, aikuinen, keskitumma iho, keskivaalea iho	none
-🧑🏾‍❤‍💋‍🧑🏽	pusu aikuinen, aikuinen, keskitumma iho, tummanvaalea iho	none
-🧑🏾‍❤‍💋‍🧑🏿	pusu aikuinen, aikuinen, keskitumma iho, tumma iho	none
-🧑🏿‍❤‍💋‍🧑🏻	pusu aikuinen, aikuinen, tumma iho, vaalea iho	none
-🧑🏿‍❤‍💋‍🧑🏼	pusu aikuinen, aikuinen, tumma iho, keskivaalea iho	none
-🧑🏿‍❤‍💋‍🧑🏽	pusu aikuinen, aikuinen, tumma iho, tummanvaalea iho	none
-🧑🏿‍❤‍💋‍🧑🏾	pusu aikuinen, aikuinen, tumma iho, keskitumma iho	none
-🧑🏻‍❤‍🧑🏼	pariskunta ja sydän aikuinen, aikuinen, vaalea iho, keskivaalea iho	none
-🧑🏻‍❤‍🧑🏽	pariskunta ja sydän aikuinen, aikuinen, vaalea iho, tummanvaalea iho	none
-🧑🏻‍❤‍🧑🏾	pariskunta ja sydän aikuinen, aikuinen, vaalea iho, keskitumma iho	none
-🧑🏻‍❤‍🧑🏿	pariskunta ja sydän aikuinen, aikuinen, vaalea iho, tumma iho	none
-🧑🏼‍❤‍🧑🏻	pariskunta ja sydän aikuinen, aikuinen, keskivaalea iho, vaalea iho	none
-🧑🏼‍❤‍🧑🏽	pariskunta ja sydän aikuinen, aikuinen, keskivaalea iho, tummanvaalea iho	none
-🧑🏼‍❤‍🧑🏾	pariskunta ja sydän aikuinen, aikuinen, keskivaalea iho, keskitumma iho	none
-🧑🏼‍❤‍🧑🏿	pariskunta ja sydän aikuinen, aikuinen, keskivaalea iho, tumma iho	none
-🧑🏽‍❤‍🧑🏻	pariskunta ja sydän aikuinen, aikuinen, tummanvaalea iho, vaalea iho	none
-🧑🏽‍❤‍🧑🏼	pariskunta ja sydän aikuinen, aikuinen, tummanvaalea iho, keskivaalea iho	none
-🧑🏽‍❤‍🧑🏾	pariskunta ja sydän aikuinen, aikuinen, tummanvaalea iho, keskitumma iho	none
-🧑🏽‍❤‍🧑🏿	pariskunta ja sydän aikuinen, aikuinen, tummanvaalea iho, tumma iho	none
-🧑🏾‍❤‍🧑🏻	pariskunta ja sydän aikuinen, aikuinen, keskitumma iho, vaalea iho	none
-🧑🏾‍❤‍🧑🏼	pariskunta ja sydän aikuinen, aikuinen, keskitumma iho, keskivaalea iho	none
-🧑🏾‍❤‍🧑🏽	pariskunta ja sydän aikuinen, aikuinen, keskitumma iho, tummanvaalea iho	none
-🧑🏾‍❤‍🧑🏿	pariskunta ja sydän aikuinen, aikuinen, keskitumma iho, tumma iho	none
-🧑🏿‍❤‍🧑🏻	pariskunta ja sydän aikuinen, aikuinen, tumma iho, vaalea iho	none
-🧑🏿‍❤‍🧑🏼	pariskunta ja sydän aikuinen, aikuinen, tumma iho, keskivaalea iho	none
-🧑🏿‍❤‍🧑🏽	pariskunta ja sydän aikuinen, aikuinen, tumma iho, tummanvaalea iho	none
-🧑🏿‍❤‍🧑🏾	pariskunta ja sydän aikuinen, aikuinen, tumma iho, keskitumma iho	none
 🧑‍🦰	aikuinen punatukkainen	none
 🧑🏻‍🦰	aikuinen vaalea iho, punatukkainen	none
 🧑🏼‍🦰	aikuinen keskivaalea iho, punatukkainen	none
@@ -1966,66 +1803,11 @@ $	dollari	none
 🧔🏽	parrakas henkilö tummanvaalea iho	none
 🧔🏾	parrakas henkilö keskitumma iho	none
 🧔🏿	parrakas henkilö tumma iho	none
-🧔🏻‍♂	parrakas mies vaalea iho	none
-🧔🏼‍♂	parrakas mies keskivaalea iho	none
-🧔🏽‍♂	parrakas mies tummanvaalea iho	none
-🧔🏾‍♂	parrakas mies keskitumma iho	none
-🧔🏿‍♂	parrakas mies tumma iho	none
 👱🏻‍♂	vaaleatukkainen mies vaalea iho	none
 👱🏼‍♂	vaaleatukkainen mies keskivaalea iho	none
 👱🏽‍♂	vaaleatukkainen mies tummanvaalea iho	none
 👱🏾‍♂	vaaleatukkainen mies keskitumma iho	none
 👱🏿‍♂	vaaleatukkainen mies tumma iho	none
-👨🏻‍❤‍💋‍👨🏻	pusu mies, mies, vaalea iho	none
-👨🏻‍❤‍💋‍👨🏼	pusu mies, mies, vaalea iho, keskivaalea iho	none
-👨🏻‍❤‍💋‍👨🏽	pusu mies, mies, vaalea iho, tummanvaalea iho	none
-👨🏻‍❤‍💋‍👨🏾	pusu mies, mies, vaalea iho, keskitumma iho	none
-👨🏻‍❤‍💋‍👨🏿	pusu mies, mies, vaalea iho, tumma iho	none
-👨🏼‍❤‍💋‍👨🏻	pusu mies, mies, keskivaalea iho, vaalea iho	none
-👨🏼‍❤‍💋‍👨🏼	pusu mies, mies, keskivaalea iho	none
-👨🏼‍❤‍💋‍👨🏽	pusu mies, mies, keskivaalea iho, tummanvaalea iho	none
-👨🏼‍❤‍💋‍👨🏾	pusu mies, mies, keskivaalea iho, keskitumma iho	none
-👨🏼‍❤‍💋‍👨🏿	pusu mies, mies, keskivaalea iho, tumma iho	none
-👨🏽‍❤‍💋‍👨🏻	pusu mies, mies, tummanvaalea iho, vaalea iho	none
-👨🏽‍❤‍💋‍👨🏼	pusu mies, mies, tummanvaalea iho, keskivaalea iho	none
-👨🏽‍❤‍💋‍👨🏽	pusu mies, mies, tummanvaalea iho	none
-👨🏽‍❤‍💋‍👨🏾	pusu mies, mies, tummanvaalea iho, keskitumma iho	none
-👨🏽‍❤‍💋‍👨🏿	pusu mies, mies, tummanvaalea iho, tumma iho	none
-👨🏾‍❤‍💋‍👨🏻	pusu mies, mies, keskitumma iho, vaalea iho	none
-👨🏾‍❤‍💋‍👨🏼	pusu mies, mies, keskitumma iho, keskivaalea iho	none
-👨🏾‍❤‍💋‍👨🏽	pusu mies, mies, keskitumma iho, tummanvaalea iho	none
-👨🏾‍❤‍💋‍👨🏾	pusu mies, mies, keskitumma iho	none
-👨🏾‍❤‍💋‍👨🏿	pusu mies, mies, keskitumma iho, tumma iho	none
-👨🏿‍❤‍💋‍👨🏻	pusu mies, mies, tumma iho, vaalea iho	none
-👨🏿‍❤‍💋‍👨🏼	pusu mies, mies, tumma iho, keskivaalea iho	none
-👨🏿‍❤‍💋‍👨🏽	pusu mies, mies, tumma iho, tummanvaalea iho	none
-👨🏿‍❤‍💋‍👨🏾	pusu mies, mies, tumma iho, keskitumma iho	none
-👨🏿‍❤‍💋‍👨🏿	pusu mies, mies, tumma iho	none
-👨🏻‍❤‍👨🏻	pariskunta ja sydän mies, mies, vaalea iho	none
-👨🏻‍❤‍👨🏼	pariskunta ja sydän mies, mies, vaalea iho, keskivaalea iho	none
-👨🏻‍❤‍👨🏽	pariskunta ja sydän mies, mies, vaalea iho, tummanvaalea iho	none
-👨🏻‍❤‍👨🏾	pariskunta ja sydän mies, mies, vaalea iho, keskitumma iho	none
-👨🏻‍❤‍👨🏿	pariskunta ja sydän mies, mies, vaalea iho, tumma iho	none
-👨🏼‍❤‍👨🏻	pariskunta ja sydän mies, mies, keskivaalea iho, vaalea iho	none
-👨🏼‍❤‍👨🏼	pariskunta ja sydän mies, mies, keskivaalea iho	none
-👨🏼‍❤‍👨🏽	pariskunta ja sydän mies, mies, keskivaalea iho, tummanvaalea iho	none
-👨🏼‍❤‍👨🏾	pariskunta ja sydän mies, mies, keskivaalea iho, keskitumma iho	none
-👨🏼‍❤‍👨🏿	pariskunta ja sydän mies, mies, keskivaalea iho, tumma iho	none
-👨🏽‍❤‍👨🏻	pariskunta ja sydän mies, mies, tummanvaalea iho, vaalea iho	none
-👨🏽‍❤‍👨🏼	pariskunta ja sydän mies, mies, tummanvaalea iho, keskivaalea iho	none
-👨🏽‍❤‍👨🏽	pariskunta ja sydän mies, mies, tummanvaalea iho	none
-👨🏽‍❤‍👨🏾	pariskunta ja sydän mies, mies, tummanvaalea iho, keskitumma iho	none
-👨🏽‍❤‍👨🏿	pariskunta ja sydän mies, mies, tummanvaalea iho, tumma iho	none
-👨🏾‍❤‍👨🏻	pariskunta ja sydän mies, mies, keskitumma iho, vaalea iho	none
-👨🏾‍❤‍👨🏼	pariskunta ja sydän mies, mies, keskitumma iho, keskivaalea iho	none
-👨🏾‍❤‍👨🏽	pariskunta ja sydän mies, mies, keskitumma iho, tummanvaalea iho	none
-👨🏾‍❤‍👨🏾	pariskunta ja sydän mies, mies, keskitumma iho	none
-👨🏾‍❤‍👨🏿	pariskunta ja sydän mies, mies, keskitumma iho, tumma iho	none
-👨🏿‍❤‍👨🏻	pariskunta ja sydän mies, mies, tumma iho, vaalea iho	none
-👨🏿‍❤‍👨🏼	pariskunta ja sydän mies, mies, tumma iho, keskivaalea iho	none
-👨🏿‍❤‍👨🏽	pariskunta ja sydän mies, mies, tumma iho, tummanvaalea iho	none
-👨🏿‍❤‍👨🏾	pariskunta ja sydän mies, mies, tumma iho, keskitumma iho	none
-👨🏿‍❤‍👨🏿	pariskunta ja sydän mies, mies, tumma iho	none
 👨‍🦰	mies punatukkainen	none
 👨🏻‍🦰	mies vaalea iho, punatukkainen	none
 👨🏼‍🦰	mies keskivaalea iho, punatukkainen	none
@@ -2055,116 +1837,11 @@ $	dollari	none
 👩🏽	nainen tummanvaalea iho	none
 👩🏾	nainen keskitumma iho	none
 👩🏿	nainen tumma iho	none
-🧔🏻‍♀	parrakas nainen vaalea iho	none
-🧔🏼‍♀	parrakas nainen keskivaalea iho	none
-🧔🏽‍♀	parrakas nainen tummanvaalea iho	none
-🧔🏾‍♀	parrakas nainen keskitumma iho	none
-🧔🏿‍♀	parrakas nainen tumma iho	none
 👱🏻‍♀	vaaleatukkainen nainen vaalea iho	none
 👱🏼‍♀	vaaleatukkainen nainen keskivaalea iho	none
 👱🏽‍♀	vaaleatukkainen nainen tummanvaalea iho	none
 👱🏾‍♀	vaaleatukkainen nainen keskitumma iho	none
 👱🏿‍♀	vaaleatukkainen nainen tumma iho	none
-👩🏻‍❤‍💋‍👨🏻	pusu nainen, mies, vaalea iho	none
-👩🏻‍❤‍💋‍👨🏼	pusu nainen, mies, vaalea iho, keskivaalea iho	none
-👩🏻‍❤‍💋‍👨🏽	pusu nainen, mies, vaalea iho, tummanvaalea iho	none
-👩🏻‍❤‍💋‍👨🏾	pusu nainen, mies, vaalea iho, keskitumma iho	none
-👩🏻‍❤‍💋‍👨🏿	pusu nainen, mies, vaalea iho, tumma iho	none
-👩🏼‍❤‍💋‍👨🏻	pusu nainen, mies, keskivaalea iho, vaalea iho	none
-👩🏼‍❤‍💋‍👨🏼	pusu nainen, mies, keskivaalea iho	none
-👩🏼‍❤‍💋‍👨🏽	pusu nainen, mies, keskivaalea iho, tummanvaalea iho	none
-👩🏼‍❤‍💋‍👨🏾	pusu nainen, mies, keskivaalea iho, keskitumma iho	none
-👩🏼‍❤‍💋‍👨🏿	pusu nainen, mies, keskivaalea iho, tumma iho	none
-👩🏽‍❤‍💋‍👨🏻	pusu nainen, mies, tummanvaalea iho, vaalea iho	none
-👩🏽‍❤‍💋‍👨🏼	pusu nainen, mies, tummanvaalea iho, keskivaalea iho	none
-👩🏽‍❤‍💋‍👨🏽	pusu nainen, mies, tummanvaalea iho	none
-👩🏽‍❤‍💋‍👨🏾	pusu nainen, mies, tummanvaalea iho, keskitumma iho	none
-👩🏽‍❤‍💋‍👨🏿	pusu nainen, mies, tummanvaalea iho, tumma iho	none
-👩🏾‍❤‍💋‍👨🏻	pusu nainen, mies, keskitumma iho, vaalea iho	none
-👩🏾‍❤‍💋‍👨🏼	pusu nainen, mies, keskitumma iho, keskivaalea iho	none
-👩🏾‍❤‍💋‍👨🏽	pusu nainen, mies, keskitumma iho, tummanvaalea iho	none
-👩🏾‍❤‍💋‍👨🏾	pusu nainen, mies, keskitumma iho	none
-👩🏾‍❤‍💋‍👨🏿	pusu nainen, mies, keskitumma iho, tumma iho	none
-👩🏿‍❤‍💋‍👨🏻	pusu nainen, mies, tumma iho, vaalea iho	none
-👩🏿‍❤‍💋‍👨🏼	pusu nainen, mies, tumma iho, keskivaalea iho	none
-👩🏿‍❤‍💋‍👨🏽	pusu nainen, mies, tumma iho, tummanvaalea iho	none
-👩🏿‍❤‍💋‍👨🏾	pusu nainen, mies, tumma iho, keskitumma iho	none
-👩🏿‍❤‍💋‍👨🏿	pusu nainen, mies, tumma iho	none
-👩🏻‍❤‍💋‍👩🏻	pusu nainen, nainen, vaalea iho	none
-👩🏻‍❤‍💋‍👩🏼	pusu nainen, nainen, vaalea iho, keskivaalea iho	none
-👩🏻‍❤‍💋‍👩🏽	pusu nainen, nainen, vaalea iho, tummanvaalea iho	none
-👩🏻‍❤‍💋‍👩🏾	pusu nainen, nainen, vaalea iho, keskitumma iho	none
-👩🏻‍❤‍💋‍👩🏿	pusu nainen, nainen, vaalea iho, tumma iho	none
-👩🏼‍❤‍💋‍👩🏻	pusu nainen, nainen, keskivaalea iho, vaalea iho	none
-👩🏼‍❤‍💋‍👩🏼	pusu nainen, nainen, keskivaalea iho	none
-👩🏼‍❤‍💋‍👩🏽	pusu nainen, nainen, keskivaalea iho, tummanvaalea iho	none
-👩🏼‍❤‍💋‍👩🏾	pusu nainen, nainen, keskivaalea iho, keskitumma iho	none
-👩🏼‍❤‍💋‍👩🏿	pusu nainen, nainen, keskivaalea iho, tumma iho	none
-👩🏽‍❤‍💋‍👩🏻	pusu nainen, nainen, tummanvaalea iho, vaalea iho	none
-👩🏽‍❤‍💋‍👩🏼	pusu nainen, nainen, tummanvaalea iho, keskivaalea iho	none
-👩🏽‍❤‍💋‍👩🏽	pusu nainen, nainen, tummanvaalea iho	none
-👩🏽‍❤‍💋‍👩🏾	pusu nainen, nainen, tummanvaalea iho, keskitumma iho	none
-👩🏽‍❤‍💋‍👩🏿	pusu nainen, nainen, tummanvaalea iho, tumma iho	none
-👩🏾‍❤‍💋‍👩🏻	pusu nainen, nainen, keskitumma iho, vaalea iho	none
-👩🏾‍❤‍💋‍👩🏼	pusu nainen, nainen, keskitumma iho, keskivaalea iho	none
-👩🏾‍❤‍💋‍👩🏽	pusu nainen, nainen, keskitumma iho, tummanvaalea iho	none
-👩🏾‍❤‍💋‍👩🏾	pusu nainen, nainen, keskitumma iho	none
-👩🏾‍❤‍💋‍👩🏿	pusu nainen, nainen, keskitumma iho, tumma iho	none
-👩🏿‍❤‍💋‍👩🏻	pusu nainen, nainen, tumma iho, vaalea iho	none
-👩🏿‍❤‍💋‍👩🏼	pusu nainen, nainen, tumma iho, keskivaalea iho	none
-👩🏿‍❤‍💋‍👩🏽	pusu nainen, nainen, tumma iho, tummanvaalea iho	none
-👩🏿‍❤‍💋‍👩🏾	pusu nainen, nainen, tumma iho, keskitumma iho	none
-👩🏿‍❤‍💋‍👩🏿	pusu nainen, nainen, tumma iho	none
-👩🏻‍❤‍👨🏻	pariskunta ja sydän nainen, mies, vaalea iho	none
-👩🏻‍❤‍👨🏼	pariskunta ja sydän nainen, mies, vaalea iho, keskivaalea iho	none
-👩🏻‍❤‍👨🏽	pariskunta ja sydän nainen, mies, vaalea iho, tummanvaalea iho	none
-👩🏻‍❤‍👨🏾	pariskunta ja sydän nainen, mies, vaalea iho, keskitumma iho	none
-👩🏻‍❤‍👨🏿	pariskunta ja sydän nainen, mies, vaalea iho, tumma iho	none
-👩🏼‍❤‍👨🏻	pariskunta ja sydän nainen, mies, keskivaalea iho, vaalea iho	none
-👩🏼‍❤‍👨🏼	pariskunta ja sydän nainen, mies, keskivaalea iho	none
-👩🏼‍❤‍👨🏽	pariskunta ja sydän nainen, mies, keskivaalea iho, tummanvaalea iho	none
-👩🏼‍❤‍👨🏾	pariskunta ja sydän nainen, mies, keskivaalea iho, keskitumma iho	none
-👩🏼‍❤‍👨🏿	pariskunta ja sydän nainen, mies, keskivaalea iho, tumma iho	none
-👩🏽‍❤‍👨🏻	pariskunta ja sydän nainen, mies, tummanvaalea iho, vaalea iho	none
-👩🏽‍❤‍👨🏼	pariskunta ja sydän nainen, mies, tummanvaalea iho, keskivaalea iho	none
-👩🏽‍❤‍👨🏽	pariskunta ja sydän nainen, mies, tummanvaalea iho	none
-👩🏽‍❤‍👨🏾	pariskunta ja sydän nainen, mies, tummanvaalea iho, keskitumma iho	none
-👩🏽‍❤‍👨🏿	pariskunta ja sydän nainen, mies, tummanvaalea iho, tumma iho	none
-👩🏾‍❤‍👨🏻	pariskunta ja sydän nainen, mies, keskitumma iho, vaalea iho	none
-👩🏾‍❤‍👨🏼	pariskunta ja sydän nainen, mies, keskitumma iho, keskivaalea iho	none
-👩🏾‍❤‍👨🏽	pariskunta ja sydän nainen, mies, keskitumma iho, tummanvaalea iho	none
-👩🏾‍❤‍👨🏾	pariskunta ja sydän nainen, mies, keskitumma iho	none
-👩🏾‍❤‍👨🏿	pariskunta ja sydän nainen, mies, keskitumma iho, tumma iho	none
-👩🏿‍❤‍👨🏻	pariskunta ja sydän nainen, mies, tumma iho, vaalea iho	none
-👩🏿‍❤‍👨🏼	pariskunta ja sydän nainen, mies, tumma iho, keskivaalea iho	none
-👩🏿‍❤‍👨🏽	pariskunta ja sydän nainen, mies, tumma iho, tummanvaalea iho	none
-👩🏿‍❤‍👨🏾	pariskunta ja sydän nainen, mies, tumma iho, keskitumma iho	none
-👩🏿‍❤‍👨🏿	pariskunta ja sydän nainen, mies, tumma iho	none
-👩🏻‍❤‍👩🏻	pariskunta ja sydän nainen, nainen, vaalea iho	none
-👩🏻‍❤‍👩🏼	pariskunta ja sydän nainen, nainen, vaalea iho, keskivaalea iho	none
-👩🏻‍❤‍👩🏽	pariskunta ja sydän nainen, nainen, vaalea iho, tummanvaalea iho	none
-👩🏻‍❤‍👩🏾	pariskunta ja sydän nainen, nainen, vaalea iho, keskitumma iho	none
-👩🏻‍❤‍👩🏿	pariskunta ja sydän nainen, nainen, vaalea iho, tumma iho	none
-👩🏼‍❤‍👩🏻	pariskunta ja sydän nainen, nainen, keskivaalea iho, vaalea iho	none
-👩🏼‍❤‍👩🏼	pariskunta ja sydän nainen, nainen, keskivaalea iho	none
-👩🏼‍❤‍👩🏽	pariskunta ja sydän nainen, nainen, keskivaalea iho, tummanvaalea iho	none
-👩🏼‍❤‍👩🏾	pariskunta ja sydän nainen, nainen, keskivaalea iho, keskitumma iho	none
-👩🏼‍❤‍👩🏿	pariskunta ja sydän nainen, nainen, keskivaalea iho, tumma iho	none
-👩🏽‍❤‍👩🏻	pariskunta ja sydän nainen, nainen, tummanvaalea iho, vaalea iho	none
-👩🏽‍❤‍👩🏼	pariskunta ja sydän nainen, nainen, tummanvaalea iho, keskivaalea iho	none
-👩🏽‍❤‍👩🏽	pariskunta ja sydän nainen, nainen, tummanvaalea iho	none
-👩🏽‍❤‍👩🏾	pariskunta ja sydän nainen, nainen, tummanvaalea iho, keskitumma iho	none
-👩🏽‍❤‍👩🏿	pariskunta ja sydän nainen, nainen, tummanvaalea iho, tumma iho	none
-👩🏾‍❤‍👩🏻	pariskunta ja sydän nainen, nainen, keskitumma iho, vaalea iho	none
-👩🏾‍❤‍👩🏼	pariskunta ja sydän nainen, nainen, keskitumma iho, keskivaalea iho	none
-👩🏾‍❤‍👩🏽	pariskunta ja sydän nainen, nainen, keskitumma iho, tummanvaalea iho	none
-👩🏾‍❤‍👩🏾	pariskunta ja sydän nainen, nainen, keskitumma iho	none
-👩🏾‍❤‍👩🏿	pariskunta ja sydän nainen, nainen, keskitumma iho, tumma iho	none
-👩🏿‍❤‍👩🏻	pariskunta ja sydän nainen, nainen, tumma iho, vaalea iho	none
-👩🏿‍❤‍👩🏼	pariskunta ja sydän nainen, nainen, tumma iho, keskivaalea iho	none
-👩🏿‍❤‍👩🏽	pariskunta ja sydän nainen, nainen, tumma iho, tummanvaalea iho	none
-👩🏿‍❤‍👩🏾	pariskunta ja sydän nainen, nainen, tumma iho, keskitumma iho	none
-👩🏿‍❤‍👩🏿	pariskunta ja sydän nainen, nainen, tumma iho	none
 👩‍🦰	nainen punatukkainen	none
 👩🏻‍🦰	nainen vaalea iho, punatukkainen	none
 👩🏼‍🦰	nainen keskivaalea iho, punatukkainen	none
@@ -2539,16 +2216,16 @@ $	dollari	none
 🧑🏽‍🎨	artisti tummanvaalea iho	none
 🧑🏾‍🎨	artisti keskitumma iho	none
 🧑🏿‍🎨	artisti tumma iho	none
-👨🏻‍🎨	miestaiteilija vaalea iho	none
-👨🏼‍🎨	miestaiteilija keskivaalea iho	none
-👨🏽‍🎨	miestaiteilija tummanvaalea iho	none
-👨🏾‍🎨	miestaiteilija keskitumma iho	none
-👨🏿‍🎨	miestaiteilija tumma iho	none
-👩🏻‍🎨	naistaiteilija vaalea iho	none
-👩🏼‍🎨	naistaiteilija keskivaalea iho	none
-👩🏽‍🎨	naistaiteilija tummanvaalea iho	none
-👩🏾‍🎨	naistaiteilija keskitumma iho	none
-👩🏿‍🎨	naistaiteilija tumma iho	none
+👨🏻‍🎨	miesartisti vaalea iho	none
+👨🏼‍🎨	miesartisti keskivaalea iho	none
+👨🏽‍🎨	miesartisti tummanvaalea iho	none
+👨🏾‍🎨	miesartisti keskitumma iho	none
+👨🏿‍🎨	miesartisti tumma iho	none
+👩🏻‍🎨	naisartisti vaalea iho	none
+👩🏼‍🎨	naisartisti keskivaalea iho	none
+👩🏽‍🎨	naisartisti tummanvaalea iho	none
+👩🏾‍🎨	naisartisti keskitumma iho	none
+👩🏿‍🎨	naisartisti tumma iho	none
 🧑🏻‍✈	pilotti vaalea iho	none
 🧑🏼‍✈	pilotti keskivaalea iho	none
 🧑🏽‍✈	pilotti tummanvaalea iho	none
@@ -2709,11 +2386,11 @@ $	dollari	none
 🤵🏽‍♀	nainen smokissa tummanvaalea iho	none
 🤵🏾‍♀	nainen smokissa keskitumma iho	none
 🤵🏿‍♀	nainen smokissa tumma iho	none
-👰🏻	huntupäinen henkilö vaalea iho	none
-👰🏼	huntupäinen henkilö keskivaalea iho	none
-👰🏽	huntupäinen henkilö tummanvaalea iho	none
-👰🏾	huntupäinen henkilö keskitumma iho	none
-👰🏿	huntupäinen henkilö tumma iho	none
+👰🏻	huntupäinen morsian vaalea iho	none
+👰🏼	huntupäinen morsian keskivaalea iho	none
+👰🏽	huntupäinen morsian tummanvaalea iho	none
+👰🏾	huntupäinen morsian keskitumma iho	none
+👰🏿	huntupäinen morsian tumma iho	none
 👰🏻‍♂	huntupäinen mies vaalea iho	none
 👰🏼‍♂	huntupäinen mies keskivaalea iho	none
 👰🏽‍♂	huntupäinen mies tummanvaalea iho	none
@@ -3480,7 +3157,7 @@ $	dollari	none
 🇫🇮	lippu Suomi	none
 🇫🇯	lippu Fidži	none
 🇫🇰	lippu Falklandinsaaret	none
-🇫🇲	lippu Mikronesia	none
+🇫🇲	lippu Mikronesian liittovaltio	none
 🇫🇴	lippu Färsaaret	none
 🇫🇷	lippu Ranska	none
 🇬🇦	lippu Gabon	none
@@ -3497,12 +3174,12 @@ $	dollari	none
 🇬🇵	lippu Guadeloupe	none
 🇬🇶	lippu Päiväntasaajan Guinea	none
 🇬🇷	lippu Kreikka	none
-🇬🇸	lippu Etelä-Georgia ja Eteläiset Sandwichinsaaret	none
+🇬🇸	lippu Etelä-Georgia ja Eteläiset Sandwichsaaret	none
 🇬🇹	lippu Guatemala	none
 🇬🇺	lippu Guam	none
 🇬🇼	lippu Guinea-Bissau	none
 🇬🇾	lippu Guyana	none
-🇭🇰	lippu Hongkong – Kiinan erityishallintoalue	none
+🇭🇰	lippu Hongkong – Kiinan e.h.a.	none
 🇭🇲	lippu Heard ja McDonaldinsaaret	none
 🇭🇳	lippu Honduras	none
 🇭🇷	lippu Kroatia	none
@@ -3556,7 +3233,7 @@ $	dollari	none
 🇲🇱	lippu Mali	none
 🇲🇲	lippu Myanmar (Burma)	none
 🇲🇳	lippu Mongolia	none
-🇲🇴	lippu Macao – Kiinan erityishallintoalue	none
+🇲🇴	lippu Macao – Kiinan e.h.a.	none
 🇲🇵	lippu Pohjois-Mariaanit	none
 🇲🇶	lippu Martinique	none
 🇲🇷	lippu Mauritania	none
@@ -3591,7 +3268,7 @@ $	dollari	none
 🇵🇲	lippu Saint-Pierre ja Miquelon	none
 🇵🇳	lippu Pitcairn	none
 🇵🇷	lippu Puerto Rico	none
-🇵🇸	lippu Palestiinalaisalue	none
+🇵🇸	lippu Palestiinalaisalueet	none
 🇵🇹	lippu Portugali	none
 🇵🇼	lippu Palau	none
 🇵🇾	lippu Paraguay	none
@@ -3609,7 +3286,7 @@ $	dollari	none
 🇸🇬	lippu Singapore	none
 🇸🇭	lippu Saint Helena	none
 🇸🇮	lippu Slovenia	none
-🇸🇯	lippu Svalbard ja Jan Mayen	none
+🇸🇯	lippu Huippuvuoret ja Jan Mayen	none
 🇸🇰	lippu Slovakia	none
 🇸🇱	lippu Sierra Leone	none
 🇸🇲	lippu San Marino	none
@@ -3621,11 +3298,11 @@ $	dollari	none
 🇸🇻	lippu El Salvador	none
 🇸🇽	lippu Sint Maarten	none
 🇸🇾	lippu Syyria	none
-🇸🇿	lippu Eswatini	none
+🇸🇿	lippu Swazimaa	none
 🇹🇦	lippu Tristan da Cunha	none
 🇹🇨	lippu Turks- ja Caicossaaret	none
 🇹🇩	lippu Tšad	none
-🇹🇫	lippu Ranskan eteläiset ja antarktiset alueet	none
+🇹🇫	lippu Ranskan eteläiset alueet	none
 🇹🇬	lippu Togo	none
 🇹🇭	lippu Thaimaa	none
 🇹🇯	lippu Tadžikistan	none
@@ -3664,26 +3341,6 @@ $	dollari	none
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	lippu Englanti	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	lippu Skotlanti	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	lippu Wales	none
-¤	tuntematon rahayksikkö	none
-֏	Armenian dram	none
-؋	Afganistanin afgaani	none
-৳	Bangladeshin taka	none
-฿	Thaimaan baht	none
-៛	Kambodžan riel	none
-₡	Costa Rican colón	none
-₦	Nigerian naira	none
-₧	Espanjan peseta	none
-₪	Israelin uusi sekeli	none
-₫	Vietnamin dong	none
-₭	Laosin kip	none
-₮	Mongolian tugrik	none
-₲	Paraguayn guarani	none
-₴	Ukrainan hryvnia	none
-₵	Ghanan cedi	none
-₸	Kazakstanin tenge	none
-₺	Turkin liira	none
-₼	Azerbaidžanin manat	none
-₾	Georgian lari	none
 0⃣	näppäin 0	none
 1⃣	näppäin 1	none
 2⃣	näppäin 2	none

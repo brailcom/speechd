@@ -3,318 +3,51 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
-{	camag dhualach fosglaidh	none
 🏻	tòna soilleir a’ chraicinn	none
 🏼	tòna meadhanach soilleir a’ chraicinn	none
 🏽	tòna meadhanach a’ chraicinn	none
 🏾	tòna meadhanach doilleir a’ chraicinn	none
 🏿	tòna doilleir a’ chraicinn	none
-‾	os-loidhne	none
-_	loidhne ìosal	none
--	tàthan-minus	none
-‐	tàthan	none
 –	dais en	none
 —	dais em	none
-―	bàr còmhnard	none
-・	dotag mheadhanach Katakana	none
-,	cromag	none
-،	cromag na h-Arabaise	none
-、	cromag ideo-ghrafach	none
-;	leth-chòilean	none
-؛	leth-chòilean na h-Arabaise	none
-:	còilean	none
-!	clisg-phuing	none
-¡	clisg-phuing thurrach	none
-?	comharra-ceiste	none
-¿	comharra-ceiste turrach	none
-؟	comharra-ceiste na h-Arabaise	none
-‽	interrobang	none
-.	puing-stad	none
-…	trì-phuing	none
-。	puing-stad ideo-ghrafach	none
 ·	dot sa mheadhan	none
-'	asgair clò-sgrìobhadair	none
-‘	asgair clì	none
-’	asgair deas	none
-‚	asgair deas ìosal	none
-“	comharra-labhairt clì	none
-”	comharra-labhairt deas	none
-„	comharra-labhairt deas ìosal	none
 «	eadar-ràdhan Frangach dhan taobh chlì	none
 »	eadar-ràdhan Frangach dhan taobh deas	none
-)	camag chruinn dùnaidh	none
-[	camag cheàrnach fosglaidh	none
-]	camag cheàrnach dùnaidh	none
-}	camag dhualach dùnaidh	none
-〈	camag bhiorach fosglaidh	none
-〉	camag bhiorach dùnaidh	none
-《	camag bhiorach dhùbailte fosglaidh	none
-》	camag bhiorach dhùbailte dùnaidh	none
-「	camag oisein fosglaidh	none
-」	camag oisein dùnaidh	none
-『	camag oisein fhalamh fosglaidh	none
-』	camag oisein fhalamh dùnaidh	none
-【	camag lionsa dhubh fosglaidh	none
-】	camag lionsa dhubh dùnaidh	none
-〔	camag shligeanaich fosglaidh	none
-〕	camag shligeanaich dùnaidh	none
-〖	camag lionsa fhalamh fosglaidh	none
-〗	camag lionsa fhalamh dùnaidh	none
 §	earrann	none
-¶	comharra paragraf	none
-@	samhla aig	none
-*	reultag	none
-/	slais	none
-\	slais air ais	none
-&	agusan na Laidinne	none
-#	samhla hais	none
-%	ceudad	none
-‰	mìleamhail	none
 †	samhla biodaig	none
 ‡	samhla biodaig dùbailte	none
 •	peilear	none
-‧	puing tàthanachaidh	none
-′	prìme	none
-″	prìme dhùbailte	none
-‴	prìme thrìoblaichte	none
-‸	carait	none
-※	comharra iomraidh	none
-⁂	trì-rionnag	none
-`	stràc throm	none
-´	stràc gheur	none
-^	cuairt-lùb	none
-¨	umlaut	none
 °	ceum	none
 ℗	còir-lethbhreac air clàradh fuaime	none
 ←	saighead a’ tomhadh dhan taobh chlì	none
-↚	saighead chlì le stràc troimhe	none
 →	saighead a’ tomhadh dhan taobh deas	none
-↛	saighead dheas le stràc troimhe	none
 ↑	saighead a’ tomhadh suas	none
 ↓	saighead a’ tomhadh sìos	none
-↜	saighead lùbte chlì	none
-↝	saighead lùbte dheas	none
-↞	saighead dhà-cheannach chlì	none
-↟	saighead dhà-cheannach suas	none
-↠	saighead dhà-cheannach dheas	none
-↡	saighead dhà-cheannach sìos	none
-↢	saighead chlì le ite	none
-↣	saighead dheas le earball ite	none
-↤	saighead chlì à bàr	none
-↥	saighead suas à bàr	none
-↦	saighead dheas à bàr	none
-↧	saighead sìos à bàr	none
-↨	saighead suas is sìos le bunait	none
-↫	saighead chlì le earball lùbte	none
-↬	saighead dheas le earball lùbte	none
-↭	saighead lùbte dheas is chlì	none
-↯	saighead a’ fiaradh sìos	none
-↰	saighead suas leis a’ cheann a’ tionndadh clì	none
-↱	saighead suas leis a’ cheann a’ tionndadh deas	none
-↲	saighead sìos leis a’ cheann a’ tionndadh clì	none
-↳	saighead sìos leis a’ cheann a’ tionndadh deas	none
-↴	saighead dheas a’ dol sìos aig an oisean	none
-↵	saighead sìos a’ dol clì aig an oisean	none
-↶	saighead barra leth-chearcallach a’ dol tuathal	none
-↷	saighead barra leth-chearcallach a’ dol deiseil	none
-↸	saighead gun iar-dheas le bàr fada	none
-↹	saighead chlì ’s a ceann ri bàr os cionn saighead dheas is a ceann ri bàr	none
-↺	saighead thuathal an cruth cearcaill fhosgailte	none
-↻	saighead dheiseil an cruth cearcaill fhosgailte	none
-↼	harpùn clì le frioghan suas	none
-↽	harpùn clì le frioghan sìos	none
-↾	harpùn suas le frioghan deas	none
-↿	harpùn suas le frioghan clì	none
-⇀	harpùn deas le frioghan suas	none
-⇁	harpùn deas le frioghan sìos	none
-⇂	harpùn sìos le frioghan deas	none
-⇃	harpùn sìos le frioghan clì	none
-⇄	saighead dheas os cionn saighde chlì	none
 ⇅	dà shaighead a’ tomhadh suas is sìos	none
 ⇆	dà shaighead dhan taobh chlì is deas	none
-⇇	càraid de shaighdean clì	none
-⇈	càraid de shaighdean suas	none
-⇉	càraid de shaighdean deasa	none
-⇊	càraid de shaighdean sìos	none
-⇋	harpùn clì os cionn harpùin dheis	none
-⇌	harpùn deas os cionn harpùin chlì	none
-⇐	saighead dhùbailte chlì	none
-⇍	saighead dhùbailte chlì le stràc troimhe	none
-⇑	saighead dhùbailte suas	none
-⇒	saighead dhùbailte dheas	none
-⇏	saighead dhùbailte dheas le stràc troimhpe	none
-⇓	saighead dhùbailte sìos	none
-⇔	saighead dhùbailte dheas is chlì	none
-⇎	saighead dhùbailte dheas is chlì le stràc troimhpe	none
-⇖	saighead dhùbailte gun iar-thuath	none
-⇗	saighead dhùbailte gun ear-thuath	none
-⇘	saighead dhùbailte gun ear-dheas	none
-⇙	saighead dhùbailte gun iar-dheas	none
-⇚	saighead thrìoblaichte chlì	none
-⇛	saighead thrìoblaichte dheas	none
-⇜	saighead chritheach chlì	none
-⇝	saighead chritheach dheas	none
-⇞	saighead suas le stràc dhùbailte troimhpe	none
-⇟	saighead sìos le stràc dhùbailte troimhpe	none
-⇠	saighead strìochagach chlì	none
-⇡	saighead strìochagach suas	none
-⇢	saighead strìochagach dheas	none
-⇣	saighead strìochagach sìos	none
-⇤	saighead chlì ’s a ceann ri bàr	none
-⇥	saighead dheas ’s a ceann ri bàr	none
-⇦	saighead fhalamh chlì	none
-⇧	saighead fhalamh suas	none
-⇨	saighead fhalamh dheas	none
-⇩	saighead fhalamh sìos	none
-⇪	saighead fhalamh suas a’ tighinn à bàr	none
-⇵	saighead sìos air an taobh chlì agus saighead suas air an taobh deas	none
-∅	seata falamh	none
 ∆	ioncramaid	none
 ∇	dìochramaid	none
 ∈	na eileamaid de	none
-∉	nach eil na eileamaid de	none
-∋	is na leanas na bhroinn mar bhall	none
-∎	deireadh an deirbh	none
-∏	bathar n-araidh	none
-∑	suimeachadh n-araidh	none
-+	samhla plus	none
-±	plus-minus	none
 ÷	samhla roinnidh	none
 ×	samhla iomadachaidh	none
-<	nas lugha	none
-≮	nach eil nas lugha na	none
-=	co-ionnann	none
-≠	neo-ionnann	none
->	nas motha	none
-≯	nach eil nas motha na	none
-¬	àicheadh	none
-|	loidhne inghearach	none
-~	tonn	none
-−	samhla minus	none
 ⁻	minus os-sgrìobhte	none
-∓	minus no plus	none
-∕	slais roinneachaidh	none
-⁄	slais bloighe	none
-∗	gnìomharaiche reultaige	none
-∘	gnìomharaiche cearcaill	none
-∙	gnìomharaiche peileir	none
 √	freumh ceàrnagach	none
-∝	co-rèireach	none
 ∞	samhla neo-chrìochnachd	none
-∟	ceàrn ceart	none
-∠	ceàrn	none
-∣	a tha a’ roinneadh	none
-∥	co-shìnte	none
 ∩	eadar-ghearradh	none
 ∪	aonadh	none
-∫	innteagrail	none
-∬	innteagrail dhùbailte	none
-∮	innteagrail contuir	none
-∴	ri linn sin	none
-∵	oir	none
-∶	co-mheas	none
-∷	co-rèir	none
-∼	gnìomharaiche tuinn	none
-∽	tonn contrarra	none
-∾	s leisg chontrarra	none
-≈	cha mhòr co-ionnann	none
 ≡	ionnannach ri	none
-≤	nas lugha no co-ionnann	none
-≥	nas motha no co-ionnann	none
-≬	eadar	none
 ⊂	fo-sheata de	none
-⊕	plus ann an cearcall	none
-⊖	minus ann an cearcall	none
-⊶	tùsail	none
-⊿	triantan deas	none
-⋂	eadar-ghearradh n-araidh	none
-⋃	aonadh n-araidh	none
-⋅	gnìomharaiche dotaige	none
-⋆	gnìomharaiche rionnaige	none
-⋈	nasg nàdarra	none
-⋒	eadar-ghearradh dùbailte	none
-⋘	fada nas lugha na	none
-⋙	fada nas motha na	none
-⋮	eileaps inghearach	none
-⋯	eileaps còmhnard sa mheadhan	none
-⋰	eileaps trastanach deas is suas	none
-⋱	eileaps trastanach deas is sìos	none
-■	ceàrnag lìonta	none
-□	ceàrnag fhalamh	none
-▢	ceàrnag fhalamh le oiseanan cruinnte	none
-▣	ceàrnag fhalamh le ceàrnag lìonta na broinn	none
-▤	ceàrnag le lìonadh còmhnard	none
-▥	ceàrnag le lìonadh inghearach	none
-▦	ceàrnag le tar-ghreannachadh ortogonach	none
-▧	ceàrnag le lìonadh sìos clì gu deas	none
-▨	ceàrnag le lìonadh suas clì gu deas	none
-▩	ceàrnag le tar-ghreannachadh trastanach	none
-▬	ceart-cheàrnachan lìonta	none
-▭	ceart-cheàrnachan falamh	none
-▮	ceart-cheàrnachan lìonta inghearach	none
-▰	co-shìnteachan lìonta	none
 ▲	triantan lìonta a’ tomhadh suas	none
-△	triantan falamh le gob suas	none
-▴	triantan beag lìonta le gob suas	none
-▵	triantan beag falamh le gob suas	none
-▷	triantan falamh le gob deas	none
-▸	triantan beag lìonta le gob deas	none
-▹	triantan beag falamh le gob deas	none
-►	tomhaire lìonta le gob deas	none
-▻	tomhaire falamh le gob deas	none
 ▼	triantan lìonta a’ tomhadh sìos	none
-▽	triantan falamh le gob sìos	none
-▾	triantan beag lìonta le gob sìos	none
-▿	triantan beag falamh le gob sìos	none
-◁	triantan falamh le gob clì	none
-◂	triantan beag lìonta le gob clì	none
-◃	triantan beag falamh le gob clì	none
-◄	tomhaire lìonta le gob clì	none
-◅	tomhaire falamh le gob clì	none
-◆	daoimean lìonta	none
-◇	daoimean falamh	none
-◈	daoimean falamh le daoimean lìonta na bhroinn	none
-◉	cearcall falamh le cearcall lìonta na bhroinn	none
 ◊	losaindear	none
 ○	cearcall falamh	none
-◌	cearcall dotagach	none
-◍	cearcall le lìonadh inghearach	none
-◎	sùil-thargaide	none
 ●	cearcall lìonta	none
-◐	cearcall le lìonadh san leth-taobh chlì	none
-◑	cearcall le lìonadh san leth-taobh deas	none
-◒	cearcall le lìonadh san leth-taobh ìseal	none
-◓	cearcall leth-lìonta sa bhàrrcearcall le lìonadh san leth-taobh àrd	none
-◔	cearcall le ceathramh lìonta gu h-àrd air an taobh deas	none
-◕	cearcall lìonta ach an ceathramh gu h-àrd air an taobh chlì	none
-◖	an leth-taobh clì de chearcall lìonta	none
-◗	an leth-taobh deas de chearcall lìonta	none
-◘	peilear geal san dubh	none
-◙	ceàrnag lìonta sa bheil cearcall falamh	none
-◜	àrc a’ cheathraimh chlì gu h-àrd	none
-◝	àrc a’ cheathraimh dheis gu h-àrd	none
-◞	àrc a’ cheathraimh dheis gu h-ìosal	none
-◟	àrc a’ cheathraimh chlì gu h-ìosal	none
-◠	leth-chearcall gu h-àrd	none
-◡	leth-chearcall gu h-ìosal	none
-◢	triantan lìonta san oisean deas gu h-ìosal	none
-◣	triantan lìonta san oisean chlì gu h-ìosal	none
-◤	triantan lìonta san oisean chlì gu h-àrd	none
-◥	triantan lìonta san oisean deas gu h-àrd	none
-◦	peilear falamh	none
 ◯	cearcall mòr falamh	none
-◳	ceàrnag fhalamh sa cheathramh deas gu h-àrd	none
-◷	cearcall falamh le ceathramh gu h-àrd air an taobh deas	none
-◿	triantan gu h-ìosal air an taobh deas	none
-♪	caman	none
-⨧	plus le dà fo-sgrìobhte	none
-♭	maol	none
-♯	geur	none
 😀	aodann le gàire	none
 😃	aodann le gàire is sùilean fosgailte	none
 😄	aodann le gàire na shùilean	none
 😁	aodann le gàire mhòr	none
-😆	aodann caog-shùileach le gàire	none
+😆	aodann le gàire, beul fosgailte ⁊ sùilean dùinte	none
 😅	aodann le gàire a’ cur fallas	none
 🤣	a’ ruidhleadh air an làr a’ gàireachdainn	none
 😂	aodann le deòir shona	none
@@ -324,7 +57,7 @@ _	loidhne ìosal	none
 😊	aodann le gàire agus sùilean toilichte	none
 😇	aodann le gàire agus riomball	none
 🥰	aodann le fiamh-ghàire is cridheachan	none
-😍	aodann le gàire ⁊ sùilean nan cridheachan	none
+😍	aodann le gàire ⁊ sùilean an cumadh cridhe	none
 🤩	aodann toilichte le rionnagan na shùilean	none
 😘	aodann a’ caitheamh pòg	none
 😗	aodann pòige	none
@@ -336,7 +69,7 @@ _	loidhne ìosal	none
 😛	aodann a’ cur a-mach na teanga	none
 😜	aodann le theanga a-mach ⁊ sùil bheag	none
 🤪	aodann às a rian	none
-😝	aodann caog-shùileach le theanga a-mach	none
+😝	aodann le theanga a-mach ⁊ sùilean dùinte	none
 🤑	aodann le sùilean is teanga airgid	none
 🤗	aodann a’ pasgadh gàirdeanan timcheall	none
 🤭	aodann le làmh air a beul	none
@@ -347,12 +80,10 @@ _	loidhne ìosal	none
 😐	aodann gun fhiamh	none
 😑	aodann gun fhaireachdainn	none
 😶	aodann gun bheul	none
-😶‍🌫	aodan sna neòil	none
 😏	aodann le plìonas	none
 😒	aodann nuair nach eil e èibhinn	none
 🙄	aodann a’ casadh nan sùilean	none
 😬	aodann le drèin air	none
-😮‍💨	aodan a’ leigeil anail	none
 🤥	aodann nam breug	none
 😌	aodann a fhuair faochadh	none
 😔	aodann fo throm-smuain	none
@@ -360,7 +91,7 @@ _	loidhne ìosal	none
 🤤	aodann a’ sileadh sglongaid	none
 😴	aodann na chadal	none
 😷	aodann le masg dotair air	none
-🤒	aodann le teas-mheidh	none
+🤒	aodann	none
 🤕	aodann le clobhd air a’ cheann	none
 🤢	aodann sgreamha	none
 🤮	aodann a’ cur a-mach	none
@@ -369,7 +100,6 @@ _	loidhne ìosal	none
 🥶	aodann fuar	none
 🥴	aodann misgeach	none
 😵	aodann na thuaineal	none
-😵‍💫	aodann le sùilean snìomhanach	none
 🤯	ceann a’ spreadhadh	none
 🤠	aodann le ad cowboy	none
 🥳	aodann aig pàrtaidh	none
@@ -390,7 +120,7 @@ _	loidhne ìosal	none
 😧	aodann àmhghair	none
 😨	aodann fo eagal	none
 😰	aodann le beul fosgailte a’ cur fallas	none
-😥	aodann a fhuair briseadh-dùil ⁊ faochadh	none
+😥	aodann a fhuair briseadh-dùil ach a fhuair faochadh	none
 😢	aodann a’ caoineadh	none
 😭	aodann a’ rànaich	none
 😱	aodann a’ leigeil sgreuch eagail	none
@@ -441,8 +171,6 @@ _	loidhne ìosal	none
 💟	sgeadas cridhe	none
 ❣	clisg-phuing cridhe	none
 💔	cridhe briste	none
-❤‍🔥	cridhe air theine	none
-❤‍🩹	slànachadh cridhe	none
 ❤	cridhe dearg	none
 🧡	cridhe orains	none
 💛	cridhe buidhe	none
@@ -525,10 +253,8 @@ _	loidhne ìosal	none
 👱	neach le falt bàn	none
 👨	duine	none
 🧔	duine le feusag	none
-🧔‍♂	fireannach feusag	none
 👱‍♂	duine le falt bàn	none
 👩	boireannach	none
-🧔‍♀	boireannach feusag	none
 👱‍♀	boireannach le falt bàn	none
 🧓	seann-inbheach	none
 👴	bodach	none
@@ -971,7 +697,7 @@ _	loidhne ìosal	none
 🌮	taco	none
 🌯	burrito	none
 🫔	tamale	none
-🥙	aran-rèidh lìonta	none
+🥙	aran rèidh lìonta	none
 🧆	falafel	none
 🥚	ugh	none
 🍳	còcaireachd	none
@@ -1007,7 +733,7 @@ _	loidhne ìosal	none
 🦑	gibearnach	none
 🦪	eisir	none
 🍦	reòiteag bhog	none
-🍧	deigh bheàrrte	none
+🍧	deigh bhearrte	none
 🍨	reòiteag	none
 🍩	doughnut	none
 🍪	briosgaid	none
@@ -1045,10 +771,10 @@ _	loidhne ìosal	none
 🥄	spàin	none
 🔪	sgian cidsin	none
 🏺	amfora	none
-🌍	cruinne leis an Roinn-Eòrpa ’s Afraga	none
-🌎	cruinne le Aimeireaga	none
-🌏	cruinne le Àisia ’s Astràilia	none
-🌐	cruinne le meadhan-loidhnichean	none
+🌍	globa a’ sealltainn an Roinn-Eòrpa ’s Afraga	none
+🌎	globa a’ sealltainn an dà Aimeireaga	none
+🌏	globa a’ sealltainn Àisia ’s Astràilia	none
+🌐	globa le meadhan-loidhnichean	none
 🗺	mapa an t-saoghail	none
 🗾	mapa dhen t-Seapan	none
 🧭	combaist	none
@@ -1215,16 +941,16 @@ _	loidhne ìosal	none
 🕦	leth-uair an dèidh aon uair deug	none
 🌑	gealach ùr	none
 🌒	gealach chorranach a’ cinntinn	none
-🌓	solas ùr na gealaich	none
+🌓	gealach sa chiad cheathramh	none
 🌔	gealach chrotach a’ fàs	none
 🌕	làn-ghealach	none
 🌖	gealach chrotach a’ traoghadh	none
-🌗	deireadh na gealaich	none
+🌗	gealach sa cheathramh mu dheireadh	none
 🌘	gealach chorranach a’ traoghadh	none
 🌙	gealach chorranach	none
 🌚	gealach ùr le aodann	none
-🌛	solas ùr na gealaich le aodann	none
-🌜	deireadh na gealaich le aodann	none
+🌛	gealach sa chiad cheathramh le aodann	none
+🌜	gealach sa cheathramh mu dheireadh le aodann	none
 🌡	teas-mheidh	none
 ☀	a’ ghrian	none
 🌝	gealach làn le aodann	none
@@ -1253,9 +979,9 @@ _	loidhne ìosal	none
 ☔	sgàilean-uisge le boinnean uisge	none
 ⛱	sgàilean air an làr	none
 ⚡	voltachd àrd	none
-❄	bleideag sneachda	none
+❄	bleideag-shneachda	none
 ☃	bodach-sneachda	none
-⛄	bodach-sneachda gun sneachd	none
+⛄	bodach-sneachd gun sneachd	none
 ☄	comaid	none
 🔥	teine	none
 💧	boinneag	none
@@ -1309,7 +1035,7 @@ _	loidhne ìosal	none
 ⛳	bratach ann an toll	none
 ⛸	bròg-spèilidh	none
 🎣	slat-iasgaich	none
-🤿	masg-daoibhigidh	none
+🤿	mask-daoibhigidh	none
 🎽	lèine-ruith	none
 🎿	sgìthean	none
 🛷	slaod	none
@@ -1444,8 +1170,8 @@ _	loidhne ìosal	none
 📸	camara le solas-boillsgidh	none
 📹	camara-video	none
 📼	cèiseag-video	none
-🔍	glainne-mheudachaidh dhan taobh chlì	none
-🔎	glainne-mheudachaidh dhan taobh dheas	none
+🔍	glainne-mheudachaidh ag aomadh dhan taobh chlì	none
+🔎	glainne-mheudachaidh ag aomadh dhan taobh dheas	none
 🕯	coinneal	none
 💡	bolgan solais	none
 🔦	toirds dealain	none
@@ -1548,7 +1274,7 @@ _	loidhne ìosal	none
 🦯	batachan	none
 🔗	ceangal	none
 ⛓	sèineachan	none
-🪝	dubhan	none
+🪝	cromag	none
 🧰	bogsa-innealan	none
 🧲	clach-iùil	none
 🪜	fàradh	none
@@ -1630,7 +1356,6 @@ _	loidhne ìosal	none
 ↖	saighead gun iar-thuath	none
 ↕	saighead suas is sìos	none
 ↔	saighead chlì is dheas	none
-↮	saighead dheas is chlì le stràc troimhe	none
 ↩	saighead dheas a’ lùbadh dhan taobh chlì	none
 ↪	saighead chlì a’ lùbadh dhan taobh deas	none
 ⤴	saighead dheas a’ lùbadh suas	none
@@ -1701,10 +1426,10 @@ _	loidhne ìosal	none
 ♾	neo-chrìochnachd	none
 ‼	clisg-phuing dhùbailte	none
 ⁉	clisg-phuing is comharra-ceiste	none
-❓	comharra-ceiste dearg	none
+❓	comharra-ceiste	none
 ❔	comharra-ceiste geal	none
 ❕	clisg-phuing gheal	none
-❗	clisg-phuing dhearg	none
+❗	clisg-phuing	none
 〰	loidhne lùbach	none
 💱	iomlaid airgid	none
 💲	samhla dolair trom	none
@@ -1713,7 +1438,7 @@ _	loidhne ìosal	none
 ⚜	fleur-de-lis	none
 🔱	samhla muirgheidh	none
 📛	baidse ainm	none
-🔰	samhla Seapanach air neach-tòiseachaidh	none
+🔰	samhla Seapanach airson neach-tòiseachaidh	none
 ⭕	cearcall dearg falamh	none
 ✅	putan cromaige	none
 ☑	bogsa-cromaige le cromag	none
@@ -1754,7 +1479,7 @@ _	loidhne ìosal	none
 🈁	putan Seapanais “An-seo”	none
 🈂	putan Seapanais “tàille seirbheise”	none
 🈷	putan Seapanais “tàille mhìosail”	none
-🈶	putan Seapanais “Chan ann an-asgaidh”	none
+🈶	putan Seapanais “Chan ann saor ’s an-asgaidh”	none
 🈯	putan Seapanais “Glèidhte”	none
 🉐	putan Seapanais “Bargan”	none
 🈹	putan Seapanais “Lasachadh”	none
@@ -1810,26 +1535,11 @@ _	loidhne ìosal	none
 🏳‍🌈	bratach bogha-froise	none
 🏳‍⚧	bratach ghorm, phinc is gheal	none
 🏴‍☠	bratach spùinneadair	none
-¢	seant	none
-$	dolar	none
 £	punnd	none
 ¥	yen	none
-₢	cruzeiro	none
-₣	franc na Frainge	none
-₤	lira	none
-₥	mill	none
-₩	won	none
 €	Eòro	none
-₰	sgillinn na Gearmailte	none
-₱	peso	none
-₳	austral	none
-₶	livre tournois	none
-₷	spesmilo	none
 ₹	rupee Innseanach	none
 ₽	rùbal	none
-₿	bitcoin	none
-₨	rupee	none
-﷼	rial	none
 ¹	a h-aon os-sgrìobhte	none
 ²	a dhà os-sgrìobhte	none
 ³	a trì os-sgrìobhte	none
@@ -2059,46 +1769,6 @@ $	dolar	none
 👱🏽	neach le falt bàn tòna meadhanach a’ chraicinn	none
 👱🏾	neach le falt bàn tòna meadhanach doilleir a’ chraicinn	none
 👱🏿	neach le falt bàn tòna doilleir a’ chraicinn	none
-🧑🏻‍❤‍💋‍🧑🏼	pòg inbheach, inbheach, tòna soilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-🧑🏻‍❤‍💋‍🧑🏽	pòg inbheach, inbheach, tòna soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-🧑🏻‍❤‍💋‍🧑🏾	pòg inbheach, inbheach, tòna soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-🧑🏻‍❤‍💋‍🧑🏿	pòg inbheach, inbheach, tòna soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-🧑🏼‍❤‍💋‍🧑🏻	pòg inbheach, inbheach, tòna meadhanach soilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-🧑🏼‍❤‍💋‍🧑🏽	pòg inbheach, inbheach, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-🧑🏼‍❤‍💋‍🧑🏾	pòg inbheach, inbheach, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-🧑🏼‍❤‍💋‍🧑🏿	pòg inbheach, inbheach, tòna meadhanach soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-🧑🏽‍❤‍💋‍🧑🏻	pòg inbheach, inbheach, tòna meadhanach a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-🧑🏽‍❤‍💋‍🧑🏼	pòg inbheach, inbheach, tòna meadhanach a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-🧑🏽‍❤‍💋‍🧑🏾	pòg inbheach, inbheach, tòna meadhanach a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-🧑🏽‍❤‍💋‍🧑🏿	pòg inbheach, inbheach, tòna meadhanach a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-🧑🏾‍❤‍💋‍🧑🏻	pòg inbheach, inbheach, tòna meadhanach doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-🧑🏾‍❤‍💋‍🧑🏼	pòg inbheach, inbheach, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-🧑🏾‍❤‍💋‍🧑🏽	pòg inbheach, inbheach, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-🧑🏾‍❤‍💋‍🧑🏿	pòg inbheach, inbheach, tòna meadhanach doilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-🧑🏿‍❤‍💋‍🧑🏻	pòg inbheach, inbheach, tòna doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-🧑🏿‍❤‍💋‍🧑🏼	pòg inbheach, inbheach, tòna doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-🧑🏿‍❤‍💋‍🧑🏽	pòg inbheach, inbheach, tòna doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-🧑🏿‍❤‍💋‍🧑🏾	pòg inbheach, inbheach, tòna doilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-🧑🏻‍❤‍🧑🏼	càraid le cridhe inbheach, inbheach, tòna soilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-🧑🏻‍❤‍🧑🏽	càraid le cridhe inbheach, inbheach, tòna soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-🧑🏻‍❤‍🧑🏾	càraid le cridhe inbheach, inbheach, tòna soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-🧑🏻‍❤‍🧑🏿	càraid le cridhe inbheach, inbheach, tòna soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-🧑🏼‍❤‍🧑🏻	càraid le cridhe inbheach, inbheach, tòna meadhanach soilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-🧑🏼‍❤‍🧑🏽	càraid le cridhe inbheach, inbheach, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-🧑🏼‍❤‍🧑🏾	càraid le cridhe inbheach, inbheach, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-🧑🏼‍❤‍🧑🏿	càraid le cridhe inbheach, inbheach, tòna meadhanach soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-🧑🏽‍❤‍🧑🏻	càraid le cridhe inbheach, inbheach, tòna meadhanach a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-🧑🏽‍❤‍🧑🏼	càraid le cridhe inbheach, inbheach, tòna meadhanach a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-🧑🏽‍❤‍🧑🏾	càraid le cridhe inbheach, inbheach, tòna meadhanach a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-🧑🏽‍❤‍🧑🏿	càraid le cridhe inbheach, inbheach, tòna meadhanach a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-🧑🏾‍❤‍🧑🏻	càraid le cridhe inbheach, inbheach, tòna meadhanach doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-🧑🏾‍❤‍🧑🏼	càraid le cridhe inbheach, inbheach, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-🧑🏾‍❤‍🧑🏽	càraid le cridhe inbheach, inbheach, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-🧑🏾‍❤‍🧑🏿	càraid le cridhe inbheach, inbheach, tòna meadhanach doilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-🧑🏿‍❤‍🧑🏻	càraid le cridhe inbheach, inbheach, tòna doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-🧑🏿‍❤‍🧑🏼	càraid le cridhe inbheach, inbheach, tòna doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-🧑🏿‍❤‍🧑🏽	càraid le cridhe inbheach, inbheach, tòna doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-🧑🏿‍❤‍🧑🏾	càraid le cridhe inbheach, inbheach, tòna doilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
 🧑‍🦰	inbheach falt ruadh	none
 🧑🏻‍🦰	inbheach tòna soilleir a’ chraicinn ’s falt ruadh	none
 🧑🏼‍🦰	inbheach tòna meadhanach soilleir a’ chraicinn ’s falt ruadh	none
@@ -2133,66 +1803,11 @@ $	dolar	none
 🧔🏽	duine le feusag tòna meadhanach a’ chraicinn	none
 🧔🏾	duine le feusag tòna meadhanach doilleir a’ chraicinn	none
 🧔🏿	duine le feusag tòna doilleir a’ chraicinn	none
-🧔🏻‍♂	fireannach tòna soilleir a’ chraicinn ’s feusag	none
-🧔🏼‍♂	fireannach tòna meadhanach soilleir a’ chraicinn ’s feusag	none
-🧔🏽‍♂	fireannach tòna meadhanach a’ chraicinn ’s feusag	none
-🧔🏾‍♂	fireannach tòna meadhanach doilleir a’ chraicinn ’s feusag	none
-🧔🏿‍♂	fireannach tòna doilleir a’ chraicinn ’s feusag	none
 👱🏻‍♂	duine le falt bàn tòna soilleir a’ chraicinn	none
 👱🏼‍♂	duine le falt bàn tòna meadhanach soilleir a’ chraicinn	none
 👱🏽‍♂	duine le falt bàn tòna meadhanach a’ chraicinn	none
 👱🏾‍♂	duine le falt bàn tòna meadhanach doilleir a’ chraicinn	none
 👱🏿‍♂	duine le falt bàn tòna doilleir a’ chraicinn	none
-👨🏻‍❤‍💋‍👨🏻	pòg duine, duine ’s tòna soilleir a’ chraicinn	none
-👨🏻‍❤‍💋‍👨🏼	pòg duine, duine, tòna soilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👨🏻‍❤‍💋‍👨🏽	pòg duine, duine, tòna soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👨🏻‍❤‍💋‍👨🏾	pòg duine, duine, tòna soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👨🏻‍❤‍💋‍👨🏿	pòg duine, duine, tòna soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👨🏼‍❤‍💋‍👨🏻	pòg duine, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👨🏼‍❤‍💋‍👨🏼	pòg duine, duine ’s tòna meadhanach soilleir a’ chraicinn	none
-👨🏼‍❤‍💋‍👨🏽	pòg duine, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👨🏼‍❤‍💋‍👨🏾	pòg duine, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👨🏼‍❤‍💋‍👨🏿	pòg duine, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👨🏽‍❤‍💋‍👨🏻	pòg duine, duine, tòna meadhanach a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👨🏽‍❤‍💋‍👨🏼	pòg duine, duine, tòna meadhanach a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👨🏽‍❤‍💋‍👨🏽	pòg duine, duine ’s tòna meadhanach a’ chraicinn	none
-👨🏽‍❤‍💋‍👨🏾	pòg duine, duine, tòna meadhanach a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👨🏽‍❤‍💋‍👨🏿	pòg duine, duine, tòna meadhanach a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👨🏾‍❤‍💋‍👨🏻	pòg duine, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👨🏾‍❤‍💋‍👨🏼	pòg duine, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👨🏾‍❤‍💋‍👨🏽	pòg duine, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👨🏾‍❤‍💋‍👨🏾	pòg duine, duine ’s tòna meadhanach doilleir a’ chraicinn	none
-👨🏾‍❤‍💋‍👨🏿	pòg duine, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👨🏿‍❤‍💋‍👨🏻	pòg duine, duine, tòna doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👨🏿‍❤‍💋‍👨🏼	pòg duine, duine, tòna doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👨🏿‍❤‍💋‍👨🏽	pòg duine, duine, tòna doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👨🏿‍❤‍💋‍👨🏾	pòg duine, duine, tòna doilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👨🏿‍❤‍💋‍👨🏿	pòg duine, duine ’s tòna doilleir a’ chraicinn	none
-👨🏻‍❤‍👨🏻	càraid le cridhe duine, duine ’s tòna soilleir a’ chraicinn	none
-👨🏻‍❤‍👨🏼	càraid le cridhe duine, duine, tòna soilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👨🏻‍❤‍👨🏽	càraid le cridhe duine, duine, tòna soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👨🏻‍❤‍👨🏾	càraid le cridhe duine, duine, tòna soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👨🏻‍❤‍👨🏿	càraid le cridhe duine, duine, tòna soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👨🏼‍❤‍👨🏻	càraid le cridhe duine, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👨🏼‍❤‍👨🏼	càraid le cridhe duine, duine ’s tòna meadhanach soilleir a’ chraicinn	none
-👨🏼‍❤‍👨🏽	càraid le cridhe duine, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👨🏼‍❤‍👨🏾	càraid le cridhe duine, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👨🏼‍❤‍👨🏿	càraid le cridhe duine, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👨🏽‍❤‍👨🏻	càraid le cridhe duine, duine, tòna meadhanach a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👨🏽‍❤‍👨🏼	càraid le cridhe duine, duine, tòna meadhanach a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👨🏽‍❤‍👨🏽	càraid le cridhe duine, duine ’s tòna meadhanach a’ chraicinn	none
-👨🏽‍❤‍👨🏾	càraid le cridhe duine, duine, tòna meadhanach a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👨🏽‍❤‍👨🏿	càraid le cridhe duine, duine, tòna meadhanach a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👨🏾‍❤‍👨🏻	càraid le cridhe duine, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👨🏾‍❤‍👨🏼	càraid le cridhe duine, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👨🏾‍❤‍👨🏽	càraid le cridhe duine, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👨🏾‍❤‍👨🏾	càraid le cridhe duine, duine ’s tòna meadhanach doilleir a’ chraicinn	none
-👨🏾‍❤‍👨🏿	càraid le cridhe duine, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👨🏿‍❤‍👨🏻	càraid le cridhe duine, duine, tòna doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👨🏿‍❤‍👨🏼	càraid le cridhe duine, duine, tòna doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👨🏿‍❤‍👨🏽	càraid le cridhe duine, duine, tòna doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👨🏿‍❤‍👨🏾	càraid le cridhe duine, duine, tòna doilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👨🏿‍❤‍👨🏿	càraid le cridhe duine, duine ’s tòna doilleir a’ chraicinn	none
 👨‍🦰	duine falt ruadh	none
 👨🏻‍🦰	duine tòna soilleir a’ chraicinn ’s falt ruadh	none
 👨🏼‍🦰	duine tòna meadhanach soilleir a’ chraicinn ’s falt ruadh	none
@@ -2222,116 +1837,11 @@ $	dolar	none
 👩🏽	boireannach tòna meadhanach a’ chraicinn	none
 👩🏾	boireannach tòna meadhanach doilleir a’ chraicinn	none
 👩🏿	boireannach tòna doilleir a’ chraicinn	none
-🧔🏻‍♀	boireannach tòna soilleir a’ chraicinn ’s feusag	none
-🧔🏼‍♀	boireannach tòna meadhanach soilleir a’ chraicinn ’s feusag	none
-🧔🏽‍♀	boireannach tòna meadhanach a’ chraicinn ’s feusag	none
-🧔🏾‍♀	boireannach tòna meadhanach doilleir a’ chraicinn ’s feusag	none
-🧔🏿‍♀	boireannach tòna doilleir a’ chraicinn ’s feusag	none
 👱🏻‍♀	boireannach le falt bàn tòna soilleir a’ chraicinn	none
 👱🏼‍♀	boireannach le falt bàn tòna meadhanach soilleir a’ chraicinn	none
 👱🏽‍♀	boireannach le falt bàn tòna meadhanach a’ chraicinn	none
 👱🏾‍♀	boireannach le falt bàn tòna meadhanach doilleir a’ chraicinn	none
 👱🏿‍♀	boireannach le falt bàn tòna doilleir a’ chraicinn	none
-👩🏻‍❤‍💋‍👨🏻	pòg boireannach, duine ’s tòna soilleir a’ chraicinn	none
-👩🏻‍❤‍💋‍👨🏼	pòg boireannach, duine, tòna soilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏻‍❤‍💋‍👨🏽	pòg boireannach, duine, tòna soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏻‍❤‍💋‍👨🏾	pòg boireannach, duine, tòna soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏻‍❤‍💋‍👨🏿	pòg boireannach, duine, tòna soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏼‍❤‍💋‍👨🏻	pòg boireannach, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏼‍❤‍💋‍👨🏼	pòg boireannach, duine ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏼‍❤‍💋‍👨🏽	pòg boireannach, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏼‍❤‍💋‍👨🏾	pòg boireannach, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏼‍❤‍💋‍👨🏿	pòg boireannach, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏽‍❤‍💋‍👨🏻	pòg boireannach, duine, tòna meadhanach a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏽‍❤‍💋‍👨🏼	pòg boireannach, duine, tòna meadhanach a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏽‍❤‍💋‍👨🏽	pòg boireannach, duine ’s tòna meadhanach a’ chraicinn	none
-👩🏽‍❤‍💋‍👨🏾	pòg boireannach, duine, tòna meadhanach a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏽‍❤‍💋‍👨🏿	pòg boireannach, duine, tòna meadhanach a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏾‍❤‍💋‍👨🏻	pòg boireannach, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏾‍❤‍💋‍👨🏼	pòg boireannach, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏾‍❤‍💋‍👨🏽	pòg boireannach, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏾‍❤‍💋‍👨🏾	pòg boireannach, duine ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏾‍❤‍💋‍👨🏿	pòg boireannach, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏿‍❤‍💋‍👨🏻	pòg boireannach, duine, tòna doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏿‍❤‍💋‍👨🏼	pòg boireannach, duine, tòna doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏿‍❤‍💋‍👨🏽	pòg boireannach, duine, tòna doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏿‍❤‍💋‍👨🏾	pòg boireannach, duine, tòna doilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏿‍❤‍💋‍👨🏿	pòg boireannach, duine ’s tòna doilleir a’ chraicinn	none
-👩🏻‍❤‍💋‍👩🏻	pòg boireannach, boireannach ’s tòna soilleir a’ chraicinn	none
-👩🏻‍❤‍💋‍👩🏼	pòg boireannach, boireannach, tòna soilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏻‍❤‍💋‍👩🏽	pòg boireannach, boireannach, tòna soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏻‍❤‍💋‍👩🏾	pòg boireannach, boireannach, tòna soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏻‍❤‍💋‍👩🏿	pòg boireannach, boireannach, tòna soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏼‍❤‍💋‍👩🏻	pòg boireannach, boireannach, tòna meadhanach soilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏼‍❤‍💋‍👩🏼	pòg boireannach, boireannach ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏼‍❤‍💋‍👩🏽	pòg boireannach, boireannach, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏼‍❤‍💋‍👩🏾	pòg boireannach, boireannach, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏼‍❤‍💋‍👩🏿	pòg boireannach, boireannach, tòna meadhanach soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏽‍❤‍💋‍👩🏻	pòg boireannach, boireannach, tòna meadhanach a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏽‍❤‍💋‍👩🏼	pòg boireannach, boireannach, tòna meadhanach a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏽‍❤‍💋‍👩🏽	pòg boireannach, boireannach ’s tòna meadhanach a’ chraicinn	none
-👩🏽‍❤‍💋‍👩🏾	pòg boireannach, boireannach, tòna meadhanach a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏽‍❤‍💋‍👩🏿	pòg boireannach, boireannach, tòna meadhanach a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏾‍❤‍💋‍👩🏻	pòg boireannach, boireannach, tòna meadhanach doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏾‍❤‍💋‍👩🏼	pòg boireannach, boireannach, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏾‍❤‍💋‍👩🏽	pòg boireannach, boireannach, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏾‍❤‍💋‍👩🏾	pòg boireannach, boireannach ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏾‍❤‍💋‍👩🏿	pòg boireannach, boireannach, tòna meadhanach doilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏿‍❤‍💋‍👩🏻	pòg boireannach, boireannach, tòna doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏿‍❤‍💋‍👩🏼	pòg boireannach, boireannach, tòna doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏿‍❤‍💋‍👩🏽	pòg boireannach, boireannach, tòna doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏿‍❤‍💋‍👩🏾	pòg boireannach, boireannach, tòna doilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏿‍❤‍💋‍👩🏿	pòg boireannach, boireannach ’s tòna doilleir a’ chraicinn	none
-👩🏻‍❤‍👨🏻	càraid le cridhe boireannach, duine ’s tòna soilleir a’ chraicinn	none
-👩🏻‍❤‍👨🏼	càraid le cridhe boireannach, duine, tòna soilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏻‍❤‍👨🏽	càraid le cridhe boireannach, duine, tòna soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏻‍❤‍👨🏾	càraid le cridhe boireannach, duine, tòna soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏻‍❤‍👨🏿	càraid le cridhe boireannach, duine, tòna soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏼‍❤‍👨🏻	càraid le cridhe boireannach, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏼‍❤‍👨🏼	càraid le cridhe boireannach, duine ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏼‍❤‍👨🏽	càraid le cridhe boireannach, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏼‍❤‍👨🏾	càraid le cridhe boireannach, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏼‍❤‍👨🏿	càraid le cridhe boireannach, duine, tòna meadhanach soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏽‍❤‍👨🏻	càraid le cridhe boireannach, duine, tòna meadhanach a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏽‍❤‍👨🏼	càraid le cridhe boireannach, duine, tòna meadhanach a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏽‍❤‍👨🏽	càraid le cridhe boireannach, duine ’s tòna meadhanach a’ chraicinn	none
-👩🏽‍❤‍👨🏾	càraid le cridhe boireannach, duine, tòna meadhanach a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏽‍❤‍👨🏿	càraid le cridhe boireannach, duine, tòna meadhanach a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏾‍❤‍👨🏻	càraid le cridhe boireannach, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏾‍❤‍👨🏼	càraid le cridhe boireannach, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏾‍❤‍👨🏽	càraid le cridhe boireannach, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏾‍❤‍👨🏾	càraid le cridhe boireannach, duine ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏾‍❤‍👨🏿	càraid le cridhe boireannach, duine, tòna meadhanach doilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏿‍❤‍👨🏻	càraid le cridhe boireannach, duine, tòna doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏿‍❤‍👨🏼	càraid le cridhe boireannach, duine, tòna doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏿‍❤‍👨🏽	càraid le cridhe boireannach, duine, tòna doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏿‍❤‍👨🏾	càraid le cridhe boireannach, duine, tòna doilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏿‍❤‍👨🏿	càraid le cridhe boireannach, duine ’s tòna doilleir a’ chraicinn	none
-👩🏻‍❤‍👩🏻	càraid le cridhe boireannach, boireannach ’s tòna soilleir a’ chraicinn	none
-👩🏻‍❤‍👩🏼	càraid le cridhe boireannach, boireannach, tòna soilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏻‍❤‍👩🏽	càraid le cridhe boireannach, boireannach, tòna soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏻‍❤‍👩🏾	càraid le cridhe boireannach, boireannach, tòna soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏻‍❤‍👩🏿	càraid le cridhe boireannach, boireannach, tòna soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏼‍❤‍👩🏻	càraid le cridhe boireannach, boireannach, tòna meadhanach soilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏼‍❤‍👩🏼	càraid le cridhe boireannach, boireannach ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏼‍❤‍👩🏽	càraid le cridhe boireannach, boireannach, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏼‍❤‍👩🏾	càraid le cridhe boireannach, boireannach, tòna meadhanach soilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏼‍❤‍👩🏿	càraid le cridhe boireannach, boireannach, tòna meadhanach soilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏽‍❤‍👩🏻	càraid le cridhe boireannach, boireannach, tòna meadhanach a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏽‍❤‍👩🏼	càraid le cridhe boireannach, boireannach, tòna meadhanach a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏽‍❤‍👩🏽	càraid le cridhe boireannach, boireannach ’s tòna meadhanach a’ chraicinn	none
-👩🏽‍❤‍👩🏾	càraid le cridhe boireannach, boireannach, tòna meadhanach a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏽‍❤‍👩🏿	càraid le cridhe boireannach, boireannach, tòna meadhanach a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏾‍❤‍👩🏻	càraid le cridhe boireannach, boireannach, tòna meadhanach doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏾‍❤‍👩🏼	càraid le cridhe boireannach, boireannach, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏾‍❤‍👩🏽	càraid le cridhe boireannach, boireannach, tòna meadhanach doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏾‍❤‍👩🏾	càraid le cridhe boireannach, boireannach ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏾‍❤‍👩🏿	càraid le cridhe boireannach, boireannach, tòna meadhanach doilleir a’ chraicinn ’s tòna doilleir a’ chraicinn	none
-👩🏿‍❤‍👩🏻	càraid le cridhe boireannach, boireannach, tòna doilleir a’ chraicinn ’s tòna soilleir a’ chraicinn	none
-👩🏿‍❤‍👩🏼	càraid le cridhe boireannach, boireannach, tòna doilleir a’ chraicinn ’s tòna meadhanach soilleir a’ chraicinn	none
-👩🏿‍❤‍👩🏽	càraid le cridhe boireannach, boireannach, tòna doilleir a’ chraicinn ’s tòna meadhanach a’ chraicinn	none
-👩🏿‍❤‍👩🏾	càraid le cridhe boireannach, boireannach, tòna doilleir a’ chraicinn ’s tòna meadhanach doilleir a’ chraicinn	none
-👩🏿‍❤‍👩🏿	càraid le cridhe boireannach, boireannach ’s tòna doilleir a’ chraicinn	none
 👩‍🦰	boireannach falt ruadh	none
 👩🏻‍🦰	boireannach tòna soilleir a’ chraicinn ’s falt ruadh	none
 👩🏼‍🦰	boireannach tòna meadhanach soilleir a’ chraicinn ’s falt ruadh	none
@@ -3776,7 +3286,7 @@ $	dolar	none
 🇸🇬	bratach Singeapòr	none
 🇸🇭	bratach Eilean Naomh Eilidh	none
 🇸🇮	bratach An t-Slòbhain	none
-🇸🇯	bratach Svalbard is Jan Mayen	none
+🇸🇯	bratach Svalbard agus Jan Mayen	none
 🇸🇰	bratach An t-Slòbhac	none
 🇸🇱	bratach Siarra Leòmhann	none
 🇸🇲	bratach San Marino	none
@@ -3831,26 +3341,6 @@ $	dolar	none
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	bratach Sasainn	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	bratach Alba	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bratach A’ Chuimrigh	none
-¤	Airgeadra neo-aithnichte	none
-֏	Dram Airmeineach	none
-؋	Afghani Afghanach	none
-৳	Taka Bangladaiseach	none
-฿	Baht Tàidheach	none
-៛	Riel Cambuideach	none
-₡	Colón Costa Rìceach	none
-₦	Naira Nigèiriach	none
-₧	Peseta Spàinnteach	none
-₪	Sheqel ùr Iosraeleach	none
-₫	Dong Bhiet-Namach	none
-₭	Kip Làthosach	none
-₮	Tugrik Mongolach	none
-₲	Guaraní Paraguaidheach	none
-₴	Hryvnia Ucràineach	none
-₵	Cedi Gànach	none
-₸	Tenge Casachach	none
-₺	Lira Turcach	none
-₼	Manat Asarbaideànach	none
-₾	Lari Cairtbheileach	none
 0⃣	còmhdachadh iuchrach 0	none
 1⃣	còmhdachadh iuchrach 1	none
 2⃣	còmhdachadh iuchrach 2	none

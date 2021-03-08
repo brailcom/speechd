@@ -3,352 +3,46 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
-{	bukas na kulot na braket	none
 🏻	light na kulay ng balat	none
 🏼	katamtamang light na kulay ng balat	none
 🏽	katamtamang kulay ng balat	none
 🏾	katamtamang dark na kulay ng balat	none
 🏿	dark na kulay ng balat	none
-‾	overline	none
-_	mababang linya	none
--	gitling- pananda ng pagbabawas	none
-‐	gitling	none
 –	maikling gatlang	none
 —	mahabang gatlang	none
-―	pahalang na bar	none
-・	katakanang gitnang tuldok	none
-,	kuwit	none
-،	arabikong kuwit	none
-、	kuwit na ideograpiko	none
-;	tuldok-kuwit	none
-؛	arabikong tuldok-kuwit	none
-:	tutuldok	none
-!	tandang pandamdam	none
-¡	baligtad na tandang pandamdam	none
-?	tanda na pananong	none
-¿	baligtad na tandang pananong	none
-؟	arabikong tandang pananong	none
-‽	interrobang	none
-.	tuldok	none
-…	ellipsis	none
-。	ideograpikong tuldok	none
 ·	nakagitnang tuldok	none
-'	makinilyang apostrope	none
-‘	kaliwang apostrope	none
-’	kanang apostrope	none
-‚	mababang kanan na apostrope	none
-“	kaliwang panipi	none
-”	kanang panipi	none
-„	mababang kanan na panipi	none
 «	pakaliwang guillemet	none
 »	pakanang guillemet	none
-)	pang sara na panaklong	none
-[	bukas na kuwadradong braket	none
-]	saradong kuwadrado na braket	none
-}	saradong kulot na braket	none
-〈	bukas na anggulo na braket	none
-〉	saradong anggulo na braket	none
-《	bukas na dobleng anggulo na braket	none
-》	saradong dobleng anggulo na braket	none
-「	bukas na sulok na braket	none
-」	saradong sulok na braket	none
-『	bukas na guwang na sulok na braket	none
-』	saradong guwang na sulok na braket	none
-【	bukas na itim na lens na braket	none
-】	saradong itim na lens na braket	none
-〔	bukas na talukab ng pawikan na braket	none
-〕	saradong talukab ng pawikan na braket	none
-〖	bukas na guwang na lens na braket	none
-〗	saradong guwang na lens na braket	none
 §	seksyon	none
-¶	tandang pantalata	none
-@	at sign	none
-*	asterisk	none
-/	slash	none
-\	backslash	none
-&	ampersand	none
-#	hash sign	none
-%	porsiyento	none
-‰	per mille	none
 †	dagger sign	none
 ‡	dobleng dagger sign	none
 •	bullet	none
-‧	hyphenation na tuldok	none
-′	prime	none
-″	dobleng prime	none
-‴	tripleng prime	none
-‸	caret	none
-※	tanda na pang reperensiya	none
-⁂	asterismo	none
-`	grave accent	none
-´	acute accent	none
-^	circumflex accent	none
-¨	diaeresis	none
 °	degree	none
 ℗	copyright ng recording ng tunog	none
 ←	arrow na nakaturo sa kaliwa	none
-↚	kaliwang arrow stroke	none
 →	arrow na nakaturo sa kanan	none
-↛	kanang arrow stroke	none
 ↑	arrow na nakaturo pataas	none
 ↓	arrow na nakaturo pababa	none
-↜	kaliwang maalon na arrow	none
-↝	kanang maalon na arrow	none
-↞	kaliwang dalawang ulo na arrow	none
-↟	paitaas na dalawang ulo na arrow	none
-↠	kanang dalawang ulo na arrow	none
-↡	pababa na dalawang ulo na arrow	none
-↢	kaliwang buntot ng arrow	none
-↣	kanang buntot ng arrow	none
-↤	kaliwang arrow mula sa bar	none
-↥	paitaas na arrow mula sa bar	none
-↦	kanang arrow mula sa bar	none
-↧	pababa na arrow mula sa bar	none
-↨	pataas pababa na arrow na may base	none
-↫	kaliwang arrow na loop	none
-↬	kanang arrow na loop	none
-↭	kaliwa’t kanang maalon na arrow	none
-↯	pababang zigzag na arrow	none
-↰	paitaas na arrow na lumiko sa kaliwa	none
-↱	paitaas na arrow na lumiko sa kanan	none
-↲	pababa na arrow na lumiko sa kaliwa	none
-↳	pababa na arrow na lumiko sa kanan	none
-↴	kanan na arrow na lumiko pababa	none
-↵	pababang arrow na lumiko sa kaliwa	none
-↶	anticlockwise na semicircle na arrow sa taas	none
-↷	clockwise na semicircle na arrow sa taas	none
-↸	hilagang kanluran na arrow na may mahabang bar	none
-↹	kaliwa na arrow bar sa taas ng kanan na arrow bar	none
-↺	anticlockwise bukas na bilog na arrow	none
-↻	clockwise bukas na bilog na arrow	none
-↼	kaliwang harpoon barb pataas	none
-↽	kaliwang harpoon barb pababa	none
-↾	pataas na harpoon barb na kanan	none
-↿	paitaas na harpoon barb na kaliwa	none
-⇀	kanang harpoon barb pataas	none
-⇁	kanang harpoon barb pababa	none
-⇂	pababang kanan na harpoon barb	none
-⇃	pababang kaliwa na harpoon barb	none
-⇄	kanang arrow sa taas ng kaliwang arrow	none
 ⇅	pataas na arrow at pababang arrow	none
 ⇆	pakaliwa sa ibabaw ng pakanang arrow	none
-⇇	dalawang kaliwa na arrow	none
-⇈	dalawang pataas na arrow	none
-⇉	dalawang kanan na arrow	none
-⇊	dalawang pababa na arrow	none
-⇋	kaliwang harpoon sa taas ng kanang harpoon	none
-⇌	kanang harpoon sa taas ng kaliwang harpoon	none
-⇐	kaliwa na dobleng arrow	none
-⇍	kaliwa na dobleng arrow na may stroke	none
-⇑	pataas na dobleng arrow	none
-⇒	kanan na dobleng arrow	none
-⇏	kanan na dobleng arrow na may stroke	none
-⇓	pababa na dobleng arrow	none
-⇔	kaliwa’t kanang doble na arrow	none
-⇎	kaliwa’t kanang doble na arrow na may stroke	none
-⇖	hilagang kanluran na dobleng arrow	none
-⇗	hilagang silangan na dobleng arrow	none
-⇘	timog silangan na dobleng arrow	none
-⇙	timog kanluran na dobleng arrow	none
-⇚	kaliwa na tripleng arrow	none
-⇛	kanan na tripleng arrow	none
-⇜	kaliwa na squiggle arrow	none
-⇝	kanan na squiggle arrow	none
-⇞	pataas na arrow na may dobleng stroke	none
-⇟	pababang arrow na may dobleng stroke	none
-⇠	kaliwang arrow na may dash	none
-⇡	pataas na dash na arrow	none
-⇢	kanan na dash na arrow	none
-⇣	pababang dash na arrow	none
-⇤	kaliwang arrow na may bar	none
-⇥	kanang arrow na may bar	none
-⇦	kaliwang walang laman na arrow	none
-⇧	pataas na walang laman na arrow	none
-⇨	kanang walang laman na arrow	none
-⇩	pababang arrow na walang laman	none
-⇪	pataas na arrow na walang laman mula sa bar	none
-⇵	pababa na arrow sa kaliwa pataas na arrow	none
-∀	para sa lahat	none
-∂	parsiyal diperensiyal	none
-∃	mayroon	none
-∅	walang laman na set	none
 ∆	increment	none
 ∇	nabla	none
 ∈	element ng	none
-∉	hindi elemento	none
-∋	naglalaman bilang miyembro	none
-∎	end proof	none
-∏	produktong n-ary	none
-∑	n-ary summation	none
-+	tanda ng pagdaragdag	none
-±	dagdag-bawas	none
 ÷	division sign	none
 ×	multiplication sign	none
-<	mas mababa sa	none
-≮	hindi bababa sa	none
-=	katumbas	none
-≠	hindi pantay	none
->	mahigit sa	none
-≯	hindi higit sa	none
-¬	negasyon	none
-|	patayong linya	none
-~	tilde	none
-−	pananda ng pagbabawas	none
 ⁻	superscript minus	none
-∓	minus o plus	none
-∕	dibisyon slash	none
-⁄	praksyon slash	none
-∗	asterisk operator	none
-∘	ring operator	none
-∙	bullet operator	none
 √	square root	none
-∝	proporsyonal	none
 ∞	infinity sign	none
-∟	kanang anggulo	none
-∠	anggulo	none
-∣	hatiin	none
-∥	kahanay	none
-∧	lohikal at	none
 ∩	intersection	none
 ∪	union	none
-∫	integral	none
-∬	dobleng integral	none
-∮	contour integral	none
-∴	kaya	none
-∵	dahil	none
-∶	ratio	none
-∷	proporsyon	none
-∼	tilde operator	none
-∽	baligtad na tilde	none
-∾	baligtad na s	none
-≃	pantay na pantay	none
-≅	halos pantay	none
-≈	halos katumbas	none
-≌	lahat pantay	none
-≒	halos pantay ang imahe	none
-≖	singsing sa loob ng equal	none
 ≡	katulad ng	none
-≣	istriktong katumbas	none
-≤	mas mababa sa o katumbas	none
-≥	mahigit sa o katumbas	none
-≦	simblo ng mas mababa sa sa taas ng simblo ng katumbas	none
-≧	simbolo ng mas higit sa sa taas ng simbolo ng katumbas	none
-≪	higit na mas mababa sa	none
-≫	higit na mas higit sa	none
-≬	sa pagitan ng	none
-≳	mas higit sa katumbas	none
-≺	nauna	none
-≻	sundan	none
-⊁	hindi sinusundan	none
 ⊂	subset ng	none
-⊃	superset	none
-⊆	pantay na subset	none
-⊇	pantay na superset	none
-⊕	nakabilog na plus	none
-⊖	nakabilog na minus	none
-⊗	nakabilog na times	none
-⊘	nakabilog na division slash	none
-⊙	nakabilog na tuldok na operator	none
-⊚	nakabilog na sing sing na operator	none
-⊛	nakabilog na asterisk operator	none
-⊞	nakakuwadrado na plus	none
-⊟	nakakuwadrado na minus	none
-⊥	pataas na tack	none
-⊮	hindi pinupuwersa	none
-⊰	nauna sa ilalim ng relasyon	none
-⊱	sundan sa ilalim ng relasyon	none
-⋭	hindi naglalaman bilang normal na pantay na subgroup	none
-⊶	orihinal	none
-⊹	hermitian conjugate matrix	none
-⊿	kanang tatsulok	none
-⋁	n-ary lohikal o	none
-⋂	n-ary interseksyon	none
-⋃	n-ary union	none
-⋅	tuldok na operator	none
-⋆	bituin na operator	none
-⋈	natural na sumali	none
-⋒	dobleng interseksyon	none
-⋘	sobrang higit na mas mababa sa	none
-⋙	sobrang higit na mas higit sa	none
-⋮	patayong ellipsis	none
-⋯	midline pahalang na ellipsis	none
-⋰	pataas na kanang diagonal ellipsis	none
-⋱	pababang kanan na dayagonal ellipsis	none
-■	punong kuwadrado	none
-□	walang laman na kuwadrado	none
-▢	walang laman na kuwadrado na may pabilog na kanto	none
-▣	punong kuwadrado sa loob ng walang laman na kuwadrado	none
-▤	kuwadradong may pahalang na punan	none
-▥	kuwadradong may patayo na punan	none
-▦	kuwadradong may orthogonal crosshatch na laman	none
-▧	kuwadradong may itaas na kaliwa at ibabang kanan na punan	none
-▨	kuwadradong may itaas na kanan at ibabang kaliwa na punan	none
-▩	kuwadradong may dayagonal crosshatch na punan	none
-▬	punong rektanggulo	none
-▭	walang laman na rektanggulo	none
-▮	punong nakatayo na rektanggulo	none
-▰	punong parallelogram	none
 ▲	pataas na tatsulok na may fill	none
-△	walang laman na up-pointing na tatsulok	none
-▴	punong up-pointing na maliit na tatsulok	none
-▵	walang laman na up-pointing na maliit na tatsulok	none
-▷	walang laman na right-pointing na tatsulok	none
-▸	punong right-pointing na maliit na tatsulok	none
-▹	walang laman na right-pointing na maliit na tatsulok	none
-►	punong right-pointing na pointer	none
-▻	walang laman na right-pointing na pointer	none
 ▼	pababang tatsulok na may fill	none
-▽	walang laman na down-pointing na tatsulok	none
-▾	punong down-pointing na maliit na triangle	none
-▿	walang laman na down-pointing na maliit na tatsulok	none
-◁	walang laman na left-pointing na tatsulok	none
-◂	punong left-pointing na maliit na tatsulok	none
-◃	walang laman na left-pointing na maliit na tatsulok	none
-◄	punong left-pointing na pointer	none
-◅	walang laman na left-pointing na pointer	none
-◆	punong diamante	none
-◇	walang laman na diamante	none
-◈	punong diamante sa loob ng walang laman na diamante	none
-◉	punong bilog sa loob ng walang laman na bilog	none
 ◊	lozenge	none
 ○	walang lamang bilog	none
-◌	dotted na bilog	none
-◍	bilog na may patayong punan	none
-◎	gitna ng tudlaan	none
 ●	may fill na bilog	none
-◐	bilog na kalahating puno sa kaliwa	none
-◑	bilog na kalahating puno sa kanan	none
-◒	bilog na kalahating puno sa baba	none
-◓	bilog na kalahating puno sa taas	none
-◔	bilog na puno sa kanang itaas na kuwadrante	none
-◕	bilog na puno lahat maliban sa itaas na kaliwang kuwadrante	none
-◖	kalahating puno sa kaliwa na bilog	none
-◗	kalahating puno sa kanan na bilog	none
-◘	baligtad na bullet	none
-◙	punong kuwadrado na may walang laman na bilog sa loob	none
-◜	pabilog na arko sa itaas na kaliwang kuwadrante	none
-◝	pabilog na arko sa itaas na kanang kuwadrante	none
-◞	pabilog na arko sa ibabang kanan na kuwadrante	none
-◟	pabilog na arko sa ibabang kaliwa na kuwadrante	none
-◠	itaas na kalahating bilog	none
-◡	ibaba na kalahating bilog	none
-◢	punong ibabang kanan na tatsulok	none
-◣	punong ibabang kaliwa na tatsulok	none
-◤	punong itaas na kaliwang tatsulok	none
-◥	punong itaas na kanang tatsulok	none
-◦	walang laman na bullet	none
 ◯	malaking walang lamang bilog	none
-◳	walang laman na kuwadrado sa itaas na kanang kuwadrante	none
-◷	walang laman na bilog na may itaas na kanang kuwadrante	none
-◿	ibabang kanan na tatsulok	none
-♪	ikawalong nota	none
-⨧	plus subscript na dalawa	none
-⨯	produkto ng vector cross	none
-⨼	produkto ng interior	none
-⩣	lohikal o dobleng underbar	none
-⩽	mas mababa sa nakaslant na equal	none
-♭	flat	none
-♯	sharp	none
 😀	mukhang nakangiti	none
 😃	nakangisi na may malaking mga mata	none
 😄	nakangisi kasama ang mga nakangiting mata	none
@@ -386,12 +80,10 @@ _	mababang linya	none
 😐	walang reaksyon	none
 😑	walang ekspresyon	none
 😶	mukhang walang bibig	none
-😶‍🌫	mukhang nasa ulap	none
 😏	nakangisi	none
 😒	hindi natutuwa	none
 🙄	itinitirik ang mga mata	none
 😬	nakangiwi	none
-😮‍💨	mukhang humihinga palabas	none
 🤥	nagsisinungaling	none
 😌	nakahinga nang maluwag	none
 😔	malungkot na nag-iisip	none
@@ -408,7 +100,6 @@ _	mababang linya	none
 🥶	malamig na mukha	none
 🥴	woozy na mukha	none
 😵	mukhang nahihilo	none
-😵‍💫	mukang may spiral na mata	none
 🤯	sumasabog na ulo	none
 🤠	mukha na may cowboy hat	none
 🥳	nagdiriwang na mukha	none
@@ -480,8 +171,6 @@ _	mababang linya	none
 💟	dekorasyong puso	none
 ❣	malaking tandang padamdam na hugis-puso	none
 💔	durog na puso	none
-❤‍🔥	pusong nasa apoy	none
-❤‍🩹	pag-ayos sa puso	none
 ❤	pulang puso	none
 🧡	pusong dalandan	none
 💛	dilaw na puso	none
@@ -564,10 +253,8 @@ _	mababang linya	none
 👱	taong may blond na buhok	none
 👨	lalaki	none
 🧔	taong may balbas	none
-🧔‍♂	lalaki balbas	none
 👱‍♂	lalaking blonde	none
 👩	babae	none
-🧔‍♀	babae balbas	none
 👱‍♀	babae blond na buhok	none
 🧓	mas matandang tao	none
 👴	matandang lalaki	none
@@ -670,7 +357,7 @@ _	mababang linya	none
 👳‍♀	babaeng may turban	none
 👲	lalaking may suot na sombrerong chinese	none
 🧕	babae na may headscarf	none
-🤵	taong naka-tuxedo	none
+🤵	naka-tuxedo	none
 🤵‍♂	lalaking naka-tuxedo	none
 🤵‍♀	babaeng naka-tuxedo	none
 👰	taong may suot na belo	none
@@ -1573,7 +1260,7 @@ _	mababang linya	none
 🛠	martilyo at liyabe	none
 🗡	patalim	none
 ⚔	magkakrus na espada	none
-🔫	water gun	none
+🔫	baril	none
 🪃	boomerang	none
 🏹	pana	none
 🛡	kalasag	none
@@ -1669,7 +1356,6 @@ _	mababang linya	none
 ↖	pataas na pakaliwang arrow	none
 ↕	pataas-pababang arrow	none
 ↔	pakaliwa-pakanang arrow	none
-↮	kaliwa’t kanang arrow stroke	none
 ↩	pakanang arrow na kumurba pakaliwa	none
 ↪	pakaliwang arrow na kumurba pakanan	none
 ⤴	pakanang arrow na kumurba pataas	none
@@ -1801,7 +1487,7 @@ _	mababang linya	none
 🈲	nakaparisukat na ideograph ng pagbabawal	none
 🉑	nakabilog na ideograph ng pagtanggap	none
 🈸	nakaparisukat na ideograph ng pag-apply	none
-🈴	Japanese na button para sa "pasadong grado"	none
+🈴	nakaparisukat na ideograph ng pasado na grado	none
 🈳	nakaparisukat na ideograph ng bakante	none
 ㊗	nakabilog na ideograph ng pagbati	none
 ㊙	nakabilog na ideograph ng lihim	none
@@ -1849,17 +1535,11 @@ _	mababang linya	none
 🏳‍🌈	bahagharing bandila	none
 🏳‍⚧	bandila ng transgender	none
 🏴‍☠	bandila ng pirata	none
-¢	sentimo	none
-$	dolyar	none
 £	pound	none
 ¥	yen	none
-₥	mill	none
-₩	won	none
 €	euro	none
-₱	piso	none
 ₹	indian rupee	none
 ₽	ruble	none
-₿	bitcoin	none
 ¹	superscript na isa	none
 ²	superscript na dalawa	none
 ³	superscript na tatlo	none
@@ -2089,46 +1769,6 @@ $	dolyar	none
 👱🏽	taong may blond na buhok katamtamang kulay ng balat	none
 👱🏾	taong may blond na buhok katamtamang dark na kulay ng balat	none
 👱🏿	taong may blond na buhok dark na kulay ng balat	none
-🧑🏻‍❤‍💋‍🧑🏼	maghahalikan tao, tao, light na kulay ng balat, katamtamang light na kulay ng balat	none
-🧑🏻‍❤‍💋‍🧑🏽	maghahalikan tao, tao, light na kulay ng balat, katamtamang kulay ng balat	none
-🧑🏻‍❤‍💋‍🧑🏾	maghahalikan tao, tao, light na kulay ng balat, katamtamang dark na kulay ng balat	none
-🧑🏻‍❤‍💋‍🧑🏿	maghahalikan tao, tao, light na kulay ng balat, dark na kulay ng balat	none
-🧑🏼‍❤‍💋‍🧑🏻	maghahalikan tao, tao, katamtamang light na kulay ng balat, light na kulay ng balat	none
-🧑🏼‍❤‍💋‍🧑🏽	maghahalikan tao, tao, katamtamang light na kulay ng balat, katamtamang kulay ng balat	none
-🧑🏼‍❤‍💋‍🧑🏾	maghahalikan tao, tao, katamtamang light na kulay ng balat, katamtamang dark na kulay ng balat	none
-🧑🏼‍❤‍💋‍🧑🏿	maghahalikan tao, tao, katamtamang light na kulay ng balat, dark na kulay ng balat	none
-🧑🏽‍❤‍💋‍🧑🏻	maghahalikan tao, tao, katamtamang kulay ng balat, light na kulay ng balat	none
-🧑🏽‍❤‍💋‍🧑🏼	maghahalikan tao, tao, katamtamang kulay ng balat, katamtamang light na kulay ng balat	none
-🧑🏽‍❤‍💋‍🧑🏾	maghahalikan tao, tao, katamtamang kulay ng balat, katamtamang dark na kulay ng balat	none
-🧑🏽‍❤‍💋‍🧑🏿	maghahalikan tao, tao, katamtamang kulay ng balat, dark na kulay ng balat	none
-🧑🏾‍❤‍💋‍🧑🏻	maghahalikan tao, tao, katamtamang dark na kulay ng balat, light na kulay ng balat	none
-🧑🏾‍❤‍💋‍🧑🏼	maghahalikan tao, tao, katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat	none
-🧑🏾‍❤‍💋‍🧑🏽	maghahalikan tao, tao, katamtamang dark na kulay ng balat, katamtamang kulay ng balat	none
-🧑🏾‍❤‍💋‍🧑🏿	maghahalikan tao, tao, katamtamang dark na kulay ng balat, dark na kulay ng balat	none
-🧑🏿‍❤‍💋‍🧑🏻	maghahalikan tao, tao, dark na kulay ng balat, light na kulay ng balat	none
-🧑🏿‍❤‍💋‍🧑🏼	maghahalikan tao, tao, dark na kulay ng balat, katamtamang light na kulay ng balat	none
-🧑🏿‍❤‍💋‍🧑🏽	maghahalikan tao, tao, dark na kulay ng balat, katamtamang kulay ng balat	none
-🧑🏿‍❤‍💋‍🧑🏾	maghahalikan tao, tao, dark na kulay ng balat, katamtamang dark na kulay ng balat	none
-🧑🏻‍❤‍🧑🏼	magkapareha na may puso tao, tao, light na kulay ng balat, katamtamang light na kulay ng balat	none
-🧑🏻‍❤‍🧑🏽	magkapareha na may puso tao, tao, light na kulay ng balat, katamtamang kulay ng balat	none
-🧑🏻‍❤‍🧑🏾	magkapareha na may puso tao, tao, light na kulay ng balat, katamtamang dark na kulay ng balat	none
-🧑🏻‍❤‍🧑🏿	magkapareha na may puso tao, tao, light na kulay ng balat, dark na kulay ng balat	none
-🧑🏼‍❤‍🧑🏻	magkapareha na may puso tao, tao, katamtamang light na kulay ng balat, light na kulay ng balat	none
-🧑🏼‍❤‍🧑🏽	magkapareha na may puso tao, tao, katamtamang light na kulay ng balat, katamtamang kulay ng balat	none
-🧑🏼‍❤‍🧑🏾	magkapareha na may puso tao, tao, katamtamang light na kulay ng balat, katamtamang dark na kulay ng balat	none
-🧑🏼‍❤‍🧑🏿	magkapareha na may puso tao, tao, katamtamang light na kulay ng balat, dark na kulay ng balat	none
-🧑🏽‍❤‍🧑🏻	magkapareha na may puso tao, tao, katamtamang kulay ng balat, light na kulay ng balat	none
-🧑🏽‍❤‍🧑🏼	magkapareha na may puso tao, tao, katamtamang kulay ng balat, katamtamang light na kulay ng balat	none
-🧑🏽‍❤‍🧑🏾	magkapareha na may puso tao, tao, katamtamang kulay ng balat, katamtamang dark na kulay ng balat	none
-🧑🏽‍❤‍🧑🏿	magkapareha na may puso tao, tao, katamtamang kulay ng balat, dark na kulay ng balat	none
-🧑🏾‍❤‍🧑🏻	magkapareha na may puso tao, tao, katamtamang dark na kulay ng balat, light na kulay ng balat	none
-🧑🏾‍❤‍🧑🏼	magkapareha na may puso tao, tao, katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat	none
-🧑🏾‍❤‍🧑🏽	magkapareha na may puso tao, tao, katamtamang dark na kulay ng balat, katamtamang kulay ng balat	none
-🧑🏾‍❤‍🧑🏿	magkapareha na may puso tao, tao, katamtamang dark na kulay ng balat, dark na kulay ng balat	none
-🧑🏿‍❤‍🧑🏻	magkapareha na may puso tao, tao, dark na kulay ng balat, light na kulay ng balat	none
-🧑🏿‍❤‍🧑🏼	magkapareha na may puso tao, tao, dark na kulay ng balat, katamtamang light na kulay ng balat	none
-🧑🏿‍❤‍🧑🏽	magkapareha na may puso tao, tao, dark na kulay ng balat, katamtamang kulay ng balat	none
-🧑🏿‍❤‍🧑🏾	magkapareha na may puso tao, tao, dark na kulay ng balat, katamtamang dark na kulay ng balat	none
 🧑‍🦰	tao pulang buhok	none
 🧑🏻‍🦰	tao light na kulay ng balat, pulang buhok	none
 🧑🏼‍🦰	tao katamtamang light na kulay ng balat, pulang buhok	none
@@ -2163,66 +1803,11 @@ $	dolyar	none
 🧔🏽	taong may balbas katamtamang kulay ng balat	none
 🧔🏾	taong may balbas katamtamang dark na kulay ng balat	none
 🧔🏿	taong may balbas dark na kulay ng balat	none
-🧔🏻‍♂	lalaki light na kulay ng balat, balbas	none
-🧔🏼‍♂	lalaki katamtamang light na kulay ng balat, balbas	none
-🧔🏽‍♂	lalaki katamtamang kulay ng balat, balbas	none
-🧔🏾‍♂	lalaki katamtamang dark na kulay ng balat, balbas	none
-🧔🏿‍♂	lalaki dark na kulay ng balat, balbas	none
 👱🏻‍♂	lalaking blonde light na kulay ng balat	none
 👱🏼‍♂	lalaking blonde katamtamang light na kulay ng balat	none
 👱🏽‍♂	lalaking blonde katamtamang kulay ng balat	none
 👱🏾‍♂	lalaking blonde katamtamang dark na kulay ng balat	none
 👱🏿‍♂	lalaking blonde dark na kulay ng balat	none
-👨🏻‍❤‍💋‍👨🏻	maghahalikan lalaki, lalaki, light na kulay ng balat	none
-👨🏻‍❤‍💋‍👨🏼	maghahalikan lalaki, lalaki, light na kulay ng balat, katamtamang light na kulay ng balat	none
-👨🏻‍❤‍💋‍👨🏽	maghahalikan lalaki, lalaki, light na kulay ng balat, katamtamang kulay ng balat	none
-👨🏻‍❤‍💋‍👨🏾	maghahalikan lalaki, lalaki, light na kulay ng balat, katamtamang dark na kulay ng balat	none
-👨🏻‍❤‍💋‍👨🏿	maghahalikan lalaki, lalaki, light na kulay ng balat, dark na kulay ng balat	none
-👨🏼‍❤‍💋‍👨🏻	maghahalikan lalaki, lalaki, katamtamang light na kulay ng balat, light na kulay ng balat	none
-👨🏼‍❤‍💋‍👨🏼	maghahalikan lalaki, lalaki, katamtamang light na kulay ng balat	none
-👨🏼‍❤‍💋‍👨🏽	maghahalikan lalaki, lalaki, katamtamang light na kulay ng balat, katamtamang kulay ng balat	none
-👨🏼‍❤‍💋‍👨🏾	maghahalikan lalaki, lalaki, katamtamang light na kulay ng balat, katamtamang dark na kulay ng balat	none
-👨🏼‍❤‍💋‍👨🏿	maghahalikan lalaki, lalaki, katamtamang light na kulay ng balat, dark na kulay ng balat	none
-👨🏽‍❤‍💋‍👨🏻	maghahalikan lalaki, lalaki, katamtamang kulay ng balat, light na kulay ng balat	none
-👨🏽‍❤‍💋‍👨🏼	maghahalikan lalaki, lalaki, katamtamang kulay ng balat, katamtamang light na kulay ng balat	none
-👨🏽‍❤‍💋‍👨🏽	maghahalikan lalaki, lalaki, katamtamang kulay ng balat	none
-👨🏽‍❤‍💋‍👨🏾	maghahalikan lalaki, lalaki, katamtamang kulay ng balat, katamtamang dark na kulay ng balat	none
-👨🏽‍❤‍💋‍👨🏿	maghahalikan lalaki, lalaki, katamtamang kulay ng balat, dark na kulay ng balat	none
-👨🏾‍❤‍💋‍👨🏻	maghahalikan lalaki, lalaki, katamtamang dark na kulay ng balat, light na kulay ng balat	none
-👨🏾‍❤‍💋‍👨🏼	maghahalikan lalaki, lalaki, katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat	none
-👨🏾‍❤‍💋‍👨🏽	maghahalikan lalaki, lalaki, katamtamang dark na kulay ng balat, katamtamang kulay ng balat	none
-👨🏾‍❤‍💋‍👨🏾	maghahalikan lalaki, lalaki, katamtamang dark na kulay ng balat	none
-👨🏾‍❤‍💋‍👨🏿	maghahalikan lalaki, lalaki, katamtamang dark na kulay ng balat, dark na kulay ng balat	none
-👨🏿‍❤‍💋‍👨🏻	maghahalikan lalaki, lalaki, dark na kulay ng balat, light na kulay ng balat	none
-👨🏿‍❤‍💋‍👨🏼	maghahalikan lalaki, lalaki, dark na kulay ng balat, katamtamang light na kulay ng balat	none
-👨🏿‍❤‍💋‍👨🏽	maghahalikan lalaki, lalaki, dark na kulay ng balat, katamtamang kulay ng balat	none
-👨🏿‍❤‍💋‍👨🏾	maghahalikan lalaki, lalaki, dark na kulay ng balat, katamtamang dark na kulay ng balat	none
-👨🏿‍❤‍💋‍👨🏿	maghahalikan lalaki, lalaki, dark na kulay ng balat	none
-👨🏻‍❤‍👨🏻	magkapareha na may puso lalaki, lalaki, light na kulay ng balat	none
-👨🏻‍❤‍👨🏼	magkapareha na may puso lalaki, lalaki, light na kulay ng balat, katamtamang light na kulay ng balat	none
-👨🏻‍❤‍👨🏽	magkapareha na may puso lalaki, lalaki, light na kulay ng balat, katamtamang kulay ng balat	none
-👨🏻‍❤‍👨🏾	magkapareha na may puso lalaki, lalaki, light na kulay ng balat, katamtamang dark na kulay ng balat	none
-👨🏻‍❤‍👨🏿	magkapareha na may puso lalaki, lalaki, light na kulay ng balat, dark na kulay ng balat	none
-👨🏼‍❤‍👨🏻	magkapareha na may puso lalaki, lalaki, katamtamang light na kulay ng balat, light na kulay ng balat	none
-👨🏼‍❤‍👨🏼	magkapareha na may puso lalaki, lalaki, katamtamang light na kulay ng balat	none
-👨🏼‍❤‍👨🏽	magkapareha na may puso lalaki, lalaki, katamtamang light na kulay ng balat, katamtamang kulay ng balat	none
-👨🏼‍❤‍👨🏾	magkapareha na may puso lalaki, lalaki, katamtamang light na kulay ng balat, katamtamang dark na kulay ng balat	none
-👨🏼‍❤‍👨🏿	magkapareha na may puso lalaki, lalaki, katamtamang light na kulay ng balat, dark na kulay ng balat	none
-👨🏽‍❤‍👨🏻	magkapareha na may puso lalaki, lalaki, katamtamang kulay ng balat, light na kulay ng balat	none
-👨🏽‍❤‍👨🏼	magkapareha na may puso lalaki, lalaki, katamtamang kulay ng balat, katamtamang light na kulay ng balat	none
-👨🏽‍❤‍👨🏽	magkapareha na may puso lalaki, lalaki, katamtamang kulay ng balat	none
-👨🏽‍❤‍👨🏾	magkapareha na may puso lalaki, lalaki, katamtamang kulay ng balat, katamtamang dark na kulay ng balat	none
-👨🏽‍❤‍👨🏿	magkapareha na may puso lalaki, lalaki, katamtamang kulay ng balat, dark na kulay ng balat	none
-👨🏾‍❤‍👨🏻	magkapareha na may puso lalaki, lalaki, katamtamang dark na kulay ng balat, light na kulay ng balat	none
-👨🏾‍❤‍👨🏼	magkapareha na may puso lalaki, lalaki, katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat	none
-👨🏾‍❤‍👨🏽	magkapareha na may puso lalaki, lalaki, katamtamang dark na kulay ng balat, katamtamang kulay ng balat	none
-👨🏾‍❤‍👨🏾	magkapareha na may puso lalaki, lalaki, katamtamang dark na kulay ng balat	none
-👨🏾‍❤‍👨🏿	magkapareha na may puso lalaki, lalaki, katamtamang dark na kulay ng balat, dark na kulay ng balat	none
-👨🏿‍❤‍👨🏻	magkapareha na may puso lalaki, lalaki, dark na kulay ng balat, light na kulay ng balat	none
-👨🏿‍❤‍👨🏼	magkapareha na may puso lalaki, lalaki, dark na kulay ng balat, katamtamang light na kulay ng balat	none
-👨🏿‍❤‍👨🏽	magkapareha na may puso lalaki, lalaki, dark na kulay ng balat, katamtamang kulay ng balat	none
-👨🏿‍❤‍👨🏾	magkapareha na may puso lalaki, lalaki, dark na kulay ng balat, katamtamang dark na kulay ng balat	none
-👨🏿‍❤‍👨🏿	magkapareha na may puso lalaki, lalaki, dark na kulay ng balat	none
 👨‍🦰	lalaki pulang buhok	none
 👨🏻‍🦰	lalaki light na kulay ng balat, pulang buhok	none
 👨🏼‍🦰	lalaki katamtamang light na kulay ng balat, pulang buhok	none
@@ -2252,116 +1837,11 @@ $	dolyar	none
 👩🏽	babae katamtamang kulay ng balat	none
 👩🏾	babae katamtamang dark na kulay ng balat	none
 👩🏿	babae dark na kulay ng balat	none
-🧔🏻‍♀	babae light na kulay ng balat, balbas	none
-🧔🏼‍♀	babae katamtamang light na kulay ng balat, balbas	none
-🧔🏽‍♀	babae katamtamang kulay ng balat, balbas	none
-🧔🏾‍♀	babae katamtamang dark na kulay ng balat, balbas	none
-🧔🏿‍♀	babae dark na kulay ng balat, balbas	none
 👱🏻‍♀	babae light na kulay ng balat, blond na buhok	none
 👱🏼‍♀	babae katamtamang light na kulay ng balat, blond na buhok	none
 👱🏽‍♀	babae katamtamang kulay ng balat, blond na buhok	none
 👱🏾‍♀	babae katamtamang dark na kulay ng balat, blond na buhok	none
 👱🏿‍♀	babae dark na kulay ng balat, blond na buhok	none
-👩🏻‍❤‍💋‍👨🏻	maghahalikan babae, lalaki, light na kulay ng balat	none
-👩🏻‍❤‍💋‍👨🏼	maghahalikan babae, lalaki, light na kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏻‍❤‍💋‍👨🏽	maghahalikan babae, lalaki, light na kulay ng balat, katamtamang kulay ng balat	none
-👩🏻‍❤‍💋‍👨🏾	maghahalikan babae, lalaki, light na kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏻‍❤‍💋‍👨🏿	maghahalikan babae, lalaki, light na kulay ng balat, dark na kulay ng balat	none
-👩🏼‍❤‍💋‍👨🏻	maghahalikan babae, lalaki, katamtamang light na kulay ng balat, light na kulay ng balat	none
-👩🏼‍❤‍💋‍👨🏼	maghahalikan babae, lalaki, katamtamang light na kulay ng balat	none
-👩🏼‍❤‍💋‍👨🏽	maghahalikan babae, lalaki, katamtamang light na kulay ng balat, katamtamang kulay ng balat	none
-👩🏼‍❤‍💋‍👨🏾	maghahalikan babae, lalaki, katamtamang light na kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏼‍❤‍💋‍👨🏿	maghahalikan babae, lalaki, katamtamang light na kulay ng balat, dark na kulay ng balat	none
-👩🏽‍❤‍💋‍👨🏻	maghahalikan babae, lalaki, katamtamang kulay ng balat, light na kulay ng balat	none
-👩🏽‍❤‍💋‍👨🏼	maghahalikan babae, lalaki, katamtamang kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏽‍❤‍💋‍👨🏽	maghahalikan babae, lalaki, katamtamang kulay ng balat	none
-👩🏽‍❤‍💋‍👨🏾	maghahalikan babae, lalaki, katamtamang kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏽‍❤‍💋‍👨🏿	maghahalikan babae, lalaki, katamtamang kulay ng balat, dark na kulay ng balat	none
-👩🏾‍❤‍💋‍👨🏻	maghahalikan babae, lalaki, katamtamang dark na kulay ng balat, light na kulay ng balat	none
-👩🏾‍❤‍💋‍👨🏼	maghahalikan babae, lalaki, katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏾‍❤‍💋‍👨🏽	maghahalikan babae, lalaki, katamtamang dark na kulay ng balat, katamtamang kulay ng balat	none
-👩🏾‍❤‍💋‍👨🏾	maghahalikan babae, lalaki, katamtamang dark na kulay ng balat	none
-👩🏾‍❤‍💋‍👨🏿	maghahalikan babae, lalaki, katamtamang dark na kulay ng balat, dark na kulay ng balat	none
-👩🏿‍❤‍💋‍👨🏻	maghahalikan babae, lalaki, dark na kulay ng balat, light na kulay ng balat	none
-👩🏿‍❤‍💋‍👨🏼	maghahalikan babae, lalaki, dark na kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏿‍❤‍💋‍👨🏽	maghahalikan babae, lalaki, dark na kulay ng balat, katamtamang kulay ng balat	none
-👩🏿‍❤‍💋‍👨🏾	maghahalikan babae, lalaki, dark na kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏿‍❤‍💋‍👨🏿	maghahalikan babae, lalaki, dark na kulay ng balat	none
-👩🏻‍❤‍💋‍👩🏻	maghahalikan babae, babae, light na kulay ng balat	none
-👩🏻‍❤‍💋‍👩🏼	maghahalikan babae, babae, light na kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏻‍❤‍💋‍👩🏽	maghahalikan babae, babae, light na kulay ng balat, katamtamang kulay ng balat	none
-👩🏻‍❤‍💋‍👩🏾	maghahalikan babae, babae, light na kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏻‍❤‍💋‍👩🏿	maghahalikan babae, babae, light na kulay ng balat, dark na kulay ng balat	none
-👩🏼‍❤‍💋‍👩🏻	maghahalikan babae, babae, katamtamang light na kulay ng balat, light na kulay ng balat	none
-👩🏼‍❤‍💋‍👩🏼	maghahalikan babae, babae, katamtamang light na kulay ng balat	none
-👩🏼‍❤‍💋‍👩🏽	maghahalikan babae, babae, katamtamang light na kulay ng balat, katamtamang kulay ng balat	none
-👩🏼‍❤‍💋‍👩🏾	maghahalikan babae, babae, katamtamang light na kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏼‍❤‍💋‍👩🏿	maghahalikan babae, babae, katamtamang light na kulay ng balat, dark na kulay ng balat	none
-👩🏽‍❤‍💋‍👩🏻	maghahalikan babae, babae, katamtamang kulay ng balat, light na kulay ng balat	none
-👩🏽‍❤‍💋‍👩🏼	maghahalikan babae, babae, katamtamang kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏽‍❤‍💋‍👩🏽	maghahalikan babae, babae, katamtamang kulay ng balat	none
-👩🏽‍❤‍💋‍👩🏾	maghahalikan babae, babae, katamtamang kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏽‍❤‍💋‍👩🏿	maghahalikan babae, babae, katamtamang kulay ng balat, dark na kulay ng balat	none
-👩🏾‍❤‍💋‍👩🏻	maghahalikan babae, babae, katamtamang dark na kulay ng balat, light na kulay ng balat	none
-👩🏾‍❤‍💋‍👩🏼	maghahalikan babae, babae, katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏾‍❤‍💋‍👩🏽	maghahalikan babae, babae, katamtamang dark na kulay ng balat, katamtamang kulay ng balat	none
-👩🏾‍❤‍💋‍👩🏾	maghahalikan babae, babae, katamtamang dark na kulay ng balat	none
-👩🏾‍❤‍💋‍👩🏿	maghahalikan babae, babae, katamtamang dark na kulay ng balat, dark na kulay ng balat	none
-👩🏿‍❤‍💋‍👩🏻	maghahalikan babae, babae, dark na kulay ng balat, light na kulay ng balat	none
-👩🏿‍❤‍💋‍👩🏼	maghahalikan babae, babae, dark na kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏿‍❤‍💋‍👩🏽	maghahalikan babae, babae, dark na kulay ng balat, katamtamang kulay ng balat	none
-👩🏿‍❤‍💋‍👩🏾	maghahalikan babae, babae, dark na kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏿‍❤‍💋‍👩🏿	maghahalikan babae, babae, dark na kulay ng balat	none
-👩🏻‍❤‍👨🏻	magkapareha na may puso babae, lalaki, light na kulay ng balat	none
-👩🏻‍❤‍👨🏼	magkapareha na may puso babae, lalaki, light na kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏻‍❤‍👨🏽	magkapareha na may puso babae, lalaki, light na kulay ng balat, katamtamang kulay ng balat	none
-👩🏻‍❤‍👨🏾	magkapareha na may puso babae, lalaki, light na kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏻‍❤‍👨🏿	magkapareha na may puso babae, lalaki, light na kulay ng balat, dark na kulay ng balat	none
-👩🏼‍❤‍👨🏻	magkapareha na may puso babae, lalaki, katamtamang light na kulay ng balat, light na kulay ng balat	none
-👩🏼‍❤‍👨🏼	magkapareha na may puso babae, lalaki, katamtamang light na kulay ng balat	none
-👩🏼‍❤‍👨🏽	magkapareha na may puso babae, lalaki, katamtamang light na kulay ng balat, katamtamang kulay ng balat	none
-👩🏼‍❤‍👨🏾	magkapareha na may puso babae, lalaki, katamtamang light na kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏼‍❤‍👨🏿	magkapareha na may puso babae, lalaki, katamtamang light na kulay ng balat, dark na kulay ng balat	none
-👩🏽‍❤‍👨🏻	magkapareha na may puso babae, lalaki, katamtamang kulay ng balat, light na kulay ng balat	none
-👩🏽‍❤‍👨🏼	magkapareha na may puso babae, lalaki, katamtamang kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏽‍❤‍👨🏽	magkapareha na may puso babae, lalaki, katamtamang kulay ng balat	none
-👩🏽‍❤‍👨🏾	magkapareha na may puso babae, lalaki, katamtamang kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏽‍❤‍👨🏿	magkapareha na may puso babae, lalaki, katamtamang kulay ng balat, dark na kulay ng balat	none
-👩🏾‍❤‍👨🏻	magkapareha na may puso babae, lalaki, katamtamang dark na kulay ng balat, light na kulay ng balat	none
-👩🏾‍❤‍👨🏼	magkapareha na may puso babae, lalaki, katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏾‍❤‍👨🏽	magkapareha na may puso babae, lalaki, katamtamang dark na kulay ng balat, katamtamang kulay ng balat	none
-👩🏾‍❤‍👨🏾	magkapareha na may puso babae, lalaki, katamtamang dark na kulay ng balat	none
-👩🏾‍❤‍👨🏿	magkapareha na may puso babae, lalaki, katamtamang dark na kulay ng balat, dark na kulay ng balat	none
-👩🏿‍❤‍👨🏻	magkapareha na may puso babae, lalaki, dark na kulay ng balat, light na kulay ng balat	none
-👩🏿‍❤‍👨🏼	magkapareha na may puso babae, lalaki, dark na kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏿‍❤‍👨🏽	magkapareha na may puso babae, lalaki, dark na kulay ng balat, katamtamang kulay ng balat	none
-👩🏿‍❤‍👨🏾	magkapareha na may puso babae, lalaki, dark na kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏿‍❤‍👨🏿	magkapareha na may puso babae, lalaki, dark na kulay ng balat	none
-👩🏻‍❤‍👩🏻	magkapareha na may puso babae, babae, light na kulay ng balat	none
-👩🏻‍❤‍👩🏼	magkapareha na may puso babae, babae, light na kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏻‍❤‍👩🏽	magkapareha na may puso babae, babae, light na kulay ng balat, katamtamang kulay ng balat	none
-👩🏻‍❤‍👩🏾	magkapareha na may puso babae, babae, light na kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏻‍❤‍👩🏿	magkapareha na may puso babae, babae, light na kulay ng balat, dark na kulay ng balat	none
-👩🏼‍❤‍👩🏻	magkapareha na may puso babae, babae, katamtamang light na kulay ng balat, light na kulay ng balat	none
-👩🏼‍❤‍👩🏼	magkapareha na may puso babae, babae, katamtamang light na kulay ng balat	none
-👩🏼‍❤‍👩🏽	magkapareha na may puso babae, babae, katamtamang light na kulay ng balat, katamtamang kulay ng balat	none
-👩🏼‍❤‍👩🏾	magkapareha na may puso babae, babae, katamtamang light na kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏼‍❤‍👩🏿	magkapareha na may puso babae, babae, katamtamang light na kulay ng balat, dark na kulay ng balat	none
-👩🏽‍❤‍👩🏻	magkapareha na may puso babae, babae, katamtamang kulay ng balat, light na kulay ng balat	none
-👩🏽‍❤‍👩🏼	magkapareha na may puso babae, babae, katamtamang kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏽‍❤‍👩🏽	magkapareha na may puso babae, babae, katamtamang kulay ng balat	none
-👩🏽‍❤‍👩🏾	magkapareha na may puso babae, babae, katamtamang kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏽‍❤‍👩🏿	magkapareha na may puso babae, babae, katamtamang kulay ng balat, dark na kulay ng balat	none
-👩🏾‍❤‍👩🏻	magkapareha na may puso babae, babae, katamtamang dark na kulay ng balat, light na kulay ng balat	none
-👩🏾‍❤‍👩🏼	magkapareha na may puso babae, babae, katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏾‍❤‍👩🏽	magkapareha na may puso babae, babae, katamtamang dark na kulay ng balat, katamtamang kulay ng balat	none
-👩🏾‍❤‍👩🏾	magkapareha na may puso babae, babae, katamtamang dark na kulay ng balat	none
-👩🏾‍❤‍👩🏿	magkapareha na may puso babae, babae, katamtamang dark na kulay ng balat, dark na kulay ng balat	none
-👩🏿‍❤‍👩🏻	magkapareha na may puso babae, babae, dark na kulay ng balat, light na kulay ng balat	none
-👩🏿‍❤‍👩🏼	magkapareha na may puso babae, babae, dark na kulay ng balat, katamtamang light na kulay ng balat	none
-👩🏿‍❤‍👩🏽	magkapareha na may puso babae, babae, dark na kulay ng balat, katamtamang kulay ng balat	none
-👩🏿‍❤‍👩🏾	magkapareha na may puso babae, babae, dark na kulay ng balat, katamtamang dark na kulay ng balat	none
-👩🏿‍❤‍👩🏿	magkapareha na may puso babae, babae, dark na kulay ng balat	none
 👩‍🦰	babae pulang buhok	none
 👩🏻‍🦰	babae light na kulay ng balat, pulang buhok	none
 👩🏼‍🦰	babae katamtamang light na kulay ng balat, pulang buhok	none
@@ -2891,11 +2371,11 @@ $	dolyar	none
 🧕🏽	babae na may headscarf katamtamang kulay ng balat	none
 🧕🏾	babae na may headscarf katamtamang dark na kulay ng balat	none
 🧕🏿	babae na may headscarf dark na kulay ng balat	none
-🤵🏻	taong naka-tuxedo light na kulay ng balat	none
-🤵🏼	taong naka-tuxedo katamtamang light na kulay ng balat	none
-🤵🏽	taong naka-tuxedo katamtamang kulay ng balat	none
-🤵🏾	taong naka-tuxedo katamtamang dark na kulay ng balat	none
-🤵🏿	taong naka-tuxedo dark na kulay ng balat	none
+🤵🏻	naka-tuxedo light na kulay ng balat	none
+🤵🏼	naka-tuxedo katamtamang light na kulay ng balat	none
+🤵🏽	naka-tuxedo katamtamang kulay ng balat	none
+🤵🏾	naka-tuxedo katamtamang dark na kulay ng balat	none
+🤵🏿	naka-tuxedo dark na kulay ng balat	none
 🤵🏻‍♂	lalaking naka-tuxedo light na kulay ng balat	none
 🤵🏼‍♂	lalaking naka-tuxedo katamtamang light na kulay ng balat	none
 🤵🏽‍♂	lalaking naka-tuxedo katamtamang kulay ng balat	none
@@ -3861,25 +3341,6 @@ $	dolyar	none
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	bandila England	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	bandila Scotland	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bandila Wales	none
-¤	Hindi Kilalang Pera	none
-֏	Armenian Dram	none
-؋	Afghan Afghani	none
-৳	Bangladeshi Taka	none
-฿	Thai Baht	none
-៛	Cambodian Riel	none
-₡	Colón ng Costa Rica	none
-₦	Nigerian Naira	none
-₪	Israeli New Sheqel	none
-₫	Vietnamese Dong	none
-₭	Laotian Kip	none
-₮	Mongolian Tugrik	none
-₲	Paraguayan Guarani	none
-₴	Ukrainian Hryvnia	none
-₵	Ghanaian Cedi	none
-₸	Kazakhstani Tenge	none
-₺	Turkish Lira	none
-₼	Azerbaijani Manat	none
-₾	Georgian Lari	none
 0⃣	keycap 0	none
 1⃣	keycap 1	none
 2⃣	keycap 2	none

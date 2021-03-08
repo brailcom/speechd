@@ -3,265 +3,46 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
-{	vinstri oddsvigi	none
 🏻	ljós húðlitur	none
 🏼	meðalljós húðlitur	none
 🏽	millihúðlitur	none
 🏾	meðaldökkur húðlitur	none
 🏿	dökkur húðlitur	none
-_	lágstrik	none
--	bandstrik-mínus	none
-‐	bandstrik	none
 –	tilstrik	none
 —	þankastrik	none
-―	lárétt rönd	none
-・	katakana miðstæður punktur	none
-,	komma	none
-،	arabísk komma	none
-、	myndleturskomma	none
-;	semíkomma	none
-؛	arabísk semíkomma	none
-:	tvípunktur	none
-!	upphrópunarmerki	none
-¡	öfugt upphrópunarmerki	none
-?	spurningarmerki	none
-¿	öfugt spurningarmerki	none
-؟	arabískt spurningarmerki	none
-.	punktur	none
-…	úrfelling	none
-。	myndpunktur	none
 ·	miðjudepill	none
-'	prenthögg	none
-‘	vinstra högg	none
-’	hægra högg	none
-‚	lágstætt hægra högg	none
-“	hástætt vinstra tvíhögg	none
-”	hástætt hægra tvíhögg	none
-„	lágstætt hægra tvíhögg	none
 «	franskar gæsalappir vinstri	none
 »	franskar gæsalappir hægri	none
-)	hægri svigi	none
-[	vinstri hornklofi	none
-]	hægri hornklofi	none
-}	hægri oddsvigi	none
-〈	vinstri oddklofi	none
-〉	hægri oddklofi	none
-《	tvöfaldur vinstri oddklofi	none
-》	tvöfaldur hægri oddklofi	none
-「	hástætt vinstra vinkilmerki	none
-」	lágstætt hægra vinkilmerki	none
-『	hástætt holt vinstra vinkilmerki	none
-』	lágstætt holt hægra vinkilmerki	none
-【	vinstri svartur linsusvigi	none
-】	hægri svartur linsusvigi	none
-〔	vinstri skjaldbökuskel	none
-〕	hægri skjaldbökuskel	none
-〖	vinstri holur linsusvigi	none
-〗	hægri holur linsusvigi	none
 §	kaflamerki	none
-¶	efnisgreinarmerki	none
-@	vistmerki	none
-*	stjarna	none
-/	skástrik	none
-\	öfugt skástrik	none
-&	og-merki	none
-#	endamerki	none
-%	prósent	none
-‰	prómill	none
 †	úreldingarmerki	none
 ‡	tvöfalt úreldingarmerki	none
 •	merkill	none
-‧	miðstæður punktur	none
-′	mínútumerki	none
-″	tvíhögg	none
-‴	þríhögg	none
-‸	innskotsmerki	none
-※	tilvísunarmerki	none
-⁂	stjörnuþríhyrningur	none
-`	öfugur broddur	none
-´	frambroddur	none
-^	hattur	none
-¨	tvídepill	none
 °	gráða	none
 ℗	höfundarréttur hljóðupptöku	none
 ←	ör sem vísar til vinstri	none
 →	ör sem vísar til hægri	none
 ↑	ör sem vísar upp	none
 ↓	ör sem vísar niður	none
-↜	bylgjuör til vinstri	none
-↝	bylgjuör til hægri	none
-↞	tvihöfða ör til vinstri	none
-↟	tvíhöfða ör upp á við	none
-↠	tvíhöfða ör til hægri	none
-↡	tvíhöfða ör niður á við	none
-↢	örvarendi til vinstri	none
-↣	örvarendi til hægri	none
-↭	bylgjuör vinstri hægri	none
-↯	sikksakk ör niður á við	none
-↰	örvaroddur upp á við til vinstri	none
-↱	örvaroddur upp á við til hægri	none
-↲	örvaroddur niður á við til vinstri	none
-↳	örvaroddur niður á við til hægri	none
-↺	opin hringör rangsælis	none
-↻	opin hringör réttsælis	none
-↼	skutull til vinstri með brodd upp á við	none
-↽	skutull til vinstri með brodd niður á við	none
-↾	skutull upp á við með brodd til hægri	none
-↿	skutull upp á við með brodd til vinstri	none
-⇀	skutull til hægri með brodd upp á við	none
-⇁	skutull til hægri með brodd niður á við	none
-⇂	skutull niður á við með brodd til hægri	none
-⇃	skutull niður á við með brodd til vinstri	none
-⇄	ör til hægri yfir ör til vinstri	none
 ⇅	ör sem vísar upp og ör sem vísar niður	none
 ⇆	vinstriör yfir hægriör	none
-⇇	örvapar til vinstri	none
-⇈	örvarpar upp á við	none
-⇉	örvarpar til hægri	none
-⇊	örvapar niður á við	none
-⇋	skutull til vinstri yfir skutli til hægri	none
-⇌	skutull til hægri yfir skutli til vinstri	none
-⇐	tvöföld ör til vinstri	none
-⇑	tvöföld ör upp á við	none
-⇒	tvöföld ör til hægri	none
-⇓	tvöföld ör niður á við	none
-⇔	tvöföld ör vinstri hægri	none
-⇖	tvöföld ör í norðvestur	none
-⇗	tvöföld ör í norðaustur	none
-⇘	tvöföld ör í suðaustur	none
-⇙	tvöföld ör í suðvestur	none
-⇚	þreföld ör til vinstri	none
-⇛	þreföld ör til hægri	none
-⇜	hlykkjótt ör til vinstri	none
-⇝	hlykkjótt ör til hægri	none
-⇞	tvístrikuð ör upp á við	none
-⇟	tvístrikuð ör niður á við	none
-⇦	hol ör til vinstri	none
-⇧	hol ör upp á við	none
-⇨	hol ör til hægri	none
-⇩	hol ör niður á við	none
-⇵	ör niður á við vinstra megin við ör upp á við	none
-∅	tómamengi	none
 ∆	aukning	none
 ∇	nafla	none
 ∈	stak í	none
-∉	ekki stak	none
-∏	n-unda-margfeldi	none
-∑	n-unda-summun	none
-+	plúsmerki	none
-±	plús-mínus	none
 ÷	deilingarmerki	none
 ×	margföldunarmerki	none
-<	minna en	none
-≮	ekki minna en	none
-=	jafnt	none
-≠	ekki jafnt	none
->	stærra en	none
-≯	ekki stærra en	none
-¬	neitun	none
-|	lóðrétt lína	none
-~	tilda	none
-−	mínusmerki	none
 ⁻	brjóstletur mínus	none
-∓	mínus-eða-plús	none
-∕	deilingarskástrik	none
-⁄	brotaskástrik	none
 √	kvaðratrót	none
 ∞	óendanlegt-merki	none
-∟	rétt horn	none
-∠	horn	none
-∥	samsíða	none
 ∩	sniðmengi	none
 ∪	sammengi	none
-∫	heildi	none
-∬	tvöfalt heildi	none
-∮	lykkjuheildi	none
-∴	þar af leiðandi	none
-∵	vegna þess	none
-∶	hlutfall	none
-∼	tilduvirkir	none
-∽	öfug tilda	none
-≈	næstum jafnt	none
 ≡	nákvæmlega eins og	none
-≤	minna en eða jafnt	none
-≥	stærra en eða jafnt	none
-≦	minna en yfir jafngildi	none
-≧	stærra en yfir jafngildi	none
-≪	miklu minna en	none
-≫	miklu stærra en	none
-≬	á milli	none
-≳	stærra en jafngildi	none
-≺	kemur á undan	none
-≻	kemur á eftir	none
-⊁	kemur ekki á eftir	none
 ⊂	hlutmengi í	none
-⊕	plús í hring	none
-⊖	mínus í hring	none
-⊿	réttur þríhyrningur	none
-⋂	n-unda-sniðmengi	none
-⋅	punktavirkir	none
-⋆	stjörnuvirkir	none
-⋘	mjög miklu minna en	none
-⋙	mjög miklu stærra en	none
-⋮	lóðrétt úrfellingarmerki	none
-■	fylltur ferningur	none
-□	holur ferningur	none
-▢	holur ferningur með rúnnuðum hornum	none
-▣	fylltur ferningur í holum ferningi	none
-▤	ferningur með láréttri fyllingu	none
-▥	ferningur með lóðréttri fyllingu	none
-▬	fylltur rétthyrningur	none
-▭	holur rétthyrningur	none
-▮	fylltur lóðréttur rétthyrningur	none
-▰	fylltur sams´íðungur	none
 ▲	fylltur þríhyrningur sem vísar upp	none
-△	holur þríhyrningur sem vísar upp	none
-▴	fylltur lítill þríhyrningur sem vísar upp	none
-▵	holur lítill þríhyrningur sem vísar upp	none
-▷	holur þríhyrningur sem vísar til hægri	none
-▸	fylltur lítill þríhyrningur sem vísar til hægri	none
-▹	holur lítill þríhyrningur sem vísar til hægri	none
-►	fylltur bendir sem vísar til hægri	none
-▻	holur bendir sem vísar til hægri	none
 ▼	fylltur þríhyrningur sem vísar niður	none
-▽	holur þríhyrningur sem vísar niður	none
-▾	fylltur lítill þríhyrningur sem vísar niður	none
-▿	holur lítill þríhyrningur sem vísar niður	none
-◁	holur þríhyrningur sem vísar til vinstri	none
-◂	fylltur lítill þríhyrningur sem vísar til vinstri	none
-◃	holur lítill þríhyrningur sem vísar til vinstri	none
-◄	fylltur bendir sem vísar til vinstri	none
-◅	holur bendir sem vísar til vinstri	none
-◆	fylltur tígull	none
-◇	holur tígull	none
-◈	fylltur tígull í holum tígli	none
-◉	fylltur hringur í holum hring	none
 ◊	tígullaga	none
 ○	holur hringflötur	none
-◌	hringur úr punktum	none
-◍	hringur með lóðréttri fyllingu	none
 ●	fylltur hringflötur	none
-◐	hringur hálffylltur til vinstri	none
-◑	hringur hálffylltur til hægri	none
-◒	fylltur neðri helmingur hrings	none
-◓	fylltur efri helmingur hrings	none
-◔	fylltur efri fjórðungsbogi hrings til hægri	none
-◖	fylltur vinstri helmingur hrings	none
-◗	fylltur hægri helmingur hrings	none
-◠	efri helmingur hrings	none
-◡	neðri helmingur hrings	none
-◢	fylltur neðri þríhyrningur til hægri	none
-◣	fylltur neðri þríhyrningur til vinstri	none
-◤	fylltur efri þríhyrningur til vinstri	none
-◥	fylltur efri þríhyrningur til hægri	none
-◦	holt áherslumerki	none
 ◯	stór holur hringflötur	none
-◳	holur ferningur með efri fjórðungsgeira til hægri	none
-◷	holur hringur með efri fjórðungsboga til hægri	none
-◿	neðri þríhyrningur til hægri	none
-♪	áttundapartsnóta	none
-♭	lækkaður tónn	none
-♯	hækkaður tónn	none
 😀	glottandi andlit	none
 😃	brosandi andlit með opinn munn	none
 😄	hlæjandi andlit	none
@@ -299,12 +80,10 @@ _	lágstrik	none
 😐	hlutlaust andlit	none
 😑	svipbrigðalaust andlit	none
 😶	andlit án munns	none
-😶‍🌫	andlit í skýjum	none
 😏	sjálfsánægt andlit	none
 😒	engin gleði	none
 🙄	ranghvolfir augum	none
 😬	gretta	none
-😮‍💨	andlit að anda frá sér	none
 🤥	lygari	none
 😌	andlit sem er létt	none
 😔	íbyggið andlit	none
@@ -321,7 +100,6 @@ _	lágstrik	none
 🥶	kalt	none
 🥴	ringlað andlit	none
 😵	svimi	none
-😵‍💫	andlit með gormaugu	none
 🤯	splundrað höfuð	none
 🤠	kúreki	none
 🥳	partíandlit	none
@@ -393,8 +171,6 @@ _	lágstrik	none
 💟	skraut með hjarta	none
 ❣	hjarta sem upphrópunarmerki	none
 💔	brostið hjarta	none
-❤‍🔥	logandi hjarta	none
-❤‍🩹	hjarta að gróa	none
 ❤	rautt hjarta	none
 🧡	appelsínugult hjarta	none
 💛	gult hjarta	none
@@ -477,10 +253,8 @@ _	lágstrik	none
 👱	ljóshærð manneskja	none
 👨	karl	none
 🧔	maður með skegg	none
-🧔‍♂	karl skegg	none
 👱‍♂	ljóshærður maður	none
 👩	kona	none
-🧔‍♀	kona skegg	none
 👱‍♀	ljóshærð kona	none
 🧓	eldri fullorðinn	none
 👴	eldri maður	none
@@ -903,7 +677,7 @@ _	lágstrik	none
 🥜	jarðhneta	none
 🌰	kastanía	none
 🍞	brauð	none
-🥐	Croissant	none
+🥐	horn	none
 🥖	fransbrauð	none
 🫓	flakaka	none
 🥨	saltkringla	none
@@ -1045,7 +819,7 @@ _	lágstrik	none
 🛕	hindúahof	none
 🕍	sýnagóga	none
 ⛩	sjintó-hof	none
-🕋	kaaba-byggingin	none
+🕋	kaaba-bygging	none
 ⛲	gosbrunnur	none
 ⛺	tjald	none
 🌁	þokukennt	none
@@ -1056,7 +830,7 @@ _	lágstrik	none
 🌆	borg um kvöld	none
 🌇	sólarlag	none
 🌉	brú um nótt	none
-♨	hverir	none
+♨	heitar laugar	none
 🎠	hringekjuhestur	none
 🎡	parísarhjól	none
 🎢	rússíbani	none
@@ -1098,8 +872,8 @@ _	lágstrik	none
 🦼	vélknúinn hj´ólastóll	none
 🛺	vélknúinn léttvagn	none
 🚲	hjólreiðar	none
-🛴	hlaupahjól	none
-🛹	hjólabretti	none
+🛴	sparkhjól	none
+🛹	hlaupabretti	none
 🛼	hjólaskautar	none
 🚏	rúta	none
 🛣	hraðbraut	none
@@ -1210,7 +984,7 @@ _	lágstrik	none
 ⛄	snjókarl	none
 ☄	halastjarna	none
 🔥	eldur	none
-💧	dropi	none
+💧	smádropi	none
 🌊	alda	none
 🎃	hrekkjavökugrasker	none
 🎄	jólatré	none
@@ -1231,7 +1005,7 @@ _	lágstrik	none
 🎀	borði	none
 🎁	gjöf	none
 🎗	minnisvarðaborði	none
-🎟	aðgöngumiðar	none
+🎟	aðgöngumiði	none
 🎫	miði	none
 🎖	hermedalía	none
 🏆	verðlaunabikar	none
@@ -1260,7 +1034,7 @@ _	lágstrik	none
 🥅	mark	none
 ⛳	golf	none
 ⛸	skauti	none
-🎣	veiðistöng	none
+🎣	stangveiði	none
 🤿	köfunargríma	none
 🎽	hlaupabolur	none
 🎿	skíði	none
@@ -1652,10 +1426,10 @@ _	lágstrik	none
 ♾	óendanleiki	none
 ‼	tvöfalt upphrópunarmerki	none
 ⁉	upphrópunarmerki og spurningarmerki	none
-❓	rautt spurningarmerki	none
+❓	spurningarmerki	none
 ❔	hvítt spurningarmerki	none
 ❕	hvítt upphrópunarmerki	none
-❗	rautt upphrópunarmerki	none
+❗	upphrópunarmerki	none
 〰	bugðustrik	none
 💱	gjaldmiðlar	none
 💲	dollaramerki	none
@@ -1761,21 +1535,11 @@ _	lágstrik	none
 🏳‍🌈	regnbogafáni	none
 🏳‍⚧	transfáni	none
 🏴‍☠	sjóræningjafáni	none
-¢	sent	none
-$	dalur	none
 £	pund	none
 ¥	jen	none
-₣	franskur franki	none
-₤	líra	none
-₥	millidalur	none
-₩	vonn	none
 €	evra	none
-₱	pesi	none
-₳	suðlægur	none
 ₹	indversk rúpía	none
 ₽	rúbla	none
-₿	bitcoin	none
-₨	rúpía	none
 ¹	brjóstletur einn	none
 ²	brjóstletur tveir	none
 ³	brjóstletur þrír	none
@@ -2005,46 +1769,6 @@ $	dalur	none
 👱🏽	ljóshærð manneskja millihúðlitur	none
 👱🏾	ljóshærð manneskja meðaldökkur húðlitur	none
 👱🏿	ljóshærð manneskja dökkur húðlitur	none
-🧑🏻‍❤‍💋‍🧑🏼	koss manneskja, manneskja, ljós húðlitur og meðalljós húðlitur	none
-🧑🏻‍❤‍💋‍🧑🏽	koss manneskja, manneskja, ljós húðlitur og millihúðlitur	none
-🧑🏻‍❤‍💋‍🧑🏾	koss manneskja, manneskja, ljós húðlitur og meðaldökkur húðlitur	none
-🧑🏻‍❤‍💋‍🧑🏿	koss manneskja, manneskja, ljós húðlitur og dökkur húðlitur	none
-🧑🏼‍❤‍💋‍🧑🏻	koss manneskja, manneskja, meðalljós húðlitur og ljós húðlitur	none
-🧑🏼‍❤‍💋‍🧑🏽	koss manneskja, manneskja, meðalljós húðlitur og millihúðlitur	none
-🧑🏼‍❤‍💋‍🧑🏾	koss manneskja, manneskja, meðalljós húðlitur og meðaldökkur húðlitur	none
-🧑🏼‍❤‍💋‍🧑🏿	koss manneskja, manneskja, meðalljós húðlitur og dökkur húðlitur	none
-🧑🏽‍❤‍💋‍🧑🏻	koss manneskja, manneskja, millihúðlitur og ljós húðlitur	none
-🧑🏽‍❤‍💋‍🧑🏼	koss manneskja, manneskja, millihúðlitur og meðalljós húðlitur	none
-🧑🏽‍❤‍💋‍🧑🏾	koss manneskja, manneskja, millihúðlitur og meðaldökkur húðlitur	none
-🧑🏽‍❤‍💋‍🧑🏿	koss manneskja, manneskja, millihúðlitur og dökkur húðlitur	none
-🧑🏾‍❤‍💋‍🧑🏻	koss manneskja, manneskja, meðaldökkur húðlitur og ljós húðlitur	none
-🧑🏾‍❤‍💋‍🧑🏼	koss manneskja, manneskja, meðaldökkur húðlitur og meðalljós húðlitur	none
-🧑🏾‍❤‍💋‍🧑🏽	koss manneskja, manneskja, meðaldökkur húðlitur og millihúðlitur	none
-🧑🏾‍❤‍💋‍🧑🏿	koss manneskja, manneskja, meðaldökkur húðlitur og dökkur húðlitur	none
-🧑🏿‍❤‍💋‍🧑🏻	koss manneskja, manneskja, dökkur húðlitur og ljós húðlitur	none
-🧑🏿‍❤‍💋‍🧑🏼	koss manneskja, manneskja, dökkur húðlitur og meðalljós húðlitur	none
-🧑🏿‍❤‍💋‍🧑🏽	koss manneskja, manneskja, dökkur húðlitur og millihúðlitur	none
-🧑🏿‍❤‍💋‍🧑🏾	koss manneskja, manneskja, dökkur húðlitur og meðaldökkur húðlitur	none
-🧑🏻‍❤‍🧑🏼	par manneskja, manneskja, ljós húðlitur og meðalljós húðlitur	none
-🧑🏻‍❤‍🧑🏽	par manneskja, manneskja, ljós húðlitur og millihúðlitur	none
-🧑🏻‍❤‍🧑🏾	par manneskja, manneskja, ljós húðlitur og meðaldökkur húðlitur	none
-🧑🏻‍❤‍🧑🏿	par manneskja, manneskja, ljós húðlitur og dökkur húðlitur	none
-🧑🏼‍❤‍🧑🏻	par manneskja, manneskja, meðalljós húðlitur og ljós húðlitur	none
-🧑🏼‍❤‍🧑🏽	par manneskja, manneskja, meðalljós húðlitur og millihúðlitur	none
-🧑🏼‍❤‍🧑🏾	par manneskja, manneskja, meðalljós húðlitur og meðaldökkur húðlitur	none
-🧑🏼‍❤‍🧑🏿	par manneskja, manneskja, meðalljós húðlitur og dökkur húðlitur	none
-🧑🏽‍❤‍🧑🏻	par manneskja, manneskja, millihúðlitur og ljós húðlitur	none
-🧑🏽‍❤‍🧑🏼	par manneskja, manneskja, millihúðlitur og meðalljós húðlitur	none
-🧑🏽‍❤‍🧑🏾	par manneskja, manneskja, millihúðlitur og meðaldökkur húðlitur	none
-🧑🏽‍❤‍🧑🏿	par manneskja, manneskja, millihúðlitur og dökkur húðlitur	none
-🧑🏾‍❤‍🧑🏻	par manneskja, manneskja, meðaldökkur húðlitur og ljós húðlitur	none
-🧑🏾‍❤‍🧑🏼	par manneskja, manneskja, meðaldökkur húðlitur og meðalljós húðlitur	none
-🧑🏾‍❤‍🧑🏽	par manneskja, manneskja, meðaldökkur húðlitur og millihúðlitur	none
-🧑🏾‍❤‍🧑🏿	par manneskja, manneskja, meðaldökkur húðlitur og dökkur húðlitur	none
-🧑🏿‍❤‍🧑🏻	par manneskja, manneskja, dökkur húðlitur og ljós húðlitur	none
-🧑🏿‍❤‍🧑🏼	par manneskja, manneskja, dökkur húðlitur og meðalljós húðlitur	none
-🧑🏿‍❤‍🧑🏽	par manneskja, manneskja, dökkur húðlitur og millihúðlitur	none
-🧑🏿‍❤‍🧑🏾	par manneskja, manneskja, dökkur húðlitur og meðaldökkur húðlitur	none
 🧑‍🦰	manneskja rautt hár	none
 🧑🏻‍🦰	manneskja ljós húðlitur og rautt hár	none
 🧑🏼‍🦰	manneskja meðalljós húðlitur og rautt hár	none
@@ -2079,66 +1803,11 @@ $	dalur	none
 🧔🏽	maður með skegg millihúðlitur	none
 🧔🏾	maður með skegg meðaldökkur húðlitur	none
 🧔🏿	maður með skegg dökkur húðlitur	none
-🧔🏻‍♂	karl ljós húðlitur og skegg	none
-🧔🏼‍♂	karl meðalljós húðlitur og skegg	none
-🧔🏽‍♂	karl millihúðlitur og skegg	none
-🧔🏾‍♂	karl meðaldökkur húðlitur og skegg	none
-🧔🏿‍♂	karl dökkur húðlitur og skegg	none
 👱🏻‍♂	ljóshærður maður ljós húðlitur	none
 👱🏼‍♂	ljóshærður maður meðalljós húðlitur	none
 👱🏽‍♂	ljóshærður maður millihúðlitur	none
 👱🏾‍♂	ljóshærður maður meðaldökkur húðlitur	none
 👱🏿‍♂	ljóshærður maður dökkur húðlitur	none
-👨🏻‍❤‍💋‍👨🏻	koss karl, karl og ljós húðlitur	none
-👨🏻‍❤‍💋‍👨🏼	koss karl, karl, ljós húðlitur og meðalljós húðlitur	none
-👨🏻‍❤‍💋‍👨🏽	koss karl, karl, ljós húðlitur og millihúðlitur	none
-👨🏻‍❤‍💋‍👨🏾	koss karl, karl, ljós húðlitur og meðaldökkur húðlitur	none
-👨🏻‍❤‍💋‍👨🏿	koss karl, karl, ljós húðlitur og dökkur húðlitur	none
-👨🏼‍❤‍💋‍👨🏻	koss karl, karl, meðalljós húðlitur og ljós húðlitur	none
-👨🏼‍❤‍💋‍👨🏼	koss karl, karl og meðalljós húðlitur	none
-👨🏼‍❤‍💋‍👨🏽	koss karl, karl, meðalljós húðlitur og millihúðlitur	none
-👨🏼‍❤‍💋‍👨🏾	koss karl, karl, meðalljós húðlitur og meðaldökkur húðlitur	none
-👨🏼‍❤‍💋‍👨🏿	koss karl, karl, meðalljós húðlitur og dökkur húðlitur	none
-👨🏽‍❤‍💋‍👨🏻	koss karl, karl, millihúðlitur og ljós húðlitur	none
-👨🏽‍❤‍💋‍👨🏼	koss karl, karl, millihúðlitur og meðalljós húðlitur	none
-👨🏽‍❤‍💋‍👨🏽	koss karl, karl og millihúðlitur	none
-👨🏽‍❤‍💋‍👨🏾	koss karl, karl, millihúðlitur og meðaldökkur húðlitur	none
-👨🏽‍❤‍💋‍👨🏿	koss karl, karl, millihúðlitur og dökkur húðlitur	none
-👨🏾‍❤‍💋‍👨🏻	koss karl, karl, meðaldökkur húðlitur og ljós húðlitur	none
-👨🏾‍❤‍💋‍👨🏼	koss karl, karl, meðaldökkur húðlitur og meðalljós húðlitur	none
-👨🏾‍❤‍💋‍👨🏽	koss karl, karl, meðaldökkur húðlitur og millihúðlitur	none
-👨🏾‍❤‍💋‍👨🏾	koss karl, karl og meðaldökkur húðlitur	none
-👨🏾‍❤‍💋‍👨🏿	koss karl, karl, meðaldökkur húðlitur og dökkur húðlitur	none
-👨🏿‍❤‍💋‍👨🏻	koss karl, karl, dökkur húðlitur og ljós húðlitur	none
-👨🏿‍❤‍💋‍👨🏼	koss karl, karl, dökkur húðlitur og meðalljós húðlitur	none
-👨🏿‍❤‍💋‍👨🏽	koss karl, karl, dökkur húðlitur og millihúðlitur	none
-👨🏿‍❤‍💋‍👨🏾	koss karl, karl, dökkur húðlitur og meðaldökkur húðlitur	none
-👨🏿‍❤‍💋‍👨🏿	koss karl, karl og dökkur húðlitur	none
-👨🏻‍❤‍👨🏻	par karl, karl og ljós húðlitur	none
-👨🏻‍❤‍👨🏼	par karl, karl, ljós húðlitur og meðalljós húðlitur	none
-👨🏻‍❤‍👨🏽	par karl, karl, ljós húðlitur og millihúðlitur	none
-👨🏻‍❤‍👨🏾	par karl, karl, ljós húðlitur og meðaldökkur húðlitur	none
-👨🏻‍❤‍👨🏿	par karl, karl, ljós húðlitur og dökkur húðlitur	none
-👨🏼‍❤‍👨🏻	par karl, karl, meðalljós húðlitur og ljós húðlitur	none
-👨🏼‍❤‍👨🏼	par karl, karl og meðalljós húðlitur	none
-👨🏼‍❤‍👨🏽	par karl, karl, meðalljós húðlitur og millihúðlitur	none
-👨🏼‍❤‍👨🏾	par karl, karl, meðalljós húðlitur og meðaldökkur húðlitur	none
-👨🏼‍❤‍👨🏿	par karl, karl, meðalljós húðlitur og dökkur húðlitur	none
-👨🏽‍❤‍👨🏻	par karl, karl, millihúðlitur og ljós húðlitur	none
-👨🏽‍❤‍👨🏼	par karl, karl, millihúðlitur og meðalljós húðlitur	none
-👨🏽‍❤‍👨🏽	par karl, karl og millihúðlitur	none
-👨🏽‍❤‍👨🏾	par karl, karl, millihúðlitur og meðaldökkur húðlitur	none
-👨🏽‍❤‍👨🏿	par karl, karl, millihúðlitur og dökkur húðlitur	none
-👨🏾‍❤‍👨🏻	par karl, karl, meðaldökkur húðlitur og ljós húðlitur	none
-👨🏾‍❤‍👨🏼	par karl, karl, meðaldökkur húðlitur og meðalljós húðlitur	none
-👨🏾‍❤‍👨🏽	par karl, karl, meðaldökkur húðlitur og millihúðlitur	none
-👨🏾‍❤‍👨🏾	par karl, karl og meðaldökkur húðlitur	none
-👨🏾‍❤‍👨🏿	par karl, karl, meðaldökkur húðlitur og dökkur húðlitur	none
-👨🏿‍❤‍👨🏻	par karl, karl, dökkur húðlitur og ljós húðlitur	none
-👨🏿‍❤‍👨🏼	par karl, karl, dökkur húðlitur og meðalljós húðlitur	none
-👨🏿‍❤‍👨🏽	par karl, karl, dökkur húðlitur og millihúðlitur	none
-👨🏿‍❤‍👨🏾	par karl, karl, dökkur húðlitur og meðaldökkur húðlitur	none
-👨🏿‍❤‍👨🏿	par karl, karl og dökkur húðlitur	none
 👨‍🦰	karl rautt hár	none
 👨🏻‍🦰	karl ljós húðlitur og rautt hár	none
 👨🏼‍🦰	karl meðalljós húðlitur og rautt hár	none
@@ -2168,116 +1837,11 @@ $	dalur	none
 👩🏽	kona millihúðlitur	none
 👩🏾	kona meðaldökkur húðlitur	none
 👩🏿	kona dökkur húðlitur	none
-🧔🏻‍♀	kona ljós húðlitur og skegg	none
-🧔🏼‍♀	kona meðalljós húðlitur og skegg	none
-🧔🏽‍♀	kona millihúðlitur og skegg	none
-🧔🏾‍♀	kona meðaldökkur húðlitur og skegg	none
-🧔🏿‍♀	kona dökkur húðlitur og skegg	none
 👱🏻‍♀	ljóshærð kona ljós húðlitur	none
 👱🏼‍♀	ljóshærð kona meðalljós húðlitur	none
 👱🏽‍♀	ljóshærð kona millihúðlitur	none
 👱🏾‍♀	ljóshærð kona meðaldökkur húðlitur	none
 👱🏿‍♀	ljóshærð kona dökkur húðlitur	none
-👩🏻‍❤‍💋‍👨🏻	koss kona, karl og ljós húðlitur	none
-👩🏻‍❤‍💋‍👨🏼	koss kona, karl, ljós húðlitur og meðalljós húðlitur	none
-👩🏻‍❤‍💋‍👨🏽	koss kona, karl, ljós húðlitur og millihúðlitur	none
-👩🏻‍❤‍💋‍👨🏾	koss kona, karl, ljós húðlitur og meðaldökkur húðlitur	none
-👩🏻‍❤‍💋‍👨🏿	koss kona, karl, ljós húðlitur og dökkur húðlitur	none
-👩🏼‍❤‍💋‍👨🏻	koss kona, karl, meðalljós húðlitur og ljós húðlitur	none
-👩🏼‍❤‍💋‍👨🏼	koss kona, karl og meðalljós húðlitur	none
-👩🏼‍❤‍💋‍👨🏽	koss kona, karl, meðalljós húðlitur og millihúðlitur	none
-👩🏼‍❤‍💋‍👨🏾	koss kona, karl, meðalljós húðlitur og meðaldökkur húðlitur	none
-👩🏼‍❤‍💋‍👨🏿	koss kona, karl, meðalljós húðlitur og dökkur húðlitur	none
-👩🏽‍❤‍💋‍👨🏻	koss kona, karl, millihúðlitur og ljós húðlitur	none
-👩🏽‍❤‍💋‍👨🏼	koss kona, karl, millihúðlitur og meðalljós húðlitur	none
-👩🏽‍❤‍💋‍👨🏽	koss kona, karl og millihúðlitur	none
-👩🏽‍❤‍💋‍👨🏾	koss kona, karl, millihúðlitur og meðaldökkur húðlitur	none
-👩🏽‍❤‍💋‍👨🏿	koss kona, karl, millihúðlitur og dökkur húðlitur	none
-👩🏾‍❤‍💋‍👨🏻	koss kona, karl, meðaldökkur húðlitur og ljós húðlitur	none
-👩🏾‍❤‍💋‍👨🏼	koss kona, karl, meðaldökkur húðlitur og meðalljós húðlitur	none
-👩🏾‍❤‍💋‍👨🏽	koss kona, karl, meðaldökkur húðlitur og millihúðlitur	none
-👩🏾‍❤‍💋‍👨🏾	koss kona, karl og meðaldökkur húðlitur	none
-👩🏾‍❤‍💋‍👨🏿	koss kona, karl, meðaldökkur húðlitur og dökkur húðlitur	none
-👩🏿‍❤‍💋‍👨🏻	koss kona, karl, dökkur húðlitur og ljós húðlitur	none
-👩🏿‍❤‍💋‍👨🏼	koss kona, karl, dökkur húðlitur og meðalljós húðlitur	none
-👩🏿‍❤‍💋‍👨🏽	koss kona, karl, dökkur húðlitur og millihúðlitur	none
-👩🏿‍❤‍💋‍👨🏾	koss kona, karl, dökkur húðlitur og meðaldökkur húðlitur	none
-👩🏿‍❤‍💋‍👨🏿	koss kona, karl og dökkur húðlitur	none
-👩🏻‍❤‍💋‍👩🏻	koss kona, kona og ljós húðlitur	none
-👩🏻‍❤‍💋‍👩🏼	koss kona, kona, ljós húðlitur og meðalljós húðlitur	none
-👩🏻‍❤‍💋‍👩🏽	koss kona, kona, ljós húðlitur og millihúðlitur	none
-👩🏻‍❤‍💋‍👩🏾	koss kona, kona, ljós húðlitur og meðaldökkur húðlitur	none
-👩🏻‍❤‍💋‍👩🏿	koss kona, kona, ljós húðlitur og dökkur húðlitur	none
-👩🏼‍❤‍💋‍👩🏻	koss kona, kona, meðalljós húðlitur og ljós húðlitur	none
-👩🏼‍❤‍💋‍👩🏼	koss kona, kona og meðalljós húðlitur	none
-👩🏼‍❤‍💋‍👩🏽	koss kona, kona, meðalljós húðlitur og millihúðlitur	none
-👩🏼‍❤‍💋‍👩🏾	koss kona, kona, meðalljós húðlitur og meðaldökkur húðlitur	none
-👩🏼‍❤‍💋‍👩🏿	koss kona, kona, meðalljós húðlitur og dökkur húðlitur	none
-👩🏽‍❤‍💋‍👩🏻	koss kona, kona, millihúðlitur og ljós húðlitur	none
-👩🏽‍❤‍💋‍👩🏼	koss kona, kona, millihúðlitur og meðalljós húðlitur	none
-👩🏽‍❤‍💋‍👩🏽	koss kona, kona og millihúðlitur	none
-👩🏽‍❤‍💋‍👩🏾	koss kona, kona, millihúðlitur og meðaldökkur húðlitur	none
-👩🏽‍❤‍💋‍👩🏿	koss kona, kona, millihúðlitur og dökkur húðlitur	none
-👩🏾‍❤‍💋‍👩🏻	koss kona, kona, meðaldökkur húðlitur og ljós húðlitur	none
-👩🏾‍❤‍💋‍👩🏼	koss kona, kona, meðaldökkur húðlitur og meðalljós húðlitur	none
-👩🏾‍❤‍💋‍👩🏽	koss kona, kona, meðaldökkur húðlitur og millihúðlitur	none
-👩🏾‍❤‍💋‍👩🏾	koss kona, kona og meðaldökkur húðlitur	none
-👩🏾‍❤‍💋‍👩🏿	koss kona, kona, meðaldökkur húðlitur og dökkur húðlitur	none
-👩🏿‍❤‍💋‍👩🏻	koss kona, kona, dökkur húðlitur og ljós húðlitur	none
-👩🏿‍❤‍💋‍👩🏼	koss kona, kona, dökkur húðlitur og meðalljós húðlitur	none
-👩🏿‍❤‍💋‍👩🏽	koss kona, kona, dökkur húðlitur og millihúðlitur	none
-👩🏿‍❤‍💋‍👩🏾	koss kona, kona, dökkur húðlitur og meðaldökkur húðlitur	none
-👩🏿‍❤‍💋‍👩🏿	koss kona, kona og dökkur húðlitur	none
-👩🏻‍❤‍👨🏻	par kona, karl og ljós húðlitur	none
-👩🏻‍❤‍👨🏼	par kona, karl, ljós húðlitur og meðalljós húðlitur	none
-👩🏻‍❤‍👨🏽	par kona, karl, ljós húðlitur og millihúðlitur	none
-👩🏻‍❤‍👨🏾	par kona, karl, ljós húðlitur og meðaldökkur húðlitur	none
-👩🏻‍❤‍👨🏿	par kona, karl, ljós húðlitur og dökkur húðlitur	none
-👩🏼‍❤‍👨🏻	par kona, karl, meðalljós húðlitur og ljós húðlitur	none
-👩🏼‍❤‍👨🏼	par kona, karl og meðalljós húðlitur	none
-👩🏼‍❤‍👨🏽	par kona, karl, meðalljós húðlitur og millihúðlitur	none
-👩🏼‍❤‍👨🏾	par kona, karl, meðalljós húðlitur og meðaldökkur húðlitur	none
-👩🏼‍❤‍👨🏿	par kona, karl, meðalljós húðlitur og dökkur húðlitur	none
-👩🏽‍❤‍👨🏻	par kona, karl, millihúðlitur og ljós húðlitur	none
-👩🏽‍❤‍👨🏼	par kona, karl, millihúðlitur og meðalljós húðlitur	none
-👩🏽‍❤‍👨🏽	par kona, karl og millihúðlitur	none
-👩🏽‍❤‍👨🏾	par kona, karl, millihúðlitur og meðaldökkur húðlitur	none
-👩🏽‍❤‍👨🏿	par kona, karl, millihúðlitur og dökkur húðlitur	none
-👩🏾‍❤‍👨🏻	par kona, karl, meðaldökkur húðlitur og ljós húðlitur	none
-👩🏾‍❤‍👨🏼	par kona, karl, meðaldökkur húðlitur og meðalljós húðlitur	none
-👩🏾‍❤‍👨🏽	par kona, karl, meðaldökkur húðlitur og millihúðlitur	none
-👩🏾‍❤‍👨🏾	par kona, karl og meðaldökkur húðlitur	none
-👩🏾‍❤‍👨🏿	par kona, karl, meðaldökkur húðlitur og dökkur húðlitur	none
-👩🏿‍❤‍👨🏻	par kona, karl, dökkur húðlitur og ljós húðlitur	none
-👩🏿‍❤‍👨🏼	par kona, karl, dökkur húðlitur og meðalljós húðlitur	none
-👩🏿‍❤‍👨🏽	par kona, karl, dökkur húðlitur og millihúðlitur	none
-👩🏿‍❤‍👨🏾	par kona, karl, dökkur húðlitur og meðaldökkur húðlitur	none
-👩🏿‍❤‍👨🏿	par kona, karl og dökkur húðlitur	none
-👩🏻‍❤‍👩🏻	par kona, kona og ljós húðlitur	none
-👩🏻‍❤‍👩🏼	par kona, kona, ljós húðlitur og meðalljós húðlitur	none
-👩🏻‍❤‍👩🏽	par kona, kona, ljós húðlitur og millihúðlitur	none
-👩🏻‍❤‍👩🏾	par kona, kona, ljós húðlitur og meðaldökkur húðlitur	none
-👩🏻‍❤‍👩🏿	par kona, kona, ljós húðlitur og dökkur húðlitur	none
-👩🏼‍❤‍👩🏻	par kona, kona, meðalljós húðlitur og ljós húðlitur	none
-👩🏼‍❤‍👩🏼	par kona, kona og meðalljós húðlitur	none
-👩🏼‍❤‍👩🏽	par kona, kona, meðalljós húðlitur og millihúðlitur	none
-👩🏼‍❤‍👩🏾	par kona, kona, meðalljós húðlitur og meðaldökkur húðlitur	none
-👩🏼‍❤‍👩🏿	par kona, kona, meðalljós húðlitur og dökkur húðlitur	none
-👩🏽‍❤‍👩🏻	par kona, kona, millihúðlitur og ljós húðlitur	none
-👩🏽‍❤‍👩🏼	par kona, kona, millihúðlitur og meðalljós húðlitur	none
-👩🏽‍❤‍👩🏽	par kona, kona og millihúðlitur	none
-👩🏽‍❤‍👩🏾	par kona, kona, millihúðlitur og meðaldökkur húðlitur	none
-👩🏽‍❤‍👩🏿	par kona, kona, millihúðlitur og dökkur húðlitur	none
-👩🏾‍❤‍👩🏻	par kona, kona, meðaldökkur húðlitur og ljós húðlitur	none
-👩🏾‍❤‍👩🏼	par kona, kona, meðaldökkur húðlitur og meðalljós húðlitur	none
-👩🏾‍❤‍👩🏽	par kona, kona, meðaldökkur húðlitur og millihúðlitur	none
-👩🏾‍❤‍👩🏾	par kona, kona og meðaldökkur húðlitur	none
-👩🏾‍❤‍👩🏿	par kona, kona, meðaldökkur húðlitur og dökkur húðlitur	none
-👩🏿‍❤‍👩🏻	par kona, kona, dökkur húðlitur og ljós húðlitur	none
-👩🏿‍❤‍👩🏼	par kona, kona, dökkur húðlitur og meðalljós húðlitur	none
-👩🏿‍❤‍👩🏽	par kona, kona, dökkur húðlitur og millihúðlitur	none
-👩🏿‍❤‍👩🏾	par kona, kona, dökkur húðlitur og meðaldökkur húðlitur	none
-👩🏿‍❤‍👩🏿	par kona, kona og dökkur húðlitur	none
 👩‍🦰	kona rautt hár	none
 👩🏻‍🦰	kona ljós húðlitur og rautt hár	none
 👩🏼‍🦰	kona meðalljós húðlitur og rautt hár	none
@@ -3732,7 +3296,7 @@ $	dalur	none
 🇸🇸	fáni Suður-Súdan	none
 🇸🇹	fáni Saó Tóme og Prinsípe	none
 🇸🇻	fáni El Salvador	none
-🇸🇽	fáni Sint Maarten	none
+🇸🇽	fáni Sankti Martin	none
 🇸🇾	fáni Sýrland	none
 🇸🇿	fáni Svasíland	none
 🇹🇦	fáni Tristan da Cunha	none
@@ -3741,7 +3305,7 @@ $	dalur	none
 🇹🇫	fáni Frönsku suðlægu landsvæðin	none
 🇹🇬	fáni Tógó	none
 🇹🇭	fáni Taíland	none
-🇹🇯	fáni Tadsíkistan	none
+🇹🇯	fáni Tadsjikistan	none
 🇹🇰	fáni Tókelá	none
 🇹🇱	fáni Tímor-Leste	none
 🇹🇲	fáni Túrkmenistan	none
@@ -3777,26 +3341,6 @@ $	dalur	none
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	fáni England	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	fáni Skotland	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	fáni Wales	none
-¤	óþekktur gjaldmiðill	none
-֏	armenskt dramm	none
-؋	afgani	none
-৳	bangladessk taka	none
-฿	taílenskt bat	none
-៛	kambódískt ríal	none
-₡	kostarískt kólon	none
-₦	nígerísk næra	none
-₧	Spænskur peseti	none
-₪	nýr ísraelskur sikill	none
-₫	víetnamskt dong	none
-₭	laoskt kip	none
-₮	mongólskur túríkur	none
-₲	paragvæskt gvaraní	none
-₴	úkraínsk hrinja	none
-₵	ganverskur sedi	none
-₸	kasakst tengi	none
-₺	tyrknesk líra	none
-₼	aserskt manat	none
-₾	georgískur lari	none
 0⃣	takki 0	none
 1⃣	takki 1	none
 2⃣	takki 2	none
