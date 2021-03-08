@@ -777,6 +777,11 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 			}
 
 			while (1) {
+				if (strncmp(p, "705 AUDIO", strlen("705 AUDIO")) == 0 && p[strlen("705 AUDIO")] == '\0') {
+					p += strlen("705 AUDIO") + 1;
+					break;
+				}
+
 				if (strncmp(p, "705-", 4) != 0) {
 					MSG2(2, "output_module",
 						"ERROR: bogus audio parameter %s", p);
@@ -788,11 +793,6 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 					MSG2(2, "output_module",
 						"ERROR: bogus audio end of line %s", p);
 					retcode = -5;
-					break;
-				}
-
-				if (strncmp(p, "705-AUDIO", strlen("705-AUDIO")) == 0) {
-					p = q + 1;
 					break;
 				}
 
@@ -809,50 +809,75 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 				SET_AUDIO_TRACK_PARAM(num_channels)
 				SET_AUDIO_TRACK_PARAM(sample_rate)
 				SET_AUDIO_TRACK_PARAM(num_samples)
+				else {
+					MSG2(2, "output_module",
+						"ERROR: unknown audio parameter %s", p);
+					retcode = -5;
+					break;
+				}
 				p = q + 1;
 			}
 
 			if (retcode)
 				break;
 
-			/* +1 for the protocol additional \n */
-			size = track.num_channels * track.num_samples * track.bits / 8 + 1;
+			size = track.num_channels * track.num_samples * track.bits / 8;
 			track.samples = malloc(size);
 			filled = 0;
 
-			while (1) {
+			end = memchr(p, '\n', end - p);
+			if (!end) {
+				MSG2(2, "output_module",
+					"ERROR: bogus audio end of line %s", p);
+				retcode = -5;
+				break;
+			}
+
+			char *data = (char*) track.samples;
+
+			/* HLDC escaping: invert bit 5 of escaped characters. */
+			const char escape = 0x7d;
+			const char invert = 1<<5;
+
+			while (p < end) {
 				size_t piece;
 
-				if (strcmp(p, "705 AUDIO\n") == 0)
-					/* Over! */
-					break;
+				q = memchr(p, escape, end - p);
+				if (!q)
+					q = end;
 
-				if (strncmp(p, "705-", 4) != 0) {
-					MSG2(2, "output_module",
-						"ERROR: bogus audio piece %s", p);
-					retcode = -5;
-					break;
-				}
+				piece = q - p;
 
-				p += 4;
-				q = memchr(p, '\n', end - p);
-				if (!q) {
-					MSG2(2, "output_module",
-						"ERROR: bogus audio end of line %s", p);
-					retcode = -5;
-					break;
-				}
-
-				piece = q + 1 - p;
 				if (filled + piece > size) {
 					MSG2(2, "output_module",
 						"ERROR: bogus audio content: %d > %d", filled + piece, size);
 					retcode = -5;
 					break;
 				}
-				memcpy(((char*) track.samples) + filled, p, piece);
+
+				memcpy(data + filled, p, piece);
 				filled += piece;
-				p = q + 1;
+				p = q;
+
+				while (p < end && *p == escape) {
+					p++;
+					if (p == end) {
+						MSG2(2, "output_module",
+							"ERROR: bogus audio escape at end");
+						retcode = -5;
+						break;
+					}
+					if (filled + 1 > size) {
+						MSG2(2, "output_module",
+							"ERROR: bogus audio content: %d > %d", filled + 1, size);
+						retcode = -5;
+						break;
+					}
+					data[filled++] = (*p) ^ invert;
+					p++;
+				}
+				if (retcode)
+					break;
 			}
 
 			if (filled != size) {
@@ -866,9 +891,14 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 				break;
 			}
 
+			MSG2(5, "output_module",
+				"Got audio: eventually %d bytes", size);
+
 			if (track.bits != output->track.bits ||
 			    track.num_channels != output->track.num_channels ||
 			    track.sample_rate != output->track.sample_rate) {
+				MSG2(5, "output_module", "New bits/chans/rate");
+
 				if (output->track.bits) {
 					spd_audio_end(output->audio);
 				}
