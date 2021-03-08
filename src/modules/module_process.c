@@ -524,3 +524,11 @@ void module_report_event_pause(void)
 {
 	print("704 PAUSE");
 }
+
+/* Report sound icon */
+void module_report_icon(const char *icon)
+{
+	if (!icon)
+		return;
+	print("706-%s\n706 ICON\n", icon);
+}

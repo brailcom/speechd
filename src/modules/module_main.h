@@ -146,6 +146,8 @@ void module_report_event_end(void);
 void module_report_event_stop(void);
 /* This should be called when pausing the speech */
 void module_report_event_pause(void);
+/* This should be called when reaching a sound icon */
+void module_report_icon(const char *icon);
 
 /* This processes module input, interpreting the SSIP protocol and calling
  * appropriate module-provided functions.

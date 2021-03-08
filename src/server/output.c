@@ -758,6 +758,18 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 					    p - response->str - 4);
 			MSG2(5, "output_module", "Detected INDEX MARK: %s",
 			     *index_mark);
+		} else if (!strncmp(response->str, "706", 3)) {
+			char *p, *icon;
+			p = strchr(response->str, '\n');
+			MSG2(5, "output_module", "response:|%s|\n p:|%s|",
+			     response->str, p);
+			icon =
+			    (char *)strndup(response->str + 4,
+					    p - response->str - 4);
+			MSG2(5, "output_module", "Detected sound icon: %s",
+			     icon);
+			free(icon);
+			*index_mark = g_strdup("no");
 		} else if (!strncmp(response->str, "705", 3)) {
 			/* Audio */
 			AudioTrack track = { 0 };

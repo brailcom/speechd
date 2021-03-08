@@ -2636,6 +2636,7 @@ The return values are:
 @item 703         EVENT STOP
 @item 704         EVENT PAUSE
 @item 705         AUDIO
+@item 706         ICON
 @end itemize
 
 @table @code
@@ -2935,6 +2936,18 @@ The first lines provide the exact encoding of the data being passed.
 To avoid confusion with the @code{\n} character, an HDLC encoding is used, with
 the @code{0x7D} escape character: whenever @code{\n} or @code{0x7D} appears in
 the data, its 5th bit is inverted and it is prefixed with @code{0x7D}.
+
+@item ICON
+
+This event should be issued by the output module to emit a sound icon through
+the server. It is preceeded by the code @code{706} and takes the form
+
+@example
+706-name
+706 ICON
+@end example
+
+where @code{name} is the sound icon name.
 
 @end table
 
