@@ -3006,7 +3006,7 @@ voice parameters to improve the synthesis: @code{rate}, @code{pitch},
 @code{spelling_mode}, @code{cap_let_recogn}.
 
 Optionally, @code{module_audio_set} can be made to recognize precise audio
-settings.
+settings, when the module implements audio rendering itself.
 
 For easier debugging, @code{module_loglevel_set} and @code{module_debug} can be
 implemented.

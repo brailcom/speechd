@@ -14,7 +14,6 @@ based on demand from users, and difficulty of the work involved.
  (0.11) Migrate to GSettings.
  (0.11) Synthesizer specific settings API.
  (0.11) Use more GLib in the server.
- (0.11) Move audio into server.
  (0.11) Client audio retrieval API.
  (0.11) Server to module protocol documentation.
  (0.12) Server to module protocol improvements.
@@ -114,7 +113,6 @@ Use more GLib in the server
 Move audio into server
 ----------------------
 
- * Extend the server to module protocol to receive audio from modules.
  * Consider using a separate socket for audio transfer, however this may be 
    difficult when attempting to synchronise with index marks. An alternative is 
    to send index mark data via the audio socket as well.
@@ -129,10 +127,6 @@ Move audio into server
    playback queueing, and simply send the audio in relatively small buffers to 
    the server. Smaller buffers to allow the server to stop/pause the audio more 
    responsively.
- * Implement a mechanism to allow modules to signal that they do not support 
-   audio output.
- * Support multiple clients using different audio output devices on the one 
-   backend.
  * Extend priority system to be either global priority, or priority per audio 
    output device.
  * Run audio in separate thread, possibly using 2 threads, a controller 
@@ -213,7 +207,7 @@ Support spawning the server via Systemd socket activation
 
 Copyright (C) 2001 Brailcom, o.p.s
 Copyright (C) 2016 Luke Yelavich <themuso@themuso.com>
-Copyright (C) 2018-2020 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software

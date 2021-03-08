@@ -30,6 +30,7 @@
 #define _SPEECHD_MODULE_MAIN_H
 
 #include <speechd_types.h>
+#include <spd_audio.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -106,6 +107,19 @@ int module_debug(int enable, const char *file);
 /*
  * These are provided by the module basis.
  */
+
+/*
+ * Specify that the module will send its audio as wave events to the server
+ * thanks to module_tts_output_server().
+ * To be called in module_init.
+ */
+void module_audio_set_server(void);
+
+/*
+ * Send piece of audio to server. Can be called as many times as desired, e.g.
+ * for each chunk produced by the synthesizer.
+ */
+void module_tts_output_server(const AudioTrack *track, AudioFormat format);
 
 /* Return one line of input from the given file, to be freed with free().
  *

@@ -187,7 +187,7 @@ GString *output_read_reply(OutputModule * output)
 		} else {
 			MSG(5, "Got %d bytes from output module over socket",
 			    bytes);
-			g_string_append(rstr, line);
+			g_string_append_len(rstr, line, bytes);
 		}
 		/* terminate if we reached the last line (without '-' after numcode) */
 	} while (!errors && !((strlen(line) < 4) || (line[3] == ' ')));
@@ -467,10 +467,49 @@ int output_send_settings(TSpeechDMessage * msg, OutputModule * output)
 		g_string_append_printf(set_str, #name"=NULL\n"); \
 	}
 
+static int output_server_audio(OutputModule * output)
+{
+	GString *set_str;
+	int err;
+
+	MSG(4, "Module set parameters.");
+	set_str = g_string_new("");
+	g_string_append_printf(set_str, "audio_output_method=server\n");
+
+	SEND_CMD_N("AUDIO");
+	SEND_DATA_N(set_str->str);
+	SEND_CMD_N(".");
+
+	void *pars[10] = { NULL };
+	char *error;
+	pars[3] = "default";
+	pars[5] = output->name;
+	output->audio = spd_audio_open("pulse", pars, &error);
+	if (!output->audio) {
+		MSG(1, "Opening audio failed: %s\n", error);
+		return -1;
+	}
+
+	if (spd_audio_set_volume(output->audio, 85) < 0) {
+		MSG(3, "Can't set volume. audio not initialized?");
+	}
+
+	output->track.bits = 0;
+
+	MSG(3, "Initialized server audio for %s\n", output->name);
+	return 0;
+
+}
+
 int output_send_audio_settings(OutputModule * output)
 {
 	GString *set_str;
 	int err;
+
+	/* First try to get output through server */
+	if (output_server_audio(output) == 0)
+		/* Went fine, good! */
+		return 0;
 
 	MSG(4, "Module set parameters.");
 	set_str = g_string_new("");
@@ -691,13 +730,25 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 		MSG2(5, "output_module", "Received event:\n %s", response->str);
 		if (!strncmp(response->str, "701", 3))
 			*index_mark = (char *)g_strdup("__spd_begin");
-		else if (!strncmp(response->str, "702", 3))
+		else if (!strncmp(response->str, "702", 3)) {
 			*index_mark = (char *)g_strdup("__spd_end");
-		else if (!strncmp(response->str, "703", 3))
+			if (output->audio && output->track.bits) {
+				spd_audio_end(output->audio);
+				output->track.bits = 0;
+			}
+		} else if (!strncmp(response->str, "703", 3)) {
 			*index_mark = (char *)g_strdup("__spd_stopped");
-		else if (!strncmp(response->str, "704", 3))
+			if (output->audio && output->track.bits) {
+				spd_audio_end(output->audio);
+				output->track.bits = 0;
+			}
+		} else if (!strncmp(response->str, "704", 3)) {
 			*index_mark = (char *)g_strdup("__spd_paused");
-		else if (!strncmp(response->str, "700", 3)) {
+			if (output->audio && output->track.bits) {
+				spd_audio_end(output->audio);
+				output->track.bits = 0;
+			}
+		} else if (!strncmp(response->str, "700", 3)) {
 			char *p;
 			p = strchr(response->str, '\n');
 			MSG2(5, "output_module", "response:|%s|\n p:|%s|",
@@ -707,6 +758,133 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 					    p - response->str - 4);
 			MSG2(5, "output_module", "Detected INDEX MARK: %s",
 			     *index_mark);
+		} else if (!strncmp(response->str, "705", 3)) {
+			/* Audio */
+			AudioTrack track = { 0 };
+			AudioFormat format = 0;
+			char *p = response->str, *q;
+			char *end = response->str + response->len;
+			size_t size, filled;
+
+			MSG2(5, "output_module",
+				"Got audio: %d bytes", response->len);
+
+			if (!output->audio) {
+				MSG2(2, "output_module",
+					"Audio event but server audio not set up");
+				retcode = -5;
+				break;
+			}
+
+			while (1) {
+				if (strncmp(p, "705-", 4) != 0) {
+					MSG2(2, "output_module",
+						"ERROR: bogus audio parameter %s", p);
+					retcode = -5;
+					break;
+				}
+				q = memchr(p, '\n', end - p);
+				if (!q) {
+					MSG2(2, "output_module",
+						"ERROR: bogus audio end of line %s", p);
+					retcode = -5;
+					break;
+				}
+
+				if (strncmp(p, "705-AUDIO", strlen("705-AUDIO")) == 0) {
+					p = q + 1;
+					break;
+				}
+
+				if (strncmp(p, "705-big_endian=", strlen("705-big_endian=")) == 0) {
+					format = atoi(p + strlen("705-big_endian="));
+				}
+#define SET_AUDIO_TRACK_PARAM(name) \
+				else if (strncmp(p, "705-"#name"=", strlen("705-"#name"=")) == 0) { \
+					track.name = atoi(p+4+strlen(#name)+1); \
+					MSG2(5, "output_module", \
+						"Got audio parameter "#name" %d", track.name); \
+				}
+				SET_AUDIO_TRACK_PARAM(bits)
+				SET_AUDIO_TRACK_PARAM(num_channels)
+				SET_AUDIO_TRACK_PARAM(sample_rate)
+				SET_AUDIO_TRACK_PARAM(num_samples)
+				p = q + 1;
+			}
+
+			if (retcode)
+				break;
+
+			/* +1 for the protocol additional \n */
+			size = track.num_channels * track.num_samples * track.bits / 8 + 1;
+			track.samples = malloc(size);
+			filled = 0;
+
+			while (1) {
+				size_t piece;
+
+				if (strcmp(p, "705 AUDIO\n") == 0)
+					/* Over! */
+					break;
+
+				if (strncmp(p, "705-", 4) != 0) {
+					MSG2(2, "output_module",
+						"ERROR: bogus audio piece %s", p);
+					retcode = -5;
+					break;
+				}
+
+				p += 4;
+				q = memchr(p, '\n', end - p);
+				if (!q) {
+					MSG2(2, "output_module",
+						"ERROR: bogus audio end of line %s", p);
+					retcode = -5;
+					break;
+				}
+
+				piece = q + 1 - p;
+				if (filled + piece > size) {
+					MSG2(2, "output_module",
+						"ERROR: bogus audio content: %d > %d", filled + piece, size);
+					retcode = -5;
+					break;
+				}
+				memcpy(((char*) track.samples) + filled, p, piece);
+				filled += piece;
+				p = q + 1;
+			}
+
+			if (filled != size) {
+				MSG2(2, "output_module",
+					"ERROR: bogus audio content: %d < %d", filled, size);
+				retcode = -5;
+			}
+
+			if (retcode) {
+				free(track.samples);
+				break;
+			}
+
+			if (track.bits != output->track.bits ||
+			    track.num_channels != output->track.num_channels ||
+			    track.sample_rate != output->track.sample_rate) {
+				if (output->track.bits) {
+					spd_audio_end(output->audio);
+				}
+				spd_audio_begin(output->audio, track, format);
+				output->track = track;
+			}
+
+			if (spd_audio_feed_sync_overlap(output->audio, track, format) < 0) {
+				MSG2(2, "output_module",
+					"Could not play audio");
+				free(track.samples);
+				retcode = -1;
+				break;
+			}
+			free(track.samples);
+			*index_mark = g_strdup("no");
 		} else {
 			MSG2(2, "output_module",
 			     "ERROR: Unknown event received from output module");
