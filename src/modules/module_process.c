@@ -82,7 +82,7 @@ void module_tts_output_server(const AudioTrack *track, AudioFormat format)
 	printf("705-num_samples=%d\n", track->num_samples);
 	printf("705-big_endian=%d\n", format);
 
-	printf("705 AUDIO");
+	printf("705-AUDIO");
 	putc(0, stdout);
 
 	p = (const char *) track->samples;
@@ -118,6 +118,7 @@ void module_tts_output_server(const AudioTrack *track, AudioFormat format)
 		p = next;
 	}
 	putc('\n', stdout);
+	printf("705 AUDIO\n");
 
 	pthread_mutex_unlock(&module_stdout_mutex);
 	fflush(stdout);
