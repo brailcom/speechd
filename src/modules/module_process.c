@@ -32,6 +32,7 @@
 #include <stdarg.h>
 #include <pthread.h>
 
+#include <spd_audio.h>
 #include "module_main.h"
 
 pthread_mutex_t module_stdout_mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -46,6 +47,65 @@ void module_send(const char *format, ...)
 	vprintf(format, ap);
 	pthread_mutex_unlock(&module_stdout_mutex);
 	va_end(ap);
+	fflush(stdout);
+}
+
+/* Whether we will send the audio to the server */
+static int audio_server;
+
+void module_audio_set_server(void)
+{
+	audio_server = 1;
+}
+
+static int module_audio_set_through_server(const char *cur_item, const char *cur_value) {
+	if (strcmp(cur_item, "audio_output_method") != 0)
+		/* We only support the audio output method parameter */
+		return -1;
+
+	if (strcmp(cur_value, "server") != 0)
+		/* We only support server audio output method */
+		return -1;
+
+	return 0;
+}
+
+void module_tts_output_server(const AudioTrack *track, AudioFormat format)
+{
+	const char *p, *end;
+	size_t size = track->num_channels * track->num_samples * track->bits / 8;
+	pthread_mutex_lock(&module_stdout_mutex);
+	printf("705-bits=%d\n", track->bits);
+	printf("705-num_channels=%d\n", track->num_channels);
+	printf("705-sample_rate=%d\n", track->sample_rate);
+	printf("705-num_samples=%d\n", track->num_samples);
+	printf("705-big_endian=%d\n", format);
+
+	printf("705-AUDIO");
+	putc(0, stdout);
+	putc('\n', stdout);
+
+	p = (const char *) track->samples;
+	end = p + size;
+
+	while (p < end) {
+		const char *q, *next;
+
+		printf("705-");
+		q = memchr(p, '\n', end - p);
+		if (q) {
+			next = q+1;
+		} else {
+			next = q = end;
+		}
+
+		fwrite(p, 1, q - p, stdout);
+		putc('\n', stdout);
+		p = next;
+	}
+
+	printf("705 AUDIO\n");
+	pthread_mutex_unlock(&module_stdout_mutex);
 	fflush(stdout);
 }
 
@@ -291,10 +351,17 @@ static void cmd_audio(int fd)
 	char *status = NULL;
 	int ret;
 
-	if (cmd_params(fd, "AUDIO ", module_audio_set) != 0)
-		return;
+	if (audio_server) {
+		if (cmd_params(fd, "AUDIO ", module_audio_set_through_server) != 0)
+			return;
 
-	ret = module_audio_init(&status);
+		ret = 0;
+	} else {
+		if (cmd_params(fd, "AUDIO ", module_audio_set) != 0)
+			return;
+
+		ret = module_audio_init(&status);
+	}
 
 	if (!ret)
 		print("203 OK AUDIO INITIALIZED");

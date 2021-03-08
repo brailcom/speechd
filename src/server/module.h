@@ -25,6 +25,7 @@
 
 #include <stdlib.h>
 #include <glib.h>
+#include <spd_audio.h>
 
 typedef struct {
 	char *name;
@@ -37,6 +38,8 @@ typedef struct {
 	int stderr_redirect;
 	pid_t pid;
 	int working;
+	AudioID *audio;
+	AudioTrack track;
 } OutputModule;
 
 GList *detect_output_modules(const char *modules_dirname, const char *config_dirname);
