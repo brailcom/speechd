@@ -88,7 +88,7 @@ void module_tts_output_server(const AudioTrack *track, AudioFormat format)
 	p = (const char *) track->samples;
 	end = p + size;
 
-	/* HLDC escaping: prefix NL and escapes with escape, and invert their bit 5. */
+	/* HDLC escaping: prefix NL and escapes with escape, and invert their bit 5. */
 	const char escape = 0x7d;
 	const char invert = 1<<5;
 

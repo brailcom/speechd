@@ -835,7 +835,7 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 
 			char *data = (char*) track.samples;
 
-			/* HLDC escaping: invert bit 5 of escaped characters. */
+			/* HDLC escaping: invert bit 5 of escaped characters. */
 			const char escape = 0x7d;
 			const char invert = 1<<5;
 
