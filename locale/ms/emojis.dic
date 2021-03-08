@@ -3,176 +3,46 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
-{	buka kurung dakap	none
 🏻	ton kulit cerah	none
 🏼	ton kulit sederhana cerah	none
 🏽	ton kulit sederhana	none
 🏾	ton kulit sederhana gelap	none
 🏿	ton kulit gelap	none
-‾	garis atas	none
-_	garis bawah	none
--	sempang tanda tolak	none
-‐	sempang	none
 –	sengkang en	none
 —	sengkang em	none
-―	palang lintang	none
-・	titik tengah katakana	none
-,	koma	none
-،	koma arab	none
-、	koma ideografik	none
-;	koma bernoktah	none
-؛	koma bernoktah arab	none
-:	noktah bertindih	none
-!	tanda seru	none
-¡	tanda seru terbalik	none
-?	tanda soalan	none
-¿	tanda soal terbalik	none
-؟	tanda soal arab	none
-‽	interrobang	none
-.	noktah	none
-…	elipsis	none
-。	noktah ideografik	none
 ·	titik tengah	none
-'	koma lurus	none
-‘	koma atas kiri	none
-’	koma atas kanan	none
-‚	koma bawah kanan	none
-“	tanda petik kiri	none
-”	tanda petikan	none
-„	tanda petikan bawah	none
 «	sudut berganda kiri	none
-»	sudut berganda kanan	none
-)	tanda kurung	none
-[	buka kurung siku	none
-]	kurung siku tertutup	none
-}	tutup kurung dakap	none
-〈	tanda kurung sudut terbuka	none
-〉	tanda kurung sudut tertutup	none
-《	kurung sudut berganda terbuka	none
-》	kurung sudut berganda tertutup	none
-「	kurung penjuru terbuka	none
-」	kurung penjuru tertutup	none
-『	tanda kurung penjuru geronggang terbuka	none
-』	tanda kurung penjuru geronggang tertutup	none
-【	kurungan kanta hitam terbuka	none
-】	kurung kanta hitam tertutup	none
-〔	kurung siku kura-kura terbuka	none
-〕	kurung siku kura-kura tertutup	none
-〖	kurung kanta geronggang terbuka	none
-〗	kurung kanta geronggang tertutup	none
+»	tanda sudut berganda kanan	none
 §	bahagian	none
-¶	tanda perenggan	none
-@	tanda at	none
-*	asterisk	none
-/	garis condong	none
-\	garis miring balik	none
-&	ampersan	none
-#	tanda cencang	none
-%	peratus	none
-‰	per mille	none
 †	tanda dagger	none
 ‡	simbol dagger berganda	none
 •	bulet	none
-‧	titik sempang	none
-′	prima	none
-″	prima ganda dua	none
-‴	prima ganda tiga	none
-‸	karet	none
-※	tanda rujukan	none
-⁂	asterisme	none
-`	aksen grava	none
-´	aksen tirus	none
-^	aksen sirkumfleks	none
-¨	diaresis	none
 °	darjah	none
 ℗	hak cipta rakaman bunyi	none
 ←	anak panah menunjuk ke kiri	none
-↚	garis miring anak panah ke kiri	none
 →	anak panah menunjuk ke kanan	none
-↛	garis miring anak panah ke kanan	none
 ↑	anak panah menunjuk ke atas	none
 ↓	anak panah menunjuk ke bawah	none
-↜	anak panah berombak-ombak ke kiri	none
-↝	anak panah berombak-ombak ke kanan	none
-↞	anak panah dwikepala ke kiri	none
-↟	anak panah dwikepala ke atas	none
-↠	anak panah dwikepala ke kanan	none
-↡	anak panah dwikepala ke bawah	none
-↢	anak panah berekor ke kiri	none
-↣	anak panah berekor ke kanan	none
-↤	anak panah ke kiri dari palang	none
-↥	anak panah ke atas dari palang	none
-↦	anak panah ke kanan dari palang	none
-↧	anak panah ke bawah dari palang	none
-↨	anak panah ke atas ke bawah berdasar	none
-↫	anak panah ke kiri bergelung	none
-↬	anak panah ke kanan bergelung	none
-↭	anak panah kiri kanan berombak-ombak	none
-↯	anak panah siku-sika ke bawah	none
-↰	anak panah ke atas melencong ke kiri	none
-↱	anak panah ke atas melencong ke kanan	none
-↲	anak panah ke bawah melencong ke kiri	none
-↳	anak panah ke bawah melencong ke kanan	none
-↴	anak panah ke kanan menukar arah ke bawah	none
-↵	anak panah ke bawah menukar arah ke kiri	none
-↶	anak panah separuh bulatan atas arah lawan jam	none
-↷	anak panah separuh bulatan atas arah ikut jam	none
-↺	anak panah bulatan terbuka arah lawan jam	none
-↻	anak panah bulatan terbuka arah ikut jam	none
 ⇅	anak panah tunjuk atas dan tunjuk bawah	none
 ⇆	anak panah tunjuk kiri di atas anak panah tunjuk kanan	none
-⇐	anak panah berganda ke kiri	none
-⇑	anak panah berganda ke atas	none
-⇒	anak panah berganda ke kanan	none
-⇓	anak panah berganda ke bawah	none
-⇔	anak panah berganda kiri kanan	none
-∀	untuk semua	none
-∂	pembezaan separa	none
-∅	set kosong	none
 ∆	kenaikan	none
 ∇	nabla	none
 ∈	unsur	none
-∉	bukan unsur	none
-+	tanda campur	none
-±	campur - tolak	none
 ÷	simbol pembahagian	none
 ×	simbol pendaraban	none
-<	kurang daripada	none
-=	sama dengan	none
-≠	tidak sama dengan	none
->	lebih besar daripada	none
-¬	penafian	none
-|	bar menegak	none
-~	lambang tilde	none
-−	tanda tolak	none
 ⁻	tolak superskrip	none
 √	punca kuasa dua	none
 ∞	simbol infiniti	none
-∟	sudut tegak	none
-∠	sudut	none
 ∩	persilangan	none
 ∪	kesatuan	none
-∫	kamiran	none
-∬	kamiran ganda dua	none
-∮	kamiran kontur	none
-∶	nisbah	none
-≈	hampir sama dengan	none
 ≡	bersamaan dengan	none
-≤	kurang daripada atau sama dengan	none
-≥	lebih besar daripada atau sama dengan	none
-≬	di antara	none
 ⊂	subset	none
-⊃	superset	none
-⋮	elipsis menegak	none
 ▲	segi tiga berisi menunjuk ke atas	none
 ▼	segi tiga berisi menunjuk ke bawah	none
 ◊	wajik	none
 ○	bulatan kosong	none
 ●	bulatan berisi	none
 ◯	bulatan kosong besar	none
-♪	not perlapan	none
-♭	flet	none
-♯	syap	none
 😀	muka tersengih	none
 😃	muka tersengih dengan mata besar	none
 😄	muka tersengih dan mata tersenyum	none
@@ -210,12 +80,10 @@ _	garis bawah	none
 😐	muka neutral	none
 😑	muka selamba	none
 😶	muka tanpa mulut	none
-😶‍🌫	muka dikepung awan	none
 😏	muka tersenyum sinis	none
 😒	muka tidak puas hati	none
 🙄	muka dengan mata juling ke atas	none
 😬	muka menyeringai	none
-😮‍💨	muka menghembuskan nafas	none
 🤥	muka bohong	none
 😌	muka lega	none
 😔	muka bertafakur	none
@@ -232,7 +100,6 @@ _	garis bawah	none
 🥶	muka dingin	none
 🥴	muka kepeningan	none
 😵	muka pening	none
-😵‍💫	muka dengan mata berpusar	none
 🤯	kepala meletup	none
 🤠	muka koboi	none
 🥳	muka berparti	none
@@ -304,8 +171,6 @@ _	garis bawah	none
 💟	hiasan hati	none
 ❣	tanda seru hati	none
 💔	patah hati	none
-❤‍🔥	hati membara	none
-❤‍🩹	hati sembuh	none
 ❤	hati merah	none
 🧡	hati jingga	none
 💛	hati kuning	none
@@ -346,7 +211,7 @@ _	garis bawah	none
 👉	jari telunjuk tunjuk kanan	none
 👆	jari telunjuk tunjuk hala ke atas	none
 🖕	jari hantu	none
-👇	jari telunjuk belakang tangan tuding ke bawah	none
+👇	jari telunjuk belakang tangan menunjuk ke bawah	none
 ☝	jari telunjuk menunjuk ke atas	none
 👍	simbol bagus	none
 👎	simbol tidak bagus	none
@@ -387,11 +252,9 @@ _	garis bawah	none
 🧑	dewasa	none
 👱	orang rambut perang	none
 👨	lelaki	none
-🧔	orang janggut	none
-🧔‍♂	lelaki janggut	none
+🧔	lelaki janggut	none
 👱‍♂	lelaki rambut perang	none
 👩	perempuan	none
-🧔‍♀	wanita janggut	none
 👱‍♀	perempuan rambut perang	none
 🧓	dewasa lebih tua	none
 👴	lelaki tua	none
@@ -538,7 +401,7 @@ _	garis bawah	none
 🧟‍♀	zombi wanita	none
 💆	urut muka	none
 💆‍♂	lelaki diurut muka	none
-💆‍♀	perempuan diurut muka	none
+💆‍♀	perempuan diurut mka	none
 💇	gunting rambut	none
 💇‍♂	lelaki digunting rambut	none
 💇‍♀	perempuan digunting rambut	none
@@ -551,9 +414,9 @@ _	garis bawah	none
 🧎	orang bersimpuh	none
 🧎‍♂	lelaki bersimpuh	none
 🧎‍♀	perempuan bersimpuh	none
-🧑‍🦯	orang dengan tongkat putih	none
-👨‍🦯	lelaki dengan tongkat putih	none
-👩‍🦯	perempuan dengan tongkat putih	none
+🧑‍🦯	orang dengan tongkat penduga	none
+👨‍🦯	lelaki dengan tongkat penduga	none
+👩‍🦯	perempuan dengan tongkat penduga	none
 🧑‍🦼	orang dalam kerusi roda bermotor	none
 👨‍🦼	lelaki dalam kerusi roda bermotor	none
 👩‍🦼	perempuan dalam kerusi roda bermotor	none
@@ -1397,7 +1260,7 @@ _	garis bawah	none
 🛠	tukul dan perengkuh	none
 🗡	pisau belati	none
 ⚔	pedang bersilang	none
-🔫	pistol air	none
+🔫	pistol	none
 🪃	bumerang	none
 🏹	panah dan busur	none
 🛡	perisai	none
@@ -1493,7 +1356,6 @@ _	garis bawah	none
 ↖	anak panah ke penjuru kiri atas	none
 ↕	anak panah ke atas ke bawah	none
 ↔	anak panah ke kiri ke kanan	none
-↮	garis miring anak panah kiri kanan	none
 ↩	anak panah ke kanan melengkung ke kiri	none
 ↪	anak panah ke kiri melengkung ke kanan	none
 ⤴	anak panah ke kanan melengkung ke atas	none
@@ -1567,7 +1429,7 @@ _	garis bawah	none
 ❓	tanda soal	none
 ❔	tanda soal putih	none
 ❕	tanda seru putih	none
-❗	tanda seru merah	none
+❗	tanda seru	none
 〰	sengkang berombak-ombak	none
 💱	pertukaran mata wang	none
 💲	tanda dolar tebal	none
@@ -1673,17 +1535,11 @@ _	garis bawah	none
 🏳‍🌈	bendera pelangi	none
 🏳‍⚧	bendera biru,merah jambu, dan putih	none
 🏴‍☠	bendera lanun	none
-¢	sen	none
-$	dolar	none
 £	paun	none
 ¥	yen	none
-₥	juta	none
-₩	won	none
 €	euro	none
-₱	peso	none
 ₹	rupee india	none
 ₽	rouble	none
-₿	bitcoin	none
 ¹	nombor satu superskrip	none
 ²	nombor dua superskrip	none
 ³	nombor tiga superskrip	none
@@ -1773,11 +1629,11 @@ $	dolar	none
 🖕🏽	jari hantu ton kulit sederhana	none
 🖕🏾	jari hantu ton kulit sederhana gelap	none
 🖕🏿	jari hantu ton kulit gelap	none
-👇🏻	jari telunjuk belakang tangan tuding ke bawah ton kulit cerah	none
-👇🏼	jari telunjuk belakang tangan tuding ke bawah ton kulit sederhana cerah	none
-👇🏽	jari telunjuk belakang tangan tuding ke bawah ton kulit sederhana	none
-👇🏾	jari telunjuk belakang tangan tuding ke bawah ton kulit sederhana gelap	none
-👇🏿	jari telunjuk belakang tangan tuding ke bawah ton kulit gelap	none
+👇🏻	jari telunjuk belakang tangan menunjuk ke bawah ton kulit cerah	none
+👇🏼	jari telunjuk belakang tangan menunjuk ke bawah ton kulit sederhana cerah	none
+👇🏽	jari telunjuk belakang tangan menunjuk ke bawah ton kulit sederhana	none
+👇🏾	jari telunjuk belakang tangan menunjuk ke bawah ton kulit sederhana gelap	none
+👇🏿	jari telunjuk belakang tangan menunjuk ke bawah ton kulit gelap	none
 ☝🏻	jari telunjuk menunjuk ke atas ton kulit cerah	none
 ☝🏼	jari telunjuk menunjuk ke atas ton kulit sederhana cerah	none
 ☝🏽	jari telunjuk menunjuk ke atas ton kulit sederhana	none
@@ -1913,46 +1769,6 @@ $	dolar	none
 👱🏽	orang ton kulit sederhana dan rambut perang	none
 👱🏾	orang ton kulit sederhana gelap dan rambut perang	none
 👱🏿	orang ton kulit gelap dan rambut perang	none
-🧑🏻‍❤‍💋‍🧑🏼	cium dewasa, dewasa, ton kulit cerah dan ton kulit sederhana cerah	none
-🧑🏻‍❤‍💋‍🧑🏽	cium dewasa, dewasa, ton kulit cerah dan ton kulit sederhana	none
-🧑🏻‍❤‍💋‍🧑🏾	cium dewasa, dewasa, ton kulit cerah dan ton kulit sederhana gelap	none
-🧑🏻‍❤‍💋‍🧑🏿	cium dewasa, dewasa, ton kulit cerah dan ton kulit gelap	none
-🧑🏼‍❤‍💋‍🧑🏻	cium dewasa, dewasa, ton kulit sederhana cerah dan ton kulit cerah	none
-🧑🏼‍❤‍💋‍🧑🏽	cium dewasa, dewasa, ton kulit sederhana cerah dan ton kulit sederhana	none
-🧑🏼‍❤‍💋‍🧑🏾	cium dewasa, dewasa, ton kulit sederhana cerah dan ton kulit sederhana gelap	none
-🧑🏼‍❤‍💋‍🧑🏿	cium dewasa, dewasa, ton kulit sederhana cerah dan ton kulit gelap	none
-🧑🏽‍❤‍💋‍🧑🏻	cium dewasa, dewasa, ton kulit sederhana dan ton kulit cerah	none
-🧑🏽‍❤‍💋‍🧑🏼	cium dewasa, dewasa, ton kulit sederhana dan ton kulit sederhana cerah	none
-🧑🏽‍❤‍💋‍🧑🏾	cium dewasa, dewasa, ton kulit sederhana dan ton kulit sederhana gelap	none
-🧑🏽‍❤‍💋‍🧑🏿	cium dewasa, dewasa, ton kulit sederhana dan ton kulit gelap	none
-🧑🏾‍❤‍💋‍🧑🏻	cium dewasa, dewasa, ton kulit sederhana gelap dan ton kulit cerah	none
-🧑🏾‍❤‍💋‍🧑🏼	cium dewasa, dewasa, ton kulit sederhana gelap dan ton kulit sederhana cerah	none
-🧑🏾‍❤‍💋‍🧑🏽	cium dewasa, dewasa, ton kulit sederhana gelap dan ton kulit sederhana	none
-🧑🏾‍❤‍💋‍🧑🏿	cium dewasa, dewasa, ton kulit sederhana gelap dan ton kulit gelap	none
-🧑🏿‍❤‍💋‍🧑🏻	cium dewasa, dewasa, ton kulit gelap dan ton kulit cerah	none
-🧑🏿‍❤‍💋‍🧑🏼	cium dewasa, dewasa, ton kulit gelap dan ton kulit sederhana cerah	none
-🧑🏿‍❤‍💋‍🧑🏽	cium dewasa, dewasa, ton kulit gelap dan ton kulit sederhana	none
-🧑🏿‍❤‍💋‍🧑🏾	cium dewasa, dewasa, ton kulit gelap dan ton kulit sederhana gelap	none
-🧑🏻‍❤‍🧑🏼	pasangan dengan simbol hati dewasa, dewasa, ton kulit cerah dan ton kulit sederhana cerah	none
-🧑🏻‍❤‍🧑🏽	pasangan dengan simbol hati dewasa, dewasa, ton kulit cerah dan ton kulit sederhana	none
-🧑🏻‍❤‍🧑🏾	pasangan dengan simbol hati dewasa, dewasa, ton kulit cerah dan ton kulit sederhana gelap	none
-🧑🏻‍❤‍🧑🏿	pasangan dengan simbol hati dewasa, dewasa, ton kulit cerah dan ton kulit gelap	none
-🧑🏼‍❤‍🧑🏻	pasangan dengan simbol hati dewasa, dewasa, ton kulit sederhana cerah dan ton kulit cerah	none
-🧑🏼‍❤‍🧑🏽	pasangan dengan simbol hati dewasa, dewasa, ton kulit sederhana cerah dan ton kulit sederhana	none
-🧑🏼‍❤‍🧑🏾	pasangan dengan simbol hati dewasa, dewasa, ton kulit sederhana cerah dan ton kulit sederhana gelap	none
-🧑🏼‍❤‍🧑🏿	pasangan dengan simbol hati dewasa, dewasa, ton kulit sederhana cerah dan ton kulit gelap	none
-🧑🏽‍❤‍🧑🏻	pasangan dengan simbol hati dewasa, dewasa, ton kulit sederhana dan ton kulit cerah	none
-🧑🏽‍❤‍🧑🏼	pasangan dengan simbol hati dewasa, dewasa, ton kulit sederhana dan ton kulit sederhana cerah	none
-🧑🏽‍❤‍🧑🏾	pasangan dengan simbol hati dewasa, dewasa, ton kulit sederhana dan ton kulit sederhana gelap	none
-🧑🏽‍❤‍🧑🏿	pasangan dengan simbol hati dewasa, dewasa, ton kulit sederhana dan ton kulit gelap	none
-🧑🏾‍❤‍🧑🏻	pasangan dengan simbol hati dewasa, dewasa, ton kulit sederhana gelap dan ton kulit cerah	none
-🧑🏾‍❤‍🧑🏼	pasangan dengan simbol hati dewasa, dewasa, ton kulit sederhana gelap dan ton kulit sederhana cerah	none
-🧑🏾‍❤‍🧑🏽	pasangan dengan simbol hati dewasa, dewasa, ton kulit sederhana gelap dan ton kulit sederhana	none
-🧑🏾‍❤‍🧑🏿	pasangan dengan simbol hati dewasa, dewasa, ton kulit sederhana gelap dan ton kulit gelap	none
-🧑🏿‍❤‍🧑🏻	pasangan dengan simbol hati dewasa, dewasa, ton kulit gelap dan ton kulit cerah	none
-🧑🏿‍❤‍🧑🏼	pasangan dengan simbol hati dewasa, dewasa, ton kulit gelap dan ton kulit sederhana cerah	none
-🧑🏿‍❤‍🧑🏽	pasangan dengan simbol hati dewasa, dewasa, ton kulit gelap dan ton kulit sederhana	none
-🧑🏿‍❤‍🧑🏾	pasangan dengan simbol hati dewasa, dewasa, ton kulit gelap dan ton kulit sederhana gelap	none
 🧑‍🦰	dewasa rambut merah	none
 🧑🏻‍🦰	dewasa ton kulit cerah dan rambut merah	none
 🧑🏼‍🦰	dewasa ton kulit sederhana cerah dan rambut merah	none
@@ -1982,71 +1798,16 @@ $	dolar	none
 👨🏽	lelaki ton kulit sederhana	none
 👨🏾	lelaki ton kulit sederhana gelap	none
 👨🏿	lelaki ton kulit gelap	none
-🧔🏻	orang ton kulit cerah dan janggut	none
-🧔🏼	orang ton kulit sederhana cerah dan janggut	none
-🧔🏽	orang ton kulit sederhana dan janggut	none
-🧔🏾	orang ton kulit sederhana gelap dan janggut	none
-🧔🏿	orang ton kulit gelap dan janggut	none
-🧔🏻‍♂	lelaki ton kulit cerah dan janggut	none
-🧔🏼‍♂	lelaki ton kulit sederhana cerah dan janggut	none
-🧔🏽‍♂	lelaki ton kulit sederhana dan janggut	none
-🧔🏾‍♂	lelaki ton kulit sederhana gelap dan janggut	none
-🧔🏿‍♂	lelaki ton kulit gelap dan janggut	none
+🧔🏻	lelaki ton kulit cerah dan janggut	none
+🧔🏼	lelaki ton kulit sederhana cerah dan janggut	none
+🧔🏽	lelaki ton kulit sederhana dan janggut	none
+🧔🏾	lelaki ton kulit sederhana gelap dan janggut	none
+🧔🏿	lelaki ton kulit gelap dan janggut	none
 👱🏻‍♂	lelaki ton kulit cerah dan rambut perang	none
 👱🏼‍♂	lelaki ton kulit sederhana cerah dan rambut perang	none
 👱🏽‍♂	lelaki ton kulit sederhana dan rambut perang	none
 👱🏾‍♂	lelaki ton kulit sederhana gelap dan rambut perang	none
 👱🏿‍♂	lelaki ton kulit gelap dan rambut perang	none
-👨🏻‍❤‍💋‍👨🏻	cium lelaki, lelaki dan ton kulit cerah	none
-👨🏻‍❤‍💋‍👨🏼	cium lelaki, lelaki, ton kulit cerah dan ton kulit sederhana cerah	none
-👨🏻‍❤‍💋‍👨🏽	cium lelaki, lelaki, ton kulit cerah dan ton kulit sederhana	none
-👨🏻‍❤‍💋‍👨🏾	cium lelaki, lelaki, ton kulit cerah dan ton kulit sederhana gelap	none
-👨🏻‍❤‍💋‍👨🏿	cium lelaki, lelaki, ton kulit cerah dan ton kulit gelap	none
-👨🏼‍❤‍💋‍👨🏻	cium lelaki, lelaki, ton kulit sederhana cerah dan ton kulit cerah	none
-👨🏼‍❤‍💋‍👨🏼	cium lelaki, lelaki dan ton kulit sederhana cerah	none
-👨🏼‍❤‍💋‍👨🏽	cium lelaki, lelaki, ton kulit sederhana cerah dan ton kulit sederhana	none
-👨🏼‍❤‍💋‍👨🏾	cium lelaki, lelaki, ton kulit sederhana cerah dan ton kulit sederhana gelap	none
-👨🏼‍❤‍💋‍👨🏿	cium lelaki, lelaki, ton kulit sederhana cerah dan ton kulit gelap	none
-👨🏽‍❤‍💋‍👨🏻	cium lelaki, lelaki, ton kulit sederhana dan ton kulit cerah	none
-👨🏽‍❤‍💋‍👨🏼	cium lelaki, lelaki, ton kulit sederhana dan ton kulit sederhana cerah	none
-👨🏽‍❤‍💋‍👨🏽	cium lelaki, lelaki dan ton kulit sederhana	none
-👨🏽‍❤‍💋‍👨🏾	cium lelaki, lelaki, ton kulit sederhana dan ton kulit sederhana gelap	none
-👨🏽‍❤‍💋‍👨🏿	cium lelaki, lelaki, ton kulit sederhana dan ton kulit gelap	none
-👨🏾‍❤‍💋‍👨🏻	cium lelaki, lelaki, ton kulit sederhana gelap dan ton kulit cerah	none
-👨🏾‍❤‍💋‍👨🏼	cium lelaki, lelaki, ton kulit sederhana gelap dan ton kulit sederhana cerah	none
-👨🏾‍❤‍💋‍👨🏽	cium lelaki, lelaki, ton kulit sederhana gelap dan ton kulit sederhana	none
-👨🏾‍❤‍💋‍👨🏾	cium lelaki, lelaki dan ton kulit sederhana gelap	none
-👨🏾‍❤‍💋‍👨🏿	cium lelaki, lelaki, ton kulit sederhana gelap dan ton kulit gelap	none
-👨🏿‍❤‍💋‍👨🏻	cium lelaki, lelaki, ton kulit gelap dan ton kulit cerah	none
-👨🏿‍❤‍💋‍👨🏼	cium lelaki, lelaki, ton kulit gelap dan ton kulit sederhana cerah	none
-👨🏿‍❤‍💋‍👨🏽	cium lelaki, lelaki, ton kulit gelap dan ton kulit sederhana	none
-👨🏿‍❤‍💋‍👨🏾	cium lelaki, lelaki, ton kulit gelap dan ton kulit sederhana gelap	none
-👨🏿‍❤‍💋‍👨🏿	cium lelaki, lelaki dan ton kulit gelap	none
-👨🏻‍❤‍👨🏻	pasangan dengan simbol hati lelaki, lelaki dan ton kulit cerah	none
-👨🏻‍❤‍👨🏼	pasangan dengan simbol hati lelaki, lelaki, ton kulit cerah dan ton kulit sederhana cerah	none
-👨🏻‍❤‍👨🏽	pasangan dengan simbol hati lelaki, lelaki, ton kulit cerah dan ton kulit sederhana	none
-👨🏻‍❤‍👨🏾	pasangan dengan simbol hati lelaki, lelaki, ton kulit cerah dan ton kulit sederhana gelap	none
-👨🏻‍❤‍👨🏿	pasangan dengan simbol hati lelaki, lelaki, ton kulit cerah dan ton kulit gelap	none
-👨🏼‍❤‍👨🏻	pasangan dengan simbol hati lelaki, lelaki, ton kulit sederhana cerah dan ton kulit cerah	none
-👨🏼‍❤‍👨🏼	pasangan dengan simbol hati lelaki, lelaki dan ton kulit sederhana cerah	none
-👨🏼‍❤‍👨🏽	pasangan dengan simbol hati lelaki, lelaki, ton kulit sederhana cerah dan ton kulit sederhana	none
-👨🏼‍❤‍👨🏾	pasangan dengan simbol hati lelaki, lelaki, ton kulit sederhana cerah dan ton kulit sederhana gelap	none
-👨🏼‍❤‍👨🏿	pasangan dengan simbol hati lelaki, lelaki, ton kulit sederhana cerah dan ton kulit gelap	none
-👨🏽‍❤‍👨🏻	pasangan dengan simbol hati lelaki, lelaki, ton kulit sederhana dan ton kulit cerah	none
-👨🏽‍❤‍👨🏼	pasangan dengan simbol hati lelaki, lelaki, ton kulit sederhana dan ton kulit sederhana cerah	none
-👨🏽‍❤‍👨🏽	pasangan dengan simbol hati lelaki, lelaki dan ton kulit sederhana	none
-👨🏽‍❤‍👨🏾	pasangan dengan simbol hati lelaki, lelaki, ton kulit sederhana dan ton kulit sederhana gelap	none
-👨🏽‍❤‍👨🏿	pasangan dengan simbol hati lelaki, lelaki, ton kulit sederhana dan ton kulit gelap	none
-👨🏾‍❤‍👨🏻	pasangan dengan simbol hati lelaki, lelaki, ton kulit sederhana gelap dan ton kulit cerah	none
-👨🏾‍❤‍👨🏼	pasangan dengan simbol hati lelaki, lelaki, ton kulit sederhana gelap dan ton kulit sederhana cerah	none
-👨🏾‍❤‍👨🏽	pasangan dengan simbol hati lelaki, lelaki, ton kulit sederhana gelap dan ton kulit sederhana	none
-👨🏾‍❤‍👨🏾	pasangan dengan simbol hati lelaki, lelaki dan ton kulit sederhana gelap	none
-👨🏾‍❤‍👨🏿	pasangan dengan simbol hati lelaki, lelaki, ton kulit sederhana gelap dan ton kulit gelap	none
-👨🏿‍❤‍👨🏻	pasangan dengan simbol hati lelaki, lelaki, ton kulit gelap dan ton kulit cerah	none
-👨🏿‍❤‍👨🏼	pasangan dengan simbol hati lelaki, lelaki, ton kulit gelap dan ton kulit sederhana cerah	none
-👨🏿‍❤‍👨🏽	pasangan dengan simbol hati lelaki, lelaki, ton kulit gelap dan ton kulit sederhana	none
-👨🏿‍❤‍👨🏾	pasangan dengan simbol hati lelaki, lelaki, ton kulit gelap dan ton kulit sederhana gelap	none
-👨🏿‍❤‍👨🏿	pasangan dengan simbol hati lelaki, lelaki dan ton kulit gelap	none
 👨‍🦰	lelaki rambut merah	none
 👨🏻‍🦰	lelaki ton kulit cerah dan rambut merah	none
 👨🏼‍🦰	lelaki ton kulit sederhana cerah dan rambut merah	none
@@ -2076,116 +1837,11 @@ $	dolar	none
 👩🏽	perempuan ton kulit sederhana	none
 👩🏾	perempuan ton kulit sederhana gelap	none
 👩🏿	perempuan ton kulit gelap	none
-🧔🏻‍♀	wanita ton kulit cerah dan janggut	none
-🧔🏼‍♀	wanita ton kulit sederhana cerah dan janggut	none
-🧔🏽‍♀	wanita ton kulit sederhana dan janggut	none
-🧔🏾‍♀	wanita ton kulit sederhana gelap dan janggut	none
-🧔🏿‍♀	wanita ton kulit gelap dan janggut	none
 👱🏻‍♀	perempuan ton kulit cerah dan rambut perang	none
 👱🏼‍♀	perempuan ton kulit sederhana cerah dan rambut perang	none
 👱🏽‍♀	perempuan ton kulit sederhana dan rambut perang	none
 👱🏾‍♀	perempuan ton kulit sederhana gelap dan rambut perang	none
 👱🏿‍♀	perempuan ton kulit gelap dan rambut perang	none
-👩🏻‍❤‍💋‍👨🏻	cium perempuan, lelaki dan ton kulit cerah	none
-👩🏻‍❤‍💋‍👨🏼	cium perempuan, lelaki, ton kulit cerah dan ton kulit sederhana cerah	none
-👩🏻‍❤‍💋‍👨🏽	cium perempuan, lelaki, ton kulit cerah dan ton kulit sederhana	none
-👩🏻‍❤‍💋‍👨🏾	cium perempuan, lelaki, ton kulit cerah dan ton kulit sederhana gelap	none
-👩🏻‍❤‍💋‍👨🏿	cium perempuan, lelaki, ton kulit cerah dan ton kulit gelap	none
-👩🏼‍❤‍💋‍👨🏻	cium perempuan, lelaki, ton kulit sederhana cerah dan ton kulit cerah	none
-👩🏼‍❤‍💋‍👨🏼	cium perempuan, lelaki dan ton kulit sederhana cerah	none
-👩🏼‍❤‍💋‍👨🏽	cium perempuan, lelaki, ton kulit sederhana cerah dan ton kulit sederhana	none
-👩🏼‍❤‍💋‍👨🏾	cium perempuan, lelaki, ton kulit sederhana cerah dan ton kulit sederhana gelap	none
-👩🏼‍❤‍💋‍👨🏿	cium perempuan, lelaki, ton kulit sederhana cerah dan ton kulit gelap	none
-👩🏽‍❤‍💋‍👨🏻	cium perempuan, lelaki, ton kulit sederhana dan ton kulit cerah	none
-👩🏽‍❤‍💋‍👨🏼	cium perempuan, lelaki, ton kulit sederhana dan ton kulit sederhana cerah	none
-👩🏽‍❤‍💋‍👨🏽	cium perempuan, lelaki dan ton kulit sederhana	none
-👩🏽‍❤‍💋‍👨🏾	cium perempuan, lelaki, ton kulit sederhana dan ton kulit sederhana gelap	none
-👩🏽‍❤‍💋‍👨🏿	cium perempuan, lelaki, ton kulit sederhana dan ton kulit gelap	none
-👩🏾‍❤‍💋‍👨🏻	cium perempuan, lelaki, ton kulit sederhana gelap dan ton kulit cerah	none
-👩🏾‍❤‍💋‍👨🏼	cium perempuan, lelaki, ton kulit sederhana gelap dan ton kulit sederhana cerah	none
-👩🏾‍❤‍💋‍👨🏽	cium perempuan, lelaki, ton kulit sederhana gelap dan ton kulit sederhana	none
-👩🏾‍❤‍💋‍👨🏾	cium perempuan, lelaki dan ton kulit sederhana gelap	none
-👩🏾‍❤‍💋‍👨🏿	cium perempuan, lelaki, ton kulit sederhana gelap dan ton kulit gelap	none
-👩🏿‍❤‍💋‍👨🏻	cium perempuan, lelaki, ton kulit gelap dan ton kulit cerah	none
-👩🏿‍❤‍💋‍👨🏼	cium perempuan, lelaki, ton kulit gelap dan ton kulit sederhana cerah	none
-👩🏿‍❤‍💋‍👨🏽	cium perempuan, lelaki, ton kulit gelap dan ton kulit sederhana	none
-👩🏿‍❤‍💋‍👨🏾	cium perempuan, lelaki, ton kulit gelap dan ton kulit sederhana gelap	none
-👩🏿‍❤‍💋‍👨🏿	cium perempuan, lelaki dan ton kulit gelap	none
-👩🏻‍❤‍💋‍👩🏻	cium perempuan, perempuan dan ton kulit cerah	none
-👩🏻‍❤‍💋‍👩🏼	cium perempuan, perempuan, ton kulit cerah dan ton kulit sederhana cerah	none
-👩🏻‍❤‍💋‍👩🏽	cium perempuan, perempuan, ton kulit cerah dan ton kulit sederhana	none
-👩🏻‍❤‍💋‍👩🏾	cium perempuan, perempuan, ton kulit cerah dan ton kulit sederhana gelap	none
-👩🏻‍❤‍💋‍👩🏿	cium perempuan, perempuan, ton kulit cerah dan ton kulit gelap	none
-👩🏼‍❤‍💋‍👩🏻	cium perempuan, perempuan, ton kulit sederhana cerah dan ton kulit cerah	none
-👩🏼‍❤‍💋‍👩🏼	cium perempuan, perempuan dan ton kulit sederhana cerah	none
-👩🏼‍❤‍💋‍👩🏽	cium perempuan, perempuan, ton kulit sederhana cerah dan ton kulit sederhana	none
-👩🏼‍❤‍💋‍👩🏾	cium perempuan, perempuan, ton kulit sederhana cerah dan ton kulit sederhana gelap	none
-👩🏼‍❤‍💋‍👩🏿	cium perempuan, perempuan, ton kulit sederhana cerah dan ton kulit gelap	none
-👩🏽‍❤‍💋‍👩🏻	cium perempuan, perempuan, ton kulit sederhana dan ton kulit cerah	none
-👩🏽‍❤‍💋‍👩🏼	cium perempuan, perempuan, ton kulit sederhana dan ton kulit sederhana cerah	none
-👩🏽‍❤‍💋‍👩🏽	cium perempuan, perempuan dan ton kulit sederhana	none
-👩🏽‍❤‍💋‍👩🏾	cium perempuan, perempuan, ton kulit sederhana dan ton kulit sederhana gelap	none
-👩🏽‍❤‍💋‍👩🏿	cium perempuan, perempuan, ton kulit sederhana dan ton kulit gelap	none
-👩🏾‍❤‍💋‍👩🏻	cium perempuan, perempuan, ton kulit sederhana gelap dan ton kulit cerah	none
-👩🏾‍❤‍💋‍👩🏼	cium perempuan, perempuan, ton kulit sederhana gelap dan ton kulit sederhana cerah	none
-👩🏾‍❤‍💋‍👩🏽	cium perempuan, perempuan, ton kulit sederhana gelap dan ton kulit sederhana	none
-👩🏾‍❤‍💋‍👩🏾	cium perempuan, perempuan dan ton kulit sederhana gelap	none
-👩🏾‍❤‍💋‍👩🏿	cium perempuan, perempuan, ton kulit sederhana gelap dan ton kulit gelap	none
-👩🏿‍❤‍💋‍👩🏻	cium perempuan, perempuan, ton kulit gelap dan ton kulit cerah	none
-👩🏿‍❤‍💋‍👩🏼	cium perempuan, perempuan, ton kulit gelap dan ton kulit sederhana cerah	none
-👩🏿‍❤‍💋‍👩🏽	cium perempuan, perempuan, ton kulit gelap dan ton kulit sederhana	none
-👩🏿‍❤‍💋‍👩🏾	cium perempuan, perempuan, ton kulit gelap dan ton kulit sederhana gelap	none
-👩🏿‍❤‍💋‍👩🏿	cium perempuan, perempuan dan ton kulit gelap	none
-👩🏻‍❤‍👨🏻	pasangan dengan simbol hati perempuan, lelaki dan ton kulit cerah	none
-👩🏻‍❤‍👨🏼	pasangan dengan simbol hati perempuan, lelaki, ton kulit cerah dan ton kulit sederhana cerah	none
-👩🏻‍❤‍👨🏽	pasangan dengan simbol hati perempuan, lelaki, ton kulit cerah dan ton kulit sederhana	none
-👩🏻‍❤‍👨🏾	pasangan dengan simbol hati perempuan, lelaki, ton kulit cerah dan ton kulit sederhana gelap	none
-👩🏻‍❤‍👨🏿	pasangan dengan simbol hati perempuan, lelaki, ton kulit cerah dan ton kulit gelap	none
-👩🏼‍❤‍👨🏻	pasangan dengan simbol hati perempuan, lelaki, ton kulit sederhana cerah dan ton kulit cerah	none
-👩🏼‍❤‍👨🏼	pasangan dengan simbol hati perempuan, lelaki dan ton kulit sederhana cerah	none
-👩🏼‍❤‍👨🏽	pasangan dengan simbol hati perempuan, lelaki, ton kulit sederhana cerah dan ton kulit sederhana	none
-👩🏼‍❤‍👨🏾	pasangan dengan simbol hati perempuan, lelaki, ton kulit sederhana cerah dan ton kulit sederhana gelap	none
-👩🏼‍❤‍👨🏿	pasangan dengan simbol hati perempuan, lelaki, ton kulit sederhana cerah dan ton kulit gelap	none
-👩🏽‍❤‍👨🏻	pasangan dengan simbol hati perempuan, lelaki, ton kulit sederhana dan ton kulit cerah	none
-👩🏽‍❤‍👨🏼	pasangan dengan simbol hati perempuan, lelaki, ton kulit sederhana dan ton kulit sederhana cerah	none
-👩🏽‍❤‍👨🏽	pasangan dengan simbol hati perempuan, lelaki dan ton kulit sederhana	none
-👩🏽‍❤‍👨🏾	pasangan dengan simbol hati perempuan, lelaki, ton kulit sederhana dan ton kulit sederhana gelap	none
-👩🏽‍❤‍👨🏿	pasangan dengan simbol hati perempuan, lelaki, ton kulit sederhana dan ton kulit gelap	none
-👩🏾‍❤‍👨🏻	pasangan dengan simbol hati perempuan, lelaki, ton kulit sederhana gelap dan ton kulit cerah	none
-👩🏾‍❤‍👨🏼	pasangan dengan simbol hati perempuan, lelaki, ton kulit sederhana gelap dan ton kulit sederhana cerah	none
-👩🏾‍❤‍👨🏽	pasangan dengan simbol hati perempuan, lelaki, ton kulit sederhana gelap dan ton kulit sederhana	none
-👩🏾‍❤‍👨🏾	pasangan dengan simbol hati perempuan, lelaki dan ton kulit sederhana gelap	none
-👩🏾‍❤‍👨🏿	pasangan dengan simbol hati perempuan, lelaki, ton kulit sederhana gelap dan ton kulit gelap	none
-👩🏿‍❤‍👨🏻	pasangan dengan simbol hati perempuan, lelaki, ton kulit gelap dan ton kulit cerah	none
-👩🏿‍❤‍👨🏼	pasangan dengan simbol hati perempuan, lelaki, ton kulit gelap dan ton kulit sederhana cerah	none
-👩🏿‍❤‍👨🏽	pasangan dengan simbol hati perempuan, lelaki, ton kulit gelap dan ton kulit sederhana	none
-👩🏿‍❤‍👨🏾	pasangan dengan simbol hati perempuan, lelaki, ton kulit gelap dan ton kulit sederhana gelap	none
-👩🏿‍❤‍👨🏿	pasangan dengan simbol hati perempuan, lelaki dan ton kulit gelap	none
-👩🏻‍❤‍👩🏻	pasangan dengan simbol hati perempuan, perempuan dan ton kulit cerah	none
-👩🏻‍❤‍👩🏼	pasangan dengan simbol hati perempuan, perempuan, ton kulit cerah dan ton kulit sederhana cerah	none
-👩🏻‍❤‍👩🏽	pasangan dengan simbol hati perempuan, perempuan, ton kulit cerah dan ton kulit sederhana	none
-👩🏻‍❤‍👩🏾	pasangan dengan simbol hati perempuan, perempuan, ton kulit cerah dan ton kulit sederhana gelap	none
-👩🏻‍❤‍👩🏿	pasangan dengan simbol hati perempuan, perempuan, ton kulit cerah dan ton kulit gelap	none
-👩🏼‍❤‍👩🏻	pasangan dengan simbol hati perempuan, perempuan, ton kulit sederhana cerah dan ton kulit cerah	none
-👩🏼‍❤‍👩🏼	pasangan dengan simbol hati perempuan, perempuan dan ton kulit sederhana cerah	none
-👩🏼‍❤‍👩🏽	pasangan dengan simbol hati perempuan, perempuan, ton kulit sederhana cerah dan ton kulit sederhana	none
-👩🏼‍❤‍👩🏾	pasangan dengan simbol hati perempuan, perempuan, ton kulit sederhana cerah dan ton kulit sederhana gelap	none
-👩🏼‍❤‍👩🏿	pasangan dengan simbol hati perempuan, perempuan, ton kulit sederhana cerah dan ton kulit gelap	none
-👩🏽‍❤‍👩🏻	pasangan dengan simbol hati perempuan, perempuan, ton kulit sederhana dan ton kulit cerah	none
-👩🏽‍❤‍👩🏼	pasangan dengan simbol hati perempuan, perempuan, ton kulit sederhana dan ton kulit sederhana cerah	none
-👩🏽‍❤‍👩🏽	pasangan dengan simbol hati perempuan, perempuan dan ton kulit sederhana	none
-👩🏽‍❤‍👩🏾	pasangan dengan simbol hati perempuan, perempuan, ton kulit sederhana dan ton kulit sederhana gelap	none
-👩🏽‍❤‍👩🏿	pasangan dengan simbol hati perempuan, perempuan, ton kulit sederhana dan ton kulit gelap	none
-👩🏾‍❤‍👩🏻	pasangan dengan simbol hati perempuan, perempuan, ton kulit sederhana gelap dan ton kulit cerah	none
-👩🏾‍❤‍👩🏼	pasangan dengan simbol hati perempuan, perempuan, ton kulit sederhana gelap dan ton kulit sederhana cerah	none
-👩🏾‍❤‍👩🏽	pasangan dengan simbol hati perempuan, perempuan, ton kulit sederhana gelap dan ton kulit sederhana	none
-👩🏾‍❤‍👩🏾	pasangan dengan simbol hati perempuan, perempuan dan ton kulit sederhana gelap	none
-👩🏾‍❤‍👩🏿	pasangan dengan simbol hati perempuan, perempuan, ton kulit sederhana gelap dan ton kulit gelap	none
-👩🏿‍❤‍👩🏻	pasangan dengan simbol hati perempuan, perempuan, ton kulit gelap dan ton kulit cerah	none
-👩🏿‍❤‍👩🏼	pasangan dengan simbol hati perempuan, perempuan, ton kulit gelap dan ton kulit sederhana cerah	none
-👩🏿‍❤‍👩🏽	pasangan dengan simbol hati perempuan, perempuan, ton kulit gelap dan ton kulit sederhana	none
-👩🏿‍❤‍👩🏾	pasangan dengan simbol hati perempuan, perempuan, ton kulit gelap dan ton kulit sederhana gelap	none
-👩🏿‍❤‍👩🏿	pasangan dengan simbol hati perempuan, perempuan dan ton kulit gelap	none
 👩‍🦰	perempuan rambut merah	none
 👩🏻‍🦰	perempuan ton kulit cerah dan rambut merah	none
 👩🏼‍🦰	perempuan ton kulit sederhana cerah dan rambut merah	none
@@ -2905,11 +2561,11 @@ $	dolar	none
 💆🏽‍♂	lelaki diurut muka ton kulit sederhana	none
 💆🏾‍♂	lelaki diurut muka ton kulit sederhana gelap	none
 💆🏿‍♂	lelaki diurut muka ton kulit gelap	none
-💆🏻‍♀	perempuan diurut muka ton kulit cerah	none
-💆🏼‍♀	perempuan diurut muka ton kulit sederhana cerah	none
-💆🏽‍♀	perempuan diurut muka ton kulit sederhana	none
-💆🏾‍♀	perempuan diurut muka ton kulit sederhana gelap	none
-💆🏿‍♀	perempuan diurut muka ton kulit gelap	none
+💆🏻‍♀	perempuan diurut mka ton kulit cerah	none
+💆🏼‍♀	perempuan diurut mka ton kulit sederhana cerah	none
+💆🏽‍♀	perempuan diurut mka ton kulit sederhana	none
+💆🏾‍♀	perempuan diurut mka ton kulit sederhana gelap	none
+💆🏿‍♀	perempuan diurut mka ton kulit gelap	none
 💇🏻	gunting rambut ton kulit cerah	none
 💇🏼	gunting rambut ton kulit sederhana cerah	none
 💇🏽	gunting rambut ton kulit sederhana	none
@@ -2970,21 +2626,21 @@ $	dolar	none
 🧎🏽‍♀	perempuan bersimpuh ton kulit sederhana	none
 🧎🏾‍♀	perempuan bersimpuh ton kulit sederhana gelap	none
 🧎🏿‍♀	perempuan bersimpuh ton kulit gelap	none
-🧑🏻‍🦯	orang dengan tongkat putih ton kulit cerah	none
-🧑🏼‍🦯	orang dengan tongkat putih ton kulit sederhana cerah	none
-🧑🏽‍🦯	orang dengan tongkat putih ton kulit sederhana	none
-🧑🏾‍🦯	orang dengan tongkat putih ton kulit sederhana gelap	none
-🧑🏿‍🦯	orang dengan tongkat putih ton kulit gelap	none
-👨🏻‍🦯	lelaki dengan tongkat putih ton kulit cerah	none
-👨🏼‍🦯	lelaki dengan tongkat putih ton kulit sederhana cerah	none
-👨🏽‍🦯	lelaki dengan tongkat putih ton kulit sederhana	none
-👨🏾‍🦯	lelaki dengan tongkat putih ton kulit sederhana gelap	none
-👨🏿‍🦯	lelaki dengan tongkat putih ton kulit gelap	none
-👩🏻‍🦯	perempuan dengan tongkat putih ton kulit cerah	none
-👩🏼‍🦯	perempuan dengan tongkat putih ton kulit sederhana cerah	none
-👩🏽‍🦯	perempuan dengan tongkat putih ton kulit sederhana	none
-👩🏾‍🦯	perempuan dengan tongkat putih ton kulit sederhana gelap	none
-👩🏿‍🦯	perempuan dengan tongkat putih ton kulit gelap	none
+🧑🏻‍🦯	orang dengan tongkat penduga ton kulit cerah	none
+🧑🏼‍🦯	orang dengan tongkat penduga ton kulit sederhana cerah	none
+🧑🏽‍🦯	orang dengan tongkat penduga ton kulit sederhana	none
+🧑🏾‍🦯	orang dengan tongkat penduga ton kulit sederhana gelap	none
+🧑🏿‍🦯	orang dengan tongkat penduga ton kulit gelap	none
+👨🏻‍🦯	lelaki dengan tongkat penduga ton kulit cerah	none
+👨🏼‍🦯	lelaki dengan tongkat penduga ton kulit sederhana cerah	none
+👨🏽‍🦯	lelaki dengan tongkat penduga ton kulit sederhana	none
+👨🏾‍🦯	lelaki dengan tongkat penduga ton kulit sederhana gelap	none
+👨🏿‍🦯	lelaki dengan tongkat penduga ton kulit gelap	none
+👩🏻‍🦯	perempuan dengan tongkat penduga ton kulit cerah	none
+👩🏼‍🦯	perempuan dengan tongkat penduga ton kulit sederhana cerah	none
+👩🏽‍🦯	perempuan dengan tongkat penduga ton kulit sederhana	none
+👩🏾‍🦯	perempuan dengan tongkat penduga ton kulit sederhana gelap	none
+👩🏿‍🦯	perempuan dengan tongkat penduga ton kulit gelap	none
 🧑🏻‍🦼	orang dalam kerusi roda bermotor ton kulit cerah	none
 🧑🏼‍🦼	orang dalam kerusi roda bermotor ton kulit sederhana cerah	none
 🧑🏽‍🦼	orang dalam kerusi roda bermotor ton kulit sederhana	none
@@ -3685,25 +3341,6 @@ $	dolar	none
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	bendera England	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	bendera Scotland	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bendera Wales	none
-¤	Mata Wang Tidak Diketahui	none
-֏	Dram Armenia	none
-؋	Afghani Afghanistan	none
-৳	Taka Bangladesh	none
-฿	Baht Thai	none
-៛	Riel Kemboja	none
-₡	Colon Costa Rica	none
-₦	Naira Nigeria	none
-₪	Syekel Baharu Israel	none
-₫	Dong Vietnam	none
-₭	Kip Laos	none
-₮	Tugrik Mongolia	none
-₲	Guarani Paraguay	none
-₴	Hryvnia Ukraine	none
-₵	Cedi Ghana	none
-₸	Tenge Kazakhstan	none
-₺	Lira Turki	none
-₼	Manat Azerbaijan	none
-₾	Lari Georgia	none
 0⃣	butang kekunci 0	none
 1⃣	butang kekunci 1	none
 2⃣	butang kekunci 2	none

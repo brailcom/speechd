@@ -3,56 +3,16 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
--	menos	none
-‽	interrobang	none
-‘	apóstrofe izquierdo	none
-‚	apóstrofe derecho bajo	none
+–	guion	none
 «	diple de apertura	none
 »	diple de cierre	none
 §	sección	none
 †	signo de daga	none
 ‡	signo de daga doble	none
 •	viñeta	none
-↴	flecha hacia abajo con punta hacia la esquina derecha	none
-↵	flecha hacia abajo con punta hacia la esquina izquierda	none
-↶	flecha en sentido antihorario	none
-↷	flecha en sentido horario	none
 ⇅	flecha doble hacia arriba y abajo	none
 ⇆	flecha doble hacia la izquierda y derecha	none
-⇇	flecha doble hacia la izquierda	none
-⇈	flecha doble hacia arriba	none
-⇉	flecha doble hacia la derecha	none
-⇊	flecha doble hacia abajo	none
-⇦	flecha vacía hacia la izquierda	none
-⇧	flecha vacía hacia arriba	none
-⇨	flecha vacía hacia la derecha	none
-⇩	flecha vacía hacia abajo	none
-⇵	flecha hacia abajo y flecha hacia arriba	none
-∅	conjunto vacío	none
-∉	no es un elemento de	none
-∋	es un elemento de	none
-∓	menos-más	none
-∗	operador de asterisco	none
-∟	ángulo derecho	none
-∠	ángulo	none
-⋅	operador de punto	none
-⋆	operador de estrella	none
-⋈	unión natural	none
-⋮	elipsis vertical	none
-⋯	elipsis horizontal de línea media	none
-⋰	elipsis en diagonal hacia la derecha	none
-⋱	elipsis en diagonal hacia la izquierda	none
-■	cuadrado relleno	none
-□	cuadrado vacío	none
-▢	cuadrado vacío con bordes redondos	none
-▬	rectángulo relleno	none
-▭	rectángulo vacío	none
-▮	rectángulo vertical relleno	none
-▰	paralelogramo relleno	none
 ○	círculo vacío	none
-◘	viñeta invertida	none
-◠	semicírculo superior	none
-◡	semicírculo inferior	none
 ◯	círculo vacío grande	none
 😀	cara feliz	none
 😃	sonrisa con boca abierta	none
@@ -138,10 +98,14 @@ symbols:
 🧓	adulto mayor	none
 👴	hombre mayor	none
 👵	mujer mayor	none
+🙍	mujer frunciendo el ceño	none
 🙍‍♀	mujer que frunce el seño	none
+🙎	mujer enojada	none
 🙅	gesto de está mal	none
 🙆	gesto de está bien	none
+💁	persona en mesa entrada	none
 🙋	persona levantando la mano	none
+👷	obrero de construcción	none
 👼	cara de ángel bebé	none
 🎅	Santa Claus	none
 🧑‍🎄	papá noel	none
@@ -165,6 +129,7 @@ symbols:
 🗣	silueta hablando	none
 👣	huellas	none
 🐽	hocico de cerdo	none
+🐾	pezuña	none
 🐤	cara de pollito	none
 🦎	lagartija	none
 🐳	ballena soplando un chorro de agua	none
@@ -258,6 +223,7 @@ symbols:
 🚦	semáforo vertical	none
 🛑	señal de pare	none
 🚧	señal de construcción	none
+⛵	velero	none
 🚤	lancha	none
 ⛴	transbordador	none
 🚟	tren colgante	none
@@ -416,10 +382,8 @@ symbols:
 📴	celular apagado	none
 ➕	suma	none
 ➖	resta	none
-❓	signo de interrogación	none
 ❔	signo de interrogación gris	none
 ❕	signo de exclamación gris	none
-❗	signo de exclamación	none
 〰	línea ondulada	none
 📛	identificación con nombre	none
 🔰	símbolo japonés de principiante	none
@@ -442,18 +406,6 @@ symbols:
 🔸	diamante naranja pequeño	none
 🔳	cuadrado negro con borde blanco	none
 🔲	cuadrado blanco con borde negro	none
-¢	centavo	none
-₢	cruceiro	none
-₣	franco francés	none
-₤	lira	none
-₥	mill	none
-₰	penique alemán	none
-₳	austral	none
-₶	libra tornesa	none
-₷	spesmilo	none
-₿	bitcoin	none
-₨	rupia	none
-﷼	rial	none
 µ	signo micro	none
 🤚🏻	palma de la mano tono de piel claro	none
 🤚🏼	palma de la mano tono de piel claro medio	none
@@ -520,101 +472,6 @@ symbols:
 🤳🏽	selfie tono de piel medio	none
 🤳🏾	selfie tono de piel oscuro medio	none
 🤳🏿	selfie tono de piel oscuro	none
-🧑🏻‍❤‍💋‍🧑🏼	pareja besándose persona adulta, persona adulta, tono de piel claro, tono de piel claro medio	none
-🧑🏻‍❤‍💋‍🧑🏽	pareja besándose persona adulta, persona adulta, tono de piel claro, tono de piel medio	none
-🧑🏻‍❤‍💋‍🧑🏾	pareja besándose persona adulta, persona adulta, tono de piel claro, tono de piel oscuro medio	none
-🧑🏻‍❤‍💋‍🧑🏿	pareja besándose persona adulta, persona adulta, tono de piel claro, tono de piel oscuro	none
-🧑🏼‍❤‍💋‍🧑🏻	pareja besándose persona adulta, persona adulta, tono de piel claro medio, tono de piel claro	none
-🧑🏼‍❤‍💋‍🧑🏽	pareja besándose persona adulta, persona adulta, tono de piel claro medio, tono de piel medio	none
-🧑🏼‍❤‍💋‍🧑🏾	pareja besándose persona adulta, persona adulta, tono de piel claro medio, tono de piel oscuro medio	none
-🧑🏼‍❤‍💋‍🧑🏿	pareja besándose persona adulta, persona adulta, tono de piel claro medio, tono de piel oscuro	none
-🧑🏽‍❤‍💋‍🧑🏻	pareja besándose persona adulta, persona adulta, tono de piel medio, tono de piel claro	none
-🧑🏽‍❤‍💋‍🧑🏼	pareja besándose persona adulta, persona adulta, tono de piel medio, tono de piel claro medio	none
-🧑🏽‍❤‍💋‍🧑🏾	pareja besándose persona adulta, persona adulta, tono de piel medio, tono de piel oscuro medio	none
-🧑🏽‍❤‍💋‍🧑🏿	pareja besándose persona adulta, persona adulta, tono de piel medio, tono de piel oscuro	none
-🧑🏾‍❤‍💋‍🧑🏻	pareja besándose persona adulta, persona adulta, tono de piel oscuro medio, tono de piel claro	none
-🧑🏾‍❤‍💋‍🧑🏼	pareja besándose persona adulta, persona adulta, tono de piel oscuro medio, tono de piel claro medio	none
-🧑🏾‍❤‍💋‍🧑🏽	pareja besándose persona adulta, persona adulta, tono de piel oscuro medio, tono de piel medio	none
-🧑🏾‍❤‍💋‍🧑🏿	pareja besándose persona adulta, persona adulta, tono de piel oscuro medio, tono de piel oscuro	none
-🧑🏿‍❤‍💋‍🧑🏻	pareja besándose persona adulta, persona adulta, tono de piel oscuro, tono de piel claro	none
-🧑🏿‍❤‍💋‍🧑🏼	pareja besándose persona adulta, persona adulta, tono de piel oscuro, tono de piel claro medio	none
-🧑🏿‍❤‍💋‍🧑🏽	pareja besándose persona adulta, persona adulta, tono de piel oscuro, tono de piel medio	none
-🧑🏿‍❤‍💋‍🧑🏾	pareja besándose persona adulta, persona adulta, tono de piel oscuro, tono de piel oscuro medio	none
-👨🏻‍❤‍💋‍👨🏻	pareja besándose hombre, hombre, tono de piel claro	none
-👨🏻‍❤‍💋‍👨🏼	pareja besándose hombre, hombre, tono de piel claro, tono de piel claro medio	none
-👨🏻‍❤‍💋‍👨🏽	pareja besándose hombre, hombre, tono de piel claro, tono de piel medio	none
-👨🏻‍❤‍💋‍👨🏾	pareja besándose hombre, hombre, tono de piel claro, tono de piel oscuro medio	none
-👨🏻‍❤‍💋‍👨🏿	pareja besándose hombre, hombre, tono de piel claro, tono de piel oscuro	none
-👨🏼‍❤‍💋‍👨🏻	pareja besándose hombre, hombre, tono de piel claro medio, tono de piel claro	none
-👨🏼‍❤‍💋‍👨🏼	pareja besándose hombre, hombre, tono de piel claro medio	none
-👨🏼‍❤‍💋‍👨🏽	pareja besándose hombre, hombre, tono de piel claro medio, tono de piel medio	none
-👨🏼‍❤‍💋‍👨🏾	pareja besándose hombre, hombre, tono de piel claro medio, tono de piel oscuro medio	none
-👨🏼‍❤‍💋‍👨🏿	pareja besándose hombre, hombre, tono de piel claro medio, tono de piel oscuro	none
-👨🏽‍❤‍💋‍👨🏻	pareja besándose hombre, hombre, tono de piel medio, tono de piel claro	none
-👨🏽‍❤‍💋‍👨🏼	pareja besándose hombre, hombre, tono de piel medio, tono de piel claro medio	none
-👨🏽‍❤‍💋‍👨🏽	pareja besándose hombre, hombre, tono de piel medio	none
-👨🏽‍❤‍💋‍👨🏾	pareja besándose hombre, hombre, tono de piel medio, tono de piel oscuro medio	none
-👨🏽‍❤‍💋‍👨🏿	pareja besándose hombre, hombre, tono de piel medio, tono de piel oscuro	none
-👨🏾‍❤‍💋‍👨🏻	pareja besándose hombre, hombre, tono de piel oscuro medio, tono de piel claro	none
-👨🏾‍❤‍💋‍👨🏼	pareja besándose hombre, hombre, tono de piel oscuro medio, tono de piel claro medio	none
-👨🏾‍❤‍💋‍👨🏽	pareja besándose hombre, hombre, tono de piel oscuro medio, tono de piel medio	none
-👨🏾‍❤‍💋‍👨🏾	pareja besándose hombre, hombre, tono de piel oscuro medio	none
-👨🏾‍❤‍💋‍👨🏿	pareja besándose hombre, hombre, tono de piel oscuro medio, tono de piel oscuro	none
-👨🏿‍❤‍💋‍👨🏻	pareja besándose hombre, hombre, tono de piel oscuro, tono de piel claro	none
-👨🏿‍❤‍💋‍👨🏼	pareja besándose hombre, hombre, tono de piel oscuro, tono de piel claro medio	none
-👨🏿‍❤‍💋‍👨🏽	pareja besándose hombre, hombre, tono de piel oscuro, tono de piel medio	none
-👨🏿‍❤‍💋‍👨🏾	pareja besándose hombre, hombre, tono de piel oscuro, tono de piel oscuro medio	none
-👨🏿‍❤‍💋‍👨🏿	pareja besándose hombre, hombre, tono de piel oscuro	none
-👩🏻‍❤‍💋‍👨🏻	pareja besándose mujer, hombre, tono de piel claro	none
-👩🏻‍❤‍💋‍👨🏼	pareja besándose mujer, hombre, tono de piel claro, tono de piel claro medio	none
-👩🏻‍❤‍💋‍👨🏽	pareja besándose mujer, hombre, tono de piel claro, tono de piel medio	none
-👩🏻‍❤‍💋‍👨🏾	pareja besándose mujer, hombre, tono de piel claro, tono de piel oscuro medio	none
-👩🏻‍❤‍💋‍👨🏿	pareja besándose mujer, hombre, tono de piel claro, tono de piel oscuro	none
-👩🏼‍❤‍💋‍👨🏻	pareja besándose mujer, hombre, tono de piel claro medio, tono de piel claro	none
-👩🏼‍❤‍💋‍👨🏼	pareja besándose mujer, hombre, tono de piel claro medio	none
-👩🏼‍❤‍💋‍👨🏽	pareja besándose mujer, hombre, tono de piel claro medio, tono de piel medio	none
-👩🏼‍❤‍💋‍👨🏾	pareja besándose mujer, hombre, tono de piel claro medio, tono de piel oscuro medio	none
-👩🏼‍❤‍💋‍👨🏿	pareja besándose mujer, hombre, tono de piel claro medio, tono de piel oscuro	none
-👩🏽‍❤‍💋‍👨🏻	pareja besándose mujer, hombre, tono de piel medio, tono de piel claro	none
-👩🏽‍❤‍💋‍👨🏼	pareja besándose mujer, hombre, tono de piel medio, tono de piel claro medio	none
-👩🏽‍❤‍💋‍👨🏽	pareja besándose mujer, hombre, tono de piel medio	none
-👩🏽‍❤‍💋‍👨🏾	pareja besándose mujer, hombre, tono de piel medio, tono de piel oscuro medio	none
-👩🏽‍❤‍💋‍👨🏿	pareja besándose mujer, hombre, tono de piel medio, tono de piel oscuro	none
-👩🏾‍❤‍💋‍👨🏻	pareja besándose mujer, hombre, tono de piel oscuro medio, tono de piel claro	none
-👩🏾‍❤‍💋‍👨🏼	pareja besándose mujer, hombre, tono de piel oscuro medio, tono de piel claro medio	none
-👩🏾‍❤‍💋‍👨🏽	pareja besándose mujer, hombre, tono de piel oscuro medio, tono de piel medio	none
-👩🏾‍❤‍💋‍👨🏾	pareja besándose mujer, hombre, tono de piel oscuro medio	none
-👩🏾‍❤‍💋‍👨🏿	pareja besándose mujer, hombre, tono de piel oscuro medio, tono de piel oscuro	none
-👩🏿‍❤‍💋‍👨🏻	pareja besándose mujer, hombre, tono de piel oscuro, tono de piel claro	none
-👩🏿‍❤‍💋‍👨🏼	pareja besándose mujer, hombre, tono de piel oscuro, tono de piel claro medio	none
-👩🏿‍❤‍💋‍👨🏽	pareja besándose mujer, hombre, tono de piel oscuro, tono de piel medio	none
-👩🏿‍❤‍💋‍👨🏾	pareja besándose mujer, hombre, tono de piel oscuro, tono de piel oscuro medio	none
-👩🏿‍❤‍💋‍👨🏿	pareja besándose mujer, hombre, tono de piel oscuro	none
-👩🏻‍❤‍💋‍👩🏻	pareja besándose mujer, mujer, tono de piel claro	none
-👩🏻‍❤‍💋‍👩🏼	pareja besándose mujer, mujer, tono de piel claro, tono de piel claro medio	none
-👩🏻‍❤‍💋‍👩🏽	pareja besándose mujer, mujer, tono de piel claro, tono de piel medio	none
-👩🏻‍❤‍💋‍👩🏾	pareja besándose mujer, mujer, tono de piel claro, tono de piel oscuro medio	none
-👩🏻‍❤‍💋‍👩🏿	pareja besándose mujer, mujer, tono de piel claro, tono de piel oscuro	none
-👩🏼‍❤‍💋‍👩🏻	pareja besándose mujer, mujer, tono de piel claro medio, tono de piel claro	none
-👩🏼‍❤‍💋‍👩🏼	pareja besándose mujer, mujer, tono de piel claro medio	none
-👩🏼‍❤‍💋‍👩🏽	pareja besándose mujer, mujer, tono de piel claro medio, tono de piel medio	none
-👩🏼‍❤‍💋‍👩🏾	pareja besándose mujer, mujer, tono de piel claro medio, tono de piel oscuro medio	none
-👩🏼‍❤‍💋‍👩🏿	pareja besándose mujer, mujer, tono de piel claro medio, tono de piel oscuro	none
-👩🏽‍❤‍💋‍👩🏻	pareja besándose mujer, mujer, tono de piel medio, tono de piel claro	none
-👩🏽‍❤‍💋‍👩🏼	pareja besándose mujer, mujer, tono de piel medio, tono de piel claro medio	none
-👩🏽‍❤‍💋‍👩🏽	pareja besándose mujer, mujer, tono de piel medio	none
-👩🏽‍❤‍💋‍👩🏾	pareja besándose mujer, mujer, tono de piel medio, tono de piel oscuro medio	none
-👩🏽‍❤‍💋‍👩🏿	pareja besándose mujer, mujer, tono de piel medio, tono de piel oscuro	none
-👩🏾‍❤‍💋‍👩🏻	pareja besándose mujer, mujer, tono de piel oscuro medio, tono de piel claro	none
-👩🏾‍❤‍💋‍👩🏼	pareja besándose mujer, mujer, tono de piel oscuro medio, tono de piel claro medio	none
-👩🏾‍❤‍💋‍👩🏽	pareja besándose mujer, mujer, tono de piel oscuro medio, tono de piel medio	none
-👩🏾‍❤‍💋‍👩🏾	pareja besándose mujer, mujer, tono de piel oscuro medio	none
-👩🏾‍❤‍💋‍👩🏿	pareja besándose mujer, mujer, tono de piel oscuro medio, tono de piel oscuro	none
-👩🏿‍❤‍💋‍👩🏻	pareja besándose mujer, mujer, tono de piel oscuro, tono de piel claro	none
-👩🏿‍❤‍💋‍👩🏼	pareja besándose mujer, mujer, tono de piel oscuro, tono de piel claro medio	none
-👩🏿‍❤‍💋‍👩🏽	pareja besándose mujer, mujer, tono de piel oscuro, tono de piel medio	none
-👩🏿‍❤‍💋‍👩🏾	pareja besándose mujer, mujer, tono de piel oscuro, tono de piel oscuro medio	none
-👩🏿‍❤‍💋‍👩🏿	pareja besándose mujer, mujer, tono de piel oscuro	none
 🧓🏻	adulto mayor tono de piel claro	none
 🧓🏼	adulto mayor tono de piel claro medio	none
 🧓🏽	adulto mayor tono de piel medio	none
@@ -630,11 +487,21 @@ symbols:
 👵🏽	mujer mayor tono de piel medio	none
 👵🏾	mujer mayor tono de piel oscuro medio	none
 👵🏿	mujer mayor tono de piel oscuro	none
+🙍🏻	mujer frunciendo el ceño tono de piel claro	none
+🙍🏼	mujer frunciendo el ceño tono de piel claro medio	none
+🙍🏽	mujer frunciendo el ceño tono de piel medio	none
+🙍🏾	mujer frunciendo el ceño tono de piel oscuro medio	none
+🙍🏿	mujer frunciendo el ceño tono de piel oscuro	none
 🙍🏻‍♀	mujer que frunce el seño tono de piel claro	none
 🙍🏼‍♀	mujer que frunce el seño tono de piel claro medio	none
 🙍🏽‍♀	mujer que frunce el seño tono de piel medio	none
 🙍🏾‍♀	mujer que frunce el seño tono de piel oscuro medio	none
 🙍🏿‍♀	mujer que frunce el seño tono de piel oscuro	none
+🙎🏻	mujer enojada tono de piel claro	none
+🙎🏼	mujer enojada tono de piel claro medio	none
+🙎🏽	mujer enojada tono de piel medio	none
+🙎🏾	mujer enojada tono de piel oscuro medio	none
+🙎🏿	mujer enojada tono de piel oscuro	none
 🙅🏻	gesto de está mal tono de piel claro	none
 🙅🏼	gesto de está mal tono de piel claro medio	none
 🙅🏽	gesto de está mal tono de piel medio	none
@@ -645,11 +512,21 @@ symbols:
 🙆🏽	gesto de está bien tono de piel medio	none
 🙆🏾	gesto de está bien tono de piel oscuro medio	none
 🙆🏿	gesto de está bien tono de piel oscuro	none
+💁🏻	persona en mesa entrada tono de piel claro	none
+💁🏼	persona en mesa entrada tono de piel claro medio	none
+💁🏽	persona en mesa entrada tono de piel medio	none
+💁🏾	persona en mesa entrada tono de piel oscuro medio	none
+💁🏿	persona en mesa entrada tono de piel oscuro	none
 🙋🏻	persona levantando la mano tono de piel claro	none
 🙋🏼	persona levantando la mano tono de piel claro medio	none
 🙋🏽	persona levantando la mano tono de piel medio	none
 🙋🏾	persona levantando la mano tono de piel oscuro medio	none
 🙋🏿	persona levantando la mano tono de piel oscuro	none
+👷🏻	obrero de construcción tono de piel claro	none
+👷🏼	obrero de construcción tono de piel claro medio	none
+👷🏽	obrero de construcción tono de piel medio	none
+👷🏾	obrero de construcción tono de piel oscuro medio	none
+👷🏿	obrero de construcción tono de piel oscuro	none
 👼🏻	cara de ángel bebé tono de piel claro	none
 👼🏼	cara de ángel bebé tono de piel claro medio	none
 👼🏽	cara de ángel bebé tono de piel medio	none
@@ -1022,7 +899,6 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	bandera Inglaterra	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	bandera Escocia	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bandera Gales	none
-฿	baht tailandes	none
 0⃣	tecla mayus 0	none
 1⃣	tecla mayus 1	none
 2⃣	tecla mayus 2	none

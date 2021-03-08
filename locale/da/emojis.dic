@@ -3,280 +3,46 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
-{	venstre akkolade	none
 🏻	lys teint	none
 🏼	medium til lys teint	none
 🏽	medium teint	none
 🏾	medium til mørk teint	none
 🏿	mørk teint	none
-_	lav streg	none
--	tankestreg-minus	none
-‐	bindestreg	none
 –	tankestreg	none
 —	lang tankestreg	none
-―	vandret streg	none
-・	katakana-mellemprik	none
-,	komma	none
-،	arabisk komma	none
-、	ideografisk komma	none
-;	semikolon	none
-؛	arabisk semikolon	none
-:	kolon	none
-!	udråbstegn	none
-¡	omvendt udråbstegn	none
-?	spørgsmålstegn	none
-¿	omvendt spørgsmålstegn	none
-؟	arabisk spørgsmålstegn	none
-.	punktum	none
-…	udeladelsesprikker	none
-。	ideografisk punktum	none
 ·	underordnet punkttegn	none
-'	apostrof	none
-‘	venstre apostrof	none
-’	højre apostrof	none
-‚	lav højre apostrof	none
-“	venstre anførselstegn	none
-”	højre anførselstegn	none
-„	lavt højre anførselstegn	none
 «	venstre fransk anførselstegn	none
 »	højre fransk anførselstegn	none
-)	slutparentes	none
-[	venstre firkantet parentes	none
-]	højre firkantet parentes	none
-}	højre akkolade	none
-〈	venstre vinkelparentes	none
-〉	højre vinkelparentes	none
-《	venstre dobbelt vinkelparentes	none
-》	højre dobbelt vinkelparentes	none
-「	venstre hjørneparentes	none
-」	højre hjørneparentes	none
-『	venstre hul hjørneparentes	none
-』	højre hul hjørneparentes	none
-【	venstre sort linseparentes	none
-】	højre sort linseparentes	none
-〔	venstre skjoldparentes	none
-〕	højre skjoldparentes	none
-〖	venstre hul linseparentes	none
-〗	højre hul linseparentes	none
 §	paragraf	none
-¶	afsnitstegn	none
-@	snabel-a	none
-*	asterisk	none
-/	skråstreg	none
-\	omvendt skråstreg	none
-&	og-tegn	none
-#	hashtag	none
-%	procent	none
-‰	promille	none
-†	korstegn	none
-‡	dobbeltkorstegn	none
+†	kors	none
+‡	dobbelt kors	none
 •	punkttegn	none
-‧	bindeprik	none
-′	enkelt anførselstegn	none
-″	dobbelt anførselstegn	none
-‴	tredobbelt anførselstegn	none
-‸	indskudstegn	none
-※	henvisningstegn	none
-⁂	asterisme	none
-`	accent grave	none
-´	accent aigu	none
-^	accent circumfleks	none
-¨	tréma	none
-°	grader	none
+°	gradtegn	none
 ℗	copyright på lydoptagelse	none
 ←	venstrepil	none
-↚	venstrepil og skråstreg	none
 →	højrepil	none
-↛	højrepil og skråstreg	none
 ↑	pil op	none
 ↓	pil ned	none
-↜	bølget venstrepil	none
-↝	bølget højrepil	none
-↞	tohovedet venstrepil	none
-↟	tohovedet pil op	none
-↠	tohovedet højrepil	none
-↡	tohovedet pil ned	none
-↢	venstrepil med fjer	none
-↣	højrepil med fjer	none
-↤	venstrepil fra streg	none
-↥	pil op fra streg	none
-↦	højrepil fra streg	none
-↧	pil ned fra streg	none
-↨	pil op/ned med fod	none
-↫	venstrepil med sløjfe	none
-↬	højrepil med sløjfe	none
-↭	venstre-/højrepil med bølge	none
-↯	zigzagpil ned	none
-↰	pil op og til venstre	none
-↱	pil op og til højre	none
-↲	pil ned og til venstre	none
-↳	pil ned og til højre	none
-↴	hjørnepil til højre og ned	none
-↵	hjørnepil ned og til venstre	none
-↶	halvcirkelpil mod uret, top	none
-↷	halvcirkelpil med uret, top	none
-↸	pil mod nordvest med lang streg	none
-↹	venstrepil med streg over højrepil med streg	none
-↺	åben cirkelpil mod uret	none
-↻	åben cirkelpil med uret	none
-↼	venstre harpun med krog op	none
-↽	venstre harpun med krog ned	none
-↾	harpun op med krog til højre	none
-↿	harpun op med krog til venstre	none
-⇀	højre harpun med krog op	none
-⇁	højre harpun med krog ned	none
-⇂	harpun ned med krog til højre	none
-⇃	harpun ned med krog til venstre	none
-⇄	højrepil over venstrepil	none
 ⇅	pil op og pil ned	none
 ⇆	venstrepil over højrepil	none
-⇇	to pile mod venstre	none
-⇈	to pile op	none
-⇉	to pile mod højre	none
-⇊	to pile ned	none
-⇋	venstre harpun over højre harpun	none
-⇌	højre harpun over venstre harpun	none
-⇐	dobbeltpil mod venstre	none
-⇍	dobbeltpil mod venstre med skråstreg	none
-⇑	dobbeltpil op	none
-⇒	dobbeltpil mod højre	none
-⇏	dobbeltpil mod højre med skråstreg	none
-⇓	dobbeltpil ned	none
-⇔	dobbeltpil mod venstre og højre	none
-⇎	dobbeltpil mod venstre og højre med skråstreg	none
-⇖	dobbeltpil mod nordvest	none
-⇗	dobbeltpil mod nordøst	none
-⇘	dobbeltpil mod sydøst	none
-⇙	dobbeltpil mod sydvest	none
-⇚	tredobbelt pil mod venstre	none
-⇛	tredobbelt pil mod højre	none
-⇜	snoet pil mod venstre	none
-⇝	snoet pil mod højre	none
-⇞	pil op med dobbelt tværstreg	none
-⇟	pil ned med dobbelt tværstreg	none
-⇠	stiplet venstrepil	none
-⇡	stiplet pil op	none
-⇢	stiplet højrepil	none
-⇣	stiplet pil ned	none
-⇤	venstrepil mod streg	none
-⇥	højrepil mod streg	none
-⇦	hul venstrepil	none
-⇧	hul pil op	none
-⇨	hul højrepil	none
-⇩	hul pil ned	none
-⇪	hul pil op fra streg	none
-⇵	pil ned til venstre for pil op	none
-∀	for alle	none
-∂	partiel differentialligning	none
-∃	der findes	none
-∅	tom mængde	none
 ∆	optælling	none
 ∇	nabla	none
 ∈	element i	none
-∉	tilhører ikke	none
-∋	indeholder som element	none
-∎	slut på bevis	none
-∏	produkt	none
-∑	sum	none
-+	plustegn	none
-±	plus/minus	none
-÷	divisionstegn	none
+÷	division	none
 ×	gangetegn	none
-<	mindre end	none
-≮	ikke mindre end	none
-=	lig med	none
-≠	ikke lig med	none
->	større end	none
-≯	ikke større end	none
-¬	negation	none
-|	lodret streg	none
-~	tilde	none
-−	minustegn	none
 ⁻	hævet minus	none
-∓	minus eller plus	none
-∕	division	none
-⁄	brøkdel	none
-∗	asteriskoperator	none
-∘	ringoperator	none
-∙	punktoperator	none
 √	kvadratrod	none
-∝	proportional	none
 ∞	uendelighedstegn	none
-∟	ret vinkel	none
-∠	vinkel	none
-∣	deler	none
-∥	parallel	none
-∧	logisk og	none
 ∩	fællesmængde	none
 ∪	foreningsmængde	none
-∫	integral	none
-∬	dobbelt integral	none
-∮	lukket kurveintegral	none
-∴	derfor	none
-∵	fordi	none
-∶	forhold	none
-∷	proportion	none
-∼	tilde-operator	none
-∽	omvendt tilde	none
-∾	omvendt dovent s	none
-≃	asymptotisk lig med	none
-≅	cirka lig med	none
-≈	næsten lig med	none
-≌	alle lig med	none
-≒	cirka lig med billedet	none
-≖	ring i lighedstegn	none
 ≡	identisk med	none
-≤	mindre end eller lig med	none
-≥	større end eller lig med	none
-≦	mindre end over lig med	none
-≧	større end over lig med	none
-≪	meget mindre end	none
-≫	meget større end	none
-≬	mellem	none
-≳	større end-ekvivalent	none
-≺	kommer før	none
-≻	kommer efter	none
-⊁	kommer ikke efter	none
 ⊂	delmængde af	none
-⊆	delmængde eller lig med	none
-⊕	plus med ring	none
-⊖	minus med ring	none
-⊗	gange med ring	none
-⊘	division med ring	none
-⊙	punktoperator med ring	none
-⊚	ring-operator med ring	none
-⊛	stjerne-operator med ring	none
-⊮	gennemtvinger ikke	none
-⊰	kommer før under relation	none
-⊱	følger efter under relation	none
-⋭	indeholder ikke som normal undergruppe lig med	none
-⊶	oprindelig	none
-⊹	hermitisk transponeret matrix	none
-⊿	retvinklet trekant	none
-⋁	n-ært logisk eller	none
-⋂	n-ær fællesmængde	none
-⋃	n-ær foreningsmængde	none
-⋅	prikoperator	none
-⋆	stjerneoperator	none
-⋈	naturlig join	none
-⋒	dobbelt fællesmængde	none
-⋘	langt mindre end	none
-⋙	langt større end	none
-⋮	lodret ellipse	none
-⋯	vandret ellipse	none
-⋰	diagonal ellipse opad mod højre	none
-⋱	diagonal ellipse nedad mod højre	none
-■	udfyldt firkant	none
-□	hul firkant	none
 ▲	udfyldt opadvendt trekant	none
 ▼	udfyldt nedadvendt trekant	none
 ◊	rombe	none
 ○	hul cirkel	none
 ●	udfyldt cirkel	none
 ◯	stor hul cirkel	none
-♪	ottendedelsnode	none
-♭	tone med b for	none
-♯	tone med kryds for	none
 😀	grinende ansigt	none
 😃	grinende ansigt med store øjne	none
 😄	grinende ansigt med smilende øjne	none
@@ -314,12 +80,10 @@ _	lav streg	none
 😐	neutralt ansigt	none
 😑	udtryksløst ansigt	none
 😶	ansigt uden mund	none
-😶‍🌫	ansigt i sky	none
 😏	ansigt med smørret grin	none
 😒	uimponeret ansigt	none
 🙄	ansigt med rullende øjne	none
 😬	sammenbidt ansigt	none
-😮‍💨	udåndende ansigt	none
 🤥	løgneransigt	none
 😌	lettet ansigt	none
 😔	eftertænksomt ansigt	none
@@ -336,7 +100,6 @@ _	lav streg	none
 🥶	frysende ansigt	none
 🥴	ørt ansigt	none
 😵	svimmelt ansigt	none
-😵‍💫	ansigt med spiraløjne	none
 🤯	hoved, der eksploderer	none
 🤠	ansigt med cowboyhat	none
 🥳	festansigt	none
@@ -408,8 +171,6 @@ _	lav streg	none
 💟	hjertedekoration	none
 ❣	hjerte som udråbstegn	none
 💔	knust hjerte	none
-❤‍🔥	brændende hjerte	none
-❤‍🩹	helende hjerte	none
 ❤	rødt hjerte	none
 🧡	orange hjerte	none
 💛	gult hjerte	none
@@ -491,11 +252,9 @@ _	lav streg	none
 🧑	voksen	none
 👱	blond person	none
 👨	mand	none
-🧔	person med skæg	none
-🧔‍♂	mand med skæg	none
+🧔	mand med skæg	none
 👱‍♂	blond mand	none
 👩	kvinde	none
-🧔‍♀	kvinde med skæg	none
 👱‍♀	blond kvinde	none
 🧓	gammel person	none
 👴	gammel mand	none
@@ -1501,7 +1260,7 @@ _	lav streg	none
 🛠	hammer og skruenøgle	none
 🗡	dolk	none
 ⚔	korslagte sværd	none
-🔫	vandpistol	none
+🔫	pistol	none
 🪃	boomerang	none
 🏹	bue og pil	none
 🛡	skjold	none
@@ -1597,7 +1356,6 @@ _	lav streg	none
 ↖	opadvendt pil mod venstre	none
 ↕	op- og nedadvendt pil	none
 ↔	pil mod venstre og højre	none
-↮	venstre-/højrepil og skråstreg	none
 ↩	pil mod højre med sving til venstre	none
 ↪	pil mod venstre med sving til højre	none
 ⤴	pil mod højre med sving opad	none
@@ -1634,7 +1392,7 @@ _	lav streg	none
 ♒	vandmanden	none
 ♓	fisken	none
 ⛎	slangebæreren	none
-🔀	bland sange-knap	none
+🔀	pile for bland	none
 🔁	gentageknap	none
 🔂	knap til én gentagelse	none
 ▶	afspilningsknap	none
@@ -1661,17 +1419,17 @@ _	lav streg	none
 ♀	kvindesymbol	none
 ♂	mandesymbol	none
 ⚧	symbol for transkønnethed	none
-✖	gange	none
-➕	plus	none
-➖	minus	none
-➗	dividere	none
+✖	multiplikationstegn	none
+➕	plustegn	none
+➖	minustegn	none
+➗	divisionstegn	none
 ♾	uendelig	none
 ‼	dobbelt udråbstegn	none
 ⁉	udråbstegn og spørgsmålstegn	none
-❓	rødt spørgsmålstegn	none
+❓	spørgsmålstegn	none
 ❔	hvidt spørgsmålstegn	none
 ❕	hvidt udråbstegn	none
-❗	rødt udråbstegn	none
+❗	udråbstegn	none
 〰	bølgestreg	none
 💱	valutaveksling	none
 💲	dollartegn	none
@@ -1740,7 +1498,7 @@ _	lav streg	none
 🟡	gul cirkel	none
 🟢	grøn cirkel	none
 🔵	blå cirkel	none
-🟣	lilla cirkel	none
+🟣	lille cirkel	none
 🟤	brun cirkel	none
 ⚫	sort cirkel	none
 ⚪	hvid cirkel	none
@@ -1777,17 +1535,11 @@ _	lav streg	none
 🏳‍🌈	regnbueflag	none
 🏳‍⚧	transkønnet flag	none
 🏴‍☠	piratflag	none
-¢	cent	none
-$	dollar	none
 £	pund	none
 ¥	yen	none
-₥	mill	none
-₩	won	none
 €	euro	none
-₱	peso	none
 ₹	indisk rupee	none
 ₽	rubel	none
-₿	bitcoin	none
 ¹	hævet ettal	none
 ²	hævet total	none
 ³	hævet tretal	none
@@ -2017,46 +1769,6 @@ $	dollar	none
 👱🏽	blond person medium teint	none
 👱🏾	blond person medium til mørk teint	none
 👱🏿	blond person mørk teint	none
-🧑🏻‍❤‍💋‍🧑🏼	kys voksen, voksen, lys teint og medium til lys teint	none
-🧑🏻‍❤‍💋‍🧑🏽	kys voksen, voksen, lys teint og medium teint	none
-🧑🏻‍❤‍💋‍🧑🏾	kys voksen, voksen, lys teint og medium til mørk teint	none
-🧑🏻‍❤‍💋‍🧑🏿	kys voksen, voksen, lys teint og mørk teint	none
-🧑🏼‍❤‍💋‍🧑🏻	kys voksen, voksen, medium til lys teint og lys teint	none
-🧑🏼‍❤‍💋‍🧑🏽	kys voksen, voksen, medium til lys teint og medium teint	none
-🧑🏼‍❤‍💋‍🧑🏾	kys voksen, voksen, medium til lys teint og medium til mørk teint	none
-🧑🏼‍❤‍💋‍🧑🏿	kys voksen, voksen, medium til lys teint og mørk teint	none
-🧑🏽‍❤‍💋‍🧑🏻	kys voksen, voksen, medium teint og lys teint	none
-🧑🏽‍❤‍💋‍🧑🏼	kys voksen, voksen, medium teint og medium til lys teint	none
-🧑🏽‍❤‍💋‍🧑🏾	kys voksen, voksen, medium teint og medium til mørk teint	none
-🧑🏽‍❤‍💋‍🧑🏿	kys voksen, voksen, medium teint og mørk teint	none
-🧑🏾‍❤‍💋‍🧑🏻	kys voksen, voksen, medium til mørk teint og lys teint	none
-🧑🏾‍❤‍💋‍🧑🏼	kys voksen, voksen, medium til mørk teint og medium til lys teint	none
-🧑🏾‍❤‍💋‍🧑🏽	kys voksen, voksen, medium til mørk teint og medium teint	none
-🧑🏾‍❤‍💋‍🧑🏿	kys voksen, voksen, medium til mørk teint og mørk teint	none
-🧑🏿‍❤‍💋‍🧑🏻	kys voksen, voksen, mørk teint og lys teint	none
-🧑🏿‍❤‍💋‍🧑🏼	kys voksen, voksen, mørk teint og medium til lys teint	none
-🧑🏿‍❤‍💋‍🧑🏽	kys voksen, voksen, mørk teint og medium teint	none
-🧑🏿‍❤‍💋‍🧑🏾	kys voksen, voksen, mørk teint og medium til mørk teint	none
-🧑🏻‍❤‍🧑🏼	par med hjerte voksen, voksen, lys teint og medium til lys teint	none
-🧑🏻‍❤‍🧑🏽	par med hjerte voksen, voksen, lys teint og medium teint	none
-🧑🏻‍❤‍🧑🏾	par med hjerte voksen, voksen, lys teint og medium til mørk teint	none
-🧑🏻‍❤‍🧑🏿	par med hjerte voksen, voksen, lys teint og mørk teint	none
-🧑🏼‍❤‍🧑🏻	par med hjerte voksen, voksen, medium til lys teint og lys teint	none
-🧑🏼‍❤‍🧑🏽	par med hjerte voksen, voksen, medium til lys teint og medium teint	none
-🧑🏼‍❤‍🧑🏾	par med hjerte voksen, voksen, medium til lys teint og medium til mørk teint	none
-🧑🏼‍❤‍🧑🏿	par med hjerte voksen, voksen, medium til lys teint og mørk teint	none
-🧑🏽‍❤‍🧑🏻	par med hjerte voksen, voksen, medium teint og lys teint	none
-🧑🏽‍❤‍🧑🏼	par med hjerte voksen, voksen, medium teint og medium til lys teint	none
-🧑🏽‍❤‍🧑🏾	par med hjerte voksen, voksen, medium teint og medium til mørk teint	none
-🧑🏽‍❤‍🧑🏿	par med hjerte voksen, voksen, medium teint og mørk teint	none
-🧑🏾‍❤‍🧑🏻	par med hjerte voksen, voksen, medium til mørk teint og lys teint	none
-🧑🏾‍❤‍🧑🏼	par med hjerte voksen, voksen, medium til mørk teint og medium til lys teint	none
-🧑🏾‍❤‍🧑🏽	par med hjerte voksen, voksen, medium til mørk teint og medium teint	none
-🧑🏾‍❤‍🧑🏿	par med hjerte voksen, voksen, medium til mørk teint og mørk teint	none
-🧑🏿‍❤‍🧑🏻	par med hjerte voksen, voksen, mørk teint og lys teint	none
-🧑🏿‍❤‍🧑🏼	par med hjerte voksen, voksen, mørk teint og medium til lys teint	none
-🧑🏿‍❤‍🧑🏽	par med hjerte voksen, voksen, mørk teint og medium teint	none
-🧑🏿‍❤‍🧑🏾	par med hjerte voksen, voksen, mørk teint og medium til mørk teint	none
 🧑‍🦰	voksen rødt hår	none
 🧑🏻‍🦰	voksen lys teint og rødt hår	none
 🧑🏼‍🦰	voksen medium til lys teint og rødt hår	none
@@ -2086,71 +1798,16 @@ $	dollar	none
 👨🏽	mand medium teint	none
 👨🏾	mand medium til mørk teint	none
 👨🏿	mand mørk teint	none
-🧔🏻	person med skæg lys teint	none
-🧔🏼	person med skæg medium til lys teint	none
-🧔🏽	person med skæg medium teint	none
-🧔🏾	person med skæg medium til mørk teint	none
-🧔🏿	person med skæg mørk teint	none
-🧔🏻‍♂	mand med skæg lys teint	none
-🧔🏼‍♂	mand med skæg medium til lys teint	none
-🧔🏽‍♂	mand med skæg medium teint	none
-🧔🏾‍♂	mand med skæg medium til mørk teint	none
-🧔🏿‍♂	mand med skæg mørk teint	none
+🧔🏻	mand med skæg lys teint	none
+🧔🏼	mand med skæg medium til lys teint	none
+🧔🏽	mand med skæg medium teint	none
+🧔🏾	mand med skæg medium til mørk teint	none
+🧔🏿	mand med skæg mørk teint	none
 👱🏻‍♂	blond mand lys teint	none
 👱🏼‍♂	blond mand medium til lys teint	none
 👱🏽‍♂	blond mand medium teint	none
 👱🏾‍♂	blond mand medium til mørk teint	none
 👱🏿‍♂	blond mand mørk teint	none
-👨🏻‍❤‍💋‍👨🏻	kys mand, mand og lys teint	none
-👨🏻‍❤‍💋‍👨🏼	kys mand, mand, lys teint og medium til lys teint	none
-👨🏻‍❤‍💋‍👨🏽	kys mand, mand, lys teint og medium teint	none
-👨🏻‍❤‍💋‍👨🏾	kys mand, mand, lys teint og medium til mørk teint	none
-👨🏻‍❤‍💋‍👨🏿	kys mand, mand, lys teint og mørk teint	none
-👨🏼‍❤‍💋‍👨🏻	kys mand, mand, medium til lys teint og lys teint	none
-👨🏼‍❤‍💋‍👨🏼	kys mand, mand og medium til lys teint	none
-👨🏼‍❤‍💋‍👨🏽	kys mand, mand, medium til lys teint og medium teint	none
-👨🏼‍❤‍💋‍👨🏾	kys mand, mand, medium til lys teint og medium til mørk teint	none
-👨🏼‍❤‍💋‍👨🏿	kys mand, mand, medium til lys teint og mørk teint	none
-👨🏽‍❤‍💋‍👨🏻	kys mand, mand, medium teint og lys teint	none
-👨🏽‍❤‍💋‍👨🏼	kys mand, mand, medium teint og medium til lys teint	none
-👨🏽‍❤‍💋‍👨🏽	kys mand, mand og medium teint	none
-👨🏽‍❤‍💋‍👨🏾	kys mand, mand, medium teint og medium til mørk teint	none
-👨🏽‍❤‍💋‍👨🏿	kys mand, mand, medium teint og mørk teint	none
-👨🏾‍❤‍💋‍👨🏻	kys mand, mand, medium til mørk teint og lys teint	none
-👨🏾‍❤‍💋‍👨🏼	kys mand, mand, medium til mørk teint og medium til lys teint	none
-👨🏾‍❤‍💋‍👨🏽	kys mand, mand, medium til mørk teint og medium teint	none
-👨🏾‍❤‍💋‍👨🏾	kys mand, mand og medium til mørk teint	none
-👨🏾‍❤‍💋‍👨🏿	kys mand, mand, medium til mørk teint og mørk teint	none
-👨🏿‍❤‍💋‍👨🏻	kys mand, mand, mørk teint og lys teint	none
-👨🏿‍❤‍💋‍👨🏼	kys mand, mand, mørk teint og medium til lys teint	none
-👨🏿‍❤‍💋‍👨🏽	kys mand, mand, mørk teint og medium teint	none
-👨🏿‍❤‍💋‍👨🏾	kys mand, mand, mørk teint og medium til mørk teint	none
-👨🏿‍❤‍💋‍👨🏿	kys mand, mand og mørk teint	none
-👨🏻‍❤‍👨🏻	par med hjerte mand, mand og lys teint	none
-👨🏻‍❤‍👨🏼	par med hjerte mand, mand, lys teint og medium til lys teint	none
-👨🏻‍❤‍👨🏽	par med hjerte mand, mand, lys teint og medium teint	none
-👨🏻‍❤‍👨🏾	par med hjerte mand, mand, lys teint og medium til mørk teint	none
-👨🏻‍❤‍👨🏿	par med hjerte mand, mand, lys teint og mørk teint	none
-👨🏼‍❤‍👨🏻	par med hjerte mand, mand, medium til lys teint og lys teint	none
-👨🏼‍❤‍👨🏼	par med hjerte mand, mand og medium til lys teint	none
-👨🏼‍❤‍👨🏽	par med hjerte mand, mand, medium til lys teint og medium teint	none
-👨🏼‍❤‍👨🏾	par med hjerte mand, mand, medium til lys teint og medium til mørk teint	none
-👨🏼‍❤‍👨🏿	par med hjerte mand, mand, medium til lys teint og mørk teint	none
-👨🏽‍❤‍👨🏻	par med hjerte mand, mand, medium teint og lys teint	none
-👨🏽‍❤‍👨🏼	par med hjerte mand, mand, medium teint og medium til lys teint	none
-👨🏽‍❤‍👨🏽	par med hjerte mand, mand og medium teint	none
-👨🏽‍❤‍👨🏾	par med hjerte mand, mand, medium teint og medium til mørk teint	none
-👨🏽‍❤‍👨🏿	par med hjerte mand, mand, medium teint og mørk teint	none
-👨🏾‍❤‍👨🏻	par med hjerte mand, mand, medium til mørk teint og lys teint	none
-👨🏾‍❤‍👨🏼	par med hjerte mand, mand, medium til mørk teint og medium til lys teint	none
-👨🏾‍❤‍👨🏽	par med hjerte mand, mand, medium til mørk teint og medium teint	none
-👨🏾‍❤‍👨🏾	par med hjerte mand, mand og medium til mørk teint	none
-👨🏾‍❤‍👨🏿	par med hjerte mand, mand, medium til mørk teint og mørk teint	none
-👨🏿‍❤‍👨🏻	par med hjerte mand, mand, mørk teint og lys teint	none
-👨🏿‍❤‍👨🏼	par med hjerte mand, mand, mørk teint og medium til lys teint	none
-👨🏿‍❤‍👨🏽	par med hjerte mand, mand, mørk teint og medium teint	none
-👨🏿‍❤‍👨🏾	par med hjerte mand, mand, mørk teint og medium til mørk teint	none
-👨🏿‍❤‍👨🏿	par med hjerte mand, mand og mørk teint	none
 👨‍🦰	mand rødt hår	none
 👨🏻‍🦰	mand lys teint og rødt hår	none
 👨🏼‍🦰	mand medium til lys teint og rødt hår	none
@@ -2180,116 +1837,11 @@ $	dollar	none
 👩🏽	kvinde medium teint	none
 👩🏾	kvinde medium til mørk teint	none
 👩🏿	kvinde mørk teint	none
-🧔🏻‍♀	kvinde med skæg lys teint	none
-🧔🏼‍♀	kvinde med skæg medium til lys teint	none
-🧔🏽‍♀	kvinde med skæg medium teint	none
-🧔🏾‍♀	kvinde med skæg medium til mørk teint	none
-🧔🏿‍♀	kvinde med skæg mørk teint	none
 👱🏻‍♀	blond kvinde lys teint	none
 👱🏼‍♀	blond kvinde medium til lys teint	none
 👱🏽‍♀	blond kvinde medium teint	none
 👱🏾‍♀	blond kvinde medium til mørk teint	none
 👱🏿‍♀	blond kvinde mørk teint	none
-👩🏻‍❤‍💋‍👨🏻	kys kvinde, mand og lys teint	none
-👩🏻‍❤‍💋‍👨🏼	kys kvinde, mand, lys teint og medium til lys teint	none
-👩🏻‍❤‍💋‍👨🏽	kys kvinde, mand, lys teint og medium teint	none
-👩🏻‍❤‍💋‍👨🏾	kys kvinde, mand, lys teint og medium til mørk teint	none
-👩🏻‍❤‍💋‍👨🏿	kys kvinde, mand, lys teint og mørk teint	none
-👩🏼‍❤‍💋‍👨🏻	kys kvinde, mand, medium til lys teint og lys teint	none
-👩🏼‍❤‍💋‍👨🏼	kys kvinde, mand og medium til lys teint	none
-👩🏼‍❤‍💋‍👨🏽	kys kvinde, mand, medium til lys teint og medium teint	none
-👩🏼‍❤‍💋‍👨🏾	kys kvinde, mand, medium til lys teint og medium til mørk teint	none
-👩🏼‍❤‍💋‍👨🏿	kys kvinde, mand, medium til lys teint og mørk teint	none
-👩🏽‍❤‍💋‍👨🏻	kys kvinde, mand, medium teint og lys teint	none
-👩🏽‍❤‍💋‍👨🏼	kys kvinde, mand, medium teint og medium til lys teint	none
-👩🏽‍❤‍💋‍👨🏽	kys kvinde, mand og medium teint	none
-👩🏽‍❤‍💋‍👨🏾	kys kvinde, mand, medium teint og medium til mørk teint	none
-👩🏽‍❤‍💋‍👨🏿	kys kvinde, mand, medium teint og mørk teint	none
-👩🏾‍❤‍💋‍👨🏻	kys kvinde, mand, medium til mørk teint og lys teint	none
-👩🏾‍❤‍💋‍👨🏼	kys kvinde, mand, medium til mørk teint og medium til lys teint	none
-👩🏾‍❤‍💋‍👨🏽	kys kvinde, mand, medium til mørk teint og medium teint	none
-👩🏾‍❤‍💋‍👨🏾	kys kvinde, mand og medium til mørk teint	none
-👩🏾‍❤‍💋‍👨🏿	kys kvinde, mand, medium til mørk teint og mørk teint	none
-👩🏿‍❤‍💋‍👨🏻	kys kvinde, mand, mørk teint og lys teint	none
-👩🏿‍❤‍💋‍👨🏼	kys kvinde, mand, mørk teint og medium til lys teint	none
-👩🏿‍❤‍💋‍👨🏽	kys kvinde, mand, mørk teint og medium teint	none
-👩🏿‍❤‍💋‍👨🏾	kys kvinde, mand, mørk teint og medium til mørk teint	none
-👩🏿‍❤‍💋‍👨🏿	kys kvinde, mand og mørk teint	none
-👩🏻‍❤‍💋‍👩🏻	kys kvinde, kvinde og lys teint	none
-👩🏻‍❤‍💋‍👩🏼	kys kvinde, kvinde, lys teint og medium til lys teint	none
-👩🏻‍❤‍💋‍👩🏽	kys kvinde, kvinde, lys teint og medium teint	none
-👩🏻‍❤‍💋‍👩🏾	kys kvinde, kvinde, lys teint og medium til mørk teint	none
-👩🏻‍❤‍💋‍👩🏿	kys kvinde, kvinde, lys teint og mørk teint	none
-👩🏼‍❤‍💋‍👩🏻	kys kvinde, kvinde, medium til lys teint og lys teint	none
-👩🏼‍❤‍💋‍👩🏼	kys kvinde, kvinde og medium til lys teint	none
-👩🏼‍❤‍💋‍👩🏽	kys kvinde, kvinde, medium til lys teint og medium teint	none
-👩🏼‍❤‍💋‍👩🏾	kys kvinde, kvinde, medium til lys teint og medium til mørk teint	none
-👩🏼‍❤‍💋‍👩🏿	kys kvinde, kvinde, medium til lys teint og mørk teint	none
-👩🏽‍❤‍💋‍👩🏻	kys kvinde, kvinde, medium teint og lys teint	none
-👩🏽‍❤‍💋‍👩🏼	kys kvinde, kvinde, medium teint og medium til lys teint	none
-👩🏽‍❤‍💋‍👩🏽	kys kvinde, kvinde og medium teint	none
-👩🏽‍❤‍💋‍👩🏾	kys kvinde, kvinde, medium teint og medium til mørk teint	none
-👩🏽‍❤‍💋‍👩🏿	kys kvinde, kvinde, medium teint og mørk teint	none
-👩🏾‍❤‍💋‍👩🏻	kys kvinde, kvinde, medium til mørk teint og lys teint	none
-👩🏾‍❤‍💋‍👩🏼	kys kvinde, kvinde, medium til mørk teint og medium til lys teint	none
-👩🏾‍❤‍💋‍👩🏽	kys kvinde, kvinde, medium til mørk teint og medium teint	none
-👩🏾‍❤‍💋‍👩🏾	kys kvinde, kvinde og medium til mørk teint	none
-👩🏾‍❤‍💋‍👩🏿	kys kvinde, kvinde, medium til mørk teint og mørk teint	none
-👩🏿‍❤‍💋‍👩🏻	kys kvinde, kvinde, mørk teint og lys teint	none
-👩🏿‍❤‍💋‍👩🏼	kys kvinde, kvinde, mørk teint og medium til lys teint	none
-👩🏿‍❤‍💋‍👩🏽	kys kvinde, kvinde, mørk teint og medium teint	none
-👩🏿‍❤‍💋‍👩🏾	kys kvinde, kvinde, mørk teint og medium til mørk teint	none
-👩🏿‍❤‍💋‍👩🏿	kys kvinde, kvinde og mørk teint	none
-👩🏻‍❤‍👨🏻	par med hjerte kvinde, mand og lys teint	none
-👩🏻‍❤‍👨🏼	par med hjerte kvinde, mand, lys teint og medium til lys teint	none
-👩🏻‍❤‍👨🏽	par med hjerte kvinde, mand, lys teint og medium teint	none
-👩🏻‍❤‍👨🏾	par med hjerte kvinde, mand, lys teint og medium til mørk teint	none
-👩🏻‍❤‍👨🏿	par med hjerte kvinde, mand, lys teint og mørk teint	none
-👩🏼‍❤‍👨🏻	par med hjerte kvinde, mand, medium til lys teint og lys teint	none
-👩🏼‍❤‍👨🏼	par med hjerte kvinde, mand og medium til lys teint	none
-👩🏼‍❤‍👨🏽	par med hjerte kvinde, mand, medium til lys teint og medium teint	none
-👩🏼‍❤‍👨🏾	par med hjerte kvinde, mand, medium til lys teint og medium til mørk teint	none
-👩🏼‍❤‍👨🏿	par med hjerte kvinde, mand, medium til lys teint og mørk teint	none
-👩🏽‍❤‍👨🏻	par med hjerte kvinde, mand, medium teint og lys teint	none
-👩🏽‍❤‍👨🏼	par med hjerte kvinde, mand, medium teint og medium til lys teint	none
-👩🏽‍❤‍👨🏽	par med hjerte kvinde, mand og medium teint	none
-👩🏽‍❤‍👨🏾	par med hjerte kvinde, mand, medium teint og medium til mørk teint	none
-👩🏽‍❤‍👨🏿	par med hjerte kvinde, mand, medium teint og mørk teint	none
-👩🏾‍❤‍👨🏻	par med hjerte kvinde, mand, medium til mørk teint og lys teint	none
-👩🏾‍❤‍👨🏼	par med hjerte kvinde, mand, medium til mørk teint og medium til lys teint	none
-👩🏾‍❤‍👨🏽	par med hjerte kvinde, mand, medium til mørk teint og medium teint	none
-👩🏾‍❤‍👨🏾	par med hjerte kvinde, mand og medium til mørk teint	none
-👩🏾‍❤‍👨🏿	par med hjerte kvinde, mand, medium til mørk teint og mørk teint	none
-👩🏿‍❤‍👨🏻	par med hjerte kvinde, mand, mørk teint og lys teint	none
-👩🏿‍❤‍👨🏼	par med hjerte kvinde, mand, mørk teint og medium til lys teint	none
-👩🏿‍❤‍👨🏽	par med hjerte kvinde, mand, mørk teint og medium teint	none
-👩🏿‍❤‍👨🏾	par med hjerte kvinde, mand, mørk teint og medium til mørk teint	none
-👩🏿‍❤‍👨🏿	par med hjerte kvinde, mand og mørk teint	none
-👩🏻‍❤‍👩🏻	par med hjerte kvinde, kvinde og lys teint	none
-👩🏻‍❤‍👩🏼	par med hjerte kvinde, kvinde, lys teint og medium til lys teint	none
-👩🏻‍❤‍👩🏽	par med hjerte kvinde, kvinde, lys teint og medium teint	none
-👩🏻‍❤‍👩🏾	par med hjerte kvinde, kvinde, lys teint og medium til mørk teint	none
-👩🏻‍❤‍👩🏿	par med hjerte kvinde, kvinde, lys teint og mørk teint	none
-👩🏼‍❤‍👩🏻	par med hjerte kvinde, kvinde, medium til lys teint og lys teint	none
-👩🏼‍❤‍👩🏼	par med hjerte kvinde, kvinde og medium til lys teint	none
-👩🏼‍❤‍👩🏽	par med hjerte kvinde, kvinde, medium til lys teint og medium teint	none
-👩🏼‍❤‍👩🏾	par med hjerte kvinde, kvinde, medium til lys teint og medium til mørk teint	none
-👩🏼‍❤‍👩🏿	par med hjerte kvinde, kvinde, medium til lys teint og mørk teint	none
-👩🏽‍❤‍👩🏻	par med hjerte kvinde, kvinde, medium teint og lys teint	none
-👩🏽‍❤‍👩🏼	par med hjerte kvinde, kvinde, medium teint og medium til lys teint	none
-👩🏽‍❤‍👩🏽	par med hjerte kvinde, kvinde og medium teint	none
-👩🏽‍❤‍👩🏾	par med hjerte kvinde, kvinde, medium teint og medium til mørk teint	none
-👩🏽‍❤‍👩🏿	par med hjerte kvinde, kvinde, medium teint og mørk teint	none
-👩🏾‍❤‍👩🏻	par med hjerte kvinde, kvinde, medium til mørk teint og lys teint	none
-👩🏾‍❤‍👩🏼	par med hjerte kvinde, kvinde, medium til mørk teint og medium til lys teint	none
-👩🏾‍❤‍👩🏽	par med hjerte kvinde, kvinde, medium til mørk teint og medium teint	none
-👩🏾‍❤‍👩🏾	par med hjerte kvinde, kvinde og medium til mørk teint	none
-👩🏾‍❤‍👩🏿	par med hjerte kvinde, kvinde, medium til mørk teint og mørk teint	none
-👩🏿‍❤‍👩🏻	par med hjerte kvinde, kvinde, mørk teint og lys teint	none
-👩🏿‍❤‍👩🏼	par med hjerte kvinde, kvinde, mørk teint og medium til lys teint	none
-👩🏿‍❤‍👩🏽	par med hjerte kvinde, kvinde, mørk teint og medium teint	none
-👩🏿‍❤‍👩🏾	par med hjerte kvinde, kvinde, mørk teint og medium til mørk teint	none
-👩🏿‍❤‍👩🏿	par med hjerte kvinde, kvinde og mørk teint	none
 👩‍🦰	kvinde rødt hår	none
 👩🏻‍🦰	kvinde lys teint og rødt hår	none
 👩🏼‍🦰	kvinde medium til lys teint og rødt hår	none
@@ -3789,26 +3341,6 @@ $	dollar	none
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	flag England	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	flag Skotland	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	flag Wales	none
-¤	ukendt valuta	none
-֏	armensk dram	none
-؋	afghansk afghani	none
-৳	bangladeshisk taka	none
-฿	thailandsk baht	none
-៛	cambodjansk riel	none
-₡	costaricansk colón	none
-₦	nigeriansk naira	none
-₧	Spansk peseta	none
-₪	ny israelsk shekel	none
-₫	vietnamesisk dong	none
-₭	laotisk kip	none
-₮	mongolsk tugrik	none
-₲	paraguaysk guarani	none
-₴	ukrainsk grynia	none
-₵	ghanesisk cedi	none
-₸	kasakhisk tenge	none
-₺	tyrkisk lira	none
-₼	aserbajdsjansk manat	none
-₾	georgisk lari	none
 0⃣	keycap 0	none
 1⃣	keycap 1	none
 2⃣	keycap 2	none
