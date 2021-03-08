@@ -2957,6 +2957,7 @@ line separator.
 </li><li> 703         EVENT STOP
 </li><li> 704         EVENT PAUSE
 </li><li> 705         AUDIO
+</li><li> 706         ICON
 </li></ul>
 
 <dl compact="compact">
@@ -3267,6 +3268,19 @@ server. It is preceeded by the code <code>705</code> and takes the form
 <p>To avoid confusion with the <code>\n</code> character, an HDLC encoding is used, with
 the <code>0x7D</code> escape character: whenever <code>\n</code> or <code>0x7D</code> appears in
 the data, its 5th bit is inverted and it is prefixed with <code>0x7D</code>.
+</p>
+</dd>
+<dt><code>ICON</code></dt>
+<dd>
+<p>This event should be issued by the output module to emit a sound icon through
+the server. It is preceeded by the code <code>706</code> and takes the form
+</p>
+<div class="example">
+<pre class="example">706-name
+706 ICON
+</pre></div>
+
+<p>where <code>name</code> is the sound icon name.
 </p>
 </dd>
 </dl>
