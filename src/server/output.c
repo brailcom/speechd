@@ -777,11 +777,6 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 			}
 
 			while (1) {
-				if (strncmp(p, "705 AUDIO", strlen("705 AUDIO")) == 0 && p[strlen("705 AUDIO")] == '\0') {
-					p += strlen("705 AUDIO") + 1;
-					break;
-				}
-
 				if (strncmp(p, "705-", 4) != 0) {
 					MSG2(2, "output_module",
 						"ERROR: bogus audio parameter %s", p);
@@ -793,6 +788,11 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 					MSG2(2, "output_module",
 						"ERROR: bogus audio end of line %s", p);
 					retcode = -5;
+					break;
+				}
+
+				if (strncmp(p, "705-AUDIO", strlen("705-AUDIO")) == 0 && p[strlen("705-AUDIO")] == '\0') {
+					p += strlen("705-AUDIO") + 1;
 					break;
 				}
 
