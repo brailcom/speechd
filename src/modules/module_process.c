@@ -74,6 +74,7 @@ void module_tts_output_server(const AudioTrack *track, AudioFormat format)
 {
 	const char *p, *end;
 	size_t size = track->num_channels * track->num_samples * track->bits / 8;
+
 	pthread_mutex_lock(&module_stdout_mutex);
 	printf("705-bits=%d\n", track->bits);
 	printf("705-num_channels=%d\n", track->num_channels);
@@ -81,30 +82,43 @@ void module_tts_output_server(const AudioTrack *track, AudioFormat format)
 	printf("705-num_samples=%d\n", track->num_samples);
 	printf("705-big_endian=%d\n", format);
 
-	printf("705-AUDIO");
+	printf("705 AUDIO");
 	putc(0, stdout);
-	putc('\n', stdout);
 
 	p = (const char *) track->samples;
 	end = p + size;
 
-	while (p < end) {
-		const char *q, *next;
+	/* HLDC escaping: prefix NL and escapes with escape, and invert their bit 5. */
+	const char escape = 0x7d;
+	const char invert = 1<<5;
 
-		printf("705-");
-		q = memchr(p, '\n', end - p);
-		if (q) {
-			next = q+1;
+	while (p < end) {
+		const char *stop, *nl, *next;
+
+		stop = memchr(p, escape, end - p);
+		nl = memchr(p, '\n', end - p);
+
+		if (nl && (!stop || nl < stop))
+			stop = nl;
+
+		if (stop) {
+			next = stop+1;
 		} else {
-			next = q = end;
+			next = stop = end;
 		}
 
-		fwrite(p, 1, q - p, stdout);
-		putc('\n', stdout);
+		fwrite(p, 1, stop - p, stdout);
+
+		/* Escape NL or escape */
+		if (stop < end) {
+			putc(escape, stdout);
+			putc((*stop) ^ invert, stdout);
+		}
+
 		p = next;
 	}
+	putc('\n', stdout);
 
-	printf("705 AUDIO\n");
 	pthread_mutex_unlock(&module_stdout_mutex);
 	fflush(stdout);
 }
