@@ -2635,6 +2635,7 @@ The return values are:
 @item 702         EVENT END
 @item 703         EVENT STOP
 @item 704         EVENT PAUSE
+@item 705         AUDIO
 @end itemize
 
 @table @code
@@ -2914,6 +2915,26 @@ a message. It is preceeded by the code @code{700} and takes the form
 
 where @code{name} is the value of the SSML attribute @code{name} in
 the tag @code{<mark/>}.
+
+@item AUDIO
+
+This event should be issued by the output module to produce audio through the
+server. It is preceeded by the code @code{705} and takes the form
+
+@example
+705-bits=16
+705-num_channels=1
+705-sample_rate=16000
+705-num_samples=1234
+705-AUDIO\0data...
+705 AUDIO
+@end example
+
+The first lines provide the exact encoding of the data being passed.
+
+To avoid confusion with the @code{\n} character, an HDLC encoding is used, with
+the @code{0x7D} escape character: whenever @code{\n} or @code{0x7D} appears in
+the data, its 5th bit is inverted and it is prefixed with @code{0x7D}.
 
 @end table
 

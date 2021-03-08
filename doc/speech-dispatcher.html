@@ -2956,6 +2956,7 @@ line separator.
 </li><li> 702         EVENT END
 </li><li> 703         EVENT STOP
 </li><li> 704         EVENT PAUSE
+</li><li> 705         AUDIO
 </li></ul>
 
 <dl compact="compact">
@@ -3247,6 +3248,27 @@ a message. It is preceeded by the code <code>700</code> and takes the form
 the tag <code>&lt;mark/&gt;</code>.
 </p>
 </dd>
+<dt><code>AUDIO</code></dt>
+<dd>
+<p>This event should be issued by the output module to produce audio through the
+server. It is preceeded by the code <code>705</code> and takes the form
+</p>
+<div class="example">
+<pre class="example">705-bits=16
+705-num_channels=1
+705-sample_rate=16000
+705-num_samples=1234
+705-AUDIO\0data...
+705 AUDIO
+</pre></div>
+
+<p>The first lines provide the exact encoding of the data being passed.
+</p>
+<p>To avoid confusion with the <code>\n</code> character, an HDLC encoding is used, with
+the <code>0x7D</code> escape character: whenever <code>\n</code> or <code>0x7D</code> appears in
+the data, its 5th bit is inverted and it is prefixed with <code>0x7D</code>.
+</p>
+</dd>
 </dl>
 
 <hr>
@@ -3342,7 +3364,7 @@ voice parameters to improve the synthesis: <code>rate</code>, <code>pitch</code>
 <code>spelling_mode</code>, <code>cap_let_recogn</code>.
 </p>
 <p>Optionally, <code>module_audio_set</code> can be made to recognize precise audio
-settings.
+settings, when the module implements audio rendering itself.
 </p>
 <p>For easier debugging, <code>module_loglevel_set</code> and <code>module_debug</code> can be
 implemented.
