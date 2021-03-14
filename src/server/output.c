@@ -29,6 +29,7 @@
 #include "output.h"
 #include "parse.h"
 #include "speak_queue.h"
+#include "index_marking.h"
 
 #ifndef HAVE_STRNDUP
 /*
@@ -54,6 +55,11 @@ char *strndup(const char *s, size_t n)
 	return p;
 }
 #endif /* HAVE_STRNDUP */
+
+static void *output_thread(void *data);
+static int output_end_queued;
+static int output_stop_requested;
+static int output_pause_requested;
 
 void output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output)
 {
@@ -602,6 +608,12 @@ int output_speak(TSpeechDMessage * msg, OutputModule *output)
 
 	output_set_speaking_monitor(msg, output);
 
+	if (module_audio_id) {
+		if (!module_speak_queue_before_synth()) {
+			MSG(3, "Warning: couldn't begin speak queue");
+		}
+	}
+
 	ret = output_send_settings(msg, output);
 	if (ret != 0)
 		OL_RET(ret);
@@ -627,7 +639,18 @@ int output_speak(TSpeechDMessage * msg, OutputModule *output)
 	SEND_DATA(msg->buf)
 	    SEND_CMD("\n.")
 
-	    OL_RET(0)
+	if (output->audio) {
+		pthread_t t;
+		output_end_queued = 0;
+		output_stop_requested = 0;
+		output_pause_requested = 0;
+		pthread_create(&t, NULL, output_thread, output);
+		pthread_detach(t);
+	}
+
+	output_unlock();
+
+	return 0;
 }
 
 int output_stop()
@@ -642,8 +665,18 @@ int output_stop()
 		    else
 		output = speaking_module;
 
+	if (output->audio)
+	{
+		if (output_end_queued) {
+			/* module is already done, tell speak_queue directly */
+			module_speak_queue_stop();
+			OL_RET(0)
+		}
+	}
+
 	MSG(4, "Module stop!");
 	SEND_DATA("STOP\n");
+	output_stop_requested = 1;
 
 	OL_RET(0)
 }
@@ -660,39 +693,72 @@ size_t output_pause()
 		    else
 		output = speaking_module;
 
+	if (output->audio)
+	{
+		if (output_end_queued) {
+			/* module is already done, tell speak_queue directly */
+			module_speak_queue_pause();
+			OL_RET(0)
+		}
+	}
+
 	MSG(4, "Module pause!");
 	SEND_DATA("PAUSE\n");
+	output_pause_requested = 1;
 
 	OL_RET(0)
 }
 
+static GSList *playback_events = NULL;
+static pthread_mutex_t playback_events_mutex;
+static pthread_cond_t playback_events_cond;
+
+static speak_queue_entry *output_new_event(speak_queue_entry_type type)
+{
+	speak_queue_entry *entry = g_new(speak_queue_entry, 1);
+	entry->type = type;
+	return entry;
+}
+
+static void output_queue_event(speak_queue_entry *entry)
+{
+	pthread_mutex_lock(&playback_events_mutex);
+	playback_events = g_slist_append(playback_events, entry);
+	pthread_cond_signal(&playback_events_cond);
+	pthread_mutex_unlock(&playback_events_mutex);
+}
+
+static void output_queue_new_event(speak_queue_entry_type type)
+{
+	speak_queue_entry *entry = output_new_event(type);
+	output_queue_event(entry);
+}
+
 void module_report_index_mark(char *mark)
 {
-	/* TODO */
+	speak_queue_entry *entry = output_new_event(SPEAK_QUEUE_QET_INDEX_MARK);
+	entry->data.markId = g_strdup(mark);
+	output_queue_event(entry);
 }
 void module_report_event_begin(void)
 {
-	/* TODO */
+	output_queue_new_event(SPEAK_QUEUE_QET_BEGIN);
 }
 void module_report_event_end(void)
 {
-	/* TODO */
+	output_queue_new_event(SPEAK_QUEUE_QET_END);
 }
 void module_report_event_stop(void)
 {
-	/* TODO */
+	output_queue_new_event(SPEAK_QUEUE_QET_STOP);
 }
 void module_report_event_pause(void)
 {
-	/* TODO */
-}
-void module_report_icon(const char *icon)
-{
-	/* TODO */
+	output_queue_new_event(SPEAK_QUEUE_QET_PAUSE);
 }
 void module_speak_queue_cancel(void)
 {
-	/* TODO */
+	/* Not needed */
 }
 int module_play_file(const char *filename)
 {
@@ -765,26 +831,39 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 	case '7':
 		retcode = 0;
 		MSG2(5, "output_module", "Received event:\n %s", response->str);
-		if (!strncmp(response->str, "701", 3))
+		if (!strncmp(response->str, "701", 3)) {
 			*index_mark = (char *)g_strdup("__spd_begin");
-		else if (!strncmp(response->str, "702", 3)) {
+			if (output->audio) {
+				if (!module_speak_queue_before_play())
+					MSG(3, "Warning: couldn't add begin to speak queue");
+			}
+		} else if (!strncmp(response->str, "702", 3)) {
 			*index_mark = (char *)g_strdup("__spd_end");
-			if (output->audio && output->track.bits) {
-				spd_audio_end(output->audio);
-				output->track.bits = 0;
+			if (output->audio) {
+				if (output_stop_requested) {
+					/* Ah, we sent STOP too late, tell the speak queue
+					 * directly */
+					module_speak_queue_stop();
+				} else if (output_pause_requested) {
+					/* Ah, we sent PAUSE too late, tell the speak queue
+					 * directly */
+					module_speak_queue_stop();
+				} else {
+					if (!module_speak_queue_add_end())
+						MSG(3, "Warning: couldn't add end to speak queue");
+					/* module is done, if stop is requested we'll have to
+					 * tell speak_queue directly */
+					output_end_queued = 1;
+				}
 			}
 		} else if (!strncmp(response->str, "703", 3)) {
 			*index_mark = (char *)g_strdup("__spd_stopped");
-			if (output->audio && output->track.bits) {
-				spd_audio_end(output->audio);
-				output->track.bits = 0;
-			}
+			if (output->audio)
+				module_speak_queue_stop();
 		} else if (!strncmp(response->str, "704", 3)) {
 			*index_mark = (char *)g_strdup("__spd_paused");
-			if (output->audio && output->track.bits) {
-				spd_audio_end(output->audio);
-				output->track.bits = 0;
-			}
+			if (output->audio)
+				module_speak_queue_pause();
 		} else if (!strncmp(response->str, "700", 3)) {
 			char *p;
 			p = strchr(response->str, '\n');
@@ -795,6 +874,10 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 					    p - response->str - 4);
 			MSG2(5, "output_module", "Detected INDEX MARK: %s",
 			     *index_mark);
+			if (output->audio) {
+				if (!module_speak_queue_add_mark(*index_mark))
+					MSG(3, "Warning: couldn't add mark to speak queue");
+			}
 		} else if (!strncmp(response->str, "706", 3)) {
 			char *p, *icon;
 			p = strchr(response->str, '\n');
@@ -805,6 +888,10 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 					    p - response->str - 4);
 			MSG2(5, "output_module", "Detected sound icon: %s",
 			     icon);
+			if (output->audio) {
+				if (!module_speak_queue_add_sound_icon(icon))
+					MSG(3, "Warning: couldn't add icon to speak queue");
+			}
 			free(icon);
 			*index_mark = g_strdup("no");
 		} else if (!strncmp(response->str, "705", 3)) {
@@ -943,32 +1030,17 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 			MSG2(5, "output_module",
 				"Got audio: eventually %d bytes", size);
 
-			if (track.bits != output->track.bits ||
-			    track.num_channels != output->track.num_channels ||
-			    track.sample_rate != output->track.sample_rate) {
-				MSG2(5, "output_module", "New bits/chans/rate");
+			gboolean ret = module_speak_queue_add_audio(&track, format);
 
-				if (output->track.bits) {
-					spd_audio_end(output->audio);
-				}
-				spd_audio_begin(output->audio, track, format);
-				output->track = track;
-			}
+			free(track.samples);
 
-			output_unlock();
-
-			int ret = spd_audio_feed_sync_overlap(output->audio, track, format);
-
-			output_lock();
-
-			if (ret < 0) {
+			if (!ret) {
 				MSG2(2, "output_module",
 					"Could not play audio");
-				free(track.samples);
 				retcode = -1;
 				break;
 			}
-			free(track.samples);
+
 			*index_mark = g_strdup("no");
 		} else {
 			MSG2(2, "output_module",
@@ -988,16 +1060,84 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 	OL_RET(retcode)
 }
 
+/* For server-side audio, this is called in a separate thread, to consume output
+ * from the module in parallel of handling audio processing and feedback to client */
+static void *output_thread(void *data)
+{
+	OutputModule *output = data;
+	char *mark;
+
+	while (1) {
+		if (output_module_is_speaking(output, &mark) < 0) {
+			MSG2(3, "output_module", "output_module_is_speaking error");
+			pthread_exit(NULL);
+		}
+		if (!strcmp(mark, SD_MARK_BODY "end") ||
+		    !strcmp(mark, SD_MARK_BODY "stopped") ||
+		    !strcmp(mark, SD_MARK_BODY "paused")) {
+			MSG2(4, "output_module", "finished getting data from output module");
+			g_free(mark);
+			pthread_exit(NULL);
+		}
+		g_free(mark);
+	}
+}
+
 int output_is_speaking(char **index_mark)
 {
+	OutputModule *output = speaking_module;
 	int err;
-	OutputModule *output;
 
-	output = speaking_module;
+	if (output->audio) {
+		speak_queue_entry *entry;
 
-	err = output_module_is_speaking(output, index_mark);
-	if (err < 0) {
-		*index_mark = NULL;
+		/* Wait for next event */
+		pthread_mutex_lock(&playback_events_mutex);
+
+		while (!playback_events)
+			pthread_cond_wait(&playback_events_cond, &playback_events_mutex);
+
+		entry = playback_events->data;
+		playback_events = g_slist_remove(playback_events, entry);
+
+		pthread_mutex_unlock(&playback_events_mutex);
+
+		/* Process next event */
+		switch (entry->type) {
+			case SPEAK_QUEUE_QET_AUDIO:
+				MSG2(3, "output_module", "audio event ??");
+				g_free(entry->data.audio.track.samples);
+				*index_mark = (char *)g_strdup("no");
+				break;
+			case SPEAK_QUEUE_QET_INDEX_MARK:
+				*index_mark = entry->data.markId;
+				break;
+			case SPEAK_QUEUE_QET_SOUND_ICON:
+				MSG2(3, "output_module", "audio icon event ??");
+				g_free(entry->data.sound_icon_filename);
+				*index_mark = (char *)g_strdup("no");
+				break;
+			case SPEAK_QUEUE_QET_BEGIN:
+				*index_mark = (char *)g_strdup("__spd_begin");
+				break;
+			case SPEAK_QUEUE_QET_END:
+				*index_mark = (char *)g_strdup("__spd_end");
+				break;
+			case SPEAK_QUEUE_QET_PAUSE:
+				*index_mark = (char *)g_strdup("__spd_paused");
+				break;
+			case SPEAK_QUEUE_QET_STOP:
+				*index_mark = (char *)g_strdup("__spd_stopped");
+				break;
+		}
+		g_free(entry);
+
+		return 0;
+	} else {
+		err = output_module_is_speaking(output, index_mark);
+		if (err < 0) {
+			*index_mark = NULL;
+		}
 	}
 
 	return err;

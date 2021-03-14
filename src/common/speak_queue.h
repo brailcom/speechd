@@ -131,6 +131,30 @@
 
 extern AudioID *module_audio_id;
 
+typedef enum {
+	SPEAK_QUEUE_QET_AUDIO,	/* Chunk of audio. */
+	SPEAK_QUEUE_QET_INDEX_MARK,	/* Index mark event. */
+	SPEAK_QUEUE_QET_SOUND_ICON,	/* A Sound Icon */
+	SPEAK_QUEUE_QET_BEGIN,	/* Beginning of speech. */
+	SPEAK_QUEUE_QET_END,		/* Speech completed. */
+	SPEAK_QUEUE_QET_PAUSE,		/* Speech pause. */
+	SPEAK_QUEUE_QET_STOP,		/* Speech stop. */
+} speak_queue_entry_type;
+
+typedef struct {
+	AudioTrack track;
+	AudioFormat format;
+} speak_queue_audio_chunk;
+
+typedef struct {
+	speak_queue_entry_type type;
+	union {
+		char *markId;
+		speak_queue_audio_chunk audio;
+		char *sound_icon_filename;
+	} data;
+} speak_queue_entry;
+
 /* To be called in module_init after synth initialization, to start playback
  * threads.  */
 int module_speak_queue_init(int maxsize, char **status_info);
