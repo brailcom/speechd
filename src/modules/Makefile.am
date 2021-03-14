@@ -80,7 +80,6 @@ endif
 if ibmtts_support
 modulebin_PROGRAMS += sd_ibmtts
 sd_ibmtts_SOURCES = ibmtts.c $(audio_SOURCES) $(common_SOURCES) \
-	module_utils_speak_queue.c \
 	module_utils_addvoice.c
 sd_ibmtts_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
@@ -102,7 +101,7 @@ endif
 
 if espeak_support
 modulebin_PROGRAMS += sd_espeak
-sd_espeak_SOURCES = espeak.c $(audio_SOURCES) $(common_SOURCES) module_utils_speak_queue.c
+sd_espeak_SOURCES = espeak.c $(audio_SOURCES) $(common_SOURCES)
 sd_espeak_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	-lespeak $(EXTRA_ESPEAK_LIBS) \
@@ -111,7 +110,7 @@ endif
 
 if espeak_ng_support
 modulebin_PROGRAMS += sd_espeak-ng
-sd_espeak_ng_SOURCES = espeak.c $(audio_SOURCES) $(common_SOURCES) module_utils_speak_queue.c
+sd_espeak_ng_SOURCES = espeak.c $(audio_SOURCES) $(common_SOURCES)
 sd_espeak_ng_CFLAGS = -DESPEAK_NG_INCLUDE $(ESPEAK_NG_CFLAGS)
 sd_espeak_ng_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
@@ -149,7 +148,7 @@ endif
 
 if baratinoo_support
 modulebin_PROGRAMS += sd_baratinoo
-sd_baratinoo_SOURCES = baratinoo.c baratinoo_compat.h $(audio_SOURCES) $(common_SOURCES) module_utils_speak_queue.c
+sd_baratinoo_SOURCES = baratinoo.c baratinoo_compat.h $(audio_SOURCES) $(common_SOURCES)
 sd_baratinoo_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) -lbaratinoo -lpthread -ldl \
 	$(common_LDADD)
@@ -180,7 +179,7 @@ if kali_shim
 sd_kali_LDADD += -L.
 sd_kali_CPPFLAGS += -I$(srcdir)/kali_shim
 
-noinst_HEADERS = kali_shim/kali/Kali/kali.h module_utils_speak_queue.h
+noinst_HEADERS = kali_shim/kali/Kali/kali.h
 
 EXTRA_sd_kali_DEPENDENCIES = libKali.so libKGlobal.so libKTrans.so libKParle.so libKAnalyse.so
 
@@ -194,7 +193,6 @@ endif
 if voxin_support
 modulebin_PROGRAMS += sd_voxin
 sd_voxin_SOURCES = ibmtts.c $(audio_SOURCES) $(common_SOURCES) \
-	module_utils_speak_queue.c \
 	module_utils_addvoice.c
 sd_voxin_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \

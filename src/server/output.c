@@ -28,6 +28,7 @@
 #include <spd_utils.h>
 #include "output.h"
 #include "parse.h"
+#include "speak_queue.h"
 
 #ifndef HAVE_STRNDUP
 /*
@@ -58,6 +59,7 @@ void output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output)
 {
 	/* Set the speaking-monitor so that we know who is speaking */
 	speaking_module = output;
+	module_audio_id = output->audio;
 	speaking_uid = msg->settings.uid;
 	speaking_gid = msg->settings.reparted;
 }
@@ -662,6 +664,40 @@ size_t output_pause()
 	SEND_DATA("PAUSE\n");
 
 	OL_RET(0)
+}
+
+void module_report_index_mark(char *mark)
+{
+	/* TODO */
+}
+void module_report_event_begin(void)
+{
+	/* TODO */
+}
+void module_report_event_end(void)
+{
+	/* TODO */
+}
+void module_report_event_stop(void)
+{
+	/* TODO */
+}
+void module_report_event_pause(void)
+{
+	/* TODO */
+}
+void module_report_icon(const char *icon)
+{
+	/* TODO */
+}
+void module_speak_queue_cancel(void)
+{
+	/* TODO */
+}
+int module_play_file(const char *filename)
+{
+	/* TODO */
+	return -1;
 }
 
 int output_module_is_speaking(OutputModule * output, char **index_mark)

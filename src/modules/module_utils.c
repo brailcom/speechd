@@ -50,6 +50,36 @@ int module_num_dc_options;
 
 const char *module_name;
 
+void MSG(int level, char *format, ...) {
+	if (level < 4 || Debug) {
+		va_list ap;
+		time_t t;
+		struct timeval tv;
+		char *tstr;
+		t = time(NULL);
+		tstr = g_strdup(ctime(&t));
+		tstr[strlen(tstr)-1] = 0;
+		gettimeofday(&tv,NULL);
+		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec);
+		fprintf(stderr, ": ");
+		va_start(ap, format);
+		vfprintf(stderr, format, ap);
+		va_end(ap);
+		fprintf(stderr, "\n");
+		fflush(stderr);
+		if ((Debug==2) || (Debug==3)) {
+			fprintf(CustomDebugFile," %s [%d]",tstr, (int) tv.tv_usec);
+			fprintf(CustomDebugFile, ": ");
+			va_start(ap, format);
+			vfprintf(CustomDebugFile, format, ap);
+			va_end(ap);
+			fprintf(CustomDebugFile, "\n");
+			fflush(CustomDebugFile);
+		}
+		g_free(tstr);
+	}
+}
+
 #define SET_PARAM_NUM(name, cond) \
 	if(!strcmp(cur_item, #name)){ \
 		char *tptr; \
@@ -550,24 +580,6 @@ void module_sigblockusr(sigset_t * some_signals)
 	if (ret != 0)
 		DBG("Can't block signal set, expect problems when terminating!\n");
 
-}
-
-void set_speaking_thread_parameters()
-{
-	int ret;
-	sigset_t all_signals;
-
-	ret = sigfillset(&all_signals);
-	if (ret == 0) {
-		ret = pthread_sigmask(SIG_BLOCK, &all_signals, NULL);
-		if (ret != 0)
-			DBG("Can't set signal set, expect problems when terminating!\n");
-	} else {
-		DBG("Can't fill signal set, expect problems when terminating!\n");
-	}
-
-	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
-	pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
 }
 
 int module_terminate_thread(pthread_t thread)

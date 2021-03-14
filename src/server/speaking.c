@@ -47,6 +47,7 @@ int SPEAKING = 0;
 int poll_count;
 
 OutputModule *speaking_module;
+AudioID *module_audio_id;
 int speaking_uid;
 int speaking_gid;
 
