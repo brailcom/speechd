@@ -732,6 +732,7 @@ static gpointer speech_symbols_new(const gchar *locale, const gchar *file)
 		speech_symbols_free(ss);
 		ss = NULL;
 	}
+	g_free(path);
 
 	return ss;
 }
