@@ -511,6 +511,7 @@ int output_send_audio_settings(OutputModule * output)
 		/* Went fine, good! */
 		return 0;
 
+	output->audio = NULL;
 	MSG(4, "Module set parameters.");
 	set_str = g_string_new("");
 	ADD_SET_STR(audio_output_method);
