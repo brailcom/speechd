@@ -918,7 +918,13 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 				output->track = track;
 			}
 
-			if (spd_audio_feed_sync_overlap(output->audio, track, format) < 0) {
+			output_unlock();
+
+			int ret = spd_audio_feed_sync_overlap(output->audio, track, format);
+
+			output_lock();
+
+			if (ret < 0) {
 				MSG2(2, "output_module",
 					"Could not play audio");
 				free(track.samples);
