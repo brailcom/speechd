@@ -66,7 +66,7 @@ void *speak(void *data)
 {
 	TSpeechDMessage *message = NULL;
 	int ret;
-	struct pollfd *poll_fds;	/* Descriptors to poll */
+	struct pollfd poll_fds[2];	/* Descriptors to poll */
 	struct pollfd main_pfd;
 	struct pollfd helper_pfd;
 	int revents;
@@ -74,8 +74,6 @@ void *speak(void *data)
 
 	/* Block all signals and set thread states */
 	set_speak_thread_attributes();
-
-	poll_fds = g_malloc(2 * sizeof(struct pollfd));
 
 	main_pfd.fd = speaking_pipe[0];
 	main_pfd.events = POLLIN;

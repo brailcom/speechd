@@ -720,6 +720,7 @@ static gboolean speechd_load_configuration(gpointer user_data)
 	    dotconf_create(SpeechdOptions.conf_file, spd_options, 0,
 			   CASE_INSENSITIVE);
 	if (configfile) {
+		free(configfile->includepath);
 		configfile->includepath = g_strdup(SpeechdOptions.conf_dir);
 		MSG(5, "Config file include path is: %s",
 		    configfile->includepath);
@@ -1069,8 +1070,9 @@ int main(int argc, char *argv[])
 			SpeechdOptions.pid_file =
 			    g_strdup_printf("%s/pid/speech-dispatcher.pid",
 					    SpeechdOptions.runtime_speechd_dir);
-			g_mkdir(g_path_get_dirname(SpeechdOptions.pid_file),
-				S_IRWXU);
+			gchar *dirname = g_path_get_dirname(SpeechdOptions.pid_file);
+			g_mkdir(dirname, S_IRWXU);
+			g_free(dirname);
 		}
 		/* Config file */
 		if (SpeechdOptions.conf_dir == NULL) {
@@ -1084,6 +1086,7 @@ int main(int argc, char *argv[])
 			if (!g_file_test
 			    (test_speechd_conf_file, G_FILE_TEST_IS_REGULAR)) {
 				/* If the local configuration file doesn't exist, read the global configuration */
+				g_free(SpeechdOptions.conf_dir);
 				if (strcmp(SYS_CONF, ""))
 					SpeechdOptions.conf_dir =
 					    g_strdup(SYS_CONF);

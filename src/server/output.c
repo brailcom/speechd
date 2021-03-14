@@ -488,6 +488,8 @@ static int output_server_audio(OutputModule * output)
 	SEND_DATA_N(set_str->str);
 	SEND_CMD_N(".");
 
+	g_string_free(set_str, 1);
+
 	void *pars[10] = { NULL };
 	char *error;
 	pars[3] = "default";

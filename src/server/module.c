@@ -60,6 +60,7 @@ void destroy_module(OutputModule * module)
 	g_free(module->name);
 	g_free(module->filename);
 	g_free(module->configfilename);
+	g_free(module->debugfilename);
 	g_free(module);
 }
 
@@ -456,8 +457,8 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 		if (ret <= 0) {
 			MSG(1, "ERROR: Bad syntax from output module %s 1",
 			    module->name);
-			if (rep_line != NULL)
-				g_free(rep_line);
+			g_string_free(reply, TRUE);
+			g_free(rep_line);
 			fclose(f);
 			return NULL;
 		}
@@ -466,6 +467,7 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 		if (ret <= 4) {
 			MSG(1, "ERROR: Bad syntax from output module %s 2",
 			    module->name);
+			g_string_free(reply, TRUE);
 			g_free(rep_line);
 			fclose(f);
 			return NULL;
