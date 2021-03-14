@@ -116,22 +116,12 @@ Move audio into server
  * Consider using a separate socket for audio transfer, however this may be 
    difficult when attempting to synchronise with index marks. An alternative is 
    to send index mark data via the audio socket as well.
- * Implement a playback queue supporting the following types:
-   (The Espeak module is a good reference)
-   - Begin event
-   - End event
-   - Index mark event
-   - Audio event
-   - Sound icon event
  * Rework modules supporting audio output to not use any advanced internal 
    playback queueing, and simply send the audio in relatively small buffers to 
    the server. Smaller buffers to allow the server to stop/pause the audio more 
    responsively.
  * Extend priority system to be either global priority, or priority per audio 
    output device.
- * Run audio in separate thread, possibly using 2 threads, a controller 
-   thread, and a playback thread, one playback thread per audio device. Again, 
-   the espeak module does something similar.
  * Rework pulseaudio output to use a GLib event loop.
  * Rework other audio output modules to better work within an event loop.
 

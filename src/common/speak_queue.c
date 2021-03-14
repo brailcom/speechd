@@ -74,28 +74,6 @@ static void module_speak_queue_reset(void);
 
 static int speak_queue_maxsize;
 
-typedef enum {
-	SPEAK_QUEUE_QET_AUDIO,	/* Chunk of audio. */
-	SPEAK_QUEUE_QET_INDEX_MARK,	/* Index mark event. */
-	SPEAK_QUEUE_QET_SOUND_ICON,	/* A Sound Icon */
-	SPEAK_QUEUE_QET_BEGIN,	/* Beginning of speech. */
-	SPEAK_QUEUE_QET_END		/* Speech completed. */
-} speak_queue_entry_type;
-
-typedef struct {
-	AudioTrack track;
-	AudioFormat format;
-} speak_queue_audio_chunk;
-
-typedef struct {
-	speak_queue_entry_type type;
-	union {
-		char *markId;
-		speak_queue_audio_chunk audio;
-		char *sound_icon_filename;
-	} data;
-} speak_queue_entry;
-
 static GSList *playback_queue = NULL;
 static int playback_queue_size = 0;	/* Number of audio frames currently in queue */
 
@@ -473,6 +451,12 @@ static void *speak_queue_play(void *nothing)
 				pthread_mutex_unlock(&speak_queue_mutex);
 				if (finished)
 					module_report_event_end();
+				break;
+			case SPEAK_QUEUE_QET_PAUSE:
+				DBG(DBG_MODNAME " ??? got pause in speak queue ???");
+				break;
+			case SPEAK_QUEUE_QET_STOP:
+				DBG(DBG_MODNAME " ??? got stop in speak queue ???");
 				break;
 			}
 
