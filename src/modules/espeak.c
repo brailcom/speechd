@@ -51,7 +51,7 @@
 #include <speechd_types.h>
 #include "module_utils.h"
 
-#include "module_utils_speak_queue.h"
+#include "speak_queue.h"
 
 /* > */
 /* < Basic definitions*/

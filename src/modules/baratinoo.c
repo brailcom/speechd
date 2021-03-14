@@ -53,7 +53,7 @@
 
 #include <semaphore.h>
 
-#include "module_utils_speak_queue.h"
+#include "speak_queue.h"
 
 #ifdef BARATINOO_ABI_IS_STABLE_ENOUGH_FOR_ME
 /* See below why this is problematic.  It can however be useful to get the

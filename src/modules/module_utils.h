@@ -39,8 +39,10 @@
 #include <sys/ipc.h>
 
 #include <speechd_types.h>
+#include "common.h"
 #include "spd_audio.h"
 #include "module_main.h"
+#include "speak_queue.h"
 
 G_BEGIN_DECLS
 
@@ -53,8 +55,6 @@ typedef struct SPDMarks {
 } SPDMarks;
 
 extern int log_level;
-
-extern AudioID *module_audio_id;
 
 extern SPDMsgSettings msg_settings;
 extern SPDMsgSettings msg_settings_old;
@@ -99,37 +99,12 @@ extern const char *module_name;
 	CLEAN_OLD_SETTINGS_TABLE(); \
 } while (0)
 
-#define DBG(arg...) do { \
-	if (Debug){ \
-		time_t t; \
-		struct timeval tv; \
-		char *tstr; \
-		t = time(NULL); \
-		tstr = g_strdup(ctime(&t)); \
-		tstr[strlen(tstr)-1] = 0; \
-		gettimeofday(&tv,NULL); \
-		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
-		fprintf(stderr, ": "); \
-		fprintf(stderr, arg); \
-		fprintf(stderr, "\n"); \
-		fflush(stderr); \
-		if ((Debug==2) || (Debug==3)){ \
-			fprintf(CustomDebugFile," %s [%d]",tstr, (int) tv.tv_usec);	\
-			fprintf(CustomDebugFile, ": ");					\
-			fprintf(CustomDebugFile, arg);					\
-			fprintf(CustomDebugFile, "\n");                                   \
-			fflush(CustomDebugFile);			\
-		} \
-		g_free(tstr); \
-	} \
-} while(0)
-
-#define FATAL(msg) do { \
+#define FATAL(msg, ...) do { \
 		fprintf(stderr, "FATAL ERROR in output module [%s:%d]:\n   " msg, \
-		        __FILE__, __LINE__); \
+		        __FILE__, __LINE__, ## __VA_ARGS__); \
 		if (Debug > 1) \
 			fprintf(CustomDebugFile, "FATAL ERROR in output module [%s:%d]:\n   " msg,	\
-			        __FILE__, __LINE__); \
+			        __FILE__, __LINE__, ## __VA_ARGS__); \
 		exit(EXIT_FAILURE); \
 } while (0)
 
@@ -137,7 +112,6 @@ int module_load(void);
 SPDVoice **module_get_voices(void);
 void module_strip_silence(AudioTrack * track);
 int module_tts_output(AudioTrack track, AudioFormat format);
-int module_play_file(const char *filename);
 int module_marks_init(SPDMarks *marks);
 int module_marks_add(SPDMarks *marks, unsigned sample, const char *name);
 int module_tts_output_marks(AudioTrack track, AudioFormat format, SPDMarks *marks);

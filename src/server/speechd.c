@@ -44,6 +44,7 @@
 #include "alloc.h"
 #include "sem_functions.h"
 #include "speaking.h"
+#include "speak_queue.h"
 #include "set.h"
 #include "options.h"
 #include "server.h"
@@ -1264,6 +1265,11 @@ int main(int argc, char *argv[])
 	if (ret != 0)
 		FATAL("Speak thread failed!\n");
 
+	char *status;
+	ret = module_speak_queue_init(SpeechdOptions.max_queue_size, &status);
+	if (ret != 0)
+		FATAL("Speak queue thread failed: %s!\n", status);
+
 	SpeechdStatus.max_fd = server_socket;
 
 	g_unix_fd_add(server_socket, G_IO_IN,
@@ -1292,6 +1298,9 @@ int main(int argc, char *argv[])
 	ret = pthread_join(speak_thread, NULL);
 	if (ret != 0)
 		FATAL("Speak thread failed to join!\n");
+
+	MSG(4, "Closing play() thread...");
+	module_speak_queue_terminate();
 
 	MSG(2, "Closing open output modules...");
 	/*  Call the close() function of each registered output module. */
