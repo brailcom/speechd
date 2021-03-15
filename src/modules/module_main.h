@@ -136,11 +136,19 @@ char *module_readline(int fd, int block);
 /* This protects multi-line answers against asynchronous event reporting */
 extern pthread_mutex_t module_stdout_mutex;
 
+/* This should be called by module_speak_sync to confirm the data is ok before
+ * actually synthesizing */
+void module_speak_ok(void);
+
+/* This should be called by module_speak_sync to notify that the data is not ok,
+ * before returning from module_speak_sync */
+void module_speak_error(void);
+
 /* This should be called when reaching a mark */
 void module_report_index_mark(const char *mark);
-/* This should be called when beginning playing the speech */
+/* This should be called when starting to synthesize */
 void module_report_event_begin(void);
-/* This should be called when finishing playing the speech */
+/* This should be called when finishing synthesizing */
 void module_report_event_end(void);
 /* This should be called when stopping the speech */
 void module_report_event_stop(void);

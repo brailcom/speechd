@@ -98,32 +98,41 @@ static void skeleton_set_pitch(signed int pitch)
 }
 
 #if 1
+/* Synchronous version, when the synthesis doesn't implement asynchronous
+ * processing in another thread. */
 void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 {
-	module_report_event_begin();
+	/* TODO: first make quick check over data, on error call
+	 * module_speak_error and return. */
 
-	/* TODO: Speak the provided data synchronously */
+	module_speak_ok();
+
 	fprintf(stderr, "speaking '%s'\n", data);
 
 	/* Update synth parameters according to message parameters */
 	UPDATE_PARAMETER(rate, skeleton_set_rate);
 	UPDATE_PARAMETER(pitch, skeleton_set_pitch);
+
+	module_report_event_begin();
+
+	/* TODO: produce wave */
 
 	module_report_event_end();
 }
 #else
+/* Asynchronous version, when the synthesis implements asynchronous
+ * processing in another thread. */
 int module_speak(const char *data, size_t bytes, SPDMessageType msgtype)
 {
-	module_report_event_begin();
-
-	/* TODO: Speak the provided data asynchronously */
-	fprintf(stderr, "speaking '%s'\n", data);
-
 	/* Update synth parameters according to message parameters */
 	UPDATE_PARAMETER(rate, skeleton_set_rate);
 	UPDATE_PARAMETER(pitch, skeleton_set_pitch);
 
-	module_report_event_end();
+	/* TODO: Speak the provided data asynchronously in another thread */
+	fprintf(stderr, "speaking '%s'\n", data);
+	/* TODO: asynchronous processing should call module_report_event_begin()
+	 * when starting to produce audio, and module_report_event_end() when
+	 * finished with producing audio. */
 	return 1;
 }
 #endif

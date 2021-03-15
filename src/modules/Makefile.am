@@ -117,15 +117,15 @@ sd_espeak_ng_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) \
 	$(common_LDADD)
 
-noinst_PROGRAMS += sd_skeleton0_espeak-ng0
-sd_skeleton0_espeak_ng0_SOURCES = skeleton0_espeak-ng0.c module_main.c module_readline.c module_process.c
-sd_skeleton0_espeak_ng0_CFLAGS = $(ESPEAK_NG_CFLAGS)
-sd_skeleton0_espeak_ng0_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
+noinst_PROGRAMS += sd_skeleton0_espeak-ng-sync
+sd_skeleton0_espeak_ng_sync_SOURCES = skeleton0_espeak-ng-sync.c module_main.c module_readline.c module_process.c
+sd_skeleton0_espeak_ng_sync_CFLAGS = $(ESPEAK_NG_CFLAGS)
+sd_skeleton0_espeak_ng_sync_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 
-noinst_PROGRAMS += sd_skeleton0_espeak-ng1
-sd_skeleton0_espeak_ng1_SOURCES = skeleton0_espeak-ng1.c module_main.c module_readline.c module_process.c
-sd_skeleton0_espeak_ng1_CFLAGS = $(ESPEAK_NG_CFLAGS)
-sd_skeleton0_espeak_ng1_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
+noinst_PROGRAMS += sd_skeleton0_espeak-ng-async
+sd_skeleton0_espeak_ng_async_SOURCES = skeleton0_espeak-ng-async.c module_main.c module_readline.c module_process.c
+sd_skeleton0_espeak_ng_async_CFLAGS = $(ESPEAK_NG_CFLAGS)
+sd_skeleton0_espeak_ng_async_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 endif
 
 if ivona_support

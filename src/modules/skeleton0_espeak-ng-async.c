@@ -28,7 +28,7 @@
 
 /*
  * This module is based on skeleton0, and shows how it can be completed easily
- * to run Espeak-NG synchronously.
+ * to run Espeak-NG asynchronously.
  */
 
 #include <stdio.h>
@@ -49,9 +49,11 @@ int module_config(const char *configfile)
 	return 0;
 }
 
+static int callback(short *, int, espeak_EVENT*);
+
 int module_init(char **msg)
 {
-	/* TODO: Actually initialize synthesizer */
+	/* Actually initialize synthesizer */
 	fprintf(stderr, "initializing\n");
 
 	espeak_ng_ERROR_CONTEXT context = NULL;
@@ -63,6 +65,10 @@ int module_init(char **msg)
 	if (result == ENS_OK) {
 		fprintf(stderr, "initialized, opening audio output\n");
 		result = espeak_ng_InitializeOutput(ENOUTPUT_MODE_SPEAK_AUDIO, 0, NULL);
+	}
+
+	if (result == ENS_OK) {
+		espeak_SetSynthCallback(callback);
 	}
 
 	if (result != ENS_OK) {
@@ -80,7 +86,7 @@ int module_init(char **msg)
 
 SPDVoice **module_list_voices(void)
 {
-	/* TODO: Return list of voices */
+	/* Return list of voices */
 	SPDVoice **ret = malloc(3*sizeof(*ret));
 
 	ret[0] = malloc(sizeof(*(ret[0])));
@@ -163,7 +169,12 @@ int module_audio_set(const char *var, const char *val)
 {
 	/* Optional: interpret audio parameter */
 	if (!strcmp(var, "audio_output_method")) {
-		/* TODO */
+		if (strcmp(val, "oss") != 0 &&
+		    strcmp(val, "alsa") != 0 &&
+		    strcmp(val, "nas") != 0 &&
+		    strcmp(val, "pulse") != 0)
+			return -1;
+		/* TODO: respect configuration */
 		return 0;
 	} else if (!strcmp(var, "audio_oss_device")) {
 		/* TODO */
@@ -219,40 +230,64 @@ int module_loop(void)
 	return ret;
 }
 
-void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
+/* Asynchronous version, when the synthesis implements asynchronous
+ * processing in another thread. */
+int module_speak(const char *data, size_t bytes, SPDMessageType msgtype)
 {
-	module_report_event_begin();
-
-	/* TODO: Speak the provided data synchronously */
+	/* Speak the provided data asynchronously in another thread */
 	fprintf(stderr, "speaking '%s'\n", data);
 
+	module_report_event_begin();
 	espeak_Synth(data, strlen(data) + 1, 0, POS_CHARACTER, 0,
 		     espeakCHARS_AUTO | espeakPHONEMES | espeakENDPAUSE | espeakSSML,
 		     NULL, NULL);
-	espeak_Synchronize();
 
-	module_report_event_end();
+	return 1;
+}
+
+/* This is getting called in the espeak-ng thread */
+static int callback(short *wav, int numsamples, espeak_EVENT *event)
+{
+	espeak_EVENT *cur = event;
+
+	while (cur->type != espeakEVENT_LIST_TERMINATED)
+	{
+		fprintf(stderr, "got event %d from synth\n", cur->type);
+		switch (cur->type) {
+			case espeakEVENT_MSG_TERMINATED:
+				module_report_event_end();
+				break;
+		}
+		cur++;
+	}
+
+	return 0;
 }
 
 size_t module_pause(void)
 {
-	/* TODO: Pause playing */
+	/* Pause playing */
 	fprintf(stderr, "pausing\n");
+
+	/* Only supports stopping */
+	espeak_Cancel();
 
 	return 0;
 }
 
 int module_stop(void)
 {
-	/* TODO: Stop any current synth */
+	/* Stop any current synth */
 	fprintf(stderr, "stopping\n");
+
+	espeak_Cancel();
 
 	return 0;
 }
 
 int module_close(void)
 {
-	/* TODO: Deinitialize synthesizer */
+	/* Deinitialize synthesizer */
 	fprintf(stderr, "closing\n");
 
 	espeak_ng_Terminate();
