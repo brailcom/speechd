@@ -909,7 +909,7 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 			size_t size, filled;
 
 			MSG2(5, "output_module",
-				"Got audio: %d bytes", response->len);
+				"Got audio: %d bytes", (int) response->len);
 
 			if (!output->audio) {
 				MSG2(2, "output_module",
@@ -998,7 +998,7 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 
 				if (filled + piece > size) {
 					MSG2(2, "output_module",
-						"ERROR: bogus audio content: %d > %d", filled + piece, size);
+						"ERROR: bogus audio content: %zd > %zd", filled + piece, size);
 					retcode = -5;
 					break;
 				}
@@ -1017,7 +1017,7 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 					}
 					if (filled + 1 > size) {
 						MSG2(2, "output_module",
-							"ERROR: bogus audio content: %d > %d", filled + 1, size);
+							"ERROR: bogus audio content: %zd > %zd", filled + 1, size);
 						retcode = -5;
 						break;
 					}
@@ -1030,7 +1030,7 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 
 			if (filled != size) {
 				MSG2(2, "output_module",
-					"ERROR: bogus audio content: %d < %d", filled, size);
+					"ERROR: bogus audio content: %zd < %zd", filled, size);
 				retcode = -5;
 			}
 
@@ -1040,7 +1040,7 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 			}
 
 			MSG2(5, "output_module",
-				"Got audio: eventually %d bytes", size);
+				"Got audio: eventually %zd bytes", size);
 
 			output_unlock();
 

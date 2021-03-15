@@ -1001,7 +1001,7 @@ static gpointer speech_symbols_processor_list_new(const char *locale, const char
 		ss = get_locale_speech_symbols(locale, node->data);
 		if (!ss) {
 			MSG2(1, "symbols", "Failed to load symbols '%s' for locale '%s'",
-					   node->data, locale);
+					   (char*) node->data, locale);
 		} else {
 			ssp = speech_symbols_processor_new(locale, ss);
 			if (ssp)
