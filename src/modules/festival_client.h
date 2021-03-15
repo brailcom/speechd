@@ -124,7 +124,7 @@ int festivalSpell(FT_Info * info, const char *text);
 
 FT_Wave *festivalStringToWaveGetData(FT_Info * info);
 
-FT_Info *festivalDefaultInfo();
+FT_Info *festivalDefaultInfo(void);
 void festivalEmptySocket(FT_Info * info);
 int save_FT_Wave_snd(FT_Wave * wave, const char *filename);
 FT_Wave *festivalGetDataMulti(FT_Info * info, char **callback, int *stop_flag,
