@@ -71,7 +71,7 @@ void *speak(void *data)
 	OutputModule *output;
 
 	/* Block all signals and set thread states */
-	set_speak_thread_attributes();
+	set_speaking_thread_parameters();
 
 
 	/* main_pfd */
@@ -937,26 +937,6 @@ gint message_nto_speak(gconstpointer data, gconstpointer nothing)
 		return 0;
 	else
 		return 1;
-}
-
-void set_speak_thread_attributes()
-{
-	int ret;
-	sigset_t all_signals;
-
-	ret = sigfillset(&all_signals);
-	if (ret == 0) {
-		ret = pthread_sigmask(SIG_BLOCK, &all_signals, NULL);
-		if (ret != 0)
-			MSG(1,
-			    "Can't set signal set, expect problems when terminating!");
-	} else {
-		MSG(1,
-		    "Can't fill signal set, expect problems when terminating!");
-	}
-
-	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
-	pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
 }
 
 void stop_priority_except_first(SPDPriority priority)
