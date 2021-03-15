@@ -55,7 +55,6 @@ static pthread_t speak_queue_stop_or_pause_thread;
 /* Used to wake the stop_or_pause thread from main */
 static pthread_cond_t speak_queue_stop_or_pause_cond;
 
-static pthread_cond_t speak_queue_stop_or_pause_sleeping_cond;
 static int speak_queue_stop_or_pause_sleeping;
 
 /* Used to wake the play thread from main */
@@ -116,7 +115,6 @@ int module_speak_queue_init(int maxsize, char **status_info)
 
 	DBG(DBG_MODNAME " Creating new thread for stop or pause.");
 	pthread_cond_init(&speak_queue_stop_or_pause_cond, NULL);
-	pthread_cond_init(&speak_queue_stop_or_pause_sleeping_cond, NULL);
 	speak_queue_stop_or_pause_sleeping = 0;
 
 	ret =
@@ -552,7 +550,6 @@ void module_speak_queue_free(void)
 	pthread_cond_destroy(&speak_queue_play_cond);
 	pthread_cond_destroy(&speak_queue_play_sleeping_cond);
 	pthread_cond_destroy(&speak_queue_stop_or_pause_cond);
-	pthread_cond_destroy(&speak_queue_stop_or_pause_sleeping_cond);
 }
 
 /* Stop or Pause thread. */
@@ -568,11 +565,9 @@ static void *speak_queue_stop_or_pause(void *nothing)
 	pthread_mutex_lock(&speak_queue_mutex);
 	while (!speak_queue_close_requested) {
 		speak_queue_stop_or_pause_sleeping = 1;
-		pthread_cond_signal(&speak_queue_stop_or_pause_sleeping_cond);
 		while (!speak_queue_stop_requested)
 			pthread_cond_wait(&speak_queue_stop_or_pause_cond, &speak_queue_mutex);
 		speak_queue_stop_or_pause_sleeping = 0;
-		pthread_cond_signal(&speak_queue_stop_or_pause_sleeping_cond);
 
 		DBG(DBG_MODNAME " Stop or pause.");
 		if (speak_queue_close_requested)
