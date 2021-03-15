@@ -21,6 +21,10 @@
 #ifndef _COMMON_H
 #define _COMMON_H 1
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Debugging */
 void MSG(int level, char *format, ...);
 void MSG2(int level, char *kind, char *format, ...);
@@ -45,5 +49,9 @@ void module_report_event_pause(void);
 void module_report_icon(const char *icon);
 /* This should be called to play a given file */
 int module_play_file(const char *filename);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* _COMMON_H */
