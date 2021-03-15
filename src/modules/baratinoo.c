@@ -390,7 +390,7 @@ int module_init(char **status_info)
 	sem_init(&engine->semaphore, 0, 0);
 
 	DBG(DBG_MODNAME "creating new thread for baratinoo_speak");
-	ret = pthread_create(&engine->thread, NULL, _baratinoo_speak, engine);
+	ret = spd_pthread_create(&engine->thread, NULL, _baratinoo_speak, engine);
 	if (ret != 0) {
 		DBG(DBG_MODNAME "thread creation failed");
 		*status_info =
@@ -658,8 +658,6 @@ static void *_baratinoo_speak(void *data)
 {
 	Engine *engine = data;
 	BARATINOOC_STATE state = BARATINOO_READY;
-
-	set_speaking_thread_parameters();
 
 	while (!engine->close_requested) {
 		sem_wait(&engine->semaphore);

@@ -21,20 +21,34 @@
 
 #include "common.h"
 
-void set_speaking_thread_parameters(void)
+/* This is the same as pthread_create, but blocks all signals in the created
+ * thread. */
+int spd_pthread_create(pthread_t *thread, const pthread_attr_t *attr,
+                          void *(*start_routine) (void *), void *arg)
 {
-	int ret;
+	int retsig, ret;
 	sigset_t all_signals;
+	sigset_t old_signals;
 
-	ret = sigfillset(&all_signals);
-	if (ret == 0) {
-		ret = pthread_sigmask(SIG_BLOCK, &all_signals, NULL);
-		if (ret != 0)
-			MSG(1, "Can't set signal set, expect problems when terminating!\n");
-	} else {
-		MSG(1, "Can't fill signal set, expect problems when terminating!\n");
+	retsig = sigfillset(&all_signals);
+	if (retsig != 0)
+		MSG(1, "Can't fill signal set (%d), expect problems when terminating!\n", retsig);
+	else {
+		retsig = pthread_sigmask(SIG_BLOCK, &all_signals, &old_signals);
+		if (retsig != 0)
+			MSG(1, "Can't set signal set (%d), expect problems when terminating!\n", retsig);
 	}
 
+	ret = pthread_create(thread, attr, start_routine, arg);
+
+	if (retsig == 0)
+		pthread_sigmask(SIG_SETMASK, &old_signals, NULL);
+
+	return ret;
+}
+
+void set_speaking_thread_parameters(void)
+{
 	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
 	pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
 }

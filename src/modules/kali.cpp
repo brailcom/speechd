@@ -135,7 +135,7 @@ int module_init(char **status_info)
 
 	DBG("Kali: creating new thread for kali_speak\n");
 	kali_speaking = 0;
-	ret = pthread_create(&kali_speak_thread, NULL, _kali_speak, NULL);
+	ret = spd_pthread_create(&kali_speak_thread, NULL, _kali_speak, NULL);
 	if (ret != 0) {
 		DBG("Kali: thread failed\n");
 		*status_info =
@@ -265,6 +265,7 @@ void *_kali_speak(void *nothing)
 
 	DBG("kali: speaking thread starting.......\n");
 
+	/* Make interruptible */
 	set_speaking_thread_parameters();
 
 	while (1) {

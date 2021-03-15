@@ -26,6 +26,9 @@ void MSG(int level, char *format, ...);
 void MSG2(int level, char *kind, char *format, ...);
 #define DBG(arg...) MSG(4, arg)
 
+int spd_pthread_create(pthread_t *thread, const pthread_attr_t *attr,
+                          void *(*start_routine) (void *), void *arg);
+
 void set_speaking_thread_parameters(void);
 
 /* This should be called when reaching a mark */

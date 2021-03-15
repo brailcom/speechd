@@ -287,7 +287,7 @@ int module_init(char **status_info)
 	DBG("Festival: creating new thread for festival_speak\n");
 	festival_speaking = 0;
 	ret =
-	    pthread_create(&festival_speak_thread, NULL, _festival_speak, NULL);
+	    spd_pthread_create(&festival_speak_thread, NULL, _festival_speak, NULL);
 	if (ret != 0) {
 		DBG("Festival: thread failed\n");
 		g_string_append(info, "The module couldn't initialize threads"
@@ -608,6 +608,7 @@ void *_festival_speak(void *nothing)
 
 	cache_init();
 
+	/* Make interruptible */
 	set_speaking_thread_parameters();
 
 	while (1) {
