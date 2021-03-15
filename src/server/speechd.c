@@ -70,10 +70,10 @@ struct SpeechdOptions SpeechdOptions;
 struct SpeechdStatus SpeechdStatus;
 
 pthread_t speak_thread;
-pthread_mutex_t logging_mutex;
-pthread_mutex_t element_free_mutex;
-pthread_mutex_t output_layer_mutex;
-pthread_mutex_t socket_com_mutex;
+pthread_mutex_t logging_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t element_free_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t output_layer_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t socket_com_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 GHashTable *fd_settings;
 GHashTable *language_default_modules;
@@ -596,8 +596,6 @@ void speechd_options_init(void)
 
 void speechd_init()
 {
-	int ret;
-
 	SpeechdStatus.max_uid = 0;
 	SpeechdStatus.max_gid = 0;
 
@@ -645,19 +643,6 @@ void speechd_init()
 
 	/* Initialize list of different client specific settings entries */
 	client_specific_settings = NULL;
-
-	/* Initialize mutexes, semaphores and synchronization */
-	ret = pthread_mutex_init(&element_free_mutex, NULL);
-	if (ret != 0)
-		DIE("Mutex initialization failed");
-
-	ret = pthread_mutex_init(&output_layer_mutex, NULL);
-	if (ret != 0)
-		DIE("Mutex initialization failed");
-
-	ret = pthread_mutex_init(&socket_com_mutex, NULL);
-	if (ret != 0)
-		DIE("Mutex initialization failed");
 
 	if (SpeechdOptions.log_dir == NULL) {
 		SpeechdOptions.log_dir =
@@ -1132,14 +1117,6 @@ int main(int argc, char *argv[])
 		g_free(config_contents);
 		g_regex_unref(regexp);
 		MSG(2, "Starting Speech Dispatcher due to auto-spawn");
-	}
-
-	/* Initialize logging mutex to workaround ctime threading bug */
-	/* Must be done no later than here */
-	ret = pthread_mutex_init(&logging_mutex, NULL);
-	if (ret != 0) {
-		fprintf(stderr, "Mutex initialization failed");
-		exit(1);
 	}
 
 	speechd_init();
