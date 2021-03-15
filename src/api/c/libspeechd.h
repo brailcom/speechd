@@ -43,6 +43,12 @@ extern "C" {
 
     /* --------------------- Public data types ------------------------ */
 
+#ifdef __GNUC__
+# define SPD_ATTRIBUTE_FORMAT(type, string, first) __attribute__((format(type, string, first)))
+#else
+# define SPD_ATTRIBUTE_FORMAT(type, string, first)
+#endif
+
 typedef enum {
 	SPD_MODE_SINGLE = 0,
 	SPD_MODE_THREADED = 1
@@ -109,7 +115,8 @@ void spd_close(SPDConnection * connection);
 /* Speaking */
 int spd_say(SPDConnection * connection, SPDPriority priority, const char *text);
 int spd_sayf(SPDConnection * connection, SPDPriority priority,
-	     const char *format, ...);
+	     const char *format, ...)
+	     SPD_ATTRIBUTE_FORMAT(printf, 3, 4);
 
 /* Speech flow */
 int spd_stop(SPDConnection * connection);
