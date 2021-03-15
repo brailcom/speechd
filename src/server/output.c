@@ -1079,6 +1079,9 @@ static void *output_thread(void *data)
 	OutputModule *output = data;
 	char *mark;
 
+	/* Block all signals to this thread. */
+	set_speaking_thread_parameters();
+
 	while (1) {
 		if (output_module_is_speaking(output, &mark) < 0) {
 			MSG2(3, "output_module", "output_module_is_speaking error");
