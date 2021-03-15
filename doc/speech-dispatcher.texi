@@ -3314,9 +3314,9 @@ or process. This is for example the case of some software synthesizers
 which use a blocking function (eg. spd_audio_play) or hardware devices
 that have to send data to output modules at some particular
 speed. Note that if you use threads for this purpose, you have to set
-them to ignore all signals. The simplest way to do this is to call
-@code{set_speaking_thread_parameters()} which is defined in
-module_utils.c.  Call it at the beginning of the thread code.
+them to ignore all signals. The simplest way to do this is to use
+@code{spd_pthread_create()}, which is defined in
+module_utils.c, instead of @code{pthread_create()}.
 @end deffn
 
 @deffn {Output module function}  {int module_stop} (void)
