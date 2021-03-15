@@ -117,7 +117,12 @@ int module_audio_set(const char *var, const char *val)
 {
 	/* Optional: interpret audio parameter */
 	if (!strcmp(var, "audio_output_method")) {
-		/* TODO */
+		if (strcmp(val, "oss") != 0 &&
+		    strcmp(val, "alsa") != 0 &&
+		    strcmp(val, "nas") != 0 &&
+		    strcmp(val, "pulse") != 0)
+			return -1;
+		/* TODO: respect configuration */
 		return 0;
 	} else if (!strcmp(var, "audio_oss_device")) {
 		/* TODO */
@@ -174,24 +179,35 @@ int module_loop(void)
 }
 
 #if 1
+/* Synchronous version, when the synthesis doesn't implement asynchronous
+ * processing in another thread. */
 void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 {
+	/* TODO: first make quick check over data, on error call
+	 * module_speak_error and return. */
+
+	module_speak_ok();
+
+	fprintf(stderr, "speaking '%s'\n", data);
+
+	/* TODO: start synthesis */
+
 	module_report_event_begin();
 
-	/* TODO: Speak the provided data synchronously */
-	fprintf(stderr, "speaking '%s'\n", data);
+	/* TODO: produce wave */
 
 	module_report_event_end();
 }
 #else
+/* Asynchronous version, when the synthesis implements asynchronous
+ * processing in another thread. */
 int module_speak(const char *data, size_t bytes, SPDMessageType msgtype)
 {
-	module_report_event_begin();
-
-	/* TODO: Speak the provided data asynchronously */
+	/* TODO: Speak the provided data asynchronously in another thread */
 	fprintf(stderr, "speaking '%s'\n", data);
-
-	module_report_event_end();
+	/* TODO: asynchronous processing should call module_report_event_begin()
+	 * when starting to produce audio, and module_report_event_end() when
+	 * finished with producing audio. */
 	return 1;
 }
 #endif

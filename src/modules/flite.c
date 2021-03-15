@@ -122,6 +122,7 @@ void module_speak_sync(const gchar * data, size_t len, SPDMessageType msgtype)
 	DBG("Requested data: |%s|\n", data);
 
 	if (flite_speaking) {
+		module_speak_error();
 		DBG("Speaking when requested to write");
 		return;
 	}
@@ -141,6 +142,8 @@ void module_speak_sync(const gchar * data, size_t len, SPDMessageType msgtype)
 
 	flite_message = module_strip_ssml(data);
 	/* TODO: use a generic engine for SPELL, CHAR, KEY */
+
+	module_speak_ok();
 
 	/* Setting voice */
 	UPDATE_PARAMETER(rate, flite_set_rate);

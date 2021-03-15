@@ -226,14 +226,13 @@ static void cmd_speak(int fd, SPDMessageType msgtype)
 #pragma weak module_speak_sync
 #pragma weak module_speak
 	if (module_speak_sync) {
-		print("200 OK SPEAKING");
 		module_speak_sync(text, text_len, msgtype);
 	} else {
 		ret = module_speak(text, text_len, msgtype);
 		if (ret > 0)
-			print("200 OK SPEAKING");
+			module_speak_ok();
 		else
-			print("301 ERROR CANT SPEAK");
+			module_speak_error();
 	}
 	free(text);
 }
@@ -256,6 +255,16 @@ static void cmd_speak_char(int fd)
 static void cmd_speak_key(int fd)
 {
 	return cmd_speak(fd, SPD_MSGTYPE_KEY);
+}
+
+void module_speak_ok(void)
+{
+	print("200 OK SPEAKING");
+}
+
+void module_speak_error(void)
+{
+	print("301 ERROR CANT SPEAK");
 }
 
 static void cmd_stop(void)
