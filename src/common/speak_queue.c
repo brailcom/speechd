@@ -67,6 +67,7 @@ static int speak_queue_play_sleeping;
 static gboolean speak_queue_close_requested = FALSE;
 static speak_queue_pause_state_t speak_queue_pause_state = SPEAK_QUEUE_PAUSE_OFF;
 static gboolean speak_queue_stop_requested = FALSE;
+static gboolean speak_queue_flush_requested = FALSE;
 
 static void module_speak_queue_reset(void);
 
@@ -148,6 +149,7 @@ void module_speak_queue_reset(void)
 	speak_queue_state = IDLE;
 	speak_queue_pause_state = SPEAK_QUEUE_PAUSE_OFF;
 	speak_queue_stop_requested = FALSE;
+	speak_queue_flush_requested = FALSE;
 }
 
 int module_speak_queue_before_synth(void)
@@ -226,14 +228,16 @@ module_speak_queue_add_audio(const AudioTrack *track, AudioFormat format)
 {
 	pthread_mutex_lock(&speak_queue_mutex);
 	while (playback_queue_size > speak_queue_maxsize) {
-		if (speak_queue_state == IDLE || speak_queue_stop_requested) {
+		if (speak_queue_state == IDLE
+			|| speak_queue_stop_requested
+			|| speak_queue_flush_requested) {
 			pthread_mutex_unlock(&speak_queue_mutex);
 			return FALSE;
 		}
 		pthread_cond_wait(&playback_queue_room_condition,
 				  &speak_queue_mutex);
 	}
-	if (speak_queue_state == IDLE || speak_queue_stop_requested) {
+	if (speak_queue_state == IDLE || speak_queue_stop_requested || speak_queue_flush_requested) {
 		pthread_mutex_unlock(&speak_queue_mutex);
 		return FALSE;
 	}
@@ -482,6 +486,14 @@ int module_speak_queue_stop_requested(void)
 	return speak_queue_stop_requested;
 }
 
+void module_speak_queue_flush(void)
+{
+	pthread_mutex_lock(&speak_queue_mutex);
+	speak_queue_flush_requested = TRUE;
+	pthread_cond_signal(&playback_queue_room_condition);
+	pthread_mutex_unlock(&speak_queue_mutex);
+}
+
 void module_speak_queue_stop(void)
 {
 	pthread_mutex_lock(&speak_queue_mutex);
@@ -492,6 +504,9 @@ void module_speak_queue_stop(void)
 		speak_queue_stop_requested = TRUE;
 		/* Wake the stop_or_pause thread. */
 		pthread_cond_signal(&speak_queue_stop_or_pause_cond);
+		/* Unlock anybody trying to push audio. */
+		pthread_cond_wait(&playback_queue_room_condition,
+				  &speak_queue_mutex);
 	} else {
 		DBG(DBG_MODNAME " Cannot stop now.");
 	}
