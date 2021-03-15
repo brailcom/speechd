@@ -49,7 +49,7 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previou
 </div>
 <h1 class="node-heading">Top</h1>
 
-<p>This manual documents Speech Dispatcher, version 0.10.1-87-g1dff8.
+<p>This manual documents Speech Dispatcher, version 0.10.1-89-gccdf.
 </p>
 <p>Copyright &copy; 2001, 2002, 2003, 2006 Brailcom, o.p.s.
 </p>
@@ -3659,9 +3659,9 @@ or process. This is for example the case of some software synthesizers
 which use a blocking function (eg. spd_audio_play) or hardware devices
 that have to send data to output modules at some particular
 speed. Note that if you use threads for this purpose, you have to set
-them to ignore all signals. The simplest way to do this is to call
-<code>set_speaking_thread_parameters()</code> which is defined in
-module_utils.c.  Call it at the beginning of the thread code.
+them to ignore all signals. The simplest way to do this is to use
+<code>spd_pthread_create()</code>, which is defined in
+module_utils.c, instead of <code>pthread_create()</code>.
 </p></dd></dl>
 
 <dl>
