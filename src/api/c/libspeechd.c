@@ -78,7 +78,7 @@ static void *spd_events_handler(void *);
 const int range_low = -100;
 const int range_high = 100;
 
-pthread_mutex_t spd_logging_mutex;
+pthread_mutex_t spd_logging_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 struct SPDConnection_threaddata {
 	pthread_t events_thread;
@@ -243,11 +243,6 @@ static void _init_debug(void)
 		if (spd_debug == NULL)
 			SPD_FATAL("COULDN'T ACCES FILE INTENDED FOR DEBUG");
 
-		if (pthread_mutex_init(&spd_logging_mutex, NULL)) {
-			fprintf(stderr, "Mutex initialization failed");
-			fflush(stderr);
-			exit(1);
-		}
 		SPD_DBG("Debugging started");
 	}
 #endif /* LIBSPEECHD_DEBUG */

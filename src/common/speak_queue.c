@@ -44,7 +44,7 @@ typedef enum {
 
 /* Thread and process control. */
 /* Global mutex for the whole speak queue mechanism */
-static pthread_mutex_t speak_queue_mutex;
+static pthread_mutex_t speak_queue_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 static speak_queue_state_t speak_queue_state = IDLE;
 static gboolean speak_queue_configured = FALSE; /* Whether we have configured audio */
@@ -53,14 +53,14 @@ static pthread_t speak_queue_play_thread;
 static pthread_t speak_queue_stop_or_pause_thread;
 
 /* Used to wake the stop_or_pause thread from main */
-static pthread_cond_t speak_queue_stop_or_pause_cond;
+static pthread_cond_t speak_queue_stop_or_pause_cond = PTHREAD_COND_INITIALIZER;
 
 static int speak_queue_stop_or_pause_sleeping;
 
 /* Used to wake the play thread from main */
-static pthread_cond_t speak_queue_play_cond;
+static pthread_cond_t speak_queue_play_cond = PTHREAD_COND_INITIALIZER;
 /* Used to wait for the play thread to go sleeping */
-static pthread_cond_t speak_queue_play_sleeping_cond;
+static pthread_cond_t speak_queue_play_sleeping_cond = PTHREAD_COND_INITIALIZER;
 static int speak_queue_play_sleeping;
 
 static gboolean speak_queue_close_requested = FALSE;
@@ -79,9 +79,9 @@ static int playback_queue_size = 0;	/* Number of audio frames currently in queue
 
 /* Use to wait for queue room availability. Theoretically several threads might
  * be wanting to push, so use broadcast. */
-static pthread_cond_t playback_queue_room_condition;
+static pthread_cond_t playback_queue_room_condition = PTHREAD_COND_INITIALIZER;
 /* Use to wait for queue data availability */
-static pthread_cond_t playback_queue_data_condition;
+static pthread_cond_t playback_queue_data_condition = PTHREAD_COND_INITIALIZER;
 
 /* Internal function prototypes for playback thread. */
 static gboolean speak_queue_add_flag_to_playback_queue(speak_queue_entry_type type);
@@ -107,14 +107,7 @@ int module_speak_queue_init(int maxsize, char **status_info)
 	/* Reset global state */
 	module_speak_queue_reset();
 
-	/* This mutex mediates all accesses */
-	pthread_mutex_init(&speak_queue_mutex, NULL);
-
-	pthread_cond_init(&playback_queue_room_condition, NULL);
-	pthread_cond_init(&playback_queue_data_condition, NULL);
-
 	DBG(DBG_MODNAME " Creating new thread for stop or pause.");
-	pthread_cond_init(&speak_queue_stop_or_pause_cond, NULL);
 	speak_queue_stop_or_pause_sleeping = 0;
 
 	ret =
@@ -127,8 +120,6 @@ int module_speak_queue_init(int maxsize, char **status_info)
 		return -1;
 	}
 
-	pthread_cond_init(&speak_queue_play_cond, NULL);
-	pthread_cond_init(&speak_queue_play_sleeping_cond, NULL);
 	speak_queue_play_sleeping = 0;
 
 	DBG(DBG_MODNAME " Creating new thread for playback.");
@@ -543,13 +534,6 @@ void module_speak_queue_free(void)
 {
 	DBG(DBG_MODNAME " Freeing resources.");
 	speak_queue_clear_playback_queue();
-
-	pthread_mutex_destroy(&speak_queue_mutex);
-	pthread_cond_destroy(&playback_queue_room_condition);
-	pthread_cond_destroy(&playback_queue_data_condition);
-	pthread_cond_destroy(&speak_queue_play_cond);
-	pthread_cond_destroy(&speak_queue_play_sleeping_cond);
-	pthread_cond_destroy(&speak_queue_stop_or_pause_cond);
 }
 
 /* Stop or Pause thread. */

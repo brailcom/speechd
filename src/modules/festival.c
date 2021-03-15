@@ -195,7 +195,7 @@ int cache_reset();
 int cache_insert(char *key, SPDMessageType msgtype, FT_Wave * value);
 FT_Wave *cache_lookup(const char *key, SPDMessageType msgtype, int add_counter);
 
-pthread_mutex_t sound_output_mutex;
+pthread_mutex_t sound_output_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 /* Public functions */
 
@@ -298,8 +298,6 @@ int module_init(char **status_info)
 		g_string_free(info, 0);
 		return -1;
 	}
-
-	pthread_mutex_init(&sound_output_mutex, NULL);
 
 	*status_info = info->str;
 	g_string_free(info, 0);
