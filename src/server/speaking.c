@@ -650,7 +650,7 @@ int speaking_resume(int uid)
 	return 0;
 }
 
-int socket_send_msg(int fd, char *msg)
+int socket_send_msg(int fd, const char *msg)
 {
 	int ret;
 
@@ -666,7 +666,7 @@ int socket_send_msg(int fd, char *msg)
 	return 0;
 }
 
-int report_index_mark(TSpeechDMessage * msg, char *index_mark)
+int report_index_mark(TSpeechDMessage * msg, const char *index_mark)
 {
 	char *cmd;
 	int ret;

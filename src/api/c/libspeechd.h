@@ -228,13 +228,13 @@ char **spd_list_voices(SPDConnection * connection);
 SPDVoice **spd_list_synthesis_voices(SPDConnection * connection);
 void free_spd_voices(SPDVoice ** voices);
 char **spd_execute_command_with_list_reply(SPDConnection * connection,
-					   char *command);
+					   const char *command);
 
 /* Direct SSIP communication */
-int spd_execute_command(SPDConnection * connection, char *command);
-int spd_execute_command_with_reply(SPDConnection * connection, char *command,
+int spd_execute_command(SPDConnection * connection, const char *command);
+int spd_execute_command_with_reply(SPDConnection * connection, const char *command,
 				   char **reply);
-int spd_execute_command_wo_mutex(SPDConnection * connection, char *command);
+int spd_execute_command_wo_mutex(SPDConnection * connection, const char *command);
 char *spd_send_data(SPDConnection * connection, const char *message, int wfr);
 char *spd_send_data_wo_mutex(SPDConnection * connection, const char *message,
 			     int wfr);

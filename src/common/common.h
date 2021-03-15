@@ -26,8 +26,8 @@ extern "C" {
 #endif
 
 /* Debugging */
-void MSG(int level, char *format, ...);
-void MSG2(int level, char *kind, char *format, ...);
+void MSG(int level, const char *format, ...);
+void MSG2(int level, const char *kind, const char *format, ...);
 #define DBG(arg...) MSG(4, arg)
 
 int spd_pthread_create(pthread_t *thread, const pthread_attr_t *attr,
@@ -36,7 +36,7 @@ int spd_pthread_create(pthread_t *thread, const pthread_attr_t *attr,
 void set_speaking_thread_parameters(void);
 
 /* This should be called when reaching a mark */
-void module_report_index_mark(char *mark);
+void module_report_index_mark(const char *mark);
 /* This should be called when beginning playing the speech */
 void module_report_event_begin(void);
 /* This should be called when finishing playing the speech */

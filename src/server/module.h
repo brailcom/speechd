@@ -44,8 +44,8 @@ typedef struct {
 } OutputModule;
 
 GList *detect_output_modules(const char *modules_dirname, const char *config_dirname);
-OutputModule *load_output_module(char *mod_name, char *mod_prog,
-				 char *mod_cfgfile, char *mod_dbgfile);
+OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
+				 const char *mod_cfgfile, const char *mod_dbgfile);
 int unload_output_module(OutputModule * module);
 int reload_output_module(OutputModule * old_module);
 int output_module_debug(OutputModule * module);

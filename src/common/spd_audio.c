@@ -3,7 +3,7 @@
  * spd_audio.c -- Spd Audio Output Library
  *
  * Copyright (C) 2004, 2006 Brailcom, o.p.s.
- * Copyright (C) 2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2019, 2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * This is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
@@ -89,7 +89,7 @@ static lt_dlhandle my_dlopenextglobal(const char *filename)
    all other spd_audio functions, or NULL in case of failure.
 
 */
-AudioID *spd_audio_open(char *name, void **pars, char **error)
+AudioID *spd_audio_open(const char *name, void **pars, char **error)
 {
 	AudioID *id;
 	spd_audio_plugin_t const *p;

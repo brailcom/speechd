@@ -163,7 +163,7 @@ void fatal_error(void)
 
 /* Logging messages, level of verbosity is defined between 1 and 5,
  * see documentation */
-void MSG2(int level, char *kind, char *format, ...)
+void MSG2(int level, const char *kind, const char *format, ...)
 {
 	int std_log = level <= SpeechdOptions.log_level;
 	int custom_log = (kind != NULL && custom_log_kind != NULL &&
@@ -248,7 +248,7 @@ void MSG2(int level, char *kind, char *format, ...)
    documentation */
 /* TODO: Define this in terms of MSG somehow. I don't
    know how to pass '...' arguments to another C function */
-void MSG(int level, char *format, ...)
+void MSG(int level, const char *format, ...)
 {
 
 	if ((level <= SpeechdOptions.log_level)

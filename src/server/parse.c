@@ -1255,7 +1255,7 @@ char *get_param(const char *buf, const int n, const int bytes,
  * at least  7 bytes (6 bytes character + 1 byte trailing 0). This
  * function doesn't validate if the string is valid UTF-8.
  */
-int spd_utf8_read_char(char *pointer, char *character)
+int spd_utf8_read_char(const char *pointer, char *character)
 {
 	int bytes;
 	gunichar u_char;

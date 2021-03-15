@@ -156,7 +156,7 @@ static LocaleMap *G_processors = NULL;
 /* List of files to load */
 static GSList *symbols_files;
 
-SymLvl str2SymLvl(char *str)
+SymLvl str2SymLvl(const char *str)
 {
 	SymLvl punct;
 

@@ -227,7 +227,7 @@ int module_loop(void)
 
 static int speaking;
 
-int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
+int module_speak(const char *data, size_t bytes, SPDMessageType msgtype)
 {
 	/* TODO: Speak the provided data asynchronously */
 	fprintf(stderr, "speaking '%s'\n", data);
