@@ -57,6 +57,8 @@ static char *spd_get_path(const char *filename, const char *startdir)
 
 void destroy_module(OutputModule * module)
 {
+	close(module->pipe_speak[0]);
+	close(module->pipe_speak[1]);
 	g_free(module->name);
 	g_free(module->filename);
 	g_free(module->configfilename);
@@ -344,6 +346,8 @@ OutputModule *load_output_module(char *mod_name, char *mod_prog,
 		module->debugfilename = g_strdup(mod_dbgfile);
 	else
 		module->debugfilename = NULL;
+
+	pipe(module->pipe_speak);
 
 	if (!strcmp(mod_name, "testing")) {
 		module->pipe_in[1] = 1;	/* redirect to stdin */

@@ -34,6 +34,7 @@ typedef struct {
 	char *debugfilename;
 	int pipe_in[2];
 	int pipe_out[2];
+	int pipe_speak[2];
 	FILE *stream_out;
 	int stderr_redirect;
 	pid_t pid;

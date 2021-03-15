@@ -716,8 +716,7 @@ size_t output_pause()
 }
 
 static GSList *playback_events = NULL;
-static pthread_mutex_t playback_events_mutex;
-static pthread_cond_t playback_events_cond;
+static pthread_mutex_t playback_events_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 static speak_queue_entry *output_new_event(speak_queue_entry_type type)
 {
@@ -728,10 +727,11 @@ static speak_queue_entry *output_new_event(speak_queue_entry_type type)
 
 static void output_queue_event(speak_queue_entry *entry)
 {
+	char c = 0;
 	pthread_mutex_lock(&playback_events_mutex);
 	playback_events = g_slist_append(playback_events, entry);
-	pthread_cond_signal(&playback_events_cond);
 	pthread_mutex_unlock(&playback_events_mutex);
+	write(speaking_module->pipe_speak[1], &c, 1);
 }
 
 static void output_queue_new_event(speak_queue_entry_type type)
@@ -1102,16 +1102,14 @@ int output_is_speaking(char **index_mark)
 
 	if (output->audio) {
 		speak_queue_entry *entry;
+		char c;
 
 		/* Wait for next event */
+		read(output->pipe_speak[0], &c, 1);
+
 		pthread_mutex_lock(&playback_events_mutex);
-
-		while (!playback_events)
-			pthread_cond_wait(&playback_events_cond, &playback_events_mutex);
-
 		entry = playback_events->data;
 		playback_events = g_slist_remove(playback_events, entry);
-
 		pthread_mutex_unlock(&playback_events_mutex);
 
 		/* Process next event */
