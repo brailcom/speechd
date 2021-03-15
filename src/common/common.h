@@ -26,8 +26,8 @@ extern "C" {
 #endif
 
 /* Debugging */
-void MSG(int level, const char *format, ...);
-void MSG2(int level, const char *kind, const char *format, ...);
+void MSG(int level, const char *format, ...) __attribute__((format(printf, 2, 3)));
+void MSG2(int level, const char *kind, const char *format, ...) __attribute__((format(printf, 3, 4)));
 #define DBG(arg...) MSG(4, arg)
 
 int spd_pthread_create(pthread_t *thread, const pthread_attr_t *attr,
