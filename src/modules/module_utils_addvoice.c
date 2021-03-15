@@ -191,7 +191,7 @@ void module_register_settings_voices(void)
 						     DefaultVoice_cb, NULL, 0);
 }
 
-gboolean module_existsvoice(char *voicename)
+gboolean module_existsvoice(const char *voicename)
 {
 	int i;
 	if (!nbvoices)
@@ -207,7 +207,7 @@ SPDVoice **module_list_registered_voices(void) {
 	return (SPDVoice **)generic_voices_list;
 }
 
-char *module_getvoice(char *language, SPDVoiceType voice)
+char *module_getvoice(const char *language, SPDVoiceType voice)
 {
 	SPDVoiceDef *voices;
 	char *ret;

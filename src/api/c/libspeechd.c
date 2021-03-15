@@ -1504,7 +1504,7 @@ void free_spd_voices(SPDVoice ** voices)
 }
 
 char **spd_execute_command_with_list_reply(SPDConnection * connection,
-					   char *command)
+					   const char *command)
 {
 	char *reply = NULL;
 	char *line;
@@ -1576,7 +1576,7 @@ spd_get_message_list_fd(SPDConnection * connection, int target, int *msg_ids,
 #endif
 }
 
-int spd_execute_command(SPDConnection * connection, char *command)
+int spd_execute_command(SPDConnection * connection, const char *command)
 {
 	char *reply;
 	int ret;
@@ -1594,7 +1594,7 @@ int spd_execute_command(SPDConnection * connection, char *command)
 	return ret;
 }
 
-int spd_execute_command_wo_mutex(SPDConnection * connection, char *command)
+int spd_execute_command_wo_mutex(SPDConnection * connection, const char *command)
 {
 	char *reply;
 	int ret;
@@ -1611,7 +1611,7 @@ int spd_execute_command_wo_mutex(SPDConnection * connection, char *command)
 }
 
 int
-spd_execute_command_with_reply(SPDConnection * connection, char *command,
+spd_execute_command_with_reply(SPDConnection * connection, const char *command,
 			       char **reply)
 {
 	char *buf;

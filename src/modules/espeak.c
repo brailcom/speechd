@@ -221,7 +221,7 @@ SPDVoice **module_list_voices(void)
 	return espeak_voice_list;
 }
 
-int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
+int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
 {
 	espeak_ERROR result = EE_INTERNAL_ERROR;
 	int flags = espeakSSML | espeakCHARS_UTF8;

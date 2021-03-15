@@ -3,7 +3,7 @@
  * spd_audio.h -- The SPD Audio Library Header
  *
  * Copyright (C) 2004 Brailcom, o.p.s.
- * Copyright (C) 2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2019, 2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * This is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
@@ -32,7 +32,7 @@
 extern "C" {
 #endif
 
-AudioID *spd_audio_open(char *name, void **pars, char **error);
+AudioID *spd_audio_open(const char *name, void **pars, char **error);
 
 int spd_audio_play(AudioID * id, AudioTrack track, AudioFormat format);
 

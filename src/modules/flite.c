@@ -117,7 +117,7 @@ SPDVoice **module_list_voices(void)
 	return NULL;
 }
 
-void module_speak_sync(gchar * data, size_t len, SPDMessageType msgtype)
+void module_speak_sync(const gchar * data, size_t len, SPDMessageType msgtype)
 {
 	DBG("Requested data: |%s|\n", data);
 

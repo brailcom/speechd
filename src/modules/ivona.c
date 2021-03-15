@@ -170,7 +170,7 @@ SPDVoice **module_list_voices(void)
 	return voice_ivona;
 }
 
-int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
+int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
 {
 	DBG("write()\n");
 

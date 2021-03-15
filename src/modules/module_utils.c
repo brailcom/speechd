@@ -50,7 +50,7 @@ int module_num_dc_options;
 
 const char *module_name;
 
-void MSG(int level, char *format, ...) {
+void MSG(int level, const char *format, ...) {
 	if (level < 4 || Debug) {
 		va_list ap;
 		time_t t;
@@ -343,7 +343,7 @@ void module_strip_punctuation_some(char *message, char *punct_chars)
 	}
 }
 
-char *module_strip_ssml(char *message)
+char *module_strip_ssml(const char *message)
 {
 
 	int len;
@@ -600,8 +600,8 @@ int module_terminate_thread(pthread_t thread)
 	return 0;
 }
 
-char *module_recode_to_iso(char *data, int bytes, char *language,
-			   char *fallback)
+char *module_recode_to_iso(const char *data, int bytes, const char *language,
+			   const char *fallback)
 {
 	char *recoded;
 

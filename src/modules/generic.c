@@ -195,7 +195,7 @@ SPDVoice **module_list_voices(void)
 	return module_list_registered_voices();
 }
 
-int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
+int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
 {
 	char *tmp;
 

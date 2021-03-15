@@ -54,10 +54,10 @@ int module_init(char **msg);
 SPDVoice **module_list_voices(void);
 
 /* Asynchronous Speak */
-int module_speak(char *data, size_t bytes, SPDMessageType msgtype);
+int module_speak(const char *data, size_t bytes, SPDMessageType msgtype);
 
 /* Synchronous Speak */
-void module_speak_sync(char *data, size_t bytes, SPDMessageType msgtype);
+void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype);
 
 /* Report speak start */
 void module_speak_begin(void);
@@ -137,7 +137,7 @@ char *module_readline(int fd, int block);
 extern pthread_mutex_t module_stdout_mutex;
 
 /* This should be called when reaching a mark */
-void module_report_index_mark(char *mark);
+void module_report_index_mark(const char *mark);
 /* This should be called when beginning playing the speech */
 void module_report_event_begin(void);
 /* This should be called when finishing playing the speech */

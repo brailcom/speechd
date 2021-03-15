@@ -419,7 +419,7 @@ SPDVoice **module_list_voices(void)
 	return engine->voice_list;
 }
 
-int module_speak(gchar *data, size_t bytes, SPDMessageType msgtype)
+int module_speak(const gchar *data, size_t bytes, SPDMessageType msgtype)
 {
 	Engine *engine = &baratinoo_engine;
 	GString *buffer = NULL;

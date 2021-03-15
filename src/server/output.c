@@ -70,7 +70,7 @@ void output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output)
 	speaking_gid = msg->settings.reparted;
 }
 
-OutputModule *get_output_module_by_name(char *name)
+OutputModule *get_output_module_by_name(const char *name)
 {
 	OutputModule *output;
 	int i;
@@ -211,7 +211,7 @@ GString *output_read_reply(OutputModule * output)
 	return rstr;
 }
 
-int output_send_data(char *cmd, OutputModule * output, int wfr)
+int output_send_data(const char *cmd, OutputModule * output, int wfr)
 {
 	int ret;
 	GString *response;
@@ -368,7 +368,7 @@ static SPDVoice **output_get_voices(OutputModule * module)
 	return voice_dscr;
 }
 
-SPDVoice **output_list_voices(char *module_name)
+SPDVoice **output_list_voices(const char *module_name)
 {
 	OutputModule *module;
 	if (module_name == NULL)
@@ -563,7 +563,7 @@ int output_send_loglevel_setting(OutputModule * output)
 #undef ADD_SET_INT
 #undef ADD_SET_STR
 
-int output_send_debug(OutputModule * output, int flag, char *log_path)
+int output_send_debug(OutputModule * output, int flag, const char *log_path)
 {
 	char *cmd_str;
 	int err;
@@ -740,7 +740,7 @@ static void output_queue_new_event(speak_queue_entry_type type)
 	output_queue_event(entry);
 }
 
-void module_report_index_mark(char *mark)
+void module_report_index_mark(const char *mark)
 {
 	speak_queue_entry *entry = output_new_event(SPEAK_QUEUE_QET_INDEX_MARK);
 	entry->data.markId = g_strdup(mark);

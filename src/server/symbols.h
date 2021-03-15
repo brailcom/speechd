@@ -41,6 +41,6 @@ typedef enum {
 } SymLvl;
 
 /* Convert a string to a symbol level */
-extern SymLvl str2SymLvl(char *str);
+extern SymLvl str2SymLvl(const char *str);
 
 #endif /* SYMBOLS_H */

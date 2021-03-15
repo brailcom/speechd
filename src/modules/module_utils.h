@@ -174,7 +174,7 @@ void module_signal_end(void);
 
 void module_strip_punctuation_default(char *buf);
 void module_strip_punctuation_some(char *buf, char *punct_some);
-char *module_strip_ssml(char *buf);
+char *module_strip_ssml(const char *buf);
 
 void module_sigblockall(void);
 void module_sigblockusr(sigset_t * signal_set);
@@ -201,8 +201,8 @@ int module_parent_wait_continue(TModuleDoublePipe dpipe);
 
 void set_speaking_thread_parameters();
 int module_terminate_thread(pthread_t thread);
-char *module_recode_to_iso(char *data, int bytes, char *language,
-			   char *fallback);
+char *module_recode_to_iso(const char *data, int bytes, const char *language,
+			   const char *fallback);
 void module_signal_end(void);
 configoption_t *module_add_config_option(configoption_t * options,
 					 int *num_options, const char *name, int type,
@@ -369,8 +369,8 @@ configoption_t *add_config_option(configoption_t * options,
 	/* Prototypes from module_utils_addvoice.c */
 void module_register_available_voices(void);
 void module_register_settings_voices(void);
-char *module_getvoice(char *language, SPDVoiceType voice);
-gboolean module_existsvoice(char *voicename);
+char *module_getvoice(const char *language, SPDVoiceType voice);
+gboolean module_existsvoice(const char *voicename);
 char *module_getdefaultvoice(void);
 
 G_END_DECLS

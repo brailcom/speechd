@@ -90,8 +90,8 @@ int client_has_messages(int uid);
  * on some output module */
 int get_speaking_client_uid();
 
-int socket_send_msg(int fd, char *msg);
-int report_index_mark(TSpeechDMessage * msg, char *index_mark);
+int socket_send_msg(int fd, const char *msg);
+int report_index_mark(TSpeechDMessage * msg, const char *index_mark);
 int report_begin(TSpeechDMessage * msg);
 int report_end(TSpeechDMessage * msg);
 int report_pause(TSpeechDMessage * msg);

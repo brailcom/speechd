@@ -93,7 +93,7 @@ SPDVoice **module_list_voices(void)
 	return NULL;
 }
 
-int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
+int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
 {
 
 	DBG("speak()\n");

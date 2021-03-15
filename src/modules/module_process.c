@@ -493,7 +493,7 @@ int module_process(int fd, int block)
 }
 
 /* Report index */
-void module_report_index_mark(char *mark)
+void module_report_index_mark(const char *mark)
 {
 	if (!mark)
 		return;
