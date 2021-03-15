@@ -190,6 +190,8 @@ void module_speak_queue_terminate(void);
 /* To be called last from module_close to release resources.  */
 void module_speak_queue_free(void);
 
+/* Can be called early to quickly discard audio */
+void module_speak_queue_flush(void);
 
 /* To be provided by the module, shall stop the synthesizer, i.e. make
  * it stop calling the module callback, and thus make the module stop calling

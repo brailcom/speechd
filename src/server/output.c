@@ -670,15 +670,17 @@ int output_stop()
 	if (output->audio)
 	{
 		if (output_end_queued) {
-			/* module is already done, tell speak_queue directly */
+			MSG(4, "module is already done, stop speak_queue directly");
 			module_speak_queue_stop();
 			OL_RET(0)
 		}
+		MSG(4, "stopping speak_queue");
+		output_stop_requested = 1;
+		module_speak_queue_flush();
 	}
 
 	MSG(4, "Module stop!");
 	SEND_DATA("STOP\n");
-	output_stop_requested = 1;
 
 	OL_RET(0)
 }
@@ -698,15 +700,17 @@ size_t output_pause()
 	if (output->audio)
 	{
 		if (output_end_queued) {
-			/* module is already done, tell speak_queue directly */
+			MSG(4, "module is already done, pause speak_queue directly");
 			module_speak_queue_pause();
 			OL_RET(0)
 		}
+		MSG(4, "pausing speak_queue");
+		output_pause_requested = 1;
+		module_speak_queue_flush();
 	}
 
 	MSG(4, "Module pause!");
 	SEND_DATA("PAUSE\n");
-	output_pause_requested = 1;
 
 	OL_RET(0)
 }
@@ -773,22 +777,22 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 	GString *response;
 	int retcode = -1;
 
-	output_lock();
-
 	MSG(5, "output_module_is_speaking()");
 
 	if (output == NULL) {
 		MSG(5, "output==NULL in output_module_is_speaking()");
-		OL_RET(-1);
+		return -1;
 	}
 
 	response = output_read_reply(output);
 	if (response == NULL) {
 		*index_mark = NULL;
-		OL_RET(-1);
+		return -1;
 	}
 
-	MSG2(5, "output_module", "Reply from output module: |%s|",
+	output_lock();
+
+	MSG2(5, "output_module", "Reply from output module while speaking: |%s|",
 	     response->str);
 
 	if (response->len < 4) {
@@ -843,13 +847,11 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 			*index_mark = (char *)g_strdup("__spd_end");
 			if (output->audio) {
 				if (output_stop_requested) {
-					/* Ah, we sent STOP too late, tell the speak queue
-					 * directly */
+					MSG(4, "we sent STOP too late, tell the speak queue directly");
 					module_speak_queue_stop();
 				} else if (output_pause_requested) {
-					/* Ah, we sent PAUSE too late, tell the speak queue
-					 * directly */
-					module_speak_queue_stop();
+					MSG(4, "we sent PAUSE too late, tell the speak queue directly");
+					module_speak_queue_pause();
 				} else {
 					if (!module_speak_queue_add_end())
 						MSG(3, "Warning: couldn't add end to speak queue");
@@ -860,10 +862,12 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 			}
 		} else if (!strncmp(response->str, "703", 3)) {
 			*index_mark = (char *)g_strdup("__spd_stopped");
+			MSG2(5, "output_module", "got stopped");
 			if (output->audio)
 				module_speak_queue_stop();
 		} else if (!strncmp(response->str, "704", 3)) {
 			*index_mark = (char *)g_strdup("__spd_paused");
+			MSG2(5, "output_module", "got paused");
 			if (output->audio)
 				module_speak_queue_pause();
 		} else if (!strncmp(response->str, "700", 3)) {
@@ -876,7 +880,7 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 					    p - response->str - 4);
 			MSG2(5, "output_module", "Detected INDEX MARK: %s",
 			     *index_mark);
-			if (output->audio) {
+			if (output->audio && !output_stop_requested && !output_pause_requested) {
 				if (!module_speak_queue_add_mark(*index_mark))
 					MSG(3, "Warning: couldn't add mark to speak queue");
 			}
@@ -890,7 +894,7 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 					    p - response->str - 4);
 			MSG2(5, "output_module", "Detected sound icon: %s",
 			     icon);
-			if (output->audio) {
+			if (output->audio && !output_stop_requested && !output_pause_requested) {
 				if (!module_speak_queue_add_sound_icon(icon))
 					MSG(3, "Warning: couldn't add icon to speak queue");
 			}
@@ -911,6 +915,12 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 				MSG2(2, "output_module",
 					"Audio event but server audio not set up");
 				retcode = -5;
+				break;
+			}
+
+			if (output_stop_requested || output_pause_requested) {
+				MSG2(5, "output_module", "Discarding audio still coming from the synth");
+				*index_mark = g_strdup("no");
 				break;
 			}
 
@@ -1032,16 +1042,16 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 			MSG2(5, "output_module",
 				"Got audio: eventually %d bytes", size);
 
+			output_unlock();
+
 			gboolean ret = module_speak_queue_add_audio(&track, format);
+
+			output_lock();
 
 			free(track.samples);
 
-			if (!ret) {
-				MSG2(2, "output_module",
-					"Could not play audio");
-				retcode = -1;
-				break;
-			}
+			if (!ret)
+				MSG2(2, "output_module", "Audio interrupted");
 
 			*index_mark = g_strdup("no");
 		} else {
