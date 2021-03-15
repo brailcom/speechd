@@ -176,7 +176,7 @@ int module_init(char **status_info)
 
 	DBG("Generic: creating new thread for generic_speak\n");
 	generic_speaking = 0;
-	ret = pthread_create(&generic_speak_thread, NULL, _generic_speak, NULL);
+	ret = spd_pthread_create(&generic_speak_thread, NULL, _generic_speak, NULL);
 	if (ret != 0) {
 		DBG("Generic: thread failed\n");
 		*status_info = g_strdup("The module couldn't initialize threads"
@@ -356,6 +356,7 @@ void *_generic_speak(void *nothing)
 
 	DBG("generic: speaking thread starting.......\n");
 
+	/* Make interruptible */
 	set_speaking_thread_parameters();
 
 	while (1) {

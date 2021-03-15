@@ -142,7 +142,7 @@ int module_init(char **status_info)
 
 	DBG("Ivona: creating new thread for ivona_speak\n");
 	ivona_speaking = 0;
-	ret = pthread_create(&ivona_speak_thread, NULL, _ivona_speak, NULL);
+	ret = spd_pthread_create(&ivona_speak_thread, NULL, _ivona_speak, NULL);
 	if (ret != 0) {
 		DBG("Ivona: thread failed\n");
 		*status_info =
@@ -421,6 +421,7 @@ void *_ivona_speak(void *nothing)
 
 	DBG("ivona: speaking thread starting.......\n");
 
+	/* Make interruptible */
 	set_speaking_thread_parameters();
 
 	while (1) {

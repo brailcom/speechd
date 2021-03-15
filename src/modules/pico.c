@@ -104,7 +104,7 @@ static const SPDVoice *pico_voices_list[] = {
 	NULL
 };
 
-static GThread *pico_play_thread;
+static pthread_t pico_play_thread;
 static sem_t pico_play_semaphore;
 static sem_t pico_idle_semaphore;
 
@@ -244,11 +244,9 @@ static int pico_process_tts(void)
 }
 
 /* Playback thread. */
-static gpointer pico_play_func(gpointer nothing)
+static void * pico_play_func(void * nothing)
 {
 	DBG(MODULE_NAME ": Playback thread starting");
-
-	set_speaking_thread_parameters();
 
 	while (g_atomic_int_get(&pico_state) != STATE_CLOSE) {
 
@@ -397,18 +395,15 @@ int module_init(char **status_info)
 	int ret, i;
 	pico_Retstring outMessage;
 	void *pmem;
-	GError *error = NULL;
 
 	sem_init(&pico_play_semaphore, 0, 0);
 	sem_init(&pico_idle_semaphore, 0, 0);
 
-	if ((pico_play_thread = g_thread_try_new(NULL, (GThreadFunc) pico_play_func,
-						NULL, &error)) == NULL) {
+	if ((spd_pthread_create(&pico_play_thread, NULL, pico_play_func,
+						NULL)) != 0) {
 		*status_info = g_strdup_printf(MODULE_NAME
-					       "Failed to create a play thread : %s\n",
-					       error->message);
+					       "Failed to create a play thread\n");
 		DBG(MODULE_NAME ": %s", *status_info);
-		g_error_free(error);
 		return -1;
 	}
 
@@ -629,7 +624,7 @@ int module_close(void)
 	g_atomic_int_set(&pico_state, STATE_CLOSE);
 	sem_post(&pico_play_semaphore);
 
-	g_thread_join(pico_play_thread);
+	pthread_join(pico_play_thread, NULL);
 
 	if (picoSystem) {
 		pico_terminate(&picoSystem);

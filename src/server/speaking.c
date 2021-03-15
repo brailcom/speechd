@@ -70,9 +70,8 @@ void *speak(void *data)
 	int revents;
 	OutputModule *output;
 
-	/* Block all signals and set thread states */
+	/* Make interruptible */
 	set_speaking_thread_parameters();
-
 
 	/* main_pfd */
 	poll_fds[0].fd = speaking_pipe[0];

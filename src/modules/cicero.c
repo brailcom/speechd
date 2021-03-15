@@ -215,7 +215,7 @@ int module_init(char **status_info)
 	DBG("Cicero: creating new thread for cicero_tracking\n");
 	cicero_speaking = 0;
 	ret =
-	    pthread_create(&cicero_speaking_thread, NULL, _cicero_speak, NULL);
+	    spd_pthread_create(&cicero_speaking_thread, NULL, _cicero_speak, NULL);
 	if (ret != 0) {
 		DBG("Cicero: thread failed\n");
 		*status_info =
@@ -326,6 +326,7 @@ void *_cicero_speak(void *nothing)
 	struct pollfd ufds = { fd1[0], POLLIN | POLLPRI, 0 };
 
 	DBG("cicero: speaking thread starting.......\n");
+	/* Make interruptible */
 	set_speaking_thread_parameters();
 	while (1) {
 		sem_wait(&cicero_semaphore);

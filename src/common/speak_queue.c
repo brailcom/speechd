@@ -111,8 +111,8 @@ int module_speak_queue_init(int maxsize, char **status_info)
 	speak_queue_stop_or_pause_sleeping = 0;
 
 	ret =
-	    pthread_create(&speak_queue_stop_or_pause_thread, NULL,
-			   speak_queue_stop_or_pause, NULL);
+	    spd_pthread_create(&speak_queue_stop_or_pause_thread, NULL,
+			       speak_queue_stop_or_pause, NULL);
 	if (0 != ret) {
 		DBG("Failed to create stop-or-pause thread.");
 		*status_info =
@@ -123,7 +123,7 @@ int module_speak_queue_init(int maxsize, char **status_info)
 	speak_queue_play_sleeping = 0;
 
 	DBG(DBG_MODNAME " Creating new thread for playback.");
-	ret = pthread_create(&speak_queue_play_thread, NULL, speak_queue_play, NULL);
+	ret = spd_pthread_create(&speak_queue_play_thread, NULL, speak_queue_play, NULL);
 	if (ret != 0) {
 		DBG("Failed to create playback thread.");
 		*status_info = g_strdup("Failed to create playback thread.");
@@ -353,9 +353,6 @@ static void *speak_queue_play(void *nothing)
 
 	DBG(DBG_MODNAME " Playback thread starting.......");
 
-	/* Block all signals to this thread. */
-	set_speaking_thread_parameters();
-
 	pthread_mutex_lock(&speak_queue_mutex);
 	while (!speak_queue_close_requested) {
 		speak_queue_play_sleeping = 1;
@@ -542,9 +539,6 @@ static void *speak_queue_stop_or_pause(void *nothing)
 	int ret;
 
 	DBG(DBG_MODNAME " Stop or pause thread starting.......");
-
-	/* Block all signals to this thread. */
-	set_speaking_thread_parameters();
 
 	pthread_mutex_lock(&speak_queue_mutex);
 	while (!speak_queue_close_requested) {

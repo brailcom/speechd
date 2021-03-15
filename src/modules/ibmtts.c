@@ -457,7 +457,7 @@ int module_init(char **status_info)
 	DBG(DBG_MODNAME "Creating new thread for TTS synthesis.");
 	sem_init(&synth_semaphore, 0, 0);
 
-	ret = pthread_create(&synth_thread, NULL, _synth, NULL);
+	ret = spd_pthread_create(&synth_thread, NULL, _synth, NULL);
 	if (0 != ret) {
 		DBG(DBG_MODNAME "synthesis thread creation failed.");
 		*status_info =
@@ -757,9 +757,6 @@ static void *_synth(void *nothing)
 	int ret;
 
 	DBG(DBG_MODNAME "Synthesis thread starting.......\n");
-
-	/* Block all signals to this thread. */
-	set_speaking_thread_parameters();
 
 	/* Allocate a place for index mark names to be placed. */
 	char *mark_name = NULL;

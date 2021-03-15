@@ -646,7 +646,7 @@ int output_speak(TSpeechDMessage * msg, OutputModule *output)
 		output_end_queued = 0;
 		output_stop_requested = 0;
 		output_pause_requested = 0;
-		pthread_create(&t, NULL, output_thread, output);
+		spd_pthread_create(&t, NULL, output_thread, output);
 		pthread_detach(t);
 	}
 
@@ -1078,9 +1078,6 @@ static void *output_thread(void *data)
 {
 	OutputModule *output = data;
 	char *mark;
-
-	/* Block all signals to this thread. */
-	set_speaking_thread_parameters();
 
 	while (1) {
 		if (output_module_is_speaking(output, &mark) < 0) {
