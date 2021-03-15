@@ -57,7 +57,7 @@ SPDVoice **module_list_voices(void);
 int module_speak(char *data, size_t bytes, SPDMessageType msgtype);
 
 /* Synchronous Speak */
-int module_speak_sync(char *data, size_t bytes, SPDMessageType msgtype);
+void module_speak_sync(char *data, size_t bytes, SPDMessageType msgtype);
 
 /* Report speak start */
 void module_speak_begin(void);

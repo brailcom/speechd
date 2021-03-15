@@ -24,17 +24,14 @@
 #include <config.h>
 #endif
 
-#include <semaphore.h>
-
 #include <flite/flite.h>
-#include "spd_audio.h"
 
 #include <speechd_types.h>
 
 #include "module_utils.h"
 
 #define MODULE_NAME     "flite"
-#define MODULE_VERSION  "0.5"
+#define MODULE_VERSION  "0.6"
 
 #define DEBUG_MODULE 1
 DECLARE_DEBUG();
@@ -42,28 +39,22 @@ DECLARE_DEBUG();
 /* Thread and process control */
 static int flite_speaking = 0;
 
-static pthread_t flite_speak_thread;
-static sem_t flite_semaphore;
-
-static char *flite_message;
-static SPDMessageType flite_message_type;
+static char *buf;
 
 static int flite_position = 0;
 static int flite_pause_requested = 0;
 
-signed int flite_volume = 0;
+static signed int flite_volume = 0;
 
 /* Internal functions prototypes */
 static void flite_set_rate(signed int rate);
 static void flite_set_pitch(signed int pitch);
 static void flite_set_volume(signed int pitch);
 
-static void *_flite_speak(void *);
-
 /* Voice */
-cst_voice *flite_voice;
+static cst_voice *flite_voice;
 
-int flite_stop = 0;
+static int flite_stop = 0;
 
 MOD_OPTION_1_INT(FliteMaxChunkLength);
 MOD_OPTION_1_STR(FliteDelimiters);
@@ -82,17 +73,11 @@ int module_load(void)
 	return 0;
 }
 
-#define ABORT(msg) g_string_append(info, msg); \
-	DBG("FATAL ERROR:", info->str); \
-	*status_info = info->str; \
-	g_string_free(info, 0); \
-	return -1;
-
 int module_init(char **status_info)
 {
-	int ret;
-
 	DBG("Module init");
+
+	module_audio_set_server();
 
 	*status_info = NULL;
 
@@ -118,80 +103,124 @@ int module_init(char **status_info)
 	DBG("FliteMaxChunkLength = %d\n", FliteMaxChunkLength);
 	DBG("FliteDelimiters = %s\n", FliteDelimiters);
 
-	flite_message = NULL;
-
-	sem_init(&flite_semaphore, 0, 0);
-
-	DBG("Flite: creating new thread for flite_speak\n");
 	flite_speaking = 0;
-	ret = pthread_create(&flite_speak_thread, NULL, _flite_speak, NULL);
-	if (ret != 0) {
-		DBG("Flite: thread failed\n");
-		*status_info =
-		    g_strdup("The module couldn't initialize threads "
-			     "This could be either an internal problem or an "
-			     "architecture problem. If you are sure your architecture "
-			     "supports threads, please report a bug.");
-		return -1;
-	}
+
+	buf = (char *)g_malloc((FliteMaxChunkLength + 1) * sizeof(char));
 
 	*status_info = g_strdup("Flite initialized successfully.");
 
 	return 0;
 }
 
-#undef ABORT
-
 SPDVoice **module_list_voices(void)
 {
 	return NULL;
 }
 
-int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
+void module_speak_sync(gchar * data, size_t len, SPDMessageType msgtype)
 {
-	DBG("write()\n");
+	DBG("Requested data: |%s|\n", data);
 
 	if (flite_speaking) {
 		DBG("Speaking when requested to write");
-		return 0;
+		return;
 	}
 
-	DBG("Requested data: |%s|\n", data);
+	flite_speaking = 1;
 
-	if (flite_message != NULL) {
-		g_free(flite_message);
-		flite_message = NULL;
-	}
+	AudioTrack track;
+#if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
+	AudioFormat format = SPD_AUDIO_BE;
+#else
+	AudioFormat format = SPD_AUDIO_LE;
+#endif
+	cst_wave *wav;
+	unsigned int pos;
+	int bytes;
+	char *flite_message;
+
 	flite_message = module_strip_ssml(data);
 	/* TODO: use a generic engine for SPELL, CHAR, KEY */
-	flite_message_type = SPD_MSGTYPE_TEXT;
 
 	/* Setting voice */
 	UPDATE_PARAMETER(rate, flite_set_rate);
 	UPDATE_PARAMETER(volume, flite_set_volume);
 	UPDATE_PARAMETER(pitch, flite_set_pitch);
 
-	/* Send semaphore signal to the speaking thread */
-	flite_speaking = 1;
-	sem_post(&flite_semaphore);
+	pos = 0;
 
-	DBG("Flite: leaving write() normally\n\r");
-	return bytes;
+	module_report_event_begin();
+	while (1) {
+		/* Process server events in case we were told to stop in between */
+		module_process(STDIN_FILENO, 0);
+
+		if (flite_pause_requested && (current_index_mark != -1)) {
+			DBG("Pause requested in parent, position %d\n",
+			    current_index_mark);
+			flite_pause_requested = 0;
+			flite_position = current_index_mark;
+			module_report_event_pause();
+			break;
+		}
+
+		if (flite_stop) {
+			DBG("Stop in child, terminating");
+			module_report_event_stop();
+			break;
+		}
+
+		bytes =
+		    module_get_message_part(flite_message, buf, &pos,
+					    FliteMaxChunkLength,
+					    FliteDelimiters);
+
+		if (bytes < 0) {
+			DBG("End of message");
+			module_report_event_end();
+			break;
+		}
+
+		if (bytes == 0) {
+			DBG("No data");
+			module_report_event_end();
+			break;
+		}
+
+		buf[bytes] = 0;
+		DBG("Returned %d bytes from get_part\n", bytes);
+		DBG("Text to synthesize is '%s'\n", buf);
+
+		DBG("Trying to synthesize text");
+		wav = flite_text_to_wave(buf, flite_voice);
+
+		if (wav == NULL) {
+			DBG("Stop in child, terminating");
+			module_report_event_stop();
+			break;
+		}
+
+		track.num_samples = wav->num_samples;
+		track.num_channels = wav->num_channels;
+		track.sample_rate = wav->sample_rate;
+		track.bits = 16;
+		track.samples = wav->samples;
+
+		DBG("Got %d samples", track.num_samples);
+		if (track.samples != NULL) {
+			DBG("Sending part of the message");
+			module_tts_output_server(&track, format);
+		}
+		delete_wave(wav);
+	}
+	flite_speaking = 0;
+	flite_stop = 0;
 }
 
 int module_stop(void)
 {
-	int ret;
 	DBG("flite: stop()\n");
 
 	flite_stop = 1;
-	if (module_audio_id) {
-		DBG("Stopping audio");
-		ret = spd_audio_stop(module_audio_id);
-		if (ret != 0)
-			DBG("WARNING: Non 0 value from spd_audio_stop: %d",
-			    ret);
-	}
 
 	return 0;
 }
@@ -220,149 +249,13 @@ int module_close(void)
 		module_stop();
 	}
 
-	DBG("Terminating threads");
-	if (module_terminate_thread(flite_speak_thread) != 0)
-		return -1;
-
 	g_free(flite_voice);
-	sem_destroy(&flite_semaphore);
+	g_free(buf);
 
 	return 0;
 }
 
 /* Internal functions */
-
-void *_flite_speak(void *nothing)
-{
-	AudioTrack track;
-#if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
-	AudioFormat format = SPD_AUDIO_BE;
-#else
-	AudioFormat format = SPD_AUDIO_LE;
-#endif
-	cst_wave *wav;
-	unsigned int pos;
-	char *buf;
-	int bytes;
-	int ret;
-
-	DBG("flite: speaking thread starting.......\n");
-
-	set_speaking_thread_parameters();
-
-	while (1) {
-		sem_wait(&flite_semaphore);
-		DBG("Semaphore on\n");
-
-		flite_stop = 0;
-		flite_speaking = 1;
-
-		/* TODO: free(buf) */
-		buf =
-		    (char *)g_malloc((FliteMaxChunkLength + 1) * sizeof(char));
-		pos = 0;
-		module_report_event_begin();
-		while (1) {
-			if (flite_stop) {
-				DBG("Stop in child, terminating");
-				flite_speaking = 0;
-				module_report_event_stop();
-				break;
-			}
-			bytes =
-			    module_get_message_part(flite_message, buf, &pos,
-						    FliteMaxChunkLength,
-						    FliteDelimiters);
-
-			if (bytes < 0) {
-				DBG("End of message");
-				flite_speaking = 0;
-				module_report_event_end();
-				break;
-			}
-
-			buf[bytes] = 0;
-			DBG("Returned %d bytes from get_part\n", bytes);
-			DBG("Text to synthesize is '%s'\n", buf);
-
-			if (flite_pause_requested && (current_index_mark != -1)) {
-				DBG("Pause requested in parent, position %d\n",
-				    current_index_mark);
-				flite_pause_requested = 0;
-				flite_position = current_index_mark;
-				break;
-			}
-
-			if (bytes > 0) {
-				DBG("Speaking in child...");
-
-				DBG("Trying to synthesize text");
-				wav = flite_text_to_wave(buf, flite_voice);
-
-				if (wav == NULL) {
-					DBG("Stop in child, terminating");
-					flite_speaking = 0;
-					module_report_event_stop();
-					break;
-				}
-
-				track.num_samples = wav->num_samples;
-				track.num_channels = wav->num_channels;
-				track.sample_rate = wav->sample_rate;
-				track.bits = 16;
-				track.samples = wav->samples;
-				module_strip_silence(&track);
-
-				DBG("Got %d samples", track.num_samples);
-				if (track.samples != NULL) {
-					if (flite_stop) {
-						DBG("Stop in child, terminating");
-						flite_speaking = 0;
-						module_report_event_stop();
-						delete_wave(wav);
-						break;
-					}
-					DBG("Playing part of the message");
-					ret = module_tts_output(track, format);
-					if (ret < 0)
-						DBG("ERROR: failed to play the track");
-					if (flite_stop) {
-						DBG("Stop in child, terminating (s)");
-						flite_speaking = 0;
-						module_report_event_stop();
-						delete_wave(wav);
-						break;
-					}
-				}
-				delete_wave(wav);
-			} else if (bytes == -1) {
-				DBG("End of data in speaking thread");
-				flite_speaking = 0;
-				module_report_event_end();
-				break;
-			} else {
-				flite_speaking = 0;
-				module_report_event_end();
-				break;
-			}
-
-			if (flite_stop) {
-				DBG("Stop in child, terminating");
-				flite_speaking = 0;
-				module_report_event_stop();
-				break;
-			}
-		}
-		flite_stop = 0;
-		g_free(buf);
-	}
-
-	flite_speaking = 0;
-
-	DBG("flite: speaking thread ended.......\n");
-
-	pthread_exit(NULL);
-}
 
 static void flite_set_rate(signed int rate)
 {

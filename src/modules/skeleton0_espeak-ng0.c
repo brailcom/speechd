@@ -219,7 +219,7 @@ int module_loop(void)
 	return ret;
 }
 
-int module_speak_sync(char *data, size_t bytes, SPDMessageType msgtype)
+void module_speak_sync(char *data, size_t bytes, SPDMessageType msgtype)
 {
 	module_report_event_begin();
 
@@ -232,7 +232,6 @@ int module_speak_sync(char *data, size_t bytes, SPDMessageType msgtype)
 	espeak_Synchronize();
 
 	module_report_event_end();
-	return 1;
 }
 
 size_t module_pause(void)
