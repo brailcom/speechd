@@ -25,8 +25,8 @@
 OutputModule *get_output_module(const TSpeechDMessage * message);
 
 int output_speak(TSpeechDMessage * msg, OutputModule *output);
-int output_stop();
-size_t output_pause();
+int output_stop(void);
+size_t output_pause(void);
 int output_is_speaking(char **index_mark);
 int output_send_debug(OutputModule * output, int flag, const char *logfile_path);
 

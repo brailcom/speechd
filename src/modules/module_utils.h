@@ -156,7 +156,7 @@ int module_get_message_part(const char *message, char *part,
 			    unsigned int *pos, size_t maxlen,
 			    const char *dividers);
 
-void set_speaking_thread_parameters();
+void set_speaking_thread_parameters(void);
 
 void module_parent_dp_init(TModuleDoublePipe dpipe);
 void module_child_dp_init(TModuleDoublePipe dpipe);
@@ -199,7 +199,7 @@ size_t module_parent_wfork(TModuleDoublePipe dpipe, const char *message,
 
 int module_parent_wait_continue(TModuleDoublePipe dpipe);
 
-void set_speaking_thread_parameters();
+void set_speaking_thread_parameters(void);
 int module_terminate_thread(pthread_t thread);
 char *module_recode_to_iso(const char *data, int bytes, const char *language,
 			   const char *fallback);

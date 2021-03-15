@@ -80,5 +80,5 @@ static struct option long_options[] = {
 static char *short_options = "r:p:R:i:l:o:OI:t:Ly:ckm:sxeP:N:n:wSCvh";
 
 int options_parse(int argc, char *argv[]);
-void options_print_version();
+void options_print_version(void);
 void options_print_help(char *argv[]);
