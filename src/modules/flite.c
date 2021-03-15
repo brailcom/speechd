@@ -220,7 +220,8 @@ int module_stop(void)
 {
 	DBG("flite: stop()\n");
 
-	flite_stop = 1;
+	if (flite_speaking)
+		flite_stop = 1;
 
 	return 0;
 }
