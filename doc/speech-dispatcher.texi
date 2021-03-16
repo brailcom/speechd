@@ -2966,7 +2966,12 @@ communication protocol and other formal things that are common for all modules.
 They are provided under a BSD licence and thus allow to integrate them along
 proprietary software. You will have to provide a series of functions, an example
 is provided in @code{src/modules/skeleton0.c}, which can freely serve as a basic
-for your module.
+for your module. You can also read @code{src/modules/skeleton0_espeak-ng*.c},
+which show the various ways to plug a synthesizer, depending whether the
+synthesizer works in synchronous mode (@code{-sync} variants) or asynchronously
+in a separate thread (@code{-async} variants), and whether the synthesizer emits
+audio itself or can produce wave files to be sent to the server (@code{-server}
+variants).
 
 The nicest way, recommended for all modules shipped along speech-dispatcher, is
 to make use of all of our our @file{module_*.c} tools. This will handle for you
@@ -3017,20 +3022,23 @@ The next step would be to add support for selecting the voice. Fix
 
 This stage of development is examplified in @file{src/modules/skeleton0_espeak-ng0.c}.
 
-A most useful next step is to support stopping the synthesis. This
-however requires calling the synthesis asynchronously. You need to use
+A most useful next step is to support stopping the synthesis. This can be
+supported two ways. Either the synthesis can call a callback from times to
+times, in which case you can call @code{module_process(STDIN_FILE, 0)} to poll
+for messages from the server. Or the synthesis can run asynchronously in a
+separate thread, in which case you need to use
 @code{module_speak} instead of @code{module_speak_sync}: it should return
-immediately after starting the production of synthesis (done another way, e.g.
-through a thread). @code{module_speak_begin()} should be called when it actually
+immediately after starting the production of synthesis. Then
+@code{module_speak_begin()} should be called when it actually
 starts emitting audio, and @code{module_speak_end()} should be called when it is
-finished emitting audio. If @code{module_pause} or @code{module_stop} is called
-in between, the synthesis should stop as soon as possible, and respectively
+finished emitting audio. In either cases, if @code{module_pause} or @code{module_stop}
+is getting called, the synthesis should stop as soon as possible, and respectively
 @code{module_speak_pause()} or @code{module_speak_stop()} be called instead of
 @code{module_speak_end()}.  As a first step, @code{module_pause} can be made to
 just call @code{module_stop}.
 
 This asynchronous support is examplified in
-@file{src/modules/skeleton0_espeak-ng1.c}. It is already quite nice for a lot of
+@file{src/modules/skeleton0_espeak-ng-async.c}. It is already quite nice for a lot of
 use cases: the user is now able to interrupt the synthesis e.g. through a screen
 reader action.
 
@@ -3039,8 +3047,17 @@ voice parameters to improve the synthesis: @code{rate}, @code{pitch},
 @code{pitch_range}, @code{volume}, @code{punctuation_mode},
 @code{spelling_mode}, @code{cap_let_recogn}.
 
-Optionally, @code{module_audio_set} can be made to recognize precise audio
-settings, when the module implements audio rendering itself.
+If the synthesis permits it, it is better to support server-side audio
+rendering: instead of playing audio itself, the synthesis should provide pieces
+of wave files, to be sent to the server with @code{module_tts_output_server}.
+Examples are available in @code{src/modules/skeleton0_espeak-ng-async-server.c}
+and @code{src/modules/skeleton0_espeak-ng-sync-server.c}. The
+@code{module_audio_set} function should in that case recognize only the
+@code{server} audio method.
+
+If the synthesis does not permit server-side audio rendering, optionally
+@code{module_audio_set} can be made to recognize precise audio settings to be
+used by the synthesis-side audio rendering.
 
 For easier debugging, @code{module_loglevel_set} and @code{module_debug} can be
 implemented.
@@ -3265,7 +3282,7 @@ wrong, fix it and then warn others in this manual.
 @node Output Module Functions, Module Utils Functions and Macros, The Skeleton of an Output Module, Output Modules
 @subsection Output Module Functions
 
-@deffn {Output Module Functions} int module_speak (char *data, size_t bytes, EMessageType msgtype)
+@deffn {Output Module Functions} void module_speak_sync (char *data, size_t bytes, EMessageType msgtype)
 @findex module_speak()
 
 This is the function where the actual speech output is produced. It is
@@ -3304,19 +3321,31 @@ Example from festival:
     UPDATE_PARAMETER(cap_let_recogn, festival_set_cap_let_recogn);
 @end example
 
+This function should return only when it is finished with synthesizing.  It
+should however call @code{module_process(STDIN_FILENO, 0)} periodically so as
+to promptly process messages coming from the server, notably speech stopping
+requests.
+@end deffn
+
+@deffn {Output Module Functions} int module_speak (char *data, size_t bytes, EMessageType msgtype)
+@findex module_speak()
+
+This is the same as @code{module_speak_sync}, except that it proceeds
+asynchronously, it can be used when the synthesis works asynchronously.
+
 This function should return 0 if it fails and 1 if the delivery
 to the synthesizer is successful. It should return immediately,
 because otherwise, it would block stopping, priority handling
 and other important things in Speech Dispatcher.
 
-If there is a need to stay longer, you should create a separate thread
-or process. This is for example the case of some software synthesizers
-which use a blocking function (eg. spd_audio_play) or hardware devices
-that have to send data to output modules at some particular
-speed. Note that if you use threads for this purpose, you have to set
+If there is a need to stay longer, it can call
+@code{module_process(STDIN_FILENO, 0)} to process messages coming from the
+server, but in that case @code{module_speak_sync} could as well be used.
+
+Note: if the synthesis creates separate threads, you have to set
 them to ignore all signals. The simplest way to do this is to use
-@code{spd_pthread_create()}, which is defined in
-module_utils.c, instead of @code{pthread_create()}.
+@code{spd_pthread_create()} (which is defined in
+module_utils.c) instead of @code{pthread_create()}.
 @end deffn
 
 @deffn {Output module function}  {int module_stop} (void)
