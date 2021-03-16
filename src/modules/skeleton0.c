@@ -130,7 +130,7 @@ int module_audio_set(const char *var, const char *val)
 	} else if (!strcmp(var, "audio_alsa_device")) {
 		/* TODO */
 		return 0;
-	} else if (!strcmp(var, "audio_nas_device")) {
+	} else if (!strcmp(var, "audio_nas_server")) {
 		/* TODO */
 		return 0;
 	} else if (!strcmp(var, "audio_pulse_device")) {
