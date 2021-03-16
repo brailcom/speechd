@@ -331,6 +331,12 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 		return NULL;
 
 	module = (OutputModule *) g_malloc(sizeof(OutputModule));
+	if (!module)
+		return NULL;
+	if (pipe(module->pipe_speak) != 0) {
+		g_free(module);
+		return NULL;
+	}
 
 	module->name = (char *)g_strdup(mod_name);
 	module->filename = (char *)spd_get_path(mod_prog, SpeechdOptions.module_dir);
@@ -346,8 +352,6 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 		module->debugfilename = g_strdup(mod_dbgfile);
 	else
 		module->debugfilename = NULL;
-
-	pipe(module->pipe_speak);
 
 	if (!strcmp(mod_name, "testing")) {
 		module->pipe_in[1] = 1;	/* redirect to stdin */

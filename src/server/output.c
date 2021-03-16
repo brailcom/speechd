@@ -299,6 +299,7 @@ static SPDVoice **output_get_voices(OutputModule * module)
 	int i;
 	int numvoices = 0;
 	gboolean errors = FALSE;
+	int err;
 
 	output_lock();
 
@@ -306,7 +307,11 @@ static SPDVoice **output_get_voices(OutputModule * module)
 		MSG(1, "ERROR: Can't list voices for broken output module");
 		OL_RET(NULL);
 	}
-	output_send_data("LIST VOICES\n", module, 0);
+	err = output_send_data("LIST VOICES\n", module, 0);
+	if (err < 0) {
+		output_unlock();
+		return NULL;
+	}
 	reply = output_read_reply(module);
 
 	if (reply == NULL) {
