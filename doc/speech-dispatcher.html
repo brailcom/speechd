@@ -3304,7 +3304,12 @@ communication protocol and other formal things that are common for all modules.
 They are provided under a BSD licence and thus allow to integrate them along
 proprietary software. You will have to provide a series of functions, an example
 is provided in <code>src/modules/skeleton0.c</code>, which can freely serve as a basic
-for your module.
+for your module. You can also read <code>src/modules/skeleton0_espeak-ng*.c</code>,
+which show the various ways to plug a synthesizer, depending whether the
+synthesizer works in synchronous mode (<code>-sync</code> variants) or asynchronously
+in a separate thread (<code>-async</code> variants), and whether the synthesizer emits
+audio itself or can produce wave files to be sent to the server (<code>-server</code>
+variants).
 </p>
 <p>The nicest way, recommended for all modules shipped along speech-dispatcher, is
 to make use of all of our our <samp>module_*.c</samp> tools. This will handle for you
@@ -3355,20 +3360,23 @@ module, though with very limited support.
 </p>
 <p>This stage of development is examplified in <samp>src/modules/skeleton0_espeak-ng0.c</samp>.
 </p>
-<p>A most useful next step is to support stopping the synthesis. This
-however requires calling the synthesis asynchronously. You need to use
+<p>A most useful next step is to support stopping the synthesis. This can be
+supported two ways. Either the synthesis can call a callback from times to
+times, in which case you can call <code>module_process(STDIN_FILE, 0)</code> to poll
+for messages from the server. Or the synthesis can run asynchronously in a
+separate thread, in which case you need to use
 <code>module_speak</code> instead of <code>module_speak_sync</code>: it should return
-immediately after starting the production of synthesis (done another way, e.g.
-through a thread). <code>module_speak_begin()</code> should be called when it actually
+immediately after starting the production of synthesis. Then
+<code>module_speak_begin()</code> should be called when it actually
 starts emitting audio, and <code>module_speak_end()</code> should be called when it is
-finished emitting audio. If <code>module_pause</code> or <code>module_stop</code> is called
-in between, the synthesis should stop as soon as possible, and respectively
+finished emitting audio. In either cases, if <code>module_pause</code> or <code>module_stop</code>
+is getting called, the synthesis should stop as soon as possible, and respectively
 <code>module_speak_pause()</code> or <code>module_speak_stop()</code> be called instead of
 <code>module_speak_end()</code>.  As a first step, <code>module_pause</code> can be made to
 just call <code>module_stop</code>.
 </p>
 <p>This asynchronous support is examplified in
-<samp>src/modules/skeleton0_espeak-ng1.c</samp>. It is already quite nice for a lot of
+<samp>src/modules/skeleton0_espeak-ng-async.c</samp>. It is already quite nice for a lot of
 use cases: the user is now able to interrupt the synthesis e.g. through a screen
 reader action.
 </p>
@@ -3377,8 +3385,17 @@ voice parameters to improve the synthesis: <code>rate</code>, <code>pitch</code>
 <code>pitch_range</code>, <code>volume</code>, <code>punctuation_mode</code>,
 <code>spelling_mode</code>, <code>cap_let_recogn</code>.
 </p>
-<p>Optionally, <code>module_audio_set</code> can be made to recognize precise audio
-settings, when the module implements audio rendering itself.
+<p>If the synthesis permits it, it is better to support server-side audio
+rendering: instead of playing audio itself, the synthesis should provide pieces
+of wave files, to be sent to the server with <code>module_tts_output_server</code>.
+Examples are available in <code>src/modules/skeleton0_espeak-ng-async-server.c</code>
+and <code>src/modules/skeleton0_espeak-ng-sync-server.c</code>. The
+<code>module_audio_set</code> function should in that case recognize only the
+<code>server</code> audio method.
+</p>
+<p>If the synthesis does not permit server-side audio rendering, optionally
+<code>module_audio_set</code> can be made to recognize precise audio settings to be
+used by the synthesis-side audio rendering.
 </p>
 <p>For easier debugging, <code>module_loglevel_set</code> and <code>module_debug</code> can be
 implemented.
@@ -3611,7 +3628,7 @@ Next: <a href="#Module-Utils-Functions-and-Macros" accesskey="n" rel="next">Modu
 <span id="Output-Module-Functions-1"></span><h4 class="subsection">5.2.6 Output Module Functions</h4>
 
 <dl>
-<dt id="index-int-37">Output Module Functions: <strong>int</strong> <em>module_speak (char *data, size_t bytes, EMessageType msgtype)</em></dt>
+<dt id="index-void-1">Output Module Functions: <strong>void</strong> <em>module_speak_sync (char *data, size_t bytes, EMessageType msgtype)</em></dt>
 <dd><span id="index-module_005fspeak_0028_0029"></span>
 
 <p>This is the function where the actual speech output is produced. It is
@@ -3649,19 +3666,32 @@ UPDATE_STRING_PARAMETER() macros. See <a href="#Module-Utils-Functions-and-Macro
     UPDATE_PARAMETER(cap_let_recogn, festival_set_cap_let_recogn);
 </pre></div>
 
+<p>This function should return only when it is finished with synthesizing.  It
+should however call <code>module_process(STDIN_FILENO, 0)</code> periodically so as
+to promptly process messages coming from the server, notably speech stopping
+requests.
+</p></dd></dl>
+
+<dl>
+<dt id="index-int-37">Output Module Functions: <strong>int</strong> <em>module_speak (char *data, size_t bytes, EMessageType msgtype)</em></dt>
+<dd><span id="index-module_005fspeak_0028_0029-1"></span>
+
+<p>This is the same as <code>module_speak_sync</code>, except that it proceeds
+asynchronously, it can be used when the synthesis works asynchronously.
+</p>
 <p>This function should return 0 if it fails and 1 if the delivery
 to the synthesizer is successful. It should return immediately,
 because otherwise, it would block stopping, priority handling
 and other important things in Speech Dispatcher.
 </p>
-<p>If there is a need to stay longer, you should create a separate thread
-or process. This is for example the case of some software synthesizers
-which use a blocking function (eg. spd_audio_play) or hardware devices
-that have to send data to output modules at some particular
-speed. Note that if you use threads for this purpose, you have to set
+<p>If there is a need to stay longer, it can call
+<code>module_process(STDIN_FILENO, 0)</code> to process messages coming from the
+server, but in that case <code>module_speak_sync</code> could as well be used.
+</p>
+<p>Note: if the synthesis creates separate threads, you have to set
 them to ignore all signals. The simplest way to do this is to use
-<code>spd_pthread_create()</code>, which is defined in
-module_utils.c, instead of <code>pthread_create()</code>.
+<code>spd_pthread_create()</code> (which is defined in
+module_utils.c) instead of <code>pthread_create()</code>.
 </p></dd></dl>
 
 <dl>
@@ -3898,7 +3928,7 @@ and the value returned by <code>module_speaking()</code>.
 </p></dd></dl>
 
 <dl>
-<dt id="index-void-1">Module Utils function: <strong>void</strong> <em>do_quit()</em></dt>
+<dt id="index-void-2">Module Utils function: <strong>void</strong> <em>do_quit()</em></dt>
 <dd><span id="index-do_005fquit"></span>
 <p>Prints the farewell message to the standard output, according
 to the protocol. Then it calls <code>module_close()</code>.
@@ -3943,11 +3973,11 @@ where the function terminated in processing <code>message</code>.
 </p></dd></dl>
 
 <dl>
-<dt id="index-void-2">Output module function: <strong>void</strong> <em>module_report_index_mark(char *mark)</em></dt>
+<dt id="index-void-3">Output module function: <strong>void</strong> <em>module_report_index_mark(char *mark)</em></dt>
 <dd><span id="index-module_005freport_005findex_005fmark"></span>
 </dd></dl>
 <dl>
-<dt id="index-void-3">Output module function: <strong>void</strong> <em>module_report_event_*()</em></dt>
+<dt id="index-void-4">Output module function: <strong>void</strong> <em>module_report_event_*()</em></dt>
 <dd><span id="index-module_005freport_005fevent_005f_002a"></span>
 
 <p>The <code>module_report_</code> functions serve for reporting event
@@ -4044,19 +4074,19 @@ character could be read.
 </p></dd></dl>
 
 <dl>
-<dt id="index-void-4">Module Utils function: <strong>void</strong> <em>module_parent_dp_init (TModuleDoublePipe dpipe)</em></dt>
+<dt id="index-void-5">Module Utils function: <strong>void</strong> <em>module_parent_dp_init (TModuleDoublePipe dpipe)</em></dt>
 <dd><span id="index-module_005fparent_005fdp_005finit"></span>
 <p>Initializes pipes (dpipe) in the parent. Currently it only closes the unnecessary ends.
 </p></dd></dl>
 
 <dl>
-<dt id="index-void-5">Module Utils function: <strong>void</strong> <em>module_child_dp_close (TModuleDoublePipe dpipe)</em></dt>
+<dt id="index-void-6">Module Utils function: <strong>void</strong> <em>module_child_dp_close (TModuleDoublePipe dpipe)</em></dt>
 <dd><span id="index-module_005fchild_005fdp_005finit"></span>
 <p>Initializes pipes (dpipe) in the child. Currently it only closes the unnecessary ends.
 </p></dd></dl>
 
 <dl>
-<dt id="index-void-6">Module Utils function: <strong>void</strong> <em>module_child_dp_write(TModuleDoublePipe dpipe,  const char *msg, size_t bytes)</em></dt>
+<dt id="index-void-7">Module Utils function: <strong>void</strong> <em>module_child_dp_write(TModuleDoublePipe dpipe,  const char *msg, size_t bytes)</em></dt>
 <dd><span id="index-module_005fchild_005fdp_005fwrite"></span>
 <p>Writes the specified number of <code>bytes</code> from <code>msg</code> to the pipe to the
 parent. This function is intended, as the prefix says, to be run from the child.
@@ -4064,7 +4094,7 @@ Uses the pipes defined in <code>dpipe</code>.
 </p></dd></dl>
 
 <dl>
-<dt id="index-void-7">Module Utils function: <strong>void</strong> <em>module_parent_dp_write(TModuleDoublePipe dpipe,  const char *msg, size_t bytes)</em></dt>
+<dt id="index-void-8">Module Utils function: <strong>void</strong> <em>module_parent_dp_write(TModuleDoublePipe dpipe,  const char *msg, size_t bytes)</em></dt>
 <dd><span id="index-module_005fparent_005fdp_005fwrite"></span>
 <p>Writes the specified number of <code>bytes</code> from <code>msg</code> into the pipe to the
 child. This function is intended, as the prefix says, to be run from the parent.
@@ -4088,7 +4118,7 @@ Uses the pipes defined in <code>dpipe</code>.
 </p></dd></dl>
 
 <dl>
-<dt id="index-void-8">Module Utils function: <strong>void</strong> <em>module_sigblockall(void)</em></dt>
+<dt id="index-void-9">Module Utils function: <strong>void</strong> <em>module_sigblockall(void)</em></dt>
 <dd><span id="index-module_005fsigblockall"></span>
 <p>Blocks all signals. This is intended to be run from the child processes
 and threads so that their signal handling won&rsquo;t interfere with the
@@ -4096,13 +4126,13 @@ parent.
 </p></dd></dl>
 
 <dl>
-<dt id="index-void-9">Module Utils function: <strong>void</strong> <em>module_sigunblockusr(sigset_t *some_signals)</em></dt>
+<dt id="index-void-10">Module Utils function: <strong>void</strong> <em>module_sigunblockusr(sigset_t *some_signals)</em></dt>
 <dd><span id="index-module_005fsigunblockusr"></span>
 <p>Use the set <code>some_signals</code> to unblock SIGUSR1.
 </p></dd></dl>
 
 <dl>
-<dt id="index-void-10">Module Utils function: <strong>void</strong> <em>module_sigblockusr(sigset_t *some_signals)</em></dt>
+<dt id="index-void-11">Module Utils function: <strong>void</strong> <em>module_sigblockusr(sigset_t *some_signals)</em></dt>
 <dd><span id="index-module_005fsigblockusr"></span>
 <p>Use the set <code>some_signals</code> to block SIGUSR1.
 </p></dd></dl>
@@ -4129,7 +4159,7 @@ Previous: <a href="#Multi_002dprocess-output-modules" accesskey="p" rel="prev">M
 </p></dd></dl>
 
 <dl>
-<dt id="index-void-11">Module Utils function: <strong>void</strong> <em>xfree(void *data)</em></dt>
+<dt id="index-void-12">Module Utils function: <strong>void</strong> <em>xfree(void *data)</em></dt>
 <dd><span id="index-xfree"></span>
 <p>The same as the classical <code>free()</code> except that it checks
 if data isn&rsquo;t NULL before calling <code>free()</code>.
@@ -5284,6 +5314,7 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <tr><td></td><td valign="top"><a href="#index-module_005fsigblockusr"><code>module_sigblockusr</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi_002dprocess-output-modules">Multi-process output modules</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-module_005fsigunblockusr"><code>module_sigunblockusr</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi_002dprocess-output-modules">Multi-process output modules</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-module_005fspeak_0028_0029"><code>module_speak()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Output-Module-Functions">Output Module Functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-module_005fspeak_0028_0029-1"><code>module_speak()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Output-Module-Functions">Output Module Functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-module_005fstop_0028_0029"><code>module_stop()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Output-Module-Functions">Output Module Functions</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-O">O</th><td></td><td></td></tr>
@@ -5363,17 +5394,18 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-V">V</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-void"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Initializing-and-Terminating-in-C">Initializing and Terminating in C</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-void-1"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Functions-used-by-module_005fmain_002ec">Functions used by module_main.c</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-void-2"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Functions-for-use-when-talking-to-synthesizer">Functions for use when talking to synthesizer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-void-1"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Output-Module-Functions">Output Module Functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-void-2"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Functions-used-by-module_005fmain_002ec">Functions used by module_main.c</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-void-3"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Functions-for-use-when-talking-to-synthesizer">Functions for use when talking to synthesizer</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-void-4"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi_002dprocess-output-modules">Multi-process output modules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-void-4"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Functions-for-use-when-talking-to-synthesizer">Functions for use when talking to synthesizer</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-void-5"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi_002dprocess-output-modules">Multi-process output modules</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-void-6"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi_002dprocess-output-modules">Multi-process output modules</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-void-7"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi_002dprocess-output-modules">Multi-process output modules</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-void-8"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi_002dprocess-output-modules">Multi-process output modules</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-void-9"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi_002dprocess-output-modules">Multi-process output modules</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-void-10"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi_002dprocess-output-modules">Multi-process output modules</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-void-11"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Memory-Handling-Functions">Memory Handling Functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-void-11"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi_002dprocess-output-modules">Multi-process output modules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-void-12"><code>void</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Memory-Handling-Functions">Memory Handling Functions</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-X">X</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-xfree"><code>xfree</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Memory-Handling-Functions">Memory Handling Functions</a></td></tr>
