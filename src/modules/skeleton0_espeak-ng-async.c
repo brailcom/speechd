@@ -262,6 +262,8 @@ static int callback(short *wav, int numsamples, espeak_EVENT *events)
 			case espeakEVENT_MSG_TERMINATED:
 				module_report_event_end();
 				break;
+			default:
+				break;
 		}
 		cur++;
 	}

@@ -268,6 +268,8 @@ static int callback(short *wav, int numsamples, espeak_EVENT *events)
 
 				done = sample;
 			}
+			default:
+				break;
 		}
 
 		/* Then process event */
@@ -277,6 +279,8 @@ static int callback(short *wav, int numsamples, espeak_EVENT *events)
 				break;
 			case espeakEVENT_PLAY:
 				module_report_icon(cur->id.name);
+				break;
+			default:
 				break;
 		}
 		cur++;
