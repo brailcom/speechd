@@ -412,6 +412,10 @@ static void cmd_debug(char *line)
 	int enable = 0;
 
 	debug = strtok_r(line, " \n", &save);
+	if (!debug) {
+		bad_syntax();
+		return;
+	}
 	if (strcmp(debug, "DEBUG")) {
 		bad_internal();
 		return;
