@@ -701,6 +701,7 @@ static void speech_symbols_free(SpeechSymbols *ss)
 {
 	g_slist_free_full(ss->complex_symbols, (GDestroyNotify) g_strfreev);
 	g_hash_table_destroy(ss->symbols);
+	g_free(ss->source);
 	g_free(ss);
 }
 
@@ -712,6 +713,7 @@ static gpointer speech_symbols_new(const gchar *locale, const gchar *file)
 	gchar *path;
 
 	ss->complex_symbols = NULL;
+	ss->source = NULL;
 	ss->symbols = g_hash_table_new_full(g_str_hash, g_str_equal,
 					    g_free,
 					    (GDestroyNotify) speech_symbol_free);
@@ -767,6 +769,7 @@ static void speech_symbols_processor_free(SpeechSymbolProcessor *ssp)
 	g_slist_free(ssp->complex_list);
 	if (ssp->symbols)
 		g_hash_table_unref(ssp->symbols);
+	g_free(ssp->source);
 	g_free(ssp);
 }
 
@@ -982,6 +985,7 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 	g_string_free(pattern, TRUE);
 	g_string_free(characters, TRUE);
 	g_slist_free(multi_chars_list);
+	g_slist_free(sources);
 
 	return ssp;
 }

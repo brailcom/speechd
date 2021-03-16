@@ -264,6 +264,7 @@ void *speak(void *data)
 			if (strcmp(message->buf, normalized)) {
 				MSG(5, "text: Normalized '%s' to '%s'", message->buf, normalized);
 			}
+			g_free(message->buf);
 			message->buf = normalized;
 			insert_symbols(message, punct_missing);
 		}

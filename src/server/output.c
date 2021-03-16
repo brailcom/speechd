@@ -599,13 +599,18 @@ int output_speak(TSpeechDMessage * msg, OutputModule *output)
 {
 	int err;
 	int ret;
+	char *newbuf;
 
 	if (msg == NULL)
 		return -1;
 
 	output_lock();
 
-	msg->buf = escape_dot(msg->buf);
+	newbuf = escape_dot(msg->buf);
+	if (newbuf != msg->buf) {
+		g_free(msg->buf);
+		msg->buf = newbuf;
+	}
 	msg->bytes = -1;
 
 	output_set_speaking_monitor(msg, output);
