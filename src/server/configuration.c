@@ -499,7 +499,7 @@ void load_default_global_set_options()
 	GlobalFDSet.audio_pulse_min_length = 10;
 
 	SpeechdOptions.max_history_messages = 10000;
-	SpeechdOptions.max_queue_size = 100;
+	SpeechdOptions.max_queue_size = 10000;
 
 	/* Options which are accessible from command line must be handled
 	   specially to make sure we don't overwrite them */
