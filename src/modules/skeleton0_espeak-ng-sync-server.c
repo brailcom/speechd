@@ -28,13 +28,14 @@
 
 /*
  * This module is based on skeleton0, and shows how it can be completed easily
- * to run Espeak-NG asynchronously.
+ * to run Espeak-NG synchronously, with server-side audio.
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdint.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
@@ -64,7 +65,7 @@ int module_init(char **msg)
 
 	if (result == ENS_OK) {
 		fprintf(stderr, "initialized, opening audio output\n");
-		result = espeak_ng_InitializeOutput(ENOUTPUT_MODE_SPEAK_AUDIO, 0, NULL);
+		result = espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS, 0, NULL);
 	}
 
 	if (result == ENS_OK) {
@@ -169,27 +170,9 @@ int module_audio_set(const char *var, const char *val)
 {
 	/* Optional: interpret audio parameter */
 	if (!strcmp(var, "audio_output_method")) {
-		if (strcmp(val, "oss") != 0 &&
-		    strcmp(val, "alsa") != 0 &&
-		    strcmp(val, "nas") != 0 &&
-		    strcmp(val, "pulse") != 0)
+		/* Only server-side audio supported */
+		if (strcmp(val, "server") != 0)
 			return -1;
-		/* TODO: respect configuration */
-		return 0;
-	} else if (!strcmp(var, "audio_oss_device")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "audio_alsa_device")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "audio_nas_server")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "audio_pulse_device")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "audio_pulse_min_length")) {
-		/* TODO */
 		return 0;
 	}
 	return -1;
@@ -230,41 +213,76 @@ int module_loop(void)
 	return ret;
 }
 
-static int began;
-/* Asynchronous version, when the synthesis implements asynchronous
+/* Synchronous version, when the synthesis doesn't implement asynchronous
  * processing in another thread. */
-int module_speak(const char *data, size_t bytes, SPDMessageType msgtype)
+void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 {
-	/* Speak the provided data asynchronously in another thread */
+	module_speak_ok();
+
 	fprintf(stderr, "speaking '%s'\n", data);
 
-	began = 0;
+	module_report_event_begin();
 	espeak_Synth(data, strlen(data) + 1, 0, POS_CHARACTER, 0,
 		     espeakCHARS_AUTO | espeakPHONEMES | espeakENDPAUSE | espeakSSML,
 		     NULL, NULL);
+	module_report_event_end();
+}
 
-	return 1;
+void send_samples(short *wav, int len, int rate)
+{
+	if (!len)
+		return;
+
+	AudioTrack track = {
+		.bits = 16,
+		.num_channels = 1,
+		.sample_rate = rate,
+		.num_samples = len,
+		.samples = wav,
+	};
+	module_tts_output_server(&track, SPD_AUDIO_LE);
 }
 
 /* This is getting called in the espeak-ng thread */
 static int callback(short *wav, int numsamples, espeak_EVENT *events)
 {
 	espeak_EVENT *cur = events;
+	int rate = espeak_ng_GetSampleRate();
+	int done = 0;
 
-	if (!began) {
-		began = 1;
-		module_report_event_begin();
-	}
 	while (cur->type != espeakEVENT_LIST_TERMINATED)
 	{
 		fprintf(stderr, "got event %d from synth\n", cur->type);
+
+		/* First send pending audio */
 		switch (cur->type) {
-			case espeakEVENT_MSG_TERMINATED:
-				module_report_event_end();
+			case espeakEVENT_MARK:
+			case espeakEVENT_PLAY:
+			{
+				int64_t pos = cur->audio_position;
+				int sample = pos * rate / 1000;
+				if (sample > numsamples)
+					sample = numsamples;
+
+				send_samples(wav + done, sample - done, rate);
+
+				done = sample;
+			}
+		}
+
+		/* Then process event */
+		switch (cur->type) {
+			case espeakEVENT_MARK:
+				module_report_index_mark(cur->id.name);
+				break;
+			case espeakEVENT_PLAY:
+				module_report_icon(cur->id.name);
 				break;
 		}
 		cur++;
 	}
+
+	send_samples(wav + done, numsamples - done, rate);
 
 	return 0;
 }

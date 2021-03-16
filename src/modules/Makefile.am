@@ -117,7 +117,7 @@ sd_espeak_ng_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) \
 	$(common_LDADD)
 
-noinst_PROGRAMS += sd_skeleton0_espeak-ng-sync
+noinst_PROGRAMS += sd_skeleton0_espeak-ng-sync sd_skeleton0_espeak-ng-sync-server sd_skeleton0_espeak-ng-async-server
 sd_skeleton0_espeak_ng_sync_SOURCES = skeleton0_espeak-ng-sync.c module_main.c module_readline.c module_process.c
 sd_skeleton0_espeak_ng_sync_CFLAGS = $(ESPEAK_NG_CFLAGS)
 sd_skeleton0_espeak_ng_sync_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
@@ -126,6 +126,16 @@ noinst_PROGRAMS += sd_skeleton0_espeak-ng-async
 sd_skeleton0_espeak_ng_async_SOURCES = skeleton0_espeak-ng-async.c module_main.c module_readline.c module_process.c
 sd_skeleton0_espeak_ng_async_CFLAGS = $(ESPEAK_NG_CFLAGS)
 sd_skeleton0_espeak_ng_async_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
+
+noinst_PROGRAMS += sd_skeleton0_espeak-ng-sync-server
+sd_skeleton0_espeak_ng_sync_server_SOURCES = skeleton0_espeak-ng-sync-server.c module_main.c module_readline.c module_process.c
+sd_skeleton0_espeak_ng_sync_server_CFLAGS = $(ESPEAK_NG_CFLAGS)
+sd_skeleton0_espeak_ng_sync_server_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
+
+noinst_PROGRAMS += sd_skeleton0_espeak-ng-async-server
+sd_skeleton0_espeak_ng_async_server_SOURCES = skeleton0_espeak-ng-async-server.c module_main.c module_readline.c module_process.c
+sd_skeleton0_espeak_ng_async_server_CFLAGS = $(ESPEAK_NG_CFLAGS)
+sd_skeleton0_espeak_ng_async_server_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 endif
 
 if ivona_support
