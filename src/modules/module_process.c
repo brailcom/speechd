@@ -493,6 +493,7 @@ int module_process(int fd, int block)
 			cmd_debug(line);
 
 		else if (!strcmp(line, "QUIT\n")) {
+			free(line);
 			cmd_quit();
 			fflush(stdout);
 			return 0;
@@ -501,6 +502,7 @@ int module_process(int fd, int block)
 		else
 			print("300 ERR UNKNOWN COMMAND");
 
+		free(line);
 		fflush(stdout);
 	}
 }
