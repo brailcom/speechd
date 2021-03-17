@@ -516,7 +516,7 @@ void module_report_index_mark(const char *mark)
 	if (!mark)
 		return;
 
-	print("700-%s\n700 INDEX MARK\n", mark);
+	print("700-%s\n700 INDEX MARK", mark);
 }
 
 /* Report speak start */
