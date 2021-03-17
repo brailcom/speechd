@@ -63,20 +63,40 @@ static int output_pause_requested;
 
 static void output_open_audio(OutputModule *output)
 {
-	void *pars[10] = { NULL };
+	void *pars[9] = { NULL };
+	char min_length[11];
 	char *error;
-	pars[3] = "default";
+	gchar **outputs;
+	int i;
+
+	pars[0] = GlobalFDSet.audio_oss_device;
+	pars[1] = GlobalFDSet.audio_alsa_device;
+	pars[2] = GlobalFDSet.audio_nas_server;
+	pars[3] = GlobalFDSet.audio_pulse_device;
+	snprintf(min_length, sizeof(min_length), "%u", GlobalFDSet.audio_pulse_min_length);
+	pars[4] = min_length;
 	pars[5] = output->name;
-	/* FIXME: respect audio configuration */
-	output->audio = spd_audio_open("pulse", pars, &error);
-	if (!output->audio) {
-		MSG(1, "Opening audio failed: %s\n", error);
-		return;
+
+	outputs = g_strsplit(GlobalFDSet.audio_output_method, ",", 0);
+	for (i = 0; NULL != outputs[i]; i++) {
+		output->audio =
+		    spd_audio_open(outputs[i], pars, &error);
+		if (output->audio) {
+			DBG("Using %s audio output method", outputs[i]);
+			g_strfreev(outputs);
+
+			/* Volume is controlled by the synthesizer. Always play at normal on audio device. */
+			if (spd_audio_set_volume(output->audio, 85) < 0) {
+				DBG("Can't set volume. audio not initialized?");
+			}
+
+			return;
+		}
 	}
 
-	if (spd_audio_set_volume(output->audio, 85) < 0) {
-		MSG(3, "Can't set volume. audio not initialized?");
-	}
+	MSG(1, "Opening audio failed: %s\n", error);
+	g_free(error);
+	g_strfreev(outputs);
 }
 
 void output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output)
