@@ -40,8 +40,8 @@ typedef struct {
 	pid_t pid;
 	int working;
 	AudioID *audio;
-	AudioTrack track;
 } OutputModule;
+#define AUDIOID_TOOPEN ((AudioID*) (-1))
 
 GList *detect_output_modules(const char *modules_dirname, const char *config_dirname);
 OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
