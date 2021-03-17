@@ -321,12 +321,12 @@ static void cmd_list_voices(void)
  * FOO2=bar2
  * .
  */
-static int cmd_params(int fd, const char *type, int (*set)(const char *var, const char *val))
+static int cmd_params(int fd, int ack, const char *type, int (*set)(const char *var, const char *val))
 {
 	char *var, *val, *save;
 	const char *err = NULL;
 
-	print("207 OK RECEIVING %sSETTINGS", type);
+	print("%u OK RECEIVING %sSETTINGS", ack, type);
 
 	while (1) {
 		char *line = module_readline(fd, 1);
@@ -367,7 +367,7 @@ static int cmd_params(int fd, const char *type, int (*set)(const char *var, cons
 
 static void cmd_set(int fd)
 {
-	if (cmd_params(fd, "", module_set) != 0)
+	if (cmd_params(fd, 203, "", module_set) != 0)
 		return;
 
 	print("203 OK SETTINGS RECEIVED");
@@ -379,12 +379,12 @@ static void cmd_audio(int fd)
 	int ret;
 
 	if (audio_server) {
-		if (cmd_params(fd, "AUDIO ", module_audio_set_through_server) != 0)
+		if (cmd_params(fd, 207, "AUDIO ", module_audio_set_through_server) != 0)
 			return;
 
 		ret = 0;
 	} else {
-		if (cmd_params(fd, "AUDIO ", module_audio_set) != 0)
+		if (cmd_params(fd, 207, "AUDIO ", module_audio_set) != 0)
 			return;
 
 		ret = module_audio_init(&status);
@@ -400,7 +400,7 @@ static void cmd_audio(int fd)
 
 static void cmd_loglevel(int fd)
 {
-	if (cmd_params(fd, "LOGLEVEL ", module_loglevel_set) != 0)
+	if (cmd_params(fd, 207, "LOGLEVEL ", module_loglevel_set) != 0)
 		return;
 	print("203 OK LOGLEVEL SET");
 }
