@@ -70,7 +70,7 @@ sd_cicero_LDADD = $(top_builddir)/src/common/libcommon.la \
 
 if flite_support
 modulebin_PROGRAMS += sd_flite
-sd_flite_SOURCES = flite.c $(audio_SOURCES) $(common_SOURCES)
+sd_flite_SOURCES = flite.c $(common_SOURCES)
 sd_flite_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	$(flite_kal) $(flite_basic) \
