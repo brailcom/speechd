@@ -820,8 +820,8 @@ int module_marks_clear(SPDMarks *marks)
 	return 0;
 }
 
-/* Strip silence at head and tail of audio track */
-void module_strip_silence(AudioTrack * track)
+/* Strip silence at head of audio track */
+void module_strip_head_silence(AudioTrack * track)
 {
 	assert(track->bits == 16);
 	unsigned i;
@@ -831,21 +831,31 @@ void module_strip_silence(AudioTrack * track)
 		for (i = 0; i < track->num_channels; i++)
 			if (abs(track->samples[i])
 			    >= silence_limit * (1L<<(track->bits-1)))
-				goto stripped_head;
+				return;
 		track->samples += track->num_channels;
 		track->num_samples -= track->num_channels;
 	}
-stripped_head:
+}
+/* Strip silence at tail of audio track */
+void module_strip_tail_silence(AudioTrack * track)
+{
+	assert(track->bits == 16);
+	unsigned i;
+	float silence_limit = 0.001;
 
 	while (track->num_samples >= track->num_channels) {
 		for (i = 0; i < track->num_channels; i++)
 			if (abs(track->samples[track->num_samples - i - 1])
 			    >= silence_limit * (1L<<(track->bits-1)))
-			  	goto stripped_tail;
+				return;
 		track->num_samples -= track->num_channels;
 	}
-stripped_tail:
-	;
+}
+
+void module_strip_silence(AudioTrack * track)
+{
+	module_strip_head_silence(track);
+	module_strip_tail_silence(track);
 }
 
 int module_tts_output_marks(AudioTrack track, AudioFormat format, SPDMarks *marks)
