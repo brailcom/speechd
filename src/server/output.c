@@ -61,11 +61,33 @@ static int output_end_queued;
 static int output_stop_requested;
 static int output_pause_requested;
 
+static void output_open_audio(OutputModule *output)
+{
+	void *pars[10] = { NULL };
+	char *error;
+	pars[3] = "default";
+	pars[5] = output->name;
+	/* FIXME: respect audio configuration */
+	output->audio = spd_audio_open("pulse", pars, &error);
+	if (!output->audio) {
+		MSG(1, "Opening audio failed: %s\n", error);
+		return;
+	}
+
+	if (spd_audio_set_volume(output->audio, 85) < 0) {
+		MSG(3, "Can't set volume. audio not initialized?");
+	}
+}
+
 void output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output)
 {
 	/* Set the speaking-monitor so that we know who is speaking */
 	speaking_module = output;
-	module_audio_id = output->audio;
+	if (output->audio) {
+		if (output->audio == AUDIOID_TOOPEN)
+			output_open_audio(output);
+		module_audio_id = output->audio;
+	}
 	speaking_uid = msg->settings.uid;
 	speaking_gid = msg->settings.reparted;
 }
@@ -495,24 +517,9 @@ static int output_server_audio(OutputModule * output)
 
 	g_string_free(set_str, 1);
 
-	void *pars[10] = { NULL };
-	char *error;
-	pars[3] = "default";
-	pars[5] = output->name;
-	/* FIXME: respect audio configuration */
-	output->audio = spd_audio_open("pulse", pars, &error);
-	if (!output->audio) {
-		MSG(1, "Opening audio failed: %s\n", error);
-		return -1;
-	}
+	output->audio = AUDIOID_TOOPEN;
 
-	if (spd_audio_set_volume(output->audio, 85) < 0) {
-		MSG(3, "Can't set volume. audio not initialized?");
-	}
-
-	output->track.bits = 0;
-
-	MSG(3, "Initialized server audio for %s\n", output->name);
+	MSG(3, "Initialized for server audio for %s\n", output->name);
 	return 0;
 
 }
