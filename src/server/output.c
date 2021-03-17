@@ -499,6 +499,7 @@ static int output_server_audio(OutputModule * output)
 	char *error;
 	pars[3] = "default";
 	pars[5] = output->name;
+	/* FIXME: respect audio configuration */
 	output->audio = spd_audio_open("pulse", pars, &error);
 	if (!output->audio) {
 		MSG(1, "Opening audio failed: %s\n", error);
