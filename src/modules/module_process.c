@@ -228,11 +228,14 @@ static void cmd_speak(int fd, SPDMessageType msgtype)
 	if (module_speak_sync) {
 		module_speak_sync(text, text_len, msgtype);
 	} else {
+		pthread_mutex_lock(&module_stdout_mutex);
 		ret = module_speak(text, text_len, msgtype);
 		if (ret > 0)
-			module_speak_ok();
+			printf("200 OK SPEAKING\n");
 		else
-			module_speak_error();
+			printf("301 ERROR CANT SPEAK\n");
+		fflush(stdout);
+		pthread_mutex_unlock(&module_stdout_mutex);
 	}
 	free(text);
 }
