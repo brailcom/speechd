@@ -136,7 +136,7 @@ void module_speak_sync(const gchar * data, size_t len, SPDMessageType msgtype)
 	AudioFormat format = SPD_AUDIO_LE;
 #endif
 	cst_wave *wav;
-	unsigned int pos;
+	unsigned int pos, first;
 	int bytes;
 	char *flite_message;
 
@@ -151,6 +151,7 @@ void module_speak_sync(const gchar * data, size_t len, SPDMessageType msgtype)
 	UPDATE_PARAMETER(pitch, flite_set_pitch);
 
 	pos = 0;
+	first = 1;
 
 	module_report_event_begin();
 	while (1) {
@@ -207,6 +208,13 @@ void module_speak_sync(const gchar * data, size_t len, SPDMessageType msgtype)
 		track.sample_rate = wav->sample_rate;
 		track.bits = 16;
 		track.samples = wav->samples;
+
+		if (first) {
+			module_strip_head_silence(&track);
+			first = 0;
+		}
+		if (flite_message[pos] == 0)
+			module_strip_tail_silence(&track);
 
 		DBG("Got %d samples", track.num_samples);
 		if (track.samples != NULL) {

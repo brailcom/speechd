@@ -111,6 +111,8 @@ extern const char *module_name;
 int module_load(void);
 SPDVoice **module_get_voices(void);
 void module_strip_silence(AudioTrack * track);
+void module_strip_head_silence(AudioTrack * track);
+void module_strip_tail_silence(AudioTrack * track);
 int module_tts_output(AudioTrack track, AudioFormat format);
 int module_marks_init(SPDMarks *marks);
 int module_marks_add(SPDMarks *marks, unsigned sample, const char *name);
