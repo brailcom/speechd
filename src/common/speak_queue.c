@@ -1,7 +1,7 @@
 /*
  * speak_queue.c - Speak queue helper
  *
- * Copyright (C) 2007 Brailcom, o.p.s.
+ * Copyright (C) 2003,2006,2007 Brailcom, o.p.s.
  * Copyright (C) 2019-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * This is free software; you can redistribute it and/or modify it
@@ -22,6 +22,8 @@
  * @author Lukas Loehrer
  * Based on ibmtts.c.
  */
+
+#include <sndfile.h>
 
 #include "speak_queue.h"
 #include "common.h"
@@ -322,27 +324,98 @@ static void speak_queue_clear_playback_queue()
 }
 
 /* Sends a chunk of audio to the audio player and waits for completion or error. */
-static gboolean speak_queue_send_to_audio(speak_queue_entry * playback_queue_entry)
+static gboolean speak_queue_send_track_to_audio(AudioTrack *track, AudioFormat format)
 {
 	int ret = 0;
 	DBG(DBG_MODNAME " Sending %i samples to audio.",
-	    playback_queue_entry->data.audio.track.num_samples);
+	    track->num_samples);
 	if (!speak_queue_configured)
 	{
-		spd_audio_begin(module_audio_id,
-				playback_queue_entry->data.audio.track,
-				playback_queue_entry->data.audio.format);
+		spd_audio_begin(module_audio_id, *track, format);
 		speak_queue_configured = TRUE;
 	}
-	ret = spd_audio_feed_sync_overlap(module_audio_id,
-			     playback_queue_entry->data.audio.track,
-			     playback_queue_entry->data.audio.format);
+	ret = spd_audio_feed_sync_overlap(module_audio_id, *track, format);
 	if (ret < 0) {
 		DBG("ERROR: Can't play track for unknown reason.");
 		return FALSE;
 	}
 	DBG(DBG_MODNAME " Sent to audio.");
 	return TRUE;
+}
+
+/* Plays the specified audio file. */
+static gboolean speak_queue_send_file_to_audio(const char *filename)
+{
+	gboolean result = 0;
+	int subformat;
+	sf_count_t items;
+	sf_count_t readcount;
+	SNDFILE *sf;
+	SF_INFO sfinfo;
+
+	DBG("Playing |%s|", filename);
+	memset(&sfinfo, 0, sizeof(sfinfo));
+	sf = sf_open(filename, SFM_READ, &sfinfo);
+	if (NULL == sf) {
+		DBG("%s", sf_strerror(NULL));
+		return -1;
+	}
+	if (sfinfo.channels < 1 || sfinfo.channels > 2) {
+		DBG("ERROR: channels = %d.\n", sfinfo.channels);
+		result = FALSE;
+		goto cleanup1;
+	}
+	if (sfinfo.frames > 0x7FFFFFFF || sfinfo.frames == 0) {
+		DBG("ERROR: Unknown number of frames.");
+		result = FALSE;
+		goto cleanup1;
+	}
+
+	subformat = sfinfo.format & SF_FORMAT_SUBMASK;
+	items = sfinfo.channels * sfinfo.frames;
+	DBG("Frames = %jd, channels = %ld", sfinfo.frames,
+	    (long)sfinfo.channels);
+	DBG("Samplerate = %i, items = %lld", sfinfo.samplerate,
+	    (long long)items);
+	DBG("Major format = 0x%08X, subformat = 0x%08X, endian = 0x%08X",
+	    sfinfo.format & SF_FORMAT_TYPEMASK, subformat,
+	    sfinfo.format & SF_FORMAT_ENDMASK);
+
+	if (subformat == SF_FORMAT_FLOAT || subformat == SF_FORMAT_DOUBLE) {
+		/* Set scaling for float to integer conversion. */
+		sf_command(sf, SFC_SET_SCALE_FLOAT_INT_READ, NULL, SF_TRUE);
+	}
+	AudioTrack track;
+	track.num_samples = sfinfo.frames;
+	track.num_channels = sfinfo.channels;
+	track.sample_rate = sfinfo.samplerate;
+	track.bits = 16;
+	track.samples = g_malloc(items * sizeof(short));
+	readcount = sf_read_short(sf, (short *)track.samples, items);
+	DBG("Read %lld items from audio file.", (long long)readcount);
+
+	if (readcount > 0) {
+		track.num_samples = readcount / sfinfo.channels;
+		DBG("Sending %i samples to audio.", track.num_samples);
+		int ret = speak_queue_send_track_to_audio(&track, SPD_AUDIO_LE);
+		if (ret < 0) {
+			DBG("ERROR: Can't play track for unknown reason.");
+			result = -1;
+			goto cleanup2;
+		}
+		DBG("Sent to audio.");
+	}
+cleanup2:
+	g_free(track.samples);
+cleanup1:
+	sf_close(sf);
+	return result;
+}
+
+static gboolean speak_queue_send_to_audio(speak_queue_entry * playback_queue_entry)
+{
+	return speak_queue_send_track_to_audio(&playback_queue_entry->data.audio.track,
+					        playback_queue_entry->data.audio.format);
 }
 
 /* Playback thread. */
@@ -406,7 +479,7 @@ static void *speak_queue_play(void *nothing)
 					spd_audio_end(module_audio_id);
 					speak_queue_configured = FALSE;
 				}
-				module_play_file(playback_queue_entry->
+				speak_queue_send_file_to_audio(playback_queue_entry->
 						 data.sound_icon_filename);
 				break;
 			case SPEAK_QUEUE_QET_BEGIN:{
