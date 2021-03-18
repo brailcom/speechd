@@ -51,8 +51,6 @@
 #include <speechd_types.h>
 #include "module_utils.h"
 
-#include "speak_queue.h"
-
 /* > */
 /* < Basic definitions*/
 
@@ -92,6 +90,10 @@ static int espeak_voice_pitch_baseline = 50;
 /* When a voice is set, this is the baseline pitch range of the voice.
    SSIP PITCH range commands then adjust relative to this. */
 static int espeak_voice_pitch_range_baseline = 50;
+
+static int stop_requested = 0;
+static int pause_requested = 0;
+static int began = 0;
 
 /* <Function prototypes*/
 
@@ -169,6 +171,8 @@ int module_init(char **status_info)
 
 	DBG(DBG_MODNAME " Module init().");
 
+	module_audio_set_server();
+
 	*status_info = NULL;
 
 	/* Report versions. */
@@ -206,11 +210,6 @@ int module_init(char **status_info)
 
 	espeak_voice_list = espeak_list_synthesis_voices();
 
-	/* <Threading setup */
-	ret = module_speak_queue_init(EspeakAudioQueueMaxSize, status_info);
-	if (ret != OK)
-		return ret;
-
 	*status_info = g_strdup(DBG_MODNAME " Initialized successfully.");
 
 	return OK;
@@ -228,9 +227,6 @@ int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	DBG(DBG_MODNAME " module_speak().");
 
-	if (!module_speak_queue_before_synth())
-		return FALSE;
-
 	DBG(DBG_MODNAME " Requested data: |%s| %d %lu", data, msgtype,
 	    (unsigned long)bytes);
 
@@ -245,6 +241,9 @@ int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
 	UPDATE_PARAMETER(pitch_range, espeak_set_pitch_range);
 	UPDATE_PARAMETER(punctuation_mode, espeak_set_punctuation_mode);
 	UPDATE_PARAMETER(cap_let_recogn, espeak_set_cap_let_recogn);
+
+	began = 0;
+	stop_requested = 0;
 
 	/*
 	   UPDATE_PARAMETER(spelling_mode, espeak_set_spelling_mode);
@@ -324,7 +323,7 @@ int module_stop(void)
 {
 	DBG(DBG_MODNAME " module_stop().");
 
-	module_speak_queue_stop();
+	stop_requested = 1;
 
 	return OK;
 }
@@ -332,15 +331,10 @@ int module_stop(void)
 size_t module_pause(void)
 {
 	DBG(DBG_MODNAME " module_pause().");
-	module_speak_queue_pause();
-	return OK;
-}
 
-void module_speak_queue_cancel(void)
-{
-	int ret = espeak_Cancel();
-	if (ret != EE_OK)
-		DBG(DBG_MODNAME " error in espeak_Cancel().");
+	pause_requested = 1;
+
+	return OK;
 }
 
 int module_close(void)
@@ -348,12 +342,9 @@ int module_close(void)
 	DBG(DBG_MODNAME " close().");
 
 	DBG(DBG_MODNAME " Terminating threads");
-	module_speak_queue_terminate();
 
 	DBG(DBG_MODNAME " terminating synthesis.");
 	espeak_Terminate();
-
-	module_speak_queue_free();
 
 	espeak_free_voice_list();
 
@@ -641,9 +632,9 @@ static gboolean espeak_send_audio_upto(short *wav, int *sent, int upto)
 		.num_samples = numsamples,
 		.samples = wav + (*sent),
 	};
-	gboolean result = module_speak_queue_add_audio(&track, SPD_AUDIO_LE);
+	module_tts_output_server(&track, SPD_AUDIO_LE);
 	*sent = upto;
-	return result;
+	return 0;
 }
 
 static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
@@ -653,12 +644,16 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 	/* Number of samples already sent during this call to the callback. */
 	int numsamples_sent = 0;
 
-	if (module_speak_queue_stop_requested()) {
+	if (stop_requested) {
+		module_report_event_stop();
 		return 1;
 	}
 
-	if (module_speak_queue_before_play())
+	if (!began) {
+		began = 1;
+		module_report_event_begin();
 		numsamples_sent_msg = 0;
+	}
 
 	/* Process events and audio data */
 	while (events->type != espeakEVENT_LIST_TERMINATED) {
@@ -682,30 +677,38 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 		default:
 			break;
 		}
+		if (stop_requested) {
+			module_report_event_stop();
+			return 1;
+		}
 		/* Process actual event */
 		switch (events->type) {
 		case espeakEVENT_MARK:
 			if (EspeakIndexing)
-				module_speak_queue_add_mark(events->id.name);
+				module_report_index_mark(events->id.name);
 			break;
 		case espeakEVENT_PLAY:
-			module_speak_queue_add_sound_icon(events->
-								    id.name);
+			module_report_icon(events->id.name);
 			break;
 		case espeakEVENT_MSG_TERMINATED:
 			// This event never has any audio in the same callback
-			module_speak_queue_add_end();
+			module_report_event_end();
 			break;
 		default:
 			break;
 		}
-		if (module_speak_queue_stop_requested()) {
+		if (stop_requested) {
+			module_report_event_stop();
 			return 1;
 		}
 		events++;
 	}
 	espeak_send_audio_upto(wav, &numsamples_sent, numsamples);
 	numsamples_sent_msg += numsamples;
+	if (stop_requested) {
+		module_report_event_stop();
+		return 1;
+	}
 	return 0;
 }
 
