@@ -804,11 +804,6 @@ void module_speak_queue_cancel(void)
 {
 	/* Not needed */
 }
-int module_play_file(const char *filename)
-{
-	/* TODO */
-	return -1;
-}
 
 int output_module_is_speaking(OutputModule * output, char **index_mark)
 {
