@@ -186,11 +186,11 @@ int module_init(char **status_info)
 	    EspeakAudioChunkSize);
 #if ESPEAK_API_REVISION == 1
 	espeak_sample_rate =
-	    espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, EspeakAudioChunkSize,
+	    espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, EspeakAudioChunkSize,
 			      NULL);
 #else
 	espeak_sample_rate =
-	    espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, EspeakAudioChunkSize,
+	    espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, EspeakAudioChunkSize,
 			      NULL, 0);
 #endif
 	if (espeak_sample_rate == EE_INTERNAL_ERROR) {
@@ -220,7 +220,7 @@ SPDVoice **module_list_voices(void)
 	return espeak_voice_list;
 }
 
-int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
+void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 {
 	espeak_ERROR result = EE_INTERNAL_ERROR;
 	int flags = espeakSSML | espeakCHARS_UTF8;
@@ -244,6 +244,8 @@ int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	began = 0;
 	stop_requested = 0;
+
+	module_speak_ok();
 
 	/*
 	   UPDATE_PARAMETER(spelling_mode, espeak_set_spelling_mode);
@@ -312,11 +314,16 @@ int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
 	}
 
 	if (result != EE_OK) {
-		return FALSE;
+		DBG(DBG_MODNAME " Synth error %d", result);
 	}
 
-	DBG(DBG_MODNAME " Leaving module_speak() normally.");
-	return bytes;
+	if (stop_requested) {
+		DBG(DBG_MODNAME " Synth stopped");
+		module_report_event_stop();
+	} else {
+		DBG(DBG_MODNAME " Leaving module_speak() normally.");
+		module_report_event_end();
+	}
 }
 
 int module_stop(void)
@@ -644,10 +651,8 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 	/* Number of samples already sent during this call to the callback. */
 	int numsamples_sent = 0;
 
-	if (stop_requested) {
-		module_report_event_stop();
+	if (stop_requested)
 		return 1;
-	}
 
 	if (!began) {
 		began = 1;
@@ -677,10 +682,8 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 		default:
 			break;
 		}
-		if (stop_requested) {
-			module_report_event_stop();
+		if (stop_requested)
 			return 1;
-		}
 		/* Process actual event */
 		switch (events->type) {
 		case espeakEVENT_MARK:
@@ -692,23 +695,19 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 			break;
 		case espeakEVENT_MSG_TERMINATED:
 			// This event never has any audio in the same callback
-			module_report_event_end();
+			DBG(DBG_MODNAME " Synth terminated");
 			break;
 		default:
 			break;
 		}
-		if (stop_requested) {
-			module_report_event_stop();
+		if (stop_requested)
 			return 1;
-		}
 		events++;
 	}
 	espeak_send_audio_upto(wav, &numsamples_sent, numsamples);
 	numsamples_sent_msg += numsamples;
-	if (stop_requested) {
-		module_report_event_stop();
+	if (stop_requested)
 		return 1;
-	}
 	return 0;
 }
 
