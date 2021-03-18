@@ -548,5 +548,5 @@ void module_report_icon(const char *icon)
 {
 	if (!icon)
 		return;
-	print("706-%s\n706 ICON\n", icon);
+	print("706-%s\n706 ICON", icon);
 }
