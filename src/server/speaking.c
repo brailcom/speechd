@@ -117,7 +117,8 @@ void *speak(void *data)
 				} else if ((revents & POLLIN)
 					   || (revents & POLLPRI)) {
 					MSG(5,
-					    "wait_for_poll: activity on output_module");
+					    "wait_for_poll: activity on output_module: %d %d",
+					    poll_fds[1].revents, poll_fds[2].revents);
 					/* Check if sb is speaking or they are all silent.
 					 * If some synthesizer is speaking, we must wait. */
 					is_sb_speaking();
