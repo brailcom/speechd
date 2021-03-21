@@ -223,6 +223,7 @@ void module_speak_sync(const gchar * data, size_t len, SPDMessageType msgtype)
 		}
 		delete_wave(wav);
 	}
+	g_free(flite_message);
 	flite_speaking = 0;
 	flite_stop = 0;
 }
