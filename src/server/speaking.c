@@ -727,8 +727,10 @@ int is_sb_speaking(void)
 		settings = &(current_message->settings);
 
 		output_is_speaking(&index_mark);
-		if (index_mark == NULL)
+		if (index_mark == NULL) {
+			poll_count = 1;
 			return SPEAKING = 0;
+		}
 
 		if (!strcmp(index_mark, "no")) {
 			g_free(index_mark);
