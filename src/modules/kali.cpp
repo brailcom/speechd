@@ -159,8 +159,6 @@ void module_speak_sync(const char * data, size_t len, SPDMessageType msgtype)
 	unsigned int pos;
 	int bytes;
 
-	DBG("kali: speaking thread starting.......\n");
-
 	pos = 0;
 	module_report_event_begin();
 	while (1) {
