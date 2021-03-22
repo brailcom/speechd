@@ -451,14 +451,14 @@ SPDVoice **output_list_voices(const char *module_name)
 #define ADD_SET_INT(name) \
 	g_string_append_printf(set_str, #name"=%d\n", msg->settings.name);
 #define ADD_SET_STR(name) \
-	if (msg->settings.name != NULL){ \
+	if (msg->settings.name != NULL && msg->settings.name[0] != '\0') { \
 		g_string_append_printf(set_str, #name"=%s\n", msg->settings.name); \
 	}else{ \
 		g_string_append_printf(set_str, #name"=NULL\n"); \
 	}
 #define ADD_SET_STR_C(name, fconv) \
 	val = fconv(msg->settings.msg_settings.name); \
-	if (val != NULL){ \
+	if (val != NULL && val[0] != '\0'){ \
 		g_string_append_printf(set_str, #name"=%s\n", val); \
 	} \
 	g_free(val);
@@ -483,18 +483,20 @@ int output_send_settings(TSpeechDMessage * msg, OutputModule * output)
 	ADD_SET_STR_C(spelling_mode, ESpellMode2str);
 	ADD_SET_STR_C(cap_let_recogn, ECapLetRecogn2str);
 	val = EVoice2str(msg->settings.msg_settings.voice_type);
-	if (val != NULL) {
+	if (val != NULL && val[0] != '\0') {
 		g_string_append_printf(set_str, "voice=%s\n", val);
 	}
 	g_free(val);
-	if (msg->settings.msg_settings.voice.language != NULL) {
+	if (msg->settings.msg_settings.voice.language != NULL
+		&& msg->settings.msg_settings.voice.language[0] != '\0') {
 		g_string_append_printf(set_str, "language=%s\n",
 				       msg->settings.msg_settings.voice.
 				       language);
 	} else {
 		g_string_append_printf(set_str, "language=NULL\n");
 	}
-	if (msg->settings.msg_settings.voice.name != NULL) {
+	if (msg->settings.msg_settings.voice.name != NULL
+		&& msg->settings.msg_settings.voice.name[0] != '\0') {
 		g_string_append_printf(set_str, "synthesis_voice=%s\n",
 				       msg->settings.msg_settings.voice.name);
 	} else {
