@@ -369,7 +369,7 @@ static SPDVoice **kali_get_voices()
 	DBG("Kali: %d voices total.", num_voices);
 	voice = (char *)g_malloc(12);
 	language = (char *)g_malloc(9);
-	result = g_new0(SPDVoice *, num_voices);
+	result = g_new0(SPDVoice *, num_voices+1);
 
 	for (i = 0; i < num_voices; i++) {
 		result[i] = g_new0(SPDVoice, 1);
