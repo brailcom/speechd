@@ -361,29 +361,34 @@ static SPDVoice **kali_get_voices()
 	short i;
 	SPDVoice **result = NULL;
 	short num_voices;
-	char *voice;
+	static char voice[128];
 	short nlang;
-	char *language;
+	static char language[128];
 
 	num_voices = GetNbVoixKali();
 	DBG("Kali: %d voices total.", num_voices);
-	voice = (char *)g_malloc(12);
-	language = (char *)g_malloc(9);
 	result = g_new0(SPDVoice *, num_voices+1);
 
 	for (i = 0; i < num_voices; i++) {
 		result[i] = g_new0(SPDVoice, 1);
 		GetNomVoixKali(i + 1, voice);
+		if (!memchr(voice, '\0', sizeof(voice))) {
+			voice[sizeof(voice)-1] = '\0';
+			MSG(1, "Kali: voice name overflow! truncated to %s but possibly overflowed memory...", voice);
+		}
 		result[i]->name = (char *)g_strdup(voice);
+
 		nlang = GetNLangueVoixKaliStd(i + 1);
 		GetNomLangueKali(nlang, language);
+		if (!memchr(language, '\0', sizeof(language))) {
+			language[sizeof(language)-1] = '\0';
+			MSG(1, "Kali: language name overflow! truncated to %s but possibly overflowed memory...", language);
+		}
 		result[i]->language = (char *)g_strdup(language);
+
 		result[i]->variant = NULL;
 	}
 	result[i] = NULL;
-
-	g_free(voice);
-	g_free(language);
 
 	return result;
 }
