@@ -8,16 +8,6 @@ symbols:
 🏽	mellanfärgad hy	none
 🏾	mellanmörk hy	none
 🏿	mörk hy	none
-–	tankstreck	none
-—	långt tankstreck	none
-·	halvhög punkt	none
-«	gåsögon vänster	none
-»	gåsögon höger	none
-§	avsnitt	none
-†	korstecken	none
-‡	dubbelkorstecken	none
-•	listpunkt	none
-°	grad	none
 ℗	ljudinspelning upphovsrätt	none
 ←	vänsterriktad pil	none
 →	högerriktad pil	none
@@ -28,8 +18,6 @@ symbols:
 ∆	tillskott	none
 ∇	nablaoperatorn	none
 ∈	element i	none
-÷	divisionstecken	none
-×	multiplikationstecken	none
 ⁻	upphöjt till minus	none
 √	kvadratrot	none
 ∞	oändlighetstecken	none
@@ -1424,13 +1412,10 @@ symbols:
 ➖	minustecken	none
 ➗	dividera	none
 ♾	oändlighet	none
-‼	dubbla utropstecken	none
-⁉	utropstecken och frågetecken	none
 ❓	frågetecken	none
 ❔	vitt frågetecken	none
 ❕	vitt utropstecken	none
 ❗	utropstecken	none
-〰	vågigt tankstreck	none
 💱	valutaväxling	none
 💲	dollartecken	none
 ⚕	medicinsk symbol	none
@@ -1447,12 +1432,9 @@ symbols:
 ❎	vitt kryss i ruta	none
 ➰	ögla	none
 ➿	dubbel ögla	none
-〽	japansk kommatering	none
 ✳	åttauddig spetsig stjärna	none
 ✴	åttauddig stjärna	none
 ❇	glittra	none
-©	upphovsrättssymbol	none
-®	registrerat varumärke	none
 ™	skyddat varumärke	none
 🔠	versaler	none
 🔡	gemener	none
@@ -1476,23 +1458,6 @@ symbols:
 🆘	SOS-knapp	none
 🆙	UP!-knapp	none
 🆚	VS-knapp	none
-🈁	japansk ”här”-knapp	none
-🈂	japansk ”serviceavgift”-knapp	none
-🈷	japansk ”månadsbelopp”-knapp	none
-🈶	japansk ”inte gratis”-knapp	none
-🈯	japansk ”reserverad”-knapp	none
-🉐	japansk ”fynd”-knapp	none
-🈹	japansk ”rabatt”-knapp	none
-🈚	japansk ”gratis”-knapp	none
-🈲	japansk ”förbjudet”-knapp	none
-🉑	japansk ”godtagbart”-knapp	none
-🈸	japansk ”användning”-knapp	none
-🈴	japansk ”godkänt betyg”-knapp	none
-🈳	japansk ”lediga rum”-knapp	none
-㊗	japansk ”grattis”-knapp	none
-㊙	japansk ”hemligt”-knapp	none
-🈺	japansk ”öppet”-knapp	none
-🈵	japansk ”fullbelagt”-knapp	none
 🔴	röd cirkel	none
 🟠	orange cirkel	none
 🟡	gul cirkel	none
@@ -1535,15 +1500,9 @@ symbols:
 🏳‍🌈	regnbågsflagga	none
 🏳‍⚧	transflagga	none
 🏴‍☠	sjörövarflagga	none
-£	pund	none
-¥	yen	none
 €	euro	none
 ₹	indisk rupie	none
 ₽	rubel	none
-¹	upphöjt till ett	none
-²	upphöjt till två	none
-³	upphöjt till tre	none
-µ	mikrotecken	none
 👋🏻	vinkande hand ljus hy	none
 👋🏼	vinkande hand mellanljus hy	none
 👋🏽	vinkande hand mellanfärgad hy	none
@@ -3077,8 +3036,6 @@ symbols:
 👩‍👧	familj kvinna, flicka	none
 👩‍👧‍👦	familj kvinna, flicka, pojke	none
 👩‍👧‍👧	familj kvinna, flicka, flicka	none
-#⃣	keycap #	none
-*⃣	keycap *	none
 🔟	keycap 10	none
 🇦🇨	flagga Ascension	none
 🇦🇩	flagga Andorra	none
@@ -3341,13 +3298,3 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	flagga England	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	flagga Skottland	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	flagga Wales	none
-0⃣	keycap 0	none
-1⃣	keycap 1	none
-2⃣	keycap 2	none
-3⃣	keycap 3	none
-4⃣	keycap 4	none
-5⃣	keycap 5	none
-6⃣	keycap 6	none
-7⃣	keycap 7	none
-8⃣	keycap 8	none
-9⃣	keycap 9	none

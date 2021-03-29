@@ -8,16 +8,6 @@ symbols:
 🏽	orta cilt tonu	none
 🏾	orta koyu cilt tonu	none
 🏿	koyu cilt tonu	none
-–	tire	none
-—	uzun tire	none
-·	orta nokta	none
-«	sola bakan köşeli tırnak işareti	none
-»	sağa bakan köşeli tırnak işareti	none
-§	bölüm	none
-†	kama işareti	none
-‡	çift kama işareti	none
-•	madde imi	none
-°	derece	none
 ℗	ses kaydı telif hakkı	none
 ←	solu gösteren ok	none
 →	sağı gösteren ok	none
@@ -28,8 +18,6 @@ symbols:
 ∆	artım	none
 ∇	nabla	none
 ∈	elemanıdır	none
-÷	bölme işareti	none
-×	çarpma işareti	none
 ⁻	üst eksi simgesi	none
 √	karekök	none
 ∞	sonsuzluk işareti	none
@@ -1424,13 +1412,10 @@ symbols:
 ➖	eksi işareti	none
 ➗	bölü işareti	none
 ♾	sonsuz	none
-‼	çift ünlem	none
-⁉	ünlemli soru işareti	none
 ❓	soru işareti	none
 ❔	beyaz soru işareti	none
 ❕	beyaz ünlem işareti	none
 ❗	ünlem işareti	none
-〰	dalgalı çizgi	none
 💱	kambiyo	none
 💲	dolar işareti	none
 ⚕	tıp sembolü	none
@@ -1447,12 +1432,9 @@ symbols:
 ❎	çarpı işareti düğmesi	none
 ➰	kıvrık döngü	none
 ➿	çift kıvrık döngü	none
-〽	parça değiştirme işareti	none
 ✳	sekiz uçlu yıldız	none
 ✴	sekiz noktalı yıldız	none
 ❇	parlama	none
-©	telif hakkı işareti	none
-®	tescil işareti	none
 ™	ticari marka işareti	none
 🔠	büyük harfler	none
 🔡	küçük harfler	none
@@ -1476,23 +1458,6 @@ symbols:
 🆘	SOS düğmesi	none
 🆙	UP! düğmesi	none
 🆚	VS düğmesi	none
-🈁	Japonca "burada" düğmesi	none
-🈂	Japonca "servis ücreti" düğmesi	none
-🈷	Japonca "aylık ücret" düğmesi	none
-🈶	Japonca "ücretsiz değil" düğmesi	none
-🈯	Japonca "rezerve" düğmesi	none
-🉐	Japonca "avantaj" düğmesi	none
-🈹	Japonca "indirim" düğmesi	none
-🈚	Japonca "ücretsiz" düğmesi	none
-🈲	Japonca "yasak" düğmesi	none
-🉑	Japonca "kabul edilebilir" düğmesi	none
-🈸	Japonca "uygulama" düğmesi	none
-🈴	Japonca "geçer not" düğmesi	none
-🈳	Japonca "yer var" düğmesi	none
-㊗	Japonca "tebrikler" düğmesi	none
-㊙	Japonca "sır" düğmesi	none
-🈺	Japonca "hizmete hazır" düğmesi	none
-🈵	Japonca "yer yok" düğmesi	none
 🔴	kırmızı daire	none
 🟠	turuncu daire	none
 🟡	sarı daire	none
@@ -1535,15 +1500,9 @@ symbols:
 🏳‍🌈	gökkuşağı bayrağı	none
 🏳‍⚧	transgender bayrağı	none
 🏴‍☠	korsan bayrağı	none
-£	sterlin	none
-¥	yen	none
 €	avro	none
 ₹	hint rupisi	none
 ₽	ruble	none
-¹	üst bir simgesi	none
-²	üst iki simgesi	none
-³	üst üç simgesi	none
-µ	mikro işareti	none
 👋🏻	el sallama açık cilt tonu	none
 👋🏼	el sallama orta açık cilt tonu	none
 👋🏽	el sallama orta cilt tonu	none
@@ -3077,8 +3036,6 @@ symbols:
 👩‍👧	aile kadın kız çocuk	none
 👩‍👧‍👦	aile kadın kız çocuk erkek çocuk	none
 👩‍👧‍👧	aile kadın kız çocuk kız çocuk	none
-#⃣	tuş #	none
-*⃣	tuş *	none
 🔟	tuş 10	none
 🇦🇨	bayrak Ascension Adası	none
 🇦🇩	bayrak Andorra	none
@@ -3341,13 +3298,3 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	bayrak İngiltere	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	bayrak İskoçya	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bayrak Galler	none
-0⃣	tuş 0	none
-1⃣	tuş 1	none
-2⃣	tuş 2	none
-3⃣	tuş 3	none
-4⃣	tuş 4	none
-5⃣	tuş 5	none
-6⃣	tuş 6	none
-7⃣	tuş 7	none
-8⃣	tuş 8	none
-9⃣	tuş 9	none

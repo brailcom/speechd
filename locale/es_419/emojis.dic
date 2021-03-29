@@ -3,13 +3,6 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
-–	guion	none
-«	diple de apertura	none
-»	diple de cierre	none
-§	sección	none
-†	signo de daga	none
-‡	signo de daga doble	none
-•	viñeta	none
 ⇅	flecha doble hacia arriba y abajo	none
 ⇆	flecha doble hacia la izquierda y derecha	none
 ○	círculo vacío	none
@@ -384,16 +377,12 @@ symbols:
 ➖	resta	none
 ❔	signo de interrogación gris	none
 ❕	signo de exclamación gris	none
-〰	línea ondulada	none
 📛	identificación con nombre	none
 🔰	símbolo japonés de principiante	none
 ☑	casilla seleccionada	none
 ✔	marca de verificación grande	none
 ❌	cruz	none
 ❎	cruz con recuadro	none
-〽	alternancia	none
-©	signo de derechos autor	none
-®	signo de marca registrada	none
 🆑	botón CL	none
 🆓	gratis	none
 Ⓜ	letra m en un círculo	none
@@ -406,7 +395,6 @@ symbols:
 🔸	diamante naranja pequeño	none
 🔳	cuadrado negro con borde blanco	none
 🔲	cuadrado blanco con borde negro	none
-µ	signo micro	none
 🤚🏻	palma de la mano tono de piel claro	none
 🤚🏼	palma de la mano tono de piel claro medio	none
 🤚🏽	palma de la mano tono de piel medio	none
@@ -635,8 +623,6 @@ symbols:
 👩‍❤‍💋‍👨	pareja besándose mujer y hombre	none
 👨‍❤‍💋‍👨	pareja besándose hombre y hombre	none
 👩‍❤‍💋‍👩	pareja besándose mujer y mujer	none
-#⃣	tecla mayus #	none
-*⃣	tecla mayus *	none
 🔟	tecla mayus 10	none
 🇦🇨	bandera Isla Ascensión	none
 🇦🇩	bandera Andorra	none
@@ -899,13 +885,3 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	bandera Inglaterra	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	bandera Escocia	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bandera Gales	none
-0⃣	tecla mayus 0	none
-1⃣	tecla mayus 1	none
-2⃣	tecla mayus 2	none
-3⃣	tecla mayus 3	none
-4⃣	tecla mayus 4	none
-5⃣	tecla mayus 5	none
-6⃣	tecla mayus 6	none
-7⃣	tecla mayus 7	none
-8⃣	tecla mayus 8	none
-9⃣	tecla mayus 9	none

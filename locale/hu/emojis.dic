@@ -8,16 +8,6 @@ symbols:
 🏽	közepes bőrtónus	none
 🏾	közepesen sötét bőrtónus	none
 🏿	sötét bőrtónus	none
-–	félkvirt	none
-—	kvirtmínusz	none
-·	középvonali pont	none
-«	balra mutató belső idézőjel	none
-»	jobbra mutató belső idézőjel	none
-§	szakasz	none
-†	kereszt szimbólum	none
-‡	kettős kereszt szimbólum	none
-•	listajel	none
-°	fok	none
 ℗	hangrögzítési szerzői jog	none
 ←	bal oldalra mutató nyíl	none
 →	jobb oldalra mutató nyíl	none
@@ -28,8 +18,6 @@ symbols:
 ∆	növekmény	none
 ∇	nabla	none
 ∈	eleme	none
-÷	osztásjel	none
-×	szorzásjel	none
 ⁻	mínuszjel felső indexben	none
 √	négyzetgyök	none
 ∞	végtelen szimbólum	none
@@ -1424,13 +1412,10 @@ symbols:
 ➖	mínusz	none
 ➗	osztás	none
 ♾	végtelen	none
-‼	dupla felkiáltójel	none
-⁉	felkiáltójel kérdőjellel	none
 ❓	kérdőjel	none
 ❔	fehér kérdőjel	none
 ❕	fehér felkiáltójel	none
 ❗	felkiáltójel	none
-〰	hullámos gondolatjel	none
 💱	pénzváltás	none
 💲	vastag dollárjel	none
 ⚕	orvosi szimbólum	none
@@ -1447,12 +1432,9 @@ symbols:
 ❎	áthúzásjel gomb	none
 ➰	hurok	none
 ➿	dupla hurok	none
-〽	részelválasztó	none
 ✳	nyolcágú csillag	none
 ✴	nyolcas csillag	none
 ❇	szikra	none
-©	copyright (szerzői jog által védett)	none
-®	registered (bejegyzett)	none
 ™	védjegy	none
 🔠	latin nagybetűs bevitel	none
 🔡	latin kisbetűs bevitel	none
@@ -1476,23 +1458,6 @@ symbols:
 🆘	SOS gomb	none
 🆙	UP! gomb	none
 🆚	VS gomb	none
-🈁	japán „itt” gomb	none
-🈂	japán „szervizdíj” gomb	none
-🈷	japán „havi összeg” gomb	none
-🈶	japán „nem ingyenes” gomb	none
-🈯	japán „foglalt” gomb	none
-🉐	japán „alkalmi vétel” gomb	none
-🈹	japán „engedmény” gomb	none
-🈚	japán „ingyenes” gomb	none
-🈲	japán „tiltott” gomb	none
-🉑	japán „elfogadás” gomb	none
-🈸	japán „alkalmazás” gomb	none
-🈴	japán „minimális pontszám” gomb	none
-🈳	japán „megüresedés” gomb	none
-㊗	japán „gratuláció” gomb	none
-㊙	japán „titok” gomb	none
-🈺	japán „működik” gomb	none
-🈵	japán „megtelt” gomb	none
 🔴	piros kör	none
 🟠	narancssárga kör	none
 🟡	sárga kör	none
@@ -1535,15 +1500,9 @@ symbols:
 🏳‍🌈	szivárványszínű zászló	none
 🏳‍⚧	transznemű zászló	none
 🏴‍☠	kalózzászló	none
-£	font	none
-¥	jen	none
 €	euró	none
 ₹	indiai rúpia	none
 ₽	rubel	none
-¹	egyes felső index	none
-²	kettes felső index	none
-³	hármas felső index	none
-µ	mikro szimbólum	none
 👋🏻	integető kéz világos bőrtónus	none
 👋🏼	integető kéz közepesen világos bőrtónus	none
 👋🏽	integető kéz közepes bőrtónus	none
@@ -3077,8 +3036,6 @@ symbols:
 👩‍👧	család nő és lány	none
 👩‍👧‍👦	család nő, lány és fiú	none
 👩‍👧‍👧	család nő, lány és lány	none
-#⃣	gombfej #	none
-*⃣	gombfej *	none
 🔟	gombfej 10	none
 🇦🇨	zászló Ascension-sziget	none
 🇦🇩	zászló Andorra	none
@@ -3341,13 +3298,3 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	zászló Anglia	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	zászló Skócia	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	zászló Wales	none
-0⃣	gombfej 0	none
-1⃣	gombfej 1	none
-2⃣	gombfej 2	none
-3⃣	gombfej 3	none
-4⃣	gombfej 4	none
-5⃣	gombfej 5	none
-6⃣	gombfej 6	none
-7⃣	gombfej 7	none
-8⃣	gombfej 8	none
-9⃣	gombfej 9	none

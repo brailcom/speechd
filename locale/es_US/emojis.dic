@@ -3,10 +3,6 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
-«	comillas de apertura	none
-»	comillas de cierre	none
-†	signo obelisco	none
-‡	signo doble obelisco	none
 😀	cara sonriendo	none
 😃	cara sonriendo con ojos grandes	none
 😄	cara sonriendo con ojos sonrientes	none
@@ -144,7 +140,6 @@ symbols:
 🧺	canasta	none
 🪣	balde	none
 🪧	cartel	none
-🈷	"cantidad mensual" en japonés	none
 👌🏻	señal de aprobación con la mano tono de piel claro	none
 👌🏼	señal de aprobación con la mano tono de piel claro medio	none
 👌🏽	señal de aprobación con la mano tono de piel medio	none
@@ -413,8 +408,6 @@ symbols:
 👩‍❤‍👨	hombre y mujer enamorados mujer y hombre	none
 👨‍❤‍👨	hombre y mujer enamorados hombre y hombre	none
 👩‍❤‍👩	hombre y mujer enamorados mujer y mujer	none
-#⃣	tecla #	none
-*⃣	tecla *	none
 🔟	tecla 10	none
 🇦🇨	bandera Isla de la Ascensión	none
 🇧🇦	bandera Bosnia y Herzegovina	none
@@ -422,13 +415,3 @@ symbols:
 🇬🇬	bandera Guernsey	none
 🇹🇦	bandera Tristán de Acuña	none
 🇺🇲	bandera Islas menores alejadas de EE. UU.	none
-0⃣	tecla 0	none
-1⃣	tecla 1	none
-2⃣	tecla 2	none
-3⃣	tecla 3	none
-4⃣	tecla 4	none
-5⃣	tecla 5	none
-6⃣	tecla 6	none
-7⃣	tecla 7	none
-8⃣	tecla 8	none
-9⃣	tecla 9	none

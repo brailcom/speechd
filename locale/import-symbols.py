@@ -64,7 +64,13 @@ def createCLDRAnnotationsDict(sources):
 		tree = ElementTree.parse(source) # We parse the CLDR XML file to extract all emojies
 		for element in tree.iter("annotation"):
 			if element.attrib.get("type") == "tts":
-				cldrDict[element.attrib['cp']] = element.text.replace(":","")
+				cp = element.attrib['cp']
+				c = ord(cp[0])
+                # Only pick symbols, not punctuation and letters
+				if c in range(0x2070, 0x2c00) \
+				or c in range(0x1f000, 0x1f200) \
+				or c in range(0x1f300, 0x1ffff):
+					cldrDict[cp] = element.text.replace(":","")
 	assert cldrDict, "cldrDict is empty"
 	return cldrDict
 
