@@ -8,16 +8,6 @@ symbols:
 🏽	中間の肌色	none
 🏾	やや濃い肌色	none
 🏿	濃い肌色	none
-–	enダッシュ	none
-—	emダッシュ	none
-·	中点	none
-«	左山括弧	none
-»	右山括弧	none
-§	節記号	none
-†	短剣符	none
-‡	二重短剣符	none
-•	ビュレット	none
-°	度	none
 ℗	原盤権マーク	none
 ←	左向矢印	none
 →	右向矢印	none
@@ -28,8 +18,6 @@ symbols:
 ∆	増分	none
 ∇	ナブラ	none
 ∈	属する	none
-÷	除算記号	none
-×	乗算記号	none
 ⁻	上付きマイナス	none
 √	平方根	none
 ∞	無限大記号	none
@@ -1424,13 +1412,10 @@ symbols:
 ➖	マイナス	none
 ➗	割り算	none
 ♾	無限大	none
-‼	二重感嘆符	none
-⁉	感嘆符疑問符	none
 ❓	疑問符	none
 ❔	白い疑問符	none
 ❕	白い感嘆符	none
 ❗	感嘆符	none
-〰	波線	none
 💱	外貨両替	none
 💲	ドル記号	none
 ⚕	医療のシンボル	none
@@ -1447,12 +1432,9 @@ symbols:
 ❎	白抜きのバツ	none
 ➰	ループ	none
 ➿	ダブルループ	none
-〽	いおりてん	none
 ✳	八角アスタリスク	none
 ✴	八角星	none
 ❇	スパークル	none
-©	著作権マーク	none
-®	登録商標マーク	none
 ™	商標マーク	none
 🔠	英大文字の入力	none
 🔡	英小文字の入力	none
@@ -1476,23 +1458,6 @@ symbols:
 🆘	SOSマーク	none
 🆙	UPマーク	none
 🆚	VSマーク	none
-🈁	ココのマーク	none
-🈂	サのマーク	none
-🈷	月マーク	none
-🈶	有マーク	none
-🈯	指マーク	none
-🉐	マル得	none
-🈹	割マーク	none
-🈚	無マーク	none
-🈲	禁マーク	none
-🉑	可マーク	none
-🈸	申マーク	none
-🈴	合マーク	none
-🈳	空マーク	none
-㊗	祝マーク	none
-㊙	マル秘	none
-🈺	営マーク	none
-🈵	満マーク	none
 🔴	赤い丸	none
 🟠	オレンジの丸	none
 🟡	黄色い丸	none
@@ -1535,15 +1500,9 @@ symbols:
 🏳‍🌈	レインボーフラッグ	none
 🏳‍⚧	トランスジェンダーフラッグ	none
 🏴‍☠	海賊旗	none
-£	ポンド	none
-¥	円	none
 €	ユーロ	none
 ₹	インドルピー	none
 ₽	ルーブル	none
-¹	上付き1	none
-²	上付き2	none
-³	上付き3	none
-µ	マイクロ記号	none
 👋🏻	手を振る 薄い肌色	none
 👋🏼	手を振る やや薄い肌色	none
 👋🏽	手を振る 中間の肌色	none
@@ -3077,8 +3036,6 @@ symbols:
 👩‍👧	家族 女性 女の子	none
 👩‍👧‍👦	家族 女性 女の子 男の子	none
 👩‍👧‍👧	家族 女性 女の子 女の子	none
-#⃣	囲み数字 #	none
-*⃣	囲み数字 *	none
 🔟	囲み数字 10	none
 🇦🇨	旗 アセンション島	none
 🇦🇩	旗 アンドラ	none
@@ -3341,13 +3298,3 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	旗 イングランド	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	旗 スコットランド	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	旗 ウェールズ	none
-0⃣	囲み数字 0	none
-1⃣	囲み数字 1	none
-2⃣	囲み数字 2	none
-3⃣	囲み数字 3	none
-4⃣	囲み数字 4	none
-5⃣	囲み数字 5	none
-6⃣	囲み数字 6	none
-7⃣	囲み数字 7	none
-8⃣	囲み数字 8	none
-9⃣	囲み数字 9	none

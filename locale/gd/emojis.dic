@@ -8,16 +8,6 @@ symbols:
 🏽	tòna meadhanach a’ chraicinn	none
 🏾	tòna meadhanach doilleir a’ chraicinn	none
 🏿	tòna doilleir a’ chraicinn	none
-–	dais en	none
-—	dais em	none
-·	dot sa mheadhan	none
-«	eadar-ràdhan Frangach dhan taobh chlì	none
-»	eadar-ràdhan Frangach dhan taobh deas	none
-§	earrann	none
-†	samhla biodaig	none
-‡	samhla biodaig dùbailte	none
-•	peilear	none
-°	ceum	none
 ℗	còir-lethbhreac air clàradh fuaime	none
 ←	saighead a’ tomhadh dhan taobh chlì	none
 →	saighead a’ tomhadh dhan taobh deas	none
@@ -28,8 +18,6 @@ symbols:
 ∆	ioncramaid	none
 ∇	dìochramaid	none
 ∈	na eileamaid de	none
-÷	samhla roinnidh	none
-×	samhla iomadachaidh	none
 ⁻	minus os-sgrìobhte	none
 √	freumh ceàrnagach	none
 ∞	samhla neo-chrìochnachd	none
@@ -1424,13 +1412,10 @@ symbols:
 ➖	thoir air falbh	none
 ➗	roinn	none
 ♾	neo-chrìochnachd	none
-‼	clisg-phuing dhùbailte	none
-⁉	clisg-phuing is comharra-ceiste	none
 ❓	comharra-ceiste	none
 ❔	comharra-ceiste geal	none
 ❕	clisg-phuing gheal	none
 ❗	clisg-phuing	none
-〰	loidhne lùbach	none
 💱	iomlaid airgid	none
 💲	samhla dolair trom	none
 ⚕	samhla meadaigeach	none
@@ -1447,12 +1432,9 @@ symbols:
 ❎	samhla croise ann am putan	none
 ➰	lùb dhualach	none
 ➿	lùb dhualach dhùbailte	none
-〽	comharra airson atharrachadh phàirtean	none
 ✳	reultag le ochd rinnean	none
 ✴	rionnag le ochd rinnean	none
 ❇	lainnir	none
-©	còir-lethbhreac	none
-®	clàraichte	none
 ™	comharra-malairt	none
 🔠	ion-chur litrichean mòra Laideann	none
 🔡	ion-chur litrichean beaga Laideann	none
@@ -1476,23 +1458,6 @@ symbols:
 🆘	putan “SOS”	none
 🆙	putan “UP!”	none
 🆚	putan “VS”	none
-🈁	putan Seapanais “An-seo”	none
-🈂	putan Seapanais “tàille seirbheise”	none
-🈷	putan Seapanais “tàille mhìosail”	none
-🈶	putan Seapanais “Chan ann saor ’s an-asgaidh”	none
-🈯	putan Seapanais “Glèidhte”	none
-🉐	putan Seapanais “Bargan”	none
-🈹	putan Seapanais “Lasachadh”	none
-🈚	putan Seapanais “Saor ’s an-asgaidh”	none
-🈲	putan Seapanais “Toirmisgte”	none
-🉑	putan Seapanais “Ceart gu leòr”	none
-🈸	putan Seapanais “Tagradh”	none
-🈴	putan Seapanais “Ìre pas”	none
-🈳	putan Seapanais “Seòmar saor”	none
-㊗	putan Seapanais “Meal do naidheachd”	none
-㊙	putan Seapanais “Dìomhair”	none
-🈺	putan Seapanais “Fosgailte”	none
-🈵	putan Seapanais “Gun seòmar saor”	none
 🔴	cearcall dearg	none
 🟠	cearcall orainds	none
 🟡	cearcall buidhe	none
@@ -1535,15 +1500,9 @@ symbols:
 🏳‍🌈	bratach bogha-froise	none
 🏳‍⚧	bratach ghorm, phinc is gheal	none
 🏴‍☠	bratach spùinneadair	none
-£	punnd	none
-¥	yen	none
 €	Eòro	none
 ₹	rupee Innseanach	none
 ₽	rùbal	none
-¹	a h-aon os-sgrìobhte	none
-²	a dhà os-sgrìobhte	none
-³	a trì os-sgrìobhte	none
-µ	samhla µ	none
 👋🏻	làmh a’ smèideadh tòna soilleir a’ chraicinn	none
 👋🏼	làmh a’ smèideadh tòna meadhanach soilleir a’ chraicinn	none
 👋🏽	làmh a’ smèideadh tòna meadhanach a’ chraicinn	none
@@ -3077,8 +3036,6 @@ symbols:
 👩‍👧	teaghlach boireannach ’s caileag	none
 👩‍👧‍👦	teaghlach boireannach, caileag ’s gille	none
 👩‍👧‍👧	teaghlach boireannach, caileag ’s caileag	none
-#⃣	còmhdachadh iuchrach #	none
-*⃣	còmhdachadh iuchrach *	none
 🔟	còmhdachadh iuchrach 10	none
 🇦🇨	bratach Eilean na Deasgabhalach	none
 🇦🇩	bratach Andorra	none
@@ -3341,13 +3298,3 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	bratach Sasainn	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	bratach Alba	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bratach A’ Chuimrigh	none
-0⃣	còmhdachadh iuchrach 0	none
-1⃣	còmhdachadh iuchrach 1	none
-2⃣	còmhdachadh iuchrach 2	none
-3⃣	còmhdachadh iuchrach 3	none
-4⃣	còmhdachadh iuchrach 4	none
-5⃣	còmhdachadh iuchrach 5	none
-6⃣	còmhdachadh iuchrach 6	none
-7⃣	còmhdachadh iuchrach 7	none
-8⃣	còmhdachadh iuchrach 8	none
-9⃣	còmhdachadh iuchrach 9	none

@@ -8,16 +8,6 @@ symbols:
 🏽	millihúðlitur	none
 🏾	meðaldökkur húðlitur	none
 🏿	dökkur húðlitur	none
-–	tilstrik	none
-—	þankastrik	none
-·	miðjudepill	none
-«	franskar gæsalappir vinstri	none
-»	franskar gæsalappir hægri	none
-§	kaflamerki	none
-†	úreldingarmerki	none
-‡	tvöfalt úreldingarmerki	none
-•	merkill	none
-°	gráða	none
 ℗	höfundarréttur hljóðupptöku	none
 ←	ör sem vísar til vinstri	none
 →	ör sem vísar til hægri	none
@@ -28,8 +18,6 @@ symbols:
 ∆	aukning	none
 ∇	nafla	none
 ∈	stak í	none
-÷	deilingarmerki	none
-×	margföldunarmerki	none
 ⁻	brjóstletur mínus	none
 √	kvaðratrót	none
 ∞	óendanlegt-merki	none
@@ -1424,13 +1412,10 @@ symbols:
 ➖	mínus	none
 ➗	deiling	none
 ♾	óendanleiki	none
-‼	tvöfalt upphrópunarmerki	none
-⁉	upphrópunarmerki og spurningarmerki	none
 ❓	spurningarmerki	none
 ❔	hvítt spurningarmerki	none
 ❕	hvítt upphrópunarmerki	none
 ❗	upphrópunarmerki	none
-〰	bugðustrik	none
 💱	gjaldmiðlar	none
 💲	dollaramerki	none
 ⚕	lækningamerki	none
@@ -1447,12 +1432,9 @@ symbols:
 ❎	krosshnappur	none
 ➰	lykkja	none
 ➿	tvöföld lykkja	none
-〽	japanskt upphafsmerki söngs	none
 ✳	áttarma stjörnumerki	none
 ✴	áttarma stjarna	none
 ❇	leiftur	none
-©	höfundarréttarmerki	none
-®	skráð	none
 ™	skrásett vörumerki	none
 🔠	hástafir	none
 🔡	lágstafir	none
@@ -1476,23 +1458,6 @@ symbols:
 🆘	SOS	none
 🆙	UP!	none
 🆚	VS	none
-🈁	katakana koko, kassi	none
-🈂	katakana sa, kassi	none
-🈷	mánaðarleg upphæð, kassi	none
-🈶	„Ekki ókeypis“ á japönsku	none
-🈯	„Frátekið“ á japönsku	none
-🉐	„Kjarakaup“ á japönsku	none
-🈹	„Afsláttur“ á japönsku	none
-🈚	„Ókeypis“ á japönsku	none
-🈲	„Bannað“ á japönsku	none
-🉑	„Viðunandi“ á japönsku	none
-🈸	„Umsókn“ á japönsku	none
-🈴	„Viðunandi einkunn“ á japönsku	none
-🈳	„Laust pláss“ á japönsku	none
-㊗	„Til hamingju“ ´a japönsku	none
-㊙	„Leyndarmál“ á japönsku	none
-🈺	„Opið“ á japönsku	none
-🈵	„Allt fullt“ á japönsku	none
 🔴	stór rauður hringur	none
 🟠	appelsínugulur hringur	none
 🟡	gulur hringur	none
@@ -1535,15 +1500,9 @@ symbols:
 🏳‍🌈	regnbogafáni	none
 🏳‍⚧	transfáni	none
 🏴‍☠	sjóræningjafáni	none
-£	pund	none
-¥	jen	none
 €	evra	none
 ₹	indversk rúpía	none
 ₽	rúbla	none
-¹	brjóstletur einn	none
-²	brjóstletur tveir	none
-³	brjóstletur þrír	none
-µ	míkró-merki	none
 👋🏻	hönd veifar ljós húðlitur	none
 👋🏼	hönd veifar meðalljós húðlitur	none
 👋🏽	hönd veifar millihúðlitur	none
@@ -3077,8 +3036,6 @@ symbols:
 👩‍👧	fjölskylda kona og stúlka	none
 👩‍👧‍👦	fjölskylda kona, stúlka og drengur	none
 👩‍👧‍👧	fjölskylda kona, stúlka og stúlka	none
-#⃣	takki #	none
-*⃣	takki *	none
 🔟	takki 10	none
 🇦🇨	fáni Ascension-eyja	none
 🇦🇩	fáni Andorra	none
@@ -3341,13 +3298,3 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	fáni England	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	fáni Skotland	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	fáni Wales	none
-0⃣	takki 0	none
-1⃣	takki 1	none
-2⃣	takki 2	none
-3⃣	takki 3	none
-4⃣	takki 4	none
-5⃣	takki 5	none
-6⃣	takki 6	none
-7⃣	takki 7	none
-8⃣	takki 8	none
-9⃣	takki 9	none
