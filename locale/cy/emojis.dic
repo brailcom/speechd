@@ -10,33 +10,118 @@ symbols:
 🏿	arlliw croen tywyll	none
 ℗	hawlfraint recordio sain	none
 ←	saeth yn pwyntio i’r chwith	none
+↚	saeth i’r chwith strôc	none
 →	saeth yn pwyntio i’r dde	none
+↛	saeth i’r dde strôc	none
 ↑	saeth yn pwyntio i fyny	none
 ↓	saeth yn pwyntio i lawr	none
+↜	saeth donnog i’r chwith	none
+↝	saeth donnog i’r dde	none
+↞	saeth ddeuben i’r chwith	none
+↟	saeth ddeuben i fyny	none
+↠	saeth ddeuben i’r dde	none
+↡	saeth ddeuben i lawr	none
+↢	saeth i’r chwith gyda chynffon	none
+↣	saeth i’r dde gyda chynffon	none
+↤	saeth i’r chwith o’r bar	none
+↥	saeth i fyny o’r bar	none
+↦	saeth i’r dde o’r bar	none
+↧	saeth i lawr o’r bar	none
+↨	saeth i fyny i lawr gyda sail	none
+↫	saeth i’r chwith gyda dolen	none
+↬	saeth i’r dde gyda dolen	none
+↭	saeth donnog chwith dde	none
+↯	saeth igam-ogam i lawr	none
 ⇅	saethau yn pwyntio i fyny ac i lawr	none
 ⇆	saethau i’r chwith dros ben saethau i’r dde	none
+⇇	saethau pâr i’r chwith	none
+⇈	saethau pâr i fyny	none
+⇉	saethau pâr i’r dde	none
+⇊	saethau pâr i lawr	none
+⇐	saeth ddwbl i’r chwith	none
+⇍	saeth ddwbl i’r chwith strôc	none
+⇑	saeth ddwbl i fyny	none
+⇒	saeth ddwbl i’r dde	none
+⇏	saeth ddwbl i’r dde strôc	none
+⇓	saeth ddwbl i lawr	none
+⇔	saeth ddwbl chwith dde	none
+⇎	saeth ddwbl chwith dde strôc	none
+⇖	saeth ddwbl gogledd orllewin	none
+⇗	saeth ddwbl gogledd ddwyrain	none
+⇘	saeth ddwbl de ddwyrain	none
+⇙	saeth ddwbl de orllewin	none
+⇚	saeth driphlyg i’r chwith	none
+⇛	saeth driphlyg i’r dde	none
+⇜	saeth grych i’r chwith	none
+⇝	saeth grych i’r dde	none
+⇤	saeth i’r chwith bar	none
+⇥	saeth i’r dde bar	none
+⇦	saeth wag i’r chwith	none
+⇧	saeth wag i fyny	none
+⇨	saeth wag i’r dde	none
+⇩	saeth wag i lawr	none
+⇪	saeth wag i fyny o’r bar	none
+⇵	saeth i lawr i’r chwith saeth i fyny	none
+∂	differyn rhannol	none
+∅	set wag	none
 ∆	cynyddran	none
 ∇	nabla	none
 ∈	elfen o	none
+∉	ddim yn elfen	none
+≠	ddim yn gyfartal	none
+−	arwydd minws	none
 ⁻	uwchysgrifen minws	none
 √	ail isradd	none
 ∞	arwydd anfeidredd	none
 ∩	croestoriad	none
 ∪	uno	none
+∵	oherwydd	none
+∶	cymhareb	none
+∷	cyfran	none
+≈	bron yn gyfartal	none
 ≡	union yr un fath â	none
+≤	llai na neu’n gyfartal	none
+≥	mwy na neu’n gyfartal	none
+≪	llawer llai na	none
+≫	llawer mwy na	none
+≬	rhwng	none
+≺	yn rhagflaenu	none
+≻	yn dilyn	none
+⊁	nid yw’n dilyn	none
 ⊂	is-set o	none
+⊕	plws mewn cylch	none
+⊖	minws mewn cylch	none
+⊞	plws mewn sgwâr	none
+⊟	minws mewn sgwâr	none
+⊶	gwreiddiol	none
+⊿	triongl dde	none
+⋅	gweithredwr dot	none
+⋆	gweithredwr seren	none
+⋘	llawer iawn yn llai na	none
+⋙	llawer iawn yn fwy na	none
+⋮	hepgoriad fertigol	none
+⋯	hepgoriad llorweddol llinell ganol	none
+■	sgwâr wedi’i lenwi	none
+□	sgwâr wag	none
+▢	sgwâr wag â chorneli crwn	none
+▬	petryal wedi’i lenwi	none
+▭	petryal gwag	none
+▮	petryal fertigol wedi’i lenwi	none
 ▲	triongl wedi’i lenwi yn pwyntio i fyny	none
 ▼	triongl wedi’i lenwi yn pwyntio i lawr	none
 ◊	losen	none
 ○	cylch gwag	none
 ●	cylch wedi’i lenwi	none
 ◯	cylch gwag mawr	none
+♪	wythfed nodyn	none
+♭	fflat	none
+♯	miniog	none
 😀	wyneb yn gwenu â cheg agored	none
 😃	wyneb yn gwenu â cheg agored a llygaid mawr	none
 😄	wyneb yn gwenu â cheg agored a gwên yn y llygaid	none
 😁	wyneb yn lledwenu â gwên yn y llygaid	none
 😆	wyneb yn gwenu â cheg agored a llygaid ynghau	none
-😅	wyneb yn gwenu â cheg agored a chwys o ofid	none
+😅	wyneb yn gwenu â cheg agored a chwys	none
 🤣	rholio ar y llawr yn chwerthin	none
 😂	wyneb â dagrau hapusrwydd	none
 🙂	wyneb ag ychydig o wên arni	none
@@ -68,10 +153,12 @@ symbols:
 😐	wyneb niwtral	none
 😑	wyneb difynegiant	none
 😶	wyneb heb geg	none
+😶‍🌫	wyneb mewn cymylau	none
 😏	wyneb yn cilwenu	none
 😒	wyneb ddi-ddifyr	none
 🙄	wyneb â llygaid yn rholio	none
 😬	wyneb ag ystum	none
+😮‍💨	wyneb anadlu allan	none
 🤥	wyneb celwydd	none
 😌	wyneb o ryddhad	none
 😔	wyneb synfyfyriol	none
@@ -87,7 +174,8 @@ symbols:
 🥵	wyneb poeth	none
 🥶	wyneb oer	none
 🥴	wyneb meddw	none
-😵	wyneb penysgafn	none
+😵	wyneb wedi llorio	none
+😵‍💫	wyneb â llygaid troellog	none
 🤯	pen yn ffrwydro	none
 🤠	wyneb het cowboi	none
 🥳	wyneb yn partïo	none
@@ -144,7 +232,7 @@ symbols:
 🙀	wyneb cath luddedig	none
 😿	wyneb cath yn crio	none
 😾	wyneb cath yn pwdu	none
-🙈	gweld dim drwg	none
+🙈	mwnci gweld dim drwg	none
 🙉	clywed dim drwg	none
 🙊	siarad dim drwg	none
 💋	ôl cusan	none
@@ -159,6 +247,8 @@ symbols:
 💟	addurn calon	none
 ❣	ebychiad trwm galon	none
 💔	calon wedi torri	none
+❤‍🔥	calon ar dân	none
+❤‍🩹	trwsio calon	none
 ❤	calon goch	none
 🧡	calon oren	none
 💛	calon felen	none
@@ -166,7 +256,7 @@ symbols:
 💙	calon las	none
 💜	calon borffor	none
 🤎	calon frown	none
-🖤	calon du	none
+🖤	calon ddu	none
 🤍	calon wen	none
 💯	cant o bwyntiau	none
 💢	symbol dicter	none
@@ -178,7 +268,7 @@ symbols:
 💣	bom	none
 💬	balŵn deialog	none
 👁‍🗨	llygad mewn cwmwl	none
-🗨	swigen yn siarad i’r chwith	none
+🗨	swigen siarad i’r chwith	none
 🗯	swigen ddig i’r dde	none
 💭	cwmwl meddwl	none
 💤	zzz	none
@@ -237,12 +327,14 @@ symbols:
 🧒	plentyn	none
 👦	bachgen	none
 👧	merch	none
-🧑	oedolyn	none
+🧑	person	none
 👱	person â gwallt golau	none
 👨	dyn	none
-🧔	dyn â barf	none
+🧔	person barf	none
+🧔‍♂	dyn barf	none
 👱‍♂	dyn â gwallt golau	none
 👩	menyw	none
+🧔‍♀	menyw barf	none
 👱‍♀	menyw â gwallt golau	none
 🧓	oedolyn oedranus	none
 👴	hen ddyn	none
@@ -482,8 +574,8 @@ symbols:
 💑	pâr a chalon	none
 👪	teulu	none
 🗣	pen yn siarad	none
-👤	bron mewn silwét	none
-👥	bronnau mewn silwét	none
+👤	penddelw mewn silwét	none
+👥	penddelwau mewn silwét	none
 🫂	pobl yn cofleidio	none
 👣	olion traed	none
 🦰	gwallt coch	none
@@ -694,7 +786,7 @@ symbols:
 🫕	fondue	none
 🥣	bowlen â llwy	none
 🥗	salad gwyrdd	none
-🍿	pop gorn	none
+🍿	popgorn	none
 🧈	menyn	none
 🧂	halen	none
 🥫	bwyd tun	none
@@ -800,7 +892,7 @@ symbols:
 🏯	castell Japaneaidd	none
 🏰	castell	none
 💒	priodas	none
-🗼	tŵr tokyo	none
+🗼	tŵr Tokyo	none
 🗽	Cerflun Rhyddid	none
 ⛪	eglwys	none
 🕌	mosg	none
@@ -962,10 +1054,10 @@ symbols:
 🌬	wyneb gwyntog	none
 🌀	seiclon	none
 🌈	enfys	none
-🌂	ymbarel ar gau	none
-☂	ymbarel	none
-☔	ymbarel gyda glaw	none
-⛱	ymbarel ar lawr	none
+🌂	ymbarél ar gau	none
+☂	ymbarél	none
+☔	ymbarél gyda glaw	none
+⛱	ymbarél ar lawr	none
 ⚡	foltedd uchel	none
 ❄	pluen eira	none
 ☃	dyn eira	none
@@ -1248,7 +1340,7 @@ symbols:
 🛠	morthwyl a sbaner	none
 🗡	dagr	none
 ⚔	cleddyfau wedi croesi	none
-🔫	pistol	none
+🔫	pistol dŵr	none
 🪃	bwmerang	none
 🏹	bwa saeth	none
 🛡	tarian	none
@@ -1328,7 +1420,7 @@ symbols:
 🚳	dim beiciau	none
 🚭	dim ysmygu	none
 🚯	dim sbwriel	none
-🚱	dwr na ellir ei foteli	none
+🚱	dŵr na ellir ei yfed	none
 🚷	dim cerddwyr	none
 📵	dim ffonau symudol	none
 🔞	neb o dan un deg wyth oed	none
@@ -1344,6 +1436,7 @@ symbols:
 ↖	saeth i fyny-chwith	none
 ↕	saeth i fyny-lawr	none
 ↔	saeth chwith-dde	none
+↮	saeth dde chwith strôc	none
 ↩	saeth i’r dde yn troi i’r chwith	none
 ↪	saeth i’r chwith yn troi i’r dde	none
 ⤴	saeth i’r dde yn troi i fyny	none
@@ -1376,7 +1469,7 @@ symbols:
 ♎	y Fantol	none
 ♏	y Sgorpion	none
 ♐	y Saethydd	none
-♑	yr afr	none
+♑	yr Afr	none
 ♒	y Dyfrwr	none
 ♓	y Pysgod	none
 ⛎	ophiuchus	none
@@ -1424,7 +1517,7 @@ symbols:
 🔱	arwyddlun tryfer	none
 📛	bathodyn enw	none
 🔰	symbol Japaneaidd am ddechreuwr	none
-⭕	cylch mawr trwm	none
+⭕	cylch coch gwag	none
 ✅	marc tic gwyn trwm	none
 ☑	blwch pleidlais gyda thic	none
 ✔	marc tic trwm	none
@@ -1435,7 +1528,7 @@ symbols:
 ✳	asterics wyth pwynt	none
 ✴	seren wyth pwynt	none
 ❇	fflachiad	none
-™	nod masnachu	none
+™	nod masnach	none
 🔠	mewnbwn llythrennau mawr ladin	none
 🔡	mewnbwn llythrennau bach lladin	none
 🔢	mewnbwn rhifedd	none
@@ -1494,15 +1587,22 @@ symbols:
 🔲	botwm sgwâr du	none
 🏁	baner frith	none
 🚩	baner drionglog	none
-🎌	baneri â chroesau	none
+🎌	baneri wedi croesi	none
 🏴	chwifio baner ddu	none
 🏳	chwifio baner wen	none
 🏳‍🌈	baner enfys	none
 🏳‍⚧	baner las, pinc a gwyn	none
 🏴‍☠	baner môr-leidr	none
+₤	lira	none
+₥	milfed	none
+₩	won	none
 €	ewro	none
+₱	peso	none
+₷	spesmilo	none
 ₹	rwpî indiaidd	none
 ₽	rwbl	none
+₿	bitcoin	none
+₨	rwpî	none
 👋🏻	llaw yn chwifio arlliw croen golau	none
 👋🏼	llaw yn chwifio arlliw croen canolig-golau	none
 👋🏽	llaw yn chwifio arlliw croen canolog	none
@@ -1718,55 +1818,150 @@ symbols:
 👧🏽	merch arlliw croen canolog	none
 👧🏾	merch arlliw croen canolig-tywyll	none
 👧🏿	merch arlliw croen tywyll	none
-🧑🏻	oedolyn arlliw croen golau	none
-🧑🏼	oedolyn arlliw croen canolig-golau	none
-🧑🏽	oedolyn arlliw croen canolog	none
-🧑🏾	oedolyn arlliw croen canolig-tywyll	none
-🧑🏿	oedolyn arlliw croen tywyll	none
+🧑🏻	person arlliw croen golau	none
+🧑🏼	person arlliw croen canolig-golau	none
+🧑🏽	person arlliw croen canolog	none
+🧑🏾	person arlliw croen canolig-tywyll	none
+🧑🏿	person arlliw croen tywyll	none
 👱🏻	person â gwallt golau arlliw croen golau	none
 👱🏼	person â gwallt golau arlliw croen canolig-golau	none
 👱🏽	person â gwallt golau arlliw croen canolog	none
 👱🏾	person â gwallt golau arlliw croen canolig-tywyll	none
 👱🏿	person â gwallt golau arlliw croen tywyll	none
-🧑‍🦰	oedolyn gwallt coch	none
-🧑🏻‍🦰	oedolyn arlliw croen golau, gwallt coch	none
-🧑🏼‍🦰	oedolyn arlliw croen canolig-golau, gwallt coch	none
-🧑🏽‍🦰	oedolyn arlliw croen canolog, gwallt coch	none
-🧑🏾‍🦰	oedolyn arlliw croen canolig-tywyll, gwallt coch	none
-🧑🏿‍🦰	oedolyn arlliw croen tywyll, gwallt coch	none
-🧑‍🦱	oedolyn gwallt cyrliog	none
-🧑🏻‍🦱	oedolyn arlliw croen golau, gwallt cyrliog	none
-🧑🏼‍🦱	oedolyn arlliw croen canolig-golau, gwallt cyrliog	none
-🧑🏽‍🦱	oedolyn arlliw croen canolog, gwallt cyrliog	none
-🧑🏾‍🦱	oedolyn arlliw croen canolig-tywyll, gwallt cyrliog	none
-🧑🏿‍🦱	oedolyn arlliw croen tywyll, gwallt cyrliog	none
-🧑‍🦳	oedolyn gwallt gwyn	none
-🧑🏻‍🦳	oedolyn arlliw croen golau, gwallt gwyn	none
-🧑🏼‍🦳	oedolyn arlliw croen canolig-golau, gwallt gwyn	none
-🧑🏽‍🦳	oedolyn arlliw croen canolog, gwallt gwyn	none
-🧑🏾‍🦳	oedolyn arlliw croen canolig-tywyll, gwallt gwyn	none
-🧑🏿‍🦳	oedolyn arlliw croen tywyll, gwallt gwyn	none
-🧑‍🦲	oedolyn moel	none
-🧑🏻‍🦲	oedolyn arlliw croen golau, moel	none
-🧑🏼‍🦲	oedolyn arlliw croen canolig-golau, moel	none
-🧑🏽‍🦲	oedolyn arlliw croen canolog, moel	none
-🧑🏾‍🦲	oedolyn arlliw croen canolig-tywyll, moel	none
-🧑🏿‍🦲	oedolyn arlliw croen tywyll, moel	none
+🧑🏻‍❤‍💋‍🧑🏼	cusan person, person, arlliw croen golau, arlliw croen canolig-golau	none
+🧑🏻‍❤‍💋‍🧑🏽	cusan person, person, arlliw croen golau, arlliw croen canolog	none
+🧑🏻‍❤‍💋‍🧑🏾	cusan person, person, arlliw croen golau, arlliw croen canolig-tywyll	none
+🧑🏻‍❤‍💋‍🧑🏿	cusan person, person, arlliw croen golau, arlliw croen tywyll	none
+🧑🏼‍❤‍💋‍🧑🏻	cusan person, person, arlliw croen canolig-golau, arlliw croen golau	none
+🧑🏼‍❤‍💋‍🧑🏽	cusan person, person, arlliw croen canolig-golau, arlliw croen canolog	none
+🧑🏼‍❤‍💋‍🧑🏾	cusan person, person, arlliw croen canolig-golau, arlliw croen canolig-tywyll	none
+🧑🏼‍❤‍💋‍🧑🏿	cusan person, person, arlliw croen canolig-golau, arlliw croen tywyll	none
+🧑🏽‍❤‍💋‍🧑🏻	cusan person, person, arlliw croen canolog, arlliw croen golau	none
+🧑🏽‍❤‍💋‍🧑🏼	cusan person, person, arlliw croen canolog, arlliw croen canolig-golau	none
+🧑🏽‍❤‍💋‍🧑🏾	cusan person, person, arlliw croen canolog, arlliw croen canolig-tywyll	none
+🧑🏽‍❤‍💋‍🧑🏿	cusan person, person, arlliw croen canolog, arlliw croen tywyll	none
+🧑🏾‍❤‍💋‍🧑🏻	cusan person, person, arlliw croen canolig-tywyll, arlliw croen golau	none
+🧑🏾‍❤‍💋‍🧑🏼	cusan person, person, arlliw croen canolig-tywyll, arlliw croen canolig-golau	none
+🧑🏾‍❤‍💋‍🧑🏽	cusan person, person, arlliw croen canolig-tywyll, arlliw croen canolog	none
+🧑🏾‍❤‍💋‍🧑🏿	cusan person, person, arlliw croen canolig-tywyll, arlliw croen tywyll	none
+🧑🏿‍❤‍💋‍🧑🏻	cusan person, person, arlliw croen tywyll, arlliw croen golau	none
+🧑🏿‍❤‍💋‍🧑🏼	cusan person, person, arlliw croen tywyll, arlliw croen canolig-golau	none
+🧑🏿‍❤‍💋‍🧑🏽	cusan person, person, arlliw croen tywyll, arlliw croen canolog	none
+🧑🏿‍❤‍💋‍🧑🏾	cusan person, person, arlliw croen tywyll, arlliw croen canolig-tywyll	none
+🧑🏻‍❤‍🧑🏼	pâr a chalon person, person, arlliw croen golau, arlliw croen canolig-golau	none
+🧑🏻‍❤‍🧑🏽	pâr a chalon person, person, arlliw croen golau, arlliw croen canolog	none
+🧑🏻‍❤‍🧑🏾	pâr a chalon person, person, arlliw croen golau, arlliw croen canolig-tywyll	none
+🧑🏻‍❤‍🧑🏿	pâr a chalon person, person, arlliw croen golau, arlliw croen tywyll	none
+🧑🏼‍❤‍🧑🏻	pâr a chalon person, person, arlliw croen canolig-golau, arlliw croen golau	none
+🧑🏼‍❤‍🧑🏽	pâr a chalon person, person, arlliw croen canolig-golau, arlliw croen canolog	none
+🧑🏼‍❤‍🧑🏾	pâr a chalon person, person, arlliw croen canolig-golau, arlliw croen canolig-tywyll	none
+🧑🏼‍❤‍🧑🏿	pâr a chalon person, person, arlliw croen canolig-golau, arlliw croen tywyll	none
+🧑🏽‍❤‍🧑🏻	pâr a chalon person, person, arlliw croen canolog, arlliw croen golau	none
+🧑🏽‍❤‍🧑🏼	pâr a chalon person, person, arlliw croen canolog, arlliw croen canolig-golau	none
+🧑🏽‍❤‍🧑🏾	pâr a chalon person, person, arlliw croen canolog, arlliw croen canolig-tywyll	none
+🧑🏽‍❤‍🧑🏿	pâr a chalon person, person, arlliw croen canolog, arlliw croen tywyll	none
+🧑🏾‍❤‍🧑🏻	pâr a chalon person, person, arlliw croen canolig-tywyll, arlliw croen golau	none
+🧑🏾‍❤‍🧑🏼	pâr a chalon person, person, arlliw croen canolig-tywyll, arlliw croen canolig-golau	none
+🧑🏾‍❤‍🧑🏽	pâr a chalon person, person, arlliw croen canolig-tywyll, arlliw croen canolog	none
+🧑🏾‍❤‍🧑🏿	pâr a chalon person, person, arlliw croen canolig-tywyll, arlliw croen tywyll	none
+🧑🏿‍❤‍🧑🏻	pâr a chalon person, person, arlliw croen tywyll, arlliw croen golau	none
+🧑🏿‍❤‍🧑🏼	pâr a chalon person, person, arlliw croen tywyll, arlliw croen canolig-golau	none
+🧑🏿‍❤‍🧑🏽	pâr a chalon person, person, arlliw croen tywyll, arlliw croen canolog	none
+🧑🏿‍❤‍🧑🏾	pâr a chalon person, person, arlliw croen tywyll, arlliw croen canolig-tywyll	none
+🧑‍🦰	person gwallt coch	none
+🧑🏻‍🦰	person arlliw croen golau, gwallt coch	none
+🧑🏼‍🦰	person arlliw croen canolig-golau, gwallt coch	none
+🧑🏽‍🦰	person arlliw croen canolog, gwallt coch	none
+🧑🏾‍🦰	person arlliw croen canolig-tywyll, gwallt coch	none
+🧑🏿‍🦰	person arlliw croen tywyll, gwallt coch	none
+🧑‍🦱	person gwallt cyrliog	none
+🧑🏻‍🦱	person arlliw croen golau, gwallt cyrliog	none
+🧑🏼‍🦱	person arlliw croen canolig-golau, gwallt cyrliog	none
+🧑🏽‍🦱	person arlliw croen canolog, gwallt cyrliog	none
+🧑🏾‍🦱	person arlliw croen canolig-tywyll, gwallt cyrliog	none
+🧑🏿‍🦱	person arlliw croen tywyll, gwallt cyrliog	none
+🧑‍🦳	person gwallt gwyn	none
+🧑🏻‍🦳	person arlliw croen golau, gwallt gwyn	none
+🧑🏼‍🦳	person arlliw croen canolig-golau, gwallt gwyn	none
+🧑🏽‍🦳	person arlliw croen canolog, gwallt gwyn	none
+🧑🏾‍🦳	person arlliw croen canolig-tywyll, gwallt gwyn	none
+🧑🏿‍🦳	person arlliw croen tywyll, gwallt gwyn	none
+🧑‍🦲	person moel	none
+🧑🏻‍🦲	person arlliw croen golau, moel	none
+🧑🏼‍🦲	person arlliw croen canolig-golau, moel	none
+🧑🏽‍🦲	person arlliw croen canolog, moel	none
+🧑🏾‍🦲	person arlliw croen canolig-tywyll, moel	none
+🧑🏿‍🦲	person arlliw croen tywyll, moel	none
 👨🏻	dyn arlliw croen golau	none
 👨🏼	dyn arlliw croen canolig-golau	none
 👨🏽	dyn arlliw croen canolog	none
 👨🏾	dyn arlliw croen canolig-tywyll	none
 👨🏿	dyn arlliw croen tywyll	none
-🧔🏻	dyn â barf arlliw croen golau	none
-🧔🏼	dyn â barf arlliw croen canolig-golau	none
-🧔🏽	dyn â barf arlliw croen canolog	none
-🧔🏾	dyn â barf arlliw croen canolig-tywyll	none
-🧔🏿	dyn â barf arlliw croen tywyll	none
+🧔🏻	person arlliw croen golau, barf	none
+🧔🏼	person arlliw croen canolig-golau, barf	none
+🧔🏽	person arlliw croen canolog, barf	none
+🧔🏾	person arlliw croen canolig-tywyll, barf	none
+🧔🏿	person arlliw croen tywyll, barf	none
+🧔🏻‍♂	dyn arlliw croen golau, barf	none
+🧔🏼‍♂	dyn arlliw croen canolig-golau, barf	none
+🧔🏽‍♂	dyn arlliw croen canolog, barf	none
+🧔🏾‍♂	dyn arlliw croen canolig-tywyll, barf	none
+🧔🏿‍♂	dyn arlliw croen tywyll, barf	none
 👱🏻‍♂	dyn â gwallt golau arlliw croen golau	none
 👱🏼‍♂	dyn â gwallt golau arlliw croen canolig-golau	none
 👱🏽‍♂	dyn â gwallt golau arlliw croen canolog	none
 👱🏾‍♂	dyn â gwallt golau arlliw croen canolig-tywyll	none
 👱🏿‍♂	dyn â gwallt golau arlliw croen tywyll	none
+👨🏻‍❤‍💋‍👨🏻	cusan dyn, dyn, arlliw croen golau	none
+👨🏻‍❤‍💋‍👨🏼	cusan dyn, dyn, arlliw croen golau, arlliw croen canolig-golau	none
+👨🏻‍❤‍💋‍👨🏽	cusan dyn, dyn, arlliw croen golau, arlliw croen canolog	none
+👨🏻‍❤‍💋‍👨🏾	cusan dyn, dyn, arlliw croen golau, arlliw croen canolig-tywyll	none
+👨🏻‍❤‍💋‍👨🏿	cusan dyn, dyn, arlliw croen golau, arlliw croen tywyll	none
+👨🏼‍❤‍💋‍👨🏻	cusan dyn, dyn, arlliw croen canolig-golau, arlliw croen golau	none
+👨🏼‍❤‍💋‍👨🏼	cusan dyn, dyn, arlliw croen canolig-golau	none
+👨🏼‍❤‍💋‍👨🏽	cusan dyn, dyn, arlliw croen canolig-golau, arlliw croen canolog	none
+👨🏼‍❤‍💋‍👨🏾	cusan dyn, dyn, arlliw croen canolig-golau, arlliw croen canolig-tywyll	none
+👨🏼‍❤‍💋‍👨🏿	cusan dyn, dyn, arlliw croen canolig-golau, arlliw croen tywyll	none
+👨🏽‍❤‍💋‍👨🏻	cusan dyn, dyn, arlliw croen canolog, arlliw croen golau	none
+👨🏽‍❤‍💋‍👨🏼	cusan dyn, dyn, arlliw croen canolog, arlliw croen canolig-golau	none
+👨🏽‍❤‍💋‍👨🏽	cusan dyn, dyn, arlliw croen canolog	none
+👨🏽‍❤‍💋‍👨🏾	cusan dyn, dyn, arlliw croen canolog, arlliw croen canolig-tywyll	none
+👨🏽‍❤‍💋‍👨🏿	cusan dyn, dyn, arlliw croen canolog, arlliw croen tywyll	none
+👨🏾‍❤‍💋‍👨🏻	cusan dyn, dyn, arlliw croen canolig-tywyll, arlliw croen golau	none
+👨🏾‍❤‍💋‍👨🏼	cusan dyn, dyn, arlliw croen canolig-tywyll, arlliw croen canolig-golau	none
+👨🏾‍❤‍💋‍👨🏽	cusan dyn, dyn, arlliw croen canolig-tywyll, arlliw croen canolog	none
+👨🏾‍❤‍💋‍👨🏾	cusan dyn, dyn, arlliw croen canolig-tywyll	none
+👨🏾‍❤‍💋‍👨🏿	cusan dyn, dyn, arlliw croen canolig-tywyll, arlliw croen tywyll	none
+👨🏿‍❤‍💋‍👨🏻	cusan dyn, dyn, arlliw croen tywyll, arlliw croen golau	none
+👨🏿‍❤‍💋‍👨🏼	cusan dyn, dyn, arlliw croen tywyll, arlliw croen canolig-golau	none
+👨🏿‍❤‍💋‍👨🏽	cusan dyn, dyn, arlliw croen tywyll, arlliw croen canolog	none
+👨🏿‍❤‍💋‍👨🏾	cusan dyn, dyn, arlliw croen tywyll, arlliw croen canolig-tywyll	none
+👨🏿‍❤‍💋‍👨🏿	cusan dyn, dyn, arlliw croen tywyll	none
+👨🏻‍❤‍👨🏻	pâr a chalon dyn, dyn, arlliw croen golau	none
+👨🏻‍❤‍👨🏼	pâr a chalon dyn, dyn, arlliw croen golau, arlliw croen canolig-golau	none
+👨🏻‍❤‍👨🏽	pâr a chalon dyn, dyn, arlliw croen golau, arlliw croen canolog	none
+👨🏻‍❤‍👨🏾	pâr a chalon dyn, dyn, arlliw croen golau, arlliw croen canolig-tywyll	none
+👨🏻‍❤‍👨🏿	pâr a chalon dyn, dyn, arlliw croen golau, arlliw croen tywyll	none
+👨🏼‍❤‍👨🏻	pâr a chalon dyn, dyn, arlliw croen canolig-golau, arlliw croen golau	none
+👨🏼‍❤‍👨🏼	pâr a chalon dyn, dyn, arlliw croen canolig-golau	none
+👨🏼‍❤‍👨🏽	pâr a chalon dyn, dyn, arlliw croen canolig-golau, arlliw croen canolog	none
+👨🏼‍❤‍👨🏾	pâr a chalon dyn, dyn, arlliw croen canolig-golau, arlliw croen canolig-tywyll	none
+👨🏼‍❤‍👨🏿	pâr a chalon dyn, dyn, arlliw croen canolig-golau, arlliw croen tywyll	none
+👨🏽‍❤‍👨🏻	pâr a chalon dyn, dyn, arlliw croen canolog, arlliw croen golau	none
+👨🏽‍❤‍👨🏼	pâr a chalon dyn, dyn, arlliw croen canolog, arlliw croen canolig-golau	none
+👨🏽‍❤‍👨🏽	pâr a chalon dyn, dyn, arlliw croen canolog	none
+👨🏽‍❤‍👨🏾	pâr a chalon dyn, dyn, arlliw croen canolog, arlliw croen canolig-tywyll	none
+👨🏽‍❤‍👨🏿	pâr a chalon dyn, dyn, arlliw croen canolog, arlliw croen tywyll	none
+👨🏾‍❤‍👨🏻	pâr a chalon dyn, dyn, arlliw croen canolig-tywyll, arlliw croen golau	none
+👨🏾‍❤‍👨🏼	pâr a chalon dyn, dyn, arlliw croen canolig-tywyll, arlliw croen canolig-golau	none
+👨🏾‍❤‍👨🏽	pâr a chalon dyn, dyn, arlliw croen canolig-tywyll, arlliw croen canolog	none
+👨🏾‍❤‍👨🏾	pâr a chalon dyn, dyn, arlliw croen canolig-tywyll	none
+👨🏾‍❤‍👨🏿	pâr a chalon dyn, dyn, arlliw croen canolig-tywyll, arlliw croen tywyll	none
+👨🏿‍❤‍👨🏻	pâr a chalon dyn, dyn, arlliw croen tywyll, arlliw croen golau	none
+👨🏿‍❤‍👨🏼	pâr a chalon dyn, dyn, arlliw croen tywyll, arlliw croen canolig-golau	none
+👨🏿‍❤‍👨🏽	pâr a chalon dyn, dyn, arlliw croen tywyll, arlliw croen canolog	none
+👨🏿‍❤‍👨🏾	pâr a chalon dyn, dyn, arlliw croen tywyll, arlliw croen canolig-tywyll	none
+👨🏿‍❤‍👨🏿	pâr a chalon dyn, dyn, arlliw croen tywyll	none
 👨‍🦰	dyn gwallt coch	none
 👨🏻‍🦰	dyn arlliw croen golau, gwallt coch	none
 👨🏼‍🦰	dyn arlliw croen canolig-golau, gwallt coch	none
@@ -1796,11 +1991,116 @@ symbols:
 👩🏽	menyw arlliw croen canolog	none
 👩🏾	menyw arlliw croen canolig-tywyll	none
 👩🏿	menyw arlliw croen tywyll	none
+🧔🏻‍♀	menyw arlliw croen golau, barf	none
+🧔🏼‍♀	menyw arlliw croen canolig-golau, barf	none
+🧔🏽‍♀	menyw arlliw croen canolog, barf	none
+🧔🏾‍♀	menyw arlliw croen canolig-tywyll, barf	none
+🧔🏿‍♀	menyw arlliw croen tywyll, barf	none
 👱🏻‍♀	menyw â gwallt golau arlliw croen golau	none
 👱🏼‍♀	menyw â gwallt golau arlliw croen canolig-golau	none
 👱🏽‍♀	menyw â gwallt golau arlliw croen canolog	none
 👱🏾‍♀	menyw â gwallt golau arlliw croen canolig-tywyll	none
 👱🏿‍♀	menyw â gwallt golau arlliw croen tywyll	none
+👩🏻‍❤‍💋‍👨🏻	cusan menyw, dyn, arlliw croen golau	none
+👩🏻‍❤‍💋‍👨🏼	cusan menyw, dyn, arlliw croen golau, arlliw croen canolig-golau	none
+👩🏻‍❤‍💋‍👨🏽	cusan menyw, dyn, arlliw croen golau, arlliw croen canolog	none
+👩🏻‍❤‍💋‍👨🏾	cusan menyw, dyn, arlliw croen golau, arlliw croen canolig-tywyll	none
+👩🏻‍❤‍💋‍👨🏿	cusan menyw, dyn, arlliw croen golau, arlliw croen tywyll	none
+👩🏼‍❤‍💋‍👨🏻	cusan menyw, dyn, arlliw croen canolig-golau, arlliw croen golau	none
+👩🏼‍❤‍💋‍👨🏼	cusan menyw, dyn, arlliw croen canolig-golau	none
+👩🏼‍❤‍💋‍👨🏽	cusan menyw, dyn, arlliw croen canolig-golau, arlliw croen canolog	none
+👩🏼‍❤‍💋‍👨🏾	cusan menyw, dyn, arlliw croen canolig-golau, arlliw croen canolig-tywyll	none
+👩🏼‍❤‍💋‍👨🏿	cusan menyw, dyn, arlliw croen canolig-golau, arlliw croen tywyll	none
+👩🏽‍❤‍💋‍👨🏻	cusan menyw, dyn, arlliw croen canolog, arlliw croen golau	none
+👩🏽‍❤‍💋‍👨🏼	cusan menyw, dyn, arlliw croen canolog, arlliw croen canolig-golau	none
+👩🏽‍❤‍💋‍👨🏽	cusan menyw, dyn, arlliw croen canolog	none
+👩🏽‍❤‍💋‍👨🏾	cusan menyw, dyn, arlliw croen canolog, arlliw croen canolig-tywyll	none
+👩🏽‍❤‍💋‍👨🏿	cusan menyw, dyn, arlliw croen canolog, arlliw croen tywyll	none
+👩🏾‍❤‍💋‍👨🏻	cusan menyw, dyn, arlliw croen canolig-tywyll, arlliw croen golau	none
+👩🏾‍❤‍💋‍👨🏼	cusan menyw, dyn, arlliw croen canolig-tywyll, arlliw croen canolig-golau	none
+👩🏾‍❤‍💋‍👨🏽	cusan menyw, dyn, arlliw croen canolig-tywyll, arlliw croen canolog	none
+👩🏾‍❤‍💋‍👨🏾	cusan menyw, dyn, arlliw croen canolig-tywyll	none
+👩🏾‍❤‍💋‍👨🏿	cusan menyw, dyn, arlliw croen canolig-tywyll, arlliw croen tywyll	none
+👩🏿‍❤‍💋‍👨🏻	cusan menyw, dyn, arlliw croen tywyll, arlliw croen golau	none
+👩🏿‍❤‍💋‍👨🏼	cusan menyw, dyn, arlliw croen tywyll, arlliw croen canolig-golau	none
+👩🏿‍❤‍💋‍👨🏽	cusan menyw, dyn, arlliw croen tywyll, arlliw croen canolog	none
+👩🏿‍❤‍💋‍👨🏾	cusan menyw, dyn, arlliw croen tywyll, arlliw croen canolig-tywyll	none
+👩🏿‍❤‍💋‍👨🏿	cusan menyw, dyn, arlliw croen tywyll	none
+👩🏻‍❤‍💋‍👩🏻	cusan menyw, menyw, arlliw croen golau	none
+👩🏻‍❤‍💋‍👩🏼	cusan menyw, menyw, arlliw croen golau, arlliw croen canolig-golau	none
+👩🏻‍❤‍💋‍👩🏽	cusan menyw, menyw, arlliw croen golau, arlliw croen canolog	none
+👩🏻‍❤‍💋‍👩🏾	cusan menyw, menyw, arlliw croen golau, arlliw croen canolig-tywyll	none
+👩🏻‍❤‍💋‍👩🏿	cusan menyw, menyw, arlliw croen golau, arlliw croen tywyll	none
+👩🏼‍❤‍💋‍👩🏻	cusan menyw, menyw, arlliw croen canolig-golau, arlliw croen golau	none
+👩🏼‍❤‍💋‍👩🏼	cusan menyw, menyw, arlliw croen canolig-golau	none
+👩🏼‍❤‍💋‍👩🏽	cusan menyw, menyw, arlliw croen canolig-golau, arlliw croen canolog	none
+👩🏼‍❤‍💋‍👩🏾	cusan menyw, menyw, arlliw croen canolig-golau, arlliw croen canolig-tywyll	none
+👩🏼‍❤‍💋‍👩🏿	cusan menyw, menyw, arlliw croen canolig-golau, arlliw croen tywyll	none
+👩🏽‍❤‍💋‍👩🏻	cusan menyw, menyw, arlliw croen canolog, arlliw croen golau	none
+👩🏽‍❤‍💋‍👩🏼	cusan menyw, menyw, arlliw croen canolog, arlliw croen canolig-golau	none
+👩🏽‍❤‍💋‍👩🏽	cusan menyw, menyw, arlliw croen canolog	none
+👩🏽‍❤‍💋‍👩🏾	cusan menyw, menyw, arlliw croen canolog, arlliw croen canolig-tywyll	none
+👩🏽‍❤‍💋‍👩🏿	cusan menyw, menyw, arlliw croen canolog, arlliw croen tywyll	none
+👩🏾‍❤‍💋‍👩🏻	cusan menyw, menyw, arlliw croen canolig-tywyll, arlliw croen golau	none
+👩🏾‍❤‍💋‍👩🏼	cusan menyw, menyw, arlliw croen canolig-tywyll, arlliw croen canolig-golau	none
+👩🏾‍❤‍💋‍👩🏽	cusan menyw, menyw, arlliw croen canolig-tywyll, arlliw croen canolog	none
+👩🏾‍❤‍💋‍👩🏾	cusan menyw, menyw, arlliw croen canolig-tywyll	none
+👩🏾‍❤‍💋‍👩🏿	cusan menyw, menyw, arlliw croen canolig-tywyll, arlliw croen tywyll	none
+👩🏿‍❤‍💋‍👩🏻	cusan menyw, menyw, arlliw croen tywyll, arlliw croen golau	none
+👩🏿‍❤‍💋‍👩🏼	cusan menyw, menyw, arlliw croen tywyll, arlliw croen canolig-golau	none
+👩🏿‍❤‍💋‍👩🏽	cusan menyw, menyw, arlliw croen tywyll, arlliw croen canolog	none
+👩🏿‍❤‍💋‍👩🏾	cusan menyw, menyw, arlliw croen tywyll, arlliw croen canolig-tywyll	none
+👩🏿‍❤‍💋‍👩🏿	cusan menyw, menyw, arlliw croen tywyll	none
+👩🏻‍❤‍👨🏻	pâr a chalon menyw, dyn, arlliw croen golau	none
+👩🏻‍❤‍👨🏼	pâr a chalon menyw, dyn, arlliw croen golau, arlliw croen canolig-golau	none
+👩🏻‍❤‍👨🏽	pâr a chalon menyw, dyn, arlliw croen golau, arlliw croen canolog	none
+👩🏻‍❤‍👨🏾	pâr a chalon menyw, dyn, arlliw croen golau, arlliw croen canolig-tywyll	none
+👩🏻‍❤‍👨🏿	pâr a chalon menyw, dyn, arlliw croen golau, arlliw croen tywyll	none
+👩🏼‍❤‍👨🏻	pâr a chalon menyw, dyn, arlliw croen canolig-golau, arlliw croen golau	none
+👩🏼‍❤‍👨🏼	pâr a chalon menyw, dyn, arlliw croen canolig-golau	none
+👩🏼‍❤‍👨🏽	pâr a chalon menyw, dyn, arlliw croen canolig-golau, arlliw croen canolog	none
+👩🏼‍❤‍👨🏾	pâr a chalon menyw, dyn, arlliw croen canolig-golau, arlliw croen canolig-tywyll	none
+👩🏼‍❤‍👨🏿	pâr a chalon menyw, dyn, arlliw croen canolig-golau, arlliw croen tywyll	none
+👩🏽‍❤‍👨🏻	pâr a chalon menyw, dyn, arlliw croen canolog, arlliw croen golau	none
+👩🏽‍❤‍👨🏼	pâr a chalon menyw, dyn, arlliw croen canolog, arlliw croen canolig-golau	none
+👩🏽‍❤‍👨🏽	pâr a chalon menyw, dyn, arlliw croen canolog	none
+👩🏽‍❤‍👨🏾	pâr a chalon menyw, dyn, arlliw croen canolog, arlliw croen canolig-tywyll	none
+👩🏽‍❤‍👨🏿	pâr a chalon menyw, dyn, arlliw croen canolog, arlliw croen tywyll	none
+👩🏾‍❤‍👨🏻	pâr a chalon menyw, dyn, arlliw croen canolig-tywyll, arlliw croen golau	none
+👩🏾‍❤‍👨🏼	pâr a chalon menyw, dyn, arlliw croen canolig-tywyll, arlliw croen canolig-golau	none
+👩🏾‍❤‍👨🏽	pâr a chalon menyw, dyn, arlliw croen canolig-tywyll, arlliw croen canolog	none
+👩🏾‍❤‍👨🏾	pâr a chalon menyw, dyn, arlliw croen canolig-tywyll	none
+👩🏾‍❤‍👨🏿	pâr a chalon menyw, dyn, arlliw croen canolig-tywyll, arlliw croen tywyll	none
+👩🏿‍❤‍👨🏻	pâr a chalon menyw, dyn, arlliw croen tywyll, arlliw croen golau	none
+👩🏿‍❤‍👨🏼	pâr a chalon menyw, dyn, arlliw croen tywyll, arlliw croen canolig-golau	none
+👩🏿‍❤‍👨🏽	pâr a chalon menyw, dyn, arlliw croen tywyll, arlliw croen canolog	none
+👩🏿‍❤‍👨🏾	pâr a chalon menyw, dyn, arlliw croen tywyll, arlliw croen canolig-tywyll	none
+👩🏿‍❤‍👨🏿	pâr a chalon menyw, dyn, arlliw croen tywyll	none
+👩🏻‍❤‍👩🏻	pâr a chalon menyw, menyw, arlliw croen golau	none
+👩🏻‍❤‍👩🏼	pâr a chalon menyw, menyw, arlliw croen golau, arlliw croen canolig-golau	none
+👩🏻‍❤‍👩🏽	pâr a chalon menyw, menyw, arlliw croen golau, arlliw croen canolog	none
+👩🏻‍❤‍👩🏾	pâr a chalon menyw, menyw, arlliw croen golau, arlliw croen canolig-tywyll	none
+👩🏻‍❤‍👩🏿	pâr a chalon menyw, menyw, arlliw croen golau, arlliw croen tywyll	none
+👩🏼‍❤‍👩🏻	pâr a chalon menyw, menyw, arlliw croen canolig-golau, arlliw croen golau	none
+👩🏼‍❤‍👩🏼	pâr a chalon menyw, menyw, arlliw croen canolig-golau	none
+👩🏼‍❤‍👩🏽	pâr a chalon menyw, menyw, arlliw croen canolig-golau, arlliw croen canolog	none
+👩🏼‍❤‍👩🏾	pâr a chalon menyw, menyw, arlliw croen canolig-golau, arlliw croen canolig-tywyll	none
+👩🏼‍❤‍👩🏿	pâr a chalon menyw, menyw, arlliw croen canolig-golau, arlliw croen tywyll	none
+👩🏽‍❤‍👩🏻	pâr a chalon menyw, menyw, arlliw croen canolog, arlliw croen golau	none
+👩🏽‍❤‍👩🏼	pâr a chalon menyw, menyw, arlliw croen canolog, arlliw croen canolig-golau	none
+👩🏽‍❤‍👩🏽	pâr a chalon menyw, menyw, arlliw croen canolog	none
+👩🏽‍❤‍👩🏾	pâr a chalon menyw, menyw, arlliw croen canolog, arlliw croen canolig-tywyll	none
+👩🏽‍❤‍👩🏿	pâr a chalon menyw, menyw, arlliw croen canolog, arlliw croen tywyll	none
+👩🏾‍❤‍👩🏻	pâr a chalon menyw, menyw, arlliw croen canolig-tywyll, arlliw croen golau	none
+👩🏾‍❤‍👩🏼	pâr a chalon menyw, menyw, arlliw croen canolig-tywyll, arlliw croen canolig-golau	none
+👩🏾‍❤‍👩🏽	pâr a chalon menyw, menyw, arlliw croen canolig-tywyll, arlliw croen canolog	none
+👩🏾‍❤‍👩🏾	pâr a chalon menyw, menyw, arlliw croen canolig-tywyll	none
+👩🏾‍❤‍👩🏿	pâr a chalon menyw, menyw, arlliw croen canolig-tywyll, arlliw croen tywyll	none
+👩🏿‍❤‍👩🏻	pâr a chalon menyw, menyw, arlliw croen tywyll, arlliw croen golau	none
+👩🏿‍❤‍👩🏼	pâr a chalon menyw, menyw, arlliw croen tywyll, arlliw croen canolig-golau	none
+👩🏿‍❤‍👩🏽	pâr a chalon menyw, menyw, arlliw croen tywyll, arlliw croen canolog	none
+👩🏿‍❤‍👩🏾	pâr a chalon menyw, menyw, arlliw croen tywyll, arlliw croen canolig-tywyll	none
+👩🏿‍❤‍👩🏿	pâr a chalon menyw, menyw, arlliw croen tywyll	none
 👩‍🦰	menyw gwallt coch	none
 👩🏻‍🦰	menyw arlliw croen golau, gwallt coch	none
 👩🏼‍🦰	menyw arlliw croen canolig-golau, gwallt coch	none
@@ -3005,9 +3305,19 @@ symbols:
 👨🏿‍🤝‍👨🏽	dau ddyn yn dal dwylo arlliw croen tywyll, arlliw croen canolog	none
 👨🏿‍🤝‍👨🏾	dau ddyn yn dal dwylo arlliw croen tywyll, arlliw croen canolig-tywyll	none
 👬🏿	dau ddyn yn dal dwylo arlliw croen tywyll	none
+💏🏻	cusan arlliw croen golau	none
+💏🏼	cusan arlliw croen canolig-golau	none
+💏🏽	cusan arlliw croen canolog	none
+💏🏾	cusan arlliw croen canolig-tywyll	none
+💏🏿	cusan arlliw croen tywyll	none
 👩‍❤‍💋‍👨	cusan menyw, dyn	none
 👨‍❤‍💋‍👨	cusan dyn, dyn	none
 👩‍❤‍💋‍👩	cusan menyw, menyw	none
+💑🏻	pâr a chalon arlliw croen golau	none
+💑🏼	pâr a chalon arlliw croen canolig-golau	none
+💑🏽	pâr a chalon arlliw croen canolog	none
+💑🏾	pâr a chalon arlliw croen canolig-tywyll	none
+💑🏿	pâr a chalon arlliw croen tywyll	none
 👩‍❤‍👨	pâr a chalon menyw, dyn	none
 👨‍❤‍👨	pâr a chalon dyn, dyn	none
 👩‍❤‍👩	pâr a chalon menyw, menyw	none
@@ -3053,7 +3363,7 @@ symbols:
 🇦🇺	baner Awstralia	none
 🇦🇼	baner Aruba	none
 🇦🇽	baner Ynysoedd Åland	none
-🇦🇿	baner Azerbaijan	none
+🇦🇿	baner Aserbaijan	none
 🇧🇦	baner Bosnia a Herzegovina	none
 🇧🇧	baner Barbados	none
 🇧🇩	baner Bangladesh	none
@@ -3127,16 +3437,16 @@ symbols:
 🇬🇮	baner Gibraltar	none
 🇬🇱	baner Yr Ynys Las	none
 🇬🇲	baner Gambia	none
-🇬🇳	baner Guinée	none
+🇬🇳	baner Gini	none
 🇬🇵	baner Guadeloupe	none
-🇬🇶	baner Guinea Gyhydeddol	none
+🇬🇶	baner Gini Gyhydeddol	none
 🇬🇷	baner Gwlad Groeg	none
 🇬🇸	baner De Georgia ac Ynysoedd Sandwich y De	none
 🇬🇹	baner Guatemala	none
 🇬🇺	baner Guam	none
 🇬🇼	baner Guiné-Bissau	none
 🇬🇾	baner Guyana	none
-🇭🇰	baner Hong Kong SAR Tseina	none
+🇭🇰	baner Hong Kong SAR Tsieina	none
 🇭🇲	baner Ynys Heard ac Ynysoedd McDonald	none
 🇭🇳	baner Honduras	none
 🇭🇷	baner Croatia	none
@@ -3163,11 +3473,11 @@ symbols:
 🇰🇮	baner Kiribati	none
 🇰🇲	baner Comoros	none
 🇰🇳	baner Saint Kitts a Nevis	none
-🇰🇵	baner Gogledd Korea	none
-🇰🇷	baner De Korea	none
+🇰🇵	baner Gogledd Corea	none
+🇰🇷	baner De Corea	none
 🇰🇼	baner Kuwait	none
 🇰🇾	baner Ynysoedd Cayman	none
-🇰🇿	baner Kazakstan	none
+🇰🇿	baner Kazakhstan	none
 🇱🇦	baner Laos	none
 🇱🇧	baner Libanus	none
 🇱🇨	baner Saint Lucia	none
@@ -3175,7 +3485,7 @@ symbols:
 🇱🇰	baner Sri Lanka	none
 🇱🇷	baner Liberia	none
 🇱🇸	baner Lesotho	none
-🇱🇹	baner Lithuania	none
+🇱🇹	baner Lithwania	none
 🇱🇺	baner Lwcsembwrg	none
 🇱🇻	baner Latfia	none
 🇱🇾	baner Libya	none
@@ -3190,7 +3500,7 @@ symbols:
 🇲🇱	baner Mali	none
 🇲🇲	baner Myanmar (Burma)	none
 🇲🇳	baner Mongolia	none
-🇲🇴	baner Macau RhGA Tsieina	none
+🇲🇴	baner Macau SAR Tsieina	none
 🇲🇵	baner Ynysoedd Gogledd Mariana	none
 🇲🇶	baner Martinique	none
 🇲🇷	baner Mauritania	none
@@ -3258,15 +3568,15 @@ symbols:
 🇸🇿	baner Eswatini	none
 🇹🇦	baner Tristan da Cunha	none
 🇹🇨	baner Ynysoedd Turks a Caicos	none
-🇹🇩	baner Tchad	none
+🇹🇩	baner Tsiad	none
 🇹🇫	baner Tiroedd Deheuol ac Antarctig Ffrainc	none
 🇹🇬	baner Togo	none
 🇹🇭	baner Gwlad Thai	none
-🇹🇯	baner Tajikistan	none
+🇹🇯	baner Tajicistan	none
 🇹🇰	baner Tokelau	none
 🇹🇱	baner Timor-Leste	none
-🇹🇲	baner Turkmenistan	none
-🇹🇳	baner Tunisia	none
+🇹🇲	baner Tyrcmenistan	none
+🇹🇳	baner Tiwnisia	none
 🇹🇴	baner Tonga	none
 🇹🇷	baner Twrci	none
 🇹🇹	baner Trinidad a Tobago	none
@@ -3298,3 +3608,16 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	baner Lloegr	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	baner Yr Alban	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	baner Cymru	none
+₡	Colón Costa Rica	none
+₦	Naira Nigeria	none
+₪	Shegel Newydd Israel	none
+₫	Dong Fietnam	none
+₭	Kip Laos	none
+₮	Tugrik Mongolia	none
+₲	Guarani Paraguay	none
+₴	Hryvnia Wcráin	none
+₵	Cedi Ghana	none
+₸	Tenge Kazakstan	none
+₺	Lira Twrci	none
+₼	Manat Azerbaijan	none
+₾	Lari Georgia	none

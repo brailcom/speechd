@@ -37,11 +37,13 @@ nobase_localedata_DATA = \
 	ccp/emojis.dic \
 	ceb/emojis.dic \
 	chr/emojis.dic \
+	ckb/emojis.dic \
 	cs/emojis.dic \
 	cy/emojis.dic \
 	da/emojis.dic \
 	de/emojis.dic \
 	de_CH/emojis.dic \
+	doi/emojis.dic \
 	el/emojis.dic \
 	en/emojis.dic \
 	en_AU/emojis.dic \
@@ -64,6 +66,7 @@ nobase_localedata_DATA = \
 	gd/emojis.dic \
 	gl/emojis.dic \
 	gu/emojis.dic \
+	ha/emojis.dic \
 	he/emojis.dic \
 	hi/emojis.dic \
 	hr/emojis.dic \
@@ -71,6 +74,7 @@ nobase_localedata_DATA = \
 	hy/emojis.dic \
 	ia/emojis.dic \
 	id/emojis.dic \
+	ig/emojis.dic \
 	is/emojis.dic \
 	it/emojis.dic \
 	ja/emojis.dic \
@@ -78,20 +82,25 @@ nobase_localedata_DATA = \
 	ka/emojis.dic \
 	kab/emojis.dic \
 	kk/emojis.dic \
+	kl/emojis.dic \
 	km/emojis.dic \
 	kn/emojis.dic \
 	ko/emojis.dic \
 	kok/emojis.dic \
 	ku/emojis.dic \
 	ky/emojis.dic \
+	lb/emojis.dic \
 	lo/emojis.dic \
 	lt/emojis.dic \
 	lv/emojis.dic \
+	mi/emojis.dic \
 	mk/emojis.dic \
 	ml/emojis.dic \
 	mn/emojis.dic \
+	mni/emojis.dic \
 	mr/emojis.dic \
 	ms/emojis.dic \
+	mt/emojis.dic \
 	my/emojis.dic \
 	nb/emojis.dic \
 	ne/emojis.dic \
@@ -99,14 +108,18 @@ nobase_localedata_DATA = \
 	nn/emojis.dic \
 	or/emojis.dic \
 	pa/emojis.dic \
+	pa_Arab/emojis.dic \
 	pcm/emojis.dic \
 	pl/emojis.dic \
 	ps/emojis.dic \
 	pt/emojis.dic \
 	pt_PT/emojis.dic \
 	qu/emojis.dic \
+	rm/emojis.dic \
 	ro/emojis.dic \
 	ru/emojis.dic \
+	rw/emojis.dic \
+	sa/emojis.dic \
 	sd/emojis.dic \
 	si/emojis.dic \
 	sk/emojis.dic \
@@ -120,14 +133,21 @@ nobase_localedata_DATA = \
 	sw_KE/emojis.dic \
 	ta/emojis.dic \
 	te/emojis.dic \
+	tg/emojis.dic \
 	th/emojis.dic \
+	ti/emojis.dic \
 	tk/emojis.dic \
 	to/emojis.dic \
 	tr/emojis.dic \
+	ug/emojis.dic \
 	uk/emojis.dic \
 	ur/emojis.dic \
 	uz/emojis.dic \
 	vi/emojis.dic \
+	wo/emojis.dic \
+	xh/emojis.dic \
+	yo/emojis.dic \
+	yo_BJ/emojis.dic \
 	yue/emojis.dic \
 	zh/emojis.dic \
 	zh_HK/emojis.dic \

@@ -45,10 +45,12 @@ symbols:
 😐	nevtralt andlit	none
 😑	kensluleyst andlit	none
 😶	andlit uttan munn	none
+😶‍🌫	andlit í skýggjum	none
 😏	lúrt andlit	none
 😒	ikki stuttligt andlit	none
 🙄	andlit við rullandi eygum	none
 😬	andlit ið vísur tenn	none
+😮‍💨	andlit andar út	none
 🤥	andlit sum lýgur	none
 😌	lætna andlit	none
 😔	grundandi andlit	none
@@ -65,6 +67,7 @@ symbols:
 🥶	kalt andlit	none
 🥴	í ørviti andlit	none
 😵	svimbult andlit	none
+😵‍💫	andlit við snyril eygum	none
 🤯	andlit í brestur	none
 🤠	andlit við cowboyhatti	none
 🥳	veitslu andlit	none
@@ -136,6 +139,8 @@ symbols:
 💟	hjarta pynt	none
 ❣	hjarta rópitekn	none
 💔	brotið hjarta	none
+❤‍🔥	hjarta sum brennur	none
+❤‍🩹	hjarta sum er lappa	none
 ❤	reytt hjarta	none
 🧡	appilsingult hjarta	none
 💛	gult hjarta	none
@@ -214,12 +219,14 @@ symbols:
 🧒	barn	none
 👦	drongur	none
 👧	genta	none
-🧑	vaksin	none
+🧑	persónur	none
 👱	ljóshærdur persónur	none
 👨	maður	none
-🧔	maður við skeggi	none
+🧔	persónur við skeggi	none
+🧔‍♂	maður við skeggi	none
 👱‍♂	ljóshærdur maður	none
 👩	kona	none
+🧔‍♀	kona við skeggi	none
 👱‍♀	ljóshærd kvinna	none
 🧓	tilkomin	none
 👴	gamal maður	none
@@ -324,10 +331,10 @@ symbols:
 🧕	kvinna við turriklæði	none
 🤵	persónur í smoking	none
 🤵‍♂	maður í smoking	none
-🤵‍♀	kvinna í smoking	none
+🤵‍♀	kona í smoking	none
 👰	persónur í sløri	none
 👰‍♂	maður í sløri	none
-👰‍♀	kvinna í sløri	none
+👰‍♀	kona í sløri	none
 🤰	kvinna við barn	none
 🤱	geva bróst	none
 👼	pinkabarnaeingil	none
@@ -477,6 +484,7 @@ symbols:
 🦝	tváttarbjørn	none
 🐱	kettuandlit	none
 🐈	ketta	none
+🐈‍⬛	svørt ketta	none
 🦁	leyvuandlit	none
 🐯	tikaraandlit	none
 🐅	tikari	none
@@ -517,6 +525,7 @@ symbols:
 🦔	tindasvín	none
 🦇	flogmús	none
 🐻	bjarnarandlit	none
+🐻‍❄	hvítabjørn	none
 🐨	koalaandlit	none
 🐼	pandaandlit	none
 🦥	letidýr	none
@@ -1469,7 +1478,7 @@ symbols:
 🏴	svart flagg	none
 🏳	hvítt flagg	none
 🏳‍🌈	ælaboga flagg	none
-🏳‍⚧	blátt, ljósareytt og hvítt flagg	none
+🏳‍⚧	tvørkynd flagg	none
 🏴‍☠	sjórænaraflagg	none
 👋🏻	veitrandi hond ljósur húðarlitur	none
 👋🏼	veitrandi hond miðalljósur húðarlitur	none
@@ -1686,55 +1695,150 @@ symbols:
 👧🏽	genta miðal húðarlitur	none
 👧🏾	genta miðalmyrkur húðarlitur	none
 👧🏿	genta myrkur húðarlitur	none
-🧑🏻	vaksin ljósur húðarlitur	none
-🧑🏼	vaksin miðalljósur húðarlitur	none
-🧑🏽	vaksin miðal húðarlitur	none
-🧑🏾	vaksin miðalmyrkur húðarlitur	none
-🧑🏿	vaksin myrkur húðarlitur	none
+🧑🏻	persónur ljósur húðarlitur	none
+🧑🏼	persónur miðalljósur húðarlitur	none
+🧑🏽	persónur miðal húðarlitur	none
+🧑🏾	persónur miðalmyrkur húðarlitur	none
+🧑🏿	persónur myrkur húðarlitur	none
 👱🏻	ljóshærdur persónur ljósur húðarlitur	none
 👱🏼	ljóshærdur persónur miðalljósur húðarlitur	none
 👱🏽	ljóshærdur persónur miðal húðarlitur	none
 👱🏾	ljóshærdur persónur miðalmyrkur húðarlitur	none
 👱🏿	ljóshærdur persónur myrkur húðarlitur	none
-🧑‍🦰	vaksin reytt hár	none
-🧑🏻‍🦰	vaksin ljósur húðarlitur, reytt hár	none
-🧑🏼‍🦰	vaksin miðalljósur húðarlitur, reytt hár	none
-🧑🏽‍🦰	vaksin miðal húðarlitur, reytt hár	none
-🧑🏾‍🦰	vaksin miðalmyrkur húðarlitur, reytt hár	none
-🧑🏿‍🦰	vaksin myrkur húðarlitur, reytt hár	none
-🧑‍🦱	vaksin purlut hár	none
-🧑🏻‍🦱	vaksin ljósur húðarlitur, purlut hár	none
-🧑🏼‍🦱	vaksin miðalljósur húðarlitur, purlut hár	none
-🧑🏽‍🦱	vaksin miðal húðarlitur, purlut hár	none
-🧑🏾‍🦱	vaksin miðalmyrkur húðarlitur, purlut hár	none
-🧑🏿‍🦱	vaksin myrkur húðarlitur, purlut hár	none
-🧑‍🦳	vaksin hvítt hár	none
-🧑🏻‍🦳	vaksin ljósur húðarlitur, hvítt hár	none
-🧑🏼‍🦳	vaksin miðalljósur húðarlitur, hvítt hár	none
-🧑🏽‍🦳	vaksin miðal húðarlitur, hvítt hár	none
-🧑🏾‍🦳	vaksin miðalmyrkur húðarlitur, hvítt hár	none
-🧑🏿‍🦳	vaksin myrkur húðarlitur, hvítt hár	none
-🧑‍🦲	vaksin skallutur	none
-🧑🏻‍🦲	vaksin ljósur húðarlitur, skallutur	none
-🧑🏼‍🦲	vaksin miðalljósur húðarlitur, skallutur	none
-🧑🏽‍🦲	vaksin miðal húðarlitur, skallutur	none
-🧑🏾‍🦲	vaksin miðalmyrkur húðarlitur, skallutur	none
-🧑🏿‍🦲	vaksin myrkur húðarlitur, skallutur	none
+🧑🏻‍❤‍💋‍🧑🏼	tvey íð mussast persónur, persónur, ljósur húðarlitur, miðalljósur húðarlitur	none
+🧑🏻‍❤‍💋‍🧑🏽	tvey íð mussast persónur, persónur, ljósur húðarlitur, miðal húðarlitur	none
+🧑🏻‍❤‍💋‍🧑🏾	tvey íð mussast persónur, persónur, ljósur húðarlitur, miðalmyrkur húðarlitur	none
+🧑🏻‍❤‍💋‍🧑🏿	tvey íð mussast persónur, persónur, ljósur húðarlitur, myrkur húðarlitur	none
+🧑🏼‍❤‍💋‍🧑🏻	tvey íð mussast persónur, persónur, miðalljósur húðarlitur, ljósur húðarlitur	none
+🧑🏼‍❤‍💋‍🧑🏽	tvey íð mussast persónur, persónur, miðalljósur húðarlitur, miðal húðarlitur	none
+🧑🏼‍❤‍💋‍🧑🏾	tvey íð mussast persónur, persónur, miðalljósur húðarlitur, miðalmyrkur húðarlitur	none
+🧑🏼‍❤‍💋‍🧑🏿	tvey íð mussast persónur, persónur, miðalljósur húðarlitur, myrkur húðarlitur	none
+🧑🏽‍❤‍💋‍🧑🏻	tvey íð mussast persónur, persónur, miðal húðarlitur, ljósur húðarlitur	none
+🧑🏽‍❤‍💋‍🧑🏼	tvey íð mussast persónur, persónur, miðal húðarlitur, miðalljósur húðarlitur	none
+🧑🏽‍❤‍💋‍🧑🏾	tvey íð mussast persónur, persónur, miðal húðarlitur, miðalmyrkur húðarlitur	none
+🧑🏽‍❤‍💋‍🧑🏿	tvey íð mussast persónur, persónur, miðal húðarlitur, myrkur húðarlitur	none
+🧑🏾‍❤‍💋‍🧑🏻	tvey íð mussast persónur, persónur, miðalmyrkur húðarlitur, ljósur húðarlitur	none
+🧑🏾‍❤‍💋‍🧑🏼	tvey íð mussast persónur, persónur, miðalmyrkur húðarlitur, miðalljósur húðarlitur	none
+🧑🏾‍❤‍💋‍🧑🏽	tvey íð mussast persónur, persónur, miðalmyrkur húðarlitur, miðal húðarlitur	none
+🧑🏾‍❤‍💋‍🧑🏿	tvey íð mussast persónur, persónur, miðalmyrkur húðarlitur, myrkur húðarlitur	none
+🧑🏿‍❤‍💋‍🧑🏻	tvey íð mussast persónur, persónur, myrkur húðarlitur, ljósur húðarlitur	none
+🧑🏿‍❤‍💋‍🧑🏼	tvey íð mussast persónur, persónur, myrkur húðarlitur, miðalljósur húðarlitur	none
+🧑🏿‍❤‍💋‍🧑🏽	tvey íð mussast persónur, persónur, myrkur húðarlitur, miðal húðarlitur	none
+🧑🏿‍❤‍💋‍🧑🏾	tvey íð mussast persónur, persónur, myrkur húðarlitur, miðalmyrkur húðarlitur	none
+🧑🏻‍❤‍🧑🏼	par og hjarta persónur, persónur, ljósur húðarlitur, miðalljósur húðarlitur	none
+🧑🏻‍❤‍🧑🏽	par og hjarta persónur, persónur, ljósur húðarlitur, miðal húðarlitur	none
+🧑🏻‍❤‍🧑🏾	par og hjarta persónur, persónur, ljósur húðarlitur, miðalmyrkur húðarlitur	none
+🧑🏻‍❤‍🧑🏿	par og hjarta persónur, persónur, ljósur húðarlitur, myrkur húðarlitur	none
+🧑🏼‍❤‍🧑🏻	par og hjarta persónur, persónur, miðalljósur húðarlitur, ljósur húðarlitur	none
+🧑🏼‍❤‍🧑🏽	par og hjarta persónur, persónur, miðalljósur húðarlitur, miðal húðarlitur	none
+🧑🏼‍❤‍🧑🏾	par og hjarta persónur, persónur, miðalljósur húðarlitur, miðalmyrkur húðarlitur	none
+🧑🏼‍❤‍🧑🏿	par og hjarta persónur, persónur, miðalljósur húðarlitur, myrkur húðarlitur	none
+🧑🏽‍❤‍🧑🏻	par og hjarta persónur, persónur, miðal húðarlitur, ljósur húðarlitur	none
+🧑🏽‍❤‍🧑🏼	par og hjarta persónur, persónur, miðal húðarlitur, miðalljósur húðarlitur	none
+🧑🏽‍❤‍🧑🏾	par og hjarta persónur, persónur, miðal húðarlitur, miðalmyrkur húðarlitur	none
+🧑🏽‍❤‍🧑🏿	par og hjarta persónur, persónur, miðal húðarlitur, myrkur húðarlitur	none
+🧑🏾‍❤‍🧑🏻	par og hjarta persónur, persónur, miðalmyrkur húðarlitur, ljósur húðarlitur	none
+🧑🏾‍❤‍🧑🏼	par og hjarta persónur, persónur, miðalmyrkur húðarlitur, miðalljósur húðarlitur	none
+🧑🏾‍❤‍🧑🏽	par og hjarta persónur, persónur, miðalmyrkur húðarlitur, miðal húðarlitur	none
+🧑🏾‍❤‍🧑🏿	par og hjarta persónur, persónur, miðalmyrkur húðarlitur, myrkur húðarlitur	none
+🧑🏿‍❤‍🧑🏻	par og hjarta persónur, persónur, myrkur húðarlitur, ljósur húðarlitur	none
+🧑🏿‍❤‍🧑🏼	par og hjarta persónur, persónur, myrkur húðarlitur, miðalljósur húðarlitur	none
+🧑🏿‍❤‍🧑🏽	par og hjarta persónur, persónur, myrkur húðarlitur, miðal húðarlitur	none
+🧑🏿‍❤‍🧑🏾	par og hjarta persónur, persónur, myrkur húðarlitur, miðalmyrkur húðarlitur	none
+🧑‍🦰	persónur reytt hár	none
+🧑🏻‍🦰	persónur ljósur húðarlitur, reytt hár	none
+🧑🏼‍🦰	persónur miðalljósur húðarlitur, reytt hár	none
+🧑🏽‍🦰	persónur miðal húðarlitur, reytt hár	none
+🧑🏾‍🦰	persónur miðalmyrkur húðarlitur, reytt hár	none
+🧑🏿‍🦰	persónur myrkur húðarlitur, reytt hár	none
+🧑‍🦱	persónur purlut hár	none
+🧑🏻‍🦱	persónur ljósur húðarlitur, purlut hár	none
+🧑🏼‍🦱	persónur miðalljósur húðarlitur, purlut hár	none
+🧑🏽‍🦱	persónur miðal húðarlitur, purlut hár	none
+🧑🏾‍🦱	persónur miðalmyrkur húðarlitur, purlut hár	none
+🧑🏿‍🦱	persónur myrkur húðarlitur, purlut hár	none
+🧑‍🦳	persónur hvítt hár	none
+🧑🏻‍🦳	persónur ljósur húðarlitur, hvítt hár	none
+🧑🏼‍🦳	persónur miðalljósur húðarlitur, hvítt hár	none
+🧑🏽‍🦳	persónur miðal húðarlitur, hvítt hár	none
+🧑🏾‍🦳	persónur miðalmyrkur húðarlitur, hvítt hár	none
+🧑🏿‍🦳	persónur myrkur húðarlitur, hvítt hár	none
+🧑‍🦲	persónur skallutur	none
+🧑🏻‍🦲	persónur ljósur húðarlitur, skallutur	none
+🧑🏼‍🦲	persónur miðalljósur húðarlitur, skallutur	none
+🧑🏽‍🦲	persónur miðal húðarlitur, skallutur	none
+🧑🏾‍🦲	persónur miðalmyrkur húðarlitur, skallutur	none
+🧑🏿‍🦲	persónur myrkur húðarlitur, skallutur	none
 👨🏻	maður ljósur húðarlitur	none
 👨🏼	maður miðalljósur húðarlitur	none
 👨🏽	maður miðal húðarlitur	none
 👨🏾	maður miðalmyrkur húðarlitur	none
 👨🏿	maður myrkur húðarlitur	none
-🧔🏻	maður við skeggi ljósur húðarlitur	none
-🧔🏼	maður við skeggi miðalljósur húðarlitur	none
-🧔🏽	maður við skeggi miðal húðarlitur	none
-🧔🏾	maður við skeggi miðalmyrkur húðarlitur	none
-🧔🏿	maður við skeggi myrkur húðarlitur	none
+🧔🏻	persónur við skeggi ljósur húðarlitur	none
+🧔🏼	persónur við skeggi miðalljósur húðarlitur	none
+🧔🏽	persónur við skeggi miðal húðarlitur	none
+🧔🏾	persónur við skeggi miðalmyrkur húðarlitur	none
+🧔🏿	persónur við skeggi myrkur húðarlitur	none
+🧔🏻‍♂	maður við skeggi ljósur húðarlitur	none
+🧔🏼‍♂	maður við skeggi miðalljósur húðarlitur	none
+🧔🏽‍♂	maður við skeggi miðal húðarlitur	none
+🧔🏾‍♂	maður við skeggi miðalmyrkur húðarlitur	none
+🧔🏿‍♂	maður við skeggi myrkur húðarlitur	none
 👱🏻‍♂	ljóshærdur maður ljósur húðarlitur	none
 👱🏼‍♂	ljóshærdur maður miðalljósur húðarlitur	none
 👱🏽‍♂	ljóshærdur maður miðal húðarlitur	none
 👱🏾‍♂	ljóshærdur maður miðalmyrkur húðarlitur	none
 👱🏿‍♂	ljóshærdur maður myrkur húðarlitur	none
+👨🏻‍❤‍💋‍👨🏻	tvey íð mussast maður, maður, ljósur húðarlitur	none
+👨🏻‍❤‍💋‍👨🏼	tvey íð mussast maður, maður, ljósur húðarlitur, miðalljósur húðarlitur	none
+👨🏻‍❤‍💋‍👨🏽	tvey íð mussast maður, maður, ljósur húðarlitur, miðal húðarlitur	none
+👨🏻‍❤‍💋‍👨🏾	tvey íð mussast maður, maður, ljósur húðarlitur, miðalmyrkur húðarlitur	none
+👨🏻‍❤‍💋‍👨🏿	tvey íð mussast maður, maður, ljósur húðarlitur, myrkur húðarlitur	none
+👨🏼‍❤‍💋‍👨🏻	tvey íð mussast maður, maður, miðalljósur húðarlitur, ljósur húðarlitur	none
+👨🏼‍❤‍💋‍👨🏼	tvey íð mussast maður, maður, miðalljósur húðarlitur	none
+👨🏼‍❤‍💋‍👨🏽	tvey íð mussast maður, maður, miðalljósur húðarlitur, miðal húðarlitur	none
+👨🏼‍❤‍💋‍👨🏾	tvey íð mussast maður, maður, miðalljósur húðarlitur, miðalmyrkur húðarlitur	none
+👨🏼‍❤‍💋‍👨🏿	tvey íð mussast maður, maður, miðalljósur húðarlitur, myrkur húðarlitur	none
+👨🏽‍❤‍💋‍👨🏻	tvey íð mussast maður, maður, miðal húðarlitur, ljósur húðarlitur	none
+👨🏽‍❤‍💋‍👨🏼	tvey íð mussast maður, maður, miðal húðarlitur, miðalljósur húðarlitur	none
+👨🏽‍❤‍💋‍👨🏽	tvey íð mussast maður, maður, miðal húðarlitur	none
+👨🏽‍❤‍💋‍👨🏾	tvey íð mussast maður, maður, miðal húðarlitur, miðalmyrkur húðarlitur	none
+👨🏽‍❤‍💋‍👨🏿	tvey íð mussast maður, maður, miðal húðarlitur, myrkur húðarlitur	none
+👨🏾‍❤‍💋‍👨🏻	tvey íð mussast maður, maður, miðalmyrkur húðarlitur, ljósur húðarlitur	none
+👨🏾‍❤‍💋‍👨🏼	tvey íð mussast maður, maður, miðalmyrkur húðarlitur, miðalljósur húðarlitur	none
+👨🏾‍❤‍💋‍👨🏽	tvey íð mussast maður, maður, miðalmyrkur húðarlitur, miðal húðarlitur	none
+👨🏾‍❤‍💋‍👨🏾	tvey íð mussast maður, maður, miðalmyrkur húðarlitur	none
+👨🏾‍❤‍💋‍👨🏿	tvey íð mussast maður, maður, miðalmyrkur húðarlitur, myrkur húðarlitur	none
+👨🏿‍❤‍💋‍👨🏻	tvey íð mussast maður, maður, myrkur húðarlitur, ljósur húðarlitur	none
+👨🏿‍❤‍💋‍👨🏼	tvey íð mussast maður, maður, myrkur húðarlitur, miðalljósur húðarlitur	none
+👨🏿‍❤‍💋‍👨🏽	tvey íð mussast maður, maður, myrkur húðarlitur, miðal húðarlitur	none
+👨🏿‍❤‍💋‍👨🏾	tvey íð mussast maður, maður, myrkur húðarlitur, miðalmyrkur húðarlitur	none
+👨🏿‍❤‍💋‍👨🏿	tvey íð mussast maður, maður, myrkur húðarlitur	none
+👨🏻‍❤‍👨🏻	par og hjarta maður, maður, ljósur húðarlitur	none
+👨🏻‍❤‍👨🏼	par og hjarta maður, maður, ljósur húðarlitur, miðalljósur húðarlitur	none
+👨🏻‍❤‍👨🏽	par og hjarta maður, maður, ljósur húðarlitur, miðal húðarlitur	none
+👨🏻‍❤‍👨🏾	par og hjarta maður, maður, ljósur húðarlitur, miðalmyrkur húðarlitur	none
+👨🏻‍❤‍👨🏿	par og hjarta maður, maður, ljósur húðarlitur, myrkur húðarlitur	none
+👨🏼‍❤‍👨🏻	par og hjarta maður, maður, miðalljósur húðarlitur, ljósur húðarlitur	none
+👨🏼‍❤‍👨🏼	par og hjarta maður, maður, miðalljósur húðarlitur	none
+👨🏼‍❤‍👨🏽	par og hjarta maður, maður, miðalljósur húðarlitur, miðal húðarlitur	none
+👨🏼‍❤‍👨🏾	par og hjarta maður, maður, miðalljósur húðarlitur, miðalmyrkur húðarlitur	none
+👨🏼‍❤‍👨🏿	par og hjarta maður, maður, miðalljósur húðarlitur, myrkur húðarlitur	none
+👨🏽‍❤‍👨🏻	par og hjarta maður, maður, miðal húðarlitur, ljósur húðarlitur	none
+👨🏽‍❤‍👨🏼	par og hjarta maður, maður, miðal húðarlitur, miðalljósur húðarlitur	none
+👨🏽‍❤‍👨🏽	par og hjarta maður, maður, miðal húðarlitur	none
+👨🏽‍❤‍👨🏾	par og hjarta maður, maður, miðal húðarlitur, miðalmyrkur húðarlitur	none
+👨🏽‍❤‍👨🏿	par og hjarta maður, maður, miðal húðarlitur, myrkur húðarlitur	none
+👨🏾‍❤‍👨🏻	par og hjarta maður, maður, miðalmyrkur húðarlitur, ljósur húðarlitur	none
+👨🏾‍❤‍👨🏼	par og hjarta maður, maður, miðalmyrkur húðarlitur, miðalljósur húðarlitur	none
+👨🏾‍❤‍👨🏽	par og hjarta maður, maður, miðalmyrkur húðarlitur, miðal húðarlitur	none
+👨🏾‍❤‍👨🏾	par og hjarta maður, maður, miðalmyrkur húðarlitur	none
+👨🏾‍❤‍👨🏿	par og hjarta maður, maður, miðalmyrkur húðarlitur, myrkur húðarlitur	none
+👨🏿‍❤‍👨🏻	par og hjarta maður, maður, myrkur húðarlitur, ljósur húðarlitur	none
+👨🏿‍❤‍👨🏼	par og hjarta maður, maður, myrkur húðarlitur, miðalljósur húðarlitur	none
+👨🏿‍❤‍👨🏽	par og hjarta maður, maður, myrkur húðarlitur, miðal húðarlitur	none
+👨🏿‍❤‍👨🏾	par og hjarta maður, maður, myrkur húðarlitur, miðalmyrkur húðarlitur	none
+👨🏿‍❤‍👨🏿	par og hjarta maður, maður, myrkur húðarlitur	none
 👨‍🦰	maður reytt hár	none
 👨🏻‍🦰	maður ljósur húðarlitur, reytt hár	none
 👨🏼‍🦰	maður miðalljósur húðarlitur, reytt hár	none
@@ -1764,11 +1868,116 @@ symbols:
 👩🏽	kona miðal húðarlitur	none
 👩🏾	kona miðalmyrkur húðarlitur	none
 👩🏿	kona myrkur húðarlitur	none
+🧔🏻‍♀	kona við skeggi ljósur húðarlitur	none
+🧔🏼‍♀	kona við skeggi miðalljósur húðarlitur	none
+🧔🏽‍♀	kona við skeggi miðal húðarlitur	none
+🧔🏾‍♀	kona við skeggi miðalmyrkur húðarlitur	none
+🧔🏿‍♀	kona við skeggi myrkur húðarlitur	none
 👱🏻‍♀	ljóshærd kvinna ljósur húðarlitur	none
 👱🏼‍♀	ljóshærd kvinna miðalljósur húðarlitur	none
 👱🏽‍♀	ljóshærd kvinna miðal húðarlitur	none
 👱🏾‍♀	ljóshærd kvinna miðalmyrkur húðarlitur	none
 👱🏿‍♀	ljóshærd kvinna myrkur húðarlitur	none
+👩🏻‍❤‍💋‍👨🏻	tvey íð mussast kona, maður, ljósur húðarlitur	none
+👩🏻‍❤‍💋‍👨🏼	tvey íð mussast kona, maður, ljósur húðarlitur, miðalljósur húðarlitur	none
+👩🏻‍❤‍💋‍👨🏽	tvey íð mussast kona, maður, ljósur húðarlitur, miðal húðarlitur	none
+👩🏻‍❤‍💋‍👨🏾	tvey íð mussast kona, maður, ljósur húðarlitur, miðalmyrkur húðarlitur	none
+👩🏻‍❤‍💋‍👨🏿	tvey íð mussast kona, maður, ljósur húðarlitur, myrkur húðarlitur	none
+👩🏼‍❤‍💋‍👨🏻	tvey íð mussast kona, maður, miðalljósur húðarlitur, ljósur húðarlitur	none
+👩🏼‍❤‍💋‍👨🏼	tvey íð mussast kona, maður, miðalljósur húðarlitur	none
+👩🏼‍❤‍💋‍👨🏽	tvey íð mussast kona, maður, miðalljósur húðarlitur, miðal húðarlitur	none
+👩🏼‍❤‍💋‍👨🏾	tvey íð mussast kona, maður, miðalljósur húðarlitur, miðalmyrkur húðarlitur	none
+👩🏼‍❤‍💋‍👨🏿	tvey íð mussast kona, maður, miðalljósur húðarlitur, myrkur húðarlitur	none
+👩🏽‍❤‍💋‍👨🏻	tvey íð mussast kona, maður, miðal húðarlitur, ljósur húðarlitur	none
+👩🏽‍❤‍💋‍👨🏼	tvey íð mussast kona, maður, miðal húðarlitur, miðalljósur húðarlitur	none
+👩🏽‍❤‍💋‍👨🏽	tvey íð mussast kona, maður, miðal húðarlitur	none
+👩🏽‍❤‍💋‍👨🏾	tvey íð mussast kona, maður, miðal húðarlitur, miðalmyrkur húðarlitur	none
+👩🏽‍❤‍💋‍👨🏿	tvey íð mussast kona, maður, miðal húðarlitur, myrkur húðarlitur	none
+👩🏾‍❤‍💋‍👨🏻	tvey íð mussast kona, maður, miðalmyrkur húðarlitur, ljósur húðarlitur	none
+👩🏾‍❤‍💋‍👨🏼	tvey íð mussast kona, maður, miðalmyrkur húðarlitur, miðalljósur húðarlitur	none
+👩🏾‍❤‍💋‍👨🏽	tvey íð mussast kona, maður, miðalmyrkur húðarlitur, miðal húðarlitur	none
+👩🏾‍❤‍💋‍👨🏾	tvey íð mussast kona, maður, miðalmyrkur húðarlitur	none
+👩🏾‍❤‍💋‍👨🏿	tvey íð mussast kona, maður, miðalmyrkur húðarlitur, myrkur húðarlitur	none
+👩🏿‍❤‍💋‍👨🏻	tvey íð mussast kona, maður, myrkur húðarlitur, ljósur húðarlitur	none
+👩🏿‍❤‍💋‍👨🏼	tvey íð mussast kona, maður, myrkur húðarlitur, miðalljósur húðarlitur	none
+👩🏿‍❤‍💋‍👨🏽	tvey íð mussast kona, maður, myrkur húðarlitur, miðal húðarlitur	none
+👩🏿‍❤‍💋‍👨🏾	tvey íð mussast kona, maður, myrkur húðarlitur, miðalmyrkur húðarlitur	none
+👩🏿‍❤‍💋‍👨🏿	tvey íð mussast kona, maður, myrkur húðarlitur	none
+👩🏻‍❤‍💋‍👩🏻	tvey íð mussast kona, kona, ljósur húðarlitur	none
+👩🏻‍❤‍💋‍👩🏼	tvey íð mussast kona, kona, ljósur húðarlitur, miðalljósur húðarlitur	none
+👩🏻‍❤‍💋‍👩🏽	tvey íð mussast kona, kona, ljósur húðarlitur, miðal húðarlitur	none
+👩🏻‍❤‍💋‍👩🏾	tvey íð mussast kona, kona, ljósur húðarlitur, miðalmyrkur húðarlitur	none
+👩🏻‍❤‍💋‍👩🏿	tvey íð mussast kona, kona, ljósur húðarlitur, myrkur húðarlitur	none
+👩🏼‍❤‍💋‍👩🏻	tvey íð mussast kona, kona, miðalljósur húðarlitur, ljósur húðarlitur	none
+👩🏼‍❤‍💋‍👩🏼	tvey íð mussast kona, kona, miðalljósur húðarlitur	none
+👩🏼‍❤‍💋‍👩🏽	tvey íð mussast kona, kona, miðalljósur húðarlitur, miðal húðarlitur	none
+👩🏼‍❤‍💋‍👩🏾	tvey íð mussast kona, kona, miðalljósur húðarlitur, miðalmyrkur húðarlitur	none
+👩🏼‍❤‍💋‍👩🏿	tvey íð mussast kona, kona, miðalljósur húðarlitur, myrkur húðarlitur	none
+👩🏽‍❤‍💋‍👩🏻	tvey íð mussast kona, kona, miðal húðarlitur, ljósur húðarlitur	none
+👩🏽‍❤‍💋‍👩🏼	tvey íð mussast kona, kona, miðal húðarlitur, miðalljósur húðarlitur	none
+👩🏽‍❤‍💋‍👩🏽	tvey íð mussast kona, kona, miðal húðarlitur	none
+👩🏽‍❤‍💋‍👩🏾	tvey íð mussast kona, kona, miðal húðarlitur, miðalmyrkur húðarlitur	none
+👩🏽‍❤‍💋‍👩🏿	tvey íð mussast kona, kona, miðal húðarlitur, myrkur húðarlitur	none
+👩🏾‍❤‍💋‍👩🏻	tvey íð mussast kona, kona, miðalmyrkur húðarlitur, ljósur húðarlitur	none
+👩🏾‍❤‍💋‍👩🏼	tvey íð mussast kona, kona, miðalmyrkur húðarlitur, miðalljósur húðarlitur	none
+👩🏾‍❤‍💋‍👩🏽	tvey íð mussast kona, kona, miðalmyrkur húðarlitur, miðal húðarlitur	none
+👩🏾‍❤‍💋‍👩🏾	tvey íð mussast kona, kona, miðalmyrkur húðarlitur	none
+👩🏾‍❤‍💋‍👩🏿	tvey íð mussast kona, kona, miðalmyrkur húðarlitur, myrkur húðarlitur	none
+👩🏿‍❤‍💋‍👩🏻	tvey íð mussast kona, kona, myrkur húðarlitur, ljósur húðarlitur	none
+👩🏿‍❤‍💋‍👩🏼	tvey íð mussast kona, kona, myrkur húðarlitur, miðalljósur húðarlitur	none
+👩🏿‍❤‍💋‍👩🏽	tvey íð mussast kona, kona, myrkur húðarlitur, miðal húðarlitur	none
+👩🏿‍❤‍💋‍👩🏾	tvey íð mussast kona, kona, myrkur húðarlitur, miðalmyrkur húðarlitur	none
+👩🏿‍❤‍💋‍👩🏿	tvey íð mussast kona, kona, myrkur húðarlitur	none
+👩🏻‍❤‍👨🏻	par og hjarta kona, maður, ljósur húðarlitur	none
+👩🏻‍❤‍👨🏼	par og hjarta kona, maður, ljósur húðarlitur, miðalljósur húðarlitur	none
+👩🏻‍❤‍👨🏽	par og hjarta kona, maður, ljósur húðarlitur, miðal húðarlitur	none
+👩🏻‍❤‍👨🏾	par og hjarta kona, maður, ljósur húðarlitur, miðalmyrkur húðarlitur	none
+👩🏻‍❤‍👨🏿	par og hjarta kona, maður, ljósur húðarlitur, myrkur húðarlitur	none
+👩🏼‍❤‍👨🏻	par og hjarta kona, maður, miðalljósur húðarlitur, ljósur húðarlitur	none
+👩🏼‍❤‍👨🏼	par og hjarta kona, maður, miðalljósur húðarlitur	none
+👩🏼‍❤‍👨🏽	par og hjarta kona, maður, miðalljósur húðarlitur, miðal húðarlitur	none
+👩🏼‍❤‍👨🏾	par og hjarta kona, maður, miðalljósur húðarlitur, miðalmyrkur húðarlitur	none
+👩🏼‍❤‍👨🏿	par og hjarta kona, maður, miðalljósur húðarlitur, myrkur húðarlitur	none
+👩🏽‍❤‍👨🏻	par og hjarta kona, maður, miðal húðarlitur, ljósur húðarlitur	none
+👩🏽‍❤‍👨🏼	par og hjarta kona, maður, miðal húðarlitur, miðalljósur húðarlitur	none
+👩🏽‍❤‍👨🏽	par og hjarta kona, maður, miðal húðarlitur	none
+👩🏽‍❤‍👨🏾	par og hjarta kona, maður, miðal húðarlitur, miðalmyrkur húðarlitur	none
+👩🏽‍❤‍👨🏿	par og hjarta kona, maður, miðal húðarlitur, myrkur húðarlitur	none
+👩🏾‍❤‍👨🏻	par og hjarta kona, maður, miðalmyrkur húðarlitur, ljósur húðarlitur	none
+👩🏾‍❤‍👨🏼	par og hjarta kona, maður, miðalmyrkur húðarlitur, miðalljósur húðarlitur	none
+👩🏾‍❤‍👨🏽	par og hjarta kona, maður, miðalmyrkur húðarlitur, miðal húðarlitur	none
+👩🏾‍❤‍👨🏾	par og hjarta kona, maður, miðalmyrkur húðarlitur	none
+👩🏾‍❤‍👨🏿	par og hjarta kona, maður, miðalmyrkur húðarlitur, myrkur húðarlitur	none
+👩🏿‍❤‍👨🏻	par og hjarta kona, maður, myrkur húðarlitur, ljósur húðarlitur	none
+👩🏿‍❤‍👨🏼	par og hjarta kona, maður, myrkur húðarlitur, miðalljósur húðarlitur	none
+👩🏿‍❤‍👨🏽	par og hjarta kona, maður, myrkur húðarlitur, miðal húðarlitur	none
+👩🏿‍❤‍👨🏾	par og hjarta kona, maður, myrkur húðarlitur, miðalmyrkur húðarlitur	none
+👩🏿‍❤‍👨🏿	par og hjarta kona, maður, myrkur húðarlitur	none
+👩🏻‍❤‍👩🏻	par og hjarta kona, kona, ljósur húðarlitur	none
+👩🏻‍❤‍👩🏼	par og hjarta kona, kona, ljósur húðarlitur, miðalljósur húðarlitur	none
+👩🏻‍❤‍👩🏽	par og hjarta kona, kona, ljósur húðarlitur, miðal húðarlitur	none
+👩🏻‍❤‍👩🏾	par og hjarta kona, kona, ljósur húðarlitur, miðalmyrkur húðarlitur	none
+👩🏻‍❤‍👩🏿	par og hjarta kona, kona, ljósur húðarlitur, myrkur húðarlitur	none
+👩🏼‍❤‍👩🏻	par og hjarta kona, kona, miðalljósur húðarlitur, ljósur húðarlitur	none
+👩🏼‍❤‍👩🏼	par og hjarta kona, kona, miðalljósur húðarlitur	none
+👩🏼‍❤‍👩🏽	par og hjarta kona, kona, miðalljósur húðarlitur, miðal húðarlitur	none
+👩🏼‍❤‍👩🏾	par og hjarta kona, kona, miðalljósur húðarlitur, miðalmyrkur húðarlitur	none
+👩🏼‍❤‍👩🏿	par og hjarta kona, kona, miðalljósur húðarlitur, myrkur húðarlitur	none
+👩🏽‍❤‍👩🏻	par og hjarta kona, kona, miðal húðarlitur, ljósur húðarlitur	none
+👩🏽‍❤‍👩🏼	par og hjarta kona, kona, miðal húðarlitur, miðalljósur húðarlitur	none
+👩🏽‍❤‍👩🏽	par og hjarta kona, kona, miðal húðarlitur	none
+👩🏽‍❤‍👩🏾	par og hjarta kona, kona, miðal húðarlitur, miðalmyrkur húðarlitur	none
+👩🏽‍❤‍👩🏿	par og hjarta kona, kona, miðal húðarlitur, myrkur húðarlitur	none
+👩🏾‍❤‍👩🏻	par og hjarta kona, kona, miðalmyrkur húðarlitur, ljósur húðarlitur	none
+👩🏾‍❤‍👩🏼	par og hjarta kona, kona, miðalmyrkur húðarlitur, miðalljósur húðarlitur	none
+👩🏾‍❤‍👩🏽	par og hjarta kona, kona, miðalmyrkur húðarlitur, miðal húðarlitur	none
+👩🏾‍❤‍👩🏾	par og hjarta kona, kona, miðalmyrkur húðarlitur	none
+👩🏾‍❤‍👩🏿	par og hjarta kona, kona, miðalmyrkur húðarlitur, myrkur húðarlitur	none
+👩🏿‍❤‍👩🏻	par og hjarta kona, kona, myrkur húðarlitur, ljósur húðarlitur	none
+👩🏿‍❤‍👩🏼	par og hjarta kona, kona, myrkur húðarlitur, miðalljósur húðarlitur	none
+👩🏿‍❤‍👩🏽	par og hjarta kona, kona, myrkur húðarlitur, miðal húðarlitur	none
+👩🏿‍❤‍👩🏾	par og hjarta kona, kona, myrkur húðarlitur, miðalmyrkur húðarlitur	none
+👩🏿‍❤‍👩🏿	par og hjarta kona, kona, myrkur húðarlitur	none
 👩‍🦰	kona reytt hár	none
 👩🏻‍🦰	kona ljósur húðarlitur, reytt hár	none
 👩🏼‍🦰	kona miðalljósur húðarlitur, reytt hár	none
@@ -2308,11 +2517,11 @@ symbols:
 🤵🏽‍♂	maður í smoking miðal húðarlitur	none
 🤵🏾‍♂	maður í smoking miðalmyrkur húðarlitur	none
 🤵🏿‍♂	maður í smoking myrkur húðarlitur	none
-🤵🏻‍♀	kvinna í smoking ljósur húðarlitur	none
-🤵🏼‍♀	kvinna í smoking miðalljósur húðarlitur	none
-🤵🏽‍♀	kvinna í smoking miðal húðarlitur	none
-🤵🏾‍♀	kvinna í smoking miðalmyrkur húðarlitur	none
-🤵🏿‍♀	kvinna í smoking myrkur húðarlitur	none
+🤵🏻‍♀	kona í smoking ljósur húðarlitur	none
+🤵🏼‍♀	kona í smoking miðalljósur húðarlitur	none
+🤵🏽‍♀	kona í smoking miðal húðarlitur	none
+🤵🏾‍♀	kona í smoking miðalmyrkur húðarlitur	none
+🤵🏿‍♀	kona í smoking myrkur húðarlitur	none
 👰🏻	persónur í sløri ljósur húðarlitur	none
 👰🏼	persónur í sløri miðalljósur húðarlitur	none
 👰🏽	persónur í sløri miðal húðarlitur	none
@@ -2323,11 +2532,11 @@ symbols:
 👰🏽‍♂	maður í sløri miðal húðarlitur	none
 👰🏾‍♂	maður í sløri miðalmyrkur húðarlitur	none
 👰🏿‍♂	maður í sløri myrkur húðarlitur	none
-👰🏻‍♀	kvinna í sløri ljósur húðarlitur	none
-👰🏼‍♀	kvinna í sløri miðalljósur húðarlitur	none
-👰🏽‍♀	kvinna í sløri miðal húðarlitur	none
-👰🏾‍♀	kvinna í sløri miðalmyrkur húðarlitur	none
-👰🏿‍♀	kvinna í sløri myrkur húðarlitur	none
+👰🏻‍♀	kona í sløri ljósur húðarlitur	none
+👰🏼‍♀	kona í sløri miðalljósur húðarlitur	none
+👰🏽‍♀	kona í sløri miðal húðarlitur	none
+👰🏾‍♀	kona í sløri miðalmyrkur húðarlitur	none
+👰🏿‍♀	kona í sløri myrkur húðarlitur	none
 🤰🏻	kvinna við barn ljósur húðarlitur	none
 🤰🏼	kvinna við barn miðalljósur húðarlitur	none
 🤰🏽	kvinna við barn miðal húðarlitur	none
@@ -2953,9 +3162,19 @@ symbols:
 👨🏿‍🤝‍👨🏽	menn leiðast myrkur húðarlitur, miðal húðarlitur	none
 👨🏿‍🤝‍👨🏾	menn leiðast myrkur húðarlitur, miðalmyrkur húðarlitur	none
 👬🏿	menn leiðast myrkur húðarlitur	none
+💏🏻	tvey íð mussast ljósur húðarlitur	none
+💏🏼	tvey íð mussast miðalljósur húðarlitur	none
+💏🏽	tvey íð mussast miðal húðarlitur	none
+💏🏾	tvey íð mussast miðalmyrkur húðarlitur	none
+💏🏿	tvey íð mussast myrkur húðarlitur	none
 👩‍❤‍💋‍👨	tvey íð mussast kona, maður	none
 👨‍❤‍💋‍👨	tvey íð mussast maður, maður	none
 👩‍❤‍💋‍👩	tvey íð mussast kona, kona	none
+💑🏻	par og hjarta ljósur húðarlitur	none
+💑🏼	par og hjarta miðalljósur húðarlitur	none
+💑🏽	par og hjarta miðal húðarlitur	none
+💑🏾	par og hjarta miðalmyrkur húðarlitur	none
+💑🏿	par og hjarta myrkur húðarlitur	none
 👩‍❤‍👨	par og hjarta kona, maður	none
 👨‍❤‍👨	par og hjarta maður, maður	none
 👩‍❤‍👩	par og hjarta kona, kona	none
@@ -3134,6 +3353,7 @@ symbols:
 🇲🇫	Flagg St-Martin	none
 🇲🇬	Flagg Madagaskar	none
 🇲🇭	Flagg Marshalloyggjar	none
+🇲🇰	Flagg Norður Makedónia	none
 🇲🇱	Flagg Mali	none
 🇲🇲	Flagg Myanmar (Burma)	none
 🇲🇳	Flagg Mongolia	none
@@ -3242,3 +3462,16 @@ symbols:
 🇿🇦	Flagg Suðurafrika	none
 🇿🇲	Flagg Sambia	none
 🇿🇼	Flagg Simbabvi	none
+₡	Kosta Rika colón	none
+₦	Nigeria naira	none
+₪	Ísrael new shekel	none
+₫	Vjetnam dong	none
+₭	Laos kip	none
+₮	Mongolia tugrik	none
+₲	Paraguai guarani	none
+₴	Ukraina hryvnia	none
+₵	Gana cedi	none
+₸	Kasakstan tenge	none
+₺	Turkaland liri	none
+₼	Aserbadjan manat	none
+₾	Georgia lari	none

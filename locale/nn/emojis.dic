@@ -3,27 +3,3268 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+🏻	hudtype 1–2	none
+🏼	hudtype 3	none
+🏽	hudtype 4	none
+🏾	hudtype 5	none
+🏿	hudtype 6	none
+℗	opphavsrett for lydopptak	none
+←	pil mot venstre	none
+↚	venstrepil med strek over	none
+→	pil mot høgre	none
+↛	høgrepil med strek over	none
+↑	pil oppover	none
+↓	pil nedover	none
+↜	bølgeforma pil venstre	none
+↝	bølgeforma pil høgre	none
+↞	venstrepil med to spissar	none
+↟	oppoverpil med to spissar	none
+↠	høgrepil med to spissar	none
+↡	nedoverpil med to spissar	none
+↢	venstrepil med hale	none
+↣	høgrepil med hale	none
+↤	venstrepil frå line	none
+↥	oppoverpil frå line	none
+↦	høgrepil frå line	none
+↧	nedoverpil frå line	none
+⇅	pil oppover framfor pil nedover	none
+⇆	pil mot venstre over pil mot høgre	none
+∆	matematisk endring	none
+∇	nabla	none
+∈	element i	none
+≠	er ikkje lik	none
+−	minusteikn	none
+⁻	heva minusteikn	none
+√	kvadratrot	none
+∞	uendelegheitsteikn	none
+∩	snitt	none
+∪	union	none
+≈	er tilnærma lik	none
+≡	identisk lik	none
+≤	er mindre enn eller lik	none
+≥	er større enn eller lik	none
+⊂	delmengd av	none
+▲	fylt trekant som peikar opp	none
+▼	fylt trekant som peikar ned	none
+◊	holt rutersymbol	none
+○	hol sirkel	none
+●	fylt sirkel	none
+◯	stor hol sirkel	none
+♪	åttandedelsnote	none
+♭	note-b	none
+♯	note-kryss	none
 😀	glisefjes	none
-😃	smilefjes med open munn	none
+😃	glisande fjes med vidopne auge	none
 😄	smilefjes med open munn og smilande auge	none
 😁	glisefjes med smilande auge	none
-😆	smil med open munn	none
-😅	sveitt smil	none
-🤣	rullar på golvet i latter	none
+😆	smil med samanknipne auge	none
+😅	glisande fjes som sveittar	none
+🤣	rullar rundt på golvet i latter	none
 😂	gledestårer	none
 🙂	fjes som smiler litt	none
-😉	blunkande andlet	none
-😊	smil	none
+🙃	fjes som er opp-ned	none
+😉	blunkande fjes	none
+😊	smil med smilande auge	none
+😇	smil med glorie	none
+🥰	smilefjes med hjarte	none
 😍	smilefjes med hjarteauge	none
 🤩	stjerner i auga	none
 😘	slengkyss	none
 😗	kyssefjes	none
 ☺	smilefjes	none
-😚	kyssande	none
-😙	kyss og smil	none
-😋	nam-nam-fjes	none
+😚	kyss med lukka auge	none
+😙	kyss med smilande auge	none
+🥲	smilefjes med tåre	none
+😋	nam-nam	none
+😛	rekkjer tunge	none
+😜	blunkar og rekkjer tunge	none
+🤪	gal	none
+😝	æsj	none
+🤑	pengegalen	none
 🤗	fjes som gjev klem	none
+🤭	handa over munnen	none
+🤫	hysj	none
+🤔	tenkjefjes	none
+🤐	fjes med glidelåsmunn	none
+🤨	heva augebryn	none
+😐	nøytral	none
+😑	uttrykkslaus	none
+😶	utan munn	none
+😶‍🌫	fjes i skyer	none
+😏	lurt smil	none
+😒	misnøgd	none
+🙄	himlar med auga	none
+😬	grimase	none
+😮‍💨	pustar ut	none
+🤥	lyg	none
+😌	letta	none
+😔	tankefull	none
+😪	søvnig	none
+🤤	siklar	none
+😴	søv	none
+😷	fjes med munnbind	none
+🤒	fjes med termometer	none
+🤕	bandasjert hovud	none
+🤢	kvalm	none
+🤮	kastar opp	none
+🤧	nys	none
+🥵	varmt fjes	none
+🥶	kaldt fjes	none
+🥴	svimmelt fjes	none
+😵	ør	none
+😵‍💫	fjes med spiralauge	none
+🤯	eksploderande hovud	none
+🤠	fjes med cowboyhatt	none
+🥳	partyfjes	none
+🥸	fjes med forkleding	none
 😎	smilefjes med solbriller	none
+🤓	nerdefjes	none
+🧐	fjes med monokkel	none
+😕	forvirra	none
+😟	bekymra	none
+🙁	litt surt fjes	none
+☹	surt fjes	none
+😮	forbausa	none
+😯	overraska	none
+😲	sjokkert	none
+😳	raudnar	none
+🥺	bedande fjes	none
+😦	oppgjeven	none
+😧	pine	none
+😨	redd	none
+😰	engsteleg og sveittar	none
+😥	puh!	none
+😢	græt	none
+😭	strigræt	none
+😱	livredd	none
+😖	fortvila	none
+😣	bommert	none
+😞	skuffa	none
+😓	kaldsveittar	none
+😩	sliten	none
+😫	trøytt fjes	none
+🥱	geispande fjes	none
+😤	triumferande	none
+😡	rasande	none
+😠	sint	none
+🤬	fjes med symbol over munnen	none
+😈	smilande djevel	none
+👿	sint djevel	none
+💀	hovudskalle	none
+☠	daudinghovud	none
+💩	bæsj	none
+🤡	klovnefjes	none
+👹	japansk troll	none
+👺	tengu	none
+👻	spøkelse	none
+👽	romvesen	none
+👾	rommonster	none
+🤖	robot	none
+😺	smilande katt med open munn	none
+😸	flirande katt med smilande auge	none
+😹	katt med gledestårer	none
+😻	smilande katt med hjarteauge	none
+😼	katt med ironisk smil	none
+😽	kyssande katt	none
+🙀	sliten katt	none
+😿	gråtande katt	none
+😾	surmulande katt	none
+🙈	ser ingenting vondt	none
+🙉	høyrer ingenting vondt	none
+🙊	seier ingenting vondt	none
+💋	kyssemerke	none
+💌	kjærleiksbrev	none
+💘	hjarte med pil	none
+💝	hjarte med band	none
+💖	skinande hjarte	none
+💗	veksande hjarte	none
+💓	bankande hjarte	none
+💞	snurrande hjarte	none
+💕	to hjarte	none
+💟	hjartedekorasjon	none
+❣	utropsteikn med hjarte	none
+💔	knust hjarte	none
+❤‍🔥	hjarte i brann	none
+❤‍🩹	lindra hjarte	none
+❤	raudt hjarte	none
+🧡	oransje hjarte	none
+💛	gult hjarte	none
+💚	grønt hjarte	none
+💙	blått hjarte	none
+💜	lilla hjarte	none
+🤎	brunt hjarte	none
+🖤	svart hjarte	none
+🤍	kvitt hjarte	none
+💯	hundre poeng	none
+💢	sinne	none
+💥	krasj	none
+💫	svimmel	none
+💦	sveittedropar	none
+💨	stikk av	none
+🕳	hol i bakken	none
+💣	bombe	none
+💬	snakkeboble	none
+👁‍🗨	auge i snakkeboble	none
+🗨	snakkeboble mot venstre	none
+🗯	sint snakkeboble mot høgre	none
+💭	tankeboble	none
+💤	zzz	none
+👋	vinkande hand	none
+🤚	løfta handbak	none
+🖐	flat hand med spreidde fingrar	none
+✋	heva hand	none
+🖖	Vulcan-helsing	none
+👌	OK-hand	none
+🤌	hand med fingertuppane saman	none
+🤏	hand som klyp	none
+✌	seiersteikn	none
+🤞	kryssande fingrar	none
+🤟	glad i deg-teikn	none
+🤘	rock’n’roll	none
+🤙	ring meg-hand	none
+👈	peikar mot venstre – bakhand	none
+👉	peikar mot høgre – bakhand	none
+👆	peikar opp – bakhand	none
+🖕	langfinger	none
+👇	peikar ned – bakhand	none
+☝	peikar opp	none
+👍	tommel opp	none
+👎	tommel ned	none
+✊	heva knyttneve	none
+👊	knyttneve	none
+🤛	knyttneve mot venstre	none
+🤜	knyttneve mot høgre	none
+👏	klappande hender	none
+🙌	heva hender	none
+👐	opne hender	none
+🤲	handflatene saman	none
+🤝	handhelse	none
+🙏	falda hender	none
+✍	skrivande hand	none
+💅	naglelakk	none
+🤳	selfie	none
+💪	biceps	none
+🦾	mekanisk arm	none
+🦿	mekanisk bein	none
+🦵	bein	none
+🦶	fot	none
+👂	øyre	none
+🦻	øyre med høyreapparat	none
+👃	nase	none
+🧠	hjerne	none
+🫀	hjartemuskel	none
+🫁	lunger	none
+🦷	tann	none
+🦴	knokkel	none
+👀	auge	none
+👁	auga	none
+👅	tunge	none
+👄	munn	none
+👶	baby	none
+🧒	barn	none
+👦	gut	none
+👧	jente	none
+🧑	vaksen	none
+👱	Person blond	none
+👨	mann	none
+🧔	person skjegg	none
+🧔‍♂	mann skjegg	none
+👱‍♂	mann blond	none
+👩	kvinne	none
+🧔‍♀	kvinne skjegg	none
+👱‍♀	kvinne blond	none
+🧓	eldre vaksen	none
+👴	eldre mann	none
+👵	eldre kvinne	none
+🙍	rynkar bryna	none
+🙍‍♂	mann som rynkar bryna	none
+🙍‍♀	kvinne som rynkar bryna	none
+🙎	furtar	none
+🙎‍♂	mann som furtar	none
+🙎‍♀	kvinne som furtar	none
+🙅	gestikulerer NEI	none
+🙅‍♂	mann som gestikulerer NEI	none
+🙅‍♀	kvinne som gestikulerer NEI	none
+🙆	gestikulerer OK	none
+🙆‍♂	mann som gestikulerer OK	none
+🙆‍♀	kvinne som gestikulerer OK	none
+💁	hjelpande person	none
+💁‍♂	hjelpande mann	none
+💁‍♀	hjelpande kvinne	none
+🙋	rekker opp handa	none
+🙋‍♂	mann som rekker opp handa	none
+🙋‍♀	kvinne som rekker opp handa	none
+🧏	døv person	none
+🧏‍♂	døv mann	none
+🧏‍♀	døv kvinne	none
+🙇	bukkar	none
+🙇‍♂	bukkande mann	none
+🙇‍♀	bukkande kvinne	none
+🤦	slår handa mot panna	none
+🤦‍♂	mann som slår handa mot panna	none
+🤦‍♀	kvinne som slår handa mot panna	none
+🤷	trekkjer på skuldrene	none
+🤷‍♂	mann som trekkjer på skuldrene	none
+🤷‍♀	kvinne som trekkjer på skuldrene	none
+🧑‍⚕	helsearbeidar	none
+👨‍⚕	mannleg helsearbeidar	none
+👩‍⚕	kvinneleg helsearbeidar	none
+🧑‍🎓	student	none
+👨‍🎓	mannleg student	none
+👩‍🎓	kvinneleg student	none
+🧑‍🏫	lærar	none
+👨‍🏫	mannleg lærar	none
+👩‍🏫	kvinneleg lærar	none
+🧑‍⚖	dommar	none
+👨‍⚖	mannleg dommar	none
+👩‍⚖	kvinneleg dommar	none
+🧑‍🌾	gardbrukar	none
+👨‍🌾	mannleg gardbrukar	none
+👩‍🌾	kvinneleg gardbrukar	none
+🧑‍🍳	kokk	none
+👨‍🍳	mannleg kokk	none
+👩‍🍳	kvinneleg kokk	none
+🧑‍🔧	mekanikar	none
+👨‍🔧	mannleg mekanikar	none
+👩‍🔧	kvinneleg mekanikar	none
+🧑‍🏭	industriarbeidar	none
+👨‍🏭	mannleg industriarbeidar	none
+👩‍🏭	kvinneleg industriarbeidar	none
+🧑‍💼	kontorarbeidar	none
+👨‍💼	mannleg kontorarbeidar	none
+👩‍💼	kvinneleg kontorarbeidar	none
+🧑‍🔬	forskar	none
+👨‍🔬	mannleg forskar	none
+👩‍🔬	kvinneleg forskar	none
+🧑‍💻	IT-ekspert	none
+👨‍💻	mannleg IT-ekspert	none
+👩‍💻	kvinneleg IT-ekspert	none
+🧑‍🎤	artist	none
+👨‍🎤	mannleg artist	none
+👩‍🎤	kvinneleg artist	none
+🧑‍🎨	kunstnar	none
+👨‍🎨	mannleg kunstnar	none
+👩‍🎨	kvinneleg kunstnar	none
+🧑‍✈	pilot	none
+👨‍✈	mannleg pilot	none
+👩‍✈	kvinneleg pilot	none
+🧑‍🚀	astronaut	none
+👨‍🚀	mannleg astronaut	none
+👩‍🚀	kvinneleg astronaut	none
+🧑‍🚒	brannkonstabel	none
+👨‍🚒	mannleg brannkonstabel	none
+👩‍🚒	kvinneleg brannkonstabel	none
+👮	politibetjent	none
+👮‍♂	mannleg politibetjent	none
+👮‍♀	kvinneleg politibetjent	none
+🕵	detektiv	none
+🕵‍♂	mannleg detektiv	none
+🕵‍♀	kvinneleg detektiv	none
+💂	gardist	none
+💂‍♂	mannleg gardist	none
+💂‍♀	kvinneleg gardist	none
+🥷	ninja	none
+👷	anleggsarbeidar	none
+👷‍♂	mannleg anleggsarbeidar	none
+👷‍♀	kvinneleg anleggsarbeidar	none
+🤴	prins	none
+👸	prinsesse	none
+👳	turbankledd person	none
+👳‍♂	turbankledd mann	none
+👲	mann med kinesisk lue	none
+🧕	kvinne med hovudslør	none
+🤵	person i smoking	none
+🤵‍♂	mann i smoking	none
+🤵‍♀	kvinne i smoking	none
+👰	person med slør	none
+👰‍♂	mann med slør	none
+👰‍♀	kvinne med slør	none
+🤰	gravid kvinne	none
+🤱	ammar	none
+👩‍🍼	kvinne som matar baby	none
+👨‍🍼	mann som matar baby	none
+🧑‍🍼	person som matar baby	none
+👼	babyengel	none
+🎅	julenissen	none
+🤶	julenissemor	none
+🧑‍🎄	julenisse	none
+🦸	superhelt	none
+🦸‍♂	mannleg superhelt	none
+🦸‍♀	kvinneleg superhelt	none
+🦹	superskurk	none
+🦹‍♂	mannleg superskurk	none
+🦹‍♀	kvinneleg superskurk	none
+🧙	trollperson	none
+🧙‍♂	trollmann	none
+🧙‍♀	trollkvinne	none
+🧚	fe	none
+🧚‍♂	mannleg fe	none
+🧚‍♀	kvinneleg fe	none
+🧛	vampyr	none
+🧛‍♂	mannleg vampyr	none
+🧛‍♀	kvinneleg vampyr	none
+🧜	havperson	none
+🧜‍♂	havmann	none
+🧜‍♀	havfrue	none
+🧝	alv	none
+🧝‍♂	mannleg alv	none
+🧝‍♀	kvinneleg alv	none
+🧞	ånd	none
+🧞‍♂	mannleg ånd	none
+🧞‍♀	kvinneleg ånd	none
+🧟	zombie	none
+🧟‍♂	mannleg zombie	none
+🧟‍♀	kvinneleg zombie	none
+💆	andletsmassasje	none
+💆‍♂	mann som får andletsmassasje	none
+💆‍♀	kvinne som får andletsmassasje	none
+💇	hårklipp	none
+💇‍♂	mann som får hårklipp	none
+💇‍♀	kvinne som får hårklipp	none
+🚶	fotgjengar	none
+🚶‍♂	mannleg fotgjengar	none
+🚶‍♀	kvinneleg fotgjengar	none
+🧍	person som står	none
+🧍‍♂	mann som står	none
+🧍‍♀	kvinne som står	none
+🧎	person som kneler	none
+🧎‍♂	mann som kneler	none
+🧎‍♀	kvinne som kneler	none
+🧑‍🦯	person med blindestokk	none
+👨‍🦯	mann med blindestokk	none
+👩‍🦯	kvinne med blindestokk	none
+🧑‍🦼	person i motorisert rullestol	none
+👨‍🦼	mann i motorisert rullestol	none
+👩‍🦼	kvinne i motorisert rullestol	none
+🧑‍🦽	person i manuell rullestol	none
+👨‍🦽	mann i manuell rullestol	none
+👩‍🦽	kvinne i manuell rullestol	none
+🏃	løpar	none
+🏃‍♂	mannleg løpar	none
+🏃‍♀	kvineleg løpar	none
+💃	dansande kvinne	none
+🕺	dansande mann	none
+🕴	svevande mann i dress	none
+👯	personar med kaninøyre	none
+👯‍♂	menn med kaninøyre	none
+👯‍♀	kvinner med kaninøyre	none
+🧖	person i badstove	none
+🧖‍♂	mann i badstove	none
+🧖‍♀	kvinne i badstove	none
+🧗	klatrar	none
+🧗‍♂	mannleg klatrar	none
+🧗‍♀	kvinneleg klatrar	none
+🤺	fektar	none
+🏇	hesteveddeløp	none
+⛷	skiløpar	none
+🏂	snøbrettkøyrar	none
+🏌	golfspelar	none
+🏌‍♂	mannleg golfspelar	none
+🏌‍♀	kvinneleg golfspelar	none
+🏄	surfar	none
+🏄‍♂	mannleg surfar	none
+🏄‍♀	kvinneleg surfar	none
+🚣	person i robåt	none
+🚣‍♂	mann i robåt	none
+🚣‍♀	kvinne i robåt	none
+🏊	symjar	none
+🏊‍♂	mannleg symjar	none
+🏊‍♀	kvinneleg symjar	none
+⛹	person med ball	none
+⛹‍♂	mann med ball	none
+⛹‍♀	kvinne med ball	none
+🏋	vektløftar	none
+🏋‍♂	mannleg vektløftar	none
+🏋‍♀	kvinneleg vektløftar	none
+🚴	syklist	none
+🚴‍♂	mannleg syklist	none
+🚴‍♀	kvinneleg syklist	none
+🚵	terrengsyklist	none
+🚵‍♀	kvinne på terrengsykkel	none
+🤸	slå hjul	none
+🤸‍♂	mann som slår hjul	none
+🤸‍♀	kvinne som slår hjul	none
+🤼	brytarar	none
+🤼‍♂	mannlege brytarar	none
+🤼‍♀	kvinnelege brytarar	none
+🤽	vasspolo	none
+🤽‍♂	mannleg vasspolospelar	none
+🤽‍♀	kvinneleg vasspolospelar	none
+🤾	handball	none
+🤾‍♂	mannleg handballspelar	none
+🤾‍♀	kvinneleg handballspelar	none
+🤹	sjonglering	none
+🤹‍♂	mannleg sjonglør	none
+🤹‍♀	kvinneleg sjonglør	none
+🧘	lotusstilling	none
+🧘‍♂	mann i lotusstilling	none
+🧘‍♀	kvinne i lotusstilling	none
+🛀	person i badekar	none
+🛌	person i seng	none
+🧑‍🤝‍🧑	personar som leiar	none
+👭	kinner som leiar	none
+👫	mann og kvinne som leiar	none
+👬	menn som leiar	none
+💏	kyss	none
+💑	par med hjarte	none
+👪	familie	none
+🗣	snakkande hovud i profil	none
+👤	silhuett av byste	none
+👥	silhuett av byster	none
+🫂	klem	none
+👣	fotavtrykk	none
+🦰	raudt hår	none
+🦱	krusete hår	none
+🦳	grått hår	none
+🦲	skalla	none
+🐵	apefjes	none
+🐒	ape	none
+🦍	gorilla	none
+🦧	orangutang	none
+🐶	hundefjes	none
+🐕	hund	none
+🦮	førarhund	none
+🐕‍🦺	servicehund	none
+🐩	puddel	none
+🐺	ulv	none
+🦊	rev	none
+🦝	vaskebjørn	none
+🐱	kattefjes	none
+🐈	katt	none
+🐈‍⬛	svart katt	none
+🦁	løve	none
+🐯	tigerfjes	none
+🐅	tiger	none
+🐆	leopard	none
+🐴	hestefjes	none
+🐎	hest	none
+🦄	einhjørning	none
+🦓	sebra	none
+🦌	hjort	none
+🦬	bison	none
+🐮	kufjes	none
+🐂	okse	none
+🐃	vassbøffel	none
+🐄	ku	none
+🐷	grisefjes	none
+🐖	gris	none
+🐗	villsvin	none
+🐽	grisetryne	none
+🐏	bukk	none
+🐑	søye	none
+🐐	geit	none
+🐪	dromedar	none
+🐫	kamel	none
+🦙	lama	none
+🦒	sjiraff	none
+🐘	elefant	none
+🦣	mammut	none
+🦏	nashorn	none
+🦛	flodhest	none
+🐭	musefjes	none
+🐁	mus	none
+🐀	rotte	none
+🐹	hamster	none
+🐰	kaninfjes	none
+🐇	kanin	none
+🐿	ekorn	none
+🦫	bever	none
+🦔	piggsvin	none
+🦇	flaggermus	none
+🐻	bjørn	none
+🐻‍❄	isbjørn	none
+🐨	koala	none
+🐼	panda	none
+🦥	dovendyr	none
+🦦	oter	none
+🦨	stinkdyr	none
+🦘	kenguru	none
+🦡	grevling	none
+🐾	poteavtrykk	none
+🦃	kalkun	none
+🐔	høne	none
+🐓	hane	none
+🐣	nyklekt kylling	none
+🐤	kylling	none
+🐥	kylling framanfrå	none
+🐦	fugl	none
+🐧	pingvin	none
+🕊	fredsdue	none
+🦅	ørn	none
+🦆	and	none
+🦢	svane	none
+🦉	ugle	none
+🦤	dronte	none
+🪶	fjør	none
+🦩	flamingo	none
+🦚	påfugl	none
+🦜	papegøye	none
+🐸	frosk	none
+🐊	krokodille	none
+🐢	skjelpadde	none
+🦎	firfisle	none
+🐍	slange	none
+🐲	drakefjes	none
+🐉	drake	none
+🦕	sauropod	none
+🦖	T-Rex	none
+🐳	sprutande kval	none
+🐋	kval	none
+🐬	delfin	none
+🦭	sel	none
+🐟	fisk	none
+🐠	tropisk fisk	none
+🐡	kulefisk	none
+🦈	hai	none
+🐙	blekksprut	none
+🐚	spiralskjel	none
+🐌	snigel	none
+🦋	sommarfugl	none
+🐛	insekt	none
+🐜	maur	none
+🐝	honningbie	none
+🪲	bille	none
+🐞	marihøne	none
+🦗	grashoppe	none
+🪳	kakerlakk	none
+🕷	edderkopp	none
+🕸	spindelvev	none
+🦂	skorpion	none
+🦟	mygg	none
+🪰	floge	none
+🪱	mark	none
+🦠	mikrobe	none
+💐	bukett	none
+🌸	kirsebærblomster	none
+💮	kvit blomster	none
+🏵	rosett	none
+🌹	rose	none
+🥀	vissen blomster	none
+🌺	hibiskus	none
+🌻	solsikke	none
+🌼	blomster	none
+🌷	tulipan	none
+🌱	spire	none
+🪴	potteplante	none
+🌲	bartre	none
+🌳	lauvtre	none
+🌴	palme	none
+🌵	kaktus	none
+🌾	risplante	none
+🌿	urteblad	none
+☘	trekløver	none
+🍀	firkløver	none
+🍁	lønneblad	none
+🍂	haustblad	none
+🍃	blad i vind	none
+🍇	druer	none
+🍈	honningmelon	none
+🍉	vassmelon	none
+🍊	mandarin	none
+🍋	sitron	none
+🍌	banan	none
+🍍	ananas	none
+🥭	mango	none
+🍎	raudt eple	none
+🍏	grønt eple	none
+🍐	pære	none
+🍑	fersken	none
+🍒	kirsebær	none
+🍓	jordbær	none
+🫐	blåbær	none
+🥝	kiwi	none
+🍅	tomat	none
+🫒	oliven	none
+🥥	kokosnøtt	none
+🥑	avokado	none
+🍆	aubergine	none
+🥔	potet	none
+🥕	gulrot	none
+🌽	maiskolbe	none
+🌶	raud chili	none
+🫑	paprika	none
+🥒	agurk	none
+🥬	bladgrønsaker	none
+🥦	brokkoli	none
+🧄	kvitlauk	none
+🧅	lauk	none
+🍄	sopp	none
+🥜	peanøtter	none
+🌰	kastanje	none
+🍞	brød	none
+🥐	croissant	none
+🥖	bagett	none
+🫓	pitabrød	none
+🥨	saltkringle	none
+🥯	bagel	none
+🥞	pannekaker	none
+🧇	belgisk vaffel	none
+🧀	ostestykke	none
+🍖	kjøt med bein	none
+🍗	kyllinglår	none
+🥩	kjøtstykke	none
+🥓	bacon	none
+🍔	hamburgar	none
+🍟	pommes frites	none
+🍕	pizzastykke	none
+🌭	pølse med brød	none
+🥪	sandwich	none
+🌮	taco	none
+🌯	burrito	none
+🫔	tamal	none
+🥙	fylt pitabrød	none
+🧆	falafel	none
+🥚	egg	none
+🍳	matlaging	none
+🥘	låg gryte med mat	none
+🍲	gryterett	none
+🫕	fondy	none
+🥣	bolle med skei	none
+🥗	grøn salat	none
+🍿	popkorn	none
+🧈	smør	none
+🧂	salt	none
+🥫	hermetikk	none
+🍱	bento-boks	none
+🍘	riskjeks	none
+🍙	risball	none
+🍚	kokt ris	none
+🍛	karriris	none
+🍜	matbolle som dampar	none
+🍝	spagetti	none
+🍠	bakt søtpotet	none
+🍢	oden	none
+🍣	sushi	none
+🍤	fritert reke	none
+🍥	fiskekake med mønster	none
+🥮	månekake	none
+🍡	dango	none
+🥟	dumpling	none
+🥠	lykkekake	none
+🥡	takeaway-eske	none
+🦀	krabbe	none
+🦞	hummar	none
+🦐	reke	none
+🦑	akkar	none
+🦪	østers	none
+🍦	soft-is	none
+🍧	slush-is	none
+🍨	iskrem	none
+🍩	donut	none
+🍪	kjeks	none
+🎂	bursdagskake	none
+🍰	kakestykke	none
+🧁	cupcake	none
+🥧	pai	none
+🍫	sjokoladeplate	none
+🍬	godteri	none
+🍭	slikkepinne	none
+🍮	pudding	none
+🍯	honningkrukke	none
+🍼	tåteflaske	none
+🥛	mjølkeglas	none
+☕	varm drikke	none
+🫖	tekanne	none
+🍵	tekopp	none
+🍶	sake	none
+🍾	flaske med sprettkork	none
+🍷	vinglas	none
+🍸	cocktailglas	none
+🍹	tropisk drink	none
+🍺	ølkrus	none
+🍻	ølkrus som skåler	none
+🥂	glas som skåler	none
+🥃	whiskyglas	none
+🥤	kopp med sugerøyr	none
+🧋	boble-te	none
+🧃	drikkekartong	none
+🧉	mate	none
+🧊	isterning	none
+🥢	spisepinnar	none
+🍽	tallerken med kniv og gaffel	none
+🍴	kniv og gaffel	none
+🥄	skei	none
+🔪	kokkekniv	none
+🏺	amfora	none
+🌍	jordklode med Europa og Afrika	none
+🌎	jordklode med Amerika	none
+🌏	jordklode med Asia og Australia	none
+🌐	jordklode med meridianar	none
+🗺	verdskart	none
+🗾	kart over Japan	none
+🧭	kompass	none
+🏔	snødekt fjell	none
+⛰	fjell	none
+🌋	vulkan	none
+🗻	Fuji-fjellet	none
+🏕	telttur	none
+🏖	strand med parasoll	none
+🏜	ørken	none
+🏝	aude øy	none
+🏞	nasjonalpark	none
+🏟	stadion	none
+🏛	klassisk bygning	none
+🏗	bygning under konstruksjon	none
+🧱	murstein	none
+🪨	stein	none
+🪵	tre	none
+🛖	hytte	none
+🏘	bustader	none
+🏚	falleferdig hus	none
+🏠	hus	none
+🏡	hus med hage	none
+🏢	kontorbygg	none
+🏣	japansk postkontor	none
+🏤	postkontor	none
+🏥	sjukehus	none
+🏦	bank	none
+🏨	hotell	none
+🏩	kjærleikshotell	none
+🏪	daglegvarebutikk	none
+🏫	skule	none
+🏬	kjøpesenter	none
+🏭	fabrikk	none
+🏯	japansk slott	none
+🏰	slott	none
+💒	bryllaup	none
+🗼	Tokyo-tårnet	none
+🗽	Fridomsgudinna	none
+⛪	kyrkje	none
+🕌	moské	none
+🛕	hindutempel	none
+🕍	synagoge	none
+⛩	Shinto-alter	none
+🕋	Kaba	none
+⛲	fontene	none
+⛺	telt	none
+🌁	tåkete	none
+🌃	stjernenatt	none
+🏙	bylandskap	none
+🌄	soloppgang over fjell	none
+🌅	soloppgang	none
+🌆	bylandskap i skumring	none
+🌇	solnedgang	none
+🌉	bru om natta	none
+♨	varme kjelder	none
+🎠	karusellhest	none
+🎡	pariserhjul	none
+🎢	berg-og-dal-bane	none
+💈	barberskilt	none
+🎪	sirkustelt	none
+🚂	lokomotiv	none
+🚃	togvogn	none
+🚄	høgfartstog	none
+🚅	høgfartstog med kulenase	none
+🚆	tog	none
+🚇	tunnelbane	none
+🚈	lokaltog	none
+🚉	togstasjon	none
+🚊	trikk	none
+🚝	monorail	none
+🚞	fjellbane	none
+🚋	trikkevogn	none
+🚌	buss	none
+🚍	motgåande buss	none
+🚎	trolleybuss	none
+🚐	minibuss	none
+🚑	ambulanse	none
+🚒	brannbil	none
+🚓	politibil	none
+🚔	motgåande politibil	none
+🚕	taxi	none
+🚖	motgåande taxi	none
+🚗	bil	none
+🚘	motgåande bil	none
+🚙	SUV	none
+🛻	pickup	none
+🚚	varebil	none
+🚛	lastebil	none
+🚜	traktor	none
+🏎	racerbil	none
+🏍	motorsykkel	none
+🛵	scooter	none
+🦽	manuell rullestol	none
+🦼	motorisert rullestol	none
+🛺	autorickshaw	none
+🚲	sykkel	none
+🛴	sparkesykkel	none
+🛹	skateboard	none
+🛼	rulleskøyter	none
+🚏	busstopp	none
+🛣	motorveg	none
+🛤	jernbanespor	none
+🛢	oljefat	none
+⛽	bensinpumpe	none
+🚨	politilys	none
+🚥	horisontale trafikklys	none
+🚦	vertikale trafiklys	none
+🛑	stoppskilt	none
+🚧	anleggsarbeid	none
+⚓	anker	none
+⛵	seglbåt	none
+🛶	kano	none
+🚤	speedbåt	none
+🛳	passasjerskip	none
+⛴	ferje	none
+🛥	motorbåt	none
+🚢	skip	none
+✈	fly	none
+🛩	lite fly	none
+🛫	fly som tek av	none
+🛬	fly som landar	none
+🪂	fallskjerm	none
+💺	sete	none
+🚁	helikopter	none
+🚟	svevebane	none
+🚠	kabelbane	none
+🚡	taubane	none
+🛰	satellitt	none
+🚀	rakett	none
+🛸	flygande tallerken	none
+🛎	resepsjonsklokke	none
+🧳	bagasje	none
+⌛	ferdig timeglas	none
+⏳	starta timeglas	none
+⌚	armbandsur	none
+⏰	vekkjarklokke	none
+⏱	stoppeklokke	none
+⏲	tidtakar	none
+🕰	peisur	none
+🕛	klokka tolv	none
+🕧	klokka halv eitt	none
+🕐	klokka eitt	none
+🕜	klokka halv to	none
+🕑	klokka to	none
+🕝	klokka halv tre	none
+🕒	klokka tre	none
+🕞	klokka halv fire	none
+🕓	klokka fire	none
+🕟	klokka halv fem	none
+🕔	klokka fem	none
+🕠	klokka halv seks	none
+🕕	klokka seks	none
+🕡	klokka halv sju	none
+🕖	klokka sju	none
+🕢	klokka halv åtte	none
+🕗	klokka åtte	none
+🕣	klokka halv ni	none
+🕘	klokka ni	none
+🕤	klokka halv ti	none
+🕙	klokka ti	none
+🕥	klokka halv elleve	none
+🕚	klokka elleve	none
+🕦	klokka halv tolv	none
+🌑	nymåne	none
+🌒	veksande nymåne	none
+🌓	veksande halvmåne	none
+🌔	veksande fullmåne	none
+🌕	fullmåne	none
+🌖	avtakande fullmåne	none
+🌗	avtakande halvmåne	none
+🌘	avtakande nemåne	none
+🌙	månesigd	none
+🌚	nymåneandlet	none
+🌛	nymåne med andlet	none
+🌜	nemåne med andlet	none
+🌡	termometer	none
+☀	sol	none
+🌝	fullmåneandlet	none
+🌞	solandlet	none
+🪐	planet med ringar	none
+⭐	stjerne	none
+🌟	lysande stjerne	none
+🌠	stjerneskot	none
+🌌	mjølkevegen	none
+☁	sky	none
+⛅	sol bak sky	none
+⛈	sky med lyn og regn	none
+🌤	sol bak lita sky	none
+🌥	sol bak stor sky	none
+🌦	sol bak sky med regn	none
+🌧	sky med regn	none
+🌨	sky med snø	none
+🌩	sky med lyn	none
+🌪	tornado	none
+🌫	tåke	none
+🌬	vindandlet	none
+🌀	syklon	none
+🌈	regnboge	none
+🌂	lukka paraply	none
+☂	paraply	none
+☔	paraply med regndropar	none
+⛱	parasoll på bakken	none
+⚡	høgspenning	none
+❄	snøfnugg	none
+☃	snømann	none
+⛄	snømann utan snø	none
+☄	komet	none
+🔥	eld	none
+💧	drope	none
+🌊	bølgje	none
+🎃	graskarlykt	none
+🎄	juletre	none
+🎆	fyrverkeri	none
+🎇	stjerneskot på pinne	none
+🧨	kinaputt	none
+✨	stjerner	none
+🎈	ballong	none
+🎉	smell-bon-bon	none
+🎊	konfettiball	none
+🎋	tanabatatre	none
+🎍	furudekorasjon	none
+🎎	japanske dokker	none
+🎏	koinobori	none
+🎐	vindspel	none
+🎑	månekikkingsseremoni	none
+🧧	raud konvolutt	none
+🎀	sløyfe	none
+🎁	gåve	none
+🎗	minnesløyfe	none
+🎟	inngangsbillettar	none
+🎫	billett	none
+🎖	militærmedalje	none
+🏆	trofé	none
+🏅	idrettsmedalje	none
+🥇	gullmedalje	none
+🥈	sølvmedalje	none
+🥉	bronsemedalje	none
+⚽	fotball	none
+⚾	baseball	none
+🥎	softball	none
+🏀	basketball	none
+🏐	volleyball	none
+🏈	amerikansk fotball	none
+🏉	rugby	none
+🎾	tennis	none
+🥏	frisbee	none
+🎳	bowling	none
+🏏	cricket	none
+🏑	landhockey	none
+🏒	ishockey	none
+🥍	lacrosse	none
+🏓	bordtennis	none
+🏸	badminton	none
+🥊	boksehanske	none
+🥋	kampsportdrakt	none
+🥅	målnett	none
+⛳	golfflagg	none
+⛸	skøyter	none
+🎣	fiskestong	none
+🤿	dykkarmaske	none
+🎽	treningstrøye	none
+🎿	ski	none
+🛷	kjelke	none
+🥌	curlingstein	none
+🎯	blink	none
+🪀	jojo	none
+🪁	papirdrake	none
+🎱	biljard	none
+🔮	krystallkule	none
+🪄	tryllestav	none
+🧿	nazar	none
+🎮	videospel	none
+🕹	joystick	none
+🎰	speleautomat	none
+🎲	terning	none
+🧩	puslespelbrikke	none
+🧸	teddybjørn	none
+🪅	piñata	none
+🪆	matrjosjka	none
+♠	spar	none
+♥	hjarter	none
+♦	ruter	none
+♣	kløver	none
+♟	bonde	none
+🃏	joker	none
+🀄	mahjongbrikke med raud drake	none
+🎴	spelkort	none
+🎭	teatermasker	none
+🖼	innramma bilete	none
+🎨	målarpalett	none
+🧵	tråd	none
+🪡	synål	none
+🧶	garn	none
+🪢	knute	none
+👓	briller	none
+🕶	solbriller	none
+🥽	vernebriller	none
+🥼	labfrakk	none
+🦺	refleksvest	none
+👔	slips	none
+👕	t-skjorte	none
+👖	bukser	none
+🧣	skjerf	none
+🧤	hanskar	none
+🧥	jakke	none
+🧦	sokkar	none
+👗	kjole	none
+👘	kimono	none
+🥻	sari	none
+🩱	badedrakt	none
+🩲	truse	none
+🩳	shorts	none
+👙	bikini	none
+👚	dameklede	none
+👛	portemoné	none
+👜	handveske	none
+👝	clutch-veske	none
+🛍	handleposar	none
+🎒	skulesekk	none
+🩴	flippflopp	none
+👞	herresko	none
+👟	joggesko	none
+🥾	turstøvel	none
+🥿	pumps	none
+👠	høghæla sko	none
+👡	damesandal	none
+🩰	ballettsko	none
+👢	damestøvlett	none
+👑	krone	none
+👒	damehatt	none
+🎩	flosshatt	none
+🎓	studentlue	none
+🧢	caps	none
+🪖	militærhjelm	none
+⛑	hjelm med kvit kross	none
+📿	bønekrans	none
+💄	leppestift	none
+💍	ring	none
+💎	diamant	none
+🔇	dempa høgtalar	none
+🔈	høgtalar med lågt volum	none
+🔉	høgtalar med middels volum	none
+🔊	høgtalar med høgt volum	none
+📢	høgtalar	none
+📣	megafon	none
+📯	posthorn	none
+🔔	bjølle	none
+🔕	overstreka bjølle	none
+🎼	musikk	none
+🎵	note	none
+🎶	notar	none
+🎙	studiomikrofon	none
+🎚	glidebrytar	none
+🎛	kontrollbrytarar	none
+🎤	mikrofon	none
+🎧	hovudtelefonar	none
+📻	radio	none
+🎷	saksofon	none
+🪗	trekkspel	none
+🎸	gitar	none
+🎹	piano	none
+🎺	trompet	none
+🎻	fiolin	none
+🪕	banjo	none
+🥁	tromme	none
+🪘	langtromme	none
+📱	mobiltelefon	none
+📲	mobiltelefon med pil	none
+☎	telefon	none
+📞	telefonrøyr	none
+📟	personsøkjar	none
+📠	faksmaskin	none
+🔋	batteri	none
+🔌	støpsel	none
+💻	berbar datamaskin	none
+🖥	stasjonær datamaskin	none
+🖨	skrivar	none
+⌨	tastatur	none
+🖱	datamus	none
+🖲	styrekule	none
+💽	datadisk	none
+💾	diskett	none
+💿	optisk plate	none
+📀	DVD	none
+🧮	kuleramme	none
+🎥	filmkamera	none
+🎞	filmruter	none
+📽	filmframvisar	none
+🎬	filmklappar	none
+📺	TV	none
+📷	kamera	none
+📸	kamera med blits	none
+📹	videokamera	none
+📼	videokassett	none
+🔍	forstørringsglas mot venstre	none
+🔎	forstørringsglas mot høgre	none
+🕯	stearinlys	none
+💡	lyspære	none
+🔦	lommelykt	none
+🏮	raud papirlykt	none
+🪔	open oljelampe	none
+📔	dekorert notatbok	none
+📕	lukka bok	none
+📖	open bok	none
+📗	grøn bok	none
+📘	blå bok	none
+📙	oransje bok	none
+📚	bøker	none
+📓	notatbok	none
+📒	spiralblokk	none
+📃	side med bøy	none
+📜	pergamentrull	none
+📄	side som vender opp	none
+📰	avis	none
+🗞	samanrulla avis	none
+📑	bokmerkefane	none
+🔖	bokmerke	none
+🏷	etikett	none
+💰	pengesekk	none
+🪙	mynt	none
+💴	yensetel	none
+💵	dollarsetel	none
+💶	eurosetel	none
+💷	pundsetel	none
+💸	pengar med vinger	none
+💳	kredittkort	none
+🧾	kvittering	none
+💹	stigande diagram med yen	none
+✉	konvolutt	none
+📧	e-post	none
+📨	innkomande konvolutt	none
+📩	konvolutt med pil	none
+📤	utboks	none
+📥	innboks	none
+📦	pakke	none
+📫	lukka postkasse med flagget oppe	none
+📪	lukka postkasse med flagget nede	none
+📬	open postkasse med flagget oppe	none
+📭	open postkasse med flagget nede	none
+📮	postkasse	none
+🗳	urne med røystesetel	none
+✏	blyant	none
+✒	svart pennesplitt	none
+🖋	fyllepenn	none
+🖊	penn	none
+🖌	pensel	none
+🖍	fargestift	none
+📝	notat	none
+💼	dokumentmappe	none
+📁	arkivmappe	none
+📂	open arkivmappe	none
+🗂	skiljekort	none
+📅	kalender	none
+📆	veggkalender	none
+🗒	spiralhefte	none
+🗓	spiralkalender	none
+📇	kartotek	none
+📈	diagram som peikar oppover	none
+📉	diagram som peikar nedover	none
+📊	stolpediagram	none
+📋	skriveplate	none
+📌	stift	none
+📍	rund stift	none
+📎	binders	none
+🖇	samanlenka binders	none
+📏	linjal	none
+📐	trekantlinjal	none
+✂	saks	none
+🗃	kartotekboks	none
+🗄	arkivskap	none
+🗑	papirkorg	none
+🔒	låst	none
+🔓	ulåst	none
+🔏	låst med penn	none
+🔐	låst med nøkkel	none
+🔑	nøkkel	none
+🗝	gamaldags nøkkel	none
+🔨	hammar	none
+🪓	øks	none
+⛏	hakke	none
+⚒	hammar og hakke	none
+🛠	hammar og fastnøkkel	none
+🗡	dolk	none
+⚔	sverd i kryss	none
+🔫	vasspistol	none
+🪃	bumerang	none
+🏹	pil og boge	none
+🛡	skjold	none
+🪚	handsag	none
+🔧	fastnøkkel	none
+🪛	skrutrekkjar	none
+🔩	mutter og skrue	none
+⚙	tannhjul	none
+🗜	skrutvinge	none
+⚖	likearma skålvekt	none
+🦯	blindestokk	none
+🔗	lenkje	none
+⛓	kjetting	none
+🪝	krok	none
+🧰	verktøykasse	none
+🧲	magnet	none
+🪜	stige	none
+⚗	destillerkolbe	none
+🧪	prøverøyr	none
+🧫	petriskål	none
+🧬	dna	none
+🔬	mikroskop	none
+🔭	teleskop	none
+📡	satellittantenne	none
+💉	sprøyte	none
+🩸	bloddrope	none
+💊	pille	none
+🩹	plaster	none
+🩺	stetoskop	none
+🚪	dør	none
+🛗	heis	none
+🪞	spegel	none
+🪟	vindauge	none
+🛏	seng	none
+🛋	sofa og lampe	none
+🪑	stol	none
+🚽	toalett	none
+🪠	avløpsopnar	none
+🚿	dusj	none
+🛁	badekar	none
+🪤	musefelle	none
+🪒	barberkniv	none
+🧴	lotionflaske	none
+🧷	sikkerheitsnål	none
+🧹	feiekost	none
+🧺	korg	none
+🧻	rull med papir	none
+🪣	bøtte	none
+🧼	såpe	none
+🪥	tannbørste	none
+🧽	svamp	none
+🧯	brannsløkkingsapparat	none
+🛒	handlevogn	none
+🚬	sigarett	none
+⚰	kiste	none
+🪦	gravstein	none
+⚱	urne	none
+🗿	moai-statue	none
+🪧	plakat	none
+🏧	minibankskilt	none
+🚮	avfallsskilt	none
+🚰	drikkevatn	none
+♿	rullestolsymbol	none
+🚹	herretoalett	none
+🚺	dametoalett	none
+🚻	toalettskilt	none
+🚼	babysymbol	none
+🚾	do	none
+🛂	passkontroll	none
+🛃	toll	none
+🛄	bagasjeband	none
+🛅	bagasjeoppbevaring	none
+⚠	åtvaring	none
+🚸	barn kryssar vegen	none
+⛔	ingen tilgang	none
+🚫	forbode	none
+🚳	syklar forbode	none
+🚭	røyking forbode	none
+🚯	forsøpling ikkje tillate	none
+🚱	ikkje drikkevatn	none
+🚷	fotgjengarar forbode	none
+📵	mobiltelefon ikkje tillate	none
+🔞	aldersgrense 18 år	none
+☢	radioaktivt	none
+☣	farleg biologisk materiale	none
+⬆	pil opp	none
+↗	pil opp-høgre	none
+➡	pil høgre	none
+↘	pil ned -høgre	none
+⬇	pil ned	none
+⬅	pil venstre	none
+↖	pil opp-venstre	none
+↕	pil opp og ned	none
+↔	pil venstre-høgre	none
+↮	venstre-/høgrepil med strek over	none
+↩	pil som bøyer mot venstre	none
+↪	pil som bøyer mot høgre	none
+⤴	pil som bøyer opp	none
+⤵	pil som bøyer ned	none
+🔃	vertikale piler med klokka	none
+🔄	piler mot klokka	none
+🔙	BACK-pil	none
+🔚	END-pil	none
+🔛	ON!-pil	none
+🔜	SOON-pil	none
+🔝	TOP-pil	none
+🛐	religiøs samlingsstad	none
+⚛	atomsymbol	none
+🕉	om	none
+✡	Davidstjerne	none
+☸	dharmahjulet	none
+☯	yin yang	none
+✝	latisnk kross	none
+☦	ortodoks kross	none
+☪	stjerne og halvmåne	none
+☮	fredssymbol	none
+🕎	menora	none
+🔯	sekstagga stjerne med prikk	none
+♈	Vêren	none
+♉	Tyren	none
+♊	Tvillingane	none
+♋	Krepsen	none
+♌	Løva	none
+♍	Jomfrua	none
+♎	Vekta	none
+♏	Skorpionen	none
+♐	Skyttaren	none
+♑	Steinbukken	none
+♒	Vassmannen	none
+♓	Fiskane	none
+⛎	Slangeberaren	none
+🔀	bland spor-symbol	none
+🔁	gjenta-knapp	none
+🔂	gjenta eitt spor-knapp	none
+▶	avspelingsknapp	none
+⏩	spol framover-knapp	none
+⏭	neste spor-knapp	none
+⏯	spel av / pause-knapp	none
+◀	bakover-knapp	none
+⏪	spol tilbake-knapp	none
+⏮	førre spor-knapp	none
+🔼	oppover-knapp	none
+⏫	raskt opp-knapp	none
+🔽	nedover-knapp	none
+⏬	raskt ned-knapp	none
+⏸	pause-knapp	none
+⏹	stopp-knapp	none
+⏺	spel inn-knapp	none
+⏏	mat ut-knapp	none
+🎦	kino	none
+🔅	lite lys-knapp	none
+🔆	mykje lys-knapp	none
+📶	mobilsignal	none
+📳	vibreringsmodus	none
+📴	mobiltelefon av	none
+♀	kvinnesymbol	none
+♂	mannssymbol	none
+⚧	transperson-symbol	none
+✖	gongeteikn	none
+➕	pluss	none
+➖	minus	none
+➗	deleteikn	none
+♾	uendeleg	none
+❓	raudt spørsmålsteikn	none
+❔	kvitt spørsmålsteikn	none
+❕	kvitt utropsteikn	none
+❗	raudt utropsteikn	none
+💱	valutaveksling	none
+💲	dollarteikn	none
+⚕	legesymbol	none
+♻	resirkuleringssymbol	none
+⚜	fransk lilje	none
+🔱	treforkemblem	none
+📛	namneskilt	none
+🔰	japansk teikn for nybyrjar	none
+⭕	tjukk raud sirkel	none
+✅	hakemerke i firkant	none
+☑	boks med hakemerke	none
+✔	hakemerke	none
+❌	kryss	none
+❎	kryss i firkant	none
+➰	løkke	none
+➿	dobbel løkke	none
+✳	asterisk med åtte spissar	none
+✴	åttetagga stjerne	none
+❇	gnist	none
+™	varemerke	none
+🔠	store bokstavar	none
+🔡	små bokstavar	none
+🔢	tal	none
+🔣	symbol	none
+🔤	latinsk alfabet	none
+🅰	A-knapp (blodtype)	none
+🆎	AB-knapp (blodtype)	none
+🅱	B-knapp (blodtype)	none
+🆑	CL-knapp	none
+🆒	COOL-knapp	none
+🆓	FREE-knapp	none
+ℹ	informasjon	none
+🆔	ID-knapp	none
+Ⓜ	M med ring rundt	none
+🆕	NEW-knapp	none
+🆖	NG-knapp	none
+🅾	O-knapp (blodtype)	none
+🆗	OK-knapp	none
+🅿	P-knapp	none
+🆘	SOS-knapp	none
+🆙	UP!-knapp	none
+🆚	VS-knapp	none
+🔴	raud sirkel	none
+🟠	oransje sirkel	none
+🟡	gul sirkel	none
+🟢	grøn sirkel	none
+🔵	blå sirkel	none
+🟣	lilla sirkel	none
+🟤	brun sirkel	none
+⚫	svart sirkel	none
+⚪	kvit sirkel	none
+🟥	raudt kvadrat	none
+🟧	oransje kvadrat	none
+🟨	gult kvadrat	none
+🟩	grønt kvadrat	none
+🟦	blått kvadrat	none
+🟪	lilla kvadrat	none
+🟫	brunt kvadrat	none
+⬛	stor svart firkant	none
+⬜	stor kvit firkant	none
+◼	mellomstor svart firkant	none
+◾	liten/mellomstor svart firkant	none
+▪	liten svart firkant	none
+▫	liten kvit firkant	none
+🔶	stort oransje rutersymbol	none
+🔷	stort blått rutersymbol	none
+🔸	lite oransje rutersymbol	none
+🔹	lite blått rutersymbol	none
+🔺	raud trekant som peikar opp	none
+🔻	raud trekant som peikar ned	none
+💠	diamant med prikk	none
+🔘	radioknapp	none
+🔳	kvit firkanta knapp	none
+🔲	svart firkanta knapp	none
+🏁	rutete flagg	none
+🚩	vimpel	none
+🎌	kryssa flagg	none
+🏴	svart flagg	none
+🏳	kvitt flagg	none
+🏳‍🌈	regnbogeflagg	none
+🏳‍⚧	transpersonflagg	none
+🏴‍☠	sjørøvarflagg	none
+₥	mill	none
+₩	won	none
+€	euro	none
+₱	peso	none
+₹	indiske rupi	none
+₽	rublar	none
+₿	bitcoin	none
+👋🏻	vinkande hand hudtype 1–2	none
+👋🏼	vinkande hand hudtype 3	none
+👋🏽	vinkande hand hudtype 4	none
+👋🏾	vinkande hand hudtype 5	none
+👋🏿	vinkande hand hudtype 6	none
+🤚🏻	løfta handbak hudtype 1–2	none
+🤚🏼	løfta handbak hudtype 3	none
+🤚🏽	løfta handbak hudtype 4	none
+🤚🏾	løfta handbak hudtype 5	none
+🤚🏿	løfta handbak hudtype 6	none
+🖐🏻	flat hand med spreidde fingrar hudtype 1–2	none
+🖐🏼	flat hand med spreidde fingrar hudtype 3	none
+🖐🏽	flat hand med spreidde fingrar hudtype 4	none
+🖐🏾	flat hand med spreidde fingrar hudtype 5	none
+🖐🏿	flat hand med spreidde fingrar hudtype 6	none
+✋🏻	heva hand hudtype 1–2	none
+✋🏼	heva hand hudtype 3	none
+✋🏽	heva hand hudtype 4	none
+✋🏾	heva hand hudtype 5	none
+✋🏿	heva hand hudtype 6	none
+🖖🏻	Vulcan-helsing hudtype 1–2	none
+🖖🏼	Vulcan-helsing hudtype 3	none
+🖖🏽	Vulcan-helsing hudtype 4	none
+🖖🏾	Vulcan-helsing hudtype 5	none
+🖖🏿	Vulcan-helsing hudtype 6	none
+👌🏻	OK-hand hudtype 1–2	none
+👌🏼	OK-hand hudtype 3	none
+👌🏽	OK-hand hudtype 4	none
+👌🏾	OK-hand hudtype 5	none
+👌🏿	OK-hand hudtype 6	none
+🤌🏻	hand med fingertuppane saman hudtype 1–2	none
+🤌🏼	hand med fingertuppane saman hudtype 3	none
+🤌🏽	hand med fingertuppane saman hudtype 4	none
+🤌🏾	hand med fingertuppane saman hudtype 5	none
+🤌🏿	hand med fingertuppane saman hudtype 6	none
+🤏🏻	hand som klyp hudtype 1–2	none
+🤏🏼	hand som klyp hudtype 3	none
+🤏🏽	hand som klyp hudtype 4	none
+🤏🏾	hand som klyp hudtype 5	none
+🤏🏿	hand som klyp hudtype 6	none
+✌🏻	seiersteikn hudtype 1–2	none
+✌🏼	seiersteikn hudtype 3	none
+✌🏽	seiersteikn hudtype 4	none
+✌🏾	seiersteikn hudtype 5	none
+✌🏿	seiersteikn hudtype 6	none
+🤞🏻	kryssande fingrar hudtype 1–2	none
+🤞🏼	kryssande fingrar hudtype 3	none
+🤞🏽	kryssande fingrar hudtype 4	none
+🤞🏾	kryssande fingrar hudtype 5	none
+🤞🏿	kryssande fingrar hudtype 6	none
+🤟🏻	glad i deg-teikn hudtype 1–2	none
+🤟🏼	glad i deg-teikn hudtype 3	none
+🤟🏽	glad i deg-teikn hudtype 4	none
+🤟🏾	glad i deg-teikn hudtype 5	none
+🤟🏿	glad i deg-teikn hudtype 6	none
+🤘🏻	rock’n’roll hudtype 1–2	none
+🤘🏼	rock’n’roll hudtype 3	none
+🤘🏽	rock’n’roll hudtype 4	none
+🤘🏾	rock’n’roll hudtype 5	none
+🤘🏿	rock’n’roll hudtype 6	none
+🤙🏻	ring meg-hand hudtype 1–2	none
+🤙🏼	ring meg-hand hudtype 3	none
+🤙🏽	ring meg-hand hudtype 4	none
+🤙🏾	ring meg-hand hudtype 5	none
+🤙🏿	ring meg-hand hudtype 6	none
+👈🏻	peikar mot venstre – bakhand hudtype 1–2	none
+👈🏼	peikar mot venstre – bakhand hudtype 3	none
+👈🏽	peikar mot venstre – bakhand hudtype 4	none
+👈🏾	peikar mot venstre – bakhand hudtype 5	none
+👈🏿	peikar mot venstre – bakhand hudtype 6	none
+👉🏻	peikar mot høgre – bakhand hudtype 1–2	none
+👉🏼	peikar mot høgre – bakhand hudtype 3	none
+👉🏽	peikar mot høgre – bakhand hudtype 4	none
+👉🏾	peikar mot høgre – bakhand hudtype 5	none
+👉🏿	peikar mot høgre – bakhand hudtype 6	none
+👆🏻	peikar opp – bakhand hudtype 1–2	none
+👆🏼	peikar opp – bakhand hudtype 3	none
+👆🏽	peikar opp – bakhand hudtype 4	none
+👆🏾	peikar opp – bakhand hudtype 5	none
+👆🏿	peikar opp – bakhand hudtype 6	none
+🖕🏻	langfinger hudtype 1–2	none
+🖕🏼	langfinger hudtype 3	none
+🖕🏽	langfinger hudtype 4	none
+🖕🏾	langfinger hudtype 5	none
+🖕🏿	langfinger hudtype 6	none
+👇🏻	peikar ned – bakhand hudtype 1–2	none
+👇🏼	peikar ned – bakhand hudtype 3	none
+👇🏽	peikar ned – bakhand hudtype 4	none
+👇🏾	peikar ned – bakhand hudtype 5	none
+👇🏿	peikar ned – bakhand hudtype 6	none
+☝🏻	peikar opp hudtype 1–2	none
+☝🏼	peikar opp hudtype 3	none
+☝🏽	peikar opp hudtype 4	none
+☝🏾	peikar opp hudtype 5	none
+☝🏿	peikar opp hudtype 6	none
+👍🏻	tommel opp hudtype 1–2	none
+👍🏼	tommel opp hudtype 3	none
+👍🏽	tommel opp hudtype 4	none
+👍🏾	tommel opp hudtype 5	none
+👍🏿	tommel opp hudtype 6	none
+👎🏻	tommel ned hudtype 1–2	none
+👎🏼	tommel ned hudtype 3	none
+👎🏽	tommel ned hudtype 4	none
+👎🏾	tommel ned hudtype 5	none
+👎🏿	tommel ned hudtype 6	none
+✊🏻	heva knyttneve hudtype 1–2	none
+✊🏼	heva knyttneve hudtype 3	none
+✊🏽	heva knyttneve hudtype 4	none
+✊🏾	heva knyttneve hudtype 5	none
+✊🏿	heva knyttneve hudtype 6	none
+👊🏻	knyttneve hudtype 1–2	none
+👊🏼	knyttneve hudtype 3	none
+👊🏽	knyttneve hudtype 4	none
+👊🏾	knyttneve hudtype 5	none
+👊🏿	knyttneve hudtype 6	none
+🤛🏻	knyttneve mot venstre hudtype 1–2	none
+🤛🏼	knyttneve mot venstre hudtype 3	none
+🤛🏽	knyttneve mot venstre hudtype 4	none
+🤛🏾	knyttneve mot venstre hudtype 5	none
+🤛🏿	knyttneve mot venstre hudtype 6	none
+🤜🏻	knyttneve mot høgre hudtype 1–2	none
+🤜🏼	knyttneve mot høgre hudtype 3	none
+🤜🏽	knyttneve mot høgre hudtype 4	none
+🤜🏾	knyttneve mot høgre hudtype 5	none
+🤜🏿	knyttneve mot høgre hudtype 6	none
+👏🏻	klappande hender hudtype 1–2	none
+👏🏼	klappande hender hudtype 3	none
+👏🏽	klappande hender hudtype 4	none
+👏🏾	klappande hender hudtype 5	none
+👏🏿	klappande hender hudtype 6	none
+🙌🏻	heva hender hudtype 1–2	none
+🙌🏼	heva hender hudtype 3	none
+🙌🏽	heva hender hudtype 4	none
+🙌🏾	heva hender hudtype 5	none
+🙌🏿	heva hender hudtype 6	none
+👐🏻	opne hender hudtype 1–2	none
+👐🏼	opne hender hudtype 3	none
+👐🏽	opne hender hudtype 4	none
+👐🏾	opne hender hudtype 5	none
+👐🏿	opne hender hudtype 6	none
+🤲🏻	handflatene saman hudtype 1–2	none
+🤲🏼	handflatene saman hudtype 3	none
+🤲🏽	handflatene saman hudtype 4	none
+🤲🏾	handflatene saman hudtype 5	none
+🤲🏿	handflatene saman hudtype 6	none
+🙏🏻	falda hender hudtype 1–2	none
+🙏🏼	falda hender hudtype 3	none
+🙏🏽	falda hender hudtype 4	none
+🙏🏾	falda hender hudtype 5	none
+🙏🏿	falda hender hudtype 6	none
+✍🏻	skrivande hand hudtype 1–2	none
+✍🏼	skrivande hand hudtype 3	none
+✍🏽	skrivande hand hudtype 4	none
+✍🏾	skrivande hand hudtype 5	none
+✍🏿	skrivande hand hudtype 6	none
+💅🏻	naglelakk hudtype 1–2	none
+💅🏼	naglelakk hudtype 3	none
+💅🏽	naglelakk hudtype 4	none
+💅🏾	naglelakk hudtype 5	none
+💅🏿	naglelakk hudtype 6	none
+🤳🏻	selfie hudtype 1–2	none
+🤳🏼	selfie hudtype 3	none
+🤳🏽	selfie hudtype 4	none
+🤳🏾	selfie hudtype 5	none
+🤳🏿	selfie hudtype 6	none
+💪🏻	biceps hudtype 1–2	none
+💪🏼	biceps hudtype 3	none
+💪🏽	biceps hudtype 4	none
+💪🏾	biceps hudtype 5	none
+💪🏿	biceps hudtype 6	none
+🦵🏻	bein hudtype 1–2	none
+🦵🏼	bein hudtype 3	none
+🦵🏽	bein hudtype 4	none
+🦵🏾	bein hudtype 5	none
+🦵🏿	bein hudtype 6	none
+🦶🏻	fot hudtype 1–2	none
+🦶🏼	fot hudtype 3	none
+🦶🏽	fot hudtype 4	none
+🦶🏾	fot hudtype 5	none
+🦶🏿	fot hudtype 6	none
+👂🏻	øyre hudtype 1–2	none
+👂🏼	øyre hudtype 3	none
+👂🏽	øyre hudtype 4	none
+👂🏾	øyre hudtype 5	none
+👂🏿	øyre hudtype 6	none
+🦻🏻	øyre med høyreapparat hudtype 1–2	none
+🦻🏼	øyre med høyreapparat hudtype 3	none
+🦻🏽	øyre med høyreapparat hudtype 4	none
+🦻🏾	øyre med høyreapparat hudtype 5	none
+🦻🏿	øyre med høyreapparat hudtype 6	none
+👃🏻	nase hudtype 1–2	none
+👃🏼	nase hudtype 3	none
+👃🏽	nase hudtype 4	none
+👃🏾	nase hudtype 5	none
+👃🏿	nase hudtype 6	none
+👶🏻	baby hudtype 1–2	none
+👶🏼	baby hudtype 3	none
+👶🏽	baby hudtype 4	none
+👶🏾	baby hudtype 5	none
+👶🏿	baby hudtype 6	none
+🧒🏻	barn hudtype 1–2	none
+🧒🏼	barn hudtype 3	none
+🧒🏽	barn hudtype 4	none
+🧒🏾	barn hudtype 5	none
+🧒🏿	barn hudtype 6	none
+👦🏻	gut hudtype 1–2	none
+👦🏼	gut hudtype 3	none
+👦🏽	gut hudtype 4	none
+👦🏾	gut hudtype 5	none
+👦🏿	gut hudtype 6	none
+👧🏻	jente hudtype 1–2	none
+👧🏼	jente hudtype 3	none
+👧🏽	jente hudtype 4	none
+👧🏾	jente hudtype 5	none
+👧🏿	jente hudtype 6	none
+🧑🏻	vaksen hudtype 1–2	none
+🧑🏼	vaksen hudtype 3	none
+🧑🏽	vaksen hudtype 4	none
+🧑🏾	vaksen hudtype 5	none
+🧑🏿	vaksen hudtype 6	none
+👱🏻	Person hudtype 1–2, blond	none
+👱🏼	Person hudtype 3, blond	none
+👱🏽	Person hudtype 4, blond	none
+👱🏾	Person hudtype 5, blond	none
+👱🏿	Person hudtype 6, blond	none
+🧑🏻‍❤‍💋‍🧑🏼	kyss vaksen, vaksen, hudtype 1–2, hudtype 3	none
+🧑🏻‍❤‍💋‍🧑🏽	kyss vaksen, vaksen, hudtype 1–2, hudtype 4	none
+🧑🏻‍❤‍💋‍🧑🏾	kyss vaksen, vaksen, hudtype 1–2, hudtype 5	none
+🧑🏻‍❤‍💋‍🧑🏿	kyss vaksen, vaksen, hudtype 1–2, hudtype 6	none
+🧑🏼‍❤‍💋‍🧑🏻	kyss vaksen, vaksen, hudtype 3, hudtype 1–2	none
+🧑🏼‍❤‍💋‍🧑🏽	kyss vaksen, vaksen, hudtype 3, hudtype 4	none
+🧑🏼‍❤‍💋‍🧑🏾	kyss vaksen, vaksen, hudtype 3, hudtype 5	none
+🧑🏼‍❤‍💋‍🧑🏿	kyss vaksen, vaksen, hudtype 3, hudtype 6	none
+🧑🏽‍❤‍💋‍🧑🏻	kyss vaksen, vaksen, hudtype 4, hudtype 1–2	none
+🧑🏽‍❤‍💋‍🧑🏼	kyss vaksen, vaksen, hudtype 4, hudtype 3	none
+🧑🏽‍❤‍💋‍🧑🏾	kyss vaksen, vaksen, hudtype 4, hudtype 5	none
+🧑🏽‍❤‍💋‍🧑🏿	kyss vaksen, vaksen, hudtype 4, hudtype 6	none
+🧑🏾‍❤‍💋‍🧑🏻	kyss vaksen, vaksen, hudtype 5, hudtype 1–2	none
+🧑🏾‍❤‍💋‍🧑🏼	kyss vaksen, vaksen, hudtype 5, hudtype 3	none
+🧑🏾‍❤‍💋‍🧑🏽	kyss vaksen, vaksen, hudtype 5, hudtype 4	none
+🧑🏾‍❤‍💋‍🧑🏿	kyss vaksen, vaksen, hudtype 5, hudtype 6	none
+🧑🏿‍❤‍💋‍🧑🏻	kyss vaksen, vaksen, hudtype 6, hudtype 1–2	none
+🧑🏿‍❤‍💋‍🧑🏼	kyss vaksen, vaksen, hudtype 6, hudtype 3	none
+🧑🏿‍❤‍💋‍🧑🏽	kyss vaksen, vaksen, hudtype 6, hudtype 4	none
+🧑🏿‍❤‍💋‍🧑🏾	kyss vaksen, vaksen, hudtype 6, hudtype 5	none
+🧑🏻‍❤‍🧑🏼	par med hjarte vaksen, vaksen, hudtype 1–2, hudtype 3	none
+🧑🏻‍❤‍🧑🏽	par med hjarte vaksen, vaksen, hudtype 1–2, hudtype 4	none
+🧑🏻‍❤‍🧑🏾	par med hjarte vaksen, vaksen, hudtype 1–2, hudtype 5	none
+🧑🏻‍❤‍🧑🏿	par med hjarte vaksen, vaksen, hudtype 1–2, hudtype 6	none
+🧑🏼‍❤‍🧑🏻	par med hjarte vaksen, vaksen, hudtype 3, hudtype 1–2	none
+🧑🏼‍❤‍🧑🏽	par med hjarte vaksen, vaksen, hudtype 3, hudtype 4	none
+🧑🏼‍❤‍🧑🏾	par med hjarte vaksen, vaksen, hudtype 3, hudtype 5	none
+🧑🏼‍❤‍🧑🏿	par med hjarte vaksen, vaksen, hudtype 3, hudtype 6	none
+🧑🏽‍❤‍🧑🏻	par med hjarte vaksen, vaksen, hudtype 4, hudtype 1–2	none
+🧑🏽‍❤‍🧑🏼	par med hjarte vaksen, vaksen, hudtype 4, hudtype 3	none
+🧑🏽‍❤‍🧑🏾	par med hjarte vaksen, vaksen, hudtype 4, hudtype 5	none
+🧑🏽‍❤‍🧑🏿	par med hjarte vaksen, vaksen, hudtype 4, hudtype 6	none
+🧑🏾‍❤‍🧑🏻	par med hjarte vaksen, vaksen, hudtype 5, hudtype 1–2	none
+🧑🏾‍❤‍🧑🏼	par med hjarte vaksen, vaksen, hudtype 5, hudtype 3	none
+🧑🏾‍❤‍🧑🏽	par med hjarte vaksen, vaksen, hudtype 5, hudtype 4	none
+🧑🏾‍❤‍🧑🏿	par med hjarte vaksen, vaksen, hudtype 5, hudtype 6	none
+🧑🏿‍❤‍🧑🏻	par med hjarte vaksen, vaksen, hudtype 6, hudtype 1–2	none
+🧑🏿‍❤‍🧑🏼	par med hjarte vaksen, vaksen, hudtype 6, hudtype 3	none
+🧑🏿‍❤‍🧑🏽	par med hjarte vaksen, vaksen, hudtype 6, hudtype 4	none
+🧑🏿‍❤‍🧑🏾	par med hjarte vaksen, vaksen, hudtype 6, hudtype 5	none
+🧑‍🦰	vaksen raudt hår	none
+🧑🏻‍🦰	vaksen hudtype 1–2, raudt hår	none
+🧑🏼‍🦰	vaksen hudtype 3, raudt hår	none
+🧑🏽‍🦰	vaksen hudtype 4, raudt hår	none
+🧑🏾‍🦰	vaksen hudtype 5, raudt hår	none
+🧑🏿‍🦰	vaksen hudtype 6, raudt hår	none
+🧑‍🦱	vaksen krusete hår	none
+🧑🏻‍🦱	vaksen hudtype 1–2, krusete hår	none
+🧑🏼‍🦱	vaksen hudtype 3, krusete hår	none
+🧑🏽‍🦱	vaksen hudtype 4, krusete hår	none
+🧑🏾‍🦱	vaksen hudtype 5, krusete hår	none
+🧑🏿‍🦱	vaksen hudtype 6, krusete hår	none
+🧑‍🦳	vaksen grått hår	none
+🧑🏻‍🦳	vaksen hudtype 1–2, grått hår	none
+🧑🏼‍🦳	vaksen hudtype 3, grått hår	none
+🧑🏽‍🦳	vaksen hudtype 4, grått hår	none
+🧑🏾‍🦳	vaksen hudtype 5, grått hår	none
+🧑🏿‍🦳	vaksen hudtype 6, grått hår	none
+🧑‍🦲	vaksen skalla	none
+🧑🏻‍🦲	vaksen hudtype 1–2, skalla	none
+🧑🏼‍🦲	vaksen hudtype 3, skalla	none
+🧑🏽‍🦲	vaksen hudtype 4, skalla	none
+🧑🏾‍🦲	vaksen hudtype 5, skalla	none
+🧑🏿‍🦲	vaksen hudtype 6, skalla	none
+👨🏻	mann hudtype 1–2	none
+👨🏼	mann hudtype 3	none
+👨🏽	mann hudtype 4	none
+👨🏾	mann hudtype 5	none
+👨🏿	mann hudtype 6	none
+🧔🏻	person hudtype 1–2, skjegg	none
+🧔🏼	person hudtype 3, skjegg	none
+🧔🏽	person hudtype 4, skjegg	none
+🧔🏾	person hudtype 5, skjegg	none
+🧔🏿	person hudtype 6, skjegg	none
+🧔🏻‍♂	mann hudtype 1–2, skjegg	none
+🧔🏼‍♂	mann hudtype 3, skjegg	none
+🧔🏽‍♂	mann hudtype 4, skjegg	none
+🧔🏾‍♂	mann hudtype 5, skjegg	none
+🧔🏿‍♂	mann hudtype 6, skjegg	none
+👱🏻‍♂	mann hudtype 1–2, blond	none
+👱🏼‍♂	mann hudtype 3, blond	none
+👱🏽‍♂	mann hudtype 4, blond	none
+👱🏾‍♂	mann hudtype 5, blond	none
+👱🏿‍♂	mann hudtype 6, blond	none
+👨🏻‍❤‍💋‍👨🏻	kyss mann, mann, hudtype 1–2	none
+👨🏻‍❤‍💋‍👨🏼	kyss mann, mann, hudtype 1–2, hudtype 3	none
+👨🏻‍❤‍💋‍👨🏽	kyss mann, mann, hudtype 1–2, hudtype 4	none
+👨🏻‍❤‍💋‍👨🏾	kyss mann, mann, hudtype 1–2, hudtype 5	none
+👨🏻‍❤‍💋‍👨🏿	kyss mann, mann, hudtype 1–2, hudtype 6	none
+👨🏼‍❤‍💋‍👨🏻	kyss mann, mann, hudtype 3, hudtype 1–2	none
+👨🏼‍❤‍💋‍👨🏼	kyss mann, mann, hudtype 3	none
+👨🏼‍❤‍💋‍👨🏽	kyss mann, mann, hudtype 3, hudtype 4	none
+👨🏼‍❤‍💋‍👨🏾	kyss mann, mann, hudtype 3, hudtype 5	none
+👨🏼‍❤‍💋‍👨🏿	kyss mann, mann, hudtype 3, hudtype 6	none
+👨🏽‍❤‍💋‍👨🏻	kyss mann, mann, hudtype 4, hudtype 1–2	none
+👨🏽‍❤‍💋‍👨🏼	kyss mann, mann, hudtype 4, hudtype 3	none
+👨🏽‍❤‍💋‍👨🏽	kyss mann, mann, hudtype 4	none
+👨🏽‍❤‍💋‍👨🏾	kyss mann, mann, hudtype 4, hudtype 5	none
+👨🏽‍❤‍💋‍👨🏿	kyss mann, mann, hudtype 4, hudtype 6	none
+👨🏾‍❤‍💋‍👨🏻	kyss mann, mann, hudtype 5, hudtype 1–2	none
+👨🏾‍❤‍💋‍👨🏼	kyss mann, mann, hudtype 5, hudtype 3	none
+👨🏾‍❤‍💋‍👨🏽	kyss mann, mann, hudtype 5, hudtype 4	none
+👨🏾‍❤‍💋‍👨🏾	kyss mann, mann, hudtype 5	none
+👨🏾‍❤‍💋‍👨🏿	kyss mann, mann, hudtype 5, hudtype 6	none
+👨🏿‍❤‍💋‍👨🏻	kyss mann, mann, hudtype 6, hudtype 1–2	none
+👨🏿‍❤‍💋‍👨🏼	kyss mann, mann, hudtype 6, hudtype 3	none
+👨🏿‍❤‍💋‍👨🏽	kyss mann, mann, hudtype 6, hudtype 4	none
+👨🏿‍❤‍💋‍👨🏾	kyss mann, mann, hudtype 6, hudtype 5	none
+👨🏿‍❤‍💋‍👨🏿	kyss mann, mann, hudtype 6	none
+👨🏻‍❤‍👨🏻	par med hjarte mann, mann, hudtype 1–2	none
+👨🏻‍❤‍👨🏼	par med hjarte mann, mann, hudtype 1–2, hudtype 3	none
+👨🏻‍❤‍👨🏽	par med hjarte mann, mann, hudtype 1–2, hudtype 4	none
+👨🏻‍❤‍👨🏾	par med hjarte mann, mann, hudtype 1–2, hudtype 5	none
+👨🏻‍❤‍👨🏿	par med hjarte mann, mann, hudtype 1–2, hudtype 6	none
+👨🏼‍❤‍👨🏻	par med hjarte mann, mann, hudtype 3, hudtype 1–2	none
+👨🏼‍❤‍👨🏼	par med hjarte mann, mann, hudtype 3	none
+👨🏼‍❤‍👨🏽	par med hjarte mann, mann, hudtype 3, hudtype 4	none
+👨🏼‍❤‍👨🏾	par med hjarte mann, mann, hudtype 3, hudtype 5	none
+👨🏼‍❤‍👨🏿	par med hjarte mann, mann, hudtype 3, hudtype 6	none
+👨🏽‍❤‍👨🏻	par med hjarte mann, mann, hudtype 4, hudtype 1–2	none
+👨🏽‍❤‍👨🏼	par med hjarte mann, mann, hudtype 4, hudtype 3	none
+👨🏽‍❤‍👨🏽	par med hjarte mann, mann, hudtype 4	none
+👨🏽‍❤‍👨🏾	par med hjarte mann, mann, hudtype 4, hudtype 5	none
+👨🏽‍❤‍👨🏿	par med hjarte mann, mann, hudtype 4, hudtype 6	none
+👨🏾‍❤‍👨🏻	par med hjarte mann, mann, hudtype 5, hudtype 1–2	none
+👨🏾‍❤‍👨🏼	par med hjarte mann, mann, hudtype 5, hudtype 3	none
+👨🏾‍❤‍👨🏽	par med hjarte mann, mann, hudtype 5, hudtype 4	none
+👨🏾‍❤‍👨🏾	par med hjarte mann, mann, hudtype 5	none
+👨🏾‍❤‍👨🏿	par med hjarte mann, mann, hudtype 5, hudtype 6	none
+👨🏿‍❤‍👨🏻	par med hjarte mann, mann, hudtype 6, hudtype 1–2	none
+👨🏿‍❤‍👨🏼	par med hjarte mann, mann, hudtype 6, hudtype 3	none
+👨🏿‍❤‍👨🏽	par med hjarte mann, mann, hudtype 6, hudtype 4	none
+👨🏿‍❤‍👨🏾	par med hjarte mann, mann, hudtype 6, hudtype 5	none
+👨🏿‍❤‍👨🏿	par med hjarte mann, mann, hudtype 6	none
+👨‍🦰	mann raudt hår	none
+👨🏻‍🦰	mann hudtype 1–2, raudt hår	none
+👨🏼‍🦰	mann hudtype 3, raudt hår	none
+👨🏽‍🦰	mann hudtype 4, raudt hår	none
+👨🏾‍🦰	mann hudtype 5, raudt hår	none
+👨🏿‍🦰	mann hudtype 6, raudt hår	none
+👨‍🦱	mann krusete hår	none
+👨🏻‍🦱	mann hudtype 1–2, krusete hår	none
+👨🏼‍🦱	mann hudtype 3, krusete hår	none
+👨🏽‍🦱	mann hudtype 4, krusete hår	none
+👨🏾‍🦱	mann hudtype 5, krusete hår	none
+👨🏿‍🦱	mann hudtype 6, krusete hår	none
+👨‍🦳	mann grått hår	none
+👨🏻‍🦳	mann hudtype 1–2, grått hår	none
+👨🏼‍🦳	mann hudtype 3, grått hår	none
+👨🏽‍🦳	mann hudtype 4, grått hår	none
+👨🏾‍🦳	mann hudtype 5, grått hår	none
+👨🏿‍🦳	mann hudtype 6, grått hår	none
+👨‍🦲	mann skalla	none
+👨🏻‍🦲	mann hudtype 1–2, skalla	none
+👨🏼‍🦲	mann hudtype 3, skalla	none
+👨🏽‍🦲	mann hudtype 4, skalla	none
+👨🏾‍🦲	mann hudtype 5, skalla	none
+👨🏿‍🦲	mann hudtype 6, skalla	none
+👩🏻	kvinne hudtype 1–2	none
+👩🏼	kvinne hudtype 3	none
+👩🏽	kvinne hudtype 4	none
+👩🏾	kvinne hudtype 5	none
+👩🏿	kvinne hudtype 6	none
+🧔🏻‍♀	kvinne hudtype 1–2, skjegg	none
+🧔🏼‍♀	kvinne hudtype 3, skjegg	none
+🧔🏽‍♀	kvinne hudtype 4, skjegg	none
+🧔🏾‍♀	kvinne hudtype 5, skjegg	none
+🧔🏿‍♀	kvinne hudtype 6, skjegg	none
+👱🏻‍♀	kvinne hudtype 1–2, blond	none
+👱🏼‍♀	kvinne hudtype 3, blond	none
+👱🏽‍♀	kvinne hudtype 4, blond	none
+👱🏾‍♀	kvinne hudtype 5, blond	none
+👱🏿‍♀	kvinne hudtype 6, blond	none
+👩🏻‍❤‍💋‍👨🏻	kyss kvinne, mann, hudtype 1–2	none
+👩🏻‍❤‍💋‍👨🏼	kyss kvinne, mann, hudtype 1–2, hudtype 3	none
+👩🏻‍❤‍💋‍👨🏽	kyss kvinne, mann, hudtype 1–2, hudtype 4	none
+👩🏻‍❤‍💋‍👨🏾	kyss kvinne, mann, hudtype 1–2, hudtype 5	none
+👩🏻‍❤‍💋‍👨🏿	kyss kvinne, mann, hudtype 1–2, hudtype 6	none
+👩🏼‍❤‍💋‍👨🏻	kyss kvinne, mann, hudtype 3, hudtype 1–2	none
+👩🏼‍❤‍💋‍👨🏼	kyss kvinne, mann, hudtype 3	none
+👩🏼‍❤‍💋‍👨🏽	kyss kvinne, mann, hudtype 3, hudtype 4	none
+👩🏼‍❤‍💋‍👨🏾	kyss kvinne, mann, hudtype 3, hudtype 5	none
+👩🏼‍❤‍💋‍👨🏿	kyss kvinne, mann, hudtype 3, hudtype 6	none
+👩🏽‍❤‍💋‍👨🏻	kyss kvinne, mann, hudtype 4, hudtype 1–2	none
+👩🏽‍❤‍💋‍👨🏼	kyss kvinne, mann, hudtype 4, hudtype 3	none
+👩🏽‍❤‍💋‍👨🏽	kyss kvinne, mann, hudtype 4	none
+👩🏽‍❤‍💋‍👨🏾	kyss kvinne, mann, hudtype 4, hudtype 5	none
+👩🏽‍❤‍💋‍👨🏿	kyss kvinne, mann, hudtype 4, hudtype 6	none
+👩🏾‍❤‍💋‍👨🏻	kyss kvinne, mann, hudtype 5, hudtype 1–2	none
+👩🏾‍❤‍💋‍👨🏼	kyss kvinne, mann, hudtype 5, hudtype 3	none
+👩🏾‍❤‍💋‍👨🏽	kyss kvinne, mann, hudtype 5, hudtype 4	none
+👩🏾‍❤‍💋‍👨🏾	kyss kvinne, mann, hudtype 5	none
+👩🏾‍❤‍💋‍👨🏿	kyss kvinne, mann, hudtype 5, hudtype 6	none
+👩🏿‍❤‍💋‍👨🏻	kyss kvinne, mann, hudtype 6, hudtype 1–2	none
+👩🏿‍❤‍💋‍👨🏼	kyss kvinne, mann, hudtype 6, hudtype 3	none
+👩🏿‍❤‍💋‍👨🏽	kyss kvinne, mann, hudtype 6, hudtype 4	none
+👩🏿‍❤‍💋‍👨🏾	kyss kvinne, mann, hudtype 6, hudtype 5	none
+👩🏿‍❤‍💋‍👨🏿	kyss kvinne, mann, hudtype 6	none
+👩🏻‍❤‍💋‍👩🏻	kyss kvinne, kvinne, hudtype 1–2	none
+👩🏻‍❤‍💋‍👩🏼	kyss kvinne, kvinne, hudtype 1–2, hudtype 3	none
+👩🏻‍❤‍💋‍👩🏽	kyss kvinne, kvinne, hudtype 1–2, hudtype 4	none
+👩🏻‍❤‍💋‍👩🏾	kyss kvinne, kvinne, hudtype 1–2, hudtype 5	none
+👩🏻‍❤‍💋‍👩🏿	kyss kvinne, kvinne, hudtype 1–2, hudtype 6	none
+👩🏼‍❤‍💋‍👩🏻	kyss kvinne, kvinne, hudtype 3, hudtype 1–2	none
+👩🏼‍❤‍💋‍👩🏼	kyss kvinne, kvinne, hudtype 3	none
+👩🏼‍❤‍💋‍👩🏽	kyss kvinne, kvinne, hudtype 3, hudtype 4	none
+👩🏼‍❤‍💋‍👩🏾	kyss kvinne, kvinne, hudtype 3, hudtype 5	none
+👩🏼‍❤‍💋‍👩🏿	kyss kvinne, kvinne, hudtype 3, hudtype 6	none
+👩🏽‍❤‍💋‍👩🏻	kyss kvinne, kvinne, hudtype 4, hudtype 1–2	none
+👩🏽‍❤‍💋‍👩🏼	kyss kvinne, kvinne, hudtype 4, hudtype 3	none
+👩🏽‍❤‍💋‍👩🏽	kyss kvinne, kvinne, hudtype 4	none
+👩🏽‍❤‍💋‍👩🏾	kyss kvinne, kvinne, hudtype 4, hudtype 5	none
+👩🏽‍❤‍💋‍👩🏿	kyss kvinne, kvinne, hudtype 4, hudtype 6	none
+👩🏾‍❤‍💋‍👩🏻	kyss kvinne, kvinne, hudtype 5, hudtype 1–2	none
+👩🏾‍❤‍💋‍👩🏼	kyss kvinne, kvinne, hudtype 5, hudtype 3	none
+👩🏾‍❤‍💋‍👩🏽	kyss kvinne, kvinne, hudtype 5, hudtype 4	none
+👩🏾‍❤‍💋‍👩🏾	kyss kvinne, kvinne, hudtype 5	none
+👩🏾‍❤‍💋‍👩🏿	kyss kvinne, kvinne, hudtype 5, hudtype 6	none
+👩🏿‍❤‍💋‍👩🏻	kyss kvinne, kvinne, hudtype 6, hudtype 1–2	none
+👩🏿‍❤‍💋‍👩🏼	kyss kvinne, kvinne, hudtype 6, hudtype 3	none
+👩🏿‍❤‍💋‍👩🏽	kyss kvinne, kvinne, hudtype 6, hudtype 4	none
+👩🏿‍❤‍💋‍👩🏾	kyss kvinne, kvinne, hudtype 6, hudtype 5	none
+👩🏿‍❤‍💋‍👩🏿	kyss kvinne, kvinne, hudtype 6	none
+👩🏻‍❤‍👨🏻	par med hjarte kvinne, mann, hudtype 1–2	none
+👩🏻‍❤‍👨🏼	par med hjarte kvinne, mann, hudtype 1–2, hudtype 3	none
+👩🏻‍❤‍👨🏽	par med hjarte kvinne, mann, hudtype 1–2, hudtype 4	none
+👩🏻‍❤‍👨🏾	par med hjarte kvinne, mann, hudtype 1–2, hudtype 5	none
+👩🏻‍❤‍👨🏿	par med hjarte kvinne, mann, hudtype 1–2, hudtype 6	none
+👩🏼‍❤‍👨🏻	par med hjarte kvinne, mann, hudtype 3, hudtype 1–2	none
+👩🏼‍❤‍👨🏼	par med hjarte kvinne, mann, hudtype 3	none
+👩🏼‍❤‍👨🏽	par med hjarte kvinne, mann, hudtype 3, hudtype 4	none
+👩🏼‍❤‍👨🏾	par med hjarte kvinne, mann, hudtype 3, hudtype 5	none
+👩🏼‍❤‍👨🏿	par med hjarte kvinne, mann, hudtype 3, hudtype 6	none
+👩🏽‍❤‍👨🏻	par med hjarte kvinne, mann, hudtype 4, hudtype 1–2	none
+👩🏽‍❤‍👨🏼	par med hjarte kvinne, mann, hudtype 4, hudtype 3	none
+👩🏽‍❤‍👨🏽	par med hjarte kvinne, mann, hudtype 4	none
+👩🏽‍❤‍👨🏾	par med hjarte kvinne, mann, hudtype 4, hudtype 5	none
+👩🏽‍❤‍👨🏿	par med hjarte kvinne, mann, hudtype 4, hudtype 6	none
+👩🏾‍❤‍👨🏻	par med hjarte kvinne, mann, hudtype 5, hudtype 1–2	none
+👩🏾‍❤‍👨🏼	par med hjarte kvinne, mann, hudtype 5, hudtype 3	none
+👩🏾‍❤‍👨🏽	par med hjarte kvinne, mann, hudtype 5, hudtype 4	none
+👩🏾‍❤‍👨🏾	par med hjarte kvinne, mann, hudtype 5	none
+👩🏾‍❤‍👨🏿	par med hjarte kvinne, mann, hudtype 5, hudtype 6	none
+👩🏿‍❤‍👨🏻	par med hjarte kvinne, mann, hudtype 6, hudtype 1–2	none
+👩🏿‍❤‍👨🏼	par med hjarte kvinne, mann, hudtype 6, hudtype 3	none
+👩🏿‍❤‍👨🏽	par med hjarte kvinne, mann, hudtype 6, hudtype 4	none
+👩🏿‍❤‍👨🏾	par med hjarte kvinne, mann, hudtype 6, hudtype 5	none
+👩🏿‍❤‍👨🏿	par med hjarte kvinne, mann, hudtype 6	none
+👩🏻‍❤‍👩🏻	par med hjarte kvinne, kvinne, hudtype 1–2	none
+👩🏻‍❤‍👩🏼	par med hjarte kvinne, kvinne, hudtype 1–2, hudtype 3	none
+👩🏻‍❤‍👩🏽	par med hjarte kvinne, kvinne, hudtype 1–2, hudtype 4	none
+👩🏻‍❤‍👩🏾	par med hjarte kvinne, kvinne, hudtype 1–2, hudtype 5	none
+👩🏻‍❤‍👩🏿	par med hjarte kvinne, kvinne, hudtype 1–2, hudtype 6	none
+👩🏼‍❤‍👩🏻	par med hjarte kvinne, kvinne, hudtype 3, hudtype 1–2	none
+👩🏼‍❤‍👩🏼	par med hjarte kvinne, kvinne, hudtype 3	none
+👩🏼‍❤‍👩🏽	par med hjarte kvinne, kvinne, hudtype 3, hudtype 4	none
+👩🏼‍❤‍👩🏾	par med hjarte kvinne, kvinne, hudtype 3, hudtype 5	none
+👩🏼‍❤‍👩🏿	par med hjarte kvinne, kvinne, hudtype 3, hudtype 6	none
+👩🏽‍❤‍👩🏻	par med hjarte kvinne, kvinne, hudtype 4, hudtype 1–2	none
+👩🏽‍❤‍👩🏼	par med hjarte kvinne, kvinne, hudtype 4, hudtype 3	none
+👩🏽‍❤‍👩🏽	par med hjarte kvinne, kvinne, hudtype 4	none
+👩🏽‍❤‍👩🏾	par med hjarte kvinne, kvinne, hudtype 4, hudtype 5	none
+👩🏽‍❤‍👩🏿	par med hjarte kvinne, kvinne, hudtype 4, hudtype 6	none
+👩🏾‍❤‍👩🏻	par med hjarte kvinne, kvinne, hudtype 5, hudtype 1–2	none
+👩🏾‍❤‍👩🏼	par med hjarte kvinne, kvinne, hudtype 5, hudtype 3	none
+👩🏾‍❤‍👩🏽	par med hjarte kvinne, kvinne, hudtype 5, hudtype 4	none
+👩🏾‍❤‍👩🏾	par med hjarte kvinne, kvinne, hudtype 5	none
+👩🏾‍❤‍👩🏿	par med hjarte kvinne, kvinne, hudtype 5, hudtype 6	none
+👩🏿‍❤‍👩🏻	par med hjarte kvinne, kvinne, hudtype 6, hudtype 1–2	none
+👩🏿‍❤‍👩🏼	par med hjarte kvinne, kvinne, hudtype 6, hudtype 3	none
+👩🏿‍❤‍👩🏽	par med hjarte kvinne, kvinne, hudtype 6, hudtype 4	none
+👩🏿‍❤‍👩🏾	par med hjarte kvinne, kvinne, hudtype 6, hudtype 5	none
+👩🏿‍❤‍👩🏿	par med hjarte kvinne, kvinne, hudtype 6	none
+👩‍🦰	kvinne raudt hår	none
+👩🏻‍🦰	kvinne hudtype 1–2, raudt hår	none
+👩🏼‍🦰	kvinne hudtype 3, raudt hår	none
+👩🏽‍🦰	kvinne hudtype 4, raudt hår	none
+👩🏾‍🦰	kvinne hudtype 5, raudt hår	none
+👩🏿‍🦰	kvinne hudtype 6, raudt hår	none
+👩‍🦱	kvinne krusete hår	none
+👩🏻‍🦱	kvinne hudtype 1–2, krusete hår	none
+👩🏼‍🦱	kvinne hudtype 3, krusete hår	none
+👩🏽‍🦱	kvinne hudtype 4, krusete hår	none
+👩🏾‍🦱	kvinne hudtype 5, krusete hår	none
+👩🏿‍🦱	kvinne hudtype 6, krusete hår	none
+👩‍🦳	kvinne grått hår	none
+👩🏻‍🦳	kvinne hudtype 1–2, grått hår	none
+👩🏼‍🦳	kvinne hudtype 3, grått hår	none
+👩🏽‍🦳	kvinne hudtype 4, grått hår	none
+👩🏾‍🦳	kvinne hudtype 5, grått hår	none
+👩🏿‍🦳	kvinne hudtype 6, grått hår	none
+👩‍🦲	kvinne skalla	none
+👩🏻‍🦲	kvinne hudtype 1–2, skalla	none
+👩🏼‍🦲	kvinne hudtype 3, skalla	none
+👩🏽‍🦲	kvinne hudtype 4, skalla	none
+👩🏾‍🦲	kvinne hudtype 5, skalla	none
+👩🏿‍🦲	kvinne hudtype 6, skalla	none
+🧓🏻	eldre vaksen hudtype 1–2	none
+🧓🏼	eldre vaksen hudtype 3	none
+🧓🏽	eldre vaksen hudtype 4	none
+🧓🏾	eldre vaksen hudtype 5	none
+🧓🏿	eldre vaksen hudtype 6	none
+👴🏻	eldre mann hudtype 1–2	none
+👴🏼	eldre mann hudtype 3	none
+👴🏽	eldre mann hudtype 4	none
+👴🏾	eldre mann hudtype 5	none
+👴🏿	eldre mann hudtype 6	none
+👵🏻	eldre kvinne hudtype 1–2	none
+👵🏼	eldre kvinne hudtype 3	none
+👵🏽	eldre kvinne hudtype 4	none
+👵🏾	eldre kvinne hudtype 5	none
+👵🏿	eldre kvinne hudtype 6	none
+🙍🏻	rynkar bryna hudtype 1–2	none
+🙍🏼	rynkar bryna hudtype 3	none
+🙍🏽	rynkar bryna hudtype 4	none
+🙍🏾	rynkar bryna hudtype 5	none
+🙍🏿	rynkar bryna hudtype 6	none
+🙍🏻‍♂	mann som rynkar bryna hudtype 1–2	none
+🙍🏼‍♂	mann som rynkar bryna hudtype 3	none
+🙍🏽‍♂	mann som rynkar bryna hudtype 4	none
+🙍🏾‍♂	mann som rynkar bryna hudtype 5	none
+🙍🏿‍♂	mann som rynkar bryna hudtype 6	none
+🙍🏻‍♀	kvinne som rynkar bryna hudtype 1–2	none
+🙍🏼‍♀	kvinne som rynkar bryna hudtype 3	none
+🙍🏽‍♀	kvinne som rynkar bryna hudtype 4	none
+🙍🏾‍♀	kvinne som rynkar bryna hudtype 5	none
+🙍🏿‍♀	kvinne som rynkar bryna hudtype 6	none
+🙎🏻	furtar hudtype 1–2	none
+🙎🏼	furtar hudtype 3	none
+🙎🏽	furtar hudtype 4	none
+🙎🏾	furtar hudtype 5	none
+🙎🏿	furtar hudtype 6	none
+🙎🏻‍♂	mann som furtar hudtype 1–2	none
+🙎🏼‍♂	mann som furtar hudtype 3	none
+🙎🏽‍♂	mann som furtar hudtype 4	none
+🙎🏾‍♂	mann som furtar hudtype 5	none
+🙎🏿‍♂	mann som furtar hudtype 6	none
+🙎🏻‍♀	kvinne som furtar hudtype 1–2	none
+🙎🏼‍♀	kvinne som furtar hudtype 3	none
+🙎🏽‍♀	kvinne som furtar hudtype 4	none
+🙎🏾‍♀	kvinne som furtar hudtype 5	none
+🙎🏿‍♀	kvinne som furtar hudtype 6	none
+🙅🏻	gestikulerer NEI hudtype 1–2	none
+🙅🏼	gestikulerer NEI hudtype 3	none
+🙅🏽	gestikulerer NEI hudtype 4	none
+🙅🏾	gestikulerer NEI hudtype 5	none
+🙅🏿	gestikulerer NEI hudtype 6	none
+🙅🏻‍♂	mann som gestikulerer NEI hudtype 1–2	none
+🙅🏼‍♂	mann som gestikulerer NEI hudtype 3	none
+🙅🏽‍♂	mann som gestikulerer NEI hudtype 4	none
+🙅🏾‍♂	mann som gestikulerer NEI hudtype 5	none
+🙅🏿‍♂	mann som gestikulerer NEI hudtype 6	none
+🙅🏻‍♀	kvinne som gestikulerer NEI hudtype 1–2	none
+🙅🏼‍♀	kvinne som gestikulerer NEI hudtype 3	none
+🙅🏽‍♀	kvinne som gestikulerer NEI hudtype 4	none
+🙅🏾‍♀	kvinne som gestikulerer NEI hudtype 5	none
+🙅🏿‍♀	kvinne som gestikulerer NEI hudtype 6	none
+🙆🏻	gestikulerer OK hudtype 1–2	none
+🙆🏼	gestikulerer OK hudtype 3	none
+🙆🏽	gestikulerer OK hudtype 4	none
+🙆🏾	gestikulerer OK hudtype 5	none
+🙆🏿	gestikulerer OK hudtype 6	none
+🙆🏻‍♂	mann som gestikulerer OK hudtype 1–2	none
+🙆🏼‍♂	mann som gestikulerer OK hudtype 3	none
+🙆🏽‍♂	mann som gestikulerer OK hudtype 4	none
+🙆🏾‍♂	mann som gestikulerer OK hudtype 5	none
+🙆🏿‍♂	mann som gestikulerer OK hudtype 6	none
+🙆🏻‍♀	kvinne som gestikulerer OK hudtype 1–2	none
+🙆🏼‍♀	kvinne som gestikulerer OK hudtype 3	none
+🙆🏽‍♀	kvinne som gestikulerer OK hudtype 4	none
+🙆🏾‍♀	kvinne som gestikulerer OK hudtype 5	none
+🙆🏿‍♀	kvinne som gestikulerer OK hudtype 6	none
+💁🏻	hjelpande person hudtype 1–2	none
+💁🏼	hjelpande person hudtype 3	none
+💁🏽	hjelpande person hudtype 4	none
+💁🏾	hjelpande person hudtype 5	none
+💁🏿	hjelpande person hudtype 6	none
+💁🏻‍♂	hjelpande mann hudtype 1–2	none
+💁🏼‍♂	hjelpande mann hudtype 3	none
+💁🏽‍♂	hjelpande mann hudtype 4	none
+💁🏾‍♂	hjelpande mann hudtype 5	none
+💁🏿‍♂	hjelpande mann hudtype 6	none
+💁🏻‍♀	hjelpande kvinne hudtype 1–2	none
+💁🏼‍♀	hjelpande kvinne hudtype 3	none
+💁🏽‍♀	hjelpande kvinne hudtype 4	none
+💁🏾‍♀	hjelpande kvinne hudtype 5	none
+💁🏿‍♀	hjelpande kvinne hudtype 6	none
+🙋🏻	rekker opp handa hudtype 1–2	none
+🙋🏼	rekker opp handa hudtype 3	none
+🙋🏽	rekker opp handa hudtype 4	none
+🙋🏾	rekker opp handa hudtype 5	none
+🙋🏿	rekker opp handa hudtype 6	none
+🙋🏻‍♂	mann som rekker opp handa hudtype 1–2	none
+🙋🏼‍♂	mann som rekker opp handa hudtype 3	none
+🙋🏽‍♂	mann som rekker opp handa hudtype 4	none
+🙋🏾‍♂	mann som rekker opp handa hudtype 5	none
+🙋🏿‍♂	mann som rekker opp handa hudtype 6	none
+🙋🏻‍♀	kvinne som rekker opp handa hudtype 1–2	none
+🙋🏼‍♀	kvinne som rekker opp handa hudtype 3	none
+🙋🏽‍♀	kvinne som rekker opp handa hudtype 4	none
+🙋🏾‍♀	kvinne som rekker opp handa hudtype 5	none
+🙋🏿‍♀	kvinne som rekker opp handa hudtype 6	none
+🧏🏻	døv person hudtype 1–2	none
+🧏🏼	døv person hudtype 3	none
+🧏🏽	døv person hudtype 4	none
+🧏🏾	døv person hudtype 5	none
+🧏🏿	døv person hudtype 6	none
+🧏🏻‍♂	døv mann hudtype 1–2	none
+🧏🏼‍♂	døv mann hudtype 3	none
+🧏🏽‍♂	døv mann hudtype 4	none
+🧏🏾‍♂	døv mann hudtype 5	none
+🧏🏿‍♂	døv mann hudtype 6	none
+🧏🏻‍♀	døv kvinne hudtype 1–2	none
+🧏🏼‍♀	døv kvinne hudtype 3	none
+🧏🏽‍♀	døv kvinne hudtype 4	none
+🧏🏾‍♀	døv kvinne hudtype 5	none
+🧏🏿‍♀	døv kvinne hudtype 6	none
+🙇🏻	bukkar hudtype 1–2	none
+🙇🏼	bukkar hudtype 3	none
+🙇🏽	bukkar hudtype 4	none
+🙇🏾	bukkar hudtype 5	none
+🙇🏿	bukkar hudtype 6	none
+🙇🏻‍♂	bukkande mann hudtype 1–2	none
+🙇🏼‍♂	bukkande mann hudtype 3	none
+🙇🏽‍♂	bukkande mann hudtype 4	none
+🙇🏾‍♂	bukkande mann hudtype 5	none
+🙇🏿‍♂	bukkande mann hudtype 6	none
+🙇🏻‍♀	bukkande kvinne hudtype 1–2	none
+🙇🏼‍♀	bukkande kvinne hudtype 3	none
+🙇🏽‍♀	bukkande kvinne hudtype 4	none
+🙇🏾‍♀	bukkande kvinne hudtype 5	none
+🙇🏿‍♀	bukkande kvinne hudtype 6	none
+🤦🏻	slår handa mot panna hudtype 1–2	none
+🤦🏼	slår handa mot panna hudtype 3	none
+🤦🏽	slår handa mot panna hudtype 4	none
+🤦🏾	slår handa mot panna hudtype 5	none
+🤦🏿	slår handa mot panna hudtype 6	none
+🤦🏻‍♂	mann som slår handa mot panna hudtype 1–2	none
+🤦🏼‍♂	mann som slår handa mot panna hudtype 3	none
+🤦🏽‍♂	mann som slår handa mot panna hudtype 4	none
+🤦🏾‍♂	mann som slår handa mot panna hudtype 5	none
+🤦🏿‍♂	mann som slår handa mot panna hudtype 6	none
+🤦🏻‍♀	kvinne som slår handa mot panna hudtype 1–2	none
+🤦🏼‍♀	kvinne som slår handa mot panna hudtype 3	none
+🤦🏽‍♀	kvinne som slår handa mot panna hudtype 4	none
+🤦🏾‍♀	kvinne som slår handa mot panna hudtype 5	none
+🤦🏿‍♀	kvinne som slår handa mot panna hudtype 6	none
+🤷🏻	trekkjer på skuldrene hudtype 1–2	none
+🤷🏼	trekkjer på skuldrene hudtype 3	none
+🤷🏽	trekkjer på skuldrene hudtype 4	none
+🤷🏾	trekkjer på skuldrene hudtype 5	none
+🤷🏿	trekkjer på skuldrene hudtype 6	none
+🤷🏻‍♂	mann som trekkjer på skuldrene hudtype 1–2	none
+🤷🏼‍♂	mann som trekkjer på skuldrene hudtype 3	none
+🤷🏽‍♂	mann som trekkjer på skuldrene hudtype 4	none
+🤷🏾‍♂	mann som trekkjer på skuldrene hudtype 5	none
+🤷🏿‍♂	mann som trekkjer på skuldrene hudtype 6	none
+🤷🏻‍♀	kvinne som trekkjer på skuldrene hudtype 1–2	none
+🤷🏼‍♀	kvinne som trekkjer på skuldrene hudtype 3	none
+🤷🏽‍♀	kvinne som trekkjer på skuldrene hudtype 4	none
+🤷🏾‍♀	kvinne som trekkjer på skuldrene hudtype 5	none
+🤷🏿‍♀	kvinne som trekkjer på skuldrene hudtype 6	none
+🧑🏻‍⚕	helsearbeidar hudtype 1–2	none
+🧑🏼‍⚕	helsearbeidar hudtype 3	none
+🧑🏽‍⚕	helsearbeidar hudtype 4	none
+🧑🏾‍⚕	helsearbeidar hudtype 5	none
+🧑🏿‍⚕	helsearbeidar hudtype 6	none
+👨🏻‍⚕	mannleg helsearbeidar hudtype 1–2	none
+👨🏼‍⚕	mannleg helsearbeidar hudtype 3	none
+👨🏽‍⚕	mannleg helsearbeidar hudtype 4	none
+👨🏾‍⚕	mannleg helsearbeidar hudtype 5	none
+👨🏿‍⚕	mannleg helsearbeidar hudtype 6	none
+👩🏻‍⚕	kvinneleg helsearbeidar hudtype 1–2	none
+👩🏼‍⚕	kvinneleg helsearbeidar hudtype 3	none
+👩🏽‍⚕	kvinneleg helsearbeidar hudtype 4	none
+👩🏾‍⚕	kvinneleg helsearbeidar hudtype 5	none
+👩🏿‍⚕	kvinneleg helsearbeidar hudtype 6	none
+🧑🏻‍🎓	student hudtype 1–2	none
+🧑🏼‍🎓	student hudtype 3	none
+🧑🏽‍🎓	student hudtype 4	none
+🧑🏾‍🎓	student hudtype 5	none
+🧑🏿‍🎓	student hudtype 6	none
+👨🏻‍🎓	mannleg student hudtype 1–2	none
+👨🏼‍🎓	mannleg student hudtype 3	none
+👨🏽‍🎓	mannleg student hudtype 4	none
+👨🏾‍🎓	mannleg student hudtype 5	none
+👨🏿‍🎓	mannleg student hudtype 6	none
+👩🏻‍🎓	kvinneleg student hudtype 1–2	none
+👩🏼‍🎓	kvinneleg student hudtype 3	none
+👩🏽‍🎓	kvinneleg student hudtype 4	none
+👩🏾‍🎓	kvinneleg student hudtype 5	none
+👩🏿‍🎓	kvinneleg student hudtype 6	none
+🧑🏻‍🏫	lærar hudtype 1–2	none
+🧑🏼‍🏫	lærar hudtype 3	none
+🧑🏽‍🏫	lærar hudtype 4	none
+🧑🏾‍🏫	lærar hudtype 5	none
+🧑🏿‍🏫	lærar hudtype 6	none
+👨🏻‍🏫	mannleg lærar hudtype 1–2	none
+👨🏼‍🏫	mannleg lærar hudtype 3	none
+👨🏽‍🏫	mannleg lærar hudtype 4	none
+👨🏾‍🏫	mannleg lærar hudtype 5	none
+👨🏿‍🏫	mannleg lærar hudtype 6	none
+👩🏻‍🏫	kvinneleg lærar hudtype 1–2	none
+👩🏼‍🏫	kvinneleg lærar hudtype 3	none
+👩🏽‍🏫	kvinneleg lærar hudtype 4	none
+👩🏾‍🏫	kvinneleg lærar hudtype 5	none
+👩🏿‍🏫	kvinneleg lærar hudtype 6	none
+🧑🏻‍⚖	dommar hudtype 1–2	none
+🧑🏼‍⚖	dommar hudtype 3	none
+🧑🏽‍⚖	dommar hudtype 4	none
+🧑🏾‍⚖	dommar hudtype 5	none
+🧑🏿‍⚖	dommar hudtype 6	none
+👨🏻‍⚖	mannleg dommar hudtype 1–2	none
+👨🏼‍⚖	mannleg dommar hudtype 3	none
+👨🏽‍⚖	mannleg dommar hudtype 4	none
+👨🏾‍⚖	mannleg dommar hudtype 5	none
+👨🏿‍⚖	mannleg dommar hudtype 6	none
+👩🏻‍⚖	kvinneleg dommar hudtype 1–2	none
+👩🏼‍⚖	kvinneleg dommar hudtype 3	none
+👩🏽‍⚖	kvinneleg dommar hudtype 4	none
+👩🏾‍⚖	kvinneleg dommar hudtype 5	none
+👩🏿‍⚖	kvinneleg dommar hudtype 6	none
+🧑🏻‍🌾	gardbrukar hudtype 1–2	none
+🧑🏼‍🌾	gardbrukar hudtype 3	none
+🧑🏽‍🌾	gardbrukar hudtype 4	none
+🧑🏾‍🌾	gardbrukar hudtype 5	none
+🧑🏿‍🌾	gardbrukar hudtype 6	none
+👨🏻‍🌾	mannleg gardbrukar hudtype 1–2	none
+👨🏼‍🌾	mannleg gardbrukar hudtype 3	none
+👨🏽‍🌾	mannleg gardbrukar hudtype 4	none
+👨🏾‍🌾	mannleg gardbrukar hudtype 5	none
+👨🏿‍🌾	mannleg gardbrukar hudtype 6	none
+👩🏻‍🌾	kvinneleg gardbrukar hudtype 1–2	none
+👩🏼‍🌾	kvinneleg gardbrukar hudtype 3	none
+👩🏽‍🌾	kvinneleg gardbrukar hudtype 4	none
+👩🏾‍🌾	kvinneleg gardbrukar hudtype 5	none
+👩🏿‍🌾	kvinneleg gardbrukar hudtype 6	none
+🧑🏻‍🍳	kokk hudtype 1–2	none
+🧑🏼‍🍳	kokk hudtype 3	none
+🧑🏽‍🍳	kokk hudtype 4	none
+🧑🏾‍🍳	kokk hudtype 5	none
+🧑🏿‍🍳	kokk hudtype 6	none
+👨🏻‍🍳	mannleg kokk hudtype 1–2	none
+👨🏼‍🍳	mannleg kokk hudtype 3	none
+👨🏽‍🍳	mannleg kokk hudtype 4	none
+👨🏾‍🍳	mannleg kokk hudtype 5	none
+👨🏿‍🍳	mannleg kokk hudtype 6	none
+👩🏻‍🍳	kvinneleg kokk hudtype 1–2	none
+👩🏼‍🍳	kvinneleg kokk hudtype 3	none
+👩🏽‍🍳	kvinneleg kokk hudtype 4	none
+👩🏾‍🍳	kvinneleg kokk hudtype 5	none
+👩🏿‍🍳	kvinneleg kokk hudtype 6	none
+🧑🏻‍🔧	mekanikar hudtype 1–2	none
+🧑🏼‍🔧	mekanikar hudtype 3	none
+🧑🏽‍🔧	mekanikar hudtype 4	none
+🧑🏾‍🔧	mekanikar hudtype 5	none
+🧑🏿‍🔧	mekanikar hudtype 6	none
+👨🏻‍🔧	mannleg mekanikar hudtype 1–2	none
+👨🏼‍🔧	mannleg mekanikar hudtype 3	none
+👨🏽‍🔧	mannleg mekanikar hudtype 4	none
+👨🏾‍🔧	mannleg mekanikar hudtype 5	none
+👨🏿‍🔧	mannleg mekanikar hudtype 6	none
+👩🏻‍🔧	kvinneleg mekanikar hudtype 1–2	none
+👩🏼‍🔧	kvinneleg mekanikar hudtype 3	none
+👩🏽‍🔧	kvinneleg mekanikar hudtype 4	none
+👩🏾‍🔧	kvinneleg mekanikar hudtype 5	none
+👩🏿‍🔧	kvinneleg mekanikar hudtype 6	none
+🧑🏻‍🏭	industriarbeidar hudtype 1–2	none
+🧑🏼‍🏭	industriarbeidar hudtype 3	none
+🧑🏽‍🏭	industriarbeidar hudtype 4	none
+🧑🏾‍🏭	industriarbeidar hudtype 5	none
+🧑🏿‍🏭	industriarbeidar hudtype 6	none
+👨🏻‍🏭	mannleg industriarbeidar hudtype 1–2	none
+👨🏼‍🏭	mannleg industriarbeidar hudtype 3	none
+👨🏽‍🏭	mannleg industriarbeidar hudtype 4	none
+👨🏾‍🏭	mannleg industriarbeidar hudtype 5	none
+👨🏿‍🏭	mannleg industriarbeidar hudtype 6	none
+👩🏻‍🏭	kvinneleg industriarbeidar hudtype 1–2	none
+👩🏼‍🏭	kvinneleg industriarbeidar hudtype 3	none
+👩🏽‍🏭	kvinneleg industriarbeidar hudtype 4	none
+👩🏾‍🏭	kvinneleg industriarbeidar hudtype 5	none
+👩🏿‍🏭	kvinneleg industriarbeidar hudtype 6	none
+🧑🏻‍💼	kontorarbeidar hudtype 1–2	none
+🧑🏼‍💼	kontorarbeidar hudtype 3	none
+🧑🏽‍💼	kontorarbeidar hudtype 4	none
+🧑🏾‍💼	kontorarbeidar hudtype 5	none
+🧑🏿‍💼	kontorarbeidar hudtype 6	none
+👨🏻‍💼	mannleg kontorarbeidar hudtype 1–2	none
+👨🏼‍💼	mannleg kontorarbeidar hudtype 3	none
+👨🏽‍💼	mannleg kontorarbeidar hudtype 4	none
+👨🏾‍💼	mannleg kontorarbeidar hudtype 5	none
+👨🏿‍💼	mannleg kontorarbeidar hudtype 6	none
+👩🏻‍💼	kvinneleg kontorarbeidar hudtype 1–2	none
+👩🏼‍💼	kvinneleg kontorarbeidar hudtype 3	none
+👩🏽‍💼	kvinneleg kontorarbeidar hudtype 4	none
+👩🏾‍💼	kvinneleg kontorarbeidar hudtype 5	none
+👩🏿‍💼	kvinneleg kontorarbeidar hudtype 6	none
+🧑🏻‍🔬	forskar hudtype 1–2	none
+🧑🏼‍🔬	forskar hudtype 3	none
+🧑🏽‍🔬	forskar hudtype 4	none
+🧑🏾‍🔬	forskar hudtype 5	none
+🧑🏿‍🔬	forskar hudtype 6	none
+👨🏻‍🔬	mannleg forskar hudtype 1–2	none
+👨🏼‍🔬	mannleg forskar hudtype 3	none
+👨🏽‍🔬	mannleg forskar hudtype 4	none
+👨🏾‍🔬	mannleg forskar hudtype 5	none
+👨🏿‍🔬	mannleg forskar hudtype 6	none
+👩🏻‍🔬	kvinneleg forskar hudtype 1–2	none
+👩🏼‍🔬	kvinneleg forskar hudtype 3	none
+👩🏽‍🔬	kvinneleg forskar hudtype 4	none
+👩🏾‍🔬	kvinneleg forskar hudtype 5	none
+👩🏿‍🔬	kvinneleg forskar hudtype 6	none
+🧑🏻‍💻	IT-ekspert hudtype 1–2	none
+🧑🏼‍💻	IT-ekspert hudtype 3	none
+🧑🏽‍💻	IT-ekspert hudtype 4	none
+🧑🏾‍💻	IT-ekspert hudtype 5	none
+🧑🏿‍💻	IT-ekspert hudtype 6	none
+👨🏻‍💻	mannleg IT-ekspert hudtype 1–2	none
+👨🏼‍💻	mannleg IT-ekspert hudtype 3	none
+👨🏽‍💻	mannleg IT-ekspert hudtype 4	none
+👨🏾‍💻	mannleg IT-ekspert hudtype 5	none
+👨🏿‍💻	mannleg IT-ekspert hudtype 6	none
+👩🏻‍💻	kvinneleg IT-ekspert hudtype 1–2	none
+👩🏼‍💻	kvinneleg IT-ekspert hudtype 3	none
+👩🏽‍💻	kvinneleg IT-ekspert hudtype 4	none
+👩🏾‍💻	kvinneleg IT-ekspert hudtype 5	none
+👩🏿‍💻	kvinneleg IT-ekspert hudtype 6	none
+🧑🏻‍🎤	artist hudtype 1–2	none
+🧑🏼‍🎤	artist hudtype 3	none
+🧑🏽‍🎤	artist hudtype 4	none
+🧑🏾‍🎤	artist hudtype 5	none
+🧑🏿‍🎤	artist hudtype 6	none
+👨🏻‍🎤	mannleg artist hudtype 1–2	none
+👨🏼‍🎤	mannleg artist hudtype 3	none
+👨🏽‍🎤	mannleg artist hudtype 4	none
+👨🏾‍🎤	mannleg artist hudtype 5	none
+👨🏿‍🎤	mannleg artist hudtype 6	none
+👩🏻‍🎤	kvinneleg artist hudtype 1–2	none
+👩🏼‍🎤	kvinneleg artist hudtype 3	none
+👩🏽‍🎤	kvinneleg artist hudtype 4	none
+👩🏾‍🎤	kvinneleg artist hudtype 5	none
+👩🏿‍🎤	kvinneleg artist hudtype 6	none
+🧑🏻‍🎨	kunstnar hudtype 1–2	none
+🧑🏼‍🎨	kunstnar hudtype 3	none
+🧑🏽‍🎨	kunstnar hudtype 4	none
+🧑🏾‍🎨	kunstnar hudtype 5	none
+🧑🏿‍🎨	kunstnar hudtype 6	none
+👨🏻‍🎨	mannleg kunstnar hudtype 1–2	none
+👨🏼‍🎨	mannleg kunstnar hudtype 3	none
+👨🏽‍🎨	mannleg kunstnar hudtype 4	none
+👨🏾‍🎨	mannleg kunstnar hudtype 5	none
+👨🏿‍🎨	mannleg kunstnar hudtype 6	none
+👩🏻‍🎨	kvinneleg kunstnar hudtype 1–2	none
+👩🏼‍🎨	kvinneleg kunstnar hudtype 3	none
+👩🏽‍🎨	kvinneleg kunstnar hudtype 4	none
+👩🏾‍🎨	kvinneleg kunstnar hudtype 5	none
+👩🏿‍🎨	kvinneleg kunstnar hudtype 6	none
+🧑🏻‍✈	pilot hudtype 1–2	none
+🧑🏼‍✈	pilot hudtype 3	none
+🧑🏽‍✈	pilot hudtype 4	none
+🧑🏾‍✈	pilot hudtype 5	none
+🧑🏿‍✈	pilot hudtype 6	none
+👨🏻‍✈	mannleg pilot hudtype 1–2	none
+👨🏼‍✈	mannleg pilot hudtype 3	none
+👨🏽‍✈	mannleg pilot hudtype 4	none
+👨🏾‍✈	mannleg pilot hudtype 5	none
+👨🏿‍✈	mannleg pilot hudtype 6	none
+👩🏻‍✈	kvinneleg pilot hudtype 1–2	none
+👩🏼‍✈	kvinneleg pilot hudtype 3	none
+👩🏽‍✈	kvinneleg pilot hudtype 4	none
+👩🏾‍✈	kvinneleg pilot hudtype 5	none
+👩🏿‍✈	kvinneleg pilot hudtype 6	none
+🧑🏻‍🚀	astronaut hudtype 1–2	none
+🧑🏼‍🚀	astronaut hudtype 3	none
+🧑🏽‍🚀	astronaut hudtype 4	none
+🧑🏾‍🚀	astronaut hudtype 5	none
+🧑🏿‍🚀	astronaut hudtype 6	none
+👨🏻‍🚀	mannleg astronaut hudtype 1–2	none
+👨🏼‍🚀	mannleg astronaut hudtype 3	none
+👨🏽‍🚀	mannleg astronaut hudtype 4	none
+👨🏾‍🚀	mannleg astronaut hudtype 5	none
+👨🏿‍🚀	mannleg astronaut hudtype 6	none
+👩🏻‍🚀	kvinneleg astronaut hudtype 1–2	none
+👩🏼‍🚀	kvinneleg astronaut hudtype 3	none
+👩🏽‍🚀	kvinneleg astronaut hudtype 4	none
+👩🏾‍🚀	kvinneleg astronaut hudtype 5	none
+👩🏿‍🚀	kvinneleg astronaut hudtype 6	none
+🧑🏻‍🚒	brannkonstabel hudtype 1–2	none
+🧑🏼‍🚒	brannkonstabel hudtype 3	none
+🧑🏽‍🚒	brannkonstabel hudtype 4	none
+🧑🏾‍🚒	brannkonstabel hudtype 5	none
+🧑🏿‍🚒	brannkonstabel hudtype 6	none
+👨🏻‍🚒	mannleg brannkonstabel hudtype 1–2	none
+👨🏼‍🚒	mannleg brannkonstabel hudtype 3	none
+👨🏽‍🚒	mannleg brannkonstabel hudtype 4	none
+👨🏾‍🚒	mannleg brannkonstabel hudtype 5	none
+👨🏿‍🚒	mannleg brannkonstabel hudtype 6	none
+👩🏻‍🚒	kvinneleg brannkonstabel hudtype 1–2	none
+👩🏼‍🚒	kvinneleg brannkonstabel hudtype 3	none
+👩🏽‍🚒	kvinneleg brannkonstabel hudtype 4	none
+👩🏾‍🚒	kvinneleg brannkonstabel hudtype 5	none
+👩🏿‍🚒	kvinneleg brannkonstabel hudtype 6	none
+👮🏻	politibetjent hudtype 1–2	none
+👮🏼	politibetjent hudtype 3	none
+👮🏽	politibetjent hudtype 4	none
+👮🏾	politibetjent hudtype 5	none
+👮🏿	politibetjent hudtype 6	none
+👮🏻‍♂	mannleg politibetjent hudtype 1–2	none
+👮🏼‍♂	mannleg politibetjent hudtype 3	none
+👮🏽‍♂	mannleg politibetjent hudtype 4	none
+👮🏾‍♂	mannleg politibetjent hudtype 5	none
+👮🏿‍♂	mannleg politibetjent hudtype 6	none
+👮🏻‍♀	kvinneleg politibetjent hudtype 1–2	none
+👮🏼‍♀	kvinneleg politibetjent hudtype 3	none
+👮🏽‍♀	kvinneleg politibetjent hudtype 4	none
+👮🏾‍♀	kvinneleg politibetjent hudtype 5	none
+👮🏿‍♀	kvinneleg politibetjent hudtype 6	none
+🕵🏻	detektiv hudtype 1–2	none
+🕵🏼	detektiv hudtype 3	none
+🕵🏽	detektiv hudtype 4	none
+🕵🏾	detektiv hudtype 5	none
+🕵🏿	detektiv hudtype 6	none
+🕵🏻‍♂	mannleg detektiv hudtype 1–2	none
+🕵🏼‍♂	mannleg detektiv hudtype 3	none
+🕵🏽‍♂	mannleg detektiv hudtype 4	none
+🕵🏾‍♂	mannleg detektiv hudtype 5	none
+🕵🏿‍♂	mannleg detektiv hudtype 6	none
+🕵🏻‍♀	kvinneleg detektiv hudtype 1–2	none
+🕵🏼‍♀	kvinneleg detektiv hudtype 3	none
+🕵🏽‍♀	kvinneleg detektiv hudtype 4	none
+🕵🏾‍♀	kvinneleg detektiv hudtype 5	none
+🕵🏿‍♀	kvinneleg detektiv hudtype 6	none
+💂🏻	gardist hudtype 1–2	none
+💂🏼	gardist hudtype 3	none
+💂🏽	gardist hudtype 4	none
+💂🏾	gardist hudtype 5	none
+💂🏿	gardist hudtype 6	none
+💂🏻‍♂	mannleg gardist hudtype 1–2	none
+💂🏼‍♂	mannleg gardist hudtype 3	none
+💂🏽‍♂	mannleg gardist hudtype 4	none
+💂🏾‍♂	mannleg gardist hudtype 5	none
+💂🏿‍♂	mannleg gardist hudtype 6	none
+💂🏻‍♀	kvinneleg gardist hudtype 1–2	none
+💂🏼‍♀	kvinneleg gardist hudtype 3	none
+💂🏽‍♀	kvinneleg gardist hudtype 4	none
+💂🏾‍♀	kvinneleg gardist hudtype 5	none
+💂🏿‍♀	kvinneleg gardist hudtype 6	none
+🥷🏻	ninja hudtype 1–2	none
+🥷🏼	ninja hudtype 3	none
+🥷🏽	ninja hudtype 4	none
+🥷🏾	ninja hudtype 5	none
+🥷🏿	ninja hudtype 6	none
+👷🏻	anleggsarbeidar hudtype 1–2	none
+👷🏼	anleggsarbeidar hudtype 3	none
+👷🏽	anleggsarbeidar hudtype 4	none
+👷🏾	anleggsarbeidar hudtype 5	none
+👷🏿	anleggsarbeidar hudtype 6	none
+👷🏻‍♂	mannleg anleggsarbeidar hudtype 1–2	none
+👷🏼‍♂	mannleg anleggsarbeidar hudtype 3	none
+👷🏽‍♂	mannleg anleggsarbeidar hudtype 4	none
+👷🏾‍♂	mannleg anleggsarbeidar hudtype 5	none
+👷🏿‍♂	mannleg anleggsarbeidar hudtype 6	none
+👷🏻‍♀	kvinneleg anleggsarbeidar hudtype 1–2	none
+👷🏼‍♀	kvinneleg anleggsarbeidar hudtype 3	none
+👷🏽‍♀	kvinneleg anleggsarbeidar hudtype 4	none
+👷🏾‍♀	kvinneleg anleggsarbeidar hudtype 5	none
+👷🏿‍♀	kvinneleg anleggsarbeidar hudtype 6	none
+🤴🏻	prins hudtype 1–2	none
+🤴🏼	prins hudtype 3	none
+🤴🏽	prins hudtype 4	none
+🤴🏾	prins hudtype 5	none
+🤴🏿	prins hudtype 6	none
+👸🏻	prinsesse hudtype 1–2	none
+👸🏼	prinsesse hudtype 3	none
+👸🏽	prinsesse hudtype 4	none
+👸🏾	prinsesse hudtype 5	none
+👸🏿	prinsesse hudtype 6	none
+👳🏻	turbankledd person hudtype 1–2	none
+👳🏼	turbankledd person hudtype 3	none
+👳🏽	turbankledd person hudtype 4	none
+👳🏾	turbankledd person hudtype 5	none
+👳🏿	turbankledd person hudtype 6	none
+👳🏻‍♂	turbankledd mann hudtype 1–2	none
+👳🏼‍♂	turbankledd mann hudtype 3	none
+👳🏽‍♂	turbankledd mann hudtype 4	none
+👳🏾‍♂	turbankledd mann hudtype 5	none
+👳🏿‍♂	turbankledd mann hudtype 6	none
+👲🏻	mann med kinesisk lue hudtype 1–2	none
+👲🏼	mann med kinesisk lue hudtype 3	none
+👲🏽	mann med kinesisk lue hudtype 4	none
+👲🏾	mann med kinesisk lue hudtype 5	none
+👲🏿	mann med kinesisk lue hudtype 6	none
+🧕🏻	kvinne med hovudslør hudtype 1–2	none
+🧕🏼	kvinne med hovudslør hudtype 3	none
+🧕🏽	kvinne med hovudslør hudtype 4	none
+🧕🏾	kvinne med hovudslør hudtype 5	none
+🧕🏿	kvinne med hovudslør hudtype 6	none
+🤵🏻	person i smoking hudtype 1–2	none
+🤵🏼	person i smoking hudtype 3	none
+🤵🏽	person i smoking hudtype 4	none
+🤵🏾	person i smoking hudtype 5	none
+🤵🏿	person i smoking hudtype 6	none
+🤵🏻‍♂	mann i smoking hudtype 1–2	none
+🤵🏼‍♂	mann i smoking hudtype 3	none
+🤵🏽‍♂	mann i smoking hudtype 4	none
+🤵🏾‍♂	mann i smoking hudtype 5	none
+🤵🏿‍♂	mann i smoking hudtype 6	none
+🤵🏻‍♀	kvinne i smoking hudtype 1–2	none
+🤵🏼‍♀	kvinne i smoking hudtype 3	none
+🤵🏽‍♀	kvinne i smoking hudtype 4	none
+🤵🏾‍♀	kvinne i smoking hudtype 5	none
+🤵🏿‍♀	kvinne i smoking hudtype 6	none
+👰🏻	person med slør hudtype 1–2	none
+👰🏼	person med slør hudtype 3	none
+👰🏽	person med slør hudtype 4	none
+👰🏾	person med slør hudtype 5	none
+👰🏿	person med slør hudtype 6	none
+👰🏻‍♂	mann med slør hudtype 1–2	none
+👰🏼‍♂	mann med slør hudtype 3	none
+👰🏽‍♂	mann med slør hudtype 4	none
+👰🏾‍♂	mann med slør hudtype 5	none
+👰🏿‍♂	mann med slør hudtype 6	none
+👰🏻‍♀	kvinne med slør hudtype 1–2	none
+👰🏼‍♀	kvinne med slør hudtype 3	none
+👰🏽‍♀	kvinne med slør hudtype 4	none
+👰🏾‍♀	kvinne med slør hudtype 5	none
+👰🏿‍♀	kvinne med slør hudtype 6	none
+🤰🏻	gravid kvinne hudtype 1–2	none
+🤰🏼	gravid kvinne hudtype 3	none
+🤰🏽	gravid kvinne hudtype 4	none
+🤰🏾	gravid kvinne hudtype 5	none
+🤰🏿	gravid kvinne hudtype 6	none
+🤱🏻	ammar hudtype 1–2	none
+🤱🏼	ammar hudtype 3	none
+🤱🏽	ammar hudtype 4	none
+🤱🏾	ammar hudtype 5	none
+🤱🏿	ammar hudtype 6	none
+👩🏻‍🍼	kvinne som matar baby hudtype 1–2	none
+👩🏼‍🍼	kvinne som matar baby hudtype 3	none
+👩🏽‍🍼	kvinne som matar baby hudtype 4	none
+👩🏾‍🍼	kvinne som matar baby hudtype 5	none
+👩🏿‍🍼	kvinne som matar baby hudtype 6	none
+👨🏻‍🍼	mann som matar baby hudtype 1–2	none
+👨🏼‍🍼	mann som matar baby hudtype 3	none
+👨🏽‍🍼	mann som matar baby hudtype 4	none
+👨🏾‍🍼	mann som matar baby hudtype 5	none
+👨🏿‍🍼	mann som matar baby hudtype 6	none
+🧑🏻‍🍼	person som matar baby hudtype 1–2	none
+🧑🏼‍🍼	person som matar baby hudtype 3	none
+🧑🏽‍🍼	person som matar baby hudtype 4	none
+🧑🏾‍🍼	person som matar baby hudtype 5	none
+🧑🏿‍🍼	person som matar baby hudtype 6	none
+👼🏻	babyengel hudtype 1–2	none
+👼🏼	babyengel hudtype 3	none
+👼🏽	babyengel hudtype 4	none
+👼🏾	babyengel hudtype 5	none
+👼🏿	babyengel hudtype 6	none
+🎅🏻	julenissen hudtype 1–2	none
+🎅🏼	julenissen hudtype 3	none
+🎅🏽	julenissen hudtype 4	none
+🎅🏾	julenissen hudtype 5	none
+🎅🏿	julenissen hudtype 6	none
+🤶🏻	julenissemor hudtype 1–2	none
+🤶🏼	julenissemor hudtype 3	none
+🤶🏽	julenissemor hudtype 4	none
+🤶🏾	julenissemor hudtype 5	none
+🤶🏿	julenissemor hudtype 6	none
+🧑🏻‍🎄	julenisse hudtype 1–2	none
+🧑🏼‍🎄	julenisse hudtype 3	none
+🧑🏽‍🎄	julenisse hudtype 4	none
+🧑🏾‍🎄	julenisse hudtype 5	none
+🧑🏿‍🎄	julenisse hudtype 6	none
+🦸🏻	superhelt hudtype 1–2	none
+🦸🏼	superhelt hudtype 3	none
+🦸🏽	superhelt hudtype 4	none
+🦸🏾	superhelt hudtype 5	none
+🦸🏿	superhelt hudtype 6	none
+🦸🏻‍♂	mannleg superhelt hudtype 1–2	none
+🦸🏼‍♂	mannleg superhelt hudtype 3	none
+🦸🏽‍♂	mannleg superhelt hudtype 4	none
+🦸🏾‍♂	mannleg superhelt hudtype 5	none
+🦸🏿‍♂	mannleg superhelt hudtype 6	none
+🦸🏻‍♀	kvinneleg superhelt hudtype 1–2	none
+🦸🏼‍♀	kvinneleg superhelt hudtype 3	none
+🦸🏽‍♀	kvinneleg superhelt hudtype 4	none
+🦸🏾‍♀	kvinneleg superhelt hudtype 5	none
+🦸🏿‍♀	kvinneleg superhelt hudtype 6	none
+🦹🏻	superskurk hudtype 1–2	none
+🦹🏼	superskurk hudtype 3	none
+🦹🏽	superskurk hudtype 4	none
+🦹🏾	superskurk hudtype 5	none
+🦹🏿	superskurk hudtype 6	none
+🦹🏻‍♂	mannleg superskurk hudtype 1–2	none
+🦹🏼‍♂	mannleg superskurk hudtype 3	none
+🦹🏽‍♂	mannleg superskurk hudtype 4	none
+🦹🏾‍♂	mannleg superskurk hudtype 5	none
+🦹🏿‍♂	mannleg superskurk hudtype 6	none
+🦹🏻‍♀	kvinneleg superskurk hudtype 1–2	none
+🦹🏼‍♀	kvinneleg superskurk hudtype 3	none
+🦹🏽‍♀	kvinneleg superskurk hudtype 4	none
+🦹🏾‍♀	kvinneleg superskurk hudtype 5	none
+🦹🏿‍♀	kvinneleg superskurk hudtype 6	none
+🧙🏻	trollperson hudtype 1–2	none
+🧙🏼	trollperson hudtype 3	none
+🧙🏽	trollperson hudtype 4	none
+🧙🏾	trollperson hudtype 5	none
+🧙🏿	trollperson hudtype 6	none
+🧙🏻‍♂	trollmann hudtype 1–2	none
+🧙🏼‍♂	trollmann hudtype 3	none
+🧙🏽‍♂	trollmann hudtype 4	none
+🧙🏾‍♂	trollmann hudtype 5	none
+🧙🏿‍♂	trollmann hudtype 6	none
+🧙🏻‍♀	trollkvinne hudtype 1–2	none
+🧙🏼‍♀	trollkvinne hudtype 3	none
+🧙🏽‍♀	trollkvinne hudtype 4	none
+🧙🏾‍♀	trollkvinne hudtype 5	none
+🧙🏿‍♀	trollkvinne hudtype 6	none
+🧚🏻	fe hudtype 1–2	none
+🧚🏼	fe hudtype 3	none
+🧚🏽	fe hudtype 4	none
+🧚🏾	fe hudtype 5	none
+🧚🏿	fe hudtype 6	none
+🧚🏻‍♂	mannleg fe hudtype 1–2	none
+🧚🏼‍♂	mannleg fe hudtype 3	none
+🧚🏽‍♂	mannleg fe hudtype 4	none
+🧚🏾‍♂	mannleg fe hudtype 5	none
+🧚🏿‍♂	mannleg fe hudtype 6	none
+🧚🏻‍♀	kvinneleg fe hudtype 1–2	none
+🧚🏼‍♀	kvinneleg fe hudtype 3	none
+🧚🏽‍♀	kvinneleg fe hudtype 4	none
+🧚🏾‍♀	kvinneleg fe hudtype 5	none
+🧚🏿‍♀	kvinneleg fe hudtype 6	none
+🧛🏻	vampyr hudtype 1–2	none
+🧛🏼	vampyr hudtype 3	none
+🧛🏽	vampyr hudtype 4	none
+🧛🏾	vampyr hudtype 5	none
+🧛🏿	vampyr hudtype 6	none
+🧛🏻‍♂	mannleg vampyr hudtype 1–2	none
+🧛🏼‍♂	mannleg vampyr hudtype 3	none
+🧛🏽‍♂	mannleg vampyr hudtype 4	none
+🧛🏾‍♂	mannleg vampyr hudtype 5	none
+🧛🏿‍♂	mannleg vampyr hudtype 6	none
+🧛🏻‍♀	kvinneleg vampyr hudtype 1–2	none
+🧛🏼‍♀	kvinneleg vampyr hudtype 3	none
+🧛🏽‍♀	kvinneleg vampyr hudtype 4	none
+🧛🏾‍♀	kvinneleg vampyr hudtype 5	none
+🧛🏿‍♀	kvinneleg vampyr hudtype 6	none
+🧜🏻	havperson hudtype 1–2	none
+🧜🏼	havperson hudtype 3	none
+🧜🏽	havperson hudtype 4	none
+🧜🏾	havperson hudtype 5	none
+🧜🏿	havperson hudtype 6	none
+🧜🏻‍♂	havmann hudtype 1–2	none
+🧜🏼‍♂	havmann hudtype 3	none
+🧜🏽‍♂	havmann hudtype 4	none
+🧜🏾‍♂	havmann hudtype 5	none
+🧜🏿‍♂	havmann hudtype 6	none
+🧜🏻‍♀	havfrue hudtype 1–2	none
+🧜🏼‍♀	havfrue hudtype 3	none
+🧜🏽‍♀	havfrue hudtype 4	none
+🧜🏾‍♀	havfrue hudtype 5	none
+🧜🏿‍♀	havfrue hudtype 6	none
+🧝🏻	alv hudtype 1–2	none
+🧝🏼	alv hudtype 3	none
+🧝🏽	alv hudtype 4	none
+🧝🏾	alv hudtype 5	none
+🧝🏿	alv hudtype 6	none
+🧝🏻‍♂	mannleg alv hudtype 1–2	none
+🧝🏼‍♂	mannleg alv hudtype 3	none
+🧝🏽‍♂	mannleg alv hudtype 4	none
+🧝🏾‍♂	mannleg alv hudtype 5	none
+🧝🏿‍♂	mannleg alv hudtype 6	none
+🧝🏻‍♀	kvinneleg alv hudtype 1–2	none
+🧝🏼‍♀	kvinneleg alv hudtype 3	none
+🧝🏽‍♀	kvinneleg alv hudtype 4	none
+🧝🏾‍♀	kvinneleg alv hudtype 5	none
+🧝🏿‍♀	kvinneleg alv hudtype 6	none
+💆🏻	andletsmassasje hudtype 1–2	none
+💆🏼	andletsmassasje hudtype 3	none
+💆🏽	andletsmassasje hudtype 4	none
+💆🏾	andletsmassasje hudtype 5	none
+💆🏿	andletsmassasje hudtype 6	none
+💆🏻‍♂	mann som får andletsmassasje hudtype 1–2	none
+💆🏼‍♂	mann som får andletsmassasje hudtype 3	none
+💆🏽‍♂	mann som får andletsmassasje hudtype 4	none
+💆🏾‍♂	mann som får andletsmassasje hudtype 5	none
+💆🏿‍♂	mann som får andletsmassasje hudtype 6	none
+💆🏻‍♀	kvinne som får andletsmassasje hudtype 1–2	none
+💆🏼‍♀	kvinne som får andletsmassasje hudtype 3	none
+💆🏽‍♀	kvinne som får andletsmassasje hudtype 4	none
+💆🏾‍♀	kvinne som får andletsmassasje hudtype 5	none
+💆🏿‍♀	kvinne som får andletsmassasje hudtype 6	none
+💇🏻	hårklipp hudtype 1–2	none
+💇🏼	hårklipp hudtype 3	none
+💇🏽	hårklipp hudtype 4	none
+💇🏾	hårklipp hudtype 5	none
+💇🏿	hårklipp hudtype 6	none
+💇🏻‍♂	mann som får hårklipp hudtype 1–2	none
+💇🏼‍♂	mann som får hårklipp hudtype 3	none
+💇🏽‍♂	mann som får hårklipp hudtype 4	none
+💇🏾‍♂	mann som får hårklipp hudtype 5	none
+💇🏿‍♂	mann som får hårklipp hudtype 6	none
+💇🏻‍♀	kvinne som får hårklipp hudtype 1–2	none
+💇🏼‍♀	kvinne som får hårklipp hudtype 3	none
+💇🏽‍♀	kvinne som får hårklipp hudtype 4	none
+💇🏾‍♀	kvinne som får hårklipp hudtype 5	none
+💇🏿‍♀	kvinne som får hårklipp hudtype 6	none
+🚶🏻	fotgjengar hudtype 1–2	none
+🚶🏼	fotgjengar hudtype 3	none
+🚶🏽	fotgjengar hudtype 4	none
+🚶🏾	fotgjengar hudtype 5	none
+🚶🏿	fotgjengar hudtype 6	none
+🚶🏻‍♂	mannleg fotgjengar hudtype 1–2	none
+🚶🏼‍♂	mannleg fotgjengar hudtype 3	none
+🚶🏽‍♂	mannleg fotgjengar hudtype 4	none
+🚶🏾‍♂	mannleg fotgjengar hudtype 5	none
+🚶🏿‍♂	mannleg fotgjengar hudtype 6	none
+🚶🏻‍♀	kvinneleg fotgjengar hudtype 1–2	none
+🚶🏼‍♀	kvinneleg fotgjengar hudtype 3	none
+🚶🏽‍♀	kvinneleg fotgjengar hudtype 4	none
+🚶🏾‍♀	kvinneleg fotgjengar hudtype 5	none
+🚶🏿‍♀	kvinneleg fotgjengar hudtype 6	none
+🧍🏻	person som står hudtype 1–2	none
+🧍🏼	person som står hudtype 3	none
+🧍🏽	person som står hudtype 4	none
+🧍🏾	person som står hudtype 5	none
+🧍🏿	person som står hudtype 6	none
+🧍🏻‍♂	mann som står hudtype 1–2	none
+🧍🏼‍♂	mann som står hudtype 3	none
+🧍🏽‍♂	mann som står hudtype 4	none
+🧍🏾‍♂	mann som står hudtype 5	none
+🧍🏿‍♂	mann som står hudtype 6	none
+🧍🏻‍♀	kvinne som står hudtype 1–2	none
+🧍🏼‍♀	kvinne som står hudtype 3	none
+🧍🏽‍♀	kvinne som står hudtype 4	none
+🧍🏾‍♀	kvinne som står hudtype 5	none
+🧍🏿‍♀	kvinne som står hudtype 6	none
+🧎🏻	person som kneler hudtype 1–2	none
+🧎🏼	person som kneler hudtype 3	none
+🧎🏽	person som kneler hudtype 4	none
+🧎🏾	person som kneler hudtype 5	none
+🧎🏿	person som kneler hudtype 6	none
+🧎🏻‍♂	mann som kneler hudtype 1–2	none
+🧎🏼‍♂	mann som kneler hudtype 3	none
+🧎🏽‍♂	mann som kneler hudtype 4	none
+🧎🏾‍♂	mann som kneler hudtype 5	none
+🧎🏿‍♂	mann som kneler hudtype 6	none
+🧎🏻‍♀	kvinne som kneler hudtype 1–2	none
+🧎🏼‍♀	kvinne som kneler hudtype 3	none
+🧎🏽‍♀	kvinne som kneler hudtype 4	none
+🧎🏾‍♀	kvinne som kneler hudtype 5	none
+🧎🏿‍♀	kvinne som kneler hudtype 6	none
+🧑🏻‍🦯	person med blindestokk hudtype 1–2	none
+🧑🏼‍🦯	person med blindestokk hudtype 3	none
+🧑🏽‍🦯	person med blindestokk hudtype 4	none
+🧑🏾‍🦯	person med blindestokk hudtype 5	none
+🧑🏿‍🦯	person med blindestokk hudtype 6	none
+👨🏻‍🦯	mann med blindestokk hudtype 1–2	none
+👨🏼‍🦯	mann med blindestokk hudtype 3	none
+👨🏽‍🦯	mann med blindestokk hudtype 4	none
+👨🏾‍🦯	mann med blindestokk hudtype 5	none
+👨🏿‍🦯	mann med blindestokk hudtype 6	none
+👩🏻‍🦯	kvinne med blindestokk hudtype 1–2	none
+👩🏼‍🦯	kvinne med blindestokk hudtype 3	none
+👩🏽‍🦯	kvinne med blindestokk hudtype 4	none
+👩🏾‍🦯	kvinne med blindestokk hudtype 5	none
+👩🏿‍🦯	kvinne med blindestokk hudtype 6	none
+🧑🏻‍🦼	person i motorisert rullestol hudtype 1–2	none
+🧑🏼‍🦼	person i motorisert rullestol hudtype 3	none
+🧑🏽‍🦼	person i motorisert rullestol hudtype 4	none
+🧑🏾‍🦼	person i motorisert rullestol hudtype 5	none
+🧑🏿‍🦼	person i motorisert rullestol hudtype 6	none
+👨🏻‍🦼	mann i motorisert rullestol hudtype 1–2	none
+👨🏼‍🦼	mann i motorisert rullestol hudtype 3	none
+👨🏽‍🦼	mann i motorisert rullestol hudtype 4	none
+👨🏾‍🦼	mann i motorisert rullestol hudtype 5	none
+👨🏿‍🦼	mann i motorisert rullestol hudtype 6	none
+👩🏻‍🦼	kvinne i motorisert rullestol hudtype 1–2	none
+👩🏼‍🦼	kvinne i motorisert rullestol hudtype 3	none
+👩🏽‍🦼	kvinne i motorisert rullestol hudtype 4	none
+👩🏾‍🦼	kvinne i motorisert rullestol hudtype 5	none
+👩🏿‍🦼	kvinne i motorisert rullestol hudtype 6	none
+🧑🏻‍🦽	person i manuell rullestol hudtype 1–2	none
+🧑🏼‍🦽	person i manuell rullestol hudtype 3	none
+🧑🏽‍🦽	person i manuell rullestol hudtype 4	none
+🧑🏾‍🦽	person i manuell rullestol hudtype 5	none
+🧑🏿‍🦽	person i manuell rullestol hudtype 6	none
+👨🏻‍🦽	mann i manuell rullestol hudtype 1–2	none
+👨🏼‍🦽	mann i manuell rullestol hudtype 3	none
+👨🏽‍🦽	mann i manuell rullestol hudtype 4	none
+👨🏾‍🦽	mann i manuell rullestol hudtype 5	none
+👨🏿‍🦽	mann i manuell rullestol hudtype 6	none
+👩🏻‍🦽	kvinne i manuell rullestol hudtype 1–2	none
+👩🏼‍🦽	kvinne i manuell rullestol hudtype 3	none
+👩🏽‍🦽	kvinne i manuell rullestol hudtype 4	none
+👩🏾‍🦽	kvinne i manuell rullestol hudtype 5	none
+👩🏿‍🦽	kvinne i manuell rullestol hudtype 6	none
+🏃🏻	løpar hudtype 1–2	none
+🏃🏼	løpar hudtype 3	none
+🏃🏽	løpar hudtype 4	none
+🏃🏾	løpar hudtype 5	none
+🏃🏿	løpar hudtype 6	none
+🏃🏻‍♂	mannleg løpar hudtype 1–2	none
+🏃🏼‍♂	mannleg løpar hudtype 3	none
+🏃🏽‍♂	mannleg løpar hudtype 4	none
+🏃🏾‍♂	mannleg løpar hudtype 5	none
+🏃🏿‍♂	mannleg løpar hudtype 6	none
+🏃🏻‍♀	kvineleg løpar hudtype 1–2	none
+🏃🏼‍♀	kvineleg løpar hudtype 3	none
+🏃🏽‍♀	kvineleg løpar hudtype 4	none
+🏃🏾‍♀	kvineleg løpar hudtype 5	none
+🏃🏿‍♀	kvineleg løpar hudtype 6	none
+💃🏻	dansande kvinne hudtype 1–2	none
+💃🏼	dansande kvinne hudtype 3	none
+💃🏽	dansande kvinne hudtype 4	none
+💃🏾	dansande kvinne hudtype 5	none
+💃🏿	dansande kvinne hudtype 6	none
+🕺🏻	dansande mann hudtype 1–2	none
+🕺🏼	dansande mann hudtype 3	none
+🕺🏽	dansande mann hudtype 4	none
+🕺🏾	dansande mann hudtype 5	none
+🕺🏿	dansande mann hudtype 6	none
+🕴🏻	svevande mann i dress hudtype 1–2	none
+🕴🏼	svevande mann i dress hudtype 3	none
+🕴🏽	svevande mann i dress hudtype 4	none
+🕴🏾	svevande mann i dress hudtype 5	none
+🕴🏿	svevande mann i dress hudtype 6	none
+🧖🏻	person i badstove hudtype 1–2	none
+🧖🏼	person i badstove hudtype 3	none
+🧖🏽	person i badstove hudtype 4	none
+🧖🏾	person i badstove hudtype 5	none
+🧖🏿	person i badstove hudtype 6	none
+🧖🏻‍♂	mann i badstove hudtype 1–2	none
+🧖🏼‍♂	mann i badstove hudtype 3	none
+🧖🏽‍♂	mann i badstove hudtype 4	none
+🧖🏾‍♂	mann i badstove hudtype 5	none
+🧖🏿‍♂	mann i badstove hudtype 6	none
+🧖🏻‍♀	kvinne i badstove hudtype 1–2	none
+🧖🏼‍♀	kvinne i badstove hudtype 3	none
+🧖🏽‍♀	kvinne i badstove hudtype 4	none
+🧖🏾‍♀	kvinne i badstove hudtype 5	none
+🧖🏿‍♀	kvinne i badstove hudtype 6	none
+🧗🏻	klatrar hudtype 1–2	none
+🧗🏼	klatrar hudtype 3	none
+🧗🏽	klatrar hudtype 4	none
+🧗🏾	klatrar hudtype 5	none
+🧗🏿	klatrar hudtype 6	none
+🧗🏻‍♂	mannleg klatrar hudtype 1–2	none
+🧗🏼‍♂	mannleg klatrar hudtype 3	none
+🧗🏽‍♂	mannleg klatrar hudtype 4	none
+🧗🏾‍♂	mannleg klatrar hudtype 5	none
+🧗🏿‍♂	mannleg klatrar hudtype 6	none
+🧗🏻‍♀	kvinneleg klatrar hudtype 1–2	none
+🧗🏼‍♀	kvinneleg klatrar hudtype 3	none
+🧗🏽‍♀	kvinneleg klatrar hudtype 4	none
+🧗🏾‍♀	kvinneleg klatrar hudtype 5	none
+🧗🏿‍♀	kvinneleg klatrar hudtype 6	none
+🏇🏻	hesteveddeløp hudtype 1–2	none
+🏇🏼	hesteveddeløp hudtype 3	none
+🏇🏽	hesteveddeløp hudtype 4	none
+🏇🏾	hesteveddeløp hudtype 5	none
+🏇🏿	hesteveddeløp hudtype 6	none
+🏂🏻	snøbrettkøyrar hudtype 1–2	none
+🏂🏼	snøbrettkøyrar hudtype 3	none
+🏂🏽	snøbrettkøyrar hudtype 4	none
+🏂🏾	snøbrettkøyrar hudtype 5	none
+🏂🏿	snøbrettkøyrar hudtype 6	none
+🏌🏻	golfspelar hudtype 1–2	none
+🏌🏼	golfspelar hudtype 3	none
+🏌🏽	golfspelar hudtype 4	none
+🏌🏾	golfspelar hudtype 5	none
+🏌🏿	golfspelar hudtype 6	none
+🏌🏻‍♂	mannleg golfspelar hudtype 1–2	none
+🏌🏼‍♂	mannleg golfspelar hudtype 3	none
+🏌🏽‍♂	mannleg golfspelar hudtype 4	none
+🏌🏾‍♂	mannleg golfspelar hudtype 5	none
+🏌🏿‍♂	mannleg golfspelar hudtype 6	none
+🏌🏻‍♀	kvinneleg golfspelar hudtype 1–2	none
+🏌🏼‍♀	kvinneleg golfspelar hudtype 3	none
+🏌🏽‍♀	kvinneleg golfspelar hudtype 4	none
+🏌🏾‍♀	kvinneleg golfspelar hudtype 5	none
+🏌🏿‍♀	kvinneleg golfspelar hudtype 6	none
+🏄🏻	surfar hudtype 1–2	none
+🏄🏼	surfar hudtype 3	none
+🏄🏽	surfar hudtype 4	none
+🏄🏾	surfar hudtype 5	none
+🏄🏿	surfar hudtype 6	none
+🏄🏻‍♂	mannleg surfar hudtype 1–2	none
+🏄🏼‍♂	mannleg surfar hudtype 3	none
+🏄🏽‍♂	mannleg surfar hudtype 4	none
+🏄🏾‍♂	mannleg surfar hudtype 5	none
+🏄🏿‍♂	mannleg surfar hudtype 6	none
+🏄🏻‍♀	kvinneleg surfar hudtype 1–2	none
+🏄🏼‍♀	kvinneleg surfar hudtype 3	none
+🏄🏽‍♀	kvinneleg surfar hudtype 4	none
+🏄🏾‍♀	kvinneleg surfar hudtype 5	none
+🏄🏿‍♀	kvinneleg surfar hudtype 6	none
+🚣🏻	person i robåt hudtype 1–2	none
+🚣🏼	person i robåt hudtype 3	none
+🚣🏽	person i robåt hudtype 4	none
+🚣🏾	person i robåt hudtype 5	none
+🚣🏿	person i robåt hudtype 6	none
+🚣🏻‍♂	mann i robåt hudtype 1–2	none
+🚣🏼‍♂	mann i robåt hudtype 3	none
+🚣🏽‍♂	mann i robåt hudtype 4	none
+🚣🏾‍♂	mann i robåt hudtype 5	none
+🚣🏿‍♂	mann i robåt hudtype 6	none
+🚣🏻‍♀	kvinne i robåt hudtype 1–2	none
+🚣🏼‍♀	kvinne i robåt hudtype 3	none
+🚣🏽‍♀	kvinne i robåt hudtype 4	none
+🚣🏾‍♀	kvinne i robåt hudtype 5	none
+🚣🏿‍♀	kvinne i robåt hudtype 6	none
+🏊🏻	symjar hudtype 1–2	none
+🏊🏼	symjar hudtype 3	none
+🏊🏽	symjar hudtype 4	none
+🏊🏾	symjar hudtype 5	none
+🏊🏿	symjar hudtype 6	none
+🏊🏻‍♂	mannleg symjar hudtype 1–2	none
+🏊🏼‍♂	mannleg symjar hudtype 3	none
+🏊🏽‍♂	mannleg symjar hudtype 4	none
+🏊🏾‍♂	mannleg symjar hudtype 5	none
+🏊🏿‍♂	mannleg symjar hudtype 6	none
+🏊🏻‍♀	kvinneleg symjar hudtype 1–2	none
+🏊🏼‍♀	kvinneleg symjar hudtype 3	none
+🏊🏽‍♀	kvinneleg symjar hudtype 4	none
+🏊🏾‍♀	kvinneleg symjar hudtype 5	none
+🏊🏿‍♀	kvinneleg symjar hudtype 6	none
+⛹🏻	person med ball hudtype 1–2	none
+⛹🏼	person med ball hudtype 3	none
+⛹🏽	person med ball hudtype 4	none
+⛹🏾	person med ball hudtype 5	none
+⛹🏿	person med ball hudtype 6	none
+⛹🏻‍♂	mann med ball hudtype 1–2	none
+⛹🏼‍♂	mann med ball hudtype 3	none
+⛹🏽‍♂	mann med ball hudtype 4	none
+⛹🏾‍♂	mann med ball hudtype 5	none
+⛹🏿‍♂	mann med ball hudtype 6	none
+⛹🏻‍♀	kvinne med ball hudtype 1–2	none
+⛹🏼‍♀	kvinne med ball hudtype 3	none
+⛹🏽‍♀	kvinne med ball hudtype 4	none
+⛹🏾‍♀	kvinne med ball hudtype 5	none
+⛹🏿‍♀	kvinne med ball hudtype 6	none
+🏋🏻	vektløftar hudtype 1–2	none
+🏋🏼	vektløftar hudtype 3	none
+🏋🏽	vektløftar hudtype 4	none
+🏋🏾	vektløftar hudtype 5	none
+🏋🏿	vektløftar hudtype 6	none
+🏋🏻‍♂	mannleg vektløftar hudtype 1–2	none
+🏋🏼‍♂	mannleg vektløftar hudtype 3	none
+🏋🏽‍♂	mannleg vektløftar hudtype 4	none
+🏋🏾‍♂	mannleg vektløftar hudtype 5	none
+🏋🏿‍♂	mannleg vektløftar hudtype 6	none
+🏋🏻‍♀	kvinneleg vektløftar hudtype 1–2	none
+🏋🏼‍♀	kvinneleg vektløftar hudtype 3	none
+🏋🏽‍♀	kvinneleg vektløftar hudtype 4	none
+🏋🏾‍♀	kvinneleg vektløftar hudtype 5	none
+🏋🏿‍♀	kvinneleg vektløftar hudtype 6	none
+🚴🏻	syklist hudtype 1–2	none
+🚴🏼	syklist hudtype 3	none
+🚴🏽	syklist hudtype 4	none
+🚴🏾	syklist hudtype 5	none
+🚴🏿	syklist hudtype 6	none
+🚴🏻‍♂	mannleg syklist hudtype 1–2	none
+🚴🏼‍♂	mannleg syklist hudtype 3	none
+🚴🏽‍♂	mannleg syklist hudtype 4	none
+🚴🏾‍♂	mannleg syklist hudtype 5	none
+🚴🏿‍♂	mannleg syklist hudtype 6	none
+🚴🏻‍♀	kvinneleg syklist hudtype 1–2	none
+🚴🏼‍♀	kvinneleg syklist hudtype 3	none
+🚴🏽‍♀	kvinneleg syklist hudtype 4	none
+🚴🏾‍♀	kvinneleg syklist hudtype 5	none
+🚴🏿‍♀	kvinneleg syklist hudtype 6	none
+🚵🏻	terrengsyklist hudtype 1–2	none
+🚵🏼	terrengsyklist hudtype 3	none
+🚵🏽	terrengsyklist hudtype 4	none
+🚵🏾	terrengsyklist hudtype 5	none
+🚵🏿	terrengsyklist hudtype 6	none
+🚵🏻‍♀	kvinne på terrengsykkel hudtype 1–2	none
+🚵🏼‍♀	kvinne på terrengsykkel hudtype 3	none
+🚵🏽‍♀	kvinne på terrengsykkel hudtype 4	none
+🚵🏾‍♀	kvinne på terrengsykkel hudtype 5	none
+🚵🏿‍♀	kvinne på terrengsykkel hudtype 6	none
+🤸🏻	slå hjul hudtype 1–2	none
+🤸🏼	slå hjul hudtype 3	none
+🤸🏽	slå hjul hudtype 4	none
+🤸🏾	slå hjul hudtype 5	none
+🤸🏿	slå hjul hudtype 6	none
+🤸🏻‍♂	mann som slår hjul hudtype 1–2	none
+🤸🏼‍♂	mann som slår hjul hudtype 3	none
+🤸🏽‍♂	mann som slår hjul hudtype 4	none
+🤸🏾‍♂	mann som slår hjul hudtype 5	none
+🤸🏿‍♂	mann som slår hjul hudtype 6	none
+🤸🏻‍♀	kvinne som slår hjul hudtype 1–2	none
+🤸🏼‍♀	kvinne som slår hjul hudtype 3	none
+🤸🏽‍♀	kvinne som slår hjul hudtype 4	none
+🤸🏾‍♀	kvinne som slår hjul hudtype 5	none
+🤸🏿‍♀	kvinne som slår hjul hudtype 6	none
+🤽🏻	vasspolo hudtype 1–2	none
+🤽🏼	vasspolo hudtype 3	none
+🤽🏽	vasspolo hudtype 4	none
+🤽🏾	vasspolo hudtype 5	none
+🤽🏿	vasspolo hudtype 6	none
+🤽🏻‍♂	mannleg vasspolospelar hudtype 1–2	none
+🤽🏼‍♂	mannleg vasspolospelar hudtype 3	none
+🤽🏽‍♂	mannleg vasspolospelar hudtype 4	none
+🤽🏾‍♂	mannleg vasspolospelar hudtype 5	none
+🤽🏿‍♂	mannleg vasspolospelar hudtype 6	none
+🤽🏻‍♀	kvinneleg vasspolospelar hudtype 1–2	none
+🤽🏼‍♀	kvinneleg vasspolospelar hudtype 3	none
+🤽🏽‍♀	kvinneleg vasspolospelar hudtype 4	none
+🤽🏾‍♀	kvinneleg vasspolospelar hudtype 5	none
+🤽🏿‍♀	kvinneleg vasspolospelar hudtype 6	none
+🤾🏻	handball hudtype 1–2	none
+🤾🏼	handball hudtype 3	none
+🤾🏽	handball hudtype 4	none
+🤾🏾	handball hudtype 5	none
+🤾🏿	handball hudtype 6	none
+🤾🏻‍♂	mannleg handballspelar hudtype 1–2	none
+🤾🏼‍♂	mannleg handballspelar hudtype 3	none
+🤾🏽‍♂	mannleg handballspelar hudtype 4	none
+🤾🏾‍♂	mannleg handballspelar hudtype 5	none
+🤾🏿‍♂	mannleg handballspelar hudtype 6	none
+🤾🏻‍♀	kvinneleg handballspelar hudtype 1–2	none
+🤾🏼‍♀	kvinneleg handballspelar hudtype 3	none
+🤾🏽‍♀	kvinneleg handballspelar hudtype 4	none
+🤾🏾‍♀	kvinneleg handballspelar hudtype 5	none
+🤾🏿‍♀	kvinneleg handballspelar hudtype 6	none
+🤹🏻	sjonglering hudtype 1–2	none
+🤹🏼	sjonglering hudtype 3	none
+🤹🏽	sjonglering hudtype 4	none
+🤹🏾	sjonglering hudtype 5	none
+🤹🏿	sjonglering hudtype 6	none
+🤹🏻‍♂	mannleg sjonglør hudtype 1–2	none
+🤹🏼‍♂	mannleg sjonglør hudtype 3	none
+🤹🏽‍♂	mannleg sjonglør hudtype 4	none
+🤹🏾‍♂	mannleg sjonglør hudtype 5	none
+🤹🏿‍♂	mannleg sjonglør hudtype 6	none
+🤹🏻‍♀	kvinneleg sjonglør hudtype 1–2	none
+🤹🏼‍♀	kvinneleg sjonglør hudtype 3	none
+🤹🏽‍♀	kvinneleg sjonglør hudtype 4	none
+🤹🏾‍♀	kvinneleg sjonglør hudtype 5	none
+🤹🏿‍♀	kvinneleg sjonglør hudtype 6	none
+🧘🏻	lotusstilling hudtype 1–2	none
+🧘🏼	lotusstilling hudtype 3	none
+🧘🏽	lotusstilling hudtype 4	none
+🧘🏾	lotusstilling hudtype 5	none
+🧘🏿	lotusstilling hudtype 6	none
+🧘🏻‍♂	mann i lotusstilling hudtype 1–2	none
+🧘🏼‍♂	mann i lotusstilling hudtype 3	none
+🧘🏽‍♂	mann i lotusstilling hudtype 4	none
+🧘🏾‍♂	mann i lotusstilling hudtype 5	none
+🧘🏿‍♂	mann i lotusstilling hudtype 6	none
+🧘🏻‍♀	kvinne i lotusstilling hudtype 1–2	none
+🧘🏼‍♀	kvinne i lotusstilling hudtype 3	none
+🧘🏽‍♀	kvinne i lotusstilling hudtype 4	none
+🧘🏾‍♀	kvinne i lotusstilling hudtype 5	none
+🧘🏿‍♀	kvinne i lotusstilling hudtype 6	none
+🛀🏻	person i badekar hudtype 1–2	none
+🛀🏼	person i badekar hudtype 3	none
+🛀🏽	person i badekar hudtype 4	none
+🛀🏾	person i badekar hudtype 5	none
+🛀🏿	person i badekar hudtype 6	none
+🛌🏻	person i seng hudtype 1–2	none
+🛌🏼	person i seng hudtype 3	none
+🛌🏽	person i seng hudtype 4	none
+🛌🏾	person i seng hudtype 5	none
+🛌🏿	person i seng hudtype 6	none
+🧑🏻‍🤝‍🧑🏻	personar som leiar hudtype 1–2	none
+🧑🏻‍🤝‍🧑🏼	personar som leiar hudtype 1–2, hudtype 3	none
+🧑🏻‍🤝‍🧑🏽	personar som leiar hudtype 1–2, hudtype 4	none
+🧑🏻‍🤝‍🧑🏾	personar som leiar hudtype 1–2, hudtype 5	none
+🧑🏻‍🤝‍🧑🏿	personar som leiar hudtype 1–2, hudtype 6	none
+🧑🏼‍🤝‍🧑🏻	personar som leiar hudtype 3, hudtype 1–2	none
+🧑🏼‍🤝‍🧑🏼	personar som leiar hudtype 3	none
+🧑🏼‍🤝‍🧑🏽	personar som leiar hudtype 3, hudtype 4	none
+🧑🏼‍🤝‍🧑🏾	personar som leiar hudtype 3, hudtype 5	none
+🧑🏼‍🤝‍🧑🏿	personar som leiar hudtype 3, hudtype 6	none
+🧑🏽‍🤝‍🧑🏻	personar som leiar hudtype 4, hudtype 1–2	none
+🧑🏽‍🤝‍🧑🏼	personar som leiar hudtype 4, hudtype 3	none
+🧑🏽‍🤝‍🧑🏽	personar som leiar hudtype 4	none
+🧑🏽‍🤝‍🧑🏾	personar som leiar hudtype 4, hudtype 5	none
+🧑🏽‍🤝‍🧑🏿	personar som leiar hudtype 4, hudtype 6	none
+🧑🏾‍🤝‍🧑🏻	personar som leiar hudtype 5, hudtype 1–2	none
+🧑🏾‍🤝‍🧑🏼	personar som leiar hudtype 5, hudtype 3	none
+🧑🏾‍🤝‍🧑🏽	personar som leiar hudtype 5, hudtype 4	none
+🧑🏾‍🤝‍🧑🏾	personar som leiar hudtype 5	none
+🧑🏾‍🤝‍🧑🏿	personar som leiar hudtype 5, hudtype 6	none
+🧑🏿‍🤝‍🧑🏻	personar som leiar hudtype 6, hudtype 1–2	none
+🧑🏿‍🤝‍🧑🏼	personar som leiar hudtype 6, hudtype 3	none
+🧑🏿‍🤝‍🧑🏽	personar som leiar hudtype 6, hudtype 4	none
+🧑🏿‍🤝‍🧑🏾	personar som leiar hudtype 6, hudtype 5	none
+🧑🏿‍🤝‍🧑🏿	personar som leiar hudtype 6	none
+👭🏻	kinner som leiar hudtype 1–2	none
+👩🏻‍🤝‍👩🏼	kinner som leiar hudtype 1–2, hudtype 3	none
+👩🏻‍🤝‍👩🏽	kinner som leiar hudtype 1–2, hudtype 4	none
+👩🏻‍🤝‍👩🏾	kinner som leiar hudtype 1–2, hudtype 5	none
+👩🏻‍🤝‍👩🏿	kinner som leiar hudtype 1–2, hudtype 6	none
+👩🏼‍🤝‍👩🏻	kinner som leiar hudtype 3, hudtype 1–2	none
+👭🏼	kinner som leiar hudtype 3	none
+👩🏼‍🤝‍👩🏽	kinner som leiar hudtype 3, hudtype 4	none
+👩🏼‍🤝‍👩🏾	kinner som leiar hudtype 3, hudtype 5	none
+👩🏼‍🤝‍👩🏿	kinner som leiar hudtype 3, hudtype 6	none
+👩🏽‍🤝‍👩🏻	kinner som leiar hudtype 4, hudtype 1–2	none
+👩🏽‍🤝‍👩🏼	kinner som leiar hudtype 4, hudtype 3	none
+👭🏽	kinner som leiar hudtype 4	none
+👩🏽‍🤝‍👩🏾	kinner som leiar hudtype 4, hudtype 5	none
+👩🏽‍🤝‍👩🏿	kinner som leiar hudtype 4, hudtype 6	none
+👩🏾‍🤝‍👩🏻	kinner som leiar hudtype 5, hudtype 1–2	none
+👩🏾‍🤝‍👩🏼	kinner som leiar hudtype 5, hudtype 3	none
+👩🏾‍🤝‍👩🏽	kinner som leiar hudtype 5, hudtype 4	none
+👭🏾	kinner som leiar hudtype 5	none
+👩🏾‍🤝‍👩🏿	kinner som leiar hudtype 5, hudtype 6	none
+👩🏿‍🤝‍👩🏻	kinner som leiar hudtype 6, hudtype 1–2	none
+👩🏿‍🤝‍👩🏼	kinner som leiar hudtype 6, hudtype 3	none
+👩🏿‍🤝‍👩🏽	kinner som leiar hudtype 6, hudtype 4	none
+👩🏿‍🤝‍👩🏾	kinner som leiar hudtype 6, hudtype 5	none
+👭🏿	kinner som leiar hudtype 6	none
+👫🏻	mann og kvinne som leiar hudtype 1–2	none
+👩🏻‍🤝‍👨🏼	mann og kvinne som leiar hudtype 1–2, hudtype 3	none
+👩🏻‍🤝‍👨🏽	mann og kvinne som leiar hudtype 1–2, hudtype 4	none
+👩🏻‍🤝‍👨🏾	mann og kvinne som leiar hudtype 1–2, hudtype 5	none
+👩🏻‍🤝‍👨🏿	mann og kvinne som leiar hudtype 1–2, hudtype 6	none
+👩🏼‍🤝‍👨🏻	mann og kvinne som leiar hudtype 3, hudtype 1–2	none
+👫🏼	mann og kvinne som leiar hudtype 3	none
+👩🏼‍🤝‍👨🏽	mann og kvinne som leiar hudtype 3, hudtype 4	none
+👩🏼‍🤝‍👨🏾	mann og kvinne som leiar hudtype 3, hudtype 5	none
+👩🏼‍🤝‍👨🏿	mann og kvinne som leiar hudtype 3, hudtype 6	none
+👩🏽‍🤝‍👨🏻	mann og kvinne som leiar hudtype 4, hudtype 1–2	none
+👩🏽‍🤝‍👨🏼	mann og kvinne som leiar hudtype 4, hudtype 3	none
+👫🏽	mann og kvinne som leiar hudtype 4	none
+👩🏽‍🤝‍👨🏾	mann og kvinne som leiar hudtype 4, hudtype 5	none
+👩🏽‍🤝‍👨🏿	mann og kvinne som leiar hudtype 4, hudtype 6	none
+👩🏾‍🤝‍👨🏻	mann og kvinne som leiar hudtype 5, hudtype 1–2	none
+👩🏾‍🤝‍👨🏼	mann og kvinne som leiar hudtype 5, hudtype 3	none
+👩🏾‍🤝‍👨🏽	mann og kvinne som leiar hudtype 5, hudtype 4	none
+👫🏾	mann og kvinne som leiar hudtype 5	none
+👩🏾‍🤝‍👨🏿	mann og kvinne som leiar hudtype 5, hudtype 6	none
+👩🏿‍🤝‍👨🏻	mann og kvinne som leiar hudtype 6, hudtype 1–2	none
+👩🏿‍🤝‍👨🏼	mann og kvinne som leiar hudtype 6, hudtype 3	none
+👩🏿‍🤝‍👨🏽	mann og kvinne som leiar hudtype 6, hudtype 4	none
+👩🏿‍🤝‍👨🏾	mann og kvinne som leiar hudtype 6, hudtype 5	none
+👫🏿	mann og kvinne som leiar hudtype 6	none
+👬🏻	menn som leiar hudtype 1–2	none
+👨🏻‍🤝‍👨🏼	menn som leiar hudtype 1–2, hudtype 3	none
+👨🏻‍🤝‍👨🏽	menn som leiar hudtype 1–2, hudtype 4	none
+👨🏻‍🤝‍👨🏾	menn som leiar hudtype 1–2, hudtype 5	none
+👨🏻‍🤝‍👨🏿	menn som leiar hudtype 1–2, hudtype 6	none
+👨🏼‍🤝‍👨🏻	menn som leiar hudtype 3, hudtype 1–2	none
+👬🏼	menn som leiar hudtype 3	none
+👨🏼‍🤝‍👨🏽	menn som leiar hudtype 3, hudtype 4	none
+👨🏼‍🤝‍👨🏾	menn som leiar hudtype 3, hudtype 5	none
+👨🏼‍🤝‍👨🏿	menn som leiar hudtype 3, hudtype 6	none
+👨🏽‍🤝‍👨🏻	menn som leiar hudtype 4, hudtype 1–2	none
+👨🏽‍🤝‍👨🏼	menn som leiar hudtype 4, hudtype 3	none
+👬🏽	menn som leiar hudtype 4	none
+👨🏽‍🤝‍👨🏾	menn som leiar hudtype 4, hudtype 5	none
+👨🏽‍🤝‍👨🏿	menn som leiar hudtype 4, hudtype 6	none
+👨🏾‍🤝‍👨🏻	menn som leiar hudtype 5, hudtype 1–2	none
+👨🏾‍🤝‍👨🏼	menn som leiar hudtype 5, hudtype 3	none
+👨🏾‍🤝‍👨🏽	menn som leiar hudtype 5, hudtype 4	none
+👬🏾	menn som leiar hudtype 5	none
+👨🏾‍🤝‍👨🏿	menn som leiar hudtype 5, hudtype 6	none
+👨🏿‍🤝‍👨🏻	menn som leiar hudtype 6, hudtype 1–2	none
+👨🏿‍🤝‍👨🏼	menn som leiar hudtype 6, hudtype 3	none
+👨🏿‍🤝‍👨🏽	menn som leiar hudtype 6, hudtype 4	none
+👨🏿‍🤝‍👨🏾	menn som leiar hudtype 6, hudtype 5	none
+👬🏿	menn som leiar hudtype 6	none
+💏🏻	kyss hudtype 1–2	none
+💏🏼	kyss hudtype 3	none
+💏🏽	kyss hudtype 4	none
+💏🏾	kyss hudtype 5	none
+💏🏿	kyss hudtype 6	none
+👩‍❤‍💋‍👨	kyss kvinne, mann	none
+👨‍❤‍💋‍👨	kyss mann, mann	none
+👩‍❤‍💋‍👩	kyss kvinne, kvinne	none
+💑🏻	par med hjarte hudtype 1–2	none
+💑🏼	par med hjarte hudtype 3	none
+💑🏽	par med hjarte hudtype 4	none
+💑🏾	par med hjarte hudtype 5	none
+💑🏿	par med hjarte hudtype 6	none
+👩‍❤‍👨	par med hjarte kvinne, mann	none
+👨‍❤‍👨	par med hjarte mann, mann	none
+👩‍❤‍👩	par med hjarte kvinne, kvinne	none
+👨‍👩‍👦	familie mann, kvinne, gut	none
+👨‍👩‍👧	familie mann, kvinne, jente	none
+👨‍👩‍👧‍👦	familie mann, kvinne, jente, gut	none
+👨‍👩‍👦‍👦	familie mann, kvinne, gut, gut	none
+👨‍👩‍👧‍👧	familie mann, kvinne, jente, jente	none
+👨‍👨‍👦	familie mann, mann, gut	none
+👨‍👨‍👧	familie mann, mann, jente	none
+👨‍👨‍👧‍👦	familie mann, mann, jente, gut	none
+👨‍👨‍👦‍👦	familie mann, mann, gut, gut	none
+👨‍👨‍👧‍👧	familie mann, mann, jente, jente	none
+👩‍👩‍👦	familie kvinne, kvinne, gut	none
+👩‍👩‍👧	familie kvinne, kvinne, jente	none
+👩‍👩‍👧‍👦	familie kvinne, kvinne, jente, gut	none
+👩‍👩‍👦‍👦	familie kvinne, kvinne, gut, gut	none
+👩‍👩‍👧‍👧	familie kvinne, kvinne, jente, jente	none
+👨‍👦	familie mann, gut	none
+👨‍👦‍👦	familie mann, gut, gut	none
+👨‍👧	familie mann, jente	none
+👨‍👧‍👦	familie mann, jente, gut	none
+👨‍👧‍👧	familie mann, jente, jente	none
+👩‍👦	familie kvinne, gut	none
+👩‍👦‍👦	familie kvinne, gut, gut	none
+👩‍👧	familie kvinne, jente	none
+👩‍👧‍👦	familie kvinne, jente, gut	none
+👩‍👧‍👧	familie kvinne, jente, jente	none
 🔟	tastar 10	none
 🇦🇨	flagg Ascension	none
 🇦🇩	flagg Andorra	none
@@ -98,6 +3339,7 @@ symbols:
 🇪🇷	flagg Eritrea	none
 🇪🇸	flagg Spania	none
 🇪🇹	flagg Etiopia	none
+🇪🇺	flagg Den europeiske unionen	none
 🇫🇮	flagg Finland	none
 🇫🇯	flagg Fiji	none
 🇫🇰	flagg Falklandsøyane	none
@@ -118,12 +3360,12 @@ symbols:
 🇬🇵	flagg Guadeloupe	none
 🇬🇶	flagg Ekvatorial-Guinea	none
 🇬🇷	flagg Hellas	none
-🇬🇸	flagg Sør-Georgia og Sør-Sandwichøyene	none
+🇬🇸	flagg Sør-Georgia og Sør-Sandwichøyane	none
 🇬🇹	flagg Guatemala	none
 🇬🇺	flagg Guam	none
 🇬🇼	flagg Guinea-Bissau	none
 🇬🇾	flagg Guyana	none
-🇭🇰	flagg Hongkong S.A.R. Kina	none
+🇭🇰	flagg Hongkong SAR Kina	none
 🇭🇲	flagg Heardøya og McDonaldøyane	none
 🇭🇳	flagg Honduras	none
 🇭🇷	flagg Kroatia	none
@@ -135,7 +3377,7 @@ symbols:
 🇮🇱	flagg Israel	none
 🇮🇲	flagg Man	none
 🇮🇳	flagg India	none
-🇮🇴	flagg Det britiske territoriet I Indiahavet	none
+🇮🇴	flagg Det britiske territoriet i Indiahavet	none
 🇮🇶	flagg Irak	none
 🇮🇷	flagg Iran	none
 🇮🇸	flagg Island	none
@@ -170,14 +3412,14 @@ symbols:
 🇲🇨	flagg Monaco	none
 🇲🇩	flagg Moldova	none
 🇲🇪	flagg Montenegro	none
-🇲🇫	flagg Saint Martin	none
+🇲🇫	flagg Saint-Martin	none
 🇲🇬	flagg Madagaskar	none
 🇲🇭	flagg Marshalløyane	none
 🇲🇰	flagg Nord-Makedonia	none
 🇲🇱	flagg Mali	none
 🇲🇲	flagg Myanmar (Burma)	none
 🇲🇳	flagg Mongolia	none
-🇲🇴	flagg Macao S.A.R. Kina	none
+🇲🇴	flagg Macao SAR Kina	none
 🇲🇵	flagg Nord-Marianane	none
 🇲🇶	flagg Martinique	none
 🇲🇷	flagg Mauritania	none
@@ -212,7 +3454,7 @@ symbols:
 🇵🇲	flagg Saint-Pierre-et-Miquelon	none
 🇵🇳	flagg Pitcairn	none
 🇵🇷	flagg Puerto Rico	none
-🇵🇸	flagg Palestinsk territorium	none
+🇵🇸	flagg Det palestinske området	none
 🇵🇹	flagg Portugal	none
 🇵🇼	flagg Palau	none
 🇵🇾	flagg Paraguay	none
@@ -242,7 +3484,7 @@ symbols:
 🇸🇻	flagg El Salvador	none
 🇸🇽	flagg Sint Maarten	none
 🇸🇾	flagg Syria	none
-🇸🇿	flagg Swaziland	none
+🇸🇿	flagg Eswatini	none
 🇹🇦	flagg Tristan da Cunha	none
 🇹🇨	flagg Turks- og Caicosøyane	none
 🇹🇩	flagg Tsjad	none
@@ -251,7 +3493,7 @@ symbols:
 🇹🇭	flagg Thailand	none
 🇹🇯	flagg Tadsjikistan	none
 🇹🇰	flagg Tokelau	none
-🇹🇱	flagg Timor-Leste (Aust-Timor)	none
+🇹🇱	flagg Aust-Timor	none
 🇹🇲	flagg Turkmenistan	none
 🇹🇳	flagg Tunisia	none
 🇹🇴	flagg Tonga	none
@@ -282,3 +3524,17 @@ symbols:
 🇿🇦	flagg Sør-Afrika	none
 🇿🇲	flagg Zambia	none
 🇿🇼	flagg Zimbabwe	none
+₡	kostarikanske colón	none
+₦	nigerianske naira	none
+₧	spanske peseta	none
+₪	nye israelske sheklar	none
+₫	vietnamesiske dong	none
+₭	laotiske kip	none
+₮	mongolske tugrik	none
+₲	paraguayanske guaraní	none
+₴	ukrainske hryvnia	none
+₵	ghanesiske cedi	none
+₸	kasakhstanske tenge	none
+₺	tyrkiske lire	none
+₼	aserbajdsjanske manat	none
+₾	georgiske lari	none

@@ -10,20 +10,66 @@ symbols:
 🏿	tamno smeđa boja kože	none
 ℗	simbol autorskog prava za snimanje zvuka	none
 ←	strelica koja pokazuje ulijevo	none
+↚	kosa crta sa strelicom ulijevo	none
 →	strelica koja pokazuje udesno	none
+↛	kosa crta sa strelicom udesno	none
 ↑	strelica koja pokazuje prema gore	none
 ↓	strelica koja pokazuje prema dolje	none
+↜	valovita strelica ulijevo	none
+↝	valovita strelica udesno	none
+↞	strelica s dva vrha ulijevo	none
+↟	strelica s dva vrha prema gore	none
+↠	strelica s dva vrha udesno	none
+↡	strelica s dva vrha prema dolje	none
+↭	valovita strelica s vrhom ulijevo i vrhom udesno	none
+↯	cik-cak strelica prema dolje	none
+↰	strelica prema gore s vrhom ulijevo	none
+↱	strelica prema gore s vrhom udesno	none
+↲	strelica prema dolje s vrhom ulijevo	none
+↳	strelica prema dolje s vrhom udesno	none
+⇄	strelica udesno iznad strelice ulijevo	none
 ⇅	strelica prema gore i strelica prema dolje	none
 ⇆	strelica ulijevo iznad strelice udesno	none
+⇇	uparene strelice ulijevo	none
+⇈	uparene strelice prema gore	none
+⇉	uparene strelice udesno	none
+⇊	uparene strelice prema dolje	none
+⇑	dvostruka strelica prema gore	none
+⇒	dvostruka strelica udesno	none
+⇏	precrtana dvostruka strelica udesno	none
+⇓	dvostruka strelica prema dolje	none
+⇔	dvostruka strelica ulijevo i udesno	none
+⇎	precrtana dvostruka strelica ulijevo i udesno	none
+⇖	dvostruka strelica prema gore-lijevo	none
+⇗	dvostruka strelica prema gore-desno	none
+⇘	dvostruka strelica prema dolje-desno	none
+⇙	dvostruka strelica prema dolje-lijevo	none
+⇚	trostruka strelica ulijevo	none
+⇛	trostruka strelica udesno	none
+⇞	dvostruko precrtana strelica prema gore	none
+⇟	dvostruko precrtana strelica prema dolje	none
+⇠	iscrtkana strelica ulijevo	none
+⇡	iscrtkana strelica prema gore	none
+⇢	iscrtkana strelica udesno	none
+⇣	iscrtkana strelica prema dolje	none
+∀	za sve	none
 ∆	inkrement	none
 ∇	nabla	none
 ∈	je element	none
+∉	nije element	none
+∋	sadrži član	none
+≠	različito	none
+−	znak minusa	none
 ⁻	minus u eksponentu	none
 √	kvadratni korijen	none
 ∞	beskonačno	none
 ∩	presjek skupova	none
 ∪	unija skupova	none
+≈	približno jednako	none
 ≡	identično jednako	none
+≤	manje ili jednako	none
+≥	veće ili jednako	none
+≬	između	none
 ⊂	je pravi podskup od	none
 ▲	ispunjen trokut usmjeren prema gore	none
 ▼	ispunjen trokut usmjeren prema dolje	none
@@ -31,6 +77,9 @@ symbols:
 ○	prazan krug	none
 ●	ispunjen krug	none
 ◯	velik prazni krug	none
+♪	osminka	none
+♭	snizilica	none
+♯	povisilica	none
 😀	nasmijano lice	none
 😃	nasmijano lice s velikim očima	none
 😄	nasmijano lice s nasmiješenim očima	none
@@ -68,10 +117,12 @@ symbols:
 😐	neutralno lice	none
 😑	bezizražajno lice	none
 😶	lice bez usta	none
+😶‍🌫	lice u oblacima	none
 😏	lice koje se smijulji	none
 😒	lice s izrazom dosade	none
 🙄	lice s kolutajućim očima	none
 😬	lice s grimasom	none
+😮‍💨	lice koje izdiše	none
 🤥	lice koje laže	none
 😌	lice s izrazom olakšanja	none
 😔	zamišljeno lice	none
@@ -88,6 +139,7 @@ symbols:
 🥶	zamrznuto lice	none
 🥴	ošamućeno lice	none
 😵	lice s vrtoglavicom	none
+😵‍💫	lice sa spiralnim očima	none
 🤯	eksplodirajuća glava	none
 🤠	kauboj sa šeširom	none
 🥳	lice koje se zabavlja	none
@@ -159,6 +211,8 @@ symbols:
 💟	ukras srca	none
 ❣	uskličnik u obliku srca	none
 💔	slomljeno srce	none
+❤‍🔥	srce u plamenu	none
+❤‍🩹	srce koje se liječi	none
 ❤	crveno srce	none
 🧡	narančasto srce	none
 💛	žuto srce	none
@@ -225,7 +279,7 @@ symbols:
 🦻	uho sa slušnim aparatom	none
 👃	nos	none
 🧠	mozak	none
-🫀	srce	none
+🫀	anatomsko srce	none
 🫁	pluća	none
 🦷	zub	none
 🦴	kost	none
@@ -241,8 +295,10 @@ symbols:
 👱	plavokosa osoba	none
 👨	muškarac	none
 🧔	muškarac s bradom	none
+🧔‍♂	muškarac brada	none
 👱‍♂	plavokosi muškarac	none
 👩	žena	none
+🧔‍♀	žena brada	none
 👱‍♀	plavokosa žena	none
 🧓	starija osoba	none
 👴	starac	none
@@ -690,7 +746,7 @@ symbols:
 🥚	jaje	none
 🍳	kuhanje	none
 🥘	posuda s hranom	none
-🍲	zdjela s hranom	none
+🍲	lonac s hranom	none
 🫕	fondi	none
 🥣	zdjelica sa žlicom	none
 🥗	zelena salata	none
@@ -749,7 +805,7 @@ symbols:
 🥂	zdravica	none
 🥃	žestoko piće	none
 🥤	čaša sa slamkom	none
-🧋	bubble tea	none
+🧋	mjehuričasti čaj	none
 🧃	sok u tetrapaku	none
 🧉	mate	none
 🧊	kocka leda	none
@@ -995,7 +1051,7 @@ symbols:
 🎗	spomen-traka	none
 🎟	ulaznice	none
 🎫	ulaznica	none
-🎖	vojna medalja	none
+🎖	vojno odličje	none
 🏆	trofej	none
 🏅	sportska medalja	none
 🥇	zlatna medalja	none
@@ -1150,7 +1206,7 @@ symbols:
 📀	dvd	none
 🧮	abakus	none
 🎥	filmska kamera	none
-🎞	filmska traka	none
+🎞	filmska vrpca	none
 📽	filmski projektor	none
 🎬	klapa	none
 📺	televizor	none
@@ -1215,7 +1271,7 @@ symbols:
 💼	aktovka	none
 📁	mapa	none
 📂	otvorena mapa	none
-🗂	razdjelnici kartica	none
+🗂	razdjelnici	none
 📅	kalendar	none
 📆	kalendar na trganje	none
 🗒	spiralni notes	none
@@ -1248,7 +1304,7 @@ symbols:
 🛠	čekić i francuski ključ	none
 🗡	bodež	none
 ⚔	prekriženi mačevi	none
-🔫	pištolj	none
+🔫	pištolj na vodu	none
 🪃	bumerang	none
 🏹	luk i strijela	none
 🛡	štit	none
@@ -1307,9 +1363,9 @@ symbols:
 🪦	nadgrobni spomenik	none
 ⚱	urna	none
 🗿	moai	none
-🪧	znak	none
+🪧	transparent	none
 🏧	znak za bankomat	none
-🚮	znak za koš za otpatke	none
+🚮	znak za koš za smeće	none
 🚰	pitka voda	none
 ♿	invalidska kolica	none
 🚹	muški toalet	none
@@ -1344,6 +1400,7 @@ symbols:
 ↖	strelica prema gore-lijevo	none
 ↕	strelica gore-dolje	none
 ↔	strelica lijevo-desno	none
+↮	kosa crta sa strelicom ulijevo i udesno	none
 ↩	desna strelica koja se zakrivljuje ulijevo	none
 ↪	lijeva strelica koja se zakrivljuje udesno	none
 ⤴	desna strelica koja se zakrivljuje prema gore	none
@@ -1412,12 +1469,12 @@ symbols:
 ➖	znak minus	none
 ➗	znak dijeljenja	none
 ♾	beskonačnost	none
-❓	upitnik	none
+❓	crveni upitnik	none
 ❔	bijeli upitnik	none
 ❕	bijeli uskličnik	none
-❗	uskličnik	none
+❗	crveni uskličnik	none
 💱	mjenjačnica	none
-💲	masno otisnuti znak dolara	none
+💲	masno otisnut znak dolara	none
 ⚕	simbol medicine	none
 ♻	simbol recikliranja	none
 ⚜	heraldički ljiljan	none
@@ -1434,7 +1491,7 @@ symbols:
 ➿	dvostruka vitičasta petlja	none
 ✳	osmerokraka zvjezdica	none
 ✴	osmerokraka zvijezda	none
-❇	zvjezdica	none
+❇	iskra	none
 ™	zaštitni znak tm	none
 🔠	unos velikih latiničnih slova	none
 🔡	unos malih latiničnih slova	none
@@ -1500,9 +1557,17 @@ symbols:
 🏳‍🌈	zastava duginih boja	none
 🏳‍⚧	zastava pokreta transrodnih osoba	none
 🏴‍☠	gusarska zastava	none
+₣	francuski franak	none
+₤	lira	none
+₥	mill	none
+₩	von	none
 €	euro	none
+₰	njemački pfennig	none
+₱	pezo	none
 ₹	indijska rupija	none
 ₽	rubalj	none
+₿	bitcoin	none
+₨	rupija	none
 👋🏻	ruka koja maše svijetla boja kože	none
 👋🏼	ruka koja maše svijetlo maslinasta boja kože	none
 👋🏽	ruka koja maše maslinasta boja kože	none
@@ -1728,6 +1793,46 @@ symbols:
 👱🏽	plavokosa osoba maslinasta boja kože	none
 👱🏾	plavokosa osoba smeđa boja kože	none
 👱🏿	plavokosa osoba tamno smeđa boja kože	none
+🧑🏻‍❤‍💋‍🧑🏼	poljubac odrasla osoba, odrasla osoba, svijetla boja kože i svijetlo maslinasta boja kože	none
+🧑🏻‍❤‍💋‍🧑🏽	poljubac odrasla osoba, odrasla osoba, svijetla boja kože i maslinasta boja kože	none
+🧑🏻‍❤‍💋‍🧑🏾	poljubac odrasla osoba, odrasla osoba, svijetla boja kože i smeđa boja kože	none
+🧑🏻‍❤‍💋‍🧑🏿	poljubac odrasla osoba, odrasla osoba, svijetla boja kože i tamno smeđa boja kože	none
+🧑🏼‍❤‍💋‍🧑🏻	poljubac odrasla osoba, odrasla osoba, svijetlo maslinasta boja kože i svijetla boja kože	none
+🧑🏼‍❤‍💋‍🧑🏽	poljubac odrasla osoba, odrasla osoba, svijetlo maslinasta boja kože i maslinasta boja kože	none
+🧑🏼‍❤‍💋‍🧑🏾	poljubac odrasla osoba, odrasla osoba, svijetlo maslinasta boja kože i smeđa boja kože	none
+🧑🏼‍❤‍💋‍🧑🏿	poljubac odrasla osoba, odrasla osoba, svijetlo maslinasta boja kože i tamno smeđa boja kože	none
+🧑🏽‍❤‍💋‍🧑🏻	poljubac odrasla osoba, odrasla osoba, maslinasta boja kože i svijetla boja kože	none
+🧑🏽‍❤‍💋‍🧑🏼	poljubac odrasla osoba, odrasla osoba, maslinasta boja kože i svijetlo maslinasta boja kože	none
+🧑🏽‍❤‍💋‍🧑🏾	poljubac odrasla osoba, odrasla osoba, maslinasta boja kože i smeđa boja kože	none
+🧑🏽‍❤‍💋‍🧑🏿	poljubac odrasla osoba, odrasla osoba, maslinasta boja kože i tamno smeđa boja kože	none
+🧑🏾‍❤‍💋‍🧑🏻	poljubac odrasla osoba, odrasla osoba, smeđa boja kože i svijetla boja kože	none
+🧑🏾‍❤‍💋‍🧑🏼	poljubac odrasla osoba, odrasla osoba, smeđa boja kože i svijetlo maslinasta boja kože	none
+🧑🏾‍❤‍💋‍🧑🏽	poljubac odrasla osoba, odrasla osoba, smeđa boja kože i maslinasta boja kože	none
+🧑🏾‍❤‍💋‍🧑🏿	poljubac odrasla osoba, odrasla osoba, smeđa boja kože i tamno smeđa boja kože	none
+🧑🏿‍❤‍💋‍🧑🏻	poljubac odrasla osoba, odrasla osoba, tamno smeđa boja kože i svijetla boja kože	none
+🧑🏿‍❤‍💋‍🧑🏼	poljubac odrasla osoba, odrasla osoba, tamno smeđa boja kože i svijetlo maslinasta boja kože	none
+🧑🏿‍❤‍💋‍🧑🏽	poljubac odrasla osoba, odrasla osoba, tamno smeđa boja kože i maslinasta boja kože	none
+🧑🏿‍❤‍💋‍🧑🏾	poljubac odrasla osoba, odrasla osoba, tamno smeđa boja kože i smeđa boja kože	none
+🧑🏻‍❤‍🧑🏼	par sa srcem odrasla osoba, odrasla osoba, svijetla boja kože i svijetlo maslinasta boja kože	none
+🧑🏻‍❤‍🧑🏽	par sa srcem odrasla osoba, odrasla osoba, svijetla boja kože i maslinasta boja kože	none
+🧑🏻‍❤‍🧑🏾	par sa srcem odrasla osoba, odrasla osoba, svijetla boja kože i smeđa boja kože	none
+🧑🏻‍❤‍🧑🏿	par sa srcem odrasla osoba, odrasla osoba, svijetla boja kože i tamno smeđa boja kože	none
+🧑🏼‍❤‍🧑🏻	par sa srcem odrasla osoba, odrasla osoba, svijetlo maslinasta boja kože i svijetla boja kože	none
+🧑🏼‍❤‍🧑🏽	par sa srcem odrasla osoba, odrasla osoba, svijetlo maslinasta boja kože i maslinasta boja kože	none
+🧑🏼‍❤‍🧑🏾	par sa srcem odrasla osoba, odrasla osoba, svijetlo maslinasta boja kože i smeđa boja kože	none
+🧑🏼‍❤‍🧑🏿	par sa srcem odrasla osoba, odrasla osoba, svijetlo maslinasta boja kože i tamno smeđa boja kože	none
+🧑🏽‍❤‍🧑🏻	par sa srcem odrasla osoba, odrasla osoba, maslinasta boja kože i svijetla boja kože	none
+🧑🏽‍❤‍🧑🏼	par sa srcem odrasla osoba, odrasla osoba, maslinasta boja kože i svijetlo maslinasta boja kože	none
+🧑🏽‍❤‍🧑🏾	par sa srcem odrasla osoba, odrasla osoba, maslinasta boja kože i smeđa boja kože	none
+🧑🏽‍❤‍🧑🏿	par sa srcem odrasla osoba, odrasla osoba, maslinasta boja kože i tamno smeđa boja kože	none
+🧑🏾‍❤‍🧑🏻	par sa srcem odrasla osoba, odrasla osoba, smeđa boja kože i svijetla boja kože	none
+🧑🏾‍❤‍🧑🏼	par sa srcem odrasla osoba, odrasla osoba, smeđa boja kože i svijetlo maslinasta boja kože	none
+🧑🏾‍❤‍🧑🏽	par sa srcem odrasla osoba, odrasla osoba, smeđa boja kože i maslinasta boja kože	none
+🧑🏾‍❤‍🧑🏿	par sa srcem odrasla osoba, odrasla osoba, smeđa boja kože i tamno smeđa boja kože	none
+🧑🏿‍❤‍🧑🏻	par sa srcem odrasla osoba, odrasla osoba, tamno smeđa boja kože i svijetla boja kože	none
+🧑🏿‍❤‍🧑🏼	par sa srcem odrasla osoba, odrasla osoba, tamno smeđa boja kože i svijetlo maslinasta boja kože	none
+🧑🏿‍❤‍🧑🏽	par sa srcem odrasla osoba, odrasla osoba, tamno smeđa boja kože i maslinasta boja kože	none
+🧑🏿‍❤‍🧑🏾	par sa srcem odrasla osoba, odrasla osoba, tamno smeđa boja kože i smeđa boja kože	none
 🧑‍🦰	odrasla osoba crvena kosa	none
 🧑🏻‍🦰	odrasla osoba svijetla boja kože i crvena kosa	none
 🧑🏼‍🦰	odrasla osoba svijetlo maslinasta boja kože i crvena kosa	none
@@ -1762,11 +1867,66 @@ symbols:
 🧔🏽	muškarac s bradom maslinasta boja kože	none
 🧔🏾	muškarac s bradom smeđa boja kože	none
 🧔🏿	muškarac s bradom tamno smeđa boja kože	none
+🧔🏻‍♂	muškarac svijetla boja kože i brada	none
+🧔🏼‍♂	muškarac svijetlo maslinasta boja kože i brada	none
+🧔🏽‍♂	muškarac maslinasta boja kože i brada	none
+🧔🏾‍♂	muškarac smeđa boja kože i brada	none
+🧔🏿‍♂	muškarac tamno smeđa boja kože i brada	none
 👱🏻‍♂	plavokosi muškarac svijetla boja kože	none
 👱🏼‍♂	plavokosi muškarac svijetlo maslinasta boja kože	none
 👱🏽‍♂	plavokosi muškarac maslinasta boja kože	none
 👱🏾‍♂	plavokosi muškarac smeđa boja kože	none
 👱🏿‍♂	plavokosi muškarac tamno smeđa boja kože	none
+👨🏻‍❤‍💋‍👨🏻	poljubac muškarac, muškarac i svijetla boja kože	none
+👨🏻‍❤‍💋‍👨🏼	poljubac muškarac, muškarac, svijetla boja kože i svijetlo maslinasta boja kože	none
+👨🏻‍❤‍💋‍👨🏽	poljubac muškarac, muškarac, svijetla boja kože i maslinasta boja kože	none
+👨🏻‍❤‍💋‍👨🏾	poljubac muškarac, muškarac, svijetla boja kože i smeđa boja kože	none
+👨🏻‍❤‍💋‍👨🏿	poljubac muškarac, muškarac, svijetla boja kože i tamno smeđa boja kože	none
+👨🏼‍❤‍💋‍👨🏻	poljubac muškarac, muškarac, svijetlo maslinasta boja kože i svijetla boja kože	none
+👨🏼‍❤‍💋‍👨🏼	poljubac muškarac, muškarac i svijetlo maslinasta boja kože	none
+👨🏼‍❤‍💋‍👨🏽	poljubac muškarac, muškarac, svijetlo maslinasta boja kože i maslinasta boja kože	none
+👨🏼‍❤‍💋‍👨🏾	poljubac muškarac, muškarac, svijetlo maslinasta boja kože i smeđa boja kože	none
+👨🏼‍❤‍💋‍👨🏿	poljubac muškarac, muškarac, svijetlo maslinasta boja kože i tamno smeđa boja kože	none
+👨🏽‍❤‍💋‍👨🏻	poljubac muškarac, muškarac, maslinasta boja kože i svijetla boja kože	none
+👨🏽‍❤‍💋‍👨🏼	poljubac muškarac, muškarac, maslinasta boja kože i svijetlo maslinasta boja kože	none
+👨🏽‍❤‍💋‍👨🏽	poljubac muškarac, muškarac i maslinasta boja kože	none
+👨🏽‍❤‍💋‍👨🏾	poljubac muškarac, muškarac, maslinasta boja kože i smeđa boja kože	none
+👨🏽‍❤‍💋‍👨🏿	poljubac muškarac, muškarac, maslinasta boja kože i tamno smeđa boja kože	none
+👨🏾‍❤‍💋‍👨🏻	poljubac muškarac, muškarac, smeđa boja kože i svijetla boja kože	none
+👨🏾‍❤‍💋‍👨🏼	poljubac muškarac, muškarac, smeđa boja kože i svijetlo maslinasta boja kože	none
+👨🏾‍❤‍💋‍👨🏽	poljubac muškarac, muškarac, smeđa boja kože i maslinasta boja kože	none
+👨🏾‍❤‍💋‍👨🏾	poljubac muškarac, muškarac i smeđa boja kože	none
+👨🏾‍❤‍💋‍👨🏿	poljubac muškarac, muškarac, smeđa boja kože i tamno smeđa boja kože	none
+👨🏿‍❤‍💋‍👨🏻	poljubac muškarac, muškarac, tamno smeđa boja kože i svijetla boja kože	none
+👨🏿‍❤‍💋‍👨🏼	poljubac muškarac, muškarac, tamno smeđa boja kože i svijetlo maslinasta boja kože	none
+👨🏿‍❤‍💋‍👨🏽	poljubac muškarac, muškarac, tamno smeđa boja kože i maslinasta boja kože	none
+👨🏿‍❤‍💋‍👨🏾	poljubac muškarac, muškarac, tamno smeđa boja kože i smeđa boja kože	none
+👨🏿‍❤‍💋‍👨🏿	poljubac muškarac, muškarac i tamno smeđa boja kože	none
+👨🏻‍❤‍👨🏻	par sa srcem muškarac, muškarac i svijetla boja kože	none
+👨🏻‍❤‍👨🏼	par sa srcem muškarac, muškarac, svijetla boja kože i svijetlo maslinasta boja kože	none
+👨🏻‍❤‍👨🏽	par sa srcem muškarac, muškarac, svijetla boja kože i maslinasta boja kože	none
+👨🏻‍❤‍👨🏾	par sa srcem muškarac, muškarac, svijetla boja kože i smeđa boja kože	none
+👨🏻‍❤‍👨🏿	par sa srcem muškarac, muškarac, svijetla boja kože i tamno smeđa boja kože	none
+👨🏼‍❤‍👨🏻	par sa srcem muškarac, muškarac, svijetlo maslinasta boja kože i svijetla boja kože	none
+👨🏼‍❤‍👨🏼	par sa srcem muškarac, muškarac i svijetlo maslinasta boja kože	none
+👨🏼‍❤‍👨🏽	par sa srcem muškarac, muškarac, svijetlo maslinasta boja kože i maslinasta boja kože	none
+👨🏼‍❤‍👨🏾	par sa srcem muškarac, muškarac, svijetlo maslinasta boja kože i smeđa boja kože	none
+👨🏼‍❤‍👨🏿	par sa srcem muškarac, muškarac, svijetlo maslinasta boja kože i tamno smeđa boja kože	none
+👨🏽‍❤‍👨🏻	par sa srcem muškarac, muškarac, maslinasta boja kože i svijetla boja kože	none
+👨🏽‍❤‍👨🏼	par sa srcem muškarac, muškarac, maslinasta boja kože i svijetlo maslinasta boja kože	none
+👨🏽‍❤‍👨🏽	par sa srcem muškarac, muškarac i maslinasta boja kože	none
+👨🏽‍❤‍👨🏾	par sa srcem muškarac, muškarac, maslinasta boja kože i smeđa boja kože	none
+👨🏽‍❤‍👨🏿	par sa srcem muškarac, muškarac, maslinasta boja kože i tamno smeđa boja kože	none
+👨🏾‍❤‍👨🏻	par sa srcem muškarac, muškarac, smeđa boja kože i svijetla boja kože	none
+👨🏾‍❤‍👨🏼	par sa srcem muškarac, muškarac, smeđa boja kože i svijetlo maslinasta boja kože	none
+👨🏾‍❤‍👨🏽	par sa srcem muškarac, muškarac, smeđa boja kože i maslinasta boja kože	none
+👨🏾‍❤‍👨🏾	par sa srcem muškarac, muškarac i smeđa boja kože	none
+👨🏾‍❤‍👨🏿	par sa srcem muškarac, muškarac, smeđa boja kože i tamno smeđa boja kože	none
+👨🏿‍❤‍👨🏻	par sa srcem muškarac, muškarac, tamno smeđa boja kože i svijetla boja kože	none
+👨🏿‍❤‍👨🏼	par sa srcem muškarac, muškarac, tamno smeđa boja kože i svijetlo maslinasta boja kože	none
+👨🏿‍❤‍👨🏽	par sa srcem muškarac, muškarac, tamno smeđa boja kože i maslinasta boja kože	none
+👨🏿‍❤‍👨🏾	par sa srcem muškarac, muškarac, tamno smeđa boja kože i smeđa boja kože	none
+👨🏿‍❤‍👨🏿	par sa srcem muškarac, muškarac i tamno smeđa boja kože	none
 👨‍🦰	muškarac crvena kosa	none
 👨🏻‍🦰	muškarac svijetla boja kože i crvena kosa	none
 👨🏼‍🦰	muškarac svijetlo maslinasta boja kože i crvena kosa	none
@@ -1796,11 +1956,116 @@ symbols:
 👩🏽	žena maslinasta boja kože	none
 👩🏾	žena smeđa boja kože	none
 👩🏿	žena tamno smeđa boja kože	none
+🧔🏻‍♀	žena svijetla boja kože i brada	none
+🧔🏼‍♀	žena svijetlo maslinasta boja kože i brada	none
+🧔🏽‍♀	žena maslinasta boja kože i brada	none
+🧔🏾‍♀	žena smeđa boja kože i brada	none
+🧔🏿‍♀	žena tamno smeđa boja kože i brada	none
 👱🏻‍♀	plavokosa žena svijetla boja kože	none
 👱🏼‍♀	plavokosa žena svijetlo maslinasta boja kože	none
 👱🏽‍♀	plavokosa žena maslinasta boja kože	none
 👱🏾‍♀	plavokosa žena smeđa boja kože	none
 👱🏿‍♀	plavokosa žena tamno smeđa boja kože	none
+👩🏻‍❤‍💋‍👨🏻	poljubac žena, muškarac i svijetla boja kože	none
+👩🏻‍❤‍💋‍👨🏼	poljubac žena, muškarac, svijetla boja kože i svijetlo maslinasta boja kože	none
+👩🏻‍❤‍💋‍👨🏽	poljubac žena, muškarac, svijetla boja kože i maslinasta boja kože	none
+👩🏻‍❤‍💋‍👨🏾	poljubac žena, muškarac, svijetla boja kože i smeđa boja kože	none
+👩🏻‍❤‍💋‍👨🏿	poljubac žena, muškarac, svijetla boja kože i tamno smeđa boja kože	none
+👩🏼‍❤‍💋‍👨🏻	poljubac žena, muškarac, svijetlo maslinasta boja kože i svijetla boja kože	none
+👩🏼‍❤‍💋‍👨🏼	poljubac žena, muškarac i svijetlo maslinasta boja kože	none
+👩🏼‍❤‍💋‍👨🏽	poljubac žena, muškarac, svijetlo maslinasta boja kože i maslinasta boja kože	none
+👩🏼‍❤‍💋‍👨🏾	poljubac žena, muškarac, svijetlo maslinasta boja kože i smeđa boja kože	none
+👩🏼‍❤‍💋‍👨🏿	poljubac žena, muškarac, svijetlo maslinasta boja kože i tamno smeđa boja kože	none
+👩🏽‍❤‍💋‍👨🏻	poljubac žena, muškarac, maslinasta boja kože i svijetla boja kože	none
+👩🏽‍❤‍💋‍👨🏼	poljubac žena, muškarac, maslinasta boja kože i svijetlo maslinasta boja kože	none
+👩🏽‍❤‍💋‍👨🏽	poljubac žena, muškarac i maslinasta boja kože	none
+👩🏽‍❤‍💋‍👨🏾	poljubac žena, muškarac, maslinasta boja kože i smeđa boja kože	none
+👩🏽‍❤‍💋‍👨🏿	poljubac žena, muškarac, maslinasta boja kože i tamno smeđa boja kože	none
+👩🏾‍❤‍💋‍👨🏻	poljubac žena, muškarac, smeđa boja kože i svijetla boja kože	none
+👩🏾‍❤‍💋‍👨🏼	poljubac žena, muškarac, smeđa boja kože i svijetlo maslinasta boja kože	none
+👩🏾‍❤‍💋‍👨🏽	poljubac žena, muškarac, smeđa boja kože i maslinasta boja kože	none
+👩🏾‍❤‍💋‍👨🏾	poljubac žena, muškarac i smeđa boja kože	none
+👩🏾‍❤‍💋‍👨🏿	poljubac žena, muškarac, smeđa boja kože i tamno smeđa boja kože	none
+👩🏿‍❤‍💋‍👨🏻	poljubac žena, muškarac, tamno smeđa boja kože i svijetla boja kože	none
+👩🏿‍❤‍💋‍👨🏼	poljubac žena, muškarac, tamno smeđa boja kože i svijetlo maslinasta boja kože	none
+👩🏿‍❤‍💋‍👨🏽	poljubac žena, muškarac, tamno smeđa boja kože i maslinasta boja kože	none
+👩🏿‍❤‍💋‍👨🏾	poljubac žena, muškarac, tamno smeđa boja kože i smeđa boja kože	none
+👩🏿‍❤‍💋‍👨🏿	poljubac žena, muškarac i tamno smeđa boja kože	none
+👩🏻‍❤‍💋‍👩🏻	poljubac žena, žena i svijetla boja kože	none
+👩🏻‍❤‍💋‍👩🏼	poljubac žena, žena, svijetla boja kože i svijetlo maslinasta boja kože	none
+👩🏻‍❤‍💋‍👩🏽	poljubac žena, žena, svijetla boja kože i maslinasta boja kože	none
+👩🏻‍❤‍💋‍👩🏾	poljubac žena, žena, svijetla boja kože i smeđa boja kože	none
+👩🏻‍❤‍💋‍👩🏿	poljubac žena, žena, svijetla boja kože i tamno smeđa boja kože	none
+👩🏼‍❤‍💋‍👩🏻	poljubac žena, žena, svijetlo maslinasta boja kože i svijetla boja kože	none
+👩🏼‍❤‍💋‍👩🏼	poljubac žena, žena i svijetlo maslinasta boja kože	none
+👩🏼‍❤‍💋‍👩🏽	poljubac žena, žena, svijetlo maslinasta boja kože i maslinasta boja kože	none
+👩🏼‍❤‍💋‍👩🏾	poljubac žena, žena, svijetlo maslinasta boja kože i smeđa boja kože	none
+👩🏼‍❤‍💋‍👩🏿	poljubac žena, žena, svijetlo maslinasta boja kože i tamno smeđa boja kože	none
+👩🏽‍❤‍💋‍👩🏻	poljubac žena, žena, maslinasta boja kože i svijetla boja kože	none
+👩🏽‍❤‍💋‍👩🏼	poljubac žena, žena, maslinasta boja kože i svijetlo maslinasta boja kože	none
+👩🏽‍❤‍💋‍👩🏽	poljubac žena, žena i maslinasta boja kože	none
+👩🏽‍❤‍💋‍👩🏾	poljubac žena, žena, maslinasta boja kože i smeđa boja kože	none
+👩🏽‍❤‍💋‍👩🏿	poljubac žena, žena, maslinasta boja kože i tamno smeđa boja kože	none
+👩🏾‍❤‍💋‍👩🏻	poljubac žena, žena, smeđa boja kože i svijetla boja kože	none
+👩🏾‍❤‍💋‍👩🏼	poljubac žena, žena, smeđa boja kože i svijetlo maslinasta boja kože	none
+👩🏾‍❤‍💋‍👩🏽	poljubac žena, žena, smeđa boja kože i maslinasta boja kože	none
+👩🏾‍❤‍💋‍👩🏾	poljubac žena, žena i smeđa boja kože	none
+👩🏾‍❤‍💋‍👩🏿	poljubac žena, žena, smeđa boja kože i tamno smeđa boja kože	none
+👩🏿‍❤‍💋‍👩🏻	poljubac žena, žena, tamno smeđa boja kože i svijetla boja kože	none
+👩🏿‍❤‍💋‍👩🏼	poljubac žena, žena, tamno smeđa boja kože i svijetlo maslinasta boja kože	none
+👩🏿‍❤‍💋‍👩🏽	poljubac žena, žena, tamno smeđa boja kože i maslinasta boja kože	none
+👩🏿‍❤‍💋‍👩🏾	poljubac žena, žena, tamno smeđa boja kože i smeđa boja kože	none
+👩🏿‍❤‍💋‍👩🏿	poljubac žena, žena i tamno smeđa boja kože	none
+👩🏻‍❤‍👨🏻	par sa srcem žena, muškarac i svijetla boja kože	none
+👩🏻‍❤‍👨🏼	par sa srcem žena, muškarac, svijetla boja kože i svijetlo maslinasta boja kože	none
+👩🏻‍❤‍👨🏽	par sa srcem žena, muškarac, svijetla boja kože i maslinasta boja kože	none
+👩🏻‍❤‍👨🏾	par sa srcem žena, muškarac, svijetla boja kože i smeđa boja kože	none
+👩🏻‍❤‍👨🏿	par sa srcem žena, muškarac, svijetla boja kože i tamno smeđa boja kože	none
+👩🏼‍❤‍👨🏻	par sa srcem žena, muškarac, svijetlo maslinasta boja kože i svijetla boja kože	none
+👩🏼‍❤‍👨🏼	par sa srcem žena, muškarac i svijetlo maslinasta boja kože	none
+👩🏼‍❤‍👨🏽	par sa srcem žena, muškarac, svijetlo maslinasta boja kože i maslinasta boja kože	none
+👩🏼‍❤‍👨🏾	par sa srcem žena, muškarac, svijetlo maslinasta boja kože i smeđa boja kože	none
+👩🏼‍❤‍👨🏿	par sa srcem žena, muškarac, svijetlo maslinasta boja kože i tamno smeđa boja kože	none
+👩🏽‍❤‍👨🏻	par sa srcem žena, muškarac, maslinasta boja kože i svijetla boja kože	none
+👩🏽‍❤‍👨🏼	par sa srcem žena, muškarac, maslinasta boja kože i svijetlo maslinasta boja kože	none
+👩🏽‍❤‍👨🏽	par sa srcem žena, muškarac i maslinasta boja kože	none
+👩🏽‍❤‍👨🏾	par sa srcem žena, muškarac, maslinasta boja kože i smeđa boja kože	none
+👩🏽‍❤‍👨🏿	par sa srcem žena, muškarac, maslinasta boja kože i tamno smeđa boja kože	none
+👩🏾‍❤‍👨🏻	par sa srcem žena, muškarac, smeđa boja kože i svijetla boja kože	none
+👩🏾‍❤‍👨🏼	par sa srcem žena, muškarac, smeđa boja kože i svijetlo maslinasta boja kože	none
+👩🏾‍❤‍👨🏽	par sa srcem žena, muškarac, smeđa boja kože i maslinasta boja kože	none
+👩🏾‍❤‍👨🏾	par sa srcem žena, muškarac i smeđa boja kože	none
+👩🏾‍❤‍👨🏿	par sa srcem žena, muškarac, smeđa boja kože i tamno smeđa boja kože	none
+👩🏿‍❤‍👨🏻	par sa srcem žena, muškarac, tamno smeđa boja kože i svijetla boja kože	none
+👩🏿‍❤‍👨🏼	par sa srcem žena, muškarac, tamno smeđa boja kože i svijetlo maslinasta boja kože	none
+👩🏿‍❤‍👨🏽	par sa srcem žena, muškarac, tamno smeđa boja kože i maslinasta boja kože	none
+👩🏿‍❤‍👨🏾	par sa srcem žena, muškarac, tamno smeđa boja kože i smeđa boja kože	none
+👩🏿‍❤‍👨🏿	par sa srcem žena, muškarac i tamno smeđa boja kože	none
+👩🏻‍❤‍👩🏻	par sa srcem žena, žena i svijetla boja kože	none
+👩🏻‍❤‍👩🏼	par sa srcem žena, žena, svijetla boja kože i svijetlo maslinasta boja kože	none
+👩🏻‍❤‍👩🏽	par sa srcem žena, žena, svijetla boja kože i maslinasta boja kože	none
+👩🏻‍❤‍👩🏾	par sa srcem žena, žena, svijetla boja kože i smeđa boja kože	none
+👩🏻‍❤‍👩🏿	par sa srcem žena, žena, svijetla boja kože i tamno smeđa boja kože	none
+👩🏼‍❤‍👩🏻	par sa srcem žena, žena, svijetlo maslinasta boja kože i svijetla boja kože	none
+👩🏼‍❤‍👩🏼	par sa srcem žena, žena i svijetlo maslinasta boja kože	none
+👩🏼‍❤‍👩🏽	par sa srcem žena, žena, svijetlo maslinasta boja kože i maslinasta boja kože	none
+👩🏼‍❤‍👩🏾	par sa srcem žena, žena, svijetlo maslinasta boja kože i smeđa boja kože	none
+👩🏼‍❤‍👩🏿	par sa srcem žena, žena, svijetlo maslinasta boja kože i tamno smeđa boja kože	none
+👩🏽‍❤‍👩🏻	par sa srcem žena, žena, maslinasta boja kože i svijetla boja kože	none
+👩🏽‍❤‍👩🏼	par sa srcem žena, žena, maslinasta boja kože i svijetlo maslinasta boja kože	none
+👩🏽‍❤‍👩🏽	par sa srcem žena, žena i maslinasta boja kože	none
+👩🏽‍❤‍👩🏾	par sa srcem žena, žena, maslinasta boja kože i smeđa boja kože	none
+👩🏽‍❤‍👩🏿	par sa srcem žena, žena, maslinasta boja kože i tamno smeđa boja kože	none
+👩🏾‍❤‍👩🏻	par sa srcem žena, žena, smeđa boja kože i svijetla boja kože	none
+👩🏾‍❤‍👩🏼	par sa srcem žena, žena, smeđa boja kože i svijetlo maslinasta boja kože	none
+👩🏾‍❤‍👩🏽	par sa srcem žena, žena, smeđa boja kože i maslinasta boja kože	none
+👩🏾‍❤‍👩🏾	par sa srcem žena, žena i smeđa boja kože	none
+👩🏾‍❤‍👩🏿	par sa srcem žena, žena, smeđa boja kože i tamno smeđa boja kože	none
+👩🏿‍❤‍👩🏻	par sa srcem žena, žena, tamno smeđa boja kože i svijetla boja kože	none
+👩🏿‍❤‍👩🏼	par sa srcem žena, žena, tamno smeđa boja kože i svijetlo maslinasta boja kože	none
+👩🏿‍❤‍👩🏽	par sa srcem žena, žena, tamno smeđa boja kože i maslinasta boja kože	none
+👩🏿‍❤‍👩🏾	par sa srcem žena, žena, tamno smeđa boja kože i smeđa boja kože	none
+👩🏿‍❤‍👩🏿	par sa srcem žena, žena i tamno smeđa boja kože	none
 👩‍🦰	žena crvena kosa	none
 👩🏻‍🦰	žena svijetla boja kože i crvena kosa	none
 👩🏼‍🦰	žena svijetlo maslinasta boja kože i crvena kosa	none
@@ -3005,9 +3270,19 @@ symbols:
 👨🏿‍🤝‍👨🏽	muškarci koji se drže za ruke tamno smeđa boja kože i maslinasta boja kože	none
 👨🏿‍🤝‍👨🏾	muškarci koji se drže za ruke tamno smeđa boja kože i smeđa boja kože	none
 👬🏿	muškarci koji se drže za ruke tamno smeđa boja kože	none
+💏🏻	poljubac svijetla boja kože	none
+💏🏼	poljubac svijetlo maslinasta boja kože	none
+💏🏽	poljubac maslinasta boja kože	none
+💏🏾	poljubac smeđa boja kože	none
+💏🏿	poljubac tamno smeđa boja kože	none
 👩‍❤‍💋‍👨	poljubac žena i muškarac	none
 👨‍❤‍💋‍👨	poljubac muškarac i muškarac	none
 👩‍❤‍💋‍👩	poljubac žena i žena	none
+💑🏻	par sa srcem svijetla boja kože	none
+💑🏼	par sa srcem svijetlo maslinasta boja kože	none
+💑🏽	par sa srcem maslinasta boja kože	none
+💑🏾	par sa srcem smeđa boja kože	none
+💑🏿	par sa srcem tamno smeđa boja kože	none
 👩‍❤‍👨	par sa srcem žena i muškarac	none
 👨‍❤‍👨	par sa srcem muškarac i muškarac	none
 👩‍❤‍👩	par sa srcem žena i žena	none
@@ -3298,3 +3573,17 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	zastava Engleska	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	zastava Škotska	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	zastava Wales	none
+₡	kostarikanski kolon	none
+₦	nigerijska naira	none
+₧	španjolska pezeta	none
+₪	novi izraelski šekel	none
+₫	vijetnamski dong	none
+₭	laoski kip	none
+₮	mongolski tugrik	none
+₲	paragvajski gvarani	none
+₴	ukrajinska hrivnja	none
+₵	ganski cedi	none
+₸	kazahstanski tenge	none
+₺	turska lira	none
+₼	azerbajdžanski manat	none
+₾	gruzijski lari	none

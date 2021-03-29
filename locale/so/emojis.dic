@@ -18,12 +18,17 @@ symbols:
 ∆	kordhin	none
 ∇	nabla	none
 ∈	curiyaha	none
+≠	aan la mid ahayn	none
+−	calamada maynas	none
 ⁻	calaamada kajar	none
 √	lambarka laba jibaarma	none
 ∞	calaamada infinity	none
 ∩	is goys	none
 ∪	midow	none
+≈	ku dhawaad la mida	none
 ≡	ay mataano yihiin	none
+≤	ka yar ama la mid ah	none
+≥	ka wayn ama leeg	none
 ⊂	hoosaadka	none
 ▲	saddex xagal buuxda oo kor u taagan	none
 ▼	saddex xagal hoos-u-fiiqan	none
@@ -31,6 +36,7 @@ symbols:
 ○	duleelka goobada	none
 ●	goobada buuxa	none
 ◯	goobad duleel weeyn	none
+♪	xadhiga sideedaad	none
 😀	dareenka wajiga	none
 😃	muuqaalka wejiga indhaha weyn	none
 😄	waji indho dhoola cadynaya leh	none
@@ -68,10 +74,12 @@ symbols:
 😐	waji dhexdhexaad ah	none
 😑	waji aan muuqan lahayn	none
 😶	waji af la’aan	none
+😶‍🌫	waji daruuro ku jira	none
 😏	waji isku dhagan	none
 😒	waji aan la taaban karin	none
 🙄	waji indho wareegayo leh	none
 😬	waji naxdin leh	none
+😮‍💨	waji afka kala qaday	none
 🤥	waji jiifo	none
 😌	waji niyad jabn	none
 😔	waji caajisan	none
@@ -88,6 +96,7 @@ symbols:
 🥶	waji qaboow	none
 🥴	waji aan dagneyn	none
 😵	waji wareersan	none
+😵‍💫	waji indho wareegsan leh	none
 🤯	madax qarxa	none
 🤠	waji koofid leh	none
 🥳	waji farxadeysan	none
@@ -159,6 +168,8 @@ symbols:
 💟	qurxinta wadnaha	none
 ❣	claamad ujeedka wadnaha	none
 💔	wadno jaban	none
+❤‍🔥	wadne ololaya	none
+❤‍🩹	wadne dhaawacan	none
 ❤	wadno cas	none
 🧡	wadno oranji ah	none
 💛	wadno jaalle ah	none
@@ -195,11 +206,11 @@ symbols:
 🤟	meedaarta waan ku jecelahay ah	none
 🤘	calaamadda geesaha	none
 🤙	gacanta ah isoo wac	none
-👈	farta muujinta gacanta gadaale tilmaamaysa bidix	none
-👉	farta muujinta gacanta gadaale tilmaamaysa midig	none
-👆	farta muujinta gacanta gadaale tilmaamaysa kor	none
+👈	Gacan tilmaamaysa bidix	none
+👉	gacan tilmaamaysa midig	none
+👆	gacan tilmaamaysa kor	none
 🖕	farta dhexe	none
-👇	farta muujinta gacanta gadaale tilmaamaysa hoos	none
+👇	gacan tilmaamaysa hoos	none
 ☝	farta muujinta tilmaamaysa kor	none
 👍	suulka kor	none
 👎	suulka hoos	none
@@ -241,8 +252,10 @@ symbols:
 👱	qof timo cad	none
 👨	ninka	none
 🧔	nin gar	none
+🧔‍♂	nin gadh	none
 👱‍♂	nin timo cad	none
 👩	naag	none
+🧔‍♀	gabadh gadh	none
 👱‍♀	naag timo cad	none
 🧓	qof weyn	none
 👴	nin da’ weyn	none
@@ -346,11 +359,11 @@ symbols:
 👲	nin xiran koofiyadda shiinaha	none
 🧕	naag xiran qammaar	none
 🤵	nin xiran suudka rasmiga ah	none
-🤵‍♂	nin jooga tuxedo	none
-🤵‍♀	naag joogta tuxedo	none
-👰	caruusad xijaabban	none
-👰‍♂	nin xijaaban	none
-👰‍♀	naag xijaaban	none
+🤵‍♂	nin xidhan suut ka rasmiga ah	none
+🤵‍♀	gabadh xidhan suut	none
+👰	shaqsi niqaam xidhan	none
+👰‍♂	nin niqaamaban	none
+👰‍♀	naag niqaaban	none
 🤰	haweeney uur leh	none
 🤱	naas-nuujin	none
 👩‍🍼	naag canug quudineeysa	none
@@ -406,8 +419,8 @@ symbols:
 👨‍🦯	nin sita usha cad indhoolaha	none
 👩‍🦯	naag sidata usha cad indhoolaha	none
 🧑‍🦼	qof kufadhiya gaari matoor leh	none
-👨‍🦼	nin saaran kursiga curyanka koronto ku shaqeeya	none
-👩‍🦼	naag ku fadhida kursiga curyaanka koronta ku shaqeeya	none
+👨‍🦼	nin saaran kursi curyaan matoor leh	none
+👩‍🦼	gabadh saaran kursi curyaan matoor leh	none
 🧑‍🦽	qof ku fadhiya gaari curyaanka gacanta	none
 👨‍🦽	nin saaran kursiga curyaanka macmac ah	none
 👩‍🦽	naag fadhida kursiga curyaanka macmal ah	none
@@ -944,7 +957,7 @@ symbols:
 🌝	waji dayaxeed buuxa	none
 🌞	qorrax wajiyeed	none
 🪐	meeraha gaaban	none
-⭐	xiddig	none
+⭐	Summadda xiddigta	none
 🌟	xiddig kaahaya	none
 🌠	waran cireed	none
 🌌	habarjiid	none
@@ -1407,7 +1420,7 @@ symbols:
 ♀	calaamad dheddig	none
 ♂	calaamad lab	none
 ⚧	calaamada laba dhidiga	none
-✖	calaamadda isku dhufasho	none
+✖	calaamadda isku dhufashada	none
 ➕	calaamadda isugeynta	none
 ➖	calaamadda ka jar	none
 ➗	calaamadda isu qaybinta	none
@@ -1501,5 +1514,19 @@ symbols:
 🏳‍⚧	calanka laba dhidiga	none
 🏴‍☠	calanka burcad badeedda	none
 €	yuuro	none
+₱	beeso	none
 ₹	rubiiska hindiya	none
 ₽	cutub lacageedka raashiya	none
+₡	Kolonka Kosta Riika	none
+₦	Nairada Neyjeeriya	none
+₪	Niyuu Shekelka Israaiil	none
+₫	Dongta Fitnaam	none
+₭	Kib Laoti	none
+₮	Tugrikta Mongoliya	none
+₲	Guranida Baraguway	none
+₴	Hirfiniyada Yukreeyn	none
+₵	Sedida Gana	none
+₸	Tengeda Kasakhstan	none
+₺	Liirada Turkiga	none
+₼	Manaata Asarbeyjan	none
+₾	Laariga Joorjiya	none

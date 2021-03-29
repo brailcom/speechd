@@ -10,20 +10,135 @@ symbols:
 🏿	nuancë lëkure e errët	none
 ℗	e drejta e autorit për regjistrim zanor	none
 ←	shigjetë me drejtim majtas	none
+↚	shigjetë majtas fraksion	none
 →	shigjetë me drejtim djathtas	none
+↛	shigjetë djtathtas fraksion	none
 ↑	shigjetë me drejtim lart	none
 ↓	shigjetë me drejtim poshtë	none
+↜	shigjetë majtas e valëzuar	none
+↝	shigjetë djathtas e valëzuar	none
+↞	shigjetë dymajëshe majtas	none
+↟	shigjetë dymajëshe lart	none
+↠	shigjetë dymajëshe djathtas	none
+↡	shigjetë dymajëshe poshtë	none
+↢	shigjetë majtas me bisht	none
+↣	shigjetë djathtas me bisht	none
+↤	shigjetë majtas me shufër	none
+↥	shigjetë lart me shufër	none
+↦	shigjetë djathtas me shufër	none
+↧	shigjetë poshtë me shufër	none
+↨	shigjetë lart-poshtë me bazament	none
+↫	shigjetë majtas me lak	none
+↬	shigjetë djathtas me lak	none
+↭	shigjetë e valëzuar majtas-djathtas	none
+↯	shigjetë zigzage poshtë	none
+↰	shigjetë lart me majë majtas	none
+↱	shigjetë lart me majë djathtas	none
+↲	shigjetë poshtë me majë majtas	none
+↳	shigjetë poshtë me majë djathtas	none
+↴	shigjetë djathtas me kënd poshtë	none
+↵	shigjetë poshtë me kënd majtas	none
+↶	shigjetë gjysmëhark lart me drejtim kundërorar	none
+↷	shigjetë gjysmëhark lart me drejtim orar	none
+↸	shigjetë veriperëndim me tra të gjatë	none
+↹	shigjetë majtas me shufër mbi shigjetë djathtas me shufër	none
+↺	shigjetë rrethhapur me drejtim kundërorar	none
+↻	shigjetë rrethhapur me drejtim orar	none
+↼	fuzhnjë majtas me grep lart	none
+↽	fuzhnjë majtas me grep poshtë	none
+↾	fuzhnjë lart me grep djathtas	none
+↿	fuzhnjë lart me grep majtas	none
+⇀	fuzhnjë djathtas me grep lart	none
+⇁	fuzhnjë djathtas me grep poshtë	none
+⇂	fuzhnjë poshtë me grep djathtas	none
+⇃	fuzhnjë poshtë me grep majtas	none
+⇄	shigjetë djathtas mbi shigjetë majtas	none
 ⇅	shigjeta me drejtim lart dhe me drejtim poshtë	none
 ⇆	shigjeta me drejtim majtas mbi me drejtim djathtas	none
+⇇	shigjeta dyshe majtas	none
+⇈	shigjeta dyshe lart	none
+⇉	shigjeta dyshe djathtas	none
+⇊	shigjeta dyshe poshtë	none
+⇋	fuzhnjë majtas mbi fuzhnjë djathtas	none
+⇌	fuzhnjë djathtas mbi fuzhnjë majtas	none
+⇐	shigjetë dyshe majtas	none
+⇍	shigjetë dyshe majtas me fraksion	none
+⇑	shigjetë dyshe lart	none
+⇒	shigjetë dyshe djathtas	none
+⇏	shigjetë dyshe djathtas me fraksion	none
+⇓	shigjetë dyshe poshtë	none
+⇔	shigjetë dyshe majtas-djathtas	none
+⇎	shigjetë dyshe majtas-djathtas me fraksion	none
+⇖	shigjetë dyshe veriperëndim	none
+⇗	shigjetë dyshe verilindje	none
+⇘	shigjetë dyshe juglindje	none
+⇙	shigjetë dyshe jugperëndim	none
+⇚	shigjetë treshe majtas	none
+⇛	shigjetë treshe djathtas	none
+⇜	shigjetë e përdredhur majtas	none
+⇝	shigjetë e përdredhur djathtas	none
+⇞	shigjetë lart me dy viza	none
+⇟	shigjetë poshtë me dy viza	none
+⇠	shigjetë majtas me ndërprerje	none
+⇡	shigjetë lart me ndërprerje	none
+⇢	shigjetë djathtas me ndërprerje	none
+⇣	shigjetë poshtë me ndërprerje	none
+⇤	shigjetë me shufër majtas	none
+⇥	shigjetë me shufër djathtas	none
+⇦	shigjetë bosh majtas	none
+⇧	shigjetë bosh lart	none
+⇨	shigjetë bosh djathtas	none
+⇩	shigjetë bosh poshtë	none
+⇪	shigjetë bosh lart nga shufër	none
+⇵	shigjetë poshtë majtas shigjetë lart	none
+∀	për të gjitha	none
+∂	diferencial i pjesshëm	none
+∃	ka	none
+∅	bashkësi bosh	none
 ∆	rritje	none
 ∇	nabla	none
 ∈	element i	none
+∉	jo element	none
+∋	përmban si pjesëtar	none
+∎	fundi i vërtetimit	none
+∏	prodhim n	none
+∑	shumë n	none
+≮	jo më pak se	none
+≠	jo baras	none
+≯	jo më shumë se	none
+−	shenja e minusit	none
 ⁻	minus me superskript	none
+∓	minus ose plus	none
+∕	thyesë pjesëtimi	none
+∗	operator yllth	none
+∘	operator rreth	none
+∙	operator pikë	none
 √	rrënja katrore	none
+∝	përpjesëtimor	none
 ∞	shenja e infinitit	none
+∟	kënd i djathtë	none
+∠	kënd	none
+∣	ndarëse	none
+∥	paralele	none
+∧	dhe logjike	none
 ∩	ndërprerje	none
 ∪	bashkim	none
+∫	integrale	none
+∬	integrale dyshe	none
+∮	integrale me kontur	none
+∴	prandaj	none
+∵	sepse	none
+∶	raport	none
+∷	përpjesëtim	none
+∼	operator dredhëz	none
+∽	dredhëz përmbys	none
+∾	infinit	none
+≃	barazim asimptotik	none
+≅	afërsisht baraz	none
+≈	thuajse baras	none
 ≡	njëlloj me	none
+≤	më e vogël ose baras	none
+≥	më e madhe ose baras	none
 ⊂	nënbashkësi e	none
 ▲	trekëndësh i mbushur, me drejtim lart	none
 ▼	trekëndësh i mbushur, me drejtim poshtë	none
@@ -31,6 +146,9 @@ symbols:
 ○	rreth bosh	none
 ●	rreth i mbushur	none
 ◯	rreth i madh bosh	none
+♪	nota e tetë	none
+♭	bemol	none
+♯	diez	none
 😀	fytyrë e zgërdheshur	none
 😃	fytyrë e qeshur me gojën e hapur	none
 😄	fytyrë me gojë të hapur dhe sy të qeshur	none
@@ -68,10 +186,12 @@ symbols:
 😐	fytyrë neutrale	none
 😑	fytyrë pa shprehje	none
 😶	fytyrë pa gojë	none
+😶‍🌫	fytyrë në re	none
 😏	fytyrë e vetëkënaqur	none
 😒	fytyrë e pakënaqur	none
 🙄	fytyrë me sytë që rrotullohen	none
 😬	fytyrë e ngërdheshur	none
+😮‍💨	fytyrë me shfryrje	none
 🤥	fytyrë mashtrimi	none
 😌	fytyrë e lehtësuar	none
 😔	fytyrë e menduar	none
@@ -88,6 +208,7 @@ symbols:
 🥶	fytyrë e ngrirë	none
 🥴	fytyrë e mjegulluar	none
 😵	fytyrë e trullosur	none
+😵‍💫	fytyrë me sy spiralë	none
 🤯	kokë që shpërthen	none
 🤠	fytyrë me kapele lopari	none
 🥳	fytyrë festive	none
@@ -159,6 +280,8 @@ symbols:
 💟	dekorim me zemër	none
 ❣	zbukurim i trashë me pikëçuditje me zemër	none
 💔	zemër e thyer	none
+❤‍🔥	zemër në flakë	none
+❤‍🩹	zemër në shërim	none
 ❤	zemër e kuqe	none
 🧡	zemër ngjyrë portokalli	none
 💛	zemër e verdhë	none
@@ -241,8 +364,10 @@ symbols:
 👱	njeri biond	none
 👨	burrë	none
 🧔	njëri me mjekër	none
+🧔‍♂	burrë mjekër	none
 👱‍♂	burrë biond	none
 👩	grua	none
+🧔‍♀	grua mjekër	none
 👱‍♀	grua bionde	none
 🧓	i ri	none
 👴	burrë i moshuar	none
@@ -685,7 +810,7 @@ symbols:
 🌮	tako	none
 🌯	burrito	none
 🫔	tamale	none
-🥙	giro	none
+🥙	bukë e sheshtë me mbushje	none
 🧆	qofte falafel	none
 🥚	vezë	none
 🍳	gatim	none
@@ -1344,6 +1469,7 @@ symbols:
 ↖	shigjeta lart-majtas	none
 ↕	shigjeta lart-poshtë	none
 ↔	shigjetë majtas-djathtas	none
+↮	shigjetë majtas-djathtas fraksion	none
 ↩	shigjetë djathtas e përkulur majtas	none
 ↪	shigjeta majtas me hark djathtas	none
 ⤴	shigjetë djathtas e përkulur lart	none
@@ -1412,7 +1538,7 @@ symbols:
 ➖	shenja minus e trashë	none
 ➗	shenja e pjesëtimit e trashë	none
 ♾	pafundësi	none
-❓	pikëpyetje	none
+❓	shenja e pikëpyetjes e kuqe	none
 ❔	pikëpyetje e bardhë	none
 ❕	shenjë pikëçuditje e bardhë	none
 ❗	shenja e pikëçuditjes	none
@@ -1500,9 +1626,13 @@ symbols:
 🏳‍🌈	flamur i ylbertë	none
 🏳‍⚧	flamur blu, rozë dhe i bardhë	none
 🏴‍☠	flamur piratësh	none
+₥	mill	none
+₩	uon	none
 €	euro	none
+₱	pezo	none
 ₹	rupi indiane	none
 ₽	rubël	none
+₿	bitcoin	none
 👋🏻	dorë që tundet nuancë lëkure e çelët	none
 👋🏼	dorë që tundet nuancë lëkure gjysmë e çelët	none
 👋🏽	dorë që tundet nuancë lëkure zeshkane	none
@@ -1728,6 +1858,46 @@ symbols:
 👱🏽	njeri biond nuancë lëkure zeshkane	none
 👱🏾	njeri biond nuancë lëkure gjysmë e errët	none
 👱🏿	njeri biond nuancë lëkure e errët	none
+🧑🏻‍❤‍💋‍🧑🏼	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure e çelët e nuancë lëkure gjysmë e çelët	none
+🧑🏻‍❤‍💋‍🧑🏽	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure e çelët e nuancë lëkure zeshkane	none
+🧑🏻‍❤‍💋‍🧑🏾	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure e çelët e nuancë lëkure gjysmë e errët	none
+🧑🏻‍❤‍💋‍🧑🏿	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure e çelët e nuancë lëkure e errët	none
+🧑🏼‍❤‍💋‍🧑🏻	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e çelët e nuancë lëkure e çelët	none
+🧑🏼‍❤‍💋‍🧑🏽	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e çelët e nuancë lëkure zeshkane	none
+🧑🏼‍❤‍💋‍🧑🏾	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e çelët e nuancë lëkure gjysmë e errët	none
+🧑🏼‍❤‍💋‍🧑🏿	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e çelët e nuancë lëkure e errët	none
+🧑🏽‍❤‍💋‍🧑🏻	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure zeshkane e nuancë lëkure e çelët	none
+🧑🏽‍❤‍💋‍🧑🏼	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure zeshkane e nuancë lëkure gjysmë e çelët	none
+🧑🏽‍❤‍💋‍🧑🏾	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure zeshkane e nuancë lëkure gjysmë e errët	none
+🧑🏽‍❤‍💋‍🧑🏿	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure zeshkane e nuancë lëkure e errët	none
+🧑🏾‍❤‍💋‍🧑🏻	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e errët e nuancë lëkure e çelët	none
+🧑🏾‍❤‍💋‍🧑🏼	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e errët e nuancë lëkure gjysmë e çelët	none
+🧑🏾‍❤‍💋‍🧑🏽	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e errët e nuancë lëkure zeshkane	none
+🧑🏾‍❤‍💋‍🧑🏿	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e errët e nuancë lëkure e errët	none
+🧑🏿‍❤‍💋‍🧑🏻	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure e errët e nuancë lëkure e çelët	none
+🧑🏿‍❤‍💋‍🧑🏼	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure e errët e nuancë lëkure gjysmë e çelët	none
+🧑🏿‍❤‍💋‍🧑🏽	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure e errët e nuancë lëkure zeshkane	none
+🧑🏿‍❤‍💋‍🧑🏾	puthje fëmijë i rritur, fëmijë i rritur, nuancë lëkure e errët e nuancë lëkure gjysmë e errët	none
+🧑🏻‍❤‍🧑🏼	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure e çelët e nuancë lëkure gjysmë e çelët	none
+🧑🏻‍❤‍🧑🏽	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure e çelët e nuancë lëkure zeshkane	none
+🧑🏻‍❤‍🧑🏾	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure e çelët e nuancë lëkure gjysmë e errët	none
+🧑🏻‍❤‍🧑🏿	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure e çelët e nuancë lëkure e errët	none
+🧑🏼‍❤‍🧑🏻	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e çelët e nuancë lëkure e çelët	none
+🧑🏼‍❤‍🧑🏽	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e çelët e nuancë lëkure zeshkane	none
+🧑🏼‍❤‍🧑🏾	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e çelët e nuancë lëkure gjysmë e errët	none
+🧑🏼‍❤‍🧑🏿	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e çelët e nuancë lëkure e errët	none
+🧑🏽‍❤‍🧑🏻	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure zeshkane e nuancë lëkure e çelët	none
+🧑🏽‍❤‍🧑🏼	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure zeshkane e nuancë lëkure gjysmë e çelët	none
+🧑🏽‍❤‍🧑🏾	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure zeshkane e nuancë lëkure gjysmë e errët	none
+🧑🏽‍❤‍🧑🏿	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure zeshkane e nuancë lëkure e errët	none
+🧑🏾‍❤‍🧑🏻	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e errët e nuancë lëkure e çelët	none
+🧑🏾‍❤‍🧑🏼	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e errët e nuancë lëkure gjysmë e çelët	none
+🧑🏾‍❤‍🧑🏽	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e errët e nuancë lëkure zeshkane	none
+🧑🏾‍❤‍🧑🏿	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure gjysmë e errët e nuancë lëkure e errët	none
+🧑🏿‍❤‍🧑🏻	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure e errët e nuancë lëkure e çelët	none
+🧑🏿‍❤‍🧑🏼	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure e errët e nuancë lëkure gjysmë e çelët	none
+🧑🏿‍❤‍🧑🏽	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure e errët e nuancë lëkure zeshkane	none
+🧑🏿‍❤‍🧑🏾	çift me zemër fëmijë i rritur, fëmijë i rritur, nuancë lëkure e errët e nuancë lëkure gjysmë e errët	none
 🧑‍🦰	fëmijë i rritur flokë të kuqe	none
 🧑🏻‍🦰	fëmijë i rritur nuancë lëkure e çelët e flokë të kuqe	none
 🧑🏼‍🦰	fëmijë i rritur nuancë lëkure gjysmë e çelët e flokë të kuqe	none
@@ -1762,11 +1932,66 @@ symbols:
 🧔🏽	njëri me mjekër nuancë lëkure zeshkane	none
 🧔🏾	njëri me mjekër nuancë lëkure gjysmë e errët	none
 🧔🏿	njëri me mjekër nuancë lëkure e errët	none
+🧔🏻‍♂	burrë nuancë lëkure e çelët e mjekër	none
+🧔🏼‍♂	burrë nuancë lëkure gjysmë e çelët e mjekër	none
+🧔🏽‍♂	burrë nuancë lëkure zeshkane e mjekër	none
+🧔🏾‍♂	burrë nuancë lëkure gjysmë e errët e mjekër	none
+🧔🏿‍♂	burrë nuancë lëkure e errët e mjekër	none
 👱🏻‍♂	burrë biond nuancë lëkure e çelët	none
 👱🏼‍♂	burrë biond nuancë lëkure gjysmë e çelët	none
 👱🏽‍♂	burrë biond nuancë lëkure zeshkane	none
 👱🏾‍♂	burrë biond nuancë lëkure gjysmë e errët	none
 👱🏿‍♂	burrë biond nuancë lëkure e errët	none
+👨🏻‍❤‍💋‍👨🏻	puthje burrë, burrë e nuancë lëkure e çelët	none
+👨🏻‍❤‍💋‍👨🏼	puthje burrë, burrë, nuancë lëkure e çelët e nuancë lëkure gjysmë e çelët	none
+👨🏻‍❤‍💋‍👨🏽	puthje burrë, burrë, nuancë lëkure e çelët e nuancë lëkure zeshkane	none
+👨🏻‍❤‍💋‍👨🏾	puthje burrë, burrë, nuancë lëkure e çelët e nuancë lëkure gjysmë e errët	none
+👨🏻‍❤‍💋‍👨🏿	puthje burrë, burrë, nuancë lëkure e çelët e nuancë lëkure e errët	none
+👨🏼‍❤‍💋‍👨🏻	puthje burrë, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure e çelët	none
+👨🏼‍❤‍💋‍👨🏼	puthje burrë, burrë e nuancë lëkure gjysmë e çelët	none
+👨🏼‍❤‍💋‍👨🏽	puthje burrë, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure zeshkane	none
+👨🏼‍❤‍💋‍👨🏾	puthje burrë, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure gjysmë e errët	none
+👨🏼‍❤‍💋‍👨🏿	puthje burrë, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure e errët	none
+👨🏽‍❤‍💋‍👨🏻	puthje burrë, burrë, nuancë lëkure zeshkane e nuancë lëkure e çelët	none
+👨🏽‍❤‍💋‍👨🏼	puthje burrë, burrë, nuancë lëkure zeshkane e nuancë lëkure gjysmë e çelët	none
+👨🏽‍❤‍💋‍👨🏽	puthje burrë, burrë e nuancë lëkure zeshkane	none
+👨🏽‍❤‍💋‍👨🏾	puthje burrë, burrë, nuancë lëkure zeshkane e nuancë lëkure gjysmë e errët	none
+👨🏽‍❤‍💋‍👨🏿	puthje burrë, burrë, nuancë lëkure zeshkane e nuancë lëkure e errët	none
+👨🏾‍❤‍💋‍👨🏻	puthje burrë, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure e çelët	none
+👨🏾‍❤‍💋‍👨🏼	puthje burrë, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure gjysmë e çelët	none
+👨🏾‍❤‍💋‍👨🏽	puthje burrë, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure zeshkane	none
+👨🏾‍❤‍💋‍👨🏾	puthje burrë, burrë e nuancë lëkure gjysmë e errët	none
+👨🏾‍❤‍💋‍👨🏿	puthje burrë, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure e errët	none
+👨🏿‍❤‍💋‍👨🏻	puthje burrë, burrë, nuancë lëkure e errët e nuancë lëkure e çelët	none
+👨🏿‍❤‍💋‍👨🏼	puthje burrë, burrë, nuancë lëkure e errët e nuancë lëkure gjysmë e çelët	none
+👨🏿‍❤‍💋‍👨🏽	puthje burrë, burrë, nuancë lëkure e errët e nuancë lëkure zeshkane	none
+👨🏿‍❤‍💋‍👨🏾	puthje burrë, burrë, nuancë lëkure e errët e nuancë lëkure gjysmë e errët	none
+👨🏿‍❤‍💋‍👨🏿	puthje burrë, burrë e nuancë lëkure e errët	none
+👨🏻‍❤‍👨🏻	çift me zemër burrë, burrë e nuancë lëkure e çelët	none
+👨🏻‍❤‍👨🏼	çift me zemër burrë, burrë, nuancë lëkure e çelët e nuancë lëkure gjysmë e çelët	none
+👨🏻‍❤‍👨🏽	çift me zemër burrë, burrë, nuancë lëkure e çelët e nuancë lëkure zeshkane	none
+👨🏻‍❤‍👨🏾	çift me zemër burrë, burrë, nuancë lëkure e çelët e nuancë lëkure gjysmë e errët	none
+👨🏻‍❤‍👨🏿	çift me zemër burrë, burrë, nuancë lëkure e çelët e nuancë lëkure e errët	none
+👨🏼‍❤‍👨🏻	çift me zemër burrë, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure e çelët	none
+👨🏼‍❤‍👨🏼	çift me zemër burrë, burrë e nuancë lëkure gjysmë e çelët	none
+👨🏼‍❤‍👨🏽	çift me zemër burrë, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure zeshkane	none
+👨🏼‍❤‍👨🏾	çift me zemër burrë, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure gjysmë e errët	none
+👨🏼‍❤‍👨🏿	çift me zemër burrë, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure e errët	none
+👨🏽‍❤‍👨🏻	çift me zemër burrë, burrë, nuancë lëkure zeshkane e nuancë lëkure e çelët	none
+👨🏽‍❤‍👨🏼	çift me zemër burrë, burrë, nuancë lëkure zeshkane e nuancë lëkure gjysmë e çelët	none
+👨🏽‍❤‍👨🏽	çift me zemër burrë, burrë e nuancë lëkure zeshkane	none
+👨🏽‍❤‍👨🏾	çift me zemër burrë, burrë, nuancë lëkure zeshkane e nuancë lëkure gjysmë e errët	none
+👨🏽‍❤‍👨🏿	çift me zemër burrë, burrë, nuancë lëkure zeshkane e nuancë lëkure e errët	none
+👨🏾‍❤‍👨🏻	çift me zemër burrë, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure e çelët	none
+👨🏾‍❤‍👨🏼	çift me zemër burrë, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure gjysmë e çelët	none
+👨🏾‍❤‍👨🏽	çift me zemër burrë, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure zeshkane	none
+👨🏾‍❤‍👨🏾	çift me zemër burrë, burrë e nuancë lëkure gjysmë e errët	none
+👨🏾‍❤‍👨🏿	çift me zemër burrë, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure e errët	none
+👨🏿‍❤‍👨🏻	çift me zemër burrë, burrë, nuancë lëkure e errët e nuancë lëkure e çelët	none
+👨🏿‍❤‍👨🏼	çift me zemër burrë, burrë, nuancë lëkure e errët e nuancë lëkure gjysmë e çelët	none
+👨🏿‍❤‍👨🏽	çift me zemër burrë, burrë, nuancë lëkure e errët e nuancë lëkure zeshkane	none
+👨🏿‍❤‍👨🏾	çift me zemër burrë, burrë, nuancë lëkure e errët e nuancë lëkure gjysmë e errët	none
+👨🏿‍❤‍👨🏿	çift me zemër burrë, burrë e nuancë lëkure e errët	none
 👨‍🦰	burrë flokë të kuqe	none
 👨🏻‍🦰	burrë nuancë lëkure e çelët e flokë të kuqe	none
 👨🏼‍🦰	burrë nuancë lëkure gjysmë e çelët e flokë të kuqe	none
@@ -1796,11 +2021,116 @@ symbols:
 👩🏽	grua nuancë lëkure zeshkane	none
 👩🏾	grua nuancë lëkure gjysmë e errët	none
 👩🏿	grua nuancë lëkure e errët	none
+🧔🏻‍♀	grua nuancë lëkure e çelët e mjekër	none
+🧔🏼‍♀	grua nuancë lëkure gjysmë e çelët e mjekër	none
+🧔🏽‍♀	grua nuancë lëkure zeshkane e mjekër	none
+🧔🏾‍♀	grua nuancë lëkure gjysmë e errët e mjekër	none
+🧔🏿‍♀	grua nuancë lëkure e errët e mjekër	none
 👱🏻‍♀	grua bionde nuancë lëkure e çelët	none
 👱🏼‍♀	grua bionde nuancë lëkure gjysmë e çelët	none
 👱🏽‍♀	grua bionde nuancë lëkure zeshkane	none
 👱🏾‍♀	grua bionde nuancë lëkure gjysmë e errët	none
 👱🏿‍♀	grua bionde nuancë lëkure e errët	none
+👩🏻‍❤‍💋‍👨🏻	puthje grua, burrë e nuancë lëkure e çelët	none
+👩🏻‍❤‍💋‍👨🏼	puthje grua, burrë, nuancë lëkure e çelët e nuancë lëkure gjysmë e çelët	none
+👩🏻‍❤‍💋‍👨🏽	puthje grua, burrë, nuancë lëkure e çelët e nuancë lëkure zeshkane	none
+👩🏻‍❤‍💋‍👨🏾	puthje grua, burrë, nuancë lëkure e çelët e nuancë lëkure gjysmë e errët	none
+👩🏻‍❤‍💋‍👨🏿	puthje grua, burrë, nuancë lëkure e çelët e nuancë lëkure e errët	none
+👩🏼‍❤‍💋‍👨🏻	puthje grua, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure e çelët	none
+👩🏼‍❤‍💋‍👨🏼	puthje grua, burrë e nuancë lëkure gjysmë e çelët	none
+👩🏼‍❤‍💋‍👨🏽	puthje grua, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure zeshkane	none
+👩🏼‍❤‍💋‍👨🏾	puthje grua, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure gjysmë e errët	none
+👩🏼‍❤‍💋‍👨🏿	puthje grua, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure e errët	none
+👩🏽‍❤‍💋‍👨🏻	puthje grua, burrë, nuancë lëkure zeshkane e nuancë lëkure e çelët	none
+👩🏽‍❤‍💋‍👨🏼	puthje grua, burrë, nuancë lëkure zeshkane e nuancë lëkure gjysmë e çelët	none
+👩🏽‍❤‍💋‍👨🏽	puthje grua, burrë e nuancë lëkure zeshkane	none
+👩🏽‍❤‍💋‍👨🏾	puthje grua, burrë, nuancë lëkure zeshkane e nuancë lëkure gjysmë e errët	none
+👩🏽‍❤‍💋‍👨🏿	puthje grua, burrë, nuancë lëkure zeshkane e nuancë lëkure e errët	none
+👩🏾‍❤‍💋‍👨🏻	puthje grua, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure e çelët	none
+👩🏾‍❤‍💋‍👨🏼	puthje grua, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure gjysmë e çelët	none
+👩🏾‍❤‍💋‍👨🏽	puthje grua, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure zeshkane	none
+👩🏾‍❤‍💋‍👨🏾	puthje grua, burrë e nuancë lëkure gjysmë e errët	none
+👩🏾‍❤‍💋‍👨🏿	puthje grua, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure e errët	none
+👩🏿‍❤‍💋‍👨🏻	puthje grua, burrë, nuancë lëkure e errët e nuancë lëkure e çelët	none
+👩🏿‍❤‍💋‍👨🏼	puthje grua, burrë, nuancë lëkure e errët e nuancë lëkure gjysmë e çelët	none
+👩🏿‍❤‍💋‍👨🏽	puthje grua, burrë, nuancë lëkure e errët e nuancë lëkure zeshkane	none
+👩🏿‍❤‍💋‍👨🏾	puthje grua, burrë, nuancë lëkure e errët e nuancë lëkure gjysmë e errët	none
+👩🏿‍❤‍💋‍👨🏿	puthje grua, burrë e nuancë lëkure e errët	none
+👩🏻‍❤‍💋‍👩🏻	puthje grua, grua e nuancë lëkure e çelët	none
+👩🏻‍❤‍💋‍👩🏼	puthje grua, grua, nuancë lëkure e çelët e nuancë lëkure gjysmë e çelët	none
+👩🏻‍❤‍💋‍👩🏽	puthje grua, grua, nuancë lëkure e çelët e nuancë lëkure zeshkane	none
+👩🏻‍❤‍💋‍👩🏾	puthje grua, grua, nuancë lëkure e çelët e nuancë lëkure gjysmë e errët	none
+👩🏻‍❤‍💋‍👩🏿	puthje grua, grua, nuancë lëkure e çelët e nuancë lëkure e errët	none
+👩🏼‍❤‍💋‍👩🏻	puthje grua, grua, nuancë lëkure gjysmë e çelët e nuancë lëkure e çelët	none
+👩🏼‍❤‍💋‍👩🏼	puthje grua, grua e nuancë lëkure gjysmë e çelët	none
+👩🏼‍❤‍💋‍👩🏽	puthje grua, grua, nuancë lëkure gjysmë e çelët e nuancë lëkure zeshkane	none
+👩🏼‍❤‍💋‍👩🏾	puthje grua, grua, nuancë lëkure gjysmë e çelët e nuancë lëkure gjysmë e errët	none
+👩🏼‍❤‍💋‍👩🏿	puthje grua, grua, nuancë lëkure gjysmë e çelët e nuancë lëkure e errët	none
+👩🏽‍❤‍💋‍👩🏻	puthje grua, grua, nuancë lëkure zeshkane e nuancë lëkure e çelët	none
+👩🏽‍❤‍💋‍👩🏼	puthje grua, grua, nuancë lëkure zeshkane e nuancë lëkure gjysmë e çelët	none
+👩🏽‍❤‍💋‍👩🏽	puthje grua, grua e nuancë lëkure zeshkane	none
+👩🏽‍❤‍💋‍👩🏾	puthje grua, grua, nuancë lëkure zeshkane e nuancë lëkure gjysmë e errët	none
+👩🏽‍❤‍💋‍👩🏿	puthje grua, grua, nuancë lëkure zeshkane e nuancë lëkure e errët	none
+👩🏾‍❤‍💋‍👩🏻	puthje grua, grua, nuancë lëkure gjysmë e errët e nuancë lëkure e çelët	none
+👩🏾‍❤‍💋‍👩🏼	puthje grua, grua, nuancë lëkure gjysmë e errët e nuancë lëkure gjysmë e çelët	none
+👩🏾‍❤‍💋‍👩🏽	puthje grua, grua, nuancë lëkure gjysmë e errët e nuancë lëkure zeshkane	none
+👩🏾‍❤‍💋‍👩🏾	puthje grua, grua e nuancë lëkure gjysmë e errët	none
+👩🏾‍❤‍💋‍👩🏿	puthje grua, grua, nuancë lëkure gjysmë e errët e nuancë lëkure e errët	none
+👩🏿‍❤‍💋‍👩🏻	puthje grua, grua, nuancë lëkure e errët e nuancë lëkure e çelët	none
+👩🏿‍❤‍💋‍👩🏼	puthje grua, grua, nuancë lëkure e errët e nuancë lëkure gjysmë e çelët	none
+👩🏿‍❤‍💋‍👩🏽	puthje grua, grua, nuancë lëkure e errët e nuancë lëkure zeshkane	none
+👩🏿‍❤‍💋‍👩🏾	puthje grua, grua, nuancë lëkure e errët e nuancë lëkure gjysmë e errët	none
+👩🏿‍❤‍💋‍👩🏿	puthje grua, grua e nuancë lëkure e errët	none
+👩🏻‍❤‍👨🏻	çift me zemër grua, burrë e nuancë lëkure e çelët	none
+👩🏻‍❤‍👨🏼	çift me zemër grua, burrë, nuancë lëkure e çelët e nuancë lëkure gjysmë e çelët	none
+👩🏻‍❤‍👨🏽	çift me zemër grua, burrë, nuancë lëkure e çelët e nuancë lëkure zeshkane	none
+👩🏻‍❤‍👨🏾	çift me zemër grua, burrë, nuancë lëkure e çelët e nuancë lëkure gjysmë e errët	none
+👩🏻‍❤‍👨🏿	çift me zemër grua, burrë, nuancë lëkure e çelët e nuancë lëkure e errët	none
+👩🏼‍❤‍👨🏻	çift me zemër grua, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure e çelët	none
+👩🏼‍❤‍👨🏼	çift me zemër grua, burrë e nuancë lëkure gjysmë e çelët	none
+👩🏼‍❤‍👨🏽	çift me zemër grua, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure zeshkane	none
+👩🏼‍❤‍👨🏾	çift me zemër grua, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure gjysmë e errët	none
+👩🏼‍❤‍👨🏿	çift me zemër grua, burrë, nuancë lëkure gjysmë e çelët e nuancë lëkure e errët	none
+👩🏽‍❤‍👨🏻	çift me zemër grua, burrë, nuancë lëkure zeshkane e nuancë lëkure e çelët	none
+👩🏽‍❤‍👨🏼	çift me zemër grua, burrë, nuancë lëkure zeshkane e nuancë lëkure gjysmë e çelët	none
+👩🏽‍❤‍👨🏽	çift me zemër grua, burrë e nuancë lëkure zeshkane	none
+👩🏽‍❤‍👨🏾	çift me zemër grua, burrë, nuancë lëkure zeshkane e nuancë lëkure gjysmë e errët	none
+👩🏽‍❤‍👨🏿	çift me zemër grua, burrë, nuancë lëkure zeshkane e nuancë lëkure e errët	none
+👩🏾‍❤‍👨🏻	çift me zemër grua, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure e çelët	none
+👩🏾‍❤‍👨🏼	çift me zemër grua, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure gjysmë e çelët	none
+👩🏾‍❤‍👨🏽	çift me zemër grua, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure zeshkane	none
+👩🏾‍❤‍👨🏾	çift me zemër grua, burrë e nuancë lëkure gjysmë e errët	none
+👩🏾‍❤‍👨🏿	çift me zemër grua, burrë, nuancë lëkure gjysmë e errët e nuancë lëkure e errët	none
+👩🏿‍❤‍👨🏻	çift me zemër grua, burrë, nuancë lëkure e errët e nuancë lëkure e çelët	none
+👩🏿‍❤‍👨🏼	çift me zemër grua, burrë, nuancë lëkure e errët e nuancë lëkure gjysmë e çelët	none
+👩🏿‍❤‍👨🏽	çift me zemër grua, burrë, nuancë lëkure e errët e nuancë lëkure zeshkane	none
+👩🏿‍❤‍👨🏾	çift me zemër grua, burrë, nuancë lëkure e errët e nuancë lëkure gjysmë e errët	none
+👩🏿‍❤‍👨🏿	çift me zemër grua, burrë e nuancë lëkure e errët	none
+👩🏻‍❤‍👩🏻	çift me zemër grua, grua e nuancë lëkure e çelët	none
+👩🏻‍❤‍👩🏼	çift me zemër grua, grua, nuancë lëkure e çelët e nuancë lëkure gjysmë e çelët	none
+👩🏻‍❤‍👩🏽	çift me zemër grua, grua, nuancë lëkure e çelët e nuancë lëkure zeshkane	none
+👩🏻‍❤‍👩🏾	çift me zemër grua, grua, nuancë lëkure e çelët e nuancë lëkure gjysmë e errët	none
+👩🏻‍❤‍👩🏿	çift me zemër grua, grua, nuancë lëkure e çelët e nuancë lëkure e errët	none
+👩🏼‍❤‍👩🏻	çift me zemër grua, grua, nuancë lëkure gjysmë e çelët e nuancë lëkure e çelët	none
+👩🏼‍❤‍👩🏼	çift me zemër grua, grua e nuancë lëkure gjysmë e çelët	none
+👩🏼‍❤‍👩🏽	çift me zemër grua, grua, nuancë lëkure gjysmë e çelët e nuancë lëkure zeshkane	none
+👩🏼‍❤‍👩🏾	çift me zemër grua, grua, nuancë lëkure gjysmë e çelët e nuancë lëkure gjysmë e errët	none
+👩🏼‍❤‍👩🏿	çift me zemër grua, grua, nuancë lëkure gjysmë e çelët e nuancë lëkure e errët	none
+👩🏽‍❤‍👩🏻	çift me zemër grua, grua, nuancë lëkure zeshkane e nuancë lëkure e çelët	none
+👩🏽‍❤‍👩🏼	çift me zemër grua, grua, nuancë lëkure zeshkane e nuancë lëkure gjysmë e çelët	none
+👩🏽‍❤‍👩🏽	çift me zemër grua, grua e nuancë lëkure zeshkane	none
+👩🏽‍❤‍👩🏾	çift me zemër grua, grua, nuancë lëkure zeshkane e nuancë lëkure gjysmë e errët	none
+👩🏽‍❤‍👩🏿	çift me zemër grua, grua, nuancë lëkure zeshkane e nuancë lëkure e errët	none
+👩🏾‍❤‍👩🏻	çift me zemër grua, grua, nuancë lëkure gjysmë e errët e nuancë lëkure e çelët	none
+👩🏾‍❤‍👩🏼	çift me zemër grua, grua, nuancë lëkure gjysmë e errët e nuancë lëkure gjysmë e çelët	none
+👩🏾‍❤‍👩🏽	çift me zemër grua, grua, nuancë lëkure gjysmë e errët e nuancë lëkure zeshkane	none
+👩🏾‍❤‍👩🏾	çift me zemër grua, grua e nuancë lëkure gjysmë e errët	none
+👩🏾‍❤‍👩🏿	çift me zemër grua, grua, nuancë lëkure gjysmë e errët e nuancë lëkure e errët	none
+👩🏿‍❤‍👩🏻	çift me zemër grua, grua, nuancë lëkure e errët e nuancë lëkure e çelët	none
+👩🏿‍❤‍👩🏼	çift me zemër grua, grua, nuancë lëkure e errët e nuancë lëkure gjysmë e çelët	none
+👩🏿‍❤‍👩🏽	çift me zemër grua, grua, nuancë lëkure e errët e nuancë lëkure zeshkane	none
+👩🏿‍❤‍👩🏾	çift me zemër grua, grua, nuancë lëkure e errët e nuancë lëkure gjysmë e errët	none
+👩🏿‍❤‍👩🏿	çift me zemër grua, grua e nuancë lëkure e errët	none
 👩‍🦰	grua flokë të kuqe	none
 👩🏻‍🦰	grua nuancë lëkure e çelët e flokë të kuqe	none
 👩🏼‍🦰	grua nuancë lëkure gjysmë e çelët e flokë të kuqe	none
@@ -3005,9 +3335,19 @@ symbols:
 👨🏿‍🤝‍👨🏽	dy burra të kapur për duarsh nuancë lëkure e errët e nuancë lëkure zeshkane	none
 👨🏿‍🤝‍👨🏾	dy burra të kapur për duarsh nuancë lëkure e errët e nuancë lëkure gjysmë e errët	none
 👬🏿	dy burra të kapur për duarsh nuancë lëkure e errët	none
+💏🏻	puthje nuancë lëkure e çelët	none
+💏🏼	puthje nuancë lëkure gjysmë e çelët	none
+💏🏽	puthje nuancë lëkure zeshkane	none
+💏🏾	puthje nuancë lëkure gjysmë e errët	none
+💏🏿	puthje nuancë lëkure e errët	none
 👩‍❤‍💋‍👨	puthje grua e burrë	none
 👨‍❤‍💋‍👨	puthje burrë e burrë	none
 👩‍❤‍💋‍👩	puthje grua e grua	none
+💑🏻	çift me zemër nuancë lëkure e çelët	none
+💑🏼	çift me zemër nuancë lëkure gjysmë e çelët	none
+💑🏽	çift me zemër nuancë lëkure zeshkane	none
+💑🏾	çift me zemër nuancë lëkure gjysmë e errët	none
+💑🏿	çift me zemër nuancë lëkure e errët	none
 👩‍❤‍👨	çift me zemër grua e burrë	none
 👨‍❤‍👨	çift me zemër burrë e burrë	none
 👩‍❤‍👩	çift me zemër grua e grua	none
@@ -3298,3 +3638,16 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	flamur Angli	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	flamur Skoci	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	flamur Uells	none
+₡	Koloni kostarikan	none
+₦	Naira nigeriane	none
+₪	Shekeli izrealit	none
+₫	Donga vietnameze	none
+₭	Kipa e Laosit	none
+₮	Tugrika mongole	none
+₲	Guarani paraguaian	none
+₴	Rivnia ukrainase	none
+₵	Sejda ganeze	none
+₸	Tenga kazake	none
+₺	Lira turke	none
+₼	Manata azerbajxhanase	none
+₾	Laria gjeorgjiane	none
