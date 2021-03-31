@@ -7,7 +7,7 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-Ø	O ขีดทับ	char
-ø	o ขีดทับ	char
+Ø	O ขีดทับ	char	norep
+ø	o ขีดทับ	char	norep
 	สี่เหลี่ยมทึบ	none
 	ข้าวหลามตัดทึบ	none

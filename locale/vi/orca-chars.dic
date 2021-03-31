@@ -7,68 +7,68 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a sắc	char
-À	A HUYỀN	char
-Á	A SẮC	char
-Â	A MŨ	char
-Ã	A NGÃ	char
-Ä	A HAI CHẤM TRÊN	char
-Å	A TRÒN TRÊN	char
-Æ	A E một âm	char
-Ç	C MÓC DƯỚI	char
-È	E HUYỀN	char
-É	E SẮC	char
-Ê	E MŨ	char
-Ë	E HAI CHẤM TRÊN	char
-Ì	I HUYỀN	char
-Í	I SẮC	char
-Î	I MŨ	char
-Ï	I HAI CHẤM TRÊN	char
-Ð	Ð	char
-Ñ	N NGÃ	char
-Ò	O HUYỀN	char
-Ó	O SẮC	char
-Ô	O MŨ	char
-Õ	O NGÃ	char
-Ö	O HAI CHẤM TRÊN	char
-Ø	O THANH TRÊN	char
-Ù	U HUYỀN	char
-Ú	U SẮC	char
-Û	U MŨ	char
-Ü	U HAI CHẤM TRÊN	char
-Ý	Y SẮC	char
-Þ	þ	char
-ß	dấu thăng	char
-à	a huyền	char
-â	a mũ	char
-ã	a ngã	char
-ä	a hai chấm trên	char
-å	a tròn trên	char
-æ	a e cùng chữ	char
-ç	c móc dưới	char
-è	e huyền	char
-é	e sắc	char
-ê	e mũ	char
-ë	e hai chấm trên	char
-ì	i huyền	char
-í	i sắc	char
-î	i mũ	char
-ï	i hai chấm trên	char
-ð	ð	char
-ñ	n ngã	char
-ò	o huyền	char
-ó	o sắc	char
-ô	o mũ	char
-õ	o ngã	char
-ö	o hai chấm trên	char
-ø	o thanh trên	char
-þ	Þ	char
-ú	u sắc	char
-ù	u huyền	char
-û	u mũ	char
-ü	u hai chấm trên	char
-ý	y sắc	char
-ÿ	y hai chấm trên	char
-Ÿ	U HAI CHẤM TRÊN	char
+á	a sắc	char	norep
+À	A HUYỀN	char	norep
+Á	A SẮC	char	norep
+Â	A MŨ	char	norep
+Ã	A NGÃ	char	norep
+Ä	A HAI CHẤM TRÊN	char	norep
+Å	A TRÒN TRÊN	char	norep
+Æ	A E một âm	char	norep
+Ç	C MÓC DƯỚI	char	norep
+È	E HUYỀN	char	norep
+É	E SẮC	char	norep
+Ê	E MŨ	char	norep
+Ë	E HAI CHẤM TRÊN	char	norep
+Ì	I HUYỀN	char	norep
+Í	I SẮC	char	norep
+Î	I MŨ	char	norep
+Ï	I HAI CHẤM TRÊN	char	norep
+Ð	Ð	char	norep
+Ñ	N NGÃ	char	norep
+Ò	O HUYỀN	char	norep
+Ó	O SẮC	char	norep
+Ô	O MŨ	char	norep
+Õ	O NGÃ	char	norep
+Ö	O HAI CHẤM TRÊN	char	norep
+Ø	O THANH TRÊN	char	norep
+Ù	U HUYỀN	char	norep
+Ú	U SẮC	char	norep
+Û	U MŨ	char	norep
+Ü	U HAI CHẤM TRÊN	char	norep
+Ý	Y SẮC	char	norep
+Þ	þ	char	norep
+ß	dấu thăng	char	norep
+à	a huyền	char	norep
+â	a mũ	char	norep
+ã	a ngã	char	norep
+ä	a hai chấm trên	char	norep
+å	a tròn trên	char	norep
+æ	a e cùng chữ	char	norep
+ç	c móc dưới	char	norep
+è	e huyền	char	norep
+é	e sắc	char	norep
+ê	e mũ	char	norep
+ë	e hai chấm trên	char	norep
+ì	i huyền	char	norep
+í	i sắc	char	norep
+î	i mũ	char	norep
+ï	i hai chấm trên	char	norep
+ð	ð	char	norep
+ñ	n ngã	char	norep
+ò	o huyền	char	norep
+ó	o sắc	char	norep
+ô	o mũ	char	norep
+õ	o ngã	char	norep
+ö	o hai chấm trên	char	norep
+ø	o thanh trên	char	norep
+þ	Þ	char	norep
+ú	u sắc	char	norep
+ù	u huyền	char	norep
+û	u mũ	char	norep
+ü	u hai chấm trên	char	norep
+ý	y sắc	char	norep
+ÿ	y hai chấm trên	char	norep
+Ÿ	U HAI CHẤM TRÊN	char	norep
 	vuông đen	none
 	thoi đen	none

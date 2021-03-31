@@ -7,64 +7,64 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	á	char
-À	A tompa ékezettel	char
-Á	Á	char
-Â	A kúpos ékezettel	char
-Ã	A hullámjellel	char
-Ä	umlautos A	char
-Å	A körrel	char
-Æ	AE ligatúra	char
-Ç	C cédille jellel	char
-È	E tompa ékezettel	char
-É	É	char
-Ê	E kúpos ékezettel	char
-Ë	umlautos E	char
-Ì	I tompa ékezettel	char
-Í	Í	char
-Î	I kúpos ékezettel	char
-Ï	umlautos I	char
-Ñ	N hullámjellel	char
-Ò	O tompa ékezettel	char
-Ó	Ó	char
-Ô	O kúpos ékezettel	char
-Õ	O hullámjellel	char
-Ö	Ö	char
-Ø	áthúzott O	char
-Ù	U tompa ékezettel	char
-Ú	Ú	char
-Û	U kúpos ékezettel	char
-Ü	Ü	char
-Ý	Y ékezettel	char
-ß	scharf s	char
-à	a tompa ékezettel	char
-â	a kúpos ékezettel	char
-ã	a hullámjellel	char
-ä	umlautos a	char
-å	a körrel	char
-æ	ae ligatúra	char
-ç	c cédille jellel	char
-è	e tompa ékezettel	char
-é	é	char
-ê	e kúpos ékezettel	char
-ë	umlautos e	char
-ì	i tompa ékezettel	char
-í	í	char
-î	i kúpos ékezettel	char
-ï	umlautos i	char
-ñ	n hullámjellel	char
-ò	o tompa ékezettel	char
-ó	ó	char
-ô	o kúpos ékezettel	char
-õ	o hullámjellel	char
-ö	ö	char
-ø	áthúzott o	char
-ú	ú	char
-ù	u tompa ékezettel	char
-û	y kúpos ékezettel	char
-ü	ü	char
-ý	y ékezettel	char
-ÿ	umlautos y	char
-Ÿ	umlautos Y	char
+á	á	char	norep
+À	A tompa ékezettel	char	norep
+Á	Á	char	norep
+Â	A kúpos ékezettel	char	norep
+Ã	A hullámjellel	char	norep
+Ä	umlautos A	char	norep
+Å	A körrel	char	norep
+Æ	AE ligatúra	char	norep
+Ç	C cédille jellel	char	norep
+È	E tompa ékezettel	char	norep
+É	É	char	norep
+Ê	E kúpos ékezettel	char	norep
+Ë	umlautos E	char	norep
+Ì	I tompa ékezettel	char	norep
+Í	Í	char	norep
+Î	I kúpos ékezettel	char	norep
+Ï	umlautos I	char	norep
+Ñ	N hullámjellel	char	norep
+Ò	O tompa ékezettel	char	norep
+Ó	Ó	char	norep
+Ô	O kúpos ékezettel	char	norep
+Õ	O hullámjellel	char	norep
+Ö	Ö	char	norep
+Ø	áthúzott O	char	norep
+Ù	U tompa ékezettel	char	norep
+Ú	Ú	char	norep
+Û	U kúpos ékezettel	char	norep
+Ü	Ü	char	norep
+Ý	Y ékezettel	char	norep
+ß	scharf s	char	norep
+à	a tompa ékezettel	char	norep
+â	a kúpos ékezettel	char	norep
+ã	a hullámjellel	char	norep
+ä	umlautos a	char	norep
+å	a körrel	char	norep
+æ	ae ligatúra	char	norep
+ç	c cédille jellel	char	norep
+è	e tompa ékezettel	char	norep
+é	é	char	norep
+ê	e kúpos ékezettel	char	norep
+ë	umlautos e	char	norep
+ì	i tompa ékezettel	char	norep
+í	í	char	norep
+î	i kúpos ékezettel	char	norep
+ï	umlautos i	char	norep
+ñ	n hullámjellel	char	norep
+ò	o tompa ékezettel	char	norep
+ó	ó	char	norep
+ô	o kúpos ékezettel	char	norep
+õ	o hullámjellel	char	norep
+ö	ö	char	norep
+ø	áthúzott o	char	norep
+ú	ú	char	norep
+ù	u tompa ékezettel	char	norep
+û	y kúpos ékezettel	char	norep
+ü	ü	char	norep
+ý	y ékezettel	char	norep
+ÿ	umlautos y	char	norep
+Ÿ	umlautos Y	char	norep
 	fekete négyzet	none
 	fekete káró	none

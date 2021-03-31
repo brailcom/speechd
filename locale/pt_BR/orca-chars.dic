@@ -7,51 +7,51 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a agudo	char
-Á	A AGUDO	char
-Â	A CIRCUNFLEXO	char
-Ã	A TIL	char
-Ä	A TREMA	char
-Å	A CÍRCULO	char
-Ç	C CEDILHA	char
-É	E AGUDO	char
-Ê	E CIRCUNFLEXO	char
-Ë	E TREMA	char
-Í	I AGUDO	char
-Î	I CIRCUNFLEXO	char
-Ï	I TREMA	char
-Ñ	N TIL	char
-Ó	O AGUDO	char
-Ô	O CIRCUNFLEXO	char
-Õ	O TIL	char
-Ö	O TREMA	char
-Ø	O CORTADO	char
-Ú	U AGUDO	char
-Û	U CIRCUNFLEXO	char
-Ü	U TREMA	char
-Ý	Y AGUDO	char
-â	a circunflexo	char
-ã	a til	char
-ä	a trema	char
-å	a círculo	char
-ç	c cedilha	char
-é	e agudo	char
-ê	e circunflexo	char
-ë	e trema	char
-í	i agudo	char
-î	i circunflexo	char
-ï	i trema	char
-ñ	n til	char
-ó	o agudo	char
-ô	o circunflexo	char
-õ	o til	char
-ö	o trema	char
-ø	o cortado	char
-ú	u agudo	char
-û	u circunflexo	char
-ü	u trema	char
-ý	y agudo	char
-ÿ	y trema	char
-Ÿ	Y TREMA	char
+á	a agudo	char	norep
+Á	A AGUDO	char	norep
+Â	A CIRCUNFLEXO	char	norep
+Ã	A TIL	char	norep
+Ä	A TREMA	char	norep
+Å	A CÍRCULO	char	norep
+Ç	C CEDILHA	char	norep
+É	E AGUDO	char	norep
+Ê	E CIRCUNFLEXO	char	norep
+Ë	E TREMA	char	norep
+Í	I AGUDO	char	norep
+Î	I CIRCUNFLEXO	char	norep
+Ï	I TREMA	char	norep
+Ñ	N TIL	char	norep
+Ó	O AGUDO	char	norep
+Ô	O CIRCUNFLEXO	char	norep
+Õ	O TIL	char	norep
+Ö	O TREMA	char	norep
+Ø	O CORTADO	char	norep
+Ú	U AGUDO	char	norep
+Û	U CIRCUNFLEXO	char	norep
+Ü	U TREMA	char	norep
+Ý	Y AGUDO	char	norep
+â	a circunflexo	char	norep
+ã	a til	char	norep
+ä	a trema	char	norep
+å	a círculo	char	norep
+ç	c cedilha	char	norep
+é	e agudo	char	norep
+ê	e circunflexo	char	norep
+ë	e trema	char	norep
+í	i agudo	char	norep
+î	i circunflexo	char	norep
+ï	i trema	char	norep
+ñ	n til	char	norep
+ó	o agudo	char	norep
+ô	o circunflexo	char	norep
+õ	o til	char	norep
+ö	o trema	char	norep
+ø	o cortado	char	norep
+ú	u agudo	char	norep
+û	u circunflexo	char	norep
+ü	u trema	char	norep
+ý	y agudo	char	norep
+ÿ	y trema	char	norep
+Ÿ	Y TREMA	char	norep
 	quadrado negro	none
 	losango negro	none

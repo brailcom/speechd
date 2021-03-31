@@ -7,62 +7,62 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a akut	char
-À	A GRAV	char
-Á	A AKUT	char
-Â	A CIRKUMFLEX	char
-Ä	Ä	char
-Å	Å	char
-Æ	AE-ligatur	char
-Ç	C CEDILJ	char
-È	E GRAV	char
-É	E AKUT	char
-Ê	E CIRKUMFLEX	char
-Ë	E TREMA	char
-Ì	I GRAV	char
-Í	I AKUT	char
-Î	I CIRKUMFLEX	char
-Ï	I TREMA	char
-Ð	EDH	char
-Ò	O GRAV	char
-Ó	O AKUT	char
-Ô	O CIRKUMFLEX	char
-Ö	Ö	char
-Ø	GENOMSTRUKET O	char
-Ù	U GRAV	char
-Ú	U AKUT	char
-Û	U CIRKUMFLEX	char
-Ü	U TREMA	char
-Ý	Y AKUT	char
-Þ	TÖRN	char
-ß	dubbel-s	char
-à	a grav	char
-â	a cirkumflex	char
-ä	ä	char
-å	å	char
-æ	ae-ligatur	char
-ç	c cedilj	char
-è	e grav	char
-é	e akut	char
-ê	e cirkumflex	char
-ë	e dieresis	char
-ì	i grav	char
-í	i akut	char
-î	i cirkumflex	char
-ï	i trema	char
-ð	edh	char
-ò	o grav	char
-ó	o akut	char
-ô	o cirkumflex	char
-ö	ö	char
-ø	genomstruket o	char
-þ	törn	char
-ú	u akut	char
-ù	u grav	char
-û	u cirkumflex	char
-ü	u trema	char
-ý	y akut	char
-ÿ	y trema	char
-Ÿ	Y TREMA	char
+á	a akut	char	norep
+À	A GRAV	char	norep
+Á	A AKUT	char	norep
+Â	A CIRKUMFLEX	char	norep
+Ä	Ä	char	norep
+Å	Å	char	norep
+Æ	AE-ligatur	char	norep
+Ç	C CEDILJ	char	norep
+È	E GRAV	char	norep
+É	E AKUT	char	norep
+Ê	E CIRKUMFLEX	char	norep
+Ë	E TREMA	char	norep
+Ì	I GRAV	char	norep
+Í	I AKUT	char	norep
+Î	I CIRKUMFLEX	char	norep
+Ï	I TREMA	char	norep
+Ð	EDH	char	norep
+Ò	O GRAV	char	norep
+Ó	O AKUT	char	norep
+Ô	O CIRKUMFLEX	char	norep
+Ö	Ö	char	norep
+Ø	GENOMSTRUKET O	char	norep
+Ù	U GRAV	char	norep
+Ú	U AKUT	char	norep
+Û	U CIRKUMFLEX	char	norep
+Ü	U TREMA	char	norep
+Ý	Y AKUT	char	norep
+Þ	TÖRN	char	norep
+ß	dubbel-s	char	norep
+à	a grav	char	norep
+â	a cirkumflex	char	norep
+ä	ä	char	norep
+å	å	char	norep
+æ	ae-ligatur	char	norep
+ç	c cedilj	char	norep
+è	e grav	char	norep
+é	e akut	char	norep
+ê	e cirkumflex	char	norep
+ë	e dieresis	char	norep
+ì	i grav	char	norep
+í	i akut	char	norep
+î	i cirkumflex	char	norep
+ï	i trema	char	norep
+ð	edh	char	norep
+ò	o grav	char	norep
+ó	o akut	char	norep
+ô	o cirkumflex	char	norep
+ö	ö	char	norep
+ø	genomstruket o	char	norep
+þ	törn	char	norep
+ú	u akut	char	norep
+ù	u grav	char	norep
+û	u cirkumflex	char	norep
+ü	u trema	char	norep
+ý	y akut	char	norep
+ÿ	y trema	char	norep
+Ÿ	Y TREMA	char	norep
 	svart kvadrat	none
 	svart diamant	none

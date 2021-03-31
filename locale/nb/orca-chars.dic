@@ -7,58 +7,58 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a akutt	char
-À	A GRAVIS	char
-Á	A AKUTT	char
-Â	A SIRKUMFLEKS	char
-Ä	A TREMA	char
-Å	Å	char
-Æ	Æ	char
-Ç	C CEDILLE	char
-È	E GRAVIS	char
-É	E AKUTT	char
-Ê	E SIRKUMFLEKS	char
-Ë	E TREMA	char
-Ì	I GRAVIS	char
-Í	I AKUTT	char
-Î	I SIRKUMFLEKS	char
-Ï	I TREMA	char
-Ò	O GRAVIS	char
-Ó	O AKUTT	char
-Ô	O SIRKUMFLEKS	char
-Ö	O TREMA	char
-Ø	Ø	char
-Ù	U GRAVIS	char
-Ú	U AKUTT	char
-Û	U SIRKUMFLEKS	char
-Ü	U TREMA	char
-Ý	Y AKUTT	char
-ß	skarp s	char
-à	a gravis	char
-â	a cirkumfleks	char
-ä	a trema	char
-å	å	char
-æ	æ	char
-ç	c cedille	char
-è	e gravis	char
-é	e akutt	char
-ê	e cirkumfleks	char
-ë	e trema	char
-ì	i gravis	char
-í	i akutt	char
-î	i cirkumfleks	char
-ï	i trema	char
-ò	o gravis	char
-ó	o akutt	char
-ô	o cirkumfleks	char
-ö	o trema	char
-ø	ø	char
-ú	u akutt	char
-ù	u gravis	char
-û	u cirkumfleks	char
-ü	u trema	char
-ý	y akutt	char
-ÿ	y trema	char
-Ÿ	Y TREMA	char
+á	a akutt	char	norep
+À	A GRAVIS	char	norep
+Á	A AKUTT	char	norep
+Â	A SIRKUMFLEKS	char	norep
+Ä	A TREMA	char	norep
+Å	Å	char	norep
+Æ	Æ	char	norep
+Ç	C CEDILLE	char	norep
+È	E GRAVIS	char	norep
+É	E AKUTT	char	norep
+Ê	E SIRKUMFLEKS	char	norep
+Ë	E TREMA	char	norep
+Ì	I GRAVIS	char	norep
+Í	I AKUTT	char	norep
+Î	I SIRKUMFLEKS	char	norep
+Ï	I TREMA	char	norep
+Ò	O GRAVIS	char	norep
+Ó	O AKUTT	char	norep
+Ô	O SIRKUMFLEKS	char	norep
+Ö	O TREMA	char	norep
+Ø	Ø	char	norep
+Ù	U GRAVIS	char	norep
+Ú	U AKUTT	char	norep
+Û	U SIRKUMFLEKS	char	norep
+Ü	U TREMA	char	norep
+Ý	Y AKUTT	char	norep
+ß	skarp s	char	norep
+à	a gravis	char	norep
+â	a cirkumfleks	char	norep
+ä	a trema	char	norep
+å	å	char	norep
+æ	æ	char	norep
+ç	c cedille	char	norep
+è	e gravis	char	norep
+é	e akutt	char	norep
+ê	e cirkumfleks	char	norep
+ë	e trema	char	norep
+ì	i gravis	char	norep
+í	i akutt	char	norep
+î	i cirkumfleks	char	norep
+ï	i trema	char	norep
+ò	o gravis	char	norep
+ó	o akutt	char	norep
+ô	o cirkumfleks	char	norep
+ö	o trema	char	norep
+ø	ø	char	norep
+ú	u akutt	char	norep
+ù	u gravis	char	norep
+û	u cirkumfleks	char	norep
+ü	u trema	char	norep
+ý	y akutt	char	norep
+ÿ	y trema	char	norep
+Ÿ	Y TREMA	char	norep
 	sort firkant	none
 	sort diamant	none

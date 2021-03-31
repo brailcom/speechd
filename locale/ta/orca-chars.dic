@@ -7,68 +7,68 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a அக்யூட்	char
-À	ஏ க்ரேவ்	char
-Á	ஏ அக்யூட்	char
-Â	ஏ ஸர்க்ளம்ப்லெக்ஸ்	char
-Ã	ஏ டில்டே	char
-Ä	ஏ உம்லௌட்	char
-Å	ஏ ரிங்	char
-Æ	ஏ ஈ	char
-Ç	சி செடில்லா	char
-È	ஈ க்ரேவ்	char
-É	ஈ அக்யூட்	char
-Ê	ஈ ஸர்க்ளம்ப்லெக்ஸ்	char
-Ë	ஈஉம்லௌட்	char
-Ì	ஐ க்ரேவ்	char
-Í	ஐ அக்யூட்	char
-Î	ஐ  ஸர்க்ளம்ப்லெக்ஸ்	char
-Ï	ஐ உம்லௌட்	char
-Ð	ஈடிஹெச்	char
-Ñ	என் டில்டே	char
-Ò	ஓ க்ரேவ்	char
-Ó	ஓ அக்யூட்	char
-Ô	ஓ  ஸர்க்ளம்ப்லெக்ஸ்	char
-Õ	ஓ டில்டே	char
-Ö	ஓ உம்லௌட்	char
-Ø	ஓ ஸ்ட்ரோக்	char
-Ù	யூ க்ரேவ்	char
-Ú	யூ அக்யூட்	char
-Û	யூ ஸர்க்ளம்ப்லெக்ஸ்	char
-Ü	யூ உம்லௌட்	char
-Ý	ஒய் அக்யூட்	char
-Þ	தார்ன்	char
-ß	எஸ் ஷார்ப்	char
-à	எ க்ரேவ்	char
-â	எ ஸர்க்ளம்ப்லெக்ஸ்	char
-ã	எ டில்டே	char
-ä	எ உம்லௌட்	char
-å	எ வளையம்	char
-æ	எ இ	char
-ç	சி செடில்லா	char
-è	இ க்ரேவ்	char
-é	இ அக்யூட்	char
-ê	இ ஸர்க்ளம்ப்லெக்ஸ்	char
-ë	இ உம்லௌட்	char
-ì	ஐ க்ரேவ்	char
-í	ஐ அக்யூட்	char
-î	ஐ ஸர்க்ளம்ப்லெக்ஸ்	char
-ï	ஐ உம்லௌட்	char
-ð	இடிஹெச்(eth)	char
-ñ	என் டில்டே	char
-ò	ஒ க்ரேவ் 	char
-ó	ஓ அக்யூட்	char
-ô	ஓ ஸர்க்ளம்ப்லெக்ஸ்	char
-õ	ஓ டில்டே	char
-ö	ஓ உம்லௌட்	char
-ø	ஒ ஸ்ட்ரோக்	char
-þ	தார்ன்	char
-ú	யூ அக்யூட்	char
-ù	யு க்ரேவ்	char
-û	யூ ஸர்க்ளம்ப்லெக்ஸ்	char
-ü	யூ உம்லௌட்	char
-ý	ஒய் அக்யூட்	char
-ÿ	ஒய் உம்லௌட்	char
-Ÿ	ஒய் உம்லௌட்	char
+á	a அக்யூட்	char	norep
+À	ஏ க்ரேவ்	char	norep
+Á	ஏ அக்யூட்	char	norep
+Â	ஏ ஸர்க்ளம்ப்லெக்ஸ்	char	norep
+Ã	ஏ டில்டே	char	norep
+Ä	ஏ உம்லௌட்	char	norep
+Å	ஏ ரிங்	char	norep
+Æ	ஏ ஈ	char	norep
+Ç	சி செடில்லா	char	norep
+È	ஈ க்ரேவ்	char	norep
+É	ஈ அக்யூட்	char	norep
+Ê	ஈ ஸர்க்ளம்ப்லெக்ஸ்	char	norep
+Ë	ஈஉம்லௌட்	char	norep
+Ì	ஐ க்ரேவ்	char	norep
+Í	ஐ அக்யூட்	char	norep
+Î	ஐ  ஸர்க்ளம்ப்லெக்ஸ்	char	norep
+Ï	ஐ உம்லௌட்	char	norep
+Ð	ஈடிஹெச்	char	norep
+Ñ	என் டில்டே	char	norep
+Ò	ஓ க்ரேவ்	char	norep
+Ó	ஓ அக்யூட்	char	norep
+Ô	ஓ  ஸர்க்ளம்ப்லெக்ஸ்	char	norep
+Õ	ஓ டில்டே	char	norep
+Ö	ஓ உம்லௌட்	char	norep
+Ø	ஓ ஸ்ட்ரோக்	char	norep
+Ù	யூ க்ரேவ்	char	norep
+Ú	யூ அக்யூட்	char	norep
+Û	யூ ஸர்க்ளம்ப்லெக்ஸ்	char	norep
+Ü	யூ உம்லௌட்	char	norep
+Ý	ஒய் அக்யூட்	char	norep
+Þ	தார்ன்	char	norep
+ß	எஸ் ஷார்ப்	char	norep
+à	எ க்ரேவ்	char	norep
+â	எ ஸர்க்ளம்ப்லெக்ஸ்	char	norep
+ã	எ டில்டே	char	norep
+ä	எ உம்லௌட்	char	norep
+å	எ வளையம்	char	norep
+æ	எ இ	char	norep
+ç	சி செடில்லா	char	norep
+è	இ க்ரேவ்	char	norep
+é	இ அக்யூட்	char	norep
+ê	இ ஸர்க்ளம்ப்லெக்ஸ்	char	norep
+ë	இ உம்லௌட்	char	norep
+ì	ஐ க்ரேவ்	char	norep
+í	ஐ அக்யூட்	char	norep
+î	ஐ ஸர்க்ளம்ப்லெக்ஸ்	char	norep
+ï	ஐ உம்லௌட்	char	norep
+ð	இடிஹெச்(eth)	char	norep
+ñ	என் டில்டே	char	norep
+ò	ஒ க்ரேவ் 	char	norep
+ó	ஓ அக்யூட்	char	norep
+ô	ஓ ஸர்க்ளம்ப்லெக்ஸ்	char	norep
+õ	ஓ டில்டே	char	norep
+ö	ஓ உம்லௌட்	char	norep
+ø	ஒ ஸ்ட்ரோக்	char	norep
+þ	தார்ன்	char	norep
+ú	யூ அக்யூட்	char	norep
+ù	யு க்ரேவ்	char	norep
+û	யூ ஸர்க்ளம்ப்லெக்ஸ்	char	norep
+ü	யூ உம்லௌட்	char	norep
+ý	ஒய் அக்யூட்	char	norep
+ÿ	ஒய் உம்லௌட்	char	norep
+Ÿ	ஒய் உம்லௌட்	char	norep
 	கருப்பு சதுரம்	none
 	கருப்பு வைரம்	none

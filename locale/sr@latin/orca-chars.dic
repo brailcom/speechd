@@ -7,68 +7,68 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	malo dugouzlazno a	char
-À	VELIKO KRATKOUZLAZNO A	char
-Á	VELIKO DUGOUZLAZNO A	char
-Â	VELIKO DUGOSILAZNO A	char
-Ã	VELIKO A SA TILDOM	char
-Ä	VELIKO A SA DVE TAČKE	char
-Å	VELIKO A SA KRUŽIĆEM	char
-Æ	VELIKO AE	char
-Ç	VELIKO C SA SEDILJOM	char
-È	VELIKO KRATKOUZLAZNO E	char
-É	VELIKO DUGOUZLAZNO E	char
-Ê	VELIKO DUGOSILAZNO E	char
-Ë	VELIKO E SA DVE TAČKE	char
-Ì	VELIKO KRATKOUZLAZNO I	char
-Í	VELIKO DUGOUZLAZNO I	char
-Î	VELIKO DUGOSILAZNO I	char
-Ï	VELIKO I SA DVE TAČKE	char
-Ð	VELIKO Đ LATINICOM	char
-Ñ	VELIKO N SA TILDOM	char
-Ò	VELIKO KRATKOUZLAZNO O	char
-Ó	VELIKO DUGOUZLAZNO O	char
-Ô	VELIKO DUGOSILAZNO O	char
-Õ	VELIKO O SA TILDOM	char
-Ö	VELIKO O SA DVE TAČKE	char
-Ø	PRECRTANO VELIKO O	char
-Ù	VELIKO KRATKOUZLAZNO U	char
-Ú	VELIKO DUGOUZLAZNO U	char
-Û	VELIKO DUGOSILAZNO U	char
-Ü	VELIKO U SA DVE TAČKE	char
-Ý	VELIKO DUGOUZLAZNO IPSILON	char
-Þ	TORN	char
-ß	nemačko malo duplo s	char
-à	malo kratkouzlazno a	char
-â	malo dugosilazno a	char
-ã	malo a sa tildom	char
-ä	malo a sa dve tačke	char
-å	malo a sa kružićem	char
-æ	malo ae	char
-ç	malo c sa sediljom	char
-è	malo kratkouzlazno e	char
-é	malo dugouzlazno e	char
-ê	malo dugosilazno e	char
-ë	malo e sa dve tačke	char
-ì	malo kratkouzlazno i	char
-í	malo dugouzlazno i	char
-î	malo dugosilazno i	char
-ï	malo i sa dve tačke	char
-ð	malo đ latinicom	char
-ñ	malo n sa tildom	char
-ò	malo kratkouzlazno o	char
-ó	malo dugouzlazno o	char
-ô	malo dugosilazno o	char
-õ	malo o sa tildom	char
-ö	malo o sa dve tačke	char
-ø	malo precrtano o	char
-þ	malo torn	char
-ú	malo dugouzlazno u	char
-ù	malo kratkouzlazno u	char
-û	malo dugosilazno u	char
-ü	malo u sa dve tačke	char
-ý	malo dugouzlazno ipsilon	char
-ÿ	malo ipsilon sa dve tačke	char
-Ÿ	VELIKO IPSILON SA DVE TAČKE	char
+á	malo dugouzlazno a	char	norep
+À	VELIKO KRATKOUZLAZNO A	char	norep
+Á	VELIKO DUGOUZLAZNO A	char	norep
+Â	VELIKO DUGOSILAZNO A	char	norep
+Ã	VELIKO A SA TILDOM	char	norep
+Ä	VELIKO A SA DVE TAČKE	char	norep
+Å	VELIKO A SA KRUŽIĆEM	char	norep
+Æ	VELIKO AE	char	norep
+Ç	VELIKO C SA SEDILJOM	char	norep
+È	VELIKO KRATKOUZLAZNO E	char	norep
+É	VELIKO DUGOUZLAZNO E	char	norep
+Ê	VELIKO DUGOSILAZNO E	char	norep
+Ë	VELIKO E SA DVE TAČKE	char	norep
+Ì	VELIKO KRATKOUZLAZNO I	char	norep
+Í	VELIKO DUGOUZLAZNO I	char	norep
+Î	VELIKO DUGOSILAZNO I	char	norep
+Ï	VELIKO I SA DVE TAČKE	char	norep
+Ð	VELIKO Đ LATINICOM	char	norep
+Ñ	VELIKO N SA TILDOM	char	norep
+Ò	VELIKO KRATKOUZLAZNO O	char	norep
+Ó	VELIKO DUGOUZLAZNO O	char	norep
+Ô	VELIKO DUGOSILAZNO O	char	norep
+Õ	VELIKO O SA TILDOM	char	norep
+Ö	VELIKO O SA DVE TAČKE	char	norep
+Ø	PRECRTANO VELIKO O	char	norep
+Ù	VELIKO KRATKOUZLAZNO U	char	norep
+Ú	VELIKO DUGOUZLAZNO U	char	norep
+Û	VELIKO DUGOSILAZNO U	char	norep
+Ü	VELIKO U SA DVE TAČKE	char	norep
+Ý	VELIKO DUGOUZLAZNO IPSILON	char	norep
+Þ	TORN	char	norep
+ß	nemačko malo duplo s	char	norep
+à	malo kratkouzlazno a	char	norep
+â	malo dugosilazno a	char	norep
+ã	malo a sa tildom	char	norep
+ä	malo a sa dve tačke	char	norep
+å	malo a sa kružićem	char	norep
+æ	malo ae	char	norep
+ç	malo c sa sediljom	char	norep
+è	malo kratkouzlazno e	char	norep
+é	malo dugouzlazno e	char	norep
+ê	malo dugosilazno e	char	norep
+ë	malo e sa dve tačke	char	norep
+ì	malo kratkouzlazno i	char	norep
+í	malo dugouzlazno i	char	norep
+î	malo dugosilazno i	char	norep
+ï	malo i sa dve tačke	char	norep
+ð	malo đ latinicom	char	norep
+ñ	malo n sa tildom	char	norep
+ò	malo kratkouzlazno o	char	norep
+ó	malo dugouzlazno o	char	norep
+ô	malo dugosilazno o	char	norep
+õ	malo o sa tildom	char	norep
+ö	malo o sa dve tačke	char	norep
+ø	malo precrtano o	char	norep
+þ	malo torn	char	norep
+ú	malo dugouzlazno u	char	norep
+ù	malo kratkouzlazno u	char	norep
+û	malo dugosilazno u	char	norep
+ü	malo u sa dve tačke	char	norep
+ý	malo dugouzlazno ipsilon	char	norep
+ÿ	malo ipsilon sa dve tačke	char	norep
+Ÿ	VELIKO IPSILON SA DVE TAČKE	char	norep
 	crni kvadratić	none
 	crni romb	none

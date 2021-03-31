@@ -7,60 +7,60 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a Akut	char
-À	A Gravis	char
-Á	A Akut	char
-Â	A Zirkumflex	char
-Ã	A Tilde	char
-Ä	A Umlaut	char
-Å	A Kreisakzent	char
-Ç	C Zedilla	char
-È	E Gravis	char
-É	E Akut	char
-Ê	E Zirkumflex	char
-Ë	E Umlaut	char
-Ì	I Gravis	char
-Í	I Akut	char
-Î	I Zircumflex	char
-Ñ	N Tilde	char
-Ò	O Gravis	char
-Ó	O Akut	char
-Ô	O Zirkumflex	char
-Õ	O Tilde	char
-Ö	O Umlaut	char
-Ø	O Schrägstrich	char
-Ù	U Gravis	char
-Ú	U Akut	char
-Û	U Zirkumflex	char
-Ü	U Umlaut	char
-Ý	Y Akut	char
-ß	Eszett	char
-à	a Gravis	char
-â	a Zirkumflex	char
-ã	a Tilde	char
-ä	a Umlaut	char
-å	a Kreisakzent	char
-ç	c Zedilla	char
-è	e Gravis	char
-é	e Akut	char
-ê	e Zirkumflex	char
-ë	e Umlaut	char
-ì	i Gravis	char
-í	i Akut	char
-î	i Zirkumflex	char
-ï	i Umlaut	char
-ñ	n Tilde	char
-ò	o Gravis	char
-ó	o Akut	char
-ô	o Zirkumflex	char
-õ	o Tilde	char
-ö	o Umlaut	char
-ø	o Schrägstrich	char
-ú	u akut	char
-ù	u Gravis	char
-û	u Zirkumflex	char
-ü	u U+00a4	char
-ý	y Akut	char
-ÿ	y Umlaut	char
+á	a Akut	char	norep
+À	A Gravis	char	norep
+Á	A Akut	char	norep
+Â	A Zirkumflex	char	norep
+Ã	A Tilde	char	norep
+Ä	A Umlaut	char	norep
+Å	A Kreisakzent	char	norep
+Ç	C Zedilla	char	norep
+È	E Gravis	char	norep
+É	E Akut	char	norep
+Ê	E Zirkumflex	char	norep
+Ë	E Umlaut	char	norep
+Ì	I Gravis	char	norep
+Í	I Akut	char	norep
+Î	I Zircumflex	char	norep
+Ñ	N Tilde	char	norep
+Ò	O Gravis	char	norep
+Ó	O Akut	char	norep
+Ô	O Zirkumflex	char	norep
+Õ	O Tilde	char	norep
+Ö	O Umlaut	char	norep
+Ø	O Schrägstrich	char	norep
+Ù	U Gravis	char	norep
+Ú	U Akut	char	norep
+Û	U Zirkumflex	char	norep
+Ü	U Umlaut	char	norep
+Ý	Y Akut	char	norep
+ß	Eszett	char	norep
+à	a Gravis	char	norep
+â	a Zirkumflex	char	norep
+ã	a Tilde	char	norep
+ä	a Umlaut	char	norep
+å	a Kreisakzent	char	norep
+ç	c Zedilla	char	norep
+è	e Gravis	char	norep
+é	e Akut	char	norep
+ê	e Zirkumflex	char	norep
+ë	e Umlaut	char	norep
+ì	i Gravis	char	norep
+í	i Akut	char	norep
+î	i Zirkumflex	char	norep
+ï	i Umlaut	char	norep
+ñ	n Tilde	char	norep
+ò	o Gravis	char	norep
+ó	o Akut	char	norep
+ô	o Zirkumflex	char	norep
+õ	o Tilde	char	norep
+ö	o Umlaut	char	norep
+ø	o Schrägstrich	char	norep
+ú	u akut	char	norep
+ù	u Gravis	char	norep
+û	u Zirkumflex	char	norep
+ü	u U+00a4	char	norep
+ý	y Akut	char	norep
+ÿ	y Umlaut	char	norep
 	Schwarzes Quadrat	none
 	Schwarze Raute	none

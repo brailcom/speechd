@@ -7,65 +7,65 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	á	char
-À	À	char
-Á	Á	char
-Â	Â	char
-Ã	Ã	char
-Ä	Ä	char
-Å	Å	char
-Æ	Æ	char
-È	È	char
-É	É	char
-Ê	Ê	char
-Ë	Ë	char
-Ì	Ì	char
-Í	Í	char
-Î	Î	char
-Ï	Ï	char
-Ñ	Ñ	char
-Ò	Ò	char
-Ó	Ó	char
-Ô	Ô	char
-Õ	Õ	char
-Ö	Ö	char
-Ø	Ø	char
-Ù	Ù	char
-Ú	Ú	char
-Û	Û	char
-Ü	Ü	char
-Ý	Ý	char
-Þ	Þ	char
-ß	ß	char
-à	à	char
-â	â	char
-ã	ã	char
-ä	ä	char
-å	å	char
-æ	æ	char
-ç	ç	char
-è	è	char
-é	é	char
-ê	ê	char
-ë	ë	char
-ì	ì	char
-í	í	char
-î	î	char
-ï	ï	char
-ñ	ñ	char
-ò	ò	char
-ó	ó	char
-ô	ô	char
-õ	õ	char
-ö	ö	char
-ø	ø'	char
-þ	þ	char
-ú	ú	char
-ù	ù	char
-û	û	char
-ü	ü	char
-ý	ý	char
-ÿ	ÿ	char
-Ÿ	Ÿ	char
+á	á	char	norep
+À	À	char	norep
+Á	Á	char	norep
+Â	Â	char	norep
+Ã	Ã	char	norep
+Ä	Ä	char	norep
+Å	Å	char	norep
+Æ	Æ	char	norep
+È	È	char	norep
+É	É	char	norep
+Ê	Ê	char	norep
+Ë	Ë	char	norep
+Ì	Ì	char	norep
+Í	Í	char	norep
+Î	Î	char	norep
+Ï	Ï	char	norep
+Ñ	Ñ	char	norep
+Ò	Ò	char	norep
+Ó	Ó	char	norep
+Ô	Ô	char	norep
+Õ	Õ	char	norep
+Ö	Ö	char	norep
+Ø	Ø	char	norep
+Ù	Ù	char	norep
+Ú	Ú	char	norep
+Û	Û	char	norep
+Ü	Ü	char	norep
+Ý	Ý	char	norep
+Þ	Þ	char	norep
+ß	ß	char	norep
+à	à	char	norep
+â	â	char	norep
+ã	ã	char	norep
+ä	ä	char	norep
+å	å	char	norep
+æ	æ	char	norep
+ç	ç	char	norep
+è	è	char	norep
+é	é	char	norep
+ê	ê	char	norep
+ë	ë	char	norep
+ì	ì	char	norep
+í	í	char	norep
+î	î	char	norep
+ï	ï	char	norep
+ñ	ñ	char	norep
+ò	ò	char	norep
+ó	ó	char	norep
+ô	ô	char	norep
+õ	õ	char	norep
+ö	ö	char	norep
+ø	ø'	char	norep
+þ	þ	char	norep
+ú	ú	char	norep
+ù	ù	char	norep
+û	û	char	norep
+ü	ü	char	norep
+ý	ý	char	norep
+ÿ	ÿ	char	norep
+Ÿ	Ÿ	char	norep
 	ئىچى پۈتەي كۋادرات	none
 	ئىچى پۈتەي رومبا	none

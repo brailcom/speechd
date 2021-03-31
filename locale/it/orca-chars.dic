@@ -7,68 +7,68 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a latina minuscola con accento acuto	char
-À	A latina maiuscola con accento grave	char
-Á	A latina maiuscola con accento acuto	char
-Â	A latina maiuscola con accento circonflesso	char
-Ã	A latina maiuscola con tilde	char
-Ä	A latina maiuscola con dieresi	char
-Å	A latina maiuscola con anello sopra	char
-Æ	AE latina maiuscola	char
-Ç	C latina maiuscola con cediglia	char
-È	E latina maiuscola con accento grave	char
-É	E latina maiuscola con accento acuto	char
-Ê	E latina maiuscola con accento circonflesso	char
-Ë	E latina maiuscola con dieresi	char
-Ì	I latina maiuscola con accento grave	char
-Í	I latina maiuscola con accento acuto	char
-Î	I latina maiuscola con accento circonflesso	char
-Ï	I latina maiuscola con dieresi	char
-Ð	ETH latina maiuscola	char
-Ñ	N latina maiuscola con tilde	char
-Ò	O latina maiuscola con accento grave	char
-Ó	O latina maiuscola con acento acuto	char
-Ô	O latina maiuscola con accento circonflesso	char
-Õ	O latina maiuscola con tilde	char
-Ö	O latina maiuscola con dieresi	char
-Ø	O latina maiuscola sbarrata	char
-Ù	U latina maiuscola con accento grave	char
-Ú	U latina maiuscola con accento acuto	char
-Û	U latina maiuscola con accento circonflesso	char
-Ü	U latina maiuscola con dieresi	char
-Ý	Y latina maiuscola con accento acuto	char
-Þ	THORN latina maiuscola	char
-ß	sharp s latina minuscola	char
-à	a latina minuscola con accento grave	char
-â	a latina minuscola con accento circonflesso	char
-ã	a latina minuscola con accento grave	char
-ä	a latina minuscola con dieresi	char
-å	a latina minuscola con anello sopra	char
-æ	ae latina minuscola	char
-ç	c latina minuscola con cediglia	char
-è	e latina minuscola con accento grave	char
-é	e latina minuscola con accento acuto	char
-ê	e latina minuscola con accento circonflesso	char
-ë	e latina minuscola con dieresi	char
-ì	i latina minuscola con accento grave	char
-í	i latina minuscola con accento acuto	char
-î	i latina minuscola con accento circonflesso	char
-ï	i latina minuscola con dieresi	char
-ð	eth latina minuscola	char
-ñ	n latina minuscola con tilde	char
-ò	o latina minuscola con accento grave	char
-ó	o latina minuscola con accento acuto	char
-ô	o latina minuscola con accento circonflesso	char
-õ	o latina minuscola con tilde	char
-ö	o latina minuscola con dieresi	char
-ø	o latina minuscola barrata	char
-þ	thorn latino minuscolo	char
-ú	u latina minuscola non accento acuto	char
-ù	u latina minuscola con accento grave	char
-û	u latina minuscola con accento circonflesso	char
-ü	u latina minuscola con dieresi	char
-ý	y latina minuscola con accento acuto	char
-ÿ	y latina minuscola con dieresi	char
-Ÿ	Y latina maiuscola con dieresi	char
+á	a latina minuscola con accento acuto	char	norep
+À	A latina maiuscola con accento grave	char	norep
+Á	A latina maiuscola con accento acuto	char	norep
+Â	A latina maiuscola con accento circonflesso	char	norep
+Ã	A latina maiuscola con tilde	char	norep
+Ä	A latina maiuscola con dieresi	char	norep
+Å	A latina maiuscola con anello sopra	char	norep
+Æ	AE latina maiuscola	char	norep
+Ç	C latina maiuscola con cediglia	char	norep
+È	E latina maiuscola con accento grave	char	norep
+É	E latina maiuscola con accento acuto	char	norep
+Ê	E latina maiuscola con accento circonflesso	char	norep
+Ë	E latina maiuscola con dieresi	char	norep
+Ì	I latina maiuscola con accento grave	char	norep
+Í	I latina maiuscola con accento acuto	char	norep
+Î	I latina maiuscola con accento circonflesso	char	norep
+Ï	I latina maiuscola con dieresi	char	norep
+Ð	ETH latina maiuscola	char	norep
+Ñ	N latina maiuscola con tilde	char	norep
+Ò	O latina maiuscola con accento grave	char	norep
+Ó	O latina maiuscola con acento acuto	char	norep
+Ô	O latina maiuscola con accento circonflesso	char	norep
+Õ	O latina maiuscola con tilde	char	norep
+Ö	O latina maiuscola con dieresi	char	norep
+Ø	O latina maiuscola sbarrata	char	norep
+Ù	U latina maiuscola con accento grave	char	norep
+Ú	U latina maiuscola con accento acuto	char	norep
+Û	U latina maiuscola con accento circonflesso	char	norep
+Ü	U latina maiuscola con dieresi	char	norep
+Ý	Y latina maiuscola con accento acuto	char	norep
+Þ	THORN latina maiuscola	char	norep
+ß	sharp s latina minuscola	char	norep
+à	a latina minuscola con accento grave	char	norep
+â	a latina minuscola con accento circonflesso	char	norep
+ã	a latina minuscola con accento grave	char	norep
+ä	a latina minuscola con dieresi	char	norep
+å	a latina minuscola con anello sopra	char	norep
+æ	ae latina minuscola	char	norep
+ç	c latina minuscola con cediglia	char	norep
+è	e latina minuscola con accento grave	char	norep
+é	e latina minuscola con accento acuto	char	norep
+ê	e latina minuscola con accento circonflesso	char	norep
+ë	e latina minuscola con dieresi	char	norep
+ì	i latina minuscola con accento grave	char	norep
+í	i latina minuscola con accento acuto	char	norep
+î	i latina minuscola con accento circonflesso	char	norep
+ï	i latina minuscola con dieresi	char	norep
+ð	eth latina minuscola	char	norep
+ñ	n latina minuscola con tilde	char	norep
+ò	o latina minuscola con accento grave	char	norep
+ó	o latina minuscola con accento acuto	char	norep
+ô	o latina minuscola con accento circonflesso	char	norep
+õ	o latina minuscola con tilde	char	norep
+ö	o latina minuscola con dieresi	char	norep
+ø	o latina minuscola barrata	char	norep
+þ	thorn latino minuscolo	char	norep
+ú	u latina minuscola non accento acuto	char	norep
+ù	u latina minuscola con accento grave	char	norep
+û	u latina minuscola con accento circonflesso	char	norep
+ü	u latina minuscola con dieresi	char	norep
+ý	y latina minuscola con accento acuto	char	norep
+ÿ	y latina minuscola con dieresi	char	norep
+Ÿ	Y latina maiuscola con dieresi	char	norep
 	quadrato nero	none
 	rombo nero	none
