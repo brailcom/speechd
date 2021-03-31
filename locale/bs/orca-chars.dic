@@ -7,34 +7,34 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a akcentovano	char
-Á	A AKCENTOVANO	char
-Ã	A TILDA	char
-Å	A PRSTEN	char
-Ç	C SEDILA	char
-É	E AKCENTOVANO	char
-Í	I AKCENTOVANO	char
-Ð	Đ	char
-Ñ	N TILDA	char
-Ó	O AKCENTOVANO	char
-Õ	O TILDA	char
-Ø	O PREKRIŽENO	char
-Ú	U AKCENTOVANO	char
-Ý	Y AKCENTOVANO	char
-Þ	TORN	char
-ß	s oštro	char
-ã	a tilda	char
-å	a prsten	char
-ç	c sjedila	char
-é	e akcentovano	char
-í	i akcentovano	char
-ð	đ	char
-ñ	n tilda	char
-ó	o akcentovano	char
-õ	o tilda	char
-ø	o prekriženo	char
-þ	torn	char
-ú	u akcentovano	char
-ý	y akcentovano	char
+á	a akcentovano	char	norep
+Á	A AKCENTOVANO	char	norep
+Ã	A TILDA	char	norep
+Å	A PRSTEN	char	norep
+Ç	C SEDILA	char	norep
+É	E AKCENTOVANO	char	norep
+Í	I AKCENTOVANO	char	norep
+Ð	Đ	char	norep
+Ñ	N TILDA	char	norep
+Ó	O AKCENTOVANO	char	norep
+Õ	O TILDA	char	norep
+Ø	O PREKRIŽENO	char	norep
+Ú	U AKCENTOVANO	char	norep
+Ý	Y AKCENTOVANO	char	norep
+Þ	TORN	char	norep
+ß	s oštro	char	norep
+ã	a tilda	char	norep
+å	a prsten	char	norep
+ç	c sjedila	char	norep
+é	e akcentovano	char	norep
+í	i akcentovano	char	norep
+ð	đ	char	norep
+ñ	n tilda	char	norep
+ó	o akcentovano	char	norep
+õ	o tilda	char	norep
+ø	o prekriženo	char	norep
+þ	torn	char	norep
+ú	u akcentovano	char	norep
+ý	y akcentovano	char	norep
 	crni kvadrat	none
 	crni dijamant	none

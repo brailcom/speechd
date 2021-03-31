@@ -7,60 +7,60 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a agut	char
-À	A GRÈU	char
-Á	A AGUT	char
-Â	A CIRCONFLÈXE	char
-Ã	A TILDA	char
-Ä	A TRÈMA	char
-Å	A ENCERCLAT	char
-Ç	C CEDILHA	char
-È	E GRÈU	char
-É	E AGUT	char
-Ê	E CIRCONFLÈXE	char
-Ë	E TRÈMA	char
-Ì	I GRÈU	char
-Í	I AGUT	char
-Î	I CIRCONFLÈXE	char
-Ï	I TRÈMA	char
-Ñ	N TILDA	char
-Ò	O GRÈU	char
-Ó	O AGUT	char
-Ô	O CIRCONFLÈXE	char
-Õ	O TILDA	char
-Ö	O TRÈMA	char
-Ø	O RAIAT	char
-Ù	U GRÈU	char
-Ú	U AGUT	char
-Û	U CIRCONFLÈXE	char
-Ü	U TRÈMA	char
-Ý	Y AGUT	char
-ß	eszett	char
-à	a grèu	char
-â	a circonflèxe	char
-ã	a tilda	char
-ä	a trèma	char
-å	a encerclat	char
-ç	c cedilha	char
-è	e grèu	char
-é	e agut	char
-ê	e circonflèxe	char
-ë	e trèma	char
-í	i agut	char
-î	i circonflèxe	char
-ï	i trèma	char
-ñ	n tilda	char
-ó	o agut	char
-ô	o circonflèxe	char
-õ	o tilda	char
-ö	o trèma	char
-ø	o raiat	char
-ú	u agut	char
-ù	u grèu	char
-û	u circonflèxe	char
-ü	u trèma	char
-ý	y agut	char
-ÿ	y trèma	char
-Ÿ	Y TRÈMA	char
+á	a agut	char	norep
+À	A GRÈU	char	norep
+Á	A AGUT	char	norep
+Â	A CIRCONFLÈXE	char	norep
+Ã	A TILDA	char	norep
+Ä	A TRÈMA	char	norep
+Å	A ENCERCLAT	char	norep
+Ç	C CEDILHA	char	norep
+È	E GRÈU	char	norep
+É	E AGUT	char	norep
+Ê	E CIRCONFLÈXE	char	norep
+Ë	E TRÈMA	char	norep
+Ì	I GRÈU	char	norep
+Í	I AGUT	char	norep
+Î	I CIRCONFLÈXE	char	norep
+Ï	I TRÈMA	char	norep
+Ñ	N TILDA	char	norep
+Ò	O GRÈU	char	norep
+Ó	O AGUT	char	norep
+Ô	O CIRCONFLÈXE	char	norep
+Õ	O TILDA	char	norep
+Ö	O TRÈMA	char	norep
+Ø	O RAIAT	char	norep
+Ù	U GRÈU	char	norep
+Ú	U AGUT	char	norep
+Û	U CIRCONFLÈXE	char	norep
+Ü	U TRÈMA	char	norep
+Ý	Y AGUT	char	norep
+ß	eszett	char	norep
+à	a grèu	char	norep
+â	a circonflèxe	char	norep
+ã	a tilda	char	norep
+ä	a trèma	char	norep
+å	a encerclat	char	norep
+ç	c cedilha	char	norep
+è	e grèu	char	norep
+é	e agut	char	norep
+ê	e circonflèxe	char	norep
+ë	e trèma	char	norep
+í	i agut	char	norep
+î	i circonflèxe	char	norep
+ï	i trèma	char	norep
+ñ	n tilda	char	norep
+ó	o agut	char	norep
+ô	o circonflèxe	char	norep
+õ	o tilda	char	norep
+ö	o trèma	char	norep
+ø	o raiat	char	norep
+ú	u agut	char	norep
+ù	u grèu	char	norep
+û	u circonflèxe	char	norep
+ü	u trèma	char	norep
+ý	y agut	char	norep
+ÿ	y trèma	char	norep
+Ÿ	Y TRÈMA	char	norep
 	carrat negre	none
 	lausange negre	none

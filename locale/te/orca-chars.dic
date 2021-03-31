@@ -7,64 +7,64 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a ఎక్యూట్	char
-À	A గ్రేవ్	char
-Á	A ఎక్యూట్	char
-Â	A సర్‌కమ్‌ఫ్లక్స్‍	char
-Ã	A టిల్డ్‍	char
-Ä	A ఆమ్లౌట్	char
-Å	A రింగ్	char
-Ç	C సెడిల్లా	char
-È	E గ్రేవ్	char
-É	E ఎక్యూట్	char
-Ê	E సర్‌కమ్‌ఫ్లెక్స్‍	char
-Ë	E ఆమ్లౌట్	char
-Ì	I గ్రేవ్	char
-Í	I ఎక్యూట్	char
-Î	I సర్‌కమ్‌ఫ్లక్స్‍	char
-Ï	I ఆమ్లౌట్	char
-Ñ	N టిల్డ్‍	char
-Ò	O గ్రేవ్	char
-Ó	O ఎక్యూట్	char
-Ô	O సర్‌కమ్‌ఫ్లక్స్‍	char
-Õ	O టిల్డ్‍	char
-Ö	O ఆమ్లౌట్	char
-Ø	O స్ట్రోక్	char
-Ù	U గ్రేవ్	char
-Ú	U ఎక్యూట్	char
-Û	U సర్‌కమ్‌ఫ్లెక్స్‍	char
-Ü	U ఆమ్లౌట్	char
-Ý	Y ఎక్యూట్	char
-Þ	త్రోన్	char
-ß	s షార్ప్‍	char
-à	a గ్రేవ్	char
-â	a సర్‌కమ్‌ఫ్లెక్స్‍	char
-ã	a టిల్డ్‍	char
-ä	a ఆమ్లోట్	char
-å	a రింగ్	char
-ç	c సె‍డిల్లా	char
-è	e గ్రేవ్	char
-é	e ఎక్యూట్	char
-ê	e సర్‌కమ్‌ఫ్లెక్స్‍	char
-ë	e ఆమ్లౌట్	char
-ì	i గ్రేవ్	char
-í	i ఎక్యూట్	char
-î	i సర్‌కమ్‌ఫ్లెక్స్‍	char
-ï	i ఆమ్లౌట్	char
-ñ	n టిల్డ్‍	char
-ò	o గ్రేవ్	char
-ó	o ఎక్యూట్	char
-ô	o సర్‌కమ్‌ఫ్లెక్స్‍	char
-õ	o టిల్డ్‍	char
-ö	o ఆమ్లౌట్	char
-ø	o స్ట్రోక్	char
-þ	థ్రోన్	char
-ú	u ఎక్యూట్	char
-ù	u గ్రేవ్	char
-û	u సర్‌కమ్‌ఫ్లెక్స్‍	char
-ü	u ఆమ్లౌట్	char
-ý	y ఎక్యూట్	char
-ÿ	y ఆమ్లౌట్	char
-Ÿ	Y ఆమ్లౌట్	char
+á	a ఎక్యూట్	char	norep
+À	A గ్రేవ్	char	norep
+Á	A ఎక్యూట్	char	norep
+Â	A సర్‌కమ్‌ఫ్లక్స్‍	char	norep
+Ã	A టిల్డ్‍	char	norep
+Ä	A ఆమ్లౌట్	char	norep
+Å	A రింగ్	char	norep
+Ç	C సెడిల్లా	char	norep
+È	E గ్రేవ్	char	norep
+É	E ఎక్యూట్	char	norep
+Ê	E సర్‌కమ్‌ఫ్లెక్స్‍	char	norep
+Ë	E ఆమ్లౌట్	char	norep
+Ì	I గ్రేవ్	char	norep
+Í	I ఎక్యూట్	char	norep
+Î	I సర్‌కమ్‌ఫ్లక్స్‍	char	norep
+Ï	I ఆమ్లౌట్	char	norep
+Ñ	N టిల్డ్‍	char	norep
+Ò	O గ్రేవ్	char	norep
+Ó	O ఎక్యూట్	char	norep
+Ô	O సర్‌కమ్‌ఫ్లక్స్‍	char	norep
+Õ	O టిల్డ్‍	char	norep
+Ö	O ఆమ్లౌట్	char	norep
+Ø	O స్ట్రోక్	char	norep
+Ù	U గ్రేవ్	char	norep
+Ú	U ఎక్యూట్	char	norep
+Û	U సర్‌కమ్‌ఫ్లెక్స్‍	char	norep
+Ü	U ఆమ్లౌట్	char	norep
+Ý	Y ఎక్యూట్	char	norep
+Þ	త్రోన్	char	norep
+ß	s షార్ప్‍	char	norep
+à	a గ్రేవ్	char	norep
+â	a సర్‌కమ్‌ఫ్లెక్స్‍	char	norep
+ã	a టిల్డ్‍	char	norep
+ä	a ఆమ్లోట్	char	norep
+å	a రింగ్	char	norep
+ç	c సె‍డిల్లా	char	norep
+è	e గ్రేవ్	char	norep
+é	e ఎక్యూట్	char	norep
+ê	e సర్‌కమ్‌ఫ్లెక్స్‍	char	norep
+ë	e ఆమ్లౌట్	char	norep
+ì	i గ్రేవ్	char	norep
+í	i ఎక్యూట్	char	norep
+î	i సర్‌కమ్‌ఫ్లెక్స్‍	char	norep
+ï	i ఆమ్లౌట్	char	norep
+ñ	n టిల్డ్‍	char	norep
+ò	o గ్రేవ్	char	norep
+ó	o ఎక్యూట్	char	norep
+ô	o సర్‌కమ్‌ఫ్లెక్స్‍	char	norep
+õ	o టిల్డ్‍	char	norep
+ö	o ఆమ్లౌట్	char	norep
+ø	o స్ట్రోక్	char	norep
+þ	థ్రోన్	char	norep
+ú	u ఎక్యూట్	char	norep
+ù	u గ్రేవ్	char	norep
+û	u సర్‌కమ్‌ఫ్లెక్స్‍	char	norep
+ü	u ఆమ్లౌట్	char	norep
+ý	y ఎక్యూట్	char	norep
+ÿ	y ఆమ్లౌట్	char	norep
+Ÿ	Y ఆమ్లౌట్	char	norep
 	నలుపు వర్గం	none
 	నలుపు వజ్రం	none

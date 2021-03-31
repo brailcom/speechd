@@ -7,59 +7,59 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a accent aigu	char
-À	A ACCENT GRAVE	char
-Á	A ACCENT AIGU	char
-Â	A CIRKUMFLEKS	char
-Ä	A OMLYD	char
-Å	Å	char
-Æ	Æ	char
-Ç	C CEDILLE	char
-È	E ACCENT GRAVE	char
-É	E ACCENT AIGU	char
-Ê	E CIRKUMFLEKS	char
-Ë	E OMLYD	char
-Ì	I ACCENT GRAVE	char
-Í	I ACCENT AIGU	char
-Î	I CIRKUMFLEKS	char
-Ï	I OMLYD	char
-Ò	O ACCENT GRAVE	char
-Ó	O ACCENT AIGU	char
-Ô	O CIRKUMFLEKS	char
-Õ	O ACCENT AIGU	char
-Ö	O OMLYD	char
-Ø	Ø	char
-Ù	U ACCENT GRAVE	char
-Ú	U ACCENT AIGU	char
-Û	U CIRKUMFLEKS	char
-Ü	U OMLYD	char
-Ý	Y ACCENT AIGU	char
-ß	dobbelt s	char
-à	a accent grave	char
-â	a cirkumfleks	char
-ä	a omlyd	char
-å	å	char
-æ	æ	char
-ç	c cedille	char
-è	e accent grave	char
-é	e accent aigu	char
-ê	e cirkumfleks	char
-ë	e omlyd	char
-ì	i accent grave	char
-í	i accent aigu	char
-î	i cirkumfleks	char
-ï	i omlyd	char
-ò	o accent grave	char
-ó	o accent aigu	char
-ô	o cirkumfleks	char
-ö	o omlyd	char
-ø	ø	char
-ú	u accent aigu	char
-ù	u accent grave	char
-û	u cirkumfleks	char
-ü	u omlyd	char
-ý	y accent aigu	char
-ÿ	y omlyd	char
-Ÿ	Y OMLYD	char
+á	a accent aigu	char	norep
+À	A ACCENT GRAVE	char	norep
+Á	A ACCENT AIGU	char	norep
+Â	A CIRKUMFLEKS	char	norep
+Ä	A OMLYD	char	norep
+Å	Å	char	norep
+Æ	Æ	char	norep
+Ç	C CEDILLE	char	norep
+È	E ACCENT GRAVE	char	norep
+É	E ACCENT AIGU	char	norep
+Ê	E CIRKUMFLEKS	char	norep
+Ë	E OMLYD	char	norep
+Ì	I ACCENT GRAVE	char	norep
+Í	I ACCENT AIGU	char	norep
+Î	I CIRKUMFLEKS	char	norep
+Ï	I OMLYD	char	norep
+Ò	O ACCENT GRAVE	char	norep
+Ó	O ACCENT AIGU	char	norep
+Ô	O CIRKUMFLEKS	char	norep
+Õ	O ACCENT AIGU	char	norep
+Ö	O OMLYD	char	norep
+Ø	Ø	char	norep
+Ù	U ACCENT GRAVE	char	norep
+Ú	U ACCENT AIGU	char	norep
+Û	U CIRKUMFLEKS	char	norep
+Ü	U OMLYD	char	norep
+Ý	Y ACCENT AIGU	char	norep
+ß	dobbelt s	char	norep
+à	a accent grave	char	norep
+â	a cirkumfleks	char	norep
+ä	a omlyd	char	norep
+å	å	char	norep
+æ	æ	char	norep
+ç	c cedille	char	norep
+è	e accent grave	char	norep
+é	e accent aigu	char	norep
+ê	e cirkumfleks	char	norep
+ë	e omlyd	char	norep
+ì	i accent grave	char	norep
+í	i accent aigu	char	norep
+î	i cirkumfleks	char	norep
+ï	i omlyd	char	norep
+ò	o accent grave	char	norep
+ó	o accent aigu	char	norep
+ô	o cirkumfleks	char	norep
+ö	o omlyd	char	norep
+ø	ø	char	norep
+ú	u accent aigu	char	norep
+ù	u accent grave	char	norep
+û	u cirkumfleks	char	norep
+ü	u omlyd	char	norep
+ý	y accent aigu	char	norep
+ÿ	y omlyd	char	norep
+Ÿ	Y OMLYD	char	norep
 	sort firkant	none
 	sort diamand	none

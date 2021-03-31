@@ -7,64 +7,64 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a su dešininiu kirčiu	char
-À	A SU KAIRINIU KIRČIU	char
-Á	A SU DEŠININIU KIRČIU	char
-Â	A SU STOGELIU	char
-Ã	A SU TILDE	char
-Ä	A SU UMLIAUTU	char
-Å	A SU ŽIEDU	char
-Ç	C SU SEDILE	char
-È	E SU KAIRINIU KIRCIU	char
-É	E SU DEŠININIU KIRČIU	char
-Ê	E SU STOGELIU	char
-Ë	E SU UMLIAUTU	char
-Ì	I SU KAIRINIU KIRČIU	char
-Í	I SU DEŠININIU KIRČIU	char
-Î	I SU STOGELIU	char
-Ï	I SU UMLIAUTU	char
-Ñ	N SU TILDE	char
-Ò	O SU KAIRINIU KIRČIU	char
-Ó	O SU DEŠININIU KIRČIU	char
-Ô	O SU STOGELIU	char
-Õ	O SU TILDE	char
-Ö	O SU UMLIAUTU	char
-Ø	PERBRAUKTA O	char
-Ù	U SU KAIRINIU KIRČIU	char
-Ú	U SU DEŠININIU KIRČIU	char
-Û	U SU STOGELIU	char
-Ü	U SU UMLIAUTU	char
-Ý	Y SU DEŠININIU KIRČIU	char
-Þ	SPYGLYS	char
-ß	s su grotelėmis	char
-à	a su kairiniu kirčiu	char
-â	a su stogeliu	char
-ã	a su tilde	char
-ä	a su umliautu	char
-å	a su skrituliuku	char
-ç	c su sedile	char
-è	e su kairiniu kirčiu	char
-é	e su dešininiu kirčiu	char
-ê	e su stogeliu	char
-ë	e su umliautu	char
-ì	i su kairiniu kirčiu	char
-í	i su dešininiu kirčiu	char
-î	i su stogeliu	char
-ï	i su umliautu	char
-ñ	n su tilde	char
-ò	o su kairiniu kirčiu	char
-ó	o su dešininiu kirčiu	char
-ô	o su stogeliu	char
-õ	o su tilde	char
-ö	o su umliautu	char
-ø	perbraukta o	char
-þ	spyglys	char
-ú	u su dešininiu kirčiu	char
-ù	u su kairiniu kirčiu	char
-û	u su stogeliu	char
-ü	u su umliautu	char
-ý	y su dešininiu kirčiu	char
-ÿ	y su umliautu	char
-Ÿ	Y SU UMLIAUTU	char
+á	a su dešininiu kirčiu	char	norep
+À	A SU KAIRINIU KIRČIU	char	norep
+Á	A SU DEŠININIU KIRČIU	char	norep
+Â	A SU STOGELIU	char	norep
+Ã	A SU TILDE	char	norep
+Ä	A SU UMLIAUTU	char	norep
+Å	A SU ŽIEDU	char	norep
+Ç	C SU SEDILE	char	norep
+È	E SU KAIRINIU KIRCIU	char	norep
+É	E SU DEŠININIU KIRČIU	char	norep
+Ê	E SU STOGELIU	char	norep
+Ë	E SU UMLIAUTU	char	norep
+Ì	I SU KAIRINIU KIRČIU	char	norep
+Í	I SU DEŠININIU KIRČIU	char	norep
+Î	I SU STOGELIU	char	norep
+Ï	I SU UMLIAUTU	char	norep
+Ñ	N SU TILDE	char	norep
+Ò	O SU KAIRINIU KIRČIU	char	norep
+Ó	O SU DEŠININIU KIRČIU	char	norep
+Ô	O SU STOGELIU	char	norep
+Õ	O SU TILDE	char	norep
+Ö	O SU UMLIAUTU	char	norep
+Ø	PERBRAUKTA O	char	norep
+Ù	U SU KAIRINIU KIRČIU	char	norep
+Ú	U SU DEŠININIU KIRČIU	char	norep
+Û	U SU STOGELIU	char	norep
+Ü	U SU UMLIAUTU	char	norep
+Ý	Y SU DEŠININIU KIRČIU	char	norep
+Þ	SPYGLYS	char	norep
+ß	s su grotelėmis	char	norep
+à	a su kairiniu kirčiu	char	norep
+â	a su stogeliu	char	norep
+ã	a su tilde	char	norep
+ä	a su umliautu	char	norep
+å	a su skrituliuku	char	norep
+ç	c su sedile	char	norep
+è	e su kairiniu kirčiu	char	norep
+é	e su dešininiu kirčiu	char	norep
+ê	e su stogeliu	char	norep
+ë	e su umliautu	char	norep
+ì	i su kairiniu kirčiu	char	norep
+í	i su dešininiu kirčiu	char	norep
+î	i su stogeliu	char	norep
+ï	i su umliautu	char	norep
+ñ	n su tilde	char	norep
+ò	o su kairiniu kirčiu	char	norep
+ó	o su dešininiu kirčiu	char	norep
+ô	o su stogeliu	char	norep
+õ	o su tilde	char	norep
+ö	o su umliautu	char	norep
+ø	perbraukta o	char	norep
+þ	spyglys	char	norep
+ú	u su dešininiu kirčiu	char	norep
+ù	u su kairiniu kirčiu	char	norep
+û	u su stogeliu	char	norep
+ü	u su umliautu	char	norep
+ý	y su dešininiu kirčiu	char	norep
+ÿ	y su umliautu	char	norep
+Ÿ	Y SU UMLIAUTU	char	norep
 	užpildytas kvadratinis ženklelis	none
 	užpildytas rombo formos ženklelis	none

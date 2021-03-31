@@ -7,52 +7,52 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a con tilde	char
-Á	A CON TILDE	char
-Â	A CIRCUNFLEJA	char
-Ã	A CON TILDE	char
-Ä	A CON DIÉRESIS	char
-Å	A CON ANILLO	char
-É	E CON TILDE	char
-Ê	E CIRCUNFLEJA	char
-Ë	E CON DIÉRESIS	char
-Í	I CON TILDE	char
-Î	I CIRCUNFLEJA	char
-Ï	I CON DIÉRESIS	char
-Ñ	Ñ	char
-Ó	O CON TILDE	char
-Ô	O CIRCUNFLEJA	char
-Õ	O CON TILDE	char
-Ö	O CON DIÉRESIS	char
-Ø	O CON BARRA DIAGONAL	char
-Ú	U CON TILDE	char
-Û	U CIRCUNFLEJA	char
-Ü	U CON DIÉRESIS	char
-Ý	Y CON TILDE	char
-Þ	ZORN	char
-ß	beta	char
-â	a circunfleja	char
-ã	a con tilde	char
-ä	a con diéresis	char
-å	a con anillo	char
-é	e con tilde	char
-ê	e circunfleja	char
-ë	e con diéresis	char
-í	i con tilde	char
-î	i circunfleja	char
-ï	i con diéresis	char
-ñ	ñ	char
-ó	o con tilde	char
-ô	o circunfleja	char
-õ	o con tilde	char
-ö	o con diéresis	char
-ø	o con barra diagonal	char
-þ	zorn	char
-ú	u con tilde	char
-û	u circunfleja	char
-ü	u con diéresis	char
-ý	y con tilde	char
-ÿ	y con diéresis	char
-Ÿ	Y CON DIÉRESIS	char
+á	a con tilde	char	norep
+Á	A CON TILDE	char	norep
+Â	A CIRCUNFLEJA	char	norep
+Ã	A CON TILDE	char	norep
+Ä	A CON DIÉRESIS	char	norep
+Å	A CON ANILLO	char	norep
+É	E CON TILDE	char	norep
+Ê	E CIRCUNFLEJA	char	norep
+Ë	E CON DIÉRESIS	char	norep
+Í	I CON TILDE	char	norep
+Î	I CIRCUNFLEJA	char	norep
+Ï	I CON DIÉRESIS	char	norep
+Ñ	Ñ	char	norep
+Ó	O CON TILDE	char	norep
+Ô	O CIRCUNFLEJA	char	norep
+Õ	O CON TILDE	char	norep
+Ö	O CON DIÉRESIS	char	norep
+Ø	O CON BARRA DIAGONAL	char	norep
+Ú	U CON TILDE	char	norep
+Û	U CIRCUNFLEJA	char	norep
+Ü	U CON DIÉRESIS	char	norep
+Ý	Y CON TILDE	char	norep
+Þ	ZORN	char	norep
+ß	beta	char	norep
+â	a circunfleja	char	norep
+ã	a con tilde	char	norep
+ä	a con diéresis	char	norep
+å	a con anillo	char	norep
+é	e con tilde	char	norep
+ê	e circunfleja	char	norep
+ë	e con diéresis	char	norep
+í	i con tilde	char	norep
+î	i circunfleja	char	norep
+ï	i con diéresis	char	norep
+ñ	ñ	char	norep
+ó	o con tilde	char	norep
+ô	o circunfleja	char	norep
+õ	o con tilde	char	norep
+ö	o con diéresis	char	norep
+ø	o con barra diagonal	char	norep
+þ	zorn	char	norep
+ú	u con tilde	char	norep
+û	u circunfleja	char	norep
+ü	u con diéresis	char	norep
+ý	y con tilde	char	norep
+ÿ	y con diéresis	char	norep
+Ÿ	Y CON DIÉRESIS	char	norep
 	cuadrado tachado	none
 	rombo	none

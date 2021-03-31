@@ -7,29 +7,29 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a একিউট	char
-ß	s সার্প	char
-à	গ্রেভ	char
-â	a সারকামফ্লেক্স	char
-ã	টিলডা	char
-å	a রিং	char
-ç	c সেডিলা	char
-è	গ্রেভ	char
-é	e একিউট	char
-ê	e সারকামফ্লেক্স	char
-ì	i গ্রেভ	char
-í	i একিউট	char
-î	i সারকামফ্লেক্স	char
-ñ	n টিল্ডা	char
-ò	o গ্রেভ	char
-ó	o একিউট	char
-ô	o সারকামফ্লেক্স	char
-õ	o টিল্ডা	char
-ø	o স্ট্রোক	char
-þ	থর্ন	char
-ú	u একিউট	char
-ù	u গ্রেভ	char
-û	u সারকামফ্লেক্স	char
-ý	y একিউট	char
+á	a একিউট	char	norep
+ß	s সার্প	char	norep
+à	গ্রেভ	char	norep
+â	a সারকামফ্লেক্স	char	norep
+ã	টিলডা	char	norep
+å	a রিং	char	norep
+ç	c সেডিলা	char	norep
+è	গ্রেভ	char	norep
+é	e একিউট	char	norep
+ê	e সারকামফ্লেক্স	char	norep
+ì	i গ্রেভ	char	norep
+í	i একিউট	char	norep
+î	i সারকামফ্লেক্স	char	norep
+ñ	n টিল্ডা	char	norep
+ò	o গ্রেভ	char	norep
+ó	o একিউট	char	norep
+ô	o সারকামফ্লেক্স	char	norep
+õ	o টিল্ডা	char	norep
+ø	o স্ট্রোক	char	norep
+þ	থর্ন	char	norep
+ú	u একিউট	char	norep
+ù	u গ্রেভ	char	norep
+û	u সারকামফ্লেক্স	char	norep
+ý	y একিউট	char	norep
 	কালো বর্গ	none
 	কালো ডায়মন্ড	none

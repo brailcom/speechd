@@ -7,10 +7,10 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a अधि	char
-Ã	A टिल्डे	char
-Å	A रिंग	char
-Ç	C सेडिला	char
-Ø	O स्ट्रोक	char
+á	a अधि	char	norep
+Ã	A टिल्डे	char	norep
+Å	A रिंग	char	norep
+Ç	C सेडिला	char	norep
+Ø	O स्ट्रोक	char	norep
 	काला वर्ग	none
 	काला हीरक	none

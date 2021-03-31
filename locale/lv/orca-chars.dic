@@ -7,56 +7,56 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a akūts	char
-À	A GRAVIS	char
-Á	A AKŪTS	char
-Â	A JUMTIŅŠ	char
-Ä	A UMLAUTS	char
-Å	A APLIS	char
-Ç	C SEDIĻA	char
-È	E GRAVIS	char
-É	E AKŪTS	char
-Ê	E JUMTIŅŠ	char
-Ë	E UMLAUTS	char
-Ì	I GRAVIS	char
-Í	I AKŪTS	char
-Î	I JUMTIŅŠ	char
-Ï	I UMLAUTS	char
-Ò	O GRAVIS	char
-Ó	O AKŪTS	char
-Ô	O JUMTIŅŠ	char
-Ö	O UMLAUTS	char
-Ø	O SVĪTRA	char
-Ù	U GRAVIS	char
-Ú	U AKŪTS	char
-Û	U JUMTIŅŠ	char
-Ü	U UMLAUTS	char
-Ý	Y AKŪTS	char
-ß	ss ligatūŗa	char
-à	a gravis	char
-â	a jumtiņš	char
-ä	a umlauts	char
-å	a aplis	char
-ç	c sediļa	char
-è	e gravis	char
-é	e akūts	char
-ê	e jumtiņš	char
-ë	e umlauts	char
-ì	i gravis	char
-í	i akūts	char
-î	i jumtiņš	char
-ï	i umlauts	char
-ò	o gravis	char
-ó	o akūts	char
-ô	o jumtiņš	char
-ö	o umlauts	char
-ø	o svītra	char
-ú	u akūts	char
-ù	u gravis	char
-û	u jumtiņš	char
-ü	u umlauts	char
-ý	y akūts	char
-ÿ	y umlauts	char
-Ÿ	Y UMLAUTS	char
+á	a akūts	char	norep
+À	A GRAVIS	char	norep
+Á	A AKŪTS	char	norep
+Â	A JUMTIŅŠ	char	norep
+Ä	A UMLAUTS	char	norep
+Å	A APLIS	char	norep
+Ç	C SEDIĻA	char	norep
+È	E GRAVIS	char	norep
+É	E AKŪTS	char	norep
+Ê	E JUMTIŅŠ	char	norep
+Ë	E UMLAUTS	char	norep
+Ì	I GRAVIS	char	norep
+Í	I AKŪTS	char	norep
+Î	I JUMTIŅŠ	char	norep
+Ï	I UMLAUTS	char	norep
+Ò	O GRAVIS	char	norep
+Ó	O AKŪTS	char	norep
+Ô	O JUMTIŅŠ	char	norep
+Ö	O UMLAUTS	char	norep
+Ø	O SVĪTRA	char	norep
+Ù	U GRAVIS	char	norep
+Ú	U AKŪTS	char	norep
+Û	U JUMTIŅŠ	char	norep
+Ü	U UMLAUTS	char	norep
+Ý	Y AKŪTS	char	norep
+ß	ss ligatūŗa	char	norep
+à	a gravis	char	norep
+â	a jumtiņš	char	norep
+ä	a umlauts	char	norep
+å	a aplis	char	norep
+ç	c sediļa	char	norep
+è	e gravis	char	norep
+é	e akūts	char	norep
+ê	e jumtiņš	char	norep
+ë	e umlauts	char	norep
+ì	i gravis	char	norep
+í	i akūts	char	norep
+î	i jumtiņš	char	norep
+ï	i umlauts	char	norep
+ò	o gravis	char	norep
+ó	o akūts	char	norep
+ô	o jumtiņš	char	norep
+ö	o umlauts	char	norep
+ø	o svītra	char	norep
+ú	u akūts	char	norep
+ù	u gravis	char	norep
+û	u jumtiņš	char	norep
+ü	u umlauts	char	norep
+ý	y akūts	char	norep
+ÿ	y umlauts	char	norep
+Ÿ	Y UMLAUTS	char	norep
 	melns kvadrāts	none
 	melns rombs	none
