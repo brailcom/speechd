@@ -882,10 +882,10 @@ int output_module_is_speaking(OutputModule * output, char **index_mark)
 			*index_mark = (char *)g_strdup("__spd_end");
 			if (output->audio) {
 				if (output_stop_requested) {
-					MSG(4, "we sent STOP too late, tell the speak queue directly");
+					MSG(4, "we sent STOP early, now tell the speak queue");
 					module_speak_queue_stop();
 				} else if (output_pause_requested) {
-					MSG(4, "we sent PAUSE too late, tell the speak queue directly");
+					MSG(4, "we sent PAUSE early, now tell the speak queue");
 					module_speak_queue_pause();
 				} else {
 					if (!module_speak_queue_add_end())
