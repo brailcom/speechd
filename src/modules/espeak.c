@@ -639,6 +639,7 @@ static gboolean espeak_send_audio_upto(short *wav, int *sent, int upto)
 		.num_samples = numsamples,
 		.samples = wav + (*sent),
 	};
+	DBG(DBG_MODNAME " pushing %d samples", numsamples);
 	module_tts_output_server(&track, SPD_AUDIO_LE);
 	*sent = upto;
 	return 0;
@@ -650,6 +651,9 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 	static int numsamples_sent_msg = 0;
 	/* Number of samples already sent during this call to the callback. */
 	int numsamples_sent = 0;
+
+	/* Process server events in case we were told to stop in between */
+	module_process(STDIN_FILENO, 0);
 
 	if (stop_requested)
 		return 1;
