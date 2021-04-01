@@ -25,7 +25,6 @@
 
 #include <fdsetconv.h>
 #include <safe_io.h>
-#include <spd_utils.h>
 #include "output.h"
 #include "parse.h"
 #include "speak_queue.h"
@@ -227,7 +226,7 @@ GString *output_read_reply(OutputModule * output)
 	/* Wait for activity on the socket, when there is some,
 	   read all the message line by line */
 	do {
-		bytes = spd_getline(&line, &N, output->stream_out);
+		bytes = getline(&line, &N, output->stream_out);
 		if (bytes == -1) {
 			MSG(2, "Error: Broken pipe to module.");
 			output->working = 0;
@@ -243,7 +242,7 @@ GString *output_read_reply(OutputModule * output)
 	} while (!errors && !((strlen(line) < 4) || (line[3] == ' ')));
 
 	if (line != NULL)
-		g_free(line);
+		free(line);
 
 	if (errors) {
 		g_string_free(rstr, TRUE);

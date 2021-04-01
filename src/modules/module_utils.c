@@ -26,7 +26,6 @@
 #include <sndfile.h>
 
 #include <fdsetconv.h>
-#include <spd_utils.h>
 #include "module_utils.h"
 #include "module_main.h"
 

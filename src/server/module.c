@@ -35,7 +35,6 @@
 #include <dotconf.h>
 
 #include "speechd.h"
-#include <spd_utils.h>
 #include "output.h"
 #include "module.h"
 
@@ -461,12 +460,12 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 	reply = g_string_new("\n---------------\n");
 	f = fdopen(dup(module->pipe_out[0]), "r");
 	while (1) {
-		ret = spd_getline(&rep_line, &n, f);
+		ret = getline(&rep_line, &n, f);
 		if (ret <= 0) {
 			MSG(1, "ERROR: Bad syntax from output module %s 1",
 			    module->name);
 			g_string_free(reply, TRUE);
-			g_free(rep_line);
+			free(rep_line);
 			fclose(f);
 			return NULL;
 		}
@@ -476,14 +475,14 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 			MSG(1, "ERROR: Bad syntax from output module %s 2",
 			    module->name);
 			g_string_free(reply, TRUE);
-			g_free(rep_line);
+			free(rep_line);
 			fclose(f);
 			return NULL;
 		}
 
 		if (rep_line[3] != '-') {
 			s = rep_line[0];
-			g_free(rep_line);
+			free(rep_line);
 			break;
 		}
 

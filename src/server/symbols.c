@@ -72,7 +72,6 @@
 #include <config.h>
 #endif
 
-#include <spd_utils.h>
 #include "symbols.h"
 
 /* This denotes the position of some SSML tags */
@@ -676,7 +675,7 @@ static int speech_symbols_load(SpeechSymbols *ss, const char *filename, gboolean
 	    bom[0] != 0xEF || bom[1] != 0xBB || bom[2] != 0xBF)
 		fseek(fp, 0, SEEK_SET);
 
-	while (spd_getline(&line, &n, fp) >= 0) {
+	while (getline(&line, &n, fp) >= 0) {
 		if (skip_line(line))
 			continue;
 		strip_newline(line);
@@ -691,7 +690,7 @@ static int speech_symbols_load(SpeechSymbols *ss, const char *filename, gboolean
 		}
 	}
 
-	g_free(line);
+	free(line);
 	fclose(fp);
 
 	return 0;
