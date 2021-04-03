@@ -78,7 +78,7 @@ void *speak(void *data)
 	poll_fds[0].events = POLLIN;
 	poll_fds[0].revents = 0;
 
-	/* module or speak queue fd */
+	/* speak queue fd */
 	poll_fds[1].fd = -1;
 	poll_fds[1].events = POLLIN;
 	poll_fds[1].revents = 0;
@@ -290,10 +290,7 @@ void *speak(void *data)
 		SPEAKING = 1;
 
 		if (speaking_module != NULL) {
-			if (speaking_module->audio)
-				poll_fds[1].fd = speaking_module->pipe_speak[0];
-			else
-				poll_fds[1].fd = speaking_module->pipe_out[0];
+			poll_fds[1].fd = speaking_module->pipe_speak[0];
 			poll_count = 2;
 		}
 
