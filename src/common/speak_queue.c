@@ -521,6 +521,9 @@ static void *speak_queue_play(void *nothing)
 			case SPEAK_QUEUE_QET_STOP:
 				DBG(DBG_MODNAME " ??? got stop in speak queue ???");
 				break;
+			case SPEAK_QUEUE_QET_BROKEN:
+				DBG(DBG_MODNAME " ??? got broken in speak queue ???");
+				break;
 			}
 
 			speak_queue_delete_playback_queue_entry
