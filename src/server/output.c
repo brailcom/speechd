@@ -55,7 +55,8 @@ char *strndup(const char *s, size_t n)
 }
 #endif /* HAVE_STRNDUP */
 
-static void *output_thread(void *data);
+static pthread_t output_thread;
+static void *output_thread_func(void *data);
 static int output_end_queued;
 static int output_stop_requested;
 static int output_pause_requested;
@@ -243,7 +244,6 @@ GString *output_read_message(OutputModule * output)
 		if (bytes == -1) {
 			MSG(2, "Error: Broken pipe to module.");
 			output->working = 0;
-			speaking_module = NULL;
 			output_check_module(output);
 			errors = TRUE;	/* Broken pipe */
 		} else {
@@ -298,6 +298,9 @@ GString *output_read_reply(OutputModule * output)
 		if (!output_reading_message) {
 			/* Nobody reading, do read */
 			message = output_read_message(output);
+			if (!message)
+				/* Module broke */
+				break;
 			if (message->str[0] == '7') {
 				/* An event, leave it up to the event thread */
 				output_event = message;
@@ -333,6 +336,9 @@ GString *output_read_event(OutputModule * output)
 		if (!output_reading_message) {
 			/* Nobody reading, do read */
 			message = output_read_message(output);
+			if (!message)
+				/* Module broke */
+				break;
 			if (message->str[0] != '7') {
 				/* A reply, leave it up to the reply thread */
 				output_reply = message;
@@ -776,12 +782,10 @@ int output_speak(TSpeechDMessage * msg, OutputModule *output)
 	    SEND_CMD("\n.")
 
 	/* Start a thread that will process the module events */
-	pthread_t t;
 	output_end_queued = 0;
 	output_stop_requested = 0;
 	output_pause_requested = 0;
-	spd_pthread_create(&t, NULL, output_thread, output);
-	pthread_detach(t);
+	spd_pthread_create(&output_thread, NULL, output_thread_func, output);
 
 	output_unlock();
 
@@ -1185,7 +1189,7 @@ out:
 
 /* For server-side audio, this is called in a separate thread, to consume output
  * from the module in parallel of handling audio processing and feedback to client */
-static void *output_thread(void *data)
+static void *output_thread_func(void *data)
 {
 	OutputModule *output = data;
 	int ret;
@@ -1209,6 +1213,7 @@ int output_is_speaking(char **index_mark)
 
 	speak_queue_entry *entry;
 	char c;
+	int end = 0;
 
 	/* Wait for next event */
 	read(output->pipe_speak[0], &c, 1);
@@ -1238,18 +1243,28 @@ int output_is_speaking(char **index_mark)
 			break;
 		case SPEAK_QUEUE_QET_END:
 			*index_mark = (char *)g_strdup("__spd_end");
+			end = 1;
 			break;
 		case SPEAK_QUEUE_QET_PAUSE:
 			*index_mark = (char *)g_strdup("__spd_paused");
+			end = 1;
 			break;
 		case SPEAK_QUEUE_QET_STOP:
 			*index_mark = (char *)g_strdup("__spd_stopped");
+			end = 1;
 			break;
 		case SPEAK_QUEUE_QET_BROKEN:
 			*index_mark = NULL;
+			end = 1;
 			break;
 	}
 	g_free(entry);
+
+	if (end) {
+		/* Wait for all audio processing to terminate before cleaning
+		 * everything */
+		pthread_join(output_thread, NULL);
+	}
 
 	return 0;
 }
