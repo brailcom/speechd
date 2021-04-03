@@ -66,7 +66,7 @@ void *speak(void *data)
 {
 	TSpeechDMessage *message = NULL;
 	int ret;
-	struct pollfd poll_fds[3];	/* Descriptors to poll */
+	struct pollfd poll_fds[2];	/* Descriptors to poll */
 	int revents;
 	OutputModule *output;
 
@@ -78,15 +78,10 @@ void *speak(void *data)
 	poll_fds[0].events = POLLIN;
 	poll_fds[0].revents = 0;
 
-	/* module fd */
+	/* module or speak queue fd */
 	poll_fds[1].fd = -1;
 	poll_fds[1].events = POLLIN;
 	poll_fds[1].revents = 0;
-
-	/* speak queue fd */
-	poll_fds[2].fd = -1;
-	poll_fds[2].events = POLLIN;
-	poll_fds[2].revents = 0;
 
 	poll_count = 1;
 
@@ -108,8 +103,7 @@ void *speak(void *data)
 			}
 		}
 		if (poll_count > 1) {
-			if ((revents = poll_fds[1].revents)
-			 || (revents = poll_fds[2].revents)) {
+			if ((revents = poll_fds[1].revents)) {
 				if (revents & POLLHUP) {
 					// FIXME: We should handle this more gracefully
 					FATAL
@@ -117,8 +111,8 @@ void *speak(void *data)
 				} else if ((revents & POLLIN)
 					   || (revents & POLLPRI)) {
 					MSG(5,
-					    "wait_for_poll: activity on output_module: %d %d",
-					    poll_fds[1].revents, poll_fds[2].revents);
+					    "wait_for_poll: activity on output_module: %d",
+					    poll_fds[1].revents);
 					/* Check if sb is speaking or they are all silent.
 					 * If some synthesizer is speaking, we must wait. */
 					is_sb_speaking();
@@ -296,9 +290,11 @@ void *speak(void *data)
 		SPEAKING = 1;
 
 		if (speaking_module != NULL) {
-			poll_fds[1].fd = speaking_module->pipe_out[0];
-			poll_fds[2].fd = speaking_module->pipe_speak[0];
-			poll_count = 3;
+			if (speaking_module->audio)
+				poll_fds[1].fd = speaking_module->pipe_speak[0];
+			else
+				poll_fds[1].fd = speaking_module->pipe_out[0];
+			poll_count = 2;
 		}
 
 		/* Set the id of the client who is speaking. */
