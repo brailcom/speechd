@@ -30,12 +30,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
+#include <unistd.h>
 #include <pthread.h>
 
 #include <spd_audio.h>
 #include "module_main.h"
 
 pthread_mutex_t module_stdout_mutex = PTHREAD_MUTEX_INITIALIZER;
+
+static int module_should_stop;
 
 /* This sends some text to the server, taking the mutex to avoid intermixing
  * between multi-line answers and asynchronous sends.  */
@@ -70,7 +73,7 @@ static int module_audio_set_through_server(const char *cur_item, const char *cur
 	return 0;
 }
 
-void module_tts_output_server(const AudioTrack *track, AudioFormat format)
+static void module_tts_output_send_server(const AudioTrack *track, AudioFormat format)
 {
 	const char *p, *end;
 	size_t size = track->num_channels * track->num_samples * track->bits / 8;
@@ -122,6 +125,35 @@ void module_tts_output_server(const AudioTrack *track, AudioFormat format)
 
 	pthread_mutex_unlock(&module_stdout_mutex);
 	fflush(stdout);
+}
+
+/* Arbitrary chunk size in bytes, large enough to get efficient transfer
+ * but small enough to be reactive. */
+#define MAX_CHUNK 10000
+void module_tts_output_server(const AudioTrack *track, AudioFormat format)
+{
+	AudioTrack mytrack = *track;
+	size_t sample_size = track->num_channels * track->bits / 8;
+	int samplepos = 0;
+	int num_samples;
+
+	while (samplepos < track->num_samples) {
+		if (module_should_stop)
+			/* We are requested to stop, ignore the rest of audio */
+			break;
+
+		num_samples = MAX_CHUNK / sample_size;
+		if (num_samples > track->num_samples - samplepos)
+			num_samples = track->num_samples - samplepos;
+
+		mytrack.num_samples = num_samples;
+		mytrack.samples = (void*) track->samples + samplepos * sample_size;
+		samplepos += num_samples;
+
+		module_tts_output_send_server(&mytrack, format);
+
+		module_process(STDIN_FILENO, 0);
+	}
 }
 
 /*
@@ -223,6 +255,8 @@ static void cmd_speak(int fd, SPDMessageType msgtype)
 		}
 	}
 
+	module_should_stop = 0;
+
 #pragma weak module_speak_sync
 #pragma weak module_speak
 	if (module_speak_sync) {
@@ -272,11 +306,13 @@ void module_speak_error(void)
 
 static void cmd_stop(void)
 {
+	module_should_stop = 1;
 	module_stop();
 }
 
 static void cmd_pause(void)
 {
+	module_should_stop = 1;
 	module_pause();
 }
 
