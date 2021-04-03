@@ -139,6 +139,7 @@ typedef enum {
 	SPEAK_QUEUE_QET_END,		/* Speech completed. */
 	SPEAK_QUEUE_QET_PAUSE,		/* Speech pause. */
 	SPEAK_QUEUE_QET_STOP,		/* Speech stop. */
+	SPEAK_QUEUE_QET_BROKEN,		/* Speech module is broken. */
 } speak_queue_entry_type;
 
 typedef struct {
