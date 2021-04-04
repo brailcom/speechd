@@ -134,6 +134,7 @@ void module_speak_sync(const char * data, size_t len, SPDMessageType msgtype)
 	}
 
 	kali_speaking = 1;
+	kali_stop = 0;
 
 	AudioTrack track;
 #if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
@@ -229,15 +230,11 @@ void module_speak_sync(const char * data, size_t len, SPDMessageType msgtype)
 	}
 	g_free(kali_message);
 	kali_speaking = 0;
-	kali_stop = 0;
 }
 
 int module_stop(void)
 {
 	DBG("kali: stop()\n");
-
-	if (kali_speaking)
-		kali_stop = 1;
 
 	kali_stop = 1;
 
