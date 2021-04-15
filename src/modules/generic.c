@@ -378,8 +378,10 @@ void *_generic_speak(void *nothing)
 				DBG("Warning: bad icon name %s\n", generic_message);
 			}
 			char *cmd = g_strdup_printf("%s '%s/%s'", play_command, GenericSoundIconFolder, generic_message);
-			system(cmd);
+			module_report_event_begin();
 			DBG("icon command = |%s|\n", cmd);
+			system(cmd);
+			module_report_event_end();
 			free(cmd);
 			generic_speaking = 0;
 			continue;
