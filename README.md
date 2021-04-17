@@ -26,9 +26,9 @@ and the SSIP protocol documentation: doc/ssip.html.
 Read [doc/README](doc/README) for more information.
 
 This documentation is also available online:
-the [speech dispatcher documentation](http://htmlpreview.github.com/?https://github.com/brailcom/speechd/blob/master/doc/speech-dispatcher.html),
-the [spd-say documentation](http://htmlpreview.github.com/?https://github.com/brailcom/speechd/blob/master/doc/spd-say.html),
-and the [SSIP protocol documentation](http://htmlpreview.github.com/?https://github.com/brailcom/speechd/blob/master/doc/ssip.html).
+the [speech dispatcher documentation](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/speech-dispatcher.html),
+the [spd-say documentation](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/spd-say.html),
+and the [SSIP protocol documentation](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/ssip.html).
 
 The key features and the supported TTS engines, output subsystems, client
 interfaces and client applications known to work with Speech Dispatcher are
