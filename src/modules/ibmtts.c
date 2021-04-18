@@ -22,18 +22,7 @@
  * $Id: ibmtts.c,v 1.30 2008-06-30 14:34:02 gcasse Exp $
  */
 
-/* This output module operates with two threads:
-
-        The main thread called from Speech Dispatcher (module_*()).
-        A synthesis thread that accepts messages, parses them, and forwards
-            them to the IBM TTS via the Eloquence Command Interface (ECI).
-            This thread receives audio and index mark callbacks from
-            IBM TTS and queues them into a playback queue. See _synth().
-
-   A semaphore is used between the main thread and the synthesis thread as a
-   producer/consumer relation.
-
-   TODO:
+/* TODO:
    - Support list_synthesis_voices()
    - Limit amount of waveform data synthesised in advance.
    - Use SSML mark feature of ibmtts instead of handcrafted parsing.
@@ -46,7 +35,6 @@
 /* System includes. */
 #include <string.h>
 #include <glib.h>
-#include <semaphore.h>
 #include <ctype.h>
 
 #ifdef VOXIN
@@ -58,11 +46,8 @@
 #endif
 
 /* Speech Dispatcher includes. */
-#include "spd_audio.h"
 #include <speechd_types.h>
 #include "module_utils.h"
-
-#include "speak_queue.h"
 
 typedef enum {
 	MODULE_FATAL_ERROR = -1,
@@ -89,7 +74,7 @@ typedef enum {
 #define MODULE_NAME     "ibmtts"
 #define DBG_MODNAME     "Ibmtts: "
 #endif
-#define MODULE_VERSION  "0.1"
+#define MODULE_VERSION  "0.2"
 
 #define DEBUG_MODULE 1
 DECLARE_DEBUG();
@@ -164,17 +149,8 @@ DECLARE_DEBUG();
 		return NULL; \
 	}
 
-/* Thread and process control. */
-static pthread_t synth_thread;
-
-static sem_t synth_semaphore;
-
-static gboolean thread_exit_requested = FALSE;
+static gboolean stop_requested = FALSE;
 static gboolean pause_requested = FALSE;
-
-/* Current message from Speech Dispatcher. */
-static char *message;
-static SPDMessageType message_type;
 
 /* ECI */
 static ECIHand eciHandle = NULL_ECI_HAND;
@@ -221,7 +197,7 @@ static int *speechd_voice_index = NULL;
 #define voice_index(i) speechd_voice_index[i]
 #endif
 
-/* Internal function prototypes for main thread. */
+/* Internal function prototypes. */
 static void update_sample_rate();
 static void set_language(char *lang);
 static void set_voice_type(SPDVoiceType voice_type);
@@ -234,12 +210,10 @@ static void set_punctuation_mode(SPDPunctuation punct_mode);
 static void set_volume(signed int pitch);
 static void set_capital_mode(SPDCapitalLetters cap_mode);
 
-/* locale_index_atomic stores the current index of the voices or eciLocales array.
-   The main thread writes this information, the synthesis thread reads it.
-*/
+/* locale_index_atomic stores the current index of the voices or eciLocales array. */
 static gint locale_index_atomic;
 
-/* Internal function prototypes for synthesis thread. */
+/* Internal function prototypes. */
 static char *extract_mark_name(char *mark);
 static char *next_part(char *msg, char **mark_name);
 static int replace(char *from, char *to, GString * msg);
@@ -253,20 +227,19 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 					  enum ECIMessage msg,
 					  long lparam, void *data);
 
-/* Internal function prototypes for playback thread. */
+/* Internal function prototypes. */
 static gboolean add_audio_to_playback_queue(TEciAudioSamples *
 						      audio_chunk,
 						      long num_samples);
 static void add_mark_to_playback_queue(long markId);
-static void add_end_to_playback_queue(void);
 
 /* Miscellaneous internal function prototypes. */
 static void log_eci_error();
 static gboolean alloc_voice_list();
 static void free_voice_list();
 
-/* The synthesis thread start routine. */
-static void *_synth(void *);
+/* The synthesis routine. */
+static void _synth(char *message, SPDMessageType message_type);
 
 /* Module configuration options. */
 MOD_OPTION_1_INT(IbmttsUseSSML);
@@ -381,13 +354,13 @@ int module_load(void)
 
 int module_init(char **status_info)
 {
-	int ret;
 	char version[20];
 
 	DBG(DBG_MODNAME "Module init().");
 
+	module_audio_set_server();
+
 	*status_info = NULL;
-	thread_exit_requested = FALSE;
 
 	/* Report versions. */
 	eciVersion(version);
@@ -446,28 +419,6 @@ int module_init(char **status_info)
 
 	DBG(DBG_MODNAME "IbmttsAudioChunkSize = %d", IbmttsAudioChunkSize);
 
-	message = NULL;
-
-	DBG(DBG_MODNAME "Creating playback queue.");
-	if (module_speak_queue_init(IbmttsAudioChunkSize, status_info)) {
-		DBG(DBG_MODNAME "queue initialization failed.");
-		return MODULE_FATAL_ERROR;
-	}
-
-	DBG(DBG_MODNAME "Creating new thread for TTS synthesis.");
-	sem_init(&synth_semaphore, 0, 0);
-
-	ret = spd_pthread_create(&synth_thread, NULL, _synth, NULL);
-	if (0 != ret) {
-		DBG(DBG_MODNAME "synthesis thread creation failed.");
-		*status_info =
-		    g_strdup("The module couldn't initialize synthesis thread. "
-			     "This could be either an internal problem or an "
-			     "architecture problem. If you are sure your architecture "
-			     "supports threads, please report a bug.");
-		return MODULE_FATAL_ERROR;
-	}
-
 	*status_info = g_strdup(DBG_MODNAME "Initialized successfully.");
 
 	return MODULE_OK;
@@ -479,15 +430,16 @@ SPDVoice **module_list_voices(void)
 	return speechd_voice;
 }
 
-int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
+void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 {
+	/* Current message from Speech Dispatcher. */
+	char *message;
+	SPDMessageType message_type;
+
 	DBG(DBG_MODNAME "module_speak().");
 
 	DBG(DBG_MODNAME "Type: %d, bytes: %lu, requested data: |%s|\n", msgtype,
 	    (unsigned long)bytes, data);
-
-	g_free(message);
-	message = NULL;
 
 	if (!g_utf8_validate(data, bytes, NULL)) {
 		DBG(DBG_MODNAME "Input is not valid utf-8.");
@@ -497,7 +449,8 @@ int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
 			      NULL);
 		if (message == NULL) {
 			DBG(DBG_MODNAME "Fallback conversion to utf-8 failed.");
-			return FALSE;
+			module_speak_error();
+			return;
 		}
 	} else {
 		message = g_strndup(data, bytes);
@@ -534,18 +487,24 @@ int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
 		}
 	}
 
-	/* Send semaphore signal to the synthesis thread */
-	sem_post(&synth_semaphore);
+	module_speak_ok();
+	module_report_event_begin();
+	stop_requested = FALSE;
+	pause_requested = FALSE;
+	_synth(message, message_type);
+	if (stop_requested)
+		module_report_event_stop();
+	else
+		module_report_event_end();
 
-	DBG(DBG_MODNAME "Leaving module_speak() normally.");
-	return TRUE;
+	DBG(DBG_MODNAME "Leaving module_speak_sync() normally.");
 }
 
 int module_stop(void)
 {
 	DBG(DBG_MODNAME "module_stop().");
 
-	module_speak_queue_stop();
+	stop_requested = TRUE;
 
 	return MODULE_OK;
 }
@@ -562,7 +521,6 @@ size_t module_pause(void)
 	DBG(DBG_MODNAME "module_pause().");
 
 	pause_requested = TRUE;
-	module_speak_queue_pause();
 
 	return MODULE_OK;
 }
@@ -571,8 +529,6 @@ int module_close(void)
 {
 
 	DBG(DBG_MODNAME "close().");
-
-	module_speak_queue_terminate();
 
 	DBG(DBG_MODNAME "Stopping speech");
 	module_stop();
@@ -587,15 +543,6 @@ int module_close(void)
 	/* Free buffer for ECI audio. */
 	g_free(audio_chunk);
 
-	/* Request each thread exit and wait until it exits. */
-	DBG(DBG_MODNAME "Terminating threads");
-	thread_exit_requested = TRUE;
-	sem_post(&synth_semaphore);
-	if (0 != pthread_join(synth_thread, NULL))
-		return -1;
-
-	module_speak_queue_free();
-
 	/* Free index mark lookup table. */
 	if (index_mark_ht) {
 		g_hash_table_destroy(index_mark_ht);
@@ -603,7 +550,6 @@ int module_close(void)
 	}
 
 	free_voice_list();
-	sem_destroy(&synth_semaphore);
 
 	return 0;
 }
@@ -704,7 +650,7 @@ static int process_text_mark(char *part, int part_len, char *mark_name)
 		/* If pause is requested, skip over rest of message,
 		   but synthesize what we have so far. */
 		if (pause_requested) {
-			DBG(DBG_MODNAME "Pause requested in synthesis thread.");
+			DBG(DBG_MODNAME "Pause requested in synthesis.");
 			return 1;
 		}
 		return 0;
@@ -724,7 +670,7 @@ static int process_text_mark(char *part, int part_len, char *mark_name)
 	}
 
 	/* Handle end of text. */
-	DBG(DBG_MODNAME "End of data in synthesis thread.");
+	DBG(DBG_MODNAME "End of data in synthesis.");
 	/*
 	   Add index mark for end of message.
 	   This also makes sure the callback gets called at least once
@@ -748,140 +694,130 @@ static int process_text_mark(char *part, int part_len, char *mark_name)
 	return 3;
 }
 
-/* Synthesis thread. */
-static void *_synth(void *nothing)
+/* Synthesis. */
+static void _synth(char *message, SPDMessageType message_type)
 {
 	char *pos = NULL;
 	char *part = NULL;
 	int part_skip_end, part_len;
 	int ret;
 
-	DBG(DBG_MODNAME "Synthesis thread starting.......\n");
-
 	/* Allocate a place for index mark names to be placed. */
 	char *mark_name = NULL;
 
-	while (!thread_exit_requested) {
-		sem_wait(&synth_semaphore);
-		if (thread_exit_requested)
-			break;
-		DBG(DBG_MODNAME "Synthesis semaphore on.");
+	/* This table assigns each index mark name an integer id for fast lookup when
+	   ECI returns the integer index mark event. */
+	if (index_mark_ht)
+		g_hash_table_destroy(index_mark_ht);
+	index_mark_ht =
+	    g_hash_table_new_full(g_int_hash, g_int_equal, g_free,
+				  g_free);
 
-		/* This table assigns each index mark name an integer id for fast lookup when
-		   ECI returns the integer index mark event. */
-		if (index_mark_ht)
-			g_hash_table_destroy(index_mark_ht);
-		index_mark_ht =
-		    g_hash_table_new_full(g_int_hash, g_int_equal, g_free,
-					  g_free);
+	pos = message;
+	load_user_dictionary();
 
-		pos = message;
-		load_user_dictionary();
-
-		module_speak_queue_before_synth();
-
-		switch (message_type) {
-		case SPD_MSGTYPE_TEXT:
-			eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
-			break;
-		case SPD_MSGTYPE_SOUND_ICON:
-			/* IBM TTS does not support sound icons.
-			   If we can find a sound icon file, play that,
-			   otherwise speak the name of the sound icon. */
-			part = search_for_sound_icon(message);
-			if (NULL != part) {
-				add_sound_icon_to_playback_queue(part);
-				continue;
-			} else
-				eciSetParam(eciHandle, eciTextMode,
-					    eciTextModeDefault);
-			break;
-		case SPD_MSGTYPE_CHAR:
+	switch (message_type) {
+	case SPD_MSGTYPE_TEXT:
+		eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
+		break;
+	case SPD_MSGTYPE_SOUND_ICON:
+		/* IBM TTS does not support sound icons.
+		   If we can find a sound icon file, play that,
+		   otherwise speak the name of the sound icon. */
+		part = search_for_sound_icon(message);
+		if (NULL != part) {
+			add_sound_icon_to_playback_queue(part);
+			return;
+		} else
+			eciSetParam(eciHandle, eciTextMode,
+				    eciTextModeDefault);
+		break;
+	case SPD_MSGTYPE_CHAR:
+		eciSetParam(eciHandle, eciTextMode,
+			    eciTextModeAllSpell);
+		break;
+	case SPD_MSGTYPE_KEY:
+		/* TODO: make sure all SSIP cases are supported */
+		/* Map unspeakable keys to speakable words. */
+		DBG(DBG_MODNAME "Key from Speech Dispatcher: |%s|", pos);
+		pos = subst_keys(pos);
+		DBG(DBG_MODNAME "Key to speak: |%s|", pos);
+		g_free(message);
+		message = pos;
+		eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
+		break;
+	case SPD_MSGTYPE_SPELL:
+		if (SPD_PUNCT_NONE != msg_settings.punctuation_mode)
 			eciSetParam(eciHandle, eciTextMode,
 				    eciTextModeAllSpell);
-			break;
-		case SPD_MSGTYPE_KEY:
-			/* TODO: make sure all SSIP cases are supported */
-			/* Map unspeakable keys to speakable words. */
-			DBG(DBG_MODNAME "Key from Speech Dispatcher: |%s|", pos);
-			pos = subst_keys(pos);
-			DBG(DBG_MODNAME "Key to speak: |%s|", pos);
-			g_free(message);
-			message = pos;
-			eciSetParam(eciHandle, eciTextMode, eciTextModeDefault);
-			break;
-		case SPD_MSGTYPE_SPELL:
-			if (SPD_PUNCT_NONE != msg_settings.punctuation_mode)
-				eciSetParam(eciHandle, eciTextMode,
-					    eciTextModeAllSpell);
-			else
-				eciSetParam(eciHandle, eciTextMode,
-					    eciTextModeAlphaSpell);
-			break;
-		}
-
-		module_speak_queue_before_play();
-
-		if (!IbmttsUseSSML)
-		{
-			process_text_mark(pos, strlen(pos), NULL);
-			process_text_mark(NULL, 0, NULL);
-			continue;
-		}
-
-		while (TRUE) {
-			if (module_speak_queue_stop_requested()) {
-				DBG(DBG_MODNAME "Stop in synthesis thread, terminating.");
-				break;
-			}
-
-			/* TODO: How to map these msg_settings to ibm tts?
-			   ESpellMode spelling_mode;
-			   SPELLING_ON already handled in module_speak()
-			   ECapLetRecogn cap_let_recogn;
-			   RECOGN_NONE = 0,
-			   RECOGN_SPELL = 1,
-			   RECOGN_ICON = 2
-			 */
-
-			if (!strncmp(pos, SD_SPEAK, strlen(SD_SPEAK))) {
-				DBG(DBG_MODNAME "Drop heading "SD_SPEAK".");
-				pos += strlen(SD_SPEAK);
-			}
-
-			part = next_part(pos, &mark_name);
-			if (NULL == part) {
-				DBG(DBG_MODNAME "Error getting next part of message.");
-				/* TODO: What to do here? */
-				break;
-			}
-			part_len = strlen(part);
-			if (part_len >= strlen(SD_ENDSPEAK) &&
-				!strncmp(part + part_len - strlen(SD_ENDSPEAK),
-					 SD_ENDSPEAK, strlen(SD_ENDSPEAK))) {
-				DBG(DBG_MODNAME "Drop trailing "SD_ENDSPEAK".");
-				part_skip_end = strlen(SD_ENDSPEAK);
-				part[part_len - part_skip_end] = 0;
-			} else {
-				part_skip_end = 0;
-			}
-			pos += part_len;
-			ret = process_text_mark(part,
-					part_len - part_skip_end,
-					mark_name);
-			g_free(part);
-			part = NULL;
-			mark_name = NULL;
-			if (ret == 1)
-				pos += strlen(pos);
-			else if (ret > 1)
-				break;
-		}
+		else
+			eciSetParam(eciHandle, eciTextMode,
+				    eciTextModeAlphaSpell);
+		break;
 	}
 
-	DBG(DBG_MODNAME "Synthesis thread ended.......\n");
+	if (!IbmttsUseSSML)
+	{
+		process_text_mark(pos, strlen(pos), NULL);
+		process_text_mark(NULL, 0, NULL);
+		return;
+	}
 
-	pthread_exit(NULL);
+	while (TRUE) {
+		/* Process server events in case we were told to stop in between
+ */
+		module_process(STDIN_FILENO, 0);
+
+		DBG(DBG_MODNAME "Processing synth.");
+		if (stop_requested) {
+			DBG(DBG_MODNAME "Stop in synthesis, terminating.");
+			break;
+		}
+
+		/* TODO: How to map these msg_settings to ibm tts?
+		   ESpellMode spelling_mode;
+		   SPELLING_ON already handled in module_speak()
+		   ECapLetRecogn cap_let_recogn;
+		   RECOGN_NONE = 0,
+		   RECOGN_SPELL = 1,
+		   RECOGN_ICON = 2
+		 */
+
+		if (!strncmp(pos, SD_SPEAK, strlen(SD_SPEAK))) {
+			DBG(DBG_MODNAME "Drop heading "SD_SPEAK".");
+			pos += strlen(SD_SPEAK);
+		}
+
+		part = next_part(pos, &mark_name);
+		if (NULL == part) {
+			DBG(DBG_MODNAME "Error getting next part of message.");
+			/* TODO: What to do here? */
+			break;
+		}
+		part_len = strlen(part);
+		if (part_len >= strlen(SD_ENDSPEAK) &&
+			!strncmp(part + part_len - strlen(SD_ENDSPEAK),
+				 SD_ENDSPEAK, strlen(SD_ENDSPEAK))) {
+			DBG(DBG_MODNAME "Drop trailing "SD_ENDSPEAK".");
+			part_skip_end = strlen(SD_ENDSPEAK);
+			part[part_len - part_skip_end] = 0;
+		} else {
+			part_skip_end = 0;
+		}
+		pos += part_len;
+		ret = process_text_mark(part,
+				part_len - part_skip_end,
+				mark_name);
+		g_free(part);
+		part = NULL;
+		mark_name = NULL;
+		if (ret == 1)
+			pos += strlen(pos);
+		else if (ret > 1) {
+			DBG(DBG_MODNAME "Finished synthesis.");
+			break;
+		}
+	}
 }
 
 static void set_rate(signed int rate)
@@ -1303,11 +1239,8 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 					  enum ECIMessage msg,
 					  long lparam, void *data)
 {
-	/* This callback is running in the same thread as called eciSynchronize(),
-	   i.e., the _synth() thread. */
-
 	/* If module_stop was called, discard any further callbacks until module_speak is called. */
-	if (module_speak_queue_stop_requested()) {
+	if (stop_requested) {
 		return eciDataProcessed;
 		// TODO: try to use eciDataAbort to avoid continuing computing the synth?
 	}
@@ -1321,9 +1254,7 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 
 	case eciIndexReply:
 		DBG(DBG_MODNAME "Index mark id %ld returned from TTS.", lparam);
-		if (lparam == MSG_END_MARK) {
-			add_end_to_playback_queue();
-		} else {
+		if (lparam != MSG_END_MARK) {
 			/* Add index mark to output queue. */
 			add_mark_to_playback_queue(lparam);
 		}
@@ -1351,7 +1282,8 @@ static gboolean add_audio_to_playback_queue(TEciAudioSamples * audio_chunk, long
 	AudioFormat format = SPD_AUDIO_LE;
 #endif
 
-	return module_speak_queue_add_audio(&track, format);
+	module_tts_output_server(&track, format);
+	return 0;
 }
 
 /* Adds an Index Mark to the audio playback queue. */
@@ -1366,16 +1298,8 @@ static void add_mark_to_playback_queue(long markId)
 		return;
 	}
 	DBG(DBG_MODNAME "reporting index mark |%s|.", mark_name);
-	module_speak_queue_before_play();
-	module_speak_queue_add_mark(mark_name);
+	module_report_index_mark(mark_name);
 	DBG(DBG_MODNAME "index mark reported.");
-}
-
-/* Adds a begin or end flag to the playback queue. */
-static void add_end_to_playback_queue(void)
-{
-	module_speak_queue_before_play();
-	module_speak_queue_add_end();
 }
 
 /* Try to stop the synth. */
@@ -1387,7 +1311,8 @@ void module_speak_queue_cancel(void)
 /* Add a sound icon to the playback queue. */
 static gboolean add_sound_icon_to_playback_queue(char *filename)
 {
-	return module_speak_queue_add_sound_icon(filename);
+	module_report_icon(filename);
+	return 0;
 }
 
 /* Replaces all occurrences of "from" with "to" in msg.
