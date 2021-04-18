@@ -30,7 +30,6 @@
 #include <string.h>
 
 #include <glib.h>
-#include <semaphore.h>
 
 #include <picoapi.h>
 
@@ -39,7 +38,7 @@
 #include "module_utils.h"
 
 #define MODULE_NAME     "pico"
-#define MODULE_VERSION  "0.1"
+#define MODULE_VERSION  "0.2"
 
 DECLARE_DEBUG();
 
@@ -103,10 +102,6 @@ static const SPDVoice *pico_voices_list[] = {
 	&pico_voices[5],
 	NULL
 };
-
-static pthread_t pico_play_thread;
-static sem_t pico_play_semaphore;
-static sem_t pico_idle_semaphore;
 
 enum states { STATE_IDLE, STATE_PLAY, STATE_PAUSE, STATE_STOP, STATE_CLOSE };
 static enum states pico_state;
@@ -178,6 +173,9 @@ static int pico_process_tts(void)
 
 	/* synthesis loop   */
 	while (text_remaining) {
+		/* Process server events in case we were told to stop in between */
+		module_process(STDIN_FILENO, 0);
+
 		/* Feed the text into the engine.   */
 		if ((ret = pico_putTextUtf8(picoEngine, buf, text_remaining,
 					    &bytes_sent))) {
@@ -224,14 +222,10 @@ static int pico_process_tts(void)
 				    ": Sending %i samples to audio.",
 				    track.num_samples);
 
-				if (module_tts_output(track, format) < 0) {
-					DBG(MODULE_NAME
-					    "Can't play track for unknown reason.");
-					return -1;
-				}
+				module_tts_output_server(&track, format);
 				bytes_stored = 0;
 			}
-			if (g_atomic_int_get(&pico_state) != STATE_PLAY) {
+			if (pico_state != STATE_PLAY) {
 				text_remaining = 0;
 				break;
 			}
@@ -240,48 +234,6 @@ static int pico_process_tts(void)
 
 	g_free(picoInp);
 	picoInp = NULL;
-	return 0;
-}
-
-/* Playback thread. */
-static void * pico_play_func(void * nothing)
-{
-	DBG(MODULE_NAME ": Playback thread starting");
-
-	while (g_atomic_int_get(&pico_state) != STATE_CLOSE) {
-
-		sem_wait(&pico_play_semaphore);
-		if (g_atomic_int_get(&pico_state) != STATE_PLAY)
-			continue;
-
-		DBG(MODULE_NAME ": Sending to TTS engine");
-		module_report_event_begin();
-
-		if (0 != pico_process_tts()) {
-			DBG(MODULE_NAME ": ERROR in TTS");
-		}
-
-		if (g_atomic_int_get(&pico_state) == STATE_PLAY) {
-			module_report_event_end();
-			g_atomic_int_set(&pico_state, STATE_IDLE);
-		}
-
-		if (g_atomic_int_get(&pico_state) == STATE_STOP) {
-			module_report_event_stop();
-			g_atomic_int_set(&pico_state, STATE_IDLE);
-			sem_post(&pico_idle_semaphore);
-
-		}
-
-		if (g_atomic_int_get(&pico_state) == STATE_PAUSE) {
-			module_report_event_pause();
-			g_atomic_int_set(&pico_state, STATE_IDLE);
-			sem_post(&pico_idle_semaphore);
-		}
-
-		DBG(MODULE_NAME ": state %d", pico_state);
-
-	}
 	return 0;
 }
 
@@ -396,16 +348,7 @@ int module_init(char **status_info)
 	pico_Retstring outMessage;
 	void *pmem;
 
-	sem_init(&pico_play_semaphore, 0, 0);
-	sem_init(&pico_idle_semaphore, 0, 0);
-
-	if ((spd_pthread_create(&pico_play_thread, NULL, pico_play_func,
-						NULL)) != 0) {
-		*status_info = g_strdup_printf(MODULE_NAME
-					       "Failed to create a play thread\n");
-		DBG(MODULE_NAME ": %s", *status_info);
-		return -1;
-	}
+	module_audio_set_server();
 
 	pmem = g_malloc(PICO_MEM_SIZE);
 	if ((ret = pico_initialize(pmem, PICO_MEM_SIZE, &picoSystem))) {
@@ -441,7 +384,7 @@ int module_init(char **status_info)
 
 	*status_info = g_strdup(MODULE_NAME ": Initialized successfully.");
 
-	g_atomic_int_set(&pico_state, STATE_IDLE);
+	pico_state = STATE_IDLE;
 	return 0;
 }
 
@@ -509,15 +452,16 @@ static void pico_set_language(char *lang)
 	return;
 }
 
-int module_speak(const char *data, size_t bytes, SPDMessageType msgtype)
+void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 {
 	int value;
 	static pico_Char *tmp;
 
-	if (g_atomic_int_get(&pico_state) != STATE_IDLE) {
+	if (pico_state != STATE_IDLE) {
 		DBG(MODULE_NAME
 		    ": module still speaking state = %d", pico_state);
-		return 0;
+		module_speak_error();
+		return;
 	}
 
 	/* Setting speech parameters. */
@@ -565,9 +509,20 @@ int module_speak(const char *data, size_t bytes, SPDMessageType msgtype)
 	   break;
 	   }
 	 */
-	g_atomic_int_set(&pico_state, STATE_PLAY);
-	sem_post(&pico_play_semaphore);
-	return bytes;
+	pico_state = STATE_PLAY;
+
+	module_speak_ok();
+
+	DBG(MODULE_NAME ": Sending to TTS engine");
+	module_report_event_begin();
+
+	if (0 != pico_process_tts()) {
+		DBG(MODULE_NAME ": ERROR in TTS");
+	}
+
+	module_report_event_end();
+
+	pico_state = STATE_IDLE;
 }
 
 int module_stop(void)
@@ -575,13 +530,12 @@ int module_stop(void)
 	pico_Status ret;
 	pico_Retstring outMessage;
 
-	if (g_atomic_int_get(&pico_state) != STATE_PLAY) {
+	if (pico_state != STATE_PLAY) {
 		DBG(MODULE_NAME ": STOP called when not in PLAY state");
 		return -1;
 	}
 
-	g_atomic_int_set(&pico_state, STATE_STOP);
-	sem_wait(&pico_idle_semaphore);
+	pico_state = STATE_STOP;
 
 	/* reset Pico engine. */
 	if ((ret = pico_resetEngine(picoEngine, PICO_RESET_SOFT))) {
@@ -599,13 +553,12 @@ size_t module_pause(void)
 	pico_Status ret;
 	pico_Retstring outMessage;
 
-	if (g_atomic_int_get(&pico_state) != STATE_PLAY) {
+	if (pico_state != STATE_PLAY) {
 		DBG(MODULE_NAME ": PAUSE called when not in PLAY state");
 		return -1;
 	}
 
-	g_atomic_int_set(&pico_state, STATE_PAUSE);
-	sem_wait(&pico_idle_semaphore);
+	pico_state = STATE_PAUSE;
 
 	/* reset Pico engine. */
 	if ((ret = pico_resetEngine(picoEngine, PICO_RESET_SOFT))) {
@@ -620,19 +573,12 @@ size_t module_pause(void)
 
 int module_close(void)
 {
-
-	g_atomic_int_set(&pico_state, STATE_CLOSE);
-	sem_post(&pico_play_semaphore);
-
-	pthread_join(pico_play_thread, NULL);
+	pico_state = STATE_CLOSE;
 
 	if (picoSystem) {
 		pico_terminate(&picoSystem);
 		picoSystem = NULL;
 	}
-
-	sem_destroy(&pico_idle_semaphore);
-	sem_destroy(&pico_play_semaphore);
 
 	return 0;
 }
