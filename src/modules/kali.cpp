@@ -205,7 +205,7 @@ void module_speak_sync(const char * data, size_t len, SPDMessageType msgtype)
 		DBG("Trying to synthesize text");
 		MessageKali((unsigned char *)buf);
 		while (QueryIndexKali() > 0)
-			;
+			usleep(1000);
 		wav =
 		    (const AudioTrackKali *)
 		    GetBufMultiKaliStd(0);
