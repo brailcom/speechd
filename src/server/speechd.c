@@ -730,6 +730,10 @@ static gboolean speechd_load_configuration(gpointer user_data)
 								 SpeechdOptions.module_dir,
 								 SpeechdOptions.user_conf_dir,
 								 SpeechdOptions.conf_dir);
+			detected_modules = detect_output_modules(detected_modules,
+								 OLDMODULEBINDIR,
+								 SpeechdOptions.user_conf_dir,
+								 SpeechdOptions.conf_dir);
 			while (detected_modules != NULL) {
 				char **parameters = detected_modules->data;
 				module_add_load_request(parameters[0],

@@ -13,7 +13,7 @@
 # Copyright (C) 2017 Colomban Wendling <cwendling@hypra.fr>
 # Copyright (C) 2017 Jan Tojnar <jtojnar@gmail.com>
 # Copyright (C) 2018 Raphaël POITEVIN <rpoitevin@hypra.fr>
-# Copyright (C) 2018-2020 Samuel Thibault <samuel.thibault@ens-lyon.org>
+# Copyright (C) 2018-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
 # Copyright (C) 2018 Alan Coopersmith <alan.coopersmith@oracle.com>
 #
 # This program is free software; you can redistribute it and/or modify it under
@@ -472,8 +472,10 @@ AC_SUBST([localedatadir])
 AC_ARG_WITH([module-bindir],
 	AS_HELP_STRING([--with-module-bindir],[Directory where to install speech-dispatcher modules (defaults to ${libdir}/speech-dispatcher-modules)]),
 	[modulebindir=$withval], [modulebindir='${libexecdir}/speech-dispatcher-modules'])
-
 AC_SUBST([modulebindir])
+
+oldmodulebindir='${libdir}/speech-dispatcher-modules'
+AC_SUBST([oldmodulebindir])
 
 # Path for speech-dispatcher libraries:
 spdlibdir='${libdir}/speech-dispatcher'
