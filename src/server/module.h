@@ -32,6 +32,8 @@ typedef struct {
 	char *filename;
 	char *configfilename;
 	char *debugfilename;
+	char *progdir;
+	char *configdir;
 	int pipe_in[2];
 	int pipe_out[2];
 	int pipe_speak[2];
@@ -43,9 +45,10 @@ typedef struct {
 } OutputModule;
 #define AUDIOID_TOOPEN ((AudioID*) (-1))
 
-GList *detect_output_modules(const char *modules_dirname, const char *config_dirname);
+GList *detect_output_modules(GList *modules, const char *modules_dirname, const char *user_config_dirname, const char *config_dirname);
 OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
-				 const char *mod_cfgfile, const char *mod_dbgfile);
+				 const char *mod_cfgfile, const char *mod_dbgfile,
+				 const char *mod_prog_dir, const char *mod_cfg_dir);
 int unload_output_module(OutputModule * module);
 int reload_output_module(OutputModule * old_module);
 int output_module_debug(OutputModule * module);
@@ -53,7 +56,8 @@ int output_module_nodebug(OutputModule * module);
 void destroy_module(OutputModule * module);
 
 void module_add_load_request(char *module_name, char *module_cmd,
-			     char *module_cfgfile, char *module_dbgfile);
+			     char *module_cfgfile, char *module_dbgfile,
+			     char *module_cmd_dir, char *module_cfg_dir);
 void module_load_requested_modules(void);
 guint module_number_of_requested_modules(void);
 

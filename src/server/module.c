@@ -62,6 +62,8 @@ void destroy_module(OutputModule * module)
 	g_free(module->filename);
 	g_free(module->configfilename);
 	g_free(module->debugfilename);
+	g_free(module->progdir);
+	g_free(module->configdir);
 	g_free(module);
 }
 
@@ -121,6 +123,134 @@ FUNC_ERRORHANDLER(ignore_errors)
 	return 0;
 }
 
+#define FNAME_PREFIX "sd_"
+static GList *detect_generic_modules(GList *modules, const char *dirname, const char *config_dirname)
+{
+	struct dirent *entry;
+	char **module_parameters;
+	char *full_path;
+	struct stat fileinfo;
+	int sys_ret;
+
+	/* Special-case the generic module: autoload for the various
+	 * configurations */
+	full_path = spd_get_path("modules", config_dirname);
+	MSG(5, "Looking for generic variants configurations in %s",
+	    full_path);
+	DIR *config_dir = opendir(full_path);
+	if (config_dir == NULL)
+	{
+		MSG(4, "couldn't open directory %s because of error %s\n",
+		    full_path, strerror(errno));
+		g_free(full_path);
+		return modules;
+	}
+
+	while (NULL != (entry = readdir(config_dir))) {
+		size_t len;
+		char *file_path;
+
+		static const configoption_t options[] = {
+			{
+				.name = "GenericCmdDependency",
+				.type = ARG_STR,
+				.callback = GenericCmdDependency_cb,
+				.info = NULL,
+				.context = 0,
+			},
+			{
+				.name = "GenericPortDependency",
+				.type = ARG_INT,
+				.callback = GenericPortDependency_cb,
+				.info = NULL,
+				.context = 0,
+			},
+			{
+				.name = "",
+				.type = 0,
+				.callback = NULL,
+				.info = NULL,
+				.context = 0,
+			}
+		};
+		configfile_t *configfile;
+		unsigned missing_dep = 0;
+
+		if (!strcmp(entry->d_name, ".") || !strcmp(entry->d_name, ".."))
+			continue;
+		file_path = spd_get_path(entry->d_name, full_path);
+		sys_ret = stat(file_path, &fileinfo);
+		if (sys_ret != 0) {
+			MSG(4, "stat failed on file %s in %s", entry->d_name,
+			    full_path);
+			continue;
+		}
+
+		/* Note: stat(2) dereferences symlinks. */
+		if (!S_ISREG(fileinfo.st_mode)) {
+			MSG(4, "Ignoring %s in %s; not a regular file.",
+			    entry->d_name, full_path);
+			g_free(file_path);
+			continue;
+		}
+
+		len = strlen(entry->d_name);
+		if (strcmp(entry->d_name + len - strlen("-generic.conf"),
+			   "-generic.conf")) {
+			MSG(5, "Ignoring %s: not named something-generic.conf",
+			    entry->d_name);
+			g_free(file_path);
+			continue;
+		}
+
+		/* Check for actual binaries and ports given by GenericCmdDependency and GenericPortDependency */
+
+		configfile = dotconf_create(file_path, options,
+					    &missing_dep, CASE_INSENSITIVE);
+		if (!configfile) {
+			MSG(5, "Ignoring %s: Can not parse config file", file_path);
+			g_free(file_path);
+			continue;
+		}
+		configfile->errorhandler = (dotconf_errorhandler_t) ignore_errors;
+
+		if (dotconf_command_loop(configfile) == 0) {
+			MSG(5, "Ignoring %s: Can not parse config file", file_path);
+			g_free(file_path);
+			dotconf_cleanup(configfile);
+			continue;
+		}
+		dotconf_cleanup(configfile);
+
+		if (missing_dep != 0) {
+			MSG(5, "Ignoring %s: did not find %d dependency",
+			       file_path, missing_dep);
+			g_free(file_path);
+			continue;
+		}
+		g_free(file_path);
+
+		module_parameters = g_malloc(6 * sizeof(char *));
+		module_parameters[1] = g_strdup(FNAME_PREFIX "generic");
+		module_parameters[2] = g_strdup(entry->d_name);
+		entry->d_name[len - strlen(".conf")] = '\0';
+		module_parameters[0] = g_strdup(entry->d_name);
+		module_parameters[3] =
+		    g_strdup_printf("%s/%s.log", SpeechdOptions.log_dir,
+				    entry->d_name);
+		module_parameters[4] = g_strdup(dirname);
+		module_parameters[5] = g_strdup(full_path);
+		modules = g_list_append(modules, module_parameters);
+
+		MSG(5,
+		    "Module name=%s being inserted into detected_modules list",
+		    entry->d_name);
+	}
+	g_free(full_path);
+	closedir(config_dir);
+	return modules;
+}
+
 /*
  * detect_output_modules: automatically discover all available modules.
  * Parameters:
@@ -129,18 +259,18 @@ FUNC_ERRORHANDLER(ignore_errors)
  * For each file in the directory containing module binaries,
  * add an entry to a list of discovered modules.
  */
-GList *detect_output_modules(const char *dirname, const char *config_dirname)
+GList *detect_output_modules(GList *modules, const char *dirname, const char *user_config_dirname, const char *config_dirname)
 {
-#define FNAME_PREFIX "sd_"
 	static const int FNAME_PREFIX_LENGTH = strlen(FNAME_PREFIX);
 	DIR *module_dir = opendir(dirname);
 	struct dirent *entry;
 	char *module_name;
 	char **module_parameters;
-	GList *modules = NULL;
 	char *full_path;
 	struct stat fileinfo;
 	int sys_ret;
+
+	MSG(5, "Detecting modules from %s\n", dirname);
 
 	if (module_dir == NULL) {
 		MSG(3, "couldn't open directory %s because of error %s\n",
@@ -177,7 +307,7 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 
 		module_name = entry->d_name + FNAME_PREFIX_LENGTH;
 		if (strcmp(module_name, "generic") != 0) {
-			module_parameters = g_malloc(4 * sizeof(char *));
+			module_parameters = g_malloc(6 * sizeof(char *));
 			module_parameters[0] = g_strdup(module_name);
 			module_parameters[1] = g_strdup(entry->d_name);
 			module_parameters[2] =
@@ -185,126 +315,16 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 			module_parameters[3] =
 			    g_strdup_printf("%s/%s.log", SpeechdOptions.log_dir,
 					    module_parameters[0]);
+			module_parameters[4] = g_strdup(dirname);
+			module_parameters[5] = NULL;
 			modules = g_list_append(modules, module_parameters);
 
 			MSG(5,
 			    "Module name=%s being inserted into detected_modules list",
 			    module_parameters[0]);
 		} else {
-			/* Special-case the generic module: autoload for the various
-			 * configurations */
-			full_path = spd_get_path("modules", config_dirname);
-			MSG(5, "Looking for generic variants configurations in %s",
-			    full_path);
-			DIR *config_dir = opendir(full_path);
-			if (config_dir == NULL)
-			{
-				MSG(4, "couldn't open directory %s because of error %s\n",
-				    full_path, strerror(errno));
-				g_free(full_path);
-				continue;
-			}
-
-			while (NULL != (entry = readdir(config_dir))) {
-				size_t len;
-				char *file_path;
-
-				static const configoption_t options[] = {
-					{
-						.name = "GenericCmdDependency",
-						.type = ARG_STR,
-						.callback = GenericCmdDependency_cb,
-						.info = NULL,
-						.context = 0,
-					},
-					{
-						.name = "GenericPortDependency",
-						.type = ARG_INT,
-						.callback = GenericPortDependency_cb,
-						.info = NULL,
-						.context = 0,
-					},
-					{
-						.name = "",
-						.type = 0,
-						.callback = NULL,
-						.info = NULL,
-						.context = 0,
-					}
-				};
-				configfile_t *configfile;
-				unsigned missing_dep = 0;
-
-				if (!strcmp(entry->d_name, ".") || !strcmp(entry->d_name, ".."))
-					continue;
-				file_path = spd_get_path(entry->d_name, full_path);
-				sys_ret = stat(file_path, &fileinfo);
-				if (sys_ret != 0) {
-					MSG(4, "stat failed on file %s in %s", entry->d_name,
-					    config_dirname);
-					continue;
-				}
-
-				/* Note: stat(2) dereferences symlinks. */
-				if (!S_ISREG(fileinfo.st_mode)) {
-					MSG(4, "Ignoring %s in %s; not a regular file.",
-					    entry->d_name, config_dirname);
-					g_free(file_path);
-					continue;
-				}
-
-				len = strlen(entry->d_name);
-				if (strcmp(entry->d_name + len - strlen("-generic.conf"),
-					   "-generic.conf")) {
-					MSG(5, "Ignoring %s: not named something-generic.conf",
-					    entry->d_name);
-					g_free(file_path);
-					continue;
-				}
-
-				/* Check for actual binaries and ports given by GenericCmdDependency and GenericPortDependency */
-
-				configfile = dotconf_create(file_path, options,
-							    &missing_dep, CASE_INSENSITIVE);
-				if (!configfile) {
-					MSG(5, "Ignoring %s: Can not parse config file", file_path);
-					g_free(file_path);
-					continue;
-				}
-				configfile->errorhandler = (dotconf_errorhandler_t) ignore_errors;
-
-				if (dotconf_command_loop(configfile) == 0) {
-					MSG(5, "Ignoring %s: Can not parse config file", file_path);
-					g_free(file_path);
-					dotconf_cleanup(configfile);
-					continue;
-				}
-				dotconf_cleanup(configfile);
-
-				if (missing_dep != 0) {
-					MSG(5, "Ignoring %s: did not find %d dependency",
-					       file_path, missing_dep);
-					g_free(file_path);
-					continue;
-				}
-				g_free(file_path);
-
-				module_parameters = g_malloc(4 * sizeof(char *));
-				module_parameters[1] = g_strdup(FNAME_PREFIX "generic");
-				module_parameters[2] = g_strdup(entry->d_name);
-				entry->d_name[len - strlen(".conf")] = '\0';
-				module_parameters[0] = g_strdup(entry->d_name);
-				module_parameters[3] =
-				    g_strdup_printf("%s/%s.log", SpeechdOptions.log_dir,
-						    entry->d_name);
-				modules = g_list_append(modules, module_parameters);
-
-				MSG(5,
-				    "Module name=%s being inserted into detected_modules list",
-				    entry->d_name);
-			}
-			g_free(full_path);
-			closedir(config_dir);
+			modules = detect_generic_modules(modules, dirname, user_config_dirname);
+			modules = detect_generic_modules(modules, dirname, config_dirname);
 		}
 	}
 
@@ -313,7 +333,8 @@ GList *detect_output_modules(const char *dirname, const char *config_dirname)
 }
 
 OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
-				 const char *mod_cfgfile, const char *mod_dbgfile)
+				 const char *mod_cfgfile, const char *mod_dbgfile,
+				 const char *mod_prog_dir, const char *mod_cfg_dir)
 {
 	OutputModule *module;
 	int fr;
@@ -325,6 +346,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 	size_t n = 0;
 	char s;
 	GString *reply;
+	struct stat fileinfo;
 
 	if (mod_name == NULL)
 		return NULL;
@@ -338,14 +360,36 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 	}
 
 	module->name = (char *)g_strdup(mod_name);
-	module->filename = (char *)spd_get_path(mod_prog, SpeechdOptions.module_dir);
+	module->progdir = g_strdup(mod_prog_dir);
+	module->configdir = g_strdup(mod_cfg_dir);
 
-	module_conf_dir = g_strdup_printf("%s/modules",
-					  SpeechdOptions.conf_dir);
+	if (module->progdir) {
+		module->filename = (char *)spd_get_path(mod_prog, module->progdir);
+	} else {
+		module->filename = (char *)spd_get_path(mod_prog, SpeechdOptions.user_module_dir);
+		if (stat(module->filename, &fileinfo) != 0) {
+			g_free(module->filename);
+			module->filename = (char *)spd_get_path(mod_prog, SpeechdOptions.module_dir);
+		}
+	}
 
-	module->configfilename =
-	    (char *)spd_get_path(mod_cfgfile, module_conf_dir);
-	g_free(module_conf_dir);
+	if (mod_cfg_dir) {
+		module->configfilename =
+		    (char *)spd_get_path(mod_cfgfile, mod_cfg_dir);
+	} else {
+		module_conf_dir = g_strdup_printf("%s/modules",
+					  SpeechdOptions.user_conf_dir);
+		module->configfilename =
+		    (char *)spd_get_path(mod_cfgfile, module_conf_dir);
+		g_free(module_conf_dir);
+		if (stat(module->configfilename, &fileinfo) != 0) {
+			module_conf_dir = g_strdup_printf("%s/modules",
+							  SpeechdOptions.conf_dir);
+			module->configfilename =
+			    (char *)spd_get_path(mod_cfgfile, module_conf_dir);
+			g_free(module_conf_dir);
+		}
+	}
 
 	if (mod_dbgfile != NULL)
 		module->debugfilename = g_strdup(mod_dbgfile);
@@ -577,7 +621,9 @@ int reload_output_module(OutputModule * old_module)
 
 	new_module = load_output_module(old_module->name, old_module->filename,
 					old_module->configfilename,
-					old_module->debugfilename);
+					old_module->debugfilename,
+					old_module->progdir,
+					old_module->configdir);
 	if (new_module == NULL) {
 		MSG(3, "Can't load module %s while reloading modules.",
 		    old_module->name);
@@ -687,7 +733,8 @@ module_already_requested(char *module_name, char *module_cmd,
  */
 void
 module_add_load_request(char *module_name, char *module_cmd,
-			char *module_cfgfile, char *module_dbgfile)
+			char *module_cfgfile, char *module_dbgfile,
+			char *module_cmd_dir, char *module_cfg_dir)
 {
 	char **module_params = NULL;
 
@@ -699,17 +746,26 @@ module_add_load_request(char *module_name, char *module_cmd,
 		g_free(module_cmd);
 		g_free(module_cfgfile);
 		g_free(module_dbgfile);
+		g_free(module_cmd_dir);
+		g_free(module_cfg_dir);
 		return;
 	}
 
-	module_params = g_malloc(4 * sizeof(char *));
+	module_params = g_malloc(6 * sizeof(char *));
 	module_params[0] = module_name;
 	module_params[1] = module_cmd;
 	module_params[2] = module_cfgfile;
 	module_params[3] = module_dbgfile;
+	module_params[4] = module_cmd_dir;
+	module_params[5] = module_cfg_dir;
 	requested_modules = g_list_append(requested_modules, module_params);
-	MSG(5, "Module name=%s being inserted into requested_modules list",
-	    module_params[0]);
+	MSG(5, "Module name=%s being inserted into requested_modules list, with '%s' '%s' '%s' '%s' '%s'",
+	    module_params[0],
+	    module_params[1],
+	    module_params[2],
+	    module_params[3],
+	    module_params[4],
+	    module_params[5]);
 }
 
 /*
@@ -726,7 +782,8 @@ void module_load_requested_modules(void)
 
 		new_module =
 		    load_output_module(module_params[0], module_params[1],
-				       module_params[2], module_params[3]);
+				       module_params[2], module_params[3],
+				       module_params[4], module_params[5]);
 
 		if (new_module != NULL)
 			output_modules =
@@ -736,6 +793,8 @@ void module_load_requested_modules(void)
 		g_free(module_params[1]);
 		g_free(module_params[2]);
 		g_free(module_params[3]);
+		g_free(module_params[4]);
+		g_free(module_params[5]);
 		g_free(module_params);
 		requested_modules =
 		    g_list_delete_link(requested_modules, requested_modules);

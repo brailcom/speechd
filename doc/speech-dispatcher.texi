@@ -734,7 +734,8 @@ module can have its own configuration file.
 
 The audio output is handled by the output modules themselves, so this
 can be switched in their own configuration files under
-@code{etc/speech-dispatcher/modules/}.
+@code{etc/speech-dispatcher/modules/}. Users can also set their own
+configuration files in @code{~/.config/speech-dispatcher/modules/}.
 
 @menu
 * Loading Modules in speechd.conf::
@@ -760,7 +761,7 @@ AddModule "@var{module_name}" "@var{module_binary}" "@var{module_config}"
 
 @var{module_binary} is the name of the binary executable
 of this output module. It can be either absolute or relative
-to @file{bin/speechd-modules/}.
+to @file{libexec/speech-dispatcher-modules/}.
 
 @var{module_config} is the file where the configuration for
 this output module is stored. It can be either absolute or relative
@@ -2589,7 +2590,9 @@ of the communication protocol. Additionally, standard error output
 is used for logging of the modules.
 
 Output module binaries are usually located in
-@file{bin/speechd-modules/} and are loaded automatically when Speech
+@file{libexec/speech-dispatcher-modules/} or in user's
+@file{~/.local/share/speech-dispatcher-modules}
+and are loaded automatically when Speech
 Dispatcher starts, according to configuration.  Their standard
 input/output/error output is redirected to a pipe to Speech Dispatcher
 and this way both sides can communicate.
