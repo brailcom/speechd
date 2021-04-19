@@ -26,10 +26,7 @@
 #include <config.h>
 #endif
 
-#include <semaphore.h>
-
 #include <libdumbtts.h>
-#include "spd_audio.h"
 
 #include <speechd_types.h>
 
@@ -37,19 +34,13 @@
 #include "ivona_client.h"
 
 #define MODULE_NAME     "ivona"
-#define MODULE_VERSION  "0.2"
+#define MODULE_VERSION  "0.3"
 
 #define DEBUG_MODULE 1
 DECLARE_DEBUG();
 
-/* Thread and process control */
 static int ivona_speaking = 0;
 
-static pthread_t ivona_speak_thread;
-static sem_t ivona_semaphore;
-
-static char *ivona_message;
-static SPDMessageType ivona_message_type;
 
 signed int ivona_volume = 0;
 signed int ivona_cap_mode = 0;
@@ -64,7 +55,7 @@ static void ivona_set_volume(signed int volume);
 static void ivona_set_punctuation_mode(SPDPunctuation punct_mode);
 static void ivona_set_cap_let_recogn(SPDCapitalLetters cap_mode);
 
-static void *_ivona_speak(void *);
+static void _ivona_speak(char *ivona_message, SPDMessageType ivona_message_type);
 
 int ivona_stop = 0;
 
@@ -109,9 +100,9 @@ int module_load(void)
 
 int module_init(char **status_info)
 {
-	int ret;
-
 	DBG("Module init");
+
+	module_audio_set_server();
 
 	*status_info = NULL;
 
@@ -126,22 +117,7 @@ int module_init(char **status_info)
 
 	DBG("IvonaDelimiters = %s\n", IvonaDelimiters);
 
-	ivona_message = NULL;
-
-	sem_init(&ivona_semaphore, 0, 0);
-
-	DBG("Ivona: creating new thread for ivona_speak\n");
 	ivona_speaking = 0;
-	ret = spd_pthread_create(&ivona_speak_thread, NULL, _ivona_speak, NULL);
-	if (ret != 0) {
-		DBG("Ivona: thread failed\n");
-		*status_info =
-		    g_strdup("The module couldn't initialize threads "
-			     "This could be either an internal problem or an "
-			     "architecture problem. If you are sure your architecture "
-			     "supports threads, please report a bug.");
-		return -1;
-	}
 
 	*status_info = g_strdup("Ivona initialized successfully.");
 
@@ -158,21 +134,21 @@ SPDVoice **module_list_voices(void)
 	return voice_ivona;
 }
 
-int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
+void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 {
+	char *ivona_message;
+	SPDMessageType ivona_message_type;
+
 	DBG("write()\n");
 
 	if (ivona_speaking) {
 		DBG("Speaking when requested to write");
-		return 0;
+		module_speak_error();
+		return;
 	}
 
 	DBG("Requested data: |%s|\n", data);
 
-	if (ivona_message != NULL) {
-		g_free(ivona_message);
-		ivona_message = NULL;
-	}
 	ivona_message = module_strip_ssml(data);
 	ivona_message_type = msgtype;
 	if ((msgtype == SPD_MSGTYPE_TEXT)
@@ -184,27 +160,19 @@ int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
 	UPDATE_PARAMETER(cap_let_recogn, ivona_set_cap_let_recogn);
 	UPDATE_PARAMETER(punctuation_mode, ivona_set_punctuation_mode);
 
-	/* Send semaphore signal to the speaking thread */
 	ivona_speaking = 1;
-	sem_post(&ivona_semaphore);
+
+	module_speak_ok();
+	_ivona_speak(ivona_message, ivona_message_type);
 
 	DBG("Ivona: leaving write() normally\n\r");
-	return bytes;
 }
 
 int module_stop(void)
 {
-	int ret;
 	DBG("ivona: stop()\n");
 
 	ivona_stop = 1;
-	if (module_audio_id) {
-		DBG("Stopping audio");
-		ret = spd_audio_stop(module_audio_id);
-		if (ret != 0)
-			DBG("WARNING: Non 0 value from spd_audio_stop: %d",
-			    ret);
-	}
 
 	return 0;
 }
@@ -233,11 +201,6 @@ int module_close(void)
 		module_stop();
 	}
 
-	DBG("Terminating threads");
-	if (module_terminate_thread(ivona_speak_thread) != 0)
-		return -1;
-
-	sem_destroy(&ivona_semaphore);
 	return 0;
 }
 
@@ -393,7 +356,7 @@ static int ivona_get_msgpart(struct dumbtts_conf *conf, SPDMessageType type,
 	}
 }
 
-void *_ivona_speak(void *nothing)
+static void _ivona_speak(char *ivona_message, SPDMessageType ivona_message_type)
 {
 	AudioTrack track;
 	char *buf;
@@ -407,165 +370,157 @@ void *_ivona_speak(void *nothing)
 	char next_icon[64];
 	char next_cache[16];
 
-	DBG("ivona: speaking thread starting.......\n");
+	DBG("ivona: speaking starting.......\n");
 
-	/* Make interruptible */
-	set_speaking_thread_parameters();
+	ivona_stop = 0;
+	ivona_speaking = 1;
 
+	module_report_event_begin();
+	msg = ivona_message;
+	DBG("To say: %s\n", msg);
+	buf = NULL;
+	len = 0;
+	fd = -1;
+	audio = NULL;
+	next_audio = NULL;
+	next_icon[0] = 0;
 	while (1) {
-		sem_wait(&ivona_semaphore);
-		DBG("Semaphore on\n");
+		/* Process server events in case we were told to stop in between */
+		module_process(STDIN_FILENO, 0);
 
-		ivona_stop = 0;
-		ivona_speaking = 1;
-
-		module_report_event_begin();
-		msg = ivona_message;
-		DBG("To say: %s\n", msg);
-		buf = NULL;
-		len = 0;
-		fd = -1;
+		if (ivona_stop) {
+			DBG("Stop in child, terminating");
+			ivona_speaking = 0;
+			module_report_event_stop();
+			break;
+		}
 		audio = NULL;
-		next_audio = NULL;
-		next_icon[0] = 0;
-		while (1) {
-			if (ivona_stop) {
-				DBG("Stop in child, terminating");
+		if (next_audio) {
+			audio = next_audio;
+			samples = next_samples;
+			offset = next_offset;
+			strcpy(icon, next_icon);
+			next_audio = NULL;
+			DBG("Got wave from next_audio");
+		} else if (fd >= 0) {
+			audio =
+			    ivona_get_wave_fd(fd, &samples, &offset);
+			strcpy(icon, next_icon);
+			if (audio && next_cache[0]) {
+				ivona_store_wave_in_cache(next_cache,
+							  audio +
+							  2 * offset,
+							  samples);
+			}
+
+			fd = -1;
+			DBG("Got wave from fd");
+		} else if (next_icon[0]) {
+			strcpy(icon, next_icon);
+			DBG("Got icon");
+		}
+		if (!audio && !icon[0]) {
+			if (!msg || !*msg
+			    || ivona_get_msgpart(ivona_conf,
+						 ivona_message_type,
+						 &msg, icon, &buf, &len,
+						 ivona_cap_mode,
+						 IvonaDelimiters,
+						 ivona_punct_mode,
+						 IvonaPunctuationSome))
+			{
 				ivona_speaking = 0;
-				module_report_event_stop();
+				if (ivona_stop)
+					module_report_event_stop();
+				else
+					module_report_event_end();
 				break;
 			}
-			audio = NULL;
-			if (next_audio) {
-				audio = next_audio;
-				samples = next_samples;
-				offset = next_offset;
-				strcpy(icon, next_icon);
-				next_audio = NULL;
-				DBG("Got wave from next_audio");
-			} else if (fd >= 0) {
+			if (buf && *buf) {
 				audio =
-				    ivona_get_wave_fd(fd, &samples, &offset);
-				strcpy(icon, next_icon);
-				if (audio && next_cache[0]) {
-					ivona_store_wave_in_cache(next_cache,
-								  audio +
-								  2 * offset,
-								  samples);
-				}
-
-				fd = -1;
-				DBG("Got wave from fd");
-			} else if (next_icon[0]) {
-				strcpy(icon, next_icon);
-				DBG("Got icon");
+				    ivona_get_wave(buf, &samples,
+						   &offset);
+				DBG("Got wave from direct");
 			}
-			if (!audio && !icon[0]) {
-				if (!msg || !*msg
-				    || ivona_get_msgpart(ivona_conf,
-							 ivona_message_type,
-							 &msg, icon, &buf, &len,
-							 ivona_cap_mode,
-							 IvonaDelimiters,
-							 ivona_punct_mode,
-							 IvonaPunctuationSome))
-				{
-					ivona_speaking = 0;
-					if (ivona_stop)
-						module_report_event_stop();
-					else
-						module_report_event_end();
-					break;
-				}
+		}
+
+		/* tu mamy audio albo icon, mozna gadac */
+		if (ivona_stop) {
+			DBG("Stop in child, terminating");
+			ivona_speaking = 0;
+			module_report_event_stop();
+			break;
+		}
+
+		next_icon[0] = 0;
+		if (msg && *msg) {
+			if (!ivona_get_msgpart
+			    (ivona_conf, ivona_message_type, &msg,
+			     next_icon, &buf, &len, ivona_cap_mode,
+			     IvonaDelimiters, ivona_punct_mode,
+			     IvonaPunctuationSome)) {
 				if (buf && *buf) {
-					audio =
-					    ivona_get_wave(buf, &samples,
-							   &offset);
-					DBG("Got wave from direct");
-				}
-			}
-
-			/* tu mamy audio albo icon, mozna gadac */
-			if (ivona_stop) {
-				DBG("Stop in child, terminating");
-				ivona_speaking = 0;
-				module_report_event_stop();
-				break;
-			}
-
-			next_icon[0] = 0;
-			if (msg && *msg) {
-				if (!ivona_get_msgpart
-				    (ivona_conf, ivona_message_type, &msg,
-				     next_icon, &buf, &len, ivona_cap_mode,
-				     IvonaDelimiters, ivona_punct_mode,
-				     IvonaPunctuationSome)) {
-					if (buf && *buf) {
-						next_offset = 0;
-						next_audio =
-						    ivona_get_wave_from_cache
-						    (buf, &next_samples);
-						if (!next_audio) {
-							DBG("Sending %s to ivona", buf);
-							next_cache[0] = 0;
-							if (strlen(buf) <=
-							    IVONA_CACHE_MAX_STRLEN)
-								strcpy
-								    (next_cache,
-								     buf);
-							fd = ivona_send_string
-							    (buf);
-						}
+					next_offset = 0;
+					next_audio =
+					    ivona_get_wave_from_cache
+					    (buf, &next_samples);
+					if (!next_audio) {
+						DBG("Sending %s to ivona", buf);
+						next_cache[0] = 0;
+						if (strlen(buf) <=
+						    IVONA_CACHE_MAX_STRLEN)
+							strcpy
+							    (next_cache,
+							     buf);
+						fd = ivona_send_string
+						    (buf);
 					}
 				}
 			}
-			if (ivona_stop) {
-				DBG("Stop in child, terminating");
-				ivona_speaking = 0;
-				module_report_event_stop();
-				break;
-			}
-			if (icon[0]) {
-				play_icon(IvonaSoundIconPath, icon);
-				if (ivona_stop) {
-					ivona_speaking = 0;
-					module_report_event_stop();
-					break;
-				}
-				icon[0] = 0;
-			}
-			if (audio) {
-				track.num_samples = samples;
-				track.num_channels = 1;
-				track.sample_rate = IvonaSampleFreq;
-				track.bits = 16;
-				track.samples = ((short *)audio) + offset;
-				DBG("Got %d samples", track.num_samples);
-				module_tts_output(track, SPD_AUDIO_LE);
-				g_free(audio);
-				audio = NULL;
-			}
-			if (ivona_stop) {
-				ivona_speaking = 0;
-				module_report_event_stop();
-				break;
-			}
 		}
-		ivona_stop = 0;
-		g_free(buf);
-		g_free(audio);
-		g_free(next_audio);
-		if (fd >= 0)
-			close(fd);
-		fd = -1;
-		audio = NULL;
-		next_audio = NULL;
+		if (ivona_stop) {
+			DBG("Stop in child, terminating");
+			ivona_speaking = 0;
+			module_report_event_stop();
+			break;
+		}
+		if (icon[0]) {
+			play_icon(IvonaSoundIconPath, icon);
+			if (ivona_stop) {
+				ivona_speaking = 0;
+				module_report_event_stop();
+				break;
+			}
+			icon[0] = 0;
+		}
+		if (audio) {
+			track.num_samples = samples;
+			track.num_channels = 1;
+			track.sample_rate = IvonaSampleFreq;
+			track.bits = 16;
+			track.samples = ((short *)audio) + offset;
+			DBG("Got %d samples", track.num_samples);
+			module_tts_output_server(&track, SPD_AUDIO_LE);
+			g_free(audio);
+			audio = NULL;
+		}
+		if (ivona_stop) {
+			ivona_speaking = 0;
+			module_report_event_stop();
+			break;
+		}
 	}
+	ivona_stop = 0;
+	g_free(buf);
+	g_free(audio);
+	g_free(next_audio);
+	if (fd >= 0)
+		close(fd);
+	fd = -1;
+	audio = NULL;
+	next_audio = NULL;
+
 	ivona_speaking = 0;
-
-	DBG("Ivona: speaking thread ended.......\n");
-
-	pthread_exit(NULL);
 }
 
 static void ivona_set_volume(signed int volume)
