@@ -42,25 +42,9 @@
 
 static struct sockaddr_in sinadr;
 
-int ivona_init_sock(const char *host, int port)
+static int ivona_new_sock(void)
 {
-	if (!inet_aton(host, &sinadr.sin_addr)) {
-		struct hostent *h = gethostbyname(host);
-		if (!h)
-			return -1;
-		memcpy(&sinadr.sin_addr, h->h_addr, sizeof(struct in_addr));
-		endhostent();
-	}
-	sinadr.sin_family = AF_INET;
-	sinadr.sin_port = htons(port);
-	return 0;
-}
 
-#define BASE_WAVE_SIZE 65536
-#define STEP_WAVE_SIZE 32768
-
-int ivona_send_string(const char *to_say)
-{
 	int fd;
 
 	fd = socket(AF_INET, SOCK_STREAM, 0);
@@ -70,6 +54,38 @@ int ivona_send_string(const char *to_say)
 		close(fd);
 		return -1;
 	}
+	return fd;
+}
+
+int ivona_init_sock(const char *host, int port)
+{
+	int fd;
+	if (!inet_aton(host, &sinadr.sin_addr)) {
+		struct hostent *h = gethostbyname(host);
+		if (!h)
+			return -1;
+		memcpy(&sinadr.sin_addr, h->h_addr, sizeof(struct in_addr));
+		endhostent();
+	}
+	sinadr.sin_family = AF_INET;
+	sinadr.sin_port = htons(port);
+	fd = ivona_new_sock();
+	if (fd < 0)
+		return -1;
+	close(fd);
+	return 0;
+}
+
+#define BASE_WAVE_SIZE 65536
+#define STEP_WAVE_SIZE 32768
+
+int ivona_send_string(const char *to_say)
+{
+	int fd = ivona_new_sock();
+
+	if (fd < 0)
+		return -1;
+
 	write(fd, to_say, strlen(to_say));
 	write(fd, "\n", 1);
 	return fd;
