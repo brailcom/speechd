@@ -501,6 +501,7 @@ fi
 AM_CONDITIONAL(HAVE_SYSTEMD, [test -n "$with_systemdsystemunitdir" -a "x$with_systemdsystemunitdir" != xno ])
 
 AC_CONFIG_FILES([Makefile
+		 run-speechd
                  speech-dispatcher.pc
                  config/Makefile
                  config/clients/Makefile
@@ -523,7 +524,8 @@ AC_CONFIG_FILES([Makefile
                  src/common/Makefile
                  src/modules/Makefile
                  src/server/Makefile
-                 src/tests/Makefile])
+                 src/tests/Makefile],
+	 	[chmod +x run-speechd])
 AC_OUTPUT
 AC_MSG_NOTICE([output modules to be built are $output_modules])
 AC_MSG_NOTICE([audio methods to be built are $audio_methods])
