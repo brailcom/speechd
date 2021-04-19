@@ -109,21 +109,13 @@ int module_load(void)
 	return 0;
 }
 
-#define ABORT(msg) g_string_append(info, msg); \
-	DBG("FATAL ERROR:", info->str); \
-	*status_info = info->str; \
-	g_string_free(info, 0); \
-	return -1;
-
 int module_init(char **status_info)
 {
 	int ret;
-	GString *info;
 
 	DBG("Module init");
 
 	*status_info = NULL;
-	info = g_string_new("");
 
 	/* Init Ivona */
 	if (ivona_init_sock(IvonaServerHost, IvonaServerPort)) {
@@ -157,8 +149,6 @@ int module_init(char **status_info)
 
 	return 0;
 }
-
-#undef ABORT
 
 static SPDVoice voice_jacek;
 static SPDVoice *voice_ivona[] = { &voice_jacek, NULL };
