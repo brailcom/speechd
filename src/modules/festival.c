@@ -431,7 +431,7 @@ static SPDVoice **festivalGetVoices(FT_Info * info)
 	return result;
 }
 
-int festival_send_to_audio(FT_Wave * fwave)
+int festival_send_to_audio(FT_Wave * fwave, int first)
 {
 	AudioTrack track;
 #if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
@@ -449,6 +449,9 @@ int festival_send_to_audio(FT_Wave * fwave)
 	track.bits = 16;
 	track.samples = fwave->samples;
 
+	if (first)
+		module_strip_head_silence(&track);
+
 	DBG("Sending to audio");
 
 	module_tts_output_server(&track, format);
@@ -465,6 +468,7 @@ void module_speak_sync(const char *festival_message, size_t bytes, SPDMessageTyp
 	int debug_count = 0;
 	int r;
 	int terminate = 0;
+	int first;
 
 	char *callback;
 
@@ -574,7 +578,7 @@ void module_speak_sync(const char *festival_message, size_t bytes, SPDMessageTyp
 								 filename_debug);
 					}
 
-					festival_send_to_audio(fwave);
+					festival_send_to_audio(fwave, 1);
 
 					if (!festival_stop) {
 						CLEAN_UP(0,
@@ -634,6 +638,7 @@ void module_speak_sync(const char *festival_message, size_t bytes, SPDMessageTyp
 		}
 	}
 
+	first = 1;
 	while (1) {
 		/* Process server events in case we were told to stop in between */
 		module_process(STDIN_FILENO, 0);
@@ -721,7 +726,8 @@ void module_speak_sync(const char *festival_message, size_t bytes, SPDMessageTyp
 			}
 
 			DBG("Playing sound samples");
-			festival_send_to_audio(fwave);
+			festival_send_to_audio(fwave, first);
+			first = 0;
 
 			if (!wave_cached)
 				delete_FT_Wave(fwave);
