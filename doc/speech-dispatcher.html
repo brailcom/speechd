@@ -49,7 +49,7 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previou
 </div>
 <h1 class="node-heading">Top</h1>
 
-<p>This manual documents Speech Dispatcher, version 0.10.1-89-gccdf.
+<p>This manual documents Speech Dispatcher, version 0.10.1-170-g59a9-dirty.
 </p>
 <p>Copyright &copy; 2001, 2002, 2003, 2006 Brailcom, o.p.s.
 </p>
@@ -818,7 +818,8 @@ module can have its own configuration file.
 </p>
 <p>The audio output is handled by the output modules themselves, so this
 can be switched in their own configuration files under
-<code>etc/speech-dispatcher/modules/</code>.
+<code>etc/speech-dispatcher/modules/</code>. Users can also set their own
+configuration files in <code>~/.config/speech-dispatcher/modules/</code>.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Loading-Modules-in-speechd_002econf" accesskey="1">Loading Modules in speechd.conf</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -850,7 +851,7 @@ module. See <a href="#Configuration-of-the-Generic-Output-Module">Configuration 
 </p>
 <p><var>module_binary</var> is the name of the binary executable
 of this output module. It can be either absolute or relative
-to <samp>bin/speechd-modules/</samp>.
+to <samp>libexec/speech-dispatcher-modules/</samp>.
 </p>
 <p><var>module_config</var> is the file where the configuration for
 this output module is stored. It can be either absolute or relative
@@ -2906,7 +2907,9 @@ of the communication protocol. Additionally, standard error output
 is used for logging of the modules.
 </p>
 <p>Output module binaries are usually located in
-<samp>bin/speechd-modules/</samp> and are loaded automatically when Speech
+<samp>libexec/speech-dispatcher-modules/</samp> or in user&rsquo;s
+<samp>~/.local/share/speech-dispatcher-modules</samp>
+and are loaded automatically when Speech
 Dispatcher starts, according to configuration.  Their standard
 input/output/error output is redirected to a pipe to Speech Dispatcher
 and this way both sides can communicate.

@@ -161,9 +161,11 @@ extern struct SpeechdOptions {
 	char *pid_file;
 	char *conf_file;
 	char *conf_dir;
+	char *user_conf_dir;
 	char *runtime_speechd_dir;
 	char *log_dir;
 	char *module_dir;
+	char *user_module_dir;
 	int log_dir_set;
 	int spawn;
 	int debug;

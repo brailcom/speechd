@@ -584,8 +584,11 @@ void speechd_options_init(void)
 	SpeechdOptions.localhost_access_only_set = 0;
 	SpeechdOptions.pid_file = NULL;
 	SpeechdOptions.conf_file = NULL;
-	SpeechdOptions.module_dir = MODULEBINDIR;
+	SpeechdOptions.conf_dir = NULL;
+	SpeechdOptions.user_conf_dir = NULL;
 	SpeechdOptions.runtime_speechd_dir = NULL;
+	SpeechdOptions.module_dir = MODULEBINDIR;
+	SpeechdOptions.user_module_dir = NULL;
 	SpeechdOptions.log_dir = NULL;
 	SpeechdOptions.log_dir_set = 0;
 	SpeechdOptions.debug = 0;
@@ -718,14 +721,23 @@ static gboolean speechd_load_configuration(gpointer user_data)
 		/* We need to load modules here, since this is called both by speechd_init
 		 * and to handle SIGHUP. */
 		if (module_number_of_requested_modules() < 1) {
-			detected_modules = detect_output_modules(SpeechdOptions.module_dir,
+			// FIXME
+			detected_modules = detect_output_modules(NULL,
+								 SpeechdOptions.user_module_dir,
+								 SpeechdOptions.user_conf_dir,
+								 SpeechdOptions.conf_dir);
+			detected_modules = detect_output_modules(detected_modules,
+								 SpeechdOptions.module_dir,
+								 SpeechdOptions.user_conf_dir,
 								 SpeechdOptions.conf_dir);
 			while (detected_modules != NULL) {
 				char **parameters = detected_modules->data;
 				module_add_load_request(parameters[0],
 							parameters[1],
 							parameters[2],
-							parameters[3]);
+							parameters[3],
+							parameters[4],
+							parameters[5]);
 				g_free(detected_modules->data);
 				detected_modules->data = NULL;
 				detected_modules =
@@ -1036,10 +1048,11 @@ int main(int argc, char *argv[])
 	{
 		const char *user_runtime_dir;
 		const char *user_config_dir;
-		char *test_speechd_conf_file = NULL;
+		const char *user_data_dir;
 
 		user_runtime_dir = g_get_user_runtime_dir();
 		user_config_dir = g_get_user_config_dir();
+		user_data_dir = g_get_user_data_dir();
 
 		/* Setup a speechd-dispatcher directory or create a new one */
 		SpeechdOptions.runtime_speechd_dir =
@@ -1060,29 +1073,34 @@ int main(int argc, char *argv[])
 			g_free(dirname);
 		}
 		/* Config file */
-		if (SpeechdOptions.conf_dir == NULL) {
+		if (SpeechdOptions.conf_dir) {
+			SpeechdOptions.conf_file =
+			    g_strdup_printf("%s/speechd.conf", SpeechdOptions.conf_dir);
+		} else {
 			/* If no conf_dir was specified on command line, try default local config dir */
-			SpeechdOptions.conf_dir =
+			if (strcmp(SYS_CONF, ""))
+				SpeechdOptions.conf_dir =
+				    g_strdup(SYS_CONF);
+			else
+				SpeechdOptions.conf_dir =
+				    g_strdup("/etc/speech-dispatcher/");
+			SpeechdOptions.user_conf_dir =
 			    g_build_filename(user_config_dir,
 					     "speech-dispatcher", NULL);
-			test_speechd_conf_file =
-			    g_build_filename(SpeechdOptions.conf_dir,
-					     "speechd.conf", NULL);
+
+			SpeechdOptions.conf_file =
+			    g_strdup_printf("%s/speechd.conf", SpeechdOptions.user_conf_dir);
 			if (!g_file_test
-			    (test_speechd_conf_file, G_FILE_TEST_IS_REGULAR)) {
+			    (SpeechdOptions.conf_file, G_FILE_TEST_IS_REGULAR)) {
 				/* If the local configuration file doesn't exist, read the global configuration */
-				g_free(SpeechdOptions.conf_dir);
-				if (strcmp(SYS_CONF, ""))
-					SpeechdOptions.conf_dir =
-					    g_strdup(SYS_CONF);
-				else
-					SpeechdOptions.conf_dir =
-					    g_strdup("/etc/speech-dispatcher/");
+				g_free(SpeechdOptions.conf_file);
+				SpeechdOptions.conf_file =
+				    g_strdup_printf("%s/speechd.conf", SpeechdOptions.conf_dir);
 			}
-			g_free(test_speechd_conf_file);
 		}
-		SpeechdOptions.conf_file =
-		    g_strdup_printf("%s/speechd.conf", SpeechdOptions.conf_dir);
+
+		SpeechdOptions.user_module_dir =
+			g_strdup_printf("%s/speech-dispatcher-modules", user_data_dir);
 	}
 
 	/* Check for PID file or create a new one or exit if Speech Dispatcher

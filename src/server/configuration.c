@@ -330,7 +330,9 @@ DOTCONF_CB(cb_AddModule)
 				g_strdup(cmd->data.list[2]),
 				g_strdup_printf("%s/%s.log",
 						SpeechdOptions.log_dir,
-						cmd->data.list[0]));
+						cmd->data.list[0]),
+				NULL,
+				NULL);
 
 	return NULL;
 }
