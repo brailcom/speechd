@@ -824,7 +824,7 @@ void module_strip_head_silence(AudioTrack * track)
 {
 	assert(track->bits == 16);
 	unsigned i;
-	float silence_limit = 0.001;
+	float silence_limit = 0.01;
 
 	while (track->num_samples >= track->num_channels) {
 		for (i = 0; i < track->num_channels; i++)
@@ -840,7 +840,7 @@ void module_strip_tail_silence(AudioTrack * track)
 {
 	assert(track->bits == 16);
 	unsigned i;
-	float silence_limit = 0.001;
+	float silence_limit = 0.01;
 
 	while (track->num_samples >= track->num_channels) {
 		for (i = 0; i < track->num_channels; i++)
