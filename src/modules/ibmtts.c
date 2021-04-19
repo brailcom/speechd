@@ -480,7 +480,7 @@ void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 		tmp =
 		    g_convert_with_fallback(message, -1,
 					    input_encoding, "utf-8", "?",
-					    NULL, &bytes, NULL);
+					    NULL, NULL, NULL);
 		if (tmp != NULL) {
 			g_free(message);
 			message = tmp;
