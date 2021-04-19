@@ -41,10 +41,8 @@
 #include "ivona_client.h"
 
 static struct sockaddr_in sinadr;
-char *ivona_get_wave_from_cache(char *to_say, int *nsamples);
-void ivona_store_wave_in_cache(char *to_say, char *wave, int nsamples);
 
-int ivona_init_sock(char *host, int port)
+int ivona_init_sock(const char *host, int port)
 {
 	if (!inet_aton(host, &sinadr.sin_addr)) {
 		struct hostent *h = gethostbyname(host);
@@ -61,7 +59,7 @@ int ivona_init_sock(char *host, int port)
 #define BASE_WAVE_SIZE 65536
 #define STEP_WAVE_SIZE 32768
 
-int ivona_send_string(char *to_say)
+int ivona_send_string(const char *to_say)
 {
 	int fd;
 
@@ -127,7 +125,7 @@ char *ivona_get_wave_fd(int fd, int *nsamples, int *offset)
 static char *ivona_get_wave_from_cache(char *to_say,int *nsamples);
 void ivona_store_wave_in_cache(char *to_say,char *wave,int nsamples);
 */
-char *ivona_get_wave(char *to_say, int *nsamples, int *offset)
+char *ivona_get_wave(const char *to_say, int *nsamples, int *offset)
 {
 	int fd;
 	char *s;
@@ -147,7 +145,7 @@ char *ivona_get_wave(char *to_say, int *nsamples, int *offset)
 
 /* Plays the specified audio file - from ibmtts/espeak module */
 
-void play_icon(char *path, char *name)
+void play_icon(const char *path, const char *name)
 {
 	char *buf = g_strdup_printf("%s/%s", path, name);
 	module_play_file(buf);
@@ -207,7 +205,7 @@ static struct ivona_cache *find_min_count(void)
 	return found;
 }
 
-void ivona_store_wave_in_cache(char *str, char *wave, int samples)
+void ivona_store_wave_in_cache(const char *str, const char *wave, int samples)
 {
 
 	struct ivona_cache *ica;
@@ -230,7 +228,7 @@ void ivona_store_wave_in_cache(char *str, char *wave, int samples)
 	DBG("Stored cache %s", str);
 }
 
-char *ivona_get_wave_from_cache(char *to_say, int *samples)
+char *ivona_get_wave_from_cache(const char *to_say, int *samples)
 {
 	struct ivona_cache *ica;
 	if (strlen(to_say) > IVONA_CACHE_MAX_STRLEN)
