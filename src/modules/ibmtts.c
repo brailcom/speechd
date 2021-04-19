@@ -1241,8 +1241,7 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 {
 	/* If module_stop was called, discard any further callbacks until module_speak is called. */
 	if (stop_requested) {
-		return eciDataProcessed;
-		// TODO: try to use eciDataAbort to avoid continuing computing the synth?
+		return eciDataAbort;
 	}
 
 	switch (msg) {
