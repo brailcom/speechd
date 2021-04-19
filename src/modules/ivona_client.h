@@ -29,6 +29,6 @@ char *ivona_get_wave_fd(int fd, int *nsamples, int *offset);
 char *ivona_get_wave(const char *to_say, int *nsamples, int *offset);
 void play_icon(const char *path, const char *name);
 void ivona_init_cache(void);
-void ivona_store_wave_in_cache(const char *to_say, char *wave, int nsamples);
+void ivona_store_wave_in_cache(const char *to_say, const char *wave, int nsamples);
 char *ivona_get_wave_from_cache(const char *to_say, int *nsamples);
 #endif
