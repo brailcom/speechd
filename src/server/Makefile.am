@@ -30,7 +30,9 @@ speech_dispatcher_SOURCES = speechd.c speechd.h server.c server.h \
 speech_dispatcher_CFLAGS = $(ERROR_CFLAGS)
 speech_dispatcher_CPPFLAGS = $(inc_local) $(DOTCONF_CFLAGS) $(GLIB_CFLAGS) \
 	$(GMODULE_CFLAGS) $(GTHREAD_CFLAGS) -DSYS_CONF=\"$(spdconfdir)\" \
-	-DSND_DATA=\"$(snddatadir)\" -DMODULEBINDIR=\"$(modulebindir)\" \
+	-DSND_DATA=\"$(snddatadir)\" \
+	-DMODULEBINDIR=\"$(modulebindir)\" \
+	-DOLDMODULEBINDIR=\"$(oldmodulebindir)\" \
 	-DLOCALE_DATA=\"$(localedatadir)\" \
 	-D_GNU_SOURCE -DDEFAULT_AUDIO_METHOD=\"$(default_audio_method)\"
 speech_dispatcher_LDFLAGS = $(RDYNAMIC)
