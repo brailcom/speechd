@@ -60,6 +60,7 @@ static void *output_thread_func(void *data);
 static int output_end_queued;
 static int output_stop_requested;
 static int output_pause_requested;
+static int output_pause_queued;
 
 static void output_open_audio(OutputModule *output)
 {
@@ -785,6 +786,7 @@ int output_speak(TSpeechDMessage * msg, OutputModule *output)
 	output_end_queued = 0;
 	output_stop_requested = 0;
 	output_pause_requested = 0;
+	output_pause_queued = 0;
 	spd_pthread_create(&output_thread, NULL, output_thread_func, output);
 
 	output_unlock();
@@ -843,7 +845,6 @@ size_t output_pause()
 		}
 		MSG(4, "pausing speak_queue");
 		output_pause_requested = 1;
-		module_speak_queue_flush();
 	}
 
 	MSG(4, "Module pause!");
@@ -959,7 +960,8 @@ static int output_module_is_speaking(OutputModule * output)
 				module_speak_queue_stop();
 			} else if (output_pause_requested) {
 				MSG(4, "we sent PAUSE too late, now tell the speak queue");
-				module_speak_queue_pause();
+				if (!output_pause_queued)
+					module_speak_queue_pause();
 			} else {
 				if (!module_speak_queue_add_end())
 					MSG(3, "Warning: couldn't add end to speak queue");
@@ -975,8 +977,10 @@ static int output_module_is_speaking(OutputModule * output)
 	else if (!strncmp(response->str, "703", 3))
 	{
 		MSG2(5, "output_module", "got stopped");
-		if (output->audio)
-			module_speak_queue_stop();
+		if (output->audio) {
+			if (!output_pause_queued)
+				module_speak_queue_stop();
+		}
 		else
 			module_report_event_stop();
 		retcode = 0;
@@ -984,9 +988,10 @@ static int output_module_is_speaking(OutputModule * output)
 	else if (!strncmp(response->str, "704", 3))
 	{
 		MSG2(5, "output_module", "got paused");
-		if (output->audio)
-			module_speak_queue_pause();
-		else
+		if (output->audio) {
+			if (!output_pause_queued)
+				module_speak_queue_pause();
+		} else
 			module_report_event_pause();
 		retcode = 0;
 	}
@@ -1002,8 +1007,16 @@ static int output_module_is_speaking(OutputModule * output)
 		MSG2(5, "output_module", "Detected INDEX MARK: %s",
 		     index_mark);
 		if (output->audio) {
-			if (!module_speak_queue_add_mark(index_mark))
-				MSG(3, "Warning: couldn't add mark to speak queue");
+			if (!(output_stop_requested || (output_pause_requested && output_pause_queued))) {
+				if (!module_speak_queue_add_mark(index_mark))
+					MSG(3, "Warning: couldn't add mark to speak queue");
+				if (output_pause_requested &&
+					!strncmp(index_mark, SD_MARK_BODY, SD_MARK_BODY_LEN)) {
+					MSG(5, "Pausing the queue at mark %s", index_mark);
+					module_speak_queue_pause();
+					output_pause_queued = 1;
+				}
+			}
 		} else {
 			module_report_index_mark(index_mark);
 		}
@@ -1020,7 +1033,8 @@ static int output_module_is_speaking(OutputModule * output)
 				    p - response->str - 4);
 		MSG2(5, "output_module", "Detected sound icon: %s",
 		     icon);
-		if (output->audio && !output_stop_requested && !output_pause_requested) {
+		if (output->audio &&
+			!(output_stop_requested || (output_pause_requested && output_pause_queued))) {
 			if (!module_speak_queue_add_sound_icon(icon))
 				MSG(3, "Warning: couldn't add icon to speak queue");
 		}
@@ -1044,7 +1058,7 @@ static int output_module_is_speaking(OutputModule * output)
 			goto out;
 		}
 
-		if (output_stop_requested || output_pause_requested) {
+		if (output_stop_requested || (output_pause_requested && output_pause_queued)) {
 			MSG2(5, "output_module", "Discarding audio still coming from the synth");
 			goto out;
 		}

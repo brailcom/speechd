@@ -3372,11 +3372,14 @@ separate thread, in which case you need to use
 immediately after starting the production of synthesis. Then
 <code>module_speak_begin()</code> should be called when it actually
 starts emitting audio, and <code>module_speak_end()</code> should be called when it is
-finished emitting audio. In either cases, if <code>module_pause</code> or <code>module_stop</code>
-is getting called, the synthesis should stop as soon as possible, and respectively
-<code>module_speak_pause()</code> or <code>module_speak_stop()</code> be called instead of
-<code>module_speak_end()</code>.  As a first step, <code>module_pause</code> can be made to
-just call <code>module_stop</code>.
+finished emitting audio. In either cases, if <code>module_stop</code>
+is getting called, the synthesis should stop as soon as possible and
+<code>module_speak_stop()</code> be called instead of <code>module_speak_end()</code>.
+Similarly, if <code>module_pause</code> is getting called, the synthesis should stop
+on next mark whose name starts with <code>__spd_</code>, and
+<code>module_speak_pause()</code> be called instead of <code>module_speak_end()</code>.
+As a first step, <code>module_pause</code> can be made to behave just like
+<code>module_stop</code>.
 </p>
 <p>This asynchronous support is examplified in
 <samp>src/modules/skeleton0_espeak-ng-async.c</samp>. It is already quite nice for a lot of
@@ -3734,7 +3737,7 @@ data to soundcard) just after sending an <code>__spd_</code> index
 mark so that Speech Dispatcher knows the position of stop.
 </p>
 <p>The pause can wait for a short time until
-an index mark is reached. However, if it&rsquo;s not possible to determine
+such index mark is reached. However, if it&rsquo;s not possible to determine
 the exact position, this function should have the same effect
 as <code>module_stop</code>.
 </p>

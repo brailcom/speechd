@@ -701,8 +701,12 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 		switch (events->type) {
 		case espeakEVENT_MARK:
 			if (EspeakIndexing) {
+				DBG(DBG_MODNAME " Reporting mark %s", events->id.name);
 				module_report_index_mark(events->id.name);
-				if (pause_requested) {
+				if (pause_requested &&
+					!strncmp(events->id.name,
+						INDEX_MARK_BODY,
+						INDEX_MARK_BODY_LEN)) {
 					pause_index_sent = 1;
 					return 1;
 				}
