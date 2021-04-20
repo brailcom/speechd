@@ -42,9 +42,10 @@
 #include "common.h"
 #include "spd_audio.h"
 #include "module_main.h"
-#include "speak_queue.h"
 
 G_BEGIN_DECLS
+
+extern AudioID *module_audio_id;
 
 typedef struct SPDMarks {
 	unsigned num;
