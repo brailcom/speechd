@@ -62,7 +62,9 @@ typedef enum {
 #define SD_ENDSPEAK "</speak>"
 
 #define SD_MARK_HEAD_ONLY "<mark name=\""
+#define SD_MARK_HEAD_ONLY2 "<mark name='"
 #define SD_MARK_TAIL "\"/>"
+#define SD_MARK_TAIL2 "'/>"
 #define SD_MARK_TAILTAIL ">"
 #define SD_MARK_HEAD_ONLY_LEN 12
 #define SD_MARK_TAIL_LEN 3
@@ -151,6 +153,7 @@ DECLARE_DEBUG();
 
 static gboolean stop_requested = FALSE;
 static gboolean pause_requested = FALSE;
+static gboolean pause_index_sent = FALSE;
 
 /* ECI */
 static ECIHand eciHandle = NULL_ECI_HAND;
@@ -489,11 +492,14 @@ void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	stop_requested = FALSE;
 	pause_requested = FALSE;
+	pause_index_sent = FALSE;
 
 	module_speak_ok();
 	module_report_event_begin();
 	_synth(message, message_type);
-	if (stop_requested)
+	if (pause_requested)
+		module_report_event_pause();
+	else if (stop_requested)
 		module_report_event_stop();
 	else
 		module_report_event_end();
@@ -591,6 +597,8 @@ static char *extract_mark_name(char *mark)
 	mark = mark + SD_MARK_HEAD_ONLY_LEN;
 	char *tail = strstr(mark, SD_MARK_TAIL);
 	if (NULL == tail)
+		tail = strstr(mark, SD_MARK_TAIL2);
+	if (NULL == tail)
 		return NULL;
 	return (char *)g_strndup(mark, tail - mark);
 }
@@ -606,6 +614,8 @@ static char *extract_mark_name(char *mark)
 static char *next_part(char *msg, char **mark_name)
 {
 	char *mark_head = strstr(msg, SD_MARK_HEAD_ONLY);
+	if (NULL == mark_head)
+		mark_head = strstr(msg, SD_MARK_HEAD_ONLY2);
 	if (NULL == mark_head)
 		return (char *)g_strdup(msg);
 	else if (mark_head == msg) {
@@ -648,12 +658,6 @@ static int process_text_mark(char *part, int part_len, char *mark_name)
 			/* Try to keep going. */
 		} else
 			DBG(DBG_MODNAME "Index mark |%s| (id %i) sent to synthesizer.", mark_name, *markId);
-		/* If pause is requested, skip over rest of message,
-		   but synthesize what we have so far. */
-		if (pause_requested) {
-			DBG(DBG_MODNAME "Pause requested in synthesis.");
-			return 1;
-		}
 		return 0;
 	}
 
@@ -770,7 +774,7 @@ static void _synth(char *message, SPDMessageType message_type)
 		module_process(STDIN_FILENO, 0);
 
 		DBG(DBG_MODNAME "Processing synth.");
-		if (stop_requested) {
+		if (stop_requested || (pause_requested && pause_index_sent)) {
 			DBG(DBG_MODNAME "Stop in synthesis, terminating.");
 			break;
 		}
@@ -1241,7 +1245,8 @@ static enum ECICallbackReturn eciCallback(ECIHand hEngine,
 					  long lparam, void *data)
 {
 	/* If module_stop was called, discard any further callbacks until module_speak is called. */
-	if (stop_requested) {
+	if (stop_requested || (pause_requested && pause_index_sent)) {
+		DBG(DBG_MODNAME "Stopped or paused, stop synthesizing.");
 		return eciDataAbort;
 	}
 
@@ -1299,6 +1304,8 @@ static void add_mark_to_playback_queue(long markId)
 	}
 	DBG(DBG_MODNAME "reporting index mark |%s|.", mark_name);
 	module_report_index_mark(mark_name);
+	if (pause_requested)
+		pause_index_sent = TRUE;
 	DBG(DBG_MODNAME "index mark reported.");
 }
 

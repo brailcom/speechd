@@ -955,10 +955,10 @@ static int output_module_is_speaking(OutputModule * output)
 		MSG2(5, "output_module", "got end");
 		if (output->audio) {
 			if (output_stop_requested) {
-				MSG(4, "we sent STOP early, now tell the speak queue");
+				MSG(4, "we sent STOP too late, now tell the speak queue");
 				module_speak_queue_stop();
 			} else if (output_pause_requested) {
-				MSG(4, "we sent PAUSE early, now tell the speak queue");
+				MSG(4, "we sent PAUSE too late, now tell the speak queue");
 				module_speak_queue_pause();
 			} else {
 				if (!module_speak_queue_add_end())
@@ -1002,9 +1002,8 @@ static int output_module_is_speaking(OutputModule * output)
 		MSG2(5, "output_module", "Detected INDEX MARK: %s",
 		     index_mark);
 		if (output->audio) {
-			if (!output_stop_requested && !output_pause_requested)
-				if (!module_speak_queue_add_mark(index_mark))
-					MSG(3, "Warning: couldn't add mark to speak queue");
+			if (!module_speak_queue_add_mark(index_mark))
+				MSG(3, "Warning: couldn't add mark to speak queue");
 		} else {
 			module_report_index_mark(index_mark);
 		}

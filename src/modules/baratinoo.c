@@ -202,6 +202,8 @@ typedef struct {
 
 	/* request flags */
 	gboolean stop_requested;
+	gboolean pause_requested;
+	gboolean pause_index_sent;
 } Engine;
 
 /* engine and state */
@@ -210,7 +212,9 @@ static Engine baratinoo_engine = {
 	.buffer = NULL,
 	.voice_list = NULL,
 	.voice = 0,
-	.stop_requested = FALSE
+	.stop_requested = FALSE,
+	.pause_requested = FALSE,
+	.pause_index_sent = FALSE,
 };
 
 /* Internal functions prototypes */
@@ -479,6 +483,8 @@ void module_speak_sync(const gchar *data, size_t bytes, SPDMessageType msgtype)
 	buffer = NULL;
 
 	engine->stop_requested = FALSE;
+	engine->pause_requested = FALSE;
+	engine->pause_index_sent = FALSE;
 
 	BARATINOOC_STATE state = BARATINOO_READY;
 
@@ -493,7 +499,7 @@ void module_speak_sync(const gchar *data, size_t bytes, SPDMessageType msgtype)
 
 	module_report_event_begin();
 	do {
-		if (engine->stop_requested) {
+		if (engine->stop_requested || (engine->pause_requested && engine->pause_index_sent)) {
 			BCpurge(engine->engine);
 			engine->buffer = NULL;
 			break;
@@ -508,12 +514,16 @@ void module_speak_sync(const gchar *data, size_t bytes, SPDMessageType msgtype)
 			if (event.type == BARATINOO_MARKER_EVENT) {
 				DBG(DBG_MODNAME "Reached mark '%s' at sample %lu", event.data.marker.name, event.sampleStamp);
 				module_report_index_mark(event.data.marker.name);
+				if (engine->pause_requested)
+					engine->pause_index_sent = 1;
 			}
 		}
 	} while (state == BARATINOO_RUNNING || state == BARATINOO_EVENT);
 
 out:
-	if (engine->stop_requested)
+	if (engine->pause_requested)
+		module_report_event_pause();
+	else if (engine->stop_requested)
 		module_report_event_stop();
 	else
 		module_report_event_end();

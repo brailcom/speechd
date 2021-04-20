@@ -462,8 +462,7 @@ static void *speak_queue_play(void *nothing)
 				if (speak_queue_state == SPEAKING
 				    && speak_queue_pause_state ==
 				    SPEAK_QUEUE_PAUSE_REQUESTED
-				    && speak_queue_stop_or_pause_sleeping
-				    && g_str_has_prefix(markId, "__spd_")) {
+				    && speak_queue_stop_or_pause_sleeping) {
 					DBG(DBG_MODNAME " Pause requested in playback thread.  Stopping.");
 					speak_queue_stop_requested = TRUE;
 					speak_queue_pause_state =
