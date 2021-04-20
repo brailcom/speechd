@@ -41,6 +41,8 @@
 
 #include "module_main.h"
 
+static int stop_requested;
+
 int module_config(const char *configfile)
 {
 	/* Optional: Open and parse configfile */
@@ -228,6 +230,8 @@ int module_loop(void)
  * processing in another thread. */
 void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 {
+	stop_requested = 0;
+
 	module_speak_ok();
 
 	fprintf(stderr, "speaking '%s'\n", data);
@@ -249,6 +253,7 @@ size_t module_pause(void)
 {
 	/* Unsupported: Pause playing */
 	fprintf(stderr, "pausing\n");
+	stop_requested = 1;
 
 	return 0;
 }
@@ -257,6 +262,7 @@ int module_stop(void)
 {
 	/* Unsupported: Stop any current synth */
 	fprintf(stderr, "stopping\n");
+	stop_requested = 1;
 
 	return 0;
 }

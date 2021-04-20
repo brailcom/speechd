@@ -137,7 +137,8 @@ char *module_readline(int fd, int block);
 extern pthread_mutex_t module_stdout_mutex;
 
 /* This should be called by module_speak_sync to confirm the data is ok before
- * actually synthesizing */
+ * actually synthesizing. From this point the server may send stop requests, so
+ * reseting the stop state must be done before calling this. */
 void module_speak_ok(void);
 
 /* This should be called by module_speak_sync to notify that the data is not ok,

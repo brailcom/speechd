@@ -487,10 +487,11 @@ void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 		}
 	}
 
-	module_speak_ok();
-	module_report_event_begin();
 	stop_requested = FALSE;
 	pause_requested = FALSE;
+
+	module_speak_ok();
+	module_report_event_begin();
 	_synth(message, message_type);
 	if (stop_requested)
 		module_report_event_stop();

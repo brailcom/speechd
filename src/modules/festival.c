@@ -546,8 +546,6 @@ void module_speak_sync(const char *festival_message, size_t bytes, SPDMessageTyp
 
 	DBG("Requested data: |%s| \n", festival_message);
 
-	module_speak_ok();
-
 	festival_stop = 0;
 
 	festival_speaking = 1;
@@ -555,6 +553,8 @@ void module_speak_sync(const char *festival_message, size_t bytes, SPDMessageTyp
 	fwave = NULL;
 
 	terminate = 0;
+
+	module_speak_ok();
 
 	module_report_event_begin();
 
