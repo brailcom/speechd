@@ -1301,12 +1301,6 @@ static void add_mark_to_playback_queue(long markId)
 	DBG(DBG_MODNAME "index mark reported.");
 }
 
-/* Try to stop the synth. */
-void module_speak_queue_cancel(void)
-{
-	/* TODO */
-}
-
 /* Add a sound icon to the playback queue. */
 static gboolean add_sound_icon_to_playback_queue(char *filename)
 {
