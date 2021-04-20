@@ -275,7 +275,7 @@ GList *detect_output_modules(GList *modules, const char *dirname, const char *us
 	if (module_dir == NULL) {
 		MSG(3, "couldn't open directory %s because of error %s\n",
 		    dirname, strerror(errno));
-		return NULL;
+		return modules;
 	}
 
 	while (NULL != (entry = readdir(module_dir))) {
