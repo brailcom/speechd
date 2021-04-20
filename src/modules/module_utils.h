@@ -60,8 +60,6 @@ extern int log_level;
 extern SPDMsgSettings msg_settings;
 extern SPDMsgSettings msg_settings_old;
 
-extern int current_index_mark;
-
 extern int Debug;
 extern FILE *CustomDebugFile;
 

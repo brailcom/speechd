@@ -41,9 +41,6 @@ static int kali_speaking = 0;
 
 static char *buf;
 
-static int kali_position = 0;
-static int kali_pause_requested = 0;
-
 signed int kali_volume = 0;
 SPDVoice **kali_voice_list = NULL;
 
@@ -165,15 +162,6 @@ void module_speak_sync(const char * data, size_t len, SPDMessageType msgtype)
 	while (1) {
 		/* Process server events in case we were told to stop in between */
 		module_process(STDIN_FILENO, 0);
-
-		if (kali_pause_requested && (current_index_mark != -1)) {
-			DBG("Pause requested in parent, position %d\n",
-			    current_index_mark);
-			kali_pause_requested = 0;
-			kali_position = current_index_mark;
-			module_report_event_pause();
-			break;
-		}
 
 		if (kali_stop) {
 			DBG("Stop in child, terminating");

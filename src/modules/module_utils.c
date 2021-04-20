@@ -36,8 +36,6 @@ AudioID *module_audio_id;
 SPDMsgSettings msg_settings;
 SPDMsgSettings msg_settings_old;
 
-int current_index_mark;
-
 int Debug;
 FILE *CustomDebugFile;
 
