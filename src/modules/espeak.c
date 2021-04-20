@@ -93,6 +93,7 @@ static int espeak_voice_pitch_range_baseline = 50;
 
 static int stop_requested = 0;
 static int pause_requested = 0;
+static int pause_index_sent = 0;
 static int began = 0;
 
 /* <Function prototypes*/
@@ -244,6 +245,8 @@ void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	began = 0;
 	stop_requested = 0;
+	pause_requested = 0;
+	pause_index_sent = 0;
 
 	module_speak_ok();
 
@@ -317,7 +320,10 @@ void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 		DBG(DBG_MODNAME " Synth error %d", result);
 	}
 
-	if (stop_requested) {
+	if (pause_requested) {
+		DBG(DBG_MODNAME " Synth paused");
+		module_report_event_pause();
+	} else if (stop_requested) {
 		DBG(DBG_MODNAME " Synth stopped");
 		module_report_event_stop();
 	} else {
@@ -658,6 +664,9 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 	if (stop_requested)
 		return 1;
 
+	if (pause_requested && pause_index_sent)
+		return 1;
+
 	if (!began) {
 		began = 1;
 		module_report_event_begin();
@@ -691,8 +700,13 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 		/* Process actual event */
 		switch (events->type) {
 		case espeakEVENT_MARK:
-			if (EspeakIndexing)
+			if (EspeakIndexing) {
 				module_report_index_mark(events->id.name);
+				if (pause_requested) {
+					pause_index_sent = 1;
+					return 1;
+				}
+			}
 			break;
 		case espeakEVENT_PLAY:
 			module_report_icon(events->id.name);

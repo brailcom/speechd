@@ -547,6 +547,7 @@ void module_speak_sync(const char *festival_message, size_t bytes, SPDMessageTyp
 	DBG("Requested data: |%s| \n", festival_message);
 
 	festival_stop = 0;
+	festival_pause_requested = 0;
 
 	festival_speaking = 1;
 	wave_cached = 0;
@@ -662,24 +663,13 @@ void module_speak_sync(const char *festival_message, size_t bytes, SPDMessageTyp
 						 FestivalReopenSocket);
 
 			if (callback != NULL) {
-				if ((festival_pause_requested)
-				    &&
-				    (!strncmp
-				     (callback, INDEX_MARK_BODY,
-				      INDEX_MARK_BODY_LEN))) {
+				module_report_index_mark (callback);
+				g_free(callback);
+				if (festival_pause_requested) {
 					DBG("Pause requested, pausing.");
-					module_report_index_mark
-					    (callback);
-					g_free(callback);
-					festival_pause_requested = 0;
-					CLEAN_UP(0,
-						 module_report_event_pause);
-				} else {
-					module_report_index_mark
-					    (callback);
-					g_free(callback);
-					continue;
+					CLEAN_UP(0, module_report_event_pause);
 				}
+				continue;
 			}
 		} else {	/* is event */
 			DBG("Getting data in single mode");
