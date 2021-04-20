@@ -47,6 +47,8 @@ DECLARE_DEBUG();
 
 MOD_OPTION_1_INT(SkeletonRate);
 
+static int stop_requested;
+
 int module_load(void)
 {
 	fprintf(stderr, "Initializing parameters\n");
@@ -105,6 +107,8 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	/* TODO: first make quick check over data, on error call
 	 * module_speak_error and return. */
 
+	stop_requested = 0;
+
 	module_speak_ok();
 
 	fprintf(stderr, "speaking '%s'\n", data);
@@ -141,6 +145,7 @@ size_t module_pause(void)
 {
 	/* TODO: Pause playing */
 	fprintf(stderr, "pausing\n");
+	stop_requested = 1;
 
 	return 0;
 }
@@ -149,6 +154,7 @@ int module_stop(void)
 {
 	/* TODO: Stop any current synth */
 	fprintf(stderr, "stopping\n");
+	stop_requested = 1;
 
 	return 0;
 }

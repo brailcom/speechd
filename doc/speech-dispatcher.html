@@ -49,7 +49,7 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previou
 </div>
 <h1 class="node-heading">Top</h1>
 
-<p>This manual documents Speech Dispatcher, version 0.10.1-170-g59a9-dirty.
+<p>This manual documents Speech Dispatcher, version 0.10.1-230-gc98d3-dirty.
 </p>
 <p>Copyright &copy; 2001, 2002, 2003, 2006 Brailcom, o.p.s.
 </p>
@@ -3669,6 +3669,17 @@ UPDATE_STRING_PARAMETER() macros. See <a href="#Module-Utils-Functions-and-Macro
     UPDATE_PARAMETER(cap_let_recogn, festival_set_cap_let_recogn);
 </pre></div>
 
+<p>Once this function has checked that everything is OK, it must call
+<code>module_speak_ok()</code> to let the server know that the speak was
+accepted. From then on, the server may send stop requests, so reseting the stop
+state must be done before calling this.
+On errors, <code>module_speak_error()</code> has to be called instead.
+</p>
+<p>When actual synthesis starts, <code>module_speak_begin()</code> must be called to let
+the server know of this. On synthesis termination, <code>module_speak_end()</code>
+should be called (or <code>module_speak_pause()</code>, <code>module_speak_stopped()</code>
+if the synthesis was interrupted through <code>module_pause()</code> or <code>module_stop()</code>).
+</p>
 <p>This function should return only when it is finished with synthesizing.  It
 should however call <code>module_process(STDIN_FILENO, 0)</code> periodically so as
 to promptly process messages coming from the server, notably speech stopping
@@ -3682,7 +3693,8 @@ requests.
 <p>This is the same as <code>module_speak_sync</code>, except that it proceeds
 asynchronously, it can be used when the synthesis works asynchronously.
 </p>
-<p>This function should return 0 if it fails and 1 if the delivery
+<p>Instead of calling <code>module_speak_ok()</code> or <code>module_speak_error()</code>,
+this function should return 0 if it fails and 1 if the delivery
 to the synthesizer is successful. It should return immediately,
 because otherwise, it would block stopping, priority handling
 and other important things in Speech Dispatcher.

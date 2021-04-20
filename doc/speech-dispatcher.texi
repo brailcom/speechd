@@ -3324,6 +3324,17 @@ Example from festival:
     UPDATE_PARAMETER(cap_let_recogn, festival_set_cap_let_recogn);
 @end example
 
+Once this function has checked that everything is OK, it must call
+@code{module_speak_ok()} to let the server know that the speak was
+accepted. From then on, the server may send stop requests, so reseting the stop
+state must be done before calling this.
+On errors, @code{module_speak_error()} has to be called instead.
+
+When actual synthesis starts, @code{module_speak_begin()} must be called to let
+the server know of this. On synthesis termination, @code{module_speak_end()}
+should be called (or @code{module_speak_pause()}, @code{module_speak_stopped()}
+if the synthesis was interrupted through @code{module_pause()} or @code{module_stop()}).
+
 This function should return only when it is finished with synthesizing.  It
 should however call @code{module_process(STDIN_FILENO, 0)} periodically so as
 to promptly process messages coming from the server, notably speech stopping
@@ -3336,7 +3347,8 @@ requests.
 This is the same as @code{module_speak_sync}, except that it proceeds
 asynchronously, it can be used when the synthesis works asynchronously.
 
-This function should return 0 if it fails and 1 if the delivery
+Instead of calling @code{module_speak_ok()} or @code{module_speak_error()},
+this function should return 0 if it fails and 1 if the delivery
 to the synthesizer is successful. It should return immediately,
 because otherwise, it would block stopping, priority handling
 and other important things in Speech Dispatcher.
