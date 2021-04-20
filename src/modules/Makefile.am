@@ -25,26 +25,30 @@ CLEANFILES =
 
 inc_local = -I$(top_srcdir)/include -I$(top_srcdir)/src/common
 common_SOURCES = module_main.c module_readline.c module_process.c module_config.c module_utils.c module_utils.h
-common_LDADD = $(SNDFILE_LIBS) $(DOTCONF_LIBS) $(GLIB_LIBS)
+common_LDADD = $(DOTCONF_LIBS) $(GLIB_LIBS) $(audio_dlopen)
 
 AM_CFLAGS = $(ERROR_CFLAGS)
 AM_CXXFLAGS = $(ERROR_CFLAGS)
-AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" -D_GNU_SOURCE \
-	$(DOTCONF_CFLAGS) $(GLIB_CFLAGS) $(GTHREAD_CFLAGS) \
-	$(ibmtts_include) $(SNDFILE_CFLAGS)
+AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" -D_GNU_SOURCE $(GLIB_CFLAGS)
+
+module_utils_CPPFLAGS = $(AM_CPPFLAGS) \
+	$(DOTCONF_CFLAGS)
+
+module_utils_play_CPPFLAGS = $(AM_CPPFLAGS) \
+	$(SNDFILE_CFLAGS)
 
 noinst_PROGRAMS = sd_skeleton0 sd_skeleton_config
 
 sd_skeleton0_SOURCES = skeleton0.c module_main.c module_readline.c module_process.c
 
-sd_skeleton_config_SOURCES = skeleton_config.c $(audio_SOURCES) $(common_SOURCES)
+sd_skeleton_config_SOURCES = skeleton_config.c $(common_SOURCES)
 sd_skeleton_config_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	$(common_LDADD)
 
 modulebin_PROGRAMS = sd_dummy sd_generic sd_festival sd_cicero
 
-sd_dummy_SOURCES = dummy.c $(audio_SOURCES) $(common_SOURCES) \
+sd_dummy_SOURCES = dummy.c $(common_SOURCES) \
 	module_utils_addvoice.c
 sd_dummy_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
@@ -52,18 +56,17 @@ sd_dummy_LDADD = $(top_builddir)/src/common/libcommon.la \
 dist_snddata_DATA = dummy-message.wav
 
 sd_festival_SOURCES = festival.c festival_client.c festival_client.h \
-	$(audio_SOURCES) $(common_SOURCES)
+	$(common_SOURCES)
 sd_festival_LDADD = $(top_builddir)/src/common/libcommon.la \
-	$(audio_dlopen_modules) \
 	$(common_LDADD) $(EXTRA_SOCKET_LIBS)
 
-sd_generic_SOURCES = generic.c $(audio_SOURCES) $(common_SOURCES) \
+sd_generic_SOURCES = generic.c $(common_SOURCES) \
 	module_utils_addvoice.c
 sd_generic_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	$(common_LDADD)
 
-sd_cicero_SOURCES = cicero.c $(audio_SOURCES) $(common_SOURCES)
+sd_cicero_SOURCES = cicero.c $(common_SOURCES)
 sd_cicero_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	$(common_LDADD)
@@ -72,19 +75,21 @@ if flite_support
 modulebin_PROGRAMS += sd_flite
 sd_flite_SOURCES = flite.c $(common_SOURCES)
 sd_flite_LDADD = $(top_builddir)/src/common/libcommon.la \
-	$(audio_dlopen_modules) \
 	$(flite_kal) $(flite_basic) \
 	$(common_LDADD)
 endif
 
 if ibmtts_support
 modulebin_PROGRAMS += sd_ibmtts
-sd_ibmtts_SOURCES = ibmtts.c $(audio_SOURCES) $(common_SOURCES) \
+sd_ibmtts_SOURCES = ibmtts.c $(common_SOURCES) \
 	module_utils_addvoice.c
 sd_ibmtts_LDADD = $(top_builddir)/src/common/libcommon.la \
-	$(audio_dlopen_modules) \
 	-libmeci \
+	$(audio_dlopen_modules) \
 	$(common_LDADD)
+ibmtts_CPPFLAGS = $(AM_CPPFLAGS) \
+	$(DOTCONF_CFLAGS) \
+	$(ibmtts_include)
 
 if ibmtts_shim
 sd_ibmtts_LDADD += -L.
@@ -103,7 +108,6 @@ if espeak_support
 modulebin_PROGRAMS += sd_espeak
 sd_espeak_SOURCES = espeak.c $(common_SOURCES)
 sd_espeak_LDADD = $(top_builddir)/src/common/libcommon.la \
-	$(audio_dlopen_modules) \
 	-lespeak $(EXTRA_ESPEAK_LIBS) \
 	$(common_LDADD)
 endif
@@ -113,7 +117,6 @@ modulebin_PROGRAMS += sd_espeak-ng
 sd_espeak_ng_SOURCES = espeak.c $(common_SOURCES)
 sd_espeak_ng_CFLAGS = -DESPEAK_NG_INCLUDE $(ESPEAK_NG_CFLAGS)
 sd_espeak_ng_LDADD = $(top_builddir)/src/common/libcommon.la \
-	$(audio_dlopen_modules) \
 	$(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) \
 	$(common_LDADD)
 
@@ -140,27 +143,28 @@ endif
 
 if ivona_support
 modulebin_PROGRAMS += sd_ivona
-sd_ivona_SOURCES = ivona.c ivona_client.c ivona_client.h $(audio_SOURCES) \
-	$(common_SOURCES)
+sd_ivona_SOURCES = ivona.c ivona_client.c ivona_client.h \
+	$(common_SOURCES) module_utils_play.c
 sd_ivona_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	-ldumbtts \
+	$(SNDFILE_LIBS) \
 	$(common_LDADD)
 endif
 
 if pico_support
 modulebin_PROGRAMS += sd_pico
-sd_pico_SOURCES = pico.c $(audio_SOURCES) $(common_SOURCES)
+sd_pico_SOURCES = pico.c $(common_SOURCES)
 sd_pico_LDADD = $(top_builddir)/src/common/libcommon.la \
-	$(audio_dlopen_modules) -lttspico \
+	-lttspico \
 	$(common_LDADD)
 endif
 
 if baratinoo_support
 modulebin_PROGRAMS += sd_baratinoo
-sd_baratinoo_SOURCES = baratinoo.c baratinoo_compat.h $(audio_SOURCES) $(common_SOURCES)
+sd_baratinoo_SOURCES = baratinoo.c baratinoo_compat.h $(common_SOURCES)
 sd_baratinoo_LDADD = $(top_builddir)/src/common/libcommon.la \
-	$(audio_dlopen_modules) -lbaratinoo -lpthread -ldl \
+	-lbaratinoo \
 	$(common_LDADD)
 
 if baratinoo_shim
@@ -178,9 +182,8 @@ endif
 if kali_support
 modulebin_PROGRAMS += sd_kali
 KALI_DIR = /usr/lib/kali
-sd_kali_SOURCES = kali.cpp $(audio_SOURCES) $(common_SOURCES)
+sd_kali_SOURCES = kali.cpp $(common_SOURCES)
 sd_kali_LDADD = $(top_builddir)/src/common/libcommon.la \
-	$(audio_dlopen_modules) \
 	-lKali -lKGlobal -lKTrans -lKParle -lKAnalyse \
 	$(common_LDADD)
 sd_kali_CPPFLAGS = -DLINUX $(AM_CPPFLAGS)
@@ -202,13 +205,14 @@ endif
 
 if voxin_support
 modulebin_PROGRAMS += sd_voxin
-sd_voxin_SOURCES = ibmtts.c $(audio_SOURCES) $(common_SOURCES) \
+sd_voxin_SOURCES = ibmtts.c $(common_SOURCES) \
 	module_utils_addvoice.c
 sd_voxin_LDADD = $(top_builddir)/src/common/libcommon.la \
-	$(audio_dlopen_modules) \
 	-lvoxin \
 	$(common_LDADD)
-sd_voxin_CPPFLAGS = -DVOXIN $(AM_CPPFLAGS)
+sd_voxin_CPPFLAGS = -DVOXIN $(AM_CPPFLAGS) \
+	$(DOTCONF_CFLAGS) \
+	$(ibmtts_include)
 
 if voxin_shim
 sd_voxin_LDADD += -L.

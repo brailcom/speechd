@@ -324,7 +324,8 @@ AM_CONDITIONAL([kali_support], [test $with_kali != no])
 AM_CONDITIONAL([kali_shim], [test $with_kali = shim])
 AS_IF([test $with_kali != no], [output_modules="${output_modules} kali"])
 
-audio_dlopen_modules='-dlopen force'
+audio_dlopen='-dlopen force'
+audio_dlopen_modules=
 
 # clear default audio method
 default_audio_method=""
@@ -428,6 +429,7 @@ AC_ARG_WITH([default-audio-method],
 AC_SUBST([default_audio_method])
 
 # We'll build these modules:
+AC_SUBST([audio_dlopen])
 AC_SUBST([audio_dlopen_modules])
 
 # current, age and revision values for libspeechd.

@@ -36,8 +36,6 @@
 #include "module_utils.h"
 #include "ivona_client.h"
 
-#include <sndfile.h>
-
 #define MODULE_NAME     "ivona"
 #define MODULE_VERSION  "0.2"
 
