@@ -493,6 +493,12 @@ void module_speak_sync(const gchar *data, size_t bytes, SPDMessageType msgtype)
 
 	module_report_event_begin();
 	do {
+		if (engine->stop_requested) {
+			BCpurge(engine->engine);
+			engine->buffer = NULL;
+			break;
+		}
+
 		/* Process server events in case we were told to stop in between */
 		module_process(STDIN_FILENO, 0);
 
