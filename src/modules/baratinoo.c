@@ -514,8 +514,12 @@ void module_speak_sync(const gchar *data, size_t bytes, SPDMessageType msgtype)
 			if (event.type == BARATINOO_MARKER_EVENT) {
 				DBG(DBG_MODNAME "Reached mark '%s' at sample %lu", event.data.marker.name, event.sampleStamp);
 				module_report_index_mark(event.data.marker.name);
-				if (engine->pause_requested)
+				if (engine->pause_requested &&
+					!strncmp(event.data.marker.name,
+						INDEX_MARK_BODY,
+						INDEX_MARK_BODY_LEN)) {
 					engine->pause_index_sent = 1;
+				}
 			}
 		}
 	} while (state == BARATINOO_RUNNING || state == BARATINOO_EVENT);

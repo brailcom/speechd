@@ -1304,7 +1304,7 @@ static void add_mark_to_playback_queue(long markId)
 	}
 	DBG(DBG_MODNAME "reporting index mark |%s|.", mark_name);
 	module_report_index_mark(mark_name);
-	if (pause_requested)
+	if (pause_requested && !strncmp(mark_name, INDEX_MARK_BODY, INDEX_MARK_BODY_LEN))
 		pause_index_sent = TRUE;
 	DBG(DBG_MODNAME "index mark reported.");
 }
