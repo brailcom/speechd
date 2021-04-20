@@ -41,9 +41,6 @@ static int flite_speaking = 0;
 
 static char *buf;
 
-static int flite_position = 0;
-static int flite_pause_requested = 0;
-
 static signed int flite_volume = 0;
 
 /* Internal functions prototypes */
@@ -157,15 +154,6 @@ void module_speak_sync(const gchar * data, size_t len, SPDMessageType msgtype)
 	while (1) {
 		/* Process server events in case we were told to stop in between */
 		module_process(STDIN_FILENO, 0);
-
-		if (flite_pause_requested && (current_index_mark != -1)) {
-			DBG("Pause requested in parent, position %d\n",
-			    current_index_mark);
-			flite_pause_requested = 0;
-			flite_position = current_index_mark;
-			module_report_event_pause();
-			break;
-		}
 
 		if (flite_stop) {
 			DBG("Stop in child, terminating");
