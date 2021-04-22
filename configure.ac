@@ -224,10 +224,18 @@ AC_SUBST([flite_kal])
 AS_IF([test $with_flite = "yes"], [output_modules="${output_modules} flite"])
 
 # check for IBMTTS support
+case "$host" in
+	[i[3-6]86-*-linux*])
+		default_ibmtts=check
+		;;
+	*)
+		default_ibmtts=no
+		;;
+esac
 AC_ARG_WITH([ibmtts],
 	[AS_HELP_STRING([--with-ibmtts[[=yes|no|shim]]], [include IBM TTS support])],
 	[],
-	[with_ibmtts=check])
+	[with_ibmtts=$default_ibmtts])
 AS_IF([test $with_ibmtts = yes -o $with_ibmtts = check],
 	[AC_CHECK_LIB([ibmeci], [eciStop],
 		[with_ibmtts=yes;
