@@ -246,6 +246,7 @@ static void _synth(char *message, SPDMessageType message_type);
 
 /* Module configuration options. */
 MOD_OPTION_1_INT(IbmttsUseSSML);
+MOD_OPTION_1_INT(IbmttsUsePunctuation);
 MOD_OPTION_1_STR(IbmttsPunctuationList);
 MOD_OPTION_1_INT(IbmttsUseAbbreviation);
 MOD_OPTION_1_STR(IbmttsDictionaryFolder);
@@ -334,6 +335,7 @@ int module_load(void)
 	REGISTER_DEBUG();
 
 	MOD_OPTION_1_INT_REG(IbmttsUseSSML, 1);
+	MOD_OPTION_1_INT_REG(IbmttsUsePunctuation, 1);
 	MOD_OPTION_1_INT_REG(IbmttsUseAbbreviation, 1);
 	MOD_OPTION_1_STR_REG(IbmttsPunctuationList, "()?");
 	MOD_OPTION_1_STR_REG(IbmttsDictionaryFolder,
@@ -408,7 +410,8 @@ int module_init(char **status_info)
 		eciAddText(eciHandle, " `gfa1 ");
 
 	/* load possibly the punctuation filter */
-	eciAddText(eciHandle, " `gfa2 ");
+	if (IbmttsUsePunctuation)
+		eciAddText(eciHandle, " `gfa2 ");
 
 	set_punctuation_mode(msg_settings.punctuation_mode);
 
@@ -912,6 +915,9 @@ static void set_punctuation_mode(SPDPunctuation punct_mode)
 	const char *fmt = " `Pf%d%s ";
 	char *msg = NULL;
 	int real_punct_mode = 0;
+
+	if (!IbmttsUsePunctuation)
+		return;
 
 	switch (punct_mode) {
 	case SPD_PUNCT_NONE:
