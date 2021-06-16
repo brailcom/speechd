@@ -170,12 +170,8 @@ nobase_localedata_DATA = \
 	da/orca.dic \
 	de/orca.dic \
 	el/orca.dic \
-	en_GB/orca.dic \
-	eo/orca.dic \
 	es/orca.dic \
-	et/orca.dic \
 	eu/orca.dic \
-	fi/orca.dic \
 	fr/orca.dic \
 	fur/orca.dic \
 	gl/orca.dic \
@@ -183,17 +179,13 @@ nobase_localedata_DATA = \
 	hr/orca.dic \
 	hu/orca.dic \
 	id/orca.dic \
-	is/orca.dic \
 	it/orca.dic \
 	lt/orca.dic \
 	lv/orca.dic \
-	mk/orca.dic \
 	ml/orca.dic \
-	ms/orca.dic \
 	nb/orca.dic \
 	ne/orca.dic \
 	nl/orca.dic \
-	nn/orca.dic \
 	oc/orca.dic \
 	pa/orca.dic \
 	pl/orca.dic \
@@ -201,14 +193,10 @@ nobase_localedata_DATA = \
 	pt/orca.dic \
 	ro/orca.dic \
 	ru/orca.dic \
-	si/orca.dic \
 	sk/orca.dic \
-	sl/orca.dic \
-	sq/orca.dic \
 	sr@latin/orca.dic \
 	sr/orca.dic \
 	sv/orca.dic \
-	ta/orca.dic \
 	te/orca.dic \
 	tg/orca.dic \
 	th/orca.dic \
@@ -216,9 +204,6 @@ nobase_localedata_DATA = \
 	ug/orca.dic \
 	uk/orca.dic \
 	vi/orca.dic \
-	zh_CN/orca.dic \
-	zh_HK/orca.dic \
-	zh_TW/orca.dic \
 	\
 	an/orca-chars.dic \
 	ar/orca-chars.dic \
