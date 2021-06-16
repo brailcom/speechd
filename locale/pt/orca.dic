@@ -7,62 +7,6 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	ponto de exclamação invertido	some
-¤	sinal de moeda	all
-¦	barra vertical quebrada	most
 ª	a elevado	some
-¬	negação lógica	some
-­	hifen pequeno	most
-´	agudo	most
-¶	marca de parágrafo	most
-·	ponto centrado	none
-¸	cedilha	most
 º	o elevado	some
-¼	um quarto	none
-½	um meio	none
-¾	três quartos	none
-¿	ponto de interrogação invertido	some
-‚	plica esquerda em baixo	most
-„	aspas em baixo	most
-†	punhal	some
-‡	punhal duplo	some
-‣	ponto de item triangular	none
-‰	permilagem	some
-′	plica	some
-″	plica dupla	some
-‴	til triplo	some
-⁃	ponto de item em hífen	none
-✗	ponto de item em x	none
-⁰	elevado a 0	none
-⁴	elevado a 4	none
-⁵	elevado a 5	none
-⁶	elevado a 6	none
-⁷	elevado a 7	none
-⁸	elevado a 8	none
-⁹	elevado a 9	none
-⁺	elevado mais	none
-⁻	elevado menos	none
-⁼	elevado igual	none
-⁽	Parênteses esquerdo elevado	none
-⁾	Parênteses direito elevado	none
-ⁿ	elevado a n	none
-₀	subscrito 0	none
-₁	subscrito 1	none
-₂	subscrito 2	none
-₃	subscrito 3	none
-₄	subscrito 4	none
-₅	subscrito 5	none
-₆	subscrito 6	none
-₇	subscrito 7	none
-₈	subscrito 8	none
-₉	subscrito 9	none
-₊	subscrito mais	none
-₋	subscrito menos	none
-₌	subscrito igual	none
-₍	subscrito parênteses esquerdo	none
-₎	subscrito parênteses direito	none
 ￼	carácter de substituição	none
-□	quadrado em branco	none
-○	círculo em branco	none
-◆	losango preto	none
-➔	seta apontando à direita	none

@@ -106,6 +106,7 @@ nobase_localedata_DATA = \
 	ne/emojis.dic \
 	nl/emojis.dic \
 	nn/emojis.dic \
+	no/emojis.dic \
 	or/emojis.dic \
 	pa/emojis.dic \
 	pa_Arab/emojis.dic \

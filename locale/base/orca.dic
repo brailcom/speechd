@@ -7,64 +7,6 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	inverted exclamation point	some
-¤	currency sign	all
-¦	broken bar	most
 ª	superscript a	some
-¬	logical not	some
-­	soft hyphen	most
-¯	macron	most
-´	acute	most
-¶	paragraph marker	most
-·	middle dot	none
-¸	cedilla	most
 º	ordinal	some
-¼	one fourth	none
-½	one half	none
-¾	three fourths	none
-¿	inverted question mark	some
-ƒ	florin	all
-‚	single low quote	most
-„	double low quote	most
-†	dagger	some
-‡	double dagger	some
-‣	triangular bullet	none
-‰	per mille	some
-′	prime	some
-″	double prime	some
-‴	triple prime	some
-⁃	hyphen bullet	none
-✗	x-shaped bullet	none
-⁰	superscript 0	none
-⁴	superscript 4	none
-⁵	superscript 5	none
-⁶	superscript 6	none
-⁷	superscript 7	none
-⁸	superscript 8	none
-⁹	superscript 9	none
-⁺	superscript plus	none
-⁻	superscript minus	none
-⁼	superscript equals	none
-⁽	superscript left paren	none
-⁾	superscript right paren	none
-ⁿ	superscript n	none
-₀	subscript 0	none
-₁	subscript 1	none
-₂	subscript 2	none
-₃	subscript 3	none
-₄	subscript 4	none
-₅	subscript 5	none
-₆	subscript 6	none
-₇	subscript 7	none
-₈	subscript 8	none
-₉	subscript 9	none
-₊	subscript plus	none
-₋	subscript minus	none
-₌	subscript equals	none
-₍	subscript left paren	none
-₎	subscript right paren	none
 ￼	object replacement character	none
-□	white square	none
-○	white circle	none
-◆	black diamond	none
-➔	right-pointing arrow	none

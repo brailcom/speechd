@@ -7,63 +7,6 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	fordított felkiáltójel	some
-¤	pénznem jel	all
-¦	csővezeték	most
 ª	felső index a	some
-¬	logikai nem	some
-­	lágy kötőjel	most
-¯	felülvonás	most
-´	á	most
-¶	bekezdésjelző	most
-·	középső pont	none
-¸	cédille	most
 º	sorszám	some
-¼	negyed	none
-½	fél	none
-¾	háromnegyed	none
-¿	fordított kérdőjel	some
-ƒ	függvény	all
-‚	idézőjel	most
-„	idézőjel	most
-†	kereszt	some
-‡	kettős kereszt	some
-‣	háromszög listajel	none
-‰	ezrelék	some
-′	aposztróf	some
-″	dupla aposztróf	some
-‴	hármas ikerprím	some
-⁃	kötőjel listajel	none
-✗	x formájú listajel	none
-⁰	felső index 0	none
-⁴	felső index 4	none
-⁵	felső index 5	none
-⁶	felső index 6	none
-⁷	felső index 7	none
-⁸	felső index 8	none
-⁹	felső index 9	none
-⁺	felső index plusz	none
-⁻	felső index mínusz	none
-⁼	felső index egyenlő	none
-⁽	felső index bal zárójel	none
-⁾	felső index jobb zárójel	none
-ⁿ	n-edik hatvány	none
-₀	alsó index 0	none
-₁	alsó index 1	none
-₂	alsó index 2	none
-₃	alsó index 3	none
-₄	alsó index 4	none
-₅	alsó index 5	none
-₆	alsó index 6	none
-₇	alsó index 7	none
-₈	alsó index 8	none
-₉	alsó index 9	none
-₊	alsó index plusz	none
-₋	alsó index mínusz	none
-₌	alsó index egyenlő	none
-₍	alsó index bal zárójel	none
-₎	alsó index jobb zárójel	none
 ￼	objektumot helyettesítő karakter	none
-□	üres négyzet	none
-○	üres kör	none
-◆	fekete káró	none
