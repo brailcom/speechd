@@ -21,6 +21,7 @@ EXTRA_DIST = baratinoo_shim.c README.baratinoo
 EXTRA_DIST += kali_Kali_shim.cpp kali_KGlobal_shim.cpp kali_KTrans_shim.cpp kali_KParle_shim.cpp kali_KAnalyse_shim.cpp
 EXTRA_DIST += ibmtts_shim.c eci.h
 EXTRA_DIST += voxin_shim.c voxin.h
+EXTRA_DIST += module_main.h module_utils.h
 CLEANFILES =
 
 inc_local = -I$(top_srcdir)/include -I$(top_srcdir)/src/common
