@@ -1,6 +1,28 @@
 Version 0.11
-* Moved speech dispatcher modules to /usr/libexec
-* Add Mary-TTS auto-detection.
+* Support playing audio through the server.
+* Simplify modules thanks to this.
+* modules: Add support for loading from user's .local/share/speech-dispatcher.
+* symbols: Process symbols.dic before emojis.dic.
+* symbols: Enable speechd symbols processing by default.
+* modules: Moved speech dispatcher modules to /usr/libexec/speech-dispatcher-modules
+  (but keep compatibility with old /usr/lib/speech-dispatcher-modules path).
+* ibmtts/voxin: Improve language selection.
+* ibmtts/voxin: Add option to disable punctuation commands.
+* ibmtts: Fix library load.
+* ibmtts: Do not build by default on other systems than 32bit PC.
+* mary: Add auto-detection.
+* mary: Add newer voices.
+* mary: Add volume, pitch, and rate support.
+* ivona: Add auto-detection.
+* festival: Strip head silence.
+* generic: Add DefaultVoice option.
+* es_ES: Add some gender neutral rules.
+* Add SPEECHD_CMD environment variable.
+* modules: Rewrite main functions with BSD licence, to let proprietary modules easily reuse this as a basis.
+* modules: Add skeletons ready for use as a basis for new modules.
+* Add script to run speechd from the build tree.
+* Update CLDR to version 38.1 and symbols from NVDA.
+* Add Esperanto translation.
 
 Version 0.10.2
 * generic: Add support for sound icons
@@ -367,7 +389,7 @@ Version 0.0.1
 
 Copyright (C) 2002-2012 Brailcom, o.p.s
 Copyright (C) 2002-2012 Brailcom, o.p.s
-Copyright (C) 2018-2020 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Florian Steinhardt <no.known.email@example.com>
 
 This program is free software; you can redistribute it and/or modify it under
