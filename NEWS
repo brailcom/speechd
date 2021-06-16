@@ -21,7 +21,7 @@ Version 0.11
 * modules: Rewrite main functions with BSD licence, to let proprietary modules easily reuse this as a basis.
 * modules: Add skeletons ready for use as a basis for new modules.
 * Add script to run speechd from the build tree.
-* Update CLDR to version 38.1 and symbols from NVDA.
+* Update CLDR to version 39, symbols from NVDA and orca.
 * Add Esperanto translation.
 
 Version 0.10.2

@@ -7,63 +7,6 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	apgriezta izsaukuma zīme	some
-¤	valūtas zīme	all
-¦	pārlauzta svītra	most
 ª	augšraksts	some
-¬	loģiskais nē	some
-­	nosacījuma pārnesumzīme	most
-¯	garumzīme	most
-´	akūts	most
-¶	paragrāfa simbols	most
-·	punkts pa vidu	none
-¸	sediļa	most
 º	kārtas simbols	some
-¼	viena ceturdaļa	none
-½	viena puse	none
-¾	trīs ceturdaļas	none
-¿	apgriezta jautājuma zīme	some
-‚	atverošās vienpēdiņas	most
-„	atverošās pēdiņas	most
-†	Duncis	some
-‡	dubult duncis	some
-‣	trīsstūrveida aizzīme	none
-‰	per mile	some
-′	prim	some
-″	dubults prim	some
-‴	trīskāršs prim	some
-⁃	savienojuma aizzīme	none
-✗	x-veida aizzīme	none
-⁰	augšraksts 0	none
-⁴	augšraksts 4	none
-⁵	augšraksts 5	none
-⁶	augšraksts 6	none
-⁷	augšraksts 7	none
-⁸	augšraksts 8	none
-⁹	augšraksts 9	none
-⁺	augšraksts plus	none
-⁻	augšraksts mīnuss	none
-⁼	augšraksts vienāds ar	none
-⁽	augšraksts atverošā iekava	none
-⁾	augšraksts aizverošā iekava	none
-ⁿ	augšraksts n	none
-₀	apakšraksts 0	none
-₁	apakšraksts 1	none
-₂	apakšraksts 2	none
-₃	apakšraksts 3	none
-₄	apakšraksts 4	none
-₅	apakšraksts 5	none
-₆	apakšraksts 6	none
-₇	apakšraksts 7	none
-₈	apakšraksts 8	none
-₉	apakšraksts 9	none
-₊	apakšraksts plus	none
-₋	apakšraksts mīnuss	none
-₌	apakšraksts vienāds ar	none
-₍	apakšraksts atverošā iekava	none
-₎	apakšraksts aizverošā iekava	none
 ￼	objekta aizvietošanas rakstzīme	none
-□	balts kvadrāts	none
-○	balts aplis	none
-◆	melns rombs	none
-➔	pa labi vērsta bulta	none

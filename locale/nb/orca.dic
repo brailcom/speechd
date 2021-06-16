@@ -7,58 +7,5 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	omvendt utropstegn	some
-¤	valutategn	all
-¦	brutt stolpe	most
 ª	superskript a	some
-¬	logisk ikke	some
-­	myk bindestrek	most
-´	akutt	most
-¶	avsnittsmarkør	most
-·	midtstilt punkt	none
-¸	cedille	most
-¼	en fjerdedel	none
-½	en halv	none
-¾	tre fjerdedeler	none
-¿	omvendt spørsmålstegn	some
-‚	enkelt lavt sitattegn	most
-„	dobbelt lavt sitattegn	most
-†	kors	some
-‡	dobbeltkors	some
-‣	trekantet kulepunkt	none
-‰	promille	some
-′	primtall	some
-″	dobbelt primtall	some
-‴	trippelt primtall	some
-⁃	bindestrekkulepunkt	none
-✗	x-formet kulepunkt	none
-⁰	superskript 0	none
-⁴	superskript 4	none
-⁵	superskript 5	none
-⁶	superskript 6	none
-⁷	superskript 7	none
-⁸	superskript 8	none
-⁹	superskript 9	none
-⁺	superskript pluss	none
-⁻	superskript minus	none
-⁼	superskript er lik	none
-⁽	superskript venstre parantes	none
-⁾	superskript høyre parantes	none
-ⁿ	superskript n	none
-₀	subskript 0	none
-₁	subskript 1	none
-₂	subskript 2	none
-₃	subskript 3	none
-₄	subskript 4	none
-₅	subskript 5	none
-₆	subskript 6	none
-₇	subskript 7	none
-₈	subskript 8	none
-₉	subskript 9	none
-₊	subskript pluss	none
-₋	subskript minus	none
-₌	subskript er lik	none
-₍	subskript venstre parantes	none
-₎	subskript høyre parantes	none
 ￼	tegn for erstatning av objekt	none
-➔	pil som peker til høyre	none

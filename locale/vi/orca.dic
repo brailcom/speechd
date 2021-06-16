@@ -7,58 +7,5 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	dấu chấm than ngược	some
-¤	dấu tiền tệ	all
-¦	thanh bị ngắt	most
 ª	chữ a cao	some
-¬	phủ định	some
-­	dấu nối mềm	most
-¯	dấu nối ở trên	most
-´	dấu sắc	most
-¶	dấu đoạn văn	most
-·	chấm giữa	none
-¸	dấu móc dưới	most
 º	ký hiệu độ	some
-¼	một phần tư	none
-½	một phần hai	none
-¾	ba phần tư	none
-¿	dấu chấm than đảo	some
-ƒ	ƒ	all
-‚	dấu trích dẫn dưới đơn	most
-„	dấu trích dẫn dưới đôi	most
-†	†	some
-‡	‡	some
-‣	hình giác đầu dòng	none
-‰	trên nghìn ‰	some
-′	′	some
-″	″	some
-⁃	dấu nối đầu dòng	none
-✗	x đầu dòng	none
-⁰	số 0 cao	none
-⁴	số 4 cao	none
-⁵	số 5 cao	none
-⁶	số 6 cao	none
-⁷	số 7 cao	none
-⁸	số 8 cao	none
-⁹	số 9 cao	none
-⁺	dấu cộng cao	none
-⁻	dấu trừ cao	none
-⁼	dấu bằng cao	none
-⁽	mở ngoặc đơn cao	none
-⁾	đóng ngoặc đơn cao	none
-ⁿ	chữ n cao	none
-₀	số 0 thấp	none
-₁	số 1 thấp	none
-₂	số 2 thấp	none
-₃	số 3 thấp	none
-₄	số 4 thấp	none
-₅	số 5 thấp	none
-₆	số 6 thấp	none
-₇	số 7 thấp	none
-₈	số 8 thấp	none
-₉	số 9 thấp	none
-₊	dấu cộng thấp	none
-₋	dấu trừ thấp	none
-₌	dấu bằng thấp	none
-₍	mở ngoặc đơn thấp	none
-₎	đóng ngoặc đơn thấp	none

@@ -7,63 +7,6 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	odwrócony wykrzyknik	some
-¤	znak waluty	all
-¦	pionowa kreska przerywana	most
 ª	a w indeksie górnym	some
-¬	znak zaprzeczenia	some
-­	łącznik opcjonalny	most
-¯	nadkreślenie	most
-´	kreska	most
-¶	znak akapitu	most
-·	punkt środkowy	none
-¸	haczyk	most
 º	liczebnik porządkowy	some
-¼	jedna czwarta	none
-½	jedna druga	none
-¾	trzy czwarte	none
-¿	odwrócony znak zapytania	some
-ƒ	floren	all
-‚	dolny apostrofowy cudzysłów pojedynczy	most
-„	dolny apostrofowy cudzysłów podwójny	most
-†	krzyż	some
-‡	podwójny krzyż	some
-‣	znak wyliczenia w formie trójkąta	none
-′	prim	some
-″	bis	some
-‴	ter	some
-⁃	znak wyliczenia w formie kreski	none
-✗	znak wyliczenia w formie iksa	none
-⁰	0 w indeksie górnym	none
-⁴	4 w indeksie górnym	none
-⁵	5 w indeksie górnym	none
-⁶	6 w indeksie górnym	none
-⁷	7 w indeksie górnym	none
-⁸	8 w indeksie górnym	none
-⁹	9 w indeksie górnym	none
-⁺	plus w indeksie górnym	none
-⁻	minus w indeksie górnym	none
-⁼	znak równości w indeksie górnym	none
-⁽	lewy nawias w indeksie górnym	none
-⁾	prawy nawias w indeksie górnym	none
-ⁿ	n w indeksie górnym	none
-₀	0 w indeksie dolnym	none
-₁	1 w indeksie dolnym	none
-₂	2 w indeksie dolnym	none
-₃	3 w indeksie dolnym	none
-₄	4 w indeksie dolnym	none
-₅	5 w indeksie dolnym	none
-₆	6 w indeksie dolnym	none
-₇	7 w indeksie dolnym	none
-₈	8 w indeksie dolnym	none
-₉	9 w indeksie dolnym	none
-₊	plus w indeksie dolnym	none
-₋	minus w indeksie dolnym	none
-₌	znak równości w indeksie dolnym	none
-₍	lewy nawias w indeksie dolnym	none
-₎	prawy nawias w indeksie dolnym	none
 ￼	znak zastąpienia obiektu	none
-□	biały kwadrat	none
-○	białe kółko	none
-◆	czarny romb	none
-➔	strzałka zwrócona w prawo	none

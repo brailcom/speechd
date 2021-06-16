@@ -7,62 +7,6 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	uppochnedvänt utropstecken	some
-¤	valutasymbol	all
-¦	brutet rör-tecken	most
 ª	feminin-ordinal	some
-¬	logiskt inte	some
-­	mjuk interpunkt	most
-¯	makron	most
-´	akut	most
-¶	paragraftecken	most
-·	mittenpunkt	none
-¸	cedilj	most
 º	ordningstecken	some
-¼	en kvarts	none
-½	en halv	none
-¾	trekvarts	none
-¿	uppochnedvänt frågetecken	some
-‚	enkelt lågt citattecken	most
-„	dubbelt lågt citattecken	most
-†	kors	some
-‡	dubbelkors	some
-‣	triangulär listpunkt	none
-‰	promille	some
-′	primtecken	some
-″	dubbelprimtecken	some
-‴	trippelprimtecken	some
-⁃	interpunkt	none
-✗	x-formad interpunkt	none
-⁰	upphöjd 0	none
-⁴	upphöjd 4	none
-⁵	upphöjd 5	none
-⁶	upphöjd 6	none
-⁷	upphöjd 7	none
-⁸	upphöjd 8	none
-⁹	upphöjd 9	none
-⁺	upphöjt plustecken	none
-⁻	upphöjt minustecken	none
-⁼	upphöjt lika med-tecken	none
-⁽	upphöjd vänsterparentes	none
-⁾	upphöjd högerparentes	none
-ⁿ	upphöjt n	none
-₀	nedsänkt 0	none
-₁	nedsänkt 1	none
-₂	nedsänkt 2	none
-₃	nedsänkt 3	none
-₄	nedsänkt 4	none
-₅	nedsänkt 5	none
-₆	nedsänkt 6	none
-₇	nedsänkt 7	none
-₈	nedsänkt 8	none
-₉	nedsänkt 9	none
-₊	nedsänkt plustecken	none
-₋	nedsänkt minustecken	none
-₌	nedsänkt lika med-tecken	none
-₍	nedsänkt vänsterparentes	none
-₎	nedsänkt högerparentes	none
 ￼	objektersättningstecken	none
-□	vit kvadrat	none
-○	vit cirkel	none
-◆	svart diamant	none

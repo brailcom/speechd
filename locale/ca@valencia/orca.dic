@@ -7,62 +7,6 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	exclamació invertida	some
-¤	signe de moneda	all
-¦	barra trencada	most
 ª	superíndex a	some
-¬	no lògic	some
-­	guionet	most
-¯	guionet alt	most
-´	accent agut	most
-¶	marcador de paràgraf	most
-·	punt volat	none
 º	o elevada	some
-¼	un quart	none
-½	un mig	none
-¾	tres quartes parts	none
-¿	signe d'interrogació invertit	some
-‚	marca de citació baixa	most
-„	cometes baixes dobles	most
-†	creu	some
-‡	creu doble	some
-‣	pic triangular	none
-‰	tant per mil	some
-′	prima	some
-″	prima doble	some
-‴	prima triple	some
-⁃	guió petit	none
-✗	pic en forma de x	none
-⁰	superíndex 0	none
-⁴	superíndex 4	none
-⁵	superíndex 5	none
-⁶	superíndex 6	none
-⁷	superíndex 7	none
-⁸	superíndex 8	none
-⁹	superíndex 9	none
-⁺	superíndex signe positiu	none
-⁻	superíndex signe negatiu	none
-⁼	superíndex signe igual	none
-⁽	superíndex parèntesi esquerre	none
-⁾	superíndex parèntesi dret	none
-ⁿ	superíndex n	none
-₀	subíndex 0	none
-₁	subíndex 1	none
-₂	subíndex 2	none
-₃	subíndex 3	none
-₄	subíndex 4	none
-₅	subíndex 5	none
-₆	subíndex 6	none
-₇	subíndex 7	none
-₈	subíndex 8	none
-₉	subíndex 9	none
-₊	subíndex signe positiu	none
-₋	subíndex signe negatiu	none
-₌	subíndex signe igual	none
-₍	subíndex parèntesi esquerre	none
-₎	subíndex parèntesi dret	none
 ￼	caràcter de substitució d'objecte	none
-□	quadrat blanc	none
-○	cercle blanc	none
-◆	diamant negre	none
-➔	fletxa que apunta cap a la dreta	none

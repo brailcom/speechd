@@ -7,63 +7,6 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-¡	punto esclamativo invertito	some
-¤	segno di valuta	all
-¦	barra spezzata	most
 ª	indicatore ordinale femminile	some
-­	trattino	most
-¯	segno di vocale lunga	most
-´	acuto	most
-¶	simbolo di paragrafo	most
-·	punto centrale	none
-¸	cediglia	most
 º	indicatore ordinale maschile	some
-¼	frazione un quarto	none
-½	frazione un mezzo	none
-¾	frazione tre quarti	none
-¿	punto interrogativo capovolto	some
-ƒ	f minuscola latina con gancio	all
-‚	virgoletta singola bassa	most
-„	virgolette doppie basse	most
-†	spada	some
-‡	doppia spada	some
-‣	bullet triangolare	none
-‰	segno per mille	some
-′	primo (minuti)	some
-″	doppio primo (secondi)	some
-‴	triplo primo	some
-⁃	bullet trattino	none
-✗	bullet a forma di x	none
-⁰	esponente 0	none
-⁴	esponente 4	none
-⁵	esponente 5	none
-⁶	esponente 6	none
-⁷	esponente 7	none
-⁸	esponente 8	none
-⁹	esponente 9	none
-⁺	esponente più	none
-⁻	esponente meno	none
-⁼	esponente uguale	none
-⁽	esponente parentesi sinistra	none
-⁾	esponente parentesi destra	none
-ⁿ	esponente n	none
-₀	0 sottoscritto	none
-₁	1 sottoscritto	none
-₂	2 sottoscritto	none
-₃	3 sottoscritto	none
-₄	4 sottoscritto	none
-₅	5 sottoscritto	none
-₆	6 sottoscritto	none
-₇	7 sottoscritto	none
-₈	8 sottoscritto	none
-₉	9 sottoscritto	none
-₊	più sottoscritto	none
-₋	meno sottoscritto	none
-₌	uguale sottoscritto	none
-₍	parentesi sinistra sottoscritta	none
-₎	parentesi destra sottoscritta	none
 ￼	carattere sostitutivo di oggetto	none
-□	quadrato bianco	none
-○	cerchio bianco	none
-◆	rombo nero	none
-➔	freccia che punta a destra	none

@@ -7,68 +7,68 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a acute	char	norep	norep
-À	A GRAVE	char	norep	norep
-Á	A ACUTE	char	norep	norep
-Â	A CIRCUMFLEX	char	norep	norep
-Ã	A TILDE	char	norep	norep
-Ä	A UMLAUT	char	norep	norep
-Å	A RING	char	norep	norep
-Æ	A E	char	norep	norep
-Ç	C CEDILLA	char	norep	norep
-È	E GRAVE	char	norep	norep
-É	E ACUTE	char	norep	norep
-Ê	E CIRCUMFLEX	char	norep	norep
-Ë	E UMLAUT	char	norep	norep
-Ì	I GRAVE	char	norep	norep
-Í	I ACUTE	char	norep	norep
-Î	I CIRCUMFLEX	char	norep	norep
-Ï	I UMLAUT	char	norep	norep
-Ð	ETH	char	norep	norep
-Ñ	N TILDE	char	norep	norep
-Ò	O GRAVE	char	norep	norep
-Ó	O ACUTE	char	norep	norep
-Ô	O CIRCUMFLEX	char	norep	norep
-Õ	O TILDE	char	norep	norep
-Ö	O UMLAUT	char	norep	norep
-Ø	O STROKE	char	norep	norep
-Ù	U GRAVE	char	norep	norep
-Ú	U ACUTE	char	norep	norep
-Û	U CIRCUMFLEX	char	norep	norep
-Ü	U UMLAUT	char	norep	norep
-Ý	Y ACUTE	char	norep	norep
-Þ	THORN	char	norep	norep
-ß	s sharp	char	norep	norep
-à	a grave	char	norep	norep
-â	a circumflex	char	norep	norep
-ã	a tilde	char	norep	norep
-ä	a umlaut	char	norep	norep
-å	a ring	char	norep	norep
-æ	a e	char	norep	norep
-ç	c cedilla	char	norep	norep
-è	e grave	char	norep	norep
-é	e acute	char	norep	norep
-ê	e circumflex	char	norep	norep
-ë	e umlaut	char	norep	norep
-ì	i grave	char	norep	norep
-í	i acute	char	norep	norep
-î	i circumflex	char	norep	norep
-ï	i umlaut	char	norep	norep
-ð	eth	char	norep	norep
-ñ	n tilde	char	norep	norep
-ò	o grave	char	norep	norep
-ó	o acute	char	norep	norep
-ô	o circumflex	char	norep	norep
-õ	o tilde	char	norep	norep
-ö	o umlaut	char	norep	norep
-ø	o stroke	char	norep	norep
-þ	thorn	char	norep	norep
-ú	u acute	char	norep	norep
-ù	u grave	char	norep	norep
-û	u circumflex	char	norep	norep
-ü	u umlaut	char	norep	norep
-ý	y acute	char	norep	norep
-ÿ	y umlaut	char	norep	norep
-Ÿ	Y UMLAUT	char	norep	norep
+á	a acute	char	norep
+À	A GRAVE	char	norep
+Á	A ACUTE	char	norep
+Â	A CIRCUMFLEX	char	norep
+Ã	A TILDE	char	norep
+Ä	A UMLAUT	char	norep
+Å	A RING	char	norep
+Æ	A E	char	norep
+Ç	C CEDILLA	char	norep
+È	E GRAVE	char	norep
+É	E ACUTE	char	norep
+Ê	E CIRCUMFLEX	char	norep
+Ë	E UMLAUT	char	norep
+Ì	I GRAVE	char	norep
+Í	I ACUTE	char	norep
+Î	I CIRCUMFLEX	char	norep
+Ï	I UMLAUT	char	norep
+Ð	ETH	char	norep
+Ñ	N TILDE	char	norep
+Ò	O GRAVE	char	norep
+Ó	O ACUTE	char	norep
+Ô	O CIRCUMFLEX	char	norep
+Õ	O TILDE	char	norep
+Ö	O UMLAUT	char	norep
+Ø	O STROKE	char	norep
+Ù	U GRAVE	char	norep
+Ú	U ACUTE	char	norep
+Û	U CIRCUMFLEX	char	norep
+Ü	U UMLAUT	char	norep
+Ý	Y ACUTE	char	norep
+Þ	THORN	char	norep
+ß	s sharp	char	norep
+à	a grave	char	norep
+â	a circumflex	char	norep
+ã	a tilde	char	norep
+ä	a umlaut	char	norep
+å	a ring	char	norep
+æ	a e	char	norep
+ç	c cedilla	char	norep
+è	e grave	char	norep
+é	e acute	char	norep
+ê	e circumflex	char	norep
+ë	e umlaut	char	norep
+ì	i grave	char	norep
+í	i acute	char	norep
+î	i circumflex	char	norep
+ï	i umlaut	char	norep
+ð	eth	char	norep
+ñ	n tilde	char	norep
+ò	o grave	char	norep
+ó	o acute	char	norep
+ô	o circumflex	char	norep
+õ	o tilde	char	norep
+ö	o umlaut	char	norep
+ø	o stroke	char	norep
+þ	thorn	char	norep
+ú	u acute	char	norep
+ù	u grave	char	norep
+û	u circumflex	char	norep
+ü	u umlaut	char	norep
+ý	y acute	char	norep
+ÿ	y umlaut	char	norep
+Ÿ	Y UMLAUT	char	norep
 	black square	none
 	black diamond	none
