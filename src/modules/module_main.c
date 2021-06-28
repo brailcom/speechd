@@ -1,7 +1,7 @@
 /*
  * module_main.c - Main file of output modules.
  *
- * Copyright (C) 2020 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2020-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -85,9 +85,9 @@ int main(int argc, char *argv[])
 	if (ret) {
 		printf("399 ERR MODULE CLOSED\n");
 		fflush(stdout);
+		module_close();
 	}
 
 	/* Module termination */
-	module_close();
 	exit(ret);
 }
