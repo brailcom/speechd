@@ -181,6 +181,9 @@ AC_SUBST([ESPEAK_NG_CFLAGS])
 AC_SUBST([ESPEAK_NG_LIBS])
 AS_IF([test $with_espeak_ng = "yes"], [output_modules="${output_modules} espeak-ng"])
 
+AC_CHECK_PROGS([ESPEAK], [espeak-ng espeak])
+AM_CONDITIONAL([espeak_dummy_message], [test x$ESPEAK != x])
+
 # check for flite support
 AC_ARG_WITH([flite],
 	[AS_HELP_STRING([--with-flite], [include Festival Lite (Flite) support])],
@@ -222,6 +225,9 @@ AM_CONDITIONAL([flite_support], [test $with_flite = "yes"])
 AC_SUBST([flite_basic])
 AC_SUBST([flite_kal])
 AS_IF([test $with_flite = "yes"], [output_modules="${output_modules} flite"])
+
+AC_CHECK_PROGS([FLITE], [flite])
+AM_CONDITIONAL([flite_dummy_message], [test x$FLITE != x])
 
 # check for IBMTTS support
 case "$host" in

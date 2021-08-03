@@ -22,7 +22,8 @@ EXTRA_DIST += kali_Kali_shim.cpp kali_KGlobal_shim.cpp kali_KTrans_shim.cpp kali
 EXTRA_DIST += ibmtts_shim.c eci.h
 EXTRA_DIST += voxin_shim.c voxin.h
 EXTRA_DIST += module_main.h module_utils.h
-CLEANFILES =
+EXTRA_DIST += dummy-message-default.wav
+CLEANFILES = dummy-message.wav
 
 inc_local = -I$(top_srcdir)/include -I$(top_srcdir)/src/common
 common_SOURCES = module_main.c module_readline.c module_process.c module_config.c module_utils.c module_utils.h
@@ -224,6 +225,19 @@ libvoxin.so: $(srcdir)/voxin_shim.c
 	$(CC) -fPIC -shared $< -o $@
 
 CLEANFILES += $(EXTRA_sd_voxin_DEPENDENCIES)
+endif
+endif
+
+if flite_dummy_message
+dummy-message.wav: dummy-message.txt
+	$(FLITE) -voice slt -w $@ -f $<
+else
+if espeak_dummy_message
+dummy-message.wav: dummy-message.txt
+	$(ESPEAK) -v en -w $@ -f $<
+else
+dummy-message.wav: dummy-message-default.wav
+	cp $< $@
 endif
 endif
 
