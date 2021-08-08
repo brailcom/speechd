@@ -866,10 +866,13 @@ static speak_queue_entry *output_new_event(speak_queue_entry_type type)
 static void output_queue_event(speak_queue_entry *entry)
 {
 	char c = 0;
+	int ret;
 	pthread_mutex_lock(&playback_events_mutex);
 	playback_events = g_slist_append(playback_events, entry);
 	pthread_mutex_unlock(&playback_events_mutex);
-	write(speaking_module->pipe_speak[1], &c, 1);
+	ret = write(speaking_module->pipe_speak[1], &c, 1);
+	if (ret != 1)
+		MSG(1, "Warning: couln't write to pipe_speak: %d returned, (errno = %d, %s)\n", ret, errno, strerror(errno));
 }
 
 static void output_queue_new_event(speak_queue_entry_type type)
@@ -1226,10 +1229,12 @@ int output_is_speaking(char **index_mark)
 
 	speak_queue_entry *entry;
 	char c;
-	int end = 0;
+	int end = 0, ret;
 
 	/* Wait for next event */
-	read(output->pipe_speak[0], &c, 1);
+	ret = read(output->pipe_speak[0], &c, 1);
+	if (ret != 1)
+		MSG(1, "Warning: couln't read from pipe_speak: %d returned, (errno = %d, %s)\n", ret, errno, strerror(errno));
 
 	pthread_mutex_lock(&playback_events_mutex);
 	entry = playback_events->data;
