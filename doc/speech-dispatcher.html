@@ -1015,16 +1015,18 @@ The desired rate or speed (a float number defined in GenericRateAdd and GenericR
 </p></dd></dl>
 
 <dl>
-<dt id="index-GenericLanguage">GenericModuleConfiguration: <strong>GenericLanguage</strong> <em>&quot;iso-code&quot; &quot;string-subst&quot;</em></dt>
+<dt id="index-GenericLanguage">GenericModuleConfiguration: <strong>GenericLanguage</strong> <em>&quot;iso-code&quot; &quot;string-subst&quot; &quot;character-set&quot;</em></dt>
 <dd>
 <p>Defines which string <code>string-subst</code> should be substituted for <code>$LANG</code>
-given an <code>iso-code</code> language code.
+given an <code>iso-code</code> language code. Optionally, the character set in which
+the text will be passed to the module can be specified. If unset, it will
+default to iso-8859-1.
 </p>
 <p>Another example from Epos generic:
 </p><div class="example">
 <pre class="example">GenericLanguage &quot;en-US&quot; &quot;english-US&quot;
-GenericLanguage &quot;cs&quot; &quot;czech&quot;
-GenericLanguage &quot;sk&quot; &quot;slovak&quot;
+GenericLanguage &quot;cs&quot; &quot;czech&quot; &quot;iso-8859-2&quot;
+GenericLanguage &quot;sk&quot; &quot;slovak&quot; &quot;iso-8859-2&quot;
 </pre></div>
 </dd></dl>
 
