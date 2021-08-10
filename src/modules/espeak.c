@@ -154,7 +154,7 @@ int module_load(void)
 
 	MOD_OPTION_1_INT_REG(EspeakMinRate, 80);
 	MOD_OPTION_1_INT_REG(EspeakNormalRate, 170);
-	MOD_OPTION_1_INT_REG(EspeakMaxRate, 390);
+	MOD_OPTION_1_INT_REG(EspeakMaxRate, 449);
 	MOD_OPTION_1_STR_REG(EspeakPunctuationList, "@/+-_");
 	MOD_OPTION_1_INT_REG(EspeakCapitalPitchRise, 800);
 	MOD_OPTION_1_INT_REG(EspeakIndexing, 1);
