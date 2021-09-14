@@ -85,6 +85,7 @@ DOTCONF_CB(AddVoice_cb)
 	}
 
 	if (module_voice_table == NULL) {
+		DBG("No voice table\n");
 		return NULL;
 	}
 
@@ -114,6 +115,7 @@ DOTCONF_CB(AddVoice_cb)
 	{
 		char *new_dependency_path = g_regex_replace_literal(regex, dependency_paths[i], -1, 0, cmd->data.list[2], 0, NULL);
 		if (! g_file_test(new_dependency_path, G_FILE_TEST_EXISTS)) {
+			DBG("Missing dependency %s\n", new_dependency_path);
 			g_free(new_dependency_path);
 			g_regex_unref(regex);
 			return NULL;
@@ -151,6 +153,7 @@ DOTCONF_CB(AddVoice_cb)
 	for (i = 0; i < nbvoices+1; i++)
 		generic_voices_list[i] = &generic_voices[i];
 	generic_voices_list[nbvoices+1] = NULL;
+	DBG("Added voice %s\n", generic_voices[nbvoices].name);
 	++nbvoices;
 	return NULL;
 }
