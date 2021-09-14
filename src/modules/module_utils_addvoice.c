@@ -271,7 +271,7 @@ char *module_getvoice(const char *language, SPDVoiceType voice)
 	if (ret == NULL)
 		ret = voices->child_female;
 	if (ret == NULL)
-		fprintf(stderr, "No voice available for this output module!");
+		fprintf(stderr, "No voice available for this output module!\n");
 
 	return ret;
 }
