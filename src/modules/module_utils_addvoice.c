@@ -254,7 +254,7 @@ char *module_getvoice(const char *language, SPDVoiceType voice)
 		ret = voices->child_female;
 		break;
 	default:
-		printf("Unknown voice");
+		fprintf(stderr, "Unknown voice %d", voice);
 		return NULL;
 	}
 
