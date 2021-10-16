@@ -1091,6 +1091,7 @@ int main(int argc, char *argv[])
 			    g_build_filename(user_config_dir,
 					     "speech-dispatcher", NULL);
 
+			MSG(4, "Looking for configuration in %s", SpeechdOptions.user_conf_dir);
 			SpeechdOptions.conf_file =
 			    g_strdup_printf("%s/speechd.conf", SpeechdOptions.user_conf_dir);
 			if (!g_file_test
@@ -1103,7 +1104,8 @@ int main(int argc, char *argv[])
 		}
 
 		SpeechdOptions.user_module_dir =
-			g_strdup_printf("%s/speech-dispatcher-modules", user_data_dir);
+			g_strdup_printf("%s/../libexec/speech-dispatcher-modules", user_data_dir);
+		MSG(4, "User module dir is %s", SpeechdOptions.user_module_dir);
 	}
 
 	/* Check for PID file or create a new one or exit if Speech Dispatcher
