@@ -2593,7 +2593,7 @@ is used for logging of the modules.
 
 Output module binaries are usually located in
 @file{libexec/speech-dispatcher-modules/} or in user's
-@file{~/.local/share/speech-dispatcher-modules}
+@file{~/.local/libexec/speech-dispatcher-modules}
 and are loaded automatically when Speech
 Dispatcher starts, according to configuration.  Their standard
 input/output/error output is redirected to a pipe to Speech Dispatcher

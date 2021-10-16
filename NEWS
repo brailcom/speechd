@@ -1,7 +1,7 @@
 Version 0.11
 * Support playing audio through the server.
 * Simplify modules thanks to this.
-* modules: Add support for loading from user's .local/share/speech-dispatcher.
+* modules: Add support for loading from user's .local/libexec/speech-dispatcher.
 * symbols: Process symbols.dic before emojis.dic.
 * symbols: Enable speechd symbols processing by default.
 * modules: Moved speech dispatcher modules to /usr/libexec/speech-dispatcher-modules
