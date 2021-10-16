@@ -6,6 +6,7 @@ Version 0.11
 * symbols: Enable speechd symbols processing by default.
 * modules: Moved speech dispatcher modules to /usr/libexec/speech-dispatcher-modules
   (but keep compatibility with old /usr/lib/speech-dispatcher-modules path).
+* espeak-ng: Add support for mbrola voices.
 * ibmtts/voxin: Improve language selection.
 * ibmtts/voxin: Add option to disable punctuation commands.
 * ibmtts: Fix library load.
