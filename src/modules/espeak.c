@@ -34,6 +34,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <glib.h>
+#include <fcntl.h>
 
 /* espeak header file */
 #ifdef ESPEAK_NG_INCLUDE
@@ -225,6 +226,7 @@ void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 {
 	espeak_ERROR result = EE_INTERNAL_ERROR;
 	int flags = espeakSSML | espeakCHARS_UTF8;
+	gchar *msg = NULL;
 
 	DBG(DBG_MODNAME " module_speak().");
 
@@ -235,6 +237,20 @@ void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 	UPDATE_STRING_PARAMETER(voice.language, espeak_set_language);
 	UPDATE_PARAMETER(voice_type, espeak_set_voice);
 	UPDATE_STRING_PARAMETER(voice.name, espeak_set_synthesis_voice);
+
+	if (msg_settings_old.voice.name && strstr(msg_settings_old.voice.name , "mbrola"))
+	{
+		if (msgtype == SPD_MSGTYPE_TEXT)
+		{
+			/* espeak has troubles with setting mbrola voices in SSML mode
+			 * https://github.com/espeak-ng/espeak-ng/issues/1011 */
+			DBG(DBG_MODNAME " mbrola voice, stripping SSML.");
+			msg = module_strip_ssml(data);
+			data = msg;
+		}
+
+		flags &= ~espeakSSML;
+	}
 
 	UPDATE_PARAMETER(rate, espeak_set_rate);
 	UPDATE_PARAMETER(volume, espeak_set_volume);
@@ -330,6 +346,8 @@ void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 		DBG(DBG_MODNAME " Leaving module_speak() normally.");
 		module_report_event_end();
 	}
+
+	g_free(msg);
 }
 
 int module_stop(void)
@@ -620,6 +638,9 @@ static void espeak_set_synthesis_voice(char *synthesis_voice)
 		if (ret != EE_OK) {
 			DBG(DBG_MODNAME " Failed to set synthesis voice to %s.",
 			    synthesis_voice);
+		} else {
+			DBG(DBG_MODNAME " Successfully set synthesis voice to %s.",
+			    synthesis_voice);
 		}
 
 #ifdef ESPEAK_NG_INCLUDE
@@ -638,10 +659,15 @@ static gboolean espeak_send_audio_upto(short *wav, int *sent, int upto)
 	if (wav == NULL || numsamples == 0) {
 		return TRUE;
 	}
+#ifdef ESPEAK_NG_INCLUDE
+	int rate = espeak_ng_GetSampleRate();
+#else
+	int rate = espeak_sample_rate;
+#endif
 	AudioTrack track = {
 		.bits = 16,
 		.num_channels = 1,
-		.sample_rate = espeak_sample_rate,
+		.sample_rate = rate,
 		.num_samples = numsamples,
 		.samples = wav + (*sent),
 	};
@@ -754,7 +780,8 @@ static SPDVoice **espeak_list_synthesis_voices()
 #ifndef ESPEAK_NG_INCLUDE
 	const espeak_VOICE **espeak_variants = NULL;
 #endif
-	espeak_VOICE *variant_spec;
+	const espeak_VOICE **espeak_mbrola = NULL;
+	espeak_VOICE voice_spec;
 	const espeak_VOICE *v = NULL;
 	GQueue *voice_list = NULL;
 	GQueue *variant_list = NULL;
@@ -765,8 +792,9 @@ static SPDVoice **espeak_list_synthesis_voices()
 	gchar *vname = NULL;
 	int numvoices = 0;
 	int numvariants = 0;
-	int totalvoices = 0;
-	int i = 0;
+	int nummbrola = 0, totnummbrola = 0;
+	int totalvoices;
+	int i = 0, j;
 
 	espeak_voices = espeak_ListVoices(NULL);
 	voice_list = g_queue_new();
@@ -796,10 +824,9 @@ static SPDVoice **espeak_list_synthesis_voices()
 	numvoices = g_queue_get_length(voice_list);
 	DBG(DBG_MODNAME " %d voices total.", numvoices);
 
-	variant_spec = g_new0(espeak_VOICE, 1);
-	variant_spec->languages = "variant";
-	espeak_variants = espeak_ListVoices(variant_spec);
-	g_free(variant_spec);
+	memset(&voice_spec, 0, sizeof(voice_spec));
+	voice_spec.languages = "variant";
+	espeak_variants = espeak_ListVoices(&voice_spec);
 
 	variant_list = g_queue_new();
 
@@ -813,11 +840,70 @@ static SPDVoice **espeak_list_synthesis_voices()
 	numvariants = g_queue_get_length(variant_list);
 	DBG(DBG_MODNAME " %d variants total.", numvariants);
 
-	totalvoices = (numvoices * numvariants) + numvoices;
+#ifdef ESPEAK_NG_INCLUDE
+	voice_spec.languages = "mbrola";
+	espeak_mbrola = espeak_ListVoices(&voice_spec);
+	const char *espeak_data;
+
+	espeak_Info(&espeak_data);
+
+	for (j = 0; espeak_mbrola[j] != NULL; j++)
+	{
+		const char *identifier = espeak_mbrola[j]->identifier;
+		char *voicename, *dash, *path;
+		struct stat st;
+
+		totnummbrola++;
+
+		/* We try to load the voice to check whether it works, but
+		 * espeak-ng is not currently reporting load failures, see
+		 * https://github.com/espeak-ng/espeak-ng/pull/1022 */
+
+		if (!strncmp(identifier, "mb/mb-", 6)) {
+			voicename = g_strdup(identifier + 6);
+			dash = index(voicename, '-');
+			if (dash)
+				/* Ignore "-en" language specification */
+				*dash = 0;
+
+			path = g_strdup_printf("%s/mbrola/%s", espeak_data, voicename);
+			if (access(path, O_RDONLY) != 0) {
+				g_free(path);
+				path = g_strdup_printf("/usr/share/mbrola/%s", voicename);
+				if (access(path, O_RDONLY) != 0) {
+					g_free(path);
+					path = g_strdup_printf("/usr/share/mbrola/%s/%s", voicename, voicename);
+					if (access(path, O_RDONLY) != 0) {
+						g_free(path);
+						path = g_strdup_printf("/usr/share/mbrola/voices/%s", voicename);
+						if (access(path, O_RDONLY) != 0) {
+							g_free(path);
+							espeak_mbrola[j] = NULL;
+							continue;
+						}
+					}
+				}
+			}
+			g_free(path);
+		}
+
+		espeak_ERROR ret = espeak_SetVoiceByName(espeak_mbrola[j]->name);
+		if (ret != EE_OK) {
+			espeak_mbrola[j] = NULL;
+			continue;
+		}
+
+		nummbrola++;
+	}
+
+	DBG(DBG_MODNAME " %d mbrola total.", nummbrola);
+#endif
+
+	totalvoices = (numvoices * (numvariants + 1)) + nummbrola;
 	result = g_new0(SPDVoice *, totalvoices + 1);
 	voice_list_iter = g_queue_peek_head_link(voice_list);
 
-	for (i = 0; i < totalvoices; i++) {
+	for (i = 0; i < numvoices * (numvariants + 1); i++) {
 		result[i] = voice_list_iter->data;
 
 		if (!g_queue_is_empty(variant_list)) {
@@ -839,6 +925,24 @@ static SPDVoice **espeak_list_synthesis_voices()
 
 		voice_list_iter = voice_list_iter->next;
 	}
+
+	for (j = 0; j < totnummbrola; j++) {
+		if (!espeak_mbrola[j])
+			continue;
+
+		voice = g_new0(SPDVoice, 1);
+		voice->name = g_strdup_printf("%s", espeak_mbrola[j]->name);
+		voice->language = g_strdup_printf("%s", espeak_mbrola[j]->languages + 1);
+		for (dash = strchr(voice->language, '-');
+		     dash && *dash;
+		     dash++) {
+			*dash = toupper(*dash);
+		}
+		voice->variant = NULL;
+		result[i++] = voice;
+	}
+
+	assert(i == totalvoices);
 
 	if (voice_list != NULL)
 		g_queue_free(voice_list);
