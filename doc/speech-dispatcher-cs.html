@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
 <title>Speech Dispatcher</title>
@@ -10,16 +10,20 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <link href="#Index-of-Concepts" rel="index" title="Index of Concepts">
 <link href="dir.html#Top" rel="up" title="(dir)">
+<link href="#g_t_00davod" rel="next" title="Úvod">
+<link href="dir.html#Top" rel="prev" title="(dir)">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -28,6 +32,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +54,7 @@ Next: <a href="#g_t_00davod" accesskey="n" rel="next">Úvod</a>, Previous: <a hre
 </div>
 <h1 class="node-heading">Top</h1>
 
-<p>Tento manuál se vzathuje ke Speech Dispatcher, verze 0.11.0-rc2.  Jedná se
+<p>Tento manuál se vzathuje ke Speech Dispatcher, verze 0.11.0-rc3.  Jedná se
 však pouze o uživatelskou část dokumentace a upozorňujeme, že tento překlad již
 není aktuální!  Poskytujeme jej s tím, že možná bude užitečný a to zejména v
 sekcích, které popisují obecné koncepty a myšlenky projektu, a to těm, kteří si
@@ -69,43 +74,25 @@ přiložena v sekci nazvané ,,GNU Free Documentation License&rdquo;.
 
 <span id="Menu"></span><h3 class="heading">Menu</h3>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#g_t_00davod" accesskey="1">Úvod</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Co to je Speech Dispatcher
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="2">Uživatelská dokumentace</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Používání, konfigurace
-</td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
-
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#GNU-General-Public-License" accesskey="3">GNU General Public License</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Podmínky kopírování Speech Dispatcher
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#GNU-Free-Documentation-License" accesskey="4">GNU Free Documentation License</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Podmínky kopírování tohoto manuálu
-</td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
-
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Index-of-Concepts" rel="index" accesskey="5">Index of Concepts</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
 <hr>
-<span id="g_t_00davod"></span><div class="header">
+<div class="chapter" id="g_t_00davod">
+<div class="header">
 <p>
 Next: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="n" rel="next">Uživatelská dokumentace</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Uvod"></span><h2 class="chapter">1 Úvod</h2>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Motivace" accesskey="1">Motivace</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Proč Speech Dispatcher?
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Z_00e1kladn_00ed-design" accesskey="2">Základní design</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Jak to pracuje?
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#P_0159ehled-z_00e1kladn_00edch-rys_016f" accesskey="3">Přehled základních rysů</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Co všechno umí?
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Sou_010dasn_00fd-stav" accesskey="4">Současný stav</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Jaký je současný stav?
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Motivace" accesskey="1">Motivace</a></li>
+<li><a href="#Z_00e1kladn_00ed-design" accesskey="2">Základní design</a></li>
+<li><a href="#P_0159ehled-z_00e1kladn_00edch-rys_016f" accesskey="3">Přehled základních rysů</a></li>
+<li><a href="#Sou_010dasn_00fd-stav" accesskey="4">Současný stav</a></li>
+</ul>
 <hr>
-<span id="Motivace"></span><div class="header">
+<div class="section" id="Motivace">
+<div class="header">
 <p>
 Next: <a href="#Z_00e1kladn_00ed-design" accesskey="n" rel="next">Základní design</a>, Previous: <a href="#g_t_00davod" accesskey="p" rel="prev">Úvod</a>, Up: <a href="#g_t_00davod" accesskey="u" rel="up">Úvod</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -155,7 +142,9 @@ podaří dosáhnout tohoto stavu věcí, ale se Speech Dispatcherem děláme první
 krůčky...
 </p>
 <hr>
-<span id="Z_00e1kladn_00ed-design"></span><div class="header">
+</div>
+<div class="section" id="Z_00e1kladn_00ed-design">
+<div class="header">
 <p>
 Next: <a href="#P_0159ehled-z_00e1kladn_00edch-rys_016f" accesskey="n" rel="next">Přehled základních rysů</a>, Previous: <a href="#Motivace" accesskey="p" rel="prev">Motivace</a>, Up: <a href="#g_t_00davod" accesskey="u" rel="up">Úvod</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -189,7 +178,9 @@ syntetizéry a přeříkány nahlas.
 manuálu.
 </p>
 <hr>
-<span id="P_0159ehled-z_00e1kladn_00edch-rys_016f"></span><div class="header">
+</div>
+<div class="section" id="P_0159ehled-z_00e1kladn_00edch-rys_016f">
+<div class="header">
 <p>
 Next: <a href="#Sou_010dasn_00fd-stav" accesskey="n" rel="next">Současný stav</a>, Previous: <a href="#Z_00e1kladn_00ed-design" accesskey="p" rel="prev">Základní design</a>, Up: <a href="#g_t_00davod" accesskey="u" rel="up">Úvod</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -214,7 +205,9 @@ Next: <a href="#Sou_010dasn_00fd-stav" accesskey="n" rel="next">Současný stav</a
 </li></ul>
 
 <hr>
-<span id="Sou_010dasn_00fd-stav"></span><div class="header">
+</div>
+<div class="section" id="Sou_010dasn_00fd-stav">
+<div class="header">
 <p>
 Previous: <a href="#P_0159ehled-z_00e1kladn_00edch-rys_016f" accesskey="p" rel="prev">Přehled základních rysů</a>, Up: <a href="#g_t_00davod" accesskey="u" rel="up">Úvod</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -225,43 +218,41 @@ Previous: <a href="#P_0159ehled-z_00e1kladn_00edch-rys_016f" accesskey="p" rel="
 <p>TODO:
 </p>
 <hr>
-<span id="U_017eivatelsk_00e1-dokumentace"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="U_017eivatelsk_00e1-dokumentace">
+<div class="header">
 <p>
 Next: <a href="#GNU-General-Public-License" accesskey="n" rel="next">GNU General Public License</a>, Previous: <a href="#g_t_00davod" accesskey="p" rel="prev">Úvod</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Uzivatelska-dokumentace"></span><h2 class="chapter">2 Uživatelská dokumentace</h2>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Z_00e1kladn_00ed-funkce" accesskey="1">Základní funkce</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Detailnější popis všech základních funkcí
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Spou_0161t_011bn_00ed" accesskey="2">Spouštění</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Volby příkazové řádky
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Konfigurace" accesskey="3">Konfigurace</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Jak zkonfigurovat Speech Dispatcher
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Z_00e1kladn_00ed-funkce" accesskey="1">Základní funkce</a></li>
+<li><a href="#Spou_0161t_011bn_00ed" accesskey="2">Invoking</a></li>
+<li><a href="#Konfigurace" accesskey="3">konfigurace</a></li>
+</ul>
 <hr>
-<span id="Z_00e1kladn_00ed-funkce"></span><div class="header">
+<div class="section" id="Z_00e1kladn_00ed-funkce">
+<div class="header">
 <p>
-Next: <a href="#Spou_0161t_011bn_00ed" accesskey="n" rel="next">Spouštění</a>, Previous: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="p" rel="prev">Uživatelská dokumentace</a>, Up: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="u" rel="up">Uživatelská dokumentace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Spou_0161t_011bn_00ed" accesskey="n" rel="next">Invoking</a>, Previous: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="p" rel="prev">Uživatelská dokumentace</a>, Up: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="u" rel="up">Uživatelská dokumentace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Zakladni-funkce"></span><h3 class="section">2.1 Základní funkce</h3>
 
 <p>V této sekci je detailnější popis základních funkcí Speech Dispatcheru.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Model-priorit-zpr_00e1v" accesskey="1">Model priorit zpráv</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Zpracování současně příchozích zpráv  
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Historie-zpr_00e1v" accesskey="2">Historie zpráv</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Ukládání zpráv pro pozdější nahlédnutí
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#V_00edce-v_00fdstupn_00edch-modul_016f" accesskey="3">Více výstupních modulů</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Interakce s různými syntetizéry  
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Autentifikace-u_017eivatel_016f" accesskey="4">Autentifikace uživatelů</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Autentifikace pro přístup k historii  
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Model-priorit-zpr_00e1v" accesskey="1">Model priorit zpráv</a></li>
+<li><a href="#Historie-zpr_00e1v" accesskey="2">Historie zpráv</a></li>
+<li><a href="#V_00edce-v_00fdstupn_00edch-modul_016f" accesskey="3">Více výstupních modulů</a></li>
+<li><a href="#Autentifikace-u_017eivatel_016f" accesskey="4">Autentifikace uživatelů</a></li>
+</ul>
 <hr>
-<span id="Model-priorit-zpr_00e1v"></span><div class="header">
+<div class="subsection" id="Model-priorit-zpr_00e1v">
+<div class="header">
 <p>
 Next: <a href="#Historie-zpr_00e1v" accesskey="n" rel="next">Historie zpráv</a>, Previous: <a href="#Z_00e1kladn_00ed-funkce" accesskey="p" rel="prev">Základní funkce</a>, Up: <a href="#Z_00e1kladn_00ed-funkce" accesskey="u" rel="up">Základní funkce</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -280,17 +271,15 @@ synchronizace a přepínání mezi těmito zprávami (které mohou pocházet od různých
 klientů) potom bude zajištěno aplikováním určitých pravidel ve Speech
 Dispatcheru.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Typy-priorit" accesskey="1">Typy priorit</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Diagram-priorit" accesskey="2">Diagram priorit</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#P_0159_00edklady-vyu_017eit_00ed-priorit" accesskey="3">Příklady využití priorit</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Typy-priorit" accesskey="1">Priority Categories</a></li>
+<li><a href="#Diagram-priorit" accesskey="2">Diagram priorit</a></li>
+<li><a href="#P_0159_00edklady-vyu_017eit_00ed-priorit" accesskey="3">Příklady využití priorit</a></li>
+</ul>
 <hr>
-<span id="Typy-priorit"></span><div class="header">
+<div class="subsubsection" id="Typy-priorit">
+<div class="header">
 <p>
 Next: <a href="#Diagram-priorit" accesskey="n" rel="next">Diagram priorit</a>, Previous: <a href="#Model-priorit-zpr_00e1v" accesskey="p" rel="prev">Model priorit zpráv</a>, Up: <a href="#Model-priorit-zpr_00e1v" accesskey="u" rel="up">Model priorit zpráv</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -372,16 +361,20 @@ přeříkána, je její přeříkání vynuceno s prioritou <code>message</code>.
 </li></ul>
 
 <hr>
-<span id="Diagram-priorit"></span><div class="header">
+</div>
+<div class="subsubsection" id="Diagram-priorit">
+<div class="header">
 <p>
-Next: <a href="#P_0159_00edklady-vyu_017eit_00ed-priorit" accesskey="n" rel="next">Příklady využití priorit</a>, Previous: <a href="#Typy-priorit" accesskey="p" rel="prev">Typy priorit</a>, Up: <a href="#Model-priorit-zpr_00e1v" accesskey="u" rel="up">Model priorit zpráv</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#P_0159_00edklady-vyu_017eit_00ed-priorit" accesskey="n" rel="next">Příklady využití priorit</a>, Previous: <a href="#Typy-priorit" accesskey="p" rel="prev">Priority Categories</a>, Up: <a href="#Model-priorit-zpr_00e1v" accesskey="u" rel="up">Model priorit zpráv</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Diagram-priorit-1"></span><h4 class="subsubsection">2.1.1.2 Diagram priorit</h4>
 
 <img src="figures/priorities.png" alt="Speech Dispatcher architecture">
 
 <hr>
-<span id="P_0159_00edklady-vyu_017eit_00ed-priorit"></span><div class="header">
+</div>
+<div class="subsubsection" id="P_0159_00edklady-vyu_017eit_00ed-priorit">
+<div class="header">
 <p>
 Previous: <a href="#Diagram-priorit" accesskey="p" rel="prev">Diagram priorit</a>, Up: <a href="#Model-priorit-zpr_00e1v" accesskey="u" rel="up">Model priorit zpráv</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -429,7 +422,10 @@ Previous: <a href="#Diagram-priorit" accesskey="p" rel="prev">Diagram priorit</a
 </li></ul>
 
 <hr>
-<span id="Historie-zpr_00e1v"></span><div class="header">
+</div>
+</div>
+<div class="subsection" id="Historie-zpr_00e1v">
+<div class="header">
 <p>
 Next: <a href="#V_00edce-v_00fdstupn_00edch-modul_016f" accesskey="n" rel="next">Více výstupních modulů</a>, Previous: <a href="#Model-priorit-zpr_00e1v" accesskey="p" rel="prev">Model priorit zpráv</a>, Up: <a href="#Z_00e1kladn_00ed-funkce" accesskey="u" rel="up">Základní funkce</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -446,13 +442,13 @@ nedělitelná vlastnost každého řečového rozhraní, protože není možné podat v
 z hlavních důvodů, proč je výhodné udržovat historii přijatých zpráv, aby se
 mohl uživatel podívat, zda mu neušlo něco důležitého.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#P_0159_00edstupov_00e1-pr_00e1va" accesskey="1">Přístupová práva</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Přístupová práva k historii zpráv
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#P_0159_00edstupov_00e1-pr_00e1va" accesskey="1">Access Rights</a></li>
+</ul>
 <hr>
-<span id="P_0159_00edstupov_00e1-pr_00e1va"></span><div class="header">
+<div class="subsubsection" id="P_0159_00edstupov_00e1-pr_00e1va">
+<div class="header">
 <p>
 Previous: <a href="#Historie-zpr_00e1v" accesskey="p" rel="prev">Historie zpráv</a>, Up: <a href="#Historie-zpr_00e1v" accesskey="u" rel="up">Historie zpráv</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -484,7 +480,10 @@ uživatelova identita ověřena, tento uživatel je považován za jiného než všichni
 připojení nebo dříve připojení uživatelé.
 </p>
 <hr>
-<span id="V_00edce-v_00fdstupn_00edch-modul_016f"></span><div class="header">
+</div>
+</div>
+<div class="subsection" id="V_00edce-v_00fdstupn_00edch-modul_016f">
+<div class="header">
 <p>
 Next: <a href="#Autentifikace-u_017eivatel_016f" accesskey="n" rel="next">Autentifikace uživatelů</a>, Previous: <a href="#Historie-zpr_00e1v" accesskey="p" rel="prev">Historie zpráv</a>, Up: <a href="#Z_00e1kladn_00ed-funkce" accesskey="u" rel="up">Základní funkce</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -501,7 +500,9 @@ pro takové rozhodnutí.  Přesná pravidla pro výběr výstupího modulu mohou být
 ovlivněna v konfiguračním souboru <samp>speechd.conf</samp>.
 </p>
 <hr>
-<span id="Autentifikace-u_017eivatel_016f"></span><div class="header">
+</div>
+<div class="subsection" id="Autentifikace-u_017eivatel_016f">
+<div class="header">
 <p>
 Previous: <a href="#V_00edce-v_00fdstupn_00edch-modul_016f" accesskey="p" rel="prev">Více výstupních modulů</a>, Up: <a href="#Z_00e1kladn_00ed-funkce" accesskey="u" rel="up">Základní funkce</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -523,13 +524,21 @@ určitými uživateli jako s jedním a přidělit jim stejná práva (např. procházet
 jejich <a href="#Historie-zpr_00e1v">Historie zpráv</a>).
 </p>
 <hr>
-<span id="Spou_0161t_011bn_00ed"></span><div class="header">
+</div>
+</div>
+<div class="section" id="Spou_0161t_011bn_00ed">
+<div class="header">
 <p>
-Next: <a href="#Konfigurace" accesskey="n" rel="next">Konfigurace</a>, Previous: <a href="#Z_00e1kladn_00ed-funkce" accesskey="p" rel="prev">Základní funkce</a>, Up: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="u" rel="up">Uživatelská dokumentace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Konfigurace" accesskey="n" rel="next">konfigurace</a>, Previous: <a href="#Z_00e1kladn_00ed-funkce" accesskey="p" rel="prev">Základní funkce</a>, Up: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="u" rel="up">Uživatelská dokumentace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Invoking"></span><h3 class="section">2.2 Invoking</h3>
 
-<span id="Potrebna-privilegia"></span><h4 class="subsection">2.2.1 Potřebná privilegia</h4>
+<ul class="section-toc">
+<li><a href="#Potrebna-privilegia" accesskey="1">Potřebná privilegia</a></li>
+<li><a href="#Volby-prikazove-radky" accesskey="2">Volby příkazové řádky</a></li>
+</ul>
+<div class="subsection" id="Potrebna-privilegia">
+<h4 class="subsection">2.2.1 Potřebná privilegia</h4>
 
 <p>Speech Dispatcher může být obecně spouštěn pod obyčejným uživatelem.  Snažili
 jsme se jej zabezpečit, jak jen to bylo možné, ale nejsme odborníky na
@@ -548,23 +557,25 @@ log, je <samp>/var/log/speech-dispatcher.log</samp>.  To ale může být kdykoliv
 přenastaveno v hlavním konfiguračním souboru.
 </li></ul>
 
-<span id="Volby-prikazove-radky"></span><h4 class="subsection">2.2.2 Volby příkazové řádky</h4>
+</div>
+<div class="subsection" id="Volby-prikazove-radky">
+<h4 class="subsection">2.2.2 Volby příkazové řádky</h4>
 
 <p>Speech Dispatcher může být spuštěn s těmito volbami:
 </p>
 <p><code>speech-dispatcher [-{d|s}] [-l {1|2|3|4|5}] [-p=port] | [-v] | [-h]</code>
 </p>
 <dl compact="compact">
-<dt><code>-d or --run-daemon</code></dt>
+<dt><span><code>-d or --run-daemon</code></span></dt>
 <dd><p>Spustí program jako démona (běží v pozadí, odpojí se od terminálu, atd.)  Toto
 je výchozí chování.
 </p>
 </dd>
-<dt><code>-s or --run-single</code></dt>
+<dt><span><code>-s or --run-single</code></span></dt>
 <dd><p>Spustí program jako běžnou aplikaci běžící na popředí.
 </p>
 </dd>
-<dt><code>-l level or --log-level=level</code></dt>
+<dt><span><code>-l level or --log-level=level</code></span></dt>
 <dd><p>Vybere požadovaný logovací úroveň. Logovací úroveň je číslo mezi 0 a 5 (0
 znamená neloguj nic, 5 znamená zapisuj téměř vše včetně zpracovávaného textu.)
 Standardní je 3. See <a href="#g_t_00darovn_011b-logov_00e1n_00ed">Úrovně logování</a>.
@@ -576,16 +587,16 @@ právech, jak platí pro historii.  Spouštět server s touto úrovní logování tedy
 může snadno vést k narušení soukromí.
 </p>
 </dd>
-<dt><code>-p or --port</code></dt>
+<dt><span><code>-p or --port</code></span></dt>
 <dd><p>Zadá port, na kterém by měl server čekat na klienty.  Výchozí je 6560.
 </p>
 </dd>
-<dt><code>-v or --version</code></dt>
+<dt><span><code>-v or --version</code></span></dt>
 <dd><p>Vypíše informace o verzi Speech Dispatchera.  Také oznámí základní informace o
 copyrightu.
 </p>
 </dd>
-<dt><code>-h or --help</code></dt>
+<dt><span><code>-h or --help</code></span></dt>
 <dd><p>Vypíše nápovědu o volbách příkazové řádky, upozornění o copyrightu
 a emailovou adresu pro zasílání oznámení o chybách.
 </p></dd>
@@ -593,9 +604,12 @@ a emailovou adresu pro zasílání oznámení o chybách.
 
 
 <hr>
-<span id="Konfigurace"></span><div class="header">
+</div>
+</div>
+<div class="section" id="Konfigurace">
+<div class="header">
 <p>
-Previous: <a href="#Spou_0161t_011bn_00ed" accesskey="p" rel="prev">Spouštění</a>, Up: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="u" rel="up">Uživatelská dokumentace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Spou_0161t_011bn_00ed" accesskey="p" rel="prev">Invoking</a>, Up: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="u" rel="up">Uživatelská dokumentace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="konfigurace"></span><h3 class="section">2.3 konfigurace</h3>
 <span id="index-konfigurace"></span>
@@ -611,21 +625,18 @@ dokumentace daného programu.
 <p>Následující kapitoly se zabývají pouze konfigurací na straně serveru přes
 konfigurační soubor.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Syntaxe-konfigura_010dn_00edho-souboru" accesskey="1">Syntaxe konfiguračního souboru</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Volby-v-konfiguraci" accesskey="2">Volby v konfiguraci</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="3">Nastavení výstupních modulů</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#g_t_00darovn_011b-logov_00e1n_00ed" accesskey="4">Úrovně logování</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Syntaxe-konfigura_010dn_00edho-souboru" accesskey="1">Syntaxe konfiguračního souboru</a></li>
+<li><a href="#Volby-v-konfiguraci" accesskey="2">Configuration options</a></li>
+<li><a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="3">Output Modules Configuration</a></li>
+<li><a href="#g_t_00darovn_011b-logov_00e1n_00ed" accesskey="4">Úrovně logování</a></li>
+</ul>
 <hr>
-<span id="Syntaxe-konfigura_010dn_00edho-souboru"></span><div class="header">
+<div class="subsection" id="Syntaxe-konfigura_010dn_00edho-souboru">
+<div class="header">
 <p>
-Next: <a href="#Volby-v-konfiguraci" accesskey="n" rel="next">Volby v konfiguraci</a>, Previous: <a href="#Konfigurace" accesskey="p" rel="prev">Konfigurace</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">Konfigurace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Volby-v-konfiguraci" accesskey="n" rel="next">Configuration options</a>, Previous: <a href="#Konfigurace" accesskey="p" rel="prev">konfigurace</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Syntaxe-konfiguracniho-souboru"></span><h4 class="subsection">2.3.1 Syntaxe konfiguračního souboru</h4>
 
@@ -660,9 +671,11 @@ požadovanou hodnotu.
 </pre></div>
 
 <hr>
-<span id="Volby-v-konfiguraci"></span><div class="header">
+</div>
+<div class="subsection" id="Volby-v-konfiguraci">
+<div class="header">
 <p>
-Next: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="n" rel="next">Nastavení výstupních modulů</a>, Previous: <a href="#Syntaxe-konfigura_010dn_00edho-souboru" accesskey="p" rel="prev">Syntaxe konfiguračního souboru</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">Konfigurace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="n" rel="next">Output Modules Configuration</a>, Previous: <a href="#Syntaxe-konfigura_010dn_00edho-souboru" accesskey="p" rel="prev">Syntaxe konfiguračního souboru</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Configuration-options"></span><h4 class="subsection">2.3.2 Configuration options</h4>
 
@@ -672,9 +685,11 @@ zakomentována.  Pokud je chcete změnit, postačí modifikovat jejich hodnotu a
 smazat symbol komentáře <code>#</code>.
 </p>
 <hr>
-<span id="Nastaven_00ed-v_00fdstupn_00edch-modul_016f"></span><div class="header">
+</div>
+<div class="subsection" id="Nastaven_00ed-v_00fdstupn_00edch-modul_016f">
+<div class="header">
 <p>
-Next: <a href="#g_t_00darovn_011b-logov_00e1n_00ed" accesskey="n" rel="next">Úrovně logování</a>, Previous: <a href="#Volby-v-konfiguraci" accesskey="p" rel="prev">Volby v konfiguraci</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">Konfigurace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#g_t_00darovn_011b-logov_00e1n_00ed" accesskey="n" rel="next">Úrovně logování</a>, Previous: <a href="#Volby-v-konfiguraci" accesskey="p" rel="prev">Configuration options</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Output-Modules-Configuration"></span><h4 class="subsection">2.3.3 Output Modules Configuration</h4>
 
@@ -688,19 +703,17 @@ zvuk.
 &ldquo;AddModule&rdquo; v <samp>etc/speechd.conf</samp>.  Navíc, každý výstupní modul má
 přiřazen vlastní konfigurační soubor.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf" accesskey="1">Natahování modulů ve speechd.conf</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f" accesskey="2">Konfigurační soubory výstupních modulů</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu" accesskey="3">Konfigurace generického výstupního modulu</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf" accesskey="1">Natahování modulů ve speechd.conf</a></li>
+<li><a href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f" accesskey="2">Konfigurační soubory výstupních modulů</a></li>
+<li><a href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu" accesskey="3">Konfigurace generického výstupního modulu</a></li>
+</ul>
 <hr>
-<span id="Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf"></span><div class="header">
+<div class="subsubsection" id="Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf">
+<div class="header">
 <p>
-Next: <a href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f" accesskey="n" rel="next">Konfigurační soubory výstupních modulů</a>, Previous: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="p" rel="prev">Nastavení výstupních modulů</a>, Up: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="u" rel="up">Nastavení výstupních modulů</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f" accesskey="n" rel="next">Konfigurační soubory výstupních modulů</a>, Previous: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Natahovani-modulu-ve-speechd_002econf"></span><h4 class="subsubsection">2.3.3.1 Natahování modulů ve speechd.conf</h4>
 
@@ -725,9 +738,11 @@ Cesta může být absolutní i relativní k <samp>etc/speech-dispatcher/modules/</sam
 Tento parametr je volitelný (není třeba jej uvádět).
 </p>
 <hr>
-<span id="Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f"></span><div class="header">
+</div>
+<div class="subsubsection" id="Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f">
+<div class="header">
 <p>
-Next: <a href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu" accesskey="n" rel="next">Konfigurace generického výstupního modulu</a>, Previous: <a href="#Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf" accesskey="p" rel="prev">Natahování modulů ve speechd.conf</a>, Up: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="u" rel="up">Nastavení výstupních modulů</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu" accesskey="n" rel="next">Konfigurace generického výstupního modulu</a>, Previous: <a href="#Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf" accesskey="p" rel="prev">Natahování modulů ve speechd.conf</a>, Up: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Konfiguracni-soubory-vystupnich-modulu"></span><h4 class="subsubsection">2.3.3.2 Konfigurační soubory výstupních modulů</h4>
 
@@ -736,7 +751,7 @@ prostudujte si komentáře v daném konfiguračním souboru.  Zde je popsáno pouze
 několik voleb, které jsou pro některé výstupní moduly společné.
 </p>
 <dl compact="compact">
-<dt><code>AddVoice &quot;<var>language</var>&quot; &quot;<var>symbolicname</var>&quot; &quot;<var>name</var>&quot;</code></dt>
+<dt><span><code>AddVoice &quot;<var>language</var>&quot; &quot;<var>symbolicname</var>&quot; &quot;<var>name</var>&quot;</code></span></dt>
 <dd><span id="AddVoice"></span>
 <p>Každý výstupní modul poskytuje nějaké hlasy a někdy dokonce podporuje různé
 jazyky.  Z toho důvodu byl zaveden společný mechanismus, kterým můžou být tyto
@@ -766,7 +781,7 @@ takto:
 </pre></div>
 
 </dd>
-<dt><code>ModuleDelimiters &quot;<var>delimiters</var>&quot;, ModuleMaxChunkLength <var>length</var></code></dt>
+<dt><span><code>ModuleDelimiters &quot;<var>delimiters</var>&quot;, ModuleMaxChunkLength <var>length</var></code></span></dt>
 <dd>
 <p>Často se výstupní modul nesnaží vysyntetizovat celý příchozí text najednou, ale
 místo toho jej nejprve rozřeže na menší kousky (věty, části vět) a ty potom
@@ -804,9 +819,11 @@ fell.&rdquo;  by rozdělena byla (to je mimochodem velmi zajímavá věta).
 </dl>
 
 <hr>
-<span id="Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu"></span><div class="header">
+</div>
+<div class="subsubsection" id="Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu">
+<div class="header">
 <p>
-Previous: <a href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f" accesskey="p" rel="prev">Konfigurační soubory výstupních modulů</a>, Up: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="u" rel="up">Nastavení výstupních modulů</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f" accesskey="p" rel="prev">Konfigurační soubory výstupních modulů</a>, Up: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Konfigurace-generickeho-vystupniho-modulu"></span><h4 class="subsubsection">2.3.3.3 Konfigurace generického výstupního modulu</h4>
 
@@ -819,8 +836,8 @@ podporu pro výstupní zařízení i když neumí programovat.  See <a href="#AddModule
 <p>Klíčová část každého generického výstupního modulu je definice řetězce, který
 se má spouštět.
 </p>
-<dl>
-<dt id="index-GenericExecuteSynth">Konfigurace generického modulu: <strong>GenericExecuteSynth</strong> <em>&quot;<var>execution_string</var>&quot;</em></dt>
+<dl class="def">
+<dt id="index-GenericExecuteSynth"><span class="category">Konfigurace generického modulu: </span><span><strong>GenericExecuteSynth</strong> <em>&quot;<var>execution_string</var>&quot;</em><a href='#index-GenericExecuteSynth' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><code>execution_string</code> je příkaz, který by měl být zavolán v shellu, když je
 potřeba něco říct.  Ve skutečnosti to může být více jak jeden příkaz, dohromady
@@ -858,13 +875,13 @@ GenericRateMultiply)
 </pre></div>
 </dd></dl>
 
-<dl>
-<dt id="index-AddVoice">Konfigurace generického modulu: <strong>AddVoice</strong> <em>&quot;<var>language</var>&quot; &quot;<var>symbolicname</var>&quot; &quot;<var>name</var>&quot;</em></dt>
+<dl class="def">
+<dt id="index-AddVoice"><span class="category">Konfigurace generického modulu: </span><span><strong>AddVoice</strong> <em>&quot;<var>language</var>&quot; &quot;<var>symbolicname</var>&quot; &quot;<var>name</var>&quot;</em><a href='#index-AddVoice' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>See <a href="#AddVoice">AddVoice</a>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-GenericLanguage">Konfigurace generického modulu: <strong>GenericLanguage</strong> <em>&quot;iso-code&quot; &quot;string-subst&quot;</em></dt>
+<dl class="def">
+<dt id="index-GenericLanguage"><span class="category">Konfigurace generického modulu: </span><span><strong>GenericLanguage</strong> <em>&quot;iso-code&quot; &quot;string-subst&quot;</em><a href='#index-GenericLanguage' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Definuje, jaký řetězec <code>string-subst</code> by měl být nahrazen za <code>$LANG</code>
 pro daný <code>iso-code</code> ISO kód jazyka.
@@ -877,17 +894,17 @@ GenericLanguage &quot;sk&quot; &quot;slovak&quot;
 </pre></div>
 </dd></dl>
 
-<dl>
-<dt id="index-GenericRateAdd">Konfigurace generického modulu: <strong>GenericRateAdd</strong> <em><var>num</var></em></dt>
+<dl class="def">
+<dt id="index-GenericRateAdd"><span class="category">Konfigurace generického modulu: </span><span><strong>GenericRateAdd</strong> <em><var>num</var></em><a href='#index-GenericRateAdd' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
-<dl>
-<dt id="index-GenericRateMultiply">Konfigurace generického modulu: <strong>GenericRateMultiply</strong> <em><var>num</var></em></dt>
+<dl class="def">
+<dt id="index-GenericRateMultiply"><span class="category">Konfigurace generického modulu: </span><span><strong>GenericRateMultiply</strong> <em><var>num</var></em><a href='#index-GenericRateMultiply' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
-<dl>
-<dt id="index-GenericPitchAdd">Konfigurace generického modulu: <strong>GenericPitchAdd</strong> <em><var>num</var></em></dt>
+<dl class="def">
+<dt id="index-GenericPitchAdd"><span class="category">Konfigurace generického modulu: </span><span><strong>GenericPitchAdd</strong> <em><var>num</var></em><a href='#index-GenericPitchAdd' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
-<dl>
-<dt id="index-GenericPitchMultiply">Konfigurace generického modulu: <strong>GenericPitchMultiply</strong> <em><var>num</var></em></dt>
+<dl class="def">
+<dt id="index-GenericPitchMultiply"><span class="category">Konfigurace generického modulu: </span><span><strong>GenericPitchMultiply</strong> <em><var>num</var></em><a href='#index-GenericPitchMultiply' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Tyto parametry nastavují konverzi pro výpočet rychlosti a výšky.
 (<code>$RATE</code> a <code>$PITCH</code>). 
 </p>
@@ -903,9 +920,12 @@ DotConfu nepodporuje desetinná čísla.  Můžete tedy psát 0.85 jako 85 atd.)
 </p></dd></dl>
 
 <hr>
-<span id="g_t_00darovn_011b-logov_00e1n_00ed"></span><div class="header">
+</div>
+</div>
+<div class="subsection" id="g_t_00darovn_011b-logov_00e1n_00ed">
+<div class="header">
 <p>
-Previous: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="p" rel="prev">Nastavení výstupních modulů</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">Konfigurace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Urovne-logovani"></span><h4 class="subsection">2.3.4 Úrovně logování</h4>
 
@@ -954,17 +974,21 @@ dat. Používejte opatrně.)
 </li></ul>
 </li></ul>
 
-<span id="Standardni-hlasy"></span><h2 class="appendix">Appendix A Standardní hlasy</h2>
+</div>
+</div>
+</div>
+<div class="appendix" id="Standardni-hlasy">
+<h2 class="appendix">Appendix A Standardní hlasy</h2>
 <span id="Standardn_00ed-hlasy"></span>
 <dl compact="compact">
-<dt><code>MALE1</code></dt>
-<dt><code>MALE2</code></dt>
-<dt><code>MALE3</code></dt>
-<dt><code>FEMALE1</code></dt>
-<dt><code>FEMALE2</code></dt>
-<dt><code>FEMALE3</code></dt>
-<dt><code>CHILD_MALE</code></dt>
-<dt><code>CHILD_FEMALE</code></dt>
+<dt><span><code>MALE1</code></span></dt>
+<dt><span><code>MALE2</code></span></dt>
+<dt><span><code>MALE3</code></span></dt>
+<dt><span><code>FEMALE1</code></span></dt>
+<dt><span><code>FEMALE2</code></span></dt>
+<dt><span><code>FEMALE3</code></span></dt>
+<dt><span><code>CHILD_MALE</code></span></dt>
+<dt><span><code>CHILD_FEMALE</code></span></dt>
 </dl>
 
 <p>Skutečná dostupnost těchto hlasů není zaručena, ale příkaz <code>SET SELF
@@ -972,7 +996,9 @@ VOICE</code> musí akceptovat jakýkoliv z nich.  Pokud není daný hlas dostupný, j
 mapován na jiný hlas výstupním modulem.
 </p>
 <hr>
-<span id="GNU-General-Public-License"></span><div class="header">
+</div>
+<div class="appendix" id="GNU-General-Public-License">
+<div class="header">
 <p>
 Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="p" rel="prev">Uživatelská dokumentace</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1334,7 +1360,9 @@ Public License instead of this License.
 </p>
 
 <hr>
-<span id="GNU-Free-Documentation-License"></span><div class="header">
+</div>
+<div class="appendix" id="GNU-Free-Documentation-License">
+<div class="header">
 <p>
 Next: <a href="#Index-of-Concepts" accesskey="n" rel="next">Index of Concepts</a>, Previous: <a href="#GNU-General-Public-License" accesskey="p" rel="prev">GNU General Public License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1718,7 +1746,11 @@ number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.
 </p></li></ol>
 
-<span id="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></span><h3 class="appendixsec">C.1 ADDENDUM: How to use this License for your documents</h3>
+<ul class="section-toc">
+<li><a href="#ADDENDUM_003a-How-to-use-this-License-for-your-documents" accesskey="1">ADDENDUM: How to use this License for your documents</a></li>
+</ul>
+<div class="appendixsec" id="ADDENDUM_003a-How-to-use-this-License-for-your-documents">
+<h3 class="appendixsec">C.1 ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
@@ -1755,7 +1787,10 @@ to permit their use in free software.
 
 
 <hr>
-<span id="Index-of-Concepts"></span><div class="header">
+</div>
+</div>
+<div class="unnumbered" id="Index-of-Concepts">
+<div class="header">
 <p>
 Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1884,7 +1919,7 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
  &nbsp; 
 </td></tr></table>
 
-<hr>
+</div>
 
 
 
