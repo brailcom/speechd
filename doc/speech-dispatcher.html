@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Speech Dispatcher</title>
@@ -10,16 +10,20 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <link href="#Index-of-Concepts" rel="index" title="Index of Concepts">
 <link href="dir.html#Top" rel="up" title="(dir)">
+<link href="#Introduction" rel="next" title="Introduction">
+<link href="dir.html#Top" rel="prev" title="(dir)">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -28,6 +32,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +54,7 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previou
 </div>
 <h1 class="node-heading">Top</h1>
 
-<p>This manual documents Speech Dispatcher, version 0.11.0-rc2.
+<p>This manual documents Speech Dispatcher, version 0.11.0-rc3.
 </p>
 <p>Copyright &copy; 2001, 2002, 2003, 2006 Brailcom, o.p.s.
 </p>
@@ -78,61 +83,27 @@ General Public License&rdquo;
 
 <span id="Menu"></span><h3 class="heading">Menu</h3>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is Speech Dispatcher.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#User_0027s-Documentation" accesskey="2">User's Documentation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Usage, Configuration...
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Technical-Specifications" accesskey="3">Technical Specifications</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Client-Programming" accesskey="4">Client Programming</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Documentation for application developers.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Server-Programming" accesskey="5">Server Programming</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Documentation for project contributors.
-</td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
-
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Download-and-Contact" accesskey="6">Download and Contact</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to get Speech Dispatcher and how to contact us
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Reporting-Bugs" accesskey="7">Reporting Bugs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to report a bug
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#How-You-Can-Help" accesskey="8">How You Can Help</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is needed
-</td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
-
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Appendices" accesskey="9">Appendices</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#GNU-General-Public-License">GNU General Public License</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Copying conditions for Speech Dispatcher
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Copying conditions for this manual
-</td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
-
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Index-of-Concepts" rel="index">Index of Concepts</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
 <hr>
-<span id="Introduction"></span><div class="header">
+<div class="chapter" id="Introduction">
+<div class="header">
 <p>
-Next: <a href="#User_0027s-Documentation" accesskey="n" rel="next">User's Documentation</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#User_0027s-Documentation" accesskey="n" rel="next">User&rsquo;s Documentation</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Introduction-1"></span><h2 class="chapter">1 Introduction</h2>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Motivation" accesskey="1">Motivation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Why Speech Dispatcher?
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Basic-Design" accesskey="2">Basic Design</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How does it work?
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Features-Overview" accesskey="3">Features Overview</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What are the assets?
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Current-State" accesskey="4">Current State</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is done?
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Motivation" accesskey="1">Motivation</a></li>
+<li><a href="#Basic-Design" accesskey="2">Design</a></li>
+<li><a href="#Features-Overview" accesskey="3">Features Overview</a></li>
+<li><a href="#Current-State" accesskey="4">Current State</a></li>
+</ul>
 <hr>
-<span id="Motivation"></span><div class="header">
+<div class="section" id="Motivation">
+<div class="header">
 <p>
-Next: <a href="#Basic-Design" accesskey="n" rel="next">Basic Design</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Basic-Design" accesskey="n" rel="next">Design</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Motivation-1"></span><h3 class="section">1.1 Motivation</h3>
 <span id="index-Basic-ideas_002c-Motivation"></span>
@@ -172,7 +143,9 @@ such as the need for speech message serialization and interaction with
 the audio subsystem.
 </p>
 <hr>
-<span id="Basic-Design"></span><div class="header">
+</div>
+<div class="section" id="Basic-Design">
+<div class="header">
 <p>
 Next: <a href="#Features-Overview" accesskey="n" rel="next">Features Overview</a>, Previous: <a href="#Motivation" accesskey="p" rel="prev">Motivation</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -254,9 +227,11 @@ imagine Message Dispatcher in the future.
 <a href="http://www.freebsoft.org/tts-api-provider/">http://www.freebsoft.org/tts-api-provider/</a>
 </p>
 <hr>
-<span id="Features-Overview"></span><div class="header">
+</div>
+<div class="section" id="Features-Overview">
+<div class="header">
 <p>
-Next: <a href="#Current-State" accesskey="n" rel="next">Current State</a>, Previous: <a href="#Basic-Design" accesskey="p" rel="prev">Basic Design</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Current-State" accesskey="n" rel="next">Current State</a>, Previous: <a href="#Basic-Design" accesskey="p" rel="prev">Design</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Features-Overview-1"></span><h3 class="section">1.3 Features Overview</h3>
 <p>Speech Dispatcher from user&rsquo;s point of view:
@@ -277,7 +252,9 @@ Next: <a href="#Current-State" accesskey="n" rel="next">Current State</a>, Previ
 </li></ul>
 
 <hr>
-<span id="Current-State"></span><div class="header">
+</div>
+<div class="section" id="Current-State">
+<div class="header">
 <p>
 Previous: <a href="#Features-Overview" accesskey="p" rel="prev">Features Overview</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -322,33 +299,30 @@ fast enough to perform software speech synthesis and Festival is a
 great example.
 </p>
 <hr>
-<span id="User_0027s-Documentation"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="User_0027s-Documentation">
+<div class="header">
 <p>
 Next: <a href="#Technical-Specifications" accesskey="n" rel="next">Technical Specifications</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="User_0027s-Documentation-1"></span><h2 class="chapter">2 User&rsquo;s Documentation</h2>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Installation" accesskey="1">Installation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to get it installed in the best way.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Running" accesskey="2">Running</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The different ways to start it.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Troubleshooting" accesskey="3">Troubleshooting</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What to do if something doesn&rsquo;t work...
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Configuration" accesskey="4">Configuration</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to configure Speech Dispatcher.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Tools" accesskey="5">Tools</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What tools come with Speech Dispatcher.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Synthesis-Output-Modules" accesskey="6">Synthesis Output Modules</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Drivers for different synthesizers.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Security" accesskey="7">Security</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Security mechanisms and restrictions.
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Installation" accesskey="1">Installation</a></li>
+<li><a href="#Running" accesskey="2">Running</a></li>
+<li><a href="#Troubleshooting" accesskey="3">Troubleshooting</a></li>
+<li><a href="#Configuration" accesskey="4">Configuration</a></li>
+<li><a href="#Tools" accesskey="5">Tools</a></li>
+<li><a href="#Synthesis-Output-Modules" accesskey="6">Synthesis Output Modules</a></li>
+<li><a href="#Security" accesskey="7">Security</a></li>
+</ul>
 <hr>
-<span id="Installation"></span><div class="header">
+<div class="section" id="Installation">
+<div class="header">
 <p>
-Next: <a href="#Running" accesskey="n" rel="next">Running</a>, Previous: <a href="#User_0027s-Documentation" accesskey="p" rel="prev">User's Documentation</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User's Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Running" accesskey="n" rel="next">Running</a>, Previous: <a href="#User_0027s-Documentation" accesskey="p" rel="prev">User&rsquo;s Documentation</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Installation-1"></span><h3 class="section">2.1 Installation</h3>
 
@@ -357,7 +331,13 @@ Speech Dispatcher. If you are compiling from source code (distribution
 tarball or git), please refer to the file <samp>INSTALL</samp> in your
 source tree.
 </p>
-<span id="The-requirements"></span><h4 class="subsection">2.1.1 The requirements</h4>
+<ul class="section-toc">
+<li><a href="#The-requirements" accesskey="1">The requirements</a></li>
+<li><a href="#Recommended-installation-procedure" accesskey="2">Recommended installation procedure</a></li>
+<li><a href="#How-to-use-eSpeak-NG-or-eSpeak-with-MBROLA" accesskey="3">How to use eSpeak NG or eSpeak with MBROLA</a></li>
+</ul>
+<div class="subsection" id="The-requirements">
+<h4 class="subsection">2.1.1 The requirements</h4>
 
 <p>You will need these components to run Speech Dispatcher:
 </p><ul>
@@ -373,7 +353,9 @@ source tree.
  </li><li> Sound icons library <br> (<a href="http://www.freebsoft.org/pub/projects/sound-icons/sound-icons-0.1.tar.gz">http://www.freebsoft.org/pub/projects/sound-icons/sound-icons-0.1.tar.gz</a>)
 </li></ul>
 
-<span id="Recommended-installation-procedure"></span><h4 class="subsection">2.1.2 Recommended installation procedure</h4>
+</div>
+<div class="subsection" id="Recommended-installation-procedure">
+<h4 class="subsection">2.1.2 Recommended installation procedure</h4>
 
 <ul>
 <li> Install your software synthesizer
@@ -447,7 +429,9 @@ spd-say -l cs -r 90 &quot;Ahoj&quot;
 </p>
 </li></ul>
 
-<span id="How-to-use-eSpeak-NG-or-eSpeak-with-MBROLA"></span><h4 class="subsection">2.1.3 How to use eSpeak NG or eSpeak with MBROLA</h4>
+</div>
+<div class="subsection" id="How-to-use-eSpeak-NG-or-eSpeak-with-MBROLA">
+<h4 class="subsection">2.1.3 How to use eSpeak NG or eSpeak with MBROLA</h4>
 
 <p>Please follow the guidelines at
 <a href="https://github.com/espeak-ng/espeak-ng/blob/master/docs/mbrola.md">https://github.com/espeak-ng/espeak-ng/blob/master/docs/mbrola.md</a>
@@ -480,9 +464,12 @@ output module, or test it with the following command
 <p>)
 </p>
 <hr>
-<span id="Running"></span><div class="header">
+</div>
+</div>
+<div class="section" id="Running">
+<div class="header">
 <p>
-Next: <a href="#Troubleshooting" accesskey="n" rel="next">Troubleshooting</a>, Previous: <a href="#Installation" accesskey="p" rel="prev">Installation</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User's Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Troubleshooting" accesskey="n" rel="next">Troubleshooting</a>, Previous: <a href="#Installation" accesskey="p" rel="prev">Installation</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Running-1"></span><h3 class="section">2.2 Running</h3>
 
@@ -493,17 +480,15 @@ the same time. It used to be possible to run Speech Dispatcher as a system
 service under a special user (and still is, with some limitations), but
 this mode of execution is strongly discouraged.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Running-Under-Ordinary-Users" accesskey="1">Running Under Ordinary Users</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Running-in-a-Custom-Setup" accesskey="2">Running in a Custom Setup</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Setting-Communication-Method" accesskey="3">Setting Communication Method</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Running-Under-Ordinary-Users" accesskey="1">Running Under Ordinary Users</a></li>
+<li><a href="#Running-in-a-Custom-Setup" accesskey="2">Running in a Custom Setup</a></li>
+<li><a href="#Setting-Communication-Method" accesskey="3">Setting Communication Method</a></li>
+</ul>
 <hr>
-<span id="Running-Under-Ordinary-Users"></span><div class="header">
+<div class="subsection" id="Running-Under-Ordinary-Users">
+<div class="header">
 <p>
 Next: <a href="#Running-in-a-Custom-Setup" accesskey="n" rel="next">Running in a Custom Setup</a>, Previous: <a href="#Running" accesskey="p" rel="prev">Running</a>, Up: <a href="#Running" accesskey="u" rel="up">Running</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -528,7 +513,9 @@ system wide configuration file (e.g. in
 </pre></div>
 
 <hr>
-<span id="Running-in-a-Custom-Setup"></span><div class="header">
+</div>
+<div class="subsection" id="Running-in-a-Custom-Setup">
+<div class="header">
 <p>
 Next: <a href="#Setting-Communication-Method" accesskey="n" rel="next">Setting Communication Method</a>, Previous: <a href="#Running-Under-Ordinary-Users" accesskey="p" rel="prev">Running Under Ordinary Users</a>, Up: <a href="#Running" accesskey="u" rel="up">Running</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -544,7 +531,9 @@ order of their priority.
 service from /etc/init.d/ , although this approach is now discouraged.
 </p>
 <hr>
-<span id="Setting-Communication-Method"></span><div class="header">
+</div>
+<div class="subsection" id="Setting-Communication-Method">
+<div class="header">
 <p>
 Previous: <a href="#Running-in-a-Custom-Setup" accesskey="p" rel="prev">Running in a Custom Setup</a>, Up: <a href="#Running" accesskey="u" rel="up">Running</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -590,9 +579,12 @@ SPEECHD_ADDRESS=unix_socket:/tmp/my.sock spd-say &quot;test&quot;
 </pre></div>
 
 <hr>
-<span id="Troubleshooting"></span><div class="header">
+</div>
+</div>
+<div class="section" id="Troubleshooting">
+<div class="header">
 <p>
-Next: <a href="#Configuration" accesskey="n" rel="next">Configuration</a>, Previous: <a href="#Running" accesskey="p" rel="prev">Running</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User's Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Configuration" accesskey="n" rel="next">Configuration</a>, Previous: <a href="#Running" accesskey="p" rel="prev">Running</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Troubleshooting-1"></span><h3 class="section">2.3 Troubleshooting</h3>
 
@@ -649,9 +641,11 @@ localhost 1314</code>). If you are not rejected, it works.
 </li></ul>
 
 <hr>
-<span id="Configuration"></span><div class="header">
+</div>
+<div class="section" id="Configuration">
+<div class="header">
 <p>
-Next: <a href="#Tools" accesskey="n" rel="next">Tools</a>, Previous: <a href="#Troubleshooting" accesskey="p" rel="prev">Troubleshooting</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User's Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Tools" accesskey="n" rel="next">Tools</a>, Previous: <a href="#Troubleshooting" accesskey="p" rel="prev">Troubleshooting</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Configuration-1"></span><h3 class="section">2.4 Configuration</h3>
 <span id="index-configuration"></span>
@@ -669,23 +663,18 @@ for different client applications.
 speech related settings.  Please see the documentation of your
 application for details about application specific configuration.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Configuration-file-syntax" accesskey="1">Configuration file syntax</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Basic rules.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Configuration-options" accesskey="2">Configuration options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What to configure.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Audio-Output-Configuration" accesskey="3">Audio Output Configuration</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to switch to ALSA, Pulse...
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Client-Specific-Configuration" accesskey="4">Client Specific Configuration</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Specific default values for applications.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Output-Modules-Configuration" accesskey="5">Output Modules Configuration</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Adding and customizing output modules.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Log-Levels" accesskey="6">Log Levels</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Description of log levels.
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Configuration-file-syntax" accesskey="1">Configuration file syntax</a></li>
+<li><a href="#Configuration-options" accesskey="2">Configuration options</a></li>
+<li><a href="#Audio-Output-Configuration" accesskey="3">Audio Output Configuration</a></li>
+<li><a href="#Client-Specific-Configuration" accesskey="4">Client Specific Configuration</a></li>
+<li><a href="#Output-Modules-Configuration" accesskey="5">Output Modules Configuration</a></li>
+<li><a href="#Log-Levels" accesskey="6">Log Levels</a></li>
+</ul>
 <hr>
-<span id="Configuration-file-syntax"></span><div class="header">
+<div class="subsection" id="Configuration-file-syntax">
+<div class="header">
 <p>
 Next: <a href="#Configuration-options" accesskey="n" rel="next">Configuration options</a>, Previous: <a href="#Configuration" accesskey="p" rel="prev">Configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -723,7 +712,9 @@ character and set it to the desired value.
 </pre></div>
 
 <hr>
-<span id="Configuration-options"></span><div class="header">
+</div>
+<div class="subsection" id="Configuration-options">
+<div class="header">
 <p>
 Next: <a href="#Audio-Output-Configuration" accesskey="n" rel="next">Audio Output Configuration</a>, Previous: <a href="#Configuration-file-syntax" accesskey="p" rel="prev">Configuration file syntax</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -735,7 +726,9 @@ commented out.  If you want to change them, just change the value and
 remove the comment symbol <code>#</code>.
 </p>
 <hr>
-<span id="Audio-Output-Configuration"></span><div class="header">
+</div>
+<div class="subsection" id="Audio-Output-Configuration">
+<div class="header">
 <p>
 Next: <a href="#Client-Specific-Configuration" accesskey="n" rel="next">Client Specific Configuration</a>, Previous: <a href="#Configuration-options" accesskey="p" rel="prev">Configuration options</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -765,7 +758,9 @@ module tries to use any available means of audio output to deliver its
 error message.
 </p>
 <hr>
-<span id="Client-Specific-Configuration"></span><div class="header">
+</div>
+<div class="subsection" id="Client-Specific-Configuration">
+<div class="header">
 <p>
 Next: <a href="#Output-Modules-Configuration" accesskey="n" rel="next">Output Modules Configuration</a>, Previous: <a href="#Audio-Output-Configuration" accesskey="p" rel="prev">Audio Output Configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -799,7 +794,9 @@ use more connections for different purposes).
 <code>/etc/speech-dispatcher/clients/emacs.conf</code>.
 </p>
 <hr>
-<span id="Output-Modules-Configuration"></span><div class="header">
+</div>
+<div class="subsection" id="Output-Modules-Configuration">
+<div class="header">
 <p>
 Next: <a href="#Log-Levels" accesskey="n" rel="next">Log Levels</a>, Previous: <a href="#Client-Specific-Configuration" accesskey="p" rel="prev">Client Specific Configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -821,19 +818,17 @@ can be switched in their own configuration files under
 <code>etc/speech-dispatcher/modules/</code>. Users can also set their own
 configuration files in <code>~/.config/speech-dispatcher/modules/</code>.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Loading-Modules-in-speechd_002econf" accesskey="1">Loading Modules in speechd.conf</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Configuration-files-of-output-modules" accesskey="2">Configuration files of output modules</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Configuration-of-the-Generic-Output-Module" accesskey="3">Configuration of the Generic Output Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Loading-Modules-in-speechd_002econf" accesskey="1">Loading Modules in speechd.conf</a></li>
+<li><a href="#Configuration-files-of-output-modules" accesskey="2">Configuration Files of Output Modules</a></li>
+<li><a href="#Configuration-of-the-Generic-Output-Module" accesskey="3">Configuration files of the Generic Output Module</a></li>
+</ul>
 <hr>
-<span id="Loading-Modules-in-speechd_002econf"></span><div class="header">
+<div class="subsubsection" id="Loading-Modules-in-speechd_002econf">
+<div class="header">
 <p>
-Next: <a href="#Configuration-files-of-output-modules" accesskey="n" rel="next">Configuration files of output modules</a>, Previous: <a href="#Output-Modules-Configuration" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Output-Modules-Configuration" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Configuration-files-of-output-modules" accesskey="n" rel="next">Configuration Files of Output Modules</a>, Previous: <a href="#Output-Modules-Configuration" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Output-Modules-Configuration" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Loading-Modules-in-speechd_002econf-1"></span><h4 class="subsubsection">2.4.5.1 Loading Modules in speechd.conf</h4>
 
@@ -841,7 +836,7 @@ Next: <a href="#Configuration-files-of-output-modules" accesskey="n" rel="next">
 by the <code>AddModule</code> command in the configuration. Note that you can load
 one binary module multiple times under different names with different
 configurations. This is especially useful for loading the generic output
-module. See <a href="#Configuration-of-the-Generic-Output-Module">Configuration of the Generic Output Module</a>.
+module. See <a href="#Configuration-of-the-Generic-Output-Module">Configuration files of the Generic Output Module</a>.
 </p>
 <div class="example">
 <pre class="example">AddModule &quot;<var>module_name</var>&quot; &quot;<var>module_binary</var>&quot; &quot;<var>module_config</var>&quot;
@@ -858,9 +853,11 @@ this output module is stored. It can be either absolute or relative
 to <samp>etc/speech-dispatcher/modules/</samp>. This parameter is optional.
 </p>
 <hr>
-<span id="Configuration-files-of-output-modules"></span><div class="header">
+</div>
+<div class="subsubsection" id="Configuration-files-of-output-modules">
+<div class="header">
 <p>
-Next: <a href="#Configuration-of-the-Generic-Output-Module" accesskey="n" rel="next">Configuration of the Generic Output Module</a>, Previous: <a href="#Loading-Modules-in-speechd_002econf" accesskey="p" rel="prev">Loading Modules in speechd.conf</a>, Up: <a href="#Output-Modules-Configuration" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Configuration-of-the-Generic-Output-Module" accesskey="n" rel="next">Configuration files of the Generic Output Module</a>, Previous: <a href="#Loading-Modules-in-speechd_002econf" accesskey="p" rel="prev">Loading Modules in speechd.conf</a>, Up: <a href="#Output-Modules-Configuration" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Configuration-Files-of-Output-Modules"></span><h4 class="subsubsection">2.4.5.2 Configuration Files of Output Modules</h4>
 
@@ -886,7 +883,7 @@ voices is done in the synthesizer itself.
 with a region qualification.
 </p>
 <p><var>symbolicname</var> is a symbolic name under which you wish this voice
-to be available. See <a href="ssip.html#Top">Standard Voices</a> in <cite>SSIP
+to be available. See <a data-manual="ssip" href="ssip.html#Top">Standard Voices</a> in <cite>SSIP
 Documentation</cite> for the list of names you can use.
 </p>
 <p><var>name</var> is a name specific for the given output module. Please see
@@ -954,9 +951,11 @@ would be. (This is an interesting sentence, by the way.)
 </p></li></ul>
 
 <hr>
-<span id="Configuration-of-the-Generic-Output-Module"></span><div class="header">
+</div>
+<div class="subsubsection" id="Configuration-of-the-Generic-Output-Module">
+<div class="header">
 <p>
-Previous: <a href="#Configuration-files-of-output-modules" accesskey="p" rel="prev">Configuration files of output modules</a>, Up: <a href="#Output-Modules-Configuration" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Configuration-files-of-output-modules" accesskey="p" rel="prev">Configuration Files of Output Modules</a>, Up: <a href="#Output-Modules-Configuration" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Configuration-files-of-the-Generic-Output-Module"></span><h4 class="subsubsection">2.4.5.3 Configuration files of the Generic Output Module</h4>
 
@@ -969,8 +968,8 @@ know how to program. See <a href="#AddModule">AddModule</a>.
 <p>The core part of a generic output module is the command
 execution line.
 </p>
-<dl>
-<dt id="index-GenericExecuteSynth">Generic Module Configuration: <strong>GenericExecuteSynth</strong> <em>&quot;<var>execution_string</var>&quot;</em></dt>
+<dl class="def">
+<dt id="index-GenericExecuteSynth"><span class="category">Generic Module Configuration: </span><span><strong>GenericExecuteSynth</strong> <em>&quot;<var>execution_string</var>&quot;</em><a href='#index-GenericExecuteSynth' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><code>execution_string</code> is the command that should be executed
 in a shell when it&rsquo;s desired to say something. In fact, it can
@@ -1009,13 +1008,13 @@ The desired rate or speed (a float number defined in GenericRateAdd and GenericR
 </pre></div>
 </dd></dl>
 
-<dl>
-<dt id="index-AddVoice">GenericModuleConfiguration: <strong>AddVoice</strong> <em>&quot;<var>language</var>&quot; &quot;<var>symbolicname</var>&quot; &quot;<var>name</var>&quot;</em></dt>
+<dl class="def">
+<dt id="index-AddVoice"><span class="category">GenericModuleConfiguration: </span><span><strong>AddVoice</strong> <em>&quot;<var>language</var>&quot; &quot;<var>symbolicname</var>&quot; &quot;<var>name</var>&quot;</em><a href='#index-AddVoice' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>See <a href="#AddVoice">AddVoice</a>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-GenericLanguage">GenericModuleConfiguration: <strong>GenericLanguage</strong> <em>&quot;iso-code&quot; &quot;string-subst&quot; &quot;character-set&quot;</em></dt>
+<dl class="def">
+<dt id="index-GenericLanguage"><span class="category">GenericModuleConfiguration: </span><span><strong>GenericLanguage</strong> <em>&quot;iso-code&quot; &quot;string-subst&quot; &quot;character-set&quot;</em><a href='#index-GenericLanguage' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Defines which string <code>string-subst</code> should be substituted for <code>$LANG</code>
 given an <code>iso-code</code> language code. Optionally, the character set in which
@@ -1030,23 +1029,23 @@ GenericLanguage &quot;sk&quot; &quot;slovak&quot; &quot;iso-8859-2&quot;
 </pre></div>
 </dd></dl>
 
-<dl>
-<dt id="index-GenericRateAdd">GenericModuleConfiguration: <strong>GenericRateAdd</strong> <em><var>num</var></em></dt>
+<dl class="def">
+<dt id="index-GenericRateAdd"><span class="category">GenericModuleConfiguration: </span><span><strong>GenericRateAdd</strong> <em><var>num</var></em><a href='#index-GenericRateAdd' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
-<dl>
-<dt id="index-GenericRateMultiply">GenericModuleConfiguration: <strong>GenericRateMultiply</strong> <em><var>num</var></em></dt>
+<dl class="def">
+<dt id="index-GenericRateMultiply"><span class="category">GenericModuleConfiguration: </span><span><strong>GenericRateMultiply</strong> <em><var>num</var></em><a href='#index-GenericRateMultiply' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
-<dl>
-<dt id="index-GenericPitchAdd">GenericModuleConfiguration: <strong>GenericPitchAdd</strong> <em><var>num</var></em></dt>
+<dl class="def">
+<dt id="index-GenericPitchAdd"><span class="category">GenericModuleConfiguration: </span><span><strong>GenericPitchAdd</strong> <em><var>num</var></em><a href='#index-GenericPitchAdd' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
-<dl>
-<dt id="index-GenericPitchMultiply">GenericModuleConfiguration: <strong>GenericPitchMultiply</strong> <em><var>num</var></em></dt>
+<dl class="def">
+<dt id="index-GenericPitchMultiply"><span class="category">GenericModuleConfiguration: </span><span><strong>GenericPitchMultiply</strong> <em><var>num</var></em><a href='#index-GenericPitchMultiply' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
-<dl>
-<dt id="index-GenericPitchRangeAdd">GenericModuleConfiguration: <strong>GenericPitchRangeAdd</strong> <em><var>num</var></em></dt>
+<dl class="def">
+<dt id="index-GenericPitchRangeAdd"><span class="category">GenericModuleConfiguration: </span><span><strong>GenericPitchRangeAdd</strong> <em><var>num</var></em><a href='#index-GenericPitchRangeAdd' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
-<dl>
-<dt id="index-GenericPitchRangeMultiply">GenericModuleConfiguration: <strong>GenericPitchRangeMultiply</strong> <em><var>num</var></em></dt>
+<dl class="def">
+<dt id="index-GenericPitchRangeMultiply"><span class="category">GenericModuleConfiguration: </span><span><strong>GenericPitchRangeMultiply</strong> <em><var>num</var></em><a href='#index-GenericPitchRangeMultiply' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>These parameters set rate and pitch conversion to compute
 the value of <code>$RATE</code>, <code>$PITCH</code> and <code>$PITCH_RANGE</code>.
 </p>
@@ -1064,7 +1063,10 @@ so on.)
 </p></dd></dl>
 
 <hr>
-<span id="Log-Levels"></span><div class="header">
+</div>
+</div>
+<div class="subsection" id="Log-Levels">
+<div class="header">
 <p>
 Previous: <a href="#Output-Modules-Configuration" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1117,9 +1119,12 @@ of data. Use with caution.)
 </li></ul>
 
 <hr>
-<span id="Tools"></span><div class="header">
+</div>
+</div>
+<div class="section" id="Tools">
+<div class="header">
 <p>
-Next: <a href="#Synthesis-Output-Modules" accesskey="n" rel="next">Synthesis Output Modules</a>, Previous: <a href="#Configuration" accesskey="p" rel="prev">Configuration</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User's Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Synthesis-Output-Modules" accesskey="n" rel="next">Synthesis Output Modules</a>, Previous: <a href="#Configuration" accesskey="p" rel="prev">Configuration</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Tools-1"></span><h3 class="section">2.5 Tools</h3>
 
@@ -1128,27 +1133,27 @@ Next: <a href="#Synthesis-Output-Modules" accesskey="n" rel="next">Synthesis Out
 Speech Dispatcher in an easy way and have them spoken, or cancel
 speech from other applications.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#spd_002dsay" accesskey="1">spd-say</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Say a given text or cancel messages in Dispatcher.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#spd_002dconf" accesskey="2">spd-conf</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Configuration, diagnostics and troubleshooting tool
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#spd_002dsend" accesskey="3">spd-send</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Direct SSIP communication from command line.
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#spd_002dsay" accesskey="1">spd-say</a></li>
+<li><a href="#spd_002dconf" accesskey="2">spd-conf</a></li>
+<li><a href="#spd_002dsend" accesskey="3">spd-send</a></li>
+</ul>
 <hr>
-<span id="spd_002dsay"></span><div class="header">
+<div class="subsection" id="spd_002dsay">
+<div class="header">
 <p>
 Next: <a href="#spd_002dconf" accesskey="n" rel="next">spd-conf</a>, Previous: <a href="#Tools" accesskey="p" rel="prev">Tools</a>, Up: <a href="#Tools" accesskey="u" rel="up">Tools</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="spd_002dsay-1"></span><h4 class="subsection">2.5.1 spd-say</h4>
 
-<p>spd-say is documented in its own manual. See <cite><a href="spd-say.html#Top">Spd-say
+<p>spd-say is documented in its own manual. See <cite><a data-manual="spd-say" href="spd-say.html#Top">Spd-say
 Documentation</a></cite>.
 </p>
 <hr>
-<span id="spd_002dconf"></span><div class="header">
+</div>
+<div class="subsection" id="spd_002dconf">
+<div class="header">
 <p>
 Next: <a href="#spd_002dsend" accesskey="n" rel="next">spd-send</a>, Previous: <a href="#spd_002dsay" accesskey="p" rel="prev">spd-say</a>, Up: <a href="#Tools" accesskey="u" rel="up">Tools</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1179,7 +1184,9 @@ Run debugging and offer to send a request for help to the developers.
 </li></ul>
 
 <hr>
-<span id="spd_002dsend"></span><div class="header">
+</div>
+<div class="subsection" id="spd_002dsend">
+<div class="header">
 <p>
 Previous: <a href="#spd_002dconf" accesskey="p" rel="prev">spd-conf</a>, Up: <a href="#Tools" accesskey="u" rel="up">Tools</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1193,9 +1200,12 @@ command line tool to send and receive SSIP protocol communication.
 Dispatcher&rsquo;s source tree for more information.
 </p>
 <hr>
-<span id="Synthesis-Output-Modules"></span><div class="header">
+</div>
+</div>
+<div class="section" id="Synthesis-Output-Modules">
+<div class="header">
 <p>
-Next: <a href="#Security" accesskey="n" rel="next">Security</a>, Previous: <a href="#Tools" accesskey="p" rel="prev">Tools</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User's Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Security" accesskey="n" rel="next">Security</a>, Previous: <a href="#Tools" accesskey="p" rel="prev">Tools</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Synthesis-Output-Modules-1"></span><h3 class="section">2.6 Synthesis Output Modules</h3>
 <span id="index-output-module"></span>
@@ -1210,13 +1220,13 @@ However the language is not the only criteria for the decision.  The rules for
 selection of an output module can be influenced through the configuration file
 <samp>speech-dispatcher/speechd.conf</samp>.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Provided-Functionality" accesskey="1">Provided Functionality</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Some synthesizers don&rsquo;t support the full set of SSIP features.
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Provided-Functionality" accesskey="1">Provided functionality</a></li>
+</ul>
 <hr>
-<span id="Provided-Functionality"></span><div class="header">
+<div class="subsection" id="Provided-Functionality">
+<div class="header">
 <p>
 Previous: <a href="#Synthesis-Output-Modules" accesskey="p" rel="prev">Synthesis Output Modules</a>, Up: <a href="#Synthesis-Output-Modules" accesskey="u" rel="up">Synthesis Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1232,15 +1242,15 @@ Festival, so Festival supports nearly all of the features of Speech
 Dispatcher and we encourage you to use it. Much progress has also been
 done with eSpeak.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Supported-Modules" accesskey="1">Supported Modules</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Supported-Modules" accesskey="1">Supported Modules</a></li>
+</ul>
 <hr>
-<span id="Supported-Modules"></span><div class="header">
+<div class="subsubsection" id="Supported-Modules">
+<div class="header">
 <p>
-Previous: <a href="#Provided-Functionality" accesskey="p" rel="prev">Provided Functionality</a>, Up: <a href="#Provided-Functionality" accesskey="u" rel="up">Provided Functionality</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Provided-Functionality" accesskey="p" rel="prev">Provided functionality</a>, Up: <a href="#Provided-Functionality" accesskey="u" rel="up">Provided functionality</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Supported-Modules-1"></span><h4 class="subsubsection">2.6.1.1 Supported Modules</h4>
 
@@ -1269,7 +1279,7 @@ Dispatcher, Festival is faster than Flite in most situations.  See
 
 </li><li> Generic
 The Generic module can be used with any synthesizer that can be
-managed by a simple command line application. See <a href="#Configuration-of-the-Generic-Output-Module">Configuration of the Generic Output Module</a>, for more details about how to use it.
+managed by a simple command line application. See <a href="#Configuration-of-the-Generic-Output-Module">Configuration files of the Generic Output Module</a>, for more details about how to use it.
 However, it provides only very rudimentary support of speaking.
 
 </li><li> Pico
@@ -1290,9 +1300,13 @@ It includes three manuals:
 </li></ul>
 
 <hr>
-<span id="Security"></span><div class="header">
+</div>
+</div>
+</div>
+<div class="section" id="Security">
+<div class="header">
 <p>
-Previous: <a href="#Synthesis-Output-Modules" accesskey="p" rel="prev">Synthesis Output Modules</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User's Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Synthesis-Output-Modules" accesskey="p" rel="prev">Synthesis Output Modules</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Security-1"></span><h3 class="section">2.7 Security</h3>
 
@@ -1313,26 +1327,26 @@ security restrictions on the access to the given port on his machine
 from the outside network using a firewall or similar mechanism.
 </p>
 <hr>
-<span id="Technical-Specifications"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="Technical-Specifications">
+<div class="header">
 <p>
-Next: <a href="#Client-Programming" accesskey="n" rel="next">Client Programming</a>, Previous: <a href="#User_0027s-Documentation" accesskey="p" rel="prev">User's Documentation</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Client-Programming" accesskey="n" rel="next">Client Programming</a>, Previous: <a href="#User_0027s-Documentation" accesskey="p" rel="prev">User&rsquo;s Documentation</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Technical-Specifications-1"></span><h2 class="chapter">3 Technical Specifications</h2>
 
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Communication-mechanisms" accesskey="1">Communication mechanisms</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Address-specification" accesskey="2">Address specification</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Actions-performed-on-startup" accesskey="3">Actions performed on startup</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Accepted-signals" accesskey="4">Accepted signals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Communication-mechanisms" accesskey="1">Communication mechanisms</a></li>
+<li><a href="#Address-specification" accesskey="2">Address specification</a></li>
+<li><a href="#Actions-performed-on-startup" accesskey="3">Actions performed on startup</a></li>
+<li><a href="#Accepted-signals" accesskey="4">Accepted signals</a></li>
+</ul>
 <hr>
-<span id="Communication-mechanisms"></span><div class="header">
+<div class="section" id="Communication-mechanisms">
+<div class="header">
 <p>
 Next: <a href="#Address-specification" accesskey="n" rel="next">Address specification</a>, Previous: <a href="#Technical-Specifications" accesskey="p" rel="prev">Technical Specifications</a>, Up: <a href="#Technical-Specifications" accesskey="u" rel="up">Technical Specifications</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1385,7 +1399,9 @@ and the default pair (localhost, 6560).
 <p>See <a href="#Setting-Communication-Method">Setting Communication Method</a>.
 </p>
 <hr>
-<span id="Address-specification"></span><div class="header">
+</div>
+<div class="section" id="Address-specification">
+<div class="header">
 <p>
 Next: <a href="#Actions-performed-on-startup" accesskey="n" rel="next">Actions performed on startup</a>, Previous: <a href="#Communication-mechanisms" accesskey="p" rel="prev">Communication mechanisms</a>, Up: <a href="#Technical-Specifications" accesskey="u" rel="up">Technical Specifications</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1439,7 +1455,9 @@ environment variable or their specific configuration is set.
 <p>where &lsquo;~&rsquo; stands for the path to the users home directory.
 </p>
 <hr>
-<span id="Actions-performed-on-startup"></span><div class="header">
+</div>
+<div class="section" id="Actions-performed-on-startup">
+<div class="header">
 <p>
 Next: <a href="#Accepted-signals" accesskey="n" rel="next">Accepted signals</a>, Previous: <a href="#Address-specification" accesskey="p" rel="prev">Address specification</a>, Up: <a href="#Technical-Specifications" accesskey="u" rel="up">Technical Specifications</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1520,7 +1538,9 @@ in a loop.
 </li></ul>
 
 <hr>
-<span id="Accepted-signals"></span><div class="header">
+</div>
+<div class="section" id="Accepted-signals">
+<div class="header">
 <p>
 Previous: <a href="#Actions-performed-on-startup" accesskey="p" rel="prev">Actions performed on startup</a>, Up: <a href="#Technical-Specifications" accesskey="u" rel="up">Technical Specifications</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1547,14 +1567,17 @@ crashed during runtime and marked as dead)
 </li></ul>
 
 <hr>
-<span id="Client-Programming"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="Client-Programming">
+<div class="header">
 <p>
 Next: <a href="#Server-Programming" accesskey="n" rel="next">Server Programming</a>, Previous: <a href="#Technical-Specifications" accesskey="p" rel="prev">Technical Specifications</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Client-Programming-1"></span><h2 class="chapter">4 Client Programming</h2>
 
 <p>Clients communicate with Speech Dispatcher via the Speech Synthesis
-Internet Protocol (SSIP) See <cite><a href="ssip.html#Top">Speech Synthesis
+Internet Protocol (SSIP) See <cite><a data-manual="ssip" href="ssip.html#Top">Speech Synthesis
 Internet Protocol documentation</a></cite>.  The protocol is the actual
 interface to Speech Dispatcher.
 </p>
@@ -1566,62 +1589,47 @@ documentation for the C and Python libraries, however there are also other
 libraries developed as external projects.  Please contact us for information
 about current external client libraries.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#C-API" accesskey="1">C API</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Shared library for C/C++
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Python-API" accesskey="2">Python API</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Python module.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Guile-API" accesskey="3">Guile API</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Common-Lisp-API" accesskey="4">Common Lisp API</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Golang-API" accesskey="5">Golang API</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Autospawning" accesskey="6">Autospawning</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How server is started from clients
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#C-API" accesskey="1">C API</a></li>
+<li><a href="#Python-API" accesskey="2">Python API</a></li>
+<li><a href="#Guile-API" accesskey="3">Guile API</a></li>
+<li><a href="#Common-Lisp-API" accesskey="4">Common Lisp API</a></li>
+<li><a href="#Golang-API" accesskey="5">Golang API</a></li>
+<li><a href="#Autospawning" accesskey="6">Autospawning</a></li>
+</ul>
 <hr>
-<span id="C-API"></span><div class="header">
+<div class="section" id="C-API">
+<div class="header">
 <p>
 Next: <a href="#Python-API" accesskey="n" rel="next">Python API</a>, Previous: <a href="#Client-Programming" accesskey="p" rel="prev">Client Programming</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="C-API-1"></span><h3 class="section">4.1 C API</h3>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Initializing-and-Terminating-in-C" accesskey="1">Initializing and Terminating in C</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Speech-Synthesis-Commands-in-C" accesskey="2">Speech Synthesis Commands in C</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Speech-output-control-commands-in-C" accesskey="3">Speech output control commands in C</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Characters-and-Keys-in-C" accesskey="4">Characters and Keys in C</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Sound-Icons-in-C" accesskey="5">Sound Icons in C</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Parameter-Setting-Commands-in-C" accesskey="6">Parameter Setting Commands in C</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Other-Functions-in-C" accesskey="7">Other Functions in C</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Information-Retrieval-Commands-in-C" accesskey="8">Information Retrieval Commands in C</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Event-Notification-and-Index-Marking-in-C" accesskey="9">Event Notification and Index Marking in C</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#History-Commands-in-C">History Commands in C</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Direct-SSIP-Communication-in-C">Direct SSIP Communication in C</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Initializing-and-Terminating-in-C" accesskey="1">Initializing and Terminating</a></li>
+<li><a href="#Speech-Synthesis-Commands-in-C" accesskey="2">Speech Synthesis Commands</a></li>
+<li><a href="#Speech-output-control-commands-in-C" accesskey="3">Speech Output Control Commands</a></li>
+<li><a href="#Characters-and-Keys-in-C" accesskey="4">Characters and Keys</a></li>
+<li><a href="#Sound-Icons-in-C" accesskey="5">Sound Icons</a></li>
+<li><a href="#Parameter-Setting-Commands-in-C" accesskey="6">Parameter Settings Commands</a></li>
+<li><a href="#Other-Functions-in-C" accesskey="7">Other Functions</a></li>
+<li><a href="#Information-Retrieval-Commands-in-C" accesskey="8">Information Retrieval Commands</a></li>
+<li><a href="#Event-Notification-and-Index-Marking-in-C" accesskey="9">Event Notification and Index Marking in C</a></li>
+<li><a href="#History-Commands-in-C">History Commands</a></li>
+<li><a href="#Direct-SSIP-Communication-in-C">Direct SSIP Communication in C</a></li>
+</ul>
 <hr>
-<span id="Initializing-and-Terminating-in-C"></span><div class="header">
+<div class="subsection" id="Initializing-and-Terminating-in-C">
+<div class="header">
 <p>
-Next: <a href="#Speech-Synthesis-Commands-in-C" accesskey="n" rel="next">Speech Synthesis Commands in C</a>, Previous: <a href="#C-API" accesskey="p" rel="prev">C API</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Speech-Synthesis-Commands-in-C" accesskey="n" rel="next">Speech Synthesis Commands</a>, Previous: <a href="#C-API" accesskey="p" rel="prev">C API</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Initializing-and-Terminating"></span><h4 class="subsection">4.1.1 Initializing and Terminating</h4>
 
-<dl>
-<dt id="index-SPDConnection_002a">C API function: <strong>SPDConnection*</strong> <em>spd_open(char* client_name, char* connection_name, char* user_name, SPDConnectionMode connection_mode)</em></dt>
+<dl class="def">
+<dt id="index-SPDConnection_002a"><span class="category">C API function: </span><span><strong>SPDConnection*</strong> <em>spd_open(char* client_name, char* connection_name, char* user_name, SPDConnectionMode connection_mode)</em><a href='#index-SPDConnection_002a' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fopen_0028_0029"></span>
 
 <p>Opens a new connection to Speech Dispatcher and returns a socket file
@@ -1676,8 +1684,8 @@ closed, threads are terminated and memory is freed.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-SPDConnection_002a-1">C API function: <strong>SPDConnection*</strong> <em>spd_open2(char* client_name, char* connection_name, char* user_name, SPDConnectionMode connection_mode, SPDConnectionMethod method, int autospawn)</em></dt>
+<dl class="def">
+<dt id="index-SPDConnection_002a-1"><span class="category">C API function: </span><span><strong>SPDConnection*</strong> <em>spd_open2(char* client_name, char* connection_name, char* user_name, SPDConnectionMode connection_mode, SPDConnectionMethod method, int autospawn)</em><a href='#index-SPDConnection_002a-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fopen2_0028_0029"></span>
 
 <p>Opens a new connection to Speech Dispatcher and returns a socket file
@@ -1697,8 +1705,8 @@ running.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-int">C API function: <strong>int</strong> <em>spd_get_client_id(SPDConnection *connection)</em></dt>
+<dl class="def">
+<dt id="index-int"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_get_client_id(SPDConnection *connection)</em><a href='#index-int' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fget_005fclient_005fid_0028_0029"></span>
 
 <p>Get the client ID.
@@ -1709,8 +1717,8 @@ running.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-void">C API function: <strong>void</strong> <em>spd_close(SPDConnection *connection)</em></dt>
+<dl class="def">
+<dt id="index-void"><span class="category">C API function: </span><span><strong>void</strong> <em>spd_close(SPDConnection *connection)</em><a href='#index-void' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fclose_0028_0029"></span>
 
 <p>Closes a Speech Dispatcher socket connection, terminates associated
@@ -1722,14 +1730,16 @@ program.
 </p></dd></dl>
 
 <hr>
-<span id="Speech-Synthesis-Commands-in-C"></span><div class="header">
+</div>
+<div class="subsection" id="Speech-Synthesis-Commands-in-C">
+<div class="header">
 <p>
-Next: <a href="#Speech-output-control-commands-in-C" accesskey="n" rel="next">Speech output control commands in C</a>, Previous: <a href="#Initializing-and-Terminating-in-C" accesskey="p" rel="prev">Initializing and Terminating in C</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Speech-output-control-commands-in-C" accesskey="n" rel="next">Speech Output Control Commands</a>, Previous: <a href="#Initializing-and-Terminating-in-C" accesskey="p" rel="prev">Initializing and Terminating</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Speech-Synthesis-Commands"></span><h4 class="subsection">4.1.2 Speech Synthesis Commands</h4>
 
-<dl>
-<dt id="index-C-API-type">Variable: <strong>C API type</strong> <em>SPDPriority</em></dt>
+<dl class="def">
+<dt id="index-C-API-type"><span class="category">Variable: </span><span><strong>C API type</strong> <em>SPDPriority</em><a href='#index-C-API-type' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-SPDPriority"></span>
 
 <p><code>SPDPriority</code> is an enum type that represents the possible priorities that
@@ -1745,12 +1755,12 @@ can be assigned to a message.
 }SPDPriority;
 </pre></div>
 
-<p>See <a href="ssip.html#Top">Message Priority Model</a> in <cite>SSIP Documentation</cite>.
+<p>See <a data-manual="ssip" href="ssip.html#Top">Message Priority Model</a> in <cite>SSIP Documentation</cite>.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-int-1">C API function: <strong>int</strong> <em>spd_say(SPDConnection* connection, SPDPriority priority, char* text);</em></dt>
+<dl class="def">
+<dt id="index-int-1"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_say(SPDConnection* connection, SPDPriority priority, char* text);</em><a href='#index-int-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fsay_0028_0029"></span>
 
 <p>Sends a message to Speech Dispatcher. If this message isn&rsquo;t blocked by
@@ -1760,7 +1770,7 @@ the message will be discarded or delayed according to its priority.
 </p>
 <p><code>connection</code> is the SPDConnection* connection created by spd_open().
 </p>
-<p><code>priority</code> is the desired priority for this message. See <a href="ssip.html#Top">Message Priority Model</a> in <cite>SSIP Documentation</cite>.
+<p><code>priority</code> is the desired priority for this message. See <a data-manual="ssip" href="ssip.html#Top">Message Priority Model</a> in <cite>SSIP Documentation</cite>.
 </p>
 <p><code>text</code> is a null terminated string containing text you want sent
 to synthesis. It must be encoded in UTF-8. Note that this doesn&rsquo;t have
@@ -1774,8 +1784,8 @@ handling.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-int-2">C API function: <strong>int</strong> <em>spd_sayf(SPDConnection* connection, SPDPriority priority, char* format, ...);</em></dt>
+<dl class="def">
+<dt id="index-int-2"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_sayf(SPDConnection* connection, SPDPriority priority, char* format, ...);</em><a href='#index-int-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fsayf_0028_0029"></span>
 
 <p>Similar to <code>spd_say()</code>, simulates the behavior of printf().
@@ -1814,16 +1824,18 @@ event notification callbacks or history handling.
 </p></dd></dl>
 
 <hr>
-<span id="Speech-output-control-commands-in-C"></span><div class="header">
+</div>
+<div class="subsection" id="Speech-output-control-commands-in-C">
+<div class="header">
 <p>
-Next: <a href="#Characters-and-Keys-in-C" accesskey="n" rel="next">Characters and Keys in C</a>, Previous: <a href="#Speech-Synthesis-Commands-in-C" accesskey="p" rel="prev">Speech Synthesis Commands in C</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Characters-and-Keys-in-C" accesskey="n" rel="next">Characters and Keys</a>, Previous: <a href="#Speech-Synthesis-Commands-in-C" accesskey="p" rel="prev">Speech Synthesis Commands</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Speech-Output-Control-Commands"></span><h4 class="subsection">4.1.3 Speech Output Control Commands</h4>
 
 <span id="Stop-Commands"></span><h4 class="subsubheading">Stop Commands</h4>
 
-<dl>
-<dt id="index-int-3">C API function: <strong>int</strong> <em>spd_stop(SPDConnection* connection);</em></dt>
+<dl class="def">
+<dt id="index-int-3"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_stop(SPDConnection* connection);</em><a href='#index-int-3' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fstop_0028_0029"></span>
 
 <p>Stops the message currently being spoken on a given connection. If there
@@ -1837,8 +1849,8 @@ how many messages are still waiting in queues on the server).
 <p>It returns 0 on success, -1 otherwise.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-4">C API function: <strong>int</strong> <em>spd_stop_all(SPDConnection* connection);</em></dt>
+<dl class="def">
+<dt id="index-int-4"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_stop_all(SPDConnection* connection);</em><a href='#index-int-4' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fstop_005fall_0028_0029"></span>
 
 <p>The same as spd_stop(), but it stops every message being said,
@@ -1847,8 +1859,8 @@ without distinguishing where it came from.
 <p>It returns 0 on success, -1 if some of the stops failed.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-5">C API function: <strong>int</strong> <em>spd_stop_uid(SPDConnection* connection, int target_uid);</em></dt>
+<dl class="def">
+<dt id="index-int-5"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_stop_uid(SPDConnection* connection, int target_uid);</em><a href='#index-int-5' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fstop_005fuid_0028_0029"></span>
 
 <p>The same as spd_stop() except that it stops a client client different from
@@ -1856,7 +1868,7 @@ the calling one. You must specify this client in <code>target_uid</code>.
 </p>
 <p><code>target_uid</code> is the unique ID of the connection you want
 to execute stop() on. It can be obtained from spd_history_get_client_list().
-See <a href="#History-Commands-in-C">History Commands in C</a>.
+See <a href="#History-Commands-in-C">History Commands</a>.
 </p>
 <p>It returns 0 on success, -1 otherwise.
 </p>
@@ -1864,8 +1876,8 @@ See <a href="#History-Commands-in-C">History Commands in C</a>.
 
 <span id="Cancel-Commands"></span><h4 class="subsubheading">Cancel Commands</h4>
 
-<dl>
-<dt id="index-int-6">C API function: <strong>int</strong> <em>spd_cancel(SPDConnection* connection);</em></dt>
+<dl class="def">
+<dt id="index-int-6"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_cancel(SPDConnection* connection);</em><a href='#index-int-6' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Stops the currently spoken message from this connection
 (if there is any) and discards all the queued messages
@@ -1874,8 +1886,8 @@ to do, when you call spd_cancel() automatically in
 your program.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-7">C API function: <strong>int</strong> <em>spd_cancel_all(SPDConnection* connection);</em></dt>
+<dl class="def">
+<dt id="index-int-7"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_cancel_all(SPDConnection* connection);</em><a href='#index-int-7' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fcancel_005fall_0028_0029"></span>
 
 <p>The same as spd_cancel(), but it cancels every message
@@ -1884,8 +1896,8 @@ without distinguishing where it came from.
 <p>It returns 0 on success, -1 if some of the stops failed.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-8">C API function: <strong>int</strong> <em>spd_cancel_uid(SPDConnection* connection, int target_uid);</em></dt>
+<dl class="def">
+<dt id="index-int-8"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_cancel_uid(SPDConnection* connection, int target_uid);</em><a href='#index-int-8' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fcancel_005fuid_0028_0029"></span>
 
 <p>The same as spd_cancel() except that it executes cancel for some other client
@@ -1893,15 +1905,15 @@ than the calling one. You must specify this client in <code>target_uid</code>.
 </p>
 <p><code>target_uid</code> is the unique ID of the connection you want to
 execute cancel() on.  It can be obtained from
-spd_history_get_client_list().  See <a href="#History-Commands-in-C">History Commands in C</a>.
+spd_history_get_client_list().  See <a href="#History-Commands-in-C">History Commands</a>.
 </p>
 <p>It returns 0 on success, -1 otherwise.
 </p></dd></dl>
 
 <span id="Pause-Commands"></span><h4 class="subsubheading">Pause Commands</h4>
 
-<dl>
-<dt id="index-int-9">C API function: <strong>int</strong> <em>spd_pause(SPDConnection* connection);</em></dt>
+<dl class="def">
+<dt id="index-int-9"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_pause(SPDConnection* connection);</em><a href='#index-int-9' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-int-spd_005fpause_0028_0029"></span>
 
 <p>Pauses all messages received from the given connection. No messages
@@ -1922,8 +1934,8 @@ messages are also queued and waiting for resume().
 <p>It returns 0 on success, -1 if something failed.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-10">C API function: <strong>int</strong> <em>spd_pause_all(SPDConnection* connection);</em></dt>
+<dl class="def">
+<dt id="index-int-10"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_pause_all(SPDConnection* connection);</em><a href='#index-int-10' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fpause_005fall_0028_0029"></span>
 
 <p>The same as spd_pause(), but it pauses every message,
@@ -1932,8 +1944,8 @@ without distinguishing where it came from.
 <p>It returns 0 on success, -1 if some of the pauses failed.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-11">C API function: <strong>int</strong> <em>spd_pause_uid(SPDConnection* connection, int target_uid);</em></dt>
+<dl class="def">
+<dt id="index-int-11"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_pause_uid(SPDConnection* connection, int target_uid);</em><a href='#index-int-11' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fpause_005fuid_0028_0029"></span>
 
 <p>The same as spd_pause() except that it executes pause for a client different from
@@ -1941,15 +1953,15 @@ the calling one. You must specify the client in <code>target_uid</code>.
 </p>
 <p><code>target_uid</code> is the unique ID of the connection you want
 to pause. It can be obtained from spd_history_get_client_list().
-See <a href="#History-Commands-in-C">History Commands in C</a>.
+See <a href="#History-Commands-in-C">History Commands</a>.
 </p>
 <p>It returns 0 on success, -1 otherwise.
 </p></dd></dl>
 
 <span id="Resume-Commands"></span><h4 class="subsubheading">Resume Commands</h4>
 
-<dl>
-<dt id="index-int-12">C API function: <strong>int</strong> <em>spd_resume(SPDConnection* connection);</em></dt>
+<dl class="def">
+<dt id="index-int-12"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_resume(SPDConnection* connection);</em><a href='#index-int-12' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-int-spd_005fresume_0028_0029"></span>
 
 <p>Resumes all paused messages from the given connection. The rest
@@ -1962,8 +1974,8 @@ for synthesis again.
 <p>It returns 0 on success, -1 otherwise.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-13">C API function: <strong>int</strong> <em>spd_resume_all(SPDConnection* connection);</em></dt>
+<dl class="def">
+<dt id="index-int-13"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_resume_all(SPDConnection* connection);</em><a href='#index-int-13' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fresume_005fall_0028_0029"></span>
 
 <p>The same as spd_resume(), but it resumes every paused message,
@@ -1972,8 +1984,8 @@ without distinguishing where it came from.
 <p>It returns 0 on success, -1 if some of the pauses failed.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-14">C API function: <strong>int</strong> <em>spd_resume_uid(SPDConnection* connection, int target_uid);</em></dt>
+<dl class="def">
+<dt id="index-int-14"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_resume_uid(SPDConnection* connection, int target_uid);</em><a href='#index-int-14' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fresume_005fuid_0028_0029"></span>
 
 <p>The same as spd_resume() except that it executes resume for a client different from
@@ -1981,20 +1993,22 @@ the calling one. You must specify the client in <code>target_uid</code>.
 </p>
 <p><code>target_uid</code> is the unique ID of the connection you want
 to resume. It can be obtained from spd_history_get_client_list().
-See <a href="#History-Commands-in-C">History Commands in C</a>.
+See <a href="#History-Commands-in-C">History Commands</a>.
 </p>
 <p>It returns 0 on success, -1 otherwise.
 </p></dd></dl>
 
 <hr>
-<span id="Characters-and-Keys-in-C"></span><div class="header">
+</div>
+<div class="subsection" id="Characters-and-Keys-in-C">
+<div class="header">
 <p>
-Next: <a href="#Sound-Icons-in-C" accesskey="n" rel="next">Sound Icons in C</a>, Previous: <a href="#Speech-output-control-commands-in-C" accesskey="p" rel="prev">Speech output control commands in C</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Sound-Icons-in-C" accesskey="n" rel="next">Sound Icons</a>, Previous: <a href="#Speech-output-control-commands-in-C" accesskey="p" rel="prev">Speech Output Control Commands</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Characters-and-Keys"></span><h4 class="subsection">4.1.4 Characters and Keys</h4>
 
-<dl>
-<dt id="index-int-15">C API function: <strong>int</strong> <em>spd_char(SPDConnection* connection, SPDPriority priority, char* character);</em></dt>
+<dl class="def">
+<dt id="index-int-15"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_char(SPDConnection* connection, SPDPriority priority, char* character);</em><a href='#index-int-15' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fchar_0028_0029"></span>
 
 <p>Says a character according to user settings for characters. For example, this can be
@@ -2003,7 +2017,7 @@ used for speaking letters under the cursor.
 <p><code>connection</code> is the SPDConnection* connection created by spd_open().
 </p>
 <p><code>priority</code> is the desired priority for this
-message. See <a href="ssip.html#Top">Message Priority Model</a> in <cite>SSIP Documentation</cite>.
+message. See <a data-manual="ssip" href="ssip.html#Top">Message Priority Model</a> in <cite>SSIP Documentation</cite>.
 </p>
 <p><code>character</code> is a NULL terminated string of chars containing one UTF-8
 character. If it contains more characters, only the first one is processed.
@@ -2011,8 +2025,8 @@ character. If it contains more characters, only the first one is processed.
 <p>It returns 0 on success, -1 otherwise.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-16">C API function: <strong>int</strong> <em>spd_wchar(SPDConnection* connection, SPDPriority priority, wchar_t wcharacter);</em></dt>
+<dl class="def">
+<dt id="index-int-16"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_wchar(SPDConnection* connection, SPDPriority priority, wchar_t wcharacter);</em><a href='#index-int-16' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fsay_005fwchar_0028_0029"></span>
 
 <p>The same as spd_char(), but it takes a wchar_t variable as its argument.
@@ -2020,8 +2034,8 @@ character. If it contains more characters, only the first one is processed.
 <p>It returns 0 on success, -1 otherwise.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-17">C API function: <strong>int</strong> <em>spd_key(SPDConnection* connection, SPDPriority priority, char* key_name);</em></dt>
+<dl class="def">
+<dt id="index-int-17"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_key(SPDConnection* connection, SPDPriority priority, char* key_name);</em><a href='#index-int-17' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fkey_0028_0029"></span>
 
 <p>Says a key according to user settings for keys.
@@ -2029,10 +2043,10 @@ character. If it contains more characters, only the first one is processed.
 <p><code>connection</code> is the SPDConnection* connection created by spd_open().
 </p>
 <p><code>priority</code> is the desired priority for this
-message. See <a href="ssip.html#Top">Message Priority Model</a> in <cite>SSIP Documentation</cite>.
+message. See <a data-manual="ssip" href="ssip.html#Top">Message Priority Model</a> in <cite>SSIP Documentation</cite>.
 </p>
 <p><code>key_name</code> is the name of the key in a special format.
-See <a href="ssip.html#Top">Speech Synthesis and Sound Output Commands</a> in <cite>SSIP
+See <a data-manual="ssip" href="ssip.html#Top">Speech Synthesis and Sound Output Commands</a> in <cite>SSIP
 Documentation</cite>, (KEY, the corresponding SSIP command) for description
 of the format of <code>key_name</code>
 </p>
@@ -2040,14 +2054,16 @@ of the format of <code>key_name</code>
 </p></dd></dl>
 
 <hr>
-<span id="Sound-Icons-in-C"></span><div class="header">
+</div>
+<div class="subsection" id="Sound-Icons-in-C">
+<div class="header">
 <p>
-Next: <a href="#Parameter-Setting-Commands-in-C" accesskey="n" rel="next">Parameter Setting Commands in C</a>, Previous: <a href="#Characters-and-Keys-in-C" accesskey="p" rel="prev">Characters and Keys in C</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Parameter-Setting-Commands-in-C" accesskey="n" rel="next">Parameter Settings Commands</a>, Previous: <a href="#Characters-and-Keys-in-C" accesskey="p" rel="prev">Characters and Keys</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Sound-Icons"></span><h4 class="subsection">4.1.5 Sound Icons</h4>
 
-<dl>
-<dt id="index-int-18">C API function: <strong>int</strong> <em>spd_sound_icon(SPDConnection* connection, SPDPriority priority, char* icon_name);</em></dt>
+<dl class="def">
+<dt id="index-int-18"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_sound_icon(SPDConnection* connection, SPDPriority priority, char* icon_name);</em><a href='#index-int-18' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fsound_005ficon_0028_0029"></span>
 
 <p>Sends a sound icon ICON_NAME. These are symbolic names that are mapped
@@ -2058,7 +2074,7 @@ define its own icons.
 <p><code>connection</code> is the SPDConnection* connection created by spd_open().
 </p>
 <p><code>priority</code> is the desired priority for this
-message. See <a href="ssip.html#Top">Message Priority Model</a> in <cite>SSIP Documentation</cite>.
+message. See <a data-manual="ssip" href="ssip.html#Top">Message Priority Model</a> in <cite>SSIP Documentation</cite>.
 </p>
 <p><code>icon_name</code> is the name of the icon. It can&rsquo;t contain spaces, instead
 use underscores (&lsquo;_&rsquo;). Icon names starting with an underscore
@@ -2066,9 +2082,11 @@ are considered internal and shouldn&rsquo;t be used.
 </p></dd></dl>
 
 <hr>
-<span id="Parameter-Setting-Commands-in-C"></span><div class="header">
+</div>
+<div class="subsection" id="Parameter-Setting-Commands-in-C">
+<div class="header">
 <p>
-Next: <a href="#Other-Functions-in-C" accesskey="n" rel="next">Other Functions in C</a>, Previous: <a href="#Sound-Icons-in-C" accesskey="p" rel="prev">Sound Icons in C</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Other-Functions-in-C" accesskey="n" rel="next">Other Functions</a>, Previous: <a href="#Sound-Icons-in-C" accesskey="p" rel="prev">Sound Icons</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Parameter-Settings-Commands"></span><h4 class="subsection">4.1.6 Parameter Settings Commands</h4>
 
@@ -2076,11 +2094,11 @@ Next: <a href="#Other-Functions-in-C" accesskey="n" rel="next">Other Functions i
 and history clients there are also functions for setting the value for
 some other connection and for all connections. They are listed separately below.
 </p>
-<p>Please see <a href="ssip.html#Top">Parameter Setting Commands</a> in <cite>SSIP
+<p>Please see <a data-manual="ssip" href="ssip.html#Top">Parameter Setting Commands</a> in <cite>SSIP
 Documentation</cite> for a general description of what they mean.
 </p>
-<dl>
-<dt id="index-int-19">C API function: <strong>int</strong> <em>spd_set_data_mode(SPDConnection *connection, SPDDataMode mode)</em></dt>
+<dl class="def">
+<dt id="index-int-19"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_data_mode(SPDConnection *connection, SPDDataMode mode)</em><a href='#index-int-19' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005fdata_005fmode_0028_0029"></span>
 
 <p>Set Speech Dispatcher data mode. Currently, plain text and SSML are
@@ -2092,8 +2110,8 @@ or include changes of voice parameters in the text.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-int-20">C API function: <strong>int</strong> <em>spd_set_language(SPDConnection* connection, char* language);</em></dt>
+<dl class="def">
+<dt id="index-int-20"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_language(SPDConnection* connection, char* language);</em><a href='#index-int-20' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005flanguage_0028_0029"></span>
 
 <p>Sets the language that should be used for synthesis.
@@ -2105,8 +2123,8 @@ or include changes of voice parameters in the text.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-int-21">C API function: <strong>int</strong> <em>spd_set_output_module(SPDConnection* connection, char* output_module);</em></dt>
+<dl class="def">
+<dt id="index-int-21"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_output_module(SPDConnection* connection, char* output_module);</em><a href='#index-int-21' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005foutput_005fmodule_0028_0029"></span>
 <span id="spd_005fset_005foutput_005fmodule"></span>
 <p>Sets the output module that should be used for synthesis. The parameter
@@ -2122,8 +2140,8 @@ was loaded into Speech Dispatcher in its configuration (&ldquo;flite&rdquo;,
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-char_002a">C API function: <strong>char*</strong> <em>spd_get_output_module(SPDConnection* connection);</em></dt>
+<dl class="def">
+<dt id="index-char_002a"><span class="category">C API function: </span><span><strong>char*</strong> <em>spd_get_output_module(SPDConnection* connection);</em><a href='#index-char_002a' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fget_005foutput_005fmodule_0028_0029"></span>
 <span id="spd_005fget_005foutput_005fmodule"></span>
 <p>Gets the current output module in use for synthesis.
@@ -2135,8 +2153,8 @@ Dispatcher in its configuration (&ldquo;flite&rdquo;, &ldquo;festival&rdquo;,  &
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-int-22">C API function: <strong>int</strong> <em>spd_set_punctuation(SPDConnection* connection, SPDPunctuation type);</em></dt>
+<dl class="def">
+<dt id="index-int-22"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_punctuation(SPDConnection* connection, SPDPunctuation type);</em><a href='#index-int-22' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005fpunctuation_0028_0029"></span>
 
 <p>Set punctuation mode to the given value.  &lsquo;all&rsquo; means speak all
@@ -2152,8 +2170,8 @@ set in symbols tables or output modules.
 <p>It returns 0 on success, -1 otherwise.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-23">C API function: <strong>int</strong> <em>spd_set_spelling(SPDConnection* connection, SPDSpelling type);</em></dt>
+<dl class="def">
+<dt id="index-int-23"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_spelling(SPDConnection* connection, SPDSpelling type);</em><a href='#index-int-23' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005fspelling_0028_0029"></span>
 
 <p>Switches spelling mode on and off. If set to on, all incoming messages
@@ -2165,8 +2183,8 @@ spelling tables (see spd_set_spelling_table()).
 <p><code>type</code> is one of the following values: <code>SPD_SPELL_ON</code>, <code>SPD_SPELL_OFF</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-24">C API function: <strong>int</strong> <em>spd_set_voice_type(SPDConnection* connection, SPDVoiceType voice);</em></dt>
+<dl class="def">
+<dt id="index-int-24"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_voice_type(SPDConnection* connection, SPDVoiceType voice);</em><a href='#index-int-24' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005fvoice_005ftype_0028_0029"></span>
 <span id="spd_005fset_005fvoice_005ftype"></span>
 <p>Set a preferred symbolic voice.
@@ -2179,8 +2197,8 @@ spelling tables (see spd_set_spelling_table()).
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-int-25">C API function: <strong>int</strong> <em>spd_set_synthesis_voice(SPDConnection* connection, char* voice_name);</em></dt>
+<dl class="def">
+<dt id="index-int-25"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_synthesis_voice(SPDConnection* connection, char* voice_name);</em><a href='#index-int-25' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005fvoice_005ftype_0028_0029-1"></span>
 <span id="spd_005fset_005fsynthesis_005fvoice"></span>
 <p>Set the speech synthesizer voice to use. Please note that synthesis
@@ -2194,8 +2212,8 @@ effect until the output module in use is changed (via
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-int-26">C API function: <strong>int</strong> <em>spd_set_voice_rate(SPDConnection* connection, int rate);</em></dt>
+<dl class="def">
+<dt id="index-int-26"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_voice_rate(SPDConnection* connection, int rate);</em><a href='#index-int-26' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005fvoice_005frate_0028_0029"></span>
 
 <p>Set voice speaking rate.
@@ -2207,8 +2225,8 @@ the slowest and the fastest speech rate respectively.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-int-27">C API function: <strong>int</strong> <em>spd_get_voice_rate(SPDConnection* connection);</em></dt>
+<dl class="def">
+<dt id="index-int-27"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_get_voice_rate(SPDConnection* connection);</em><a href='#index-int-27' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fget_005fvoice_005frate_0028_0029"></span>
 
 <p>Get voice speaking rate.
@@ -2219,8 +2237,8 @@ the slowest and the fastest speech rate respectively.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-int-28">C API function: <strong>int</strong> <em>spd_set_voice_pitch(SPDConnection* connection, int pitch);</em></dt>
+<dl class="def">
+<dt id="index-int-28"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_voice_pitch(SPDConnection* connection, int pitch);</em><a href='#index-int-28' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005fvoice_005fpitch_0028_0029"></span>
 
 <p>Set voice pitch.
@@ -2232,8 +2250,8 @@ lowest and the highest pitch respectively.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-int-29">C API function: <strong>int</strong> <em>spd_get_voice_pitch(SPDConnection* connection);</em></dt>
+<dl class="def">
+<dt id="index-int-29"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_get_voice_pitch(SPDConnection* connection);</em><a href='#index-int-29' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fget_005fvoice_005fpitch_0028_0029"></span>
 
 <p>Get voice pitch.
@@ -2244,8 +2262,8 @@ lowest and the highest pitch respectively.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-int-30">C API function: <strong>int</strong> <em>spd_set_voice_pitch_range(SPDConnection* connection, int pitch_range);</em></dt>
+<dl class="def">
+<dt id="index-int-30"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_voice_pitch_range(SPDConnection* connection, int pitch_range);</em><a href='#index-int-30' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005fvoice_005fpitch_0028_0029-1"></span>
 
 <p>Set voice pitch range.
@@ -2257,8 +2275,8 @@ lowest and the highest pitch range respectively.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-int-31">C API function: <strong>int</strong> <em>spd_set_volume(SPDConnection* connection, int volume);</em></dt>
+<dl class="def">
+<dt id="index-int-31"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_volume(SPDConnection* connection, int volume);</em><a href='#index-int-31' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005fvolume_0028_0029"></span>
 
 <p>Set the volume of the voice and sounds produced by Speech Dispatcher&rsquo;s output
@@ -2271,8 +2289,8 @@ the lowest and the loudest voice respectively.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-int-32">C API function: <strong>int</strong> <em>spd_get_volume(SPDConnection* connection);</em></dt>
+<dl class="def">
+<dt id="index-int-32"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_get_volume(SPDConnection* connection);</em><a href='#index-int-32' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fget_005fvolume_0028_0029"></span>
 
 <p>Get the volume of the voice and sounds produced by Speech Dispatcher&rsquo;s output
@@ -2286,21 +2304,25 @@ modules.
 
 
 <hr>
-<span id="Other-Functions-in-C"></span><div class="header">
+</div>
+<div class="subsection" id="Other-Functions-in-C">
+<div class="header">
 <p>
-Next: <a href="#Information-Retrieval-Commands-in-C" accesskey="n" rel="next">Information Retrieval Commands in C</a>, Previous: <a href="#Parameter-Setting-Commands-in-C" accesskey="p" rel="prev">Parameter Setting Commands in C</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Information-Retrieval-Commands-in-C" accesskey="n" rel="next">Information Retrieval Commands</a>, Previous: <a href="#Parameter-Setting-Commands-in-C" accesskey="p" rel="prev">Parameter Settings Commands</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Other-Functions"></span><h4 class="subsection">4.1.7 Other Functions</h4>
 
 <hr>
-<span id="Information-Retrieval-Commands-in-C"></span><div class="header">
+</div>
+<div class="subsection" id="Information-Retrieval-Commands-in-C">
+<div class="header">
 <p>
-Next: <a href="#Event-Notification-and-Index-Marking-in-C" accesskey="n" rel="next">Event Notification and Index Marking in C</a>, Previous: <a href="#Other-Functions-in-C" accesskey="p" rel="prev">Other Functions in C</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Event-Notification-and-Index-Marking-in-C" accesskey="n" rel="next">Event Notification and Index Marking in C</a>, Previous: <a href="#Other-Functions-in-C" accesskey="p" rel="prev">Other Functions</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Information-Retrieval-Commands"></span><h4 class="subsection">4.1.8 Information Retrieval Commands</h4>
 
-<dl>
-<dt id="index-char_002a_002a">C API function: <strong>char**</strong> <em>spd_list_modules(SPDConnection* connection)</em></dt>
+<dl class="def">
+<dt id="index-char_002a_002a"><span class="category">C API function: </span><span><strong>char**</strong> <em>spd_list_modules(SPDConnection* connection)</em><a href='#index-char_002a_002a' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005flist_005fmodules_0028_0029"></span>
 <span id="spd_005flist_005fmodules"></span>
 
@@ -2313,8 +2335,8 @@ a NULL pointer.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-char_002a_002a-1">C API function: <strong>char**</strong> <em>spd_list_voices(SPDConnection* connection)</em></dt>
+<dl class="def">
+<dt id="index-char_002a_002a-1"><span class="category">C API function: </span><span><strong>char**</strong> <em>spd_list_voices(SPDConnection* connection)</em><a href='#index-char_002a_002a-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005flist_005fvoices_0028_0029"></span>
 <span id="spd_005flist_005fvoices"></span>
 <p>Returns a null-terminated array of identification names of the
@@ -2333,8 +2355,8 @@ in the synthesizer, See <a href="#spd_005flist_005fsynthesis_005fvoices">spd_lis
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-char_002a_002a-2">C API function: <strong>char**</strong> <em>spd_list_synthesis_voices(SPDConnection* connection)</em></dt>
+<dl class="def">
+<dt id="index-char_002a_002a-2"><span class="category">C API function: </span><span><strong>char**</strong> <em>spd_list_synthesis_voices(SPDConnection* connection)</em><a href='#index-char_002a_002a-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005flist_005fsynthesis_005fvoices_0028_0029"></span>
 <span id="spd_005flist_005fsynthesis_005fvoices"></span>
 <p>Returns a null-terminated array of identification names of
@@ -2364,19 +2386,21 @@ names which are independent of the synthesizer in use, See <a href="#spd_005flis
 </dd></dl>
 
 <hr>
-<span id="Event-Notification-and-Index-Marking-in-C"></span><div class="header">
+</div>
+<div class="subsection" id="Event-Notification-and-Index-Marking-in-C">
+<div class="header">
 <p>
-Next: <a href="#History-Commands-in-C" accesskey="n" rel="next">History Commands in C</a>, Previous: <a href="#Information-Retrieval-Commands-in-C" accesskey="p" rel="prev">Information Retrieval Commands in C</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#History-Commands-in-C" accesskey="n" rel="next">History Commands</a>, Previous: <a href="#Information-Retrieval-Commands-in-C" accesskey="p" rel="prev">Information Retrieval Commands</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Event-Notification-and-Index-Marking-in-C-1"></span><h4 class="subsection">4.1.9 Event Notification and Index Marking in C</h4>
 
 <p>When the SSIP connection is run in asynchronous mode, it is possible
 to register callbacks for all the SSIP event notifications and index
-mark notifications, as defined in <a href="ssip.html#Message-Event-Notification-and-Index-Marking">Message Event Notification
+mark notifications, as defined in <a data-manual="ssip" href="ssip.html#Message-Event-Notification-and-Index-Marking">Message Event Notification
 and Index Marking</a> in <cite>SSIP Documentation</cite>
 </p>
-<dl>
-<dt id="index-C-API-type-1">Variable: <strong>C API type</strong> <em>SPDNotification</em></dt>
+<dl class="def">
+<dt id="index-C-API-type-1"><span class="category">Variable: </span><span><strong>C API type</strong> <em>SPDNotification</em><a href='#index-C-API-type-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-SPDNotification"></span>
 <span id="SPDNotification"></span>
 <p><code>SPDNotification</code> is an enum type that represents the possible
@@ -2396,8 +2420,8 @@ base notification types that can be assigned to a message.
 
 <p>There are currently two types of callbacks in the C API.
 </p>
-<dl>
-<dt id="index-C-API-type-2">Variable: <strong>C API type</strong> <em>SPDCallback</em></dt>
+<dl class="def">
+<dt id="index-C-API-type-2"><span class="category">Variable: </span><span><strong>C API type</strong> <em>SPDCallback</em><a href='#index-C-API-type-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-SPDCallback"></span>
 <span id="SPDCallback"></span><p><code>void (*SPDCallback)(size_t msg_id, size_t client_id, SPDNotificationType state);</code>
 </p>
@@ -2415,8 +2439,8 @@ several connections originating from the same application.
 <p><code>state</code> is the <code>SPD_Notification</code> type of this notification. See <a href="#SPDNotification">SPDNotification</a>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-C-API-type-3">Variable: <strong>C API type</strong> <em>SPDCallbackIM</em></dt>
+<dl class="def">
+<dt id="index-C-API-type-3"><span class="category">Variable: </span><span><strong>C API type</strong> <em>SPDCallbackIM</em><a href='#index-C-API-type-3' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-SPDCallbackIM"></span>
 <p><code>void (*SPDCallbackIM)(size_t msg_id, size_t client_id, SPDNotificationType state,
 char *index_mark);</code>
@@ -2450,16 +2474,16 @@ members:
 off for the current SSIP connection and cause the callbacks to be called
 when the event is registered by Speech Dispatcher.
 </p>
-<dl>
-<dt id="index-int-33">C API function: <strong>int</strong> <em>spd_set_notification_on(SPDConnection* connection, SPDNotification notification);</em></dt>
+<dl class="def">
+<dt id="index-int-33"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_notification_on(SPDConnection* connection, SPDNotification notification);</em><a href='#index-int-33' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005fnotification_005fon"></span>
 </dd></dl>
-<dl>
-<dt id="index-int-34">C API function: <strong>int</strong> <em>spd_set_notification_off(SPDConnection* connection, SPDNotification notification);</em></dt>
+<dl class="def">
+<dt id="index-int-34"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_notification_off(SPDConnection* connection, SPDNotification notification);</em><a href='#index-int-34' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005fnotification_005foff"></span>
 </dd></dl>
-<dl>
-<dt id="index-int-35">C API function: <strong>int</strong> <em>spd_set_notification(SPDConnection* connection, SPDNotification notification, const char* state);</em></dt>
+<dl class="def">
+<dt id="index-int-35"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_notification(SPDConnection* connection, SPDNotification notification, const char* state);</em><a href='#index-int-35' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005fnotification"></span>
 
 <p>These functions will set the notification specified by the parameter
@@ -2532,7 +2556,9 @@ main(int argc, char **argv)
 </pre></div>
 
 <hr>
-<span id="History-Commands-in-C"></span><div class="header">
+</div>
+<div class="subsection" id="History-Commands-in-C">
+<div class="header">
 <p>
 Next: <a href="#Direct-SSIP-Communication-in-C" accesskey="n" rel="next">Direct SSIP Communication in C</a>, Previous: <a href="#Event-Notification-and-Index-Marking-in-C" accesskey="p" rel="prev">Event Notification and Index Marking in C</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -2542,9 +2568,11 @@ Next: <a href="#Direct-SSIP-Communication-in-C" accesskey="n" rel="next">Direct 
 <span id="index-spd_005fget_005fmessage_005flist_005ffd_0028_0029"></span>
 
 <hr>
-<span id="Direct-SSIP-Communication-in-C"></span><div class="header">
+</div>
+<div class="subsection" id="Direct-SSIP-Communication-in-C">
+<div class="header">
 <p>
-Previous: <a href="#History-Commands-in-C" accesskey="p" rel="prev">History Commands in C</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#History-Commands-in-C" accesskey="p" rel="prev">History Commands</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Direct-SSIP-Communication-in-C-1"></span><h4 class="subsection">4.1.11 Direct SSIP Communication in C</h4>
 
@@ -2556,8 +2584,8 @@ available functions, please let us know.) For this purpose, there are
 a few functions that will allow you to send arbitrary SSIP commands on
 your connection and read the replies.
 </p>
-<dl>
-<dt id="index-int-36">C API function: <strong>int</strong> <em>spd_execute_command(SPDConnection* connection, char *command);</em></dt>
+<dl class="def">
+<dt id="index-int-36"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_execute_command(SPDConnection* connection, char *command);</em><a href='#index-int-36' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fexecute_005fcommand_0028_0029"></span>
 
 <p>You can send an arbitrary SSIP command specified in the parameter <code>command</code>.
@@ -2581,8 +2609,8 @@ where you are receiving more than one reply. If this is your case, please
 see &lsquo;spd_send_data()&rsquo;.
 </p></dd></dl>
 
-<dl>
-<dt id="index-char_002a-1">C API function: <strong>char*</strong> <em>spd_send_data(SPDConnection* connection, const char *message, int wfr);</em></dt>
+<dl class="def">
+<dt id="index-char_002a-1"><span class="category">C API function: </span><span><strong>char*</strong> <em>spd_send_data(SPDConnection* connection, const char *message, int wfr);</em><a href='#index-char_002a-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fsend_005fdata_0028_0029"></span>
 
 <p>You can send an arbitrary SSIP string specified in the parameter <code>message</code>
@@ -2617,7 +2645,10 @@ sequence <code>\r\n.\r\n</code> of the multi-line command.
 
 
 <hr>
-<span id="Python-API"></span><div class="header">
+</div>
+</div>
+<div class="section" id="Python-API">
+<div class="header">
 <p>
 Next: <a href="#Guile-API" accesskey="n" rel="next">Guile API</a>, Previous: <a href="#C-API" accesskey="p" rel="prev">C API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -2702,7 +2733,9 @@ something more complicated, do it in another thread to prevent
 deadlocks in SSIP communication.
 </p>
 <hr>
-<span id="Guile-API"></span><div class="header">
+</div>
+<div class="section" id="Guile-API">
+<div class="header">
 <p>
 Next: <a href="#Common-Lisp-API" accesskey="n" rel="next">Common Lisp API</a>, Previous: <a href="#Python-API" accesskey="p" rel="prev">Python API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -2713,7 +2746,9 @@ the source tree, however it&rsquo;s still considered to be
 at the experimental stage. Please read <samp>src/guile/README</samp>.
 </p>
 <hr>
-<span id="Common-Lisp-API"></span><div class="header">
+</div>
+<div class="section" id="Common-Lisp-API">
+<div class="header">
 <p>
 Next: <a href="#Golang-API" accesskey="n" rel="next">Golang API</a>, Previous: <a href="#Guile-API" accesskey="p" rel="prev">Guile API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -2724,7 +2759,9 @@ the source tree, however it&rsquo;s still considered to be
 at the experimental stage. Please read <samp>src/cl/README</samp>.
 </p>
 <hr>
-<span id="Golang-API"></span><div class="header">
+</div>
+<div class="section" id="Golang-API">
+<div class="header">
 <p>
 Next: <a href="#Autospawning" accesskey="n" rel="next">Autospawning</a>, Previous: <a href="#Common-Lisp-API" accesskey="p" rel="prev">Common Lisp API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -2734,7 +2771,9 @@ Next: <a href="#Autospawning" accesskey="n" rel="next">Autospawning</a>, Previou
 <a href="https://github.com/ilyapashuk/go-speechd">https://github.com/ilyapashuk/go-speechd</a>.
 </p>
 <hr>
-<span id="Autospawning"></span><div class="header">
+</div>
+<div class="section" id="Autospawning">
+<div class="header">
 <p>
 Previous: <a href="#Common-Lisp-API" accesskey="p" rel="prev">Common Lisp API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -2781,21 +2820,23 @@ before attempting a connection.
 API for an example.
 </p>
 <hr>
-<span id="Server-Programming"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="Server-Programming">
+<div class="header">
 <p>
-Next: <a href="#Download-and-Contact" accesskey="n" rel="next">Download and Contact</a>, Previous: <a href="#Client-Programming" accesskey="p" rel="prev">Client Programming</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Download-and-Contact" accesskey="n" rel="next">Download</a>, Previous: <a href="#Client-Programming" accesskey="p" rel="prev">Client Programming</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Server-Programming-1"></span><h2 class="chapter">5 Server Programming</h2>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Server-Core" accesskey="1">Server Core</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Internal structure and functionality overview.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Output-Modules" accesskey="2">Output Modules</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Plugins for various speech synthesizers.
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Server-Core" accesskey="1">Server Core</a></li>
+<li><a href="#Output-Modules" accesskey="2">Output Modules</a></li>
+</ul>
 <hr>
-<span id="Server-Core"></span><div class="header">
+<div class="section" id="Server-Core">
+<div class="header">
 <p>
 Next: <a href="#Output-Modules" accesskey="n" rel="next">Output Modules</a>, Previous: <a href="#Server-Programming" accesskey="p" rel="prev">Server Programming</a>, Up: <a href="#Server-Programming" accesskey="u" rel="up">Server Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -2867,33 +2908,28 @@ talks to the output modules. It does so by using the output
 interface defined in <samp>src/server/output.c</samp>.
 </p>
 <hr>
-<span id="Output-Modules"></span><div class="header">
+</div>
+<div class="section" id="Output-Modules">
+<div class="header">
 <p>
 Previous: <a href="#Server-Core" accesskey="p" rel="prev">Server Core</a>, Up: <a href="#Server-Programming" accesskey="u" rel="up">Server Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Output-Modules-1"></span><h3 class="section">5.2 Output Modules</h3>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Basic-Structure" accesskey="1">Basic Structure</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The definition of an output module.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Communication-Protocol-for-Output-Modules" accesskey="2">Communication Protocol for Output Modules</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#How-to-Write-New-Output-Module" accesskey="3">How to Write New Output Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to include support for new synthesizers
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#The-Skeleton-of-a-Bare-Output-Module" accesskey="4">The Skeleton of a Bare Output Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#The-Skeleton-of-an-Output-Module" accesskey="5">The Skeleton of an Output Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Output-Module-Functions" accesskey="6">Output Module Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Module-Utils-Functions-and-Macros" accesskey="7">Module Utils Functions and Macros</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Index-Marks-in-Output-Modules" accesskey="8">Index Marks in Output Modules</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Basic-Structure" accesskey="1">Basic Structure</a></li>
+<li><a href="#Communication-Protocol-for-Output-Modules" accesskey="2">Communication Protocol for Output Modules</a></li>
+<li><a href="#How-to-Write-New-Output-Module" accesskey="3">How to Write New Output Module</a></li>
+<li><a href="#The-Skeleton-of-a-Bare-Output-Module" accesskey="4">The Skeleton of a Bare Output Module</a></li>
+<li><a href="#The-Skeleton-of-an-Output-Module" accesskey="5">The Skeleton of an Output Module</a></li>
+<li><a href="#Output-Module-Functions" accesskey="6">Output Module Functions</a></li>
+<li><a href="#Module-Utils-Functions-and-Macros" accesskey="7">Module Utils Functions and Macros</a></li>
+<li><a href="#Index-Marks-in-Output-Modules" accesskey="8">Index Marks in Output Modules</a></li>
+</ul>
 <hr>
-<span id="Basic-Structure"></span><div class="header">
+<div class="subsection" id="Basic-Structure">
+<div class="header">
 <p>
 Next: <a href="#Communication-Protocol-for-Output-Modules" accesskey="n" rel="next">Communication Protocol for Output Modules</a>, Previous: <a href="#Output-Modules" accesskey="p" rel="prev">Output Modules</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -2929,14 +2965,16 @@ that should be used for this particular output module.
 file that the output module should parse.
 </p>
 <hr>
-<span id="Communication-Protocol-for-Output-Modules"></span><div class="header">
+</div>
+<div class="subsection" id="Communication-Protocol-for-Output-Modules">
+<div class="header">
 <p>
 Next: <a href="#How-to-Write-New-Output-Module" accesskey="n" rel="next">How to Write New Output Module</a>, Previous: <a href="#Basic-Structure" accesskey="p" rel="prev">Basic Structure</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Communication-Protocol-for-Output-Modules-1"></span><h4 class="subsection">5.2.2 Communication Protocol for Output Modules</h4>
 
 <p>The protocol by which the output modules communicate on standard
-input/output is based on <a href="ssip.html#Top">SSIP</a> in <cite>SSIP
+input/output is based on <a data-manual="ssip" href="ssip.html#Top">SSIP</a> in <cite>SSIP
 Documentation</cite>, although it is highly simplified and a little bit
 modified for the different purpose here. Another difference
 is that event notification is obligatory in modules communication,
@@ -2944,7 +2982,7 @@ while in SSIP, this is an optional feature. This is because Speech
 Dispatcher has to know all the events happening in the output modules
 for the purpose of synchronization of various messages.
 </p>
-<p>Since it&rsquo;s very similar to SSIP, <a href="ssip.html#Top">General Rules</a> in <cite>SSIP
+<p>Since it&rsquo;s very similar to SSIP, <a data-manual="ssip" href="ssip.html#Top">General Rules</a> in <cite>SSIP
 Documentation</cite>, for a general description of what the protocol looks
 like. One of the exceptions is that since the output modules
 communicate on standard input/output, we use only <code>LF</code> as the
@@ -2966,7 +3004,7 @@ line separator.
 </li></ul>
 
 <dl compact="compact">
-<dt><code>SPEAK</code></dt>
+<dt><span><code>SPEAK</code></span></dt>
 <dd><p>Start receiving a text message in the SSML format and synthesize it.
 After sending a reply to the command, output module waits for the text
 of the message.  The text can spread over any number of lines and is
@@ -3009,7 +3047,7 @@ output module can issue events associated with the included SSML index
 marks when they are reached in the audio output.
 </p>
 </dd>
-<dt><code>CHAR</code></dt>
+<dt><span><code>CHAR</code></span></dt>
 <dd><p>Synthesize a character. If the synthesizer supports a different behavior
 for the event of &ldquo;character&rdquo;, this should be used.
 </p>
@@ -3018,28 +3056,28 @@ has to be exactly one line long. It contains the UTF-8 form of exactly
 one character.
 </p>
 </dd>
-<dt><code>KEY</code></dt>
+<dt><span><code>KEY</code></span></dt>
 <dd><p>Synthesize a key name. If the synthesizer supports a different behavior
 for the event of &ldquo;key name&rdquo;, this should be used.
 </p>
 <p>It works like the command <code>SPEAK</code> above, except that the argument
-has to be exactly one line long. See <a href="ssip.html#Top">SSIP KEY</a> in <cite>SSIP
+has to be exactly one line long. See <a data-manual="ssip" href="ssip.html#Top">SSIP KEY</a> in <cite>SSIP
 Documentation</cite>, for the description of the allowed arguments.
 </p>
 </dd>
-<dt><code>SOUND_ICON</code></dt>
+<dt><span><code>SOUND_ICON</code></span></dt>
 <dd><p>Produce a sound icon. According to the configuration of the particular
 synthesizer, this can produce either a sound (e.g. .wav) or synthesize
 some text.
 </p>
 <p>It works like the command <code>SPEAK</code> above, except that the argument
 has to be exactly one line long. It contains the symbolic name of the
-icon that should be said. See <a href="ssip.html#Top">SSIP SOUND_ICON</a> in <cite>SSIP
+icon that should be said. See <a data-manual="ssip" href="ssip.html#Top">SSIP SOUND_ICON</a> in <cite>SSIP
 Documentation</cite>, for more detailed description of the sound icons
 mechanism.
 </p>
 </dd>
-<dt><code>STOP</code></dt>
+<dt><span><code>STOP</code></span></dt>
 <dd><p>Immediately stop speaking on the output device and cancel synthesizing
 the current message so that the output module is prepared to receive a
 new message. If there is currently no message being synthesized, it is
@@ -3061,7 +3099,7 @@ should be used.
 </pre></div>
 
 </dd>
-<dt><code>PAUSE</code></dt>
+<dt><span><code>PAUSE</code></span></dt>
 <dd><p>Stop speaking the current message at a place where we can exactly
 determine the position (preferably after a <code>__spd_</code> index mark).  This
 doesn&rsquo;t have to be immediate and can be delayed even for a few
@@ -3078,7 +3116,7 @@ send any reply (not even error reply).
 </pre></div>
 
 </dd>
-<dt><code>SET</code></dt>
+<dt><span><code>SET</code></span></dt>
 <dd><p>Set one of several speech parameters for the future messages.
 </p>
 <p>Each of the parameters is written on a single line in the form
@@ -3104,7 +3142,7 @@ closing dot line.
 <code>punctuation_mode</code>, <code>spelling_mode</code>, <code>cap_let_recogn</code>,
 <code>voice</code>, and <code>language</code>.  The arguments are the same as for the
 corresponding SSIP commands, except that they are written with small
-letters. See <a href="ssip.html#Top">Parameter Setting Commands</a> in <cite>SSIP
+letters. See <a data-manual="ssip" href="ssip.html#Top">Parameter Setting Commands</a> in <cite>SSIP
 Documentation</cite>.  The conversion between these string values and the
 corresponding C enum variables can be easily done using
 <samp>src/common/fdsetconv.c</samp>.
@@ -3131,13 +3169,13 @@ punctuation_some=NULL
 </pre></div>
 
 </dd>
-<dt><code>AUDIO</code></dt>
+<dt><span><code>AUDIO</code></span></dt>
 <dd><p>Audio has exactly the same structure as <code>SET</code>, but is transmitted
 only once immediatelly after <code>INIT</code> to transmit the requested audio
 parameters and tell the output module to open the audio device.
 </p>
 </dd>
-<dt><code>QUIT</code></dt>
+<dt><span><code>QUIT</code></span></dt>
 <dd><p>Terminates the output module. It should send the response, deallocate
 all the resources, close all descriptors, terminate all child
 processes etc. Then the output module should exit itself.
@@ -3149,7 +3187,11 @@ processes etc. Then the output module should exit itself.
 </dd>
 </dl>
 
-<span id="Events-notification-and-index-marking-1"></span><h4 class="subsubsection">5.2.2.1 Events notification and index marking</h4>
+<ul class="section-toc">
+<li><a href="#Events-notification-and-index-marking-1" accesskey="1">Events notification and index marking</a></li>
+</ul>
+<div class="subsubsection" id="Events-notification-and-index-marking-1">
+<h4 class="subsubsection">5.2.2.1 Events notification and index marking</h4>
 <span id="Events-notification-and-index-marking"></span>
 <p>Each output module must take care of sending asynchronous
 notifications whenever the synthesizer (or the module) starts or stops
@@ -3175,7 +3217,7 @@ sense and it is an error to send any index marks after <code>STOP</code>,
 </p>
 
 <dl compact="compact">
-<dt><code>BEGIN</code></dt>
+<dt><span><code>BEGIN</code></span></dt>
 <dd>
 <p>This event must be issued whenever the module starts to speak the
 given message. If this is not possible, it can issue it when it
@@ -3188,7 +3230,7 @@ starts to synthesize the message or when it receives the message.
 </pre></div>
 
 </dd>
-<dt><code>END</code></dt>
+<dt><span><code>END</code></span></dt>
 <dd>
 <p>This event must be issued whenever the module terminates speaking the
 given message because it reached its end. If this is not possible, it
@@ -3205,7 +3247,7 @@ speaking the previous message.
 </pre></div>
 
 </dd>
-<dt><code>STOP</code></dt>
+<dt><span><code>STOP</code></span></dt>
 <dd>
 <p>This event should be issued whenever the module terminates speaking
 the given message without reaching its end (as a consequence of
@@ -3223,7 +3265,7 @@ the module to decide, the event <code>END</code> can be used instead.
 </pre></div>
 
 </dd>
-<dt><code>PAUSE</code></dt>
+<dt><span><code>PAUSE</code></span></dt>
 <dd>
 <p>This event should be issued whenever the module terminates speaking
 the given message without reaching its end because of receiving the
@@ -3239,7 +3281,7 @@ the given message without reaching its end because of receiving the
 </pre></div>
 
 </dd>
-<dt><code>INDEX MARK</code></dt>
+<dt><span><code>INDEX MARK</code></span></dt>
 <dd>
 <p>This event should be issued by the output module (if supported)
 whenever an index mark (SSML tag <code>&lt;mark/&gt;</code>) is passed while speaking
@@ -3254,7 +3296,7 @@ a message. It is preceeded by the code <code>700</code> and takes the form
 the tag <code>&lt;mark/&gt;</code>.
 </p>
 </dd>
-<dt><code>AUDIO</code></dt>
+<dt><span><code>AUDIO</code></span></dt>
 <dd>
 <p>This event should be issued by the output module to produce audio through the
 server. It is preceeded by the code <code>705</code> and takes the form
@@ -3275,7 +3317,7 @@ the <code>0x7D</code> escape character: whenever <code>\n</code> or <code>0x7D</
 the data, its 5th bit is inverted and it is prefixed with <code>0x7D</code>.
 </p>
 </dd>
-<dt><code>ICON</code></dt>
+<dt><span><code>ICON</code></span></dt>
 <dd>
 <p>This event should be issued by the output module to emit a sound icon through
 the server. It is preceeded by the code <code>706</code> and takes the form
@@ -3291,7 +3333,10 @@ the server. It is preceeded by the code <code>706</code> and takes the form
 </dl>
 
 <hr>
-<span id="How-to-Write-New-Output-Module"></span><div class="header">
+</div>
+</div>
+<div class="subsection" id="How-to-Write-New-Output-Module">
+<div class="header">
 <p>
 Next: <a href="#The-Skeleton-of-an-Output-Module" accesskey="n" rel="next">The Skeleton of an Output Module</a>, Previous: <a href="#Communication-Protocol-for-Output-Modules" accesskey="p" rel="prev">Communication Protocol for Output Modules</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -3342,7 +3387,9 @@ in order for us to be in a better legal position against possible intruders.
 </li></ul>
 
 <hr>
-<span id="The-Skeleton-of-a-Bare-Output-Module"></span><div class="header">
+</div>
+<div class="subsection" id="The-Skeleton-of-a-Bare-Output-Module">
+<div class="header">
 <p>
 Next: <a href="#The-Skeleton-of-an-Output-Module" accesskey="n" rel="next">The Skeleton of an Output Module</a>, Previous: <a href="#How-to-Write-New-Output-Module" accesskey="p" rel="prev">How to Write New Output Module</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -3413,7 +3460,9 @@ implemented.
 accordingly.
 </p>
 <hr>
-<span id="The-Skeleton-of-an-Output-Module"></span><div class="header">
+</div>
+<div class="subsection" id="The-Skeleton-of-an-Output-Module">
+<div class="header">
 <p>
 Next: <a href="#Output-Module-Functions" accesskey="n" rel="next">Output Module Functions</a>, Previous: <a href="#How-to-Write-New-Output-Module" accesskey="p" rel="prev">How to Write New Output Module</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -3629,14 +3678,16 @@ either. Get in touch with us and together we can figure out what&rsquo;s
 wrong, fix it and then warn others in this manual.
 </p>
 <hr>
-<span id="Output-Module-Functions"></span><div class="header">
+</div>
+<div class="subsection" id="Output-Module-Functions">
+<div class="header">
 <p>
 Next: <a href="#Module-Utils-Functions-and-Macros" accesskey="n" rel="next">Module Utils Functions and Macros</a>, Previous: <a href="#The-Skeleton-of-an-Output-Module" accesskey="p" rel="prev">The Skeleton of an Output Module</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Output-Module-Functions-1"></span><h4 class="subsection">5.2.6 Output Module Functions</h4>
 
-<dl>
-<dt id="index-void-1">Output Module Functions: <strong>void</strong> <em>module_speak_sync (char *data, size_t bytes, EMessageType msgtype)</em></dt>
+<dl class="def">
+<dt id="index-void-1"><span class="category">Output Module Functions: </span><span><strong>void</strong> <em>module_speak_sync (char *data, size_t bytes, EMessageType msgtype)</em><a href='#index-void-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fspeak_0028_0029"></span>
 
 <p>This is the function where the actual speech output is produced. It is
@@ -3691,8 +3742,8 @@ to promptly process messages coming from the server, notably speech stopping
 requests.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-37">Output Module Functions: <strong>int</strong> <em>module_speak (char *data, size_t bytes, EMessageType msgtype)</em></dt>
+<dl class="def">
+<dt id="index-int-37"><span class="category">Output Module Functions: </span><span><strong>int</strong> <em>module_speak (char *data, size_t bytes, EMessageType msgtype)</em><a href='#index-int-37' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fspeak_0028_0029-1"></span>
 
 <p>This is the same as <code>module_speak_sync</code>, except that it proceeds
@@ -3714,8 +3765,8 @@ them to ignore all signals. The simplest way to do this is to use
 module_utils.c) instead of <code>pthread_create()</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-module_005fstop">Output module function: <strong>int module_stop</strong> <em>(void)</em></dt>
+<dl class="def">
+<dt id="index-int-module_005fstop"><span class="category">Output module function: </span><span><strong>int module_stop</strong> <em>(void)</em><a href='#index-int-module_005fstop' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fstop_0028_0029"></span>
 
 <p>This function should stop the synthesis of the currently spoken message
@@ -3730,8 +3781,8 @@ the stop event from another thread.
 <p>It should return 0 on success, -1 otherwise.
 </p></dd></dl>
 
-<dl>
-<dt id="index-size_005ft-module_005fpause">Output module function: <strong>size_t module_pause</strong> <em>(void)</em></dt>
+<dl class="def">
+<dt id="index-size_005ft-module_005fpause"><span class="category">Output module function: </span><span><strong>size_t module_pause</strong> <em>(void)</em><a href='#index-size_005ft-module_005fpause' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fpause_0028_0029"></span>
 
 <p>This function should stop speaking on the synthesizer (or sending
@@ -3771,7 +3822,9 @@ index mark.
 
 
 <hr>
-<span id="Module-Utils-Functions-and-Macros"></span><div class="header">
+</div>
+<div class="subsection" id="Module-Utils-Functions-and-Macros">
+<div class="header">
 <p>
 Next: <a href="#Index-Marks-in-Output-Modules" accesskey="n" rel="next">Index Marks in Output Modules</a>, Previous: <a href="#Output-Module-Functions" accesskey="p" rel="prev">Output Module Functions</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -3783,30 +3836,26 @@ intended to make writing new output modules easier and allow the
 programmer to reuse existing pieces of code instead of writing
 everything from scratch.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Initialization-Macros-and-Functions" accesskey="1">Initialization Macros and Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Generic-Macros-and-Functions" accesskey="2">Generic Macros and Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Functions-used-by-module_005fmain_002ec" accesskey="3">Functions used by module_main.c</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Functions-for-use-when-talking-to-synthesizer" accesskey="4">Functions for use when talking to synthesizer</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Multi_002dprocess-output-modules" accesskey="5">Multi-process output modules</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Memory-Handling-Functions" accesskey="6">Memory Handling Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Initialization-Macros-and-Functions" accesskey="1">Initialization Macros and Functions</a></li>
+<li><a href="#Debugging-Macros" accesskey="2">Debugging Macros</a></li>
+<li><a href="#Generic-Macros-and-Functions" accesskey="3">Generic Macros and Functions</a></li>
+<li><a href="#Functions-used-by-module_005fmain_002ec" accesskey="4">Functions used by <samp>module_main.c</samp></a></li>
+<li><a href="#Functions-for-use-when-talking-to-synthesizer" accesskey="5">Functions for use when talking to synthesizer</a></li>
+<li><a href="#Multi_002dprocess-output-modules" accesskey="6">Multi-process output modules</a></li>
+<li><a href="#Memory-Handling-Functions" accesskey="7">Memory Handling Functions</a></li>
+</ul>
 <hr>
-<span id="Initialization-Macros-and-Functions"></span><div class="header">
+<div class="subsubsection" id="Initialization-Macros-and-Functions">
+<div class="header">
 <p>
 Next: <a href="#Generic-Macros-and-Functions" accesskey="n" rel="next">Generic Macros and Functions</a>, Previous: <a href="#Module-Utils-Functions-and-Macros" accesskey="p" rel="prev">Module Utils Functions and Macros</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Initialization-Macros-and-Functions-1"></span><h4 class="subsubsection">5.2.7.1 Initialization Macros and Functions</h4>
 
-<dl>
-<dt id="index-INIT_005fSETTINGS_005fTABLES">Module Utils macro: <strong>INIT_SETTINGS_TABLES</strong> <em>()</em></dt>
+<dl class="def">
+<dt id="index-INIT_005fSETTINGS_005fTABLES"><span class="category">Module Utils macro: </span><span><strong>INIT_SETTINGS_TABLES</strong> <em>()</em><a href='#index-INIT_005fSETTINGS_005fTABLES' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-INIT_005fSETTINGS_005fTABLES-1"></span>
 <p>This macro initializes the settings tables where the parameters
 received with the <code>SET</code> command are stored. You must call
@@ -3817,9 +3866,11 @@ and <code>UPDATE_STRING_PARAMETER()</code> macros.
 after the output module starts.
 </p></dd></dl>
 
-<span id="Debugging-Macros"></span><h4 class="subsubsection">5.2.7.2 Debugging Macros</h4>
-<dl>
-<dt id="index-DBG">Module Utils macro: <strong>DBG</strong> <em>(format, ...)</em></dt>
+</div>
+<div class="subsubsection" id="Debugging-Macros">
+<h4 class="subsubsection">5.2.7.2 Debugging Macros</h4>
+<dl class="def">
+<dt id="index-DBG"><span class="category">Module Utils macro: </span><span><strong>DBG</strong> <em>(format, ...)</em><a href='#index-DBG' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-DBG-1"></span>
 <p>DBG() outputs a debugging message, if the <code>Debug</code> option in module&rsquo;s
 configuration is set, to the file specified in configuration ad
@@ -3827,8 +3878,8 @@ configuration is set, to the file specified in configuration ad
 function. In fact, it calls printf() internally.
 </p></dd></dl>
 
-<dl>
-<dt id="index-FATAL">Module Utils macro: <strong>FATAL</strong> <em>(text)</em></dt>
+<dl class="def">
+<dt id="index-FATAL"><span class="category">Module Utils macro: </span><span><strong>FATAL</strong> <em>(text)</em><a href='#index-FATAL' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-FATAL-1"></span>
 <p>Outputs a message specified as <code>text</code> and calls exit() with
 the value EXIT_FAILURE. This terminates the whole output module
@@ -3839,14 +3890,16 @@ resources other than those that will be freed by the system.
 </p></dd></dl>
 
 <hr>
-<span id="Generic-Macros-and-Functions"></span><div class="header">
+</div>
+<div class="subsubsection" id="Generic-Macros-and-Functions">
+<div class="header">
 <p>
-Next: <a href="#Functions-used-by-module_005fmain_002ec" accesskey="n" rel="next">Functions used by module_main.c</a>, Previous: <a href="#Initialization-Macros-and-Functions" accesskey="p" rel="prev">Initialization Macros and Functions</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Functions-used-by-module_005fmain_002ec" accesskey="n" rel="next">Functions used by <samp>module_main.c</samp></a>, Previous: <a href="#Initialization-Macros-and-Functions" accesskey="p" rel="prev">Initialization Macros and Functions</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Generic-Macros-and-Functions-1"></span><h4 class="subsubsection">5.2.7.3 Generic Macros and Functions</h4>
 
-<dl>
-<dt id="index-UPDATE_005fPARAMETER">Module Utils macro: <strong>UPDATE_PARAMETER</strong> <em>(param, setter)</em></dt>
+<dl class="def">
+<dt id="index-UPDATE_005fPARAMETER"><span class="category">Module Utils macro: </span><span><strong>UPDATE_PARAMETER</strong> <em>(param, setter)</em><a href='#index-UPDATE_005fPARAMETER' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-UPDATE_005fPARAMETER-1"></span>
 <p>Tests if the integer or enum parameter specified in <code>param</code>
 (e.g. rate, pitch, cap_let_recogn, ...) changed since the
@@ -3884,22 +3937,24 @@ module_speak(char *data, size_t bytes, EMessageType msgtype)
 }
 </pre></dd></dl>
 
-<dl>
-<dt id="index-UPDATE_005fSTRING_005fPARAMETER">Module Utils macro: <strong>UPDATE_STRING_PARAMETER</strong> <em>(param, setter)</em></dt>
+<dl class="def">
+<dt id="index-UPDATE_005fSTRING_005fPARAMETER"><span class="category">Module Utils macro: </span><span><strong>UPDATE_STRING_PARAMETER</strong> <em>(param, setter)</em><a href='#index-UPDATE_005fSTRING_005fPARAMETER' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-UPDATE_005fSTRING_005fPARAMETER-1"></span>
 <p>The same as <code>UPDATE_PARAMETER</code> except that it works for
 parameters with a string value.
 </p></dd></dl>
 
 <hr>
-<span id="Functions-used-by-module_005fmain_002ec"></span><div class="header">
+</div>
+<div class="subsubsection" id="Functions-used-by-module_005fmain_002ec">
+<div class="header">
 <p>
 Next: <a href="#Functions-for-use-when-talking-to-synthesizer" accesskey="n" rel="next">Functions for use when talking to synthesizer</a>, Previous: <a href="#Generic-Macros-and-Functions" accesskey="p" rel="prev">Generic Macros and Functions</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Functions-used-by-module_005fmain_002ec-1"></span><h4 class="subsubsection">5.2.7.4 Functions used by <samp>module_main.c</samp></h4>
 
-<dl>
-<dt id="index-char_002a-2">Module Utils function: <strong>char*</strong> <em>do_speak(void)</em></dt>
+<dl class="def">
+<dt id="index-char_002a-2"><span class="category">Module Utils function: </span><span><strong>char*</strong> <em>do_speak(void)</em><a href='#index-char_002a-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-do_005fspeak"></span>
 <p>Takes care of communication after the <code>SPEAK</code> command was
 received. Calls <code>module_speak()</code> when the full text is received.
@@ -3907,8 +3962,8 @@ received. Calls <code>module_speak()</code> when the full text is received.
 <p>It returns a response according to the communication protocol.
 </p></dd></dl>
 
-<dl>
-<dt id="index-char_002a-3">Module Utils function: <strong>char*</strong> <em>do_stop(void)</em></dt>
+<dl class="def">
+<dt id="index-char_002a-3"><span class="category">Module Utils function: </span><span><strong>char*</strong> <em>do_stop(void)</em><a href='#index-char_002a-3' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-do_005fstop"></span>
 <p>Calls the <code>module_stop()</code> function of the particular
 output module.
@@ -3916,8 +3971,8 @@ output module.
 <p>It returns a response according to the communication protocol.
 </p></dd></dl>
 
-<dl>
-<dt id="index-char_002a-4">Module Utils function: <strong>char*</strong> <em>do_pause(void)</em></dt>
+<dl class="def">
+<dt id="index-char_002a-4"><span class="category">Module Utils function: </span><span><strong>char*</strong> <em>do_pause(void)</em><a href='#index-char_002a-4' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-do_005fpause"></span>
 <p>Calls the <code>module_pause()</code> function of the particular
 output module.
@@ -3926,8 +3981,8 @@ output module.
 and the value returned by <code>module_pause()</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-char_002a-5">Module Utils function: <strong>char*</strong> <em>do_set()</em></dt>
+<dl class="def">
+<dt id="index-char_002a-5"><span class="category">Module Utils function: </span><span><strong>char*</strong> <em>do_set()</em><a href='#index-char_002a-5' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-do_005fset"></span>
 <p>Takes care of communication after the <code>SET</code> command was
 received. Doesn&rsquo;t call any particular function of the output module,
@@ -3938,8 +3993,8 @@ synthesizer to these values.)
 <p>It returns a response according to the communication protocol.
 </p></dd></dl>
 
-<dl>
-<dt id="index-char_002a-6">Module Utils function: <strong>char*</strong> <em>do_speaking()</em></dt>
+<dl class="def">
+<dt id="index-char_002a-6"><span class="category">Module Utils function: </span><span><strong>char*</strong> <em>do_speaking()</em><a href='#index-char_002a-6' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-do_005fspeaking"></span>
 <p>Calls the <code>module_speaking()</code> function.
 </p>
@@ -3947,22 +4002,24 @@ synthesizer to these values.)
 and the value returned by <code>module_speaking()</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-void-2">Module Utils function: <strong>void</strong> <em>do_quit()</em></dt>
+<dl class="def">
+<dt id="index-void-2"><span class="category">Module Utils function: </span><span><strong>void</strong> <em>do_quit()</em><a href='#index-void-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-do_005fquit"></span>
 <p>Prints the farewell message to the standard output, according
 to the protocol. Then it calls <code>module_close()</code>.
 </p></dd></dl>
 
 <hr>
-<span id="Functions-for-use-when-talking-to-synthesizer"></span><div class="header">
+</div>
+<div class="subsubsection" id="Functions-for-use-when-talking-to-synthesizer">
+<div class="header">
 <p>
-Next: <a href="#Multi_002dprocess-output-modules" accesskey="n" rel="next">Multi-process output modules</a>, Previous: <a href="#Functions-used-by-module_005fmain_002ec" accesskey="p" rel="prev">Functions used by module_main.c</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Multi_002dprocess-output-modules" accesskey="n" rel="next">Multi-process output modules</a>, Previous: <a href="#Functions-used-by-module_005fmain_002ec" accesskey="p" rel="prev">Functions used by <samp>module_main.c</samp></a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Functions-for-use-when-talking-to-synthesizer-1"></span><h4 class="subsubsection">5.2.7.5 Functions for use when talking to synthesizer</h4>
 
-<dl>
-<dt id="index-static">Module Utils function: <strong>static</strong> <em>int module_get_message_part ( const char* message, char* part, unsigned int *pos, size_t maxlen, const char* dividers)</em></dt>
+<dl class="def">
+<dt id="index-static"><span class="category">Module Utils function: </span><span><strong>static</strong> <em>int module_get_message_part ( const char* message, char* part, unsigned int *pos, size_t maxlen, const char* dividers)</em><a href='#index-static' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fget_005fmessage_005fpart"></span>
 
 <p>Gets a part of the <code>message</code> according to the specified <code>dividers</code>.
@@ -3992,12 +4049,12 @@ into smaller parts (if they are followed by whitespace).
 where the function terminated in processing <code>message</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-void-3">Output module function: <strong>void</strong> <em>module_report_index_mark(char *mark)</em></dt>
+<dl class="def">
+<dt id="index-void-3"><span class="category">Output module function: </span><span><strong>void</strong> <em>module_report_index_mark(char *mark)</em><a href='#index-void-3' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005freport_005findex_005fmark"></span>
 </dd></dl>
-<dl>
-<dt id="index-void-4">Output module function: <strong>void</strong> <em>module_report_event_*()</em></dt>
+<dl class="def">
+<dt id="index-void-4"><span class="category">Output module function: </span><span><strong>void</strong> <em>module_report_event_*()</em><a href='#index-void-4' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005freport_005fevent_005f_002a"></span>
 
 <p>The <code>module_report_</code> functions serve for reporting event
@@ -4011,8 +4068,8 @@ way to do this is to emit the events from another thread.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-int-38">Output module function: <strong>int</strong> <em>module_close(void)</em></dt>
+<dl class="def">
+<dt id="index-int-38"><span class="category">Output module function: </span><span><strong>int</strong> <em>module_close(void)</em><a href='#index-int-38' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fclose"></span>
 
 <p>This function is called when Speech Dispatcher terminates.  The output
@@ -4025,14 +4082,16 @@ in the middle of its run.
 </dd></dl>
 
 <hr>
-<span id="Multi_002dprocess-output-modules"></span><div class="header">
+</div>
+<div class="subsubsection" id="Multi_002dprocess-output-modules">
+<div class="header">
 <p>
 Next: <a href="#Memory-Handling-Functions" accesskey="n" rel="next">Memory Handling Functions</a>, Previous: <a href="#Functions-for-use-when-talking-to-synthesizer" accesskey="p" rel="prev">Functions for use when talking to synthesizer</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Multi_002dprocess-output-modules-1"></span><h4 class="subsubsection">5.2.7.6 Multi-process output modules</h4>
 
-<dl>
-<dt id="index-size_005ft">Module Utils function: <strong>size_t</strong> <em>module_parent_wfork ( TModuleDoublePipe dpipe,</em></dt>
+<dl class="def">
+<dt id="index-size_005ft"><span class="category">Module Utils function: </span><span><strong>size_t</strong> <em>module_parent_wfork ( TModuleDoublePipe dpipe,</em><a href='#index-size_005ft' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>const char* message, SPDMessageType msgtype, const size_t maxlen,
 const char* dividers, int *pause_requested)
 <span id="index-module_005fparent_005fwfork"></span>
@@ -4081,8 +4140,8 @@ using <code>module_parent_dp_read()</code>.
 </li></ol>
 </dd></dl>
 
-<dl>
-<dt id="index-int-39">Module Utils function: <strong>int</strong> <em>module_parent_wait_continue(TModuleDoublePipe dpipe)</em></dt>
+<dl class="def">
+<dt id="index-int-39"><span class="category">Module Utils function: </span><span><strong>int</strong> <em>module_parent_wait_continue(TModuleDoublePipe dpipe)</em><a href='#index-int-39' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fparent_005fwait_005fcontinue"></span>
 <p>Waits until the character <code>C</code> (continue) is read from the pipe from child.
 This function is intended to be run from the parent.
@@ -4093,100 +4152,105 @@ This function is intended to be run from the parent.
 character could be read.
 </p></dd></dl>
 
-<dl>
-<dt id="index-void-5">Module Utils function: <strong>void</strong> <em>module_parent_dp_init (TModuleDoublePipe dpipe)</em></dt>
+<dl class="def">
+<dt id="index-void-5"><span class="category">Module Utils function: </span><span><strong>void</strong> <em>module_parent_dp_init (TModuleDoublePipe dpipe)</em><a href='#index-void-5' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fparent_005fdp_005finit"></span>
 <p>Initializes pipes (dpipe) in the parent. Currently it only closes the unnecessary ends.
 </p></dd></dl>
 
-<dl>
-<dt id="index-void-6">Module Utils function: <strong>void</strong> <em>module_child_dp_close (TModuleDoublePipe dpipe)</em></dt>
+<dl class="def">
+<dt id="index-void-6"><span class="category">Module Utils function: </span><span><strong>void</strong> <em>module_child_dp_close (TModuleDoublePipe dpipe)</em><a href='#index-void-6' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fchild_005fdp_005finit"></span>
 <p>Initializes pipes (dpipe) in the child. Currently it only closes the unnecessary ends.
 </p></dd></dl>
 
-<dl>
-<dt id="index-void-7">Module Utils function: <strong>void</strong> <em>module_child_dp_write(TModuleDoublePipe dpipe,  const char *msg, size_t bytes)</em></dt>
+<dl class="def">
+<dt id="index-void-7"><span class="category">Module Utils function: </span><span><strong>void</strong> <em>module_child_dp_write(TModuleDoublePipe dpipe,  const char *msg, size_t bytes)</em><a href='#index-void-7' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fchild_005fdp_005fwrite"></span>
 <p>Writes the specified number of <code>bytes</code> from <code>msg</code> to the pipe to the
 parent. This function is intended, as the prefix says, to be run from the child.
 Uses the pipes defined in <code>dpipe</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-void-8">Module Utils function: <strong>void</strong> <em>module_parent_dp_write(TModuleDoublePipe dpipe,  const char *msg, size_t bytes)</em></dt>
+<dl class="def">
+<dt id="index-void-8"><span class="category">Module Utils function: </span><span><strong>void</strong> <em>module_parent_dp_write(TModuleDoublePipe dpipe,  const char *msg, size_t bytes)</em><a href='#index-void-8' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fparent_005fdp_005fwrite"></span>
 <p>Writes the specified number of <code>bytes</code> from <code>msg</code> into the pipe to the
 child. This function is intended, as the prefix says, to be run from the parent.
 Uses the pipes defined in <code>dpipe</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-40">Module Utils function: <strong>int</strong> <em>module_child_dp_read(TModuleDoublePipe dpipe  char *msg, size_t maxlen)</em></dt>
+<dl class="def">
+<dt id="index-int-40"><span class="category">Module Utils function: </span><span><strong>int</strong> <em>module_child_dp_read(TModuleDoublePipe dpipe  char *msg, size_t maxlen)</em><a href='#index-int-40' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fchild_005fdp_005fread"></span>
 <p>Reads up to <code>maxlen</code> bytes from the pipe from parent into the buffer <code>msg</code>.
 This function is intended, as the prefix says, to be run from the child.
 Uses the pipes defined in <code>dpipe</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-int-41">Module Utils function: <strong>int</strong> <em>module_parent_dp_read(TModuleDoublePipe dpipe,  char *msg, size_t maxlen)</em></dt>
+<dl class="def">
+<dt id="index-int-41"><span class="category">Module Utils function: </span><span><strong>int</strong> <em>module_parent_dp_read(TModuleDoublePipe dpipe,  char *msg, size_t maxlen)</em><a href='#index-int-41' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fparent_005fdp_005fread"></span>
 <p>Reads up to <code>maxlen</code> bytes from the pipe from child into the buffer <code>msg</code>.
 This function is intended, as the prefix says, to be run from the parent.
 Uses the pipes defined in <code>dpipe</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-void-9">Module Utils function: <strong>void</strong> <em>module_sigblockall(void)</em></dt>
+<dl class="def">
+<dt id="index-void-9"><span class="category">Module Utils function: </span><span><strong>void</strong> <em>module_sigblockall(void)</em><a href='#index-void-9' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fsigblockall"></span>
 <p>Blocks all signals. This is intended to be run from the child processes
 and threads so that their signal handling won&rsquo;t interfere with the
 parent.
 </p></dd></dl>
 
-<dl>
-<dt id="index-void-10">Module Utils function: <strong>void</strong> <em>module_sigunblockusr(sigset_t *some_signals)</em></dt>
+<dl class="def">
+<dt id="index-void-10"><span class="category">Module Utils function: </span><span><strong>void</strong> <em>module_sigunblockusr(sigset_t *some_signals)</em><a href='#index-void-10' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fsigunblockusr"></span>
 <p>Use the set <code>some_signals</code> to unblock SIGUSR1.
 </p></dd></dl>
 
-<dl>
-<dt id="index-void-11">Module Utils function: <strong>void</strong> <em>module_sigblockusr(sigset_t *some_signals)</em></dt>
+<dl class="def">
+<dt id="index-void-11"><span class="category">Module Utils function: </span><span><strong>void</strong> <em>module_sigblockusr(sigset_t *some_signals)</em><a href='#index-void-11' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-module_005fsigblockusr"></span>
 <p>Use the set <code>some_signals</code> to block SIGUSR1.
 </p></dd></dl>
 
 <hr>
-<span id="Memory-Handling-Functions"></span><div class="header">
+</div>
+<div class="subsubsection" id="Memory-Handling-Functions">
+<div class="header">
 <p>
 Previous: <a href="#Multi_002dprocess-output-modules" accesskey="p" rel="prev">Multi-process output modules</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Memory-Handling-Functions-1"></span><h4 class="subsubsection">5.2.7.7 Memory Handling Functions</h4>
 
-<dl>
-<dt id="index-static-1">Module Utils function: <strong>static</strong> <em>void* xmalloc (size_t size)</em></dt>
+<dl class="def">
+<dt id="index-static-1"><span class="category">Module Utils function: </span><span><strong>static</strong> <em>void* xmalloc (size_t size)</em><a href='#index-static-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-xmalloc"></span>
 <p>The same as the classical <code>malloc()</code> except that it executes
 <code>FATAL(``Not enough memory'')</code> on error.
 </p></dd></dl>
 
-<dl>
-<dt id="index-static-2">Module Utils function: <strong>static</strong> <em>void* xrealloc (void *data, size_t size)</em></dt>
+<dl class="def">
+<dt id="index-static-2"><span class="category">Module Utils function: </span><span><strong>static</strong> <em>void* xrealloc (void *data, size_t size)</em><a href='#index-static-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-xrealloc"></span>
 <p>The same as the classical <code>realloc()</code> except that it also accepts
 <code>NULL</code> as <code>data</code>. In this case, it behaves as <code>xmalloc</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-void-12">Module Utils function: <strong>void</strong> <em>xfree(void *data)</em></dt>
+<dl class="def">
+<dt id="index-void-12"><span class="category">Module Utils function: </span><span><strong>void</strong> <em>xfree(void *data)</em><a href='#index-void-12' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-xfree"></span>
 <p>The same as the classical <code>free()</code> except that it checks
 if data isn&rsquo;t NULL before calling <code>free()</code>.
 </p></dd></dl>
 
 <hr>
-<span id="Index-Marks-in-Output-Modules"></span><div class="header">
+</div>
+</div>
+<div class="subsection" id="Index-Marks-in-Output-Modules">
+<div class="header">
 <p>
 Previous: <a href="#Module-Utils-Functions-and-Macros" accesskey="p" rel="prev">Module Utils Functions and Macros</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -4226,7 +4290,11 @@ some place close by and report the last index mark).
 <p>Notice that index marks are in SSML format using the <code>mark</code> tag.
 </p>
 <hr>
-<span id="Download-and-Contact"></span><div class="header">
+</div>
+</div>
+</div>
+<div class="chapter" id="Download-and-Contact">
+<div class="header">
 <p>
 Next: <a href="#Reporting-Bugs" accesskey="n" rel="next">Reporting Bugs</a>, Previous: <a href="#Server-Programming" accesskey="p" rel="prev">Server Programming</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -4248,9 +4316,11 @@ try to look at <a href="http://www.rpmfind.net/">http://www.rpmfind.net/</a>.
 or use the email <a href="mailto:users@lists.freebsoft.org">users@lists.freebsoft.org</a>.
 </p>
 <hr>
-<span id="Reporting-Bugs"></span><div class="header">
+</div>
+<div class="chapter" id="Reporting-Bugs">
+<div class="header">
 <p>
-Next: <a href="#How-You-Can-Help" accesskey="n" rel="next">How You Can Help</a>, Previous: <a href="#Download-and-Contact" accesskey="p" rel="prev">Download and Contact</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#How-You-Can-Help" accesskey="n" rel="next">How You Can Help</a>, Previous: <a href="#Download-and-Contact" accesskey="p" rel="prev">Download</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Reporting-Bugs-1"></span><h2 class="chapter">7 Reporting Bugs</h2>
 
@@ -4310,7 +4380,9 @@ usually not very helpful. If you are able to provide additional technical
 information instead, please do so.
 </p>
 <hr>
-<span id="How-You-Can-Help"></span><div class="header">
+</div>
+<div class="chapter" id="How-You-Can-Help">
+<div class="header">
 <p>
 Next: <a href="#Appendices" accesskey="n" rel="next">Appendices</a>, Previous: <a href="#Reporting-Bugs" accesskey="p" rel="prev">Reporting Bugs</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -4385,14 +4457,18 @@ and Free Software.
 </li></ul>
 
 <hr>
-<span id="Appendices"></span><div class="header">
+</div>
+<div class="appendix" id="Appendices">
+<div class="header">
 <p>
 Next: <a href="#GNU-General-Public-License" accesskey="n" rel="next">GNU General Public License</a>, Previous: <a href="#How-You-Can-Help" accesskey="p" rel="prev">How You Can Help</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Appendices-1"></span><h2 class="appendix">Appendix A Appendices</h2>
 
 <hr>
-<span id="GNU-General-Public-License"></span><div class="header">
+</div>
+<div class="appendix" id="GNU-General-Public-License">
+<div class="header">
 <p>
 Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Appendices" accesskey="p" rel="prev">Appendices</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -4753,7 +4829,9 @@ library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.
 </p>
 <hr>
-<span id="GNU-Free-Documentation-License"></span><div class="header">
+</div>
+<div class="appendix" id="GNU-Free-Documentation-License">
+<div class="header">
 <p>
 Next: <a href="#Index-of-Concepts" accesskey="n" rel="next">Index of Concepts</a>, Previous: <a href="#GNU-General-Public-License" accesskey="p" rel="prev">GNU General Public License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -5137,7 +5215,11 @@ number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.
 </p></li></ol>
 
-<span id="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></span><h3 class="appendixsec">C.1 ADDENDUM: How to use this License for your documents</h3>
+<ul class="section-toc">
+<li><a href="#ADDENDUM_003a-How-to-use-this-License-for-your-documents" accesskey="1">ADDENDUM: How to use this License for your documents</a></li>
+</ul>
+<div class="appendixsec" id="ADDENDUM_003a-How-to-use-this-License-for-your-documents">
+<h3 class="appendixsec">C.1 ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
@@ -5174,7 +5256,10 @@ to permit their use in free software.
 
 
 <hr>
-<span id="Index-of-Concepts"></span><div class="header">
+</div>
+</div>
+<div class="unnumbered" id="Index-of-Concepts">
+<div class="header">
 <p>
 Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -5465,7 +5550,7 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
  &nbsp; 
 </td></tr></table>
 
-<hr>
+</div>
 
 
 
