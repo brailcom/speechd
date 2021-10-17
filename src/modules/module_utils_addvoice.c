@@ -228,7 +228,7 @@ char *module_getvoice(const char *language, SPDVoiceType voice)
 	}
 
 	switch (voice) {
-	case -1:
+	case SPD_UNSPECIFIED:
 	case SPD_MALE1:
 		ret = voices->male1;
 		break;

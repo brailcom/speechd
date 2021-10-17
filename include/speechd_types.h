@@ -47,7 +47,8 @@ typedef enum {
 	SPD_FEMALE2 = 5,
 	SPD_FEMALE3 = 6,
 	SPD_CHILD_MALE = 7,
-	SPD_CHILD_FEMALE = 8
+	SPD_CHILD_FEMALE = 8,
+	SPD_UNSPECIFIED = -1
 } SPDVoiceType;
 
 typedef struct {
