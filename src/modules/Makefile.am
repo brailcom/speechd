@@ -23,6 +23,7 @@ EXTRA_DIST += ibmtts_shim.c eci.h
 EXTRA_DIST += voxin_shim.c voxin.h
 EXTRA_DIST += module_main.h module_utils.h
 EXTRA_DIST += dummy-message-default.wav
+EXTRA_DIST += dummy-message.txt
 CLEANFILES = dummy-message.wav
 
 inc_local = -I$(top_srcdir)/include -I$(top_srcdir)/src/common
