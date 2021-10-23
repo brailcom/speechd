@@ -81,7 +81,11 @@ typedef enum {
 static int espeak_sample_rate = 0;
 static SPDVoice **espeak_voice_list = NULL;
 #ifdef ESPEAK_NG_INCLUDE
-static const espeak_VOICE **espeak_variants = NULL;
+struct espeak_variant {
+	char *name;
+	char *identifier;
+};
+static struct espeak_variant *espeak_variants_array = NULL;
 #endif
 
 /* When a voice is set, this is the baseline pitch of the voice.
@@ -608,10 +612,10 @@ static void espeak_set_synthesis_voice(char *synthesis_voice)
 			variant_name = voice_split[1];
 			g_free(voice_split);
 
-			for (i = 0; espeak_variants[i] != NULL; i++) {
-				identifier = g_strsplit(espeak_variants[i]->identifier, "/", 2);
+			for (i = 0; espeak_variants_array[i].name != NULL; i++) {
+				identifier = g_strsplit(espeak_variants_array[i].identifier, "/", 2);
 
-				if (g_strcmp0(espeak_variants[i]->name, variant_name) == 0) {
+				if (g_strcmp0(espeak_variants_array[i].name, variant_name) == 0) {
 					if (identifier[1] != NULL)
 						variant_file = g_strdup(identifier[1]);
 				} else if (g_strcmp0(identifier[1], variant_name) == 0) {
@@ -777,9 +781,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 	SPDVoice *voice = NULL;
 	SPDVoice *vo = NULL;
 	const espeak_VOICE **espeak_voices = NULL;
-#ifndef ESPEAK_NG_INCLUDE
 	const espeak_VOICE **espeak_variants = NULL;
-#endif
 	const espeak_VOICE **espeak_mbrola = NULL;
 	espeak_VOICE voice_spec;
 	const espeak_VOICE *v = NULL;
@@ -841,6 +843,14 @@ static SPDVoice **espeak_list_synthesis_voices()
 	DBG(DBG_MODNAME " %d variants total.", numvariants);
 
 #ifdef ESPEAK_NG_INCLUDE
+	espeak_variants_array = malloc((numvariants+1) * sizeof(*espeak_variants_array));
+	for (i = 0; i < numvariants; i++) {
+		v = espeak_variants[i];
+		espeak_variants_array[i].name = g_strdup(v->name);
+		espeak_variants_array[i].identifier = g_strdup(v->identifier);
+	}
+	espeak_variants_array[numvariants].name = NULL;
+
 	voice_spec.languages = "mbrola";
 	espeak_mbrola = espeak_ListVoices(&voice_spec);
 	const char *espeak_data;
@@ -957,6 +967,9 @@ static SPDVoice **espeak_list_synthesis_voices()
 
 static void espeak_free_voice_list()
 {
+#ifdef ESPEAK_NG_INCLUDE
+	free(espeak_variants_array);
+#endif
 	if (espeak_voice_list != NULL) {
 		int i;
 		for (i = 0; espeak_voice_list[i] != NULL; i++) {
