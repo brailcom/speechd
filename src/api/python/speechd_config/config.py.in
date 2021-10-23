@@ -766,8 +766,12 @@ you have to start it manually to continue."""))
 # Basic objects
 
 def main():
+    global dont_ask, use_espeak_synthesis
+
     options = setup_argparse()
     options = options.parse_args()
+    dont_ask = options.dont_ask
+    use_espeak_synthesis = options.use_espeak_synthesis
     test = Tests()
     configure = Configure(test) # that should possibly be refactored, test should not be passed
 
