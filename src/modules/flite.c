@@ -251,7 +251,9 @@ int module_close(void)
 	}
 
 	g_free(flite_voice);
+	flite_voice = NULL;
 	g_free(buf);
+	buf = NULL;
 
 	return 0;
 }

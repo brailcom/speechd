@@ -45,6 +45,7 @@ static int dummy_speaking = 0;
 static pthread_t dummy_speak_thread;
 static pid_t dummy_pid;
 static sem_t dummy_semaphore;
+static gboolean initialized = FALSE;
 
 /* Internal functions prototypes */
 static void *_dummy_speak(void *);
@@ -83,6 +84,7 @@ int module_init(char **status_info)
 		return -1;
 	}
 
+	initialized = TRUE;
 	*status_info = g_strdup("Everything ok so far.");
 
 	DBG("Ok, now debugging");
@@ -148,6 +150,9 @@ int module_close(void)
 {
 	DBG("dummy: close()\n");
 
+	if (!initialized)
+		return 0;
+
 	if (dummy_speaking) {
 		module_stop();
 	}
@@ -157,6 +162,7 @@ int module_close(void)
 
 	sem_destroy(&dummy_semaphore);
 
+	initialized = FALSE;
 	return 0;
 }
 

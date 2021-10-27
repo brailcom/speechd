@@ -340,8 +340,10 @@ int module_close(void)
 	// DBG("festivalClose()");
 	// festivalClose(festival_info);
 
-	if (festival_info)
+	if (festival_info) {
 		delete_FT_Info(festival_info);
+		festival_info = NULL;
+	}
 
 	/* TODO: Solve this */
 	//    DBG("Removing junk files in tmp/");

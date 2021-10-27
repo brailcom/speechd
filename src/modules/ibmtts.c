@@ -155,6 +155,8 @@ static gboolean stop_requested = FALSE;
 static gboolean pause_requested = FALSE;
 static gboolean pause_index_sent = FALSE;
 
+static gboolean initialized = FALSE;
+
 /* ECI */
 static ECIHand eciHandle = NULL_ECI_HAND;
 static int eci_sample_rate = 0;
@@ -415,6 +417,8 @@ int module_init(char **status_info)
 
 	set_punctuation_mode(msg_settings.punctuation_mode);
 
+	initialized = TRUE;
+
 	if (!alloc_voice_list()) {
 		DBG(DBG_MODNAME "voice list allocation failed.");
 		*status_info =
@@ -540,6 +544,9 @@ int module_close(void)
 
 	DBG(DBG_MODNAME "close().");
 
+	if (!initialized)
+		return 0;
+
 	DBG(DBG_MODNAME "Stopping speech");
 	module_stop();
 
@@ -560,6 +567,8 @@ int module_close(void)
 	}
 
 	free_voice_list();
+
+	initialized = FALSE;
 
 	return 0;
 }

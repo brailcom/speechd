@@ -101,6 +101,8 @@ static int pause_requested = 0;
 static int pause_index_sent = 0;
 static int began = 0;
 
+static gboolean initialized = FALSE;
+
 /* <Function prototypes*/
 
 static TEspeakSuccess espeak_set_punctuation_list_from_utf8(const char *punct);
@@ -216,6 +218,7 @@ int module_init(char **status_info)
 
 	espeak_voice_list = espeak_list_synthesis_voices();
 
+	initialized = TRUE;
 	*status_info = g_strdup(DBG_MODNAME " Initialized successfully.");
 
 	return OK;
@@ -376,12 +379,15 @@ int module_close(void)
 {
 	DBG(DBG_MODNAME " close().");
 
-	DBG(DBG_MODNAME " Terminating threads");
+	if (!initialized)
+		return 0;
 
 	DBG(DBG_MODNAME " terminating synthesis.");
 	espeak_Terminate();
 
 	espeak_free_voice_list();
+
+	initialized = FALSE;
 
 	return 0;
 }
