@@ -54,8 +54,8 @@ int module_config(const char *configfilename) {
 			   CASE_INSENSITIVE);
 
 	if (!configfile) {
-		DBG("Can't read specified config file!\n");
-		return -1;
+		DBG("Can't read specified config file! Using defaults...\n");
+		return 0;
 	}
 
 	if (dotconf_command_loop(configfile) == 0) {
