@@ -37,7 +37,7 @@
 #define MODULE_NAME     "dummy"
 #define MODULE_VERSION  "0.1"
 
-//#define Debug 0
+DECLARE_DEBUG()
 
 /* Thread and process control */
 static int dummy_speaking = 0;
@@ -57,6 +57,8 @@ int module_load(void)
 {
 
 	INIT_SETTINGS_TABLES();
+
+	REGISTER_DEBUG();
 
 	return 0;
 }
