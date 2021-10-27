@@ -217,6 +217,8 @@ static Engine baratinoo_engine = {
 	.pause_index_sent = FALSE,
 };
 
+static gboolean BC_initialized = FALSE;
+
 /* Internal functions prototypes */
 static SPDVoice **baratinoo_list_voices(BCengine *engine);
 /* Parameters */
@@ -326,6 +328,7 @@ int module_init(char **status_info)
 					"properly set up.");
 		return -1;
 	}
+	BC_initialized = TRUE;
 	DBG(DBG_MODNAME "Using Baratinoo %s", BCgetBaratinooVersion());
 
 #ifndef BARATINOO_ABI_IS_STABLE_ENOUGH_FOR_ME
@@ -594,8 +597,11 @@ int module_close(void)
 	    engine->engine = NULL;
 	}
 
-	/* uninitialize */
-	BCterminatelib();
+	if (BC_initialized) {
+		/* uninitialize */
+		BCterminatelib();
+		BC_initialized = FALSE;
+	}
 
 	DBG(DBG_MODNAME "Module closed.");
 

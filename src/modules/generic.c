@@ -52,6 +52,8 @@ static int generic_pause_requested = 0;
 static char *execute_synth_str1;
 static char *execute_synth_str2;
 
+static gboolean initialized = FALSE;
+
 /* Internal functions prototypes */
 static void *get_ht_option(GHashTable * hash_table, const char *key);
 static void *_generic_speak(void *);
@@ -186,6 +188,7 @@ int module_init(char **status_info)
 		return -1;
 	}
 
+	initialized = TRUE;
 	*status_info = g_strdup("Everything ok so far.");
 	return 0;
 }
@@ -296,10 +299,15 @@ int module_close(void)
 		module_stop();
 	}
 
+	if (!initialized)
+		return 0;
+
 	if (module_terminate_thread(generic_speak_thread) != 0)
 		return -1;
 
 	sem_destroy(&generic_semaphore);
+
+	initialized = FALSE;
 
 	return 0;
 }
