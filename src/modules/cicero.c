@@ -148,6 +148,7 @@ int module_init(char **status_info)
 	DBG("Module init\n");
 
 	if (access(CiceroExecutable, X_OK) != 0) {
+		*status_info = g_strdup_printf("can not reach executable %s", CiceroExecutable);
 		DBG("ERROR: can not reach executable %s", CiceroExecutable);
 		return -1;
 	}
@@ -156,6 +157,7 @@ int module_init(char **status_info)
 
 	DBG("call the pipe system call\n");
 	if (pipe(fd1) < 0 || pipe(fd2) < 0) {
+		*status_info = g_strdup("Could not create pipe");
 		DBG("Error pipe()\n");
 		return -1;
 	}
@@ -171,6 +173,7 @@ int module_init(char **status_info)
 	}
 	switch (fork()) {
 	case -1:{
+			*status_info = g_strdup("Could not fork");
 			DBG("Error fork()\n");
 			return -1;
 		}
