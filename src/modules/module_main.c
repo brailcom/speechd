@@ -40,7 +40,7 @@
 int main(int argc, char *argv[])
 {
 	char *configfile = NULL;
-	char *line, *msg;
+	char *line, *msg = NULL;
 	int ret;
 
 	if (argc >= 2)
