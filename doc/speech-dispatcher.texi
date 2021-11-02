@@ -1426,7 +1426,7 @@ about current external client libraries.
 @node Initializing and Terminating in C, Speech Synthesis Commands in C, C API, C API
 @subsection Initializing and Terminating
 
-@deffn {C API function} SPDConnection* spd_open(char* client_name, char* connection_name, char* user_name, SPDConnectionMode connection_mode)
+@deffn {C API function} SPDConnection* spd_open(const char* client_name, const char* connection_name, const char* user_name, SPDConnectionMode connection_mode)
 @findex spd_open()
 
 Opens a new connection to Speech Dispatcher and returns a socket file
@@ -1481,7 +1481,7 @@ closed, threads are terminated and memory is freed.
 
 @end deffn
 
-@deffn {C API function} SPDConnection* spd_open2(char* client_name, char* connection_name, char* user_name, SPDConnectionMode connection_mode, SPDConnectionMethod method, int autospawn)
+@deffn {C API function} SPDConnection* spd_open2(const char* client_name, const char* connection_name, const char* user_name, SPDConnectionMode connection_mode, const SPDConnectionAddress * address, int autospawn, char **error_result)
 @findex spd_open2()
 
 Opens a new connection to Speech Dispatcher and returns a socket file
@@ -1489,15 +1489,28 @@ descriptor. This function is the same as @code{spd_open} except that
 it gives more control of the communication method and autospawn
 functionality as described below.
 
-@code{method} is either @code{SPD_METHOD_UNIX_SOCKET} or @code{SPD_METHOD_INET_SOCKET}. By default,
-unix socket communication should be preferred, but inet sockets are necessary for cross-network
-communication.
+@code{address} designates the address to which this should connect to.
+Setting this to NULL lets libspeechd use the default address (as reported by
+@code{spd_get_default_address}).
+The @code{method} field of @code{address} can be either
+@code{SPD_METHOD_UNIX_SOCKET} or @code{SPD_METHOD_INET_SOCKET}.  In the Unix
+case, the @code{unix_socket_name} field must be set to the Unix path. In the
+Inet case, the @code{inet_socket_host} field must be set to the Inet host, and
+the @code{inet_socket_port} must be set to the TCP port to be used (in host
+endianness). The @code{dbus_bus} is currently unused.
+
+By default, unix socket communication should be preferred, but inet sockets are
+necessary for cross-network communication.
 
 @code{autospawn} is a boolean flag specifying whether the function
 should try to autospawn (autostart) the Speech Dispatcher server
 process if it is not running already. This is set to 1 by default, so
 this function should normally not fail even if the server is not yet
 running.
+
+@code{error_result} has to be the address of a @code{char*} variable, which will
+be filled with an error message if some error occurs. That message must be freed
+with @code{free}.
 
 @end deffn
 
@@ -1546,7 +1559,7 @@ typedef enum@{
 
 @end defvar
 
-@deffn {C API function}  int spd_say(SPDConnection* connection, SPDPriority priority, char* text);
+@deffn {C API function}  int spd_say(SPDConnection* connection, SPDPriority priority, const char* text);
 @findex spd_say()
 
 Sends a message to Speech Dispatcher. If this message isn't blocked by
@@ -1570,7 +1583,7 @@ handling.
 
 @end deffn
 
-@deffn {C API function}  int spd_sayf(SPDConnection* connection, SPDPriority priority, char* format, ...);
+@deffn {C API function}  int spd_sayf(SPDConnection* connection, SPDPriority priority, const char* format, ...);
 @findex spd_sayf()
 
 Similar to @code{spd_say()}, simulates the behavior of printf().
@@ -1768,7 +1781,7 @@ It returns 0 on success, -1 otherwise.
 @node Characters and Keys in C, Sound Icons in C, Speech output control commands in C, C API
 @subsection Characters and Keys
 
-@deffn {C API function}  int spd_char(SPDConnection* connection, SPDPriority priority, char* character);
+@deffn {C API function}  int spd_char(SPDConnection* connection, SPDPriority priority, const char* character);
 @findex spd_char()
 
 Says a character according to user settings for characters. For example, this can be
@@ -1793,7 +1806,7 @@ The same as spd_char(), but it takes a wchar_t variable as its argument.
 It returns 0 on success, -1 otherwise.
 @end deffn
 
-@deffn {C API function} int spd_key(SPDConnection* connection, SPDPriority priority, char* key_name);
+@deffn {C API function} int spd_key(SPDConnection* connection, SPDPriority priority, const char* key_name);
 @findex spd_key()
 
 Says a key according to user settings for keys.
@@ -1814,7 +1827,7 @@ It returns 0 on success, -1 otherwise.
 @node Sound Icons in C, Parameter Setting Commands in C, Characters and Keys in C, C API
 @subsection Sound Icons
 
-@deffn {C API function}  int spd_sound_icon(SPDConnection* connection, SPDPriority priority, char* icon_name);
+@deffn {C API function}  int spd_sound_icon(SPDConnection* connection, SPDPriority priority, const char* icon_name);
 @findex spd_sound_icon()
 
 Sends a sound icon ICON_NAME. These are symbolic names that are mapped
@@ -1854,7 +1867,7 @@ or include changes of voice parameters in the text.
 
 @end deffn
 
-@deffn {C API function}  int spd_set_language(SPDConnection* connection, char* language);
+@deffn {C API function}  int spd_set_language(SPDConnection* connection, const char* language);
 @findex spd_set_language()
 
 Sets the language that should be used for synthesis.
@@ -1866,7 +1879,7 @@ Sets the language that should be used for synthesis.
 
 @end deffn
 
-@deffn {C API function}  int spd_set_output_module(SPDConnection* connection, char* output_module);
+@deffn {C API function}  int spd_set_output_module(SPDConnection* connection, const char* output_module);
 @findex spd_set_output_module()
 @anchor{spd_set_output_module}
 
@@ -1938,7 +1951,7 @@ Set a preferred symbolic voice.
 
 @end deffn
 
-@deffn {C API function}  int spd_set_synthesis_voice(SPDConnection* connection, char* voice_name);
+@deffn {C API function}  int spd_set_synthesis_voice(SPDConnection* connection, const char* voice_name);
 @findex spd_set_voice_type()
 @anchor{spd_set_synthesis_voice}
 
@@ -2284,7 +2297,7 @@ available functions, please let us know.) For this purpose, there are
 a few functions that will allow you to send arbitrary SSIP commands on
 your connection and read the replies.
 
-@deffn {C API function} int spd_execute_command(SPDConnection* connection, char *command);
+@deffn {C API function} int spd_execute_command(SPDConnection* connection, const char *command);
 @findex spd_execute_command()
 
 You can send an arbitrary SSIP command specified in the parameter @code{command}.

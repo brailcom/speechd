@@ -1629,7 +1629,7 @@ Next: <a href="#Speech-Synthesis-Commands-in-C" accesskey="n" rel="next">Speech 
 <span id="Initializing-and-Terminating"></span><h4 class="subsection">4.1.1 Initializing and Terminating</h4>
 
 <dl class="def">
-<dt id="index-SPDConnection_002a"><span class="category">C API function: </span><span><strong>SPDConnection*</strong> <em>spd_open(char* client_name, char* connection_name, char* user_name, SPDConnectionMode connection_mode)</em><a href='#index-SPDConnection_002a' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-SPDConnection_002a"><span class="category">C API function: </span><span><strong>SPDConnection*</strong> <em>spd_open(const char* client_name, const char* connection_name, const char* user_name, SPDConnectionMode connection_mode)</em><a href='#index-SPDConnection_002a' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fopen_0028_0029"></span>
 
 <p>Opens a new connection to Speech Dispatcher and returns a socket file
@@ -1685,7 +1685,7 @@ closed, threads are terminated and memory is freed.
 </dd></dl>
 
 <dl class="def">
-<dt id="index-SPDConnection_002a-1"><span class="category">C API function: </span><span><strong>SPDConnection*</strong> <em>spd_open2(char* client_name, char* connection_name, char* user_name, SPDConnectionMode connection_mode, SPDConnectionMethod method, int autospawn)</em><a href='#index-SPDConnection_002a-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-SPDConnection_002a-1"><span class="category">C API function: </span><span><strong>SPDConnection*</strong> <em>spd_open2(const char* client_name, const char* connection_name, const char* user_name, SPDConnectionMode connection_mode, const SPDConnectionAddress * address, int autospawn, char **error_result)</em><a href='#index-SPDConnection_002a-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fopen2_0028_0029"></span>
 
 <p>Opens a new connection to Speech Dispatcher and returns a socket file
@@ -1693,15 +1693,28 @@ descriptor. This function is the same as <code>spd_open</code> except that
 it gives more control of the communication method and autospawn
 functionality as described below.
 </p>
-<p><code>method</code> is either <code>SPD_METHOD_UNIX_SOCKET</code> or <code>SPD_METHOD_INET_SOCKET</code>. By default,
-unix socket communication should be preferred, but inet sockets are necessary for cross-network
-communication.
+<p><code>address</code> designates the address to which this should connect to.
+Setting this to NULL lets libspeechd use the default address (as reported by
+<code>spd_get_default_address</code>).
+The <code>method</code> field of <code>address</code> can be either
+<code>SPD_METHOD_UNIX_SOCKET</code> or <code>SPD_METHOD_INET_SOCKET</code>.  In the Unix
+case, the <code>unix_socket_name</code> field must be set to the Unix path. In the
+Inet case, the <code>inet_socket_host</code> field must be set to the Inet host, and
+the <code>inet_socket_port</code> must be set to the TCP port to be used (in host
+endianness). The <code>dbus_bus</code> is currently unused.
+</p>
+<p>By default, unix socket communication should be preferred, but inet sockets are
+necessary for cross-network communication.
 </p>
 <p><code>autospawn</code> is a boolean flag specifying whether the function
 should try to autospawn (autostart) the Speech Dispatcher server
 process if it is not running already. This is set to 1 by default, so
 this function should normally not fail even if the server is not yet
 running.
+</p>
+<p><code>error_result</code> has to be the address of a <code>char*</code> variable, which will
+be filled with an error message if some error occurs. That message must be freed
+with <code>free</code>.
 </p>
 </dd></dl>
 
@@ -1760,7 +1773,7 @@ can be assigned to a message.
 </dd></dl>
 
 <dl class="def">
-<dt id="index-int-1"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_say(SPDConnection* connection, SPDPriority priority, char* text);</em><a href='#index-int-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-int-1"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_say(SPDConnection* connection, SPDPriority priority, const char* text);</em><a href='#index-int-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fsay_0028_0029"></span>
 
 <p>Sends a message to Speech Dispatcher. If this message isn&rsquo;t blocked by
@@ -1785,7 +1798,7 @@ handling.
 </dd></dl>
 
 <dl class="def">
-<dt id="index-int-2"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_sayf(SPDConnection* connection, SPDPriority priority, char* format, ...);</em><a href='#index-int-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-int-2"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_sayf(SPDConnection* connection, SPDPriority priority, const char* format, ...);</em><a href='#index-int-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fsayf_0028_0029"></span>
 
 <p>Similar to <code>spd_say()</code>, simulates the behavior of printf().
@@ -2008,7 +2021,7 @@ Next: <a href="#Sound-Icons-in-C" accesskey="n" rel="next">Sound Icons</a>, Prev
 <span id="Characters-and-Keys"></span><h4 class="subsection">4.1.4 Characters and Keys</h4>
 
 <dl class="def">
-<dt id="index-int-15"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_char(SPDConnection* connection, SPDPriority priority, char* character);</em><a href='#index-int-15' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-int-15"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_char(SPDConnection* connection, SPDPriority priority, const char* character);</em><a href='#index-int-15' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fchar_0028_0029"></span>
 
 <p>Says a character according to user settings for characters. For example, this can be
@@ -2035,7 +2048,7 @@ character. If it contains more characters, only the first one is processed.
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-int-17"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_key(SPDConnection* connection, SPDPriority priority, char* key_name);</em><a href='#index-int-17' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-int-17"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_key(SPDConnection* connection, SPDPriority priority, const char* key_name);</em><a href='#index-int-17' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fkey_0028_0029"></span>
 
 <p>Says a key according to user settings for keys.
@@ -2063,7 +2076,7 @@ Next: <a href="#Parameter-Setting-Commands-in-C" accesskey="n" rel="next">Parame
 <span id="Sound-Icons"></span><h4 class="subsection">4.1.5 Sound Icons</h4>
 
 <dl class="def">
-<dt id="index-int-18"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_sound_icon(SPDConnection* connection, SPDPriority priority, char* icon_name);</em><a href='#index-int-18' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-int-18"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_sound_icon(SPDConnection* connection, SPDPriority priority, const char* icon_name);</em><a href='#index-int-18' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fsound_005ficon_0028_0029"></span>
 
 <p>Sends a sound icon ICON_NAME. These are symbolic names that are mapped
@@ -2111,7 +2124,7 @@ or include changes of voice parameters in the text.
 </dd></dl>
 
 <dl class="def">
-<dt id="index-int-20"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_language(SPDConnection* connection, char* language);</em><a href='#index-int-20' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-int-20"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_language(SPDConnection* connection, const char* language);</em><a href='#index-int-20' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005flanguage_0028_0029"></span>
 
 <p>Sets the language that should be used for synthesis.
@@ -2124,7 +2137,7 @@ or include changes of voice parameters in the text.
 </dd></dl>
 
 <dl class="def">
-<dt id="index-int-21"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_output_module(SPDConnection* connection, char* output_module);</em><a href='#index-int-21' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-int-21"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_output_module(SPDConnection* connection, const char* output_module);</em><a href='#index-int-21' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005foutput_005fmodule_0028_0029"></span>
 <span id="spd_005fset_005foutput_005fmodule"></span>
 <p>Sets the output module that should be used for synthesis. The parameter
@@ -2198,7 +2211,7 @@ spelling tables (see spd_set_spelling_table()).
 </dd></dl>
 
 <dl class="def">
-<dt id="index-int-25"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_synthesis_voice(SPDConnection* connection, char* voice_name);</em><a href='#index-int-25' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-int-25"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_set_synthesis_voice(SPDConnection* connection, const char* voice_name);</em><a href='#index-int-25' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fset_005fvoice_005ftype_0028_0029-1"></span>
 <span id="spd_005fset_005fsynthesis_005fvoice"></span>
 <p>Set the speech synthesizer voice to use. Please note that synthesis
@@ -2585,7 +2598,7 @@ a few functions that will allow you to send arbitrary SSIP commands on
 your connection and read the replies.
 </p>
 <dl class="def">
-<dt id="index-int-36"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_execute_command(SPDConnection* connection, char *command);</em><a href='#index-int-36' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-int-36"><span class="category">C API function: </span><span><strong>int</strong> <em>spd_execute_command(SPDConnection* connection, const char *command);</em><a href='#index-int-36' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fexecute_005fcommand_0028_0029"></span>
 
 <p>You can send an arbitrary SSIP command specified in the parameter <code>command</code>.
