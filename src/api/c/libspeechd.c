@@ -325,7 +325,7 @@ static char *resolve_host(char *host_name_or_ip, int *is_localhost,
 }
 
 static int
-spawn_server(SPDConnectionAddress * address, int is_localhost,
+spawn_server(const SPDConnectionAddress * address, int is_localhost,
 	     gchar ** spawn_error)
 {
 	gchar *speechd_cmd[16];
@@ -392,7 +392,7 @@ spawn_server(SPDConnectionAddress * address, int is_localhost,
 
 SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 			 const char *user_name, SPDConnectionMode mode,
-			 SPDConnectionAddress * address, int autospawn,
+			 const SPDConnectionAddress * address, int autospawn,
 			 char **error_result)
 {
 	SPDConnection *connection = NULL;
