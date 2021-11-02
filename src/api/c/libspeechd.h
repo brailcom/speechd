@@ -105,7 +105,7 @@ SPDConnection *spd_open(const char *client_name, const char *connection_name,
 			const char *user_name, SPDConnectionMode mode);
 SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 			 const char *user_name, SPDConnectionMode mode,
-			 SPDConnectionAddress * address, int autospawn,
+			 const SPDConnectionAddress * address, int autospawn,
 			 char **error_result);
 
 int spd_get_client_id(SPDConnection * connection);
