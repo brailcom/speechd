@@ -125,6 +125,7 @@ sd_espeak_ng_LDADD = $(top_builddir)/src/common/libcommon.la \
 
 install-exec-hook-espeak:
 	cd $(DESTDIR)$(modulebindir) && \
+		rm -f sd_espeak-ng-mbrola && \
 		$(LN_S) sd_espeak-ng sd_espeak-ng-mbrola
 install-exec-hook: install-exec-hook-espeak
 
