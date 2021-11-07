@@ -123,6 +123,11 @@ sd_espeak_ng_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) \
 	$(common_LDADD)
 
+install-exec-hook-espeak:
+	cd $(DESTDIR)$(modulebindir) && \
+		$(LN_S) sd_espeak-ng sd_espeak-ng-mbrola
+install-exec-hook: install-exec-hook-espeak
+
 noinst_PROGRAMS += sd_skeleton0_espeak-ng-sync sd_skeleton0_espeak-ng-sync-server sd_skeleton0_espeak-ng-async-server
 sd_skeleton0_espeak_ng_sync_SOURCES = skeleton0_espeak-ng-sync.c module_main.c module_readline.c module_process.c
 sd_skeleton0_espeak_ng_sync_CFLAGS = $(ESPEAK_NG_CFLAGS)

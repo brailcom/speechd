@@ -139,6 +139,9 @@ MOD_OPTION_1_STR(EspeakPunctuationList)
     MOD_OPTION_1_INT(EspeakMaxRate)
     MOD_OPTION_1_INT(EspeakIndexing)
 
+#ifdef ESPEAK_NG_INCLUDE
+    MOD_OPTION_1_INT(EspeakMbrola)
+#endif
     MOD_OPTION_1_INT(EspeakAudioChunkSize)
     MOD_OPTION_1_INT(EspeakAudioQueueMaxSize)
     MOD_OPTION_1_STR(EspeakSoundIconFolder)
@@ -153,6 +156,9 @@ int module_load(void)
 	REGISTER_DEBUG();
 
 	/* Options */
+#ifdef ESPEAK_NG_INCLUDE
+	MOD_OPTION_1_INT_REG(EspeakMbrola, 0);
+#endif
 	MOD_OPTION_1_INT_REG(EspeakAudioChunkSize, 2000);
 	MOD_OPTION_1_INT_REG(EspeakAudioQueueMaxSize, 20 * 22050);
 	MOD_OPTION_1_STR_REG(EspeakSoundIconFolder,
@@ -807,26 +813,31 @@ static SPDVoice **espeak_list_synthesis_voices()
 	espeak_voices = espeak_ListVoices(NULL);
 	voice_list = g_queue_new();
 
-	for (i = 0; espeak_voices[i] != NULL; i++) {
-		v = espeak_voices[i];
-		if (!g_str_has_prefix(v->identifier, "mb/")) {
-			/* Not an mbrola voice */
-			voice = g_new0(SPDVoice, 1);
+#ifdef ESPEAK_NG_INCLUDE
+	if (!EspeakMbrola)
+#endif
+	{
+		for (i = 0; espeak_voices[i] != NULL; i++) {
+			v = espeak_voices[i];
+			if (!g_str_has_prefix(v->identifier, "mb/")) {
+				/* Not an mbrola voice */
+				voice = g_new0(SPDVoice, 1);
 
-			voice->name = g_strdup(v->name);
+				voice->name = g_strdup(v->name);
 
-			first_lang = v->languages + 1;
-			voice->language = g_strdup(first_lang);
-			for (dash = strchr(voice->language, '-');
-			     dash && *dash;
-			     dash++) {
-				*dash = toupper(*dash);
+				first_lang = v->languages + 1;
+				voice->language = g_strdup(first_lang);
+				for (dash = strchr(voice->language, '-');
+				     dash && *dash;
+				     dash++) {
+					*dash = toupper(*dash);
+				}
+				voice->variant = NULL;
+
+				g_queue_push_tail(voice_list, voice);
 			}
-			voice->variant = NULL;
 
-			g_queue_push_tail(voice_list, voice);
 		}
-
 	}
 
 	numvoices = g_queue_get_length(voice_list);
@@ -857,59 +868,62 @@ static SPDVoice **espeak_list_synthesis_voices()
 	}
 	espeak_variants_array[numvariants].name = NULL;
 
-	voice_spec.languages = "mbrola";
-	espeak_mbrola = espeak_ListVoices(&voice_spec);
-	const char *espeak_data;
-
-	espeak_Info(&espeak_data);
-
-	for (j = 0; espeak_mbrola[j] != NULL; j++)
+	if (EspeakMbrola)
 	{
-		const char *identifier = espeak_mbrola[j]->identifier;
-		char *voicename, *dash, *path;
-		struct stat st;
+		voice_spec.languages = "mbrola";
+		espeak_mbrola = espeak_ListVoices(&voice_spec);
+		const char *espeak_data;
 
-		totnummbrola++;
+		espeak_Info(&espeak_data);
 
-		/* We try to load the voice to check whether it works, but
-		 * espeak-ng is not currently reporting load failures, see
-		 * https://github.com/espeak-ng/espeak-ng/pull/1022 */
+		for (j = 0; espeak_mbrola[j] != NULL; j++)
+		{
+			const char *identifier = espeak_mbrola[j]->identifier;
+			char *voicename, *dash, *path;
+			struct stat st;
 
-		if (!strncmp(identifier, "mb/mb-", 6)) {
-			voicename = g_strdup(identifier + 6);
-			dash = index(voicename, '-');
-			if (dash)
-				/* Ignore "-en" language specification */
-				*dash = 0;
+			totnummbrola++;
 
-			path = g_strdup_printf("%s/mbrola/%s", espeak_data, voicename);
-			if (access(path, O_RDONLY) != 0) {
-				g_free(path);
-				path = g_strdup_printf("/usr/share/mbrola/%s", voicename);
+			/* We try to load the voice to check whether it works, but
+			 * espeak-ng is not currently reporting load failures, see
+			 * https://github.com/espeak-ng/espeak-ng/pull/1022 */
+
+			if (!strncmp(identifier, "mb/mb-", 6)) {
+				voicename = g_strdup(identifier + 6);
+				dash = index(voicename, '-');
+				if (dash)
+					/* Ignore "-en" language specification */
+					*dash = 0;
+
+				path = g_strdup_printf("%s/mbrola/%s", espeak_data, voicename);
 				if (access(path, O_RDONLY) != 0) {
 					g_free(path);
-					path = g_strdup_printf("/usr/share/mbrola/%s/%s", voicename, voicename);
+					path = g_strdup_printf("/usr/share/mbrola/%s", voicename);
 					if (access(path, O_RDONLY) != 0) {
 						g_free(path);
-						path = g_strdup_printf("/usr/share/mbrola/voices/%s", voicename);
+						path = g_strdup_printf("/usr/share/mbrola/%s/%s", voicename, voicename);
 						if (access(path, O_RDONLY) != 0) {
 							g_free(path);
-							espeak_mbrola[j] = NULL;
-							continue;
+							path = g_strdup_printf("/usr/share/mbrola/voices/%s", voicename);
+							if (access(path, O_RDONLY) != 0) {
+								g_free(path);
+								espeak_mbrola[j] = NULL;
+								continue;
+							}
 						}
 					}
 				}
+				g_free(path);
 			}
-			g_free(path);
-		}
 
-		espeak_ERROR ret = espeak_SetVoiceByName(espeak_mbrola[j]->name);
-		if (ret != EE_OK) {
-			espeak_mbrola[j] = NULL;
-			continue;
-		}
+			espeak_ERROR ret = espeak_SetVoiceByName(espeak_mbrola[j]->name);
+			if (ret != EE_OK) {
+				espeak_mbrola[j] = NULL;
+				continue;
+			}
 
-		nummbrola++;
+			nummbrola++;
+		}
 	}
 
 	DBG(DBG_MODNAME " %d mbrola total.", nummbrola);
