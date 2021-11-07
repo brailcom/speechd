@@ -17,14 +17,14 @@
 
 ## Process this file with automake to produce Makefile.in
 
-dist_moduleconf_DATA = cicero.conf espeak.conf espeak-ng.conf festival.conf \
+dist_moduleconf_DATA = cicero.conf espeak.conf espeak-ng.conf espeak-ng-mbrola.conf festival.conf \
 		       flite.conf dtk-generic.conf \
                        epos-generic.conf \
                        espeak-ng-mbrola-generic.conf espeak-mbrola-generic.conf \
                        llia_phon-generic.conf \
                        swift-generic.conf mary-generic.conf
 
-dist_moduleconforig_DATA = cicero.conf espeak.conf festival.conf espeak-ng.conf
+dist_moduleconforig_DATA = cicero.conf espeak.conf festival.conf espeak-ng.conf espeak-ng-mbrola.conf
 	                   flite.conf dtk-generic.conf \
                            epos-generic.conf \
                            espeak-ng-mbrola-generic.conf espeak-mbrola-generic.conf \
