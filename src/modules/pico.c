@@ -256,8 +256,9 @@ int pico_init_voice(int voice_index)
 				 PICO_MAX_FILE_NAME_SIZE];
 	pico_Char picoSgFileName[PICO_MAX_DATAPATH_NAME_SIZE +
 				 PICO_MAX_FILE_NAME_SIZE];
-	pico_Char picoTaResourceName[PICO_MAX_RESOURCE_NAME_SIZE];
-	pico_Char picoSgResourceName[PICO_MAX_RESOURCE_NAME_SIZE];
+
+	pico_Retstring picoTaResourceName;
+	pico_Retstring picoSgResourceName;
 
 	/* Load the text analysis Lingware resource file.   */
 	strcpy((char *)picoTaFileName, PicoLingwarePath);
@@ -287,7 +288,7 @@ int pico_init_voice(int voice_index)
 
 	/* Get the text analysis resource name.     */
 	if ((ret = pico_getResourceName(picoSystem, picoTaResource,
-					(char *)picoTaResourceName))) {
+					picoTaResourceName))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
 		    "Cannot get TA resource name (%i): %s\n", ret, outMessage);
@@ -296,7 +297,7 @@ int pico_init_voice(int voice_index)
 
 	/* Get the signal generation resource name. */
 	if ((ret = pico_getResourceName(picoSystem, picoSgResource,
-					(char *)picoSgResourceName))) {
+					picoSgResourceName))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
 		    "Cannot get SG resource name (%i): %s\n", ret, outMessage);
@@ -318,6 +319,7 @@ int pico_init_voice(int voice_index)
 						     (const pico_Char *)
 						     pico_voices
 						     [voice_index].name,
+						     (pico_Char *)
 						     picoTaResourceName))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
@@ -331,6 +333,7 @@ int pico_init_voice(int voice_index)
 						     (const pico_Char *)
 						     pico_voices
 						     [voice_index].name,
+						     (pico_Char *)
 						     picoSgResourceName))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
