@@ -239,7 +239,11 @@ module_speak_queue_add_audio(const AudioTrack *track, AudioFormat format)
 	playback_queue_entry->type = SPEAK_QUEUE_QET_AUDIO;
 	playback_queue_entry->data.audio.track = *track;
 	gint nbytes = track->bits / 8 * track->num_samples;
+#if GLIB_VERSION_CUR_STABLE >= G_ENCODE_VERSION(2, 68)
+	playback_queue_entry->data.audio.track.samples = g_memdup2(track->samples, nbytes);
+#else
 	playback_queue_entry->data.audio.track.samples = g_memdup(track->samples, nbytes);
+#endif
 	playback_queue_entry->data.audio.format = format;
 
 	playback_queue_push(playback_queue_entry);
