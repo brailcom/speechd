@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Speech Dispatcher\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
-"POT-Creation-Date: 2021-06-16 23:50+0200\n"
+"POT-Creation-Date: 2021-11-09 00:44+0100\n"
 "PO-Revision-Date: 2020-09-08 07:42+0000\n"
 "Last-Translator: Hynek Hanke <hanke@brailcom.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/speech-dispatcher/"
@@ -874,7 +874,7 @@ msgid ""
 "developers?"
 msgstr ""
 
-#: src/api/python/speechd_config/config.py.in:776
+#: src/api/python/speechd_config/config.py.in:780
 #, fuzzy
 msgid ""
 "\n"
@@ -883,19 +883,19 @@ msgstr ""
 "\n"
 "Nastavit cestu ke konfiguraci\n"
 
-#: src/api/python/speechd_config/config.py.in:781
+#: src/api/python/speechd_config/config.py.in:785
 msgid "Do you want to continue with basic settings?"
 msgstr ""
 
-#: src/api/python/speechd_config/config.py.in:816
+#: src/api/python/speechd_config/config.py.in:820
 msgid "Do you want to setup a completely new configuration?"
 msgstr ""
 
-#: src/api/python/speechd_config/config.py.in:820
+#: src/api/python/speechd_config/config.py.in:824
 msgid "Do you want to run diagnosis of problems?"
 msgstr ""
 
-#: src/api/python/speechd_config/config.py.in:825
+#: src/api/python/speechd_config/config.py.in:829
 msgid ""
 "Please run this command again and select what you want to do\n"
 "or read the quick help available through '-h' or '--help'."

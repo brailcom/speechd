@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: speech-dispatcher 0.11.0-rc2\n"
+"Project-Id-Version: speech-dispatcher 0.11.0-rc5\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
-"POT-Creation-Date: 2021-06-16 23:50+0200\n"
+"POT-Creation-Date: 2021-11-09 00:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -833,25 +833,25 @@ msgid ""
 "developers?"
 msgstr ""
 
-#: src/api/python/speechd_config/config.py.in:776
+#: src/api/python/speechd_config/config.py.in:780
 msgid ""
 "\n"
 "Speech Dispatcher configuration tool\n"
 msgstr ""
 
-#: src/api/python/speechd_config/config.py.in:781
+#: src/api/python/speechd_config/config.py.in:785
 msgid "Do you want to continue with basic settings?"
 msgstr ""
 
-#: src/api/python/speechd_config/config.py.in:816
+#: src/api/python/speechd_config/config.py.in:820
 msgid "Do you want to setup a completely new configuration?"
 msgstr ""
 
-#: src/api/python/speechd_config/config.py.in:820
+#: src/api/python/speechd_config/config.py.in:824
 msgid "Do you want to run diagnosis of problems?"
 msgstr ""
 
-#: src/api/python/speechd_config/config.py.in:825
+#: src/api/python/speechd_config/config.py.in:829
 msgid ""
 "Please run this command again and select what you want to do\n"
 "or read the quick help available through '-h' or '--help'."

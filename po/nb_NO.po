@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
-"POT-Creation-Date: 2021-06-16 23:50+0200\n"
+"POT-Creation-Date: 2021-11-09 00:44+0100\n"
 "PO-Revision-Date: 2021-01-10 01:32+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/speech-"
@@ -962,7 +962,7 @@ msgstr ""
 "Ønsker du å kjøre feilsporing nå og sende en forespørsel om hjelp til "
 "utviklerne?"
 
-#: src/api/python/speechd_config/config.py.in:776
+#: src/api/python/speechd_config/config.py.in:780
 msgid ""
 "\n"
 "Speech Dispatcher configuration tool\n"
@@ -970,20 +970,20 @@ msgstr ""
 "\n"
 "Oppsettsverktøy for Speech Dispatcher\n"
 
-#: src/api/python/speechd_config/config.py.in:781
+#: src/api/python/speechd_config/config.py.in:785
 msgid "Do you want to continue with basic settings?"
 msgstr "Ønsker du å fortsette med grunnleggende innstillinger?"
 
-#: src/api/python/speechd_config/config.py.in:816
+#: src/api/python/speechd_config/config.py.in:820
 #, fuzzy
 msgid "Do you want to setup a completely new configuration?"
 msgstr "Ønsker du å sette opp et helt nytt oppsett?"
 
-#: src/api/python/speechd_config/config.py.in:820
+#: src/api/python/speechd_config/config.py.in:824
 msgid "Do you want to run diagnosis of problems?"
 msgstr "Ønsker du å kjøre diagnostikk av problemene?"
 
-#: src/api/python/speechd_config/config.py.in:825
+#: src/api/python/speechd_config/config.py.in:829
 msgid ""
 "Please run this command again and select what you want to do\n"
 "or read the quick help available through '-h' or '--help'."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-18-g840e\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
-"POT-Creation-Date: 2021-06-16 23:50+0200\n"
+"POT-Creation-Date: 2021-11-09 00:44+0100\n"
 "PO-Revision-Date: 2020-09-09 10:19+0000\n"
 "Last-Translator: Samuel Thibault <samuel.thibault@ens-lyon.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -943,7 +943,7 @@ msgstr ""
 "Você deseja executar a depuração agora e enviar um pedido de ajuda aos "
 "desenvolvedores?"
 
-#: src/api/python/speechd_config/config.py.in:776
+#: src/api/python/speechd_config/config.py.in:780
 msgid ""
 "\n"
 "Speech Dispatcher configuration tool\n"
@@ -951,19 +951,19 @@ msgstr ""
 "\n"
 "Ferramenta de configuração do Speech Dispatcher\n"
 
-#: src/api/python/speechd_config/config.py.in:781
+#: src/api/python/speechd_config/config.py.in:785
 msgid "Do you want to continue with basic settings?"
 msgstr "Você deseja continuar com as configurações básicas?"
 
-#: src/api/python/speechd_config/config.py.in:816
+#: src/api/python/speechd_config/config.py.in:820
 msgid "Do you want to setup a completely new configuration?"
 msgstr "Você deseja definir uma configuração completamente nova?"
 
-#: src/api/python/speechd_config/config.py.in:820
+#: src/api/python/speechd_config/config.py.in:824
 msgid "Do you want to run diagnosis of problems?"
 msgstr "Você deseja executar diagnóstico de problemas?"
 
-#: src/api/python/speechd_config/config.py.in:825
+#: src/api/python/speechd_config/config.py.in:829
 msgid ""
 "Please run this command again and select what you want to do\n"
 "or read the quick help available through '-h' or '--help'."
