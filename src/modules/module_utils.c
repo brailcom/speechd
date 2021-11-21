@@ -45,6 +45,9 @@ int module_num_dc_options;
 
 const char *module_name;
 
+int current_index_mark;
+char *module_index_mark;
+
 void MSG(int level, const char *format, ...) {
 	if (level < 4 || Debug) {
 		va_list ap;
