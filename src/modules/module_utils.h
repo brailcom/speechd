@@ -367,6 +367,12 @@ configoption_t *add_config_option(configoption_t * options,
 #define INDEX_MARK_BODY_LEN 6
 #define INDEX_MARK_BODY "__spd_"
 
+extern int current_index_mark;
+extern char *module_index_mark;
+
+/* Kept only for compatibility with old modules, do not use */
+#define INIT_INDEX_MARKING() module_index_mark = NULL;
+
 	/* Prototypes from module_utils_addvoice.c */
 void module_register_available_voices(void);
 void module_register_settings_voices(void);
