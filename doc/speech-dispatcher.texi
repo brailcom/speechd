@@ -1182,7 +1182,7 @@ from the outside network using a firewall or similar mechanism.
 @node Communication mechanisms, Address specification, Technical Specifications, Technical Specifications
 @section Communication mechanisms
 
-Speech Dispatcher supports two communicatino mechanisms: UNIX-style
+Speech Dispatcher supports two communication mechanisms: UNIX-style
 and Inet sockets, which are refered as 'unix-socket' and 'inet-socket'
 respectively. The communication mechanism is decided on startup and
 cannot be changed at runtime. Unix sockets are now the default and
@@ -2358,7 +2358,7 @@ For example (simplified by not checking and freeing the returned strings):
 @node Python API, Guile API, C API, Client Programming
 @section Python API
 
-There is a full Python API available in @file{src/python/speechd/} in
+There is a full Python API available in @file{src/api/python/speechd/} in
 the source tree.  Please see the Python docstrings for full reference
 about the available objects and methods.
 
