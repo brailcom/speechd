@@ -124,6 +124,10 @@
 #ifndef __MODULE_UTILS_SPEAK_QUEUE_H
 #define __MODULE_UTILS_SPEAK_QUEUE_H
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
+
 #include <pthread.h>
 #include <glib.h>
 
@@ -198,5 +202,9 @@ void module_speak_queue_flush(void);
  * it stop calling the module callback, and thus make the module stop calling
  * module_speak_queue_add_*.  */
 void module_speak_queue_cancel(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* #ifndef __MODULE_UTILS_SPEAK_QUEUE_H */
