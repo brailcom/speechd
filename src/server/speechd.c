@@ -679,6 +679,62 @@ void speechd_init()
 	last_p5_block = NULL;
 }
 
+static gint modules_compare (gconstpointer a, gconstpointer b)
+{
+	const char **params_a = (const char **) a;
+	const char *name_a = params_a[0];
+	const char **params_b = (const char **) b;
+	const char *name_b = params_b[0];
+	unsigned index_a;
+	unsigned index_b;
+
+	/* This gives the prioritization order of modules, to automatically select the best quality */
+	static const char *modules_order[] = {
+		"voxin",
+		"ivona",
+		"pico",
+		"pico-generic",
+		"rhvoice",
+		"cicero",
+		"kali",
+		"ibmtts",
+		"festival",
+		"flite",
+		"espeak-ng-mbrola",
+		"espeak-ng-mbrola-generic",
+		"espeak-ng",
+		"espeak-mbrola-generic",
+		"espeak",
+		"espeak-generic",
+	};
+	static const int index_max = sizeof(modules_order) / sizeof(*modules_order);
+
+	for (index_a = 0; index_a < index_max; index_a++) {
+		if (!strcmp(modules_order[index_a], name_a))
+			break;
+	}
+
+	for (index_b = 0; index_b < index_max; index_b++) {
+		if (!strcmp(modules_order[index_b], name_b))
+			break;
+	}
+
+	if (index_a != index_max && index_b == index_max)
+		/* We prefer a synth in the list */
+		return -1;
+
+	if (index_a == index_max && index_b != index_max)
+		/* We prefer a synth in the list */
+		return 1;
+
+	if (index_a != index_max && index_b != index_max)
+		/* We follow the ordering */
+		return index_a - index_b;
+
+	/* We fall back to alphabetical ordering */
+	return strcmp(name_a, name_b);
+}
+
 static gboolean speechd_load_configuration(gpointer user_data)
 {
 	configfile_t *configfile = NULL;
@@ -733,6 +789,9 @@ static gboolean speechd_load_configuration(gpointer user_data)
 								 OLDMODULEBINDIR,
 								 SpeechdOptions.user_conf_dir,
 								 SpeechdOptions.conf_dir);
+
+			detected_modules = g_list_sort(detected_modules, modules_compare);
+
 			while (detected_modules != NULL) {
 				char **parameters = detected_modules->data;
 				module_add_load_request(parameters[0],
