@@ -24,6 +24,7 @@ Version 0.11
 * Add script to run speechd from the build tree.
 * Update CLDR to version 39, symbols from NVDA and orca.
 * Add Esperanto translation.
+* Sort modules by quality, let the best quality module be the default.
 
 Version 0.10.2
 * generic: Add support for sound icons
