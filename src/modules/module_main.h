@@ -54,7 +54,7 @@ int module_init(char **msg);
 SPDVoice **module_list_voices(void);
 
 /* Asynchronous Speak */
-int module_speak(const char *data, size_t bytes, SPDMessageType msgtype);
+int module_speak(char *data, size_t bytes, SPDMessageType msgtype);
 
 /* Synchronous Speak */
 void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype);

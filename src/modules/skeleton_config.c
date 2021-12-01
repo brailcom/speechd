@@ -126,7 +126,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 #else
 /* Asynchronous version, when the synthesis implements asynchronous
  * processing in another thread. */
-int module_speak(const char *data, size_t bytes, SPDMessageType msgtype)
+int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 {
 	/* Update synth parameters according to message parameters */
 	UPDATE_PARAMETER(rate, skeleton_set_rate);
