@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Say client to Speech Dispatcher</title>
@@ -10,15 +10,18 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <link href="dir.html#Top" rel="up" title="(dir)">
+<link href="dir.html#Top" rel="prev" title="(dir)">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -27,6 +30,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -41,7 +45,8 @@ ul.no-bullet {list-style: none}
 
 
 
-<span id="Top"></span>
+<div class="chapter" id="Top">
+
 <p>This manual documents Say for Speech Dispatcher, version 0.4.
 </p>
 <p>Copyright &copy; 2001, 2002, 2003, 2006 Brailcom, o.p.s.
@@ -67,77 +72,77 @@ It can also be used for stopping and cancelling speech on Speech Dispatcher.
 </p>
 
 <dl compact="compact">
-<dt><code>-r or --rate</code></dt>
+<dt><span><code>-r or --rate</code></span></dt>
 <dd><p>Set the rate of the speech (between -100 and +100, default see below).
 </p></dd>
-<dt><code>-p or --pitch</code></dt>
+<dt><span><code>-p or --pitch</code></span></dt>
 <dd><p>Set the pitch of the speech (between -100 and +100, default see below).
 </p></dd>
-<dt><code>-R or --pitch-range</code></dt>
+<dt><span><code>-R or --pitch-range</code></span></dt>
 <dd><p>Set the pitch range of the speech (between -100 and +100, default see below).
 </p></dd>
-<dt><code>-i or --volume</code></dt>
+<dt><span><code>-i or --volume</code></span></dt>
 <dd><p>Set the volume (intensity) of the speech (between -100 and +100, default see below).
 </p></dd>
-<dt><code>-o or --output-module</code></dt>
+<dt><span><code>-o or --output-module</code></span></dt>
 <dd><p>Set the output module.  Default see below.
 </p></dd>
-<dt><code>-O or --list-output-modules</code></dt>
+<dt><span><code>-O or --list-output-modules</code></span></dt>
 <dd><p>List the output modules that are available with the current server.
 </p></dd>
-<dt><code>-I or --sound-icon</code></dt>
+<dt><span><code>-I or --sound-icon</code></span></dt>
 <dd><p>Play the sound icon.
 </p></dd>
-<dt><code>-l or --language</code></dt>
+<dt><span><code>-l or --language</code></span></dt>
 <dd><p>Set the language. The parameter is an iso language code, like <code>en</code> or
 <code>cs</code>, possibly with a region qualification, like <code>en-US</code> or <code>en-GB</code>.
 Default see below.
 </p></dd>
-<dt><code>-t or --voice-type</code></dt>
+<dt><span><code>-t or --voice-type</code></span></dt>
 <dd><p>Set the preferred voice type (male1, male2, male3, female1, female2,
 female3, child_male, child_female).
 </p></dd>
-<dt><code>-L or --list-synthesis-voices</code></dt>
+<dt><span><code>-L or --list-synthesis-voices</code></span></dt>
 <dd><p>List the &rdquo;synthesis voices&rdquo; supported by an output module.
 If no -o option is supplied, -L displays
 the synthesis voices provided by the default output module.  Otherwise,
 it displays the synthesis voices provided by the chosen module.
 </p></dd>
-<dt><code>-y or --synthesis-voice</code></dt>
+<dt><span><code>-y or --synthesis-voice</code></span></dt>
 <dd><p>Set the synthesis voice.  The synthesis voice is an attribute of the
 chosen synthesizer.  Most users will probably not wish to set it, but
 this setting is provided for completeness.
 </p></dd>
-<dt><code>-m or --punctuation-mode</code></dt>
+<dt><span><code>-m or --punctuation-mode</code></span></dt>
 <dd><p>Set the punctuation mode (none, some, most, all).  Default see below.
 </p></dd>
-<dt><code>-s or --spelling</code></dt>
+<dt><span><code>-s or --spelling</code></span></dt>
 <dd><p>Spell the message.
 </p></dd>
-<dt><code>-x or --ssml</code></dt>
+<dt><span><code>-x or --ssml</code></span></dt>
 <dd><p>Set SSML mode on (default: off).  The text contains SSML markup.
 </p></dd>
-<dt><code>-e or --pipe-mode</code></dt>
+<dt><span><code>-e or --pipe-mode</code></span></dt>
 <dd><p>Set pipe mode on (default: off).  Reads text from stdin, writes to stdout, and also
 sends to Speech Dispatcher.
 </p></dd>
-<dt><code>-w or --wait</code></dt>
+<dt><span><code>-w or --wait</code></span></dt>
 <dd><p>Wait till the end of speaking the message. In this mode, spd-say returns only after
 the message is fully spoken on the speakers or after it gets discarded.
 </p></dd>
-<dt><code>-S or --stop</code></dt>
+<dt><span><code>-S or --stop</code></span></dt>
 <dd><p>Stop the previous message in Speech Dispatcher (regardless of the client who sent
 it and it&rsquo;s priority) before saying the specified message. If no message is specified,
 it just performs the stop function.
 </p></dd>
-<dt><code>-C or --cancel</code></dt>
+<dt><span><code>-C or --cancel</code></span></dt>
 <dd><p>Similar to <code>-S</code>, but it stops (cancels) all the messages in all the queues in
 Speech Dispatcher. Use this for total stop of speech.
 </p></dd>
-<dt><code>-v or --version</code></dt>
+<dt><span><code>-v or --version</code></span></dt>
 <dd><p>Print version and copyright info.
 </p></dd>
-<dt><code>-h or --help</code></dt>
+<dt><span><code>-h or --help</code></span></dt>
 <dd><p>Print a short help message.
 </p></dd>
 </dl>
@@ -155,7 +160,9 @@ setting in the <code>speechd.conf</code> file.  Factory default is <code>flite</
 <p>The default punctuation mode is determined by the <code>DefaultPunctuationMode</code>
 setting in the <code>speechd.conf</code> file.  Factory default is <code>none</code>.
 </p>
-<span id="Pipe-Mode"></span><h2 class="chapter">2 Pipe Mode</h2>
+</div>
+<div class="chapter" id="Pipe-Mode">
+<h2 class="chapter">2 Pipe Mode</h2>
 
 <p>In pipe mode (option <code>--pipe-mode</code> or <code>-e</code>), spd-say reads text from stdin, writes to stdout,
 and also sends the text to Speech Dispatcher.  Example:
@@ -212,7 +219,7 @@ To wait for each line to be spoken, use the <code>--wait</code> or <code>-w</cod
 <pre class="example"> $ spd-say -C
 </pre></div>
 
-<hr>
+<hr></div>
 
 
 

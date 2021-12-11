@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Speech Synthesis Interface Protocol</title>
@@ -10,16 +10,20 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="dir.html#Top" rel="up" title="(dir)">
+<link href="#Introduction" rel="next" title="Introduction">
+<link href="dir.html#Top" rel="prev" title="(dir)">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -28,6 +32,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -79,104 +84,25 @@ General Public License&rdquo;
 
 <span id="Menu"></span><h3 class="heading">Menu</h3>
 
-<span id="SEC_Contents"></span>
-<h2 class="contents-heading">Table of Contents</h2>
 
-<div class="contents">
-<ul class="no-bullet">
-<li><a id="toc-Introduction-1" href="#Introduction">1 Introduction</a>
-<ul class="no-bullet">
-  <li><a id="toc-Purpose-1" href="#Purpose">1.1 Purpose</a></li>
-  <li><a id="toc-Protocol-Philosophy-1" href="#Protocol-Philosophy">1.2 Protocol Philosophy</a></li>
-  <li><a id="toc-Higher-Level-API-1" href="#Higher-Level-API">1.3 Higher Level API</a></li>
-</ul></li>
-<li><a id="toc-Basic-Terminology-1" href="#Basic-Terminology">2 Basic Terminology</a></li>
-<li><a id="toc-General-Rules-1" href="#General-Rules">3 General Rules</a></li>
-<li><a id="toc-SSIP-Commands-1" href="#SSIP-Commands">4 SSIP Commands</a>
-<ul class="no-bullet">
-  <li><a id="toc-Speech-Synthesis-and-Sound-Output" href="#Speech-Synthesis-and-Sound-Output-Commands">4.1 Speech Synthesis and Sound Output</a></li>
-  <li><a id="toc-Controlling-Speech-Output" href="#Speech-Output-Control-Commands">4.2 Controlling Speech Output</a></li>
-  <li><a id="toc-Priority-Setting-Commands-1" href="#Message-Priority-Commands">4.3 Priority Setting Commands</a>
-  <ul class="no-bullet">
-    <li><a id="toc-Priority-Categories-1" href="#Priority-Categories">4.3.1 Priority Categories</a></li>
-    <li><a id="toc-Priority-Diagram-1" href="#Priority-Diagram">4.3.2 Priority Diagram</a></li>
-    <li><a id="toc-Priority-Setting-Commands-2" href="#Priority-Setting-Commands">4.3.3 Priority Setting Commands</a></li>
-    <li><a id="toc-Examples-of-Using-Priorities-1" href="#Examples-of-Using-Priorities">4.3.4 Examples of Using Priorities</a></li>
-  </ul></li>
-  <li><a id="toc-Blocks-of-Messages-Commands-1" href="#Blocks-of-Messages-Commands">4.4 Blocks of Messages Commands</a></li>
-  <li><a id="toc-Parameter-Setting" href="#Parameter-Setting-Commands">4.5 Parameter Setting</a></li>
-  <li><a id="toc-Retrieving-Information" href="#Information-Retrieval-Commands">4.6 Retrieving Information</a></li>
-  <li><a id="toc-Message-Events-Notification-and-Index-Marking-1" href="#Message-Events-Notification-and-Index-Marking">4.7 Message Events Notification and Index Marking</a>
-  <ul class="no-bullet">
-    <li><a id="toc-Why-Events-Notification-1" href="#Why-Events-Notification">4.7.1 Why Events Notification</a></li>
-    <li><a id="toc-Types-of-Events-1" href="#Types-of-Events">4.7.2 Types of Events</a></li>
-    <li><a id="toc-Events-Notification-in-SSIP" href="#Events-Notifications-in-SSIP">4.7.3 Events Notification in SSIP</a></li>
-    <li><a id="toc-Switching-Notifications-On-and-Off-1" href="#Switching-Notifications-On-and-Off">4.7.4 Switching Notifications On and Off</a></li>
-  </ul></li>
-  <li><a id="toc-History-Handling" href="#History-Handling-Commands">4.8 History Handling</a>
-  <ul class="no-bullet">
-    <li><a id="toc-Purpose-of-Message-History-1" href="#Purpose-of-Message-History">4.8.1 Purpose of Message History</a></li>
-    <li><a id="toc-Message-History-in-SSIP-1" href="#Message-History-in-SSIP">4.8.2 Message History in SSIP</a></li>
-  </ul></li>
-  <li><a id="toc-Other-Commands-1" href="#Other-Commands">4.9 Other Commands</a></li>
-</ul></li>
-<li><a id="toc-Return-Codes-1" href="#Return-Codes">5 Return Codes</a>
-<ul class="no-bullet">
-  <li><a id="toc-Example-of-an-SSIP-Dialog" href="#Sample-SSIP-Dialog">5.1 Example of an SSIP Dialog</a></li>
-</ul></li>
-<li><a id="toc-Appendices-1" href="#Appendices">Appendix A Appendices</a>
-<ul class="no-bullet">
-  <li><a id="toc-Key-Names-1" href="#Key-Names">A.1 Key Names</a></li>
-  <li><a id="toc-Standard-Sound-Icons-1" href="#Standard-Sound-Icons">A.2 Standard Sound Icons</a></li>
-  <li><a id="toc-Standard-Voices-1" href="#Standard-Voices">A.3 Standard Voices</a></li>
-</ul></li>
-<li><a id="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix B GNU Free Documentation License</a>
-<ul class="no-bullet">
-  <li><a id="toc-ADDENDUM_003a-How-to-use-this-License-for-your-documents" href="#ADDENDUM_003a-How-to-use-this-License-for-your-documents">B.1 ADDENDUM: How to use this License for your documents</a></li>
-</ul></li>
-<li><a id="toc-GNU-General-Public-License" href="#GNU-General-Public-Licence">Appendix C GNU General Public License</a></li>
-
-</ul>
-</div>
-
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Basic-Terminology" accesskey="2">Basic Terminology</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#General-Rules" accesskey="3">General Rules</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#SSIP-Commands" accesskey="4">SSIP Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Return-Codes" accesskey="5">Return Codes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Appendices" accesskey="6">Appendices</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#GNU-Free-Documentation-License" accesskey="7">GNU Free Documentation License</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#GNU-General-Public-Licence" accesskey="8">GNU General Public Licence</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
 <hr>
-<span id="Introduction"></span><div class="header">
+<div class="chapter" id="Introduction">
+<div class="header">
 <p>
 Next: <a href="#Basic-Terminology" accesskey="n" rel="next">Basic Terminology</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Introduction-1"></span><h2 class="chapter">1 Introduction</h2>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Purpose" accesskey="1">Purpose</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Protocol-Philosophy" accesskey="2">Protocol Philosophy</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Higher-Level-API" accesskey="3">Higher Level API</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Purpose" accesskey="1">Purpose</a></li>
+<li><a href="#Protocol-Philosophy" accesskey="2">Protocol Philosophy</a></li>
+<li><a href="#Higher-Level-API" accesskey="3">Higher Level API</a></li>
+</ul>
 <hr>
-<span id="Purpose"></span><div class="header">
+<div class="section" id="Purpose">
+<div class="header">
 <p>
 Next: <a href="#Protocol-Philosophy" accesskey="n" rel="next">Protocol Philosophy</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -209,7 +135,9 @@ important at any particular time and say them, while possibly
 supressing others.
 </p>
 <hr>
-<span id="Protocol-Philosophy"></span><div class="header">
+</div>
+<div class="section" id="Protocol-Philosophy">
+<div class="header">
 <p>
 Next: <a href="#Higher-Level-API" accesskey="n" rel="next">Higher Level API</a>, Previous: <a href="#Purpose" accesskey="p" rel="prev">Purpose</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -255,7 +183,9 @@ the means to actually do it on your system. In this manner, one of the
 supported formats of the messages you can send through SSIP is SSML.
 </p>
 <hr>
-<span id="Higher-Level-API"></span><div class="header">
+</div>
+<div class="section" id="Higher-Level-API">
+<div class="header">
 <p>
 Previous: <a href="#Protocol-Philosophy" accesskey="p" rel="prev">Protocol Philosophy</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -278,7 +208,10 @@ speech_set_rate() in their programs.
 a lot easier and allow programmers to make more of them.
 </p>
 <hr>
-<span id="Basic-Terminology"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="Basic-Terminology">
+<div class="header">
 <p>
 Next: <a href="#General-Rules" accesskey="n" rel="next">General Rules</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -319,7 +252,9 @@ it was stored after being received by Speech Server.
 
 
 <hr>
-<span id="General-Rules"></span><div class="header">
+</div>
+<div class="chapter" id="General-Rules">
+<div class="header">
 <p>
 Next: <a href="#SSIP-Commands" accesskey="n" rel="next">SSIP Commands</a>, Previous: <a href="#Basic-Terminology" accesskey="p" rel="prev">Basic Terminology</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -347,10 +282,10 @@ can be commands having no arguments.
 carriage return and line feed characters, in that order.
 </p>
 <p>When you connect to Speech Server, you should at least set your client
-name, through the <code>SET SELF CLIENT_NAME</code> command (see <a href="#Parameter-Setting-Commands">Parameter Setting Commands</a>).  This is important to get a proper identification of your client
+name, through the <code>SET SELF CLIENT_NAME</code> command (see <a href="#Parameter-Setting-Commands">Parameter Setting</a>).  This is important to get a proper identification of your client
 &mdash; to allow managing it from the control center application and to identify it
 in a message history browser.  You might want to set other connection
-parameters as well. Look for more details in <a href="#Parameter-Setting-Commands">Parameter Setting Commands</a>.
+parameters as well. Look for more details in <a href="#Parameter-Setting-Commands">Parameter Setting</a>.
 </p>
 <p>An SSIP connection is preferably closed by issuing the <code>QUIT</code>
 command, see <a href="#Other-Commands">Other Commands</a>.
@@ -372,8 +307,8 @@ sound output for other users, however, there is a mechanism
 to prevent one user from seeing history messages of another
 user.
 </p>
-<p>Some of the commands (<a href="#Speech-Output-Control-Commands">Speech Output Control Commands</a>
-and <a href="#Parameter-Setting-Commands">Parameter Setting Commands</a>)
+<p>Some of the commands (<a href="#Speech-Output-Control-Commands">Controlling Speech Output</a>
+and <a href="#Parameter-Setting-Commands">Parameter Setting</a>)
 take an argument in the form:
 </p><div class="example">
 <pre class="example">        { <var>id</var> | all | self }
@@ -407,7 +342,9 @@ code is followed by an English message describing the result of the
 action in a human readable form.
 </p>
 <hr>
-<span id="SSIP-Commands"></span><div class="header">
+</div>
+<div class="chapter" id="SSIP-Commands">
+<div class="header">
 <p>
 Next: <a href="#Return-Codes" accesskey="n" rel="next">Return Codes</a>, Previous: <a href="#General-Rules" accesskey="p" rel="prev">General Rules</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -431,31 +368,23 @@ respectively. Literal argument values are typeset in lowercase letters
 repetition (zero or more times) of all the arguments within the
 current brackets.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Speech-Synthesis-and-Sound-Output-Commands" accesskey="1">Speech Synthesis and Sound Output Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Speech-Output-Control-Commands" accesskey="2">Speech Output Control Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Message-Priority-Commands" accesskey="3">Message Priority Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Blocks-of-Messages-Commands" accesskey="4">Blocks of Messages Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Parameter-Setting-Commands" accesskey="5">Parameter Setting Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Information-Retrieval-Commands" accesskey="6">Information Retrieval Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Message-Events-Notification-and-Index-Marking" accesskey="7">Message Events Notification and Index Marking</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#History-Handling-Commands" accesskey="8">History Handling Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Other-Commands" accesskey="9">Other Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Speech-Synthesis-and-Sound-Output-Commands" accesskey="1">Speech Synthesis and Sound Output</a></li>
+<li><a href="#Speech-Output-Control-Commands" accesskey="2">Controlling Speech Output</a></li>
+<li><a href="#Message-Priority-Commands" accesskey="3">Priority Setting Commands</a></li>
+<li><a href="#Blocks-of-Messages-Commands" accesskey="4">Blocks of Messages Commands</a></li>
+<li><a href="#Parameter-Setting-Commands" accesskey="5">Parameter Setting</a></li>
+<li><a href="#Information-Retrieval-Commands" accesskey="6">Retrieving Information</a></li>
+<li><a href="#Message-Events-Notification-and-Index-Marking" accesskey="7">Message Events Notification and Index Marking</a></li>
+<li><a href="#History-Handling-Commands" accesskey="8">History Handling</a></li>
+<li><a href="#Other-Commands" accesskey="9">Other Commands</a></li>
+</ul>
 <hr>
-<span id="Speech-Synthesis-and-Sound-Output-Commands"></span><div class="header">
+<div class="section" id="Speech-Synthesis-and-Sound-Output-Commands">
+<div class="header">
 <p>
-Next: <a href="#Speech-Output-Control-Commands" accesskey="n" rel="next">Speech Output Control Commands</a>, Previous: <a href="#SSIP-Commands" accesskey="p" rel="prev">SSIP Commands</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Speech-Output-Control-Commands" accesskey="n" rel="next">Controlling Speech Output</a>, Previous: <a href="#SSIP-Commands" accesskey="p" rel="prev">SSIP Commands</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Speech-Synthesis-and-Sound-Output"></span><h3 class="section">4.1 Speech Synthesis and Sound Output</h3>
 
@@ -464,7 +393,7 @@ particular way how the message is handled depends on current speech
 parameter settings and user configuration.
 </p>
 <dl compact="compact">
-<dt><code>SPEAK</code></dt>
+<dt><span><code>SPEAK</code></span></dt>
 <dd><span id="SPEAK"></span><p>Start receiving a text message and synthesize it.  After sending a
 reply to the command, Speech Server waits for the text of the
 message.  The text can spread over any number of lines and is
@@ -505,7 +434,7 @@ error response code is returned after processing the final dot line.
 </pre></div>
 
 <p>where <var>msg_id</var> is a unique id assigned to this message in Speech
-Server. This is useful for the <a href="#History-Handling-Commands">History Handling Commands</a>
+Server. This is useful for the <a href="#History-Handling-Commands">History Handling</a>
 commands as well as for <a href="#Message-Events-Notification-and-Index-Marking">Message Events Notification and Index Marking</a>.
 </p>
 <p>The <code>SPEAK</code> command might be used for example in this way:
@@ -520,7 +449,7 @@ hi
 </pre></div>
 
 </dd>
-<dt><code>CHAR <var>char</var></code></dt>
+<dt><span><code>CHAR <var>char</var></code></span></dt>
 <dd><p>Speak letter <var>char</var>.  <var>char</var> can be any character
 representable by the UTF-8 encoding. The only exception is the
 character space (<code> </code>); that can&rsquo;t be sent directly. In this case,
@@ -537,7 +466,7 @@ CHAR &amp;
 e.g. when reading a character under cursor or when spelling words.
 </p>
 </dd>
-<dt><code>KEY <var>key-name</var></code></dt>
+<dt><span><code>KEY <var>key-name</var></code></span></dt>
 <dd><span id="SSIP-KEY"></span><p>Speak key identified by <var>key-name</var>.  The command is intended to be
 used for speaking keys pressed by the user.
 </p>
@@ -574,7 +503,7 @@ control
 </pre></div>
 
 </dd>
-<dt><code>SOUND_ICON <var>icon-name</var></code></dt>
+<dt><span><code>SOUND_ICON <var>icon-name</var></code></span></dt>
 <dd><span id="SSIP-SOUND_005fICON"></span><p>Send a sound identified by <var>icon-name</var> to the audio output.
 <var>icon-name</var> is a symbolic name of the given sound from the
 standard set listed in <a href="#Standard-Sound-Icons">Standard Sound Icons</a>, or another name
@@ -583,9 +512,11 @@ from the particular Speech Server sound icon configuration.
 </dl>
 
 <hr>
-<span id="Speech-Output-Control-Commands"></span><div class="header">
+</div>
+<div class="section" id="Speech-Output-Control-Commands">
+<div class="header">
 <p>
-Next: <a href="#Message-Priority-Commands" accesskey="n" rel="next">Message Priority Commands</a>, Previous: <a href="#Speech-Synthesis-and-Sound-Output-Commands" accesskey="p" rel="prev">Speech Synthesis and Sound Output Commands</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Message-Priority-Commands" accesskey="n" rel="next">Priority Setting Commands</a>, Previous: <a href="#Speech-Synthesis-and-Sound-Output-Commands" accesskey="p" rel="prev">Speech Synthesis and Sound Output</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Controlling-Speech-Output"></span><h3 class="section">4.2 Controlling Speech Output</h3>
 
@@ -594,7 +525,7 @@ affect only the synthesis process and output to a sound device, they
 do not affect the message history.
 </p>
 <dl compact="compact">
-<dt><code>STOP { <var>id</var> | all | self }</code></dt>
+<dt><span><code>STOP { <var>id</var> | all | self }</code></span></dt>
 <dd><p>Immediately stop outputting the current message (whatever it is &mdash;
 text, letter, key, or sound icon) from the identified client, if any
 is being output.  If the command argument is <code>self</code>, the last message
@@ -605,14 +536,14 @@ the currently processed message from the client connection identified
 by <var>id</var> is stopped; if there is none such, do nothing.
 </p>
 </dd>
-<dt><code>CANCEL { <var>id</var> | all | self }</code></dt>
+<dt><span><code>CANCEL { <var>id</var> | all | self }</code></span></dt>
 <dd><p>This command is the same as <code>STOP</code>, with the exception that it
 stops as yet unspoken output messages as well.  All currently queued messages
 are stored into the message history without being sent to the audio
 output device.
 </p>
 </dd>
-<dt><code>PAUSE { <var>id</var> | all | self }</code></dt>
+<dt><span><code>PAUSE { <var>id</var> | all | self }</code></span></dt>
 <dd><p>Stop audio output immediately, but do not discard anything.  All the
 currently speaking and currently or later queued messages are postponed
 and saved for later processing, until a corresponding <code>RESUME</code>
@@ -622,7 +553,7 @@ command is received.
 command.
 </p>
 </dd>
-<dt><code>RESUME { <var>id</var> | all | self }</code></dt>
+<dt><span><code>RESUME { <var>id</var> | all | self }</code></span></dt>
 <dd><p>Cancel the effect of the previously issued <code>PAUSE</code> command.
 Note that messages of the priority &ldquo;progress&rdquo; and &ldquo;notification&rdquo; received during
 the pause are not output (but they remain stored in the message history).
@@ -638,9 +569,11 @@ command.
 </dl>
 
 <hr>
-<span id="Message-Priority-Commands"></span><div class="header">
+</div>
+<div class="section" id="Message-Priority-Commands">
+<div class="header">
 <p>
-Next: <a href="#Blocks-of-Messages-Commands" accesskey="n" rel="next">Blocks of Messages Commands</a>, Previous: <a href="#Speech-Output-Control-Commands" accesskey="p" rel="prev">Speech Output Control Commands</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Blocks-of-Messages-Commands" accesskey="n" rel="next">Blocks of Messages Commands</a>, Previous: <a href="#Speech-Output-Control-Commands" accesskey="p" rel="prev">Controlling Speech Output</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Priority-Setting-Commands-1"></span><h3 class="section">4.3 Priority Setting Commands</h3>
 <span id="index-priorities"></span>
@@ -659,21 +592,18 @@ synchronization and switching between the messages (that can be
 coming from different clients) is automatically handled by the Speech Server
 by applying certain rules based on the priorities.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Priority-Categories" accesskey="1">Priority Categories</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What are the available priorities.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Priority-Diagram" accesskey="2">Priority Diagram</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Schematic diagram of used priority model.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Priority-Setting-Commands" accesskey="3">Priority Setting Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Examples-of-Using-Priorities" accesskey="4">Examples of Using Priorities</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">A few examples of using the priorities.
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Priority-Categories" accesskey="1">Priority Categories</a></li>
+<li><a href="#Priority-Diagram" accesskey="2">Priority Diagram</a></li>
+<li><a href="#Priority-Setting-Commands" accesskey="3">Priority Setting Commands</a></li>
+<li><a href="#Examples-of-Using-Priorities" accesskey="4">Examples of Using Priorities</a></li>
+</ul>
 <hr>
-<span id="Priority-Categories"></span><div class="header">
+<div class="subsection" id="Priority-Categories">
+<div class="header">
 <p>
-Next: <a href="#Priority-Diagram" accesskey="n" rel="next">Priority Diagram</a>, Previous: <a href="#Message-Priority-Commands" accesskey="p" rel="prev">Message Priority Commands</a>, Up: <a href="#Message-Priority-Commands" accesskey="u" rel="up">Message Priority Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Priority-Diagram" accesskey="n" rel="next">Priority Diagram</a>, Previous: <a href="#Message-Priority-Commands" accesskey="p" rel="prev">Priority Setting Commands</a>, Up: <a href="#Message-Priority-Commands" accesskey="u" rel="up">Priority Setting Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Priority-Categories-1"></span><h4 class="subsection">4.3.1 Priority Categories</h4>
 
@@ -769,18 +699,22 @@ priorities, we are still sure that the important messages at the
 end of the <code>progress</code> sequences will be said.
 </p>
 <hr>
-<span id="Priority-Diagram"></span><div class="header">
+</div>
+<div class="subsection" id="Priority-Diagram">
+<div class="header">
 <p>
-Next: <a href="#Priority-Setting-Commands" accesskey="n" rel="next">Priority Setting Commands</a>, Previous: <a href="#Priority-Categories" accesskey="p" rel="prev">Priority Categories</a>, Up: <a href="#Message-Priority-Commands" accesskey="u" rel="up">Message Priority Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Priority-Setting-Commands" accesskey="n" rel="next">Priority Setting Commands</a>, Previous: <a href="#Priority-Categories" accesskey="p" rel="prev">Priority Categories</a>, Up: <a href="#Message-Priority-Commands" accesskey="u" rel="up">Priority Setting Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Priority-Diagram-1"></span><h4 class="subsection">4.3.2 Priority Diagram</h4>
 
 <img src="figures/priorities.png" alt="Speech Synthesis Interface Protocol Priorities">
 
 <hr>
-<span id="Priority-Setting-Commands"></span><div class="header">
+</div>
+<div class="subsection" id="Priority-Setting-Commands">
+<div class="header">
 <p>
-Next: <a href="#Examples-of-Using-Priorities" accesskey="n" rel="next">Examples of Using Priorities</a>, Previous: <a href="#Priority-Diagram" accesskey="p" rel="prev">Priority Diagram</a>, Up: <a href="#Message-Priority-Commands" accesskey="u" rel="up">Message Priority Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Examples-of-Using-Priorities" accesskey="n" rel="next">Examples of Using Priorities</a>, Previous: <a href="#Priority-Diagram" accesskey="p" rel="prev">Priority Diagram</a>, Up: <a href="#Message-Priority-Commands" accesskey="u" rel="up">Priority Setting Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Priority-Setting-Commands-2"></span><h4 class="subsection">4.3.3 Priority Setting Commands</h4>
 
@@ -800,9 +734,11 @@ the values <code>important</code>, <code>text</code>, <code>message</code>,
 </li></ul>
 
 <hr>
-<span id="Examples-of-Using-Priorities"></span><div class="header">
+</div>
+<div class="subsection" id="Examples-of-Using-Priorities">
+<div class="header">
 <p>
-Previous: <a href="#Priority-Setting-Commands" accesskey="p" rel="prev">Priority Setting Commands</a>, Up: <a href="#Message-Priority-Commands" accesskey="u" rel="up">Message Priority Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Priority-Setting-Commands" accesskey="p" rel="prev">Priority Setting Commands</a>, Up: <a href="#Message-Priority-Commands" accesskey="u" rel="up">Priority Setting Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Examples-of-Using-Priorities-1"></span><h4 class="subsection">4.3.4 Examples of Using Priorities</h4>
 
@@ -848,9 +784,12 @@ Previous: <a href="#Priority-Setting-Commands" accesskey="p" rel="prev">Priority
 
 
 <hr>
-<span id="Blocks-of-Messages-Commands"></span><div class="header">
+</div>
+</div>
+<div class="section" id="Blocks-of-Messages-Commands">
+<div class="header">
 <p>
-Next: <a href="#Parameter-Setting-Commands" accesskey="n" rel="next">Parameter Setting Commands</a>, Previous: <a href="#Message-Priority-Commands" accesskey="p" rel="prev">Message Priority Commands</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Parameter-Setting-Commands" accesskey="n" rel="next">Parameter Setting</a>, Previous: <a href="#Message-Priority-Commands" accesskey="p" rel="prev">Priority Setting Commands</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Blocks-of-Messages-Commands-1"></span><h3 class="section">4.4 Blocks of Messages Commands</h3>
 
@@ -859,7 +798,7 @@ block that behaves as one message in the priority system and history. After
 opening the block, client can send a specified subset of the commands and
 the messages introduced by <code>SPEAK</code> will be processed immediately, however
 there will be no priority interaction before closing the block.
-The <a href="#Speech-Output-Control-Commands">Speech Output Control Commands</a> also handle the whole block as one
+The <a href="#Speech-Output-Control-Commands">Controlling Speech Output</a> also handle the whole block as one
 message.
 </p>
 <p>Take for example this message from an email client:
@@ -875,7 +814,7 @@ as one message with priority TEXT and have it put together in history,
 because in fact, it logically <em>is</em> one message.
 </p>
 <dl compact="compact">
-<dt><code>BLOCK BEGIN</code></dt>
+<dt><span><code>BLOCK BEGIN</code></span></dt>
 <dd><p>Opens a block of messages. There will be no priority interaction between
 the messages inside the block, the whole block will be treated as one message
 of the priority that was specified by previous <code>SET</code> command.
@@ -900,7 +839,7 @@ of the priority that was specified by previous <code>SET</code> command.
 </li></ul>
 
 </dd>
-<dt><code>BLOCK END</code></dt>
+<dt><span><code>BLOCK END</code></span></dt>
 <dd><p>Closes a block of messages, see <code>BLOCK BEGIN</code>.
 </p>
 <p>It can be only called inside a block opened by <code>BLOCK BEGIN</code>;
@@ -945,9 +884,11 @@ BLOCK END
 </pre></div>
 
 <hr>
-<span id="Parameter-Setting-Commands"></span><div class="header">
+</div>
+<div class="section" id="Parameter-Setting-Commands">
+<div class="header">
 <p>
-Next: <a href="#Information-Retrieval-Commands" accesskey="n" rel="next">Information Retrieval Commands</a>, Previous: <a href="#Blocks-of-Messages-Commands" accesskey="p" rel="prev">Blocks of Messages Commands</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Information-Retrieval-Commands" accesskey="n" rel="next">Retrieving Information</a>, Previous: <a href="#Blocks-of-Messages-Commands" accesskey="p" rel="prev">Blocks of Messages Commands</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Parameter-Setting"></span><h3 class="section">4.5 Parameter Setting</h3>
 
@@ -966,7 +907,7 @@ required functionality.  This is not considered an error in the
 implementation of SSIP.
 </p>
 <dl compact="compact">
-<dt><code>SET self CLIENT_NAME <var>user</var>:<var>client</var>:<var>component</var></code></dt>
+<dt><span><code>SET self CLIENT_NAME <var>user</var>:<var>client</var>:<var>component</var></code></span></dt>
 <dd><p>Set client&rsquo;s name.  Client name consists of the user name, client
 (application) identification, and the identification of the component
 of the client (application).  Each of the parts of the client name may
@@ -996,7 +937,7 @@ client&rsquo;s name once it&rsquo;s already set are answered with an error code.
 <p>Only <code>self</code> is allowed as the &lsquo;target&rsquo; argument.
 </p>
 </dd>
-<dt><code>SET all DEBUG  {ON|OFF}</code></dt>
+<dt><span><code>SET all DEBUG  {ON|OFF}</code></span></dt>
 <dd><p>If set to <code>ON</code>, Speech Dispatcher will write all its debugging
 information (including output modules) with maximal verbosity into a
 debug directory which is reported by the server to the client in reply
@@ -1023,7 +964,7 @@ time.
 </pre></div>
 
 </dd>
-<dt><code>SET {all | self | <var>id</var> } OUTPUT_MODULE  <var>module</var></code></dt>
+<dt><span><code>SET {all | self | <var>id</var> } OUTPUT_MODULE  <var>module</var></code></span></dt>
 <dd><p>Set the output module to  <var>module</var>. This overrides the
 selection based on language. Only values returned by the
 <code>LIST OUTPUT_MODULES</code> command are permitted.
@@ -1035,7 +976,7 @@ See <a href="#list_002doutput_002dmodules">list-output-modules</a>.
 </pre></div>
 
 </dd>
-<dt><code>GET OUTPUT_MODULE</code></dt>
+<dt><span><code>GET OUTPUT_MODULE</code></span></dt>
 <dd><p>Get the output module currently in use. This takes no parameters
 and simply returns the current output module.
 </p>
@@ -1046,7 +987,7 @@ and simply returns the current output module.
 </pre></div>
 
 </dd>
-<dt><code>SET { all | self | <var>id</var> } LANGUAGE <var>language-code</var></code></dt>
+<dt><span><code>SET { all | self | <var>id</var> } LANGUAGE <var>language-code</var></code></span></dt>
 <dd><p>Set recommended language for this client according to <var>language-code</var>.
 <var>language-code</var> is the code of the language according to RFC 1766.
 </p>
@@ -1066,7 +1007,7 @@ is determined by the <code>DefaultLanguage</code> setting in the
 <code>speechd.conf</code> file.  The factory default is <code>en-US</code> (American English).
 </p>
 </dd>
-<dt><code>SET {self} SSML_MODE  <var>mode</var></code></dt>
+<dt><span><code>SET {self} SSML_MODE  <var>mode</var></code></span></dt>
 <dd><p>Set the mode of the text received in the message body sent by the
 <code>SPEAK</code> command. This can be either a plain text, if <code>mode</code>
 is set to <code>off</code> or a SSML marked text, if <code>mode</code> is set to <code>on</code>.
@@ -1089,7 +1030,7 @@ Hello world!
 </pre></div>
 
 </dd>
-<dt><code>SET { all | self | <var>id</var> } PUNCTUATION { all | most | some | none }</code></dt>
+<dt><span><code>SET { all | self | <var>id</var> } PUNCTUATION { all | most | some | none }</code></span></dt>
 <dd><p>Set punctuation mode to the given value.  <code>all</code> means speak all
 punctuation characters, <code>none</code> means speak no punctuation characters,
 <code>some</code> and <code>most</code> mean speak only intermediate sets of punctuation
@@ -1099,7 +1040,7 @@ is determined by the <code>DefaultPunctuationMode</code> setting in the
 <code>speechd.conf</code> file.  The factory default is <code>none</code>.
 </p>
 </dd>
-<dt><code>SET { all | self | <var>id</var> } SPELLING { on | off }</code></dt>
+<dt><span><code>SET { all | self | <var>id</var> } SPELLING { on | off }</code></span></dt>
 <dd><p>Switch spelling on or off.  If spelling is set to on, all the
 incoming messages will be said letter-by-letter, instead of
 speaking them as whole words.
@@ -1108,7 +1049,7 @@ is determined by the <code>DefaultSpelling</code> setting in the
 <code>speechd.conf</code> file.  The factory default is <code>off</code>.
 </p>
 </dd>
-<dt><code>SET { all | self | <var>id</var> } CAP_LET_RECOGN { none | spell | icon }</code></dt>
+<dt><span><code>SET { all | self | <var>id</var> } CAP_LET_RECOGN { none | spell | icon }</code></span></dt>
 <dd><p>Set capital letters recognition mode. <code>none</code> switches this
 feature off. <code>spell</code> causes capital letters to be spelled
 in the speech using the table set as <code>CAP_LET_RECOGN_TABLE</code>.
@@ -1120,9 +1061,9 @@ is determined by the <code>DefaultCapLetRecognition</code> setting in the
 <code>speechd.conf</code> file.  The factory default is <code>none</code>.
 </p>
 </dd>
-<dt><code>SET { all | self | <var>id</var> } VOICE_TYPE <var>name</var></code></dt>
+<dt><span><code>SET { all | self | <var>id</var> } VOICE_TYPE <var>name</var></code></span></dt>
 <dd><p>Set the voice identified by <var>name</var>.  <var>name</var> must be one of the voice
-identifiers returned by the command <code>LIST VOICES</code> (see <a href="#Information-Retrieval-Commands">Information Retrieval Commands</a>).
+identifiers returned by the command <code>LIST VOICES</code> (see <a href="#Information-Retrieval-Commands">Retrieving Information</a>).
 </p>
 <p>There is a standard set of voice identifiers defined in <a href="#Standard-Voices">Standard Voices</a>.
 </p>
@@ -1131,9 +1072,9 @@ is determined by the <code>DefaultVoiceType</code> setting in the
 <code>speechd.conf</code> file.  The factory default is <code>MALE1</code>.
 </p>
 </dd>
-<dt><code>GET VOICE_TYPE</code></dt>
+<dt><span><code>GET VOICE_TYPE</code></span></dt>
 <dd><p>Gets the current pre-defined voice. A list of voice identifiers can be
-obtained by the command <code>LIST VOICES</code> (see <a href="#Information-Retrieval-Commands">Information Retrieval Commands</a>).
+obtained by the command <code>LIST VOICES</code> (see <a href="#Information-Retrieval-Commands">Retrieving Information</a>).
 </p>
 <div class="example">
 <pre class="example">GET VOICE_TYPE
@@ -1142,18 +1083,18 @@ obtained by the command <code>LIST VOICES</code> (see <a href="#Information-Retr
 </pre></div>
 
 </dd>
-<dt><code>SET { all | self | <var>id</var> } SYNTHESIS_VOICE <var>name</var></code></dt>
+<dt><span><code>SET { all | self | <var>id</var> } SYNTHESIS_VOICE <var>name</var></code></span></dt>
 <dd><p>Set the voice identified by <var>name</var>.  <var>name</var> is a voice name
 recognized by the current synthesizer. It must be one of the names
 returned by the command <code>LIST SYNTHESIS_VOICES</code> run for the
-appropriate synthesizer. (see <a href="#Information-Retrieval-Commands">Information Retrieval Commands</a>).
+appropriate synthesizer. (see <a href="#Information-Retrieval-Commands">Retrieving Information</a>).
 </p>
 <p>Please note, that switching to a particular voice may require
 switching a language, so this command may actually override a previous
 call to <code>SET LANGUAGE</code>.
 </p>
 </dd>
-<dt><code>SET { all | self | <var>id</var> } RATE <var>n</var></code></dt>
+<dt><span><code>SET { all | self | <var>id</var> } RATE <var>n</var></code></span></dt>
 <dd><p>Set the rate of speech.  <var>n</var> is an integer value within the range
 from -100 to 100, lower values meaning slower
 speech and higher values meaning faster speech.
@@ -1162,7 +1103,7 @@ is determined by the <code>DefaultRate</code> setting in the
 <code>speechd.conf</code> file.  The factory default is 0.
 </p>
 </dd>
-<dt><code>GET RATE</code></dt>
+<dt><span><code>GET RATE</code></span></dt>
 <dd><p>Get the current rate of speech value.
 </p>
 <div class="example">
@@ -1172,7 +1113,7 @@ is determined by the <code>DefaultRate</code> setting in the
 </pre></div>
 
 </dd>
-<dt><code>SET { all | self | <var>id</var> } PITCH <var>n</var></code></dt>
+<dt><span><code>SET { all | self | <var>id</var> } PITCH <var>n</var></code></span></dt>
 <dd><p>Set the pitch of speech.  <var>n</var> is an integer value within the range
 from -100 to 100, lower values meaning lower
 pitch and higher values meaning higher pitch.
@@ -1181,7 +1122,7 @@ is determined by the <code>DefaultPitch</code> setting in the
 <code>speechd.conf</code> file.  The factory default is 0.
 </p>
 </dd>
-<dt><code>GET PITCH</code></dt>
+<dt><span><code>GET PITCH</code></span></dt>
 <dd><p>Get the current pitch value.
 </p>
 <div class="example">
@@ -1191,7 +1132,7 @@ is determined by the <code>DefaultPitch</code> setting in the
 </pre></div>
 
 </dd>
-<dt><code>SET { all | self | <var>id</var> } VOLUME <var>n</var></code></dt>
+<dt><span><code>SET { all | self | <var>id</var> } VOLUME <var>n</var></code></span></dt>
 <dd><p>Set the volume of speech.  <var>n</var> is an integer value within the range
 from -100 to 100. lower values meaning lower
 volume and higher values meaning higher volume.
@@ -1200,7 +1141,7 @@ is determined by the <code>DefaultVolume</code> setting in the
 <code>speechd.conf</code> file.  The factory default is 100.
 </p>
 </dd>
-<dt><code>GET VOLUME</code></dt>
+<dt><span><code>GET VOLUME</code></span></dt>
 <dd><p>Get the current volume value.
 </p>
 <div class="example">
@@ -1210,7 +1151,7 @@ is determined by the <code>DefaultVolume</code> setting in the
 </pre></div>
 
 </dd>
-<dt><code>SET { all | self | <var>id</var> } PAUSE_CONTEXT <var>n</var></code></dt>
+<dt><span><code>SET { all | self | <var>id</var> } PAUSE_CONTEXT <var>n</var></code></span></dt>
 <dd><p>Set the number of (more or less) sentences that should be repeated
 after a previously paused text is resumed. If there isn&rsquo;t enough text
 before the pause spot, the entire message is repeated. <var>n</var>
@@ -1221,7 +1162,7 @@ is determined by the <code>DefaultPauseContext</code> setting in the
 <code>speechd.conf</code> file.  The factory default is 0.
 </p>
 </dd>
-<dt><code>SET { all | self | <var>id</var> } HISTORY { on | off }</code></dt>
+<dt><span><code>SET { all | self | <var>id</var> } HISTORY { on | off }</code></span></dt>
 <dd><p>Enable (<code>on</code>) or disable (<code>off</code>) storing of received
 messages into history.
 </p>
@@ -1231,9 +1172,11 @@ usually should not be used by other kinds of clients.
 </dl>
 
 <hr>
-<span id="Information-Retrieval-Commands"></span><div class="header">
+</div>
+<div class="section" id="Information-Retrieval-Commands">
+<div class="header">
 <p>
-Next: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="n" rel="next">Message Events Notification and Index Marking</a>, Previous: <a href="#Parameter-Setting-Commands" accesskey="p" rel="prev">Parameter Setting Commands</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="n" rel="next">Message Events Notification and Index Marking</a>, Previous: <a href="#Parameter-Setting-Commands" accesskey="p" rel="prev">Parameter Setting</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Retrieving-Information"></span><h3 class="section">4.6 Retrieving Information</h3>
 
@@ -1244,7 +1187,7 @@ argument of the <code>LIST</code> command.
 </p>
 <dl compact="compact">
 <dd><span id="list_002doutput_002dmodules"></span></dd>
-<dt><code>LIST OUTPUT_MOUDLES</code></dt>
+<dt><span><code>LIST OUTPUT_MOUDLES</code></span></dt>
 <dd><p>Lists the available output modules putting each module identification
 name one on a single line.
 </p>
@@ -1258,7 +1201,7 @@ name one on a single line.
 
 
 </dd>
-<dt><code>LIST VOICES</code></dt>
+<dt><span><code>LIST VOICES</code></span></dt>
 <dd><p>Lists the available symbolic voice names putting each voice name on a single
 line. These are symbolic names that are mapped to the real voices used in the
 synthesizer either automatically or via synthesizer or output module
@@ -1279,7 +1222,7 @@ configuration.
 </pre></div>
 
 </dd>
-<dt><code>LIST SYNTHESIS_VOICES</code></dt>
+<dt><span><code>LIST SYNTHESIS_VOICES</code></span></dt>
 <dd>
 <p>Lists the available voices for the current synthesizer in use. These
 names differ from those obtained by <code>LIST VOICES</code> in that they
@@ -1310,25 +1253,24 @@ is specified by the synthesizer, the value <code>none</code> is used.
 </dl>
 
 <hr>
-<span id="Message-Events-Notification-and-Index-Marking"></span><div class="header">
+</div>
+<div class="section" id="Message-Events-Notification-and-Index-Marking">
+<div class="header">
 <p>
-Next: <a href="#History-Handling-Commands" accesskey="n" rel="next">History Handling Commands</a>, Previous: <a href="#Information-Retrieval-Commands" accesskey="p" rel="prev">Information Retrieval Commands</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#History-Handling-Commands" accesskey="n" rel="next">History Handling</a>, Previous: <a href="#Information-Retrieval-Commands" accesskey="p" rel="prev">Retrieving Information</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Message-Events-Notification-and-Index-Marking-1"></span><h3 class="section">4.7 Message Events Notification and Index Marking</h3>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Why-Events-Notification" accesskey="1">Why Events Notification</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Types-of-Events" accesskey="2">Types of Events</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Events-Notifications-in-SSIP" accesskey="3">Events Notifications in SSIP</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Switching-Notifications-On-and-Off" accesskey="4">Switching Notifications On and Off</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Why-Events-Notification" accesskey="1">Why Events Notification</a></li>
+<li><a href="#Types-of-Events" accesskey="2">Types of Events</a></li>
+<li><a href="#Events-Notifications-in-SSIP" accesskey="3">Events Notification in SSIP</a></li>
+<li><a href="#Switching-Notifications-On-and-Off" accesskey="4">Switching Notifications On and Off</a></li>
+</ul>
 <hr>
-<span id="Why-Events-Notification"></span><div class="header">
+<div class="subsection" id="Why-Events-Notification">
+<div class="header">
 <p>
 Next: <a href="#Types-of-Events" accesskey="n" rel="next">Types of Events</a>, Previous: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="p" rel="prev">Message Events Notification and Index Marking</a>, Up: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="u" rel="up">Message Events Notification and Index Marking</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -1349,9 +1291,11 @@ might not be supported by the end synthesizer and so client
 applications should not rely on it.
 </p>
 <hr>
-<span id="Types-of-Events"></span><div class="header">
+</div>
+<div class="subsection" id="Types-of-Events">
+<div class="header">
 <p>
-Next: <a href="#Events-Notifications-in-SSIP" accesskey="n" rel="next">Events Notifications in SSIP</a>, Previous: <a href="#Why-Events-Notification" accesskey="p" rel="prev">Why Events Notification</a>, Up: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="u" rel="up">Message Events Notification and Index Marking</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Events-Notifications-in-SSIP" accesskey="n" rel="next">Events Notification in SSIP</a>, Previous: <a href="#Why-Events-Notification" accesskey="p" rel="prev">Why Events Notification</a>, Up: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="u" rel="up">Message Events Notification and Index Marking</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Types-of-Events-1"></span><h4 class="subsection">4.7.2 Types of Events</h4>
 
@@ -1361,7 +1305,7 @@ is associated with. This is an overview of available events. For
 detailed SSIP syntax, please look below.
 </p>
 <dl compact="compact">
-<dt><code>BEGIN</code></dt>
+<dt><span><code>BEGIN</code></span></dt>
 <dd>
 <p>This event means that the synthesizer just started to speak the
 message and the user is able to hear the speech on his/her speakers.
@@ -1371,7 +1315,7 @@ message and the user is able to hear the speech on his/her speakers.
 <code>CANCEL</code> event instead.
 </p>
 </dd>
-<dt><code>END</code></dt>
+<dt><span><code>END</code></span></dt>
 <dd>
 <p>This event means that the synthesizer just terminated speaking the
 message (by reaching its end) and the user is no longer able to hear
@@ -1382,25 +1326,25 @@ the speech on their speakers.
 It might instead issue the <code>CANCEL</code> or <code>PAUSE</code> events.
 </p>
 </dd>
-<dt><code>CANCEL</code></dt>
+<dt><span><code>CANCEL</code></span></dt>
 <dd>
 <p>The <code>CANCEL</code> event is reported when the message was canceled
 (either after <code>BEGIN</code> during speaking or even before, when waiting
 in the queues) and will not be spoken anymore.
 </p>
 </dd>
-<dt><code>PAUSE</code></dt>
+<dt><span><code>PAUSE</code></span></dt>
 <dd>
 <p>The event <code>PAUSE</code> means that the message that was being spoken
 was paused and no longer produces any sound on the speakers, but
 was not discarded and the rest of the message might be spoken again after the
-<code>RESUME</code> command is sent.  See <a href="#Speech-Output-Control-Commands">Speech Output Control Commands</a>. This will be reported by the <code>RESUME</code> event.
+<code>RESUME</code> command is sent.  See <a href="#Speech-Output-Control-Commands">Controlling Speech Output</a>. This will be reported by the <code>RESUME</code> event.
 </p>
 <p><code>PAUSE</code> is always preceded by the event <code>BEGIN</code>, and can
 be followed by either the event <code>RESUME</code> or <code>CANCEL</code>.
 </p>
 </dd>
-<dt><code>RESUME</code></dt>
+<dt><span><code>RESUME</code></span></dt>
 <dd>
 <p>The event <code>RESUME</code> means that a message that was paused
 while being spoken, just started to continue and again produces
@@ -1410,7 +1354,7 @@ sound in the speakers.
 be followed by either the event <code>END</code> or <code>CANCEL</code>.
 </p>
 </dd>
-<dt><code>INDEX_MARK</code></dt>
+<dt><span><code>INDEX_MARK</code></span></dt>
 <dd>
 <p>This event means that some previously specified place in the text
 (so-called index mark) was reached when speaking the synthesized
@@ -1447,7 +1391,9 @@ mark.
 </pre></div>
 
 <hr>
-<span id="Events-Notifications-in-SSIP"></span><div class="header">
+</div>
+<div class="subsection" id="Events-Notifications-in-SSIP">
+<div class="header">
 <p>
 Next: <a href="#Switching-Notifications-On-and-Off" accesskey="n" rel="next">Switching Notifications On and Off</a>, Previous: <a href="#Types-of-Events" accesskey="p" rel="prev">Types of Events</a>, Up: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="u" rel="up">Message Events Notification and Index Marking</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -1468,7 +1414,7 @@ client who sent the message. Some events may have additional
 parameters.
 </p>
 <dl compact="compact">
-<dt><code>INDEX_MARK</code></dt>
+<dt><span><code>INDEX_MARK</code></span></dt>
 <dd>
 <div class="example">
 <pre class="example">700-msg_id
@@ -1483,7 +1429,7 @@ index mark, as specified by the client application (e.g. by the
 SSML tag &lt;mark/&gt;.
 </p>
 </dd>
-<dt><code>BEGIN</code></dt>
+<dt><span><code>BEGIN</code></span></dt>
 <dd>
 <div class="example">
 <pre class="example">701-msg_id
@@ -1491,7 +1437,7 @@ SSML tag &lt;mark/&gt;.
 701 BEGIN
 </pre></div>
 </dd>
-<dt><code>END</code></dt>
+<dt><span><code>END</code></span></dt>
 <dd>
 <div class="example">
 <pre class="example">702-msg_id
@@ -1500,7 +1446,7 @@ SSML tag &lt;mark/&gt;.
 </pre></div>
 
 </dd>
-<dt><code>CANCEL</code></dt>
+<dt><span><code>CANCEL</code></span></dt>
 <dd>
 <div class="example">
 <pre class="example">703-msg_id
@@ -1509,7 +1455,7 @@ SSML tag &lt;mark/&gt;.
 </pre></div>
 
 </dd>
-<dt><code>PAUSE</code></dt>
+<dt><span><code>PAUSE</code></span></dt>
 <dd>
 <div class="example">
 <pre class="example">704-msg_id
@@ -1518,7 +1464,7 @@ SSML tag &lt;mark/&gt;.
 </pre></div>
 
 </dd>
-<dt><code>RESUME</code></dt>
+<dt><span><code>RESUME</code></span></dt>
 <dd>
 <div class="example">
 <pre class="example">705-msg_id
@@ -1530,9 +1476,11 @@ SSML tag &lt;mark/&gt;.
 
 
 <hr>
-<span id="Switching-Notifications-On-and-Off"></span><div class="header">
+</div>
+<div class="subsection" id="Switching-Notifications-On-and-Off">
+<div class="header">
 <p>
-Previous: <a href="#Events-Notifications-in-SSIP" accesskey="p" rel="prev">Events Notifications in SSIP</a>, Up: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="u" rel="up">Message Events Notification and Index Marking</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Events-Notifications-in-SSIP" accesskey="p" rel="prev">Events Notification in SSIP</a>, Up: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="u" rel="up">Message Events Notification and Index Marking</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Switching-Notifications-On-and-Off-1"></span><h4 class="subsection">4.7.4 Switching Notifications On and Off</h4>
 
@@ -1550,28 +1498,28 @@ for that message even though it might start speaking after the
 notifications are already turned off.
 </p>
 <dl compact="compact">
-<dt><code>SET SELF NOTIFICATION ALL { on | off }</code></dt>
+<dt><span><code>SET SELF NOTIFICATION ALL { on | off }</code></span></dt>
 <dd>
 <p>Set all available event notifications to either &ldquo;on&rdquo; or &ldquo;off&rdquo; for
 for the messages that follow. See <a href="#Types-of-Events">Types of Events</a>.
 </p>
 </dd>
-<dt><code>SET SELF NOTIFICATION BEGIN { on | off }</code></dt>
-<dt><code>SET SELF NOTIFICATION END { on | off }</code></dt>
+<dt><span><code>SET SELF NOTIFICATION BEGIN { on | off }</code></span></dt>
+<dt><span><code>SET SELF NOTIFICATION END { on | off }</code></span></dt>
 <dd>
 <p>Set the event notifications for <code>BEGIN</code> or <code>END</code> to either
 &ldquo;on&rdquo; or &ldquo;off&rdquo; for the messages that follow. See <a href="#Types-of-Events">Types of Events</a>.
 </p>
 </dd>
-<dt><code>SET SELF NOTIFICATION CANCEL { on | off }</code></dt>
+<dt><span><code>SET SELF NOTIFICATION CANCEL { on | off }</code></span></dt>
 <dd>
 <p>Set the event notifications for <code>CANCEL</code> to <code>mode</code> where
 <code>mode</code> is either &ldquo;on&rdquo; or &ldquo;off&rdquo; for switching the
 notifications on or off for the messages that follow. See <a href="#Types-of-Events">Types of Events</a>.
 </p>
 </dd>
-<dt><code>SET SELF NOTIFICATION PAUSE { on | off }</code></dt>
-<dt><code>SET SELF NOTIFICATION RESUME { on | off }</code></dt>
+<dt><span><code>SET SELF NOTIFICATION PAUSE { on | off }</code></span></dt>
+<dt><span><code>SET SELF NOTIFICATION RESUME { on | off }</code></span></dt>
 <dd>
 <p>Set the event notifications for <code>PAUSE</code> or <code>RESUME</code> to
 <code>mode</code> where <code>mode</code> is either &ldquo;on&rdquo; or &ldquo;off&rdquo; for
@@ -1579,7 +1527,7 @@ switching the notifications on or off for the messages that
 follow. See <a href="#Types-of-Events">Types of Events</a>.
 </p>
 </dd>
-<dt><code>SET SELF NOTIFICATION INDEX_MARKS { on | off }</code></dt>
+<dt><span><code>SET SELF NOTIFICATION INDEX_MARKS { on | off }</code></span></dt>
 <dd>
 <p>Set the event notifications for <code>INDEX_MARK</code> to either &ldquo;on&rdquo; or
 &ldquo;off&rdquo; for switching the notifications on or off for the messages
@@ -1589,23 +1537,25 @@ that follow. See <a href="#Types-of-Events">Types of Events</a>.
 </dl>
 
 <hr>
-<span id="History-Handling-Commands"></span><div class="header">
+</div>
+</div>
+<div class="section" id="History-Handling-Commands">
+<div class="header">
 <p>
 Next: <a href="#Other-Commands" accesskey="n" rel="next">Other Commands</a>, Previous: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="p" rel="prev">Message Events Notification and Index Marking</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="History-Handling"></span><h3 class="section">4.8 History Handling</h3>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Purpose-of-Message-History" accesskey="1">Purpose of Message History</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Message-History-in-SSIP" accesskey="2">Message History in SSIP</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Purpose-of-Message-History" accesskey="1">Purpose of Message History</a></li>
+<li><a href="#Message-History-in-SSIP" accesskey="2">Message History in SSIP</a></li>
+</ul>
 <hr>
-<span id="Purpose-of-Message-History"></span><div class="header">
+<div class="subsection" id="Purpose-of-Message-History">
+<div class="header">
 <p>
-Next: <a href="#Message-History-in-SSIP" accesskey="n" rel="next">Message History in SSIP</a>, Previous: <a href="#History-Handling-Commands" accesskey="p" rel="prev">History Handling Commands</a>, Up: <a href="#History-Handling-Commands" accesskey="u" rel="up">History Handling Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Message-History-in-SSIP" accesskey="n" rel="next">Message History in SSIP</a>, Previous: <a href="#History-Handling-Commands" accesskey="p" rel="prev">History Handling</a>, Up: <a href="#History-Handling-Commands" accesskey="u" rel="up">History Handling</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Purpose-of-Message-History-1"></span><h4 class="subsection">4.8.1 Purpose of Message History</h4>
 
@@ -1631,9 +1581,11 @@ checking the user id isn&rsquo;t enough. So now, only those messages
 that come from the same client connection are accessible.
 </p>
 <hr>
-<span id="Message-History-in-SSIP"></span><div class="header">
+</div>
+<div class="subsection" id="Message-History-in-SSIP">
+<div class="header">
 <p>
-Previous: <a href="#Purpose-of-Message-History" accesskey="p" rel="prev">Purpose of Message History</a>, Up: <a href="#History-Handling-Commands" accesskey="u" rel="up">History Handling Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Purpose-of-Message-History" accesskey="p" rel="prev">Purpose of Message History</a>, Up: <a href="#History-Handling-Commands" accesskey="u" rel="up">History Handling</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Message-History-in-SSIP-1"></span><h4 class="subsection">4.8.2 Message History in SSIP</h4>
 
@@ -1654,7 +1606,7 @@ message the cursor is pointing to, using the <code>HISTORY CURSOR</code> set
 of command arguments described below.
 </p>
 <dl compact="compact">
-<dt><code>HISTORY GET CLIENT_LIST</code></dt>
+<dt><span><code>HISTORY GET CLIENT_LIST</code></span></dt>
 <dd><p>List known client names, their identifiers and status.  Each connection is
 listed on a separate line in the following format:
 </p>
@@ -1664,7 +1616,7 @@ listed on a separate line in the following format:
 
 <p>where <var>id</var> is a client id that can be used in other history
 handling requests or in the speech output control commands
-(see <a href="#Speech-Output-Control-Commands">Speech Output Control Commands</a>), <var>name</var> is the client
+(see <a href="#Speech-Output-Control-Commands">Controlling Speech Output</a>), <var>name</var> is the client
 name as set through the <code>SET SELF CLIENT_NAME</code> command, and
 <var>status</var> is <code>1</code> for connected clients and <code>0</code> for
 disconnected clients.  <var>id</var>s are unique within a single run of
@@ -1680,7 +1632,7 @@ Speech Server.
 </pre></div>
 
 </dd>
-<dt><code>HISTORY GET CLIENT_ID</code></dt>
+<dt><span><code>HISTORY GET CLIENT_ID</code></span></dt>
 <dd><p>Return id of the client itself.
 </p>
 <p>The id is listed on a separate line in the following format:
@@ -1696,7 +1648,7 @@ Speech Server.
 </pre></div>
 
 </dd>
-<dt><code>HISTORY GET CLIENT_MESSAGES { <var>id</var> | all | self } <var>start</var> <var>number</var></code></dt>
+<dt><span><code>HISTORY GET CLIENT_MESSAGES { <var>id</var> | all | self } <var>start</var> <var>number</var></code></span></dt>
 <dd><p>List identifiers of messages sent by the client identified by
 <var>id</var>.  If the special identifier <code>all</code> is used, identifiers
 of messages sent by all clients are listed; if the special identifier
@@ -1724,11 +1676,11 @@ separate line, in the following format:
 
 <p><var>client-id</var> is a numeric identifier of the client which sent the
 message, <var>client-name</var> is its name as set by the <code>SET SELF
-CLIENT_NAME</code> command (see <a href="#Parameter-Setting-Commands">Parameter Setting Commands</a>).
+CLIENT_NAME</code> command (see <a href="#Parameter-Setting-Commands">Parameter Setting</a>).
 <var>time</var> is the time of arrival of the message, in the fixed length
 <code>YYYY-MM-DD HH:MM:SS</code> format.  <var>priority</var> is the priority of
 the message, one of the values accepted by the <code>SET SELF PRIORITY</code>
-command (see <a href="#Parameter-Setting-Commands">Parameter Setting Commands</a>).
+command (see <a href="#Parameter-Setting-Commands">Parameter Setting</a>).
 </p>
 <p><var>intro</var> is the introductory part of the message of a certain
 maximum length, see the <code>HISTORY SET SHORT_MESSAGE_LENGTH</code>
@@ -1740,7 +1692,7 @@ issued them, are unique within a single run of Speech Server and
 remain unchanged.
 </p>
 </dd>
-<dt><code>HISTORY GET LAST</code></dt>
+<dt><span><code>HISTORY GET LAST</code></span></dt>
 <dd><p>List the id of the last message sent by the client.
 </p>
 <p>The id is listed on a separate line of the following format:
@@ -1752,7 +1704,7 @@ remain unchanged.
 <p>If the client hasn&rsquo;t sent any message yet, return an error code.
 </p>
 </dd>
-<dt><code>HISTORY GET MESSAGE <var>id</var></code></dt>
+<dt><span><code>HISTORY GET MESSAGE <var>id</var></code></span></dt>
 <dd><p>Return the text of the history message identified by <var>id</var>.  If
 <var>id</var> doesn&rsquo;t refer to any message, return an error code instead.
 The text is sent as a multi-line message, with no escaping or special
@@ -1767,7 +1719,7 @@ transformation.
 </pre></div>
 
 </dd>
-<dt><code>HISTORY CURSOR GET</code></dt>
+<dt><span><code>HISTORY CURSOR GET</code></span></dt>
 <dd><p>Get the id of the message the history cursor is pointing to.
 </p>
 <p>The id is listed on a separate line.  Sample SSIP reply to
@@ -1779,7 +1731,7 @@ this command:
 </pre></div>
 
 </dd>
-<dt><code>HISTORY CURSOR SET { <var>id</var> | all | self } { first | last | pos <var>n</var> }</code></dt>
+<dt><span><code>HISTORY CURSOR SET { <var>id</var> | all | self } { first | last | pos <var>n</var> }</code></span></dt>
 <dd><p>Set the history cursor to the given position.  The meaning of the
 first argument after <code>SET</code> is the same as in the <code>HISTORY
 GET CLIENT_MESSAGES</code> command.  The argument <code>first</code> asks to set
@@ -1794,14 +1746,14 @@ any existing position in the history.
 same rules apply as in <code>HISTORY GET CLIENT_MESSAGES</code>. See above.
 </p>
 </dd>
-<dt><code>HISTORY CURSOR { forward | backward }</code></dt>
+<dt><span><code>HISTORY CURSOR { forward | backward }</code></span></dt>
 <dd><p>Move the cursor one position <code>forward</code>, resp. <code>backward</code>,
 within the messages of the client specified in the last <code>HISTORY
 CURSOR SET</code> command.  If there is no next, resp. previous, message,
 don&rsquo;t move the cursor and return an error code.
 </p>
 </dd>
-<dt><code>HISTORY SAY <var>id</var></code></dt>
+<dt><span><code>HISTORY SAY <var>id</var></code></span></dt>
 <dd><p>Speak the message from history identified by <var>id</var>.  If <var>id</var>
 doesn&rsquo;t refer to any message, return an error code instead.
 </p>
@@ -1810,30 +1762,30 @@ doesn&rsquo;t refer to any message, return an error code instead.
 (priority, etc.) apply.
 </p>
 </dd>
-<dt><code>HISTORY SORT { asc | desc } { time | user | client_name | priority | message_type }</code></dt>
+<dt><span><code>HISTORY SORT { asc | desc } { time | user | client_name | priority | message_type }</code></span></dt>
 <dd><p>Sort the messages in history according to the given criteria.  If the
 second command argument is <code>asc</code>, sort in ascending order, if
 it is <code>desc</code>, sort in descending order.  The third command
 argument specifies the message property to order by:
 </p>
 <dl compact="compact">
-<dt><code>time</code></dt>
+<dt><span><code>time</code></span></dt>
 <dd><p>Time of arrival of the message.
 </p>
 </dd>
-<dt><code>user</code></dt>
+<dt><span><code>user</code></span></dt>
 <dd><p>User name.
 </p>
 </dd>
-<dt><code>client_name</code></dt>
+<dt><span><code>client_name</code></span></dt>
 <dd><p>Client name, excluding user name.
 </p>
 </dd>
-<dt><code>priority</code></dt>
+<dt><span><code>priority</code></span></dt>
 <dd><p>Priority.
 </p>
 </dd>
-<dt><code>message_type</code></dt>
+<dt><span><code>message_type</code></span></dt>
 <dd><p>Type of the message (text, sound icon, character, key), in the order
 specified in the Speech Server configuration or by the <code>HISTORY
 SET MESSAGE_TYPE_ORDERING</code> command.
@@ -1847,7 +1799,7 @@ the given ordering remains the same.
 connections are unaffected by invocation of this command.
 </p>
 </dd>
-<dt><code>HISTORY SET SHORT_MESSAGE_LENGTH <var>length</var></code></dt>
+<dt><span><code>HISTORY SET SHORT_MESSAGE_LENGTH <var>length</var></code></span></dt>
 <dd><p>Set the maximum length of short versions of history messages to
 <var>length</var> characters.  <var>length</var> must be a non-negative integer.
 </p>
@@ -1855,7 +1807,7 @@ connections are unaffected by invocation of this command.
 answer to the <code>HISTORY GET CLIENT_MESSAGES</code> format.
 </p>
 </dd>
-<dt><code>HISTORY SET MESSAGE_TYPE_ORDERING &quot;<var>ordering</var>&quot;</code></dt>
+<dt><span><code>HISTORY SET MESSAGE_TYPE_ORDERING &quot;<var>ordering</var>&quot;</code></span></dt>
 <dd><p>Set the ordering of the message types, from the minimum to the
 maximum.  <var>ordering</var> is a sequence of the following symbols,
 separated by spaces: <code>text</code>, <code>sound_icon</code>, <code>char</code>,
@@ -1865,7 +1817,7 @@ present in <var>ordering</var> exactly once.
 <p>The specified ordering can be used by the <code>HISTORY SORT</code> command.
 </p>
 </dd>
-<dt><code>HISTORY SEARCH { <var>id</var> | all | self } &quot;<var>condition</var>&quot;</code></dt>
+<dt><span><code>HISTORY SEARCH { <var>id</var> | all | self } &quot;<var>condition</var>&quot;</code></span></dt>
 <dd><p>Return the list of history messages satisfying <var>condition</var>.  The
 command allows searching messages by given words.  The output format
 is the same as the <code>HISTORY GET CLIENT_MESSAGES</code> command.
@@ -1877,19 +1829,19 @@ the <code>HISTORY GET CLIENT_MESSAGES</code> command.
 rules:
 </p>
 <dl compact="compact">
-<dt><code><var>condition</var> :: <var>word</var></code></dt>
+<dt><span><code><var>condition</var> :: <var>word</var></code></span></dt>
 <dd><p>Matches messages containing <var>word</var>.
 </p>
 </dd>
-<dt><code><var>condition</var> :: ( ! <var>condition</var> )</code></dt>
+<dt><span><code><var>condition</var> :: ( ! <var>condition</var> )</code></span></dt>
 <dd><p>Negation of the given condition.
 </p>
 </dd>
-<dt><code><var>condition</var> :: ( <var>condition</var> [ &amp; <var>condition</var> ... ] )</code></dt>
+<dt><span><code><var>condition</var> :: ( <var>condition</var> [ &amp; <var>condition</var> ... ] )</code></span></dt>
 <dd><p>Logical AND &mdash; all the conditions must be satisfied.
 </p>
 </dd>
-<dt><code><var>condition</var> :: ( <var>condition</var> [ | <var>condition</var> ... ] )</code></dt>
+<dt><span><code><var>condition</var> :: ( <var>condition</var> [ | <var>condition</var> ... ] )</code></span></dt>
 <dd><p>Logical OR &mdash; at least one of the conditions must be satisfied.
 </p></dd>
 </dl>
@@ -1928,24 +1880,30 @@ according to their time of arrival.
 </dl>
 
 <hr>
-<span id="Other-Commands"></span><div class="header">
+</div>
+</div>
+<div class="section" id="Other-Commands">
+<div class="header">
 <p>
-Previous: <a href="#History-Handling-Commands" accesskey="p" rel="prev">History Handling Commands</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#History-Handling-Commands" accesskey="p" rel="prev">History Handling</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Other-Commands-1"></span><h3 class="section">4.9 Other Commands</h3>
 
 <dl compact="compact">
-<dt><code>QUIT</code></dt>
+<dt><span><code>QUIT</code></span></dt>
 <dd><p>Close the connection.
 </p>
 </dd>
-<dt><code>HELP</code></dt>
+<dt><span><code>HELP</code></span></dt>
 <dd><p>Print a short list of all SSIP commands, as a multi-line message.
 </p></dd>
 </dl>
 
 <hr>
-<span id="Return-Codes"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="Return-Codes">
+<div class="header">
 <p>
 Next: <a href="#Appendices" accesskey="n" rel="next">Appendices</a>, Previous: <a href="#SSIP-Commands" accesskey="p" rel="prev">SSIP Commands</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -1958,29 +1916,29 @@ the form <var>NXX</var> where <var>N</var> determines the result group and
 <p>SSIP defines the following result groups:
 </p>
 <dl compact="compact">
-<dt><var>1xx</var></dt>
+<dt><span><var>1xx</var></span></dt>
 <dd><p>Informative response &mdash; general information about the protocol, help
 messages.
 </p>
 </dd>
-<dt><var>2xx</var></dt>
+<dt><span><var>2xx</var></span></dt>
 <dd><p>Operation was completely successful.
 </p>
 </dd>
-<dt><var>3xx</var></dt>
+<dt><span><var>3xx</var></span></dt>
 <dd><p>Server error, problem on the server side.
 </p>
 </dd>
-<dt><var>4xx</var></dt>
+<dt><span><var>4xx</var></span></dt>
 <dd><p>Client error, invalid arguments or parameters received.
 </p>
 </dd>
-<dt><var>5xx</var></dt>
+<dt><span><var>5xx</var></span></dt>
 <dd><p>Client error, invalid command syntax, unparseable input.
 </p>
 </dd>
-<dt><var>7xx</var></dt>
-<dd><p>Event notifications. See See <a href="#Events-Notifications-in-SSIP">Events Notifications in SSIP</a>.
+<dt><span><var>7xx</var></span></dt>
+<dd><p>Event notifications. See See <a href="#Events-Notifications-in-SSIP">Events Notification in SSIP</a>.
 </p></dd>
 </dl>
 
@@ -2001,13 +1959,13 @@ them.
 <p>In the future, these return codes should be fixed so that clients can
 rely on them.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Sample-SSIP-Dialog" accesskey="1">Sample SSIP Dialog</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Sample-SSIP-Dialog" accesskey="1">Example of an SSIP Dialog</a></li>
+</ul>
 <hr>
-<span id="Sample-SSIP-Dialog"></span><div class="header">
+<div class="section" id="Sample-SSIP-Dialog">
+<div class="header">
 <p>
 Previous: <a href="#Return-Codes" accesskey="p" rel="prev">Return Codes</a>, Up: <a href="#Return-Codes" accesskey="u" rel="up">Return Codes</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -2054,23 +2012,24 @@ QUIT
 
 
 <hr>
-<span id="Appendices"></span><div class="header">
+</div>
+</div>
+<div class="appendix" id="Appendices">
+<div class="header">
 <p>
 Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Return-Codes" accesskey="p" rel="prev">Return Codes</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Appendices-1"></span><h2 class="appendix">Appendix A Appendices</h2>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Key-Names" accesskey="1">Key Names</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">List of the symbolic key names.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Standard-Sound-Icons" accesskey="2">Standard Sound Icons</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">List of the standard sound icon names.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Standard-Voices" accesskey="3">Standard Voices</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Key-Names" accesskey="1">Key Names</a></li>
+<li><a href="#Standard-Sound-Icons" accesskey="2">Standard Sound Icons</a></li>
+<li><a href="#Standard-Voices" accesskey="3">Standard Voices</a></li>
+</ul>
 <hr>
-<span id="Key-Names"></span><div class="header">
+<div class="appendixsec" id="Key-Names">
+<div class="header">
 <p>
 Next: <a href="#Standard-Sound-Icons" accesskey="n" rel="next">Standard Sound Icons</a>, Previous: <a href="#Appendices" accesskey="p" rel="prev">Appendices</a>, Up: <a href="#Appendices" accesskey="u" rel="up">Appendices</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -2082,92 +2041,94 @@ names are case sensitive.
 <span id="Special-Key-Names"></span><h4 class="subheading">Special Key Names</h4>
 
 <dl compact="compact">
-<dt><code>space</code></dt>
-<dt><code>underscore</code></dt>
-<dt><code>double-quote</code></dt>
+<dt><span><code>space</code></span></dt>
+<dt><span><code>underscore</code></span></dt>
+<dt><span><code>double-quote</code></span></dt>
 </dl>
 
 <span id="Auxiliary-Keys"></span><h4 class="subheading">Auxiliary Keys</h4>
 
 <dl compact="compact">
-<dt><code>alt</code></dt>
-<dt><code>control</code></dt>
-<dt><code>hyper</code></dt>
-<dt><code>meta</code></dt>
-<dt><code>shift</code></dt>
-<dt><code>super</code></dt>
+<dt><span><code>alt</code></span></dt>
+<dt><span><code>control</code></span></dt>
+<dt><span><code>hyper</code></span></dt>
+<dt><span><code>meta</code></span></dt>
+<dt><span><code>shift</code></span></dt>
+<dt><span><code>super</code></span></dt>
 </dl>
 
 <span id="Control-Character-Keys"></span><h4 class="subheading">Control Character Keys</h4>
 
 <dl compact="compact">
-<dt><code>backspace</code></dt>
-<dt><code>break</code></dt>
-<dt><code>delete</code></dt>
-<dt><code>down</code></dt>
-<dt><code>end</code></dt>
-<dt><code>enter</code></dt>
-<dt><code>escape</code></dt>
-<dt><code>f1</code></dt>
-<dt><code>f2</code></dt>
-<dt><code>f3</code></dt>
-<dt><code>f4</code></dt>
-<dt><code>f5</code></dt>
-<dt><code>f6</code></dt>
-<dt><code>f7</code></dt>
-<dt><code>f8</code></dt>
-<dt><code>f9</code></dt>
-<dt><code>f10</code></dt>
-<dt><code>f11</code></dt>
-<dt><code>f12</code></dt>
-<dt><code>f13</code></dt>
-<dt><code>f14</code></dt>
-<dt><code>f15</code></dt>
-<dt><code>f16</code></dt>
-<dt><code>f17</code></dt>
-<dt><code>f18</code></dt>
-<dt><code>f19</code></dt>
-<dt><code>f20</code></dt>
-<dt><code>f21</code></dt>
-<dt><code>f22</code></dt>
-<dt><code>f23</code></dt>
-<dt><code>f24</code></dt>
-<dt><code>home</code></dt>
-<dt><code>insert</code></dt>
-<dt><code>kp-*</code></dt>
-<dt><code>kp-+</code></dt>
-<dt><code>kp--</code></dt>
-<dt><code>kp-.</code></dt>
-<dt><code>kp-/</code></dt>
-<dt><code>kp-0</code></dt>
-<dt><code>kp-1</code></dt>
-<dt><code>kp-2</code></dt>
-<dt><code>kp-3</code></dt>
-<dt><code>kp-4</code></dt>
-<dt><code>kp-5</code></dt>
-<dt><code>kp-6</code></dt>
-<dt><code>kp-7</code></dt>
-<dt><code>kp-8</code></dt>
-<dt><code>kp-9</code></dt>
-<dt><code>kp-enter</code></dt>
-<dt><code>left</code></dt>
-<dt><code>menu</code></dt>
-<dt><code>next</code></dt>
-<dt><code>num-lock</code></dt>
-<dt><code>pause</code></dt>
-<dt><code>print</code></dt>
-<dt><code>prior</code></dt>
-<dt><code>return</code></dt>
-<dt><code>right</code></dt>
-<dt><code>scroll-lock</code></dt>
-<dt><code>space</code></dt>
-<dt><code>tab</code></dt>
-<dt><code>up</code></dt>
-<dt><code>window</code></dt>
+<dt><span><code>backspace</code></span></dt>
+<dt><span><code>break</code></span></dt>
+<dt><span><code>delete</code></span></dt>
+<dt><span><code>down</code></span></dt>
+<dt><span><code>end</code></span></dt>
+<dt><span><code>enter</code></span></dt>
+<dt><span><code>escape</code></span></dt>
+<dt><span><code>f1</code></span></dt>
+<dt><span><code>f2</code></span></dt>
+<dt><span><code>f3</code></span></dt>
+<dt><span><code>f4</code></span></dt>
+<dt><span><code>f5</code></span></dt>
+<dt><span><code>f6</code></span></dt>
+<dt><span><code>f7</code></span></dt>
+<dt><span><code>f8</code></span></dt>
+<dt><span><code>f9</code></span></dt>
+<dt><span><code>f10</code></span></dt>
+<dt><span><code>f11</code></span></dt>
+<dt><span><code>f12</code></span></dt>
+<dt><span><code>f13</code></span></dt>
+<dt><span><code>f14</code></span></dt>
+<dt><span><code>f15</code></span></dt>
+<dt><span><code>f16</code></span></dt>
+<dt><span><code>f17</code></span></dt>
+<dt><span><code>f18</code></span></dt>
+<dt><span><code>f19</code></span></dt>
+<dt><span><code>f20</code></span></dt>
+<dt><span><code>f21</code></span></dt>
+<dt><span><code>f22</code></span></dt>
+<dt><span><code>f23</code></span></dt>
+<dt><span><code>f24</code></span></dt>
+<dt><span><code>home</code></span></dt>
+<dt><span><code>insert</code></span></dt>
+<dt><span><code>kp-*</code></span></dt>
+<dt><span><code>kp-+</code></span></dt>
+<dt><span><code>kp--</code></span></dt>
+<dt><span><code>kp-.</code></span></dt>
+<dt><span><code>kp-/</code></span></dt>
+<dt><span><code>kp-0</code></span></dt>
+<dt><span><code>kp-1</code></span></dt>
+<dt><span><code>kp-2</code></span></dt>
+<dt><span><code>kp-3</code></span></dt>
+<dt><span><code>kp-4</code></span></dt>
+<dt><span><code>kp-5</code></span></dt>
+<dt><span><code>kp-6</code></span></dt>
+<dt><span><code>kp-7</code></span></dt>
+<dt><span><code>kp-8</code></span></dt>
+<dt><span><code>kp-9</code></span></dt>
+<dt><span><code>kp-enter</code></span></dt>
+<dt><span><code>left</code></span></dt>
+<dt><span><code>menu</code></span></dt>
+<dt><span><code>next</code></span></dt>
+<dt><span><code>num-lock</code></span></dt>
+<dt><span><code>pause</code></span></dt>
+<dt><span><code>print</code></span></dt>
+<dt><span><code>prior</code></span></dt>
+<dt><span><code>return</code></span></dt>
+<dt><span><code>right</code></span></dt>
+<dt><span><code>scroll-lock</code></span></dt>
+<dt><span><code>space</code></span></dt>
+<dt><span><code>tab</code></span></dt>
+<dt><span><code>up</code></span></dt>
+<dt><span><code>window</code></span></dt>
 </dl>
 
 <hr>
-<span id="Standard-Sound-Icons"></span><div class="header">
+</div>
+<div class="appendixsec" id="Standard-Sound-Icons">
+<div class="header">
 <p>
 Next: <a href="#Standard-Voices" accesskey="n" rel="next">Standard Voices</a>, Previous: <a href="#Key-Names" accesskey="p" rel="prev">Key Names</a>, Up: <a href="#Appendices" accesskey="u" rel="up">Appendices</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -2176,35 +2137,40 @@ Next: <a href="#Standard-Voices" accesskey="n" rel="next">Standard Voices</a>, P
 <p>There are none currently.
 </p>
 <hr>
-<span id="Standard-Voices"></span><div class="header">
+</div>
+<div class="appendixsec" id="Standard-Voices">
+<div class="header">
 <p>
 Previous: <a href="#Standard-Sound-Icons" accesskey="p" rel="prev">Standard Sound Icons</a>, Up: <a href="#Appendices" accesskey="u" rel="up">Appendices</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="Standard-Voices-1"></span><h3 class="appendixsec">A.3 Standard Voices</h3>
 
 <p>The following voice names are always present in the output of the
-<code>LIST VOICES</code> command (see <a href="#Information-Retrieval-Commands">Information Retrieval Commands</a>):
+<code>LIST VOICES</code> command (see <a href="#Information-Retrieval-Commands">Retrieving Information</a>):
 </p>
 <dl compact="compact">
-<dt><code>MALE1</code></dt>
-<dt><code>MALE2</code></dt>
-<dt><code>MALE3</code></dt>
-<dt><code>FEMALE1</code></dt>
-<dt><code>FEMALE2</code></dt>
-<dt><code>FEMALE3</code></dt>
-<dt><code>CHILD_MALE</code></dt>
-<dt><code>CHILD_FEMALE</code></dt>
+<dt><span><code>MALE1</code></span></dt>
+<dt><span><code>MALE2</code></span></dt>
+<dt><span><code>MALE3</code></span></dt>
+<dt><span><code>FEMALE1</code></span></dt>
+<dt><span><code>FEMALE2</code></span></dt>
+<dt><span><code>FEMALE3</code></span></dt>
+<dt><span><code>CHILD_MALE</code></span></dt>
+<dt><span><code>CHILD_FEMALE</code></span></dt>
 </dl>
 
 <p>The actual presence of any of these voices is not guaranteed.  But the
-command <code>SET VOICE</code> (see <a href="#Parameter-Setting-Commands">Parameter Setting Commands</a>) must
+command <code>SET VOICE</code> (see <a href="#Parameter-Setting-Commands">Parameter Setting</a>) must
 accept any of them.  If the given voice is not available, it is mapped
 to another voice by the output module.
 </p>
 <hr>
-<span id="GNU-Free-Documentation-License"></span><div class="header">
+</div>
+</div>
+<div class="appendix" id="GNU-Free-Documentation-License">
+<div class="header">
 <p>
-Next: <a href="#GNU-General-Public-Licence" accesskey="n" rel="next">GNU General Public Licence</a>, Previous: <a href="#Appendices" accesskey="p" rel="prev">Appendices</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#GNU-General-Public-Licence" accesskey="n" rel="next">GNU General Public License</a>, Previous: <a href="#Appendices" accesskey="p" rel="prev">Appendices</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <span id="GNU-Free-Documentation-License-1"></span><h2 class="appendix">Appendix B GNU Free Documentation License</h2>
 <div align="center">Version 1.2, November 2002
@@ -2586,7 +2552,11 @@ number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.
 </p></li></ol>
 
-<span id="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></span><h3 class="appendixsec">B.1 ADDENDUM: How to use this License for your documents</h3>
+<ul class="section-toc">
+<li><a href="#ADDENDUM_003a-How-to-use-this-License-for-your-documents" accesskey="1">ADDENDUM: How to use this License for your documents</a></li>
+</ul>
+<div class="appendixsec" id="ADDENDUM_003a-How-to-use-this-License-for-your-documents">
+<h3 class="appendixsec">B.1 ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
@@ -2623,7 +2593,10 @@ to permit their use in free software.
 
 
 <hr>
-<span id="GNU-General-Public-Licence"></span><div class="header">
+</div>
+</div>
+<div class="appendix" id="GNU-General-Public-Licence">
+<div class="header">
 <p>
 Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -2983,7 +2956,7 @@ consider it more useful to permit linking proprietary applications with the
 library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.
 </p>
-<hr>
+</div>
 
 
 
