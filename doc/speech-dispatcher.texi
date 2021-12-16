@@ -688,6 +688,9 @@ influenced this way. On the other hand, the fallback dummy output
 module tries to use any available means of audio output to deliver its
 error message.
 
+The @emph{SPEECHD_PLUGIN_DIR} environment variable allows to specify which
+directory the audio modules should be loaded from.
+
 @node Client Specific Configuration, Output Modules Configuration, Audio Output Configuration, Configuration
 @subsection Client Specific Configuration
 

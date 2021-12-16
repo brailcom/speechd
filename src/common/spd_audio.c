@@ -96,6 +96,7 @@ AudioID *spd_audio_open(const char *name, void **pars, char **error)
 	spd_audio_plugin_t *(*fn) (void);
 	gchar *libname;
 	int ret;
+	char *plugin_dir;
 
 	/* now check whether dynamic plugin is available */
 	ret = lt_dlinit();
@@ -104,7 +105,11 @@ AudioID *spd_audio_open(const char *name, void **pars, char **error)
 		return (AudioID *) NULL;
 	}
 
-	ret = lt_dlsetsearchpath(PLUGIN_DIR);
+	plugin_dir = getenv("SPEECHD_PLUGIN_DIR");
+	if (!plugin_dir)
+		plugin_dir = PLUGIN_DIR;
+
+	ret = lt_dlsetsearchpath(plugin_dir);
 	if (ret != 0) {
 		*error = (char *)g_strdup_printf("lt_dlsetsearchpath() failed");
 		return (AudioID *) NULL;
