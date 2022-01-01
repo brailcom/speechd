@@ -10,7 +10,6 @@
 /doc/*~
 /doc/.*.sw[nop]
 /doc/.dirstamp
-/doc/.gitignore
 /doc/GPATH
 /doc/GRTAGS
 /doc/GSYMS
@@ -50,7 +49,6 @@
 /src/clients/say/*~
 /src/clients/say/.*.sw[nop]
 /src/clients/say/.dirstamp
-/src/clients/say/.gitignore
 /src/clients/say/GPATH
 /src/clients/say/GRTAGS
 /src/clients/say/GSYMS
@@ -79,7 +77,6 @@
 /src/clients/spdsend/*~
 /src/clients/spdsend/.*.sw[nop]
 /src/clients/spdsend/.dirstamp
-/src/clients/spdsend/.gitignore
 /src/clients/spdsend/GPATH
 /src/clients/spdsend/GRTAGS
 /src/clients/spdsend/GSYMS
@@ -107,7 +104,6 @@
 /src/server/*~
 /src/server/.*.sw[nop]
 /src/server/.dirstamp
-/src/server/.gitignore
 /src/server/GPATH
 /src/server/GRTAGS
 /src/server/GSYMS
@@ -136,7 +132,6 @@
 /src/tests/*~
 /src/tests/.*.sw[nop]
 /src/tests/.dirstamp
-/src/tests/.gitignore
 /src/tests/GPATH
 /src/tests/GRTAGS
 /src/tests/GSYMS
