@@ -1,32 +1,38 @@
+# General patterns (to be ignored in all subdirectories)
+.deps
+.dirstamp
+.libs
+_libs
+GPATH
+GRTAGS
+GSYMS
+GPATH
+GRTAGS
+ID
+TAGS
+Makefile
+Makefile.in
+so_locations
+tags
+.*.sw[nop]
+*~
+*.bak
+*.gcda
+*.gcno
+*.lo
+*.o
+*.orig
+*.rej
+*.tab.c
+
 # The /doc subdirectory
-/doc/*.o
-/doc/.deps
-/doc/*.bak
-/doc/*.gcda
-/doc/*.gcno
-/doc/*.orig
-/doc/*.rej
-/doc/*.tab.c
-/doc/*~
-/doc/.*.sw[nop]
-/doc/.dirstamp
-/doc/GPATH
-/doc/GRTAGS
-/doc/GSYMS
-/doc/GTAGS
-/doc/ID
-/doc/Makefile
-/doc/Makefile.in
-/doc/TAGS
 /doc/mdate-sh
-/doc/so_locations
 /doc/spd-say.info
 /doc/speech-dispatcher-cs.info
 /doc/speech-dispatcher.info
 /doc/ssip.info
 /doc/stamp-1
 /doc/stamp-vti
-/doc/tags
 /doc/texinfo.tex
 /doc/version-2.texi
 /doc/version.texi
@@ -35,111 +41,23 @@
 /po/POTFILES
 /po/stamp-it
 
-# The src/clients/say subdirectory
-/src/clients/say/*.lo
-/src/clients/say/*.o
-/src/clients/say/.deps
-/src/clients/say/.libs
-/src/clients/say/*.bak
-/src/clients/say/*.gcda
-/src/clients/say/*.gcno
-/src/clients/say/*.orig
-/src/clients/say/*.rej
-/src/clients/say/*.tab.c
-/src/clients/say/*~
-/src/clients/say/.*.sw[nop]
-/src/clients/say/.dirstamp
-/src/clients/say/GPATH
-/src/clients/say/GRTAGS
-/src/clients/say/GSYMS
-/src/clients/say/GTAGS
-/src/clients/say/ID
-/src/clients/say/Makefile
-/src/clients/say/Makefile.in
-/src/clients/say/TAGS
-/src/clients/say/so_locations
+# The /src/api/guile subdirectory
+## We need to "unignore" src/api/guile/Makefile because it is not
+## an automake generated file like the others
+!src/api/guile/Makefile 
+
+# The /src/clients/say subdirectory
 /src/clients/say/spd-say
 /src/clients/say/spd-say.1
-/src/clients/say/tags
-/src/clients/say/_libs
 
-# The src/clients/spdsend subdirectory
-/src/clients/spdsend/*.lo
-/src/clients/spdsend/*.o
-/src/clients/spdsend/.deps
-/src/clients/spdsend/.libs
-/src/clients/spdsend/*.bak
-/src/clients/spdsend/*.gcda
-/src/clients/spdsend/*.gcno
-/src/clients/spdsend/*.orig
-/src/clients/spdsend/*.rej
-/src/clients/spdsend/*.tab.c
-/src/clients/spdsend/*~
-/src/clients/spdsend/.*.sw[nop]
-/src/clients/spdsend/.dirstamp
-/src/clients/spdsend/GPATH
-/src/clients/spdsend/GRTAGS
-/src/clients/spdsend/GSYMS
-/src/clients/spdsend/GTAGS
-/src/clients/spdsend/ID
-/src/clients/spdsend/Makefile
-/src/clients/spdsend/Makefile.in
-/src/clients/spdsend/TAGS
-/src/clients/spdsend/so_locations
+# The /src/clients/spdsend subdirectory
 /src/clients/spdsend/spdsend
-/src/clients/spdsend/tags
-/src/clients/spdsend/_libs
 
-# The src/server subdirectory
-/src/server/*.lo
-/src/server/*.o
-/src/server/.deps
-/src/server/.libs
-/src/server/*.bak
-/src/server/*.gcda
-/src/server/*.gcno
-/src/server/*.orig
-/src/server/*.rej
-/src/server/*.tab.c
-/src/server/*~
-/src/server/.*.sw[nop]
-/src/server/.dirstamp
-/src/server/GPATH
-/src/server/GRTAGS
-/src/server/GSYMS
-/src/server/GTAGS
-/src/server/ID
-/src/server/Makefile
-/src/server/Makefile.in
-/src/server/TAGS
-/src/server/so_locations
+# The /src/server subdirectory
 /src/server/speech-dispatcher
 /src/server/speech-dispatcher.1
-/src/server/tags
-/src/server/_libs
 
-# The src/tests subdirectory
-/src/tests/*.lo
-/src/tests/*.o
-/src/tests/.deps
-/src/tests/.libs
-/src/tests/*.bak
-/src/tests/*.gcda
-/src/tests/*.gcno
-/src/tests/*.orig
-/src/tests/*.rej
-/src/tests/*.tab.c
-/src/tests/*~
-/src/tests/.*.sw[nop]
-/src/tests/.dirstamp
-/src/tests/GPATH
-/src/tests/GRTAGS
-/src/tests/GSYMS
-/src/tests/GTAGS
-/src/tests/ID
-/src/tests/Makefile
-/src/tests/Makefile.in
-/src/tests/TAGS
+# The /src/tests subdirectory
 /src/tests/atconfig
 /src/tests/clibrary
 /src/tests/clibrary2
@@ -147,9 +65,6 @@
 /src/tests/long_message
 /src/tests/package.m4
 /src/tests/run_test
-/src/tests/so_locations
 /src/tests/spd_cancel_long_message
 /src/tests/spd_set_notifications_all
-/src/tests/tags
 /src/tests/testsuite
-/src/tests/_libs
