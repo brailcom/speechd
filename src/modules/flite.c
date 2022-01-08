@@ -111,7 +111,16 @@ int module_init(char **status_info)
 
 SPDVoice **module_list_voices(void)
 {
-	return NULL;
+	static const SPDVoice voice = {
+#ifdef HAVE_REGISTER_CMU_US_KAL16
+			.name = "kal16",
+#else
+			.name = "kal",
+#endif
+			.language = "en",
+	};
+	static const SPDVoice *voices[] = { &voice, NULL };
+	return voices;
 }
 
 void module_speak_sync(const gchar * data, size_t len, SPDMessageType msgtype)
