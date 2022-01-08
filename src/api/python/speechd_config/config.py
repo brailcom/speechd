@@ -677,8 +677,10 @@ Do you want to keep it?"""), False)
 This is usually not necessary, most applications will start Speech Dispatcher automatically."""),
                 False)
             if setup_autostart:
-                os.system("""cp %s ~/.config/autostart/""" % os.path.join(buildconfig.SPD_DESKTOP_CONF_PATH,
-                                                                          "speechd.desktop"))
+                shutil.copy(
+                    os.path.join(buildconfig.SPD_DESKTOP_CONF_PATH, "speechd.desktop"),
+                    os.path.join(BaseDirectory.xdg_config_home, "autostart/")
+                )
 
                 report(_("""
 Configuration written to %s
