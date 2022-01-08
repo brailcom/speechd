@@ -29,43 +29,38 @@ speechd.desktop: speechd.desktop.in
 dist_bin_SCRIPTS = spd-conf
 
 speechd_pythondir = $(pyexecdir)/speechd_config
-speechd_python_PYTHON = __init__.py
-nodist_speechd_python_PYTHON = config.py paths.py
+speechd_python_PYTHON = __init__.py config.py
+nodist_speechd_python_PYTHON = buildconfig.py
 
-paths_edit = sed \
+buildconfig_edit = sed \
 	-e "s:[@]spdconforigdir[@]:$(spdconforigdir):" \
 	-e "s:[@]spdconfdir[@]:$(spdconfdir):" \
 	-e "s:[@]snddatadir[@]:$(snddatadir):" \
-	-e "s:[@]spddesktopconforigdir[@]:$(spddesktopconforigdir):"
-
-config_edit = sed \
+	-e "s:[@]spddesktopconforigdir[@]:$(spddesktopconforigdir):" \
 	-e "s:[@]GETTEXT_PACKAGE[@]:$(GETTEXT_PACKAGE):" \
 	-e "s:[@]VERSION[@]:$(VERSION):" \
 	-e "s:[@]localedir[@]:$(localedir):"
 
-paths.py: Makefile
+buildconfig.py: Makefile
 	rm -f $@
 	srcdir=; \
 	test -f ./$@.in || srcdir=$(srcdir)/; \
-	$(paths_edit) $${srcdir}$@.in > $@
-
-config.py: Makefile
-	rm -f $@
-	srcdir=; \
-	test -f ./$@.in || srcdir=$(srcdir)/; \
-	$(config_edit) $${srcdir}$@.in > $@
+	$(buildconfig_edit) $${srcdir}$@.in > $@
 
 $(abs_builddir)/__init__.py:
 	ln -s $(srcdir)/__init__.py .
 
-paths.py: $(srcdir)/paths.py.in
+$(abs_builddir)/config.py:
+	ln -s $(srcdir)/config.py .
 
-CLEANFILES += paths.py config.py speechd.desktop
+buildconfig.py: $(srcdir)/buildconfig.py.in
 
-EXTRA_DIST = paths.py.in speechd.desktop.in config.py.in
+CLEANFILES += buildconfig.py speechd.desktop
+
+EXTRA_DIST = buildconfig.py.in speechd.desktop.in
 
 if HAVE_HELP2MAN
-spd-conf.1: config.py paths.py $(abs_builddir)/__init__.py
+spd-conf.1: buildconfig.py $(abs_builddir)/__init__.py $(abs_builddir)/config.py
 	LC_ALL=C PYTHONPATH=$(builddir)/.. PYTHONDONTWRITEBYTECODE=1 help2man -N -n "configure Speech Dispatcher and diagnose problems" --output=$@ $(srcdir)/spd-conf
 
 dist_man1_MANS = \
