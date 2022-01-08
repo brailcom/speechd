@@ -602,7 +602,17 @@ Do you want to keep it?"""), False)
                     return
         # Copy the original intact configuration files
         # creating a conf/ subdirectory
-        shutil.copytree(buildconfig.SPD_CONF_ORIG_PATH, self.test.user_conf_dir())
+        config_root = self.test.user_conf_dir()
+        shutil.copytree(buildconfig.SPD_CONF_ORIG_PATH, config_root)
+        # Ensure the files are writeable when copying from immutable directory.
+        umask = os.umask(0)
+        os.umask(umask)
+        os.chmod(self.test.user_conf_dir() , 0o755 & ~umask)
+        for root, dirs, files in os.walk(self.test.user_conf_dir()):
+            for d in dirs:
+                os.chmod(os.path.join(root, d), 0o755 & ~umask)
+            for f in files:
+                os.chmod(os.path.join(root, f), 0o644 & ~umask)
 
         report(_("User configuration created in %s" % self.test.user_conf_dir()))
 
