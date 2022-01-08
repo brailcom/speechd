@@ -31,15 +31,15 @@ import time
 
 from xdg import BaseDirectory
 
+# Configuration and sound data paths
+from . import buildconfig
+
 # Locale/gettext configuration
 
 locale.setlocale(locale.LC_ALL, '')
-gettext.bindtextdomain ("@GETTEXT_PACKAGE@", "@localedir@")
-gettext.textdomain("@GETTEXT_PACKAGE@")
+gettext.bindtextdomain (buildconfig.GETTEXT_PACKAGE, buildconfig.LOCALEDIR)
+gettext.textdomain(buildconfig.GETTEXT_PACKAGE)
 _ = gettext.gettext
-
-# Configuration and sound data paths
-from . import paths
 
 # two globals
 use_espeak_synthesis = False
@@ -170,7 +170,7 @@ class Tests:
 
     def version(self):
         """Print version and copyright info"""
-        report("spd-conf @VERSION@\n")
+        report(f"spd-conf {buildconfig.VERSION}\n")
         report(_("""Copyright (C) %d-%d Brailcom, o.p.s.
 This is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by
@@ -184,7 +184,7 @@ any later version. Please see COPYING for more details.\n\n""") % \
 
     def system_conf_dir(self):
         """Determine system configuration directory"""
-        return paths.SPD_CONF_PATH
+        return buildconfig.SPD_CONF_PATH
 
     def user_conf_dir_exists(self):
         """Determine whether user configuration directory exists"""
@@ -242,7 +242,7 @@ Search for package like python-speechd, download and install it."""))
     def audio_try_play(self, type):
         """Try to play a sound through the standard playback utility for the
         given audio method."""
-        wavfile = os.path.join(paths.SPD_SOUND_DATA_PATH,"test.wav")
+        wavfile = os.path.join(buildconfig.SPD_SOUND_DATA_PATH,"test.wav")
 
         binary = None
 
@@ -602,7 +602,7 @@ Do you want to keep it?"""), False)
                     return
         # Copy the original intact configuration files
         # creating a conf/ subdirectory
-        shutil.copytree(paths.SPD_CONF_ORIG_PATH, self.test.user_conf_dir())
+        shutil.copytree(buildconfig.SPD_CONF_ORIG_PATH, self.test.user_conf_dir())
 
         report(_("User configuration created in %s" % self.test.user_conf_dir()))
 
@@ -667,7 +667,7 @@ Do you want to keep it?"""), False)
 This is usually not necessary, most applications will start Speech Dispatcher automatically."""),
                 False)
             if setup_autostart:
-                os.system("""cp %s ~/.config/autostart/""" % os.path.join(paths.SPD_DESKTOP_CONF_PATH,
+                os.system("""cp %s ~/.config/autostart/""" % os.path.join(buildconfig.SPD_DESKTOP_CONF_PATH,
                                                                           "speechd.desktop"))
 
                 report(_("""
