@@ -131,29 +131,14 @@ OutputModule *get_output_module_by_name(const char *name)
 	return NULL;
 }
 
-/* get_output_module tries to return a pointer to the
-   appropriate output module according to message context.
-   If it is not possible to find the required module,
-   it will subsequently try to get the default module,
-   any of the other remaining modules except dummy and
-   at last, the dummy output module.
-
-   Only if not even dummy output module is working
-   (serious issues), it will log an error message and return
-   a NULL pointer.
-
-*/
-
-OutputModule *get_output_module(const TSpeechDMessage * message)
+OutputModule *get_some_output_module_by_name(const char *name)
 {
 	OutputModule *output = NULL;
 	int i, len;
 
-	if (message->settings.output_module != NULL) {
-		MSG(5, "Desired output module is %s",
-		    message->settings.output_module);
-		output =
-		    get_output_module_by_name(message->settings.output_module);
+	if (name != NULL) {
+		MSG(5, "Desired output module is %s", name);
+		output = get_output_module_by_name(name);
 		if ((output != NULL) && output->working)
 			return output;
 	}
@@ -187,6 +172,28 @@ OutputModule *get_output_module(const TSpeechDMessage * message)
 	// a pre-synthesized error message with some hints over and over).
 	if (output == NULL || !output->working)
 		output = get_output_module_by_name("dummy");
+
+	return output;
+}
+
+/* get_output_module tries to return a pointer to the
+   appropriate output module according to message context.
+   If it is not possible to find the required module,
+   it will subsequently try to get the default module,
+   any of the other remaining modules except dummy and
+   at last, the dummy output module.
+
+   Only if not even dummy output module is working
+   (serious issues), it will log an error message and return
+   a NULL pointer.
+
+*/
+
+OutputModule *get_output_module(const TSpeechDMessage * message)
+{
+	OutputModule *output;
+
+	output = get_some_output_module_by_name(message->settings.output_module);
 
 	// Give up....
 	if (output == NULL)
@@ -518,12 +525,9 @@ static SPDVoice **output_get_voices(OutputModule * module)
 
 SPDVoice **output_list_voices(const char *module_name)
 {
-	OutputModule *module;
-	if (module_name == NULL)
-		return NULL;
-	module = get_output_module_by_name(module_name);
+	OutputModule *module = get_some_output_module_by_name(module_name);
 	if (module == NULL) {
-		MSG(1, "ERROR: Can't list voices for module %s", module_name);
+		MSG(1, "ERROR: Can't list voices for module %s", module_name ? module_name : "default");
 		return NULL;
 	}
 	return output_get_voices(module);
