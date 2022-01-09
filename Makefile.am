@@ -51,7 +51,6 @@ $(top_srcdir)/.version:
 dist-hook:
 	echo $(VERSION) > $(distdir)/.tarball-version
 	echo $(VERSION) > $(distdir)/.version
-	rm $(distdir)/po/speech-dispatcher.pot
 
 -include $(top_srcdir)/git.mk
 
