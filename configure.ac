@@ -30,7 +30,11 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 AC_PREREQ([2.63])
-AC_INIT([speech-dispatcher], [0.11.1.99], [speechd-discuss@nongnu.org])
+m4_define([MAJOR_VERSION], [0])
+m4_define([MINOR_VERSION], [11])
+m4_define([MICRO_VERSION], [1.99])
+m4_define([AC_PACKAGE_VERSION],[MAJOR_VERSION.MINOR_VERSION.MICRO_VERSION])
+AC_INIT([speech-dispatcher], [AC_PACKAGE_VERSION], [speechd-discuss@nongnu.org])
 AC_CONFIG_MACRO_DIRS([m4])
 AM_INIT_AUTOMAKE([foreign info-in-builddir])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES(yes)])
@@ -46,9 +50,6 @@ then
 fi
 
 # Split version number
-MAJOR_VERSION="$(./split-version.sh -ma)"
-MINOR_VERSION="$(./split-version.sh -mi)"
-MICRO_VERSION="$(./split-version.sh -mc)"
 AC_SUBST([MAJOR_VERSION])
 AC_SUBST([MINOR_VERSION])
 AC_SUBST([MICRO_VERSION])
