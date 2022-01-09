@@ -36,6 +36,14 @@ CLEANFILES = spd-say.info \
 	version.texi
 
 DISTCLEANFILES = \
+	spd-say.html \
+	spd-say.dvi \
+	speech-dispatcher-cs.html \
+	speech-dispatcher-cs.dvi \
+	speech-dispatcher.html \
+	speech-dispatcher.dvi \
+	ssip.html \
+	ssip.dvi \
 	mdate-sh \
 	texinfo.tex
 
