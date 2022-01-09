@@ -35,6 +35,10 @@ CLEANFILES = spd-say.info \
 	version-2.texi \
 	version.texi
 
+DISTCLEANFILES = \
+	mdate-sh \
+	texinfo.tex
+
 # Keep .html versions in the public web repository
 clean-aminfo:
 
