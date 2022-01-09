@@ -31,16 +31,23 @@ tags
 /autom4te.cache/
 /compile
 /config.guess
+/config.h
 /config.h.in
+/config.log
 /config.rpath
+/config.status
 /config.sub
 /configure
 /depcomp
 /install-sh
+/libtool
 /ltmain.sh
 /m4/
 /missing
 /py-compile
+/run-speechd
+/speech-dispatcher.pc
+/stamp-h1
 
 # The /doc subdirectory
 /doc/mdate-sh
