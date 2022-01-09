@@ -25,6 +25,23 @@ tags
 *.rej
 *.tab.c
 
+# The root directory
+/ABOUT-NLS
+/aclocal.m4
+/autom4te.cache/
+/compile
+/config.guess
+/config.h.in
+/config.rpath
+/config.sub
+/configure
+/depcomp
+/install-sh
+/ltmain.sh
+/m4/
+/missing
+/py-compile
+
 # The /doc subdirectory
 /doc/mdate-sh
 /doc/spd-say.info
@@ -40,6 +57,8 @@ tags
 # The /po subdirectory
 /po/POTFILES
 /po/stamp-it
+/po/Makevars.template
+/po/remove-potcdate.sin
 
 # The /src/api/guile subdirectory
 ## We need to "unignore" src/api/guile/Makefile because it is not
