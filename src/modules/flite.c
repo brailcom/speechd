@@ -111,7 +111,7 @@ int module_init(char **status_info)
 
 SPDVoice **module_list_voices(void)
 {
-	static const SPDVoice voice = {
+	static SPDVoice voice = {
 #ifdef HAVE_REGISTER_CMU_US_KAL16
 			.name = "kal16",
 #else
@@ -119,7 +119,7 @@ SPDVoice **module_list_voices(void)
 #endif
 			.language = "en",
 	};
-	static const SPDVoice *voices[] = { &voice, NULL };
+	static SPDVoice *voices[] = { &voice, NULL };
 	return voices;
 }
 
