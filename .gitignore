@@ -26,6 +26,7 @@ tags
 *.tab.c
 
 # The root directory
+/.version
 /ABOUT-NLS
 /aclocal.m4
 /autom4te.cache/
@@ -47,6 +48,7 @@ tags
 /py-compile
 /run-speechd
 /speech-dispatcher.pc
+/speech-dispatcherd.service
 /stamp-h1
 
 # The /doc subdirectory
@@ -62,10 +64,12 @@ tags
 /doc/version.texi
 
 # The /po subdirectory
-/po/POTFILES
-/po/stamp-it
+/po/*.gmo
 /po/Makevars.template
+/po/POTFILES
 /po/remove-potcdate.sin
+/po/stamp-it
+/po/stamp-po
 
 # The /src/api/guile subdirectory
 ## We need to "unignore" src/api/guile/Makefile because it is not
