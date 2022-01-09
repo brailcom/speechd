@@ -157,6 +157,7 @@ case "$dirty" in
     *) # Append the suffix only if there isn't one already.
 	case $v in
 	  *-dirty) ;;
+	  *.99) ;; # and it's not already marked as development
 	  *) v="$v-dirty" ;;
 	esac ;;
 esac
