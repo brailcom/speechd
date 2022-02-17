@@ -2,7 +2,7 @@
 #
 # Copyright (C) 2010-2012 BRAILCOM,o.p.s.
 #
-# Attila Hammer <hammera@pickup.hu>, 2010.
+# Attila Hammer <hammera at pickup dot hu>, 2010, 2022.
 #
 # This is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by
@@ -19,19 +19,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.8\n"
+"Project-Id-Version: speech-dispatcher 0.11.1.99\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
 "POT-Creation-Date: 2022-01-09 01:46+0100\n"
-"PO-Revision-Date: 2020-09-08 07:42+0000\n"
-"Last-Translator: Hynek Hanke <hanke@brailcom.org>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/speech-"
-"dispatcher/po/hu/>\n"
+"PO-Revision-Date: 2022-02-17 13:31+0100\n"
+"Last-Translator: Attila Hammer <hammera at pickup dot hu>\n"
+"Language-Team: Hungarian\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3-dev\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: src/server/options.c:63
 #, c-format
@@ -50,13 +49,14 @@ msgstr "Használat: "
 #: src/server/options.c:69
 #, c-format
 msgid "Options: \n"
-msgstr ""
+msgstr "Opciók: \n"
 
 #: src/server/options.c:71
 #, c-format
 msgid "Run as a daemon\n"
 msgstr "Futtatás kiszolgálóként\n"
 
+# ,c-format
 #: src/server/options.c:73
 #, c-format
 msgid "Run as single application\n"
@@ -90,7 +90,7 @@ msgstr "vagy '%s')\n"
 #: src/server/options.c:87
 #, c-format
 msgid "Socket path to use for '%s' method\n"
-msgstr "Használt socket elérési út az '%s' módhoz \n"
+msgstr "Használt socket elérési út a(z) '%s' módhoz \n"
 
 #: src/server/options.c:89
 #, c-format
@@ -100,22 +100,22 @@ msgstr "(fájlrendszer elérési útja, vagy a '%s' elérési út használata)\n
 #: src/server/options.c:91
 #, c-format
 msgid "Specify a port number for '%s' method\n"
-msgstr "Egy portszám megadása az '%s' módhoz\n"
+msgstr "Egy portszám megadása a(z) '%s' módhoz\n"
 
 #: src/server/options.c:93
 #, c-format
 msgid "Set time in seconds for the server to wait before it\n"
-msgstr ""
+msgstr "Az idő beállítása másodpercben, amíg a kiszolgáló várakozik\n"
 
 #: src/server/options.c:95
 #, c-format
 msgid "shuts down, if it has no clients connected. Setting to\n"
-msgstr ""
+msgstr "Leállítás, ha semmilyen kliens nem csatlakozik hozzá. Ha a beállítás\n"
 
 #: src/server/options.c:97
 #, c-format
 msgid "0 disables such shutdown\n"
-msgstr ""
+msgstr "0, az ilyen típusú leállítás le lesz tiltva.\n"
 
 #: src/server/options.c:99
 #, c-format
@@ -128,9 +128,9 @@ msgid "Set path to configuration\n"
 msgstr "A konfigurációs fájlok elérési útjának megadása\n"
 
 #: src/server/options.c:103
-#, fuzzy, c-format
+#, c-format
 msgid "Set path to modules\n"
-msgstr "A pid fájl elérési útjának megadása\n"
+msgstr "A modulok elérési útjának megadása\n"
 
 #: src/server/options.c:105
 #, c-format
@@ -145,7 +145,7 @@ msgstr "A hibakövető információk mentése a $TMPDIR/%s könyvtárba\n"
 #: src/server/options.c:110
 #, c-format
 msgid "if TMPDIR is exported, otherwise to /tmp/%s\n"
-msgstr ""
+msgstr "ha a TMPDIR-t exportálja, különben a / tmp /% s könyvtárba\n"
 
 #: src/server/options.c:113 src/clients/say/options.c:169
 #, c-format
@@ -162,7 +162,7 @@ msgstr ""
 "\n"
 
 #: src/server/options.c:121 src/clients/say/options.c:179
-#: src/api/python/speechd_config/config.py:174
+#: src/api/python/speechd_config/config.py.in:174
 #, c-format, python-format
 msgid ""
 "Copyright (C) %d-%d Brailcom, o.p.s.\n"
@@ -185,6 +185,8 @@ msgid ""
 "send text-to-speech output request to speech-dispatcher\n"
 "\n"
 msgstr ""
+"Beszédkimeneti kérés küldése a Speech-dispatchernek\n"
+"\n"
 
 #: src/clients/say/options.c:68
 #, c-format
@@ -198,7 +200,7 @@ msgstr ""
 #: src/clients/say/options.c:70
 #, c-format
 msgid "Options:\n"
-msgstr ""
+msgstr "Opciók:\n"
 
 #: src/clients/say/options.c:72
 #, c-format
@@ -214,17 +216,17 @@ msgstr "(%+d és %+d között, az alapértelmezett érték %d)\n"
 #: src/clients/say/options.c:77
 #, c-format
 msgid "Set the pitch of the speech\n"
-msgstr "A hangmagasság beállítása\n"
+msgstr "A beszéd hangmagasságának beállítása\n"
 
 #: src/clients/say/options.c:82
-#, fuzzy, c-format
+#, c-format
 msgid "Set the pitch range of the speech\n"
-msgstr "A hangmagasság beállítása\n"
+msgstr "A beszéd hangmagasság tartományának beállítása\n"
 
 #: src/clients/say/options.c:87
 #, c-format
 msgid "Set the volume (intensity) of the speech\n"
-msgstr "A hangerő beállítása\n"
+msgstr "A hangerő intenzitásának beállítása\n"
 
 #: src/clients/say/options.c:92
 #, c-format
@@ -268,12 +270,12 @@ msgstr ""
 #: src/clients/say/options.c:115
 #, c-format
 msgid "Speak the character\n"
-msgstr ""
+msgstr "Az aktuális karakter kimondása\n"
 
 #: src/clients/say/options.c:118
-#, fuzzy, c-format
+#, c-format
 msgid "Speak the key\n"
-msgstr "A kimondandó szöveg betűztetése\n"
+msgstr "A kimondandó billentyű betűztetése\n"
 
 #: src/clients/say/options.c:121
 #, c-format
@@ -297,7 +299,7 @@ msgstr ""
 msgid "Pipe from stdin to stdout plus Speech Dispatcher\n"
 msgstr ""
 "a kimondandó szöveg átadása a csővezetéken\n"
-"keresztül a speech-dispatchernek\n"
+"keresztül a Speech Dispatchernek\n"
 
 #: src/clients/say/options.c:134
 #, c-format
@@ -372,101 +374,110 @@ msgstr "Ismeretlen kapcsoló\n"
 
 #: src/api/python/speechd_config/speechd.desktop.in:21
 msgid "Speech Dispatcher"
-msgstr ""
+msgstr "Speech Dispatcher"
 
 #: src/api/python/speechd_config/speechd.desktop.in:22
 msgid "Interface to Text to Speech services"
-msgstr ""
+msgstr "Interfész a szövegfelolvasó szolgáltatásokhoz"
 
-#: src/api/python/speechd_config/config.py:103
+#: src/api/python/speechd_config/config.py.in:103
 #, python-format
 msgid ""
 "The value you have chosen is not among the suggested values.\n"
 "You have chosen '%s'."
 msgstr ""
+"A kiválasztott érték nem szerepel a javasolt értékek között.\n"
+"A(z) '%s' lehetőséget választotta."
 
-#: src/api/python/speechd_config/config.py:105
+#: src/api/python/speechd_config/config.py.in:105
 msgid "The suggested values are "
-msgstr ""
+msgstr "A javasolt értékek "
 
-#: src/api/python/speechd_config/config.py:106
+#: src/api/python/speechd_config/config.py.in:106
 msgid "Do you want to correct your answer?"
-msgstr ""
+msgstr "Szeretné javítani a válaszát?"
 
-#: src/api/python/speechd_config/config.py:118
+#: src/api/python/speechd_config/config.py.in:118
 #, python-format
 msgid "You have chosen '%s'. Please choose one of %s"
 msgstr ""
+"A (z) '%s' lehetőséget választotta. Válasszon egyet az alábbi lehetőségek "
+"közül: %s"
 
-#: src/api/python/speechd_config/config.py:125
+#: src/api/python/speechd_config/config.py.in:125
 msgid ""
 "A simple tool for basic configuration of Speech Dispatcher and problem "
 "diagnostics"
 msgstr ""
+"Egy egyszerű eszköz a Speech Dispatcher alapvető konfigurálásához és a "
+"problémadiagnosztikához"
 
-#: src/api/python/speechd_config/config.py:128
+#: src/api/python/speechd_config/config.py.in:128
 msgid "Create Speech Dispatcher configuration for the given user"
 msgstr ""
+"Hozzon létre Speech Dispatcher konfigurációt az adott felhasználó számára"
 
-#: src/api/python/speechd_config/config.py:131
+#: src/api/python/speechd_config/config.py.in:131
 msgid "Configure basic settings in user configuration"
-msgstr ""
+msgstr "Az alapvető beállítások megadása a felhasználói konfigurációban"
 
-#: src/api/python/speechd_config/config.py:134
+#: src/api/python/speechd_config/config.py.in:134
 msgid "Configure basic settings in system-wide configuration"
 msgstr ""
+"Az alapvető beállítások megadása az egész rendszerre kiterjedő "
+"konfigurációban"
 
-#: src/api/python/speechd_config/config.py:137
+#: src/api/python/speechd_config/config.py.in:137
 msgid "Diagnose problems with the current setup"
-msgstr ""
+msgstr "az aktuális beállítással kapcsolatos problémák diagnosztizálása"
 
-#: src/api/python/speechd_config/config.py:140
+#: src/api/python/speechd_config/config.py.in:140
 msgid "Test connection to Speech Dispatcher using spd-say"
-msgstr ""
+msgstr "A kapcsolat tesztelése a Speech Dispatcherrel az spd-say használatával"
 
-#: src/api/python/speechd_config/config.py:143
+#: src/api/python/speechd_config/config.py.in:143
 msgid "Test whether Festival works as a server"
-msgstr ""
+msgstr "Annak tesztelése, hogy a Festival kiszolgálóként működik-e"
 
-#: src/api/python/speechd_config/config.py:145
+#: src/api/python/speechd_config/config.py.in:145
 msgid "Test whether Espeak works as a standalone binary"
-msgstr ""
+msgstr "Annak tesztelése, hogy az Espeak önálló binárisként működik-e"
 
-#: src/api/python/speechd_config/config.py:147
+#: src/api/python/speechd_config/config.py.in:147
 msgid "Test ALSA audio output"
-msgstr ""
+msgstr "Ellenőrizze az ALSA hangkimenetet"
 
-#: src/api/python/speechd_config/config.py:149
+#: src/api/python/speechd_config/config.py.in:149
 msgid "Test Pulse Audio output"
-msgstr ""
+msgstr "Ellenőrizze a Pulseaudio hangkimenetet"
 
-#: src/api/python/speechd_config/config.py:152
+#: src/api/python/speechd_config/config.py.in:152
 msgid "Use espeak to synthesize messages"
-msgstr ""
+msgstr "Az Espeak használata a szöveg felolvasáshoz"
 
-#: src/api/python/speechd_config/config.py:155
+#: src/api/python/speechd_config/config.py.in:155
 msgid "Do not ask any questions, always use default values"
-msgstr ""
+msgstr "Ne tegyen fel kérdéseket, mindig alapértelmezett értékeket használjon"
 
-#: src/api/python/speechd_config/config.py:158
+#: src/api/python/speechd_config/config.py.in:158
 msgid "Debug a problem and generate a report"
-msgstr ""
+msgstr "Hibaelhárítás és a probléma jelentése"
 
-#: src/api/python/speechd_config/config.py:161
-#, fuzzy
+#: src/api/python/speechd_config/config.py.in:161
 msgid "Print version and copyright info"
-msgstr ""
-"A verziószám és a szerzői jogi\n"
-"információk kiírása"
+msgstr "A verziószám és a szerzői jogi információk kiírása"
 
-#: src/api/python/speechd_config/config.py:203
+#: src/api/python/speechd_config/config.py.in:203
 #, python-format
 msgid ""
 "ERROR: It was not possible to connect to Festival on the\n"
 "given host and port. Connection failed with error %d : %s ."
 msgstr ""
+"HIBA: Nem sikerült csatlakozni a Festivalhoz a\n"
+"megadott porton keresztül a gazdagéphez. A kapcsolat meghiúsult a következő "
+"hiba kóddal: %d : %s ."
 
-#: src/api/python/speechd_config/config.py:205
+#: src/api/python/speechd_config/config.py.in:205
 #, python-format
 msgid ""
 "Hint: Most likely, your Festival server is not running now\n"
@@ -475,57 +486,80 @@ msgid ""
 "Try /etc/init.d/festival start or run 'festival --server' from the command "
 "line."
 msgstr ""
+"Tipp: Valószínűleg a Festival kiszolgáló nem fut most,\n"
+"vagy nem az alapértelmezett% d porton keresztül kommunikál.\n"
+"\n"
+"Próbálja meg kiadni a /etc/init.d/festival start parancsot, vagy futtassa a "
+"festival parancsot a --server kapcsolóval."
 
-#: src/api/python/speechd_config/config.py:221
+#: src/api/python/speechd_config/config.py.in:221
 msgid "Festival contains freebsoft-utils."
-msgstr ""
+msgstr "A festival freebsoft-utils-t tartalmaz"
 
-#: src/api/python/speechd_config/config.py:224
+#: src/api/python/speechd_config/config.py.in:224
 msgid ""
 "ERROR: Your Festival server is working but it doesn't seem\n"
 "to load festival-freebsoft-utils. You need to install festival-freebsoft-"
 "utils\n"
 "to be able to use Festival with Speech Dispatcher."
 msgstr ""
+"HIBA: A Festival kiszolgáló működik, de úgy tűnik, nem tudja betölteni a\n"
+"a festival-freebsoft-utils-t. Telepítenie kell a festival-freebsoft-utils-"
+"t,\n"
+"hogy használhassa a Festival-t a Speech Dispatcherrel."
 
-#: src/api/python/speechd_config/config.py:235
+#: src/api/python/speechd_config/config.py.in:235
 msgid ""
 "Python can't find the Speech Dispatcher library.\n"
 "Is it installed? This won't prevent Speech Dispatcher to work, but no\n"
 "Python applications like Orca will be able to use it.\n"
 "Search for package like python-speechd, download and install it."
 msgstr ""
+"A Python nem találja a Speech Dispatcher modult,\n"
+"Telepítve van? Ez nem akadályozza meg a Speech Dispatcher működését, de\n"
+"Az olyan Python alkalmazások, mint pl. az Orka képernyőolvasó, nem fogja "
+"tudni használni.\n"
+"Keressen egy olyan csomagot, mely tartalmazza a python-speechd vagy a "
+"python3-speechd nevek valamelyikét, majd ezt követően töltse le és telepítse "
+"azt."
 
-#: src/api/python/speechd_config/config.py:257
+#: src/api/python/speechd_config/config.py.in:257
 #, python-format
 msgid ""
 "%s selected, but %s not installed. This might be a false\n"
 "warning, but most likely sound is not working."
 msgstr ""
+"A(z) %s hangrendszer lett kiválasztva, de a(z) %s nincs telepítve. Lehet, "
+"hogy\n"
+"ez egy hamis figyelmeztetés, de a hang valószínűleg nem működik."
 
-#: src/api/python/speechd_config/config.py:259
+#: src/api/python/speechd_config/config.py.in:259
 #, python-format
 msgid "Are you sure that %s audio is working?"
-msgstr ""
+msgstr "Biztos benne, hogy a(z) %s hangkimenet működik?"
 
-#: src/api/python/speechd_config/config.py:264
+#: src/api/python/speechd_config/config.py.in:264
 #, python-format
 msgid ""
 "Can't play audio via\n"
 "     %s"
 msgstr ""
+"Nem lehet hangot lejátszani a(z)\n"
+" %s hangkimeneten keresztül."
 
-#: src/api/python/speechd_config/config.py:265
+#: src/api/python/speechd_config/config.py.in:265
 msgid ""
 "Your audio doesn't seem to work, please fix audio first or choose\n"
 "a different method."
 msgstr ""
+"Úgy tűnik, hogy az Ön által kiválasztott hangrendszer nem működik,\n"
+"kérjük, először javítsa ki a hangot, vagy válasszon egy másik lehetőséget."
 
-#: src/api/python/speechd_config/config.py:270
+#: src/api/python/speechd_config/config.py.in:270
 msgid "Did you hear the sound?"
-msgstr ""
+msgstr "Hallotta a hangot?"
 
-#: src/api/python/speechd_config/config.py:273
+#: src/api/python/speechd_config/config.py.in:273
 msgid ""
 "Please examine the above output from the sound playback\n"
 "utility. If everything seems right, are you sure your audio is loud enough "
@@ -534,206 +568,245 @@ msgid ""
 "different\n"
 "audio output method in configuration."
 msgstr ""
+"Ellenőrizze a megadott kimenetet egy hanglejátszó segédprogramban.\n"
+"Ha minden beállítás helyesnek tűnik, biztos benne, hogy a hang elég hangos\n"
+"és nincs elnémítva a keverőben? Kérjük, először javítsa ki az "
+"audiorendszerét, vagy válasszon egy másik \n"
+"audio kimeneti beállítást a konfigurációban."
 
-#: src/api/python/speechd_config/config.py:279
+#: src/api/python/speechd_config/config.py.in:279
 #, python-format
 msgid "Audio output '%s' works"
-msgstr ""
+msgstr "A(z) '%s' hangkimenet működik"
 
-#: src/api/python/speechd_config/config.py:285
+#: src/api/python/speechd_config/config.py.in:285
 msgid "Testing Speech Dispatcher using spd_say"
-msgstr ""
+msgstr "A Speech Dispatcher tesztelése az spd_say használatával"
 
-#: src/api/python/speechd_config/config.py:289
+#: src/api/python/speechd_config/config.py.in:289
 msgid ""
 "Can't execute the spd-say binary,\n"
 "it is very likely that Speech Dispatcher is not installed."
 msgstr ""
+"Nem lehet elindítani az spd-say alkalmazást,\n"
+"valószínű, hogy a Speech Dispatcher nincs telepítve."
 
-#: src/api/python/speechd_config/config.py:292
+#: src/api/python/speechd_config/config.py.in:292
 msgid "Did you hear the message about Speech Dispatcher working?"
-msgstr ""
+msgstr "Hallotta az üzenetet a Speech Dispatcher működéséről?"
 
-#: src/api/python/speechd_config/config.py:294
+#: src/api/python/speechd_config/config.py.in:294
 msgid "Speech Dispatcher is installed and working!"
-msgstr ""
+msgstr "A Speech Dispatcher telepítve van és működik!"
 
-#: src/api/python/speechd_config/config.py:297
+#: src/api/python/speechd_config/config.py.in:297
 msgid "Speech Dispatcher is installed but there is some problem"
-msgstr ""
+msgstr "A Speech Dispatcher telepítve van, de van valami probléma"
 
-#: src/api/python/speechd_config/config.py:302
+#: src/api/python/speechd_config/config.py.in:302
 msgid "Testing whether Festival works as a server"
-msgstr ""
+msgstr "Annak tesztelése, hogy a Festival kiszolgálóként működik-e"
 
-#: src/api/python/speechd_config/config.py:306
+#: src/api/python/speechd_config/config.py.in:306
 msgid "Festival server is not working."
-msgstr ""
+msgstr "A Festival kiszolgáló nem működik"
 
-#: src/api/python/speechd_config/config.py:309
+#: src/api/python/speechd_config/config.py.in:309
 msgid "Festival server seems to work correctly"
-msgstr ""
+msgstr "Úgy tűnik, hogy a Festival kiszolgáló megfelelően működik"
 
-#: src/api/python/speechd_config/config.py:315
+#: src/api/python/speechd_config/config.py.in:315
 msgid "Testing whether Espeak works"
-msgstr ""
+msgstr "Annak tesztelése, hogy az Espeak működik-e"
 
-#: src/api/python/speechd_config/config.py:317
+#: src/api/python/speechd_config/config.py.in:317
 msgid "Espeak is installed"
-msgstr ""
+msgstr "Az Espeak beszédszintetizátor telepítve van"
 
-#: src/api/python/speechd_config/config.py:320
+#: src/api/python/speechd_config/config.py.in:320
 msgid ""
 "Can't execute the espeak binary, it is likely that espeak\n"
 "is not installed."
 msgstr ""
+"Nem lehet elindítani az espeak alkalmazást,\n"
+"valószínű, hogy az espeak nincs telepítve."
 
-#: src/api/python/speechd_config/config.py:326
+#: src/api/python/speechd_config/config.py.in:326
 msgid "Testing ALSA sound output"
-msgstr ""
+msgstr "Az Alsa hangkimenet tesztelése"
 
-#: src/api/python/speechd_config/config.py:331
+#: src/api/python/speechd_config/config.py.in:331
 msgid "Testing PULSE sound output"
-msgstr ""
+msgstr "A Pulseaudio hangkimenet tesztelése"
 
-#: src/api/python/speechd_config/config.py:344
+#: src/api/python/speechd_config/config.py.in:344
 msgid "Speech Dispatcher works. Do you want to skip other tests?"
-msgstr ""
+msgstr "A Speech Dispatcher működik. Kihagyja a többi tesztet?"
 
-#: src/api/python/speechd_config/config.py:354
+#: src/api/python/speechd_config/config.py.in:354
 msgid ""
 "\n"
 "Speech Dispatcher isn't running or we can't connect to it (see above),\n"
 "do you want to proceed with other tests? (They can help to determine\n"
 "what is wrong)"
 msgstr ""
+"\n"
+"A Speech Dispatcher nem fut, vagy nem lehet csatlakozni hozzá (lásd "
+"fentebb),\n"
+"más tesztekkel szeretné folytatni? Ezek a tesztek segíthetnek meghatározni\n"
+"hogy mi a problémaj"
 
-#: src/api/python/speechd_config/config.py:365
+#: src/api/python/speechd_config/config.py.in:365
 #, python-format
 msgid "Do you want to test the %s now?"
-msgstr ""
+msgstr "Szeretné most tesztelni ezt: %s?"
 
-#: src/api/python/speechd_config/config.py:386
+#: src/api/python/speechd_config/config.py.in:386
 msgid ""
 "Testing whether Python Speech Dispatcher library is in path and importable"
 msgstr ""
+"Annak tesztelése, hogy a Python Speech Dispatcher könyvtár az elérési "
+"útvonalban van-e és importálható-e"
 
-#: src/api/python/speechd_config/config.py:397
+#: src/api/python/speechd_config/config.py.in:397
 msgid ""
 "\n"
 "\n"
 "Diagnostics results:"
 msgstr ""
+"\n"
+"\n"
+"Diagnosztikai eredmények:"
 
-#: src/api/python/speechd_config/config.py:402
+#: src/api/python/speechd_config/config.py.in:402
 msgid "Speech Dispatcher is working"
-msgstr ""
+msgstr "A Speech Dispatcher működik"
 
-#: src/api/python/speechd_config/config.py:404
+#: src/api/python/speechd_config/config.py.in:404
 msgid "Speech Dispatcher not working through spd-say"
-msgstr ""
+msgstr "A Speech Dispatcher nem működik az spd-say használatával"
 
-#: src/api/python/speechd_config/config.py:406
+#: src/api/python/speechd_config/config.py.in:406
 #, python-format
 msgid "Synthesizers that were tested and seem to work: %s"
-msgstr ""
+msgstr "A következő tesztelt beszédszintetizátorok látszólag működnek: %s"
 
-#: src/api/python/speechd_config/config.py:409
+#: src/api/python/speechd_config/config.py.in:409
 #, python-format
 msgid "Audio systems that were tested and seem to work: %s"
-msgstr ""
+msgstr "A következő tesztelt hangrendszerek látszólag működnek: %s"
 
-#: src/api/python/speechd_config/config.py:413
+#: src/api/python/speechd_config/config.py.in:413
 msgid "Python Speech Dispatcher module is importable"
-msgstr ""
+msgstr "A Speech Dispatcher Python modul importálható"
 
-#: src/api/python/speechd_config/config.py:415
+#: src/api/python/speechd_config/config.py.in:415
 msgid ""
 "Python Speech Dispatcher module not importable.\n"
 "Either not installed or not in path."
 msgstr ""
+"A Speech Dispatcher Python modul nem imoportálható.\n"
+"Vagy nincs telepítve, vagy nincs benne az elérési útvonalban."
 
-#: src/api/python/speechd_config/config.py:417
+#: src/api/python/speechd_config/config.py.in:417
 msgid "End of diagnostics results"
-msgstr ""
+msgstr "A diagnosztikai eredmények vége"
 
-#: src/api/python/speechd_config/config.py:439
+#: src/api/python/speechd_config/config.py.in:439
 msgid "Starting collecting debugging output, configuration and logfiles"
 msgstr ""
+"A hibakeresési kimenet, a konfiguráció és a naplófájlok gyűjtésének "
+"megkezdése"
 
-#: src/api/python/speechd_config/config.py:442
+#: src/api/python/speechd_config/config.py.in:442
 msgid ""
 "\n"
 "Do you want to debug 'system' or  'user' Speech Dispatcher?"
 msgstr ""
+"\n"
+"A rendszer szintű vagy a felhasználói szintű Speech Dispatcher\n"
+"szolgáltatásban szeretne hibákat keresni?"
 
-#: src/api/python/speechd_config/config.py:447
+#: src/api/python/speechd_config/config.py.in:447
 msgid ""
 "It is necessary to kill the currently running Speech Dispatcher\n"
 "processes. Do you want to do it now?"
 msgstr ""
+"Ki kell lőni a jelenleg futó Speech Dispatcher\n"
+"folyamatokat. Meg akarja csinálni ezt most?"
 
-#: src/api/python/speechd_config/config.py:454
+#: src/api/python/speechd_config/config.py.in:454
 msgid ""
 "\n"
 "You decided not to kill running Speech Dispatcher processes.\n"
 "Please make sure your Speech Dispatcher is not running now."
 msgstr ""
+"\n"
+"Úgy döntött, hogy nem lövi ki a jelenleg futó Speech Dispatcher "
+"folyamatokat.\n"
+"Győződjön meg arról, hogy a Speech Dispatcher nem fut."
 
-#: src/api/python/speechd_config/config.py:457
+#: src/api/python/speechd_config/config.py.in:457
 msgid "Is your Speech Dispatcher not running now?"
-msgstr ""
+msgstr "A Speech Dispatcher most nem fut?"
 
-#: src/api/python/speechd_config/config.py:459
+#: src/api/python/speechd_config/config.py.in:459
 msgid "Can't continue, please stop your Speech Dispatcher and try again"
 msgstr ""
+"Nem lehet folytatni. Állítsa le a Speech Dispatchert, és próbálja újra."
 
-#: src/api/python/speechd_config/config.py:475
+#: src/api/python/speechd_config/config.py.in:475
 msgid "Speech Dispatcher will be started now in debugging mode"
-msgstr ""
+msgstr "A speech Dispatcher most hibakeresési módban fog indulni."
 
-#: src/api/python/speechd_config/config.py:479
-#: src/api/python/speechd_config/config.py:625
-#: src/api/python/speechd_config/config.py:716
+#: src/api/python/speechd_config/config.py.in:479
+#: src/api/python/speechd_config/config.py.in:615
+#: src/api/python/speechd_config/config.py.in:704
 msgid "Warning: You must be root or under sudo to do this."
 msgstr ""
+"Figyelem: Ehhez root felhasználóként vagy sudo jogosultsággal kell "
+"rendelkeznie."
 
-#: src/api/python/speechd_config/config.py:480
+#: src/api/python/speechd_config/config.py.in:480
 msgid ""
 "\n"
 "Please start your system Speech Dispatcher now with parameter '-D'"
 msgstr ""
+"\n"
+"indítsa el most a rendszer szintű Speech Dispatchert a '-D' paraméter "
+"használatával"
 
-#: src/api/python/speechd_config/config.py:482
+#: src/api/python/speechd_config/config.py.in:482
 msgid "Is your Speech Dispatcher running now?"
-msgstr ""
+msgstr "A Speech Dispatcher most fut?"
 
-#: src/api/python/speechd_config/config.py:486
-#: src/api/python/speechd_config/config.py:734
+#: src/api/python/speechd_config/config.py.in:486
+#: src/api/python/speechd_config/config.py.in:722
 msgid "Can't continue"
-msgstr ""
+msgstr "Nem lehet folytatni"
 
-#: src/api/python/speechd_config/config.py:491
+#: src/api/python/speechd_config/config.py.in:491
 msgid "Speech Dispatcher failed to start, continuing anyway?"
-msgstr ""
+msgstr "A Speech Dispatcher nem indult el. Mindenképpen folytatja?"
 
-#: src/api/python/speechd_config/config.py:494
+#: src/api/python/speechd_config/config.py.in:494
 msgid "Trying to speak some messages"
-msgstr ""
+msgstr "A Speech Dispatcher megpróbál néhány üzenetet kimondani"
 
-#: src/api/python/speechd_config/config.py:500
+#: src/api/python/speechd_config/config.py.in:500
 msgid "Can't test Speech Dispatcher connection, can't connect"
 msgstr ""
+"Nem lehet tesztelni a Speech Dispatcher kapcsolatot, nem lehet csatlakozni"
 
-#: src/api/python/speechd_config/config.py:502
+#: src/api/python/speechd_config/config.py.in:502
 msgid "Please wait (about 5 seconds)"
-msgstr ""
+msgstr "Várjon (Kb. 5 másodpercig)"
 
-#: src/api/python/speechd_config/config.py:505
+#: src/api/python/speechd_config/config.py.in:505
 msgid "Collecting debugging output and your configuration information"
-msgstr ""
+msgstr "A hibakeresési kimenetés a konfigurációs információk gyűjtése"
 
-#: src/api/python/speechd_config/config.py:515
+#: src/api/python/speechd_config/config.py.in:515
 #, python-format
 msgid ""
 "\n"
@@ -741,67 +814,90 @@ msgid ""
 "a short description of what you did. We will get in touch with you soon\n"
 "and suggest a solution."
 msgstr ""
+"\n"
+"Kérjük, küldje el egy rövid leírással együtt azt amit tett a\n"
+"speechd@bugs.freebsoft.org e-mail címre: %s\n"
+"Hamarosan kapcsolatba lépünk Önnel, és javasolni fogunk egy megoldást."
 
-#: src/api/python/speechd_config/config.py:588
+#: src/api/python/speechd_config/config.py.in:588
 msgid ""
 "User configuration already exists.\n"
 "Do you want to rewrite it with a new one?"
 msgstr ""
+"A felhasználói konfiguráció már létezik.\n"
+"Újra akarja írni?"
 
-#: src/api/python/speechd_config/config.py:591
+#: src/api/python/speechd_config/config.py.in:591
 msgid "Keeping configuration intact and continuing with settings."
 msgstr ""
+"A konfiguráció sértetlenségének megőrzése, és a beállítások megadásának\n"
+"folytatása."
 
-#: src/api/python/speechd_config/config.py:596
+#: src/api/python/speechd_config/config.py.in:596
 msgid ""
 "User configuration already exists, but it seems to be incomplete.\n"
 "Do you want to keep it?"
 msgstr ""
+"a felhasználói konfiguráció létezik, de hiányosnak tűnik.\n"
+"Meg akarja tartani?"
 
-#: src/api/python/speechd_config/config.py:601
+#: src/api/python/speechd_config/config.py.in:601
 msgid "Keeping configuration intact and aborting."
-msgstr ""
+msgstr "A konfiguráció sértetlenségének megőrzése, és a folyamat megszakítása."
 
-#: src/api/python/speechd_config/config.py:617
+#: src/api/python/speechd_config/config.py.in:607
 #, python-format
 msgid "User configuration created in %s"
-msgstr ""
+msgstr "A felhasználói konfiguráció létrehozva az alábbi helyen: %s"
 
-#: src/api/python/speechd_config/config.py:623
+#: src/api/python/speechd_config/config.py.in:613
 msgid "Configuring user settings for Speech Dispatcher"
-msgstr ""
+msgstr "A Speech Dispatcher felhasználói beállításainak konfigurálása"
 
-#: src/api/python/speechd_config/config.py:626
+#: src/api/python/speechd_config/config.py.in:616
 msgid "Configuring system settings for Speech Dispatcher"
-msgstr ""
+msgstr "A Speech Dispatcher rendszerbeállításainak konfigurálása"
 
-#: src/api/python/speechd_config/config.py:649
+#: src/api/python/speechd_config/config.py.in:639
 msgid ""
 "Default speech rate (on the scale of -100..100, 0 is default, 50 is faster, "
 "-50 is slower)"
 msgstr ""
+"Alapértelmezett beszédsebesség (-100-tól 100-ig terjedő skálán). A 0 az "
+"alapértelmezett érték, az 50-es beszédsebesség gyorsabb, a -50-es "
+"beszédsebesség lassabb."
 
-#: src/api/python/speechd_config/config.py:653
+#: src/api/python/speechd_config/config.py.in:643
 msgid ""
 "Default speech pitch (on the scale of -100..100, 0 is default, 50 is higher, "
 "-50 is lower)"
 msgstr ""
+"Alapértelmezett hangmagasság (-100-tól 100-ig terjedő skálán). A 0 az "
+"alapértelmezett érték, az 50-es hangmagasság magasabb, a -50-es hangmagasság "
+"alacsonyabb."
 
-#: src/api/python/speechd_config/config.py:657
+#: src/api/python/speechd_config/config.py.in:647
 msgid ""
 "Default speech pitch range (on the scale of -100..100, 0 is default, 50 is "
 "higher, -50 is lower)"
 msgstr ""
+"Alapértelmezett hangmagasság tartomány (-100-tól 100-ig terjedő skálán). A 0 "
+"az alapértelmezett érték, az 50-es hangmagasság magasabb, a -50-es "
+"hangmagasság alacsonyabb."
 
-#: src/api/python/speechd_config/config.py:676
+#: src/api/python/speechd_config/config.py.in:666
 msgid ""
 "Do you want to have Speech Dispatcher automatically started from ~/.config/"
 "autostart ?\n"
 "This is usually not necessary, most applications will start Speech "
 "Dispatcher automatically."
 msgstr ""
+"Szeretné, hogy a Speech Dispatcher automatikusan elinduljon a ~/.config/ "
+"autostart használatával?\n"
+"Erre általában nincs szükség, a legtöbb alkalmazás automatikusan elindítja a "
+"Speech Dispatchert."
 
-#: src/api/python/speechd_config/config.py:685
+#: src/api/python/speechd_config/config.py.in:673
 #, python-format
 msgid ""
 "\n"
@@ -810,101 +906,119 @@ msgid ""
 "manually editing the configuration file above. Especially if you need to\n"
 "use special audio settings, non-standard synthesizer ports etc."
 msgstr ""
+"\n"
+"A konfiguráció létre lett hozva az alábbi helyen: %s\n"
+"Az alapvető beállítások megadása befejeződött. Lehet, hogy a finom \n"
+"beállítások megadásához szerkesztenie kell még a konfigurációt, ha pl.\n"
+"speciális hangbeállításokat, vagy nem szabványos beszédszintetizátor "
+"portokat szeretne használni."
 
-#: src/api/python/speechd_config/config.py:694
+#: src/api/python/speechd_config/config.py.in:682
 msgid "Starting Speech Dispatcher in user-mode"
-msgstr ""
+msgstr "A Speech Dispatcher indítása felhasználói módban"
 
-#: src/api/python/speechd_config/config.py:698
-#: src/api/python/speechd_config/config.py:727
+#: src/api/python/speechd_config/config.py.in:686
+#: src/api/python/speechd_config/config.py.in:715
 #, python-format
 msgid "Can't start Speech Dispatcher. Exited with status %d"
 msgstr ""
+"A Speech Dispatchert nem lehetett elindítani. A folyamat %d hibakóddal "
+"kilépett."
 
-#: src/api/python/speechd_config/config.py:699
+#: src/api/python/speechd_config/config.py.in:687
 msgid ""
 "Perhaps this is because your Speech Dispatcher is already running.\n"
 "Do you want to kill all running Speech Dispatchers and try again?"
 msgstr ""
+"Valószínűleg ennek az az oka, hogy a Speech Dispatcher már fut.\n"
+"Ki akarja lőni az összes Speech Dispatcher folyamatot, és megpróbálja újra?"
 
-#: src/api/python/speechd_config/config.py:707
-#, fuzzy
+#: src/api/python/speechd_config/config.py.in:695
 msgid "Can't start Speech Dispatcher"
-msgstr ""
-"a kimondandó szöveg átadása a csővezetéken\n"
-"keresztül a speech-dispatchernek"
+msgstr "Nem lehet elindítani a Speech Dispatchert"
 
-#: src/api/python/speechd_config/config.py:717
+#: src/api/python/speechd_config/config.py.in:705
 msgid "Starting Speech Dispatcher in system-mode"
-msgstr ""
+msgstr "A Speech Dispatcher indítása rendszer módban"
 
-#: src/api/python/speechd_config/config.py:719
+#: src/api/python/speechd_config/config.py.in:707
 msgid "Is your system using an /etc/init.d/speech-dispatcher script?"
-msgstr ""
+msgstr "A rendszere /etc/init.d/speech-dispatcher parancsfájlt használ?"
 
-#: src/api/python/speechd_config/config.py:722
+#: src/api/python/speechd_config/config.py.in:710
 msgid "Stopping Speech Dispatcher in case any is running already"
-msgstr ""
+msgstr "A Speech Dispatcher leállítása, ha már bármelyik folyamat fut"
 
-#: src/api/python/speechd_config/config.py:724
+#: src/api/python/speechd_config/config.py.in:712
 msgid "Starting Speech Dispatcher via /etc/init.d/speech-dispatcher"
 msgstr ""
+"A Speech Dispatcher elindítása a /etc/init.d/speech-dispatcher parancsfájl "
+"használatával"
 
-#: src/api/python/speechd_config/config.py:730
+#: src/api/python/speechd_config/config.py.in:718
 msgid ""
 "Do not know how to start system Speech Dispatcher,\n"
 "you have to start it manually to continue."
 msgstr ""
+"Nem tudom, hogyan lehet elindítani rendszer módban a Speech Dispatchert,\n"
+"a folytatáshoz kézzel kell elindítania."
 
-#: src/api/python/speechd_config/config.py:732
+#: src/api/python/speechd_config/config.py.in:720
 msgid "Have you started Speech Dispatcher now?"
-msgstr ""
+msgstr "Elindította most a Speech Dispatchert?"
 
-#: src/api/python/speechd_config/config.py:742
+#: src/api/python/speechd_config/config.py.in:730
 msgid "Do you want to create/setup a 'user' or 'system' configuration?"
 msgstr ""
+"Szeretne létrehozni vagy beállítani egy „felhasználói” vagy egy „rendszer” "
+"konfigurációt?"
 
-#: src/api/python/speechd_config/config.py:753
+#: src/api/python/speechd_config/config.py.in:741
 msgid "Do you want to start/restart Speech Dispatcher now and run some tests?"
 msgstr ""
+"Szeretné most elindítani vagy újraindítani a Speech Dispatcher alkalmazást, "
+"és futtatni néhány tesztet?"
 
-#: src/api/python/speechd_config/config.py:755
+#: src/api/python/speechd_config/config.py.in:743
 msgid "Your configuration is now done but not tested"
-msgstr ""
+msgstr "A konfiguráció most elkészült, de nincs tesztelve"
 
-#: src/api/python/speechd_config/config.py:764
+#: src/api/python/speechd_config/config.py.in:752
 msgid "Your Speech Dispatcher is not running"
-msgstr ""
+msgstr "A Speech Dispatcher nem fut"
 
-#: src/api/python/speechd_config/config.py:772
+#: src/api/python/speechd_config/config.py.in:760
 msgid ""
 "Do you want to run debugging now and send a request for help to the "
 "developers?"
 msgstr ""
+"Szeretné most futtatni a hibakeresést és Szeretné most futtatni a "
+"hibakeresést és segítségkérést küldeni a fejlesztőknek?"
 
-#: src/api/python/speechd_config/config.py:792
-#, fuzzy
+#: src/api/python/speechd_config/config.py.in:776
 msgid ""
 "\n"
 "Speech Dispatcher configuration tool\n"
 msgstr ""
 "\n"
-"A konfigurációs fájlok elérési útjának megadása\n"
+"Speech Dispatcher konfigurációs eszköz\n"
 
-#: src/api/python/speechd_config/config.py:797
+#: src/api/python/speechd_config/config.py.in:781
 msgid "Do you want to continue with basic settings?"
-msgstr ""
+msgstr "Szeretné folytatni az alapbeállítások megadását?"
 
-#: src/api/python/speechd_config/config.py:832
+#: src/api/python/speechd_config/config.py.in:816
 msgid "Do you want to setup a completely new configuration?"
-msgstr ""
+msgstr "Szeretne beállítani egy teljesen új konfigurációt?"
 
-#: src/api/python/speechd_config/config.py:836
+#: src/api/python/speechd_config/config.py.in:820
 msgid "Do you want to run diagnosis of problems?"
-msgstr ""
+msgstr "Futtatni szeretné a problémák diagnosztizálását?"
 
-#: src/api/python/speechd_config/config.py:841
+#: src/api/python/speechd_config/config.py.in:825
 msgid ""
 "Please run this command again and select what you want to do\n"
 "or read the quick help available through '-h' or '--help'."
 msgstr ""
+"Futtassa újra ezt a parancsot, és válassza ki mit szeretne csinálni,\n"
+"vagy olvassa el a -h vagy --help oldalon elérhető gyors súgót."
