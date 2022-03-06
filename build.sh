@@ -23,6 +23,9 @@
 rm -f ABOUT-NLS
 autoreconf -fi
 
+# Make sure to regenerate .gitignore files
+touch git.mk
+
 # See https://savannah.gnu.org/bugs/index.php?54809
 rm -f \
 ./po/quot.sed \
