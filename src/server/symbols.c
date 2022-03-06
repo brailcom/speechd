@@ -72,6 +72,8 @@
 #include <config.h>
 #endif
 
+#include <ctype.h>
+
 #include "symbols.h"
 
 /* This denotes the position of some SSML tags */
@@ -1385,6 +1387,7 @@ void insert_symbols(TSpeechDMessage *msg, int punct_missing)
 	gchar *processed;
 	SymLvl level = SYMLVL_NONE;
 	SymLvl support_level = msg->settings.symbols_preprocessing;
+	char *locale = strdup(msg->settings.msg_settings.voice.language), *dash;
 
 	if (punct_missing && support_level < SYMLVL_ALL)
 		/* The user preferred to let some modules handle some punctuation,
@@ -1401,8 +1404,17 @@ void insert_symbols(TSpeechDMessage *msg, int punct_missing)
 	if (msg->settings.type == SPD_MSGTYPE_CHAR)
 		level = SYMLVL_CHAR;
 
+	dash = strchr(locale, '-');
+	if (dash)
+	{
+		char *c;
+		*dash = '_';
+		for (c = dash + 1; *c; c++)
+			*c = toupper(*c);
+	}
+
 	MSG2(5, "symbols", "processing at level %d, supporting level %d", level, support_level);
-	processed = process_speech_symbols(msg->settings.msg_settings.voice.language,
+	processed = process_speech_symbols(locale,
 		msg->buf, level, support_level, msg->settings.ssml_mode);
 	if (processed) {
 		MSG2(5, "symbols", "before: |%s|", msg->buf);
