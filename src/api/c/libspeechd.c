@@ -381,9 +381,11 @@ spawn_server(const SPDConnectionAddress * address, int is_localhost,
 			    g_strdup_printf
 			    ("Autospawn failed. Speech Dispatcher refused to start with error code, "
 			     "stating this as a reason: %s", stderr_output);
+			g_free(stderr_output);
 			return 1;
 		} else {
 			*spawn_error = NULL;
+			g_free(stderr_output);
 			return 0;
 		}
 	}
