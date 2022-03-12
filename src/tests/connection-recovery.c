@@ -56,7 +56,7 @@ int main(void)
 
 	conn = spd_open("test", NULL, NULL, SPD_MODE_THREADED);
 	if (conn == 0) {
-		printf("Speech Deamon failed");
+		printf("Speech Deamon failed\n");
 		exit(1);
 	}
 
