@@ -287,7 +287,7 @@ static int output_reading_message;
 
 GString *output_read_reply(OutputModule * output)
 {
-	GString *message;
+	GString *message = NULL;
 	pthread_mutex_lock(&output_read_mutex);
 	while (!message) {
 		while (output_reading_message && !output_reply)
@@ -325,7 +325,7 @@ GString *output_read_reply(OutputModule * output)
 
 GString *output_read_event(OutputModule * output)
 {
-	GString *message;
+	GString *message = NULL;
 	pthread_mutex_lock(&output_read_mutex);
 	while (!message) {
 		while (output_reading_message && !output_event)
