@@ -37,17 +37,17 @@ int main()
 
 	printf("Start of the test.\n");
 
-	printf("Trying to initialize Speech Dispatcher...");
+	printf("Trying to initialize Speech Dispatcher...\n");
 	sockfd = spd_open("test", NULL, NULL, SPD_MODE_SINGLE);
 	if (sockfd == 0) {
-		printf("Speech Dispatcher failed");
+		printf("Speech Dispatcher failed\n");
 		exit(1);
 	}
 	printf("OK\n");
 
 	ret = spd_cancel(sockfd);
 	if (ret == -1) {
-		printf("spd_cancel failed");
+		printf("spd_cancel failed\n");
 		exit(1);
 	}
 
@@ -274,7 +274,7 @@ int main()
 		      "  So she set to work, and very soon finished off the cake. ");
 
 	if (ret == -1) {
-		printf("spd_say failed");
+		printf("spd_say failed\n");
 		exit(1);
 	}
 
@@ -392,11 +392,11 @@ int main()
 		      "	else return 1;\n"
 		      "}\n" "					");
 	if (ret == -1) {
-		printf("spd_say failed");
+		printf("spd_say failed\n");
 		exit(1);
 	}
 
-	printf("Trying to close Speech Dispatcher connection...");
+	printf("Trying to close Speech Dispatcher connection...\n");
 	spd_close(sockfd);
 	printf("OK\n");
 

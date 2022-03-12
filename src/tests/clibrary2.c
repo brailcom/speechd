@@ -45,15 +45,15 @@ int main()
 
 	printf("Start of the test.\n");
 
-	printf("Trying to initialize Speech Deamon...");
+	printf("Trying to initialize Speech Deamon...\n");
 	conn = spd_open("say", NULL, NULL, SPD_MODE_SINGLE);
 	if (conn == 0) {
-		printf("Speech Deamon failed");
+		printf("Speech Deamon failed\n");
 		exit(1);
 	}
 	printf("OK\n");
 
-	printf("Trying to get the current output module...");
+	printf("Trying to get the current output module...\n");
 	module = spd_get_output_module(conn);
 	printf("Got module %s\n", module);
 	if (module == NULL) {
@@ -61,7 +61,7 @@ int main()
 		exit(1);
 	}
 
-	printf("Trying to get the language...");
+	printf("Trying to get the language...\n");
 	language = spd_get_language(conn);
 	printf("Got language %s\n", language);
 	if (language == NULL) {
@@ -69,19 +69,19 @@ int main()
 		exit(1);
 	}
 
-	printf("Trying to get the voice rate...");
+	printf("Trying to get the voice rate...\n");
 	value = spd_get_voice_rate(conn);
 	printf("Got rate %d\n", value);
 
-	printf("Trying to get the voice pitch...");
+	printf("Trying to get the voice pitch...\n");
 	value = spd_get_voice_pitch(conn);
 	printf("Got pitch %d\n", value);
 
-	printf("Trying to get the current volume...");
+	printf("Trying to get the current volume...\n");
 	value = spd_get_volume(conn);
 	printf("Got volume %d\n", value);
 
-	printf("Trying to get the current voice type...");
+	printf("Trying to get the current voice type...\n");
 	spd_set_voice_type(conn, voice_type);
 	voice_type = spd_get_voice_type(conn);
 	printf("Got voice type %d\n", voice_type);
@@ -117,7 +117,7 @@ int main()
 			break;
 		ret = spd_set_output_module(conn, modules[j]);
 		if (ret == -1) {
-			printf("spd_set_output_module failed");
+			printf("spd_set_output_module failed\n");
 			exit(1);
 		}
 		printf("\nListing voices for %s\n", modules[j]);
@@ -137,20 +137,20 @@ int main()
 			    spd_set_synthesis_voice(conn,
 						    synth_voices[i]->name);
 			if (ret == -1) {
-				printf("spd_set_synthesis_voice failed");
+				printf("spd_set_synthesis_voice failed\n");
 				exit(1);
 			}
 
 			ret = spd_say(conn, SPD_TEXT, "test");
 			if (ret == -1) {
-				printf("spd_say failed");
+				printf("spd_say failed\n");
 				exit(1);
 			}
 			sleep(1);
 		}
 	}
 
-	printf("Trying to close Speech Dispatcher connection...");
+	printf("Trying to close Speech Dispatcher connection...\n");
 	spd_close(conn);
 	printf("OK\n");
 
