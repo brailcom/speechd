@@ -484,6 +484,8 @@ FT_Info *festivalOpen(FT_Info * info)
 	if (ret || resp == NULL || strcmp(resp, "t\n")) {
 		DBG("ERROR: Can't load speech-dispatcher module into Festival."
 		    "Reason: %s", resp);
+		if (!ret && resp)
+			g_free(resp);
 		return NULL;
 	}
 	g_free(resp);
@@ -492,6 +494,8 @@ FT_Info *festivalOpen(FT_Info * info)
 	ret = festival_read_response(info, &resp);
 	if (ret || resp == NULL || strcmp(resp, "nist\n")) {
 		DBG("ERROR: Can't set Wavefiletype to nist in Festival. Reason: %s", resp);
+		if (!ret && resp)
+			g_free(resp);
 		return NULL;
 	}
 	g_free(resp);
@@ -584,6 +588,7 @@ FT_Wave *festivalStringToWaveGetData(FT_Info * info)
 {
 	FT_Wave *wave = NULL;
 	char ack[5];
+	char *expr;
 
 	/* Read back info from server */
 	/* This assumes only one waveform will come back, also LP is unlikely */
@@ -594,7 +599,9 @@ FT_Wave *festivalStringToWaveGetData(FT_Info * info)
 		if (strcmp(ack, "WV\n") == 0) {
 			wave = client_accept_waveform(info->server_fd, NULL, 0);
 		} else if (strcmp(ack, "LP\n") == 0) {
-			client_accept_s_expr(info->server_fd);
+			expr = client_accept_s_expr(info->server_fd);
+			if (expr != NULL)
+				g_free(expr);
 		} else if (strcmp(ack, "ER\n") == 0) {
 			//  fprintf(stderr,"festival_client: server returned error\n");
 			break;
