@@ -225,13 +225,14 @@ void options_parse(int argc, char *argv[])
 					    SpeechdOptions.debug_destination);
 			/* Open logfile for writing */
 			debug_logfile = fopen(debug_logfile_path, "wx");
-			g_free(debug_logfile_path);
 			if (debug_logfile == NULL) {
 				MSG(1,
 				    "Error: can't open additional debug logging file %s [%d-%s]!\n",
 				    debug_logfile_path, errno, strerror(errno));
+				g_free(debug_logfile_path);
 				exit(1);
 			}
+			g_free(debug_logfile_path);
 			SpeechdOptions.debug = 1;
 			break;
 		case 'h':
