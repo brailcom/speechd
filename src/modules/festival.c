@@ -389,6 +389,7 @@ static SPDVoice **festivalGetVoices(FT_Info * info)
 	reply[strlen(reply) - 1] = 0;
 	DBG("Voice list reply: |%s|", reply);
 	voices = lisp_list_get_vect(reply);
+	g_free(reply);
 	if (voices == NULL) {
 		DBG("ERROR: Can't parse voice listing reply into vector");
 		return NULL;
