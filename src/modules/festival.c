@@ -381,8 +381,7 @@ static SPDVoice **festivalGetVoices(FT_Info * info)
 	SPDVoice **result;
 
 	FEST_SEND_CMD("(apply append (voice-list-language-codes))");
-	festival_read_response(info, &reply);
-	if (reply == NULL) {
+	if (festival_read_response(info, &reply)) {
 		DBG("ERROR: Invalid reply for voice-list");
 		return NULL;
 	}
