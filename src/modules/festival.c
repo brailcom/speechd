@@ -996,16 +996,16 @@ int cache_insert(char *key, SPDMessageType msgtype, FT_Wave * fwave)
 	if (cache_lookup(key, msgtype, 0) != NULL)
 		return 0;
 
-	key_table = cache_gen_key(msgtype);
-
-	DBG("Cache: Inserting wave with key:'%s' into table '%s'", key,
-	    key_table);
-
 	/* Clean less used cache entries if the size would exceed max. size */
 	if ((FestivalCache.size + fwave->num_samples * sizeof(short))
 	    > (FestivalCacheMaxKBytes * 1024))
 		if (cache_clean(fwave->num_samples * sizeof(short)) != 0)
 			return -1;
+
+	key_table = cache_gen_key(msgtype);
+
+	DBG("Cache: Inserting wave with key:'%s' into table '%s'", key,
+	    key_table);
 
 	/* Select the right table according to language, voice, etc. or create a new one */
 	cache = g_hash_table_lookup(FestivalCache.caches, key_table);
