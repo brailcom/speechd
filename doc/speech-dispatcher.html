@@ -2349,6 +2349,8 @@ a NULL pointer.
 </p>
 <p><code>connection</code> is the SPDConnection* connection created by spd_open().
 </p>
+<p>The caller has to call <code>free_spd_modules</code> to free the returned array.
+</p>
 </dd></dl>
 
 <dl class="def">
@@ -2368,6 +2370,8 @@ in the synthesizer, See <a href="#spd_005flist_005fsynthesis_005fvoices">spd_lis
 <p>In case of error, the return value is a NULL pointer.
 </p>
 <p><code>connection</code> is the SPDConnection* connection created by spd_open().
+</p>
+<p>The caller has to call <code>free_spd_symbolic_voices</code> to free the returned array.
 </p>
 </dd></dl>
 
@@ -2398,6 +2402,8 @@ names which are independent of the synthesizer in use, See <a href="#spd_005flis
 <p>In case of error, the return value is a NULL pointer.
 </p>
 <p><code>connection</code> is the SPDConnection* connection created by spd_open().
+</p>
+<p>The caller has to call <code>free_spd_voices</code> to free the returned array.
 </p>
 </dd></dl>
 

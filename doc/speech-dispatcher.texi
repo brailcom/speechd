@@ -2071,6 +2071,8 @@ a NULL pointer.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 
+The caller has to call @code{free_spd_modules} to free the returned array.
+
 @end deffn
 
 @deffn {C API function}  char** spd_list_voices(SPDConnection* connection)
@@ -2090,6 +2092,8 @@ in the synthesizer, @xref{spd_list_synthesis_voices}.
 In case of error, the return value is a NULL pointer.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
+
+The caller has to call @code{free_spd_symbolic_voices} to free the returned array.
 
 @end deffn
 
@@ -2120,6 +2124,8 @@ names which are independent of the synthesizer in use, @xref{spd_list_voices}.
 In case of error, the return value is a NULL pointer.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
+
+The caller has to call @code{free_spd_voices} to free the returned array.
 
 @end deffn
 
