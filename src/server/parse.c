@@ -860,6 +860,7 @@ char *parse_general_event(const char *buf, const int bytes, const int fd,
 		MSG(4,
 		    "ERROR: Invalid character encoding on event input (failed UTF-8 validation)");
 		MSG(4, "Rejecting this event (char/key/sound_icon).");
+		g_free(param);
 		return g_strdup(ERR_INVALID_ENCODING);
 	}
 
