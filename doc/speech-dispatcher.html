@@ -2559,7 +2559,7 @@ main(int argc, char **argv)
    conn = spd_open(&quot;say&quot;,&quot;main&quot;, NULL, SPD_MODE_THREADED);
 
    /* Set callback handler for 'end' and 'cancel' events. */
-   conn-&gt;callback_end = con-&gt;callback_cancel = end_of_speech;
+   conn-&gt;callback_end = conn-&gt;callback_cancel = end_of_speech;
 
    /* Ask Speech Dispatcher to notify us about these events. */
    spd_set_notification_on(conn, SPD_END);
