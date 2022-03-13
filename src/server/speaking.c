@@ -689,11 +689,11 @@ int report_index_mark(TSpeechDMessage * msg, const char *index_mark)
 		cmd = g_strdup_printf(ssip_code"-%d\r\n"ssip_code"-%d\r\n"ssip_msg, \
 		                      msg->id, msg->settings.uid); \
 		ret = socket_send_msg(msg->settings.fd, cmd); \
+		g_free(cmd); \
 		if (ret){ \
 			MSG(2, "ERROR: Can't report index mark!"); \
 			return -1; \
 		} \
-		g_free(cmd); \
 		return 0; \
 	}
 
