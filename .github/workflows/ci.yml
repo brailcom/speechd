@@ -35,8 +35,6 @@ jobs:
         path: config.log
     - name: make
       run: make
-    - name: disable clibrary2
-      run: sed -i -e '/clibrary2/s/^/#/' src/tests/c_api.at
     - name: make check
       run: make check
     - name: make install
@@ -86,8 +84,6 @@ jobs:
         path: config.log
     - name: make
       run: make
-    - name: disable clibrary2
-      run: sed -i -e '/clibrary2/s/^/#/' src/tests/c_api.at
     - name: make check
       run: make check
     - name: make install
@@ -135,8 +131,6 @@ jobs:
         path: config.log
     - name: make
       run: make
-    - name: disable clibrary2
-      run: sed -i -e '/clibrary2/s/^/#/' src/tests/c_api.at
     - name: make check
       run: make check
     - name: make install
@@ -183,8 +177,6 @@ jobs:
         path: config.log
     - name: make
       run: make
-    - name: disable clibrary2
-      run: sed -i -e '/clibrary2/s/^/#/' src/tests/c_api.at
     - name: make check
       run: make check
     - name: make install
@@ -231,8 +223,6 @@ jobs:
         path: config.log
     - name: make
       run: make
-    - name: disable clibrary2
-      run: sed -i -e '/clibrary2/s/^/#/' src/tests/c_api.at
     - name: make check
       run: make check
     - name: make install
