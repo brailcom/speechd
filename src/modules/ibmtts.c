@@ -1678,6 +1678,7 @@ static void load_user_dictionary()
 				DBG(DBG_MODNAME "%s is not a directory",
 				    dirname->str);
 				g_free(language);
+				g_string_free(dirname, TRUE);
 				return;
 			}
 		}
