@@ -384,6 +384,7 @@ static void _ivona_speak(char *ivona_message, SPDMessageType ivona_message_type)
 	audio = NULL;
 	next_audio = NULL;
 	next_icon[0] = 0;
+	icon[0] = 0;
 	while (1) {
 		/* Process server events in case we were told to stop in between */
 		module_process(STDIN_FILENO, 0);
