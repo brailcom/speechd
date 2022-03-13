@@ -142,6 +142,7 @@ char *history_get_message_list(guint client_id, int from, int num)
 	TFDSetElement *client_settings;
 	GList *client_msgs;
 	int i;
+	char *ret;
 
 	MSG(4, "message_list: from %d num %d, client %d\n", from, num,
 	    client_id);
@@ -158,13 +159,16 @@ char *history_get_message_list(guint client_id, int from, int num)
 		gl = g_list_nth(client_msgs, i);
 		if (gl == NULL) {
 			g_string_append_printf(mlist, OK_MSGS_LIST_SENT);
-			return mlist->str;
+			ret = mlist->str;
+			g_string_free(mlist, FALSE);
+			return ret;
 		}
 		message = gl->data;
 
 		if (message == NULL) {
 			if (SPEECHD_DEBUG)
 				FATAL("Internal error.\n");
+			g_string_free(mlist, TRUE);
 			return g_strdup(ERR_INTERNAL);
 		}
 
@@ -174,7 +178,9 @@ char *history_get_message_list(guint client_id, int from, int num)
 	}
 
 	g_string_append_printf(mlist, OK_MSGS_LIST_SENT);
-	return mlist->str;
+	ret = mlist->str;
+	g_string_free(mlist, FALSE);
+	return ret;
 }
 
 char *history_get_last(int fd)
