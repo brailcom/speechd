@@ -484,6 +484,7 @@ FT_Info *festivalOpen(FT_Info * info)
 	if (ret || resp == NULL || strcmp(resp, "t\n")) {
 		DBG("ERROR: Can't load speech-dispatcher module into Festival."
 		    "Reason: %s", resp);
+		delete_FT_Info(info);
 		if (!ret && resp)
 			g_free(resp);
 		return NULL;
@@ -495,6 +496,7 @@ FT_Info *festivalOpen(FT_Info * info)
 	ret = festival_read_response(info, &resp);
 	if (ret || resp == NULL || strcmp(resp, "nist\n")) {
 		DBG("ERROR: Can't set Wavefiletype to nist in Festival. Reason: %s", resp);
+		delete_FT_Info(info);
 		if (!ret && resp)
 			g_free(resp);
 		return NULL;
