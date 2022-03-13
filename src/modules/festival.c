@@ -472,7 +472,7 @@ void module_speak_sync(const char *festival_message, size_t bytes, SPDMessageTyp
 	int terminate = 0;
 	int first;
 
-	char *callback;
+	char *callback = NULL;
 
 	DBG("module_speak()\n");
 
@@ -667,14 +667,16 @@ void module_speak_sync(const char *festival_message, size_t bytes, SPDMessageTyp
 			if (callback != NULL) {
 				DBG("Reporting mark %s", callback);
 				module_report_index_mark (callback);
-				g_free(callback);
 				if (festival_pause_requested &&
 					!strncmp(callback,
 						INDEX_MARK_BODY,
 						INDEX_MARK_BODY_LEN)) {
 					DBG("Pause requested, pausing.");
+					g_free(callback);
 					CLEAN_UP(0, module_report_event_pause);
 				}
+				g_free(callback);
+				callback = NULL;
 				continue;
 			}
 		} else {	/* is event */
