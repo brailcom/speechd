@@ -91,6 +91,7 @@ static void output_open_audio(OutputModule *output)
 				DBG("Can't set volume. audio not initialized?");
 			}
 
+			g_free(first_error);
 			return;
 		}
 		DBG("Can't use %s: %s", outputs[i], error);
