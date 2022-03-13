@@ -2167,6 +2167,22 @@ was loaded into Speech Dispatcher in its configuration (&ldquo;flite&rdquo;,
 <p>It returns the output module name under which the module was loaded into Speech
 Dispatcher in its configuration (&ldquo;flite&rdquo;, &ldquo;festival&rdquo;,  &ldquo;espeak&rdquo;... )
 </p>
+<p>The caller has to <code>free</code> the returned string.
+</p>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-char_002a-1"><span class="category">C API function: </span><span><strong>char*</strong> <em>spd_get_language(SPDConnection* connection);</em><a href='#index-char_002a-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-spd_005fget_005flanguage_0028_0029"></span>
+<span id="spd_005fget_005flanguage"></span>
+<p>Gets the current language in use for synthesis.
+</p>
+<p><code>connection</code> is the SPDConnection* connection created by spd_open().
+</p>
+<p>It returns the name of the currently used language (&ldquo;en-US&rdquo;, &ldquo;fr-FR&rdquo;, ...)
+</p>
+<p>The caller has to <code>free</code> the returned string.
+</p>
 </dd></dl>
 
 <dl class="def">
@@ -2632,7 +2648,7 @@ see &lsquo;spd_send_data()&rsquo;.
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-char_002a-1"><span class="category">C API function: </span><span><strong>char*</strong> <em>spd_send_data(SPDConnection* connection, const char *message, int wfr);</em><a href='#index-char_002a-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-char_002a-2"><span class="category">C API function: </span><span><strong>char*</strong> <em>spd_send_data(SPDConnection* connection, const char *message, int wfr);</em><a href='#index-char_002a-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-spd_005fsend_005fdata_0028_0029"></span>
 
 <p>You can send an arbitrary SSIP string specified in the parameter <code>message</code>
@@ -3976,7 +3992,7 @@ Next: <a href="#Functions-for-use-when-talking-to-synthesizer" accesskey="n" rel
 <span id="Functions-used-by-module_005fmain_002ec-1"></span><h4 class="subsubsection">5.2.7.4 Functions used by <samp>module_main.c</samp></h4>
 
 <dl class="def">
-<dt id="index-char_002a-2"><span class="category">Module Utils function: </span><span><strong>char*</strong> <em>do_speak(void)</em><a href='#index-char_002a-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-char_002a-3"><span class="category">Module Utils function: </span><span><strong>char*</strong> <em>do_speak(void)</em><a href='#index-char_002a-3' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-do_005fspeak"></span>
 <p>Takes care of communication after the <code>SPEAK</code> command was
 received. Calls <code>module_speak()</code> when the full text is received.
@@ -3985,7 +4001,7 @@ received. Calls <code>module_speak()</code> when the full text is received.
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-char_002a-3"><span class="category">Module Utils function: </span><span><strong>char*</strong> <em>do_stop(void)</em><a href='#index-char_002a-3' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-char_002a-4"><span class="category">Module Utils function: </span><span><strong>char*</strong> <em>do_stop(void)</em><a href='#index-char_002a-4' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-do_005fstop"></span>
 <p>Calls the <code>module_stop()</code> function of the particular
 output module.
@@ -3994,7 +4010,7 @@ output module.
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-char_002a-4"><span class="category">Module Utils function: </span><span><strong>char*</strong> <em>do_pause(void)</em><a href='#index-char_002a-4' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-char_002a-5"><span class="category">Module Utils function: </span><span><strong>char*</strong> <em>do_pause(void)</em><a href='#index-char_002a-5' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-do_005fpause"></span>
 <p>Calls the <code>module_pause()</code> function of the particular
 output module.
@@ -4004,7 +4020,7 @@ and the value returned by <code>module_pause()</code>.
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-char_002a-5"><span class="category">Module Utils function: </span><span><strong>char*</strong> <em>do_set()</em><a href='#index-char_002a-5' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-char_002a-6"><span class="category">Module Utils function: </span><span><strong>char*</strong> <em>do_set()</em><a href='#index-char_002a-6' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-do_005fset"></span>
 <p>Takes care of communication after the <code>SET</code> command was
 received. Doesn&rsquo;t call any particular function of the output module,
@@ -4016,7 +4032,7 @@ synthesizer to these values.)
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-char_002a-6"><span class="category">Module Utils function: </span><span><strong>char*</strong> <em>do_speaking()</em><a href='#index-char_002a-6' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-char_002a-7"><span class="category">Module Utils function: </span><span><strong>char*</strong> <em>do_speaking()</em><a href='#index-char_002a-7' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-do_005fspeaking"></span>
 <p>Calls the <code>module_speaking()</code> function.
 </p>
@@ -5334,12 +5350,13 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <tr><td></td><td valign="top"><a href="#index-C-API-type-2"><code>C API type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Event-Notification-and-Index-Marking-in-C">Event Notification and Index Marking in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C-API-type-3"><code>C API type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Event-Notification-and-Index-Marking-in-C">Event Notification and Index Marking in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-char_002a"><code>char*</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Parameter-Setting-Commands-in-C">Parameter Setting Commands in C</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-char_002a-1"><code>char*</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Direct-SSIP-Communication-in-C">Direct SSIP Communication in C</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-char_002a-2"><code>char*</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Functions-used-by-module_005fmain_002ec">Functions used by module_main.c</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-char_002a-1"><code>char*</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Parameter-Setting-Commands-in-C">Parameter Setting Commands in C</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-char_002a-2"><code>char*</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Direct-SSIP-Communication-in-C">Direct SSIP Communication in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-char_002a-3"><code>char*</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Functions-used-by-module_005fmain_002ec">Functions used by module_main.c</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-char_002a-4"><code>char*</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Functions-used-by-module_005fmain_002ec">Functions used by module_main.c</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-char_002a-5"><code>char*</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Functions-used-by-module_005fmain_002ec">Functions used by module_main.c</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-char_002a-6"><code>char*</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Functions-used-by-module_005fmain_002ec">Functions used by module_main.c</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-char_002a-7"><code>char*</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Functions-used-by-module_005fmain_002ec">Functions used by module_main.c</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-char_002a_002a"><code>char**</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Information-Retrieval-Commands-in-C">Information Retrieval Commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-char_002a_002a-1"><code>char**</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Information-Retrieval-Commands-in-C">Information Retrieval Commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-char_002a_002a-2"><code>char**</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Information-Retrieval-Commands-in-C">Information Retrieval Commands in C</a></td></tr>
@@ -5467,6 +5484,7 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <tr><td></td><td valign="top"><a href="#index-spd_005fexecute_005fcommand_0028_0029"><code>spd_execute_command()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Direct-SSIP-Communication-in-C">Direct SSIP Communication in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-spd_005fget_005fclient_005fid_0028_0029"><code>spd_get_client_id()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Initializing-and-Terminating-in-C">Initializing and Terminating in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-spd_005fget_005fclient_005flist_0028_0029"><code>spd_get_client_list()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Commands-in-C">History Commands in C</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-spd_005fget_005flanguage_0028_0029"><code>spd_get_language()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Parameter-Setting-Commands-in-C">Parameter Setting Commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-spd_005fget_005fmessage_005flist_005ffd_0028_0029"><code>spd_get_message_list_fd()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Commands-in-C">History Commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-spd_005fget_005foutput_005fmodule_0028_0029"><code>spd_get_output_module()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Parameter-Setting-Commands-in-C">Parameter Setting Commands in C</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-spd_005fget_005fvoice_005fpitch_0028_0029"><code>spd_get_voice_pitch()</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Parameter-Setting-Commands-in-C">Parameter Setting Commands in C</a></td></tr>
