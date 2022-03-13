@@ -74,11 +74,11 @@ char *history_get_client_id(int fd)
 	GString *cid;
 	int uid;
 
-	cid = g_string_new("");
-
 	uid = get_client_uid_by_fd(fd);
 	if (uid == 0)
 		return g_strdup(ERR_INTERNAL);
+
+	cid = g_string_new("");
 
 	g_string_append_printf(cid, C_OK_CLIENT_ID "-%d\r\n", uid);
 	g_string_append_printf(cid, OK_CLIENT_ID_SENT);
