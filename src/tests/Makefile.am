@@ -48,7 +48,7 @@ $(TESTSUITE): package.m4 testsuite.at $(TESTSUITE_AT)
 	$(AUTOTEST) -I '$(srcdir)' -o $@.tmp $@.at
 	mv $@.tmp $@
 
-check_PROGRAMS = long_message clibrary clibrary2 run_test connection_recovery \
+check_PROGRAMS = long_message clibrary clibrary2 clibrary3 run_test connection_recovery \
                spd_cancel_long_message spd_set_notifications_all
 
 long_message_SOURCES = long_message.c
@@ -59,6 +59,10 @@ clibrary_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS)
 
 clibrary2_SOURCES = clibrary2.c
 clibrary2_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS)
+
+clibrary3_SOURCES = clibrary2.c
+clibrary3_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS)
+clibrary3_CPPFLAGS = $(AM_CPPFLAGS) -DTHOROUGH
 
 connection_recovery_SOURCES = connection-recovery.c
 connection_recovery_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS)
