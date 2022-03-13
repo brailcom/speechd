@@ -137,8 +137,8 @@ DECLARE_DEBUG();
 	{ \
 		T ## name *new_item; \
 		char* new_key; \
-		new_item = (T ## name *) g_malloc(sizeof(T ## name)); \
 		if (cmd->data.list[0] == NULL) return NULL; \
+		new_item = (T ## name *) g_malloc(sizeof(T ## name)); \
 		new_key = g_strdup(cmd->data.list[0]); \
 		new_item->arg1 = (int) strtol(cmd->data.list[1], NULL, 10); \
 		new_item->arg2 = (int) strtol(cmd->data.list[2], NULL, 10); \
