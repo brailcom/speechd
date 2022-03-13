@@ -534,16 +534,26 @@ SPDVoice **output_list_voices(const char *module_name)
 }
 
 #define SEND_CMD_N(cmd) \
-	do {  err = output_send_data(cmd"\n", output, 1); \
-		if (err < 0) return (err); } while (0)
+	do { \
+		err = output_send_data(cmd"\n", output, 1); \
+		if (err < 0) { \
+			g_string_free(set_str, 1); \
+			return (err); \
+		} \
+	} while (0)
 
 #define SEND_CMD(cmd) \
 	do {  err = output_send_data(cmd"\n", output, 1); \
 		if (err < 0) OL_RET(err); } while (0)
 
 #define SEND_DATA_N(data) \
-	do {  err = output_send_data(data, output, 0); \
-		if (err < 0) return (err); } while (0)
+	do { \
+		err = output_send_data(data, output, 0); \
+		if (err < 0) { \
+			g_string_free(set_str, 1); \
+			return (err); \
+		} \
+	} while (0)
 
 #define SEND_DATA(data) \
 	do {  err = output_send_data(data, output, 0); \
