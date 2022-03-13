@@ -3,7 +3,7 @@
  * espeak.c - Speech Dispatcher backend for espeak
  *
  * Copyright (C) 2007 Brailcom, o.p.s.
- * Copyright (C) 2019-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2019-2022 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -880,7 +880,6 @@ static SPDVoice **espeak_list_synthesis_voices()
 		{
 			const char *identifier = espeak_mbrola[j]->identifier;
 			char *voicename, *dash, *path;
-			struct stat st;
 
 			totnummbrola++;
 
