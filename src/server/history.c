@@ -144,11 +144,11 @@ char *history_get_message_list(guint client_id, int from, int num)
 	MSG(4, "message_list: from %d num %d, client %d\n", from, num,
 	    client_id);
 
-	mlist = g_string_new("");
-
 	client_settings = get_client_settings_by_uid(client_id);
 	if (client_settings == NULL)
 		return g_strdup(ERR_NO_SUCH_CLIENT);
+
+	mlist = g_string_new("");
 
 	client_msgs = get_messages_by_client(client_id);
 
@@ -181,13 +181,12 @@ char *history_get_last(int fd)
 	GString *lastm;
 	GList *gl;
 
-	lastm = g_string_new("");
-
 	gl = g_list_last(message_history);
 	if (gl == NULL)
 		return g_strdup(ERR_NO_MESSAGE);
 	message = gl->data;
 
+	lastm = g_string_new("");
 	g_string_append_printf(lastm, C_OK_LAST_MSG "-%d\r\n", message->id);
 	g_string_append_printf(lastm, OK_LAST_MSG);
 	return lastm->str;
@@ -283,8 +282,6 @@ char *history_cursor_get(int fd)
 	GString *reply;
 	GList *gl, *client_msgs;
 
-	reply = g_string_new("");
-
 	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL)
 		FATAL("Couldn't find settings for active client");
@@ -295,6 +292,7 @@ char *history_cursor_get(int fd)
 		return g_strdup(ERR_NO_MESSAGE);
 	new = gl->data;
 
+	reply = g_string_new("");
 	g_string_printf(reply, C_OK_CUR_POS "-%d\r\n" OK_CUR_POS_RET, new->id);
 	return reply->str;
 }
