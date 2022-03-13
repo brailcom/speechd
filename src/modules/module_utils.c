@@ -414,18 +414,18 @@ module_parent_wfork(TModuleDoublePipe dpipe, const char *message,
 	while (1) {
 		DBG("  Looping...\n");
 
-		bytes =
-		    module_get_message_part(message, buf, &pos, maxlen,
-					    dividers);
-
-		DBG("Returned %d bytes from get_part\n", bytes);
-
 		if (*pause_requested) {
 			DBG("Pause requested in parent");
 			module_parent_dp_close(dpipe);
 			*pause_requested = 0;
 			return 0;
 		}
+
+		bytes =
+		    module_get_message_part(message, buf, &pos, maxlen,
+					    dividers);
+
+		DBG("Returned %d bytes from get_part\n", bytes);
 
 		if (bytes > 0) {
 			DBG("Sending buf to child:|%s| %d\n", buf, bytes);
