@@ -232,8 +232,8 @@ static output_unlock(void)
 }
 
 #define OL_RET(value) \
-	{  output_unlock(); \
-		return (value); }
+	do {  output_unlock(); \
+		return (value); } while (0)
 
 GString *output_read_message(OutputModule * output)
 {
@@ -534,39 +534,43 @@ SPDVoice **output_list_voices(const char *module_name)
 }
 
 #define SEND_CMD_N(cmd) \
-	{  err = output_send_data(cmd"\n", output, 1); \
-		if (err < 0) return (err); }
+	do {  err = output_send_data(cmd"\n", output, 1); \
+		if (err < 0) return (err); } while (0)
 
 #define SEND_CMD(cmd) \
-	{  err = output_send_data(cmd"\n", output, 1); \
-		if (err < 0) OL_RET(err)}
+	do {  err = output_send_data(cmd"\n", output, 1); \
+		if (err < 0) OL_RET(err); } while (0)
 
 #define SEND_DATA_N(data) \
-	{  err = output_send_data(data, output, 0); \
-		if (err < 0) return (err); }
+	do {  err = output_send_data(data, output, 0); \
+		if (err < 0) return (err); } while (0)
 
 #define SEND_DATA(data) \
-	{  err = output_send_data(data, output, 0); \
-		if (err < 0) OL_RET(err); }
+	do {  err = output_send_data(data, output, 0); \
+		if (err < 0) OL_RET(err); } while (0)
 
 #define SEND_CMD_GET_VALUE(data) \
-	{  err = output_send_data(data"\n", output, 1); \
-		OL_RET(err); }
+	do {  err = output_send_data(data"\n", output, 1); \
+		OL_RET(err); } while (0)
 
 #define ADD_SET_INT(name) \
-	g_string_append_printf(set_str, #name"=%d\n", msg->settings.name);
+	g_string_append_printf(set_str, #name"=%d\n", msg->settings.name)
 #define ADD_SET_STR(name) \
+do { \
 	if (msg->settings.name != NULL && msg->settings.name[0] != '\0') { \
 		g_string_append_printf(set_str, #name"=%s\n", msg->settings.name); \
 	}else{ \
 		g_string_append_printf(set_str, #name"=NULL\n"); \
-	}
+	} \
+} while (0)
 #define ADD_SET_STR_C(name, fconv) \
+do { \
 	val = fconv(msg->settings.msg_settings.name); \
 	if (val != NULL && val[0] != '\0'){ \
 		g_string_append_printf(set_str, #name"=%s\n", val); \
 	} \
-	g_free(val);
+	g_free(val); \
+} while (0)
 
 int output_send_settings(TSpeechDMessage * msg, OutputModule * output)
 {
@@ -621,13 +625,15 @@ int output_send_settings(TSpeechDMessage * msg, OutputModule * output)
 #undef ADD_SET_STR
 
 #define ADD_SET_INT(name) \
-	g_string_append_printf(set_str, #name"=%d\n", GlobalFDSet.name);
+	g_string_append_printf(set_str, #name"=%d\n", GlobalFDSet.name)
 #define ADD_SET_STR(name) \
+do { \
 	if (GlobalFDSet.name != NULL){ \
 		g_string_append_printf(set_str, #name"=%s\n", GlobalFDSet.name); \
 	}else{ \
 		g_string_append_printf(set_str, #name"=NULL\n"); \
-	}
+	} \
+} while (0)
 
 static int output_server_audio(OutputModule * output)
 {
@@ -769,7 +775,7 @@ int output_speak(TSpeechDMessage * msg, OutputModule *output)
 
 	switch (msg->settings.type) {
 	case SPD_MSGTYPE_TEXT:
-		SEND_CMD("SPEAK") break;
+		SEND_CMD("SPEAK"); break;
 	case SPD_MSGTYPE_SOUND_ICON:
 		SEND_CMD("SOUND_ICON");
 		break;
@@ -783,8 +789,8 @@ int output_speak(TSpeechDMessage * msg, OutputModule *output)
 		MSG(2, "Invalid message type in output_speak()!");
 	}
 
-	SEND_DATA(msg->buf)
-	    SEND_CMD("\n.")
+	SEND_DATA(msg->buf);
+	SEND_CMD("\n.");
 
 	/* Start a thread that will process the module events */
 	output_end_queued = 0;
@@ -806,8 +812,8 @@ int output_stop()
 	output_lock();
 
 	if (speaking_module == NULL)
-		OL_RET(0)
-		    else
+		OL_RET(0);
+	else
 		output = speaking_module;
 
 	if (output->audio)
@@ -815,7 +821,7 @@ int output_stop()
 		if (output_end_queued) {
 			MSG(4, "module is already done, stop speak_queue directly");
 			module_speak_queue_stop();
-			OL_RET(0)
+			OL_RET(0);
 		}
 		MSG(4, "stopping speak_queue");
 		output_stop_requested = 1;
@@ -825,7 +831,7 @@ int output_stop()
 	MSG(4, "Module stop!");
 	SEND_DATA("STOP\n");
 
-	OL_RET(0)
+	OL_RET(0);
 }
 
 size_t output_pause()
@@ -836,8 +842,8 @@ size_t output_pause()
 	output_lock();
 
 	if (speaking_module == NULL)
-		OL_RET(0)
-		    else
+		OL_RET(0);
+	else
 		output = speaking_module;
 
 	if (output->audio)
@@ -845,7 +851,7 @@ size_t output_pause()
 		if (output_end_queued) {
 			MSG(4, "module is already done, pause speak_queue directly");
 			module_speak_queue_pause();
-			OL_RET(0)
+			OL_RET(0);
 		}
 		MSG(4, "pausing speak_queue");
 		output_pause_requested = 1;
@@ -854,7 +860,7 @@ size_t output_pause()
 	MSG(4, "Module pause!");
 	SEND_DATA("PAUSE\n");
 
-	OL_RET(0)
+	OL_RET(0);
 }
 
 static GSList *playback_events = NULL;
@@ -1353,7 +1359,7 @@ int output_close(OutputModule * module)
 		    "ERROR: waitpid() failed when waiting for child (module).");
 	}
 
-	OL_RET(0)
+	OL_RET(0);
 }
 
 #undef SEND_CMD
