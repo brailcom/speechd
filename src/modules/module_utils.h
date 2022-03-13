@@ -297,8 +297,8 @@ configoption_t *add_config_option(configoption_t * options,
 	{ \
 		T ## name *new_item; \
 		char* new_key; \
-		new_item = (T ## name *) g_malloc(sizeof(T ## name)); \
 		if (cmd->data.list[0] == NULL) return NULL; \
+		new_item = (T ## name *) g_malloc(sizeof(T ## name)); \
 		new_item->arg1 = g_strdup(cmd->data.list[0]); \
 		new_key = g_strdup(cmd->data.list[0]); \
 		if (cmd->data.list[1] != NULL) \
