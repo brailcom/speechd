@@ -1,4 +1,4 @@
-# Copyright (C) 2020-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
+# Copyright (C) 2020-2022 Samuel Thibault <samuel.thibault@ens-lyon.org>
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -66,6 +66,8 @@ end-words xce	(?<=[^\W_][uU])[xX]?[.·•‧⋅‐‑-][cC][eE](?=\b)
 end-words ères	(?<=[^\W_][eE][rR])[sS]?[.·•‧⋅‐‑-][èÈE][rR][eE][.·•‧⋅‐‑-]?[sS](?=\b)
 # léger·ère
 end-words ère	(?<=[^\W_][eE][rR])[.·•‧⋅‐‑-][èÈE][rR][eE](?=\b)
+# léger·e
+end-words ere	(?<=[^\W_][eE][rR])[.·•‧⋅‐‑-][eE](?=\b)
 
 # neufs·ves
 end-words ives	(?<=[^\W_][fF])[sS]?[.·•‧⋅‐‑-][iI]?[vV][eE][.·•‧⋅‐‑-]?[sS](?=\b)
@@ -165,6 +167,7 @@ end-words xce	x	none	literal
 
 end-words ères	s	none	literal
 end-words ère		none	literal
+end-words ere		none	literal
 
 end-words ives	s	none	literal
 end-words ive		none	literal
