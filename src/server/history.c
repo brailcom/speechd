@@ -50,6 +50,7 @@ char *history_get_client_list()
 	TFDSetElement *client;
 	GString *clist;
 	int i;
+	char *ret;
 
 	clist = g_string_new("");
 
@@ -66,7 +67,10 @@ char *history_get_client_list()
 	}
 	g_string_append_printf(clist, OK_CLIENT_LIST_SENT);
 
-	return clist->str;
+	ret = clist->str;
+	g_string_free(clist, FALSE);
+
+	return ret;
 }
 
 char *history_get_client_id(int fd)
