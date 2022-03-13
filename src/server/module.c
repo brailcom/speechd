@@ -58,6 +58,8 @@ void destroy_module(OutputModule * module)
 {
 	close(module->pipe_speak[0]);
 	close(module->pipe_speak[1]);
+	if (module->stderr_redirect >= 0)
+		close(module->stderr_redirect);
 	g_free(module->name);
 	g_free(module->filename);
 	g_free(module->configfilename);
@@ -363,6 +365,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 	module->name = (char *)g_strdup(mod_name);
 	module->progdir = g_strdup(mod_prog_dir);
 	module->configdir = g_strdup(mod_cfg_dir);
+	module->stderr_redirect = -1;
 
 	if (module->progdir) {
 		module->filename = (char *)spd_get_path(mod_prog, module->progdir);
@@ -406,6 +409,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 	if ((pipe(module->pipe_in) != 0)
 	    || (pipe(module->pipe_out) != 0)) {
 		MSG(3, "Can't open pipe! Module not loaded.");
+		destroy_module(module);
 		return NULL;
 	}
 
@@ -441,6 +445,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 	fr = fork();
 	if (fr == -1) {
 		printf("Can't fork, error! Module not loaded.");
+		destroy_module(module);
 		return NULL;
 	}
 
@@ -499,6 +504,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 		MSG(1, "ERROR: Something wrong with %s, can't initialize",
 		    module->name);
 		output_close(module);
+		destroy_module(module);
 		return NULL;
 	}
 
@@ -512,6 +518,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 			g_string_free(reply, TRUE);
 			free(rep_line);
 			fclose(f);
+			destroy_module(module);
 			return NULL;
 		}
 		assert(rep_line != NULL);
@@ -522,6 +529,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 			g_string_free(reply, TRUE);
 			free(rep_line);
 			fclose(f);
+			destroy_module(module);
 			return NULL;
 		}
 
