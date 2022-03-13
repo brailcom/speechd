@@ -1777,21 +1777,35 @@ static int spd_set_priority(SPDConnection * connection, SPDPriority priority)
 	return spd_execute_command_wo_mutex(connection, command);
 }
 
+struct get_reply_data {
+	GString *str;
+	char *line;
+};
+
+static void get_reply_cleanup(void *arg)
+{
+	struct get_reply_data *data = arg;
+	g_string_free(data->str, TRUE);
+	free(data->line);
+}
+
 static char *get_reply(SPDConnection * connection)
 {
-	GString *str;
-	char *line = NULL;
 	size_t N = 0;
 	int bytes;
 	char *reply;
 	gboolean errors = FALSE;
+	struct get_reply_data data;
 
-	str = g_string_new("");
+	data.line = NULL;
+	data.str = g_string_new("");
+
+	pthread_cleanup_push(get_reply_cleanup, &data);
 
 	/* Wait for activity on the socket, when there is some,
 	   read all the message line by line */
 	do {
-		bytes = getline(&line, &N, connection->stream);
+		bytes = getline(&data.line, &N, connection->stream);
 		if (bytes == -1) {
 			SPD_DBG
 			    ("Error: Can't read reply, broken socket in get_reply!");
@@ -1800,22 +1814,24 @@ static char *get_reply(SPDConnection * connection)
 			connection->stream = NULL;
 			errors = TRUE;
 		} else {
-			g_string_append(str, line);
+			g_string_append(data.str, data.line);
 		}
 		/* terminate if we reached the last line (without '-' after numcode) */
-	} while (!errors && !((strlen(line) < 4) || (line[3] == ' ')));
+	} while (!errors && !((strlen(data.line) < 4) || (data.line[3] == ' ')));
 
-	free(line);		/* getline allocates with malloc. */
+	pthread_cleanup_pop(0);
+
+	free(data.line);		/* getline allocates with malloc. */
 
 	if (errors) {
 		/* Free the GString and its character data, and return NULL. */
-		g_string_free(str, TRUE);
+		g_string_free(data.str, TRUE);
 		reply = NULL;
 	} else {
 		/* The resulting message received from the socket is stored in reply */
-		reply = str->str;
+		reply = data.str->str;
 		/* Free the GString, but not its character data. */
-		g_string_free(str, FALSE);
+		g_string_free(data.str, FALSE);
 	}
 
 	return reply;
