@@ -665,6 +665,8 @@ int output_module_debug(OutputModule * module)
 
 	output_send_debug(module, 1, new_log_path);
 
+	g_free(new_log_path);
+
 	return 0;
 }
 
