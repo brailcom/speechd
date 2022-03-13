@@ -699,8 +699,7 @@ void generic_set_language(char *lang)
 		generic_msg_language->charset = NULL;
 		generic_msg_language->name = g_strdup(lang);
 	}
-
-	if (generic_msg_language->name == NULL) {
+	else if (generic_msg_language->name == NULL) {
 		DBG("Language name for %s not found in the configuration file.",
 		    lang);
 		generic_msg_language =
