@@ -61,7 +61,7 @@ clibrary2_SOURCES = clibrary2.c
 clibrary2_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS)
 
 clibrary3_SOURCES = clibrary2.c
-clibrary3_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS)
+clibrary3_LDADD = $(c_api)/libspeechd.la $(EXTRA_SOCKET_LIBS) -lpthread
 clibrary3_CPPFLAGS = $(AM_CPPFLAGS) -DTHOROUGH
 
 connection_recovery_SOURCES = connection-recovery.c

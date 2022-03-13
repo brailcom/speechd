@@ -27,9 +27,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <semaphore.h>
 
 #include "speechd_types.h"
 #include "libspeechd.h"
+
+#ifdef THOROUGH
+static sem_t semaphore;
+
+/* Callback for Speech Dispatcher notifications */
+static void end_of_speech(size_t msg_id, size_t client_id, SPDNotificationType type)
+{
+	sem_post(&semaphore);
+}
+#endif
 
 int main()
 {
@@ -59,12 +70,25 @@ int main()
 	printf("Start of the test.\n");
 
 	printf("Trying to initialize Speech Deamon...\n");
-	conn = spd_open("say", NULL, NULL, SPD_MODE_SINGLE);
+	conn = spd_open("say", NULL, NULL,
+#ifdef THOROUGH
+			SPD_MODE_THREADED
+#else
+			SPD_MODE_SINGLE
+#endif
+			);
 	if (conn == 0) {
 		printf("Speech Deamon failed\n");
 		exit(1);
 	}
 	printf("OK\n");
+
+#ifdef THOROUGH
+	sem_init(&semaphore, 0, 0);
+	conn->callback_end = conn->callback_cancel = end_of_speech;
+	spd_set_notification_on(conn, SPD_END);
+	spd_set_notification_on(conn, SPD_CANCEL);
+#endif
 
 	printf("Trying to get the current output module...\n");
 	module = spd_get_output_module(conn);
@@ -177,7 +201,11 @@ int main()
 				printf("spd_say failed\n");
 				exit(1);
 			}
+#ifdef THOROUGH
+			sem_wait(&semaphore);
+#else
 			sleep(1);
+#endif
 		}
 #ifdef THOROUGH
 		free_spd_voices(synth_voices);
