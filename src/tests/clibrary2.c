@@ -73,6 +73,7 @@ int main()
 		printf("Can't get current output module\n");
 		exit(1);
 	}
+	free(module);
 
 	printf("Trying to get the language...\n");
 	language = spd_get_language(conn);
@@ -81,6 +82,7 @@ int main()
 		printf("Can't get the language\n");
 		exit(1);
 	}
+	free(language);
 
 	printf("Trying to get the voice rate...\n");
 	value = spd_get_voice_rate(conn);
@@ -124,6 +126,7 @@ int main()
 			break;
 		printf("     %s\n", voices[i]);
 	}
+	free_spd_symbolic_voices(voices);
 
 	for (j = 0;; j++) {
 		if (modules[j] == NULL)
@@ -176,7 +179,12 @@ int main()
 			}
 			sleep(1);
 		}
+#ifdef THOROUGH
+		free_spd_voices(synth_voices);
+#endif
 	}
+
+	free_spd_modules(modules);
 
 	printf("Trying to close Speech Dispatcher connection...\n");
 	spd_close(conn);
