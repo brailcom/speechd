@@ -78,9 +78,11 @@ void delete_FT_Info(FT_Info * info);
 
 #define FEST_SEND_CMD(format) \
 	do { \
-		FILE *fd; \
+		FILE *fd = NULL; \
 		char *str; \
-		fd = fdopen(dup(info->server_fd),"wb"); \
+		int server = dup(info->server_fd); \
+		if (server >= 0) \
+			fd = fdopen(server,"wb"); \
 		if (fd != NULL){ \
 			str = g_strdup(format"\n"); \
 			fputs(str, fd); \
@@ -94,9 +96,11 @@ void delete_FT_Info(FT_Info * info);
 
 #define FEST_SEND_CMDA(format, args...) \
 	do { \
-		FILE *fd; \
+		FILE *fd = NULL; \
 		char *str; \
-		fd = fdopen(dup(info->server_fd),"wb"); \
+		int server = dup(info->server_fd); \
+		if (server >= 0) \
+			fd = fdopen(server,"wb"); \
 		if (fd != NULL){ \
 			str = g_strdup_printf(format"\n", args); \
 			fputs(str, fd); \
