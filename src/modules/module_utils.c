@@ -684,6 +684,8 @@ int module_audio_init(char **status_info)
 			    g_strdup("audio initialized successfully.");
 			return 0;
 		}
+		DBG("Can't use %s: %s", outputs[i], error);
+		g_free(error);
 		i++;
 	}
 
