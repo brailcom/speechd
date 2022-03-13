@@ -66,7 +66,7 @@ static void output_open_audio(OutputModule *output)
 {
 	void *pars[9] = { NULL };
 	char min_length[11];
-	char *error;
+	char *error, *first_error = 0;
 	gchar **outputs;
 	int i;
 
@@ -93,10 +93,16 @@ static void output_open_audio(OutputModule *output)
 
 			return;
 		}
+		DBG("Can't use %s: %s", outputs[i], error);
+		if (!first_error)
+			first_error = error;
+		else
+			g_free(error);
+		i++;
 	}
 
-	MSG(1, "Opening audio failed: %s\n", error);
-	g_free(error);
+	MSG(1, "Opening audio failed: %s\n", first_error);
+	g_free(first_error);
 	g_strfreev(outputs);
 }
 
