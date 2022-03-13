@@ -726,6 +726,7 @@ char **lisp_list_get_vect(const char *expr)
 
 	// Split into a vector of atoms
 	vect = g_strsplit(helper, " ", 0);
+	g_free(helper);
 
 	return vect;
 }
