@@ -77,6 +77,7 @@ char *history_get_client_id(int fd)
 {
 	GString *cid;
 	int uid;
+	char *ret;
 
 	uid = get_client_uid_by_fd(fd);
 	if (uid == 0)
@@ -85,9 +86,10 @@ char *history_get_client_id(int fd)
 	cid = g_string_new("");
 	g_string_append_printf(cid, C_OK_CLIENT_ID "-%d\r\n", uid);
 	g_string_append_printf(cid, OK_CLIENT_ID_SENT);
+	ret = cid->str;
 	g_string_free(cid, FALSE);
 
-	return cid->str;
+	return ret;
 }
 
 char *history_get_message(int uid)
@@ -180,6 +182,7 @@ char *history_get_last(int fd)
 	TSpeechDMessage *message;
 	GString *lastm;
 	GList *gl;
+	char *ret;
 
 	gl = g_list_last(message_history);
 	if (gl == NULL)
@@ -189,8 +192,9 @@ char *history_get_last(int fd)
 	lastm = g_string_new("");
 	g_string_append_printf(lastm, C_OK_LAST_MSG "-%d\r\n", message->id);
 	g_string_append_printf(lastm, OK_LAST_MSG);
+	ret = lastm->str;
 	g_string_free(lastm, FALSE);
-	return lastm->str;
+	return ret;
 }
 
 char *history_cursor_set_last(int fd, guint client_id)
@@ -282,6 +286,7 @@ char *history_cursor_get(int fd)
 	TSpeechDMessage *new;
 	GString *reply;
 	GList *gl, *client_msgs;
+	char *ret;
 
 	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL)
@@ -295,8 +300,9 @@ char *history_cursor_get(int fd)
 
 	reply = g_string_new("");
 	g_string_printf(reply, C_OK_CUR_POS "-%d\r\n" OK_CUR_POS_RET, new->id);
+	ret = reply->str;
 	g_string_free(reply, FALSE);
-	return reply->str;
+	return ret;
 }
 
 char *history_say_id(int fd, int id)
