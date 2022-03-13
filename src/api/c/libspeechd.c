@@ -1455,6 +1455,16 @@ char **spd_list_voices(SPDConnection * connection)
 	return voices;
 }
 
+void free_spd_symbolic_voices(char **voices)
+{
+	int i = 0;
+	while (voices != NULL && voices[i] != NULL) {
+		free(voices[i]);
+		++i;
+	}
+	free(voices);
+}
+
 SPDVoice **spd_list_synthesis_voices(SPDConnection * connection)
 {
 	char **svoices_str;
