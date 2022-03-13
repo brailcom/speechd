@@ -650,7 +650,7 @@ configoption_t *module_add_config_option(configoption_t * options,
 
 int module_audio_init(char **status_info)
 {
-	char *error = 0;
+	char *error = 0, *first_error = 0;
 	gchar **outputs;
 	int i = 0;
 
@@ -685,13 +685,16 @@ int module_audio_init(char **status_info)
 			return 0;
 		}
 		DBG("Can't use %s: %s", outputs[i], error);
-		g_free(error);
+		if (!first_error)
+			first_error = error;
+		else
+			g_free(error);
 		i++;
 	}
 
 	*status_info =
-	    g_strdup_printf("Opening sound device failed. Reason: %s. ", error);
-	g_free(error);		/* g_malloc'ed, in spd_audio_open. */
+	    g_strdup_printf("Opening sound device failed. Reason: %s. ", first_error);
+	g_free(first_error);		/* g_malloc'ed, in spd_audio_open. */
 
 	g_strfreev(outputs);
 	return -1;
