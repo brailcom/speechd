@@ -393,21 +393,21 @@ int festival_read_response(FT_Info * info, char **expr)
 	DBG("<- Festival: |%s|", buf);
 
 	if (!strcmp(buf, "ER\n")) {
-		if (expr != NULL)
-			*expr = NULL;
 		return 1;
-	} else {
-		if (expr != NULL) {
-			*expr = client_accept_s_expr(info->server_fd);
-		} else {
-			r = client_accept_s_expr(info->server_fd);
-			if (r != NULL)
-				g_free(r);
-		}
 	}
 
-	if (festival_get_ack(&info, buf))
+	r = client_accept_s_expr(info->server_fd);
+	if (expr != NULL) {
+		*expr = r;
+	} else if (r != NULL) {
+		g_free(r);
+	}
+
+	if (festival_get_ack(&info, buf)) {
+		if (expr)
+			g_free(*expr);
 		return 1;
+	}
 	DBG("<- Festival: |%s|", buf);
 
 	return 0;
