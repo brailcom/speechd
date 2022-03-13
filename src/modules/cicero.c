@@ -173,6 +173,8 @@ int module_init(char **status_info)
 	}
 	switch (fork()) {
 	case -1:{
+			if (stderr_redirect >= 0)
+				close(stderr_redirect);
 			*status_info = g_strdup("Could not fork");
 			DBG("Error fork()\n");
 			return -1;
