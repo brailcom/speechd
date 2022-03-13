@@ -454,6 +454,7 @@ module_parent_wfork(TModuleDoublePipe dpipe, const char *message,
 		}
 
 	}
+	g_free(buf);
 	return 0;
 }
 
