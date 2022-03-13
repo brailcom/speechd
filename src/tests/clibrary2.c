@@ -42,6 +42,19 @@ int main()
 	int value;
 	SPDVoiceType voice_type = SPD_CHILD_MALE;
 	SPDVoice **synth_voices;
+#ifndef THOROUGH
+	SPDVoiceType voice_types[] = {
+		SPD_MALE1,
+		SPD_MALE2,
+		SPD_MALE3,
+		SPD_FEMALE1,
+		SPD_FEMALE2,
+		SPD_FEMALE3,
+		SPD_CHILD_MALE,
+		SPD_CHILD_FEMALE,
+		SPD_UNSPECIFIED
+	};
+#endif
 
 	printf("Start of the test.\n");
 
@@ -120,6 +133,7 @@ int main()
 			printf("spd_set_output_module failed\n");
 			exit(1);
 		}
+#ifdef THOROUGH
 		printf("\nListing voices for %s\n", modules[j]);
 		synth_voices = spd_list_synthesis_voices(conn);
 		if (synth_voices == NULL) {
@@ -140,6 +154,20 @@ int main()
 				printf("spd_set_synthesis_voice failed\n");
 				exit(1);
 			}
+#else
+		printf("\nIterating over voice types for %s\n", modules[j]);
+		for (i = 0;; i++) {
+			if (voice_types[i] == SPD_UNSPECIFIED)
+				break;
+			printf("     symbolic voice: %d\n",
+			       voice_types[i]);
+			ret =
+			    spd_set_voice_type(conn, voice_types[i]);
+			if (ret == -1) {
+				printf("spd_set_voice_type failed\n");
+				exit(1);
+			}
+#endif
 
 			ret = spd_say(conn, SPD_TEXT, "test");
 			if (ret == -1) {
