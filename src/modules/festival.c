@@ -921,12 +921,12 @@ int cache_clean(size_t new_element_size)
 			return -1;
 		}
 		centry = gl->data;
-		FestivalCache.size -= centry->size;
 		DBG("Cache: Removing element with key '%s'", centry->key);
-		if (FestivalCache.size < 0) {
-			DBG("Error: Cache: FestivalCache.size < 0, this shouldn't be.");
+		if (FestivalCache.size < centry->size) {
+			DBG("Error: Cache: FestivalCache.size < centry->size, this shouldn't be.");
 			return -1;
 		}
+		FestivalCache.size -= centry->size;
 		/* Remove the data itself from the hash table */
 		g_hash_table_remove(centry->p_caches, centry->key);
 		/* Remove the associated entry in the counter list */
