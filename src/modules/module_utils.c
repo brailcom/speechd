@@ -417,6 +417,7 @@ module_parent_wfork(TModuleDoublePipe dpipe, const char *message,
 		if (*pause_requested) {
 			DBG("Pause requested in parent");
 			module_parent_dp_close(dpipe);
+			g_free(buf);
 			*pause_requested = 0;
 			return 0;
 		}
