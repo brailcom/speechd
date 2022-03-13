@@ -996,8 +996,9 @@ char *parse_get(const char *buf, const int bytes, const int fd,
 	if (settings == NULL)
 		return g_strdup(ERR_INTERNAL);
 
-	result = g_string_new("");
 	GET_PARAM_STR(get_type, 1, CONV_DOWN);
+
+	result = g_string_new("");
 	if (TEST_CMD(get_type, "voice_type")) {
 		switch (settings->msg_settings.voice_type) {
 		case SPD_MALE1:
