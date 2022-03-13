@@ -1,0 +1,91 @@
+name: clibrary3
+
+on:
+  schedule:
+    - cron: "0 4 * * 1"
+
+jobs:
+  build-alusan:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: dependencies
+      run: sudo apt-get update ; sudo apt-get install autopoint
+                        python3 python3-xdg
+                        flite1-dev flite
+                        libespeak-dev libespeak-ng-dev
+                        libttspico-dev
+                        libao-dev libasound2-dev libaudio-dev libpulse-dev libxau-dev libsndfile1-dev
+                        libdotconf-dev libglib2.0-dev libltdl-dev systemd
+                        gettext help2man texinfo texlive texlive-plain-generic
+                        pulseaudio
+    - name: autoconf
+      run: ./build.sh
+    - name: configure
+      run: ac_cv_func_malloc_0_nonnull=yes ac_cv_func_realloc_0_nonnull=yes
+           CFLAGS="-fsanitize=address,leak,undefined -g -Og" CXXFLAGS="-fsanitize=address,leak,undefined -g -Og"
+           ./configure --prefix=/tmp/foobar
+    - name: Store the config
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: config.log
+        path: config.log
+    - name: make
+      run: make
+    - name: make check
+      run: make check
+    - name: make install
+      run: make install -k || true
+    - name: run clibrary3
+      run: dbus-run-session sh -c '( pulseaudio & cd src/tests ; ASAN_OPTIONS=fast_unwind_on_malloc=0 LSAN_OPTIONS=malloc_context_size=24 MALLOC_PERTURB_=1234 ./clibrary3 )'
+    - name: Store the log
+      if: ${{ failure() }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: speech-dispatcher-alusan.log
+        path: /home/runner/.cache/speech-dispatcher/log/speech-dispatcher.log
+
+  build-tsan:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: dependencies
+      run: sudo apt-get update ; sudo apt-get install autopoint
+                        python3 python3-xdg
+                        flite1-dev flite
+                        libespeak-dev libespeak-ng-dev
+                        libttspico-dev
+                        libao-dev libasound2-dev libaudio-dev libpulse-dev libxau-dev libsndfile1-dev
+                        libdotconf-dev libglib2.0-dev libltdl-dev systemd
+                        gettext help2man texinfo texlive texlive-plain-generic
+                        pulseaudio
+    - name: autoconf
+      run: ./build.sh
+    - name: configure
+      run: CFLAGS="-fsanitize=thread -g -Og" CXXFLAGS="-fsanitize=thread -g -Og"
+           ./configure --prefix=/tmp/foobar
+    - name: Store the config
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: config.log
+        path: config.log
+    - name: make
+      run: make
+    - name: make check
+      run: make check
+    - name: make install
+      run: make install -k || true
+    - name: run clibrary3
+      run: dbus-run-session sh -c '( pulseaudio & cd src/tests ; MALLOC_PERTURB_=1234 ./clibrary3 )'
+    - name: Store the log
+      if: ${{ failure() }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: speech-dispatcher-tsan.log
+        path: /home/runner/.cache/speech-dispatcher/log/speech-dispatcher.log
