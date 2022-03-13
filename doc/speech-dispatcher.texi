@@ -1910,6 +1910,22 @@ Gets the current output module in use for synthesis.
 It returns the output module name under which the module was loaded into Speech
 Dispatcher in its configuration (``flite'', ``festival'',  ``espeak''... )
 
+The caller has to @code{free} the returned string.
+
+@end deffn
+
+@deffn {C API function} char* spd_get_language(SPDConnection* connection);
+@findex spd_get_language()
+@anchor{spd_get_language}
+
+Gets the current language in use for synthesis.
+
+@code{connection} is the SPDConnection* connection created by spd_open().
+
+It returns the name of the currently used language (``en-US'', ``fr-FR'', ...)
+
+The caller has to @code{free} the returned string.
+
 @end deffn
 
 @deffn {C API function}  int spd_set_punctuation(SPDConnection* connection, SPDPunctuation type);
