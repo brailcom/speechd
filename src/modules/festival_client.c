@@ -489,6 +489,7 @@ FT_Info *festivalOpen(FT_Info * info)
 		return NULL;
 	}
 	g_free(resp);
+	resp = NULL;
 
 	FEST_SEND_CMD("(Parameter.set 'Wavefiletype 'nist)\n");
 	ret = festival_read_response(info, &resp);
