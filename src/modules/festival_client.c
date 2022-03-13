@@ -640,6 +640,7 @@ FT_Wave *festivalGetDataMulti(FT_Info * info, char **callback, int *stop_flag,
 	do {
 		if (festival_get_ack(&info, ack)) {
 			DBG("Get ack failed");
+			g_free(resp);
 			return NULL;
 		}
 		DBG("<- Festival: %s", ack);
@@ -649,8 +650,7 @@ FT_Wave *festivalGetDataMulti(FT_Info * info, char **callback, int *stop_flag,
 			    client_accept_waveform(info->server_fd, stop_flag,
 						   stop_by_close);
 		} else if (strcmp(ack, "LP\n") == 0) {
-			if (resp != NULL)
-				g_free(resp);
+			g_free(resp);
 			resp = client_accept_s_expr(info->server_fd);
 			if (resp == NULL) {
 				DBG("ERROR: Something wrong in communication with Festival, s_expr = NULL");
@@ -667,6 +667,7 @@ FT_Wave *festivalGetDataMulti(FT_Info * info, char **callback, int *stop_flag,
 			}
 		} else if (strcmp(ack, "ER\n") == 0) {
 			DBG("festival_client: server returned error\n");
+			g_free(resp);
 			return NULL;
 		}
 	} while (strcmp(ack, "OK\n") != 0);
