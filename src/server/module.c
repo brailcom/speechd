@@ -183,6 +183,7 @@ static GList *detect_generic_modules(GList *modules, const char *dirname, const 
 		if (sys_ret != 0) {
 			MSG(4, "stat failed on file %s in %s", entry->d_name,
 			    full_path);
+			g_free(file_path);
 			continue;
 		}
 
