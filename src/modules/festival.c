@@ -429,6 +429,7 @@ static SPDVoice **festivalGetVoices(FT_Info * info)
 		}
 	}
 	result[j] = NULL;
+	g_strfreev(voices);
 	return result;
 }
 
