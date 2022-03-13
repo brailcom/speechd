@@ -366,11 +366,9 @@ char *parse_history(const char *buf, const int bytes, const int fd,
 	} else if (TEST_CMD(cmd_main, "sort")) {
 		// TODO: everything :)
 		return g_strdup(ERR_NOT_IMPLEMENTED);
-	} else {
-		g_free(cmd_main);
-		return g_strdup(ERR_MISSING_PARAMETER);
 	}
 
+	g_free(cmd_main);
 	return g_strdup(ERR_INVALID_COMMAND);
 }
 
@@ -653,50 +651,47 @@ char *parse_set(const char *buf, const int bytes, const int fd,
 		SSIP_ON_OFF_PARAM(spelling,
 				  OK_SPELLING_SET, ERR_COULDNT_SET_SPELLING,
 				  NOT_ALLOWED_INSIDE_BLOCK())
-		    else
+	else
 		SSIP_ON_OFF_PARAM(ssml_mode,
 				  OK_SSML_MODE_SET, ERR_COULDNT_SET_SSML_MODE,
 				  ALLOWED_INSIDE_BLOCK())
-		    else
+	else
 		SSIP_ON_OFF_PARAM(debug,
 				  g_strdup_printf("262-%s" NEWLINE OK_DEBUGGING,
 						  SpeechdOptions.
 						  debug_destination),
 				  ERR_COULDNT_SET_DEBUGGING,;
 	    )
-	    else
-if (TEST_CMD(set_sub, "notification")) {
-	char *scope;
-	char *par_s;
-	int par;
+	else if (TEST_CMD(set_sub, "notification")) {
+		char *scope;
+		char *par_s;
+		int par;
 
-	if (who != 0)
-		return g_strdup(ERR_PARAMETER_INVALID);
+		if (who != 0)
+			return g_strdup(ERR_PARAMETER_INVALID);
 
-	GET_PARAM_STR(scope, 3, CONV_DOWN);
-	GET_PARAM_STR(par_s, 4, CONV_DOWN);
+		GET_PARAM_STR(scope, 3, CONV_DOWN);
+		GET_PARAM_STR(par_s, 4, CONV_DOWN);
 
-	if (TEST_CMD(par_s, "on"))
-		par = 1;
-	else if (TEST_CMD(par_s, "off"))
-		par = 0;
-	else {
-		g_free(par_s);
-		return g_strdup(ERR_PARAMETER_INVALID);
+		if (TEST_CMD(par_s, "on"))
+			par = 1;
+		else if (TEST_CMD(par_s, "off"))
+			par = 0;
+		else {
+			g_free(par_s);
+			return g_strdup(ERR_PARAMETER_INVALID);
+		}
+
+		ret = set_notification_self(fd, scope, par);
+		g_free(scope);
+
+		if (ret)
+			return g_strdup(ERR_COULDNT_SET_NOTIFICATION);
+		return g_strdup(OK_NOTIFICATION_SET);
 	}
 
-	ret = set_notification_self(fd, scope, par);
-	g_free(scope);
-
-	if (ret)
-		return g_strdup(ERR_COULDNT_SET_NOTIFICATION);
-	return g_strdup(OK_NOTIFICATION_SET);
-} else {
 	g_free(set_sub);
-	return g_strdup(ERR_PARAMETER_INVALID);
-}
-
-return g_strdup(ERR_INVALID_COMMAND);
+	return g_strdup(ERR_INVALID_COMMAND);
 }
 
 #undef SSIP_SET_COMMAND
