@@ -451,6 +451,7 @@ int set_debug_uid(int uid, int debug)
 			MSG(3,
 			    "Error: can't open additional debug logging file %s!\n",
 			    debug_logfile_path);
+			g_free(debug_logfile_path);
 			return 1;
 		}
 		SpeechdOptions.debug = debug;
