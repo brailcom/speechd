@@ -83,9 +83,9 @@ char *history_get_client_id(int fd)
 		return g_strdup(ERR_INTERNAL);
 
 	cid = g_string_new("");
-
 	g_string_append_printf(cid, C_OK_CLIENT_ID "-%d\r\n", uid);
 	g_string_append_printf(cid, OK_CLIENT_ID_SENT);
+	g_string_free(cid, FALSE);
 
 	return cid->str;
 }
@@ -189,6 +189,7 @@ char *history_get_last(int fd)
 	lastm = g_string_new("");
 	g_string_append_printf(lastm, C_OK_LAST_MSG "-%d\r\n", message->id);
 	g_string_append_printf(lastm, OK_LAST_MSG);
+	g_string_free(lastm, FALSE);
 	return lastm->str;
 }
 
@@ -294,6 +295,7 @@ char *history_cursor_get(int fd)
 
 	reply = g_string_new("");
 	g_string_printf(reply, C_OK_CUR_POS "-%d\r\n" OK_CUR_POS_RET, new->id);
+	g_string_free(reply, FALSE);
 	return reply->str;
 }
 
