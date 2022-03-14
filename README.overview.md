@@ -70,6 +70,8 @@ Supported client interfaces:
 
 A golang API is also available on https://github.com/ilyapashuk/go-speechd
 
+A rust crate is also available on https://crates.io/crates/ssip-client https://gitlab.com/lp-accessibility/ssip-client
+
 Existing assistive technologies known to work with Speech Dispatcher:
 
   * speechd-el (see https://devel.freebsoft.org/speechd-el)
@@ -141,7 +143,7 @@ and the way it is linked to the computer.
 
 
 Copyright (C) 2001-2009 Brailcom, o.p.s
-Copyright (C) 2018-2020 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2020, 2022 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Didier Spaier <didier@slint.fr>
 Copyright (C) 2018 Alex ARNAUD <alexarnaud@hypra.fr>
 
