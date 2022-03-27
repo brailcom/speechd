@@ -99,7 +99,6 @@ static void output_open_audio(OutputModule *output)
 			first_error = error;
 		else
 			g_free(error);
-		i++;
 	}
 
 	MSG(1, "Opening audio failed: %s\n", first_error);
