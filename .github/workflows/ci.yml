@@ -239,3 +239,48 @@ jobs:
         path: |
           src/tests/testsuite.log
           /home/runner/.cache/speech-dispatcher/log/speech-dispatcher.log
+
+  testsuite-valgrind:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: dependencies
+      run: sudo apt-get update ; sudo apt-get install autopoint
+                        python3 python3-xdg
+                        flite1-dev flite
+                        libespeak-dev libespeak-ng-dev
+                        libttspico-dev
+                        libao-dev libasound2-dev libaudio-dev libpulse-dev libxau-dev libsndfile1-dev
+                        libdotconf-dev libglib2.0-dev libltdl-dev systemd
+                        gettext help2man texinfo texlive texlive-plain-generic
+                        pulseaudio libtool-bin valgrind
+    - name: autoconf
+      run: ./build.sh
+    - name: configure
+      run: CFLAGS="-g -Og" CXXFLAGS="-g -Og" ./configure --prefix=/tmp/foobar
+    - name: Store the config
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: config-valgrind.log
+        path: config.log
+    - name: make
+      run: make
+    - name: make check
+      run: make check
+    - name: make install
+      run: make install -k || true
+    - name: make testsuite
+      run: make -C src/tests testsuite
+    - name: run testsuite
+      run: dbus-run-session sh -c '( pulseaudio & cd src/tests ; libtool --mode=execute valgrind --track-origins=yes --leak-check=full --error-exitcode=1 ./clibrary ; libtool --mode=execute valgrind --track-origins=yes --leak-check=full --error-exitcode=1 ./clibrary2 ; libtool --mode=execute valgrind --track-origins=yes --leak-check=full --error-exitcode=1 ./long_message )'
+    - name: Store the log
+      if: ${{ failure() }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: testsuite-valgrind
+        path: |
+          src/tests/testsuite.log
+          /home/runner/.cache/speech-dispatcher/log/speech-dispatcher.log
